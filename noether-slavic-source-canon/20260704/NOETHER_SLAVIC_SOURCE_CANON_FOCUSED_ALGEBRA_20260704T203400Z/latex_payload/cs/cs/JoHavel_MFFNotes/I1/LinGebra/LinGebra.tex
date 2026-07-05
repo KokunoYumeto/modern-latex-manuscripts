@@ -1,0 +1,1061 @@
+\documentclass[12pt]{article}					% Začátek dokumentu
+\usepackage{../../MFFStyle}					    % Import stylu
+
+
+
+\begin{document}
+\section{Úvod}
+    \begin{definice}[Matice]
+            Reálná matice typu $ m \times n$ je obdélníkové schéma (tabulka) reálných čísel. Prvek na pozici $(i,\ j)$ matice $A$ značíme $a_{ij}$ nebo $A_{ij}$. A $i$-tý řádek matice $A$ značíme $A_{i*}$ a $j$-tý řádek matice $A$ značíme $A_{*j}$.
+    \end{definice}
+
+    \begin{definice}[Vektor]
+        Reálný $n$-rozměrný aritmetický sloupcový vektor (standardní) je matice typu $n \times 1$ a řádkový $1 \times n$.
+    \end{definice}
+
+    \begin{definice}[Soustava lineárních rovnic]
+        Lineární = neznámé jsou v 1. mocnině.\\
+        Soustava = více rovnic.\\
+        Rovnice výraz z neznámých (bez absolutního členu) a koeficientů rovný konstantě.
+        \begin{definicein}[Řešení]
+            Řešením rozumíme každý vektor hodnot neznámých vyhovující všem rovnicím.
+        \end{definicein}
+
+        \begin{definicein}[Matice soustavy]
+            Matice soustavy je matice koeficientů u neznámých.\\
+            Rozšířená matice soustavy je matice soustavy „následována“ vektorem hodnot konstant jednotlivých rovnic.
+        \end{definicein}
+
+        \begin{poznamkain}[Geometrický význam]
+            Průsečík $n$ „přímek“ v $n$ rozměrném prostoru
+        \end{poznamkain}
+    \end{definice}
+
+    \begin{definice}[Elementární řádkové úpravy]
+        \ 
+        \begin{itemize}
+            \item Vynásobení řádku nenulovým reálným číslem.
+            \item Přičtení jednoho řádku k druhému.
+            \item Výměna dvou řádků. (Není elementární, protože jde vytvořit pomocí prvních dvou.)
+        \end{itemize}
+
+        \begin{tvrzeniin}
+            Elementární řádkové operace zachovávají množinu řešení soustavy.
+            \begin{dukazin}
+                Elementární úpravou neztratíme žádné řešení, protože pokud je $x$ řešením před úpravou, je i po úpravě. A naopak ho lze invertovat, takže žádné řešení ani nepřibude.
+            \end{dukazin}
+        \end{tvrzeniin}
+    \end{definice}
+
+    \begin{definice}[Odsupňovaný tvar matice REF]
+        Matice $A \in ®R^{m\times n}$ je v řádkově odstupňovaném tvaru, pokud existuje $r$ takové, že platí: řádky $1,…,r$ (tzv. bazické) jsou nenulové (obsahují alespoň 1 nenulový prvek), řádky $r+1,…,m$ jsou nulové, a navíc označíme-li jako $p_i=min{j; a_{ij}\neq 0}$ (tzv. pivot) pozici prvního nenulového prvku v $i$-tém řádku, tak platí: $p_1<p_2<\cdots<p_r$.
+        \begin{prikladyin}
+            Matice, které jsou, a matice, které nejsou.
+        \end{prikladyin}
+    \end{definice}
+
+    \begin{definice}[Hodnost matice]
+            Počet nenulových řádků po převodu do odstupňovaného tvaru (nebo libovolného s maximálním počtem nulových řádků) značený $\rank(A)$.
+    \end{definice}
+
+    Dále jsme dělali Gaussovu eliminaci (nemá řešení ($\rank(A) \neq \rank(A|b)$), má 1 řešení ($\rank(A|b) = n$), má mnoho řešení (pak bazické proměnné vyjádřím pomocí nebazických)).
+
+    \begin{definice}[Redukovaný odstupňovaný tvar matice RREF]
+        Matice v odstupňovaném tvaru je v redukovaném OT, jestliže $\forall 0≤i≤r, i \in ®N: a_{ip_i} = 1 \land \forall i>x \in ®R a_{xp_i} = 0$.
+    \end{definice}
+
+    \begin{poznamka}
+        Tento tvar je jednoznačný.
+    \end{poznamka}
+
+    \begin{definice}[Rovnost matic]
+        Dvě matice se rovnají, pokud mají stejné rozměry a stejné prvky na stejných souřadnicích.
+    \end{definice}
+
+    \begin{definice}[Součet matic]
+        Pro součet musí mít matice stejné rozměry a poté sčítáme po složkách.
+
+        \begin{poznamkain}[Vlastnosti]
+            Komutativita (pokud jsou prvky matice komutativní).
+        \end{poznamkain}
+    \end{definice}
+
+    \begin{definice}[Násobení skalárem]
+        Násobíme po složkách.
+    \end{definice}
+
+    \begin{definice}[Součin matic]
+        Nechť $A \in ®R^{m\times n}$ a $B \in ®R^{n \times o}$ jsou matice. Potom matice $C \in ®R^{m \times o}$ definovaná jako $c_{ij} = a_{i*}\cdot b_{*j}$ je jejich součinem.
+
+        \begin{poznamkain}[Vlastnosti]
+            Komutativita neplatí.
+
+            Asociativita, distributivita zleva a distributivita z prava platí. Stejně tak „asociativita“ násobení skalárem.
+        \end{poznamkain}
+    \end{definice}
+
+    \begin{definice}[Transpozice]
+        Buď $A \in ®R^{m \times n}$. Potom $A^T\in ®R^{n \times m}$ definována jako $(A^T)_{ij} = a_{ji}$ je transponovaná matice $A$.
+        \begin{poznamka}[Vlastnosti]
+            Je sama sobě inverzním zobrazením. Distributivita pro všechny operace (pozor u násobení je antisymetrická).
+
+            $$ (A^T)^T = A $$
+            $$ (A + B)^T = A^T + B^T $$
+            $$ (\alpha A)^T = \alpha A^T $$
+            $$ (AB)^T = B^TA^T $$
+        \end{poznamka}
+    \end{definice}
+
+    \begin{definice}[Symetrická a antisymetrická matice]
+        Matice $A$ je symetrická, pokud $A = A^T$, a antisymetrická $A = -A^T$.
+
+        \begin{poznamka}[Vlastnosti]
+            Symetrické matice jsou uzavřené na součet, ale na součin ne.
+        \end{poznamka}
+    \end{definice}
+
+    \begin{definice}[Jednotkový vektor]
+        $e_j$ definovaný jako $\(e_j\)_j = 1$ a $\forall i\neq j \(e_j\)_i = 0$ je $j$-tý jednotkový vektor.
+        \begin{poznamkain}[Vlastnosti]
+            $$  Ae_i = A_{*i} $$
+            $$  e_i^T = A_{i*} $$
+        \end{poznamkain}
+    \end{definice}
+
+    \begin{definice}[Skalární součin vektorů]
+        $ u\cdot v = u^Tv $ je skalární součin vektorů $u$ a $v$.
+
+        $ uv^T $ je ? součin vektorů $u$ a $v$
+    \end{definice}
+
+% 15. 10. 2020
+
+    \begin{poznamka}[Zápis SLR jako maticové násovení]
+        SLR lze zapsat jako $Ax = b$.
+    \end{poznamka}
+
+    \begin{poznamka}[Matice a lineární zobrazení $x \rightarrow Ax$]
+        Je užitečné se na matici $A \in ®R^{m \times n}$ jako na určité zobrazení z $®R^n$ do $®R^m$ definované předpisem $x \rightarrow Ax$.
+
+        Na řešení SLR se lze pak dívat jako na vzor $b$ v zobrazení dané $A$.
+
+        Zároveň na maticový součin se lze dívat na skládání $(BA)x = B(Ax)$. (Základní motivace, aby se součin definoval tak, jak je.)
+    \end{poznamka}
+
+    TODO?
+
+    \begin{definice}[Regulární matice]
+        Buď $A \in ®R^{n\times n}$. Pak následující tvrzení jsou ekvivalentní:
+        \begin{enumerate}
+            \item $A$ je regulární,
+            \item $\RREF(A) = ©I_n$,
+            \item $\rank(A) = n$
+            \item pro nějaké $b \in ®R^n$ má soustava $Ax = b$ jediné řešení,
+            \item pro všechna $b \in ®R^n$ má soustava $Ax = b$ jediné řešení.
+        \end{enumerate}
+
+        Matice $A$ nesplňující tvrzení je singulární.
+    \end{definice}
+
+    \begin{tvrzeni}[Uzavřenost na součin]
+        Buďte $A, B \in ®R^{n\times n}$ regulární matice. Pak $AB$ je také regulární.
+        \begin{dukazin}
+            Buď $x$ řešení soustavy $ABx = 0$. Chceme ukázat, že $x$ musí být nulový vektor. Z předchozího tvrzení $\forall y Ay=0$ má jediné řešení. Zároveň $\forall y Bx = y$ má jediné řešení.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{tvrzeni}
+        Je-li alespoň jedna z matic $A, B \in ®R^{n \times n}$, pak $AB$ je také singulární.
+
+        \begin{dukazin}
+            Je-li matice $B$ singulární, pak $Bx = 0$ pro nějaké $x ≠ 0$. Z toho ale plyne $(AB)x = A(Bx) = A(0)=0$, tedy i $AB$ je singulární.
+
+            Nyní předpokládejme, že matice $B$ je regulární, tedy matice $A$ singulární a existuje $y≠0$ takové, že $Ay = 0$. Z regularity matice $B$ existuje $x≠0$ takové, že $Bx=y$. Celkem dostáváme $(AB)x = A(Bx) = Ay = 0$, tedy $AB$ je singulární.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{definice}[Matice elementárních úprav]
+        Elementární úpravy jdou reprezentovat násobením tzv. elementární maticí zleva: $E_i(\alpha)$ jako násobení řádku $i$ číslem $\alpha$ je jednotková matice s $\alpha$ místo $i$-té jedničky. $E_{ij}$ jako prohození řádků $i, j$ je jednotková matice s prohozeným $i$-tým a $j$-tým řádkem, …
+
+        Tyto matice jsou regulární.
+    \end{definice}
+
+    \begin{veta}
+        Buď $A \in ®R^{m\times n}$. Pak $\RREF(A) = QA$ pro nějakou regulární matici $Q \in ®R^{m \times m}$.
+        \begin{dukazin}
+            $\RREF(A)$ získáme aplikací konečně mnoha elementárních řádkových úprav a součin regulárních matic je regulární matice.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{tvrzeni}
+        Každá regulární matice $A \in ®R^{n\times n}$ se dá vyjádřit jako součin konečně mnoha elementárních matic.
+        \begin{dukazin}
+            Elementární úpravy lze invertovat elementárními úpravami, tedy i inverze úprav regulární matice na ©I je regulární (a ©I je také regulární).
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{definice}[Inverzní matice]
+        Buď $A \in ®R^{n\times n}$. Pak $A^{-1}$ je inverzní maticí k A, pokud splňuje $AA^{-1} = A^{-1}A = ©I_n$.
+
+        \begin{prikladyin}
+            $©I_n^{-1} = ©I_n$, $0_n^{-1}$ neexistuje.
+        \end{prikladyin}
+    \end{definice}
+
+    \begin{veta}[O existenci inverzní matice]
+        Buď $A \in ®R^{n\times n}$. Je-li $A$ regulární, pak k ní existuje inverzní matice a je určená jednoznačně. Naopak, existuje-li $A^{-1}$, pak $A$ je regulární.
+
+        \begin{dukazin}
+                Existence: $A$ je regulární, tedy soustava $Ax = e_j$ má řešení $x_j$ pro každé $j$. Ukážeme, že $A^{-1} = (x_1 | x_2 | … | x_n)$ je hledaná inverze. (Porovnáním po sloupcích: $(AA^{-1})_{*j} = Ax_j = e_j = ©I_{*j}$. Komutativní výraz dokážeme $A(A^{-1}A - ©I) = AA^{-1}A - A = ©IA - A = 0$, $A^{-1}A - ©I$ je vektor, který je jednoznačně určen tím, že $A$ je regulární.)
+
+                Jednoznačnost. Nechť pro nějakou matici $B$ platí $AB = BA = ©I$. Pak
+                $$ B = B©I = B(AA^{-1}) = (BA)A^{-1} = ©IA^{-1} - A^{-1}. $$ 
+
+                Naopak. Nechť pro $A$ existuje inverzní matice. Buď $x$ řešení soustavy $Ax = 0$. Pak
+                $$ x = ©Ix = (A^{-1}A)x = A^{-1}(Ax) = A^{-1}0 = 0, $$ 
+                tedy $A$ je regulární.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{tvrzeni}[Vlastnosti inverzní matice]
+        Je-li $A$ regulární, pak $A^T$ je regulární.
+        \begin{dukazin}
+            Je-li $A$ regulární, pak existuje inverze a platí $AA^{-1} = A^{-1}A = ©I_n$. Po transponování všech stran dostaneme
+            $$(AA^{-1})^T = (A^{-1}A)^T = ©I_n^T,$$
+            neboli
+            $$ (A^{-1})^TA^T = A^T(A^{-1})^T = ©I_n. $$ 
+            Matice $A^T$ má inverzi a je tudíž regulární. (Navíc $(A^T)^{-1} = (A^{-1})^T$, občas se značí $A^{-T}$).
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{veta}[Jedna rovnost stačí]
+        Buďte $A, B \in ®R^{n\times n}$. Je-li $BA = I_n$, pak obě matice $A, B$ jsou regulární a navzájem k sobě inverzní, to jest $B = A^{-1}$ a $A = B^{-1}$.
+        \begin{dukazin}
+                Regularita vyplývá z dřívějšího tvrzení vzhledem k regularitě $©I_n$. Tudíž existují inverze $A^{-1}$, $B^{-1}$. Odvodíme
+                $$ B = B©I_n = B(AA^{-1}) = (BA)A^{-1} = ©I_nA^{-1} = A^{-1}. $$
+                Úplně stejně druhá rovnost.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{poznamka}[Výpočet inverzní matice]
+        Důkaz věty ukázal návod: $j$-tý sloupec $A^{-1}$ je řešením soustavy $Ax = e_j$.
+    \end{poznamka}
+
+    \begin{veta}[Výpočet inverzní matice]
+        Buď $A \in ®R^{n\times n}$. Je-li $\RREF(A|©I_n) = (I_n|B)$, pak $B = A^{-1}$, jinak je $A$ singulární.
+        \begin{dukazin}
+            Je-li $\RREF(A| ©I_n) = (©I_n | B)$, potom existuje regulární $Q$ tak, že $(©I_n|B) = Q(A|©I_n)$. Po roztržení na dvě části $©I_n = QA$ tj. $Q = A^{-1}$ a $B = Q©I_n = Q = A^{-1}$.
+
+            Pokud není toho tvaru, pak z definice $A$ není regulární.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{tvrzeni}[Vlastnosti inverzní matice]
+        Buďte $A, B \in ®R^{n\times n}$ regulární. Pak:
+        \begin{enumerate}
+            \item $(A^{-1})^{-1} = A$
+            \item $(A^{-1})^T = (A^T)^{-1}$
+            \item $(\alpha A)^{-1} = \frac{1}{\alpha} A^{-1}\ …\ (\alpha≠0)$
+            \item $(AB)^{-1} = B^{-1}A^{-1}$
+        \end{enumerate}
+        \begin{dukazin}
+            1., 2. triviální, 3. vynásobím $A\alpha$, 4. přezávorkuji.
+        \end{dukazin}
+        \begin{poznamkain}
+            Pro $(A+B)^{-1}$ žádný jednoduchý vzoreček není.
+        \end{poznamkain}
+    \end{tvrzeni}
+    
+    \begin{poznamka}[Inverzní matice a soustava rovnic]
+        Buď $Q$ regulární. Pak soustava $Ax = b$ je ekvivalentní s (QA)x = (Qb).
+        \begin{dukazin}
+            Žádné řešení neztratíme, zpět se dostaneme přednásobením $Q^{-1}$ zleva.
+        \end{dukazin}
+    \end{poznamka}
+
+    \begin{veta}[Soustava rovnic a inverzní matice]
+        Buď $A\in ®R^{n\times n}$ regulářní. Pak řešení soustavy $Ax = b$ je dáno vzorcem $A^{-1}b = x$.
+    \end{veta}
+
+    \begin{poznamka}[Inverzní matice - geometrie]
+        Buď $A \in ®R^{n\times n}$ regulární matice. Pro každé $y \in ®R^n$ existuje právě jedno $x \in ®R^n$ takové, že $Ax = y$, zobrazení je tedy bijekcí.
+    \end{poznamka}
+
+    \begin{poznamka}
+        Skládání zobrazení nám může dát i vhled do toho, jak funguje inverze součinu matic.
+    \end{poznamka}
+
+% 22. 10. 2020
+
+\section{Grupy}
+    Abstraktní algebraické struktury k popisu symetrií.
+
+    \begin{definice}[Grupa]
+        Grupa je dvojicí $(G, \circ)$, kde $G$ je množina a $\circ : G^2 \rightarrow G$ je binární operace na množině splňující
+        $$ \forall a, b, c \in G: a\circ(b\circ c) = (a\circ b) \circ c, (\text{asociativita}) $$ 
+        $$ \exists e \in G \forall a \in G: e\circ a = a \circ e = a, \text{neutrální prvek} $$ 
+        $$ \forall a \in G \exists b \in G: a \circ b = b \circ a = e. (\text{inverzní prvek}) $$ 
+    \end{definice}
+
+    \begin{definice}[Abelova grupa]
+        Abelova grupa je grupa, která splňuje
+        $$ \forall a, b \in G: a\circ b = b\circ a.   (\text{komutativita}) $$ 
+    \end{definice}
+
+    \begin{poznamka}
+        Je-li operací sčítání, pak neutrální prvek značíme 0 a opačný $-a$.
+
+        Je-li operací sčítání, pak neutrální prvek značíme 1 a opačný $\frac{1}{a}$.
+    \end{poznamka}
+
+    \begin{priklady}
+        Abelovy grupy: $(®Z, +), (®Q, +), (®R, +), (®C, +), (®Q \setminus \{0\}, ·), (®R \setminus \{0\}, ·), (®C \setminus \{0\}, ·), \text{grupa matic} \(®R^{m\times n}, +\), (®Z_m, +), (®Z_p, ·), …$
+
+        Ne nutně abelovy grupy: množina všech zobrazení na množině s operací skládání, množina regulárních matic řádu n s násobením, …
+
+        Negrupy: $(®N, +), (®Z, -), (®Z \setminus \{0\}, ·), (®R \setminus \{0\}, :), …$
+    \end{priklady}
+
+    \begin{tvrzeni}[Vlastnosti grup]
+        Prvky grupy $(G, \circ)$ splňují následující vlastnosti
+        \begin{enumerate}
+                \item $a\circ c = b\circ c$ implikuje $a = b$ (krácení),
+            \item neutrální prvek je jednoznačně určen,
+            \item $\forall a \in G$ je jeho inverzní prvek určen jednoznačně,
+            \item rovnice $a\circ x = b$ má právě jedno řešení $\forall a, b \in G$,
+            \item $(a^{-1})^{-1} = a,$
+            \item $(a \circ b)^{-1} = b^{-1} \circ a^{-1}$
+        \end{enumerate}
+
+        \begin{dukazin}
+            \ 
+            \begin{enumerate}
+                \item $ a \circ c = b \circ c \implies a\circ(c \circ c^{-1}) = b\circ (c \circ c^{-1}) \implies a\circ e = b\circ e \implies a = b $.
+                \item Nechť $e_1$, $e_2$ jsou neutrální prvky $\implies e_1 = e_1 \circ e_2 = e_2 $.
+                \item Inverzní prvky $a_1$ a $a_2$ k $a$ $\implies a_1 \circ a = e = a_2 \circ a \implies a_2 = a_1$.
+                \item Vynásobením rovnice prvkem $a^{-1}$ zleva dává $x = a^{-1} \circ b$.
+                \item $e = e \implies (a^{-1})^{-1}\circ a^{-1} = a\circ a^{-1}$.
+                \item $e = e \implies (a\circ b)^{-1}\circ (a\circ b) = b^{-1} \circ b = b^{-1} \circ e \circ b = (b^{-1} \circ a^{-1}) \circ (a \circ b)$.
+
+            \end{enumerate}
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{definice}[Podgrupa]
+        Podgrupa grupy $(G, \circ)$ je grupa $(H, \circ_H)$ taková, že platí $H \subseteq G$ a pro všechna $a, b \in H$ platí $a\circ b = a \circ_H b$.
+
+        Neboli v $H$ platí uzavřenost TODO.
+    \end{definice}
+
+    \subsection{permutace}
+        \begin{definice}[Vzájemně jednoznačné]
+            Zobrazení je vzájemně jednoznačné (bijekce), pokud je prosté a na.
+        \end{definice}
+
+        \begin{definice}[Permutace]
+            Permutace je vzájemně jednoznačné zobrazení množiny na sebe samu.
+        \end{definice}
+
+        \begin{poznamka}[Možné zápisy permutací]
+            Tabulkou (nahoře vzory, dole obrazy), grafem (šipka vede ze vzoru do obrazu), rozložením na cykly (v závorce jsou ve skupinkách čísla, které se postupně zobrazují na sebe, prvky které se zobrazují sami na sebe, tak se nemusí psát)
+        \end{poznamka}
+
+        \begin{definice}[Identita, transpozice, inverzní permutace]
+            Permutace zobrazující každý prvek na sebe se nazývá identita ($id$).
+
+            Transpozice je permutace, která prohazuje dva prvky. (Permutace s jediným „nejednotkovým“ cyklem, který má 2 prvky).
+
+            Pro permutace $p, q$ je složená permutace $p \circ q$ daná předpisem $(p \circ q)(i) = p(q(i))$.
+
+            Inverzní permutace $\(p^{-1}\)$ k permutaci $p$ je daná předpisem $p \circ p^{-1} = id$. (Např transpozice sama k sobě.)
+        \end{definice}
+
+
+        \begin{definice}[Znaménko pemutace]
+            Pokud se permutace $p \in S_n$ skládá z $k$ cyklů, pak znaménkem permutace je číslo $\sgn(p) = (-1)^{n-k}$.
+
+            \begin{prikladyin}
+                $\sgn(id) = 1, \sgn((i, j)) = -1, \sgn((1, 3, 4)(2, 5)) = -1$
+            \end{prikladyin}
+        \end{definice}
+
+        \begin{veta}[O znaménku složení permutace s transpozicí]
+            Buď $p \in S_n$ permutace a $t = (i, j) \in S_n$ transpozice. Pak
+            $$ \sgn(p) = -\sgn(t\circ p) = -\sgn(p\circ t) $$
+            \begin{dukazin}
+                Stačí dokázat jednu rovnost, druhá je analogicky. Rozlišíme dva případy, pokud jsou $i, j$ ve stejném cyklu, pak se transpozicí rozpadne, pokud jsou v jiném, tak se naopak spojí, tedy se v obou případech změní počet cyklů o 1 a znaménko tedy na $-$ původní.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{veta}
+            Každou permutaci lze rozložit na složení transpozic.
+            \begin{dukazin}
+                Postupně na transpozice rozložíme všechny cykly.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{dusledek}
+            Platí $\sgn(p) = (-1)^r$, kde $r$ je počet transpozic v rozkladu permutace $p$.
+
+            Pro $p, q \in S_n$ platí $\sgn(p \circ q) = \sgn(p)·\sgn(q)$.
+
+            Pro $p \in S_n$ platí $\sgn(p) = \sgn(p^{-1})$.
+        \end{dusledek}
+
+        \begin{definice}[Symetrická grupa]
+            Množina permutací $S_n$ tvoří s operací skládání $\circ$ takzvanou symetrickou grupu $(S_n, \circ)$.
+        \end{definice}
+
+        \begin{poznamka}
+            Symetrické grupy popisují symetrie různých objektů.
+
+            Každá grupa je isomorfní nějaké podgrupě symetrické grupy (např. rubikova grupa (popisující r. kostku) je isomorfní $S_{48}$).
+        \end{poznamka}
+    
+    \subsection{Algebraická tělesa}
+        Zobecnění číselných oborů jako např. ®R.
+
+        \begin{definice}[Těleso]
+                Těleso je množina ®T spolu se dvěma komutativními binárními operacemi $+$ a $·$ splňujícími: $(®T, +)$ je Abelova grupa (neutrální prvek 0, inverzním k $a$ je $-a$), $(®T \subseteq \{0\}, ·)$ je Abelova grupa (neutrální prvek 1, inverzním k $a$ je $a^{-1}$), $\forall a, b, c \in ®T: a·(b + c) = a·b + a·c$ (distributivita).
+        \end{definice}
+
+        \begin{poznamka}
+            Operace nemusí představovat klasické sčítání a násobení.
+
+            Budeme psát $ab$ místo $a·b$.
+
+            Každé těleso má alespoň dva prvky, protože $0 ≠ 1$
+
+            Zavedeme značení pro inverzní operace, jak je známe.
+        \end{poznamka}
+
+        \begin{priklady}
+            Tělesa jsou ®Q, ®R, ®C, $®Z_p$ (např nejmenší možný těleso $®Z_2$), kvaterniony (pokud definujeme těleso jako ne nutně komutativní).
+
+            ®Z ne.
+        \end{priklady}
+
+        \begin{tvrzeni}[Vlastnosti těles]
+            $0a = 0, ab = 0$ implikuje $a = 0$ nebo $b = 0$, $-a = (-1)a$.
+
+            \begin{dukazin}
+                Jednoduchý, podobný vlastnostem grup.
+            \end{dukazin}
+        \end{tvrzeni}
+
+% 29. 10. 2020
+
+        \begin{poznamka}[Konečná tělesa]
+            Na množině $®Z_n$ uvažme operace $+$ a $·$ modulo $n$. Pak $®Z_2$ a $®Z_3$ tělesy jsou, ale $®Z_4$ ne ($\nexists 2^{-1}$).
+        \end{poznamka}
+
+        \begin{lemma}
+            Pro prvočíslo $n$ a nenulové $a \in ®Z_n$ při násobení modulo $n$ platí
+            $$ \{0, 1, …, n-1\} = \{00a, 1a, …, (n-1)a\}. $$
+
+            \begin{dukazin}
+                Sporem, nechť $ka≡la (\mod n)$ pro nějaká různá $k, l \in ®Z_n$. Pak $(k-l)a≡0 (\mod n)$. Protože $n$ je prvočíslo, $n$ dělí $a$ nebo $k-l$. $\lightning$
+            \end{dukazin}
+        \end{lemma}
+
+        \begin{veta}
+            Množina $®Z_n$ tvoří těleso právě tehdy, když $n$ je prvočíslo.
+
+            \begin{dukazin}
+                Pokud $n=pq$ pro $1<p, q<n$, pak je-li $®Z_n$ těleso, pak $pq≡0 (\mod n)$ implikuje $p=0$ a $q=0$, $\lightning$.
+
+                Pro $n$ je prvočíslo stačí ověřit axiomy tělesa. (Existence inverze $a^{-1}$ plyne z lemmatu výše.)
+            \end{dukazin}
+        \end{veta}
+
+        \begin{veta}[O velikosti konečných těles]
+            Konečná tělesa existují právě o velikostech $p^n$, kde $p$ je prvočíslo a $n≥1$.
+
+            \begin{dukaz}[Pouze jedním směrem, druhým si ho nebudeme ukazovat]
+                $$ GF(p^n) = \{a_{n-1}x^{n-1} + \cdots + a_1 x + a_0: a_0,…,a_{n-1} \in ®Z_p\}. $$
+                Sčítání je definováno jako pro běžné polynomy (modulo $p$). Násobení je definováno jako násobení pro běžné polynomy (modulo $p$) modulo ireducibilní (= nerozložitelný) polynom stupně $n$.
+            \end{dukaz}
+        \end{veta}
+
+        \begin{poznamka}
+            GF, protože Galois field (Galoisova těles). Každé konečné těleso je izomorfní s nějakým GF.
+        \end{poznamka}
+
+        \begin{definice}[Charakteristika tělesa]
+            Charakteristika tělesa ¦T je nejmenší $n \in ®N$ takové, že $1 + \cdots + 1 = 0$ (1 je tam $n$kráť). Pokud takové $n$ neexistuje, pak ji definujeme jako 0.
+        \end{definice}
+
+        \begin{tvrzeni}
+            Charakteristika každého tělesa je buď nula, nebo prvočíslo.
+            \begin{dukazin}
+                Protože $0≠1$, tak charakteristika nemůže být 1.
+
+                Sporem: pokud by charakteristika byla složené číslo $n=pq$, tak $0 = n (n\text{ jedniček}) = p (p\text{ jedniček})·q (q \text{jedniček})$, tedy $p = 0$ nebo $q = 0$ (vlastnosti tělesa), $lightning$.
+            \end{dukazin}
+        \end{tvrzeni}
+
+        \begin{veta}[Malá fermatova věta]
+            Pro každé prvočíslo $p$ a nenulové $a \in ®Z_p$ platí $a^{p-1} = 1$.
+
+            \begin{dukazin}
+                Z prvočíselnosti $p$ již víme, že platí lemma výše.
+
+                Protože $0a = 0$, tak $\{1, …, p-1\} = \{1a, …, (p-1)a\}$.
+
+                Tedy $1 · 2 ·…· (p-1) = (1a)·(2a)·…·((p-1)a)$. Zkrátím a vyjde $1 = a^{p-1}$.
+            \end{dukazin}
+        \end{veta}
+
+        \begin{poznamka}
+                Následně jsme si ukazovali použití v samoopravných kódech (nejdříve pouze zdvojení a ztrojení bitů, poté tzv. Hammingův kód(…), kde se násobí maticemi $®Z_2^{3\times 7}$).
+        \end{poznamka}
+
+\section{Vektorové prostory}
+    \begin{definice}[Vektorový prostor]
+        Buď ¦T těleso s neutrálními prvky 0 a 1 pro sčítání a násobení. Vektorový prostor nad ¦T je množina $V$ s operacemi sčítání vektorů $+: V^2 \rightarrow V$ a násobení vektoru skalárem $·: ¦T \times V \rightarrow V$ splňující pro každé $\alpha, \beta \in ¦T$ a $¦u, ¦v \in V$: TODO!
+
+    \end{definice}
+
+    \begin{priklady}
+        Aritmetický prostor $¦T^n$ ¦T. Prostor matic $¦T^{m\times n}$ nad ¦T. Prostor ©P všech reálných polynomů proměnné $x$ nad tělesem ®R. Prostor $©P^n$ všech reálných polynomů proměnné $x ≤ n$ stupně nad tělesem ®R. Prostor ©F všech reálných funkcí. Prostor ©C všech spojitých reálných funkcí, …
+    \end{priklady}
+
+    \begin{tvrzeni}[Základní vlastnosti vektorových prostorů]
+        V prostoru $V$ nad tělesem ¦T platí pro každý skalár $\alpha \in ¦T$ a vektor $¦v \in V$
+        $$ 0¦v = ¦o, $$
+        $$ \alpha ¦o = ¦o $$ 
+        $$ \alpha v = ¦o \implies v = ¦o \lor \alpha = 0 $$
+        $$ -¦v = (-1)¦v $$
+        \begin{dukazin}
+            Stejný jako u ostatních vlastností.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{definice}[Vektorové podprostory]
+        Podmnožina $U$ vektorového prostoru $V$ nad tělesem ¦T je podprostorem $V$ právě tehdy, když platí:
+        $$ ¦o \in U, $$
+        $$ \forall ¦u, ¦v \in U: ¦u+¦v \in U, $$
+        $$ \forall \alpha \in ¦T \forall ¦u \in U: \alpha ¦u \in U. $$ 
+
+        \begin{dukazin}
+            Jednoduchý?
+        \end{dukazin}
+    \end{definice}
+
+    \begin{prikladyin}
+        Triviální podprostory $V$ jsou $V$ a $\{¦o\}$.
+
+        Každá přímka procházející počátkem je podprostorem $®R^2$.
+
+        $©P^n, ©P, ©C, ©F$ jsou v tomto pořadí podprostory dalších.
+
+        Množina symetrických reálných matic řádu $n$ je podprostorem $®R^{n\times n}$.
+
+        Množina $®Q^n$ nad ®Q je podprostorem $®R^n$ nad ®Q, ale není podprostorem $®R^n$ nad ®R.
+    \end{prikladyin}
+
+% 5. 11. 2020
+
+    \begin{tvrzeni}
+        Nechť ¦V je vektorový prostor nad tělesem ®T. Pak průnik libovolného systému $\{¦V_i\}_{i \in I}$ vektorových podprostorů prostoru ¦V je vektorový podprostor ¦V.
+
+        \begin{dukazin}
+            Podle tvrzení výše stačí ověřit uzavřenost a obsažení nulového prvku. Obojí je zřejmé z toho, že prvek je v průniku právě tehdy, když je prvkem všeho, přes co děláme průnik.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{definice}[LO]
+        Pro vektorový prostor ¦V nad tělesem ®T a $W \subseteq ¦V$ je průnik všech podprostorů obsahujících $W$ lineárním obalem množiny ¦W. Značíme $\spn (W)$.
+    \end{definice}
+
+    \begin{definice}[Generátory a množiny generátorů]
+        Nechť $¦U = \spn(W)$, pak říkáme, že $W$ generuje prostor ¦U a prvky množiny $W$ jsou generátory prostoru ¦U.
+
+        Pokud ¦U je generovaný nějakou konečnou množinou, pak je konečně generovaný.
+    \end{definice}
+
+    \begin{definice}[Lineární kombinace]
+        Viz definice v OM1!
+    \end{definice}
+
+    \begin{veta}
+        Lineární obal je roven podprostoru generovaného stejnou množinou vektorů.
+
+        \begin{dukazin}
+            Inkluze jedním směrem se dokáže z uzavřenosti, druhým směrem to dokážeme tak, že LO je uzavřený na operace ¦V a obsahuje všechny „generující vektorový“.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{definice}[Lineárně závislé a lineárně nezávislé]
+        Nechť ¦V je vektorový prostor nad ®T a nechť $¦v_1, …, ¦v_n \in ¦V$. Pak vektory $¦v_1, …, ¦v_n$ jsou lineárně nezávislé, pokud $\sum_{i=1}^n \alpha_i ¦v_i = ¦o$ nastane pouze pro $\alpha_1 = … = \alpha_n = 0$. V opačném případě jsou lineárně závislé.
+    \end{definice}
+
+    \begin{definice}
+        Nekonečná množina vektorů je nezávislá, pokud je každá její konečná podmnožina nezávislá.
+    \end{definice}
+
+    \begin{veta}
+        Nechť ¦V je vektorový prostor nad ®T a nechť $¦v_1, …, ¦v_n \in ¦V$. Pak jsou tyto vektory lineárně závislé právě tehdy, když nějaký z nich patří do lineárního obalu zbytku. (Lze jeden z nich vyjádřit jako lineární kombinaci zbylých vektorů.)
+        \begin{dukazin}
+            Úpravami rovnic z definicí.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{definice}
+        Nechť ¦V je vektorový prostor nad ®T. Pak bází je jakýkoliv lineárně nezávislý systém generátorů prostoru ¦V.
+    \end{definice}
+
+    \begin{veta}
+        Nechť báze ¦V je konečná. Pak každý vektor z ¦V lze jednoznačně vyjádřit jako lineární kombinaci báze.
+        \begin{dukazin}
+            Snadný.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{veta}
+        Každý vektorový prostor má bázi.
+
+        \begin{dukazin}
+            Dokážeme jen pro konečně generované: systém generátorů buď je lineárně nezávislý (a tím pádem báze), nebo z něj postupně můžeme odebírat prvky pomocí jedné z předchozích vět, až zbudou jen lineárně nezávislé - báze.
+        \end{dukazin}
+    \end{veta}
+
+% 12. 11. 2020
+
+    \begin{lemma}[O výměně]
+        Nechť $¦y_1, …, ¦y_n$ je systémem generátorů vektorového prostoru ¦V a nechť $¦x \in ¦V$ má vyjádření $x = \sum_{i = 1}^n \alpha_i · ¦y_i$. Pak pro libovolné $k$ takové, že $\alpha_k ≠ 0$ je $¦y_1, …, ¦y_{k-1}, ¦x, ¦y_{k+1}, …, ¦y_n$ systémem generátorů prostoru ¦V.
+        \begin{dukazin}
+            Jelikož $\alpha_k ≠ 0$, tak můžeme vyjádřit $¦y_k$ z ostatních vektorů a ¦x. Následně ukážeme, že nová množina generuje celé ¦V, protože do původního vyjádření $¦z \in ¦V$ dosadíme za $¦y_k$ a výsledek bude lineární kombinace ¦x a ostatních vektorů (bez $y_k$).
+        \end{dukazin}
+    \end{lemma}
+
+    \begin{veta}[Steinitzova věta o výměně]
+        Nechť ¦V je vektorový prostor, $¦x_1, …, ¦x_m$ je lineárně nezávislý systém ve ¦V a nechť $¦y_1, …, ¦y_n$ je systém generátorů ¦V. Pak platí: a) $m≤n$, b) existují navzájem různé indexy $k_1, …, k_{n-m}$ takové, že vektory $¦x_1, …, ¦x_m, ¦y_{k_1}, …, y_{k_{n-m}}$ tvoří systém generátorů prostoru ¦V.
+
+        \begin{dukazin}
+            Postupujme indukcí podle $m$. Pro $m=0$ věta platí triviálně. Nechť tedy věta platí pro $m-1$. Pokud $m-1 = n$, pak z předpokladu $¦x_1, …, ¦x_{m-1}$ generují ¦V. Tedy $¦x_m \in \spn \{¦x_1, …, ¦x_{m-1}\}$, což je spor s lineární nezávislostí, tedy $m ≤ n$. Tj. a) platí.
+
+            Protože z předpokladu $¦x_1, …, ¦x_{m-1}, ¦y_{l_1}, …, y_{l_{n-m+1}}$ generují ¦V, tak lze $¦x_m$ vyjádřit jako jejich lineární kombinaci a použít Lemma o výměně. Tím jsme dokázali část b).
+        \end{dukazin}
+    \end{veta}
+
+    \begin{dusledek}
+        Všechny báze konečně generovaného vektorového prostoru ¦V jsou stejně velké.
+
+        \begin{dukazin}
+            Nechť $¦x$ka a $¦y$ka jsou dvě báze prostoru ¦V. Potom $¦x$ je nezávislé a $¦y$ generuje, tedy použijeme Steinitzovu větu a ukážeme, že kdyby byly jinak velké, tak dojdeme ke sporu.
+        \end{dukazin}
+    \end{dusledek}
+
+    \begin{definice}[Dimenze]
+        Dimenze konečně generovaného prostoru je velikost nějaké jeho báze. Dimenze prostoru, který není konečně generovaný, je ∞. Značíme ji $\dim ¦V$.
+    \end{definice}
+
+    \begin{tvrzeni}
+        Pro ¦V platí:
+
+        Jsou-li $¦x_1, …, ¦x_m \in ¦V$ LZ, pak $m ≤ \dim ¦V$. Pokud $m = \dim ¦V$, pak je $¦x_1, …, x_m$ bází prostoru ¦V.
+
+        Jsou-li $¦y_1, …, ¦y_n$ generátory, pak $n ≥ \dim V$. Pokud $n = \dim ¦V$, pak $¦y_1, …, ¦y_n$ je bází prostoru ¦V.
+
+        \begin{dukazin}
+            Vyplývá ze Steinitzovy věty o výměně (uvažuji nějakou bázi a vyměním ji za dané vektory).
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{veta}
+        Každý lineárně nezávislý systém vektorového prostoru ¦V lze rozšířit na bázi prostoru ¦V.
+
+        \begin{dukazin}
+            Vezmu si bázi a vyměním jejich prvky za tyto lineárně nezávislé vektory.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{veta}
+        Dimenze podprostoru je menší rovna dimenzi prostoru.
+
+        \begin{dukazin}
+            Dokážeme, že existuje báze podprostoru a tím pádem (jelikož je nezávislá) podle tvrzení výše je dimenze menší rovna 
+        \end{dukazin}
+    \end{veta}
+
+    \begin{definice}[Spojení podprostorů]
+        Spojení podprostorů ¦U a ¦V ($¦U + ¦V$) vektorového prostoru ¦W (odtud operace + dále) je definováno jako $\{¦u + ¦v: ¦u \in ¦U, ¦v \in ¦V\}$.
+    \end{definice}
+
+    \begin{tvrzeni}
+        Pro podprostory ¦U a ¦V VP ¦W platí $¦U + ¦V = \spn (¦U \cup ¦V)$.
+
+        \begin{dukazin}
+            Inkluze $\subseteq$ je triviální z uzavřenosti na součty prostoru $\spn (¦U \cup ¦V)$.
+
+            Inkluze $\supseteq$ se dokáže jako $¦U + ¦V \supseteq ¦U \cup ¦V$ a $¦U + ¦V$ je podprostor ¦W.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{veta}[O dimenzi spojení a průniku]
+        Pro podprostory ¦U a ¦V VP ¦W platí:
+        $$ \dim (¦U + ¦V) + \dim (¦U \cap ¦V) = \dim ¦U + \dim ¦V. $$ 
+
+        \begin{dukazin}
+            Přes báze.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{definice}[Direktní součet]
+        Pokud $¦U \cap ¦V = \{¦o\}$, pak spojení $¦U + ¦V$ nazýváme direktním součtem podprostorů a značíme $¦U \oplus ¦V$.
+
+        Podle předchozí věty platí $\dim (¦U \oplus ¦V) = \dim ¦U + \dim ¦V$. Navíc každý prvek direktního součinu lze zapsat jednoznačně jako součet vektoru z ¦U a vektoru z ¦V.
+    \end{definice}
+
+% 19. 11. 2020
+
+    \begin{definice}[Maticové prostory]
+        Pro matici $A$ definujeme sloupcový prostor $S(A) = \spn \{\text{sloupců matice}\}$, řádkový prostor $R(A) = \spn\{\text{řádků matice}\}$, jádro $\Ker(A) = \{¦x: A¦X = ¦o\}$.
+
+        \begin{poznamka}
+            Všechny 3 prostory jsou podprostory příslušných VP. (2 jsou lineární obaly, jádro jistě obsahuje ¦o, protože $A¦o = ¦o$, uzavřenosti poté dokážeme z distributivity a komutativity)
+        \end{poznamka}
+    \end{definice}
+
+    \begin{tvrzeni}
+        $$ S(A) = \{A¦x\},\ \ R(A) = \{A^T¦x\} $$ 
+        \begin{dukazin}
+            Plyne z definice součinu při řádkovém pohledu.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{tvrzeni}
+        Pro každý ¦V podprostor $®T^n$ existují matice tak, že $¦V = S(A)$, $¦V = R(B)$, $¦V = \Ker(C)$.
+        \begin{dukazin}
+            Veden přes generátory. Jádro si ukážeme později.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{tvrzeni}
+        $R(QA)$ je podprostorem $R(A)$ a pokud lze vyjádřit $k$-tý sloupec $A$ pomocí lineární kombinace ostatních, tak lze i $k$-tý sloupec $QA$ vyjádřit pomocí stejné lineární kombinace ostatních sloupců $QA$.
+        \begin{dukazin}
+            Přes transpozice ukážeme $\forall x \in R(QA): x = (QA)^Ty = A^T(Q^Ty) \in R(A)$. 
+
+            $$ (QA)_{*k} = QA_{*k} = Q(\sum_{j≠k}\alpha_jA_{*j}) = \sum_{j≠k}\alpha_j (QA)_{*j}. $$ 
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{upozorneni}
+        Pro sloupcové první část předchozího tvrzení neplatí pro násobení zleva, protože se neshodují vektorové „nadprostory“.
+    \end{upozorneni}
+
+    \begin{veta}
+        Pro matici $A$ a její RREF tvar $A^R$ platí, že nenulové řádky RREF tvaru tvoří bázi $R(A)$, že bázové (v RREF) sloupce původní matice tvoří bázi $S(A)$ a že $\dim R(A) = \dim S(A) = \rank(A)$.
+
+        \begin{dukazin}
+            $A^R = QA$, tedy podle tvrzení výše je $R(A) = R(QA) = R(A^R)$. 
+        \end{dukazin}
+    \end{veta}
+
+    \begin{dusledek}
+        $$ \rank(A) = \rank(A^T) $$
+    \end{dusledek}
+
+    \begin{veta}
+        Pro každou matici $A\in ®T^{m \times n}$ platí $\dim\Ker(A) + \rank(A) = n$.
+        \begin{dukazin}
+            Viz přednáška.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{poznamka}
+        Dále jsme si zmiňovali eigenfaces a Lagrangeův interpolační polynom.
+    \end{poznamka}
+
+% 26. 11. 2020
+
+    \begin{definice}[Lineární zobrazení (někdy homomorfismus)]
+        Buďte ¦U, ¦V vektorové prostory nad tělesem ®T. Zobrazení $f: ¦U \rightarrow ¦V$ je lineářní, pokud pro každé $¦x, ¦y \in ¦U$ a $\alpha \in ®T$ platí:
+        $$ f(¦x+¦y) = f(¦x) + f(¦y), $$ 
+        $$ f(\alpha x) = \alpha f(x). $$ 
+    \end{definice}
+    
+    \begin{priklady}
+        $f(¦x) = A¦x, f(¦x) = ¦o, id(¦x) = ¦x, f(A) = A^T$, derivace z prostoru reálných diferencovatelných funkcí do prostoru reálných funkcí.
+    \end{priklady}
+
+    \begin{tvrzeni}[Vlastnosti lineárních zobrazení]
+        Obraz lineární kombinace vektorů je lineární kombinace obrazů těchto vektorů.
+
+        Nulový vektor se zobrazí na nulový vektor.
+        \begin{dukazin}
+            Indukcí z definice lineárního zobrazení.
+
+            $f(¦o) = f(0·¦o) = 0·f(¦o) = ¦o$.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{definice}[Obraz a jádro]
+        Buď $f: ¦U \rightarrow ¦V$ lineární zobrazení. Pak definujeme 1. obraz $f(¦U) := \{f(¦x; x \in ¦U)\}$ a 2. jádro $\Ker(f) := \{¦x \in ¦U; f(¦x) = ¦o\}$.
+    \end{definice}
+
+    \begin{tvrzeni}
+        Obraz je podprostorem VP do kterého je dané lineární zobrazení, jádro je podprostorem VP ze kterého je dané lineární zobrazení.
+
+        \begin{dukazin}
+            Stačí ověřit, že obsahují $¦o$ a že jsou uzavřené na součty a násobky.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{tvrzeni}
+        Obraz lineárního obalu je lineární obal obrazů těchto vektorů.
+        \begin{dukazin}
+            Rozdělíme na dvě inkluze. Jedno dokážeme tím, že obraz lineární kombinace je lineární kombinace obrazů. Druhou pak z toho, že obraz je podprostor, tedy s vektory obsahuje i jejich lineární obal.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{definice}[Zobrazení prosté (injektivní) a na (surjektivní)]
+        Zobrazení $f: ¦U \rightarrow ¦V$ je na, pokud $f(¦U) = ¦V$ (tedy u lineárního zobrazení právě tehdy, pokud se nějaké generátory zobrazí na nějaké generátory).
+
+        Zobrazení $f$ je prosté, když $f(¦x) = f(¦y) \implies ¦x = ¦y$.
+    \end{definice}
+
+    \begin{veta}[Prosté lineární zobrazení]
+        Lineární zobrazení je prosté právě tehdy, pokud je jádro ¦o a to je právě tehdy, když obraz libovolné lineárně nezávislé množiny je lineárně nezávislá množina.
+
+        \begin{dukazin}
+            $(1 \implies 2)$ je z definice, $(2 \implies 3)$ je z toho, že obraz lineární kombinace je lineární kombinace obrazů, $(3 \implies 1)$ sporem $f(x) = f(y) \implies f(x) - f(y) = ¦o \implies f(x-y) = ¦o$.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{dusledek}
+        Speciálně lineární zobrazení je prosté, když se dimenze obrazu rovná dimenzi vzoru.
+    \end{dusledek}
+
+    \begin{veta}[Lineární zobrazení a jednoznačnost vůči obrazům báze]
+        Buďte ¦U, ¦V prostory nad ®T a $¦x_1, …, ¦x_n$ báze ¦U. Pak pro libovolné vektory $¦y_1, …, ¦y_n \in ¦V$ existuje právě jedno lineární zobrazení takové, že $f(¦x_i) = ¦y_i, i = 1, …, n$.
+
+        \begin{dukazin}
+            Libovolný vektor vyjádříme jako lineární kombinaci $x_i$ a zobrazíme na lineární kombinaci $y_i$. Jednoznačnost sporem přes dvě vyjádření lineární kombinací.    
+        \end{dukazin}
+    \end{veta}
+
+% 3. 11. 2020
+
+    \begin{definice}[Matice lineárního zobrazení]
+        Buď $f: ¦U \rightarrow ¦V$, $B_{¦U} = \{¦x_1, …, ¦x_n\}$ báze prostoru ¦U nad ®T a $B_{¦V} \{¦y_1, …, ¦y_m\}$ báze prostoru $¦V$ nad ®T. Nechť $f(¦x_j) = \sum_{i=1}^m a_{ij}¦y_i$. Potom matice $A \in ®T^{m \times n}$ s prvky $a_{ij}$, se nazývá matice lineárního zobrazení $f$ vzhledem k bázím $B_{¦U}, B_{¦V}$ a značí se $_{B_{¦V}}\[f\]_{B_{¦U}}$.
+    \end{definice}
+
+    \begin{veta}[Maticová reprezentace lineárního zobrazení]
+        Buď $f: ¦U \rightarrow ¦V$, $B_{¦U} = \{¦x_1, …, ¦x_n\}$ báze prostoru ¦U nad ®T a $B_{¦V} \{¦y_1, …, ¦y_m\}$ báze prostoru $¦V$ nad ®T. Pak $\forall x \in ¦U$ je
+        $$ [f(x)]_{B_{¦V}} = _{B_{¦V}}[f]_{B_{¦U}}·[x]_{B_{¦U}}. $$
+
+        \begin{dukazin}
+            Přes sumy.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{dusledek}
+        Každé lineární zobrazení $f: ®T^m \rightarrow ®T^n$ se dá vyjádřit jako matice.
+    \end{dusledek}
+
+    \begin{veta}[Jednoznačnost matice lineárního zobrazení]
+        Buď $f: ¦U \rightarrow ¦V$, $B_{¦U} = \{¦x_1, …, ¦x_n\}$ báze prostoru ¦U nad ®T a $B_{¦V} \{¦y_1, …, ¦y_m\}$ báze prostoru $¦V$ nad ®T. Pak jediná matice $A$ splňující $\forall ¦x \in ¦U: [f(¦x)]_{B_{¦V}} = A·[¦x]_{B_{¦U}}$ je $A = _{B_{¦V}}[f]_{B_{¦U}}$.
+
+        \begin{dukazin}
+            Sporem. $¦A ≠ ¦A'$ jsou 2 reprezentace. Tudíž existuje vektor $¦s \in ®T^n$ takový, že $A¦s ≠ A'¦s$. Pak ale nesplňují podmínku.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{poznamka}
+        Naopak každá matice představuje matici nějakého lineárního zobrazení.
+        \begin{dukazin}
+            Ve sloupcích vyčtu, kam zobrazuje $f$ bázi.
+        \end{dukazin}
+    \end{poznamka}
+
+    \begin{definice}[Matice přechodu]
+            Buď ¦V vektorový prostor a $B_1$ a $B_2$ dvě jeho báze. Pak maticí přechodu od $B_1$ k $B_2$ nazveme matici $_{B_2}[id]_{B_1}$.
+    \end{definice}
+
+    \begin{tvrzeni}[Složené lineární zobrazení]
+        Složení lineárních zobrazení je lineární.
+        \begin{dukazin}
+            Podle definice ověříme pro libovolné vektory a prvek tělesa.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{veta}[Matice složeného lineárního zobrazení]
+        Matici složeného zobrazení dostaneme jako součin matic příslušných skládaným zobrazením.
+    \end{veta}
+
+% 10. 12. 2020
+
+    \begin{definice}[Isomorfismus]
+        Je lineární bijekce.
+
+        Pokud mezi prostory existuje isomorfismus, říkáme, že jsou isomorfní.
+    \end{definice}
+
+    \begin{priklady}
+        Otáčení, škálování, překlápění, … (projekce ne).
+
+        $©P^n$ a $®R^{n+1}$, ®C a $®R^2$, $®R^{m\times n}$ a $®R^{mn}$, ©P a prostor reálných posloupností s konečně mnoha nenulovými prvky …
+    \end{priklady}
+
+    \begin{tvrzeni}
+        K isomorfismu vždy existuje inverze, která je též isomorfismem. Stejně tak složení isomorfismů je isomorfismus.
+
+        \begin{dukazin}
+            Isomorfismus je bijekcí, tedy inverze existuje a je bijekcí. Linearita se dokáže z definice.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{tvrzeni}
+        Lineární zobrazení je isomorfismem právě tehdy, když libovolná báze se zobrazuje na bázi.
+
+        Isomorfní prostory mají shodné dimenze (dokonce za chvíli ukážeme, že tam platí ekvivalence).
+
+        \begin{dukazin}
+            $\implies:$ zobrazení je prosté a obraz je nezávislá množina z předchozích tvrzení.
+
+            $\impliedby:$ zobrazení je zřejmě na, následně pro spor předpokládejme, že jádro tohoto zobrazení obsahuje nějaký nenulový vektor. Zobrazíme a z linearity rozepíšeme a dojdeme ke sporu.
+
+            2. bod vyplývá z prvního.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{tvrzeni}
+        Matice odpovídající inverzi isomorfismu je inverzní matice k matici odpovídající tomuto isomorfismu.
+
+        \begin{dukazin}
+            Z definice inverzů a skládání lineárních zobrazení a jejich odpovídajících matic.
+        \end{dukazin}
+    \end{tvrzeni}
+   
+    \begin{dusledek}
+        Matice isomorfismu má inverz, tedy musí být regulární.
+
+        Každá regulární matice odpovídá isomorfismu.
+    \end{dusledek}
+
+    \begin{tvrzeni}
+        Zobrazení $x \rightarrow [x]_B$ je isomorfismus mezi prostory ¦V s bází $B$ a $®T^n$ nad ®T.
+
+        \begin{dukazin}
+            Toto zobrazení je lineární, jelikož $¦x+¦y = \sum_{i=1}^n \alpha_i ¦v_i + \sum_{i = 1}^n \beta_i ¦v_i = \sum_{i=1}^n \(\alpha_i + \beta_i\) ¦v_i$, tedy $[¦x + ¦y] = [¦x] + [¦y]$.
+
+            A je to bijekce, zjevné…
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{veta}[Isoforfismus $n$-dimenzionálních prostorů]
+        Všechny VP nad stejným tělesem jsou isomorfní.
+
+        \begin{dukazin}
+            Podle předchozího tvrzení jsou všechny isomorfní tělesu na $n$, tedy i všem ostatním.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{veta}[O dimenzi jádra a obrazu]
+        Dimenze jádra lineárního zobrazení a dimenze jádra jemu odpovídající matice jsou shodné.
+
+        Dimenze obrazu lineárního zobrazení je rovna dimenzi sloupcového prostoru a hodnosti matice.
+
+        \begin{dukazin}
+            V prezentaci.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{tvrzeni}
+        $f$ je prosté $\Leftrightarrow _{B_{¦V}[f]_{B_{¦U}}}$ má lineárně nezávislé řádky, $f$ je na $\Leftrightarrow _{B_{¦V}[f]_{B_{¦U}}}$ má lineárně nezávislé řádky.
+    \end{tvrzeni}
+
+% 17. 12. 2020
+
+    \begin{definice}[Afinní vektorový podprostor]
+        $¦U + ¦a = \{¦u + ¦a: ¦u \in ¦U\}$
+    \end{definice}
+
+    \begin{definice}
+        Afinní kombinace dvou vektorů $¦x, ¦y \in ¦V$ je výraz (vektor)
+        $$ \alpha x (1 - \alpha)y, \text{ kde } \alpha \in ®T. $$ 
+    \end{definice}
+
+    \begin{veta}[Charakterizace afinního podprostoru]
+        Buď ¦V vektorový prostor nad tělesem ®T charakteristiky různé od 2 a buď $\O ≠ M \subseteq ¦V$. Pak $M$ je afinní podprostor právě tehdy, když pro každé $x, y \in M$ a $\alpha \in ®T$ platí $\alpha x + (1-\alpha)y \in M$.
+
+        \begin{dukazin}
+            Rozepsáním.
+        \end{dukazin}
+    \end{veta}
+
+    \begin{definice}[Afinní kombinace $n$ vektorů]
+        $$ \sum_{i=1}^n \alpha_i ¦x_i, \text{ kde } \alpha_i \in ®T, \sum_{i=1}^n \alpha_i = 1 $$ 
+    \end{definice}
+
+    \begin{tvrzeni}
+        Buď ¦V vektorový prostor nad tělesem ®T a buď $\O ≠ M \subseteq ¦V$. Pak $M$ je afinní prostor $\Leftrightarrow$ $M$ je uzavřené na afinní kombinace.
+    \end{tvrzeni}
+
+    \begin{veta}[Soustavy lineárních ]
+        TODO
+    \end{veta}
+
+    \begin{definice}
+        Dimenze afinního podprostoru $M = ¦U + ¦a$ je definována jako
+        $$ \dim(M) := \dim(¦U). $$ 
+    \end{definice}
+
+    \begin{definice}[Přímka]
+        Přímka je afinní podprostor dimenze jedna.
+    \end{definice}
+
+    \begin{definice}[Nadrovina]
+        Nadrovina v prostoru dimenze $n$ je afinní podprostor dimenze $n - 1$.
+    \end{definice}
+
+    \begin{definice}[Afinní závislost a nezávislost]
+        Vektory $¦x_0, ¦x_1, …, ¦x_n$ jsou afinně nezávislé, pokud $¦x_1 - ¦x_0, ¦x_2 - ¦x_0, …, ¦x_n - ¦x_0$ jsou nezávislé. V opačném případě jsou afinně závislé.
+    \end{definice}
+
+    \begin{poznamka}[Body v obecné poloze]
+        Body v $n$ dimenzionálním prostoru jsou v obecné poloze, pokud každá jejich podmnožina velikosti $≤n+1$ je lineárně nezávislá.
+    \end{poznamka}
+
+    \begin{definice}
+        Buď $g: ¦U \rightarrow ¦V$ lineární zobrazení a mějme pevný vektor $¦b \in ¦V$. Potom afinní zobrazení má tvar $f(¦u) = g(¦u) + ¦b$.
+    \end{definice}
+
+    \begin{tvrzeni}
+        Obraz afinního podprostoru při afinním zobrazení je afinní podprostor.
+
+        Složení dvou afinních zobrazení je opět afinní zobrazení.
+    \end{tvrzeni}
+
+    \begin{tvrzeni}
+        Buď $f: ¦U \rightarrow ¦V$ lineární zobrazení. Pak úplný vzor vektoru $¦v \in ¦V$, $f^{-1}(¦v) := \{¦u \in ¦U| f(¦u) = ¦v\}$, je buď prázdná množina, nebo afinní podprostor v ¦U.
+
+        \begin{dukazin}
+            Rozepsáním.
+        \end{dukazin}
+    \end{tvrzeni}
+
+    \begin{poznamka}
+        Dále jsme si ukazovali, jak kreslit fraktály tak, že zvolíme náhodně afinní zobrazení, které použijeme. Robotiku a strojové učení.
+    \end{poznamka}
+
+% 7. 1. 2021
+
+    \begin{definice}[LU rozklad]
+        Elementárními úpravami se dostaneme na horní trojúhelníkovou a dolní trojúhelníková bude následně mít naakumolované elementární úpravy. Dolní trojúhelníková má na jedničce diagonály.
+
+        Lze ho spočítat pomocí gaussovy eliminace, kde si navíc můžeme ukládat změny rovnou místo nul, tedy nepotřebujeme ani paměť navíc.
+    \end{definice}
+
+    \begin{tvrzeni}
+        Každá matice $A \in ®R^{n\times n}$ jde rozložit na tvar $PA = LU$, kde $P \in ®R^{n\times n}$ je permutační matice, $L \in ®R^{n\times n}$ je dolní trojúhelníková matice s jedničkami na diagonále a $U \in ®R^{n\times n}$ horní trojúhelníková matice.
+    \end{tvrzeni}
+
+    \begin{poznamka}
+        $LU$ rozklad se dá použít k jednoduchému počítání determinantů nebo k vyřešení SLR.
+    \end{poznamka}
+
+
+\end{document}

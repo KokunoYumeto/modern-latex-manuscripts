@@ -1,0 +1,573 @@
+\chapter{Powermanagement}
+
+Zusammenfassung der Vorlesung "`Powermanagement"' aus dem Wintersemester 2016.\footnote{\url{https://os.itec.kit.edu/deutsch/3257_3262.php}}
+
+\section{Einführung}
+\begin{itemize}
+	\item Energiedichte eines modernen \texttt{Core i7 Duo Mobile} vergleichbar mit einer Kochplatte. Energiedichte eines \texttt{Core i7 Hexa} sogar fünf Mal höher
+	\item CPUs werden i.d.R. nicht gleichmäßig heiß, nutzungsabhängig entstehen verschieden heiße Teilbereiche
+	\item \textbf{Motivation}
+	\begin{itemize}
+		\item Erhöhung der Lebensdauer der Akkus durch Effizienzverbesserung der Verbraucher: CPU-Scaling, Speicherenergiemanagement, \texttt{I/O}-Energiemanagement, Display-Energiemanagement, Ausschalten von Festplatten
+		\item Task-spezifisches Powermanagement
+		\item Einhalten eines Energieplans
+		\item Vermeiden von Energiespitzen, da bestimmte Energiequellen ein definiertes Maximum liefern
+		\item Bestimmte Temperatur darf nicht überschritten werden
+		\item Energy-Accounting
+	\end{itemize}
+\end{itemize}
+
+
+
+\section{CPU Powermanagement}
+
+\subsection{Accounting}
+\begin{itemize}
+	\item \textbf{Methoden zur Feststellung des Energieverbauchs}
+	\begin{itemize}
+		\item Messung des Eingangsstroms an der CPU (Spannung ist bekannt): Hochfrequente, präzise Messung mit Messwiderstand notwendig; Auswertungsoverhead muss beachtet werden (Implementierung per Inline Assembler); CPU-Features (Turbo Boosts, Hyperthreading, etc.) sollten abgeschaltet werden; bei \textit{SoCs} nicht möglich
+		\item Simulation der CPU: Extrem langsam (\(4000-10.000.000\)-mal langsamer als das Zielsystem); auf Schaltoperations-, Funktionalem-Block- oder Instruktionslevel möglich; meist allerdings kein genaues Energiemodell des Zielprozessors vorhanden (lediglich \texttt{Reverse Engineertes})
+		\item Auswerten der Ereigniszähler im Prozessor
+		\begin{itemize}
+			\item Ausmessen des Energieverbrauchs verschiedener Aktionen (Data/Instruction-Cache-Miss, Speicherzugriff, Cycle, Branch, etc.)
+			\item Möglichkeit 1: Auslesen der Ereigniszähler im Prozessor; meist allerdings zu wenige vorhanden
+			\item Möglichkeit 2: Mit dediziertem Co-Prozessor; wenig Overhead durch das Betriebssystem; minimale Seiteneffekte; in \textit{SoCs} integrierbar
+			\item Vorteile: Wenig Overhead; hohe Auflösung; Prozess-granulare Messungen möglich
+			\item Anwendungsbeispiel \texttt{P4}: Vergleichsweise genaue Messungen mit relativen Fehlern von \(< 10\%\) möglich
+		\end{itemize}
+	\end{itemize}
+	\item Accounting muss alle beteiligten Komponenten erfassen: CPU-Zeit, Speicher, etc.
+	\item Virtuelle Umgebungen: Accounting muss weitere Komponenten wie CPU-Zeit im Hyperviser (beispielsweise Treiberzugriffe) berücksichtigen
+	\item Client-Server-Accounting: Ggf. mehrere Prozesse an Aufgabenerfüllung beteiligt
+	\item \textbf{Resource Containers}
+	\begin{itemize}
+		\item Ziel: Ermitteln des "`Gesamtaufwands"' eines Services
+		\item Accounting von CPU-Zeit (Userspace und Kernelmode) und Kernel-Objekte (Sockets, Netzwerkpuffer, etc.), getrennt nach Netzwerkverbindungen (Clients); Verwendung von Kontextinformationen des Schedulers
+		\item Implementierung
+		\begin{itemize}
+			\item Via \texttt{File Descriptor} hierarchisch referenziert
+			\item Attribute: Ressourcenverbrauch/-limitierung, Scheduling-Parameter, Zugriffsrechte, etc.
+			\item Dynamische Bindung von Threads an Resource Containers
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Energy Containers}
+	\begin{itemize}
+		\item Erweitern \textit{Resource Containers} um ereignisgetriebene Energiemessungen
+		\item Stellen Informationen für Powermanagementrichtlinien zur Verfügung
+		\item Beispiel: Limitierung des kurzfristigen, durchschnittlichen Energieverbauchs
+	\end{itemize}
+	\item \textit{Energy Inversion Problem}: Das Energiebudget einer Client-Verbindung wird aufgebraucht während dieser eine kritische Ressource hält (Client-Verbindung "`wird angehalten"' und die Ressource nicht freigegeben) \(\rightarrow\) Server ist blockiert bis die Energiebudgets aktualisiert werden
+\end{itemize}
+
+
+\subsection{Wärmemanagement}
+\begin{itemize}
+	\item \textbf{Vorteile, Chancen}
+	\begin{itemize}
+		\item Höhere Zuverlässigkeit der gekühlten Komponenten; Lüfterlautstärke/-geschwindigkeit kann reduziert werden; reduzierte Kosten für die Kühlung
+		\item Abwägung zwischen Systemleistung, Luftfluss und Bodenplatz
+		\item Generelles Problem: Individuelle Lüftersteuerungen einzelner Server stören das Gesamtkühlkonzept im Rechenzentrum (beispielsweise durch Rückflüsse. Mögliche Gegenmaßnahme: Gangüberdachungen)
+		\item Dynamische Verteilung/Reduzierung rechenintensiver Aufgaben
+		\begin{itemize}
+			\item Reduziert notwendige Kühlleistung
+			\item Höhere Verfügbarkeit ohne Notwendigkeit einer redundanten Kühlung
+		\end{itemize}
+	\end{itemize}
+	\item Vergleich \(P_{max}\) und \(P_{tdp}\): Wachsender Unterschied seit 1985, da Prozessoren verstärkt Wärmemanagement betreiben (beispielsweise können Komponenten auf der CPU abgeschaltet werden)
+	\item Mehr Leistung durch Kühlung: Maximale Taktfrequenz stark von der Chip-Temperatur abhängig
+	\item \textbf{Drosseln}
+	\begin{itemize}
+		\item Nicht sofort spürbar (Messung außerhalb der Funktionalen Einheiten, langsamer Zugriff am Temperatursensoren) \(\rightarrow\) frühzeitige Reaktion notwendig
+		\item Strategien
+		\begin{itemize}
+			\item \texttt{HLT-Cycles}: Anhalten der CPU bis zum nächsten Interrupt (typischerweise \(1-10s\), spezielle Instruktion); schnelle Reaktions; bei vielen Interrupt keine präzise Steuerung möglich
+			\item \textit{Dynamic Clock Modulation}: Reduzierung der internen Taktfrequenz durch Überlagerung des normalen Takts durch zweiten, langsameren Takt
+			\item \textit{Instruction Decode Throttling}: Drosselung der weitergeleiteten Instruktion aus dem L1-Instruction-Cache in den Instruction-Buffer; schnelle Reaktionszeit; einfach in Hardware zu implementieren
+			\item \textit{Dynamic Frequency and Voltage Scaling}: \(P=C \cdot V_{cc}^2 \cdot f\) \(\rightarrow\) Reduzierung von Spannung oder Frequenz führt zu niedrigerer Energieaufnahme
+		\end{itemize}
+	\end{itemize}
+	\item \textit{Thermal Balancing}: Rechenintensive Tasks werden mit weniger-rechenintensiven Tasks kombiniert \(\rightarrow\) weniger Wäremeentwicklung \(\rightarrow\) weniger Kühlung/Drosselung notwendig 
+\end{itemize}
+
+
+\subsection{Dynamic Frequency and Voltage Scaling (DVS)}
+\begin{itemize}
+	\item \textbf{Beobachtungen/Messungen}
+	\begin{itemize}
+		\item Frequenzdrosselung bei Speicher-Zugriffe irrelevant, da ohnehin auf den Speicher gewartet werden muss
+		\item Idealerweise sollte die Energieersparnis die Laufzeiteinbußen übertreffen
+		\item Schnellerer Prozessortakt führt zu weniger Hauptspeicherenergiebedarf (Lokalisationsprinzip)
+		\item Nicht immer ist bei Speicher die langsamste Frequenz die beste (abhängig vom Zugriffsmuster), ggf. braucht eine Task auf langsamerer Taktfrequenz mehr Leistung
+	\end{itemize}
+	\item \textbf{Richtlinien}
+	\begin{description}
+		\item{Policy \#1: PAST}
+		\begin{itemize}
+			\item Dynamisch, systemweit, intervalbasiert; Entscheidung basiert auf der bisherigen Auslastung: Algorithmus betrachtet ein Sliding Window, bestehend aus \texttt{run\_cycles}, \texttt{idle\_cycles} und \texttt{excess\_cycles} (Zeit hat nicht mehr zum Ausführen dieser Cycles gereicht). \texttt{PAST} nimmt an, die typische Anzahl Cycles pro Interval zu kennen (z.B. durch Tracing)
+			\item \texttt{PAST} geht davon aus, dass die bisherige Auslastung der zukünftigen entspricht \(\rightarrow\) Interval wird als \textit{busy} oder \textit{idle} deklariert und die Taktfrequenz entsprechend angepasst
+			\item Soll die Anzahl der Geschwindigkeitswechsel verringern
+			\item Schlechte Leistung in vielen realistischen Scenarios (beispielsweise bursty Tasks)
+		\end{itemize}
+		\item{Policy \#2: Vertigo}
+		\begin{itemize}
+			\item Powermanagement-Erweiterung in Linux; beinhaltet verschiedene Algorithmen, die koordiniert zusammenarbeiten
+			\item Dynamisch, systemweit, intervalbasiert; Entscheidung basiert auf Event-/Task-Einstufung
+			\item Höhere Algorithmen können die Entscheidungen niedrigerer Algorithmen überschreiben
+			\item Algorithmen
+			\begin{itemize}
+				\item Oben: Automatische Ermittlung des Leistungsbedarfs interaktiver Anwendungen; stellt u.a. die User-Experience sicher (es wird geprüft, ob Anwendungen verzögerungsfrei ausgeführt werden)
+				\item Mittig: Anwendungsabhängige Schicht; Anwendungen können Informationen zu ihrem Leistungsbedarf angeben (muss von den Anwendungen unterstützt werden)
+				\item Unten: Algorithmische Bestimmung der zukünftigen Auslastung, basierend auf der vergangenen Auslastung. Pro Task wird basierend auf vergangenen Zeitschlitzen (Sliding Window) die zukünftige Auslastung abgeschätzt
+			\end{itemize}
+		\end{itemize}
+		\item{Policy \#3: Process Cruise Control}
+		\begin{itemize}
+			\item Threadspezifische Energieanalyse auf Basis von Ereigniszählern zur Bestimmung der idealen Taktfrequenz
+			\item Prinzip: Die Häufigkeit mit der Ereignisse auftreten hängen von einem spezifischen Leitungs- und Energieeffizienzprofil pro Thread ab \(\rightarrow\) Ergeignis-basierte Charakterisierung: Sinkende Speicheranforderungsrate/Ereignisrate als Indikatoren für Leistungsverlust
+			\item Herausforderungen: Auswahl der geeigneten Ereignistypen; Finden des Zusammenhangs [Ereignisrate \(\leftrightarrow\) Energiebedarf]
+			\item Limitierungen des Models: (Meist) zu geringe Anzahl an Ereigniszählern; Auswahl von Ereignissen mit Fokus auf Leistung (nicht auf Energy Profiling) \(\rightarrow\) gut geeignet für best-effort Abschätzung, allerdings ungeeignet zum Einhalten quantitativer Garantien
+		\end{itemize}
+	\end{description}
+\end{itemize}
+
+
+
+\section{Speicher Powermanagement}
+
+\subsubsection{Einführung}
+\begin{itemize}
+	\item Speicherperformance entwickelt sich signifikant schlechter als Prozessorperformance
+	\item Leistungsfähigkeit vieler Komponenten (CPU, Grafikkarte, etc.) hängt allerdings von der Speicherperformance ab
+	\item Speicher macht bei mobilen Geräten \(>50\%\) des Energieverbrauchs aus
+\end{itemize}
+
+\subsection{Charakteristik von DRAM}
+\begin{itemize}
+	\item Energieverbrauch bei DRAM: Refresh der Kondensatoren; Decoding; Datentransfer
+	\item Vollgepufferte DIMMs: Zusätzlich \(4W\) Energieverbrauch
+	\item \textbf{Techniken zur Reduzierung des DRAMs bei mobilen Geräten}
+	\begin{itemize}
+		\item Temperatur Compensated Self Refresh (TCSR): Refresh-Interval an Temperatur angepasst
+		\item Partial Array Self Refresh (PASR): Nur Bereiche, die Daten enthalten, werden refresht
+		\item Deep Power-Down (DPD): Array wird komplett abgeschalten; keine Datenspeicherung
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{DRAM Powermanagement}
+\begin{itemize}
+	\item Setup: Aufteilung des Speichers in Module; keine Speicherverschränkung\footnote{Aufeinander folgende Speicherworte werden zyklisch in aufeinander folgenden Speicherbänken abgespeichert. (Wikipedia)}; individuell angepasste Energielevel pro Modul
+	\item \textbf{Festlegen des Energieniveaus}
+	\begin{itemize}
+		\item Wird automatisch vom Speichercontroller festgelegt: Zustandswechsel (beispielsweise von \texttt{Performancemodus} zu \texttt{Schlafmodus}), wenn innerhalb einer definierten Zeitspanne keine Anfragen kommen (\textit{Gaptime})
+		\item Herausforderung: \textit{Gaptime} gut wählen, da sonst viel Zeit/Energie für Zustandswechsel verbraucht wird. Abschätzung beispielsweise über Performancecounter (\(t_{gap}=\frac{t_{cycle} \cdot instructions}{cache~misses}\)); allerdings stark abhängig vom Referenzmuster
+		\item "`Intelligenter Speicherkontroller"'
+		\begin{itemize}
+			\item Kennt Zugriffsmuster/Dringlichkeiten/Prioritäten und verteilt die Daten entsprechend (ausnutzen von Lokalität)
+			\item Kann zur Benachteiligung von Anfragen/Daten führen. Gegenmaßnahme beispielsweise: Echtzeitrelevante Daten priorisieren, idealerweise werden alle physischen Seiten entsprechend getaggt (\texttt{gap distribution}, \texttt{priorities}, \texttt{realtime}, ...)
+		\end{itemize}
+	\end{itemize}
+	\item Allgemeiner Trend: Anforderungen an Speichercontroller wachsen (Fehlererkennung/-maskierung, variable Geschwindigkeiten, etc.)
+\end{itemize}
+
+
+\subsection{Strategien für Page Allocation}
+\begin{itemize}
+	\item \textbf{Software-seitiger Lösungsansatz}
+	\begin{itemize}
+		\item Speicherallokationsstrategien
+		\begin{itemize}
+			\item Ziel: Erhöhen der Gaptime möglichst vieler Speichermodule
+			\item Policy
+			\begin{itemize}
+				\item Aktives \textit{Working Set} eines Prozesses wird innerhalb möglichst weniger Modulen allokiert. Beim Kontextwechsel werden nicht-verwendete Module deaktiviert
+				\item Um Latenz zu sparen werden die verwendeten Module direkt beim Kontextwechsel aktiviert
+				\item Erweiterung zur weiteren Reduzierung der Aktivierungslatenz: Aktiviere zusätzlich die Module des "`zweitbesten"' Prozesses (in Abhängigkeit der Scheduling-Strategie), da dieser "`wahrscheinlich"' direkt danach ausgeführt werden wird
+			\end{itemize}
+			\item Sequential First-Touch Allocation: Pages werden nach Möglichkeit in einem Modul allokiert, das schon Daten hält. Kann zu verteilt-allokierten Shared Libraries führen; problematisch bei Nebenläufigkeit
+			\item Verbesserung: DLL Aggregation. Dediziertes Modul für gemeinsam genutzte Objekte (Shared Memory, Shared Libraries, Pipes, etc.)
+			\item Evaluiert: Beide Allokationsstrategien in der Praxis unbrauchbar
+		\end{itemize}
+		\item Speichermigrationsstrategien
+		\begin{itemize}
+			\item Ziel: Erhöhen der Gaptime möglichst vieler Speichermodule
+			\item Idee: Erlaube eingeschränkt das Verschieben von allokierten Pages, beispielsweise zum Zusammenfassen von \textit{Working Sets} in möglichst wenigen Modulen
+			\item Problem: Finden von Zugriffsmustern
+			\item Lösung: Offline Analyse bei Embedded Systems; sonst kurze Sample-Phase beim Programmstart zum Auswerten der Exceptions, die der Lastlevelcache wirft, wenn er voll ist \(\rightarrow\) ergibt welche Seiten wie oft referenziert worden sind \(\rightarrow\) extem hoher Aufwand
+			\item Hoher Overhead durch Kopieren von Pages \(\rightarrow\) lohnt sich nur bei langlebigen Tasks
+			\item Shared Pages generelles Problem bei Migration
+			\item Anwendung: Energiegewahre Garbage Collection, da diesem die Objektreferenzen bekannt sind. GC kann selbstständig Objekte verschieben
+		\end{itemize}
+		\item Nachteile bei Page-Migrationen durch das Betriebssystem
+		\begin{itemize}
+			\item Hardwarearchitektur des TLB nicht zum Speichern zusätzlicher Informationen (Referenzzähler, \#Einträge, etc.) geeignet
+			\item MMU des Prozessors: TLB-Latenz muss zur Cache-Latenz passen; TLBs benötigen viel Energie (zusätzlich noch mehr bei Miss durch Page-Table-Walk)
+			\item Kopieraufwand durch Verschieben von Pages: Prozessor/DMA-Controller muss zusätzliche Transfers durchführen
+			\item Betriebssystem muss die MMU verwalten
+			\begin{itemize}
+				\item Energiegewahre MMU und energiegewahre Anwendungen interferieren
+				\item Betriebssystem muss Eigenschaften von energiegewahrem Speicher kennen/berücksichtigen
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Hardware-seitiger Lösungsansatz: Trennung von Speicherung und Übersetzung (MMC)}
+	\begin{itemize}
+		\item MMC-TLB: Ergänzt Page-Adresse um Anzahl der Lese-/Schreibzugriffe; konfigurierbar (Anzahl Einträge, Assoziativität, etc.)
+		\item Energiegewahre MMU mit dedizierter Speicherverschiebeeinheit
+		\item Zusätzliche Funktionen
+		\begin{itemize}
+			\item Speicher-Controller kann Pages in persistentem Speicher backuppen
+			\item Speicher-Controller kann virtuellen physikalischen Speicher "`anbieten"'
+			\item Speicher-Controller unterstützt Hardware-Support für Speicherkomprimierung
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Memory Access Profiler}
+	\begin{itemize}
+		\item Diplomarbeit von 2009\footnote{\url{https://os.itec.kit.edu/downloads/sa_2009_mueller-sergej_memory-access-profiles.pdf}}
+		\item Memory Profiler schlägt dem Betriebssystem auf Anfrage verschiedene, gut geeignete Migrations-Kandidaten vor
+		\item Verschiedene Strategien programmierbar (beispielsweise \textit{Least Recently Used})
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{Speicherkomprimierung}
+\begin{itemize}
+	\item Viele Möglichkeiten zur Speicherkomprimierung: Wiederholtes Auftreten von Mustern bei Integers, Branches, Datenstrukturen (beispielsweise \texttt{Structs})
+	\item Hardware-unterstützte Komprimierung
+	\begin{itemize}
+		\item Dedizierte Hardware zum feingranularen (de-)komprimieren von Daten und Instruktionen
+		\item Problem: Finden des Einsprungpunkts bei komprimiertem Speicher
+		\item Möglichkeiten von Energiesparen: Weniger Speicherzugriffe; weniger Anfragen auf dem Speicherbus; geringere Cache-/Speichergröße notwendig
+	\end{itemize}
+	\item Software-seitige Komprimierung
+	\begin{itemize}
+		\item Aufteilung in (un-) (Bsp.: Working Set)/komprimierte (nicht benutzte Pages) Speicherbereiche
+		\item (De-)Komprimierungsgeschwindigkeit (asymmetrischer Algorithmus) entscheident
+		\item Möglichkeiten zum Energiesparen: Geringere Speichergröße notwendig; die meisten Speichermodule können im Standby bleiben; Speicherkomprimierung kann DVS-optimal betrieben werden
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{Moderne, persistente Speichertechnologien}
+\begin{itemize}
+	\item \textbf{Ferroelectric RAM (FRAM)}
+	\begin{itemize}
+		\item Ferroelektrizität: Beschreibt das Phänomen, dass Stoffe mit einem elektrischen Dipolmoment durch das Anlegen eines äußeren elektrischen Feldes die Richtung der spontanen Polarisation ändern\footnote{\url{https://de.wikipedia.org/wiki/Ferroelektrikum}}
+		\item Latenz beim Lesen typischerweise \(20-100ns\), hält die Daten allerdigns extrem lange (\(>10~Jahre\)); begrenze Anzahl Schreibzyklen (1012-1015)
+		\item Sehr teuer (und wird auch teuer bleiben) \(\rightarrow\) wird nur für Spezialanwendungen mit langer Vorhaltezeit verwendet
+	\end{itemize}
+	\item \textbf{Spin Transfer Torque Memory (SPRAM)}
+	\begin{itemize}
+		\item Widerstand ändert sich in Abhängigkeit von Magnetorientierung
+		\item Kann wie normale Schaltlogik produziert werden (weil CMOS) \(\rightarrow\) kann direkt in Chips integriert werden. Beispielsweise zwischen Funktionale Einheiten, da der Speicher nicht so heiß wird wie die Funktionalen Einheiten selbst
+		\item Fertigung gut bekannt/erforscht sowie gute Leistungscharakteristik: Vmtl bald mehr als ein Bit pro Zelle möglich (multibit), wird eventuell DRAM ersetzen
+		\item Sehr geringe Energiemenge zum Schreiben notwendig (\(0,06\frac{pJ}{Bit}\)); Latenz beim Lesen \(< 50ns\); unbegrenzte Anzahl Schreibzugriffe; extrem lange Haltezeit der Daten (\(>10~Jahre\))
+		\item Stapelbar \(\rightarrow\) hohe Dichte/Bandbreite möglich
+	\end{itemize}
+	\item \textbf{Phase Change Memory (PRAM)}
+	\begin{itemize}
+		\item Kristalin mit unterschiedlicher Widerstand durch Erhitzung und Abkühlung; Neuschreiben durch starkes Erhitzen
+		\item Byteadressierbar mit gleichem Interface/Verhalten wie Flash; kann bereits vergleichsweise günstig produziert werden \(\rightarrow\) wird Flashspeicher irgendwann ablösen
+		\item Leistung: Schreibenergie vergleichbar mit Flashspeicher, Schreibgeschwindigkeit allerdings 500x so schnell
+		\item 100 Millionen Schreibzyklen mit \(>300~Jahren\) Haltezeit möglich
+		\item Stapelbar für hohe Integrationsdichte
+	\end{itemize}
+\end{itemize}
+
+
+
+\section{Batterien}
+\begin{itemize}
+	\item "`Battery Gap"': Energiedichte entwickelt sich langsamer als der Energiebedarf
+	\item \textbf{Technologien}
+	\begin{itemize}
+		\item Verschiedene Technologien, die stetig besser werden; Verbesserungen im niedrigen einstelligen Bereich
+		\item Einsatzbereich entscheident über Auswahl des Batterietyps: Wasserstoffzelle schlecht bei Peakleistungen allerdings hohe Dauerbelastung möglich; Gegenteil: Bleiakkus
+		\item Vergleichsmaß: Wattstunden/Liter zu Wattstunden/Kilogramm
+	\end{itemize}
+	\item \textbf{Nicht-lineares Verhalten von Li-Ionen-Akkus}
+	\begin{itemize}
+		\item Rate Capacity Effect
+		\begin{itemize}
+			\item Bei langsamer Entlandung insgesamt mehr Stromabgabe möglich (effektive Batteriekapazität, kann \(20\%\) ausmachen)
+			\item Formalisiert als \textit{Peukert's Law}: \(C=T \cdot I^\alpha\) mit \(\alpha=1,16\) bei \texttt{IBM Thinkpad T30}
+			\item 2-Batteriesystem: Paralleles Entladen beider Batterien, so dass einzelne Entladung geringer ist und so beide Batterien länger halten. Im Beispiel 8-9\% Effekt gegenüber sequentiellem Entladen, "`vage Geschichte"'
+			\item Auswirkungen von Spitzenströmen fatal
+		\end{itemize}
+		\item Temperatureffekt: Energiemenge abhängig von Außentemperatur. Meist ideal: 30-40 Grad Celsius
+		\item Capacity Fading: Durch häufige Ladezyklen (und dem Ladestrom: Bei hohen Strömen sinkt die Kapazität) altert die Batterie. Schnelladefunktion beim Smartphone reduziert Gesamtbatterieleistung um bis zu 10\%. Aktuell: Entwicklung von Steuerungen für idealen, situationsabhängigen Ladestrom
+	\end{itemize}
+	\item Recovery Effect: Batterie erholt sich durch hinreichend viele Ruhephasen (Kapazität steigt wieder)
+	\item \textbf{Heute: Smart Battery Systems}
+	\begin{itemize}
+		\item In \texttt{ACPI} spezifiziert
+		\item Zusätzliche Steuereinheit zum Beobachten der Batterie (Temperatur, Ladezyklen, etc.)
+		\item Funktionen: Teile der Batterie können be-/entladen werden - je nach aktuellem Zustand; Verschieben von Energie möglich
+		\item Problem: Eventuell kein standardisiertes Betriebssystem-Interface
+	\end{itemize}
+	\item \textbf{Batterie-getriebenes, dynamisches Energiemanagement}
+	\begin{itemize}
+		\item Je höher die Taktfrequenz, desto schneller wird die Batterie entladen
+		\item Bei vielen Speicherzugriffen benötigt DRAM weniger Energie, da Speicherzellenzeilen wiederverwendet werden können \(\rightarrow\) langsamste CPU-Frequenz eventuell nachteilig für die Leistungsaufnahme
+		\item Alle Computereffekte zusammen betrachten, um ideale Policy zu bestimmen. Überlagerung von CPU-, DRAM-, Recovery-, Rate-Capacity-Effekten \(\rightarrow\) situationsabhängig
+	\end{itemize}
+	\item \textbf{Batterie-gewahres Scheduling}
+	\begin{itemize}
+		\item Open-Loop Policies
+		\begin{itemize}
+			\item Stromaufnahme innerhalb eines Sliding Window begrenzt (ist der Strom verbraucht so pausiert das System)
+			\item Mehrere stromintensive Hardware-Komponenten: Vermeiden von Parallelbetrieb stromintensiver Tasks (CPU-intensive Berechnung vs. Festplattenzugriff) 
+		\end{itemize}
+		\item Closed-Loop Policies
+		\begin{itemize}
+			\item Unwichtige Prozesse dürfen nicht mehr laufen, wenn die Restkapazität unter eine festgelegte Grenze fällt
+			\item Taktfrequenz sinkt mit sinkender Restkapazität
+			\item Eingehende Anfragen werden verzögert ausgeführt \(\rightarrow\) Nutzen des Recovery Effects
+			\item Energie-gewahres Routing bei Sensornetzen
+		\end{itemize}
+	\end{itemize}
+	% TODO: EGGS14
+\end{itemize}
+
+
+
+\section{Advanced Configuration and Power Interface Specification (ACPI)}
+\begin{itemize}
+	\item Standardisierte Schnittstellenspezifikation zum betriebssystemseitigen Konfigurieren und Energieverwalten des kompletten Systems oder einzelnen Komponenten (Einbeziehung aller Systemklassen)
+	\item \textbf{Ziele}
+	\begin{itemize}
+		\item Energiesparen: Komponenten oder das Gesamtsystem können zum Energiesparen in verschiedene Betriebsmodi mit reduzierter Energieaufnahme versetzt werden
+		\item Schnittstellenspezifikation: Enthält Verhaltensbeschreibungen für Hard-/Software-Elemente und verankert diese Verfahren im Betriebssystem \(\rightarrow\) fördert energiebewusste Betriebssysteme
+		\begin{itemize}
+			\item Informationen über Anwendungen/Hardware auf Betriebssystemebene verfügbar \(\rightarrow\) komplexe Verfahren möglich
+			\item Vereinheitlichung von Energiesparverfahren verschiedener Geräte möglich; keine Konflikte zwischen Firmware und Betriebssystem
+			\item Berücksichtigt Energie-relevante Erweiterungen eines Erstausrüsters\footnote{\textit{Original Equipment Manufacturer} (OEM)}
+			\item Gesamtsystem-umfassende Entscheidungen möglich
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Laufzeitkomponenten}
+	\begin{itemize}
+		\item ACPI System Description Tables: Schnittstellenbeschreibung zur Hardware; können Prozeduren der Pseudocode-Sprache \textit{ACPI Machine Language} (AML) enthalten
+		\item ACPI Register: Hardwarezugriff; Beschreibung in den \textit{System Description Tables}
+		\item ACPI System Firmware: Firmware, die mit der Spezifikation kompatibel ist; booten des Systems; Schnittstelle für \texttt{sleep}, \texttt{wake}, \texttt{restart}
+	\end{itemize}
+	\item \textbf{ACPI-Unterstützung von Betriebssystem-Policies}
+	\begin{itemize}
+		\item System-Power-Management: System schlafen-legen/reaktivieren
+		\item Device-Powermanagement: Verwaltung der Betriebsmodi aller Geräte
+		\item Processor-Power-Management: Energiesparmodi des Prozessors (variable Taktfrequenz)
+		\item Device-and-Processor-Performance-Management: Balance zwischen Energieverbrauch und Performance
+		\item Plug-and-Play: Hierarchische Informationsstruktur über Geräte; a-priori-Wissen, welche Geräte durch Anschluss/Entfernen eines Gerätes betroffen sind
+		\item System Events: Allgemeiner Ereignismechanismus für Temperatur-/Powermanagement-/Plug\&Play-Informationen
+		\item Battery-Management
+		\begin{itemize}
+			\item \textit{Smart Battery Subsystem}: Verwaltung durch das Betriebssystem via \textit{embedded controller interface} (EC)
+			\item \textit{Control Method Battery}: Verwaltung über ACPI AML-Code
+		\end{itemize}
+		\item Thermal-Management mit einfachem Temperaturmodell
+	\end{itemize}
+	\item \textbf{Geräteklassen}
+	\begin{itemize}
+		\item Audio, \texttt{I/O}, Storage, etc.
+		\item Default-Geräteklasse mit minimaler Definition \texttt{\big\{D0 (an), D3 (aus)\big\}}
+		\item Geräte zur Datensicherung (beispielsweise Festplatten)
+		\begin{description}
+			\item{D0}: Aktiver-/Idle-Modus
+			\item{D1}: Motor aus; max. 5s um Modus zu erreichen; Stromverbrauch um \(>20\%\) reduziert (Standy-Modus)
+			\item{D3}: Sleep-Modus, Stromverbrauch \(<10\%\)
+		\end{description}
+	\end{itemize}
+	\item \textbf{Temperaturmanagement}
+	\begin{itemize}
+		\item Definition von Temperaturzonen, beispielsweise pro Gerät
+		\item Berücksichtigen der thermischen Nachbarschaft von Geräten
+		\item Modi und Temperaturlevel
+		\begin{description}
+			\item{\texttt{\_PSV}}: Passive Kühlung; Leistungsverlust um Temperatur zu senken
+			\item{\texttt{\_ACx}}: Aktive Kühlung; höher System-/Kühlleistung; meist Geräuschentwicklung
+			\item{\texttt{\_HOT}}: System wird in Schlafzustand \texttt{S4} versetzt
+			\item{\texttt{\_CRT}}: Sofortiges Herunterfahren des Systems
+		\end{description}
+		\item Erkennen von Temperaturänderungen: Pollen; "`intelligente"' Hardware
+	\end{itemize}
+	\item \textbf{Schnittstellen zur Hardware}
+	\begin{itemize}
+		\item Bottom-Sicht: Powermanagement-Eigenschaften und -Funktionalität der Hardware
+		\item ACPI Source Language (ASL)
+		\begin{itemize}
+			\item Definition von ACPI-Objekten und Steuerroutinen
+			\item Compiler erzeugt daraus ACPI-Machine Language (AML)
+			\begin{itemize}
+				\item Kompakte Interpretersprache zur Anstrahierung der Hardware von der Energieverwaltung des Systems
+				\item Code zur Geräteverwaltung unabhängig von der Betriebssystem-Implementierung
+				\item ACPI-kompatible Betriebssysteme müssen AML unterstützen
+			\end{itemize}
+			\item Beispiel\\\\
+				\begin{minipage}{\textwidth}
+				\begin{lstlisting}[frame=single,numbers=left,mathescape]
+Method(_ON) {
+	Store (One, GIO.IDEP)		// assert power
+	Sleep (10)			// wait 10ms
+	Store (One, GIO.IDER)		// de-assert reset
+	Stall (10)			// wait 10us
+	Store (Zero, GIO.IDEI)		// de-assert isolation
+}
+				\end{lstlisting}
+				\end{minipage}
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Implementierung: ACPI Component Architecture (ACPI-CA)}
+	\begin{itemize}
+		\item ASL-Compiler und AML-Disassembler von Intel
+		\item Implementierung einer AML-Interpreters für jedes Betriebssystem
+		\item Infrastruktur um ACPI-Tabellen zu lokalisieren und Informationen über Ressourcenverbrauch zu verwalten
+	\end{itemize}
+\end{itemize}
+
+
+
+\section{Powermanagement bei Festplatten}
+
+\subsection{Charakterisierung von Festplattenenergie}
+\begin{itemize}
+	\item \textbf{Betriebsmodi}
+	\begin{itemize}
+		\item Mehrere Betriebsmodi mit niedriger Energieaufnahme (durch Zugriffverzögerung erkauft)
+		\item Typische Modi: \texttt{Active} (ca. \(2-5W\)); \texttt{Active Idle} (Köpfe nahe der Mitte, Serversteuerung aus: ca. \(<1W\)); \texttt{Low-Power Idle} (Köpfe entladen und geparkt: ca. \(<0,7W)\); \texttt{Standby} (Laufwerksmotor aus: ca. \(0,25W\)); \texttt{Sleep} (fast gesamte Elektronik aus: ca. \(0,1W\))
+		\item Moduswechsel verursacht Kosten: Parken/Positionieren der Köpfe; Stoppen und Wiederanfahren des Laufwerksmotors (Wiederanfahren in den Beispielen etwa \(2-5W\) für mehrere Sekunden)
+	\end{itemize}
+	\item Break-even-Zeit: Zeitspanne, ab wann sich ein Abschalten zwischen zwei Zugriffen (\textit{Idle-Zeit}) lohnt; ein Moduswechsel führt nur zu Energieeinsparung, wenn die Energie, die zum Wechseln benötigt wird, die Energieeinsparung im Stromsparmodus nicht übersteigt \(\rightarrow\) Zeitspanne im Stromsparmodus entscheident
+	\item \textbf{Weitere Eigenschaften}
+	\begin{itemize}
+		\item Bremsen und Wiederanfahren reduziert die Lebensdauer (Laufwerksversagen) \(\rightarrow\) Abwägen zwischen Energiesparen/Verzögerungsvermeidung/Lebenszeit notwendig
+		\item Alternativ: Anpassen der Rotationsgeschwindigkeit denkbar
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{Spin-Down-Verfahren}
+\begin{itemize}
+	\item Ausnutzen der verschiedenen Stromsparmodi im laufenden Betrieb mit selbständigem Umschalten zwischen den Modi (Firmware oder Betriebssystem)
+	\item \textbf{Optimale Verfahren (offline)}
+	\begin{itemize}
+		\item Benötigt Zeitpunkte zukünftiger Zugriffe (sinnvoll bei Systemen mit statischen Ablaufplänen)
+		\item \textit{best fixed time-out}: Berechnet die Wartezeit mit der größten Energieeinsparung für alle Zugriffe; optimales, nicht-adaptives Verfahren
+		\item \textit{oracle algorithm}: Sofort herunterfahren, wenn Idle-Zeit größer als break-even-Zeit mit rechtzeitigem Wiederanfahren; optimales, adaptives Verfahren mit minimalem Energieverbrauch
+	\end{itemize}
+	\item Verfahren mit fester Wartezeit: Festplatte wechselt nach vorgegebener Zeit in den Standy-Modus; unnötiger Energieverbrauch bis Wartezeit abgelaufen
+	\item \textbf{Konkurrenzanalyse}
+	\begin{itemize}
+		\item Um wieviel ist der online-Algorithmus höchstens schlechter als der offline-Algorithmus? (worst-case Betrachtung)
+		\item Theoretische Untergrenze: \(\frac{e}{e-1} \approx 1,6\)
+		\item Einfacher, adaptiver Algorithmus (3-kompetitiv) trifft Entscheidung basierend auf den letzten beiden Anfragezeitpunkten; in der Praxis deutlich bessere Ergebnisse als nicht-adaptive Verfahren
+	\end{itemize}
+	\item \textbf{Adaptives "`Experten"'-Verfahren}
+	\begin{itemize}
+		\item Eingabe: Verhersagen einer beliebigen Menge von Algorithmen ("`Experten"'), die gewichtet kombiniert werden
+		\item Gewichte werden pro Runde neu berechnet; Algorithmen mit guter (schlechter) Empfehlung werden aufgewertet (abgewertet)
+	\end{itemize}
+	\item \textbf{Vorhersageverfahren}
+	\begin{itemize}
+		\item Idee: Vorhersagen anhand bisheriger Idle-Zeiten; Vorteil: kein unnötiges Warten im Idle-Modus
+		\item Verschiedene Verfahren möglich, beispielsweise \textit{L-shape policy}, \textit{Adaptive Learning Tree}, \textit{Exponential Average}
+	\end{itemize}
+	\item \textbf{Stochastische Verfahren}
+	\begin{itemize}
+		\item Verwendugn stochastischer Prozesse zur Modellierung von Ankunftszeiten/Zeitspannen/Moduswechselwahrscheinlichkeiten/etc.
+		\item Berechnung beispielsweise mittels (stationären) Markow-Prozessen; Berechnung allerdings aufwendig und in der Praxis zu ineffizient
+	\end{itemize}
+\end{itemize}
+
+
+\subsection{Energiebewusste Dateisysteme}
+\begin{itemize}
+	\item Zugriffszeit: Seek-Time (Köpfe zum Zylinder bewegen) + Rotationslatenz
+	\item \textbf{Verfahren zur Performancesteigerung}
+	\begin{itemize}
+		\item Zero-latency Access: Firmare liest Sektoren in beliebiger Reihenfolge in internen Puffer \(\rightarrow\) keine Verzögerung durch Rotationslatenz
+		\item Track-aware Access: Vermeidung von Spurwechseln; möglich bei Dateisystemen, die mit Sektoren variabler Länge arbeiten
+		\item Request-Scheduling: Umordnen von Zugriffen; realisiert durch Firmware oder Betriebssystem
+		\item Caching: Verzögertes Schreiben zum Glätten von Schreibzugriffen; Nachteil: Daten ggf. erst bis zu \(35s\) (Linux) verspätet auf der Festplatte
+		\item Prefetching: Weiterlesen bei sequentiellem Datenzugriff
+		\item File Prediction: Anwendung beispielsweise vom Laden aller Daten des aktuellen Verzeichnisses
+	\end{itemize}
+	\item \textbf{Cooperative \texttt{I/O}}
+	\begin{itemize}
+		\item Verzögerbare und unterbrechbare \texttt{I/O}-Operationen: Operation wird erst ausgeführt, wenn die Festplatte im aktiven Modus ist (ggf. mit Timeout, nach dem die Festplatte zwangsweise aufgeweckt wird)
+		\item Erlaubt (zeitliches) Zusammenfassen von Laufwerkszugriffen unter Einbindung aller Abstraktionsschichten (Hardware \(\rightarrow\) Anwendung)
+		\item Implementierung
+		\begin{enumerate}
+			\item Wechsel in den Standy-Modus bei Inaktivität
+			\item Energiebewusstes Caching-Verfahren zum Zusammenfassen von Laufwerkszugriffen (\textit{Request Scheduling})
+		\end{enumerate}
+	\end{itemize}
+	\item \textbf{Anwendungsunterstützung}
+	\begin{itemize}
+		\item Source-Code-Transformationen um Idle-Zeiten zu verlängern
+		\begin{itemize}
+			\item Verfügbaren Speicher abfragen und möglichst viel Speicher anfordern
+			\item Zugriff gruppieren (\textit{Request-Clustering})
+			\item Daten im Hauptspeicher zwischenspeichern (\textit{buffered I/O})
+			\item Bei Streaming nur begrenzt möglich
+		\end{itemize}
+		\item Betriebssystem über die Länge der folgenden Idle-Zeit informieren
+		\item Automatisches Optimieren durch den Compiler
+		\item Optimierungen im Betriebssystem
+		\begin{itemize}
+			\item Anfragen mit flexiblen oder periodischen Timern, beispielsweise für Streaming
+			\item \texttt{SYSCALLS} mit Timern
+		\end{itemize}
+	\end{itemize}
+	\item \textbf{Disk Energy Accounting}
+	\begin{itemize}
+		\item Ziel: Kostenerfassung zur Laufzeit; Rechnungsstellung
+		\item Probleme dabei: Asynchrone Zugriffe; Abrechnung von Moduswechsel; Abrechnung von Zugriffen, die im Cache landen
+		\item Einfache Ansätze: Mitzählen von Zugriffen; Kosten für einen Moduswechsel werden nicht berechnet oder dem unmittelbaren Verursacher in Rechnung gestellt (ggf. ungerecht)
+		\item Kosten für einen Moduswechsel können auf alle Prozesse verteilt werden, die innerhalb des Zustands auf die Festplatte zugreifen
+	\end{itemize}
+\end{itemize}
+
+
+
+\section{Appendix A: Begriffe}
+
+\subsection{Wärmemanagement}
+\begin{itemize}
+	\item Maximale Leistung \(P_{max}\): Theoretischer Maximalwert, in der Praxis kaum erreicht
+	\item Thermal Design Power \(P_{tdp}\): Meist etwas unterdimensioniert
+	\item Aktive Leistung \(P_{active}\): Meist beschönigt bzw. unter unrealistischen Bedingungen gemessen
+	\item Leerlaufleistung \(P_{idle}\): Häufig als Referenz genommen, meist realistisch. Temperatur muss beachtet werden
+\end{itemize}
+
+
+\subsection{ACPI-Zustände}
+\begin{itemize}
+	\item \textbf{Globale Zustände}
+	\begin{description}
+		\item{G0}: Working
+		\item{G1}: Sleeping; Software wird nicht ausgeführt
+		\item{G2, S5}: Soft-Off, Neustart notwendig
+		\item{G3}: Mechanical-Off
+	\end{description}
+	\item \textbf{Ruhezustände}
+	\begin{description}
+		\item{S0}: System aktiv, kein Ruhezustand
+		\item{S1}: Prozessor inaktiv, System-Kontext vollständig erhalten
+		\item{S2}: Prozessor-/Cache-Kontext geht verloren
+		\item{S3}: Nur Speicher bleibt erhalten, restlicher Systemkontext verloren
+		\item{S4}: Alle Geräte deaktiviert, Plattform-Kontext erhalten
+		\item{S5}: Soft-Off, kein Kontext erhalten, Neustart notwendig
+	\end{description}
+	\item \textbf{Prozessorzustände}
+	\begin{description}
+		\item{C0}: Verschiedene Performance-Zustände, realisiert durch Thorttling (beispielsweise \texttt{STPCLK}: kurzzeitiges Ausschalten des Prozessor-Taktgebers)
+		\item{C1}: Prozessor inaktiv (\texttt{HALT}-Instruktion)
+		\item{C2, C3}: Verschiedene weitere Ruhezustände (optional)
+		\item{C4, ... , \(C_n\)}: Weitere optionale Ruhezustände
+	\end{description}
+	\item \textbf{Gerätezustände}
+	\begin{description}
+		\item{D0}: An
+		\item{D1, ... , D3}: Aus
+	\end{description}
+\end{itemize}

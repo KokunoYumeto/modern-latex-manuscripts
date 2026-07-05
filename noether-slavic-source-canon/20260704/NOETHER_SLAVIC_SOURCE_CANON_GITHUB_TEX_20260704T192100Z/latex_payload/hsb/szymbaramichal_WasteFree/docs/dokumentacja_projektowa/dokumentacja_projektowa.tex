@@ -1,0 +1,658 @@
+\documentclass[12pt,a4paper,oneside]{article}
+
+\usepackage[QX]{polski}
+
+\usepackage[utf8]{inputenc}
+\usepackage{latexsym}
+\usepackage{tgpagella}
+\usepackage{lmodern}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,alltt}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage{indentfirst}
+\usepackage{float}
+%\usepackage{showkeys}
+\bibliographystyle{plabbrv}
+
+
+\usepackage{color}
+\usepackage[polish]{babel}
+\usepackage{datetime2}
+\usepackage[x11names,dvipsnames,table]{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+pdfauthor={Dawid Plata, Michał Szymbara, Michał Wechmann},
+colorlinks=True,
+linkcolor=darkgray,  % color of internal links (change box color with linkbordercolor)
+citecolor=BrickRed,  % color of links to bibliography
+filecolor=Magenta,   % color of file links
+urlcolor=BlueViolet}	%%pdfpagemode=FullScreen}
+
+% diagramy, grafy itp.
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{chains,fit,shapes,calc}
+\tikzset{main node/.style={circle,fill=blue!20,draw,minimum size=1cm,inner sep=0pt}}
+
+% algorytmy
+\usepackage[linesnumbered,lined,commentsnumbered]{algorithm2e}
+\SetKwFor{ForEach}{for each}{do}{end for}%
+\SetKwFor{ForAll}{for all}{do}{end for}%
+\newenvironment{myalgorithm}
+{\rule{\textwidth}{0.5mm}\\\SetAlCapSty{}\SetAlgoNoEnd\SetAlgoNoLine\begin{algorithm}}{\end{algorithm}\rule{\textwidth}{0.5mm}}
+
+
+%---------------------
+%\usepackage{microtype} % Improved justification
+\usepackage{microtype}
+%\overfullrule=2mm
+\pagestyle{plain}
+\textwidth=15cm \textheight=685pt \topmargin=-25pt \linespread{1.3}
+\setlength{\parskip}{0pt}
+\setlength\arraycolsep{2pt}
+\oddsidemargin = 0.9cm
+\evensidemargin =-0.1cm
+
+\captionsetup{width=.95\linewidth, justification=centering}
+%---------------------
+
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    literate={ą}{{\k{a}}}1 {ć}{{\'c}}1 {ę}{{\k{e}}}1 {ł}{{\l{}}}1 {ń}{{\'n}}1 {ó}{{\'o}}1 {ś}{{\'s}}1 {ż}{{\.z}}1 {ź}{{\'z}}1 {Ą}{{\k{A}}}1 {Ć}{{\'C}}1 {Ę}{{\k{E}}}1 {Ł}{{\L{}}}1 {Ń}{{\'N}}1 {Ó}{{\'O}}1 {Ś}{{\'S}}1 {Ż}{{\.Z}}1 {Ź}{{\'Z}}1
+}
+
+\lstset{style=mystyle}
+\renewcommand{\lstlistingname}{Listing}
+
+
+
+
+\newtheorem{tw}{Twierdzenie}[section]
+\newtheorem{lem}[tw]{Lemat}
+\newtheorem{co}[tw]{Wniosek}
+\newtheorem{prop}[tw]{Stwierdzenie}
+\theoremstyle{definition}
+\newtheorem{ex}{Przykład}
+\newtheorem{re}[tw]{Uwaga}
+\newtheorem{de}{Definicja}[section]
+
+
+
+\newcommand{\bC}{{\mathbb C}}
+\newcommand{\bR}{{\mathbb R}}
+\newcommand{\bZ}{{\mathbb Z}}
+\newcommand{\bQ}{{\mathbb Q}}
+\newcommand{\bN}{{\mathbb N}}
+\newcommand{\captionT}[1]{\caption{\textsc{\footnotesize{#1}}}}
+\renewcommand\figurename{Rys.}
+
+% Pokazuj poziom paragraph w spisie treści i numeracji
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\numberwithin{equation}{section}
+\renewcommand{\thefootnote}{\arabic{footnote})}
+%\renewcommand{\thefootnote}{\alph{footnote})}
+
+
+
+\begin{document}
+
+% --------------------------------------------
+% Strona tytułowa
+% --------------------------------------------
+
+\thispagestyle{empty}
+\begin{titlepage}
+\begin{center}\Large
+Uniwersytet Komisji Edukacji Narodowej w Krakowie\\
+\large
+Instytut Bezpieczeństwa i Informatyki\\
+\vskip 10pt
+\end{center}
+\begin{center}
+\centering \includegraphics[width=1.0\columnwidth]{images/logo.png}
+\end{center}
+
+\begin{center}
+ {\bf \fontsize{14pt}{14pt}\selectfont PROJEKT INŻYNIERSKI \\ DOKUMENTACJA PROJEKTOWA}
+\end{center}
+\vskip 5pt
+\begin{center}
+ {\bf \fontsize{22pt}{22pt}\selectfont System WasteFree Cloud do efektywnego zarządzania odpadami}
+\end{center}
+
+
+
+\begin{center}
+ {\fontsize{12pt}{12pt}\selectfont wykonany przez: }
+\end{center}
+\begin{center}
+ {\bf\fontsize{16pt}{16pt}\selectfont Dawid Plata}\\
+ {\fontsize{12pt}{12pt}\selectfont Nr albumu: 165303 \\\&\\}
+ {\bf\fontsize{16pt}{16pt}\selectfont Michał Szymbara}\\
+ {\fontsize{12pt}{12pt}\selectfont Nr albumu: 165297\\\&\\}
+ {\bf\fontsize{16pt}{16pt}\selectfont Michał Wechmann}\\
+ {\fontsize{12pt}{12pt}\selectfont Nr albumu: 165298}
+\end{center}
+\begin{center}
+ {\fontsize{12pt}{12pt}\selectfont pod opieką:}\\
+ {\bf\fontsize{12pt}{12pt}\selectfont dr Wojciech Gwizdała}\\
+ {\bf\fontsize{12pt}{12pt}\selectfont mgr Wojciech Baran}
+\end{center}
+
+%\mbox{}
+\vspace*{\fill}
+%\vskip 50pt
+\begin{center}
+\large
+Kraków \the\year\\
+\end{center}
+\end{titlepage}
+\setcounter{page}{0}
+\newpage\null\thispagestyle{empty}
+%\setcounter{page}{0}
+%\newpage
+%\thispagestyle{empty}
+
+\tableofcontents
+
+
+\newpage
+
+\section{Dokumentacja projektowa}
+\subsection{Cel systemu i wymagania niefunkcjonalne}
+WasteFree Cloud wspiera koordynację odbioru odpadów w modelu grupowym: użytkownicy tworzą lub dołączają do grup adresowych, organizują zamówienia odbioru, rozliczają koszty w portfelach oraz otrzymują powiadomienia w czasie rzeczywistym. System musi zapewnić spójność danych finansowych, przewidywalność terminów odbioru oraz przejrzystość komunikacji.
+
+Wymagania niefunkcjonalne (NFR):
+\begin{itemize}
+\item \textbf{Skalowalność}: pozioma na warstwie API i SignalR (konteneryzacja), pozioma/pionowa na bazie danych; brak założeń o stanowości procesu (sesje trzymane w tokenach JWT i klientach SignalR).
+\item \textbf{Niezawodność i odporność}: restartowalne kontenery \\ (\texttt{--restart unless-stopped}), idempotentne komendy (np. walidacja statusów zamówień), walidacja wejścia po stronie Application.
+\item \textbf{Bezpieczeństwo}: autoryzacja JWT, szyfrowanie kluczem symetrycznym (Security\_\_AesEncryptionKey) dla wrażliwych pól, separacja sekretów w zmiennych środowiskowych, kontrola ról w grupach (admin/członek).
+\item \textbf{Wydajność i responsywność}: minimal API bez nadmiarowych middleware, cache klienta po stronie UI, strumienie SignalR dla zdarzeń czasu rzeczywistego; cele operacyjne: czas odpowiedzi API $<300\,\mathrm{ms}$ dla standardowych zapytań, dostępność $\geq 99\%$ w oknie miesiąca.
+\item \textbf{Utrzymywalność i spójność}: silna separacja warstw (Clean Architecture), migracje EF Core, testowalność use case'ów bez infrastruktury.
+\end{itemize}
+
+\subsection{Wybór technologii i uzasadnienie}
+\begin{itemize}
+\item \textbf{Platforma backend (.NET 9 + Minimal API + SignalR)} — dojrzały ekosystem, wysoka wydajność serwera Kestrel, bogate wsparcie dla DI i middleware. Minimal API redukuje narzut deklaratywny, a SignalR zapewnia dwukierunkowe kanały czasu rzeczywistego (chat grupowy, powiadomienia) bez budowy własnego transportu.
+\item \textbf{Warstwa danych: EF Core + SQLite (dev) / MSSQL (prod)} — EF Core przyspiesza mapowanie obiektowo-relacyjne i migracje. SQLite w środowisku deweloperskim minimalizuje zależności (brak zewnętrznego serwera), natomiast MSSQL w produkcji zapewnia skalę, replikację i narzędzia administracyjne. Migracje utrzymują spójność schematu między środowiskami.
+\item \textbf{Frontend: Angular 17} — sprawdzony framework z wbudowanym routingiem, DI i wsparciem dla i18n. Silne typowanie (TypeScript) ogranicza klasy błędów, a ekosystem narzędzi (CLI, testy) przyspiesza development zespołowy.
+\item \textbf{Konteneryzacja: Docker} — hermetyzuje runtime (.NET, Node), upraszcza parytet środowisk i jest podstawą pipeline'ów CI/CD. Obrazy są przenośne między lokalnym Compose a produkcyjnym daemonem na Mikr.us.
+\item \textbf{Hosting: Mikr.us (VPS)} — niski koszt i pełna kontrola nad Dockerem bez warstwy orkiestratora. Prostota restartu kontenerów przez SSH zmniejsza operacyjny narzut; w razie potrzeby łatwo dodać reverse proxy lub monitoring na tym samym VPS.
+\item \textbf{Przechowywanie plików: Azure Blob Storage} — trwałość na poziomie klasy LRS/ZRS, podpisy SAS do kontrolowania dostępu, integracja SDK .NET, niski koszt przechowywania dużych obiektów (zdjęcia, załączniki) bez obciążania bazy transakcyjnej.
+\item \textbf{Geokodowanie: Nominatim (OpenStreetMap)} — otwarty serwis geokodowania pozwala na transformację adresów grup na współrzędne bez opłat transakcyjnych. Wymaga ograniczeń stawek (rate limiting) i cachowania po naszej stronie, co kontrolujemy w warstwie Infrastructure.
+\item \textbf{Powiadomienia e-mail: SMTP} — uniwersalny protokół, możliwość podmiany dostawcy bez zmiany logiki domenowej; hasło przechowywane jako sekret środowiskowy.
+\item \textbf{CI/CD: GitHub Actions} — natywna integracja z repozytorium, macierze dla .NET/Node, gotowe akcje logowania do DockerHub i SSH. Deterministyczne pipeline'y (build \textrightarrow{} push \textrightarrow{} deploy) ułatwiają audyt i odtwarzanie procesu.
+\item \textbf{Sekrety i konfiguracja} — zmienne środowiskowe zamiast plików w repozytorium; w produkcji sekretne wartości dostarczane z GitHub Secrets do kontenerów (klucze JWT, AES, poświadczenia blob/SMTP). Redukuje ryzyko wycieku i umożliwia rotację bez rekonstrukcji obrazów.
+\end{itemize}
+
+\subsection{Projekt UML}
+Rysunek \ref{fig:domain-model} przedstawia główny model domenowy systemu WasteFree, w którym wszystkie encje dziedziczą po \textit{DatabaseEntity} (identyfikator i metadane audytowe). Model pokazuje relacje użytkowników z grupami, zamówieniami odbioru odpadów, portfelem oraz szablonami powiadomień.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.97\textwidth]{../diagrams/domain-model/domain-model.png}
+	\caption{Model domenowy i powiązania encji}
+	\label{fig:domain-model}
+\end{figure}
+
+Kluczowe zależności:
+\begin{itemize}
+	\item \textbf{User} — posiada role, preferencje językowe, status aktywności oraz jest właścicielem \textbf{Wallet} i powiązany z \textbf{InboxNotification}. Użytkownik dołącza do \textbf{GarbageGroup} poprzez \textbf{UserGarbageGroup} (rola w grupie, stan oczekiwania).
+	\item \textbf{GarbageGroup} — prywatne lub publiczne grupy adresowe, mają wiadomości \textbf{GarbageGroupMessage} oraz zamówienia \textbf{GarbageOrder}. Administrator może wymagać \textbf{GarbageAdminConsent}.
+	\item \textbf{GarbageOrder} — definiuje parametry odbioru (opcja, rozmiar kontenera, daty, priorytet, status, koszty) i jest powiązany z uczestnikami \textbf{GarbageOrderUsers}; może wskazywać przydzielonego admina grupy.
+	\item \textbf{Wallet} i \textbf{WalletTransaction} — ewidencja środków i operacji finansowych użytkownika.
+	\item \textbf{NotificationTemplate} oraz \textbf{InboxNotification} — wzorce treści i konkretne powiadomienia (kanał, typ, język).
+\end{itemize}
+
+\subsection{Projekt bazy danych}
+Implementacja relacyjna odwzorowuje powyższy model: tabelom odpowiadają encje domenowe, a klucze obce odzwierciedlają relacje przedstawione na diagramie. Kluczowe elementy schematu:
+\begin{itemize}
+	\item Tabele użytkownika, portfela i transakcji zabezpieczają integralność środków (powiązanie 1:1 \textbf{User}–\textbf{Wallet}, 1:N \textbf{Wallet}–\textbf{WalletTransaction}).
+	\item Grupy i członkostwa: tabela \textbf{GarbageGroup} z łącznikiem \textbf{UserGarbageGroup} (rola, stan) oraz wiadomościami \textbf{GarbageGroupMessage}.
+	\item Zamówienia odbioru: \textbf{GarbageOrder} wraz z tabelą uczestników \textbf{GarbageOrderUsers}; powiązanie z grupą i ewentualnym adminem.
+	\item Powiadomienia: \textbf{NotificationTemplate} (kanał, typ, język) i \textbf{InboxNotification} (wiadomości przypisane użytkownikowi, typ akcji, powiązana encja).
+	\item Metadane audytowe i klucze główne: wspólne pola z \textbf{DatabaseEntity} (Id, utworzenie/modyfikacja, autorzy) ułatwiają spójność oraz migracje.
+\end{itemize}
+
+\section{Deploymenty}
+\subsection{Środowisko deweloperskie (Docker Compose)}
+Do lokalnego uruchomienia projektu wykorzystujemy plik \texttt{docker-compose.yml} w katalogu głównym repozytorium. Skład odwzorowuje podstawowe komponenty produkcyjne, z uproszczeniem bazy (SQLite zamiast MSSQL):
+\begin{itemize}
+\item \textbf{wastefree-api} — obraz budowany z katalogu \texttt{API}, ekspozycja \texttt{8080:8080}, zmienne: \texttt{ASPNETCORE\_ENVIRONMENT=Docker} i \\ \texttt{ASPNETCORE\_URLS=http://+:8080}. API korzysta z SQLite skonfigurowanego w profilu Docker.
+\item \textbf{wastefree-ui} — obraz budowany z katalogu \texttt{UI}, ekspozycja \texttt{4200:80}, zależność od \textbf{wastefree-api}. UI komunikuje się z API pod adresem hosta (np. \texttt{http://localhost:8080}).
+\end{itemize}
+Uruchomienie: \texttt{docker compose up}. Różnice względem produkcji: brak zewnętrznego MSSQL, brak zewnętrznych usług (SMTP, Blob Storage) — ich poświadczenia mogą być podane opcjonalnie jako zmienne środowiskowe, jeśli chcemy testować pełne ścieżki. Debugowanie: mapowanie portów umożliwia podłączenie profilerów i narzędzi przeglądarki; kontenery można uruchomić z \texttt{docker compose up --build} po zmianach w kodzie.
+\subsection{Środowiska CI/CD i hosting}
+Produkacja i pipeline'y CI/CD działają na hostingu \textbf{Mikr.us} (VPS z Dockerem). Motywacje: niski koszt, pełna kontrola nad daemonem Docker, brak potrzeby dodatkowych usług orkiestracji. Automatyzacja jest realizowana przez \textbf{GitHub Actions} w katalogu \texttt{.github/workflows}; pipeline'y są deterministyczne i deklaratywne.
+
+Przepływ pipeline'ów:
+\begin{itemize}
+\item \textbf{api-cicd.yml}: zdarzenia push do \texttt{main} lub uruchomienie ręczne. Kroki: checkout, instalacja .NET 9, \texttt{dotnet restore/build/publish}, budowa obrazu \texttt{wastefree-api:latest}, logowanie do DockerHub, push, następnie SSH na Mikr.us (\texttt{appleboy/ssh-action}) i przełączenie kontenera \textbf{wastefree-api} (stop/rm, \texttt{docker pull}, \texttt{docker run} z mapowaniem \texttt{8080:8080} i kompletem zmiennych środowiskowych).
+\item \textbf{ui-cicd.yml}: analogiczny pipeline dla frontendu (Node.js 20, \texttt{npm ci}/\texttt{npm run build}, budowa obrazu \texttt{wastefree-ui:latest}, push, SSH na Mikr.us i restart \textbf{wastefree-ui} na porcie \texttt{5000:80}).
+\item \textbf{api-pr-ci.yml} i \textbf{ui-pr-ci.yml}: walidacje PR do \texttt{main}; budują odpowiednio API i UI, aby wychwycić regresje przed merge. Nie publikują obrazów ani nie wdrażają.
+\end{itemize}
+
+Strategia wdrożenia: \textit{replace} kontenera (stop/rm \textrightarrow{} pull \textrightarrow{} run) bez orkiestratora. Rollback: ponowne uruchomienie poprzedniej wersji obrazu z DockerHub (tag \texttt{latest} można zastąpić wersją historyczną). Utrzymywalność: obrazy są odchudzane przez \texttt{docker image prune -f} po wdrożeniu. Obserwowalność: logi kontenerów są dostępne przez \texttt{docker logs}; można rozszerzyć o zewnętrzne agregaty logów lub metryki (np. Prometheus/Grafana) bez zmian w pipeline.
+\subsection{Konfiguracja zmiennych środowiskowych}
+Kluczowe sekrety wykorzystywane w pipeline'ach i kontenerach (przechowywane w GitHub Secrets, przekazywane do \texttt{docker run}):
+\begin{itemize}
+\item \texttt{ConnectionStrings\_\_Database} — pełny connection string do bazy produkcyjnej (MSSQL).
+\item \texttt{ConnectionStrings\_\_BlobStorage} — dane dostępu do Azure Blob Storage na potrzeby plików.
+\item \texttt{Integrations\_\_Smtp\_\_Password} — hasło do serwera SMTP używanego do wysyłki e-maili.
+\item \texttt{Security\_\_AesEncryptionKey} — klucz dla symetrycznego szyfrowania wrażliwych danych.
+\item \texttt{TickerQBasicAuth\_\_Username} / \texttt{TickerQBasicAuth\_\_Password} — dane do integracji TickerQ.
+\item \texttt{Security\_\_Jwt\_\_Key} — klucz do podpisywania tokenów JWT.
+\item \texttt{DOCKERHUB\_USERNAME} / \texttt{DOCKERHUB\_TOKEN} — uwierzytelnienie push/pull obrazów.
+\item \texttt{DEPLOY\_HOST}, \texttt{DEPLOY\_USER}, \texttt{DEPLOY\_PORT}, \texttt{SSH\_PRIVATE\_KEY} — parametry połączenia SSH do hostingu Mikr.us.
+\end{itemize}
+
+W środowisku Mikr.us wartości te są mapowane na zmienne kontenera. Minimalny zestaw dla uruchomienia API: connection string do bazy, klucz JWT, klucz AES oraz hasło SMTP. UI nie wymaga sekretnych zmiennych (statyczny build), korzysta z API pod wskazanym hostem/portem.
+
+\section{Dokumentacja kodu}
+\subsection{Backend (.NET)}
+\subsubsection{Wstęp i umówienie architektury}
+Backend opiera się na prostym wariancie Clean Architecture: warstwa \textbf{Domain} definiuje model i reguły biznesowe, \textbf{Application} zawiera use case'y z mediatorami i walidacją, \textbf{Infrastructure} dostarcza implementacje portów (EF Core, integracje), a \textbf{API} udostępnia minimalne endpointy HTTP i SignalR. Komunikacja między warstwami przebiega od zewnątrz do środka przez kontrakty (interfejsy) i DTO, co ogranicza sprzężenia i ułatwia testowanie.
+
+Ścieżka żądania HTTP przebiega następująco: klient (UI lub integracja) wywołuje endpoint Minimal API, który deleguje do mediatora (komenda lub zapytanie). Następuje walidacja wejścia (FluentValidation) oraz autoryzacja (JWT + role/grupy). Handler korzysta z usług domenowych i repozytoriów (interfejsy) zdefiniowanych w Domain/Application, a implementowanych w Infrastructure (EF Core, integracje zewnętrzne). Wynik jest mapowany do DTO odpowiedzi i zwracany do klienta; zdarzenia w czasie rzeczywistym są emitowane przez SignalR. Taki przepływ minimalizuje wiedzę transportową w domenie i sprzyja testom jednostkowym handlerów.
+
+Główne założenia:
+\begin{itemize}
+\item \textbf{Rozdział odpowiedzialności}: domena bez zależności na technologię; warstwa Application orkiestruje przypadki użycia; Infrastructure podmienia się per środowisko; API to wyłącznie transport i kompozycja middleware.
+\item \textbf{CQRS light z mediatorem}: komendy i zapytania obsługiwane są przez handlery, walidowane FluentValidation; interfejsy repozytoriów i usług systemowych wstrzykiwane przez DI.
+\item \textbf{Persistencja}: Entity Framework Core z migracjami; w dev lokalnie SQLite, na produkcji zewnętrzny MSSQL (połączenie przez ConnectionStrings\_\_Database).
+\item \textbf{Integracje}: Azure Blob Storage (pliki), SMTP (powiadomienia e-mail), Nominatim (geokodowanie), SignalR (komunikacja w czasie rzeczywistym), obsługa kluczy i sekretów przez zmienne środowiskowe.
+\item \textbf{Cross-cutting}: lokalizacja (PL/EN), JWT auth, własne middleware (obsługa wyjątków), filtry walidacji, logowanie i metryki po stronie hosta.
+\end{itemize}
+
+Struktura katalogów odpowiada warstwom rozwiązania: \texttt{WasteFree.Domain}, \\ \texttt{WasteFree.Application}, \texttt{WasteFree.Infrastructure}, \texttt{WasteFree.Api}. Dzięki \\ temu zależności są jednokierunkowe (API \textrightarrow{} Application \textrightarrow{} Domain; Infrastructure referencjonowana przez API/Application tylko przez interfejsy).
+\subsubsection{Warstwa Domain (encje, agregaty, interfejsy)}
+Warstwa domenowa stanowi rdzeń modelu problemu, niezależny od infrastruktury. Zawiera encje, wartości oraz kontrakty, które opisują reguły biznesowe i integralność danych. Kluczowe elementy:
+\begin{itemize}
+\item \textbf{Encje i agregaty} (przykłady): \textit{User} (role, preferencje językowe, powiązany \textit{Wallet}); \textit{GarbageGroup} (dane adresowe, typ grupy, członkowie przez \textit{UserGarbageGroup}); \textit{GarbageOrder} (parametry odbioru, status, przypisany admin, uczestnicy w \textit{GarbageOrderUsers}); \textit{Wallet} i \textit{WalletTransaction} (bilans i historia operacji); \textit{NotificationTemplate} oraz \textit{InboxNotification} (powiadomienia i ich typ/kanał/język). Każda encja dziedziczy metadane audytowe z \textit{DatabaseEntity}.
+\item \textbf{Inwarianty}: spójność roli użytkownika w grupie (admin/członek/oczekujący), integralność środków w portfelu (bilans = suma transakcji), statusy cyklu życia zamówienia odbioru (utworzone \textrightarrow{} przypisane \textrightarrow{} zrealizowane/anulowane), powiązanie powiadomień z kontekstem (użytkownik + encja referencyjna).
+\item \textbf{Interfejsy domenowe}: kontrakty repozytoriów i usług (np. dostęp do zegara systemowego, generatory tożsamości, integracje zewnętrzne) definiowane w Domain umożliwiają izolację od szczegółów technicznych i późniejszą implementację w Infrastructure.
+\item \textbf{Wartości i typy pomocnicze}: enumeracje (statusy zamówień, role grupowe, typy powiadomień), modele opisujące adresy i lokalizacje (na potrzeby geokodowania), atrybuty audytowe (Id, CreatedAt, CreatedBy, ModifiedAt, ModifiedBy) współdzielone w \textit{DatabaseEntity}.
+\item \textbf{Zasada czystych zależności}: Domain nie referencjonuje frameworków technicznych (EF, HTTP, serwisy chmurowe); zależności przepływają z zewnątrz do wewnątrz poprzez interfejsy. Dzięki temu logika biznesowa jest testowalna w izolacji.
+\end{itemize}
+
+Szczegółowy opis encji domenowych:
+\begin{itemize}
+\item \textbf{User} — \texttt{Username}, \texttt{Email} (100 znaków), opcjonalny \texttt{Description} (500), \\ \texttt{PasswordHash} i \texttt{PasswordSalt} (bajty), flagi \texttt{IsActive}, \texttt{ConsentsAgreed}; preferencje \texttt{LanguagePreference}, \texttt{Role}; opcjonalny \texttt{AvatarName}; serializowane \texttt{PickupOptions} (lista \textit{PickupOption} w notacji CSV, expose jako \\ \texttt{PickupOptionsList}); \texttt{Address} (obiekt wartości), relacja 1:1 do \texttt{Wallet} \\ (\texttt{WalletId}); kolekcje: \texttt{UserGarbageGroups}, \texttt{InboxNotifications}, \\ \texttt{GarbageGroupMessages}. \textbf{Inwariant}: użytkownik ma jeden portfel, role i język są wymagane, pickup options są znormalizowane do unikatów.
+\item \textbf{UserGarbageGroup} — para kluczy \texttt{UserId}, \texttt{GarbageGroupId} z relacjami nawigacyjnymi; \texttt{Role} (\textit{GarbageGroupRole}) oraz \texttt{IsPending}. \textbf{Inwariant}: jeden rekord przypada na członkostwo użytkownika w grupie, a rola odzwierciedla poziom uprawnień.
+\item \textbf{GarbageGroup} — \texttt{Name}, \texttt{Description}, \texttt{Address}, flaga \texttt{IsPrivate}; kolekcje \texttt{UserGarbageGroups} i \texttt{Messages}. \textbf{Inwariant}: grupa ma adres, opcjonalnie prywatny status wymuszający akceptację admina.
+\item \textbf{GarbageGroupMessage} — klucze \texttt{GarbageGroupId}, \texttt{UserId}, treść \texttt{Content} do 2000 znaków. \textbf{Inwariant}: wiadomość powiązana z konkretną grupą i nadawcą.
+\item \textbf{GarbageAdminConsent} — \texttt{Content} i \texttt{Language} (\textit{LanguagePreference}); służy do prezentacji treści zgód administratora grupy w odpowiednim języku. \textbf{Inwariant}: treść istnieje dla danego języka.
+\item \textbf{GarbageOrder} — parametry odbioru: \texttt{PickupOption}, opcjonalny \\ \texttt{ContainerSize}, daty \texttt{DropOffDate?} i \texttt{PickupDate}; flagi \texttt{IsHighPriority}, \texttt{CollectingService}; status \texttt{GarbageOrderStatus}; koszty \texttt{Cost} i \\ \texttt{PrepaidUtilizationFeeAmount}; relacja do \texttt{GarbageGroup} (\texttt{GarbageGroupId}) i opcjonalnie przydzielonego admina \texttt{AssignedGarbageAdminId}; rozliczenia utylizacji: \texttt{UtilizationFeeAmount?}, \texttt{AdditionalUtilizationFeeAmount?}, \\ \texttt{UtilizationProofBlobName?}, \texttt{UtilizationFeeSubmittedDateUtc?}; kolekcja \texttt{GarbageOrderUsers}. \textbf{Inwariant}: status zamówienia i opłaty utylizacyjne są spójne z uczestnikami; zamówienie należy do jednej grupy.
+\item \textbf{GarbageOrderUsers} — wiązanie \texttt{GarbageOrderId}–\texttt{UserId}; pola kosztowe: \texttt{ShareAmount}, \texttt{AdditionalUtilizationFeeShareAmount}; flagi \\ \texttt{HasAcceptedPayment}, \texttt{HasPaidAdditionalUtilizationFee}. \textbf{Inwariant}: udział finansowy uczestnika sumuje się do pełnego kosztu zamówienia.
+\item \textbf{Wallet} — \texttt{Funds} (double), opcjonalny \texttt{WithdrawalAccountNumber}; klucz \\ \texttt{UserId}, relacja do \texttt{User}; kolekcja \texttt{WalletTransactions}. \textbf{Inwariant}: saldo = suma transakcji, jeden portfel na użytkownika.
+\item \textbf{WalletTransaction} — \texttt{Amount} (double), \texttt{TransactionType} (\textit{TransactionType}); relacja do \texttt{WalletId}. \textbf{Inwariant}: typ transakcji determinuje znak/logikę biznesową salda.
+\item \textbf{NotificationTemplate} — \texttt{Subject}, \texttt{Body}, \texttt{Channel} (\textit{NotificationChannel}), \texttt{Type} (\textit{NotificationType}), \texttt{LanguagePreference}. \textbf{Inwariant}: unikalność pary (Type, Channel, Language) w kontekście generatora powiadomień.
+\item \textbf{InboxNotification} — \texttt{UserId}, \texttt{Title}, \texttt{Message}, opcjonalny \texttt{RelatedEntityId}, \texttt{ActionType} (\textit{InboxActionType}, domyślnie \texttt{None}). \textbf{Inwariant}: powiadomienie przypisane do jednego użytkownika, opcjonalnie wskazuje encję źródłową (zamówienie, grupa, wiadomość).
+\end{itemize}
+\subsubsection{Warstwa Application}
+Warstwa aplikacji w systemie WasteFree jest realizacją wzorca Clean Architecture, stanowiąc most między logiką biznesową (Domain) a zewnętrznymi interfejsami (API). Kluczowym elementem architektonicznym jest zastosowanie wzorca CQRS (Command Query Responsibility Segregation) oraz Mediator, co pozwala na separację operacji zapisu i odczytu oraz luźne powiązanie komponentów.
+
+\paragraph{Implementacja wzorca Mediator}
+System wykorzystuje autorską implementację interfejsu \texttt{IMediator}, który stanowi centralny punkt dystrybucji komunikatów. Interfejs ten definiuje metodę \texttt{SendAsync<TResponse>}, przyjmującą obiekt żądania implementujący generyczny interfejs \texttt{IRequest<TResponse>}.
+
+Klasa \texttt{Mediator} realizuje dynamiczne wywoływanie handlerów przy użyciu mechanizmu refleksji. W momencie nadejścia żądania:
+\begin{enumerate}
+    \item Typ żądania jest analizowany w celu określenia odpowiedniego typu handlera (\texttt{IRequestHandler<TRequest, TResponse>}) za pomocą metody \\ \texttt{MakeGenericType}.
+    \item Metoda obsługująca \texttt{HandleAsync} jest wyszukiwana poprzez \texttt{Type.GetMethod}.
+    \item W celu uniknięcia kosztownego narzutu refleksji przy każdym zapytaniu, system wykorzystuje \textbf{buforowanie (caching)} par typ żądania–delegat wywołania w strukturze \texttt{ConcurrentDictionary<Type, Func<...>>}.
+\end{enumerate}
+Kluczowym aspektem jest zarządzanie cyklem życia zależności (Lifetime Management). Każde wywołanie handlera jest pakowane w nowy zakres (Scope) kontenera Dependency Injection (\texttt{IServiceProvider.CreateScope()}). Gwarantuje to, że instancje serwisów scoped (takie jak \texttt{DbContext}) są tworzone na nowo dla każdego żądania, zapewniając izolację transakcyjną (Unit of Work).
+
+\paragraph{Features i DTO}
+Logika biznesowa podzielona jest na wertykalne wycinki (Features), np. \texttt{GarbageOrders}, \texttt{Wallet}. Każdy przypadek użycia modelowany jest jako:
+\begin{itemize}
+    \item \textbf{Command/Query}: Rekordy C\# (\texttt{record}) pełniące rolę niemutowalnych DTO (Data Transfer Objects), np. \texttt{GarbageOrderCommand}.
+    \item \textbf{Handler}: Klasa implementująca \texttt{IRequestHandler}, zawierająca właściwą logikę. Przepływ sterowania w metodzie \texttt{HandleAsync} obejmuje:
+    \begin{enumerate}
+        \item Walidację danych wejściowych za pomocą biblioteki \textbf{FluentValidation} (automatycznie wpiętą w potok przetwarzania).
+        \item Pobranie niezbędnych agregatów z bazy danych (z wykorzystaniem \\ \texttt{AsNoTracking} dla operacji tylko do odczytu).
+        \item Wykonanie operacji domenowych i zapis zmian (\texttt{SaveChangesAsync}).
+        \item Emisję powiadomień w czasie rzeczywistym (SignalR) oraz asynchroniczne zlecenie wysyłki e-maili.
+        \item Zwrócenie wyniku operacji opakowanego w strukturę \texttt{Result<T>}.
+    \end{enumerate}
+\end{itemize}
+
+\paragraph{Obsługa wyników i kontrakt z Frontendem}
+Wszystkie handlery zwracają zunifikowaną strukturę \texttt{Result<T>}, która pełni rolę kontraktu wymiany danych z warstwą prezentacji (Frontend). Jest to generyczny wrapper zawierający:
+\begin{itemize}
+    \item \texttt{ResultModel}: Właściwe dane zwrotne (payload) typu \texttt{T} (np. \texttt{GarbageOrderDto}).
+    \item \texttt{ErrorMessage}: Czytelny dla użytkownika komunikat błędu (zazwyczaj zlokalizowany po stronie serwera).
+    \item \texttt{ErrorCode}: Maszynowy kod błędu (np. \texttt{"TOO\_BIG\_IMAGE"}), umożliwiający warunkowe sterowanie logiką interfejsu (np. przekierowania, specyficzne modale).
+    \item \texttt{IsValid}: Właściwość obliczana, determinująca sukces operacji.
+\end{itemize}
+Dzięki takiej standaryzacji, Frontend (Angular) może obsługiwać odpowiedzi w sposób jednolity, wykorzystując globalne interceptory do mapowania sukcesów i błędów na notyfikacje UI (Toasty), bez konieczności powielania logiki obsługi wyjątków w każdym serwisie.
+
+\paragraph{Rejestracja serwisów (Dependency Injection)}
+Warstwa Application definiuje metodę rozszerzającą \texttt{ServiceCollectionExtension}, która odpowiada za rejestrację zależności w kontenerze DI. Wykorzystana jest tu technika \textbf{Assembly Scanning} (biblioteka Scrutor), która automatyzuje proces rejestracji handlerów.
+Kod \texttt{services.Scan(...)} przeszukuje zgromadzenie pod kątem klas implementujących \texttt{IRequestHandler<,>}, rejestrując je jako implementacje interfejsów z cyklem życia \textit{Scoped}. Eliminuje to konieczność ręcznej rejestracji każdego nowego handlera w kodzie startowym \texttt{Program.cs}, co znacząco ułatwia rozwój i utrzymanie systemu.
+
+\paragraph{Zadania w tle (Background Jobs)}
+Do obsługi zadań cyklicznych i asynchronicznych wykorzystano bibliotekę \textbf{TickerQ}. Zadania są definiowane jako metody w dedykowanych klasach (np. \texttt{GarbageOrderJobs}) i oznaczane atrybutem \texttt{[TickerFunction]}.
+Atrybut ten przyjmuje parametry konfiguracyjne, w tym wyrażenie CRON (np. \texttt{"0 * * * *"} dla uruchamiania co godzinę). Przykładem jest metoda \texttt{CancelUnpaidGarbageOrders}, która cyklicznie sprawdza bazę danych pod kątem przeterminowanych, nieopłaconych zamówień i anuluje je, przywracając środki na portfele użytkowników. Jobsy korzystają z wstrzykiwanego \texttt{ApplicationDataContext}, co pozwala im na pełną interakcję z warstwą danych.
+\subsubsection{Warstwa API}
+\paragraph{Minimal API i mechanizmy Middleware}
+Warstwa prezentacji API została zaimplementowana z wykorzystaniem modelu \textbf{Minimal API}, wprowadzonego w nowszych wersjach platformy .NET. Model ten pozwala na redukcję narzutu syntaktycznego (boilerplate) poprzez definicję endpointów bezpośrednio w potoku startowym aplikacji, z pominięciem tradycyjnych kontrolerów. Mapowanie ścieżek HTTP odbywa się za pomocą metod rozszerzających (np. \texttt{MapAuthEndpoints}, \texttt{MapGarbageOrderEndpoints}), co zapewnia modułowość i czytelność pliku \\ \texttt{Program.cs}.
+
+Kluczowym elementem architektury jest wykorzystanie kontenera \textbf{Dependency Injection (DI)}. W Minimal API zależności są wstrzykiwane bezpośrednio do metod obsługujących żądania (Method Injection), co jest widoczne m.in. w handlerach endpointów, gdzie interfejsy takie jak \texttt{IMediator} czy \texttt{IStringLocalizer} są deklarowane jako parametry delegatów.
+
+W celu zapewnienia poprawności danych wejściowych, zaimplementowano generyczny filtr walidacyjny \texttt{ValidationFilter<T>}, implementujący interfejs \\ \texttt{IEndpointFilter}. Mechanizm ten automatycznie przechwytuje obiekt żądania przed jego przekazaniem do logiki biznesowej, uruchamia dedykowany walidator (\textbf{FluentValidation}) i w przypadku wykrycia nieprawidłowości przerywa przetwarzanie, zwracając odpowiedź o kodzie \texttt{422 Unprocessable Entity} ze słownikiem błędów. Uzupełnieniem potoku przetwarzania jest \texttt{ExceptionHandlingMiddleware}, który w sposób globalny przechwytuje nieobsłużone wyjątki aplikacji, loguje je i transformuje do spójnej postaci JSON, ukrywając szczegóły techniczne przed klientem (Security by Obscurity) w środowisku produkcyjnym.
+
+\paragraph{Bezpieczeństwo i komunikacja czasu rzeczywistego}
+Uwierzytelnianie użytkowników zrealizowano w oparciu o standard \textbf{JSON Web Tokens (JWT)}. Podczas logowania system generuje podpisany cyfrowo token (HMAC-SHA256), zawierający roszczenia (claims) takie jak identyfikator użytkownika i rola. Token ten jest przesyłany w nagłówku \texttt{Authorization: Bearer} każdego chronionego żądania. Warstwa API weryfikuje podpis oraz ważność tokena przy użyciu middleware \texttt{JwtBearer}. Autoryzacja dostępu do zasobów opiera się na modelu Role-Based Access Control (RBAC), skonfigurowanym poprzez polityki (Policies) w \texttt{AuthorizationExtensions}. Zdefiniowano polityki takie jak \texttt{UserPolicy}, \texttt{GarbageAdminPolicy} oraz \texttt{AdminPolicy}, które restrykcyjnie określają uprawnienia do poszczególnych endpointów.
+
+Do realizacji funkcjonalności wymagających interakcji w czasie rzeczywistym (powiadomienia, czat grupowy) wykorzystano bibliotekę \textbf{SignalR}. Zdefiniowano huby komunikacyjne: \texttt{NotificationHub} oraz \texttt{GroupChatHub}, które utrzymują stałe połączenie z klientami (poprzez WebSockets, Server-Sent Events lub Long Polling). Umożliwia to serwerowi aktywne wypychanie danych (Push Notifications) do podłączonych klientów bez konieczności ciągłego odpytywania API przez frontend. Huby są zintegrowane z mechanizmem autoryzacji, co gwarantuje, że wiadomości trafiają wyłącznie do uprawnionych odbiorców.
+
+\paragraph{Dokumentacja, internacjonalizacja i konfiguracja}
+API jest \\ samo-dokumentujące się dzięki wykorzystaniu standardu \textbf{OpenAPI} (dawniej Swagger). Definicje endpointów, schematy DTO oraz wymogi autoryzacyjne są automatycznie skanowane i udostępniane w formacie JSON. Do wizualizacji dokumentacji zastosowano nowoczesne narzędzie \textbf{Scalar} (skonfigurowane przez \texttt{MapScalarApiReference}), które oferuje interaktywny interfejs testowania zapytań. Filtr \\ \texttt{EnumDescriptionsSchemaFilter} wzbogaca schematy o opisy wartości wyliczeniowych pobierane z komentarzy XML dokumnetacji kodu.
+
+System wspiera wielojęzyczność (i18n) poprzez mechanizm \textbf{Localization}. Treści komunikatów błędów i powiadomień są przechowywane w plikach zasobów (\texttt{.resx}). Middleware lokalizacyjny (\texttt{UseRequestLocalization}) dynamicznie ustala kulturę bieżącego żądania na podstawie nagłówka \texttt{Accept-Language} lub parametru zapytania \texttt{culture}, co pozwala na serwowanie odpowiedzi w języku polskim (\texttt{pl-PL}) lub angielskim (\texttt{en-US}).
+
+Konfiguracja aplikacji została zrealizowana zgodnie ze wzorcem \textbf{Options Pattern}. Ustawienia są ładowane hierarchicznie z plików \texttt{appsettings.json} (wspólne) oraz specyficznych dla środowiska (np. \texttt{appsettings.Docker.json}), a następnie mogą być nadpisywane przez zmienne środowiskowe. Pliki te definiują parametry takie jak połączenia do bazy danych, klucze szyfrujące (sekcja \texttt{Security}), konfigurację integracji (SMTP, Nominatim) oraz poziomy logowania. Wrażliwe dane (hasła, klucze API) nie są przechowywane w repozytorium kodu, lecz wstrzykiwane w procesie CI/CD.
+\subsubsection{Warstwa Infrastructure}
+\paragraph{EF Core i migracje}
+Warstwa dostępu do danych została zaimplementowana przy użyciu \textbf{Entity Framework Core (EF Core)} – nowoczesnego mapera obiektowo-relacyjnego (ORM). Centralnym punktem jest klasa \texttt{ApplicationDataContext}, dziedzicząca po \texttt{DbContext}, która realizuje wzorzec Unit of Work. Definiuje ona zbiory danych (\texttt{DbSet<T>}) dla encji domenowych, takich jak \texttt{User}, \texttt{GarbageOrder} czy \texttt{Wallet}. Konfiguracja modelu odbywa się w metodzie \texttt{OnModelCreating}, gdzie precyzyjnie określono relacje (np. 1:1 między użytkownikiem a portfelem, kaskadowe usuwanie) oraz ograniczenia (np. indeksy unikalności).
+
+Zastosowano podejście \textbf{Migration-First}: wszelkie zmiany w schemacie bazy danych są inicjowane zmianami w kodzie C\# (modelu), a następnie utrwalane w postaci plików migracji. Gwarantuje to spójność struktury bazy danych między środowiskami oraz pełną historię ewolucji schematu w systemie kontroli wersji.
+
+Istotnym elementem implementacji jest nadpisanie metod \texttt{SaveChangesAsync}. Wykorzystano ten punkt przecięcia (interception) do realizacji logiki systemowej (Cross-Cutting Concerns) w sposób przezroczysty dla warstwy biznesowej:
+\begin{itemize}
+    \item \textbf{Audyt danych}: Automatyczne uzupełnianie pól \texttt{CreatedDateUtc}, \\ \texttt{ModifiedDateUtc} oraz identyfikatorów autorów zmian na podstawie \\ \texttt{ChangeTracker}.
+    \item \textbf{Automatyczne geokodowanie}: Przed zatwierdzeniem transakcji, system wykrywa nowe lub zmodyfikowane encje \texttt{Address}. Jeśli adres uległ zmianie, następuje asynchroniczne wywołanie serwisu geokodującego, a zwrócone współrzędne są zapisywane w tej samej transakcji. Zapewnia to atomową spójność danych adresowych i geograficznych.
+\end{itemize}
+
+\paragraph{Integracje (Azure Blob Storage, SMTP, Nominatim)}
+System integruje się z usługami zewnętrznymi poprzez dedykowane serwisy w warstwie Infrastructure, ukryte za interfejsami domenowymi (Dependency Inversion Principle).
+\begin{itemize}
+    \item \textbf{Azure Blob Storage}: Serwis \texttt{AzureBlobStorageService} (biblioteka \\ \texttt{Azure.Storage.Blobs}) odpowiada za trwałe przechowywanie plików (np. awatarów, potwierdzeń utylizacji). W celu optymalizacji wydajności i kosztów, zaimplementowano lokalny cache (\texttt{ConcurrentDictionary}) dla tokenów SAS (Shared Access Signature). Tokeny te, umożliwiające bezpieczny, czasowy dostęp do pliku bezpośrednio z chmury, są buforowane w pamięci aplikacji z marginesem bezpieczeństwa (Safety Margin), co drastycznie redukuje liczbę zapytań do API Azure.
+    \item \textbf{Powiadomienia E-mail}: Realizowane przez \texttt{EmailService} z wykorzystaniem biblioteki \texttt{MailKit}. Konfiguracja serwera SMTP (host, port, poświadczenia) jest wstrzykiwana z poziomu zmiennych środowiskowych, co pozwala na łatwą wymianę dostawcy wysyłki (np. Gmail, SendGrid) bez zmian w kodzie.
+    \item \textbf{Geokodowanie (Nominatim)}: Serwis \texttt{NominatimGeocodingService} korzysta z otwartego API OpenStreetMap. Implementacja uwzględnia politykę użytkowania serwisu (wymagany User-Agent, limity zapytań). W celu zwiększenia niezawodności zastosowano bibliotekę \textbf{Polly}, definiując politykę \texttt{WaitAndRetryAsync} dla klienta HTTP. W przypadku chwilowej niedostępności usługi, system ponawia zapytania z wykładniczym czasem oczekiwania (Exponential Backoff).
+\end{itemize}
+
+\paragraph{Harmonogramy zadań (Quartz / TickerQ)}
+Do obsługi zadań w tle i harmonogramów wykorzystano bibliotekę \textbf{TickerQ}, która pełni rolę zaawansowanego zarządcy zadań (Job Scheduler), realizując funkcjonalności zbliżone do biblioteki Quartz.NET, lecz ze ścisłą integracją z EF Core.
+Rozwiązanie opiera się na persystencji zadań w bazie danych (tabela \texttt{TimeTicker}), co gwarantuje, że zaplanowane operacje nie zostaną utracone w przypadku restartu aplikacji ("Outbox pattern" dla zadań).
+
+Kluczowe komponenty implementacji:
+\begin{itemize}
+    \item \textbf{JobSchedulerFacade}: Fasada ukrywająca złożoność planowania, umożliwiająca warstwie aplikacji proste zlecanie zadań jednorazowych (np. "Anuluj nieopłacone zamówienie za 24h") lub cyklicznych.
+    \item \textbf{Retry Policy}: Zadania posiadają skonfigurowaną politykę ponowień (domyślnie interwały 1, 5, 15 minut). W przypadku wystąpienia błędu podczas wykonywania zadania, nie jest ono tracone, lecz kolejkowane do ponownego wykonania.
+    \item \textbf{Konfiguracja}: Rejestracja \texttt{AddTickerQ} w kontenerze DI konfiguruje "Operational Store" na bazie \texttt{ApplicationDataContext}, co pozwala na wykonywanie operacji na bazie w ramach tej samej transakcji, co przetworzenie zadania.
+\end{itemize}
+Takie podejście eliminuje potrzebę zewnętrznego procesu (worker) w prostych wdrożeniach, zachowując jednocześnie wysoką niezawodność i obserwowalność procesów asynchronicznych.
+
+\subsection{Frontend (Angular)}
+\subsubsection{Architektura i stan (sygnały, rxjs)}
+\paragraph{Konfiguracja i routing}
+Aplikacja frontendowa została zrealizowana w oparciu o architekturę \textbf{Standalone Components}, rezygnując z tradycyjnych modułów \texttt{NgModule} na rzecz lżejszej i bardziej modularnej struktury. Główny punkt wejścia konfiguracji stanowi plik \texttt{app.config.ts}, eksportujący obiekt \texttt{ApplicationConfig}.
+W ramach konfiguracji dostawców (\texttt{providers}) zdefiniowano kluczowe usługi systemowe:
+\begin{enumerate}
+    \item \textbf{Router}: Skonfigurowany za pomocą \texttt{provideRouter(routes)}, obsługuje nawigację w modelu SPA (Single Page Application). Definicja tras w \texttt{app.routes.ts} wykorzystuje zagnieżdżone ścieżki (Nested Routes) dla sekcji \texttt{/portal}, co pozwala na renderowanie podwidoków w ramach \texttt{<router-outlet>} głównego layoutu. Zastosowano \textbf{Lazy Loading} (pośrednio przez importy komponentów) oraz \textbf{Resolvers} (np. \texttt{groupResolver}) do wstępnego ładowania danych przed aktywacją widoku. Bezpieczeństwo tras zapewniają strażnicy (Guards), tacy jak \texttt{authGuard} (blokada dla niezalogowanych) oraz \texttt{garbageAdminGuard} (restrykcja dla ról innych niż administrator). Interesującym elementem jest użycie niestandardowego dopasowania URL (\texttt{UrlMatcher}) w funkcji \\ \texttt{activateAccountMatcher}, co pozwala na elastyczne parsowanie tokenów aktywacyjnych w ścieżce.
+    \item \textbf{Klient HTTP}: Skonfigurowany przez \texttt{provideHttpClient} wraz z łańcuchem interceptorów (\texttt{withInterceptors}). Zaimplementowano:
+    \begin{itemize}
+        \item \texttt{authInterceptor}: Dołącza token JWT do każdego żądania w nagłówku \texttt{Authorization}.
+        \item \texttt{errorInterceptor}: Globalnie przechwytuje błędy HTTP, mapując je na powiadomienia użytkownika.
+        \item \texttt{localeInterceptor}: Przekazuje preferencję językową klienta w nagłówku zapytania.
+    \end{itemize}
+    \item \textbf{Inicjalizacja}: Wykorzystano token \texttt{APP\_INITIALIZER} wraz z fabryką \\ \texttt{initTranslationsFactory}, aby zablokować start aplikacji do momentu załadowania plików tłumaczeń (i18n) przez \texttt{TranslationService}.
+\end{enumerate}
+
+\paragraph{Stan: sygnały i strumienie RxJS}
+Warstwa zarządzania stanem w systemie WasteFree jest hybrydowa, łącząc reaktywność strumieniową \textbf{RxJS} z nowym prymitywem reaktywności w Angularze – \textbf{Sygnałami (Signals)}. Taka architektura pozwala na wykorzystanie zalet obu podejść: deklaratywności RxJS przy obsłudze zdarzeń asynchronicznych oraz wydajności i prostoty Sygnałów przy synchronizacji widoku.
+
+\textbf{Wykorzystanie Sygnałów (Signals)}:
+Implementacja \texttt{CurrentUserService} stanowi wzorcowy przykład zastosowania sygnałów do przechowywania stanu sesji użytkownika. Zastosowano wzorzec enkapsulacji stanu:
+\begin{itemize}
+    \item Prywatny, mutowalny sygnał: \\ \texttt{private \_user = signal<CurrentUser | null>(...)}
+    \item Publiczny, tylko do odczytu sygnał: \texttt{user = this.\_user.asReadonly()}
+\end{itemize}
+Dzięki temu komponenty mogą subskrybować zmiany użytkownika bez ryzyka przypadkowej modyfikacji stanu (gwarancja \textit{Single Source of Truth}). Mechanizm ten jest zintegrowany z \texttt{localStorage} w celu zapewnienia trwałości sesji po odświeżeniu strony. Sygnały automatycznie powiadamiają widok o zmianach w strategii \texttt{OnPush}, eliminując potrzebę ręcznego wywoływania detekcji zmian czy stosowania potoku \texttt{async} w prostych przypadkach.
+
+\textbf{Wykorzystanie RxJS}:
+Biblioteka RxJS pozostaje kluczowa w obsłudze asynchroniczności, szczególnie w warstwie komunikacji z API i obsługi zdarzeń. \\ \texttt{TranslationService} wykorzystuje \texttt{BehaviorSubject<string>} do zarządzania stanem wybranego języka, co pozwala na imperatywne pobranie aktualnej wartości (\texttt{.value}) oraz reaktywną subskrypcję zmian przez potok \texttt{translate} w szablonach. Metody serwisów API (np. \texttt{HttpClient.get/post}) zwracają obiekty \texttt{Observable}, które są obsługiwane w komponentach lub konwertowane na sygnały (interioperacyjność \texttt{toSignal}).
+
+\textbf{Integracja czasu rzeczywistego}:
+Serwis \texttt{SignalRService} stanowi most między zdarzeniami WebSocket a stanem aplikacji. Przykładowo, zdarzenie \\ \texttt{UpdateInboxCounter} z serwera bezpośrednio aktualizuje sygnał licznika w \\ \texttt{InboxService} (\texttt{this.inboxService.counter.set(...)}), co natychmiast odświeża licznik powiadomień na pasku nawigacyjnym, zachowując pełną reaktywność interfejsu.
+\subsubsection{Komponenty}
+System frontendowy WasteFree został podzielony na moduły funkcjonalne, odzwierciedlające domeny biznesowe aplikacji. Każdy moduł grupuje komponenty o blisko powiązanej odpowiedzialności, co ułatwia nawigację po kodzie i lazy loading.
+
+\paragraph{Architektura widoku i nawigacja (Layout \& Core)}
+Interfejs użytkownika opiera się na komponencie \texttt{TopbarComponent}, który pełni rolę głównego paska nawigacyjnego. Zaimplementowano go w sposób reaktywny, wykorzystując \texttt{EffectRef} do animowania ikony skrzynki odbiorczej (pulsowanie) w momencie otrzymania nowego sygnału z serwisu \texttt{InboxService}. Wygląd paska (kolorystyka, dostępne opcje) jest dynamicznie dostosowywany do roli zalogowanego użytkownika (\texttt{userRole}) poprzez warunkowe klasy CSS (np. \texttt{.role-garbadmin}). Logika komponentu nasłuchuje zdarzeń routera (\texttt{NavigationEnd}), aby automatycznie ukrywać się na widokach autoryzacji i landing page'u, zapewniając czystość interfejsu ("distraction-free") podczas logowania.
+
+Centralnym punktem po zalogowaniu jest \texttt{PortalHomeComponent} (Dashboard). Wykorzystuje on architekturę opartą na \textbf{Angular Signals} do zarządzania stanem statystyk (oszczędności, redukcja odpadów). Dane są pobierane z \texttt{AccountService} i agregowane w reaktywnym sygnale \texttt{stats}, co gwarantuje natychmiastowe odświeżenie widoku bez konieczności ręcznego wywoływania detekcji zmian.
+
+Za globalną informację zwrotną o procesach asynchronicznych odpowiada \\ \texttt{LoaderOverlay}. Jest on sterowany przez \texttt{LoaderService} i sprzężony z interceptorami HTTP, co pozwala na automatyczne wyświetlanie spinnera ładowania podczas trwania zapytań API, blokując interakcje użytkownika w newralgicznych momentach.
+
+\paragraph{Moduł tożsamości i profilu (Identity \& Profile)}
+Uwierzytelnianie obsługuje \texttt{AuthComponent}, który implementuje wzorzec Wizard (Kreator) dla procesu rejestracji. Formularz oparty na \textbf{ReactiveForms} posiada dynamiczną walidację, która dostosowuje wymogi w czasie rzeczywistym – przykładowo, pole wyboru preferencji odbioru (\texttt{pickupOptions}) staje się wymagane tylko wtedy, gdy użytkownik wybierze rolę Administratora Odpadów.
+
+Zarządzanie danymi użytkownika realizuje \texttt{ProfileComponent}. Zaimplementowano tu walidację numeru konta bankowego (IBAN) zgodnie ze standardem \textbf{Modulo 97}, co zapobiega błędnym wypłatom na poziomie frontendu. Komponent obsługuje również przesyłanie awatara, weryfikując typ MIME i rozmiar pliku (limit 5MB) przed wysłaniem żądania do API. Edycja danych adresowych i preferencji odbywa się w trybie "in-place", co poprawia UX poprzez eliminację konieczności przechodzenia do osobnych widoków edycji.
+
+Portfel użytkownika (\texttt{WalletComponent}) umożliwia symulację doładowań (płatność BLIK z walidacją regex kodu 6-cyfrowego) oraz wypłat środków. Stan salda jest odzwierciedlany przez strumień RxJS \texttt{balance\$}, który jest automatycznie synchronizowany z serwisem portfela po każdej transakcji, zapewniając spójność danych finansowych w całym portalu.
+
+\paragraph{Centrum komunikacji (Inbox \& Chat)}
+Komponent \texttt{InboxComponent} służy do zarządzania powiadomieniami systemowymi. Listowanie wiadomości oparto na paginacji po stronie serwera, której stan (strona, rozmiar) jest kontrolowany przez sygnały. Komponent implementuje polimorficzne renderowanie treści – potrafi obsłużyć wiadomości przesyłane jako proste ciągi znaków, obiekty JSON lub struktury złożone. Kluczową funkcją jest mechanizm \textbf{Routing Redirection}: powiadomienia mogą zawierać metadane (np. \texttt{ActionType.MakePayment}), które przekształcają element listy w interaktywny odnośnik, przenoszący użytkownika bezpośrednio do kontekstu akcji (np. do widoku opłacenia konkretnego zamówienia).
+
+Komunikacja grupowa odbywa się w \texttt{GroupChatComponent}, który integruje się z usługą \texttt{SignalR}. Wiadomości są renderowane w czasie rzeczywistym, z uwzględnieniem statusów doręczenia i podziału na wiadomości własne/obce.
+
+\paragraph{Zarządzanie grupami i realizacja (Groups \& Orders)}
+Szczegóły grupy prezentuje \texttt{GroupPanelComponent}. Zastosowano tu zagnieżdżony routing (zakładki: Szczegóły, Odbiory, Czat) oraz mechanizm \textbf{Resolvers}, który pobiera kluczowe dane grupy zanim nastąpi aktywacja komponentu, eliminując efekt "skakania" treści (layout shift). Formularz edycji grupy waliduje adres w czasie rzeczywistym, integrując się z mapami.
+
+Najbardziej złożonym elementem systemu jest \texttt{PickupOrderComponent} – kreator zamówienia odbioru. Jego logika opiera się na maszynie stanów, prowadzącej użytkownika przez kroki: Typ usługi \textrightarrow{} Uczestnicy \textrightarrow{} Adres/Termin \textrightarrow{} Opcje dodatkowe \textrightarrow{} Podsumowanie. Walidacja przejścia do kolejnego kroku (\texttt{primaryActionDisabled}) jest funkcją czystą, zależną od stanu bieżącego kroku i walidatorów formularza. Unikalnym rozwiązaniem jest funkcja \texttt{effect()} (z API Signals), która nasłuchuje zmian w formularzu i automatycznie wyzwala przeliczenie szacowanego kosztu zamówienia (Live Pricing) w API, obsługując stany ładowania i błędy. Zastosowano również niestandardowy \texttt{DateAdapter}, dostosowujący działanie datepickerów Material UI do polskiego formatu daty.
+
+Przegląd historii zamówień zapewnia \texttt{MyPickupsComponent}. Wykorzystuje on \texttt{Signal Inputs} do reaktywnego filtrowania listy zamówień według statusu (np. "Oczekujące na płatność") oraz grupy, odświeżając widok bez przeładowania strony.
+
+\paragraph{Panel Administratora Odpadów (Garbage Admin)}
+Dla użytkowników o podwyższonych uprawnieniach przygotowano dedykowane widoki w module \\ \texttt{garbage-admin}. Komponenty \texttt{OrdersWaiting} i \texttt{OrdersAssigned} prezentują zlecenia w układzie zoptymalizowanym pod kątem procesowania (akceptacja/odrzucenie). Istotnym elementem jest \texttt{UtilizationFeeModal}, który pozwala administratorowi na dołączenie dowodu utylizacji (skan/zdjęcie) i naliczenie dodatkowych opłat, zamykając obieg finansowy zlecenia.
+\subsubsection{Nawigacja i bezpieczeństwo}
+W ramach projektu \textit{WasteFree} zaimplementowano mechanizm nawigacji oparty na \textit{Angular Router}, co pozwala na funkcjonowanie aplikacji w modelu \textit{Single Page Application} (SPA). Dzięki temu rozwiązaniu przełączanie widoków odbywa się po stronie klienta, bez konieczności przeładowywania całej strony, co znacząco poprawia wydajność i komfort użytkowania. Router zarządza stanem adresu URL w przeglądarce, mapując go na odpowiednie komponenty widoku, a także umożliwia przekazywanie parametrów oraz danych do tras.
+
+\paragraph{Routing, guardy}
+Konfiguracja ścieżek aplikacji została zdefiniowana w pliku \texttt{app.routes.ts} w postaci tablicy obiektów typu \texttt{Routes}. Wykorzystano mechanizm zagnieżdżonych tras (\textit{nested routes}), co pozwala na tworzenie hierarchicznej struktury widoków oraz dziedziczenie zabezpieczeń. Główny obszar aplikacji, dostępny dla zalogowanych użytkowników, został zgrupowany pod ścieżką \texttt{/portal}.
+
+\begin{lstlisting}[language=TypeScript, caption=Konfiguracja routingu i zagnieżdżonych tras, label=lst:app-routes]
+export const routes: Routes = [
+    { path: '', component: HomeComponent },
+    {
+        path: 'portal',
+        component: PortalComponent,
+        data: { showTopbar: true },
+        canActivate: [authGuard],
+        children: [
+            { path: '', component: PortalHomeComponent },
+            { path: 'wallet', component: WalletComponent },
+            // ... pozostałe trasy
+            { path: 'garbage-admin/orders/waiting', component: GarbageAdminOrdersWaitingComponent, canActivate: [garbageAdminGuard] },
+            // ...
+        ]
+    },
+    { path: 'auth', component: AuthComponent },
+    { matcher: activateAccountMatcher, component: ActivationComponent },
+    { path: '**', component: NotFoundComponent }
+];
+\end{lstlisting}
+
+W powyższej konfiguracji zastosowano właściwość \texttt{canActivate} na poziomie trasy \texttt{portal}, co wymusza weryfikację uprawnień dla wszystkich tras podrzędnych. Do zabezpieczenia tras wykorzystano podejście \textit{Functional Guards}, które jest rekomendowanym standardem w nowszych wersjach frameworka Angular, zastępującym tradycyjne strażniki oparte na klasach.
+
+Podstawowym mechanizmem zabezpieczającym jest \texttt{authGuard} (Listing \ref{lst:auth-guard}). Jego rola polega na weryfikacji tożsamości użytkownika przed udzieleniem dostępu do chronionych zasobów. Strażnik sprawdza obecność tokenu uwierzytelniającego w pamięci lokalnej (\textit{localStorage}) lub w stanie serwisu \texttt{CurrentUserService}. W przypadku braku autoryzacji następuje automatyczne przekierowanie do panelu logowania.
+
+\begin{lstlisting}[language=TypeScript, caption=Implementacja funkcjonalnego strażnika autoryzacji (authGuard), label=lst:auth-guard]
+import { inject } from '@angular/core';
+import { CanActivateFn, Router } from '@angular/router';
+import { CurrentUserService } from '../services/current-user.service';
+
+export const authGuard: CanActivateFn = (route, state) => {
+  const router = inject(Router);
+  const currentUser = inject(CurrentUserService);
+  const token = localStorage.getItem('authToken');
+
+  if (token) return true;
+  if (currentUser.user()) return true;
+
+  router.navigate(['/auth']);
+  return false;
+};
+\end{lstlisting}
+
+Dodatkowo zaimplementowano kontrolę dostępu opartą na rolach (\textit{Role-Based Access Control} - RBAC) przy użyciu \texttt{garbageAdminGuard}. Strażnik ten weryfikuje, czy zalogowany użytkownik posiada rolę \texttt{GarbageAdmin}, co jest wymagane do dostępu do panelu zarządzania zleceniami odbioru odpadów. Odwołanie do \texttt{canActivate: [garbageAdminGuard]} widoczne jest w konfiguracji tras dla ścieżek administracyjnych.
+
+Warto również odnotować zastosowanie niestandardowego dopasowania adresu URL (\texttt{UrlMatcher}) w funkcji \texttt{activateAccountMatcher}, co pozwala na obsługę nietypowych schematów linków aktywacyjnych zawierających tokeny, wykraczających poza standardowe dopasowanie ścieżek. Całość konfiguracji jest dostarczana do aplikacji w pliku \texttt{app.config.ts} poprzez funkcję \texttt{provideRouter(routes)}, co integruje system routingu z mechanizmem \textit{Dependency Injection}.
+\subsubsection{Serwisy i integracje}
+
+Warstwa serwisowa aplikacji klienckiej pełni kluczową rolę w komunikacji z interfejsem programistycznym (API) oraz w zarządzaniu stanem aplikacji i logiką biznesową po stronie klienta. Implementacja została oparta na paradygmacie programowania reaktywnego z wykorzystaniem biblioteki RxJS oraz mechanizmu Angular Signals.
+
+\paragraph{Serwisy API i komunikacja HTTP}
+W katalogu \texttt{src/app/services} zaimplementowano szereg serwisów domenowych odpowiedzialnych za interakcję z konkretnymi kontrolerami API. Wszystkie serwisy wykorzystują wbudowany w framework klient HTTP (\texttt{HttpClient}) do wykonywania asynchronicznych zapytań. Adres bazowy API pobierany jest dynamicznie z konfiguracji środowiskowej (\texttt{environment.apiUrl}), co umożliwia elastyczne wdrażanie aplikacji w różnych środowiskach (deweloperskim, produkcyjnym).
+
+Każda metoda serwisowa zwraca obiekt typu \texttt{Observable<Result<T>>} lub \\ \texttt{Observable<PaginatedResult<T>>}, co pozwala na obsługę strumieni danych oraz ustandaryzowaną pracę z odpowiedziami zawierającymi dane lub błędy. Przykładem zaawansowanej implementacji jest serwis \texttt{GarbageOrderService}, który oprócz standardowych metod CRUD, implementuje mechanizm buforowania danych (cache) przy użyciu sygnałów (\texttt{ordersSignal}, \texttt{pagerSignal}). Pozwala to na uniknięcie nadmiarowych zapytań sieciowych w przypadku powrotu użytkownika do wcześniej odwiedzonych widoków, znacząco poprawiając responsywność interfejsu.
+
+\paragraph{Komunikacja w czasie rzeczywistym (SignalR)}
+Integracja z protokołem WebSocket została zrealizowana za pośrednictwem serwisu \texttt{SignalRService}. Wykorzystuje on bibliotekę \texttt{@microsoft/signalr} do nawiązywania trwałego połączenia z hubem powiadomień serwera (\texttt{notificationHub}).
+Kluczowe aspekty implementacji obejmują:
+\begin{itemize}
+    \item \textbf{Uwierzytelnianie:} Token JWT jest przekazywany w fabryce tokenów \\ (\texttt{accessTokenFactory}), co zapewnia bezpieczeństwo kanału komunikacyjnego.
+    \item \textbf{Automatyczne wznawianie połączenia:} Zastosowano metodę \\ \texttt{withAutomaticReconnect}, która gwarantuje ciągłość działania w przypadku chwilowych problemów z siecią.
+    \item \textbf{Obsługa zdarzeń:} Serwis nasłuchuje na zdarzenie \texttt{UpdateInboxCounter}, które w czasie rzeczywistym aktualizuje stan licznika nieprzeczytanych wiadomości w serwisie \texttt{InboxService} oraz wyświetla powiadomienie typu "toast" dla użytkownika, informując o nowej aktywności bez konieczności odświeżania strony.
+\end{itemize}
+
+\paragraph{System ładowania (Loader)}
+Dla poprawy doświadczenia użytkownika (User Experience) podczas operacji długotrwałych, zaprojektowano serwis \\ \texttt{LoaderService} współpracujący z komponentem \texttt{LoaderOverlayComponent}. Mechanizm ten opiera się na strumieniu \texttt{BehaviorSubject<boolean>}, sterującym widocznością nakładki blokującej interfejs.
+Istotnym elementem implementacji jest algorytm zapobiegający efektowi "migotania" (flickering), który występuje przy bardzo szybkich zapytaniach. Serwis wymusza minimalny czas wyświetlania loadera (np. 500ms), nawet jeśli operacja zakończy się szybciej. Rozwiązanie to zapewnia płynność wizualną interfejsu. Loader jest wywoływany manualnie w kluczowych punktach nawigacji (np. podczas logowania do portalu), co daje programiście precyzyjną kontrolę nad tym, które operacje powinny blokować interfejs użytkownika.
+
+\subsubsection{Interceptory i i18n}
+
+Mechanizm interceptorów HTTP w Angularze (\texttt{HttpInterceptorFn}) został wykorzystany do implementacji globalnych polityk bezpieczeństwa, obsługi błędów oraz kontekstualizacji zapytań sieciowych. Dzięki zastosowaniu podejścia funkcyjnego, logika ta jest odseparowana od komponentów i łatwa do utrzymania.
+
+\paragraph{Bezpieczeństwo i autoryzacja (AuthInterceptor)}
+Za uwierzytelnianie zapytań odpowiada \texttt{authInterceptor}. Przed wysłaniem żądania, interceptor pobiera token JWT z pamięci lokalnej i dołącza go w nagłówku \texttt{Authorization: Bearer}. Interceptor pełni również funkcję strażnika sesji: przechwytuje odpowiedzi o kodzie \textbf{401 (Unauthorized)} i w przypadku wygaśnięcia sesji automatycznie czyści dane uwierzytelniające, resetuje stan portfela (\texttt{WalletService}) oraz przekierowuje użytkownika do panelu logowania.
+
+\paragraph{Globalna obsługa błędów (ErrorInterceptor)}
+Zaimplementowano \\ \texttt{error.interceptor.ts} w celu centralizacji obsługi błędów API. Przechwytuje on wyjątki HTTP i przetwarza je na czytelne dla użytkownika komunikaty:
+\begin{itemize}
+    \item \textbf{403 (Forbidden):} Sygnalizuje brak uprawnień.
+    \item \textbf{422 (Unprocessable Entity):} Obsługuje błędy walidacji formularzy, wykorzystując helper \texttt{extractApiErrorPayload} do prezentacji listy niespełnionych reguł biznesowych.
+    \item \textbf{Błędy ogólne (4xx/5xx):} Wyświetla zlokalizowane komunikaty błędów lub oryginalne wiadomości przesłane przez serwer, jeśli są dostępne.
+\end{itemize}
+Integracja z \texttt{ToastrService} zapewnia, że błędy są prezentowane w sposób nieinwazyjny, ale widoczny.
+
+\paragraph{Internacjonalizacja (i18n) i lokalizacja}
+System wielojęzyczności oparto na autorskim rozwiązaniu składającym się z trzech elementów: interceptora, serwisu oraz rury (pipe).
+\begin{itemize}
+    \item \textbf{LocaleInterceptor:} Dba o spójność językową na linii frontend-backend. Na podstawie wybranego języka dodaje nagłówek \texttt{Accept-Language} (np. \texttt{pl-PL}) do każdego zapytania, co pozwala API zwracać zlokalizowane komunikaty błędów.
+    \item \textbf{TranslationService:} Zarządza ładowaniem plików JSON z tłumaczeniami (z katalogu \texttt{assets/i18n}) oraz ich buforowaniem. Udostępnia reaktywny strumień zmiany języka, co pozwala komponentom na dynamiczną aktualizację treści.
+    \item \textbf{TranslatePipe:} Odpowiada za transformację kluczy tłumaczeń w widokach HTML. Jest zdefiniowana jako \texttt{pure: false}, co umożliwia natychmiastowe przerysowanie widoku po zmianie języka bez przeładowania strony. Rura obsługuje również interpolację zmiennych (np. wstawianie wartości dynamicznych w miejsce placeholderów w tekście).
+\end{itemize}
+\subsubsection{Środowiska i build}
+
+Warstwa prezentacji (frontend) wykorzystuje standardowe mechanizmy Angular CLI do zarządzania konfiguracją środowiskową oraz procesem budowania artefaktów produkcyjnych.
+
+\paragraph{Zarządzanie środowiskami}
+Aplikacja definiuje dwa podstawowe profile środowiskowe, realizowane poprzez wymianę plików konfiguracyjnych w czasie kompilacji (file replacements). Pliki \texttt{environment.ts} (dla środowiska lokalnego) oraz \texttt{environment.prod.ts} (dla środowiska produkcyjnego) eksportują obiekt konfiguracyjny o ujednoliconym interfejsie.
+Kluczowe parametry konfiguracyjne obejmują:
+\begin{itemize}
+    \item \texttt{production}: Flaga logiczna sterująca trybem uruchomienia Angulara (np. wyłączenie mechanizmu detekcji zmian w trybie deweloperskim, włączenie dodatkowych optymalizacji).
+    \item \texttt{apiUrl}: Adres bazowy interfejsu REST API, który w obecnej konfiguracji wskazuje na środowisko \texttt{https://dev.wastefreecloud.pl/api}, co umożliwia separację warstwy frontendowej od backendowej nawet w trakcie lokalnego developmentu.
+\end{itemize}
+
+\paragraph{Proces budowania i optymalizacja}
+Proces budowania aplikacji jest zdefiniowany w pliku \texttt{angular.json} i wykorzystuje builder \\ \texttt{@angular-devkit/build-angular:application}. Konfiguracja produkcyjna \\ (\texttt{configurations.production}) wymusza szereg optymalizacji kodu wynikowego:
+\begin{itemize}
+    \item \textbf{Ahead-of-Time (AOT) Compilation:} Kompilacja szablonów HTML i TypeScript do kodu JavaScript przed uruchomieniem w przeglądarce, co skutkuje mniejszym rozmiarem paczki i szybszym renderowaniem.
+    \item \textbf{Build Optimizer \& Minification:} Usuwanie zbędnych białych znaków, komentarzy oraz martwego kodu (tree-shaking).
+    \item \textbf{Output Hashing:} Dodawanie sum skrótu do nazw plików wynikowych (np. \texttt{main.7a2f...js}), co rozwiązuje problem cache'owania zasobów przez przeglądarki (Cache Busting).
+\end{itemize}
+Dodatkowo, zdefiniowano budżety wydajnościowe (ang. \textit{budgets}), które ostrzegają lub przerywają proces budowania w przypadku przekroczenia limitów rozmiaru plików (np. ostrzeżenie przy 500kb dla paczki początkowej, błąd przy 2mb).
+
+\paragraph{Zależności zewnętrze}
+Zarządzanie zależnościami projektu oparte jest o menedżer pakietów NPM. Wśród kluczowych bibliotek zewnętrznych wykorzystywanych w projekcie znajdują się:
+\begin{itemize}
+    \item \textbf{Interfejs użytkownika:} \texttt{Bootstrap 5} (system grid, style bazowe), \\ \texttt{@angular/material} (komponenty interaktywne).
+    \item \textbf{Komunikacja:} \texttt{@microsoft/signalr} (WebSocket), \texttt{ngx-toastr} (powiadomienia).
+    \item \textbf{Programowanie reaktywne:} \texttt{RxJS} (fundament obsługi zdarzeń asynchronicznych).
+\end{itemize}
+
+\subsection{Metodyka CI/CD i wdrożenie}
+
+Proces ciągłej integracji i ciągłego dostarczania (CI/CD) został zrealizowany z wykorzystaniem platformy GitHub Actions. Zdefiniowano dwa niezależne potoki (pipeline’y) wdrożeniowe dla części serwerowej (API) oraz klienckiej (UI), a także potoki weryfikacyjne dla procedury Pull Request.
+
+\subsubsection{Pipeline API (GitHub Actions)}
+Wdrożenie warstwy backendowej realizowane jest przez scenariusz \texttt{api-cicd.yml}, uruchamiany automatycznie po zatwierdzeniu zmian w głównej gałęzi repozytorium (\texttt{main}) lub ręcznie (\texttt{workflow\_dispatch}).
+Kluczowe etapy procesu obejmują:
+\begin{enumerate}
+    \item \textbf{Przygotowanie środowiska:} Konfiguracja maszyny wirtualnej Ubuntu, instalacja .NET SDK 9.0.
+    \item \textbf{Kompilacja i budowanie:} Przywracanie zależności (\texttt{dotnet restore}) oraz kompilacja projektu w konfiguracji Release (\texttt{dotnet build}).
+    \item \textbf{Publikacja i konteneryzacja:} Utworzenie publikowalnego artefaktu aplikacji (\texttt{dotnet publish}) oraz zbudowanie obrazu Docker \\(\texttt{mcr.microsoft.com/dotnet/aspnet:9.0}) z oznaczeniem \texttt{latest}.
+    \item \textbf{Publikacja obrazu:} Wypchnięcie (push) zbudowanego obrazu do repozytorium Docker Hub z wykorzystaniem bezpiecznych zmiennych sekretnych (\texttt{secrets}).
+    \item \textbf{Wdrożenie SSH:} Zdalne wykonanie skryptu na serwerze docelowym (VPS/Cloud) za pomocą \texttt{appleboy/ssh-action}. Skrypt automatycznie:
+    \begin{itemize}
+        \item Zatrzymuje i usuwa istniejące kontenery.
+        \item Pobiera najnowszy obraz z rejestru.
+        \item Uruchamia nowy kontener, wstrzykując zmienne środowiskowe (connection strings, klucze szyfrujące) bezpośrednio z sekretów repozytorium.
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Pipeline UI (GitHub Actions)}
+Proces wdrożenia interfejsu użytkownika (\texttt{ui-cicd.yml}) przebiega analogicznie, z uwzględnieniem specyfiki ekosystemu Node.js:
+\begin{enumerate}
+    \item \textbf{Instalacja zależności:} Czysta instalacja pakietów NPM (\texttt{npm ci}).
+    \item \textbf{Budowanie aplikacji:} Uruchomienie skryptu budującego wersję produkcyjną Angulara, który generuje zoptymalizowane pliki statyczne.
+    \item \textbf{Konteneryzacja:} Budowa obrazu w oparciu o serwer Nginx (\texttt{nginx:alpine}), który serwuje wygenerowane pliki aplikacji SPA.
+    \item \textbf{Wdrożenie:} Podmiana kontenera na serwerze docelowym i mapowanie portu 5000 hosta na port 80 kontenera.
+\end{enumerate}
+
+\subsubsection{Konteneryzacja i obrazy Docker}
+Architektura wdrożeniowa opiera się na konteneryzacji wszystkich komponentów systemu.
+\paragraph{API Dockerfile}
+Wykorzystano wieloetapowe budowanie obrazu (\textit{Multi-stage building}). Etap \texttt{base} (runtime) jest lekki i zawiera tylko środowisko uruchomieniowe ASP.NET Core, natomiast proces kompilacji odbywa się w cięższym obrazie SDK. Wynikowy obraz jest zoptymalizowany pod kątem rozmiaru i bezpieczeństwa.
+
+\paragraph{UI Dockerfile}
+Obraz frontendowy również korzysta z podejścia wieloetapowego:
+\begin{itemize}
+    \item \textbf{Stage 1 (Build):} Obraz \texttt{node:20-alpine} służy do skompilowania kodu TypeScript i zasobów SCSS.
+    \item \textbf{Stage 2 (Serve):} Obraz \texttt{nginx:alpine} przejmuje rolę lekkiego serwera HTTP. Standardowa konfiguracja Nginx została nadpisana plikiem \texttt{nginx.conf}, aby poprawnie obsługiwać routing aplikacji SPA (przekierowanie wszystkich żądań do \texttt{index.html}).
+\end{itemize}
+% --------------------------------------------------------------------
+%%%%%%% odkomentować gdy bibliografia ma być wewnątrz dokumentu
+% --------------------------------------------------------------------
+%\begin{thebibliography}{11}
+%
+%\addcontentsline{toc}{section}{Literatura}
+%
+%\bibitem{ZAN}
+%C. Zannoni and P. Pasini,
+%\emph{Advances in the Computer Simulatons of Liquid Crystals}, Kluwer Academic Publishers, 2000.
+%
+%\end{thebibliography}
+
+\end{document}
