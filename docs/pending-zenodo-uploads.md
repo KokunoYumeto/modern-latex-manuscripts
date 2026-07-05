@@ -1,9 +1,9 @@
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx177
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx178
 
-Manifest: [20260705_sga6_source_rescribe_idx177_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx177_refresh.json)
+Manifest: [20260705_sga6_source_rescribe_idx178_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx178_refresh.json)
 
-- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx177_20260705.zip`, 2,872,921 bytes, SHA256 `248667E1D9C75F8BE57DB64B08D4738B392BB8BA7A17D34530EB1D02098A644D`, 13 entries.
-- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #174, idx177 / volume p164 / Expose II p5; next cursor idx178 / volume p165 / Expose II p6.
+- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx178_20260705.zip`, 2,875,383 bytes, SHA256 `9A6D5B2E71B0C3521DE15E159B29EC2B08B571F9BAE0BDD7B16B5793CCB747A2`, 13 entries.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #175, idx178 / volume p165 / Expose II p6; next cursor idx179 / volume p166 / Expose II p7.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
 ## 2026-07-05: Noether-PC/interlanguage package 432 rolling delta
@@ -8688,6 +8688,7 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 
 
 
