@@ -33,9 +33,9 @@ sources/sga/sga6-claude-workpass-source-rescribe-20260704/
 
 ## Evidence ZIP
 
-- File: $zipRel
+- File: publish_staging/sga/20260705_sga6_source_rescribe_idx197_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx197_Workpass_20260705.zip
 - Size: 2902611 bytes
-- SHA256: $zipHash
+- SHA256: 6EF6435BC2A2142C3D87E93B42EABCA6A699D19F7F44F4204AAADE9A95BC02D9
 - Entries: 10
 
 ## Classification
@@ -50,3 +50,4 @@ This is source-rescribe/workpass provenance only. It is not:
 - a critical edition.
 
 The mirrored workpass remains useful because it documents concrete source-rescribe progress against the better IA scan and exposes the repair frontier for continuation.
+
