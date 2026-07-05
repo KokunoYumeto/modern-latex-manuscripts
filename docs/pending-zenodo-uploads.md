@@ -1,4 +1,11 @@
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx202
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx203
+
+Manifest: [20260705_sga6_source_rescribe_idx203_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx203_workpass_refresh.json)
+
+- SGA support ZIP: SGA6_ClaudeCodex_SourceRescribe_idx203_Workpass_20260705.zip, 2923767 bytes, SHA256 C6F95DE47A470DB189E7527AC07079580DD0E41A24C536E1B13B03128E36DE4F.
+- Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #200, idx203 / volume p190 / Expose II p31; next cursor idx204 / volume p191 / Expose II p32.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx202 (superseded by idx203)
 
 Manifest: [20260705_sga6_source_rescribe_idx202_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx202_workpass_refresh.json)
 
@@ -8815,6 +8822,3 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
-
-
-
