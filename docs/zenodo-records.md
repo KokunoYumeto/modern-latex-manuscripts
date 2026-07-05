@@ -1,9 +1,16 @@
+## 2026-07-05 Noether WebR781 P13 p249 / P30 survival webdrop pending upload
+
+- Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
+- Artifact: `publish_staging/noether/20260705_webr781_p13p249_p30survival_ledger_webdrop/Noether_LocalCodex_20260705_WebR781_P13p249_P30Survival_Ledger_WebDrop.zip`
+- SHA256: `FEFA11A051E0845502E89B382E5420EEAF012F86AD9F14C012EA5D0D0BE9C8E9`; size: 5,367,852 bytes; entries: 23.
+- Status: source-control/support webdrop after Web R781. Includes current German cumulative TeX/PDF/log after one promoted P13 printed p249 correction, Web R781 P13/P19 audit files, P13 p249 source evidence crops, and P30 survival ledger. Not a reader release, Noether closure, page-by-page certification, multilingual synchronization, source-complete certification, publication readiness, or critical-edition material.
+
 ## 2026-07-05 Noether known-band/tail ledger webdrop pending upload
 
 - Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
 - Artifact: `publish_staging/noether/20260705_known_bands_tail_ledger_webdrop/Noether_LocalCodex_20260705_P13P24TailKnownBands_Ledger_WebDrop.zip`
-- SHA256: `9092580B6EA438D618257287C403CFA021F93D111C7AEFD8AD1B72573CC37082`; size: 16,683,579 bytes; entries: 48.
-- Status: source-control/support and webdrop evidence with R796-derived German cumulative TeX/PDF/log, QC ledgers, P13 archaeology, Paper 24 p233 source-witness material, and tail/Schur known-band repair evidence. Not a reader release, Noether closure, page-by-page certification, multilingual synchronization, source-complete certification, publication readiness, or critical-edition material.
+- SHA256: `768F49B5403A65825021F989D9A56A1E74BBA44F64C071D252284DA143019804`; size: 20,364,398 bytes; entries: 51.
+- Status: source-control/support and webdrop evidence with R796-derived German cumulative TeX/PDF/log, QC ledgers, P13 archaeology, Paper 24 p233 source-witness material, tail/Schur known-band repair evidence, and p763 tail-symbol resolution evidence. Not a reader release, Noether closure, page-by-page certification, multilingual synchronization, source-complete certification, publication readiness, or critical-edition material.
 
 ## 2026-07-05 ChatGPT/Fable interlanguage handoff refresh pending upload
 
