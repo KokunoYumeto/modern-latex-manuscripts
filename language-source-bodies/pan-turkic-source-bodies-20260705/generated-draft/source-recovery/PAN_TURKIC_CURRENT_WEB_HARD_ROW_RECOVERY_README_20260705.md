@@ -8,6 +8,7 @@ Packaged source bodies:
 - Uzbek TADQIQOTLAR article/PDF/text witness for HALQA VA UNING XOSSALARI, a ring-theory and Noether-adjacent source body, not an exact Noetherian-ring closure.
 - Kazakh Univision programme HTML/text witness with exact Көпмүшелік сақина.
 - Kazakh Auezov programme PDF/text witness with exact Көпмүшелік сақина.
+- Kazakh Wikipedia Emmy Noether HTML/text witness with exact Нетер сақинасы.
 
 Outputs:
 

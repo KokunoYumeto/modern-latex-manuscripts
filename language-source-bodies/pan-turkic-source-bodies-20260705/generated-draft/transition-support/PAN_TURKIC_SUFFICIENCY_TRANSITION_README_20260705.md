@@ -16,10 +16,9 @@ Outputs:
 
 Bucket counts:
 
-- adjacent-or-eponym-context-only; hard-row-source-gate-open: 2
-- source-canon-insufficient/source-acquisition-gap: 9
+- source-canon-insufficient/source-acquisition-gap: 8
 - source-canon-sufficient-for-scoped-draft-support: 26
-- source-canon-sufficient-for-source-tied-noncanonical-hard-row-draft; review-gate-open: 6
+- source-canon-sufficient-for-source-tied-noncanonical-hard-row-draft; review-gate-open: 9
 - source-canon-sufficient-for-Turkish-scoped-draft-support: 2
 
 Rows marked source-canon sufficient may support scoped generated-draft translation/pre-translation only. Rows marked adjacent/eponym or source-acquisition gap remain blocked for hard-row closure. No native review, canonical approval, accepted terminology, license clearance, source certification, bridge/pilot, gate promotion, final status, or translation completion is claimed.

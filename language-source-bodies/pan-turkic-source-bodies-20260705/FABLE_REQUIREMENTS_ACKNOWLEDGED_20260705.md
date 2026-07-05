@@ -26,7 +26,7 @@ Lane: Noether R2 Pan-Turkic source-canon/interlanguage-support lane.
 
 - Complete independent Pan-Turkic interlanguage is not complete.
 - Complete translation/pre-translation into every relevant interlanguage and dominant language is not complete in this lane.
-- Non-Turkish R2 Noetherian-ring and polynomial-ring hard rows remain source-gated; current exceptions are only Turkish scoped support, Kazakh and Uzbek current-web exact polynomial-ring source-tied draft support, Uyghur candidate-only rows, Uzbek adjacent `Bezu halqasi` and TADQIQOTLAR ring/Noether-context evidence, Kyrgyz direct base-polynomial bodies, and Uyghur GitHub TeX/source-archive technical support. Kazakh/Bashkir direct ring bodies, Kyrgyz polynomial bodies, and Uyghur TeX repositories remain neighborhood/infrastructure witnesses rather than hard-row closures.
+- Non-Turkish R2 Noetherian-ring and polynomial-ring hard rows remain source-gated; current exceptions are only Turkish scoped support, Kazakh current-web exact Noetherian-ring source-tied draft support, Kazakh and Uzbek current-web exact polynomial-ring source-tied draft support, Uyghur candidate-only rows, Uzbek adjacent `Bezu halqasi` and TADQIQOTLAR ring/Noether-context evidence, Kyrgyz direct base-polynomial bodies, and Uyghur GitHub TeX/source-archive technical support. Bashkir direct ring bodies, Kyrgyz polynomial bodies, and Uyghur TeX repositories remain neighborhood/infrastructure witnesses rather than hard-row closures.
 - No native review, canonical approval, accepted terminology, blanket license clearance, gate promotion, source certification, final status, bridge/pilot, or translation completion is claimed.
 
 ## G15 / 15G Search

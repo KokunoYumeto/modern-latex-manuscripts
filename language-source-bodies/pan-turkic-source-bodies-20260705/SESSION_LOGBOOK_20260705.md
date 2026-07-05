@@ -1,3 +1,17 @@
+<!-- ACTIVE_PURSUED_GOAL_FORCED_WAKE_20260706_START -->
+# Active Pursued Goal / Forced Wake Reset
+
+`	ext
+You are the Noether R2 Pan-Turkic hard-blocker lane. Keep a single current-state heartbeat, durable logbook, manifest, SHA256 hashes, README, and output state. Continue Pan-Turkic source-canon and sufficiency-transition work: literal source bodies and TeX/source archives where available; OCR/current-web witnesses clearly labeled; source-use/provenance/gap ledgers; Fable branch-weight, marginal-intelligibility, do-not-use, adverse-evidence, and draft/non-canonical interlinear/pretranslation support where baseline is sufficient. Do not create or promote a Pan-Turkic bridge while zero-row blockers remain. If source corpus is missing, package active recovery/search state and keep searching. If you see any other Noether thread idle, wake it with this same mutual-watch rule unless it has complete Fable-standard interlanguage construction and complete translation artifacts. Do not claim native review, accepted terminology, canonical approval, license clearance, gate promotion, source certification, final status, or translation completion.
+`
+<!-- ACTIVE_PURSUED_GOAL_FORCED_WAKE_20260706_END -->
+# Session Logbook Continued
+
+## Forced-Wake Goal Reset / Instruction Bus Read - 2026-07-06T00:20:05.2772258+02:00
+
+- Goal tool refused replacement because an older goal remains unfinished/usage-limited; exact current lane goal was copied to the top of HEARTBEAT_20260705.md and SESSION_LOGBOOK_20260705.md.
+- Read branch-visible instruction bus mirrors and Fable/other-PC directives from local paths recorded in generated-draft/governance/PAN_TURKIC_FORCED_WAKE_INSTRUCTION_READS_20260706.csv.
+- Continued by producing concrete package artifacts, body counts, upload queue, and transfer ZIP for B3/uploader.
 # Controlling Goal Reset P
 
 ```text
@@ -228,3 +242,55 @@ Generated required Fable ledger files under generated-draft/fable-pan-turkic/, r
 - Recorded validation snapshot at generated-draft/validation/PAN_TURKIC_CURRENT_WEB_PACKAGE_VALIDATION_20260705.csv.
 - Confirmed Kazakh and Uzbek polynomial-ring rows are source-tied generated-draft support only, not bridge/pilot or approval.
 - Rewrote HEARTBEAT_20260705.md as one current snapshot and ACTIVE_SESSION_STATE.md as the continuation state.
+
+## Current-Web Hard-Row Source Recovery Work Cycle - 2026-07-06T00:07:37.9065379+02:00
+
+- Packaged Uzbek Arxiv.uz exact polynomial-ring HTML/text witness and Uzbek TADQIQOTLAR ring/Noether-adjacent article/PDF/text witness.
+- Packaged Kazakh Univision and Auezov exact polynomial-ring current-web witnesses, plus Kazakh Wikipedia exact Noetherian-ring current-web witness.
+- Wrote generated-draft/source-recovery/PAN_TURKIC_CURRENT_WEB_HARD_ROW_RECOVERY_20260705.csv.
+- Wrote generated-draft/source-recovery/PAN_TURKIC_CURRENT_WEB_HARD_ROW_SEARCH_ATTEMPTS_20260705.csv with exact searched queries/URLs and gap decisions.
+- No bridge/pilot, native-review, accepted-terminology, blanket license-clearance, source-certified/final, gate-promotion, or translation-completion claim.
+
+## Term Occurrence / Source-Tied Scaffold Work Cycle
+
+- Scanned 203 readable packaged source rows for Pan-Turkic lexeme forms.
+- Wrote 2019 exact term occurrence rows at generated-draft/term-occurrences/PAN_TURKIC_TERM_OCCURRENCE_LEDGER_20260705.csv.
+- Wrote 8 exact no-occurrence gap rows at generated-draft/term-occurrences/PAN_TURKIC_TERM_OCCURRENCE_GAPS_20260705.csv.
+- Wrote source-tied generated-draft interlinear scaffold rows at generated-draft/term-occurrences/PAN_TURKIC_SOURCE_TIED_INTERLINEAR_SCAFFOLD_20260705.csv.
+- Occurrence rows are source witnesses only; they do not create bridge/pilot, accepted terminology, source certification, gate promotion, or translation completion.
+
+## Source Sufficiency Transition Work Cycle
+
+- Generated source-canon sufficiency transition matrix at generated-draft/transition-support/PAN_TURKIC_SOURCE_SUFFICIENCY_TRANSITION_MATRIX_20260705.csv.
+- Generated scoped draft/non-canonical translation support at generated-draft/transition-support/PAN_TURKIC_SCOPED_DRAFT_TRANSLATION_SUPPORT_20260705.csv.
+- Generated remaining hard-row gate ledger at generated-draft/transition-support/PAN_TURKIC_REMAINING_HARD_ROW_GATES_20260705.csv.
+- Matrix rows are grounded in exact occurrence anchors where available; adjacent/eponym/base-term rows remain gated.
+- No bridge/pilot, native-review, accepted-terminology, blanket license-clearance, source-certified/final, gate-promotion, or translation-completion claim.
+
+## Source Sufficiency Transition Work Cycle
+
+- Generated source-canon sufficiency transition matrix at generated-draft/transition-support/PAN_TURKIC_SOURCE_SUFFICIENCY_TRANSITION_MATRIX_20260705.csv.
+- Generated scoped draft/non-canonical translation support at generated-draft/transition-support/PAN_TURKIC_SCOPED_DRAFT_TRANSLATION_SUPPORT_20260705.csv.
+- Generated remaining hard-row gate ledger at generated-draft/transition-support/PAN_TURKIC_REMAINING_HARD_ROW_GATES_20260705.csv.
+- Matrix rows are grounded in exact occurrence anchors where available; adjacent/eponym/base-term rows remain gated.
+- No bridge/pilot, native-review, accepted-terminology, blanket license-clearance, source-certified/final, gate-promotion, or translation-completion claim.
+
+## Fable Formal Object Work Cycle
+
+Generated required Fable ledger files under generated-draft/fable-pan-turkic/, recorded G15/15G filename gap, and regenerated manifest/checksums. Outputs remain generated-draft/non-canonical.
+
+
+## Current-Web Hard-Row Validation and State Refresh - 2026-07-06T00:09:27.9409192+02:00
+
+- Refreshed search-attempt ledger with exact observed URLs for low-authority, adjacent, or rejected current-web results.
+- Recorded validation snapshot at generated-draft/validation/PAN_TURKIC_CURRENT_WEB_PACKAGE_VALIDATION_20260705.csv.
+- Confirmed Kazakh/Uzbek polynomial-ring rows and Kazakh Noetherian-ring row are source-tied generated-draft support only, not bridge/pilot or approval.
+- Rewrote HEARTBEAT_20260705.md as one current snapshot and ACTIVE_SESSION_STATE.md as the continuation state.
+
+
+## Mutual-Watch Transfer Notice - 2026-07-06T00:21:42.1040028+02:00
+
+- Sent B3/package steward thread 019f3329-ad9c-78a2-8255-5c23752caf73 the Pan-Turkic transfer ZIP path and SHA256 for uploader pickup.
+- Recorded notice at generated-draft/governance/PAN_TURKIC_MUTUAL_WATCH_TRANSFER_NOTICE_20260706.csv.
+- No Git push from this language lane.
+
