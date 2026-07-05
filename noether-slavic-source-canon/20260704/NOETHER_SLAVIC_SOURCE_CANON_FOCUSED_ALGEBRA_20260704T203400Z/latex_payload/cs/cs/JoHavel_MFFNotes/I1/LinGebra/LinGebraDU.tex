@@ -1,0 +1,223 @@
+\documentclass[12pt]{article}					% Začátek dokumentu
+\usepackage{../../MFFStyle}					    % Import stylu
+
+
+
+\begin{document}
+
+\section{Matice pro výpočet lineárních rekurencí}
+    \begin{priklad}[1.1]
+        Zobecněte postup výpočtu pro obecnou lineární rekurenci. Pro zadané $k$ a koeficienty $¦c = \(c_0, …, c_{k-1}\)$ popište, jak se matice $A$ zkonstruuje. Pochopitelně také dokažte, že má požadované vlastnosti. Tím pochopíte, jak jsme matici $A$ pro Fibonacciho čísla získali.
+
+        \begin{reseni}
+            Představme si, že máme máme vektor
+            $$ ¦v = \(x_{n+k-1}, x_{n+k-2}, …, x_{n+1}, x_{n}\)^T $$
+            (první prvek je aktuální člen, zbytek máme „uložený“, abychom mohli spočítat další člen). Nyní bychom chtěli získat další člen posloupnosti a zároveň zachovat „tvar“ ¦b, tedy aby výsledek byl
+            $$ ¦u = \(x_{n+k}, x_{n+k-1}, …, x_{n+2}, x_{n+1} \)^T. $$
+
+            Když se na rovnici $A¦v = ¦u$ podíváme po řádcích, tak zjistíme, že pro každé $0 ≤ i < k$ hledáme vektor $¦a_{i*}$ (řádek matice $A$)\footnote{V této úloze čísluji od nuly, aby byl pohodlnější zápis některých indexů.} tak, aby $¦a_{i*}·¦v = u_i = x_{n+k-i}$, což je pro $0 < i < k$ triviální, jelikož $x_{n+k-i}$ už je ve vektoru ¦v:
+            $$ \(¦a_{i*}\)_{i-1} = a_{i(i-1)} = 1, \hskip 1cm \(¦a_{i*}\)_j = a_{ij} = 1, \hskip 1cm 0 ≤ j < k, j≠i - 1 $$
+            \begin{align*} ¦a_{i*}·¦v &= 0·x_{n+k-1} + … + 0·x_{n+k-(i-2)} + 1·x_{n+k-(i-1)} + 0·x_{n+k-i} + … + 0·x_{n} = \\ &= x_{n+k-(i-1)} = u_i \end{align*}
+
+            Jediný řádek, který nám zbývá, je $¦a_{0*}$. My si ale můžeme všimnout, že $x_{n+k} = ¦c·¦v$, jelikož $x_{n+k}$ je lineární kombinací ¦v právě s koeficienty ¦c. Tj. pro nultý řádek matice $A$ platí $¦a_{0*}·¦vx_{n+k} = ¦c·¦v$, což splníme volbou „zvolíme“ (pro konkrétní $x_{…}$ může existovat i jiná možnost, obecně ale musí platit:) $¦a_{0*} = ¦v$.
+
+            Z konstrukce víme, že naše matice $A$ bude mít požadované vlastnosti, a bude tvaru:
+            $$ A = \begin{pmatrix} c_{k-1} & c_{k-2} & … & c_{1} & c_{0} \\ 1 & 0 & … & 0 & 0 \\ 0 & 1 & … & 0 & 0 \\ \vdots & \vdots & \ddots & \vdots & \vdots \\ 0 & 0 & … & 1 & 0 \\ 0 & 0 & … & 0 & 1 \end{pmatrix} $$ 
+            
+        \end{reseni}
+    \end{priklad}
+
+\pagebreak
+
+\section{Permutační matice}
+    \begin{priklad}[2.1]
+        Proč se permutačním maticím říká permutační? Uvažte, co permutační matice provádí s maticí $A$ (pochopitelně správné velikosti), pokud ji násobí zleva či zprava.
+
+        \begin{reseni}
+            Na násobení matice $A$ permutační maticí $P_{\pi}$ zleva se podíváme řádkovým pohledem, tedy $i$-tý řádek výsledné matice je $i$-tý řádek $P_{\pi}$ krát $A$, tedy lineární kombinace řádků $A$ s koeficienty $(P_{\pi})_{i*}$. To znamená, že $i$-tý řádek výsledné matice je $\pi(i)$-tý řádek $A$, protože $\pi(i)$-tý člen $(P_{\pi})_{i*}$ je 1, kdežto ostatní jsou nuly. Proto je permutační.
+
+            Na násobení matice $A$ permutační maticí $P_{\pi}$ zprava se naopak podíváme sloupcovým pohledem, tedy $\pi(i)$-tý sloupec výsledné matice je $A$ krát $\pi(i)$-tý sloupec $P_{\pi}$, tedy lineární kombinace sloupů $A$ s koeficienty $(P_{\pi})_{*\pi(i)}$. To znamená, že $\pi(i)$-tý sloupce výsledné matice je $i$-tý sloupec $A$, protože $i$-tý člen $(P_{\pi})_{*\pi(i)}$ je 1, kdežto ostatní jsou nuly. Taktéž proto permutační.
+        \end{reseni}
+    \end{priklad}
+
+    \begin{priklad}[2.2]
+        Permutační matice stejné velikosti lze násobit. Pro libovolné $n$-prvkové permutace $\pi$ a $\sigma$ má $P_{\pi}P_{\sigma}$ smysl. Ukažte, že součin permutačních matic je opět permutační matice a objevte, v jakém je vztahu k permutacím $\pi$ a $\sigma$.
+        
+        \begin{reseni}
+            Z předchozího příkladu víme, že násobením permutační maticí permutujeme řádky / sloupce, tedy součin dvou permutačních maticí bude permutační matice, jelikož permutací řádků / sloupců nezměníme počet 1 a 0 v řádcích ani sloupcích.
+
+            Jelikož $i$-tý řádek součinu $P_{\pi}P_{\sigma}$ je z předchozího příkladu $\pi(i)$-tý řádek $P_{\sigma}$, bude v $i$-tém řádku výsledku jednička na $\sigma(\pi(i)) = (\sigma \circ \pi)(i)$-tém řádku, tedy $P_{\pi}P_{\sigma} = )_{\sigma \circ \pi}$.
+        \end{reseni}
+    \end{priklad}
+
+\pagebreak
+
+    \begin{priklad}[2.3]
+        Permutační matice mají plnou hodnost, $\rank(P_{\pi}) = n$. Tedy vždy existuje inverzní matice. Zjistěte pro libovolnou permutaci $\pi$, jak vypadá inverzní matice $P_{\pi}^{-1}$.
+
+        \begin{reseni}
+            Z předchozího příkladu víme, že $P_{\pi}P_{\pi^{-1}} = P_{id} = ©I$, tedy $P_{\pi}^{-1}$ odpovídá $P_{\pi^{-1}}$ tj. (druhá rovnost platí z toho, že ve vyjádření inverzní matice je pouze prohozen sloupec a řádek oproti definici původní matice)
+            $$ \(P_{\pi}^{-1}\)_{ij} = \(P_{\pi^{-1}}\)_{ij} = \begin{cases} 1 & \text{ pro } i  = \pi(j), \\ 0 & \text{ jinak}. \end{cases} = \(P_{\pi}\)^T_{ij} $$
+            $$ P_{\pi}^{-1} = P_{\pi}^T $$ 
+        \end{reseni}
+    \end{priklad}
+
+    \begin{priklad}[2.4]
+        Ukažte, že pro libovolnou permutační matici $P_{\pi}$ existuje mocnina $k≥1$, že $P^k_\pi = ©I_n$. Jaká je nejmenší možná hodnota $k$?
+
+        \begin{reseni}
+            Z předchozího příkladu víme, že ke každé permutační matici existuje inverzní matice. Z příkladu 2.2 víme, že všechny mocniny $P_{\pi}$ budou zase permutační mocniny na stejné množině. Tedy jich může být pouze omezeně mnoho ($n!$), což znamená, že určitě existují dvě mocniny $i < j: P_{\pi}^i = P_{\pi}^j$. Tuto rovnost však můžeme vynásobit $i$-tou mocninou $P_{\pi}^{-1}$, čímž dostaneme $©I = P_{\pi}^{j-i}$, kde jistě $k = j-i > 0$.
+
+            Nejmenší $k$ bez důkazu nejmenší společný násobek délek cyklů permutace $\pi$ (menší permutace nejsou identity, tedy ani jim odpovídající matice nebudou jednotkové, na druhou stranu nejmenší společný násobek stačí, jelikož v tu chvíli se všechny cykly zobrazí na identitu).
+        \end{reseni}
+    \end{priklad}
+
+\pagebreak
+
+\section{Matice Pascalova trojúhelníku}
+    \begin{priklad}[3.1]
+        Jak bude vypadat součin $L_5U_5$?
+
+        \begin{reseni}
+                $$ \begin{pmatrix} 1 & 0 & 0 & 0 & 0 \\ 1 & 1 & 0 & 0 & 0 \\ 1 & 2 & 1 & 0 & 0 \\ 1 & 3 & 3 & 1 & 0 \\ 1 & 4 & 6 & 4 & 1 \end{pmatrix} \overset{\displaystyle\begin{pmatrix} 1 & 1 & 1 & 1 & 1 \\ 0 & 1 & 2 & 3 & 4 \\ 0 & 0 & 1 & 3 & 6 \\ 0 & 0 & 0 & 1 & 4 \\ \phantom{|}0\phantom{|} & \phantom{|}0\phantom{|} & \phantom{|}0\phantom{|} & \phantom{|}0\phantom{|} & \phantom{|}1\phantom{|} \end{pmatrix}}{\begin{pmatrix} \phantom{|}1\phantom{|} & \phantom{|}1\phantom{|} & \phantom{|}1\phantom{|} & \phantom{|}1\phantom{|} & \phantom{|}1\phantom{|} \\ 1 & 2 & 3 & 4 & 5 \\ 1 & 3 & 6 & 10 & 15 \\ 1 & 4 & 10 & 20 & 35 \\ 1 & 5 & 15 & 35 & 70 \end{pmatrix}} $$ 
+        \end{reseni}
+    \end{priklad}
+
+    \begin{priklad}[3.2]
+        Zobecněte získaný výsledek a popište součin $L_nU_n$. Pochopitelně pokud odvodíte obecný vztah, nemusíte řešit předchozí úlohu.
+
+        \begin{reseni}
+            Z předchozí úlohy už to celkem vypadá, že\footnote{V této sekci číslujeme zase od nuly.} $a_{ij} = \binom{i+j}{i}$. Tedy chceme dokázat:
+            $$ a_{ij} \overset{\text{DEF}}{=} \sum_{k=0}^{\min\{i, j\}}\binom{i}{k}\binom{j}{k} \overset{?}{=} \binom{i+j}{i} = \binom{i+j}{j}. $$ 
+        \end{reseni}
+
+        \begin{dukazin}[Kombinatorickým nahlédnutím]
+            V sumě vybíráme $k$ prvků z $i$ a $k$ prvků z $j$. Tj. vybíráme $k$ prvků z $i$ a $j - k$ prvků z $j$. Tedy vybíráme dohromady $j$ prvků z $j+i$, jelikož rozložení, kolik prvků vybereme z $j$ a kolik z $i$ „volí“ suma.
+        \end{dukazin}
+    \end{priklad}
+
+\section{Mocniny Jordanovy matice}
+    TODO
+
+
+\pagebreak
+
+\section{Matice s vzorem šachovnice}
+    \begin{priklad}[5.1]
+        Rozhodněte, zda jsou třídy $Š_l$ a $Š_s$ uzavřené na součet.
+
+        \begin{reseni}
+            Jsou, jelikož se sčítají prvky na stejných pozicích, tedy nuly se sečtou na nuly a ostatní prvky se sečtou na ostatní, tedy zůstanou.
+        \end{reseni}
+    \end{priklad}
+
+    \begin{priklad}
+        Rozhodněte, zda jsou třídy $\check S_l$ a $\check S_s$ uzavřené na součin. Jsou součiny matic z těchto tříd v nějakém dalším vztahu; třeba pro $AB$, pokud $A \in \check S_l$ a $B \in \check S_s$?
+
+        \begin{reseni}
+            $\check S_s$ nejsou uzavřené na součin, protože $\check S_s „\ni“ \begin{pmatrix} 0 1 \\ 1 0 \end{pmatrix}^2 = \begin{pmatrix} 1 0 \\ 0 1 \end{pmatrix} \in \check S_l$. Naopak $\check S_l$ uzavřené na součin je, jelikož $\forall C, D \in \check S_l$:
+            $$ (CD)_{ij} = \sum_{k} c_{ik}d_{kj} $$ 
+            a kdykoliv je součet $i+j$ lichý, tak $j$ je liché a $i$ sudé, nebo naopak. Každopádně $k+j$ nebo $k+i$ musí být liché, protože pokud je $k$ sudé, tak se sečte na liché s lichým, a pokud je liché, tak se sudým. Tedy pokaždé bude v součinu jedna nula, tedy se všechno sečte na 0. Tedy na pozicích $(CD)_{ij}$ s lichým $i+j$ bude nula, tedy $CD \in \check S_l$.
+
+            Matici $A·B$ zase vyjádříme jako
+            $$ (AB)_{ij} = \sum_{k} a_{ik}b_{kj} $$
+            pokud bude součet $i+j$ sudý, tak jsou $i$ a $j$ buď oba sudé nebo oba liché, tedy pro liché $k$ bude buď $i+k$ liché, tj. $a_{ik} = 0$, nebo $j+k$ sudé, tedy $b_{kj} = 0$, pro sudé $k$ to bude opačně. Tedy pro sudé $i+j$ bude $(AB)_{ij} = 0$, tedy $A·B \in \check S_s$.
+        \end{reseni}
+    \end{priklad}
+
+    \begin{priklad}[5.3]
+        Rozhodněte, zda jsou třídy $\check S_l$ a $\check S_s$ uzavřené na inverze (opět s předpokladem, že pro $A$ inverzní matice $A^{-1}$ existuje)? Lze pro některé rozměry s jistotou říct, že matice není invertovatelná?
+
+        \begin{reseni}
+            TODO
+        \end{reseni}
+    \end{priklad}
+
+
+
+
+\section{Konečná tělesa existují jen pro mocniny prvočísla}
+    \begin{priklad}[6.1]
+        Dokažte, že $®Z_p$ je těleso, právě když $p$ je prvočíslo.
+
+        \begin{dukazin}
+            $(\implies)$: Pokud je $®Z_p$, tak $p$ nemůže být 1, protože těleso musí mít alespoň 2 prvky. A pokud je $p$ složené, tedy $\exists x, y: x,y\in®N \setminus \{1\} \land x·y = p$, pak z definice $®Z_p$ máme, že v $®Z_p$: $x·y=0$, tedy alespoň jedno z $x$ a $y$ je nulové, tedy v ®Z násobek $p$, což je ale spor s tím, že $x·y = p \land x ≠ 1 \land y≠1 \land x, y \in ®N$.
+
+            $(\impliedby)$: Komutativita, asociativita a distributivita plynou jednoduše z toho, že je to v podstatě klasické sčítání a násobení. Stejně tak inverzní prvek vzhledem k sčítání a to, že 1 a 0 jsou neutrální prvky. Jediná zajímavá vlastnost na důkaz je existence inverzního prvku: Nechť je tedy $a ≠ 0 \in ®Z_p$ prvek, u kterého hledáme inverzi. Stačí ukázat, že pro $x ≠ y$ je $ax ≠ ay$, protože pak zobrazení $x \rightarrow ax$ je prosté, tedy jelikož je z konečné množiny do oné samé, tak je bijekcí, tedy existuje prvek $a^{-1}$, který se zobrazí na $a·a^{-1} = 1$. Pokud by tedy bylo $ax = ay$, tak můžeme přičíst inverzní prvek k $ay$ vzhledem ke sčítání, tedy $ax - ay = 0$. Z distributivity $a(x-y) = 0$, tedy buď $a=0$, ale to jsme vyloučili, nebo $x-y = 0$, tedy $x = y$. Tedy jsme dokázali obměnu implikace $x≠y \implies ax ≠ ay$.
+        \end{dukazin}
+    \end{priklad}
+
+    \begin{priklad}[6.2]
+        Dokažte, že pro každé konečné těleso ®F je jeho charakteristika nějaké prvočíslo $p$.
+
+        \begin{dukazin}
+            Charakteristika nemůže být nulová, jelikož může nabývat konečně mnoha hodnot, tedy někdy musí nastat
+            $$ \underbrace{1+…+1}_{i} = \underbrace{1+…+1}_{j},\ i>j, $$
+            ale pak
+            $$ \underbrace{1+…+1}_{i} \underbrace{-1-1-…-1}_{j} = \underbrace{1+…+1}_{i-j} = \underbrace{1+…+1}_{j} \underbrace{-1-1-…-1}_{j} = 0, $$
+            tedy charakteristika ®F není nula, jelikož jsme právě nalezly nějaké $k$ (sice ne nejmenší, ale to (na přirozených číslech) už musí existovat, když 1 máme).
+
+            Pokud by charakteristika složené číslo ($m·n$), pak:
+            $$ 0 = \underbrace{1+…+1}_{m·n} \overset{\text{asociativita}}{=} \underbrace{\underbrace{1+…+1}_{m} + … + \underbrace{1+…+1}_{m}}_{n} \overset{\text{distributivita}}{=} $$
+            $$ = \underbrace{(\underbrace{1+…+1}_{m})·1 + … + (\underbrace{1+…+1}_{m})·1}_{n} \overset{\text{distributivita}}{=} (\underbrace{1+…+1}_{m})·(\underbrace{1+…+1}_{n})$$
+            Tedy z vlastností shrnutých v zadání je buď $(\overbrace{1+…+1}^{m}) = 0$ nebo $(\overbrace{1+…+1}^{n}) = 0$, tedy buď $m$ nebo $n$ je „menší charakteristika“ než $m·n$, což je spor s definicí charakteristiky, tudíž charakteristika nemůže být složené číslo.
+
+            $1≠0$, tedy nemůže být ani jedna. Tedy může být pouze prvočíslo.
+        \end{dukazin}
+    \end{priklad}
+
+    \begin{priklad}[6.3]
+        Ukažte, že prvky $0, …, p-1$ (definované jako součet $0, …, p-1$ jedniček) tvoří podtěleso totožně $®Z_p$. ($p$ je charakteristika.)
+        
+        \begin{dukazin}
+            Součet dvou prvků $x, y$ je jednoduše $ x + y = \overbrace{1+…+1}^{x} + \overbrace{1+…+1}^{y} = \overbrace{1+…+1}^{x+y}$. Odtud můžeme odečíst dostatečněkrát $\overbrace{1+…+1}^{p} = 0$, tedy získáme zase číslo od $0$ do $p-1$, které je jistě zbytkem z $x+y$ po dělení $p$.
+
+            Součin dvou prvků $x, y$ je stejně jako v předchozím důkazu $ x · y = (\overbrace{1+…+1}^{x}) · (\overbrace{1+…+1}^{y}) = \overbrace{1+…+1}^{x·y}$. Odtud můžeme odečíst dostatečněkrát $\overbrace{1+…+1}^{p} = 0$, tedy získáme zase číslo od $0$ do $p-1$, které je jistě zbytkem z $x+y$ po dělení $p$. Tj. i násobení i sčítání odpovídá operacím v $®Z_p$.
+        \end{dukazin}
+    \end{priklad}
+
+    \begin{priklad}[6.4]
+        Dokažte, že každé konečné těleso ®F charakteristiky $p$ je vektorový prostor ¦V nad tělesem $®Z_p$. Operace ¦V definujeme takto: sčítání vektorů odpovídá sčítání v tělese a skalární násobení v tělese (protože $®Z_p$ je podtěleso ®F, lze to takto definovat).
+
+        \begin{dukazin}
+            ¦V splňuje všechny axiomy netýkající se tělesa nad kterým je, protože je zároveň tělesem. Obě distributivity a asociativita násobení skalárem jsou splněné z toho, že $Z_p$ je podtěleso, tedy jeho prvky jsou i prvky ®F, ve kterém distributivita platí z vlastností. $1·¦v = ¦v$ splňuje z toho, že $1$ je neutrálním prvkem (vzhledem k násobení) nejen v $®Z_p$, ale i v ®F. 
+        \end{dukazin}
+    \end{priklad}
+
+    \begin{priklad}[6.5]
+        Dokažte, že pokud $¦b_1, …, ¦b_k$ je báze vektorového prostoru, potom její různé lineární kombinace definují různé vektory. Tedy dokažte, že $\sum_{i=1}^k\alpha_i¦b_i = \sum_{i=1}^k\overline{\alpha}_i¦b_i$ implikuje, že $\alpha_i = \overline{\alpha}_i$.
+
+        \begin{dukazin}
+                Báze je lineárně nezávislá, tedy ¦o lze vyjádřit právě jako lineární kombinaci s nulovými koeficienty. Tedy si $\sum_{i=1}^k\alpha_i¦b_i = \sum_{i=1}^k\overline{\alpha}_i¦b_i$ přepíšeme jako $\sum_{i=1}^k(\alpha_i - \overline{\alpha}_i)¦b_i = ¦o$, a tudíž pro každé $i$ je $\alpha - \overline{\alpha}_i = 0$, tj. $\alpha = \overline{\alpha}_i$.
+        \end{dukazin}
+    \end{priklad}
+
+    \begin{priklad}[6.6]
+        Dokažte, že každé konečné těleso ®F má $p^k$ prvků.
+
+        \begin{dukazin}
+            Nechť ¦V je VP odpovídající ®F. Potom je ¦V jistě konečný, tedy má konečnou bázi o $n$ prvcích. Každá lineární kombinace báze odpovídá jinému vektoru ¦V (jak jsme ukázali v předchozím příkladu), tedy zobrazení lineární kombinace báze $\rightarrow$ prvek ¦V je prosté. Naopak jelikož je to báze, tak generuje ¦V, tedy každý prvek ¦V se dá vyjádřit jako lineární kombinace báze, tedy i zobrazení prvek ¦V $\rightarrow$ lineární kombinace báze je prosté. Tedy každý prvek se dá zobrazit bijekcí na lineární kombinaci báze.
+
+            Různé lineární báze se liší volbou koeficientů a všech $n$ koeficientů volíme nezávisle z $|®Z_p| = p$ prvků, tedy máme $p^n$ lineárních kombinací $\implies$ $p^n$ prvků ¦V resp. ®F.
+        \end{dukazin}
+    \end{priklad}
+
+\pagebreak
+
+\section{Svědci a světci}
+    \begin{priklad}
+        Soustava $A¦x = ¦b$ nemá řešení, právě když existuje ¦y, že $A^T ¦y = ¦o$ a $¦y^T¦b = -1$.
+
+        \begin{dukazin}
+            $(\implies)$: Nechť tedy soustava $A¦x = ¦b$ nemá řešení. Potom z Frobeniovy věty plyne $\rank(A) ≠ \rank(A|¦b)$, navíc přidáním sloupce jsme jistě nemohly snižit rank, tedy $\rank(A|¦b) > \rank(A)$. Tedy pokud z matice $(A|¦b)$ vybereme $\rank(A|¦b)$ nezávislých řádků, tak „ty samé“ řádky v matici $A$ budou lineárně závislé.
+
+            Jelikož jsou lineárně závislé, tak můžeme vybrat nenulové (alespoň jeden je nenulový) koeficienty $¦y'$ tak, aby lineární kombinace řádků $A$ byla ¦o. Ale z LN řádků $(A|¦b)$ víme, že „stejná“ lineární kombinace řádků $(A|¦b)$ není nulová, tedy „stejná“ lineární kombinace prvků ¦b musí být nenulová (všechny ostatní složky lineární kombinace řádků $(A|¦b)$ jsou z výběru ¦y nulové).
+
+            Nyní se můžeme na součin $A^T ¦c$ podívat z pohledu, že výsledek je lineární kombinace sloupců $A^T$ (tj. řádků $A$) s koeficienty ¦c. A součin $¦c^T¦b$ je lineární kombinace (s koeficienty ¦c) prvků ¦b. Tedy víme, že $A^T¦y' = ¦o$ a $¦y'^T¦b = \alpha ≠ 0$, což je skoro to, co chceme. Z axiomů tělesa víme, že (jelikož je $\alpha ≠ 0$) existuje $-\alpha^{-1}$, tedy můžeme definovat $¦y = -\alpha^{-1}¦y'$. Následně z komutativity násobení skalárem $A^T ¦y = -\alpha^{-1}¦o = ¦o$ a $¦y^T¦b = -\alpha^{-1}\alpha = -1$, tedy jsme právě z levé strany ekvivalence dokázali existenci ¦y splňující podmínky pravé strany ekvivalence.
+
+
+            $(\impliedby)$ sporem: Nechť existuje řešení $A¦x = ¦b$. Potom můžeme rozepsat z asociativity maticového násobení $-1 = ¦y^T¦b = ¦y^T(A¦x) = (¦y^TA)¦x$. My však víme, že $(AB)^T = B^TA^T$, tedy $-1 = (¦y^TA)¦x = (A^T¦y)^T¦x = (¦o)^T¦x = 0$ (součinem nulového vektoru s jakýmkoliv jiným jistě dostaneme 0). \lightning
+        \end{dukazin}
+    \end{priklad}
+
+\end{document}

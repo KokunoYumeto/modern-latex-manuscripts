@@ -12,6 +12,14 @@ They contain actual LaTeX-like file bodies, not only URLs, ledgers, or checksums
 - `Interlanguage_LaTeX_SourceBodies_DirectGated_Slavic_Romance_20260705.zip`: direct gated source-canon upload from the Noether-PC/source-canon branch, 524 TeX-family source bodies, including Spanish mathematical TeX and Slavic-hint source trees.
 - `Interlanguage_LaTeX_SourceBodies_Romance_LiveArxivCandidates_20260705.zip`: five French/Spanish arXiv e-print source packages from the package-360 live verification pass, 22 entries, 10 extracted TeX/Bib/Style-like entries.
 
+Additional recovered source-canon payloads live outside this folder under `noether-slavic-source-canon/20260704/` and `noether-source-corpus-provenance/20260704/`. They are indexed here because they are now part of the same Web/Pro source-body supply:
+
+- `noether-slavic-source-canon/20260704/NOETHER_SLAVIC_SOURCE_CANON_FOCUSED_ALGEBRA_20260704T203400Z/`: focused Slavic algebra/ring/module/group/invariant-theory source-canon payload, 378 TeX-family files, plus `NOETHER_SLAVIC_FOCUSED_ALGEBRA_OPEN_LICENSE_TEX_PAYLOAD_20260704T203400Z.zip`.
+- `noether-slavic-source-canon/20260704/NOETHER_SLAVIC_SOURCE_CANON_GITHUB_TEX_20260704T192100Z/`: public-GitHub Slavic mathematical-term TeX harvest, 94 TeX-family files, plus `NOETHER_SLAVIC_GITHUB_TEX_OPEN_LICENSE_PAYLOAD_20260704T192100Z.zip`.
+- `noether-slavic-source-canon/20260704/NOETHER_SLAVIC_SOURCE_CANON_GITHUB_TEX_20260704T211000Z/`: small follow-up Slavic GitHub TeX payload, 7 TeX-family files, chiefly Bulgarian ring/semiring/integral-domain material.
+- `noether-source-corpus-provenance/20260704/NOETHER_SOURCE_LINK_PROVENANCE_INDEX_20260704T153636/`: source-link provenance index with two large LaTeX payload ZIPs containing 3,495 TeX-family entries by extension.
+- `noether-source-corpus-provenance/20260704/archive-maintenance-extracted-payloads/Noether_Non_RU_UK_Slavic_Baseline_Sources_20260704.zip`: recovered non-Russian/non-Ukrainian Slavic baseline source-witness ZIP; it has zero TeX-family entries by extension and should not be treated as a LaTeX source-body feed.
+
 See `LATEX_SOURCE_BODY_BUNDLES_MANIFEST_20260704.csv` for byte counts, SHA256 hashes, entry counts, and source-like counts.
 
 See `LATEX_SOURCE_BODY_BUNDLES_CONTENT_AUDIT_20260705.csv` for a coarse language/lane audit of source-like entries inside the ZIPs. That audit is intentionally conservative and path/name based; it is meant to prevent overclaiming, not to certify native authority.
@@ -25,3 +33,5 @@ The 2026-07-05 Slavic linguistics arXiv bundle is useful for interlanguage/Slavi
 The 2026-07-05 direct gated Slavic/Romance bundle is a stronger feed than the earlier package-350/352 ledgers because it contains actual file bodies. It is still a mixed source-corpus/provenance feed: useful for Pro/Web register extraction and source-style comparison, but not native review, translation completion, accepted terminology, or publication readiness.
 
 The 2026-07-05 Romance live-arXiv candidate bundle closes the immediate package-360 omission gap for five verified French/Spanish e-print source packages. It remains candidate source-body/register evidence only: useful for Web/Pro language-register extraction, but not target-language approval, term promotion, source-license clearance, publication readiness, or a reader surface.
+
+The recovered Slavic source-canon payloads are stronger than the earlier generic Slavic/Interslavic support bundle for algebra-register work because they include actual TeX-family file bodies and open-license GitHub payload manifests. They still do not close the larger goal of hundreds of independently reviewed native mathematical LaTeX sources per language, and they do not certify native terminology or translation quality.

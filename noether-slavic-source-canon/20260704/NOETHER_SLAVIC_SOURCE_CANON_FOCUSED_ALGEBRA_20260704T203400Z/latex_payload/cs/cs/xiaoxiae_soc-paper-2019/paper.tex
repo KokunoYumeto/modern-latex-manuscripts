@@ -1,0 +1,977 @@
+\documentclass[a4paper, 12pt, twoside]{article}
+\usepackage[includefoot, top=2.5cm, left=2.5cm, right=2.5cm, bottom=2.5cm]{geometry} % for typesetting geometry
+
+% LANGUAGE %
+%-========-%
+\usepackage{luavlna} % for auto non-breaking spaces
+\AtBeginDocument{\singlechars{czech}{AaIiVvOoUuSsZzKk}} % chars not to break on
+
+\usepackage[czech]{babel} % czech language localization
+
+
+% URL HIGHLIGHTING %
+%-================-%
+% is loaded before biblatex to prevent option clashes
+\usepackage[hyphens,spaces,obeyspaces]{url} % for formatting urls
+
+
+% BIBLIOGRAPHY %
+%-============-%
+\usepackage[backend=biber,
+            style=iso-numeric, % citations are in style [1], [2]...
+            sortlocale=cs_CZ,
+            autolang=other,
+            bibencoding=UTF8]{biblatex} % use BibLaTeX for references
+
+\addbibresource{paper.bib} % location of the references file
+
+\renewcommand*{\finentrypunct}{} % don't end references with a dot
+\renewcommand{\multinamedelim}{\addcomma\space} % use comma as name delimeter
+\renewcommand{\finalnamedelim}{\addspace a \space} % "a" between the last 2 names
+\renewbibmacro{in:}{} % don't use In: in references
+\DeclareFieldFormat{labelnumberwidth}{[#1]} % wrap reference numbers in square brackets
+
+
+% TOC AND LOF %
+%-===========-%
+\usepackage[titles]{tocloft} % controlling lof and lot
+\usepackage[nottoc]{tocbibind} % remove reference to toc from toc
+
+% remove titles from lof and lot, since they are grouped into one section
+\makeatletter
+\renewcommand\listoffigures{%
+    \@mkboth{\MakeUppercase\listfigurename}%
+        {\MakeUppercase\listfigurename}%
+    \@starttoc{lof}%
+}
+\renewcommand\listoftables{%
+    \@mkboth{\MakeUppercase\listtablename}%
+        {\MakeUppercase\listtablename}%
+    \@starttoc{lot}%
+}
+\makeatother
+
+% add "Obr. n: " and "Tab. n: " before each figure in lof and lot
+\renewcommand{\cftfigpresnum}{\figurename}
+\renewcommand{\cfttabpresnum}{\tablename}
+\renewcommand{\cftfigaftersnum}{:}
+\renewcommand{\cfttabaftersnum}{:}
+\newlength{\mylen}
+\settowidth{\mylen}{\cftfigpresnum\cftfigaftersnum}
+\addtolength{\cftfignumwidth}{.5\mylen}
+\addtolength{\cfttabnumwidth}{.5\mylen}
+
+\setlength{\cftfigindent}{0pt} % remove lof indentation
+\setlength{\cfttabindent}{0pt} % remove lot indentation
+
+\usepackage{setspace} % for making a more concise toc
+
+
+% CODE %
+%-====-%
+\usepackage{minted} % highlight code with Pygments
+
+\setminted{linenos,    % number lines
+           breaklines, % break lines that exceed the line width
+           autogobble} % remove common leading whitespace
+
+
+% GRAPHICS %
+%-========-%
+\usepackage{graphicx}     % graphics package
+\graphicspath{ {./images/} } % path to images
+
+\usepackage{float} % floats in correct position (the [H] option)
+
+\usepackage{subcaption} % for subfigures
+
+\setlength{\fboxsep}{0pt}    % image border separation
+\setlength{\fboxrule}{0.5pt} % image border thickness
+
+% normalize figure spacing
+\setlength\intextsep{0pt}
+\setlength\floatsep{0pt}
+\setlength\textfloatsep{0pt}
+\BeforeBeginEnvironment{figure}{\vspace{1.2\baselineskip}}
+
+
+% TITLE FORMATTING %
+%-================-%
+\usepackage{titlesec}
+
+% titles have sizes 18pt, 16pt and 14pt, respectively
+% the space between the number and the text of the title is 1em
+\titleformat{\section}{\bfseries\scshape\fontsize{18pt}{21.6}\selectfont}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries\fontsize{16pt}{19.2}\selectfont}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries\fontsize{14pt}{16.8}\selectfont}{\thesubsubsection}{1em}{}
+
+\titlespacing{\section}      {0pt}{0pt}{6pt} % 18pt (12pt from parskip + 6pt)
+\titlespacing{\subsection}   {0pt}{0pt}{4pt} % 16pt (12pt from parskip + 4pt)
+\titlespacing{\subsubsection}{0pt}{0pt}{2pt} % 14pt (12pt from parskip + 2pt)
+
+
+% CROSS-REFERENING %
+%-================-%
+\usepackage[hidelinks,unicode]{hyperref} % interactive references
+\newcommand*{\fullref}[1]{\hyperref[{#1}]{\ref*{#1}~--~\nameref*{#1}}} % reference number + name
+
+
+% GRAPHS, CHARTS %
+%-==============-%
+\usepackage{pgf-pie} % pie charts
+
+% change pie chart number separator from dot to comma
+\usepackage{siunitx}
+\sisetup{
+  output-decimal-marker={,},
+  group-separator={\,},
+}
+\def\ScanPercentage#1\afternumber{\SI{#1}{\percent}}
+
+\usepackage{pgfplots} % bar charts
+
+
+% TABLES          %
+% requires: float %
+%-===============-%
+\usepackage{booktabs} % table formatting
+
+\usepackage{multirow}            % for creating multirow tables
+\setlength\heavyrulewidth{0.2ex} % increase top and bottom rule thicknesses
+
+% fixes the issue with babel and multirow: https://tex.stackexchange.com/questions/111999/slovak-and-czech-babel-gives-problems-with-cmidrule-and-cline
+\usepackage{etoolbox}
+\preto\tabular{\shorthandoff{-}}
+
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}} % table row stretching
+
+
+% MATH %
+%-====-%
+\usepackage{amsmath, amstext} % for typesetting math
+\DeclareMathSymbol{.}{\mathord}{letters}{"3B} % change dot in math to a comma
+
+
+% CAPTIONS %
+%-========-%
+\usepackage[font=footnotesize,       % 10pt captions
+            justification=centering, % center the captions
+            figurename=Obr.,         % picture captions are "Obr."
+            tablename=Tab.]{caption} % table captions are "Tab."
+
+
+% LISTS %
+%-=====-%
+\usepackage{enumitem} % lists
+
+
+% DATETIME %
+%-========-%
+\usepackage[dmyyyy]{datetime}     % dmyyyy datetimes
+\renewcommand{\dateseparator}{. } % changes datetime separator
+
+
+% FONT AND ENCODING %
+%-=================-%
+\usepackage[T1]{fontenc} % font encoding
+\usepackage{fontspec}    % font selector
+
+\setmainfont{CMU Serif}   % font supporting bold smallcaps
+\usepackage{fontawesome5} % use FontAwesome 5 for icons
+
+
+% ACRONYMS %
+%-========-%
+\usepackage[acronym,                  % use acronyms
+            nopostdot,                % no dot at end of 2nd column
+            numberedsection,          % number glossary
+            nogroupskip,              % no grouping by same letter
+            nonumberlist]{glossaries} % no page numbers
+
+\renewcommand{\acrfullformat}[2]{#2\space(#1)} % long (short) to short (long)
+
+\setglossarystyle{alttree} % set style of glossary
+
+% make glossary title spacing be the same as regular title
+\renewcommand{\glossarypreamble}{\vspace*{-\baselineskip}\vspace*{-\parskip}}
+
+\makeglossaries
+
+\newacronym{frc}{FRC}{First Robotics Competition}
+\newacronym{ftc}{FTC}{First Technical Challenge}
+\newacronym{fll}{FLL}{First Lego League}
+\newacronym{pdf}{PDF}{Portable Document Format}
+\newacronym{html}{HTML}{Hypertext Mark-up Language}
+\newacronym{cern}{CERN}{Conseil Européen pour la recherche nucléaire}
+\newacronym{http}{HTTP}{Hypertext Transfer Protocol}
+\newacronym{css}{CSS}{Cascading Style Sheets}
+\newacronym{sass}{SASS}{Syntactically Awesome Style Sheets}
+\newacronym{cvs}{CVS}{Concurrent Versions System}
+\newacronym{cad}{CAD}{Computer-Aided Design}
+\newacronym{ftp}{FTP}{File Transfer Protocol}
+\newacronym{aes}{AES}{Advanced Encryption Standard}
+\newacronym{api}{API}{Application Programming Interface}
+\newacronym{si}{SI}{Système international}
+\newacronym{ip}{IP}{Internet Protocol}
+\newacronym{png}{PNG}{Portable Network Graphics}
+\newacronym{wysiwyg}{WYSIWYG}{What You See Is What You Get}
+\newacronym{php}{PHP}{Hypertext Preprocessor}
+\newacronym{epub}{EPUB}{Electronic Publication}
+\newacronym{mobi}{MOBI}{Mobipocket E-book}
+\newacronym{mit}{MIT}{Massachusetts Institute of Technology}
+\newacronym{it}{IT}{Information Technology}
+\newacronym{www}{WWW}{World Wide Web}
+\newacronym{sgml}{SGML}{Standard Generalized Mark-up Language}
+\newacronym{https}{HTTPS}{Hypertext Transfer Protocol Secure}
+\newacronym{dvi}{DVI}{DeVice-Independent}
+\newacronym{ps}{PS}{PostScript}
+\newacronym{doc}{DOC}{Microsof Word document}
+\newacronym{docx}{DOCX}{Microsoft Word Open XML document}
+\newacronym{step}{STEP}{Standard for Exchange of Product model data}
+
+\glsaddall % add all acronyms
+
+% For setting the list of acronyms alignment (note the two extra G's). I didn't
+% find a better way to increase the spacing between the acronym and its
+% description in the "Seznam zkratek" section, since \glsfindwidesttoplevelname
+% only inserts one space.
+\glssetwidest{WYSIWYGGG}
+
+
+% PARAGRAPH FORMATTING %
+%-====================-%
+\setlength\parindent{0pt} % 0pt paragraph indentation
+\setlength\parskip{12pt}  % 12pt paragraph spacing
+
+\renewcommand{\baselinestretch}{1.15} % baseline stretch is 1.15
+
+
+% OTHER %
+%-=====-%
+\widowpenalty10000 % prevent widows
+\clubpenalty10000  % prevent orphans
+
+\pagenumbering{gobble} % suppress page numbering
+
+% define KaTeX logo
+\makeatletter
+\DeclareRobustCommand{\KaTeX}{%
+  K\kern -.19em
+  {\sbox \z@ T\vbox to\ht \z@ {\hbox{%
+  \check@mathfonts
+  \fontsize\sf@size\z@
+  \selectfont A}%
+  \vss}%
+}\kern -.15em
+\TeX}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% D O C U M E N T %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+  \sloppy % fixes some lines going to the margins
+
+  \bfseries
+
+  \begin{center}
+    {\fontsize{18}{21.6} \selectfont STŘEDOŠKOLSKÁ ODBORNÁ ČINNOST}\\%
+    \vspace{\baselineskip}
+    {\fontsize{14}{16.8} \selectfont Obor č. 18: Informatika}\\%
+
+    \vspace{16em}
+    {\fontsize{20}{24} \selectfont Robotika Jednoduše}%
+    \vfill
+  \end{center}
+
+  \fontsize{16}{19.2} \selectfont
+  Tomáš Sláma\\
+  Liberecký Kraj
+  \hfill
+  Turnov 2019
+
+  \cleardoublepage
+
+  \begin{center}
+    {\fontsize{18}{21.6} \selectfont STŘEDOŠKOLSKÁ ODBORNÁ ČINNOST}\\%
+    \vspace{\baselineskip}
+    \vspace{-11pt}
+    {\fontsize{14}{16.8} \selectfont Obor č. 18: Informatika}\\%
+
+    \vspace{10em}
+    \fontsize{20}{24} \selectfont
+    Robotika Jednoduše%
+
+    Robotics Simplified%
+    \vfill
+  \end{center}
+
+  \normalfont
+  \fontsize{16}{19.6} \selectfont
+
+  \textbf{Autoři:} Tomáš Sláma\\
+  \textbf{Škola:} Gymnázium, Turnov, Jana Palacha 804, příspěvková \\
+  \phantom{Škola: } organizace, 511 01 Turnov \\
+  \textbf{Kraj:} Liberecký kraj \\
+  \textbf{Konzultant:} Ing. Daniel Kajzr
+
+  \vspace{\baselineskip}
+
+  \fontsize{12}{14.4} \selectfont
+  Turnov 2019
+
+  \vspace{4em}
+
+  \cleardoublepage
+
+  \section*{\normalfont\textbf{Prohlášení}}
+  Prohlašuji, že jsem svou práci SOČ vypracoval/a samostatně a použil/a jsem pouze prameny a literaturu uvedené v seznamu bibliografických záznamů.
+
+  Prohlašuji, že tištěná verze a elektronická verze soutěžní práce SOČ jsou shodné.
+
+  Nemám závažný důvod proti zpřístupňování této práce v souladu se zákonem č.~121/2000 Sb., o právu autorském, o právech souvisejících s právem autorským a o změně některých zákonů (autorský zákon) ve znění pozdějších předpisů.
+
+  \qquad
+
+  V Turnově dne \today \, ..................................................\\%
+  \makebox[\linewidth]{Tomáš Sláma}%
+
+  \cleardoublepage
+
+  \section*{\normalfont\textbf{Poděkování}}
+  V první řadě bych rád poděkoval své rodině a přátelům za neustálou podporu a pozitivitu při tvorbě projektu. Za konzultace o obsahu, struktuře a v projektu použitých technologiích děkuji Ing. Danielovi Kajzrovi, Mgr. Lukáši Pitoňákovi, Jakubu Medkovi a Mgr. Tomáši Novotnému. Také děkuji Kateřině Sulkové za rady ke psaní samotné SOČ práce a na závěr všem návštěvníkům projektu, kteří svou přítomností a zpětnou vazbou pomáhají v jeho rozvoji.
+
+  \cleardoublepage
+
+  \section*{\normalfont\textbf{Anotace}}
+  Tato práce popisuje obsah a proces tvorby webové stránky \url{robotics-simplified.com}. Stránka zpracovává témata z oboru robotiky formou pochopitelnou i běžným laikem. Je poháněna generátorem statických stránek Jekyll, který doplňují JavaSriptové knihovny pro vykreslování matematických rovnic, analýzy návštěvnosti a interaktivní vizualizaci probíraných konceptů. Python skripty automatizují kompresi obrázků, generování souboru sitemap, nahrání obsahu na hosting přes \acrshort{ftp} a převod stránky do knižní podoby pro čtení offline.
+
+  \section*{\normalfont\textbf{Klíčová slova}}
+  robotika; webová stránka; vzdělávání
+
+  \section*{\normalfont\textbf{Annotation}}
+  This paper describes the contents and the process of creating the \url{robotics-simplified.com} website. The site covers topics in the field of robotics in a beginner-friendly manner. It is powered by the static site generator Jekyll, and is complemented by JavaScript libraries for rendering mathematical equations, analyzing the website traffic and creating interactive visualizations of the discussed concepts. Python scripts fully automate image compression, sitemap file generation, content upload via \acrshort{ftp} and conversion to a book version for offline reading.
+
+  \section*{\normalfont\textbf{Keywords}}
+  robotics; website; education
+
+  \cleardoublepage
+
+  % resume page numbering
+  \pagenumbering{arabic}
+  \setcounter{page}{9}%
+
+  % Makes the spacing between toc heading and the contents the same as other
+  % section and also makes the item spacing smaller
+  \addtocontents{toc}{\vspace{-\cftaftertoctitleskip}\protect\setstretch{0.1}}
+
+  % genereate toc
+  \tableofcontents
+
+  \cleardoublepage
+
+  % create list of acronyms
+  \printglossary[type=\acronymtype, title=Seznam zkratek]
+
+  \cleardoublepage
+
+  \section{Úvod}
+  V dnešním světě plném technologií se robotika rozvíjí stále rapidnějším tempem. Roboti jsou díky zkušeným programátorům a inženýrům rychlejší, obratnější a chytřejší než kdy jindy a uplatnění nalézají v nesčetném množství oborů. Jen za rok 2018 se prodej industriálních robotů zvýšil o \SI{30}{\percent}~\cite{industrial-robot-growth} a nadnárodní korporace jako Amazon jich používají na úkor lidské pracovní síly stále více~\cite{amazon-hiring}. Bez talentovaných lidí znalých problematiky by však takový pokrok nebyl možný, proto vzniká řada programů a organizací, které se vzdělávání budoucí generace snaží podporovat.
+
+  Značnou zásluhu má například neziskový program FIRST a jeho soutěže \gls{frc}, \gls{ftc} a \gls{fll}, které z robotiky dělají hru. Týmy tvořeny studenty základních a středních škol mají za úkol během několika týdnů robota od základu navrhnout, postavit a naprogramovat tak, aby plnil úkoly každým rokem se měnící výzvy.
+
+  Začátečníci se zájmem o robotiku se však musí potýkat s problematikou nedostatku studijních materiálů, ať už se jedná o programování robota či o jeho stavbu. Čtení odborných prací není pro každého, zvlášť pokud o daném oboru ví málo, a hledání přístupnějších zdrojů nemusí končit úspěchem.
+
+  Stránka \url{robotics-simplified.com} se snaží tento problém řešit tím, že poskytuje centralizovaný zdroj informací pro nováčky oboru robotiky. Je strukturována jako série článků, které koncepty intuitivním způsobem vysvětlují. Články obsahují ilustrace a interaktivní vizualizace a jsou pro zájemce o programování doplněny zdrojovými kódy, které koncepty implementují. Celá stránka je rovněž optimalizovaná pro mobilní zařízení a je dostupná také ve formátu \gls{pdf}, proto připojení k internetu není pro čtení stránky potřeba.
+
+  Tato práce se zabývá obsahem a tvorbou výše uvedené webové stránky. Nejprve stanovuje požadavky, které musí výsledný produkt práce splňovat. Poté popisuje programovací jazyky a nástroje, které jsou v projektu využívány a opodstatňuje jejich použití oproti alternativám. Dále rozebírá vývoj, obsah a automatizaci provozu webové stránky a závěr analyzuje její návštěvnost a získávání zpětné vazby.
+
+  \newpage
+
+  \section{Požadavky na výsledný produkt} \label{sec:Požadavky na výsledný produkt}
+  Myšlenka tvorby kvalitních materiálů pro studium robotiky je příliš rozsáhlá na to, aby mohla práce na projektu začít bez větší úvahy~--~bude se jednat o webovou stránku, aplikaci, knihu, či repozitář se zdrojovými kódy?
+
+  Před začátkem je třeba stanovit požadavky, které by výsledný produkt měl splňovat. Podle těch lze způsoby provedení porovnat a použít ten, který se jeví jako nejvhodnější.
+
+
+  \subsection{Otevřenost zdrojového kódu}
+  Hlavní požadavek, který by měl produkt splňovat je \emph{otevřenost} (tj. bezplatná dostupnost) \emph{zdrojového kódu}. Otevřenost výrazně usnadňuje kolaboraci (kdokoliv může navrhnout změnu) a zvyšuje důvěru v daný software (chování programu lze snadno ověřit nahlédnutím do kódu), což jsou pro projekt zaměřený na vzdělávání kvality žádoucí.
+
+  Příklady populárního otevřeného softwaru využívaného při stavbě tohoto projektu jsou např. Inkscape, Git či Jekyll, které jsou podrobněji rozebírány v kapitole~\ref{sec:Použité nástroje}.
+
+
+  \subsection{Multiplatformnost}
+  Co se dostupnosti týče, důležitým požadavkem je \emph{multiplatformnost}, tj. možnost přístupu k produktu z více než jedné platformy jako stolní počítač, mobil, čtečka elektronických knih, aj. Výsledný produkt musí být multiplatformní zejména z hlediska autorova ztotožnění s myšlenkou, že vzdělání by nemělo být omezeno technologickými preferencemi jednotlivce.
+
+  Tato podmínka fakticky znemožňuje tvorbu aplikace, jelikož by jak finanční, tak časové nároky její stavby pro různé operační systémy a zařízení přerostly nad rámec jednotlivce.
+
+
+  \subsection{Interaktivita}
+  Posledním požadavkem je \emph{interaktivita} studijního materiálu, jelikož u technických oborů jako robotika a informatika nestačí pouze teoretická znalost problematiky~--~pro důkladné porozumění je potřeba praktické vyzkoušení daných konceptů. Proto je nutné, aby výsledný  produkt pro obohacení probíraných konceptů vizualizacemi umožňoval interaktivitu.
+
+  Kvůli této podmínce nepřipadá v úvahu kniha, jelikož převážná většina používaných knižních formátů jako \gls{pdf}, \gls{mobi} a \gls{epub} interaktivitu nepodporuje.
+
+
+  \section{Použité programovací jazyky} \label{sec:Použité programovací jazyky}
+  Programovací jazyk je notace pro psaní programů, které ve své podstatě slouží k provádění výpočtů. \emph{Syntaxe} jazyka popisuje jeho strukturu~--~jakým způsobem za sebe uspořádat znaky, aby v rámci jazyka tvořily platná spojení, kdežto \emph{sémantika} jazyka popisuje význam těchto platných spojení~\cite{intro-to-programming-languages}.
+
+  Každý programovací jazyk využívá \emph{programovací paradigmata}~--~způsoby, kterými lze přistupovat ke tvorbě programů. Paradigmaty můžeme dělit programovací jazyky do kategorií\footnote{Jeden programovací jazyk může využívat více paradigmat a spadat tak do několika kategorií (viz. jazyky rozebírány v kapitolách~\ref{sec:Python} a~\ref{sec:JavaScript}).} jako např. funkcionální, procedurální, či logické. I přes jejich rozdíly jsou však výpočetně ekvivalentní~--~problém řešitelný v libovolném z nich je nutně řešitelný ve všech~\cite{intro-to-programming-languages}.
+
+  Následující kapitola rozebírá v projektu používané programovací jazyky~--~jejich stručnou historii, podstatné principy fungování a roli v projektu.
+
+
+  \subsection{\acrshort{html}} \label{sec:HTML}
+  Značkovací jazyk \gls{html} vytvořil Tim Berners-Lee z výzkumného centra \acrshort{cern}~(\acrlong{cern}~--~Evropská organizace pro jaderný výzkum) v roce 1989. Hlavní důvod vzniku byla snaha zjednodušit přístup k informacím pomocí virtuálních dokumentů, které by na sebe navzájem odkazovaly a tvořily tím celosvětovou síť sdílených informací \gls{www}. V rámci této snahy Bernes-Lee rovněž vytvořil protokol \gls{http}, který slouží k přenosu souborů \gls{html} po síti a je k tomuto účelu využíván dodnes~\cite{html-history}.
+
+  Jazyk \gls{html} používá ke strukturování textu tzv. \emph{tagy}~--~slova ohraničená lomítky, která určují význam jimi obklopených částí textu. Tento princip značení byl inspirován mezinárodním standardem \gls{sgml}, což bylo s ohledem na dnešní popularitu \gls{html} bezesporu správné rozhodnutí.
+
+  Příkladem \gls{html} je následující ukázka kódu, která se skládá z hlavního nadpisu~\mintinline{html}{<h1>} následovaného paragrafem~\mintinline{html}{<p>}, ve kterém se dále nachází odkaz na webovou stránku~\mintinline{html}{<a>}:
+
+  \begin{minted}{html}
+  <h1>HTML</h1>
+  <p>Značkovací jazyk HTML vytvořil Tim Berners-Lee z výzkumného centra <a href="https://home.cern/">CERN</a> v roce 1989.</p>
+  \end{minted}
+
+  V \gls{html} je psán zdrojový kód převážné většiny webových stránek internetu a tento projekt není výjimkou. Je generován Jekyllem, který je podrobněji rozebírán v kapitole~\ref{sec:Jekyll}.
+
+
+  \subsection{\acrshort{css}} \label{sec:CSS}
+  Se stoupající popularitou webu v 90. letech 20. století rostla také nespokojenost autorů dokumentů \gls{html} s nedostatky v jeho formátování, jelikož bylo řízeno prohlížeči a nemohlo jimi být žádným způsobem ovlivněno\footnote{To, že v čistém \gls{html} nejde ovlivnit vzhled dokumentu není pravda, ale není to doporučované~--~\gls{html} by mělo být zaměřeno na sémantiku dokumentu, ne na jeho formátování.}. Z tohoto důvodu Håkon Wimu Lie publikoval roku 1994 možné řešení tohoto problému~--~návrh stylopisného jazyka \gls{css}~\cite{css-proposal,css-saga}.
+
+  Při použití \gls{css} je důležitý princip kaskádování (o čemž koneckonců vypovídá zkratka \gls{css})~--~vzhled stránky ovlivňují jak požadavky čtenáře, tak požadavky autora. Samotné kaskádování je kombinace těchto požadavků a v případě vzniku konfliktů (autor požaduje písmo velikosti \texttt{12b}, ale čtenář velikosti \texttt{10b}) jejich rozřešení.
+
+  Příkladem platného souboru \gls{css} je následující ukázka, která upravuje vlastnosti nadpisu \mintinline{html}{<h1>} \gls{html} dokumentu~--~mění jeho barvu textu na zelenou, pozici na střed stránky a velikost na \texttt{18b}:
+
+  \begin{minted}{css}
+  h1 {
+    color: green;
+    font-size: 18pt;
+    text-align: center;
+  }
+  \end{minted}
+
+  V projektu je používán stylopisný jazyk \gls{sass}, který převádí \gls{css} s pokročilejší syntaxí a dodatečnou funkcionalitou do standardního \gls{css}. Díky vyšší míře abstrakce a dodatečným funkcím jako proměnné, které \gls{css} nepodporuje, lze vzhled stránky v \gls{sass} upravovat výrazně pohodlněji.
+
+
+  \subsection{JavaScript} \label{sec:JavaScript}
+  Okolo roku 1995 bylo pro internetový prohlížeč Netscape potřeba vytvořit interpretovaný skriptovací jazyk pro zlepšení interaktivity webových stránek, který by šel vložit přímo do dokumentů \gls{html}. Tímto úkolem byl pověřen Brendan Eich a jelikož bylo z finančních důvodů potřeba práci vykonat rychle, první funkční verze JavaScriptu byla údajně zhotovena za pouhých 10 dní~\cite{the-origin-of-javascript}.
+
+  Na rozdíl od kódu psaném v jazyce \gls{php}, který je vykonáván na straně serveru, je JavaScriptový kód vykonáván na straně uživatele. Z toho důvodu plní na webové stránce funkce, které nevyžadují neustálý kontakt se serverem (jelikož výměna informací tímto způsobem zpravidla není okamžitá), jako kontrola správného vyplnění formuláře, zajištění plynulosti uživatelského prostředí, či tvorba webových her.
+
+  Dnes se jedná o webový standard a dlouhodobě nejpoužívanější programovací jazyk platformy GitHub~\cite{github-statistics}, který na stránce zajišťuje vykreslování rovnic, interaktivitu vizualizací, vyhledávání na stránce, aj.
+
+
+  \subsubsection{p5.js} \label{sec:p5.js}
+  p5.js je JavaScriptová knihovna založena na Java aplikaci Processing. Slouží ke tvorbě tzv. softwarových „skicářů“~--~umožňuje vykreslovat tvary a křivky různých barev a velikostí pomocí volání jednoduchých funkcí, které rovněž jednoduše propojuje se vstupy z myši či klávesnice. Pro své snadné používání a důrazu na vizuálnost se jedná o populární volbu jak pro začátečníky, tak pro umělce či designéry.
+
+
+  \subsubsection{\texorpdfstring{\KaTeX}{KaTeX}} \label{sec:KaTeX}
+  \KaTeX{} je JavaScriptová knihovna vytvořena pro vzdělávací stránku Khan Academy, která je na stránce používána na renderování matematických rovnic z \LaTeX ové notace, ze které generuje prosté \gls{html} (viz. kapitola~\ref{sec:Matematika}).
+
+  Populární alternativou, která byla na stránce dříve používána je JavaScriptová knihovna MathJax. Oproti \KaTeX u je však pomalejší~\cite{katex-mathjax-comparison}, proto již není v projektu používána.
+
+
+  \subsection{Python} \label{sec:Python}
+  Python je programovací jazyk vytvořený pro distribuovaný operační systém Amoeba Guidem van Rossumem v 80. letech 20. století. Byl inspirován Guidovou prací na jazyce ABC: „Vzal jsem ingredience z ABC a trochu jsem je promíchal. Python je v mnoha věcech podobný ABC, ale v mnoha také rozdílný“~\cite{making-of-python} (přeloženo z angličtiny).
+
+  Od svého vzniku se Python postupně vyvinul v mocný a frekventovaně používaný programovací jazyk~--~má rozsáhlou standardní knihovnu, podporuje mnoho různých programovacích paradigmat a je třetím nejpoužívanějším jazykem na platformě GitHub~\cite{github-statistics}, od stavby webových stránek (Django) po trénování neuronových sítí (TensorFlow).
+
+  Na stránce zastává funkci skriptovacího jazyka na automatizaci jejího provozu (viz. kapitola~\ref{sec:Automatizace provozu stránky}). Oproti alternativám jako \gls{php} a Java je používán převážně díky velkému množství modulů, jednoduché syntaxi a autorovým zkušenostem s jeho používáním.
+
+
+  \subsection{Markdown} \label{sec:Markdown}
+  Markdown je styl formátování prostého textu vytvořený v roce 2004 Johnem Gruberem pro autory webových stránek. Je uzpůsobený k jednoduchému čtení, psaní a převodu do pokročilejších značkovacích jazyků jako \gls{html}~\cite{markdown-history}. Jedná se o populární formát zápisu dokumentací projektů, souborů README (čti mě) pro repozitáře stránek jako GitHub a GitLab, či článků některých blogů a osobních stránek.
+
+  Existuje řada „variant“ (z anglického „flavor“) Markdownu jako Kramdown či Redcarpet, které originál rozšiřují o dodatečnou funkcionalitu jako vkládání poznámek pod čarou, podpora úpravy formátování pomocí \gls{css} či přidávání \LaTeX ových rovnic.
+
+  V projektu je v kombinaci s šablonovým jazykem Liquid používán ke psaní článků (viz. kapitola~\ref{sec:Proces tvorby článků}), neboť právě z nich Jekyll generuje výslednou webovou stránku.
+
+
+  \subsection{\TeX} \label{sec:TeX}
+  \TeX{} je programovací jazyk pro sázení odborné literatury vytvořený Donaldem E. Knuthem v 70. létech 20. století. Počáteční impulz pro vznik byla Knuthova nespokojenost s tiskovou kvalitou vydání jedné z jeho knih, což jej vedlo ke studiu principů sázení, tvorby fontů a později až k vytvoření vlastního sázecího systému \TeX{}~\cite{tex-history}.
+
+  Od \gls{wysiwyg} programů jako Microsoft Word či LibreOffice se \TeX{} liší tím, že autor při psaní nevidí, jak dokument vypadá. Namísto toho pomocí „maker” (souborů instrukcí) definuje, jak by dokument vypadat měl a \TeX{} se o samotné sázení postará. Díky tomu lze na formátování dokumentu použít řadu pokročilých algoritmů, které by pro formátování „v reálném čase“ byly příliš výpočetně náročné~\cite{tex-history}.
+
+  Tento přístup rovněž klade větší důraz na samotné psaní, jelikož se autor formátováním do značné míry nemusí zabývat. Další výhodou je jednoduchost verzování \TeX ových dokumentů, jelikož jsou psány v prostém textu.
+
+  V projektu je používán \LaTeX{} (viz. kapitola~\ref{sec:Převod webové stránky do PDF}). Jedná se o nadstavbu \TeX u, která díky pokročilejším makrům jako automatické číslování stránek, vkládání referencí, aj. umožňuje pohodlnější tvorbu dokumentů~\cite{getting-started-with-latex}. Následující příklad obsahuje část zdrojového kódu \LaTeX ového dokumentu, který definuje nadpis a paragraf, na jehož konec je vložen odkaz na citaci:
+
+  \begin{minted}{latex}
+  \subsection{\TeX}
+  \TeX{} je programovací jazyk pro sázení odborné literatury vytvořený Donaldem E. Knuthem v 70. létech 20. století~\cite{tex-history}.
+  \end{minted}
+
+  K převodu \LaTeX u do formátu \gls{pdf} je v projektu používán český program pdf\TeX, který umožňuje „produkci \gls{pdf} přímo z \TeX ového vstupu bez převodu do přechodných formátů jako \acrshort{dvi} (\acrlong{dvi}~--~původní výstupný formát \TeX u) či \gls{ps}“~\cite{pdftex} (přeloženo z angličtiny).
+
+
+  \section{Použité nástroje} \label{sec:Použité nástroje}
+  Tato kapitola popisuje programy, které jsou používány při vývoji stránky. Hlavní kritérium výběru byla multiplatformnost, jelikož jsou při vývoji aktivně využívány operační systémy Windows a Linux.
+
+  Do této kapitoly nejsou i přes své použití v projektu zahrnuty textový editor Atom a Git klient GitKraken, protože pro jeho vývoj nejsou nezbytné.
+
+
+  \subsection{Git} \label{sec:Git}
+  Git je otevřený verzovací systém vytvořený Linusem Torvaldsem pro použití na operačním systému Linux. V open-source komunitě se v současné době (31. leden 2019) jedná o nejpoužívanější verzovací systém~\cite{version-control-usage-statistics}, což je jeden z hlavních důvodů pro jeho využití v tomto projektu.
+
+  Verzovací systém umožňuje zaznamenávat změny a jejich důvod/význam na verzované skupině souborů a složek (tzv. repozitáři) a pomáhá tím zamezit ztrátě práce, zjednodušit hledání chyb v kódu a usnadnit spolupráci mezi autory.
+
+  Na rozdíl od centralizovaných verzovacích systémů jako Subversion či \gls{cvs} je Git decentralizovaný~--~místo hlavní úschovny kódu pracuje každý s lokální kopií, která obsahuje úplnou historií projektu. Hlavní výhody tohoto přístupu jsou rychlost práce s repozitářem, možnost pracovat na projektu bez internetového připojení a zamezení ztráty kódu při selhání centrálního serveru~\cite{cvcs-vs-dvcs}.
+
+  Decentralizovanost Gitu však existenci hlavní kopie nezamezuje~--~existuje řada služeb jako GitHub, GitLab či GitBucket, které centrální úschovny gitových repozitářů hostují a poskytují tak v případě ztráty či poškození lokální kopie zálohu.
+
+
+  \subsection{Jekyll} \label{sec:Jekyll}
+  Jekyll je otevřený generátor statických webových stránek napsaný v jazyce Ruby. Od tradičních přístupů ke stavbě webové stránky využívajících databáze či systém pro správu obsahu se liší tím, že ji generuje pouze z textových souborů udávajících její obsah a vzhled. Výsledný produkt je plně statická stránka, která není napojena na žádný dynamický systém.
+
+  Jelikož je převážná většina souborů projektu prostý text, tak je verzování Jekyllové stránky oproti databázi výrazně jednodušší. Další výhodou je ochrana před potenciálními útoky, jelikož u statických webových stránek není řada frekventovaně využívaných útoků možná~--~hosting si neukládá nic, co by potenciální útočník mohl zneužít.
+
+  Hlavní nevýhodou statických webových stránek je obtížné přidávání dynamicky se měnícího obsahu jako komentáře či systém přihlašování, ke kterému jsou zpravidla potřeba databáze. Kvůli tomu se nejedná o vhodné technické řešení pro sociální sítě a diskuzní fóra.
+
+  Nejpopulárnější alternativou Jekyllu je Hugo, který byl při vývoji stránky rovněž testován, avšak nakonec byl díky aktivnější komunitě a autorově preferenci zvolen Jekyll.
+
+
+  \subsection{Inkscape} \label{sec:Inkscape}
+  Inkscape je otevřený multiplatformní software na tvorbu vektorové grafiky. Oproti rastrovým softwarům, které pracují s pixely obrázku, si vektorové pamatují informace o tom, z jakých tvarů se obrázek skládá, což z nich dělá ideální kandidáty pro tvorbu ilustrací (viz. kapitola~\ref{sec:Ilustrace})~\cite{vector-vs-bitmap}.
+
+  Jedná se o populární volbu pro ty, kteří nepoužívají profesionální software jako Adobe Illustrator z důvodu vysoké ceny, uzavřenosti zdrojového kódu či nedostupnosti pro operační systém Linux.
+
+
+  \subsection{Fusion 360} \label{sec:Fusion 360}
+  Ke tvorbě ilustrací je dále používán \gls{cad} software, který slouží ke tvorbě technických nákresů. Na rozdíl od tradičních programů na tvorbu grafiky jsou rozměry tvořených objektů přesně definovány v jednotkách \acrshort{si}~(\acrlong{si}~--~Mezinárodní systém jednotek), aby odpovídaly objektům reálného světa, díky čemuž jdou lehčím způsobem sestrojit či vytisknout na 3D tiskárně.
+
+  Populární \gls{cad} software využíván členy \gls{frc} týmů je Fusion 360 od společnosti Autodesk, převážně díky dostupnosti licence (zdarma pro studenty a jejich mentory). Profesionální alternativou je program SolidWorks, který je kvůli své ceně využíván převážně studenty technicky zaměřených škol přes výhodnější licenci školní.
+
+  Fusion 360 je jediný v projektu používaný program, který nefunguje na operačním systému Linux, jelikož za něj neexistuje dostatečně kvalitní multiplatformní náhrada. Alternativou je program FreeCAD, který je však oproti Fusionu 360 výrazně pomalejší a na používání obtížnější.
+
+
+  \section{Vývoj stránky}
+  Po důkladném zvážení výhod a nevýhod přístupů k projektu s požadavky vymezenými kapitolou~\ref{sec:Požadavky na výsledný produkt} se webová stránka jeví jako nejvhodnější výsledný produkt. Může totiž při správném výběru technologií splňovat otevřenost zdrojového kódu, multiplatformnost i interaktivitu.
+
+  Následující kapitoly popisují, jakými způsoby byly různé části stránky (hosting, logo, aj.) řešeny. Za zmínku stojí, že jelikož vývoj některých z těchto částí probíhal paralelně, tak za sebou nejsou chronologicky řazené.
+
+
+  \subsection{Technické provedení stránky}
+  Pro tvorbu stránky s ohledem na podmínku otevřenosti jejího zdrojového kódu byl vybrán generátor statických webových stránek Jekyll. Díky tomu lze kód produktu verzovat a volně sdílet jednodušeji, než kód webové stránky s databází.
+
+  Po zvážení možností zdarma dostupných otevřených šablon (z anglického „theme“) pro Jekyll byla zvolena šablona Just the Docs, která díky své optimalizaci pro mobilní zařízení pomáhá s multiplatformností projektu. Další výhody této šablony jsou její přehlednost, vestavěná podpora vyhledávání a přizpůsobitelné zvýrazňování syntaxe kódu.
+
+
+  \subsection{Webhosting a doména} \label{sec:Webhosting a doména}
+  Na českém trhu operuje řada firem, které zajišťují jak registraci domény, tak hostování webové stránky. Každá má své výhody a nevýhody, proto je volba provozovatele vysoce individuální a záleží na řadě faktorů.
+
+  Stránka je hostována a doména zprostředkována společností WEDOS Internet a její službou NoLimit, zejména díky autorově pozitivních zkušenostech s tímto provozovatelem v rámci minulých projektů a faktu, že ceny a parametry služeb jiných hostingů se od využívané příliš neliší.
+
+  Další možností hostingu byla služba GitHub Pages, která umožňuje hostovat Jekyllem generovanou stránku přes GitHub. Hosting i doména by byly zdarma, nebylo by třeba obsah nahrávat přes \acrshort{ftp} a generování by po provedení změny v repozitáři proběhlo automaticky. Tento přístup by však neumožňoval využívání Python skriptů, proto není pro účely projektu vhodný.
+
+
+  \subsection{Design loga}
+  Na dobré vizáži každé stránky má značný podíl její logo, které by mělo tematicky odpovídat zaměření stránky bez toho, aby působilo příliš komplikovaně.
+
+  Hlavní myšlenka stojící za vzhledem loga je spojení výrazů „RO“ a „SI“ (první dvě písmena názvu stránky) do jednoho. Toto spojení výrazy zjednodušuje a tematicky tak odpovídá obsahu webové stránky, která je založena na jednoduchosti. Tvar písmene „O“ je rovněž podobný ozubenému kolu, což do designu loga pro stránku zaměřenou na robotiku elegantně zapadá.
+
+  \begin{figure}[H]%
+    \centering
+
+    \subcaptionbox{Počáteční nápad}{\includegraphics[height=3.2cm]{logo1.png}}%
+    \hfill
+    \subcaptionbox{Přidání ozubeného kola}{\includegraphics[height=3.2cm]{logo2.png}}%
+    \hfill
+    \subcaptionbox{Konečná podoba}{\includegraphics[height=3.2cm]{logo3.png}}%
+
+    \caption[Design loga stránky]{Design loga stránky. Ke tvorbě obrázků byl použit program Inkscape.}%
+    \label{img:Design loga stránky}%
+  \end{figure}
+
+
+
+  \subsection{Verzování zdrojového kódu}
+  Stránka je verzována pomocí verzovacího systému Git. Kód je otevřený a volně dostupný přes GitHub na adrese \url{https://github.com/xiaoxiae/Robotics-Simplified-Website} a rovněž jako příloha této práce (viz. kapitola~\ref{sec:Příloha 2: Zdrojový kód stránky}).
+
+  Kromě větších binárních souborů jako ilustrace, které se mohou při revizích článků měnit a zbytečně tak zvětšovat velikost repozitáře, jsou verzovány všechny negenerované soubory udávající vzhled a obsah stránky.
+
+
+  \subsection{Testování}
+  Neodmyslitelnou součástí vývoje každé webové stránky je testování, které pomáhá odstranit chyby a zlepšit její fungování. Obsah těchto testů se však pro různé typy stránek výrazně liší~--~stránce nadnárodní banky bude záležet více na jejím zabezpečení než rychlosti jejího načtení; pro internetové fórum bude platit pravý opak.
+
+  V rámci testování rozebírané stránky proto byly testovány dvě věci, které mají na úspěšnost stránek zaměřených na vzdělávání výrazný dopad~--~doba jejího načtení v závislosti na geografické poloze návštěvníka a funkčnost na různých platformách.
+
+
+  \subsubsection{Doba načtení}
+  Doba načtení webové stránky je jedním z hlavních faktorů ovlivňujících její úspěšnost, jelikož přebytečný čas nad optimální dobu (mezi \num{1.8} a \num{2.7} vteřinami) má negativní vliv na počet jejich konverzí\footnote{Konverze v tomto kontextu znamená, že uživatel vykoná provozovatelem požadovanou akci, jako např. koupě stránkou propagovaného předmětu.}. Při zpoždění o \num{100} milisekund nad tuto dobu klesá toto procento pro uživatele osobních počítačů o \SI{7.8}{\percent}. Konverze dále klesají až o \SI{26.2}{\percent} při zpoždění v řádu \num{2} vteřin~\cite{conversion-rate-statistics}.
+
+  Testování bylo provedeno s pomocí služby \url{https://www.webpagetest.org/}, která z různých lokací světa (a různých prohlížečů) analyzuje webové stránky a poskytuje statistiky o době jejich načtení, množství načtených dat a mnohém dalším.
+
+  Obrázek~\ref{img:Mapa dob načtení stránky v závislosti na geografické poloze} obsahuje informace o době \emph{úplného načtení} (tj. přenesení všech potřebných dat) stránky \url{http://robotics-simplified.com/} z většiny dostupných testovacích lokalit výše uvedené služby ke 13. únoru 2019.
+
+  \begin{figure}[H]
+    \includegraphics[width=\linewidth]{map.png}
+    \caption[Mapa dob načtení stránky v závislosti na geografické poloze]{Mapa dob načtení stránky v závislosti na geografické poloze. Tmavě modré země odpovídají delší době načtení (až \SI{4.125}{\second}), světle modré kratší (od \SI{1.356}{\second}). Data ze světle šedých zemí nejsou k dispozici. Ke tvorbě mapy byl použit Google GeoChart \acrshort{api}.} \label{img:Mapa dob načtení stránky v závislosti na geografické poloze}
+  \end{figure}
+
+  Z obrázku~\ref{img:Mapa dob načtení stránky v závislosti na geografické poloze} je patrné, že doba načtení webové stránky je do značné míry závislá na vzdálenosti od České republiky, ve které je hostována. Tyto hodnoty v testovaných zemích rovněž výrazně nepřevyšují optimální dobu, což je při uvážení ceny hostingu přijatelné.
+
+
+  \subsubsection{Multiplatformnost}
+  Jelikož je výsledný produkt webová stránka, tak další kritický faktor ovlivňující její úspěšnost je správné fungování na různých typech zařízení a prohlížečích.
+
+  Funkčnost různých komponent stránky byla testována na několika z nejpoužívanějších prohlížečů světa~\cite{browser-statistics}: Firefox 65.0.1 (\faIcon{firefox}), Chrome 72.0.3626.105 (\faIcon{chrome}), Internet Explorer 11.590.17134.0 (\faIcon{internet-explorer}), Edge 42.17134.1.0 (\faIcon{edge}), Safari 14606.1.36.1.9 (\faIcon{safari}) a Opera 58.0.3135.79 (\faIcon{opera}). Testování se skládalo z načtení stránky na příslušném prohlížeči a kontroly, zda testované komponenty stránky fungují tak, jak by měly. Výsledky těchto testů jsou zaneseny do tabulky~\ref{tab:Funkčnost stránky na různých platformách}.
+
+  \vspace{1.2\parskip}
+  \begin{table}[H]
+    \caption[Funkčnost stránky na různých platformách]{Funkčnost stránky na různých platformách. Správné fungování je značeno symbolem \faIcon{check}, špatné symbolem \faIcon{times} a nemožnost testování z důvodu nedostupnosti prohlížeče je značeno symbolem \faIcon{minus}.}
+    \label{tab:Funkčnost stránky na různých platformách}
+    \footnotesize
+    \centering
+    \ra{1.3}
+    \begin{tabular}{@{}rccccccccccccc@{}} \toprule
+      & \multicolumn{6}{c}{Stolní počítač} & \phantom{abc} & \multicolumn{6}{c}{Mobilní zařízení} \\
+        \cmidrule{2-7} \cmidrule{9-14}
+       & \faIcon{firefox} & \faIcon{chrome} & \faIcon{internet-explorer} & \faIcon{edge} & \faIcon{safari} & \faIcon{opera}
+      && \faIcon{firefox} & \faIcon{chrome} & \faIcon{internet-explorer} & \faIcon{edge} & \faIcon{safari} & \faIcon{opera}\\
+        \midrule
+      Zobrazení obrázků     & \faIcon{check} & \faIcon{check} & \faIcon{check} & \faIcon{check} & \faIcon{check} & \faIcon{check}
+      && \faIcon{check} & \faIcon{check} & \faIcon{minus} & \faIcon{check} & \faIcon{check} & \faIcon{check} \\
+      Zobrazení rovnic     & \faIcon{check} & \faIcon{check} & \faIcon{check} & \faIcon{check} & \faIcon{check} & \faIcon{check}
+      && \faIcon{check} & \faIcon{check} & \faIcon{minus} & \faIcon{check} & \faIcon{check} & \faIcon{check} \\
+      Interaktivita vizualizací & \faIcon{check} & \faIcon{check} & \faIcon{times} & \faIcon{check} & \faIcon{check} & \faIcon{check}
+      && \faIcon{check} & \faIcon{check} & \faIcon{minus} & \faIcon{check} & \faIcon{check} & \faIcon{check} \\
+      Správné formátování & \faIcon{check} & \faIcon{check} & \faIcon{check} & \faIcon{check} & \faIcon{check} & \faIcon{check}
+      && \faIcon{check} & \faIcon{check} & \faIcon{minus} & \faIcon{check} & \faIcon{check} & \faIcon{check} \\
+        \bottomrule
+    \end{tabular}
+  \end{table}
+
+  Z tabulky~\ref{tab:Funkčnost stránky na různých platformách} je patrné, že stránka funguje správně na všech prohlížečích a zařízeních kromě Internetu Explorer, který na mobilu dostupný není a na počítači nenačte vizualizace. S ohledem na procento návštěvníků stránky používajících Internet Explorer (viz. tabulka~\ref{tab:Návštěvnost stránky podle prohlížeče}) se však nejedná o velký problém.
+
+
+  \section{Obsah stránky}
+  Obsah projektů zaměřených na vzdělání je jejich nejdůležitější část, jelikož i skvěle vypadající webová stránka s těžce pochopitelnými články svůj účel vzdělávání návštěvníků nesplní.
+
+  Následující kapitola nejprve popisuje cílovou skupinu, pro kterou je obsah stránky tvořen. Poté popisuje proces tvorby článků a jejich dílčích částí. Následně rozebírá strukturu obsahu a na závěr jeho možná uplatnění.
+
+
+  \subsection{Cílová skupina}
+  Při tvorbě studijních materiálů je v první řadě třeba vymezit jejich cílovou skupinu, protože od ní se odvíjí vše ostatní~--~jazyk textu, obtížnost použité matematiky, podrobnost ilustrací, aj. Při výběru musí být brána v potaz především úroveň vzdělání autora, jelikož středoškolský student experta v oboru mnoho nenaučí.
+
+  Do cílové skupiny proto patří lidé v podobné situaci, ve se nacházel autor na konci roku 2017, krátce po jeho vstoupení do \gls{frc} týmu Metal Moose~--~jedinci se zájmem o robotiku, které od studia odrazuje nedostatek intuitivních a lehce pochopitelných materiálů. Díky tomu, že autor až donedávna do této skupiny patřil, dokáže snadněji psát takové články, které by si při svých začátcích s robotikou přál číst.
+
+  Předešlé znalosti v oblasti robotiky či elektrotechniky pro čtení článků stránky potřebné nejsou, doporučeny jsou pouze základní znalosti programování a středoškolské matematiky (geometrie, algebra).
+
+
+  \subsection{Proces tvorby článků} \label{sec:Proces tvorby článků}
+  Při tvorbě nového článku je nejprve zvoleno téma, které bude článek rozebírat. Vyšší prioritu mají témata, jejichž pochopení pro autora bylo z dostupných internetových zdrojů náročné. Další faktory ovlivňující tento výběr jsou obtížnost zařazení tématu do již vytvořených tematických okruhů a jeho užitečnost v soutěži \gls{frc}.
+
+  Po vybrání tématu článku jsou shromážděny dostupné materiály (prezentace, odborné práce, články, aj), které jsou pro důkladném prostudování seřazeny podle jejich podílu na autorově pochopení daného tématu a na stránce zmíněny jako dodatečné studijní materiály.
+
+  \begin{figure}[H]%
+    \centering
+
+    \subcaptionbox{Boční pohled na model robota}{\fbox{\includegraphics[width=.475\linewidth]{robot1.png}}}%
+    \hfill
+    \subcaptionbox{Vrchní pohled na model robota}{\fbox{\includegraphics[width=.475\linewidth]{robot2.png}}}%
+
+    \caption[3D model robota]{3D model robota, vytvořen a vyrendrován v \gls{cad} programu Fusion 360.}%
+    \label{img:3D model robota}%
+  \end{figure}
+
+  Hlavní koncepty těchto témat jsou dále implementovány přes online prostředí RobotMesh v jazyce Python na robotovi ze stavebnice VEX EDR, který byl pro tento účel vytvořen. Dva úhly pohledu na jeho konstrukci zachycuje obrázek~\ref{img:3D model robota}. Zdrojový kód tohoto modelu je dostupný jako příloha této práce (viz. kapitola~\ref{sec:STEP model robota}) ve formátu \gls{step}.
+
+  Po úspěšném testování a odladění kódu je implementace a její odvození v článku jednoduchým způsobem vysvětleno, a, pokud možno, doplněno názornými ilustracemi a vizualizacemi. Na konci je zpravidla rozebírána použitelnost daných konceptů v reálném světě a nastíněny navazující články v rámci daného tematického okruhu.
+
+
+  \subsubsection{Vizualizace} \label{sec:Vizualizace}
+  Vizualizace jsou implementovány v jazyce JavaScript s využitím knihovny p5.js (viz. kapitola~\ref{sec:p5.js}). Jsou uzpůsobeny pro ovládání myší či dotykem, aby byly funkční jak na osobních počítačích, tak na mobilních zařízeních. Offline verze stránky vizualizace neobsahuje, protože formát \gls{pdf} vkládání kódu kvůli bezpečnosti neumožňuje~\cite{history-of-pdf}.
+
+
+  \subsubsection{Ilustrace} \label{sec:Ilustrace}
+  Ke tvorbě ilustrací je používán program na tvorbu vektorové grafiky Inkscape v kombinaci s \gls{cad} softwarem Fusion 360. Vektorová grafika je pro vytváření ilustrací správná volba z toho důvodu, že potřebné tvary lze vytvářet a upravovat výrazně rychleji a efektivněji než rastr. Zabírá také méně místa a je ukládána v prostém textu, což má oproti binárnímu formátu řadu výhod.
+
+  \begin{figure}[H]
+    \centering
+
+    \subcaptionbox{Pohyb robota po kružnici}{\fbox{\includegraphics[width=.3\linewidth]{illustration1.png}}}%
+    \hfill
+    \subcaptionbox{Odhad pozice pohybem po přímce}{\fbox{\includegraphics[width=.3\linewidth]{illustration2.png}}}%
+    \hfill
+    \subcaptionbox{Odhad pozice pohybem po kružnici}{\fbox{\includegraphics[width=.3\linewidth]{illustration3.png}}}%
+
+    \caption[Příklad ilustrací článků]{Příklad ilustrací článků, které znázorňují způsoby pohybu robota pro výpočet inverzní kinematiky jeho podvozku. Ke tvorbě ilustrací byl použit program Inkscape.}%
+    \label{img:Příklad ilustrací článků}%
+  \end{figure}
+
+
+  \subsubsection{Matematika} \label{sec:Matematika}
+  Jelikož jsou probírané koncepty a algoritmy založeny na matematice, tak stránka podporuje vkládání rovnic a výrazů do článků. Tuto funkcionalitu zajišťuje JavaScriptová knihovna \KaTeX{} (viz. kapitola~\ref{sec:KaTeX}), díky které lze \LaTeX ové rovnice umísťovat přímo do Markdownových článků.
+
+  Příkladem zápisu matematiky v článku je rovnice~(\ref{eq:katex equation}), která je pomocí \KaTeX u převedena na rovnici~(\ref{eq:converted equation}).
+
+  \begin{equation} \label{eq:katex equation}
+    \verb|Je pravda, že $$\sum_{i=1}^{n} i = \frac{n(n+1)}{2}$$.|
+  \end{equation}
+
+  \begin{equation} \label{eq:converted equation}
+    \text{Je pravda, že }\sum_{i=1}^{n} i = \frac{n(n+1)}{2}\text{.}
+  \end{equation}
+
+
+  \subsection{Struktura}
+  Stránka je strukturována do značné míry jako kniha, převážně pro plynulost čtení a zjednodušení jejího převodu do formátu \gls{pdf}.
+
+  Návštěvníka po zobrazení stránky přivítá \emph{úvodní stránka} (obrázek~\ref{img:Úvodní stránka}), která představí projekt a jeho cíle. Příležitostně také obsahuje důležitá sdělení o jejím provozu. Poté následuje \emph{předmluva} (obrázek~\ref{img:Předmluva}), ve které je kromě diskuze o předpokladech pro čtení zodpovězena řada otázek, které by čtenáři mohli při procházení stránky mít.
+
+  \begin{figure}[H]
+    \minipage{0.475\textwidth}
+      \fbox{\includegraphics[width=\linewidth]{1.png}}
+      \caption{Úvodní stránka} \label{img:Úvodní stránka}
+    \endminipage\hfill
+     \minipage{0.475\textwidth}
+      \fbox{\includegraphics[width=\linewidth]{2.png}}
+      \caption{Předmluva} \label{img:Předmluva}
+    \endminipage
+  \end{figure}
+
+  Hlavní náplní projektu jsou \emph{tematické okruhy} (obrázek~\ref{img:Příklady článků}), které se skládají z článků probírajících koncepty s podobnou tematikou v pořadí, ve kterém by pro návaznost měly být čteny.
+
+  \begin{figure}[H]
+    \centering
+
+    \subcaptionbox{Úvod do ovládání podvozku robota}{\fbox{\includegraphics[width=.3\linewidth]{3-1.png}}}%
+    \hfill
+    \subcaptionbox{Metoda Tank drive pro ovládání podvozku robota}{\fbox{\includegraphics[width=.3\linewidth]{3-2.png}}}%
+    \hfill
+    \subcaptionbox{Výpočet úhlu z hodnot enkóderů}{\fbox{\includegraphics[width=.3\linewidth]{3-3.png}}}%
+
+    \caption{Příklady článků}%
+    \label{img:Příklady článků}%
+  \end{figure}
+
+  Na závěr je přiložen článek s \emph{dodatečnými materiály} (obrázek~\ref{img:Dodatečné materiály}) použitými při tvorbě projektu a sekce \emph{O nás} (obrázek~\ref{img:O nás}), která popisuje důvod vzniku projektu, návod k případné spolupráci a poděkování.
+
+  \begin{figure}[H]
+    \minipage{0.475\textwidth}
+      \fbox{\includegraphics[width=\linewidth]{4.png}}
+      \caption{Dodatečné materiály} \label{img:Dodatečné materiály}
+    \endminipage\hfill
+     \minipage{0.475\textwidth}
+      \fbox{\includegraphics[width=\linewidth]{5.png}}
+      \caption{O nás} \label{img:O nás}
+    \endminipage
+  \end{figure}
+
+
+  \subsection{Uplatnění}
+  Kromě snahy o zpřístupnění robotiky pro začátečníky stránka rovněž poskytuje zdroj strukturovaných vzdělávacích materiálů pro lektory kurzů robotiky a programování. Sám autor jich několik na Vzdělávacím centru Turnov pomocí své stránky vyučuje a jeho zkušenosti byly zatím pouze kladné.
+
+  Díky otevřenosti zdrojového kódu stránka dále slouží jako šablona pro Jekyllem poháněné projekty, které by rády docílily obdobné funkcionality (rovnice, automatizace pomocí skriptů, zvýrazňování syntaxe kódu, aj.) bez zdlouhavého psaní a ladění kódu.
+
+
+  \section{Automatizace provozu stránky} \label{sec:Automatizace provozu stránky}
+  Ke tvorbě kvalitního vzdělávacího materiálu je potřeba plynulý a do nejvyšší možné míry automatizovaný provoz stránky~--~k přidání nového článků by mělo stačit v příslušné složce projektu vytvořit nový soubor a zbytek procesu by měl proběhnout bez zásahu autora. Stránka je v tomto duchu automatizována skripty psanými v jazyce Python (viz. kapitola~\ref{sec:Python}), aby se autor mohl plně soustředit na práci.
+
+
+  \subsection{Upload stránky přes \acrshort{ftp}}
+  \gls{ftp} je protokol zprostředkovávající přenos souborů mezi počítači po síti. Od prvního návrhu pro využití na \gls{mit} v roce 1971 až po oficiální specifikaci publikovanou roku 1985 prošel mnoha revizemi s dodatky přidávanými dodnes~\cite{ftp-specification}. Jedná se o populární volbu protokolu pro hostingy webových stránek a hosting tohoto projektu není výjimkou.
+
+  Script \texttt{upload.py} se po zadání hesla připojí přes protokol \gls{ftp} na server, rekurzivně smaže soubory a adresáře aktuální verze stránky a nahraje verzi novou. Pro dodatečné zabezpečení je \gls{ip} serveru šifrována symetrickou šifrou \gls{aes}.
+
+
+  \subsection{Generování souboru sitemap.xml}
+  Soubor protokolu sitemap obsahuje informace o pořadí procházení, časech změny a relativních prioritách částí stránky. Je využíván vyhledávacími portály, které soubory tohoto typu využívají pro efektivnější indexování stránky ve svém systému.
+
+  Script \texttt{sitemap.py} podle pořadí článků generuje záznamy do souboru \texttt{sitemap.xml}. Informace o umístění a poslední úpravě jsou získávány z atributů souborů a priorita je přidělena podle jejich pozice na stránce~--~úvodní stránka má prioritu \num{1.0}, hlavní články mají prioritu \num{0.8} a vedlejší články prioritu \num{0.6}.
+
+
+  \subsection{Převod webové stránky do \acrshort{pdf}} \label{sec:Převod webové stránky do PDF}
+  Pro offline dostupnost existuje mnoho různých typů souborů, na které by stránka šla převést. Často používané formáty jako \gls{doc} a \gls{docx} jsou však pro použití v projektu nevhodné, protože se mohou na různých zařízeních zobrazit rozdílně. Je tedy vhodnější použít formáty jako \gls{ps} či \gls{pdf}, jejichž vizáž na prostředí závislá není~\cite{history-of-pdf}.
+
+  Přímočará varianta by byla převést články do \gls{pdf} libovolným programem pro převod textových formátů (jako Pandoc). Tímto přístupem by však bylo obtížné generovat obsah a prakticky nemožné ovlivnit výsledné formátování, což potřebám projektu nevyhovuje. Proto byl zvolen převod článků do formátu \LaTeX{} a až poté do \gls{pdf}, což všechny nevýhody předchozí varianty elegantně řeší.
+
+  Script \texttt{tex.py} získá pořadí článků, spojí je za sebe do jednoho dokumentu a poté na ně aplikuje řadu regulárních výrazů, které provedou převod z formátu Markdown do formátu \LaTeX, který je následně převeden do formátu \gls{pdf} programem pdf\LaTeX.
+
+
+  \subsection{Komprimace obrázků}
+  Komprimaci obrázků stránky pro zmenšení její velikosti provádí skript \texttt{compress.py}, který pomocí služby TinyPNG a jejího Python \gls{api} zkomprimuje všechny obrázky stránky. Samotný \gls{api} klíč je pro zamezení zneužití šifrován symetrickou šifrou \gls{aes}.
+
+  Úprava fotek funguje na principu \emph{kvantování barev}~--~podobné barvy jsou spojeny do jedné, čímž lze z tradičních 24-bitových palet \gls{png} udělat palety 8-bitové a zmenšit tím obrázek bez výrazného zhoršení jeho kvality.
+
+  K~24.~únoru~2019 tento skript zkomprimuje obrázky webové stránky na \SI{72.3}{\percent} jejich původní velikosti a zmenší tím velikost stránky o \num{262} KB.
+
+
+  \subsection{Minimalizace zdrojového kódu}
+  Zkompaktnění zdrojového kódu je další možná optimalizace, kterou lze načítání stránky urychlit. Prohlížečům na vzhledu kódu nezáleží a běžné uživatele nezajímá, proto jej lze na úkor čitelnosti zmenšit.
+
+  Tuto funkci zastává skript \texttt{minify.py}, který soubory typu \gls{css} a \gls{html} zmenší odstraněním komentářů, nepotřebných tagů a uvozovek, přebytečných mezer a dalších částí kódu, které jeho funkcionalitu nezmění.
+
+  K~24.~únoru~2019 tento skript zkompaktní \gls{css} a \gls{html} webové stránky na \SI{72.89}{\percent} a \SI{68.12}{\percent} jejich původní velikosti a zmenší tím velikost stránky o \num{129} KB.
+
+
+  \subsection{Spuštění všech scriptů}
+  Po přidání či úpravě článku je potřeba verzi stránky na hostingu aktualizovat. Tento proces řídí skript \texttt{deploy.py}, který stránku nejprve pomocí Jekyllu vygeneruje, poté ve správném pořadí spustí všechny skripty pro generování dodatečného obsahu a optimalizace, a nakonec i skript pro nahrání stránky na webhosting.
+
+
+  \section{Návštěvnost a zpětná vazba stránky}
+  Po publikování webové stránky je pro měření její úspěšnosti běžné sbírat informace o její návštěvnosti a ohlase jejich uživatelů. Podle těch lze následně uzpůsobit její obsah a vzhled, a zvýšit tím jak její kvalitu, tak návštěvnost.
+
+  Následující kapitola rozebírá metody získávání a opodstatňuje naměřené hodnoty sesbíraných dat. Rovněž také popisuje metody obdržení zpětné vazby o jejím formátování a obsahu.
+
+
+  \subsection{Analýza návštěvnosti}
+  Google je jedna z nejúspěšnějších technologicky zaměřených společností dneška. Specializuje se na reklamní technologie, internetové vyhledávání a řadu dalších technických oborů. V projektu jsou její službu používány především díky jednoduchosti jejich nastavení a popularitě webového vyhledávače Google.
+
+  \emph{Google Analytics} slouží k analýze návštěvnosti webových stránek. Pro použití stačí na danou stránku přidat JavaScriptovou knihovnu, která shromažďuje informace o návštěvnících (z údajů prohlížeče a \gls{http} cookies) a jejich interakcí s danou webovou stránkou.
+
+  Kromě služby Google Analytics je v projektu dále používána služba \emph{Google Search Console}, která zobrazuje statistiky o indexování webové stránky v rámci vyhledávání Google~--~její průměrné pozice při relevantních vyhledáváních, počet zobrazení, indexované podstránky, aj. Kromě toho informuje správce stránky o potenciálních problémech jako špatné zobrazení na mobilních zařízeních či chybně vygenerovaný soubor \texttt{sitemap.xml}.
+
+  Celková návštěvnost stránky v období od 18. prosince 2018 (počátek měření) k 18.~březnu~2018 činí \num{466} návštěvníků. Jejich demografické údaje zachycují grafy \fullref{img:Pohlaví návštěvníků stránky} a \fullref{img:Věk návštěvníků stránky}. Údaje o přístupu ke stránce jsou dále zaneseny do tabulek \fullref{tab:Návštěvnost stránky podle země} a \fullref{tab:Návštěvnost stránky podle prohlížeče}.
+
+  \begin{figure}[H]
+    \begin{minipage}[b]{0.475\textwidth}
+      \footnotesize
+      \centering
+      \begin{tikzpicture}
+        \pie[color={blue!70, red!70}, rotate=-35, before number=\ScanPercentage, after  number ={ }\%,]{91.2/Muži, 8.8/Ženy}
+      \end{tikzpicture}
+      \captionof{figure}{Pohlaví návštěvníků stránky}
+      \label{img:Pohlaví návštěvníků stránky}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.475\textwidth}
+      \footnotesize
+      \centering
+      \begin{tikzpicture}
+        \begin{axis}[
+          symbolic x coords={18--24, 25--34, 35--44, 45--54},
+          xtick=data,
+          ylabel={Procento návštěvníků},
+          xlabel={Věková kategorie},
+          bar width=1cm,
+          width=\textwidth,
+          enlarge x limits=0.18,
+          ymin=0, ymax=60,
+          nodes near coords={\pgfmathprintnumber\pgfplotspointmeta{ }\%},
+          yticklabel={\pgfmathparse{\tick}\pgfmathprintnumber{\pgfmathresult}{ }\%},]
+          \addplot[ybar,fill=blue] coordinates {
+            (18--24, 18.9)
+            (25--34, 48.4)
+            (35--44, 18.0)
+            (45--54, 14.7)
+          };
+        \end{axis}
+      \end{tikzpicture}
+      \captionof{figure}{Věk návštěvníků stránky}
+      \label{img:Věk návštěvníků stránky}
+    \end{minipage}
+  \end{figure}
+
+  \vfill
+
+  Statistiky pohlaví návštěvníků stránky z grafu~\ref{img:Pohlaví návštěvníků stránky} odpovídají očekávání, jelikož technické obory jako robotika a \gls{it} jsou zastoupeny z převážné části muži~\cite{women-in-stem}. Statistiky věku z grafu~\ref{img:Věk návštěvníků stránky} lze opodstatnit uvážením průměrného věku uživatelů fór, na kterých byla tato stránka zveřejněna~\cite{reddit-demographics} (viz. kapitola \ref{sec:Získávání zpětné vazby}).
+
+  Jelikož je stránka psána v angličtině, tak většina návštěvníků pochází z anglicky mluvící země, což tabulka~\ref{tab:Návštěvnost stránky podle země} podporuje. Zvláštností je četnost prohlížeče Firefox v tabulce~\ref{tab:Návštěvnost stránky podle prohlížeče}, která jeho průměrnému používání dle statistiky \cite{browser-statistics} neodpovídá (je nadměrně zastoupen).
+
+  \vfill
+
+  \begin{figure}[H]
+    \begin{minipage}[b]{0.475\textwidth}
+      \begin{table}[H]
+        \caption{Návštěvnost stránky podle země}
+        \label{tab:Návštěvnost stránky podle země}
+        \footnotesize
+        \centering
+        \ra{1.3}
+        \begin{tabular}{lr}
+          \toprule
+          \emph{Země} & \emph{Návštěvníci} \\
+          \midrule
+          Spojené státy americké & \num{240} \\
+          Česká republika	       & \num{35} \\
+          Spojené království     & \num{20} \\
+          Kanada                 & \num{17} \\
+          Japonsko               & \num{10} \\
+          Německo                & \num{10} \\
+          Čína                   & \num{8} \\
+          Indie                  & \num{8} \\
+          Nizozemí               & \num{7} \\
+          Španělsko              & \num{7} \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+    \end{minipage}\hfill
+    \begin{minipage}[b]{0.475\textwidth}
+      \begin{table}[H]
+        \caption{Návštěvnost stránky podle prohlížeče}
+        \label{tab:Návštěvnost stránky podle prohlížeče}
+        \footnotesize
+        \centering
+        \ra{1.3}
+        \begin{tabular}{lr}
+          \toprule
+          \emph{Prohlížeč} & \emph{Návštěvníci} \\
+          \midrule
+          Chrome            & \num{226} \\
+          Firefox	          & \num{111} \\
+          Safari            & \num{85} \\
+          Android Webview   & \num{14} \\
+          Internet Explorer & \num{6} \\
+          Opera             & \num{6} \\
+          Edge              & \num{5} \\
+          Samsung Internet  & \num{5} \\
+          Neurčeno          & \num{4} \\
+          Cốc Cốc           & \num{1} \\
+          \bottomrule
+        \end{tabular}
+      \end{table}
+    \end{minipage}
+  \end{figure}
+
+
+  \subsection{Získávání zpětné vazby} \label{sec:Získávání zpětné vazby}
+  K získání zpětné vazby o technicky zaměřeném projektu je vhodné použít webové stránky s obdobnou tématikou. Projekt byl z tohoto důvodů zveřejněn na následujících internetových fórech:
+
+  {\parskip=0pt
+  \begin{itemize}[topsep=\itemsep]
+    \item \emph{ChiefDelphi}~--~internetové fórum zaměřené na soutěž \gls{frc}, převážně pro členy \gls{frc} týmů.
+    \item \emph{Reddit}~--~jedno z nejpopulárnějších internetových fór dneška. Zajímavostí jsou subreddity~--~samospravované celky, na kterých jsou zveřejňovány články se společnou tématikou.
+    \begin{itemize}[topsep=0pt]
+      \item \emph{Subreddit \gls{frc}}~--~zaměření na soutěž \gls{frc}, od vtipných obrázků a videí po odborné články. Časté jsou též novinky a události ze světa soutěže.
+      \item \emph{Subreddit Robotics}~--~většina příspěvků je vzdělávacího charakteru. Časté druhy příspěvků jsou videa a články o domácích projektech uživatelů tohoto fóra.
+    \end{itemize}
+    \item \emph{Hacker News}~--~internetové fórum, které je ve svém fungování blízké Redditu. Není však dále strukturováno na subreddity a obsah je vážnějšího charakteru~--~světové novinky, nové výzkumy a odborné práce, měsíční přehledy dostupných pracovních pozic \gls{it} firem, apod.
+  \end{itemize}}
+
+  Zpětná vazba obsahovala rady na potenciální možnost zpeněžení webové stránky přidáním reklam, zlepšení kompatibility s obskurnějšími nastaveními prohlížečů a umožnění upravovat samotné ukázky kódu a měnit tím chování vizualizace.
+
+  \cleardoublepage
+
+  \section{Závěr}
+  Cílem této práce bylo vytvořit otevřenou vzdělávací webovou stránku zabývající se robotikou z hlediska potřeb nových zájemců o tento obor, kteří nejsou s problematikou příliš obeznámeni a chybí jim potřebné dostupné zdroje. Obsahuje interaktivní vizualizace, ilustrace a ukázky zdrojových kódu probíraných konceptů, a je rovněž dostupná ve formátu \gls{pdf}. Její provoz je automatizován scripty psanými v jazyce Python, které zajišťují řadu optimalizací a zjednodušují tak její provoz a údržbu. Může sloužit jak novým zájemcům o obor robotiky, tak začínajícím pedagogům jako osnova pro vyučování roboticky zaměřených kurzů.
+
+  Náplní práce na projektu je v dohledné budoucnosti tvorba nových článků a jejich lokalizace do českého jazyka. S tím je též úzce spjata revize již napsaných článků~--~přidávání dodatečných ilustrací a vizualizací, zpřehlednění textu, revize kódu, aj.
+
+  Stránka rovněž nepoužívá protokol \gls{https}, který na rozdíl od \gls{http} šifruje komunikaci mezi klientem a serverem a zamezuje tím řadě možných útoků, před kterými \gls{http} uživatele nechrání. Jelikož však WEDOS podporuje mezinárodně uznávanou certifikační autoritu Let's Encrypt, tak by tato změna příliš komplikovaná být neměla.
+
+  Další oblastí zlepšení je převod webové stránky do offline verze~--~export do formátů jako \gls{epub} a \gls{mobi} pro zlepšení podpory elektronických čteček knih, zajištění větší spolehlivosti převodu a implementace dodatečných funkcí (přeškrtnutí textu, podtržení textu, reference, citace, aj.).
+
+  \cleardoublepage
+
+  % create the bibliography
+  \printbibliography[heading=bibnumbered, title=Použitá literatura]
+
+  \cleardoublepage
+
+  % create lof and lot
+  \section{Seznam obrázků a tabulek}
+  \listoffigures%
+  \vspace{\baselineskip}
+  \listoftables%
+
+  \cleardoublepage
+
+  \section{Příloha 1: Knižní verze stránky} \label{sec:Příloha 1: Knižní verze stránky}
+
+  \newpage
+
+  \section{Příloha 2: Zdrojový kód stránky} \label{sec:Příloha 2: Zdrojový kód stránky}
+
+  \newpage
+
+  \section{Příloha 3: \acrshort{step} model robota} \label{sec:STEP model robota}
+\end{document}

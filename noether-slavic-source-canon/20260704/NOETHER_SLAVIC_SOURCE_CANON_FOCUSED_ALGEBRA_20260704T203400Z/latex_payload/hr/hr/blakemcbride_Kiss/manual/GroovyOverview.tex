@@ -1,0 +1,234 @@
+\input texinfo    @c -*-texinfo-*-
+@c %**start of header
+@setfilename GroovyOverview.html
+@settitle Groovy Overview
+@c %**end of header
+@setchapternewpage odd
+@codequoteundirected on
+@codequotebacktick on
+@tex
+\global\def\linkcolor{0 0 1}  % blue
+\global\def\urlcolor{0 0 1}   % blue
+@end tex
+
+@ifinfo
+Copyright  @copyright{} 2023 Blake McBride
+All rights reserved.
+@sp 1
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+@sp 1
+1. Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+@sp 1
+2. Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+@sp 1
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+@end ifinfo
+
+@html
+@include style.css
+@end html
+
+@titlepage
+@title Groovy Overview
+@subtitle Part of the Kiss Web Development Framework
+@c @subtitle @today{}
+@subtitle May 12, 2025
+@author by Blake McBride
+@page
+@vskip 0pt plus 1filll
+Copyright  @copyright{} 2023 Blake McBride
+All rights reserved.
+@sp 1
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are
+met:
+@sp 1
+1. Redistributions of source code must retain the above copyright
+notice, this list of conditions and the following disclaimer.
+@sp 1
+2. Redistributions in binary form must reproduce the above copyright
+notice, this list of conditions and the following disclaimer in the
+documentation and/or other materials provided with the distribution.
+@sp 1
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+@sp 1
+Windows and Microsoft are registered trademarks of
+Microsoft Corporation.  @TeX{}@ is a trademark of the American
+Mathematical Society. Other brand and product names are trademarks or
+registered trademarks of their respective holders.
+@sp 1
+This manual was typeset with the @TeX{}@ typesetting system developed by
+Donald Knuth utilizing the Texinfo format.
+@end titlepage
+@iftex
+@c @parskip = .5@baselineskip
+@font@smallfnt = cmr5
+@font@crfont = cmr7
+@end iftex
+
+@c @summarycontents
+@contents
+
+@chapter What is Groovy?
+
+
+Groovy is 80+% the same as Java.  If you are a Java programmer, you can
+trivially pick up Groovy.
+
+Like Java, Groovy compiles into JVM code.  Groovy code runs as fast as
+Java.  Groovy can call any Java class, method, jar, package, etc., just
+as if it were straight Java.
+
+Groovy code is sort of an enhanced Java.  It made a lot more sense
+when competing with older versions of Java.  Groovy has several
+hassles compared to Java but also has many conveniences.  On Kiss,
+Groovy code loads a little bit faster.  Once loaded, however, it runs
+at the same speed as compiled Java.
+
+
+@chapter Why Groovy?
+Groovy is used for several reasons:
+
+@enumerate
+@item
+Groovy is only a little different from Java.  For the most part, if
+you know Java, you know Groovy.
+@item
+Groovy has several language features that make it
+more convenient in many situations.  (Although it also has a few
+annoyances that you need to be mindful of!)
+@item
+Groovy normally compiles to regular Java class files, runs at full
+speed, and interacts with Java <-> Groovy as if all code were Java or
+Groovy.
+@item
+Although Groovy can be compiled ahead-of-time just like Java, the
+way Kiss uses it is to compile it at runtime.  This makes loading
+it take longer (although certainly sub-second), but once loaded, it
+runs at the same speed as compiled Java code.  Doing it this way
+has the following advantages:
+@enumerate a
+@item
+I can modify the code while the system is running!  The way I
+load files is to check the file date/time.  If it changes, I
+recompile and load it.
+@item
+It is always clear to me what is dynamic (can be changed on a
+running system) and what is static (compiled ahead of time).
+This way, all Java files are compiled ahead-of-time.  All Groovy files
+are compiled when loaded at runtime.  Note that this is just a
+convention I use and not a limitation of either Java or Groovy.
+@item
+Interestingly, and for reasons unclear to me, dynamically
+compiling and loading Groovy seems to be
+faster than doing the same thing in Java.
+@end enumerate
+@end enumerate
+
+@chapter Groovy -- The Good
+
+Groovy offers many conveniences over Java.  The most commonly used
+in @emph{Kiss} development include:
+
+@enumerate
+@item
+Seamless Java integration --- Groovy can call Java and vice versa
+as if they were the same language.
+@item
+Multi-line strings with triple quotes (@code{"""}).  Ideal for SQL:
+@example
+       String sql = """select *
+                       from mytable
+                       where field = 'abc'
+                       order by some_field"""
+@end example
+@item
+String comparison with @code{==} compares contents, not object identity.
+@item
+Simpler closures/lambdas than Java.
+@item
+Truthiness: @code{null}, @code{0}, @code{""}, and @code{[]} are all
+treated as @code{false}, so @code{if (str)} replaces
+@code{if (str != null && !str.isEmpty())}.
+@item
+String interpolation: @code{"the value is $x"}.
+@item
+Null-safe operator: @code{x?.method()} avoids null checks.
+@item
+Array literals: @code{def a = [1, 2, 3]}.
+@end enumerate
+
+For a comprehensive treatment of Groovy's features and how they apply
+to @emph{Kiss} development, see the @emph{Kiss} book.
+
+@chapter Groovy -- The Bad
+Groovy has a few pitfalls to be aware of:
+
+@enumerate
+@item
+Optional semicolons and optional parentheses on method calls can
+reduce readability.
+@item
+No @code{char} type --- @code{'x'} is a @code{String}.
+Use @code{(char) 'x'} or @code{'x' as char} when a character is needed.
+@item
+Floating-point literals like @code{3.14} are @code{BigDecimal}, not
+@code{double}.  Use @code{3.14d} to get a @code{double}.  This has
+caused many subtle bugs.
+@end enumerate
+
+@chapter Calling Groovy in KISS
+
+Groovy, like Java, may call compiled Java and Groovy code in the
+normal way.  This is always the case.  However, in @emph{KISS}, Groovy
+code is not compiled before the system is started up, as is normally
+the case, but is compiled at runtime when used.  This is to support
+the fact that all Groovy code in @emph{KISS} are microservices.
+In @emph{KISS}, each Groovy class is an independent microservice.
+This affects how Groovy methods are called in @emph{KISS}.
+
+Groovy microservices in @emph{KISS} may make three types of calls as follows:
+@enumerate
+@item
+Intra-method Calls -- calls from one method to another in the same class
+@item
+Compiled Library Calls -- these are calls from Groovy to compiled Java
+code (@emph{KISS} core code, Java or Groovy compiled libraries, etc)
+@item 
+Microservice Calls - these are calls from one Groovy method to a Groovy
+method in another class / microservice
+@end enumerate
+In @emph{KISS}, the first two types of calls may be performed as you would normally
+perform them.  There are no special considerations.
+
+However type 3 calls require a special procedure.  This is to give @emph{KISS}
+an opportunity to compile and load the microservice before it is executed.
+See the main manual and the @emph{Kiss} book for more details.
+
+@bye
+

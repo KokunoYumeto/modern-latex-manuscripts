@@ -1,0 +1,857 @@
+% Correcting the title chapter page
+\fancypagestyle{plain}{%
+    \fancyhf{}
+    \fancyhead[RO,LE]{\bfseries \thepage}
+    \fancyhead[CO]{\rightmark}
+    \fancyhead[CE]{\leftmark}
+    \renewcommand{\headrulewidth}{0.4pt}}
+
+\pagenumbering{arabic}
+\chapter{Grupe}
+
+\section{Definicija grupe i primjeri}
+
+
+Moć teorije grupa leži u njenoj apstraktnosti koju je poznati fizičar Arthur
+Eddington \index{Eddington, Arthur \yrange{1882}{1944}} ilustrirao riječima
+\begin{quote}
+\emph{Potrebna nam je super-matematika u kojoj su operacije jednako nepoznate kao i
+veličine na koje te operacije djeluju, te super-matematičar koji ne zna što radi kada
+izvodi te operacije. Takva super-matematika je teorija grupa.}
+\end{quote}
+Ova karakterizacija teorije grupa kao "super-matematike" je možda malo pretjerana, jer
+teorija grupa je čvrsti dio standardne matematike.
+Isto tako, cilj teorije grupa nije zamagliti strukturu
+tako da ni ne znamo što radimo, nego izdvojiti bitna svojstva koja su zajednička
+mnogim različitim objektima matematike i fizike.
+Stoga je poželjno prvo definirati pojam grupe maksimalno apstraktno, bez pozivanja
+na njene konkretne primjere i realizacije:
+
+\begin{definicija}[Grupa]
+    \label{def:grupa}  \index{Grupa!definicija}
+Grupa $(G,\star)$ je skup objekata $G$ na kojem je definirana binarna operacija
+ $\star$ tako da su zadovoljena sljedeća svojstva:
+\begin{enumerate}
+\item $g_1 \star g_2 \in G \quad \forall  g_1, g_2 \in G$  (zatvorenost) \index{Zatvorenost!kao aksiom grupe}
+\item $ g_1 \star (g_2 \star g_3) = (g_1 \star  g_2)\star g_3 \quad \forall 
+    g_1, g_2, g_3 \in G$  (asocijativnost) \index{Asocijativnost!kao aksiom grupe}
+\item $\exists e \in G \td g\star e = e \star g = g \quad \forall g\in G$
+    (egzistencija identiteta) \index{Identitet!kao aksiom grupe}
+    \index{Element!jedinični|see{Identitet}}
+\item $\forall g\in G \;\; \exists g^{-1} \td g\star g^{-1} = g^{-1}\star g =e$
+    (egzistencija inverza za svaki element) \index{Inverz!kao aksiom grupe}
+    \index{Element!suprotni|see{Inverz}}
+\end{enumerate}
+\end{definicija}
+
+Dat ćemo sada nekoliko klasičnih primjera skupova $G$ i pripadajućih
+binarnih operacija $\star$ kao ilustraciju gore navedene široke primjene grupa.
+
+\begin{primjer}[$\mathbb{Z}$, +]
+ Lako se uvjeriti da skup cijelih brojeva $\mathbb{Z}$ 
+ \index{$\mathbb{Z}$!kao primjer grupe}
+ \index{Skup cijelih brojeva|see{$\mathbb{Z}$}}
+ čini grupu obzirom
+ na binarnu operaciju običnog zbrajanja brojeva:
+\begin{enumerate}
+\item $n,m \in  \mathbb{Z} \imp n+m \in  \mathbb{Z}$
+\item $n+(m+k)=(n+m)+k \quad \forall n,m,k \in \mathbb{Z}$
+\item $0+n=n \quad \forall n\in\mathbb{Z}$ \quad \text{(nula je identitet tj. "jedinični element")}
+\item $n+(-n)=0 \quad \forall n\in\mathbb{Z}$  \quad \text{($-n$ je inverzni element od $n$)}
+\end{enumerate}
+\end{primjer}
+
+\begin{primjer}[$\mathbb{Z}$, $\cdot$]
+\index{$\mathbb{Z}$!kao protuprimjer grupe}
+S druge strane, taj isti skup $\mathbb{Z}$ nije grupa obzirom na
+operaciju množenja. Naime, aksiom zatvorenosti je zadovoljen jer
+množenjem cijelih brojeva dobivamo cijele brojeve. Asocijativnost
+je također zadovoljena: $m(nk)=(mn)k$. Broj $1$ je identitet jer
+za svaki $n\in\mathbb{Z}$ vrijedi da je $1n=n$.
+No aksiom postojanja inverza za svaki element nije zadovoljen.
+Naime, element $m$ bi bio inverz od $n$ kada bi vrijedilo $mn=1$, ali takav $m=1/n$
+ne pripada $\mathbb{Z}$ osim za specijalne slučajeve
+kad je $n\in\{-1, 1\}$ što nije dovoljno.
+\end{primjer}
+
+Ovaj primjer ilustrira da je za potpunu definiciju pojma grupe nužno
+specificirati i skup i binarnu operaciju. U praksi, često je iz konteksta
+očito na koju se binarnu operaciju misli pa se njeno navođenje izostavlja.
+
+\begin{primjer}
+    \label{th:dvijemat}
+Skup dvije matrice
+\[\left\{
+\begin{pmatrix}
+1 & 0 \\ 0 & 1
+\end{pmatrix}, \;
+\begin{pmatrix}
+0 & 1 \\ 1 & 0
+\end{pmatrix}
+\right\} \]
+čini grupu obzirom na uobičajeno množenje matrica. Promotrimo li pak skup
+\emph{svih} $2\times2$ matrica vidimo da on \emph{ne} čini grupu jer nije
+zadovoljen aksiom egzistencije inverza. Naime, neregularne matrice (one
+čija determinanta iščezava) nisu invertibilne. Međutim, ukoliko se
+ograničimo samo na skup regularnih  $2\times2$ matrica dobivamo grupu
+koja se naziva \emph{opća linearna grupa} u dvije dimenzije i označava
+grupno-teorijskom oznakom GL(2).
+\index{Opća linearna grupa|see{GL($n$)}}
+\index{GL($n$)}
+\end{primjer}
+
+Grupu zovemo \emph{Abelova (abelovska, komutativna)} ako \index{Grupa!Abelova}
+\index{Abel, Niels \yrange{1802}{1829}}
+$\forall g_1, g_2 \in G$ vrijedi $g_1 \star g_2 = g_2 \star g_1$.
+Na primjer ($\mathbb{Z}$, +) je Abelova dok grupa GL(2) to nije jer množenje
+matrica općenito ne komutira.
+Broj elemenata grupe nazivamo \emph{red grupe}. \index{Grupa!red}
+Obzirom na njega razlikujemo:\index{Grupa!klasifikacija obzirom na red}
+\begin{itemize}
+\item \emph{Konačne grupe}. Primjeri su npr. ($\{1,-1\}$, $\cdot$) ili
+    grupa iz primjera \ref{th:dvijemat}.
+\item \emph{Beskonačne diskretne grupe} koje imaju 
+    prebrojivo\footnote{Beskonačan skup je \emph{prebrojiv} \index{Prebrojiv skup} ukoliko je moguće uspostaviti
+bijektivno preslikavanje između tog skupa i skupa prirodnih brojeva $\mathbb{N}$. Npr. skup
+racionalnih brojeva $\mathbb{Q}$ jest prebrojiv, dok skup realnih brojeva
+$\mathbb{R}$ to nije.}
+beskonačan broj elemenata. Primjer je ($\mathbb{Z}$, +).
+\item \emph{Beskonačne kontinuirane grupe} 
+koje imaju neprebrojiv broj elemenata i čije elemente možemo
+zamisliti kao kontinuirani skup točaka. Ukoliko su zadovoljeni neki dodatni
+uvjeti, vidi \ref{ch:lie}. poglavlje, ove grupe se nazivaju Liejeve grupe.
+\index{Liejeva grupa!beskonačna kontinuirana}
+Primjeri su ($\mathbb{R}\backslash\{0\}$, $\cdot$) i GL(2).
+\end{itemize}
+
+\begin{primjer}[Grupa simetrija] \index{Grupa!simetrija}
+Skup svih transformacija simetrije nekog konkretnog objekta tj. transformacija koje ostavljaju
+taj objekt nepromijenjen nužno tvore grupu obzirom na binarnu
+operaciju kompozicije transformacija $\circ$:
+\begin{enumerate}
+\item zatvorenost: ako ni $g_1$ ni $g_2$ ne mijenjaju objekt, ne mijenja
+    ga ni njihova kompozicija $g_2 \circ g_1$ \index{Zatvorenost!grupe simetrija}
+\item asocijativnost: transformacije možemo interpretirati kao \index{Asocijativnost!grupe simetrija}
+    funkcije na skupu svih stanja objekta koji transformiramo, a kompozicija funkcija je asocijativna
+\item identiteta: transformaciju koja ne radi ništa tj. ne mijenja objekt
+      također smatramo transformacijom \index{Identitet!grupe simetrija}
+\item suprotna transformacija je isto simetrija (dobra vježba iz apstraktnog \index{Inverz!grupe simetrija}
+    razmišljanja je uvjeriti se da za svaku transformaciju objekta postoji suprotna)
+\end{enumerate}
+\end{primjer}
+
+Činjenica da transformacije simetrije čine grupu nam je od velikog
+značaja. To će nam kao prvo omogućiti elegantnu konstrukciju mnogih važnih
+apstraktnih grupa, a kasnije ćemo često promatrati grupe simetrija konkretnih fizikalnih
+objekata.
+"Objekt" na kojeg djeluju transformacije grupe simetrija može biti
+nekakav realan fizikalni objekt poput kristala, ali može biti i
+nešto apstraktniji entitet poput kvantnomehaničke valne funkcije
+ili bilo kakvog matematičkog objekta kojeg možemo definirati.
+Važno je imati na umu da su sam pojam i svojstva grupe neovisni o
+tom objektu. Zamisao tog objekta ćemo iskoristiti da identificiramo skup transformacija
+simetrije, da vizualiziramo pojedine transformacije i da
+fizikalno interpretiramo rezultate teorije grupa, ali nikad
+ne smijemo izgubiti iz vida da je grupa sasvim apstraktan matematički pojam.
+
+
+\begin{primjer}[Ciklička grupa C$_n$] \index{C$_n$}
+    \index{Ciklička grupa|see{C$_n$}}
+Ciklička grupa C$_n$ je grupa simetrija rotacija pravilnog poligona s $n$
+usmjerenih stranica.
+\end{primjer}
+
+\centerline{\input{figures/Cn}}
+
+Elementi grupe C$_n$ su rotacije za kutove 2$\pi r/n$, ($r=0,1,\ldots, n-1$)
+oko osi koja okomito probada središte poligona. Usmjerenost
+stranica isključuje rotacije oko osi koje leže u ravnini poligona. 
+(Iako je poligon ravninski lik ovdje ga zamišljamo u 3D prostoru.)
+
+Specifično svojstvo cikličkih grupa je da je sve elemente grupe moguće
+dobiti uzastopnim komponiranjem ("množenjem") jednog od njih sa samim sobom.
+Tako npr. uzastopnim komponiranjem rotacije za kut 2$\pi/3$ sa samom sobom dobivamo ostale
+dvije rotacije koje sačinjavaju grupu C$_3$: rotaciju za 4$\pi/3$ i
+rotaciju za 0 radijana. 
+Ukoliko označimo "generirajuću" rotaciju grupe C$_n$ (onu za kut 2$\pi/n$)
+\index{Grupa!generator (konačne) grupe}
+simbolom $c$ onda je skup elemenata grupe
+\begin{equation}
+ \{c,c^2, \ldots , c^n=e \} \;,
+\label{eq:cn}
+\end{equation}
+odnosno grupu C$_n$ možemo alternativno definirati kao grupu generiranu
+elementom $c$ sa svojstvom $c^n=e$ i pisati kao definicioni izraz
+\begin{equation}
+ {\rm C}_n = \langle c \: | \: c^n=e \rangle \;.
+\label{eq:cngp}
+\end{equation}
+Ovakvo navođenje generatora i njegovih (ili njihovih ako ih ima više, vidi kasnije)
+svojstava je kompaktni način definiranja grupe poznat i kao \emph{prezentacija}
+\index{Grupa!prezentacija grupe}
+grupe. (Što nikako ne treba miješati s \emph{reprezentacijom} grupe što je nevezani
+pojam kojeg ćemo kasnije definirati!)
+
+Treću mogućnost za definiciju ove i drugih grupa pruža nam grupna tablica množenja
+(poznata i kao Cayleyjeva tablica).
+\index{Cayleyjeva tablica|see{Tablica množenja}}
+\index{Cayley, Arthur \yrange{1821}{1895}}
+Naime, obzirom da je apstraktna grupa potpuno određena time da se navede
+skup elemenata koji je sačinjavaju te time da se potpuno specificira kako
+se ti elementi množe (tj. kakva je binarna operacija u grupi), grupu C$_3$, npr.,
+je moguće definirati naprosto kao skup elemenata koji zadovoljavaju slijedeću tablicu
+množenja: \index{Tablica množenja (grupna)} \index{Grupa!tablica množenja}
+\vspace{1ex}
+\begin{equation}
+\begin{array}{c|ccc}
+g_1\backslash\ g_2 & e & c & c^2 \\ \hline
+   e    & e & c & c^2 \\
+   c    & c & c^2 & e \\
+   c^2    & c^2 & e & c
+\end{array}
+\label{eq:cntab}
+\end{equation}
+
+Konvencija je da prvi redak i stupac tablice odgovaraju množenju
+s jediničnim elementom što zapravo čini naslovni redak i stupac
+suvišnim i ovu je tablicu moguće i jednostavnije zapisati samo kao
+\vspace{1ex}
+\begin{equation}
+\begin{array}{|ccc}
+ \hline
+ e & c & c^2 \\
+ c & c^2 & e \\
+ c^2 & e & c
+\end{array}
+\label{eq:cntabsimple}
+\end{equation}
+
+Grupne tablice množenja zadovoljavaju tzv. svojstvo latinskog
+kvadrata poznato i kao \index{Latinski kvadrat} \index{Teorem!o razmještaju}
+\begin{teorem}[Teorem o razmještaju]
+Svaki element grupe se pojavljuje jednom i samo jednom u svakom stupcu
+ili retku grupne tablice množenja.
+\end{teorem}
+
+\emph{Dokaz}: Pretpostavimo suprotno tj. da se u nekom retku
+dvaput pojavi isti element, recimo $a$. To znači da je $a$ moguće
+dobiti množenjem prvog elementa iz tog retka, neka je to $k$, s
+dvama različitim elementima, recimo $m$ i $n$: $km=a$ i $kn=a$. To bi značilo
+da je $km=kn$, a egzistencija inverza omogućuje "skraćivanje"
+ovakvih relacija tj. množenje slijeva s $k^{-1}$ pa
+dobivamo $m=n$ što je kontradiktorno jer smo pretpostavili da su
+$m$ i $n$ različiti elementi. Do slične bi kontradikcije dovela
+pretpostavka  ponavljanja istog elementa dvaput u istom stupcu.\qed
+
+Treba uočiti da nam binarna operacija definirana tablicom množenja
+koja je u standardnom obliku gdje prvi redak i stupac odgovaraju
+jediničnom elementu i koja poštuje teorem o razmještaju automatski 
+garantira zadovoljavanje tri aksioma grupe: 
+\emph{zatvorenost} (u tablici se pojavljuju samo elementi grupe),
+\index{Zatvorenost!i grupna tablica množenja}
+\emph{egzistencija identiteta} (po konstrukciji prvog retka i stupca) i
+\index{Identitet!i grupna tablica množenja}
+\emph{egzistencija inverza} (u svakom retku se nužno pojavljuje i 
+\index{Inverz!i grupna tablica množenja}
+jedinični element i odgovarajući stupac je onda stupac inverza).
+Međutim, svojstvo \emph{asocijativnosti} nije nužno zadovoljeno
+\index{Asocijativnost!i grupna tablica množenja}
+i treba ga provjeriti nekim drugim načinom\footnote{Eksplicitna provjera
+može biti mukotrpna. Od pomoći je procedura poznata kao Lightov
+\index{Asocijativnost!Lightov test}
+test asocijativnosti.}.
+
+
+Ove dvije alternativne definicije grupe putem prezentacije (\ref{eq:cngp}) ili
+putem tablice množenja (\ref{eq:cntabsimple}) 
+naglašavaju apstraktnu prirodu grupe jer se nigdje ne oslanjaju
+na ideju da je C$_3$ grupa simetrija trokuta.
+
+Inače, C$_n$, za $n=2,3,4$ i $6$, spada u kristalografske \emph{točkaste grupe} kakvih
+\index{Točkasta grupa|see{Kristal}}
+\index{Kristal}
+ima ukupno 32\footnote{U trodimenzionalnom prostoru. U dvodimenzionalnom prostoru postoji 10, a u
+jednodimenzionalnom prostoru samo dvije točkaste grupe.}. 
+Točkaste grupe su grupe prostornih simetrija savršenih beskonačnih
+periodičnih kristala koje ostavljaju barem jednu točku nepomičnom. (Za
+razliku od npr. translacije za konstantu rešetke koja je isto simetrija
+kristala, ali nijednu točku ne ostavlja na mjestu.)
+  
+Može se pokazati da jedini elementi točkastih grupa mogu biti kompozicije
+rotacija za 60$^\circ$ i 90$^\circ$ te inverzije $\vec{r}\to -\vec{r}$
+(tzv. \emph{teorem kristalografske restrikcije}).
+\index{Teorem!kristalografske restrikcije}
+   
+
+\begin{primjer}[Dihedralna grupa $\mathrm{D}_3$]
+    \index{D$_3$}
+    \index{Dihedralna grupa|see{D$_n$}}
+    Dihedralna grupa $\mathrm{D}_3$ je grupa simetrija rotacija pravilnog poligona s tri
+    stranice tj. trokuta.  Prema slici
+    \begin{center}
+    %\includegraphics[scale=1.0]{pics/D3}
+    \input{figures/D3}
+    \end{center}
+vidimo da su elementi grupe rotacije $e, c$ i  $c^2$ baš kao i kod grupe $\mathrm{C}_3$, te
+dodatno rotacije $b_1, b_2$ i $b_3$ za kut od 180$^\circ$ oko triju osi
+koje prolaze kroz središte i vrhove trokuta.
+\end{primjer}
+
+Uočimo sada neka svojstva množenja u toj grupi. Kao prvo, vrijedi
+da je $b_2 = c b_1 c^{-1}$ i kažemo da su $b_2$ i $b_1$ međusobno
+\emph{konjugirani} preko elementa $c$. Da je to tako vidi
+se iz slike: \index{Element!konjugirani}
+
+\centerline{\input{figures/cbc.tex}}
+%\centerline{\includegraphics[scale=1.0]{pics/cbc}}
+
+Na sličan način se možemo uvjeriti da je $b_2 = b_1 c $
+i $b_3 = b_1 c^2 $, odnosno da 
+$c$ i $b\equiv b_1$ generiraju sve ostale transformacije pa
+elemente grupe možemo zapisati kao
+\begin{equation}
+ \{e,c,c^2,b,bc,bc^2\} \;.
+\label{eq:d3el}
+\end{equation}
+To sugerira da bismo grupu D$_3$ mogli probati definirati prezentacijom
+\begin{equation}
+    {\rm D}_3 \stackrel{?}{=} \langle c, b \: | \: c^3 = b^2 = e \rangle \;,
+\label{eq:d3gp1}
+\end{equation}
+no ova definicija nije kompletna jer nam nedostaje još
+i pravilo za komutiranje elemenata (koje nam nije trebalo
+za grupu C$_3$ koja je Abelova). Njega dobijemo tako da
+iskombiniramo dvije gore dobivene relacije: 
+$b_2 = c b c^{-1} = b c$ i pomnožimo zdesna s $c$:
+\begin{equation}
+c b = b c^2  \;.
+\label{eq:d3com}
+\end{equation}
+Ova relacija sad omogućuje da proizvoljan umnožak elemenata
+grupe (npr. $b c b^2 c^5 b$ svedemo na oblik $b^\alpha c^\beta$ gdje
+je $\alpha<2$ i $\beta<3$, tj. na jedan od elemenata iz (\ref{eq:d3el}).
+Za kompaktan zapis prezentacije grupe D$_3$ koji će se onda moći
+lako generalizirati i na ostale D$_n$ grupe, množimo gornju
+komutacijsku relaciju (\ref{eq:d3com}) slijeva s $b$ i zdesna s $c$
+i dobivamo  $ bcbc \equiv (bc)^2 = b^2 c^3 = e$ pa možemo
+pisati
+\begin{equation}
+ {\rm D}_3= \langle c,b \: | \: c^3 = b^2 = (bc)^2 = e \rangle \;.
+\label{eq:d3gp}
+\end{equation}
+Ova definicija se generalizira na grupu simetrija poligona s $n$
+stranica ovako (vidi zadatak \ref{zad:Dn})
+    \index{D$_n$}
+\begin{equation}
+ {\rm D}_n= \langle c,b \: | \: c^n = b^2 = (bc)^2 = e \rangle \;,
+\label{eq:dngp}
+\end{equation}
+ili, ekvivalentno i praktičnije za komutiranje elemenata prilikom množenja
+\begin{equation}
+    {\rm D}_n= \langle c,b \: | \: c^n = b^2 = e, cb = b c^{n-1} \rangle \;,
+\label{eq:dngpcom}
+\end{equation}
+što onda sadrži i definiciju grupe
+D$_2$ poznate i kao
+\emph{Kleinova četvorna grupa} (njem. \emph{Vierergruppe}), 
+\index{Kleinova četvorna grupa|see{D$_2$}} \index{D$_{2}$}
+za koju nemamo odgovarajući pravilni poligon kao objekt grupe simetrija.
+
+
+\section{Podgrupe}
+\label{sec:podgrupe}
+
+Za operacije s grupama i njihovu klasifikaciju važan je pojam \emph{podgrupe}:
+\index{Podgrupa}
+\begin{definicija}[Podgrupa]
+\index{Podgrupa!definicija}
+Podgrupa $H$ grupe $G$ je neprazni podskup $H\subset G$ koji i sam
+tvori grupu obzirom na grupnu operaciju definiranu na $G$.
+\end{definicija}
+
+Svaka grupa ima trivijalne podgrupe $H=\{e\}$ i $H=G$, a
+\index{Podgrupa!trivijalna}
+podgrupu koja je različita od ovih dviju trivijalnih
+zovemo \emph{prava} podgrupa.
+\index{Podgrupa!prava}
+
+\begin{primjer} \label{th:c2c3}
+C$_2$=$\{e, b\}$ i C$_3$=$\{e, c, c^2\}$ su prave podgrupe od D$_3$.
+\end{primjer}
+
+\begin{primjer}
+Grupa translacija i točkasta grupa su podgrupe grupe svih prostornih
+simetrija kristala.
+\end{primjer}
+
+\begin{definicija}[Susjedna klasa]
+\index{Susjedna klasa}
+Lijeva susjedna klasa (engl. coset) podgrupe $H$ obzirom na element
+$g\in G$ je skup
+\begin{displaymath}
+     gH=\{gh \td h\in H\} \,.
+\end{displaymath}
+\end{definicija}
+
+Odnos pripadnosti elementa $g_1$ lijevoj susjednoj klasi obzirom na element $g_2$,  
+$g_1 \in g_2 H$, uspostavlja \emph{relaciju ekvivalencije}%
+\footnote{\label{fn:ekviv} \index{Klasa ekvivalencije}
+Općenito, \emph{relacija ekvivalencije} je binarna relacija $a\sim b$ između
+elemenata nekog
+skupa koja ima slijedeća svojstva
+\begin{enumerate}[itemsep=1pt, topsep=1.0ex]
+\item $a\sim a \quad \forall a$ \qquad (refleksivnost)
+\item $a\sim b \imp b\sim a$   \qquad (simetričnost)
+\item $a\sim b \quad \textrm{i}\quad  b\sim c \imp a\sim c$  \qquad (tranzitivnost)
+\end{enumerate}
+Primjeri relacija ekvivalencije su: "osoba $a$ je rođena na isti dan kad i osoba $b$"
+ili "trokut $a$ je sličan trokutu $b$," dok npr. "broj $a$ je veći ili jednak
+broju $b$" nije relacija ekvivalencije jer nije simetrična.
+(Ona je antisimetrična. Binarna relacija na skupu koja je refleksivna, antisimetrična
+i tranzitivna zove se \emph{relacija uređaja}.)
+Svaka relacija ekvivalencije cijepa skup na disjunktne podskupove 
+koji se zovu \emph{klase ekvivalencije}.} između ta dva elementa u grupi G, $g_1 \sim g_2$.
+To između ostalog znači i da bilo koji element klase možemo jednako koristiti
+kao reprezentanta klase tj. da ako je $g_k \in gH$ onda je $g_{k}H = gH$.
+
+Susjedne klase po nekoj podgrupi $H$ su međusobno disjunktne i
+zahvaljujući teoremu o razmještaju sve imaju isti broj elemenata (jednak redu od $H$)
+\index{Teorem!o razmještaju}
+pa tako definiraju jednu particiju grupe G, prikazanu na slici \ref{fig:lagrange}.
+\begin{figure}[htpb]
+    \centering
+    \input{figures/lagrange.tex}
+    \caption{Particija grupe na lijeve susjedne klase po podgrupi $H$.}
+    \label{fig:lagrange}
+\end{figure}
+Na slici je kao prva postavljena lijeva susjedna klasa po jediničnom
+elementu $eH = H$. Zbog navedene disjunktnosti klasa i jedinstvenosti
+jediničnog elementa ostale susjedne klase naravno ne sadrže jedinični element i
+samim time one nisu podgrupe. 
+Promatrajući sliku \ref{fig:lagrange} lako se uvjerimo u točnost Lagrangeovog
+teorema: 
+
+\begin{teorem}[Lagrange]
+    \index{Teorem!Lagrangeov} \index{Grupa!red} \index{Lagrange, Joseph-Louis \yrange{1736}{1813}}
+Red podgrupe dijeli red grupe.
+\end{teorem}
+
+Tako u Primjeru \ref{th:c2c3} redovi podgrupa C$_2$ i C$_3$, 2 i 3, dijele red
+grupe D$_3$, 6. \index{C$_2$} \index{C$_3$}
+Skup čiji su elementi predstavljeni kvadratičima na gornjoj slici
+ima svoj naziv:
+
+\begin{definicija}[Kvocijentni skup]
+    \index{Kvocijentni skup}
+Skup svih različitih lijevih susjednih klasa 
+\begin{displaymath}
+      G/H \equiv \{gH \td g\in G\}
+\end{displaymath}
+zove se \emph{lijevi kvocijentni skup} grupe $G$ po podgrupi $H$.
+\end{definicija}
+
+Potpuno analogno se definiraju \emph{desna susjedna klasa} $Hg$
+i \emph{desni kvocijentni skup} $H\backslash G$.
+
+\begin{primjer}[D$_3$]
+    Promotrimo podgrupu $H=\mathrm{C}_3=\{e, c, c^2\}$ grupe $G=\mathrm{D}_3$.
+Dvije lijeve susjedne klase su
+\begin{enumerate}
+\item $eH=H=\{e, c, c^2\}$ \; \text{i}
+\item $bH=\{b, bc, bc^2\}$ \;,
+\end{enumerate}
+a kvocijentni skup je $\mathrm{D}_3/\mathrm{C}_3=\{eH, bH\}$. Postoji i kvocijentni 
+skup $\mathrm{D}_3/\mathrm{C}_2$
+\end{primjer}
+
+\begin{definicija}[Normalna podgrupa]
+    \index{Normalna podgrupa} \index{Invarijantna podgrupa|see{Normalna podgrupa}}
+    \index{Podgrupa!normalna|see{Normalna podgrupa}}
+    \index{Podgrupa!invarijantna|see{Normalna podgrupa}}
+
+Podgrupa za koju vrijedi $gH=Hg$, $\forall g\in G$, zovemo
+\emph{normalna} ili \emph{invarijantna}.
+\label{tm:normalnapodgrupa}
+\end{definicija}
+
+\begin{primjer}[$\mathrm{D}_3$]
+    $G=\mathrm{D}_3$, $H=\mathrm{C}_3$. Eksplicitnim množenjem se uvjerimo da
+    je $b\mathrm{C}_3 = \mathrm{C}_3 b$, a za ostale elemente $g\in \mathrm{D}_3$ jednakost
+    lijevih i desnih susjednih klasa je trivijalna.
+    Dakle, $\mathrm{C}_3$  je normalna podgrupa od $\mathrm{D}_3$. S druge strane
+    $\mathrm{C}_2 = \{e, b\}$ nije normalna podgrupa od $\mathrm{D}_3$
+    jer npr. $c \mathrm{C}_2 \neq \mathrm{C}_2 c$.
+\end{primjer}
+
+Očito je da su za normalnu podgrupu $H$ lijevi i desni kvocijentni skupovi
+identični  $G/H$ = $H\backslash$G.
+
+Zanimljivo je pitanje u kojim okolnostima i sam kvocijentni skup čini grupu.
+Za to je potrebno definirati binarnu operaciju elemenata kvocijentnog
+skupa tj. "množenja" susjednih klasa.
+Prirodno je pokušati s definicijom množenja dvije klase $A$ i 
+$B$ "svaki element sa svakim":
+\begin{equation}\label{eq:ABmult}
+    A B =\{ab \td a \in A \:\text{i}\: b \in B\} \;.
+\end{equation}
+Pitanje je međutim predstavlja li ovako definirano množenje skupova $A$ i $B$
+konzistentnu definiciju množenja susjednih klasa tj. je li $AB$ nužno susjedna
+klasa, ukoliko su to $A$ i $B$? To zahtijeva prvi aksiom definicije
+grupe. Lako se možemo uvjeriti da tako definirano množenje \emph{ne} funkcionira
+na kvocijentnom skupu $\mathrm{D}_3 / \mathrm{C}_2$, gdje je $\mathrm{C}_2 = \{e, b\}$.
+Npr. umnožak susjednih klasa $e\mathrm{C}_2 = \{e, b\}$ i $c\mathrm{C}_2=\{c, bc^2\}$
+je $\{e, bc, bc^2, b^2 c^2 = c^2\}$ što je skup koji nije susjedna klasa!
+S druge pak strane množenje susjednih klasa u kvocijentnom skupu
+$\mathrm{D}_3 / \mathrm{C}_3$ uvijek rezultira susjednom klasom. Razlog tome je
+što je $\mathrm{C}_3$ \emph{normalna} podgrupa, a za normalnu podgrupu $H$ 
+množenje klasa možemo provesti kao:
+\begin{equation}
+       (g_1H)(g_2H) = g_1 (H g_2) H = g_1 (g_2 H) H = g_1 g_2 H H
+       = (g_1 g_2) H\;,
+\end{equation}
+gdje smo u drugom koraku iskoristili normalnost podgrupe $H$ i gdje je
+$(g_1 g_2) H$ nužno susjedna klasa jer je $g_1 g_2 \in G$.
+Lako se uvjeriti da su i ostali aksiomi grupe zadovoljeni pa zaključujemo
+da kvocijentni skup po normalnoj podgrupi čini grupu koju zovemo
+\index{Normalna podgrupa} \index{Kvocijentna grupa}
+\emph{kvocijentna grupa}\footnote{Nešto je teže
+    uvjeriti se u činjenicu da bi i drugačiji pokušaji definiranja množenja
+    susjednih klasa od (\ref{eq:ABmult}) doveli do nužnosti da podgrupa
+bude normalna. Npr. mogli bismo umjesto oslanjanja na (\ref{eq:ABmult}) 
+\emph{definirati} množenje susjednih klasa kao $(g_1 H) \ast (g_2 H) = (g_1 g_2) H$.
+Tako bi prvi aksiom grupe naizgled bio osiguran samom definicijom binarne operacije.
+No pokazuje se da je ovakva definicija množenja susjednih klasa konzistentna, u smislu
+da ne ovisi o izboru reprezentirajućih elemenata $g_1$ i $g_2$, i opet samo ako je
+podgrupa normalna, nakon čega ta definicija postaje ekvivalentna definiciji (\ref{eq:ABmult}).}
+
+
+\begin{primjer}[$\mathrm{D}_{3}$/$\mathrm{C}_3$]
+Tablica množenja u ovom kvocijentnom skupu je dana relacijama
+\begin{align}
+    (e\mathrm{C}_3)(e\mathrm{C}_3) &= ee \mathrm{C}_3 = e\mathrm{C}_3\\
+    (e\mathrm{C}_3)(b\mathrm{C}_3) &= b\mathrm{C}_3  \\
+    (b\mathrm{C}_3)(e\mathrm{C}_3) &= b\mathrm{C}_3  \\
+    (b\mathrm{C}_3)(b\mathrm{C}_3) &= e\mathrm{C}_3 
+\end{align}
+
+Lijevi i desni kvocijentni skupovi su jednaki:
+\begin{align*}
+{\rm D}_{3}/{\rm C}_3 &= \{\{e,c,c^2\}, \{b, bc, bc^2\}\} \,, \\
+{\rm C}_3\backslash{\rm D}_{3} &= \{\{e,c,c^2\}, \{b, cb=bc^2, c^2b=bc\}\}
+    = D_{3}/C_3 \,,
+\end{align*}
+i imaju grupnu strukturu jednaku grupi $\mathrm{C}_2$.
+\label{pr:D3oC3}
+\end{primjer}
+
+\index{C$_2$}
+S druge strane $\mathrm{C}_2$ nije normalna, lijevi i desni kvocijentni
+skupovi
+\begin{align*}
+    {\rm D}_{3}/{\rm C}_2 &= \{\{e,b\}, \{c, cb=bc^2\}, \{c^2, c^2b=bc\}\} \;\text{i} \\
+{\rm C}_2\backslash{\rm D}_{3} &= \{\{e,b\}, \{c, bc\}, \{c^2, bc^2\}\}
+    \neq {\rm D}_{3}/{\rm C}_2 \,,
+\end{align*}
+nisu jednaki i $\mathrm{D}_{3}$/$\mathrm{C}_2$ nije grupa.
+
+Grupe koje nemaju normalnih podgrupa zovu se \emph{jednostavne}\footnote{Mi se
+    nećemo baviti simetrijama algebarskih jednadžbi, ali spomenimo
+    da je \'{E}variste Galois \index{Galois, \'{E}variste \yrange{1811}{1832}}
+    povezao njihovu općenitu rješivost (mogućnost
+    da se sva rješenja prikažu u obliku izraza koji uključuju konačni broj
+    primjena osnovnih matematičkih operacija i korijena na
+    koeficijente jednadžbe) s nejednostavnošću pripadajuće grupe simetrija
+    skupa rješenja. Onda je dokazavši da su grupe simetrija skupa rješenja za jednadžbe reda
+    većeg od 5 jednostavne pokazao da te jednadžbe nisu rješive. To je otkriće predstavljalo
+kraj teorije algebarskih jednadžbi i rođenje teorije grupa.\label{fus:galois}} ,
+\index{Grupa!Abelova} \index{Grupa!jednostavna} \index{Grupa!polujednostavna}
+a one koje nemaju normalnih Abelovih podgrupa zovu se \emph{polujednostavne}.
+Kako posjedovanje normalne podgrupe znači mogućnost "dijeljenja" grupe na kvocijentnu
+grupu, jednostavne grupe su u nekom smislu grupno-teorijski pandan prostim brojevima
+u aritmetici.
+
+Za normalne grupe iz definicije \ref{tm:normalnapodgrupa} slijedi odmah i
+da je $g H g^{-1} = H, \forall g\in G$. Zanimljivo je promatrati djelovanje
+ove operacije $g \ldots g^{-1}$ i na skupove koji nisu podgrupa te
+na pojedine elemente grupe:
+
+\begin{definicija}[Konjugirani elementi]
+    \index{Element!konjugirani}
+Dva elementa $a$ i $b$ grupe $G$ su \emph{konjugirani} ukoliko
+postoji $g\in G$ takav da je $a=gbg^{-1}$.
+\label{tm:konjugacija}
+\end{definicija}
+
+Konjugacija je također relacija ekvivalencije:
+    \index{Klasa ekvivalencije} \index{Klasa konjugacije}
+\begin{enumerate}
+\item $a=e^{-1} a e  \imp a\sim a$
+\item $a=g^{-1} b g  \imp  b= g^{-1} a (g^{-1})^{-1}$
+\item $a=g b g^{-1}$, $b=hch^{-1}$, \\
+         $a=ghch^{-1}g^{-1}=(gh)c(gh)^{-1}$, $gh\in G$
+  
+\end{enumerate}
+
+
+Konjugacija (baš kao i svaka relacija ekvivalencije) definira
+particiju skupa na klase:
+\begin{displaymath}
+   \text{klasa od $a$} = \{ b \td b=gag^{-1},\quad g\in G\} \,.
+\end{displaymath}
+
+Klasa od $e=\{e\}$ što znači da klase, izuzev ove trivijalne, nisu podgrupe.
+\index{Identitet!kao klasa konjugacije}
+
+Za Abelove grupe svaki element je klasa za sebe. \index{Grupa!Abelova}
+
+Kako normalne podgrupe zadovoljavaju $gHg^{-1}=H$, $\forall g\in G$, slijedi
+da su one sastavljenje od cijelih klasa konjugacije.
+
+\begin{primjer}[Klase konjugacije grupe D$_3$] \label{pr:klaseD3}
+Tri klase konjugacije  od D$_3$ su: \index{D$_3$}
+\begin{enumerate}
+\item $(e)$
+\item $(c, c^{2})$
+\item $(b, bc, bc^2)$
+\end{enumerate}
+i odgovaraju rotacijama za različite kutove: $0^\circ$, $120^\circ$ i
+$180^\circ$. Konjugirajući elementi
+preslikavaju međusobno osi rotacije. Normalna podgrupa $\mathrm{C}_3$ se
+sastoji od cijelih klasa (prve dvije), dok podgrupa $\mathrm{C}_2=\{e,b\}$ nema
+to svojstvo i nije normalna.
+\end{primjer}
+
+\section{Homomorfizam i izomorfizam grupa}
+
+Vidjeli smo u primjeru \ref{pr:D3oC3} kako kvocijentna grupa $\mathrm{D}_3/\mathrm{C}_3$
+ima isti broj elemenata i istu tablicu množenja kao grupa $\mathrm{C}_2$. Dakle u
+apstraktnom smislu teorije grupa te su grupe identične.  Za prepoznavanje takvih
+situacija, umjesto uspoređivanja grupnih tablica množenja pogodnije je identificirati
+preslikavanje s jedne grupe na drugu koje "čuva" grupnu binarnu operaciju. Takvo preslikavanje
+se naziva \emph{homomorfizam}. \index{Homomorfizam!definicija}
+\begin{definicija}[Homomorfizam]
+Neka su $A$ i $B$ grupe, a $f:A\to B$ preslikavanje koje komutira
+s grupnom operacijom tj. za koje vrijedi
+\begin{displaymath}
+      f(ab)=f(a)f(b) \quad \forall a,b\in A \;.
+\end{displaymath}
+Onda kažemo da je $f$ \emph{homomorfizam} grupe $A$ u grupu $B$.
+\end{definicija}
+
+\begin{primjer}  \index{D$_3$} \index{C$_3$}
+    Preslikavanje s grupe $\mathrm{D}_3$ na kvocijentnu grupu
+    $\mathrm{D}_3/\mathrm{C}_3$ definirano kao 
+    \[
+        f(g) = g\mathrm{C}_3 \,,
+    \] je homomorfizam jer
+    \[
+        f(a) f(b) = (a \mathrm{C}_3) (b \mathrm{C}_3 ) =
+        (a b) \mathrm{C}_3 = f(a b)
+    .\] 
+\end{primjer}
+\begin{primjer}
+    Preslikavanje s grupe $\mathrm{C}_3$ na trivijalnu grupu $\mathrm{C}_1 = \{e\}$
+    koja sadrži samo jedinični element, definirano kao $f(g) = e,
+    \forall g\in\mathrm{C}_3$, je homomorfizam.
+    \label{pr:C3toC1}
+\end{primjer}
+
+Vidimo da homomorfizam općenito ne mora biti injekcija tj. da se više
+elemenata može preslikavati u isti element.
+Homomorfizam koji je i bijekcija zovemo \emph{izomorfizam} i
+\index{Izomorfizam!definicija}
+pišemo $A\cong B$ ili $A=B$.
+
+Izomorfne grupe su s apstraktnog stanovišta jednake (imaju
+istu tablicu množenja).
+
+\begin{primjer} \index{C$_2$}
+Grupa C$_2$ je, osim već spomenutog izomorfizma s
+kvocijentnom grupom $\mathrm{D}_3/\mathrm{C}_3$, izomorfna i
+npr. s grupama 
+$$
+(\{1, -1\},\cdot) \qquad \text{i} \qquad \left(\left\{
+\begin{pmatrix}
+1 & 0 \\ 0 & 1
+\end{pmatrix},
+\begin{pmatrix}
+0 & 1 \\ 1 & 0
+\end{pmatrix}
+\right\},\cdot\right)\,.$$
+\end{primjer}
+
+\begin{primjer}  \index{$\mathbb{Z}_n$} \index{$\mathbb{Z}_2$} \index{C$_n$}
+    Grupa $\mathbb{Z}_n$ je skup cijelih brojeva $\{0, 1, 2, \ldots, n-1\}$,
+    uz binarnu operaciju zbrajanja modulo $n$. Jedinični element je naravno 0,
+    a cijelu grupu generira element 1 i grupa je izomorfna cikličkoj grupi $\mathrm{C}_n$.
+    Stoga mnogi autori cikličke grupe označavaju $\mathbb{Z}_n$, a u primjenama u fizici
+    se često sreće $\mathrm{C}_2$ koju ćemo onda i mi zbog sklada s literaturom
+    nekad zvati $\mathbb{Z}_2$.
+\end{primjer}
+
+\emph{Slika} homomorfizma $f(A)$ (skup svih elemenata u $B$ koji imaju original u $A$) 
+je podgrupa od $B$. Uvjerite se u to.
+\index{Homomorfizam!slika}
+
+
+\begin{figure}[htpb]
+    \centering
+    \input{figures/homomorfizam.tex}
+    \caption{Kernel $K$ homomorfizma $f:A\to B$ je podgrupa grupe $A$,
+    a slika $f(A)$ homomorfizma je podgrupa grupe $B$.}
+    \label{fig:kernelslika}
+\end{figure}
+
+
+Slika $f(e_A)$ jediničnog elementa $e_A$ iz $A$ je jedinični element $e_B$ u $B$ jer
+množenjem relacije
+$$ f(e_A) f(b) = f(e_A b) = f(b) $$
+s desna s $f(b)^{-1}$ dobivamo
+$$ f(e_A) = f(b) f(b)^{-1} = e_B \;. $$
+No moguće je da se i drugi elementi iz $A$ osim jediničnog $e_A$ preslikavaju u 
+jedinični element $e_B$ u $B$ (u primjeru \ref{pr:C3toC1} se svi tako preslikavaju).
+\emph{Kernel} homomorfizma se naziva skup svih elemenata od $A$ koji se
+preslikavaju u jedinični element iz $B$.
+\index{Homomorfizam!kernel}  \index{Kernel}
+$$ K \equiv {\rm Ker}(f) \equiv \{ k\in A \; | \; f(k) = e_B \} \;. $$
+Kernel od $f:A\to B$ je normalna podgrupa od $A$. Uvjerite se u to.
+
+Kernel je iznimno korisna podgrupa, između ostalog i zahvaljujući sljedećem
+važnom teoremu:
+\begin{teorem}[Teorem o izomorfizmu]
+\label{th:izomorfizam}
+\index{Teorem!o izomorfizmu}
+Ako je $f:G\to G'$ homomorfizam s kernelom $K$, onda vrijedi
+\begin{enumerate}[itemsep=2pt]
+\item Svaki element susjedne klase $gK$ se preslikava u isti element $f(g)$.
+\item Slika homomorfizma $f(G)$ je izomorfna kvocijentnoj grupi po kernelu $G/K$.
+(Skup $G/K$ je grupa jer je $K$ normalna podgrupa.)
+\end{enumerate}
+\end{teorem}
+\index{Homomorfizam!slika}
+\index{Homomorfizam!kernel}  \index{Kernel}
+
+
+\emph{Dokaz}$^{*}$\secret{Cornwell '84, 2.6}: Pridruživanje koje
+čini izomorfizam iz stavka 2) teorema je $f(g)\leftrightarrow gK$.
+Pokažimo da je to pridruživanje dobro definirano i bijekcija te da čuva grupnu
+strukturu.
+Da bi se uvjerili da je pridruživanje $f(g)\mapsto gK$ dobro definirano, treba
+se uvjeriti da je susjedna klasa $gK$ jedinstveno određena izborom $f(g)$. Naime,
+postoji opasnost da različiti originali od $f(g)$ ne pripadaju istoj klasi
+kako je ilustrirano na slici \ref{fig:homo1}.
+\begin{figure}[ht]
+    \centering
+    \input{figures/homo1.tex}
+    \caption{\label{fig:homo1}}
+\end{figure}
+\begin{figure}[ht]
+    \centering
+    \input{figures/homo2.tex}
+    \caption{\label{fig:homo2}}
+\end{figure}
+No, različiti originali od $f(g)$, dakle $g$ i $g'$ iz $G$
+takvi da je  $f(g)=f(g')$ zadovoljavaju
+$f(g^{-1} g')=f(g^{-1})f(g')=f(g)^{-1}f(g')=f(g)^{-1}f(g)=e$ što  znači
+da je $g^{-1} g'$ jednak nekom elementu $k$ kernela od $f$,
+$g^{-1} g' \equiv k\in K$ što množenjem s $g$ slijeva
+daje $g'=gk$ pa je nužno $g' \in gK$.
+
+Druga opasnost je da inverzno pridruživanje
+$gK\mapsto f(g)$ ovisi o izboru elementa $g$ iz $K$ tj. da
+se različiti elementi klase $gK$ ne preslikavaju u isti $f(g)$
+kako je ilustrirano na slici \ref{fig:homo2}.
+No različiti element $g'$ iz susjedne klase $gK$ je oblika $g'=gk$ za neki
+$k\in K$ što znači da je $g^{-1} g'\in K$ i mora se preslikavati
+u jedinični element
+$f(g^{-1}g')=e$ pa po svojstvu homomorfizma $f$ imamo 
+$f(g)^{-1}f(g')=e$ i množenjem slijeva s $f(g)$ dobivamo željeno
+svojstvo $f(g')=f(g)$, čime istovremeno i dokazujemo prvi dio teorema.
+
+Injekcija u oba smjera koju smo upravo dokazali znači da je
+preslikavanje $f(g)\leftrightarrow gK$ bijekcija. Potrebno je još samo
+uvjeriti se da to preslikavanje čuva grupno množenje. To se vidi iz toga
+što se umnožak elemenata slike homomorfizma $f(g)f(g')=f(gg')$ preslikava
+u susjednu klasu $(gg')K$ koja je po svojstvu normalnosti kernela jednaka
+odgovarajućem množenju $(gK)(g'K)$ u kvocijentnoj grupi $G/K$.
+Dakle $f(g)\leftrightarrow gK$ je izomorfizam.\qed
+  
+
+\secret{Primjer: $D_3$: $C_3\to e$, a ostali u $c$ iz $C_2$
+ $\imp f(D_3) = C_2 = D_3/C_3$}
+
+Jedan korolar ovog teorema je da je svaki element $g'$ iz $G'$ slika
+istog broja elemenata iz $G$ (jer vidjeli smo da sve susjedne klase po
+nekoj podgrupi imaju isti broj elemenata). Tako općeniti homomorfizam
+ima vrlo pravilni obrazac preslikavanja prikazan na sljedećoj slici\\[2ex]
+\vspace*{4ex}
+\centerline{\input{figures/homo3.tex}}
+%\centerline{\includegraphics[scale=1.0]{pics/homo3}}
+Drugi korolar je da je $f$ izomorfizam ako i
+samo ako je kernel $K=\{e\}$.
+
+Pojam kvocijentne grupe nam daje ideju svojevrsnog "dijeljenja" jedne
+grupe drugom.
+Nameće se pitanje, ukoliko je, kako smo vidjeli, 
+$\mathrm{D}_{3}$/$\mathrm{C}_3 = \mathrm{C}_2$, možemo li u nekom smislu
+smatrati da je $\mathrm{C}_3 \times \mathrm{C}_2 = \mathrm{D}_3$?
+Odgovor je da to nije moguće općenito, ali jest u situaciji kad su
+\emph{obje} podgrupe normalne, što u primjeru $\mathrm{D}_3$ nije slučaj.
+
+\begin{definicija}[Direktni produkt grupa]\label{def:direktniproduktgrupa}
+    \index{Direktni produkt grupa}
+Ako imamo dvije grupe (G, $\star$) i (H, $\circ$), onda je njihov
+\emph{direktni produkt} grupa G$\times$H čiji su elementi svi uređeni
+parovi $(g, h)$, $g \in \mathrm{G}$, $h \in \mathrm{H}$, a 
+binarna operacija $\cdot$ je definirana prirodno po komponentama
+\begin{equation}
+    (g_1, h_1) \cdot (g_2, h_2) = (g_1 \star g_2, h_1 \circ h_2) \,.
+    \label{eq:Gproduct}
+\end{equation}
+\end{definicija}
+
+Lako se uvjeriti da su zadovoljeni svi aksiomi grupe. Strogo 
+uzevši, gore tražene normalne podgrupe od G$\times$H nisu baš G i H nego
+    $\mathrm{G}' = \{ (g, 1) \td g \in G \}$ i
+    $\mathrm{H}' = \{ (1, h) \td h \in H \}$,
+ali one su izomorfne grupama G i H pa je sve prirodno i konzistentno.
+Čitaoc se lako može uvjeriti da je na primjer
+$\mathrm{C}_2 \times \mathrm{C}_2 = \mathrm{D}_2$.
+
+\subsection*{Zadaci}
+
+\begin{enumerate}[label=\arabic{chapter}.\arabic*.]
+\item Dokažite da su jedinični i inverzni element grupe jedinstveni.
+\item Konstrukcijom grupne tablice množenja pokažite da postoji samo
+jedna apstraktna grupa reda 3.
+\item Na isti način kao u prošlom zadatku pokažite da postoje samo
+dvije apstraktne grupe reda 4.
+\item Grupa je Abelova ako i samo ako je njena grupna tablica množenja simetrična.
+Dokažite da i za grupe koje nisu Abelove razmještaj jediničnih elemenata u tablici
+mora biti simetričan.
+\item Dokažite da je grupa u kojoj je svaki element samom sebi inverz nužno Abelova.
+    \index{Inverz}
+\item Uvjerite se da je grupa simetrija pravilnog poligona s $n$ neusmjerenih
+    stranica izomorfna grupi $\mathrm{D}_n=\langle c,b \td c^n = b^2 = (bc)^2 = e \rangle $.
+    (\emph{Naputak}: Odredite transformacije poligona koje odgovaraju elementima $c$ i
+ $b$, pa se uvjerite da one zadovoljavaju $c^n = b^2 = (bc)^2 = e$. Usporedite
+broj elemenata grupa.)\label{zad:Dn} \index{D$_n$}
+\item \label{zad:centar} Centar $Z$ grupe $G$ je skup svih elemenata koji komutiraju sa svakim
+elementom grupe tj. $Z=\{z\in G \td zg=gz \; \forall g\in G\}$. Pokažite da
+je $Z$ normalna Abelova podgrupa od $G$.
+\index{Centar grupe} \index{Grupa!centar}
+\item Odredite klase konjugacije grupe D$_4$. \index{D$_4$}
+\item Pokažite da su sve grupe s prostim brojem elemenata cikličke.
+\item \emph{Red} elementa $a$ grupe $G$ je najmanji $n$ takav da je $a^n=e$.
+    Pokažite da je red svih elemenata jedne klase konjugacije isti.\label{zad:redel}
+    \index{Grupa!red}
+\item Postoji li netrivijalni homomorfizam s grupe D$_4$ na grupu D$_3$?
+    \index{D$_4$} \index{D$_3$}
+\item Pokažite da je kvocijentna grupa $\mathbb{Z}/\mathbb{Z}_e$
+izomorfna grupi C$_2$, gdje je $\mathbb{Z}_e$ grupa parnih cijelih brojeva.
+\index{$\mathbb{Z}$} \index{C$_2$}
+\item Promotrite opću linearnu grupu nesingularnih kvadratnih $n\times n$ 
+    matrica $\GL{n}=\{M\}$. Pokažite da je $f(M)=\det M$ homomorfizam.
+Koja grupa je slika tog homomorfizma?
+    \index{GL($n$)}
+\end{enumerate}

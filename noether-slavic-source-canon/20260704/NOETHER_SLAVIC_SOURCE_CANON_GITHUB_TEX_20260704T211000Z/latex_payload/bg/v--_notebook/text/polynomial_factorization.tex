@@ -1,0 +1,867 @@
+\section{Polynomial factorization}\label{sec:polynomial_factorization}
+
+\paragraph{Graded rings}
+
+\begin{definition}\label{def:graded_ring}\mcite[def. II.11.2]{Bourbaki1998Algebra1to3}
+  Fix a \hyperref[def:monoid/commutative]{commutative monoid} \( M \). A \term[ru=градуировка (\cite[197]{Винберг2014КурсАлгебры}), en=grading (\cite[527]{Aluffi2009Algebra})]{grading} of a \hyperref[def:ring/commutative]{commutative ring} \( R \) is a family \( \seq{ R_d }_{d \in M} \) of additive subgroups such that
+  \begin{equation*}
+    R = \bigoplus_{d \in M} R_d
+  \end{equation*}
+  and, for every pair \( d, e \) in \( M \), we have
+  \begin{equation}\label{eq:def:graded_ring}
+    R_d \cdot R_e \subseteq R_{d + e}.
+  \end{equation}
+
+  Clearly \( 0_R \) should belong to each subgroup, but \( 1_R \) should ideally belong only to one of them.
+
+  An \( M \)-\term[bg=градуиран (пръстен) (\cite[56]{КоцевСидеров2016КомутативнаАлгебра}), ru=градуированное (кольцо) (\cite[63]{Шафаревич2019ОсновныеПонятияАлгебры}), en=graded (ring) (\cite[29]{Eisenbud1995CommutativeAlgebra})]{graded ring} is a commutative ring equipped with an \( M \)-grading.
+
+  The additive subgroups of an \hyperref[def:algebra_over_ring]{algebra} are its \hyperref[def:module/subobject]{submodules}, which motivates \textcite[exerc. B-5.2]{Rotman2015AdvancedModernAlgebraPart1} and \textcite[197]{Винберг2014КурсАлгебры}) to define a \term[ru=градуированная (алгебра) (\cite[197]{Винберг2014КурсАлгебры}), en=graded algebra (\cite[exerc. B-5.2]{Rotman2015AdvancedModernAlgebraPart1})]{graded algebra} as an algebra equipped with a ring grading.
+
+  Unless otherwise noted, we will assume that \( M \) is the additive group of \hyperref[def:natural_numbers]{natural numbers}.
+\end{definition}
+\begin{comments}
+  \item Bourbaki define graded modules in \cite[def. II.11.3]{Bourbaki1998Algebra1to3} and graded algebras in \cite[def. III.3.1]{Bourbaki1998Algebra1to3} with additional compatibility conditions with the underlying ring in the case it is itself graded. We will not find such generality useful. Our definition of graded algebra coincides with Bourbaki's in the case where the underlying ring has a \hyperref[def:trivial_ring_grading]{trivial grading}.
+\end{comments}
+
+\begin{definition}\label{def:trivial_ring_grading}\mcite[457]{Bourbaki1998Algebra1to3}
+  The \term[en=trivial (graduation) (\cite[457]{Bourbaki1998Algebra1to3})]{trivial grading} of a \hyperref[def:ring/commutative]{commutative ring} \( R \) with a \hyperref[def:monoid/commutative]{commutative monoid} \( M \) is the grading where \( R_0 = R \) and, when \( d \neq 0 \), \( R_d \) is the trivial subring.
+\end{definition}
+
+\begin{definition}\label{def:homogeneous_element}\mcite[63]{Шафаревич2019ОсновныеПонятияАлгебры}
+  A \term[ru=разложение на однородные составляющие]{homogeneous decomposition} of an element \( x \) in an \( M \)-\hyperref[def:graded_ring]{graded ring} \( R \) is the indexed family \( \seq{ x_d }_{d \in M} \) such that \( x_d \) is in \( R_d \) and
+  \begin{equation}
+    x = \sum_{d \in M} x_d.
+  \end{equation}
+
+  We call \( x_d \) the \( d \)-th \term[bg=еднородна компонента (\cite[57]{КоцевСидеров2016КомутативнаАлгебра}), en=homogeneous component (\cite[363]{Bourbaki1998Algebra1to3})]{homogeneous component} of \term[bg=степен (\cite[57]{КоцевСидеров2016КомутативнаАлгебра}), en=degree (\cite[363]{Bourbaki1998Algebra1to3})]{degree} \( d \).
+
+  If \( x \) has only one nonzero homogeneous component \( x_d \), we say that it is a \term[bg=еднороден елемент (\cite[57]{КоцевСидеров2016КомутативнаАлгебра}), ru=однородный элемент]{homogeneous element} of degree \( d \). In particular, we leave the degree of \( 0 \) \hyperref[con:undefinedness]{undefined}.
+\end{definition}
+
+\begin{proposition}\label{thm:semigroup_algebra_grading}
+  For a \hyperref[def:semigroup_algebra]{monoid algebra} \( R[M] \), its representation as the free semimodule \( R^{\oplus M} \) is an \( M \)-\hyperref[def:graded_ring]{grading} of \( R[M] \).
+\end{proposition}
+\begin{comments}
+  \item This of course gives a grading of any \hyperref[def:polynomial_algebra]{polynomial algebra}, but we also have another grading --- see \cref{thm:polynomial_algebra_grading}
+\end{comments}
+\begin{proof}
+  For every \( x \) in \( M \), the elements with homogeneous degree \( x \) in \( R[M] \) are \( a_x \cdot x \) for any scalar \( a_x \).
+
+  The convolution product of \( a_x \cdot x \) and \( a_y \cdot y \) is, by definition, \( a_x a_y \cdot xy \), hence \eqref{eq:def:graded_ring} holds.
+\end{proof}
+
+\begin{proposition}\label{thm:polynomial_algebra_grading}
+  The \hyperref[def:polynomial_degree]{total degree} provides a \( \BbbN \)-\hyperref[def:graded_ring]{grading} of any \hyperref[def:polynomial_algebra]{polynomial algebra} with the convention that the zero polynomial belongs to every subgroup of the grading (despite having an undefined degree).
+\end{proposition}
+\begin{comments}
+  \item It is possible for the product of homogeneous polynomials to be zero if the ring is not entire. Since we have avoided defining a degree for the zero polynomial, we must handle it explicitly.
+
+  \item We will avoid the phrase \enquote{homogeneous polynomial} in this proof, and will discuss it later in \cref{def:homogeneous_polynomial}.
+\end{comments}
+\begin{proof}
+  A homogeneous element of degree \( n \) is a linear combination of monomials of the degree \( n \). By definition, the product of monomials of degree \( n \) and \( m \) is a monomial of degree \( n + m \). Then, due to linearity of the convolution product, it follows that the product of homogeneous elements of degree \( n \) and \( m \) is either zero or of degree \( n + m \) (depending on whether the leading coefficients multiply to zero; see \cref{thm:univariate_polynomial_product/degree}).
+
+  In both cases, \eqref{eq:def:graded_ring} holds.
+\end{proof}
+
+\paragraph{Homogeneous polynomials}
+
+\begin{definition}\label{def:homogeneous_polynomial}\mcite[139]{Jacobson1985BasicAlgebraI}
+  We say that a \hyperref[def:polynomial_algebra]{polynomial} is \term[bg=хомогенен (полином) (\cite[58]{ГеновМиховскиМоллов1991Алгебра}), ru=однородный (многочлен) (\cite[314]{Курош1968КурсВысшейАлгебры})]{homogeneous} of degree \( d \) all of its monomials have \hyperref[def:polynomial_degree]{total degree} \( d \), with the convention that the zero polynomial is considered homogeneous of every degree.
+\end{definition}
+\begin{comments}
+  \item Some authors use \enquote{form} as a secondary term for homogeneous polynomials, for example \textcite[13]{Eisenbud1995CommutativeAlgebra}, \textcite[314]{Курош1968КурсВысшейАлгебры} and \textcite[2]{Обрешков1962ВисшаАлгебра}. We only use the term for \hyperref[def:bilinear_form]{bilinear} and \hyperref[def:quadratic_form]{quadratic forms}.
+
+  \item Homogeneous polynomials are precisely the \hyperref[def:homogeneous_element]{homogeneous elements} of the polynomial algebra with respect to the degree \hyperref[def:graded_ring]{grading} discussed in \cref{thm:polynomial_algebra_grading}. The zero polynomial being homogeneous of every degree agrees with this grading.
+\end{comments}
+
+\begin{proposition}\label{thm:homogeneous_polynomial_iff_homogeneous_function}
+  Fix a \hyperref[def:semiring]{(semi)ring} \( R \), an arbitrary \hyperref[def:algebra_over_semiring/commutative]{commutative associative unital \( R \)-algebra} \( M \) and a \hyperref[def:polynomial_algebra]{polynomial algebra} \( R[\mscrX] \).
+
+  If a polynomial \( f \) in \( R[\mscrX] \) is \hyperref[def:homogeneous_polynomial]{homogeneous} of degree \( d \), then the \hyperref[con:free_construction/evaluation]{evaluation} \( \Phi_M(f) \) is a \hyperref[def:homogeneous_function]{homogeneous function} of degree \( d \). The converse holds if \( R \) is an \hyperref[def:integral_domain]{integral domain}.
+\end{proposition}
+\begin{proof}
+  \SufficiencySubProof Let \( f \in R[\mscrX] \) be a homogeneous polynomial of degree \( d \) over \( \mscrX \). Fix a variable assignment \( e \) and a scalar \( r \).
+
+  Let
+  \begin{equation*}
+    f(\mscrX) = \sum_{X_1 \ldots X_m} a_{X_1 \ldots X_m} X_1 \ldots X_m.
+  \end{equation*}
+
+  Then, by definition of \( \Phi_M \),
+  \begin{equation*}
+    \Phi_M(f)(X \mapsto r \cdot e(X))
+    =
+    \sum_{X_1 \ldots X_d} a_{X_1 \ldots X_d} \parens[\big]{ r \cdot e(X_1) } \ldots \parens[\big]{ r \cdot e(X_d) }
+    =
+    r^d \cdot \Phi_M(f)(e).
+  \end{equation*}
+
+  Therefore, \( \Phi_M \) is homogeneous of degree \( d \).
+
+  \NecessitySubProof Suppose that \( R \) is an integral domain. Let \( f \in R[\mscrX] \) and suppose that the function \( \Phi_M(f) \) is homogeneous of degree \( d \).
+
+  Then, for a nonzero scalar \( r \),
+  \begin{equation*}
+    \Phi_M(f)(X \mapsto r \cdot e(X))
+    =
+    r^d \cdot \sum_{X_1 \ldots X_m} r^{m - d} \cdot a_{X_1 \ldots X_m} \cdot X_1 \ldots X_m.
+  \end{equation*}
+
+  Since \( R \) is entire, \( r^{m - d} \cdot a_{X_1 \ldots X_m} \) is nonzero if the coefficient is nonzero. Then \( \Phi_M(f)(X \mapsto r \cdot e(X)) \) does not equal \( r^d \cdot \Phi_M(f)(e) \) unless \( m = d \) for every monomial \( X_1 \ldots X_m \) with nonzero coefficients. Since we have assumed that equality holds, \( f \) must be a homogeneous polynomial of degree \( d \).
+\end{proof}
+
+\begin{definition}\label{def:homogeneous_equation}\mimprovised
+  If the polynomial corresponding to an \hyperref[def:polynomial_equation]{algebraic equation} is \hyperref[def:homogeneous_polynomial]{homogeneous}, we say that the equation itself is \term{homogeneous}.
+\end{definition}
+
+\begin{proposition}\label{thm:homogeneous_linear_equation}
+  For a \hyperref[tab:def:polynomial_degree]{linear} \hyperref[def:polynomial_equation]{algebraic equation}, the following are equivalent:
+  \begin{thmenum}
+    \thmitem{thm:homogeneous_linear_equation/homogeneous} It is \hyperref[def:homogeneous_equation]{homogeneous}.
+
+    \thmitem{thm:homogeneous_linear_equation/trivial_solution} It has a trivial solution.
+
+    \thmitem{thm:homogeneous_linear_equation/no_constant} The polynomial has no \hyperref[def:univariate_polynomial]{constant term}, i.e. it is a linear combination in the sense of \cref{def:linear_combination}.
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  Fix a linear equation
+  \begin{equation*}
+    a_1 X_1 + \cdots + a_n X_n + a_0 = 0.
+  \end{equation*}
+
+  The only term of degree different from \( 1 \) is \( a_0 \). Thus, the equation is homogeneous if and only if \( a_0 = 0 \).
+
+  Similarly, the only terms containing indeterminates are the linear terms; thus, evaluating them to zero yields a solution if and only if the equation is homogeneous.
+\end{proof}
+
+\begin{proposition}\label{thm:degree_of_multivariate_polynomial_product}
+  The \hyperref[def:polynomial_degree]{total degree} of the product of polynomials over an \hyperref[def:integral_domain]{integral domain} is the sum of their total degrees.
+\end{proposition}
+\begin{proof}
+  Follows from \cref{thm:univariate_polynomial_product/degree} by induction on the number of variables.
+\end{proof}
+
+\begin{proposition}\label{thm:divisors_of_homogeneous_polynomial}
+  The divisors of a \hyperref[def:homogeneous_polynomial]{homogeneous polynomial} of are homogeneous.
+\end{proposition}
+\begin{proof}
+  Let \( f(X_1, \ldots, X_n) \) be a homogeneous polynomial and let
+  \begin{equation*}
+    f(X_1, \ldots, X_n) = g(X_1, \ldots, X_n) \cdot h(X_1, \ldots, X_n).
+  \end{equation*}
+
+  Let \( d^- \) and \( d^+ \) be the minimal and maximal total degree of monomials in \( g \), and let \( e^- \) and \( e^+ \) be the corresponding degrees in \( h \).
+
+  \Cref{thm:degree_of_multivariate_polynomial_product} applied to individual terms implies that \( g \) has a monomial of degree \( d^- + e^- \) and a monomial of degree \( d^+ + e^+ \). By homogeneity,
+  \begin{equation*}
+    d = d^- + e^- = d^+ + e^+,
+  \end{equation*}
+  thus
+  \begin{equation*}
+    d^+ - d^- = - (e^+ - e^-).
+  \end{equation*}
+
+  Since both sides are nonnegative, we conclude that they are both \( 0 \). Then \( g \) is homogeneous of degree \( d^+ \) and \( h \) is homogeneous of degree \( e^+ \).
+
+  This concludes the proof.
+\end{proof}
+
+\begin{proposition}\label{thm:homogeneous_polynomial_constant}
+  In an \hyperref[def:integral_domain]{integral domain} \( D \), the \hyperref[def:homogeneous_polynomial]{homogeneous} polynomial \( f(X_1, \ldots, X_n, Y) \) is \hyperref[def:domain_divisibility/irreducible]{irreducible} in \( D[X_1, \ldots, X_n, Y] \) if and only if \( f(X_1, \ldots, X_n, 1) \) is irreducible in \( D[X_1, \ldots, X_n] \).
+\end{proposition}
+\begin{proof}
+  Suppose that \( f(X_1, \ldots, X_n, Y) \) is a homogeneous polynomial of degree \( d \) over the domain \( D \). Define
+  \begin{equation*}
+    g(X_1, \ldots, X_n) \coloneqq f(X_1, \ldots, X_n, 1).
+  \end{equation*}
+
+  The latter is a polynomial in \( D[X_1, \ldots, X_n] \) and a scalar in \( D[X_1, \ldots, X_n][Y] \). \Cref{thm:def:domain_divisibility/irreducible_in_polynomial_ring} thus implies that \( g \) is irreducible in \( D[X_1, \ldots, X_n, Y] \) if and only if it is irreducible in \( D[X_1, \ldots, X_n] \), hence it is sufficient to consider irreducibility in \( D[X_1, \ldots, X_n, Y] \).
+
+  \SufficiencySubProof Suppose that \( f \) is irreducible. We will show that \( g \) also is.
+
+  Suppose that
+  \begin{equation*}
+    g(X_1, \ldots, X_n) = p(X_1, \ldots, X_n) \cdot q(X_1, \ldots, X_n).
+  \end{equation*}
+
+  Consider the field of algebraic functions
+  \begin{equation*}
+    D(X_1, \ldots, X_n, Y).
+  \end{equation*}
+
+  \Cref{thm:homogeneous_polynomial_iff_homogeneous_function} implies that
+  \begin{equation*}
+    f(X_1, \ldots, X_n, Y) = Y^d \cdot g\parens*{ \frac {X_1} Y, \ldots, \frac {X_n} Y }.
+  \end{equation*}
+
+  Then
+  \begin{equation*}
+    f(X_1, \ldots, X_n, Y) = Y^d \cdot p\parens*{ \frac {X_1} Y, \ldots, \frac {X_n} Y } \cdot q\parens*{ \frac {X_1} Y, \ldots, \frac {X_n} Y }.
+  \end{equation*}
+
+  Hence,
+  \begin{equation*}
+    \widehat{p}(X_1, \ldots, X_n, Y) \coloneqq Y^{\deg p} \cdot p\parens*{ \frac {X_1} Y, \ldots, \frac {X_n} Y }
+  \end{equation*}
+  is a polynomial in \( D[X_1, \ldots, X_n, Y] \) (and not a more general rational function). Thus,
+  \begin{equation*}
+    \widehat{p}(X_1, \ldots, X_n, 1) = p(X_1, \ldots, X_n).
+  \end{equation*}
+
+  If we define \( \widehat{q} \) similarly, we obtain
+  \begin{equation*}
+    f(X_1, \ldots, X_n, Y) = \widehat p(X_1, \ldots, X_n, Y) \cdot \widehat q(X_1, \ldots, X_n, Y).
+  \end{equation*}
+
+  Since \( f \) is irreducible, we conclude that \( \widehat{p} \) or \( \widehat{q} \) (or possibly both) are invertible. Without loss of generality, suppose that \( \widehat{p} \) is invertible. Then \cref{thm:def:domain_divisibility/irreducible_in_polynomial_ring} implies that it is an invertible constant polynomial, and thus \( p \) is also an invertible constant.
+
+  Generalizing on \( p \) and \( q \), we conclude that \( g(X_1, \ldots, X_n) = f(X_1, \ldots, X_n, 1) \) is irreducible.
+
+  \NecessitySubProof Suppose that \( g \) is irreducible. We will show that \( f \) also is.
+
+  If
+  \begin{equation*}
+    f(X_1, \ldots, X_n, Y) = p(X_1, \ldots, X_n, Y) \cdot q(X_1, \ldots, X_n, Y),
+  \end{equation*}
+  then
+  \begin{equation*}
+    g(X_1, \ldots, X_n) = p(X_1, \ldots, X_n, 1) \cdot q(X_1, \ldots, X_n, 1).
+  \end{equation*}
+
+  Since \( g \) is irreducible, \( p(X_1, \ldots, X_n, 1) \) or \( q(X_1, \ldots, X_n, 1) \) (or both) is invertible.
+
+  Without loss of generality, suppose that \( p(X_1, \ldots, X_n, 1) \) is invertible, thus, in particular, a constant polynomial. \Cref{thm:divisors_of_homogeneous_polynomial} implies that \( f \) is homogeneous, thus
+  \begin{equation*}
+    p(X_1, \ldots, X_n, Y) = Y^{\deg p} \underbrace{p\parens*{ \frac {X_1} Y, \ldots, \frac {X_n} Y, 1 }}_{\T{invertible constant}}
+  \end{equation*}
+  is also an invertible constant polynomial.
+
+  Generalizing on \( p \) and \( q \), we conclude that \( f \) is irreducible.
+\end{proof}
+
+\paragraph{Symmetric polynomials}
+
+\begin{definition}\label{def:symmetric_polynomial}\mcite[139]{Тыртышников2017ОсновыАлгебры}
+  We say that a polynomial \( f(X_1, \ldots, X_n) \) over the \hyperref[def:semiring/commutative]{commutative (semi)ring} \( R \) is \term[bg=симетричен (полином) (\cite[58]{ГеновМиховскиМоллов1991Алгебра}), ru=симметрический (многочлен), en=symmetric (polynomial) (\cite[190]{Lang2002Algebra})]{symmetric} if, for any \hyperref[def:algebra_over_semiring/commutative]{commutative associative unital \( R \)-algebra} \( M \), the \hyperref[con:free_construction/evaluation]{evaluation} \( \Phi_M(f) \) is a \hyperref[def:symmetric_function]{symmetric function}, i.e. \( \Phi_M(f) \) is invariant under permutations of \( X_1, \ldots, X_n \).
+\end{definition}
+
+\begin{definition}\label{def:elementary_symmetric_polynomial}\mcite[139]{Тыртышников2017ОсновыАлгебры}
+  We define the \term[bg=прости симетрични функции (\cite[183]{Обрешков1962ВисшаАлгебра}), ru=элементарный симметрический многочлен, en=elementary symmetric polynomial (\cite[190]{Lang2002Algebra})]{elementary symmetric polynomial} \( \sigma_k \) in \( X_1, \ldots, X_n \) as
+  \begin{equation}\label{eq:def:elementary_symmetric_polynomial}
+    \sigma_k(X_1, \ldots, X_n) \coloneqq \sum_{i_1 < \ldots < i_k} X_{i_1} \ldots X_{i_k}.
+  \end{equation}
+\end{definition}
+
+\begin{lemma}\label{thm:symmetric_polynomial_recurrence}
+  For the \hyperref[def:elementary_symmetric_polynomial]{elementary symmetric polynomials}, we have the following recurrence:
+  \begin{equation}\label{eq:thm:symmetric_polynomial_recurrence}
+    \sigma_k(X_1, \ldots, X_n) = \sigma_{k+1}(X_1, \ldots, X_{n-1}) + X_n \sigma_k(X_1, \ldots, X_{n-1})
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  We have
+  \begin{balign*}
+    &\phantom{{}={}}
+    \sigma_{k+1}(X_1, \ldots, X_{n-1}) + X_n \sigma_k(X_1, \ldots, X_{n-1})
+    = \\ &=
+    \sum_{\substack{i_1 < \ldots < i_{k+1} \\ i_{k+1} \leq n - 1}} X_{i_1} \ldots X_{i_{k+1}} + X_n \cdot \sum_{\substack{i_1 < \ldots < i_{k+1} \\ i_{k+1} \leq n - 1}} X_{i_1} \ldots X_{i_k}
+    = \\ &=
+    \sum_{i_1 < \ldots < i_{k+1}} X_{i_1} \ldots X_{i_{k+1}}
+    = \\ &=
+    \sigma_k(X_1, \ldots, X_n)
+  \end{balign*}
+\end{proof}
+
+\begin{theorem}[Vieta's formulas]\label{thm:vietas_formulas}\mcite[thm. 3.11.1]{Тыртышников2017ОсновыАлгебры}
+  Suppose that, over some \hyperref[def:integral_domain]{integral domain}, the polynomial
+  \begin{equation*}
+    f(X) = \sum_{k=0}^n a_k X_k
+  \end{equation*}
+  \hyperref[def:polynomial_splits_into_linear_factors]{splits into linear factors}, and let \( \alpha_1, \ldots, \alpha_n \) be an enumeration of its roots.
+
+  Then the non-leading coefficients \( a_0, \ldots, a_{n-1} \) can be expressed via the \hyperref[def:elementary_symmetric_polynomial]{elementary symmetric polynomials} applied to the roots as follows:
+  \begin{equation}\label{eq:thm:vietas_formulas}
+    a_k = a_n \cdot (-1)^{n-k} \cdot \sigma_{n-k}(\alpha_1, \ldots, \alpha_n).
+  \end{equation}
+\end{theorem}
+\begin{proof}
+  \Fullref{thm:polynomial_factorization_via_roots} implies that
+  \begin{equation*}
+    f(X) = a_n \cdot \prod_{k=1}^n (X - \alpha_k).
+  \end{equation*}
+
+  We will use induction on \( n \). The case \( n = 0 \) is vacuous. Suppose that the theorem holds for polynomials of degree \( n - 1 \). Then we can apply the inductive hypothesis to
+  \begin{equation*}
+    g(X) \coloneqq a_n \cdot \prod_{k=1}^{n-1} (X - \alpha_k).
+  \end{equation*}
+
+  Let \( b_0, \ldots, b_{n-1} \) be the coefficients of \( g(X) \). The leading coefficient \( b_{n-1} \) of \( g(X) \) is \( a_n \). By the inductive hypothesis, for \( k = 0, \ldots, n - 2 \),
+  \begin{equation*}
+    b_k = a_n \cdot (-1)^{n-1-k} \cdot \sigma_{n-1-k}(\alpha_1, \ldots, \alpha_{n-1}).
+  \end{equation*}
+
+  Since \( f(X) = g(X) \cdot (X - \alpha_n) \), by the definition of convolution product, for \( k = 0, \ldots, n - 1 \),
+  \begin{equation*}
+    a_k = b_{k+1} - \alpha_n \cdot b_k.
+  \end{equation*}
+
+  Thus,
+  \begin{balign*}
+    a_k
+    &=
+    a_n \cdot \parens*{ (-1)^{n-k} \sigma_{n-k}(\alpha_1, \ldots, \alpha_{n-1}) - \alpha_n \cdot (-1)^{n-1-k} \cdot \sigma_{n-1-k}(\alpha_1, \ldots, \alpha_{n-1}) }
+    = \\ &=
+    a_n \cdot (-1)^{n-k} \cdot \parens*{ \sigma_{n-k}(\alpha_1, \ldots, \alpha_{n-1}) + \alpha_n \sigma_{n-1-k}(\alpha_1, \ldots, \alpha_{n-1}) }
+    \reloset {\eqref{eq:thm:symmetric_polynomial_recurrence}} = \\ &=
+    a_n \cdot (-1)^{n-k} \cdot \sigma_{n-k}(\alpha_1, \ldots, \alpha_n).
+  \end{balign*}
+\end{proof}
+
+\paragraph{Resultants and discriminants}
+
+\begin{definition}\label{def:sylvester_matrix}\mcite[136]{Тыртышников2017ОсновыАлгебры}
+  We define the \term[ru=матрица Сильвестра, en=Sylvester's matrix (\cite[exerc. 4.6.1.12]{Knuth1997ArtVol2})]{Sylvester matrix} of the non-constant polynomials
+  \begin{align*}
+    f(X) = \sum_{k=0}^n a_k X^k
+    &&\T{and}&&
+    g(X) = \sum_{k=0}^m b_k X^k
+  \end{align*}
+  as the  of the \( (n + m) \times (n + m) \) matrix
+  \begin{equation*}
+    S(f, g) \coloneqq
+    \begin{pmatrix}
+      a_n    & a_{n-1} & \ldots  & \ldots  & a_0     &        &        &        \\
+             & a_n     & a_{n-1} & \ldots  & \ldots  & a_0    &        &        \\
+             &         & \ldots  & \ldots  &         &        & \ldots &        \\
+             &         &         & a_n     & a_{n-1} & \ldots & \ldots & a_0    \\
+      b_m    & b_{m-1} & \ldots  & \ldots  & b_0     &        &        &        \\
+             & b_m     & b_{m-1} & \ldots  & \ldots  & b_0    &        &        \\
+             &         & \ldots  & \ldots  &         &        & \ldots &        \\
+             &         &         & b_n     & b_{m-1} & \ldots & \ldots & b_0
+    \end{pmatrix}
+  \end{equation*}
+\end{definition}
+
+\begin{definition}\label{def:resultant}\mcite[136]{Тыртышников2017ОсновыАлгебры}
+  We define the \term[bg=резултанта (\cite[198]{Обрешков1962ВисшаАлгебра}), ru=результанта, en=resultant (\cite[674]{Knuth1997ArtVol2})]{resultant} of the non-constant univariate polynomials \( f(X) \) and \( g(X) \) as the \hyperref[def:matrix_determinant]{determinant}
+  \begin{equation*}
+    R(f, g) \coloneqq \det S(f, g)
+  \end{equation*}
+  of the corresponding \hyperref[def:sylvester_matrix]{Sylvester matrix}.
+\end{definition}
+\begin{comments}
+  \item A useful characterization of resultants is given in \cref{thm:resultant_as_product}.
+\end{comments}
+
+\begin{lemma}\label{thm:2x2_block_antidiagonal_determinant}
+  We have the following \hyperref[def:block_matrix]{block matrix} \hyperref[def:matrix_determinant]{determinant} identity:
+  \begin{equation}\label{eq:thm:2x2_block_determinant}
+    \det
+    \begin{pmatrix}
+      0_{m \times n} & B              \\
+      C              & 0_{n \times m}
+    \end{pmatrix}
+    =
+    (-1)^{mn} \cdot \det(B) \cdot \det(C),
+  \end{equation}
+  where \( n > 0 \) and \( m > 0 \).
+\end{lemma}
+\begin{proof}
+  We will use \fullref{thm:laplace_expansion}. Denote by \( c_{i,j} \) the \( (i, j) \)-th entry of \( C \). Then we can expand
+  \begin{equation*}
+    \det
+    \begin{pmatrix}
+      0_{m \times n} & B              \\
+      C              & 0_{n \times m}
+    \end{pmatrix}
+    =
+    \det
+    \parens*
+      {
+        \begin{array}{c | c}
+          0_{m \times n} & B              \\
+          \hline
+          \begin{matrix}
+             c_{1,1} & \ldots & c_{n,1} \\
+             \vdots  & \ddots & \vdots  \\
+             c_{1,n} & \ldots & c_{n,n}
+          \end{matrix} & 0_{n \times m}
+        \end{array}
+      }
+  \end{equation*}
+  along the first column to obtain
+  \begin{equation*}
+    \sum_{k=1}^n (-1)^{(m + k) + 1} \cdot c_{k,1} \cdot \det
+    \begin{pmatrix}
+      0_{m \times (n-1)} & B                  \\
+      C_{k,1}            & 0_{(n-1) \times m}
+    \end{pmatrix}
+  \end{equation*}
+
+  We will use induction on \( n \) to show \eqref{eq:thm:2x2_block_determinant}. In the base case \( n = 1 \) we have
+  \begin{equation*}
+    \det
+    \begin{pmatrix}
+      0_{m \times 1} & B              \\
+      C              & 0_{1 \times m}
+    \end{pmatrix}
+    =
+    (-1)^{(m + 1) + 1} \cdot \underbrace{c_{1,1}}_{\det C} \cdot \det B.
+  \end{equation*}
+
+  For the inductive step, suppose that the proposition holds for \( n - 1 \). Then
+  \begin{balign*}
+    \det \begin{pmatrix}
+      0_{m \times n} & B              \\
+      C              & 0_{n \times m}
+    \end{pmatrix}
+    &=
+    \sum_{k=1}^n (-1)^{(m + k) + 1} \cdot c_{k,1} \cdot \det
+    \begin{pmatrix}
+      0_{m \times (n-1)} & B                  \\
+      C_{k,1}            & 0_{(n-1) \times m}
+    \end{pmatrix}
+    = \\ &=
+    \sum_{k=1}^n (-1)^{(m + k) + 1} \cdot c_{k,1} \cdot \det B \cdot (-1)^{m(n-1)} \cdot \det C_{k,1}
+    = \\ &=
+    (-1)^{mn} \cdot \det B \cdot \sum_{k=1}^n (-1)^{k+1} \cdot c_{k,1} \cdot \det C_{k,1}.
+    = \\ &=
+    (-1)^{mn} \cdot \det B \cdot \det C,
+  \end{balign*}
+  as desired.
+\end{proof}
+
+\begin{proposition}\label{thm:resultant_as_product}\mcite[prop. 3.10.2]{Тыртышников2017ОсновыАлгебры}
+  Fix two non-constant polynomials
+  \begin{align*}
+    f(X) = \sum_{k=0}^n a_k X^k
+    &&\T{and}&&
+    g(X) = \sum_{k=0}^m b_k X^k
+  \end{align*}
+  over an \hyperref[def:integral_domain]{integral domain} and suppose both \hyperref[def:polynomial_splits_into_linear_factors]{splits into linear factors}.
+
+  Let \( \alpha_1, \ldots, \alpha_n \) and \( \beta_1, \ldots, \beta_m \) be enumerations of the roots of \( f(X) \) and \( g(X) \). Then for their \hyperref[def:resultant]{resultant} we have
+  \begin{equation}\label{eq:thm:resultant_as_product}
+    R(f, g) = a_n^m \cdot b_m^n \cdot \prod_{i=1}^n \prod_{j=1}^m (\alpha_i - \beta_j).
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  Let
+  \begin{equation*}
+    W(x_1, \ldots, x_s) =
+    \begin{pmatrix}
+      x_1^{s-1} & x_2^{s-1} & \ldots & x_s^{s-1} \\
+      x_1^{s-2} & x_2^{s-2} & \ldots & x_s^{s-2} \\
+      \vdots    & \vdots    & \ddots & \vdots    \\
+      x_1^1     & x_2^1     & \ldots & x_s^1     \\
+      x_1^0     & x_2^0     & \ldots & x_s^0
+    \end{pmatrix}
+  \end{equation*}
+
+  Due to its similarity with the \hyperref[ex:vandermonde_matrix]{Vandermonde matrix}, we can analogously deduce its determinant\fnote{The Vandermonde matrix has \( x_j - x_i \) in its determinant instead of \( x_i - x_j \).}:
+  \begin{equation}\label{eq:thm:resultant_as_product/proof/w_determinant}
+    \det W(x_1, \ldots, x_s) = \prod_{i < j} (x_i - x_j).
+  \end{equation}
+
+  Consider the matrices
+  \begin{align*}
+    Z        &\coloneqq W(\alpha_1, \ldots, \alpha_n, \beta_1, \ldots, \beta_m), \\
+    Z_\alpha &\coloneqq W(\alpha_1, \ldots, \alpha_n), \\
+    Z_\beta  &\coloneqq W(\beta_1, \ldots, \beta_m), \\
+    D_f      &\coloneqq \op{diag}(f(\beta_1), \ldots, f(\beta_m)), \\
+    D_g      &\coloneqq \op{diag}(g(\alpha_1), \ldots, g(\alpha_n)).
+  \end{align*}
+
+  Then
+  \begin{equation}\label{eq:thm:resultant_as_product/proof/matrix_product}
+    S(f, g) \cdot Z =
+    \parens*
+      {
+        \begin{array}{c | c}
+          0_{m \times n} & Z_\beta D_f   \\
+          \hline
+          Z_\alpha D_g   & 0_{n \times m}
+        \end{array}
+      }
+  \end{equation}
+
+  Indeed, denoting by \( c_{i,j} \) the \( (i, j) \)-th entry of the product \( S(f, g) \cdot Z \), we have
+  \begin{equation*}
+    c_{i,j} = \begin{cases}
+      \alpha_j^{m-i} \cdot f(\alpha_j),         &1 \leq j \leq n \T{and} 1 \leq i \leq m, \\
+      \beta_{j-n}^{m-i} \cdot f(\beta_{j-n}),   &n + 1 \leq j \leq n + m \T{and} 1 \leq i \leq m, \\
+      \alpha_j^{n+m-i} \cdot g(\alpha_j),       &1 \leq j \leq m \T{and} m + 1 \leq i \leq n + m, \\
+      \beta_{j-n}^{n+m-i} \cdot g(\beta_{j-n}), &n + 1 \leq j \leq n + m \T{and} m + 1 \leq i \leq n + m.
+    \end{cases}
+  \end{equation*}
+
+  On the other hand, \( Z_\beta D_f \) is simpler:
+  \begin{equation*}
+    \begin{pmatrix}
+      \beta_1^{m-1} \cdot f(\beta_1) & f(\beta_2) \cdot \beta_2^{m-1} & \ldots & \beta_m^{m-1} \cdot f(\beta_m) \\
+      \beta_1^{m-2} \cdot f(\beta_1) & f(\beta_2) \cdot \beta_2^{m-2} & \ldots & \beta_m^{m-2} \cdot f(\beta_m) \\
+      \vdots                         & \vdots                         & \ddots & \vdots                         \\
+      \beta_1 \cdot f(\beta_1)       & f(\beta_2) \cdot \beta_2^{m-1} & \ldots & \beta_m \cdot f(\beta_m)       \\
+      f(\beta_1)                     & f(\beta_2)                     & \ldots & f(\beta_m)
+    \end{pmatrix}.
+  \end{equation*}
+
+  This demonstrates equality in \eqref{eq:thm:resultant_as_product/proof/matrix_product}.
+
+  We can now use \eqref{eq:thm:resultant_as_product/proof/w_determinant} to determine the determinant of \( S(f, g) \cdot Z \):
+  \begin{equation*}
+    R(f, g) \cdot \det Z
+    =
+    R(f, g) \cdot \prod_{i=1}^n \prod_{j=1}^n (\alpha_i - \beta_j) \cdot \prod_{i_1 < i_2} (\alpha_{i_1} - \alpha_{i_2}) \cdot \prod_{j_1 < j_2} (\beta_{j_1} - \beta_{j_2}).
+  \end{equation*}
+
+  The determinant of \( Z_\beta D_f \) is
+  \begin{equation*}
+    \det(Z_\beta) \cdot \det(D_f)
+    =
+    \prod_{j_1 < j_2 \leq m} (\beta_{j_1} - \beta_{j_2}) \cdot \prod_{j=1}^m f(\beta_j)
+    =
+    \prod_{j_1 < j_2 \leq m} (\beta_{j_1} - \beta_{j_2}) \cdot a_n^m \prod_{j=1}^m \prod_{i=1}^n \underbrace{(\beta_j - \alpha_i)}_{(-1)(\alpha_i - \beta_j)},
+  \end{equation*}
+  where we have used that
+  \begin{equation*}
+    f(X) = a_n \prod_{i=1}^n (X - \alpha_i).
+  \end{equation*}
+
+  We can analogously obtain the determinant of \( Z_\alpha D_g \). From \cref{thm:2x2_block_antidiagonal_determinant} it follows that the determinant of the right side of \eqref{eq:thm:resultant_as_product/proof/matrix_product} is
+  \begin{equation*}
+    (-1)^{nm} \cdot \det(Z_\beta D_f) \cdot \det(Z_\alpha D_g)
+  \end{equation*}
+  which we can expand to
+  \begin{equation*}
+    a_n^m \cdot b_m^n \cdot \prod_{i=1}^n \prod_{j=1}^m (\alpha_i - \beta_j) \cdot \det Z.
+  \end{equation*}
+
+  The determinant of the left side of \eqref{eq:thm:resultant_as_product/proof/matrix_product} is
+  \begin{equation*}
+    R(f, g) \cdot \det Z.
+  \end{equation*}
+
+  Cancelling \( \det Z \), we obtain \eqref{eq:thm:resultant_as_product}.
+\end{proof}
+
+\begin{corollary}\label{thm:resultant_invertibility}
+  For polynomials \( f(X) \) and \( g(X) \) over an \hyperref[def:algebraically_closed_field]{algebraically closed field}, the \hyperref[def:resultant]{resultant} \( R(f, g) \) is zero if and only if \( f(X) \) and \( g(X) \) have a common root.
+\end{corollary}
+\begin{proof}
+  In an algebraically closed field, both \( f(X) \) and \( g(X) \) split into linear factors. The result is the immediate from \cref{thm:resultant_as_product}.
+\end{proof}
+
+\begin{definition}\label{def:discriminant}\mcite[prop. 8.5]{Lang2002Algebra}
+  We define the \term[bg=дискриминанта (\cite[215]{Обрешков1962ВисшаАлгебра}), ru=дискриминант (\cite[141]{Винберг2014КурсАлгебры}), en=discriminant (\cite[223]{Rotman2015AdvancedModernAlgebraPart1})]{discriminant} of a non-constant polynomial
+  \begin{equation*}
+    f(X) = \sum_{k=0}^n a_k X_k
+  \end{equation*}
+  as
+  \begin{equation*}
+    D(f) \coloneqq \frac {(-1)^{n(n-1)/2}} {a_n} \cdot R(f, f'),
+  \end{equation*}
+  where \( R(f, f') \) is the \hyperref[def:resultant]{resultant} of \( f(X) \) and its \hyperref[def:algebraic_derivative]{algebraic derivative} \( f'(X) \).
+\end{definition}
+\begin{comments}
+  \item Discriminants are often defined via the roots of \( f(X) \) and later this property is proven to be equivalent, for example in
+  \cite[227]{Кострикин2020АлгебраЧасть1},
+  \cite[258]{Jacobson1985BasicAlgebraI},
+  \cite[192]{Lang2002Algebra} and
+  \cite[223]{Rotman2015AdvancedModernAlgebraPart1}.
+
+  We prefer the given definition because it does not explicitly use roots, the existence of which is a strong assumption and requires relying on \hyperref[def:splitting_field]{splitting fields}.
+
+  We state the other definition as a characterization in \cref{thm:discriminant_as_product}.
+\end{comments}
+
+\begin{lemma}\label{thm:derivative_at_polynomial_root}
+  For the \hyperref[def:algebraic_derivative]{algebraic derivative} of
+  \begin{equation*}
+    f(X) = \prod_{k=1}^n (X - \alpha_k)
+  \end{equation*}
+  we have, for every \( m = 1, \ldots, n \),
+  \begin{equation}\label{eq:thm:derivative_at_polynomial_root}
+    f'(\alpha_m) = \prod_{k \neq m} (\alpha_m - \alpha_k).
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  We will use induction on \( n \). The case \( n = 0 \) is vacuous, so suppose that the lemma holds for \( n - 1 \). \Cref{thm:def:algebraic_derivative/product} implies that
+  \begin{equation}\label{eq:thm:derivative_at_polynomial_root/product_derivative}
+    f'(X) = \parens*{ \prod_{k=1}^{n-1} (X - \alpha_k) }' \cdot (X - \alpha_n) + \prod_{k=1}^{n-1} (X - \alpha_k) \cdot \underbrace{(X - \alpha_n)'}_{1}.
+  \end{equation}
+
+  \begin{itemize}
+    \item If \( m = n \), the first term of \eqref{eq:thm:derivative_at_polynomial_root/product_derivative} vanishes and we are left with
+    \begin{equation*}
+      f'(\alpha_n) = \prod_{k=1}^{n-1} (\alpha_m - \alpha_k),
+    \end{equation*}
+    as desired.
+
+    \item If \( m < n \), by the inductive hypothesis
+    \begin{equation*}
+      f'(\alpha_m) = \parens*{ \prod_{\substack{k \neq m \\ k \neq n}} (\alpha_m - \alpha_k) } \cdot (\alpha_m - \alpha_n) + \underbrace{\prod_{k=1}^{n-1} (\alpha_m - \alpha_k)}_{0}.
+    \end{equation*}
+  \end{itemize}
+\end{proof}
+
+\begin{proposition}\label{thm:discriminant_as_product}
+  Fix an \hyperref[def:algebraically_closed_field]{\emph{algebraically closed}} \hyperref[def:field]{field} \( \BbbK \) and a polynomial
+  \begin{equation*}
+    f(X) = \sum_{k=0}^n a_k X^k.
+  \end{equation*}
+
+  Let \( \alpha_1, \ldots, \alpha_n \) be an enumeration of its roots. Then for its \hyperref[def:matrix_determinant]{determinant} we have
+  \begin{equation}\label{eq:thm:discriminant_as_product}
+    D(f) = a_n^{2n - 2} \prod_{i < j} (\alpha_i - \alpha_j)^2.
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  Let \( \beta_1, \ldots, \beta_{n-1} \) be the roots of \( f' \).
+
+  \Cref{thm:resultant_as_product} implies that
+  \begin{equation}\label{eq:thm:discriminant_as_product/proof/resultant}
+    D(f) = \frac {(-1)^{n(n-1)/2}} {a_n} \cdot a_n^{n-1} \cdot (n a_n)^n \cdot \prod_{i=1}^n \prod_{j=1}^{n-1} (\alpha_i - \beta_j).
+  \end{equation}
+
+  Note that
+  \begin{equation*}
+    f'(\alpha_i) = n a_n \prod_{j=1}^{n-1} (\alpha_i - \beta_j),
+  \end{equation*}
+  however from \cref{thm:derivative_at_polynomial_root} it follows that
+  \begin{equation*}
+    f'(\alpha_i) = a_n \prod_{j \neq i} (\alpha_i - \alpha_j).
+  \end{equation*}
+
+  Therefore, we can simplify \eqref{eq:thm:discriminant_as_product/proof/resultant} to
+  \begin{equation*}
+    D(f) = (-1)^{n(n-1)/2} \cdot a_n^{2n-2} \prod_{i=1}^n \prod_{j \neq i} (\alpha_i - \alpha_j).
+  \end{equation*}
+
+  It remains to use
+  \begin{equation*}
+    (\alpha_i - \alpha_j) = (-1)(\alpha_j - \alpha_i)
+  \end{equation*}
+  whenever \( j > i \) to conclude \eqref{eq:thm:discriminant_as_product}.
+\end{proof}
+
+\begin{corollary}\label{thm:discriminant_invertibility}
+  For a polynomial \( f(X) \) over an \hyperref[def:algebraically_closed_field]{algebraically closed field}, the \hyperref[def:discriminant]{discriminant} \( D(f) \) is zero if and only if \( f(X) \) has multiple roots.
+\end{corollary}
+\begin{proof}
+  Immediate from \cref{thm:discriminant_as_product}.
+\end{proof}
+
+\paragraph{Rational roots}
+
+\begin{theorem}[Rational root test]\label{thm:rational_root_test}\mcite[thm. V.5.5]{Aluffi2009Algebra}
+  Let \( D \) be a \hyperref[def:factorial_domain]{factorial domain} and \( \BbbK \) be its \hyperref[def:field_of_fractions]{field of fractions}. Over \( D \), consider the polynomial
+  \begin{equation*}
+    f(X) = \sum_{k=0}^n a_k X^k.
+  \end{equation*}
+
+  If \( p / q \) is a root of \( f(X) \) \hyperref[def:lowest_terms]{in lowest terms}, then \( p \) divides \( a_0 \) and \( q \) divides \( a_n \) in \( D \).
+\end{theorem}
+\begin{comments}
+  \item In particular, if \( f(X) \) is \hyperref[def:monic_polynomial]{monic}, the rational roots of \( f(X) \) are members of \( D \).
+\end{comments}
+\begin{proof}
+  We have
+  \begin{equation*}
+    q^n f(p / q)
+    =
+    \sum_{k=0}^n a_k p^k q^{n-k}
+    =
+    0.
+  \end{equation*}
+
+  Then
+  \begin{equation*}
+    a_n p^n = -q \parens*{ \sum_{k=0}^{n-1} a_k p^k q^{n-k} }.
+  \end{equation*}
+
+  Then \( q \) divides \( a_n p^n \). Every irreducible factor of \( q \) divides \( a_n p^n \), but, since \( q \) and \( p \) are coprime, no irreducible factor of \( q \) divides \( p \). It remains for them, as well as their product \( q \), to divide \( a_n \).
+
+  We similarly conclude that \( p \) divides \( a_0 \).
+\end{proof}
+
+\paragraph{Quadratic polynomials}
+
+\begin{lemma}\label{thm:quadratic_polynomial_discriminant}
+  The \hyperref[def:discriminant]{discriminant} of the quadratic polynomial \( f(X) = a X^2 + b X + c \) is
+  \begin{equation}\label{eq:thm:quadratic_polynomial_discriminant}
+    D(f) = b^2 - 4ac
+  \end{equation}
+\end{lemma}
+\begin{proof}
+  We have
+  \begin{align*}
+    D(f)
+    &=
+    \frac {(-1)} a \cdot \begin{pmatrix}
+      a  & b  & c  \\
+      2a & b  &    \\
+         & 2a & b
+    \end{pmatrix}
+    \reloset {\eqref{eq:thm:3x3_determinant}} = \\ &=
+    \frac {(-1)} a \cdot \parens*{ ab^2 + 0 + 4a^2c - 0 - 0 - 2ab^2 }
+    = \\ &=
+    b^2 - 4ac.
+  \end{align*}
+\end{proof}
+
+\begin{proposition}\label{thm:quadratic_polynomial_roots}
+  Fix a quadratic univariate polynomial \( f(X) = a X^2 + b X + c \) over an \hyperref[def:integral_domain]{integral domain}.
+
+  If \( \alpha \) and \( \beta \) are the roots of \( f(X) \), then the \hyperref[def:discriminant]{discriminant} \( b^2 - 4ac \) is the square of \( s = a(\alpha + \beta) \) and
+  \begin{align*}
+    2a\alpha = -b + s
+    &&\T{and}&&
+    2a\beta = -b - s.
+  \end{align*}
+\end{proposition}
+\begin{proof}
+  Suppose that \( \alpha \) and \( \beta \) are the roots of \( f(X) \). \Fullref{thm:vietas_formulas} implies that
+  \begin{equation*}
+    b =  -a \cdot \sigma_1(\alpha, \beta) = -a(\alpha + \beta)
+  \end{equation*}
+  and
+  \begin{equation*}
+    c = a \cdot \sigma_2(\alpha, \beta) = a\alpha\beta.
+  \end{equation*}
+
+  The discriminant is
+  \begin{equation*}
+    D(f) = b^2 - 4ac = a^2(\alpha + \beta)^2 - 4a^2 \alpha\beta = a^2 (\alpha^2 + 2\alpha\beta + v^2) - 4a^2 \alpha\beta = a^2 (\alpha - \beta)^2.
+  \end{equation*}
+
+  Denote \( a(\alpha - \beta) \) by \( s \). Then
+  \begin{equation*}
+    2a\alpha = a(\alpha + \beta) + a(\alpha - \beta) = -b + s
+  \end{equation*}
+  and
+  \begin{equation*}
+    2a\beta = a(\alpha + \beta) - a(\alpha - \beta) = -b - s
+  \end{equation*}
+\end{proof}
+
+\paragraph{Irreducible polynomials}
+
+\begin{proposition}\label{thm:axn_byn_irreducible}
+  Fix a \hyperref[def:totally_ordered_set]{totally} \hyperref[def:ordered_semiring]{ordered} \hyperref[def:field]{field} \( \BbbK \).
+
+  For \( n > 1 \), the polynomial \( a X^n + b Y^n \), where \( a \) and \( b \) have the same nonzero \hyperref[def:signum]{sign}, is irreducible in \( \BbbK[X, Y] \).
+\end{proposition}
+\begin{proof}
+  Let \( p(X, Y) = a X^n + b Y^n \) and fix some decomposition \( p(X, Y) = q(X, Y) \cdot r(X, Y) \).
+
+  Aiming at a contradiction, suppose that both are not invertible. Then both have positive degree. \Cref{thm:divisors_of_homogeneous_polynomial} implies that both \( g(X, Y) \) and \( h(X, Y) \) are homogeneous, and \cref{thm:univariate_polynomial_product/degree} leaves only the possibility that
+  \begin{align*}
+    q(X, Y) &= c X^m + d Y^m + e \\
+    r(X, Y) &= f X^{n-m} + g Y^{n-m} + h,
+  \end{align*}
+  where \( 0 < m < n \).
+
+  Then \( q(X, Y) \cdot r(X, Y) \) equals \( a X^n + b Y^n \), as well as
+  \begin{equation*}
+    c f X^n + c g X^m Y^{n-m} + c h X^m + d f X^{n-m} Y^m + d g Y^n + d h Y^m + e f X^{n-m} + e g Y^{n-m} + e h.
+  \end{equation*}
+
+  Since \( a = c f \) and \( b = d g \) are nonzero, \( c \), \( d \), \( f \) and \( g \) must be nonzero.
+l
+  If \( m \neq n - m \), then the coefficient \( c g \) of \( X^m \) must be zero, which leads to a contradiction.
+
+  Otherwise, \( m = n - m \) and we can group terms with monomials having the same indeterminates. In order for there to be no mixed monomials, we must have \( c g = - d f \).
+
+  Since \( a = c f \), it follows that \( f = a / c \), and similarly \( g = b / d \). Then
+  \begin{equation*}
+    c g = c \cdot \frac b d = - d \cdot \frac a c = - d f.
+  \end{equation*}
+
+  Multiplying by \( cd \), we obtain
+  \begin{equation}\label{eq:thm:axn_byn_irreducible/proof/contradiction}
+    c^2 \cdot b = - d^2 \cdot a.
+  \end{equation}
+
+  We have assumed that \( a \) and \( b \) have matching signs. \Cref{thm:ordered_ring_power} implies that both \( c^2 \) and \( d^2 \) are positive. Then \cref{thm:def:signum} implies that \( c^2 \cdot b \) and \( d^2 \cdot a \) also have matching signs.
+
+  But then they cannot satisfy \eqref{eq:thm:axn_byn_irreducible/proof/contradiction}. The obtained contradiction shows that \( p(X, Y) \) is irreducible.
+\end{proof}
+
+\begin{corollary}\label{thm:ordered_field_not_algebraically_closed}
+  A \hyperref[def:totally_ordered_set]{totally} \hyperref[def:ordered_semiring]{ordered} \hyperref[def:field]{field} cannot be \hyperref[def:algebraically_closed_field]{algebraically closed}.
+\end{corollary}
+\begin{proof}
+  \Cref{thm:axn_byn_irreducible} implies that \( X^2 + Y^2 \) is an irreducible polynomial, and \cref{thm:homogeneous_polynomial_constant} imply that \( X^2 + 1 \) is also irreducible.
+\end{proof}
+
+\begin{proposition}\label{thm:axn_byn_czn_irreducible}
+  For \( n > 1 \), the polynomial \( a X^n + b Y^n + c Z^n \), where \( a \), \( b \) and \( c \) are nonzero scalars from an arbitrary \hyperref[def:field]{field} \( \BbbK \), is irreducible in \( \BbbK[X, Y, Z] \).
+\end{proposition}
+\begin{proof}
+  As in \cref{thm:axn_byn_irreducible}, let \( p(X, Y, Z) = a X^n + b Y^n + c Z^n \) and suppose that \( p(X, Y, Z) \) is a product of the homogeneous polynomials
+  \begin{align*}
+    q(X, Y, Z) &= d X^m + e Y^m + f Z^m + g, \\
+    r(X, Y, Z) &= h X^{n-m} + i Y^{n-m} + j Z^{n-m} + k,
+  \end{align*}
+  where \( 0 < m < n \).
+
+  Then \( q(X, Y, Z) \cdot r(X, Y, Z) \) is
+  \begin{balign*}
+    &\phantom{{}+{}}
+    d h X^n + d i X^m Y^{n-m} + d j X^m Z^{n-m} + d k X^m
+    + \\ &+
+    e h X^{n-m} Y^m + e i Y^n + e j Y^m Z^{n-m} + e k Y^m
+    + \\ &+
+    f h X^{n-m} Z^m + f i Y^{n-m} Z^m + f j Z^n + f k Z^m
+    + \\ &+
+    g h X + g i Y + g j Z + g k.
+  \end{balign*}
+
+  Since \( a = dh \), \( b = ei \) and \( c = fj \) are nonzero, it follows that the corresponding scalars are nonzero.
+
+  If \( m \neq n - m \), \( di = 0 \), which implies that \( d = 0 \) or \( i = 0 \), leading to a contradiction.
+
+  Otherwise, if \( m = n - m \), we must have
+  \begin{align*}
+    (d i + e h) (X Y)^m &= 0, \\
+    (d j + f h) (X Z)^m &= 0, \\
+    (e j + f i) (Y Z)^m &= 0,
+  \end{align*}
+  that is,
+  \begin{align*}
+    d i &= - e h, \\
+    d j &= - f h, \\
+    e j &= - f i.
+  \end{align*}
+
+  We can divide the first two equalities to obtain \( i / j = e / f \), i.e. \( ej = fi \). But the third equality states that \( ej = -fi \). Hence, \( ej \) and \( fi \) can both only be zero. But we know that \( e \), \( f \), \( i \) and \( j \) are all nonzero, hence \( ej \) and \( fi \) must also be nonzero.
+
+  The obtained contradictions show that the polynomial \( p(X, Y, Z) = a X^n + b Y^n + c Z^n \) is irreducible over any field when \( n > 1 \).
+\end{proof}
+
+\begin{proposition}\label{thm:axz_byy_irreducible}
+  The polynomial \( a XZ + b Y^2 \), where \( a \) and \( b \) are nonzero scalars from an arbitrary \hyperref[def:field]{field} \( \BbbK \), is irreducible in \( \BbbK[X, Y, Z] \).
+\end{proposition}
+\begin{proof}
+  Similarly to \cref{thm:axn_byn_czn_irreducible}, let \( p(X, Y, Z) = a XZ + b Y^2 \) and suppose that the homogeneous polynomial \( f(X, Y, Z) \) is a product of the linear homogeneous polynomials
+  \begin{align*}
+    q(X, Y, Z) &= d X + e Y + f Z + g, \\
+    r(X, Y, Z) &= h X + i Y + j Z + k.
+  \end{align*}
+
+  Unlike in \cref{thm:axn_byn_czn_irreducible}, we need \( dh \) and \( fj \), the coefficients of \( X^2 \) and \( Z^2 \), to be zero. The coefficient \( dj + fh \) of \( XZ \) must be nonzero, however. Then either \( d \) and \( j \) are nonzero and \( h = f = 0 \), or vice versa.
+
+  The coefficients \( ei \) of \( Y^2 \) is also nonzero, hence \( e \neq 0 \) and \( i \neq 0 \).
+
+  \begin{itemize}
+    \item If \( h = f = 0 \), then, since the coefficient \( di + eh \) of \( XY \) must be zero, it follows that \( i = 0 \).
+
+    \item If \( d = j = 0 \), then, since the coefficient \( ej + fi \) of \( YZ \) must be zero, it again follows that \( i = 0 \).
+  \end{itemize}
+
+  In both cases we obtain a contradiction. Therefore, \( p(X, Y, Z) \) is irreducible.
+\end{proof}

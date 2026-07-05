@@ -1,0 +1,455 @@
+\documentclass[a4paper,oneside,8pt,landscape]{extarticle}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+
+\usepackage{xcolor}
+\usepackage{bbold}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+\input{../../common/environments.tex}
+\input{../../common/settings_a4.tex}
+
+\input{../../common/macroses/00_common_macroses.tex}
+\input{../../common/macroses/02_math_operators.tex}
+\input{../../common/macroses/03_shortcuts.tex}
+
+\input{../../common/macroses/21_ana2a_macroses.tex}
+\input{../../common/macroses/22_ana2b_macroses.tex}
+
+\begin{document}
+
+\begin{multicols*}{3}
+
+\section{Kompleksna analiza}
+Naj bo \(f: D \subseteq \C \to \C, \ f = u+iv, \ f \in C^1(D)\) kompleksna funkcija.\\
+%
+\textbf{\textcolor{red}{Elementarne funkcije v \(\C\)}}
+%
+\begin{itemize}
+    \item \(\ln_\C z = \ln_\R |z| + i \arg (z)\), \(\ln \in \OO(\C \setminus (-\infty, 0])\).
+    \item \(e^{iz} = \cos (z) + i\sin (z), \ z \in \C\).
+    \begin{itemize}
+        \item \(\sin z = \frac{1}{2i}(e^{iz} - e^{-iz}),\ \cos z = \frac{1}{2} (e^{iz} + e^{-iz})\); \\
+        \(\sinh z = \frac{1}{2} (e^z - e^{-z}), \ \cosh = \frac{1}{2}(e^z + e^{-z})\).
+        \item  \(\cosh(iz) = \cos z,\ \cos(iz) = \cosh z,\\ \sinh(iz) = i\sin z,\ \sin(iz) = i \sinh(z)\).
+        \item \(\sin(x+iy) = \sin x \cosh y + i \cos x \sinh y, \\
+        \cos(x+ iy) = \cos x \cosh y - i \sin x \sinh y\).
+    \end{itemize}
+    \item Naj bo \(a \in \C\). \(z^a = e^{a \ln_\C z}\).
+\end{itemize}
+%
+\textbf{\textcolor{red}{Holomorfne funkcije}}\\
+\textbf{Izr.} \(f \in \OO(D) \liff u_x = v_y, \ u_y = -v_x \liff \podv{f}{\overline{z}} = 0\). \\
+\textbf{Trd.} [\(D\) je območje] Če \(f \in \OO(D)\) in \(\img{f}(D) \subseteq \R \lthen f \equiv \text{const}\). \\
+\textbf{Izr.} Če je \(f \in \OO(D) \lthen \triangle u = 0, \ \triangle v = 0\). \\
+\textbf{Izr.} Harmonična konjugiranka na odp.\ zvezd.\ območju vedno obstaja.\\
+\textbf{Izr.} [\(D\) območje, \(f \in \OO(D)\)] \(f \not \equiv \text{const} \lthen f \) je odprta.\\
+%
+\textbf{\textcolor{red}{Razvoj v vrsto}}\\
+\textbf{Def.} \textbf{Potenčna vrsta} je vrsta oblike \(f(z) = \sum_{n=0}^{\infty} c_n(z-a)^n\).\\
+%
+\textbf{Izr.} Vsaka potenčna vrsta ima \textbf{konvergenčni polmer} \(R \in [0, \infty]\):
+\begin{itemize}
+    \item \(1/R = \limsup \sqrt[n]{|c_n|}\).
+    \item \(1/R = \lim_{n \to \infty} \sqrt[n]{|c_n|}\).
+    \item \(1/R = \lim_{n \to \infty} \frac{|c_{n+1}|}{|c_n|}\).
+\end{itemize}
+Vsota potenčne vrste je holomorfna funkcija. Obrat: Vsako holomorfno funkcijo se da razviti v vrsto.\\
+%
+\textbf{Def.} Naj bo \(f \in \OO(A(a; r, R))\) ter \(A(a; r, R) = \setb{z \in \C}{|z-a| \in (r, R)}\). Tedaj \(f(z) = \sum_{n = -\infty}^{\infty} c_n(z-a)^n\). To je \textbf{Laurentova vrsta}.\\
+%
+\textbf{\textcolor{red}{Krivuljni integral}}\\
+\textbf{Green.} \(\int_{\partial D} f\, dz + g\, d\overline{z} = 2i \iint_D (f_{\overline{z}} - g_z)\, dx\, dy\).\\
+%
+\textbf{Cauchy.} [\(f \in \OO(D) \cap C^1(\overline{D})\)] \(\int_{\partial D} f(z) \, dz = 0\).\\
+%
+\textbf{Cauchyjeva formula.} [\(f \in \OO(D) \cap C^1(\overline{D})\)] \(\int_{\partial D} \frac{f(z)}{z-z_0}\, dz = 2\pi i f(z_0)\), kjer \(z_0 \in D\).\\
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Singularnosti}}\\
+Naj bo \(a\) \textbf{izolirana singularnost} za \(f\), tj.\ \(f \in \OO(D \setminus \set{a})\). Tedaj \(a\) je
+\begin{itemize}
+    \item \textbf{odpravljiva singularnost}, če \(\some{\lim_{z \to a} f(z) = \alpha}\);
+    \item \textbf{pol stopnje \(n\)}, če
+    \begin{itemize}
+        \item \(f(z)(z-a)^n\) ima odpravljivo singularnost v \(a\);
+        \item \(f(z) = \sum_{k=-n}^{\infty} c_k (z-a)^k,\ c_{-n} \neq 0\);
+    \end{itemize}
+    \item \textbf{bistvena singularnost}, če \(f(z) = \sum_{k = -\infty}^{\infty}c_k(z-a)^k\) ter \(c_{-l} \neq 0\) za neskončno indeksov \(l \in \N\).
+\end{itemize}
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Residui}}\\
+\textbf{Def.} \textbf{Residuum} je \(\Res(f, a) = c_{-1}\), kjer je \(c_{-1}\) koeficient pri \((z-a)^{-1}\) v Laurentovi vrsti.\\
+%
+\textbf{Trd.} Če ima \(f\) v točki\ \(a\) pol stopnje kvečjemu \(n\), potem 
+\[\Res(f, a) = \frac{1}{(n-1)!} \lim_{z \to a} ((z-a)^nf(z))^{(n-1)}.\]\\
+%
+\textbf{Izr.} [\(D\) območje] Naj bodo \(a_1, \ldots, a_m \in D\) izolirane singularne točke in \(f \in C^1(\overline{D} \setminus \set{a_1, \ldots, a_m}) \cap \OO(D \setminus \set{a_1, \ldots, a_m})\). Tedaj 
+\[
+    \int_{\partial D} f(z)\, dz = 2 \pi i \sum_{j=1}^{m} \Res(f, a_j).
+\]
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Holomorfne funkcije kot preslikave}}\\
+\textbf{Def.} Naj bosta \(D, E \subseteq \C\) odprti. Preslikava \(f: D \to E,\ f \in C^1(D)\) je \textbf{konformna}, če ohranja kote (in njihovo orientacijo) med krivuljami.\\
+\textbf{Izr.} \(f\) je konformna v okolici \(a \in D \liff f \in \OO(D),\ f'(a) \neq 0\).\\ 
+\textbf{Def.} \textbf{Lomljena linearna preslikava} je \(z \mapsto \frac{az+b}{cz+d}, \ ad-bc \neq 0\).\\
+\textbf{Trd.} \(\CP = \C \cup \set{\infty}\). V \(\CP\) so premice ravno krožnice, skozi~\(\infty\). Vsako lomljeno linearno preslikavo \(f\) lahko razširimo do biholomorfne preslikave \(\widehat{f}: \CP \to \CP,\ \widehat{f}(\infty) = \lim_{z \to \infty} f(z) = \frac{a}{c}\).\\
+\textbf{Def.} Območji \(D\) in \(E\) sta \textbf{biholomorfni}, če obstaja bijektivna holomorfna preslikava \(f: D \to E\).\\
+\textbf{Riemann.} Naj bo \(D^\text{odp} \subseteq \C\). \(D \sim \triangle \liff D \neq \C,\ D\) je enostavno povezana (brez lukenj).\\
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Osnovni izreki}}\\
+%
+\textbf{Identičnost.} [\(D\) območje, \(f \in \OO(D)\)] Če ima \(Z_f = \setb{z \in D}{f(z) = 0}\) stekališče v \(D \lthen f \equiv 0\).\\
+%
+\textbf{Posl.} [\(D\) območje, \(f, g \in \OO(D)\)] Če se \(f, g\) ujemata na množici, ki ima stekališče v \(D\), potem sta enaki.\\
+%
+\textbf{Maksimum.} [\(D\) območje, \(f \in \OO(D)\) omejena] Funkcija \(f\) bodisi konstanta bodisi \(\all{z \in D} |f(z)| < \sup_{w \in D} |f(w)|\).\\
+%
+\textbf{Liouville.} [\(f \in \OO(\C)\)] Če obstajata \(c > 0\) in \(n \in \N_0\), da velja \(\all{z \in \C} |f(z)| \leq c (1 + |z|^n)\), potem je \(f\) polinom stopnje največ~\(n\).\\
+%
+\textbf{Posl.} \(f \in \OO(D)\) Če je \(f\) omejena, je konstanta.\\
+%
+\textbf{Argument.} Naj bo \(f\) meromorfna na \(D\) in \(\Omega \subseteq D\) območje. Denimo, da \(f\) nima ničel in polov na \(\partial \Omega\). Tedaj
+\[
+    \int_{\partial \Omega} \frac{f'(z)}{f(z)} \, dz = 2 \pi i(Z_f - S_f),
+\]
+kjer je \(Z_j\) \# ničel \(f\) v \(\Omega\), \(S_f\) pa \# polov \(f\) v \(D\) štetih z večkratnostjo.\\
+%
+\textbf{Rouche.} Naj bosta \(f, g \in \OO(D)\). Naj velja \(\all{z \in \partial D} |g(z)| < |f(z)|\). Tedaj imata \(f\) in \(f+ g\) na \(D\) enako število ničel, štetih z večkratnostjo. \emph{Dodatek:} \(f + g\) nima ničel na \(\partial D\).\\
+\textbf{Posl.} [\(f \in \OO(D)\)] Naj bo \(\overline{\triangle(a, r)} \subseteq D\) ter \(|f(a)| < \min_{|z-a|=r}|f(z)|\). Tedaj ima \(f\) ničlo na \(\triangle(a, r)\).\\
+\textbf{Picard.} Vsaka \(f \in \OO(\C)\), ki ne zavzame dveh vrednosti, ke konstanta.
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\subsection*{Vaje}
+%
+\textbf{\textcolor{red}{Določanje holomorfne funkcije}}
+% TODO: Komentar: vse funkcije so določene do konstante natančno} 
+\begin{itemize}
+    \item Poznamo \(u\): [\(D\) območje, \(f \in \OO(D)\)] Naj bo \(A \subseteq (\R \times \set{0}) \cap D\). Dovolj je določiti predpis za \(f|_{A}\) in uporabiti princip identičnosti:
+    \[
+        f(x + i \cdot 0) = u(x, 0) + i \int -u_y(x, 0) \, dx.
+    \]
+    \item Poznamo \(|f|\) ali \(\arg(f)\): Definiramo \(g(z) = \ln(f(z))\).
+    \item Če je treba ugotoviti, ali obstaja \(f \in \OO(D)\), poglejmo zveznost, pripadajočo vrsto itn.
+\end{itemize}
+%
+\textbf{\textcolor{red}{Razvoj funkcije v vrsto}}\\
+Če razvijemo okoli točke \(z_0 = a\), vpeljemo novo spr.\ \(w = z - z_0\). Nato uporabimo znane Taylorjeve razvoje. Splošna formula: \(c_n = \frac{f^{(n)}(z_0)}{n!}\).\\
+%
+Pri razvoju na kolobarjih običajno uporabimo geometrijsko vrsto. Včasih pa razvijemo "`navzven"'. tj.\ v imenovalcu izpostavimo \(z\).\\
+Geometrijska vrsta: \(\frac{1}{1-q} = \sum_{k=0}^{\infty}q^k, \ |q| < 1\).\\
+%
+\textbf{\textcolor{red}{Krivuljni integral}}\\
+Naj ima krivulja \(K\) parametrizacijo \(\vec{r}(t) =  x(t) + iy(t), \ t \in [a,b]\). Tedaj 
+\[
+    I = \int_{K} f(z) \, dz = \int_{K} (u\, dx - v\, dy) + i \int_{K} (u\, dy + v\, dx).
+\]
+\ 
+
+\textbf{Standardne parametrizacije:}
+\begin{itemize}
+    \item Krožnica z polmerom \(R\): \(z = Re^{i \phi},\ dz = ie^{i\phi}\, d\phi\).
+    \item Navpična premica: \(z = it,\ dz = i\, dt\).
+    \item Vodoravna premica: \(z = x,\ dz = dx\).
+\end{itemize}
+\(I\) izračunamo tako, da vstavimo namesto \(z\) pravo parametrizacijo ali uporabimo Greenovo formulo.\\
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+\textbf{\textcolor{red}{Kompleksna integracija}}\\
+Želimo izračunati posplošen integral funkcije \(g\), npr.\ \(\int_{a}^{\infty}g(x)\, dx\).
+\begin{enumerate}
+    \item Nadomestimo \(g\) z ustreznim kompleksnim analogom:
+    \begin{itemize}
+        \item \(\cos x, \ \sin x \leadsto e^{ix} = \cos x + i \sin x\).
+        \item \(x \leadsto z\).
+    \end{itemize}
+    \item Integriramo po robu danega območja na dva načina. Običajno celoten integral je nič ali pa enak vsote residuumov. Nato integral računamo na vsakem kosu roba posebej. Za dokaz, da je nek integral v limiti enak \(0\), uporabimo trikotniško neenakost.
+\end{enumerate}
+\textbf{Rezultati z vaj:}
+\begin{itemize}
+    \item Običajna območja: Zgornja polkrožnica, zgornji polkolobar, zgornji pravokotnik.
+    \item \(\int_{0}^{2\pi} h(\cos x, \sin x)\, dx = \int_{|z| = 1} h(\frac{z^2+1}{2z}, \frac{z^2-1}{2iz})\, \frac{dz}{iz}\).
+    \item Če želimo integrirati po enotske krožnice, vpeljemo \(z = e^{i\phi}\).
+\end{itemize}
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Ničla funkcije}}\\
+Za dokaz, da ima enačba le realne ničle, določimo \# vseh realnih ničel na \(\triangle(0, R_n)\) (\((R_n)_n\) je neko ustrezno zaporedje radijev) in \# vseh kompleksnih ničel na \(\triangle(0, R_n)\) z pomočjo Rouchejevega izreka. Nato ugotovimo, da sta števili enaki.\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Biholomorfnost}}\\
+Postopek je standarden. Najprej s pomočjo lomljene linearne preslikave poskusimo "`izravnavati"' podano območje. To storimo tako, da izberimo slike za \(3\) točke na robu (ponavadi presek robnih komponent in vmesni točki). Eno točko preslikamo  v \(\infty\), drugi pa v \(0\) in \(1\). Kako zgleda slika razberemo iz dejstva, da biholomorfne preslikave ohranjajo kot in orientacijo. Lahko tudi eksplicitno izračunamo sliko kake točke.
+\textbf{Standardne preslikave:}
+\begin{itemize}
+    % TODO: Slike
+    \item Naj bo \(E = \setb{z \in \C}{r \in (0, \infty), \phi \in (0, \frac{\pi}{r}), r \in (0 ,1)}\). Definiramo \(f(z) = z^r,\ \arg z \in (\, \frac{\pi}{r})\). Tedaj \(\img{f}(E) = \R \times (0, \infty) =: \text{Im}_+\).
+    \item Naj bo \(E = \setb{z \in \C}{\text{Im}(z) \in (0, a)}\). Najprej preslikamo ta vodoraven pas v \(F = \setb{z \in \C}{\text{Im}(z) \in (0, \pi)} \) z preslikavo \(f(z) = \frac{\pi z}{a}\). Nato pa ta pas z preslikavo \(f(z) = e^z\) preslikamo v \(\text{Im}_+\).\\ 
+    \emph{Splošno:} Če imamo pas, vzemimo preslikavo \(f(z) = e^z\) in poglejmo njen del \(e^x\), ki nam da meji za \(r\), in del \(e^{iy}\), ki nam da meji za \(\phi\). S tem je slika v polarnih koordinatah natančno določena.
+
+    \item \(f_0: \text{Im}_+ \to \triangle,\ f_0(z) = \frac{iz+1}{iz-1}\).
+    \item \(f_\infty: \triangle \to \complement{\overline{\triangle}},\ f(z) = \frac{1}{z}\).
+\end{itemize}
+Opazimo tudi, da pot v sliki gre skozi točko \(\infty\) natanko tedaj, ko gre v prasliki skozi točko, ki slika v točko \(\infty\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Taylorjeve vrste}}\\
+\begin{tabular}{l|l}
+\(e^z = \sum_{n=0}^{\infty} \frac{z^n}{n!}\) & \((1+x)^\alpha = \sum_{n=0}^{\infty} \binom{\alpha}{n}z^n\) \\
+\hline
+\(\sin(z) = \sum_{n=0}^{\infty}(-1)^n \frac{z^{2n+1}}{(2n+1)!}\)  & \(\cos z = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}\) \\
+\hline
+\(\sinh z = \sum_{n=0}^{\infty} \frac{z^{2n+1}}{(2n+1)!}\) & \(\cosh z = \sum_{n=0}^{\infty} \frac{x^{2n}}{(2n)!}\)
+\end{tabular}
+\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Trigonometrija}}\\
+\(\sin x + \sin y = 2 \sin \frac{x+y}{2} \cos \frac{x-y}{2}\), \(\sin x \cos y = \frac{1}{2}(\sin(x+y) + \sin(x-y))\)\\
+\(\cos x + \cos y = 2 \cos \frac{x+y}{2} \cos \frac{x-y}{2}\), \(\cos x \cos y = \frac{1}{2} (\cos (x+y) + \cos(x-y))\)\\
+\(\cos x - \cos y = -2 \sin \frac{x+y}{2} \sin \frac{x-y}{2}\), \(\sin x \sin y = \frac{1}{2} (\cos (x - y) - \cos (x+y))\)\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Stirling}}\\
+\(\lim_{n \to \infty} \frac{n!}{\sqrt{2\pi n} (n/e)^n} = 1\).
+
+\newpage
+\section{Fouriereva analiza}
+\textbf{Fouriereva vrsta.} Naj bo funkcija \(f: [-\pi, \pi]\) nezvezna v končno mnogo točkah, kjer obstajata levi in desni odvod, vmes pa je med tema točkama odvedljiva. Tedaj 
+\[
+    \text{FV}(f)(x) = a_0 + \sum_{n=1}^{\infty}(a_n \cos(nx) + b_n \sin(nx)),
+\]
+kjer \(a_0 = \frac{1}{2\pi} \int_{-\pi}^{\pi} f(x) \, dx\) ter 
+\[a_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)  \cos(nx) \, dx\ \text{in}\ b_n = \frac{1}{\pi} \int_{-\pi}^{\pi} f(x)  \sin(nx) \, dx.\]
+%
+Za vsak \(x \in [-\pi, \pi]\) Fourierjeva vrsta funkcije \(f\) konvergira proti 
+\begin{itemize}
+    \item \(f(x)\), če je \(f\) zvezna v \(x\) in 
+    \item \(\frac{f(x-) + f(x+)}{2}\), če \(f\) ni zvezna v \(x\).
+\end{itemize}
+%
+\textbf{Parseval.} Velja:
+\[
+    \frac{1}{\pi} \int_{-\pi}^{\pi} f^2(x) \, dx = 2 a_0^2 + \sum_{n=1}^{\infty} (a_n^2 + b_n^2).
+\]
+%
+\subsection*{Vaje}
+\textbf{\textcolor{red}{Razširjenje funkcije}}\\
+Naj bo \(f: [0, \pi] \to \R\) funkcija. Funkcijo \(f: [0, \pi] \to \R\) s predpisom \(f(x) = f(-x), x < 0\) lahko razširimo do sode funkcije ter s predpisom \(f(x) = -f(-x)\) do lihe. Tedaj 
+\(\FV_{\cos}(f)(x) = \FV(f_{\text{soda}}(x))\) ter \(\quad \FV_{\sin}(f)(x) = \text{FV}(f_{\text{liha}}(x))\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Račun integralov}}
+\begin{itemize}
+    \item Za integrali z \(\sin\) in \(\cos\) lahko uporabljamo \(e^{ix}\).
+    \item Pogosto uporabimo per partes \(\int u\, dv = uv - \int v\, du\).
+\end{itemize}
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{Rezultati z vaj}
+\begin{itemize}
+    \item \(\int x \cos(nx) \, dx = \frac{x}{n}\sin(nx) + \frac{1}{n^2} \cos(nx) + C\).
+    \item \(\int x \sin(nx)\, dx = -\frac{x}{n} \cos(nx) + \frac{1}{n^2} \sin(nx) + C\).
+\end{itemize}
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\section{Vektorska analiza}
+\textbf{\textcolor{red}{Gradient, divergenca in rotor. Potencial}}\\
+Naj bo \(u = u(x, y, z)\) skalarno polje in \(\vec{f} = (P, Q, R)\) vektorsko polje.
+\begin{itemize}
+    \item \(\grad u = \nabla \cdot u = (u_x, u_y, u_z)\);
+    \item \(\divr \vec{f} = \nabla \cdot \vec{f} = P_x + Q_y + R_z\);
+    \item \(\rot \vec{f} = \nabla \times \vec{f} = (R_y - Q_z, P_z - R_x, Q_x - P_y)\);
+    \item Laplaceov operator: \(\triangle u = \divr \grad u = u_{xx} + u_{yy} + u_{zz}\).
+\end{itemize}
+\textbf{Trd.} \(\rot \grad u = 0\) in \(\divr \rot \vec{f} = 0\).\\
+\textbf{Trd.} \(\vec{f}\) na zvezdastem območju je potencialno \(\liff \rot \vec{f} = 0\).\\
+\textbf{Def.} \(u\) je \textbf{harmonično}, če \(\triangle u = 0\).\\
+\textbf{Def.} \(\vec{f}\) je \textbf{solenoidalno}, če \(\divr \vec{f} = 0\).\\
+\textbf{Def.} \(\vec{f}\) je \textbf{potencialno}, če \(\some{u: \R^3 \to \R} \vec{f} = \grad u\).\\
+\textbf{Def.} \(\vec{f}\) je \textbf{irotacionalno}, če \(\rot \vec{f} = 0\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Krivuljni integral skalarnega polja}}\\
+Naj bo \(K\) krivulja z regularno parametrizacijo \(\vec{r}: [a,b] \to \R^3,\ \vec{r} = \vec{r}(t)\). Tedaj \(ds = |\dot{\vec{r}}(t)| dt = \sqrt{\dot{x}(t)^2 + \dot{y}(t)^2 + \dot{z}(t)^2} \, dt\).\\
+\textbf{Def.} \(\int_{K} u \, ds = \int_{a}^{b} u(\vec{r}(t)) |\dot{\vec{r}}(t)| dt\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\
+
+\textbf{\textcolor{red}{Ploskovni integral skalarnega polja}}\\
+Naj bo \(S\) ploskev z reg.\ param.\ \(\vec{r}: \triangle \subseteq \R^2 \to \R^3,\ \vec{r} = \vec{r}(u, v)\).\\ Tedaj \(dS = \norm{\vec{r}_u \times \vec{r}_v} dudv = \sqrt{\norm{\vec{r}_u}^2 \cdot \norm{\vec{r}_v}^2 - \scp{r_u}{r_v}^2} \, dudv\).\\
+\textbf{Def.} \(\int_{S} \mu \, dS = \int_{\triangle} \mu(\vec{r}(u, v)) |\vec{r}_u \times \vec{r}_v| \, dudv\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Krivuljni integral vektorskega polja}}\\
+Naj bo \(K\) krivulja z regularno parametrizacijo \(\vec{r}: [a,b] \to \R^3,\ \vec{r} = \vec{r}(t)\).
+\textbf{Def.} \(\int_{K} \vec{f} \cdot d\vec{r} = \int_{a}^{b} (\vec{f}(\vec{r}(t)) \cdot \dot{\vec{r}}(t))\, dt\).\\
+\textbf{Def.} \textbf{Cirkulacija} je integral \(\vec{f}\) vzdolž sklenjene krivulje.\\
+\textbf{Trd.} Če \(\vec{f} = \grad u \lthen \int_{K} \vec{f} \cdot d\vec{r} = u(K_\text{končna}) - u(K_\text{začetna})\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Ploskovni integral vektorskega polja}}\\
+Naj bo \(S\) ploskev z reg.\ param.\ \(\vec{r}: \triangle \subseteq \R^2 \to \R^3,\ \vec{r} = \vec{r}(u, v)\).\\
+\textbf{Def.} \(\int_{S} \vec{f} \cdot d \vec{S} = \int_{S} (\vec{f} \cdot \vec{n})\, dS\), kjer je \(\vec{n}\) enotska normala.\\
+\textbf{Trd.} \(\int_{S} \vec{f} \cdot d \vec{S} = \int_{\triangle} \vec{f}(\vec{r}(u, v)) \cdot (\vec{r}_u \times \vec{r}_v) \, dudv\), pri čemer smer \(\vec{r}_u \times \vec{r}_v\) se mora ujemati s predpisano orientacijo.\\
+\textbf{Def.} \textbf{Pretok} skozi ploskev \(S\) je \(\int_{S} \vec{f} \cdot d \vec{S}\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Integralski izreki}}\\
+Naj bo \(\vec{f}: D \subseteq \R^3 \to R^3\).\\
+\textbf{Gauss.} Naj bo \(\Omega^\text{odp} \subseteq D\) omejena, z kosoma gladkim robom \(\partial \Omega\), ki je orientiran z zunanjo normalo. Tedaj \(\iint_{\partial \Omega} \vec{f} \cdot d\vec{S} = \iiint_{\Omega} \divr \vec{f}\, dV\).\\
+\textbf{Stokes.} Naj bo \(\Sigma \subseteq D\) odsekoma gladka orientirana omejena ploskev, s kosoma gladkim robom \(\partial \Sigma\), ki je orientiran usklajeno z \(\Sigma\).\\ Tedaj \(\int_{\partial \Sigma} \vec{f} \cdot d\vec{r} = \iint_{S} \rot \vec{f} \cdot d \vec{S}\).\\
+\textbf{Green.} Naj bo \(D \subseteq \R^2\) omejena, z kosoma gladkim robom \(\partial D\), ki je orientiran usklajeno z \(D\). Naj bosta \(X, Y \in C^\infty(D)\).\\ Tedaj \(\int_{\partial D} X \, dx + Y \, dy = \iint_D (Y_x - X_y) \, dxdy\).
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\subsection*{Vaje}
+\textbf{\textcolor{red}{Gradient, divergenca in rotor. Potencial}}
+\begin{itemize}
+    \item Pri izračunu gradienta, divergence, rotorja itn.\ vektorji zapišemo v kartezičnih koordinatah.
+    \item Potencial polja dobimo tako, da predpostavimo, da ta obstaja. Zatem zapišemo ustrezne diferencialne enačbe in integriramo. Nato vzemimo unijo členov po integraciji parcialnih odvodov.
+\end{itemize}
+%
+\textbf{Rezultati z vaj.}
+\begin{itemize}
+    \item Naj bo \(f(\vec{r}) = \frac{1}{|\vec{r} - \vec{a}|}\). Velja: \(
+        \grad f = - \frac{\vec{r} - \vec{a}}{|\vec{r} - \vec{a}|^3},\ \divr (\grad f) = 0\).
+    \item \(\rot (\vec{r} \times \vec{a}) = - 2 \vec{a}\); \(\rot (\vec{a} \times \vec{r}) = 2 \vec{a}\).
+\end{itemize}
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Ploskovni integral skalarnega polja}}
+\begin{itemize}
+    \item Če je \(S \subseteq \R \times \R \times \set{a}\), potem \(\int_{S} \mu \, dS = \int_{\triangle} \mu(x,y,a) \, dxdy\), kjer je \(\triangle\) proj.\ v \(xy\)-ravnino. Podobno za poljubno permutacijo koordinat.
+\end{itemize}
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Krivuljni integral vektorskega polja}}
+\begin{itemize}
+    \item Parametrizacija krivulje določa tudi njeno orientacijo.
+\end{itemize}
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Ploskovni integral vektorskega polja}}
+\begin{itemize}
+    \item Ravno ploskev lahko parametriziramo v obliki \(\vec{n} \cdot dS\).
+\end{itemize}
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Integracija}}
+\begin{itemize}    
+    \item \(\int_{K} P\, dx + Q\, dy + Z\, dz = \int_K (P, Q, R) \cdot d\vec{r}\).
+    \item \(\iint_D P\, dzdy + Q\, dxdz + R\, dzdy = \iint_D (P, Q, R) \cdot d \vec{S}\).
+    \item Pri parametrizaciji lahko si pomagamo z vpeljavo novih koordinat.
+    \item Problematične točke lahko izoliramo s krogli.
+    \item Če ploskev ni sklenjena, lahko jo poljubno sklenimo + Gauss/Stokes.
+    \item Če ima polje na območju singularnosti, jih lahko izrežemo z krogi.
+    \item Površina grafa \(f: \R^2 \to \R\): \(S = \iint_D \sqrt{1 + f_x^2+f_y^2}\, dxdy\)\\ ter \(dS = \sqrt{1 + f_x^2+f_y^2}\, dxdy\) (včasih pride prav).
+    \item Paramterizacija sfere: \(\vec{r}_\psi \times \vec{r}_\phi = - \vec{r}(\psi, \phi) \cos\psi.\)
+\end{itemize}
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Linearna algebra}}
+\begin{itemize}
+    \item \(\vec{a} \times (\vec{b} \times \vec{c}) = (\vec{c} \cdot \vec{a}) \vec{b} - (\vec{b} \cdot \vec{a}) \vec{c}\).
+    \item Ploščina trikotnika: \(S = \frac{1}{2} \norm{(\vec{r}_A - \vec{r}_B) \times (\vec{r}_A - \vec{r}_C)}\).\\ Težišče: \(\vec{r}_T = \frac{1}{3}(\vec{r}_A = \vec{r}_B + \vec{r}_C)\).
+    \item Enačba ravnine: \(\vec{a} \cdot \vec{n} = d\), kjer je \(\vec{n}\) normala.
+\end{itemize}
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Geometrija}}
+\begin{itemize}
+    \item Piramida: \(V = \frac{1}{3}S_\text{osn} h\).
+    \item Stožec: \(V = \frac{1}{3}S_\text{osn} h, \ S = \pi r^2 + \pi r \sqrt{r^2+h^2}\).
+    \item Valj: \(V = \pi r^2 h, \ S = 2\pi rh+2\pi r^2\).
+    \item Sfera: \(V = \frac{4}{3} \pi r^3, \ S = 4 \pi r^2\); Elipsoid: \(V = \frac{4}{3} \pi abc\).
+    \item Torus: \(V = 2\pi^2 a^2 b\).
+\end{itemize}
+
+\section{Analiza 2a}
+\textbf{\textcolor{red}{Vpeljava novih spremenljivk}}\\
+% TODO: Порядок интеграции
+\textbf{Polarne:} \(x = r\cos \phi,\ y = r \sin \phi,\ |\det JF| = r,\ \phi \in [0, 2 \pi]\).\\
+\textbf{Valjne:} \(x = r\cos \phi,\ y = r \sin \phi,\ z = z,\ |\det JF| = r,\ \phi \in [0, 2 \pi]\).\\
+\textbf{Sferične:} \(x = r \cos \phi \cos \psi,\ y = r \sin\phi \cos\psi, z = r\sin\psi,\\ |\det JF| = r^2 \cos \psi,\ \phi \in [0, 2 \pi], \psi \in [-\frac{\pi}{2}, \frac{\pi}{2}]\).\\
+\textbf{Torusne (\(0 < a < R\)):} \(x = \rho \cos \phi,\ y = \rho \sin \phi,\ z = r\sin \psi, \\ |\det JF| = r \rho,\ \phi, \psi \in [0, 2 \pi],\ r \in [0, a]\), kjer \(\rho = (R + r \cos \psi)\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Funkciji gama in beta}}\\
+\textbf{Def.} \(\Gamma (s) = \int_{0}^{\infty} x^{s-1}e^{-x} \, dx\).\\
+\textbf{Trd.} \(\Gamma(s+1) = s \Gamma(s)\). Če je \(n \in \N\), potem \(\Gamma(n) = (n-1)!\).\\
+\textbf{Trd.} \(\Gamma(1/2) = \sqrt{\pi}\)\\
+\textbf{Def.} \(B(p,q) = \int_{0}^{1}x^{p-1}(1-x)^{q-1} \, dx\).\\
+\textbf{Trd.} \(\frac{1}{2} B(\frac{\alpha + 1}{2}, \frac{\beta + 1}{2}) = \int_{0}^{\frac{\pi}{2}} \sin^\alpha t \cos^\beta t \, dt\) za \(\alpha, \beta > -1\).\\
+\textbf{Trd.} \(B(p,q) = \int_{0}^{\infty} \frac{t^{p-1}}{(1+t)^{p+q}} \, dt\).\\
+\textbf{Posl.} \(B(p, 1-p) = \int_{0}^{\infty} \frac{t^{p-1}}{1+t} \, dt\) za \(0<p<1\).\\
+\textbf{Posl.} \(B(p, 1-p) = \frac{\pi}{\sin (p \pi)}\) za \(p \in (0, 1)\).\\
+\textbf{Izr.} \(B(p, q) = \frac{\Gamma(p) \Gamma(q)}{\Gamma(p+q)}\).\\
+%
+%%%%%%%%%%%%%
+%%%%%%%%%%%%%
+%
+\textbf{\textcolor{red}{Nedoločeni integrali}}\\
+\textbf{Metoda nastavka.} Integriramo \(R(x) = p(x) + \frac{r(x)}{q(x)}\).\\
+\(\frac{1}{(x-a)^k} \leadsto A \ln |x-a|, \frac{1}{(x^2+bx+c)^l} \leadsto B \ln |x^2+bx+c| + C \arctan \frac{2x+b}{\sqrt{4c-b^2}}\) ter \(\frac{\widetilde{r}(x)}{\widetilde{q}(x)}\), kjer polinom $\widetilde{q}$ dobimo iz polinoma $q$ z znižanjem potence vsakega faktorja za ena, polinom $\widetilde{r}$ pa ima stopnji za eno nižjo kot $\widetilde{q}$. Število neznank je enako stopnje polinoma $q$.\\
+\textbf{Trigonometrične funkcije.}\\
+Integrale oblike $\int R \, (\sin x, \cos x) \, dx$ lahko z univerzalno trigonometrično substitucijo $t = \tan \left(\frac{x}{2}\right)$ prevedemo na integral racionalne funkcije spremenljivke $t$. Pri tem: \(dx = \frac{2dt}{1+t^2}\), \(\cos x = \frac{1-t^2}{1+t^2}\) in \(\sin x = \frac{2t}{1+t^2}\).
+\begin{itemize}
+    \item \(\frac{dx}{x^2-a^2} = \frac{1}{2a} \ln \left| \frac{x-a}{x+a} \right|\)
+    \item \(\int \frac{dx}{a^2+b^2 x^2} = \frac{1}{ab} \arctan \left(\frac{bx}{a}\right) + C\)
+    \item \(e^{ax} \sin (bx) \, dx = \frac{e^{ax}}{a^2+b^2}(a  \sin (bx) - b \cos (bx))\)
+    \item \(e^{ax} \cos (bx) \, dx = \frac{e^{ax}}{a^2+b^2}(a  \cos (bx) + b \sin (bx))\)
+\end{itemize}
+
+
+\end{multicols*}
+
+\end{document}

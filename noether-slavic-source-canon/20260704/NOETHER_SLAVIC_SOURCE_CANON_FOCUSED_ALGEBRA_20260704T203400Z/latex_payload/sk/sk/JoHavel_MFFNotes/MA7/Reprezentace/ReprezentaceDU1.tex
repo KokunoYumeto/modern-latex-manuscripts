@@ -1,0 +1,40 @@
+\documentclass[12pt]{article}					% Začátek dokumentu
+\usepackage{../../MFFStyle}					    % Import stylu
+
+
+
+\begin{document}
+
+% z 04. 10. 2023 na 18. 10. 2023
+
+\begin{priklad}
+	Dokažte, že pro daný okruh $R$ a monoid $M$, a $α, β$ ze cvičení platí:
+
+	Je-li $γ: R \rightarrow S$ okruhový homomorfismus a $δ: M \rightarrow (S, ·, 1)$ monoidový homomorfismus a platí-li navíc $(\forall r \in R)(\forall m \in M)\ γ(r)·δ(m) = δ(m)·γ(r)$, existuje právě jeden okruhový homomorfismus $ε: R[M] \rightarrow S$ takový, že $ε ∘ α = γ$ a $ε ∘ β = δ$.
+
+	\begin{dukazin}[Existence]
+		Definujme $ε$ následovně: Pro $f \in R[M]$ můžeme psát „$f = \sum_{m \in \supp f} f_m·m$“ (tj. $f(m) = f_m$\break pro $m \in \supp f$ a $f(m) = 0$ jinak). $ε(f)$ potom položíme rovné\footnote{Jelikož $\supp f$ je konečné, $γ(f_m), δ(m) \in S$ a jelikož rozklad „$f = \sum_{m \in \supp f} f_m·m$“ je jednoznačný (až na nulové prvky, ale $γ(0) = 0$), je $ε(f)$ dobře definovaná funkce $R[M] \rightarrow S$.} $\sum_{m \in \supp f} γ(f_m)·δ(m)$.
+
+		Zřejmě\footnote{Platí $ε ∘ α = γ$ a $ε ∘ β = δ$, protože ($γ(1_R) = 1_S = δ(1_M)$ je vlastnost homomorfismu):
+			$$ ε(α(r)) = ε\(\text{„$\sum_{m \in \{1\}} r·m$“}\) = \sum_{m \in \{1\}} γ(r)·δ(1) = γ(r)·1 = γ(r), $$
+			$$ ε(β(k)) = ε\(\text{„$\sum_{m \in \{k\}} 1·m$“}\) = \sum_{m \in \{k\}} γ(1)·δ(m) = 1·δ(k) = δ(k). $$
+		} $ε ∘ α = γ$ a $ε ∘ β = δ$. Nyní ověříme, že je to okruhový homomorfismus:
+
+		„sčítání“: Je-li $f, g \in R[M]$, pišme „$f = \sum\{m \in \supp f \cup \supp g\} f_m·m$“, kde $f_m = 0$ pro $m \notin \supp f$, a obdobně pro $g$. Potom „$f + g = \sum\{m \in \supp f \cup \supp g\} (f_m + g_m)·m$“, tedy
+		$$ ε(f + g) = \sum_{m \in \supp f \cup \supp g} γ(f_m + g_m)·δ(m) = \sum_{m \in \supp f \cup \supp g} \(γ(f_m) + γ(g_m)\)·δ(m) = $$
+		$$ = \sum_{m \in \supp f \cup \supp g} γ(f_m)·δ(m) + \sum_{m \in \supp f \cup \supp g} γ(g_m)·δ(m) = ε(f) + ε(g). $$
+
+		„násobení“: (zde potřebujeme „komutativitu“ ze zadání)
+		$$ ε(f·g) = \sum_{k \in \supp f + \supp g} δ(k)·\sum_{m, n \in M, m+n=k} γ(f(m)·g(n)) =  $$
+		$$ = \sum_{k \in \supp f + \supp g} \quad \sum_{m, n \in M, m+n=k} γ(f(m))·δ(m+n)·γ(g(n)) = $$
+		$$ = \sum_{m, n \in \supp f \cup \supp g} γ(f(m))·δ(m)·δ(n)·γ(g(n)) =  $$
+		$$ = \(\sum_{m \in \supp f} γ(f_m)·δ(m)\)·\(\sum_{n \in \supp g} γ(g_n)·δ(n)\) = ε(f)·ε(g). $$
+	\end{dukazin}
+
+	\begin{dukazin}[Jednoznačnost]
+		Jelikož $ε(f + g) = ε(f) + ε(g)$ můžeme jednoznačnost ověřovat pouze na „$f = f_m·m$“ pro nějaké $f_m \in R$ a $m \in M$. Jelikož $ε(f·g) = ε(f)·ε(g)$, stačí jednoznačnost ověřit na $f_m·1_M$ a $1_R·m$. Nakonec $ε(f_m·1_M) = ε(α(f_m)) = γ(f_m)$ a $ε(1_R·m) = ε(β(m)) = δ(m)$.
+	\end{dukazin}
+\end{priklad}
+
+\end{document}
+

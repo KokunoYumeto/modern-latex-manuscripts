@@ -1,0 +1,706 @@
+\section{Semirings}\label{sec:semirings}
+
+\paragraph{Semirings}
+
+\begin{definition}\label{def:semigroup_absorbing_element}\mimprovised
+  In the \hyperref[def:semiring/theory]{theory of semirings}, the following axioms state that \( \syno \) a (left or right) \term[ru=аннулирующее свойство (\cite[176]{БелоусовТкачёв2004ДискретнаяМатематика}), en=absorbing element (\cite[example 1.6]{Golan1999Semirings})]{absorbing element} for \( {\cdot} \):
+  \begin{align}
+    \qforall \synx (\syno \cdot \synx \syneq \syno), \label{eq:def:semigroup_absorbing_element/left} \\
+    \qforall \synx (\synx \cdot \syno \syneq \syno). \label{eq:def:semigroup_absorbing_element/right}
+  \end{align}
+
+  Because of the uniqueness shown in \cref{thm:semiring_absorbing_element_uniqueness}, we will not need to distinguish between left and right neutral elements.
+\end{definition}
+
+\begin{proposition}\label{thm:semiring_absorbing_element_uniqueness}
+  In a \hyperref[def:semiring]{semiring}, if \( l \) and \( r \) are left and right \hyperref[def:semigroup_absorbing_element]{absorbing elements}, they are equal. In particular, absorbing elements are unique.
+\end{proposition}
+\begin{proof}
+  \begin{equation*}
+    l
+    \reloset {\eqref{eq:def:semigroup_absorbing_element/left}} =
+    lr
+    \reloset {\eqref{eq:def:semigroup_absorbing_element/right}} =
+    r.
+  \end{equation*}
+\end{proof}
+
+\begin{proposition}\label{thm:monoid_distributivity}
+  Fix an \hyperref[def:additive_semigroup/iterated]{additive} \hyperref[def:monoid]{monoid} \( (R, +, \cdot) \), where \( +: R \times R \to R \) is the monoid operation and \( \cdot: \BbbN \times R \to R \) is iterated addition (i.e. \hyperref[def:semiring/exponentiation]{semiring exponentiation} adapted to additive monoids as per \cref{def:additive_semigroup/iterated}).
+
+  Then we have the following \hyperref[def:semiring/theory/axioms/distributivity]{special case of distributivity}:
+  \begin{equation}\label{eq:thm:monoid_distributivity}
+    n \cdot (x + y) = n \cdot x + n \cdot y.
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  We use induction on \( n \). The case \( n = 0 \) is trivial. Suppose that \eqref{eq:thm:monoid_distributivity} holds. Then
+  \begin{align*}
+    (n + 1) \cdot (x + y)
+    &\reloset {\eqref{eq:def:semigroup/exponentiation}} =
+    n \cdot (x + y) + (x + y)
+    \reloset {\T{ind.}} = \\ &=
+    n \cdot x + n \cdot y + (x + y)
+    \reloset {\eqref{eq:def:semigroup/exponentiation}} = \\ &=
+    (n + 1) \cdot x + (n + 1) \cdot y.
+  \end{align*}
+\end{proof}
+
+\begin{definition}\label{def:semiring}\mimprovised
+  A \term[ru=полупръстен (\cite[372]{ГеновМиховскиМоллов1991Алгебра}), ru=полукольцо (\cite[def. 3.1]{БелоусовТкачёв2004ДискретнаяМатематика}), en=semiring (\cite[1]{Golan1999Semirings})]{semiring} is an \hyperref[def:additive_semigroup]{additive} \hyperref[def:monoid/commutative]{commutative monoid} \( (R, +) \) with a second \hyperref[def:binary_operation/associative]{associative} operation \( \cdot: R \times R \to R \) called \term[ru=умножение (\cite[def. 3.1]{БелоусовТкачёв2004ДискретнаяМатематика}), en=multiplication (\cite[1]{Golan1999Semirings})]{multiplication}, that distributes over addition. The distributivity axioms are stated in \cref{def:semiring/theory/axioms/distributivity}.
+
+  Additionally, in order for the additive neutral element \( 0 \) to properly generalize the natural number zero, it must be \hyperref[def:semigroup_absorbing_element]{absorbing} for multiplication.
+
+  Although not strictly necessary, it will be convenient for us to assume that multiplication has a neutral element. If not, we say that \( (R, +, \cdot) \) is \term{nonunital}. A canonical example of a nonunital semiring is a \hyperref[def:semiring_ideal]{semiring ideal}. We will not study nonunital rings in and of themselves. In this context, if an identity exists, we will say that \( (R, +, \cdot) \) is \term{unital}. For a brief literature comparison of these conventions, see \cref{rem:ring_unitality}.
+
+  Semirings have the following metamathematical properties:
+  \begin{thmenum}
+    \thmitem{def:semiring/theory} We can state an \hyperref[def:fol_equational_theory]{equational theory} for semirings based on two copies of the \hyperref[def:semiring/theory]{theory of semirings}.
+
+    \begin{thmenum}
+      \thmitem{def:semiring/theory/signature} We will need a \hyperref[def:fol_signature]{first-order signature} \( \Sigma \) with four function symbols:
+      \begin{thmenum}
+        \thmitem{def:semiring/theory/signature/zero} A constant symbol \( \syn0 \) called \term[ru=нуль (\cite[def. 3.1]{БелоусовТкачёв2004ДискретнаяМатематика}), en=zero (of ring) (\cite[30]{Rotman2015AdvancedModernAlgebraPart1})]{zero}.
+
+        \thmitem{def:semiring/theory/signature/one} Another constant symbol \( \syn1 \) called \term[ru=единица (\cite[def. 3.1]{БелоусовТкачёв2004ДискретнаяМатематика}), en=one (of ring) (\cite[30]{Rotman2015AdvancedModernAlgebraPart1})]{one} or \emph{the} (multiplicative) \term[en=unit (of ring) (\cite[30]{Rotman2015AdvancedModernAlgebraPart1})]{unit}\fnote{More generally, invertible elements in (semi)rings are sometimes called \enquote{units} --- see \cref{rem:semiring_divisibility_terminology/invertible}.}.
+
+        \thmitem{def:semiring/theory/signature/plus} A binary function symbol \( \synplus \) called \term[ru=сложение (\cite[def. 3.1]{БелоусовТкачёв2004ДискретнаяМатематика}), en=addition (\cite[1]{Golan1999Semirings})]{addition}.
+
+        \thmitem{def:semiring/theory/signature/times} A binary function symbol \( \synmult \) called \term[ru=умножение (\cite[def. 3.1]{БелоусовТкачёв2004ДискретнаяМатематика}), en=multiplication (\cite[1]{Golan1999Semirings})]{multiplication}.
+      \end{thmenum}
+
+      \thmitem{def:semiring/theory/axioms} We proceed to define a \hyperref[def:fol_theory]{theory}.
+      \begin{thmenum}
+        \thmitem{def:semiring/theory/axioms/additive} For \( \synplus \) and \( \syn0 \), we use the unaltered axioms from the \hyperref[def:additive_semigroup/theory]{theory of additive commutative monoids}.
+
+        \thmitem{def:semiring/theory/axioms/multiplicative} For \( \synmult \) and \( \syn1 \), we will need the unaltered axioms from the \hyperref[def:monoid/theory]{theory of monoids}.
+
+        \thmitem{def:semiring/theory/axioms/distributivity} Finally, we will need the \hyperref[def:fol_quantifier_closure]{universal closures} of the following axioms, stating that multiplication is (left and right) \term[ru=законы дистрибутивности (\cite[83]{Кострикин2020АлгебраЧасть1}), en=distributive laws (\cite[def. 2.1]{Jacobson1985BasicAlgebraI})]{distributive} over addition:
+        \begin{align}
+          \synx \synmult (\syny \synplus \synz) &\syneq \synx \synmult \syny \synplus \synx \synmult \synz, \label{eq:def:semiring/theory/axioms/distributivity/left} \\
+          (\synx \synplus \syny) \synmult \synz &\syneq \synx \synmult \synz \synplus \syny \synmult \synz. \label{eq:def:semiring/theory/axioms/distributivity/right}
+        \end{align}
+
+        If multiplication is commutative, right distributivity follows from left distributivity.
+
+        \thmitem{def:semiring/theory/axioms/absorption} Additionally, we will need the left and right absorption axioms \eqref{eq:def:semigroup_absorbing_element/left} and \eqref{eq:def:semigroup_absorbing_element/right} (with \( \syn0 \) substituted for \( \syno \)).
+      \end{thmenum}
+    \end{thmenum}
+
+    \thmitem{def:semiring/morphism} We say that the function \( \varphi: R \to S \) between semirings is a \term[en=morphism of semirings (\cite[105]{Golan1999Semirings})]{semiring homomorphism} if it preserves all operations, i.e. if it is a \hyperref[def:monoid/morphism]{monoid homomorphism} with respect to both addition and multiplication.
+
+    These are precisely the \hyperref[def:fol_homomorphism]{first-order homomorphisms}, which makes the concepts from \fullref{sec:first_order_structures} applicable.
+
+    We say that the homomorphism \( \varphi \) itself is \term{nonunital} if it does not preserve multiplicative units.
+
+    \thmitem{def:semiring/category} For a fixed \hyperref[def:grothendieck_universe]{Grothendieck universe} \( \mscrU \), the first-order theories of semirings give rise to several \hyperref[def:fol_theory_model_functor/obj]{categories of \( \mscrU \)-small models}.
+
+    These categories differ by whether the semirings and/or morphisms are unital. Analogues of these categories will play a greater role for rings --- see \cref{def:ring/category}.
+
+    We list several properties:
+    \begin{itemize}
+      \item The various theories of semirings are equational and thus \hyperref[def:fol_free_term_model]{free term models}; \Fullref{thm:fol_free_term_model_universal_property} provides \hyperref[def:category_adjunction]{left adjoints} to the \hyperref[def:fol_theory_forgetful_functor/set]{forgetful functors} from semirings to their underlying sets.
+
+      In particular, \cref{thm:concrete_category_function_invertibility/injective} implies that a semiring homomorphism is a \hyperref[def:morphism_invertibility/left_cancellative]{monomorphism} if and only if it is \hyperref[def:function_invertibility/injective]{injective}.
+    \end{itemize}
+
+    \thmitem{def:semiring/subobject}\mcite[3]{Golan1999Semirings} A \term[en=subsemiring (\cite[3]{Golan1999Semirings})]{sub-semiring} of \( R \) is a subset that is closed under all operations, i.e. it is a \hyperref[def:monoid/subobject]{submonoid} with respect to both addition and multiplication.
+
+    A sub-semiring can be \term{nonunital} if it does not contain the multiplicative unit.
+
+    It follows from \cref{thm:fol_equational_theory_models/substructure} that the sub-semirings of \( R \) are precisely its \hyperref[def:fol_substructure/submodel]{first-order submodels}, and from \cref{thm:fol_categorical_subobjects} that they are its \hyperref[def:categorical_subobject]{categorical subobjects}.
+
+    Furthermore, as a consequence of \cref{thm:fol_equational_theory_models/image}, the image of a semiring homomorphism is a sub-semiring of its codomain.
+
+    \thmitem{def:semiring/trivial} We call the semiring \( \set{ 0 } \) with only one element the \term{zero semiring}.
+
+    This is not a trivial object in the sense of \cref{def:trivial_object} because the category of unital semirings has no zero object --- as shown in \cref{thm:category_of_semirings_properties}, it has initial and terminal objects that are not isomorphic.
+
+    Still, it is the zero object in the category of \emph{nonunital} semirings, so we may occasionally refer to it as the \term{trivial semiring}.
+
+    \thmitem{def:semiring/monoids}\mimprovised We call \( (R, +) \) the \term[ru=аддитивный моноид (\cite[176]{БелоусовТкачёв2004ДискретнаяМатематика})]{additive monoid} and \( (R, \cdot) \) the \term[ru=мультипликативный моноид (\cite[176]{БелоусовТкачёв2004ДискретнаяМатематика})]{multiplicative monoid} of the semiring.
+
+    We also consider the \term{additive group} and the \term[en=multiplicative group (\cite[97]{Bourbaki1998Algebra1to3})]{multiplicative group} as the subsets of \hyperref[def:monoid_inverse]{invertible} elements.
+
+    As we will discuss in \cref{def:semiring_divisibility/invertible}, the multiplicative group is of special importance. We denote it by \( R^\times \).
+
+    \thmitem{def:semiring/exponentiation} As we shall see in \cref{thm:semiring_characteristic_homomorphism}, multiplication in \( (R, +, \cdot) \) extends left multiplication with natural numbers in the monoid \( (R, +) \). We do have a third operation, however --- \hyperref[def:monoid/exponentiation]{monoid exponentiation} in \( (R, \cdot) \).
+
+    For elements of the multiplicative group, we can extend \hyperref[def:semiring/exponentiation]{semiring exponentiation} to negative powers based on how we generally extend monoid exponentiation to groups in \cref{def:group/exponentiation}.
+
+    \thmitem{def:semiring/opposite}\mcite[12]{Golan1999Semirings} We define the \term{opposite semiring} \( (R, +, \cdot)^\oppos \) as \( (R, +, \star) \), where \( {\star} \) reverses the order of multiplicands:
+    \begin{equation*}
+      x \star y \coloneqq y \cdot x.
+    \end{equation*}
+
+    This is an \hyperref[con:opposite_object]{opposite object functor} in categories of semirings.
+
+    \thmitem{def:semiring/commutative}\mcite[176]{БелоусовТкачёв2004ДискретнаяМатематика} If multiplication is commutative, we say that the semiring itself is \term[ru=коммутативное (полукольцо)]{commutative}.
+
+    Unless multiplication corresponds to function composition, most semirings we will encounter will be commutative\fnote{
+    Notable exceptions to this rule are \hyperref[def:ordinal]{ordinals}. A \hyperref[def:successor_and_limit_ordinal]{limit ordinal} \( \alpha \), regarded as the set of all smaller ordinals, is a semiring. It is not commutative, however, as shown in \cref{ex:ordinal_addition}.}.
+  \end{thmenum}
+\end{definition}
+\begin{comments}
+  \item Our presentation is mostly based on \cite[1]{Golan1999Semirings}. There are some discrepancies in how semirings are defined in the literature --- see \cref{rem:semiring_etymology}.
+\end{comments}
+
+\begin{remark}\label{rem:semiring_etymology}
+  In \cref{def:semiring} we require semirings to have both an additive and a multiplicative neutral element. The prefix \enquote{semi-} does not play the same role as in the case of semigroups, which we have not required to have a neutral element. In fact, \textcite{Vandiver1934Semirings}, to which Golan attributes the concept of a semiring, does not require an additive nor a multiplicative identity, nor even commutativity of addition.
+
+  We present here some definitions from the literature:
+  \begin{itemize}
+    \item We follow the definitions by \textcite[1]{Golan1999Semirings} and \textcite[2]{Pin1998TropicalSemirings}, where both identities are require to exist, and addition is required to be commutative. This definition is also used by \textcite[def. 3.1]{БелоусовТкачёв2004ДискретнаяМатематика}.
+
+    \item \Textcite*[ch. 3]{GondranMinoux1984GraphsAndAlgorithms} suggest using the term \enquote{dioid} (short for \enquote{double monoid}) for what we call a semiring. \Textcite[xi]{Golan1999Semirings} describes how the term \enquote{dioid} may refer to semirings with idempotent addition, i.e. a general form of the tropical semirings defined in \cref{def:tropical_semiring}.
+  \end{itemize}
+\end{remark}
+
+\begin{proposition}\label{thm:zero_semiring_iff_equal_units}
+  A \hyperref[def:semiring]{semiring} \( R \) is \hyperref[def:semiring/trivial]{trivial} if and only if \( 0_R = 1_R \).
+\end{proposition}
+\begin{proof}
+  \SufficiencySubProof If \( R \) is trivial, it has only one element, so \( 0_R = 1_R \).
+  \NecessitySubProof If \( 0_R = 1_R \), then \( x = x \cdot 1_R = x \cdot 0_R = 0_R \).
+\end{proof}
+
+\begin{example}\label{ex:def:semiring}
+  We list examples of \hyperref[def:semiring]{semirings}.
+
+  \begin{thmenum}
+    \thmitem{ex:def:semiring/trivial} We characterize the zero (trivial) semiring in \cref{thm:zero_semiring_iff_equal_units}.
+
+    As a consequence, if \( \varphi: \set{ 0 } \to R \) is a \hyperref[def:semiring/morphism]{homomorphism of unital semirings}, \( R \) is trivial. This is further strengthened by \cref{thm:def:ring_characteristic/embedding}.
+
+    \thmitem{ex:def:semiring/natural_numbers} The \hyperref[def:natural_numbers]{natural numbers} are the quintessential example of a semiring. We prove in \cref{thm:natural_number_multiplication_properties} that \( \BbbN \) is a semiring.
+
+    \thmitem{ex:def:semiring/weak_limit_cardinal} More generally, for every \hyperref[def:successor_and_limit_cardinal/weak_limit]{weak limit cardinal}, the set of smaller cardinals is a commutative semiring under \hyperref[def:cardinal_arithmetic/addition]{cardinal addition} and \hyperref[def:cardinal_arithmetic/multiplication]{cardinal multiplication}.
+
+    \thmitem{ex:def:semiring/tropical} By adjoining the \hyperref[def:extended_real_numbers]{extended real number} \( \infty \) to the natural numbers, we obtain another semiring structure distinct from the standard one --- the tropical semirings discussed in \cref{def:tropical_semiring}
+
+    \thmitem{ex:def:semiring/lattice} Any \hyperref[def:bounded_lattice]{bounded} \hyperref[def:distributive_lattice]{distributive lattice} induces two semirings --- see \cref{def:lattice_as_semiring}.
+
+    \thmitem{ex:def:semiring/boolean} As a consequence of \cref{thm:boolean_algebra_as_ring}, \hyperref[def:boolean_algebra]{Boolean algebras} are (semi)rings with \hyperref[def:symmetric_difference]{symmetric difference} acting as addition and meets acting as multiplication.
+
+    \thmitem{def:def:semiring/endomorphism} Endomorphism semirings defined in \cref{def:endomorphism_semiring} generalize sets of functions with a second operation.
+
+    \thmitem{def:def:semiring/power} It may seem that the power set of a semiring is also a semiring under pointwise operations, analogously to the power semigroups defined in \cref{def:power_semigroup}.
+
+    If \( R \) is a \hyperref[def:semiring]{semiring}, then \( \pow(R) \) is a semigroup with respect to both operations, however \( \pow(R) \) is not a semiring because the operations do not \hyperref[eq:def:semiring/theory/axioms/distributivity/left]{distribute}.
+
+    Consider the ring of integers and let
+    \begin{align*}
+      A = \set{ -1, 1 },
+      &&
+      B = \set{ -1 },
+      &&
+      C = \set{ 1 }.
+    \end{align*}
+
+    Then
+    \begin{equation*}
+      A(\underbrace{B + C}_{\set{ 0 }})
+      =
+      \set{ 0 },
+    \end{equation*}
+    however
+    \begin{equation*}
+      \underbrace{AB}_{A} + \underbrace{AC}_{A}
+      =
+      \set{ -2, 0, 0, 2 }.
+    \end{equation*}
+  \end{thmenum}
+\end{example}
+
+\begin{definition}\label{def:tropical_semiring}\mcite[3]{Pin1998TropicalSemirings}
+  Consider the additive monoid \( (\BbbN \cup \set{ \infty }, +) \) of natural numbers, to which we have adjoined the \hyperref[def:extended_real_numbers]{extended real number} \( \infty \).
+
+  The \term{min-plus semiring} over \( \BbbN \) is the triple \( (\BbbN \cup \set{ \infty }, \min, +) \). The \hyperref[def:extremal_points/maximum_and_minimum]{minimum} as a binary operation plays the role of semiring addition, with \( \infty \) as the neutral element. The usual addition in \( \BbbN \) extended with \( \infty \) playing the role of semiring multiplication and \( 0 \) as the multiplicative identity.
+
+  We analogously define the \term{max-plus} semiring, instead adjoining \( -\infty \).
+
+  We will collectively call these the \term{tropical semirings}.
+\end{definition}
+\begin{comments}
+  \item According to \textcite{Pin1998TropicalSemirings}, the name \enquote{tropical semiring} is a dedication to his Brazilian colleague Imre Simon. The paper also introduces the terms \enquote{tropical integers}, \enquote{tropical reals}, etc. \Textcite[3]{Golan1999Semirings} refers to the more general notion of additively-idempotent semirings. Both reserve the term \enquote{tropical semiring} for the \( \min \)-plus semiring. \Textcite[ch. 3]{GondranMinoux1984GraphsAndAlgorithms} do not explicitly use the word \enquote{tropical}, but instead refers to semirings as \enquote{dioids}, and the latter term sometimes refers to additively-idempotent semirings.
+
+  \item We can generalize this notion by replacing \( \BbbN \) with a suitable \hyperref[def:ordered_semigroup]{ordered} \hyperref[def:monoid/commutative]{commutative monoid}.
+\end{comments}
+\begin{defproof}
+  We will only show \hyperref[eq:def:semiring/theory/axioms/distributivity/left]{distributivity}. If \( x \leq y \), since \( \leq \) is compatible with \( + \), we have
+  \begin{equation*}
+    \underbrace{\min\set{ x, y }}_{x} + z = x + z \leq y + z.
+  \end{equation*}
+
+  Therefore,
+  \begin{equation*}
+    \min\set{ x, y } + z = \min\set{ x + z , y + z }.
+  \end{equation*}
+\end{defproof}
+
+\begin{definition}\label{def:lattice_as_semiring}\mimprovised
+  Consider a \hyperref[def:bounded_lattice]{bounded} \hyperref[def:distributive_lattice]{distributive lattice} \( (X, \vee, \wedge, \top, \bot) \). We showed in \cref{ex:def:monoid/semilattice} that both \( (X, \vee, \bot) \) and \( (X, \wedge, \top) \) are monoids.
+
+  The bottom \( \bot \) is absorbing with respect to \( \wedge \) and \( \top \) with respect to \( \vee \). Thus, because of distributivity, both \( (X, \vee, \wedge) \) and \( (X, \wedge, \vee) \) are actually \hyperref[def:semiring]{semirings}.
+
+  We refer to these semirings are the \term{join-meet} semiring and the \term{meet-join} semiring of the lattice.
+\end{definition}
+\begin{comments}
+  \item \Cref{thm:boolean_algebra_duality/complement} implies that, in a \hyperref[def:boolean_algebra]{Boolean algebra}, the two are semirings isomorphic.
+\end{comments}
+
+\begin{proposition}\label{thm:boolean_algebra_as_semiring}
+  The \hyperref[def:lattice_as_semiring]{join-meet and meet-join semilattices} of a \hyperref[def:boolean_algebra]{Boolean algebra} are \hyperref[def:semiring/morphism]{isomorphic}.
+\end{proposition}
+\begin{proof}
+  Follows from \cref{thm:boolean_algebra_duality/complement}.
+\end{proof}
+
+\begin{proposition}\label{thm:semiring_characteristic_homomorphism}
+  In any \hyperref[def:semiring]{unital semiring} \( R \), multiplication extends iterated addition of \( 1_R \)\fnote{We discuss iterated addition in additive monoids in \cref{thm:monoid_distributivity}.}.
+
+  More precisely, the following map is the unique (unital) homomorphism from \( \BbbN \) to \( R \).
+  \begin{equation}\label{eq:thm:semiring_characteristic_homomorphism}
+    \begin{aligned}
+      &\iota: \BbbN \to R \\
+      &\iota(n) \coloneqq \begin{cases}
+        0_R                &n = 0, \\
+        \iota(n - 1) + 1_R &n > 0.
+      \end{cases}
+    \end{aligned}
+  \end{equation}
+
+  Furthermore, we have the following analogue to \eqref{eq:def:semigroup/exponentiation}:
+  \begin{equation}\label{eq:thm:semiring_characteristic_homomorphism/multiplication}
+    \iota(n) \cdot x \coloneqq \begin{cases}
+      0_R,                      &n = 0, \\
+      \iota(n - 1) \cdot x + x, &n > 1.
+    \end{cases}
+  \end{equation}
+\end{proposition}
+\begin{proof}
+  First note that \eqref{eq:thm:semiring_characteristic_homomorphism/multiplication} follows from \eqref{eq:thm:semiring_characteristic_homomorphism} via \hyperref[eq:def:semiring/theory/axioms/distributivity/right]{right distributivity}.
+
+  It remains to show that \( \iota \) is a monoid homomorphism, and that it is unique. Clearly \( \iota(0) = 0_R \) and \( \iota(1) = 1_R \). Proving \( \iota(n + m) = \iota(n) + \iota(m) \) and \( \iota(nm) = \iota(n) \cdot \iota(m) \) can be done via nested induction.
+
+  Now suppose \( \varphi: \BbbN \to R \) is a homomorphism. It is clear that \( \varphi(0) = 0_R \) and \( \varphi(1) = 1_R \), and also
+  \begin{equation*}
+    \varphi(n + 1) = \varphi(n) + \varphi(1) = \varphi(n) + 1_R.
+  \end{equation*}
+
+  This implies \( \iota = \varphi \).
+\end{proof}
+
+\begin{proposition}\label{thm:category_of_semirings_properties}
+  The \hyperref[def:semiring/category]{category of unital semirings} has the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:category_of_semirings_properties/initial} The \hyperref[def:natural_numbers]{semiring of natural numbers} \( \BbbN \) is an \hyperref[def:universal_objects/initial]{initial object}.
+
+    \thmitem{thm:category_of_semirings_properties/terminal} The \hyperref[def:semiring/trivial]{zero semiring} \( \set{ 0 } \) is a \hyperref[def:universal_objects/terminal]{terminal object}.
+  \end{thmenum}
+\end{proposition}
+\begin{comments}
+  \item \Cref{thm:category_of_rings_properties} is an analogous proposition for \hyperref[def:ring]{rings}.
+\end{comments}
+\begin{proof}
+  \SubProofOf{thm:category_of_semirings_properties/initial} Follows from \cref{thm:semiring_characteristic_homomorphism}.
+  \SubProofOf{thm:category_of_semirings_properties/terminal} For every semiring, there is only one possible map into \( \set{ 0 } \).
+\end{proof}
+
+\paragraph{Divisibility}
+
+\begin{definition}\label{def:semiring_divisibility}\mimprovised
+  In a \hyperref[def:semiring]{semiring} \( R \), if \( x = lr \), we say that \( l \) is a \term[ru=левый делитель (\cite[65]{Ляпин1960Полугруппы}), en=left divisor (\cite[11]{Golan1999Semirings})]{left divisor} of \( x \), and that \( r \) is a \term[ru=прявый делитель (\cite[65]{Ляпин1960Полугруппы}), en=right divisor (\cite[11]{Golan1999Semirings})]{right divisor} of \( x \).
+
+  If \( y \) is both a left and a right divisor of \( x \), i.e. if \( x = yr = ly \) for some \( l \) and \( r \), we call \( y \) a \term{two-sided divisor} (or simply a \term[en=multiple (\cite[140]{Jacobson1985BasicAlgebraI})]{divisor}) of \( x \). In this case, we call \( x \) a \term[en=multiple (\cite[140]{Jacobson1985BasicAlgebraI})]{multiple} of \( y \).
+
+  If \( R \) is commutative, all left and right divisors are automatically two-sided.
+
+  \begin{thmenum}
+    \thmitem{def:semiring_divisibility/proper} If \( x = lr \) and both \( l \) and \( r \) are distinct form \( x \), we say that they are \term{proper divisors} of \( x \).
+
+    \thmitem{def:semiring_divisibility/zero} Due to \hyperref[def:semigroup_absorbing_element]{absorption}, every element of \( R \) is a two-sided divisor of \( 0_R \). We will however mostly bes interested in the case of proper zero divisors, where \( lr = 0_R \) and \emph{both} \( l \) and \( r \) are nonzero.
+
+    As discussed in \cref{rem:semiring_divisibility_terminology/zero}, it is common to call \enquote{zero divisors} only those that are proper. To reduce ambiguity, we will try to be explicit about whether we consider proper or improper zero divisors.
+
+    \thmitem{def:semiring_divisibility/invertible} We will use the terminology for (left and right) cancellation and invertibility in monoids for divisors of \( 1_R \).
+
+    If \( R \) is commutative and \( xy = 1_R \), we say that \( x \) and \( y \) are \term{reciprocal}.
+  \end{thmenum}
+\end{definition}
+\begin{comments}
+  \item Detailed definitions for divisibility are rarely given because the notions generalize divisibility of integers, which is \hyperref[con:assumed_knowledge]{assumed knowledge}. We describe some generalities and inconsistencies in \cref{rem:semiring_divisibility_terminology}.
+
+  \item The set of all invertible elements of \( R \) is precisely the \hyperref[def:semiring]{multiplicative group} \( R^\times \).
+
+  \item Divisibility is more extensively studied in \fullref{sec:integral_domains} and \fullref{sec:integral_domain_hierarchy}.
+\end{comments}
+
+\begin{remark}\label{rem:semiring_divisibility_terminology}
+  Based on common usage, we defined some notions regarding semirings divisibility in \cref{def:semiring_divisibility}. General definitions for left and right divisors are given \cite[65]{Ляпин1960Полугруппы} for semigroups and in \cite[11]{Golan1999Semirings} for semirings.
+
+  We describe here some discrepancies in the literature.
+
+  \begin{thmenum}
+    \thmitem{rem:semiring_divisibility_terminology/zero} It is common to call \enquote{zero divisors} only those that are proper. This means that, without context, the phrases \enquote{divisor of \( n \)} for \( n = 0 \) and \enquote{zero divisor} may have different meanings. For rings, the issue is highlighted in \cite[98]{Bourbaki1998Algebra1to3}.
+
+    We are interested in proper zero divisors when studying \hyperref[def:irreducible_factorization/unique]{unique factorization}, and in improper zero divisors when studying the \hyperref[def:divisibility_relation]{divisibility relation}.
+
+    For left and right zero divisors, such a definition is given in \cite[4]{Golan1999Semirings} for semirings and in \cite[98]{Bourbaki1998Algebra1to3}, \cite[90]{Jacobson1985BasicAlgebraI} and \cite[def. 5.2]{ГеновМиховскиМоллов1991Алгебра} for rings.
+
+    For two-sided divisors in rings, such a definition can be found in
+    \cite[91]{Lang2002Algebra},
+    \cite[111]{Тыртышников2017ОсновыАлгебры},
+    \cite[144]{Knapp2016BasicAlgebra} and
+    \cite[139]{БелоусовТкачёв2004ДискретнаяМатематика}.
+
+    \thmitem{rem:semiring_divisibility_terminology/invertible} The term \enquote{unit} for \hyperref[def:semigroup_neutral_element]{neutral elements} in semirings is also generally ambiguous. For example, \textcite[def. 1.2]{Jacobson1985BasicAlgebraI} uses it for the neutral element in a monoid, but also acknowledges the use of the same word for invertible elements in a monoid.
+
+    Following the latter convention, \textcite[143]{Knapp2016BasicAlgebra} calls multiplicative inverses in rings \enquote{units}.
+  \end{thmenum}
+\end{remark}
+
+\begin{proposition}\label{thm:semiring_nonzero_product}
+  In any \hyperref[def:semiring]{semiring}, if \( x \) and \( y \) are nonzero and if \( x \) is \hyperref[def:semiring_divisibility/invertible]{left invertible} or \( y \) is right invertible, then their product \( xy \) is nonzero.
+\end{proposition}
+\begin{proof}
+  Suppose that \( xy = 0 \). If \( x \) is left invertible, there exists some \( a \) such that \( ax = 1 \), hence
+  \begin{equation*}
+    y
+    \reloset {\eqref{eq:def:semigroup_neutral_element/left}} =
+    1 \cdot y
+    =
+    (ax)y
+    =
+    a(xy)
+    =
+    a \cdot 0
+    \reloset {\eqref{eq:def:semigroup_absorbing_element/right}} =
+    0.
+  \end{equation*}
+
+  This contradicts our assumption that \( y \) is nonzero.
+
+  Otherwise, if \( y \) is right invertible, there exists some \( b \) such that \( yb = 1 \), and we similarly obtain a contradiction.
+\end{proof}
+
+\begin{example}\label{ex:def:semiring_divisibility}
+  We list examples of \hyperref[def:semiring_divisibility]{semiring divisibility}:
+  \begin{thmenum}
+    \thmitem{ex:def:semiring_divisibility/integers} The positive integers are commutative and their left and right divisors coincide. They have no \hyperref[def:semiring_divisibility/zero]{proper zero divisors} as a consequence of \cref{thm:natural_number_multiplication_properties}.
+
+    \thmitem{ex:def:semiring_divisibility/matrix_zero_divisors} A simple example of proper zero divisors is given by the \hyperref[thm:matrix_algebra]{matrix algebra} \( \BbbZ^{2 \times 2} \). We have
+    \begin{equation*}
+      \underbrace
+      {
+        \begin{pmatrix}
+          0 & 1 \\
+          0 & 0
+        \end{pmatrix}
+      }_{L}
+      \underbrace
+      {
+        \begin{pmatrix}
+          0 & 0 \\
+          0 & 1
+        \end{pmatrix}
+      }_{R}
+      =
+      \begin{pmatrix}
+        0 & 0 \\
+        0 & 0
+      \end{pmatrix}.
+    \end{equation*}
+
+    Therefore, \( L \) is a left zero divisor and \( R \) is a right zero divisor. The two do not commute because
+    \begin{equation*}
+      \underbrace
+      {
+        \begin{pmatrix}
+          0 & 0 \\
+          0 & 1
+        \end{pmatrix}
+      }_{R}
+      \underbrace
+      {
+        \begin{pmatrix}
+          0 & 1 \\
+          0 & 0
+        \end{pmatrix}
+      }_{L}
+      =
+      \begin{pmatrix}
+        0 & 0 \\
+        1 & 0
+      \end{pmatrix}.
+    \end{equation*}
+
+    Nevertheless, \( RLRL \) is the zero matrix, so \( R \) is a left zero divisor and \( L \) is a right zero divisor.
+
+    \thmitem{ex:def:semiring_divisibility/z4_x2} In the ring \hyperref[def:ring_of_integers_modulo]{\( \BbbZ_4 \)}, the polynomial \( 2X \) is a proper zero divisor because
+    \begin{equation*}
+      (2X)^2 = 4X^2 = 0.
+    \end{equation*}
+
+    This serves as a counterexample to equality in \eqref{eq:thm:univariate_polynomial_product/degree} because \( \deg(2X) = 1 \) and
+    \begin{equation*}
+      -\infty = \deg(0) < \deg(2X) + \deg(2X) = 2.
+    \end{equation*}
+  \end{thmenum}
+\end{example}
+
+\begin{definition}\label{def:divisibility_relation}\mcite[140]{Jacobson1985BasicAlgebraI}
+  In any \hyperref[def:semiring]{(semi)ring} \( R \), we can define a \hyperref[def:binary_relation]{binary relation} called \term{divisibility} as follows:
+  \begin{equation*}
+    x \mid y \T{if and only if} x \T{is a two-sided divisor of} y.
+  \end{equation*}
+\end{definition}
+
+\begin{proposition}\label{thm:semiring_divisibility_order}
+  The \hyperref[def:semiring_divisibility]{divisibility relation} in a \hyperref[def:semiring]{semiring} is a \hyperref[def:preordered_set]{preorder}.
+\end{proposition}
+\begin{comments}
+  \item Divisibility is not a partial order in general. To avoid the nonuniqueness problems described in \cref{ex:preorder_nonuniqueness}, we sometimes instead prefer working with ideals.
+\end{comments}
+\begin{proof}
+  Fix a semiring \( R \).
+
+  \SubProofOf[def:binary_relation/reflexive]{reflexivity} Clearly every element of \( R \) is divides itself.
+
+  \SubProofOf[def:binary_relation/transitive]{transitivity} Let \( x \mid y \mid z \). Then there exist elements \( a \), \( b \), \( c \) and \( d \) such that \( y = a x = x b \) and \( z = c y = y d \). Hence, \( z = (ca) x \) and \( z = x (bd) \), hence \( x \mid z \).
+\end{proof}
+
+\begin{proposition}\label{thm:divisibility_and_isomorphisms}
+  Suppose that \( R \) and \( S \) are \hyperref[def:semiring]{semirings}.
+
+  \begin{thmenum}
+    \thmitem{thm:divisibility_and_isomorphisms/divisibility} If \( \varphi: R \to S \) is any homomorphism, then \( x \mid y \) implies \( \varphi(x) \mid \varphi(y) \). The converse holds if \( \varphi \) is an isomorphism.
+
+    \thmitem{thm:divisibility_and_isomorphisms/zero} If \( R \) and \( S \) are isomorphic, the \hyperref[def:semiring_divisibility/zero]{zero divisors} of \( R \) are precisely the zero divisors of \( S \).
+
+    \thmitem{thm:divisibility_and_isomorphisms/invertible} If \( R \) and \( S \) are isomorphic, the \hyperref[def:semiring_divisibility/invertible]{invertible elements} of \( R \) are precisely the invertible elements of \( S \).
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:divisibility_and_isomorphisms/divisibility} If \( x \mid y \), then \( y = xr = lx \) for some \( l \) and \( r \) in \( R \).
+
+  Then
+  \begin{equation*}
+    \varphi(y) = \varphi(x) \cdot \varphi(r) = \varphi(l) \cdot \varphi(x),
+  \end{equation*}
+  hence \( \varphi(x) \mid \varphi(y) \). If \( \varphi \) is an isomorphism, the converse follows by using \( \varphi^{-1}: S \to R \).
+
+  \SubProofOf{thm:divisibility_and_isomorphisms/zero} Follows from \cref{thm:divisibility_and_isomorphisms/divisibility} by noting that homomorphisms preserve zeros.
+
+  \SubProofOf{thm:divisibility_and_isomorphisms/invertible} Follows from \cref{thm:divisibility_and_isomorphisms/divisibility} by noting that homomorphisms preserve ones.
+\end{proof}
+
+\paragraph{Entire semirings}
+
+\begin{definition}\label{def:entire_semiring}\mcite[4]{Golan1999Semirings}
+  We say that a \hyperref[def:semiring]{semiring} is \term[ru=целостное (кольцо) (\cite[def. 3.5.1]{Винберг2014КурсАлгебры})]{entire} if it has no \hyperref[def:semiring_divisibility]{proper zero divisors}, neither left nor right.
+\end{definition}
+
+\begin{example}\label{ex:def:entire_semiring}
+  We list examples of (non-)\hyperref[def:entire_semiring]{entire} semirings:
+  \begin{thmenum}
+    \thmitem{ex:def:entire_semiring/domain} \hyperref[def:integral_domain]{Integral domains}, which is the dominating type of rings studied, are, by definition, entire.
+
+    \thmitem{ex:def:entire_semiring/matrix} For \( n > 1 \), the \hyperref[thm:matrix_algebra]{matrix algebra} \( R^{n \times n} \) over any semiring is not entire.
+
+    Indeed, consider the product
+    \begin{equation*}
+      \begin{pmatrix}
+        1      & 0      & \cdots & 0 & 0 \\
+        0      & 1      & \cdots & 0 & 0 \\
+        \vdots & \vdots & \ddots & 0 & 0 \\
+        0      & 0      & 0      & 1 & 0 \\
+        0      & 0      & 0      & 0 & 0
+      \end{pmatrix}
+      \begin{pmatrix}
+        0      & 0      & \cdots & 0 & 0 \\
+        0      & 0      & \cdots & 0 & 0 \\
+        \vdots & \vdots & \ddots & 0 & 0 \\
+        0      & 0      & 0      & 0 & 0 \\
+        0      & 0      & 0      & 0 & 1
+      \end{pmatrix}
+      \begin{pmatrix}
+        0      & 0      & \cdots & 0 & 0 \\
+        0      & 0      & \cdots & 0 & 0 \\
+        \vdots & \vdots & \ddots & 0 & 0 \\
+        0      & 0      & 0      & 0 & 0 \\
+        0      & 0      & 0      & 0 & 0
+      \end{pmatrix}
+    \end{equation*}
+  \end{thmenum}
+\end{example}
+
+\paragraph{Ordered semirings}
+
+\begin{definition}\label{def:ordered_semiring}\mcite[223]{Golan1999Semirings}
+  A (partially) \term{ordered semiring} is a semiring \( R \) with a \hyperref[def:partially_ordered_set]{partial order} \( \leq \) such that \( (R, +) \) is an \hyperref[def:ordered_semigroup]{ordered semigroup} and, additionally, \( x \leq y \) and \( 0 \leq z \) together imply \( xz \leq yz \) and \( zx \leq zy \).
+\end{definition}
+
+\begin{example}\label{ex:def:ordered_semiring}
+  We list several examples of \hyperref[def:ordered_semiring]{ordered semirings}.
+
+  \begin{thmenum}
+    \thmitem{ex:def:ordered_semiring/natural_numbers} The \hyperref[def:natural_numbers]{natural numbers} form an ordered semiring as shown in \cref{thm:natural_numbers_are_well_ordered}.
+
+    \thmitem{ex:def:ordered_semiring/lattice} We discussed in \cref{def:lattice_as_semiring} that a \hyperref[def:extremal_points/bounds]{bounded} \hyperref[def:distributive_lattice]{distributive} \hyperref[def:lattice]{lattice} \( (X, \vee, \wedge) \) can be regarded as a semiring, and so can its opposite lattice.
+
+    We discussed in \cref{ex:def:ordered_semigroup/semilattice} that both \( (X, \vee) \) and \( (X, \wedge) \) are \hyperref[def:ordered_semigroup]{ordered semigroups}. Furthermore, both \( (X, \vee, \wedge) \) and \( (X, \wedge, \vee) \) vacuously satisfy the ordered semigroup condition from \cref{def:ordered_semiring}.
+
+    All elements of the ordered semiring \( (X, \vee, \wedge) \) are nonnegative and all elements of \( (X, \wedge, \vee) \) are nonpositive.
+  \end{thmenum}
+\end{example}
+
+\begin{proposition}\label{thm:def:ordered_semiring}
+  \hyperref[def:ordered_semiring]{Ordered} \hyperref[def:semiring]{semirings} have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:ordered_semiring/strict_sum} If addition is \hyperref[def:binary_operation/cancellative]{cancellative}, for any element \( z \), the strict inequality \( x < y \) implies \( x + z < y + z \).
+  \end{thmenum}
+\end{proposition}
+\begin{comments}
+  \item Results regarding \hyperref[def:ordered_semigroup]{ordered semigroups} also hold for the additive and multiplicative semigroup --- see \cref{thm:def:ordered_semigroup}.
+  \item \hyperref[def:ring]{Rings} behave better with respect to ordering --- see \cref{thm:ordered_ring}.
+\end{comments}
+\begin{proof}
+  \SubProofOf{thm:def:ordered_semiring/strict_sum} Follows from \cref{thm:def:ordered_semigroup/cancellative}.
+\end{proof}
+
+\begin{definition}\label{def:signum}\mcite[def. A.VI.2]{Bourbaki2003Algebra4to7}
+  In a \hyperref[def:totally_ordered_set]{totally} \hyperref[def:ordered_semiring]{ordered} \hyperref[def:semiring]{semiring} \( R \), we can define the \term[ru=знак (\cite[208]{Гончаров1952ФункцииДействительногоПеременного}) / сигнум (\cite[100]{Зорич2019АнализЧасть1}), en=sign (function) (\cite[\S 2.2(c)]{Schechter1997AnalysisHandbook})]{signum} function
+  \begin{equation*}
+    \begin{aligned}
+      &\sgn: R \to \BbbZ \\
+      &\sgn(x) \coloneqq \begin{cases}
+        0,  &x = 0_R, \\
+        1,  &x > 0_R, \\
+        -1, &x < 0_R.
+      \end{cases}
+    \end{aligned}
+  \end{equation*}
+
+  We say that \( x \) has a \term{positive sign} if \( \sgn(x) = 1 \) or a \term{negative sign} if \( \sgn(x) = -1 \).
+\end{definition}
+\begin{comments}
+  \item We further generalize Bourbaki's definition from totally-ordered fields to totally-ordered (semi)rings. It is usually stated for real numbers, for example in
+  \cite[\S 2.2(c)]{Schechter1997AnalysisHandbook},
+  \cite[example 9.3.17]{Tao2022AnalysisI},
+  \cite[208]{Гончаров1952ФункцииДействительногоПеременного},
+  \cite[107]{ИльинСадовничийСендов1985АнализТом1} and
+  \cite[100]{Зорич2019АнализЧасть1}
+
+  \item \enquote{\textla{Signum}} is Latin for \enquote{sign}.
+\end{comments}
+
+\begin{definition}\label{def:ordered_semiring_positivity}\mcite[A.VI.35]{Bourbaki2003Algebra4to7}
+  For a \hyperref[def:totally_ordered_set]{totally} \hyperref[def:ordered_semiring]{ordered} \hyperref[def:semiring]{semirings}, we introduce the following terminology based on the \hyperref[def:signum]{signum} \( \sgn(x) \):
+  \begin{center}
+    \begin{tabular}{l L !{\qquad} l L}
+      zero        & x = 0 & nonzero     & x \neq 0 \\
+      positive    & x > 0 & nonpositive & x \leq 0 \\
+      negative    & x < 0 & nonnegative & x \geq 0 \\
+    \end{tabular}
+  \end{center}
+\end{definition}
+\begin{comments}
+  \item \Textcite[\S VI.1]{Bourbaki2003Algebra4to7} discuss positivity for arbitrary preordered groups. It seems less ambiguous in the context of rings where no concepts like \enquote{multiplicatively positive} elements exist. Our level of generality allows us to handle semirings so that concepts like the \hyperref[def:archimedean_semiring]{Archimedean property} makes sense.
+\end{comments}
+
+\begin{proposition}\label{thm:def:ordered_semiring_positivity}
+  \hyperref[def:ordered_semiring_positivity]{Semiring positivity} has the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:ordered_semiring_positivity/sum} If two elements are simultaneously both positive or negative, then so is their sum.
+
+    \thmitem{thm:def:ordered_semiring_positivity/additive_inverse} If \( x \) has an additive inverse, then \( x \) is positive if and only if \( -x \) is negative.
+
+    \thmitem{thm:def:ordered_semiring_positivity/positive_prod} The product of two positive elements is positive in \hyperref[def:entire_semiring]{entire} semirings and nonnegative in general.
+
+    \thmitem{thm:def:ordered_semiring_positivity/alternating_prod} The product of a positive and negative element is negative in entire semirings and nonpositive in general.
+  \end{thmenum}
+\end{proposition}
+\begin{comments}
+  \item For \hyperref[def:ring]{rings}, \cref{thm:def:ordered_semiring_positivity/positive_prod} and \cref{thm:def:ordered_semiring_positivity/alternating_prod} will be subsumed by \cref{thm:def:signum}.
+\end{comments}
+\begin{proof}
+  \SubProofOf{thm:def:ordered_semiring_positivity/sum} If \( 0 < x \), then \( y \leq x + y \). If additionally \( 0 < y \), then \( 0 < y \leq x + y \).
+
+  Similarly, if \( x < 0 \), then \( y + x \leq y \). If additionally \( y < 0 \), then \( y + x \leq y < 0 \).
+
+  \SubProofOf{thm:def:ordered_semiring_positivity/additive_inverse} If \( 0 < x \), then
+  \begin{equation*}
+    -x = -x + 0 \leq -x + x = 0.
+  \end{equation*}
+
+  Furthermore, \( -x \) cannot equal \( 0 \) because then \( x \) would equal \( 0 \).
+
+  Analogously, if \( x < 0 \), then
+  \begin{equation*}
+    0 = x + (-x) \leq 0 + (-x) = -x,
+  \end{equation*}
+  and the inequality is strict.
+
+  \SubProofOf{thm:def:ordered_semiring_positivity/positive_prod} If \( 0 < x \) and \( 0 < y \), then \( 0 = 0 \cdot y \leq xy \).
+
+  In an entire semiring we have \( 0 < xy \) because otherwise \( xy = 0 \) implies that \( x = 0 \) or \( y = 0 \).
+
+  \SubProofOf{thm:def:ordered_semiring_positivity/alternating_prod} If \( x < 0 \) and \( 0 < y \), then \( xy \leq 0 \cdot y = 0 \). Again, in an entire ring the inequality would be strict.
+\end{proof}
+
+\begin{definition}\label{def:archimedean_semiring}\mimprovised
+  We say that a \hyperref[def:totally_ordered_set]{totally} \hyperref[def:ordered_semiring]{ordered} \hyperref[def:semiring]{semiring} is \term{Archimedean} if for every pair of \hyperref[def:ordered_semiring_positivity]{positive} elements \( x \) and \( y \) there exists a positive integer \( n \) such that \( nx > y \).
+\end{definition}
+\begin{comments}
+  \item The Archimedean property is commonly defined only for fields, for example in \cite[192]{Mendelson2008NumberSystems} and \cite[450]{Lang2002Algebra}. \textcite[A.VI.35]{Bourbaki2003Algebra4to7} generalize it to groups (and rings), and so does \textcite[\S VI.3]{Курош1973ОбщаяАлгебра}. For our purposes it will be appropriate to generalize Mendelson's definition to semirings; see \cref{ex:def:archimedean_semiring/integers}.
+\end{comments}
+
+\begin{example}\label{ex:def:archimedean_semiring}
+  We list examples of \hyperref[def:archimedean_semiring]{Archimedean semirings}:
+  \begin{thmenum}
+    \thmitem{ex:def:archimedean_semiring/integers} \Cref{thm:natural_numbers_archimedean} shows that the \hyperref[def:natural_numbers]{semiring of natural numbers} is Archimedean, and \cref{thm:integers_archimedean} shows that the ring of integers is Archimedean. We use the latter to show some important properties of \fullref{alg:integer_division}.
+
+    This is our motivation to generalize the definition to (semi)rings.
+
+    \thmitem{ex:def:archimedean_semiring/rationals} \Cref{thm:def:rational_numbers_ordering/archimedean} shows that the \hyperref[def:rational_numbers]{rational numbers} are Archimedean, and \cref{thm:real_numbers_archimedean} shows that the \hyperref[def:real_numbers]{real numbers} are Archimedean.
+
+    \thmitem{ex:def:archimedean_semiring/rational_functions} \Cref{ex:rational_function_field_non_archimedean} demonstrates that the \hyperref[def:rational_function_field]{field of rational functions} \( \BbbZ(X) \) over the integers is a non-Archimedean \hyperref[def:totally_ordered_set]{totally} \hyperref[def:ordered_semiring]{ordered ring}.
+  \end{thmenum}
+\end{example}
+
+\paragraph{Zerosumfree semirings}
+
+\begin{definition}\label{def:zerosumfree}\mcite[4]{Golan1999Semirings}
+  We say that an \hyperref[def:additive_semigroup]{additive} \hyperref[def:monoid]{monoid} is \term{zerosumfree} if the \hyperref[def:semiring/monoids]{additive group} is trivial. That is, if \( x + y = 0 \) implies \( x = y = 0 \).
+\end{definition}
+
+\begin{example}\label{ex:def:zerosumfree}
+  We list several examples of \hyperref[def:zerosumfree]{zerosumfree} semirings:
+  \begin{thmenum}
+    \thmitem{ex:def:zerosumfree/natural_numbers} By \cref{thm:natural_number_addition_properties}, the natural numbers are zerosumfree.
+
+    \thmitem{ex:def:zerosumfree/lattice} We discussed in \cref{def:lattice_as_semiring} that every bounded distributive lattice \( (X, \vee, \wedge) \) has two associated semirings.
+
+    We will show that the join-meet semiring \( (X, \vee, \wedge) \) is zerosumfree. The proof only relies on \( \vee \) being idempotent. Suppose that \( x \vee y = \bot \). Then
+    \begin{equation*}
+      \bot
+      =
+      x \vee y
+      \reloset {\eqref{eq:def:binary_operation/idempotent}} =
+      (x \vee x) \vee y
+      \reloset {\eqref{eq:def:binary_operation/associative}} =
+      x \vee (x \vee y)
+      =
+      x \vee \bot
+      \reloset {\eqref{eq:def:bounded_lattice/theory/bot}} =
+      x.
+    \end{equation*}
+
+    Therefore, \( x = \bot \). But \( \bot \vee y = y \), hence \( x \vee y = \bot \) implies \( y = \bot \).
+
+    This demonstrates that the join-meet semiring is zerosumfree.
+
+    \thmitem{ex:def:zerosumfree/tropical} The \hyperref[def:tropical_semiring]{\( \min \)-plus semiring} \( (\BbbN \cup \set{ \infty }, \min, +) \) discussed in \cref{def:tropical_semiring} is also zerosumfree. Indeed, \( \min \) is idempotent, and the proof is analogous to the one for lattices in \cref{ex:def:zerosumfree/lattice}.
+  \end{thmenum}
+\end{example}

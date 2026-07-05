@@ -1,0 +1,993 @@
+\section{Integral domain hierarchy}\label{sec:integral_domain_hierarchy}
+
+\paragraph{Greatest common divisor domains}
+
+\begin{definition}\label{def:gcd_domain}\mcite[32]{Kaplansky1974CommutativeRings}
+  We say that an \hyperref[def:integral_domain]{integral domain} is a \term{greatest common divisor domain} if any two elements have a \hyperref[def:gcd]{greatest common divisor}.
+
+  \Cref{thm:gcd_and_lcm_existence} shows that it is equivalent for the \hyperref[def:lcm]{least common multiple} to exist.
+\end{definition}
+
+\begin{proposition}\label{thm:def:gcd_domain}
+  \hyperref[def:gcd_domain]{Greatest common divisor domains} have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:gcd_domain/polynomial_ring} If the \hyperref[def:polynomial_algebra]{polynomial ring} \( R[X] \) over a commutative ring \( R \) is a GCD domain, then \( R \) also is.
+
+    The converse to this is true, but it is more difficult to prove. See \cref{thm:polynomial_ring_over_gcd_domain}.
+
+    \thmitem{thm:def:gcd_domain/irreducible_is_prime} Every \hyperref[def:domain_divisibility/irreducible]{irreducible element} in a GCD domain is \hyperref[def:domain_divisibility/prime]{prime}.
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:gcd_domain/polynomial_ring} By \cref{thm:def:integral_domain/subring}, \( R \) is an integral domain.
+
+  Let \( a(X) \) and \( b(X) \) be embeddings in \( R[X] \) of the elements \( a \) and \( b \) from \( R \) and let \( g(X) \) be their greatest common divisor.
+
+  \begin{itemize}
+    \item If \( a(X) \) and \( b(X) \) are zero, so is \( g(X) \).
+    \item If both are nonzero, \cref{thm:univariate_polynomial_product/degree} implies that \( g(X) \) has degree one.
+  \end{itemize}
+
+  In both cases, \( g(X) \) corresponds to a constant in \( R \).
+
+  Generalizing, we conclude that \( R \) is a GCD domain.
+
+  \SubProofOf{thm:def:gcd_domain/irreducible_is_prime} Suppose that \( x \) is an irreducible element and that \( x \) divides \( yz \).
+
+  Let \( g \) be a GCD of \( xz \) and \( yz \). Both \( x \) and \( z \) are also common divisors, hence they divide \( g \). Thus,
+  \begin{equation*}
+    g = z \cdot \frac g z.
+  \end{equation*}
+
+  Then
+  \begin{equation*}
+    xz = g \cdot \frac {xz} g = z \cdot \frac g z \cdot \frac {xz} g.
+  \end{equation*}
+
+  We can cancel \( z \) to obtain
+  \begin{equation*}
+    x = \frac g z \cdot \frac {xz} g.
+  \end{equation*}
+
+  Because \( x \) is irreducible, (at least) one of the multiplicands must be invertible.
+  \begin{itemize}
+    \item If \( g / z \) is invertible, by \cref{thm:domain_quotient_inverse}, \( g \) and \( z \) are associated. Since \( x \) divides \( g \), it follows that \( x \) divides \( z \).
+
+    \item If \( xz / g \) is invertible, again by \cref{thm:domain_quotient_inverse}, \( xz \) divides \( g \), which in turn divides \( yz \). Then
+    \begin{equation*}
+      yz = xz \cdot \frac {yz} {xz}.
+    \end{equation*}
+
+    After cancelling \( z \), we obtain that \( x \) divides \( y \).
+  \end{itemize}
+\end{proof}
+
+\begin{example}\label{ex:def:gcd_domain}
+  We list examples of \hyperref[def:gcd_domain]{GCD domains}:
+  \begin{thmenum}
+    \thmitem{ex:def:gcd_domain/euclidean} \Fullref{alg:euclidean_algorithm} allows computing GCDs in arbitrary \hyperref[def:euclidean_domain]{Euclidean domains}.
+
+    \thmitem{ex:def:gcd_domain/countable_indeterminates} Consider the polynomial algebra \( D[X_1, X_2, \ldots] \) in countably many indeterminates.
+
+    Every polynomial only has finitely many indeterminates, and so two polynomials belong to a subdomain with finitely many indeterminates, along with all their divisors. \Cref{thm:polynomial_ring_over_gcd_domain} then implies that the polynomials have a greatest common divisor in the subdomain and hence also in \( D[X_1, X_2, \ldots] \).
+  \end{thmenum}
+\end{example}
+
+\begin{definition}\label{def:polynomial_splits_into_linear_factors}\mimprovised
+  Fix \hyperref[def:gcd_domain]{GCD domains} \( D \subseteq E \). We say that a nonzero polynomial
+  \begin{equation*}
+    f(X) = \sum_{k=1}^n a_K X^k
+  \end{equation*}
+  over \( D \) \term[ru=разлагается на линейные множители (\cite[\S 17.6]{Тыртышников2007ЛинейнаяАлгебра}), en=splits into linear factors (\cite[235]{Lang2002Algebra})]{splits into linear factors} over \( E \) if there exist elements \( \alpha_1, \ldots, \alpha_n \) in \( E \) such that
+  \begin{equation}\label{eq:def:polynomial_splits_into_linear_factors}
+    f(X) = a_n \cdot \prod_{k=1}^n (X - \alpha_k).
+  \end{equation}
+\end{definition}
+\begin{comments}
+  \item \Textcite[235]{Lang2002Algebra} and \textcite[\S 17.6]{Тыртышников2007ЛинейнаяАлгебра}) discusses splitting into linear factors for fields, however the concept seems to generalize well enough to GCD domains. Going beyond that can break \fullref{thm:polynomial_factorization_via_roots}.
+\end{comments}
+
+\begin{theorem}[Polynomial factorization via roots]\label{thm:polynomial_factorization_via_roots}
+  Fix \hyperref[def:gcd_domain]{GCD domains} \( D \subseteq E \). The nonzero polynomial
+  \begin{equation*}
+    f(X) = \sum_{k=1}^n a_k X^k
+  \end{equation*}
+  over \( D \) \hyperref[def:polynomial_splits_into_linear_factors]{splits into linear factors} over \( E \) as
+  \begin{equation*}
+    f(X) = a_n \cdot \prod_{k=1}^n (X - \alpha_k)
+  \end{equation*}
+  if and only if \( \alpha_1, \ldots, \alpha_n \) is an \hyperref[def:multiset_enumeration]{multiset enumeration} of all roots of \( f(X) \) (counting multiplicities).
+\end{theorem}
+\begin{proof}
+  \SufficiencySubProof Suppose that
+  \begin{equation*}
+    f(X) = a_n \cdot \prod_{k=1}^n (X - \alpha_k).
+  \end{equation*}
+
+  For every \( k = 1, \ldots, n \), since \( X - \alpha_k \) divides \( f(X) \), by definition, \( \alpha_k \) is a root of \( f(X) \). \Cref{thm:polynomial_degree_bounds_root_count} implies that \( f(X) \) has at most \( n \) roots counting multiplicities, therefore \( \alpha_1, \ldots, \alpha_n \) are precisely the roots of \( f(X) \).
+
+  \NecessitySubProof Suppose that \( \alpha_1, \ldots, \alpha_n \) are the roots of \( p(X) \).
+
+  We will show that \( f(X) \) splits into linear factors by induction on \( n \). The case \( n = 0 \) is vacuous. Suppose that every polynomial of degree \( n - 1 \) with \( n - 1 \) roots splits.
+
+  Then \( X - \alpha_n \) divides \( f(X) \). Let \( g(X) \) be the quotient of \( f(X) \) by \( a_n (X - \alpha_n) \). \Cref{thm:univariate_polynomial_product/degree} implies that \( g(X) \) has degree \( n - 1 \) and \cref{thm:univariate_polynomial_product/nonzero_leading} implies that \( g(X) \) is monic.
+
+  Furthermore, for each \( k = 1, \ldots, n - 1 \), \cref{thm:linear_monic_polynomial_irreducible} implies that \( X - \alpha_k \) is irreducible. Then, by \cref{thm:def:gcd_domain/irreducible_is_prime}, it is prime, and thus, since \( X - \alpha_k \) divides \( f(X) = (X - \alpha_n) \cdot g(X) \), it divides either \( X - \alpha_n \) or \( g(X) \).
+
+  If \( X - \alpha_k \) divides \( X - \alpha_n \), then \( \alpha_k = \alpha_n \). Thus, \( \alpha_k \) has multiplicity at least \( 2 \), meaning that \( (X - \alpha_k)^2 \) divides \( f(X) \). Then \( X - \alpha_k \) divides \( g(X) \).
+
+  Since in both cases \( X - \alpha_k \) divides \( g(X) \), we conclude that \( \alpha_1, \ldots, \alpha_{n-1} \) are the roots of \( g(X) \). Since \( g(X) \) is monic, we have, by the inductive hypothesis,
+  \begin{equation*}
+    g(X) = \prod_{k=1}^{n-1} (X - \alpha_k).
+  \end{equation*}
+
+  Multiplying by \( a_n (X - \alpha_n) \), we obtain the desired factorization of \( f(X) \).
+\end{proof}
+
+\paragraph{Fields of fractions}
+
+\begin{definition}\label{def:field_of_fractions}\mcite[110]{Lang2002Algebra}
+  Let \( D \) be an \hyperref[def:integral_domain]{integral domain}. The \hyperref[def:ring_localization]{localization} of \( D \) at the zero ideal \( \set{ 0 } \) is a \hyperref[def:field]{field}, which we call the \term[bg=поле на отношенията (\cite[399]{Обрешков1962ВисшаАлгебра}) / поле от частни (\cite[def. V.16]{ГеновМиховскиМоллов1991Алгебра}), ru=поле частных (\cite[26]{Шафаревич2019ОсновныеПонятияАлгебры})]{field of fractions} of \( D \).
+\end{definition}
+\begin{defproof}
+  Denote \( D \setminus \set{ 0 } \) by \( S \). We will show that \( S^{-1} D \) is indeed a field.
+
+  By \cref{thm:def:ring_localization/prime_ideals}, the localization by the prime ideal \( \set{ 0 } \) has only one maximal ideal --- \( S^{-1} \set{ 0 } \). Since \( 0 \) is absorbing, \( S^{-1} \set{ 0 } \) is again the zero ideal. Therefore, it is the only proper ideal of the localization \( S^{-1} D \), and hence the localization is a \hyperref[def:ring/simple]{simple ring}.
+
+  Since \( D \) is an integral domain, by \cref{thm:def:ring_localization/injective_inclusion}, \( S^{-1} D \) is a superring of \( D \). It is therefore a nonzero commutative simple ring, and thus it satisfies \cref{def:field/simple}.
+\end{defproof}
+
+\begin{theorem}[Field of fractions universal property]\label{thm:field_of_fractions_universal_property}
+  The \hyperref[def:field_of_fractions]{field of fractions} \( \BbbK \) of the integral domain \( D \) satisfies the following \hyperref[rem:universal_mapping_property]{universal mapping property}:
+  \begin{displayquote}
+    For every field \( \BbbL \) and every ring homomorphism \( \varphi: D \to \BbbL \), \( \varphi \) \hyperref[def:factors_through]{uniquely factors through} \( \BbbK \). More precisely, there exists a unique field homomorphism \( \widetilde{\varphi}: \BbbK \to \BbbL \) such that the following diagram commutes:
+    \begin{equation}\label{eq:thm:field_of_fractions_universal_property/diagram}
+      \begin{aligned}
+        \includegraphics[page=1]{output/thm__field_of_fractions_universal_property}
+      \end{aligned}
+    \end{equation}
+  \end{displayquote}
+\end{theorem}
+\begin{proof}
+  This is simply a special case of \fullref{thm:ring_localization_universal_property}.
+\end{proof}
+
+\begin{definition}\label{def:rational_function_field}\mcite[def. V.4.13]{Aluffi2009Algebra}
+  The \term[bg=поле на рационалните функции (\cite[360]{ГеновМиховскиМоллов1991Алгебра}), ru=поле рациональных функций (\cite[18]{Шафаревич2019ОсновныеПонятияАлгебры})]{field of rational (algebraic) functions} \( D(\mscrX) \) for the set of indeterminates \( \mscrX \) over the \hyperref[def:integral_domain]{integral domain} \( D \) is the \hyperref[def:field_of_fractions]{field of fractions} of the corresponding \hyperref[def:polynomial_algebra]{polynomial algebra} \( D[\mscrX] \).
+\end{definition}
+\begin{comments}
+  \item What we call here a \enquote{rational function} corresponds to a \hyperref[def:set_valued_map/partial]{partial single-valued function} over \( D \), which has a value whenever the denominator has no root.
+
+  We continue to use the capital letter convention from \cref{rem:conventions_for_indeterminates}, but unlike for polynomials, in which we have insisted on a separation between the polynomial and its function, here the distinction is less clear.
+  \begin{itemize}
+    \item For polynomials, we regard their syntactic expression as a definition. For rational functions, there is in general no unique representation as a quotient in a field of fractions.
+
+    \item Rational functions are often used in analysis, where tradition suggests identifying a function with various \hyperref[con:expression]{syntactic expressions} characterizing it, and where it is customary for functions to be partial.
+
+    \item There is no other established name for \( D[\mscrX] \). The term \enquote{rational expression} can be found in \cite[232]{Jacobson1985BasicAlgebraI} and \cite[384]{Knapp2016BasicAlgebra}.
+  \end{itemize}
+\end{comments}
+
+\begin{proposition}\label{thm:polynomial_ring_over_gcd_domain}
+  If the \hyperref[def:integral_domain]{integral domain} \( D \) is a \hyperref[def:gcd_domain]{greatest common divisor domain}, so is \( D[X] \).
+\end{proposition}
+\begin{proof}
+  Let \( D \) be a GCD domain and let \( \BbbK \) be its \hyperref[def:field_of_fractions]{field of fractions}.
+
+  Let \( f(X) \) and \( g(X) \) be arbitrary polynomials in \( D[X] \). We will show that they have a greatest common divisor.
+
+  By \cref{thm:def:principal_ideal_domain/field_polynomials}, \( \BbbK[X] \) is an Euclidean domain, and thus \( f(X) \) and \( g(X) \) have a GCD in \( \BbbK[X] \), which is unique up to multiplication by an invertible element in \( \BbbK[X] \). Thus, taking an arbitrary GCD
+  \begin{equation*}
+    r(X) = \sum_{k=0}^n \frac {a_k} {b_k} X^k,
+  \end{equation*}
+  the polynomial \( b_0 \cdots b_n r(X) \) is also a GCD. Furthermore, the latter is actually a polynomial in \( D[X] \).
+
+  Therefore, \( f(X) \) and \( g(X) \) have a GCD in \( D[X] \).
+\end{proof}
+
+\paragraph{Bezout domains}
+
+\begin{definition}\label{def:bezout_domain}
+  We say that an \hyperref[def:integral_domain]{integral domain} is a \term{Bezout domain} if any of the following equivalent conditions hold:
+  \begin{thmenum}
+    \thmitem{def:bezout_domain/identity} For any two elements \( x \) and \( y \), there exists a \hyperref[def:gcd]{greatest common divisor} \( g \) and elements \( a \) and \( b \) such that
+    \begin{equation}\label{eq:def:bezout_domain/identity}
+      g = ax + by.
+    \end{equation}
+
+    We call \eqref{eq:def:bezout_domain/identity} \term[en=Bezout's identity (\cite[3]{Knapp2016BasicAlgebra})]{Bezout's identity}.
+
+    \thmitem{def:bezout_domain/ideals}\mcite[38]{Kaplansky1974CommutativeRings} Every finitely generated ideal is \hyperref[def:semiring_ideal/principal]{principal}.
+  \end{thmenum}
+\end{definition}
+\begin{comments}
+  \item Every though the condition is not explicitly requires for \cref{def:bezout_domain/ideals} to hold, Bezout domains are, by \cref{def:bezout_domain/identity}, \hyperref[def:gcd_domain]{GCD domains}.
+  \item \Fullref{alg:extended_euclidean_algorithm} gives us an explicit construction for \( a \) and \( b \) in the case of \hyperref[def:euclidean_domain]{Euclidean domains}.
+\end{comments}
+\begin{defproof}
+  \ImplicationSubProof{def:bezout_domain/identity}{def:bezout_domain/ideals} Suppose that \eqref{eq:def:bezout_domain/identity} holds.
+
+  Let \( I = \braket{ x_1, \ldots, x_n } \) be a (finitely generated) ideal. We will use induction on \( n \) to show that \( I \) is principal.
+
+  The base case \( n = 1 \) is trivial. Suppose that \( \braket{ x_1, \ldots, x_{n-1} } \) is principal with generator \( d \). Then \eqref{eq:def:bezout_domain/identity} gives us a GCD \( g \) of \( d \) and \( x_n \), along with coefficients \( a \) and \( b \) such that
+  \begin{equation*}
+    g = ad + bx_n.
+  \end{equation*}
+
+  Clearly \( g \) is a member of \( I \) because
+  \begin{equation*}
+    I = \braket{ x_1, \ldots, x_{n-1} } + \braket{ x_n }.
+  \end{equation*}
+
+  To see that \( I = \braket{ g } \), consider some member \( y \) of \( I \). It is, by definition, a linear combination
+  \begin{equation*}
+    y = \alpha d + \beta x_n.
+  \end{equation*}
+
+  Then it is a common divisor of \( d \) and \( x_n \), hence it also divides \( g \). Hence, every member of \( I \) belongs to \( \braket{ g } \).
+
+  We conclude that \( I = \braket{ g } \).
+
+  \ImplicationSubProof{def:bezout_domain/ideals}{def:bezout_domain/identity} Suppose that all finitely generated ideals are principal. Then the join \( \braket{ x, y } =\braket{ x } + \braket{ y } \) of the principal ideals of any two elements \( x \) and \( y \) is principal. Let \( g \) be a generator of \( \braket{ x, y } \). Then, by definition of ideal, there exist some coefficients from the domain such that
+  \begin{equation*}
+    g = ax + by.
+  \end{equation*}
+
+  Furthermore, \( g \) is a greatest common divisor of \( x \) and \( y \) because \( \braket{ g } \) is vacuously the smallest principal ideal containing \( \braket{ x, y } \).
+
+  Then \eqref{eq:def:bezout_domain/identity} holds.
+\end{defproof}
+
+\begin{proposition}\label{thm:def:bezout_domain}
+  \hyperref[def:bezout_domain]{Bezout domains} have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:bezout_domain/gcd} Equality holds in \cref{def:gcd/ideals}: If \( g \) is a \hyperref[def:gcd]{greatest common divisor} of \( x \) and \( y \), then
+    \begin{equation*}
+      \braket{ g } = \braket{ x } + \braket{ y } = \braket{ x, y }.
+    \end{equation*}
+
+    \thmitem{thm:def:bezout_domain/ideal_gcd_closed} Ideals are closed under GCD: If \( g \) is a GCD of some elements in an ideal \( I \), then \( g \) itself belongs to \( I \).
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:bezout_domain/gcd} Follows from \eqref{eq:def:bezout_domain/identity}.
+  \SubProofOf{thm:def:bezout_domain/ideal_gcd_closed} Follows from \cref{thm:def:bezout_domain/gcd}.
+\end{proof}
+
+\begin{example}\label{ex:def:bezout_domain}
+  We list examples of \hyperref[def:bezout_domain]{Bezout domains}:
+  \begin{thmenum}
+    \thmitem{ex:def:bezout_domain/integers} By \cref{thm:bezout_lemma}, the ring \( \BbbZ \) of integers is a Bezout domain.
+
+    \thmitem{ex:def:bezout_domain/noetherian} More generally, every \hyperref[def:noetherian_semiring]{noetherian} domain is a Bezout domain.
+
+    \thmitem{ex:def:bezout_domain/integer_polynomials} The algebra \( \BbbZ[X] \) of univariate integer polynomials is not a Bezout domain --- the ideal \( \braket{ 2, X } \) is finitely generated, but not principal.
+
+    This is a simple example of a GCD domain which is not Bezout.
+
+    \thmitem{ex:def:bezout_domain/multivariate_polynomials} For any Bezout domain \( D \), the algebra \( D[X, Y] \) of bivariate polynomials is not a Bezout domain --- the ideal \( \braket{ X, Y } \) is finitely generated, but not principal.
+  \end{thmenum}
+\end{example}
+
+\paragraph{Coprime elements}
+
+\begin{definition}\label{def:coprime_elements}\mimprovised
+  We say that two nonzero elements of a \hyperref[def:bezout_domain]{Bezout domain} are \term[ru=взаимно простые (идеалы) (\cite[120]{Винберг2014КурсАлгебры}), en=relatively prime (\cite[113]{Lang2002Algebra})]{coprime} if any the following equivalent conditions hold:
+  \begin{thmenum}
+    \thmitem{def:coprime_elements/divisors} Every common divisor is invertible.
+    \thmitem{def:coprime_elements/greatest} Every GCD is invertible.
+    \thmitem{def:coprime_elements/ideals} Their principal ideals are \hyperref[def:semiring_ideal/coprime]{coprime}.
+  \end{thmenum}
+\end{definition}
+\begin{defproof}
+  \ImplicationSubProof{def:coprime_elements/divisors}{def:coprime_elements/greatest} Special case.
+
+  \ImplicationSubProof{def:coprime_elements/greatest}{def:coprime_elements/ideals} Let \( g \) be a GCD of \( x \) and \( y \) and suppose that it is invertible.
+
+  We have \( \braket{ x } + \braket{ y } = \braket{ x, y } = \braket{ g } \). Since \( g \) is invertible, \( \braket{ g } \) is the entire domain. Hence, the ideals \( \braket{ x } \) and \( \braket{ y } \) are coprime.
+
+  \ImplicationSubProof{def:coprime_elements/ideals}{def:coprime_elements/divisors} Suppose that \( \braket{ x } \) and \( \braket{ y } \) are coprime ideals. Let \( d \) be a common divisor of \( x \) and \( y \). Then
+  \begin{equation*}
+    \braket{ x, y } \subseteq \braket{ d }.
+  \end{equation*}
+
+  But \( \braket{ x, y } \) is the entire domain, hence \( \braket{ d } \) also is. It is thus invertible as a consequence of \cref{thm:def:semiring_ideal/ideal_containing_unit}.
+\end{defproof}
+
+\begin{definition}\label{def:lowest_terms}\mimprovised
+  Let \( \BbbK \) be the \hyperref[def:field_of_fractions]{field of fractions} of the Bezout domain \( D \). We say that the concrete representative \( a / b \) of its class in \( \BbbK \) is \term{in lowest terms} if either \( a = 0 \) and \( b = 1 \) or if \( a \) and \( b \) are \hyperref[def:coprime_elements]{coprime} elements of \( D \).
+\end{definition}
+\begin{comments}
+  \item This definition is based on one given by \textcite[69]{Rotman2015AdvancedModernAlgebraPart1} for rational algebraic functions.
+\end{comments}
+
+\begin{proposition}\label{thm:def:coprime_elements}
+  \hyperref[def:coprime_elements]{Coprime elements} have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:coprime_elements/divisors} If \( x \) and \( y \) are coprime, then \( x \) is coprime with any divisor of \( y \).
+
+    \thmitem{thm:def:coprime_elements/gcd_quotients} If \( g \) is a GCD of \( x \) and \( y \), then \( x / g \) is coprime with \( y / g \).
+
+    \thmitem{thm:def:coprime_elements/gcd_product}\mcite{MathSE:power_of_coprime_numbers} If \( x \) is coprime with \( y \) and \( z \), it is coprime with \( yz \).
+
+    \thmitem{thm:def:coprime_elements/gcd_power}\mcite{MathSE:power_of_coprime_numbers} If \( x \) and \( y \) are coprime, so are \( x^n \) and \( y^m \) for any positive integers \( n \) and \( m \).
+
+    \thmitem{thm:def:coprime_elements/irreducible} Two \hyperref[def:domain_divisibility/irreducible]{irreducible} elements in a Bezout domain are either \hyperref[def:domain_divisibility/associates]{associated} or coprime.
+
+    \thmitem{thm:def:coprime_elements/lowest_terms} Let \( \BbbK \) be the \hyperref[def:field_of_fractions]{field of fractions} of the Bezout domain \( D \). For any element of \( \BbbK \), there exists an equal one \hyperref[def:lowest_terms]{in lowest terms}.
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:coprime_elements/divisors} Suppose that \( x \) and \( y \) are coprime and let \( z \) be a divisor of \( y \).
+
+  If \( d \) is a common divisor of \( x \) and \( z \), then \( d \) is also a common divisor of \( x \) and \( y \), and so it follows that \( d \) is invertible. So, all common divisors of \( x \) and \( z \) are invertible, and hence, they are coprime.
+
+  Generalizing on \( z \), we conclude that \( x \) is coprime to any divisor of \( y \).
+
+  \SubProofOf{thm:def:coprime_elements/gcd_quotients} Let \( g \) be a GCD of \( x \) and \( y \).
+
+  Let \( d \) be a common divisor of \( x / g \) and \( y / g \). Then
+  \begin{equation*}
+    x = g \cdot \frac x g = g \cdot d \cdot \frac {x / g} d
+  \end{equation*}
+  and
+  \begin{equation*}
+    y = g \cdot \frac y g = g \cdot d \cdot \frac {y / g} d.
+  \end{equation*}
+
+  Hence, \( gd \) is a common divisor of \( x \) and \( y \), and thus \( gd \) must divide \( g \). We have
+  \begin{equation*}
+    g = gd \cdot \frac g {gd}.
+  \end{equation*}
+
+  By cancelling \( g \), we obtain
+  \begin{equation*}
+    1 = d \cdot \frac g {gd}.
+  \end{equation*}
+
+  Therefore, \( d \) is invertible.
+
+  Generalizing on \( d \), we conclude that \( x / g \) and \( y / g \) are coprime because all their common divisors are invertible.
+
+  \SubProofOf{thm:def:coprime_elements/gcd_product} Since \( x \) and \( y \) are coprime, then there exist elements \( a \) and \( b \) such that
+  \begin{equation*}
+    1 = ax + by.
+  \end{equation*}
+
+  Similarly, there exist \( c \) and \( d \) such that
+  \begin{equation*}
+    1 = cx + dz.
+  \end{equation*}
+
+  We can multiply them to obtain
+  \begin{equation*}
+    1 = ac \cdot x^2 + bc \cdot xy + ad \cdot xz + bd \cdot yz = (ac \cdot x + gc \cdot y + ad \cdot z) x + bd \cdot yz.
+  \end{equation*}
+
+  No non-invertible divisor can divide \( 1 \), so we conclude that \( 1 \) is a greatest common divisor of \( x \) and \( yz \).
+
+  \SubProofOf{thm:def:coprime_elements/gcd_power} Let \( x \) and \( y \) be coprime. First, we will use induction on \( m \) to show that \( x \) and \( y^m \) are coprime.
+  \begin{itemize}
+    \item The case \( m = 1 \) follows from our assumption.
+    \item If \( x^n \) and \( y \) are coprime, then \cref{thm:def:coprime_elements/gcd_product} implies that \( x \) and \( y^m \) also are.
+  \end{itemize}
+
+  Now we must apply similar induction on \( n \) to conclude that \( y^m \) and \( x^n \) are coprime.
+
+  \SubProofOf{thm:def:coprime_elements/irreducible} Suppose that \( x \) and \( y \) are irreducible. Let \( g \) be a GCD of \( x \) and \( y \). Then there exist elements \( x' \) and \( y' \) such that \( x = x'g \) and \( y = y'g \).
+
+  \begin{itemize}
+    \item If \( g \) is invertible, then \( x \) and \( y \) satisfy the definition of coprimality.
+    \item Otherwise, \( x' \) and \( y' \) are both invertible, and thus \( x \), \( g \) and \( y \) are associates.
+  \end{itemize}
+
+  \SubProofOf{thm:def:coprime_elements/lowest_terms} Let \( a \) and \( b \) be elements of \( D \). We want to find coprime elements \( c \) and \( d \) such that \( a / b = c / d \). By definition of localization, this holds if, for some \( u \), we have \( adu = bcu \). Since we are working in an integral domain and multiplication is cancellative, the condition reduces to \( ad = bc \).
+
+  Let \( g \) be a GCD of \( a \) and \( b \). \Cref{thm:def:coprime_elements/gcd_quotients} implies that \( a / g \) and \( b / g \) are coprime. Furthermore,
+  \begin{equation*}
+    a \cdot \frac b g = b \cdot \frac a g,
+  \end{equation*}
+  hence \( c = a / g \) and \( d = b / g \) are the desired coprime elements.
+\end{proof}
+
+\paragraph{Irreducible factorizations}
+
+\begin{definition}\label{def:irreducible_factorization}\mcite[def. V.1.8]{Aluffi2009Algebra}
+  An \term{irreducible factorization} or simply \term{factorization} of a nonzero element \( x \) in an arbitrary \hyperref[def:integral_domain]{integral domain} is a list \( p_1, \ldots, p_r \) of \hyperref[def:domain_divisibility/irreducible]{irreducible elements} such that, for some \hyperref[def:semiring_divisibility/invertible]{invertible element} \( u \),
+  \begin{equation*}
+    x = u p_1 \cdots p_r.
+  \end{equation*}
+
+  The invertible element \( u \) is uniquely determined by the irreducible factors\fnote{If \( x \) is itself invertible, then it is its own factorization.}.
+
+  \begin{thmenum}
+    \thmitem{def:irreducible_factorization/equivalent} We say that two factorizations
+    \begin{equation*}
+      x = u p_1 \cdots p_r = v q_1 \cdots q_s
+    \end{equation*}
+    are \term{equivalent} if \( n = m \) and if there exists a \hyperref[def:symmetric_group]{permutation} \( \pi \in S_r \) such that \( p_k \) and \( q_{\pi(k)} \) are \hyperref[def:domain_divisibility/associates]{associated} for every \( k = 1, \ldots, n \).
+
+    \thmitem{def:irreducible_factorization/unique} Finally, if any two factorizations of \( x \) are equivalent, we say that \( x \) \term{factors uniquely} into a product of irreducible factors.
+  \end{thmenum}
+\end{definition}
+
+\begin{example}\label{ex:def:irreducible_factorization}
+  We list some examples of \hyperref[def:irreducible_factorization]{irreducible factorization}:
+  \begin{thmenum}
+    \thmitem{ex:def:irreducible_factorization/integers} By \fullref{thm:fundamental_theorem_of_arithmetic}, every integer has a unique factorization.
+
+    \thmitem{ex:def:irreducible_factorization/nonunique} Consider the ring \( \BbbZ[\sqrt{-5}] \) from \cref{ex:def:domain_divisibility/irreducible_not_prime}. We have obtained there two distinct irreducible factorizations:
+    \begin{equation*}
+      6 = 2 \cdot 3 = \parens*{ 1 + \sqrt{-5} } \cdot \parens*{ 1 - \sqrt{-5}}
+    \end{equation*}
+  \end{thmenum}
+\end{example}
+
+\begin{proposition}\label{thm:def:irreducible_factorization}
+  \hyperref[def:irreducible_factorization]{Irreducible factorizations} in integral domains have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:irreducible_factorization/existence} If every ascending sequence of \emph{principal} ideals \hyperref[def:stabilizing_sequence]{stabilizes}, then every element has at least one irreducible \emph{factorization}.
+
+    \thmitem{thm:def:irreducible_factorization/uniqueness} If every \hyperref[def:domain_divisibility/irreducible]{irreducible element} is \hyperref[def:domain_divisibility/prime]{prime}, then all factorizations of an element are \hyperref[def:irreducible_factorization/equivalent]{equivalent}\fnote{But there may be elements with no factorization.}.
+
+    \thmitem{thm:def:irreducible_factorization/polynomial_ring} For any domain \( D \), \( x = u p_1 \cdots p_r \) is an irreducible factorization in \( D \) if and only if it is an irreducible factorization of \( x \) in \( D[X] \).
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:irreducible_factorization/existence} Suppose that every ascending sequence of principal ideals stabilizes. We will show that every element has an irreducible factorization, but first we will need an auxiliary result.
+
+  \SubProof*{Every non-invertible element has at least one irreducible \emph{factor}} Fix some element \( x \). Let \( x_1 \coloneqq x \). Via recursion on \( k = 1, 2, \ldots \), define a sequence as follows:
+  \begin{itemize}
+    \item If all divisors of \( x_k \) are invertible, then \( x_k \) is irreducible. Let \( x_{k+1} \coloneqq x_k \).
+    \item Otherwise, let \( d \) be a non-invertible divisor of \( x_k \), define \( x_{k+1} \) to be the \hyperref[def:domain_quotient]{quotient} \( x_k / d \).
+  \end{itemize}
+
+  The corresponding ascending sequence of principal ideals
+  \begin{equation*}
+    \braket{ x_1 } \subseteq \braket{ x_2 } \subseteq \braket{ x_3 } \subseteq \cdots
+  \end{equation*}
+  must stabilize at some index \( n \). Then, by construction, \( x_r \) must be irreducible.
+
+  \SubProof*{Every element has at least one irreducible \emph{factorization}} Fix again some element \( x \) and define \( x_1 \coloneqq x \). Via recursion on \( k = 1, 2, \ldots \), define the following sequence:
+  \begin{itemize}
+    \item If \( x_k \) is either invertible or irreducible, let \( x_{k+1} \coloneqq x_k \).
+    \item Otherwise, let \( p \) be an irreducible divisor of \( x_k \) and define \( x_{k+1} \) to be \( x_k / p \).
+  \end{itemize}
+
+  Similarly, the corresponding sequence of principal ideals must stabilize at some index \( n \).
+
+  Define \( p_k \coloneqq x_{k+1} / x_k \) for every \( k \). If \( n > 1 \), then the elements \( p_1, \ldots, p_{n-1} \) must be irreducible. By construction, \( x_r \) is either invertible or is itself irreducible.
+  \begin{itemize}
+    \item If \( x_r \) is invertible, let \( u \coloneqq x_r \). Then \( x = u p_1 \cdots p_{n-1} \) is an irreducible factorization of \( x \).
+    \item If \( x_r = p_r \) is irreducible, then \( x = p_1 \cdots p_r \) is an irreducible factorization of \( x \).
+  \end{itemize}
+
+  \SubProofOf{thm:def:irreducible_factorization/uniqueness} Suppose that every irreducible element is prime.
+
+  Fix an element \( x \). If it has no irreducible factorization, then all its irreducible factorizations are vacuously equivalent. Otherwise, suppose that \( x \) has a factorization of length \( n \). We will prove by induction on \( n \) that any other factorization is equivalent.
+
+  If \( n = 0 \), then \( x = u \) is invertible, and hence it has no irreducible divisors, that is, all factorizations have length \( 0 \).
+
+  Otherwise, suppose that factorizations of length \( n - 1 \) are unique and that we are given the factorizations
+  \begin{equation}\label{eq:def:irreducible_factorization/uniqueness/proof/assumption}
+    x = u p_1 \cdots p_r = v q_1 \cdots q_s.
+  \end{equation}
+
+  Since \( p_r \) is prime, there exists an index \( k_0 \) among \( 1, \ldots, m \) such that \( p_r \) divides \( q_{k_0} \). Both are irreducible, thus, \( p_r = w q_k \) for some invertible element \( w \). We can cancel \( p_1 \) to obtain
+  \begin{equation*}
+    u p_1 \cdots p_{n-1} = (vw) q_1 \cdots q_{k_0-1} q_{k_0+1} \cdots q_s.
+  \end{equation*}
+
+  By the inductive hypothesis, this factorization is unique. Hence, \( n = m \), and there exists a permutation \( \pi \in S_{n-1} \) such that \( p_k = q_{\pi(k)} \) for \( k = 1, \ldots, n - 1 \). Then
+  \begin{equation*}
+    \widehat{\pi}(k) \coloneqq \begin{cases}
+      k_0,    & k = n \\
+      \pi(i), & \T{otherwise.}
+    \end{cases}
+  \end{equation*}
+  is a permutation witnessing the equivalence of the factorizations in \eqref{eq:def:irreducible_factorization/uniqueness/proof/assumption}.
+
+  \SubProofOf{thm:def:irreducible_factorization/polynomial_ring}
+
+  \SufficiencySubProof* Suppose that
+  \begin{equation}\label{eq:thm:def:irreducible_factorization/polynomial_ring/sufficiency_assumption}
+    x = u(X) p_1(X) \cdots p_r(X)
+  \end{equation}
+  be an irreducible factorization of \( x \in D \) in \( D[X] \). By \cref{thm:univariate_polynomial_product/degree}, all polynomials in this factorization are constants. By \cref{thm:def:domain_divisibility/irreducible_in_polynomial_ring}, since they are irreducible in \( D[X] \), they are also irreducible in \( D \).
+
+  Therefore, \eqref{eq:thm:def:irreducible_factorization/polynomial_ring/sufficiency_assumption} is an irreducible factorization of \( x \) in \( D \).
+
+  \NecessitySubProof* Due to \cref{thm:def:domain_divisibility/irreducible_in_polynomial_ring} and \cref{thm:def:domain_divisibility/irreducible_in_polynomial_ring}, irreducible and invertible elements in \( D \) are also irreducible and invertible in \( D[X] \). Hence, every irreducible factorization in \( D \) is also an irreducible factorization in \( D[X] \).
+\end{proof}
+
+\paragraph{Factorial domains}
+
+\begin{definition}\label{def:factorial_domain}
+  We say that an \hyperref[def:integral_domain]{integral domain} is a \term[ru=факториальное кольцо (\cite[def. 9.7.1]{Винберг2014КурсАлгебры})]{factorial domain} or \term{unique factorization domain} (UFD) if any of the following equivalent conditions hold:
+  \begin{thmenum}
+    \thmitem{def:factorial_domain/factorization}\mcite[def. V.1.10]{Aluffi2009Algebra} Every element \hyperref[def:irreducible_factorization/unique]{factors uniquely} into a product of \hyperref[def:domain_divisibility/irreducible]{irreducible} elements.
+
+    \thmitem{def:factorial_domain/gcd} It is a \hyperref[def:gcd_domain]{GCD domain} and every ascending sequence of principal ideals \hyperref[def:stabilizing_sequence]{stabilizes}.
+  \end{thmenum}
+\end{definition}
+\begin{defproof}
+  \ImplicationSubProof{def:factorial_domain/factorization}{def:factorial_domain/gcd} Suppose that every element has a unique factorization.
+
+  \SubProof*{Proof that it is a GCD domain} Fix arbitrary elements \( x \) and \( y \). We will show that they have a GCD.
+
+  Let \( x = u p_1 \cdots p_r \) be a decomposition of \( x \). Define \( y_0, y_1, \ldots, y_r \) as follows:
+  \begin{equation*}
+    y_k \coloneqq \begin{cases}
+      y,             &k = 0, \\
+      y_{k-1} / p_k, &k > 0 \T{and} p_k \mid y_{k-1}, \\
+      y_{k-1},       &k > 0 \T{and} p_k \nmid y_{k-1}.
+    \end{cases}
+  \end{equation*}
+
+  Finally, let \( q_k \coloneqq y_k / y_{k-1} \) for \( k = 1, \ldots, n \) so that \( q_k \) is either \( p_k \) if \( p_k \) divides both \( x \) and \( y \) the same amount of times and \( 1 \) otherwise. Then \( q_1 \cdots q_r \) is a greatest common divisor of \( x \) and \( y \).
+
+  \SubProof*{Proof of ascending chain condition} Fix an ascending sequence of principal ideals
+  \begin{equation*}
+    \braket{ x_1 } \subseteq \braket{ x_2 } \subseteq \braket{ x_3 } \cdots.
+  \end{equation*}
+
+  \Cref{thm:def:semiring_ideal/division} implies that \( x_{k+1} \) divides \( x_k \) for \( k = 1, 2, \ldots \).
+
+  Let \( x_1 = y x_2 \) and fix \hyperref[def:irreducible_factorization]{irreducible factorizations}
+  \begin{align*}
+    x_1 &= u p_1 \cdots p_r \\
+    x_2 &= v q_1 \cdots q_s \\
+    y   &= w r_1 \cdots r_k.
+  \end{align*}
+
+  Since the factorizations are unique, we have \( n = m + k \). If \( k = 0 \), then \( x_1 \) and \( x_2 \) are associated and \( \braket{ x_1 } = \braket{ x_2 } \). If \( k > 0 \), then \( \braket{ x_1 } \subsetneq \braket{ x_2 } \), and \( x_2 \) has a strictly shorter irreducible factorization.
+
+  Proceeding by induction on the length of the factorization, we conclude that there are at most \( n \) strict inclusions in the sequence of ideals.
+
+  \ImplicationSubProof{def:factorial_domain/gcd}{def:factorial_domain/factorization} Let \( D \) be a GCD domain in which every ascending sequence of principal ideals stabilizes.
+
+  The latter condition via \cref{thm:def:irreducible_factorization/existence} ensures that every element of \( D \) has at least one irreducible factorization.
+
+  Furthermore, since \( D \) is a GCD domain, \cref{thm:def:gcd_domain/irreducible_is_prime} implies that every irreducible element is prime, so the assumptions of \cref{thm:def:irreducible_factorization/uniqueness} are satisfied and irreducible factorization are unique.
+\end{defproof}
+
+\begin{example}\label{ex:def:factorial_domain}
+  We list examples of \hyperref[def:factorial_domain]{factorial domains}:
+  \begin{thmenum}
+    \thmitem{ex:def:factorial_domain/integers} By \fullref{thm:fundamental_theorem_of_arithmetic}, the natural numbers are a factorial domain.
+
+    \thmitem{ex:def:factorial_domain/pid} More generally, by \cref{thm:def:principal_ideal_domain/factorial}, every principal ideal domain is factorial.
+
+    \thmitem{ex:def:factorial_domain/infinitely_descending_divisor_chain} Consider the subring \( D \) of the polynomial ring \( \BbbR[X] \) with an integer free term. The following are elements of \( D \):
+    \begin{equation*}
+      \frac X {2^1}, \frac X {2^2}, \frac X {2^3}, \cdots, \frac X {2^n}, \cdots
+    \end{equation*}
+    but their denominators are not.
+
+    Hence, we have the following strictly descending sequence of proper divisors:
+    \begin{equation*}
+      \cdots \mid \frac X {2^n} \mid \frac X {2^{n-1}} \mid \cdots \frac X {2^2} \mid \frac X {2^1} \mid X,
+    \end{equation*}
+    which in turn corresponds to an strictly ascending sequence of principal ideals.
+
+    Therefore, \( D \) is not a factorial domain.
+  \end{thmenum}
+\end{example}
+
+\begin{proposition}\label{thm:def:factorial_domain}
+  \hyperref[def:factorial_domain]{Factorial domains} have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:factorial_domain/polynomial_ring} If the \hyperref[def:polynomial_algebra]{polynomial ring} \( R[X] \) over a commutative ring \( R \) is a factorial domain, then \( R \) also is.
+
+    The converse to this is true, but it is more difficult to prove. See \cref{thm:polynomial_ring_over_factorial}.
+
+    \thmitem{thm:def:factorial_domain/invertible} An element is invertible if and only if it has no irreducible factors.
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:factorial_domain/polynomial_ring} Suppose that \( D[X] \) is a factorial domain. \Cref{thm:def:irreducible_factorization/polynomial_ring} implies that every irreducible factorization of \( x \in D \) in \( D[X] \) is also an irreducible factorization in \( D[X] \). This in turn implies both existence and uniqueness.
+
+  \SubProofOf{thm:def:factorial_domain/invertible} Every invertible element is its own irreducible factorization.
+\end{proof}
+
+\paragraph{Principal ideal domains}
+
+\begin{definition}\label{def:principal_ideal_domain}\mcite[def. III.4.2]{Aluffi2009Algebra}
+  We say that an \hyperref[def:integral_domain]{integral domain} is a \term[bg=област на главни идеали (\cite[def. VI.3]{ГеновМиховскиМоллов1991Алгебра}), ru=область главных идеалов \cite[def. 9.3]{Винберг2014КурсАлгебры}]{principal ideal domain} if any of the following equivalent conditions hold:
+  \begin{thmenum}
+    \thmitem{def:principal_ideal_domain/direct} Every \hyperref[def:semiring_ideal]{ideal} is \hyperref[def:semiring_ideal/principal]{principal}, i.e. has a single generator.
+
+    \thmitem{def:principal_ideal_domain/bezout} It is a \hyperref[def:bezout_domain]{Bezout domain} and every ascending sequence of principal ideals \hyperref[def:stabilizing_sequence]{stabilizes}.
+  \end{thmenum}
+\end{definition}
+\begin{proof}
+  \ImplicationSubProof{def:principal_ideal_domain/direct}{def:principal_ideal_domain/bezout} It is immediate that, if all ideals are principal, the domain is both noetherian and is a Bezout domain.
+
+  \ImplicationSubProof{def:principal_ideal_domain/bezout}{def:principal_ideal_domain/direct} Let \( D \) be a Bezout domain and suppose that every ascending sequence of principal ideals stabilizes.
+
+  Fix an arbitrary ideal \( I \) and an arbitrary member \( x_1 \) of \( I \). Define the following sequence via recursion on \( k \):
+  \begin{displayquote}
+    If there exists members of \( I \) not in \( \braket{ x_k } \), let \( a \) be such a member, and define \( x_{k+1} \) to be a GCD of \( x_k \) and \( a \).
+
+    Otherwise, define \( x_{k+1} \) to be \( x_k \).
+  \end{displayquote}
+
+  Since \( D \) is a Bezout domain, \( x_{k+1} \) is a linear combination of \( x_1, \ldots, x_k \), and thus \( \braket{ x_{k+1} } = \braket{ x_1, \ldots, x_k } \). Furthermore, \cref{thm:def:bezout_domain/ideal_gcd_closed} implies that \( x_k \) belongs to \( I \) for every index \( k \).
+
+  By construction, for each index \( k \), \( x_{k+1} \) divides \( x_k \). The corresponding sequence of principal ideals stabilizes at some index \( n \). By construction, \( \braket{ x_n } \) must be \( I \) because otherwise we would have found some member \( a \) from \( I \setminus \braket{ x_n } \).
+
+  Therefore, \( I = \braket{ x_n } \).
+\end{proof}
+
+\begin{example}\label{ex:def:principal_ideal_domain}
+  We list examples of \hyperref[def:principal_ideal_domain]{principal ideal domains}:
+  \begin{thmenum}
+    \thmitem{ex:def:principal_ideal_domain/integers} Every \hyperref[def:euclidean_domain]{Euclidean domain} is a principal ideal domain as a consequence of \cref{thm:def:euclidean_domain/pid}.
+
+    \thmitem{ex:def:principal_ideal_domain/integer_polynomials} The algebra \( \BbbZ[X] \) of univariate integer polynomials is not a principal ideal domain because it is not a Bezout domain --- as discussed in \cref{ex:def:bezout_domain/integer_polynomials}, the ideal \( \braket{ 2, X } \) is not principal.
+
+    \thmitem{ex:def:principal_ideal_domain/multivariate_polynomials} Again, as discussed in, \cref{ex:def:bezout_domain/multivariate_polynomials}, multivariate polynomial rings are not Bezout domains, and hence not principal ideal domains.
+
+    A necessary condition for a polynomial ring to be a PID is given in \cref{thm:def:principal_ideal_domain/field_polynomials} --- its underlying ring must be an Euclidean domain.
+  \end{thmenum}
+\end{example}
+
+\begin{proposition}\label{thm:def:principal_ideal_domain}
+  \hyperref[def:principal_ideal_domain]{Principal ideal domains} have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:principal_ideal_domain/noetherian} Every principal ideal domain is \hyperref[def:noetherian_semiring]{noetherian}.
+
+    \thmitem{thm:def:principal_ideal_domain/factorial} Every principal ideal domain is \hyperref[def:factorial_domain]{factorial}.
+
+    \thmitem{thm:def:principal_ideal_domain/prime_ideal_is_maximal} \hyperref[def:semiring_ideal/prime]{Prime ideals} in a principal ideal domains are \hyperref[def:semiring_ideal/maximal]{maximal}.
+
+    \thmitem{thm:def:principal_ideal_domain/field_polynomials} A commutative ring \( R \) is a \hyperref[def:field]{field} if and only if its \hyperref[def:polynomial_algebra]{polynomial algebra} \( R[X] \) is a principal ideal domain.
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:principal_ideal_domain/noetherian} Every principal ideal is finitely generated.
+
+  \SubProofOf{thm:def:principal_ideal_domain/factorial} \Cref{def:factorial_domain/gcd} follows directly from \cref{def:principal_ideal_domain/bezout}.
+
+  \SubProofOf{thm:def:principal_ideal_domain/prime_ideal_is_maximal} Let \( P \) be a prime ideal in a principal ideal domain. Then \( P = \braket{ p } \) for some prime element \( p \). By \cref{thm:def:domain_divisibility/prime_is_irreducible}, \( p \) is irreducible, and hence \( \braket{ p } \) is a maximal ideal.
+
+  \SubProofOf{thm:def:principal_ideal_domain/field_polynomials} Let \( R \) be a commutative ring.
+
+  \SufficiencySubProof* Suppose that \( R \) is a field. \Cref{thm:def:integral_domain/polynomial_ring} implies that \( R[X] \) is a domain. Let \( I \) be an ideal in \( R[X] \).
+
+  \Fullref{alg:euclidean_division_of_polynomials} allows us to divide any polynomial \( f(X) \) by any nonzero polynomial \( g(X) \) so that
+  \begin{equation*}
+    f(X) = \quot(f, g) \cdot g(X) + \rem(f, g),
+  \end{equation*}
+  where \( \deg \rem(f, g) < \deg g \). Note that \( \rem(f, g) \) is possibly zero, in which case we have defined the degree to be \( -\infty \).
+
+  Now let \( g(X) \) be a nonzero polynomial from \( I \) of minimal degree. Since \( \deg \rem(f, g) < \deg g \), minimality requires \( \rem(f, g) \) to be zero. Then \( g(X) \) divides \( f(X) \).
+
+  Since \( f(X) \) was arbitrary, we conclude that \( g(X) \) generates \( I \). Generalizing on \( I \), we conclude that \( R[X] \) is a principal ideal domain.
+
+  \NecessitySubProof* Suppose that \( R[X] \) is a principal ideal domain.
+  \begin{itemize}
+    \item \Cref{thm:def:integral_domain/subring} implies that \( R \) is an integral domain.
+    \item \Cref{thm:quotient_by_prime_ideal} implies that \( \braket{ X } \) is a prime ideal in \( R[X] \).
+    \item Since \( R \) is a PID, \Cref{thm:def:principal_ideal_domain/prime_ideal_is_maximal} then implies that \( \braket{ X } \) is a maximal ideal.
+    \item \Fullref{thm:quotient_structure_universal_property} implies that \( R \) is isomorphic to \( R[X] / \braket{ X } \).
+    \item \Cref{thm:quotient_by_maximal_ideal} then implies \( R[X] / \braket{ X } \cong R \) is a field.
+  \end{itemize}
+\end{proof}
+
+\begin{proposition}\label{thm:multiplicative_group_of_integers_modulo}
+  The \hyperref[def:semiring]{multiplicative group} \( \BbbZ_n^\times \) of the ring \hyperref[def:ring_of_integers_modulo]{\( \BbbZ_n \)} of integers modulo \( n > 1 \) is the set of all positive integers \hyperref[def:coprime_elements]{coprime} to \( n \).
+\end{proposition}
+\begin{proof}
+  Note that \( x < n \) is invertible modulo \( n \) if and only if there exists an integer \( a \) such that \( ax = 1 \pmod n \). That is, if there exist integers \( a \) and \( b \) such that \( ax + bn = 1 \).
+
+  The rest of the theorem follows from \eqref{eq:def:bezout_domain/identity} in one direction and \cref{thm:def:gcd/bezouts_identity_converse} in the other direction.
+\end{proof}
+
+\begin{corollary}\label{thm:zp_is_field}
+  The ring \( \BbbZ_p \) is a \hyperref[def:field]{field} if and only if \( p \) is a \hyperref[def:prime_number]{prime number}.
+\end{corollary}
+\begin{proof}
+  Follows from \cref{thm:multiplicative_group_of_integers_modulo}.
+\end{proof}
+
+\paragraph{Euclidean domains}
+
+\begin{definition}\label{def:euclidean_domain}\mcite[98]{Rotman2015AdvancedModernAlgebraPart1}
+  An \term[bg=евклидов (пръстен) (\cite[def. VI.2]{ГеновМиховскиМоллов1991Алгебра}), ru=евклидово (кольцо) (\cite[def. 3.5.2]{Винберг2014КурсАлгебры})]{Euclidean domain} is an \hyperref[def:integral_domain]{integral domain} \( D \) endowed with a function
+  \begin{equation*}
+    \delta: D \setminus \set{ 0 } \to \BbbZ_{\geq 0},
+  \end{equation*}
+  which we call the \term{Euclidean degree}, such that the following conditions hold:
+  \begin{thmenum}
+    \thmitem{def:euclidean_domain/multiplication}  For every nonzero pair \( x \) and \( y \) we have
+    \begin{equation}\label{eq:def:euclidean_domain/multiplication}
+      \deg(x) \leq \deg(xy).
+    \end{equation}
+
+    \thmitem{def:euclidean_domain/division} For every pair \( x \) and \( y \) of elements of \( D \) in which \( y \) is nonzero, there exists a pair \( q \) and \( r \), where \( r \) is either zero or \( \delta(r) < \delta(y) \), such that
+    \begin{equation}\label{eq:def:euclidean_domain/division}
+      x = yq + r
+    \end{equation}
+  \end{thmenum}
+
+  We say that \( y \) \term{divides} \( x \) with \term{quotient} \( q \) and \term{remainder} \( r \). If the quotient and remainder are unique, as they usually are, we use the special notation
+  \begin{align*}
+    &\quot(x, y) \coloneqq q, \\
+    &\rem(x, y) \coloneqq r = x - y \cdot \quot(x, y).
+  \end{align*}
+\end{definition}
+\begin{comments}
+  \item The concept is inconsistent across authors.
+  \begin{itemize}
+    \item \Textcite[98]{Rotman2015AdvancedModernAlgebraPart1} and \textcite[def. 3.5.2]{Винберг2014КурсАлгебры} both use the term \enquote{Euclidean ring} for our definition.
+
+    \item \Textcite[36]{Шафаревич2019ОсновныеПонятияАлгебры} and \textcite[def. VI.2]{ГеновМиховскиМоллов1991Алгебра} also use \enquote{Euclidean ring}, however neither state \cref{def:euclidean_domain/multiplication}, and the latter even require degrees to be defined for zero elements.
+
+    \item \Textcite[392]{Knapp2016BasicAlgebra} and \textcite[def 2.5]{Jacobson1985BasicAlgebraI} use the term \enquote{Euclidean domain}, however they both require \( \delta \) to be defined for zero elements and neither states \cref{def:euclidean_domain/multiplication}.
+  \end{itemize}
+\end{comments}
+
+\begin{example}\label{ex:def:euclidean_domain}
+  We list examples of \hyperref[def:euclidean_domain]{Euclidean domains}:
+  \begin{thmenum}
+    \thmitem{ex:def:euclidean_domain/integers} \Cref{thm:integers_are_euclidean_domain} states that the ring of integers is a Euclidean domain.
+
+    \thmitem{ex:def:euclidean_domain/polynomials} \Cref{thm:def:principal_ideal_domain/field_polynomials} characterizes Euclidean polynomial algebras as univariate polynomial algebras over fields.
+
+    \thmitem{ex:def:euclidean_domain/not_euclidean} Principal ideal domain that are not Euclidean are discussed in \cite{Anderson1988NonEuclideanPID}.
+  \end{thmenum}
+\end{example}
+
+\begin{proposition}\label{thm:def:euclidean_domain}
+  \hyperref[def:euclidean_domain]{Euclidean domains} have the following basic properties:
+  \begin{thmenum}
+    \thmitem{thm:def:euclidean_domain/pid} Every Euclidean domain is a \hyperref[def:principal_ideal_domain]{principal ideal domain}.
+
+    \thmitem{thm:def:euclidean_domain/field} Every field is an \hyperref[def:euclidean_domain]{Euclidean domain}.
+
+    \thmitem{thm:def:euclidean_domain/polynomials} For any given field \( \BbbK \), the \hyperref[def:polynomial_algebra]{polynomial algebra} \( \BbbK[X] \) via \fullref{alg:euclidean_division_of_polynomials} becomes an Euclidean domain when using the \hyperref[def:polynomial_degree]{polynomial degree} as a degree function.
+
+    \thmitem{thm:def:euclidean_domain/nested_quot} We have
+    \begin{equation}\label{eq:thm:def:euclidean_domain/nested_quot}
+      \quot(\quot(a, b), c) = \quot(a, bc).
+    \end{equation}
+  \end{thmenum}
+\end{proposition}
+\begin{proof}
+  \SubProofOf{thm:def:euclidean_domain/pid} This proof generalizes one direction of \cref{thm:def:principal_ideal_domain/field_polynomials} by considering an element of minimal Euclidean degree rather than a polynomial of minimal degree.
+
+  \SubProofOf{thm:def:euclidean_domain/field} By \cref{thm:division_ring_is_entire}, a field is an integral domain. Since every pair from \( \BbbK \) is divisible without remainder as long as the denominator is nonzero, the Euclidean function can be arbitrary; for definiteness, we take it to be canonically zero.
+
+  \SubProofOf{thm:def:euclidean_domain/polynomials} Trivial.
+\end{proof}
+
+\begin{algorithm}[Euclidean algorithm]\label{alg:euclidean_algorithm}
+  In an \hyperref[def:euclidean_domain]{Euclidean domain}, we can explicitly construct a \hyperref[def:gcd]{greatest common divisor} \( g \) of arbitrary elements \( x \) and \( y \) as follows:
+  \begin{thmenum}
+    \thmitem{alg:euclidean_algorithm/base} Define \( r_0 \coloneqq x \) and \( r_1 \coloneqq y \).
+    \thmitem{alg:euclidean_algorithm/step} Starting with \( k = 2 \), if \( r_{k-1} \) is zero, halt the algorithm with \( g \coloneqq r_{k-1} \).
+
+    Otherwise, obtain a quotient \( q_k \) and remainder \( r_k \) so that
+    \begin{equation*}
+      r_{k-2} = r_{k-1} q_k + r_k.
+    \end{equation*}
+
+    Repeat \fullref{alg:euclidean_algorithm/step} with \( k + 1 \) instead of \( k \).
+  \end{thmenum}
+\end{algorithm}
+\begin{comments}
+  \item The algorithm is based on several construction given by Euclid in his \enquote{Elements}. Its evolution through history is analyzed in \cite[ch. II.4]{GowersEtAl2008PrincetonCompanion}.
+
+  \item This algorithm is implemented in \cite{notebook:code} as
+  \begin{CodeRefDisplay}
+    \GetCodeRef{alg:euclidean_algorithm}
+  \end{CodeRefDisplay}
+\end{comments}
+\begin{defproof}
+  Euclidean division ensures that, at the \( k \)-th step, either \( r_{k-1} \) is zero or \( r_k \) is zero or \( \delta(r_k) < \delta(r_{k-1}) \). Thus, there can only be finitely many steps where \( r_{k-1} \) is nonzero. So the algorithm halts.
+
+  Let \( n \) be the index of the last nonzero remainder or \( 0 \) if \( x = 0 \). We show by induction on \( 0 \leq k < n \) that \( r_n \) divides \( r_{n-k} \).
+
+  \begin{itemize}
+    \item The base case \( k = 0 \) is obvious since \( r_n \) divides itself.
+    \item If \( r_n \) divides \( r_{n-i} \) for \( 0 \leq i < k \), since
+    \begin{equation*}
+      r_{n-k} = r_{n-(k-1)} q_{n-(k-2)} + r_{n-(k-2)}
+    \end{equation*}
+    and both of the terms on the right-hand side are multiples of \( r_n \), the left-hand side \( r_{n-k} \) is also a multiple.
+  \end{itemize}
+
+  So, we conclude that \( r_n \) divides both \( r_{n-(n-1)} = r_1 = y \) and \( r_{n-n} = r_0 = x \).
+
+  Finally, we must show that \( r_n \) is greatest among all common divisors of \( x \) and \( y \). Let \( d \) be a common divisor.
+
+  We will use induction on \( k < n \) to show that \( d \mid r_k \).
+  \begin{itemize}
+    \item We have \( d \mid r_0 \) and \( d \mid r_1 \) by assumption.
+    \item Fix \( 2 \leq k \leq n \) and suppose that, for every \( i < k \), \( d \mid r_i \). Then
+    \begin{equation*}
+      r_{k-1} = r_k q_{k+1} + r_{k+1},
+    \end{equation*}
+    and since \( i \) divides both \( r_{k-2} \) and \( r_{k-1} \), \( d \) also their linear combination \( r_{k+1} \).
+  \end{itemize}
+
+  Hence, \( d \mid r_n \). Since our choice of common divisor \( d \) was arbitrary, we conclude that \( r_n \) is a greatest common divisor.
+\end{defproof}
+
+\begin{algorithm}[Extended Euclidean algorithm]\label{alg:extended_euclidean_algorithm}
+  In an \hyperref[def:euclidean_domain]{Euclidean domain}, given a pair \( x \) and \( y \), \fullref{alg:euclidean_algorithm} allows us to construct a greatest common divisor \( g \). We can also explicitly construct elements \( a \) and \( b \) so that Bezout's identity \eqref{eq:def:bezout_domain/identity} holds, i.e.
+  \begin{equation*}
+    g = ax + by.
+  \end{equation*}
+
+  The algorithm is as simple as defining the following in the inductive step \fullref{alg:euclidean_algorithm/step}:
+  \begin{equation*}
+    a_k \coloneqq \begin{cases}
+      1,                     &k = 0, \\
+      0,                     &k = 1, \\
+      a_{k-2} - q_k a_{k-1}, &k > 1,
+    \end{cases}
+  \end{equation*}
+  and
+  \begin{equation*}
+    b_k \coloneqq \begin{cases}
+      0,                     &k = 0, \\
+      1,                     &k = 1, \\
+      b_{k-2} - q_k b_{k-1}, &k > 1.
+    \end{cases}
+  \end{equation*}
+
+  If \( r_n \) is the latest nonzero remainder, halt the algorithm with \( a \coloneqq a_n \) and \( b \coloneqq b_n \).
+\end{algorithm}
+\begin{comments}
+  \item This algorithm is implemented in \cite{notebook:code} as
+  \begin{CodeRefDisplay}
+    \GetCodeRef{alg:extended_euclidean_algorithm}
+  \end{CodeRefDisplay}
+\end{comments}
+\begin{defproof}
+  We will prove with induction on \( k \leq n \) that
+  \begin{equation*}
+    r_k = a_k x + b_k y.
+  \end{equation*}
+
+  \begin{itemize}
+    \item We have
+    \begin{equation*}
+      r_0 = x = 1 \cdot x + 0 \cdot y = a_0 x + b_0 y
+    \end{equation*}
+    and
+    \begin{equation*}
+      r_1 = y = 0 \cdot x + 1 \cdot y = a_1 x + b_1 y.
+    \end{equation*}
+
+    \item Fix \( 2 \leq k \leq n \) and suppose that \( r_i = a_i x + b_i y \) whenever \( i < n \). Then
+    \begin{equation*}
+      r_{k-2} = r_{k-1} q_k + r_k
+    \end{equation*}
+    becomes
+    \begin{equation*}
+      a_{k-2} x + b_{k-2} y = (a_{k-1} x + b_{k-1} y) q_k + r_k.
+    \end{equation*}
+
+    Therefore,
+    \begin{equation*}
+      r_k = (\underbrace{a_{k-2} - q_k a_{k-1}}_{a_k}) x + (\underbrace{b_{k-2} - q_k b_{k-1}}_{b_k}) y
+    \end{equation*}
+  \end{itemize}
+\end{defproof}
+
+\paragraph{Primitive polynomials}
+
+\begin{definition}\label{def:domain_primitive_polynomial}\mcite[108]{Jacobson1985BasicAlgebraI}
+  We say that a polynomial \( f(X) \) in an \hyperref[def:integral_domain]{integral domain} is \term[bg=примитивен (полином) (\cite[43]{ГеновМиховскиМоллов1991Алгебра}), ru=примитивный (многочлен) (\cite[124]{Винберг2014КурсАлгебры})]{primitive} if every common divisor of its coefficients is invertible.
+\end{definition}
+\begin{comments}
+  \item For a \hyperref[def:bezout_domain]{Bezout domain}, this condition is equivalent to the coefficients being \hyperref[def:coprime_elements]{coprime}.
+
+  \item Since every (semi)ring element divides zero, it is immaterial whether we restrict this to common divisors of nonzero coefficients or not.
+
+  \item In a \hyperref[def:field]{field} every nonzero polynomial satisfies this definition, for which reason, in the context of \hyperref[def:finite_field]{finite fields}, \enquote{primitive polynomial} has another established meaning --- see \cref{def:finite_field_primitive_polynomial}. See \cref{rem:primitive_polynomial_terminology} for a broader discussion.
+\end{comments}
+
+\begin{lemma}[Gauss' lemma]\label{thm:gauss_lemma}
+  If \( f(X) \) and \( g(X) \) are \hyperref[def:domain_primitive_polynomial]{primitive polynomials}, then so is \( f(X) g(X) \).
+\end{lemma}
+\begin{proof}
+  Fix two primitive polynomials
+  \begin{align*}
+    f(X) = \sum_{k=0}^n a_k X^k,
+    &&
+    g(X) = \sum_{k=0}^m b_k X^k.
+  \end{align*}
+
+  Let \( d \) be a GCD of the coefficients of \( f(X) g(X) \). It divides
+  \begin{equation*}
+    \sum_{i+j=k} a_i b_j,
+  \end{equation*}
+  the \( k \)-th coefficient of \( f(X) g(X) \), and hence also \( a_i b_j \) for every particular pair of indices \( i < n \) and \( j < m \).
+
+  In particular, for a fixed index \( i \), \( d \) simultaneously divides \( a_i b_1, a_i b_2, \ldots, a_i b_m \).
+
+  Suppose that \( d \) is not invertible. Then there exists a prime element \( p \) that divides \( d \), and hence also the aforementioned products. Since it is prime, \( p \) must divide \( a_i \) or \( b_1 \), \( a_i \) or \( b_2 \), etc.
+
+  But \( p \) cannot divide each one of \( b_1, \ldots, b_m \) because that would imply that \( g(X) \) is not primitive. It then follows that \( p \) divides \( a_i \) for a fixed value of \( i \). Generalizing on \( i \), we conclude that \( p \) divides \( a_1, \ldots, a_n \), which implies that \( f(X) \) is not primitive.
+
+  But both \( f(X) \) and \( g(X) \) are primitive by assumption. Then we have reached a contradiction with the assumption that \( d \) is not invertible.
+
+  Therefore, \( d \) is an invertible GCD of the coefficients of \( f(X) g(X) \), meaning that \( f(X) g(X) \) is a primitive polynomial.
+\end{proof}
+
+\begin{lemma}\label{thm:irreducible_primitive_polynomial_in_field_of_fractions}
+  Let \( D \) be a \hyperref[def:gcd_domain]{GCD domain} and let \( \BbbK \) be its \hyperref[def:field_of_fractions]{field of fractions}. If the polynomial \( f(X) \) from \( \BbbK[X] \) is \hyperref[def:domain_divisibility/irreducible]{irreducible} (in \( \BbbK[X] \)), then there exists a scalar \( c \) from \( \BbbK \) and an irreducible in \( D[X] \) primitive polynomial \( g(X) \) such that \( f(X) = c \cdot g(X) \).
+\end{lemma}
+\begin{proof}
+  Let \( f(X) \) be irreducible in \( \BbbK[X] \). It has the form
+  \begin{equation*}
+    f(X) = \sum_{k=1}^n \frac {a_k} {b_k} X^k.
+  \end{equation*}
+
+  Clearly \( b_1 \cdots b_n f(X) \) is in \( D[X] \). Let \( d \) be a GCD (in \( D \)) of the coefficients of \( b_1 \cdots b_n f(X) \). Let \( c \coloneqq d / b_1 \cdots b_n \) and define the following polynomial:
+  \begin{equation*}
+    g(X) \coloneqq \frac {f(X)} c.
+  \end{equation*}
+
+  By construction, \( g(X) \) is a primitive polynomial with coefficients in \( D \). Furthermore, as a scalar multiple of the irreducible in \( \BbbK[X] \) polynomial \( f(X) \), \( g(X) \) is also irreducible in \( \BbbK[X] \).
+
+  We will now show that \( g(X) \) is irreducible in \( D[X] \). Let \( g(X) = f(X) g(X) \), where both multiplicands are from \( D[X] \).
+
+  Since \( g(X) \) is irreducible in \( \BbbK[X] \), at least one of \( f(X) \) or \( g(X) \) is invertible in \( \BbbK[X] \), hence it is a nonzero constant polynomial. Without loss of generality, suppose that this is \( f(X) \) and let \( f(X) = f_0 \).
+
+  Then \( f_0 \) is a common divisor of the coefficients of \( g(X) \). Since \( g(X) \) is primitive in \( D[X] \), it follows that \( f_0 \) is invertible in \( D \).
+
+  Therefore, \( g(X) \) is irreducible in \( D[X] \) and
+  \begin{equation*}
+    f(X) = c \cdot f(X).
+  \end{equation*}
+\end{proof}
+
+\begin{proposition}\label{thm:polynomial_ring_over_factorial}
+  If the \hyperref[def:integral_domain]{integral domain} \( D \) is a \hyperref[def:factorial_domain]{factorial domain}, so is \( D[X] \).
+\end{proposition}
+\begin{proof}
+  Let \( D \) be a factorial domain and let \( \BbbK \) be its \hyperref[def:field_of_fractions]{field of fractions}.
+
+  By \cref{thm:polynomial_ring_over_gcd_domain}, \( D[X] \) is a GCD domain. Then every irreducible element is prime as a shown in \cref{thm:def:gcd_domain/irreducible_is_prime}, and \cref{thm:def:irreducible_factorization/uniqueness} implies that, if an element has at least one \hyperref[def:irreducible_factorization]{irreducible factorization}, all others are equivalent to it.
+
+  We will now show existence of irreducible factorizations.
+
+  Let \( f(X) \) be a polynomial from \( D[X] \). It has an irreducible factorization in \( \BbbK[X] \):
+  \begin{equation*}
+    f(X) = u q_1(X) \cdots q_n(X).
+  \end{equation*}
+
+  For every \( q_i(X) \), \cref{thm:irreducible_primitive_polynomial_in_field_of_fractions} gives us a constant \( c_i \) and an irreducible in \( D[X] \) primitive polynomial \( r_i(X) \) such that
+  \begin{equation*}
+    q_i(X) = c_i \cdot r_i(X).
+  \end{equation*}
+
+  Then
+  \begin{equation*}
+    f(X)
+    =
+    u \cdot q_1(X) \cdots q_n(X)
+    =
+    u c_1 \cdots c_n \cdot r_1(X) \cdots r_n(X).
+  \end{equation*}
+
+  Let \( \alpha \) be a GCD of the coefficients of \( f(X) \) and denote the product \( u c_1 \cdots c_n \) by \( \beta \). We have
+  \begin{equation*}
+    f(X) = \alpha \cdot \frac {f(X)} \alpha = \beta \cdot r_1(X) \cdots r_n(X).
+  \end{equation*}
+
+  The polynomial \( f(X) / \alpha \) is primitive by construction, and \( r_1(X) \cdots r_n(X) \) is primitive by \cref{thm:gauss_lemma}. Then \( \alpha \) necessarily divides \( \beta \) and vice versa, hence they are associated, and so \( \beta = v \alpha \), where \( v \) is invertible.
+
+  Finally, let \( \alpha = w t_1 \cdots t_m \) be an irreducible decomposition of \( \alpha \). \Cref{thm:def:domain_divisibility/irreducible_in_polynomial_ring} implies that \( t_1 \cdots t_m \) are irreducible in \( D[X] \).
+
+  Then
+  \begin{equation*}
+    f(X) = \underbrace{(v w) \cdot t_1 \cdots t_m}_{\beta} \cdot r_1(X) \cdots r_n(X)
+  \end{equation*}
+  is an irreducible factorization of \( f(X) \) in \( D[X] \).
+\end{proof}

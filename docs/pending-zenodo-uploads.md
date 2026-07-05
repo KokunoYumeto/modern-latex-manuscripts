@@ -1,3 +1,12 @@
+## 2026-07-05: Slavic source-canon payloads recovered from remote branches
+
+Manifest: [20260705_slavic_source_canon_payloads_recovered_from_branches.json](../manifests/pending-zenodo-uploads/20260705_slavic_source_canon_payloads_recovered_from_branches.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Scope/result: selective import from `origin/codex/interlanguage-sidecar-pointer-20260704` and `origin/codex-archive-reconcile-source-heavy-20260611`, not a wholesale merge. This recovers the focused Slavic algebra source-canon directory, two Slavic GitHub TeX source-canon directories, a two-part source-link provenance/LaTeX-payload index, and the older non-Russian/non-Ukrainian Slavic baseline source ZIP.
+- Main source-body payloads: focused Slavic algebra ZIP, 4,359,432 bytes, SHA256 `13D541E748A9BC324F732784BDD27931DBF3010265AC0DBDFE968D48D396575A`, 378 TeX-family entries; Slavic GitHub TeX 192100 ZIP, 910,169 bytes, SHA256 `14BE80F52F67E74A7F3CC791621E4C27432DCC3AFDC394B50CA161FECA4105BF`, 94 TeX-family entries; Slavic GitHub TeX 211000 ZIP, 86,337 bytes, SHA256 `50DD096E43D6D019BD7783ADB9FF2514043126D66154FE4F13AC515C6B54C734`, 7 TeX-family entries; source-corpus LaTeX payload parts 01/02, SHA256 `A4DFD7F26D487FFD666671EB677A2358A75E087FC7A15581E2119507BB5551D1` and `E0076E44758431EB7B07F3744D531D80CC65EF76C4A3CE01EFDA0EB4D0FE26A5`, 3,495 TeX-family entries total.
+- Caveat: source-corpus/provenance and Web/Pro source-register support only. Not native review, term approval, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material. The recovered non-RU/UK Slavic baseline ZIP has zero TeX-like entries by extension and should be treated as source-witness/provenance rather than a LaTeX feed.
+
 ## 2026-07-05: Romance live arXiv candidate source-body packet
 
 Manifest: [20260705_romance_live_arxiv_candidates_source_bodies.json](../manifests/pending-zenodo-uploads/20260705_romance_live_arxiv_candidates_source_bodies.json)

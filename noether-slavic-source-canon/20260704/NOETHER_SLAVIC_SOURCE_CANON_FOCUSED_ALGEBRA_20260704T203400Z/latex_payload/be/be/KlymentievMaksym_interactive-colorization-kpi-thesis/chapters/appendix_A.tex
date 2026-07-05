@@ -1,0 +1,717 @@
+%!TEX root = ../report.tex
+\append{Фрагменти вихідного коду програми}
+% \label{appendix:A}
+
+У цьому додатку наведено фрагменти вихідного коду найбільш критичних модулів розробленої системи інтерактивної колоризації.
+Повний вихідний код проєкту, включно зі скриптами для навчання, валідації та графічним інтерфейсом користувача, доступний у публічному репозиторії за посиланням: \url{https://github.com/KlymentievMaksym/interactive-colorization-engine}.
+
+% \singlespacing
+% \lstset{
+%     language=Python,
+%     basicstyle=\ttfamily\footnotesize,
+%     keywordstyle=\bfseries\color{blue!70!black},
+%     commentstyle=\itshape\color{green!50!black},
+%     stringstyle=\color{orange!70!black},
+%     numbers=left,
+%     numberstyle=\tiny\color{gray},
+%     stepnumber=1,
+%     numbersep=10pt,
+%     backgroundcolor=\color{gray!5},
+%     showspaces=false,
+%     showstringspaces=false,
+%     showtabs=false,
+%     frame=single,
+%     rulecolor=\color{gray!40},
+%     tabsize=4,
+%     captionpos=t,
+%     breaklines=true,
+%     breakatwhitespace=false,
+%     title=\lstname,
+%     escapeinside={(*@}{@*)}, % Дозволяє вставляти українські коментарі
+%     extendedchars=true,
+%     literate={і}{{\'i}}1 {ї}{{\"i}}1 {є}{{\'e}}1 {ґ}{{\`g}}1 {І}{{\'I}}1 {Ї}{{\"I}}1 {Є}{{\'E}}1 {Ґ}{{\`G}}1 {а}{{\cyra}}1 {б}{{\cyrb}}1 {в}{{\cyrv}}1 {г}{{\cyrg}}1 {д}{{\cyrd}}1 {е}{{\cyre}}1 {ж}{{\cyrzh}}1 {з}{{\cyrz}}1 {и}{{\cyri}}1 {й}{{\cyrishrt}}1 {к}{{\cyrk}}1 {л}{{\cyrl}}1 {м}{{\cyrm}}1 {н}{{\cyrn}}1 {о}{{\cyro}}1 {п}{{\cyrp}}1 {р}{{\cyrr}}1 {с}{{\cyrs}}1 {т}{{\cyrt}}1 {у}{{\cyru}}1 {ф}{{\cyrf}}1 {х}{{\cyrh}}1 {ц}{{\cyrc}}1 {ч}{{\cyrch}}1 {ш}{{\cyrsh}}1 {щ}{{\cyrshch}}1 {ь}{{\cyrsftsn}}1 {ю}{{\cyryu}}1 {я}{{\cyrya}}1
+% }
+\AtBeginEnvironment{lstlisting}{\singlespacing}
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\scriptsize\setstretch{1}, % одинарний інтервал всередині блоку
+    keywordstyle=\bfseries\color{blue!70!black},
+    commentstyle=\itshape\color{green!50!black},
+    stringstyle=\color{orange!70!black},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    stepnumber=1,
+    numbersep=10pt,
+    backgroundcolor=\color{gray!5},
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    frame=single,
+    rulecolor=\color{gray!40},
+    tabsize=4,
+    captionpos=t,
+    breaklines=true,           % перенесення рядків
+    breakatwhitespace=false,
+    breakindent=0pt,
+    postbreak=\mbox{\textcolor{gray}{$\hookrightarrow$}\space}, % стрілка на місці переносу
+    columns=flexible,          % коректне відображення пробілів без виходу за поле
+    keepspaces=true,
+    title=\lstname,
+    escapeinside={(*@}{@*)},
+    extendedchars=true,
+    literate={і}{{\'i}}1 {ї}{{\"i}}1 {є}{{\'e}}1 {ґ}{{\`g}}1 {І}{{\'I}}1 {Ї}{{\"I}}1 {Є}{{\'E}}1 {Ґ}{{\`G}}1 {а}{{\cyra}}1 {б}{{\cyrb}}1 {в}{{\cyrv}}1 {г}{{\cyrg}}1 {д}{{\cyrd}}1 {е}{{\cyre}}1 {ж}{{\cyrzh}}1 {з}{{\cyrz}}1 {и}{{\cyri}}1 {й}{{\cyrishrt}}1 {к}{{\cyrk}}1 {л}{{\cyrl}}1 {м}{{\cyrm}}1 {н}{{\cyrn}}1 {о}{{\cyro}}1 {п}{{\cyrp}}1 {р}{{\cyrr}}1 {с}{{\cyrs}}1 {т}{{\cyrt}}1 {у}{{\cyru}}1 {ф}{{\cyrf}}1 {х}{{\cyrh}}1 {ц}{{\cyrc}}1 {ч}{{\cyrch}}1 {ш}{{\cyrsh}}1 {щ}{{\cyrshch}}1 {ь}{{\cyrsftsn}}1 {ю}{{\cyryu}}1 {я}{{\cyrya}}1
+}
+
+
+
+\section{Реалізація двонаправленого блоку Shared Mamba}
+
+Нижче наведено реалізацію основного архітектурного блоку B-Mamba, що використовує механізм розділення ваг для прямого та зворотного сканування послідовності ознак.
+\subsection{Допоміжні модулі}
+
+\begin{lstlisting}[caption={Клас модуля Shared Mamba (PyTorch)}]
+import torch.nn as nn
+from mamba_ssm import Mamba
+
+class MambaShared(nn.Module):
+    def __init__(
+        self,
+        d_model: int,
+        d_state: int = 64,
+        d_conv: int = 4,
+        expand: int = 2,
+        layers: int = 6,
+        blocks: int = 2
+    ):
+        super().__init__()
+        self.layers = layers
+
+        self.blocks = nn.ModuleList([
+            Mamba(d_model=d_model, d_state=d_state, d_conv=d_conv, expand=expand) for _ in range(blocks)
+        ])
+
+        self.norms = nn.ModuleList([nn.LayerNorm(d_model) for _ in range(layers)])
+
+    def forward(self, x):
+        expected_val_range = self.layers // len(self.blocks)
+
+        for i in range(self.layers):
+            idx_block = min(i // expected_val_range, len(self.blocks) - 1)
+            x = self.blocks[idx_block](self.norms[i](x)) + x
+
+        return x
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Клас модуля DoubleConv (PyTorch)}]
+import torch
+import torch.nn as nn
+
+class DoubleConv(nn.Module):
+    def __init__(self, in_channels: int, out_channels: int):
+        super().__init__()
+        self.conv = nn.Sequential(
+            nn.Conv2d(in_channels, out_channels, kernel_size=3, padding=1, bias=False),
+            nn.BatchNorm2d(out_channels),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(out_channels, out_channels, kernel_size=3, padding=1, bias=False),
+            nn.BatchNorm2d(out_channels),
+            nn.ReLU(inplace=True)
+        )
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return self.conv(x)
+\end{lstlisting}
+
+\subsection{Основний модуль}
+\begin{lstlisting}[caption={Клас модуля MambaWrapper (PyTorch)}]
+import torch
+import torch.nn as nn
+
+from colorization_engine.models.util_models import MambaShared, BaseColorizer
+from colorization_engine.factory.registry import register_model
+
+@register_model("mamba")
+class MambaWrapper(BaseColorizer):
+    def __init__(self, d_model: int = 256, layers: int = 6, blocks: int = 2):
+        super().__init__()
+        
+        # --- ENCODER ---
+        # Вхід: 1 канал L + 2 канали ab (підказки) + 1 канал маски = 4 канали
+        self.enc1 = DoubleConv(4, 64) 
+        self.pool1 = nn.Conv2d(64, 64, kernel_size=4, stride=2, padding=1) # H/2
+
+        self.enc2 = DoubleConv(64, 128)
+        self.pool2 = nn.Conv2d(128, 128, kernel_size=4, stride=2, padding=1) # H/4
+        
+        self.enc3 = DoubleConv(128, d_model)
+        self.pool3 = nn.Conv2d(d_model, d_model, kernel_size=4, stride=2, padding=1) # H/8
+
+        # --- Mamba ---
+        self.mamba = MambaShared(d_model=d_model, layers=layers, blocks=blocks)
+
+        # --- DECODER ---
+        self.up3 = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False)
+        self.dec3 = DoubleConv(d_model + d_model, 128) # Concat enc3
+
+        self.up2 = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False)
+        self.dec2 = DoubleConv(128 + 128, 64) # Concat enc2
+
+        self.up1 = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=False)
+        self.dec1 = DoubleConv(64 + 64, 64) # Concat enc1
+
+        # --- FINAL LAYER ---
+        self.final_conv = nn.Sequential(
+            nn.Conv2d(64, 2, kernel_size=1),
+            nn.Tanh() # [-1, 1]
+        )
+
+    def forward(self, l_norm: torch.Tensor, hints: torch.Tensor | None = None) -> torch.Tensor:
+        """
+        l_norm: (B, 1, H, W) 
+        hints: (B, 3, H, W) - канали [a, b, mask], згенеровані _receive_hints
+        """
+        batch_size, _, height, width = l_norm.shape
+        device = l_norm.device
+
+        if hints is None:
+            hints = torch.zeros((batch_size, 3, height, width), device=device)
+
+        x_in = torch.cat([l_norm, hints], dim=1)
+        
+        # --- ENCODER FORWARD ---
+        feat1 = self.enc1(x_in)       # (B, 64, H, W)
+        p1 = self.pool1(feat1)        # (B, 64, H/2, W/2)
+        
+        feat2 = self.enc2(p1)         # (B, 128, H/2, W/2)
+        p2 = self.pool2(feat2)        # (B, 128, H/4, W/4)
+        
+        feat3 = self.enc3(p2)         # (B, 256, H/4, W/4)
+        p3 = self.pool3(feat3)        # (B, 256, H/8, W/8)
+        
+        # --- MAMBA FORWARD ---
+        b, c, h, w = p3.shape
+        x_flat = p3.view(b, c, h * w).permute(0, 2, 1).contiguous() # [B, L, D]
+    
+        x_fwd = self.mamba(x_flat)
+        x_flat_rev = torch.flip(x_flat, dims=[1]) # Перевертаємо послідовність справа наліво, знизу вверх
+        x_rev = self.mamba(x_flat_rev)
+        x_rev = torch.flip(x_rev, dims=[1])
+
+        x_mamba = (x_fwd + x_rev) / 2.0
+
+        x_res = x_mamba.permute(0, 2, 1).contiguous().view(b, c, h, w)
+        
+        # --- DECODER FORWARD ---
+        d3 = self.up3(x_res)
+        d3 = self.dec3(torch.cat([d3, feat3], dim=1)) # Злиття Mamba + локальний контекст H/4
+        
+        d2 = self.up2(d3)
+        d2 = self.dec2(torch.cat([d2, feat2], dim=1)) # Злиття H/2
+        
+        d1 = self.up1(d2)
+        d1 = self.dec1(torch.cat([d1, feat1], dim=1)) # Злиття H
+        
+        ab_channels = self.final_conv(d1)
+        
+        return ab_channels
+\end{lstlisting}
+
+\section{Генерація Гауссівських підказок}
+
+Наступні два лістинг демонструють механізм перетворення точкових кліків користувача на м'які розподіли кольору під час формування вхідного тензора для тренування, валідації та тестування.
+
+\begin{lstlisting}[caption={Функція генерації маски інтерактивності}]
+import torch
+
+def get_gaussian_patch_box(
+    size: int,
+    sigma: float | None = None,
+    device: str | torch.device = 'cpu'
+) -> torch.Tensor:
+    """Generate 2D Gauss kernel with max 1.0"""
+    if sigma is None:
+        sigma = size / 4.0
+    coords = torch.arange(size, dtype=torch.float32, device=device) - size // 2
+    g = torch.exp(-(coords**2) / (2 * sigma**2))
+    g = g / g.max()
+    return g.view(-1, 1) * g.view(1, -1)
+
+def get_gaussian_patch_circle(
+    size: int,
+    sigma: float | None = None,
+    device: str | torch.device = 'cpu'
+) -> torch.Tensor:
+    """Generate 2D Radial Gauss kernel with max 1.0 and strict circular bounds"""
+    if sigma is None:
+        sigma = size / 4.0
+
+    pad = size // 2
+    coords = torch.arange(size, dtype=torch.float32, device=device) - pad
+
+    Y, X = torch.meshgrid(coords, coords, indexing="ij")
+    dist_sq = X**2 + Y**2
+
+    patch = torch.exp(-dist_sq / (2 * sigma**2))
+    edge_val = torch.exp(torch.tensor(-(pad**2) / (2 * sigma**2), device=device))
+    patch = patch - edge_val
+
+    patch[dist_sq > pad**2] = 0.0
+    patch = patch.clamp(min=0.0)
+
+    patch = patch / patch.max()
+    
+    return patch
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Функція генерації Гауссівських підказок}]
+import torch
+from albumentations import Compose
+import cv2
+import numpy as np
+
+from colorization_engine.utils.saliency import FastSaliencySampler
+from colorization_engine.utils.patches import get_gaussian_patch_circle as get_gaussian_patch
+
+saliency_sampler = FastSaliencySampler(blur_kernel_size=15, uniform_prior=0.15)
+
+def _receive_hints(
+    ab_tensor: torch.Tensor,
+    l_tensor: torch.Tensor,
+    min_hint_size: int = 2,
+    max_hint_size: int = 16,
+    num_hints_val: int = 3,
+    patch_size_val: int = 15,
+    training: bool = True
+) -> torch.Tensor:
+    _, h, w = ab_tensor.shape
+    device = ab_tensor.device
+    mask = torch.zeros((1, h, w), dtype=torch.float32, device=device)
+
+    if training:
+        dist = torch.distributions.Geometric(probs=torch.tensor([0.2]))
+        num_hints = int(dist.sample().item())
+
+        points = saliency_sampler.sample_points(l_tensor, num_hints * 3) if num_hints > 0 else []
+
+        if points and num_hints > 0:
+            placed_points = []
+            min_dist_sq = (max_hint_size * 1.5) ** 2 
+
+            for y, x in points:
+                too_close = any((y - py)**2 + (x - px)**2 < min_dist_sq for py, px in placed_points)
+                if too_close:
+                    continue
+
+                placed_points.append((y, x))
+
+                pad = torch.randint(min_hint_size, max_hint_size, (1,), device=device).item()
+                patch_size = pad * 2 + 1
+                base_patch = get_gaussian_patch(patch_size, device=device) # type: ignore
+
+                intensity = torch.rand(1, device=device).item() * 0.8 + 0.2
+                patch = base_patch * intensity
+
+                y1, y2 = max(0, y - pad), min(h, y + pad + 1)
+                x1, x2 = max(0, x - pad), min(w, x + pad + 1)
+
+                py1, py2 = max(0, pad - y), patch_size - max(0, y + pad + 1 - h)
+                px1, px2 = max(0, pad - x), patch_size - max(0, x + pad + 1 - w)
+
+                mask[0, y1:y2, x1:x2] = torch.maximum(mask[0, y1:y2, x1:x2], patch[py1:py2, px1:px2])
+
+                if len(placed_points) >= num_hints:
+                    break
+
+    else:
+        pad = patch_size_val // 2
+        inhibition_radius = patch_size_val * 2 
+
+        base_patch = get_gaussian_patch(size=patch_size_val, device=device)
+
+        mag = ab_tensor.pow(2).sum(dim=0) 
+
+        for _ in range(num_hints_val):
+            idx = mag.argmax().item()
+            y = idx // w
+            x = idx % w
+
+            y1, y2 = max(0, y - pad), min(h, y + pad + 1)
+            x1, x2 = max(0, x - pad), min(w, x + pad + 1)
+            
+            py1, py2 = max(0, pad - y), patch_size_val - max(0, y + pad + 1 - h)
+            px1, px2 = max(0, pad - x), patch_size_val - max(0, x + pad + 1 - w)
+
+            mask[0, y1:y2, x1:x2] = torch.maximum(mask[0, y1:y2, x1:x2], base_patch[py1:py2, px1:px2])
+
+            iy1, iy2 = max(0, y - inhibition_radius), min(h, y + inhibition_radius)
+            ix1, ix2 = max(0, x - inhibition_radius), min(w, x + inhibition_radius)
+            mag[iy1:iy2, ix1:ix2] = -1.0
+
+    hint_ab = ab_tensor * mask
+    hints = torch.cat([hint_ab, mask], dim=0)
+    return hints
+\end{lstlisting}
+
+\section{Багатоваріантність}
+У цьому підрозділі наведено програмний код, який відповідає за формування множини альтернативних кольорових рішень для одного вхідного зображення. 
+Перший лістинг містить класи для просторового семплювання координат нових підказок на основі градієнтної значущості та виділення семантичних центрів об'єктів. 
+Другий лістинг демонструє їх інтеграцію у базовий клас моделі для ітеративної генерації варіантів колоризації.
+
+\begin{lstlisting}[caption={Класи просторового семплювання координат (PyTorch, OpenCV)}]
+import cv2
+import numpy as np
+import torch
+import torch.nn.functional as F
+
+class FastSaliencySampler:
+    """
+    Клас для генерації координат підказок на основі градієнтної значущості.
+    Оптимізовано для використання у PyTorch DataLoader (CPU) та на GPU.
+    """
+    def __init__(self, blur_kernel_size: int = 15, uniform_prior: float = 0.15):
+        self.kernel_size = blur_kernel_size
+        self.uniform_prior = uniform_prior
+
+        self.sobel_x = torch.tensor([
+            [-1.,  0.,  1.], 
+            [-2.,  0.,  2.], 
+            [-1.,  0.,  1.]
+        ], dtype=torch.float32).view(1, 1, 3, 3)
+                                     
+        self.sobel_y = torch.tensor([
+            [-1., -2., -1.], 
+            [ 0.,  0.,  0.], 
+            [ 1.,  2.,  1.]
+        ], dtype=torch.float32).view(1, 1, 3, 3)
+
+    def get_pdf(self, l_tensor: torch.Tensor) -> torch.Tensor:
+        """Обчислює 2D функцію щільності ймовірності (PDF) для зображення."""
+        device = l_tensor.device
+        # [C, H, W] -> [1, 1, H, W]
+        x = l_tensor.unsqueeze(0) if l_tensor.dim() == 3 else l_tensor
+
+        sx = self.sobel_x.to(device)
+        sy = self.sobel_y.to(device)
+        
+        gx = F.conv2d(x, sx, padding=1)
+        gy = F.conv2d(x, sy, padding=1)
+        
+        magnitude = torch.sqrt(gx**2 + gy**2 + 1e-6)
+        
+        padding = self.kernel_size // 2
+        saliency = F.avg_pool2d(magnitude, kernel_size=self.kernel_size, stride=1, padding=padding)
+        saliency = saliency.squeeze(0).squeeze(0) # [H, W]
+        
+        saliency_norm = saliency / (saliency.sum() + 1e-8)
+        uniform_dist = torch.ones_like(saliency_norm) / saliency_norm.numel()
+        
+        pdf = (1.0 - self.uniform_prior) * saliency_norm + self.uniform_prior * uniform_dist
+        return pdf
+
+    def sample_points(self, l_tensor: torch.Tensor, num_points: int) -> list[tuple[int, int]]:
+        """
+        Повертає список координат (y, x) на основі карти значущості.
+        """
+        if num_points <= 0:
+            return []
+            
+        pdf = self.get_pdf(l_tensor)
+        h, w = pdf.shape
+        
+        # [H, W] -> [H*W]
+        pdf_flat = pdf.view(-1)
+
+        sampled_indices = torch.multinomial(pdf_flat, num_points, replacement=False)
+        
+        # Відновлюємо 2D координати
+        points = []
+        for idx in sampled_indices:
+            y = (idx // w).item()
+            x = (idx % w).item()
+            points.append((y, x))
+            
+        return points
+
+class SemanticCenterSampler:
+    """
+    Генерує координати підказок у центрах семантичних об'єктів (Distance Transform).
+    Уникає розміщення нових точок в об'єктах, які вже мають підказки.
+    """
+    def __init__(self, tolerance: int = 15):
+        # tolerance для floodFill. Визначає "однорідність" об'єкта (різниця яскравості 0-255).
+        self.tolerance = tolerance
+
+    def sample_points(self, l_tensor: torch.Tensor, num_points: int, occupied_mask: torch.Tensor) -> list[tuple[int, int]]:
+        """
+        l_tensor: [1, 1, H, W]
+        occupied_mask: [1, 1, H, W]
+        """
+        l_np = l_tensor.squeeze().cpu().numpy()
+        l_uint8 = ((l_np + 1.0) / 2.0 * 255.0).clip(0, 255).astype(np.uint8)
+        h, w = l_uint8.shape
+
+        v = np.median(l_uint8)
+        lower = int(max(0, (1.0 - 0.33) * v))
+        upper = int(min(255, (1.0 + 0.33) * v))
+        edges = cv2.Canny(l_uint8, lower, upper)
+
+        inv_edges = cv2.bitwise_not(edges)
+        dist_map = cv2.distanceTransform(inv_edges, cv2.DIST_L2, 5)
+
+        mask_ff = np.zeros((h + 2, w + 2), dtype=np.uint8)
+        occ_np = occupied_mask.squeeze().cpu().numpy()
+        
+        ys, xs = np.where(occ_np > 0)
+        for y, x in zip(ys, xs):
+            if mask_ff[y + 1, x + 1] == 0:
+                cv2.floodFill(
+                    l_uint8, mask_ff, (int(x), int(y)), 0, 
+                    loDiff=self.tolerance, upDiff=self.tolerance, 
+                    flags=4 | (255 << 8) | cv2.FLOODFILL_MASK_ONLY
+                )
+        
+        valid_dist_map = dist_map.copy()
+        valid_dist_map[mask_ff[1:-1, 1:-1] == 255] = 0
+
+        points = []
+        for _ in range(num_points):
+            _, max_val, _, max_loc = cv2.minMaxLoc(valid_dist_map)
+
+            # Якщо максимальна відстань до краю < 3 пікселів, великих порожніх об'єктів не лишилось
+            if max_val < 3.0:
+                break
+                
+            x, y = max_loc
+            points.append((y, x))
+            
+            # Заливаємо знайдений об'єкт, щоб він більше не брав участь у виборі
+            cv2.floodFill(
+                l_uint8, mask_ff, (int(x), int(y)), 0, 
+                loDiff=self.tolerance, upDiff=self.tolerance, 
+                flags=4 | (255 << 8) | cv2.FLOODFILL_MASK_ONLY
+            )
+
+            valid_dist_map[mask_ff[1:-1, 1:-1] == 255] = 0
+            
+        return points
+\end{lstlisting}
+
+\begin{lstlisting}[caption={Методи стохастичної генерації варіантів колоризації}]
+from abc import ABC, abstractmethod
+import random
+import torch
+import torch.nn as nn
+
+from colorization_engine.utils.patches import get_gaussian_patch_circle as get_gaussian_patch
+from colorization_engine.utils.saliency import FastSaliencySampler, SemanticCenterSampler
+
+SEMANTIC_SAMPLER = SemanticCenterSampler(tolerance=20)
+SALIENCY_SAMPLER = FastSaliencySampler(blur_kernel_size=15, uniform_prior=0.15)
+
+class BaseColorizer(nn.Module, ABC):
+    """
+    Абстрактний базовий клас для всіх моделей колоризації.
+    Забезпечує єдиний інтерфейс для інференсу та валідації.
+    """
+    @abstractmethod
+    def forward(self, l_channel: torch.Tensor, hints: torch.Tensor | None = None) -> torch.Tensor:
+        """
+        l_channel: Tensor форми [B, 1, H, W] [-1, 1] (L)
+        hints: Tensor форми [B, 3, H, W] (ab + mask) or None
+        Returns: Tensor форми [B, 2, H, W] [-1, 1] (ab)
+        """
+        pass
+
+    def _generate_random_color(self, device: torch.device = torch.device('cpu')) -> torch.Tensor:
+        """
+        Генерує випадкові кольори у просторі CIELAB з фокусом на природні/приглушені тони.
+        """
+        # std_dev = 0.35 
+        std_dev = 0.25  # контролює насиченість
+
+        color_ab = torch.randn((2, 1, 1), device=device) * std_dev  # нормальний розподіл, де центр у 0
+
+        # warm_bias = torch.tensor([[[0.15]], [[0.20]]], device=device)
+        # color_ab = color_ab + warm_bias
+
+        color_ab = torch.clamp(color_ab, min=-1.0, max=1.0)
+
+        return color_ab
+
+    def _generate_random_gaussian_hints(self, l_channel: torch.Tensor, base_hints: torch.Tensor | None, num_hints: int = 5, min_hint_size: int = 2, max_hint_size: int = 16) -> torch.Tensor:
+        """
+        Генерує тензор випадкових підказок у семантичних центрах незайнятих об'єктів.
+        """
+        B, _, H, W = l_channel.shape
+        device = l_channel.device
+
+        new_hints = torch.zeros((B, 3, H, W), device=device)
+
+        if base_hints is not None:
+            occupied = base_hints[:, 2:3, :, :] > 0.05 
+        else:
+            occupied = torch.zeros((B, 1, H, W), dtype=torch.bool, device=device)
+
+        min_dist_sq = (max_hint_size * 1.5) ** 2 
+
+        for b in range(B):
+            if num_hints <= 0:
+                continue
+
+            points = SALIENCY_SAMPLER.sample_points(l_channel[b:b+1], num_hints * 3) if random.random() < 0.5 else SEMANTIC_SAMPLER.sample_points(l_channel[b:b+1], num_hints * 2, occupied[b:b+1])
+            # points = SALIENCY_SAMPLER.sample_points(l_channel[b:b+1], num_hints * 3) + SEMANTIC_SAMPLER.sample_points(l_channel[b:b+1], num_hints * 2, occupied[b:b+1])
+            # random.shuffle(points)
+
+            if not points:
+                continue
+
+            placed_points = []
+
+            for y, x in points:
+                if occupied[b, 0, y, x]:
+                    continue
+
+                too_close = any((y - py)**2 + (x - px)**2 < min_dist_sq for py, px in placed_points)
+                if too_close:
+                    continue
+
+                placed_points.append((y, x))
+
+                pad = int(torch.randint(min_hint_size, max_hint_size, (1,)).item())
+                patch_size = pad * 2 + 1
+                base_patch = get_gaussian_patch(patch_size, device=device) # type: ignore
+
+                intensity = torch.rand(1, device=device).item() * 0.8 + 0.2
+                patch = base_patch * intensity
+
+                y1, y2 = max(0, y - pad), min(H, y + pad + 1)
+                x1, x2 = max(0, x - pad), min(W, x + pad + 1)
+
+                py1, py2 = max(0, pad - y), patch_size - max(0, y + pad + 1 - H)
+                px1, px2 = max(0, pad - x), patch_size - max(0, x + pad + 1 - W)
+
+                current_mask_patch = patch[py1:py2, px1:px2]
+                new_hints[b, 2, y1:y2, x1:x2] = torch.maximum(new_hints[b, 2, y1:y2, x1:x2], current_mask_patch)
+
+                random_color = self._generate_random_color(device=device)
+                colored_patch = random_color * current_mask_patch
+                new_hints[b, 0:2, y1:y2, x1:x2] = new_hints[b, 0:2, y1:y2, x1:x2] + colored_patch
+
+                if len(placed_points) >= num_hints:
+                    break
+
+        return new_hints
+
+    @torch.no_grad()
+    def sample(self, l_channel: torch.Tensor, hints: torch.Tensor | None = None, num_samples: int = 5, color_intensity: float = 1.0, min_hint_size: int = 2, max_hint_size: int = 8) -> list[torch.Tensor]:
+        """
+        Генерує варіанти колоризації, додаючи випадкові кольорові плями в порожні зони.
+        """
+        self.eval()
+        variants = []
+
+        clean_pred = self(l_channel, hints)
+        variants.append(clean_pred)
+
+        for _ in range(num_samples - 1):
+            gen_hints = self._generate_random_gaussian_hints(l_channel=l_channel, base_hints=hints, min_hint_size=min_hint_size, max_hint_size=max_hint_size)
+            gen_hints[:, :2, :, :] *= color_intensity
+            gen_hints[:, :2, :, :] = torch.clamp(gen_hints[:, :2, :, :], -1.0, 1.0)
+
+            if hints is not None:
+                user_color = hints[:, :2, :, :]
+                user_mask = hints[:, 2:3, :, :]
+                
+                gen_color = gen_hints[:, :2, :, :]
+                gen_mask = gen_hints[:, 2:3, :, :]
+
+                combined_mask = torch.maximum(user_mask, gen_mask)
+
+                combined_color = user_color + gen_color
+                combined_color = torch.clamp(combined_color, -1.0, 1.0)
+                # is_user = user_mask > 0
+                # combined_color = torch.where(is_user, user_color, gen_color)
+
+                combined_hints = torch.cat([combined_color, combined_mask], dim=1)
+            else:
+                combined_hints = gen_hints
+
+            variant_pred = self(l_channel, combined_hints)
+            variants.append(variant_pred)
+            
+        return variants
+\end{lstlisting}
+
+\section{Комбінована функція втрат}
+
+Наступний лістинг демонструє кастомну функцію втрат, яка оптимізує модель одночасно за трьома критеріями: попіксельна точність L1, перцептивна реалістичність LPIPS та точність виконання інтерактивних підказок користувача.
+
+\begin{lstlisting}[caption={Реалізація гібридної функції втрат (PyTorch)}]
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torchmetrics.image import LearnedPerceptualImagePatchSimilarity
+
+from colorization_engine.loss import BaseLoss
+from colorization_engine.factory.registry import register_loss
+import kornia
+
+
+@register_loss("colorization")
+class ColorizationLoss(BaseLoss):
+    def __init__(self, lpips_weight: float, l1_weight: float, hints_weight: float):
+        super().__init__()
+        self.lpips_weight = lpips_weight
+        self.l1_weight = l1_weight
+        self.hints_weight = hints_weight
+
+        self.l1_loss = nn.L1Loss()
+
+        _lpips_module = LearnedPerceptualImagePatchSimilarity(net_type="vgg", normalize=True)
+        self.lpips_net = _lpips_module.net
+        self.lpips_net.eval()
+        self.lpips_net.requires_grad_(False)
+
+    def forward(
+        self,
+        pred: torch.Tensor,
+        target: torch.Tensor,
+        l_channel: torch.Tensor,
+        hint_mask: torch.Tensor | None = None
+    ) -> tuple[torch.Tensor, dict[str, torch.Tensor]]:
+        loss_l1 = self.l1_loss(pred, target) * self.l1_weight
+
+        loss_hints = torch.zeros_like(loss_l1)
+        if hint_mask is not None and hint_mask.any():
+            loss_hints_raw = F.l1_loss(pred * hint_mask, target * hint_mask, reduction='none')
+
+            loss_hints_per_image = loss_hints_raw.sum(dim=[1, 2, 3])
+            hint_pixels_per_image = hint_mask.sum(dim=[1, 2, 3]).clamp(min=1e-8)
+
+            loss_hints_avg = loss_hints_per_image / hint_pixels_per_image
+            loss_hints = loss_hints_avg.mean() * self.hints_weight
+
+        l_unnorm = (l_channel + 1.0) * 50.0
+        ab_pred_unnorm = pred * 110.0
+        ab_target_unnorm = target * 110.0
+
+        lab_pred = torch.cat([l_unnorm, ab_pred_unnorm], dim=1)
+        lab_target = torch.cat([l_unnorm, ab_target_unnorm], dim=1)
+
+        rgb_pred = kornia.color.lab_to_rgb(lab_pred).clamp(0.0, 1.0)
+        rgb_target = kornia.color.lab_to_rgb(lab_target).clamp(0.0, 1.0)
+
+        rgb_pred_norm = rgb_pred * 2.0 - 1.0
+        rgb_target_norm = rgb_target * 2.0 - 1.0
+
+        loss_lpips = self.lpips_net(rgb_pred_norm, rgb_target_norm).mean() * self.lpips_weight
+
+        total_loss = loss_l1 + loss_hints + loss_lpips
+
+        return total_loss, {
+            "loss_total": total_loss.detach(),
+            "loss_l1":  loss_l1.detach(),
+            "loss_hints": loss_hints.detach(),
+            "loss_lpips": loss_lpips.detach(),
+        }
+\end{lstlisting}
