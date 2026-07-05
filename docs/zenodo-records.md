@@ -100,6 +100,8 @@ Large artifact ZIPs are part of the public records for provenance. The file list
 
 - Latest interlanguage coordination addendum: package 430 is staged as `Noether_PC_Interlanguage_Package430_RollingDelta_20260705.zip` (8,551 bytes, SHA256 `10074BE2037EE272B92B3F7708458D671CBB2BC2053671B3B5ECE8DCE2D8F30B`, 9 entries). It adds R9 Africa/Horn/West known-route access-retry CSV/MD material. It contains zero TeX-like files, zero PDFs, zero ZIP payloads, and zero omitted raw source-body rows, so classify it as methodology/source-route/access coordination only.
 
+- Latest interlanguage coordination addendum: package 431 is staged as `Noether_PC_Interlanguage_Package431_RollingDelta_20260705.zip` (67,624 bytes, SHA256 `AC43D59DA4B50C87AF77C8D17B77AF75A642B96FCEB55ADA52803A4063E2F54B`, 22 entries). It adds CJK source-canon package-incorporation audit/B3 request material and R9 Africa/Horn/West artifact checksum/run-log/package-index material. It contains zero TeX-like files, zero PDFs, zero ZIP payloads, and zero omitted raw source-body rows, so classify it as methodology/source-canon/audit-log coordination only.
+
 - Classical Mathematics Lean 4 Formalization Sidecars: dedicated record <https://doi.org/10.5281/zenodo.21129946>, metadata tracked at [metadata_formalization_lean_candidates_current.json](../zenodo-metadata/metadata_formalization_lean_candidates_current.json). The current public package is `ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip`, a compact Lean/mathlib-style sidecar set for Noether/Steinitz/Weber/Jordan. This lane is useful formalization/library-candidate material, not proof or certification of the transcription/translation corpus, not source-fidelity audit evidence, and not a critical edition.
 
 

@@ -8659,6 +8659,14 @@ Manifest: [20260705_noether_pc_package430_interlanguage_refresh.json](../manifes
 - Scope: package 430 from `origin/codex/noether-pc-20260629` remote head `998ac7cd`, adding R9 Africa/Horn/West known-route access-retry CSV/MD material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-route/access coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+## 2026-07-05: Noether-PC/interlanguage package 431 CJK/R9 audit refresh
+
+Manifest: [20260705_noether_pc_package431_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package431_interlanguage_refresh.json)
+
+- Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Package431_RollingDelta_20260705.zip`, 67,624 bytes, SHA256 `AC43D59DA4B50C87AF77C8D17B77AF75A642B96FCEB55ADA52803A4063E2F54B`, 22 entries.
+- Scope: package 431 from `origin/codex/noether-pc-20260629` remote head `249e26e4`, adding CJK source-canon package-incorporation audit/B3 request material and R9 Africa/Horn/West artifact checksum/run-log/package-index material.
+- Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/audit-log coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 413-416 Pan-Turkic and Malay/SEA/Pacific coordination
 
 Manifest: [20260705_noether_pc_packages413_416_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages413_416_interlanguage_refresh.json)
