@@ -1,3 +1,12 @@
+## 2026-07-05: Noether P24 p233 recovery and pp233-246 ledger webdrop
+
+Manifest: [20260705_noether_p24p233_recovery_pp233_246_ledger_webdrop.json](../manifests/pending-zenodo-uploads/20260705_noether_p24p233_recovery_pp233_246_ledger_webdrop.json)
+
+- Target record: [Emmy Noether](https://doi.org/10.5281/zenodo.20412587).
+- Artifact: `publish_staging/noether/20260705_p24p233_recovery_pp233_246_ledger_webdrop/Noether_LocalCodex_20260705_P24p233Recovery_pp233_246Ledger_WebDrop.zip`, 7,414,903 bytes, SHA256 `63929D646DCE5F24F842240E61D48FD2EA40949D04E8CB280C005C7F62DCFDC5`, 15 ZIP entries.
+- Scope/result: direct Paper 24 p233 source-evidence packet beneath the later Web2R781 ledger-truth and R781/R796 integration packages. Includes current-head German TeX/PDF/log, p233 native400 full-page source witness, enlarged p233 crops, R301-to-R302 diff, R302 confirmed-fixes/source-quality CSVs, and correction/QC ledgers.
+- Caveat: support/provenance material only. Not a reader release, Noether closure, whole-corpus/page-by-page certification, source-complete certification, multilingual synchronization, publication readiness, or critical edition.
+
 ## 2026-07-05: Noether Web2 R781 P30 ledger-truth webdrop
 
 Manifest: [20260705_noether_web2r781_p30_ledger_truth_webdrop.json](../manifests/pending-zenodo-uploads/20260705_noether_web2r781_p30_ledger_truth_webdrop.json)
