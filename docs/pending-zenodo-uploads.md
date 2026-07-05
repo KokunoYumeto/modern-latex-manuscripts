@@ -1,11 +1,18 @@
-## 2026-07-05: Noether-PC/interlanguage package 409 rolling delta
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx177
 
-Manifest: [20260705_noether_pc_package409_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package409_interlanguage_refresh.json)
+Manifest: [20260705_sga6_source_rescribe_idx177_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx177_refresh.json)
 
-- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
-- Artifact: $zipRel, 20309 bytes, SHA256 $hash.
-- Scope/result: selective import from origin/codex/noether-pc-20260629, covering package 409 after package 408. It adds an Arabic RTL source-canon current rollup.
-- Caveat: 0 TeX-like source files, 0 PDFs, 0 ZIP payloads, 0 omitted raw source-body rows, and 0 omitted ZIP rows. Methodology/source-canon/access-governance/source-evidence coordination only. Not a bulk source-body corpus, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx177_20260705.zip`, 2,872,921 bytes, SHA256 `248667E1D9C75F8BE57DB64B08D4738B392BB8BA7A17D34530EB1D02098A644D`, 13 entries.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #174, idx177 / volume p164 / Expose II p5; next cursor idx178 / volume p165 / Expose II p6.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
+## 2026-07-05: Noether-PC/interlanguage package 432 rolling delta
+
+Manifest: [20260705_noether_pc_package432_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package432_interlanguage_refresh.json)
+
+- Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Package432_RollingDelta_20260705.zip`, 143,306 bytes, SHA256 `EEFFB0858CA1F78E75EEFA0A17ADA0B157DF157A82C1B09EE13DA855C1290850`, 8 entries.
+- Scope: package 432 from `origin/codex/noether-pc-20260629` remote head `2c708c72`, adding a changed non-Slavic interlanguage consolidation ledger and package metadata/manifests.
+- Caveat: zero TeX-like source bodies, zero reader PDFs, and zero inner ZIP payloads. Methodology/source-canon/consolidation coordination only; not the requested bulk native mathematical LaTeX corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
 ## 2026-07-05: Noether-PC/interlanguage packages 406-408 rolling deltas
 
@@ -41,15 +48,6 @@ Manifest: [20260705_noether_pc_package403_interlanguage_refresh.json](../manifes
 - Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_package403/Noether_PC_Interlanguage_Package403_RollingDelta_20260705.zip`, 53,039 bytes, SHA256 `804A1A5ED90B9DBCCFED6F8C90D07F67CCE4576A458D4C18806B3B0E817D5570`.
 - Scope/result: selective import from `origin/codex/noether-pc-20260629`, covering package 403 after package 402. It adds Romance source-evidence draft-lane manifests/logs, a Romance source-canon continuation audit, and French batch-3 live arXiv rate-limit error/gap records.
 - Caveat: 0 TeX-like source files, 0 PDFs, 0 ZIP payloads, and 0 omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only. Not a bulk source-body corpus, not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
-
-## 2026-07-05: SGA6 source-rescribe workpass evidence through idx172
-
-Manifest: [20260705_sga6_source_rescribe_idx172_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx172_refresh.json)
-
-- Target record: [SGA working translation/source-audit record](https://doi.org/10.5281/zenodo.20410947).
-- Artifact: `publish_staging/sga/20260705_sga6_source_rescribe_idx172/SGA6_ClaudeCodex_SourceRescribe_idx172_20260705.zip`, 7,117,862 bytes, SHA256 `699CABF0F0892F346C19DCE9BCC9E52E80768FBC02F5D9B4139CB7D8D608EE61`.
-- Scope/result: GitHub mirror and staged evidence packet for the latest local SGA6 Claude/Codex source-rescribe workpass, through `CERT_LOG.md` entry #169, idx172 / volume p159 / Expose I p82. The ledger marks Expose I complete through its bibliography page; next cursor is idx173 / volume p160 / Expose II p1/title.
-- Caveat: the local audit found earlier SGA6 `repair033` was a readable scaffold with paraphrased/condensed regions. This packet is source-rescribe provenance only, not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
 ## 2026-07-05: Noether-PC/interlanguage packages 400-402 rolling deltas
 
@@ -8690,6 +8688,8 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
+
 
 
 
