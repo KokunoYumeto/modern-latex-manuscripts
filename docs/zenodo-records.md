@@ -1,3 +1,10 @@
+## 2026-07-05 Expanded non-Slavic source-anchor feed pending upload
+
+- Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_expanded_non_slavic_source_anchors/Interlanguage_NonSlavic_SourceAnchors_EXPANDED_20260705.zip`
+- Size/SHA256: 82,390,033 bytes / `7626ad0adb3a8d3a135e965252952c7a0d6dddf8eabd63d85a558b0113caef4e`
+- Status: expanded source-anchor/register/style feed only. It exposes 8,551 extracted non-Slavic source/support files, 4,496 unique file bodies, across CJK, Arabic/Persianate/RTL, Romance, and other non-Slavic shelves. Do not describe as native review, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
+
 ## 2026-07-05 SGA6 source-rescribe idx208 support ZIP pending upload
 
 - Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).
