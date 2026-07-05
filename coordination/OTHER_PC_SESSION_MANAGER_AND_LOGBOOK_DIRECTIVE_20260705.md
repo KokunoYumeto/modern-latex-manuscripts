@@ -122,6 +122,12 @@ Required implementation objects include:
 
 Do not call Interslavic or any constructed/interlanguage lane functional if it is only a generated translation without those ledgers and checks.
 
+## Enforcement Rule
+
+Other-PC commits that do not contain literal source bodies, usable source-checked translation output, or concrete repair artifacts may be removed from the live side branch and replaced with reset instructions.
+
+Acknowledgement-only, status-only, ledger-only, and governance-only commits are false output. They are not progress. The other PC must do the task, not merely acknowledge or describe it.
+
 ## Session Dispatch Requirement
 
 At least one session on the other PC must act as a coordinator.

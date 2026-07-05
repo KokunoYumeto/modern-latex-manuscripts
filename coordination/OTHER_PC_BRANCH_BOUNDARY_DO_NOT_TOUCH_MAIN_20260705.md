@@ -34,3 +34,9 @@ If the other PC touches `main`, the archive-maintenance session will delete/reve
 ## Minimum Useful Push
 
 The next acceptable side-branch push must contain actual file bodies or usable source-checking/translation output, plus a manifest and logbook. Markdown-only governance piles do not count.
+
+## Enforcement
+
+If other-PC commits do not contain actual source bodies, usable source-checked translation output, or concrete repair artifacts, they may be destroyed from the live side branch and replaced with reset instructions.
+
+Acknowledgement-only, status-only, ledger-only, and governance-only commits are false output. They do not count as doing the task.
