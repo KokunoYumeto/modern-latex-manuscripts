@@ -4,10 +4,11 @@ This folder is a compact GitHub mirror of the local SGA6 source-rescribe workpas
 
 `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`
 
-Current mirrored state, refreshed 2026-07-05:
+Current mirrored state, refreshed 2026-07-05 after the later local workpass update:
 
-- `CERT_LOG.md` reaches entry #166: scan idx169, volume p156, Expose I p79.
-- Next cursor recorded in the ledger: idx170, volume p157, Expose I p80.
+- `CERT_LOG.md` reaches entry #169: scan idx172, volume p159, Expose I p82.
+- Milestone recorded in the ledger: Expose I is complete through its bibliography page.
+- Next cursor recorded in the ledger: idx173, volume p160, Expose II p1/title.
 - `sga6_fr_workpass.tex` compiles locally with zero LaTeX errors to a 390-page PDF in this live workpass snapshot.
 - The earlier SGA6 repair033 TeX is treated as a scaffold with paraphrased/condensed regions; this workpass is a source-rescribe against the better 360dpi Internet Archive scan, not a completed critical edition.
 

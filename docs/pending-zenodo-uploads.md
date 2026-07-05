@@ -1,3 +1,21 @@
+## 2026-07-05: SGA6 source-rescribe workpass evidence through idx172
+
+Manifest: [20260705_sga6_source_rescribe_idx172_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx172_refresh.json)
+
+- Target record: [SGA working translation/source-audit record](https://doi.org/10.5281/zenodo.20410947).
+- Artifact: `publish_staging/sga/20260705_sga6_source_rescribe_idx172/SGA6_ClaudeCodex_SourceRescribe_idx172_20260705.zip`, 7,117,862 bytes, SHA256 `699CABF0F0892F346C19DCE9BCC9E52E80768FBC02F5D9B4139CB7D8D608EE61`.
+- Scope/result: GitHub mirror and staged evidence packet for the latest local SGA6 Claude/Codex source-rescribe workpass, through `CERT_LOG.md` entry #169, idx172 / volume p159 / Expose I p82. The ledger marks Expose I complete through its bibliography page; next cursor is idx173 / volume p160 / Expose II p1/title.
+- Caveat: the local audit found earlier SGA6 `repair033` was a readable scaffold with paraphrased/condensed regions. This packet is source-rescribe provenance only, not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
+## 2026-07-05: Noether-PC/interlanguage packages 400-402 rolling deltas
+
+Manifest: [20260705_noether_pc_packages400_402_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages400_402_interlanguage_refresh.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_packages400_402/Noether_PC_Interlanguage_Packages400_402_RollingDeltas_20260705.zip`, 285,699 bytes, SHA256 `4585088577DA869783DD778DC945B39A1A0E51F8199FA314697F15715C3D55CA`.
+- Scope/result: selective import from `origin/codex/noether-pc-20260629`, covering packages 400-402 after package 399. These packages add package-visibility/frontier recheck material, R3 Arabic/Persianate source-body package-omit manifest material, R3 source-canon cross-lane synchronization rows, and an interlanguage-method durable run-log refresh.
+- Caveat: 0 TeX-like source files, 0 PDFs, 0 ZIP payloads, and 0 omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only. Not a bulk source-body corpus, not the requested hundreds-per-language native mathematical TeX corpus, not language completion, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 396-399 rolling deltas
 
 Manifest: [20260705_noether_pc_packages396_399_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages396_399_interlanguage_refresh.json)
