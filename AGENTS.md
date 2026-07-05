@@ -1,5 +1,27 @@
 # HARD DIRECTIVE: SET THE ACTIVE GOAL, THEN UPLOAD REAL PAYLOAD
 
+## Immediate Goal-Verbatim Rule
+
+Every assigned task block must be set as the target session's pursued goal / active goal / persistent task exactly and verbatim.
+
+Not summarized.
+
+Not shortened.
+
+Not treated as reading material.
+
+The complete assigned block must be copied into the goal/task mechanism where the interface provides one. If the interface cannot set a formal goal, paste the complete block at the top of that session's local logbook and treat it as the active pursued goal.
+
+Read and follow:
+
+`00_SET_EVERY_ASSIGNED_GOAL_VERBATIM_NOW_20260705.md`
+
+Then dispatch idle sessions using:
+
+`00_DISPATCH_ALL_IDLE_SESSIONS_NOW_20260705.md`
+
+Acknowledgement is not output. Reading is not output. Payload is output.
+
 ## First Action For Any Codex/AI Opening This Branch
 
 Do not merely read this file.
