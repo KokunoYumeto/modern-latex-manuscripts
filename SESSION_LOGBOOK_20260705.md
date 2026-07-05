@@ -132,3 +132,13 @@ Stay off `main`; use only side-branch `codex/noether-pc-20260629` for pushed wor
 - Credential gate: no GitHub/OpenAI/AWS/Slack/private-key token pattern matches in the staged package/support/audit paths after omissions.
 - Diff whitespace gate: raw copied witness bodies intentionally retain source whitespace; generated stewardship files passed scoped `git diff --cached --check`.
 - Commit plan: commit the staged source/provenance package bodies, manifests, hash files, logbooks, archive listability audit, package 636 repair, and package 637 README metadata correction; push only `HEAD` to `refs/heads/codex/noether-pc-20260629`.
+
+## Entry 2026-07-05T21:55:00+02:00 - Post-Split Upload State
+
+- Latest observed side-branch head before this audit entry was staged: `739e63a1790fc119f9aa8c56b0b21677d20d2265`; `main` not touched.
+- R7 Malay/SEA/Pacific source bodies pushed at `201ebbdbf55b854f72eb4fbf1057fcfbe070db3a` after package-local token-shaped-string redaction, SHA refresh, and tar listability checks.
+- R6 Indigenous/Creole/Sign source bodies were split after the all-in-one upload was too large for reliable transfer; split body commits now run through `a0cb73ba8b0ca715c30af0d84e6802ad872b223d`.
+- R3 Arabic/Persianate full source bodies are present by latest observed head: metadata/OCR/minor bodies, Tajik Cyrillic bodies, Arabic `0001-0099`, the large Persian source ZIP, remaining Persian bodies, and the populated CSV manifest.
+- Concurrent side-branch pushes from another uploader added Slavic/Sorbian/Interslavic body chunks and checksum repairs. This session repeatedly fetched/reset/replayed and did not overwrite those commits.
+- Supplemental audit note added at `transfer-audits/session12-20260705/UPLOAD_PROGRESS_AFTER_SPLIT_PUSHES_20260705.md`.
+- Standing claim boundary remains unchanged: no native-review, accepted-terminology, license-clearance, gate-promotion, source-fidelity certification, publication-ready, critical-edition, or translation-completion claim.
