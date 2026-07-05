@@ -1,3 +1,10 @@
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx198
+
+Manifest: [20260705_sga6_source_rescribe_idx198_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx198_workpass_refresh.json)
+
+- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx198_Workpass_20260705.zip`, 2,905,165 bytes, SHA256 `50A364C1BE818A4BE0ABC5DBE990F3D75A3EF7EF1F7170EFFDE7E68B5F07FDDF`.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #195, idx198 / volume p185 / Expose II p26; next cursor idx199 / volume p186 / Expose II p27.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx197
 
 Manifest: [20260705_sga6_source_rescribe_idx197_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx197_workpass_refresh.json)
@@ -8756,6 +8763,7 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 
 
 

@@ -1,4 +1,4 @@
-# SGA6 Source-Rescribe idx197 Workpass Refresh
+# SGA6 Source-Rescribe idx198 Workpass Refresh
 
 Date: 2026-07-05
 
@@ -12,11 +12,11 @@ sources/sga/sga6-claude-workpass-source-rescribe-20260704/
 
 ## Current Frontier
 
-- CERT_LOG.md reaches entry #194.
-- Current source page: idx197 / volume p184 / Exposé II p25.
-- Next cursor: idx198 / volume p185 / Exposé II p26.
-- sga6_fr_workpass.log reports Output written on sga6_fr_workpass.pdf (390 pages, 2725858 bytes).
-- Latest logged source fix deletes a fabricated Exposé II continuation header, restores two dropped footnotes, restores dropped cites/parentheticals, fixes inline/display handling, and records book-quirk reproductions for idx197.
+- CERT_LOG.md reaches entry #195.
+- Current source page: idx198 / volume p185 / Exposé II p26.
+- Next cursor: idx199 / volume p186 / Exposé II p27.
+- sga6_fr_workpass.log reports Output written on sga6_fr_workpass.pdf (390 pages, 2726577 bytes).
+- Latest logged source fix restores a major proof-condensation in Preuve 2.4.8.1, including a full-page normalization argument, display/inline corrections, Oka/normalization citations, esp. reversions, and book-quirk reproductions.
 
 ## Refreshed Files
 
@@ -33,9 +33,9 @@ sources/sga/sga6-claude-workpass-source-rescribe-20260704/
 
 ## Evidence ZIP
 
-- File: publish_staging/sga/20260705_sga6_source_rescribe_idx197_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx197_Workpass_20260705.zip
-- Size: 2902611 bytes
-- SHA256: 6EF6435BC2A2142C3D87E93B42EABCA6A699D19F7F44F4204AAADE9A95BC02D9
+- File: publish_staging/sga/20260705_sga6_source_rescribe_idx198_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx198_Workpass_20260705.zip
+- Size: 2905165 bytes
+- SHA256: 50A364C1BE818A4BE0ABC5DBE990F3D75A3EF7EF1F7170EFFDE7E68B5F07FDDF
 - Entries: 10
 
 ## Classification
@@ -50,4 +50,3 @@ This is source-rescribe/workpass provenance only. It is not:
 - a critical edition.
 
 The mirrored workpass remains useful because it documents concrete source-rescribe progress against the better IA scan and exposes the repair frontier for continuation.
-
