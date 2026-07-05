@@ -1,3 +1,11 @@
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx197
+
+Manifest: [20260705_sga6_source_rescribe_idx197_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx197_workpass_refresh.json)
+
+- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx197_Workpass_20260705.zip`, 2,902,611 bytes, SHA256 `6EF6435BC2A2142C3D87E93B42EABCA6A699D19F7F44F4204AAADE9A95BC02D9`.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #194, idx197 / volume p184 / Expose II p25; next cursor idx198 / volume p185 / Expose II p26.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
 ## 2026-07-05: Slavic GitHub URL-only public TeX source candidates
 
 Manifest: [20260705_slavic_github_url_only_public_tex_candidates.json](../manifests/pending-zenodo-uploads/20260705_slavic_github_url_only_public_tex_candidates.json)
