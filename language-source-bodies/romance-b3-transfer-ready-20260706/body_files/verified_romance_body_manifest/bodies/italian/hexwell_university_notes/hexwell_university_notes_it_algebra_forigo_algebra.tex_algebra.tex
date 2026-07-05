@@ -1,0 +1,1892 @@
+\documentclass[a4paper, twoside, italian, 11pt]{book}
+
+\usepackage{amsfonts}  % for mathbb
+\usepackage{amsmath}   % for implies
+\usepackage{centernot}
+\usepackage{amssymb}   % for nexists, varnothing
+\usepackage{mathtools} % for coloneqq
+
+\newcommand{\braces}[1] {\left \{ #1 \right \}}
+\newcommand{\card}[1] {\left | #1 \right |}
+\newcommand{\detm}[1] {\left | #1 \right |}
+\newcommand{\overbar}[1] {\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\codom}{codom}
+\DeclareMathOperator{\Ima}{Im}
+\DeclareMathOperator{\im}{im}
+\DeclareMathOperator{\Sg}{S}
+\DeclareMathOperator{\Null}{Null}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\cof}{cof}
+\DeclareMathOperator{\adj}{adj}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\mr}{r}
+\DeclareMathOperator{\Rk}{Rk}
+\DeclareMathOperator{\rk}{rk}
+
+\newcommand{\N}{\mathbb N}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\C}{\mathbb C}
+\newcommand{\K}{\mathbb K}
+\newcommand{\F}{\mathbb F}
+
+\newcommand{\LS}{\mathcal L}
+
+\let\emptyset\varnothing
+
+\begin{document}
+
+\pagestyle{headings}
+
+\frontmatter
+
+\begin{titlepage}
+	\begin{center}
+		{\huge \bfseries Appunti di Algebra e Geometria \\}
+		\vspace{1.5cm}
+		{\Large \bfseries Ettore Forigo}
+	\end{center}
+\end{titlepage}
+
+\mainmatter
+
+\chapter{Insiemi}
+
+\section{Operatori e Quantificatori Logici}
+
+$P \land Q$: $P$ e $Q$ \\
+$P \lor Q$: $P$ o $Q$ \\
+$\forall v \in D \ldotp P(v)$: Per ogni $v$ in $D$ vale $P(v)$ \\
+$\exists v \in D : P(v)$: Esiste almeno un $v$ in $D$ tale che $P(v)$ \\
+$\exists! v \in D : P(v)$: Esiste un unico $v$ in $D$ tale che $P(v)$
+
+
+
+\section{Definizione di Insieme}
+
+Un \textbf{insieme} (set) è una collezione di oggetti non ordinata e senza molteplicità (senza ripetizioni). \\
+
+\noindent
+Dato un insieme $X$, per ogni oggetto $o$: \\
+
+$o \in X$ \\
+	\indent\indent
+	$o$ è un elemento di $X$, \\
+	\indent\indent
+	$o$ appartiene ad $X$, \\
+	\indent\indent
+	$X$ contiene $o$, \\
+	\indent\indent
+	$o$ è contenuto in $X$ \\
+
+$\lor$ \\
+
+$o \notin X$ \\
+	\indent\indent
+	$o$ non è un elemento di $X$, \\
+	\indent\indent
+	$o$ non appartiene ad $X$, \\
+	\indent\indent
+	$X$ non contiene $o$, \\
+	\indent\indent
+	$o$ non è contenuto in $X$ \\
+
+
+
+\subsection{Modalità di Definizione di un Insieme}
+
+Un insieme può essere definito: \\
+
+- per \textbf{elencazione}: scrivendo gli elementi tra parentesi graffe, separati da virgole. \\
+
+\indent\indent
+e.g. \\
+
+\indent\indent\indent
+$\{ a, b, c \}$ \\
+
+- per \textbf{proprietà caratteristica} o per comprensione (set comprehension / set-builder notation): indicando una proprietà P che caratterizza gli elementi dell'insieme X \\
+
+\indent\indent
+$\forall o \in Y \ldotp o \in X \subseteq Y \iff P(o)$ \\
+
+\indent
+con le scritture: \\
+
+\indent\indent
+$X = \{ o \in Y | P(o) \}$ \\
+
+\indent\indent
+$X = \{ o \in Y : P(o) \}$ \\
+
+\indent\indent
+$X = \{ o | o \in Y \land P(o) \}$ \\
+
+\indent\indent
+$X = \{ o : o \in Y \land P(o) \}$ \\
+
+\indent\indent
+$X = \{ o | o \in Y, P(o) \}$ \\
+
+\indent\indent
+$X = \{ o : o \in Y, P(o) \}$
+
+
+
+\section{Insiemi Famosi}
+
+$\N =$ Numeri Naturali $= \braces{0, 1, 2, 3, ...}$ \\
+$\Z =$ Numeri Interi \\
+$\Q =$ Numeri Razionali \\
+$\R =$ Numeri Reali \\
+$\C =$ Numeri Complessi $\cong \R \times \R = \R^2$ \\
+$\N_0 = \N \setminus \braces{0}$ \\
+$\Q^x = \Q^* = \Q \setminus \braces{0}$ \\
+$\R^x = \R^* = \R \setminus \braces{0}$ \\
+$\C^x = \C^* = \C \setminus \braces{0}$
+
+
+
+\section{Cardinalità di Insiemi Finiti}
+
+La \textbf{cardinalità} (cardinality) $\card A = n \in \N$ di un insieme $A$ è il numero di elementi in $A$.
+
+
+
+\section{Definizione di Sottoinsieme}
+
+Un insieme $X$ si dice \textbf{sottoinsieme} (subset) di un insieme Y, scritto $X \subseteq Y$, se ogni elemento di $X$ è anche un elemento di $Y$. \\
+
+$X \subseteq Y \iff \forall e \in X \ldotp e \in Y$
+
+
+
+\section{Definizione di Sottoinsieme Proprio}
+
+Un insieme $X$ si dice \textbf{sottoinsieme proprio} (proper subset) di un insieme Y, scritto $X \subset Y$, se $X$ è diverso da $Y$ e ogni elemento di $X$ è anche un elemento di $Y$. \\
+
+$X \subset Y \iff X \neq Y \land \forall e \in X \ldotp e \in Y$
+
+
+
+\section{Unione di Insiemi}
+
+L'\textbf{unione} (union) $A \cup B$ di due insiemi A e B è l'insieme contenente sia gli elementi di A che di B. \\
+
+$A \cup B = \{ e : e \in A \lor e \in B \}$.
+
+
+
+\section{Intersezione di Insiemi}
+
+L'\textbf{intersezione} (intersection) $A \cap B$ di due insiemi A e B è l'insieme contentente gli elementi che sono sia elementi di A che elementi di B. \\
+
+$A \cap B = \{ e : e \in A \land e \in B \}$.
+
+
+
+\section{Differenza di Insiemi}
+
+La \textbf{differenza} (difference) $A - B$ o $A \setminus B$ di due insiemi A e B è l'insieme contentente solo gli elementi di A che non sono elementi di B. \\
+
+$A - B = A \setminus B = \{ e : e \in A \lor e \notin B \}$.
+
+
+
+\section{Multiinsiemi o Sistemi}
+
+Un \textbf{multiinsieme} (multiset) o sistema è una collezione non ordinata di elementi con molteplicità (ovvero un insieme con ripetizioni). \\
+
+\noindent
+e.g.
+
+$[a, b, c]$
+
+
+
+\section{Definizione di Sequenza}
+
+Una sequenza (o ennupla / n-upla) è una collezione ordinata di elementi. \\
+
+$(a, b, c)$ \\
+
+\noindent
+Diciture per numeri di elementi: \\
+
+2 - Paio (pair), coppia (couple) o tupla (tuple) \\
+\indent
+3 - Terna (triplet) o tripla (triple) \\
+\indent
+4 - Quaterna (quatern) o quadrupla (quadruple) \\
+
+\noindent
+$(a, b) \coloneqq \braces{\braces{a}, \braces{a, b}}$ \\
+$(a, a) = \braces{\braces{a}, \braces{a, a}} = \braces{\braces{a}, \braces{a}} = \braces{\braces{a}}$ \\
+$(a, b, ..., y, z) = (a, (..., (y, z)))$ oppure $(((a, b), ...), z)$ \\
+
+\noindent
+Alternativamente: \\
+\indent
+Sequenza di $k$ elementi di A: $A^k = A \times (A \times (... \times A))$ \\
+\indent
+$k$ volte \\
+
+\noindent
+Alternativamente: \\
+\indent
+$I_n = {i \in \N : 0 < i \leq n}$ \\
+\indent
+Sequenza di $n$ elementi di $A = a : I_n \rightarrow A$ (funzione di accesso)
+
+
+
+\section{Prodotto Cartesiano}
+
+Il \textbf{prodotto cartesiano} (cartesian product) $A \times B$ di due insiemi $A$ e $B$ è l'insieme contenente tutte le coppie di due elementi dove il primo elemento appartiene ad A ed il secondo elemento appartiene a B. \\
+
+$A \times B = \{ (a, b) : a \in A, b \in B \}$.
+
+
+
+\chapter{Relazioni}
+
+
+
+\section{Definizione di Relazione}
+
+Si dice che $R \subseteq A \times B$ è una relazione (binaria, anche detta corrispondenza) ((binary) relation) tra due insiemi $A$ e $B$.\\
+
+\noindent
+Se: \\
+$C \coloneqq \braces{(a_1, b_1), (a_2, b_2)}$ \\\\
+Si scrive:\\
+$b_1 = C(a_1)$ \\
+$b_2 = C(a_2)$ \\
+
+\noindent
+O anche: \\
+$a_1Cb_1$
+$a_2Cb_2$
+
+
+\subsection{Proprietà delle Relazioni}
+
+
+\subsubsection{Totalità a Sinistra}
+
+Una relazione $R$ tra $A$ e $B$ si dice \textbf{ovunque definita} (o totale a sinistra, duale della totalità a destra (suriettività)) se associa ad ogni elemento di $A$ almeno un elemento di $B$. \\
+
+\noindent
+In simboli: \\
+
+$\forall x \in A \ldotp \exists y \in B : (x, y) \in R$
+
+
+\subsubsection{Funzionalità}
+
+Una relazione $R$ tra $A$ e $B$ si dice \textbf{funzionale} (o univalente / unica a destra, duale dell'iniettività) se ogni elemento di A in R è associato ad un solo elemento di B. \\
+
+\noindent
+In simboli: \\
+
+$\forall x \in A, y, z \in B \ldotp xRy \land xRz \implies y = z$ \\
+
+\noindent
+Oppure:\\
+
+$\forall x \in A \ldotp (\exists y \in B : (x, y) \in R \implies \exists! y \in B : (x, y) \in R)$
+
+
+
+\chapter{Funzioni}
+
+
+
+\section{Definizione di Funzione}
+
+Una relazione $f$ si dice funzione se è funzionale e ovunque definita. \\
+
+\noindent
+``Funzione'' si riferisce alla terna: associazione di elementi, dominio e codominio, non solo all'associazione di elementi. Specificare solo un'associazione non definisce una funzione: occorre specificare anche dominio e codominio. Infatti, due funzioni che hanno una ``stessa'' associazione di elementi ma diverso dominio e/o diverso codominio sono funzioni diverse. \\
+
+\noindent
+Si scrive: \\
+$f : A \rightarrow B$ \\
+dove $A$ è il dominio di $f$ e $B$ è il codominio di $f$.
+
+
+\section{Proprietà delle Funzioni}
+
+
+\subsection{Iniettività}
+
+Una funzione $f$ si dice \textbf{iniettiva} (injective) (unica a sinistra, duale della funzionalità) se associa a due qualsiasi elementi distinti del dominio elementi distinti del codominio. \\
+
+\noindent
+In simboli: \\
+
+$\forall x, x' \in \dom(f) \ldotp f(x) = f(x') \implies x = x'$
+
+
+\subsection{Suriettività}
+
+Una funzione $f$ si dice \textbf{suriettiva} (surjective) (o totale a destra, duale della totalità a sinistra) se per ogni elemento del codominio associa almeno un elemento del dominio ad esso. \\
+
+\noindent
+In simboli: \\
+
+$\forall y \in \codom(f) \ldotp \exists x \in \dom(f) : y = f(x)$ \\
+
+\noindent
+(equivalentemente: $\im(f) = \codom(f)$)
+
+
+\subsection{Biiettività}
+
+Una funzione $f$ si dice \textbf{biiettiva} (bijective) (o biiezione, o anche corrispondenza 1 a 1 o biunivoca) se è sia iniettiva che suriettiva, cioè ad ogni elemento del dominio corrisponde uno ed un solo elemento del codominio. \\
+
+\noindent
+In simboli: \\
+
+$\forall x, x' \in \dom(f) \ldotp x \neq x' \implies f(x) \neq f(x')$ \\
+\indent
+$\forall y \in \codom(f) \ldotp \exists x \in \dom(f) : y = f(x)$ \\
+
+
+\noindent
+Osservazione: \\
+
+$f : A \rightarrow B$ è biiettiva $\implies \card A = \card B$ \\
+
+\noindent
+$A$ e $B$ possono essere infiniti. \\
+
+\noindent
+$\card X < \card Y \iff \exists$ una funzione iniettiva $X \rightarrow Y \land \nexists$ una biiezione $X \rightarrow Y$.
+
+
+
+\section{Definizione di Immagine}
+
+L'insieme di tutti i valori di $f : A \rightarrow B$ valutata in ogni elemento di $S \subseteq A$ si dice l'immagine di S tramite $f$: \\
+
+$f[S] = f(S) \coloneqq \braces{f(s) \in B : s \in S \subseteq A} \subseteq B$ \\
+
+$\Ima f = \im(f) = f[A]$ \\
+
+\noindent
+L'immagine del dominio di una funzione $f$ tramite $f$ si dice immagine di $f$.\\
+
+\noindent
+$\im(f) \subseteq \codom(f)$ \\
+
+\noindent
+Il valore di $f : A \rightarrow B$ valutata in $x \in A$ si dice immagine di $x$ tramite $f$.
+
+
+
+\section{Definizione di Controimmagine}
+
+L'insieme degli elementi del dominio di una funzione $f : A \rightarrow B$ che $f$ associa a tutti gli elementi di $S \subseteq B$ si dice controimmagine, preimmagine o immagine inversa di $S$ tramite $f$: \\
+
+$f^{-1}[S] = f^{-1}(S) \coloneqq \braces{x \in A : f(x) \in S \subseteq B} \subseteq A$ \\
+
+\noindent
+La controimmagine di un singolo elemento $e \in S$ tramite $f$ è definita come $f^{-1}[{e}]$.
+
+
+
+\section{Definizione di Restrizione}
+
+Detta anche restrizione del dominio o restrizione a sinistra. \\
+
+\noindent
+$f : A \rightarrow B, X \subseteq A$ \\
+
+\noindent
+Si dice restrizione di $f$ ad $X$ la funzione: \\
+
+$f_X : X \rightarrow B$ \\
+\indent
+$f_X(x) \coloneqq f(x)$ $\forall x \in X$ \\
+
+\noindent
+O equivalentemente: \\
+
+$f_X : X \rightarrow B \coloneqq \braces{(a, b) \in f : a \in X}$ \\
+
+\noindent
+O ancora: \\
+
+$f_X : X \rightarrow B \coloneqq f \circ i$ \\
+
+\noindent
+Dove $i : X \rightarrow A$ è l'inclusione di $X$ in $A$ data da $i(a) \coloneqq a$. \\
+
+\noindent
+Una notazione equivalente è: \\
+
+$f|_X = f_X$
+
+
+
+\section{Definizione di Troncatura}
+
+Detta anche corestrizione, restrizione del codominio o restrizione a destra. \\
+
+\noindent
+$f : A \rightarrow B,$ $\Ima(f) \subseteq Y$ \\
+
+\noindent
+Si dice \textbf{troncatura} di $f$ ad $Y$ la funzione: \\
+
+$f^Y : A \rightarrow Y \coloneqq \braces{(a, y) \in A \times Y : y = f(a)}$ \\
+
+\noindent
+Osservazione: \\
+Il codominio viene ristretto. \\
+
+\noindent
+Una notazione equivalente è: \\
+
+$f|^Y = f^Y$ \\
+
+\noindent
+In generale prima si restringe e poi si tronca una funzione.
+
+
+
+\section{Composizione}
+
+$f : A \rightarrow B,$ $g : B \rightarrow C$ \\
+\noindent
+L'elemento $b$ che compone in $(g \circ f)$ è unico $\forall a \in A$.
+
+
+
+\section{Definizione di Funzione Inversa Destra}
+
+$f : A \rightarrow B$ ammette inversa destra $g : B \rightarrow A$ $|$ $(f \circ g) : B \rightarrow B,$ $\forall x \in B \ldotp (f \circ g)(x) = x \iff f$ è suriettiva.
+
+
+
+\section{Definizione di Funzione Inversa Sinistra}
+
+$f : A \rightarrow B$ ammette inversa sinistra $g : B \rightarrow A$ $|$ $(g \circ f) : A \rightarrow A,$ $\forall x \in A \ldotp (g \circ f)(x) = x \iff f$ è iniettiva.
+
+
+
+\section{Definizione di Funzione Inversa}
+
+$f : A \rightarrow B$ ammette inversa destra e sinistra $\implies f$ ammette inversa $f^{-1}$ che coincide con l'inversa destra e sinistra. \\
+
+\noindent
+$f$ ammette inversa $\iff f$ è biettiva.
+
+
+% TODO: TEOREMA: Se la funzione inversa esiste è unica.
+% TODO: TEOREMA: f è invertibile /iff f é biiettiva
+% TODO: PROPOSIZIONE: La composizione di funzioni è associativa
+
+
+
+\section{Definizione di Successione}
+
+Una funzione $f$ si dice successione se: \\
+
+$f : \N \rightarrow A$
+
+
+
+\chapter{Strutture Algebriche}
+
+
+
+\section{Definizione di Operazione Binaria}
+
+Si dice \textbf{operazione binaria} (binary operation) una funzione $o : A \times B \rightarrow C$
+
+
+\subsection{Definizione di Operazione Binaria Interna}
+
+Si dice \textbf{operazione binaria interna} (o chiusa) (internal/closed binary operation) su di un insieme $U$ una funzione $o : U \times U \rightarrow U$
+
+
+\subsection{Definizione di Operazione Binaria Esterna}
+
+Si dice \textbf{operazione binaria esterna} (external binary operation) una operazione binaria $o : B \times A \rightarrow A$
+
+
+
+\section{Definizione di Struttura Algebrica}
+
+Una \textbf{struttura algebrica} (algebraic structure) consiste in un insieme, una collezione (non vuota) di operazioni su di esso e un insieme finito di identità o proprietà, dette assiomi, che le operazioni devono soddisfare. \\
+
+\noindent
+Si rappresenta con una ennupla contenente l'insieme e le operazioni: \\
+
+$(U, o)$
+
+
+
+\section{Definizione di Magma}
+
+Un \textbf{magma} o gruppoide (grupoid) (struttura algebrica) $(A, *)$ è un insieme dotato di un'operazione binaria \textbf{interna}. \\
+
+$* : A \times A \rightarrow A$ \\
+\indent
+$(a, b) = a * b$ \\
+
+
+
+\section{Definizione di Elemento Neutro}
+
+Se $(A, *)$ è un magma, si dice che $e \in A$ è un \textbf{elemento neutro} (identity element) per $*$ se è sia elemento neutro destro che elemento neutro sinistro per $*$, ovvero se operando $e$ sia a destra che a sinistra con qualsiasi elemento di $A$ si ottiene di nuovo il medesimo elemento. \\
+
+\noindent
+In simboli:
+
+$\forall a \in A \ldotp e * a = a * e = a$
+
+
+\subsection{Elemento Neutro Destro e Sinistro}
+
+
+\subsubsection{Elemento Neutro Destro}
+
+Se $*$ è una operazione binaria $A \times B \rightarrow A$, si dice che $e \in B$ è un \textbf{elemento neutro destro} per $*$ se: \\
+
+$\forall a \in A \ldotp a * e = a$
+
+
+\subsubsection{Elemento Neutro Sinistro}
+
+Se $*$ è una operazione binaria esterna $B \times A \rightarrow A$, si dice che $e \in B$ è un \textbf{elemento neutro sinistro} per $*$ se: \\
+
+$\forall a \in A \ldotp e * a = a$
+
+
+
+\section{Definizione di Magma Unitario}
+
+Un magma $(A, *)$ è un \textbf{magma unitario} (unital magma) (struttura algebrica) se $*$ ammette elemento neutro.
+
+
+
+\section{Definizione di Associatività}
+
+Se $(A, *)$ è un magma si dice che $*$ è \textbf{associativa} se, quando l'operazione è usata in notazione infissa, spostando le parentesi (cambiando l'ordine di svolgimento delle operazioni, n.b. non l'ordine degli operandi) il risultato non cambia. Questo significa che le parentesi si possono aggiungere, rimuovere o spostare senza cambiare il significato dell'espressione e senza ambiguità. \\
+
+\noindent
+In simboli: \\
+
+$\forall a,b,c \in A \ldotp a * (b * c) = (a * b) * c$
+
+
+
+\section{Definizione di Semigruppo}
+
+Un magma $(A, *)$ è detto \textbf{semigruppo} (semigroup) (struttura algebrica) se $*$ è associativa.
+
+
+
+\section{Definizione di Monoide}
+
+Un semigruppo $(A, *)$ è detto \textbf{monoide} (monoid) (struttura algebrica) se $*$ ammette elemento neutro.
+
+
+
+\section{Definizione di Elemento Inverso}
+
+Sia $(A, *)$ un magma unitario con elemento neutro $e$. \\
+Si dice che $\forall a \in A$: \\
+
+$a'$ è \textbf{inverso destro} di $a$ se $\exists x' \in A : a * a' = e$ \\
+\indent
+$a''$ è \textbf{inverso sinistro} di $a$ se $\exists x'' \in A : a'' * a = e$ \\
+\indent
+$a'''$ è \textbf{inverso} di $a$ se $a'''$ è inverso destro di $a$ $\land$ $a'''$ è inverso sinistro $a$.
+
+
+
+\section{Definizione di Gruppo}
+
+Un monoide $(A, *)$ è detto \textbf{gruppo} (group) (struttura algebrica) se ogni elemento di $A$ ammette inverso (destro e sinistro, necessariamente unico, solitamente indicato con $a^{-1}$).
+
+
+\subsection{Sottogruppo}
+
+Un sottoinsieme di un gruppo è un \textbf{sottogruppo} se è a sua volta un gruppo con la stessa operazione. \\
+
+\noindent
+In generale un sottoinsieme di un insieme con una struttura algebrica è sua sottostruttura se anch'esso ha la medesima struttura algebrica.
+
+
+\subsection{Esempi notevoli}
+
+$\text{GL}_n(\K) \coloneqq \braces{M \in \K_{m,n} : det(M) \neq 0}$, chiamato gruppo lineare generale (general linear group) (o gruppo di matrici), è un gruppo rispetto al prodotto di matrici (righe per colonne). L'insieme può essere definito equivalentemente come l'insieme delle matrici invertibili. Più in generale è il gruppo formato dall'insieme degli automorfismi (sia isomorfismi che endomorfismi, endomorfismi invertibili o isomorfismi da un oggetto a se stesso) di un oggetto matematico. \\
+
+\noindent
+Esiste anche un suo sottogruppo, $\text{SL}_n(\K)$, detto gruppo lineare speciale (special linear group), formato dalle matrici con determinante uguale a 1.
+
+
+
+\section{Definizione di Sottrazione}
+
+La sottrazione è definita come somma con l'opposto di un elemento in $(\Z, +)$. \\
+
+$a - b \coloneqq a + (-b) = a + b^{-1}$
+
+
+
+\section{Definizione di Gruppo Simmetrico}
+
+$\Sg(\Omega) = \braces{f : \Omega \rightarrow \Omega \text{ $|$ } \text{f è biiettiva}}$ è chiamato \textbf{gruppo simmetrico} (symmetric group) (struttura algebrica) dell'insieme $\Omega$. \\
+
+\noindent
+È un gruppo rispetto alla composizione di funzioni. \\
+Contiene tutte le possibili permutazioni degli elementi di $\Omega$. \\
+Tutti i gruppi simmetrici di insiemi aventi la stessa cardinalità sono isomorfi (isomorphic). \\
+L'elemento neutro è la funzione identità $id$ ($id(x) \coloneqq x$).
+
+
+\subsection{Gruppi Simmetrici Finiti (Finite Symmetric Group)}
+
+Se $\Omega$ è finito, il suo gruppo simmetrico si denota con $\Sg_n$. \\
+In genere in questi casi si preferisce considerare il gruppo delle permutazioni degli interi $1...n$ dato che è isomorfo.
+
+
+
+\section{Definizione di Commutatività}
+
+Se $(A, *)$ è un magma si dice che $*$ è \textbf{commutativa} se scambiando l'ordine degli operandi il risultato non cambia. \\
+
+\noindent
+In simboli: \\
+
+$\forall a,b \in A \ldotp a * b = b * a$.
+
+
+
+\section{Definizione di Gruppo Abeliano}
+
+Un gruppo $(A, *)$ è detto \textbf{abeliano} (abelian) (struttura algebrica) o commutativo (commutative) se $*$ è commutativa.
+
+
+
+\section{Definizione di Distributività}
+
+Se $(A, *)$ e $(A, +)$ sono magmi, si dice che $*$ è distributiva rispetto a $+$ se è distributiva a destra e a sinistra rispetto a $+$. \\
+
+\noindent
+Se $*$ è commutativa, distributività, distributività a destra e distributività a sinistra sono equivalenti.
+
+
+\subsection{Distributività a Destra}
+
+Una operazione binaria esterna $* : A \times B \rightarrow B$ si dice \textbf{distributiva a destra} rispetto all'operazione $+ : B \times B \rightarrow B$ di un magma $(A, +)$ se: \\
+
+$\forall a \in A, b, c \in B \ldotp a * (b + c) = (a * b) + (a * c)$
+
+
+\subsection{Distributività a Sinistra}
+
+Una operazione binaria $* : A \times C \rightarrow A$ si dice \textbf{distributiva a sinistra} rispetto all'operazione $+ : A \times A \rightarrow A$ di un magma (A, +) se: \\
+
+$\forall a, b \in A, c \in C \ldotp (a + b) * c = (a * c) + (b * c)$
+
+
+
+\section{Definizione di Anello}
+
+Un insieme $A$ dotato di due operazioni binarie interne $\tilde +$ e $\tilde\cdot$ è un \textbf{anello} (rng/non-unital ring) (struttura algebrica) $(A, \tilde +, \tilde\cdot)$ se: \\
+
+$(A, \tilde +)$ è un gruppo abeliano. \\
+\indent
+$(A, \tilde\cdot)$ è un semigruppo. \\
+\indent
+$\tilde\cdot$ è distributiva rispetto a $\tilde +$.
+
+
+\subsection{Definizione di Anello Unitario}
+
+Un anello $(A, \tilde +, \tilde\cdot)$ è un \textbf{anello unitario} (ring) (o con unità) (struttura algebrica) se $(A, \tilde\cdot$) è anche un monoide ($\tilde\cdot$ ammette elemento neutro).
+
+
+\subsection{Definizione di Anello Commutativo}
+
+Se $\tilde\cdot$ è commutativa l'anello si dice \textbf{commutativo} (commutative) (struttura algebrica).
+
+
+
+\section{Definizione di Corpo}
+
+Se $(A, \tilde +, \tilde \cdot)$ è un anello e $(A^*, \tilde\cdot)$ è un gruppo, dove $A^* \coloneqq A \setminus \braces{0}$ e $0$ è l'elemento neutro di $\tilde +$, allora $(A, \tilde +, \tilde\cdot)$ è anche un \textbf{corpo} (division ring) (struttura algebrica). \\
+
+
+
+\section{Definizione di Campo}
+
+Un \textbf{campo} (field) (o corpo commutativo) $(\K, +, \cdot)$ è un anello unitario commutativo, con $0$ elemento neutro di $+$ e $1$ elemento neutro di $\cdot$, in cui $0 \neq 1$ e $(\K^*, \cdot)$ è un gruppo abeliano, dove $\K^* \coloneqq \K \setminus \braces{0}$ (aggiunge il requisito di invertibilità di ogni elemento $\neq 0$ per la moltiplicazione). \\
+
+\noindent
+Alternativamente: \\
+
+$(\K, +)$ è un gruppo abeliano con elemento neutro 0 \\
+\indent
+$\K^* \coloneqq \K \setminus \braces{0}$ \\
+\indent
+$(\K^*, \cdot)$ è un gruppo abeliano con elemento neutro 1 \\
+\indent
+$\cdot$ è distributiva rispetto a $+$.
+
+
+\subsection{Esempi notevoli}
+
+$(\F, \dot\lor, \land),$ $\F \coloneqq \braces{0, 1}, \dot\lor \coloneqq \text{XOR},$ $\land \coloneqq \text{AND}$ \\
+$(\Q, +, \cdot)$ \\
+$(\R, +, \cdot)$ \\
+$(\C, +, \cdot)$
+
+
+% TODO Dimostrazione della legge di annullamento del prodotto in un campo
+
+
+
+\chapter {Spazi Vettoriali}
+
+
+
+\section{Definizione di Spazio Vettoriale}
+
+$(V, \oplus, *)$ è detto \textbf{spazio vettoriale} (vector space) (struttura algebrica) su di un campo $(\K, +, \cdot)$ se: \\
+
+\noindent
+$(V, \oplus)$ è un gruppo abeliano ($\oplus$ è detta somma (di vettori) o legge di composizione interna) \\
+
+\noindent
+$V$ è dotato di una operazione binaria esterna $* : \K \times V \rightarrow V$ (detta prodotto per scalare (gli elementi di $\K$ sono detti scalari) o legge di composizione esterna) \\
+
+\noindent
+$*$ è \textbf{pseudo-associativa} (o compatibile con la moltiplicazione nel campo): \\
+\indent
+$\forall a, b \in \K, \overbar v \in V \ldotp (a \cdot b) * \overbar v = a * (b * \overbar v)$ \\
+
+\noindent
+$*$ ammette elemento neutro sinistro $\in \K$ (\textbf{unitarietà}) \\
+
+\noindent
+$*$ è distributiva a destra rispetto a $\oplus$ \\
+
+\noindent
+$*$ è pseudo-distributiva a sinistra rispetto a $+$ (o compatibile con l'addizione nel campo, insieme alla precedente \textbf{pseudo-distributività}): \\
+\indent
+$\forall a, b \in \K, \overbar v \in V \ldotp (a + b) * \overbar v = (a * \overbar v) \oplus (b * \overbar v)$ \\\\
+
+
+\noindent
+Curiosità: \\
+Le ultime quattro proprietà (assiomi) dicono che il prodotto per scalare definisce un omomorfismo (trasformazione che preserva la struttura algebrica) (homomorphism, structure preserving map) tra l'anello del campo $\K$ ($(\K, +, \cdot)$) e l'anello degli endomorfismi (endomorphism ring) (morfismi da un oggetto a se stesso) del gruppo $(V, \oplus)$. \\\\
+
+\noindent
+Notazione: \\
+\indent
+$V(\K)$ \\
+L'elemento neutro della somma di vettori, il vettore nullo, è scritto $\underline 0$. \\
+
+\noindent
+Un campo $(\K, +, \cdot)$ è spazio vettoriale su se stesso con: \\
+\indent
+$* \coloneqq \cdot$ \\
+\indent
+$\oplus \coloneqq +$\\
+
+\noindent
+$\K^n$ è dotato di struttura di spazio vettoriale su $\K$ rispetto a $\oplus$ e $*$ definiti componente per componente. $(\K^n, \oplus)$ è gruppo abeliano. \\
+
+\noindent
+Tutti gli spazi vettoriali di dimensione uguale sono isomorfi.
+
+
+\subsection{Interpretazione Geometrica}
+
+Gli elementi di V sono vettori geometrici, cioè freccie orientate. \\
+La somma di vettori è definita con la regola del parallelogramma. \\
+Ogni vettore ammette inverso. \\
+Il prodotto per scalare è un vettore con la stessa direzione di quello originale ma con lunghezza moltiplicata per lo scalare e verso in base al segno. \\
+
+
+% TODO: Dimostrazione della legge di annullamento del prodotto per scalare in uno spazio vettoriale
+
+
+
+\section{Definizione di Combinazione Lineare}
+
+$V(\K)$ spazio vettoriale, $\overbar v_1 ... \overbar v_n \in V$ \\
+
+\noindent
+Si dice \textbf{cominazione lineare} dei vettori $\overbar v_1 ... \overbar v_n$ (necessariamente in numero finito) mediante gli scalari $\alpha_1 ... \alpha_n$ il vettore: \\
+
+$\overbar v = \alpha_1 \overbar v_1 + \alpha_2 \overbar v_2 + ... + \alpha_n \overbar v_n = \sum\limits_i^{n \in \N} \alpha_i \overbar v_i$
+
+
+
+\section{Definizione di Sottospazio Vettoriale}
+
+$S \subseteq V$ è \textbf{sottospazio vettoriale} (linear subspace) (struttura algebrica) di $V(\K)$ se: \\
+
+\noindent
+$S$ è dotato dell'operazione binaria interna di somma di $(V, +)$ ristretta ad $S \times S$ e troncata ad $S$ ($\Ima(+_{S \times S}) \subseteq S$) \\
+
+\noindent
+$S$ è dotato dell'operazione binaria interna di prodotto per scalare di $V(\K)$ ristretta a $\K \times S$ e troncata ad $S$ ($\Ima(*_{\K \times S}) \subseteq S$) \\
+
+\noindent
+$(S, +|_{S \times S}^S, *|_{\K \times S}^S)$ è uno spazio vettoriale su $\K$ \\\\
+
+\noindent
+Se $S \subseteq V$ gli assiomi degli spazi vettoriali sono già verificati (devono valere per tutti gli elementi in V). \\
+Dunque ciò a cui va fatta attenzione sono la presenza del vettore nullo ($\underline 0$) in $S$ e le proprietà di chiusura della somma di vettori e del prodotto per scalare. \\
+
+\noindent
+Notazione: \\
+$S \leq V(\K)$ si legge come $S$ è sottospazio vettoriale di $V(\K)$
+
+
+\subsection{Albero decisionale}
+
+Se $V(\K)$ è spazio vettoriale con operazioni $+$ e $*$, per determinare se $S \subseteq V$ è sottospazio vettoriale di $V$ si può usare il seguente albero decisionale: \\
+
+\noindent
+Le operazioni $+$ e $*$ di $S$ sono diverse da quelle di $V$? $\rightarrow$ Non è sottospazio \\
+
+\noindent
+$\underline{0}$ (vettore nullo) $\not\in S$? $\rightarrow$ Non è sottospazio \\
+
+\noindent
+$\lnot(\forall \alpha \in \K, \overbar v \in S \ldotp \alpha * \overbar v \in S) \rightarrow$ Non è sottospazio \\
+
+\noindent
+$\lnot(\forall \overbar u, \overbar v \in S \ldotp \overbar u + \overbar v \in S) \rightarrow$ Non è sottospazio \\
+
+\noindent
+È sottospazio
+
+
+\subsection{Teorema}
+
+\noindent
+$S$ è sottospazio vettoriale di $V(\K) \iff S$ è chiuso rispetto alle combinazioni lineari \\
+
+\noindent
+Ovvero:
+
+$\forall \alpha, \beta \in \K, \overbar v, \overbar w \in S \ldotp \alpha \overbar v + \beta \overbar w \in S$
+
+% TODO Dimostrazione
+
+
+
+\section{Definizione di Insieme di Generatori}
+
+Se $V(\K)$ è uno spazio vettoriale, e $X \subseteq V(\K)$ un insieme/sequenza/sistema di vettori di $V(\K)$, si dice che $V(\K)$ è \textbf{generato} da $X$ se ogni vettore di $V(\K)$ si può scrivere come combinazione lineare di un numero finito di elementi di $X$. $X$ si dice \textbf{insieme di generatori} per $V(\K)$. \\
+
+\noindent
+Alternativamente: \\
+$X$ è insieme di generatori per $V(\K) \iff \LS(X) = V$. \\
+
+\noindent
+Uno spazio vettoriale è insieme di generatori per se stesso. \\
+Aggiungere vettori ad un insieme di generatori fornisce ancora un insieme di generatori.
+
+
+
+
+\section{Definizione di Spazio Vettoriale Finitamente Generato}
+
+$V(\K)$ è detto \textbf{finitamente generato} se $\exists X \subseteq V(\K)$ con $\card X < \infty$ e $X$ insieme di generatori per $V(\K)$.
+
+
+
+\section{Definizione di Copertura Lineare}
+
+Siano $V(\K)$ uno spazio vettoriale e $X \subseteq V(\K)$. \\
+
+\noindent
+$\LS(X)$, detta \textbf{copertura lineare} (linear span) (o chiusura lineare) di X, è l'insieme di tutte le combinazioni lineari dei vettori in $X$. \\
+
+\noindent
+In simboli: \\
+
+$\LS_{V(\K)}(X) = \LS(X) = \left < X \right > \coloneqq \braces{\sum\limits_i^{n \in \N} \alpha_i \overbar x_i : \alpha_i \in \K, \overbar x_i \in X}$ \\
+
+$\LS(\emptyset) \coloneqq \braces{\underline 0}$ \\
+
+\noindent
+$\LS(X)$ è sempre un sottospazio vettoriale di $V(\K)$. \\
+Inoltre, è il più piccolo sottospazio vettoriale di $V(\K)$ che contiene $X$. \\
+
+% TODO Dimostrazione di entrambe
+% https://www.youtube.com/watch?v=zBukIJ9ZwYQ ~52:00
+% Per dimostrare la seconda, cioè che un oggetto ($\LS(X)$) è il più piccolo che soddisfa una certa proprietà, mostriamo che: $Y \leq V(\K) (è sottospazio) e $X \subseteq Y$ \implies \LS \subseteq Y$
+
+\noindent
+$A \subseteq B \implies \LS(A) \subseteq \LS(B)$ \\
+$A = \LS(A) \iff A$ è sottospazio vettoriale. \\
+$\LS(\LS(A)) = \LS(A)$
+
+
+
+\section{Definizione di Sequenza Libera e Legata}
+
+Siano $V(\K)$ uno spazio vettoriale ed $S = (\overbar v_1, ..., \overbar v_n)$ una sequenza di suoi vettori. \\
+
+\noindent
+$S$ è detta \textbf{libera} se l'unica combinazione lineare dei suoi  elementi che da $\underline 0$ è quella a coefficienti tutti nulli. I vettori di $S$ si dicono \textbf{linearmente indipendenti} (linearly independent). \\
+
+\noindent
+$S$ è detta \textbf{legata} se esiste almeno una combinazione lineare dei suoi elementi a coefficienti non tutti nulli che da {\underline 0}. I vettori di $S$ si dicono \textbf{linearmente dipendenti} (linearly dependent). \\
+
+\noindent
+$S$ è legata $= S$ non è libera. \\
+$\underline 0 \in S \implies S$ è legata. \\
+$\overbar v_1 \in S \land \exists \alpha \neq 0 : \overbar v_2 = \alpha \overbar v_1 \in S \implies S$ è legata (quindi anche se ci sono due vettori uguali, con $\alpha = 1$). \\
+$X$ è libera $\land$ $Y \subseteq X \implies Y$ è libera. \\
+$X$ è legata $\land$ $X \subseteq Y \implies Y$ è legata. \\
+$\exists \overbar v \neq \underline 0 \in S \implies \exists X \subseteq S : X$ è libera
+
+\subsection{Teorema}
+
+$S$ è legata $\iff$ almeno uno dei suoi vettori si può scrivere come combinazione lineare dei rimanenti.
+
+% - TODO Dimostrazione
+% https://www.youtube.com/watch?v=zBukIJ9ZwYQ 1:19
+
+
+% \subsection{Osservazione} % TODO
+% $S$ legata $\implies \LS(S) = \LS(S \setminus \braces {\overbar v_i})$ dove $\overbar v_i$ è un vettore $\in S$ che è combinazione lineare di altri vettori in $S$.
+
+
+% \subsubsection{Dimostrazione}
+
+% TODO
+
+
+
+\section{Metodo degli Scarti Successivi}
+
+% TODO
+
+
+
+\section{Definizione di Base di uno Spazio Vettoriale}
+
+Si dice \textbf{base} (ordinata) (ordered basis) di uno spazio vettoriale ogni sua sequenza di generatori libera. \\
+
+\noindent
+Osservazione: \\
+
+$V(\K) \neq \braces{\underline 0} \implies V(\K)$ ammette basi \\
+
+\noindent
+(Non esistono in $V(\K)$ vettori linearmente indipendenti $\implies V(\K)$ è uno spazio vettoriale banale. \\
+Ogni spazio vettoriale finitamente generato non banale ammette base)
+
+
+\subsection{Teorema}
+
+$B = (\overbar b_1, ..., \overbar b_n)$ è una base ordinata per $V(\K) \iff$ ogni vettore di $V(\K)$ si scrive in modo unico come combinazione lineare degli elementi di $B$.
+
+
+\subsubsection{Dimostrazione}
+
+% TODO
+
+
+
+\section{Definizione di Componenti di un Vettore}
+
+Si dicono \textbf{componenti} (components) di un vettore $\overbar v \in V_n(\K)$ rispetto ad una base $B$ di $V_n(\K)$ gli elementi della ennupla dei coefficienti che danno la combinazione lineare dei vettori di $B$ che fornisce $\overbar v$.
+
+
+
+\section{Definizione di Base Canonica}
+
+La base di uno spazio vettoriale composta da vettori i cui componenti sono tutti 0 eccetto uno, che è 1, è detta \textbf{base canonica} (standard/canonical basis).
+
+
+
+\section{Lemma di Steinitz}
+
+% TODO IMPORTANT!!
+% https://www.youtube.com/watch?v=d_9SfHH89RA at about 0:20:00
+
+Il Lemma di Steinitz formalizza la nozione che la lunghezza di una sequenza di generatori $\geq$ la lunghezza di una sequenza libera in uno spazio vettoriale. \\
+
+\noindent
+Conseguenze: \\
+
+\noindent
+Ogni base di $V(\K)$ ha il medesimo numero di elementi. \\
+
+\noindent
+Ogni sequenza di vettori in $V(\K)$ con numero di elementi maggiore di quello di una base di $V(\K)$ è legata. \\
+
+\noindent
+Ogni sequenza di generatori di $V(\K)$ con lo stesso numero di elementi di una base di $V(\K)$ è libera, e dunque base. \\
+
+\noindent
+Ogni sequenza libera di $V(\K)$ con lo stesso numero di elementi di una base di $V(\K)$ genera lo spazio, e dunque è base. \\
+
+\noindent
+Nessuna sequenza con meno vettori di una base di $V(\K)$ genera lo spazio.
+
+
+\subsection{Dimostrazione}
+
+% TODO
+
+
+\subsection{Dimostrazione Conseguenze}
+
+
+
+\section{Definizione di Dimensione di Spazio Vettoriale}
+
+Per il lemma di Steinitz ogni base di uno spazio vettoriale $V(\K)$ ha il medesimo numero di elementi. \\
+Questo numero è detto \textbf{dimensione} (dimension) di $V(\K)$.
+
+
+
+\section{Metodo di Completamento a Base}
+
+% TODO + Dimostrazione
+% https://www.youtube.com/watch?v=d_9SfHH89RA at about 1:06:00
+
+
+
+\section{Definizione di Trasformazione Lineare}
+
+Una funzione $f : V(\K) \rightarrow W(\K)$ è detta \textbf{trasformazione}/\textbf{applicazione}/mappa lineare (o omomorfismo di spazi vettoriali) (linear transformation/map o vector space homomorphism) se associa combinazioni lineari in uno spazio vettoriale $V(\K)$ a combinazioni lineari in un altro spazio vettoriale $W(\K)$. In altre parole conserva le operazioni di somma di vettori e prodotto per scalare. \\
+
+\noindent
+In simboli: \\
+
+$\forall \overbar v, \overbar u \in V, \alpha, \beta \in \K \ldotp f(\alpha \overbar v + \beta \overbar u) = \alpha f(\overbar v) + \beta f(\overbar u)$ \\\\
+
+\noindent
+Una trasformazione lineare è un morfismo (categorico) (trasformazione che preserva la struttura algebrica, generalizzazione di omomorfismo) (morphism (CT)) (structure preserving map).
+
+
+
+\section{Definizione di Isomorfismo}
+
+Una trasformazione lineare è detta \textbf{isomorfismo} (lineare) ((linear) isomorphism) $\iff$ è invertibile. \\
+
+\noindent
+La funzione che associa ad ogni vettore di uno spazio vettoriale la ennupla dei suoi componenti rispetto ad una base B è un isomorfismo. \\
+
+\noindent
+In simboli:
+
+$f_B : V(\K) \rightarrow \K^n$ \\
+\indent
+$f_B(\overbar v = \alpha_1 \overbar e_1 + ... + \alpha_n \overbar e_n) = (\alpha_1, ..., \alpha_n)$ \\
+
+$V(\K) \cong \K^n$ \\
+
+\noindent
+Uno spazio vettoriale è quindi univocamente descritto dal campo $\K$ su cui è definito e da un numero $n$ pari alla sua dimensione (uguale al numero di elementi di tutte le sue basi, vedi definizione di dimensione), dato che è isomorfo a $\K^n$. \\
+% TODO Link Definition
+
+\noindent
+Tutti gli spazi vettoriali di uguale dimensione sul medesimo campo sono isomorfi (cioè esiste un isomorfismo tra di loro (e viceversa se esiste un isomorfismo hanno la stessa dimensione)).
+
+
+
+\section{Definizione di Endomorfismo}
+
+Si dice \textbf{endomorfismo} di $V_n(\K)$ una trasformazione lineare $f : V_n(\K) \rightarrow V_n(\K)$ \\
+
+\noindent
+Sono rappresentati da matrici quadrate (e viceversa). \\
+
+\noindent
+In generale si può considerare $f \circ g$ e $g \circ f$ dato che hanno lo stesso dominio e codominio. \\
+
+\noindent
+Se $f$ è rappresentato dalla matrice $A$ e $g$ è rappresentato dalla matrice $B$, $f \circ g$ è rappresentato dalla matrice $AB$
+
+
+
+\section{Definizione di Nucleo di una Trasformazione Lineare}
+
+Si dice \textbf{nucleo} (kernel) di una trasformazione lineare la controimmagine del vettore nullo tramite $f$. \\
+
+\noindent
+In simboli: \\
+
+$\ker f = \braces{\overbar v \in V : f(\overbar v) = \underline 0}$ \\\\
+
+\noindent
+Osservazioni: \\
+
+$\ker f \leq V(\K)$ \\
+
+f è iniettiva $\iff \ker f = \braces{\underline 0}$
+
+
+\subsection{Dimostrazioni}
+
+% TODO
+
+
+
+\section{Teorema}
+
+Una trasformazione lineare manda sequenze libere in sequenze libere $\iff$ il suo nucleo è banale ($\braces{0}$) (cioè è iniettiva).
+
+
+\subsection{Dimostrazione}
+
+% TODO https://www.youtube.com/watch?v=ZzEIkKbpN00 at around 30:00
+
+
+
+\section{Nullità di una Trasformazione Lineare}
+
+(nullity) \\
+
+\noindent
+$\Null(f) \coloneqq \dim(\ker(f))$
+
+
+
+\section{Intersezione di Spazi Vettoriali}
+
+$U(\K), W(\K) \leq V(\K)$ \\
+
+\noindent
+$U \cap W$ è un sottospazio vettoriale di $V(\K)$ \\
+
+\noindent
+Osservazione: \\
+
+\noindent
+$U, W \leq V(\K) \implies \underline 0 \in U \cap W$ \\
+Due sottospazi di $V(\K)$ non possono mai essere disgiunti! (cioè $U \cap W \neq \underline 0$).
+
+
+
+\section{Dimensione dell'Intersezione di Spazi Vettoriali}
+
+$W \leq V \implies \dim(W) \leq \dim(V)$ \\
+$\dim(W) = \dim(V) \iff W = V$ \\
+
+\noindent
+$0 \leq \dim(U \cap W) \leq \min(\dim(U), \dim(W))$
+
+\subsection{Dimostrazione Prima}
+
+% TODO
+
+Si dimostrano le proprietà di chiusura.
+
+
+\subsection{Dimostrazione Seconda e Terza}
+
+% TODO
+
+
+
+\section{Teorema}
+
+$\forall 0 \leq i \leq n \ldotp \exists W \leq V_n(\K) : \dim(W) = i$
+
+
+\subsection {Dimostrazione}
+
+% TODO
+
+
+
+\section{Teorema}
+
+$U(\K), W(\K) \leq V(\K)$ \\
+
+\noindent
+$U \cup W  \leq V(\K) \iff U \subseteq W \lor W \subseteq U$
+
+
+\subsection{Dimostrazione}
+
+% TODO
+
+
+
+\section{Somma di Spazi Vettoriali}
+
+$U(\K), W(\K) \leq V(\K)$ \\
+
+\noindent
+$U \cup W$ in generale non è un sottospazio di $V(\K)$. \\
+Per questo motivo viene introdotta la nozione di \textbf{somma} di spazi vettoriali. \\
+
+\noindent
+$U + W = \braces{\overbar u + \overbar w : \overbar u \in U, \overbar w \in W}$
+
+
+\subsection{Teorema}
+
+$U + W  = \LS (U \cap W)$ \\
+
+\noindent
+Cioè $U + W$ è il più piccolo sottospazio di $V(\K)$ che contiene $U$ e $W$.
+
+
+\subsubsection{Dimostrazione}
+
+% TODO
+
+
+
+\section{Dimensione della Somma di Spazi Vettoriali}
+
+$U, W \leq U + W \leq V_n(\K)$ \\
+
+\noindent
+$\max(\dim(U), \dim(W)) \leq \dim(U + W) \leq V_n(\K)$
+
+
+
+\section{Definizione di Somma Diretta di Spazi Vettoriali}
+
+$U(\K), W(\K) \leq V(\K)$ \\
+
+\noindent
+La somma $U + W$ si dice \textbf{diretta} (direct sum) e si scrive $U \oplus W$ se ogni elemento di $U + W$ si scrive in modo unico come somma di un elemento di $U$ ed un elemento di $W$. \\
+
+\noindent
+In simboli: \\
+
+$\forall \overbar x \in U + W \ldotp \exists! \overbar u \in U, \overbar w \in W : \overbar x = \overbar u + \overbar w$
+
+
+\subsection{Teorema}
+
+$U \oplus W \iff U \cap W = \braces{\underline 0}$ \\
+
+\noindent
+Conseguenze: \\
+
+\noindent
+$B_U$ una base di $U$ e $B_W$ una base di $W$. \\
+$B_U \cup B_W$ è una base di $U \oplus W$ \\
+
+\noindent
+$\dim(U \oplus W) = \dim(U) + \dim(W)$
+
+
+\subsubsection{Dimostrazione}
+
+% TODO
+
+
+\subsubsection{Dimostrazione Conseguenze}
+
+% TODO
+
+
+
+\section{Formula di Grassman}
+
+$\dim(U + W) = \dim(U) + \dim(W) - \dim(U \cap W)$ \\\\
+
+\noindent
+Analogia con la formula per la cardinalità dell'unione di due insiemi, che usa anch'essa il principio di inclusione ed esclusione: \\
+
+\noindent
+Siano $X, Y$ insiemi. \\
+
+\noindent
+$\card{X \cup Y} = \card X + \card Y - \card{X \cap Y}$
+
+
+\subsection{Dimostrazione}
+
+% TODO
+% Partial at:
+% https://www.youtube.com/watch?v=ZzEIkKbpN00 at around 1:15:00
+
+
+
+\chapter{Matrici}
+
+
+
+\section {Matrici}
+
+Matrice (matrix) $m \times n$ (righe $\times$ colonne) a coefficienti in $\K$: \\
+$\Mat_{m,n}(\K) = \K^{m,n} = \K_{m,n}$ \\
+
+\noindent
+Elementi (entries) $a_{i, j}$ \\
+
+\noindent
+$m \neq n \rightarrow$ matrice rettangolare \\
+$m = n \rightarrow$ matrice quadrata \\
+
+\noindent
+$A \in \Mat_{m,n}(\K)$ \\
+
+\noindent
+$\backslash$ = diagonale principale \\
+$/$ = diagonale secondaria \\
+
+
+
+\section{Matrici quadrate particolari}
+
+
+\subsection{Triangolare superiore}
+
+$a_{i,j} = 0$ $\forall i > j$ \\
+
+\noindent
+$\begin{pmatrix}
+a & b & c \\
+0 & d & e \\
+0 & 0 & f
+\end{pmatrix}$
+
+
+\subsection{Triangolare inferiore}
+
+$a_{i,j} = 0$ $\forall j > i$ \\
+
+\noindent
+$\begin{pmatrix}
+a & 0 & 0 \\
+b & c & 0 \\
+d & e & f
+\end{pmatrix}$
+
+
+\subsection{Diagonale}
+
+$a_{i,j} = 0$ $\forall i > j$ \\
+
+\noindent
+$\begin{pmatrix}
+a & 0 & 0 \\
+0 & b & 0 \\
+0 & 0 & c
+\end{pmatrix}$
+
+
+\subsection{Scalare (Diagonale)}
+
+con $a_{i,i} = k \in \K$ \\
+
+\noindent
+$\begin{pmatrix}
+a & 0 & 0 \\
+0 & a & 0 \\
+0 & 0 & a
+\end{pmatrix}$
+
+
+\subsection{Identica (o Identità) di ordine $n$ (Scalare con $k = 1$)}
+
+$a_{i,i} = 1$ \\
+
+\noindent
+$I_n$ \\
+
+\noindent
+$I_3 = \begin{pmatrix}
+1 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & 1
+\end{pmatrix}$
+
+
+\subsection{Nulla $\underline{0}$}
+
+$a_{i,j} = 0$ $\forall i, j$ \\
+
+\noindent
+$\begin{pmatrix}
+0 & 0 \\
+0 & 0
+\end{pmatrix}$
+
+
+
+\section{Matrice Trasposta}
+
+$A \in \Mat_{m,n}(\K)$ \\
+
+\noindent
+Matrice trasposta di A: \\
+$A^T$ \\
+
+\noindent
+Righe e colonne scambiate. \\
+$a_{i,j} = a{j,i}$ \\
+
+\noindent
+$A = (A^T)^T$ \\
+
+\noindent
+$A = A^T \implies A$ è simmetrica, $A$ è quadrata
+
+
+
+\section{Somma tra matrici}
+
+Somma elemento per elemento (per matrici di dimensioni uguali) \\
+
+\noindent
+$(\Mat_{m,n}(\K), +)$ è un gruppo abeliano.
+
+
+
+\section{Prodotto per scalare}
+
+
+
+\subsection{Proprietà}
+
+Distributivo rispetto all'addizione
+
+
+
+\section{Prodotto righe per colonne}
+
+
+
+\subsection{Proprietà}
+
+Non commutativo \\
+Associativo \\
+Distributivo rispetto alla somma \\
+
+\noindent
+$A \cdot B = \underline{0} \centernot\implies A = \underline{0} \lor B = \underline{0}$ \\
+
+\noindent
+$(A \cdot B)^T = B^T \cdot A^T$ \\
+
+\noindent
+Se: \\
+
+$A \cdot X = B$ \\
+
+\noindent
+dato che la divisione tra matrici non è definita, \textbf{non si scrive:} \\
+
+$X = B / A$ \\
+\indent
+$X = \frac{B}{A}$ \\
+
+\noindent
+ma: \\
+
+$X = A^{-1} \cdot B$
+
+
+
+\section{Calcolo del determinante}
+
+Solo per matrici quadrate. \\
+
+\noindent
+$\detm A$ \\
+
+\noindent
+$\det(A)$
+
+
+
+\subsection{$2 \times 2$}
+
+Differenza prodotto diagonali
+
+
+\subsection{$3 \times 3$ (Sarrus)}
+
+Differenza (somme prodotti diagonali e prodotti sovradiagonali). \\
+
+\noindent
+Se $A$ è triangolare superiore il determinante è il prodotto della diagonale
+
+
+\subsection{Regola di Laplace}
+
+$A \in \Mat_n(\K),$ $n \geq 2$ \\
+
+\noindent
+$\detm A = \sum\limits_{j=1}^{n} (-1)^{i+j} a_{i,j} \cdot \detm{A_{i,j}} $ \\
+
+\noindent
+Dove $A_{i,j}$ è la matrice ottenuta da $A$ togliendo ad $A$ la $i$-esima riga e la $j$-esima colonna. \\
+
+\noindent
+Il valore $(-1)^{i+j} \detm{A_{i,j}}$ è detto complemento algebrico di $a_{i,j}$. \\
+
+\noindent
+Osservazione: \\
+Il termine $(-1)^{i+j}$ indica che se la somma degli indici di riga e colonna è dispari, il segno nella somma va cambiato, altrimenti va mantenuto.
+
+\noindent
+Osservazione: \\
+Si può applicare Laplace per righe / colonne qualsiasi, ma per snellire i conti conviene scegliere righe / colonne con il maggior n° di $0$.
+
+
+\subsection{Proprietà dei Determinanti}
+
+$\detm{I_n} = 1$ \\
+
+\noindent
+$\detm A = \prod_{i=1}^n a_{i,i}$ \\
+
+\noindent
+Quando $A$ è triangolare / diagonale (anche rispetto alla diagonale secondaria, anche se in quel caso non si chiama triangolare / diagonale) \\
+
+\noindent
+$\detm A = \detm{A^T}$ \\
+
+\noindent
+$\detm{A \cdot B} = \detm A \cdot \detm B$ \\
+
+\noindent
+Osservazione: \\
+In generale non vale per la somma. \\
+
+\noindent
+Se in $A$ c'è una riga / colonna nulla, allora $\detm A = 0$ \\
+
+\noindent
+Scambiando righe e colonne % TODO (trasposta?)
+il determinante cambia di segno. \\
+
+\noindent
+Se una riga / colonna è combinazione lineare di altre righe / colonne, allora $\detm A = 0$ e viceversa.
+
+
+\subsection{Definizione di Combinazione Lineare}
+
+Quando una riga / colonna si può scrivere utilizzando le altre righe / colonne combinate solo con operazioni di somma / prodotto e/o prodotto per scalare. \\
+
+\noindent
+Osservazione: \\
+Se una riga / colonna è multipla di un'altra riga / colonna allora è una sua combinazione lineare. \\
+
+\noindent
+Sommando a una riga / colonna una combinazione lineare delle altre righe / colonne il determinante non cambia. \\
+
+
+
+\section{Definizione di Matrice Singolare}
+Una matrice quadrata si dice non singolare se il suo deteminante è $\neq 0$. Altrimenti si dice \textbf{singolare} (singular / degenerate).
+
+
+
+\section{Definizione di Matrice Inversa}
+
+Si dice inversa di $A$, se $\exists$, la matrice $A^{-1}$ tale che: \\
+
+\noindent
+$A \cdot A^{-1} = A^{-1} \cdot A = I_n$ \\
+
+\noindent
+(Ovvero $A^{-1}$ è inversa destra e sinistra di $A$) \\
+
+\noindent
+Osservazione: \\
+Sia $A \in \Mat_n(\K),$ $\exists A^{-1} \iff \detm A \neq 0$ \\
+
+\noindent
+Cioè $A$ ammette inversa se e solo se $A$ è non singolare. \\
+
+\noindent
+In altre parole $A$ ammette inversa $\iff det(A)$ ammette inverso moltiplicativo, dato che $\det(A) \cdot \det(A^{-1}) = 1$
+
+
+\subsection{Calcolo della Matrice Inversa (Metodo del Complemento Algebrico)}
+
+Data $A = (a_{i,j}) \in \Mat_n(\K)$ si dice \textbf{matrice dei complementi algebrici} o matrice dei cofattori (cofactor matrix) di $A$ la matrice $\cof A \in \Mat_n(\K)$ ottenuta sostituendo in $A$ ogni elemento col suo \textbf{complemento algebrico} o cofattore (cofactor) ($c$). \\
+
+\noindent
+$\cof_{i,j}(A) = c_{i,j} = (-1)^{i+j} \detm{A_{i,j}}$ \\
+
+\noindent
+La trasposta della matrice dei cofattori di A è detta \textbf{matrice aggiunta} $\adj A$ o $A_a$ o $A^a$ (adjugate matrix / classical adjoint of a square matrix / adjunct matrix / ``adjoint'') \\
+
+\noindent
+$\adj A = (\cof A)^T$ \\
+
+\noindent
+$\detm A \neq 0 \implies A^{-1} = \frac{1}{\detm A} \cdot \adj A$
+
+
+
+\section{Rango}
+
+
+
+\subsection{Definizione di Minore di Ordine $p$}
+
+Data una matrice $A \in \Mat_{m,n}(\K)$ si dice minore di ordine $p$ una matrice quadrata di ordine $p$ ottenuta da $A$ sopprimendo $n-p$ colonne e $m-p$ righe.
+
+
+\subsection{Definizione di Rango}
+
+Data una matrice $A \in \Mat_{m,n}(\K)$ dire che il rango (rank) di $A$ è $p$: \\
+
+\noindent
+$\rg(A) = p$ \\
+$\mr(A) = p$ \\
+$\rho(A) = p$ \\
+
+\noindent
+con $p \leq \min(m, n)$ \\
+
+\noindent
+significa dire che $A$ ha un minore non singolare di ordine $p$, e che ogni eventuale minore di ordine $p + 1$ è singolare. \\
+
+\noindent
+$\mr(A) = 0 \iff A = \underline{0}$ \\
+
+\noindent
+Se $A \in \Mat_n(\K)$ allora $r(A) = n \iff \detm A \neq 0$ \\
+
+\noindent
+$A$ ha rango massimo $= A \in \Mat_n(\K),$ $\mr(A) = n$ \\
+
+\noindent
+$1 \leq \rg(A) \leq \min(m,n),$ $A \in \Mat_{m,n}(\K),$ $A \neq \underline{0}$
+
+
+\subsection{Teorema degli Orlati (Teorema di Kronecker)}
+
+$A \in \Mat_{m,n}(\K)$.\\
+Il rango di $A$ è $p \iff \exists$ in $A$ un minore di ordine $p$ ($M_p$) non singolare $\land$ ogni minore di ordine $p + 1$ che contiene completamente $M_p$ è singolare.
+
+
+\subsection{Definizione di Contiene Completamente}
+Che ha al suo interno.
+
+
+
+\section{Corrispondenza tra Trasformazioni Lineari e Matrici}
+
+Siano $V_n(\K)$ e $W_m(\K)$ due spazi vettoriali e: \\
+
+$B = (\overbar e_1, ..., \overbar e_n)$ base di $V_n(\K)$ \\
+\indent
+$B' = (\overbar e'_1, ..., \overbar e'_m)$ base di $W_m(\K)$ \\
+
+\noindent
+Osservazione: \\
+I valori di una trasformazione lineare $f : V(\K) \rightarrow W(\K)$ dipendono solamente dai valori di $f$ sui vettori di una base di $V(\K)$, perché: \\
+
+$\forall \overbar v \in V_n(\K) \ldotp \overbar v = \alpha_1 \overbar e_1 + ... + \alpha_n \overbar e_n$ \\
+
+$\forall \overbar v \in V_n(\K) \ldotp f(\overbar v) = f(\alpha_1 \overbar e_1 + ... + \alpha_n \overbar e_n) = \alpha_1 f(\overbar e_1) + ... + \alpha_n f(\overbar e_n)$ \\
+
+\noindent
+Quindi $f$ è definita dai valori: \\
+
+$f(\overbar e_1) = \overbar w_1$ \\
+\indent
+$\vdots$ \\
+\indent
+$f(\overbar e_n) = \overbar w_n$ \\
+
+\noindent
+con $\overbar w_1 ... \overbar w_n \in W$. \\
+
+\noindent
+$\overbar w_1 ... \overbar w_n$ sono tutti combinazione lineare di vettori della base $B'$ di $W$ \\
+
+\noindent
+In simboli: \\
+
+$\forall j \in \N, 1 \leq j \leq n \ldotp \overbar w_j = \sum\limits_{i = 1}^{m} a_{ij} \overbar e'_i$ \\
+
+\noindent
+con $a_{ij} \in \K$ \\
+
+\noindent
+$\begin{pmatrix}
+a_{11} & \dots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{m1} & \dots & a_{mn}
+\end{pmatrix}$ \\\\
+
+\noindent
+Quindi $f : V_n(\K) \rightarrow W_m(\K)$ è descritta interamente da una matrice $m \times n$ degli scalari $a_{ij}$ e dalle basi del dominio e del codominio scelte.\\
+
+\noindent
+Inoltre, rappresentando le ennuple dei componenti dei vettori di $V(\K)$ rispetto alla base $B$ come matrici (vettori colonna), ad esempio: \\
+
+$\overbar e_1 =
+\begin{pmatrix}
+b_1 \\
+\vdots \\
+b_n
+\end{pmatrix}$ \\\\
+
+\noindent
+e moltiplicando la matrice corrispondente ad una trasformazione lineare per la matrice corrispondente ad un vettore, si ottiene il valore della trasformazione lineare applicata al vettore come vettore colonna di componenti rispetto alla base $B'$ di $W(\K)$ , ad esempio: \\
+
+$\begin{pmatrix}
+a_{11} & \dots & a_{1n} \\
+\vdots & \ddots & \vdots \\
+a_{m1} & \dots & a_{mn}
+\end{pmatrix}
+\begin{pmatrix}
+b_1 \\
+\vdots \\
+b_n
+\end{pmatrix} = 
+\begin{pmatrix}
+c_1 \\
+\vdots \\
+c_m
+\end{pmatrix}
+$ \\\\\\
+
+\noindent
+Le matrici rappresentano funzioni tra spazi vettoriali, e sono a loro volta uno spazio vettoriale.\\
+
+\noindent
+Il prodotto di matrici corrisponde alla composizione di funzioni (lineari).
+
+
+
+\section{Rango di una Trasformazione Lineare}
+
+$\Rk(f) \coloneqq \dim(\Ima(f))$ \\
+
+\noindent
+Osservazione: \\
+
+\noindent
+Se $f : \K^n \rightarrow \K^m$ allora $\Ima(f)$ è generata dalle colonne della matrice che rappresenta $f$ \\
+
+\noindent
+$\rk(f) =$ dimensione dello spazio vettoriale generato dalle colonne di $f$
+
+
+
+\section{Teorema di Nullità del Rango}
+
+(rank-nullity theorem) \\
+
+\noindent
+$f : \K^n \rightarrow \K^m$ lineare \\
+
+$\Null(f) + \Rk(f) = n$ \\
+
+\noindent
+(dimensione nucleo + dimensione immagine = dimensione dominio)
+
+
+\subsection{Dimostrazione}
+
+% TODO
+
+
+
+\section{Determinante}
+
+
+\subsection{Motivazione}
+
+È utile poter determinare se una trasformazione lineare è un isomorfismo, cioè è biiettiva. \\
+
+\noindent
+Affinché una trasformazione lineare sia un isomorfismo deve essere invertibile. \\
+
+\noindent
+Dunque deve esistere la matrice inversa di una qualsiasi matrice associata alla trasformazione lineare, cioè quest'ultima deve essere invertibile. \\
+
+\noindent
+Determinare se una matrice quadarata è invertibile equivale a determinare se le sue colonne sono linearmente indipendenti, e questo porta alla definizione di determinante. \\
+
+\noindent
+Il determinante della matrice associata caratterizza anche il fattore per cui le aree / i volumi sono scalati dalla trasformazione lineare. Da questo punto di vista quando il determinante è nullo lo spazio viene ridotto ad una dimensione inferiore, e quindi le aree diventano 0. Essendoci perdita di informazione la trasformazione lineare non può essere un isomorfismo.
+
+
+\subsection{Definizione}
+
+Serve una funzione: \\
+
+$\det : \K^{n,n} \rightarrow \K$ \\
+
+\noindent
+tale che $\det(A) = 0 \iff$ le colonne di $A$ sono linearmente indipendenti \\
+
+\noindent
+e che sia facile da calcolare. \\
+
+$\det(I_n) \coloneqq 1$ \\
+
+$\det(c_1 ... c_n) \coloneqq 0$ se ci sono due colonne uguali. \\ % TODO
+
+Imponiamo infine il determinante lineare in ogni singola colonna. % TODO
+
+\end{document}
+
+% Fonti:
+
+% - Miei appunti Andrea Ferraguti
+% - Miei appunti Luca Giuzzi
+% - Miei appunti Lara Ercoli
+% - Appunti Davide
+% - luca-giuzzi.unibs.it
+% - https://www.youmath.it/formulari/formulari-insiemistica/1586-cardinalita-di-un-insieme.html#:~:text=La%20cardinalit%C3%A0%20di%20un%20insieme,elementi%20che%20costituiscono%20l%27insieme.
+% - https://it.wikipedia.org/wiki/Relazione_(matematica)
+% - https://it.wikipedia.org/wiki/Relazione_totale
+% - https://en.wikipedia.org/wiki/Function_(mathematics)
+% - https://it.wikipedia.org/wiki/Funzione_(matematica)
+% - https://it.wikipedia.org/wiki/Funzione_iniettiva
+% - https://it.wikipedia.org/wiki/Funzione_suriettiva
+% - https://it.wikipedia.org/wiki/Corrispondenza_biunivoca
+% - https://it.wikipedia.org/wiki/Dualit%C3%A0_(matematica)
+% - https://en.wikipedia.org/wiki/Duality_(mathematics)
+% - https://en.wikipedia.org/wiki/Dual_(category_theory)
+% - https://en.wikipedia.org/wiki/Restriction_(mathematics)
+% - https://en.wikipedia.org/wiki/Magma_(algebra)
+% - https://en.wikipedia.org/wiki/Associative_property
+% - https://en.wikipedia.org/wiki/Semigroup
+% - https://en.wikipedia.org/wiki/Monoid
+% - https://it.wikipedia.org/wiki/Inverso_destro_e_sinistro
+% - https://en.wikipedia.org/wiki/Group_(mathematics)
+% - https://it.wikipedia.org/wiki/Gruppo_simmetrico
+% - https://en.wikipedia.org/wiki/Symmetric_group
+% - https://en.wikipedia.org/wiki/Abelian_group
+% - https://it.wikipedia.org/wiki/Anello_(algebra)
+% - https://en.wikipedia.org/wiki/Rng_(algebra)
+% - https://en.wikipedia.org/wiki/Ring_(mathematics)
+% - https://it.wikipedia.org/wiki/Campo_(matematica)
+% - https://it.wikipedia.org/wiki/Spazio_vettoriale
+% - https://en.wikipedia.org/wiki/Vector_space
+% - https://en.wikipedia.org/wiki/Isomorphism
+% - https://en.wikipedia.org/wiki/Homomorphism
+% - https://en.wikipedia.org/wiki/Endomorphism
+% - https://en.wikipedia.org/wiki/Endomorphism#Automorphisms
+% - https://en.wikipedia.org/wiki/Automorphism
+% - https://en.wikipedia.org/wiki/Linear_span
+% - https://en.wikipedia.org/wiki/Morphism
+% - https://en.wikipedia.org/wiki/Matrix_multiplication#Abstract_algebra
+% - https://en.wikipedia.org/wiki/Linear_map#Matrices
+% - https://en.wikipedia.org/wiki/Adjugate_matrix
+% - https://forum.wordreference.com/threads/adjugate-matrix-adjoint-matrix.1303532/
+% - https://it.wikipedia.org/wiki/Matrice_dei_cofattori

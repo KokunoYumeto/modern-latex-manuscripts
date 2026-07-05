@@ -1,0 +1,311 @@
+\chapter{Algèbre homologique et catégories}     % numéroté
+
+Dans ce chapitre sont présentés le cadre général et la logique dans laquelle s'inscrit ce travail de maîtrise. On y retrouve d'abord les éléments qui donnent une raison d'être à l'étude des extensions d'objets mathématiques tels les modules. Il est ensuite question de quelques outils et éléments théoriques qu'il faut saisir pour bien pouvoir analyser les extensions dans une catégorie. Ce chapitre se termine avec une présentation de quelques propriétés capitales des notions de blocs et de blocs d'extensions ainsi qu'avec un énoncé des objectifs de ce mémoire, alors placés en un contexte approprié.
+
+%%%
+\section{Analyse d'une catégorie abélienne}
+%
+\subsection{Démarche globale et généralités}
+
+Le but de ce travail est d'améliorer la compréhension de la catégorie des modules de dimension finie pour une algèbre de courants tordue donnée. Une algèbre de courants tordue est une algèbre de Lie obtenue comme une algèbre de points fixes par l'action d'un groupe fini par $k$-automorphismes sur un produit tensoriel de la forme $\g \otimes S$, où $\g$ est une algèbre de Lie simple de dimension finie et $S$ est une $k$-algèbre de type fini, associative, commutative, unitaire et réduite. 
+
+La définition des algèbres de courants tordues est rappelé avec un plus grand soin au début du chapitre 2. Ce qu'il est important de savoir pour aborder ce document, c'est que les catégories considérées seront toutes au moins abéliennes. 
+
+Une caractéristique importante des catégories abéliennes est que tous les ensembles de morphismes ont des structures de groupes abéliens et que les compositions de morphismes sont des applications au moins $\ZZ$-bilinéaires. Un autre élément clé dans la définition des catégories abéliennes est que pour toute flèche entre une paire d'objets de la catégorie, il y a une notion de noyau, de co-noyau et d'image. Lorsqu'il est possible de définir une notion naturelle de quotient, les théorèmes d'isomorphisme usuels de la théorie des groupes ont habituellement des analogues valables. C'est le cas pour les catégories de modules et en particulier, pour la catégorie des modules d'une algèbre de courants tordue.
+
+\begin{Rem} Une définition précise de ce qu'est une catégorie abélienne peut être trouvée dans plusieurs ouvrages de référence en algèbre. Par exemple, la section 7.7 de \cite{Etingof} en traite très brièvement, mais suffisamment pour le cadre de ces explications.
+\end{Rem}
+
+Dans la catégorie des modules pour une algèbre de courants tordue, les notions de produits directs, de sommes directes et de produits tensoriels d'objets existent et sont bien définies. Il s'avère que ce produit tensoriel est une opération associative à isomorphisme près qui possède aussi un « élément neutre » pour cette opération ; le module trivial de dimension 1. Ainsi, à isomorphisme près, les objets d'une catégorie de modules forment un monoïde. Une catégorie avec ce type de propriété est parfois appelée une catégorie tensorielle ou une catégorie monoïdale.
+
+\begin{Rem} Pour aborder le reste du document, il sera bon de garder en tête le contexte d'une catégorie de modules, c'est-à-dire d'une catégorie (abélienne) monoïdale ou tensorielle.
+\end{Rem}
+
+Soit $A$ un anneau ou une algèbre, soient $M_1$ et $M_2$ deux $A$-modules et soit $f \in \Hom_A(M_1,M_2)$. Alors on définit naturellement :
+\begin{align*}
+\ker f &= \{m_1 \in M_1 \; | \; f(m_1) = 0 \in M_2\} \subseteq M_1\\
+\im f &= \{f(m_1) \; | \; m_1 \in M_1\} \subseteq M_2
+\end{align*}
+Ce sont des sous-modules de $M_1$ et $M_2$ respectivement, c'est-à-dire des ensembles stables sous l'action de $A$. On a alors toujours un isomorphisme de modules
+\begin{align*}
+M_1 / \ker f \quad &\cong \quad \im f  \quad \subseteq \; M_2\\
+x + \ker f \quad &\leftrightarrow \;\; f(x)
+\end{align*}
+où l'action de $A$ sur le module $M_1 / \ker f$ est donnée par $a.\big(x + \ker f\big) = (a.x) + \ker f$ pour tout $a \in A$ et $x \in M_1$. Ce dernier résultat est justement le premier théorème d'isomorphisme qui demeure fondamental dans toute la théorie des représentations. Les deux autres théorèmes d'isomorphisme sont également bien utiles, mais ils ne sont pas nécessaires pour le moment.
+
+Soit $\LL$ une algèbre de courants tordue et soit $\LL$-$\mathbf{mod}$ la catégorie des $\LL$-modules de dimension finie. Tel que mentionné dans l'introduction, le but de ce travail est de décrire la décomposition de $\LL$-$\mathbf{mod}$ en ce qu'on appellera des blocs. Les blocs sont essentiellement des « sous-catégories pleines » dont la « somme  directe » est toute la catégorie $\LL$-$\mathbf{mod}$. Par sa définition même, cette décomposition permet de mieux comprendre la catégorie à l'étude. Il sera question des blocs à la section 1.3.1 de ce chapitre.
+
+\begin{Def} Une sous catégorie $\mathcal{S}$ d'une catégorie $\Cat$ est dite \textbf{pleine} si pour chaque paire d'objets $A$ et $B$ de $\mathcal{S}$, on ait
+$$ \Hom_\mathcal{S}(A,B) = \Hom_\Cat(A,B) $$
+\end{Def}
+
+\begin{Rem} L'expression « somme directe » du dernier paragraphe fait référence à la propriété que tout objet d'une catégorie qui a des blocs se décompose de façon unique (à isomorphismes près), comme une somme directe d'objets qui appartiennent chacun à un bloc distinct. 
+\end{Rem}
+
+
+
+%
+\subsection{Suites exactes, foncteurs et principes de base}
+
+Soit $L$ une algèbre de Lie. Pour la suite de cette sous-section, il sera question de la catégorie des $L$-modules. 
+
+Des outils très pratiques ont été développés en algèbre homologique pour l'étude de nombreux concepts dont les $L$-modules. La notion de base, qui est la pierre angulaire de cette théorie, est celle d'une suite exacte de modules. Ceci mérite quelques définitions en bonnes et dues formes.
+
+\begin{Def} Soit $\{M_i\}_{i \in \ZZ}$ une collection de $L$-modules et soient $\{f_i : M_i \rightarrow M_{i+1}\}_{i \in \ZZ}$ des homomorphismes de $L$-modules. On peut alors former une suite
+$$ \cdots \; \stackrel{f_{i-2}}{\longrightarrow} \; M_{i-1} \; \stackrel{f_{i-1}}{\longrightarrow} \; M_i \; \stackrel{f_i}{\longrightarrow} \; M_{i+1} \; \stackrel{f_{i+1}}{\longrightarrow} \; M_{i+2} \; \stackrel{f_{i+2}}{\longrightarrow} \; \cdots $$
+La suite ci-dessus est dite \textbf{exacte en $M_i$} si $\, \im f_{i-1} =  \ker f_i \subseteq M_i$.
+
+La même suite est dite \textbf{exacte} si elle l'est en chacun des $M_i$ qui la compose.
+\end{Def}
+
+\begin{Def} Une \textbf{suite exacte courte} de $L$-modules est une suite exacte de la forme
+$$ 0 \longrightarrow X \stackrel{f}{\longrightarrow} Y \stackrel{g}{\longrightarrow} Z \longrightarrow 0 $$
+où $X$, $Y$ et $Z$ sont des $A$-modules, $f \in \Hom_L(X,Y)$ et $g \in \Hom_L(Y,Z)$.
+\end{Def}
+
+\begin{Rem} Qu'une suite $0 \longrightarrow X \stackrel{f}{\longrightarrow} Y \stackrel{g}{\longrightarrow} Z \longrightarrow 0$ soit exacte est la même chose que d'avoir $f$ injective, $g$ surjective ainsi qu'un isomorphisme $Y/X \cong Z$ donné par l'exactitude de la suite en $X$ et le premier théorème d'isomorphisme.
+\end{Rem}
+
+\begin{Rem} Soient $Y$ et $Z$ des $L$-modules et soit $g \in \Hom_L(Y,Z)$. Alors le premier théorème d'isomorphisme donne une suite exacte courte $\; 0 \rightarrow \ker g \rightarrow Y \stackrel{g}{\longrightarrow} \im g \rightarrow 0$ où la première application non-triviale est simplement l'inclusion.
+\end{Rem}
+
+Avant de passer à autre chose, il faut rappeler la notion de suite exacte scindée. Cette notion se révélera importante lorsque viendra le temps de traiter des extensions de modules.
+
+\begin{Def} Soient $X$, $Y$ et $Z$ des $L$-modules et soit $f \in \Hom_L(X,Y)$ ainsi que $g \in \Hom_L(Y,Z)$ tels qu'on ait une suite exacte courte de $L$-modules
+$$ 0 \longrightarrow X \stackrel{f}{\longrightarrow} Y \stackrel{g}{\longrightarrow} Z \longrightarrow 0 $$
+Cette suite sera dite \textbf{scindée} s'il existe $s \in \Hom_L(Z,Y)$ tel que $g \circ s = \Id_Z$. Un tel homomorphisme $s$ est parfois appelé \textbf{une section}.
+\end{Def}
+
+\begin{Rem} \label{suitescindee} Il y a quelques autres définitions équivalentes d'une suite exacte courte scindée dans ce contexte. Voir par exemple les équivalences de l'exercice 37 de \cite{FDnoncom}. 
+
+Il est même possible de préciser que si une suite exacte courte de modules est scindée, alors la section induit un isomorphisme de $L$-modules
+$$ Y = \ker g \oplus \im s = f(X) \oplus s(Z) \cong X \oplus Z $$
+Pour le voir, il suffit d'écrire tout $y \in Y$ comme $y = \Big(y-s\big(g(y)\big)\Big) + s\big(g(y)\big)$. 
+\end{Rem}
+
+Un autre aspect important de l'algèbre homologique est l'utilisation des foncteurs. Les foncteurs jouent le rôle des morphismes, mais entre des catégories plutôt qu'entre des objets d'une catégorie donnée. Dans toute catégorie, deux foncteurs ont des rôles plus prédominants ; ceux donnés par les morphismes vers ou dans un objet préalablement fixé. Si le contexte est celui d'une étude de modules pour $L$, alors on verra au chapitre 2 qu'en fixant un module $X$, les deux foncteurs
+\begin{align*}
+\Hom_L(X,-) && \Hom_L(-,X)
+\end{align*}
+sont de la catégorie des $L$-modules dans elle-même.  
+
+Étant donné des foncteurs d'une catégorie dans elle-même, on peut les appliquer à des suites de morphismes et d'objets pour obtenir de nouvelles suites. Des questions de base en algèbre homologique visent à décrire l'effet de tels foncteurs (ou de foncteurs plus généraux) sur les suites exactes et sur les suites exactes courtes. Plusieurs résultats permettent parfois de déduire des informations précieuses sur les objets d'une suite exacte à laquelle on aurait appliqué les foncteurs. En particulier, cette analyse dans le cas des foncteurs $\Hom_L(X,-)$ et $\Hom_L(-,X)$ mène ultimement à plusieurs résultats bien pratiques. Pour des détails concernant ce genre de considérations, des livres de référence tels \cite{Rotman} et \cite{Weibel} sont utiles. 
+
+Hormis à quelques reprises dans des preuves de la fin du chapitre 2, ce dont il est question dans le paragraphe précédent n'est pas d'intérêt pour le but de ce travail. 
+
+
+
+
+%%%
+\section{Théorème de Jordan-Hölder}
+%
+\subsection{Suites de composition et énoncé du théorème}
+
+Supposons de nouveau que $L$ soit une $k$-algèbre de Lie et que $L$-$\mathbf{mod}$ soit la catégorie des $L$-modules de dimension finie. Dans ce contexte, si $V$ est un $L$-module, soit il admet des sous-modules non triviaux ou pas. S'il n'en admet pas, c'est que c'est un module simple et on peut écrire $\{0\} \subseteq V$. Si par contre il en possède au moins un et que l'on note $V_1$ l'un de ces sous-modules, alors $\dim_k V_1 < \dim_k V$. En se posant la même question avec $V_1$, on obtient ou non un sous-module non trivial $V_2 \subseteq V_1$ avec $\dim_k V_2 < \dim_k V_1$. Puisque la dimension des $V_i$ décroît strictement, il est évident que ce processus a toujours une fin. Ainsi, à partir du module de dimension finie $V$, on obtient une suite de sous-modules emboîtés
+$$ \{0\} = V_{N+1} \subseteq V_N \subseteq V_{N-1} \subseteq \cdots \subseteq V_1 \subseteq V_0 = V $$
+où $N \in \NN$ est un certain entier naturel. Évidemment, on doit avoir $\dim_k V_{i+1} < \dim_k V_i$ pour chaque $i \in \{0,\,..., N\}$.
+
+Il se trouve qu'à chaque étape de la construction du dernier paragraphe, si le module n'est pas simple, il est toujours possible de choisir un sous-module de dimension maximale. Cela vient du fait que tous les modules sont de dimension finie. Si on construit une suite de sous-modules emboîtés de $V$ avec cette attention toute particulière, il est facile de montrer que pour chaque $i \in \{0,\,...,N\}$, le module quotient $V_i/V_{i+1}$ est un module simple. Ce genre de suite fait l'objet d'une attention particulière dans la théorie et mérite donc une définition.
+
+\begin{Def} Soit $V$ un $L$-module de dimension finie. Alors une \textbf{suite de composition pour $V$} est une suite de sous-modules emboîtés 
+$$ \{0\} \subseteq V_N \subseteq V_{N-1} \subseteq \cdots \subseteq V_1 \subseteq V_0 = V $$
+avec les modules quotients $V_i/V_{i+1}$ simples pour chaque $i \in \{0,\,...,N\}$. 
+\end{Def}
+
+Le théorème de Jordan-Hölder, qui est un résultat extrêmement important, explique dans plusieurs contextes, que les notions de suites de composition renferment des informations invariantes (à équivalences près) sur les objets desquels ils sont issus. Dans le cas des $L$-modules de dimension finie, ce théorème se lit comme suit.
+
+\begin{Thm} \em \textbf{(Jordan-Hölder)} \label{jordanholder} \em Soit $V$ un $L$-module de dimension finie et soient 
+\begin{align*}
+&\{0\} = V_{N+1} \subseteq V_N \subseteq V_{N-1} \subseteq \cdots \subseteq V_1 \subseteq V_0 = V\\
+&\{0\} = \tilde{V}_{M+1} \subseteq \tilde{V}_N \subseteq \tilde{V}_{N-1} \subseteq \cdots \subseteq \tilde{V}_1 \subseteq \tilde{V}_0 = V
+\end{align*}
+deux suites de composition de $V$. Alors 
+
+\begin{itemize}
+\item[\textbullet] $N = M$
+\item[\textbullet] $\big\{[V_i/V_{i+1}]\big\}_{i=0}^N = \big\{[\tilde{V}_i/\tilde{V}_{i+1}]\big\}_{i=0}^M$
+\item[\textbullet] chaque classe d'isomorphismes de modules simples des ensembles $\big\{[V_i/V_{i+1}]\big\}_{i=0}^N$ et \linebreak $\big\{[\tilde{V}_i/\tilde{V}_{i+1}]\big\}_{i=0}^M$ apparaît un même nombre de fois dans chacune des deux suites de composition.
+\end{itemize}
+\end{Thm}
+
+Pour une preuve, voir par exemple le théorème 3.7.1 de \cite{Etingof} et les explications données sous le théorème 0.5 de \cite{FDnoncom}. À noter que des modules pour une algèbre de Lie sont des modules pour un anneau via la notion d'algèbre universelle enveloppante.
+
+\begin{Rem} En particulier, le théorème de Jordan-Hölder permet d'associer à chaque $L$-module de dimension finie un nombre fini de classes d'isomorphismes de $L$-modules simples. Un nom sera donné à ces modules.
+\end{Rem}
+
+\begin{Def} Soit $V$ un $L$-module de dimension finie et soit une suite de composition pour ce dernier 
+$$ \{0\} = V_{N+1} \subseteq V_N \subseteq V_{N-1} \subseteq \cdots \subseteq V_1 \subseteq V_0 = V $$
+On appelle les modules simples $\{V_i/V_{i+1}\}_{i=0}^N$ les \textbf{facteurs de V}. Pour un indice $i$ fixé, le nombre de facteurs de $V$ isomorphes à $V_i/V_{i+1}$ est appelé \textbf{la multiplicité de $V_i/V_{i+1}$} dans $V$.
+\end{Def}
+
+
+
+%
+\subsection{Extensions}
+
+Dans les cas où il est applicable, le théorème de Jordan-Hölder permet de décomposer un objet donné en un ensemble fini de plus petits objets. La question de savoir comment composer de gros objets à l'aide de plus petits objets apparaît donc naturellement. Une bonne connaissance théorique de ces deux problématiques devrait permettre de faciliter l'étude de la catégorie d'intérêt. 
+
+Une notion qui traduit bien l'idée de composer de gros objets à partir de petits objets est celle d'extension. Pour toute la suite de cette section, il sera sous-entendu que la catégorie utilisée sera celle des $L$-modules où $L$ est une $k$-algèbre de Lie.
+
+\begin{Def} Soient $V$ et $W$ deux $L$-modules. Alors \textbf{une extension de $V$ par $W$} est la donnée d'un $L$-module $E$ et d'une suite exacte courte 
+$$ 0 \rightarrow W \rightarrow E \rightarrow V \rightarrow 0 $$
+\end{Def}
+
+\begin{Rem} L'ensemble des extensions d'une paire arbitraire de $L$-modules n'est jamais vide. En effet, la somme directe des deux modules $V \oplus W$, l'inclusion $W \hookrightarrow V \oplus W$ et la projection $V \oplus W \twoheadrightarrow V$ fournit toujours une suite exacte courte.
+\end{Rem}
+
+\begin{Rem} \label{avantequivalence} Une extension n'est pas uniquement la donnée d'un $L$-module $E$. Supposons que $E$ soit une extension de $V$ par $W$ via la suite exacte courte 
+$$ 0 \rightarrow W \stackrel{f}{\longrightarrow} E \stackrel{g}{\longrightarrow} V \rightarrow 0 $$ 
+Alors le même module $E$ est aussi une extension de $V$ par $W$ via la suite exacte courte
+$$ 0 \rightarrow W \stackrel{\frac{1}{\lambda} f}{\longrightarrow} E \stackrel{\lambda g}{\longrightarrow} V \rightarrow 0 $$
+où $\lambda \in k \bs \{0,1\}$. Manifestement, ce sont là deux extensions de $V$ par $W$ qui sont, a priori, tout à fait distinctes.
+\end{Rem}
+
+Naturellement, il faut avoir une notion d'équivalence pour des extensions. La remarque précédente montre que de baser cette notion d'équivalence uniquement sur la classe d'isomorphismes du $L$-module dans la donnée d'une extension n'est pas assez précis. 
+
+Voici comment est définie la relation d'équivalence pour des extensions d'une paire de modules donnée. 
+
+\begin{Def} \label{GROS} Soient $V$ et $W$ deux $L$-modules et soient des extensions de $V$ par $W$ données par les suites exactes courtes
+\begin{align*}
+&0 \rightarrow W \stackrel{f_1}{\longrightarrow} E_1 \stackrel{g_1}{\longrightarrow} V \rightarrow 0\\
+&0 \rightarrow W \stackrel{f_2}{\longrightarrow} E_2 \stackrel{g_2}{\longrightarrow} V \rightarrow 0
+\end{align*}
+L'extension 1 est dite équivalente à l'extension 2 s'il existe un isomorphisme de $L$-modules $\varphi : E_1 \rightarrow E_2$ tel que le diagramme suivant soit commutatif
+\begin{center}\begin{tikzpicture}
+y\matrix (m) [matrix of math nodes, row sep=0.5em,column sep=2.5em,text height=1.5ex,text depth=0.25ex, nodes in empty cells]
+{ & & E_1 & & \\ 0 & W & & V & 0\\ & & E_2 & & \\};
+\draw (m-2-1) edge[->,thick] (m-2-2)
+          (m-2-2) edge[->,thick] node[above] {\footnotesize{$f_1$}} (m-1-3)
+          (m-2-2) edge[->,thick] node[below] {\footnotesize{$f_2$}} (m-3-3)
+          (m-1-3) edge[->,thick] node[auto] {\footnotesize{$\varphi$}} (m-3-3)
+          (m-1-3) edge[->,thick] node[above] {\footnotesize{$g_1$}} (m-2-4)
+          (m-3-3) edge[->,thick] node[below] {\footnotesize{$g_2$}} (m-2-4)
+          (m-2-4) edge[->,thick] (m-2-5);
+\end{tikzpicture} \end{center}
+
+L'ensemble des classes d'équivalences d'extensions de $V$ par $W$ est noté $\Ext_L^1(V,W)$.
+\end{Def}
+
+\begin{Rem} Avec cette notion d'équivalence, il est facile de montrer que les deux extensions de la remarque \ref{avantequivalence} sont équivalentes. Pour le voir, il suffit de considérer $\varphi = \frac{1}{\lambda}\Id_E$.
+\end{Rem}
+
+\begin{Rem} Soit $E$ une extension de $V$ par $W$ via une suite exacte courte
+$$ 0 \rightarrow W \rightarrow E \rightarrow V \rightarrow 0 $$
+La remarque précédente laisse toujours sans réponse la question de savoir à quel nombre de classes d'extensions distinctes peut correspondre la classe d'isomorphismes $[E]$ du $L$-module $E$. Dans le cas où $V$ et $W$ sont tous deux des modules simples et de dimension finie, une réponse à cette question est avancée par l'exercice (d) du problème 3.9.1 de \cite{Etingof}. La question plus générale ne faisant pas partie des objectifs de ce travail, je ne développerai pas davantage sur la question.
+\end{Rem}
+
+\begin{Def} Soient $V$ et $W$ des $L$-modules. Alors une extension de $V$ par $W$ est dite \textbf{triviale} si elle est donnée par une suite exacte courte qui est scindée.
+\end{Def}
+
+\begin{Rem} \label{zeroext} Une extension triviale $0 \rightarrow W \rightarrow E \rightarrow V \rightarrow 0$ est équivalente à l'extension donnée par le module $W \oplus V$ via la suite exacte
+$$ 0 \rightarrow W \stackrel{\iota}{\longrightarrow} W \oplus V \stackrel{\pi}{\longrightarrow} V \rightarrow 0 $$
+où $\iota$ est l'inclusion canonique et où $\pi$ est la projection canonique.
+
+Pour le voir, il suffit de considérer la décomposition du $L$-module $E$ comme $V \oplus W$ d'après l'isomorphisme décrit à la remarque \ref{suitescindee}. Ensuite, on vérifie que l'isomorphisme $\varphi$ entre $E$ et $V \oplus W$ qui identifie les parties correspondantes fait effectivement commuter le diagramme pour l'équivalence des extensions (voir la définition \ref{GROS}).
+\end{Rem}
+
+\begin{Rem} Si on fixe $V$ et $W$ des objets de la catégorie $L$-$\mathbf{mod}$, alors la classe d'équivalences de l'extension triviale de $V$ par $W$ est notée $0 \in \Ext_L^1(V,W)$.
+
+Ainsi, si toutes les extensions de $V$ par $W$ correspondent à des suites exactes courtes scindées, on peut écrire $\Ext_L^1(V,W) = \{0\}$.
+\end{Rem}
+
+
+Pour justifier encore une fois l'importance de la notion d'extension, sont immédiatement décrits quelques constats pouvant être faits lorsque Jordan-Hölder s'applique à une catégorie et qu'on considère les facteurs d'un objet donné.
+
+Supposons que $L$ soit une $k$-algèbre de Lie et soit $L$-$\mathbf{mod}$ la catégorie des $L$-modules de dimension finie. Fixons $V$ un objet de $L$-$\mathbf{mod}$. Supposons de plus que $V$ ait une suite de composition
+$$ \{0\} = V_{N+1} \subseteq V_N \subseteq V_{N-1} \subseteq \cdots \subseteq V_1 \subseteq V_0 = V $$
+Si le théorème de Jordan-Hölder s'applique à $L$-$\mathbf{mod}$, alors $V$ peut s'écrire comme une suite d'extensions successives faisant intervenir ses facteurs $\{C_i = V_i/V_{i+1}\}_{i=0}^N$. En effet, on peut écrire des suites exactes courtes
+\begin{align*}
+0 \rightarrow 0 \rightarrow V_N \rightarrow \; &C_N \rightarrow 0\\
+0 \rightarrow V_N \rightarrow V_{N-1} \rightarrow \; &C_{N-1} \rightarrow 0\\
+0 \rightarrow V_{N-1} \rightarrow V_{N-2} \rightarrow \; &C_{N-2} \rightarrow 0\\
+&\;\,\vdots\\
+0 \rightarrow V_{2} \rightarrow V_{1} \rightarrow \; &C_1 \rightarrow 0\\
+0 \rightarrow V_1 \rightarrow V \rightarrow \; &C_0 \rightarrow 0
+\end{align*}
+
+En un sens, ceci montre qu'une connaissance des extensions entre des modules est au moins souhaitable. Vers la fin du chapitre 2, il sera question des classes d'équivalences d'extensions entre deux modules simples arbitraires pour une algèbre de courants tordue. Cela constituera un premier pas dans une compréhension plus globale de cette catégorie de modules.
+
+
+
+
+%%%
+\section{Blocs et blocs d'extensions}
+%
+\subsection{Définitions}
+Soit $V$ un $L$-module de dimension finie, c'est-à-dire un objet de $L$-$\mathbf{mod}$. Le théorème de Jordan-Hölder et les dernières remarques de la section 1.2.2 sur les extensions expliquent que $V$ peut être assimilé à deux choses :
+\begin{itemize}
+\item[\textbullet] Un nombre bien précis de facteurs qui, à isomorphismes près, se répartissent en un nombre déterminé de classes d'isomorphismes qui apparaissent chacune un nombre déterminé de fois.
+\item[\textbullet] Des extensions successives ne dépendant que d'une suite de composition de $V$ ; ces extensions sont déterminées par $V$.
+\end{itemize}
+
+En théorie, ces informations doivent être équivalentes à l'information contenue dans la classe d'isomorphismes $[V]$ du $L$-module $V$. Pour mieux comprendre les modules de $L$-$\mathbf{mod}$, une relation d'équivalence en lien avec les extensions est introduite.
+
+\begin{Def} \label{defdebasebloc} Soient $V$ et $W$ des objets simples de $L$-$\mathbf{mod}$. Ces deux objets sont dit \textbf{liés} s'il existe une suite finie de $L$-modules $\{T^i\}_{i=0}^N$ avec $T^0 = V$, $T^N = W$ et
+$$ \Ext_L^1(T^i,T^{i+1}) \neq \{0\} \qquad \qquad \text{ou} \qquad \qquad  \Ext_L^1(T^{i+1},T^i) \neq \{0\} $$ 
+pour chaque $i \in \{0,\,..., N-1\}$.
+
+Il est entendu que toute paire de modules simples isomorphes est liée par une suite de modules de longueur 0.
+
+Les classes d'équivalences de cette relation sont appelées les blocs d'extensions de $L$-$\mathbf{mod}$, pour l'algèbre de Lie $L$. La notation $\Bloc(L)$ est parfois employée pour signifier l'ensemble des blocs d'extensions de l'algèbre de Lie $L$.
+\end{Def}
+
+Ceci est une relation d'équivalence sur l'ensemble des objets simples de $L$-$\mathbf{mod}$. D'après la définition même de cette relation d'équivalence, la connaissance des classes d'équivalences auxquelles elle donne lieu fournit plusieurs informations sur les extensions entre les modules simples.
+
+\begin{Rem} En anglais, deux objets simples liés (selon la relation d'équivalence ci-dessus) sont dits « linked » et la suite des modules $T^i$ qui fait le lien entre les deux est parfois appelée une chaîne de modules. Ceci fait penser immédiatement aux $T^i$ comme à des maillons d'une chaîne ou « chain links ».
+\end{Rem}
+
+Par le théorème de Jordan-Hölder, on peut regrouper des modules de $L$-$\mathbf{mod}$ selon ce que leurs facteurs sont tous « liés » les uns aux autres. Faire de tels amalgames donne espoir qu'on puisse mieux comprendre les extensions entre des modules arbitraires de $L$-$\mathbf{mod}$. C'est de cette façon que la notion de blocs de la catégorie $L$-$\mathbf{mod}$ est introduite.
+
+\begin{Def} Soit $b \in \Bloc(L)$. Un \textbf{bloc de la catégorie $L$-$\mathbf{mod}$}  est le sous-ensemble de modules
+$$ \Cat_b \;\; = \;\; \left\{\;\; V \in L\text{-}\mathbf{mod} \quad \Bigg| \; \begin{array}{c} \text{Tous les facteurs de } V \text{ sont}\\
+\text{dans le bloc d'extensions } b \end{array}\right\} $$
+En particulier, les blocs de la catégorie $L$-$\mathbf{mod}$ sont en bijection avec l'ensemble $\Bloc(L)$.
+\end{Def}
+
+\begin{Prop} Chacun des blocs de la catégorie $L$-$\mathbf{mod}$ est naturellement une catégorie. Un bloc est en fait une sous-catégorie pleine de $L$-$\mathbf{mod}$.
+\end{Prop}
+
+Cette proposition est la proposition 5.2 de l'article \cite{NSext}. Le contenu de cette proposition apparaît aussi dans \cite{Etingof} au début de la section 9.5, mais dans le contexte des modules pour une algèbre de dimension finie.
+
+Tel que mentionné précédemment, une sous-catégorie pleine signifie simplement que les espaces d'homomorphismes entre des objets de la sous-catégorie sont les mêmes peu importe que l'on voie ces objets comme issus de la sous-catégorie ou non. Concrètement, si $V$ et $W$ sont des objets de $\Cat_b$ pour un certain $b \in \Bloc(L)$, alors $\Hom_{\Cat_b}(V,W) = \Hom_L(V,W)$.
+
+
+
+%
+\subsection{Propriétés capitales et objectifs du mémoire}
+
+\begin{Lem} \label{lemmedejantzen} Soient $V$ et $W$ deux objets de $L$-$\mathbf{mod}$. Pour chaque $b \in \Bloc(L)$, notons $V_b$ et $W_b$ la somme de tous les sous-modules de $V$ et $W$, respectivement, qui sont dans le bloc $\Cat_b$, respectivement. Alors 
+\begin{align*}
+V = \bigoplus\textstyle{_{b \, \in \, \Bloc(L)}} \; V_b && W = \bigoplus\textstyle{_{b \, \in \, \Bloc(L)}} \; W_b
+\end{align*}
+De plus, on a que 
+$$ \Hom_L(V,W) = \bigoplus\textstyle{_{b \, \in \, \Bloc(L)}} \; \Hom_L(V_b,W_b) $$
+\end{Lem}
+
+Ce résultat est le lemme 5.5 de l'article \cite{NSext}. Ses auteurs, E.Neher et A.Savage, notent que la preuve de ce lemme est la même que celle du lemme II.7.1 de \cite{Jantzen}, qui correspond au même résultat, mais dans le cadre des représentations des groupes algébriques. Ce lemme est encore vrai dans le cadre de ce travail.
+
+\begin{Rem} Dans la catégorie $L$-$\mathbf{mod}$, on peut montrer sans trop de difficulté que chaque objet s'écrit comme une somme directe de sous-modules indécomposables où les classes d'isomorphismes et la multiplicité des sous-modules indécomposables qui apparaissent sont bien définies. Ce résultat porte souvent le nom de « théorème de Krull-Schmidt ». On le retrouve dans plusieurs références, par exemple \cite{Etingof} (voir le théorème 3.8.1).
+
+Le problème 9.53 (ii) de \cite{Etingof} fournit une autre perspective sur le lemme \ref{lemmedejantzen} lorsque combiné au théorème de Krull-Schmidt. Le contexte de cet exercice est cependant un peu trop précis pour pouvoir l'appliquer directement dans le cadre de ce travail.
+\end{Rem}
+
+Le lemme \ref{lemmedejantzen} explique en quelque sorte la notation $\Cat = \bigoplus_\alpha \Cat_\alpha$ qui apparait dans la proposition 5.2 de \cite{NSext}. Selon la notation adoptée jusqu'ici dans ce document, on écrira plutôt
+\begin{equation*}
+L\text{-}\mathbf{mod} \; = \; \bigoplus\textstyle{_{b \, \in \, \Bloc(L)}} \; \Cat_b
+\end{equation*}
+
+Cette décomposition et le lemme \ref{lemmedejantzen} justifient certainement l'utilité de la décomposition d'une catégorie en blocs pour arriver à comprendre la composition des objets par leurs facteurs simples. 
+
+Question de préciser ce qui a été dit dans l'introduction, les objectifs de ce travail sont les suivants :
+
+\begin{itemize}
+\item[\textbullet] Étiquetter les blocs de la catégorie $\LL$-$\mathbf{mod}$ des modules de dimension finie pour une algèbre de courants tordue $\LL$.
+\item[\textbullet] Décrire les ensembles $\Ext_\LL^1(V,W)$ lorsque $V$ et $W$ sont des $\LL$-modules simples de dimension finie.
+\item[\textbullet] Par le fait même, décrire les blocs de la catégorie des modules de dimension finie pour les formes tordues d'algèbres de Lie simples (voir \cite{LPtfa}). 
+\end{itemize}
+
+\begin{Rem} Les blocs de la catégorie des modules de dimension finie pour les formes tordues n'ont auparavant pas été décrits.
+\end{Rem}
+
+
