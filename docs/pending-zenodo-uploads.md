@@ -1,3 +1,13 @@
+## 2026-07-05: Noether LocalCodex WebB R781 P30 + P24 p233 integration webdrop
+
+Manifest: [20260705_noether_localcodex_webb_r781_p30_p24p233_integration.json](../manifests/pending-zenodo-uploads/20260705_noether_localcodex_webb_r781_p30_p24p233_integration.json)
+
+- Target record: [Emmy Noether](https://doi.org/10.5281/zenodo.20412587).
+- Artifact: `publish_staging/noether/20260705_localcodex_webb_r781_p30_p24p233_integration/Noether_LocalCodex_20260705_WebB_R781_P30_and_P24p233_Integration_WebDrop.zip`, 17,800,019 bytes, SHA256 `0278A35E7DB3CAC6E13832A9F4469C0F3A701EAF638221D4E3D0EF448D70F725`, 30 ZIP entries.
+- Scope/result: current integration webdrop after WebB R781 Paper 30 printed pp.31-33 dense-cluster fixes and Paper 24 p233 congruence closures. Includes current cumulative German TeX/PDF/log material, source crops, compile logs, diff, incoming WebB R781 provenance, master publication logbook, page/paper QC ledgers, medium-queue closure ledger, and correction-origin ledger.
+- Upload-order note: README says this supersedes the earlier P30-only drop from this turn as the practical integration webdrop; the P30-only package remains incoming WebB provenance.
+- Caveat: source-control/support only. Not a reader release, Noether closure, whole-corpus/page-by-page certification, multilingual synchronization, source-complete certification, publication readiness, or critical edition. Fold into a curated Noether rollup under the 100-file ceiling.
+
 ## 2026-07-05: Other-PC R11 Spanish San Salvador source-body payload
 
 Manifest: [20260705_other_pc_r11_spanish_san_salvador_source_body_payload.json](../manifests/pending-zenodo-uploads/20260705_other_pc_r11_spanish_san_salvador_source_body_payload.json)
