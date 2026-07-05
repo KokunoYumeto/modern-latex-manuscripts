@@ -1,0 +1,345 @@
+\bfsection{\S 12 Krull 環}
+
+\bfsubsection{\S 12 冒頭}
+\barquo{
+$A$がKrull環であるとは、$K$を商体とするDVRの族$\scrf = \{ R_{\grl } \}_{\grl \in \grL}$があって、$R_{\grl}$に対応する正規化された加法付値を$v_{\grl}$とするとき
+\begin{description}
+  \item[(1)] $A = \bigcap_{\grl} R_{\grl}$
+  \item[(2)] $K^*$の各元$x$に対し、$v_{\grl}(x) \neq 0$となる$\grl \in \grL$は高々有限個である、
+\end{description}
+の$2$条件が成り立つことをいう。
+}
+\begin{rem}
+  添え字集合$\grL$として空集合を許す。したがって、体は(DVRではないが)Krull環である。
+\end{rem}
+
+\bfsubsection{定理 12.1 直前}
+\barquo{
+DVRは完整閉であるからKrull環も完整閉である。
+}
+\begin{rem}
+  完整閉という言葉は演習9.5で定義されている。DVRはNoether整閉整域なので、DVRが完整閉であることは演習9.4からあきらか。
+\end{rem}
+
+
+\bfsubsection{定理 12.1 直前}
+\barquo{
+$A$がKrull環なら、$K$の任意の部分体$K'$に対し$A \cap K'$もKrull環である。
+}
+\begin{proof}
+$K' \subset A$のときにはあきらか。$K' \subset A$でないとして示す。Krull環$A$を定義するDVRの族$\scrf = \{ R_{\grl } \}_{\grl \in \grL}$をとり、$R_{\grl}$に対応する加法付値を$v_{\grl}$で表す。$v_{\grl} \colon K^{\tm} \to \Z$を$(K')^{\tm}$に制限したものを$v_{\grl}'$と書くことにする。
+  $v_{\grl}'$は体$K'$の加法付値を定めており、その付値環は$R_{\grl } \cap K'$である。付値環$R_{\grl}$の極大イデアルを$\frakm_{\grl}$と表すことにする。このとき
+  \begin{align*}
+    K' \cap \frakm_{\grl} = (0) &\iff  (K')^{\tm} \subset K \sm \frakm_{\grl} \\
+    &\iff (K')^{\tm} \subset R_{\grl}^{\tm} &(\text{$R_{\grl}$は付値環だから})\\
+    &\iff K' \subset R_{\grl}
+   \end{align*}
+   であることに気をつける。
+
+   $I = \setmid{\grl \in \grL}{K' \cap \frakm_{\grl} = (0)}$とし、$J = \grL \sm I$とする。補集合を$K$を全体として取ることにすると
+   \begin{align*}
+    K' \subset  A  &\iff K' \subset \bigcap_{\grl} R_{\grl} \\
+    &\iff \forall \grl \quad K' \subset R_{\grl}
+   \end{align*}
+   だから、$K' \subset A$でないという仮定から、$J \neq \emptyset$がわかる。 $\grl \in J$のとき、$R_{\grl}$は体でなく、DVRである。また$\grl \in I$, $\mu \in J$のとき
+   \[
+   R_{\grl} \cap K' = K' \supset R_{\mu} \cap K'
+   \]
+   により、$A \cap K' = \bigcap_{\mu \in J} R_{\mu} \cap K'$であることがわかる。
+\end{proof}
+
+
+
+\bfsubsection{補題 1}
+\barquo{
+$a \notin R_i$なら任意の$s \geq 2$が条件をみたす。
+}
+\begin{proof}
+  $a \notin R_i$なら任意の$s \geq 2$について$(1 + a + \cdots + a^{s-1})^{-1} \in R_i$かつ$a \cdot (1 + a + \cdots + a^{s-1})^{-1}$を満たすことを示そう。
+
+  まず$s=2$のときを考える。$a \notin R_i$より$1 + a \notin R_i$である。したがって$(1+a)^{-1} \in R_i$がわかる。またこのとき$a(1+a)^{-1} = 1 - (1+a)^{-1} \in R_i$である。
+
+$s \geq 3$のとき、$a^{2-s}(1 + a + \cdots + a^{s-1}) = (a^{2-s} + a^{3-s} +  \cdots + 1) + a \notin R_i$なので、$1 + a + \cdots + a^{s-1} \not\in R_i$である。とくに$(1 + a + \cdots + a^{s-1})^{-1} \in R_i$がわかる。
+また$a^{-1}(1 + a + \cdots + a^{s-1}) = a^{-1} + (1 + a + \cdots + a^{s-2}) \not\in R_i$だから、$a(1 + a + \cdots + a^{s-1})^{-1} \in R_i$である。
+  %$s \geq 2$とし、$s$以下の場合は示されたとする。このとき、$1 + a + \cdots + a^{s}  = 1 + a(1 + a + \cdots + a^{s-1})$である。ところが$a^{-1}(1 + a + \cdots + a^{s-1})^{-1} \in \frakm_i$なので、$a(1 + a + \cdots + a^{s-1}) \notin R_i$である。
+  %ゆえに$1 + a + \cdots + a^{s} \notin R_i$で、したがって$(1 + a + \cdots + a^{s})^{-1} \in R_i$である。また
+  %\begin{align*}
+  %  a \cdot (1 + a + \cdots + a^{s})^{-1} &= \f{a}{ 1 + a + \cdots + a^{s} } \\
+  %  &= \f{ a( 1 + a + \cdots + a^{s-1}) }{  1 + a + \cdots + a^{s} } \f{1}{ 1 + a + \cdots + a^{s-1}} \\
+  %  &= \left( 1 - \f{1}{ 1 + a + \cdots + a^{s}} \right) \f{1}{ 1 + a + \cdots + a^{s-1}}
+  %\end{align*}
+  %であるから、$a \cdot (1 + a + \cdots + a^{s})^{-1} \in R_i$がわかる。
+\end{proof}
+
+
+
+\bfsubsection{補題 1}
+\barquo{
+もし$1-a \equiv 0 \; (\frakm_i)$なら、$s$が$R_i / \frakm_i$の標数の倍数でなければよい。
+}
+\begin{proof}
+  対偶を示す。$p \geq 0$を$R_i / \frakm_i$の標数とする。$(1 + a + \cdots + a^{s-1})^{-1} \notin R_i$と仮定して$s \in p\Z$を示そう。このとき$1 + a + \cdots + a^{s-1} \in \frakm_i$なので、$0 \equiv 1 + a + \cdots + a^{s-1} \equiv s \; \mod \frakm_i$である。
+  よって$s \in p\Z$が結論される。
+\end{proof}
+
+
+\bfsubsection{補題 1}
+\barquo{
+$1-a \not\equiv 0 \; (\frakm_i)$だが$1 - a^t \equiv 0 \; (\frakm_i)$となる$t \geq 2$が存在するときには、そのような最小の$t$を$t_0$とすれば、$1-a^s \equiv 0 \; (\frakm_i)$となるのは$s$が$t_0$の倍数のときであるからそれを避ければよい。
+}
+\begin{proof}
+  $\exists t \geq 2  \quad 1 - a^t \equiv 0  \mod \frakm_i$が成り立つので、$a \in (R_i/\frakm_i)^{\tm}$である。このとき$t_0$は$a \in (R_i/\frakm_i)^{\tm}$の位数に一致する。したがって結論が従う。
+\end{proof}
+
+
+\bfsubsection{定理 12.2}
+\barquo{
+$A$の極大イデアル$I$がどの$\frakp_i$にも含まれないとすると、$I$の元$x$で$\bigcup_{i=1}^n \frakp_i$に入らないものが存在する。
+}
+\begin{rem}
+  次の有名な補題(演習問題1.6)に帰着する。
+  \lem{
+  (Prime Avoidance Lemma)\\
+  $R$は環、$I \subset R$と$\frakp_1 , \cdots , \frakp_n \subset R$はイデアルだとし、$3 \leq i \leq n$なら$P_i$は素イデアルであるとする。このとき、すべての$i$について$I \not\subset \frakp_i$ならば、$I \not\subset \bigcup_{i=1}^n \frakp_i$である。
+  }
+  \begin{proof}
+    $n$についての帰納法で示す。$n=1$のときはあきらか。$n \geq 1$とし、$n$以下までは成立するとしよう。仮定により
+\[
+z_i \in I \sm \bigcup_{j \neq i} \frakp_j
+\]
+なる$z_i \; (1 \leq i \leq n+1)$がある。もしも$\exists i \; z_i \not\in \frakp_i$ならば示すべきことはないので、$\forall i \; z_i \in \frakp_i$としてよい。ここで
+\[
+z = \prod_{i=1}^n z_i + z_{n+1}
+\]
+とする。$n \geq 2$なら$\frakp_{n+1}$は素イデアルなので、このとき$\prod_{i=1}^n z_i \not\in \frakp_{n+1}$である。($n =1$のときはあきらか)ゆえに$z \in I \sm \bigcup_{i=1}^{n+1} z_{i}$なので、示すべきことがいえた。
+  \end{proof}
+\end{rem}
+
+
+
+\bfsubsection{定理 12.2}
+\barquo{
+各$R_i$がDVRなら$\frakm_i \neq \frakm_i^2$, よって$\frakp_i \neq \frakp_i^{(2)}$である
+}
+\begin{proof}
+  $\frakp_i = \frakp_i^{(2)}$と仮定して$\frakm_i = \frakm_i^2$を示せばよい。それは
+  \begin{align*}
+    \frakm_i &= \frakp_i A_{\frakp_i} \\
+    &= \frakp_i^{(2)} A_{\frakp_i} \\
+    &= (\frakp_i^2 A_{\frakp_i} \cap A) A_{\frakp_i} \\
+    &= \frakp_i^2 A_{\frakp_i} \\
+    &= \frakm_i^2
+  \end{align*}
+  から従う。
+  \begin{comment}
+  $R = R_i$, $\frakp = \frakp_i$, $\frakm = \frakm_i$として添え字を省略する。背理法で示す。$\frakp = \frakp^{(2)}$とする。$R$はDVRなので、$\frakm = wR$なる$w \in R$がある。よって$R = A_{\frakp}$により、$sw \in A$なる$s \in A \sm \frakp$がある。
+  このとき$sw \in \frakm \cap A = \frakp$なので$sw \in \frakp_i^{(2)}$である。ここで$\frakp_i^{(2)} = \frakp^2 A_{\frakp} \cap A = \frakm^2 \cap A$であることから、$sw = w^2t$なる$t \in R$がある。このとき$s = wt$より、$s \in \frakm \cap A = \frakp$となって矛盾。
+\end{comment}
+\end{proof}
+
+
+\bfsubsection{定理 12.2}
+\barquo{
+したがって$\frakp_i$の元$x_i$で$\frakp_i^{(2)}$にも入らず、どの$\frakp_j \; (j \neq i)$にも入らないものが存在する。すると$\frakp_i = x_i A$である。
+}
+\begin{proof}
+  $x_i$の存在はPrime Avoidance Lemmaから。$A$の極大イデアルは$\frakp_j$だけなので、任意の$j$について
+  \[
+  \frakp_i / x_i A \ts_A A_{\frakp_j} = 0
+  \]
+  であることを見ればよい。局所化の平坦性と$x_i$の定め方より$j \neq i$のときは、あきらかに
+  \begin{align*}
+    \frakp_i / x_i A \ts_A A_{\frakp_j} &= \Coker(x_i A \to \frakp_i) \ts A_{\frakp_j} \\
+    &= \Coker(x_i A \ts A_{\frakp_j} \to \frakp_i \ts A_{\frakp_j})  \\
+    &= \Coker(x_i A \ts A_{\frakp_j} \to \frakp_i \ts A_{\frakp_j} \to \frakp_i A_{\frakp_j}) \\
+    &= \frakp_i A_{\frakp_j} / x_i A_{\frakp_j} \\
+    &= 0
+  \end{align*}
+である。そこで$i=j$とする。各$R_{i}$はDVRなので、$x_i A_{\frakp_i} = \frakm_i^{r}$なる$r \geq 1$がある。$x_i \not\in \frakp_i^{(2)}$なので、$r=1$でなくてはならない。ゆえに$\frakp_i / x_i A \ts_A A_{\frakp_i} = 0$もいえる。よって定理4.6より、$\frakp_i = x_i A $である。
+\end{proof}
+
+
+
+\bfsubsection{定理 12.2}
+\barquo{
+$I$を$A$の任意のイデアルとし$I R_i = x_i^{v_i} R_i$とおけば$I = x_1^{v_1} \cdots x_n^{v_n} A$であることが容易にわかる。
+}
+\begin{proof}
+  $z = x_1^{v_1} \cdots x_n^{v_n}$とする。このとき$zR_i = x_i^{v_i} R_i = I R_i$だから、$(zA+I)R_i = I R_i$である。とくにすべての$i$について、局所化の平坦性から
+  \[
+  (zA + I)/I \ts_A A_{\frakp_i} = 0
+  \]
+  だから、$zA + I = I$であり、とくに$zA \subset I$である。
+  したがって$I/zA$を考えることができる。$I/zA$もまた$\frakp_i$での局所化がすべて消えているため、$I = zA$がいえる。
+\end{proof}
+
+
+
+\bfsubsection{定理 12.3}
+\barquo{
+もし$\frakm_{\grl} \cap A = (0)$なら$R_{\grl} \supset K$となり矛盾するから
+}
+\begin{proof}
+$\frakm_{\grl} \cap A = (0)$とする。このとき$A \sm \{ 0 \} \subset R_{\grl} \sm \frakm_{\grl}$である。いま$x \in K$が与えられたとする。$K$は$A$の商体なので、$ax \in A $なる$a \in A \sm \{ 0 \}$がある。
+$R_{\grl}$は局所環だからこのとき$a \in R_{\grl}^{\tm}$であり、したがって$x \in R_{\grl}$がわかる。
+\end{proof}
+
+
+
+\bfsubsection{定理 12.3}
+\barquo{
+$A \supset \bigcap_{\mathrm{ht} \frakp = 1} A_{\frakp}$を示せばよい。すなわち
+\[
+a,b \in A, \; a \neq 0, \; b \in a A_{\frakp} \; (\forall A_{\frakp} \in \scrs_0) \; \To \; b \in aA
+\]
+をいえばよい。容易にわかるように、これは$aA$が高度$1$の準素イデアルの共通部分として表せることと同値である。
+}
+\begin{proof}
+  まず次の補題を示す。
+  \lem{
+  $A$は体でないKrull環、$\frakp \subset A$を高さ$1$の素イデアルとする。$\frakq \subset A$はイデアルとする。このとき次は同値。
+  \begin{description}
+    \item[(1)] $\frakq$は$\frakp$に属する準素イデアル。
+    \item[(2)] $\frakq$は$\frakp$の記号的$n$乗$\frakp^{(n)} = \frakp^n A_{\frakp} \cap A$のいずれかと一致する。
+  \end{description}
+  }
+  \begin{proof} ${}$
+    \begin{description}
+      \item[(1)$\To$(2)] $A$の$\frakp$に属する準素イデアルと、$A_{\frakp}$の$\frakp A_{\frakp}$に属する準素イデアルとの間には自然な全単射がある。したがって$\frakq = \frakq A_{\frakp} \cap A$である。ここで$A$はKrull環で$\height \frakp = 1$なので、$A_{\frakp}$はDVRである。
+      よって$\frakq A_{\frakp}= \frakp^n A_{\frakp}$なる$n \geq 1$がある。
+      \item[(2)$\To$(1)] $\frakp^n A_{\frakp} \subset A_{\frakp}$は、$A_{\frakp}$がDVRなので、あきらかに$\frakp A_{\frakp}$に属する準素イデアル。よって、準同形$A \to A_{\frakp}$で引き戻すことにより、すべての$n$について$\frakp^{(n)}$は$\frakp$に属する準素イデアルであるとわかる。とくに$\frakq$もそうである。
+    \end{description}
+  \end{proof}
+  引用部の証明に戻る。『同値である』と書いてあるが、使うのは一方向だけなので、そちらだけ示す。$a,b \in A, \; a \neq 0, \; b \in a A_{\frakp} \; (\forall A_{\frakp} \in \scrs_0)$と仮定する。$aA$が高度$1$の準素イデアルの共通部分として$aA = \frakq_1 \cap \cdots \cap \frakq_r$と表せたとする。各$\frakq_i$は素イデアル$\frakp_i$に属しているとしよう。
+  このとき$\frakq_i$は記号べきとして$\frakq_i = \frakp_i^{(n_i)}$と表せる。
+  $\frakp_i$は高さ$1$なので、$A_{\frakp_i}$はDVRである。$A_{\frakp_i}$の付値を$v_i$とすれば
+  \[
+\frakp_i^{(n_i)} = \setmid{x \in A}{ v_i(x) \geq n_i }
+  \]
+  だから、結局
+  \[
+  aA = \setmid{x \in A}{ \forall i \; v_i(x) \geq n_i}
+  \]
+  がわかる。
+
+  いま、$b$についての仮定からとくに$b \in \bigcap_{i} a A_{\frakp_i}$である。したがって任意の$i$について$b \in a A_{\frakp_i} \cap A = \frakp_i^{(v_i(a))} = \setmid{x \in A}{v_i(x) \geq v_i(a)}$である。$v_i(a) \geq n_i$なので、$b \in aA$がわかる。
+\end{proof}
+
+
+\bfsubsection{定理 12.3}
+\barquo{
+\[
+aR_i \cap A = \frakq_i, \quad \rad (R_i) \cap A = \frakp_i
+\]
+とおけば$\frakq_i$は$\frakp_i$に属する準素イデアルであり$aA = \frakq_1 \cap \cdots \cap \frakq_t$である。
+}
+\begin{proof}
+  準素イデアルは準同形による引き戻しで保たれる。また、準素イデアルを準同形で引き戻すと、それに付随して上にある素イデアルも引き戻される。より正確には次が成り立つ。
+  \lem{
+  (準素イデアルの引き戻し) \\
+  $\phi \colon A \to B$が環の準同形とする。$\frakq \subset B$が準素イデアルであり、$\sqrt{\frakq} = \frakp$ならば、$\phi^{-1}(\frakq) \subset A$は準素イデアルであり、$\sqrt{\phi^{-1}(\frakq)} = \phi^{-1}(\frakp)$が成り立つ。
+  }
+  \begin{proof}
+    あきらかだが、証明をみたければ雪江\cite{雪江3} 命題2.1.7を参照のこと。
+  \end{proof}
+  引用部の証明に戻る。$R_i$はDVRなので、$aR_i$は$\rad (R_i)$に属する準素イデアルとなる。また$aA \subset \frakq_1 \cap \cdots \cap \cap \frakq_t$はあきらか。逆は
+  \begin{align*}
+  \frakq_1 \cap \cdots \cap \cap \frakq_t &= \bigcap_{\grl \in \grL} a R_{\grl} \cap A \\
+  &\subset a \bigcap_{\grl \in \grL} R_{\grl} \\
+  &= aA
+  \end{align*}
+  と示せる。
+\end{proof}
+
+
+\bfsubsection{定理 12.4}
+\barquo{
+i) ネータ正規整域はKrull環である。
+}
+\begin{proof}
+  ネータ正規整域$A$が与えられたとする。$K = \Frac A$とする。定理11.5により、$A = \bigcap_{\height P = 1} A_P$である。各$A_P$はあきらかに$1$次元ネーター局所整閉整域なのでDVRである。あとは、各$a \in K^{\tm}$に対しゼロでない付値をあたえる$P$が有限個であることを示せばよい。$K$は$A$の商体なので、$a \in A \sm \{0\}$として示せば十分である。よって$a \in P A_P \cap A$、つまり$a \in P$なる高度$1$の素イデアルが有限個であることを示せばよいことになる。
+
+  $A$加群$A/aA$を考える。このとき素イデアル$P$に対して
+  \begin{align*}
+    P \in \Supp(A/aA) &\iff A/aA \ts_A A_P \neq 0 \\
+    &\iff A_P / a A_P \neq 0 \\
+    &\iff aA \subset P
+  \end{align*}
+  である。とくに$\height P=1$なら、$aA \subset P$は、$P$が$\Supp(A/aA)$の極小元であることを意味する。($A$は整域であることも使った) よって、定理6.5により$a \in P$なる高度$1$の素イデアルは$\Ass(A/aA)$の元である。ここで$A/aA$は有限生成$A$加群で、$A$はNoetherなので$\Ass(A/aA)$は有限集合。したがって、示すべきことがいえた。
+\end{proof}
+
+
+\bfsubsection{定理 12.4}
+\barquo{
+ii) $A$を整域、$K$を$A$の商体、$L$を$K$の拡大体とする。$L$に含まれるKrull環の族$\{ A_i \}_{i \in I}$があって、(1) $A = \bigcap A_i$, (2) $0 \neq a \in A$なら有限個の$i$を除いて$a A_i = A_i$, の2条件が成り立つならば、$A$はKrull環である。
+}
+\begin{proof} ${}$
+  \begin{description}
+    \item[Step 1] $A_i$にKrull環の構造を定めるDVR族$\{ R_{\grl} \}_{\grl \in \grL_i}$をとる。$R_{\grl}$の極大イデアルを$\frakm_{\grl}$とおく。あきらかに$K \subset \Frac A_i$なので、
+    \[
+\grL'_i = \setmid{\grl \in \grL_i}{K \cap \frakm_{\grl} \neq (0)}
+    \]
+    とすれば$A_i \cap K = \bigcap_{i \in \grL'_i} K \cap R_{\grl}$であり、これによって$A_i \cap K$はKrull環となる。ここで$\Frac (R_{\grl} \cap K) = K$であることに注意する。このとき
+    \[
+    A = \bigcap_{i \in I} \bigcap_{\grl \in \grL'_i} K \cap R_{\grl}
+    \]
+    である。これが$A$にKrull環の構造を定めることを示そう。
+    \item[Step 2] $a \in A \sm \{0\}$が与えられたとする。$A$の商体が$K$なので、
+    \[
+    J = \setmid{ (i,\grl) \in \coprod_{i \in I} \grL'_i }{a \in K \cap \frakm_{\grl}}
+    \]
+    として、$\# J < \infty$を示せば十分である。いま
+    \begin{align*}
+      J_A &= \setmid{i \in I}{a  \notin A_i^{\tm} } \\
+      J_i &= \setmid{ \grl \in \grL'_i}{a \in K \cap \frakm_{\grl}}
+    \end{align*}
+    とする。条件(2)より$\# J_A < \infty$であり、各$A_i \cap K$はKrull環であることにより$\# J_i < \infty$である。したがって
+    \[
+    J \subset \coprod_{i \in J_A} J_i
+    \]
+    より$\# J < \infty$がわかる。以上により、$A$はKrull環である。
+  \end{description}
+\end{proof}
+
+
+
+\bfsubsection{定理 12.4}
+\barquo{
+iii) $A$がKrull環ならば$A[X]$, $A[[X]]$もそうである。
+}
+\begin{proof} ${}$
+  \begin{description}
+\item[Step 1] $K = \Frac A$とする。$K[X]$はPIDなのでKrull環である。先に進むために次の補題を用意する。
+\lem{
+(多項式環の局所化の簡約) \\
+$A$は整域、$K$は$A$の商体、$\frakp \subset A$は素イデアルであるとする。$B = A_{\frakp}$, $\frakq = \frakp A_{\frakp}$とおく。このとき、$K[X]$の部分集合として
+\begin{description}
+  \item[(1)] $A[X]_{\frakp[X]} = B[X]_{\frakq[X]}$ \\
+  \item[(2)] $B$がUFDならば$K[X] \cap A[X]_{\frakp[X]} = B[X]$
+\end{description}
+}
+\begin{proof} ${}$
+  \begin{description}
+\item[(1)] $A \sm  \frakp \subset A[X] \sm  \frakp[X]$なので、$B[X] \subset A[X]_{\frakp[X]} $である。$f \in B[X] \sm \frakq[X]$としよう。
+$f \in B[X]$より、ある$a \in A \sm \frakp$が存在して$af \in A[X]$である。また$f \notin \frakq[X]$より$af \notin \frakp[X]$である。よって
+$1/f = a / (af) \in A[X]_{\frakp[X]}$である。したがって$B[X]_{\frakq[X]} \subset A[X]_{\frakp[X]}$がわかる。
+
+逆を示そう。$A[X] \subset B[X]_{\frakq[X]}$はあきらか。$A[x] \sm \frakp[X]$の元は$B[X]_{\frakq[X]}$の単元なので$A[X]_{\frakp[X]} \subset B[X]_{\frakq[X]}$がいえる。
+したがって、$A[X]_{\frakp[X]} = B[X]_{\frakq[X]}$である。
+\item[(2)] ($B$がUFDという仮定は本当は不要と思われるが、証明できなかった) $B[X] \subset K[X] \cap A[X]_{\frakp[X]}$はあきらか。逆に$f \in K[X] \cap A[X]_{\frakp[X]}$が与えられたとする。
+(1)より$f \in B[X]_{\frakq[X]}$であり、
+このとき$f \in A[X]_{\frakp[X]}$より$f = g/h$なる$h \in B[X] \sm \frakq[X]$と$g \in B[X]$がある。$B$は局所環なので、$h$は原始多項式である。
+$B[X]$はUFDなので、次のGaussの補題の系が使える。
+\lem{
+(Gaussの補題の系) \\
+$B$を一意分解環、$B$の商体を$K$、$g, h \in B[X]$で$h$は原始多項式とする。このとき、$g/h \in K[X]$ならば実は$g/h \in B[X]$である。
+}
+\begin{proof}
+  証明は雪江\cite{雪江2} 補題1.11.33を参照のこと。
+\end{proof}
+簡約補題の証明に戻る。したがって、$f \in K[X]$より$f \in B[X]$がいえる。これで示すべき事がいえた。
+
+  \end{description}
+\end{proof}
+  \end{description}
+\end{proof}

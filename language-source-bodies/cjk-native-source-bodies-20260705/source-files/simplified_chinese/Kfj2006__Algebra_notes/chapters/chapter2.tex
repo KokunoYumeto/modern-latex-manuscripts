@@ -1,0 +1,367 @@
+\chapter*{Lecture02正规子群与商群、同态以及同构}
+\addcontentsline{toc}{chapter}{Lecture02正规子群与商群、同态以及同构}
+\stepcounter{chapter}
+
+\section{正规子群与商群}
+
+\kfj{引子：}在上节课中，Lagrange定理指出G的子群H可给出G的一个划分，或者说，H给出了一个等价关系。在等价类$\overline{a}$中，可取一个元素a作为这个等价类的代表元，同理$\overline{b}$中也可取b作为代表元，那么事实上我么自然的会想定义商集中的运算：$\overline{a}\cdot\overline{b}=\overline{a\cdot b}$。(注：在a上面写一个上划线意为a的等价类)\\
+\kfj{定理：}设G是一个群，$H<G$，设G/H是H在右陪集意义下的商集，那么：
+\[
+G/H\text{在上述运算下构成一个群}\iff \; \forall g\in G,\;\forall h\in H,\; gh\inv{g}\in H
+\]
+\begin{proof}
+$(\implies)$\[\begin{aligned}
+&\forall g\in G,\;\forall h\in H\text{，依定义，}\overline{g}\cdot\overline{\inv{g}}=\overline{e}=H\\
+&\therefore\overline{\inv{g}}=H\inv{g}=Hh\inv{g}=\overline{h\inv{g}}\\
+&\therefore\overline{g}\cdot\overline{h\inv{g}}=\ovl{e}\iff Hgh\inv{g}=H\implies gh\inv{g}\in H
+\end{aligned}\]
+$(\impliedby)$事实上，只需证明该运算与等价类所选取的代表元无关即可（涉及等价类都要证明良好定义）
+\[\begin{aligned}
+&\forall  a,b \in G,\;\text{设}a\sim a_1;\; b\sim b_1,\text{也就是说}a\inv{a_1}\in H,b\inv{b_1}\in H.\\
+&\therefore(ab)\inv{(a_1b_1)}=ab\inv{b_1}\inv{a_1}=\left(a(b\inv{b_1})\inv{a}\right)\cdot a\inv{a}\\
+&\text{其中，由于}a\inv{a_1}\in H,b\inv{b_1}\in H,\;\text{故}\exists h_1,h_2\in H,\text{使得}a\inv{a_1}=h_1,b\inv{b_1}=h_2\\
+&\therefore(ab)\inv{(a_1b_1)}=ah_2\inv{a}h_1\\
+&\text{依右侧条件可知}ah_2\inv{a}\in H,\;因此(ab)\inv{(a_1b_1)}\in H\implies \ovl{ab}=\ovl{a_1b_1}
+\end{aligned}\]
+由此可知，该运算是良好定义的。那么立即可知G/H(作为H在右陪集意义下的商集)在该运算下构成一个群。
+\end{proof}
+\kfj{定义：}设$H<G$，若$\forall g\in G,\;\forall h\in H,\; gh\inv{g}\in H$，则称这样特殊的子群为正规子群，记作$H\zg G$\\
+\kfj{性质：}设G是群，$H_1\zg G,\; H_2\zg G$，那么$H_1\cap H_2\zg G$
+\begin{proof}
+$\forall h\in H_1\cap H_2,\; \forall g\in G$，由于$H_1\zg G,\; H_2\zg G$，故$gh\inv{g}\in H_1,\; gh\inv{g}\in H_2$\\
+因而可知$gh\inv{g}\in H_1\cap H_2\implies H_1\cap H_2\zg G$
+\end{proof}
+\kfj{性质：}$H\zg G\iff \forall g\in G,\; gH=Hg$
+\begin{proof}
+$(\implies)\forall h\in H,\left\{
+\begin{aligned}
+&gh=gh\inv{g}g\in Hg\\
+&hg=g\inv{g}hg\in gH
+\end{aligned}\right.
+\implies\left\{
+\begin{aligned}
+&gH\subset Hg\\
+&Hg\subset gH
+\end{aligned}
+\right.\iff gH=Hg$\\
+$(\impliedby)$
+\[
+\begin{aligned}
+&\forall g\in G,\; h\in H,\; gH=Hg\\
+&\therefore \exists h'\in H,\;\text{使得}gh=h'g\implies gh\inv{g}=h'\in H\implies H\zg G
+\end{aligned}
+\]
+\end{proof}
+由此可知，定理中G/H不必强调是在右陪集意义下的商集，因为在左陪集意义下的商集和右陪集意义下的商集是相等的。于是在$H\zg G$的时候，G/H不需要声明是在什么意义下的商集。\\
+\kfj{定义(商群)：}设G是一个群，"$\cdot$"是G上的群运算，$H\zg G$，那么商集G/H在二元运算$\cdot\colon G/H\times G/H\to G/H$，$(\ovl{a},\ovl{b})\mapsto\ovl{ab}$下所构成的群，称为G关于H的商群。\\
+\kfj{例：}设$H<G$且$[G:H]=2$,那么$H\zg G$
+\begin{proof}
+设$a\not\in H$那么
+$\left\{
+\begin{aligned}
+&G=H\sqcup Ha\\
+&G=H\sqcup aH
+\end{aligned}\right.$，其中$\sqcup$是无交并\\
+所以$aH=Ha=G-H\implies H\zg G$
+\end{proof}
+\kfj{例：}$\mathbb{Z}$是整数加法群，那么$n\mathbb{Z}=\{kn\mid k\in \mathbb{Z}\}$是$\mathbb{Z}$的子群。由于$\mathbb{Z}$交换，所以$n\mathbb{Z}\zg\mathbb{Z}$（显然{\color[rgb]{0,0.5,1}交换群的子群都是正规子群}）于是做商群$\mathbb{Z}/n\mathbb{Z}$，不难看出$\mathbb{Z}/n\mathbb{Z}=\{\ovl{0},\ovl{1},\cdots,\ovl{n-1}\}$，这便是所谓模n剩余类群，现在我们通过商群的形式来刻画它。\\
+正规子群是一类性质极好的子群，但是非交换群的子群不都是正规的。于是我们希望通过缩小G，找到可以以H为正规子群的那个最大的子群。\\
+\kfj{定义：}设$H<G$，记
+\[
+N(H)=\{g\in G\mid gH=Hg\}
+\]
+称为G中关于H的正规化子(\noteb{Normalizer})，现证明N(H)是G的子群。
+\begin{proof}
+$\forall g\in N(H),\; gH=Hg$易知$\inv{g}H=\inv{g}H$\\
+$\forall a,b\in N(H),\; a\inv{b}H=a(H\inv{b})=(aH)\inv{b}=Ha\inv{b}\implies a\inv{b}\in N(H)$所以N(H)是G的子群。
+\end{proof}
+\kfj{注：}\noteb{若$H\zg K,\; K\zg G$不一定有$H\zg G$。}我们可以理解为$H\zg K$仅代表$kh\inv{k}\in H$只支持K中元素对H满足共轭不变性质。我们将在”特殊群“一节中给出这个事情的反例。（其中所说的共轭不变性质就是所谓$\forall h\in H,k\in K,\;kh\inv{k}\in H$的性质。）\\
+在上一个Lecture中我们介绍了如何从群G的子集S生成一个子群，我们自然地会想，可否类似地定义由集合S生成的正规子群呢？\\
+\kfj{定义：}设G是群，X是G的子集，X生成的正规子群定义为：所有包含X的正规子群之交，记之为$([X])$。事实上，G本身就是包含X的正规子群，因此该定义是合理的。\\
+\kfj{定理：}设G是群，X是G的子集，定义：
+\[
+X^{+}=\{gx\inv{g}|x\in X,\; g\in G\}
+\]
+则有：$([X])=<X^{+}>$，其中$<X^{+}>$代表由集合$X^{+}$生成的子群。
+\begin{proof}
+($([X])\subset<X^{+}>$)：易知，$<X^{+}>$中元素都形如：$(g_1x_1\inv{g_1})^{s_1}\cdots(g_kx_k\inv{g_k})^{s_k}$\\
+可知：$(g_1x_1\inv{g_1})^{s_1}\cdots(g_kx_k\inv{g_k})^{s_k}$=$(g_1x_1^{s_1}\inv{g_1})\cdots(g_kx_k^{s_k}\inv{g_k})$\\
+\[
+\therefore \forall g\in G,\; g\left[\prod_{i=1}^{k}(g_ix_i\inv{g_i})^{s_i}\right]\inv{g}=\prod_{i=1}^{k}\left[(gg_i)x_i\inv{(gg_i)}\right]^{s_i}\in<X^{+}>
+\]
+因此可知$<X^{+}>$是G的正规子群，因而有：$([X])\subset <X{+}>$\\
+($([X])\supset<X^{+}>$)：我们易知正规子群的性质：正规子群之交仍正规，所以可知$([X])$是正规子群\\
+$\therefore \forall g\in G,\; x\in X\subset([X]),\; gx\inv{g}\in ([X])\implies X^{+}\subset ([X])$，又由于$([X])$是G的子群\\
+因此有$<X^{+}>\subset([X])$
+\end{proof}
+\section{同态以及同构}
+
+\kfj{定义：}设$G_1,\;G_2$是群，$f\colon G_1\to G_2$是集合之间的映射。如果f满足：$\forall a,b\in G_1,\; f(ab)=f(a)f(b)$那么称f是一个从$G_1$到$G_2$的群同态。特别地，f作为映射是单射时称为单同态、f作为映射是满射时称为满同态、f作为映射是双射时称为同构，记作$G_1\cong G_2$。\\
+\noteb{(注：有时单同态也称为嵌入，这种称呼合理的点在于单射是从小集合打到大集合的映射)}\\
+\kfj{例：}$H\zg G,\; \pi\colon G\to G/H,\; g\mapsto \ovl{g}$那么由商群运算性质知$\pi$是一个群同态，我们称之为自然同态。\\
+\kfj{定义：}设$f\colon G_1\to G_2$是群同态，记
+\[
+kerf=\{g\in G_1\mid f(g)=e'\in G_2\}
+\]
+其中$e'$是$G_2$的幺元，Kerf称为f的同态核，简称为核。再记
+\[
+Imf=\{f(g)\mid g\in G_1\}
+\]
+称为f的同态像，简称为像。\\
+\kfj{性质：}设$f\colon G_1\to G_2$是群同态，那么有：
+\[
+\begin{aligned}
+&(1)\text{若e是}G_1\text{的幺元，那么f(e)是}G_2\text{的幺元}\\
+&(2)\forall x\in G_1,\; f(\inv{x})=\inv{f(x)}\in G_2\\
+&(3)Imf<G\\
+&(4)Kerf\zg G
+\end{aligned}
+\]
+\begin{proof}
+\begin{align*}
+(1):\quad&\forall x\in G,\; x=x\cdot e=e\cdot x\implies f(x)=f(x)f(e)=f(e)f(x)\text{由于}G_2\text{是群，所以}\\
+&\text{有消去律，因而消去两侧}f(x)\text{后可知}f(e)\text{是}G_2\text{的幺元。}\\
+(2):\quad&\forall x\in G,\;f(e)=f(x\cdot\inv{x})=f(x)\cdot f(\inv{x})\implies \inv{f(x)}=f(\inv{x})\\
+(3):\quad&\text{取}y_1,y_2\in Imf，\text{那么}\exists x_1,x_2\in G\text{使得}f(x_1)=y_1,\;f(x_2)=y_2\\
+&\implies y_1\inv{y_2}=f(x_1)f(\inv{x_2})=f(x_1\inv{x_2})\in Imf\\
+(4):\quad&\forall a,b\in Kerf,\; f(a\inv{b})=f(a)f(\inv{b})=f(a)\inv{f(b)}=e'\cdot e'=e'\implies Kerf<G\\
+&\forall k\in Kerf,\; g\in G_1,\; f(gk\inv{g})=f(g)f(k)f(\inv{g})\\
+&\because k\in Kerf\\
+&\therefore f(k)\text{是}G_2\text{中的幺元}\implies f(gk\inv{g})=f(g)e'\inv{f(g)}=e'\\
+&\therefore gk\inv{g}\in Kerf\implies Kerf\zg G
+\end{align*}
+\end{proof}
+\kfj{定理：}(同态基本定理)$G_1,G_2$是群，$f\colon G_1\to G_2$是群同态，那么$f$诱导出群同构：
+\[
+\ovl{f}\colon G_1/Kerf\cong Imf,\; \ovl{g}\mapsto f(g)
+\]
+其中$\ovl{g}$是g在$G_1/Kerf$中的等价类。
+\begin{proof}
+\begin{align*}
+(step1)&\text{首先证明$\ovl{f}$良好定义}\\
+&\text{取$\ovl{a}$和$\ovl{b}$且}\ovl{a}=\ovl{b},\text{那么有：}a\inv{b}\in Kerf\\
+&\therefore\text{若设e‘是}G_2\text{的幺元，那么}f(a\inv{b})=e'\iff f(a)f(\inv{b})=e'\iff f(a)=f(b)\\
+&\therefore\text{映射$\ovl{f}$是良好定义的}\\
+(step2)&\text{再证明$\ovl{f}$是群同构}\\
+&\forall g_1,g_2\in G,\; \ovl{f}(\ovl{g_1}\ovl{g_2})=\ovl{f}(\ovl{g_1g_2})=f(g_1g_2)=f(g_1)f(g_2)=\ovl{f}(\ovl{g_1})\ovl{f}(\ovl{g_2})\\
+&\text{所以$\ovl{f}$是群同态}\\
+&\text{易知$\ovl{f}$是满射}\\
+&\text{而}\forall a,b\in G,\; \ovl{f}(\ovl{a})=\ovl{f}(\ovl{b})\implies f(a)=f(b)\implies f(a\inv{b})=e'\implies a\inv{b}\in Kerf\implies \ovl{a}=\ovl{b}\\
+&\text{因此$\ovl{f}$是单射}\\
+\text{综上可知}&\ovl{f}\colon G_1/Kerf\cong Imf,\; \ovl{g}\mapsto f(g)\text{是群同构}
+\end{align*}
+\end{proof}
+\kfj{推论：}若设$\pi \colon G_1\to G_1/Kerf$是自然同态，$j\colon Imf\to G_2$是嵌入，那么有如下交换图交换：
+\[
+\begin{tikzcd}[row sep =large, column sep = large]
+G_1 \arrow[r,"f"] \arrow[d,"\pi"'] & Imf\\
+G_1/Kerf \arrow[ur,dashed,"\ovl{f}"']  &
+\end{tikzcd}
+\]
+和
+\[
+\begin{tikzcd}[row sep =large, column sep =large]
+G_1 \arrow[r,"f"] \arrow[d,"\pi"'] & G_2 \\
+G_1/Kerf \arrow[r,"\ovl{f}"] & Imf \arrow[u,"j"']
+\end{tikzcd}
+\]
+（有关交换图的一些性质）\\
+\kfj{(1)}$f\colon A\to C,\; p\colon B\to C$，A,B,C是集合，p是单射。则使得下图交换的映射$g\colon A\to B$唯一（如果存在的话）。
+\[
+\begin{tikzcd}[row sep=large,column sep =large]
+A \arrow[rd,"f"'] \arrow[r,dashed,"g"] &B \arrow[d,"p"']\\
+& C
+\end{tikzcd}
+\]
+\begin{proof}
+若$\exists \blx{g}\colon A\to B$使得$p\circ g=p\circ \blx{g}=f$。那么$\forall a\in A,\; p\circ g(a)=p\circ \blx{g}(a)$。而由于p是单射，故$g(a)=\blx{g}(a)\Rightarrow g=\blx{g}$，因此唯一。\\
+\kfj{(2)}$f\colon A\to C,\; q\colon A\to B$，A,B,C是集合，q是满射。则使得下入交换的映射$g\colon B\to C$唯一（如果存在的话）。
+\end{proof}
+\[
+\begin{tikzcd}[row sep =large, column sep=large]
+A  \arrow[r,"q"] \arrow[rd,"f"'] &B \arrow[d,dashed,"g"']\\
+& C
+\end{tikzcd}
+\]
+\begin{proof}
+若$\exists \blx{g}\colon B\to C$使得$g\circ q=\blx{g}\circ q=f$。那么$\forall b\in B,\; \exists a\in A$使得$q(a)=b$因此：$g(b)=g\circ q(a)=\blx{g}\circ q(a)=\blx{g}(b)\Rightarrow g=\blx{g}$，因此唯一。\\
+\end{proof}
+我们可以看到，类似于这样的交换图所决定的映射是唯一的（存在的话），因此我们不必担心构造的问题，只需要追踪元素即可，剩下的工作交给证明找到的“对应”是良好定义的（如果无法证明则说明存在性出现了问题），以及其他性质的证明。\\
+\kfj{练习：}设$G_1,G_2$是群，$H_1\zg G_1,\; H_2\zg G_2,\; f\colon G_1\to G_2$，是群同态，且$f(H_1)\subset H_2$。试证明：下面交换图诱导出的群同态$\bar{f}$存在且唯一。（请通过“追图法”自行证明此练习）\\
+\[
+\begin{tikzcd}[row sep=large,column sep=large]
+G_1 \arrow[r,"f"] \arrow[d,"\pi_1"'] &G_2 \arrow[d,"\pi_2"']\\
+G_1/H_1 \arrow[r,"\bar{f}"] &G_2/H_2
+\end{tikzcd}
+\]
+\begin{proof}
+我们通过追图法可以确定$\bar{f}$的对应方式，即$\ovl{f}(\ovl{g})=\ovl{f(g)}$。于是定义映射$\ovl{f}\colon G_1/H_1 \to G_2/H_2,\; \ovl{g}\mapsto \ovl{f(g)}$.\\
+先证明如此定义$\ovl{f}$是良好定义的。设$\ovl{a},\ovl{b}\in G_1/H_1,\;\ovl{a}=\ovl{b}$那么有$a\inv{b}\in H_1$。
+\[
+\therefore \ovl{f(a\inv{b})}=\ovl{f(a)\inv{f(b)}}=\ovl{f(a)}\inv{\ovl{f(b)}}
+\]
+又由于$f(a\inv{b})\in f(H_1)\subset H_2$所以$\ovl{f(a\inv{b})}=e'\in G_2/H_2\Rightarrow \ovl{f(a)}=\ovl{f(b)}$因此映射$\ovl{f}$是良定义的。而易知$\ovl{f}$是群同态，且$\ovl{f}\pi_1=\pi_2f$，因此合题。\\
+\end{proof}
+（我们先来看看满同态有哪些性质：）\\
+\kfj{定理：}（满同态对应定理）设$f\colon G_1\to G_2$是群同态，且f是满同态。那么有：
+\[
+\begin{aligned}
+(1)&\text{若}H<G_1,\;\text{那么}f(H)<G_2\\
+(2)&\text{若}K<G_2,\text{则}\inv{f}(K)<G_1\text{且}Kerf\subset \inv{f}(K)\text{。其中}\inv{f}(K)=\{g\in G_1|f(g)\in K\}\\
+(3)&\text{设}\mathbb{H}=\{H<G_1| Kerf\subset H\},\text{则映射}\sigma \colon \mathbb{H}\to\{A|A<G_2\},\; H\mapsto f(H)\text{给出了}G_1\text{中包含}\\ 
+&\text{Kerf的所有子群与}G_2\text{中的所有子群之间的一一对应，且}f(H)\zg G_2\iff H\zg G_1.\\
+&\text{在此条件下，有：}G_1/H_1\cong G_2/f(H).
+\end{aligned}
+\]
+\begin{proof}（1）：显然。
+（2）：设$a,b\in \inv{f(K)}$，则$f(a),f(b)\in K\implies f(a)\inv{f(b)}\in K\implies f(a\inv{b})\in K$\\
+$\therefore a\inv{b}\in \inv{f}(K)\implies \inv{f}(K)<G_1$。此时若$g\in Kerf$，则$f(g)=e'\in K\implies g\in \inv{f}(K)$。因此，$Kerf\subset \inv{f}(K)$\\
+（3）：自行验证命题：f是满射等价于任意$G_2$的子集A,都满足$f\circ \inv{f}(A)=A$（提示：用反证法取$G_2$的单点子集即可证明必要性）。\\
+由此命题以及（2）可知，映射$\sigma$是一个满射。因此只需检验：$\forall H\in \mathbb{H},\; \inv{f}\circ f(H)=H$。\\
+显然$H\subset \inv{f}\circ f(H)$。\\
+而$\forall x\in \inv{f}\circ f(H),\; f(x)\in f(H)\implies \exists h\in H$使得$f(x)=f(h)\iff x\inv{h}\in Kerf$。\\
+$\because H\in \mathbb{H}\implies Kerf\subset H$\\
+$\therefore x\inv{h}\in H\implies x\in H\implies \inv{f}\circ f(H)\subset H$。\\
+由此可知，$\sigma$是一个一一对应。\\
+再证剩余命题：（$H\zg G_1\implies f(H)\zg G_2$）\\
+此时，$\forall y\in f(H),\; \forall g'\in G_2$由于f是满射，所以$\exists h\in H,\; g\in G_1$使得$f(h)=y,\; f(g)=g'$。因而有：$g'y\inv{(g')}=f(gh\inv{g})$；又由于$H\zg G$，所以$f(gh\inv{g})\in f(H)\implies f(H)\zg G_2$\\
+($f(H)\zg G_2\implies H\zg G_1$)\\
+$\forall h\in H,\; \forall g\in G_1$有：$f(gh\inv{g})=f(g)f(h)\inv{f(g)}$\\
+$\because f(H)\zg G_2$\\
+$\therefore f(gh\inv{g})\in f(H)$\\
+$\therefore \inv{f}\circ f(H)=H\implies gh\inv{g}\in H$。因此$H\zg G_1$.综上可知$f(H)\zg G_2\iff H\zg G_1$。\\
+此时做映射$\phi \colon G_1\to G_2/f(H),\; g\mapsto \ovl{f(g)}$，显然$\phi$是同态。\\
+那么有：$g\in H\iff f(g)\in f(H)\iff g\in Ker\phi$，因此$H=Ker\phi$。\\
+由同态基本定理以及$\phi$是满射（易验证）：$G_1/H_1\cong G_2/f(H)$\\
+\end{proof}
+以上则是满同态的一个重要性质，下面我么来考察以下单同态的一个结论：\\
+\kfj{命题：}设$f\colon G_1\to G_2$是群同态，那么f是单同态$\iff Kerf=\{e\}\subset G_1$
+\begin{proof}
+$\forall x_1,x_2\in G_1,\; f(x_1)=f(x_2)\iff f(x_1\inv{x_2})=e'\in G_2\iff x_1\inv{x_2}\in Kerf$\\
+$\therefore$若$Kerf=\{e\}$那么$x_1=x_2\implies f$是单同态。\\
+反之，用于$f(e)=e'\in G_2$，那么$\forall g\in G_1,\; g\ne e\implies f(g)\neq f(e)=e'$\\
+因此$Kerf=\{e\}$
+\end{proof}
+我们可以看到，单同态的情况比较简单，要么是同构，要么是嵌入（“嵌入”一词指的是$G_1\cong Imf$)\\
+\kfj{定理：}（第一同构定理）设$H\zg G,\; N\zg G,\; H\subset N$，那么有：
+\[
+(G/H)/(N/H)\cong G/N
+\]
+{\color[rgb]{0,0.5,1} 注：“那么”后面的所有商去操作均是合法的。}
+\begin{proof}
+做自然同态$\pi \colon G\to G/H$，显然$\pi$是满射\\
+$\because N\zg G$\\
+$\therefore$由满同态对应定理，立即得到：$G/N\cong (G/H)/\pi(N)=(G/H)/(N/H)$
+\end{proof}
+\kfj{定理：}（第二同构定理）设$H\zg G,\; K<G$，那么有：
+\[
+H\cap K\zg K\text{且}K/(H\cap K)\cong HK/H
+\]
+对于这个定理，我们会有两个问题，一个是：“什么是HK?"，另一个是：“为什么$HK/H$的商去操作是合法的？”。下面，我们通过两个引理来解决这个问题。\\
+\kfj{引理（I)}：设$H<G,\; K<G$，定义$HK=\{hk|h\in H,\; k\in K\}$，类似地定义KH，我们称之为乘积集。
+\[
+\text{那么：} HK<G\iff HK=KH
+\]
+\begin{proof}
+($\implies$)：若$HK<G$，则$\forall h\in H,\; k\in K$，有：$kh=\inv{(\inv{h}\inv{k})}\in HK\implies KH\subset HK$\\
+$\forall h\in H,\; k\in K,\;\exists h'\in H,\; k'\in K$使得$hk=\inv{(h'k')}\implies hk=\inv{k'}\inv{h'}\in KH\implies HK\subset KH$\\
+因此有$KH=HK$\\
+\noteb{(注：值得注意的是，两侧的包含关系的证明是有区别的，具体区别就在于我们只知道$HK$是子群，$KH$是否构成群还不知道，所以不能说明形如$\inv{k'h'}$的元素仍在$KH$中。)}\\
+($\impliedby$)：$\forall h_1,h_2\in H,\; k_1,k_2\in K,\; (h_1k_1)\inv{(h_2k_2)}=h_1k_1\inv{k_2}\inv{h_2}$\\
+$\because HK=KH,\; k_1\inv{k_2}\inv{h_2}\in KH$\\
+$\therefore \exists h_0\in H,\; k_0\in K$使得$h_0k_0=k_1\inv{k_2}\inv{h_2}$\\
+$\therefore h_1k_1\inv{k_2}\inv{h_2}=h_1h_0k_0\in HK$，即$(h_1k_1)\inv{(h_2k_2)}\in HK\implies HK<G$
+\end{proof}
+\kfj{引理（II)}：设$K<G,\; H<G$，那么：
+\[
+(\text{HK是G的子群且}H\zg HK)\iff \forall h\in H,\; k\in K,\; kh\inv{k}\in H
+\]
+\noteb{(注：注意等价符号右侧的条件，与H是K的正规子群不同在于，H不一定是K的子集)}
+\begin{proof}
+($\implies$)：$\because H\zg HK$\\
+$\therefore \forall h\in H,\; k\in K\subset HK$，有：$kh\inv{k}\in H$\\
+($\impliedby$)：依条件，$\forall h\in H,\; k\in K,\; \left\{
+\begin{aligned}
+&hk=(k\inv{k})hk=k\cdot (\inv{k}hk)\in KH\\
+&kh=kh(\inv{k}k)=(kh\inv{k})\cdot k\in HK
+\end{aligned}
+\right.$\\
+$\therefore HK=KH$。\\
+由引理（I）知：此时$HK<G$。\\
+且：$\forall h_0\in H,\; hk\in HK$，有：$(hk)h_0\inv{(hk)}=h(kh\inv{k})\inv{h}\in H$\\
+所以有$H\zg HK${\color[rgb]{0,0.5,1} (注：$A\zg B,\; B\zg C$并不意味着$A\zg C$)}
+\end{proof}
+\kfj{证明定理：}
+\begin{proof}
+定义映射$f\colon K\to KH/H,\; k\mapsto kH$\\
+其中，在$KH/H$中，记$kH$为$\ovl{k}$的等价类（$k\in KH$)\\
+依陪集运算的定义，$\forall k_1,k_2\in K,\; \ovl{k_1}\ovl{k_2}=\ovl{k_1k_2}$\\
+$\therefore f\colon K\to KH/H$是群同态。\\
+而$Kerf=\{x\in K|f(x)=\bar{e}\in KH/H\}=\{x\in K| xH=H\}=H\cap K$\\
+注意到：$\forall k\in K,\; h\in H,\; (kh)H=kH=f(k)\in Imf$\\
+$\therefore Imf=KH/H\implies f$是满射。\\
+于是由同态基本定理：$K/Kerf\cong Imf\iff K/(H\cap K)\cong KH/H$
+\end{proof}
+在证明第二同构定理的过程中，我们给出了两个 引理。乍一看，这两个引理是我们从定理中得到的启示，事实上，这两个引理在后面应用的场景比定理本身甚至更多。我们不妨将这两个引理一同写入第二同构定理：\\
+\kfj{重写第二同构定理：}设$H<G,\; K<G$
+\[
+\begin{aligned}
+&(1): \: HK<G\iff KH=HK\\
+&(2): \: (HK\text{是群且}H\zg HK)\iff \forall h\in H,\;\forall k\in K,\; kh\inv{k}\in H\\
+&(3):\text{特别地，若}H\zg G,\; \text{则}H\cap K\zg K\text{且}K/(H\cap K)\cong HK/H
+\end{aligned}
+\]
+\indent 事实上，对于群G的两个子集H和K，我们也可以类似的定义：
+\[
+HK=\{h\cdot k|h\in H,\; k\in K\}
+\]
+其中的运算使用G中乘法。于是我们其实可以对商群中的运算有一个全新的看法。\\
+\kfj{新视角：}我们知道在商群中的元素实际上是陪集，而我们定义陪集之间的运算为代表元的运算结果的等价类。但是事实上，如果我们将两个陪集的乘积集作为运算结果的话，与我们之前所定义的运算是等价的。\\
+\kfj{定理：}$H\zg G\iff \forall a,b\in G,\; (aH)(bH)=(ab)H$，其中$(aH)(bH)$是乘积集。
+\begin{proof}
+($\implies$)$\forall ah_1bh_2\in (aH)(bH),\; ah_1bh_2=ab(\inv{b}h_1b)h_2\in abH\implies (aH)(bH)\subset(ab)H$。另一方面，$\forall abh\in (ab)H,\; abh=(a\cdot e)bh\in (aH)(bH)\implies (ab)H\subset(aH)(bH)$。因此可知$(aH)(bH)=(ab)H$。\\
+($\impliedby$)可知，$\forall g\in G$，有$(gH)(\inv{g}H)=(g\inv{g})H=H$，因此有$\forall h,h_2\in H,\exists h'\in H$，使得$gh\inv{g}h_2=h'\iff gh\inv{g}=h'\inv{h_2}\implies gh\inv{g}\in H$。因此$H\zg G$。
+\end{proof}
+
+\indent 上面的几个同构定理指出一些典范的群同构，下面我们来看看哪些感觉上是同构，但实际情况却与我们直觉上相反的反例：\\
+\kfj{例：}设$G_1,\; G_2$是群，$H_1,\; H_2$分别是他们的正规子群，且满足：
+\[
+\left\{
+\begin{aligned}
+&(1) G_1\cong G_2\\
+&(2) H_1\cong H_2
+\end{aligned}\right.
+\]
+\indent 那么$G_1/H_1$和$G_2/H_2$是否一定有同构关系呢？答案是不一定。我们来看$G_1=G_2=\mathbb{Z}$的情况。令$H_1=\mathbb{Z}$，$H_2=2\mathbb{Z}$，我们知道$G_1/H_1$元素个数为1，$G_2/H_2\cong \mathbb{Z}_2$，元素个数为2，因此$G_1/H_1$和$G_2/H_2$不互相同构。下面只需者证明$H_1\cong H_2$就能给出反例。
+\begin{proof}
+作映射
+\[
+f\colon \mathbb{Z}\to 2\mathbb{Z},\; n\mapsto 2n
+\]
+可知$\forall m,n\in \mathbb{Z},\; f(m+n)=2(m+n)=2m+2n=f(m)+f(n)$。因此可知$f$是群同态。而又有：
+\[
+Kerf=\{n|f(n)=0\}=\{n|2n=0\}=\{0\}
+\]
+故可知$f$是单同态。又易知$f$是满同态，因此$f\colon \mathbb{Z}\to 2\mathbb{Z}$是群同构，从而给出所需反例。
+\end{proof}
+\indent 事实上，我们在下一节，循环群的部分中可以知道，对于任意非零整数$m$和$n$，都有$m\mathbb{Z}\cong n\mathbb{Z}$，但是他们的商群不互相同构。这个反例告诉我们，商群不能仅仅被所商去的正规子群的同构类确定，而需要具体考虑正规子群在群中的嵌入方式。那么下面我们就来看一个定理告诉我们，确定个一嵌入，也能给出一个群同构。\\
+\kfj{定理：}对于群$G$和它的正规子群$H$，若有单同态$i\colon G\to P$，其中P是另一个群。那么则有
+\[
+i(H)\zg i(G),\; G/H\cong i(G)/i(H)
+\]
+\begin{proof}
+\indent 易知$i(H)<i(G)$，$\forall i(g)\in i(G),\; i(h)\in i(H),\; (i(g))(i(h))\inv{(i(g))}=i(gh\inv{g})\in i(H)$，因此$i(H)\zg i(G)$。于是此时此然地诱导出映射：
+\[
+\ovl{i}\colon G/H\to i(G)/i(H),\; gH\mapsto i(g)i(H)
+\]
+\indent 其中，$g_1H=g_2H\iff g_2\inv{g_1}\in H$。由于$i\colon G\to P$是单同态，故$a\in H\iff i(a)\in i(H)$，因此有：
+\[
+g_1H=g_2H\iff i(g_2\inv{g_i}\in i(H)\iff i(g_2)\inv{(i(g_1))}\in i(H)\iff i(g_2)i(H)=i(g_1)i(H)\iff \ovl{i}(g_2H)=\ovl{i}(g_1H)
+\]
+因此我们可知$\ovl{i}\colon G/H\to i(G)/i(H)$是一个良定义地单射。显然它是满射，从而是双射。下面我们证明它是群同态。
+\[
+\forall aH,bH\in G/H,\; \ovl{i}(aH\cdot bH)=\ovl{i}(abH)=i(ab)i(H)=i(a)i(b)i(H)=i(a)i(H)\cdot i(b)i(H)=\ovl{i}(aH)\cdot \ovl{i}(bH)
+\]
+因此可知$\ovl{i}\colon G/H\to i(G)/i(H)$是群同态从而是群同构。
+\end{proof}
+

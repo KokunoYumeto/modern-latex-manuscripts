@@ -1,0 +1,287 @@
+\bfsection{\S 11. DVR, Dedekind 環}
+
+\bfsubsection{定理 11.1}
+\barquo{
+$a,b,c,d \in R - \{0\}$, $a/b=c/d$ならば
+\[
+v(a) - v(b) = v(c) - v(d)
+\]
+となることが容易にわかるから、$K^*$の元$\xi = a/b$に対し$v(\xi) = v(a) - v(b) \in \Z$とおけば、$v$は$K$の加法付値を定めその付値環が$R$になることは見易い。
+}
+\begin{proof}
+  直感的に成り立ちそうだということは判る。確認していく。
+  $a/b=c/d$とする。$K$の部分$R$加群として$a/b R = c/d R$である。一方で$a/b R = x^{v(a)-v(b)}R$であり、$c/d R = x^{v(c)-v(d)}R$であるから、$v(a) - v(b) = v(c) - v(d)$となることがいえた。
+
+$a,b \in R \setminus \{0\}$とする。$v(ab)=v(a) + v(b)$であることはあきらか。
+よって$\xi , \tau \in K^{\tm}$に対して$\xi = a/b$, $\tau = c/d$とすると
+    \begin{align*}
+      v(\xi \tau ) &= v(ac/bd) \\
+      &= v(ac) - v(bd) \\
+      &= v(a) + v(c) - v(b) - v(d) \\
+      &= v(\xi) + v(\tau)
+    \end{align*}
+    がわかる。
+
+ $a,b \in  R \setminus \{0\}$について、$v(a) \geq v(b)$とする。$v(a+b) \geq v(b)$となることはあきらか。
+    $\xi , \tau \in K^{\tm}$が与えられたとする。このとき$\xi = a/b$, $\tau = c/d$とすると
+    \begin{align*}
+      v(\xi + \tau ) &= v\left( \f{a}{b} + \f{c}{d} \right) \\
+      &= v \left( \f{ad+bc}{bd} \right) \\
+      &= v(ad+bc) - v(bd) \\
+      &\geq \min\{v(ad), v(bc) \} - v(bd) \\
+      &= \min\{v(a)+v(d),v(b ) + v(c) \} - v(b)-v(d) \\
+      &= \min\{v(a)-v(b),v(c)-v(d) \} \\
+      &= \min \{ v(\xi), v(\tau)\}
+    \end{align*}
+    がわかる。
+\end{proof}
+
+
+\bfsubsection{定理 11.1}
+\barquo{
+$v$の値群はあきらかに$\Z$であるから$R$はDVRである。
+}
+\begin{rem}
+  \textblue{これは正しくない。}$R$がもし体なら、$v$の値群は$0$である。したがって、(2)と(3)には「$R$は体でない」という仮定が必要である。
+\end{rem}
+
+
+\bfsubsection{定理 11.2 直前}
+\barquo{
+付値環$S$の極大イデアル$\frakm_S$が単項イデアルであっても$S$がDVRであるとは限らない。
+}
+\begin{proof} ${}$
+\begin{description}
+  \item[Step 1] $k[x,y]$の拡大環$A=k[x,y, x/y, x/y^2 , x/y^3 , \cdots ]$を考える。$M=yA$とする。$M=(x,y , x/y, x/y^2 \cdots )A$とも書けるので$M \subset A$は極大イデアルである。そこで$S = A_M$, $\frakm = M A_M$とする。$\frakm$は$S$の極大イデアルであり、かつ単項生成である。
+  \item[Step 2] $S$がDVRでないことを示そう。$n \geq 0$に対し
+  \[
+  M_n = (x,y,x/y , \cdots , x/y^n)A
+  \]
+  とする。$M_n \subset A$は素イデアルであり、任意の$n$について
+  \[
+  M_0 \subsetneq \cdots \subsetneq M_{n-1} \subsetneq M_n \subsetneq M
+  \]
+  を満たすので$\height M \geq n$である。したがって$\height \frakm = \height M = \infty$である。Noether環のすべての素イデアルは高さが有限なので、$S$はNoetherでない。とくに、$S$はDVRでない。
+  \item[Step 3] $S$が付値環であることを示そう。まず次の補題を示す。
+  \lem{
+  任意の$f \in k[x,y]$に対して
+  \[
+  f= x^s y^t g
+  \]
+  なる$s,t \geq 0$と$g \in A \setminus M$が存在する。
+  }
+\begin{proof}
+  $f \in k[x,y]$より、
+\[
+f = \sum_{(s,t) \in I} a_{s,t} x^s y^t
+\]
+と表せる。$a_{s,t} \neq 0$としてよい。$s_0 \geq 0$を$s_0 = \min \setmid{s}{(s,t) \in I}$で定める。そして$J \subset I$を$J = \setmid{(s,t) \in I}{s=s_0}$とおくと
+  \[
+  f x^{-s_0} = \sum_{(s,t) \in J} a_{s,t} y^t + \sum_{(s,t) \in I \setminus J} a_{s,t} x^{s-s_0} y^t
+  \]
+  を得る。さらに$t_0 = \min \setmid{t}{(s_0,t) \in J}$とおくと
+  \[
+  f x^{-s_0} y^{-t_0} = a_{s_0,t_0 } + \sum_{(s,t) \in J \setminus \{(s_0, t_0)\}} a_{s,t} y^{t-t_0} +  \sum_{(s,t) \in I \setminus J} a_{s,t} x^{s-s_0} y^{t-t_0}
+  \]
+  がわかる。ここで$(s,t) \in I \setminus J$のとき
+  \[
+   x^{s-s_0} y^{t-t_0} = \f{x}{y^{t_0 - t}} \cdot x^{s-s_0-1}
+  \]
+  なので、$s-s_0 + 1 \geq 0$により$ x^{s-s_0} y^{t-t_0} \in M$である。また、あきらかに$(s,t) \in J \setminus \{(s_0, t_0)\}$のとき$y^{t-t_0} \in M$である。ゆえに$f x^{-s_0} y^{-t_0} \in A \setminus M$である。
+\end{proof}
+$S$が付値環であることの証明に戻る。$S$の商体は$k(x,y)$である。$h \in k(x,y)$が与えられたとする。$h=f_1 / f_2$なる$f_i \in k[x,y]$をとり、さらに$f_i = x^{s_i} y^{t_i} g_i$なる$s_i, t_i$と$g_i \in A \setminus M$をとる。このとき
+\begin{align*}
+  h &= \f{x^{s_1} y^{t_1} g_1  }{ x^{s_2} y^{t_2} g_2 } \\
+  &= \f{ x^{s_1 - s_2} }{ y^{t_2 - t_1} } \cdot \f{g_1}{g_2}
+\end{align*}
+である。よって$s_1 - s_2 > 0$ならば$h \in A_M = S$である。$s_1 - s_2 < 0$ならば、$h^{-1} \in S$である。また$s_1 = s_2$のとき
+\[
+h = \f{y^{t_1 - t_2} g_1}{g_2}
+\]
+である。よって$t_1 \geq t_2$ならば$h \in S$である。$t_1 < t_2$ならば、$h^{-1} \in S$である。以上の議論により、$S$は付値環である。
+\end{description}
+\end{proof}
+
+
+
+\bfsubsection{定理 11.2 (3)$\To$(1)}
+\barquo{
+また$x$がべき零なら$\dim R = 0$となるから$x^{\nu} \neq 0 \; (\forall \nu)$.
+}
+\begin{proof}
+  $x$がべき零とする。このとき$\frakm$はべき零で、したがって
+  \[
+  \frakm \subset \sqrt{0} = \bigcap_{\frakp \in \Spec R} \frakp
+  \]
+  である。ゆえに、任意の素イデアル$\frakp$に対して$\frakm \subset \frakp$が成り立つが、$\frakm$は極大イデアルだったので$\frakm = \frakp$である。したがって$R$の素イデアルは$\frakm$だけなので、$\dim R = 0$である。
+\end{proof}
+
+
+\bfsubsection{定理 11.2 (3)$\To$(1)}
+\barquo{
+$v(t) = \nu$とおけば$v$は$R$の商体の加法付値で$R$がその付値環であることが容易にわかる。
+}
+\begin{proof}
+  定理11.1の(2)$\To$(1)の証明と同様。
+\end{proof}
+
+
+\bfsubsection{定理 11.2 (1)$\To$(4)}
+\barquo{
+付値環だから正規である。
+}
+\begin{proof}
+  一般に、付値環$R$は整域かつ整閉(定理10.3)なので整閉整域。したがって正規環である。
+\end{proof}
+
+
+\bfsubsection{定理 11.2 (4)$\To$(3)}
+\barquo{
+$R$は仮定により整域である。
+}
+\begin{proof}
+  一般に、局所環$(R,\frakm)$が正規環でもあるなら、$R$は整域であることを示そう。$x,y \in R$とし、$xy=0$とする。準同形$\vp \colon R \to R_{\frakm}$で送ると、$R$が正規環という仮定より、$R_{\frakm}$は整閉整域なので$\vp(x)=0$または$\vp(y)=0$である。$\vp(x)=0$として一般性を失わない。このときある$u \in R \setminus \frakm$があって、$ux=0$である。ところが$u$は単元だったから、これは$x=0$を意味する。よって$R$
+  は整域。
+\end{proof}
+
+
+
+\bfsubsection{定理 11.2 (4)$\To$(3)}
+\barquo{
+したがって定理8.10(i)により$\frakm \neq \frakm^2$であるから、
+}
+\begin{proof}
+  NAKによっても示せる。$A$はNoethernなので$\frakm$は有限生成$A$加群である。もし$\frakm = \frakm^2$なら、NAKにより$a \frakm = 0$かつ$a \equiv 1 \mod \frakm$なる$a$の存在がわかる。$(A,\frakm)$は局所環なので$a$は単元で、したがって$\frakm = 0$となり矛盾。
+\end{proof}
+
+
+\bfsubsection{定理 11.2  (4)$\To$(3)}
+\barquo{
+$\dim R = 1$により$\frakm$は$xR$の素因子であり、$xR : y = \frakm$なる$y \in R$が存在する。
+}
+\begin{proof}
+  $R$のイデアル$xR \subset R$の素因子とは、$R$加群$R/xR$の素因子を指すのだった。$xR \subset \frakm$より$R/ xR$は$0$でない$R$加群で、$R$はNoetherだったので定理6.1により$\Ass (R/xR) \neq \emptyset$である。そこで$P \in \Ass (R/xR)$とし、$P = \ann_{R}(\ol{y})$となる$\ol{y} \in R/xR$をとる。$\frakm \supset P \supset xR \supset (0)$である。
+  $\dim R = 1$より$\frakm = P$でなくてはならない。したがって$\frakm$はイデアル$xR \subset R$の素因子である。$\ol{y}$の$R$における代表元のひとつを$y \in R$とすれば、これは$\frakm = xR : y$を意味する。
+\end{proof}
+
+
+
+\bfsubsection{定理 11.3 (2)$\To$(1)}
+\barquo{
+$I$から$R$への$R$線形写像はすべて$K$の元による乗法で得られる (証明せよ)。
+}
+\begin{proof}
+  $I$が射影的という仮定は必要としないことを注意しておく。%$I$は分数イデアルなので、$\gra I \subset R$なる$\gra \in K^{\tm}$がある。$R$は整域なので$I \cong \gra I$であり、したがって$I \subset R$としてよい。
+  また、分数イデアルの定義は$(0)$を除外しているので、$I \neq (0)$である。
+
+局所化の平坦性により、$R$加群として$K$は平坦である。したがって、$I \ts K \subset K \ts K$だと見なせる。したがって、$K \ts K \cong K$より、$\dim_K I \ts K \leq 1$である。また、$I$は$0$でないので、$a \in I$なる$0$でない元$a$がある。$R$は整域なので、$aR$は自由加群である。ゆえに$K \cong aR \ts K \subset I \ts K$が判る。
+したがって$\dim_K I \ts K = 1$であり、包含関係があって次元が同じなので$I \ts K = K \ts K$が結論できる。
+
+ここで、$\vp \colon I \to R$が与えられたとする。
+\[
+\xymatrix{
+K \ts K \ar@{=}[r] \ar[d]_-i & I \ts K \ar[r]^-{\vp \ts K} & R \ts K \ar[d]^-i \\
+K \ar[rr] & {} & K
+}
+\]
+あきらかに、$i \circ (\vp \ts K) \circ i^{-1} (x) = \beta x$なる$\beta \in K$がある。したがって、
+\begin{align*}
+  \vp(y) &= i \circ (\vp \ts K) (y \ts 1) \\
+  &= (i \circ (\vp \ts K) \circ i^{-1}) (y) \\
+  &= \beta y
+\end{align*}
+が成り立つ。
+\end{proof}
+
+\begin{rem}
+  より初等的と思われる別証明を紹介する。$x \in I$は$K$の元なので、$x = b/c \; (c \in R, b \in R)$と表せる。$I$は分数イデアルなので、$I \cap R$は$0$でない。そこで$0 \neq a \in I \cap R$をとれる。すると$ac \vp(x) = ac \vp(b/c) = \vp(ab) = b \vp(a)$となる。ゆえに$\vp(x) = b　c^{-1} a^{-1}\vp(a) = a^{-1} \vp(a) x$が成り立つ。
+\end{rem}
+
+
+\bfsubsection{定理 11.3 (1)$\To$(3)}
+\barquo{
+$a_i \in I$, $b_i \in I^{-1}$とし$P$を任意の素イデアルとすると、少なくとも1つの$i$に対して$a_i b_i$が$R_P$の単元となり、そのとき$I_P = a_i R_P$となるから$I_P$は単項イデアルである。
+}
+\begin{proof}
+  $a_ib_i$は単元なので、$a_ib_i u = 1$なる$u \in R_P$がある。このとき任意の$j$について$a_j = (a_jb_i) u a_i $である。$b_i \in I^{-1}$により$a_j b_i \in R$であるから、$a_j \in a_i R_P$がわかる。$a_j$は$R$加群として$I$を生成するので、したがって$I \subset a_i R_P$が結論できる。逆は明らかなので、$I = a_i R_P$である。
+  \begin{comment}
+  すでに、(1)$\To$(2)は示したので、$I$は$R$加群として射影的である。局所環上の射影加群は自由加群である(定理2.5)ことに帰着させる方針で示す。
+  $I$は分数イデアルなので、$I$は$R$のあるイデアルと同型であり、はじめから$I \subset R$としてよい。まず、局所化によって射影的という性質は不変であることをみる。
+  \lem{
+  $R$は環、$S$は$R$の積閉集合で、$P$は射影的$R$加群であるとする。このとき局所化$P_S$は$R_S$上の射影加群である。
+  }
+\begin{proof}
+$R_S$加群$M,N$と$R_S$準同形$\vp \colon M \to N$, $\psi \colon P_S \to N$が与えられ、$\vp$は全射であるとする。$P$は射影的という仮定から、$R_S$加群を$R$加群だと思えば、次の図式
+\[
+\xymatrix{
+{} & P \ar[d] \ar[ddl]_-{f} \\
+{} & P_S \ar[d]^-{\psi} \\
+M \ar[r]^-{\vp} & N \ar[r] & 0
+}
+\]
+が可換になるような$R$準同形$f$の存在がわかる。全体を$R$加群だとみなし、$R_S$をテンソルする。すると、任意の$R_S$加群$C$について
+\[
+C \ts_R R_S = C \ts_{R_S} R_S \ts_R R_S = C \ts_{R_S} R_S = C
+\]
+が成り立つことから、(詳細な議論は省く) 次の可換図式を得る。
+\[
+\xymatrix{
+{} & P_S \ar[d]^-{id} \ar[ddl]_-{f \ts R_S} \\
+{} & P_S \ar[d]^-{\psi} \\
+M \ar[r]^-{\vp} & N \ar[r] & 0
+}
+\]
+以上により、$P_S$は$R_S$加群として射影的である。
+\end{proof}
+引用部の証明に戻る。$I$は射影$R$加群なので、$I \ts_R R_P$は射影$R_P$加群である。$R_P$は局所環であるため、$I \ts_R R_P$は自由$R_P$加群であることまでいえる。ここで、局所化の平坦性により$I \ts_R R_P = \Im(I \ts_R R_P \to R \ts_R R_P) = \Im(I \ts_R R_P \to R \ts_R R_P \to R_P) = I R_P = I_P$が保証されていることに気をつける。$I_P \subset R_P$であることから、$I_P$の$R_P$自由加群としての階数は$1$以下であることがすぐにわかる。
+$I$は整域$R$の$0$でないイデアルなので、$I$はある$0$でない自由加群を含む。したがって$I_P$の階数は$1$であると決定する。したがって、$I_P \subset R_P$は単項イデアルである。
+\end{comment}
+\end{proof}
+
+
+\bfsubsection{定理 11.3 (3)$\To$(1)}
+\barquo{
+$I$が有限生成なら$(I^{-1})_P = (I_P)^{-1}$である。
+}
+\begin{rem}
+  $K$の部分加群として$I^{-1} = (R : I)$, $(I_P)^{-1} = (R_P : I_P)$と定義されていることにさえ注意すれば、本文通りの証明で示せる。
+\end{rem}
+
+
+
+\bfsubsection{定理 11.5}
+\barquo{
+$R = \bigcap_{ \mathrm{ht} P = 1} R_P$
+}
+\begin{proof}
+$\subset$はあきらか。$a,b \in R$, $a \neq 0$とし、$\forall P \; \height P = 1 \To b/a \in R_P$と仮定する。$b/a \in R$を示したい。
+$a \in R$が単元ならなにも示すことはないので、$a$は単元でないとしてよい。$R$はNoether環で、$aR \subsetneq R$なので、$aR$の準素分解
+\[
+aR = \frakq_1 \cap \cdots \cap \frakq_n, \quad \Ass(R / \frakq_i) = \{P_i\}
+\]
+が存在する。このとき$\frakq_i$は$R$の準素イデアルであり、$\sqrt{\frakq_i} =\sqrt{\ann(R/\frakq_i)} =  P_i$が成り立つ。
+
+このとき任意の$i$について%$aR_{P_i} \cap R = \frakq_i$を示そう。まず
+%\[
+%\frakq_i \subset R, \quad \frakq_i \subset aR \subset aR_{P_i}
+%\]
+%により$aR_{P_i} \cap R \supset \frakq_i$はあきらか。逆に、
+\begin{align*}
+  aR_{P_i} &= (\frakq_1 \cap \cdots \cap \frakq_n )R_{P_i} \\
+  &\subset \frakq_1 R_{P_i} \cap \cdots \cap \frakq_n R_{P_i} \\
+  &\subset \frakq_i R_{P_i}
+\end{align*}
+である。したがって$aR_{P_i} \cap R \subset \frakq_i R_{\frakp_i} \cap R = \frakq_i$が成り立つ。
+
+(i)により、単項イデアル$aR$の素因子$P_i$は高さ$1$である。したがって$b \in aR_{P_i} \cap R \subset \frakq_i$なので、$b \in \bigcap_{i} \frakq_i = aR$である。したがって$b/a \in R$が結論される。
+\end{proof}
+
+
+
+\bfsubsection{定理 11.6 (1)$\To$(3)}
+\barquo{
+$R$はすでにみたようにネータ環だから、$I$の大きさについての上からの帰納法が使える。
+}
+\begin{rem}
+  $\scrs$を$R$のイデアル$J$であって、有限個の素イデアルの積として表せないもの全体の集合とする。$\scrs \neq \emptyset$と仮定すれば、$R$はNoetherなので$\scrs$は極大元$I$をもつ。あとは本文と同様に議論を進めれば、「上からの帰納法」とは何かという問題に触れずに済む。
+\end{rem}

@@ -1,0 +1,94 @@
+
+\section{群的概念与基本性质}
+\label{sec:group}
+
+\subsection{概念}
+\label{sec:concept-of-group}
+
+
+
+\begin{definition}
+  设$G$是一个非空集合，其上定义了一个二元运算$\odot$，即对于任意$a,b \in G$，存在$c \in G$，使得$a\odot b=c$，如果运算$\odot$满足结合律，则称集合$G$及其上的二元运算$\odot$为一个\emph{半群}，记作$<G, \odot>$。
+\end{definition}
+
+为了避免书写繁琐，由于实数上的乘法运算可以省去运算符不写，即把$a\times b$写成$ab$，这里也把半群中的二元运算称为乘法，并把$a\odot b$简写为$ab$，但是这里所称的乘法只是一个名称而已，与实数的乘法没有任何关系，只是为了省写运算符罢了，以后就直接称半群上的乘法了。
+
+\begin{definition}
+  设$G$是一个非空集合，其上有定义了称为乘法的二元运算，如果存在一个元素$e \in G$，使得对于任意$a \in G$，都成立$ea=a$，则称$e_l$是集合$G$关于这个运算的\emph{左幺元}，如果把等式改成$ae=a$，则称$e$是\emph{右幺元}，如果左幺元与右幺元是同一个元素，则称它是\emph{幺元}。
+\end{definition}
+
+\begin{definition}
+  仍设$G$是一非空集合，其上定义了称为乘法的二元运算，而且它有左幺元$e$，设$a \in G$，如果存在$b \in G$，使得$ba=e$，则称$b$是$a$的\emph{左逆元}，在这定义中把左幺元换成右幺元，并把等式$ba=e$换成$ab=e$，则得到\emph{右逆元}的定义。如果左幺元与右幺元是同一元素，即幺元，并且左逆元与右逆元是同一个，则称$b$是$a$的\emph{逆元}.
+\end{definition}
+
+在有了幺元和逆元的概念后，就可以给出群的概念了。
+
+\begin{definition}
+  设$G$关于其上的二元乘法是一个半群，如果还满足以下两个条件，则称集合$G$关于此乘法运算构成一个\emph{群}:
+  \begin{enumerate}
+  \item 存在$e \in G$，使得对于任意$a \in G$，都有$ea=ae=a$，此时称$e$是幺元。
+  \item 任意$a \in G$，都存在$b \in G$，使得$ab=ba=e$，此时称$b$是$a$的逆元。
+  \end{enumerate}
+\end{definition}
+
+\begin{definition}
+  设非空集合$G$关于其上的乘法是一个群，如果此乘法还满足交换律，则称这个群是\emph{交换群}，或者\emph{阿贝尔(Abel)群}.
+\end{definition}
+
+\begin{definition}
+  群中的元素个数称为群的\emph{阶}，元素个数有限的群称为\emph{有限群}，元素个数无限的群称为\emph{无限群}.
+\end{definition}
+
+实际上群的定义还可以减弱，只要存在左幺元和左逆元就可以了，或者存在右幺元和右逆元，这都是等价的，现在来讨论这个问题，先证明一个关于消去律的结论.
+
+\begin{theorem}
+  \label{theorem:left-identity-reverse-ele-so-left-cancellation}
+  设非空集合$G$关于其上的乘法是一个半群，如果存在左幺元并且$G$中任意元素都存在关于左幺元的左逆元，则这乘法满足左消去律，即由$ab=ac$能得出$b=c$.同样的，由右幺元及右逆元也能得出右消去律。
+\end{theorem}
+
+\begin{proof}[证明]
+  假定三个元素$a$、$b$、$c$符号等式$ab=ac$，用$a$的左逆元$d$左乘等式两端得$d(ab)=d(ac)$，由结合律得$(da)b=(da)c$，即$eb=ec$，于是$b=c$.右消去律的情况同理。
+\end{proof}
+
+\begin{theorem}
+  设非空集合$G$关于其上的乘法是一个半群，如果存在左幺元和左逆元，则它也必然存在右幺元和右逆元，并且左右幺元相等，左右逆元相等，反之亦然。
+\end{theorem}
+
+\begin{proof}[证明]
+  设左幺元是$e$，先证明它也是右幺元，即对任意$a \in G$，需要证明$ae=a$，设$a$的左逆元为$b$，即$ba=e$，有$b(ae)=(ba)e=ee=e=ba$，根据 \autoref{theorem:left-identity-reverse-ele-so-left-cancellation}，按左消去律即得$ae=a$，即$e$也是右幺元。
+
+  再证明$a$的左逆元$b$同时也是它的右逆元，因为$be=b=eb=(ba)b=b(ab)$，按左消去律即得$ab=e$，即$ab=ba=e$.即得证。
+\end{proof}
+
+有了这个定理，群的定义就可以简化了，只要存在左幺元以及任何元素都存在关于左幺元的左逆元就够了，这称为群的第二定义。
+
+\subsection{基本性质}
+\label{sec:basic-properties-of-group}
+
+\begin{theorem}[群的基本性质定理]
+  设非空集合$G$关于其上的乘法运算构成一个群，则
+  \begin{enumerate}
+  \item 左右幺元相等，幺元是唯一的，记作$e$.
+  \item 任意元素的左右逆元素相等且唯一，记作$a^{-1}$。
+  \item 乘法运算满足消去律，包括左消去律和右消去律.
+  \item 对于$G$中任取两个元素$a$和$b$(可以相等)，方程$ax=b$及$xa=b$都有唯一解.
+  \end{enumerate}
+\end{theorem}
+
+这里的性质与前文所给出群的定义有部分重复，所以这里是采用的群的第二定义。
+
+\begin{proof}[证明]
+  1. 前文已经证明了左幺元同时也是右幺元，只需再证幺元的唯一性，设$e_1$和$e_2$都是幺元，则$e_1=e_1e_2=e_2$，即幺元是唯一的。
+
+  2. 同样，任意元素的左逆元同时也是它的右逆元，前文已经证明了这点，只要再证明逆元的唯一性，设$b_1$和$b_2$都是$a$的逆元，则$b_1=b_1e=b_1(ab_2)=(b_1a)b_2=eb_2=b_2$，所以逆元也是唯一的。
+
+  3. 消去律前文已经证明了，由左幺元和左逆元可得出左消去律，由右幺元和右逆元可得出右消去律。
+
+  4. 对于方程$ax=b$，两边同时左乘$a$的逆元$a^{-1}$，得$x=a^{-1}b$，即为其唯一解，对于方程$xa=b$，两边同时右乘$a$的逆元$a^{-1}$，即得唯一解$x=ba^{-1}$，需要注意的是这两个方程的解并不一定相等，因为乘法并不一定满足交换律。
+\end{proof}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../algebra-note"
+%%% End:

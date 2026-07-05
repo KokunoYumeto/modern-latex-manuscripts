@@ -1,0 +1,292 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  パッケージ                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%使用しないときはコメントアウトしてください
+\usepackage{amsthm}%定理環境
+\usepackage{framed}%文章を箱で囲う
+\usepackage{amsmath,amssymb}%数式全般
+\usepackage[dvipdfmx]{graphicx}%図の挿入
+%\usepackage{tikz}%描画
+\usepackage{titlesec}%見出しの見た目を編集できる
+\usepackage[dvipdfmx, usenames]{color}%色をつける
+%\usepackage{tikz-cd}%可換図式
+%\usepackage{mathtools}%数式関連
+\usepackage{amsfonts}%数式のフォント
+\usepackage[all]{xy}%可換図式
+\usepackage{mathrsfs}%花文字
+\usepackage{comment}%コメント環境
+\usepackage{picture}%お絵かき
+\usepackage{url}%URLを出力
+\usepackage[dvipdfmx]{hyperref}%ハイパーリンク
+\usepackage{pxjahyper}%日本語しおりの文字化けを防ぐ
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  表紙                                             %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\newcommand{\thickhrulefill}{\leavevmode \leaders \hrule height 1pt\hfill \kern \z@}
+\renewcommand{\maketitle}{\begin{titlepage}%
+    \let\footnotesize\small
+    \let\footnoterule\relax
+    \parindent \z@
+    \reset@font
+    \null\vfil
+    \begin{flushleft}
+      \huge \@title
+    \end{flushleft}
+    \par
+    \hrule height 4pt
+    \par
+    \begin{flushright}
+      \LARGE \@author \par
+    \end{flushright}
+    \vskip 60\p@
+    \vfil\null
+    \begin{flushright}
+        {\small \@date}%
+    \end{flushright}
+  \end{titlepage}%
+  \setcounter{footnote}{0}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  sectionの装飾                                     %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\titleformat{\section}[block]
+{}{}{0pt}
+{
+  \colorbox{black}{\begin{picture}(0,10)\end{picture}}
+  \hspace{0pt}
+  \normalfont \Large\bfseries
+  \hspace{-4pt}
+}
+[
+\begin{picture}(100,0)
+  \put(3,18){\color{black}\line(1,0){300}}
+\end{picture}
+\\
+\vspace{-30pt}
+]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  番号付き定理環境                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%注：defというコマンドはもうあります
+\theoremstyle{definition}%定理環境のアルファベットを斜体にしない
+\renewcommand{\proofname}{\textgt{証明}}%proof環境の修正
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  番号なし定理環境                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%証明が付属するものは箱で囲う
+\newtheorem*{lemma}{補題}
+\newtheorem*{proposition}{命題}
+\newtheorem*{claim}{主張}
+\newcommand{\lem}[1]{\begin{oframed} \begin{lemma} #1 \end{lemma} \end{oframed}}%箱付きほだい
+\newcommand{\prop}[1]{\begin{oframed} \begin{proposition} #1 \end{proposition} \end{oframed}}%箱付きめいだい
+
+\newtheorem*{sol}{解答}
+\newtheorem*{prob}{問題}
+\newtheorem*{quo}{引用}
+\newtheorem*{rem}{注意}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  左側に線を引く環境                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%leftbar環境の定義
+\makeatletter
+\renewenvironment{leftbar}{%
+%  \def\FrameCommand{\vrule width 3pt \hspace{10pt}}%  デフォルトの線の太さは3pt
+  \renewcommand\FrameCommand{\vrule width 1pt \hspace{10pt}}%
+  \MakeFramed {\advance\hsize-\width \FrameRestore}}%
+ {\endMakeFramed}
+\newcommand{\barquo}[1]{\begin{leftbar} \begin{quo} #1 \end{quo} \end{leftbar}}%左線つき引用
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  section      　　                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bfsubsection}[1]{\subsection*{\textbf{#1}}}%太字さぶせくしょん
+\newcommand{\bfsection}[1]{\section*{\textbf{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  色をつける    　　                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\textblue}[1]{\textcolor{blue}{\textbf{#1}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  よく使う記号の略記                                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%集合
+\newcommand{\sm}{\setminus}%集合差
+\newcommand{\setmid}[2]{\left\{ #1 \mathrel{} \middle| \mathrel{} #2 \right\}}%集合の内包記法
+\newcommand{\tm}{\times}%直積
+
+%解析
+\newcommand{\abs}[1]{\left \lvert #1 \right \rvert}%絶対値
+\newcommand{\norm}[1]{\left \lVert #1 \right \rVert}%ノルム
+\newcommand{\I}{\sqrt{-1}}%虚数単位。\iは既にある。
+
+%線形代数
+\newcommand{\transpose}[1]{\, {\vphantom{#1}}^t\!{#1}}%行列の転置
+\newcommand{\single}{\{ 0 \}}%０のシングルトン
+
+%位相
+\newcommand{\clsub}{\subset_{\text{closed}}}%閉部分集合
+\newcommand{\opsub}{\subset_{\text{open}}}%開部分集合
+
+\newcommand{\wt}[1]{\widetilde{#1}}%わいどちるだあ
+\newcommand{\wh}[1]{\widehat{#1}}%わいどはっと
+\newcommand{\To}{\Rightarrow}%ならば
+\newcommand{\ol}[1]{\overline{#1}}%オーバーライン
+\newcommand{\la}[1]{\overleftarrow{#1}}%上付き左矢印
+\newcommand{\ra}[1]{\overrightarrow{#1}}%上付き右矢印
+\newcommand{\xto}[1]{\xrightarrow{#1}}%上に文字がついてる右向き矢印
+
+\newcommand{\st}{\; \; \text{s.t.} \; \;}%論理式でつかうsuch that
+\newcommand{\f}[2]{\frac{#1}{#2}}%分数の略記
+\newcommand{\ts}{\otimes}%テンソル積(tensor)
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  演算子                                            %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareMathOperator{\rank}{rk}%行列のランク
+\DeclareMathOperator{\re}{Re}
+\DeclareMathOperator{\gal}{Gal}%ガロア群
+\DeclareMathOperator{\Hom}{Hom}%homはもうある
+\DeclareMathOperator{\ind}{Ind}
+\DeclareMathOperator{\tr}{Trace}
+\DeclareMathOperator{\map}{Map}
+\DeclareMathOperator{\Zar}{Zar}%ザリスキ・リーマン空間
+\DeclareMathOperator{\Aut}{Aut}%自己同型群
+\DeclareMathOperator{\height}{ht}%htはもうある
+\renewcommand{\Im}{\operatorname{Im}}%写像の像。像対象。虚部が出力できなくなった。
+\DeclareMathOperator{\Ker}{Ker}%写像の核。Abel圏の核対象。
+\DeclareMathOperator{\im}{im}%イメージ、像。Abel圏では写像の方。
+\DeclareMathOperator{\Coker}{Coker}%余核
+\DeclareMathOperator{\trdeg}{tr\text{.}deg}%超越次数
+
+
+%環
+\DeclareMathOperator{\Frac}{Frac}%商体をとる操作
+\DeclareMathOperator{\Spec}{Spec}%スペクトル
+\DeclareMathOperator{\Supp}{Supp}%台
+\DeclareMathOperator{\ann}{ann}%アナイアレーター
+\DeclareMathOperator{\Ass}{Ass}%素因子
+\DeclareMathOperator{\rad}{rad}%ヤコブソン根基の紛らわしい書き方。あるいは根基。
+
+%圏
+\DeclareMathOperator*{\llim}{\varprojlim}%極限。逆極限。射影極限。
+\DeclareMathOperator*{\rlim}{\varinjlim}%余極限。順極限。入射極限。
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  黒板太字(blackboard bold)                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\bba}{{\mathbb A}}
+\newcommand{\bbb}{{\mathbb B}}
+\newcommand{\bbc}{{\mathbb C}}
+\newcommand{\bbd}{{\mathbb D}}
+\newcommand{\bbe}{{\mathbb E}}
+\newcommand{\bbf}{{\mathbb F}}
+\newcommand{\bbg}{{\mathbb G}}
+\newcommand{\bbh}{{\mathbb H}}
+\newcommand{\bbi}{{\mathbb I}}
+\newcommand{\bbj}{{\mathbb J}}
+\newcommand{\bbk}{{\mathbb K}}
+\newcommand{\bbl}{{\mathbb L}}
+\newcommand{\bbm}{{\mathbb M}}
+\newcommand{\bbn}{{\mathbb N}}
+\newcommand{\bbo}{{\mathbb O}}
+\newcommand{\bbp}{{\mathbb P}}
+\newcommand{\bbq}{{\mathbb Q}}
+\newcommand{\bbr}{{\mathbb R}}
+\newcommand{\bbs}{{\mathbb S}}
+\newcommand{\bbt}{{\mathbb T}}
+\newcommand{\bbu}{{\mathbb U}}
+\newcommand{\bbv}{{\mathbb V}}
+\newcommand{\bbw}{{\mathbb W}}
+\newcommand{\bbx}{{\mathbb X}}
+\newcommand{\bby}{{\mathbb Y}}
+\newcommand{\bbz}{{\mathbb Z}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  よく使う黒板太字                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Z}{\bbz}
+\newcommand{\A}{\bba}
+\newcommand{\Q}{\bbq}
+\newcommand{\R}{\bbr}
+\newcommand{\C}{\bbc}
+\newcommand{\F}{\bbf}
+\newcommand{\N}{\bbn}
+\renewcommand{\P}{\bbp}%パラグラフ記号が出力できなくなった
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  カリグラフィー  　　　　　                         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\cala}{\mathcal{A}}
+\newcommand{\calb}{\mathcal{B}}
+\newcommand{\calc}{\mathcal{C}}
+\newcommand{\cald}{\mathcal{D}}
+\newcommand{\calf}{\mathcal{F}}
+\newcommand{\calm}{\mathcal{M}}
+\newcommand{\caln}{\mathcal{N}}
+\newcommand{\calo}{\mathcal{O}}
+\newcommand{\cals}{\mathcal{S}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  ギリシャ文字(Greek letters)小文字        　        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%コマンドが5字以上のもの
+\newcommand{\gra}{{\alpha}}
+\newcommand{\grg}{{\gamma}}
+\newcommand{\grd}{{\delta}}
+\newcommand{\gre}{{\epsilon}}
+\newcommand{\grt}{{\theta}}
+\newcommand{\grk}{{\kappa}}
+\newcommand{\grl}{{\lambda}}
+\newcommand{\grs}{{\sigma}}
+\newcommand{\gru}{{\upsilon}}
+\newcommand{\gro}{{\omega}}
+
+\newcommand{\ve}{{\varepsilon}}
+\newcommand{\vp}{{\varphi}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  ギリシャ文字(Greek letters)大文字                 %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%コマンドが5字以上のもの
+\newcommand{\grG}{{\Gamma}}
+\newcommand{\grD}{{\Delta}}
+\newcommand{\grT}{{\Theta}}
+\newcommand{\grL}{{\Lambda}}
+\newcommand{\grS}{{\Sigma}}
+\newcommand{\grU}{{\Upsilon}}
+\newcommand{\grO}{{\Omega}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  フラクトゥール　　                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\fraka}{\mathfrak{a}}
+\newcommand{\frakm}{\mathfrak{m}}
+\newcommand{\frakp}{\mathfrak{p}}
+\newcommand{\frakq}{\mathfrak{q}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  花文字        　　                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%大文字しかどうせ使わない
+\newcommand{\scra}{\mathscr{A}}
+\newcommand{\scrf}{\mathscr{F}}
+\newcommand{\scrg}{\mathscr{G}}
+\newcommand{\scrs}{\mathscr{S}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  太字          　　                                %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\Mod}[1]{\textbf{Mod}\mathbf{#1}}%加群の圏

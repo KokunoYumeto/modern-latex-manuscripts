@@ -1,0 +1,1464 @@
+\documentclass[uplatex,dvipdfmx,9pt]{beamer}
+\usepackage{bxdpx-beamer}  % dvipdfmx 対応
+\usepackage{pxjahyper}     % しおりの和文対応
+\usepackage[T1]{fontenc}    % フォント: T1
+\usepackage{amsmath}       % 数式用
+\usepackage[all]{xy}       % 図式
+\usepackage{mathtools}
+\usepackage{newtxtext, newtxmath}
+
+\renewcommand{\kanjifamilydefault}{\gtdefault} % 和文をゴシックフに
+\renewcommand{\familydefault}{\sfdefault}
+\usefonttheme[onlymath]{serif}
+
+\usetheme{Antibes}
+\usecolortheme{dolphin}
+\setbeamertemplate{footline}[frame number] % ページ数表示 
+\setbeamertemplate{navigation symbols}  % ナビゲーションシンボル消去
+
+% 数学記号
+\newcommand{\defarrow}{\overset{\mathrm{def}}{\Leftrightarrow}}
+\newcommand{\nsubgroup}{\vartriangleleft} % 正規部分群
+\newcommand{\notnsubgroup}{\ntriangleleft} % 正規部分群の否定
+\newcommand{\inverse}[1]{#1^{-1}}
+\newcommand{\st}{\text{ s.t. }}
+\newcommand{\lt}{\ensuremath <}
+\newcommand{\gt}{\ensuremath >}
+\newcommand{\generator}[1]{\langle#1\rangle}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\Ker}{\operatorname{Ker}}
+
+% 教科書の番号付け
+\newcounter{textThmCount}
+% \setcounter{textThmCount}{3}
+\newcounter{textLemCount}
+\setcounter{textLemCount}{3}
+\renewcommand{\thetextLemCount}{\Alph{textLemCount}}
+\newcounter{textExmCount}
+
+\setbeamertemplate{theorems}[numbered]  % 定理に番号をつける
+\theoremstyle{definition} % 斜体にならないようにする
+\newtheorem{defn}{Def.}[subsection] % 定義
+% \newtheorem{cor}{Cor.}[subsection] % 系
+\newtheorem{thm}{Thm.}[subsection] % 定理
+\newtheorem{lem}{Lem.}[subsection] % 補題 
+\newtheorem{thmText}[textThmCount]{Thm.}
+\newtheorem{corText}{Cor.}[textThmCount] % 系
+\newtheorem{lemText}[textLemCount]{Lem.} % 補題
+\theoremstyle{example}
+\newtheorem{exm}{Exm.}[subsection]
+\newtheorem{exmText}[textExmCount]{Exm.}
+
+% その他
+% Rem. : 注意
+
+% セクション開始毎に目次追加
+\AtBeginSubsection[]{
+    \begin{frame}
+        \tableofcontents[currentsubsection]
+    \end{frame}
+}
+
+%------------------------
+
+\title{代数系入門}
+\subtitle{第2章 群}
+\author{今村勇輝}
+
+\begin{document}
+  \begin{frame}[plain]
+    \titlepage
+  \end{frame}
+
+  \section{第2章 群}
+  \setcounter{subsection}{1}
+
+    \subsection{\textsection \thesubsection 群とその例}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+
+        \begin{defn}
+          $G$ : 集合, $G \ne \emptyset$, $* : G \times G \rightarrow G$ : 二項演算 \\
+          $G$ が算法 $*$ について次の3条件を満たす $\defarrow$ $G$ : \alert{群}
+          \begin{description}
+            \item[G1] $(a * b) * c = a * (b * c)$ : 結合律
+            \item[G2] $\exists e \in G, \forall a \in G (e * a = a * e = a)$ $\defarrow$ $e$ : \alert{単位元}
+            \item[G3] $\forall a \in G, \exists b \in G (b * a = a * b = e)$ $\defarrow$ $a^{-1} := b$ : $a$ の\alert{逆元}
+          \end{description}
+        \end{defn}
+        乗法記号によって$a * b$ を $ab$ と書く場合, 群 $G$ は \alert{乗法群} \\
+        加法記号によって$a + b$ と書く場合,  群 $G$ は \alert{加法群}
+
+        \begin{thm}
+          \begin{itemize}
+            \item 単位元はただ一つである
+            \item $a$ の逆元は一意的に定まる
+            \item $(a^{-1})^{-1} = a$
+          \end{itemize}
+        \end{thm}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $G$ : 群, $\forall a, \forall b \in G, ab = ba$ $\defarrow$ $G$ : \alert{可換群} または \alert{Abel群}
+        \end{defn}
+
+        \begin{exmText}
+          $\mathbb{Z}, \mathbb{Q}, \mathbb{R}, \mathbb{C}$ は加法について群をなす.
+        \end{exmText}
+
+        \begin{exmText}
+          $\mathbb{Q}^* \coloneqq \mathbb{Q} - \{0\}, \mathbb{R}^* := \mathbb{R} - \{0\}, \mathbb{C}^* := \mathbb{C} - \{0\}$ \\
+          $\mathbb{Q}^*, \mathbb{R}^*, \mathbb{C}^*$ は乗法について群をなす($\mathbb{Q}, \mathbb{R}, \mathbb{C}$ では成り立たない).
+        \end{exmText}
+
+        \begin{thmText}
+          $\forall a,b \in G, \exists! u,v \in G \st au = b, va = b$
+        \end{thmText}
+
+      \end{frame}
+
+    \subsection{\textsection \thesubsection 部分群と生成系}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+        
+        \begin{defn}
+          $G$ : 群, $H \subset G$, $\cdot$ : $G$ の演算 \\
+          $H$ : $\cdot$ に関して群  $\defarrow$ $H \le G$, $H$ : \alert{部分群}
+        \end{defn}
+
+        \begin{lemText}
+          $H \subset G$ \\
+          $H \le G$ $\Leftrightarrow$ \\
+          \begin{enumerate}
+            \item $e \in H$
+            \item $a,b \in H \Rightarrow ab \in H$
+            \item $a \in H \Rightarrow a^{-1} \in H$
+          \end{enumerate}
+        \end{lemText}
+        \underline{Rem.} 条件1 は「$H \ne \emptyset$」に置き換えてもよい \\
+        $H$ が有限の場合は条件3を取り除ける
+
+        \begin{lemText}
+          $H \subset G, H \ne \emptyset, |H| < \infty $, $H$ : $\cdot$ 関して閉じている $\Rightarrow$ $H \le G$
+        \end{lemText}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thm}
+          $G \le G, \{e\} \le G$
+        \end{thm}
+        
+        \begin{defn}
+          $H \le G, H \ne G, H \ne \{e\}$ $\defarrow$ $H$ : $G$ の \alert{真部分群}
+        \end{defn}
+
+        \begin{thm}
+          $H_1 \le G, H_2 \le G$ $\Rightarrow$ $H_1 \cap H_2 \le G$
+        \end{thm}
+
+        \begin{exmText}
+          $\mathbb{Z}, \mathbb{Q}: \text{加法群}, \mathbb{Z} \le \mathbb{Q}$
+        \end{exmText}
+
+        \begin{exmText}
+          $0$ でない有理数の乗法群 $\mathbb{Q^*}$ は $0$ でない実数の乗法群 $\mathbb{R^*}$ の部分群である \\
+          絶対値が $1$ である複素数全体のなす乗法群は乗法群 $\mathbb{C^*}$ の部分群である
+        \end{exmText}
+
+      \end{frame}
+
+      \addtocounter{textExmCount}{1}
+      \begin{frame}
+        \frametitle{Exm. \thetextExmCount}
+
+        \begin{thm}
+          $S \subset G, S \ne \emptyset, S^{-1} := \{ x^{-1} \mid x \in S \}$ \\
+          $H \coloneqq \{ x_1 x_2 \dots x_m \mid x_i \in S \cup S^{-1} \} \Rightarrow H \le G$
+        \end{thm}
+
+        \begin{thm}
+          $S \subset H$ \\
+          $\forall K \le G, S \subset K \Rightarrow H \subset K$
+        \end{thm}
+        $H$ は $S$ を含む「最小」の部分群. \\
+
+        \begin{proof}
+          $\forall a \in H \Rightarrow a \in K$ を示す. \\
+          $a \in H$ なので $\exists x_i \in S \cup S^{-1}, \exists m \in \mathbb{N}$ s.t $a = x_1 \cdots x_m$. \\
+          $x_i \in S$ のとき $S \subset K$ なので $x_i \in K$. \\
+          $x_i \in S^{-1}$ のとき $x^{-1}_i \in S, S \subset K$ なので $x^{-1}_i \in K$. \\
+          $x^{-1}_i \in K$ と 補題D(3) より $x_i \in K$. \\
+          $x_i \in K$ と 補題D(2) より $a = x_1 \cdots x_m \in K$. よって成立.
+        \end{proof}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $H \coloneqq \langle S \rangle$ : $S$ によって\alert{生成}される $G$ の部分群 \\
+          $S$ : $H$ の \alert{生成元の集合} または $H$ の \alert{生成系}
+        \end{defn}
+        $S = \{a\}$ のとき 乗法 $\langle S \rangle = \{a^n \mid n \in \mathbb{Z}\}$,
+        加法 $\langle S \rangle = \{na \mid n \in \mathbb{Z}\}$
+
+        \begin{exmText}
+          $H = \langle -1 \rangle, H \le \mathbb{R^*}$ のとき $H = \{1,-1\}$ \\
+          $H = \langle i \rangle, H \le \mathbb{C^*}$ のとき $H = \{1,-1,i,-i\}$
+        \end{exmText}
+
+        \begin{exmText}
+          \hypertarget{exmText3-5}{}
+          $\mathbb{Z}$ : 加法群 \\
+          $m \in \mathbb{Z}, m\mathbb{Z} = \langle m \rangle, m\mathbb{Z} \le \mathbb{Z}$ のとき $m\mathbb{Z}= \{ 0, \pm m, \pm 2m, \cdots \}$ \\
+        \end{exmText}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{exmText}
+          $\pi$ : 平面, $d(P,Q)$ : $\pi$ の2点 $P,Q$ の距離, 写像 $\phi \colon \pi \rightarrow \pi$ が全単射で
+          \[ d(\phi (P), \phi (Q)) = d(P,Q) \]
+          が成り立つとき, $\phi$ : $\pi$ の \alert{運動} \\
+          運動の全体は対称群 $S(\pi)$ の1つの部分群をつくる : $\pi$ の \alert{運動群}
+        \end{exmText} 
+
+        \begin{exmText}
+          \alert{シンメトリー} : 図形をそれ自身に重ねるような平面の運動 \\
+          正方形のシンメトリーの全体は, 運動群の1つの部分群をつくる.
+        \end{exmText}
+
+        \begin{exmText}
+          $X$ : 集合, $\langle X \rangle \le S(X)$ $\defarrow$ $\langle X \rangle$ : \alert{置換群}
+        \end{exmText}
+
+      \end{frame}
+
+    \subsection{\textsection \thesubsection 剰余類分解}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+        
+        \begin{defn}
+          $H \le G$ \\
+          $a,b \in G$ が $H$ を\alert{法}として\alert{左合同}, $a \equiv b \pmod{H}$$\defarrow$ $a^{-1}b \in H$ 
+        \end{defn}
+
+        \begin{thm}
+          $G$ における同値関係
+          \begin{enumerate}
+            \item $\forall a \in G, a \equiv a \pmod{H}$
+            \item $a \equiv b \pmod{H} \Rightarrow b \equiv a \pmod{H}$
+            \item $a \equiv b \pmod{H}, b \equiv c \pmod{H} \Rightarrow a \equiv c \pmod{H}$
+          \end{enumerate}
+        \end{thm}
+
+        \begin{thm}
+          $C_a \coloneqq \{x \mid a \equiv x \pmod{H}\} \Rightarrow C_a = \{ah \mid h \in H\}$ \\
+        \end{thm}
+
+        \begin{defn}
+          $aH \coloneqq \{ah \mid h \in H\}$ : $a$ の\alert{左剰余類}
+        \end{defn}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thm}
+          $a,b \in G, H \le G$ \\
+          $a^{-1}b \in H \Leftrightarrow aH = bH$ \\
+          $ab^{-1} \in H \Leftrightarrow Ha = Hb$ \\
+          $a \not\equiv b \pmod{H} \Rightarrow aH \cap bH = \emptyset$
+        \end{thm}
+        \underline{Rem.} $H$ : 左剰余類 ($\because H = eH$) \\
+
+        \begin{thm}
+          $\exists a_1, a_2, \cdots \in G$ s.t $G = a_1H \cup a_2H \cup \cdots, a_iH \cap a_jH = \emptyset, i \ne j$
+        \end{thm}
+        $H \le G$ のとき, $G$ は $H$ を法とする互いに交わらない(有限個または無限個)の左剰余類に分割される.
+
+        \begin{defn}
+          \alert{右合同} $\defarrow$ $ab^{-1} \in H$ \\
+          $Ha := \{ha \mid h \in H\}$ : $a$ の\alert{右剰余類}
+        \end{defn}
+      
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thm}
+          $a,b \in G, \forall c \in G, cH = Hc$ \\
+          $a^{-1}b \in H \Leftrightarrow ab^{-1} \in H$
+        \end{thm}
+
+        \underline{Def.} $a^{-1}b, ab^{-1} \in H$ $\defarrow$ $aH = Ha$ : 剰余類
+      
+        \begin{thm}
+          $G$ : 可換群, $\forall H \le G$ $\Rightarrow$ $a^{-1}b, ab^{-1} \in H$
+        \end{thm}
+
+        \underline{Rem.} $G$ : 加法群 のとき, $a+H = \{a+h \mid h \in H\}$
+        \begin{exmText}
+          $m \in \mathbb{Z}, m > 0, m\mathbb{Z} \le \mathbb{Z}$ : 加法群 \\
+          $a,b \in \mathbb{Z}, a \equiv b \pmod{m\mathbb{Z}} \Rightarrow \exists n \in \mathbb{Z} \st a-b = nm$ 
+        \end{exmText}
+
+        \begin{defn}
+          $(G:H) \coloneqq | \{aH \mid a \in G\} |$ : $H$ の\alert{指数}
+        \end{defn}
+        \underline{Rem.} 指数の定義を $Ha$ の個数としても同じ. $(G:H) = | \{Ha \mid a \in G\} |$ \\
+        \underline{Rem.} $|G| < \infty \Rightarrow \forall H \le G, (G:H) < \infty$ \\
+        \underline{Exm.} Exm.1 の $\mathbb{Z}$ について, $(\mathbb{Z}:m\mathbb{Z}) = m$ \\
+
+        \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $o(G) \coloneqq |G|$ : $G$ の\alert{位数}
+        \end{defn}
+        \underline{Rem.} $o$ は order の頭文字.
+
+        \begin{lemText}
+          $H \le G, |H| < \infty$ \\
+          $\forall aH \subset G \Rightarrow |aH| = o(H)$
+        \end{lemText}
+
+        \begin{thmText}
+          $|G| < \infty$ \\
+          $H \le G \Rightarrow o(G) = (G:H) \cdot o(H)$
+        \end{thmText}
+
+        \begin{corText}[Lagrange]
+          $|G| < \infty$ \\
+          $\forall H \le G \Rightarrow o(H)|o(G)$
+        \end{corText}
+        \underline{Thm.} $(G:G) = 1, (G:e) = o(G)$ $(\because \text{Thm.2})$
+        
+      \end{frame}
+
+      \addtocounter{textExmCount}{1}
+      \begin{frame}
+        \frametitle{Exm. \thetextExmCount}
+        
+        \begin{thm}
+          $J_n = \{1,2,\cdots,n\}$ : 集合 \\
+          $S_n = \{f \mid f \colon J_n \rightarrow J_n :\text{bijection} \}$ : $n$ 次対称群 \\
+          \[ o(S_n) = n! \]
+        \end{thm}
+        剰余類分解とThm.2を使って証明する.
+
+        $n \ge 2, H \subset S_n, H = \{\sigma \mid \sigma(n) = n\}$ \\
+        明らかに $H \le S_n$ \\
+        このとき, $H$ を $S_{n-1}$ とみなせる\\
+        $\sigma, \rho \in S_n, \sigma^{-1} \circ \rho \in H$ $\Leftrightarrow$ $\sigma(n) = \rho(n)$ \\
+        $\tau_i$ : $J_n$ の置換 s.t $\tau_i(n) = i, \tau_i(i) = n, 1 \le i \le n$, $i,n$ 以外は固定 \\
+        $\tau_1, \cdots \tau_n$ について $\tau_i^{-1} \circ \tau_j \notin H, i \ne j$ \\
+        一方, $\forall \sigma \in S_n, \sigma(n) = i$ ならば $\sigma^{-1} \circ \tau_i \in H$ \\
+        ゆえに $S_n = \tau_1H \sqcup \dots \sqcup \tau_nH$ \\
+        $o(S_n) = (S:S_{n-1}) \cdot o(S_{n-1})$
+
+      \end{frame}
+
+    \subsection{\textsection \thesubsection 正規部分群と商群}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+        
+        \begin{defn}
+          $H \nsubgroup G$ の\alert{正規部分群} $\defarrow$ $\forall a \in G, aH = Ha$
+        \end{defn}
+
+        \begin{thm}
+          $G$ : 可換群 $\Rightarrow$ $\forall H \le G, H \nsubgroup G $
+        \end{thm}
+
+        \begin{thm}
+          $\forall G, G \nsubgroup G, \{e\} \nsubgroup G$
+        \end{thm}
+
+        \begin{exmText}
+          $\forall G, Z = \{ x \in G \mid \forall a \in G, ax = xa\} \Rightarrow Z \nsubgroup G$
+        \end{exmText}
+
+        \begin{defn}
+          $Z(G) := Z$ : $G$ の \alert{中心}
+        \end{defn}
+        \underline{Rem.} $G$ : 可換群 $\Rightarrow$ $Z(G) = G$ \\
+
+        \begin{exmText}
+          $S_n$ : $J_n$ 上の対称群, $H = \{ \sigma \in S \mid \sigma(n) = n \}, H \le S_n$ \\
+          $n \ge 3 \Rightarrow H \notnsubgroup S_n$
+        \end{exmText}
+
+      \end{frame}
+
+      \begin{frame}
+        \frametitle{交換子群}
+
+        \begin{lemText}
+          $H \nsubgroup G \Leftrightarrow \forall a \in G, \forall x \in H, axa^{-1} \in H$
+        \end{lemText}
+        
+        \begin{exmText}
+          $a,b \in G$ \\
+          $aba^{-1}b^{-1} \in G$ : \alert{交換子} \\
+          $D(G) \coloneqq \langle \{ aba^{-1}b^{-1} \mid a,b \in G \} \rangle$ : \alert{交換子群}
+        \end{exmText}
+
+        \begin{thm}
+          $\forall H, D(G) \subset H \Rightarrow H \nsubgroup G$
+        \end{thm}
+        \underline{Rem.} $G$ : 可換群 $\Rightarrow$ $D(G) = \{e\}$ \\
+
+      \end{frame}
+
+      \begin{frame}
+      
+        \begin{defn}
+          $S,S' \subset G, S \neq \emptyset, S' \neq \emptyset$ \\
+          $SS' \coloneqq \{xx' \mid x \in S, x' \in S'\}$ : $S,S'$ の\alert{積} \\
+        \end{defn}
+        \underline{Rem.}
+        \begin{itemize}
+          \item 加法記号の場合, $S+S'$
+          \item $S = \{x\}$ の場合, $xS'$
+          \item $S' = \{x'\}$ の場合, $Sx'$
+        \end{itemize}
+
+        \begin{thm}
+          $S_1,S_2,S_3 \subset G, S_1 \neq \emptyset, S_2 \neq \emptyset, S_3 \neq \emptyset$ \\
+          $S_1(S_2S_3) = (S_1S_2)S_3 = \{x_1x_2x_3 \mid x_1 \in S_1, x_2 \in S_2, x_3 \in S_3\}$
+        \end{thm}
+        
+        \begin{exmText}
+          $H \le G \Rightarrow HH = H$
+        \end{exmText}
+
+      \end{frame}
+
+      \begin{frame}
+      
+        \begin{thmText}
+          $a,b \in G$ \\
+          $N \nsubgroup G \Rightarrow$ $(aN)(bN) = abN$ かつ $\{aN \mid a \in G\}$ : 群
+        \end{thmText}
+
+        \begin{defn}
+          $G/N := \{aN \mid a \in G\}$ : $G$ の $N$ による \alert{剰余群} (または \alert{商群})
+        \end{defn}
+        \underline{Rem.} $N$ : 単位元, $a^{-1}N$ : $aN$ の逆元 \\
+        \underline{Rem.} $G$ : 可換群 $\Rightarrow$ $\forall N, G/N$ : 可換群
+
+        \begin{thm}
+          $N \nsubgroup G$ \\
+          $(G:N) < \infty \Rightarrow o(G/N) = (G:N)$
+        \end{thm}
+
+        \begin{thm}
+          \[|G| < \infty \Rightarrow o(G/N) = \frac{o(G)}{o(N)}\]
+        \end{thm}
+
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{defn}
+          $n > 0, n \in \mathbb{Z}, \mathbb{Z} : \text{加法群}, n\mathbb{Z} \le \mathbb{Z}$ \\
+          $\mathbb{Z}_n \coloneqq \mathbb{Z}/n\mathbb{Z}$
+        \end{defn}
+        
+        \begin{exmText}
+          $o(\mathbb{Z}_n) = n$ \\
+          $N = n\mathbb{Z}, k \in \mathbb{Z}$ \\
+          $\overline{k} \coloneqq k + N$ \\
+          $\mathbb{Z}_n = \{\overline{0}, \overline{1}, \cdots \overline{n-1} \}$
+
+          $\mathbb{Z}_4$ の場合, 
+          \[
+            \overline{0} + \overline{1} = \overline{1},
+            \overline{1} + \overline{1} = \overline{2},
+            \overline{2} + \overline{1} = \overline{3},
+            \overline{3} + \overline{1} = \overline{0}
+          \] 
+        \end{exmText}
+        
+
+        \begin{thmText}
+          $N \nsubgroup G$ \\
+          $G/N : \text{可換群} \Leftrightarrow D(G) \subset N$
+        \end{thmText}
+
+      \end{frame}
+
+    \subsection{\textsection \thesubsection 準同型写像}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+        
+        \begin{defn}
+          $f\colon G \to G'$ : \alert{準同型写像} (hom.) $\defarrow$ $\forall x,y \in G, f(xy) = f(x)f(y)$
+        \end{defn}
+        \underline{Rem.} 群の算法の種類には関係ない. \\
+        \underline{Exm.} $G$ : 加法群, $G'$ : 乗法群, $f(x + y) = f(x)f(y)$
+
+        \begin{exmText}
+          $\forall G,G', e' \in G'$ \\
+          $f(x) = e'$ $\Rightarrow $ $f$ : hom. \\
+          \underline{Rem.} $f$ : trivialな準同型写像
+        \end{exmText}
+
+        \begin{exmText}
+
+          \underline{Rem.}  $\mathbb{R}^+ := \{x \in \mathbb{R} \mid x > 0\}, \mathbb{R}^* : \text{乗法群} \Rightarrow \mathbb{R}^+ \le \mathbb{R}^* $ 
+
+          $\mathbb{R}: \text{加法群}$ \\
+          \begin{itemize}
+            \item $f\colon \mathbb{R} \to \mathbb{R}^+, x \mapsto 2^{x} \Rightarrow f : \text{hom.}$
+              $(\because 2^{x+y} = 2^x2^y)$
+            \item $f\colon \mathbb{R}^+ \to \mathbb{R}, x \mapsto \log_2 x \Rightarrow f : \text{hom.}$
+              $(\because \log_2 xy = \log_2 x + \log_2 y)$
+          \end{itemize}
+
+        \end{exmText}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{exmText}
+          $a \in G, n \in \mathbb{Z}, \mathbb{Z} : \text{加法群}$ \\
+          $f\colon n \mapsto a^n \Rightarrow f: \text{hom.} (\because a^{m + n} = a^ma^n)$
+        \end{exmText}
+
+        \begin{exmText}
+          $z \in \mathbb{C}, z \ne 0$ \\
+          $f\colon \mathbb{C}^* \to \mathbb{R}^+,  z \mapsto |z| \Rightarrow f : \text{hom.}$
+        \end{exmText}
+      
+        \begin{exmText}
+          $N \nsubgroup G, a \in G$ \\
+          $\varphi\colon G \to G/N, a \mapsto aN \Rightarrow \varphi : \text{hom.}$ \\
+          $\because \varphi(ab) = abN = (aN)(bN) = \varphi(a)\varphi(b)$
+
+          \underline{Def.}  $\varphi$ : \alert{標準的準同型写像} または \alert{自然な準同型写像}
+          
+        \end{exmText}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thm}
+          $f\colon G \to G', g: G' \to G'' : \text{hom.}$
+
+          \begin{itemize}
+            \item $e \in G, e' \in G', f(e) = e'$
+            \item $\forall x \in G, f(\inverse{x}) = \inverse{f(x)}$
+            \item $g \circ f : G \to G'' : \text{hom.}$
+          \end{itemize}
+          
+        \end{thm}
+        \underline{Rem.} 準同型写像を省略して準同型と呼ぶときもある
+
+        \begin{defn}
+          $f\colon G \to G' : hom.$
+
+          \begin{itemize}
+            \item $f$ : 単射 : \alert{単射準同型} (injective hom.)
+            \item $f$ : 全射 : \alert{全射準同型} (surjective hom.)
+            \item $f$ : 全単射 : \alert{同型写像} または \alert{同型} (iso.)
+          \end{itemize}
+        \end{defn}
+
+        \begin{thm}
+          $f\colon G \to G' : \text{iso.} \Rightarrow \inverse{f}\colon G' \to G : \text{iso.}$
+        \end{thm}
+          
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{defn}
+          $G \cong G'$ : \alert{同型} $\defarrow$ $\exists f\colon G \to G' : \text{iso.}$
+        \end{defn}
+
+        \begin{thm}
+          \begin{itemize}
+            \item $G \cong G$
+            \item $G \cong G' \Rightarrow G' \cong G$
+            \item $G \cong G', G' \cong G'' \Rightarrow G \cong G''$
+          \end{itemize}
+        \end{thm}
+
+        \begin{exmText}
+          $\mathbb{R} \cong \mathbb{R}^+ (\because \text{Exm.2})$
+        \end{exmText}
+
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{thm}
+          $f\colon G \to G' : \text{hom.} \Rightarrow f(G) \le G'$
+        \end{thm}
+        \underline{Rem.} 単射準同型は, $G$ から $G'$ の \alert{中への同型写像} とも呼ばれる
+
+        \begin{defn}
+          $f$ : hom. \\
+          $\Ker f \coloneqq \{x \in G \mid f(x) = e'\}$ : $f$ の \alert{核} (Kernel)
+        \end{defn}
+
+        \begin{thm}
+          $\Ker f \nsubgroup G$
+        \end{thm}
+
+        \begin{exmText}
+          $N \nsubgroup G, \varphi: G \to G/N \Rightarrow \Ker \varphi = N$
+        \end{exmText}
+
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{thmText}
+          $f\colon G \to G' : \text{hom.}, \Ker f = N, a,b \in G$ \\
+          $f(a) = f(b) \Leftrightarrow a \equiv b \pmod{N}$
+        \end{thmText}
+
+        \begin{corText}
+          $f\colon G \to G': \text{hom.} $ \\
+          $f\colon injective \Leftrightarrow \Ker f = \{e\}$
+        \end{corText}
+
+        \begin{thm}
+          $f\colon G \to G' : \text{hom.}, \Ker f = N, f(G) = G'_0, g\colon G/N \to G'_0, aN \mapsto f(a)$ \\
+          $\Rightarrow g: \text{bijective} (\because \text{Thm.5})$
+        \end{thm}
+        \underline{Def.} $g$ : \alert{$f$ から誘導される全単射}
+
+
+        \begin{thmText}[準同型定理]
+          $f\colon G \to G' : \text{hom.}, \Ker f = N \Rightarrow g\colon G/N \to f(G): \text{iso.} (G/N \cong f(G))$
+        \end{thmText}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{exmText}
+          $f\colon \mathbb{C}^* \to \mathbb{R}^+, z \mapsto |z| : \text{hom.}, f(\mathbb{C}^*) = \mathbb{R}^+, \mathbb{T} := \Ker f = \{z \in \mathbb{C}^* \mid |z| = 1\}$ \\
+          $\mathbb{C}^* / \mathbb{T} \cong \mathbb{R}^+ (\because \text{Thm.6})$
+        \end{exmText}
+
+        \underline{Def.} $z(\theta) \coloneqq e^{i\theta} = \cos \theta + i \sin \theta$ \\
+        \underline{Rem.} $z(\theta_1)z(\theta_2) = z(\theta_1 + \theta_2)$
+        \begin{exmText}
+          $\mathbb{R}, \mathbb{Z} : \text{加法群}, f\colon \mathbb{R} \to \mathbb{T}, \theta \mapsto z(2\pi\theta) : \text{hom.}$ \\
+          $\mathbb{R} / \mathbb{Z} \cong \mathbb{T}$ \\
+          $\because f(\mathbb{R}) = \mathbb{T}, \Ker f = \mathbb{Z}, (\because \theta \in \mathbb{Z} \Rightarrow z(2\pi\theta) = 0)$
+        \end{exmText}
+        \underline{Rem.} $\mathbb{R}/\mathbb{Z}, \mathbb{T}$ : 1次元の \alert{トーラス群}
+
+        \begin{exmText}
+          $I\colon G \to G, I(G) = G, \Ker I = \{e\}, f : \text{Exm.1}, f(G) = \{e\}, \Ker f = G$ \\
+          $G/\{e\} \cong G, G/G \cong \{e\}$
+        \end{exmText}
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $G'$ : $G$ の \alert{準同型像} $\defarrow$ $\exists f\colon G \to G' : \text{surjective hom.}$
+        \end{defn}
+
+        \begin{corText}
+          $G': G \text{の準同型像}$ $\Leftrightarrow$ $\exists N \nsubgroup G \st G' \cong G/N$
+        \end{corText}
+
+        \begin{defn}
+          $G$ : \alert{単純群} $\defarrow$ $\forall N \nsubgroup G, N = \{e\}$ or $G$
+        \end{defn}
+        
+        \begin{lemText}
+          $f\colon G \to G'$ : surjective hom. \\
+          $H \le G$ ($H \nsubgroup G$) $\Rightarrow$ $f(H) \le G'$ ($f(H) \nsubgroup G'$) \\
+          $H' \le G'$ ($H' \nsubgroup G'$) $\Rightarrow$ $\inverse{f}(H') \le G$ ($\inverse{f}(H') \nsubgroup G$)
+        \end{lemText}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thmText}[第1同型定理, 第3同型定理]
+          $f\colon G \to G'$ : surjective hom., $\Ker f = N$ \\
+          $\Omega = \{ H \mid H \le G, N \subset H \}, \Omega' = \{ H' \mid H' \le G' \}$ \\
+          $\varphi\colon \Omega \to \Omega'(H \mapsto f(H))$, $\varphi'\colon \Omega' \to \Omega (H' \mapsto \inverse{f}(H'))$ \\
+          (a1) $\varphi, \varphi'$: bijection, $\inverse{\varphi} = \varphi'$ \\
+          (a2) (a1) の対応において, $H/N \cong H'$ \\
+          (b1) $f(H) = H', \inverse{f}(H') = H, H \nsubgroup G \Leftrightarrow H' \nsubgroup G'$ \\
+          (b2) $G/H \cong G'/H' \cong (G/N)/(H/N)$
+        \end{thmText} 
+
+        \begin{exm}
+          $G = \mathbb{Z}, H = 3\mathbb{Z}, N = 12\mathbb{Z} \Rightarrow (\mathbb{Z} / 12\mathbb{Z}) / (3\mathbb{Z} / 12\mathbb{Z}) \cong \mathbb{Z} / 3\mathbb{Z}$ \\
+          $a, b \in \mathbb{N}, a|b \Rightarrow (\mathbb{Z} / b\mathbb{Z}) / (a\mathbb{Z} / b\mathbb{Z}) \cong \mathbb{Z} / a\mathbb{Z}$
+        \end{exm}
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thmText}[第2同型定理]
+          $\forall H \le G, N \nsubgroup G \Rightarrow $
+          \begin{itemize}
+            \item $HN \le G, H \cap N \nsubgroup H$
+            \item $H/(H \cap N) \cong HN/N$
+          \end{itemize}
+        \end{thmText}
+
+        \begin{exm}
+          $G = \mathbb{Z}, H = 6\mathbb{Z}, N = 10\mathbb{Z} \Rightarrow 6\mathbb{Z} / 30\mathbb{Z} \cong 2\mathbb{Z} / 10\mathbb{Z}$ \\
+          $a, b \in \mathbb{Z}, lcm(a, b) = l, gcd(a, b) = m \Rightarrow a\mathbb{Z} / l\mathbb{Z} \cong m\mathbb{Z} / b\mathbb{Z}$
+        \end{exm}
+
+      \end{frame}
+
+    \subsection{\textsection \thesubsection 自己同型写像, 共役類}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+        
+        \begin{defn}
+          $f\colon G \to G: \text{iso.}$ $\defarrow$ $f$ : $G$ の\alert{自己同型写像}または\alert{自己同型} (automorphism) 
+        \end{defn}
+
+        \begin{exm}
+          $I_G\colon G \to G$ : aut.
+        \end{exm}
+
+        \begin{thm}
+          $f, g$ : aut. $\Rightarrow$ $f \circ g, \inverse{f}$ : aut. 
+        \end{thm}
+
+        \begin{thm}
+          $\Aut(G) \coloneqq \{ f \in S(G) \mid f: \text{aut.} \} \le S(G)$
+        \end{thm}
+
+        \begin{defn}
+          $\Aut(G)$ : $G$ の\alert{自己同型群}
+        \end{defn}
+
+        \begin{exmText}
+          $G$:可換群, $f\colon G \to G (x \mapsto \inverse{x}) \Rightarrow f: \text{aut.}$ \\
+          $\because f(xy) = \inverse{(xy)} = \inverse{y}\inverse{x} = \inverse{x}\inverse{y} = f(x)f(y)$
+        \end{exmText}
+        
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{lemText}
+          $a \in G, \sigma_a \colon G \to G, x \mapsto ax\inverse{a} \Rightarrow \sigma_a \in \Aut(G)$
+        \end{lemText}
+        \underline{Rem.} $\sigma_a$が$I_G$と一致するのは, $a \in Z(G)$のとき ($\because ax\inverse{a} = x, ax = xa$) \\
+
+        \begin{defn}
+          $\sigma_a$ : $G$の\alert{内部自己同型}
+        \end{defn}
+
+        \begin{defn}
+          $a,b \in G, \exists s \in G \st \sigma_s(a) = sa\inverse{s} = b \defarrow a \sim b$ : $a$は$b$に\alert{共役}
+        \end{defn}
+
+        \begin{thm}
+          $a, b, c \in G$
+          \begin{enumerate}
+            \item $a \sim a$
+            \item $a \sim b \Rightarrow b \sim a$
+            \item $a \sim b, b \sim c \Rightarrow a \sim c$
+          \end{enumerate}
+        \end{thm}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $a \in G, C_a \coloneqq \left\{ xa\inverse{x} \mid x \in G \right\}$ : $a$の\alert{共役類}
+        \end{defn}
+
+        \begin{defn}
+          $a \in G, N(a) \coloneqq \left\{ x \in G \mid ax = xa \right\}$ : $G$の$a$による\alert{正規化群}
+        \end{defn}
+
+        \begin{thm}
+          $N(a) \le G$
+        \end{thm}
+
+        \begin{lemText}
+          $|G| \lt \infty, |C_a| = (G : N(a))$
+        \end{lemText}
+
+        \begin{thmText}
+          \hypertarget{thmText7-9}{}
+          $|G| \lt \infty, Z = Z(G), C \coloneqq \left\{ a \in C_a \mid  a \in G \setminus Z \right\}$ \\
+          $o(G) = o(Z) + \Sigma_{a \in C} (G : N(a))$ : \alert{類等式}
+        \end{thmText}
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $p: \text{素数}, n \ge 1, o(G) = p^n$ $\defarrow$ $G$ : \alert{$p$群}
+        \end{defn}
+        
+        \begin{exmText}
+          $G$ : $p$群 $\Rightarrow$ $\exists a \in Z(G) \st a \ne e$
+        \end{exmText}
+
+        \begin{exmText}
+          \hypertarget{exmText7-3}{}
+          $o(G) = p^2$ $\Rightarrow$ $G$ : 可換群
+        \end{exmText}
+        
+        \begin{defn}
+          $S, S' \le G, \exists a \in G \st \sigma_a(S) = aS\inverse{a} = S'$ $\defarrow$ $S$は$S'$に\alert{共役}
+        \end{defn}
+
+        \begin{thm}
+          $S, T, U \le G$
+          \begin{enumerate}
+            \item $S \sim S$
+            \item $S \sim T \Rightarrow T \sim S$
+            \item $S \sim T, T \sim U \Rightarrow S \sim U$
+          \end{enumerate}
+        \end{thm}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thm}
+          $H \le G, a \in G \Rightarrow \sigma_a(H) = aH\inverse{a} \le G$
+        \end{thm}
+
+        \begin{defn}
+          $\sigma_a(H)$: \alert{共役部分群}
+        \end{defn}
+
+        \begin{thm}
+          $H \nsubgroup G \Leftrightarrow H \le G, a \in G, H = \bigcup C_a$
+        \end{thm}
+
+        \begin{thm}
+          $H \nsubgroup G \Leftrightarrow \forall a \in G, \sigma_a(H) = H$
+        \end{thm}
+      \end{frame}
+
+    \subsection{\textsection \thesubsection 巡回群}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+        \underline{Rem.} $n \in \mathbb{Z}, n \ge 0, n\mathbb{Z} \le \mathbb{Z} \left( \because \text{\hyperlink{exmText3-5}{\textsection3 Exm.5}} \right)$
+        
+        \begin{lemText}
+          $\forall A \le \mathbb{Z} \Rightarrow \exists n \in \mathbb{Z} \st n \ge 0, A = n\mathbb{Z}$ 
+        \end{lemText}
+
+        \begin{defn}
+          $a \in G, G = \left\{ a^k \mid k \in \mathbb{Z} \right\} \defarrow G \coloneqq \langle a \rangle$ : \alert{巡回群} \\
+          $a$ : $G$ の\alert{生成元}
+        \end{defn}
+        \underline{Rem.} 加法群の場合, $\langle a \rangle = \left\{ ka \mid k \in \mathbb{Z} \right\}$
+
+        \begin{exm}
+          $\mathbb{Z} = \langle 1 \rangle, n\mathbb{Z} = \langle n \rangle$ \\
+          $\mathbb{Z}_n = \langle 1 + n\mathbb{Z} \rangle, o(\mathbb{Z}_n) = n$: 有限巡回群 
+        \end{exm}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thmText}
+          $G, H: \text{巡回群}$
+          \begin{itemize}
+            \item $o(G) = \infty \Rightarrow G \cong \mathbb{Z}$
+            \item $o(H) = n \Rightarrow H \cong \mathbb{Z}_n$
+          \end{itemize}
+        \end{thmText}
+
+        \begin{exmText}
+          $G = \generator{i} = \generator{-i} = \left\{1, i, -1, -i\right\}$
+        \end{exmText}
+
+        \begin{thm}
+          $a \in G \Rightarrow \generator{a} \le G$
+        \end{thm}
+
+        \begin{defn}
+          $a \in G, \generator{a} \le G$ \\
+          $n \gt 0, \generator{a} \cong \mathbb{Z}_n$ $\defarrow$ $o(a) = n$ : $a$の\alert{位数}または\alert{周期} \\
+          $\generator{a} \cong \mathbb{Z}$ $\defarrow$ $a$ : \alert{無限位数}の元
+        \end{defn}
+        \underline{Rem.} 位数が$1$の元は単位元
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{exmText}
+          Exm.1 において $o(-1) = 2, o(i) = o(-i) = 4$
+        \end{exmText}
+        
+        \begin{thmText}
+          $o(G) \lt \infty, \forall a \in G \Rightarrow o(a)|o(G)$
+        \end{thmText}
+
+        \begin{corText}
+          $o(G) = n \Rightarrow \forall a \in G, a^n = e$
+        \end{corText}
+
+        \begin{thmText}
+          $G: \text{巡回群}, \forall H \le G \Rightarrow H: \text{巡回群}$
+        \end{thmText}
+
+      \end{frame}
+
+    \subsection{\textsection \thesubsection 置換群}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+
+        \begin{defn}
+          $J_n = \left\{ 1, 2, \cdots, n \right\}, S_n$ : $J_n$上の$n$次対称群 \\
+          \begin{equation*}
+            \tau \in S_n, \tau\colon \begin{cases}
+                                      i \mapsto j \\
+                                      j \mapsto i &(j \ne i) \\
+                                      k \mapsto k &(k \ne i, k \ne j)
+                                    \end{cases}
+            \defarrow \tau = (i \; j): \text{$J_n$上の\alert{互換}}
+          \end{equation*}
+        \end{defn}
+        \underline{Rem.} $\tau: \text{互換} \Rightarrow \tau = \inverse{\tau}$
+
+        \begin{lemText}
+          $\forall \sigma \in S_n, n \ge 2 \Rightarrow \exists \tau_1,\cdots,\tau_s \in S_n: \text{互換} \st \sigma = \tau_1\cdots\tau_s$
+        \end{lemText}
+
+        \begin{exmText}
+          次の置換を互換の積で表す.
+          \begin{equation*}
+            \sigma = \begin{pmatrix}
+              1 & 2 & 3 & 4 \\
+              3 & 1 & 4 & 2
+            \end{pmatrix}
+          \end{equation*}
+        \end{exmText}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $n \ge 2, \Omega \coloneqq \left\{ \left\{i, j\right\} \mid i, j \in J_n, i \ne j \right\}, \sigma \in S_n$ \\
+          \begin{equation*}
+            \varepsilon(\sigma) \coloneqq \prod_{\left\{i,j\right\} \in \Omega} \frac{\sigma(i) - \sigma(j)}{i - j} : \text{$\sigma$の\alert{符号}}
+          \end{equation*}
+        \end{defn}
+        \underline{Rem.} $\varepsilon(\sigma)$は$\mathrm{sgn}(\sigma)$とも書かれる.
+
+        \begin{thmText}
+          $n \ge 2$
+          \begin{itemize}
+            \item $\forall \sigma \in S_n \Rightarrow \varepsilon(\sigma) = 1 \text{ または } \varepsilon(\sigma) = -1, \varepsilon \colon S_n \to \left\{1, -1\right\}: \text{hom.}$
+            \item $\forall \tau \in S_n :\text{互換} \Rightarrow \varepsilon(\tau) = -1$
+          \end{itemize}
+        \end{thmText}
+
+        \begin{defn}
+          $n \ge 2, \sigma \in S_n$ \\
+          $\varepsilon(\sigma) = 1$ $\defarrow$ $\sigma$ : \alert{偶置換}, $\varepsilon(\sigma) = -1$ $\defarrow$ $\sigma$ : \alert{奇置換}
+        \end{defn}
+        \underline{Rem.} $\forall \tau \in S_n :\text{互換} \Rightarrow \tau : \text{奇置換} (\because \text{Thm. 13})$
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{corText}
+          $\sigma \in S_n, \exists \tau_1, \cdots, \tau_s \in S_n :\text{互換} \st \sigma = \tau_1 \cdots \tau_s$ \\
+          $\sigma : \text{偶置換} (\text{奇置換}) \Rightarrow s : \text{偶数} (\text{奇数})$
+        \end{corText}
+
+        \begin{corText}
+          $n \ge 2, \Omega_e = \{ \sigma \in S_n \mid \varepsilon(\sigma) = 1\}, \Omega_o = \{ \sigma \in S_n \mid \varepsilon(\sigma) = -1\}$
+          \begin{itemize}
+            \item $A_n \coloneqq \Omega_e, A_n \nsubgroup S_n$ : \alert{$n$次の交代群}
+            \item $o(\Omega_e) = o(\Omega_o) = n!/2$
+          \end{itemize}
+        \end{corText}
+
+        \begin{exm}
+          $A_3 = \{ e, (1 \; 2 \; 3), (1 \; 3 \; 2) \}$
+        \end{exm}
+          
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $i_1, \cdots, i_r \in J_n (r \ge 2, i_i \ne i_j)$ \\
+          $\sigma \in S_n, \sigma(i_1) = i_2, \sigma(i_2) = i_3, \cdots, \sigma(i_{r-1}) = i_r, \sigma(i_r) = i_1, \sigma(i_k) = i_k (r \lt k \le n)$ \\
+          $\defarrow$ $\sigma = (i_1 \; i_2 \; \cdots \; i_r)$ : \alert{長さ$r$}の\alert{巡回置換}(\alert{サイクル}), $r$-巡回置換 \\
+          $J_n(\sigma) \coloneqq \{i_1, i_2, \cdots, i_r\}$ : $\sigma$の\alert{巡回域}
+        \end{defn}
+        \underline{Rem.} 互換: $2$-巡回置換, $e$: $1$-巡回置換
+
+        \begin{thm}
+          $\sigma \in S_n : \text{$r$-巡回置換}, \forall i \in J_n(\sigma) \Rightarrow \sigma = (i \; \sigma(i) \; \sigma^2(i) \; \cdots \; \sigma^{r-1}(i)) \quad$
+        \end{thm}
+
+        \begin{defn}
+          $\sigma, \sigma' \in S_n :\text{巡回置換}, J_n(\sigma) \cap J_n(\sigma') = \emptyset$ $\defarrow$ $\sigma, \sigma'$は\alert{互いに素}
+        \end{defn}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thm}
+          $\sigma, \sigma' \in S_n: \text{互いに素} \Rightarrow \sigma\sigma' = \sigma'\sigma$
+        \end{thm}
+
+        \begin{defn}
+          $\forall \sigma \in S_n, i,j \in J_n, \exists \alpha \in \mathbb{Z} \st \sigma^\alpha(i) = j \defarrow i \underset{\sigma}{\equiv} j$ \\
+          $T_i \coloneqq \{ i \in J_n \mid i \underset{\sigma}{\equiv} j \}$ : $\sigma$に関する\alert{推移類}
+        \end{defn}
+
+        \begin{lemText}
+          $\forall \sigma \in S_n \Rightarrow \exists! \sigma_1, \cdots, \sigma_k \in S_n :\text{巡回置換} \st \sigma = \sigma_1 \cdots \sigma_k \quad (\sigma_i, \sigma_j : \text{互いに素})$ \\
+          $\sigma = \sigma_1 \cdots \sigma_k$ : $\sigma$の\alert{標準分解}
+        \end{lemText}
+
+        \begin{exmText}
+          \begin{equation*}
+            \begin{pmatrix}
+              1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\
+              5 & 3 & 9 & 4 & 7 & 2 & 1 & 8 & 6
+            \end{pmatrix} = (1 \; 5 \; 7)(2 \; 3 \; 9 \; 6)(4)(8)
+          \end{equation*}
+        \end{exmText}
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $\sigma \in S_n, \sigma = \sigma_1 \cdots \sigma_k : \text{$\sigma$の標準分解}$ \\
+          $r_1, \cdots, r_k : \text{$\sigma_i$の長さ}, r_1 \ge \cdots \ge r_k, r_1 + \cdots + r_k = n$ \\
+          $\defarrow$ $[r_1, \cdots, r_k]$ : $\sigma$の\alert{分解型}
+        \end{defn}
+
+        \begin{thmText}
+          $\sigma, \sigma' \in S_n, [r_1, \cdots, r_k] : \text{$\sigma$の分解型}, [r'_1, \cdots, r'_k] : \text{$\sigma'$の分解型}$ \\
+          $\sigma \sim \sigma' \Leftrightarrow [r_1, \cdots, r_k] = [r'_1, \cdots, r'_k]$
+        \end{thmText}
+
+        \begin{defn}
+          $n \in \mathbb{Z}, n \gt 0, \exists r_1, \cdots, r_k \in \mathbb{Z} \st r_1 \ge \cdots \ge r_k \gt 0, n = r_1 + \cdots + r_k$ \\
+          $\defarrow$ $[r_1, \cdots, r_k]$ : $n$の\alert{分割} \\
+          $p(n)$ : $n$の分割の数
+        \end{defn}
+
+        \begin{corText}
+          $\text{$S_n$の共役類の個数} = p(n)$
+        \end{corText}
+        
+      \end{frame}
+
+    \subsection{\textsection \thesubsection 置換表現, 群の集合への作用}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+
+        \begin{defn}
+          $a \in G, T_a \colon G \to G, T_a(x) = ax$ $\defarrow$ $T_a$ : $a$による$G$の\alert{左移動}
+        \end{defn}
+
+        \begin{thm}
+          $T_a \in S(G)$
+        \end{thm}
+
+        \begin{thmText}[Cayley]
+          $X: \text{集合}, \forall G: \text{群} \Rightarrow \exists S' \le S(X) \st G \cong S'$
+        \end{thmText}
+
+        \begin{defn}
+          $X: \text{集合}, \rho \colon G \to S(X): \text{hom.}$ $\defarrow$ $\rho$ : $G$の$X$における\alert{置換表現}\\
+          $\rho : \text{injective hom.}$ $\defarrow$ $\rho$ : \alert{忠実な}置換表現
+        \end{defn}
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{thm}
+          $a \in G, x \in X, \rho: \text{$G$の$X$における置換表現}, a \cdot x \coloneqq (\rho(a))(x) \Rightarrow$
+          \begin{enumerate}
+            \item $e \in G, \forall x \in X \Rightarrow e \cdot x = x$
+            \item $\forall a, b \in G, \forall x \in X \Rightarrow ab \cdot x = a \cdot (b \cdot x)$
+          \end{enumerate}
+        \end{thm}
+
+        \begin{thm}
+          $\text{写像} G \times X \to X, (a, x) \mapsto a \cdot x$ は Thm. 10.2 (1)(2)を満たす. $\Rightarrow$ \\
+          $\forall a \in G, \rho(a) \colon X \to X, \rho(a) \in S(X), \rho \colon G \to S(X): \text{hom.}$
+        \end{thm}
+
+        \begin{defn}
+          Thm. 10.2 (1)(2)を満足する写像$G \times X \to X, (a, x) \mapsto a \cdot x$ : $G$の$X$への\alert{作用} \\
+          $G$の$1$つの作用が与えられた$X$ : \alert{$G$-集合}
+        \end{defn}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{exmText}
+          $T \colon G \to S(G)$ : 群$G$の集合$G$における忠実な置換表現 \\
+          作用の意味の$a \cdot x$は$G$における積としての$ax$
+        \end{exmText}
+
+        \underline{Rem.} $T$ : $G$の\alert{左正則表現}
+
+        \begin{exmText}
+          $\sigma_a$ : $G$の内部自己同型, $\sigma \colon G \to S(G), a \mapsto \sigma_a$ : $G$の$G$における置換表現 \\
+          作用の意味の$a \cdot x$は$G$における積としての$ax\inverse{a}$
+        \end{exmText}
+
+        \begin{exmText}
+          $\forall H \le G, G/H \coloneqq \{ aH \mid a \in G\}$ ($H \notnsubgroup G$のときこれは群ではない) \\
+          $a \in G, xH \in G/H, a \cdot xH = axH$ : $G$の$G/H$への作用 \\
+          この作用により, $G$の$G/H$における1つの置換表現, $G/H$に$G$-集合としての1つの構造が与えられる.
+        \end{exmText}
+        \underline{Rem.} $H = \{e\}$のとき, $G$の$G/H$における置換表現は$G$の左正則表現.
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \underline{Rem.} 今後, 混乱する恐れがなければ, $ax \coloneqq a \cdot x$
+
+        \begin{thm}
+          $X$ : $G$-集合, $x, y \in X, \exists a \in G \st ax = y \defarrow x \sim y \Rightarrow \sim$ : $X$における同値関係
+        \end{thm}
+
+        \begin{defn}
+          $C_x \coloneqq \{ y \in X \mid x \sim y \}$ : $G$-集合$X$の\alert{推移類}または\alert{軌道(orbit)}
+        \end{defn}
+
+        \begin{thm}
+          $Gx := \{ ax \mid a \in G\} \Rightarrow C_x = Gx$
+        \end{thm}
+
+        \begin{defn}
+          $\forall x, y \in X, \exists a \in G \st ax = y$ : $G$の$X$への作用(とそれに対応する$G$の置換表現)は\alert{推移的(transitive)} \\
+          上記を満たす$X$ : \alert{推移的}$G$-集合 または \alert{等質}$G$-集合
+        \end{defn}
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{exmText}
+          Exm. 2 の意味で群$G$を$G$-集合と考えるとき, その推移類は$G$の共役類
+        \end{exmText}
+
+        \begin{exmText}
+          Exm. 3 で述べた$G$の$G/H$への作用は推移的 \\
+          $\because \forall xH, yH \in G/H, y \inverse{x} \cdot xH = yH$
+        \end{exmText}
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $X, X'$ : $G$-集合, $\rho, \rho'$ : $X, X'$の置換表現 \\
+          \begin{enumerate}
+            \item $\varphi \colon X \to X': \text{bij.}, \forall a \in G, \forall x \in X \Rightarrow \varphi(ax) = a\varphi(x)$ $\defarrow$ $\varphi$ : \alert{$G$-同型写像} 
+            \item $\varphi$ : $G$-同型写像のとき, $\rho, \rho'$は\alert{同値}
+          \end{enumerate}
+        \end{defn}
+
+        \[
+          \xymatrix@!C{
+            {X \ni x} \ar@{|->}[d]_{\varphi} \ar@{|->}[r]^{\rho(a)} & {ax \in X} \ar@{|->}[d]^{\varphi} \\
+            {X' \ni \varphi(x)} \ar@{|->}[r]^{\rho'(a)} & {a\varphi(x) = \varphi(ax) \in X'}
+          }
+        \]
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{thmText}
+          $X$ : 推移的な$G$-集合, $x_0 \in X, H = \{ a \in G \mid ax_0 = x_0\}$ \\
+          \begin{enumerate}
+            \item $H \le G$ : $x_0$の\alert{安定部分群(stabilizer)}または\alert{固定群}
+            \item $G$の$X$における表現は$G$の$G/H$における表現と同値
+          \end{enumerate}
+        \end{thmText}
+
+        \begin{corText}
+          $X$ : 推移的な$G$-集合, $|X| \lt \infty, H \le G : x_0 \in X \text{の安定部分群}$ \\
+          $(G:H) = |X|$
+        \end{corText}
+
+        \underline{Rem.} $X$ : $G$-集合 $\Rightarrow$ $\forall C_x$ : 推移的な$G$-集合
+
+        \begin{thm}
+          $X$ : $G$-集合, $|X| = n$, $X_1, \cdots, X_k$ : $X$の推移類, \\
+          $x_i \in X_i (1 \le i \le k)$ : $X_i$の代表元, $H_i$ : $x_i$の安定部分群 \\
+          $\Rightarrow$ $n = \displaystyle\sum^k_{i=1}(G:H_i)$ : $X$の\alert{推移類分解等式}または\alert{軌跡分解等式}
+        \end{thm}
+
+        \underline{Rem.} Exm. 2の軌跡分解等式は有限群の類等式(\hyperlink{thmText7-9}{\textsection7 Thm. 9})
+
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{thmText}
+          $H \le G$, $\rho \colon G \to S(G/H)$ : 置換表現, $N = \Ker \rho$ \\
+          \begin{enumerate}
+            \item $N \subset H$
+            \item $\forall N_1 \nsubgroup G, N_1 \subset H \Rightarrow N_1 \subset N$
+          \end{enumerate}
+        \end{thmText}
+
+        \begin{corText}
+          $\rho \colon G \to S(G/H)$ : 忠実 $\Leftrightarrow$ $\forall N \nsubgroup G, N \subset H \Rightarrow N = \{e\}$
+        \end{corText}
+
+        \begin{lemText}
+          $H \le G, o(G) = n, (G:H) = i$ \\
+          $n \nmid i! \Rightarrow \exists N \nsubgroup G \st N \ne \{e\}, N \subset H$
+        \end{lemText}
+
+      \end{frame}
+
+    \subsection{\textsection \thesubsection 直積}
+    \setcounter{textExmCount}{0}
+
+      \begin{frame}
+        
+        \begin{thm}
+          $G_1, G_2$ : 群, $a_1, b_1 \in G_1, a_2, b_2 \in G_2, G' \coloneqq G_1 \times G_2$ \\
+          $(a_1, a_2), (b_1, b_2) \in G', (a_1, a_2)(b_1, b_2) = (a_1b_1, a_2b_2) \Rightarrow G' : \text{群}$
+        \end{thm}
+
+        \begin{defn}
+          $G_1 \times G_2$ : $G_1, G_2$の\alert{直積}
+        \end{defn}
+        \underline{Rem.} $G'$ : 可換群 $\Leftrightarrow$ $G_1, G_2$ : 可換群
+
+        \begin{thm}
+          $G_1, G_2$ : 群, $G' = G_1 \times G_2$
+          \begin{enumerate}
+            \item $f_1 \colon G_1 \to G', a_1 \mapsto a_1' = (a_1, e_2) \Rightarrow G_1 \cong f_1(G_1), f_1(G_1) \le G'$
+            \item $f_2 \colon G_2 \to G', a_2 \mapsto a_2' = (e_1, a_2) \Rightarrow G_2 \cong f_2(G_2), f_2(G_2) \le G'$
+            \item $G'_1 \coloneqq f_1(G_1), G'_2 \coloneqq f_2(G_2), \forall a'_1 \in G'_1, \forall a'_2 \in G'_2 \Rightarrow a'_1a'_2 = a'_2a'_1$
+            \item $\forall a' \in G' \Rightarrow \exists! a'_1 \in G'_1, a'_2 \in G'_2 \st a' = a'_1a'_2$
+          \end{enumerate}
+        \end{thm}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $N_1, N_2 \le G$ \\
+          $\forall x_1 \in N_1, \forall x_2 \in N_2, x_1x_2 = x_2x_1, \forall x \in G, \exists! x_1 \in N_1, x_2 \in N_2 \st x = x_1x_2 $ \\
+          $\defarrow$ $G$は$N_1, N_2$の\alert{直積に分解される}
+        \end{defn}
+
+        \begin{thm}
+          $G$が$N_1, N_2$の直積に分解される $\Rightarrow$ $G \cong  N_1 \times N_2$
+        \end{thm}
+        \underline{Rem.} $G$が$N_1, N_2$の直積に分解されるとき, $G = N_1 \times N_2$ とかく 
+
+        \begin{lemText}
+          $N_1, N_2 \le G$ \\
+          $G$が$N_1, N_2$の直積に分解される $\Leftrightarrow$
+          \begin{enumerate}
+            \item $N_1, N_2 \nsubgroup G$
+            \item $G = N_1N_2$
+            \item $N_1 \cap N_2 = \{e\}$
+          \end{enumerate}
+          
+        \end{lemText}
+        
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{exmText}
+          $\mathbb{C} \cong \mathbb{R} \times \mathbb{R}$
+        \end{exmText}
+
+        \begin{exampleblock}{\textsection 8 Exc. 5}
+          $a, b \in G, ab = ba, o(a) = m, o(b) = n, (m, n) = 1 \Rightarrow o(ab) = mn$
+        \end{exampleblock}
+
+        \begin{exmText}
+          $G_1, G_2$ : 巡回群, $o(G_1) = n_1, o(G_2) = n_2$ \\
+          $G_1 \times G_2$ : 巡回群 $\Leftrightarrow$ $(n_1, n_2) = 1$
+        \end{exmText}
+
+        \begin{exmText}
+          $p$ : 素数, $G$ : 群, $o(G) = p^2$ $\Rightarrow$ $G$ : 可換群($\because$\hyperlink{exmText7-3}{\textsection7 Exm. 3}) で次のいずれか \\
+          \begin{enumerate}
+            \item $G$ : 巡回群
+            \item $\exists N_1, N_2 : \text{巡回群} \st o(N_1) = o(N_2) = p, G = N_1 \times N_2$
+          \end{enumerate}
+        \end{exmText}
+        
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{thm}
+          $G_1, \cdots, G_n$ : 群, $e_i \in G_i \; (i = 1, \cdots, n)$ \\
+          $G' \coloneqq \displaystyle\prod_{i=1}^n G_i = G_1 \times \cdots \times G_n = \{(a_1, \cdots, a_n) \mid a_i \in G_i \; (i = 1, \cdots, n)\}$ \\
+          $a', b' \in G', a'b' = (a_1, \cdots, a_n)(b_1, \cdots, b_n) = (a_1b_1, \cdots, a_nb_n) \Rightarrow G' : \text{群}$
+        \end{thm}
+
+        \begin{defn}
+          $\displaystyle \prod_{i=1}^n G_i$ : $G_1, \cdots, G_n$の\alert{直積}
+        \end{defn}
+
+        \begin{thm}
+          $G_1, \cdots, G_n$ : 群, $G' = G_1 \times \cdots \times G_n, 1 \le i \le n, 1 \le j \le n, i \ne j$ \\
+          \begin{enumerate}
+            \item $f_i \colon G_i \to G', a_i \mapsto a'_i = (e_1, \cdots, a_i, \cdots, e_n) \Rightarrow G_i \cong f_i(G_i), f_i(G_i) \le G'$
+            \item $G'_i \coloneqq f_i(G_i), G'_j \coloneqq f_j(G_j), \forall a'_i \in G'_i, \forall a'_j \in G'_j \Rightarrow a'_ia'_j = a'_ja'_i$
+            \item $\forall a' \in G' \Rightarrow \exists! a'_1 \in G'_1, \cdots, a'_n \in G'_n \st a' = a'_1 \cdots a'_n$
+          \end{enumerate}
+        \end{thm}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $N_1, \cdots, N_n \le G, 1 \le i \le n, 1 \le j \le n, i \ne j$ \\
+          $\forall i, j, \forall x_i \in N_i, \forall x_j \in N_j, x_ix_j = x_ix_j, \forall x \in G, \exists! x_1 \in N_1, \cdots, x_n \in N_n \st x = x_1 \cdots x_n$ \\
+          $\defarrow$ $G$は$N_1, \cdots, N_n$の\alert{直積に分解される}
+        \end{defn}
+
+        \begin{thm}
+          $G$が$N_1, \cdots, N_n$の直積に分解される $\Rightarrow$ $G \cong \displaystyle \prod_{i=1}^n N_i$
+        \end{thm}
+
+        \addtocounter{textLemCount}{-1}
+        \begin{lemText}[n]
+          $N_1, \cdots, N_n \le G$ \\
+          $G$が$N_1, \cdots, N_n$の直積に分解される $\Leftrightarrow$
+          \begin{enumerate}
+            \item $N_1, \cdots, N_n \nsubgroup G$
+            \item $G = N_1 \cdots N_2$
+            \item $(N_1 \cdots N_{i-1} N_{i+1} \cdots N_n) \cap N_i = \{e\} \quad (i = 1, \cdots, n)$
+          \end{enumerate}
+        \end{lemText}
+        
+      \end{frame}
+
+    \subsection{\textsection \thesubsection Sylow の定理}
+    \setcounter{textExmCount}{0}
+      
+      \begin{frame}
+
+        \begin{lem}
+          $p$ : 素数, $\alpha, m \in \mathbb{Z}, (p, m) = 1 \Rightarrow p \nmid \dbinom{p^\alpha m}{p^\alpha} $
+        \end{lem}
+
+        \begin{thmText}[Sylowの第1定理]
+          $p : \text{素数}, \exists \alpha \in \mathbb{Z} \st p^\alpha \mid o(G) \Rightarrow \exists H \le G \st o(H) = p^\alpha$
+        \end{thmText}
+
+        \begin{corText}
+          $p : \text{素数}, p \mid o(G) \Rightarrow \exists x \in G \st o(x) = p$
+        \end{corText}
+
+        \begin{corText}
+          $p : \text{素数}, p \mid o(G), \exists e, s \in \mathbb{Z}  \st o(G) = p^es, (p, s) = 1 \Rightarrow \exists H \le G \st o(H) = p^e$
+        \end{corText}
+
+        \begin{defn}
+          Cor. 18.2 を満たす$H \le G$ : $G$の\alert{$p$ Sylow 部分群}
+        \end{defn}
+
+      \end{frame}
+
+      \begin{frame}
+        
+        \begin{thm}
+          $H \le G, A, B \subset G, \exists x \in H \st xA\inverse{x} = B$ $\defarrow$ $A \sim_H B$ : $A,B$は$H$に関して共役 \\
+          $\Rightarrow$ $\sim_H$ : $G$の部分集合間の同値関係
+        \end{thm}
+
+        \begin{exampleblock}{\textsection 5 Exc. 12}
+          $S \ne \emptyset, S \subset G, N(S) \coloneqq \{ x \in G \mid xS = Sx \} \Rightarrow N(S) \le G$ \\
+          $N(S)$ : $G$における$S$の\alert{正規化群}
+        \end{exampleblock}
+
+        \begin{exampleblock}{\textsection 7 Exc. 6}
+          $S \subset G, (G : N(S)) \lt \infty \Rightarrow |\{ S' \subset G \mid S \sim S' \}| = (G : N(S))$ \\
+        \end{exampleblock}
+
+        \begin{lemText}
+          $o(G) \lt \infty, H \le G, A \subset G \Rightarrow |\{ A' \subset G \mid A \sim_H A' \}| = (H : H \cap N(A))$
+        \end{lemText}
+
+      \end{frame}
+
+      \begin{frame}
+
+        \begin{defn}
+          $H \le G, \exists x \in \mathbb{Z} \st o(H) = p^x$ $\defarrow$ $H$ : $p$部分群
+        \end{defn}
+
+        \begin{thmText}
+          $o(G) \lt \infty, p : \text{素数}, o(G) = p^es, (p, s) = 1$ \\
+          \begin{enumerate}[a]
+            \item $\forall H \le G : \text{$p$部分群} \Rightarrow \exists P \le G : \text{$p$ Sylow 部分群} \st H \subset P$
+            \item (Sylowの第2定理) $\forall P, P' \le G : \text{$p$ Sylow 部分群} \Rightarrow P \sim P'$
+            \item (Sylowの第3定理) $s' \coloneqq |\{ P \mid P \le G : \text{$p$ Sylow 部分群} \}| \Rightarrow s' = 1 + kp, s' \mid o(G)$
+          \end{enumerate}
+        \end{thmText}
+
+        \begin{exmText}
+          位数15のすべての群を決定せよ.
+        \end{exmText}
+
+        \begin{exmText}
+          位数10のすべての群を決定せよ.
+        \end{exmText}
+
+      \end{frame}
+  
+\end{document}
