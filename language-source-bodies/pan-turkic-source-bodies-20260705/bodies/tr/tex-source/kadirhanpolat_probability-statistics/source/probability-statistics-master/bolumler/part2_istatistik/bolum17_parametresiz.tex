@@ -1,0 +1,648 @@
+%% ============================================================
+%% BÖLÜM 17 --- Parametresiz İstatistik  [OPSİYONEL]
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Parametresiz İstatistik}
+\label{chp:parametresiz}
+
+\bolumalinti{%
+  The great advantage of the nonparametric approach is that we need not make
+  any assumption about the form of the underlying population.
+}{Frank Wilcoxon}
+
+\begin{kazanimlar}
+Bu bölümün sonunda okuyucu:
+\begin{itemize}
+  \item Parametresiz yöntemlerin motivasyonunu ve güç-sağlamlık dengesini açıklar.
+  \item İşaret testi ve Wilcoxon işaret-sıra testini uygular ve asimptotik dağılımlarını türetir.
+  \item Mann-Whitney $U$-testini iki bağımsız örneklem karşılaştırması için kullanır.
+  \item Kruskal-Wallis ve Friedman testlerini çok grup karşılaştırmasında uygular.
+  \item Kolmogorov-Smirnov testini dağılım uyum testi olarak kullanır.
+  \item Bootstrap yöntemini standart hata ve güven aralığı hesabında uygular.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+Normal dağılım varsayımı zaman zaman geçersizdir: çarpık dağılımlar, aykırı değerler, sıralı ölçek. Parametresiz yöntemler dağılım hakkında minimal varsayımla çalışır. "Sağlamlık" (robustness) modern istatistikte kritik önem taşır.
+
+\medskip
+\noindent\textbf{Köprü:} Bölüm~\ref{chp:hipotez_testi}'deki test çerçevesi burada da geçerlidir; fark, test istatistiklerinin sıralardan ya da işaretlerden inşa edilmesidir.
+\end{motivasyon}
+
+%% ============================================================
+\section{İşaret Testi}
+\label{sec:isaret_testi}
+%% ============================================================
+
+\begin{kesif}
+Sürekli dağılım medyanı $m$ için $X_i>m$ veya $X_i<m$ ikili bilgisi kullanılabilir. $H_0:m=m_0$ altında bu ikili değerlerin dağılımı nedir?
+\kesifcevap{$H_0:m=m_0$ altında $S=\sum\mathbf{1}(X_i>m_0)\sim\mathrm{Binom}(n,1/2)$.
+  Test: $p=2\min(P(S\leq s_\text{obs}),P(S\geq s_\text{obs}))$ iki yönlü.
+  Güç düşük ama tam dağılımdan bağımsız (distribution-free) ve süreklilik gerekmez.}
+\end{kesif}
+
+\begin{tanim}[İşaret testi]\label{def:isaret_testi}
+$X_1,\ldots,X_n\iid F$ sürekli. $H_0: F(m_0)=1/2$ (medyan $m_0$). $B = \#\{i:X_i>m_0\}$. $H_0$ altında $B\sim\Binom(n,1/2)$.
+
+Test istatistiği $B$ (veya $\min(B,n-B)$ iki yönlü test için). Küçük $n$'de kesin Binom dağılımı; büyük $n$'de $B$ yaklaşık $\Normal(n/2,n/4)$.
+\end{tanim}
+
+\begin{teorem}[İşaret testinin asimptotik dağılımı]
+$H_0$ altında $Z=(2B-n)/\sqrt{n}\dto\Normal(0,1)$.
+\end{teorem}
+
+\begin{proof}
+$B=\sum_{i=1}^n\mathbf{1}[X_i>m_0]$; her terim i.i.d.\ $\mathrm{Ber}(1/2)$. MLT uygulanır.
+\end{proof}
+
+%% ============================================================
+\section{Wilcoxon İşaret-Sıra Testi}
+\label{sec:wilcoxon_isaret}
+%% ============================================================
+
+\begin{tanim}[Wilcoxon işaret-sıra istatistiği]\label{def:wilcoxon_isaret}
+$X_1,\ldots,X_n$ simetrik sürekli dağılımdan (simetri merkezi $\theta$), $H_0:\theta=0$. $|X_1|,\ldots,|X_n|$'yi küçükten büyüğe sırala; $R_i = |X_i|$'nin sırası.
+
+\textbf{Wilcoxon istatistiği:} $W^+ = \sum_{i=1}^n R_i\,\mathbf{1}[X_i>0]$.
+\end{tanim}
+
+\begin{teorem}[Wilcoxon asimptotik dağılımı]\label{thm:wilcoxon_asimptotik}
+$H_0$ altında:
+\[
+  \Beklenti[W^+] = \frac{n(n+1)}{4}, \qquad \Var(W^+) = \frac{n(n+1)(2n+1)}{24}.
+\]
+Standartlaştırılmış $Z = (W^+ - n(n+1)/4)/\sqrt{n(n+1)(2n+1)/24} \dto \Normal(0,1)$.
+\end{teorem}
+
+\begin{proof}[Proof --- beklenti]
+$H_0$ altında her $X_i$ için $\Prob(X_i>0)=1/2$ (simetri). $W^+=\sum_{i=1}^n R_i\,\psi_i$ ($\psi_i=\mathbf{1}[X_i>0]$). $\psi_i\perp R_i$ (simetri) ve $\Beklenti[\psi_i]=1/2$.
+\[
+  \Beklenti[W^+] = \sum_{i=1}^n\Beklenti[R_i]\cdot\Beklenti[\psi_i] = \frac{1}{2}\sum_{i=1}^n i = \frac{n(n+1)}{4}.
+\]
+\end{proof}
+
+\begin{ispatiskele}
+Varyans hesabı: $\psi_i,\psi_j$ ve $R_i,R_j$ bağımsız olduğundan $\Cov(R_i\psi_i,R_j\psi_j)=0$ ($i\neq j$). $\Var(R_i\psi_i)=\Beklenti[R_i^2]/4$; $\sum_{i=1}^n i^2=n(n+1)(2n+1)/6$. Bölünce $n(n+1)(2n+1)/24$.
+\end{ispatiskele}
+
+%% ============================================================
+\section{Mann-Whitney $U$-Testi}
+\label{sec:mann_whitney}
+%% ============================================================
+
+\begin{tanim}[Mann-Whitney istatistiği]\label{def:mann_whitney}
+$X_1,\ldots,X_m\iid F$ ve $Y_1,\ldots,Y_n\iid G$ bağımsız. $H_0:F=G$.
+
+$U = \#\{(i,j): X_i < Y_j\} = \sum_{i=1}^m\sum_{j=1}^n\mathbf{1}[X_i<Y_j]$.
+\end{tanim}
+
+\begin{teorem}[Mann-Whitney asimptotik dağılımı]\label{thm:mann_whitney}
+$H_0$ altında:
+\[
+  \Beklenti[U] = \frac{mn}{2}, \qquad \Var(U) = \frac{mn(m+n+1)}{12}.
+\]
+$Z = (U - mn/2)/\sqrt{mn(m+n+1)/12}\dto\Normal(0,1)$.
+\end{teorem}
+
+\begin{proof}[Proof --- beklenti]
+$H_0:F=G$ altında $\Prob(X_i<Y_j)=1/2$ (sürekli dağılım). $U=\sum_{ij}\mathbf{1}[X_i<Y_j]$, her biri $\mathrm{Ber}(1/2)$; $\Beklenti[U]=mn/2$.
+\end{proof}
+
+\begin{teorem}[Wilcoxon sıra-toplam --- eşdeğerlik]\label{thm:wilcoxon_mann}
+İki örneklem birleştirilip sıralanır; $W_X = $ X değerlerinin sıra toplamı. $U = W_X - m(m+1)/2$ (sıra toplamından Mann-Whitney elde edilir). İki test eşdeğerdir.
+\end{teorem}
+
+%% ============================================================
+\section{Kruskal-Wallis ve Friedman Testleri}
+\label{sec:kruskal_friedman}
+%% ============================================================
+
+\begin{tanim}[Kruskal-Wallis testi]\label{def:kruskal_wallis}
+$k$ grup, grup $i$'de $n_i$ gözlem; toplam $N=\sum n_i$. Tüm gözlemler birleştirilip sıralanır; $\bar{R}_i$ = $i$. grubun ortalama sırası. Kruskal-Wallis istatistiği:
+\[
+  H = \frac{12}{N(N+1)}\sum_{i=1}^k n_i(\bar{R}_i - \bar{R})^2
+\]
+$\bar{R}=(N+1)/2$ (genel ortalama sıra).
+\end{tanim}
+
+\begin{teorem}[Kruskal-Wallis asimptotiği]\label{thm:kruskal_asimptotik}
+$H_0$ (tüm gruplar aynı dağılım) altında $H\dto\chi^2_{k-1}$.
+\end{teorem}
+
+\begin{ispatiskele}
+ANOVA sıra dönüşümü: sıraların $F$-istatistiği formülü uygulanınca $H$ elde edilir; $\chi^2$ asimptotiği normal yakınsama argümanından gelir.
+\end{ispatiskele}
+
+\begin{tanim}[Friedman testi]\label{def:friedman}
+$n$ blok, $k$ muamele; blok içi sıralar $r_{ij}$ ($j=1,\ldots,k$). Friedman istatistiği:
+\[
+  F_r = \frac{12n}{k(k+1)}\sum_{j=1}^k\!\left(\bar{r}_j - \frac{k+1}{2}\right)^{\!2}
+\]
+$\bar{r}_j$ = $j$-inci muamelenin ortalama sırası. $H_0$ altında $F_r\dto\chi^2_{k-1}$.
+\end{tanim}
+
+%% ============================================================
+\section{Kolmogorov-Smirnov Testi}
+\label{sec:ks_testi}
+%% ============================================================
+
+\begin{tanim}[Ampirik dağılım fonksiyonu]\label{def:ampirik_df}
+$X_1,\ldots,X_n$ gözlemi için \textbf{ampirik dağılım fonksiyonu} \emph{(empirical CDF)}:
+\[
+  F_n(x) = \frac{1}{n}\sum_{i=1}^n\mathbf{1}[X_i\leq x].
+\]
+\end{tanim}
+
+\begin{teorem}[Glivenko-Cantelli]\label{thm:glivenko_cantelli}
+$X_i\iid F$. O zaman
+\[
+  \sup_x |F_n(x)-F(x)| \asto 0.
+\]
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+Her sabit $x$ için GBSK'dan $F_n(x)\asto F(x)$. Üst limit geçirgenliği (üstel sınır argümanı) sayılabilir yoğun $\{x_k\}$ kümesi üzerinden $\sup$'u kapsar; sol süreklilik ve sınırlılık ile genel sonuç elde edilir.
+\end{proof}
+
+\begin{tanim}[KS istatistiği]\label{def:ks_istatistik}
+$H_0:F=F_0$ (belirtilmiş sürekli dağılım). \textbf{Kolmogorov-Smirnov istatistiği:}
+\[
+  D_n = \sup_x |F_n(x) - F_0(x)|.
+\]
+\end{tanim}
+
+\begin{teorem}[Kolmogorov dağılımı]\label{thm:kolmogorov_dagilim}
+$H_0$ altında $F_0$ sürekli ise:
+\[
+  \sqrt{n}\,D_n \dto K
+\]
+$K$'nın dağılım fonksiyonu: $\Prob(K\leq t) = \sum_{k=-\infty}^{\infty}(-1)^k e^{-2k^2t^2}$.
+\end{teorem}
+
+\begin{ispatiskele}
+$U_i = F_0(X_i)\iid\Uniform[0,1]$ ($F_0$ sürekli). $F_n$ yerine uniform ampirik süreç $\sqrt{n}(\hat{F}_n(u)-u)$ incelenir; bu Brownian köprüye yakınsar (Donsker). Brownian köprünün sonsuz normu Kolmogorov dağılımını verir.
+\end{ispatiskele}
+
+%% ============================================================
+\section{Medyan için Güven Aralığı}
+\label{sec:medyan_ga}
+%% ============================================================
+
+\begin{teorem}[Medyan için dağılım-serbest GA]\label{thm:medyan_ga}
+$X_1,\ldots,X_n\iid F$ sürekli; medyan $m$ bilinmiyor. Sıra istatistikleri $X_{(1)}\leq\cdots\leq X_{(n)}$.
+
+$\Prob(X_{(r)}\leq m\leq X_{(s)}) = \sum_{k=r}^{s-1}\binom{n}{k}(1/2)^n$.
+
+$(1-\alpha)$ güven aralığı: $r$ ve $s$'yi $\sum_{k=r}^{s-1}\binom{n}{k}2^{-n}\geq1-\alpha$ sağlayacak biçimde seç.
+\end{teorem}
+
+\begin{proof}
+$\Prob(X_{(r)}\leq m) = \Prob(\text{en az } r \text{ gözlem } m\text{'den küçük}) = \Prob(B_{n,1/2}\geq r)$ ($B_{n,1/2}\sim\Binom(n,1/2)$). $\Prob(X_{(r)}\leq m\leq X_{(s)}) = \Prob(r\leq B_{n,1/2}\leq s-1)$.
+\end{proof}
+
+\begin{ornek}[Medyan GA, $n=9$, $\alpha=0.05$]
+$\sum_{k=r}^{8-r}\binom{9}{k}(1/2)^9$ $r=2$, $s=8$: $\sum_{k=2}^7\binom{9}{k}/512=(9+36+84+126+126+84)/512=465/512=0.908<0.95$. $r=2,s=8$ yeterli değil. $r=1,s=9$: $\sum_{k=1}^8\binom{9}{k}/512=(512-1-1)/512=510/512=0.996\geq0.95$. GA: $[X_{(1)},X_{(9)}]$, kapsama $\geq99.6\%$.
+\end{ornek}
+
+%% ============================================================
+\section{Spearman Sıra Korelasyonu}
+\label{sec:spearman}
+%% ============================================================
+
+\begin{tanim}[Spearman'ın $\rho$ istatistiği]\label{def:spearman}
+$(X_i,Y_i)_{i=1}^n$ çiftleri. $R_i$ = $X_i$'nin sırası, $S_i$ = $Y_i$'nin sırası. \textbf{Spearman $\rho$}:
+\[
+  r_S = 1 - \frac{6\sum_{i=1}^n d_i^2}{n(n^2-1)}, \quad d_i = R_i - S_i.
+\]
+Parametrik Pearson korelasyonunun sıra tabanlı alternatifi; aykırı değerlere sağlamlı.
+\end{tanim}
+
+\begin{teorem}[Spearman $\rho$ --- bağlantı]
+$r_S$ aslında sıraların Pearson korelasyonudur: $r_S = \Cor(R_i,S_i)$. $H_0:\rho=0$ (bağımsızlık) altında $T=r_S\sqrt{(n-2)/(1-r_S^2)}\dto t_{n-2}$.
+\end{teorem}
+
+\begin{proof}
+Sıralar $1,\ldots,n$'nin ortalaması $(n+1)/2$; varyansı $(n^2-1)/12$. Pearson formülünü sıralara uygulayınca $r_S$ elde edilir. Büyük örneklem: $\sqrt{n-1}r_S\dto\Normal(0,1)$ ($H_0$ altında).
+\end{proof}
+
+\begin{ornek}[Spearman $\rho$ hesabı]
+$(X,Y)$ çiftleri: sıralar $(R,S)$: $(1,2),(2,1),(3,4),(4,3),(5,5)$. $d_i=(-1,1,-1,1,0)$. $\sum d_i^2=4$. $r_S=1-6\cdot4/(5\cdot24)=1-0.2=0.8$.
+\end{ornek}
+
+%% ============================================================
+\section{Permütasyon Testleri}
+\label{sec:permutasyon_test}
+%% ============================================================
+
+\begin{tanim}[Permütasyon testi]\label{def:permutasyon_test}
+$H_0$: iki grup $\{X_i\}$ ve $\{Y_j\}$ aynı dağılımdan. Test istatistiği $T$ (örn. $|\bar{X}-\bar{Y}|$).
+
+\textbf{Permütasyon dağılımı:} Tüm $\binom{m+n}{m}$ mümkün grup atamasında $T$ değerleri hesaplanır. $p$-değeri: gözlenen $T$'den büyük ya da eşit $T$ değerlerinin oranı.
+\end{tanim}
+
+\begin{teorem}[Permütasyon testinin kesin geçerliliği]
+$H_0$ altında tüm permütasyonlar eşit olasılıklı; permütasyon $p$-değeri tam anlamlılık düzeyi $\alpha$'yı kontrol eder (dağılım varsayımı gerektirmez).
+\end{teorem}
+
+\begin{ornek}[Küçük örneklem permütasyon testi]
+Grup A: $\{3,7\}$, Grup B: $\{1,5\}$. $T=|\bar{A}-\bar{B}|=|5-3|=2$. Tüm $\binom{4}{2}=6$ bölme: $\{3,7\}$ vs $\{1,5\}$: $T=2$; $\{3,1\}$ vs $\{7,5\}$: $T=4$; $\{3,5\}$ vs $\{1,7\}$: $T=2$; $\{1,7\}$ vs $\{3,5\}$: $T=2$; $\{1,5\}$ vs $\{3,7\}$: $T=2$; $\{7,5\}$ vs $\{3,1\}$: $T=4$. $p=\Prob(T\geq2)=6/6=1.00$. $H_0$ reddedilemez.
+\end{ornek}
+
+%% ============================================================
+\section{Asimptotik Göreli Verimlilik (ARE)}
+\label{sec:are}
+%% ============================================================
+
+\begin{tanim}[ARE]\label{def:are}
+$T_n^{(1)}$ ve $T_n^{(2)}$ aynı hipotez için iki test. $n_1(n_2)$: $T^{(1)}(T^{(2)})$'nin belirli güce ($1-\beta$) ulaşması için gereken örneklem büyüklükleri.
+\[
+  \mathrm{ARE}(T^{(1)},T^{(2)}) = \lim_{n\to\infty}\frac{n_2}{n_1}.
+\]
+$\mathrm{ARE}>1$: $T^{(1)}$ daha verimli; daha az gözlemle aynı güce ulaşır.
+\end{tanim}
+
+\begin{teorem}[Wilcoxon vs $t$-testi ARE]\label{thm:are_wilcoxon}
+Normal dağılım altında:
+\[
+  \mathrm{ARE}(\text{Wilcoxon},t) = \frac{3}{\pi} \approx 0.955.
+\]
+Wilcoxon normallik geçerliyken $t$'nin $\%95.5$ veriminde çalışır --- ama normallikten sapmalarda Wilcoxon üstün olabilir.
+\end{teorem}
+
+\begin{ispatiskele}
+Pitman verimlilik: $\mathrm{ARE}=\mathrm{SH}^2_{t}/\mathrm{SH}^2_W$ lokal alternatif altında asimptotik güç eğrileri karşılaştırılarak türetilir. Normal $f$ için Pitman verimlilik $12\sigma^2[f(0)]^2 = 12\sigma^2 /(2\pi\sigma^2)=6/\pi\to3/\pi$ (tek örneklem Wilcoxon için $3/\pi\approx0.955$).
+\end{ispatiskele}
+
+\begin{teorem}[ARE --- genel sonuç]
+\begin{itemize}
+  \item Herhangi sürekli dağılım için: $\mathrm{ARE}(\text{Wilcoxon},t)\geq108/125\approx0.864$.
+  \item Çift üstel dağılımda: $\mathrm{ARE}=2.0$ (Wilcoxon iki kat verimli).
+  \item Cauchy dağılımda: $\mathrm{ARE}=\infty$ ($t$-testi tutarsız; Wilcoxon tutarlı).
+\end{itemize}
+Sonuç: Wilcoxon normalliği hiçbir zaman çok fazla kaybetmez; ağır kuyrukta büyük kazanç.
+\end{teorem}
+
+%% ============================================================
+\section{Bootstrap}
+\label{sec:bootstrap}
+%% ============================================================
+
+\begin{kesif}
+Bir tahmin edicinin standart hatasını analitik hesaplayamıyorsak
+(örn.\ medyanın SE'si, oranların oranı) ne yapabiliriz?
+Elimizdeki tek kaynak $n$ gözlemden oluşan bir veri kümesiyse,
+örnekleme dağılımını nasıl yaklaşık hesaplarız?
+\kesifcevap{Nonparametrik bootstrap: elimizdeki $n$ gözlemi ``popülasyon'' gibi
+  kabul edip geri koyarak $B$ kez yeniden örnekle; her tekrarda $T^*$ hesapla.
+  $T^*$'ların dağılımı, gerçek $T$'nin örnekleme dağılımını yaklaşıklar.
+  $B \geq 1000$ standart için yeterli; BCa güven aralığı çarpıklığı düzeltir.}
+\end{kesif}
+
+\begin{tanim}[Bootstrap]\label{def:bootstrap}
+$\mathbf{x}=(x_1,\ldots,x_n)$ gözlem. Bootstrap algoritması:
+\begin{enumerate}
+  \item $b=1,\ldots,B$ için: $\mathbf{x}^{*b}=(x_1^*,\ldots,x_n^*)$ yerine koyarak $\mathbf{x}$'den çek.
+  \item $\hat\theta^{*b} = T(\mathbf{x}^{*b})$ hesapla.
+  \item Bootstrap standart hata: $\hat{\mathrm{SE}}_B = \sqrt{\frac{1}{B-1}\sum_{b=1}^B(\hat\theta^{*b}-\bar{\hat\theta}^*)^2}$.
+\end{enumerate}
+\end{tanim}
+
+\begin{tanim}[Bootstrap güven aralıkları]\label{def:bootstrap_ga}
+\begin{itemize}
+  \item \textbf{Yüzdelik GA:} $[\hat\theta^*_{(\alpha/2)}, \hat\theta^*_{(1-\alpha/2)}]$.
+  \item \textbf{BCa (bias-corrected and accelerated):} Yüzdelik yöntemini çarpıklık ve ivme için düzeltir.
+\end{itemize}
+\end{tanim}
+
+\begin{teorem}[Bootstrap tutarlılığı]\label{thm:bootstrap_tutarlilik}
+Geniş koşullar altında bootstrap dağılımı, gerçek örnekleme dağılımına yakınsar. Özellikle $\sqrt{n}$-tutarlı ve asimptotik normal $T(\mathbf{X})$ için bootstrap standart hata tutarlıdır.
+\end{teorem}
+
+\begin{ispatiskele}
+Genelleşmiş delta yöntemi: $T(\mathbf{X})=g(\bar{X})$ biçimindeyse, $T^* - T$ dağılımının, $T - \theta$ dağılımına bootstrap yakınsaması MLT + Slütseva argümanıyla kurulur.
+\end{ispatiskele}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Biyoistatistik:} Küçük klinik örneklemlerde bootstrap güven aralıkları standart. \textbf{Makine öğrenmesi:} Bootstrap + bagging ile varyans azaltma (rastgele ormanlar). \textbf{Ekonometri:} Küme-sağlamlı standart hatalar bootstrap ile hesaplanır.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Kendall'ın $\tau$ Korelasyonu}
+\label{sec:kendall_tau}
+%% ============================================================
+
+\begin{tanim}[Uyumlu ve uyumsuz çift]\label{def:uyumlu_cift}
+$(X_i,Y_i)$ ve $(X_j,Y_j)$ çiftleri \textbf{uyumlu} \emph{(concordant)} ise $(X_i-X_j)(Y_i-Y_j)>0$; \textbf{uyumsuz} \emph{(discordant)} ise çarpım negatiftir.
+\end{tanim}
+
+\begin{tanim}[Kendall $\tau$ istatistiği]\label{def:kendall_tau}
+$n$ çift gözlemde $P$ = uyumlu çift sayısı, $Q$ = uyumsuz çift sayısı.
+\[
+  \tau = \frac{P - Q}{\binom{n}{2}} = \frac{P-Q}{n(n-1)/2}.
+\]
+$\tau\in[-1,1]$; $\tau=1$: tam monotonik artış, $\tau=-1$: tam monotonik azalış.
+\end{tanim}
+
+\begin{teorem}[Kendall $\tau$ asimptotik dağılımı]\label{thm:kendall_asimptotik}
+$H_0: X$ ve $Y$ bağımsız altında:
+\[
+  \Beklenti[\tau] = 0, \qquad \Var(\tau) = \frac{2(2n+5)}{9n(n-1)}.
+\]
+$Z = \tau\,/\,\sqrt{\Var(\tau)} \dto \Normal(0,1)$.
+\end{teorem}
+
+\begin{proof}[Proof --- beklenti]
+$H_0$ altında herhangi $(i,j)$ çifti için $\Prob(\text{uyumlu})=\Prob(\text{uyumsuz})=1/2$ (bağımsızlık + süreklilik). Dolayısıyla her $\mathbf{1}[\text{uyumlu}]-\mathbf{1}[\text{uyumsuz}]$ terimi sıfır beklentilidir; toplam üzerinden $\Beklenti[P-Q]=0$, yani $\Beklenti[\tau]=0$.
+\end{proof}
+
+\begin{ispatiskele}
+Varyans: $P-Q = \sum_{i<j} h_{ij}$ ($h_{ij}=\pm1$). $\Var(P-Q)=\sum_{i<j}\Var(h_{ij})+2\sum_{i<j<k}\Cov(h_{ij},h_{ik})$. $\Var(h_{ij})=1$; $\Cov(h_{ij},h_{ik})$ üç değişken bağımsızlığından hesaplanınca $\Var(\tau)=2(2n+5)/(9n(n-1))$ elde edilir.
+\end{ispatiskele}
+
+\begin{ornek}[Kendall $\tau$ hesabı]
+$(X,Y)$: $(1,2),(2,4),(3,1),(4,3)$. Çiftler:
+\begin{itemize}
+  \item $(1,2)$--$(2,4)$: $(+)(+)$ uyumlu.
+  \item $(1,2)$--$(3,1)$: $(+)(-)$ uyumsuz.
+  \item $(1,2)$--$(4,3)$: $(+)(+)$ uyumlu.
+  \item $(2,4)$--$(3,1)$: $(+)(-)$ uyumsuz.
+  \item $(2,4)$--$(4,3)$: $(+)(-)$ uyumsuz.
+  \item $(3,1)$--$(4,3)$: $(+)(+)$ uyumlu.
+\end{itemize}
+$P=3$, $Q=3$, $\tau=0$. Bağımsızlık reddedilemez.
+\end{ornek}
+
+\begin{hataanalizi}
+Spearman $r_S$ ve Kendall $\tau$ her zaman aynı işareti verir; fakat değerleri farklıdır (genellikle $|\tau|<|r_S|$). $r_S\approx\sin(\pi\tau/2)$ yaklaşımı geçerlidir. İkisi arasında seçim: $\tau$ daha yorumlanabilir (uyumlu çift oranı farkı); $r_S$ daha yaygın raporlanır.
+\end{hataanalizi}
+
+%% ============================================================
+\section{Çekirdek Yoğunluk Tahmini}
+\label{sec:kde}
+%% ============================================================
+
+\begin{kesif}
+Bir histogramda kutu genişliği $h$ küçükse tahmin pürüzlü ve gürültülü;
+$h$ büyükse pürüzsüz ama ayrıntılar kaybolur. Her gözlem noktasını merkez
+kabul eden ve $h$ ile pürüzlülüğü kontrol edilen sürekli bir yoğunluk tahmincisi
+nasıl inşa edilebilir?
+\kesifcevap{Her $X_i$ çevresine $h$ bant genişliğiyle simetrik bir ``çekirdek''
+  $K(\cdot)$ yerleştir ve topla:
+  $\hat{f}_h(x) = \frac{1}{nh}\sum_{i=1}^n K\!\bigl((x-X_i)/h\bigr)$.
+  Küçük $h$: her gözlem sivri bir tepe; büyük $h$: tepeler birleşir, ayrıntı kaybolur.
+  Optimal $h$: Silverman kuralı $h=1.06\hat\sigma n^{-1/5}$ (Normal çekirdek).}
+\end{kesif}
+
+\begin{tanim}[Çekirdek yoğunluk tahmincisi]\label{def:kde}
+$X_1,\ldots,X_n\iid f$ sürekli. $K:\mathbb{R}\to[0,\infty)$ simetrik yoğunluk (çekirdek), $h>0$ bant genişliği \emph{(bandwidth)}. \textbf{Çekirdek yoğunluk tahmincisi (KDE)}:
+\[
+  \hat{f}_h(x) = \frac{1}{nh}\sum_{i=1}^n K\!\left(\frac{x-X_i}{h}\right).
+\]
+Yaygın çekirdekler: Gaussian $K(u)=\phi(u)$, Epanechnikov $K(u)=\tfrac{3}{4}(1-u^2)\mathbf{1}[|u|\leq1]$.
+\end{tanim}
+
+\begin{teorem}[KDE beklenti ve varyansı]\label{thm:kde_beklenti_varyans}
+$\mu_2(K)=\int u^2 K(u)\,du$, $R(K)=\int K(u)^2\,du$ olsun. Yeterli pürüzsüzlük altında:
+\begin{align*}
+  \Beklenti[\hat{f}_h(x)] &= f(x) + \frac{h^2}{2}\mu_2(K)f''(x) + O(h^4), \\
+  \Var(\hat{f}_h(x)) &= \frac{R(K)}{nh}f(x) + O\!\left(\frac{1}{n}\right).
+\end{align*}
+\end{teorem}
+
+\begin{proof}
+$\Beklenti[\hat{f}_h(x)] = \frac{1}{h}\Beklenti[K((x-X_1)/h)] = \frac{1}{h}\int K\!\left(\frac{x-t}{h}\right)f(t)\,dt$. $u=(t-x)/h$ dönüşümüyle $= \int K(u)f(x+uh)\,du$. Taylor: $f(x+uh)=f(x)+uhf'(x)+u^2h^2f''(x)/2+\cdots$ Entegrasyon: $K$ simetrik olduğundan $\int uK(u)\,du=0$; dolayısıyla beklenti $f(x)+h^2\mu_2(K)f''(x)/2+O(h^4)$.
+
+Varyans: $\Var(\hat{f}_h)=\frac{1}{nh^2}\Var(K((x-X_1)/h))=\frac{1}{nh^2}[\Beklenti K^2(\cdot)-(\Beklenti K(\cdot))^2]$. $\Beklenti K^2((x-X_1)/h)=h\int K(u)^2 f(x+uh)\,du\approx hR(K)f(x)$; dolayısıyla $\Var\approx R(K)f(x)/(nh)$.
+\end{proof}
+
+\begin{teorem}[Optimal bant genişliği]\label{thm:optimal_bandwidth}
+Ortalama tümleşik karesel hata (MISE) minimizasyonu:
+\[
+  h^* = \left(\frac{R(K)}{\mu_2(K)^2\int (f''(x))^2\,dx}\right)^{1/5} n^{-1/5}.
+\]
+Gaussian çekirdek ve normal $f$ için Silverman kuralı: $h^* \approx 1.06\,\hat\sigma\,n^{-1/5}$.
+\end{teorem}
+
+\begin{ispatiskele}
+MISE $=\int\!\left[\text{Bias}^2(\hat{f}_h(x))+\Var(\hat{f}_h(x))\right]\!dx$. Bias terimi $\sim h^4\mu_2(K)^2\int(f'')^2/4$; varyans terimi $\sim R(K)/(nh)$. MISE'i $h$'ye göre türev alınca $h^*$ elde edilir; $h^*\sim n^{-1/5}$.
+\end{ispatiskele}
+
+\begin{ornek}[Gaussian KDE --- basit hesap]
+$n=3$, $X_1=0$, $X_2=1$, $X_3=2$; $h=0.5$. Gaussian KDE:
+\[
+  \hat{f}_{0.5}(x) = \frac{1}{3\cdot0.5}\bigl[\phi\!\left(\frac{x}{0.5}\right)+\phi\!\left(\frac{x-1}{0.5}\right)+\phi\!\left(\frac{x-2}{0.5}\right)\bigr].
+\]
+$x=1$: $\phi(2)+\phi(0)+\phi(-2)=0.054+0.399+0.054=0.507$; $\hat{f}(1)=0.507/(1.5)=0.338$.
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Makine öğrenmesi:} KDE-tabanlı anomali tespiti ve yoğunluk tahmini. \textbf{Ekonometri:} Gelir dağılımı, ücret yoğunluğu tahminleri. \textbf{Sinyel işleme:} Spektral yoğunluk tahmini (pencere fonksiyonları çekirdekle eşdeğer).
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Theil-Sen Eğim Tahmincisi}
+\label{sec:theil_sen}
+%% ============================================================
+
+\begin{tanim}[Theil-Sen tahmincisi]\label{def:theil_sen}
+$(x_1,y_1),\ldots,(x_n,y_n)$ çiftleri. Her iki nokta çifti $(i<j)$ için eğim: $s_{ij}=(y_j-y_i)/(x_j-x_i)$.
+
+\textbf{Theil-Sen eğim tahmincisi:} $\hat\beta_1 = \operatorname{med}\{s_{ij}: i<j\}$ (tüm çift eğimlerinin medyanı).
+
+\textbf{Kesişim tahmincisi:} $\hat\beta_0 = \operatorname{med}\{y_i - \hat\beta_1 x_i\}$.
+\end{tanim}
+
+\begin{teorem}[Theil-Sen tutarlılık ve verimlilik]\label{thm:theil_sen}
+$Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i$, $\varepsilon_i\iid F$ simetrik sürekli. O zaman $\hat\beta_1\asto\beta_1$.
+
+Normal hatalar altında ARE(Theil-Sen, EKK) $= 3/\pi \approx 0.955$.
+\end{teorem}
+
+\begin{proof}[Proof --- tutarlılık]
+$s_{ij} = \beta_1 + (\varepsilon_j-\varepsilon_i)/(x_j-x_i)$. Medyanın tutarlılığı: $s_{ij}$'nin yığılma noktası $\beta_1$'dir ($\varepsilon_j-\varepsilon_i$ simetrik olduğundan $(\varepsilon_j-\varepsilon_i)/(x_j-x_i)$'nin medyanı sıfırdır). Büyük sayılar yasası ve medyan sürekliliği argümanıyla $\hat\beta_1\asto\beta_1$.
+\end{proof}
+
+\begin{ispatiskele}
+ARE hesabı: Theil-Sen, bir $U$-istatistiğidir. Asimptotik varyansı Hajek yansıtması ile EKK varyansına oranlanınca, normal dağılım altında $3/\pi$ elde edilir --- Wilcoxon-$t$ ARE ile örtüşür (her ikisi de sıra-tabanlı).
+\end{ispatiskele}
+
+\begin{ornek}[Theil-Sen uygulaması]
+$(x,y)$: $(1,2),(2,5),(3,6),(4,7)$. Tüm $\binom{4}{2}=6$ eğim:
+$s_{12}=(5-2)/1=3$, $s_{13}=(6-2)/2=2$, $s_{14}=(7-2)/3=1.67$,
+$s_{23}=(6-5)/1=1$, $s_{24}=(7-5)/2=1$, $s_{34}=(7-6)/1=1$.
+Medyan: $\{1,1,1,1.67,2,3\}$'ün ortası $=(1+1.67)/2=1.33$.
+$\hat\beta_0=\operatorname{med}\{2-1.33,5-2.67,6-4,7-5.33\}=\operatorname{med}\{0.67,2.33,2,1.67\}=1.83$.
+Regresyon: $\hat{y}=1.83+1.33x$.
+\end{ornek}
+
+\begin{hataanalizi}
+Theil-Sen'i EKK ile karıştırmayınız: EKK aykırı değerlere duyarlıdır (her noktanın etkisi kareli hataya orantılı). Theil-Sen'de bir aykırı değer en fazla $n-1$ eğim çiftini etkiler ve medyan sağlamlığı korur. Veri aykırı değersiz ve normal dağılımlıysa EKK hafif daha verimlidir.
+\end{hataanalizi}
+
+%% ============================================================
+
+\begin{mikroozet}
+\begin{itemize}
+  \item Parametresiz testler: minimal dağılım varsayımı; sıra veya işaret tabanlı.
+  \item İşaret: medyan testi; Wilcoxon: simetri testi; Mann-Whitney: iki örneklem; KW/Friedman: çok grup.
+  \item KS testi: ampirik ile teorik KDF farkı; $\sqrt{n}D_n\to$ Kolmogorov.
+  \item Bootstrap: yeniden örnekleme ile standart hata ve GA; dağılım varsayımı gerektirmez.
+  \item Kendall $\tau$: uyumlu-uyumsuz çift farkı; Spearman $r_S$ ile aynı işaret, farklı büyüklük.
+  \item KDE: $\hat{f}_h$ bias $\sim h^2$, varyans $\sim 1/(nh)$; optimal $h^*\sim n^{-1/5}$.
+  \item Theil-Sen: eğim medyanı; aykırı değerlere sağlamlı; ARE $=3/\pi\approx0.955$ (normal altında).
+\end{itemize}
+\end{mikroozet}
+
+\begin{ozyansima}
+Parametresiz testler normallik varsayımı bozulduğunda her zaman parametrik testlerden daha iyi midir? Normallik geçerliyken ne kadar güç kaybı olur?
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Nereden geldik:} Bölüm~\ref{chp:hipotez_testi}'deki test çerçevesi parametresiz yöntemleri de kapsar; temel fark test istatistiğinin seçimindedir.
+
+\textbf{Nereye gidiyoruz:} Bölüm~\ref{chp:asimptotik}'da bootstrap tutarlılığının arkasındaki asimptotik teoriye, fonksiyonel MLT'ye ve Donsker teoreminin kesin formülasyonuna bakacağız.
+\end{kopru}
+
+%% ============================================================
+%% ALISTIRMALAR
+%% ============================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.17.1]{A}{İşaret testi}
+$n=15$ hastada plasebo ile karşılaştırılan ilacın etkisi: 11 hasta iyileşti, 4 kötüleşti. $H_0:m=0$ (medyan fark sıfır) vs $H_1:m>0$. $\alpha=0.05$ için karar ver.
+\end{alistirma}
+\alcozum{%
+$B=11\sim\Binom(15,0.5)$ ($H_0$ altında). $p=\Prob(B\geq11)=\sum_{k=11}^{15}\binom{15}{k}(0.5)^{15}=(1+15+105+455+3003\cdot0)/32768$. Doğrudan: $\Prob(B\geq11)=0.059>0.05$. $H_0$ reddedilemez (tam Binom ile $p=0.059$).%
+}
+
+\begin{alistirma}[Al.17.2]{B}{Mann-Whitney}
+Grup A: $\{3,5,7,9,11\}$, Grup B: $\{2,4,8,10,12\}$. $H_0:F_A=F_B$. $U$ istatistiğini hesapla ve asimptotik $z$ ile test yap.
+\end{alistirma}
+\alcozum{%
+$U=\#\{(A_i,B_j):A_i<B_j\}$. $3<4,8,10,12$ (4), $5<8,10,12$ (3), $7<8,10,12$ (3), $9<10,12$ (2), $11<12$ (1): $U=13$. $\Beklenti=12.5$, $\Var=5\cdot5\cdot11/12=22.9$. $Z=(13-12.5)/\sqrt{22.9}=0.1$. $H_0$ reddedilemez.%
+}
+
+\begin{alistirma}[Al.17.2b]{B}{Wilcoxon İşaretli-Rütbe Testi}
+Tek örneklemli test, $H_0$: medyan $m=0$.
+Farklar: $d = \{+2.1, -0.8, +3.5, +1.2, -4.0, +0.5, -2.7, +1.8\}$, $n=8$.
+(a) Rütbeleri hesaplayınız (bağ yok). (b) $W^+$ ve $W^-$'yı bulunuz. (c) $\alpha=0.05$ için $H_0$'ı test ediniz (çift yönlü, tablo kritik değeri $W_{0.025,8}=4$).
+\end{alistirma}
+\alcozum{%
+(a) $|d|$ değerleri artan sırayla: $0.5, 0.8, 1.2, 1.8, 2.1, 2.7, 3.5, 4.0$ $\to$ rütbeler $1,2,3,4,5,6,7,8$.
+
+Rütbelere işaret ata:
+\begin{center}\small
+\begin{tabular}{c|rrrrrrrr}
+$d$ & $+2.1$ & $-0.8$ & $+3.5$ & $+1.2$ & $-4.0$ & $+0.5$ & $-2.7$ & $+1.8$ \\
+$|d|$ rütbe & 5 & 2 & 7 & 3 & 8 & 1 & 6 & 4 \\
+\end{tabular}
+\end{center}
+
+(b) Pozitif işaretli rütbeler: $5+7+3+1+4=20$ ($W^+=20$). Negatif: $2+8+6=16$ ($W^-=16$). Kontrol: $W^++W^-=36=8\cdot9/2$. $\checkmark$
+
+(c) Test istatistiği: $W=\min(W^+,W^-)=16$. Kritik değer $W_{0.025,8}=4$. Karar kuralı: $W\leq4$ ise $H_0$ reddet. $16>4$: $H_0$ reddedilemez. Medyanın sıfırdan farklı olduğuna dair kanıt yok.}
+
+\begin{alistirma}[Al.17.2c]{C}{Kruskal-Wallis Testi}
+3 bağımsız grup, her biri 4 gözlem ($N=12$):
+A$=\{5,8,10,13\}$, B$=\{3,6,9,11\}$, C$=\{2,4,7,12\}$.
+(a) Tüm $N=12$ değeri birleştirerek rütbele. (b) Her grubun rütbe toplamını bulunuz. (c) $H$ istatistiğini hesaplayınız ve $\alpha=0.05$ için karar veriniz ($\chi^2_{2,0.05}=5.99$).
+\end{alistirma}
+\alcozum{%
+(a) Artan sıra ve rütbe:
+\begin{center}\small
+\begin{tabular}{c|cccccccccccc}
+Değer & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 \\
+Rütbe & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\
+Grup & C & B & C & A & B & C & A & B & A & B & C & A \\
+\end{tabular}
+\end{center}
+
+(b) Rütbe toplamları: $R_A = 4+7+9+12 = 32$; $R_B = 2+5+8+10 = 25$; $R_C = 1+3+6+11 = 21$. Kontrol: $32+25+21=78=12\cdot13/2$. $\checkmark$
+
+(c) Kruskal-Wallis istatistiği:
+\[
+  H = \frac{12}{N(N+1)}\sum_{i=1}^k\frac{R_i^2}{n_i} - 3(N+1)
+  = \frac{12}{12\cdot13}\left(\frac{32^2}{4}+\frac{25^2}{4}+\frac{21^2}{4}\right)-3\cdot13.
+\]
+$= \frac{12}{156}\cdot\frac{1024+625+441}{4}-39 = \frac{12}{156}\cdot\frac{2090}{4}-39 = \frac{12\cdot2090}{624}-39 = 40.19-39 = 1.19$.
+
+$H=1.19 < 5.99$: $H_0$ (tüm grup dağılımları eşit) reddedilemez.}
+
+
+\begin{alistirma}[Al.17.3]{A}{KS testi uygulaması}
+$n=5$ gözlem: $\{0.2, 0.5, 0.6, 0.8, 0.9\}$. $H_0: F_0 = \Uniform[0,1]$. $D_5$'i hesapla.
+\end{alistirma}
+\alcozum{%
+$F_5(x_i)=i/5$, $F_0(x_i)=x_i$. Farklar: $|0.2-0.2|=0$, $|0.4-0.5|=0.1$, $|0.6-0.6|=0$, $|0.8-0.8|=0$, $|1.0-0.9|=0.1$. Sol sınır farkları da hesapla: max$=0.1$. $D_5=0.1$. $\sqrt{5}\cdot0.1=0.224$ --- KS tablosundan $\alpha=0.05$ kritik değeri $0.565$; $H_0$ reddedilemez.%
+}
+\begin{alistirma}[Al.17.4]{B}{Bootstrap standart hata}
+$n=6$ gözlem: $\{2,4,5,7,9,12\}$. Medyanın bootstrap standart hatasını $B=5$ bootstrap yinelemesiyle elle hesapla (rastgele çekimler verildiğinde: $\{2,4,4,7,9,9\}$, $\{4,5,7,7,12,12\}$, $\{2,2,5,9,9,12\}$, $\{4,5,7,9,9,12\}$, $\{2,4,5,5,7,12\}$).
+\end{alistirma}
+\alcozum{%
+Medyan(orijinal)$=6$. Bootstrap medyanları: $m_1=(4+7)/2=5.5$, $m_2=(7+7)/2=7$, $m_3=(5+9)/2=7$, $m_4=(7+9)/2=8$, $m_5=(5+5)/2=5$. $\bar{m}^*=6.5$. $\hat{SE}=\sqrt{[(5.5-6.5)^2+(7-6.5)^2+(7-6.5)^2+(8-6.5)^2+(5-6.5)^2]/4}=\sqrt{(1+0.25+0.25+2.25+2.25)/4}=\sqrt{1.5}=1.22$.%
+}
+\begin{alistirma}[Al.17.6]{A}{Kendall $\tau$ hesabı}
+$(X,Y)$ çiftleri: $(2,3),(4,1),(6,5),(8,4),(10,7)$. Kendall $\tau$'yu hesapla ve $H_0:\tau=0$'ı $\alpha=0.05$'te test et.
+\end{alistirma}
+\alcozum{%
+$\binom{5}{2}=10$ çift. Uyumlu $(+)$ / uyumsuz $(-)$: $(1\text{--}2):(+)$, $(1\text{--}3):(+)$, $(1\text{--}4):(+)$, $(1\text{--}5):(+)$, $(2\text{--}3):(+)$, $(2\text{--}4):(-)$, $(2\text{--}5):(+)$, $(3\text{--}4):(-)$, $(3\text{--}5):(+)$, $(4\text{--}5):(+)$. $P=8$, $Q=2$, $\tau=(8-2)/10=0.6$. $\Var(\tau)=2(15)/9\cdot20=30/180=1/6$. $Z=0.6/\sqrt{1/6}=0.6\cdot2.449=1.47<1.96$. $H_0$ reddedilemez.%
+}
+\alistirmalar
+
+
+
+
+\begin{alistirma}[Al.17.7]{B}{Optimal bant genişliği}
+$n=100$, $\hat\sigma=2$. Gaussian çekirdek için Silverman kuralını kullanarak $h^*$'ı hesapla. Bu $h^*$ ile $\hat{f}_{h^*}$ tahmincisinin $x=0$'daki varyansını yaklaşık olarak ver ($R(\phi)=1/(2\sqrt{\pi})$, $f(0)\approx0.2$).
+\end{alistirma}
+\alcozum{%
+Silverman: $h^*=1.06\cdot2\cdot100^{-1/5}=2.12\cdot0.398=0.844$. Varyans: $R(\phi)/(nh^*)f(0)=[1/(2\sqrt{\pi})]/(100\cdot0.844)\cdot0.2=0.2821/(84.4)\cdot0.2=0.000669$.%
+}
+
+\begin{alistirma}[Al.17.8]{B}{Theil-Sen vs EKK}
+$(x,y)$: $(1,1),(2,3),(3,2),(10,20)$. (a) EKK eğimini bul. (b) Theil-Sen eğimini bul. (c) Neden farklılar?
+\end{alistirma}
+\alcozum{%
+(a) EKK: $\bar{x}=4, \bar{y}=6.5$. $S_{xx}=81-(16)^2/4=...$; EKK hesabı: $\hat\beta_1=\sum(x_i-\bar{x})(y_i-\bar{y})/\sum(x_i-\bar{x})^2=(0\cdot(-5.5)+(-2)(-4.5)+(- 1)(-4.5)+6\cdot13.5)/(0+4+1+36)=(-5.5+9+4.5+81)/41=89/41\approx2.17$. (b) Theil-Sen: $s_{12}=2, s_{13}=0.5, s_{14}=19/9=2.11, s_{23}=-1, s_{24}=17/8=2.125, s_{34}=18/7=2.57$. Med$\{-1,0.5,2,2.11,2.125,2.57\}=(2+2.11)/2=2.055$. (c) $(10,20)$ aykırı değeri EKK'yi yukarı çeker; Theil-Sen medyan tabanlı olduğundan daha az etkilenir.%
+}
+
+\begin{alistirma}[Al.17.5]{C}{Glivenko-Cantelli hızı}
+$X_1,\ldots,X_n\iid\Uniform[0,1]$. $\Beklenti[\sup_x|F_n(x)-x|]$'in üst sınırını Dvoretzky-Kiefer-Wolfowitz eşitsizliğini kullanarak ver: $\Prob(\sup_x|F_n(x)-F(x)|>\varepsilon)\leq 2e^{-2n\varepsilon^2}$.
+\end{alistirma}
+\alcozum{%
+DKW'den $\Prob(D_n>\varepsilon)\leq2e^{-2n\varepsilon^2}$. $\Beklenti[D_n]=\int_0^\infty\Prob(D_n>t)\,dt\leq\int_0^\infty2e^{-2nt^2}\,dt=2\cdot\frac{\sqrt{\pi}}{2\sqrt{2n}}=\sqrt{\pi/(2n)}$. Dolayısıyla $\Beklenti[D_n]=O(1/\sqrt{n})$.%
+}
+
+\begin{alistirma}[Al.17.9]{A}{İşaret Testi}
+$n=15$ gözlem, $H_0:\tilde\mu=10$ vs $H_1:\tilde\mu>10$. Gözlemlerden 11'i 10'un üzerinde. (a) Test istatistiğini belirtiniz. (b) $p$-değerini Binom$(15,0.5)$ kullanarak hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) $B=$ "10'un üzerindeki gözlem sayısı" = 11. $H_0$ altında $B\sim\Binom(15,1/2)$.
+(b) $p=P(B\geq11)=\sum_{k=11}^{15}\binom{15}{k}(1/2)^{15}$.
+$=\binom{15}{11}+\binom{15}{12}+\binom{15}{13}+\binom{15}{14}+\binom{15}{15}$ kez $(1/2)^{15}$.
+$=1365+455+105+15+1=1941$; $p=1941/32768\approx0.059$. $\alpha=0.05$'te $H_0$ reddedilmez.}
+
+\begin{alistirma}[Al.17.10]{B}{Wilcoxon Rütbe Toplamı Testi}
+İki bağımsız grup: $X$: $\{3,7,5,11,9\}$, $Y$: $\{1,4,8,2,6\}$. $H_0$: iki grup dağılımı aynı. Wilcoxon-Mann-Whitney istatistiğini hesaplayınız ve $n_1=n_2=5$ için kritik değerle karşılaştırınız.
+\end{alistirma}
+\alcozum{%
+Birleşik rütbeler (küçükten büyüğe): $1(Y),2(Y),3(X),4(Y),5(X),6(Y),7(X),8(Y),9(X),11(X)$.
+$W_X=3+5+7+9+10=34$ (X'lerin rütbe toplamı, $X=11$ 10. sırada).
+$E[W_X]=n_1(n_1+n_2+1)/2=5\cdot11/2=27.5$.
+$U=W_X-n_1(n_1+1)/2=34-15=19$.
+$n_1=n_2=5$, $\alpha=0.05$ (iki kuyruk) için kritik $U^*=2$: $U=19>2$, $H_0$ reddedilmez.}
+
+\begin{alistirma}[Al.17.11]{B}{Permütasyon Testi Mantığı}
+$\bar X-\bar Y=2.4$ gözlendi; $n_1=n_2=4$. Tüm permütasyonların sayısı $\binom{8}{4}=70$. Bu 70 permütasyon altında $|\bar X-\bar Y|\geq2.4$ olan permütasyon sayısı 6 ise $p$-değerini (iki kuyruk) ve yorumunu veriniz.
+\end{alistirma}
+\alcozum{%
+İki kuyruk $p$-değeri: $p=6/70\approx0.086$. $\alpha=0.05$ için $H_0$ reddedilmez; küçük örnekte anlamlı fark tespit edilemedi. Permütasyon testi dağılım varsayımı gerektirmez --- Wilcoxon'un tam alternatifidir.}
+
+\begin{alistirma}[Al.17.12]{C}{Nükleer Tahminci Optimal Bant Genişliği}
+$X_1,\ldots,X_n\iid f$. $f$ iki kez türevlenebilir, $\|f''\|_2^2<\infty$. Gaussian çekirdeğiyle $\hat f_h$'nın MISE'sini $h$ cinsinden yaz ve optimal $h^*=O(n^{-1/5})$ olduğunu göster.
+\end{alistirma}
+\alcozum{%
+MISE $=\int\Beklenti[(\hat f_h(x)-f(x))^2]dx=$ Tümlev Varyans $+$ Tümlev Yanlılık$^2$.
+TV $\approx\frac{1}{nh}\int K^2(u)\,du=\frac{R(K)}{nh}$, TY $\approx\frac{h^4}{4}(\mu_2(K))^2\int(f''(x))^2dx$.
+MISE $\approx\frac{R(K)}{nh}+\frac{h^4}{4}\mu_2(K)^2\|f''\|_2^2$. Minimize: $h^*=\left(\frac{R(K)}{n\mu_2(K)^2\|f''\|_2^2}\right)^{1/5}=O(n^{-1/5})$.}

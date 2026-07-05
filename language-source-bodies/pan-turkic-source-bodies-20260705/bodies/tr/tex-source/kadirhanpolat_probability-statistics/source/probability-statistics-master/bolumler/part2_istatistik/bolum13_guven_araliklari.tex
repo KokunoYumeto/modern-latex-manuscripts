@@ -1,0 +1,599 @@
+%% ============================================================
+%% BÖLÜM 13 --- Güven Aralıkları
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Güven Aralıkları}
+\label{chp:guven_araliklari}
+
+\bolumalinti{%
+  Statistics is the grammar of science.
+}{Karl Pearson}
+
+\begin{kazanimlar}
+Bu bölümün sonunda okuyucu:
+\begin{itemize}
+  \item Güven aralığı tanımını, kapsama olasılığını ve doğru yorumunu açıklar.
+  \item Pivot yöntemini kullanarak güven aralığı türetir.
+  \item Normal, $t$, $\chi^2$ ve $F$ dağılımlarına dayalı güven aralıkları kurar.
+  \item Büyük örneklem güven aralıklarını (Wald, oran, varyans stabilizasyonu) uygular.
+  \item Aralık uzunluğu ile kapsama olasılığı arasındaki dengeyi analiz eder.
+  \item Homojen olmayan varyanslar için Welch güven aralığını kullanır.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+Nokta tahmini tek bir sayı verir; ama bu sayının ne kadar güvenilir olduğunu söylemez. Güven aralığı, belirsizliği nicelleştiren bir aralık tahminidir. Bir anket şirketi "\%43 ± \%2" derken aslında güven aralığı bildirmektedir.
+
+\medskip
+\noindent\textbf{Köprü:} Bölüm~\ref{chp:nokta_tahmin}'deki MLE'nin asimptotik normalliği, büyük örneklem güven aralıklarının temelidir. Bölüm~\ref{chp:dagilim_aileleri}'deki $t$, $\chi^2$, $F$ dağılımları, küçük örneklem güven aralıklarında kullanılacak.
+\end{motivasyon}
+
+%% ============================================================
+\section{Güven Aralığı Kavramı}
+\label{sec:ga_kavram}
+%% ============================================================
+
+\begin{tanim}[Güven aralığı]\label{def:guven_araligi}
+$X_1,\ldots,X_n\sim F_\theta$ ve $L=L(\mathbf{X})$, $U=U(\mathbf{X})$ istatistikleri olsun ($L\leq U$). $(1-\alpha)$ \textbf{kapsama olasılıklı güven aralığı} \emph{(confidence interval, CI)}:
+\[
+  \Prob_\theta(L \leq \theta \leq U) \geq 1-\alpha \quad \text{her } \theta\in\Theta \text{ için.}
+\]
+$1-\alpha$ \textbf{güven düzeyi} \emph{(confidence level)}, $\alpha$ \textbf{anlamlılık düzeyi} \emph{(significance level)} adını alır.
+\end{tanim}
+
+\begin{tanimgerekce}
+Sık yapılan yorum hatası: "\%95 olasılıkla $\theta$, $[L,U]$ içinde" --- bu yanlış. $\theta$ sabit; $L$ ve $U$ rasgele. Doğru yorum: Yöntemi tekrar tekrar uygulandığında aralıkların \%95'i gerçek $\theta$'yı kapsar.
+\end{tanimgerekce}
+
+\begin{hataanalizi}
+"Bu özel aralık $[1.2, 2.8]$'in \%95 olasılıkla $\mu$'yü kapsadığı" ifadesi hatalıdır. Gözlemlendikten sonra aralık sabittir; $\mu$ ya içindedir ya değildir. "Bu yöntemle üretilen aralıkların \%95'i $\mu$'yü kapsar" doğru ifadedir.
+\end{hataanalizi}
+
+\subsection{Pivot Yöntemi}
+
+\begin{tanim}[Pivot]\label{def:pivot}
+$Q = Q(X_1,\ldots,X_n;\theta)$ istatistiği, dağılımı $\theta$'dan bağımsız ise \textbf{pivot} \emph{(pivotal quantity)} adını alır.
+\end{tanim}
+
+\begin{teorem}[Pivot güven aralığı]\label{thm:pivot_ga}
+$Q$ pivot ve $\Prob(a\leq Q\leq b)=1-\alpha$ ise, $a\leq Q\leq b$ eşitsizliğini $\theta$ için çözmek $(1-\alpha)$ güven aralığı verir.
+\end{teorem}
+
+%% ============================================================
+\section{Normal Popülasyon: Bilinen Varyans}
+\label{sec:normal_bilinen}
+%% ============================================================
+
+\begin{teorem}[$z$-güven aralığı]\label{thm:z_ga}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$, $\sigma^2$ bilinen. O zaman
+\[
+  Z = \frac{\overline{X}_n-\mu}{\sigma/\sqrt{n}} \sim \Normal(0,1)
+\]
+bir pivot. $(1-\alpha)$ güven aralığı:
+\[
+  \left(\overline{X}_n - z_{\alpha/2}\frac{\sigma}{\sqrt{n}},\; \overline{X}_n + z_{\alpha/2}\frac{\sigma}{\sqrt{n}}\right),
+\]
+$z_{\alpha/2} = \Phi^{-1}(1-\alpha/2)$ ile.
+\end{teorem}
+
+\begin{proof}
+$\Prob(-z_{\alpha/2}\leq Z\leq z_{\alpha/2})=1-\alpha$. İçi çözersek $\overline{X}_n - z_{\alpha/2}\sigma/\sqrt{n}\leq\mu\leq\overline{X}_n+z_{\alpha/2}\sigma/\sqrt{n}$.
+\end{proof}
+
+\begin{ornek}[$z$-aralığı]\label{ex:z_aralik}
+$n=25$, $\bar{x}=12.4$, $\sigma=2$ (bilinen). $\alpha=0.05$; $z_{0.025}=1.960$. GA: $12.4\pm1.960\cdot(2/5) = 12.4\pm0.784 = [11.616, 13.184]$.
+\end{ornek}
+
+%% ============================================================
+\section{Normal Popülasyon: Bilinmeyen Varyans}
+\label{sec:normal_bilinmeyen}
+%% ============================================================
+
+\begin{teorem}[$t$-güven aralığı]\label{thm:t_ga}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$, $\sigma^2$ bilinmiyor. O zaman
+\[
+  T = \frac{\overline{X}_n-\mu}{S/\sqrt{n}} \sim t_{n-1}
+\]
+bir pivot. $(1-\alpha)$ güven aralığı:
+\[
+  \left(\overline{X}_n - t_{n-1,\alpha/2}\frac{S}{\sqrt{n}},\; \overline{X}_n + t_{n-1,\alpha/2}\frac{S}{\sqrt{n}}\right).
+\]
+\end{teorem}
+
+\begin{proof}
+Bölüm~\ref{chp:dagilim_aileleri}'den: Normal popülasyonda $\overline{X}_n\perp S^2$, $\overline{X}_n\sim\Normal(\mu,\sigma^2/n)$, $(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$. Dolayısıyla $T = Z/\sqrt{\chi^2_{n-1}/(n-1)}\sim t_{n-1}$.
+\end{proof}
+
+\begin{ornek}[$t$-aralığı]\label{ex:t_aralik}
+$n=16$, $\bar{x}=5.2$, $s=1.8$, $\sigma^2$ bilinmiyor, $\alpha=0.05$. $t_{15,0.025}=2.131$. GA: $5.2\pm2.131\cdot(1.8/4) = 5.2\pm0.959 = [4.241, 6.159]$.
+\end{ornek}
+
+\begin{kritiksorgu}
+$n$ büyüdükçe $t$-aralığı $z$-aralığına yaklaşır ($t_{n-1}\to\Normal(0,1)$). Pratikte $n\geq30$ için fark ihmal edilebilir; ama normallik varsayımı hâlâ önemlidir.
+\end{kritiksorgu}
+
+%% ============================================================
+\section{Varyans için Güven Aralığı}
+\label{sec:varyans_ga}
+%% ============================================================
+
+\begin{teorem}[$\chi^2$-güven aralığı]\label{thm:chi2_ga}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$. O zaman
+\[
+  Q = \frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}
+\]
+bir pivot. $(1-\alpha)$ güven aralığı:
+\[
+  \left(\frac{(n-1)S^2}{\chi^2_{n-1,\alpha/2}},\; \frac{(n-1)S^2}{\chi^2_{n-1,1-\alpha/2}}\right).
+\]
+\end{teorem}
+
+\begin{proof}
+$\Prob(\chi^2_{n-1,1-\alpha/2}\leq Q\leq\chi^2_{n-1,\alpha/2})=1-\alpha$; $\sigma^2$ için çöz.
+\end{proof}
+
+\begin{hataanalizi}
+$\chi^2$ aralığı normallik varsayımına son derece duyarlıdır. Dağılım normalden sapıyorsa bootstrap yöntemi tercih edilir.
+\end{hataanalizi}
+
+%% ============================================================
+\section{İki Örneklem Karşılaştırması}
+\label{sec:iki_orneklem}
+%% ============================================================
+
+\subsection{Eşit Varyanslı İki Ortalama}
+
+\begin{teorem}[İki örneklem $t$-aralığı]\label{thm:iki_t}
+$X_1,\ldots,X_m\iid\Normal(\mu_1,\sigma^2)$ ve $Y_1,\ldots,Y_n\iid\Normal(\mu_2,\sigma^2)$ bağımsız (ortak $\sigma^2$). Havuzlanmış varyans tahmin edicisi:
+\[
+  S_p^2 = \frac{(m-1)S_X^2+(n-1)S_Y^2}{m+n-2}.
+\]
+$\mu_1-\mu_2$ için $(1-\alpha)$ güven aralığı:
+\[
+  (\bar{X}-\bar{Y}) \pm t_{m+n-2,\alpha/2}\,S_p\!\sqrt{\frac{1}{m}+\frac{1}{n}}.
+\]
+\end{teorem}
+
+\begin{proof}
+$\bar{X}-\bar{Y}\sim\Normal(\mu_1-\mu_2,\sigma^2(1/m+1/n))$ ve $(m+n-2)S_p^2/\sigma^2\sim\chi^2_{m+n-2}$ bağımsız olduğundan pivot $t_{m+n-2}$'dir.
+\end{proof}
+
+\subsection{Welch Güven Aralığı (Eşit Olmayan Varyanslarda)}
+
+\begin{teorem}[Welch $t$-aralığı]\label{thm:welch}
+$\sigma_1^2\neq\sigma_2^2$ (bilinmiyor). Satterthwaite serbestlik derecesi:
+\[
+  \nu = \frac{(S_X^2/m + S_Y^2/n)^2}{\dfrac{(S_X^2/m)^2}{m-1}+\dfrac{(S_Y^2/n)^2}{n-1}}.
+\]
+$\mu_1-\mu_2$ için yaklaşık güven aralığı:
+\[
+  (\bar{X}-\bar{Y}) \pm t_{\nu,\alpha/2}\!\sqrt{\frac{S_X^2}{m}+\frac{S_Y^2}{n}}.
+\]
+\end{teorem}
+
+\begin{ispatiskele}
+Welch-Satterthwaite yaklaşımı, $S_X^2/m+S_Y^2/n$'yi $a\chi^2_\nu$ ile eşleştirir; $a$ ve $\nu$ moment eşleştirmesiyle belirlenir. Yaklaşık (asimptotik değil); normallik gerekir.
+\end{ispatiskele}
+
+%% ============================================================
+\section{Büyük Örneklem Güven Aralıkları}
+\label{sec:buyuk_orneklem}
+%% ============================================================
+
+\begin{teorem}[Wald güven aralığı]\label{thm:wald_ga}
+Regularity koşulları altında $\sqrt{n}(\MLE\theta-\theta)\dto\Normal(0,1/\mathcal{I}(\theta))$. Büyük örneklem $(1-\alpha)$ güven aralığı:
+\[
+  \MLE\theta \pm \frac{z_{\alpha/2}}{\sqrt{n\,\hat{\mathcal{I}}(\MLE\theta)}},
+\]
+$\hat{\mathcal{I}}$ gözlemlenen Fisher bilgisi.
+\end{teorem}
+
+\begin{ornek}[Bernoulli oranı için GA]\label{ex:oran_ga}
+$X_1,\ldots,X_n\iid\mathrm{Ber}(p)$. $\MLE{p}=\bar{X}$, $\mathcal{I}(p)=1/(p(1-p))$. Wald aralığı:
+\[
+  \bar{X} \pm z_{\alpha/2}\sqrt{\frac{\bar{X}(1-\bar{X})}{n}}.
+\]
+\end{ornek}
+
+\begin{hataanalizi}
+Wald oranı güven aralığı $p\approx0$ veya $p\approx1$'de ya da küçük $n$'de kötü performans gösterir. Wilson aralığı (skorlu GA) daha sağlamdır:
+\[
+  \frac{\bar{X}+z_{\alpha/2}^2/(2n)}{1+z_{\alpha/2}^2/n} \pm \frac{z_{\alpha/2}\sqrt{\bar{X}(1-\bar{X})/n + z_{\alpha/2}^2/(4n^2)}}{1+z_{\alpha/2}^2/n}.
+\]
+\end{hataanalizi}
+
+\subsection{Varyans Stabilizasyon Dönüşümü}
+
+\begin{teorem}[Delta yöntemi ile GA]\label{thm:delta_ga}
+$g$ türevlenebilir ve $g'(\theta)\neq0$. Delta yönteminden $\sqrt{n}(g(\MLE\theta)-g(\theta))\dto\Normal(0,[g'(\theta)]^2/\mathcal{I}(\theta))$. $g$ seçimi ile varyans sabitlenirse, GA sabit genişlikte olur.
+\end{teorem}
+
+\begin{ornek}[Poisson varyans stabilizasyonu]
+$\bar{X}\sim\Pois(\lambda)$: $\Var(\bar{X})\approx\lambda/n$. $g(\lambda)=\sqrt{\lambda}$ ile delta yöntemi: $\sqrt{n}(\sqrt{\bar{X}}-\sqrt{\lambda})\dto\Normal(0,1/4)$. GA:
+\[
+  \sqrt{\bar{X}} \pm \frac{z_{\alpha/2}}{2\sqrt{n}} \quad\Rightarrow\quad
+  \lambda: \left(\sqrt{\bar{X}} - \frac{z_{\alpha/2}}{2\sqrt{n}}\right)^{\!2} \leq \lambda \leq \left(\sqrt{\bar{X}} + \frac{z_{\alpha/2}}{2\sqrt{n}}\right)^{\!2}.
+\]
+\end{ornek}
+
+%% ============================================================
+\section{Güven Aralığı Uzunluğu ve Örneklem Büyüklüğü}
+\label{sec:ga_uzunluk}
+%% ============================================================
+
+\begin{teorem}[Örneklem büyüklüğü belirleme]\label{thm:orneklem_buyuklugu}
+$z$-aralığı ile $\mu$'yü $\pm d$ hassasiyetle tahmin etmek için gereken minimum örneklem büyüklüğü:
+\[
+  n \geq \left\lceil \frac{z_{\alpha/2}^2\,\sigma^2}{d^2} \right\rceil.
+\]
+$\sigma$ bilinmiyorsa pilot çalışma veya muhafazakâr $\sigma$ tahmini kullanılır.
+\end{teorem}
+
+\begin{proof}
+GA yarı-genişliği $z_{\alpha/2}\sigma/\sqrt{n}\leq d$ eşitsizliğini $n$ için çöz.
+\end{proof}
+
+\begin{ornek}[Seçim anketi]
+Bir oy oranını $\pm0.03$ hassasiyetle \%95 güvenle tahmin et. Muhafazakâr $p=0.5$ ile $\sigma^2=p(1-p)=0.25$. $n\geq\lceil 1.96^2\cdot0.25/0.03^2\rceil = \lceil 1067.1\rceil = 1068$.
+\end{ornek}
+
+\begin{kendinleifade}
+Güven düzeyini $\alpha=0.05$'ten $\alpha=0.01$'e çekince aralık nasıl değişir? Örneklem büyüklüğünü 4 katına çıkarmak aralık genişliğini kaçta bire indirir?
+\kendinleifadecevap{Güven düzeyi $\alpha=0.05\to0.01$: $z_{0.025}=1.96\to z_{0.005}=2.576$,
+  aralık genişler (daha güvenilir = daha geniş).
+  Örneklem $n\to4n$: Genişlik $\propto\sigma/\sqrt{n}\to\sigma/\sqrt{4n}=\tfrac{1}{2}\cdot\sigma/\sqrt{n}$,
+  yarıya iner. Sezgi: güveni artırmak genişletir, veriyi artırmak daraltır;
+  ikisi birbirini dengeler.}
+\end{kendinleifade}
+
+%% ============================================================
+\section{En Kısa Güven Aralığı}
+\label{sec:en_kisa_ga}
+%% ============================================================
+
+Birden fazla güven aralığı aynı kapsama olasılığına sahip olabilir. En bilgilisi en kısasıdır.
+
+\begin{teorem}[Simetrik unimodal dağılımda en kısa GA]\label{thm:en_kisa}
+Pivot $Q$'nun yoğunluğu unimodal ve simetrik ($f_Q$ genişleme merkezi $c$ olan) ise, sabit uzunluklu $(1-\alpha)$ aralık içinde kapsama olasılığını maksimize eden --- eşdeğer olarak, sabit kapsama olasılığında uzunluğu minimize eden --- aralık simetriktir: $\Prob(c-d\leq Q\leq c+d)=1-\alpha$.
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+Neyman-Pearson argümanı: $f_Q(q)>k$ kümesi üzerinde topla; $k$ normalleştirme sabitine göre ayarla. Unimodal simetrik $f_Q$ için bu küme simetrik bir aralık.
+\end{proof}
+
+\begin{sonuc}[Normal güven aralığı optimal]\label{cor:normal_optimal}
+$\Normal(0,1)$ pivot için simetrik $z$-aralığı, verilen $1-\alpha$ değerinde en kısa olasılıklı güven aralığıdır.
+\end{sonuc}
+
+\begin{ornek}[$\chi^2$ en kısa aralığı]\label{ex:chi2_en_kisa}
+$\chi^2_{19}$ asimetrik olduğundan simetrik eşit kuyruk aralığı en kısa değildir. Optimal kesim noktaları $c_L, c_U$ için:
+\[
+  f_{\chi^2_{19}}(c_L) = f_{\chi^2_{19}}(c_U), \quad \Prob(c_L\leq Q\leq c_U)=0.95.
+\]
+Sayısal çözüm gerektirir; pratikte eşit kuyruk aralığı standart olarak kullanılır.
+\end{ornek}
+
+%% ============================================================
+\section{Profil Olabilirlik Güven Aralığı}
+\label{sec:profil_ga}
+%% ============================================================
+
+\begin{tanim}[Profil olabilirlik]\label{def:profil_likh}
+$\theta=(\psi,\lambda)$, ilgi parametresi $\psi$, tortu $\lambda$. \textbf{Profil olabilirlik}:
+\[
+  L_P(\psi) = \max_{\lambda} L(\psi,\lambda) = L(\psi,\hat\lambda(\psi)).
+\]
+\textbf{Profil olabilirlik oran GA} (Wilks teoreminden):
+\[
+  R_P(\psi) = 2[\ell(\hat\theta) - \ell_P(\psi)] \leq \chi^2_{1,\alpha}.
+\]
+\end{tanim}
+
+\begin{teorem}[Wilks --- profil olabilirlik GA]\label{thm:wilks_profil}
+Düzenli model, $n\to\infty$. O zaman $\{\psi: R_P(\psi)\leq\chi^2_{1,\alpha}\}$ yaklaşık $(1-\alpha)$ güven aralığı oluşturur.
+\end{teorem}
+
+\begin{ornek}[Lognormal parametre aralığı]\label{ex:profil_lognormal}
+$X_i\iid\mathrm{LogNormal}(\mu,\sigma^2)$. $\psi=e^\mu$ ilgi parametresi. Profil GA:
+1. $\hat\mu,\hat\sigma^2$ = MLE. 2. Farklı $\mu$ değerleri için $\hat\sigma^2(\mu)=\frac1n\sum(\log X_i-\mu)^2$. 3. $R_P(\mu)\leq3.84$ kümesi GA.
+
+Profil GA, Wald GA'ya göre asimetrik olabilir --- gerçek GA şekline daha iyi uyar.
+\end{ornek}
+
+%% ============================================================
+\section{Eşzamanlı Güven Aralıkları}
+\label{sec:esz_ga}
+%% ============================================================
+
+\begin{tanim}[Eşzamanlı GA]\label{def:esz_ga}
+$k$ parametre $(\theta_1,\ldots,\theta_k)$ için aralıklar $(L_j,U_j)$, $j=1,\ldots,k$. \textbf{Aile genel hata oranı} (FWER):
+\[
+  \Prob(\exists j: \theta_j\notin[L_j,U_j]) \leq \alpha.
+\]
+Bireysel $\alpha_j=\alpha/k$ (Bonferroni) bunu sağlar ama muhafazakârdır.
+\end{tanim}
+
+\begin{teorem}[Bonferroni düzeltmesi]\label{thm:bonferroni_ga}
+Her aralık $\alpha/k$ düzeyinde kurulursa FWER $\leq\alpha$.
+\end{teorem}
+
+\begin{proof}
+Birleşim sınırı: $\Prob(\bigcup_j A_j)\leq\sum_j\Prob(A_j)\leq k\cdot(\alpha/k)=\alpha$.
+\end{proof}
+
+\begin{teorem}[Scheffé eşzamanlı GA --- regresyon]\label{thm:scheffe_ga}
+Çok değişkenli regresyonda tüm doğrusal kombinasyonlar $c^\top\beta$ için eşzamanlı \%$95$ GA:
+\[
+  c^\top\hat\beta \pm \sqrt{p\,F_{p,n-p,\alpha}}\cdot\hat\sigma\sqrt{c^\top(X^\top X)^{-1}c}.
+\]
+Bu, sonsuz sayıda kombinasyonu eşzamanlı kapsar; Bonferroni'den geniş ama kapsamlıdır.
+\end{teorem}
+
+%% ============================================================
+\section{Güven Bölgeleri (Çok Parametreli)}
+\label{sec:guven_bolgesi}
+%% ============================================================
+
+\begin{tanim}[Güven bölgesi]\label{def:guven_bolgesi}
+$p$ boyutlu parametre $\boldsymbol\theta$. Rasgele küme $C(\mathbf{X})\subseteq\mathbb{R}^p$ için $(1-\alpha)$ \textbf{güven bölgesi} \emph{(confidence region)}:
+\[
+  \Prob_{\boldsymbol\theta}(\boldsymbol\theta\in C(\mathbf{X})) \geq 1-\alpha \quad \text{her } \boldsymbol\theta\in\Theta \text{ için.}
+\]
+\end{tanim}
+
+\begin{teorem}[Eliptik güven bölgesi]\label{thm:eliptik_bolge}
+$X_1,\ldots,X_n\iid\Normal(\boldsymbol\mu,\Sigma)$, $\Sigma$ bilinen. $(\bar{\mathbf{X}}-\boldsymbol\mu)^\top (n\Sigma^{-1})(\bar{\mathbf{X}}-\boldsymbol\mu)\sim\chi^2_p$ pivottur. $(1-\alpha)$ güven bölgesi:
+\[
+  C(\mathbf{X}) = \{\boldsymbol\mu: (\bar{\mathbf{X}}-\boldsymbol\mu)^\top (n\Sigma^{-1})(\bar{\mathbf{X}}-\boldsymbol\mu) \leq \chi^2_{p,\alpha}\}.
+\]
+Bu bir $p$-boyutlu elipsoittir; $\bar{\mathbf{X}}$ merkezi, $\Sigma/(n\chi^2_{p,\alpha})$ yarı-eksen uzunlukları.
+\end{teorem}
+
+\begin{proof}
+$\bar{\mathbf{X}}\sim\Normal(\boldsymbol\mu,\Sigma/n)$; standartlaştırarak $\mathbf{Z}=\Sigma^{-1/2}(\bar{\mathbf{X}}-\boldsymbol\mu)\sqrt{n}\sim\Normal(\mathbf{0},I_p)$. $\|\mathbf{Z}\|^2=(\bar{\mathbf{X}}-\boldsymbol\mu)^\top(n\Sigma^{-1})(\bar{\mathbf{X}}-\boldsymbol\mu)\sim\chi^2_p$ (standart Normal karelerinin toplamı).
+\end{proof}
+
+\begin{teorem}[Asimptotik güven bölgesi --- genel]\label{thm:asimptotik_bolge}
+MLE $\hat{\boldsymbol\theta}_n$ için:
+\[
+  n(\hat{\boldsymbol\theta}_n-\boldsymbol\theta)^\top I(\boldsymbol\theta) (\hat{\boldsymbol\theta}_n-\boldsymbol\theta) \dto \chi^2_p.
+\]
+Büyük örneklem güven bölgesi: $\{\boldsymbol\theta: n(\hat{\boldsymbol\theta}_n-\boldsymbol\theta)^\top \hat{I}(\hat{\boldsymbol\theta}_n)(\hat{\boldsymbol\theta}_n-\boldsymbol\theta)\leq\chi^2_{p,\alpha}\}$.
+\end{teorem}
+
+\begin{ornek}[İki parametreli Normal güven elipsi]
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$, ikisi bilinmiyor; ilgi parametresi $(\mu,\sigma^2)$. Fisher bilgisi diyagonal: $I_{11}=1/\sigma^2$, $I_{22}=1/(2\sigma^4)$. Elipsin eksenler $(\mu-\hat\mu)^2/(n\hat\sigma^2)$ ve $(\sigma^2-\hat\sigma^2)^2/(2\hat\sigma^4/n)$ yönünde. İki boyutlu elipsin alanı tek boyutlu aralıkların yüzey alanıyla değil yüzey dışıyla kıyaslanır (Bonferroni daha muhafazakâr).
+\end{ornek}
+
+\begin{kritiksorgu}
+Bireysel $p$ adet \%95 GA'yı oluşturmak yerine neden doğrudan güven bölgesi kurarız? Bireysel aralıkların kesişimi güven bölgesi değildir: iki \%95 aralığın kesişimi en az \%90 kapsama garantisi verir (Bonferroni). Eliptik güven bölgesi tam $1-\alpha$ garantisiyle daha verimli bilgi taşır.
+\end{kritiksorgu}
+
+%% ============================================================
+\section{Tolerans Aralıkları}
+\label{sec:tolerans_aralik}
+%% ============================================================
+
+\begin{tanim}[Tolerans aralığı]\label{def:tolerans_aralik}
+$(1-\alpha)$ güvenle popülasyonun en az $\gamma$ oranını kapsayan aralık \textbf{tolerans aralığı} \emph{(tolerance interval)}: $L,U$ rasgeleler; gözlemlenmemiş $X_{\text{yeni}}$ için
+\[
+  \Prob\!\bigl[\Prob(L\leq X_{\text{yeni}}\leq U\mid\mathbf{X})\geq\gamma\bigr]\geq1-\alpha.
+\]
+Tolerans aralığı, güven aralığından farklıdır: bireysel gözlemleri kapsar, parametreyi değil.
+\end{tanim}
+
+\begin{teorem}[Normal tolerans aralığı]\label{thm:normal_tolerans}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$; $\mu,\sigma^2$ bilinmiyor. $(1-\alpha)$ güven ve $\gamma$ kapsama oranı için tolerans aralığı:
+\[
+  \bar{X} \pm k\,S,
+\]
+$k = k(n,\gamma,\alpha)$ tolerans çarpanı tablodan veya şu yaklaşımla: $k\approx\frac{z_{(1-\gamma)/2}}{\sqrt{1-z_\alpha^2/(2(n-1))}}\sqrt{1+\frac{1}{n}}$ (Wald-Wolfowitz yaklaşımı).
+\end{teorem}
+
+\begin{proof}[Proof --- taslak]
+$X_{\text{yeni}}|\mu,\sigma\sim\Normal(\mu,\sigma^2)$; $\bar X|\mu,\sigma\sim\Normal(\mu,\sigma^2/n)$. $\Prob(|\bar X-X_{\text{yeni}}|>kS)$ ifadesi $\chi^2$ ve $t$ dağılımlarını içerir; integral kapalı formda değil. $k$ tablo değerleri Monte Carlo veya yaklaşımla hesaplanır.
+\end{proof}
+
+\begin{ornek}[Tolerans aralığı --- vida uzunluğu]
+Makine $n=25$ vida üretti; $\bar{x}=50.2$ mm, $s=0.3$ mm. \%95 güvenle vidaların \%99'unu kapsayan tolerans aralığını bul. $k(25,0.99,0.05)\approx3.46$ (tablodan). Aralık: $50.2\pm3.46\cdot0.3=50.2\pm1.04=[49.16,\;51.24]$ mm.
+\end{ornek}
+
+\begin{hataanalizi}
+Üç farklı aralık türünü karıştırmayınız:
+\begin{itemize}
+  \item \textbf{Güven aralığı}: $\mu$ gibi bir parametre için --- aralık ortalamayı kapsar.
+  \item \textbf{Tahmin aralığı}: tek bir yeni gözlem için --- $X_{\text{yeni}}\in[L,U]$.
+  \item \textbf{Tolerans aralığı}: popülasyonun $\gamma$ oranı için --- hem gelecek hem geçmiş gözlemler.
+\end{itemize}
+Tolerans aralığı en geniş, güven aralığı en dar. Kalite güvencesinde tolerans aralığı standart.
+\end{hataanalizi}
+
+\begin{teorem}[Tahmin aralığı --- tek yeni gözlem]\label{thm:tahmin_aralik}
+$X_{\text{yeni}}$ bağımsız, $\Normal(\mu,\sigma^2)$'dan. $\mu,\sigma^2$ bilinmiyor. $(1-\alpha)$ tahmin aralığı \emph{(prediction interval)}:
+\[
+  \bar X \pm t_{n-1,\alpha/2}\,S\sqrt{1+\frac{1}{n}}.
+\]
+Güven aralığından $\sqrt{1+1/n}$ faktörü kadar geniş (yeni gözlem belirsizliği ekstra).
+\end{teorem}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Kalite güvencesi:} Tolerans aralıkları üretim spesifikasyonu belirleme standardı (ISO 16269-6). \textbf{Tıbbi teşhis:} Referans aralıkları (sağlıklı popülasyonun \%95'ini kapsayan değerler) birer tolerans aralığıdır. \textbf{Çevre mühendisliği:} Kirletici konsantrasyonu için üst tolerans sınırı yasal düzenleme referansı.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Güven Aralıklarında Asimptotik Doğruluk: Edgeworth Düzeltmesi}
+\label{sec:edgeworth_ga}
+%% ============================================================
+
+Standart Wald güven aralığı $\bar X_n \pm z_{\alpha/2}\sigma/\sqrt{n}$ adı altında kapsama olasılığı $\Phi(z_{\alpha/2})-\Phi(-z_{\alpha/2})$'ye yaklaşır; ancak bu yaklaşımın hata mertebesi $O(n^{-1/2})$'dir. Bartlett ve diğerleri, Edgeworth açılımı kullanarak daha kesin kapsama olasılığı hesaplamıştır.
+
+\begin{teorem}[Edgeworth düzeltmesi]\label{thm:edgeworth_ga}
+$X_i$ i.i.d., sonlu 4. momenti var, $\gamma_1=\mu_3/\sigma^3$ (çarpıklık). Wald güven aralığının gerçek kapsama olasılığı:
+\[
+  P\!\left(\theta\in\bar X_n\pm\frac{z_{\alpha/2}\sigma}{\sqrt{n}}\right)
+  = (1-\alpha) + \frac{\gamma_1}{6\sqrt{n}}[z_{\alpha/2}^2-1]\cdot2\phi(z_{\alpha/2}) + O(n^{-1}).
+\]
+Çarpıklık terimi $\gamma_1\neq0$ ise kapsama olasılığını $(1-\alpha)$'dan saptırır.
+\end{teorem}
+
+\begin{proof}[Taslak]
+$W_n=\sqrt{n}(\bar X_n-\mu)/\sigma$ için Edgeworth açılımı:
+\[
+  F_{W_n}(w) = \Phi(w) - \frac{\gamma_1}{6\sqrt{n}}(w^2-1)\phi(w) + O(n^{-1}).
+\]
+Kapsama olasılığını $F_{W_n}(z_{\alpha/2})-F_{W_n}(-z_{\alpha/2})$ olarak yazıp Edgeworth açılımını yerine koy; $\phi$ simetrik, $(w^2-1)$ anti-simetrik olmadığından fark birinci terimde sıfırlanmaz; teoremde verilen düzeltme elde edilir.
+\end{proof}
+
+\begin{ornek}[Üstel dağılımda kapsama hatası]
+$X_i\sim\mathrm{Exp}(\lambda)$: $\gamma_1=2$. $n=20$, $1-\alpha=0.95$ ($z_{0.025}=1.96$).
+Edgeworth düzeltmesi:
+\[
+  \Delta = \frac{2}{6\sqrt{20}}(1.96^2-1)\cdot2\phi(1.96) = \frac{2}{6\cdot4.47}(2.842)(0.584)\approx0.0124.
+\]
+Gerçek kapsama $\approx0.95+0.012=0.962$ (aşırı kapsama) --- sağa çarpık dağılımda normal yaklaşım tutucu davranır.
+\end{ornek}
+
+\begin{teorem}[Bootstrap-t güven aralığının kapsama doğruluğu]\label{thm:bootstrap_kapsama}
+Double bootstrap güven aralığı (Beran 1987), kapsama hatasını $O(n^{-1})$'den $O(n^{-3/2})$'ye indirger. Percentile-t bootstrap $O(n^{-1})$ doğruluk sağlar; basit yüzdelik bootstrap ise yalnızca $O(n^{-1/2})$.
+\end{teorem}
+
+\noindent\textbf{Sonuç:} Asimetrik dağılımlarda veya küçük $n$'de, double-bootstrap veya profil olabilirlik aralıkları, Wald aralığından belirgin şekilde üstündür.
+
+%% ============================================================
+\section{Adaptif Güven Aralıkları: Stein Küçültmesi ve SURE}
+\label{sec:adaptif_ga}
+%% ============================================================
+
+$p\geq3$ parametreli $\boldsymbol\mu\in\mathbb{R}^p$ tahmininde, James-Stein tahminedici MLE'nin OKH'sini düşürür; bu fenomen güven bölgeleri için de paralel sonuçlar doğurur.
+
+\begin{tanim}[SURE --- Stein'ın hesapsız risk tahmincisi]
+$\mathbf{X}\sim\Normal_p(\boldsymbol\mu,\sigma^2I)$, yansız risk tahmincisi:
+\[
+  \widehat{R}(\delta,\boldsymbol\mu) = p\sigma^2 + \sum_{i=1}^p\left[\left(\frac{\partial\delta_i}{\partial X_i}\right)^2\sigma^4 - 2\sigma^2\frac{\partial\delta_i}{\partial X_i}\right].
+\]
+Stein lemması ile beklenti $\boldsymbol\mu$'ya bağlı değildir; böylece risk veri gözlemlenerek tahmin edilebilir.
+\end{tanim}
+
+\begin{teorem}[James-Stein güven küresi]
+$\mathbf{X}\sim\Normal_p(\boldsymbol\mu,I)$ ($p\geq3$), $\delta^{JS}=\left(1-\frac{p-2}{\|\mathbf{X}\|^2}\right)\mathbf{X}$ James-Stein tahminedici. Standart güven küresi $\{\boldsymbol\mu:\|\boldsymbol\mu-\mathbf{X}\|\leq c\}$'in kapsama olasılığı $(1-\alpha)$; James-Stein merkezli küre \emph{daha küçük} ama \emph{aynı ya da daha yüksek} kapsama sağlar (Stein 1981).
+\end{teorem}
+
+Bu, yüksek boyutlu istatistikte güven kümelerinin, doğal kayıp (Öteki yöntem: Bayes HPD bölgesi) ile tanımlandığında, sezgilerin aksine davranabileceğini gösterir.
+
+%% ============================================================
+
+\begin{mikroozet}
+\begin{itemize}
+  \item Güven aralığı: $\theta$ sabit, aralık rasgele; kapsama yorumu yönteme aittir, tek bir aralığa değil.
+  \item Pivot yöntemi: dağılımı $\theta$'dan bağımsız büyüklük bul, eşitsizliği çöz.
+  \item $z$/$t$/$\chi^2$ aralıkları normallik gerektirir; Welch eşitsiz varyanslarda güçlüdür.
+  \item Wald büyük örneklem için evrensel; küçük oran ve uç değerlerde Wilson daha iyidir.
+  \item En kısa GA: unimodal simetrik pivotta simetrik kesimler optimal.
+  \item Profil olabilirlik GA: asimetrik ve parametrizasyona değişmez.
+\end{itemize}
+\end{mikroozet}
+
+\begin{ozyansima}
+Güven aralığının uzunluğu ne zaman belirsizliğimizi tam yansıtır? Güven aralığı ile Bayes güvenilir aralığı arasındaki felsefi fark nedir?
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Nereden geldik:} Bölüm~\ref{chp:nokta_tahmin}'deki Fisher bilgisi ve asimptotik normallik Wald aralığını, Bölüm~\ref{chp:dagilim_aileleri}'deki $t/\chi^2/F$ dağılımları küçük örneklem aralıklarını mümkün kıldı.
+
+\textbf{Nereye gidiyoruz:} Bölüm~\ref{chp:hipotez_testi}'de "bu $\theta_0$ değeri güven aralığında mı?" sorusu hipotez testine dönüşüyor. Güven aralığı ve hipotez testi dualdir.
+\end{kopru}
+
+%% ============================================================
+%% ALISTIRMALAR
+%% ============================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.13.1]{A}{$z$-aralığı}
+$n=100$ gözlem; $\bar{x}=4.82$, $\sigma=1.2$ (bilinen). $\mu$ için \%90 ve \%99 güven aralıklarını hesapla ve uzunluklarını karşılaştır.
+\end{alistirma}
+\alcozum{%
+$z_{0.05}=1.645$, $z_{0.005}=2.576$. \%90: $4.82\pm1.645\cdot0.12=[4.623,5.017]$ (uzunluk 0.394). \%99: $4.82\pm2.576\cdot0.12=[4.511,5.129]$ (uzunluk 0.617). Güven artınca uzunluk artar.%
+}
+
+\begin{alistirma}[Al.13.2]{B}{$t$-aralığı ve normallik}
+$n=9$, $\bar{x}=23.1$, $s=4.5$, normal popülasyon. (a) \%95 $t$-aralığı. (b) $n=9$ yerine $n=100$ ile yaklaşık $z$-aralığını karşılaştır.
+\end{alistirma}
+\alcozum{%
+(a) $t_{8,0.025}=2.306$; GA: $23.1\pm2.306\cdot(4.5/3)=23.1\pm3.459=[19.641,26.559]$. (b) $n=100$: $z_{0.025}=1.960$; GA: $23.1\pm1.960\cdot(4.5/10)=23.1\pm0.882$. Büyük örneklemde $t\approx z$ ve aralık çok daralır.%
+}
+
+\begin{alistirma}[Al.13.2b]{B}{Bootstrap Güven Aralığı}
+$X_1,\ldots,X_{20}$ gözlemi, $\bar{x}=12.4$, $s=3.1$. (a) Nonparametrik bootstrap ile medyan için \%95 GA'nın mantığını açıklayınız. (b) $B=1000$ bootstrap örnekleminde medyan standart hatası $\hat\sigma^*=0.82$ bulundu. Normal yaklaşım ile GA'yı kurunuz. (c) Bootstrap'ın klasik $t$-aralığına göre avantajı nedir?
+\end{alistirma}
+\alcozum{%
+(a) Her bootstrap örnekleminden medyan $\tilde\theta^{*(b)}$ hesaplanır ($b=1,\ldots,B$). Emprik dağılım $F^*$ kullanılarak güven sınırları: $(\tilde\theta^*_{(\alpha/2)},\tilde\theta^*_{(1-\alpha/2)})$ yüzdelik yöntemi ile.
+(b) Normal yaklaşım: $\tilde\theta\pm z_{\alpha/2}\hat\sigma^*=\tilde\theta\pm1.96\cdot0.82$. Medyan $\approx\bar{x}=12.4$ (simetrik ise): $12.4\pm1.607=[10.79,14.01]$.
+(c) Bootstrap normallik varsaymaz; medyan, oran ve diğer düzgün olmayan istatistikler için geçerlidir; küçük örneklemde $t$-dağılımı varsayımını aşar.}
+
+\begin{alistirma}[Al.13.2c]{B}{Bayes Güvenilir Aralığı --- Hesap}
+$X_1,\ldots,X_n\iid\Binom(1,p)$, $n=30$, $\sum x_i=18$. Önsel $p\sim\Beta(2,2)$. (a) Sonsal dağılımı bulunuz. (b) \%95 eşit-kuyruklu güvenilir aralığı Beta kantil tablosuyla kurunuz. (c) Bu aralığı klasik Wald aralığıyla karşılaştırınız.
+\end{alistirma}
+\alcozum{%
+(a) Sonsal: $p|X\sim\Beta(2+18,2+12)=\Beta(20,14)$.
+(b) \%95 GA: $(\Beta_{0.025}(20,14), \Beta_{0.975}(20,14))$. $\Beta(20,14)$ modu $19/32=0.594$. Yaklaşık hesap: $\mu_1=20/34=0.588$, $\sigma_1^2=20\cdot14/(34^2\cdot35)=0.00696$. Normal yaklaşım: $0.588\pm1.96\cdot0.0834\approx[0.425,0.751]$.
+(c) Wald: $\hat p=18/30=0.6$, $\hat\sigma=\sqrt{0.6\cdot0.4/30}=0.0894$; GA: $0.6\pm1.96\cdot0.0894=[0.425,0.775]$. Bayesçi önceden $\Beta(2,2)$ ortalamaya (0.5) doğru çeker.}
+
+
+\begin{alistirma}[Al.13.3]{A}{Varyans için GA}
+$n=20$, $s^2=16.4$, normal popülasyon. $\sigma^2$ için \%95 güven aralığını kur.
+\end{alistirma}
+\alcozum{%
+$\chi^2_{19,0.025}=32.852$, $\chi^2_{19,0.975}=8.907$. GA: $[19\cdot16.4/32.852,\;19\cdot16.4/8.907]=[9.49,\;34.99]$.%
+}
+\begin{alistirma}[Al.13.4]{B}{Wilson oranı aralığı}
+$n=20$ denemede $k=2$ başarı. $p$ için (a) Wald aralığı, (b) Wilson aralığı kur (\%95). Sonuçları yorumla.
+\end{alistirma}
+\alcozum{%
+$\bar{p}=0.1$. (a) Wald: $0.1\pm1.96\sqrt{0.1\cdot0.9/20}=0.1\pm0.131=[-0.031,0.231]$ --- olumsuz değer içeriyor, geçersiz. (b) Wilson: pay=$0.1+1.96^2/40=0.196$; payda=$1+3.84/20=1.192$; merkez$=0.164$; $\pm\approx0.155$; $[0.009,\;0.319]$ --- daha sağlam.%
+}
+\alistirmalar
+
+
+
+\begin{alistirma}[Al.13.5]{B}{Welch güven aralığı}
+İki bağımsız grup: Grup A ($n_1=15$, $\bar{x}_1=42$, $s_1=8$), Grup B ($n_2=20$, $\bar{x}_2=37$, $s_2=12$). Varyansların eşit olmadığını varsayarak $\mu_1-\mu_2$ için \%95 Welch güven aralığını kur.
+\end{alistirma}
+\alcozum{%
+SE $=\sqrt{64/15+144/20}=\sqrt{4.267+7.2}=\sqrt{11.467}=3.387$. $\nu=11.467^2/[(4.267^2/14)+(7.2^2/19)]=131.5/(1.298+2.737)=32.6\approx33$. $t_{33,0.025}\approx2.035$. GA: $5\pm2.035\cdot3.387=5\pm6.89=[-1.89,\;11.89]$.%
+}
+
+\begin{alistirma}[Al.13.6]{C}{Örneklem büyüklüğü optimizasyonu}
+Bir üretim hattında $\sigma=5$ mm. Ortalamayı $\pm0.5$ mm hassasiyetle \%95 ile tahmin etmek için kaç ölçüm gerekir? Örneklem büyüklüğü iki katına çıkarılırsa hassasiyet nasıl değişir?
+\end{alistirma}
+\alcozum{%
+$n\geq(1.96\cdot5/0.5)^2=384.16\Rightarrow n=385$. $n=770$'de: ME$=1.96\cdot5/\sqrt{770}=0.354$ mm, yani $1/\sqrt{2}\approx0.707$ katına düşer. Hassasiyet $\sqrt{2}$ faktörüyle artmış.%
+}
+
+\begin{alistirma}[Al.13.7]{C}{Pivot yöntemi --- Uniform}
+$X_1,\ldots,X_n\iid\Uniform[0,\theta]$. $Q=X_{(n)}/\theta$'nın dağılımını bul ve $\theta$ için $(1-\alpha)$ güven aralığını türet.
+\end{alistirma}
+\alcozum{%
+$F_{X_{(n)}}(t)=(t/\theta)^n$; dolayısıyla $Q=X_{(n)}/\theta\sim\mathrm{Beta}(n,1)$ (KDF: $F_Q(q)=q^n$). $\Prob(q_{L}\leq Q\leq1)=1-\alpha$ ile $q_L=\alpha^{1/n}$. Çöz: $X_{(n)}/1\leq\theta$ her zaman; alt sınır $\Prob(Q\geq q_L)=1-q_L^n=1-\alpha$. GA: $\theta\in[X_{(n)},\;X_{(n)}/\alpha^{1/n}]$.%
+}
+
+\begin{alistirma}[Al.13.8]{B}{Eşzamanlı güven aralığı}
+3 parametre $(\theta_1,\theta_2,\theta_3)$ için bireysel \%95 aralıklar kur isteniyor. (a) Bonferroni düzeltmesiyle her aralığın hangi güven düzeyinde kurulması gerektiğini söyle. (b) Eğer her aralığın uzunluğu 4 ise ve Bonferroni uygulanırsa FWER en az $1-3\cdot(1-0.9833)=0.95$ olduğunu göster.
+\end{alistirma}
+\alcozum{%
+(a) Bonferroni: $\alpha_j=0.05/3\approx0.0167$; her aralık $\%98.33$ güven düzeyinde. (b) Her aralık hata $\Prob(A_j)=0.0167$. FWER $\leq\sum_j\Prob(A_j)=3\cdot0.0167=0.05$; yani toplam hata $\leq\alpha=0.05$. Bu doğrudan Birleşim sınırı argümanıdır.%
+}
+
+\begin{alistirma}[Al.13.9]{B}{En kısa GA karşılaştırması}
+$n=10$, $s^2=9.6$, Normal popülasyon. (a) $\sigma^2$ için eşit kuyruk \%90 GA'sını hesapla ($\chi^2_{9,0.05}=16.92$, $\chi^2_{9,0.95}=3.33$). (b) Üst tek taraflı \%90 GA'sını kur. (c) Hangi GA daha kısa?
+\end{alistirma}
+\alcozum{%
+(a) Eşit kuyruk: $[9\cdot9.6/16.92,\;9\cdot9.6/3.33]=[5.11,\;25.95]$; uzunluk $=20.84$. (b) Tek taraflı üst: $(-\infty,\;9\cdot9.6/\chi^2_{9,0.90})=(-\infty,\;9\cdot9.6/4.17)=(-\infty,\;20.72)$; tek yönlü GA daha kısa ama üst sınırı yoktur. Eşit kuyruk iki taraflı GA burada uzundur çünkü $\chi^2$ asimetriktir; en kısa iki taraflı GA sayısal optimizasyon gerektirir.%
+}
+
+\begin{alistirma}[Al.13.10]{C}{Profil olabilirlik GA}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$, ikisi de bilinmiyor. $\psi=\mu$ ilgi parametresi. (a) Profil log-olabilirliği $\ell_P(\mu)$'yü hesapla. (b) $R_P(\mu)=2[\ell(\hat\mu,\hat\sigma^2)-\ell_P(\mu)]$ ifadesini hesapla ve $n(\bar X-\mu)^2/S^2$ ile ilişkilendir.
+\end{alistirma}
+\alcozum{%
+(a) $\ell(\mu,\sigma^2)=-\frac{n}{2}\log\sigma^2-\frac{1}{2\sigma^2}\sum(X_i-\mu)^2$. $\hat\sigma^2(\mu)=\frac1n\sum(X_i-\mu)^2$. $\ell_P(\mu)=-\frac{n}{2}\log\hat\sigma^2(\mu)-n/2$. (b) $R_P(\mu)=n\log(\hat\sigma^2(\mu)/\hat\sigma^2)=n\log(1+t^2/(n-1))$ ($t=\sqrt{n}(\bar X-\mu)/S$). $R_P\leq\chi^2_{1,\alpha}$ koşulu $|t|\leq t_{n-1,\alpha/2}$'ye indirgenir --- profil olabilirlik GA, $t$-aralığıyla özdeştir.%
+}

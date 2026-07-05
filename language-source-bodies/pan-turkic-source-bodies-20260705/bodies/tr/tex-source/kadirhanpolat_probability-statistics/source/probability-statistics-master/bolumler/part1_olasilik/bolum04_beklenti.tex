@@ -1,0 +1,1158 @@
+% =====================================================================
+%  BÖLÜM 4: Beklenti ve Momentler
+%  Kaynak: Feller; Billingsley; Klenke; Shiryaev
+% =====================================================================
+\chapter{Beklenti ve Momentler}
+\label{chp:beklenti}
+
+\bolumalinti{%
+  Beklenti, belirsizliğin ağırlık merkezidir.%
+}{Patrick Billingsley, \textit{Probability and Measure}}
+
+% ---- Kazanımlar (TYMM) ----
+\begin{kazanimlar}
+Bu bölümün sonunda öğrenci:
+\begin{itemize}
+  \item Beklentiyi Lebesgue integrali olarak tanımlayabilir ve
+        bu tanımın kesikli/sürekli formüllere nasıl indirgeneceğini gösterebilir.
+  \item Beklentinin doğrusallık, monotonluk ve önemli eşitsizliklerini
+        (Jensen, Markov, Chebyshev) ispatlayabilir ve uygulayabilir.
+  \item Varyans, kovaryans ve korelasyon kavramlarını hesaplayabilir;
+        bağımsızlıkla ilişkilerini açıklayabilir.
+  \item Moment üreten fonksiyon (MÜF) ve karakteristik fonksiyonun (KF)
+        tanımını, yakınsama bölgesini ve momentlerle ilişkisini açıklayabilir.
+  \item Koşullu beklentiyi $L^2$ projeksiyonu olarak yorumlayabilir,
+        temel özelliklerini ve yineleme (kule) özelliğini ispatlayabilir.
+\end{itemize}
+\end{kazanimlar}
+
+% ---- Motivasyon ----
+\begin{motivasyon}
+Bir rasgele değişkenin dağılımı tam bilgiyi içerir; ama çoğu zaman bu kadar bilgiye
+ihtiyaç duymayız. Dağılımı birkaç sayıyla özetlemek istiyoruz: "ortalama değer nedir?"
+ve "ne kadar saçılım var?" Beklenti ve varyans bu iki soruyu yanıtlar.
+
+Daha incelikli özetler için momentler, çarpıklık (skewness) ve basıklık (kurtosis)
+devreye girer. Tüm momentleri birden kodlayan moment üreten fonksiyon ve
+karakteristik fonksiyon ise dağılım teorisinin (Böl.~\ref{chp:dagilim_aileleri})
+ve Merkezi Limit Teoremi'nin (Böl.~\ref{chp:merkezi_limit}) temel araçlarıdır.
+
+\medskip
+\textbf{Köprü.} Bölüm~\ref{chp:olcum_teorisi}'deki Lebesgue integrali (MYT, Fatou, DYT)
+burada olasılık dili ile yeniden okunur.
+Bölüm~\ref{chp:rasgele_degiskenler}'deki PDF ve PMF kavramları, beklenti hesabını
+somutlaştırır. Bölüm~\ref{chp:buyuk_sayilar}'da Büyük Sayılar Kanunu bu bölümün
+sonuçlarına dayanacaktır.
+\end{motivasyon}
+
+% =====================================================================
+\section{Beklenti: Lebesgue İntegrali Olarak}
+\label{sec:beklenti_tanim}
+% =====================================================================
+
+\begin{kesif}
+Altı yüzlü zarın beklenen değerini klasik yöntemle hesaplayalım:
+$\frac{1}{6}(1+2+3+4+5+6) = 3.5$.
+Bu hesap $\sum_x x \cdot P(X=x)$ formülünü izliyor.
+Peki ya sürekli dağılımlar? Ya da karma dağılımlar?
+Tüm bu durumları kapsayan tek bir tanım mümkün müdür?
+\kesifcevap{Lebesgue integrali tüm durumları kapsar: $E[X]=\int_\Omega X\,dP$.
+  Ayrık: $\sum_x x P(X=x)$; sürekli: $\int_{-\infty}^\infty x f(x)\,dx$;
+  karma: $\int x\,dF_X(x)$ (Lebesgue-Stieltjes). Tek tanım, üç görünüm.}
+\end{kesif}
+
+\begin{tanimgerekce}
+Bölüm~\ref{chp:olcum_teorisi}'de basit fonksiyonlarla başlayıp
+non-negatif ve ardından genel fonksiyonlara geçen üç aşamalı Lebesgue
+integral inşasını hatırlayınız. Beklenti, olasılık ölçüsüne göre bu
+integralin ta kendisidir --- hem kesikli hem sürekli durumu tek çatı altında toplar.
+\end{tanimgerekce}
+
+\begin{tanim}[Beklenti]
+\label{def:beklenti}
+$(\Omega, \mathcal{F}, P)$ üzerinde $X$ rasgele değişken olsun.
+$\int_\Omega |X| \, dP < \infty$ ise $X$'in \textbf{beklentisi} (expected value)
+\[
+  E[X] = \int_\Omega X(\omega) \, dP(\omega)
+\]
+olarak tanımlanır; $E[X]$ Bölüm~\ref{chp:olcum_teorisi}'deki Lebesgue integralidir.
+\end{tanim}
+
+\begin{teorem}[Beklentinin Somut Formülleri]
+\label{thm:beklenti_formul}
+$X$ rasgele değişken ve $E[|X|] < \infty$ olsun.
+\begin{enumerate}[(i)]
+  \item \textbf{Kesikli ($S = \{x_1, x_2, \ldots\}$):}
+        $E[X] = \sum_k x_k \, P(X = x_k)$.
+  \item \textbf{Mutlak sürekli (PDF $f_X$):}
+        $E[X] = \int_{-\infty}^{+\infty} x \, f_X(x) \, dx$.
+  \item \textbf{Bilinç değişimi (transfer teoremi):}
+        $g : \mathbb{R} \to \mathbb{R}$ ölçülebilir ve $E[|g(X)|] < \infty$ ise
+        \[
+          E[g(X)] = \int_\Omega g(X(\omega)) \, dP(\omega) = \int_{\mathbb{R}} g(x) \, dP_X(x),
+        \]
+        yani sürekli durumda $E[g(X)] = \int g(x) f_X(x) \, dx$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textit{(i):} $X = \sum_k x_k \mathbf{1}_{\{X = x_k\}}$ ayrışımı; Lebesgue integralinin doğrusallığı.\\
+\textit{(ii):} $P_X(B) = \int_B f_X \, d\lambda$ (mutlak süreklilik);
+$\int x \, dP_X(x) = \int x f_X(x) \, d\lambda(x)$.\\
+\textit{(iii):} $h = g \circ X$ bileşkesi ölçülebilir; ölçü değişim teoremi (push-forward):
+$\int_\Omega h \, dP = \int_{\mathbb{R}} g \, dP_X$.
+\end{proof}
+
+\begin{ornek}[Geometrik Dağılım]
+$X \sim \mathrm{Geom}(p)$: $P(X = k) = (1-p)^{k-1} p$, $k \geq 1$.
+\[
+  E[X] = \sum_{k=1}^\infty k(1-p)^{k-1} p = p \cdot \frac{d}{dp}\!\left[-\sum_{k=1}^\infty (1-p)^k\right]
+  = p \cdot \frac{d}{dp}\!\left[-\frac{1-p}{p}\right] = \frac{1}{p}.
+\]
+\end{ornek}
+
+\begin{ornek}[Üstel Dağılım]
+$X \sim \mathrm{Exp}(\lambda)$: $f_X(x) = \lambda e^{-\lambda x}$, $x > 0$.
+\[
+  E[X] = \int_0^\infty x \lambda e^{-\lambda x} \, dx
+  = \left[-x e^{-\lambda x}\right]_0^\infty + \int_0^\infty e^{-\lambda x} \, dx
+  = 0 + \frac{1}{\lambda} = \frac{1}{\lambda}.
+\]
+\end{ornek}
+
+\begin{hataanalizi}
+"Her rasgele değişkenin beklentisi vardır" --- yanlış.
+Cauchy dağılımı ($f(x) = \frac{1}{\pi(1+x^2)}$) için $\int_{-\infty}^{+\infty} |x| f(x) \, dx = \infty$;
+beklenti tanımsızdır. St.\ Petersburg paradoksu (bir madeni para oyununda beklenti sonsuz
+ama oyunu oynamak istediğiniz ücret sonludur) da bu olgunun pratik yansımasıdır.
+\end{hataanalizi}
+
+\begin{onerme}[Kuyruk Formülü]
+\label{prop:kuyruk_beklenti}
+$X \geq 0$ rasgele değişken için
+\[
+  E[X] = \int_0^\infty P(X > t) \, dt.
+\]
+Daha genel: $E[X^r] = r \int_0^\infty t^{r-1} P(X > t) \, dt$ ($r > 0$).
+\end{onerme}
+
+\begin{proof}
+Fubini:
+\[
+  \int_0^\infty P(X > t) \, dt = \int_0^\infty \int_\Omega \mathbf{1}_{X(\omega) > t} \, dP(\omega) \, dt
+  = \int_\Omega \int_0^{X(\omega)} dt \, dP(\omega) = \int_\Omega X \, dP = E[X].
+\]
+\end{proof}
+
+\begin{mikroozet}
+$E[X] = \int X \, dP$; kesikli: $\sum x_k p_k$; sürekli: $\int x f(x) \, dx$.
+Her rasgele değişkenin beklentisi olmayabilir ($E[|X|] < \infty$ gereklidir).
+\end{mikroozet}
+
+% =====================================================================
+\section{Beklentinin Temel Özellikleri}
+\label{sec:beklenti_ozellik}
+% =====================================================================
+
+\begin{teorem}[Beklentinin Temel Özellikleri]
+\label{thm:beklenti_ozellik}
+$X, Y$ rasgele değişkenler, $E[|X|], E[|Y|] < \infty$, $a, b \in \mathbb{R}$:
+\begin{enumerate}[(i)]
+  \item \textbf{Doğrusallık:} $E[aX + bY] = aE[X] + bE[Y]$.
+  \item \textbf{Monotonluk:} $X \leq Y$ n.k.\ ise $E[X] \leq E[Y]$.
+  \item \textbf{$|E[X]| \leq E[|X|]$} (mutlak değer eşitsizliği).
+  \item \textbf{Sabit:} $E[c] = c$.
+  \item \textbf{Bağımsızlık:} $X, Y$ bağımsız ise $E[XY] = E[X] \cdot E[Y]$
+        (her iki beklenti de mevcutsa).
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textit{(i)}: Lebesgue integralinin doğrusallığı.\\
+\textit{(ii)}: $X \leq Y$ n.k.\ $\Rightarrow$ $Y - X \geq 0$ n.k.\ $\Rightarrow$ $E[Y-X] \geq 0$.\\
+\textit{(iii)}: $-|X| \leq X \leq |X|$; monotonluktan $|E[X]| \leq E[|X|]$.\\
+\textit{(v)}: Sürekli durumda Fubini:
+$E[XY] = \iint xy \, f_X(x) f_Y(y) \, dx \, dy = \left(\int x f_X(x) \, dx\right)\!\left(\int y f_Y(y) \, dy\right)
+= E[X] \cdot E[Y]$.
+\end{proof}
+
+\begin{teorem}[Markov Eşitsizliği]
+\label{thm:markov}
+$X \geq 0$ rasgele değişken ve $a > 0$ için
+\[
+  P(X \geq a) \leq \frac{E[X]}{a}.
+\]
+\end{teorem}
+
+\begin{proof}
+$X \geq X \cdot \mathbf{1}_{X \geq a} \geq a \cdot \mathbf{1}_{X \geq a}$.
+Beklenti alınca: $E[X] \geq a \cdot P(X \geq a)$. Düzenlenir.
+\end{proof}
+
+\begin{teorem}[Chebyshev Eşitsizliği]
+\label{thm:chebyshev}
+$X$ rasgele değişken, $E[X] = \mu$, $\mathrm{Var}(X) = \sigma^2 < \infty$. Her $k > 0$ için
+\[
+  P(|X - \mu| \geq k\sigma) \leq \frac{1}{k^2}.
+\]
+Eşdeğer form: $P(|X - \mu| \geq \varepsilon) \leq \frac{\sigma^2}{\varepsilon^2}$.
+\end{teorem}
+
+\begin{proof}
+$(X-\mu)^2 \geq 0$ rasgele değişkenine $a = \varepsilon^2$ ile Markov:
+$P((X-\mu)^2 \geq \varepsilon^2) \leq E[(X-\mu)^2]/\varepsilon^2 = \sigma^2/\varepsilon^2$.
+$P((X-\mu)^2 \geq \varepsilon^2) = P(|X-\mu| \geq \varepsilon)$.
+\end{proof}
+
+\begin{teorem}[Jensen Eşitsizliği]
+\label{thm:jensen}
+$\varphi : \mathbb{R} \to \mathbb{R}$ konveks fonksiyon ve $E[|X|] < \infty$ ise
+\[
+  \varphi(E[X]) \leq E[\varphi(X)].
+\]
+\end{teorem}
+
+\begin{proof}
+$\varphi$ konveks $\Rightarrow$ her $\mu = E[X]$ için bir $c \in \mathbb{R}$ var:
+$\varphi(x) \geq \varphi(\mu) + c(x - \mu)$ (destek doğrusu).
+Beklenti alınca: $E[\varphi(X)] \geq \varphi(\mu) + c(E[X] - \mu) = \varphi(\mu) = \varphi(E[X])$.
+\end{proof}
+
+\begin{karsiornek}[Jensen Sıkılığı]
+$\varphi$ katı konveks ve $X$ sabit değil ise eşitsizlik kesin katıdır:
+$\varphi(E[X]) < E[\varphi(X)]$.
+Örnek: $\varphi(x) = x^2$, $X$ sabit olmayan $\Rightarrow$ $(E[X])^2 < E[X^2]$,
+yani $\mathrm{Var}(X) = E[X^2] - (E[X])^2 > 0$.
+\end{karsiornek}
+
+\begin{ornek}[Jensen Uygulamaları]
+\begin{itemize}
+  \item $\varphi(x) = e^x$ konveks: $e^{E[X]} \leq E[e^X]$.
+  \item $\varphi(x) = -\ln x$ konveks ($x>0$): $-\ln E[X] \leq E[-\ln X]$,
+        yani $\ln E[X] \geq E[\ln X]$ (AM-GM eşitsizliğinin olasılıksal formu).
+  \item $\varphi(x) = |x|^p$ ($p \geq 1$) konveks: $|E[X]|^p \leq E[|X|^p]$ (güç eşitsizliği).
+\end{itemize}
+\end{ornek}
+
+\begin{mikroozet}
+Doğrusallık + Monotonluk + Jensen: beklentinin üç temel aracı.
+Markov: $P(X \geq a) \leq E[X]/a$. Chebyshev: $P(|X-\mu| \geq k\sigma) \leq 1/k^2$.
+\end{mikroozet}
+
+% =====================================================================
+\section{Varyans ve Standart Sapma}
+\label{sec:varyans}
+% =====================================================================
+
+\begin{tanim}[Varyans ve Standart Sapma]
+\label{def:varyans}
+$E[X^2] < \infty$ ise $X$'in \textbf{varyansı} (variance):
+\[
+  \mathrm{Var}(X) = E[(X - E[X])^2] = E[X^2] - (E[X])^2.
+\]
+\textbf{Standart sapma:} $\sigma_X = \sqrt{\mathrm{Var}(X)}$.
+\end{tanim}
+
+\begin{proof}[Hesaplama Formülünün İspat]
+$E[(X - \mu)^2] = E[X^2 - 2\mu X + \mu^2]
+= E[X^2] - 2\mu E[X] + \mu^2 = E[X^2] - \mu^2$.
+\end{proof}
+
+\begin{onerme}[Varyansın Özellikleri]
+\label{prop:varyans_ozellik}
+\begin{enumerate}[(i)]
+  \item $\mathrm{Var}(X) \geq 0$; $\mathrm{Var}(X) = 0 \Leftrightarrow X = \mu$ n.k.
+  \item $\mathrm{Var}(aX + b) = a^2 \mathrm{Var}(X)$.
+  \item $X, Y$ bağımsız ise $\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y)$.
+  \item Genel: $\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y) + 2\mathrm{Cov}(X, Y)$.
+\end{enumerate}
+\end{onerme}
+
+\begin{proof}
+\textit{(ii)}: $E[(aX+b-aE[X]-b)^2] = a^2 E[(X-E[X])^2]$.\\
+\textit{(iii)}: Bağımsız $\Rightarrow$ $\mathrm{Cov}(X,Y) = 0$ (aşağıda ispat edilecek).\\
+\textit{(iv)}: $\mathrm{Var}(X+Y) = E[(X+Y-\mu_X-\mu_Y)^2]$; açılımda $E[(X-\mu_X)(Y-\mu_Y)] = \mathrm{Cov}(X,Y)$.
+\end{proof}
+
+\begin{ornek}[Binom Dağılımı]
+$X \sim \Binom(n, p)$: $X = \sum_{i=1}^n X_i$ ($X_i \sim \mathrm{Bernoulli}(p)$ bağımsız).
+$E[X_i] = p$, $\mathrm{Var}(X_i) = p(1-p)$.
+Doğrusallık ve bağımsızlıktan: $E[X] = np$, $\mathrm{Var}(X) = np(1-p)$.
+\end{ornek}
+
+% =====================================================================
+\section{Kovaryans ve Korelasyon}
+\label{sec:kovaryans}
+% =====================================================================
+
+\begin{tanim}[Kovaryans ve Korelasyon]
+\label{def:kovaryans}
+$E[X^2], E[Y^2] < \infty$ ise
+\begin{align*}
+  \mathrm{Cov}(X, Y) &= E[(X - E[X])(Y - E[Y])] = E[XY] - E[X]E[Y], \\
+  \mathrm{Cor}(X, Y) &= \rho_{XY} = \frac{\mathrm{Cov}(X,Y)}{\sqrt{\mathrm{Var}(X)\,\mathrm{Var}(Y)}}.
+\end{align*}
+\end{tanim}
+
+\begin{teorem}[Korelasyonun Sınırları]
+\label{thm:cauchy_schwarz}
+$-1 \leq \mathrm{Cor}(X, Y) \leq 1$.
+$|\rho_{XY}| = 1$ ancak ve ancak $Y = aX + b$ (n.k.) ise ($a \neq 0$).
+\end{teorem}
+
+\begin{proof}
+\textbf{Cauchy-Schwarz eşitsizliği:} $(\mathrm{Cov}(X,Y))^2 \leq \mathrm{Var}(X) \cdot \mathrm{Var}(Y)$.
+İspat: $f(t) = \mathrm{Var}(tX + Y) = t^2 \mathrm{Var}(X) + 2t\,\mathrm{Cov}(X,Y) + \mathrm{Var}(Y) \geq 0$
+(diskriminant $\leq 0$): $4(\mathrm{Cov}(X,Y))^2 - 4\mathrm{Var}(X)\mathrm{Var}(Y) \leq 0$.
+Eşitlik $f(t^*) = 0$ için; bu $t^*X + Y = 0$ n.k.\ anlamına gelir, yani $Y = -t^*X$ lineer ilişkisi.
+\end{proof}
+
+\begin{hataanalizi}
+"$\rho = 0$ ise $X, Y$ bağımsızdır" --- yanlış.
+Bölüm~\ref{sec:rd_bagimsizlik}'daki $X \sim U(-1,1)$, $Y = X^2$ örneği:
+$\mathrm{Cov}(X,Y) = E[X^3] - E[X]E[X^2] = 0 - 0 = 0$ ama bağımsız değiller.
+Korelasyon yalnızca doğrusal ilişkiyi ölçer.
+\end{hataanalizi}
+
+% =====================================================================
+\section{Momentler ve Merkezi Momentler}
+\label{sec:momentler}
+% =====================================================================
+
+\begin{tanim}[Momentler]
+\label{def:moment}
+$E[|X|^r] < \infty$ ise ($r > 0$):
+\begin{itemize}
+  \item \textbf{$r$'inci moment:} $\mu_r' = E[X^r]$.
+  \item \textbf{$r$'inci merkezi moment:} $\mu_r = E[(X-\mu)^r]$ ($\mu = E[X]$).
+  \item \textbf{Standardize $r$'inci moment:} $\tilde{\mu}_r = \mu_r / \sigma^r$.
+\end{itemize}
+Önemli özel durumlar: $\mu_1' = E[X]$ (birinci moment), $\mu_2 = \mathrm{Var}(X)$.
+\end{tanim}
+
+\begin{tanim}[Çarpıklık ve Basıklık]
+\label{def:carpiklik}
+$\sigma > 0$ ve $E[|X|^4] < \infty$ olmak üzere:
+\begin{align*}
+  \text{Çarpıklık (skewness):} &\quad \gamma_1 = \tilde{\mu}_3 = \frac{E[(X-\mu)^3]}{\sigma^3}. \\
+  \text{Basıklık (kurtosis):} &\quad \gamma_2 = \tilde{\mu}_4 - 3 = \frac{E[(X-\mu)^4]}{\sigma^4} - 3.
+\end{align*}
+$\gamma_2 = 0$ normal dağılımın referans değeridir (ekses basıklık).
+$\gamma_2 > 0$: ağır kuyruk (leptokurtik); $\gamma_2 < 0$: hafif kuyruk (platikurtik).
+\end{tanim}
+
+\begin{ornek}[Normal Dağılımın Momentleri]
+$X \sim \Normal(\mu, \sigma^2)$:
+Simetri $\Rightarrow$ tüm tek merkezi momentler sıfır ($\gamma_1 = 0$).
+$E[(X-\mu)^4] = 3\sigma^4$ $\Rightarrow$ $\gamma_2 = 0$.
+Genel: $E[(X-\mu)^{2k}] = (2k-1)!! \cdot \sigma^{2k}$ (çift momentler formülü).
+\end{ornek}
+
+% =====================================================================
+\section{Moment Üreten Fonksiyon}
+\label{sec:muf}
+% =====================================================================
+
+\begin{kesif}
+Bir rasgele değişkenin tüm momentlerini ($E[X], E[X^2], E[X^3], \ldots$) tek bir
+fonksiyona kodlayabilir miyiz? Ve bu fonksiyon dağılımı tam olarak belirler mi?
+\kesifcevap{MGF: $M_X(t)=E[e^{tX}]$; karakteristik fonksiyon: $\varphi_X(t)=E[e^{itX}]$.
+  $M_X^{(k)}(0)=E[X^k]$ ile tüm momentler kodlanır. Karakteristik fonksiyon
+  her zaman var olur; Lévy ters dönüşüm teoremi ile dağılımı biricik belirler.
+  İki rasgele değişkenin KF'leri eşitse dağılımları özdeştir.}
+\end{kesif}
+
+\begin{tanim}[Moment Üreten Fonksiyon]
+\label{def:muf}
+$X$ rasgele değişkeninin \textbf{moment üreten fonksiyonu} (MÜF, moment generating function):
+\[
+  M_X(t) = E[e^{tX}], \qquad t \in \mathbb{R},
+\]
+eğer bu beklenti $t$'nin bir $(-h, h)$ ($h > 0$) komşuluğunda sonlu ise.
+Bu koşul sağlanmıyorsa MÜF tanımsız sayılır.
+\end{tanim}
+
+\begin{teorem}[MÜF'ten Momentler]
+\label{thm:muf_moment}
+$M_X(t)$ açık bir $(- h, h)$ aralığında sonlu ise:
+\begin{enumerate}[(i)]
+  \item $E[|X|^r] < \infty$ her $r \geq 1$ için.
+  \item $M_X(t) = \sum_{r=0}^\infty \frac{E[X^r]}{r!} t^r$ ($|t| < h$).
+  \item $E[X^r] = M_X^{(r)}(0) = \left.\frac{d^r}{dt^r} M_X(t)\right|_{t=0}$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textit{(ii)--(iii):} $e^{tX} = \sum_{r=0}^\infty \frac{(tX)^r}{r!}$.
+$|t| < h$ için DCT (Bölüm~\ref{chp:olcum_teorisi}) uygulanabilir;
+seri ve integral sıraları değiştirilebilir:
+\[
+  M_X(t) = E\!\left[\sum_{r=0}^\infty \frac{(tX)^r}{r!}\right]
+  = \sum_{r=0}^\infty \frac{E[X^r]}{r!} t^r.
+\]
+$t = 0$'da $r$'inci türev: $M_X^{(r)}(0) = E[X^r]$.
+\end{proof}
+
+\begin{teorem}[MÜF Dağılımı Belirler]
+\label{thm:muf_tek}
+$M_X(t) = M_Y(t)$ açık bir aralıkta ise $X \stackrel{d}{=} Y$ (dağılımca eşit).
+\end{teorem}
+
+Bu teoremin ispatı için moment probleminin çözülebilirliği (Hamburger, Stieltjes)
+ve Laplace dönüşümünün tek-türlülüğü gerekmektedir; ayrıntı için Billingsley~\cite{Billingsley1995}
+veya Klenke~\cite{Klenke2014}'e bakılabilir.
+
+\begin{teorem}[MÜF ve Bağımsızlık]
+\label{thm:muf_bagimsiz}
+$X, Y$ bağımsız ise $M_{X+Y}(t) = M_X(t) \cdot M_Y(t)$.
+\end{teorem}
+
+\begin{proof}
+$M_{X+Y}(t) = E[e^{t(X+Y)}] = E[e^{tX} e^{tY}] = E[e^{tX}] \cdot E[e^{tY}] = M_X(t) M_Y(t)$.
+(Bağımsızlık: $E[fg] = E[f]E[g]$.)
+\end{proof}
+
+\begin{ornek}[Normal Dağılımın MÜF'ü]
+$X \sim \Normal(\mu, \sigma^2)$:
+\[
+  M_X(t) = \exp\!\left(\mu t + \tfrac{1}{2}\sigma^2 t^2\right), \qquad t \in \mathbb{R}.
+\]
+\textit{İspat:} $M_X(t) = \int_{-\infty}^{+\infty} e^{tx} \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/(2\sigma^2)} dx$.
+Üstel ifadeler birleştirilir:
+$tx - \frac{(x-\mu)^2}{2\sigma^2} = -\frac{(x-\mu-\sigma^2 t)^2}{2\sigma^2} + \mu t + \frac{\sigma^2 t^2}{2}$.
+Gauss integrali 1'e tamamlanır; $M_X(t) = e^{\mu t + \sigma^2 t^2/2}$.\\
+Bağımsız $X \sim \Normal(\mu_1, \sigma_1^2)$, $Y \sim \Normal(\mu_2, \sigma_2^2)$:
+$M_{X+Y}(t) = e^{(\mu_1+\mu_2)t + (\sigma_1^2+\sigma_2^2)t^2/2}$,
+yani $X + Y \sim \Normal(\mu_1+\mu_2, \sigma_1^2+\sigma_2^2)$.
+\end{ornek}
+
+\begin{hataanalizi}
+"Her rasgele değişkenin MÜF'ü vardır" --- yanlış.
+Cauchy dağılımı için $E[e^{tX}] = \infty$ her $t \neq 0$ için.
+Lognormal dağılımı için tüm momentler mevcut ama MÜF sonsuz ($t > 0$).
+MÜF yokluğu problemi, karakteristik fonksiyon kullanılarak aşılır (bir sonraki kesim).
+\end{hataanalizi}
+
+\begin{mikroozet}
+$M_X(t) = E[e^{tX}]$; $E[X^r] = M_X^{(r)}(0)$.
+Bağımsız $\Rightarrow$ $M_{X+Y} = M_X \cdot M_Y$.
+MÜF her dağılım için var olmayabilir.
+\end{mikroozet}
+
+% =====================================================================
+\section{Karakteristik Fonksiyon}
+\label{sec:kf}
+% =====================================================================
+
+\begin{tanimgerekce}
+MÜF $E[e^{tX}]$ ($t$ gerçel) her zaman mevcut değildir.
+$e^{itX}$ ($i = \sqrt{-1}$, $t$ gerçel) ise $|e^{itX}| = 1$ olduğundan
+her zaman integrallenebilir: $E[|e^{itX}|] = 1 < \infty$.
+Kompleks üsseli beklenti her dağılım için tanımlıdır.
+\end{tanimgerekce}
+
+\begin{tanim}[Karakteristik Fonksiyon]
+\label{def:kf}
+$X$ rasgele değişkeninin \textbf{karakteristik fonksiyonu} (KF, characteristic function):
+\[
+  \varphi_X(t) = E[e^{itX}] = E[\cos(tX)] + i \, E[\sin(tX)], \qquad t \in \mathbb{R}.
+\]
+\end{tanim}
+
+\begin{teorem}[Karakteristik Fonksiyonun Temel Özellikleri]
+\label{thm:kf_ozellik}
+\begin{enumerate}[(i)]
+  \item $\varphi_X(0) = 1$, $|\varphi_X(t)| \leq 1$.
+  \item $\varphi_X$ düzgün süreklidir (uniformly continuous).
+  \item $\varphi_X$ dağılımı tek türlü belirler (ters dönüşüm teoremi).
+  \item $E[|X|^r] < \infty$ ise $\varphi_X^{(r)}(0) = i^r E[X^r]$.
+  \item $X, Y$ bağımsız ise $\varphi_{X+Y}(t) = \varphi_X(t) \cdot \varphi_Y(t)$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textit{(i)}: $|e^{itX}| = 1$, dolayısıyla $|\varphi_X(t)| = |E[e^{itX}]| \leq E[|e^{itX}|] = 1$.\\
+\textit{(ii)}: $|\varphi_X(t+h) - \varphi_X(t)| = |E[e^{itX}(e^{ihX}-1)]| \leq E[|e^{ihX}-1|]$.
+$h \to 0$: $|e^{ihX}-1| \leq 2$, DCT ile $E[|e^{ihX}-1|] \to 0$.\\
+\textit{(v)}: MÜF için aynı argüman; $|e^{itX}|=1$ dolayısıyla sonluluk kaygısı yok.
+\end{proof}
+
+\begin{teorem}[Ters Dönüşüm]
+\label{thm:kf_ters}
+$X$ mutlak sürekli, $\int |\varphi_X(t)| \, dt < \infty$ ise
+\[
+  f_X(x) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} e^{-itx} \varphi_X(t) \, dt.
+\]
+\end{teorem}
+
+Bu, Fourier dönüşümünün ters formülüdür; gerçel analize (Plancherel teoremi) dayanır.
+
+\begin{ornek}[Normal Dağılımın KF'si]
+$X \sim \Normal(\mu, \sigma^2)$:
+\[
+  \varphi_X(t) = \exp\!\left(i\mu t - \tfrac{1}{2}\sigma^2 t^2\right).
+\]
+MÜF'te $t \to it$ ikamesi yapar gibi: $M_X(it) = e^{i\mu t - \sigma^2 t^2/2}$.
+(Gerçek ispat için analitik sürdürüm veya doğrudan Gauss hesabı gereklidir.)
+\end{ornek}
+
+\begin{onerme}[Dağılımla Yakınsama ve KF]
+\label{prop:kf_yaklasim}
+$X_n \xrightarrow{d} X$ ancak ve ancak her $t \in \mathbb{R}$ için
+$\varphi_{X_n}(t) \to \varphi_X(t)$ ise (Lévy süreklilik teoremi).
+\end{onerme}
+
+Bu önerme, Bölüm~\ref{chp:merkezi_limit}'teki Merkezi Limit Teoremi'nin kanıtında
+kilit rol oynayacaktır.
+
+\begin{mikroozet}
+$\varphi_X(t) = E[e^{itX}]$: her dağılım için mevcut, düzgün sürekli, $|\varphi| \leq 1$.
+Bağımsız toplam: $\varphi_{X+Y} = \varphi_X \cdot \varphi_Y$.
+Dağılımla yakınsama $\Leftrightarrow$ KF'lerin noktasal yakınsaması (Lévy).
+\end{mikroozet}
+
+% =====================================================================
+\section{Kümülan Üreten Fonksiyon}
+\label{sec:kgf}
+% =====================================================================
+
+\begin{tanim}[Kümülan Üreten Fonksiyon]
+\label{def:kgf}
+$M_X(t)$ mevcut ise \textbf{kümülan üreten fonksiyon} (cumulant generating function):
+\[
+  K_X(t) = \ln M_X(t) = \sum_{r=1}^\infty \frac{\kappa_r}{r!} t^r.
+\]
+$\kappa_r = K_X^{(r)}(0)$: $r$'inci \textbf{kümülan} (cumulant).
+\end{tanim}
+
+\begin{onerme}[Önemli Kümanlar]
+\label{prop:kumulanlar}
+\begin{align*}
+  \kappa_1 &= E[X] = \mu, \\
+  \kappa_2 &= \mathrm{Var}(X) = \sigma^2, \\
+  \kappa_3 &= E[(X-\mu)^3] \quad \text{(çarpıklıkla orantılı)}, \\
+  \kappa_4 &= E[(X-\mu)^4] - 3\sigma^4 \quad \text{(ekses basıklıkla orantılı)}.
+\end{align*}
+Bağımsız $X, Y$ için $K_{X+Y}(t) = K_X(t) + K_Y(t)$, dolayısıyla
+kümanlar toplanır: $\kappa_r(X+Y) = \kappa_r(X) + \kappa_r(Y)$.
+\end{onerme}
+
+\begin{proof}
+$K_X(t) = \ln M_X(t)$; $K_X'(0) = M_X'(0)/M_X(0) = E[X]/1 = \mu$.
+$K_X''(0) = E[X^2] - (E[X])^2 = \mathrm{Var}(X)$.
+Bağımsız toplam: $\ln M_{X+Y} = \ln M_X + \ln M_Y$.
+\end{proof}
+
+\begin{ornek}[Normal Dağılımın Kümanları]
+$X \sim \Normal(\mu, \sigma^2)$: $K_X(t) = \mu t + \sigma^2 t^2/2$.
+Sadece $\kappa_1 = \mu$ ve $\kappa_2 = \sigma^2$ sıfırdan farklı;
+$r \geq 3$ için $\kappa_r = 0$.
+Bu, normal dağılımın kümülan diliyle karakterizasyonudur.
+\end{ornek}
+
+% =====================================================================
+\section{Koşullu Beklenti}
+\label{sec:kosullu_beklenti}
+% =====================================================================
+
+\begin{kesif}
+$Y = 2X + \varepsilon$ ($\varepsilon \perp X$) modelini düşününüz.
+$X$'in değerini bildiğimizde $Y$ için en iyi tahminimiz nedir?
+Sezgisel olarak $E[Y \mid X = x] = 2x$ diyoruz.
+Peki ya $X$ yerine bir olay $\mathcal{G}$ verildiğinde?
+"En iyi tahmin" kavramını nasıl soyutlarız?
+\kesifcevap{$E[Y|\mathcal{G}]$ --- $\mathcal{G}$-ölçülebilir ve $L^2$-dik izdüşümü:
+  $E[(Y-E[Y|\mathcal{G}])Z]=0$ her $\mathcal{G}$-ölçülebilir $Z$ için.
+  $\mathcal{G}=\sigma(X)$ seçilince $E[Y|X=x]$ klasik tanıma döner.
+  Bu soyutlama martingal teorisi ve filtrasyon yapısının temelidir.}
+\end{kesif}
+
+\begin{tanim}[Koşullu Beklenti --- Elemanter]
+\label{def:kosullu_beklenti_elem}
+\textbf{Kesikli:} $P(Y = y_j) > 0$ olayları üretilen $\mathcal{G} = \sigma(Y)$ için
+\[
+  E[X \mid Y = y_j] = \frac{E[X \cdot \mathbf{1}_{\{Y=y_j\}}]}{P(Y = y_j)}.
+\]
+\textbf{Sürekli:} $f_Y(y) > 0$ ise $E[X \mid Y = y] = \int x \, f_{X|Y}(x \mid y) \, dx$.
+\end{tanim}
+
+\begin{tanimgerekce}
+Genel $\sigma$-cebiri için yukarıdaki formüller yetersiz kalır (sıfır olasılıklı koşullamada anlam kaybolur).
+Radon-Nikodym teoremi, koşullu beklentiyi "en iyi $\mathcal{G}$-ölçülebilir tahmin"
+olarak $L^2$-projeksiyon ile tanımlamamızı sağlar.
+\end{tanimgerekce}
+
+\begin{tanim}[Koşullu Beklenti --- Genel]
+\label{def:kosullu_beklenti}
+$(\Omega, \mathcal{F}, P)$ üzerinde $X \in L^1$ ve $\mathcal{G} \subseteq \mathcal{F}$
+alt $\sigma$-cebiri verilsin. $E[X \mid \mathcal{G}]$, şu iki koşulu sağlayan
+(n.k.\ tek türlü) rasgele değişkendir:
+\begin{enumerate}[(i)]
+  \item $E[X \mid \mathcal{G}]$ \textbf{$\mathcal{G}$-ölçülebilir}.
+  \item Her $G \in \mathcal{G}$ için $\int_G E[X \mid \mathcal{G}] \, dP = \int_G X \, dP$.
+\end{enumerate}
+Özel olarak $\mathcal{G} = \sigma(Y)$ için $E[X \mid Y] := E[X \mid \sigma(Y)]$.
+\end{tanim}
+
+\begin{proof}[Varlık ve Tek Türlülük]
+Tek türlülük: $Z_1, Z_2$ her ikisi de koşulları sağlasın; $G = \{Z_1 > Z_2\} \in \mathcal{G}$:
+$\int_G (Z_1 - Z_2) \, dP = 0$ ve $Z_1 - Z_2 > 0$ burada; yani $P(G) = 0$.
+Benzer şekilde $\{Z_1 < Z_2\}$ için; dolayısıyla $Z_1 = Z_2$ n.k.\\
+Varlık: $\nu(G) = \int_G X \, dP$ ($G \in \mathcal{G}$) $\sigma$-sonlu imzalı ölçü;
+$P|_{\mathcal{G}}$'ye mutlak sürekli. Radon-Nikodym: $\nu = Z \cdot P|_{\mathcal{G}}$
+yazan $\mathcal{G}$-ölçülebilir $Z$ var; $Z = E[X \mid \mathcal{G}]$.
+\end{proof}
+
+\begin{teorem}[Koşullu Beklentinin Temel Özellikleri]
+\label{thm:kosullu_beklenti}
+$X, Y \in L^1$, $\mathcal{G} \subseteq \mathcal{H} \subseteq \mathcal{F}$ alt $\sigma$-cebirleri.
+\begin{enumerate}[(i)]
+  \item \textbf{Doğrusallık:} $E[aX + bY \mid \mathcal{G}] = aE[X\mid\mathcal{G}] + bE[Y\mid\mathcal{G}]$.
+  \item \textbf{Kule (yineleme) özelliği:} $E[E[X \mid \mathcal{H}] \mid \mathcal{G}] = E[X \mid \mathcal{G}]$.
+        Özellikle $E[E[X \mid Y]] = E[X]$ (toplam beklenti formülü).
+  \item \textbf{$\mathcal{G}$-ölçülebilir çarpan:} $Z$ $\mathcal{G}$-ölçülebilir ise
+        $E[ZX \mid \mathcal{G}] = Z \cdot E[X \mid \mathcal{G}]$.
+  \item \textbf{Bağımsızlık:} $X$ $\mathcal{G}$'den bağımsız ise $E[X \mid \mathcal{G}] = E[X]$.
+  \item \textbf{Monotonluk:} $X \leq Y$ n.k.\ ise $E[X \mid \mathcal{G}] \leq E[Y \mid \mathcal{G}]$ n.k.
+  \item \textbf{Jensen:} $\varphi$ konveks ise $\varphi(E[X \mid \mathcal{G}]) \leq E[\varphi(X) \mid \mathcal{G}]$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textit{(ii) Kule özelliği:} $\mathcal{G} \subseteq \mathcal{H}$.
+Her $G \in \mathcal{G} \subseteq \mathcal{H}$ için tanım koşulu (ii):
+$\int_G E[X\mid\mathcal{H}] \, dP = \int_G X \, dP$.
+Ama $E[X\mid\mathcal{H}]$'nın $\mathcal{G}$-koşullu beklentisi için de bu değer kullanılabilir;
+dolayısıyla $E[E[X\mid\mathcal{H}]\mid\mathcal{G}]$ tanım koşullarını $E[X\mid\mathcal{G}]$ ile aynı şekilde sağlar.
+Tek türlülükten eşitlik.\\
+\textit{(iii):} $G \in \mathcal{G}$: $\int_G ZE[X\mid\mathcal{G}] \, dP = \int_G Z \cdot E[X\mid\mathcal{G}] \, dP$.
+$Z$ basamak fonksiyonu ise doğrudan; genel $Z$ için yaklaşım.
+\end{proof}
+
+\begin{onerme}[$L^2$ Projeksiyon Yorumu]
+\label{prop:l2_projeksiyon}
+$X \in L^2(\Omega, \mathcal{F}, P)$ için $E[X \mid \mathcal{G}]$,
+$L^2(\Omega, \mathcal{G}, P)$ alt uzayına $X$'in dik projeksiyonudur:
+\[
+  E[X \mid \mathcal{G}] = \arg\min_{Z \in L^2(\mathcal{G})} E[(X - Z)^2].
+\]
+\end{onerme}
+
+\begin{proof}
+$Z \in L^2(\mathcal{G})$ için:
+$E[(X-Z)^2] = E[(X - E[X\mid\mathcal{G}] + E[X\mid\mathcal{G}] - Z)^2]$.
+Açılımda çapraz terim $E[(X - E[X\mid\mathcal{G}])(E[X\mid\mathcal{G}] - Z)]$:
+$(E[X\mid\mathcal{G}] - Z)$ $\mathcal{G}$-ölçülebilir; (iii) özelliğiyle çapraz terim sıfır.
+Dolayısıyla $E[(X-Z)^2] = E[(X-E[X\mid\mathcal{G}])^2] + E[(E[X\mid\mathcal{G}]-Z)^2]$,
+sağ tarafın minimumu $Z = E[X \mid \mathcal{G}]$'de sağlanır.
+\end{proof}
+
+\begin{ornek}[Regresyon]
+$E[Y \mid X] = g(X)$; burada $g(x) = E[Y \mid X = x]$.
+$E[Y \mid X]$ koşullu beklentisi, $Y$'yi $X$ bilgisiyle tahmin etmede
+en küçük ortalama karesel hata veren tahminci (MMSE tahmin edici) olup
+"doğrusal olmayan regresyon" kavramıyla özdeşleşir.
+Doğrusal kısıt altında ($g(X) = a + bX$): $b = \mathrm{Cov}(X,Y)/\mathrm{Var}(X)$.
+\end{ornek}
+
+\begin{kendinleifade}
+Koşullu beklentinin "bilgiyi güncellemek" yorumunu kendi cümlelerinizle açıklayınız.
+"Kule özelliği" ne anlama gelir? Somut bir örnek üretiniz.
+\kendinleifadecevap{$E[Y|\mathcal{G}]$: "$\mathcal{G}$ bilgisi verilince $Y$ için en iyi tahmin."
+  Daha fazla bilgi ($\mathcal{G}_1\subset\mathcal{G}_2$) tahmini iyileştirir.
+  \textbf{Kule özelliği:} $E\bigl[E[Y|\mathcal{G}_2]\bigm|\mathcal{G}_1\bigr]=E[Y|\mathcal{G}_1]$
+  ($\mathcal{G}_1\subset\mathcal{G}_2$) --- önce geniş bilgiyle, sonra dar bilgiyle ortalama almak,
+  direkt dar bilgiyle ortalama almaya eşit.
+  \textbf{Örnek:} $Y$=sınav notu; $\mathcal{G}_2=\sigma(\text{öğrenci})$, $\mathcal{G}_1=\sigma(\text{bölüm})$.
+  Öğrenci ortalamasının bölüm ortalaması = direkt bölüm ortalaması.}
+\end{kendinleifade}
+
+% ---- Disiplinlerarası Bağlantı (TYMM) ----
+\begin{kopru}[Disiplinlerarası --- Ekonomi, Fizik, Bilgisayar Bilimi]
+\textbf{Ekonomi:} Beklenen fayda teorisi (von Neumann-Morgenstern), karar teorisinin
+matematiksel temelidir; Jensen eşitsizliği risk kaçınımını açıklar ($u$ içbükey $\Rightarrow$ $u(E[X]) > E[u(X)]$).\\
+\textbf{Makine öğrenmesi:} Koşullu beklenti $E[Y|X]$, gözetimli öğrenmede kayıp fonksiyonu
+minimize eden tahmin edicinin kendisidir; nöral ağlar bu fonksiyonu yaklaşık öğrenir.\\
+\textbf{Kuantum mekaniği:} Observable $A$ operatörünün beklenti değeri $\langle A \rangle = \langle \psi | A | \psi \rangle$,
+istatistiksel beklentiyle yapısal olarak örtüşür.
+\end{kopru}
+
+% ---- Öz-Yansıtma ----
+\begin{ozyansima}
+\begin{itemize}
+  \item Beklentinin neden Lebesgue integrali olarak tanımlanmasının gerekli olduğunu açıklayabilir misiniz?
+  \item Jensen eşitsizliği sizce en güçlü hangi uygulamada karşınıza çıktı?
+  \item MÜF ile KF arasındaki temel fark nedir, ve hangisi daha "evrensel"dir?
+  \item Koşullu beklentiyi $L^2$ projeksiyonu olarak görmek, sezginizi nasıl değiştirdi?
+\end{itemize}
+\end{ozyansima}
+
+% ---- Köprü Notu ----
+\begin{kopru}
+\textbf{Önceki bölüm:} Bölüm~\ref{chp:rasgele_degiskenler} --- dağılım fonksiyonu ve PDF;
+burada bunlar Lebesgue integrali ile beklentiye dönüştü.\\
+\textbf{Sonraki bölüm:} Bölüm~\ref{chp:dagilim_aileleri} --- somut dağılımların
+beklenti, varyans, MÜF hesapları bu bölümün araçlarıyla yapılacak.\\
+\textbf{İleride:} Bölüm~\ref{chp:buyuk_sayilar}'da Chebyshev ile ZBSK,
+Bölüm~\ref{chp:merkezi_limit}'te KF ile MLT kanıtı.
+\defterbaglantisi{bolum04\_beklenti.ipynb}{%
+  MÜF hesabı, Jensen görselleştirmesi, koşullu beklenti simülasyonu}
+\end{kopru}
+
+% =====================================================================
+\section{Olasılık Eşitsizlikleri}
+\label{sec:olasilik_esitsizlikleri}
+% =====================================================================
+
+\begin{motivasyon}[Neden Eşitsizlikler?]
+Bir dağılımı tam olarak bilmeden $P(|X - \mu| > \varepsilon)$ hakkında ne söyleyebiliriz?
+Bu soru yalnızca momentlere dayalı sınırlarla yanıtlanabilir.
+Markov, Chebyshev ve Jensen eşitsizlikleri bu sınırların sistematik kaynağıdır;
+Büyük Sayılar Kanunu ve Büyük Sapmalar teorisinin altyapısını oluştururlar.
+\end{motivasyon}
+
+\begin{teorem}[Markov Eşitsizliği]
+\label{thm:markov_beklenti}
+$X \geq 0$ ve $E[X] < \infty$. Her $a > 0$ için
+\[
+  P(X \geq a) \leq \frac{E[X]}{a}.
+\]
+\end{teorem}
+
+\begin{proof}
+$X \geq a\,\mathbf{1}_{\{X \geq a\}}$ (çünkü $X \geq 0$).
+Beklenti alınca: $E[X] \geq a\,P(X \geq a)$. Düzenlenince sonuç.
+\end{proof}
+
+\begin{teorem}[Chebyshev Eşitsizliği --- Genelleştirilmiş]
+\label{thm:chebyshev_genellestirilmis}
+$\varphi : \mathbb{R} \to [0, \infty)$ simetrik ve artan ($|x|$'de) fonksiyon,
+$\varphi(a) > 0$. O zaman
+\[
+  P(|X - \mu| \geq a) \leq \frac{E[\varphi(X-\mu)]}{\varphi(a)}.
+\]
+Özel durum $\varphi(x) = x^2$: $P(|X-\mu|\geq a) \leq \mathrm{Var}(X)/a^2$.
+\end{teorem}
+
+\begin{proof}
+$\varphi(|X-\mu|) \geq \varphi(a)\,\mathbf{1}_{\{|X-\mu| \geq a\}}$ ($\varphi$ artan).
+Markov: $E[\varphi(|X-\mu|)] \geq \varphi(a)\,P(|X-\mu|\geq a)$.
+\end{proof}
+
+\begin{teorem}[Tek Taraflı Chebyshev (Cantelli Eşitsizliği)]
+\label{thm:cantelli}
+$E[X] = \mu$, $\mathrm{Var}(X) = \sigma^2 < \infty$. Her $\lambda > 0$ için
+\[
+  P(X - \mu \geq \lambda) \leq \frac{\sigma^2}{\sigma^2 + \lambda^2}.
+\]
+\end{teorem}
+
+\begin{proof}
+Her $t > 0$ için $P(X-\mu \geq \lambda) = P(X-\mu+t \geq \lambda+t)$.
+Markov ($X-\mu+t \geq 0$ değil; bunun yerine $(X-\mu+t)^2$ ile):
+$P((X-\mu+t)^2 \geq (\lambda+t)^2) \leq E[(X-\mu+t)^2]/(\lambda+t)^2 = (\sigma^2+t^2)/(\lambda+t)^2$.
+$t = \sigma^2/\lambda$'da minimize et: $(\sigma^2 + \sigma^4/\lambda^2)/(\lambda + \sigma^2/\lambda)^2 = \sigma^2/(\sigma^2+\lambda^2)$.
+\end{proof}
+
+\begin{ornek}[Eşitsizliklerin Karşılaştırması]
+$X \sim \Normal(0,1)$, $a = 3$.
+\begin{itemize}
+  \item Markov ($|X|$ ile): $P(|X| \geq 3) \leq E[|X|]/3 = \sqrt{2/\pi}/3 \approx 0.266$.
+  \item Chebyshev: $P(|X| \geq 3) \leq 1/9 \approx 0.111$.
+  \item Cantelli (tek taraf): $P(X \geq 3) \leq 1/(1+9) = 0.1$.
+  \item Gerçek değer: $P(|X| \geq 3) = 2(1-\Phi(3)) \approx 0.0027$.
+\end{itemize}
+Eşitsizlikler "kötü" ama dağılım bilgisi olmadan geçerlidir.
+\end{ornek}
+
+\begin{teorem}[Hoeffding Eşitsizliği]
+\label{thm:hoeffding}
+$X_1, \ldots, X_n$ bağımsız, $a_i \leq X_i \leq b_i$ n.k., $E[X_i] = \mu_i$.
+Her $t > 0$ için
+\[
+  P\!\left(\sum_{i=1}^n (X_i - \mu_i) \geq t\right) \leq \exp\!\left(-\frac{2t^2}{\sum_{i=1}^n(b_i-a_i)^2}\right).
+\]
+\end{teorem}
+
+\begin{proof}[İspat Taslağı]
+Hoeffding lemması: $E[X_i] = 0$, $a_i \leq X_i \leq b_i$ ise
+$E[e^{sX_i}] \leq e^{s^2(b_i-a_i)^2/8}$.
+(Konvekslik: $e^{sx} \leq \frac{b-x}{b-a}e^{sa} + \frac{x-a}{b-a}e^{sb}$;
+beklenti al, $f(u) = -su + e^u$'nun Taylor açılımıyla sınırla.)
+Markov + MÜF çarpımı: $P(\sum(X_i-\mu_i)\geq t) \leq e^{-st}\prod e^{s^2(b_i-a_i)^2/8}$.
+$s = 4t/\sum(b_i-a_i)^2$'de minimize et: istenen sınır.
+\end{proof}
+
+\begin{ornek}[Makine Öğrenmesi --- Genelleme Hatası]
+$n$ bağımsız veri; her $X_i \in [0,1]$, $E[X_i] = \mu$.
+Hoeffding: $P(\bar{X}_n - \mu \geq \varepsilon) \leq e^{-2n\varepsilon^2}$.
+$n = 1000$, $\varepsilon = 0.05$: $P \leq e^{-5} \approx 0.007$.
+PAC öğrenmesinde bu tür sınırlar "garantili öğrenme" teorisinin temelidir.
+\end{ornek}
+
+\begin{mikroozet}
+Markov: $P(X \geq a) \leq E[X]/a$ ($X \geq 0$).
+Chebyshev: $P(|X-\mu|\geq a) \leq \sigma^2/a^2$.
+Cantelli: tek taraflı, $\sigma^2/(\sigma^2+\lambda^2)$.
+Hoeffding: sınırlı değişkenler için üstel sınır.
+\end{mikroozet}
+
+% =====================================================================
+\section{Değişim Katsayısı ve Standartlaştırma}
+\label{sec:degisim_katsayisi}
+% =====================================================================
+
+\begin{tanim}[Değişim Katsayısı]
+\label{def:degisim_katsayisi}
+$\mu = E[X] \neq 0$ ve $\sigma = \sqrt{\mathrm{Var}(X)}$ için
+\textbf{değişim katsayısı} (coefficient of variation):
+\[
+  \mathrm{CV}(X) = \frac{\sigma}{|\mu|}.
+\]
+Boyutsuz göreli değişkenlik ölçüsü; farklı birim veya ölçekteki verileri karşılaştırır.
+\end{tanim}
+
+\begin{ornek}[CV Karşılaştırması]
+İki yatırım:
+$X$: $\mu_X = 100$, $\sigma_X = 15$ $\Rightarrow$ $\mathrm{CV}(X) = 0.15$.
+$Y$: $\mu_Y = 1000$, $\sigma_Y = 120$ $\Rightarrow$ $\mathrm{CV}(Y) = 0.12$.
+Mutlak değişkenlik ($\sigma$) bakımından $Y$ daha değişken;
+göreli değişkenlik (CV) bakımından $X$ daha riskli.
+\end{ornek}
+
+\begin{tanim}[Çarpıklık ve Basıklık]
+\label{def:carpiklik_basiklik}
+$\mu_k' = E[(X-\mu)^k]$ $k$'ıncı merkezi moment.
+\[
+  \text{Çarpıklık (skewness):} \quad \gamma_1 = \frac{\mu_3'}{\sigma^3}.
+\]
+\[
+  \text{Basıklık (kurtosis):} \quad \gamma_2 = \frac{\mu_4'}{\sigma^4} - 3.
+\]
+$\gamma_2 = 0$: Normal dağılım. $\gamma_2 > 0$: ağır kuyruk (leptokurtik).
+$\gamma_2 < 0$: hafif kuyruk (platikurtik).
+\end{tanim}
+
+\begin{teorem}[Normal Dağılımın Momentleri]
+\label{thm:normal_momentler}
+$X \sim \Normal(0,1)$: tüm tek momentler sıfır;
+$E[X^{2k}] = (2k-1)!! = (2k)!/(2^k k!)$.
+Özellikle: $E[X^4] = 3$ $\Rightarrow$ $\gamma_2 = 3 - 3 = 0$.
+\end{teorem}
+
+\begin{proof}
+$E[X^{2k}] = \int_{-\infty}^\infty x^{2k} \phi(x) dx$.
+Parçalı integral: $u = x^{2k-1}$, $dv = x\phi(x)dx = -\phi'(x)dx$; $v = -\phi(x)$.
+$\int x^{2k}\phi(x)dx = [-x^{2k-1}\phi(x)]_{-\infty}^\infty + (2k-1)\int x^{2k-2}\phi(x)dx = (2k-1)E[X^{2k-2}]$.
+Yinelemeli: $E[X^{2k}] = (2k-1)(2k-3)\cdots 1 = (2k-1)!!$.
+\end{proof}
+
+\begin{ornek}[Çarpıklık Yorumu]
+$X \sim \Exp(\lambda)$: $\mu_3' = 2/\lambda^3$, $\sigma^3 = 1/\lambda^3$, $\gamma_1 = 2 > 0$: sağa çarpık.
+$X \sim \Beta(2,5)$: $\gamma_1 = 2(5-2)\sqrt{(2+5+1)/((2\cdot5)\cdot 1)} / (2+5+2) > 0$: sağa çarpık.
+Gelir dağılımları tipik olarak pozitif çarpık: kalabalık düşük-orta, seyrek yüksek gelirler.
+\end{ornek}
+
+% =====================================================================
+\section{L$^p$ Uzayları ve Beklenti Eşitsizlikleri}
+\label{sec:lp_uzaylari}
+% =====================================================================
+
+\begin{tanim}[$L^p$ normu]\label{def:lp_norm}
+$p\geq1$. Rasgele değişken $X$ için
+\[
+  \|X\|_p = (\Beklenti[|X|^p])^{1/p}.
+\]
+$L^p(\Omega,\mathcal{F},P)=\{X:\|X\|_p<\infty\}$: $p$'inci mutlak moment sonlu olan rasgele değişkenler sınıfı.
+\end{tanim}
+
+\begin{teorem}[Lyapunov eşitsizliği]\label{thm:lyapunov_esit}
+$1\leq r<s$: $\|X\|_r\leq\|X\|_s$.
+Yani $L^s\subset L^r$ ve $r < s$ için $r$'inci moment $s$'inci momentten daha sık sonludur.
+\end{teorem}
+
+\begin{proof}
+Jensen: $\phi(x)=x^{s/r}$ dışbükey ($s>r$). $\Beklenti[|X|^r]^{s/r}\leq\Beklenti[|X|^s]$. Her iki tarafın $r/s$'inci kuvveti: $\Beklenti[|X|^r]^{1}\leq\Beklenti[|X|^s]^{r/s}$, yani $\|X\|_r^r\leq\|X\|_s^r$, bu da $\|X\|_r\leq\|X\|_s$.
+\end{proof}
+
+\begin{teorem}[Hölder eşitsizliği]\label{thm:holder}
+$1/p+1/q=1$, $p,q\geq1$:
+\[
+  \Beklenti[|XY|] \leq \|X\|_p\cdot\|Y\|_q.
+\]
+Özel durum $p=q=2$: Cauchy-Schwarz $\Beklenti[|XY|]\leq\sqrt{\Beklenti[X^2]\Beklenti[Y^2]}$.
+\end{teorem}
+
+\begin{proof}[Proof (Young ile)]
+Young eşitsizliği: $ab\leq a^p/p+b^q/q$. $a=|X|/\|X\|_p$, $b=|Y|/\|Y\|_q$: $\frac{|XY|}{\|X\|_p\|Y\|_q}\leq\frac{|X|^p}{p\|X\|_p^p}+\frac{|Y|^q}{q\|Y\|_q^q}$. Beklenti alınca sağ taraf $1/p+1/q=1$.
+\end{proof}
+
+\begin{teorem}[Minkowski eşitsizliği]\label{thm:minkowski}
+$p\geq1$: $\|X+Y\|_p\leq\|X\|_p+\|Y\|_p$ (üçgen eşitsizliği).
+\end{teorem}
+
+\begin{ornek}[$L^p$ dahil olma ilişkisi]\label{ex:lp_dahil}
+Sonlu $\Omega=\{1,\ldots,n\}$ (her eleman eşit olasılıklı). $\|X\|_p=(\frac1n\sum|x_i|^p)^{1/p}$: RMS$(p=2)>$ortalama$(p=1)$ --- karesel ortalamanın aritmetik ortalamayı aşması. $\|X\|_\infty=\max|x_i|$ = supremum norm.
+\end{ornek}
+
+% =====================================================================
+\section{Koşullu Beklentinin Geometrisi}
+\label{sec:kb_geometri}
+% =====================================================================
+
+\begin{tanim}[Projeksiyon yorumu]\label{def:projeksiyon}
+$L^2(\Omega,\mathcal{F},P)$ Hilbert uzayı, iç çarpım $\langle X,Y\rangle=\Beklenti[XY]$. $\Beklenti[X|\mathcal{G}]$ (alt $\sigma$-cebir $\mathcal{G}$ üzerine koşullu beklenti), $X$'in $L^2(\Omega,\mathcal{G},P)$ altuzayına \emph{ortogonal projeksiyonudur}:
+\[
+  \Beklenti[\Beklenti[X|\mathcal{G}]Y] = \Beklenti[XY] \quad \forall Y\in L^2(\Omega,\mathcal{G},P).
+\]
+\end{tanim}
+
+\begin{teorem}[Projeksiyon karakterizasyonu]\label{thm:projeksiyon}
+$Z=\Beklenti[X|\mathcal{G}]$ iki koşulu sağlayan tek $\mathcal{G}$-ölçülebilir rasgele değişkendir:
+\begin{enumerate}[(i)]
+  \item $\Beklenti[ZY]=\Beklenti[XY]$ her $\mathcal{G}$-ölçülebilir $Y\in L^2$ için.
+  \item $Z$, $\Beklenti[X-Z)^2]$'yi minimize eden --- MMSE tahmincisi.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+(ii): $\Beklenti[(X-Z')^2]\geq\Beklenti[(X-Z)^2]$ her $\mathcal{G}$-ölçülebilir $Z'$ için. Genişlet: $\Beklenti[(X-Z')^2]=\Beklenti[(X-Z)^2]+\Beklenti[(Z-Z')^2]\geq\Beklenti[(X-Z)^2]$; orta terim sıfır (ortogonallik).
+\end{proof}
+
+\begin{ornek}[Lineer MMSE]\label{ex:lineer_mmse}
+$(X,Y)$ ortak $L^2$. Lineer tahminci $\hat X = aY+b$ üzerinde MMSE:
+$a^*=\Cov(X,Y)/\Var(Y)$, $b^*=E[X]-a^*E[Y]$.
+$(X,Y)$ birlikte normal ise bu tahmin edici optimal (doğrusal olmayan gerekmez) ve $\hat X=\Beklenti[X|Y]$.
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Sinyal İşleme:} Wiener filtresi, gürültülü sinyalden MMSE tahmincisidir --- koşullu beklentinin projeksiyon yorumunun mühendislik uygulaması.
+
+\textbf{Ekonometri:} OLS (En Küçük Kareler) tahmincisi, $Y$'yi doğrusal $\mathbf{x}$ fonksiyonlarına projeksiyon olarak yorumlanır; $E[Y|\mathbf{X}=\mathbf{x}]$ doğrusal ise OLS MMSE elde eder.
+\end{disiplinlerarasibaglan}
+
+\begin{mikroozet}
+CV: boyutsuz göreli değişkenlik; $\sigma/|\mu|$.
+Çarpıklık: $\mu_3'/\sigma^3$; yönsel asimetri.
+Basıklık fazlası: $\mu_4'/\sigma^4 - 3$; Normal'e göre kuyruk ağırlığı.
+$L^p$ uzayları: Lyapunov ($\|X\|_r\leq\|X\|_s$, $r<s$), Hölder, Minkowski.
+Koşullu beklenti = ortogonal projeksiyon $\Rightarrow$ MMSE tahmincisi.
+\end{mikroozet}
+
+% =====================================================================
+%  ALIŞTIRMALAR
+% =====================================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.4.1]{A}{Beklenti Hesabı}
+$X$ PMF'si $p(k) = (1/2)^k$, $k = 1, 2, 3, \ldots$ olan kesikli rasgele değişken.
+$E[X]$ ve $E[X^2]$'yi hesaplayınız. Ardından $\mathrm{Var}(X)$'i bulunuz.
+\end{alistirma}
+\alcozum{%
+$E[X] = \sum_{k=1}^\infty k (1/2)^k$. $\sum_{k=1}^\infty k r^k = r/(1-r)^2$ ($|r|<1$) ile $r=1/2$:
+$E[X] = (1/2)/(1/2)^2 = 2$.\\
+$E[X^2] = \sum_{k=1}^\infty k^2 (1/2)^k$. $\sum k^2 r^k = r(1+r)/(1-r)^3$: $E[X^2] = (1/2)(3/2)/(1/2)^3 = 6$.\\
+$\mathrm{Var}(X) = 6 - 4 = 2$.}
+
+\begin{alistirma}[Al.4.2]{A}{Jensen Eşitsizliği}
+$X > 0$ rasgele değişken, $E[X] = 2$.
+(a) $E[\ln X]$'i en fazla kaç yapabilirsiniz? Üst sınırı bulunuz.
+(b) $E[1/X]$'in alt sınırını Jensen ile bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $\varphi(x) = \ln x$ içbükey ($\varphi'' < 0$), yani $-\ln x$ konveks:
+$-\ln E[X] \leq E[-\ln X]$, yani $E[\ln X] \leq \ln E[X] = \ln 2$.\\
+(b) $\varphi(x) = 1/x$ konveks ($x>0$): Jensen $\Rightarrow$ $1/E[X] \leq E[1/X]$, yani $E[1/X] \geq 1/2$.}
+
+\begin{alistirma}[Al.4.3]{B}{MÜF ile Moment Bulma}
+$X \sim \mathrm{Pois}(\lambda)$: PMF $p(k) = e^{-\lambda}\lambda^k/k!$, $k=0,1,2,\ldots$
+(a) $M_X(t) = e^{\lambda(e^t-1)}$ olduğunu gösteriniz.
+(b) $M_X'(0)$ ve $M_X''(0)$ ile $E[X]$ ve $E[X^2]$'yi bulunuz.
+(c) $\mathrm{Var}(X)$'i hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) $M_X(t) = \sum_{k=0}^\infty e^{tk} e^{-\lambda} \lambda^k/k! = e^{-\lambda} \sum_{k=0}^\infty (\lambda e^t)^k/k!
+= e^{-\lambda} e^{\lambda e^t} = e^{\lambda(e^t-1)}$.\\
+(b) $M_X'(t) = \lambda e^t \cdot e^{\lambda(e^t-1)}$; $M_X'(0) = \lambda \cdot 1 = \lambda = E[X]$.
+$M_X''(t) = (\lambda e^t + \lambda^2 e^{2t}) e^{\lambda(e^t-1)}$;
+$M_X''(0) = \lambda + \lambda^2 = E[X^2]$.\\
+(c) $\mathrm{Var}(X) = E[X^2] - (E[X])^2 = \lambda + \lambda^2 - \lambda^2 = \lambda$.
+Poisson: beklenti = varyans = $\lambda$.}
+
+\begin{alistirma}[Al.4.4]{B}{Koşullu Beklenti}
+$X \sim \mathrm{Uniform}(0,1)$, $Y \mid X = x \sim \mathrm{Uniform}(0, x)$.
+(a) $E[Y \mid X = x]$'i bulunuz.
+(b) $E[Y]$'yi kule özelliğiyle hesaplayınız.
+(c) $\mathrm{Var}(Y)$'yi $\mathrm{Var}(Y) = E[\mathrm{Var}(Y\mid X)] + \mathrm{Var}(E[Y\mid X])$ ile bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $E[Y \mid X=x] = x/2$.\\
+(b) $E[Y] = E[E[Y\mid X]] = E[X/2] = (1/2) \cdot 1/2 = 1/4$.\\
+(c) $\mathrm{Var}(Y\mid X=x) = x^2/12$.
+$E[\mathrm{Var}(Y\mid X)] = E[X^2/12] = (1/3)/12 = 1/36$.
+$\mathrm{Var}(E[Y\mid X]) = \mathrm{Var}(X/2) = (1/4)\mathrm{Var}(X) = (1/4)(1/12) = 1/48$.
+$\mathrm{Var}(Y) = 1/36 + 1/48 = 4/144 + 3/144 = 7/144$.}
+
+\begin{alistirma}[Al.4.4b]{B}{Karakteristik Fonksiyon ve Bağımsızlık}
+$X,Y$ bağımsız rasgele değişkenler; $\varphi_X(t)=E[e^{itX}]$, $\varphi_Y(t)=E[e^{itY}]$.
+(a) $\varphi_{X+Y}(t)=\varphi_X(t)\varphi_Y(t)$ olduğunu gösteriniz.
+(b) $X,Y\iid\Normal(0,1)$: $\varphi_X(t)=e^{-t^2/2}$ kullanarak $Z=X+Y$ dağılımını bulunuz.
+(c) $X\sim\Pois(\lambda_1)$, $Y\sim\Pois(\lambda_2)$ bağımsız: $Z=X+Y$ dağılımını KF yoluyla belirleyiniz.
+\end{alistirma}
+\alcozum{%
+(a) $\varphi_{X+Y}(t)=E[e^{it(X+Y)}]=E[e^{itX}e^{itY}]=E[e^{itX}]E[e^{itY}]=\varphi_X(t)\varphi_Y(t)$.
+(Bağımsızlık beklentinin çarpımını garanti eder.)
+
+(b) $\varphi_Z(t)=\varphi_X(t)\varphi_Y(t)=e^{-t^2/2}\cdot e^{-t^2/2}=e^{-t^2}=e^{-(\sqrt{2})^2t^2/2}$.
+Bu $\Normal(0,2)$'nin KF'sidir. Dolayısıyla $Z\sim\Normal(0,2)$.
+
+(c) $\varphi_{\Pois(\lambda)}(t)=\exp(\lambda(e^{it}-1))$.
+$\varphi_Z(t)=\exp(\lambda_1(e^{it}-1))\cdot\exp(\lambda_2(e^{it}-1))=\exp((\lambda_1+\lambda_2)(e^{it}-1))$.
+Bu $\Pois(\lambda_1+\lambda_2)$'nin KF'sidir. $Z\sim\Pois(\lambda_1+\lambda_2)$. $\checkmark$}
+
+\begin{alistirma}[Al.4.4c]{C}{Toplam Kuralı ile Ortak Dağılım Analizi}
+$(X,Y)$ ortak yoğunluğu $f(x,y)=6xy^2$, $0<x<1$, $0<y<1$.
+(a) Marjinal yoğunlukları $f_X(x)$ ve $f_Y(y)$'yi bulunuz.
+(b) $X$ ve $Y$ bağımsız mı?
+(c) $\Cov(X,Y)$, $\Cor(X,Y)$'yi hesaplayınız.
+(d) $E[Y\mid X=0.5]$'i bulunuz. Kule özelliğiyle $E[Y]$'yi doğrulayınız.
+\end{alistirma}
+\alcozum{%
+(a) $f_X(x)=\int_0^1 6xy^2\,dy=6x\cdot[y^3/3]_0^1=2x$, $x\in(0,1)$.\\
+$f_Y(y)=\int_0^1 6xy^2\,dx=6y^2\cdot[x^2/2]_0^1=3y^2$, $y\in(0,1)$.
+
+(b) $f(x,y)=6xy^2=(2x)(3y^2)=f_X(x)f_Y(y)$. Evet, $X$ ve $Y$ \textbf{bağımsız}.
+
+(c) Bağımsız olduklarından $\Cov(X,Y)=0$ ve $\Cor(X,Y)=0$.
+Doğrulama: $E[X]=\int_0^1 2x^2dx=2/3$; $E[X^2]=\int_0^1 2x^3dx=1/2$; $\Var(X)=1/2-4/9=1/18$.\\
+$E[Y]=\int_0^1 3y^3dy=3/4$; $E[Y^2]=\int_0^1 3y^4dy=3/5$; $\Var(Y)=3/5-9/16=48/80-45/80=3/80$.\\
+$E[XY]=E[X]E[Y]=(2/3)(3/4)=1/2$. $\Cov(X,Y)=E[XY]-E[X]E[Y]=1/2-1/2=0$. $\checkmark$
+
+(d) $f_{Y|X}(y|x)=f(x,y)/f_X(x)=6xy^2/(2x)=3y^2$ --- $X$'den bağımsız! $E[Y|X=0.5]=E[Y]=\int_0^1 3y^3dy=3/4$.\\
+Kule: $E[E[Y|X]]=E[3/4]=3/4=E[Y]$. $\checkmark$}
+
+% ---
+
+
+\begin{alistirma}[Al.4.5]{A}{Beklenti Özellikleri}
+$X$ rasgele değişken, $E[X] = 3$, $E[X^2] = 13$.
+$E[(2X-1)^2]$ ve $\mathrm{Var}(3X+5)$'i hesaplayınız.
+\end{alistirma}
+\alcozum{%
+$E[(2X-1)^2] = 4E[X^2] - 4E[X] + 1 = 52 - 12 + 1 = 41$.
+$\mathrm{Var}(X) = 13-9=4$. $\mathrm{Var}(3X+5) = 9\cdot 4 = 36$.}
+\begin{alistirma}[Al.4.6]{A}{Chebyshev Uygulaması}
+$X$ rasgele değişken, $E[X] = 50$, $\mathrm{Var}(X) = 25$.
+(a) $P(|X - 50| \geq 10)$'un Chebyshev üst sınırını bulunuz.
+(b) $P(40 \leq X \leq 60) \geq ?$ alt sınırını veriniz.
+\end{alistirma}
+\alcozum{%
+(a) $\varepsilon = 10$: $P(|X-50|\geq 10) \leq 25/100 = 1/4$.
+(b) $P(40 \leq X \leq 60) = 1 - P(|X-50| \geq 10) \geq 3/4$.}
+\alistirmalar
+
+
+
+\begin{alistirma}[Al.4.7]{B}{Markov Eşitsizliği ve Kesinlik}
+$X \geq 0$, $E[X] = \mu$.
+(a) $P(X \geq k\mu) \leq 1/k$ olduğunu gösteriniz.
+(b) $P(X \geq 2\mu) = 1/2$ sağlayan bir dağılım inşa ediniz (Markov sıkılığı).
+\end{alistirma}
+\alcozum{%
+(a) $a = k\mu$ ile Markov: $P(X \geq k\mu) \leq E[X]/(k\mu) = 1/k$.\\
+(b) $P(X=0) = 1/2$, $P(X = 2\mu) = 1/2$: $E[X] = \mu$, $P(X \geq 2\mu) = 1/2$. Eşitlik sağlanır.}
+
+\begin{alistirma}[Al.4.8]{B}{Kovaryans Matrisi}
+$(X, Y, Z)$: $\mathrm{Var}(X) = 1$, $\mathrm{Var}(Y) = 4$, $\mathrm{Var}(Z) = 9$;
+$\mathrm{Cov}(X,Y) = 1$, $\mathrm{Cov}(X,Z) = -1$, $\mathrm{Cov}(Y,Z) = 2$.
+$\mathrm{Var}(X + Y + Z)$'i hesaplayınız.
+\end{alistirma}
+\alcozum{%
+$\mathrm{Var}(X+Y+Z) = \mathrm{Var}(X) + \mathrm{Var}(Y) + \mathrm{Var}(Z) + 2\mathrm{Cov}(X,Y) + 2\mathrm{Cov}(X,Z) + 2\mathrm{Cov}(Y,Z)$
+$= 1 + 4 + 9 + 2(1) + 2(-1) + 2(2) = 14 + 2 - 2 + 4 = 18$.}
+
+\begin{alistirma}[Al.4.9]{B}{Karakteristik Fonksiyon}
+$X \sim \mathrm{Bernoulli}(p)$.
+(a) $\varphi_X(t) = 1 - p + pe^{it}$ olduğunu gösteriniz.
+(b) $X_1, \ldots, X_n$ bağımsız $\mathrm{Bernoulli}(p)$; $S_n = \sum X_i$.
+$\varphi_{S_n}(t)$'yi bulunuz ve bunun hangi dağılıma ait olduğunu tanıyınız.
+\end{alistirma}
+\alcozum{%
+(a) $\varphi_X(t) = E[e^{itX}] = (1-p)e^{0} + pe^{it} = 1-p+pe^{it}$.\\
+(b) Bağımsız çarpım: $\varphi_{S_n}(t) = (1-p+pe^{it})^n = \varphi_{\mathrm{Binom}(n,p)}(t)$.
+Bu binom dağılımının KF'sidir; $S_n \sim \Binom(n,p)$.}
+
+\begin{alistirma}[Al.4.10]{B}{Kule Özelliği}
+$N \sim \mathrm{Pois}(\lambda)$ ve $X_1, X_2, \ldots$ bağımsız, $E[X_i] = \mu$, $\mathrm{Var}(X_i) = \sigma^2$.
+$S_N = \sum_{i=1}^N X_i$ (toplam öğe sayısı rastlantısal).
+(a) $E[S_N]$'i bulunuz. (b) $\mathrm{Var}(S_N)$'i bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $E[S_N] = E[E[S_N \mid N]] = E[N\mu] = \mu E[N] = \mu\lambda$.\\
+(b) Varyans ayrışım formülü:
+$\mathrm{Var}(S_N) = E[\mathrm{Var}(S_N \mid N)] + \mathrm{Var}(E[S_N \mid N])
+= E[N\sigma^2] + \mathrm{Var}(N\mu) = \sigma^2\lambda + \mu^2\lambda = \lambda(\sigma^2+\mu^2)$.}
+
+\begin{alistirma}[Al.4.11]{C}{İspat: Cauchy-Schwarz Genel Formu}
+$X, Y \in L^2(\Omega, \mathcal{F}, P)$ için $(E[XY])^2 \leq E[X^2] E[Y^2]$ olduğunu ispatlayınız.
+Eşitlik ne zaman sağlanır?
+\end{alistirma}
+\alcozum{%
+Her $t \in \mathbb{R}$ için $f(t) = E[(tX+Y)^2] = t^2E[X^2] + 2tE[XY] + E[Y^2] \geq 0$.
+Bu kuadratik $t$'de negatif olamaz; diskriminant $\leq 0$:
+$4(E[XY])^2 - 4E[X^2]E[Y^2] \leq 0$.
+Eşitlik: $f(t^*) = 0$ yani $t^*X + Y = 0$ n.k., yani $Y = cX$ n.k.\ (lineer bağımlılık).}
+
+\begin{alistirma}[Al.4.12]{C}{Varyans Ayrışım Formülü (Kule Varyansı)}
+$E[X^2] < \infty$ ve $\mathcal{G} \subseteq \mathcal{F}$ alt $\sigma$-cebiri olsun.
+$\mathrm{Var}(X) = E[\mathrm{Var}(X \mid \mathcal{G})] + \mathrm{Var}(E[X \mid \mathcal{G}])$
+olduğunu ispatlayınız.
+\end{alistirma}
+\alcozum{%
+$\mathrm{Var}(X) = E[X^2] - (E[X])^2$.
+$E[\mathrm{Var}(X\mid\mathcal{G})] = E[E[X^2\mid\mathcal{G}] - (E[X\mid\mathcal{G}])^2]
+= E[X^2] - E[(E[X\mid\mathcal{G}])^2]$.
+$\mathrm{Var}(E[X\mid\mathcal{G}]) = E[(E[X\mid\mathcal{G}])^2] - (E[E[X\mid\mathcal{G}]])^2
+= E[(E[X\mid\mathcal{G}])^2] - (E[X])^2$.
+Toplam: $E[X^2] - (E[X])^2 = \mathrm{Var}(X)$. \checkmark}
+
+\begin{alistirma}[Al.4.13]{A}{Chebyshev ve Cantelli Karşılaştırması}
+$X$ rasgele değişken, $E[X] = 2$, $\mathrm{Var}(X) = 1$.
+(a) Chebyshev ile $P(|X - 2| \geq 2)$ için üst sınır veriniz.
+(b) Cantelli ile $P(X - 2 \geq 2)$ için üst sınır veriniz.
+(c) Sonuçları karşılaştırınız.
+\end{alistirma}
+\alcozum{%
+(a) Chebyshev: $P(|X-2|\geq2) \leq \mathrm{Var}(X)/4 = 1/4$.\\
+(b) Cantelli: $P(X-2\geq2) \leq \sigma^2/(\sigma^2+\lambda^2) = 1/(1+4) = 1/5$.\\
+(c) Cantelli tek taraflı sınır veriyor ve daha keskin: $1/5 < 1/4$.
+Chebyshev iki taraflı; tam $P(X-2\geq2)$ için Cantelli daha iyi.}
+
+\begin{alistirma}[Al.4.14]{B}{Hoeffding Uygulaması}
+$X_1, \ldots, X_{100}$ bağımsız, $X_i \in [0,1]$, $E[X_i] = 0.5$.
+(a) Hoeffding eşitsizliği ile $P(\bar{X}_{100} \geq 0.6)$ için üst sınır veriniz.
+(b) Chebyshev ile (varyanslı $\sigma^2 = 1/12$ alarak) karşılaştırınız.
+(c) $P \leq 0.01$ için gereken minimum $n$'yi Hoeffding ile bulunuz ($\varepsilon = 0.1$).
+\end{alistirma}
+\alcozum{%
+(a) Hoeffding: $P(\bar{X}_n - 0.5 \geq 0.1) \leq e^{-2n(0.1)^2/1} = e^{-2(100)(0.01)} = e^{-2} \approx 0.135$.\\
+(b) Chebyshev: $P(|\bar{X}_{100}-0.5|\geq0.1) \leq \sigma^2/(n\varepsilon^2) = (1/12)/(100\cdot0.01) = 1/12 \approx 0.083$.
+Bu örnekte Chebyshev daha iyi --- Hoeffding (sınırlı) avantajı daha büyük $n$'de belirginleşir.\\
+(c) $e^{-2n\varepsilon^2} \leq 0.01$: $-2n(0.01) \leq \ln(0.01) = -4.605$; $n \geq 230$.}
+
+\begin{alistirma}[Al.4.15]{B}{Çarpıklık ve Basıklık}
+$X \sim \Exp(1)$: $E[X] = 1$, $\mathrm{Var}(X) = 1$.
+(a) $E[X^3]$ ve $E[X^4]$'ü hesaplayınız ($E[X^k] = k!$ Üstel için).
+(b) Çarpıklık $\gamma_1 = (E[(X-\mu)^3])/\sigma^3$'ü hesaplayınız.
+(c) Basıklık fazlasını $\gamma_2 = E[(X-\mu)^4]/\sigma^4 - 3$ hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) $E[X^3] = 3! = 6$; $E[X^4] = 4! = 24$.\\
+(b) $\mu_3' = E[(X-1)^3] = E[X^3 - 3X^2 + 3X - 1] = 6 - 3(2) + 3(1) - 1 = 6-6+3-1 = 2$.
+$\gamma_1 = 2/1^3 = 2$: kuvvetli sağ çarpıklık.\\
+(c) $\mu_4' = E[(X-1)^4] = E[X^4 - 4X^3 + 6X^2 - 4X + 1] = 24 - 24 + 12 - 4 + 1 = 9$.
+$\gamma_2 = 9/1 - 3 = 6$: kuvvetli ağır kuyruk (Normal'den 6 kat fazla).}
+
+% =====================================================================
+\endinput

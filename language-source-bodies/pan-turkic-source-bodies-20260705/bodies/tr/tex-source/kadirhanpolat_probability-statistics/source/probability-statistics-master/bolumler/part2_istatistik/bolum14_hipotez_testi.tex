@@ -1,0 +1,606 @@
+%% ============================================================
+%% BÖLÜM 14 --- Hipotez Testi
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Hipotez Testi}
+\label{chp:hipotez_testi}
+
+\bolumalinti{%
+  To call in the statistician after the experiment is done may be no more than asking him to perform a post-mortem examination; he may be able to say what the experiment died of.
+}{Ronald A. Fisher}
+
+\begin{kazanimlar}
+Bu bölümün sonunda okuyucu:
+\begin{itemize}
+  \item Hipotez testi çerçevesini (H0/H1, tip I/II hata, güç) tanımlar.
+  \item Neyman-Pearson lemmasını uygulayarak en güçlü test türetir.
+  \item Tek parametreli üstel ailede UMP test oluşturur.
+  \item $z$, $t$, $\chi^2$, $F$ testlerini uygun durumlarda seçer ve uygular.
+  \item Olabilirlik oran testini asimptotik dağılımıyla birlikte kullanır.
+  \item $p$-değerini hesaplar ve doğru yorumlar.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+Bir ilaç firması yeni ilacın plasebodan daha etkili olduğunu iddia ediyor. Bu iddiayı verilerle nasıl test ederiz? Rasgelelikten kaynaklanan farklılıkla gerçek bir etkiyi nasıl ayırt ederiz? Hipotez testi bu sorunun matematiksel yanıtıdır.
+
+\medskip
+\noindent\textbf{Köprü:} Bölüm~\ref{chp:guven_araliklari}'daki güven aralığı ve hipotez testi dual kavramlar: $\theta_0$'ın $(1-\alpha)$ GA dışında olması, $\alpha$ düzeyinde $H_0:\theta=\theta_0$'ı reddetmeye eşdeğer.
+\end{motivasyon}
+
+%% ============================================================
+\section{Test Çerçevesi}
+\label{sec:test_cercevesi}
+%% ============================================================
+
+\begin{tanim}[İstatistiksel test]\label{def:istatistiksel_test}
+$\Theta_0\cap\Theta_1=\emptyset$, $\Theta_0\cup\Theta_1=\Theta$ ile:
+\begin{align*}
+  H_0 &: \theta\in\Theta_0 \quad \text{(sıfır hipotezi, null hypothesis)}\\
+  H_1 &: \theta\in\Theta_1 \quad \text{(alternatif hipotez, alternative hypothesis)}
+\end{align*}
+\textbf{Test istatistiği} $T=T(\mathbf{X})$; \textbf{red bölgesi} $R\subseteq\mathcal{X}$: $\mathbf{x}\in R$ ise $H_0$ reddedilir.
+
+$|\Theta_0|=|\Theta_1|=1$ ise \textbf{basit}, aksi hâlde \textbf{bileşik} hipotez.
+\end{tanim}
+
+\begin{tanim}[Hata türleri]\label{def:hata_turleri}
+\[
+  \alpha = \Prob_{\theta\in\Theta_0}(\mathbf{X}\in R) \quad \text{(Tip I hata oranı, anlamlılık düzeyi)}
+\]
+\[
+  \beta = \Prob_{\theta\in\Theta_1}(\mathbf{X}\notin R) \quad \text{(Tip II hata oranı)}
+\]
+\textbf{Güç fonksiyonu:} $\pi(\theta) = \Prob_\theta(\mathbf{X}\in R)$.
+Test $\alpha$ düzeyinde ise $\sup_{\theta\in\Theta_0}\pi(\theta)\leq\alpha$.
+\end{tanim}
+
+\begin{tanim}[$p$-değeri]\label{def:p_degeri}
+$T$ test istatistiği, büyük $T$ değerlerinin $H_1$ lehine olduğu bir test için $p$\textbf{-değeri}:
+\[
+  p = \sup_{\theta\in\Theta_0}\Prob_\theta(T(\mathbf{X})\geq T(\mathbf{x}_{\mathrm{gözlem}})).
+\]
+$p\leq\alpha$ ise $H_0$ reddedilir.
+\end{tanim}
+
+\begin{tanimgerekce}
+$p$-değeri "$H_0$ doğru olduğunda bu kadar veya daha uç bir gözlemi alma olasılığı"dır. $p<0.05$ "$H_0$'ın doğru olma olasılığı \%5'tir" anlamına \emph{gelmez}. Bu yaygın yorum hatasına düşmemeye dikkat.
+\end{tanimgerekce}
+
+%% ============================================================
+\section{Neyman-Pearson Lemması}
+\label{sec:neyman_pearson}
+%% ============================================================
+
+\begin{teorem}[Neyman-Pearson]\label{thm:neyman_pearson}
+Basit hipotezler $H_0:\theta=\theta_0$ ve $H_1:\theta=\theta_1$. Olabilirlik oranı:
+\[
+  \Lambda(\mathbf{x}) = \frac{f(\mathbf{x};\theta_1)}{f(\mathbf{x};\theta_0)}.
+\]
+$k>0$ ve red bölgesi $R = \{\mathbf{x}: \Lambda(\mathbf{x})>k\}$ ile belirlenen testin anlamlılık düzeyi $\alpha^* = \Prob_{\theta_0}(\Lambda(\mathbf{X})>k)$ olsun. Bu test, aynı $\alpha\leq\alpha^*$ düzeyindeki tüm testler arasında en güçlüdür (güç fonksiyonu en yüksek).
+\end{teorem}
+
+\begin{proof}
+$\phi^*$ NP testi, $\phi$ başka herhangi $\alpha$-düzeyinde test olsun. Göster: $\Beklenti_{\theta_1}[\phi^*]\geq\Beklenti_{\theta_1}[\phi]$.
+
+Anahtar gözlem: $(\phi^*-\phi)(f(\mathbf{x};\theta_1)-kf(\mathbf{x};\theta_0))\geq0$ her $\mathbf{x}$ için (işaret kontrolü yapılır). Dolayısıyla:
+\[
+  0\leq\int(\phi^*-\phi)(f_1-kf_0)\,d\mathbf{x}
+  = \Beklenti_{\theta_1}[\phi^*]-\Beklenti_{\theta_1}[\phi] - k(\Beklenti_{\theta_0}[\phi^*]-\Beklenti_{\theta_0}[\phi]).
+\]
+$\Beklenti_{\theta_0}[\phi^*]=\alpha^*\geq\Beklenti_{\theta_0}[\phi]$ olduğundan $k\geq0$ ile ikinci terim $\geq0$. Sonuç: $\Beklenti_{\theta_1}[\phi^*]\geq\Beklenti_{\theta_1}[\phi]$.
+\end{proof}
+
+\begin{ornek}[Normal NP testi]\label{ex:normal_np}
+$X_1,\ldots,X_n\iid\Normal(\mu,1)$. $H_0:\mu=0$ vs $H_1:\mu=1$. NP testi:
+\[
+  \Lambda(\mathbf{x}) = \exp\!\left(n\bar{x} - \frac{n}{2}\right)>k \iff \bar{X}_n > c.
+\]
+$c = z_\alpha/\sqrt{n}$. Bu en güçlü test; güç: $\pi(1)=\Phi(\sqrt{n}-z_\alpha)$.
+\end{ornek}
+
+%% ============================================================
+\section{UMP Testleri}
+\label{sec:ump}
+%% ============================================================
+
+\begin{tanim}[UMP]\label{def:ump}
+$\alpha$ düzeyinde test $\phi^*$, aynı düzeydeki tüm testlere göre her $\theta\in\Theta_1$ için daha yüksek güce sahipse \textbf{UMP} \emph{(uniformly most powerful)} test adını alır.
+\end{tanim}
+
+\begin{teorem}[Üstel ailede UMP]\label{thm:ustel_ump}
+Tek parametreli üstel aile $f(x;\theta)=h(x)\exp[\eta(\theta)T(x)-B(\theta)]$; $\eta(\theta)$ artan. $H_0:\theta\leq\theta_0$ vs $H_1:\theta>\theta_0$ için UMP test:
+\[
+  \phi(\mathbf{x}) = \begin{cases}1&T(\mathbf{x})>c_\alpha\\0&T(\mathbf{x})<c_\alpha\end{cases}
+\]
+$c_\alpha$: $\Prob_{\theta_0}(T>c_\alpha)=\alpha$.
+\end{teorem}
+
+\begin{ispatiskele}
+Karmonotonik olabilirlik oranı (MLR) özelliği: üstel ailede $\Lambda(\mathbf{x};\theta_1,\theta_0)$ yalnızca $T(\mathbf{x})$'in artan fonksiyonu. NP lemması her $(\theta_0,\theta_1)$ çifti için aynı red bölgesini ($T>c$) verir; bu nedenle "düzgün" en güçlü olur.
+\end{ispatiskele}
+
+\begin{ornek}[Poisson UMP]\label{ex:poisson_ump}
+$X_1,\ldots,X_n\iid\Pois(\lambda)$. $H_0:\lambda\leq\lambda_0$ vs $H_1:\lambda>\lambda_0$. UMP: $T=\sum X_i>c_\alpha$. $T\sim\Pois(n\lambda_0)$ altında $c_\alpha$ belirlenir.
+\end{ornek}
+
+\begin{kritiksorgu}
+İki yönlü alternatifler ($H_1:\theta\neq\theta_0$) için UMP test neden genellikle yoktur? Çünkü $\theta>\theta_0$ için büyük $T$ yönünde, $\theta<\theta_0$ için küçük $T$ yönünde güç artar --- tek bir red bölgesi her ikisini optimize edemez.
+\end{kritiksorgu}
+
+%% ============================================================
+\section{Yaygın Parametrik Testler}
+\label{sec:parametrik_testler}
+%% ============================================================
+
+\subsection{Tek Örneklem $z$ ve $t$ Testleri}
+
+\begin{teorem}[$z$-testi]\label{thm:z_testi}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$, $\sigma^2$ bilinen. $H_0:\mu=\mu_0$ için test istatistiği:
+\[
+  Z = \frac{\overline{X}_n-\mu_0}{\sigma/\sqrt{n}} \overset{H_0}{\sim} \Normal(0,1).
+\]
+\begin{itemize}
+  \item $H_1:\mu>\mu_0$: red $Z>z_\alpha$.
+  \item $H_1:\mu<\mu_0$: red $Z<-z_\alpha$.
+  \item $H_1:\mu\neq\mu_0$: red $|Z|>z_{\alpha/2}$.
+\end{itemize}
+\end{teorem}
+
+\begin{teorem}[$t$-testi]\label{thm:t_testi}
+$\sigma^2$ bilinmiyor. Test istatistiği:
+\[
+  T = \frac{\overline{X}_n-\mu_0}{S/\sqrt{n}} \overset{H_0}{\sim} t_{n-1}.
+\]
+Red bölgeleri $t_{n-1}$ kantilleri ile belirlenir.
+\end{teorem}
+
+\subsection{Varyans Testi}
+
+\begin{teorem}[$\chi^2$-testi]\label{thm:chi2_testi}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$. $H_0:\sigma^2=\sigma_0^2$ için:
+\[
+  Q = \frac{(n-1)S^2}{\sigma_0^2} \overset{H_0}{\sim} \chi^2_{n-1}.
+\]
+\end{teorem}
+
+\subsection{İki Örneklem Testleri}
+
+\begin{teorem}[İki örneklem $t$-testi]\label{thm:iki_t_testi}
+$X_1,\ldots,X_m\iid\Normal(\mu_1,\sigma^2)$ ve $Y_1,\ldots,Y_n\iid\Normal(\mu_2,\sigma^2)$ bağımsız. $H_0:\mu_1=\mu_2$:
+\[
+  T = \frac{\overline{X}-\overline{Y}}{S_p\sqrt{1/m+1/n}} \overset{H_0}{\sim} t_{m+n-2}.
+\]
+\end{teorem}
+
+\begin{teorem}[$F$-testi: varyans oranı]\label{thm:f_testi}
+$X_1,\ldots,X_m\iid\Normal(\mu_1,\sigma_1^2)$ ve $Y_1,\ldots,Y_n\iid\Normal(\mu_2,\sigma_2^2)$ bağımsız. $H_0:\sigma_1^2=\sigma_2^2$:
+\[
+  F = \frac{S_X^2}{S_Y^2} \overset{H_0}{\sim} F_{m-1,n-1}.
+\]
+\end{teorem}
+
+%% ============================================================
+\section{Olabilirlik Oran Testi}
+\label{sec:lrt}
+%% ============================================================
+
+\begin{tanim}[Olabilirlik oran istatistiği]\label{def:lrt}
+\[
+  \Lambda(\mathbf{x}) = \frac{\sup_{\theta\in\Theta_0}L(\theta;\mathbf{x})}{\sup_{\theta\in\Theta}L(\theta;\mathbf{x})}.
+\]
+$\Lambda\in[0,1]$; küçük $\Lambda$ değeri $H_0$'a karşı kanıt. Test: $\Lambda(\mathbf{x})\leq c_\alpha$ ise $H_0$ reddedilir.
+\end{tanim}
+
+\begin{teorem}[Wilks --- asimptotik $\chi^2$]\label{thm:wilks}
+Regularity koşulları altında $H_0:\theta\in\Theta_0$ doğruyken ($\dim\Theta-\dim\Theta_0 = r$):
+\[
+  -2\log\Lambda(\mathbf{X}) \dto \chi^2_r.
+\]
+\end{teorem}
+
+\begin{ispatiskele}
+\textbf{Fikir:} $\log L$ etrafında Taylor açılımı: kısıtlı MLE'yi kısıtsız MLE ile karşılaştır. İkinci türev Fisher bilgisini verir; Cauchy-Schwarz argümanıyla $\chi^2$ sınırı çıkar. Tam ispat: Hogg-Craig §10.4.
+\end{ispatiskele}
+
+\begin{ornek}[ORT: Normal iki parametre]\label{ex:ort_normal}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$; $H_0:\mu=\mu_0$ (bilinen $\sigma^2$ olmaksızın). $-2\log\Lambda=n\log(1+T^2/(n-1))$ ile $T=(\bar{X}-\mu_0)/(S/\sqrt{n})$; büyük $n$'de $t_{n-1}$'e ve $\chi^2_1$'e yakınsar.
+\end{ornek}
+
+%% ============================================================
+\section{Çoklu Test Düzeltmesi}
+\label{sec:coklu_test}
+%% ============================================================
+
+\begin{tanim}[FWER ve FDR]\label{def:coklu_hata}
+$m$ hipotez testi yapılıyor.
+\begin{itemize}
+  \item \textbf{FWER} \emph{(family-wise error rate)}: en az bir yanlış red olasılığı.
+  \item \textbf{Bonferroni düzeltmesi:} Her testi $\alpha/m$ düzeyinde yap; $\mathrm{FWER}\leq\alpha$.
+  \item \textbf{FDR} \emph{(false discovery rate)}: yanlış redlerin tüm redlere oranının beklentisi.
+  \item \textbf{Benjamini-Hochberg:} $p_{(1)}\leq\cdots\leq p_{(m)}$; $k^*=\max\{k:p_{(k)}\leq k\alpha/m\}$; $k^*$ kadar red.
+\end{itemize}
+\end{tanim}
+
+\begin{teorem}[Bonferroni eşitsizliği]\label{thm:bonferroni}
+$A_i$ = "$i$-inci testte yanlış red" olayları. Bonferroni eşitsizliği:
+\[
+  \Prob\!\left(\bigcup_{i=1}^m A_i\right) \leq \sum_{i=1}^m \Prob(A_i) \leq m\cdot\frac{\alpha}{m} = \alpha.
+\]
+\end{teorem}
+
+%% ============================================================
+\section{Güven Aralığı --- Test Dualliği}
+\label{sec:ga_test_dual}
+%% ============================================================
+
+\begin{teorem}[Duallik]\label{thm:duallik}
+$C(\mathbf{x})$ $(1-\alpha)$ güven kümesi; $\phi(\mathbf{x};\theta_0)$ her $\theta_0$ için $\alpha$ düzeyinde test. O zaman:
+\[
+  \phi(\mathbf{x};\theta_0) = 1 \iff \theta_0\notin C(\mathbf{x}).
+\]
+Bu ilişki iki yönde de kurulabilir.
+\end{teorem}
+
+\begin{proof}
+$C(\mathbf{x}) = \{\theta_0: \phi(\mathbf{x};\theta_0)=0\}$ tanımla. $\Prob_{\theta_0}(\theta_0\notin C(\mathbf{X})) = \Prob_{\theta_0}(\phi(\mathbf{X};\theta_0)=1)\leq\alpha$, dolayısıyla $\Prob_{\theta_0}(\theta_0\in C(\mathbf{X}))\geq1-\alpha$.
+\end{proof}
+
+\begin{kendinleifade}
+İki yönlü $t$-testi ile $t$-güven aralığı arasındaki dualliği somutlaştır. "$H_0:\mu=5$, $\alpha=0.05$ reddediliyor" ile "$5$, \%95 GA'ya dahil değil" ifadelerinin eşdeğer olduğunu göster.
+\kendinleifadecevap{$t=\frac{\bar{X}-\mu_0}{S/\sqrt{n}}$.
+  Reddetme bölgesi: $|t|>t_{n-1,\,\alpha/2}$
+  $\Leftrightarrow \mu_0\notin\bigl[\bar{X}\pm t_{n-1,\,\alpha/2}\tfrac{S}{\sqrt{n}}\bigr]$.
+  Yani "$H_0:\mu_0$ reddedilir" $\Leftrightarrow$ "$\mu_0$, \%95 GA'nın dışında."
+  Duallik: tüm reddedilemeyen $H_0$ değerleri tam olarak güven aralığını oluşturur.
+  Örnek: $n=25,\,\bar{X}=6.8,\,S=3\Rightarrow$ GA$=[5.56,8.04]$; $\mu_0=5\notin$ GA, reddedilir.}
+\end{kendinleifade}
+
+%% ============================================================
+\section{Eşleştirilmiş Örneklem Testleri}
+\label{sec:eslestirme}
+%% ============================================================
+
+\begin{tanim}[Eşleştirilmiş çift]\label{def:eslestirme}
+$(X_i,Y_i)$ $n$ eşleştirilmiş çift; $D_i=X_i-Y_i$ farkları. $D_i\iid\Normal(\delta,\sigma_D^2)$ ise tek örneklem $t$-testi $D_i$'lere uygulanır.
+\end{tanim}
+
+\begin{teorem}[Eşleştirilmiş $t$-testi]\label{thm:eslestirme_t}
+$H_0:\delta=0$:
+\[
+  T = \frac{\bar{D}}{S_D/\sqrt{n}} \overset{H_0}{\sim} t_{n-1}.
+\]
+\end{teorem}
+
+\begin{ornek}[Tedavi öncesi/sonrası]\label{ex:eslestirme_ornek}
+10 hasta; tedavi öncesi $(X_i)$ ve sonrası $(Y_i)$. $D_i = X_i-Y_i$: $\bar d=2.3$, $s_D=1.8$. $T=2.3/(1.8/\sqrt{10})=4.04$. $t_{9,0.025}=2.262$; $H_0:\delta=0$ reddedilir.
+\end{ornek}
+
+\begin{teorem}[İşaret testi]\label{thm:isaret_testi}
+Normallik varsayımı olmadan: $D_i>0$ sayısı $B=\sum\mathbf{1}[D_i>0]$. $H_0:\delta=0$ altında $B\sim\mathrm{Binom}(n,1/2)$. Büyük $n$: $Z=(B-n/2)/\sqrt{n/4}\dto\Normal(0,1)$.
+\end{teorem}
+
+%% ============================================================
+\section{Test Gücü ve Örneklem Büyüklüğü}
+\label{sec:guc_hesap}
+%% ============================================================
+
+\begin{tanim}[Güç fonksiyonu]\label{def:guc_fonksiyon}
+$\pi(\theta)=\Prob_\theta(T\in R)$; $\theta\in\Theta_0$ için $\pi(\theta)\leq\alpha$; $\theta\in\Theta_1$ için $1-\pi(\theta)=\beta(\theta)$ (Tip II hata oranı).
+
+\textbf{İstenen güç:} $1-\beta\geq0.80$ (çoğu alanda); $0.90$ veya $0.95$ yüksek hassasiyet gerektiren alanlarda.
+\end{tanim}
+
+\begin{teorem}[İki örneklem $t$-testinde $n$]\label{thm:iki_orneklem_n}
+$m=n$, $\sigma$ bilinen. $H_0:\mu_1-\mu_2=0$ vs $H_1:\mu_1-\mu_2=\Delta$ (\%$1-\beta$ güç):
+\[
+  n = \left\lceil\frac{2\sigma^2(z_{\alpha/2}+z_\beta)^2}{\Delta^2}\right\rceil.
+\]
+\end{teorem}
+
+\begin{proof}
+Güç $=\Prob(|Z|>z_{\alpha/2})$ yaklaşık $\Phi(-z_{\alpha/2}+\Delta\sqrt{n}/({\sigma\sqrt{2}}))$; $=1-\beta$ koşulundan $n$ çözülür.
+\end{proof}
+
+\begin{ornek}[Klinik deney örneklem büyüklüğü]\label{ex:klinik_n}
+İlaç grubunda $\mu_1-\mu_2=5$ mmHg fark bekleniyor; $\sigma=10$. $\alpha=0.05$, $1-\beta=0.80$. $n=\lceil 2\cdot100\cdot(1.96+0.842)^2/25\rceil=\lceil 200\cdot7.84/25\rceil=\lceil62.7\rceil=63$ (her grup).
+\end{ornek}
+
+%% ============================================================
+\section{İstatistiksel ve Pratik Anlamlılık}
+\label{sec:etki_buyuklugu}
+%% ============================================================
+
+\begin{kesif}
+İki grup arasındaki gerçek ortalama farkı $\Delta = 0.001$ (klinik açıdan ihmal
+edilebilir). $n = 10^6$ gözlemle iki yönlü $t$-testi uygulanıyor; $\sigma = 1$
+biliniyor. Test istatistiği ve $p$-değeri hakkında ne bekliyorsunuz?
+\kesifcevap{$t = \Delta\sqrt{n/2} = 0.001 \cdot \sqrt{500000} \approx 0.707$
+  değil; $n$ büyüdükçe $t = \Delta\sqrt{n}/(2\sigma) \to \infty$.
+  $n = 10^6$: $t \approx 500$, $p \approx 0$ --- son derece anlamlı.
+  Ama $\Delta = 0.001$ pratik önemi sıfır. İstatistiksel anlamlılık, pratik önemi
+  garanti etmez; etki büyüklüğü $d = \Delta/\sigma$ $n$'den bağımsız tek ölçüttür.}
+\end{kesif}
+
+\begin{tanim}[Cohen's $d$ --- etki büyüklüğü]\label{def:etki_buyuklugu}
+\[
+  d = \frac{|\mu_1-\mu_2|}{\sigma} \quad \text{(standartlaştırılmış fark)}.
+\]
+Yorumlama: $d<0.2$ küçük, $0.2\leq d<0.5$ orta, $d\geq0.8$ büyük etki.
+\end{tanim}
+
+\begin{teorem}[$t$-test istatistiği ve $d$ ilişkisi]\label{thm:t_d}
+İki örneklemde $T=d\sqrt{n/2}$ ($m=n$). Sabit $\alpha$'da $n\to\infty$: $T\to\infty$, her $d>0$ için $p\to0$. Ama $d=0.001$ (pratik olarak sıfır etki) de anlamlı olabilir.
+\end{teorem}
+
+\begin{hataanalizi}
+Yalnızca $p$-değerini raporlamak yeterli değildir: etki büyüklüğü ($d$, $\eta^2$, vb.) ve güven aralığı da raporlanmalıdır. APA standartları her ikisini zorunlu kılar.
+\end{hataanalizi}
+
+%% ============================================================
+\section{Wald ve Score Testleri}
+\label{sec:wald_score}
+%% ============================================================
+
+\begin{tanim}[Wald testi]\label{def:wald_testi}
+$H_0:\theta=\theta_0$; MLE $\hat\theta_n$; Fisher bilgisi $I(\theta)$. \textbf{Wald test istatistiği}:
+\[
+  W_n = \frac{(\hat\theta_n-\theta_0)^2}{\widehat{\Var}(\hat\theta_n)} = (\hat\theta_n-\theta_0)^2 \cdot nI(\hat\theta_n) \dto \chi^2_1 \quad (H_0 \text{ altında}).
+\]
+Çok parametreli: $W_n = n(\hat{\boldsymbol\theta}-\boldsymbol\theta_0)^\top \hat{I}(\hat{\boldsymbol\theta})(\hat{\boldsymbol\theta}-\boldsymbol\theta_0)\dto\chi^2_r$.
+\end{tanim}
+
+\begin{tanim}[Score testi (Rao testi)]\label{def:score_testi}
+\textbf{Score istatistiği}:
+\[
+  S_n = \frac{1}{n}\left[\frac{\partial\logLikh(\theta_0;\mathbf{X})}{\partial\theta}\right]^2 \cdot \frac{1}{I(\theta_0)} = \frac{U_n^2}{nI(\theta_0)} \dto\chi^2_1 \quad (H_0 \text{ altında}).
+\]
+$U_n = \partial\logLikh/\partial\theta|_{\theta_0}$ score vektörü; kısıtlı MLE ($\theta_0$) üzerinde değerlendirilir.
+\end{tanim}
+
+\begin{teorem}[Üç test eşdeğerliliği]\label{thm:uc_test}
+Regularity koşulları altında ORT ($\Lambda$), Wald ($W$) ve Score ($S$) testleri asimptotik olarak eşdeğerdir:
+\[
+  -2\log\Lambda_n = W_n + o_p(1) = S_n + o_p(1).
+\]
+Tüm üçü $\chi^2_r$ sınır dağılımına sahip.
+\end{teorem}
+
+\begin{proof}[Proof --- taslak]
+$\ell(\theta)=\logLikh(\theta;\mathbf{X})/n$ olsun. $\theta_0$ etrafında Taylor:
+\[
+  \ell(\hat\theta) \approx \ell(\theta_0) + U_n(\hat\theta-\theta_0) - \frac{n}{2}I(\theta_0)(\hat\theta-\theta_0)^2.
+\]
+$\hat\theta$'da $\ell'(\hat\theta)=0$ kullanılınca: $U_n \approx nI(\theta_0)(\hat\theta-\theta_0)$. Bu denklemi $-2\log\Lambda$, $W$, $S$ ifadelerine sokarak üçünün aynı asimptotik dağılıma (ve aynı $n\to\infty$ sınırına) sahip olduğu görülür.
+\end{proof}
+
+\begin{ornek}[Üç testin karşılaştırılması --- Normal]
+$X_1,\ldots,X_n\iid\Normal(\mu,1)$. $H_0:\mu=0$.
+\begin{itemize}
+  \item ORT: $-2\log\Lambda = n\bar X^2$.
+  \item Wald: $W=n\bar X^2/I(0)^{-1}=n\bar X^2$ (aynı!).
+  \item Score: $U_n = n\bar X$; $S = n\bar X^2$ (aynı!).
+\end{itemize}
+Normal durumda üç test özdeştir --- yalnızca asimptotik değil, kesin olarak.
+\end{ornek}
+
+\begin{hataanalizi}
+Score testi $\hat\theta$'yı hesaplamadan uygulanabildiğinden hesap kolaylığı sağlar (kısıtlı altında değerlendirme). Wald testi en kolay uygulanır ama parametrizasyona duyarlıdır: $h(\theta)$ için Wald $=\hat h(\theta)$ içermez. ORT en kararlı ama her ikisini de hesaplamayı gerektirir.
+\end{hataanalizi}
+
+%% ============================================================
+\section{Permütasyon Testi ve Tam Anlamlılık}
+\label{sec:tam_anlamlilik}
+%% ============================================================
+
+\begin{tanim}[Tam anlamlılık düzeyi]\label{def:tam_anlamlilik}
+Test tam $\alpha$ düzeyindedir (\textbf{kesin test} \emph{(exact test)}) eğer $\sup_{\theta\in\Theta_0}\Prob_\theta(T\in R) = \alpha$ (eşitlik, eşitsizlik değil). Fisher tam testi ve ikili veriler için kesin testler mümkündür.
+\end{tanim}
+
+\begin{teorem}[Fisher'ın tam testi]\label{thm:fisher_tam}
+$2\times2$ oluşum tablosu; satır ve sütun toplamları sabit. $H_0$: bağımsızlık altında sol üst gözem $X$ hipergeometrik dağılır:
+\[
+  \Prob(X=k\mid\text{sabit toplamlar}) = \frac{\binom{m}{k}\binom{N-m}{n-k}}{\binom{N}{n}}.
+\]
+$p$-değeri: gözlenen $k$'ye eşit veya daha uç değerlerin toplamı.
+\end{teorem}
+
+\begin{proof}[Proof --- kısa]
+Sabit marjinaller koşullu dağılımı tamamen belirler. $H_0$ altında herhangi doldurma biçimi eşit olasılıklı; Fisher bu koşullu dağılımı kullandı --- normallik veya asimptotik yaklaşım gerekmez.
+\end{proof}
+
+\begin{ornek}[Fisher tam testi --- klinik veri]
+\[
+\begin{array}{c|cc|c}
+ & \text{İyileşti} & \text{İyileşmedi} & \text{Toplam}\\\hline
+\text{İlaç} & 7 & 3 & 10 \\
+\text{Plasebo} & 2 & 8 & 10 \\\hline
+\text{Toplam} & 9 & 11 & 20
+\end{array}
+\]
+$X=7$ (ilaç-iyileşti). $\Prob(X\geq7\mid\text{sabit})=\Prob(7)+\Prob(8)+\Prob(9)$.
+$\Prob(X=7)=\binom{9}{7}\binom{11}{3}/\binom{20}{10}=36\cdot165/184756=0.0654$.
+$\Prob(X=8)=36\cdot55/184756=0.0107$, $\Prob(X=9)=\binom{9}{9}\binom{11}{1}/184756=0.0006$.
+$p=0.0767>0.05$: bağımsızlık reddedilemez (küçük örneklem).
+\end{ornek}
+
+\begin{teorem}[Monte Carlo permütasyon $p$-değeri]\label{thm:mc_permutasyon}
+Tüm permütasyonlar hesaplanamıyorsa: $B$ rasgele permütasyon üret; $p\approx(\#\{b:T^b\geq T_{\mathrm{gözlem}}\}+1)/(B+1)$. Bu yaklaşım $B\to\infty$'da gerçek permütasyon $p$-değerine yakınsar.
+\end{teorem}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Genetik:} Permütasyon testi gen ilişkilendirme çalışmalarında (GWAS) çoklu test altın standardı. \textbf{Klinik denemeler:} Fisher tam testi küçük örneklemli 2×2 tablolarda (yan etki izleme). \textbf{Sosyal bilimler:} Asimptotik varsayımlar geçerli olmadığında permütasyon güvenli alternatif.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Koşullu Test ve Benzer Testler}
+\label{sec:benzer_test}
+%% ============================================================
+
+\begin{tanim}[Benzer test]\label{def:benzer_test}
+$H_0:\theta\in\Theta_0$ için test $\phi$ \textbf{benzerdir} (\emph{similar}, boyut $\alpha$): $E_\theta[\phi(X)]=\alpha$ tüm $\theta\in\Theta_0$ için. Benzer testler, sabit (saplamalı) istatistiklerin varlığında anlam taşır.
+\end{tanim}
+
+\begin{tanim}[Tamamlayıcılık ve benzerlik]\label{def:tamamlayici_benzer}
+$T$ yeterli istatistik, $S=h(\mathbf{X})$ saplamalı (\emph{ancillary}). $T$'ye koşullu güç sabit $\alpha$'ya eşit olan test \textbf{koşullu benzer} testtir; bu, $T$ tamamlayıcı ise benzer test koşulunu karşılar.
+\end{tanim}
+
+\begin{teorem}[Benzer testlerin karakterizasyonu]\label{thm:benzer_karakter}
+$T$ tamamlayıcı yeterli istatistik. $\phi$ benzer test $\iff$ $E[\phi\mid T]=\alpha$ n.k.
+\end{teorem}
+
+\begin{proof}[Proof]
+$(\Rightarrow)$: $E_\theta[\phi]=\alpha$ her $\theta$'da. $T$ tamamlayıcı: $E[E[\phi|T]-\alpha]=0$ tüm $\theta$'da $\Rightarrow$ $E[\phi|T]=\alpha$ n.k. (tamamlayıcılık tanımı).\\
+$(\Leftarrow)$: $E[\phi|T]=\alpha$ ise $E_\theta[\phi]=E_\theta[E[\phi|T]]=E_\theta[\alpha]=\alpha$.
+\end{proof}
+
+\begin{ornek}[Normal ortalama testi --- koşullu yaklaşım]
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$; $\mu,\sigma^2$ bilinmiyor; $H_0:\mu=\mu_0$.
+$T=S^2$ yeterli (sigma için koşullanmak anlamında) ve saplamalı ($\mu$'dan bağımsız dağılım). Koşullu test: verilen $S^2$ için $t=\sqrt{n}(\bar X-\mu_0)/S$ istatistiği. $t$-testi zaten $T=S^2$'ye koşullu benzer testtir; bu yüzden $\sigma^2$ bilinmeden tam boyutu korur.
+\end{ornek}
+
+%% ============================================================
+\section{İnanç Fonksiyonu ve Güvenilirlik: p-değeri Ötesi}
+\label{sec:p_otesi}
+%% ============================================================
+
+$p$-değeri eleştirisi (Wasserstein et al. 2019) sonrasında istatistik camiası alternatif yaklaşımlar geliştirmektedir:
+
+\begin{tanim}[$s$-değeri]\label{def:s_degeri}
+Shannon bilgi birimi: $s = -\log_2(p)$. $p=0.05$ ise $s\approx4.32$ bit: bu veri, $H_0$ doğruysa $2^{4.32}\approx20$ kez atılmış yazı-turayı hep aynı görme kadar "sürpriz".
+\end{tanim}
+
+\begin{tanim}[İnanç fonksiyonu]\label{def:inanc_fonksiyonu}
+Fraser (2019): $\pi(\theta;\mathbf{x})=1-p(\theta)$; $p(\theta)$ yönlü $p$-değeri. Her $\theta$ için $H_0:\vartheta=\theta$ testinin $p$-değerine dayalı sürekli bir inanç (güven) ölçüsü.
+\end{tanim}
+
+\noindent\textbf{Güven dağılımı} (\emph{confidence distribution}): $p(\theta)=P_\theta(T\geq t_{\mathrm{gözlem}})$ bir KDF olarak görülürse, $\theta$ üzerinde bir "dağılım" sağlar; Bayes sonsal dağılımının sıklıkçı karşılığı.
+
+\begin{teorem}[Neyman-Scott paradoksu]\label{thm:neyman_scott}
+$X_{ij}\iid\Normal(\mu_i,\sigma^2)$ ($i=1,\ldots,n$; $j=1,2$). $n\to\infty$'da $\hat\sigma^2_{\mathrm{MLE}}\to\sigma^2/2$ (tutarsız). Anlık parametre sayısı $n$ ile büyüyünce MLE bozulabilir; koşullu MLE (yeterli istatistike koşullama) tutarlıdır.
+\end{teorem}
+
+\begin{proof}[Proof --- kısa]
+$\hat\mu_i=\bar X_{i.}$; $\hat\sigma^2_{\mathrm{MLE}}=\frac{1}{2n}\sum_{i,j}(X_{ij}-\bar X_{i.})^2$. $E[\hat\sigma^2_{\mathrm{MLE}}]=\sigma^2/2$. Yanlılık $\sigma^2/2$ sabit kalır, $n\to\infty$'da kaybolmaz.
+\end{proof}
+
+%% ============================================================
+
+\begin{mikroozet}
+\begin{itemize}
+  \item Test: karar kuralı; Tip I = yanlış red ($\alpha$), Tip II = yanlış kabul ($\beta$); güç = $1-\beta$.
+  \item NP lemması: basit hipotezler için olabilirlik oranı en güçlü test verir.
+  \item UMP: üstel ailede tek yönlü alternatif için her zaman mevcuttur.
+  \item ORT: genel, asimptotik $\chi^2_r$; $p$-değeri yorumu dikkat gerektirir.
+  \item Etki büyüklüğü (Cohen's $d$): istatistiksel anlamlılık pratik önemi garantilemez.
+  \item Örneklem büyüklüğü: güç analizinden belirlenir; $n=(z_\alpha+z_\beta)^2\cdot2\sigma^2/\Delta^2$.
+\end{itemize}
+\end{mikroozet}
+
+\begin{ozyansima}
+Bir test istatistiksel olarak anlamlı ama pratik açıdan önemsiz olabilir mi? $n\to\infty$ limitinde ne olur? Büyük veri istatistiksel hipotez testini nasıl etkiler?
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Nereden geldik:} Bölüm~\ref{chp:guven_araliklari}'deki güven aralıkları, bu bölümdeki testlerin çift yüzü.
+
+\textbf{Nereye gidiyoruz:} Bölüm~\ref{chp:dogrusal_modeller}'de regresyon modellerinde $\beta$ katsayıları için $t$ ve $F$ testleri, bu bölümün doğrudan uygulamasıdır.
+\end{kopru}
+
+%% ============================================================
+%% ALISTIRMALAR
+%% ============================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.14.1]{A}{Tek örneklem $t$-testi}
+$n=25$, $\bar{x}=3.8$, $s=1.2$. $H_0:\mu=4$ vs $H_1:\mu<4$. $\alpha=0.05$ düzeyinde test yap ve $p$-değerini hesapla.
+\end{alistirma}
+\alcozum{%
+$T=(3.8-4)/(1.2/5)=-0.2/0.24=-0.833$. $t_{24}$ altında $p=\Prob(T<-0.833)\approx0.206$. $p>0.05$: $H_0$ reddedilemez.%
+}
+
+\begin{alistirma}[Al.14.2]{B}{NP lemması uygulaması}
+$X\sim\Normal(\mu,1)$, tek gözlem. $H_0:\mu=0$ vs $H_1:\mu=2$. $\alpha=0.05$ için NP testini bul ve gücü hesapla.
+\end{alistirma}
+\alcozum{%
+$\Lambda(x)=\exp(2x-2)>k\iff x>c$. $\Prob_0(X>c)=0.05\Rightarrow c=1.645$. Güç: $\Prob_2(X>1.645)=\Prob(\Normal(2,1)>1.645)=\Phi(0.355)\approx0.639$.%
+}
+
+\begin{alistirma}[Al.14.2b]{B}{$p$-Değeri Yorumu ve Tip I-II Hata Dengesi}
+Bir ilaç deneyi: $H_0$: "ilaç etkisiz" vs $H_1$: "ilaç etkili", $n=50$, $\bar X=2.1$, $\sigma=1.5$. (a) $Z$ istatistiğini hesapla. (b) $p$-değerini bul (tek kuyruk). (c) $\alpha=0.01$ ile karar ver. (d) $\beta=0.10$ güç için $n$ kaç olmalı?
+\end{alistirma}
+\alcozum{%
+(a) $Z=\bar X/(\sigma/\sqrt{n})=2.1/(1.5/\sqrt{50})=2.1/0.212=9.91$.
+(b) $p=P(Z>9.91)\approx0$ (son derece küçük).
+(c) $p<0.01$: $H_0$ reddedilir --- ilaç etkili.
+(d) $n$ için: $\Prob_{\mu=\delta}(Z>z_\alpha)=1-\beta$; $z_\alpha+z_\beta=\delta\sqrt{n}/\sigma$. $z_{0.01}=2.326$, $z_{0.10}=1.282$. $n=[(z_\alpha+z_\beta)\sigma/\delta]^2=[(2.326+1.282)\cdot1.5/2.1]^2\approx6.59$. Yuvarlama: $n=7$. (Daha muhafazakâr $\delta$ için daha büyük $n$ gerekir.)}
+
+\begin{alistirma}[Al.14.2c]{B}{Çoklu Karşılaştırma --- Bonferroni}
+$m=10$ hipotez aynı anda test ediliyor. Ham $p$-değerleri: $0.003, 0.008, 0.02, 0.04, 0.05, 0.06, 0.08, 0.10, 0.15, 0.20$. (a) Bonferroni düzeltmeli $\alpha^*$ ile hangilerini reddedersiniz? (b) Benjamini-Hochberg (BH) FDR kontrolü ($q=0.05$) ile hangilerini reddedersiniz?
+\end{alistirma}
+\alcozum{%
+(a) Bonferroni: $\alpha^*=0.05/10=0.005$. $p<0.005$: $p_1=0.003$ --- sadece 1 red.
+(b) BH: $p$-değerlerini sırala: $p_{(k)}\leq kq/m=k\cdot0.05/10=0.005k$.
+$k=1$: $0.003\leq0.005$; $k=2$: $0.008\leq0.010$; $k=3$: $0.02\leq0.015$? Hayır.
+En büyük $k^*$: $k^*=2$ ($p_{(2)}=0.008\leq0.010$). İlk 2 hipotez reddedilir.
+BH, Bonferroni'den daha güçlü: 2 vs 1 red.}
+
+
+\begin{alistirma}[Al.14.3]{A}{$\chi^2$ varyans testi}
+$n=20$ gözlem; $s^2=18.5$. $H_0:\sigma^2=15$ vs $H_1:\sigma^2>15$. $\alpha=0.05$ için $Q$ hesapla ve karar ver.
+\end{alistirma}
+\alcozum{%
+$Q=19\cdot18.5/15=23.43$. $\chi^2_{19,0.05}=30.14$. $Q<30.14$: $H_0$ reddedilemez.%
+}
+\begin{alistirma}[Al.14.4]{B}{Olabilirlik oran testi --- Poisson}
+$X_1,\ldots,X_{20}\iid\Pois(\lambda)$, $\sum x_i=38$. $H_0:\lambda=1.5$ vs $H_1:\lambda\neq1.5$ için ORT'yi hesapla ve Wilks yaklaşımıyla $p$-değerini bul.
+\end{alistirma}
+\alcozum{%
+$\MLE\lambda=\bar{x}=1.9$. $-2\log\Lambda=-2[20(\log1.5-\log1.9)+20(1.9-1.5)]=2[20\log(1.9/1.5)-8]=2[20\cdot0.2357-8]=2[4.714-8]=-2(-3.286)=6.57$. Wilks: $\chi^2_1$; $p=\Prob(\chi^2_1>6.57)\approx0.010$. $H_0$ reddedilir.%
+}
+\alistirmalar
+
+
+
+\begin{alistirma}[Al.14.5]{B}{Güç analizi}
+$X_1,\ldots,X_n\iid\Normal(\mu,4)$. $H_0:\mu=0$ vs $H_1:\mu=1$; $\alpha=0.05$. Gücü \%80'e çıkarmak için kaç gözlem gerekli?
+\end{alistirma}
+\alcozum{%
+Güç $=\Phi(\sqrt{n}\cdot1/2-z_{0.05})=\Phi(\sqrt{n}/2-1.645)$. \%80 için $\Phi^{-1}(0.80)=0.842$: $\sqrt{n}/2-1.645=0.842\Rightarrow\sqrt{n}=4.974\Rightarrow n=24.74\Rightarrow n=25$.%
+}
+
+\begin{alistirma}[Al.14.6]{C}{UMP yokluğu --- iki yönlü}
+$X_1,\ldots,X_n\iid\Normal(\mu,1)$. $H_0:\mu=0$ vs $H_1:\mu\neq0$. UMP testin var olmadığını göster. \textit{(İpucu: $\mu=\delta>0$ için NP ve $\mu=-\delta$ için NP farklı red bölgesi gerektirir.)}
+\end{alistirma}
+\alcozum{%
+$H_1:\mu=\delta>0$ için NP red bölgesi $\bar{X}>c$ (sağ kuyruk). $H_1:\mu=-\delta<0$ için NP $\bar{X}<-c$ (sol kuyruk). Bu iki bölge farklı; tek bir $\phi$ her ikisi için UMP olamaz. Dolayısıyla $H_1:\mu\neq0$ için UMP test yoktur.%
+}
+
+\begin{alistirma}[Al.14.7]{C}{Bonferroni vs BH}
+$m=10$ hipotez testi, $p$-değerleri: $0.001, 0.008, 0.039, 0.041, 0.042, 0.06, 0.1, 0.12, 0.3, 0.8$. $\alpha=0.05$ için (a) Bonferroni ve (b) BH yöntemiyle kaç hipotez reddedilir?
+\end{alistirma}
+\alcozum{%
+(a) Bonferroni: $0.05/10=0.005$; sadece $p=0.001$ ve $p=0.008$ bu eşiğin altında; 2 red. (b) BH: $p_{(k)}\leq k\cdot0.05/10=0.005k$. $k=1:0.001\leq0.005$\checkmark; $k=2:0.008\leq0.010$\checkmark; $k=3:0.039\leq0.015$ --- hayır. $k^*=2$; 2 red. (Bu örnekte eşit sonuç; genel olarak BH daha fazla reddeder.)%
+}
+
+\begin{alistirma}[Al.14.8]{B}{Eşleştirilmiş $t$ vs bağımsız $t$}
+8 hasta; tedavi öncesi $(X)$: 120,125,118,130,115,122,128,116 ve sonrası $(Y)$: 115,120,112,125,110,118,122,112 (mmHg). (a) Eşleştirilmiş $t$-testi uygula ($\alpha=0.05$). (b) Eğer çiftleri görmezden gelerek bağımsız iki örneklem testi yapılsaydı güç ne yönde değişirdi?
+\end{alistirma}
+\alcozum{%
+$D_i=X_i-Y_i$: 5,5,6,5,5,4,6,4. $\bar d=5$, $s_D=\sqrt{\sum(D_i-5)^2/7}=\sqrt{4/7}=0.756$. $T=5/(0.756/\sqrt{8})=5/0.267=18.7$. $t_{7,0.025}=2.365$; $H_0$ kuvvetle reddedilir. (b) Bağımsız test: bireysel varyasyon (kişiden kişiye fark) varyansı şişirir, güç azalır. Eşleştirme kişi içi kovaryansı ortadan kaldırır; aynı $n$'de çok daha güçlü.%
+}
+
+\begin{alistirma}[Al.14.9]{B}{Cohen's d ve örneklem büyüklüğü}
+$d=0.5$ (orta etki), $\alpha=0.05$, istenen güç \%90. İki örneklemli $z$-testi için gereken $n$'yi hesapla. Güç \%80'e düşürülürse $n$ nasıl değişir?
+\end{alistirma}
+\alcozum{%
+$n=2(z_{\alpha/2}+z_\beta)^2/d^2$. \%90 güç: $z_{0.05}=1.645$, $z_{0.10}=1.282$. $n=2(1.96+1.282)^2/0.25=2\cdot10.51/0.25=84.1\Rightarrow n=85$. \%80 güç: $z_{0.20}=0.842$. $n=2(1.96+0.842)^2/0.25=2\cdot7.85/0.25=62.8\Rightarrow n=63$. Güç \%10 düşürülünce örneklem \%26 azalır.%
+}
+
+\begin{alistirma}[Al.14.10]{C}{İşaret testi}
+$n=15$ eşleştirilmiş çift; fark $D_i>0$ olanlar: 11 çift. $H_0:\delta=0$ için işaret testi ($\alpha=0.05$). Normallik gerektirmeden karar ver.
+\end{alistirma}
+\alcozum{%
+$B=11\sim\mathrm{Binom}(15,1/2)$ altında $H_0$. $p$-değeri (iki yönlü): $2\Prob(B\geq11)=2[P(11)+P(12)+P(13)+P(14)+P(15)]$. $P(B\geq11)=\sum_{k=11}^{15}\binom{15}{k}(0.5)^{15}=[455+105+15+1]\cdot2^{-15}/4096\cdot\ldots$ Hesap: $P(B\geq11)=(455+105+15+1+0)\cdot(0.5)^{15}=576/32768\approx0.0176$. $p=2\cdot0.0176=0.0352<0.05$: $H_0$ reddedilir.%
+}

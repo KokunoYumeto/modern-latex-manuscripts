@@ -1,0 +1,301 @@
+%% ============================================================
+%% EK A --- Ölçüm Teorisi Temelleri
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Ölçüm Teorisi Temelleri}
+\label{app:olcum_teorisi}
+
+Bu ek, kitap boyunca kullanılan ölçüm ve integral teorisinin temel sonuçlarını özet ve referans biçiminde sunmaktadır. Teoremlerin çoğu ispatsız verilmiş; ancak fikir ve motivasyon kısaca açıklanmıştır. Tam ispatlar için Billingsley (1995) ve Klenke (2014) birincil kaynaklardır.
+
+%% ============================================================
+\section{Sigma-Cebirler, Ölçüler ve Uzaylar}
+\label{app:sigma_olcu}
+%% ============================================================
+
+\begin{tanim}[Halka, cebir, $\sigma$-cebiri]\label{app:def:sigma}
+$\mathcal{C}\subseteq 2^\Omega$ bir koleksiyon olsun.
+\begin{enumerate}[(a)]
+  \item \textbf{Halka} \emph{(ring)}: $\emptyset\in\mathcal{C}$; $A,B\in\mathcal{C}\Rightarrow A\cup B, A\setminus B\in\mathcal{C}$.
+  \item \textbf{Cebir} \emph{(algebra)}: Halka + $\Omega\in\mathcal{C}$ (sonlu birleşimlere kapalı).
+  \item \textbf{$\sigma$-cebiri} \emph{(sigma-algebra)}: Cebir + sayılabilir birleşimlere kapalı.
+\end{enumerate}
+$(\Omega,\mathcal{F})$: $\mathcal{F}$ $\sigma$-cebiri ise \textbf{ölçülebilir uzay} \emph{(measurable space)}.
+\end{tanim}
+
+\begin{ornek}[$\sigma$-cebiri örnekleri]
+\begin{enumerate}[(i)]
+  \item \textbf{Önemsiz $\sigma$-cebiri:} $\{\emptyset,\Omega\}$.
+  \item \textbf{Ayrık $\sigma$-cebiri:} $2^\Omega$ (tüm alt kümeler).
+  \item \textbf{Borel $\sigma$-cebiri:} $\mathcal{B}(\mathbb{R}) = \sigma(\text{açık kümeler})$; her açık ve kapalı küme $\in\mathcal{B}(\mathbb{R})$.
+  \item $A\subset\Omega$ için $\sigma(\{A\}) = \{\emptyset, A, A^c, \Omega\}$.
+\end{enumerate}
+\end{ornek}
+
+\begin{tanim}[Ölçü]\label{app:def:olcu}
+$\mu:\mathcal{F}\to[0,\infty]$ fonksiyonu \textbf{ölçü} \emph{(measure)} ise:
+\begin{enumerate}[(i)]
+  \item $\mu(\emptyset)=0$.
+  \item (Sayılabilir eklenebilirlik) Ayrık $A_1,A_2,\ldots\in\mathcal{F}$: $\mu\!\left(\bigsqcup_n A_n\right)=\sum_n\mu(A_n)$.
+\end{enumerate}
+$\mu(\Omega)=1$ ise \textbf{olasılık ölçüsü}; $\mu(\Omega)<\infty$ ise \textbf{sonlu ölçü}; $\sigma$-sonlu ise sayılabilir birleşimde her parça sonlu ölçülü.
+\end{tanim}
+
+\begin{teorem}[Ölçünün süreklilik özellikleri]\label{app:thm:olcu_surekli}
+$\mu$ ölçü, $(A_n)$ monoton dizi:
+\begin{enumerate}[(a)]
+  \item $A_n\uparrow A$: $\mu(A_n)\uparrow\mu(A)$ \emph{(aşağıdan süreklilik)}.
+  \item $A_n\downarrow A$, $\mu(A_1)<\infty$: $\mu(A_n)\downarrow\mu(A)$ \emph{(yukarıdan süreklilik)}.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(a) $B_1=A_1$, $B_n=A_n\setminus A_{n-1}$ ayrık parçalar; $A=\bigsqcup_n B_n$. $\mu(A)=\sum_n\mu(B_n)=\lim_N\sum_{n=1}^N\mu(B_n)=\lim_N\mu(A_N)$.
+(b) $A_1\setminus A_n\uparrow A_1\setminus A$; (a)'dan $\mu(A_1\setminus A_n)\uparrow\mu(A_1\setminus A)$; $\mu(A_n)=\mu(A_1)-\mu(A_1\setminus A_n)$.
+\end{proof}
+
+\begin{teorem}[Carath\'{e}odory genişletme]\label{app:thm:caratheodory}
+$\mu_0$ halka $\mathcal{R}$ üzerinde $\sigma$-sonlu ön-ölçü. Yegâne ölçü $\mu$ üzerinde $\sigma(\mathcal{R})$ var; $\mu|_\mathcal{R}=\mu_0$. Sonuç: Lebesgue ölçüsü $\lambda([a,b])=b-a$ koşuluyla yegâne belirlenir.
+\end{teorem}
+
+%% ============================================================
+\section{Ölçülebilir Fonksiyonlar}
+\label{app:olculebilir_fon}
+%% ============================================================
+
+\begin{tanim}[Ölçülebilir fonksiyon]\label{app:def:olculebilir_fon}
+$f:(\Omega,\mathcal{F})\to(\mathcal{X},\mathcal{G})$ fonksiyonu \textbf{ölçülebilir} \emph{(measurable)} iff her $B\in\mathcal{G}$ için $f^{-1}(B)\in\mathcal{F}$. $\mathcal{X}=\mathbb{R}$, $\mathcal{G}=\mathcal{B}(\mathbb{R})$ ise \textbf{Borel-ölçülebilir}.
+\end{tanim}
+
+\begin{teorem}[Ölçülebilir fonksiyon karakterizasyonu]
+$f:\Omega\to\mathbb{R}$ ölçülebilir $\iff$ her $a\in\mathbb{R}$ için $\{f\leq a\}\in\mathcal{F}$. Aynı zamanda $\{f<a\}$, $\{f\geq a\}$, $\{f>a\}$ ile de eşdeğer.
+\end{teorem}
+
+\begin{sonuc}[Sürekli fonksiyonlar ölçülebilir]
+$f:\mathbb{R}\to\mathbb{R}$ sürekli $\Rightarrow$ $f$ Borel-ölçülebilir. Ölçülebilirlerin toplamı, farkı, çarpımı, bölümü (sıfır dışında), $\limsup$'ı, $\liminf$'i, limiti (varsa) ölçülebilirdir.
+\end{sonuc}
+
+\begin{tanim}[Basit fonksiyon]\label{app:def:basit}
+$s = \sum_{k=1}^n a_k\mathbf{1}_{A_k}$ ($a_k\in\mathbb{R}$, $A_k\in\mathcal{F}$ ayrık) \textbf{basit fonksiyon} \emph{(simple function)}.
+\end{tanim}
+
+\begin{teorem}[Basit fonksiyon yakınsama]\label{app:thm:basit_yakin}
+$f\geq0$ ölçülebilir $\Rightarrow$ artan basit fonksiyon dizisi $s_n\uparrow f$ (n.k.) mevcuttur. \textit{Yapı:} $s_n(x) = \min(f(x),n)\cdot\lfloor 2^n\min(f(x),n)\rfloor / 2^n$.
+\end{teorem}
+
+%% ============================================================
+\section{Lebesgue İntegrali}
+\label{app:lebesgue_integral}
+%% ============================================================
+
+\begin{tanim}[İntegral --- üç adım]\label{app:def:integral}
+Ölçü uzayı $(\Omega,\mathcal{F},\mu)$:
+\begin{enumerate}[(1)]
+  \item \textit{Basit $s\geq0$:} $\int s\,d\mu = \sum_k a_k\mu(A_k)$.
+  \item \textit{$f\geq0$ ölçülebilir:} $\int f\,d\mu = \sup\{\int s\,d\mu: 0\leq s\leq f,\,s\text{ basit}\}$.
+  \item \textit{Genel $f$:} $\int f = \int f^+ - \int f^-$ (her ikisi sonlu ise $f$ \textbf{integrallenebilir}).
+\end{enumerate}
+$L^1(\mu) = \{f: \int|f|\,d\mu < \infty\}$ integrallenebilir fonksiyonlar uzayı.
+\end{tanim}
+
+\begin{teorem}[Monoton Yakınsama Teoremi (MYT)]\label{app:thm:myt}
+$0\leq f_n\uparrow f$ (n.k.). O zaman:
+\[
+  \int f_n\,d\mu \uparrow \int f\,d\mu.
+\]
+\emph{Not:} $f$ integrallenebilir olmayabilir; her iki taraf $+\infty$ olabilir.
+\end{teorem}
+
+\begin{teorem}[Fatou Lemması]\label{app:thm:fatou}
+$f_n\geq0$ ölçülebilir:
+\[
+  \int\liminf_{n\to\infty} f_n\,d\mu \leq \liminf_{n\to\infty}\int f_n\,d\mu.
+\]
+\emph{Uyarı:} Eşitsizlik tersine dönebilir (alt sınırdan fark yaratır); "kütleyi kaybetmek" mümkün.
+\end{teorem}
+
+\begin{ornek}[Fatou'da eşitsizlik sıkı olabilir]
+$f_n = \mathbf{1}_{[n,n+1]}\geq0$; $\liminf f_n = 0$; $\int f_n = 1$ her $n$ için. $\int 0 = 0 < 1 = \liminf\int f_n$.
+\end{ornek}
+
+\begin{teorem}[Baskınlıklı Yakınsama Teoremi (BYT)]\label{app:thm:byt}
+$f_n\to f$ n.k., $|f_n|\leq g$ n.k., $\int g\,d\mu<\infty$. O zaman $f,f_n\in L^1$ ve:
+\[
+  \int|f_n-f|\,d\mu\to0, \qquad \int f_n\,d\mu\to\int f\,d\mu.
+\]
+\end{teorem}
+
+\begin{ornek}[BYT uygulaması --- türev-integral değişimi]
+$\int_0^\infty e^{-tx}\cos(x)\,dx$'in $t$'ye göre türevi: baskınlık fonksiyonu $e^{-t_0 x}$ ($t\geq t_0>0$); türev integralin içine alınabilir.
+\end{ornek}
+
+\begin{teorem}[Fubini-Tonelli]\label{app:thm:fubini}
+Çarpım ölçü uzayı $(\Omega_1\times\Omega_2, \mathcal{F}_1\otimes\mathcal{F}_2, \mu_1\otimes\mu_2)$:
+\begin{enumerate}[(a)]
+  \item \emph{Tonelli ($f\geq0$):} Yinelenen integraller her iki sırada da tanımlı ve eşit:
+  \[
+    \iint f\,d(\mu_1\otimes\mu_2) = \int\!\left(\int f(x,y)\,d\mu_1(x)\right)d\mu_2(y).
+  \]
+  \item \emph{Fubini ($f\in L^1$):} Tonelli + kesite göre integrallenebilirlik; a.e. sıra değiştirme geçerli.
+\end{enumerate}
+\end{teorem}
+
+\begin{teorem}[Radon-Nikodym]\label{app:thm:radon_nikodym}
+$(\Omega,\mathcal{F})$ ölçülebilir uzay; $\mu,\nu$ $\sigma$-sonlu ölçüler; $\nu\ll\mu$ ($\nu$ mutlak sürekli $\mu$'ya göre). Yegâne $\mathcal{F}$-ölçülebilir $f\geq0$ ile:
+\[
+  \nu(A) = \int_A f\,d\mu \quad \text{her } A\in\mathcal{F} \text{ için.}
+\]
+$f = d\nu/d\mu$ \textbf{Radon-Nikodym türevi} \emph{(Radon-Nikodym derivative)} adını alır.
+\end{teorem}
+
+\begin{ornek}[Yoğunluk = Radon-Nikodym türevi]
+$X\sim F_X$ KDF'ye sahip rasgele değişken; PDF $f_X$ mevcutsa: $\Prob(X\in B)=\int_B f_X(x)\,d\lambda(x)$, yani $f_X = d\Prob_X/d\lambda$ (Lebesgue ölçüsüne göre).
+\end{ornek}
+
+%% ============================================================
+\section{$L^p$ Uzayları ve Eşitsizlikler}
+\label{app:lp_uzaylari}
+%% ============================================================
+
+\begin{tanim}[$L^p$ uzayı]\label{app:def:lp}
+$1\leq p<\infty$: $L^p(\mu)=\{f:\int|f|^p\,d\mu<\infty\}$; $\|f\|_p=(\int|f|^p\,d\mu)^{1/p}$.
+$L^\infty(\mu)$: esansiyel üst sınır sonlu fonksiyonlar; $\|f\|_\infty=\mathrm{ess\,sup}|f|$.
+\end{tanim}
+
+\begin{teorem}[Hölder eşitsizliği]\label{app:thm:holder}
+$f\in L^p$, $g\in L^q$, $1/p+1/q=1$ ($p,q>1$):
+\[
+  \int|fg|\,d\mu \leq \|f\|_p\|g\|_q.
+\]
+$p=q=2$: Cauchy-Schwarz eşitsizliği.
+\end{teorem}
+
+\begin{teorem}[Minkowski eşitsizliği]\label{app:thm:minkowski}
+$f,g\in L^p$ ($p\geq1$): $\|f+g\|_p \leq \|f\|_p+\|g\|_p$.
+\end{teorem}
+
+\begin{teorem}[Jensen eşitsizliği]\label{app:thm:jensen}
+$\varphi$ konveks, $X\in L^1$: $\varphi(\Beklenti[X])\leq\Beklenti[\varphi(X)]$.
+\textit{Not:} $\varphi$ içbükey ise ters eşitsizlik.
+\end{teorem}
+
+%% ============================================================
+\section{Karakteristik Fonksiyonlar}
+\label{app:kf_sonuclar}
+%% ============================================================
+
+\begin{tanim}[Karakteristik fonksiyon]\label{app:def:kf}
+$X$ rasgele değişken; $\varphi_X:\mathbb{R}\to\mathbb{C}$:
+\[
+  \varphi_X(t) = \Beklenti[e^{itX}] = \int e^{itx}\,dF_X(x).
+\]
+Her zaman tanımlı ($|\varphi_X(t)|\leq1$); dağılımı yegâne belirler.
+\end{tanim}
+
+\begin{teorem}[KF özellikleri]\label{app:thm:kf_ozell}
+\begin{enumerate}[(a)]
+  \item $\varphi_X(0)=1$; $|\varphi_X(t)|\leq1$; $\varphi_X$ ünitürdeş sürekli.
+  \item Bağımsız $X,Y$: $\varphi_{X+Y}(t)=\varphi_X(t)\varphi_Y(t)$.
+  \item $Y=aX+b$: $\varphi_Y(t)=e^{ibt}\varphi_X(at)$.
+  \item $\Beklenti[|X|^k]<\infty$: $\varphi_X^{(k)}(0)=i^k\Beklenti[X^k]$.
+\end{enumerate}
+\end{teorem}
+
+\begin{teorem}[Tersim formülü]\label{app:thm:tersim}
+$F_X$ süreklilik noktaları $a<b$:
+\[
+  F_X(b)-F_X(a) = \lim_{T\to\infty}\frac{1}{2\pi}\int_{-T}^T\frac{e^{-ita}-e^{-itb}}{it}\varphi_X(t)\,dt.
+\]
+\end{teorem}
+
+\begin{teorem}[Levy süreklilik teoremi]\label{app:thm:levy_sureklilk}
+$X_n\dto X \iff \varphi_{X_n}(t)\to\varphi_X(t)$ her $t\in\mathbb{R}$ için; \textit{ve} sınırlayıcı fonksiyon $\varphi_X$'in $t=0$'da sürekli olması.
+\end{teorem}
+
+%% ============================================================
+\section{Koşullu Beklenti --- Ölçüm Teorisi Yaklaşımı}
+\label{app:kosullu_beklenti}
+%% ============================================================
+
+\begin{tanim}[Koşullu beklenti]\label{app:def:kosullu_beklenti}
+$X\in L^1(\Omega,\mathcal{F},\Prob)$ ve $\mathcal{G}\subseteq\mathcal{F}$ alt $\sigma$-cebiri. $\Beklenti[X\mid\mathcal{G}]$ yegâne $\mathcal{G}$-ölçülebilir $Y\in L^1$ ile:
+\[
+  \int_A Y\,d\Prob = \int_A X\,d\Prob \quad \text{her } A\in\mathcal{G} \text{ için.}
+\]
+Varlık ve yegânlık Radon-Nikodym teoreminden çıkar.
+\end{tanim}
+
+\begin{teorem}[Koşullu beklenti özellikleri]\label{app:thm:kb_ozell}
+\begin{enumerate}[(a)]
+  \item \emph{Yansıtma:} $\mathcal{G}_1\subseteq\mathcal{G}_2$: $\Beklenti[\Beklenti[X\mid\mathcal{G}_2]\mid\mathcal{G}_1]=\Beklenti[X\mid\mathcal{G}_1]$.
+  \item \emph{Bağımsızlık:} $X\perp\mathcal{G}\Rightarrow\Beklenti[X\mid\mathcal{G}]=\Beklenti[X]$.
+  \item \emph{Alınabilir çarpan:} $Z$ $\mathcal{G}$-ölçülebilir, $XZ\in L^1$: $\Beklenti[XZ\mid\mathcal{G}]=Z\Beklenti[X\mid\mathcal{G}]$.
+  \item \emph{Varyans ayrışımı:} $\Var(X)=\Beklenti[\Var(X\mid\mathcal{G})]+\Var(\Beklenti[X\mid\mathcal{G}])$.
+\end{enumerate}
+\end{teorem}
+
+%% ============================================================
+\section{Olasılık Teorisinde Önemli Eşitsizlikler}
+\label{app:esitsizlikler}
+%% ============================================================
+
+Aşağıdaki eşitsizlikler bölümler boyunca tekrar tekrar kullanılmaktadır.
+
+\begin{teorem}[Jensen Eşitsizliği]\label{app:thm:jensen}
+$\phi:\mathbb{R}\to\mathbb{R}$ dışbükey ve $\Beklenti[|X|]<\infty$:
+\[
+  \phi(\Beklenti[X]) \leq \Beklenti[\phi(X)].
+\]
+İçbükey $\phi$ için ters yön.
+Uygulamalar: $\Beklenti[X^2]\geq(\Beklenti[X])^2$; $\Beklenti[\log X]\leq\log\Beklenti[X]$.
+\end{teorem}
+
+\begin{teorem}[Markov ve Chebyshev]\label{app:thm:markov_cheby}
+\begin{enumerate}[(a)]
+  \item \emph{Markov:} $X\geq0$, $a>0$: $\Prob(X\geq a)\leq\Beklenti[X]/a$.
+  \item \emph{Chebyshev:} $\Var(X)<\infty$: $\Prob(|X-\Beklenti[X]|\geq k)\leq\Var(X)/k^2$.
+  \item \emph{Cantelli (tek yönlü):} $\Prob(X-\mu\geq k)\leq\sigma^2/(\sigma^2+k^2)$.
+\end{enumerate}
+\end{teorem}
+
+\begin{teorem}[Cauchy-Schwarz ve Hölder]\label{app:thm:cs_holder}
+\begin{enumerate}[(a)]
+  \item \emph{Cauchy-Schwarz:} $\Beklenti[|XY|]\leq\sqrt{\Beklenti[X^2]\Beklenti[Y^2]}$.
+  \item \emph{Hölder:} $1/p+1/q=1$, $p,q\geq1$: $\Beklenti[|XY|]\leq(\Beklenti[|X|^p])^{1/p}(\Beklenti[|Y|^q])^{1/q}$.
+  \item \emph{Lyapunov:} $1\leq r\leq s$: $(\Beklenti[|X|^r])^{1/r}\leq(\Beklenti[|X|^s])^{1/s}$.
+\end{enumerate}
+\end{teorem}
+
+\begin{teorem}[Chernoff ve Hoeffding]\label{app:thm:chernoff_hoeff}
+$X_1,\ldots,X_n$ bağımsız, $\Beklenti[X_i]=0$, $a_i\leq X_i\leq b_i$.
+\begin{enumerate}[(a)]
+  \item \emph{Chernoff:} MGF $M(\lambda)<\infty$ için $\Prob(S_n\geq t)\leq e^{-\sup_\lambda[\lambda t-n\log M(\lambda)]}$.
+  \item \emph{Hoeffding:} $\Prob(|S_n|\geq t)\leq2\exp(-2t^2/\sum(b_i-a_i)^2)$.
+\end{enumerate}
+\end{teorem}
+
+%% ============================================================
+\section{Zayıf ve Güçlü Yakınsama: Özet Tablosu}
+\label{app:yakin_ozet}
+%% ============================================================
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\hline
+\textbf{Yakınsama türü} & \textbf{Tanım} & \textbf{İlişki} \\
+\hline
+n.k.\ (a.s.) & $P(\lim X_n=X)=1$ & en güçlü \\
+$L^p$ & $\Beklenti[|X_n-X|^p]\to0$ & n.k. $\not\Rightarrow$ $L^1$ \\
+Olasılıkta ($P$) & $P(|X_n-X|>\varepsilon)\to0$ & $L^1\Rightarrow P$; n.k. $\Rightarrow P$ \\
+Dağılımda ($d$) & $F_n(x)\to F(x)$ süreklilik noktasında & en zayıf \\
+\hline
+\end{tabular}
+\end{center}
+
+Genel içerme: n.k. $\Rightarrow P \Rightarrow d$; $L^p \Rightarrow P \Rightarrow d$.
+Ters yönler çalışmaz: $P\not\Rightarrow$ n.k.; $d\not\Rightarrow P$ (dağılımda yakınsama için $X_n,X$ aynı uzayda olmak zorunda değil).
+
+\begin{ornek}[Her yönden karşı örnek]\label{app:ex:yakin_karsiornek}
+$X_n=\mathbf{1}_{[0,1/n]}$, $n\to\infty$: $X_n\pto0$ ve $X_n\to0$ n.k.\ (Lebesgue ölçüsünde). \\
+$Y_n$: $[0,1]$'de gezici bloklar ($P(Y_n=1)=1/n$, $Y_n\pto0$ ama $Y_n\not\to0$ n.k.\ hiçbir $\omega$'da).
+\end{ornek}

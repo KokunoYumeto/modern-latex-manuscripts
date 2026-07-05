@@ -1,0 +1,1131 @@
+% =====================================================================
+%  BÖLÜM 3: Rasgele Değişkenler ve Dağılımlar
+%  Kaynak: Feller Vol.I-II; Shiryaev; Billingsley; Klenke
+% =====================================================================
+\chapter{Rasgele Değişkenler ve Dağılımlar}
+\label{chp:rasgele_degiskenler}
+
+\bolumalinti{%
+  Olasılık teorisi, belirsizliği sayıya dönüştürmenin bilimidir.
+  Rasgele değişken bu dönüşümün ta kendisidir.%
+}{Andrei Kolmogorov}
+
+% ---- Kazanımlar (TYMM) ----
+\begin{kazanimlar}
+Bu bölümün sonunda öğrenci:
+\begin{itemize}
+  \item Rasgele değişkeni ölçülebilir fonksiyon olarak tanımlayabilir ve
+        bu tanımın neden "şans sonucu sayı üretme" sezgisini yakaladığını açıklayabilir.
+  \item Kümülatif dağılım fonksiyonu (KDF) kavramını tanımlayabilir,
+        karakteristik özelliklerini ispatlayabilir ve KDF'den olasılık hesabı yapabilir.
+  \item Kesikli, mutlak sürekli ve karma dağılımlar arasındaki farkı
+        Lebesgue ayrışımı çerçevesinde ifade edebilir.
+  \item Ortak dağılım, marjinal dağılım ve koşullu dağılım kavramlarını
+        tanımlayabilir; bağımsız rasgele değişkenlerin ayırt edici özelliklerini kullanabilir.
+  \item Birebir dönüşüm yöntemi ve Jacobian formülünü tek ve çok boyutlu
+        durumlarda uygulayabilir; evrişim (konvolüsyon) yöntemiyle toplam dağılımını bulabilir.
+\end{itemize}
+\end{kazanimlar}
+
+% ---- Motivasyon ----
+\begin{motivasyon}
+Bölüm~\ref{chp:olasilik_uzaylari}'da bir olasılık uzayı $(\Omega, \mathcal{F}, P)$ inşa ettik.
+Ancak $\Omega$ kümesi çoğu zaman soyut bir uzaydır: yazı-tura atışında
+$\Omega = \{Y, T\}$, bir deneyin tüm sonuçları kümesinde ise karmaşık nesneler barındırabilir.
+Pratikte ilgilendiğimiz şey genellikle \emph{sayısal} sonuçlardır:
+"kaç tura geldi?", "bekleme süresi ne kadar?", "ölçülen sıcaklık nedir?"
+
+\textbf{Rasgele değişken} (random variable), $\Omega$'yı reel sayı eksenine taşıyan
+ölçülebilir bir fonksiyondur. Bu taşıma sayesinde karmaşık olasılık uzaylarını
+\emph{gerçel sayılar üzerindeki dağılımlarla} inceleyebiliriz; asıl ağırlık
+$(\Omega, \mathcal{F}, P)$'den $(\mathbb{R}, \mathcal{B}(\mathbb{R}), P_X)$'e geçer.
+
+\medskip
+\textbf{Köprü.} Bölüm~\ref{chp:olcum_teorisi}'de ölçülebilir fonksiyon ve
+Lebesgue integrali; Bölüm~\ref{chp:olasilik_uzaylari}'da Kolmogorov aksiyomları
+ve bağımsızlık kavramı bu bölümün temelini oluşturur.
+Bölüm~\ref{chp:beklenti}'de bu dağılımlar üzerinden beklenti ve momentler hesaplanacak;
+Bölüm~\ref{chp:dagilim_aileleri}'de somut dağılım aileleri incelenecektir.
+\end{motivasyon}
+
+% =====================================================================
+\section{Rasgele Değişken Kavramı}
+\label{sec:rd_kavram}
+% =====================================================================
+
+\begin{kesif}
+Yazı-tura atışında $\Omega = \{Y, T\}$ olsun.
+"Tura sayısı" bir fonksiyon tanımlar: $X(Y) = 0$, $X(T) = 1$.
+Bu fonksiyonun hangi özelliği onu "rasgele değişken" yapar?
+Eğer $A = \{1\} \subset \mathbb{R}$ ise $\{X \in A\} = \{T\}$ olayı
+olasılık uzayında tanımlı olmalı --- yani $\mathcal{F}$'ye ait olmalıdır.
+Peki ya $A = (0.5, 1.5)$ veya $A = \emptyset$ için?
+Tüm Borel kümelerine bu özelliği istiyorsak ne elde ederiz?
+\kesifcevap{$X$ rasgele değişken olmak için $\forall A \in \mathcal{B}(\mathbb{R}): X^{-1}(A) \in \mathcal{F}$ gerekir.
+  $A=(0.5,1.5)$: $X^{-1}(A)=\{T\}\in\mathcal{F}$. $A=\emptyset$: $X^{-1}(\emptyset)=\emptyset\in\mathcal{F}$.
+  Tüm Borel kümelerine bu özelliği istemek $\mathcal{B}(\mathbb{R})$/$\mathcal{F}$-ölçülebilirliği tanımlar.}
+\end{kesif}
+
+\begin{tanimgerekce}
+Neden "$f^{-1}(B) \in \mathcal{F}$ her $B \in \mathcal{B}(\mathbb{R})$ için" koşulu?
+Çünkü $P(X \in B)$ ifadesi ancak $\{X \in B\} = X^{-1}(B)$ bir olay olduğunda,
+yani $\mathcal{F}$'de olduğunda, anlam taşır.
+Ölçülebilirlik tam da bu hesabı mümkün kılan koşuldur.
+\end{tanimgerekce}
+
+\begin{tanim}[Rasgele Değişken]
+\label{def:rasgele_degisken}
+$(\Omega, \mathcal{F}, P)$ bir olasılık uzayı olsun.
+$X : \Omega \to \mathbb{R}$ fonksiyonu, her $B \in \mathcal{B}(\mathbb{R})$ için
+\[
+  X^{-1}(B) = \{\omega \in \Omega : X(\omega) \in B\} \in \mathcal{F}
+\]
+koşulunu sağlıyorsa $X$'e \textbf{rasgele değişken} (random variable) denir.
+Başka bir deyişle $X$, $(\Omega, \mathcal{F})$'den $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$'ye
+\textbf{ölçülebilir bir fonksiyondur}.
+\end{tanim}
+
+\begin{onerme}[Eşdeğer Karakterizasyon]
+\label{prop:rd_char}
+$X : \Omega \to \mathbb{R}$ için aşağıdaki koşullar birbirine denktir:
+\begin{enumerate}[(i)]
+  \item $X$ rasgele değişkendir.
+  \item Her $c \in \mathbb{R}$ için $\{X \leq c\} \in \mathcal{F}$.
+  \item Her $c \in \mathbb{R}$ için $\{X < c\} \in \mathcal{F}$.
+  \item Her $c \in \mathbb{R}$ için $\{X > c\} \in \mathcal{F}$.
+  \item Her $c \in \mathbb{R}$ için $\{X \geq c\} \in \mathcal{F}$.
+\end{enumerate}
+\end{onerme}
+
+\begin{proof}
+Bölüm~\ref{chp:olcum_teorisi}'deki Teorem~\ref{thm:olculebichar}'in doğrudan
+bir uygulamasıdır; $\pi$-sistemi argümanı $\{(-\infty, c] : c \in \mathbb{R}\}$'nin
+$\mathcal{B}(\mathbb{R})$'yi ürettiğini kullanır.
+$(i) \Rightarrow (ii)$: $(-\infty, c] \in \mathcal{B}(\mathbb{R})$ olduğundan $X^{-1}((-\infty, c]) \in \mathcal{F}$.
+$(ii) \Rightarrow (iii)$: $\{X < c\} = \bigcup_{n=1}^\infty \{X \leq c - 1/n\}$,
+sayılabilir birleşim $\mathcal{F}$'de kalır.
+$(iii) \Leftrightarrow (iv)$: $\{X < c\} = \{X \geq c\}^c$.
+$(ii) \Leftrightarrow (v)$: $\{X \geq c\} = \{X < c\}^c$.
+$(ii) \Rightarrow (i)$: $\pi$-sistemi $\{(-\infty, c]\}$ üzerinde
+$X^{-1}$ $\mathcal{F}$'ye düşüyor; $\mathcal{B}(\mathbb{R})$'nin üretilmesi bu yeterli.
+\end{proof}
+
+\begin{kritiksorgu}
+"$X$ sürekli olması rasgele değişken olması için yeterli midir?"
+Hayır: süreklilik analitik bir kavramdır, ölçülebilirliği garanti etmez ---
+ancak Borel-ölçülebilir bir $\sigma$-cebir düzeni altında sürekli fonksiyonlar
+her zaman ölçülebilirdir (dolayısıyla rasgele değişkendir).
+Vitali kümesinin gösterge fonksiyonu, $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$'de
+ölçülebilir olmayan bir fonksiyon örneğidir (ama bu durum uygulamada sorun yaratmaz).
+\end{kritiksorgu}
+
+\begin{onerme}[Cebirsel Kararlılık]
+\label{prop:rd_cebir}
+$X, Y$ rasgele değişkenler ve $c \in \mathbb{R}$ sabit olsun. O zaman
+$X + Y$, $cX$, $XY$, $\max(X, Y)$, $\min(X, Y)$ ve $|X|$ de rasgele değişkenlerdir.
+Ayrıca $Y \neq 0$ n.k.\ ise $X/Y$ rasgele değişkendir.
+$\{X_n\}$ rasgele değişken dizisi ise $\sup_n X_n$, $\inf_n X_n$,
+$\limsup_{n} X_n$, $\liminf_n X_n$ ölçülebilir fonksiyonlardır
+(sonlu değerleri yoksa $\overline{\mathbb{R}}$'ye değer alırlar).
+\end{onerme}
+
+\begin{proof}
+$\{X + Y < c\} = \bigcup_{q \in \mathbb{Q}} (\{X < q\} \cap \{Y < c-q\}) \in \mathcal{F}$
+(rasyonel sayılar üzerinden sayılabilir birleşim).
+$\{XY > c\}$ için $XY = \tfrac{1}{4}[(X+Y)^2 - (X-Y)^2]$ açılımı kullanılır.
+$\sup_n$: $\{\sup_n X_n > c\} = \bigcup_n \{X_n > c\} \in \mathcal{F}$.
+Diğerleri benzer.
+\end{proof}
+
+\begin{tarihselnot}
+"Rasgele değişken" terimi bir değişken değil, fonksiyondur --- tarihsel adlandırma yanıltıcıdır.
+Kolmogorov 1933'te olasılığı ölçüm teorisi üzerine oturtmadan önce,
+rasgele değişkenler daha çok sezgisel olarak tanımlanıyordu.
+Modern tanım, Lebesgue'nin ölçüm teorisi ile Borel'in $\sigma$-cebirleri
+kavramlarının olasılığa uygulanmasıyla ortaya çıktı.
+\end{tarihselnot}
+
+\begin{hocanotu}
+Bundan sonra "$X$ rasgele değişken" derken her zaman
+$(\Omega, \mathcal{F}, P)$ olasılık uzayından $(\mathbb{R}, \mathcal{B}(\mathbb{R}))$'ye
+ölçülebilir fonksiyonu kastediyoruz. Vektör değerli rasgele değişkenler
+(Bölüm~\ref{sec:rd_ortak}) aynı mantıkla $\mathbb{R}^n$'e değer alan ölçülebilir
+fonksiyonlar olarak tanımlanır.
+\end{hocanotu}
+
+\begin{kendinleifade}
+"Rasgele değişken" neden bir "değişken" değil, bir "fonksiyondur"?
+Hangi uzaydan hangi uzaya gider? Ölçülebilirlik koşulu ne anlama gelir?
+Bir arkadaşınıza matematiksiz bir dille açıklayınız.
+\kendinleifadecevap{$X:\Omega\to\mathbb{R}$ --- her deney sonucuna ($\omega$) deterministik bir sayı atar.
+  "Değişken" değil çünkü $X$ sabit bir kural, rastlantı $\omega$'dedir.
+  Ölçülebilirlik: $\{X\leq c\}\in\mathcal{F}$ --- "en fazla $c$" olayının tanımlı olasılığı var;
+  olmasa $P(X\leq c)$ hesaplanamaz.
+  \textbf{Arkadaşa açıklama:} "Zar atmak gibi. Zar atmak rastlantı; ama 'kaç puan aldım'
+  sorusu deterministik bir fonksiyon --- her yüze bir sayı atıyorsun."}
+\end{kendinleifade}
+
+\begin{mikroozet}
+Rasgele değişken $X : (\Omega, \mathcal{F}) \to (\mathbb{R}, \mathcal{B}(\mathbb{R}))$
+ölçülebilir bir fonksiyondur; bu $\{X \leq c\} \in \mathcal{F}$ koşuluyla
+eşdeğerdir. Rasgele değişkenler cebirsel işlemler ve limit altında kapalıdır.
+\end{mikroozet}
+
+% =====================================================================
+\section{Dağılım Fonksiyonu}
+\label{sec:dagilim_fonksiyonu}
+% =====================================================================
+
+\begin{kesif}
+$X$ bir rasgele değişken. $P(X \leq 1.5)$, $P(X \leq 3.7)$ gibi değerleri
+biliyorsak $X$ hakkında ne kadar bilgi sahibi oluruz?
+Eğer tüm $c \in \mathbb{R}$ için $P(X \leq c)$ değerlerini biliyorsak,
+bu yeterli midir --- yani bu değerler $X$'in dağılımını tamamen belirler mi?
+\kesifcevap{Evet. $F_X(c)=P(X\leq c)$ tüm $c\in\mathbb{R}$ için bilinirse,
+  her yarı-kapalı aralığın ve dolayısıyla her Borel kümesinin olasılığı
+  türetilir. Dağılım fonksiyonu, olasılık ölçüsünü $\mathbb{R}$ üzerinde biricik olarak belirler.}
+\end{kesif}
+
+\begin{tanim}[Kümülatif Dağılım Fonksiyonu]
+\label{def:kdf}
+$X$ bir rasgele değişken olsun. \textbf{Kümülatif dağılım fonksiyonu} (KDF)
+(cumulative distribution function, CDF)
+\[
+  F_X(x) = P(X \leq x), \qquad x \in \mathbb{R}
+\]
+ile tanımlanır.
+\end{tanim}
+
+\begin{teorem}[KDF'nin Karakteristik Özellikleri]
+\label{thm:kdf_ozellik}
+Her KDF aşağıdaki özellikleri sağlar:
+\begin{enumerate}[(i)]
+  \item \textbf{Monoton artmayan değil:} $x \leq y \Rightarrow F(x) \leq F(y)$.
+  \item \textbf{Sağdan sürekli:} $\lim_{y \downarrow x} F(y) = F(x)$.
+  \item \textbf{Sınır davranışı:} $\lim_{x \to -\infty} F(x) = 0$ ve
+        $\lim_{x \to +\infty} F(x) = 1$.
+\end{enumerate}
+Tersine, bu üç özelliği sağlayan her $F : \mathbb{R} \to [0,1]$ fonksiyonu
+bir rasgele değişkenin KDF'sidir.
+\end{teorem}
+
+\begin{proof}
+\textit{(i):} $x \leq y$ ise $\{X \leq x\} \subseteq \{X \leq y\}$, dolayısıyla
+$F(x) = P(X \leq x) \leq P(X \leq y) = F(y)$.
+
+\textit{(ii):} $y_n \downarrow x$ olsun. O zaman $\{X \leq y_n\} \downarrow \{X \leq x\}$
+(azalan olaylar dizisi, $\bigcap_n \{X \leq y_n\} = \{X \leq x\}$).
+Ölçünün yukarıdan sürekliliği (Bölüm~\ref{chp:olcum_teorisi}, Teorem~\ref{thm:olcuozellik}):
+\[
+  \lim_{y \downarrow x} F(y) = \lim_{n \to \infty} P(X \leq y_n) = P\!\left(\bigcap_n \{X \leq y_n\}\right) = P(X \leq x) = F(x).
+\]
+
+\textit{(iii):} $x_n \to -\infty$ ise $\{X \leq x_n\} \downarrow \emptyset$, dolayısıyla
+$F(x_n) \to P(\emptyset) = 0$. Benzer şekilde $x_n \to +\infty$ ise
+$\{X \leq x_n\} \uparrow \Omega$, dolayısıyla $F(x_n) \to P(\Omega) = 1$.
+
+\textit{Tersine:} $(i)$--$(iii)$'ü sağlayan $F$ verildiğinde,
+$\mathbb{R}$ üzerindeki Lebesgue-Stieltjes ölçüsü inşası yoluyla
+(Carathéodory genişleme teoremi) $P((a,b]) = F(b) - F(a)$ sağlayan
+bir olasılık ölçüsü $P$ inşa edilebilir; bu ölçünün üreteceği KDF tam olarak $F$'dir.
+\end{proof}
+
+\begin{onerme}[KDF'den Olasılık Hesabı]
+\label{prop:kdf_hesap}
+$F = F_X$ KDF'si olan $X$ için:
+\begin{align*}
+  P(X > x)   &= 1 - F(x), \\
+  P(a < X \leq b) &= F(b) - F(a), \\
+  P(X = x)   &= F(x) - F(x^-) \quad \text{(sol limit: } F(x^-) = \lim_{y \uparrow x} F(y)\text{)}, \\
+  P(a \leq X \leq b) &= F(b) - F(a^-), \\
+  P(a < X < b) &= F(b^-) - F(a).
+\end{align*}
+\end{onerme}
+
+\begin{proof}
+$P(a < X \leq b) = P(X \leq b) - P(X \leq a) = F(b) - F(a)$.
+$P(X = x) = P(X \leq x) - P(X < x) = F(x) - \lim_{y \uparrow x} F(y) = F(x) - F(x^-)$.
+Diğerleri bu iki formülden türetilir.
+\end{proof}
+
+\begin{hataanalizi}
+"$P(X < x) = F(x)$" hatası: Sol açık aralık için $P(X < x) = F(x^-)$
+olup $F$'nin $x$'te süreksiz olduğu noktalarda $F(x^-) < F(x)$.
+Sağdan sürekli tanım $P(X \leq x) = F(x)$'i verir; $P(X < x)$ farklıdır.
+\end{hataanalizi}
+
+\begin{kendinleifade}
+KDF'nin üç temel özelliğini (monoton, sağdan sürekli, sınırlar)
+bir yabancı dil örneğiyle canlandırınız: örneğin "dil testi skoru"nun
+KDF'si nasıl görünürdü? Sürekli mi olurdu, yoksa sıçramalı mı?
+\kendinleifadecevap{Dil testi puanı genelde tam sayı $\Rightarrow$ KDF \textbf{sıçramalı} (basamak fonksiyonu).
+  \textbf{Monoton artan:} $P(X\leq 70)\leq P(X\leq 80)$ --- daha yüksek eşiği aşmak daha kolay.
+  \textbf{Sağdan sürekli:} $F(70)=P(X\leq70)$ --- "70 dahil" sağdan limit sağlanır.
+  \textbf{Sınırlar:} $F(-\infty)=0$, $F(+\infty)=1$.
+  Sürekli olurdu mu? Ancak puan gerçek değerli (kesirli) olsaydı;
+  o zaman her noktada olasılık sıfır, yoğunluk fonksiyonu gerekir.}
+\end{kendinleifade}
+
+\begin{mikroozet}
+$F_X(x) = P(X \leq x)$. KDF: monoton, sağdan sürekli, $0 \to 1$ sınırları.
+$P(X = x) = F(x) - F(x^-)$; süreklilik noktalarında bu sıfırdır.
+\end{mikroozet}
+
+% =====================================================================
+\section{Kesikli Dağılımlar}
+\label{sec:kesikli}
+% =====================================================================
+
+\begin{tanim}[Kesikli Rasgele Değişken]
+\label{def:kesikli}
+$X$ rasgele değişkeni \textbf{kesikli} (discrete) dır, eğer
+sayılabilir bir $S \subset \mathbb{R}$ kümesi için $P(X \in S) = 1$ ise.
+$S$'nin elemanlarına $X$'in \textbf{olası değerleri} denir.
+\textbf{Olasılık kütle fonksiyonu} (probability mass function, PMF):
+\[
+  p_X(x) = P(X = x), \qquad x \in S.
+\]
+\end{tanim}
+
+\begin{teorem}[PMF-KDF İlişkisi]
+\label{thm:pmf_kdf}
+$X$ kesikli rasgele değişken, $S = \{x_1, x_2, \ldots\}$ ($x_1 < x_2 < \cdots$) olsun. O zaman
+\[
+  F_X(x) = \sum_{x_i \leq x} p_X(x_i)
+\]
+ve $F_X$, her $x_i$'de büyüklüğü $p_X(x_i)$ olan sıçramayla
+sağdan sürekli bir basamak fonksiyonudur.
+\end{teorem}
+
+\begin{proof}
+$\{X \leq x\} = \bigsqcup_{x_i \leq x} \{X = x_i\}$ ayrık birleşimidir.
+Sayılabilir toplamlılık:
+$F_X(x) = P(X \leq x) = \sum_{x_i \leq x} P(X = x_i) = \sum_{x_i \leq x} p_X(x_i)$.
+$y \downarrow x$ alındığında $\{x_i \leq y\}$ kümesi $y$'nin küçük aralıklarda
+değişimi boyunca $\{x_i \leq x\}$'e yakınsadığından sağdan süreklilik sağlanır.
+\end{proof}
+
+\begin{ornek}[Binom]
+\label{ex:binom_pmf}
+$X \sim \Binom(n, p)$: $n$ bağımsız Bernoulli denemesinde başarı sayısı.
+\[
+  p_X(k) = \binom{n}{k} p^k (1-p)^{n-k}, \quad k = 0, 1, \ldots, n.
+\]
+$\sum_{k=0}^n p_X(k) = (p + (1-p))^n = 1$ (Binom teoremi).
+\end{ornek}
+
+% =====================================================================
+\section{Mutlak Sürekli Dağılımlar ve Yoğunluk Fonksiyonu}
+\label{sec:surekli}
+% =====================================================================
+
+\begin{kesif}
+Bir terazi ibresi [0,1] aralığında rasgele bir değere işaret ediyor.
+$P(X = 0.5) = ?$ --- sonsuz çok nokta var, her birinin olasılığı sıfır olmalı.
+Peki $P(0.3 \leq X \leq 0.7) = ?$ Bu sıfır değil.
+Nasıl bir kavramla olasılıkları hesaplayabiliriz?
+\kesifcevap{Sürekli dağılımlarda $P(X=c)=0$ her $c$ için. Yoğunluk $f_X\geq 0$ ile
+  $P(a\leq X\leq b)=\int_a^b f_X(x)\,dx$. Uniform $[0,1]$'de $f_X\equiv 1$ ve
+  $P(0.3\leq X\leq 0.7)=0.4$. Yoğunluk, tekil noktalarda değil aralıklarda
+  olasılık hesabını mümkün kılar.}
+\end{kesif}
+
+\begin{tanimgerekce}
+Radon-Nikodym teoremi der ki: $P_X \ll \lambda$ (Lebesgue ölçüsüne göre
+mutlak sürekli) ise $P_X(B) = \int_B f(x) \, d\lambda(x)$ yazan bir $f \geq 0$ var.
+Bu $f$ "yoğunluk"tur --- noktasal olasılık değil, uzunluk başına olasılık yoğunluğu.
+\end{tanimgerekce}
+
+\begin{tanim}[Mutlak Sürekli Rasgele Değişken]
+\label{def:surekli_rd}
+$X$ rasgele değişkenin \textbf{olasılık yoğunluk fonksiyonu} (probability density function, PDF)
+$f_X : \mathbb{R} \to [0, \infty)$ mevcutsa ve her $B \in \mathcal{B}(\mathbb{R})$ için
+\[
+  P(X \in B) = \int_B f_X(x) \, dx
+\]
+sağlanıyorsa $X$'e \textbf{mutlak sürekli} (absolutely continuous) rasgele değişken denir.
+Özellikle $F_X(x) = \int_{-\infty}^x f_X(t) \, dt$ ve $\int_{-\infty}^{+\infty} f_X(x) \, dx = 1$.
+\end{tanim}
+
+\begin{teorem}[PDF-KDF İlişkisi]
+\label{thm:pdf_kdf}
+$X$ mutlak sürekli rasgele değişken ve $f_X$ PDF'si olsun. O zaman:
+\begin{enumerate}[(i)]
+  \item $F_X(x) = \int_{-\infty}^x f_X(t) \, dt$, dolayısıyla $F_X$ süreklidir.
+  \item $f_X$ sürekli olduğu her $x$ noktasında $F_X'(x) = f_X(x)$.
+  \item Her $x$ için $P(X = x) = 0$.
+  \item $f_X \geq 0$ n.k.\ ve $\int_{\mathbb{R}} f_X = 1$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textit{(i)}: Tanımdan; $(-\infty, x] \in \mathcal{B}(\mathbb{R})$ seçilir.
+\textit{(ii)}: Lebesgue farklılaştırma teoremi; $f_X$ sürekli ise
+$\frac{d}{dx} \int_{-\infty}^x f_X(t) \, dt = f_X(x)$.
+\textit{(iii)}: $P(X = x) = F_X(x) - F_X(x^-) = 0$ ($F_X$ sürekli olduğundan).
+\textit{(iv)}: $f_X \geq 0$ a.e., $\int f_X = P(X \in \mathbb{R}) = 1$.
+\end{proof}
+
+\begin{hataanalizi}
+"$f_X(x) = P(X = x)$" en yaygın hatadır. Doğrusu: $f_X(x) \, dx \approx P(x < X \leq x + dx)$
+yani $f_X(x)$, küçük aralığa düşen \emph{olasılık yoğunluğudur}, bizzat olasılık değildir.
+$f_X(x) > 1$ olabilir (örneğin $X \sim \mathrm{Uniform}(0, 0.1)$ ise $f_X(x) = 10$).
+\end{hataanalizi}
+
+\begin{karsiornek}
+$f_X(x) = 10 \cdot \mathbf{1}_{[0, 0.1]}(x)$: $f_X(x) = 10 > 1$ ama yine de geçerli bir PDF.
+$\int_0^{0.1} 10 \, dx = 1$. "Yoğunluk 1'i geçemez" iddiası yanlıştır.
+\end{karsiornek}
+
+\begin{ornek}[Normal Dağılım]
+$X \sim \Normal(\mu, \sigma^2)$: PDF
+\[
+  f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right).
+\]
+$\int_{-\infty}^{+\infty} f_X(x) \, dx = 1$ doğrulaması: Bölüm~\ref{chp:olcum_teorisi}'deki
+Gauss integrali hesabına bakınız (Fubini-Tonelli).
+\end{ornek}
+
+\begin{mikroozet}
+PDF: $P(X \in B) = \int_B f_X \, dx$; $f_X \geq 0$, $\int f_X = 1$.
+$f_X(x)$ bir olasılık değil, yoğunluktur; $f_X > 1$ olabilir.
+Her tekil noktanın olasılığı sıfırdır.
+\end{mikroozet}
+
+% =====================================================================
+\section{Karma Dağılımlar ve Lebesgue Ayrışımı}
+\label{sec:karma}
+% =====================================================================
+
+\begin{tanim}[Karma Dağılım]
+\label{def:karma}
+$X$ ne kesikli ne de mutlak sürekli olan bir rasgele değişken ise,
+KDF'si $F_X = p \cdot F_{\text{kes}} + (1-p) \cdot F_{\text{sür}}$
+biçiminde ($0 < p < 1$) \textbf{karma dağılım} (mixed distribution) olarak
+yazılabilir; burada $F_{\text{kes}}$ kesikli, $F_{\text{sür}}$ mutlak sürekli
+bir KDF'dir.
+\end{tanim}
+
+\begin{onerme}[Lebesgue Ayrışım Teoremi --- Özel Durum]
+\label{prop:lebesgue_ayrisim}
+Her $F : \mathbb{R} \to [0,1]$ KDF'si şu biçimde tek türlü yazılabilir:
+\[
+  F = \alpha_1 F_{\text{saf-kes}} + \alpha_2 F_{\text{mut-sür}} + \alpha_3 F_{\text{tekil-sür}},
+\]
+$\alpha_1 + \alpha_2 + \alpha_3 = 1$, $\alpha_i \geq 0$; burada
+$F_{\text{tekil-sür}}$ sürekli ama türevi neredeyse her yerde sıfır olan
+(Lebesgue ölçüsüne göre mutlak sürekli olmayan) bir KDF'dir.
+Cantor fonksiyonu (şeytan merdiveni) $F_{\text{tekil-sür}}$'ye örnektir.
+\end{onerme}
+
+\begin{hocanotu}
+Pratikte tekil-sürekli bileşen nadiren karşımıza çıkar; uygulamalar
+büyük ölçüde $\alpha_3 = 0$ durumunda (karma = kesikli + mutlak sürekli) çalışır.
+Ancak tam teorik çerçeve için bu bileşeni bilmek önemlidir.
+\end{hocanotu}
+
+\begin{ornek}[Karma Dağılım]
+Bir sigorta poliçesinde:
+$P(X = 0) = 0.3$ (hasar yok), $X > 0$ durumunda $X \sim \mathrm{Exp}(\lambda)$.
+KDF: $F_X(x) = 0$ ($x < 0$); $F_X(0) = 0.3$; $F_X(x) = 0.3 + 0.7(1 - e^{-\lambda x})$ ($x > 0$).
+Ne tamamen kesikli (sürekli bir parçası var) ne tamamen sürekli (0'da sıçrama var).
+\end{ornek}
+
+% =====================================================================
+\section{Birden Fazla Rasgele Değişken: Ortak Dağılımlar}
+\label{sec:rd_ortak}
+% =====================================================================
+
+\begin{tanim}[Rasgele Vektör ve Ortak KDF]
+\label{def:ortak_kdf}
+$X_1, \ldots, X_n : \Omega \to \mathbb{R}$ rasgele değişkenler olsun.
+$(X_1, \ldots, X_n) : \Omega \to \mathbb{R}^n$ \textbf{rasgele vektördür}
+(ölçülebilirlik: $\mathcal{F}$'den $\mathcal{B}(\mathbb{R}^n)$'ye).
+\textbf{Ortak KDF} (joint CDF):
+\[
+  F_{X_1,\ldots,X_n}(x_1, \ldots, x_n) = P(X_1 \leq x_1, \ldots, X_n \leq x_n).
+\]
+İki değişkenli durumda:
+\begin{itemize}
+  \item \textbf{Ortak PMF} (kesikli): $p(x,y) = P(X=x, Y=y)$.
+  \item \textbf{Ortak PDF} (mutlak sürekli): $f_{X,Y}(x,y) \geq 0$,
+        $P((X,Y) \in B) = \iint_B f_{X,Y}(x,y) \, dx \, dy$.
+\end{itemize}
+\end{tanim}
+
+% =====================================================================
+\section{Marjinal ve Koşullu Dağılımlar}
+\label{sec:marjinal_kosullu}
+% =====================================================================
+
+\begin{tanim}[Marjinal Dağılım]
+\label{def:marjinal}
+$(X, Y)$ ortak dağılımlı rasgele vektör olsun.
+$X$'in \textbf{marjinal dağılımı}:
+\begin{itemize}
+  \item Kesikli: $p_X(x) = \sum_y p(x, y)$.
+  \item Sürekli: $f_X(x) = \int_{-\infty}^{+\infty} f_{X,Y}(x,y) \, dy$.
+\end{itemize}
+\end{tanim}
+
+\begin{kritiksorgu}
+"Aynı marjinallere sahip iki rasgele vektörün ortak dağılımı aynı mıdır?"
+Hayır: Marjinaller ortak dağılımı belirlemez.
+Örnek: $X \sim \mathrm{Uniform}(-1,1)$, $Y = X$ ile $Y = -X$ seçimleri
+aynı marjinalleri verir ama farklı ortak dağılımlar üretir.
+Bu gerçek, istatistiksel bağımlılık teorisinin (kopula, korelasyon) özüdür.
+\end{kritiksorgu}
+
+\begin{tanim}[Koşullu Dağılım]
+\label{def:kosullu_dagilim}
+\textbf{Kesikli durum:} $p_Y(y) > 0$ ise
+\[
+  p_{X|Y}(x \mid y) = P(X = x \mid Y = y) = \frac{p(x,y)}{p_Y(y)}.
+\]
+\textbf{Sürekli durum:} $f_Y(y) > 0$ ise
+\[
+  f_{X|Y}(x \mid y) = \frac{f_{X,Y}(x,y)}{f_Y(y)}.
+\]
+$f_{X|Y}(\cdot \mid y)$, $y$ sabit tutulduğunda $x$'in bir PDF'sidir:
+$\int f_{X|Y}(x \mid y) \, dx = 1$.
+\end{tanim}
+
+\begin{teorem}[Toplam Olasılık --- Sürekli Versiyon]
+\label{thm:toplam_surekli}
+$(X, Y)$ ortak sürekli dağılımlı olsun. O zaman
+\[
+  f_X(x) = \int_{-\infty}^{+\infty} f_{X|Y}(x \mid y) \, f_Y(y) \, dy.
+\]
+\end{teorem}
+
+\begin{proof}
+$f_X(x) = \int f_{X,Y}(x,y) \, dy = \int \frac{f_{X,Y}(x,y)}{f_Y(y)} \cdot f_Y(y) \, dy
+= \int f_{X|Y}(x \mid y) \, f_Y(y) \, dy$.
+\end{proof}
+
+\begin{ornek}[Koşullu Dağılım Hesabı]
+$f_{X,Y}(x,y) = 6x$ ($0 < x < y < 1$), sıfır başka yerde.
+Marjinal: $f_Y(y) = \int_0^y 6x \, dx = 3y^2$.
+Koşullu: $f_{X|Y}(x \mid y) = \frac{6x}{3y^2} = \frac{2x}{y^2}$, $0 < x < y$.
+\end{ornek}
+
+% =====================================================================
+\section{Bağımsız Rasgele Değişkenler}
+\label{sec:rd_bagimsizlik}
+% =====================================================================
+
+\begin{tanim}[Rasgele Değişken Bağımsızlığı]
+\label{def:rd_bagimsiz}
+$X_1, \ldots, X_n$ rasgele değişkenler \textbf{bağımsızdır} (independent)
+ancak ve ancak her $B_1, \ldots, B_n \in \mathcal{B}(\mathbb{R})$ için
+\[
+  P(X_1 \in B_1, \ldots, X_n \in B_n) = \prod_{i=1}^n P(X_i \in B_i).
+\]
+Eşdeğer olarak $\sigma(X_1), \ldots, \sigma(X_n)$ $\sigma$-cebirleri bağımsızdır.
+\end{tanim}
+
+\begin{teorem}[Bağımsızlığın Eşdeğer Koşulları]
+\label{thm:bagimsiz_denk}
+$(X, Y)$ rasgele vektör için aşağıdakiler eşdeğerdir:
+\begin{enumerate}[(i)]
+  \item $X$ ve $Y$ bağımsızdır.
+  \item Her $x, y$ için $F_{X,Y}(x,y) = F_X(x) \cdot F_Y(y)$.
+  \item \textit{(Kesikli:)} Her $x, y$ için $p(x,y) = p_X(x) \cdot p_Y(y)$.
+  \item \textit{(Sürekli:)} $f_{X,Y}(x,y) = f_X(x) \cdot f_Y(y)$ n.k.
+  \item $f_{X|Y}(x \mid y) = f_X(x)$ n.k.\ (koşullu dağılım marjinale eşittir).
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+$(i) \Leftrightarrow (ii)$: $B_i = (-\infty, x_i]$ seçilirse $(i)$'den $(ii)$ çıkar;
+$\pi$-sistemi argümanıyla tersi de kurulur.
+$(ii) \Leftrightarrow (iv)$: Sürekli durumda $F_{X,Y}(x,y) = \int_{-\infty}^x \int_{-\infty}^y f(s,t) \, dt \, ds$;
+bu $F_X(x) F_Y(y)$'ye eşit olması $f = f_X \cdot f_Y$ a.e.\ ile eşdeğerdir
+(Fubini).
+$(iv) \Leftrightarrow (v)$: $f_{X|Y}(x \mid y) = f(x,y)/f_Y(y) = f_X(x)$.
+\end{proof}
+
+\begin{hataanalizi}
+"Korelasyonsuz $\Rightarrow$ bağımsız" hatası: $\mathrm{Cor}(X, Y) = 0$
+bağımsızlık için yeterli değildir.
+Örnek: $X \sim \mathrm{Uniform}(-1,1)$, $Y = X^2$. O zaman $E[XY] = E[X^3] = 0 = E[X]E[Y]$,
+yani $\mathrm{Cov}(X, Y) = 0$, ama $Y$ tamamen $X$'e bağımlıdır.
+Yalnızca normal dağılım için $\mathrm{Cor} = 0 \Leftrightarrow$ bağımsızlık.
+\end{hataanalizi}
+
+\begin{mikroozet}
+Bağımsızlık: $F_{X,Y} = F_X \cdot F_Y$ (veya PDF çarpımlanması).
+Bağımsızlık $\Rightarrow$ korelasyonsuzluk; tersi genel olarak yanlış.
+\end{mikroozet}
+
+% =====================================================================
+\section{Rasgele Değişkenlerin Fonksiyonları}
+\label{sec:rd_donusum}
+% =====================================================================
+
+\begin{motivasyon}[Neden Dönüşüm?]
+$X$ bilinen dağılımlı ise $Y = g(X)$'in dağılımı nedir?
+Bu soru istatistiksel hesaplarda sürekli karşımıza çıkar:
+örneğin $X \sim \Normal(0,1)$ ise $Y = X^2$'nin dağılımı chi-kare,
+$Y = e^X$ ise lognormal dağılım verir.
+\end{motivasyon}
+
+\subsection{Tekil Boyutlu Dönüşüm}
+\label{subsec:donusum_1d}
+
+\begin{teorem}[Birebir Dönüşüm Yöntemi]
+\label{thm:donusum_1d}
+$X$ sürekli rasgele değişken, PDF'si $f_X$. $g : \mathbb{R} \to \mathbb{R}$
+monoton, türevlenebilir ve birebir olsun, $Y = g(X)$.
+$h = g^{-1}$ (ters fonksiyon) olmak üzere:
+\[
+  f_Y(y) = f_X(h(y)) \cdot \left|\frac{dh}{dy}\right|.
+\]
+\end{teorem}
+
+\begin{proof}
+\textbf{$g$ artan} olsun. O zaman
+\[
+  F_Y(y) = P(Y \leq y) = P(g(X) \leq y) = P(X \leq g^{-1}(y)) = F_X(h(y)).
+\]
+Türev alınca: $f_Y(y) = f_X(h(y)) \cdot h'(y) = f_X(h(y)) \cdot |h'(y)|$.
+
+\textbf{$g$ azalan} olsun. O zaman
+\[
+  F_Y(y) = P(Y \leq y) = P(g(X) \leq y) = P(X \geq h(y)) = 1 - F_X(h(y)).
+\]
+Türev: $f_Y(y) = -f_X(h(y)) \cdot h'(y) = f_X(h(y)) \cdot |h'(y)|$ ($h' < 0$ olduğundan).
+\end{proof}
+
+\begin{ornek}[Lognormal]
+$X \sim \Normal(\mu, \sigma^2)$, $Y = e^X$ (lognormal dağılım).
+$h(y) = \ln y$, $|h'(y)| = 1/y$.
+\[
+  f_Y(y) = \frac{1}{y\sigma\sqrt{2\pi}} \exp\!\left(-\frac{(\ln y - \mu)^2}{2\sigma^2}\right), \quad y > 0.
+\]
+\end{ornek}
+
+\begin{onerme}[Genel Monoton Olmayan Dönüşüm]
+\label{prop:genel_donusum}
+$g$ birebir olmayabilir. $g^{-1}(y) = \{x : g(x) = y\}$ sonlu küme ise:
+\[
+  f_Y(y) = \sum_{x : g(x) = y} f_X(x) \cdot \left|\frac{dg}{dx}\bigg|_{x}\right|^{-1}.
+\]
+\end{onerme}
+
+\begin{ornek}[$Y = X^2$, $X \sim \Normal(0,1)$]
+$g(x) = x^2$, $g^{-1}(y) = \{\sqrt{y}, -\sqrt{y}\}$ ($y > 0$).
+$|dg/dx|^{-1} = 1/(2|x|)$.
+\[
+  f_Y(y) = f_X(\sqrt{y}) \cdot \frac{1}{2\sqrt{y}} + f_X(-\sqrt{y}) \cdot \frac{1}{2\sqrt{y}}
+         = \frac{1}{\sqrt{2\pi y}} e^{-y/2}, \quad y > 0.
+\]
+Bu chi-kare dağılımının ($\chi^2_1$) PDF'sidir.
+\end{ornek}
+
+\subsection{Çok Boyutlu Dönüşüm ve Jacobian}
+\label{subsec:donusum_jacobian}
+
+\begin{teorem}[Jacobian Formülü]
+\label{thm:jacobian}
+$(X_1, \ldots, X_n)$ ortak sürekli dağılımlı; PDF'si $f_{X_1,\ldots,X_n}$.
+$g : \mathbb{R}^n \to \mathbb{R}^n$ birebir ve türevlenebilir olsun,
+$(Y_1, \ldots, Y_n) = g(X_1, \ldots, X_n)$.
+Ters dönüşüm $h = g^{-1}$ ve Jacobian matrisi
+\[
+  J = \frac{\partial(x_1,\ldots,x_n)}{\partial(y_1,\ldots,y_n)}
+    = \left(\frac{\partial h_i}{\partial y_j}\right)_{n \times n}
+\]
+olmak üzere:
+\[
+  f_{Y_1,\ldots,Y_n}(y_1,\ldots,y_n) = f_{X_1,\ldots,X_n}(h_1(y),\ldots,h_n(y)) \cdot |\det J|.
+\]
+\end{teorem}
+
+\begin{proof}
+Çok değişkenli değişken değiştirme formülü:
+$P((Y_1,\ldots,Y_n) \in B) = \int_B f_Y \, dy = \int_{g^{-1}(B)} f_X \, dx$.
+$dx = |\det J| \, dy$ (Jacobian dönüşümü); ikisini eşitleyince $f_Y$ elde edilir.
+\end{proof}
+
+\begin{ornek}[Polar Dönüşüm]
+$(X, Y)$ bağımsız, her ikisi $\Normal(0,1)$.
+$R = \sqrt{X^2+Y^2}$, $\Theta = \arctan(Y/X)$.
+Ters: $x = r\cos\theta$, $y = r\sin\theta$.
+$\det J = r$. Ortak PDF $f_{R,\Theta}(r, \theta) = f_{X,Y}(r\cos\theta, r\sin\theta) \cdot r$.
+\[
+  f_{X,Y}(x,y) = \frac{1}{2\pi} e^{-(x^2+y^2)/2}
+  \implies f_{R,\Theta}(r,\theta) = r e^{-r^2/2} \cdot \frac{1}{2\pi},
+\]
+$r > 0$, $\theta \in [0, 2\pi)$.
+Marjinaller: $\Theta \sim \mathrm{Uniform}(0, 2\pi)$ ve $R^2 \sim \chi^2_2$ (Rayleigh dağılımı).
+Bu Box-Muller dönüşümünün temelidir.
+\end{ornek}
+
+\subsection{Toplam Dağılımı: Evrişim}
+\label{subsec:evrisim}
+
+\begin{tanim}[Evrişim (Konvolüsyon)]
+\label{def:evrisim}
+$X, Y$ bağımsız, ortak sürekli dağılımlı; $Z = X + Y$ olsun. O zaman
+\[
+  f_Z(z) = (f_X * f_Y)(z) = \int_{-\infty}^{+\infty} f_X(z - y) \, f_Y(y) \, dy.
+\]
+Kesikli durumda: $p_Z(z) = \sum_y p_X(z-y) \, p_Y(y)$.
+\end{tanim}
+
+\begin{proof}
+$F_Z(z) = P(X + Y \leq z) = \int_{-\infty}^{+\infty} P(X \leq z - y) \, f_Y(y) \, dy
+= \int_{-\infty}^{+\infty} F_X(z-y) \, f_Y(y) \, dy$.
+$z$'ye göre türev: Leibniz kuralıyla $f_Z(z) = \int f_X(z-y) f_Y(y) \, dy$.
+\end{proof}
+
+\begin{ornek}[Normal + Normal = Normal]
+$X \sim \Normal(\mu_1, \sigma_1^2)$, $Y \sim \Normal(\mu_2, \sigma_2^2)$ bağımsız.
+Evrişim hesabı: $Z = X + Y \sim \Normal(\mu_1+\mu_2, \sigma_1^2+\sigma_2^2)$.
+Hesap, Gauss integrallerini tamamlama yöntemiyle yapılır;
+Bölüm~\ref{chp:beklenti}'deki karakteristik fonksiyon yöntemi çok daha hızlıdır.
+\end{ornek}
+
+% ---- Disiplinlerarası Bağlantı (TYMM) ----
+\begin{kopru}[Disiplinlerarası --- Finans ve Mühendislik]
+\textbf{Finans:} Hisse senedi getirisinin lognormal modellenmesi (Black-Scholes),
+rasgele değişken dönüşüm teorisinin doğrudan uygulamasıdır.\\
+\textbf{Mühendislik:} Haberleşmede sinyal+gürültü modeli $Z = S + N$,
+$N \sim \Normal(0, \sigma^2)$: evrişim yoluyla alıcı tasarımı.\\
+\textbf{Fizik:} Kuantum mekaniğinde konum ve momentum dağılımları
+PDF kavramıyla doğrudan ifade edilir; Fourier dönüşümü ile karakteristik
+fonksiyon arasındaki bağlantı Heisenberg belirsizlik ilkesini yansıtır.
+\end{kopru}
+
+% ---- Öz-Yansıtma ----
+\begin{ozyansima}
+\begin{itemize}
+  \item "Rasgele değişken bir sayı mı, yoksa fonksiyon mu?" --- cevabınız ve gerekçeniz?
+  \item KDF'nin hangi özelliği sizi en çok şaşırttı?
+  \item Sürekli durumda $P(X = x) = 0$ gerçeği sezgiye aykırı geliyor mu?
+        Bunu fizik veya mühendislikten bir örnekle nasıl uzlaştırırsınız?
+  \item Bağımsızlık ile korelasyonsuzluk arasındaki fark neden önemlidir?
+\end{itemize}
+\end{ozyansima}
+
+% ---- Köprü Notu ----
+\begin{kopru}
+\textbf{Önceki bölüm:} Bölüm~\ref{chp:olasilik_uzaylari} --- Kolmogorov aksiyomları,
+bağımsızlık olaylar düzeyinde; burada rasgele değişkenlere taşındı.\\
+\textbf{Sonraki bölüm:} Bölüm~\ref{chp:beklenti} --- Dağılımlar verildiğinde
+$E[X]$, $\mathrm{Var}(X)$, momentler; Lebesgue integrali olarak beklenti.\\
+\textbf{Dijital katman:} Dönüşüm formüllerinin sayısal doğrulaması ve
+Monte Carlo simülasyonu \texttt{bolum03\_donusumler.ipynb} defterinde.
+\defterbaglantisi{bolum03\_donusumler.ipynb}{%
+  Jacobian dönüşümü, evrişim ve KDF simülasyonu}
+\end{kopru}
+
+% =====================================================================
+\section{Çok Boyutlu Normal Dağılım}
+\label{sec:cok_boyutlu_normal}
+% =====================================================================
+
+\begin{motivasyon}[Neden Çok Boyutlu Normal?]
+Tek boyutlu Normal dağılım, pek çok bağımsız etkinin toplamının limit dağılımı
+(MLT) olarak doğal biçimde ortaya çıkar.
+Çok boyutlu uzantısı, bağımlı Normal rasgele değişkenlerin tam ailesini verir
+ve lineer dönüşümler altında kapalıdır.
+İstatistik, makine öğrenmesi ve sinyal işlemede varsayılan "default" dağılımdır.
+\end{motivasyon}
+
+\begin{tanim}[Çok Boyutlu Normal Dağılım]
+\label{def:cok_boyutlu_normal}
+$\mathbf{X} = (X_1, \ldots, X_k)^\top$ rasgele vektör.
+$\mathbf{X} \sim \Normal_k(\boldsymbol{\mu}, \boldsymbol{\Sigma})$
+(\textbf{$k$-boyutlu Normal}, multivariate normal) denir eğer:
+\begin{enumerate}[(i)]
+  \item $\boldsymbol{\mu} = E[\mathbf{X}] \in \mathbb{R}^k$ ortalama vektör.
+  \item $\boldsymbol{\Sigma} = \mathrm{Cov}(\mathbf{X}) \in \mathbb{R}^{k\times k}$ simetrik pozitif yarı-belirli kovaryans matrisi.
+  \item $\boldsymbol{\Sigma}$ pozitif belirli ise ortak PDF:
+  \[
+    f(\mathbf{x}) = \frac{1}{(2\pi)^{k/2}|\boldsymbol{\Sigma}|^{1/2}}
+    \exp\!\left(-\frac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right).
+  \]
+\end{enumerate}
+Eşdeğer tanım: $\mathbf{X} = \boldsymbol{\mu} + A\mathbf{Z}$, $\mathbf{Z} \sim \Normal_m(\mathbf{0}, I_m)$ bağımsız,
+$\boldsymbol{\Sigma} = AA^\top$.
+\end{tanim}
+
+\begin{teorem}[Çok Boyutlu Normal'in Temel Özellikleri]
+\label{thm:cb_normal}
+$\mathbf{X} \sim \Normal_k(\boldsymbol{\mu}, \boldsymbol{\Sigma})$:
+\begin{enumerate}[(i)]
+  \item \textbf{Marjinaller:} $X_i \sim \Normal(\mu_i, \sigma_{ii})$ (marjinallar normal).
+  \item \textbf{Lineer dönüşüm:} $A\mathbf{X} + \mathbf{b} \sim \Normal(A\boldsymbol{\mu}+\mathbf{b}, A\boldsymbol{\Sigma}A^\top)$.
+  \item \textbf{Bağımsızlık:} $X_i$ ve $X_j$ bağımsız $\Leftrightarrow$ $\sigma_{ij} = 0$ (Normal için korelasyonsuzluk = bağımsızlık!).
+  \item \textbf{Koşullu dağılım:} $\mathbf{X}$'i $(\mathbf{X}_1, \mathbf{X}_2)$ şeklinde parçalayınız.
+  $\mathbf{X}_1 \mid \mathbf{X}_2 = \mathbf{x}_2 \sim \Normal(\boldsymbol{\mu}_{1|2},\, \boldsymbol{\Sigma}_{11|2})$:
+  \begin{align*}
+    \boldsymbol{\mu}_{1|2} &= \boldsymbol{\mu}_1 + \boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}(\mathbf{x}_2 - \boldsymbol{\mu}_2),\\
+    \boldsymbol{\Sigma}_{11|2} &= \boldsymbol{\Sigma}_{11} - \boldsymbol{\Sigma}_{12}\boldsymbol{\Sigma}_{22}^{-1}\boldsymbol{\Sigma}_{21}.
+  \end{align*}
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}[(i) ve (ii)]
+(i) Marjinal: $X_i = \mathbf{e}_i^\top \mathbf{X}$ ($\mathbf{e}_i$ birim vektör); (ii) özel durumu.\\
+(ii) KF: $\varphi_{A\mathbf{X}+\mathbf{b}}(\mathbf{t}) = e^{i\mathbf{t}^\top \mathbf{b}} \varphi_{\mathbf{X}}(A^\top \mathbf{t})$.
+$\varphi_{\mathbf{X}}(\mathbf{t}) = e^{i\mathbf{t}^\top\boldsymbol{\mu} - \mathbf{t}^\top\boldsymbol{\Sigma}\mathbf{t}/2}$ (Normal KF).
+$\varphi_{A\mathbf{X}+\mathbf{b}}(\mathbf{t}) = e^{i\mathbf{t}^\top(A\boldsymbol{\mu}+\mathbf{b}) - \mathbf{t}^\top A\boldsymbol{\Sigma}A^\top\mathbf{t}/2}$: $\Normal(A\boldsymbol{\mu}+\mathbf{b}, A\boldsymbol{\Sigma}A^\top)$ KF'si.
+\end{proof}
+
+\begin{ornek}[İki Boyutlu Normal]
+$k=2$: $\boldsymbol{\mu} = (\mu_1, \mu_2)^\top$,
+$\boldsymbol{\Sigma} = \begin{pmatrix}\sigma_1^2 & \rho\sigma_1\sigma_2 \\ \rho\sigma_1\sigma_2 & \sigma_2^2\end{pmatrix}$.
+PDF:
+\[
+  f(x_1,x_2) = \frac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}
+  \exp\!\left(-\frac{1}{2(1-\rho^2)}\left[\frac{(x_1-\mu_1)^2}{\sigma_1^2}
+  - \frac{2\rho(x_1-\mu_1)(x_2-\mu_2)}{\sigma_1\sigma_2}
+  + \frac{(x_2-\mu_2)^2}{\sigma_2^2}\right]\right).
+\]
+$X_1 \mid X_2 = x_2 \sim \Normal\!\left(\mu_1 + \rho\frac{\sigma_1}{\sigma_2}(x_2-\mu_2),\,
+\sigma_1^2(1-\rho^2)\right)$.
+\end{ornek}
+
+\begin{hataanalizi}
+"Marjinalleri Normal olan rasgele vektör çok boyutlu Normal'dir."
+Yanlış: Korrelasyon yapısı yanlış olabilir. Örnek: $Z \sim \Normal(0,1)$,
+$W = Z \cdot \mathrm{sgn}(Z)$; hem $Z$ hem $W$ normal marjinale sahip
+ama $(Z, W)$ çift boyutlu normal değil (ortak PDF oval konturlar çizmiyor).
+Çok boyutlu Normal tanımı KF veya affine dönüşüm koşuluyla yapılmalı.
+\end{hataanalizi}
+
+\begin{mikroozet}
+$\mathbf{X}\sim\Normal_k(\boldsymbol{\mu},\boldsymbol{\Sigma})$: marjinaller normal; lineer dönüşümler kapalı;
+Normal'de korelasyonsuzluk = bağımsızlık; koşullu dağılım da normaldir.
+\end{mikroozet}
+
+% =====================================================================
+\section{Kuantil Fonksiyon ve Olasılık İntegral Dönüşümü}
+\label{sec:kuantil_fonksiyon}
+% =====================================================================
+
+\begin{tanim}[Kuantil Fonksiyon]
+\label{def:kuantil_fonksiyon}
+$F$ KDF için \textbf{kuantil fonksiyon} (quantile function), genelleştirilmiş ters:
+\[
+  F^{-1}(u) = \inf\{x : F(x) \geq u\}, \quad u \in (0,1).
+\]
+$u$'nun $p$. yüzdelik (\textit{percentile}): $F^{-1}(p)$.
+$F^{-1}(1/2)$: medyan. $F^{-1}(1/4), F^{-1}(3/4)$: çeyrekler.
+\end{tanim}
+
+\begin{teorem}[Olasılık İntegral Dönüşümü]
+\label{thm:oit}
+\textbf{İleri:} $X$ sürekli rasgele değişken, $F_X$ KDF. $F_X(X) \sim \Uniform(0,1)$.\\
+\textbf{Geri:} $U \sim \Uniform(0,1)$. $X = F^{-1}(U)$ rasgele değişkeni $F$ KDF'ye sahip.
+\end{teorem}
+
+\begin{proof}
+\textbf{İleri:} $P(F_X(X) \leq u) = P(X \leq F_X^{-1}(u)) = F_X(F_X^{-1}(u)) = u$.
+(Son eşitlik: $F_X$ sürekli ise $F_X \circ F_X^{-1} = \mathrm{id}$.)\\
+\textbf{Geri:} $P(F^{-1}(U) \leq x) = P(U \leq F(x)) = F(x)$ ($U$ uniform).
+\end{proof}
+
+\begin{ornek}[Simülasyon Uygulaması]
+$\Exp(\lambda)$ dağılımından örneklem üretmek:
+$F^{-1}(u) = -\ln(1-u)/\lambda$.
+$U \sim \Uniform(0,1)$: $X = -\ln(1-U)/\lambda \sim \Exp(\lambda)$.
+Bu standart simülasyon tekniğinin (Inverse Transform Method) matematiksel temelidir.
+Normal: $\Phi^{-1}(U)$ kapalı form yok; sayısal yöntemler ($\Phi^{-1} \approx$ probit fonksiyon) kullanılır.
+\end{ornek}
+
+\begin{teorem}[Kuantil-Kuantil İlişkisi]
+\label{thm:qq_iliskisi}
+$X \sim F_X$, $Y \sim F_Y$. $Y \overset{d}{=} F_Y^{-1}(F_X(X))$.
+\emph{QQ-plot} prensibi: $X$ örneklemi ile $F_Y^{-1}$ karşılaştırılarak $F_Y$ uyumu test edilir.
+\end{teorem}
+
+% =====================================================================
+\section{Ölçüm Teorisi Temelleri: Rasgele Değişkenler Açısından}
+\label{sec:olcum_temelleri}
+% =====================================================================
+
+\begin{tanim}[Ölçülebilir fonksiyon]\label{def:olculebilir}
+$(\Omega,\mathcal{F})$ ve $(\mathbb{R},\mathcal{B})$ ölçülebilir uzaylar. $X:\Omega\to\mathbb{R}$ \emph{ölçülebilir} (\emph{measurable}) denir: her $B\in\mathcal{B}$ için $X^{-1}(B)=\{\omega:X(\omega)\in B\}\in\mathcal{F}$.
+Rasgele değişken: olasılık uzayı $(\Omega,\mathcal{F},P)$ üzerinde ölçülebilir fonksiyon.
+\end{tanim}
+
+\begin{teorem}[Ölçülebilirlik kriteri]\label{thm:olculebilirlik}
+$X$ ölçülebilir $\iff$ her $a\in\mathbb{R}$ için $\{X\leq a\}\in\mathcal{F}$. (Borel kümelerini üretmek için sadece yarı-açık aralıklar yeterli.)
+\end{teorem}
+
+\begin{teorem}[Ölçülebilir fonksiyonların kapalılığı]\label{thm:olculebilir_kapali}
+$X,Y$ ölçülebilir ve $g:\mathbb{R}^2\to\mathbb{R}$ sürekli. O zaman $g(X,Y)$ de ölçülebilirdir. Özellikle: $X+Y$, $XY$, $X/Y$ ($Y\neq0$), $|X|$, $\max(X,Y)$ ölçülebilirdir.
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+$\{g(X,Y)\in B\}=\{(X,Y)\in g^{-1}(B)\}$. $g$ sürekli olduğundan $g^{-1}(B)$ açık kümelerin sonlu/sayılabilir birleşimleriyle üretilir. Kartezyensel çarpım $\sigma$-cebiri: $\{X\in A\}\cap\{Y\in B\}\in\mathcal{F}$ her $A,B\in\mathcal{B}$ için.
+\end{proof}
+
+\begin{tanim}[Dağılım (image measure)]\label{def:dagilim_olcum}
+$X:(\Omega,\mathcal{F},P)\to(\mathbb{R},\mathcal{B})$ ölçülebilir. \emph{Dağılım ölçüsü} $\mu_X:\mathcal{B}\to[0,1]$:
+\[
+  \mu_X(B) = P(X^{-1}(B)) = P(X\in B).
+\]
+Bu, $P$'nin $X$ altında görüntüsüdür (pushforward/image measure). KDF: $F(x)=\mu_X((-\infty,x])$.
+\end{tanim}
+
+\begin{ornek}[Gösterge fonksiyonu]\label{ex:gosterge_olcum}
+$A\in\mathcal{F}$, $X=\gostf{A}$. $\mu_X(\{0\})=P(A^c)$, $\mu_X(\{1\})=P(A)$. $\Beklenti[\gostf{A}]=P(A)$: olasılık, beklentinin özel halidir. Bu, integrasyon kuramının olasılığı kapsadığını gösterir.
+\end{ornek}
+
+% =====================================================================
+\section{Yakınsama Dağılımda: Karakterizasyon ve Eşdeğerlik}
+\label{sec:yakin_dagilimdaki}
+% =====================================================================
+
+\begin{tanim}[Dağılımda yakınsama]\label{def:dagilimda_yakin}
+$X_n\dto X$: her süreklilik noktası $x\in\mathbb{R}$ için $F_{X_n}(x)\to F_X(x)$.
+Eşdeğer: $\Beklenti[f(X_n)]\to\Beklenti[f(X)]$ her sınırlı, sürekli $f$ için.
+\end{tanim}
+
+\begin{teorem}[Prokhorov teoremi]\label{thm:prokhorov}
+$\{\mu_n\}$ olasılık ölçümleri dizisi. Her $\mu_n$'in göreli sıkı (\emph{tight}) olması, zayıf yakınsamalı (dağılımda yakınsamalı) alt dizi içermesine eşdeğerdir.
+
+Sıkılık (\emph{tightness}): her $\varepsilon>0$ için kompakt $K_\varepsilon\subset\mathbb{R}$ mevcut, her $n$ için $\mu_n(K_\varepsilon^c)<\varepsilon$.
+\end{teorem}
+
+\begin{teorem}[Helly seçim teoremi]\label{thm:helly}
+Her sınırlı KDF dizisi $\{F_n\}$, monoton artan, sağdan sürekli limiti olan bir alt diziye sahiptir. (Bu limit bir KDF olmayabilir --- kitle kaybolabilir.)
+\end{teorem}
+
+\begin{ornek}[Dağılımda yakınsama örnekleri]\label{ex:dagilimda_ornekler}
+\begin{enumerate}
+  \item $X_n\sim\Binom(n,\lambda/n)\dto\Pois(\lambda)$ (Poisson yakınsaması).
+  \item $X_n\sim\Normal(0,1+1/n)\dto\Normal(0,1)$ (parametre yakınsaması).
+  \item $X_n=n$ (deterministik): $P(X_n\leq x)=0$ için her $x<n$; $F_{X_n}\to0$ --- kitle kaçışı.
+\end{enumerate}
+\end{ornek}
+
+\begin{kritiksorgu}
+Dağılımda yakınsama neden n.k.\ yakınsamadan zayıftır? $X_n\overset{d}{\to}X$ ama $X_n\not\to X$ n.k.\ olan bir örnek veriniz. ($X_n\iid\Normal(0,1)$: dağılımda $\Normal(0,1)$'e yakınsadı ama her $\omega$ için $X_n(\omega)$ yakınsama başarısız olabilir.)
+\end{kritiksorgu}
+
+\begin{mikroozet}
+$F^{-1}(u) = \inf\{x: F(x)\geq u\}$: kuantil fonksiyon.
+OID: $F(X)\sim\Uniform$; $F^{-1}(U)\sim F$.
+Simülasyon: her sürekli dağılım $\Uniform(0,1)$'den üretilir.
+Rasgele değişken = ölçülebilir fonksiyon; ölçüm teorisinin sağladığı kesinlik.
+Dağılımda yakınsama $\iff$ zayıf yakınsama; Prokhorov sıkılık koşulu.
+\end{mikroozet}
+
+% =====================================================================
+%  ALIŞTIRMALAR
+% =====================================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.3.1]{A}{Ölçülebilirlik Kontrolü}
+$\Omega = \{1, 2, 3, 4\}$, $\mathcal{F} = \{\emptyset, \{1,2\}, \{3,4\}, \Omega\}$.
+$X(\omega) = \omega$ ve $Y(\omega) = \mathbf{1}_{\{1,2\}}(\omega)$ fonksiyonlarından
+hangisi rasgele değişkendir? Gerekçelendiriniz.
+\end{alistirma}
+\alcozum{%
+$Y$: $\{Y \leq 0\} = \{3,4\} \in \mathcal{F}$; $\{Y \leq 1\} = \Omega \in \mathcal{F}$;
+yani tüm alt kümeler $\mathcal{F}$'de. $Y$ rasgele değişkendir.\\
+$X$: $\{X \leq 1\} = \{1\} \notin \mathcal{F}$. $X$ rasgele değişken değildir.}
+
+\begin{alistirma}[Al.3.2]{A}{KDF'den Olasılık Hesabı}
+$X$ rasgele değişkenin KDF'si:
+\[
+  F(x) = \begin{cases} 0 & x < 0 \\ x/2 & 0 \leq x < 1 \\ 1/2 + (x-1)/4 & 1 \leq x < 3 \\ 1 & x \geq 3 \end{cases}
+\]
+$P(X = 0)$, $P(X = 1)$, $P(0.5 < X \leq 2)$ ve $P(X = 3)$'ü bulunuz.
+\end{alistirma}
+\alcozum{%
+$P(X = 0) = F(0) - F(0^-) = 0 - 0 = 0$ ($F$ 0'da sürekli).\\
+$P(X = 1) = F(1) - F(1^-) = (1/2+0) - (1/2) = 0$ (sürekli).\\
+$P(0.5 < X \leq 2) = F(2) - F(0.5) = (1/2 + 1/4) - 1/4 = 3/4 - 1/4 = 1/2$.\\
+$P(X = 3) = F(3) - F(3^-) = 1 - (1/2 + 2/4) = 1 - 1 = 0$.
+Bu KDF tamamen sürekli; dağılım mutlak süreklidir (karma bile değil).}
+
+\begin{alistirma}[Al.3.3]{B}{Koşullu Dağılım}
+$(X,Y)$ ortak PDF'si $f(x,y) = c\,xy$, $0 < x < 1$, $0 < y < 2$.
+(a) $c$'yi bulunuz. (b) $f_{X|Y}(x \mid y)$'i bulunuz.
+(c) $P(X > 0.5 \mid Y = 1)$'i hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) $\int_0^1 \int_0^2 cxy \, dy \, dx = c \int_0^1 x \, dx \int_0^2 y \, dy = c \cdot \frac{1}{2} \cdot 2 = c$. $c = 1$.\\
+(b) $f_Y(y) = \int_0^1 xy \, dx = y/2$. $f_{X|Y}(x \mid y) = \frac{xy}{y/2} = 2x$, $0 < x < 1$. ($y$'den bağımsız!)\\
+(c) $P(X > 0.5 \mid Y = 1) = \int_{0.5}^1 2x \, dx = [x^2]_{0.5}^1 = 1 - 0.25 = 0.75$.}
+
+\begin{alistirma}[Al.3.4]{B}{Jacobian Dönüşümü}
+$X \sim \mathrm{Uniform}(0,1)$. $Y = -\ln X$ dönüşümü ile $Y$'nin dağılımını bulunuz.
+\end{alistirma}
+\alcozum{%
+$g(x) = -\ln x$ azalan; ters $h(y) = e^{-y}$, $|h'(y)| = e^{-y}$.\\
+$f_X(x) = 1$ ($0 < x < 1$), $x$ yerine $e^{-y}$ yazılırsa:
+$f_Y(y) = f_X(e^{-y}) \cdot e^{-y} = 1 \cdot e^{-y} = e^{-y}$, $y > 0$.\\
+$Y \sim \mathrm{Exp}(1)$. Bu quantile dönüşümü yönteminin temelidir:
+herhangi bir dağılımdan örnek üretmek için KDF'nin tersini kullanmak.}
+
+\begin{alistirma}[Al.3.4b]{B}{Dağılım Fonksiyonlarının Türleri}
+Aşağıdaki KDF'lerin her biri için: (i) süreksizlik noktalarını bulunuz, (ii) dağılım türünü belirtiniz (sürekli/kesikli/karma), (iii) varsa PDF ya da PMF'yi yazınız.
+
+\noindent (A) $F(x)=\mathbf{1}_{[1,\infty)}(x)$ (Dirac $\delta_1$).\\
+(B) $F(x)=0$ ($x<0$); $F(x)=x/2$ ($0\leq x<1$); $F(x)=x/2+1/4$ ($1\leq x<3/2$); $F(x)=1$ ($x\geq3/2$).\\
+(C) $F(x)=1-e^{-x}$ ($x>0$); $F(x)=0$ ($x\leq0$).
+\end{alistirma}
+\alcozum{%
+(A) $F(x)=\mathbf{1}_{[1,\infty)}(x)$: $x=1$'de atlama $\Delta F(1)=1$. \textbf{Kesikli} (tekil nokta); $P(X=1)=1$, Dirac kütlesi. PDF yoktur.
+
+(B) Süreksizlik: $\Delta F(1)=F(1)-F(1^-)=5/4-1/2=1/4>0$; $x=1$ bir atom. $x\in[0,1)$'de $F(x)=x/2$ türevlenebilir: $f(x)=1/2$ (düzgün). $x\in[1,3/2)$'de $f(x)=1/2$. \textbf{Karma dağılım}: $P(X=1)=1/4$ ve $X|X\neq1$ dağılımı $f(x)=1/2$ üzerinde $[0,3/2)$.
+
+(C) $F$ her yerde sürekli, $f(x)=e^{-x}$ ($x>0$). \textbf{Mutlak sürekli}; $X\sim\mathrm{Exp}(1)$.}
+
+\begin{alistirma}[Al.3.4c]{C}{Değişken Dönüşümü --- Skalar Sistemik}
+$X$ sürekli rasgele değişken, PDF $f_X$, KDF $F_X$ birebir artan ve türevlenebilir.
+(a) $Y=aX+b$ ($a>0$) için $f_Y(y)$'yi bulunuz.
+(b) $U=F_X(X)$'in dağılımını bulunuz (Olasılık integral dönüşümü).
+(c) $V=-\log(1-F_X(X))$'in dağılımını bulunuz.
+(d) (b) ve (c) sonuçlarını simülasyon yöntemi olarak yorumlayınız.
+\end{alistirma}
+\alcozum{%
+(a) $h(y)=(y-b)/a$, $|h'(y)|=1/a$. $f_Y(y)=f_X((y-b)/a)\cdot(1/a)$, $y\in(ab_1+b,ab_2+b)$ (aralığı ölçekle+kaydır).
+
+(b) $P(U\leq u)=P(F_X(X)\leq u)=P(X\leq F_X^{-1}(u))=F_X(F_X^{-1}(u))=u$ ($0<u<1$). Dolayısıyla $U\sim\mathrm{Uniform}(0,1)$.
+
+(c) $W=1-F_X(X)\sim\mathrm{Uniform}(0,1)$ (simetri, (b)'den). $V=-\log W$ ve $W\sim U(0,1)$: $P(V\leq v)=P(-\log W\leq v)=P(W\geq e^{-v})=1-e^{-v}$ ($v>0$). $V\sim\mathrm{Exp}(1)$.
+
+(d) Simülasyon: (b) tersi $X=F_X^{-1}(U)$ ile $U\sim\mathrm{Uniform}(0,1)$'den $X$ dağılımını örnekle. (c): $X=F_X^{-1}(1-e^{-V})$ ile $\mathrm{Exp}(1)$'den $X$ örnekle. Her ikisi de \emph{invers dönüşüm} veya \emph{quantile} yöntemidir.}
+
+% ---
+
+
+\begin{alistirma}[Al.3.5]{A}{KDF Özellikleri}
+$F(x) = \frac{1}{1+e^{-x}}$ (lojistik fonksiyon) bir KDF midir?
+Üç temel özelliği kontrol ediniz. Bu KDF mutlak sürekli bir dağılımı mı temsil eder?
+PDF'yi bulunuz.
+\end{alistirma}
+\alcozum{%
+Monoton artan: $F'(x) = e^{-x}/(1+e^{-x})^2 > 0$. $\checkmark$\\
+Sağdan sürekli: $F$ her yerde türevlenebilir, dolayısıyla sürekli. $\checkmark$\\
+Sınırlar: $F(-\infty) = 0$, $F(+\infty) = 1$. $\checkmark$\\
+PDF: $f(x) = F'(x) = e^{-x}/(1+e^{-x})^2$. Bu lojistik dağılımdır.}
+\begin{alistirma}[Al.3.6]{A}{PMF Doğrulama}
+$p(k) = c \cdot (1/2)^k$, $k = 1, 2, 3, \ldots$
+(a) $c$'yi bulunuz. (b) $P(X > 3)$'ü hesaplayınız. (c) $P(X \text{ çift})$'i bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $\sum_{k=1}^\infty c(1/2)^k = c \cdot (1/2)/(1-1/2) = c = 1$.\\
+(b) $P(X > 3) = \sum_{k=4}^\infty (1/2)^k = (1/2)^4/(1-1/2) = 1/8$.\\
+(c) $P(\text{çift}) = \sum_{k=1}^\infty (1/2)^{2k} = (1/4)/(1-1/4) = 1/3$.}
+\alistirmalar
+
+
+
+\begin{alistirma}[Al.3.7]{A}{Marjinal Dağılımlar}
+$(X, Y)$ ortak PMF: $p(0,0)=0.1$, $p(0,1)=0.2$, $p(1,0)=0.3$, $p(1,1)=0.4$.
+Marjinal PMF'leri $p_X$ ve $p_Y$'yi bulunuz. $X$ ve $Y$ bağımsız mıdır?
+\end{alistirma}
+\alcozum{%
+$p_X(0) = 0.3$, $p_X(1) = 0.7$. $p_Y(0) = 0.4$, $p_Y(1) = 0.6$.\\
+Bağımsız mı? $p_X(0) \cdot p_Y(0) = 0.3 \cdot 0.4 = 0.12 \neq 0.1 = p(0,0)$. Hayır.}
+
+\begin{alistirma}[Al.3.8]{B}{Evrişim}
+$X, Y$ bağımsız, $X \sim \mathrm{Uniform}(0,1)$, $Y \sim \mathrm{Uniform}(0,1)$.
+$Z = X + Y$'nin PDF'sini evrişim yöntemiyle bulunuz ve grafiğini çiziniz.
+\end{alistirma}
+\alcozum{%
+$f_Z(z) = \int_0^1 f_X(z-y) f_Y(y) \, dy = \int_0^1 \mathbf{1}_{[0,1]}(z-y) \, dy$.\\
+$0 \leq z \leq 1$: $z-y \in [0,1]$ için $y \in [z-1, z] \cap [0,1] = [0, z]$; $f_Z(z) = z$.\\
+$1 < z \leq 2$: $y \in [z-1, 1]$; $f_Z(z) = 2-z$.\\
+Üçgen dağılım: $f_Z(z) = z$ (artan), $2-z$ (azalan). Merkezi Limit Teoremi'nin habercisi.}
+
+\begin{alistirma}[Al.3.9]{B}{Dönüşüm: Karekök}
+$X \sim \mathrm{Exp}(\lambda)$. $Y = \sqrt{X}$'in PDF'sini bulunuz.
+$E[Y]$'yi $f_Y$ üzerinden ifade ediniz (Bölüm~\ref{chp:beklenti}'de hesaplanacak).
+\end{alistirma}
+\alcozum{%
+$g(x) = \sqrt{x}$ artan; $h(y) = y^2$, $|h'(y)| = 2y$.\\
+$f_X(x) = \lambda e^{-\lambda x}$ ($x > 0$).\\
+$f_Y(y) = \lambda e^{-\lambda y^2} \cdot 2y = 2\lambda y e^{-\lambda y^2}$, $y > 0$.\\
+Bu Rayleigh dağılımıdır (parametre $1/\sqrt{2\lambda}$).}
+
+\begin{alistirma}[Al.3.10]{B}{Bağımsızlık Kontrolü}
+$(X,Y)$ PDF'si $f(x,y) = e^{-x-y}$, $x > 0$, $y > 0$. $X$ ve $Y$ bağımsız mıdır?
+Aynı soruyu $f(x,y) = 2e^{-x-y}$, $0 < y < x < \infty$ için yanıtlayınız.
+\end{alistirma}
+\alcozum{%
+Birinci: $f(x,y) = e^{-x} \cdot e^{-y} = f_X(x) \cdot f_Y(y)$. Evet, bağımsız.\\
+İkinci: $f_X(x) = \int_0^x 2e^{-x-y} dy = 2e^{-x}(1-e^{-x})$. $f_Y(y) = \int_y^\infty 2e^{-x-y} dx = 2e^{-2y}$.
+$f_X(x) \cdot f_Y(y) \neq f(x,y)$. Hayır, bağımsız değil.}
+
+\begin{alistirma}[Al.3.11]{B}{Çok Boyutlu Jacobian}
+$(X, Y)$ bağımsız $\Normal(0,1)$. $U = X + Y$, $V = X - Y$ dönüşümü ile
+$(U, V)$'nin ortak dağılımını bulunuz. $U$ ve $V$ bağımsız mıdır?
+\end{alistirma}
+\alcozum{%
+Ters: $x = (u+v)/2$, $y = (u-v)/2$. $J = \partial(x,y)/\partial(u,v)$:
+$\partial x/\partial u = 1/2$, $\partial x/\partial v = 1/2$,
+$\partial y/\partial u = 1/2$, $\partial y/\partial v = -1/2$.
+$|\det J| = |{-1/4-1/4}| = 1/2$.\\
+$f_{U,V}(u,v) = f_X((u+v)/2) f_Y((u-v)/2) \cdot 1/2
+= \frac{1}{2\pi} e^{-u^2/4} e^{-v^2/4} \cdot \frac{1}{2}
+= \frac{1}{4\pi} e^{-(u^2+v^2)/4}$.\\
+$U \sim \Normal(0, 2)$, $V \sim \Normal(0, 2)$ ve çarpımlanıyor: bağımsızlar.}
+
+\begin{alistirma}[Al.3.12]{C}{İspat: Bağımsız Değişkenlerin Toplamının KDF'si}
+$X, Y$ bağımsız rasgele değişkenler, $Z = X + Y$ olsun.
+(a) $F_Z(z) = \int_{-\infty}^{+\infty} F_X(z - y) \, dF_Y(y)$ olduğunu ispatlayınız
+(Lebesgue-Stieltjes integrali).
+(b) Mutlak sürekli durumda bu formülün evrişim formülüne nasıl indirgeneceğini gösteriniz.
+\end{alistirma}
+\alcozum{%
+(a) Bağımsızlıktan:
+$F_Z(z) = P(X+Y \leq z) = E[\mathbf{1}_{X+Y \leq z}]
+= E_Y[E_X[\mathbf{1}_{X \leq z-Y}]] = \int P(X \leq z-y) \, dF_Y(y) = \int F_X(z-y) \, dF_Y(y)$.\\
+(b) Sürekli $Y$: $dF_Y(y) = f_Y(y) \, dy$. O zaman $F_Z(z) = \int F_X(z-y) f_Y(y) \, dy$.
+$z$'ye göre türev (Leibniz): $f_Z(z) = \int f_X(z-y) f_Y(y) \, dy = (f_X * f_Y)(z)$.}
+
+\begin{alistirma}[Al.3.13]{B}{Olasılık İntegral Dönüşümü}
+$X \sim \Gama(\alpha, \beta)$. $U = F_X(X)$ dönüşümünü tanımlayınız.
+(a) $U$'nun dağılımını bulunuz.
+(b) Geri dönüşüm: $U \sim \Uniform(0,1)$ verildiğinde $\Gama(2,1)$ dağılımı
+nasıl simüle edersiniz? (İpucu: Üstel dağılım üzerinden)
+(c) OID'nin QQ-plot oluşturmadaki rolünü açıklayınız.
+\end{alistirma}
+\alcozum{%
+(a) OID (Teorem~\ref{thm:oit}): $F_X(X) \sim \Uniform(0,1)$. Sürekli dağılım için geçerli; $\Gama$ sürekli. $U \sim \Uniform(0,1)$.\\
+(b) $\Gama(2,1) = \Exp(1)+\Exp(1)$ (iki bağımsız Üstel toplamı).
+$U_1, U_2 \sim \Uniform(0,1)$ bağımsız.
+$X = -\ln(1-U_1) - \ln(1-U_2) = -\ln((1-U_1)(1-U_2))$.
+Bu $\Gama(2,1)$ dağılımını verir.\\
+(c) Veri $\{X_i\}$ için $\{F_0^{-1}(i/(n+1))\}$ teorik kuantiller ile sıralı örneklem karşılaştırılır.
+$F_0 = F_X$ ise noktalar doğrusal dizilir.}
+
+\begin{alistirma}[Al.3.14]{B}{İki Boyutlu Normal}
+$(X_1, X_2) \sim \Normal_2\!\left((0,0)^\top, \begin{pmatrix}1 & \rho\\\rho & 1\end{pmatrix}\right)$.
+(a) $X_1 + X_2$ ve $X_1 - X_2$'nin dağılımını bulunuz.
+(b) $X_1 + X_2$ ve $X_1 - X_2$ bağımsız mıdır?
+(c) $X_1 \mid X_2 = 1$'in dağılımını veriniz.
+\end{alistirma}
+\alcozum{%
+(a) Lineer dönüşüm: $A = \begin{pmatrix}1&1\\1&-1\end{pmatrix}$, $\boldsymbol{\Sigma} = \begin{pmatrix}1&\rho\\\rho&1\end{pmatrix}$.
+$A\boldsymbol{\Sigma}A^\top = \begin{pmatrix}2+2\rho & 0 \\ 0 & 2-2\rho\end{pmatrix}$.
+$X_1+X_2 \sim \Normal(0, 2+2\rho)$; $X_1-X_2 \sim \Normal(0, 2-2\rho)$.\\
+(b) Kovaryans sıfır (matris köşegen) $\Rightarrow$ Normal için bağımsız. Evet, bağımsız.\\
+(c) $X_1|X_2=1 \sim \Normal(\rho, 1-\rho^2)$.}
+
+\begin{alistirma}[Al.3.15]{C}{Kuantil Fonksiyon --- Karma Dağılım}
+$X$ karma dağılım: $P(X = 0) = 1/2$, $P(X > 0) = 1/2$ ve $X \mid X>0 \sim \Exp(1)$.
+(a) $F_X(x)$'i her $x$ için yazınız.
+(b) $F_X^{-1}(u)$'yu $u \in (0,1)$ için hesaplayınız.
+(c) $U \sim \Uniform(0,1)$ kullanarak $X$ dağılımından nasıl örneklem alırsınız?
+\end{alistirma}
+\alcozum{%
+(a) $x < 0$: $F(x) = 0$. $x = 0$: $F(0) = 1/2$. $x > 0$: $F(x) = 1/2 + (1/2)(1-e^{-x})$.\\
+(b) $u \leq 1/2$: $F^{-1}(u) = 0$. $u > 1/2$: $F(x) = u \Rightarrow 1-e^{-x} = 2u-1 \Rightarrow x = -\ln(2-2u)$.
+$F^{-1}(u) = -\ln(2(1-u))$ ($u > 1/2$).\\
+(c) $U \sim \Uniform(0,1)$: $U \leq 1/2$ ise $X = 0$; $U > 1/2$ ise $X = -\ln(2(1-U))$.}
+
+% =====================================================================
+\endinput

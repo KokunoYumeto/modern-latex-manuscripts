@@ -1,0 +1,605 @@
+%% ============================================================
+%% BÖLÜM 15 --- Doğrusal Modeller ve Regresyon
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Doğrusal Modeller ve Regresyon}
+\label{chp:dogrusal_modeller}
+
+\bolumalinti{%
+  All models are wrong, but some are useful.
+}{George Box}
+
+\begin{kazanimlar}
+Bu bölümün sonunda okuyucu:
+\begin{itemize}
+  \item Basit doğrusal regresyon modelini kurar; EKK tahmin edicilerini türetir ve yorumlar.
+  \item Çok değişkenli regresyon modelini matris formunda ifade eder; $\hat{\boldsymbol{\beta}} = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{y}$ formülünü ispat eder.
+  \item Gauss-Markov teoremini uygular; BLUE tahmin edicisini belirler.
+  \item Normal hata varsayımı altında $t$ ve $F$ testleri yapar.
+  \item Belirlilik katsayısı $R^2$ ile modeli değerlendirir.
+  \item Regresyon varsayımlarını kontrol eder; çoklu doğrusallık ve aykırı değer sorunlarını tanır.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+"Boy ile kilo arasında nasıl bir ilişki var?", "Reklam harcaması satışları nasıl etkiliyor?" --- bu sorular bir değişkeni diğerlerinden tahmin etmeyi hedefler. Doğrusal regresyon bu hedefin en yaygın ve en iyi anlaşılmış matematiksel çerçevesidir.
+
+\medskip
+\noindent\textbf{Köprü:} Bölüm~\ref{chp:istatistik_temelleri}'deki yeterli istatistik ve Fisher-Neyman teoremi, regresyondaki $(\bar{X},S_{xx})$ çiftinin yeterliliğini açıklar. Bölüm~\ref{chp:dagilim_aileleri}'deki $t$, $F$, $\chi^2$ dağılımları burada doğrudan kullanılır.
+\end{motivasyon}
+
+%% ============================================================
+\section{Basit Doğrusal Regresyon}
+\label{sec:basit_regresyon}
+%% ============================================================
+
+\begin{tanim}[Basit doğrusal regresyon modeli]\label{def:bdr_model}
+\[
+  Y_i = \beta_0 + \beta_1 x_i + \varepsilon_i, \quad i=1,\ldots,n,
+\]
+$x_i$ sabit (rasgele değil), $\varepsilon_i\iid(0,\sigma^2)$, $\boldsymbol{\beta}=(\beta_0,\beta_1)^\top$ bilinmiyor.
+\end{tanim}
+
+\subsection{EKK Tahmin Edicileri}
+
+\begin{teorem}[EKK tahmin edicileri]\label{thm:ekk_tah}
+\[
+  \hat\beta_1 = \frac{S_{xy}}{S_{xx}}, \qquad \hat\beta_0 = \bar{Y} - \hat\beta_1\bar{x},
+\]
+$S_{xx}=\sum(x_i-\bar{x})^2$, $S_{xy}=\sum(x_i-\bar{x})(Y_i-\bar{Y})$ ile.
+\end{teorem}
+
+\begin{proof}
+$\mathrm{EKK}(\beta_0,\beta_1) = \sum_{i=1}^n(Y_i-\beta_0-\beta_1 x_i)^2$ minimizasyonu. $\partial/\partial\beta_0=0$: $\hat\beta_0=\bar{Y}-\hat\beta_1\bar{x}$. $\partial/\partial\beta_1=0$: $\hat\beta_1=S_{xy}/S_{xx}$.
+\end{proof}
+
+\begin{teorem}[EKK'nın özellikleri]\label{thm:ekk_ozell}
+Normal hata varsayımı olmaksızın ($\Beklenti[\varepsilon_i]=0$, $\Var(\varepsilon_i)=\sigma^2$):
+\begin{enumerate}[(a)]
+  \item $\hat\beta_0$, $\hat\beta_1$ yansız: $\Beklenti[\hat\beta_j]=\beta_j$.
+  \item $\Var(\hat\beta_1)=\sigma^2/S_{xx}$, $\Var(\hat\beta_0)=\sigma^2(\frac{1}{n}+\frac{\bar{x}^2}{S_{xx}})$.
+  \item $S^2_e = \frac{\mathrm{SSE}}{n-2}$ yansız: $\Beklenti[S^2_e]=\sigma^2$ (burada $\mathrm{SSE}=\sum(Y_i-\hat{Y}_i)^2$).
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(a) $\hat\beta_1 = \sum c_i Y_i$ ($c_i=(x_i-\bar{x})/S_{xx}$); $\Beklenti[\hat\beta_1]=\sum c_i(\beta_0+\beta_1 x_i)=\beta_1$ ($\sum c_i=0$, $\sum c_i x_i=1$).
+
+(b) $\Var(\hat\beta_1)=\sigma^2\sum c_i^2=\sigma^2/S_{xx}$.
+
+(c) $\mathrm{SSE}=\mathbf{Y}^\top(I-H)\mathbf{Y}$ ($H$ şapka matrisi); $(I-H)$ projeksiyon; iz$(I-H)=n-2$. Özdeger argümanıyla $\mathrm{SSE}/\sigma^2\sim\chi^2_{n-2}$.
+\end{proof}
+
+%% ============================================================
+\section{Çok Değişkenli Doğrusal Regresyon}
+\label{sec:cok_regresyon}
+%% ============================================================
+
+\begin{tanim}[Matris modeli]\label{def:matris_model}
+$n\times(p+1)$ tasarım matrisi $\mathbf{X}$ (birinci sütun $\mathbf{1}$), $\boldsymbol{\beta}\in\mathbb{R}^{p+1}$, $\boldsymbol{\varepsilon}\sim(\mathbf{0},\sigma^2 I_n)$:
+\[
+  \mathbf{Y} = \mathbf{X}\boldsymbol{\beta} + \boldsymbol{\varepsilon}.
+\]
+\end{tanim}
+
+\begin{teorem}[EKK tahmini]\label{thm:cok_ekk}
+$\mathbf{X}^\top\mathbf{X}$ tersinir ise EKK tahmin edicisi:
+\[
+  \hat{\boldsymbol{\beta}} = (\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{Y}.
+\]
+\end{teorem}
+
+\begin{proof}
+$S(\boldsymbol{\beta})=(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta})^\top(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta})$ minimize edilecek. $\nabla_\beta S = -2\mathbf{X}^\top(\mathbf{Y}-\mathbf{X}\boldsymbol{\beta})=\mathbf{0}$: normal denklem $\mathbf{X}^\top\mathbf{X}\hat{\boldsymbol{\beta}}=\mathbf{X}^\top\mathbf{Y}$. $\mathbf{X}^\top\mathbf{X}$ p.d. (tersinir); çözüm $\hat{\boldsymbol{\beta}}=(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{Y}$.
+\end{proof}
+
+\begin{teorem}[Şapka matrisi]\label{thm:sapka_matris}
+$H = \mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top$ \textbf{projeksiyon matrisi} (şapka matrisi). $\hat{\mathbf{Y}}=H\mathbf{Y}$, $\mathbf{e}=(I-H)\mathbf{Y}$ (artıklar). $H$ idempotent: $H^2=H$; $(I-H)^2=I-H$.
+\end{teorem}
+
+%% ============================================================
+\section{Gauss-Markov Teoremi}
+\label{sec:gauss_markov}
+%% ============================================================
+
+\begin{teorem}[Gauss-Markov]\label{thm:gauss_markov}
+$\Beklenti[\boldsymbol{\varepsilon}]=\mathbf{0}$, $\Cov(\boldsymbol{\varepsilon})=\sigma^2 I$ (normallik varsayımı yok). Her $\mathbf{c}\in\mathbb{R}^{p+1}$ için $\mathbf{c}^\top\boldsymbol{\beta}$'nın tüm yansız doğrusal tahmin edicileri arasında EKK tahmini $\mathbf{c}^\top\hat{\boldsymbol{\beta}}$ en küçük varyanslıdır (\textbf{BLUE}).
+\end{teorem}
+
+\begin{proof}
+$\tilde{\beta} = \mathbf{a}^\top\mathbf{Y}$ yansız: $\mathbf{a}^\top\mathbf{X}=\mathbf{c}^\top$. $\Var(\tilde\beta)=\sigma^2\|\mathbf{a}\|^2$. $\mathbf{a}=\mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{c}+\mathbf{d}$ ($\mathbf{d}$ serbest vektör; yansızlıktan $\mathbf{X}^\top\mathbf{d}=\mathbf{0}$). O zaman $\|\mathbf{a}\|^2=\mathbf{c}^\top(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{c}+\|\mathbf{d}\|^2\geq\mathbf{c}^\top(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{c}$; eşitlik $\mathbf{d}=\mathbf{0}$'da.
+\end{proof}
+
+%% ============================================================
+\section{Normal Hata Altında Çıkarım}
+\label{sec:normal_cikarim}
+%% ============================================================
+
+\begin{teorem}[Normal regresyonda dağılımlar]\label{thm:normal_regresyon_dag}
+$\boldsymbol{\varepsilon}\sim\Normal_n(\mathbf{0},\sigma^2 I)$ ise:
+\begin{enumerate}[(a)]
+  \item $\hat{\boldsymbol{\beta}}\sim\Normal_{p+1}(\boldsymbol{\beta},\sigma^2(\mathbf{X}^\top\mathbf{X})^{-1})$.
+  \item $\mathrm{SSE}/\sigma^2\sim\chi^2_{n-p-1}$, $\hat{\boldsymbol{\beta}}\perp\mathrm{SSE}$.
+  \item $T_j = (\hat\beta_j-\beta_j)/(S_e\sqrt{[(\mathbf{X}^\top\mathbf{X})^{-1}]_{jj}})\sim t_{n-p-1}$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(a) $\hat{\boldsymbol{\beta}}=(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{Y}$ normalin doğrusal dönüşümü; $\Beklenti[\hat{\boldsymbol{\beta}}]=\boldsymbol{\beta}$, $\Cov=\sigma^2(\mathbf{X}^\top\mathbf{X})^{-1}$.
+
+(b) $H$ ve $I-H$ ortogonal projeksiyon; $\hat{\mathbf{Y}}=H\mathbf{Y}$ ve $\mathbf{e}=(I-H)\mathbf{Y}$ bağımsız ($HG(I-H)=0$). $\mathrm{SSE}=\mathbf{e}^\top\mathbf{e}$; iz$(I-H)=n-p-1$ ile $\chi^2_{n-p-1}$.
+
+(c) Standart $t$ argümanı.
+\end{proof}
+
+\subsection{$F$-Testi ve ANOVA Ayrışımı}
+
+\begin{teorem}[$F$-testi --- anlamsallık]\label{thm:f_test_regresyon}
+$H_0:\beta_1=\cdots=\beta_p=0$ (sabit model) vs genel model.
+\[
+  F = \frac{(\mathrm{SST}-\mathrm{SSE})/p}{\mathrm{SSE}/(n-p-1)} \overset{H_0}{\sim} F_{p,n-p-1}.
+\]
+$\mathrm{SST}=\sum(Y_i-\bar{Y})^2$ toplam kareler toplamı.
+\end{teorem}
+
+\begin{tanim}[Belirlilik katsayısı]\label{def:r_kare}
+\[
+  R^2 = 1 - \frac{\mathrm{SSE}}{\mathrm{SST}} = \frac{\mathrm{SSR}}{\mathrm{SST}} \in [0,1].
+\]
+$\mathrm{SSR}=\sum(\hat{Y}_i-\bar{Y})^2$ regresyon kareler toplamı. $R^2$: bağımlı değişken varyansının model tarafından açıklanan oranı.
+\end{tanim}
+
+\begin{kritiksorgu}
+$R^2$ tek başına model kalitesini yeterince ölçer mi? Değişken eklendikçe $R^2$ daima artar; düzeltilmiş $\bar{R}^2 = 1-(1-R^2)\frac{n-1}{n-p-1}$ bu sorunu kısmen çözer.
+\end{kritiksorgu}
+
+%% ============================================================
+\section{Varsayım Kontrolü}
+\label{sec:varsayim_kontrol}
+%% ============================================================
+
+\subsection{Çoklu Doğrusallık}
+
+\begin{tanim}[VIF]\label{def:vif}
+$j$. açıklayıcının diğer açıklayıcılara regresyonunda $R_j^2$ elde edilir. \textbf{Varyans şişirme faktörü} \emph{(VIF)}:
+\[
+  \mathrm{VIF}_j = \frac{1}{1-R_j^2}.
+\]
+$\mathrm{VIF}>10$ problematik çoklu doğrusallığa işaret eder.
+\end{tanim}
+
+\subsection{Hata Normalliği ve Eşit Varyanslılık}
+
+\begin{itemize}
+  \item \textbf{Artık grafiği:} Artık $e_i$ vs $\hat{Y}_i$; fan biçim $\Rightarrow$ heteroskedastik.
+  \item \textbf{Q-Q grafiği:} Artıkların normallik kontrolü.
+  \item \textbf{Breusch-Pagan testi:} $e_i^2$'yi $\mathbf{X}$'e regresse et; $\chi^2$ testi ile heteroskedastik.
+\end{itemize}
+
+\begin{hataanalizi}
+Normallik sadece küçük örneklemlerde kritiktir; büyük $n$'de CLT ile tahmin ediciler zaten yaklaşık normaldir. Eşit varyanslılık ihlali standart hataları bozar --- White sağlamlık standart hatası düzeltme yapar.
+\end{hataanalizi}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Ekonometri:} Regresyon ekonomik politika analizinin temeli. \textbf{Biyoistatistik:} Klinik deneylerde kovaryanslı F-testleri (ANCOVA). \textbf{Makine öğrenmesi:} Ridge, Lasso regresyon bu teori üzerine kurulur (düzenleme = Bayes önsel).
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Ridge ve Lasso Regresyon (Giriş)}
+\label{sec:ridge_lasso}
+%% ============================================================
+
+\begin{tanim}[Ridge regresyon]\label{def:ridge}
+\[
+  \hat{\boldsymbol{\beta}}_{\mathrm{ridge}} = \arg\min_{\boldsymbol\beta}\left[\|\mathbf{Y}-\mathbf{X}\boldsymbol\beta\|^2 + \lambda\|\boldsymbol\beta\|^2\right] = (\mathbf{X}^\top\mathbf{X}+\lambda I)^{-1}\mathbf{X}^\top\mathbf{Y}.
+\]
+$\lambda>0$: çözüm daima mevcuttur; çoklu doğrusallığa sağlamlık. EKK'ya kıyasla yanlı ama küçük varyanslı.
+\end{tanim}
+
+\begin{tanim}[Lasso]\label{def:lasso}
+\[
+  \hat{\boldsymbol{\beta}}_{\mathrm{lasso}} = \arg\min_{\boldsymbol\beta}\left[\|\mathbf{Y}-\mathbf{X}\boldsymbol\beta\|^2 + \lambda\|\boldsymbol\beta\|_1\right].
+\]
+$\ell_1$ cezası: bazı $\hat\beta_j=0$; değişken seçimi yapar (seyrek çözüm).
+\end{tanim}
+
+\begin{kendinleifade}
+Ridge ve Lasso tahmin edicilerinin Bayes yorumunu açıkla. Ridge hangi önsel dağılıma karşılık gelir? Lasso için hangi önsel kullanılır?
+\kendinleifadecevap{Ridge = MAP ile Normal önsel:
+  $\beta_j \overset{\text{iid}}{\sim} N(0,\,\sigma^2/\lambda)$, log-sonsal
+  minimizasyonu $\|\mathbf{y}-\mathbf{X}\boldsymbol\beta\|^2+\lambda\|\boldsymbol\beta\|^2$'yi verir.
+  Lasso = Laplace (çift üstel) önsel: $\beta_j \overset{\text{iid}}{\sim}
+  \mathrm{Laplace}(0,1/\lambda)$, log-sonsal $L_1$ cezayı doğurur.
+  Sezgi: Normal önsel sıfıra büzer ama sıfırlamaz; Laplace önsel köşe noktasında
+  tam sıfırlamayı tercih eder --- değişken seçimi.}
+\end{kendinleifade}
+
+%% ============================================================
+\section{Ağırlıklı En Küçük Kareler (WLS)}
+\label{sec:wls}
+%% ============================================================
+
+Hata varyansları eşit değilse ($\Var(\varepsilon_i)=\sigma^2/w_i$, $w_i$ bilinen) klasik EKK BLUE değildir.
+
+\begin{tanim}[WLS tahmin edicisi]\label{def:wls}
+$W=\mathrm{diag}(w_1,\ldots,w_n)$ ağırlık matrisi. \textbf{Ağırlıklı EKK} \emph{(weighted least squares)}:
+\[
+  \hat{\boldsymbol\beta}_{\mathrm{WLS}} = (\mathbf{X}^\top W\mathbf{X})^{-1}\mathbf{X}^\top W\mathbf{Y}.
+\]
+\end{tanim}
+
+\begin{teorem}[WLS Gauss-Markov]\label{thm:wls_gm}
+$\Cov(\boldsymbol\varepsilon)=\sigma^2 W^{-1}$ altında $\hat{\boldsymbol\beta}_{\mathrm{WLS}}$ BLUE'dur.
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+$\tilde{\mathbf{Y}}=W^{1/2}\mathbf{Y}$, $\tilde{\mathbf{X}}=W^{1/2}\mathbf{X}$, $\tilde{\boldsymbol\varepsilon}=W^{1/2}\boldsymbol\varepsilon$. $\Cov(\tilde{\boldsymbol\varepsilon})=\sigma^2 I$. WLS dönüştürülmüş sistemde standart EKK; Gauss-Markov'u uygula.
+\end{proof}
+
+\begin{ornek}[Grupla toplanmış veri]\label{ex:wls_grup}
+Her $x_i$ noktasında $n_i$ gözlem, grup ortalaması $\bar Y_i$ kullanılıyor. $\Var(\bar Y_i)=\sigma^2/n_i$; ağırlık $w_i=n_i$. WLS, başlangıç gözlemlerle EKK'ya eşdeğer.
+\end{ornek}
+
+%% ============================================================
+\section{Model Seçim Kriterleri}
+\label{sec:model_secim}
+%% ============================================================
+
+\begin{tanim}[AIC ve BIC]\label{def:aic_bic}
+$p+1$ parametreli model, $\hat L$ maksimum olabilirlik:
+\begin{align*}
+\mathrm{AIC} &= -2\log\hat L + 2(p+1), \\
+\mathrm{BIC} &= -2\log\hat L + (p+1)\log n.
+\end{align*}
+Küçük değer tercih edilir. BIC, $n$ büyüdükçe AIC'tan daha fazla cezalandırır; daha seyrek model seçer.
+\end{tanim}
+
+\begin{teorem}[Normal regresyonda AIC]\label{thm:aic_normal}
+Normal regresyon modeli $\hat\sigma^2=\mathrm{SSE}/n$:
+\[
+  \mathrm{AIC} = n\log(\mathrm{SSE}/n) + 2(p+1) + \text{sabit}.
+\]
+\end{teorem}
+
+\begin{proof}[Proof]
+$\log\hat L = -\frac{n}{2}\log(2\pi\hat\sigma^2)-\frac{n}{2}$. $-2\log\hat L = n\log\hat\sigma^2+n(1+\log2\pi)$. AIC = bunun üstüne $2(p+1)$ ekle.
+\end{proof}
+
+\begin{tanim}[Çapraz doğrulama]\label{def:cv}
+\textbf{Bırakılan-bir-dışarı (LOO-CV)} tahmin hatası:
+\[
+  \mathrm{CV} = \frac{1}{n}\sum_{i=1}^n (Y_i - \hat Y_{(-i)})^2,
+\]
+$\hat Y_{(-i)}$: $i$'inci gözlem dışlanarak elde edilen regresyon ile $x_i$ noktasındaki tahmin. Normal regresyonda kapalı form: $\mathrm{CV} = \frac{1}{n}\sum(e_i/(1-h_{ii}))^2$ ($h_{ii}$ şapka matrisinin köşegen elemanı).
+\end{tanim}
+
+%% ============================================================
+\section{Regresyon Tanıtlayıcı İstatistikleri}
+\label{sec:reg_tanimlayici}
+%% ============================================================
+
+\begin{tanim}[Leverage ve etki]\label{def:leverage}
+Şapka matrisi $H$'nın köşegen elemanı $h_{ii}=[\mathbf{X}(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top]_{ii}$ \textbf{leverage} \emph{(kaldıraç)} olarak adlandırılır.
+
+$0\leq h_{ii}\leq1$; $\sum_i h_{ii}=p+1$. $h_{ii}$ büyükse $x_i$ uç noktada --- regresyona büyük etki.
+\end{tanim}
+
+\begin{teorem}[Artık varyansı]\label{thm:artik_var}
+$e_i = Y_i - \hat Y_i$ artık. $\Var(e_i) = \sigma^2(1-h_{ii})$; iç öğrenci artık:
+\[
+  r_i = \frac{e_i}{S_e\sqrt{1-h_{ii}}} \approx t_{n-p-2}.
+\]
+\end{teorem}
+
+\begin{tanim}[Cook mesafesi]\label{def:cook}
+\textbf{Cook mesafesi}: $i$'inci gözlem çıkarıldığında $\hat{\boldsymbol\beta}$'nın ne kadar değiştiği:
+\[
+  D_i = \frac{(\hat{\boldsymbol\beta}_{(-i)}-\hat{\boldsymbol\beta})^\top\mathbf{X}^\top\mathbf{X}(\hat{\boldsymbol\beta}_{(-i)}-\hat{\boldsymbol\beta})}{(p+1)S_e^2} = \frac{r_i^2 h_{ii}}{(p+1)(1-h_{ii})}.
+\]
+$D_i>1$ etkili nokta olarak kabul edilir; $D_i>4/n$ izleme kuralı.
+\end{tanim}
+
+\begin{ornek}[Leverage vs etki]\label{ex:leverage_etki}
+Yüksek leverage ($h_{ii}$ büyük) mutlaka etkili nokta olmayabilir: $x_i$ uç ama modele uyuyorsa ($e_i\approx0$), $D_i$ küçük kalır. Kaldıraç fırsat, etki gerçekleşen etkidir.
+\end{ornek}
+
+%% ============================================================
+\section{Genelleştirilmiş Doğrusal Modeller (GLM) Girişi}
+\label{sec:glm}
+%% ============================================================
+
+\begin{kesif}
+$Y_i \in \{0,1\}$ ikili yanıt için doğrusal model
+$E[Y_i \mid \mathbf{x}_i] = \mathbf{x}_i^\top\boldsymbol\beta$ kullanılabilir mi?
+$\mathbf{x}_i^\top\boldsymbol\beta < 0$ veya $> 1$ olduğunda ne sorun çıkar?
+Olasılıkları $[0,1]$ aralığında tutmak için ne yapılabilir?
+\kesifcevap{Doğrusal model $\hat{p}_i = \mathbf{x}_i^\top\boldsymbol\beta < 0$ veya $> 1$
+  üretebilir --- olasılık yorumu bozulur. Çözüm: $E[Y_i]$'yi doğrudan değil,
+  bir dönüşümünü modellemek. $g(\mu) = \log(\mu/(1-\mu))$ (logit) bağlantısı
+  $\mu \in (0,1)$'i tüm gerçel eksene açar; bu lojistik regresyondur.
+  Sayma verisi için $g = \log$ ile $\hat\mu > 0$ garantisi sağlanır.}
+\end{kesif}
+
+\begin{tanim}[GLM]\label{def:glm}
+Üstel aileden yanıt $Y_i\sim f(y;\theta_i)$ ve $g(\mu_i)=\mathbf{x}_i^\top\boldsymbol\beta$ olsun; $\mu_i=\Beklenti[Y_i]$, $g$ \textbf{bağlantı fonksiyonu} \emph{(link function)}. Üç bileşen:
+\begin{enumerate}
+  \item Rasgele bileşen: $Y_i$'nin dağılımı (üstel aile).
+  \item Sistematik bileşen: doğrusal öngörücü $\eta_i=\mathbf{x}_i^\top\boldsymbol\beta$.
+  \item Bağlantı: $\eta_i=g(\mu_i)$.
+\end{enumerate}
+\end{tanim}
+
+\begin{ornek}[Önemli GLM'ler]\label{ex:glm_ornekler}
+\begin{itemize}
+  \item \textbf{Lojistik regresyon:} $Y_i\sim\mathrm{Ber}(p_i)$; $g=\mathrm{logit}$: $\log(p_i/(1-p_i))=\mathbf{x}_i^\top\boldsymbol\beta$.
+  \item \textbf{Poisson regresyon:} $Y_i\sim\Pois(\mu_i)$; $g=\log$: $\log\mu_i=\mathbf{x}_i^\top\boldsymbol\beta$.
+  \item \textbf{Normal regresyon:} $g=\mathrm{identity}$: klasik doğrusal model.
+\end{itemize}
+\end{ornek}
+
+\begin{teorem}[GLM'de MLE]\label{thm:glm_mle}
+GLM katsayıları kapalı formla değil, yinelemeli ağırlıklı en küçük kareler (IRLS) ile bulunur:
+\[
+  \boldsymbol\beta^{(t+1)} = (\mathbf{X}^\top W^{(t)}\mathbf{X})^{-1}\mathbf{X}^\top W^{(t)}\mathbf{z}^{(t)},
+\]
+$W_{ii}^{(t)} = w_i^{(t)}$ çalışma ağırlığı, $z_i^{(t)}$ çalışma yanıt. Her adım WLS; bağlantı türevi ve dağılım varyansından $W$, $\mathbf{z}$ belirlenir.
+\end{teorem}
+
+\begin{ispatiskele}
+Fisher puanlama: $\boldsymbol\beta^{(t+1)}=\boldsymbol\beta^{(t)}+I(\boldsymbol\beta^{(t)})^{-1}\mathbf{U}(\boldsymbol\beta^{(t)})$; $\mathbf{U}$ score vektörü, $I$ Fisher bilgisi. GLM yapısında bu yineleme IRLS biçimini alır.
+\end{ispatiskele}
+
+\begin{ornek}[Lojistik regresyon: yorum]
+$\hat\beta_1=0.6$ ise $e^{0.6}=1.82$: $x$ bir birim artınca oranın $(\text{odds})$ 1.82 katına çıkması bekleniyor. Not: bu log-olasılık (log-odds) etkisidir; doğrudan olasılık farkı değildir --- bu ayrım kritik.
+\end{ornek}
+
+\begin{teorem}[GLM asimptotik dağılım]\label{thm:glm_asimptotik}
+Regularity koşulları altında $\hat{\boldsymbol\beta}_n$ MLE:
+\[
+  \sqrt{n}(\hat{\boldsymbol\beta}_n-\boldsymbol\beta) \dto \Normal_{p+1}(\mathbf{0},\; I(\boldsymbol\beta)^{-1}).
+\]
+Büyük örneklem $t$ ve $F$ testleri GLM çıkarımı için kullanılır.
+\end{teorem}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Tıp:} Lojistik regresyon hastalık risk faktörlerini modeller (odds ratio). \textbf{Ekoloji:} Tür sayısı için Poisson regresyon; Gamma GLM ağırlık verisi. \textbf{Sosyal bilimler:} İkili anket yanıtları (oy verme, tercihleri) için probit/logit.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Regresyon Tanılama: Artık Analizi}
+\label{sec:artik_analiz}
+%% ============================================================
+
+\begin{tanim}[Artık türleri]\label{def:artik_turleri}
+Ham artık $e_i=Y_i-\hat Y_i$'nin varyansı eşit değildir ($\Var(e_i)=\sigma^2(1-h_{ii})$). Standardize edilmiş türevler:
+\begin{itemize}
+  \item \textbf{İç öğrenci artık}: $r_i=e_i/(S_e\sqrt{1-h_{ii}})$ --- yaklaşık $t_{n-p-2}$.
+  \item \textbf{Dış öğrenci artık}: $r_i^*=e_i/(S_{(-i)}\sqrt{1-h_{ii}})$ --- tam $t_{n-p-2}$ dağılımı.
+\end{itemize}
+\end{tanim}
+
+\begin{teorem}[Dış öğrenci artığı kapalı formu]\label{thm:dis_artik}
+\[
+  r_i^* = r_i\,\sqrt{\frac{n-p-2}{n-p-1-r_i^2}}.
+\]
+$n-1$ kere regresyon çalıştırmak yerine tek formülle hesaplanır.
+\end{teorem}
+
+\begin{proof}[Proof --- taslak]
+$S_{(-i)}^2 = \frac{(n-p-1)S_e^2 - e_i^2/(1-h_{ii})}{n-p-2}$ (Sherman-Morrison güncelleme lemması). $S_{(-i)}$'yi $r_i^*$ formülüne yerleştirip basitleştir.
+\end{proof}
+
+\begin{tanim}[DFFITS ve DFBETAS]\label{def:dffits}
+\textbf{DFFITS}: $i$'inci gözlemin kaldırılması halinde $\hat Y_i$'nin standardize değişimi:
+\[
+  \mathrm{DFFITS}_i = r_i^*\sqrt{\frac{h_{ii}}{1-h_{ii}}}.
+\]
+\textbf{DFBETAS}$_{ji}$: $i$'inci gözlemin kaldırılması halinde $j$. katsayı değişimi. Eşikler: $|\mathrm{DFFITS}|>2\sqrt{(p+1)/n}$ veya $|\mathrm{DFBETAS}|>2/\sqrt{n}$ etkili nokta.
+\end{tanim}
+
+\begin{ornek}[Artık analizi adım adım]
+$n=20$, $p=2$ regresyonda 5. gözlem: $e_5=3.2$, $h_{55}=0.35$, $S_e=1.4$.
+\begin{itemize}
+  \item İç öğrenci: $r_5=3.2/(1.4\sqrt{0.65})=3.2/1.129=2.83$.
+  \item Dış öğrenci: $r_5^*=2.83\sqrt{17/(17-8.01)}=2.83\sqrt{1.89}=3.89$.
+  \item DFFITS: $3.89\sqrt{0.35/0.65}=3.89\cdot0.734=2.86$.
+  \item Eşik $2\sqrt{3/20}=0.775$; bu nokta etkili.
+\end{itemize}
+\end{ornek}
+
+\begin{teorem}[Bonferroni aykırı değer testi]\label{thm:aykiri_deger}
+$n$ iç öğrenci artığı $r_1,\ldots,r_n$; en büyük mutlak değer $r_{\max}$. $H_0$: aykırı değer yok altında:
+\[
+  r_{\max} \approx t_{n-p-2,\,\alpha/(2n)}.
+\]
+Bonferroni düzeltmesiyle $\alpha$ düzeyinde aykırı değer testi.
+\end{teorem}
+
+%% ============================================================
+\section{Doğrusal Modelde Tahmin Bölgesi ve Eşzamanlı Çıkarım}
+\label{sec:tahmibolgesi}
+%% ============================================================
+
+\begin{tanim}[Ortalama yanıt güven bandı]\label{def:guven_bandi}
+$\mathbf{x}_0^*=(1,x_{01},\ldots,x_{0,p-1})^\top$ verilen bir kovaryat vektörü. $E[Y|\mathbf{x}_0]=\mathbf{x}_0^\top\boldsymbol\beta$ için $(1-\alpha)$ güven aralığı:
+\[
+  \hat Y_0 \pm t_{n-p,\alpha/2}\cdot S_e\sqrt{\mathbf{x}_0^\top(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{x}_0}.
+\]
+\end{tanim}
+
+\begin{tanim}[Yeni gözlem tahmin bandı]\label{def:tahmin_bandi}
+Yeni $Y_0=\mathbf{x}_0^\top\boldsymbol\beta+\varepsilon_0$ için $(1-\alpha)$ tahmin aralığı:
+\[
+  \hat Y_0 \pm t_{n-p,\alpha/2}\cdot S_e\sqrt{1+\mathbf{x}_0^\top(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{x}_0}.
+\]
+Güven aralığından $S_e^2$ (yeni gözlem belirsizliği) kadar geniş.
+\end{tanim}
+
+\begin{teorem}[Scheffe eşzamanlı güven bandı]\label{thm:scheffe_guven}
+Tüm $\mathbf{x}_0\in\mathbb{R}^p$ için eşzamanlı $(1-\alpha)$ güven bandı:
+\[
+  \hat Y_0 \pm \sqrt{p\cdot F_{p,n-p,\alpha}}\cdot S_e\sqrt{\mathbf{x}_0^\top(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{x}_0}.
+\]
+Ayrı ayrı $t$ bantlarından geniştir; her $\mathbf{x}_0$ için eşzamanlı kapsama garantisi sunar.
+\end{teorem}
+
+\begin{proof}[Taslak]
+$\mathbf{c}^\top\hat{\boldsymbol\beta}-\mathbf{c}^\top\boldsymbol\beta$ için tüm $\mathbf{c}$ üzerindeki uniform supremum $F_{p,n-p}$ dağılımına oturur; $F=t^2/p$ bağlantısı ile Scheffe kritik değeri türetilir.
+\end{proof}
+
+\begin{ornek}[Regresyon güven ve tahmin bandı karşılaştırması]
+$n=30$, $p=2$, $S_e=2.5$; $\mathbf{x}_0=(1,5)^\top$, $\mathbf{x}_0^\top(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{x}_0=0.08$; $\hat Y_0=12$.
+\begin{itemize}
+  \item Güven bandı (ortalama): $12\pm2.048\cdot2.5\sqrt{0.08}=12\pm1.45$; $[10.55,\;13.45]$.
+  \item Tahmin bandı (yeni): $12\pm2.048\cdot2.5\sqrt{1.08}=12\pm5.32$; $[6.68,\;17.32]$.
+  \item Scheffe ($p=2$): $12\pm\sqrt{2\cdot3.35}\cdot2.5\sqrt{0.08}=12\pm2.58\cdot0.707=12\pm1.82$; $[10.18,\;13.82]$.
+\end{itemize}
+Tahmin bandı çok daha geniş (bireysel belirsizlik). Scheffe, standart $t$-bandından $2.58/2.048=1.26$ kat geniş --- eşzamanlılık maliyeti.
+\end{ornek}
+
+%% ============================================================
+\section{Hiyerarşik ve Karışık Modeller: Giriş}
+\label{sec:hiyerarsik_model}
+%% ============================================================
+
+\begin{tanim}[Karışık lineer model]\label{def:karisik_model}
+$\mathbf{Y}=\mathbf{X}\boldsymbol\beta+\mathbf{Z}\mathbf{b}+\boldsymbol\varepsilon$; $\mathbf{b}\sim\Normal(0,G)$ rasgele etki, $\boldsymbol\varepsilon\sim\Normal(0,R)$. Marjinal dağılım: $\mathbf{Y}\sim\Normal(\mathbf{X}\boldsymbol\beta,\mathbf{Z}G\mathbf{Z}^\top+R)=\Normal(\mathbf{X}\boldsymbol\beta,V)$.
+\end{tanim}
+
+\begin{teorem}[BLUE ve BLUP]\label{thm:blup}
+Sabit etki $\boldsymbol\beta$ için \emph{en iyi doğrusal yansız tahminci} (BLUE):
+\[
+  \hat{\boldsymbol\beta}_{\mathrm{GLS}} = (\mathbf{X}^\top V^{-1}\mathbf{X})^{-1}\mathbf{X}^\top V^{-1}\mathbf{Y}.
+\]
+Rasgele etki $\mathbf{b}$ için \emph{en iyi doğrusal yansız öngörü} (BLUP):
+\[
+  \hat{\mathbf{b}} = G\mathbf{Z}^\top V^{-1}(\mathbf{Y}-\mathbf{X}\hat{\boldsymbol\beta}).
+\]
+\end{teorem}
+
+\begin{ornek}[İki seviyeli hiyerarşik model]
+$Y_{ij}=\mu+u_i+\varepsilon_{ij}$; $u_i\iid\Normal(0,\sigma_u^2)$ okul etkisi, $\varepsilon_{ij}\iid\Normal(0,\sigma^2)$ öğrenci hatası. $k=10$ okul, her okuldan $n_i=20$ öğrenci. $V=\sigma_u^2\mathbf{1}\mathbf{1}^\top+\sigma^2 I$. REML ile $\hat\sigma_u^2$, $\hat\sigma^2$ tahmini; ICC$=\hat\sigma_u^2/(\hat\sigma_u^2+\hat\sigma^2)$.
+\end{ornek}
+
+%% ============================================================
+
+\begin{mikroozet}
+\begin{itemize}
+  \item EKK $\hat{\boldsymbol\beta}=(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{Y}$: Gauss-Markov'dan BLUE.
+  \item Normal hata altında: $\hat{\boldsymbol\beta}$ normal, SSE $\chi^2$, katsayı testleri $t_{n-p-1}$, model testi $F_{p,n-p-1}$.
+  \item $R^2$: açıklanan varyans oranı; artırılmış $\bar{R}^2$ değişken sayısına göre düzeltir.
+  \item Ridge: $\ell_2$ ceza $\to$ her zaman çözüm, küçük varyans; Lasso: $\ell_1$ ceza $\to$ seyrek.
+  \item WLS: heterojen varyans altında BLUE; dönüşümle standart EKK'ya indirgenir.
+  \item AIC/BIC model seçim kriterleri; Cook mesafesi etkili nokta tespiti.
+\end{itemize}
+\end{mikroozet}
+
+\begin{ozyansima}
+Gauss-Markov teoremi normallik gerektirmiyor. Normallik varsayımı neden istatistiksel çıkarım için ekleniyor? Büyük örneklemde bu varsayımı zayıflatabilir miyiz?
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Nereden geldik:} Bölüm~\ref{chp:dagilim_aileleri}'deki $\chi^2$, $t$, $F$ dağılımları; Bölüm~\ref{chp:nokta_tahmin}'deki BLUE kavramı.
+
+\textbf{Nereye gidiyoruz:} Bölüm~\ref{chp:anova}'da regresyon çerçevesi grup karşılaştırmasına (ANOVA) genişletilir; $F$-testi bu bölümde türetildi, orada özel biçimine bakacağız.
+\end{kopru}
+
+%% ============================================================
+%% ALISTIRMALAR
+%% ============================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.15.1]{A}{Basit regresyon hesabı}
+$(x_i,y_i)$: $(1,2),(2,4),(3,5),(4,4),(5,5)$. EKK doğrusunu bul; $R^2$'yi hesapla.
+\end{alistirma}
+\alcozum{%
+$\bar{x}=3$, $\bar{y}=4$. $S_{xx}=10$, $S_{xy}=7$. $\hat\beta_1=0.7$, $\hat\beta_0=4-0.7\cdot3=1.9$. $\hat{Y}=1.9+0.7x$. SST$=6$, SSE$=\sum(y_i-\hat y_i)^2=0.09+0.01+0.09+0.01+0.16=\ldots$ Doğru: $\hat y$: 2.6,3.3,4,4.7,5.4. SSE=$(2-2.6)^2+(4-3.3)^2+(5-4)^2+(4-4.7)^2+(5-5.4)^2=0.36+0.49+1+0.49+0.16=2.5$. $R^2=1-2.5/6=0.583$.%
+}
+
+\begin{alistirma}[Al.15.2]{B}{Gauss-Markov --- özel durum}
+Basit regresyonda $\hat\beta_1=S_{xy}/S_{xx}$ ve alternatif yansız doğrusal tahmin edici $\tilde\beta_1=\sum w_i Y_i$ ($\sum w_i x_i=1$, $\sum w_i=0$) olsun. $\Var(\tilde\beta_1)\geq\Var(\hat\beta_1)$ olduğunu göster.
+\end{alistirma}
+\alcozum{%
+$w_i = c_i + d_i$ ($c_i=(x_i-\bar x)/S_{xx}$, $d_i$ kısıtları sağlayan ek terim). Yansızlık: $\sum d_i=0$, $\sum d_i x_i=0$. $\Var(\tilde\beta_1)=\sigma^2\sum w_i^2=\sigma^2(\sum c_i^2+\sum d_i^2)\geq\sigma^2/S_{xx}=\Var(\hat\beta_1)$.%
+}
+
+
+\begin{alistirma}[Al.15.3]{A}{$F$-testi yorumu}
+$n=30$, $p=3$, $\mathrm{SST}=200$, $\mathrm{SSE}=80$. $F$-istatistiğini hesapla ve $\alpha=0.05$'te $H_0:\beta_1=\beta_2=\beta_3=0$'ı test et.
+\end{alistirma}
+\alcozum{%
+SSR$=120$. $F=(120/3)/(80/26)=40/3.077=13.0$. $F_{3,26,0.05}\approx2.98$. $F>2.98$: $H_0$ reddedilir.%
+}
+\begin{alistirma}[Al.15.4]{B}{Çoklu regresyon --- matris}
+$\mathbf{X}=\begin{pmatrix}1&1\\1&2\\1&3\end{pmatrix}$, $\mathbf{y}=(2,3,6)^\top$. $\hat{\boldsymbol\beta}$ ve $\hat{\mathbf{y}}$'yi hesapla.
+\end{alistirma}
+\alcozum{%
+$\mathbf{X}^\top\mathbf{X}=\begin{pmatrix}3&6\\6&14\end{pmatrix}$; $(\mathbf{X}^\top\mathbf{X})^{-1}=\frac{1}{6}\begin{pmatrix}14&-6\\-6&3\end{pmatrix}$. $\mathbf{X}^\top\mathbf{y}=(11,28)^\top$. $\hat\beta=(14\cdot11-6\cdot28,\ -6\cdot11+3\cdot28)^\top/6=(-14/6,\;18/6)^\top=(-7/3,3)^\top$. $\hat\beta_0=-7/3$, $\hat\beta_1=3$. $\hat{\mathbf{y}}=(2/3,3,4/3+3)^\top=(2/3,3,8/3+\ldots)$--- Doğrudan: $\hat y_i=-7/3+3x_i$: $2/3, 3, 16/3\approx5.33$.%
+}
+\begin{alistirma}[Al.15.5]{B}{Ridge vs EKK: OKH}
+Tek değişkenli regresyon; $\beta$ skaler. EKK $\hat\beta$ ve Ridge $\hat\beta_\lambda=\frac{\sum x_i y_i}{\sum x_i^2+\lambda}$ karşılaştır. Ridge OKH'ının $\lambda^*$ için EKK OKH'ından küçük olduğu $\lambda$ aralığını bul.
+\end{alistirma}
+\alcozum{%
+$S_{xx}=\sum x_i^2$. $\hat\beta=S_{xy}/S_{xx}$, $\hat\beta_\lambda=S_{xy}/(S_{xx}+\lambda)$. $\Beklenti[\hat\beta_\lambda]= \beta\cdot S_{xx}/(S_{xx}+\lambda)$; yanlılık $= -\beta\lambda/(S_{xx}+\lambda)$. Varyans$(\hat\beta_\lambda)=\sigma^2 S_{xx}/(S_{xx}+\lambda)^2$. OKH$(\hat\beta_\lambda)=\sigma^2 S_{xx}/(S_{xx}+\lambda)^2 + \beta^2\lambda^2/(S_{xx}+\lambda)^2$. EKK OKH$=\sigma^2/S_{xx}$. Ridge daha iyi: $\lambda<2\sigma^2/\beta^2$. Küçük $\beta^2$ (zayıf sinyal) geniş aralık; $\lambda^*=\sigma^2/(\beta^2)$ optimal.%
+}
+\begin{alistirma}[Al.15.6]{C}{Regresyon sertlikası --- sonuç doğrulama}
+Göster: basit regresyon $\hat\beta_1=\mathrm{Cor}(x,Y)\cdot(s_Y/s_x)$ ile $R^2=\mathrm{Cor}(x,Y)^2$ eşitlikleri geçerli ($s_x,s_Y$ örneklem standart sapmaları).
+\end{alistirma}
+\alcozum{%
+$\hat\beta_1=S_{xy}/S_{xx}=\frac{\sum(x_i-\bar x)(Y_i-\bar Y)}{\sum(x_i-\bar x)^2}$. $r=S_{xy}/\sqrt{S_{xx}S_{YY}}$ ile $\hat\beta_1=r\sqrt{S_{YY}/S_{xx}}=r\cdot s_Y/s_x$ ($s_x=\sqrt{S_{xx}/(n-1)}$, $s_Y=\sqrt{S_{YY}/(n-1)}$). $R^2=\mathrm{SSR}/\mathrm{SST}=\hat\beta_1^2 S_{xx}/S_{YY}=r^2$.%
+}
+\alistirmalar
+
+
+
+
+
+\begin{alistirma}[Al.15.7]{B}{WLS hesabı}
+3 gözlem: $(x_i,Y_i,w_i)=(1,3,1),(2,5,4),(3,8,1)$. Ağırlıklı EKK ile $\hat\beta_0,\hat\beta_1$'i bul.
+\end{alistirma}
+\alcozum{%
+$W=\mathrm{diag}(1,4,1)$. $\mathbf{X}^\top W\mathbf{X}=\begin{pmatrix}1&1&1\\1&2&3\end{pmatrix}W\begin{pmatrix}1&1\\1&2\\1&3\end{pmatrix}=\begin{pmatrix}6&9\\9&14\end{pmatrix}$. $\mathbf{X}^\top W\mathbf{Y}=\begin{pmatrix}1&4&1\\1&8&3\end{pmatrix}(3,5,8)^\top=(3+20+8,3+40+24)=(31,67)$. $(\mathbf{X}^\top W\mathbf{X})^{-1}=\frac{1}{3}\begin{pmatrix}14&-9\\-9&6\end{pmatrix}$. $\hat\beta=(14\cdot31-9\cdot67,-9\cdot31+6\cdot67)^\top/3=(434-603,-279+402)^\top/3=(-169/3,123/3)=(-56.3,41)$. Kontrol ediniz: ağırlıklı ortamada 2. nokta ($w=4$) büyük etkili.%
+}
+
+\begin{alistirma}[Al.15.8]{B}{AIC karşılaştırması}
+Aynı veri, iki model: Model 1 ($p=1$, SSE$=80$), Model 2 ($p=3$, SSE$=60$), $n=30$. (a) Her model için AIC hesapla. (b) Hangi model tercih edilir?
+\end{alistirma}
+\alcozum{%
+AIC $\propto n\log(\mathrm{SSE}/n)+2(p+1)$. Model 1: $30\log(80/30)+2\cdot2=30\cdot0.981+4=29.43+4=33.43$. Model 2: $30\log(60/30)+2\cdot4=30\cdot0.693+8=20.79+8=28.79$. Model 2 daha düşük AIC; tercih edilir. (SSE azalmasının fayda fazla cezadan büyük.)%
+}
+
+\begin{alistirma}[Al.15.9]{C}{Cook mesafesi yorumu}
+$n=20$, $p=2$ regresyon; 3 gözlem için $(h_{ii}, r_i)$: A$(0.15, 2.1)$, B$(0.7, 0.3)$, C$(0.6, 2.5)$. Her biri için Cook mesafesini hesapla; yorumla.
+\end{alistirma}
+\alcozum{%
+$D_i=r_i^2 h_{ii}/[(p+1)(1-h_{ii})]$. A: $D=4.41\cdot0.15/(3\cdot0.85)=0.662/2.55=0.26$ (orta). B: $D=0.09\cdot0.7/(3\cdot0.3)=0.063/0.9=0.07$ (yüksek leverage ama küçük artık --- etkisiz). C: $D=6.25\cdot0.6/(3\cdot0.4)=3.75/1.2=3.125$ --- $D>1$; en etkili nokta. A normal, B leverage var ama etkisiz, C hem leverage hem büyük artık: kaldırılması modeli önemli değiştirir.%
+}
+
+\begin{alistirma}[Al.15.10]{A}{Basit Regresyon --- Skor Fonksiyonu}
+$Y_i=\alpha+\beta x_i+\varepsilon_i$, $\varepsilon_i\iid\Normal(0,\sigma^2)$. (a) Log-olabilirlik $\ell(\alpha,\beta,\sigma^2)$'yi yaz. (b) $\partial\ell/\partial\alpha=0$, $\partial\ell/\partial\beta=0$ denklemlerini çözerek $\hat\alpha,\hat\beta$ EKK formüllerine ulaşınız.
+\end{alistirma}
+\alcozum{%
+(a) $\ell=-\frac{n}{2}\log(2\pi\sigma^2)-\frac{1}{2\sigma^2}\sum(Y_i-\alpha-\beta x_i)^2$.
+(b) $\partial\ell/\partial\alpha=\frac{1}{\sigma^2}\sum(Y_i-\alpha-\beta x_i)=0\Rightarrow\bar Y=\hat\alpha+\hat\beta\bar x$. $\partial\ell/\partial\beta=\frac{1}{\sigma^2}\sum x_i(Y_i-\alpha-\beta x_i)=0\Rightarrow\hat\beta=S_{xy}/S_{xx}$, $\hat\alpha=\bar Y-\hat\beta\bar x$. EKK = MLE ($\Normal$ hatası altında).}
+
+\begin{alistirma}[Al.15.11]{B}{Lojistik Regresyon --- Newton-Raphson}
+$Y\sim\mathrm{Bernoulli}(p)$, $\log\frac{p}{1-p}=\beta_0+\beta_1 x$. $n=5$ gözlem: $(x,y)$: $(0,0),(1,0),(2,1),(3,1),(4,1)$. (a) Log-olabilirliği yaz. (b) $\beta_0=0,\beta_1=1$ başlangıcından Newton adımı için skor $\mathbf{s}$ ve Hessian $\mathbf{H}$'yi numerik hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) $\ell(\beta)=\sum_{i:y_i=1}(\beta_0+\beta_1x_i)-\sum_{i=1}^5\log(1+e^{\beta_0+\beta_1 x_i})$.
+(b) $\hat p_i(0,1)$: $x=0,1,2,3,4$ için $p_i=\sigma(x_i)=1/(1+e^{-x_i})$:
+$p_0=0.5,p_1=0.731,p_2=0.880,p_3=0.952,p_4=0.982$.
+$s_0=\sum(y_i-p_i)=(0-0.5)+(0-0.731)+1(1-0.880)+(1-0.952)+(1-0.982)=-0.5-0.731+0.12+0.048+0.018=-1.045$.
+$s_1=\sum x_i(y_i-p_i)=0\cdot(-0.5)+1(-0.731)+2(0.12)+3(0.048)+4(0.018)=-0.731+0.24+0.144+0.072=-0.275$.
+Newton adımı: $\boldsymbol\beta^{(1)}=\boldsymbol\beta^{(0)}-H^{-1}\mathbf{s}$ (nümerik hesap gerektirdiğinden IRLS kullanılır).}
+
+\begin{alistirma}[Al.15.12]{C}{Ridge Regresyon --- Bias-Variance}
+$\hat{\boldsymbol\beta}_{\mathrm{ridge}}=(\mathbf{X}^\top\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^\top\mathbf{Y}$. (a) $E[\hat{\boldsymbol\beta}_\mathrm{ridge}]$'i hesapla ve yanlılığını göster. (b) $\lambda\to\infty$ ve $\lambda\to0$ limitlerinde ne olur? (c) $\mathbf{X}^\top\mathbf{X}=\mathbf{I}$ basit durumunda MSE$({\hat\beta_j})$'yi $\lambda$ cinsinden ifade et ve minimize et.
+\end{alistirma}
+\alcozum{%
+(a) $E[\hat{\boldsymbol\beta}_\mathrm{ridge}]=(\mathbf{X}^\top\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^\top\mathbf{X}\boldsymbol\beta_0\neq\boldsymbol\beta_0$: yanlı.
+(b) $\lambda\to0$: OLS'ye yaklaşır; $\lambda\to\infty$: $\hat{\boldsymbol\beta}_\mathrm{ridge}\to\mathbf{0}$.
+(c) $\mathbf{X}^\top\mathbf{X}=\mathbf{I}$: $\hat\beta_j=Y_j/(1+\lambda)$, $E[\hat\beta_j]=\beta_j/(1+\lambda)$.
+$\mathrm{bias}^2=\beta_j^2\lambda^2/(1+\lambda)^2$, $\Var=\sigma^2/(1+\lambda)^2$.
+MSE $=[\sigma^2+\beta_j^2\lambda^2]/(1+\lambda)^2$. $\partial\mathrm{MSE}/\partial\lambda=0$: $\lambda^*=\sigma^2/\beta_j^2$.}

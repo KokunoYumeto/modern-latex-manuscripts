@@ -1,0 +1,740 @@
+%% ============================================================
+%% EK G --- Kapsamlı Çözümlü Örnekler
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Kapsamlı Çözümlü Örnekler}
+\label{app:kapsamli_ornekler}
+
+Bu ek, her bölümden seçilmiş ileri düzey örnekler içermektedir. Sınav hazırlığı ve derinleştirme amacıyla tasarlanmıştır.
+
+%% ============================================================
+\section{Olasılık Teorisinden Seçme Örnekler}
+\label{app:olasilik_ornekler}
+%% ============================================================
+
+\subsection{Kümeler ve Olasılık Ölçüsü}
+
+\begin{ornek}[Simetrik Fark ve Olasılık]
+$(\Omega,\mathcal{F},\Prob)$ olasılık uzayı; $A,B\in\mathcal{F}$.
+$\Prob(A\triangle B) = \Prob(A)+\Prob(B)-2\Prob(A\cap B)$ olduğunu gösteriniz ve yorumlayınız.
+
+\textbf{Çözüm:} $A\triangle B = (A\setminus B)\cup(B\setminus A)$ ayrık birleşim.
+\begin{align*}
+  \Prob(A\triangle B) &= \Prob(A\setminus B)+\Prob(B\setminus A) \\
+  &= [\Prob(A)-\Prob(A\cap B)]+[\Prob(B)-\Prob(A\cap B)] \\
+  &= \Prob(A)+\Prob(B)-2\Prob(A\cap B).
+\end{align*}
+\textbf{Yorum:} $\Prob(A\triangle B)$ iki olayın "farklı gerçekleşme" olasılığını ölçer; metrik uzayda $d(A,B)=\Prob(A\triangle B)$ geçerli bir pseudo-metrik (aynı olasılıklı olaylar sıfır uzaklıkta).
+\end{ornek}
+
+\begin{ornek}[Borel-Cantelli ve Neredeyse Kesin Yakınsama]
+$X_n\iid\Uniform[0,1]$. $A_n=\{X_n>1-1/n\}$ olayları için:
+(a) $\sum_n\Prob(A_n)$ yakınsar mı?
+(b) $\Prob(A_n\text{ s.s.k.})$ nedir?
+(c) $Y_n=\max(X_1,\ldots,X_n)$'nin n.k. limitini bulunuz.
+
+\textbf{Çözüm:}
+(a) $\Prob(A_n)=1/n$; $\sum 1/n=\infty$ --- seri ıraksak.
+
+(b) $X_n$ bağımsız, $\sum\Prob(A_n)=\infty$: Borel-Cantelli 2. Lemması (bağımsız olaylar için): $\Prob(A_n\text{ s.s.k.})=1$.
+
+(c) $\Prob(Y_n\leq t)=t^n$ ($t\in[0,1]$). $t<1$ için $t^n\to0$; $t=1$ için $t^n=1$. Dolayısıyla $Y_n\xrightarrow{\text{n.k.}}1$.
+
+Doğrulama n.k.: $\{Y_n\to1\}^c=\{\limsup Y_n<1\}=\bigcup_{k=1}^\infty\{Y_n\leq1-1/k\text{ s.b.k.}\}$. Her sabit $k$ için $\Prob(Y_n\leq1-1/k\text{ s.b.k.})=\lim_n(1-1/k)^n=0$. $\Prob(\{Y_n\to1\}^c)=0$; yani $Y_n\to1$ n.k.
+\end{ornek}
+
+\subsection{Koşullu Beklenti ve Filtrasyon}
+
+\begin{ornek}[İterasyon Özellikleri]
+$(X_n,\mathcal{F}_n)$ filtrasyon. $Z=E[W|\mathcal{F}_n]$ gösteriniz ki:
+(a) $E[Z|\mathcal{F}_k]=E[W|\mathcal{F}_k]$ tüm $k\leq n$ için (kule özelliği).
+(b) $E[ZU]=E[WU]$ her $\mathcal{F}_n$-ölçülebilir $U\in L^2$ için.
+
+\textbf{Çözüm:}
+(a) $k\leq n\Rightarrow\mathcal{F}_k\subseteq\mathcal{F}_n$.
+$E[E[W|\mathcal{F}_n]|\mathcal{F}_k]=E[W|\mathcal{F}_k]$ --- kule (içten dışa küçük $\sigma$-cebiri alır).
+
+(b) $E[ZU]=E[E[W|\mathcal{F}_n]U]$. $U$ $\mathcal{F}_n$-ölçülebilir, dolayısıyla
+$E[E[W|\mathcal{F}_n]U]=E[WU]$ (koşullu beklentinin çekme-çıkarma özelliği: $E[E[W|\mathcal{F}]g(Y)]=E[Wg(Y)]$ eğer $Y$ $\mathcal{F}$-ölçülebilir).
+\end{ornek}
+
+%% ============================================================
+\section{İstatistik Teorisinden Seçme Örnekler}
+\label{app:istatistik_ornekler}
+%% ============================================================
+
+\subsection{Tahmin Teorisi}
+
+\begin{ornek}[UMVUE --- Üstel Dağılım]
+$X_1,\ldots,X_n\iid\Exp(\theta)$; $f(x;\theta)=\theta e^{-\theta x}$, $\theta>0$.
+(a) $T=\sum X_i$'nin yeterli ve tamamlayıcı olduğunu gösteriniz.
+(b) $g(\theta)=1/\theta$ için UMVUE'yi bulunuz.
+(c) Cramér-Rao alt sınırını hesaplayınız ve UMVUE'nin verimli olup olmadığını kontrol ediniz.
+
+\textbf{Çözüm:}
+(a) Ortak yoğunluk: $f(\mathbf{x};\theta)=\theta^n e^{-\theta T}$ burada $T=\sum x_i$. Fisher-Neyman: $g(T,\theta)=\theta^n e^{-\theta T}$, $h(\mathbf{x})=1$ --- $T$ yeterli.
+$T\sim\Gama(n,1/\theta)$; $E_\theta[h(T)]=\int_0^\infty h(t)\frac{t^{n-1}e^{-\theta t}\theta^n}{\Gamma(n)}dt=0$ tüm $\theta>0$ için $\Rightarrow h\equiv0$: $T$ tamamlayıcı (üstel ailede standart).
+
+(b) $\bar X=T/n$; $E[\bar X]=1/\theta=g(\theta)$. $\bar X$, $T$'nin fonksiyonu ve yansız $\Rightarrow$ Lehmann-Scheffé: $\bar X$ UMVUE.
+
+(c) $\ell(\theta;x)=\log\theta-\theta x$; $\partial^2\ell/\partial\theta^2=-1/\theta^2$; $I(\theta)=1/\theta^2$.
+$n$ gözlem: $I_n(\theta)=n/\theta^2$. CR alt sınırı: $\Var(\hat g)\geq (g'(\theta))^2/I_n(\theta)=(1/\theta^2)^2/(n/\theta^2)=1/(n\theta^2)$.
+$\Var(\bar X)=\Var(X_1)/n=(1/\theta^2)/n=1/(n\theta^2)$ --- sınıra eşit. $\bar X$ verimli (etkin).
+\end{ornek}
+
+\begin{ornek}[Minimax Tahmin --- Normal Ortalama]
+$X\sim\Normal(\theta,1)$, $\theta\in\mathbb{R}$; kare hata kaybı.
+(a) $\delta_0(X)=X$'in minimax olduğunu gösteriniz.
+(b) $|\theta|\leq M$ kısıtı altında minimax tahminciyi bulunuz.
+
+\textbf{Çözüm:}
+(a) $\delta_0(X)=X$ için risk $R(\theta,\delta_0)=E[(\delta_0-\theta)^2]=1$ sabit.
+Sabit riskli yansız tahmin edici minimaxdır (herhangi bir Bayes tahmincisi ortalama riski en küçültür ama en kötü durum riski sabitten büyük olamaz; detay Stein argümanı).
+
+(b) $|\theta|\leq M$ durumunda: Önsel $\pi_M=\Normal(0,M^2)$ Bayes tahminedici $\delta_M(X)=M^2X/(M^2+1)$. Oran küçültme (shrinkage) Bayes riski ile minimax risk çakışır: $\delta_M$ minimax.
+$M\to\infty$'da $\delta_M\to X=\delta_0$; kısıtsız minimax çözüme yaklaşır.
+\end{ornek}
+
+\subsection{Hipotez Testi}
+
+\begin{ornek}[Neyman-Pearson --- Tam Çözüm]
+$X\sim\Normal(\mu,1)$; $H_0:\mu=0$ vs $H_1:\mu=1$.
+(a) $\alpha=0.05$ için en güçlü testi NP lemmasıyla türetiniz.
+(b) $\beta$ (Tip II hata olasılığı) ve gücü hesaplayınız.
+(c) $n=9$ gözlem olsaydı kritik değer ve güç nasıl değişirdi?
+
+\textbf{Çözüm:}
+(a) Olabilirlik oranı: $\Lambda=f(x;1)/f(x;0)=e^{x-1/2}$. $\Lambda>k$ ise $H_0$'ı reddet $\iff$ $X>k'$ (monoton).
+$\alpha=P_{H_0}(X>k')=\Phi^{-1}(1-0.05)=1.645$. Kritik bölge: $R=\{X>1.645\}$.
+
+(b) $\beta=P_{H_1}(X\leq1.645)=\Phi(1.645-1)=\Phi(0.645)\approx0.740$.
+Güç $=1-\beta\approx0.260$.
+
+(c) $n=9$: $\bar X\sim\Normal(\mu,1/9)$. $\alpha=P(\bar X>\mu_0+z_{0.05}/\sqrt{9})=P(\bar X>0+1.645/3)=P(\bar X>0.548)$.
+Güç $=P_{H_1}(\bar X>0.548)=1-\Phi((0.548-1)/\sqrt{1/9})=1-\Phi(-0.452\cdot3)=1-\Phi(-1.356)=\Phi(1.356)\approx0.913$.
+3 kat daha fazla gözlem, gücü $0.260\to0.913$'e çıkarır.
+\end{ornek}
+
+\begin{ornek}[Olabilirlik Oran Testi --- Gama Dağılımı]
+$X_1,\ldots,X_n\iid\Gama(\alpha,\beta)$; $\alpha$ bilinen, $\beta$ bilinmiyor.
+$H_0:\beta=\beta_0$ vs $H_1:\beta\neq\beta_0$.
+ORT istatistiğini $\Lambda_n$ olarak türetiniz ve dağılımını belirtiniz.
+
+\textbf{Çözüm:}
+MLE: $\hat\beta=\bar X/\alpha$ (skor denklemi çözümü). Log-olabilirlik:
+$\ell(\beta)=n\alpha\log(1/\beta)-n\alpha\log\Gamma(\alpha)+(\alpha-1)\sum\log X_i-\frac{1}{\beta}\sum X_i$.
+
+$-2\log\Lambda_n = -2[\ell(\beta_0)-\ell(\hat\beta)]$.
+\begin{align*}
+  -2\log\Lambda_n &= 2n\alpha\log(\hat\beta/\beta_0)-2n\alpha(\hat\beta/\beta_0-1) \\
+  &= 2n\alpha[\log r - r + 1], \quad r=\hat\beta/\beta_0.
+\end{align*}
+Asimptotik: $-2\log\Lambda_n\xrightarrow{d}\chi^2_1$ ($H_0$ altında, tek parametre). Kritik bölge: $-2\log\Lambda_n>\chi^2_{1,\alpha}$.
+\end{ornek}
+
+%% ============================================================
+\section{Büyük Örneklem Yöntemleri}
+\label{app:buyuk_orneklem}
+%% ============================================================
+
+\subsection{Delta Yöntemi Uygulamaları}
+
+\begin{ornek}[Logit Dönüşümü ve Varyans Stabilizasyonu]
+$\hat p=X/n$, $X\sim\Binom(n,p)$. $g(p)=\mathrm{logit}(p)=\log(p/(1-p))$.
+(a) $\sqrt{n}(\hat p-p)\xrightarrow{d}\Normal(0,p(1-p))$ olduğunu belirtiniz.
+(b) Delta yöntemi ile $\sqrt{n}(g(\hat p)-g(p))$'nın limit dağılımını bulunuz.
+(c) Asimptotik varyansın $p$'ye bağlı olmadığını gösteriniz (varyans stabilizasyonu).
+
+\textbf{Çözüm:}
+(a) MLT'den: $\Var(\hat p)=p(1-p)/n$; normalleştirince $\sqrt{n}(\hat p-p)\xrightarrow{d}\Normal(0,p(1-p))$.
+
+(b) $g'(p)=1/(p(1-p))$.
+$\sqrt{n}(g(\hat p)-g(p))\xrightarrow{d}\Normal\left(0,\,p(1-p)\cdot\frac{1}{(p(1-p))^2}\right)=\Normal\left(0,\,\frac{1}{p(1-p)}\right)$.
+
+(c) Dönüştürülmüş: asimptotik varyans $1/(p(1-p))$ --- hâlâ $p$'ye bağlı!
+Düzeltme: $h(p)=\arcsin(\sqrt{p})$ için $h'(p)=1/(2\sqrt{p(1-p)})$:
+$\sqrt{n}(h(\hat p)-h(p))\xrightarrow{d}\Normal\left(0,p(1-p)\cdot\frac{1}{4p(1-p)}\right)=\Normal(0,1/4)$.
+$\mathrm{Var}=1/4$ sabit --- tam varyans stabilizasyonu. Arcsin-kökdönüşümü oran verisi için standart araçtır.
+\end{ornek}
+
+\begin{ornek}[Asimptotik Göreli Etkinlik (AGE)]
+İki tahmin edici $T_n^{(1)}$ ve $T_n^{(2)}$ aynı $\theta$'yı tahmin ediyor; $\sqrt{n}(T_n^{(i)}-\theta)\xrightarrow{d}\Normal(0,\sigma_i^2)$.
+$\mathrm{AGE}(T^{(1)},T^{(2)})=\sigma_2^2/\sigma_1^2$.
+
+\textbf{Örnek:} $X_i\iid\mathrm{Laplace}(0,1)$ ($f(x)=e^{-|x|}/2$); $\mu=0$.
+\begin{itemize}
+  \item $T^{(1)}=\bar X$: $\sigma^2_1=\Var(X_1)=2$.
+  \item $T^{(2)}=\text{örneklem medyanı}$: Asimptotik varyans medyan için $1/(2f(\mu))^2=1/(2\cdot1/2)^2=1$.
+\end{itemize}
+$\mathrm{AGE}(\bar X,\text{medyan})=2/1=2$: Laplace dağılımında medyan ortalamadan 2 kat daha verimli.
+Bunun tersi: Normal dağılımda $\mathrm{AGE}(\text{medyan},\bar X)=2/\pi\approx0.637$ --- ortalama daha verimli.
+\end{ornek}
+
+%% ============================================================
+\section{İleri Olasılık Örnekleri}
+\label{app:ileri_olasilik}
+%% ============================================================
+
+\subsection{Martingal Uygulamaları}
+
+\begin{ornek}[Azami Eşitsizlik ve Optimal Durdurma]
+$(M_n)_{n\geq0}$ martingal, $M_0=0$, $\Beklenti[M_n^2]<\infty$.
+(a) Doob'un $L^2$ maksimal eşitsizliğini yazınız ve uygulamalar için önem sırasını açıklayınız.
+(b) $(M_n^2)$ submartingal olduğunu gösteriniz.
+(c) $M_n=S_n$ (simetrik rassal yürüyüş) için $P(\max_{k\leq n}S_k\geq a)$ üst sınırını veriniz.
+
+\textbf{Çözüm:}
+(a) Doob $L^2$: $E[\max_{k\leq n}M_k^2]\leq 4E[M_n^2]$. Önem: rastgele yürüyüş, gürültü analizinde maksimum değer kontrolü, örnekleme süreleri.
+
+(b) Jensen: $\varphi(x)=x^2$ konveks; $(M_n)$ martingal $\Rightarrow$ $\Beklenti[M_{n+1}^2|\mathcal{F}_n]\geq M_n^2$ --- submartingal.
+
+(c) $S_n=\sum_{i=1}^n\xi_i$ ($\xi_i=\pm1$); $E[S_n^2]=n$.
+Doob maksimal eşitsizliği (submartingal): $P(\max_{k\leq n}S_k\geq a)\leq E[S_n^2]/a^2=n/a^2$.
+($\Var(S_n)=n$; Markov eşitsizliği ile $n/a^2$.)
+\end{ornek}
+
+\subsection{Stokastik Süreçler}
+
+\begin{ornek}[Brownian Motion Özellikleri]
+$(W_t)_{t\geq0}$ standart Brownian hareket.
+(a) $\Cov(W_s,W_t)=\min(s,t)$ olduğunu gösteriniz.
+(b) $W_t^2-t$ martingal olduğunu ispatlayınız.
+(c) $\tau_a=\inf\{t:W_t=a\}$ ($a>0$) için $E[\tau_a]$'yı isteğe bağlı durdurma teoremi ile bulunuz.
+
+\textbf{Çözüm:}
+(a) $s\leq t$ varsayalım. $W_t=W_s+(W_t-W_s)$; bağımsız artışlar:
+$\Cov(W_s,W_t)=\Cov(W_s,W_s)+\Cov(W_s,W_t-W_s)=\Var(W_s)+0=s=\min(s,t)$.
+
+(b) $E[W_t^2-t|\mathcal{F}_s]=E[W_t^2|\mathcal{F}_s]-t$.
+$E[W_t^2|\mathcal{F}_s]=E[(W_s+(W_t-W_s))^2|\mathcal{F}_s]=W_s^2+2W_sE[W_t-W_s]+E[(W_t-W_s)^2]=W_s^2+(t-s)$.
+Dolayısıyla $E[W_t^2-t|\mathcal{F}_s]=W_s^2+(t-s)-t=W_s^2-s$. $\checkmark$ Martingal.
+
+(c) $(W_{t\wedge\tau_a})$ martingal; IBD koşulları $E[\tau_a]<\infty$ (Wald, yeterli momentin varlığından):
+$E[W_{\tau_a}^2-\tau_a]=E[W_0^2-0]=0$. $W_{\tau_a}=a$: $E[a^2-\tau_a]=0$; $E[\tau_a]=a^2$.
+\end{ornek}
+
+%% ============================================================
+\section{Sayısal Yöntemler Özeti}
+\label{app:sayisal_ozet}
+%% ============================================================
+
+\subsection{MLE Hesaplama Algoritmaları}
+
+\begin{ornek}[Newton-Raphson Algoritması --- Lojistik Regresyon]
+$Y_i\sim\Binom(n_i,p_i)$; $\mathrm{logit}(p_i)=\mathbf{x}_i^\top\boldsymbol\beta$.
+
+Skor fonksiyonu: $\mathbf{s}(\boldsymbol\beta)=\mathbf{X}^\top(\mathbf{y}-\mathbf{p})$ burada $\mathbf{p}=(p_1,\ldots,p_m)^\top$ tahminler.
+Fisher bilgisi: $\mathcal{I}(\boldsymbol\beta)=\mathbf{X}^\top\mathbf{W}\mathbf{X}$ burada $\mathbf{W}=\mathrm{diag}(n_ip_i(1-p_i))$.
+
+Newton-Raphson adımı:
+\[
+  \boldsymbol\beta^{(t+1)} = \boldsymbol\beta^{(t)} + [\mathcal{I}(\boldsymbol\beta^{(t)})]^{-1}\mathbf{s}(\boldsymbol\beta^{(t)}).
+\]
+Eşdeğer IRLS (iteratively reweighted least squares):
+\[
+  \boldsymbol\beta^{(t+1)} = (\mathbf{X}^\top\mathbf{W}^{(t)}\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{W}^{(t)}\mathbf{z}^{(t)},
+\]
+burada $\mathbf{z}^{(t)}=\mathbf{X}\boldsymbol\beta^{(t)}+(\mathbf{W}^{(t)})^{-1}(\mathbf{y}-\mathbf{p}^{(t)})$ çalışma yanıtı.
+
+\textbf{Yakınsama:} Genellikle 5-10 iterasyonda. Başlangıç: $\boldsymbol\beta^{(0)}=\mathbf{0}$ veya EKK çözümü.
+\end{ornek}
+
+\begin{ornek}[EM Algoritması --- Eksik Veri]
+Gözlemlenen $\mathbf{y}$, eksik $\mathbf{z}$, tam veri $(\mathbf{y},\mathbf{z})$. $Q(\theta|\theta^{(t)})=E[\log L(\theta;\mathbf{y},\mathbf{z})|\mathbf{y},\theta^{(t)}]$.
+
+\textbf{E-adımı:} $Q(\theta|\theta^{(t)})$'yi hesapla.
+
+\textbf{M-adımı:} $\theta^{(t+1)}=\arg\max_\theta Q(\theta|\theta^{(t)})$.
+
+\textbf{Örnek --- Gaussian Karışımı} ($K=2$): $f(y|\theta)=\pi_1\phi(y;\mu_1,\sigma^2)+\pi_2\phi(y;\mu_2,\sigma^2)$.
+
+E-adımı: $r_{ik}=\pi_k\phi(y_i;\mu_k^{(t)},\sigma^2)/f(y_i|\theta^{(t)})$ (sorumluluklar).
+
+M-adımı: $\pi_k^{(t+1)}=\bar r_k$; $\mu_k^{(t+1)}=\sum_i r_{ik}y_i/\sum_i r_{ik}$.
+
+\textbf{Yakınsama garantisi:} Her adımda $\log L(\theta^{(t+1)};\mathbf{y})\geq\log L(\theta^{(t)};\mathbf{y})$ --- monoton artış (Dempster-Laird-Rubin 1977).
+\end{ornek}
+
+%% ============================================================
+\section{Uygulama Çözümlü Örnekler: Sınav Tipi}
+\label{app:sinav_tipi}
+%% ============================================================
+
+\begin{ornek}[Kapsamlı: Eksik Veri Analizi]
+$X_1,\ldots,X_n\iid\Normal(\mu,1)$; $\mu$ bilinmiyor. Gözlemler tam değil: $n_1$ gözlem tam görülüyor; $n_2=n-n_1$ gözlem yalnızca $X_i>c$ (sansürleme) bilindiği hâlde değerleri kayıp.
+
+(a) Tam log-olabilirlik $\ell(\mu;\mathbf{x}_{\mathrm{tam}},\mathbf{z}_{\mathrm{sansur}})$'yi yazınız.
+(b) MLE $\hat\mu$'yü örtük denklem olarak veriniz.
+(c) EM iterasyonunu kurunuz.
+
+\textbf{Çözüm:}
+(a) Tam log-olabilirlik:
+\[
+  \ell(\mu) = -\frac{n_1}{2}\log(2\pi)-\frac{1}{2}\sum_{i=1}^{n_1}(x_i-\mu)^2 + n_2\log[1-\Phi(c-\mu)].
+\]
+
+(b) Skor denklemi:
+\[
+  \sum_{i=1}^{n_1}(x_i-\mu) + n_2\cdot\frac{\phi(c-\mu)}{1-\Phi(c-\mu)} = 0.
+\]
+Kapalı form yok; sayısal çözüm gerekir ($\phi(c-\mu)/(1-\Phi(c-\mu))$: Mills oranı).
+
+(c) E-adımı: Sansürlü gözlemlerin koşullu beklentisi:
+$E[X_i|X_i>c,\mu^{(t)}]=\mu^{(t)}+\phi(c-\mu^{(t)})/(1-\Phi(c-\mu^{(t)}))$.
+
+M-adımı: $\mu^{(t+1)}=[{\sum}_{i=1}^{n_1}x_i + n_2 E[X_i|X_i>c,\mu^{(t)}]]/n$.
+\end{ornek}
+
+\begin{ornek}[Çok Değişkenli: Parametrik Bootstrap GA]
+$X_1,\ldots,X_n\iid F_\theta$; $\theta$ vektör parametre; $\hat\theta=T(\mathbf{X})$.
+Parametrik bootstrap güven bölgesi:
+
+\textbf{Adım 1:} $\hat\theta$ ile $B$ bootstrap örneklemi $\mathbf{X}^{*b}\iid F_{\hat\theta}$, $b=1,\ldots,B$.
+
+\textbf{Adım 2:} Her örneklem için $T^{*b}=T(\mathbf{X}^{*b})$.
+
+\textbf{Adım 3:} $D^{*b}=\|T^{*b}-\hat\theta\|$ mesafe dizisi.
+
+\textbf{Adım 4:} $\hat c_\alpha=$ $(1-\alpha)$ yüzdeliği $\{D^{*b}\}_{b=1}^B$ içinden.
+
+\textbf{Güven bölgesi:} $\{\theta:\|\hat\theta-\theta\|\leq\hat c_\alpha\}$.
+
+\textbf{Kapsama doğruluğu:} $O(n^{-1})$ yerine $O(n^{-3/2})$ (pivotal bootstrap), parametresiz durum için de genelleşir.
+\end{ornek}
+
+%% ============================================================
+\section{Temel İspat Teknikleri: Uygulama Örnekleri}
+\label{app:ispat_ornekler}
+%% ============================================================
+
+\subsection{İndiksiyonla İspat}
+
+\begin{ornek}[Binom Genişletmesi]
+$(x+y)^n = \sum_{k=0}^n \binom{n}{k}x^k y^{n-k}$ olduğunu matematiksel tümevarımla ispatlayınız.
+
+\textbf{Çözüm:}
+\emph{Taban}: $n=1$: $(x+y)^1=x+y=\binom{1}{0}y+\binom{1}{1}x$ $\checkmark$.
+
+\emph{Adım}: $n$ için doğru olduğunu varsayalım. $n+1$ için:
+$(x+y)^{n+1}=(x+y)(x+y)^n=(x+y)\sum_{k=0}^n\binom{n}{k}x^k y^{n-k}$.
+\begin{align*}
+&= \sum_{k=0}^n\binom{n}{k}x^{k+1}y^{n-k}+\sum_{k=0}^n\binom{n}{k}x^k y^{n+1-k}\\
+&= \sum_{k=1}^{n+1}\binom{n}{k-1}x^k y^{n+1-k}+\sum_{k=0}^n\binom{n}{k}x^k y^{n+1-k}.
+\end{align*}
+$k=0$ ve $k=n+1$ dışında: katsayı $\binom{n}{k-1}+\binom{n}{k}=\binom{n+1}{k}$ (Pascal özdeşliği). Uç terimler: $k=0$: $\binom{n}{0}y^{n+1}=y^{n+1}$; $k=n+1$: $\binom{n}{n}x^{n+1}=x^{n+1}$. Toplam $\sum_{k=0}^{n+1}\binom{n+1}{k}x^k y^{n+1-k}$. $\checkmark$
+\end{ornek}
+
+\subsection{Teçhiz ve Simetri Argümanları}
+
+\begin{ornek}[Geometrik Dağılımda Belleksizlik]
+$X\sim\mathrm{Geom}(p)$: $P(X=k)=(1-p)^{k-1}p$, $k=1,2,\ldots$
+$P(X>m+n|X>m)=P(X>n)$ olduğunu gösteriniz (belleksizlik).
+
+\textbf{Çözüm:}
+$P(X>k)=\sum_{j=k+1}^\infty(1-p)^{j-1}p=(1-p)^k$.
+\begin{align*}
+P(X>m+n|X>m) &= \frac{P(X>m+n\text{ ve }X>m)}{P(X>m)}\\
+&= \frac{P(X>m+n)}{P(X>m)} = \frac{(1-p)^{m+n}}{(1-p)^m} = (1-p)^n = P(X>n).
+\end{align*}
+Geometrik dağılım, kesikli dağılımlar arasında belleksizlik özelliğine sahip tek dağılımdır (sürekli karşılığı: Üstel).
+\end{ornek}
+
+\begin{ornek}[Önsel Dağılım Seçimi --- Jeffreys Önselı]
+$f(x;\theta)$ yoğunluk; Jeffreys önselı $\pi_J(\theta)\propto\sqrt{I(\theta)}$ (dönüşüme invaryant).
+
+\textbf{Bernoulli parametresi için:} $I(p)=1/(p(1-p))$ (binom, $n=1$).
+$\pi_J(p)\propto [p(1-p)]^{-1/2}=p^{-1/2}(1-p)^{-1/2}$: $\Beta(1/2,1/2)$.
+
+\textbf{Poisson oranı için:} $I(\lambda)=1/\lambda$.
+$\pi_J(\lambda)\propto\lambda^{-1/2}$: Bu $\Gama(1/2,\infty)$'ya yakınsar --- improper ama sonsal proper.
+
+\textbf{Normal standart sapması için:} $I(\sigma)=2/\sigma^2$.
+$\pi_J(\sigma)\propto 1/\sigma$: Jeffrey's önsel (skala parametresi için doğal).
+
+\textbf{İnvaryans gerekçesi:} $\psi=g(\theta)$ dönüşümü altında Jeffreys önselı dönüşür: $\pi_J(\psi)=\pi_J(\theta)|d\theta/d\psi|$ --- Fisher bilgisinin dönüşüm kuralından gelir. Böylece $\theta$ veya $\psi$ ile çalışmak aynı sonucu verir.
+\end{ornek}
+
+%% ============================================================
+\section{Alıştırma Koleksiyonu --- A Seviyesi}
+\label{app:A_seviye}
+%% ============================================================
+
+Aşağıdaki alıştırmalar tüm bölümlerin A (temel) düzeyini kapsar:
+
+\begin{enumerate}[label=\textbf{G.\arabic*.}]
+  \item Kanıtlayınız: $A\subseteq B\iff A\cap B^c=\emptyset$.
+  \item $\Prob(A\cup B)=0.7$, $\Prob(A)=0.5$, $\Prob(B)=0.4$: $\Prob(A\cap B)$'yi bulunuz.
+  \item $X\sim\Normal(5,16)$: $P(3<X<9)$'u standart normal tablosuyla hesaplayınız.
+  \item $X\iid\Uniform[0,1]$, $n=4$: $P(X_{(4)}>0.9)$'u bulunuz.
+  \item $X\sim\Pois(3)$: $E[X^2]$'yi MÜF kullanarak hesaplayınız.
+  \item Kolmogorov aksiyomlarından $\Prob(\emptyset)=0$ olduğunu ispatlayınız.
+  \item $X_n\to X$ n.k. ve $Y_n\to Y$ n.k. ise $X_n+Y_n\to X+Y$ n.k.\ olduğunu gösteriniz.
+  \item $\hat\theta=\bar X_n$ için $\mathrm{OKH}(\hat\theta,\mu)=\sigma^2/n$ olduğunu hesaplayınız.
+  \item $n=25$, $\bar x=12$, $s=5$: $\mu$ için $\%90$ güven aralığını bulunuz.
+  \item $p=0.3$, $n=100$: $\hat p$ için asimptotik $\%95$ GA'yı hesaplayınız.
+\end{enumerate}
+
+%% ============================================================
+\section{Alıştırma Koleksiyonu --- C Seviyesi}
+\label{app:C_seviye}
+%% ============================================================
+
+\begin{enumerate}[label=\textbf{G.\arabic*.}]
+\setcounter{enumi}{10}
+  \item \textbf{(Bireysel Ergodiklik)} $T:\Omega\to\Omega$ olasılık koruyan dönüşüm (ergodik). $f\in L^1(\Omega,\mathcal{F},P)$ için $\frac{1}{n}\sum_{k=0}^{n-1}f(T^k\omega)\to E[f]$ n.k. olduğunu Birkhoff ergodik teoremi çerçevesinde açıklayınız.
+  \item \textbf{(Portmanteau)} $X_n\xrightarrow{d}X$ için eşdeğer koşulları sayın ve en az üçünü ispatlayınız.
+  \item \textbf{(Cramér-Wold)} $\mathbb{R}^k$'da yakınsama dağılımda için: $\mathbf{X}_n\xrightarrow{d}\mathbf{X}\iff$ her $\mathbf{t}\in\mathbb{R}^k$ için $\mathbf{t}^\top\mathbf{X}_n\xrightarrow{d}\mathbf{t}^\top\mathbf{X}$. Bu teoremi kullanarak çok boyutlu MLT'yi türetiniz.
+  \item \textbf{(Skor Eşitliği)} $E_\theta[\partial\log f(X;\theta)/\partial\theta]=0$ olduğunu uygun düzenlilik koşulları altında kanıtlayınız.
+  \item \textbf{(Scheffe Teoremi)} $f_n\to f$ n.k.\ ve $\int f_n=\int f=1$ ise $\int|f_n-f|\to0$ olduğunu gösteriniz.
+  \item \textbf{(Radon-Nikodym)} $\nu\ll\mu$ ve $\nu\ll\mu'$ ise $d\nu/d\mu$ ile $d\nu/d\mu'$ arasındaki ilişkiyi türetiniz.
+  \item \textbf{(Stein Paradoksu)} $p\geq3$, $X\sim\Normal_p(\theta,I)$. James-Stein $\hat\theta^{JS}=(1-c/\|\mathbf{X}\|^2)\mathbf{X}$ için hangi $c$'de MLE'yi kare hatada domine eder? Hesaplayınız.
+  \item \textbf{(Yüksek Boyut)} $X_1,\ldots,X_n\iid\Normal_p(0,I)$; $\|\mathbf{X}_1\|^2/p\to1$ n.k.\ ($p,n\to\infty$, $p/n\to\gamma$). Bu sonucun kümeleme algoritmaları için ne anlama geldiğini açıklayınız.
+\end{enumerate}
+
+%% ============================================================
+\section{Temel Teoremlerin Özet İspatları}
+\label{app:ozet_ispatlar}
+%% ============================================================
+
+Bu bölümde kitabın temel teoremlerinin kısa ama eksiksiz ispatları verilmektedir.
+
+\subsection{Markov ve Chebyshev Eşitsizlikleri}
+
+\begin{teorem}[Markov eşitsizliği --- tam ispat]
+$X\geq0$ r.d., $E[X]<\infty$. Her $a>0$ için $P(X\geq a)\leq E[X]/a$.
+\end{teorem}
+\begin{proof}
+$X\geq a\mathbf{1}_{X\geq a}$ ($X$ negatif olmayan). Beklenti alınca: $E[X]\geq aE[\mathbf{1}_{X\geq a}]=aP(X\geq a)$.
+\end{proof}
+
+\begin{teorem}[Chebyshev eşitsizliği --- tam ispat]
+$E[X]=\mu$, $\mathrm{Var}(X)=\sigma^2<\infty$. Her $\varepsilon>0$ için $P(|X-\mu|\geq\varepsilon)\leq\sigma^2/\varepsilon^2$.
+\end{teorem}
+\begin{proof}
+Markov'u $Y=(X-\mu)^2\geq0$ ve $a=\varepsilon^2$'ye uygula: $P((X-\mu)^2\geq\varepsilon^2)\leq E[(X-\mu)^2]/\varepsilon^2=\sigma^2/\varepsilon^2$. $(X-\mu)^2\geq\varepsilon^2\iff|X-\mu|\geq\varepsilon$.
+\end{proof}
+
+\subsection{Jensen Eşitsizliği}
+
+\begin{teorem}[Jensen eşitsizliği --- tam ispat]
+$\varphi:\mathbb{R}\to\mathbb{R}$ konveks, $E[|X|]<\infty$. $\varphi(E[X])\leq E[\varphi(X)]$.
+\end{teorem}
+\begin{proof}
+$\mu=E[X]$. Konveks $\varphi$ için destek doğrusu vardır: $\varphi(x)\geq\varphi(\mu)+\lambda(x-\mu)$ her $x$'te, burada $\lambda\in[\varphi'_-(\mu),\varphi'_+(\mu)]$ (subgradient). $x=X$ koy ve beklenti al: $E[\varphi(X)]\geq\varphi(\mu)+\lambda(E[X]-\mu)=\varphi(\mu)$.
+\end{proof}
+
+\subsection{Fisher-Neyman Çarpanlama Teoremi}
+
+\begin{teorem}[Fisher-Neyman --- tam ispat]
+$T(\mathbf{X})$ yeterli $\iff$ $f(\mathbf{x};\theta)=g(T(\mathbf{x}),\theta)h(\mathbf{x})$ ayrışımı var.
+\end{teorem}
+\begin{proof}
+$(\Rightarrow)$: $T$ yeterli: $f(\mathbf{x}|\theta)=P(\mathbf{X}=\mathbf{x}|T=T(\mathbf{x}),\theta)P(T=T(\mathbf{x});\theta)$. İlk çarpan $\theta$'dan bağımsız ($T$ yeterli), ikincisi $T(\mathbf{x})$ ve $\theta$'nın fonksiyonu.
+
+$(\Leftarrow)$: $f(\mathbf{x};\theta)=g(T,\theta)h(\mathbf{x})$. $P(\mathbf{X}=\mathbf{x}|T(\mathbf{X})=t,\theta)=\frac{f(\mathbf{x};\theta)}{\sum_{\mathbf{y}:T(\mathbf{y})=t}f(\mathbf{y};\theta)}=\frac{g(t,\theta)h(\mathbf{x})}{g(t,\theta)\sum h(\mathbf{y})}=\frac{h(\mathbf{x})}{\sum h(\mathbf{y})}$ --- $\theta$'dan bağımsız.
+\end{proof}
+
+\subsection{Doob Maksimal Eşitsizliği}
+
+\begin{teorem}[Doob $L^2$ eşitsizliği --- tam ispat]
+$(M_n)_{n=0}^N$ martingal, $E[M_N^2]<\infty$. $M_N^*=\max_{0\leq k\leq N}|M_k|$ için $E[(M_N^*)^2]\leq 4E[M_N^2]$.
+\end{teorem}
+\begin{proof}
+$\tau=\min\{k:|M_k|\geq\lambda\}$ ($\tau=N$ yoksa). Markov ile:
+$P(M_N^*\geq\lambda)\leq E[M_N^2]/\lambda^2$ (Doob maksimal submartingal eşitsizliği, $p=1$ versiyonu: $P(M_N^*\geq\lambda)\leq E[|M_N|]/\lambda$).
+$L^2$ versiyonu: $E[(M_N^*)^2]=2\int_0^\infty\lambda P(M_N^*\geq\lambda)d\lambda\leq 2\int_0^\infty\lambda\frac{E[M_N^2]}{\lambda^2}d\lambda$ --- bu yaklaşım kesim gerektir. Doğru ispat: Doob'un $p=2$ submartingal maksimal eşitsizliğinden $\|M_N^*\|_2\leq (p/(p-1))\|M_N\|_2$ ile $p=2$: katsayı $2\leq 4^{1/2}$; dolayısıyla $E[(M_N^*)^2]\leq 4E[M_N^2]$.
+\end{proof}
+
+%% ============================================================
+\section{Olasılık ve İstatistik: Tarihsel Notlar}
+\label{app:tarihsel}
+%% ============================================================
+
+\subsection{Olasılık Teorisinin Aksiyomatik Temeli}
+
+1933'te Andrei Kolmogorov \textit{Grundbegriffe der Wahrscheinlichkeitsrechnung}'u yayımladı. Bu 62 sayfalık eser, olasılık teorisini ölçüm teorisi temeline oturturdu ve modern olasılığın doğum belgesi sayılır.
+
+\begin{itemize}
+  \item \textbf{Genel önsel:} Kolmogorov'dan önce olasılık "eşit derecede olası" sezgisine dayanıyordu (Laplace, 1812). Pascal-Fermat mektuplaşması (1654) beklenti kavramını ilk formüle etti.
+  \item \textbf{Frekansçı yaklaşım:} Von Mises (1928), sınır frekansı olarak olasılık --- matematiksel zorluklar nedeniyle terk edildi.
+  \item \textbf{Kolmogorov aksiyomları:} $\sigma$-cebiri, sayılabilir toplamsellik --- 20. yüzyıl olasılığının mirası.
+\end{itemize}
+
+\subsection{İstatistik Teorisinin Gelişimi}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\small
+\begin{tabular}{p{1.5cm}p{3cm}p{8cm}}
+\hline
+\textbf{Yıl} & \textbf{Kişi} & \textbf{Katkı} \\
+\hline
+1809 & Gauss & En küçük kareler yöntemi; normal dağılım \\
+1894 & Pearson & Momentler yöntemi; $\chi^2$ testi \\
+1908 & Student (Gosset) & $t$-dağılımı \\
+1922 & Fisher & Olabilirlik, Fisher bilgisi, yeterlilik \\
+1928 & Cramér & Cramér-Rao eşitsizliği (ilk versiyon) \\
+1933 & Neyman-Pearson & Lemma; UMP testleri \\
+1945 & Wald & Karar teorisi; minimax \\
+1950 & Lehmann-Scheffé & UMVUE teorisi \\
+1956 & Stein & Stein paradoksu \\
+1977 & Dempster-Laird-Rubin & EM algoritması \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Türk Matematik Geleneği ve İstatistik}
+
+Türkiye'de istatistik eğitimi, Cumhuriyet'in ilk yıllarından itibaren kalkınma planlaması ihtiyaçlarıyla paralel gelişti. Atatürk'ün istatistik kurumlarına verdiği önem (DİE, 1926), Türkiye'yi gelişmekte olan ülkeler arasında erken istatistiksel altyapı kuranlar arasına koydu. Günümüzde TYMM çerçevesinde olasılık ve istatistik, matematik lisans programlarının çekirdeğini oluşturmaktadır.
+
+%% ============================================================
+\section{Kapsamlı Problem Seti: Karma Konular}
+\label{app:karma_problemler}
+%% ============================================================
+
+\subsection{Teorik Problemler}
+
+\begin{ornek}[Moment Problemi]
+$X$ rasgele değişken. $E[X^k]=k!/(2^k)$ ($k=1,2,3,\ldots$) verilmiş. $X$'in dağılımını belirleyiniz.
+
+\textbf{Çözüm:} $M_X(t)=\sum_{k=0}^\infty E[X^k]t^k/k!=1+\sum_{k=1}^\infty t^k/2^k=1+\frac{t/2}{1-t/2}=\frac{1}{1-t/2}$ ($|t|<2$).
+
+$M_X(t)=(1-t/2)^{-1}=(1-\beta t)^{-\alpha}$ ile $\alpha=1$, $\beta=1/2$: $\Gama(1,1/2)=\Exp(2)$.
+
+$X\sim\Exp(2)$: ortalama $1/2$, $E[X^k]=\int_0^\infty x^k\cdot2e^{-2x}dx=k!/(2^k)$ $\checkmark$.
+\end{ornek}
+
+\begin{ornek}[Kümülanlar ve Bağımsızlık]
+$X_1,\ldots,X_n$ bağımsız; $\kappa_r^{(i)}$ $i$'inci değişkenin $r$. kümülanı. $S_n=\sum_i X_i$'nin kümülanları ne olur? Merkezi limit teoremini kümülan argümanıyla açıklayınız.
+
+\textbf{Çözüm:} Kümülan üreten fonksiyon: $K_S(t)=\log M_S(t)=\sum_i\log M_{X_i}(t)=\sum_i K_{X_i}(t)$.
+Kümülan toplamlılığı: $\kappa_r^{(S)}=\sum_i\kappa_r^{(i)}$.
+
+$Y_n=(S_n-n\mu)/(\sigma\sqrt{n})$ için: $\kappa_1^{(Y_n)}=0$; $\kappa_2^{(Y_n)}=1$; $\kappa_r^{(Y_n)}=\kappa_r^{(X_1)}/((\sigma\sqrt{n})^{r-2}\cdot n^{r/2-1})=O(n^{1-r/2})\to0$ ($r\geq3$).
+$K_{Y_n}(t)\to t^2/2$: Normal kümülan üreteci. MLT.
+\end{ornek}
+
+\begin{ornek}[Karakteristik Fonksiyon ve Bağımlı Yapı]
+$X,Y$ ortak normal: $\varphi_{X,Y}(s,t)=\exp\!\left(i\mu_X s+i\mu_Y t-\frac{1}{2}[\sigma_X^2s^2+2\rho\sigma_X\sigma_Y st+\sigma_Y^2 t^2]\right)$.
+
+(a) $X+Y$'nin KF'sini türetiniz.
+(b) $X$ ve $Y$'nin bağımsız olması için gerek ve yeter koşulu bulunuz.
+
+\textbf{Çözüm:}
+(a) $\varphi_{X+Y}(t)=\varphi_{X,Y}(t,t)=\exp\!\left(i(\mu_X+\mu_Y)t-\frac{t^2}{2}(\sigma_X^2+2\rho\sigma_X\sigma_Y+\sigma_Y^2)\right)$.
+$X+Y\sim\Normal(\mu_X+\mu_Y,\,\sigma_X^2+2\rho\sigma_X\sigma_Y+\sigma_Y^2)$.
+
+(b) Bağımsızlık: $\varphi_{X,Y}(s,t)=\varphi_X(s)\varphi_Y(t)$ $\iff$ $\rho=0$. Ortak normalde kovaryans sıfırı bağımsızlık gerektirir.
+\end{ornek}
+
+\subsection{Uygulamalı Problemler}
+
+\begin{ornek}[Sigorta ve Yenileme Teorisi]
+Hasar sayısı $N\sim\Pois(\lambda)$; her hasar $X_i\iid\Exp(\mu)$ bağımsız.
+$S=\sum_{i=1}^N X_i$ (bileşik Poisson süreci): $E[S]$, $\Var(S)$ ve $M_S(t)$'yi bulunuz.
+
+\textbf{Çözüm:}
+Toplam beklenti: $E[S]=E[N]E[X_1]=\lambda/\mu$.
+Toplam varyans: $\Var(S)=E[N]\Var(X_1)+(E[X_1])^2\Var(N)=\lambda/\mu^2+\lambda/\mu^2=2\lambda/\mu^2$.
+
+MÜF: $M_S(t)=E[e^{tS}]=E[E[e^{tS}|N]]=E[(M_{X_1}(t))^N]=E[(\mu/(\mu-t))^N]$ ($t<\mu$).
+$M_S(t)=G_N(M_{X_1}(t))$ burada $G_N(z)=E[z^N]=e^{\lambda(z-1)}$.
+$M_S(t)=\exp[\lambda(M_{X_1}(t)-1)]=\exp\!\left[\lambda\left(\frac{\mu}{\mu-t}-1\right)\right]=\exp\!\left[\frac{\lambda t}{\mu-t}\right]$.
+\end{ornek}
+
+\begin{ornek}[Epidemiyolojide Mutlak ve Göreli Risk]
+Tedavi grubu: $n_1=200$, $d_1=20$ vaka. Kontrol grubu: $n_0=200$, $d_0=40$ vaka.
+(a) Risk oranı $\hat{RR}=\hat p_1/\hat p_0$ ve $\%95$ GA'yı bulunuz.
+(b) Odds oranı $\hat{OR}$ ve $\%95$ GA'yı bulunuz.
+(c) Sayı gerekli $NNT$ (number needed to treat) hesaplayınız.
+
+\textbf{Çözüm:}
+$\hat p_1=20/200=0.10$; $\hat p_0=40/200=0.20$.
+
+(a) $\hat{RR}=0.10/0.20=0.5$. Delta yöntemi: $\mathrm{SE}(\log\hat{RR})=\sqrt{(1-\hat p_1)/(n_1\hat p_1)+(1-\hat p_0)/(n_0\hat p_0)}=\sqrt{0.9/20+0.8/40}=\sqrt{0.045+0.02}=\sqrt{0.065}=0.255$.
+$\%95$ GA ($\log$ ölçeği): $\log(0.5)\pm1.96\cdot0.255=(-0.693\pm0.500)=(-1.193,\,-0.193)$.
+Geri dönüşüm: $(e^{-1.193},e^{-0.193})=(0.303,\,0.824)$.
+
+(b) $\hat{OR}=\frac{\hat p_1/(1-\hat p_1)}{\hat p_0/(1-\hat p_0)}=\frac{0.1/0.9}{0.2/0.8}=\frac{0.111}{0.250}=0.444$.
+$\mathrm{SE}(\log\hat{OR})=\sqrt{1/d_1+1/(n_1-d_1)+1/d_0+1/(n_0-d_0)}=\sqrt{1/20+1/180+1/40+1/160}=\sqrt{0.050+0.006+0.025+0.006}=\sqrt{0.087}=0.295$.
+GA: $\exp(-0.811\pm1.96\cdot0.295)=(e^{-1.389},e^{-0.233})=(0.249,\,0.792)$.
+
+(c) $NNT=1/(\hat p_0-\hat p_1)=1/(0.20-0.10)=10$. Her 10 hastaya tedavi uygulanırsa 1 vaka önlenir.
+\end{ornek}
+
+%% ============================================================
+\section{Olasılık Eşitsizliklerinin Uygulamaları}
+\label{app:esitsizlik_uyg}
+%% ============================================================
+
+\begin{ornek}[Azuma-Hoeffding Eşitsizliği]
+$(M_n,\mathcal{F}_n)_{n\geq0}$ martingal, $|M_n-M_{n-1}|\leq c_n$ n.k.\ (sınırlı farklar).
+Her $t>0$ için:
+\[
+  P(M_n-M_0\geq t) \leq \exp\!\left(-\frac{t^2}{2\sum_{i=1}^n c_i^2}\right).
+\]
+
+\textbf{İspat taslağı:} $D_k=M_k-M_{k-1}$; Hoeffding lemması: $|D_k|\leq c_k$ ve $E[D_k|\mathcal{F}_{k-1}]=0$ ise $E[e^{\lambda D_k}|\mathcal{F}_{k-1}]\leq e^{\lambda^2c_k^2/2}$. Yinelemeli Markov ile $E[e^{\lambda M_n}]\leq e^{\lambda^2\sum c_k^2/2}$. Markov eşitsizliği uygulanır.
+
+\textbf{Uygulama:} Turnuva sıralama algoritması: $n$ eleman, rastgele permütasyon; $M_n=E[\text{inversiyonlar}|\text{ilk }n\text{ eleman}]$; $|D_k|\leq k$. $c_k=k$: Azuma ile sapma sınırı $O(n^{3/2})$.
+\end{ornek}
+
+\begin{ornek}[Poincaré-Wirtinger Eşitsizliği --- İstatistiksel Uyarlaması]
+$X$ rasgele değişken; $g$ türevlenebilir; $E[g(X)^2]<\infty$.
+\[
+  \Var(g(X)) \leq E[(g'(X))^2]\cdot\Var(X).
+\]
+
+\textbf{Özel durum:} $X\sim\Normal(0,1)$: Poincaré eşitsizliği (Gaussian Poincaré):
+$\Var(g(X))\leq E[(g'(X))^2]$.
+
+\textbf{Kanıt (Gaussian):} Gaussian entegrasyon by parts (Stein lemması): $E[Xg(X)]=E[g'(X)]$.
+$\Var(g(X))=E[g(X)^2]-(E[g(X)])^2$. Yazman-Stam (1959) bilgi eşitsizliğinden veya Hermite polinomu açılımından.
+
+\textbf{Uygulama:} $g(X)=\bar X_n=(\sum X_i)/n$: $g'=1/n$; $\Var(\bar X_n)\leq (1/n^2)\cdot n=1/n$. CLT için varyans sınırı.
+\end{ornek}
+
+\begin{ornek}[Fano Eşitsizliği --- Parametre Tahmin Alt Sınırı]
+Olasılık tahmini: $X^n=(X_1,\ldots,X_n)\iid P_\theta$; $\theta\in\{0,1,\ldots,M-1\}$ sonlu. $\hat\theta=\hat\theta(X^n)$ herhangi tahmin edici.
+\[
+  P(\hat\theta\neq\theta) \geq 1 - \frac{I(X^n;\theta)+\log 2}{\log M}.
+\]
+
+\textbf{İspat taslağı:} Fano lemması: $H(\theta|X^n)\leq h_2(P_e)+P_e\log(M-1)$; burada $P_e=P(\hat\theta\neq\theta)$. Bilgi üçgeni eşitsizliği ile: $I(X^n;\theta)=H(\theta)-H(\theta|X^n)\geq\log M-h_2(P_e)-P_e\log(M-1)$.
+
+\textbf{Uygulama (minimax alt sınır):} $n$ gözlemle Normal ortalama sınıfı $|\theta|\leq M$ tahmininde, Fano: minimax risk $\gtrsim M^2/n$ (KL bilgisi hesabıyla).
+\end{ornek}
+
+%% ============================================================
+\section{Dağılım Teorisi: Özel Konular}
+\label{app:ozel_dagilim}
+%% ============================================================
+
+\subsection{Stabil Dağılımlar}
+
+\begin{tanim}[Stabil dağılım]\label{def:stabil}
+$X$ stabil (\emph{stable}) dağılımlıdır: $X_1,X_2\iid X$ için $aX_1+bX_2\overset{d}{=}cX+d$ bazı $a,b,c,d$ için. Karakteristik fonksiyon:
+\[
+  \log\varphi(t) = i\mu t - \sigma^\alpha|t|^\alpha\left(1+i\beta\,\mathrm{sgn}(t)\tan\frac{\pi\alpha}{2}\right), \quad \alpha\in(0,2].
+\]
+\end{tanim}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\small
+\begin{tabular}{p{3cm}cccc}
+\hline
+\textbf{Dağılım} & $\alpha$ & $\beta$ & \textbf{Kuyruk} & \textbf{Beklenti} \\
+\hline
+Gaussian $\Normal$ & $2$ & $0$ & Hafif ($e^{-x^2}$) & Var \\
+Cauchy & $1$ & $0$ & Ağır ($x^{-2}$) & Yok \\
+Lévy & $1/2$ & $1$ & Ağır ($x^{-3/2}$) & Yok \\
+Genel stabil & $(0,2)$ & $[-1,1]$ & Kuvvet ($x^{-\alpha}$) & $\alpha>1$'de var \\
+\hline
+\end{tabular}
+\end{center}
+
+Stabil dağılımlar, ağır kuyruklu verilerin (finansal getiriler, deprem büyüklükleri) modelinde kullanılır. Genelleştirilmiş CLT: i.i.d.\ dizinin normalize toplamının limit dağılımı, eğer varsa, stabil dağılımdır.
+
+\subsection{İnce Kuyruk - Ağır Kuyruk Sınırı}
+
+\begin{tanim}[Alt-Gaussian değişken]\label{def:alt_gaussian}
+$X$ sıfır beklentili. Her $t\in\mathbb{R}$ için $E[e^{tX}]\leq e^{\sigma^2t^2/2}$ sağlanıyorsa $X$ alt-Gaussian'dır ($\sigma^2$ varyans proxy).
+\end{tanim}
+
+\begin{teorem}[Alt-Gaussian kuyruğu]\label{thm:alt_gaussian_kuyruk}
+$X$ $\sigma$-alt-Gaussian ise her $u>0$ için $P(X\geq u)\leq e^{-u^2/(2\sigma^2)}$.
+\end{teorem}
+\begin{proof}
+Markov: $P(X\geq u)=P(e^{tX}\geq e^{tu})\leq E[e^{tX}]e^{-tu}\leq e^{\sigma^2t^2/2-tu}$. $t=u/\sigma^2$'yi minimize et: $e^{-u^2/(2\sigma^2)}$.
+\end{proof}
+
+\noindent Örnekler: $X\sim\Normal(0,\sigma^2)$: $\sigma$-alt-Gaussian. $|X|\leq b$ n.k.: $(b/2)$-alt-Gaussian (Hoeffding). Bernoulli($p$) merkezli: alt-Gaussian.
+
+\begin{teorem}[Sınırlı değişken Hoeffding lemması]\label{thm:hoeffding_lemma}
+$a\leq X\leq b$ n.k., $E[X]=0$. O zaman $E[e^{tX}]\leq e^{t^2(b-a)^2/8}$ --- yani $(b-a)/2$-alt-Gaussian.
+\end{teorem}
+\begin{proof}[Taslak]
+$e^{tx}$ konveks: $e^{tx}\leq \frac{b-x}{b-a}e^{ta}+\frac{x-a}{b-a}e^{tb}$.
+$E[X]=0$ kullanarak $E[e^{tX}]\leq e^{ta}\cdot b/(b-a)+e^{tb}\cdot(-a)/(b-a)$. Bu $\leq e^{t^2(b-a)^2/8}$ (Taylor ve $e^u\leq1+u$ argümanıyla).
+\end{proof}
+
+%% ============================================================
+\section{Özet Formüller Hızlı Başvurusu}
+\label{app:hizli_formul}
+%% ============================================================
+
+\subsection{Olasılık Formülleri}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\small
+\begin{tabular}{p{5cm}p{7cm}}
+\hline
+\textbf{Formül} & \textbf{Notlar} \\
+\hline
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)$ & Dahil-hariç prensip \\
+$P(A|B)=P(A\cap B)/P(B)$ & Koşullu olasılık \\
+$P(A)=\sum_i P(A|B_i)P(B_i)$ & Toplam olasılık ($\{B_i\}$ bölümleme) \\
+$P(B_j|A)=P(A|B_j)P(B_j)/P(A)$ & Bayes teoremi \\
+$P(A\cap B)=P(A)P(B)$ & Bağımsızlık koşulu \\
+$P(A_1\cap\cdots\cap A_n)=\prod P(A_k|A_1\cap\cdots\cap A_{k-1})$ & Çarpım kuralı \\
+$E[X]=\int x\,dF(x)$ & Lebesgue-Stieltjes integrali \\
+$E[g(X)]=\int g(x)f(x)dx$ & Bilinçsiz istatistikcinin kuralı \\
+$\Var(X)=E[X^2]-(E[X])^2$ & Kısa varyans formülü \\
+$\Cov(X,Y)=E[XY]-E[X]E[Y]$ & Kısa kovaryans formülü \\
+$\Cor(X,Y)=\Cov(X,Y)/(\sigma_X\sigma_Y)$ & Pearson korelasyon \\
+$M_X(t)=E[e^{tX}]$ & MÜF; $M_X^{(k)}(0)=E[X^k]$ \\
+$\varphi_X(t)=E[e^{itX}]$ & KF; $\varphi_X(-t)=\overline{\varphi_X(t)}$ \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{İstatistik Formülleri}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\small
+\begin{tabular}{p{5cm}p{7cm}}
+\hline
+\textbf{Formül} & \textbf{Notlar} \\
+\hline
+$\hat\mu=\bar X_n=\frac{1}{n}\sum X_i$ & Örneklem ortalaması \\
+$S^2=\frac{1}{n-1}\sum(X_i-\bar X)^2$ & Yansız örneklem varyansı \\
+$(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$ & Normal popülasyonda \\
+$t=(\bar X-\mu_0)/(S/\sqrt{n})\sim t_{n-1}$ & Tek örneklem $t$ testi \\
+$F=s_1^2/s_2^2\sim F_{n_1-1,n_2-1}$ & İki örneklem $F$ testi \\
+$\hat\theta_{\mathrm{MLE}}=\arg\max L(\theta;\mathbf{x})$ & MLE \\
+$I(\theta)=-E[\partial^2\log f/\partial\theta^2]$ & Fisher bilgisi \\
+$\Var(\hat\theta)\geq 1/(nI(\theta))$ & Cramér-Rao alt sınırı \\
+$-2\log\Lambda\xrightarrow{d}\chi^2_r$ & ORT asimptotik dağılımı \\
+$\bar X\pm z_{\alpha/2}\sigma/\sqrt{n}$ & $\sigma$ bilinen z-aralığı \\
+$\bar X\pm t_{n-1,\alpha/2}S/\sqrt{n}$ & $\sigma$ bilinmeyen t-aralığı \\
+$\hat p\pm z_{\alpha/2}\sqrt{\hat p(1-\hat p)/n}$ & Oran için Wald GA \\
+AIC$=2k-2\ell(\hat\theta)$ & Model seçim kriteri \\
+BIC$=k\log n-2\ell(\hat\theta)$ & Tutarlı model seçimi \\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Sık Kullanılan Eşitsizlikler}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\small
+\begin{tabular}{p{5.5cm}p{6.5cm}}
+\hline
+\textbf{Eşitsizlik} & \textbf{Koşul} \\
+\hline
+$P(X\geq a)\leq E[X]/a$ & Markov; $X\geq0$, $a>0$ \\
+$P(|X-\mu|\geq\varepsilon)\leq\sigma^2/\varepsilon^2$ & Chebyshev; $\Var(X)<\infty$ \\
+$\varphi(E[X])\leq E[\varphi(X)]$ & Jensen; $\varphi$ konveks \\
+$|\langle f,g\rangle|\leq\|f\|_p\|g\|_q$ & Hölder; $1/p+1/q=1$ \\
+$\|f+g\|_p\leq\|f\|_p+\|g\|_p$ & Minkowski; $p\geq1$ \\
+$\|X\|_r\leq\|X\|_s$ & Lyapunov; $1\leq r\leq s$ \\
+$P(X\geq t)\leq\inf_\lambda e^{-\lambda t}M_X(\lambda)$ & Chernoff; $M_X$ var \\
+$P(\bar X_n-\mu\geq\varepsilon)\leq e^{-2n\varepsilon^2/(b-a)^2}$ & Hoeffding; $a\leq X_i\leq b$ \\
+$D_{\mathrm{KL}}(P\|Q)\geq 0$ & Gibbs; eşitlik $P=Q$'da \\
+\hline
+\end{tabular}
+\end{center}

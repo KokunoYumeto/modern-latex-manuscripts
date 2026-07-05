@@ -1,0 +1,833 @@
+% =====================================================================
+%  BÖLÜM 6: Dönüşümler ve Dağılım Teorisi
+%  Kaynak: Hogg & Craig; Casella & Berger; Feller Vol.II; Klenke
+% =====================================================================
+\chapter{Dönüşümler ve Dağılım Teorisi}
+\label{chp:donusumler}
+
+\bolumalinti{%
+  Bir rasgele değişkenin dönüşümü, dağılım uzayındaki bir yolculuktur.%
+}{George Casella \& Roger Berger, \textit{Statistical Inference}}
+
+% ---- Kazanımlar (TYMM) ----
+\begin{kazanimlar}
+Bu bölümün sonunda öğrenci:
+\begin{itemize}
+  \item Tekil ve çok boyutlu dönüşümlerde Jacobian formülünü ustalıkla uygulayabilir;
+        birebir olmayan dönüşümleri parçalara bölerek ele alabilir.
+  \item MÜF ve karakteristik fonksiyon yöntemiyle dağılım tanımlayabilir;
+        bu yöntemin Jacobian yöntemine göre avantajlarını açıklayabilir.
+  \item Evrişim (konvolüsyon) integralini hesaplayabilir; Gama, Normal ve Poisson
+        toplamlarının dağılımını türetebilir.
+  \item Sıra istatistiklerini tanımlayabilir; tekil ve ortak PDF'lerini türetip
+        hesaplayabilir; örneklem minimum, maksimum ve medyanını bulabilir.
+  \item Delta yöntemini tek ve çok boyutlu durumda uygulayabilir.
+\end{itemize}
+\end{kazanimlar}
+
+% ---- Motivasyon ----
+\begin{motivasyon}
+Bölüm~\ref{chp:rasgele_degiskenler}'de dönüşüm yönteminin temellerini gördük.
+Bu bölümde araç kutusunu genişletiyoruz. Çoğu zaman Jacobian hesabı yerine
+MÜF ya da KF yöntemi çok daha hızlı sonuç verir: $X+Y$'nin dağılımını bulmak için
+evrişim integralini hesaplamak yerine $M_{X+Y}(t) = M_X(t)M_Y(t)$ özdeşliğini
+kullanmak yeterlidir. Sıra istatistikleri ise güvenilirlik mühendisliği ve
+çevresel istatistiğin temel aracıdır: "en zayıf halka ne zaman kopar?"
+
+\medskip
+\textbf{Köprü.} Bölüm~\ref{chp:rasgele_degiskenler}'deki Jacobian ve evrişim,
+Bölüm~\ref{chp:beklenti}'deki MÜF/KF bu bölümde birleştiriliyor.
+Bölüm~\ref{chp:merkezi_limit}'teki Delta yöntemi bu bölümün doğal devamıdır.
+\end{motivasyon}
+
+% =====================================================================
+\section{Tekil Dönüşümler: Derinlemesine}
+\label{sec:tekil_donusum}
+% =====================================================================
+
+Bölüm~\ref{sec:rd_donusum}'da birebir dönüşüm formülünü ve genel monoton-olmayan
+durumu gördük. Burada bu tekniği pekiştiriyor, sınır durumlarını ve pratikte
+sık karşılaşılan kalıpları inceliyoruz.
+
+\begin{teorem}[Tekil Dönüşüm --- Kapsamlı Form]
+\label{thm:tekil_donusum}
+$X$ sürekli rasgele değişken, PDF $f_X$. $g : \mathcal{X} \to \mathcal{Y}$
+($\mathcal{X}$ ve $\mathcal{Y}$ açık aralıklar birleşimi). $\mathcal{X} = \bigsqcup_k A_k$
+ayrışımında $g|_{A_k}$ her parça üzerinde birebir, türevlenebilir olsun.
+$h_k = (g|_{A_k})^{-1}$ ters fonksiyon. O zaman $Y = g(X)$'in PDF'si:
+\[
+  f_Y(y) = \sum_k f_X(h_k(y)) \cdot |h_k'(y)| \cdot \mathbf{1}_{y \in g(A_k)}.
+\]
+\end{teorem}
+
+\begin{ornek}[$Y = |X|$, $X \sim \Normal(0,1)$]
+$g(x) = |x|$: $A_1 = (-\infty, 0)$, $A_2 = (0, \infty)$.
+$h_1(y) = -y$, $h_2(y) = y$; $|h_1'| = |h_2'| = 1$.
+$f_Y(y) = \phi(-y) + \phi(y) = 2\phi(y)$, $y > 0$ (yarı-normal dağılım).
+$P(|Z| > 1.96) = 2(1 - \Phi(1.96)) \approx 0.05$ --- iki-kuyruklu normal tablosu.
+\end{ornek}
+
+\begin{ornek}[$Y = X^2$, $X$ simetrik]
+$X$ simetrik (çift PDF) olsun. $A_1 = (-\infty,0)$, $A_2 = (0,\infty)$.
+$h_1(y) = -\sqrt{y}$, $h_2(y) = \sqrt{y}$; $|h_{1,2}'(y)| = 1/(2\sqrt{y})$.
+$f_Y(y) = [f_X(\sqrt{y}) + f_X(-\sqrt{y})]/(2\sqrt{y}) = f_X(\sqrt{y})/\sqrt{y}$ (simetri).
+$Z \sim \Normal(0,1)$: $f_{Z^2}(y) = \phi(\sqrt{y})/\sqrt{y} = (2\pi y)^{-1/2}e^{-y/2}$
+$= \Gama(1/2, 1/2)$ PDF'si $= \chi^2_1$ PDF'si.
+\end{ornek}
+
+\begin{ispatiskele}[Quantile Dönüşümü --- İspat İskeleti]
+$U \sim \Uniform(0,1)$, $F$ herhangi KDF, $X = F^{-1}(U)$.
+\iskeleadim{1}{$P(X \leq x) = P(F^{-1}(U) \leq x)$ ifadesini yazınız.}
+\iskeleadim{2}{$F^{-1}(u) \leq x \Leftrightarrow u \leq F(x)$ eşdeğerliğini kullanınız ($F$ sağdan sürekli).}
+\iskeleadim{3}{$P(U \leq F(x)) = \bosluk{F(x)}$ (uniform KDF).}
+\iskeleadim{4}{Sonuç: $F_X(x) = F(x)$, yani $X \sim F$.}
+\end{ispatiskele}
+
+% =====================================================================
+\section{Çok Boyutlu Dönüşümler}
+\label{sec:cok_boyut_donusum}
+% =====================================================================
+
+Bölüm~\ref{subsec:donusum_jacobian}'da Jacobian formülünü verdik.
+Burada sistematik uygulama tekniklerini ve önemli örnekleri işliyoruz.
+
+\begin{onerme}[Jacobian Hesabında Adım Adım Yöntem]
+\label{prop:jacobian_adim}
+$(X_1, \ldots, X_n) \to (Y_1, \ldots, Y_n)$ dönüşümü için:
+\begin{enumerate}[(1)]
+  \item Ters dönüşümü bulunuz: $x_i = h_i(y_1,\ldots,y_n)$.
+  \item Jacobian matrisini oluşturunuz: $J_{ij} = \partial h_i/\partial y_j$.
+  \item $|\det J|$'yi hesaplayınız.
+  \item Tanım bölgesini dönüştürünüz: $\mathcal{X} \to \mathcal{Y}$.
+  \item $f_Y(\mathbf{y}) = f_X(h(\mathbf{y})) \cdot |\det J|$ ile PDF'yi yazınız.
+\end{enumerate}
+\end{onerme}
+
+\begin{ornek}[Beta-Gama İlişkisi --- Tam Türetme]
+\label{ex:beta_gama_turetme}
+$U \sim \Gama(\alpha, 1)$, $V \sim \Gama(\beta, 1)$ bağımsız.
+$X = U/(U+V)$, $W = U+V$ dönüşümü.
+
+\textbf{Ters:} $u = xw$, $v = w(1-x)$; $0 < x < 1$, $w > 0$.
+
+\textbf{Jacobian:}
+$J = \begin{pmatrix} w & x \\ -w & 1-x \end{pmatrix}$; $|\det J| = w(1-x) + xw = w$.
+
+\textbf{Ortak PDF:}
+\begin{align*}
+  f_{X,W}(x,w) &= f_U(xw)\,f_V(w(1-x))\cdot w \\
+  &= \frac{(xw)^{\alpha-1}e^{-xw}}{\Gamma(\alpha)} \cdot \frac{(w(1-x))^{\beta-1}e^{-w(1-x)}}{\Gamma(\beta)} \cdot w \\
+  &= \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)} \cdot \frac{w^{\alpha+\beta-1}e^{-w}}{\Gamma(\alpha+\beta)}.
+\end{align*}
+
+$X$ ve $W$ bağımsız; $X \sim \Beta(\alpha,\beta)$, $W \sim \Gama(\alpha+\beta, 1)$.
+\end{ornek}
+
+\begin{ornek}[$t$ Dağılımının Türetilmesi]
+\label{ex:t_turetme}
+$Z \sim \Normal(0,1)$, $V \sim \chi^2_n$ bağımsız. $T = Z/\sqrt{V/n}$, $W = V$.
+
+\textbf{Ters:} $z = t\sqrt{w/n}$, $v = w$.
+\textbf{Jacobian:} $|\det J| = \sqrt{w/n}$.
+
+\textbf{Ortak PDF:}
+$f_{T,W}(t,w) = \phi(t\sqrt{w/n}) \cdot f_{\chi^2_n}(w) \cdot \sqrt{w/n}$.
+
+$W$'ye göre integre et ($w > 0$):
+\[
+  f_T(t) = \frac{\Gamma((n+1)/2)}{\sqrt{n\pi}\,\Gamma(n/2)} \left(1 + \frac{t^2}{n}\right)^{-(n+1)/2}.
+\]
+(Gama integrali $\int_0^\infty w^{(n-1)/2} e^{-w(1+t^2/n)/2} dw = \Gamma((n+1)/2) \cdot [2/(1+t^2/n)]^{(n+1)/2}$
+kullanılır.)
+\end{ornek}
+
+\begin{ornek}[$F$ Dağılımının Türetilmesi]
+$U \sim \chi^2_m$, $V \sim \chi^2_n$ bağımsız. $W = (U/m)/(V/n)$ için:
+$f_W(w) = \frac{\Gamma((m+n)/2)}{\Gamma(m/2)\Gamma(n/2)} \left(\frac{m}{n}\right)^{m/2}
+w^{m/2-1}\left(1 + \frac{m}{n}w\right)^{-(m+n)/2}$, $w > 0$.
+Bu $F(m,n)$ dağılımının PDF'sidir.
+\end{ornek}
+
+% =====================================================================
+\section{MÜF ve KF Yöntemiyle Dağılım Belirleme}
+\label{sec:muf_yontemi}
+% =====================================================================
+
+\begin{motivasyon}[Jacobian Yerine MÜF]
+$X+Y$'nin PDF'sini bulmak için ya evrişim integrali ya da MÜF çarpımı kullanılır.
+MÜF yöntemi genellikle çok daha hızlıdır: toplam PDF'si yerine MÜF bulunur,
+bu standart bir dağılıma karşılık geliyorsa PDF'yi yazmaya gerek kalmaz.
+\end{motivasyon}
+
+\begin{teorem}[MÜF ile Dağılım Tanımlama]
+\label{thm:muf_tanim}
+$Y = g(X_1, \ldots, X_n)$ ve $M_Y(t) = E[e^{tY}]$ hesaplanabiliyorsa:
+$M_Y(t)$ bilinen bir dağılımın MÜF'üne eşit ise $Y$ o dağılımı izler
+(MÜF tek türlü dağılım belirler, Teorem~\ref{thm:muf_tek}).
+\end{teorem}
+
+\begin{ornek}[Normal Toplamı --- MÜF ile]
+$X_i \sim \Normal(\mu_i, \sigma_i^2)$ bağımsız ($i=1,\ldots,n$), $a_i \in \mathbb{R}$.
+\[
+  M_{\sum a_i X_i}(t) = \prod_i M_{X_i}(a_i t) = \prod_i e^{\mu_i a_i t + \sigma_i^2 a_i^2 t^2/2}
+  = \exp\!\left(\sum a_i\mu_i \cdot t + \frac{t^2}{2}\sum a_i^2\sigma_i^2\right).
+\]
+Bu $\Normal(\sum a_i\mu_i, \sum a_i^2\sigma_i^2)$ MÜF'üdür. Jacobian veya evrişim gerekmez.
+\end{ornek}
+
+\begin{ornek}[Gama Toplamı --- MÜF ile]
+$X_i \sim \Gama(\alpha_i, \beta)$ bağımsız ($\beta$ aynı):
+$M_{\sum X_i}(t) = \prod (\beta/(\beta-t))^{\alpha_i} = (\beta/(\beta-t))^{\sum\alpha_i}$.
+$\Rightarrow$ $\sum X_i \sim \Gama(\sum\alpha_i, \beta)$.
+
+Özel durum: $Z_i \sim \Normal(0,1)$ bağımsız $\Rightarrow$ $Z_i^2 \sim \chi^2_1 = \Gama(1/2,1/2)$
+$\Rightarrow$ $\sum_{i=1}^n Z_i^2 \sim \Gama(n/2,1/2) = \chi^2_n$.
+\end{ornek}
+
+\begin{ornek}[Poisson Toplamı --- KF ile]
+$X_i \sim \Pois(\lambda_i)$ bağımsız:
+$\varphi_{\sum X_i}(t) = \prod e^{\lambda_i(e^{it}-1)} = \exp\!\bigl((\sum\lambda_i)(e^{it}-1)\bigr)$.
+$\Rightarrow$ $\sum X_i \sim \Pois(\sum\lambda_i)$.
+\end{ornek}
+
+\begin{teorem}[KF ile Dağılımla Yakınsama]
+\label{thm:kf_yaklinsama}
+$\varphi_{X_n}(t) \to \varphi_X(t)$ her $t$'de ise $X_n \xrightarrow{d} X$
+(Lévy süreklilik teoremi; ispat Bölüm~\ref{chp:merkezi_limit}'te kullanılacak).
+\end{teorem}
+
+% =====================================================================
+\section{Evrişim}
+\label{sec:evrisim}
+% =====================================================================
+
+Bölüm~\ref{subsec:evrisim}'de evrişim formülünü tanımladık. Burada hesaplama
+tekniklerini ve önemli örnekleri derinleştiriyoruz.
+
+\begin{teorem}[Evrişim Özellikleri]
+\label{thm:evrisim_ozellik}
+$f, g, h$ PDF'ler olmak üzere:
+\begin{enumerate}[(i)]
+  \item \textbf{Değişmelilik:} $f * g = g * f$.
+  \item \textbf{Birleşmelilik:} $(f * g) * h = f * (g * h)$.
+  \item \textbf{KF çarpımı:} $\varphi_{X+Y}(t) = \varphi_X(t)\,\varphi_Y(t)$.
+  \item \textbf{MÜF çarpımı:} $M_{X+Y}(t) = M_X(t)\,M_Y(t)$ (bağımsız $X,Y$).
+\end{enumerate}
+\end{teorem}
+
+\begin{ornek}[Üçgen Dağılım --- Evrişim]
+$X, Y \sim \Uniform(0,1)$ bağımsız, $Z = X + Y$:
+\[
+  f_Z(z) = \int_0^1 \mathbf{1}_{[0,1]}(z-y)\,dy
+  = \begin{cases} z & 0 \leq z \leq 1 \\ 2-z & 1 < z \leq 2 \end{cases}.
+\]
+Üçgen dağılım (Bölüm~\ref{sec:buyuk_sayilar}'daki Al.7'nin açılımı).
+$n$ bağımsız $\Uniform(0,1)$ toplamı: Irwin-Hall dağılımı.
+$n \to \infty$: Merkezi Limit Teoremi'ne hazırlık.
+\end{ornek}
+
+\begin{ornek}[Normal Evrişim --- İntegral Yöntemi]
+$X \sim \Normal(\mu_1, \sigma_1^2)$, $Y \sim \Normal(\mu_2, \sigma_2^2)$ bağımsız.
+Evrişim:
+\[
+  f_{X+Y}(z) = \int_{-\infty}^{+\infty} \frac{1}{\sigma_1\sqrt{2\pi}}e^{-(z-y-\mu_1)^2/(2\sigma_1^2)}
+  \cdot \frac{1}{\sigma_2\sqrt{2\pi}}e^{-(y-\mu_2)^2/(2\sigma_2^2)} dy.
+\]
+Üstel ifade birleştirilip $y$'deki kareyi tamamlama:
+$(z-y-\mu_1)^2/\sigma_1^2 + (y-\mu_2)^2/\sigma_2^2$'nin $y$ üzerinde integral
+$\sigma_1^2+\sigma_2^2$ varyanslı Gauss integraline döner.
+Sonuç: $X+Y \sim \Normal(\mu_1+\mu_2, \sigma_1^2+\sigma_2^2)$.
+(MÜF yöntemi bu hesabı beş satıra indirger.)
+\end{ornek}
+
+\begin{onerme}[Cauchy Toplamı]
+$X, Y \sim \mathrm{Cauchy}(0,1)$ bağımsız $\Rightarrow$ $X+Y \sim \mathrm{Cauchy}(0,2)$.
+\end{onerme}
+
+\begin{proof}
+KF: $\varphi_{X+Y}(t) = e^{-|t|} \cdot e^{-|t|} = e^{-2|t|}$ --- bu $\mathrm{Cauchy}(0,2)$'nin KF'sidir.
+\end{proof}
+
+\begin{kritiksorgu}
+Cauchy toplamı neden $\mathrm{Cauchy}(0,2)$, "beklentiden" elde ettiğimiz $\mathrm{Cauchy}(0,1)$ değil?
+Cauchy'nin beklentisi mevcut değildir --- standartlaştırma ($n$'e bölme) dağılımı stabilize etmez.
+Büyük Sayılar Kanunu çöker; Merkezi Limit Teoremi uygulanmaz.
+\end{kritiksorgu}
+
+% =====================================================================
+\section{Sıra İstatistikleri}
+\label{sec:sira_istatistikleri}
+% =====================================================================
+
+\begin{tanim}[Sıra İstatistikleri]
+\label{def:sira_istatistik}
+$X_1, \ldots, X_n$ i.i.d., ortak PDF $f$, KDF $F$.
+Küçükten büyüğe sıralanmış değerler:
+\[
+  X_{(1)} \leq X_{(2)} \leq \cdots \leq X_{(n)}.
+\]
+$X_{(k)}$: $k$'ıncı \textbf{sıra istatistiği} (order statistic).
+$X_{(1)} = \min$, $X_{(n)} = \max$, $X_{(\lceil n/2 \rceil)}$: medyan.
+\end{tanim}
+
+\begin{teorem}[Tekil Sıra İstatistiğinin PDF'si]
+\label{thm:sira_pdf}
+$k$'ıncı sıra istatistiğinin PDF'si:
+\[
+  f_{X_{(k)}}(x) = \frac{n!}{(k-1)!(n-k)!} [F(x)]^{k-1}[1-F(x)]^{n-k} f(x).
+\]
+\end{teorem}
+
+\begin{proof}
+Kombinatoryal argüman: $X_{(k)} \in (x, x+dx)$ olması için
+$k-1$ gözlem $(-\infty, x)$'de, 1 gözlem $(x, x+dx)$'de, $n-k$ gözlem $(x+dx, \infty)$'da olmalı.
+Çok terimli katsayı $\frac{n!}{(k-1)!\,1!\,(n-k)!}$ ile olasılık:
+$[F(x)]^{k-1} \cdot f(x)\,dx \cdot [1-F(x)]^{n-k}$.
+$dx$'e bölerek PDF elde edilir.
+\end{proof}
+
+\begin{ornek}[Minimum ve Maksimum]
+\textbf{Minimum} ($k=1$):
+$f_{X_{(1)}}(x) = n[1-F(x)]^{n-1}f(x)$.
+$F_{X_{(1)}}(x) = 1 - [1-F(x)]^n$.
+
+\textbf{Maksimum} ($k=n$):
+$f_{X_{(n)}}(x) = n[F(x)]^{n-1}f(x)$.
+$F_{X_{(n)}}(x) = [F(x)]^n$.
+
+Bu formüller hemen doğrulanabilir:
+$P(X_{(1)} > x) = P(\text{tüm } X_i > x) = [1-F(x)]^n$ (bağımsızlık).
+$P(X_{(n)} \leq x) = P(\text{tüm } X_i \leq x) = [F(x)]^n$.
+\end{ornek}
+
+\begin{teorem}[Ortak PDF]
+\label{thm:sira_ortak_pdf}
+$(X_{(1)}, \ldots, X_{(n)})$'nin ortak PDF'si:
+\[
+  f_{X_{(1)},\ldots,X_{(n)}}(x_1, \ldots, x_n) = n! \prod_{i=1}^n f(x_i), \quad x_1 < x_2 < \cdots < x_n.
+\]
+\end{teorem}
+
+\begin{proof}
+$n!$ adet permütasyon; her biri $(x_1, \ldots, x_n)$ sıralamasını $x_{\sigma(1)} < \cdots < x_{\sigma(n)}$
+ile üretir. Bağımsızlıktan her permütasyonun katkısı $\prod f(x_i)$; toplam $n! \prod f(x_i)$.
+\end{proof}
+
+\begin{teorem}[İkili Marjinal PDF]
+\label{thm:sira_ikili}
+$j < k$ için $(X_{(j)}, X_{(k)})$'nın ortak PDF'si:
+\[
+  f_{X_{(j)},X_{(k)}}(u,v) = \frac{n!}{(j-1)!(k-j-1)!(n-k)!}
+  [F(u)]^{j-1}[F(v)-F(u)]^{k-j-1}[1-F(v)]^{n-k}f(u)f(v),
+\]
+$u < v$.
+\end{teorem}
+
+\begin{ornek}[$\Uniform(0,1)$ Sıra İstatistikleri]
+$X_1, \ldots, X_n \sim \Uniform(0,1)$ i.i.d.; $f(x) = 1$, $F(x) = x$ ($0<x<1$).
+
+$k$'ıncı sıra istatistiği:
+$f_{X_{(k)}}(x) = \frac{n!}{(k-1)!(n-k)!} x^{k-1}(1-x)^{n-k} = \frac{x^{k-1}(1-x)^{n-k}}{B(k, n-k+1)}$.
+
+$X_{(k)} \sim \Beta(k, n-k+1)$.
+$E[X_{(k)}] = k/(n+1)$: $k$'ıncı sıra istatistiğinin beklentisi $[0,1]$'i eşit böler.
+\end{ornek}
+
+\begin{ornek}[Üstel Sıra İstatistikleri --- Yarışma Süresi]
+$X_i \sim \Exp(\lambda)$ bağımsız (cihaz ömürleri). $X_{(1)} = \min X_i$:
+$P(X_{(1)} > t) = [P(X_i > t)]^n = e^{-n\lambda t}$.
+$X_{(1)} \sim \Exp(n\lambda)$: minimum de üstel, oran $n$ kat büyük.
+
+Sıra arası boşluklar: $D_k = X_{(k)} - X_{(k-1)}$ bağımsız,
+$D_k \sim \Exp((n-k+1)\lambda)$ (eksponensiyal gecikme özelliği).
+Bu, güvenilirlik mühendisliğinde yaygın kullanılan "rekabetçi hayatta kalma" modelidir.
+\end{ornek}
+
+\begin{hataanalizi}
+"$X_{(k)}$ ile $X_{(j)}$ bağımsızdır" --- yanlış.
+Ortak PDF $f_{X_{(j)},X_{(k)}}(u,v) \neq f_{X_{(j)}}(u) f_{X_{(k)}}(v)$
+(bölge $u < v$ koşulu bağımlılık yaratır).
+Sıra istatistikleri $\mathbf{bağımlıdır}$; ikili ve yüksek dereceli dağılımlar ayrıca hesaplanmalıdır.
+\end{hataanalizi}
+
+\begin{mikroozet}
+$f_{X_{(k)}}(x) = \frac{n!}{(k-1)!(n-k)!}F^{k-1}(1-F)^{n-k}f$.
+Uniform: $X_{(k)} \sim \Beta(k, n-k+1)$.
+Üstel: minimum de üstel; aralıklar bağımsız üstel.
+Sıra istatistikleri genel olarak bağımlıdır.
+\end{mikroozet}
+
+% =====================================================================
+\section{Delta Yöntemi}
+\label{sec:delta_yontemi}
+% =====================================================================
+
+\begin{motivasyon}[Neden Delta Yöntemi?]
+$\bar{X}_n \xrightarrow{d} \Normal(\mu, \sigma^2/n)$ --- bu Merkezi Limit Teoremi'nin (bir sonraki
+bölüm) sonucudur. Peki $g(\bar{X}_n)$ nasıl dağılır? $g$ doğrusal değilse doğrudan
+dönüşüm uygulanamaz; ancak Taylor açılımı bu boşluğu kapatır.
+\end{motivasyon}
+
+\begin{teorem}[Delta Yöntemi --- Tek Boyutlu]
+\label{thm:delta_yontemi}
+$\sqrt{n}(X_n - \mu) \xrightarrow{d} \Normal(0, \sigma^2)$ ve $g$ $\mu$'da türevlenebilir,
+$g'(\mu) \neq 0$ ise:
+\[
+  \sqrt{n}(g(X_n) - g(\mu)) \xrightarrow{d} \Normal(0,\, \sigma^2 [g'(\mu)]^2).
+\]
+\end{teorem}
+
+\begin{proof}
+Taylor: $g(X_n) = g(\mu) + g'(\mu)(X_n-\mu) + R_n$ ($R_n = o(X_n-\mu)$).
+$\sqrt{n}(g(X_n)-g(\mu)) = g'(\mu)\sqrt{n}(X_n-\mu) + \sqrt{n}R_n$.
+$X_n \xrightarrow{P} \mu$ ($\sqrt{n}$-normalite bunu içerir) $\Rightarrow$ $\sqrt{n}R_n \xrightarrow{P} 0$.
+Slutsky (Teorem~\ref{thm:slutsky}): $g'(\mu)\sqrt{n}(X_n-\mu) \xrightarrow{d} g'(\mu)\Normal(0,\sigma^2)
+= \Normal(0, \sigma^2[g'(\mu)]^2)$.
+\end{proof}
+
+\begin{ornek}[Delta Yöntemi --- Logaritma]
+$X_i \sim \mathrm{Exp}(\lambda)$, $n$ büyük. MLT: $\sqrt{n}(\bar{X}_n - 1/\lambda) \xrightarrow{d} \Normal(0, 1/\lambda^2)$.
+$g(x) = \ln x$, $g'(x) = 1/x$, $g'(1/\lambda) = \lambda$.
+Delta yöntemi:
+\[
+  \sqrt{n}(\ln\bar{X}_n - \ln(1/\lambda)) \xrightarrow{d} \Normal(0, \lambda^2 \cdot 1/\lambda^2) = \Normal(0,1).
+\]
+\end{ornek}
+
+\begin{teorem}[Çok Boyutlu Delta Yöntemi]
+\label{thm:delta_cok}
+$\sqrt{n}(\mathbf{X}_n - \boldsymbol{\mu}) \xrightarrow{d} \Normal_k(\mathbf{0}, \boldsymbol{\Sigma})$
+ve $g : \mathbb{R}^k \to \mathbb{R}$ $\boldsymbol{\mu}$'da türevlenebilir ise:
+\[
+  \sqrt{n}(g(\mathbf{X}_n) - g(\boldsymbol{\mu})) \xrightarrow{d}
+  \Normal\!\left(0,\, \nabla g(\boldsymbol{\mu})^\top \boldsymbol{\Sigma}\, \nabla g(\boldsymbol{\mu})\right).
+\]
+\end{teorem}
+
+\begin{ornek}[Oran Tahmincisi]
+$(X_i, Y_i)$ i.i.d., $E[X] = \mu_X$, $E[Y] = \mu_Y > 0$. $R_n = \bar{X}_n/\bar{Y}_n$.
+$g(x,y) = x/y$; $\nabla g = (1/\mu_Y,\, -\mu_X/\mu_Y^2)^\top$.
+Çok boyutlu delta:
+\[
+  \sqrt{n}(R_n - \mu_X/\mu_Y) \xrightarrow{d} \Normal\!\left(0,\,
+  \frac{\sigma_X^2}{\mu_Y^2} - \frac{2\mu_X\sigma_{XY}}{\mu_Y^3} + \frac{\mu_X^2\sigma_Y^2}{\mu_Y^4}
+  \right).
+\]
+\end{ornek}
+
+% =====================================================================
+\section{Karakteristik Fonksiyon: Tersçevirme ve Benzersizlik}
+\label{sec:kf_ters}
+% =====================================================================
+
+\begin{motivasyon}[KF Neden Bu Kadar Güçlü?]
+Moment üreten fonksiyon her dağılım için mevcut olmayabilir (Cauchy).
+Karakteristik fonksiyon $\varphi_X(t) = E[e^{itX}]$ her dağılım için vardır.
+Dahası, KF dağılımı \emph{tam olarak} belirler: iki rasgele değişkenin KF'leri özdeşse
+dağılımları da özdeştir. Tersçevirme formülü, KF'den PDF'ye geçiş sağlar.
+\end{motivasyon}
+
+\begin{teorem}[KF Benzersizlik Teoremi]
+\label{thm:kf_benzersizlik}
+$X$ ve $Y$ rasgele değişkenler. Eğer $\varphi_X(t) = \varphi_Y(t)$ tüm $t \in \mathbb{R}$ için
+geçerliyse $X \overset{d}{=} Y$ (aynı dağılım).
+\end{teorem}
+
+\begin{proof}[İspat Taslağı]
+$F_X = F_Y$ olduğu yeter. Herhangi $a < b$ için
+\[
+  P(a < X \leq b) = \lim_{T\to\infty} \frac{1}{2\pi} \int_{-T}^T \frac{e^{-ita}-e^{-itb}}{it}\varphi_X(t)\,dt,
+\]
+(Lévy tersçevirme formülü). Aynı formül $F_Y$ için de geçerli; $\varphi_X = \varphi_Y$ koşuluyla
+$F_X(b)-F_X(a) = F_Y(b)-F_Y(a)$ her $a < b$ için. $F_X = F_Y$ çıkar.
+\end{proof}
+
+\begin{teorem}[Tersçevirme Formülü]
+\label{thm:kf_terscevir}
+$X$ sürekli rasgele değişken, $\int_{-\infty}^{+\infty} |\varphi_X(t)|\,dt < \infty$ ise
+\[
+  f_X(x) = \frac{1}{2\pi} \int_{-\infty}^{+\infty} e^{-itx}\,\varphi_X(t)\,dt.
+\]
+Yani KF, PDF'nin Fourier dönüşümüdür; tersçevirme Fourier ters dönüşümüdür.
+\end{teorem}
+
+\begin{ornek}[Normal KF'sinden PDF'ye]
+$\varphi_X(t) = e^{i\mu t - \sigma^2 t^2/2}$ (Normal KF).
+$\int |\varphi_X(t)|\,dt = \int e^{-\sigma^2 t^2/2}\,dt = \sqrt{2\pi}/\sigma < \infty$.
+Tersçevirme:
+\[
+  f_X(x) = \frac{1}{2\pi}\int_{-\infty}^{+\infty} e^{-itx} e^{i\mu t - \sigma^2 t^2/2}\,dt
+  = \frac{1}{\sigma\sqrt{2\pi}} e^{-(x-\mu)^2/(2\sigma^2)}.
+\]
+(Gauss integralini tamamlayarak $t$'deki kareyi tamamlama kullanılır.)
+\end{ornek}
+
+\begin{teorem}[Lévy Süreklilik Teoremi]
+\label{thm:levy_sureklilik}
+$\varphi_{X_n}(t) \to \varphi(t)$ her $t$'de, ve $\varphi$ $t=0$'da sürekli ise
+$X_n \xrightarrow{d} X$ burada $X$'in KF'si $\varphi$'dir.
+\end{teorem}
+
+\begin{proof}[İspat Notu]
+Temel fikir: KDF dizisinin görece kompaktlığı (Helly seçim teoremi) + KF yakınsamasının
+limit ölçümünü tam belirlemesi. Tam ispat için Billingsley~\cite{Billingsley1995}, §26.
+Bu teorem MLT'nin KF ile ispatının kalbini oluşturur (Bölüm~\ref{chp:merkezi_limit}).
+\end{proof}
+
+\begin{hataanalizi}
+"$\varphi_{X_n}(t) \to \varphi(t)$ her $t$'de, dolayısıyla $X_n \xrightarrow{d} X$."
+Bu çıkarım Lévy Sürekliliği'ni atlıyor: $\varphi$'nin $t=0$'da sürekli (yani geçerli bir KF) olması
+gerekir. $\varphi_n(t) = e^{-n|t|}$ ise limit $\varphi(0)=1$, $\varphi(t)=0$ ($t\neq0$) ---
+bu bir KF değildir. Sonuç: $X_n \to \infty$ dağılıma (mass escape), limit dağılım mevcut değil.
+\end{hataanalizi}
+
+\begin{mikroozet}
+KF her dağılım için vardır; benzersiz olarak belirler.
+Tersçevirme: $f_X = (2\pi)^{-1}\int e^{-itx}\varphi_X(t)\,dt$ ($|\varphi|$ integrallenebilir ise).
+Lévy Sürekliliği: KF yakınsaması $\Leftrightarrow$ dağılımla yakınsama.
+\end{mikroozet}
+
+% =====================================================================
+\section{İkinci Dereceden Delta Yöntemi}
+\label{sec:delta2}
+% =====================================================================
+
+\begin{motivasyon}[Birinci Türev Sıfır Olduğunda]
+Delta yöntemi $g'(\mu) \neq 0$ gerektirir. $g'(\mu) = 0$ ise $\sqrt{n}(g(\bar{X}_n) - g(\mu))$
+sıfıra yakınsar: limit dağılım dejenere. Doğru ölçek $n$'dir; limit dağılım normal değil,
+ki-kare ile ilgilidir.
+\end{motivasyon}
+
+\begin{teorem}[İkinci Dereceden Delta Yöntemi]
+\label{thm:delta2}
+$\sqrt{n}(X_n - \mu) \xrightarrow{d} \Normal(0, \sigma^2)$, $g'(\mu) = 0$,
+$g''(\mu) \neq 0$ ise:
+\[
+  n(g(X_n) - g(\mu)) \xrightarrow{d} \frac{\sigma^2 g''(\mu)}{2} \chi^2_1.
+\]
+\end{teorem}
+
+\begin{proof}
+İkinci derecede Taylor:
+$g(X_n) - g(\mu) = g'(\mu)(X_n-\mu) + \tfrac{g''(\mu)}{2}(X_n-\mu)^2 + o((X_n-\mu)^2)$.
+$g'(\mu) = 0$:
+$n(g(X_n)-g(\mu)) = \tfrac{g''(\mu)}{2}\cdot n(X_n-\mu)^2 + o_P(1)$.
+$\sqrt{n}(X_n-\mu) \xrightarrow{d} \Normal(0,\sigma^2)$;
+sürekli haritalama: $n(X_n-\mu)^2 \xrightarrow{d} \sigma^2 Z^2$ ($Z \sim \Normal(0,1)$).
+$Z^2 \sim \chi^2_1$: $n(g(X_n)-g(\mu)) \xrightarrow{d} \frac{\sigma^2 g''(\mu)}{2}\chi^2_1$.
+\end{proof}
+
+\begin{ornek}[Varyans Tahmincisi]
+$X_i$ i.i.d., $E[X_i] = \mu$, $\mathrm{Var}(X_i) = \sigma^2$, $E[(X_i-\mu)^4] = \mu_4 < \infty$.
+$g(m) = (m - \mu)^2$ fonksiyonu, $g'(\mu) = 0$, $g''(\mu) = 2$.
+
+$n(\bar{X}_n - \mu)^2 \xrightarrow{d} \sigma^2 \chi^2_1$.
+
+Örneğin $\sigma^2 = 1$: $n(\bar{X}_n-\mu)^2 \xrightarrow{d} \chi^2_1$.
+Bu, varyans-örneklem büyüklüğü ilişkisinin ikinci dereceden hassas analizini sağlar.
+\end{ornek}
+
+\begin{ornek}[Sıfır Noktasında Sinüs Dönüşümü]
+$\bar{X}_n \xrightarrow{P} 0$; $g(x) = \sin(x)$. $g'(0) = 1 \neq 0$, normal delta yöntemi geçerli.
+Ama $h(x) = 1 - \cos(x)$: $h'(0) = 0$, $h''(0) = 1$.
+$n(1 - \cos(\bar{X}_n)) \xrightarrow{d} \frac{\sigma^2}{2}\chi^2_1$.
+\end{ornek}
+
+% =====================================================================
+\section{Olasılık İntegral Dönüşümü ve Kuantil Dönüşümü}
+\label{sec:prob_integral}
+% =====================================================================
+
+\begin{teorem}[Olasılık İntegral Dönüşümü (OİD)]\label{thm:oid}
+$X$ sürekli rasgele değişken, KDF $F$ kesinlikle artan ve sürekli. O zaman
+\[
+  U = F(X) \sim \Uniform(0,1).
+\]
+\end{teorem}
+
+\begin{proof}
+$P(U \leq u) = P(F(X)\leq u) = P(X\leq F^{-1}(u)) = F(F^{-1}(u)) = u$, $u\in(0,1)$. Bu, $\Uniform(0,1)$ KDF'sidir.
+\end{proof}
+
+\begin{teorem}[Kuantil dönüşümü]\label{thm:kuantil}
+$U\sim\Uniform(0,1)$ ve $F$ herhangi bir KDF, $F^{-1}$ genelleştirilmiş tersi. O zaman $X=F^{-1}(U)$ dağılımı $F$'dir.
+\end{teorem}
+
+\begin{proof}
+$P(X\leq x)=P(F^{-1}(U)\leq x)=P(U\leq F(x))=F(x)$.
+\end{proof}
+
+\begin{ornek}[Simülasyon yöntemi]\label{ex:simulasyon}
+$\Exp(\lambda)$ simülasyonu: $F(x)=1-e^{-\lambda x}$, $F^{-1}(u)=-\log(1-u)/\lambda$. $U\sim\Uniform(0,1)$ üret; $X=-\log U/\lambda$ hesapla ($1-U\overset{d}{=}U$).
+Box-Muller ($\Normal(0,1)$): $U_1,U_2\iid\Uniform(0,1)$:
+\[
+  Z_1=\sqrt{-2\log U_1}\cos(2\pi U_2),\quad Z_2=\sqrt{-2\log U_1}\sin(2\pi U_2)\iid\Normal(0,1).
+\]
+\end{ornek}
+
+\begin{hataanalizi}
+OİD yalnızca sürekli dağılımlar için geçerlidir. Kesikli $X$ için $F(X)$ $\Uniform(0,1)$'e dağılmaz; bunun yerine $U\in(F(X^-),F(X)]$ aralığında üretilmiş $\Uniform$ ile çalışmak gerekir.
+\end{hataanalizi}
+
+% =====================================================================
+\section{Çarpışma Transformasyonları ve Simetri}
+\label{sec:simetri_donusumler}
+% =====================================================================
+
+\begin{tanim}[Simetrik dağılım]\label{def:simetrik}
+$X$ dağılımı $0$ çevresinde simetriktir: $X\overset{d}{=}-X$.
+\end{tanim}
+
+\begin{teorem}[Mutlak değer dönüşümü]\label{thm:mutlak}
+$X$, $0$ çevresinde simetrik, $f$ yoğunluğu mevcut. $Y=|X|$'in yoğunluğu:
+\[
+  f_Y(y) = 2f(y),\quad y>0.
+\]
+\end{teorem}
+
+\begin{proof}
+$P(|X|\leq y)=P(-y\leq X\leq y)=F(y)-F(-y)$. Türev: $f_Y(y)=f(y)+f(-y)=2f(y)$ (simetri).
+\end{proof}
+
+\begin{ornek}[Yarı-normal]\label{ex:yari_normal}
+$Z\sim\Normal(0,1)$: $|Z|$ yarı-normal (\emph{half-normal}), $f_{|Z|}(y)=2\phi(y)$, $y>0$.
+$\Beklenti[|Z|]=\sqrt{2/\pi}$, $\Var(|Z|)=1-2/\pi$.
+\end{ornek}
+
+\begin{teorem}[İşaret-büyüklük bağımsızlığı]\label{thm:isaret_buyukluk}
+$X$ $0$ çevresinde simetrik. $S=\mathrm{sgn}(X)$ ve $M=|X|$ bağımsızdır; $S\sim\mathrm{Bernoulli}(1/2)$.
+\end{teorem}
+
+\begin{proof}
+$P(S=1,M\leq m)=P(0<X\leq m)=F(m)-1/2=\tfrac12 P(M\leq m)$. Benzer şekilde $P(S=-1,M\leq m)=\tfrac12 P(M\leq m)$: bağımsızlık.
+\end{proof}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Finansal Matematik:} OİD, Monte Carlo risk simülasyonunun temelidir. Sklar teoremi: her ortak dağılım $F(\mathbf{x})=C(F_1(x_1),\ldots,F_p(x_p))$ biçiminde yazılır; $C$ \emph{copula}'dır --- CDO kredi riski modellemesinde kullanılır.
+
+\textbf{Kalite Mühendisliği:} Yarı-normal dağılım, Taguchi yönteminde tek taraflı üretim toleranslarını modellemek için kullanılır.
+\end{disiplinlerarasibaglan}
+
+\begin{mikroozet}
+$g'(\mu) = 0$: standart delta yöntemi çöker.
+İkinci derecede Delta: $n(g(X_n)-g(\mu)) \to \frac{\sigma^2 g''(\mu)}{2}\chi^2_1$.
+Limit dağılım ki-kare; ölçek $\sqrt{n}$ yerine $n$.
+OİD: $F(X)\sim\Uniform(0,1)$ --- simülasyon ve copula modellemesinin temeli.
+Simetrik dağılım: işaret ve büyüklük bağımsız; yarı-normal $\Beklenti[|Z|]=\sqrt{2/\pi}$.
+\end{mikroozet}
+
+% ---- Disiplinlerarası Bağlantı (TYMM) ----
+\begin{kopru}[Disiplinlerarası --- Mühendislik ve Veri Bilimi]
+\textbf{Güvenilirlik mühendisliği:} Paralel sistemlerde hayatta kalma süresi $X_{(n)}$,
+seri sistemlerde $X_{(1)}$. "$n$ bileşenden $k$'si çalışırsa sistem çalışır"
+modeli, $k$'ıncı sıra istatistiğinin dağılımına dayanır.\\
+\textbf{Veri bilimi:} Örneklem medyanı, aşırı değerlere dirençli bir merkez ölçüsüdür;
+sıra istatistiklerinden türetilen yüzdelikler ($Q_1$, $Q_3$) kutu grafiğinin temelidir.\\
+\textbf{Ekonometri:} Delta yöntemi, doğrusal olmayan parametre dönüşümlerinde
+güven aralığı hesabında standart araçtır (oran tahmincisi, elastisite).
+\end{kopru}
+
+% ---- Öz-Yansıtma ----
+\begin{ozyansima}
+\begin{itemize}
+  \item MÜF yönteminin Jacobian yöntemine göre avantajı nedir? Hangi durumda
+        Jacobian daha kullanışlıdır?
+  \item Sıra istatistiklerinin neden bağımlı olduğunu kendi cümlelerinizle açıklayınız.
+  \item Delta yönteminin temel fikri nedir? Taylor açılımının bu bağlamda nasıl çalıştığını anlatınız.
+  \item Üstel dağılımlı cihazlarda sıra arası boşlukların bağımsız olması sezgiye uygun mu?
+\end{itemize}
+\end{ozyansima}
+
+% ---- Köprü Notu ----
+\begin{kopru}
+\textbf{Önceki bölüm:} Bölüm~\ref{chp:dagilim_aileleri} --- $t$, $F$, $\chi^2$ dağılımları
+burada türetildi; Bölüm~\ref{chp:beklenti}'deki MÜF/KF araçları evrişimde kullanıldı.\\
+\textbf{Sonraki bölüm:} Bölüm~\ref{chp:merkezi_limit} --- Delta yöntemi ve KF
+yöntemi Merkezi Limit Teoremi'nin ispatında merkezi rol oynayacak.\\
+\textbf{İstatistik kısmı:} Sıra istatistikleri Böl.~\ref{chp:istatistik_temelleri}'de
+yüzdelik tahmincisi ve Böl.~\ref{chp:hipotez_testi}'nde parametresiz testlerde kullanılır.
+\defterbaglantisi{bolum06\_donusumler.ipynb}{%
+  Jacobian görselleştirmesi, sıra istatistikleri simülasyonu, delta yöntemi uygulaması}
+\end{kopru}
+
+% =====================================================================
+%  ALIŞTIRMALAR
+% =====================================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.6.1]{A}{Tekil Dönüşüm}
+$X \sim \mathrm{Exp}(1)$. $Y = \sqrt{X}$ için:
+(a) $f_Y(y)$'yi Jacobian yöntemiyle bulunuz.
+(b) $E[Y]$'yi $f_Y$ üzerinden hesaplayınız ($\Gamma(3/2) = \sqrt{\pi}/2$).
+\end{alistirma}
+\alcozum{%
+(a) $g(x) = \sqrt{x}$, ters $h(y) = y^2$, $|h'(y)| = 2y$.
+$f_Y(y) = e^{-y^2} \cdot 2y$, $y > 0$ (Rayleigh dağılımı, Bölüm~\ref{chp:rasgele_degiskenler}'de de elde edilmişti).\\
+(b) $E[Y] = \int_0^\infty y \cdot 2y e^{-y^2} dy = 2\int_0^\infty y^2 e^{-y^2} dy$.
+$u = y^2$: $= \int_0^\infty u^{1/2} e^{-u} du = \Gamma(3/2) = \sqrt{\pi}/2$.}
+
+\begin{alistirma}[Al.6.2]{A}{Sıra İstatistikleri}
+$X_1, X_2, X_3 \sim \Uniform(0,1)$ bağımsız.
+(a) $X_{(1)}$ ve $X_{(3)}$'ün PDF'lerini yazınız.
+(b) $E[X_{(1)}]$ ve $E[X_{(3)}]$'ü hesaplayınız.
+(c) $P(X_{(2)} > 0.5)$'i bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $f_{X_{(1)}}(x) = 3(1-x)^2$, $f_{X_{(3)}}(x) = 3x^2$, $0<x<1$.\\
+(b) $E[X_{(1)}] = 1/(3+1) = 1/4$. $E[X_{(3)}] = 3/4$.\\
+(c) $X_{(2)} \sim \Beta(2,2)$: $f_{X_{(2)}}(x) = 6x(1-x)$.
+$P(X_{(2)}>0.5) = \int_{0.5}^1 6x(1-x)dx = 6[x^2/2-x^3/3]_{0.5}^1
+= 6[(1/2-1/3)-(1/8-1/24)] = 6[1/6 - 1/12] = 6 \cdot 1/12 = 1/2$. (Simetri!)}
+
+\begin{alistirma}[Al.6.3]{B}{MÜF Yöntemi}
+$X_1, \ldots, X_n \sim \Pois(\lambda)$ bağımsız. $S_n = \sum X_i$.
+(a) $M_{S_n}(t)$'yi bulunuz.
+(b) $S_n$'nin dağılımını belirtiniz.
+(c) $\bar{X}_n = S_n/n$'nin MÜF'ünü yazınız ve $n=100$, $\lambda=2$ için
+$P(\bar{X}_{100} \geq 2.5)$'e Chernoff sınırı veriniz.
+\end{alistirma}
+\alcozum{%
+(a) $M_{S_n}(t) = \prod M_{X_i}(t) = [e^{\lambda(e^t-1)}]^n = e^{n\lambda(e^t-1)}$.\\
+(b) $S_n \sim \Pois(n\lambda)$.\\
+(c) $M_{\bar{X}_n}(t) = E[e^{t\sum X_i/n}] = M_{S_n}(t/n) = e^{n\lambda(e^{t/n}-1)}$.
+Chernoff: $\Lambda^*(a) = \sup_t(ta - n\lambda(e^{t/n}-1))/n$. Optimize: $t^* = n\ln(a/\lambda)$.
+$\Lambda^*(2.5) = 2.5\ln(2.5/2) - 2(2.5/2 - 1) = 2.5\ln(1.25) - 0.5 \approx 0.558 - 0.5 = 0.058$.
+$P(\bar{X}_{100}\geq2.5) \leq e^{-100\cdot0.058} = e^{-5.8} \approx 0.003$.}
+
+\begin{alistirma}[Al.6.4]{B}{Delta Yöntemi}
+$X_1, \ldots, X_n$ i.i.d., $E[X_i] = \mu > 0$, $\mathrm{Var}(X_i) = \sigma^2$.
+MLT (bir sonraki bölüm): $\sqrt{n}(\bar{X}_n - \mu) \xrightarrow{d} \Normal(0,\sigma^2)$.
+Delta yöntemi ile $\sqrt{n}(1/\bar{X}_n - 1/\mu)$'nun limit dağılımını bulunuz.
+\end{alistirma}
+\alcozum{%
+$g(x) = 1/x$, $g'(x) = -1/x^2$, $g'(\mu) = -1/\mu^2$.
+Delta yöntemi: $\sqrt{n}(g(\bar{X}_n)-g(\mu)) \xrightarrow{d} \Normal(0, \sigma^2/\mu^4)$.
+$\sqrt{n}(1/\bar{X}_n - 1/\mu) \xrightarrow{d} \Normal(0, \sigma^2/\mu^4)$.}
+
+\begin{alistirma}[Al.6.4b]{B}{İki Boyutlu Jacobian --- Polar Dönüşüm}
+$(X,Y)\iid\Normal(0,1)$ bağımsız. $R=\sqrt{X^2+Y^2}$, $\Theta=\arctan(Y/X)$ polar dönüşümü.
+(a) $(R,\Theta)$'nın birleşik yoğunluğunu Jacobian yöntemiyle bulunuz.
+(b) $R$ ve $\Theta$'nın marjinal dağılımlarını yazınız. $R$'nin adı ne?
+(c) Bu sonucu Box-Muller dönüşümüyle ilişkilendiriniz.
+\end{alistirma}
+\alcozum{%
+(a) Ters dönüşüm: $X=R\cos\Theta$, $Y=R\sin\Theta$. Jacobian:
+\[
+  J = \begin{vmatrix}\cos\Theta & -R\sin\Theta \\ \sin\Theta & R\cos\Theta\end{vmatrix} = R.
+\]
+Birleşik yoğunluk: $f_{X,Y}(x,y)=\frac{1}{2\pi}e^{-(x^2+y^2)/2}$.
+$f_{R,\Theta}(r,\theta) = f_{X,Y}(r\cos\theta, r\sin\theta)\cdot|J|^{-1} = \frac{1}{2\pi}e^{-r^2/2}\cdot r$, $r>0$, $\theta\in[0,2\pi)$.
+
+(b) $f_\Theta(\theta)=\frac{1}{2\pi}$ (Uniform$[0,2\pi)$); $f_R(r)=re^{-r^2/2}$ ($r>0$): Rayleigh dağılımı. $R^2\sim\chi^2_2=\mathrm{Exp}(1/2)$.
+
+(c) Box-Muller: $U_1,U_2\iid\Uniform[0,1]$'den $X=\sqrt{-2\log U_1}\cos(2\pi U_2)$, $Y=\sqrt{-2\log U_1}\sin(2\pi U_2)$ bağımsız standart normaldir. Burada $R=\sqrt{-2\log U_1}\sim$ Rayleigh ve $\Theta=2\pi U_2\sim\Uniform[0,2\pi)$; bu tam olarak $(R,\Theta)$'nın dağılımıdır.}
+
+\begin{alistirma}[Al.6.4c]{C}{Konvolüsyon ve Toplam Dağılımı}
+$X\sim\Gama(\alpha,1)$, $Y\sim\Gama(\beta,1)$ bağımsız.
+(a) MÜF yöntemiyle $Z=X+Y$'nin dağılımını bulunuz.
+(b) $W=X/(X+Y)$'nin dağılımını konvolüsyon + Jacobian ile türetiniz.
+(c) $\alpha=\beta=1$ durumunda (yani $X,Y\iid\mathrm{Exp}(1)$): $W$'nin dağılımını yazınız ve sezgisel yorumunu veriniz.
+\end{alistirma}
+\alcozum{%
+(a) $M_X(t)=(1-t)^{-\alpha}$, $M_Y(t)=(1-t)^{-\beta}$ (t<1). $M_Z(t)=(1-t)^{-(\alpha+\beta)}$; dolayısıyla $Z\sim\Gama(\alpha+\beta,1)$.
+
+(b) Değişken dönüşümü: $(X,Y)\mapsto(Z=X+Y,W=X/(X+Y))$. Ters: $X=WZ$, $Y=(1-W)Z$. Jacobian: $|J|=Z$. Birleşik: $f_{Z,W}(z,w)=f_X(wz)f_Y((1-w)z)\cdot z$.
+\[
+  f_X(x)f_Y(y) = \frac{x^{\alpha-1}e^{-x}}{\Gamma(\alpha)}\cdot\frac{y^{\beta-1}e^{-y}}{\Gamma(\beta)}.
+\]
+$f_{Z,W}(z,w)=\frac{(wz)^{\alpha-1}((1-w)z)^{\beta-1}e^{-z}}{\Gamma(\alpha)\Gamma(\beta)}\cdot z = \frac{z^{\alpha+\beta-1}e^{-z}}{\Gamma(\alpha+\beta)}\cdot\frac{w^{\alpha-1}(1-w)^{\beta-1}}{B(\alpha,\beta)}$.
+
+Marjinal $w$: $f_W(w)=\frac{w^{\alpha-1}(1-w)^{\beta-1}}{B(\alpha,\beta)}$; yani $W\sim\Beta(\alpha,\beta)$.
+
+(c) $\alpha=\beta=1$: $W\sim\Beta(1,1)=\Uniform[0,1]$. Yorum: İki bağımsız Üstel sürenin toplamındaki birincinin oranı, tüm $[0,1]$'de eşit olasılıklı. Yenileme teorisi: bekleme kesiri üniform.}
+
+% ---
+
+\alistirmalar
+
+\begin{alistirma}[Al.6.5]{A}{Dönüşüm Uygulaması}
+$X \sim \Normal(0,1)$. $Y = e^X$ (lognormal).
+(a) $F_Y(y)$'yi $\Phi$ cinsinden yazınız. (b) $f_Y(y)$'yi türetiniz. (c) $P(1 < Y < e)$'yi bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $F_Y(y) = P(e^X \leq y) = P(X \leq \ln y) = \Phi(\ln y)$.
+(b) $f_Y(y) = \phi(\ln y)/y = e^{-(\ln y)^2/2}/(y\sqrt{2\pi})$, $y>0$.
+(c) $P(1<Y<e) = P(0<X<1) = \Phi(1)-\Phi(0) \approx 0.8413 - 0.5 = 0.3413$.}
+
+\begin{alistirma}[Al.6.6]{A}{Minimum Dağılımı}
+$X_1,\ldots,X_5 \sim \mathrm{Exp}(2)$ bağımsız. $X_{(1)} = \min X_i$.
+(a) $X_{(1)}$'in dağılımını bulunuz. (b) $P(X_{(1)} > 0.3)$'ü hesaplayınız.
+(c) $E[X_{(1)}]$'i bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $X_{(1)} \sim \mathrm{Exp}(5\cdot2) = \mathrm{Exp}(10)$.
+(b) $P(X_{(1)}>0.3) = e^{-10\cdot0.3} = e^{-3} \approx 0.050$.
+(c) $E[X_{(1)}] = 1/10 = 0.1$.}
+
+\begin{alistirma}[Al.6.7]{B}{Çok Boyutlu Jacobian}
+$X, Y$ bağımsız $\Normal(0,1)$. $U = X+Y$, $V = X-Y$.
+(a) $(U,V)$'nin ortak PDF'sini bulunuz.
+(b) $U$ ve $V$ bağımsız mı? Dağılımlarını belirtiniz.
+(c) $U$ ve $V$'nin $\mathrm{Cov}(U,V)$'sini hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) Ters: $x=(u+v)/2$, $y=(u-v)/2$. $|\det J| = 1/2$.
+$f_{U,V}(u,v) = \phi((u+v)/2)\phi((u-v)/2)/2 = \frac{1}{4\pi}e^{-(u^2+v^2)/4}$.
+(b) $f_{U,V} = f_U(u)f_V(v)$ ile $U \sim \Normal(0,2)$, $V \sim \Normal(0,2)$, bağımsız.
+(c) $\mathrm{Cov}(U,V) = \mathrm{Cov}(X+Y,X-Y) = \mathrm{Var}(X)-\mathrm{Var}(Y) = 1-1 = 0$. (Bağımsızlıkla tutarlı.)}
+
+\begin{alistirma}[Al.6.8]{B}{Sıra İstatistikleri --- Beklenti}
+$X_1,\ldots,X_n \sim \Uniform(0,\theta)$. $X_{(n)} = \max X_i$ ile $\theta$'yı tahmin ediniz.
+(a) $X_{(n)}$'nin PDF'sini bulunuz. (b) $E[X_{(n)}]$'i hesaplayınız.
+(c) $E[X_{(n)}] \neq \theta$: yansız tahminci nedir?
+\end{alistirma}
+\alcozum{%
+(a) $F(x) = x/\theta$, $f_{X_{(n)}}(x) = n(x/\theta)^{n-1}/\theta = nx^{n-1}/\theta^n$.
+(b) $E[X_{(n)}] = \int_0^\theta x \cdot nx^{n-1}/\theta^n dx = n\theta/(n+1)$.
+(c) $\hat\theta = (n+1)/n \cdot X_{(n)}$ yansız tahminci: $E[\hat\theta] = \theta$.}
+
+\begin{alistirma}[Al.6.9]{C}{Evrişim: Gama Toplamı}
+$X \sim \Gama(\alpha, \beta)$, $Y \sim \Gama(\gamma, \beta)$ bağımsız ($\beta$ aynı).
+Evrişim integraliyle (MÜF kullanmadan) $X+Y \sim \Gama(\alpha+\gamma, \beta)$
+olduğunu ispatlayınız.
+\end{alistirma}
+\alcozum{%
+$f_{X+Y}(z) = \int_0^z f_X(t)f_Y(z-t)dt
+= \int_0^z \frac{\beta^\alpha t^{\alpha-1}e^{-\beta t}}{\Gamma(\alpha)} \cdot \frac{\beta^\gamma(z-t)^{\gamma-1}e^{-\beta(z-t)}}{\Gamma(\gamma)} dt$.
+$= \frac{\beta^{\alpha+\gamma}e^{-\beta z}}{\Gamma(\alpha)\Gamma(\gamma)} \int_0^z t^{\alpha-1}(z-t)^{\gamma-1}dt$.
+$u = t/z$: $\int_0^z t^{\alpha-1}(z-t)^{\gamma-1}dt = z^{\alpha+\gamma-1}B(\alpha,\gamma)
+= z^{\alpha+\gamma-1}\Gamma(\alpha)\Gamma(\gamma)/\Gamma(\alpha+\gamma)$.
+$f_{X+Y}(z) = \frac{\beta^{\alpha+\gamma}}{\Gamma(\alpha+\gamma)}z^{\alpha+\gamma-1}e^{-\beta z}$
+--- bu $\Gama(\alpha+\gamma,\beta)$ PDF'sidir.}
+
+\begin{alistirma}[Al.6.10]{B}{KF Tersçevirme}
+$X$ rasgele değişken, $\varphi_X(t) = e^{-|t|}$ (Cauchy KF).
+(a) $\int_{-\infty}^{+\infty} |\varphi_X(t)|\,dt$'nin varlığını kontrol ediniz.
+(b) Tersçevirme formülünü kullanarak $f_X(x)$'i hesaplayınız.
+(c) Sonucun hangi standart dağılıma karşılık geldiğini belirtiniz.
+\end{alistirma}
+\alcozum{%
+(a) $\int_{-\infty}^\infty |e^{-|t|}|\,dt = 2\int_0^\infty e^{-t}\,dt = 2 < \infty$. Formül uygulanabilir.\\
+(b) $f_X(x) = \frac{1}{2\pi}\int_{-\infty}^{\infty} e^{-itx}e^{-|t|}\,dt
+= \frac{1}{2\pi}\left[\int_0^\infty e^{t(-1-ix)}\,dt + \int_0^\infty e^{t(-1+ix)}\,dt\right]$
+$= \frac{1}{2\pi}\left[\frac{1}{1+ix} + \frac{1}{1-ix}\right] = \frac{1}{2\pi}\cdot\frac{2}{1+x^2} = \frac{1}{\pi(1+x^2)}$.\\
+(c) $f_X(x) = \frac{1}{\pi(1+x^2)}$ --- standart Cauchy$(0,1)$ PDF'si.}
+
+\begin{alistirma}[Al.6.11]{B}{İkinci Dereceden Delta Yöntemi}
+$X_1, \ldots, X_n$ i.i.d., $E[X_i] = 0$, $\mathrm{Var}(X_i) = 1$.
+$g(x) = x^2 + 3x$.
+(a) $g'(0)$ ve $g''(0)$'ı hesaplayınız.
+(b) $\sqrt{n}(g(\bar{X}_n) - g(0))$ için limit dağılımı veriniz.
+(c) Eğer $h(x) = x^2$ olsaydı, $n(h(\bar{X}_n) - h(0))$ için limit dağılımını veriniz.
+\end{alistirma}
+\alcozum{%
+$g(x) = x^2 + 3x$; $g'(x) = 2x+3$; $g'(0) = 3 \neq 0$; $g''(0) = 2$.\\
+(a) $g'(0) = 3$, $g''(0) = 2$.\\
+(b) Standart delta (çünkü $g'(0)=3\neq0$): $\sqrt{n}(g(\bar{X}_n)-0) \xrightarrow{d} \Normal(0, 1\cdot 9) = \Normal(0,9)$.\\
+(c) $h(x)=x^2$; $h'(0)=0$, $h''(0)=2$. İkinci dereceden delta:
+$n(h(\bar{X}_n)-0) \xrightarrow{d} \frac{1\cdot2}{2}\chi^2_1 = \chi^2_1$.
+Yani $n\bar{X}_n^2 \xrightarrow{d} \chi^2_1$ --- bu MLT'nin doğal bir sonucudur.}
+
+% =====================================================================
+\endinput

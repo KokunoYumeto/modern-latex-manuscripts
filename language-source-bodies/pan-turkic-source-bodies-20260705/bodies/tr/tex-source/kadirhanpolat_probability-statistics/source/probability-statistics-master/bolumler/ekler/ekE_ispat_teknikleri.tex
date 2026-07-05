@@ -1,0 +1,308 @@
+%% ============================================================
+%% EK E --- Sık Kullanılan İspat Teknikleri
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Sık Kullanılan İspat Teknikleri}
+\label{app:ispat_teknikleri}
+
+Bu ek, olasılık teorisi ve matematiksel istatistikte sıkça başvurulan ispat tekniklerini özetler. Her teknik için kısa açıklama, şematik akış ve kitaptaki somut uygulamalar verilir.
+
+%% ============================================================
+\section{Sınır Geçirme: MYT, Fatou, BYT}
+\label{app:sinir_gecirme}
+%% ============================================================
+
+Sınır geçirme argümanları, $\lim$ ile $\int$'ı değiştirmek için kullanılır.
+
+\begin{itemize}
+  \item \textbf{MYT (Monoton Yakınsama):} $f_n\uparrow f$, $f_n\geq0$ ise $\int f_n\uparrow\int f$.
+    \textit{Gereken:} negatif olmayan ve artan dizi.
+  \item \textbf{Fatou:} $f_n\geq0$ ise $\int\liminf f_n\leq\liminf\int f_n$.
+    \textit{Gereken:} yalnızca negatif olmama; baskınlık gerekmez.
+  \item \textbf{BYT (Baskınlıklı):} $f_n\to f$ n.k., $|f_n|\leq g$, $\int g<\infty$ ise $\int f_n\to\int f$.
+    \textit{Gereken:} integrallenebilir baskın fonksiyon.
+\end{itemize}
+
+\noindent\textbf{Uygulama:} Karakteristik fonksiyon türevi, Fisher bilgisi türetimi, MLE asimptotiği.
+
+\begin{ornek}[Sınır geçirme --- türev alınması]
+$M_X'(0) = \Beklenti[X]$ ispat akışı: $\frac{M(t)-M(0)}{t}=\Beklenti\!\left[\frac{e^{tX}-1}{t}\right]$. Fark bölümü $\to Xe^{0}=X$; $|e^{tX}-1|/|t|\leq|X|e^{|t||X|}$ baskınlık; BYT ile sınır geçer.
+\end{ornek}
+
+%% ============================================================
+\section{$\pi$-$\lambda$ (Dynkin) Argümanı}
+\label{app:pi_lambda}
+%% ============================================================
+
+Bir özelliğin tüm $\mathcal{F}$-kümeleri üzerinde geçerli olduğunu kanıtlamak için:
+
+\begin{enumerate}
+  \item Özelliğin $\pi$-sistem $\mathcal{P}$ (kesişim altında kapalı koleksiyon) üzerinde geçerli olduğunu göster.
+  \item Özelliği taşıyan kümelerin $\lambda$-sistem (Dynkin sistemi) oluşturduğunu göster.
+  \item \textbf{Dynkin teoremi:} $\sigma(\mathcal{P})\subseteq\lambda(\mathcal{P})$.
+\end{enumerate}
+
+\noindent\textbf{Standart uygulama şeması:}
+\begin{align*}
+  &\text{(1) Dikdörtgenler } \{A_1\times A_2\} \text{ üzerinde doğru} \\
+  &\quad\Rightarrow \text{(2) Dikdörtgenler } \pi\text{-sistem oluşturur} \\
+  &\quad\Rightarrow \text{(3) Dynkin: Tüm } \mathcal{F}_1\otimes\mathcal{F}_2 \text{ üzerinde doğru.}
+\end{align*}
+
+\noindent\textbf{Uygulama:} Kolmogorov 0-1 Kanunu; bağımsızlığın $\sigma$-cebiri karakterizasyonu; koşullu beklentinin yegânlığı.
+
+%% ============================================================
+\section{Kırpma Yöntemi}
+\label{app:kirpma}
+%% ============================================================
+
+$X$ rasgele değişken, $c>0$: $X^{(c)} = X\mathbf{1}[|X|\leq c]$ \textbf{kırpılmış değişken}. Strateji:
+
+\begin{enumerate}
+  \item Kırpılmış $X^{(c)}$ için sonucu kanıtla (sınırlı değişken, kolay).
+  \item $c\to\infty$ alarak orijinal değişkene geç (Fatou/BYT).
+\end{enumerate}
+
+\begin{ornek}[Genel WLLN --- kırpma ile]
+$X_i \iid$ i.i.d.; $\Beklenti[|X|]<\infty$. $X_i^{(c)}=X_i\mathbf{1}[|X_i|\leq c]$.
+\begin{enumerate}[(1)]
+  \item Her $c$ için $X_i^{(c)}$ sınırlı; $\bar{X}_n^{(c)}\pto\Beklenti[X^{(c)}]$ (Chebyshev).
+  \item $\Beklenti[X^{(c)}]\to\Beklenti[X]$ ($c\to\infty$, BYT).
+  \item $\Prob(X_i\neq X_i^{(c)})=\Prob(|X|>c)\to0$; Boole eşitsizliğiyle geçiş.
+\end{enumerate}
+\end{ornek}
+
+\noindent\textbf{Uygulama:} Genel ZBSK, MLE tutarlılık ispatı, martingal yakınsama.
+
+%% ============================================================
+\section{Cauchy-Schwarz ve Jensen Kullanımı}
+\label{app:cs_jensen}
+%% ============================================================
+
+\begin{itemize}
+  \item \textbf{Cauchy-Schwarz:} $[\Cov(X,Y)]^2\leq\Var(X)\Var(Y)$; ya da $[\Beklenti[XY]]^2\leq\Beklenti[X^2]\Beklenti[Y^2]$.
+    \textit{Kullanım:} Cramér-Rao alt sınırı ispatının kalbi (türev + beklenti içindeki kovaryans).
+  \item \textbf{Jensen ($f$ konveks):} $f(\Beklenti[X])\leq\Beklenti[f(X)]$.
+    \textit{Kullanım:} Markov eşitsizliğinin üretici prensibi; entropi bilgi eşitsizliği; log-olabilirlik beklentisi.
+\end{itemize}
+
+\begin{ornek}[Jensen ile Cramér-Rao'ya yol]
+$\Beklenti[\hat\theta]=\theta$; $\Cov(\hat\theta, \partial\log f/\partial\theta)^2\leq\Var(\hat\theta)\Var(\partial\log f/\partial\theta)$. Sol taraf $1$ (yansızlık türevi), sağ taraf $\Var(\hat\theta)\cdot\mathcal{I}(\theta)$. Böl: $\Var(\hat\theta)\geq1/\mathcal{I}(\theta)$.
+\end{ornek}
+
+%% ============================================================
+\section{Moment Üreten Fonksiyon (MÜF) Argümanı}
+\label{app:muf_arguman}
+%% ============================================================
+
+$M_X(t)=\Beklenti[e^{tX}]$ bir $(-\delta,\delta)$ çevresinde sonlu ise dağılımı yegâne belirler. MÜF/KF çarpım özelliği bağımsız toplamların dağılımını verir.
+
+\noindent\textbf{Akış:}
+\begin{enumerate}
+  \item Bağımsız $X,Y$: $M_{X+Y}(t)=M_X(t)M_Y(t)$.
+  \item Bilinen MÜF ile eşleştir: $M_{X+Y}$ tanınan bir dağılımın MÜF'üne uyuyorsa, dağılım belirlendi.
+  \item Yakınsama: $M_{X_n}(t)\to M_X(t)$ her $t$ için ise $X_n\dto X$ (süreklilik teoremi).
+\end{enumerate}
+
+\noindent\textbf{Uygulama:} Binom$\to$Poisson limiti (MÜF ile), Gama eklenebilirliği, Poisson eklenebilirliği.
+
+%% ============================================================
+\section{Slütseva Teoremi ve Delta Yöntemi}
+\label{app:slutseva}
+%% ============================================================
+
+\begin{teorem}[Slüts (Slutsky)]
+$X_n\dto X$ ve $Y_n\pto c$ (sabit) ise:
+\[
+  X_n+Y_n\dto X+c, \quad X_nY_n\dto cX, \quad X_n/Y_n\dto X/c \;(c\neq0).
+\]
+\end{teorem}
+
+\noindent\textbf{Standart kullanım:} $T_n = \sqrt{n}(\bar{X}_n-\mu)/S_n$. $\sqrt{n}(\bar{X}_n-\mu)/\sigma\dto\Normal(0,1)$ ve $S_n\pto\sigma$; Slüts ile $T_n\dto\Normal(0,1)$.
+
+\begin{teorem}[Delta yöntemi]
+$\sqrt{n}(T_n-\theta)\dto\Normal(0,\sigma^2)$ ve $g$ $\theta$'da türevlenebilir, $g'(\theta)\neq0$:
+\[
+  \sqrt{n}(g(T_n)-g(\theta))\dto\Normal(0,[g'(\theta)]^2\sigma^2).
+\]
+\end{teorem}
+
+\noindent\textbf{Uygulama:} Her asimptotik normallik ispatında ($\hat\sigma\to\sigma$), $t$-istatistiği asimptotiği; oran GA (log-dönüşüm ile varyans stabilizasyonu).
+
+%% ============================================================
+\section{Varyans Ayrışımı}
+\label{app:varyans_ayrisim}
+%% ============================================================
+
+\[
+  \Var(Y) = \Beklenti[\Var(Y\mid X)] + \Var(\Beklenti[Y\mid X]).
+\]
+
+\begin{proof}
+$\Var(Y) = \Beklenti[Y^2]-(\Beklenti[Y])^2$. $\Beklenti[Y^2]=\Beklenti[\Beklenti[Y^2|X]]=\Beklenti[\Var(Y|X)+(\Beklenti[Y|X])^2]$. $(\Beklenti[Y])^2=(\Beklenti[\Beklenti[Y|X]])^2$. Fark alınca $\Var(\Beklenti[Y|X])$ terimi çıkar.
+\end{proof}
+
+\noindent\textbf{Uygulama:} Rao-Blackwell teoremi; karışık modellerde varyans bileşenleri; ANOVA'da beklenti MSA/MSE türetimi.
+
+%% ============================================================
+\section{Simetri Argümanı}
+\label{app:simetri}
+%% ============================================================
+
+\begin{itemize}
+  \item $X\overset{d}{=}-X$ (simetrik dağılım): $\Beklenti[X]=0$ (varsa).
+  \item $X\overset{d}{=}Y$: $\Beklenti[f(X)]=\Beklenti[f(Y)]$ her ölçülebilir $f$ için.
+  \item İzotropik dağılımlar: $\mathbf{X}\overset{d}{=}O\mathbf{X}$ her ortogonal $O$ için.
+\end{itemize}
+
+\noindent\textbf{Uygulama:} Normal popülasyon teoremi (ortogonal dönüşüm invariansı); işaret testi ve medyan argümanları.
+
+%% ============================================================
+\section{Karakteristik Fonksiyon İspatı Akışı}
+\label{app:kf_ispat_akisi}
+%% ============================================================
+
+MLT'nin KF ispatı şu adımları izler:
+\begin{enumerate}
+  \item $\varphi_{\bar{X}_n}(t) = [\varphi_{X_1}(t/\sqrt{n})]^n$ (bağımsız toplam KF çarpım özelliği).
+  \item Taylor: $\varphi_{X_1}(u) = 1 - \sigma^2 u^2/2 + o(u^2)$ ($u\to0$); ikinci türevden.
+  \item $[1-\sigma^2t^2/(2n)+o(1/n)]^n\to e^{-\sigma^2t^2/2}$ ($n\to\infty$); $e^x=\lim(1+x/n)^n$.
+  \item Levy süreklilik teoremi: $\Normal(0,\sigma^2)$'ye dağılımda yakınsama.
+\end{enumerate}
+
+Bu akış Bölüm~\ref{chp:merkezi_limit}'te tam detayla sunulmuştur.
+
+%% ============================================================
+\section{Gözlemlenebilir Bilgi ve Skor İspat Tekniği}
+\label{app:skor_teknik}
+%% ============================================================
+
+Fisher bilgisi ispatlarında şu aşamalar izlenir:
+
+\begin{enumerate}
+  \item \textbf{Normallik koşulu:} $\int f(x;\theta)\,dx=1$'in $\theta$'ya türevini al $\Rightarrow$ $\Beklenti[\text{skor}]=0$.
+  \item \textbf{İkinci türev:} Yeniden $\theta$'ya türev al $\Rightarrow$ $\mathcal{I}(\theta)=\Beklenti[\text{skor}^2]=-\Beklenti[\partial^2\log f/\partial\theta^2]$.
+  \item \textbf{Cramér-Rao:} Cauchy-Schwarz ile $\Var(\hat\theta)\geq 1/\mathcal{I}(\theta)$.
+\end{enumerate}
+
+\begin{ornek}[Normal dağılımda Fisher bilgisi]
+$f(x;\mu)=\phi(x-\mu)$. Skor: $\partial\log f/\partial\mu = x-\mu$. $\mathcal{I}(\mu)=\Beklenti[(X-\mu)^2]=\sigma^2$. Cramér-Rao: $\Var(\hat\mu)\geq\sigma^2$ (tek gözlem), $\geq\sigma^2/n$ ($n$ gözlem).
+\end{ornek}
+
+%% ============================================================
+\section{Yeterlilik İspatı: Faktorizasyon Teoremi}
+\label{app:faktoriz_teknik}
+%% ============================================================
+
+$T(\mathbf{X})$ yeterli $\iff$ $f(\mathbf{x};\theta)=g(T(\mathbf{x}),\theta)\cdot h(\mathbf{x})$. İspat akışı:
+
+\begin{enumerate}
+  \item \emph{Yeterlilik $\Rightarrow$ faktorizasyon:} $f(\mathbf{x}|\mathbf{t};\theta)=\Prob(\mathbf{X}=\mathbf{x}|T=\mathbf{t})$ $\theta$'dan bağımsız. $f(\mathbf{x};\theta)=\Prob(T=\mathbf{t};\theta)\cdot f(\mathbf{x}|T=\mathbf{t})$.
+  \item \emph{Faktorizasyon $\Rightarrow$ yeterlilik:} Koşullu dağılım $f(\mathbf{x}|T;\theta)=h(\mathbf{x})/(\sum_{T(\mathbf{y})=T}h(\mathbf{y}))$; $\theta$'dan bağımsız.
+\end{enumerate}
+
+\begin{ornek}[Üstel ailede yeterlilik]
+$f(\mathbf{x};\theta)=h(\mathbf{x})\exp[\eta(\theta)\sum T(x_i)-nB(\theta)]$. Faktorizasyon doğrudan: $g(T,\theta)=\exp[\eta(\theta)T-nB(\theta)]$. $\Rightarrow$ $\sum T(x_i)$ yeterli.
+\end{ornek}
+
+%% ============================================================
+\section{İndüksiyon ve Martingal Argümanı}
+\label{app:induksiyon}
+%% ============================================================
+
+Martingal ispatlarında:
+\begin{enumerate}
+  \item \textbf{Supermartingal kontrol:} $\{M_n\}$ supermartingal, $M_n\geq0$ $\Rightarrow$ $\Beklenti[M_\infty]\leq\Beklenti[M_0]$ (Doob'un monoton yakınsama).
+  \item \textbf{Durdurma zamanı:} $\tau$ sonlu durdurma zamanı, $|M_n|\leq c$ sınırlı; Doob optiyonel durma: $\Beklenti[M_\tau]=\Beklenti[M_0]$.
+  \item \textbf{$L^2$ martingal:} $\Beklenti[M_n^2]\leq C<\infty$ $\Rightarrow$ $M_n\to M_\infty$ a.s. ve $L^2$'de.
+\end{enumerate}
+
+%% ============================================================
+\section{Epsilon-Delta: Tightness ve Prokhorov}
+\label{app:tightness}
+%% ============================================================
+
+Dağılımda yakınsama ($X_n\dto X$) ispatlarında:
+
+\begin{enumerate}
+  \item \textbf{Sıkılık \emph{(tightness)}:} $\forall\varepsilon>0$, $\exists K_\varepsilon$ kompakt: $\Prob_n(K_\varepsilon^c)<\varepsilon$ tüm $n$.
+  \item \textbf{Prokhorov teoremi:} Sıkı $\Rightarrow$ alt dizi yakınsak.
+  \item \textbf{Yegânlık:} Tüm alt diziler aynı limite yakınsıyorsa, tüm dizi yakınsar.
+\end{enumerate}
+
+\noindent\textbf{Uygulama:} MLE dağılımda yakınsama ispatı; ampirik süreç teorisi.
+
+%% ============================================================
+\section{Birleşik Süreklilik ve Slutsky Teoremi}
+\label{app:slutsky}
+%% ============================================================
+
+Asimptotik istatistikte en sık kullanılan araçlardan biri Slutsky tüneli ve birleşik süreklilik türevidir.
+
+\begin{teorem}[Slutsky Teoremi]\label{app:thm:slutsky}
+$X_n\dto X$, $Y_n\pto c$ (sabit). O zaman:
+\begin{enumerate}[(a)]
+  \item $X_n+Y_n\dto X+c$.
+  \item $X_nY_n\dto cX$.
+  \item $X_n/Y_n\dto X/c$ ($c\neq0$).
+\end{enumerate}
+\end{teorem}
+
+\begin{ornek}[Öğrenci $t$ dağılımı]\label{app:ex:t_slutsky}
+$\bar X_n\sim\Normal(\mu,\sigma^2/n)$ normallik ile $Z_n=\sqrt{n}(\bar X_n-\mu)/\sigma\dto\Normal(0,1)$.
+$S_n\pto\sigma$: Slutsky $\Rightarrow$ $T_n=\sqrt{n}(\bar X_n-\mu)/S_n=Z_n\cdot(\sigma/S_n)\dto\Normal(0,1)$.
+Sonlu $n$ için $T_n\sim t_{n-1}$ --- ama büyük $n$ için normal.
+\end{ornek}
+
+\begin{teorem}[Birleşik Süreklilik Haritası]\label{app:thm:cont_mapping}
+$h:\mathbb{R}\to\mathbb{R}$ sürekli (veya $h$-süreksizlik noktalarının kümesi $P_X$-ölçüsü sıfır). $X_n\dto X\Rightarrow h(X_n)\dto h(X)$.
+\end{teorem}
+
+\noindent\textbf{Uygulama:} $X_n\dto\Normal(0,1)\Rightarrow X_n^2\dto\chi^2_1$ (çünkü $x\mapsto x^2$ sürekli).
+
+%% ============================================================
+\section{Büyük Örneklem Teknikler: Kararlılık ve $o_P / O_P$ Sembolleri}
+\label{app:op_sembolleri}
+%% ============================================================
+
+\begin{tanim}[$o_P$ ve $O_P$]\label{app:def:op}
+\begin{align*}
+  X_n = o_P(1) &\iff X_n\pto0.\\
+  X_n = o_P(r_n) &\iff X_n/r_n = o_P(1).\\
+  X_n = O_P(1) &\iff \forall\varepsilon>0,\exists M_\varepsilon>0: P(|X_n|>M_\varepsilon)<\varepsilon \text{ for all }n.\\
+  X_n = O_P(r_n) &\iff X_n/r_n = O_P(1).
+\end{align*}
+\end{tanim}
+
+\begin{teorem}[Cebirsel kurallar]\label{app:thm:op_algebra}
+\begin{enumerate}[(a)]
+  \item $o_P(1)+o_P(1)=o_P(1)$; $o_P(1)\cdot O_P(1)=o_P(1)$.
+  \item $O_P(1)+O_P(1)=O_P(1)$; $O_P(1)\cdot O_P(1)=O_P(1)$.
+  \item $X_n\pto0\iff X_n=o_P(1)$; $X_n\dto X$ (sınırlı) $\Rightarrow X_n=O_P(1)$.
+\end{enumerate}
+\end{teorem}
+
+\noindent\textbf{Uygulama --- Taylor açılımı:}
+$g(X_n)=g(\theta)+g'(\theta)(X_n-\theta)+\frac12g''(\xi_n)(X_n-\theta)^2$, ikinci terim $o_P(|X_n-\theta|)$.
+$X_n=\theta+O_P(n^{-1/2})$: ikinci terim $O_P(n^{-1})$; birinci terim $O_P(n^{-1/2})$ --- delta yönteminin temeli.
+
+%% ============================================================
+\section{Çok Boyutlu Delta Yöntemi ve Hessian Kullanımı}
+\label{app:delta_cok}
+%% ============================================================
+
+\begin{teorem}[Çok boyutlu delta yöntemi --- genişletilmiş]\label{app:thm:delta_cok}
+$\sqrt{n}(\hat{\boldsymbol\theta}_n-\boldsymbol\theta_0)\dto\Normal_p(\mathbf{0},\boldsymbol\Sigma)$ ve $g:\mathbb{R}^p\to\mathbb{R}^q$ $C^1$. O zaman:
+\[
+  \sqrt{n}(g(\hat{\boldsymbol\theta}_n)-g(\boldsymbol\theta_0))\dto\Normal_q(\mathbf{0},\mathbf{D}_g\boldsymbol\Sigma\mathbf{D}_g^\top),
+\]
+burada $\mathbf{D}_g=\partial g/\partial\boldsymbol\theta^\top\big|_{\boldsymbol\theta_0}$ ($q\times p$) Jacobi matrisidir.
+
+İkinci dereceden delta ($q=1$, $\mathbf{D}_g=\mathbf{0}$):
+\[
+  n(g(\hat{\boldsymbol\theta}_n)-g(\boldsymbol\theta_0))\dto\frac12\boldsymbol\xi^\top\mathbf{H}_g\boldsymbol\xi,
+\]
+$\boldsymbol\xi\sim\Normal_p(\mathbf{0},\boldsymbol\Sigma)$ ve $\mathbf{H}_g=\partial^2g/\partial\boldsymbol\theta\partial\boldsymbol\theta^\top|_{\boldsymbol\theta_0}$ Hessian matrisi.
+\end{teorem}
+
+\noindent\textbf{Uygulama:} MLE varyans-kovaryans matrisi $\hat{\boldsymbol\Sigma}=\mathcal{I}(\hat{\boldsymbol\theta})^{-1}$; fonksiyon güven aralığı $g(\hat{\boldsymbol\theta})\pm z_{\alpha/2}\sqrt{\mathbf{D}_g\hat{\boldsymbol\Sigma}\mathbf{D}_g^\top/n}$.

@@ -1,0 +1,499 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{maarif}[2026/05/30 v0.3 Maarif Modeli akilli kitap pedagojik ortamlari]
+
+% =====================================================================
+%  Maarif Modeli "akıllı kitap" pedagojik katmanı
+%  Her ortam görsel olarak ayrı bir kimliğe sahiptir:
+%    - Yapısal değişkenler: köşe, kenar, gölge, dolgu
+%    - Başlık konumu: yüzen rozet VEYA satır içi renkli metin
+% =====================================================================
+
+\RequirePackage{xcolor}
+\RequirePackage[skins,breakable,theorems]{tcolorbox}
+\RequirePackage{amssymb}
+\RequirePackage[shortlabels]{enumitem}
+\usetikzlibrary{patterns,arrows.meta,positioning}
+
+% Genel liste varsayılanları
+\setlist[itemize]{leftmargin=1.8em, itemsep=2pt}
+\setlist[enumerate]{leftmargin=1.8em}
+
+% ---- Sürüm anahtarı: öğrenci (boş) vs cozumler (cevaplı/öğretmen) ----
+\newif\ifmaarifcozum
+\maarifcozumfalse
+\DeclareOption{cozumler}{\maarifcozumtrue}
+\DeclareOption{ogrenci}{\maarifcozumfalse}
+\ProcessOptions\relax
+
+% \ifmaarifcozumlu: \cozumlualistirmalar bölümünde true olur, \alistirmalar'da false.
+% Bu sayede öğrenci PDF'inde de çözümlü alıştırmaların çözümleri görünür.
+\newif\ifmaarifcozumlu
+\maarifcozumlufalse
+
+% ---- Renk paleti ----
+\definecolor{maMotiv}{HTML}{0B5FA5}   % motivasyon  — mavi
+\definecolor{maSorgu}{HTML}{B0006D}   % kritik sorgu — macenta
+\definecolor{maKesif}{HTML}{1E7F4F}   % kesif kutusu — yeşil
+\definecolor{maGerekce}{HTML}{6A4FB3} % tanım gerekçesi — mor
+\definecolor{maIpucu}{HTML}{C77800}   % ipucu — amber
+\definecolor{maHata}{HTML}{C0392B}    % hata analizi — kırmızı
+\definecolor{maKarsi}{HTML}{8A6D00}   % karşı örnek — hardal
+\definecolor{maIspat}{HTML}{2C7A7B}   % ispat iskelesi — teal
+\definecolor{maIfade}{HTML}{3A6EA5}   % kendinle ifade — orta mavi
+\definecolor{maOzet}{HTML}{4A5568}    % mikro özet — gri
+\definecolor{maYansima}{HTML}{7A5195} % öz-yansıtma — mor-gri
+\definecolor{maKopru}{HTML}{1F6F6F}   % köprü notu — koyu teal
+\definecolor{maDefter}{HTML}{8B3A00}  % notebook bağlantısı — kahve
+\definecolor{maHoca}{HTML}{555555}    % hoca notu — koyu gri
+\definecolor{maIzgara}{HTML}{BBDEFB}  % açık mavi ızgara
+
+% ---- Ortak yardımcı ----
+% Başlık son eki (opsiyonel) -> " — metin"
+\newcommand{\maarif@suffix}[1]{\ifx\relax#1\relax\else\ \textnormal{\mdseries#1}\fi}
+
+% ---- Ortak rozet başlık stili (yüzen badge için) ----
+\tcbset{
+  maarif@rozet/.style={
+    fonttitle=\bfseries\sffamily, coltitle=white,
+    attach boxed title to top left={xshift=2.5mm, yshift=-2.5mm},
+    boxed title style={sharp corners, boxrule=0pt, arc=1pt,
+                       left=1.5mm, right=1.5mm},
+    toptitle=0.5mm, bottomtitle=0.5mm,
+  },
+  maarif@yuvarlakrozet/.style={
+    fonttitle=\bfseries\sffamily, coltitle=white,
+    attach boxed title to top left={xshift=4mm, yshift=-2.5mm},
+    boxed title style={rounded corners, arc=4pt, boxrule=0pt,
+                       left=1.5mm, right=1.5mm},
+    toptitle=0.5mm, bottomtitle=0.5mm,
+  },
+}
+
+% =====================================================================
+%  1) MOTİVASYON
+%     Tasarım B: Yuvarlak köşe + kalın renkli tam çerçeve
+%     Davetkar, açık, "hoş geldiniz" hissi
+% =====================================================================
+\newtcolorbox{motivasyon}[1][]{
+  enhanced, breakable,
+  rounded corners, arc=7pt,
+  boxrule=1.5pt, colframe=maMotiv, colback=maMotiv!5,
+  left=4mm, right=4mm, top=4mm, bottom=3mm,
+  maarif@yuvarlakrozet,
+  colbacktitle=maMotiv,
+  title={Neden bu konu?\maarif@suffix{#1}}
+}
+
+% =====================================================================
+%  2) KRİTİK SORGU
+%     Tasarım F: Kesik (dashed) çerçeve
+%     "Belirsizlik, soru işareti, sorgulatma" hissi
+% =====================================================================
+\newtcolorbox{kritiksorgu}[1][]{
+  enhanced, breakable, sharp corners,
+  boxrule=0pt, colframe=white, colback=maSorgu!4,
+  borderline={1.5pt}{0pt}{maSorgu, dashed},
+  left=3mm, right=3mm, top=4mm, bottom=2.5mm,
+  maarif@rozet,
+  colbacktitle=maSorgu,
+  title={Kritik sorgu\maarif@suffix{#1}}
+}
+
+% =====================================================================
+%  3) KEŞİF KUTUSU
+%     Tasarım J: Üst kalın çizgi + gölge
+%     Dinamik, öne çıkan, "keşfet" enerjisi
+% =====================================================================
+\newtcolorbox{kesif}[1][]{
+  sharpish corners, enhanced, breakable,
+  boxrule=0pt, toprule=4pt,
+  colframe=maKesif, colback=maKesif!5,
+  left=3mm, right=3mm, top=4mm, bottom=3mm,
+  fuzzy shadow={0pt}{-2pt}{-0.5pt}{0.5pt}{black!30},
+  maarif@rozet,
+  colbacktitle=maKesif,
+  title={Keşfet\maarif@suffix{#1}}
+}
+
+% =====================================================================
+%  4) TANIM GEREKÇESİ
+%     Tasarım H: Sol kalın çizgi, satır içi başlık (rozet yok)
+%     Dipnot/kenar açıklaması gibi hissettiren, sessiz ama belirgin
+% =====================================================================
+\newtcolorbox{tanimgerekce}[1][]{
+  enhanced, breakable,
+  boxrule=0pt, colback=maGerekce!5, colframe=maGerekce,
+  borderline west={4pt}{0pt}{maGerekce},
+  left=5mm, right=3mm, top=2.5mm, bottom=2.5mm,
+  before upper={{\sffamily\bfseries\color{maGerekce}%
+    Neden bu tanım böyle?\maarif@suffix{#1}\color{black}}\par\smallskip}
+}
+
+% =====================================================================
+%  5) HATA ANALİZİ
+%     Tasarım K: Üst kalın çizgi + gölge (kenar yok)
+%     Uyarı, dikkat çekme — gölge tehlike sinyali verir
+% =====================================================================
+\newtcolorbox{hataanalizi}[1][]{
+  sharpish corners, enhanced, breakable,
+  boxrule=0pt, toprule=4pt,
+  colframe=maHata, colback=maHata!4,
+  left=3mm, right=3mm, top=4mm, bottom=2.5mm,
+  fuzzy shadow={0pt}{-2pt}{-0.5pt}{0.5pt}{black!25},
+  maarif@rozet,
+  colbacktitle=maHata,
+  title={Hata analizi\maarif@suffix{#1}}
+}
+
+% =====================================================================
+%  6) KARŞI ÖRNEK LAB.
+%     Tasarım L: Yuvarlak köşe + alt kalın çizgi
+%     Buton/levha hissi — "laboratuvar", sonuca odaklı
+% =====================================================================
+\newtcolorbox{karsiornek}[1][]{
+  enhanced, breakable,
+  rounded corners, arc=6pt,
+  boxrule=0pt, bottomrule=4pt,
+  colframe=maKarsi, colback=maKarsi!5,
+  left=4mm, right=4mm, top=3mm, bottom=3mm,
+  maarif@yuvarlakrozet,
+  colbacktitle=maKarsi,
+  title={Karşı örnek laboratuvarı\maarif@suffix{#1}}
+}
+
+% =====================================================================
+%  7) KENDİNLE İFADE
+%     Tasarım I: Yalnızca üst kalın çizgi, açık arka plan
+%     Öğrenci yazı alanı — sade, davetkar, çerçevesiz
+% =====================================================================
+\newtcolorbox{kendinleifade}[1][]{
+  enhanced, breakable, sharp corners,
+  boxrule=0pt, toprule=5pt,
+  colframe=maIfade, colback=maIfade!5,
+  left=3mm, right=3mm, top=4mm, bottom=2.5mm,
+  maarif@rozet,
+  colbacktitle=maIfade,
+  title={Kendi cümlenle açıkla\maarif@suffix{#1}}
+}
+
+% =====================================================================
+%  8) MİKRO ÖZET
+%     Tasarım C: Salt arka plan dolgusu, çok ince kenar (rozet yok)
+%     Sessiz, minimal — içerik konuşur, kutu geri çekilir
+% =====================================================================
+\newtcolorbox{mikroozet}[1][]{
+  enhanced, breakable,
+  boxrule=0.5pt, colframe=maOzet!35, colback=maOzet!10,
+  left=3mm, right=3mm, top=2.5mm, bottom=2mm,
+  before upper={{\sffamily\bfseries\color{maOzet}%
+    Mikro özet\maarif@suffix{#1}\color{black}}\par\smallskip}
+}
+
+% =====================================================================
+%  9) ÖZ-YANSITMA
+%     Tasarım D: Üst 3pt + alt 3pt kalın çizgi, yansız kenarlar
+%     Simetrik, dengeli — "içe bakış, başlangıç=son"
+% =====================================================================
+\newtcolorbox{ozyansima}[1][]{
+  enhanced, breakable, sharp corners,
+  boxrule=0pt, toprule=3pt, bottomrule=3pt,
+  colframe=maYansima, colback=maYansima!5,
+  left=3mm, right=3mm, top=4mm, bottom=3mm,
+  maarif@rozet,
+  colbacktitle=maYansima,
+  title={Öz-yansıtma\maarif@suffix{#1}}
+}
+
+% =====================================================================
+% 10) KÖPRÜ NOTU
+%     Tasarım G: Sol + sağ çift çizgi (rozet yok)
+%     İki taraf = iki konu arası köprü sezgisi
+% =====================================================================
+\newtcolorbox{kopru}[1][]{
+  enhanced, breakable,
+  boxrule=0pt, colback=maKopru!5, colframe=maKopru,
+  borderline west={2pt}{0pt}{maKopru},
+  borderline west={0.5pt}{4.5pt}{maKopru!40},
+  borderline east={2pt}{0pt}{maKopru},
+  borderline east={0.5pt}{4.5pt}{maKopru!40},
+  left=7mm, right=7mm, top=2.5mm, bottom=2.5mm,
+  before upper={{\sffamily\bfseries\color{maKopru}%
+    Köprü notu\maarif@suffix{#1}\color{black}}\par\smallskip}
+}
+
+% =====================================================================
+% 11) HOCA NOTU
+%     Tasarım H: Sol kalın çizgi, satır içi başlık
+% =====================================================================
+\newtcolorbox{hocanotu}[1][]{
+  enhanced, breakable,
+  boxrule=0pt, colback=maHoca!6, colframe=maHoca,
+  borderline west={4pt}{0pt}{maHoca},
+  left=5mm, right=3mm, top=2mm, bottom=2mm,
+  before upper={{\sffamily\bfseries\color{maHoca}%
+    Hocanın notu\maarif@suffix{#1}\color{black}}\par\smallskip}
+}
+
+% =====================================================================
+% 12) KADEMELİ İPUCU HİYERARŞİSİ
+%     Tasarım H (ince): Sol çizgi, satır içi — "ipucu, fısıltı"
+%     \begin{ipucu}{1} ... \end{ipucu}
+% =====================================================================
+\newtcolorbox{ipucu}[1]{
+  enhanced, breakable,
+  boxrule=0pt, colback=maIpucu!5, colframe=maIpucu,
+  borderline west={3pt}{0pt}{maIpucu},
+  left=5mm, right=3mm, top=2mm, bottom=2mm,
+  fontupper=\normalfont\mdseries,
+  before upper={{\sffamily\bfseries\color{maIpucu}%
+    İpucu~#1\quad}\color{black}}
+}
+
+% =====================================================================
+% 13) İSPAT İSKELESİ
+%     Tasarım E: Çift çizgi çerçeve (iç + dış)
+%     Katmanlı yapı — "iskele, inşa, adım adım"
+% =====================================================================
+\newtcolorbox{ispatiskele}[1][]{
+  enhanced, breakable,
+  boxrule=0pt, colback=maIspat!4, colframe=maIspat,
+  borderline={1pt}{0pt}{maIspat},
+  borderline={0.5pt}{3.5pt}{maIspat!40},
+  left=7mm, right=7mm, top=4.5mm, bottom=3mm,
+  maarif@rozet,
+  colbacktitle=maIspat,
+  title={İspat iskelesi\maarif@suffix{#1}}
+}
+
+% ---- İspat iskelesi iç komutları ----
+\newcommand{\bosluk}[1]{%
+  \ifmaarifcozum
+    \ifmmode \boxed{#1}\else {\colorbox{maIspat!12}{\strut\,#1\,}}\fi
+  \else
+    \underline{\hspace{3.2cm}}%
+  \fi}
+
+\newcommand{\iskeleadim}[2]{\par\noindent\textbf{Adim #1.}\ #2\par}
+
+% =====================================================================
+% 14) ALIŞTIRMA ÇÖZÜMÜ
+%     Tasarım: Sol kalın çizgi + satır içi başlık (öğrencide gizli)
+%     alcozum özellikle alistirma'dan SONRA gelir; rozet yerine
+%     sol çizgi ile görsel hiyerarşi kurulur
+% =====================================================================
+\definecolor{maCozum}{HTML}{1A5276}
+
+% Çözüm kutusunu gösteren iç komut
+\newcommand{\maarif@showcozum}[1]{%
+  \par\noindent
+  \begin{tcolorbox}[
+    enhanced, breakable,
+    boxrule=0pt, colback=maCozum!4, colframe=maCozum,
+    borderline west={4pt}{0pt}{maCozum},
+    left=5mm, right=3mm, top=2mm, bottom=2mm,
+    fontupper=\normalfont\mdseries,
+    before upper={{\sffamily\bfseries\color{maCozum}%
+      Çözüm\quad}\color{black}}]
+    #1
+  \end{tcolorbox}}
+
+% Eğitmen PDF'inde her zaman görünür.
+% Öğrenci PDF'inde yalnızca \cozumlualistirmalar bölümünde görünür.
+\newcommand{\alcozum}[1]{%
+  \ifmaarifcozum
+    \maarif@showcozum{#1}%
+  \else
+    \ifmaarifcozumlu
+      \maarif@showcozum{#1}%
+    \fi
+  \fi}
+
+% =====================================================================
+% 15) ALIŞTIRMA ORTAMI
+%     Tasarım: Yuvarlak köşe + rozet (seviye A/B/C rengi)
+%     Mevcut renk mantığı korunur; köşeler yuvarlatıldı
+% =====================================================================
+\definecolor{maAlistirmaA}{HTML}{1E8449}
+\definecolor{maAlistirmaB}{HTML}{D68910}
+\definecolor{maAlistirmaC}{HTML}{922B21}
+
+\newcounter{alistirmano}[chapter]
+
+\newenvironment{alistirma}[3][]{%
+  \def\maarif@alcol{maAlistirmaB}%
+  \if A#2\def\maarif@alcol{maAlistirmaA}\fi
+  \if C#2\def\maarif@alcol{maAlistirmaC}\fi
+  \stepcounter{alistirmano}%
+  % TikZ kodunu macro'ya bağla: \item[...] içinde ] erken kapatma sorununu önler
+  \def\maarif@daire{%
+    \tikz[baseline=(c.base)]\node[%
+      circle,fill=\maarif@alcol,text=white,
+      font=\sffamily\bfseries\small,
+      inner sep=1pt,minimum size=7mm](c){\thealistirmano};\hspace{1pt}}%
+  \par\addvspace{5pt}%
+  \noindent\begin{list}{}{%
+    \setlength{\leftmargin}{9mm}%
+    \setlength{\labelwidth}{7mm}%
+    \setlength{\labelsep}{2mm}%
+    \setlength{\topsep}{0pt}%
+    \setlength{\parsep}{3pt}%
+    \setlength{\itemsep}{0pt}%
+  }%
+  \item[\maarif@daire]%
+  \ignorespaces
+}{%
+  \end{list}\addvspace{5pt}}
+
+% =====================================================================
+% 16) KAZANIM LİSTESİ  (TYMM gereksinimi)
+%     Tasarım: Üst 4pt + alt 0.8pt (resmi/kurumsal çizgi vurgulu)
+%     "Hedef koyma" sinyali verir
+% =====================================================================
+\definecolor{maKazanim}{HTML}{1A4971}
+
+\newtcolorbox{kazanimlar}[1][]{
+  enhanced, breakable, sharp corners,
+  boxrule=0pt, toprule=4pt, bottomrule=0.8pt,
+  colframe=maKazanim, colback=maKazanim!5,
+  left=3mm, right=3mm, top=4mm, bottom=2.5mm,
+  maarif@rozet,
+  colbacktitle=maKazanim,
+  title={Bu Bölümün Sonunda\maarif@suffix{#1}}
+}
+
+% =====================================================================
+% 17) DİSİPLİNLERARASI BAĞLANTI  (TYMM gereksinimi)
+%     Tasarım: Sol kalın + sağ ince çizgi
+%     "İki alan arasında köprü" — asimetrik çizgiler bağlantıyı simgeler
+% =====================================================================
+\definecolor{maDisipl}{HTML}{1F5F99}
+
+\newtcolorbox{disiplinlerarasibaglan}[1][]{
+  enhanced, breakable,
+  boxrule=0pt, colback=maDisipl!5, colframe=maDisipl,
+  borderline west={3pt}{0pt}{maDisipl},
+  borderline east={1pt}{0pt}{maDisipl!50},
+  left=5mm, right=5mm, top=2.5mm, bottom=2.5mm,
+  before upper={{\sffamily\bfseries\color{maDisipl}%
+    Disiplinlerarası Bağlantı\maarif@suffix{#1}\color{black}}\par\smallskip}
+}
+
+% =====================================================================
+% 18) BÖLÜM ALINTISI
+% =====================================================================
+\newcommand{\bolumalinti}[2]{%
+  \par\vspace{2mm}%
+  \begin{flushright}
+    \itshape #1\\[3pt]
+    \upshape\small --- #2
+  \end{flushright}
+  \vspace{4mm}}
+
+% =====================================================================
+% 19) BÖLÜM ÖZETİ
+%     Tasarım M: Üst kalın çizgi + gölge + koyulaşmış dolgu
+%     Bölüm sonunda belirgin, üç boyutlu görünüm
+% =====================================================================
+\newtcolorbox{bolumozeti}[1][Bölüm Özeti]{
+  sharpish corners, enhanced, breakable,
+  boxrule=0pt, toprule=4pt,
+  colframe=maOzet, colback=maOzet!12,
+  left=3mm, right=3mm, top=4mm, bottom=2.5mm,
+  fuzzy shadow={0pt}{-3pt}{-0.5pt}{0.5pt}{black!25},
+  maarif@rozet,
+  colbacktitle=maOzet,
+  title={#1}
+}
+
+% =====================================================================
+% 20) BÖLÜM SONU ALIŞTIRMA BLOKLARI
+% =====================================================================
+\newcommand{\cozumlualistirmalar}{%
+  \maarifcozumlutrue
+  \par\vspace{4mm}
+  {\sffamily\bfseries\large\color{maCozum}%
+   \rule[0.5ex]{2cm}{0.6pt}\quad Çözümlü Alıştırmalar \quad\rule[0.5ex]{2cm}{0.6pt}}
+  \par\vspace{2mm}}
+
+\newcommand{\alistirmalar}{%
+  \maarifcozumlufalse
+  \par\vspace{4mm}
+  {\sffamily\bfseries\large\color{maOzet}%
+   \rule[0.5ex]{2cm}{0.6pt}\quad Alıştırmalar \quad\rule[0.5ex]{2cm}{0.6pt}}
+  \par\vspace{2mm}}
+
+% =====================================================================
+% 21) NOTEBOOK / DİJİTAL KATMAN BAĞLANTISI
+% =====================================================================
+\newcommand{\defterbaglantisi}[2]{%
+  \par\noindent
+  \begin{tcolorbox}[enhanced, sharp corners, boxrule=0.4pt,
+      colframe=maDefter, colback=maDefter!5, left=3mm, right=3mm,
+      top=1.6mm, bottom=1.6mm]
+  {\bfseries\sffamily\color{maDefter}Dijital katman.}\quad
+  \emph{Etkileşimli keşif:} #2.\\[0.4mm]
+  \footnotesize Defter: \texttt{\detokenize{#1}} \ (\texttt{\detokenize{../pytop}} ile çalışır).
+  \end{tcolorbox}\par}
+
+% =====================================================================
+% 22) KENDİNLE İFADE CEVAP ALANI
+%     \kendinleifadecevap{model yanıt}
+%     Öğrencide: 3cm ızgara yazı alanı
+%     Eğitmende: maIfade rengiyle sol çizgili model yanıt kutusu
+% =====================================================================
+\newcommand{\kendinleifadecevap}[1]{%
+  \ifmaarifcozum
+    \par\noindent
+    \begin{tcolorbox}[
+      enhanced, breakable,
+      boxrule=0pt, colback=maIfade!6, colframe=maIfade,
+      borderline west={3pt}{0pt}{maIfade},
+      left=5mm, right=3mm, top=2mm, bottom=2mm,
+      fontupper=\normalfont\mdseries,
+      before upper={{\sffamily\bfseries\color{maIfade}%
+        Model Yanıt}\color{black}\par\smallskip}]
+      #1
+    \end{tcolorbox}
+  \else
+    \ogrencialani[3cm]%
+  \fi}
+
+% =====================================================================
+% 23) KEŞİF YAZMA ALANI
+%     \ogrencialani[yükseklik]  — TikZ kareli ızgara
+%     \kesifcevap{metin}        — öğrencide ızgara, eğitmende yanıt
+% =====================================================================
+\newcommand{\ogrencialani}[1][3cm]{%
+  \par\vspace{2mm}\noindent
+  \tikz[baseline=0pt]{%
+    \fill[white] (0,0) rectangle (\linewidth, #1);
+    \draw[maIzgara, step=5mm, very thin] (0,0) grid (\linewidth, #1);
+    \draw[blue!25, step=25mm, thin]      (0,0) grid (\linewidth, #1);
+    \draw[blue!30, line width=0.5pt]     (0,0) rectangle (\linewidth, #1);
+  }%
+  \par\vspace{2mm}}
+
+\newcommand{\kesifcevap}[1]{%
+  \ifmaarifcozum
+    \par\noindent
+    \begin{tcolorbox}[
+      enhanced, breakable,
+      boxrule=0pt, colback=maKesif!7, colframe=maKesif,
+      borderline west={3pt}{0pt}{maKesif},
+      left=5mm, right=3mm, top=2mm, bottom=2mm,
+      fontupper=\normalfont\mdseries,
+      before upper={{\sffamily\bfseries\color{maKesif}%
+        Beklenen Yanıt}\color{black}\par\smallskip}]
+      #1
+    \end{tcolorbox}
+  \else
+    \ogrencialani[4cm]%
+  \fi}
+
+% =====================================================================
+% Babel Turkish activates = as a shorthand that breaks enumitem key=value
+% parsing ([label=(\alph*)] etc.). \shorthandoff{=} disables it globally;
+% safe for a math textbook where = appears in math mode (not affected).
+\AtBeginDocument{\shorthandoff{=}}
+
+\endinput

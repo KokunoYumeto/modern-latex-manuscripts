@@ -1,0 +1,1127 @@
+% =====================================================================
+%  BÖLÜM 2 --- Olasılık Uzayları
+%  Kaynaklar: Kolmogorov 1933; Feller Vol. I Böl. I-V; Gnedenko Böl. 1
+% =====================================================================
+
+\chapter{Olasılık Uzayları}
+
+\bolumalinti{``The theory of probability as mathematical discipline can
+  and should be developed from axioms in exactly the same way as Geometry
+  and Algebra.''}{Andrey Kolmogorov, \emph{Grundbegriffe der Wahrscheinlichkeitsrechnung} (1933)}
+
+\noindent\textbf{Ön Koşullar:} Bölüm~0 (küme cebiri), Bölüm~1 (ölçüm teorisi).
+
+\noindent\textbf{Bu Bölüm Sonraki Bölümlerde Kullanılır:}
+Bölüm~3 (rasgele değişkenler),
+Bölüm~4 (beklenti),
+Bölüm~7 (büyük sayılar).
+
+\noindent\textbf{Tahmini Okuma Süresi:} $\approx 8$~saat.
+
+\vspace{0.5\baselineskip}
+
+\begin{kazanimlar}
+Bu bölümün sonunda öğrenci:
+\begin{itemize}
+  \item Kolmogorov aksiyomlarını ifade edebilmeli ve bu aksiyomlardan
+        olasılığın temel özelliklerini (monotonluk, alt-toplamsallık,
+        Poincaré formülü) türetebilmeli,
+  \item Koşullu olasılığı tanımlayabilmeli, bunun bir olasılık ölçüsü
+        olduğunu gösterebilmeli ve Toplam Olasılık Teoremini ispatlayabilmeli,
+  \item Bağımsızlık kavramını (olaylar, olay aileleri, $\sigma$-cebirleri)
+        kesin biçimde tanımlayabilmeli; ikili bağımsızlık ile karşılıklı
+        bağımsızlık arasındaki farkı karşı örnekle sergileyebilmeli,
+  \item Bayes teoremini ispatlayabilmeli ve önsel/sonsal olasılık yorumunu
+        açıklayabilmeli,
+  \item Klasik (eşit olası) olasılık uzaylarında kombinatoryal hesaplar
+        yapabilmeli: permütasyon, kombinasyon, doğum günü paradoksu.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+Bölüm~1'de ölçüm teorisinin genel çerçevesini kurduk. Bu bölümde o çerçeveyi
+olasılık için özelleştiriyoruz: ölçü fonksiyonu $\mu$ yerine \emph{olasılık
+ölçüsü} $\Prob$ kullanacak, $\mu(\Omega)=1$ normalizasyonu tüm yorumu değiştirecek.
+
+Bir \emph{deneyden} söz ettiğimizde, aklımızdaki matematiksel yapı üç nesneye
+sahip: mümkün tüm sonuçların kümesi $\Omega$, iyi tanımlanmış olay kavramı
+$\mathcal{F}$, ve olaylara olasılık atayan $\Prob$. Kolmogorov, 1933'te bu
+üçlünün tam olarak bir olasılık ölçüm uzayı $(\Omega,\mathcal{F},\Prob)$
+olduğunu gösterdi.
+
+\medskip
+
+\textbf{Köprü kurma.} Lise matematiğinde ``eşit olası sonuçlar'' varsayımıyla
+$\Prob(A) = |A|/|\Omega|$ formülünü kullandınız. Bu bölümde hem bu klasik
+yaklaşımı hem de sonsuz ya da sürekli örnek uzaylı deneyleri kapsayan genel
+çerçeveyi öğreneceğiz.
+\end{motivasyon}
+
+\begin{tarihselnot}
+Jacob Bernoulli 1713'te (ölümünden sonra yayınlanan \emph{Ars Conjectandi}),
+Pierre-Simon Laplace 1812'de (\emph{Théorie Analytique des Probabilités})
+olasılığı sayısal biçimde ele aldılar; fakat her ikisi de yalnızca sonlu
+eşit-olası uzaylara dayanıyordu. 19.~yüzyılda sonsuz seri ve integrallerle
+olasılık hesapları yapıldıkça tutarsızlıklar ortaya çıktı (\emph{Bertrand
+paradoksu}, 1888). Kolmogorov 1933'te Lebesgue ölçüm teorisini olasılığa
+uyguladı ve bu paradoksları çözdü: olasılık artık bir ölçüm uzayıdır.
+\end{tarihselnot}
+
+
+% =====================================================================
+\section{Kolmogorov Aksiyomları ve Temel Özellikler}
+% =====================================================================
+
+\begin{tanim}[Olasılık Uzayı]\label{def:olasilikuzayi}
+Üç bileşenden oluşan $(\Omega, \mathcal{F}, \Prob)$ üçlüsüne
+\textbf{olasılık uzayı} \emph{(probability space)} denir; burada:
+\begin{itemize}
+  \item $\Omega$: \textbf{örnek uzay} \emph{(sample space)} --- deneyin tüm
+        olası sonuçlarının kümesi; elemanlarına $\omega$ denir ve
+        \textbf{sonuç} \emph{(outcome, elementary event)} adını alır.
+  \item $\mathcal{F}$: $\Omega$ üzerinde bir \textbf{$\sigma$-cebiri}
+        (Tanım~\ref{def:sigmacebiri}) --- elemanlarına \textbf{olay} \emph{(event)} denir.
+  \item $\Prob: \mathcal{F} \to [0,1]$: \textbf{olasılık ölçüsü}
+        \emph{(probability measure)} --- Kolmogorov'un üç aksiyomunu sağlar:
+\end{itemize}
+\begin{enumerate}[label=\textbf{(K\arabic*)}]
+  \item $\Prob(A) \geq 0$ her $A \in \mathcal{F}$ için,
+  \item $\Prob(\Omega) = 1$,
+  \item $A_1, A_2, \ldots \in \mathcal{F}$ ikili ayrık ise
+        $\Prob\!\left(\bigcup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty \Prob(A_n)$.
+\end{enumerate}
+\end{tanim}
+
+\begin{notkutu}
+Bölüm~1, Tanım~\ref{def:olasilikolucu} ile bu tanım özdeştir: olasılık ölçüsü,
+$\Prob(\Omega)=1$ şartını sağlayan bir ölçüdür. Aksiyom (K3),
+$\sigma$-toplamsallığın olasılık diline tercümesidir.
+\end{notkutu}
+
+\begin{ornek}[Olasılık uzayı örnekleri]\label{ex:olasilikorn}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Adil zar:} $\Omega = \{1,2,3,4,5,6\}$,
+        $\mathcal{F} = \mathcal{P}(\Omega)$,
+        $\Prob(\{k\}) = 1/6$ her $k$ için. Sayma ölçüsünün
+        $1/|\Omega|$ ile ölçeklenmesi.
+
+  \item \textbf{Düzgün dağılım $[0,1]$ üzerinde:} $\Omega = [0,1]$,
+        $\mathcal{F} = \mathcal{B}([0,1])$,
+        $\Prob = \lambda\!\restriction_{[0,1]}$ (Lebesgue ölçüsü).
+        $\Prob((a,b)) = b-a$ her $0 \leq a < b \leq 1$ için.
+
+  \item \textbf{Sonsuz yazı-tura:} $\Omega = \{0,1\}^{\mathbb{N}}$
+        (sonsuz ikili diziler), $\mathcal{F}$ silindir kümelerin ürettiği
+        $\sigma$-cebiri. Kolmogorov'un uzatma teoremiyle $\Prob$ inşa edilir
+        (Bölüm~7'de ele alınacak).
+\end{enumerate}
+\end{ornek}
+
+\begin{teorem}[Olasılığın Temel Özellikleri]\label{thm:olasiliktemel}
+$(\Omega, \mathcal{F}, \Prob)$ bir olasılık uzayı, $A, B, A_n \in \mathcal{F}$.
+\begin{enumerate}[label=(\roman*)]
+  \item $\Prob(\emptyset) = 0$.
+  \item \textbf{Sonlu toplamsallık:} $A_1,\ldots,A_n$ ikili ayrık $\Rightarrow$
+        $\Prob\!\bigl(\bigcup_{k=1}^n A_k\bigr) = \sum_{k=1}^n \Prob(A_k)$.
+  \item \textbf{Tümleyen:} $\Prob(A^c) = 1 - \Prob(A)$.
+  \item \textbf{Monotonluk:} $A \subseteq B \Rightarrow \Prob(A) \leq \Prob(B)$.
+  \item \textbf{Fark:} $A \subseteq B \Rightarrow \Prob(B \setminus A) = \Prob(B) - \Prob(A)$.
+  \item \textbf{Toplam:} $\Prob(A \cup B) = \Prob(A) + \Prob(B) - \Prob(A \cap B)$.
+  \item \textbf{Alt-toplamsallık (Boole):}
+        $\Prob\!\bigl(\bigcup_n A_n\bigr) \leq \sum_n \Prob(A_n)$.
+  \item \textbf{Aşağıdan süreklilik:} $A_n \nearrow A \Rightarrow \Prob(A_n) \nearrow \Prob(A)$.
+  \item \textbf{Yukarıdan süreklilik:} $A_n \searrow A \Rightarrow \Prob(A_n) \searrow \Prob(A)$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+Tümü Bölüm~1, Teorem~\ref{thm:olcuozellik}'den $\mu = \Prob$ ile alınır.
+Ek olarak: (iii) $A \cup A^c = \Omega$ ayrık; (K2)'den $1 = \Prob(A)+\Prob(A^c)$.
+(vi) $A \cup B = A \cup (B \setminus A)$ ayrık; (ii) + (v).
+Yukarıdan süreklilik için $\Prob(\Omega)=1<\infty$; Teorem~\ref{thm:olcuozellik}(v)
+uygulanabilir.
+\end{proof}
+
+\begin{notkutu}
+(ix) için $\Prob(A_1) < \infty$ yerine $\Prob(\Omega) = 1 < \infty$ her zaman
+sağlandığından, olasılık uzayında yukarıdan süreklilik \emph{koşulsuz} geçerlidir.
+Bu, genel ölçüm teorisine kıyasla önemli bir kolaylıktır.
+\end{notkutu}
+
+\begin{teorem}[Poincaré Dahil-Hariç Formülü]\label{thm:poincare}
+Sonlu aile $A_1, \ldots, A_n \in \mathcal{F}$ için:
+\[
+  \Prob\!\left(\bigcup_{k=1}^n A_k\right)
+  = \sum_{k} \Prob(A_k)
+  - \sum_{k < l} \Prob(A_k \cap A_l)
+  + \sum_{k < l < m} \Prob(A_k \cap A_l \cap A_m)
+  - \cdots
+  + (-1)^{n-1} \Prob(A_1 \cap \cdots \cap A_n).
+\]
+\end{teorem}
+
+\begin{proof}
+\textit{Fikir:} Bir $\omega \in \bigcup_k A_k$, tam olarak $r$ adet $A_k$'da
+bulunsun. Bu $\omega$'nın formülün sağ tarafına katkısını hesaplayınız.
+
+\medskip
+
+$\omega$'nın sol tarafa katkısı $1$'dir. Sağ tarafta: $\omega$, $\binom{r}{1}$
+adet tekli kümede, $\binom{r}{2}$ adet ikili kesişimde, \ldots yer alır.
+Katkı:
+\[
+  \binom{r}{1} - \binom{r}{2} + \binom{r}{3} - \cdots + (-1)^{r-1}\binom{r}{r}
+  = 1 - (1-1)^r = 1.
+\]
+(Binom açılımından $\sum_{k=0}^r (-1)^k \binom{r}{k} = 0$.)
+$\omega \notin \bigcup_k A_k$ ise her iki taraftaki katkı $0$'dır.
+\end{proof}
+
+\begin{ornek}[Poincaré --- iki ve üç olay]\label{ex:poincare}
+\textbf{İki olay:}
+$\Prob(A \cup B) = \Prob(A) + \Prob(B) - \Prob(A \cap B)$ (Teorem~\ref{thm:olasiliktemel}(vi)).
+
+\textbf{Üç olay:}
+$\Prob(A \cup B \cup C) = \Prob(A) + \Prob(B) + \Prob(C)
+- \Prob(A \cap B) - \Prob(A \cap C) - \Prob(B \cap C)
++ \Prob(A \cap B \cap C)$.
+\end{ornek}
+
+\begin{mikroozet}[§2.1 özeti]
+Olasılık uzayı $(\Omega,\mathcal{F},\Prob)$: örnek uzay + $\sigma$-cebiri (olaylar) +
+olasılık ölçüsü. Aksiyomlardan: tümleme, monotonluk, süreklilik, Poincaré formülü.
+Olasılık uzayında yukarıdan süreklilik koşulsuzdur.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Neredeyse Kesin Olaylar ve Sıfır Olasılıklı Olaylar}
+% =====================================================================
+
+\begin{tanim}[Neredeyse Kesin Olay]\label{def:neredeyse_kesin}
+$A \in \mathcal{F}$:
+\begin{itemize}
+  \item \textbf{neredeyse kesin (n.k.)} \emph{(almost surely, a.s.)} adını alır;
+        eğer $\Prob(A) = 1$.
+  \item \textbf{sıfır olasılıklı} \emph{(null event)} adını alır;
+        eğer $\Prob(A) = 0$.
+  \item $A^c$ sıfır olasılıklı ise $A$ neredeyse kesindir ve $A^c$'ye
+        \textbf{ihmal edilebilir olay} \emph{(negligible event)} denir.
+\end{itemize}
+\end{tanim}
+
+\begin{onerme}[Sayılabilir birleşim n.k.]\label{prop:nk_birlesim}
+$A_n$ n.k. her $n$ için ise $\bigcap_{n=1}^\infty A_n$ n.k.'dir.
+\end{onerme}
+
+\begin{proof}
+$\Prob(A_n^c) = 0$ her $n$. Alt-toplamsallık:
+$\Prob\!\bigl(\bigcup_n A_n^c\bigr) \leq \sum_n \Prob(A_n^c) = 0$.
+De~Morgan: $\left(\bigcap_n A_n\right)^c = \bigcup_n A_n^c$; $\Prob(\text{tümleyen}) = 0$;
+yani $\Prob(\bigcap_n A_n) = 1$.
+\end{proof}
+
+\begin{hataanalizi}[Sıfır olasılık $\neq$ imkânsız]
+$\Omega = [0,1]$, $\Prob = \lambda$. Herhangi bir $x \in [0,1]$ için
+$\Prob(\{x\}) = \lambda(\{x\}) = 0$. Ama $\{x\}$ gerçekleşebilir
+(o sonuç fiilen mümkündür); yalnızca Lebesgue ölçüsü sıfır atamıştır.
+``Sıfır olasılık = imkânsız'' yerine ``sıfır olasılık = ihmal edilebilir'' demek daha doğrudur.
+\end{hataanalizi}
+
+\begin{tanim}[Tam Olasılık Uzayı]\label{def:tamuzay}
+$(\Omega,\mathcal{F},\Prob)$ \textbf{tam} \emph{(complete)} adını alır; eğer
+$\Prob(N)=0$ ve $A \subseteq N$ ise $A \in \mathcal{F}$ (ve $\Prob(A)=0$).
+Lebesgue ölçüm uzayı tam; Borel kümeler üzerinde Lebesgue ölçüsü tam değil.
+\end{tanim}
+
+
+% =====================================================================
+\section{Koşullu Olasılık}
+% =====================================================================
+
+\begin{kesif}[Koşullu olasılık sezgisi]
+Adil bir zar atılıyor. ``Çift sayı geldi'' ($B$) bilgisiyle, ``6 geldi'' ($A$)
+olayının olasılığı nedir? Sezginizi yazınız, ardından Tanım~\ref{def:kos_olasilik}'i okuyunuz.
+\kesifcevap{$P(A \mid B) = \dfrac{P(A \cap B)}{P(B)} = \dfrac{1/6}{3/6} = \dfrac{1}{3}$.
+  ``Çift geldi'' bilgisi örneklem uzayını $\{2,4,6\}$'ya daraltır; 6 bu kümenin
+  $1/3$'üdür. Genel kural: $P(A \mid B) = P(A \cap B)/P(B)$.}
+\end{kesif}
+
+\begin{tanimgerekce}
+Peki ya $\Prob(B) = 0$ ise? Bu formül tanımsız kalır; sıfır olasılıklı koşul
+altında koşullu olasılık çok daha ince bir yapı gerektirir (genel koşullu beklenti
+teorisi, Bölüm~\ref{chp:rasgele_degiskenler}). Şimdilik $\Prob(B) > 0$ varsayımıyla
+çalışıyoruz; bu kısıt Teorem~\ref{thm:kos_olcu}'de $A \mapsto \Prob(A \mid B)$'nin
+tam anlamıyla yeni bir olasılık ölçüsü oluşturduğunu ispat etmemizi sağlar.
+\end{tanimgerekce}
+
+\begin{tanim}[Koşullu Olasılık]\label{def:kos_olasilik}
+$(\Omega,\mathcal{F},\Prob)$ olasılık uzayı, $B \in \mathcal{F}$, $\Prob(B) > 0$.
+$B$'ye koşullu $A$'nın olasılığı:
+\[
+  \Prob(A \mid B) \coloneqq \frac{\Prob(A \cap B)}{\Prob(B)}, \quad A \in \mathcal{F}.
+\]
+\end{tanim}
+
+\begin{teorem}[Koşullu Olasılık Bir Olasılık Ölçüsüdür]\label{thm:kos_olcu}
+$\Prob(B) > 0$ ise $A \mapsto \Prob(A \mid B)$ bir olasılık ölçüsüdür;
+yani $(\Omega, \mathcal{F}, \Prob(\cdot \mid B))$ bir olasılık uzayıdır.
+\end{teorem}
+
+\begin{proof}
+(K1) $\Prob(A \cap B) \geq 0$; $\Prob(B) > 0$; dolayısıyla $\Prob(A \mid B) \geq 0$.
+
+(K2) $\Prob(\Omega \mid B) = \Prob(\Omega \cap B)/\Prob(B) = \Prob(B)/\Prob(B) = 1$.
+
+(K3) $(A_n)$ ikili ayrık; $(A_n \cap B)$ da ikili ayrık:
+\[
+  \Prob\!\left(\bigcup_n A_n \,\Big|\, B\right)
+  = \frac{\Prob\!\left(\bigcup_n (A_n \cap B)\right)}{\Prob(B)}
+  = \frac{\sum_n \Prob(A_n \cap B)}{\Prob(B)}
+  = \sum_n \Prob(A_n \mid B).  \qed
+\]
+\end{proof}
+
+\begin{teorem}[Toplam Olasılık Teoremi]\label{thm:toplam_olasilik}
+$(B_n)_{n=1}^N$ ($N \leq \infty$) ikili ayrık, $\bigcup_n B_n = \Omega$,
+$\Prob(B_n) > 0$ olsun. Her $A \in \mathcal{F}$ için:
+\[
+  \Prob(A) = \sum_{n=1}^N \Prob(A \mid B_n)\, \Prob(B_n).
+\]
+\end{teorem}
+
+\begin{proof}
+$A = \bigcup_n (A \cap B_n)$ ayrık birleşim; $\sigma$-toplamsallık:
+$\Prob(A) = \sum_n \Prob(A \cap B_n) = \sum_n \Prob(A \mid B_n)\Prob(B_n)$.
+\end{proof}
+
+\begin{ornek}[Toplam Olasılık --- fabrika sorunu]\label{ex:fabrika}
+Üç fabrika sırasıyla üretimin $\%50$, $\%30$, $\%20$'sini yapıyor ve
+hatalı oranları sırasıyla $\%2$, $\%4$, $\%5$. Rastgele seçilen bir
+ürünün hatalı olma olasılığı?
+
+$B_1, B_2, B_3$: fabrikalara ait ürünler. $A$: hatalı.
+\[
+  \Prob(A) = 0.02 \times 0.5 + 0.04 \times 0.3 + 0.05 \times 0.2
+           = 0.010 + 0.012 + 0.010 = 0.032.
+\]
+\end{ornek}
+
+\begin{teorem}[Çarpım Kuralı]\label{thm:carpim}
+$A_1, \ldots, A_n \in \mathcal{F}$, $\Prob(A_1 \cap \cdots \cap A_{n-1}) > 0$:
+\[
+  \Prob(A_1 \cap \cdots \cap A_n)
+  = \Prob(A_1)\,\Prob(A_2 \mid A_1)\,\Prob(A_3 \mid A_1 \cap A_2)
+    \cdots \Prob(A_n \mid A_1 \cap \cdots \cap A_{n-1}).
+\]
+\end{teorem}
+
+\begin{proof}
+Tümevarım: $n=2$ tanımdan. $n$'de geçerliyse $n+1$:
+son çarpanı $\Prob(A_1 \cap \cdots \cap A_n) \cdot \Prob(A_{n+1} \mid A_1 \cap \cdots \cap A_n)$
+ile genişlet.
+\end{proof}
+
+\begin{mikroozet}[§2.3 özeti]
+$\Prob(A|B) = \Prob(A \cap B)/\Prob(B)$. Koşullu olasılık bir olasılık ölçüsüdür.
+Toplam olasılık: bölüntü üzerinden toplam. Çarpım kuralı: zincirleme hesap.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Bayes Teoremi}
+% =====================================================================
+
+\begin{teorem}[Bayes Teoremi]\label{thm:bayes}
+$(B_n)$ tam bir bölüntü oluştursun ($\Prob(B_n)>0$, $\bigcup_n B_n = \Omega$,
+ikili ayrık). Her $A \in \mathcal{F}$, $\Prob(A)>0$ için:
+\[
+  \Prob(B_k \mid A)
+  = \frac{\Prob(A \mid B_k)\,\Prob(B_k)}{\sum_n \Prob(A \mid B_n)\,\Prob(B_n)}.
+\]
+\end{teorem}
+
+\begin{proof}
+Pay: $\Prob(A \mid B_k)\Prob(B_k) = \Prob(A \cap B_k)$.
+Payda: Toplam Olasılık Teoremi (Teorem~\ref{thm:toplam_olasilik}):
+$\sum_n \Prob(A \mid B_n)\Prob(B_n) = \Prob(A)$.
+Oran: $\Prob(A \cap B_k)/\Prob(A) = \Prob(B_k \mid A)$.
+\end{proof}
+
+\begin{notkutu}
+Bayes teoremindeki terminoloji:
+\begin{itemize}
+  \item $\Prob(B_k)$: \textbf{önsel olasılık} \emph{(prior probability)} --- $A$ gözlemlenmeden önceki bilgi.
+  \item $\Prob(A \mid B_k)$: \textbf{olabilirlik} \emph{(likelihood)} --- $B_k$ doğruysa $A$'nın olasılığı.
+  \item $\Prob(B_k \mid A)$: \textbf{sonsal olasılık} \emph{(posterior probability)} --- $A$ gözlemlendikten sonra.
+  \item $\Prob(A)$: \textbf{marjinal (normalleştirme sabiti)}.
+\end{itemize}
+\end{notkutu}
+
+\begin{ornek}[Bayes --- tıbbi test]\label{ex:tibbi_test}
+Hastalığın görülme sıklığı $\Prob(H) = 0.001$. Test duyarlılığı
+$\Prob(T^+ \mid H) = 0.99$; yanlış pozitif $\Prob(T^+ \mid H^c) = 0.05$.
+Pozitif test sonucunda hasta olma olasılığı?
+
+\[
+  \Prob(H \mid T^+)
+  = \frac{0.99 \times 0.001}{0.99 \times 0.001 + 0.05 \times 0.999}
+  = \frac{0.00099}{0.00099 + 0.04995}
+  \approx 0.0194.
+\]
+
+Sonuç $\approx \%2$: Hastalık çok nadir olduğunda bile \emph{çok iyi} bir testin
+pozitif sonucu gerçek hastalığı büyük olasılıkla değil, yanlış pozitifi gösterir.
+\end{ornek}
+
+\begin{hataanalizi}[Savcının yanılgısı (Prosecutor's fallacy)]
+$\Prob(E \mid \text{Suçsuz})$ çok küçükse, $\Prob(\text{Suçsuz} \mid E)$'nin
+de küçük olduğu \emph{sonucu çıkmaz}. Örnek~\ref{ex:tibbi_test}'te
+$\Prob(T^+ \mid H^c) = 0.05$ küçüktür, ama $\Prob(H \mid T^+) \approx 0.02$
+daha küçüktür; çünkü $\Prob(H)$ çok küçüktür. Olası suçluluk oranı (önsel)
+hesaba katılmadan $\Prob(E \mid \text{Suçsuz})$'u mahkûmiyet gerekçesi yapmak
+Bayes teoremini göz ardı etmektir.
+\end{hataanalizi}
+
+\begin{disiplinlerarasibaglan}[Makine öğrenmesi ve Naive Bayes]
+Bayes teoremi makine öğrenmesinde metin sınıflandırmanın temelini oluşturur.
+\emph{Naive Bayes sınıflandırıcısı}, her özelliğin (kelime) bağımsız olduğunu
+varsayarak bir belgenin hangi sınıfa ait olduğunu sınıflandırır:
+$\Prob(\text{sınıf} \mid \text{kelimeler}) \propto \Prob(\text{sınıf}) \prod_i \Prob(\text{kelime}_i \mid \text{sınıf})$.
+``Naive'' (saf) adı bağımsızlık varsayımının kaba olmasından gelir; ama pratikte
+şaşırtıcı biçimde iyi çalışır.
+\end{disiplinlerarasibaglan}
+
+\begin{mikroozet}[§2.4 özeti]
+Bayes teoremi: sonsal $\propto$ olabilirlik $\times$ önsel.
+Payda = Toplam Olasılık. Nadir hastalıklar, Savcı yanılgısı, Naive Bayes:
+hepsi aynı formülün görünümleri.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Bağımsızlık}
+% =====================================================================
+
+\begin{kesif}[Bağımsızlık sezgisi]
+``$A$ gerçekleşmesinin $B$'ye etkisi yoktur'' ne demektir?
+$\Prob(A \mid B) = \Prob(A)$ formülü bunu yakalar; ama $\Prob(B)=0$ durumunda
+bu yazılamaz. Bundan bağımsız bir tanım olasını düşününüz.
+\kesifcevap{Bağımsızlık tanımı: $P(A \cap B) = P(A) \cdot P(B)$.
+  Bu, $P(B)=0$ durumunda da anlamlıdır ve $P(A \mid B)=P(A)$'nın
+  tam genellemesidir. ``$B$ bilgisi $A$'nın olasılığını değiştirmez''
+  sezgisini $P(B)>0$ olmaksızın ifade eder.}
+\end{kesif}
+
+\begin{tanimgerekce}
+$\Prob(A \mid B) = \Prob(A)$ sezgisi doğru yönü gösterir, ama $\Prob(B) = 0$
+durumunda koşullu olasılık tanımsız kalır. Çarpım kuralı
+$\Prob(A \cap B) = \Prob(A)\Prob(B)$ bu köşe durumu da kapsar ve simetrik bir
+yapı sunar: $A$'nın $B$'ye bağımsızlığı ile $B$'nin $A$'ya bağımsızlığı
+formül düzeyinde özdeştir.
+\end{tanimgerekce}
+
+\begin{tanim}[Bağımsız Olaylar]\label{def:bagimsiz_olay}
+$A, B \in \mathcal{F}$ olayları \textbf{bağımsız} \emph{(independent)} adını alır;
+eğer $\Prob(A \cap B) = \Prob(A)\,\Prob(B)$.
+
+Sonlu aile $\{A_1,\ldots,A_n\}$ \textbf{karşılıklı bağımsız}
+\emph{(mutually independent)} adını alır; eğer her $I \subseteq \{1,\ldots,n\}$,
+$I \neq \emptyset$ için:
+\[
+  \Prob\!\left(\bigcap_{i \in I} A_i\right) = \prod_{i \in I} \Prob(A_i).
+\]
+
+Sonsuz aile $\{A_i : i \in I\}$ karşılıklı bağımsızdır; eğer her sonlu
+$J \subseteq I$ için karşılıklı bağımsızlık koşulu sağlanıyorsa.
+\end{tanim}
+
+\begin{kritiksorgu}[İkili bağımsızlık $\neq$ karşılıklı bağımsızlık]
+İkili bağımsızlık ($\Prob(A_i \cap A_j) = \Prob(A_i)\Prob(A_j)$ tüm $i \neq j$
+için) karşılıklı bağımsızlığı gerektirmez. Aşağıdaki karşı örnek bunu açıklar.
+\end{kritiksorgu}
+
+\begin{karsiornek}[Bernstein'ın örneği]\label{ex:bernstein}
+Dengeli bir dört yüzlü zar: yüzler $\{1,2,3,4\}$, her biri $1/4$ olasılıklı.
+$A = \{1,2\}$, $B = \{1,3\}$, $C = \{1,4\}$ olsun.
+
+$\Prob(A)=\Prob(B)=\Prob(C)=1/2$.
+$\Prob(A \cap B) = \Prob(\{1\}) = 1/4 = \Prob(A)\Prob(B)$. Benzer: $A,B$; $A,C$; $B,C$ ikili bağımsız.
+
+Ama $\Prob(A \cap B \cap C) = 1/4 \neq 1/8 = \Prob(A)\Prob(B)\Prob(C)$.
+
+$A, B, C$ ikili bağımsız ama karşılıklı bağımsız değil!
+\end{karsiornek}
+
+\begin{tanim}[$\sigma$-Cebirlerinin Bağımsızlığı]\label{def:sigmababag}
+$(\mathcal{G}_i)_{i \in I}$ $\mathcal{F}$'nin alt $\sigma$-cebirleri ailesine
+\textbf{bağımsız} denir; eğer her sonlu $J \subseteq I$ ve her
+$A_j \in \mathcal{G}_j$ ($j \in J$) için:
+\[
+  \Prob\!\left(\bigcap_{j \in J} A_j\right) = \prod_{j \in J} \Prob(A_j).
+\]
+\end{tanim}
+
+\begin{onerme}[$\pi$-sistemi ile bağımsızlık kontrolü]\label{prop:pisys_bag}
+$\mathcal{P}_i$ bir $\pi$-sistemi ($\cap$ altında kapalı) ve
+$\sigma(\mathcal{P}_i) = \mathcal{G}_i$ olsun. Eğer $(\mathcal{P}_i)$ ailesi
+bağımsız ise $(\mathcal{G}_i)$ de bağımsızdır.
+\end{onerme}
+
+\begin{proof}
+Dynkin'in $\pi$-$\lambda$ teoremi: $\pi$-sistemlerin bağımsızlığı,
+ürettikleri $\sigma$-cebirlerine uzar.
+Ayrıntı için Billingsley~\cite{billingsley1995} §4 bakınız.
+\end{proof}
+
+\begin{onerme}[Bağımsızlığın Korunması]\label{prop:bag_korunma}
+$A$ ve $B$ bağımsız ise $A$ ve $B^c$; $A^c$ ve $B$; $A^c$ ve $B^c$ de bağımsızdır.
+\end{onerme}
+
+\begin{proof}
+$\Prob(A \cap B^c) = \Prob(A) - \Prob(A \cap B) = \Prob(A) - \Prob(A)\Prob(B)
+= \Prob(A)(1 - \Prob(B)) = \Prob(A)\Prob(B^c)$.
+Diğerleri benzer.
+\end{proof}
+
+\begin{ornek}[Bağımsız denemeler uzayı]\label{ex:bag_deneme}
+Adil yazı-tura $n$ kez atılsın. $\Omega = \{Y,T\}^n$, $|\Omega|=2^n$,
+$\Prob(\{\omega\}) = (1/2)^n$ her $\omega$ için.
+
+$A_k = \{k\text{-inci atışta tura}\}$. $A_1, \ldots, A_n$ karşılıklı bağımsızdır:
+$\Prob(A_{k_1} \cap \cdots \cap A_{k_r}) = (1/2)^r = \prod_j \Prob(A_{k_j})$.
+\end{ornek}
+
+\begin{mikroozet}[§2.5 özeti]
+Bağımsızlık: $\Prob(A \cap B) = \Prob(A)\Prob(B)$.
+Karşılıklı bağımsızlık: tüm alt aileler için çarpım formülü.
+İkili $\not\Rightarrow$ karşılıklı (Bernstein örneği).
+Tümleyen bağımsızlığı korur.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Klasik Kombinatoryal Olasılık}
+% =====================================================================
+
+\begin{motivasyon}[§2.6]
+Sonlu, eşit-olası $\Omega$ ile $\Prob(A) = |A|/|\Omega|$ formülü, olasılık
+hesabını sayma problemine indirgeler. Bu alt bölüm önemli sayma tekniklerini
+ve klasik paradoksları içeriyor.
+\end{motivasyon}
+
+\begin{tanim}[Klasik Olasılık Modeli]\label{def:klasik}
+$\Omega$ sonlu, $\mathcal{F} = \mathcal{P}(\Omega)$,
+$\Prob(A) = |A|/|\Omega|$ her $A \subseteq \Omega$ için.
+\end{tanim}
+
+\subsection{Temel Sayma İlkeleri}
+
+\begin{teorem}[Çarpım İlkesi]\label{thm:carpim_ilkesi}
+İlk seçim $m$, ikinci seçim $n$ yolda yapılabiliyorsa, sıralı çift sayısı $mn$'dir.
+Genel: $k$ aşamalı seçimde $n_1 \cdots n_k$ olasılık.
+\end{teorem}
+
+\begin{tanim}[Permütasyon ve Kombinasyon]\label{def:perm_komb}
+\begin{itemize}
+  \item $n$ elemanlı kümeden $r$ elemanın \textbf{sıralı} seçimi sayısı:
+        $P(n,r) = n(n-1)\cdots(n-r+1) = \dfrac{n!}{(n-r)!}$.
+  \item $n$ elemanlı kümeden $r$ elemanın \textbf{sırasız} seçimi sayısı:
+        $\binom{n}{r} = \dfrac{n!}{r!\,(n-r)!}$.
+  \item $n$ elemanlı kümenin \textbf{tam sıralaması}: $n!$
+\end{itemize}
+\end{tanim}
+
+\begin{teorem}[Binom Teoremi]\label{thm:binom}
+$(x+y)^n = \sum_{k=0}^n \binom{n}{k} x^k y^{n-k}$.
+\end{teorem}
+
+\begin{proof}
+$(x+y)^n$'de her çarpımı açınca $n$ faktörün her birinden $x$ ya da $y$ seçilir.
+$x^k y^{n-k}$ terimini veren seçim sayısı $\binom{n}{k}$ (hangi $k$ faktörden $x$ alınacağı).
+\end{proof}
+
+\begin{ornek}[Doğum günü paradoksu]\label{ex:dogumgunu}
+$n$ kişilik bir grupta en az iki kişinin aynı doğum gününe sahip olma
+olasılığı ne zaman $1/2$'yi aşar?
+
+$A^c$: hiçbir iki kişi aynı günde doğmamış. $|\Omega| = 365^n$,
+$|A^c| = 365 \cdot 364 \cdots (365-n+1) = P(365,n)$.
+\[
+  \Prob(A^c) = \frac{365!/(365-n)!}{365^n} = \prod_{k=0}^{n-1}\frac{365-k}{365}.
+\]
+$n=23$: $\Prob(A^c) \approx 0.493$; $\Prob(A) \approx 0.507 > 1/2$.
+
+\textbf{Paradoks neden şaşırtıcı?} Biz $n/365$'i düşünürüz; oysa olası çift
+sayısı $\binom{n}{2} \approx n^2/2$'dir.
+\end{ornek}
+
+\begin{ornek}[Zindan sorunu --- Monty Hall]\label{ex:montyhall}
+Üç kapının arkasında: bir araba, iki keçi. Bir kapı seçtiniz; sunucu (keçi
+olan) başka bir kapıyı açıyor ve değiştirmenizi öneriyor. Değişmeli misiniz?
+
+$B_k$: arabanın $k$'inci kapıda olması, $k=1,2,3$.
+Siz 1'i seçtiniz; sunucu 3'ü açtı.
+
+$\Prob(B_1 \mid \text{3 açıldı}) = \Prob(\text{3 açıldı} \mid B_1)\Prob(B_1) / \Prob(\text{3 açıldı})$.
+
+$\Prob(\text{3 açıldı} \mid B_1) = 1/2$ (sunucu 2 veya 3'ü seçebilir),
+$\Prob(\text{3 açıldı} \mid B_2) = 1$ (zorunlu: 3 açılır),
+$\Prob(\text{3 açıldı} \mid B_3) = 0$ (3 açılamaz).
+$\Prob(\text{3 açıldı}) = 1/2 \cdot 1/3 + 1 \cdot 1/3 = 1/2$.
+$\Prob(B_1 \mid \text{3 açıldı}) = (1/6)/(1/2) = 1/3$.
+$\Prob(B_2 \mid \text{3 açıldı}) = (1/3)/(1/2) = 2/3$.
+
+\textbf{Değiştiriniz!} Değiştirme olasılığı $2/3 > 1/3$.
+\end{ornek}
+
+\begin{kendinleifade}
+Monty Hall sorusunda sunucunun rastgele değil, \emph{her zaman keçi olan}
+bir kapıyı açtığını not ediniz. Sunucu rastgele açsaydı sonuç değişir miydi?
+\kendinleifadecevap{Sunucu \emph{bilerek} keçi açıyorsa: değiştirmek $P(\text{kazanç})=2/3$.
+  Sunucu \emph{rastgele} açıp keçi çıkıyorsa: Bayes ile her iki kalan kapı eşit olasılıklı,
+  $P=1/2$ --- değiştirmenin faydası kalmaz.
+  Fark: bilginin kalitesi. Bilerek seçen sunucu asimetrik bilgi taşır;
+  rastgele seçen sunucu bu asimetriyi yok eder.}
+\end{kendinleifade}
+
+\begin{ornek}[Hat çekme paradoksu]\label{ex:hatchekme}
+$n$ kişi arasında $n$ hat dağıtılıyor; $k$ hat kısa ($k < n$). Herkes
+rastgele bir hat çekiyor. İlk çeken mi, son çeken mi avantajlı?
+
+$A_j$: $j$-inci kişi kısa hat çekiyor.
+$\Prob(A_j) = k/n$ her $j$ için (simetri).
+
+İlk çeken için: $k/n$ açıkça.
+İkinci çeken için: $A_1^c$ koşulunda $k/(n-1)$;
+$\Prob(A_2) = \Prob(A_2|A_1)\Prob(A_1) + \Prob(A_2|A_1^c)\Prob(A_1^c)$
+$= (k-1)/(n-1) \cdot k/n + k/(n-1) \cdot (n-k)/n = k(n-1)/n(n-1) = k/n$.
+
+Hiçbir sıra avantajlı değildir.
+\end{ornek}
+
+\begin{mikroozet}[§2.6 özeti]
+Klasik model: eşit olası, $\Prob(A) = |A|/|\Omega|$. Çarpım ilkesi, permütasyon,
+kombinasyon. Doğum günü: $n=23$'te $>1/2$. Monty Hall: Bayes uygulaması.
+Hat çekme: sıranın önemi yok.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Koşullu Bağımsızlık ve Bayesçi Ağlar}
+\label{sec:kosullu_bagimsizlik}
+% =====================================================================
+
+\begin{tanim}[Koşullu Bağımsızlık]
+\label{def:kosullu_bagimsizlik}
+$A$ ve $B$ olayları $C$ verildiğinde \textbf{koşullu bağımsız}
+(conditionally independent) denir ve $A \perp B \mid C$ gösterilir, eğer
+\[
+  \Prob(A \cap B \mid C) = \Prob(A \mid C)\,\Prob(B \mid C).
+\]
+\end{tanim}
+
+\begin{ornek}[Koşullu Bağımsızlık $\neq$ Mutlak Bağımsızlık]
+Bir kişi iki gün üst üste hasta olsun ($A$: 1. gün hasta, $B$: 2. gün hasta).
+$C$ = "grip mevsiminde". $A$ ve $B$ koşulsuz bağımlı (grip yakalanmak sürer).
+$C$ verildiğinde $A$ ve $B$ koşullu bağımsız olabilir: gribi olan kişide
+birinci ve ikinci günün durumları hastalığın seyrine bağlı, ama $C$'yi bilirsek
+korelasyon büyük ölçüde $C$'den kaynaklanıyor.
+
+Ters yön: $A \perp B$ ama $A \not\perp B \mid C$.
+Örnek: $A = \{\text{Türkiye'de yağmur}\}$, $B = \{\text{Japonya'da yağmur}\}$, $C = \{\text{El Niño}\}$.
+$A \perp B$ (bağımsız ülkeler) ama $A \not\perp B \mid C$ (El Niño her ikisini etkiler).
+\end{ornek}
+
+\begin{teorem}[Koşullu Bağımsızlık Özellikleri]
+\label{thm:kosullu_bagimsizlik}
+$A \perp B \mid C$ ise:
+\begin{enumerate}[(i)]
+  \item $A^c \perp B \mid C$ (tümleme kapalı).
+  \item $\Prob(A \cap B \cap C) = \Prob(A \mid C)\Prob(B \mid C)\Prob(C)$ (zincir kuralı ile).
+  \item $A \perp B \mid C$ ve $A \perp D \mid C$ ise $A \perp (B \cup D) \mid C$ (belirli koşullarla).
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}[(i)]
+$\Prob(A^c \cap B \mid C) = \Prob(B \mid C) - \Prob(A \cap B \mid C)
+= \Prob(B \mid C) - \Prob(A \mid C)\Prob(B \mid C) = (1-\Prob(A \mid C))\Prob(B \mid C)
+= \Prob(A^c \mid C)\Prob(B \mid C)$.
+\end{proof}
+
+\begin{tanim}[Olasılıklı Grafik Model --- Bayesçi Ağ]
+\label{def:bayesci_ag}
+Rasgele değişkenler $X_1, \ldots, X_n$; bir yönlü asiklik graf (DAG).
+Her $X_i$, ebeveynleri $\mathrm{Pa}(X_i)$ koşulunda diğer atalardan bağımsız:
+\[
+  X_i \perp \{X_j : j \notin \mathrm{Pa}(X_i), j \text{ torun değil}\} \mid \mathrm{Pa}(X_i).
+\]
+Ortak dağılım: $\Prob(X_1 = x_1, \ldots, X_n = x_n) = \prod_{i=1}^n \Prob(X_i = x_i \mid \mathrm{Pa}(X_i))$.
+\end{tanim}
+
+\begin{ornek}[Basit Bayesçi Ağ]
+$D$ (hastalık) $\to$ $S$ (semptom) $\to$ $T$ (test).
+$S \perp T \mid D$ değil, ama $D \perp T \mid S$ (test sadece semptomla ilgili).
+Ortak: $\Prob(D, S, T) = \Prob(D)\Prob(S \mid D)\Prob(T \mid S)$.
+$\Prob(D \mid T)$: Bayes teoremi ile hesaplanır.
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Yapay zeka:} Bayesçi ağlar, belirsizlik altında akıl yürütmenin
+temel matematiksel çerçevesidir; teşhis sistemleri, konuşma tanıma ve robotik karar sistemlerinde kullanılır.\\
+\textbf{Epidemiyoloji:} Bulaşıcı hastalık modelleri DAG yapısıyla koşullu bağımsızlıkları kodlar.\\
+\textbf{Makine öğrenmesi:} Naive Bayes sınıflandırıcısı, özellikler sınıf koşulunda bağımsız varsayımına dayanır.
+\end{disiplinlerarasibaglan}
+
+% =====================================================================
+\section{Bilgi Teorisi Temelleri: Entropi ve Karşılıklı Bilgi}
+\label{sec:entropi}
+% =====================================================================
+
+\begin{tanim}[Shannon entropisi]\label{def:entropi}
+Sonlu $\Omega=\{x_1,\ldots,x_n\}$, $p_i=P(X=x_i)$. $X$'in \emph{Shannon entropisi} (\emph{entropy}):
+\[
+  H(X) = -\sum_{i=1}^n p_i \log_2 p_i,\quad (0\log 0:=0)
+\]
+bit cinsinden. $H(X)\geq0$; $H(X)=0\iff X$ deterministik; $H(X)\leq\log_2 n$ (maksimum: düzgün dağılım).
+\end{tanim}
+
+\begin{teorem}[Maksimum entropi]\label{thm:maks_entropi}
+$P(X=x_i)=1/n$ için $H(X)=\log_2 n$; bu $n$-durumlu herhangi bir dağılımın maksimum entropisidir.
+\end{teorem}
+
+\begin{proof}
+Jensen eşitsizliği: $H(p)=-\sum p_i\log p_i\leq\log_2(\sum p_i/p_i \cdot n^{-1})^{-1}$ ... Doğrudan: Gibbs eşitsizliği, $-\sum p_i\log p_i\leq-\sum p_i\log(1/n)=\log n$, eşitlik $p_i=1/n$.
+\end{proof}
+
+\begin{tanim}[Koşullu entropi ve karşılıklı bilgi]\label{def:karsılikli_bilgi}
+\begin{align*}
+  H(X|Y) &= -\sum_{x,y}P(X=x,Y=y)\log P(X=x|Y=y) \quad \text{(koşullu entropi)}\\
+  I(X;Y) &= H(X)-H(X|Y) = H(Y)-H(Y|X) \quad \text{(karşılıklı bilgi)}\\
+  D_{\mathrm{KL}}(P\|Q) &= \sum_x P(x)\log\frac{P(x)}{Q(x)} \geq 0 \quad \text{(KL iraksaması)}
+\end{align*}
+$X\perp Y\iff I(X;Y)=0$.
+\end{tanim}
+
+\begin{teorem}[Veri işleme eşitsizliği]\label{thm:veri_isleme}
+$X\to Y\to Z$ Markov zinciri ise $I(X;Z)\leq I(X;Y)$: yeterli istatistikler bilgiyi korur, diğer işlemler azaltır.
+\end{teorem}
+
+\begin{ornek}[KL iraksaması ile olabilirlik]\label{ex:kl_olasilik}
+$P$ gerçek dağılım, $Q_\theta$ model. $D_{\mathrm{KL}}(P\|Q_\theta)=H(P,Q_\theta)-H(P)$; çapraz entropi minimize etmek KL minimize etmekle eşdeğer. MLE = empirik dağılıma en küçük KL olan model.
+\end{ornek}
+
+% =====================================================================
+\section{Olasılık Uzaylarının Genişlemesi: Sonsuz Dizi Uzayları}
+\label{sec:sonsuz_uzay}
+% =====================================================================
+
+\begin{tanim}[Ürün uzayı]\label{def:urun_uzayi}
+$(\Omega_n,\mathcal{F}_n,P_n)$ olasılık uzayları. Sonsuz ürün $\Omega=\prod_{n=1}^\infty\Omega_n$, $\mathcal{F}=\bigotimes_{n=1}^\infty\mathcal{F}_n$ (silindir kümeler tarafından üretilen $\sigma$-cebir).
+\end{tanim}
+
+\begin{teorem}[Kolmogorov genişleme teoremi]\label{thm:kolmogorov_genisleme}
+Her tutarlı sonlu boyutlu dağılım ailesi $\{P_{n_1,\ldots,n_k}\}$ için, bu dağılımları marjinal olarak veren tek bir olasılık ölçüsü $P$ sonsuz ürün uzayında mevcuttur.
+\end{teorem}
+
+\begin{ornek}[İ.i.d.\ dizi uzayı]\label{ex:iid_uzay}
+$X_1,X_2,\ldots\iid F$. Kolmogorov teoremi bu dizinin bir olasılık uzayında var olduğunu garanti eder. Bu, GBSK ve MLT ispatlarının gizli temelidir: sonsuz bir dizi tanımlamak için $(\Omega,\mathcal{F},P)$'nin var olduğunu kabul ederiz.
+\end{ornek}
+
+\begin{ispatiskele}
+\textbf{Kolmogorov genişleme teoremi ispatı taslağı}
+\begin{enumerate}
+  \item Sonlu boyutlu dağılımların tutarlılık koşulunu yaz (marjinalizasyon kapalı).
+  \item Silindir kümeleri üzerinde $P$'yi tüm tutarlı dağılımları kullanarak tanımla.
+  \item Carathéodory genişleme teoremini uygulayarak $\sigma$-cebirde $P$'yi genişlet.
+  \item $\sigma$-toplamsallığını (sayılabilir toplanabilirlik) topolojik argümanla doğrula.
+\end{enumerate}
+\end{ispatiskele}
+
+\begin{mikroozet}
+Koşullu bağımsızlık: $\Prob(A\cap B|C) = \Prob(A|C)\Prob(B|C)$.
+Koşullu bağımsızlık mutlak bağımsızlığı ne gerektirir ne de garantiler.
+Bayesçi ağlar: DAG + koşullu olasılık tabloları $\Rightarrow$ ortak dağılım.
+Entropi: belirsizlik ölçüsü; KL iraksaması $\geq0$; MLE = minimum KL.
+Kolmogorov genişlemesi: sonsuz i.i.d.\ dizinin varlığı garanti edilir.
+\end{mikroozet}
+
+% =====================================================================
+%  BÖLÜM SONU ÖZETİ
+% =====================================================================
+\section*{Bölüm Özeti}
+\addcontentsline{toc}{section}{Bölüm Özeti}
+
+\begin{bolumozeti}[Bölüm 2 --- Temel Sonuçlar]
+\begin{itemize}
+  \item \textbf{Olasılık uzayı:} $(\Omega,\mathcal{F},\Prob)$; (K1) $\Prob \geq 0$;
+        (K2) $\Prob(\Omega)=1$; (K3) $\sigma$-toplamsallık.
+  \item \textbf{Poincaré:} $\Prob(\bigcup_k A_k) = \sum|I|(-1)^{|I|-1}\Prob(\bigcap_{i\in I}A_i)$.
+  \item \textbf{Koşullu olasılık:} $\Prob(A|B) = \Prob(A \cap B)/\Prob(B)$;
+        bu bir olasılık ölçüsü.
+  \item \textbf{Toplam olasılık:} $\Prob(A) = \sum_n \Prob(A|B_n)\Prob(B_n)$.
+  \item \textbf{Bayes:} sonsal $= $ olabilirlik $\times$ önsel / marjinal.
+  \item \textbf{Bağımsızlık:} $\Prob(A \cap B) = \Prob(A)\Prob(B)$.
+        Karşılıklı bağımsızlık $\neq$ ikili bağımsızlık (Bernstein).
+        Tümleyen bağımsızlığı korur.
+  \item \textbf{Klasik model:} $\Prob(A) = |A|/|\Omega|$;
+        doğum günü $n=23$'te çarpıcı.
+\end{itemize}
+
+\medskip\noindent\textbf{Notasyon özeti:}
+\begin{itemize}
+  \item $\Prob(A|B)$: koşullu olasılık;\quad $\Prob(B_k|A)$: sonsal
+  \item $\Prob(B_k)$: önsel;\quad $\Prob(A|B_k)$: olabilirlik
+  \item $\binom{n}{k}$: kombinasyon;\quad $n!$: permütasyon
+\end{itemize}
+\end{bolumozeti}
+
+\begin{ozyansima}
+\begin{itemize}
+  \item Kolmogorov aksiyomlarından tüm temel özellikleri türetebilir misiniz
+        (tümleme, monotonluk, Poincaré)?
+  \item Koşullu olasılığın neden bir olasılık ölçüsü olduğunu üç aksiyomu
+        kontrol ederek açıklayabilir misiniz?
+  \item Tıbbi test örneğini farklı bir hastalık sıklığı ($1/100$) ile yeniden
+        hesaplayınız; sonuç nasıl değişti?
+  \item Bernstein'ın karşı örneğinde neden karşılıklı bağımsızlık bozuluyor?
+\end{itemize}
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Sonraki bölüm (Bölüm~3: Rasgele Değişkenler ve Dağılımlar).}
+Olasılık uzayı altyapısı artık hazır. Rasgele değişken, $(\Omega,\mathcal{F})$'den
+$(\mathbb{R},\mathcal{B}(\mathbb{R}))$'ye ölçülebilir fonksiyon olarak
+tanımlanacak; dağılım fonksiyonu bu fonksiyonun $\Prob$ altındaki görüntüsü
+olacak.
+
+\medskip
+
+\textbf{İleri okuma.}
+Kolmogorov~\cite{kolmogorov1933} (orijinal kaynak, 77 sayfa);
+Feller~\cite{feller1968vol1} Bölüm~I--V;
+Gnedenko~\cite{gnedenko1962} Bölüm~1--3.
+\end{kopru}
+
+
+% =====================================================================
+%  ALIŞTIRMALAR
+% =====================================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.2.1]{A}{Poincaré formülü --- üç olay}
+$\Prob(A) = 0.5$, $\Prob(B) = 0.4$, $\Prob(C) = 0.3$,
+$\Prob(A \cap B) = 0.2$, $\Prob(A \cap C) = 0.15$,
+$\Prob(B \cap C) = 0.1$, $\Prob(A \cap B \cap C) = 0.05$.
+$\Prob(A \cup B \cup C)$'yi hesaplayınız.
+\end{alistirma}
+\alcozum{%
+Poincaré (Teorem~\ref{thm:poincare}):
+\begin{align*}
+  \Prob(A \cup B \cup C)
+  &= 0.5 + 0.4 + 0.3 - 0.2 - 0.15 - 0.1 + 0.05 = 0.80.
+\end{align*}
+$\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.2]{B}{Bayes teoremi --- fabrika}
+Örnek~\ref{ex:fabrika}'ya devam: Seçilen ürün hatalı çıktı.
+Hangi fabrikadan geldiğinin sonsal olasılıklarını hesaplayınız.
+\end{alistirma}
+\alcozum{%
+$\Prob(A) = 0.032$ (Örnek~\ref{ex:fabrika}'dan).
+\[
+  \Prob(B_1 \mid A) = \frac{0.02 \times 0.5}{0.032} = \frac{0.010}{0.032} \approx 0.3125.
+\]
+\[
+  \Prob(B_2 \mid A) = \frac{0.04 \times 0.3}{0.032} = \frac{0.012}{0.032} = 0.375.
+\]
+\[
+  \Prob(B_3 \mid A) = \frac{0.05 \times 0.2}{0.032} = \frac{0.010}{0.032} \approx 0.3125.
+\]
+Toplam: $0.3125 + 0.375 + 0.3125 = 1$. \checkmark
+Hatalı ürün en olası fabrika 2'den geliyor. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.3]{A}{Bağımsızlık doğrulama}
+Adil zar: $\Omega = \{1,2,3,4,5,6\}$, $\Prob(\{k\}) = 1/6$.
+$A = \{1,2,3,4\}$, $B = \{3,4,5,6\}$, $C = \{1,3,5\}$.
+(a) $A$ ve $B$ bağımsız mı?
+(b) $A$ ve $C$ bağımsız mı?
+(c) $B$ ve $C$ bağımsız mı?
+(d) $A, B, C$ karşılıklı bağımsız mı?
+\end{alistirma}
+\alcozum{%
+$\Prob(A) = 4/6 = 2/3$, $\Prob(B) = 4/6 = 2/3$, $\Prob(C) = 3/6 = 1/2$.
+
+(a) $A \cap B = \{3,4\}$; $\Prob(A \cap B) = 2/6 = 1/3$.
+$\Prob(A)\Prob(B) = 4/9 \neq 1/3$. Bağımsız \emph{değil}.
+
+(b) $A \cap C = \{1,3\}$; $\Prob(A \cap C) = 2/6 = 1/3$.
+$\Prob(A)\Prob(C) = 2/3 \cdot 1/2 = 1/3$. Bağımsız. \checkmark
+
+(c) $B \cap C = \{3,5\}$; $\Prob(B \cap C) = 1/3$.
+$\Prob(B)\Prob(C) = 1/3$. Bağımsız. \checkmark
+
+(d) $A \cap B \cap C = \{3\}$; $\Prob = 1/6$.
+$\Prob(A)\Prob(B)\Prob(C) = 2/3 \cdot 2/3 \cdot 1/2 = 2/9 \neq 1/6$.
+Karşılıklı bağımsız \emph{değil}. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.4]{B}{Doğum günü --- genelleştirilmiş}
+$n = 50$ kişilik bir grupta aynı doğum gününe sahip iki kişinin olmama
+olasılığını hesaplayınız (logaritma kullanınız). $\Prob(A)$ nedir?
+\end{alistirma}
+\alcozum{%
+$\Prob(A^c) = \prod_{k=0}^{49}\frac{365-k}{365}$.
+$\ln \Prob(A^c) = \sum_{k=0}^{49} \ln(1 - k/365)$.
+$\ln(1-k/365) \approx -k/365$ için kaba tahmin:
+$\sum_{k=0}^{49} k/365 = \binom{50}{2}/365 = 1225/365 \approx 3.356$.
+$\Prob(A^c) \approx e^{-3.356} \approx 0.035$.
+$\Prob(A) \approx 0.965$.
+
+Daha kesin: $\Prob(A^c) \approx 0.0296$; $\Prob(A) \approx 0.970$. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.4b]{B}{Koşullu Olasılık Paradoksu: Monty Hall}
+Monty Hall problemi: 3 kapı, birinde araba diğer ikisinde keçi. Yarışmacı kapı 1'i seçer. Sunucu, keçili bir kapıyı açar (kapı 3). Değiştirmeli mi?
+(a) $A$: kapı 1'de araba; $B$: sunucu kapı 3'ü açar; Bayes teoremi ile $P(A|B)$'yi hesaplayınız.
+(b) $P(\text{araba}|\text{değiştirir})$'yi bulunuz.
+(c) Sezgisiz insanların neden yanıldığını olasılık teorisi açısından açıklayınız.
+\end{alistirma}
+\alcozum{%
+(a) Toplam olasılık: $P(B) = P(B|A)P(A)+P(B|A^c)P(A^c)$.
+$P(A)=1/3$; $P(A^c)=2/3$.
+$P(B|A)=1/2$ (sunucu 2 veya 3'ü eşit olasılıkla açar; biz kapı 3'ü koşullandırdık).
+$P(B|A^c)=1$ eğer araba kapı 2'deyse sunucu sadece kapı 3'ü açabilir; $P(B|A^c=\text{kapı 2})=1$, $P(B|A^c=\text{kapı 3})=0$.
+
+Daha dikkatli: $A_k$: araba kapı $k$'da.
+$P(A_1)=P(A_2)=P(A_3)=1/3$.
+Sunucu kapı 3'ü açar: $P(B|A_1)=1/2$, $P(B|A_2)=1$, $P(B|A_3)=0$.
+$P(B)=\frac{1}{3}\cdot\frac{1}{2}+\frac{1}{3}\cdot1+\frac{1}{3}\cdot0=\frac{1}{2}$.
+$P(A_1|B)=\frac{(1/2)(1/3)}{1/2}=\frac{1}{3}$; $P(A_2|B)=\frac{1\cdot(1/3)}{1/2}=\frac{2}{3}$.
+
+(b) Değiştirir $\to$ kapı 2 seçer: $P(\text{araba})=P(A_2|B)=2/3$. Değiştirmez: $1/3$. Değiştirmek iki kat daha iyi!
+
+(c) Yanılgı: Sunucunun ek bilgi verdiği göz ardı ediliyor. Sunucunun kapı açması rastgele değil --- keçi içeren kapıyı bilinçli açar. Bu bilgi kapı 2'nin olasılığını günceller. İnsanlar genellikle sunucunun hamlesi bağımsız diye düşünür ($P=1/3$ değişmez sanır); Bayes teoremi bu bağımlılığı doğru biçimde yakalar.}
+
+\begin{alistirma}[Al.2.4c]{C}{Olasılık Ölçüsünün Süreklilik Özellikleri}
+$(\Omega,\mathcal{F},\Prob)$ olasılık uzayı.
+(a) $A_n\uparrow A$ (artan limit) için $\Prob(A_n)\to\Prob(A)$ olduğunu kanıtlayınız.
+(b) $B_n\downarrow B$ (azalan limit) için $\Prob(B_n)\to\Prob(B)$ olduğunu kanıtlayınız.
+(c) $\Prob(\limsup_n A_n)$'ı yorumlayınız ve Borel-Cantelli ile bağlantısını kurunuz.
+\end{alistirma}
+\alcozum{%
+(a) \textbf{Arttan süreklilik}: $C_1=A_1$, $C_n=A_n\setminus A_{n-1}$ (ayrık) olsun. $A=\bigcup_n C_n$ (ayrık birleşim).
+$\Prob(A)=\sum_{k=1}^\infty\Prob(C_k)=\lim_{n\to\infty}\sum_{k=1}^n\Prob(C_k)=\lim_{n\to\infty}\Prob(A_n)$.
+(Sayılabilir toplamsellik ve dizi yakınsaması birlikte.)
+
+(b) \textbf{Azalan süreklilik}: $D_n=B_1\setminus B_n\uparrow B_1\setminus B$.
+(a)'dan $\Prob(D_n)\to\Prob(B_1\setminus B)$.
+$\Prob(D_n)=\Prob(B_1)-\Prob(B_n)$ (tek yönlü kapsama); $\Prob(B_n)\to\Prob(B)$. $\checkmark$
+
+(c) $\limsup_n A_n=\{A_n\text{ sonsuz sık gerçekleşir}\}=\bigcap_{n=1}^\infty\bigcup_{k=n}^\infty A_k$.
+Borel-Cantelli 1: $\sum\Prob(A_n)<\infty\Rightarrow\Prob(\limsup A_n)=0$ (sonsuz sık gerçekleşmez).
+Borel-Cantelli 2: $A_n$ bağımsız, $\sum\Prob(A_n)=\infty\Rightarrow\Prob(\limsup A_n)=1$ (sonsuz sık gerçekleşir).
+Bu iki yönlü sonuç, neredeyse kesin yakınsama kriterleri için temel araçtır.}
+
+
+\begin{alistirma}[Al.2.5]{A}{Olasılık aksiyomlarından türetme}
+$(\Omega,\mathcal{F},\Prob)$ olasılık uzayı, $A, B \in \mathcal{F}$.
+Yalnızca Kolmogorov aksiyomlarını (K1)--(K3) kullanarak gösteriniz:
+\begin{enumerate}[label=(\alph*)]
+  \item $\Prob(A) \leq 1$.
+  \item $\Prob(A^c) = 1 - \Prob(A)$.
+  \item $A \subseteq B \Rightarrow \Prob(A) \leq \Prob(B)$.
+\end{enumerate}
+\end{alistirma}
+\alcozum{%
+(a) $\Omega = A \cup A^c$ ayrık; (K3) + (K1): $1 = \Prob(A)+\Prob(A^c) \geq \Prob(A)$.
+(b) Aynı ayrışım: $\Prob(A^c) = 1 - \Prob(A)$.
+(c) $B = A \cup (B \setminus A)$ ayrık; $\Prob(B) = \Prob(A)+\Prob(B \setminus A) \geq \Prob(A)$. $\blacksquare$%
+}
+\begin{alistirma}[Al.2.6]{A}{Koşullu olasılık zinciri}
+Bir kutuda 3 kırmızı, 4 mavi top var. Geri koymadan iki top çekiliyor.
+(a) İlk kırmızı, ikinci mavi çekme olasılığı.
+(b) Her ikisi de mavi çekme olasılığı.
+(c) En az bir kırmızı çekme olasılığı.
+\end{alistirma}
+\alcozum{%
+(a) $\Prob(K_1 \cap M_2) = \Prob(K_1)\Prob(M_2|K_1) = \frac{3}{7} \cdot \frac{4}{6} = \frac{12}{42} = \frac{2}{7}$.
+
+(b) $\Prob(M_1 \cap M_2) = \frac{4}{7} \cdot \frac{3}{6} = \frac{12}{42} = \frac{2}{7}$.
+
+(c) $\Prob(\text{en az bir kırmızı}) = 1 - \Prob(M_1 \cap M_2) = 1 - 2/7 = 5/7$. $\blacksquare$%
+}
+\alistirmalar
+
+
+
+\begin{alistirma}[Al.2.7]{A}{Boole eşitsizliği}
+$n$ olay için Boole eşitsizliğini doğrulayınız:
+$\Prob\!\bigl(\bigcap_{k=1}^n A_k\bigr) \geq 1 - \sum_{k=1}^n \Prob(A_k^c)$.
+Bu eşitsizliğin adı Bonferroni eşitsizliğidir.
+\end{alistirma}
+\alcozum{%
+$\Prob\!\bigl(\bigcap_k A_k\bigr) = 1 - \Prob\!\bigl(\bigcup_k A_k^c\bigr)$
+(De~Morgan ve tümleyen kuralı).
+Alt-toplamsallık: $\Prob(\bigcup_k A_k^c) \leq \sum_k \Prob(A_k^c)$.
+Dolayısıyla $\Prob(\bigcap_k A_k) \geq 1 - \sum_k \Prob(A_k^c)$. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.8]{B}{Koşullu bağımsızlık}
+$A$ ve $B$, $C$'ye koşullu bağımsız adını alır; eğer
+$\Prob(A \cap B \mid C) = \Prob(A \mid C)\Prob(B \mid C)$.
+(a) $A$ ve $B$ koşulsuz bağımsızsa, $C$'ye koşullu bağımsız olması gerekir mi?
+    Karşı örnek veriniz.
+(b) $A$ ve $B$, $C$'ye koşullu bağımsızsa, koşulsuz bağımsız olması gerekir mi?
+    Karşı örnek veriniz.
+\end{alistirma}
+\alcozum{%
+(a) Hayır. İki adil zar: $A =$ \{1. zar çift\}, $B =$ \{2. zar çift\}, $C = \{$toplam 7$\}$.
+$A,B$ bağımsız. Ama $\Prob(A|C) = 3/6 = 1/2$ ve $\Prob(B|C) = 3/6 = 1/2$;
+$\Prob(A \cap B \mid C) = \Prob(\{(2,5),(4,3),(6,1)\} \mid C) = 0$
+(çift+çift=çift, toplam 7 olamaz). $\neq 1/4$. Koşullu bağımsız değil.
+
+(b) Hayır. Örnek: $\Omega=\{1,2,3,4\}$ düzgün; $A=\{1,2\}$, $B=\{2,3\}$, $C=\{1,3\}$.
+$\Prob(A)=\Prob(B)=1/2$, $\Prob(A\cap B)=1/4=\Prob(A)\Prob(B)$: bağımsız.
+$\Prob(A\cap B\mid C)=\Prob(\emptyset\mid C)=0$,
+$\Prob(A|C)\Prob(B|C)=\frac{1}{2}\cdot\frac{1}{2}=\frac{1}{4}\neq 0$:
+koşullu bağımsız değil. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.9]{B}{Toplam olasılık --- iki aşamalı deney}
+Bir torba 5 beyaz, 3 siyah top içeriyor. Geri koymadan iki top çekiliyor.
+$A_k =$ \{$k$-inci top beyaz\}.
+(a) $\Prob(A_1)$, $\Prob(A_2)$, $\Prob(A_1 \cap A_2)$'yi hesaplayınız.
+(b) $\Prob(A_2)$'yi Toplam Olasılık Teoremi ile doğrulayınız.
+(c) $\Prob(A_1 \mid A_2)$ ve $\Prob(A_2 \mid A_1)$'i hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) $\Prob(A_1) = 5/8$.
+$\Prob(A_2) = \Prob(A_2|A_1)\Prob(A_1)+\Prob(A_2|A_1^c)\Prob(A_1^c)$
+$= \frac{4}{7}\cdot\frac{5}{8}+\frac{5}{7}\cdot\frac{3}{8} = \frac{20}{56}+\frac{15}{56}=\frac{35}{56}=\frac{5}{8}$.
+$\Prob(A_1 \cap A_2) = \frac{5}{8}\cdot\frac{4}{7} = \frac{20}{56} = \frac{5}{14}$.
+
+(b) Yukarıdaki hesap Toplam Olasılık Teoremi'nin uygulaması.
+
+(c) $\Prob(A_1|A_2) = \Prob(A_1\cap A_2)/\Prob(A_2) = (5/14)/(5/8) = 8/14 = 4/7$.
+$\Prob(A_2|A_1) = \Prob(A_1\cap A_2)/\Prob(A_1) = (5/14)/(5/8) = 4/7$. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.10]{B}{Hat çekme genelleştirilmiş}
+$n$ kişi, $m$ şanslı hat ($m < n$). Hiç kimse önceki seçimi görmeden
+kendi hatını çekiyor (tüm sıralamalar eşit olası).
+$j$-inci kişinin şanslı hat çekme olasılığının $j$'den bağımsız olduğunu
+tümevarımla ispatlayınız.
+\end{alistirma}
+\alcozum{%
+$\Prob(A_j) = m/n$ her $j$ için.
+
+$j=1$: $\Prob(A_1) = m/n$ açıkça.
+
+$j$'de doğru varsayalım; $j+1$:
+$\Prob(A_{j+1}) = \Prob(A_{j+1}|A_j)\Prob(A_j) + \Prob(A_{j+1}|A_j^c)\Prob(A_j^c)$
+$= \frac{m-1}{n-1}\cdot\frac{m}{n} + \frac{m}{n-1}\cdot\frac{n-m}{n}$
+$= \frac{m(m-1) + m(n-m)}{n(n-1)} = \frac{m(n-1)}{n(n-1)} = \frac{m}{n}$.
+$\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.11]{C}{$\pi$-$\lambda$ teoremi ve bağımsızlık}
+$\mathcal{P}_1 = \{A_1 \times A_2 : A_i \in \mathcal{F}_i\}$ ikili ayrık
+dikdörtgenler ailesi; $\mathcal{P}_1$ bir $\pi$-sistemdir.
+$\Prob_1$ ve $\Prob_2$ aynı $\pi$-sistem üzerinde aynı değerleri alıyorsa,
+$\sigma(\mathcal{P}_1)$ üzerinde eşit olduklarını Dynkin'in $\pi$-$\lambda$
+teoremini kullanarak ispatlayınız. Bu teoremin ürün ölçüsünün tekliği ile
+bağlantısını açıklayınız.
+\end{alistirma}
+\alcozum{%
+\begin{ipucu}{1}
+Dynkin'in $\pi$-$\lambda$ teoremi: $\mathcal{P}$ bir $\pi$-sistem (sonlu kesişim
+altında kapalı) ve $\lambda(\mathcal{P}) = \mathcal{P}$ içeren en küçük
+Dynkin sistemi ise $\lambda(\mathcal{P}) = \sigma(\mathcal{P})$.
+\end{ipucu}
+
+$D = \{B \in \sigma(\mathcal{P}_1) : \Prob_1(B) = \Prob_2(B)\}$ tanımlayınız.
+$D$ bir Dynkin sistemidir: (i) $\Omega \in D$; (ii) $A \subseteq B$, $A,B \in D
+\Rightarrow B \setminus A \in D$; (iii) $A_n \nearrow A$, $A_n \in D \Rightarrow A \in D$.
+
+$\mathcal{P}_1 \subseteq D$ (verilen koşul).
+Dynkin teoreminden $\sigma(\mathcal{P}_1) \subseteq D$, yani $\Prob_1 = \Prob_2$ üzerinde.
+
+Ürün ölçüsü: $\mu_1 \otimes \mu_2$ dikdörtgenlerde
+$\mu_1(A_1)\mu_2(A_2)$'yi üretir; bu değerler başka bir ölçüyü belirliyorsa
+her ikisi $\sigma(\mathcal{P}_1)$ üzerinde eşittir; yani ürün ölçüsü
+$\sigma$-sonlu durumlarda tekdir. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.12]{C}{Sonsuz bağımsız denemeler}
+$(\Omega, \mathcal{F}, \Prob)$ üzerinde $A_1, A_2, \ldots$ bağımsız,
+$\Prob(A_n) = p \in (0,1)$ her $n$ için.
+(a) $\Prob(A_n \text{ s.s. çok})$ --- yani $\Prob(\limsup_n A_n)$ --- nedir?
+(b) $\Prob(A_n \text{ eninde sonunda hep gerçekleşir})$ nedir?
+(c) Cevaplarınızı $p$ değerine göre yorumlayınız.
+\end{alistirma}
+\alcozum{%
+(a) $\sum_n \Prob(A_n) = \sum_n p = \infty$ (sonsuz toplam).
+Borel-Cantelli II (Bölüm~7'de kanıtlanacak): $A_n$ bağımsız ve $\sum \Prob(A_n) = \infty$
+ise $\Prob(\limsup_n A_n) = 1$.
+
+(b) $\liminf_n A_n$: eninde sonunda hep gerçekleşir.
+$B_n = \bigcap_{k \geq n} A_k^c$; $\Prob(B_n) = \prod_{k \geq n}(1-p) = 0$
+(sonsuz çarpım, $p>0$). $\Prob(\liminf_n A_n) = 1 - \Prob(\limsup_n A_n^c)$.
+$\sum_n \Prob(A_n^c) = \infty$; $A_n^c$ da bağımsız; Borel-Cantelli II:
+$\Prob(\limsup_n A_n^c) = 1$.
+$\Prob(\liminf_n A_n) = 0$.
+
+(c) Her $p \in (0,1)$ için: sonsuz bağımsız denemede her olay sonsuz sık
+gerçekleşir (a.s.), ama hiçbir zaman sonunda \emph{sürekli} gerçekleşmez. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.2.13]{A}{Koşullu Bağımsızlık}
+Sağlık veri tabanında: $D$ = hastada kanser var, $S$ = semptom pozitif, $T$ = test pozitif.
+Verilen: $\Prob(D) = 0.01$, $\Prob(S \mid D) = 0.8$, $\Prob(S \mid D^c) = 0.05$,
+$\Prob(T \mid S) = 0.9$, $\Prob(T \mid S^c) = 0.1$.
+Bayesçi ağ: $D \to S \to T$.
+(a) $\Prob(S)$'yi hesaplayınız. (b) $\Prob(T)$'yi hesaplayınız. (c) $\Prob(D \mid T)$'yi hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) $\Prob(S) = 0.8\cdot0.01 + 0.05\cdot0.99 = 0.008 + 0.0495 = 0.0575$.\\
+(b) $\Prob(T) = 0.9\cdot\Prob(S) + 0.1\cdot\Prob(S^c) = 0.9(0.0575) + 0.1(0.9425) = 0.05175 + 0.09425 = 0.146$.\\
+(c) $\Prob(D \mid T) = \Prob(T \mid D)\Prob(D)/\Prob(T)$.
+$\Prob(T \mid D) = 0.9\cdot0.8 + 0.1\cdot0.2 = 0.74$.
+$\Prob(D \mid T) = 0.74\cdot0.01/0.146 \approx 0.051$. Yüksek test duyarlılığına rağmen düşük: nadir hastalık etkisi.}
+
+\begin{alistirma}[Al.2.14]{B}{Koşullu Bağımsızlık vs Mutlak Bağımsızlık}
+$\Omega = \{1,2,3,4\}$, eşit olası.
+$A = \{1,2\}$, $B = \{1,3\}$, $C = \{1,4\}$.
+(a) $A$ ve $B$ bağımsız mı? (b) $A$ ve $B$, $C$ koşulunda bağımsız mı?
+(c) $A$ ve $C$ bağımsız mı? $A$ ve $C$, $B$ koşulunda?
+\end{alistirma}
+\alcozum{%
+$\Prob(A) = \Prob(B) = \Prob(C) = 1/2$.
+$\Prob(A\cap B) = \Prob(\{1\}) = 1/4 = \Prob(A)\Prob(B)$: (a) evet, $A \perp B$.\\
+(b) $\Prob(C) = 1/2$; $\Prob(A\cap B\cap C) = \Prob(\{1\}) = 1/4$.
+$\Prob(A\cap B \mid C) = \Prob(A\cap B\cap C)/\Prob(C) = (1/4)/(1/2) = 1/2$.
+$\Prob(A\mid C)\Prob(B\mid C) = (1/2)(1/2) = 1/4 \neq 1/2$.
+Koşullu bağımsız değil!\\
+(c) $A \perp C$: $\Prob(A\cap C) = 1/4 = \Prob(A)\Prob(C)$. Evet.
+$\Prob(A\cap C\mid B) = \Prob(A\cap B\cap C)/\Prob(B) = (1/4)/(1/2) = 1/2 \neq \Prob(A|B)\Prob(C|B) = (1/2)(1/2)$.
+$A \not\perp C \mid B$.}
+
+\begin{alistirma}[Al.2.15]{B}{Bayesçi Ağ --- Ortak Dağılım}
+$X_1$, $X_2 \mid X_1$, $X_3 \mid X_2$ zinciri (her ikili normal):
+$X_1 \sim \Normal(0,1)$; $X_2 \mid X_1 = x_1 \sim \Normal(x_1, 1)$; $X_3 \mid X_2 = x_2 \sim \Normal(x_2, 1)$.
+(a) $E[X_2]$ ve $\mathrm{Var}(X_2)$'yi hesaplayınız.
+(b) $X_1$ ve $X_3$'ün koşulsuz korelasyonunu bulunuz.
+(c) $X_3 \mid X_2 = 0$ ile $X_3 \mid X_1 = 0$'ı karşılaştırınız.
+\end{alistirma}
+\alcozum{%
+(a) $E[X_2] = E[E[X_2|X_1]] = E[X_1] = 0$.
+$\mathrm{Var}(X_2) = E[\mathrm{Var}(X_2|X_1)] + \mathrm{Var}(E[X_2|X_1]) = 1 + \mathrm{Var}(X_1) = 1+1 = 2$.\\
+(b) Aynı şekilde: $E[X_3] = 0$, $\mathrm{Var}(X_3) = 3$.
+$\mathrm{Cov}(X_1,X_3) = E[X_1 X_3]$. Kule beklentisi: $E[X_1 X_3] = E[X_1 E[X_3|X_1,X_2]]$... zincirde: $E[X_3|X_2] = X_2$; $E[X_1 X_3] = E[X_1 X_2] = E[X_1^2] = 1$.
+$\mathrm{Cor}(X_1,X_3) = 1/\sqrt{1\cdot3} = 1/\sqrt{3} \approx 0.577$.\\
+(c) $X_3|X_2=0 \sim \Normal(0,1)$. $X_3|X_1=0$: $X_2|X_1=0 \sim \Normal(0,1)$, sonra $X_3|X_2 \sim \Normal(X_2,1)$; marjinal $X_3|X_1=0 \sim \Normal(0,2)$.
+Daha geniş: $X_1$ bilgisi $X_2$ üzerinden dolaylı.}
