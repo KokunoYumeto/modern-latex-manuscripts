@@ -99,3 +99,8 @@ This package now includes a generated-draft source-canon sufficiency transition 
 ## Mutual-Wake Coordination Addendum, 2026-07-05
 
 This package includes a mutual-wake coordination ledger under generated-draft/mutual-wake/. It records sibling Noether thread wake/routing actions taken by this lane and preserves non-completion boundaries.
+
+<!-- PAN_TURKIC_CURRENT_WEB_HARD_ROW_RECOVERY_20260705 -->
+## Current-Web Hard-Row Source Recovery Addendum, 2026-07-05
+
+This package now includes current-web Uzbek and Kazakh hard-row source witnesses under odies/<language>/current-web-hard-row-20260705/ and text witnesses under ocr-witnesses/<language>/current-web-hard-row-20260705/. Recovery and search-attempt ledgers are in generated-draft/source-recovery/.
