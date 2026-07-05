@@ -37,3 +37,13 @@ IF REDISTRIBUTION STATUS IS CLEARLY OPEN/PUBLIC/PROJECT-APPROPRIATE, INCLUDE THE
 DO NOT MIX THIS WITH IPAD/DEVICE DUMPS, RANDOM PERSONAL FILES, SCREENSHOTS, OR NON-CANONICAL NOISE. THE REQUEST IS LATEX SOURCE CORPUS MATERIAL FOR THE LANGUAGES AND MATHEMATICAL/INTERLANGUAGE LANES.
 
 PUSH EARLY. PUSH OFTEN. LOCAL CODEX WILL CURATE, PACKAGE, CLASSIFY, AND MIRROR TO ZENODO/GITHUB RECORDS CONSERVATIVELY.
+
+## Added 2026-07-05: Session management and logbooks
+
+Also read and obey:
+
+`coordination/OTHER_PC_SESSION_MANAGER_AND_LOGBOOK_DIRECTIVE_20260705.md`
+
+Each session must keep a durable logbook, assign work to idle sibling sessions when it can see them, and create an acknowledgement file under `coordination/acks/`.
+
+Uploading five files, an index, or a manifest is not enough when full source bodies exist. Push the actual corpus bodies.

@@ -25,6 +25,14 @@ Current finding from local archive sweep:
 
 This instruction is not advisory. The repository/archive maintainer needs the real source bodies on this machine and in GitHub-visible form so Claude/Web/Codex can reuse them without rediscovery.
 
+## Added 2026-07-05: Logbook and sibling-session coordination
+
+Every session working on these lanes must also read:
+
+`coordination/OTHER_PC_SESSION_MANAGER_AND_LOGBOOK_DIRECTIVE_20260705.md`
+
+Each session must keep a durable logbook, publish an acknowledgement in `coordination/acks/`, and assign clear work to idle sibling sessions when it can see them. A package without a logbook entry and without an acknowledgement should be treated as untrusted until re-audited.
+
 ## Critical clarification
 
 Do not provide an index instead of the corpus. Do not provide a summary instead of the corpus. Do not provide only source-canon tables, hashes, manifests, or URL lists.
