@@ -1,3 +1,13 @@
+## 2026-07-05: Noether R781 P13/P19 whole-paper audit
+
+Manifest: [20260705_noether_r781_p13p19_wholepaper_audit.json](../manifests/pending-zenodo-uploads/20260705_noether_r781_p13p19_wholepaper_audit.json)
+
+- Target record: [Emmy Noether](https://doi.org/10.5281/zenodo.20412587).
+- Artifact: `publish_staging/noether/20260705_r781_p13p19_wholepaper_audit/Noether_R781_P13P19_WholePaperAudit_20260705.zip`, 83,446,501 bytes, SHA256 `3399486AA3CC28A41787449BBFDCB37F4AF2A4E8427D4AE8CF12B01ECF0F5965`, 164 ZIP entries.
+- Scope/result: upstream Web R781 whole-paper current-head audit of Paper 13 printed pp.235-257 and Paper 19 printed pp.24-66, with source-page images, output slices, TeX spans, cumulative TeX/PDF, audit CSVs, source-quality rows, and summary. P13 found one live current-head regression; P19 promoted no new current-head patch and records survival checks.
+- Promoted correction: P13 printed p249/current output p140 changes `\left. B_i(...,t)\right|_{t=1}` to source-backed `B_i(...,t)_{t=1}`.
+- Caveat: source-witness/support audit input only. Not a reader release, Noether closure, whole-corpus/page-by-page certification, native650/native1000 proof, multilingual synchronization, source-complete certification, publication readiness, or critical-edition material.
+
 ## 2026-07-05: Noether WebR781 P13 p249 / P30 survival webdrop
 
 Manifest: [20260705_noether_webr781_p13p249_p30survival_webdrop.json](../manifests/pending-zenodo-uploads/20260705_noether_webr781_p13p249_p30survival_webdrop.json)
