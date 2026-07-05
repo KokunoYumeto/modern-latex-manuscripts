@@ -7,7 +7,7 @@ Current DOI listed in repository: https://doi.org/10.5281/zenodo.21124403
 Upload file first/front if Zenodo file order is controllable:
 
 - Fable_ChatGPT_Interlanguage_Program_Full_Mirror_20260705.zip
-- SHA256: $hash
+- SHA256: DDF8F59469AEC2FA6E8B5D09733A08AB92318BA06CEA08F05F1BFA4506E06A6E
 - Size bytes: 25556705
 
 Suggested description addition:

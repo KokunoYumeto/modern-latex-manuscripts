@@ -1,15 +1,29 @@
+## 2026-07-05 Noether R796 P30 pp.36-37 and pp.42-45 source-emphasis candidate
+
+- Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
+- Artifact: `publish_staging/noether/20260705_r796_p30p42_45_source_emphasis_fix/Noether_R796_LocalCodex_P30p42_45_SourceEmphasisFix_20260705.zip`, 39,965,970 bytes, SHA256 `D29BDC609377038209D898A6DFC6B5631F5414DEB63F86C771CDF324F4BA3B68`, 31 ZIP entries.
+- Scope/result: newest inspected narrow source-control candidate over R795. Checks Paper 30 printed pp.36-37 and pp.42-45, applying source-visible emphasis/style repairs in the direct-sum, primary-ideal, quotient, and section-6 setup bands; includes source witnesses/crops, R795-to-R796 diff, changed-page renders, and a 466-page German cumulative build.
+- Caveat: not a reader release, Noether closure, page-by-page certification, multilingual synchronization, source-complete certification, or critical edition. Fold into a curated Noether rollup instead of uploading loose under the 100-file ceiling.
+
+## 2026-07-05 Noether-PC packages 632-633 imported evidence
+
+- Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
+- Artifact: `publish_staging/noether/20260705_noether_pc_packages632_633/Noether_PC_Packages632_633_ImportedEvidence_20260705.zip`, 1,032,186 bytes, SHA256 `6AD923096B7F6EC665EE797E0AF43F2A35B566C6D515E2B27F0E9A5EBACB021A`, 152 ZIP entries.
+- Scope/result: selectively imports packages 632-633 from `origin/codex/noether-pc-20260629`, including lane logs, source-canon classifications, checksum/hash probes, source-sufficiency rows, and governance responses across Slavic, CJK, Arabic/RTL, Romance, Persianate/Tajik, Pan-Turkic, Indigenous/Creole/Sign, Malay/SEA/Pacific, and Africa/Horn/West lanes.
+- Caveat: package 633 explicitly excludes raw source bodies and binary primaries. This is coordination evidence only, not the requested full source-body corpus, not native review, not accepted terminology, not translation completion, not source-fidelity certification, not publication readiness, not reader output, and not a critical edition.
+
 ## 2026-07-05 Noether R795 P30 pp.33-35 source-emphasis candidate
 
 - Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
-- Artifact: $r795Rel, 84501977 bytes, SHA256 5C5C0B3A4C485366431F1749CAE571A9D5FC7027A67B24332CB53D2AFA8144EE, 139 ZIP entries.
+- Artifact: `publish_staging/noether/20260705_r795_p30p33_35_source_emphasis_fix/Noether_R795_LocalCodex_P30p33_35_SourceEmphasisFix_20260705.zip`, 84501977 bytes, SHA256 5C5C0B3A4C485366431F1749CAE571A9D5FC7027A67B24332CB53D2AFA8144EE, 139 ZIP entries.
 - Scope/result: narrow source-control candidate over R794. Restores Paper 30 printed pp.33-35 source-emphasis/source-style loci; includes source witnesses, R794-to-R795 diff, build logs, changed-page renders, and a 466-page German cumulative build.
 - Caveat: not a reader release, Noether closure, page-by-page certification, multilingual synchronization, source-complete certification, or critical edition. Fold into a curated Noether rollup instead of uploading loose under the 100-file ceiling.
 
 ## 2026-07-05 exact original Fable/Claude interlanguage program ZIP
 
 - Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
-- Artifact: $fableExactRel, 25461633 bytes, SHA256 $fableExactHash, 264 ZIP entries.
-- Paired browseable mirror: $fableMirrorRel, 25556705 bytes, SHA256 $fableMirrorHash, 253 ZIP entries.
+- Artifact: `publish_staging/interlanguage-methodology/20260705_fable_chatgpt_interlingua_program_full/Claude_Fable_Original_interlingua_program_20260704_exact_20260705.zip`, 25461633 bytes, SHA256 `DAAA881ACDBECBA9114E0AD449251371970C91BD1B32748885F6D46460E34912`, 264 ZIP entries.
+- Paired browseable mirror: `publish_staging/interlanguage-methodology/20260705_fable_chatgpt_interlingua_program_full/Fable_ChatGPT_Interlanguage_Program_Full_Mirror_20260705.zip`, 25556705 bytes, SHA256 `DDF8F59469AEC2FA6E8B5D09733A08AB92318BA06CEA08F05F1BFA4506E06A6E`, 253 ZIP entries.
 - Scope/result: exact original generated Fable/Claude/ChatGPT interlanguage-program ZIP as provenance, paired with the normalized mirror already in GitHub.
 - Caveat: generated methodology/source-program evidence only; not native approval, accepted terminology, translation completion, reader output, source-fidelity certification, publication readiness, or critical-edition material.
 ## 2026-07-05: Fable/ChatGPT full interlanguage program mirror
@@ -27,7 +41,7 @@ Manifest: [20260705_fable_chatgpt_interlanguage_program_full_mirror.json](../man
 Manifest: [20260705_noether_pc_packages627_631_rolling_deltas.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages627_631_rolling_deltas.json)
 
 - Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
-- Artifact: publish_staging/interlanguage-methodology/20260705_noether_pc_packages627_631/Noether_PC_Interlanguage_Packages627_631_RollingDeltas_20260705.zip, 438262 bytes, SHA256 $pkgHash, 66 ZIP entries.
+- Artifact: publish_staging/interlanguage-methodology/20260705_noether_pc_packages627_631/Noether_PC_Interlanguage_Packages627_631_RollingDeltas_20260705.zip, 438262 bytes, SHA256 B4A372C1783143EBD0E13AFCF76603CC5F7AA4D02B1AE584AA60AF0B652ABCF7, 66 ZIP entries.
 - Source check: [20260705_noether_pc_packages627_631_source_check.md](../manifests/source-intake/20260705_noether_pc_packages627_631_source_check.md).
 - Scope/result: imports package 627-631 metadata/source-canon/log deltas from origin/codex/noether-pc-20260629.
 - Caveat: zero TeX-family source bodies, zero PDFs, zero ZIP payloads, and no Fable acknowledgement file. Preserve as coordination evidence only; do not present as the requested full native source corpus.

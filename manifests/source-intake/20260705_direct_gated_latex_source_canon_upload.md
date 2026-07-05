@@ -4,10 +4,10 @@ Imported from origin/codex/noether-pc-20260629 commit d8df61cd into the maintain
 
 ## Artifact
 
-- Web/Pro feed ZIP: $bundleRel
+- Web/Pro feed ZIP: `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_DirectGated_Slavic_Romance_20260705.zip`
 - Bytes: 5815800
-- SHA256: $hash
-- Upstream imported tree: $sourceRel
+- SHA256: `BFC4CEE167D6A0BCEE39DB603CBEEE5845A9F63852CAC382C5D9CED3707FE968`
+- Upstream imported tree: `noether-source-corpus-provenance/20260704/NOETHER_DIRECT_GATED_LATEX_SOURCE_CANON_UPLOAD_20260704T232634Z`
 - Upstream payload ZIP name: NOETHER_DIRECT_GATED_LATEX_SOURCE_CANON_UPLOAD_20260704T232634Z.zip
 - Payload count: 524 TeX-family files, 18,846,390 payload bytes
 - Secret-scan blocked files: 6, listed in manifests/SECRET_SCAN_BLOCKED_LATEX_PAYLOAD_ROWS.csv inside the imported tree

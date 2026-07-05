@@ -1,15 +1,29 @@
+## 2026-07-05 Noether R796 P30 pp.36-37 and pp.42-45 source-emphasis candidate pending upload
+
+- Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
+- Artifact: `publish_staging/noether/20260705_r796_p30p42_45_source_emphasis_fix/Noether_R796_LocalCodex_P30p42_45_SourceEmphasisFix_20260705.zip`
+- Size/SHA256: 39,965,970 bytes / `D29BDC609377038209D898A6DFC6B5631F5414DEB63F86C771CDF324F4BA3B68`
+- Status: newest inspected narrow German/source-control candidate over R795. It checks Paper 30 printed pp.36-37 and pp.42-45, applies source-visible emphasis/style repairs in the direct-sum, primary-ideal, quotient, and section-6 setup bands, includes source witnesses/crops/diff/render checks, and builds a 466-page German cumulative. Fold into a curated Noether rollup rather than upload loose under the 100-file ceiling. Do not describe as reader release, closure, whole-corpus certification, multilingual synchronization, or critical-edition material.
+
+## 2026-07-05 Noether-PC packages 632-633 imported evidence pending upload
+
+- Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
+- Artifact: `publish_staging/noether/20260705_noether_pc_packages632_633/Noether_PC_Packages632_633_ImportedEvidence_20260705.zip`
+- Size/SHA256: 1,032,186 bytes / `6AD923096B7F6EC665EE797E0AF43F2A35B566C6D515E2B27F0E9A5EBACB021A`
+- Status: imported other-PC packages 632-633 from `origin/codex/noether-pc-20260629`; 152 ZIP entries of lane logs, source-canon classifications, hash/checksum probes, and governance responses. Package 633 explicitly says raw source bodies and binary primaries were excluded. Preserve as coordination evidence only; this is not the requested full source-body corpus and not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05 Noether R795 P30 pp.33-35 source-emphasis candidate pending upload
 
 - Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
-- Artifact: $r795Rel
+- Artifact: `publish_staging/noether/20260705_r795_p30p33_35_source_emphasis_fix/Noether_R795_LocalCodex_P30p33_35_SourceEmphasisFix_20260705.zip`
 - Size/SHA256: 84501977 bytes / 5C5C0B3A4C485366431F1749CAE571A9D5FC7027A67B24332CB53D2AFA8144EE
 - Status: narrow German/source-control candidate over R794. It restores Paper 30 printed pp.33-35 source-emphasis/source-style loci and includes source witnesses, diff, render checks, and a 466-page German cumulative build. Fold into a curated Noether rollup rather than upload loose under the 100-file ceiling. Do not describe as reader release, closure, whole-corpus certification, multilingual synchronization, or critical-edition material.
 
 ## 2026-07-05 exact original Fable/Claude interlanguage program ZIP pending upload
 
 - Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
-- Artifact: $fableExactRel
-- Size/SHA256: 25461633 bytes / $fableExactHash
+- Artifact: `publish_staging/interlanguage-methodology/20260705_fable_chatgpt_interlingua_program_full/Claude_Fable_Original_interlingua_program_20260704_exact_20260705.zip`
+- Size/SHA256: 25461633 bytes / `DAAA881ACDBECBA9114E0AD449251371970C91BD1B32748885F6D46460E34912`
 - Status: exact-original provenance ZIP paired with the normalized GitHub mirror ZIP. Generated methodology/source-program evidence only; not native approval, accepted terminology, translation completion, reader output, source-fidelity certification, publication readiness, or critical-edition material.
 ## 2026-07-05 Expanded non-Slavic source-anchor feed pending upload
 
