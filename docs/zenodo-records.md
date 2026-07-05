@@ -12,6 +12,8 @@ The public project is intentionally split across a small number of logical Zenod
 
 2026-07-05 Noether-PC packages-538-540 source check: `origin/codex/noether-pc-20260629` advanced through commit `62190bc3`, but packages 538-540 contain 33 changed paths with zero TeX-family source bodies, zero PDFs, and zero ZIP payloads. The range is inventoried in `manifests/source-intake/20260705_noether_pc_packages538_540_source_check.*` and should not be promoted as a source corpus. A compact `medzuslovjansky/slovnik` source-witness ZIP is staged for the interlanguage methodology record as lexicon/source-methodology evidence only.
 
+2026-07-05 Noether-PC packages-541-546 source check: `origin/codex/noether-pc-20260629` advanced through commit `864593a6`, but packages 541-546 contain 81 changed paths with zero TeX-family source bodies, zero PDFs, and zero ZIP payloads. The range is inventoried in `manifests/source-intake/20260705_noether_pc_packages541_546_source_check.*` and should not be promoted as a source corpus. The four omitted raw rows are one generated Interslavic sample CSV and three Tajik/Persianate higher-mathematics source witnesses that remain open acquisition items.
+
 Use the README's "Open First" table as the reader-facing quality order. That order is by completion and source confidence, not by DOI age, file count, upload size, or ambition. This page is a DOI registry and operational map; if a lower-confidence lane appears near a stronger lane here, that is not a quality equivalence.
 
 Current quality grouping in brief:
