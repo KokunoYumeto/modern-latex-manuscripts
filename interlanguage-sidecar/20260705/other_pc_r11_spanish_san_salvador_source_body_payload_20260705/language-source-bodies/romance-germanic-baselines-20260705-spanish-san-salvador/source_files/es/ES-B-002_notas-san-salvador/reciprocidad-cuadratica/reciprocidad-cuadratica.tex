@@ -1,0 +1,1896 @@
+\documentclass{article}
+
+\input{../definitions.tex}
+\usepackage{fullpage}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{La ley de reciprocidad cuadrática}
+\date{Universidad de El Salvador. Noviembre de 2018}
+
+\usepackage{tocloft}
+
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cfttoctitlefont{\sffamily\large\bfseries}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\hypersetup{
+  pdftitle = {La ley de reciprocidad cuadrática},
+  pdfauthor = {Alexey Beshenov (cadadr@gmail.com)},
+  pdfdisplaydoctitle = true
+}
+
+\theoremstyle{plain}
+\newtheorem{ejerc}{Ejercicio}
+
+\def\mystrut(#1,#2){\vrule height #1 depth #2 width 0pt}
+
+\newcolumntype{f}[1]{%
+>{\mystrut(3ex,2ex)\centering}%
+p{#1}%
+<{}}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+Estos apuntes acompañan una pequeña parte del curso de la teoría de números
+elemental. El objetivo es dar una prueba de la ley de reciprocidad cuadrática,
+revisando todo el material necesario. De manera implícita serán presentados
+algunos conceptos importantes de álgebra, pero voy a evitar las definiciones
+generales.
+
+\tableofcontents
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\pagebreak
+\setcounter{section}{-1}
+\section{Restos módulo n}
+
+Recordemos (fijemos) la notación y las definiciones básicas. Si para dos números
+enteros $m,n \in \ZZ$ se tiene $m = nc$ para algún $c\in \ZZ$, entonces se dice
+que $n$ \term{divide} a $m$ y se escribe $n \mid m$. Se dice que $a,b\in \ZZ$
+son \term{congruentes} módulo $n$ si $n \mid (a-b)$. En este caso se escribe
+$a \equiv b \pmod{n}$. Esto define una relación de equivalencia sobre los
+números enteros, y las clases de equivalencia se llaman los
+\term{restos módulo $n$}. Su conjunto se denota por
+$$\ZZ/n\ZZ \dfn \{ \overline{0}, \overline{1}, \ldots, \overline{n-1} \}.$$
+Las operaciones
+\[ \overline{a} + \overline{b} \dfn \overline{a+b}, \quad
+  \overline{a}\cdot\overline{b} \dfn \overline{ab} \]
+están bien definidas y dan estructura de \term{anillo} sobre
+$\ZZ/n\ZZ$. Normalmente voy a denotar los elementos de $\ZZ/n\ZZ$ por las letras
+$x,y,z$, y en lugar de $\overline{0}$ y $\overline{1}$ escribiré $0$ y $1$.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Elementos invertibles módulo n}
+
+\begin{definicion}
+  Se dice que un resto módulo $n$ dado por $x = \overline{a} \in \ZZ/n\ZZ$ es
+  \term{invertible} (o que $a \in \ZZ$ es \term{invertible módulo $n$}) si
+  existe otro resto $y = \overline{b} \in \ZZ/n\ZZ$ tal que $xy = 1$ (es decir,
+  $ab \equiv 1 \pmod{n}$). En este caso también se dice que $y$ es
+  \term{inverso} a $x$ (o que $b \in \ZZ$ es \term{inverso a $a$ módulo $n$}).
+\end{definicion}
+
+Notamos que si tal $y$ existe, este está definido de modo único como un elemento
+de $\ZZ/n\ZZ$. En efecto, asumamos que existen $y_1,y_2 \in \ZZ/n\ZZ$ tales que
+$$xy_1 = xy_2 = 1.$$
+Luego,
+$$y_1 = y_1\cdot 1 = y_1 x y_2 = 1\cdot y_2 = y_2.$$
+Por esto, si $x \in \ZZ/n\ZZ$ es invertible vamos a denotar su inverso por
+$x^{-1}$. Notamos que la relación ``ser inverso'' es simétrica:
+$x^{-1} = y \iff y^{-1} = x$; en otras palabras, si $x \in \ZZ/n\ZZ$ es
+invertible, entonces $x^{-1}$ es también invertible y
+$$(x^{-1})^{-1} = x.$$
+
+\begin{ejemplo}
+  Trivialmente, $1$ es invertible módulo $n$ para cualquier $n$ y es inverso a
+  sí mismo. Notamos que si $n \mid a$, entonces $a$ no es invertible módulo $n$:
+  todos los múltiplos de $a$ son congruentes a $0$ módulo $n$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Tenemos $5^2 = 25 \equiv 1 \pmod{6}$, así que $5$ es inverso a sí mismo módulo
+  $6$.  Al revisar la tabla de multiplicación módulo $6$, se ve que $0,2,3,4$ no
+  son invertibles:
+\begin{center}
+\begin{tabular}{c|cccccc}
+$\times$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\
+\hline
+$0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ \\
+$1$ & $0$ & $1$ & $2$ & $3$ & $4$ & $5$ \\
+$2$ & $0$ & $2$ & $4$ & $0$ & $2$ & $4$ \\
+$3$ & $0$ & $3$ & $0$ & $3$ & $0$ & $3$ \\
+$4$ & $0$ & $4$ & $2$ & $0$ & $4$ & $2$ \\
+$5$ & $0$ & $5$ & $4$ & $3$ & $2$ & $1$
+\end{tabular}
+\end{center}
+\end{ejemplo}
+
+\begin{ejemplo}
+Todo número $a$ tal que $7 \nmid a$ es invertible módulo $7$:
+\[ 2\cdot 4 \equiv 1 \pmod{7}, \quad
+  3\cdot 5 \equiv 1 \pmod{7}, \quad
+  6\cdot 6 \equiv 1 \pmod{7}, \]
+así que
+
+\[ \overline{2}^{-1} = \overline{4}, \quad
+  \overline{3}^{-1} = \overline{5}, \quad
+  \overline{6}^{-1} = \overline{6}. \qedhere \]
+\end{ejemplo}
+
+El conjunto de los restos módulo $n$ invertibles se denotará por
+\[ (\ZZ/n\ZZ)^\times
+  \dfn \{ \overline{a} \in \ZZ/n\ZZ \mid
+          \text{existe }\overline{b} = \overline{a}^{-1} \in \ZZ/n\ZZ
+          \text{ tal que }\overline{a}\cdot\overline{b} = \overline{1} \}. \]
+
+\begin{observacion}
+  El producto de dos restos módulo $n$ invertibles es también invertible.
+
+\begin{proof}
+  Supongamos que para $x,y \in \ZZ/n\ZZ$ existen $x^{-1}, y^{-1} \in \ZZ/n\ZZ$
+  tales que
+  $$x x^{-1} = y y^{-1} = 1.$$
+  Luego,
+  $$(x y)\,(y^{-1} x^{-1}) = x \, (y y^{-1}) \, x^{-1} = x\,x^{-1} = 1,$$
+  así que $y^{-1} x^{-1}$ es el resto inverso a $x y$.
+\end{proof}
+\end{observacion}
+
+\begin{digresion}
+  Entonces, los restos invertibles $(\ZZ/n\ZZ)^\times$ están cerrados respecto a
+  la multiplicación. El conjunto $(\ZZ/n\ZZ)^\times$ respecto a la
+  multiplicación forma una estructura algebraica conocida como
+  \term{grupo}. Nuestros resultados sobre $(\ZZ/n\ZZ)^\times$ provienen de la
+  \term{teoría de grupos} básica.
+\end{digresion}
+
+\begin{observacion}[Cancelación]
+  Para cualesquiera $x,y,z \in \ZZ/n\ZZ$, si $x$ es invertible, entonces
+  $$xy = xz \Longrightarrow y = z.$$
+
+  \begin{proof}
+    Al multiplicar la identidad $xy = xz$ por $x^{-1}$, nos queda
+    \[ y = 1\cdot y = x^{-1}\,xy = x^{-1}\,xz = 1\cdot z = z. \qedhere \]
+  \end{proof}
+\end{observacion}
+
+\begin{proposicion}
+  Un número $a \in \ZZ$ es invertible módulo $n$ si y solo sí es coprimo con
+  $n$; es decir, $\mcd (a,n) = 1$.
+
+\begin{proof}
+  Asumamos que $\mcd (a,n) = 1$. Luego, la \term{identidad de Bézout} nos dice
+  que existen enteros $b, c \in \ZZ$ tales que $ab + nc = 1$. Reduciendo módulo
+  $n$, se obtiene $ab \equiv 1 \pmod{n}$, así que $a$ es invertible módulo $n$.
+
+  Viceversa, asumamos que existe $b \in \ZZ$ tal que $ab \equiv 1
+  \pmod{n}$. Esto significa que $ab - 1 = nc$ para algún $c \in \ZZ$; es decir,
+  que se tiene la identidad $ab + nc = 1$, lo que implica que $\mcd (a,n) = 1$.
+\end{proof}
+\end{proposicion}
+
+\begin{corolario}
+  El número de los restos módulo $n$ invertibles es la función de Euler de $n$:
+  $$\phi (n) = |(\ZZ/n\ZZ)^\times|.$$
+
+  \begin{proof}
+    Por lo que hemos visto,
+    \[ (\ZZ/n\ZZ)^\times = \{ \overline{a} \mid
+      0 \le a \le n-1, \quad \mcd (a,n) = 1 \}. \qedhere \]
+\end{proof}
+\end{corolario}
+
+\begin{corolario}
+  Si $p$ es primo, entonces $a\in \ZZ$ es invertible módulo $p$ si y solo si
+  $p \nmid a$. En otras palabras, todo resto módulo $p$ no nulo es invertible:
+  $$(\ZZ/p\ZZ)^\times = \{ \overline{1}, \overline{2}, \ldots, \overline{p-1} \}.$$
+
+  \begin{proof}
+    Se tiene $\mcd (a,p) = 1$ si y solo si $p\nmid a$.
+  \end{proof}
+\end{corolario}
+
+\begin{definicion}
+  Un anillo donde todo elemento no nulo es invertible, se llama un
+  \term{cuerpo}\footnote{O también \term{campo}. Son sinónimos.}.
+\end{definicion}
+
+Para subrayar que $\ZZ/p\ZZ$ es un cuerpo, se usa la notación
+$$\FF_p \dfn \ZZ/p\ZZ.$$
+Otro ejemplo de cuerpos bien conocido son los números racionales $\QQ$.
+
+\begin{observacion}
+  \label{obs:en-cuerpo-no-hay-div-de-cero}
+  En todo cuerpo, si $xy = 0$, entonces $x = 0$ o $y = 0$. De modo equivalente,
+  si $x,y \ne 0$, entonces $xy \ne 0$.
+
+  \begin{proof}
+    Si $xy = 0$ y $x \ne 0$, entonces $x$ es invertible y luego $xy = 0 = x\,0$,
+    y podemos cancelar $x$ para obtener $y = 0$.
+  \end{proof}
+\end{observacion}
+
+\begin{corolario}
+  Los restos módulo $n$ forman un cuerpo si y solo si $n = p$ es un número
+  primo.
+
+\begin{proof}
+  Ya hemos notado que si $p$ es primo, entonces $\FF_p \dfn \ZZ/p\ZZ$ es un
+  cuerpo. Ahora si $n$ es un número compuesto, entonces $n = ab$ para algunos
+  $1 < a,b < n$. Luego, los restos $\overline{a}$, $\overline{b}$ no son nulos,
+  pero su producto $\overline{a}\cdot\overline{b} = \overline{ab}$ sí es
+  nulo. Si $\ZZ/n\ZZ$ fuera un cuerpo, esto contradiría la observación anterior.
+\end{proof}
+\end{corolario}
+
+Podemos usar los restos invertibles $(\ZZ/n\ZZ)^\times$ para dar una prueba
+directa del teorema de Euler.
+
+\begin{teorema}[Euler]
+  \label{thm:Euler}
+  Si $\mcd (a,n) = 1$, entonces
+  $$a^{\phi (n)} \equiv 1 \pmod{n}.$$
+
+  \begin{proof}
+    Tenemos
+    $$(\ZZ/n\ZZ)^\times = \{ x_1, x_2, \ldots. x_{\phi (n)} \}.$$
+    Escribamos $y \dfn \overline{a}$. Dado que $\mcd (a,n) = 1$, tenemos
+    $y \in (\ZZ/n\ZZ)^\times$. Consideremos la aplicación
+    \begin{align*}
+      (\ZZ/n\ZZ)^\times & \to (\ZZ/n\ZZ)^\times,\\
+      x & \mapsto xy.
+    \end{align*}
+    Esta aplicación está bien definida: si $x,y \in (\ZZ/n\ZZ)^\times$, entonces
+    $xy \in (\ZZ/n\ZZ)^\times$. Es inyectiva: si $x_1\,y = x_2\,y$, entonces
+    podemos cancelar el elemento invertible $y$ y concluir que $x_1 =
+    x_2$. Siendo una aplicación inyectiva entre un conjunto finito y sí mismo,
+    es también sobreyectiva\footnote{De hecho, se ve que su inversa viene dada
+      por $x \mapsto xy^{-1}$.} Esto nos permite concluir que
+    $$\{ x_1, x_2, \ldots. x_{\phi (n)} \} = \{ x_1 y, x_2 y, \ldots. x_{\phi (n)} y \}.$$
+    Luego,
+    \[ \prod_{1 \le i \le \phi (n)} x_i =
+      \prod_{1 \le i \le \phi (n)} x_i y =
+      y^{\phi (n)} \, \prod_{1 \le i \le \phi (n)} x_i. \]
+    Cancelando el término $\prod\limits_{1 \le i \le \phi (n)} x_i$, podemos
+    concluir que $y^{\phi (n)} = 1$.
+\end{proof}
+\end{teorema}
+
+\begin{corolario}[El pequeño teorema de Fermat]
+  Para un número primo $p$, si $p \nmid a$, entonces
+  $$a^{p-1} \equiv 1 \pmod{p}.$$
+\end{corolario}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Digresión: polinomios}
+
+Denotemos por $K$ cualquier \term{cuerpo}; es decir, un anillo donde todo
+elemento no nulo es invertible. Se puede pensar que $K = \FF_p$, porque es el
+caso que nos va a interesar eventualmente, pero esto no será relevante para la
+teoría de esta sección.
+
+\begin{definicion}
+  Un \term{polinomio} en la variable $X$ con coeficientes en $K$ es una
+  expresión formal
+  $$f = a_n\,X^n + a_{n-1}\,X^{n-1} + \cdots + a_1\,X + a_0,$$
+  donde $a_0, a_1, \ldots, a_{n-1}, a_n \in K$. El conjunto de estos polinomios
+  se denota por $K [X]$.
+\end{definicion}
+
+Es cómodo escribir en lugar de la expresión de arriba simplemente
+$$f = \sum_{i\ge 0} a_i\,X^i,$$
+donde $a_i \in K$ para todo $i \ge 0$ y $a_i = 0$ para $i$ suficientemente
+grande (para $i > n$ en el caso de arriba).
+
+Las palabras ``expresión formal'' significan que dos polinomios
+$\sum_{i\ge 0} a_i\,X^i$ y $\sum_{i\ge 0} b_i\,X^i$ son iguales si y solo si
+$a_i = b_i$ para todo $i$.
+
+\begin{definicion}
+  El \term{grado} de $f = \sum_{i\ge 0} a_i\,X^i$ se define mediante
+  $$\deg f \dfn \max \{ i \mid a_i \ne 0 \}.$$
+  Si $a_i = 0$ para todo $i \ge 0$, se dice que $f = 0$ es
+  \term{el polinomio nulo} y se pone
+  $$\deg f \dfn -\infty.$$
+\end{definicion}
+
+\begin{definicion}
+  Para dos polinomios
+  $$f = \sum_{i\ge 0} a_i\,X^i, ~ g = \sum_{i\ge 0} b_i\,X^i \in K[X]$$
+  su suma se define término por término:
+  $$f + g \dfn \sum_{i\ge 0} (a_i + b_i)\,X^i,$$
+  mientras que el producto se define mediante la distributividad y las
+  identidades $a_i\,X^i \cdot b_j\, X^j = a_ib_j\,X^{i+j}$:
+  $$fg \dfn \sum_{k\ge 0} c_k\,X^k, \quad \text{donde } c_k \dfn \sum_{i+j = k} a_i b_j.$$
+\end{definicion}
+
+\begin{ejerc}
+  Comprueba que $K [X]$ es un anillo respecto a las operaciones de arriba. En
+  particular, demuestre la asociatividad de la multiplicación y su
+  distributividad respecto a la suma:
+  $$(fg)\,h = f\,(gh), \quad (f + g)\,h = fh + gh.$$
+\end{ejerc}
+
+\begin{proposicion}
+  Para cualesquiera $f,g \in K [X]$ se cumple
+  $$\deg (fg) = \deg f + \deg g.$$
+
+\begin{proof}
+  Si $f = 0$ o $g = 0$, entonces $fg = 0$ y la identidad en cuestión se cumple
+  por nuestra definición $\deg 0 \dfn -\infty$. Podemos asumir entonces que
+  $f \ne 0$ y $g \ne 0$. Escribamos
+  $$f = a_m\,X^m + \cdots + a_1\,X + 1, \quad g = b_n\,X^n + \cdots + b_1\,X + b_0,$$
+  donde $a_m, b_n \ne 0$. Luego,
+  $$fg = a_m\,b_n\,X^{m+n} + \cdots + (a_0 b_1 + a_1 b_0)\,X + a_0 b_0,$$
+  donde $a_m b_n \ne 0$.
+\end{proof}
+\end{proposicion}
+
+\begin{definicion}
+  Para un polinomio
+  $$f = a_n\,X^n + a_{n-1}\,X^{n-1} + \cdots + a_1\,X + a_0 \in K [X]$$
+  y un elemento $c \in K$, el resultado de \term{evaluación} de $f$ en $c$ es
+  $$f (c) = a_n\,c^n + a_{n-1}\,c^{n-1} + \cdots + a_1\,c + a_0 \in K.$$
+  Si $f (c) = 0$, se dice que $c$ es una \term{raíz} de $f$.
+\end{definicion}
+
+Notamos que la evaluación está compatible con las sumas y productos de
+polinomios:
+$$(f+g) (c) = f (c) + g (c), \quad (fg) (c) = f (c) \cdot g (c).$$
+
+\begin{comentario}
+  No hay que confundir los polinomios con funciones polinomiales $K\to K$. Por
+  ejemplo, si $K = \FF_p$ es un cuerpo finito (y esto es el caso que nos va a
+  interesar más adelante), entonces hay $p^p$ diferentes aplicaciones
+  $\FF_p \to \FF_p$, mientras que el conjunto $\FF_p [X]$ es infinito: sus
+  elementos son sumas formales de grado arbitrario. Por esto diferentes
+  polinomios $f,g \in \FF_p [X]$ pueden dan lugar a la misma aplicación
+  $\FF_p \to \FF_p$. Por ejemplo, según el pequeño teorema de Fermat, el
+  polinomio $X^p - X$ evaluado en cualquier $c \in \FF_p$ nos da $0$, aunque
+  este polinomio no es nulo.
+\end{comentario}
+
+\begin{lema}[División con resto por un polinomio lineal]
+  Sean $f \in K [X]$ un polinomio de grado $n > 0$ y $c \in K$. Entonces, existe
+  un polinomio $g \in K [X]$ de grado $n-1$ tal que
+  $$f = (X-c)\,g + r$$
+  para algún $r \in K$.
+
+  \begin{proof}
+    Escribamos
+    $$f = a_n\,X^n + a_{n-1}\,X^{n-1} + \cdots + a_1\,X + a_0.$$
+    El polinomio $g$ que estamos buscando tiene que ser de la forma
+    $$g = b_{n-1}\,X^{n-1} + b_{n-2}\,X^{n-2} + \cdots + b_1\,X + b_0.$$
+    Tenemos
+    \begin{multline*}
+      (X-c)\,g + r = (X-c)\,(b_{n-1}\,X^{n-1} + b_{n-2}\,X^{n-2} + \cdots + b_1\,X + b_0) + r =\\
+      b_{n-1}\,X^n + (b_{n-2} - c\,b_{n-1})\,X^{n-1} + \cdots
+      + (b_1 - c\,b_2)\,X^2 + (b_0 - c\,b_1)\,X + r - c\,b_0.
+\end{multline*}
+Para que este polinomio sea igual a $f$, deben cumplirse las identidades
+\begin{align*}
+a_n & = b_{n-1},\\
+a_{n-1} & = b_{n-2} - cb_{n-1},\\
+a_{n-2} & = b_{n-3} - cb_{n-2},\\
+ & \cdots \\
+a_1 & = b_0 - cb_1,\\
+a_0 & = r-c\,b_0
+\end{align*}
+que nos llevan a las recurrencias
+\begin{align*}
+b_{n-1} & = a_n,\\
+b_{n-2} & = a_{n-1} + cb_{n-1},\\
+b_{n-3} & = a_{n-2} + cb_{n-2},\\
+ & \cdots \\
+b_i & = a_{i+1} + cb_{i+1},\\
+ & \cdots \\
+b_0 & = a_1 + cb_1,\\
+r & = a_0 + cb_0
+\end{align*}
+que definen de modo único los coeficientes del polinomio $g$ y la constante $r$.
+\end{proof}
+\end{lema}
+
+\begin{proposicion}
+  Para un polinomio $f\in K [X]$, un elemento $c \in K$ es una raíz de $f$ si y
+  solamente si
+  $$f = (X-c)\cdot g$$
+  para algún polinomio $g\in K [X]$.
+
+\begin{proof}
+  En una dirección, esto es obvio: si podemos escribir
+  $$f = (X-c)\cdot g,$$
+  entonces la evaluación en $c$ nos da
+  $$f (c) = (c-c)\cdot g (c) = 0.$$
+  En la otra dirección, el lema anterior nos dice que un polinomio no constante
+  $f$ siempre puede ser escrito como
+  $$f = (X-c)\,g + r$$
+  para algunos $g \in K [X]$ y $r \in K$. Ahora si $c$ es una raíz de $f$,
+  entonces
+  $$0 = f (c) = \underbrace{(c-c)}_{= 0}\,g (c) + r,$$
+  de donde podemos concluir que $r = 0$.
+\end{proof}
+\end{proposicion}
+
+\begin{corolario}[Lagrange, 1768]
+  \label{cor:Lagrange}
+  Si $f\in K [X]$ es un polinomio no nulo, entonces $f$ tiene $\le \deg f$
+  raíces distintas en $K$.
+
+  \begin{proof}
+    Inducción sobre $n = \deg f$. Si $n = 0$, entonces $f$, siendo un polinomio
+    constante no nulo, no tiene raíces. Para el paso inductivo, notamos que si
+    $c\in K$ es una raíz de $f$, entonces
+    $$f = (X-c)\,g$$
+    para algún polinomio $g\in K [X]$. Luego,
+    $$\deg f = \deg (X-c)\cdot \deg g,$$
+    así que $\deg g = n - 1$ y por la hipótesis de inducción sabemos que $g$
+    tiene $\le n - 1$ raíces. Toda raíz de $g$ es una raíz de $f$, y si
+    $c' \ne c$ es una raíz de $f$, entonces la identidad en $K$
+    $$0 = f (c') = (c-c')\cdot g (c')$$
+    implica que $g (c') = 0$ y $c'$ es una raíz de $g$. Podemos concluir que $f$
+    tiene $\le n$ diferentes raíces.
+  \end{proof}
+\end{corolario}
+
+\begin{ejemplo}
+  Consideremos el polinomio $f \dfn X^3 - 1 \in K [X]$.
+
+  \begin{enumerate}
+  \item[1)] Si $K = \FF_5$, entonces $f$ tiene solo una raíz $X = 1$. Luego,
+    $$(X - 1)\,(X^2 + X + 1) = X^3 - 1 \quad\text{en }\FF_5 [X],$$
+    donde el polinomio $X^2 + X + 1$ no tiene ninguna raíz en $\FF_5$.
+
+  \item[2)] Si $K = \FF_7$, entonces $f$ tiene tres raíces $X = 1, 2, 4$ y
+    $$(X - 1)\,(X - 2)\,(X - 4) = X^3 - 7X^2 + 14X - 8 = X^3 - 1 \quad\text{en }\FF_7 [X].$$
+
+  \item[3)] Si $K = \FF_3$, entonces $f$ tiene solo una raíz $X = 1$, pero es
+    una ``raíz de multiplicidad $3$'' porque
+    \[ (X-1)^3 = X^3 - 3X^2 + 3X - 1 = X^3 - 1
+      \quad \text{en }\FF_3 [X]. \qedhere \]
+  \end{enumerate}
+\end{ejemplo}
+\begin{ejerc}
+  Encuentre las raíces de polinomios
+  $$f = X^2 + 1, \quad X^3 + 1, \quad X^4 + 1$$
+  en $K = \FF_2, \FF_3, \FF_5, \FF_7$. Cuando hay una raíz, escriba $f$ como
+  $f = (X-c)\,g$ para $g \in K [X]$. Si $g$ también tiene raíces, repita este
+  proceso para $g$.
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que para todo polinomio $f = \sum_{i\ge 0} a_i\,X^i \in \FF_p [X]$
+  se cumple
+  $$f (X^p) \dfn \sum_{i\ge 0} a_i\,X^{pi}
+        = \left(\sum_{i\ge 0} a_i\,X^i\right)^p \rdfn f^p.$$
+\end{ejerc}
+
+\begin{ejerc}
+  \label{ejerc:discr}
+  Consideremos un polinomio cuadrático $f = a\,X^2 + b\,X + c \in \FF_p [X]$
+  donde $p$ es un primo impar\footnote{Por supuesto, ``primo impar'' significa
+    nada más que $p \ne 2$. Esta expresión es muy común y aparecerá muy a menudo
+    en estos apuntes porque el primo $2$ es muy especial en varios aspectos.} y
+  $a \ne 0$ en $\FF_p$. Consideremos el elemento
+  $$D \dfn b^2 - 4ac \in \FF_p.$$
+  Demuestre que
+
+  \begin{enumerate}
+  \item[1)] si en $\FF_p$ no existe un elemento $\sqrt{D}$ tal que
+    $\sqrt{D}^2 = D$, entonces $f$ no tiene raíces;
+
+  \item[2)] si tal $\sqrt{D}$ existe, entonces $f$ tiene raíces dadas por
+    $$x = \frac{-b \pm \sqrt{D}}{2a} \rdfn (-b \pm\sqrt{D})\cdot (2a)^{-1}.$$
+  \end{enumerate}
+\end{ejerc}
+
+\begin{digresion}
+  El lector puede notar que en ninguna parte de esta sección hemos tomado los
+  elementos inversos $a_i^{-1}$ para $a_i\in K$. De hecho, lo único que hemos
+  usado es la propiedad \ref{obs:en-cuerpo-no-hay-div-de-cero}.
+
+  Aunque se pueden considerar los polinomios con coeficientes en $\ZZ/n\ZZ$
+  donde $n$, en este caso \ref{obs:en-cuerpo-no-hay-div-de-cero} no se cumple y
+  puede pasar que $\deg (fg) < \deg f + \deg g$. Por ejemplo, en $\ZZ/8\ZZ [X]$
+  tenemos trivialmente $2X \cdot 4X = 0$. Por esto la prueba de
+  \ref{cor:Lagrange} no funciona y un polinomio $f\in \ZZ/n\ZZ [X]$ con $n$
+  compuesto puede tener más de $\deg f$ raíces. Por ejemplo, el polinomio
+  cuadrático $f = X^2 - 1$ tiene cuatro raíces en $\ZZ/n\ZZ$: son
+  $1,3,5,7$. Tenemos
+  \[ (X - 1)\,(X + 1)\,(X - 3)\,(X + 3) = (X^2 - 1)\,(X^2 - 3^2) = (X^2 - 1)^2
+         \quad\text{en }\ZZ/8\ZZ[X]. \]
+\end{digresion}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Orden multiplicativo módulo n}
+
+Sea $x \in (\ZZ/n\ZZ)^\times$ un resto módulo $n$ invertible. Consideremos sus
+potencias:
+$$1, x, x^2, x^3, \ldots \in (\ZZ/n\ZZ)^\times.$$
+El conjunto $(\ZZ/n\ZZ)^\times$ es finito, y por ende en esta lista hay
+repeticiones: existen $1 \le k < \ell$ tales que $x^k = x^\ell$. Luego, al
+multiplicar esta identidad por $(x^k)^{-1}$, nos queda $x^{\ell-k} =
+1$. Entonces, para todo $x \in (\ZZ/n\ZZ)^\times$ existe $k = 1,2,3,\ldots$ tal
+que $x^k = 1$.
+
+\begin{definicion}
+  Para $x \in (\ZZ/n\ZZ)^\times$ el mínimo número positivo $k$ tal que $x^k = 1$
+  se llama el \term{orden} de $x$. En este caso se escribe
+  $$\ord x = k.$$
+\end{definicion}
+
+Notamos que la discusión de arriba demuestra que los elementos
+$$1, x, x^2, x^3, \ldots, x^{\ord x-1}$$
+deben ser distintos.
+
+\begin{ejemplo}
+  En $\FF_7^\times = (\ZZ/7\ZZ)^\times$ tenemos
+  \begin{align*}
+    \ord \overline{1} & = 1,\\
+    \ord \overline{2} & = 3, \quad (2^2 = 4, ~ 2^3 \equiv 1)\\
+    \ord \overline{3} & = 6, \quad (3^2 \equiv 2, ~ 3^3 \equiv 6, ~ 3^4 \equiv 4, ~ 3^5 \equiv 5, ~ 3^6 \equiv 1)\\
+    \ord \overline{4} & = 3, \quad (4^2 \equiv 2, ~ 4^3 \equiv 1)\\
+    \ord \overline{5} & = 6, \quad (5^2 \equiv 4, ~ 5^3 \equiv 6, ~ 5^4 \equiv 2, ~ 5^6 \equiv 1)\\
+    \ord \overline{6} & = 2. \quad (6^2 \equiv 1) \qedhere
+  \end{align*}
+\end{ejemplo}
+
+\begin{ejerc}
+  Encuentre los órdenes de los elementos de $(\ZZ/8\ZZ)^\times$ y
+  $(\ZZ/10\ZZ)^\times$.
+\end{ejerc}
+
+\begin{observacion}
+  Para $x \in (\ZZ/n\ZZ)^\times$ se tiene $x^k = 1$ si y solo si
+  $\ord x \mid k$.
+
+  \begin{proof}
+    Si $k = m\cdot \ord x$, entonces
+    $$x^k = (x^{\ord x})^m = 1^m = 1.$$
+    Viceversa, supongamos que $x^k = 1$. La división con resto nos da
+    $k = q\cdot \ord x + r$, donde $0 \le r < \ord x$. Tenemos
+    $$1 = x^k = x^{q\cdot \ord x + r} = x^{x\cdot \ord x}\,x^r = x^r.$$
+    Pero $\ord x$ es el mínimo número positivo tal que
+    $x^{\ord x} = 1$. Entonces, necesariamente $r = 0$, y por ende
+    $\ord x \mid k$.
+  \end{proof}
+\end{observacion}
+
+\begin{corolario}
+  Para todo $x \in (\ZZ/n\ZZ)^\times$ se tiene $\ord x \mid \phi (n)$.
+
+  \begin{proof}
+    Se sigue del teorema de Euler \ref{thm:Euler}.
+  \end{proof}
+\end{corolario}
+
+\begin{corolario}
+  Para $x \in (\ZZ/n\ZZ)^\times$ se tiene $x^k = x^\ell$ si y solo si
+  $k \equiv \ell \pmod{\ord x}$.
+
+  \begin{proof}
+    Sin pérdida de generalidad, $k \le \ell$. Luego, $x^k = x^\ell$ si y solo si
+    $x^{\ell - k} = 1$, lo que sucede si y solo si $\ord x \mid (\ell - k)$.
+  \end{proof}
+\end{corolario}
+
+\begin{ejemplo}
+  Tenemos $2^2 \equiv 2^5 \equiv 4 \pmod{7}$, dado que $2 \equiv 5 \pmod{3}$,
+  donde $3$ es el orden de $2$ módulo $7$.
+\end{ejemplo}
+
+\begin{proposicion}
+  Para $x \in (\ZZ/n\ZZ)^\times$ se tiene
+  $$\ord x^k = \frac{\ord x}{\mcd (\ord x, k)}.$$
+
+  \begin{proof}
+    Denotemos $m \dfn \ord x$. Si $\mcd (m, k) = d$, entonces podemos escribir
+    $$m = dm', \quad k = dk', \quad \text{donde }\mcd (m',k') = 1.$$
+    Luego,
+    $$m \mid k\ell \iff dm' \mid dk'\ell \iff m' \mid k'\ell \iff m' \mid \ell.$$
+    Tenemos entonces
+    \[ \ord x^k = \min \{ \ell \mid (x^k)^\ell = 1 \}
+                = \min \{ \ell ~\mid~ m \mid k\ell \}
+                = \min \{ \ell ~ \mid ~ m'\mid \ell \}
+                = m' = m/d. \qedhere \]
+  \end{proof}
+\end{proposicion}
+
+\begin{ejemplo}
+  Módulo $7$, se tiene
+  \[ \ord 2^2 = \frac{\ord 2}{\mcd (\ord 2, 2)}
+              = \frac{3}{\mcd (3, 2)} = 3. \qedhere \]
+\end{ejemplo}
+
+\begin{proposicion}
+  Para $x,y \in (\ZZ/n\ZZ)^\times$, si $\mcd (\ord x, \ord y) = 1$, entonces
+  $\ord (xy) = \ord x \cdot \ord y$.
+
+  \begin{proof}
+    Primero,
+    $$(xy)^{\ord x \cdot \ord y} = (x^{\ord x})^{\ord y} \, (y^{\ord y})^{\ord x} = 1,$$
+    lo que implica
+    $$\ord (xy) \mid \ord x \cdot \ord y.$$
+    Además,
+    $$x^{\ord y\cdot \ord (xy)} = (y^{\ord y})^{\ord (xy)} \, x^{\ord y\cdot \ord (xy)} = ((xy)^{\ord (xy)})^{\ord y},$$
+    de donde
+    $$\ord x \mid \ord y\cdot \ord (xy).$$
+    De modo similar, intercambiando $x$ e $y$, se obtiene
+    $$\ord y \mid \ord x\cdot \ord (xy).$$
+    Pero $\mcd (\ord x, \ord y) = 1$ por nuestra hipótesis, así que
+    \[ \ord x \cdot \ord y \mid \ord (xy). \qedhere \]
+  \end{proof}
+\end{proposicion}
+
+\begin{ejemplo}
+  Los números $7$ y $8$ son invertibles módulo $9$. Tenemos
+  $$7^2 \equiv 4, ~ 7^3 \equiv 1, \quad 8^2 \equiv 1 \pmod{9},$$
+  así que $7$ y $8$ tienen orden $3$ y $2$ módulo $9$. Los números $2$ y $3$ son
+  coprimos, así que, $7\cdot 8 \equiv 2 \pmod{9}$ debe tener orden $6$. En
+  efecto,
+  \[ 2^2 = 4, ~ 2^3 = 8, ~ 2^4 \equiv 7, ~
+     2^5 \equiv 5, ~ 2^6 \equiv 1 \pmod{9}. \qedhere \]
+\end{ejemplo}
+
+\begin{ejerc}
+  Demuestre que para todo $x \in (\ZZ/n\ZZ)^\times$ se tiene
+  $\ord x = \ord (x^{-1})$.
+\end{ejerc}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Raíces primitivas módulo p}
+
+El objetivo de esta sección es probar el siguiente resultado.
+
+\begin{teorema}
+  Si $p$ es un número primo, entonces para todo $d \mid (p-1)$ en $\FF_p^\times$
+  hay $\phi (d)$ elementos de orden $d$.
+\end{teorema}
+
+En particular, nos va a interesar el siguiente caso particular.
+
+\begin{corolario}
+  Para un primo $p$, en $\FF_p^\times$ existe un elemento de orden $p-1$; en
+  otras palabras, existe $x \in \FF_p^\times$ tal que sus potencias nos dan
+  todos los restos invertibles módulo $p$:
+  $$\FF_p^\times = \{ 1, x, x^2, x^3, \ldots, x^{p-2} \}.$$
+
+  \begin{proof}
+    Basta tomar $d = p-1$ en el teorema y notar que $\phi (p-1) \ge 1$.
+  \end{proof}
+\end{corolario}
+
+\begin{definicion}
+  Un elemento $x$ del corolario se llama una \term{raíz primitiva módulo $p$}, o
+  un \term{generador} de $\FF_p^\times$.
+\end{definicion}
+
+Las raíces primitivas simplifican mucho la vida: escribiendo todos los elementos
+de $\FF_p^\times$ como las potencias $x^k$ de algún $x$ fijo, es fácil entender
+las propiedades multiplicativas, ya que $x^k\cdot x^\ell = x^{k+\ell}$.
+La existencia de raíces primitivas se usa de modo implícito en los trabajos de
+Euler, pero fue probada por primera vez por Gauss en su tratado ``Disquisitiones
+arithmeticae'' (``Investigaciones aritméticas'') publicado en 1801.
+
+\begin{ejemplo}
+  Módulo $p = 5$, las potencias de $2$ nos dan
+  $$2, \quad 2^2 = 4, \quad 2^3 \equiv 3, \quad 2^4 \equiv 1.$$
+  De modo similar, calculando las potencias de $3$, se obtiene
+  $$3, \quad 3^2 \equiv 4, \quad 3^3 \equiv 2, \quad 3^4 \equiv 1.$$
+  Esto significa que $2$ y $3$ son raíces primitivas módulo $5$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  He aquí una pequeña tabla de las raíces primitivas módulo $p$ para diferentes
+  $p$.
+
+\begin{center}
+  \begin{tabular}{lll}
+    $p=2\colon$ & $\overline{1};$ \\
+    $p=3\colon$ & $\overline{2};$ & ($\phi (2) = 1$) \\
+    $p=5\colon$ & $\overline{2}, \overline{3};$ & ($\phi (4) = 2$) \\
+    $p=7\colon$ & $\overline{3}, \overline{5};$ & ($\phi (6) = 2$) \\
+    $p=11\colon$ & $\overline{2}, \overline{6}, \overline{7}, \overline{8};$ & ($\phi (10) = 4$) \\
+    $p=13\colon$ & $\overline{2}, \overline{6}, \overline{7}, \overline{11};$ & ($\phi (12) = 4$) \\
+    $p=17\colon$ & $\overline{3}, \overline{5}, \overline{6}, \overline{7}, \overline{10}, \overline{11}, \overline{12}, \overline{14};$ & ($\phi (16) = \phi (2^4) = (2-1)\cdot 2^3 = 8$) \\
+    $p=19\colon$ & $\overline{2}, \overline{3}, \overline{10}, \overline{13}, \overline{14}, \overline{15};$ & ($\phi (18) = \phi (2)\,\phi (9) = (3-1)\cdot 3 = 6$) \\
+                & $\ldots$
+  \end{tabular}
+\end{center}
+\end{ejemplo}
+
+\begin{ejerc}
+  Compruebe que $3$ y $5$ son raíces primitivas módulo $7$.
+\end{ejerc}
+
+\begin{ejemplo}
+  Si $n$ no es primo, entonces $(\ZZ/n\ZZ)^\times$ no necesariamente tiene una
+  raíz primitiva (que sería un elemento de orden $\phi (n)$). Por ejemplo, si
+  $n = 8$, los restos invertibles módulo $8$ son
+  $\overline{1}, \overline{3}, \overline{5}, \overline{7}$. Luego, tenemos
+  $3^2 \equiv 5^2 \equiv 7^2 \equiv 1 \pmod{8}$, así que
+  $$\ord \overline{1} = 1, \quad \ord \overline{3} = \ord \overline{5} = \ord \overline{7} = 2.$$
+  En general, $(\ZZ/n\ZZ)^\times$ tiene una raíz primitiva (un resto módulo $n$
+  cuyas potencias nos dan todos los elementos de $(\ZZ/n\ZZ)^\times$) solo si
+  $n$ es de la forma $2, 4, p^k, \text{ o } 2p^k$ donde $p$ es un primo impar y
+  $k=1,2,3,\ldots$ No es muy difícil probarlo, pero no vamos a necesitar este
+  resultado.
+
+  Por ejemplo,
+  $(\ZZ/10\ZZ)^\times = \{ \overline{1}, \overline{3}, \overline{7},
+  \overline{9} \}$ y $\overline{3}$ y $\overline{7}$ son raíces primitivas
+  módulo $10$, ya que
+  \[ 3^2 = 9, ~ 3^3 \equiv 7 \pmod{10}, \quad
+     7^2 \equiv 9, ~ 7^3 \equiv 3 \pmod{10}. \qedhere \]
+\end{ejemplo}
+
+\begin{lema}
+  La función de Euler satisface
+  $$\sum_{d\mid n} \phi (d) = n.$$
+
+\begin{proof}
+  Consideremos las fracciones
+  $$\frac{1}{n}, ~ \frac{2}{n}, ~ \frac{3}{n}, ~ \ldots, ~ \frac{n-1}{n}.$$
+  Podemos reducirlas a la forma $\frac{a}{b}$, donde $a < b$ y
+  $\mcd (a,b) = 1$. Al hacerlo, en los denominadores estarán los divisores
+  $d\mid n$. El número de tales fracciones con $d$ en el denominador es
+  precisamente $\phi (d)$.
+\end{proof}
+\end{lema}
+
+\begin{ejemplo}
+  Para $n = 10$ tenemos
+  \[ \phi (1) + \phi (2) + \phi (5) + \phi (10)
+       = 1 + 1 + 4 + 4 = 10. \qedhere \]
+\end{ejemplo}
+
+\begin{proof}[Demostración del teorema]
+  Para $x \in \FF_p^\times$ se tiene $\ord x \mid \phi (p) = p-1$. Para todo
+  $d \mid (p-1)$, definamos
+  $$\psi (d) \dfn \# \{ x \in \FF_p^\times \mid \ord x = d \}.$$
+  Tenemos entonces
+  $$\sum_{d \mid (p-1)} \psi (d) = p-1.$$
+  Sea $d$ un divisor de $p-1$ tal que $\psi (d) > 0$ y sea $x \in \FF_p^\times$
+  un residuo de orden $d$. En este caso
+  $$1, x, x^2, \ldots, x^{d-1}$$
+  son elementos distintos de $\FF_p^\times$ que cumplen $(x^k)^d = (x^d)^k = 1$;
+  es decir, son $d$ raíces del polinomio $X^d - 1 \in \FF_p [X]$. Pero según
+  \ref{cor:Lagrange}, este polinomio tiene a lo sumo $d$ raíces, así que
+  $z = 1, x, x^2, \ldots, x^{d-1}$ son \emph{todos} los elementos en
+  $\FF_p^\times$ que cumplen $z^d = 1$. En particular, todos los elementos de
+  orden $d$ están en esta lista.
+
+  Luego, la fórmula
+  $$\ord (x^k) = \frac{\ord x}{\mcd (\ord x, k)} = \frac{d}{\mcd (d,k)}$$
+  nos dice que
+  $$\ord (x^k) = d \iff \mcd (d,k) = 1,$$
+  y por lo tanto,
+  $$\psi (d) = \# \{ x^k \mid 0 \le k \le d-1, ~ \mcd (d,k) = 1 \} = \phi (d).$$
+  
+  Hemos probado entonces que para todo $d \mid (p-1)$, si $\psi (d) > 0$,
+  entonces $\psi (d) = \phi (d)$. Pero según el lema anterior,
+  $$\sum_{d \mid (p-1)} \psi (d) = \sum_{d \mid (p-1)} \phi (d) = p-1,$$
+  y por ende \emph{para todo} $d \mid (p-1)$ se cumple $\psi (d) = \phi (d)$.
+\end{proof}
+
+\begin{comentario}
+  Note que aunque hemos establecido la existencia de una raíz primitiva módulo
+  $p$ y sabemos que hay $\phi (p-1)$ de ellas, nuestra prueba no produce una
+  raíz primitiva de manera explícita. En efecto, no existe una fórmula general
+  para una raíz primitiva módulo $p$.
+\end{comentario}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\section{Símbolo de Legendre y los cuadrados módulo p}
+
+\begin{definicion}
+  Sea $p$ un número primo. Se dice que un entero $a\in \ZZ$ es un
+  \term{cuadrado} (o \term{residuo cuadrático}) \term{módulo $p$} si existe
+  $b\in \ZZ$ tal que $b^2 \equiv a \pmod{p}$. De modo equivalente, $x \in \FF_p$
+  es un cuadrado si existe $y \in \FF_p$ tal que $x = y^2$.
+\end{definicion}
+
+\begin{ejemplo}
+  Los cuadrados en $\ZZ/7\ZZ$ son
+  $\overline{0}, \overline{1}, \overline{2}, \overline{4}$:
+  $$0^2 = 0, \quad 1^2 \equiv 6^2 \equiv 1, \quad 3^2 \equiv 4^2 \equiv 2, \quad 2^2 \equiv 5^2 \equiv 4 \pmod{7}.$$
+
+  He aquí una lista de cuadrados en $\ZZ/p\ZZ$ para diferentes $p$:
+
+  \begin{align*}
+    p=2\colon & \overline{0}, \overline{1};\\
+    p=3\colon & \overline{0}, \overline{1};\\
+    p=5\colon & \overline{0}, \overline{1}, \overline{4};\\
+    p=7\colon & \overline{0}, \overline{1}, \overline{2}, \overline{4};\\
+    p=11\colon & \overline{0}, \overline{1}, \overline{3}, \overline{4}, \overline{5}, \overline{9};\\
+    p=13\colon & \overline{0}, \overline{1}, \overline{3}, \overline{4}, \overline{9}, \overline{10}, \overline{12};\\
+    p=17\colon & \overline{0}, \overline{1}, \overline{2}, \overline{4}, \overline{8}, \overline{9}, \overline{13}, \overline{15}, \overline{16};\\
+    p=19\colon & \overline{0}, \overline{1}, \overline{4}, \overline{5}, \overline{6}, \overline{7}, \overline{9}, \overline{11}, \overline{16}, \overline{17};\\
+    p=23\colon & \overline{0}, \overline{1}, \overline{2}, \overline{3}, \overline{4}, \overline{6}, \overline{8}, \overline{9}, \overline{12}, \overline{13}, \overline{16}, \overline{18};\\
+    p=29\colon & \overline{0}, \overline{1}, \overline{4}, \overline{5}, \overline{6}, \overline{7}, \overline{9}, \overline{13}, \overline{16}, \overline{20}, \overline{22}, \overline{23}, \overline{24}, \overline{25}, \overline{28}. \qedhere
+  \end{align*}
+\end{ejemplo}
+
+Notamos que para $x$ fijo la ecuación $y^2 - x = 0$ siempre tiene $\le 2$
+soluciones $y \in \FF_p$. Si $p$ es un primo impar, entonces esta ecuación o no
+tiene soluciones, o tiene dos diferentes soluciones $+y$ e $-y$. Por ejemplo,
+$5 \equiv 4^2 \equiv 7^2 \pmod{11}$.
+
+\begin{comentario}
+  Módulo $2$, cualquier número es un cuadrado. Para excluir este caso trivial,
+  en varios resultados vamos a asumir que $p$ es un primo impar.
+\end{comentario}
+
+Nuestro objetivo es desarrollar un método eficaz de ver si un número es un
+cuadrado módulo $p$, sin calcular explícitamente su ``raíz cuadrada'' módulo
+$p$. Para esto sirve el símbolo de Legendre.
+
+\begin{definicion}
+  Para un número entero $a$ y un primo $p$ el \term{símbolo de Legendre} se
+  define mediante
+  $$\legendre{a}{p} \dfn \begin{cases}
+    +1, & \text{si }p\nmid a\text{ y }a\text{ es un cuadrado módulo }p,\\
+    -1, & \text{si }p\nmid a\text{ y }a\text{ no es un cuadrado módulo }p,\\
+    0, & \text{si }p\mid a.
+  \end{cases}$$
+\end{definicion}
+
+\begin{observacion}
+  El símbolo de Legendre $\legendre{a}{p}$ depende solamente del resto de $a$
+  módulo $p$: si $a' \equiv a \pmod{p}$, entonces
+  $$\legendre{a'}{p} = \legendre{a}{p}.$$
+
+\begin{proof}
+  La propiedad de ser un cuadrado módulo $p$ depende solo del resto de $a$
+  módulo $p$.
+\end{proof}
+\end{observacion}
+
+\begin{proposicion}
+  El símbolo de Legendre es multiplicativo: para cualesquiera $a,b\in \ZZ$ se
+  cumple
+  $$\legendre{ab}{p} = \legendre{a}{p}\legendre{b}{p}.$$
+\end{proposicion}
+
+Notamos que si $a$ y $b$ son cuadrados, por ejemplo $a \equiv c^2$ y
+$b \equiv d^2 \pmod{p}$, entonces $ab \equiv (cd)^2$ es un cuadrado. Lo que no
+está claro es por qué el producto de dos no-cuadrados debe ser un cuadrado.
+
+\begin{proof}
+  Si $p \mid a$ o $p\mid b$, entonces $p \mid ab$, y la identidad se
+  cumple. dado que
+  $\legendre{ab}{p} = \legendre{a}{p}\legendre{b}{p} = 0$. Podemos asumir
+  entonces que $p \nmid a$ y $p \nmid b$, así que ambos símbolos
+  $\legendre{a}{p}$ y $\legendre{b}{p}$ son iguales a $\pm 1$.
+
+  En este caso los números $a$ y $b$ corresponden a elementos no nulos de
+  $\FF_p$. Hemos probado que existe un elemento (raíz primitiva)
+  $x \in \FF_p^\times$ tal que
+  $$\FF_p = \{ 0, 1, x, x^2, \ldots, x^{p-2} \}.$$
+  Entonces, $\overline{a} = x^k$ y $\overline{b} = x^\ell$ para algunos
+  $k,\ell$. Notamos que $x^k$ es un cuadrado si y solo si $k$ es un número
+  par. Luego, $x^k\,x^\ell = x^{k+\ell}$ y tenemos
+  \[ \legendre{a}{p} = (-1)^k, \quad \legendre{b}{p} = (-1)^\ell, \quad
+     \legendre{ab}{p} = (-1)^{k+\ell}. \qedhere \]
+\end{proof}
+
+\begin{ejemplo}
+  Los números $3$ y $5$ no son cuadrados módulo $7$, pero $15 \equiv 1$ es
+  claramente un cuadrado.
+\end{ejemplo}
+
+\begin{comentario}
+  Para nuestras pruebas es importante que $p$ sea primo. Los cuadrados módulo un
+  número compuesto $n$ no se comportan bien. Por ejemplo, módulo $8$ los
+  cuadrados son
+  $$0 = 0^2 \equiv 4^2, \quad 1 = 1^2 \equiv 3^2 \equiv 5^2 \equiv 7^2, \quad 4 = 2^2 \equiv 6^2$$
+  y los números $2,3,5,6,7$ no son cuadrados. Note que $1$ tiene cuatro
+  ``raíces cuadradas'' módulo $8$: son $\pm 1$ y $\pm 3$.
+\end{comentario}
+
+\begin{proposicion}
+  Sea $p$ un primo impar. Entonces, entre los números $1, 2, 3, \ldots, p-1$
+  precisamente la mitad son cuadrados módulo $p$ y la mitad no son cuadrados.
+
+  \begin{proof}
+    Tenemos
+    $$\FF_p^\times = \{ \overline{1}, \overline{2}, \ldots, \overline{p-1} \} = \{ 1, x, x^2, \ldots, x^{p-2} \},$$
+    donde $x$ es una raíz primitiva y $x^k$ es un cuadrado si y solo si $k$ es
+    par.
+  \end{proof}
+\end{proposicion}
+
+\begin{ejemplo}
+  Consideremos los restos módulo $7$. Podemos escoger una raíz primitiva
+  $x = \overline{3}$. Tenemos
+  $$\FF_{7}^\times = \{ 1 \equiv 3^6, ~ 2\equiv 3^2, ~ 3, ~ 4 \equiv 3^4, ~ 5 \equiv 3^5, ~ 6 \equiv 3^3  \}.$$
+  Luego, los cuadrados no nulos módulo $7$ son $1, 2, 4$.
+\end{ejemplo}
+
+\begin{ejerc}
+  Demuestre que el producto de todos los cuadrados no nulos módulo $p$ es
+  congruente a $+1$ si ${p \equiv 3 \pmod{p}}$ y $-1$ si
+  ${p \equiv 1 \pmod{p}}$.
+
+  Sugerencia: use una raíz primitiva módulo $p$ para escribir todos los
+  cuadrados.
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que si $p$ es un primo impar, entonces
+  $$\sum_{0 \le i \le p-1} \legendre{i}{p} = 0.$$
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que si $p$ es un primo impar, entonces
+  $$\sum_{0 \le x \le p-1} \legendre{ax+b}{p} = 0,$$
+  cuando $p \nmid a$.
+\end{ejerc}
+
+\begin{ejerc}
+  Sea $p$ un primo impar. Demuestre que el número de soluciones de la
+  congruencia $x^2 \equiv a \pmod{p}$ es igual a $1 + \legendre{a}{p}$.
+\end{ejerc}
+
+\begin{ejerc}
+  Sea $p$ un primo impar. Asumamos que $p \nmid a$. Demuestre que el número de
+  soluciones de la congruencia $ax^2 + bx + c \equiv 0 \pmod{p}$ es igual a
+  $1 + \legendre{b^2 - 4ac}{p}$.
+
+  Sugerencia: $4\,(ax^2 + bx + c) = (2ax + b)^2 - (b^2 - 4ac)$.
+\end{ejerc}
+
+\begin{ejerc}
+  Sea $p$ un primo impar.
+
+  \begin{enumerate}
+  \item[1)] Demuestre que el número de soluciones de la congruencia
+    $x^2 - y^2 \equiv a \pmod{p}$ es igual a
+    $$\sum_{0 \le y \le p-1} \left(1 + \legendre{y^2+a}{p}\right).$$
+
+  \item[2)] Calcule directamente que este número es igual a $p-1$ si $p \nmid a$
+    y $2p - 1$ si $p \mid a$.
+
+    Sugerencia: factorice $x^2 - y^2 = (x+y)\,(x-y)$.
+
+  \item[3)] Deduzca que
+    $$\sum_{0 \le y \le p-1} \legendre{y^2+a}{p} = \begin{cases}
+      -1, & \text{si } p \nmid a,\\
+      p-1, & \text{si } p \mid a.
+    \end{cases}$$
+  \end{enumerate}
+\end{ejerc}
+
+\begin{ejerc}
+  Para $n = 2,3,4,\ldots$ sea $p$ un primo tal que $p \equiv 1 \pmod{n}$.
+
+  \begin{enumerate}
+  \item[1)] Demuestre que para todo $x\in \FF_p^\times$ o $x \ne y^n$ para
+    ningún $n$, o $x = y^n$ para $n$ diferentes $y \in \FF_p^\times$.
+
+  \item[2)] Demuestre que el conjunto
+    $$\{ x\in \FF_p^\times \mid x = y^n\text{ para algún }y\in\FF_p^\times \}$$
+    tiene $\frac{p-1}{n}$ elementos.
+
+  \item[3)] En particular, encuentre todos los cubos en $\FF_{13}^\times$.
+  \end{enumerate}
+\end{ejerc}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Criterio de Euler}
+
+Nos va a servir la siguiente interpretación del símbolo de Legendre.
+
+\begin{proposicion}[El criterio de Euler]
+  Si $p$ es un primo impar, entonces
+  $$\legendre{a}{p} \equiv a^{\frac{p-1}{2}} \pmod{p}.$$
+
+  \begin{proof}
+    Si $p \mid a$, entonces $\legendre{a}{p} = 0$ y
+    $a^{\frac{p-1}{2}} = 0 \pmod{p}$, así que el resultado es obvio. Asumamos
+    entonces que $p\nmid a$. En este caso de nuevo, podemos escoger una raíz
+    primitiva $x \in \FF_p^\times$ tal que
+    $$\FF_p^\times = \{ 1, x, x^2, \ldots, x^{p-2} \}.$$
+    Luego, $\overline{a}_p = x^k$ para algún $k$ y
+    $\legendre{a}{p} = (-1)^k$. Si $k$ es un número par, entonces
+    $\ord x = (p-1) \mid k\,\frac{p-1}{2}$, y luego
+    $$\overline{a^{\frac{p-1}{2}}} = x^{k\frac{p-1}{2}} = 1.$$
+    Si $k$ es un número impar, entonces
+    $$x^{k\frac{p-1}{2}} \ne 1.$$
+    Sin embargo,
+    $$\left(x^{k\frac{p-1}{2}}\right)^2 = x^{k\,(p-1)} = 1,$$
+    lo que nos permite concluir que
+    $$x^{k\frac{p-1}{2}} = -1.$$
+    ---en efecto, el polinomio $X^2 - 1 \in \FF_p [X]$ tiene dos raíces y son
+    $+1$ y $-1$.
+  \end{proof}
+\end{proposicion}
+
+\begin{ejemplo}
+  El criterio de Euler es de interés teórico y no ayuda mucho con los cálculos
+  del símbolo de Legendre. Podemos revisar un ejemplo sencillo: para $p = 7$
+  tenemos $\frac{p-1}{2} = 3$. Luego, $2^3 \equiv 1 \pmod{7}$ y en efecto,
+  $2 \equiv 3^2$ es un cuadrado módulo $7$. Por otro lado,
+  $3^3 \equiv 6 \equiv -1 \pmod{7}$, así que $3$ no es un cuadrado módulo $7$.
+\end{ejemplo}
+
+\begin{ejerc}
+  Digamos que $a$ es un \term{residuo bicuadrático} módulo $p$ si existe $b$ tal
+  que $b^4 \equiv a \pmod{p}$. Demuestre si $p \equiv 1 \pmod{4}$ y $p\nmid a$,
+  entonces $a$ es un residuo bicuadrático si y solo si
+  $a^{\frac{p-1}{4}} \equiv 1 \pmod{p}$.
+\end{ejerc}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\section{Primera ley suplementaria}
+
+Sustituyendo $a = -1$ en el criterio de Euler, se obtiene que para $p$ impar
+$$\legendre{-1}{p} \equiv (-1)^{\frac{p-1}{2}} \pmod{p};$$
+es decir,
+$$\legendre{-1}{p} = (-1)^{\frac{p-1}{2}}.$$
+
+\begin{observacion}
+  Sea $p$ un número impar. Entonces, $\frac{p-1}{2}$ es par si
+  $p \equiv 1 \pmod{4}$ y es impar si $p \equiv 3 \pmod{4}$.
+
+  \begin{proof}
+    Si $p = 4k + 1$, entonces $\frac{p-1}{2} = 2k$. Si $p = 4k + 3$, entonces
+    $\frac{p-1}{2} = 2k + 1$.
+  \end{proof}
+\end{observacion}
+
+Entonces, como una consecuencia del criterio de Euler, hemos obtenido el
+siguiente resultado.
+
+\begin{proposicion}[La primera ley suplementaria de reciprocidad]
+  \label{prop:primera-ley-suplementaria}
+  Si $p$ es un primo impar, entonces
+  $$\legendre{-1}{p} = (-1)^{\frac{p-1}{2}} = \begin{cases}
+    +1, & p \equiv 1 \pmod{4},\\
+    -1, & p \equiv 3 \pmod{4}.
+  \end{cases}$$
+\end{proposicion}
+
+\begin{ejemplo}
+  Consideremos los restos módulo $4$ de los primeros primos impares:
+  \begin{center}
+    \begin{tabular}{rx{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}c}
+      \hline
+      $p\colon$ & $3$ & $5$ & $7$ & $11$ & $13$ & $17$ & $19$ & $23$ & $29$ & $31$ & $37$ & $\cdots$ \tabularnewline
+      $p\mod 4\colon$ & $3$ & $1$ & $3$ & $3$ & $1$ & $1$ & $3$ & $3$ & $1$ & $3$ & $1$ & $\cdots$ \tabularnewline
+      \hline
+    \end{tabular}
+  \end{center}
+  Entonces, $-1$ es un cuadrado módulo $p = 5, 13, 17, 29, 37, \ldots$
+  \begin{gather*}
+    -1 \equiv 2^2 \pmod{5}, \quad -1 \equiv 5^2 \pmod{13}, \quad -1 \equiv 4^2 \pmod{17},\\
+    -1 \equiv 12^2 \pmod{29}, \quad -1 \equiv 6^2 \pmod{37}. \qedhere
+  \end{gather*}
+\end{ejemplo}
+
+\begin{comentario}
+  De hecho, el criterio de Euler será útil más adelante, pero no es necesario
+  para probar la primera ley suplementaria \ref{prop:primera-ley-suplementaria}.
+
+  Notamos que si $i^2 = -1$ para algún $i \in \FF_p$, entonces $i \ne 1$,
+  $i^3 = -i \ne 1$, $i^4 = 1$, y por lo tanto $\ord i = 4$. Esto implica que
+  $4 \mid (p-1)$.
+
+  Viceversa, si $4 \mid (p-1)$ y $x \in \FF_p^\times$ es una raíz primitiva,
+  entonces $\Bigl(x^{\frac{p-1}{4}}\Bigr)^4 = 1$, así que
+  $\Bigl(x^{\frac{p-1}{4}}\Bigr)^2 = \pm 1$. El caso
+  $\Bigl(x^{\frac{p-1}{4}}\Bigr)^2 = x^{\frac{p-1}{2}} = +1$ se descarta, ya que
+  $\ord x = p-1$. Luego, $x^{\frac{p-1}{4}}$ es una raíz cuadrada de $-1$.
+\end{comentario}
+
+\begin{ejerc}
+  Sea $p$ un primo impar. Demuestre que existe $a \in \FF_p$ tal que $a^4 = -1$
+  si y solamente si $p \equiv 1 \pmod{8}$. ¿Cuáles son los primeros primos que
+  cumplen esta condición?
+\end{ejerc}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Un lema de Gauss}
+
+El siguiente lema pertenece a Gauss y da otra interpretación útil del símbolo de
+Legendre.
+
+\begin{lema}
+  Sea $p$ un primo impar y $a\in \ZZ$ un entero tal que $p\nmid a$. Pongamos
+  $n \dfn \frac{p-1}{2}$.
+
+  \begin{enumerate}
+  \item[1)] Consideremos los números
+    $$a, 2a, 3a, \ldots, na.$$
+    Sea $s$ el número de elementos de arriba cuyo resto de división por $p$ es
+    mayor que $\frac{p}{2}$. Entonces,
+    $$\legendre{a}{p} = (-1)^s.$$
+
+  \item[2)] Si $a \ge 3$ es un número impar, entonces
+    $$\legendre{a}{p} = (-1)^t, \quad \text{donde }t \dfn \sum_{1 \le i \le n} \left\lfloor\frac{ai}{p}\right\rfloor.$$
+  \end{enumerate}
+
+  \begin{proof}
+    Puesto que $p \nmid a$ y $p \nmid i$ para ningún $1 \le i \le n$, ningún
+    número entre
+    $$a, 2a, 3a, \ldots, na.$$
+    es divisible por $p$. Además, estos números no son congruentes entre sí: en
+    efecto, si $i a \equiv j a \pmod{p}$, entonces $i \equiv j \pmod{p}$, lo que
+    sucede si y solo si $i = j$, dado que $1 \le i, j \le n$.
+
+    Reemplazando los números de arriba por sus restos de división por $p$ y
+    poniéndolos en el orden creciente, se obtiene
+    $$b_1, b_2, \ldots, b_r, c_1, c_2, \ldots, c_s,$$
+    donde $r+s = n$ y
+    $$1 \le b_1 < b_2 < \cdots < b_r < \frac{p}{2} < c_1 < c_2 < \cdots < c_s \le p-1.$$
+    Pasemos ahora a los números
+    \begin{equation}
+      \label{eqn:lema-de-gauss-lista}
+      b_1, b_2, \ldots, b_r, p-c_1, p-c_2, \ldots, p-c_s.
+    \end{equation}
+    Notamos que todos los elementos de esta lista están entre $1$ y
+    $n \dfn \frac{p-1}{2}$. De nuevo, estos números no son congruentes entre
+    sí. Está claro que $b_i \not\equiv b_j$ y $p - c_i \not\equiv p - c_j$ para
+    $i \ne j$. Para ver que $b_i \not\equiv p - c_j$, notamos que en este caso
+    tendríamos $b_i + c_j \equiv 0$. Sin embargo, $b_i \equiv k\,a$ y
+    $c_j \equiv \ell\,a$ para algunos $1 \le k,\ell \le n$. Puesto que
+    $p\nmid a$, esto implicaría $k + \ell \equiv 0 \pmod{p}$, lo que no es
+    posible dado que $k+\ell \le 2n = p-1$.
+
+    Entonces, en la lista \eqnref{eqn:lema-de-gauss-lista} están $n$ números
+    distintos entre $1$ y $n$, así que son precisamente $1,2,\ldots,n$ en algún
+    orden. Luego,
+    $$n! = b_1\cdots b_r\, (p-c_1)\cdots (p-c_s) \equiv (-1)^s\,b_1\cdots b_r\,c_1\cdots c_r \pmod{p}$$
+    Para la parte derecha, tenemos
+    $$b_1\cdots b_r\,c_1\cdots c_r \equiv a\cdot 2a\cdots na = n!\,a^n \pmod{p}.$$
+    Entonces,
+    $$n! \equiv (-1)^s\,n!\,a^n \pmod{p}.$$
+    Dado que $p\nmid n!$, esto implica
+    $$a^{\frac{p-1}{2}} = a^n \equiv (-1)^s \pmod{p}.$$
+    Por el criterio de Euler, la parte izquierda es congruente a
+    $\legendre{a}{p}$. Esto demuestra la parte 1) del lema.
+
+    \vspace{1em}
+
+    Para probar la parte 2), hay que ver que los números $s$ y $t$ tienen la
+    misma paridad. Dividiendo $ai$ con resto por $p$, se obtiene
+    $$ai = p\,\left\lfloor\frac{ai}{p}\right\rfloor + r, \quad\text{donde }0 \le r < p.$$
+    Entonces,
+    \begin{equation}
+      \label{eqn:lema-para-la-reciprocidad-1}
+      \sum_{1 \le i \le n} ai = \sum_{1 \le i \le n} p\,\left\lfloor\frac{ai}{p}\right\rfloor + b_1 + \cdots + b_r + c_1 + \cdots + c_s.
+    \end{equation}
+    Recordamos que en la lista
+    $$b_1, b_2, \ldots, b_r, p-c_1, p-c_2, \ldots, p-c_s$$
+    están nada más los números $1, \ldots, n$, así que
+    \begin{equation}
+      \label{eqn:lema-para-la-reciprocidad-2}
+      \sum_{1 \le i \le n} i = b_1 + \cdots + b_r + (p-c_1) + \cdots+ (p-c_s).
+    \end{equation}
+    Ahora restando \eqnref{eqn:lema-para-la-reciprocidad-2} de
+    \eqnref{eqn:lema-para-la-reciprocidad-1}, se obtiene
+    $$(a-1)\,\sum_{1\le i \le n} i = \sum_{1 \le i \le n} p\,\left\lfloor\frac{ai}{p}\right\rfloor - ps + 2\,(c_1 + \cdots + c_s).$$
+    Puesto que $p$ y $a$ son impares por nuestra hipótesis, rediciendo la última
+    ecuación módulo $2$, se obtiene
+    \[ s \equiv \sum_{1 \le i \le n} \left\lfloor\frac{ai}{p}\right\rfloor
+      \pmod{2}. \qedhere \]
+  \end{proof}
+\end{lema}
+
+\begin{ejemplo}
+  Para $p = 11$, tenemos $n = 5$.
+
+  \begin{enumerate}
+  \item[1)] Para $a = 3$, consideremos los números
+    $$3, 6, 9, 12, 15.$$
+    Los correspondientes restos de división por $11$ son
+    $$3, 6, 9, 1, 4.$$
+    Entre estos $6$ y $9$ son mayores que $11/2$ y por ende $s = 2$. También
+    usando la segunda parte del lema, podemos calcular
+    $$t = \left\lfloor\frac{3}{11}\right\rfloor + \left\lfloor\frac{6}{11}\right\rfloor + \left\lfloor\frac{9}{11}\right\rfloor + \left\lfloor\frac{12}{11}\right\rfloor + \left\lfloor\frac{15}{11}\right\rfloor = 0 + 0 + 0 + 1 + 1 = 2.$$
+    Ambos cálculos nos dan
+    $$\legendre{3}{11} = (-1)^2 = +1.$$
+    (De hecho, $3 \equiv 5^2 \pmod{11}$.)
+
+  \item[2)] Para $a = 7$ hay que considerar los números
+    $$7, 14, 21, 28, 35.$$
+    Los restos de división por $11$ correspondientes son
+    $$7, 3, 10, 6, 2.$$
+    Entre estos $7,6,10$ son mayores que $11/2$, así que $s = 3$. Por otro lado,
+    $$t = \left\lfloor\frac{7}{11}\right\rfloor + \left\lfloor\frac{14}{11}\right\rfloor + \left\lfloor\frac{21}{11}\right\rfloor + \left\lfloor\frac{28}{11}\right\rfloor + \left\lfloor\frac{35}{11}\right\rfloor = 0 + 1 + 1 + 2 + 3 = 7.$$
+    Estos cálculos nos dan
+    $$\legendre{7}{11} = (-1)^3 = (-1)^7 = -1.$$
+    En efecto, $7$ no es un cuadrado módulo $11$; los cuadrados módulo $11$ son
+    $\overline{1},\overline{3},\overline{4},\overline{5},\overline{9}$. \qedhere
+  \end{enumerate}
+\end{ejemplo}
+
+\begin{ejemplo}
+  Notamos que la prueba de la segunda parte del lema usa el hecho de que $a$ sea
+  impar. Por ejemplo, para $p = 11$ y $a = 6$ podríamos calcular
+  $$t = \left\lfloor\frac{6}{11}\right\rfloor + \left\lfloor\frac{12}{11}\right\rfloor + \left\lfloor\frac{18}{11}\right\rfloor + \left\lfloor\frac{24}{11}\right\rfloor + \left\lfloor\frac{30}{11}\right\rfloor = 0 + 1 + 1 + 2 + 2  = 6.$$
+  Esto es un número par, pero $6$ \emph{no es} un cuadrado módulo $11$.
+\end{ejemplo}
+
+\begin{ejerc}
+  Calcule $\legendre{-1}{p}$ usando el lema de Gauss.
+\end{ejerc}
+
+\begin{ejerc}[Eisenstein]
+  Deduzca del lema de Gauss que
+  $$\legendre{a}{p} = \prod_{1 \le j \le \frac{p-1}{2}} \frac{\sin \left(\frac{2\pi \cdot aj}{p}\right)}{\sin \left(\frac{2\pi j}{p}\right)}.$$
+  En particular, demuestre las siguientes identidades:
+  \begin{enumerate}
+  \item[a)]
+    $\legendre{2}{p} =
+    \prod\limits_{1 \le j \le \frac{p-1}{2}} 2\cos \left(\frac{2\pi j}{p}\right)$;
+
+  \item[b)]
+    $\legendre{3}{p} =
+    \prod\limits_{1 \le j \le \frac{p-1}{2}}
+    \left(3 - 4\sin^2 \left(\frac{2\pi j}{p}\right)\right)$.
+  \end{enumerate}
+\end{ejerc}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Segunda ley suplementaria}
+
+\begin{observacion}
+  Sea $p$ un número impar. Entonces, $\frac{p^2-1}{8}$ es par si y solo si
+  $p \equiv \pm 1 \pmod{8}$ y es impar si y solo si $p \equiv \pm 3 \pmod{8}$.
+\end{observacion}
+
+\begin{proof}
+  Los posibles restos de $p$ módulo $8$ son $1,3,5,7$. Notamos que $5 \equiv -3$
+  y $7 \equiv -1 \pmod{8}$.  Si $p = 8k \pm 1$, entonces
+  $$\frac{p^2-1}{8} = \frac{(8k\pm 1)^2 - 1}{8} = \frac{64 k^2 \pm 16 k}{8} = 8 k^2 \pm 2k \quad \text{es par}.$$
+  Si $p = 8k \pm 3$, entonces
+  \[ \frac{p^2-1}{8} = \frac{(8k \pm 3)^2 - 1}{8} =
+    \frac{64 k^2 \pm 48 k + 8}{8} = 8 k^2 \pm 6 k + 1 \quad \text{es
+      impar}. \qedhere \]
+\end{proof}
+
+\begin{proposicion}[La segunda ley suplementaria de reciprocidad]
+  Si $p$ es un primo impar, entonces
+  $$\legendre{2}{p} = (-1)^{\frac{p^2-1}{8}} = \begin{cases}
+    +1, \quad \text{si }p \equiv \pm 1 \pmod{8},\\
+    -1, \quad \text{si }p \equiv \pm 3 \pmod{8}.
+  \end{cases}$$
+
+  \begin{proof}
+    Según el lema de Gauss, hay que considerar los números
+    $$2, 4, 6, \ldots p-1$$
+    y contar cuántos de estos son mayores que $p/2$. Notamos que
+    $2k > \frac{p}{2}$ si y solo si $k > \frac{p}{4}$. Entonces, los primeros
+    $\left\lfloor\frac{p}{4}\right\rfloor$ números de la lista son menores o
+    iguales que $\frac{p}{2}$, y el resto son mayores que $\frac{p}{2}$. Tenemos
+    entonces
+    $$s = \frac{p-1}{2} - \left\lfloor\frac{p}{4}\right\rfloor.$$
+
+    Nos interesa la paridad de $s$. Consideremos todos los casos posibles.
+
+    \begin{itemize}
+    \item Si $p = 8k + 1$, entonces
+      $$s = \frac{8k}{2} - \left\lfloor\frac{8k+1}{4}\right\rfloor = 4k - 2k = 2k \quad \text{es par}.$$
+
+    \item Si $p = 8k + 3$, entonces
+      $$s = \frac{8k+2}{2} - \left\lfloor\frac{8k+3}{4}\right\rfloor = 4k + 1 - 2k = 2k + 1 \quad \text{es impar}.$$
+
+    \item Si $p = 8k + 5$, entonces
+      $$s = \frac{8k+4}{2} - \left\lfloor\frac{8k+5}{4}\right\rfloor = 4k + 2 - (2k+1) = 2k + 1 \quad \text{es impar}.$$
+
+    \item Si $p = 8k + 7$, entonces
+      \[ s = \frac{8k+6}{2} - \left\lfloor\frac{8k+7}{4}\right\rfloor =
+        4k + 3 - (2k+1) = 2k + 2 \quad \text{es par}. \qedhere \]
+    \end{itemize}
+  \end{proof}
+\end{proposicion}
+
+\begin{ejemplo}
+  Revisemos los restos módulo $8$ de los primeros números primos:
+  \begin{center}
+    \begin{tabular}{rx{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}x{0.5cm}c}
+ \hline
+$p\colon$ & $3$ & $5$ & $7$ & $11$ & $13$ & $17$ & $19$ & $23$ & $29$ & $31$ & $37$ & $41$ & $\cdots$ \tabularnewline
+$p\mod 8\colon$ & $+3$ & $-3$ & $-1$ & $+3$ & $-3$ & $+1$ & $+3$ & $-1$ & $-3$ & $-1$ & $-3$ & $+1$ & $\cdots$ \tabularnewline
+\hline
+    \end{tabular}
+  \end{center}
+
+  Entonces, los primeros primos módulo cuales $2$ es un cuadrado son
+  $7, 17, 23, 31, 41, \ldots$
+  \begin{gather*}
+    2 \equiv 3^2 \pmod{7}, \quad 2 \equiv 6^2 \pmod{17}, \quad 2 \equiv 5^2 \pmod{23},\\
+    2 \equiv 8^2 \pmod{31}, \quad 2 \equiv 17^2 \pmod{41}. \qedhere
+  \end{gather*}
+\end{ejemplo}
+
+\begin{ejerc}
+  Sea $p$ un primo impar. Demuestre que $-2$ es un cuadrado módulo $p$ si y
+  solamente si $p \equiv 1$ o $3 \pmod{8}$.
+\end{ejerc}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Ley de reciprocidad cuadrática}
+
+La segunda parte del lema de Gauss nos permite deducir el siguiente resultado,
+que es uno de los más importantes en la teoría de números.
+
+\begin{teorema}[La ley de reciprocidad cuadrática]
+  Si $p$ y $q$ son diferentes primos impares, entonces
+  \[ \legendre{q}{p} = (-1)^{\frac{q-1}{2}\,\frac{p-1}{2}}\,\legendre{p}{q} = \begin{cases}
+      +\legendre{p}{q}, & \text{si }p\equiv 1\text{ o }q\equiv 1 \pmod{4},\\
+      -\legendre{p}{q}, & \text{si } p\equiv 3\text{ y }q\equiv 3 \pmod{4}.
+    \end{cases} \]
+
+  \begin{proof}
+    Del lema de Gauss se sigue que
+    $$\legendre{q}{p}\,\legendre{p}{q} = (-1)^t,$$
+    donde
+    $$t = \sum_{1 \le i \le \frac{p-1}{2}} \left\lfloor\frac{qi}{p}\right\rfloor + \sum_{1 \le i \le \frac{q-1}{2}} \left\lfloor\frac{pi}{q}\right\rfloor.$$
+    Para calcular esta suma, consideremos el conjunto
+    $$S \dfn \Bigl\{ (i,j) \Bigm| 1 \le i \le \frac{p-1}{2}, ~ 1 \le j \le \frac{q-1}{2} \Bigr\}$$
+    y sus subconjuntos
+    \begin{align*}
+      S_1 & \dfn \{ (i,j) \in S \mid qi > pj \},\\
+      S_2 & \dfn \{ (i,j) \in S \mid qi < pj \}.
+    \end{align*}
+    Notamos que $qi \ne pj$, dado que $p$ y $q$ son primos distintos. Entonces,
+    $S$ es la unión disjunta de $S_1$ y $S_2$:
+    $$S = S_1 \cup S_2, \quad S_1\cap S_2 = \emptyset, \quad |S| = |S_1| + |S_2|.$$
+    Tenemos claramente
+    $$|S| = \frac{p-1}{2}\,\frac{q-1}{2}.$$
+    Por otra parte,
+    \begin{align*}
+      |S_1| & = \#\Bigl\{ (i,j) \in S \Bigm| 1 \le i \le \frac{p-1}{2}, ~ 1 \le j < \frac{qi}{p} \Bigr\} = \sum_{1 \le i \le \frac{p-1}{2}} \left\lfloor\frac{qi}{p}\right\rfloor,\\
+      |S_2| & = \# \Bigl\{ (i,j) \in S \Bigm| 1 \le j \le \frac{q-1}{2}, ~ 1 \le i < \frac{pj}{q} \Bigr\} = \sum_{1 \le j \le \frac{q-1}{2}} \left\lfloor\frac{pj}{q}\right\rfloor,
+    \end{align*}
+    de donde podemos concluir que
+$$\sum_{1 \le i \le \frac{p-1}{2}} \left\lfloor\frac{qi}{p}\right\rfloor + \sum_{1 \le i \le \frac{q-1}{2}} \left\lfloor\frac{pi}{q}\right\rfloor = \frac{p-1}{2}\,\frac{q-1}{2},$$
+y entonces,
+\[ \legendre{q}{p}\legendre{p}{q} = (-1)^{\frac{p-1}{2}\,\frac{q-1}{2}}. \qedhere \]
+  \end{proof}
+\end{teorema}
+
+En ``Disquisitiones Arithmeticae'' de Gauss se encuentran ocho diferentes
+pruebas de reciprocidad cuadrática y hoy en día se conocen alrededor de 250 (por
+supuesto, algunas de estas pruebas usan ideas parecidas).
+
+\begin{ejemplo}
+  Visualicemos el argumento combinatorio de la última prueba. Por ejemplo, si
+  $p = 11$ y $q = 7$, los conjuntos $S_1$ y $S_2$ son los siguientes:
+
+  \begin{center}
+\begin{tikzpicture}[x=1cm,y=1cm]
+\foreach \j in {1, ..., 3}
+  \fill[magenta!40] (0,\j-1/5) -- (0,\j+1/5) -- (\j*11/7,\j+1/5) -- (\j*11/7,\j-1/5) -- cycle;
+
+\foreach \i in {1, ..., 5}
+  \fill[cyan!40] (\i-1/5,0) -- (\i+1/5,0) -- (\i+1/5,\i*7/11) -- (\i-1/5,\i*7/11) -- cycle;
+
+\foreach \i in {1, ..., 5}
+  \foreach \j in {1, ..., 3}
+    \draw (\i,\j) node[circle,fill,inner sep=1.25pt] {};
+
+\foreach \j in {1, ..., 3}
+  \draw (0,\j) node[left] {$\j$};
+\foreach \i in {1, ..., 5}
+  \draw (\i,0) node[below] {$\i$};
+
+\draw (0,0) node[below left] {$0$};
+\draw (0,0) -- (6,7/11*6) node[above right] {$j = \frac{7}{11}i$};
+
+\draw (5.5,2) node[right] {$S_1$};
+\draw (3,3.5) node[above] {$S_2$};
+
+\draw[->] (0,0) -- (6,0) node[right] {$i$};
+\draw[->] (0,0) -- (0,4) node[above] {$j$};
+\end{tikzpicture}
+  \end{center}
+  \begin{align*}
+    |S_1| & = \left\lfloor\frac{7}{11}\right\rfloor + \left\lfloor\frac{14}{11}\right\rfloor + \left\lfloor\frac{21}{11}\right\rfloor + \left\lfloor\frac{28}{11}\right\rfloor + \left\lfloor\frac{35}{11}\right\rfloor = 0 + 1 + 1 + 2 + 3 = 7,\\
+    |S_2| & = \left\lfloor\frac{11}{7}\right\rfloor + \left\lfloor\frac{22}{7}\right\rfloor + \left\lfloor\frac{33}{7}\right\rfloor = 1 + 3 + 4 = 8. \qedhere
+  \end{align*}
+\end{ejemplo}
+
+\begin{ejemplo}
+  Los cuadrados módulo $7$ son $\overline{1},\overline{2},\overline{4}$ y los
+  cuadrados módulo $11$ son
+  $\overline{1},\overline{3},\overline{4},\overline{5},\overline{9}$. Tenemos
+  entonces
+  $$\legendre{11}{7} = +1, \quad \legendre{7}{11} = -1.$$
+  Tenemos $7 \equiv 11 \equiv 3 \pmod{4}$, lo cual concuerda con la ley de
+  reciprocidad cuadrática.
+\end{ejemplo}
+
+He aquí una pequeña tabla de los valores de $\legendre{p}{q}$.
+
+\begin{center}
+\begin{tabular}{|c|f{0.5cm}|f{0.5cm}|f{0.5cm}|f{0.5cm}|f{0.5cm}|f{0.5cm}|f{0.5cm}|f{0.5cm}|f{0.5cm}|f{0.5cm}|}
+\hline
+\backslashbox{$p$}{$q$} & $3$ & $5$ & $7$ & $11$ & $13$ & $17$ & $19$ & $23$ & $29$ & $31$ \tabularnewline
+\hline
+$3$ & $0$ & $-$ & $-$ & $+$ & $+$ & $-$ & $-$ & $+$ & $-$ & $-$ \tabularnewline
+\hline
+$5$ & $-$ & $0$ & $-$ & $+$ & $-$ & $-$ & $+$ & $-$ & $+$ & $+$ \tabularnewline
+\hline
+$7$ & $+$ & $-$ & $0$ & $-$ & $-$ & $-$ & $+$ & $-$ & $+$ & $+$ \tabularnewline
+\hline
+$11$ & $-$ & $+$ & $+$ & $0$ & $-$ & $-$ & $+$ & $-$ & $-$ & $-$ \tabularnewline
+\hline
+$13$ & $+$ & $-$ & $-$ & $-$ & $0$ & $+$ & $-$ & $+$ & $+$ & $-$ \tabularnewline
+\hline
+$17$ & $-$ & $-$ & $-$ & $-$ & $+$ & $0$ & $+$ & $-$ & $-$ & $-$ \tabularnewline
+\hline
+$19$ & $+$ & $+$ & $-$ & $-$ & $-$ & $+$ & $0$ & $-$ & $-$ & $+$ \tabularnewline
+\hline
+$23$ & $-$ & $-$ & $+$ & $+$ & $+$ & $-$ & $+$ & $0$ & $+$ & $-$ \tabularnewline
+\hline
+$29$ & $-$ & $+$ & $+$ & $-$ & $+$ & $-$ & $-$ & $+$ & $0$ & $-$ \tabularnewline
+\hline
+$31$ & $+$ & $+$ & $-$ & $+$ & $-$ & $-$ & $-$ & $+$ & $-$ & $0$ \tabularnewline
+\hline
+\end{tabular}
+\end{center}
+
+\begin{ejemplo}
+  Encontremos todos los primos $p$ tales que $3$ es un cuadrado módulo
+  $p$. Excluyendo los casos triviales $p=2,3$, tenemos gracias a la ley de
+  reciprocidad cuadrática
+  $$\legendre{3}{p} = (-1)^{\frac{p-1}{2}}\,\legendre{p}{3},$$
+  donde
+  \[ (-1)^{\frac{p-1}{2}} = \begin{cases}
+      +1, & \text{si }p\equiv 1 \pmod{4},\\
+      -1, & \text{si }p\equiv 3 \pmod{4};
+    \end{cases} \quad \legendre{p}{3} = \begin{cases}
+      +1, & \text{si }p \equiv 1 \pmod{3},\\
+      -1, & \text{si }p \equiv 2 \pmod{3}.
+    \end{cases} \]
+  Entonces, el resultado depende del resto de $p$ módulo $12$. Si $p \ne 2,3$, tenemos los siguientes casos:
+  \begin{center}
+    \begin{tabular}{lcccc}
+      \hline
+      $p \mod 12\colon$ & $1$ & $5$ & $7$ & $11$ \\
+      \hline
+      $p \mod 4\colon$ & $1$ & $1$ & $3$ & $3$ \\
+      \hline
+      $p \mod 3\colon$ & $1$ & $2$ & $1$ & $2$ \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  Luego,
+  \[ \legendre{3}{p} = \begin{cases}
+      +1, & p \equiv \pm 1 \pmod{12},\\
+      -1, & p \equiv \pm 5 \pmod{12}.
+    \end{cases} \]
+
+  \begin{center}
+    \begin{tabular}{lcccccccccccccccccccc}
+      \hline
+      $p\colon$ & $5$ & $7$ & $11$ & $13$ & $17$ & $19$ & $23$ & $29$ & $31$ & $37$ & $41$ & $43$ & $47$ & $53$ & $59$ & $61$ & $67$ & $71$ \\
+      \hline
+      $p \mod 12\colon$ & $5$ & $7$ & $11$ & $1$ & $5$ & $7$ & $11$ & $5$ & $7$ & $1$ & $5$ & $7$ & $11$ & $5$ & $11$ & $1$ & $7$ & $11$ \\
+      \hline
+    \end{tabular}
+
+    \vspace{1em}
+
+    Los restos módulo $12$ de los primeros números primos
+  \end{center}
+
+  Entonces, los primeros primos $p > 3$ tales que $3$ es un cuadrado módulo $p$
+  son $11, 13, 23, 37, 47, 59, 61, 71, \ldots$ Por ejemplo,
+  \[ 3 \equiv 5^2 \pmod{11}, \quad 3 \equiv 4^2 \pmod{13}, \quad
+     3 \equiv 7^2 \pmod{23}. \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  \label{ejemplo:legendre-m3-p}
+  Usando la ley de reciprocidad cuadrática, calculamos que para $p \ne 2,3$ se
+  tiene
+  \[ \legendre{-3}{p} = \legendre{-1}{p}\,\legendre{3}{p} =
+    (-1)^{\frac{p-1}{4}}\,(-1)^{\frac{p-1}{4}}\,\legendre{p}{3} =
+    \legendre{p}{3} = \begin{cases}
+      +1, & \text{si }p \equiv 1 \pmod{3},\\
+      -1, & \text{si }p \equiv 2 \pmod{3}.
+    \end{cases} \qedhere \]
+\end{ejemplo}
+
+Como una aplicación más sofisticada de la reciprocidad cuadrática, vamos a
+probar un resultado sobre los \emph{cubos} módulo $p$.
+
+\begin{proposicion}
+  Si $p \equiv 2 \pmod{3}$, entonces para todo elemento $a \in \FF_p$ existe
+  único $b \in \FF_p$ tal que $a = b^3$.
+
+  \begin{proof}
+    Primero notamos que para $p = 2$ esta propiedad es obvia, así que podemos
+    asumir que $p$ es un primo impar. Consideremos la aplicación
+    $$\FF_p \to \FF_p, \quad x \mapsto x^3.$$
+    Nos gustaría ver esta es una biyección. Dado que $\FF_p$ es un conjunto
+    finito, sería suficiente probar la inyectividad. Si $x^3 = y^3$, entonces
+    $$x^3 - y^3 = (x-y)\,(x^2 + xy + y^2) = 0.$$
+    Notamos que si $y = 0$, entonces $x = 0$. Asumamos que $y \ne 0$. La
+    ecuación de arriba implica que $x=y$ o $x^2 + xy + y^2 = 0$. En el segundo
+    caso, tenemos
+    $$\left(\frac{2x}{y}+1\right)^2 = 4\,\frac{x^2 + xy}{y^2} + 1 = -4 + 1 = -3,$$
+    así que $-3$ es un cuadrado en $\FF_p$. Pero esto contradice nuestra
+    hipótesis de que $p \equiv 2 \pmod{3}$ (véase
+    \ref{ejemplo:legendre-m3-p}). Podemos concluir que $x=y$.
+  \end{proof}
+\end{proposicion}
+
+\begin{ejemplo}
+  Si $p = 5$, entonces
+  $$0 \equiv 0^3, ~ 1 \equiv 1^3, ~ 2 \equiv 3^3, ~ 3 \equiv 2^3, ~ 4 \equiv 4^3.$$
+  De la misma manera, si $p = 11$, entonces
+  \[ 0 \equiv 0^3, ~ 1 \equiv 1^3, ~ 2 \equiv 7^3, ~ 3 \equiv 9^3, ~
+    4 \equiv 5^3, ~ 5 \equiv 3^3, ~ 6 \equiv 8^3, ~ 7 \equiv 6^3, ~
+    8 \equiv 2^3, ~ 9 \equiv 4^3, ~ 10 \equiv 10^3. \qedhere \]
+\end{ejemplo}
+
+\begin{ejerc}
+  Demuestre que el polinomio $X^2 + X + 1$ tiene una raíz módulo $p$ si y solo
+  si $p = 3$ o $p \equiv 1 \pmod{3}$. (Indicación: use el ejercicio
+  \ref{ejerc:discr}.)
+\end{ejerc}
+
+\begin{ejerc}
+  Sea $p$ un primo impar diferente de $5$. Demuestre que $5$ es un cuadrado
+  módulo $p$ si y solo si $p \equiv \pm 1, \pm 9 \pmod{20}$. Compruebe este
+  resultado para $p = 11, 19, 29$.
+\end{ejerc}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+\section{Cálculo del símbolo de Legendre}
+
+Resumamos las propiedades del símbolo de Legendre que hemos probado.
+
+\begin{enumerate}
+\item[0)] Si $a' \equiv a \pmod{p}$, entonces
+  $$\legendre{a'}{p} = \legendre{a}{p}.$$
+
+\item[1)] El símbolo es multiplicativo: para cualesquiera $a,b$ y todo primo $p$
+  se cumple
+  $$\legendre{ab}{p} = \legendre{a}{p}\,\legendre{b}{p}.$$
+
+\item[2)] \textbf{La ley de reciprocidad cuadrática}: si $p$ y $q$ son
+  diferentes primos impares, entonces
+  $$\legendre{q}{p} = (-1)^{\frac{q-1}{2}\,\frac{p-1}{2}}\,\legendre{p}{q} = \begin{cases}
++\legendre{p}{q}, & \text{si }p\equiv 1\text{ o }q\equiv 1 \pmod{4},\\
+-\legendre{p}{q}, & \text{si } p\equiv 3\text{ y }q\equiv 3 \pmod{4}.
+\end{cases}.$$
+
+\item[3)] \textbf{La primera ley suplementaria}: si $p$ es un primo impar, entonces
+\[ \legendre{-1}{p} = (-1)^{\frac{p-1}{2}} = \begin{cases}
+    +1, & \text{si }p \equiv 1 \pmod{4},\\
+    -1, & \text{si }p \equiv 3 \pmod{4}.
+  \end{cases} \]
+
+\item[4)] \textbf{La segunda ley suplementaria}: si $p$ es un primo impar, entonces
+  \[ \legendre{2}{p} = (-1)^{\frac{p^2-1}{8}} = \begin{cases}
+      +1, \quad \text{si }p \equiv \pm 1 \pmod{8},\\
+      -1, \quad \text{si }p \equiv \pm 3 \pmod{8}.
+    \end{cases} \]
+\end{enumerate}
+
+Estas propiedades nos siguieren que para calcular el símbolo de Legendre
+$\legendre{a}{p}$, se puede factorizar $a$ en números primos:
+$$a = \pm 2^k\,q_1^{k_1}\cdots q_s^{k_s},$$
+y luego por la multiplicatividad
+$$\legendre{a}{p} = \legendre{\pm 1}{p}\,\legendre{2}{p}^k\,\legendre{q_1}{p}^{k_1}\cdots \legendre{q_s}{p}^{k_s},$$
+donde $\legendre{\pm 1}{p}$ se calcula mediante la primera ley suplementaria,
+$\legendre{2}{p}$ se calcula mediante la segunda ley suplementaria, y el resto
+de los símbolos $\legendre{q_i}{p}$ pueden ser calculados aplicando la ley de
+reciprocidad y repitiendo el mismo proceso. Sin embargo, este método no es muy
+eficaz porque requiere factorización en primos. En la siguiente sección veremos
+que hay mejor algoritmo.
+
+Veamos algún ejemplo de cálculos del símbolo de Legendre a partir de las
+propiedades de arriba.
+
+\begin{ejemplo}
+  El número $2017$ es primo. Usando las congruencias
+  $$2017 \equiv 1 \pmod{4}, \quad 2017 \equiv 1 \pmod{3}, \quad 2017 \equiv 2 \pmod{5},$$
+  calculamos a partir de la ley de reciprocidad que
+  $$\legendre{15}{2017} = \legendre{3}{2017}\,\legendre{5}{2017} = \legendre{1}{3}\,\legendre{2}{5} = (+1)\,(-1) = -1.$$
+  Luego $15$ no es un cuadrado módulo $2017$.  De la misma manera podemos
+  calcular
+  $$\legendre{21}{2017} = \legendre{3}{2017}\,\legendre{7}{2017} = \legendre{1}{3}\,\legendre{1}{7} = +1,$$
+  y por lo tanto $21$ es un cuadrado módulo $2017$. Podemos ver con ayuda de una
+  computadora que
+  \[ 174^2 \equiv 21 \pmod{2017}. \qedhere \]
+\end{ejemplo}
+
+\begin{ejerc}
+  Demuestre que $2, 3, 4, 5$ y $64$ son todos cuadrados módulo $241$.
+
+  \noindent Nota: $241$ es primo.
+\end{ejerc}
+
+\begin{ejemplo}
+  \label{ejemplo:primo-de-Grothendieck}
+  Tenemos
+  $$\legendre{14}{57} = \legendre{2}{57}\,\legendre{7}{57}.$$
+  Luego, $57 \equiv 1 \pmod{8}$, así que $\legendre{2}{57} = +1$. Dado que
+  $57 \equiv 1 \pmod{4}$, la reciprocidad cuadrática nos da
+  $\legendre{7}{57} = \legendre{57}{7} = \legendre{1}{7} = +1$. Entonces,
+  $\legendre{14}{57} = +1$...
+
+  \vspace{1em}
+
+  Hay solo un pequeño problema: $57 = 3\cdot 19$ es un número compuesto, así que
+  el símbolo de Legendre $\legendre{14}{57}$ no está definido. En realidad, si
+  $14$ fuera un cuadrado módulo $57$, este también sería un cuadrado módulo $3$,
+  pero $14 \equiv 2 \pmod{3}$ no lo es.
+\end{ejemplo}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Símbolo de Jacobi}
+
+El símbolo de Legendre $\legendre{a}{p}$ está definido solamente para $p$
+primo. Si en lugar de $p$ tenemos un número compuesto, podemos tratar de aplicar
+las mismas reglas, pero como vimos en \ref{ejemplo:primo-de-Grothendieck}, esto
+nos puede llevar a conclusiones equivocadas. Para entender qué está pasando, se
+introduce la siguiente generalización.
+
+\begin{definicion}
+  Sea $n \ge 3$ un entero impar y $a$ cualquier entero. Sea
+  $n = p_1 p_2 \cdots p_s$ la factorización de $n$ en números primos. Entonces,
+  el \term{símbolo de Jacobi} $\legendre{a}{n}$ está definido como el siguiente
+  producto de símbolos de Legendre:
+  $$\legendre{a}{n} \dfn \legendre{a}{p_1}\legendre{a}{p_2}\cdots\legendre{a}{p_s}.$$
+\end{definicion}
+
+\begin{observacion}
+  Se tiene $\legendre{a}{n} = \pm 1$ si y solamente si $\mcd (a,n) = 1$. En caso
+  contrario, $\legendre{a}{n} = 0$.
+
+\begin{proof}
+  Tenemos $\legendre{a}{n} = \pm 1$ si y solo si $\legendre{a}{p_i} = \pm 1$
+  para todo $i$, si y solo si $p_i \nmid a$ para todo $i$.
+\end{proof}
+\end{observacion}
+
+Entonces, $\legendre{a}{n} = 0$ significa nada más que $\mcd (a,n) \ne 1$. En
+este caso $a$ puede o no puede ser un cuadrado módulo $n$. Por ejemplo, los
+cuadrados módulo $9$ son $0,1,4,7$. Los números $3$ y $6$ no son cuadrados
+módulo $9$, aun cuando $\legendre{3}{9} = \legendre{6}{9} = 0$.
+
+\begin{observacion}
+  Si $\legendre{a}{n} = -1$, entonces $a$ no es un cuadrado módulo $n$.
+
+\begin{proof}
+  Si $\legendre{a}{n} = -1$, entonces entre los símbolos de Legendre
+  correspondientes $\legendre{a}{p_i}$ hay por lo menos uno que es igual a $-1$,
+  así que $a$ no es un cuadrado módulo $p_i$ y en particular $a$ no puede ser un
+  cuadrado módulo $n$.
+\end{proof}
+\end{observacion}
+
+Por otro lado, si $\legendre{a}{n} = +1$, la definición implica que
+$\legendre{a}{p_i} = -1$ para un número par de índices $i$ (posiblemente
+distinto de cero). Se sigue que $\legendre{a}{n} = +1$ \emph{no implica} que $a$
+sea un cuadrado módulo $n$.
+
+\begin{ejemplo}
+  Volvamos a \ref{ejemplo:primo-de-Grothendieck} y calculemos correctamente el
+  símbolo de Jacobi $\legendre{14}{57}$. Por la definición,
+  $$\legendre{14}{57} \dfn \legendre{14}{3}\legendre{14}{19}.$$
+  Luego
+  $$\legendre{14}{3} = \legendre{2}{3} = -1, \quad \legendre{14}{19} = \legendre{2}{19}\legendre{7}{19}.$$
+  Aquí $\legendre{2}{19} = -1$, dado que $19 \equiv 3 \pmod{8}$, y por la
+  reciprocidad cuadrática
+  $$\legendre{7}{19} = -\legendre{19}{7} = -\legendre{5}{7} = +1.$$
+  En consecuencia
+  $$\legendre{14}{57} \dfn \legendre{14}{3}\legendre{14}{19} = (-1)\cdot (-1) = +1.$$
+  Aunque este símbolo es igual a $+1$, esto no significa que $14$ sea un
+  cuadrado módulo $57$: de hecho no es cuadrado ni módulo $3$, ni módulo $19$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  He aquí algunos símbolos de Jacobi $\legendre{a}{n}$ para $n = 9, 15, 21$.
+  Los valores subrayados corresponden a los casos cuando $\legendre{a}{n} = +1$,
+  pero $a$ no es un cuadrado módulo $n$.
+
+{\small
+\begin{center}
+\begin{tabular}{|c|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|f{0.35cm}|}
+\hline
+\backslashbox{$n$}{$a$} & $2$ & $3$ & $4$ & $5$ & $6$ & $7$ & $8$ & $9$ & $10$ & $11$ & $12$ & $13$ & $14$ & $15$ & $16$ & $17$ & $18$ & $19$ & $20$ \tabularnewline
+\hline
+$9$ & \cellcolor{shadecolor}$+$ & $0$ & $+$ & \cellcolor{shadecolor}$+$ & $0$ & $+$ & \cellcolor{shadecolor}$+$ &  &  &  &  &  &  &  &  &  &  &  &  \tabularnewline
+\hline
+$15$ & \cellcolor{shadecolor}$+$ & $0$ & $+$ & $0$ & $0$ & $-$ & \cellcolor{shadecolor}$+$ & $0$ & $0$ & $-$ & $0$ & $-$ & $-$ &  &  &  &  &  & \tabularnewline
+\hline
+$21$ & $-$ & $0$ & $+$ & \cellcolor{shadecolor}$+$ & $0$ & $0$ & $-$ & $0$ & $-$ & $-$ & $0$ & $-$ & $0$ & $0$ & $+$ & \cellcolor{shadecolor}$+$ & $0$ & $-$ & \cellcolor{shadecolor}$+$ \tabularnewline
+\hline
+\end{tabular}
+\end{center}}
+
+  Los cuadrados módulo $9, 15, 21$ son los siguientes:
+  \begin{align*}
+    n=9\colon & \overline{0}, \overline{1}, \overline{4}, \overline{7},\\
+    n=15\colon & \overline{0}, \overline{1}, \overline{4}, \overline{6}, \overline{9}, \overline{10},\\
+    n=21\colon & \overline{0}, \overline{1}, \overline{4}, \overline{7}, \overline{9}, \overline{15}, \overline{16}, \overline{18}.
+  \end{align*}
+
+  Por ejemplo,
+  $$\legendre{8}{15} \dfn \legendre{8}{3}\legendre{8}{5} = \legendre{2}{3}\legendre{3}{5} = (-1)\,(-1) = +1,$$
+  aun cuando $8$ no es un cuadrado módulo $15$.
+\end{ejemplo}
+
+\begin{ejerc}
+  Sea $n \ge 3$ un entero impar que no es un cuadrado. Demuestre que existe $a$
+  tal que $\legendre{a}{n} = -1$.
+
+  \noindent Sugerencia: use el teorema chino del resto.
+\end{ejerc}
+
+\begin{ejerc}
+  Sea $n \ge 3$ un entero impar que no es un cuadrado. Demuestre que
+  $$\sum_{\substack{0 < a < n \\ \mcd (a,n) = 1}} \legendre{a}{n} = 0.$$
+  Concluya que precisamente la mitad de los elementos $a \in (\ZZ/n\ZZ)^\times$
+  cumplen $\legendre{a}{n} = +1$.
+\end{ejerc}
+
+El símbolo de Jacobi tiene las siguientes propiedades.
+
+\begin{proposicion}
+  Sean $m, n \ge 3$ enteros impares.
+
+  \begin{enumerate}
+  \item[0)] Si $a' \equiv a \pmod{n}$, entonces
+    $\legendre{a'}{n} = \legendre{a}{n}$.
+
+  \item[1)] El símbolo es multiplicativo en $a$ y $n$: para cualesquiera
+    $a,b,m,n$ se cumple
+    $$\legendre{ab}{n} = \legendre{a}{n}\legendre{b}{n}, \quad \legendre{a}{mn} = \legendre{a}{m}\legendre{a}{n}.$$
+
+  \item[2)] Si $m \ne n$, entonces
+    \[ \legendre{m}{n} = (-1)^{\frac{m-1}{2}\,\frac{n-1}{2}}\,\legendre{n}{m} = \begin{cases}
+        +\legendre{n}{m}, & \text{si }n\equiv 1\text{ o }m\equiv 1 \pmod{4},\\
+        -\legendre{n}{m}, & \text{si } n\equiv 3\text{ y }m\equiv 3 \pmod{4}.
+      \end{cases}. \]
+\item[3)]
+
+  \[ \legendre{-1}{n} = (-1)^{\frac{n-1}{2}} = \begin{cases}
+      +1, & \text{si }n \equiv 1 \pmod{4},\\
+      -1, & \text{si }n \equiv 3 \pmod{4}.
+\end{cases}. \]
+
+\item[4)]
+
+  \[ \legendre{2}{n} = (-1)^{\frac{n^2-1}{8}} = \begin{cases}
+      +1, \quad \text{si }n \equiv \pm 1 \pmod{8},\\
+      -1, \quad \text{si }n \equiv \pm 3 \pmod{8}.
+    \end{cases}. \]
+  \end{enumerate}
+
+  \begin{proof}
+    Todo esto se sigue de la definición del símbolo de Jacobi y las propiedades
+    correspondientes del símbolo de Legendre. Sea $n = p_1\cdots p_s$ la
+    factorización de $n$ en primos. Si $a' \equiv a \pmod{n}$, entonces
+    $a' \equiv a \pmod{p_i}$ para todo $i$, y entonces
+    $$\legendre{a'}{n} \dfn \legendre{a'}{p_1}\cdots\legendre{a'}{p_s} = \legendre{a}{p_1}\cdots\legendre{a}{p_s} \rdfn \legendre{a}{n}.$$
+    Esto establece la parte 0). Para la parte 1), notamos que
+    $$\legendre{ab}{n} \dfn \legendre{ab}{p_1}\cdots\legendre{ab}{p_s} = \legendre{a}{p_1}\cdots\legendre{a}{p_s}\legendre{b}{p_1}\cdots\legendre{b}{p_s} \rdfn \legendre{a}{n}\legendre{b}{n},$$
+    y de la misma manera, si $m = q_1\cdots q_t$, entonces
+    $mn = q_1\cdots q_t\,p_1\cdots p_s$
+    $$\legendre{a}{mn} \dfn \legendre{a}{q_1}\cdots\legendre{a}{q_t}\legendre{a}{p_1}\cdots\legendre{a}{p_s} \rdfn \legendre{a}{m}\legendre{a}{n}.$$
+
+    Las partes 2), 3), 4) se demuestran por inducción sobre el número de los
+    primos en las factorizaciones
+    $$m = q_1\cdots q_t\quad\text{y}\quad n = p_1\cdots p_s.$$
+    Podemos asumir que $\mcd (m,n) \ne 1$ porque en caso contrario
+    $$\legendre{m}{n} = \legendre{n}{m} = 0.$$
+    La base de inducción es el caso cuando $s = t = 1$. Esto corresponde a la
+    ley de reciprocidad cuadrática
+    $$\legendre{q_1}{p_1} = (-1)^{\frac{q_1-1}{2}\,\frac{p_1-1}{2}}\,\legendre{p_1}{q_1}.$$
+    Para el paso inductivo, si $t > 1$, escribamos
+    $$m' = q_1\cdots q_{t-1},\quad m = m' q_t.$$
+    Luego, por la multiplicatividad y la hipótesis de inducción
+    $$\legendre{m}{n}\legendre{n}{m} = \legendre{m'}{n}\legendre{n}{m'}\legendre{q_t}{n}\legendre{n}{q_t} = (-1)^{\frac{m'-1}{2}\,\frac{n-1}{2}}\,(-1)^{\frac{q_t-1}{2}\,\frac{n-1}{2}}.$$
+    Tenemos que probar que
+    $$(-1)^{\frac{m'-1}{2}\,\frac{n-1}{2}}\,(-1)^{\frac{q_t-1}{2}\,\frac{n-1}{2}} \stackrel{?}{=} (-1)^{\frac{m-1}{2}\,\frac{n-1}{2}}.$$
+    Por ejemplo, se pueden considerar todos los casos posibles
+    $m', n, q_t \equiv \pm 1 \pmod{4}$; dejo los detalles al lector. De la misma
+    manera, si $s > 1$, podemos escribir
+    $$n' = p_1\cdots p_{s-1},\quad n = n' p_s$$
+    y luego
+    $$\legendre{m}{n}\legendre{n}{m} = \legendre{m}{n'}\legendre{n'}{m}\legendre{m}{p_s}\legendre{p_s}{m} = (-1)^{\frac{m-1}{2}\,\frac{n'-1}{2}} \, (-1)^{\frac{m-1}{2}\,\frac{p_s-1}{2}},$$
+    y se comprueba que este número es igual a
+    $(-1)^{\frac{m-1}{2}\,\frac{n-1}{2}}$.
+
+    La parte 3) se demuestra de la misma manera. Escribamos
+    $n = p_1\cdots p_s$. Si $s = 1$, ya sabemos que
+    $\legendre{-1}{p_1} = (-1)^{\frac{p_1-1}{2}}$. Esto sería la base de
+    inducción. Si $s > 1$, pongamos $n' \dfn p_1\cdots p_{s-1}$. Luego, por la
+    hipótesis de inducción
+    $$\legendre{-1}{n} = \legendre{-1}{n'}\legendre{-1}{p_s} = (-1)^{\frac{n'-1}{2}}\,(-1)^{\frac{p_s-1}{2}},$$
+    y se ve que
+    $$(-1)^{\frac{n'-1}{2}}\,(-1)^{\frac{p_s-1}{2}} = (-1)^{\frac{n-1}{2}}$$
+    ---dado que $n = n'\,p_s$, en particular
+    $n \operatorname{\text{mód}} 4 = (n' \operatorname{\text{mód}} 4)\cdot (p_s\operatorname{\text{mód}} 4)$.
+
+    La parte 4) es similar y la dejo como un ejercicio para el lector.
+  \end{proof}
+\end{proposicion}
+
+\begin{ejerc}
+  Complete los detalles de la demostración anterior.
+\end{ejerc}
+
+\begin{ejemplo}
+  Ya que $21 \equiv 1 \pmod{4}$, tenemos
+  $\legendre{21}{2017} = \legendre{2017}{21}$. Luego, $2017 \equiv 1 \pmod{21}$,
+  y por lo tanto $\legendre{2017}{21} = \legendre{1}{21} = +1$. Aunque hemos
+  usado las propiedades del símbolo de Jacobi, $\legendre{21}{2017}$ es un
+  símbolo de Legendre legítimo, y el resultado de este calculo nos permite
+  concluir que $21$ es un cuadrado módulo $2017$.
+\end{ejemplo}
+
+\begin{ejemplo}
+  Calculemos $\legendre{30}{127}$. No podemos relacionar este símbolo con
+  $\legendre{127}{30}$ porque $30$ es par. Sin embargo, podemos escribir
+  $$\legendre{30}{127} = \legendre{2}{127}\legendre{15}{127}.$$
+  Luego, $127 \equiv 7 \pmod{8}$, así que $\legendre{2}{127} = +1$. También
+  $127 \equiv 3 \pmod{4}$ y $15 \equiv 3 \pmod{4}$, y la ley de reciprocidad
+  para el símbolo de Jacobi nos dice que
+  $$\legendre{15}{127} = -\legendre{127}{15} = -\legendre{7}{15} = +\legendre{15}{7} = \legendre{1}{7} = +1.$$
+  Entonces, $\legendre{30}{127} = +1$.
+\end{ejemplo}
+
+El último ejemplo explica la utilidad del símbolo de Jacobi: para calcular el
+símbolo de Legendre $\legendre{a}{p}$ no hace falta factorizar $a$ en números
+primos; se puede aplicar la reciprocidad para los símbolos de Jacobi. La única
+parte problemática es que tenemos que sacar un posible factor $2^k$ cuando $a$
+es par. \emph{Se supone} que no existe ningún algoritmo eficaz de factorización
+de un número en primos (en esta conjetura se basa una gran parte de la
+criptografía aplicada en la vida cotidiana), pero el factor $2^k$ se encuentra
+fácilmente. Módulo este pequeño detalle, el cálculo del símbolo de Jacobi
+consiste en reducciones consecutivas de un número módulo otro. Esto es algo
+similar al algoritmo de Euclides.
+
+\begin{ejerc}
+  Calcule el símbolo de Legendre $\legendre{598}{977}$ usando las propiedades
+  del símbolo de Jacobi (sin factorizar $598$). Se puede usar el hecho de que el
+  número $977$ es primo y $977 \equiv 1 \pmod{8}$.
+\end{ejerc}
+
+\begin{ejerc}
+  Sean $p$ y $q$ dos primos impares. Demuestre que
+
+  \begin{enumerate}
+  \item[1)] si $p \equiv q \pmod{4a}$, entonces
+    $\legendre{a}{p} = \legendre{a}{q}$;
+
+  \item[2)] si $p \equiv -q \pmod{4a}$, entonces
+    $\legendre{a}{p} = \sgn a\cdot \legendre{a}{q}$, donde $\sgn a = \pm 1$ es
+    el signo de $a$.
+  \end{enumerate}
+\end{ejerc}
+
+El resultado del último ejercicio es \emph{equivalente} a la ley de reciprocidad
+cuadrática y fue descubierto por Euler en 1744, pero sin prueba.
+
+\end{document}

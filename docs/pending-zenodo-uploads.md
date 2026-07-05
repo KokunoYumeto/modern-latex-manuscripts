@@ -1,3 +1,23 @@
+## 2026-07-05: Other-PC R11 Spanish San Salvador source-body payload
+
+Manifest: [20260705_other_pc_r11_spanish_san_salvador_source_body_payload.json](../manifests/pending-zenodo-uploads/20260705_other_pc_r11_spanish_san_salvador_source_body_payload.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_other_pc_r11_spanish_san_salvador_source_body_payload/OtherPC_R11_Spanish_SanSalvador_SourceBodyPayload_20260705.zip`, 582,060 bytes, SHA256 `ED8BDEFACFF58F2489BB68D28B1BCE0F48398A98885EC62F31DCC293B61E45D6`, 58 ZIP entries.
+- GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r11_spanish_san_salvador_source_body_payload_20260705/`.
+- Scope/result: body-bearing Spanish/Romance baseline source-body packet from the other-PC branch, with 48 `.tex` files and 2 `.bib` files from `ES-B-002_notas-san-salvador`, plus manifest/checksum/log files.
+- Caveat: source-canon/provenance support only. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, critical edition, or blanket license clearance.
+
+## 2026-07-05: Other-PC R12 packages 636-637 and verbatim pursued goals
+
+Manifest: [20260705_other_pc_r12_packages636_637_verbatim_goals.json](../manifests/pending-zenodo-uploads/20260705_other_pc_r12_packages636_637_verbatim_goals.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_other_pc_r12_packages636_637_and_verbatim_goals/OtherPC_R12_Packages636_637_VerbatimGoals_20260705.zip`, 510,513 bytes, SHA256 `6E3BA00E58402D9D764938A7D7EF89A44DC82DE79EB4B4021AB168CE9066CE96`, 69 ZIP entries.
+- GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r12_packages636_637_and_verbatim_goals_20260705/`.
+- Scope/result: package-636/package-637 rolling-delta evidence plus `NOETHER_COMMON_GOAL_ACTIVE_WORK_DIRECTIVE_20260705.md`, other-PC coordination files, and 12 exact pursued-goal files for sibling sessions. These goal files are to be set exactly and verbatim by the assigned sessions, not summarized.
+- Caveat: coordination/methodology/goal-dispatch evidence only. Contains no new TeX/PDF source bodies beyond package metadata, and is not native review, accepted terminology, translation completion, reader output, or source-fidelity certification.
+
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx238
 
 Manifest: [20260705_sga6_source_rescribe_idx238_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx238_workpass_refresh.json)

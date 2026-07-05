@@ -1,3 +1,19 @@
+## 2026-07-05 Other-PC R11 Spanish source-body payload pending upload
+
+- Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_other_pc_r11_spanish_san_salvador_source_body_payload/OtherPC_R11_Spanish_SanSalvador_SourceBodyPayload_20260705.zip`
+- SHA256: `ED8BDEFACFF58F2489BB68D28B1BCE0F48398A98885EC62F31DCC293B61E45D6`; size: 582,060 bytes; entries: 58.
+- GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r11_spanish_san_salvador_source_body_payload_20260705/`.
+- Status: body-bearing Spanish/Romance TeX-family source-canon/provenance support: 48 `.tex`, 2 `.bib`, manifest/checksum/log files. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, critical edition, or blanket license clearance.
+
+## 2026-07-05 Other-PC R12 packages 636-637 and verbatim goals pending upload
+
+- Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_other_pc_r12_packages636_637_and_verbatim_goals/OtherPC_R12_Packages636_637_VerbatimGoals_20260705.zip`
+- SHA256: `6E3BA00E58402D9D764938A7D7EF89A44DC82DE79EB4B4021AB168CE9066CE96`; size: 510,513 bytes; entries: 69.
+- GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r12_packages636_637_and_verbatim_goals_20260705/`.
+- Status: coordination, goal-dispatch, methodology, and rolling-delta evidence only. Contains 12 exact pursued-goal files for sibling sessions. Contains no new TeX/PDF source bodies beyond package metadata, and is not native review, accepted terminology, translation completion, reader output, or source-fidelity certification.
+
 ## 2026-07-05 SGA6 source-rescribe idx238 support ZIP pending upload
 
 - Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).

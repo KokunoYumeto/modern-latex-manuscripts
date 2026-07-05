@@ -1,0 +1,22 @@
+# Session Logbook - 2026-07-05
+
+## Entry 2026-07-05T18:48:41+02:00
+
+- Session/model: Codex/GPT-5 local package steward B3
+- Branch target: `codex/noether-pc-20260629`
+- Starting commit: 2d72c779f8bb8e46ee3ce0ba76731eb9cf4a2914
+- Work performed: set current thread pursued goal with goal tool; read `00_SET_EVERY_ASSIGNED_GOAL_VERBATIM_NOW_20260705.md`; created one pursued-goal file per Session 01-12; packaged Spanish Romance baseline TeX-family source bodies; restored prior R9 ignored main.bbl when absent.
+- Actual source bodies uploaded: yes, under language-source-bodies/romance-germanic-baselines-20260705-spanish-san-salvador.
+- Per-session pursued-goal files: session-pursued-goals/20260705.
+
+## Body Counts
+
+| Extension | Count | Total bytes | Role |
+|---|---:|---:|---|
+| .bib | 2 | 45897 | Spanish TeX-family source body (bib) |
+| .tex | 48 | 1911352 | Spanish TeX-family source body (tex) |
+
+- Package manifest: language-source-bodies/romance-germanic-baselines-20260705-spanish-san-salvador/MANIFEST.csv, language-source-bodies/romance-germanic-baselines-20260705-spanish-san-salvador/MANIFEST.json
+- Hash file: language-source-bodies/romance-germanic-baselines-20260705-spanish-san-salvador/SHA256SUMS.txt
+- Blockers: direct formal goal setting inside other UI sessions cannot be performed from this shell; exact goal files are GitHub-visible and must be pasted/used by those sessions.
+- Next action: force-add ignored bodies if any, verify manifest against committed tree, push side branch only.
