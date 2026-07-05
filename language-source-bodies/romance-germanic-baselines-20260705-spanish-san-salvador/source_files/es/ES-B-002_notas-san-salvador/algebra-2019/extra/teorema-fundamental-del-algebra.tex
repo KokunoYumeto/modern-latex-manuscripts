@@ -1,0 +1,299 @@
+\documentclass{article}
+
+\input{../../definitions.tex}
+
+\numberwithin{equation}{section}
+
+\usepackage[numbers]{natbib}
+
+\usepackage[
+  top=2cm,
+  bottom=2cm,
+  left=3cm,
+  right=2cm,
+  marginparwidth=1.5cm,
+  headheight=17pt,
+  includehead,includefoot,
+  heightrounded,
+]{geometry}
+
+\hypersetup{
+  pdftitle = {Teorema fundamental del álgebra},
+  pdfauthor = {Alexey Beshenov (cadadr@gmail.com)},
+  pdfdisplaydoctitle = true
+}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{Teorema fundamental del álgebra}
+\date{Universidad de El Salvador. 2018}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+El propósito de esta nota es demostrar el
+\term{teorema fundamental del álgebra}.
+
+\begin{teorema}
+  \index{teorema!fundamental del álgebra}
+  Sea $f \in \CC [X]$ un polinomio no constante. Entonces, existe $z \in \CC$
+  tal que ${f (z) = 0}$.
+\end{teorema}
+
+Este resultado aparece en el tratado de d'Alembert\footnote{\personality{Jean le
+    Rond D'Alembert} (1717--1783), matemático, filósofo y enciclopedista
+  francés, conocido por sus contribuciones en análisis, particularmente las
+  ecuaciones diferenciales.} ``Recherches sur le calcul intégral'' (1748) y fue
+probado de manera rigurosa en la tesis de doctorado de Gauss, publicada en
+1799. El nombre ``teorema fundamental del álgebra'' parece un poco ridículo en
+un curso del álgebra moderna, pero es histórico y bastante común. Sin duda,
+es uno de los resultados más importantes en las matemáticas.
+
+Aunque el estudio de raíces de polinomios pertenece al terreno del álgebra,
+la misma construcción de los números complejos es analítica y por ende cualquier
+prueba del teorema fundamental del álgebra debe usar análisis. Para una prueba
+estándar puramente analítica, refiero a \cite[\S 3.3]{Vinberg-2003}.
+El argumento de abajo es \emph{topológico}, basado implícitamente en
+el \term{grupo fundamental} del círculo. Para más detalles, véase
+\cite[Chapter~1]{May-1999-Concise}.
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+% HTML: Grado de aplicación <strong>S</strong><sup>1</sup> → <strong>S</strong><sup>1</sup>
+\section{Grado de aplicación $\SS^1 \to \SS^1$}
+
+Consideremos el circulo unitario en el plano complejo
+$$\SS^1 \dfn \{ z\in \CC \mid |z| = 1 \}$$
+y la aplicación
+$$\exp\colon \RR \to \SS^1, \quad x \mapsto e^{2\pi i x}.$$
+
+\begin{figure}[h]
+  \begin{center}
+    \includegraphics{helice.mps}
+  \end{center}
+
+  \caption{La aplicación $x \mapsto e^{2\pi i x}$}
+\end{figure}
+
+Esta es una aplicación continua y es un homomorfismo sobreyectivo de grupos
+$(\RR,+)$ y $(\SS^1,\times)$. Su núcleo es precisamente $\ZZ \subset \RR$:
+$$\exp (x) = e^{2\pi i x} = 1 \iff x \in \ZZ.$$
+Para obtener una aplicación inyectiva, se puede restringir $\exp$ al intervalo
+abierto $\left(-\frac{1}{2}, +\frac{1}{2}\right)$. Como se sabe del análisis
+complejo, esta restricción tiene una aplicación inversa
+$$\log\colon \SS^1 \setminus \{ -1 \} \to \left(-\frac{1}{2}, +\frac{1}{2}\right)$$
+que es también continua.
+
+\begin{nameless}\textbf{Lema del levantamiento}.
+  \index{lema!del levantamiento}
+  \label{lema-del-levantamiento}
+  \emph{Para toda aplicación continua $f\colon [0,1]^n \to \SS^1$ con
+    $f (\underline{0}) = 1$ existe una aplicación continua
+    $\widetilde{f}\colon [0,1]^n \to \RR$ que satisface
+    $$\exp (\widetilde{f} (\underline{x})) = f (\underline{x}), \quad \widetilde{f} (\underline{0}) = 0.$$
+    Además, estas condiciones definen a $\widetilde{f}$ de modo único.}
+
+  \[ \begin{tikzcd}
+      & \RR \ar{d}{\exp} && 0\ar[|->]{d} \\
+      {[0,1]^n}\ar{r}[swap]{f}\ar[dashed]{ur}{\widetilde{f}} & \SS^1 & \underline{0} \ar[|->]{r}\ar[|->]{ur} & 1
+    \end{tikzcd} \]
+
+  \begin{proof}
+    Primero, probemos la unicidad de $\widetilde{f}$. Supongamos que hay dos
+    aplicaciones continuas $\widetilde{f}_1$ y $\widetilde{f}_2$ que cumplen
+    \[ \exp (\widetilde{f}_1 (\underline{x})) = \exp (\widetilde{f}_2 (\underline{x})) = f (\underline{x}), \quad
+      \widetilde{f}_1 (\underline{0}) = \widetilde{f}_2 (\underline{0}) = 0. \]
+    La primera ecuación implica que
+    $$\widetilde{f}_1 (\underline{x}) - \widetilde{f}_2 (\underline{x}) \in \ZZ.$$
+    Entonces, la aplicación
+    $\widetilde{f}_1 (\underline{x}) - \widetilde{f}_2 (\underline{x})$ es
+    continua sobre el conjunto conexo $[0,1]^n$ y toma valores enteros, pero
+    esto significa que es constante. Luego, para cualquier
+    $\underline{x} \in [0,1]^n$
+    $$\widetilde{f}_1 (\underline{x}) - \widetilde{f}_2 (\underline{x}) = \widetilde{f}_1 (\underline{0}) - \widetilde{f}_2 (\underline{0}) = 0.$$
+
+    \vspace{1em}
+
+    Ahora tenemos que establecer la existencia de $\widetilde{f}$. La aplicación
+    $f\colon [0,1]^n \to \SS^1$ es continua y el cubo $[0,1]^n$ es compacto,
+    entonces $f$ es uniformemente continua. Gracias a esto, existe $\delta > 0$
+    tal que
+    \[ \|\underline{x} - \underline{y}\| < \delta \Longrightarrow
+      |f (\underline{x}) - f (\underline{y})| < 2 \Longrightarrow
+      f (\underline{x}) \ne - f (\underline{y}). \]
+    Fijemos un número natural $N$ tal que
+    $\frac{1}{N} \, \|\underline{x}\| < \delta$ para todo $x \in [0,1]^n$ (esto
+    es posible gracias a la compacidad de $[0,1]^n$). Pongamos
+    $$\widetilde{f} (\underline{x}) \dfn \sum_{0 \le k \le N-1} \log \left(\cfrac{f \left(\frac{k+1}{N}\,\underline{x}\right)}{f \left(\frac{k}{N}\,\underline{x}\right)}\right).$$
+    Por nuestra elección de $N$, tenemos
+    $$\cfrac{f \left(\frac{k+1}{N}\,\underline{x}\right)}{f \left(\frac{k}{N}\,\underline{x}\right)} \ne -1$$
+    para ningún $\underline{x} \in [0,1]^n$, así que $\widetilde{f}$ es una
+    aplicación continua bien definida. Luego,
+    $$\exp (\widetilde{f} (\underline{x})) = \cfrac{f \left(\frac{1}{N}\,\underline{x}\right)}{f (\underline{0})} \, \cfrac{f \left(\frac{2}{N}\,\underline{x}\right)}{f \left(\frac{1}{N}\,\underline{x}\right)} \cdots \cfrac{f \left(\frac{N-1}{N}\,\underline{x}\right)}{f \left(\frac{N-2}{n}\,\underline{x}\right)}\,\cfrac{f (\underline{x})}{f \left(\frac{N-1}{N}\,\underline{x}\right)} = f (\underline{x}),$$
+    y claramente,
+    $$\widetilde{f} (\underline{0}) = \log (f (\underline{0})) = \log (1) = 0.$$
+  \end{proof}
+\end{nameless}
+
+\begin{definicion}
+  Un \term{lazo}\index{lazo} en $\SS^1$ es una aplicacion continua
+  $\gamma\colon \SS^1 \to \SS^1$ que satisface $\gamma (1) = 1$.
+
+  Una \term{homotopía}\index{homotopía} entre dos lazos $\gamma_0$ y $\gamma_1$
+  es una aplicación continua
+  $$h\colon [0,1]\times \SS^1 \to \SS^1$$
+  tal que
+  $$h (0,z) = \gamma_0 (z), \quad h (1,z) = \gamma_1 (z), \quad h (t,1) = 1$$
+  para cualesquiera $t \in [0,1]$, $z \in \SS^1$.
+\end{definicion}
+
+En otras palabras, una homotopía define una familia de lazos
+$\gamma_t\colon z \mapsto h (t,z)$ que dependen de manera continua del parámetro
+$t \in [0,1]$.
+
+\begin{definicion}
+  Dado un lazo $\gamma\colon \SS^1 \to \SS^1$, consideremos la aplicación
+  \begin{align*}
+    f\colon [0,1] & \to \SS^1,\\
+    x & \mapsto \gamma (\exp (x)).
+  \end{align*}
+  Ahora según \ref{lema-del-levantamiento}, existe una aplicación continua única
+  $f\colon [0,1] \to \RR$ que satisface
+  $$\exp (\widetilde{f} (x)) = f (x), \quad \widetilde{f} (0) = 0.$$
+  En particular,
+  $$\exp (\widetilde{f} (1)) = f (1) = \gamma (1) = 1,$$
+  así que $\widetilde{f} (1) \in \ZZ$. El número $\widetilde{f} (1)$ se llama
+  el \term{grado}\index{grado!de lazo} del lazo $\gamma$ y se denota por
+  $\deg \gamma$.
+\end{definicion}
+
+Intuitivamente, $\deg \gamma$ nos dice cuántas vueltas en el sentido antihorario
+da $\gamma$ alrededor del circulo $\SS^1$.
+
+\begin{ejemplo}
+  El lazo constante
+  $$\gamma\colon \SS^1 \to \SS^1, \quad z \mapsto 1$$
+  tiene grado nulo: en efecto, a este lazo corresponde la aplicación constante
+  $$f\colon [0,1] \to \SS^1, \quad x \mapsto 1,$$
+  que se levanta a la aplicación constante
+  $$\widetilde{f}\colon [0,1] \to \RR, \quad x \mapsto 0.$$
+\end{ejemplo}
+
+\begin{ejemplo}
+  Consideremos el lazo
+  $$\gamma\colon \SS^1 \to \SS^1, \quad z \mapsto z^n.$$
+  A este corresponde la aplicación
+  $$f\colon [0,1] \to \SS^1, \quad x \mapsto e^{2\pi i n x}$$
+  que se levanta a la aplicación
+  $$\widetilde{f} (x) = nx.$$
+  En efecto, tenemos
+  \[ \exp (\widetilde{f} (x)) = e^{2\pi i n x} = f (x), \quad
+    \widetilde{f} (0) = 0. \]
+  Podemos concluir que
+  $$\deg \gamma = \widetilde{f} (1) = n.$$
+\end{ejemplo}
+
+Es fácil convencerse intuitivamente que al deformar un lazo de manera continua,
+el número de vueltas que este da alrededor del círculo $\SS^1$ no cambia. Esto
+se refleja en el siguiente resultado.
+
+\begin{lema}
+  Si entre dos lazos $\gamma_0$ y $\gamma_1\colon \SS^1 \to \SS^1$ existe una
+  homotopía, entonces
+  $$\deg \gamma_0 = \deg \gamma_1.$$
+
+  \begin{proof}
+    Consideremos una homotopía
+    $$h\colon [0,1]\times \SS^1 \to \SS^1$$
+    tal que
+    $$h (0,z) = \gamma_0 (z), \quad h (1,z) = \gamma_1 (z).$$
+    Definamos una aplicación
+    \begin{align*}
+      f\colon [0,1] \times [0,1] & \to \SS^1,\\
+      (t,x) & \mapsto h (t, \exp (x)).
+    \end{align*}
+    De nuevo, podemos invocar el lema del levantamiento
+    \ref{lema-del-levantamiento} para concluir que existe una aplicación
+    continua
+    $$\widetilde{f}\colon [0,1]\times [0,1] \to \RR$$
+    que satisface
+    $$\exp (\widetilde{f} (t,x)) = f (t,x), \quad \widetilde{f} (0,0) = 0.$$
+    En particular, se tiene
+    $$\exp (\widetilde{f} (t,0)) = h (t,1) = 1,$$
+    lo que implica que $\widetilde{f} (t,0) \in \ZZ$. La aplicación
+    $t \mapsto \widetilde{f} (t,0)$ es continua, definida sobre el intervalo
+    conexo $[0,1]$, y dado que sus valores son enteros, esta debe ser
+    constante. Tenemos $\widetilde{f} (0,0) = 0$, de donde podemos concluir que
+    $$\widetilde{f} (t,0) = 0\text{ para todo }t\in [0,1].$$
+    Además,
+    \[ \exp (\widetilde{f} (0,x)) = \gamma_0 (\exp (x)), \quad
+      \exp (\widetilde{f} (1,x)) = \gamma_1 (\exp (x)). \]
+    Esto significa que $\widetilde{f} (0,x)$ y $\widetilde{f} (0,y)$ son
+    levantamientos de los lazos $\gamma_0$ y $\gamma_1$ respectivamente, y luego
+    \[ \deg \gamma_0 = \widetilde{f} (0,1), \quad
+      \deg \gamma_1 = \widetilde{f} (1,1). \]
+    Notamos que
+    $$\exp (\widetilde{f} (t,1)) = h (t, \exp (1)) = h (t, 1) = 1,$$
+    así que $\widetilde{f} (t,1) \in \ZZ$. De nuevo, se tiene una aplicación
+    continua $t \mapsto \widetilde{f} (t,1)$ definida sobre el intervalo conexo
+    $[0,1]$ que toma valores enteros, entonces es constante. En particular,
+    $$\deg \gamma_0 = \widetilde{f} (0,1) = \widetilde{f} (1,1) = \deg \gamma_1.$$
+  \end{proof}
+\end{lema}
+
+\begin{comentario}
+  De hecho, se puede probar que si $\deg \gamma_0 = \deg \gamma_1$, entonces
+  entre los lazos $\gamma_0$ y $\gamma_1$ hay una homotopía. Sin embargo,
+  no lo vamos a necesitar en la prueba de abajo.
+\end{comentario}
+
+\begin{comentario}
+  Para una curva $\gamma\colon \SS^1 \to \CC \setminus \{ 0 \}$ se puede definir
+  el grado (también conocido como el \term{índice} o \term{número de rotación})
+  mediante la integral
+  $$\deg \gamma = \frac{1}{2\pi i}\,\oint_\gamma \frac{dz}{z}.$$
+  Con esta definición, para deducir que $\deg \gamma \in \ZZ$ y $\deg \gamma$ es
+  invariante respecto a homotopía, se usa la
+  \term{fórmula integral de Cauchy}. Véase por ejemplo
+  \cite[Chapter III]{Lang-GTM-103} para los detalles.
+\end{comentario}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section{Prueba del teorema}
+
+Consideremos un polinomio complejo
+$$f = z^n + a_{n-1}\,z^{n-1} + a_{n-2}\,z^{n-2} + \cdots + a_1\,z + a_0.$$
+Asumamos que $f$ no tiene raíces: $f (z) \ne 0$ para ningún
+$z \in \CC$. Definamos un lazo
+\begin{align*}
+  \gamma\colon \SS^1 & \to \SS^1,\\
+  z & \mapsto \frac{f (z)}{|f (z)|}\,\frac{|f (1)|}{f (1)}.
+\end{align*}
+Para $t \in [0,1]$ pongamos
+$$h_1 (t,z) \dfn \begin{cases}
+  \cfrac{f (z/t)\,t^n}{|f (z/t)\,t^n|}\,\cfrac{|f (1/t)\,t^n|}{f (1/t)\,t^n}, & t \ne 0,\\
+  z^n, & t = 0.
+\end{cases}$$
+Notamos que
+$$\lim_{t\to 0} h_1 (t,z) = z^n$$
+y
+$$h_1 (1,z) = \gamma (z),$$
+así que $h_1\colon [0,1] \to \SS^1$ es una aplicación continua que define una
+homotopía entre el lazo $z \mapsto z^n$ y $\gamma$. Entonces,
+$$\deg \gamma = \deg (z \mapsto z^n) = n.$$
+
+Por otro lado, podemos definir
+$$h_2 (t,z) \dfn \frac{f (tz)}{|f (tz)|}\,\frac{|f (t)|}{f (t)}.$$
+Tenemos
+$$h_2 (0,z) = \gamma (0) = 1, \quad h_2 (1,z) = \gamma (z),$$
+así que $h_2$ define una homotopía entre el lazo constante $z \mapsto 1$ y
+$\gamma$, así que
+$$\deg \gamma = 0.$$
+Entonces, si $n > 0$, tendríamos una contradicción. Podemos concluir que todo
+polinomio complejo no constante debe tener una raíz. \qed
+
+\bibliographystyle{../../amsalpha-cust}
+{\small\bibliography{../../salvador}}
+
+\end{document}
