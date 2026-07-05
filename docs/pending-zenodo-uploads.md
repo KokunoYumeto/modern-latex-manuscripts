@@ -8969,6 +8969,15 @@ Manifest: [20260705_noether_pc_packages367_371_source_canon_coordination.json](.
 - Scope: packages 367-371 from `origin/codex/noether-pc-20260629` remote head `1e8caf66`, adding R6 Indigenous/Creole/Sign source-state/package-boundary/checksum/witness ledgers and R9 Africa/Horn/West source-body provenance ledgers.
 - Caveat: the delta contains no TeX-like source bodies and no reader PDFs. R9 rows are PDF-source provenance pointers with open source/reviewer/license gates, not admitted translation evidence. Methodology/source-canon/access-governance coordination only; not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+## 2026-07-05: Noether R781 WebB P30 pp.31-33 dense-cluster source fix
+
+Manifest: [20260705_noether_r781_webb_r780_p30p31_33_dense_cluster_fix.json](../manifests/pending-zenodo-uploads/20260705_noether_r781_webb_r780_p30p31_33_dense_cluster_fix.json)
+
+- Noether source-control/support ZIP: `Noether_R781_WebB_R780_P30p31_33_DenseClusterFix_20260705_COMPLETE.zip`, 36,707,667 bytes, SHA256 `4925ABFEFE5EB8925376E30B3DD557861BF3C49D731457A36A0ABCD5CE6A7667`, 62 entries.
+- Scope: WebB R781 dense-symbol source fix over the R780 German cumulative, focused on Noether Paper 30 printed pp.31-33 / output p278.
+- Result: seven source-backed notation/symbol fixes promoted; two tempting nearby loci explicitly retained as no-patch checks.
+- Caveat: targeted source-control/support audit input only. Not a reader release, not Noether closure, not whole-corpus/page-by-page certification, not multilingual synchronization, not publication readiness, and not a critical edition. Fold into a curated Noether rollup rather than uploading loose above reader-facing PDFs.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 372-373 CJK/Slavic/OLP source-canon coordination
 
 Manifest: [20260705_noether_pc_packages372_373_source_canon_coordination.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages372_373_source_canon_coordination.json)
