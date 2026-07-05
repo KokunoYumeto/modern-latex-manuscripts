@@ -8450,6 +8450,14 @@ Manifest: [20260705_noether_pc_packages367_371_source_canon_coordination.json](.
 - Scope: packages 367-371 from `origin/codex/noether-pc-20260629` remote head `1e8caf66`, adding R6 Indigenous/Creole/Sign source-state/package-boundary/checksum/witness ledgers and R9 Africa/Horn/West source-body provenance ledgers.
 - Caveat: the delta contains no TeX-like source bodies and no reader PDFs. R9 rows are PDF-source provenance pointers with open source/reviewer/license gates, not admitted translation evidence. Methodology/source-canon/access-governance coordination only; not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+## 2026-07-05: Noether-PC/interlanguage packages 372-373 CJK/Slavic/OLP source-canon coordination
+
+Manifest: [20260705_noether_pc_packages372_373_source_canon_coordination.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages372_373_source_canon_coordination.json)
+
+- Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages372_373_CJK_Slavic_OLP_SourceCanon_20260705.zip`, 148,642 bytes, SHA256 `429E5A8C5939B5E203B7F02BF011A3B4AE194C92C771C84AFD34FC7A7845B09B`, 40 entries.
+- Scope: packages 372-373 from `origin/codex/noether-pc-20260629` remote head `13a30325`, adding CJK source-archive script/codepoint audit sidecars, a Slavic source-canon handoff manifest, and OLP/relation-function support metadata.
+- Caveat: the delta contains no TeX-like source bodies, no reader PDFs, and no ZIP payloads. The useful source-body pointer remains the earlier direct-gated 524-file LaTeX payload already mirrored separately. Methodology/source-canon/access-governance coordination only; not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 
 
 
