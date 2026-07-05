@@ -8434,6 +8434,14 @@ Manifest: [20260630_noether_german_source_audit_logbook_after_r273_p22_refresh.j
 - Scope: live German source-audit logbook now including the P11 pp.223-224 targeted audit on the P06-p195 patched base.
 - Caveat: support/provenance only. This supersedes older same-filename logbook pending hashes; do not front it above reader PDFs/TeX.
 
+## 2026-07-05: Noether-PC/interlanguage packages 361-366 R3/R6 source-canon coordination
+
+Manifest: [20260705_noether_pc_packages361_366_source_canon_coordination.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages361_366_source_canon_coordination.json)
+
+- Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages361_366_R3_R6_SourceCanon_20260705.zip`, 277,299 bytes, SHA256 `8DBB4E78ED8F0C12E93F5314B087936FBAF8DAAE0B97A5361300430E013BB1EE`, 95 entries.
+- Scope: packages 361-366 from `origin/codex/noether-pc-20260629` remote head `17d926f9`, adding R3 Arabic/Persianate frontier/omission/source-canon ledgers and R6 Indigenous/Creole/Sign access/source-canon/authority/boundary ledgers.
+- Caveat: the delta contains no TeX-like source bodies and no reader PDFs. Methodology/source-canon/access-governance coordination only; not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 
 
 
