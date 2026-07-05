@@ -1,3 +1,12 @@
+## 2026-07-05: Non-Russian/non-Ukrainian Slavic LaTeX source-anchor feed
+
+Manifest: [20260705_non_ru_uk_slavic_source_anchors.json](../manifests/pending-zenodo-uploads/20260705_non_ru_uk_slavic_source_anchors.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_non_ru_uk_slavic_source_anchors/Interlanguage_NonRU_UK_Slavic_SourceAnchors_20260705.zip`, 26,306,934 bytes, SHA256 `141484b188e1ef1ef951b5a59ddfe695de59c9b4490cf6c97f492042105e4b09`, 1,402 ZIP entries.
+- Scope/result: 1,398 extracted LaTeX-family/source-support files for non-Russian/non-Ukrainian Slavic language anchors plus Interslavic/support/context material. Language hints include be/bg/bs/cnr/cs/dsb/hr/hsb/isv/mk/pl/sk/sl/sr and context shelves.
+- Caveat: source-anchor/register/style corpus only; not native review, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
+
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx206
 
 Manifest: [20260705_sga6_source_rescribe_idx206_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx206_workpass_refresh.json)
