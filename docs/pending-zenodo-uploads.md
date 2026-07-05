@@ -9011,3 +9011,11 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
+## 2026-07-05: Other-PC R10 RTL/Persianate/Arabic source-body payload
+
+Manifest: [20260705_other_pc_r10_rtl_persianate_arabic_source_body_payload.json](../manifests/pending-zenodo-uploads/20260705_other_pc_r10_rtl_persianate_arabic_source_body_payload.json)
+
+- Interlanguage methodology source-body ZIP: `OtherPC_R10_RTL_Persianate_Arabic_SourceBodyPayload_20260705.zip`, 17,114,464 bytes, SHA256 `D35E82F8B3D4849465E7D52167F884E6B51091C4AF5A35E80BE6CCEB80C0FCD0`, 29 entries.
+- Scope: other-PC commit `18bbadaa8` plus archive-maintenance side-branch directive `2d72c779f`, adding an RTL/Persianate/Arabic source-body/source-witness package with 3 TeX files, 3 source ZIPs, 4 source-witness PDFs, manifests, checksums, logbook excerpt, and exact pursued-goal dispatch instructions.
+- Caveat: source-canon/provenance support only. Not native review, not accepted terminology, not translation completion, not source-fidelity certification, not publication readiness, not a critical edition, and not blanket license clearance. Arabic, Persian/Farsi, and Dari/Persianate evidence are kept separate.
