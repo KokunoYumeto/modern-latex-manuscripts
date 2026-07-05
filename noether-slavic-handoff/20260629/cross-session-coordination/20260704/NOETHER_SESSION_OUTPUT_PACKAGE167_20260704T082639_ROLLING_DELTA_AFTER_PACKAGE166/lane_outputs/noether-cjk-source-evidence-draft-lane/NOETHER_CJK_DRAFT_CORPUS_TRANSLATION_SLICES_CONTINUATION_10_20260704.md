@@ -1,0 +1,273 @@
+# Noether CJK Draft Corpus Translation Slices: Continuation 10
+
+Generated UTC: `2026-07-04T06:22:53.282353+00:00`
+
+Status: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+Draft/non-canonical sidecar only. Not native reviewed. Not approved. Not gate-promoted.
+
+Baseline: `C:\Users\memo_\Documents\Codex\2026-06-09\could-you-look-online-for-me\work\noether-slavic-canonical\tmp\zenodo_20836874_inspect\localcodex\Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624\tex\cum_de_R124plus_localcodex_current_candidate_20260624.tex`
+
+Baseline SHA256: `C0ACCB2D4EB98F54B41BC3977DFA0CB57A349C74B7B35E06453343D15ACAB4ED`
+
+## Review Boundaries
+
+- `native_review_status`: `not_native_reviewed`
+- `canonical_approval_status`: `not_approved`
+- `gate_promotion_status`: `not_gate_promoted`
+- `reviewer_packet_population_performed`: `False`
+- `git_push_performed`: `False`
+- `korean_corpus_prose_added`: `False`
+
+## Retained Blockers
+
+- tensor product: no German Tensorprodukt anchor; product/direct-product language in Paper 40 remains non-anchor evidence
+- localization: Quotientenring candidates at 16223-16225 and 18467 but no direct Lokalisierung label
+- Harish-Chandra: no German corpus anchor
+- abstract algebra: source-shelf/course-register evidence only
+- modern algebra: Moderne Algebra remains bibliographic only; Nichtkommutative Algebra remains a non-modern-algebra title/context
+
+## cjk-continuation-10-001-modules-over-noncommutative-fields-normal-bases
+
+Anchor: German baseline lines `19232-19295`; §3 Moduln in bezug auf einen Körper: normal bases and extension modules.
+
+Source summary: Defines normal bases for submodules of linear-form modules over a possibly noncommutative field, then defines extension modules and contraction modules for a subfield.
+
+Japanese title: 非可換体上の加群と部分加群の正規基底
+
+§3 では、以後の表現が一般には非可換な体の中で行われるため、体上の線形形式加群について基本事実をまとめる。\(A\) を体とし、\(\frN=x_1A+\cdots+x_nA\) を階数 \(n\) の線形形式加群、\(\frL=z_1A+\cdots+z_\ell A\) を階数 \(\ell\le n\) の部分加群とする。
+
+\(\frL\) の基底 \(z_i\) が、\(z_i=x_i-(x_{\ell+1}\alpha_{i,\ell+1}+\cdots+x_n\alpha_{i,n})\) の形を持つとき、これを \(x\) に関する正規基底と呼ぶ。適切に \(x_i\) を並べ替えれば、任意の部分加群はこのような正規基底を持つ。
+
+続いて、\(P\) を \(A\) の部分体とすると、\(A\)-加群 \(N\) が同じ階数の \(P\)-加群 \(M\) を含むとき、\(N=M_A\) は \(M\) の拡大加群と呼ばれる。\(P\) に関して線形独立な元は \(A\) に関しても線形独立であり、\(P\)-部分加群 \(T\) は \(T=T_A\cap M\) として縮小加群になる。
+
+Simplified Chinese title: 非交换除环上的模与子模正规基
+
+§3 中，由于后文的表示将在一般非交换除环中进行，源文先汇集除环上线性型模的基本事实。设 \(A\) 为除环，\(\frN=x_1A+\cdots+x_nA\) 是秩为 \(n\) 的线性型模，\(\frL=z_1A+\cdots+z_\ell A\) 是秩 \(\ell\le n\) 的子模。
+
+若 \(\frL\) 的基 \(z_i\) 具有 \(z_i=x_i-(x_{\ell+1}\alpha_{i,\ell+1}+\cdots+x_n\alpha_{i,n})\) 的形式，则称其为相对于 \(x\) 的正规基。适当重排 \(x_i\) 后，任意子模都具有这种正规基。
+
+随后，若 \(P\) 是 \(A\) 的子除环，且 \(A\)-模 \(N\) 含有同秩的 \(P\)-模 \(M\)，则 \(N=M_A\) 称为 \(M\) 的扩张模。相对于 \(P\) 线性无关的元素相对于 \(A\) 仍线性无关；每个 \(P\)-子模 \(T\) 也满足 \(T=T_A\cap M\)，即成为收缩模。
+
+Script/codepoint and TeX/PDF notes:
+
+- Normalbasis here is a module-basis normal form, not the Galois-field normal-basis row from Continuation 07.
+- Körper in this noncommutative section follows lane convention: 非可換体 / 非交换除环.
+- Keep \(z_i\), \(x_i\), \(\frN\), \(\frL\), \(M_A\), and \(T_A\cap M\) in TeX.
+
+Unresolved flags:
+
+- Verengungsmodul is rendered 縮小加群 / 收缩模 provisionally.
+- Normalbasis wording needs reviewer context because it differs from field normal basis.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-10-002-invariant-modules-under-automorphism-groups
+
+Anchor: German baseline lines `19297-19323`; §3,3 Satz über invariante Moduln.
+
+Source summary: Uses a group of automorphisms of a field A with full invariant field P to characterize admissible submodules of an extension module as extensions of P-submodules.
+
+Japanese title: 自己同型群に関する不変加群
+
+\(N=M_A\) を \(P\)-加群 \(M\) の拡大加群とし、\(P\) が \(A\) の環自己同型群 \(\frG\) に対する完全な不変体であるとする。\(\frG\) は、\(M\) の元を固定し、係数 \(\alpha_i\in A\) だけに作用することで、\(N\) の作用素領域として定められる。
+
+この設定では、\(\frG\) によって動かない \(N\) の元全体はちょうど \(M\) である。基底 \(x_i\) に関する係数を比較すれば、すべての \(G\in\frG\) で固定される係数は \(P\) に属するからである。
+
+したがって、\(\frG\) に対して許容される部分加群は、\(M\) の部分加群 \(L\) の拡大 \(L_A\) に限られ、またそれらすべてである。正規基底を使うことで、許容部分加群の基底が実際に \(M\) に入ることが示される。
+
+Simplified Chinese title: 自同构群下的不变模
+
+设 \(N=M_A\) 是 \(P\)-模 \(M\) 的扩张模，并设 \(P\) 是 \(A\) 的环自同构群 \(\frG\) 的完全不变域。\(\frG\) 作为 \(N\) 的算子域来定义：它固定 \(M\) 中的元素，只作用在系数 \(\alpha_i\in A\) 上。
+
+在这种设定下，\(N\) 中被 \(\frG\) 固定的全体元素恰好是 \(M\)。用基 \(x_i\) 展开并比较系数即可看出，被所有 \(G\in\frG\) 固定的系数属于 \(P\)。
+
+因此，对 \(\frG\) 可容许的子模，正是 \(M\) 的子模 \(L\) 的扩张 \(L_A\)，且仅有这些。利用正规基可证明，可容许子模的基实际落在 \(M\) 中。
+
+Script/codepoint and TeX/PDF notes:
+
+- voller Invariantenkörper is rendered 完全な不変体 / 完全不变域, provisional.
+- zulässige Untermoduln is rendered 許容部分加群 / 可容许子模.
+- The action formula \(G\sum m_i\alpha_i=\sum m_i\,G(\alpha_i)\) should remain TeX-readable.
+
+Unresolved flags:
+
+- Invariant-field terminology requires native/domain review.
+- No retained blocker changes.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-10-003-hypercomplex-extension-rings
+
+Anchor: German baseline lines `19325-19358`; §4 Hyperkomplexe Systeme und ihre Darstellungsklassen: extension theorem.
+
+Source summary: Specializes representation modules to hypercomplex systems over a commutative field P, constructs the product/extension ring S_A, and proves ideals extend from S.
+
+Japanese title: 超複素系の拡大環と拡大定理
+
+§4 では、\(\frR\) の代わりに可換体 \(P\) 上の単位元をもつ超複素系 \(S,T,\ldots\) を、表現環 \(\frS\) の代わりに中心を \(P\) にもつ体 \(A,B,\ldots\) を考える。この場合、\(S\) と \(A\) が元ごとに可換になり、交わりが \(P\) となる積環が常に存在する。
+
+その積環は直接積 \(S\times A\) であり、同時に \(S_A=x_1A+\cdots+x_nA\) という \(S\) の拡大加群になるので、拡大環とも呼ばれる。拡大定理は、\(S_A\) の任意の両側イデアルが、\(S\) のイデアルの拡大、具体的には \(S\) との交わりの拡大である、と述べる。
+
+\(\frG\) を \(A\) の内的自己同型群に取れば、\(P\) は不変体となり、前節の不変加群定理が適用される。さらに \(S\) が両側単純なら \(S_A\) も単純になり、行列環 \(B_t\) として表される。
+
+Simplified Chinese title: 超复系统的扩张环与扩张定理
+
+§4 把一般环 \(\frR\) 特化为交换域 \(P\) 上有单位元的超复系统 \(S,T,\ldots\)，并把表示环 \(\frS\) 特化为中心含 \(P\) 的除环 \(A,B,\ldots\)。在此情形，总存在一个积环，使 \(S\) 与 \(A\) 逐元可交换且交为 \(P\)。
+
+这个积环就是直接积 \(S\times A\)，同时也是 \(S_A=x_1A+\cdots+x_nA\) 形式的 \(S\) 的扩张模，所以也称为扩张环。扩张定理说，\(S_A\) 的每个双边理想都是 \(S\) 中某个理想的扩张，具体说就是其与 \(S\) 的交的扩张。
+
+若取 \(\frG\) 为 \(A\) 的内自同构群，则 \(P\) 是不变域，上一节的不变模定理可以应用。进一步，若 \(S\) 双边单，则 \(S_A\) 也单，并可写成矩阵环 \(B_t\)。
+
+Script/codepoint and TeX/PDF notes:
+
+- Produktring/direct product remains 積環/直接積 and 积环/直接积, not tensor product.
+- simple system is rendered 両側単純 / 双边单 when the source footnote clarifies zweiseitig einfach.
+- Keep \(S_A\), \(S\times A\), and \(B_t\) in TeX.
+
+Unresolved flags:
+
+- Tensor product blocker remains unchanged.
+- Hypercomplex-system register remains draft-only.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-10-004-representation-classes-rank-relations
+
+Anchor: German baseline lines `19360-19392`; §4,2-4 representation classes and rank relations.
+
+Source summary: Counts irreducible reciprocal representation classes by simple right-ideal classes in the radical quotient of S_A and states rank relations when S and A are finite over P.
+
+Japanese title: 表現類と階数関係
+
+超複素系の表現は、係数体 \(P\) に関して作用素準同型であり、かつ零表現でないものに限定される。移行定理と拡大定理を合わせると、\(S\) の \(A\) における既約反表現類の数は、\(S_A\) をそのラジカルで割った剰余類環における単純右イデアル類の数に等しい。
+
+特に \(S\) が単純系なら、\(A\) における既約反表現類と既約直接表現類はそれぞれ一つだけである。これは \(S_A\) が単純かつ完全可約になり、一側イデアルの単純類が一つだけになるためである。
+
+さらに \(S_A=\sum Bc_{ik}\) が \(A\) および \(B\) の双方に関して有限階数なら、\(n=rt\) という階数関係が得られる。ここで \(n=(S:P)\)、\(t^2=(S_A:B)\)、\(r\) は既約反表現の次数である。
+
+Simplified Chinese title: 表示类与秩关系
+
+超复系统的表示被限定为关于系数域 \(P\) 算子同态且非零的表示。把过渡定理与扩张定理合在一起，可知 \(S\) 在 \(A\) 中的不可约反表示类数，等于 \(S_A\) 对其根基取商后的剩余类环中单右理想类的个数。
+
+特别地，若 \(S\) 是单系统，则它在 \(A\) 中恰有一个不可约反表示类和一个不可约直接表示类。这是因为 \(S_A\) 也是单的且完全可约，从而只有一个单侧理想类。
+
+进一步，若 \(S_A=\sum Bc_{ik}\) 相对于 \(A\) 和 \(B\) 都是有限秩，则得到秩关系 \(n=rt\)。这里 \(n=(S:P)\)，\(t^2=(S_A:B)\)，而 \(r\) 是不可约反表示的次数。
+
+Script/codepoint and TeX/PDF notes:
+
+- radical quotient is rendered ラジカルで割った剰余類環 / 对根基取商后的剩余类环.
+- fully reducible is rendered 完全可約 / 完全可约, still draft and tied to earlier semisimple evidence.
+- Rank formulas \(n=rt\), \(t^2=(S_A:B)\), and \((S:P)\) should stay in TeX.
+
+Unresolved flags:
+
+- Reciprocal representation wording remains provisional.
+- Semisimple/fully reducible terms remain not approved.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-10-005-matrix-ring-embeddings-commutants
+
+Anchor: German baseline lines `19394-19422`; §5 application to matrix rings: embeddings, inner automorphisms, commuting subrings.
+
+Source summary: Applies reciprocal representation theory to matrix rings, distinguishing reducible and irreducible embeddings, proving an inner-automorphism theorem, and describing commuting subrings.
+
+Japanese title: 行列環への埋め込みと可換部分環
+
+§5 は、\(S\) の \(A\) における反表現を、\(A\) と反対同型な体 \(\overline A\) の行列環への直接準同型として見直す。単純系 \(S\) が \(A_r\) に既約または可約に埋め込めるとは、\(S\) が \(A\) において対応する次数の既約または可約な反表現をもつことを意味する。
+
+二つの単純部分環 \(S^{(1)},S^{(2)}\subset A_f\) が \(P\) 上同型なら、その同型は \(A_f\) の内的自己同型によって実現される。とくに \(A\) が \(P\) 上有限階数なら、中心 \(P\) を含む単純部分系の同型は内的自己同型で移され、\(A_f\) の任意の自己同型も内的である。
+
+また、\(S\subset A_f\) と元ごとに可換な全体 \(R\) は再び行列環 \(R=\overline B_s\) になる。\(R\) と \(S\) の交わりは \(S\) の中心であり、\(R\) が体になるのは \(S\) が \(A_f\) に既約に埋め込まれているとき、かつそのときに限られる。
+
+Simplified Chinese title: 矩阵环中的嵌入与可交换子环
+
+§5 把 \(S\) 在 \(A\) 中的反表示，重新看作到与 \(A\) 反同构的除环 \(\overline A\) 的矩阵环中的直接同态。说单系统 \(S\) 可不可约或可约地嵌入 \(A_r\)，就是指 \(S\) 在 \(A\) 中具有相应次数的不可约或可约反表示。
+
+若两个单子环 \(S^{(1)},S^{(2)}\subset A_f\) 在 \(P\) 上同构，则这个同构由 \(A_f\) 的内自同构实现。特别地，当 \(A\) 在 \(P\) 上有限秩时，含中心 \(P\) 的单子系统的同构都由内自同构给出，且 \(A_f\) 的每个自同构也都是内的。
+
+此外，\(A_f\) 中与 \(S\) 逐元可交换的全体 \(R\) 仍是矩阵环 \(R=\overline B_s\)。\(R\) 与 \(S\) 的交是 \(S\) 的中心；而 \(R\) 是除环，当且仅当 \(S\) 在 \(A_f\) 中不可约嵌入。
+
+Script/codepoint and TeX/PDF notes:
+
+- vertauschbare Unterringe is rendered 可換部分環 / 可交换子环.
+- inner automorphism is rendered 内的自己同型 / 内自同构.
+- Keep \(A_r\), \(A_f\), \(\overline A\), \(R=\overline B_s\) in TeX.
+
+Unresolved flags:
+
+- Commutant/commuting-subring terminology needs review.
+- No localization or tensor blocker changes.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-10-006-galois-theory-simple-systems-main-theorems
+
+Anchor: German baseline lines `19424-19455`; §6 Galoissche Theorie einfacher Systeme: main theorems.
+
+Source summary: Defines the Galois group of a division algebra or simple system as inner automorphisms and states the Galois correspondence with closed subgroups or simply closed subgroups.
+
+Japanese title: 非可換体と単純系の Galois 理論
+
+§6 では、§5 の強化された可換化定理が、中心を基礎領域とする単純系の Galois 理論を表す、とされる。まず中心 \(P\) 上有限階数の体 \(A\) について、Galois 群 \(\Gcal\) は、\(P\) の恒等写像を延長するすべての自己同型、すなわち内的自己同型全体として定義され、\(\Gcal\simeq A^*/P^*\) となる。
+
+\(\Gcal\) の部分群 \(\mathfrak H\) は、対応する \(H^*\) に零を加えると体 \(H\) になるとき閉じていると呼ばれる。主定理は、\(P\) と \(A\) の間の体 \(C\) と、\(\Gcal\) の閉部分群 \(\mathfrak H\) が一対一に対応し、\(C\) が \(\mathfrak H\) の完全な不変体、\(\mathfrak H\) が \(C\) の完全な不変群になる、と述べる。
+
+単純系 \(A_f\) の場合も Galois 群は内的自己同型群であり、正則元の乗法群を用いて \(A_f^*/P^*\) と同型になる。単純閉部分群に対しては、\(P\) を含む単純系 \(S\subset A_f\) との同様の対応が得られる。
+
+Simplified Chinese title: 非交换除环与单系统的 Galois 理论
+
+§6 说，§5 的强化交换定理表达了以中心为基域的单系统的 Galois 理论。先对中心为 \(P\)、在 \(P\) 上有限秩的除环 \(A\)，把 Galois 群 \(\Gcal\) 定义为所有延拓 \(P\) 上恒等映射的自同构，也就是所有内自同构，于是 \(\Gcal\simeq A^*/P^*\)。
+
+\(\Gcal\) 的子群 \(\mathfrak H\) 若对应的 \(H^*\) 加上零后成为一个除环 \(H\)，则称为闭子群。主定理说，介于 \(P\) 与 \(A\) 之间的除环 \(C\) 与 \(\Gcal\) 的闭子群 \(\mathfrak H\) 一一对应，使 \(C\) 成为 \(\mathfrak H\) 的完全不变域，而 \(\mathfrak H\) 成为 \(C\) 的完全不变群。
+
+在单系统 \(A_f\) 的情形，Galois 群同样是内自同构群，并借正规元素的乘法群同构于 \(A_f^*/P^*\)。对于单闭子群，也得到与含 \(P\) 的单系统 \(S\subset A_f\) 的相应对应。
+
+Script/codepoint and TeX/PDF notes:
+
+- abgeschlossene Untergruppe is rendered 閉部分群 / 闭子群; einfach-abgeschlossen as 単純閉 / 单闭, both provisional.
+- regular elements is rendered 正則元 / 正规元素 in this algebra context; reviewer should check.
+- Keep \(\Gcal\simeq A^*/P^*\), \(H^*/P^*\), and \(A_f^*/P^*\) in TeX.
+
+Unresolved flags:
+
+- Closed subgroup/simple-closed subgroup terminology needs domain review.
+- This noncommutative Galois theory section does not affect Harish-Chandra blocker.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-10-007-extension-principle-first-lemmas
+
+Anchor: German baseline lines `19457-19480`; §6,3 proof by extension principle: assumptions and first lemma.
+
+Source summary: Starts a second proof by the principle of extending isomorphisms, assuming a first-degree reciprocal representation and a decomposition into simple operator-isomorphic right ideals.
+
+Japanese title: 同型延長原理による第二証明の開始
+
+Noether は、体の場合の主定理について、同型、すなわち一次表現を延長する原理に基づく第二証明も示す。この証明は階数の数え上げを使わないため、有限性仮定が少なく、無限階数の体 \(S\) への拡張の方向も示すとされる。
+
+仮定として、単純系 \(S\) は \(P\) 上で \(A\) に一次の反表現を許し、したがって体である。さらに \(S_A\) は、\(S_A=r_1+\cdots+r_n=e_1S_A+\cdots+e_nS_A=e_1A+\cdots+e_nA\) という、互いに作用素同型な単純右イデアルへの分解を持つ。
+
+第一補題は、冪等元 \(e_1,\ldots,e_n\) が生む \(n\) 個の反表現が互いに異なる、と述べる。同じ表現を生むと仮定すると、\(e_iw=e_jw\) がすべての \(w\in S_A\) で成り立つはずだが、\(e_ie_i=e_i\) と \(e_je_i=0\) に反する。
+
+Simplified Chinese title: 由同构延拓原则开始的第二证明
+
+Noether 还给出体情形主定理的第二证明，基于延拓同构，也就是延拓一阶表示的原则。此证明不依赖秩计数，所以需要较少有限性假设，并指出向无限秩除环 \(S\) 推广的方向。
+
+假设单系统 \(S\) 在 \(P\) 上允许到 \(A\) 的一阶反表示，因此 \(S\) 是除环。再给定 \(S_A\) 到彼此算子同构的单右理想的分解：\(S_A=r_1+\cdots+r_n=e_1S_A+\cdots+e_nS_A=e_1A+\cdots+e_nA\)。
+
+第一个引理说，由幂等元 \(e_1,\ldots,e_n\) 产生的 \(n\) 个反表示彼此不同。若假定 \(e_i\) 与 \(e_j\) 产生同一表示，则应有 \(e_iw=e_jw\) 对所有 \(w\in S_A\) 成立；但这与 \(e_ie_i=e_i\) 和 \(e_je_i=0\) 矛盾。
+
+Script/codepoint and TeX/PDF notes:
+
+- Fortsetzungsprinzip is rendered 同型延長原理 / 同构延拓原则, provisional.
+- idempotents are 冪等元 / 幂等元, matching earlier usage.
+- Long decomposition \(S_A=r_1+\cdots+r_n=e_1S_A+\cdots+e_nS_A=e_1A+\cdots+e_nA\) should remain TeX for readability.
+
+Unresolved flags:
+
+- Extension-principle wording needs review.
+- No blocker state changes.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.

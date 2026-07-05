@@ -1,0 +1,171 @@
+
+\subsection{Metody kodowania}
+\subsubsection{Notacja Gaußa}
+\index{notacja!Gaußa|(}%
+Pierwszymi osobami, które zajmowały się węzłami, był prawdopodobnie Gauß oraz jego uczeń, Listing.
+\index[persons]{Gauß, Carl}%
+\index[persons]{Listing, Johann}%
+Gauß wprowadził indeks zaczepienia dwóch węzłów jako pewna całka oraz notację dla węzłów.
+Wybierzmy punkt na diagramie, który nie jest skrzyżowaniem i przemierzajmy go zgodnie z~orientacją.
+Gdy mijamy nowe skrzyżowania, przypisujemy im kolejne liczby $1, 2, \ldots$, zaś dla starych skrzyżowań przepisujemy numer.
+Jeżeli mijamy skrzyżowanie dołem, kodujemy je liczbą z minusem.
+
+W ogólnym przypadku nie można odtworzyć węzła z jego kodu, ale można delikatnie zmienić notację, by było to możliwe.
+Kiedy mijamy skrzyżowanie drugi raz, stawiamy minus przed liczbą, jeżeli skrzyżowanie jest lewoskrętne i plus w przeciwnym wypadku.
+Nazywa się to rozszerzonym kodem Gaußa.
+
+\begin{example}
+    Rozpatrzmy węzeł z rysunku \ref{gauss_dt}.
+    Jego (zwykły) kod Gaußa to {-1 2 -3 4 -5 6 -7 8 -6 5 -4 3 -2 9 -10 1 -9 7 -8 10}, zaś kod rozszerzony to {-1 2 -3 4 -5 6 -7 8 \textbf{-6 -5 -4 -3 -2} 9 10 \textbf{1 9 -7 -8 10}}.
+    Pogrubione liczby odpowiadają drugim przejściom.
+\end{example}
+
+\begin{figure}[H]
+    \centering
+    \begin{minipage}[b]{.45\linewidth}
+        \centering
+        \includegraphics[width=0.65\linewidth]{../data/mixed/gauss_code.png}
+        \subcaption{...dla kodu Gaußa}
+    \end{minipage}
+    \quad
+    \begin{minipage}[b]{.45\linewidth}
+        \centering
+        \includegraphics[width=0.65\linewidth]{../data/mixed/dowker_code.png}
+        \subcaption{...dla kodu Dowkera-Thistlethwaite'a}
+    \end{minipage}
+    \caption[gauss-dowker-thistlethwaite]{Numeracja skrzyżowań}
+    \label{gauss_dt}%
+\end{figure}
+
+% wiem o tym z "Aspects of topology, in memory of H. Dowker"
+Gauß był świadomy, że szukanie koniecznych i wystarczających warunków na to, by ciąg $2n$ liczb był kodem jakiegoś węzła jest ciekawym problemem, ale chyba nie zdecydował się nim zająć.
+Stosowne algorytmy podali trochę później topolodzy (Dehn \cite{dehn1936}) i dużo później teoretycy grafów (Rosenstiehl, Read \cite{rosenstiehl1978}).
+Inny algorytm Dowkera, Thistlethwaite'a \cite{dowker1983} został zaimplementowany jako program komputerowy liczący około 30 linii kodu, stanowił ważny element tablicowania małych węzłów pierwszych.
+
+\index{notacja!Gaußa|)}%
+
+\subsubsection{Notacja Dowkera-Thistlethwaite'a}
+\index{notacja!Taita}
+\index{notacja!Dowkera-Thistlethwaite'a|(}
+Poprawia nieopisaną tutaj notację Taita, opisana po raz pierwszy w~pracy \cite{dowker1983}.
+\index[persons]{Dowker, Clifford}%
+\index[persons]{Thistlethwaite, Morwen}%
+
+Tak jak w~notacji Gaußa, przemierzamy węzeł zaczynając poza skrzyżowaniem.
+Tym razem jednak stare skrzyżowania dostają drugi, nowy numer.
+Jak można zauważyć, każde skrzyżowanie ma parzystą oraz nieparzystą etykietę.
+
+\begin{definition}
+    Ciąg parzystych liczb występujących na diagramie kolejno przy $1, 3, \ldots$ nazywamy kodem Dowkera-Thistlethwaite'a.
+    Jeżeli nieparzysta etykieta odpowiadała podskrzyżowaniu, zapisujemy liczbę z~minusem.
+\end{definition}
+
+Opisany powyżej kod nie jest idealny, ponieważ odtworzony z niego węzeł może być lustrzanym odbiciem wyjściowego.
+Ogólniej, odbicie dowolnego składnika sumy spójnej nie zmienia kodu całego węzła.
+Nie stanowi to jednak dużego problemu, ponieważ notacja została stworzona na potrzeby tablicowania węzłów pierwszych, a~te są niezorientowane.
+
+\begin{example}
+    Rozpatrzmy węzeł z rysunku \ref{gauss_dt}.
+    Jego kodem Dowkera-Thistlethwaite'a jest ciąg {16 12 10 18 6 4 2 20 14 8}.
+\end{example}
+
+Zaczynając od zredukowanego diagramu o $n$ skrzyżowaniach nie można doprowadzić do sytuacji, gdzie do pewnego skrzyżowania przypisane są dwie kolejne liczby całkowite.
+Dzięki temu problem można przetłumaczyć na język teorii grafów.
+Rozpatrzmy graf $G$, którego wierzchołkami są liczby $1, 2, \ldots, 2n$.
+Połączmy niesąsiadujące modulo $2n$ wierzchołki o różnej parzystości krawędziami.
+Graf ten powstaje przez usunięcie cyklu Hamiltona (łączącego kolejne liczby) z pełnego grafu dwudzielnego.
+Zbiór par etykiet przy skrzyżowaniach węzła to skojarzenie doskonałe w grafie $G$.
+Liczba skojarzeń prawie pokrywa się z rozwiązaniem zadania znanego w literaturze jako ,,\textsc{problème des ménages}'': na ile sposobów $n$ małżeństw można posadzić przy okrągłym stole tak, by żadne małżeństwo nie siedziało obok siebie i~każdy mężczyzna znalazł się obok dwóch kobiet?
+\index{problem małżeństw przy stole}%
+Ustawienia, które powstają przez cykliczne permutowanie należy uznać za tożsame.
+Gilbert \cite{gilbert1956} znalazł wzór na $a_n$, liczbę różnych kodów:
+\index[persons]{Gilbert, Edgar}%
+\begin{align}
+u(m, t) & = 2m \sum_{k=0}^m {2m-k \choose k} \cdot (m-k)! \cdot \frac{(t-1)^k}{2m - k}  \\
+a(n) & = \frac{1}{n} \sum_{d\mid n} \left(\frac{n}{d}\right)^d \cdot u \left(d, 1 - \frac{d}{n}\right) \cdot \varphi \left(\frac{n}{d}\right)
+\end{align}
+
+Kilka początkowych wartości to $a_3 = 1, 2, 5, 20, 87, 616, 4843, 44128, 444621, \ldots$ (ciąg \href{https://oeis.org/A002484}{A002484} w OEIS).
+
+\index{notacja!Dowkera-Thistlethwaite'a|)}%
+
+\subsubsection{Notacja Alexandera-Briggsa}
+\label{alexander_briggs_notation}%
+\index{notacja!Alexandera-Briggsa|(}%
+W~1927 roku Alexander, Briggs wprowadzili zupełnie inny sposób oznaczania węzłów -- wtedy do 9 skrzyżowań, ale przedłużony do 10 skrzyżowań przez Rolfsena i używany po dziś dzień.
+Do opisu węzła używa się dwóch liczb: jego indeksu skrzyżowaniowanego z dolnym indeksem, oznaczającym miejsce w tablicy~węzłów.
+I~tak węzły o~ośmiu skrzyżowaniach to $8_1, 8_2, \ldots,$ $8_{21}$.
+Porządek jest umowny i jego wybór należy do osoby, która jako pierwsza znajdzie wszystkie węzły o danej liczbie skrzyżowań (ale węzeł skręcony występuje zawsze po torusowym).
+\index{węzeł!skręcony}%
+\index{węzeł!torusowy}%
+
+Od jedenastu skrzyżowań pojawia się mała zmiana: węzły alternujące i niealternujące kataloguje się osobno.
+I tak $11n_{185}$ to sto osiemdziesiąty piąty węzeł niealternujący o 11 skrzyżowaniach, zaś $11a_{367}$ to trzysta sześćdziesiąty siódmy alternujący.
+
+Rolfsen w 1976 stworzył z kilkoma błędami tablicę diagramów pierwszych węzłów do 10 skrzyżowań.
+\index[persons]{Rolfsen, Dale}%
+\label{rolfsens_mistake}%
+Para Perko $10_{161}, 10_{162}$ przedstawia ten sam węzeł, zaś górne skrzyżowanie w~$10_{144}$ powinno być zmienione.
+\index{para Perko}%
+Ostatnie cztery węzły dostały nowe numery, by uniknąć duplikatu.
+Kolejną usterką tablicy jest to, że notacja Conwaya oraz wielomian Alexandera dla węzłów $10_{83}$ oraz $10_{86}$ są zamienione miejscami.
+Tu czyha pułapka:\footnote{Wiemy o niej dzięki stronie \url{http://stoimenov.net/stoimeno/homepage/ptab/}.} Stojmenow, nowe wydanie książki Rolfsena, atlas węzłów Bar-Natana oraz tablica niezmienników węzłowych Livingstona naprawiają to przez wymianę podpisów.
+Podręcznik Kawauchiego wymienia diagramy.
+
+Ze strony internetowej Stojmenowa dowiedzieliśmy się jeszcze czegoś.
+Kolejność Rolfsena dla węzłów o 10 skrzyżowaniach obala nomenklaturę Little'a niealternujących oraz nadpisuje numerowanie Taita dla alternujących węzłów.
+\index[persons]{Little, Charles}%
+Alexander, Briggs zrobili wcześniej to samo dla 9 lub mniej skrzyżowań.
+
+\index{notacja!Alexandera-Briggsa|)}%
+
+\subsubsection{Notacja Conwaya}
+\index{notacja!Conwaya}%
+Wprowadzona przez Conwaya w~pracy \cite{conway1970}.
+Wymaga znajomości supłów, więc przedstawiamy ją po ich zdefiniowaniu, na stronie \pageref{conway_notation}.
+
+\subsubsection{Nazwy zwyczajowe}
+\label{sssec:link_names}%
+Niektóre węzły i sploty, w szczególności te o niskim indeksie skrzyżowaniowym, występują tak często w teorii węzłów, że doczekały się nazw zwyczajowych.
+Oto ich lista:
+\begin{compactitem}
+% DICTIONARY;unknot;niewęzeł;-
+    \item węzeł $0_1$ to niewęzeł;
+\index{niewęzeł}%
+% DICTIONARY;trefoil knot;trójlistnik;-
+    \item węzeł $3_1$ to trójlistnik,
+\index{trójlistnik}%
+% DICTIONARY;figure-eight;ósemka;-
+    \item węzeł $4_1$ to ósemka albo węzeł Listinga,
+\index{ósemka}%
+% DICTIONARY;cinquefoil knot;pięciolistnik;-
+    \item węzeł $5_1$ to pięciolistnik albo węzeł Solomona (!),
+\index{pięciolistnik}%
+\index{węzeł!Solomona}%
+% DICTIONARY;stevedore knot;węzeł dokerski;-
+    \item węzeł $6_1$ to węzeł dokerski/sztauerski,
+\index{węzeł!dokerski}%
+    \item węzeł 11n34 to węzeł Conwaya,
+\index{węzeł!Conwaya}%
+    \item węzeł 11n42 to węzeł Kinoshity-Terasakiego,
+\index{węzeł!Kinoshity-Terasakiego}%
+    \item węzeł 12n242, czyli $(-2, 3, 7)$-precel, to z powodu pracy \cite{fintushel1980} węzeł  Fintushela-Sterna,
+\index{węzeł!Fintushela-Sterna}%
+\index[persons]{Fintushel, Robert}%
+\index[persons]{Stern, Robert}%
+% DICTIONARY;granny knot;węzeł babski;-
+    \item suma spójna takich samych trójlistników to węzeł babski,
+\index{węzeł!babski}
+% DICTIONARY;square knot;węzeł prosty/płaski
+    \item suma spójna lustrzanych trójlistników to, dość niefortunnie, węzeł prosty/płaski % (dość niefortunna nazwa),
+% TODO: nigdzie w ksiażce nie ma definicji notacji A-B dla splotów?
+    \item splot $2_1^2$ (L2a1) to splot Hopfa,
+\index{splot!Hopfa}%
+    \item splot $4_1^2$ (L4a1) to węzeł Solomona (!),
+\index{węzeł!Solomona}%
+    \item splot $5_1^2$ (L5a1) to splot Whiteheada,
+\index{splot!Whiteheada}%
+    \item splot $6_2^3$ (L6a4) to pierścienie Boromeuszy.
+\index{pierścienie Boromeuszy}%
+\end{compactitem}
+

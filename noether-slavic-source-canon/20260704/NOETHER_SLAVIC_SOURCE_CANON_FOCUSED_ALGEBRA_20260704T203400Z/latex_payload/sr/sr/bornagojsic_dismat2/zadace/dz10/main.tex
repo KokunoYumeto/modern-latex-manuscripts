@@ -1,0 +1,203 @@
+\documentclass{exam}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{tikz}
+\makeatletter
+\newcommand\mathcircled[1]{%
+  \mathpalette\@mathcircled{#1}%
+}
+\newcommand\@mathcircled[2]{%
+  \tikz[baseline=(math.base)] \node[draw,circle,inner sep=1pt] (math) {$\m@th#1#2$};%
+}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage[makeroom]{cancel}
+\usepackage[lmargin=71pt, tmargin=1.2in]{geometry}  %For centering solution box
+
+\renewcommand{\thepartno}{\thequestion.\alph{partno}}
+\renewcommand{\partlabel}{\alph{partno})}
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+\def \brojZadace {10}
+
+\lhead{DISMAT 2 - Zadaća \brojZadace\\}
+\rhead{Borna Gojšić\\}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\begin{document}
+
+\begingroup
+\centering
+\LARGE Diskretna matematika 2\\
+\Large Zadaća \brojZadace\\
+\large \today\\
+\large Borna Gojšić\par
+\endgroup
+\rule{\textwidth}{0.4pt}
+\pointsdroppedatright   %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Rj:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+\begin{questions}
+
+\question
+\begin{parts}
+  \part Dokažite da je polinom $g(t) = t^2 + t + 1$ ireducibilan nad $\mathbb{Z}_2$.
+  \part Odredite jedan generator multiplikativne grupe $\mathbb{F}_4^*$ polja $\mathbb{F}_4$ reprezentiranog kao $\mathbb{Z}_2[t]/(g(t))$.
+  \part Je li aditivna grupa $\mathbb{F}_4$ izomorfna grupi $\mathbb{Z}_4$ ili $\mathbb{Z}_2 \times \mathbb{Z}_2$? Sve svoje tvrdnje dokažite.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part Očito je $g(0) = g(1) = 1$, pa $g(t)$ nema nultočaka u $\mathbb{Z}_2$. Dakle, $g(t)$ je ireducibilan nad $\mathbb{Z}_2$.
+    \part Svi elementi od $\mathbb{F}_4$ su $0, 1, t, t + 1$. Neka je $a = t$. Tada je $a^2 = t^2 = -t - 1 = t + 1$ te je $a^3 = t^3 = t(t^2) = t(t + 1) = t^2 + t = -1 = 1$. Dakle, $a$ je generator multiplikativne grupe $\mathbb{F}_4^*$.
+    \part Neka je $\varphi : \mathbb{F}_4 \to \mathbb{Z}_4$ homomorfizam grupa. Tada je $\varphi(0) = 0$ jer je to neutralni element. Tada imamo
+    \begin{align*}
+      \varphi(0) &= \varphi(1 + 1) = \varphi(1) + \varphi(1) = 2\varphi(1) = 0\\
+      \varphi(0) &= \varphi(t + t) = \varphi(t) + \varphi(t) = 2\varphi(t) = 0
+    \end{align*}
+    ali jedini elementi koji zadovoljavaju $2x = 0$ u $\mathbb{Z}_4$ su $0$ i $2$. Dakle, $\varphi$ nije injekcija pa nije ni izomorfizam. S druge strane, $\mathbb{Z}_2 \times \mathbb{Z}_2$ ima elemente $(0, 0), (0, 1), (1, 0), (1, 1)$ te je jasno da je $\mathbb{F}_4$ izomorfna $\mathbb{Z}_2 \times \mathbb{Z}_2$. Npr. imamo $f: \mathbb{F}_4 \to \mathbb{Z}_2 \times \mathbb{Z}_2$ dan s $f(at + b) = (a, b)$ što je izomorfizam grupa.
+  \end{parts}
+\end{solution}
+
+\question
+\begin{parts}
+  \part Dokažite da je polinom $g(t) = t^3 + t^2 + 1$ ireducibilan nad $\mathbb{Z}_2$.
+  \part Koliko generatora ima multiplikativna grupa $\mathbb{F}_8^*$ polja $\mathbb{F}_8$ reprezentiranog kao $\mathbb{Z}_2[t]/(g(t))$?
+  \part Koliki je red elementa $t^2 + 1$ u $\mathbb{F}_8^*$?
+  \part Odredite inverz elementa $t^2 + t + 1$ u $\mathbb{F}_8^*$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part Očito je $g(0) = g(1) = 1$, pa $g(t)$ nema nultočaka u $\mathbb{Z}_2$. Dakle, $g(t)$ je ireducibilan nad $\mathbb{Z}_2$.
+    \part Grupa $\mathbb{F}_8^*$ ima točno $\varphi(8 - 1) = 6$ generatora.
+    \part Budući da je jedini ne generator u $\mathbb{F}_8^*$ element $1$, red elementa $t^2 + 1$ je $8 - 1 = 7$.
+    \part
+    \begin{align*}
+      t^2 + t + 1 = (t^3 - 1)(t - 1)^{-1} = (t^2)(t - 1)^{-1} \implies (t^2 + t + 1)^{-1} = (t - 1)(t^2)^{-1}
+    \end{align*}
+    Nadalje,
+    \begin{align*}
+      (t^2)(t + 1) = t^3 + t^2 = 1 \implies (t^2)^{-1} = t + 1
+    \end{align*}
+    Dakle, $(t^2 + t + 1)^{-1} = (t - 1)(t^2)^{-1} = (t - 1)(t + 1) = t^2 - 1 = t^2 + 1$.
+  \end{parts}
+\end{solution}
+
+\question
+\begin{parts}
+  \part Dokažite da je $t + 1$ generator multiplikativne grupe $\mathbb{F}_{16}^*$ polja $\mathbb{F}_{16}$ reprezentiranog kao\newline $\mathbb{Z}_2[t]/(h(t))$, gdje je $h(t) = t^4 + t + 1$ polinom ireducibilan nad $\mathbb{Z}_2$. Obrazložite!
+  \part Je li $t^3 + t^2 + t + 1$ generator od $\mathbb{F}_{16}^*$?
+  \part Odredite inverz elementa $t^3 + t^2 + t + 1$ u $\mathbb{F}_{16}^*$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part Neka je $a = t + 1$. Moramo provjeriti $a^d$ za sve $d$ djelitelje od $16 - 1 = 15$. Dakle, imamo $d \in \{1, 3, 5\}$.
+    \begin{align*}
+      a^1 &= t + 1\\
+      a^2 &= (t + 1)^2 = t^2 + 2t + 1 = t^2 + 1\\
+      a^3 &= (t + 1)^3 = (t + 1)(t^2 + 1) = t^3 + t^2 + t + 1\\
+      a^4 &= (t^2 + 1)^2 = t^4 + 2t^2 + 1 = t^4 + 1 = t\\
+      a^5 &= t(t + 1) = t^2 + t
+    \end{align*}
+    Dakle, $t + 1$ je generator multiplikativne grupe $\mathbb{F}_{16}^*$.
+
+    \part Budući da je $t^3 + t^2 + t + 1 = a^3$, $a$ je generator i $3 \mid 15$, $t^3 + t^2 + t + 1$ nije generator.
+
+    \part Budući da je $t^3 + t^2 + t + 1 = a^3$ i $a^{15} = 1$, inverz elementa $t^3 + t^2 + t + 1$ je
+    \begin{align*}
+      a^{12} = (a^5)^2 \cdot a^2 &= (t^2 + t)^2 \cdot (t^2 + 1) = (t^4 + 2t^3 + t^2) \cdot (t^2 + 1) = (t^4 + t^2) \cdot (t^2 + 1)\\
+      &= t^2 (t^2 - 1)(t^2 + 1) = t^2 (t^4 + 1) = t^2 \cdot t = t^3
+    \end{align*}
+  \end{parts}
+\end{solution}
+
+\question
+\begin{parts}
+  \part Dokažite da je polinom $h(t) = t^2 + t + 2$ ireducibilan nad $\mathbb{Z}_3$.
+  \part Dokažite da je $t + 1$ generator multiplikativne grupe $\mathbb{F}_{9}^*$ polja $\mathbb{F}_{9}$ reprezentiranog kao $\mathbb{Z}_3[t]/(h(t))$, gdje je $h(t) = t^2 + t + 2$.
+  \part Odredite preostale generatore multiplikativne grupe $\mathbb{F}_{9}^*$.
+  \part Odredite inverz elementa $2t + 1$ u $\mathbb{F}_{9}^*$.
+  \part Odredite podgrupu od $\mathbb{F}_{9}^*$ generiranu elementom $t + 2$.
+\end{parts}
+
+\begin{solution}
+  \begin{parts}
+    \part Imamo $h(0) = h(2) = 2$ i $h(1) = 1$ pa $h(t)$ nema nultočaka u $\mathbb{Z}_3$. Dakle, $h(t)$ je ireducibilan nad $\mathbb{Z}_3$.
+
+    \part Neka je $a = t + 1$. Moramo provjeriti $a^d$ za sve $d$ djelitelje od $9 - 1 = 8$. Dakle, imamo $d \in \{1, 2, 4\}$.
+    \begin{align*}
+      a^1 &= t + 1\\
+      a^2 &= (t + 1)^2 = t^2 + 2t + 1 = t - 1 = t + 2\\
+      a^4 &= (t + 2)^2 = t^2 + 4t + 4 = t^2 + t + 1 = 2
+    \end{align*}
+    Dakle, $t + 1$ je generator multiplikativne grupe $\mathbb{F}_{9}^*$.
+
+    \part Preostale generatore dobivamo kao $a^m$ gdje je $\text{nzd}(m, 8) = 1$. Dakle, imamo $m \in \{3, 5, 7\}$.
+    \begin{align*}
+      a^3 &= (t + 2)(t + 1) = t^2 + 3t + 2 = t^2 + 2 = -t = 2t\\
+      a^5 &= 2 \cdot (t + 1) = 2t + 2\\
+      a^7 &= 2 (2t) = 4t = t
+    \end{align*}
+
+    \part Budući da je $2t + 1 = -(t + 2) = -a^2$, inverz elementa $2t + 1$ je
+    \begin{align*}
+      -a^6 = -a^4 \cdot a^2 = -2 \cdot (t + 2) = t + 2
+    \end{align*}
+
+    \part Podgrupa generirana elementom $t + 2$ je $\{1, t + 2, 2, 2t + 1\}$.
+  \end{parts}
+\end{solution}
+
+\question Odredite produkt polinoma $p$ i $q$ u polju $\mathbb{F}_{2^8}$ definiranom kao $\mathbb{Z}_2[t]/(t^8 + t^4 + t^3 + t + 1)$ te prikažite polinome $p$, $q$ i njihov produkt u heksadecimalnom zapisu ako je:
+\begin{parts}
+  \part $p(x) = x^6 + x^5 + x^3 + x^2 + 1$, $q(x) = x^5 + x^3 + x^2 + x + 1$,
+  \part $p(x) = x^7 + x^5 + x^4 + x^2 + x + 1$, $q(x) = x^7 + x^5 + x^4 + x^2 + x$.
+\end{parts}
+
+\begin{solution}
+  Znamo da je $t^8 + t^4 + t^3 + t + 1 = 1 0001 1011 = 11B_{16}$.
+  \begin{parts}
+    \part Polinomi $p$ i $q$ su $p = 01101101 = 6D_{16}$ i $q = 00101111 = 2F_{16}$. Njihov produkt je
+    \begin{align*}
+      p(x) \cdot q(x) &= x^{11} + x^{10} + x^9 + 3 x^8 + 3 x^7 + 3 x^6 + 4 x^5 + 2 x^4 + 3 x^3 + 2 x^2 + x + 1\\
+      &= x^{11} + x^{10} + x^9 + x^8 + x^7 + x^6 + x^3 + x + 1 = 1111 1100 1011\\
+      &= 1111 1100 1011 \oplus 1000 1101 1000 = 111 0001 0011\\
+      &= 111 0001 0011 \oplus 100 0110 1100 = 11 0111 1111\\
+      &= 11 0111 1111 \oplus 10 0011 0110 = 1 0100 1001\\
+      &= 1 0100 1001 \oplus 1 0001 1011 = 0101 0010 = 52_{16} = x^6 + x^4 + x
+    \end{align*}
+
+    \part Polinomi $p$ i $q$ su $p = 10110111 = B7_{16}$ i $q = 10110110 = B6_{16}$. Njihov produkt je
+    \begin{align*}
+      p(x) q(x) &= x^{14} + 2 x^{12} + 2 x^{11} + x^{10} + 4 x^9 + 3 x^8 + 3 x^7 + 4 x^6 + 3 x^5 + 2 x^4 + 2 x^3 + 2 x^2 + x\\
+      &= x^{14} + x^{10} + x^8 + x^7 + x^5 + x = 100 0101 1010 0010\\
+      &= 100 0101 1010 0010 \oplus 100 0110 1100 0000 = 11 0110 0010\\
+      &= 11 0110 0010 \oplus 10 0011 0110 = 1 0101 0100\\
+      &= 1 0101 0100 \oplus 1 0001 1011 = 0100 1111 = 4F_{16} = x^6 + x^3 + x^2 + x + 1
+    \end{align*}
+  \end{parts}
+\end{solution}
+
+\pagebreak
+
+\question Odredite parametre $a$, $b$, $c$ takve da polinom $p(x) = x^6 + ax^4 + bx^3 + cx^2 + x + 1$ bude inverz polinoma $q(x) = x^3 + 1$ u polju $\mathbb{F}_{2^8}$ reprezentiranom kao $\mathbb{Z}_2[t]/(h(t))$, gdje je $h(t) = t^8 + t^4 + t^3 + t + 1$ polinom ireducibilan nad $\mathbb{Z}_2$.
+
+\begin{solution}
+  \begin{align*}
+    1 &= p(x) \cdot q(x) = x^9 + ax^7 + bx^6 + cx^5 + x^4 + x^3 + x^6 + ax^4 + bx^3 + cx^2 + x + 1\\
+    &= x^9 + ax^7 + (b + 1)x^6 + cx^5 + (a + 1)x^4 + (b + 1)x^3 + cx^2 + x + 1\\
+    &= x(x^4 + x^3 + x + 1) + ax^7 + (b + 1)x^6 + cx^5 + (a + 1)x^4 + (b + 1)x^3 + cx^2 + x + 1\\
+    &= x^5 + x^4 + x^2 + x + ax^7 + (b + 1)x^6 + cx^5 + (a + 1)x^4 + (b + 1)x^3 + cx^2 + x + 1\\
+    &= ax^7 + (b + 1)x^6 + (c + 1)x^5 + ax^4 + (b + 1)x^3 + (c + 1)x^2 + 1 \implies a = 0, b = 1, c = 1
+  \end{align*}
+  Dakle, inverz polinoma $q(x)$ je $x^6 + x^3 + x^2 + 1$.
+\end{solution}
+
+\end{questions}
+
+\end{document}

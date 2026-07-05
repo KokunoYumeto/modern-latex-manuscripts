@@ -1,0 +1,40 @@
+\documentclass[10pt]{article}                   % Začátek dokumentu
+\usepackage{../../MFFStyle}                     % Import stylu
+
+\begin{document}
+
+\begin{priklad}[4.1]
+    Nechť ®T je těleso, $a \in ®T$ a $A$ je čtvercová matice řádu $n$ nad tělesem ®T taková, že součet prvků v každém sloupci je roven $a$. Dokažte, že pak $a$ je vlastním číslem matice $A$.
+
+    \begin{dukazin}
+        1) Nechť nejdříve $a = 0$ (ta je prvkem každého tělesa). Potom součet prvků v každém sloupci $A$ je 0, tedy součet všech řádků (to jest lineární kombinace s koeficienty 1) je nenulová lineární kombinace dávající nulový vektor. Tedy $A$ není regulární, tedy existuje lineární nenulová kombinace sloupců, která dává nulový vektor. Tuto kombinaci nechť reprezentuje vektor ¦x ($\in ®T^{n}$). Tudíž $A·¦x = ¦o = 0·¦x$ a $a = 0$ je vlastní číslo $A$ a $¦x$ je vlastní vektor příslušející tomuto číslu.
+
+        2) Podle bodu 1) má matice $A - a·I_n$ vlastní číslo 0 a vlastní vektor jemu náležející $¦x$. Potom je $A¦x = a·I_n·¦x + (A - a·I_n)¦x = a¦x + 0·¦x = a¦x$. Tedy $a$ je vlastním číslem $A$ a přísluší mu vlastní vektor ¦x.
+    \end{dukazin}
+\end{priklad}
+
+
+\begin{priklad}[4.2]
+    Najděte nějakou reálnou čtvercovou matici $A$ řádu $3$, která současně splňuje následující podmínky:
+
+    \begin{itemize}
+        \item $A$ má vlastní číslo $-1$ a vlastní vektory příslušné tomuto vlastnímu číslu tvoří podprostor
+            $$ \{(x, y, z)^T \in ®R^3: 2x - y + z = 0\}. $$
+        \item $A$ má vlastní číslo 3 a $(1, 1, 0)^T$ je vlastní vektor příslušný tomuto vlastnímu číslu.
+    \end{itemize}
+
+    \begin{reseni}
+        Lineární zobrazení (tj. i násobení maticí) je jednoznačně určeno tím, kam zobrazuje prvky nějaké báze, tudíž najdeme bázi $®R^3$, která se nám bude zobrazovat. Jako jeden prvek se hned nabízí $(1, 1, 0)^T$ z druhé podmínky. Jako další dva prvky vezmeme bázi prostoru z první podmínky. To můžou být třeba $(1, 2, 0)^T$ a $(1, 0, -2)$, jelikož má stupeň volnosti $3-1=2$ (tj. jsou všechny), $2·1 - 2 + 0 = 0 = 2·1 - 0 + (-2)$ (tj. jsou to opravdu prvky daného prostoru) a jsou lineárně nezávislé (LN spolu s $(1, 1, 0)^T$ dokážeme nalezením inverzní matice k matici přechodu báze\footnote{Neboť pokud má čtvercová matice inverzní matici, pak je regulární a tedy má nezávislou posloupnost sloupců.}).
+
+        Tedy máme bázi $®R^3$ $B = \((1, 1, 0)^T, (1, 2, 0)^T, (1, 0, -2)^T\)$. A z definice vlastního čísla víme, že se má zobrazovat na (ve stejném pořadí) $B' = \(3·(1, 1, 0)^T, -1·(1, 2, 0)^T, -1·(1, 0, -2)^T\)$. Tedy $A$ vzhledem k bázím $B$, $B$ bude vypadat jako:
+        $$ \begin{pmatrix} 3 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -1 \end{pmatrix}. $$
+
+        Poslední část úkolu je zapsat tuto matici (vzhledem ke kanonické bázi), tedy můžeme vyjít z toho, že když $A$ vzhledem k bázím $B$, $B$ přenásobíme zprava $[id]_B^K$ a zleva $[id]_K^B$ dostaneme $A$ (ze součinu lineárních zobrazení). $[id]_K^B$ je triviální (sloupce jsou vektory $[B]_K$) a $[id]_B^K$ dostaneme její inverzí:
+        $$ [B]_K^B = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 0 \\ 0 & 0 & -2 \end{pmatrix}, \qquad [B]_B^K = \([B]_K^B\)^{-1} = \begin{pmatrix} 2 & -1 & 1 \\ -1 & 1 & -1/2 \\ 0 & 0 & -1/2 \end{pmatrix}. $$ 
+
+        Tudíž hledaná matice je
+        $$ A = \begin{pmatrix} 1 & 1 & 1 \\ 1 & 2 & 0 \\ 0 & 0 & -2 \end{pmatrix} \begin{pmatrix} 3 & 0 & 0 \\ 0 & -1 & 0 \\ 0 & 0 & -1 \end{pmatrix} \begin{pmatrix}     2 & -1 & 1 \\ -1 & 1 & -1/2 \\ 0 & 0 & -1/2 \end{pmatrix} = \begin{pmatrix} 7 & -4 & 4 \\ 8 & -5 & 4 \\ 0 & 0 & -1 \end{pmatrix}. $$ 
+    \end{reseni}
+\end{priklad}
+
+\end{document}

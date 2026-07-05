@@ -1,0 +1,257 @@
+\documentclass{article}
+
+\def\exercisespersection{}
+\input{../definitions.tex}
+
+\usepackage{fullpage}
+
+\theoremstyle{definition}
+\newtheorem{ejerc}{Ejercicio}
+\newenvironment{solucion}{\begin{proof}[Solución]}{\end{proof}}
+
+\begin{document}
+\pagestyle{empty}
+
+\mybanner{Álgebra computacional. Examen parcial 2\ifdefined\solutions{}.
+Soluciones
+\fi}{Universidad de El Salvador, 13/06/2019}
+
+\subsection*{Ejercicios teóricos}
+
+\begin{ejerc}[2 puntos]
+  Sea $A$ una $k$-álgebra finitamente generada. Demuestre que
+  $$\dim A = 0 \iff \dim_k A < \infty$$
+  (aquí ``$\dim$'' denota la dimensión de Krull y ``$\dim_k$'' denota la
+  dimensión de $k$-espacio vectorial).
+
+  \ifdefined\solutions\begin{solucion}
+    Hemos probado en las tareas que para
+    $$I \subseteq k [x_1,\ldots,x_n], ~ A \dfn k [x_1,\ldots,x_n]/I$$
+    se tiene
+    $$\dim_k A < \infty \iff I \cap k[x_i] \ne 0\text{ para todo }i = 1,\ldots,n.$$
+    Por la caracterización de la dimensión de Krull de $k$-álgebras finitamente
+    generadas, la última condición es equivalente a tener $\dim A = 0$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}[2 puntos]
+  Consideremos un ideal $I \subseteq k [x_1,\ldots,x_m]$. Sea $\widetilde{I}$ el
+  ideal generado por los elementos de $I$ en
+  $k [x_1,\ldots,x_m,y_1,\ldots,y_n]$. Describa la relación entre las series de
+  Hilbert $H_I (t)$ y $H_{\widetilde{I}} (t)$.
+
+  \ifdefined\solutions\begin{solucion}
+    Hay varios modos de verlo. Si no queremos contar monomios, podemos revisar
+    nuestro algoritmo recursivo que calcula $H_I (t)$. Sean $\preceq$ un orden
+    monomial que respeta el grado (por ejemplo \emph{grlex}) y
+    $G = \{ g_1,\ldots,g_s \}$ una base de Gröbner de $I$ respecto al orden
+    $\preceq$. Luego,
+    $$H_I (t) = H_{(LT (g_1), \ldots, LT (g_s))} (t).$$
+
+    Notamos que como una base de Gröbner de $\widetilde{I}$ funcionan los mismos
+    polinomios $g_1,\ldots,g_s$. Ahora el algoritmo recursivo para
+    $\widetilde{I}$ hará lo mismo que el algoritmo para $I$, solo que en lugar
+    de $(1-t)^m$ en los denominadores hay que poner $(1-t)^{m+n}$. Entonces,
+    $$H_{\widetilde{I}} (t) = \frac{1}{(1-t)^n}\,H_I (t).$$
+
+    \vspace{1em}
+
+    Otra opción es analizar como se debe las funciones de Hilbert
+    correspondientes $h_I (d)$ y $h_{\widetilde{I}} (d)$. Recordemos que
+    \[ \widetilde{h}_I (d) =
+      \# \{ x^\alpha \mid \deg x^\alpha \le d, \, x^\alpha \notin (LT (I)) \}. \]
+    Ahora
+    \begin{multline*}
+      \widetilde{h}_{\widetilde{I}} (d) =
+      \# \{ x^\alpha y^\beta \mid \deg x^\alpha + \deg y^\beta \le d, \, x^\alpha \notin (LT (I)) \} = \\
+      \sum_{p + q = d} \# \{ x^\alpha y^\beta \mid \deg y^\beta =
+      q, \, \deg x^\alpha \le p, \, x^\alpha \notin (LT (I)) \} =
+      \sum_{p + q = d} \widetilde{h}_I (p)\,{n + q - 1 \choose q}.
+    \end{multline*}
+    Aquí ${n + q - 1 \choose q}$ es el número total de monomios $y^\beta$ tales
+    que $\deg y^\beta = q$. Falta solo notar que
+    \[ \widetilde{H}_{\widetilde{I}} (t) =
+       \sum_{d \ge 0} \left(\sum_{p + q = d} \widetilde{h}_I (p)\,{n + q - 1 \choose q}\right)\,t^d =
+       \left(\sum_{p\ge 0} \widetilde{h}_I (p)\,t^p\right)\cdot \left(\sum_{q\ge 0} {n + q - 1 \choose q}\,t^q\right) =
+       \widetilde{H}_I (t)\cdot \frac{1}{(1-t)^n}. \qedhere \]
+   \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}[2 puntos]
+  Hemos probado en clase que para la serie de Hilbert
+  \[ H_I (t) = \sum_{d\ge 0} h_I (d)\,t^d =
+    \frac{a_m\,t^m + \cdots + a_1\,t + a_0}{(1-t)^n} \]
+  el polinomio de Hilbert $p_I \in \QQ [x]$ cumple
+  $$p_I (d) = h_I (d) \quad\text{para }d\gg 0.$$
+  Demuestre que esto sucede precisamente para $d > m-n$; es decir,
+  $$\max \{ d \mid p_I (d) \ne h_I (d) \} = m-n.$$
+
+  \ifdefined\solutions\begin{solucion}
+    Recordemos que
+    $$p_I = \sum_{0 \le i \le m} a_i {x - i + n - 1 \choose n-1} \in \QQ [x]$$
+    y
+    \[ H_I (t) =
+       \sum_{d \ge 0} h_I (d)\,t^d =
+       \sum_{0 \le i \le m} \sum_{d \ge i} a_i\,{d - i + n - 1 \choose d}\,t^d =
+       \sum_{d\ge 0} \left(\sum_{0 \le i \le \min \{d,m\}} a_i\,{d - i + n - 1 \choose d}\right)\,t^d. \]
+    Entonces,
+    $$p_I (d) - h_I (d) = \sum_{\min \{ d,m \} + 1 \le i \le m} a_i {d - i + n - 1 \choose n-1}.$$
+    Ahora si $d = m-n$, se tiene
+    $$p_I (m-n) - h_I (m-n) = \sum_{m-n+1 \le i \le m} a_i {m - i - 1 \choose n-1}.$$
+    Notamos que
+    $$0 \le m - i - 1 < n-1 \quad\text{para }m-n + 1 \le i < m,$$
+    así que nos queda
+    $$p_I (m-n) - h_I (m-n) = a_m\,{- 1 \choose n-1} = (-1)^{n-1}\,a_m \ne 0.$$
+    Si $d > m-n$, entonces
+    \[ p_I (d) = h_I (d). \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\subsection*{Ejercicio práctico}
+
+Se puede usar Macaulay2 para comprobar los cálculos, pero no se puede referir al
+programa en las soluciones. Todos los pasos deben ser justificados.
+
+\begin{ejerc}[4 puntos]
+  Sea $k$ un cuerpo. Consideremos el ideal
+  $$I \dfn (xy^2, \, x^2yz^2) \subset k [x,y,z]$$
+  y la $k$-álgebra correspondiente
+  $$A \dfn k [x,y,z]/I.$$
+
+  \begin{enumerate}
+  \item[1)] Encuentre una descomposición primaria minimal de $I$ y los primos
+    asociados, minimales y encajados.
+
+    \ifdefined\solutions\begin{solucion}
+      Escribamos
+      $$I = (xy^2, x^2yz^2) = (xy^2, x^2y) \cap (xy^2, x^2yz^2).$$
+      Luego,
+      $$(xy^2, x^2y) = (xy^2, x^2) \cap (y) = (x) \cap (x^2,y^2) \cap (y).$$
+      De la misma manera, escribamos
+      \[ (xy^2, x^2yz^2) =
+         (x) \cap (y^2, x^2yz^2) =
+         (x) \cap (x^2, y^2) \cap (y) \cap (y^2, z^2). \]
+      Juntando todo esto, se obtiene
+      $$I = (x) \cap (y) \cap (x^2,y^2) \cap (y^2, z^2).$$
+      Aquí los ideales
+      \[ \mathfrak{p}_1 = \mathfrak{q}_1 = (x)
+         \quad\text{y}\quad
+         \mathfrak{p}_2 = \mathfrak{q}_2 \dfn (y) \]
+      son primos, mientras que
+      \[ \mathfrak{q}_3 \dfn (x^2,y^2)
+         \quad\text{y}\quad
+         \mathfrak{q}_4 = (y^2,z^2) \]
+
+      son primarios, dado que sus generadores son potencias de las
+      variables. Se trata entonces de una descomposición primaria. Esta
+      descomposición es minimal:
+
+      \begin{itemize}
+      \item primero, los ideales primos correspondientes
+        $\mathfrak{p}_i = \sqrt{\mathfrak{q}_i}$
+        \[ \mathfrak{p}_1 = (x), \quad
+           \mathfrak{p}_2 = (y), \quad
+           \mathfrak{p}_3 = (x,y), \quad
+           \mathfrak{p}_4 = (y,z) \]
+        son diferentes;
+
+      \item además, calculamos que
+        \begin{align*}
+          \mathfrak{q}_1 \not\subseteq \mathfrak{q}_2\cap\mathfrak{q}_3\cap\mathfrak{q}_4 & = (y^2, \, x^2 y z^2),\\
+          \mathfrak{q}_2 \not\subseteq \mathfrak{q}_1\cap\mathfrak{q}_3\cap\mathfrak{q}_4 & = (xy^2, \, x^2 z^2),\\
+          \mathfrak{q}_3 \not\subseteq \mathfrak{q}_1\cap\mathfrak{q}_2\cap\mathfrak{q}_4 & = (xy^2, \, xyz^2),\\
+          \mathfrak{q}_4 \not\subseteq \mathfrak{q}_1\cap\mathfrak{q}_2\cap\mathfrak{q}_3 & = (x^2y, \, xy^2).
+        \end{align*}
+\end{itemize}
+
+Los primos $\mathfrak{p}_1$ y $\mathfrak{p}_2$ son minimales, mientras que
+$\mathfrak{p}_2 \supset \mathfrak{p}_1$ y
+$\mathfrak{p}_3 \supset \mathfrak{p}_2$ son encajados.
+\end{solucion}\fi
+
+\item[2)] Calcule la serie de Hilbert $H_I (t)$ y el polinomio de Hilbert
+  $p_I (x)$.
+
+  \ifdefined\solutions\begin{solucion}
+    Recordemos que para los ideales monomiales $J_1, J_2$ tenemos la fórmula
+    $$H_{J_1 + J_2} (t) = H_{J_1} (t) + H_{J_2} (t) - H_{J_1\cap J_2} (t).$$
+    En nuestro caso,
+    $$I = (xy^2) + (x^2yz^2), \quad (xy^2) \cap (x^2yz^2) = (x^2y^2z^2).$$
+    Entonces,
+    \[ H_I (t) =
+       H_{(xy^2)} (t) + H_{(x^2yz^2)} (t) - H_{(x^2y^2z^2)} (t) =
+       \frac{(1-t^3) + (1-t^5) - (1-t^6)}{(1-t)^3} =
+       \frac{t^6 - t^5 - t^3 + 1}{(1-t)^3} =
+       \frac{-t^5 + t^2 + t + 1}{(1-t)^2}. \]
+
+    Recordemos que para una serie de Hilbert
+    $$H_I (t) = \frac{a_m\,t^m + \cdots + a_1\,t + a_0}{(1-t)^\delta}$$
+    el polinomio de Hilbert correspondiente es
+    $$p_I (x) = \sum_{0 \le i \le m} a_i\,{x-i+\delta-1 \choose \delta-1}.$$
+    En nuestro caso $\delta = 2$, así que los coeficientes binomiales en cuestión son nada más ${x \choose 1} = 1$ y
+    $$p_I (x) = (x+1) + x + (x-1) - (x-4) = 2x + 4.$$
+    De hecho, al desarrollar la serie de Hilbert se ve que
+    \[ H_I (t) =
+       1 + 3t + 6t^2 + 9t^3 + \sum_{d\ge 2} (2d + 4)\,t^d =
+       1 + 3t + 6t^2 + 9t^3 + 12t^4 + 14t^5 + 16t^6 + \cdots \]
+    En efecto,
+    \begin{multline*}
+      1 + 3t + 6t^2 + 9t^3 + \sum_{d\ge 4} (2d + 4)\,t^d =
+      -3 - 3t - 2t^2 - t^3 + \sum_{d\ge 0} (2d + 4)\,t^d \\
+    = -3 - 3t - 2t^2 - t^3 + 2\,\sum_{d\ge 0} d\,t^d + 4\,\sum_{d\ge 0} t^d =
+      -3 - 3t - 2t^2 - t^3 + \frac{2t}{(1-t)^2} + \frac{4}{1-t} =
+      \frac{-t^5 + t^2 + t + 1}{(1-t)^2}.
+    \end{multline*}
+  \end{solucion}\fi
+
+\item[3)] Calcule la dimensión de Krull de $A$.
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos
+    $$\dim A = \delta = \deg p_I + 1 = 2.$$
+    También podríamos notar que
+    \[ (xy^2, \, x^2 y z^2) \cap k [x,z] = 0. \qedhere \]
+  \end{solucion}\fi
+
+\item[4)] Encuentre una normalización de Noether para $A$.
+
+  \ifdefined\solutions\begin{solucion}
+    La normalización de Noether debería dar dos elementos algebraicamente
+    independientes $a_1,a_2 \in A$ tales que $k [a_1,a_2] \subset A$ es una
+    extensión integral.
+
+    Consideremos el polinomio
+    $$f (x,y,z) = x\,y^2$$
+    y hagamos las sustituciones
+    $$x_1 = x - az, \quad y_1 = y - bz.$$
+
+    Ahora
+    \[ f (x,y,z) =
+      f (x_1+az, \, y_1 + b z, \, z) =
+      (x_1+az)\,(y_1+bz)^2 =
+      a b^2 z^3 + (b^2 x_1 + 2 a b y_1)\,z^2 + (2 b x_1 y_1 + ay_1^2)\,z + x_1 y_1^2. \]
+    Entonces, bastaría poner $a = b = 1$ para obtener la dependencia integral
+    $$z^3 + (x_1 + 2 y_1)\,z^2 + (2 x_1 y_1 + y_1^2)\,z + x_1 y_1^2 \equiv 0$$
+    Podemos concluir que
+    $$k [\overline{x}-\overline{z}, \overline{y}-\overline{z}] \subset A$$
+    es una extensión integral. Calculemos qué es
+    $k [\overline{x}-\overline{z}, \overline{y}-\overline{z}]$. Consideremos el
+    homomorfismo
+    \begin{align*}
+      \phi\colon k [t,u] & \to k [x,y,z]/(x y^2, x^2 y z^2),\\
+      t & \mapsto \overline{x}-\overline{z},\\
+      u & \mapsto \overline{y}-\overline{z}.
+    \end{align*}
+    Tenemos
+    $$\ker \phi = (x y^2, \, x^2 y z^2, \, x - z - t, \, y-z-u) \cap k [t,u] = 0.$$
+    Entonces,
+    $$k [\overline{x}-\overline{z}, \overline{y}-\overline{z}] \isom k [t,u].$$
+    En particular, $\overline{x}-\overline{z}$ y $\overline{y}-\overline{z}$ son
+    algebraicamente independientes sobre $k$. Podemos tomar
+    \[ a_1 = \overline{x}-\overline{z}, \quad a_2 =
+       \overline{y}-\overline{z}. \qedhere \]
+   \end{solucion}\fi
+ \end{enumerate}
+\end{ejerc}
+
+\end{document}

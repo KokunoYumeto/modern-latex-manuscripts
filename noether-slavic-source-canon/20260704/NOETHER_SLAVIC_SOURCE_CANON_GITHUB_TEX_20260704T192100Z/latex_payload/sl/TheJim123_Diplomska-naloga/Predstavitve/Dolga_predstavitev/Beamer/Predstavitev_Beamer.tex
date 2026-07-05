@@ -1,0 +1,420 @@
+\documentclass[t, 11pt]{beamer} % [t] pomeni poravnavo na vrh slida
+
+% \usepackage{etex} % vključi ta paket, če ti javi napako, da imaš naloženih preveč paketov.
+
+% standardni paketi
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[slovene]{babel}
+\usepackage{lmodern}
+
+\usepackage{amsfonts,url, amsthm}
+\usepackage{palatino}
+\usepackage{graphicx, tikz, array}
+
+\renewcommand\textbullet{\ensuremath{\bullet}}  % to get rid of font warnings
+
+% podatki
+\title{Linearna algebra nad polkolobarji}
+\author{Jimmy Zakeršnik}
+\institute{mentor: prof. dr. Tomaž Košir}
+
+% tvoj izbran stil predstavitve
+\usefonttheme{professionalfonts}
+\mode<presentation>
+{
+	\usetheme{Berlin}
+	\usecolortheme{default}
+	\useoutertheme{infolines}
+	\useinnertheme[shadows]{rounded}
+}
+%\setbeamertemplate{footline}{}            % pri nekaterih temah je potrebno odstraniti
+%\setbeamertemplate{navigation symbols}{}  % nogo, v tem primeru to odkomentiraj
+
+\newtheorem{trditev}{Trditev}
+\newtheorem{izr}{Izrek}
+
+\newcounter{defcount}
+\newcounter{opombe}
+\newcounter{zgledcount}
+
+\newenvironment{opomba}{\begin{flushleft}\stepcounter{opombe}\textbf{Opomba \arabic{opombe}:}}{\hfill\end{flushleft}}
+\setlength{\parindent}{0mm}
+
+\newenvironment{zgled}{\begin{flushleft}\stepcounter{zgledcount}\textbf{Zgled \arabic{zgledcount}:}}{\hfill\end{flushleft}}
+\setlength{\parindent}{0mm}
+
+\newenvironment{definicija}{\begin{flushleft}\stepcounter{defcount}\textbf{Definicija \arabic{defcount}:}}{\hfill\end{flushleft}}
+\setlength{\parindent}{0mm}
+
+\newcommand{\abs}[1]{\ensuremath{\lvert #1 \rvert}}
+\newcommand{\mth}[1]{\ensuremath{\mathbb{#1}}}
+\newcommand{\R}{\mth{R}}
+\newcommand{\Pplus}[1]{\mth{#1}^{+}}
+\newcommand{\Z}{\mth{Z}}
+\newcommand{\N}{\mth{N}}
+\newcommand{\No}{\mth{N}_0}
+\newcommand{\C}{\mth{C}}
+\newcommand{\Qo}{\mth{Q}_0}
+\newcommand{\pojem}[1]{\emph{#1}}
+\newcommand{\con}{\ensuremath{\mathscr{C}}}
+\newcommand{\padex}[2]{\ensuremath{{#1}^{\underline{#2}}}}
+\newcommand{\rastx}[2]{\ensuremath{{#1}^{\bar{#2}}}}
+\newcommand{\map}[3]{\ensuremath{{#1}~: {#2} \rightarrow {#3}}}
+\newcommand{\pra}[3]{{#1}{\ast}({#2}) = {#3}}
+\newcommand{\Gen}[1]{\ensuremath{\left<{#1}\right>}}
+
+%  ukaz za počrnitev enega slida. Nariše črn pravokotnik višine #1 na dno.
+\newcommand{\fillblack}[1]{
+\begin{tikzpicture}[remember picture, overlay]
+    \node [shift={(0 cm,0cm)}]  at (current page.south west)
+        {%
+        \begin{tikzpicture}[remember picture, overlay] at (current page.south west)
+            \draw [fill=black] (0, 0) -- (0,#1 \paperheight) --
+                              (\paperwidth,#1 \paperheight) -- (\paperwidth,0) -- cycle ;
+        \end{tikzpicture}
+        };
+        \draw (current page.north west) rectangle (current page.south east);
+\end{tikzpicture}
+}
+
+% Projektor, ki sveti na tablo je zoprn, ker zavzema prostor za pisanje.
+% Praktična rešitev je, da se platno spusti samo do table, spodnji del
+% predstavitve pa naredimo popolnoma črn. Tako projektor na tablo ne projecira
+% svetlobe in je pisanje nemoteno s strani predstavitve, ki je cela nad tablo.
+
+% Za to da dobite spodaj zatemnjen slide, je potrebno na konec frame-a dodati
+% ukaz \fillblack{delež}, kjer je delež številka med 0 in 1, ki pove, kakšen
+% delež slida želite imeti zapolnjen s črnim pravokotnikom. Spodaj so 4 slidi,
+% ki imajo začrnjenih: 33%, 50%, 33% in 20%.  Za šolske table v 2.02 in 2.03 je
+% 33% ravno prav, da lahko pišete po celi tabli.
+
+% Črni pravokotnik ne zavzema prostora na slidu -- preprosto nariše se čez
+% spodnjo tretjino (ali kolikor pač želite). To pomeni, da se pokrijve tudi ves
+% tekst spodaj. Za to je na začetku dokumenta tudi nastavljena vertikalna
+% poravnava na ``zgoraj'', z razliko od običajne sredinske (to je tisti [t]).
+% Tako se ves tekst obdrži na vidnem delu slida, dokler je to možno. Tretji
+% slide spodaj demonstrira, kaj se zgodi v primeru preveč besedila.
+
+% Kod demonstrira zadnji slide, je vseeno, kjer napišemo ukaz, toda ponavadi ga
+% napišemo na dnu, da se izognemo morebitnim nevšečnostim ali neželenemu
+% spacingu. Pri nekaterih temah se izriše tudi noga, ki se izriše na koncu
+% slida, torej po tem ko je naš pravokotnik že narisan, kar zna biti moteče.
+% To se na primer zgodi tudi pri standardni temi Warsaw. Rešitev je, da nogo
+% odstranimo (saj bi bila itak prekrita). V preambuli so zakomentirani ukazi,
+% kako to naredimo.
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+%  \fillblack{0.33}
+\end{frame}
+
+\begin{frame}{Napovednik:}
+	\begin{enumerate}
+		\item[1] Motivacija
+		\item[2] Kanonično urejeni monoidi in grupe
+		\item[3] Polkolobarji
+		\item[4] Dioidi
+		\item[5] Polmoduli
+		\item[6] Linearne preslikave nad polkolobarji
+		\item[7] Baze polmodulov
+		\item[8] Kardinalnost baz
+		\item[9] Pomožna Trditev 1
+		\item[10] Trditev 2
+		\item[11] Dokaz trditve 2
+	\end{enumerate}
+\end{frame}
+\begin{frame}{Napovednik:}
+\begin{enumerate}
+		\item[12] Končne baze
+		\item[13] Bideterminanta
+		\item[14] Nekatere lastnosti bideterminante
+		\item[15] Bideterminanta produkta matrik
+		\item[16] Permanenta
+		\item[17] $\varepsilon$-determinanta
+		\item[18] Karakteristični Bipolinom
+		\item[19] Cayley-Hamiltonov izrek
+	\end{enumerate}
+
+%	\fillblack{0.33}
+\end{frame}
+
+\begin{frame}{Motivacija:}
+  Polkolobarjev je veliko - pojavljajo se v skoraj vsakem področju matematike. Nekateri primeri so:
+  \begin{itemize}
+    \item $\No$ oz. $\Pplus{Z}$, $\Pplus{Q}$, $\Pplus{R}$ za standardne operacije $+$ in $*$
+    \item \pojem{max-plus algebra}~$(\R\cup\{-\infty\}, max, +)$ in \pojem{min-plus algebra}~$(\R\cup\{\infty\}, min, +)$
+    \item Boolove algebre
+    \item Polkolobarji (pod)množic za $\cup$ in $\cap$
+  \end{itemize}
+
+%  \fillblack{0.33}
+\end{frame}
+
+\begin{frame}{Kanonično urejeni monoidi in grupe:}
+	\begin{block}{Definicija}
+		Za komutativen monoid $(M, \ast)$ pravimo, da je kanonično urejen, če je operacija $\ast$ usklajena s kanonično delno urejenostjo $\leq$ na $M$. To pomeni: $$ a \leq \acute{a} \Rightarrow a \ast \hat{a} \leq \acute{a} \ast \hat{a} \text{~za vse~} a, \acute{a},\hat{a}\in M.$$
+	\end{block}
+\begin{block}{Izrek}
+	Komutativen monoid $M$ ne more hkrati biti kanonično urejen in grupa.
+\end{block}
+Razred monoidov torej lahko razdelimo na razred grup, razred kanonično urejenih monoidov in na razred ostalih.
+\end{frame}
+
+\begin{frame}{Polkolobarji:}
+	
+	\begin{block}{Definicija}
+	Za neprazno množico $R$, ki je opremljena z operacijama $\oplus$ in $\otimes$ pravimo, da je \pojem{polkolobar}, če zanjo velja naslednje:
+		\begin{enumerate}
+			\item $(R, \oplus)$ je komutativen monoid z nevtralnim elementom $0$,
+			\item $(R, \otimes)$ je monoid z enoto $1$,
+			\item $a\otimes(b \oplus c) = (a\otimes b) \oplus (a\otimes c)$ in $(b \oplus c)\otimes a = (b\otimes a) \oplus (c\otimes a);~\forall a, b, c\in R$,
+			\item $0 \otimes a = 0 = a\otimes 0; \forall a\in R$ - $0$ izniči operacijo $\otimes$.
+		\end{enumerate}
+	Oznaka: $(R, \oplus, \otimes)$.
+	\end{block}
+
+%  \fillblack{0.33}
+\end{frame}
+
+\begin{frame}{Dioidi:}
+	Klasifikacija monoidov $\Rightarrow$ klasifikacija polkolobarjev: kolobarji, dioidi in ostali.
+	\begin{block}{Definicija}
+		Polkolobarju $(R, \oplus, \otimes)$, na katerem je kanonična relacija šibke urejenosti $\leq$, definirana preko $\oplus$, delna urejenost, pravimo dioid.
+	\end{block}
+\begin{block}{Trditev}
+	Kanonična delna urejenost je v dioidu usklajena z obema operacijama.
+\end{block}
+Če je $(R, +)$ kanonično urejen komutativen monoid in $H = \{ \map{\varphi}{R}{R}~|~\varphi \text{~endomorfizem}\}$, je $(H, +, \circ)$ dioid.
+\end{frame}
+
+%\begin{frame}{Polkolobar nad množicami}
+%Naj bo $X$ neprazna množica in $S \subseteq P(X)$ neprazen nabor podmnožic množice $X$. Nabor $S$ je polkolobar (pod)množic za operaciji unije in preseka, če zanj velja:
+%\begin{enumerate}
+%	\item $\emptyset\in S$
+%	\item $E, F\in S \Rightarrow E\cap F \in S$
+%	\item Če sta $E, F \in S$, potem obstaja končno mnogo disjunktnih množic $C_1, C_2, \ldots, C_n \in S$, da je $E\setminus F = \bigcup_{i = 1}^{n}C_i \in S$.
+%\end{enumerate}
+%
+%Obravnavan tip polkolobarjev se uporablja v teoriji mere. Konkreten primer takega polkolobarja je nabor polzaprtih intervalov $\left[a, b\right) \subset \R$ za unijo in presek.
+%
+%%\fillblack{0.33}
+%\end{frame}
+
+\begin{frame}{Polmoduli}
+	\begin{block}{Definicija}
+			Naj bo R polkolobar. \pojem{Levi~R-polmodul} je komutativen monoid $(M, +)$ z aditivno identiteto $\theta$, na katerem imamo definirano množenje s skalarjem $\map{\cdot}{R\times M}{M}$, ki zadošča naslednjim pogojem za vsaka $\lambda,\mu\in R$ in vsaka $a, b\in M$:
+			\begin{enumerate}
+				\item $(\lambda\mu) \cdot a = \lambda \cdot (\mu \cdot a)$,
+				\item $\lambda\cdot(a + b) = \lambda\cdot a + \lambda\cdot b$~in~$(\lambda + \mu)\cdot a = \lambda\cdot a + \mu\cdot a$,
+				\item $1\cdot a = a$~in~$\lambda\cdot\theta = \theta = 0\cdot a$
+			\end{enumerate}
+			Če je $\otimes$ na $R$ komutativna, koncepta levega in desnega $R$-polmodula sovpadata.
+			
+			Če je $R$ dioid in $(M, +)$ kanonično urejen, pravimo, da je $M$ (levi) moduloid.
+	\end{block}
+%\fillblack{0.33}
+\end{frame}
+
+\begin{frame}{Linearne preslikave in matrike nad polkolobarji}
+	Tudi na polmodulih lahko definiramo linearne preslikave: Zahtevamo aditivnost in homogenost.
+	
+	Nad polkolobarjem $(R, +, \cdot)$ lahko definiramo $mxn$ matrike, za poljubna $m,n\in\N$. Pri tem seštevanje definiramo enako kot za matrike nad obsegi (po komponentah), množenje pa na sledeč način za $A\in M_{m\times n}(R), B\in M_{n\times l}(R)$:
+	
+	$$ 
+	A\times B = C \in M_{m\times l}(R);~ c_{ij} = \sum_{k = 1}^{n}(a_{ik}b_{kj}) \forall i \in \underline{m}~\&~\forall j \in \underline{l}
+	$$
+	
+%	\fillblack{0.33}
+\end{frame}
+
+\begin{frame}{Baze Polmodulov}
+	\begin{block}{Definicija}
+		Družina $X=(x_i)_{i\in I}$ elementov levega $R$-polmodula $M$ je linearno neodvisna natanko tedaj, ko: $$\forall I_1, I_2 \subset I; I_1\cap I_2 =\emptyset: \Gen{X_{I_1}}\cap\Gen{X_{I_2}} = \{\theta\}$$
+		Če $X$ ni linearno neodvisna, pravimo, da je linearno odvisna.
+	\end{block}	
+\begin{block}{Definicija}
+			Pravimo, da je $X$ baza levega $R$-polmodula $M$, če je linearno neodvisna in generira $M$. Baza $X$ za $M$ je prosta, če lahko vsak element iz $M$ enolično zapišemo kot linearno kombinacijo elementov iz $X$.
+\end{block}
+
+\end{frame}
+
+\begin{frame}{Kardinalnost Baz}
+	\begin{block}{Izrek}
+		Če levi $R$-polmodul premore kako neskončno bazo, so vse njegove baze neskončne. 
+	\end{block}
+	\begin{block}{Definicija}
+		Naj bo $(M, +,\cdot)$ levi polmodul nad polkolobarjem $(R, \oplus, \otimes)$ in denimo, da imamo dano neko množico vektorjev $V = (V_k)_{k\in K} \subset M$. Vektor $x$ je \pojem{razcepen} nad \Gen{V} natanko tedaj, ko obstajata taka vektorja $y, z\in \Gen{V}$, ki sta oba različna od $x$, da velja $x = y + z$. V primeru ko $x$ ni razcepen, pravimo da je \pojem{nerazcepen}.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Trditev 1}
+	\begin{block}{Trditev}
+		Naj no $(R, \oplus, \otimes)$ dioid in označimo z $0$ nevtralni element za $\oplus$ ter z $1$ nevtralni element za $\otimes$. Denimo dodatno, da velja: $r\oplus p = 1 \Rightarrow r = 1 \text{~ali~} p=1$. 
+		Naj bo $(M, +, \cdot)$ $R$-moduloid, ki je kanonično urejen glede na $+$. Z $\varpropto$ označimo kanonično delno urejenost na $M$. Dodatno predpostavimo, da za $x, y\in M$, ki zadoščata pogojem $x \neq y ~\&~ y\neq\theta$ in $\lambda\in R$ velja: $$y = \lambda\cdot y + x \Rightarrow \lambda = 1$$
+		
+		Trdimo, da če veljajo omenjene predpostavke, za linearno neodvisno družino \newline $X = (x_i)_{i\in I}$ elementov iz $M$ (kjer velja $x_i \neq \theta \forall i\in I$) velja, da je za vsak indeks $j\in I$ element $x_j$ nerazcepen nad \Gen{X}.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Trditev 2}
+	\begin{block}{Trditev}
+		Denimo, da veljajo vse predpostavke trditve $1$ in naj poleg tega velja še $r, p\in R: r\otimes p = 1\Rightarrow r = 1$ in $p = 1$. Potem, če ima $(M, +, \otimes)$ bazo, je enolično določena.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Dokaz Trditve 2}
+	\begin{itemize}
+		\item Denimo, da imamo dve bazi $X = (x_i)_{i\in I}$ in $Y = (y_j)_{j\in J}$.
+		\item Ker sta $X$ in $Y$ linearno neodvisni, so po trditvi $1$ vsi $x_i$ in vsi $y_j$ nerazcepni nad $\Gen{X} = M = \Gen{Y}$
+		\item Izberemo poljuben $x_i\in X$ in zapišemo $x_i = \sum_{j\in J}\mu_j^i\cdot y_j$.
+		\item $\exists j\in J: x_i = \mu_j^i\cdot y_j$ za nek $\mu_j^i\in R$ in $y_j\in Y$.
+		\item Enako $\exists k\in I: y_j = \nu_k^j\cdot x_k$ za nek $\nu_k^j\in R$ in $x_k\in X$.
+		\item sledi $x_i = (\mu_j^i\otimes \nu_k^j)\cdot x_k \Rightarrow k = i$
+		\item Sledi $(\mu_j^i\otimes \nu_k^j) = 1$ 
+		\item Sledi $\mu_j^i = 1$ in  $\nu_k^j = 1$, posledično $x_i = y_j$
+		\item Za vsak $x_i\in X$ smo našli $y_j\in Y$, da je $x_i = y_j$
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Končne baze:}
+	Med dvema končnima bazama lahko definiramo prehodno matriko.
+	\begin{block}{Trditev}
+		Naj ima levi $R$-polmodul $M$ prosto bazo in naj bo $r(M) = r$ kardinalnost najmanjše množice, ki generira $M$. Naj bo $T$ prosta baza za $M$. Potem so za bazo $S$ za $M$ naslednje trditve ekvivalentne:
+		\begin{enumerate}
+			\item $S$ je prosta baza za $M$
+			\item $\abs{S} = r$
+			\item Prehodna matrika med bazama $T$ in $S$ je enolično določena in obrnljiva.
+		\end{enumerate}
+	\end{block}
+\end{frame}
+\begin{frame}{Končne baze:}
+\begin{block}{Posledica}
+	V končno generiranem $R$-polmodulu $M$ sta naslednji trditvi ekvivalentni: \begin{enumerate}
+		\item Vse baze za $M$ imajo enako kardinalnost
+		\item Vse baze za $M$ so proste baze.
+	\end{enumerate}
+\end{block}
+
+\begin{block}{Trditev}
+	Za vsak komutativen polkolobar $R$ je kardinalnost vsake baze $R^n$ enaka $n$ natanko tedaj, ko je $\max\{t\in \N~|~R\text{-polmodul~} R ~\text{ima bazo s}~ t ~\text{elementi}\} = 1$
+\end{block}
+\end{frame}
+
+\begin{frame}{Bideterminanta kvadratne matrike}
+	\begin{block}{Definicija}
+		Naj bo $\sigma\in S_n$ permutacija. Količino $w(\sigma) = \prod_{i = 1}^{n} a_{i, \sigma(i)}$ imenujemo utež permutacije $\sigma$.
+	\end{block}
+	\begin{block}{Definicija:}
+			Naj bo $A$ neka $n\times n$ matrika nad komutativnim polkolobarjem $R$. \pojem{Bideterminanta matrike $A$} je urejeni par $\Delta(A) =(det^{+}(A), det^{-}(A))$, kjer sta vrednosti $det^{+}(A)$ in $det^{-}(A)$ definirani na naslednji način:
+			\begin{align*}
+				det^{+}(A) = \sum_{\sigma\in Per^{+}(n)} w(\sigma) \\
+				det^{-}(A) = \sum_{\sigma\in Per^{-}(n)} w(\sigma)
+			\end{align*}
+	\end{block}
+
+Velja: $\Delta(A) = \Delta(A^\top)$.
+%	\fillblack{0.3}
+\end{frame}
+
+\begin{frame}{Nekatere lastnosti bideterminante}
+	\begin{itemize}
+		\item Če kak stolpec/vrstica v $A$ vsebuje samo aditivno enoto $0$, je $\det^{+}(A) = \det^{-}(A) = 0$
+		\item Če ima matrika $A$ dva identična stolpca oz. vrstici, je $\det^{+}(A) = \det^{-}(A)$
+		\item Naj v polkolobarju $(R, \oplus, \otimes)$ velja, da so vsi elementi $R$ okrajšljivi glede na $\oplus$ in vsi elementi $R\setminus\{0\}$ okrajšljivi za $\otimes$. Če so stolpci v $A\in M_n(R)$ linearno odvisni, velja $\det^{+}(A) = \det^{-}(A)$.
+		\item Še več zanimivih latnosti na določenih tipih dioidov.
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Bideterminanta produkta matrik}
+	\begin{block}{Izrek}
+		Naj bosta $A$ in $B$ $n\times n$ kvadratni matriki nad komutativnim polkolobarjem $(R, \oplus, \otimes)$. Potem velja: \begin{align*}
+			det^{+}(A\times B) = det^{+}(A) \otimes det^{+}(B) \oplus det^{-}(A) \otimes det^{-}(B) \oplus \gamma \\
+			det^{-}(A\times B) = det^{+}(A) \otimes det^{-}(B) \oplus det^{-}(A) \otimes det^{+}(B) \oplus \gamma
+		\end{align*}
+		kjer je $$\gamma = \sum_{f \in \acute{F}(n)} \sum_{\sigma \in Per^{+}(n)} \bigg(\prod_{i=1}^{n} a_{i, f(i)} \otimes b_{f(i), \sigma(i)}\bigg)$$
+		in $\acute{F}$ množica preslikav $\map{f}{\{1, 2, \ldots, n\}}{\{1, 2, \ldots, n\}}$, ki niso permutacije.
+	\end{block}
+\end{frame}
+
+\begin{frame}{Permanenta kvadratne matrike}
+	\begin{block}{Definicija}
+		Naj bo $\Delta(A)$ bideterminanta matrike $A\in M_n(R)$ nad polkolobarjem $R$. Permanenta matrike $A$ je definirana kot: $$\text{Perm}(A) = det^{+}(A) \oplus det^{-}(A) = \sum_{\sigma\in Per(n)}^{\oplus} w(\sigma)$$		
+	\end{block}
+Opazimo, da če v matriki $A$ pomnožimo kak stolpec ali vrstico z neničelnim skalarjem $\lambda_i$, se potem tudi permanenta pomnoži z $\lambda_i$.
+\end{frame}
+
+\begin{frame}{$\varepsilon$-determinanta kvadratne matrike}
+	Poleg bideterminante lahko kvadratni matriki priredimo še t. i. $\varepsilon$-determinanto, ki nam tudi zna povedati kar veliko o dani matriki.
+	\begin{block}{Definicija}
+			Naj bo $R$ polkolobar. Bijekcija $\varepsilon$ na $R$ se imenuje \pojem{$\varepsilon$-funkcija}, če velja: \begin{itemize}
+					\item $\varepsilon$ je idempotentna,
+					\item $\varepsilon$ je aditivna,
+					\item $\varepsilon(a\otimes b) = a\otimes \varepsilon(b) = \varepsilon(a)\otimes b$ za vse $a, b\in R$
+					\item $\varepsilon(a) = -a$ za aditivno obrnljive $a\in R$.
+				\end{itemize}
+		\end{block}
+\end{frame}
+\begin{frame}{$\varepsilon$-determinanta kvadratne matrike}
+\begin{block}{Defincija}
+	Naj bo $R$ komutativen polkolobar z $\varepsilon$ funkcijo in $A\in M_n(R)$ $\varepsilon$-determinanto matrike $A$, označimo z det$_\varepsilon(A)$ in definiramo s predpisom: $$\text{det}_\varepsilon(A) = \sum_{\sigma\in S_n}^{\oplus} \varepsilon^{t(\sigma)}\otimes (a_{1\sigma(1)}\otimes a_{2\sigma(2)}\otimes\ldots\otimes a_{n\sigma(n)})$$
+	Kjer je $t(\sigma)$ enako številu transpozicij permutacije $\sigma$ in $\varepsilon^{(k)}(a) = \varepsilon^{(k - 1)}(\varepsilon(a)); \varepsilon^{(0)}(a) = a$.
+\end{block}
+
+Več o tem v nalogi.
+
+\end{frame}
+
+\begin{frame}{Karakteristični bipolinom}
+	\begin{block}{Definicija:}
+		Naj bo $A$ neka $n\times n$ matrika nad komutativnim polkolobarjem $R$. \pojem{Karakteristični bipolinom matrike $A$} je dvojica $(P^{+}_A(\lambda), P^{-}_A(\lambda))$, kjer sta $P^{+}_A(\lambda)$ in $P^{-}_A(\lambda)$ polinoma stopnje $n$ v spremenljivki $\lambda$, definirana na naslednji način:
+		\begin{align*}
+			P^{+}_A(\lambda) = \sum_{q = 1}^{n}\bigg(\bigg( \sum_{\substack{\sigma\in Part^{+}(n) \\ \abs{dom(\sigma)} = q}} \bigg(\prod_{i\in dom(\sigma)} (a_{i, \sigma(i)})\bigg)\bigg) \otimes \lambda^{n-q}\bigg) \oplus \lambda^n \\
+			P^{-}_A(\lambda) = \sum_{q = 1}^{n}\bigg(\bigg( \sum_{\substack{\sigma\in Part^{-}(n) \\ \abs{dom(\sigma)} = q}} \bigg(\prod_{i\in dom(\sigma)}^{n} (a_{i, \sigma(i)})\bigg)\bigg) \otimes \lambda^{n-q}\bigg)
+		\end{align*}
+	\end{block}
+%	\fillblack{0.25}
+\end{frame}
+
+\begin{frame}{Karakteristični bipolinom}
+	V posebnem primeru, ko v bipolinom vstavimo aditivno enoto $0$, dobimo naslednje: \begin{itemize}
+		\item $P^{+}_A(0) = \sum_{\substack{\sigma\in Part^{+}(n)\\ \abs{dom(\sigma)} = n}} \big( \prod_{i=1}^{n}a_{i, \sigma(i)}\big)$
+		\item $P^{-}_A(0) = \sum_{\substack{\sigma\in Part^{-}(n)\\\abs{dom(\sigma)} = n}}\big( \prod_{i=1}^{n}a_{i, \sigma(i)}\big)$
+	\end{itemize}
+Ker je za $\abs{dom(\sigma)} = n$ karakteristika $char(\sigma) = (-1)^n \otimes sign(\sigma)$, je za sode $n$ $Part^{+}(n) = Per^{+}(n)$, za lihe $n$ je pa $Part^{+}(n) = Per^{-}(n)$. \newline V prvem primeru je torej $P^{+}_A(0) = \det^{+}(A)$ in $P^{-}_A(0) = \det^{-}(A)$, v drugem pa $P^{+}_A(0) = \det^{-}(A)$ in $P^{-}_A(0) = \det^{+}(A)$.
+\end{frame}
+
+\begin{frame}{Cayley-Hamiltonov izrek nad polkolobarji}
+	\begin{block}{Izrek:}
+		Naj bo $A$ neka $n\times n$ matrika nad komutativnim polkolobarjem z nevtralnim elementom $0$ in enoto $1$ in naj bo $(P^{+}_A(\lambda), P^{-}_A(\lambda))$ bipolinom, ki pripada matriki $A$. Tedaj velja: \begin{align}
+			P^{+}_A(A) = P^{-}_A(A)
+		\end{align}
+		kjer sta $P^{+}_A(A)$ in $P^{-}_A(A)$ matriki, ki ju dobimo, če v $P^{+}_A(\lambda)$ in $P^{-}_A(\lambda)$ $\lambda^{n-q}$ zamenjamo z $A^{n-q}$. Pri tem razumemo $A^0$ kot multiplikativno identiteto v polkolobarju $M_n(R)$.
+	\end{block}
+%	\fillblack{0.33}
+\end{frame}
+
+\begin{frame}{Literatura:}
+	\begin{itemize}
+		\item Yi-Jia Tan {\em Invertible matrices over semirings}, \url{https://www.tandfonline.com/doi/abs/10.1080/03081087.2012.703191}
+
+		\item Yi-Jia Tan {\em Bases in semimodules over commutative semirings,},	\url{https://www.sciencedirect.com/science/article/pii/S0024379513007234}
+		
+		\item Yi-Jia Tan {\em Determinants of matrices over semirings}, \url{https://www.tandfonline.com/doi/abs/10.1080/03081087.2013.784285}
+		
+		\item Michel Gondran, Michel Minoux {\em Combinatorial Properties of (Pre)-Semirings}, \url{https://www.researchgate.net/publication/319772435_Combinatorial_Properties_of_Pre-Semirings}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Litaratura:}
+	\begin{itemize}
+		\item Jonathan S. Golan {\em Semirings and their applications},
+		\item {\em Semiring}, \url{https://en.wikipedia.org/wiki/Semiring}
+	\end{itemize}
+
+\end{frame}
+
+\end{document}

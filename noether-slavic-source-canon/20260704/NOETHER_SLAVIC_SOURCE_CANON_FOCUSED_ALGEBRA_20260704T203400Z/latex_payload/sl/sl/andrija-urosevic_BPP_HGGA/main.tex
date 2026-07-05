@@ -1,0 +1,343 @@
+\documentclass[a4paper,12pt,twocolumn]{article}
+\usepackage[serbian]{babel}
+\usepackage[T2A]{fontenc} 
+\usepackage[utf8]{inputenc} 
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol} 
+\usepackage{csquotes}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage[nottoc]{tocbibind}
+\usepackage[backend=biber]{biblatex}
+\usepackage{authblk}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{ifthen,array,booktabs}
+\usepackage{csvsimple-l3}
+
+
+
+\makeatletter
+\renewcommand*{\ALG@name}{Algoritam}
+\makeatother
+
+\addbibresource{main.bib}
+
+\title{Hibridni genetskom algoritam grupa u rešavanju jednodimenzionog problema minimalnog pakovanja}
+\author{Andrija Urošević\\\textit{Univerzitet u Beogradu, Matematicki fakultet}\\\texttt{andrija.urosevic@protonmail.com}}
+\date{Septembar 2022.}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+    Genetski algoritmi imaju široku primenu u oblasti optimizacije. Specijalno
+    koriste se za probleme rapsoređivanja i planiranja. Problem minimalnog 
+    pakovanje je jedan takav problem koji je NP-težak. Ovaj rad istražuje 
+    moguće implementacije genetskog algoritma, i potencijalne probleme koji 
+    nastaju pri implementaciji. Tačnije, kako najbolje predstaviti jedinke
+    i kako definisati operatore ukrštanja i mutacije, zajedno sa odgovarajućom
+    funkcijom prilagođenosti. Operatori ukrštanja i mutacije sadrže dodatne
+    heuristike pa se zbog toga genetski algoritam nazivamo hibridnim. Takođe,
+    postavlja se pitanje kako definisati jedinke, te se uvodi koncept grupa.
+    Zbog toga ovaj algoritam ima naziv hibridni genetski algoritam grupa.
+\end{abstract}
+
+\section{Uvod}
+
+\emph{Problem minimalnog pakovanja u prostoru} 
+(engl.\ Minimal Bin Packing Problem) podrazumeva pokovanje objekata 
+različitih zapremina u konačno mnogo kontejnera sa ciljem da se minimizuje
+broj potrebnih kontejnera za skladištenje datih objekata. Formalno, neka je
+dat konačan skup elemenata $I$, neka svaki element $i \in I$ ima veličinu 
+$s(i) \in \mathbb{Z}^{+^n}$, i neka je dat kapacitet kontejnera $B$. Treba naći
+particiju $\{I_1, I_2, \ldots, I_k\}$ skupa elemenata $I$, tako da je 
+$\sum_{i \in I_k} s(i) \leq B$ i broj kontejnera $k$ najmanji moguć. 
+Ovaj problem je $NP$-težak\cite{gj80}. Njegova varijanta problema odlučivanja:
+Da li za broj kontejnera $k$ postoji particija $\{I_1, I_2, \ldots, I_k\}$
+skupa elemenata $I$, tako da $\sum_{i \in I_k} s(i) \leq B$? 
+
+\emph{Jednodimenzioni problem minimalnog pakovanje} je problem minimalnog 
+pakovanja u prostoru gde su veličine elemenata $s(i) \in \mathbb{Z}^{+}$ i 
+gde je kapacitet kontejnera $B \in \mathbb{Z}^{+}$. Optimalan vrednost broj 
+kontejnera $k$ za dati skup elemenata $I$, obeležavamo i sa $OPT(I)$.
+U literaturi se koristi i normalizovani oblik problema. Naime, $B = 1$ i
+$s(i) \in [0, 1]$ za svaki element $i \in I$ (normalizujemo instance tako što
+podelimo veličinu $s(i)$ sa $B$, a $B$ postavimo na $1$). 
+
+Problem jednodimenzionog minimalnog pakovanja napadamo
+koristeći genetski algoritam sa specijalizovanom reprezentacijom i 
+specijalizovanim operatorima genetskog algoritma. Trenutno najbolja 
+polinomijalna aproksimativna rešenja upadaju u $\frac{3}{2} OPT(I)$\cite{sl94} 
+i $\frac{71}{60} OPT(I)$\cite{jg85, yz95}. Ovaj rad, eksperimentalno, pokušava 
+da upadne u ove granice. Postoje i bolje, kompleksnije polinomijalne 
+aproksimacije čije rešenje nije veće od 
+$OPT(I) + O(\log^2 (OPT(I)))$\cite{kk82}. Dalje imamo poboljšanja ove ideje
+gde rešenje nije veće od
+$OPT(I) + O(\log(OPT(I))\log\log(OPT(I)))$\cite{r13} i na kraju
+$OPT(I) + O(\log(OPT(I)))$\cite{hr17}.
+
+
+\section{Genetski algoritam za minimalno pokovanje}
+
+Problem jednodimenzionog minimalnog pakovanja pokušavamo da rešimo genetskim
+algoritmom. Postoje mnoga pitanja i problemi koji nastaju pri implementiranju 
+genetskog algoritma za ovaj problem. Glavni problemi koji nastaju je genetski
+algoritam koji se ponaša kao nasumična pretraga\cite{f96}. Naime, izbor 
+reprezentacija jedinki, a kasnije i odgovarajućih specijalizovanih operatora
+ukrštanja i mutacije je od ključnog značaja za rešavanje ovog problema. 
+U daljem tekstu su opisani načini na koje treba implementirati genetski 
+algoritam za efikasno rešavanja problema jednodimenzionog pakovanja.
+
+\subsection{Reprezentacija jedinki}
+
+Razmatramo tri načina za predstavljanje hromozoma: Naivni pristup, 
+permutacije i grupe. Svaki sledeći, respektivno, smanjuje nivo redudandnosti
+koja se javljaju u reprezentaciji hromozoma.
+
+\subsubsection{Naivni pristup}
+
+Hromozom kod naivnog pristupa podrazumeva listu dužine $\|I\|$, gde je $i$-ti
+element u listi kontejner u koji pakujemo element $i \in I$. Na primer, 
+hromozom
+\[ABCCAC\]
+predstavlja pakovanje gde se prvi element pakuje u kontejner $A$, drugi 
+element se pakuje u kontejner $B$, dok se treći i četvrti element pakuju u 
+kontejner $C$.
+
+Ovaj pristup sa sobom nosi puno redudandnosti. Naime, sledeća dva hromozoma
+enkodiraju istu informaciju:
+\[
+    \begin{aligned}
+        ABCCAC; \\
+        CBAACA.
+    \end{aligned}
+\]
+
+\subsubsection{Permutacije}
+
+Radi smanjenja redudandnosti veoma često se koriste permutacije. Neka
+su elementi $I$ obeleženi rednim brojevima. Hromozom predstavlja permutaciju
+elemenata tako da se pakovenje dobija dekodiranjem te permutacije. 
+Mehanizam dekodiranja za problem minimalnog pakovanje predstavlja dodavanje
+elemenata u kontejner sve dok je to moguće, ukoliko nije otvara se novi 
+kontejner.
+
+Na primer, neka je data permutacije $0123456789$. Neka je tada jedno 
+validno pakovanje 
+\[0123|45678|9.\]
+
+Jasno je da je i permutacija $3210456789$ enkodira isto pakovanje, tj.\ 
+odgovarajuće pakovanje je oblika
+\[3210|45678|9.\]
+
+\subsubsection{Grupe}
+
+Reprezentacija hromozoma predstavlja listu grupa elemenata, tj.\ listu
+kontejnera nekog dopustivog pakovanja. Na primer, razmotrimo primer pakovanja
+kod naivnog pristupa $ABCCAC$. Njegovo ekvivalentno pakovanje predstavljeno
+hromozomom grupa se enkodira kao:
+\[
+    A=\{0, 4\},\ B=\{1\},\ C=\{2, 3, 5\}.
+\]
+Ovo možemo zapisati i kao:
+\[
+    \{0, 4\},\ \{1\},\ \{2, 3, 5\}.
+\]
+
+Ovim pristupom smanjujemo stepen redudandnosti koji nastaje i kod naivnog 
+pristupa i kod permutacija. Te će genetski algoritam implementirati grupe
+kao jedinke.
+
+\subsection{Operator ukrštanja}
+
+Operator ukrštanja PMX za hromozome predstavljenje pomoću permutacije ne
+daje smislene naslednike\cite{f96}. Zbog toga je najbolje predstaviti 
+hrozomozome preko grupa. Uobičajeni operatori ukrštanja nije moguće primeniti
+na grupe, kako pri razmenjivanju grupa dobijamo nedopustivo rešenje. 
+Zbog toga treba osmisliti specijalizovani operator ukrštanja.
+
+\begin{algorithm}
+    \caption{Operator ukrštanja}\label{alg:cross}
+    \begin{algorithmic}[1]
+        \Require\ $X, Y$ \Comment{Hromozomi roditelja}
+        \State\ $(Start_X, End_X) \gets \mathcal{U}^2(0, \|X\|)$
+        \State\ $(Start_Y, End_Y) \gets \mathcal{U}^2(0, \|Y\|)$
+        \State\ $X \gets \Call{insert}{X, Y[Start_Y, End_Y]}$
+        \State\ $Y \gets \Call{insert}{Y, X[Start_X, End_X]}$
+        \State\ $X, B_X \gets \Call{remove duplcates}{X}$
+        \State\ $Y, B_Y \gets \Call{remove duplcates}{Y}$
+        \State\ $X \gets \Call{pack}{X, B_X}$
+        \State\ $Y \gets \Call{pack}{Y, B_Y}$
+    \end{algorithmic}
+\end{algorithm}
+
+Operaciju ukrštanja izvodimo po algoritmu~\ref{alg:cross}. Algoritam 
+započinje tako što bira granice segmenata koji će se ukrštati 
+$(Start_X, End_X)$ i $(Start_Y, End_Y)$ za hromozom $X$ i $Y$, respektivno. 
+Nakon toga, vrši se umetanje segmetna $Y[Start_Y, End_Y]$ u $X$, nakon 
+pozicije $End_X$, dok segment $X[Start_X, End_X]$ umetamo u $Y$ ispred 
+poziciji $Start_Y$. Sada hromozomi u sebi sadrže duplikate, tj. elemente
+koji se nalaze u umetnutim segmentima zajedno sa elementima drugih kontejnera.
+Sledeći korak podrazumeva uklanjanje svih kontejnera koji u sebi sadrže
+elemente iz umetnutog segmenta. Pri uklanjanju ovih kontejnera potencijalno
+smo izbacili i one koji nisu bili duplikati. Njih smeštamo u skup $B_X$ i 
+$B_Y$, respektivno u odnosu na hromozome $X$ i $Y$. Sada je potrebno odrediti 
+novo pakovanje dodavanjem izbačenih elemenata u grupe iz hromozoma. Ako
+dodavanje nije moguće ni za jednu grupu otvaramo novu grupu i dodajemo je u
+hromozom. 
+
+Ovim postupkom smo opisali opšti oblik specijalizovanog operatora ukrštanja
+za hromozome koji su predstavljeni listom grupa. Treba još definisati na koji
+način vršimo ubacivanje izbačenih elemenata i tako dobijamo novo pakovanje,
+tj.\ dopustivo rešenje. Postoje mnoge efikasne heuristike koje to rade
+u vremenskom ograničenju $O(n \log n)$. Na primer, FFD (engl.\ First-Fit 
+Descending), NFD (engl.\ Next-Fit Descending), MFFD (engl.\ Modified First-Fit
+Descending)\cite{cgj96}. Ovaj radi koristi FFD, koji sortira izbačene elemente po
+opadajućoj veličini i tako sortirane ubacije jedan po jedan u prvu 
+odgovarajuću grupu u koju može da se upakuje. Ako ne može da se upakuje ni u
+jednu grupu, otvara se nova grupa u koju se ubacuje.
+
+\subsection{Operator mutacija}
+
+Slično, kao i kod operatora ukrštanja, treba odrediti specijalizovani operator
+mutacije. Jedan način definisanja operatora mutacije se sastoji u tome da
+iz hromozoma sa nekom verovatnoćom izbacujemo grupe. Izbačene elemente onda 
+pakujemo nazad nekom heuristikom isto kao i kod operatora ukrštanja.
+
+\subsection{Računanje prilagodjenosti}
+
+Kako problem predstavlja minimizaciju broja potrebnih kontejnera za pakovanje,
+prirodno je za ocenu prilagodjenosti izabrati broj grupa u hromozomu.
+Problem nastaje kada dve jedinke imaju istu ocenu prilagodjenosti, tj.\ 
+broj kontejnera je isti za oba pakovanja. Kako odrediti koje pakovanje je
+bolje od ta dva? Ovo prevazilazimo tako što merimo koliko je svaki od 
+kontejnera dobro upakovan. Naime, dobro upakovan kontejner je onaj koji
+ima malo neiskorišćenog kapaciteta.
+
+Formalno, prilagodjenost računamo kao
+\begin{equation}
+    \text{fitness} = \frac{\sum_{j = 1}^N {(F_j/B)}^k}{N},
+\end{equation}
+gde je $N$ broj grupa u hromozomu, $B$ je kapacitet kontejnera, $F_j$
+je napunjenost kontejnera $j$, i $k > 1$ je predefinisani koeficijent koji
+pojačava odnose dobre upakovanosti. Eksperimentalo $k=2$ daje dobre 
+rezultate\cite{f96}. 
+
+Napunjenost kontejnera $j$ računamo kao 
+\begin{equation}
+    F_j = \sum_{i \in I_j} s(i),
+\end{equation}
+gde je je $I_j$ skup elemenata iz grupe $j$, a $s(i)$ veličina elementa $i$.
+
+Kako ovako definisana funkcija prilagođenosti predstavlja meru dobre
+upakovanosti, i kako se problem svodi na određivanje minimalnog broja potrebnih 
+kutija, onda će genetski algoritam vršiti maksimizaciju funkcije 
+prilagođenosti.
+
+\subsection{Ostali parametri genetskog algoritma}
+
+\begin{itemize}
+    \item verovatnoća mutacije: 0.66
+    \item verovatnoča ukrštanja: 1.00
+    \item broj jedinki ukrštanja: 2
+    \item broj naslednika: 2
+    \item tip zamene: roditelje menjaju naslednici
+    \item veličina populacije: 100
+    \item sortirana populacija: da
+    \item kriterijum sortiranja: maksimizacija funkcije prilagođenosti
+    \item broj selekcija: $2 \times 50$
+    \item tip selekcije: turnirksa
+    \item broj turnira: 5
+    \item broj iteracija: 50
+    \item kriterijum zaustavljanja: broj iteracija
+\end{itemize}
+
+\section{Rezultati}
+
+Algoritam je pokrenut na računaru sa sledećim specifikacijama: 
+CPU --- Intel Core i5--2520M @ $4 \times 3.2GHz$,
+RAM --- 7836MiB,
+Kernel --- x86\_64 Linux 5.16.15-arch1--1,
+g++ --- (GCC) 11.2.0.
+
+Za ekspreimentalno testiranje koristimo ručno napravljene lake
+instance iz grupe EZ.\ Za dalje testiranje koristmo N1, N2 i 
+H instance i njihove optimalne vrednosti koje su dobijene pomoću 
+tačnog algoritma BISON\cite{skj97}.
+
+\subsection{$EZ$ instance}
+
+\csvnames{ez instances}{name=\instance,alg=\alg,sol=\sol,time=\time}
+
+\csvstyle{ez table}{ez instances,
+  centered tabular=crr,
+  table head=\multicolumn{3}{c}{\bfseries #1}\\\toprule
+    Instanca & Rezultat & Vreme($ms$) \\\midrule,
+  late after line=\\, late after last line=\\\bottomrule}
+
+\csvreader[ez table=Hibridni genetski algoritam grupa]{res/resEZ_GA.csv}{}{%
+    \instance & \sol & \time 
+}
+
+\csvreader[ez table=Algoritam grube sile]{res/resEZ_BF.csv}{}{%
+    \instance & \sol & \time 
+}
+
+Primećujemo da hibridni genetski algoritam grupa daje ista rešenja
+kao i algoritam grube sile. Takođe vidimo da sa malim povećanjem
+broja elemenata u instanci EZ9 vreme izvršavanja algoritma grube 
+sile drastično povećava u odnosu na hibridni genetski algoritma 
+grupa koji ima slično vreme izvršavanja. U ostalim instancama, 
+zbog toga, ne pokrećemo algoritam grube sile, kako se neće 
+završiti u realnom vremenu.
+
+\subsection{N1 instance}
+
+\csvnames{my names}{name=\instance,sol=\sol,opt=\opt,time=\time,diff=\diff,oopt=\oopt,odiff=\odiff}
+
+\csvstyle{my table}{my names,
+  centered tabular=crrr,
+  table head=\multicolumn{4}{c}{\bfseries #1}\\\toprule
+    Instanca & Rez. & Opt. & $t(ms)$ \\\midrule,
+  late after line=\\, late after last line=\\\bottomrule}
+
+
+\csvreader[my table=Neke N1 instanci]{res/resN1_part.csv}{}{%
+    \instance & \sol & \opt & \time
+}
+
+\subsection{N2 instance}
+
+\csvreader[my table=Neke N2 instanci]{res/resN2_part.csv}{}{%
+    \instance & \sol & \opt & \time
+}
+
+\subsection{H instance}
+
+\csvreader[my table=Teške instance]{res/resH_analysis.csv}{}{%
+    \instance & \sol & \opt & \time
+}
+
+
+\section{Zaključak}
+
+Hibridni genetski algoritam grupa primenjen na jednodimenzioni problem
+minimalnog pakovanja daje zadovoljavajuće dobra rešenja u kratkom vremenskom
+periodu, gde broj elemenata nije od ključanog faktor za vremensku efikasnost.
+Zbog toga se može koristiti kao gornja granica za heuristike koje rešavaju
+problem minimalnog pakovanja ili neki njegov dualni problem.
+
+Dalji rad podrazumeva eksperimentalno testiranje drugih heuristika pri
+ubacivanju izbačenih elemenata u grupe kod operatora ukrštanja i operatora
+mutacije. Takođe, dalji rad može da uključi i podešavanje parametra genetskog 
+algoritma.
+
+\nocite{*}
+
+\printbibliography[title={Literatura}]
+
+\end{document}

@@ -1,0 +1,105 @@
+\documentclass[final]{beamer} % beamer 3.10: do NOT use option hyperref={pdfpagelabels=false} !
+\mode<presentation>{\usetheme{Berlin}}
+\beamertemplatenavigationsymbolsempty
+%
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amsthm,amssymb,latexsym}
+\usefonttheme[onlymath]{serif}
+\boldmath
+\usepackage[orientation=portrait,size=custom,width=70.7,height=100.0,scale=1.45]
+{beamerposter}%custom=b1%,grid,debug
+\setbeamersize{text margin left=1.5cm,text margin right=1.5cm}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[super]{nth}
+\setbeamertemplate{headline}{%
+        \vspace{1.5cm}%
+        \hspace{1.5cm}%
+        \includegraphics[height=6.1cm]{figures/logo-pl-institute.png}\hfill%
+        \includegraphics[height=4.7cm]{figures/logo-ftims.png}\hfill%
+        \includegraphics[height=5.3cm]{figures/logo-ibd.png}\hfill%
+        \includegraphics[height=4.2cm]{figures/HRK logo.png}%
+        \hspace{1.5cm}
+ }
+\addtobeamertemplate{footline}{}{\vskip1.75cm}
+\definecolor{PLcolor}{rgb}{0.475, 0.102, 0.125}
+\usecolortheme[named=PLcolor]{structure}
+\title[\hspace{1cm} HRK CRM]{HRK CRM -- System Zarządzania Klientami i Umowami}
+\author[\hspace{1cm} M.~Ciołkowski, P.~Gliszczyński, M.~Jędrzejczak, K.~Kleczaj, F.~Pecyna]{%
+  Mateusz Ciołkowski \and Piotr Gliszczyński \and Mateusz Jędrzejczak \and Kacper Kleczaj \and Filip Pecyna}
+\institute[Instytut Informatyki, Politechnika Łódzka, al. Politechniki 8, 93-590 Łódź \hspace{1cm}]{Instytut Informatyki, Politechnika Łódzka}
+\date{Czerwiec 2026}
+\graphicspath{ {figures/} }
+\begin{document}
+\renewcommand{\abstractname}{Streszczenie}
+\renewcommand{\figurename}{Rysunek}
+\renewcommand{\tablename}{Tabela}
+\begin{frame}{}
+\maketitle
+\begin{abstract}
+\centering
+HRK CRM to system klasy CRM zrealizowany dla firmy HRK Payroll Consulting. Platforma automatyzuje cykl życia kontraktów, proces waloryzacji stawek oraz raportowanie wskaźników KPI. Wyróżniającym elementem jest wbudowany asystent AI oparty na polskojęzycznym modelu \textbf{Bielik}, wspierający analizę treści umów i przyspieszający pracę działu HR.
+\end{abstract}
+\begin{columns}[T]
+\begin{column}[T]{0.48\textwidth}
+\begin{block}{Wstęp}
+W obliczu rosnącej liczby kontraktów obsługiwanych przez HRK Payroll Consulting, tradycyjne arkusze kalkulacyjne oraz rozproszone dokumenty przestały wystarczać -- prowadziło to do ręcznych wyliczeń, trudności w śledzeniu terminów umów i braku jednolitego źródła informacji o klientach.
+
+Celem projektu było stworzenie systemu, który ucyfrowi cały cykl życia umów -- od rejestracji kontrahenta, przez automatyczną waloryzację stawek, po raportowanie wskaźników KPI -- i udostępni dokumentację w jednym, bezpiecznym miejscu. Wyróżniającym elementem systemu jest wbudowany asystent AI wykorzystujący architekturę RAG, oparty na polskojęzycznym modelu językowym i umożliwiający szybką analizę treści umów bez konieczności ręcznego przeszukiwania dokumentacji.
+\end{block}
+\begin{block}{Projekt aplikacji}
+Zastosowano architekturę klient-serwer opartą na bezstanowym REST API, uruchamianą w kontenerach, co ułatwia replikację środowisk i wdrożenia. Backend obejmuje między innymi: główne API, mikroserwis Active Directory do uwierzytelniania oraz Schema Manager zarządzający strukturą bazy danych. Schemat bazy ewoluuje przez migracje \textbf{Alembic}, zachowując spójność między środowiskami. Podział na izolowane serwisy zapewnia odporność na błędy i gotowość do skalowania horyzontalnego. Dostęp zapewnia mechanizm logowania jednokrotnego SSO (Active Directory), a uprawnienia konfigurowane są na poziomie klienta i umowy.
+
+Główne moduły aplikacji obejmują:
+\begin{itemize}
+    \item \textbf{Zarządzanie klientami i ich umowami:} Baza kontrahentów z historią współpracy, przypisanymi opiekunami i archiwum dokumentów.
+    \item \textbf{Proces waloryzacji:} Automatyczne wyliczanie nowych stawek na podstawie wskaźników zewnętrznych (CPI z API GUS~BDL), z lokalnym fallbackiem do bazy w przypadku niedostępności serwisu.
+    \item \textbf{Alerty i KPI:} Powiadomienia o wygasających umowach (30/60/90~dni), zaległych waloryzacjach i braku kontaktu z klientem (pow. 90~dni). Dashboard prezentuje bieżące wskaźniki rentowności portfela.
+\end{itemize}
+
+\textbf{Stos technologiczny:}
+\begin{itemize}
+\item \textbf{Frontend:} Aplikacja webowa w \textbf{React} (TypeScript) ze stylowaniem przez \textbf{Tailwind CSS} i komponentami \textbf{Radix~UI / shadcn}. Stanem serwera zarządza \textbf{TanStack Query}, a globalnym -- \textbf{Redux Toolkit}. Typy żądań i odpowiedzi generowane są automatycznie z~OpenAPI serwera.
+\item \textbf{Backend:} API w \textbf{Pythonie} z frameworkiem
+\end{itemize}
+\end{block}
+\end{column}
+\begin{column}[T]{0.48\textwidth}
+\begin{block}{Implementacja}
+Najbardziej innowacyjnym elementem systemu jest wbudowany moduł doradczy -- \textit{Advisor}. Ze względu na charakter analizowanych danych zdecydowano się na model \textbf{Bielik~4.5B~v3.0} uruchamianego lokalnie przez Ollama -- polskojęzyczny LLM zoptymalizowany pod kątem rozumienia dokumentów prawnych i kadrowych.
+System wykorzystuje architekturę \textbf{Retrieval-Augmented Generation (RAG)}:
+\begin{enumerate}
+    \item \textbf{Parsowanie:} Umowy PDF są dzielone na paragrafy (chunki ~400 tokenów) przy użyciu biblioteki \texttt{pdfplumber}, z zapisem pozycji tekstu na stronie (\texttt{bbox}).
+    \item \textbf{Składowanie wektorów:} Reprezentacje liczbowe (embeddings 768-dim, model \texttt{nomic-embed-text}) trafiają do bazy PostgreSQL (\texttt{pgvector}) z indeksem HNSW.
+    \item \textbf{Wyszukiwanie:} Zapytania doradców HR używają wyszukiwania semantycznego do wydobycia najbardziej relewantnych klauzul.
+    \item \textbf{Odpowiedź modelu:} Asystent działa w dwóch trybach: szybki retrieval (${\sim}200\,\text{ms}$, bez LLM) lub tryb AI z syntezą przez Bielik~4.5B~v3.0 (3--10\,s).
+\end{enumerate}
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{figures/ui-dashboard.png}
+    \subcaption{Dashboard KPI}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.49\textwidth}
+    \includegraphics[width=\textwidth]{figures/ui-valorization.png}
+    \subcaption{Moduł asystenta AI}
+\end{subfigure}
+\caption{Widoki interfejsu użytkownika systemu HRK CRM.}
+\label{fig:ui}
+\end{figure}
+Taka implementacja redukuje czas wielogodzinnej, ręcznej weryfikacji dokumentów do sekund.
+\end{block}
+\begin{block}{Podsumowanie}
+HRK CRM łączy wymogi bezpiecznego oprogramowania biznesowego z innowacjami sztucznej inteligencji. Platforma eliminuje monotonne procesy manualne, przyspiesza obrót dokumentami i ułatwia kontrolę nad portfelem umów, a asystent RAG skraca czas analizy kontraktów z godzin do sekund. Wykorzystanie sprawdzonych, skalowalnych technologii open-source otwiera drogę do dalszej rozbudowy systemu o dodatkowe moduły analityczne.
+\end{block}
+\begin{block}{Podziękowania}
+Serdecznie dziękujemy firmie HRK Payroll Consulting za cenną współpracę i możliwość realizacji projektu. Wyrazy wdzięczności kierujemy również do prowadzących przedmiot Moduł Sumatywny za wsparcie merytoryczne.
+\end{block}
+\end{column}
+\end{columns}
+    \vfill
+\end{frame}
+\end{document}

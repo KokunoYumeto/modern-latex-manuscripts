@@ -1,0 +1,203 @@
+# Noether CJK Draft Corpus Translation Slices: Continuation 03
+
+Generated UTC: `2026-07-04T05:41:35.264977+00:00`
+
+Status: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+Draft/non-canonical sidecar only. Not native reviewed. Not approved. Not gate-promoted.
+
+Baseline: `C:\Users\memo_\Documents\Codex\2026-06-09\could-you-look-online-for-me\work\noether-slavic-canonical\tmp\zenodo_20836874_inspect\localcodex\Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624\tex\cum_de_R124plus_localcodex_current_candidate_20260624.tex`
+
+Baseline SHA256: `C0ACCB2D4EB98F54B41BC3977DFA0CB57A349C74B7B35E06453343D15ACAB4ED`
+
+## Review Boundaries
+
+- `native_review_status`: `not_native_reviewed`
+- `canonical_approval_status`: `not_approved`
+- `gate_promotion_status`: `not_gate_promoted`
+- `reviewer_packet_population_performed`: `False`
+- `git_push_performed`: `False`
+- `korean_corpus_prose_added`: `False`
+
+## Retained Blockers
+
+- tensor product: noisy otimes/product material remains non-anchor evidence only
+- localization: no German Lokalisierung/localization corpus anchor
+- Harish-Chandra: no German corpus anchor
+- abstract algebra: source-shelf/course-register evidence only
+- modern algebra: Moderne Algebra remains bibliographic only
+
+## cjk-continuation-03-001-divisor-chain-primary-decomposition
+
+Anchor: German baseline lines `15089-15136`; Idealtheorie bei Voraussetzung des Teilerkettensatzes.
+
+Source summary: Under the divisor-chain theorem, every ideal is represented as a finite least common multiple of irreducible ideals; irreducible ideals are primary, yielding shortest primary-component decompositions.
+
+Japanese title: 除数鎖定理の下での準素分解
+
+除数鎖定理を仮定すると、環の各イデアルには有限個の元からなる基底を選ぶことができ、さらにイデアル全体にも整列を入れられる。この整列を用いると、任意のイデアルは、二つの真の除数の最小公倍としては分解できない既約イデアルの有限個の最小公倍として表される。
+
+次に、除数鎖定理のもとでは既約イデアルは準素イデアルであることが示される。証明は剰余類環へ移り、零イデアルの分解だけを扱えばよいという形に還元し、イデアル商の鎖が有限で止まることを使う。
+
+したがって、各イデアルは有限個の準素成分による最短表示を持つ。同じ素イデアルに属する準素イデアルをまとめることで、異なる素イデアルに対応する最大準素成分による表示が得られる。ただし、この表現の用語選択はこの lane では暫定である。
+
+Simplified Chinese title: 除子链定理下的准素分解
+
+在假定除子链定理时，环中的每个理想都可选择一个由有限多个元素组成的基；进一步，也可以给全体理想引入良序。借助这个良序，任一理想都能表示为有限多个不可约理想的最小公倍，其中不可约理想是指不能再表示为两个真除子的最小公倍的理想。
+
+随后证明，在除子链定理下，不可约理想都是准素理想。证明转到剩余类环中，把问题化为零理想的分解，并使用理想商所形成的链在有限步停止这一点。
+
+于是，每个理想都有由有限多个准素成分给出的最短表示。把属于同一素理想的准素理想合并，就得到对应于不同素理想的最大准素成分表示。不过，本 lane 中的术语取法仍是暂定的。
+
+Script/codepoint and TeX/PDF notes:
+
+- Japanese uses 除数鎖定理 and 準素イデアル; Simplified Chinese uses 除子链定理 and 准素理想, all provisional pending domain review.
+- The source's kleinster gemeinsamer Vielfacher language is rendered descriptively; do not normalize it silently to modern intersection/product notation.
+- Keep 剰余類環/剩余类环 and イデアル商/理想商 as intact CJK compounds near inline math.
+
+Unresolved flags:
+
+- least common multiple of ideals needs reviewer confirmation in both languages.
+- The passage supports primary-decomposition prose, not unanchored tensor product/localization terms.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-03-002-double-chain-unique-products
+
+Anchor: German baseline lines `15137-15187`; Idealtheorie bei Voraussetzung des Doppelkettensatzes.
+
+Source summary: Uses the double-chain theorem to prove uniqueness of primary components away from the unit ideal and, with a unit element, unique products of pairwise coprime primary ideals.
+
+Japanese title: 二重鎖定理と準素成分の一意性
+
+二重鎖定理を仮定すると、まず補題として、零因子をもたない可換環で倍数鎖定理が成り立てば、その環は体になることが示される。これから、倍数鎖定理のもとで素イデアルが単位イデアル以外の真の除数を持たない、という事実が導かれる。
+
+この補題を用いて、任意のイデアルの最短準素表示に現れる、単位イデアルに属さない準素成分は一意に定まる。対応する素イデアルどうしを比較すると、一方の表示に現れる素イデアルは他方にも現れ、準素成分も互いに同じものへ押し戻される。
+
+さらに単位元を仮定すると、各イデアルは有限個の互いに素な準素イデアルの積として一意に表される。この段階で、素であることと互いに素であることの関係も、単位イデアルを除いて明確に結びつけられる。
+
+Simplified Chinese title: 双重链定理与准素成分的唯一性
+
+在假定双重链定理时，先用一个引理说明：若无零因子的交换环满足倍数链定理，那么这个环就是域。由此推出，在倍数链定理下，素理想没有除单位理想以外的真除子。
+
+借助这个引理，任一理想的最短准素表示中，那些不属于单位理想的准素成分都是唯一确定的。比较两个表示时，一边出现的素理想必在另一边出现，而相应的准素成分也会相互整除并最终相同。
+
+若再假定存在单位元，则每个理想都能唯一地表示为有限多个两两互素的准素理想之积。在这一点上，素性和互素性之间的关系也在排除单位理想后被明确联系起来。
+
+Script/codepoint and TeX/PDF notes:
+
+- Japanese 二重鎖定理 and Simplified Chinese 双重链定理 are descriptive lane choices for Doppelkettensatz.
+- Use 単位イデアル/单位理想 for Einheitsideal; keep this separate from 単位元/单位元.
+- The product wording is source-anchored to Satz V; do not infer tensor product from Produkt in this passage.
+
+Unresolved flags:
+
+- Doppelkettensatz has no approved CJK glossary entry in this lane.
+- Product decomposition here is ideal multiplication, not tensor product.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-03-003-integral-closure-prime-powers
+
+Anchor: German baseline lines `15188-15314`; Idealtheorie bei ganzer Abgeschlossenheit im Quotientenkörper.
+
+Source summary: Adds integral closure in the quotient field to axioms I-V and proves that primary ideals are powers of their associated prime ideals, yielding unique prime-power products.
+
+Japanese title: 商体での整閉性と素イデアル冪
+
+商体の中での整閉性を最後の公理として加えると、ここまでのイデアル論は通常の形へさらに鋭くなる。零因子をもたず単位元をもつ可換環で除数鎖定理を仮定すると、非零イデアルについて等式 \(\ma=\ma\mb\) から \(\mb\) が単位イデアルであることが従う。
+
+この事実と Dedekind 型の補題を使い、各準素イデアルは、それに属する素イデアルの冪にほかならないことを示す。まず指数二の場合を扱い、次に帰納法で任意の指数へ進む。
+
+結論として、公理 I から V が成り立つ可換環では、零イデアルでも単位イデアルでもない各イデアルが、有限個の素イデアル冪の積として一意に表示される。これらの素イデアルは、単位イデアル以外の真の除数を持たない。
+
+Simplified Chinese title: 商域中的整闭性与素理想幂
+
+把在商域中的整闭性作为最后的公理加入后，前面建立的理想论进一步化为通常的尖锐形式。在无零因子且有单位元的交换环中，若假定除子链定理，则对非零理想，等式 \(\ma=\ma\mb\) 会迫使 \(\mb\) 成为单位理想。
+
+利用这一点以及 Dedekind 型引理，可以证明每个准素理想实际上就是其所属素理想的幂。证明先处理指数二的情形，再通过完全归纳推广到任意指数。
+
+因此，在满足公理 I 至 V 的交换环中，每个既非零理想也非单位理想的理想，都唯一地表示为有限多个素理想幂的乘积。这些素理想没有除单位理想以外的真除子。
+
+Script/codepoint and TeX/PDF notes:
+
+- Japanese 商体 and Simplified Chinese 商域 are used for Quotientenkörper; verify against preferred mathematical register before promotion.
+- Use 整閉性/整闭性 for ganze Abgeschlossenheit and keep it visually distinct from integral basis terminology.
+- Inline TeX macros such as \ma and \mb are preserved in prose; CJK punctuation should not be inserted inside macro names.
+
+Unresolved flags:
+
+- Term choices for quotient field and integral closure are draft-only.
+- The Dedekind reference is source-evidence context, not a new glossary approval.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-03-004-decomposition-axioms-fractional-ideals
+
+Anchor: German baseline lines `15315-15451`; Die Axiome als Folge der vorausgesetzten Zerlegung.
+
+Source summary: Shows conversely that a unique prime-power decomposition implies the axioms, that residue-class rings by nonzero ideals are principal ideal rings, and that nonzero finite modules in the quotient field form an abelian group of fractional ideals.
+
+Japanese title: 分解から公理へ、そして分数イデアルへ
+
+ここでは逆向きに、一意な素イデアル冪分解を仮定して、前に置いた公理を導く。零イデアルまたは単位イデアルから来る場合を除き、各イデアルが素イデアル冪の積として一意に表されるなら、単位元の存在、零因子の排除、そして除数鎖定理と倍数鎖定理が順に得られる。
+
+さらに、零でないイデアルによる剰余類環は主イデアル環になる。準素イデアルの場合から始め、一般の場合は準素成分に対応する直和分解を用いて、剰余類環の任意のイデアルが一つの元で生成されることを示す。
+
+最後に、商体の中の零でない有限 \(\mR\)-加群を分数イデアルと呼び、それらが乗法に関してアーベル群をなすことを示す。これにより加群商の扱い、約分、互いに素な分子分母による表示、そして整閉性の確認へ進む。
+
+Simplified Chinese title: 从分解推出公理，并进入分式理想
+
+这一节反过来假定唯一的素理想幂分解，并由此推出前面列出的公理。除去来自零理想或单位理想的情形，若每个理想都能唯一地表示为素理想幂的乘积，则可以依次得到单位元存在、无零因子，以及除子链定理和倍数链定理。
+
+进一步，按任一非零理想取的剩余类环都是主理想环。证明先从准素理想情形开始，一般情形则利用对应于准素成分的直和分解，说明剩余类环中的任意理想都由一个元素生成。
+
+最后，把商域中非零的有限 \(\mR\)-模称为分式理想，并证明它们在乘法下形成阿贝尔群。这使得模商、约分、互素分子分母表示，以及整闭性的检验都能在同一框架中处理。
+
+Script/codepoint and TeX/PDF notes:
+
+- Japanese 分数イデアル and Simplified Chinese 分式理想 are provisional renderings for gebrochenes Ideal.
+- 主イデアル環/主理想环 should be checked against source-era convention before reviewer-packet use.
+- Direct-sum language here refers to residue-class component decomposition, not vector-space direct sum unless a reviewer chooses that modernization.
+
+Unresolved flags:
+
+- Fractional-ideal terminology needs native/domain review.
+- No claim is made that this resolves localization; the source uses quotient-field and fractional-ideal language, not Lokalisierung.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.
+
+## cjk-continuation-03-005-double-chain-composition-series
+
+Anchor: German baseline lines `15452-15650`; Doppelkettensatz und Kompositionsreihe.
+
+Source summary: Proves for well-ordered module domains that the double-chain theorem is equivalent to the existence of a composition series, and derives the Jordan-Hölder theorem by induction.
+
+Japanese title: 二重鎖定理と組成列
+
+整列された加群領域では、二重鎖定理、すなわち加群の除数鎖と倍数鎖がいずれも有限で止まるという仮定が、組成列の存在と同値であることを示す。加群領域が可換環に特殊化されると、同じ主張は環の全イデアル系についての命題になる。
+
+二重鎖定理を仮定する方向では、まず整列を使って単純な加群を選び、同じ手順を繰り返して倍数鎖を作る。倍数鎖定理によりこの過程は有限で止まり、組成列が得られる。
+
+逆向きでは、組成列が存在することを仮定し、長さに関する帰納法で Jordan-Hölder 定理を同時に証明する。任意の加群を通る組成列を構成し、剰余類加群の同型を比較することで、倍数鎖定理と除数鎖定理の両方が従う。
+
+Simplified Chinese title: 双重链定理与合成列
+
+对于已良序化的模域，双重链定理，也就是模的除子链和倍数链都在有限步停止这一假设，与合成列的存在等价。当模域特殊化为交换环时，同一结论就成为关于该环全体理想系统的命题。
+
+在由双重链定理推出合成列的方向，先利用良序选出一个单的模，再重复同样的步骤形成倍数链。由于倍数链定理，这个过程会在有限步停止，从而得到合成列。
+
+反过来，假定存在合成列，并按长度作归纳，同时证明 Jordan-Hölder 定理。通过构造经过任意给定模的合成列，并比较剩余类模之间的同构，可以推出倍数链定理和除子链定理。
+
+Script/codepoint and TeX/PDF notes:
+
+- Japanese uses 組成列; Simplified Chinese uses 合成列; both should be checked against the preferred algebra register.
+- Jordan-Hölder is kept in Latin script with the diaeresis in the prose; TeX output may need an ASCII fallback or macro form.
+- 加群領域/模域 remain provisional renderings for Modulbereich.
+
+Unresolved flags:
+
+- Composition-series terminology and Jordan-Hölder typography require TeX/PDF review.
+- This slice strengthens chain-condition coverage but does not close retained unanchored terms.
+
+Status label: `draft/non-canonical/not native reviewed/not approved/not gate-promoted`.

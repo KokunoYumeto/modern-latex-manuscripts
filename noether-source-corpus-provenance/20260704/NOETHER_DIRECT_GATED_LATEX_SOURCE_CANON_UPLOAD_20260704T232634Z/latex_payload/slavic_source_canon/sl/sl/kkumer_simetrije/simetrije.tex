@@ -1,0 +1,230 @@
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{naturalnames}{hyperref}
+\documentclass[10pt,twoside]{book}
+% Royal paper size and margins (for printing at lulu.com)
+\usepackage[
+  paperwidth=156mm,
+  paperheight=234mm,
+  inner=20mm,   % Binding side
+  outer=15mm,   % Outside edge
+  top=18mm,
+  % bottom=22mm,
+  bottom=15mm,
+  includehead,
+  includefoot,
+  heightrounded
+]{geometry}
+\special{papersize=156mm,234mm}
+%\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+%\setmainfont{Libertinus Serif}
+%\setmainfont{Tex Gyre Termes}
+%%% ZAMIJENITI SLJEDECA DVA na CALCULONU !!!
+\setmainfont{Latin Modern Roman}
+%\setmainfont{Latin Modern Math}
+\usepackage[croatian]{babel}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{bbm}
+\usepackage{enumitem}
+%\usepackage{mathbbol}
+%\usepackage{theorem}
+\usepackage{makeidx}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{isotope}
+\usepackage{tensor}
+\usepackage{ytableau}
+\usepackage{titlepage}
+\usepackage{csquotes}
+\MakeOuterQuote{"}
+\usepackage{tikz}
+\usetikzlibrary{3d,angles,arrows.meta,decorations.markings,calc,shapes,intersections,backgrounds}
+\usepackage{tikz-3dplot}
+\usepackage{standalone}
+
+%%fix
+%% https://tex.stackexchange.com/questions/76455/converted-xxx-eps-converted-to-pdf-not-found
+
+
+%% BEGIN bibliography specification
+\usepackage[backend=biber, style=authoryear, maxcitenames=3]{biblatex}
+\addbibresource{literatura.bib}
+%% Printing the annotation after bibitem
+% \DeclareFieldFormat{annotation}{\par\textit{#1}}
+% \renewbibmacro*{finentry}{%
+%   \setunit{\finentrypunct}%
+%   \printfield{annotation}%
+%   \finentry
+% }
+\DeclareCiteCommand{\cite}[\mkbibbrackets]
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}}
+  {\bibhyperref{\printnames[family]{labelname}%
+   \setunit{\addcomma\space}%
+   \printfield{year}\addperiod}}
+  {\multicitedelim}
+  {}
+%% END bibliography specification
+
+%% Colour version which is nice on-screen:
+\usepackage[colorlinks=true,citecolor=blue,linkcolor=blue,hyperfootnotes=true]{hyperref}
+%% Version which prints in B/W (but still has working links in PDF):
+%\usepackage[colorlinks=false,hyperfootnotes=false]{hyperref}
+%% B/W version which for printing, without links:
+%\usepackage{url}
+%% This is needed to get links breaking in combination with hyperref
+\usepackage{xurl}
+
+%% BEGIN Fancy headings
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+    \fancyhf{}
+    \fancyhead[RO,LE]{\bfseries \thepage}
+	\fancyhead[CO]{\itshape\nouppercase{\rightmark}}
+	\fancyhead[CE]{\itshape\nouppercase{\leftmark}}
+    \renewcommand{\headrulewidth}{0.4pt}
+    \renewcommand{\chaptermark}[1]{\markboth{\thechapter\ #1}{}}
+	%\renewcommand{\chaptermark}[1]{\markboth{\ifnum\value{chapter}>0 \thechapter.\ \fi#1}{}}
+	\renewcommand{\sectionmark}[1]{\markright{\thesection\ #1}}
+    \setlength{\headheight}{14pt}
+%Fix for biblatex bibliography heading which is otherwise all-caps
+\defbibheading{bibunnumbered}[\bibname]{%
+  \chapter*{#1}%
+  \markboth{#1}{}%
+  \phantomsection
+}
+%% END Fancy headings
+
+
+%\newcommand{\secret}[1]{\{#1\}}
+\newcommand{\secret}[1]{}
+\newcommand{\imp}{\;\Rightarrow\;}
+\newcommand{\td}{\: | \:}
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\bra}[1]{\langle #1 |}
+\newcommand{\ket}[1]{| #1 \rangle}
+\newcommand{\rmd}{\textrm{d}}
+\newcommand{\rmi}{\textrm{i}}
+\newcommand{\rme}{\textrm{e}}
+\newcommand{\rmpi}{\textrm{\pi}}
+\newcommand{\rmis}{\textrm{\scriptsize i}}
+\newcommand{\pd}{\partial}
+\newcommand{\dd}{\textrm{d}}
+\newcommand{\unitn}{\vec{\hat{n}}}
+\newcommand{\jsq}{\vec{J}^{2}}
+\newcommand{\jsqj}{\vec{J}_{1}^{2}}
+\newcommand{\jsqd}{\vec{J}_{2}^{2}}
+\newcommand{\fhalf}{\frac{1}{2}}
+\newcommand{\Eins}{\mathbbm{1}}
+\newcommand{\bbtensor}[1]{\mathbb{#1}}
+\newcommand{\slot}{\rule{1em}{1pt}}
+\newcommand{\yrange}[2]{(#1.\,--\,#2.)}
+
+\usepackage[perpage,symbol*]{footmisc}   % this produces multiply defined labels
+%\renewcommand{\thefootnote}{\fnsymbol{footnote}}   % this is problematic with many footnotes per chapter
+
+\DeclareMathOperator{\Tr}{Tr}
+
+
+% Define shortcuts for group names
+\newcommand{\SU}[1]{\ensuremath{\mathrm{SU}(#1)}}
+\newcommand{\U}[1]{\ensuremath{\mathrm{U}(#1)}}
+\renewcommand{\O}[1]{\ensuremath{\mathrm{O}(#1)}}
+\newcommand{\SO}[1]{\ensuremath{\mathrm{SO}(#1)}}
+\newcommand{\ISO}[1]{\ensuremath{\mathrm{I}\,\mathrm{SO}(#1)}}
+\newcommand{\IO}[1]{\ensuremath{\mathrm{I}\,\mathrm{O}(#1)}}
+\newcommand{\SOsup}[2]{\ensuremath{\mathrm{SO}^{#1}(#2)}}
+\newcommand{\Sp}[1]{\ensuremath{\mathrm{Sp}(#1)}}
+\newcommand{\GL}[1]{\ensuremath{\mathrm{GL}(#1)}}
+\newcommand{\SL}[1]{\ensuremath{\mathrm{SL}(#1)}}
+
+% Define shortcuts for algebras in upright Fraktur font
+\newcommand{\suAlg}[1]{\ensuremath{\mathfrak{su}(#1)}}
+\newcommand{\oAlg}[1]{\ensuremath{\mathfrak{o}(#1)}}
+\newcommand{\soAlg}[1]{\ensuremath{\mathfrak{so}(#1)}}
+\newcommand{\uAlg}[1]{\ensuremath{\mathfrak{u}(#1)}}
+\newcommand{\glAlg}[1]{\ensuremath{\mathfrak{gl}(#1)}}
+%\newcommand{\slAlg}[1]{\ensuremath{\mathfrak{sl}(#1)}}
+%\newcommand{\spAlg}[1]{\ensuremath{\mathfrak{sp}(#1)}}
+
+%% BEGIN New theorem-like environments
+\newtheoremstyle{myt}%
+   {1.5\topsep} % space above
+   {.5\topsep} % space below
+   {\addtolength{\leftskip}{2.5em}\upshape} % bodyfont
+   {\parindent}  % indent
+   {\bfseries} % Theorem head font
+   {} % punctuation after head
+   {\newline}  % space after head  ({ } is normal interword space, \newline = line break)
+   {}  % Theorem head specification
+
+\theoremstyle{myt}
+\newtheorem{teorem}{Teorem}[section]
+\newtheorem{primjer}[teorem]{Primjer}
+\newtheorem{definicija}[teorem]{Definicija}
+% Need this to control lists inside theorem-like environments:
+\setlist[enumerate]{leftmargin=10ex, topsep=0pt, start=1, label={\arabic*)}}
+%% END New theorem-like environments
+
+%Defining \vec to make a symbol bold
+\if@mathematic
+   \def\vec#1{\ensuremath{\mathbf{#1}}}
+\else
+   \def\vec#1{\ensuremath{\mathchoice{\mbox{\boldmath$\displaystyle#1$}}
+                              {\mbox{\boldmath$\textstyle#1$}}
+                              {\mbox{\boldmath$\scriptstyle#1$}}
+                              {\mbox{\boldmath$\scriptscriptstyle#1$}}}}
+\fi
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{2ex}
+
+\input{gitinfo.tex}
+%\includeonly{8_lorentz}
+\makeindex
+\newcommand{\lettergroup}[1]{ \par \nopagebreak }  % remove index headings
+\begin{document}
+\pagenumbering{roman}
+
+\begin{titlepage}
+\title{Grupe, simetrije i tenzori u fizici}
+\author{Krešimir Kumerički}
+\date{Zagreb, 2025.}
+\maketitle
+\end{titlepage}
+ \thispagestyle{empty}
+%  \clearpage
+{
+\fancyhead[CE]{\slshape \nouppercase{\leftmark}} %Inace su headeri
+\fancyhead[CO]{\slshape \nouppercase{\rightmark}}%pisani velikim slovima
+\tableofcontents
+}
+\cleardoublepage
+\include{predgovor}
+\cleardoublepage
+\include{1_grupe}
+\include{2_reprezentacije}
+\include{3_irreps}
+\include{4_klasicna}
+\include{5_Lie}
+\include{6_rotacije}
+\include{7_sun}
+\include{8_lorentz}
+\include{dodaci}
+
+
+\printbibliography[heading=bibunnumbered]
+\backmatter
+\small
+\index{Grupa|seealso{Liejeva grupa, Reprezentacija grupe}}
+\index{Reprezentacija grupe|seealso{Ireducibilna reprezentacija}}
+\index{Vektorski prostor|seealso{Hilbertov prostor}}
+\index{Lorentzova grupa|seealso{SO$^{+}$(1,3)}}
+\printindex
+
+\end{document}

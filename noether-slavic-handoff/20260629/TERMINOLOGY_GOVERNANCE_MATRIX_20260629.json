@@ -1,0 +1,275 @@
+{
+  "artifact": "terminology_governance_matrix",
+  "generated_date": "2026-06-29",
+  "status": "terminology_governance_model_not_glossary_or_approval_ledger",
+  "purpose": "Define terminology decision states, term record types, lane rules, and ledger fields across natural-language lanes, multi-register family lanes, interlanguage/zonal lanes, constructed-language pilots, and computational pivots.",
+  "core_terms_under_governance": {
+    "algebraic_structures": [
+      "ring",
+      "field",
+      "ideal",
+      "module",
+      "quotient",
+      "submodule",
+      "homomorphism",
+      "isomorphism"
+    ],
+    "finiteness_and_noetherian_concepts": [
+      "Noetherian",
+      "ascending chain condition",
+      "finitely generated",
+      "basis",
+      "generator"
+    ],
+    "invariant_theory": [
+      "invariant",
+      "representation",
+      "group action",
+      "orbit",
+      "fixed point",
+      "polynomial invariant"
+    ],
+    "document_logic": [
+      "theorem",
+      "lemma",
+      "proof",
+      "corollary",
+      "definition",
+      "example",
+      "remark"
+    ],
+    "edition_metadata": [
+      "source witness",
+      "term anchor",
+      "reviewer decision",
+      "accepted correction",
+      "sidecar"
+    ]
+  },
+  "term_record_types": [
+    {
+      "type": "observed_source_anchor",
+      "meaning": "term or phrase appears in a source witness",
+      "authority_level": "evidence_only_not_approval"
+    },
+    {
+      "type": "page_inspected_anchor",
+      "meaning": "human has checked source page/context",
+      "authority_level": "stronger_evidence_not_project_approval"
+    },
+    {
+      "type": "project_proposed_term",
+      "meaning": "project proposes term for draft translation",
+      "authority_level": "local_proposal_requires_review"
+    },
+    {
+      "type": "reviewer_approved_term",
+      "meaning": "qualified reviewer accepts term for lane/context",
+      "authority_level": "lane_level_authority_for_reviewed_scope"
+    },
+    {
+      "type": "accepted_correction_term",
+      "meaning": "reviewer correction ingested into TeX/glossary/ledger",
+      "authority_level": "active_project_term_for_specified_artifact_version"
+    },
+    {
+      "type": "rejected_term",
+      "meaning": "reviewer or evidence rejects the term",
+      "authority_level": "must_not_use_without_new_rationale"
+    },
+    {
+      "type": "deprecated_term",
+      "meaning": "former project term replaced by better term",
+      "authority_level": "audit_only"
+    },
+    {
+      "type": "script_sidecar_mapping",
+      "meaning": "term mapped across scripts",
+      "authority_level": "requires_equivalence_and_render_validation"
+    },
+    {
+      "type": "interlanguage_candidate",
+      "meaning": "term proposed or selected for zonal/interlanguage lane",
+      "authority_level": "requires_language_community_or_project_review"
+    },
+    {
+      "type": "constructed_pilot_term",
+      "meaning": "term designed inside constructed-language research pilot",
+      "authority_level": "research_only_unless_externally_adopted_or_reviewed"
+    },
+    {
+      "type": "machine_candidate",
+      "meaning": "AI or script generated candidate term",
+      "authority_level": "no_authority_until_converted_into_another_type"
+    }
+  ],
+  "decision_states": [
+    {
+      "state": "unreviewed_observed",
+      "required_evidence": "source witness and page reference",
+      "canonical_edition_allowed": false
+    },
+    {
+      "state": "needs_page_inspection",
+      "required_evidence": "automated hit or uncertain OCR/extraction",
+      "canonical_edition_allowed": false
+    },
+    {
+      "state": "page_inspected",
+      "required_evidence": "human page/context check",
+      "canonical_edition_allowed": false
+    },
+    {
+      "state": "draft_proposed",
+      "required_evidence": "project rationale and source anchors",
+      "canonical_edition_allowed": false
+    },
+    {
+      "state": "review_requested",
+      "required_evidence": "included in reviewer packet",
+      "canonical_edition_allowed": false
+    },
+    {
+      "state": "reviewer_approved",
+      "required_evidence": "reviewer decision tied to artifact hash and scope",
+      "canonical_edition_allowed": true
+    },
+    {
+      "state": "accepted_in_build",
+      "required_evidence": "correction ingested and rebuild validated",
+      "canonical_edition_allowed": true
+    },
+    {
+      "state": "rejected",
+      "required_evidence": "reviewer rejection or source contradiction",
+      "canonical_edition_allowed": false
+    },
+    {
+      "state": "deprecated",
+      "required_evidence": "superseded by accepted term",
+      "canonical_edition_allowed": false
+    },
+    {
+      "state": "blocked",
+      "required_evidence": "term lacks authority for intended claim",
+      "canonical_edition_allowed": false
+    }
+  ],
+  "lane_rules": [
+    {
+      "lane_type": "natural_language",
+      "lanes": [
+        "french",
+        "spanish",
+        "simplified_chinese",
+        "japanese",
+        "arabic",
+        "ukrainian",
+        "russian"
+      ],
+      "rules": [
+        "native-register source evidence and native/technical review required",
+        "regional variants recorded as alternatives",
+        "machine candidates must become project proposals before review",
+        "page inspection required before reviewer-facing glossary"
+      ]
+    },
+    {
+      "lane_type": "multi_register_family",
+      "lanes": [
+        "fa_IR",
+        "prs_AF",
+        "tg_Cyrl_TJ"
+      ],
+      "rules": [
+        "sublanes remain separate unless cross-register authority exists",
+        "approval in one sublane does not transfer automatically",
+        "shared-term records list approved and unresolved sublanes",
+        "script and directionality evidence is part of the terminology record"
+      ]
+    },
+    {
+      "lane_type": "zonal_interlanguage",
+      "lanes": [
+        "interslavic",
+        "panslavic",
+        "future_zonal_projects"
+      ],
+      "rules": [
+        "term origin must be inherited, selected, proposed, or generated",
+        "community/project authority required for accepted-usage claims",
+        "sidecar script mappings need equivalence validation",
+        "research usefulness does not imply learner-facing suitability"
+      ]
+    },
+    {
+      "lane_type": "constructed_language_pilot",
+      "lanes": [
+        "future_constructed_pilots"
+      ],
+      "rules": [
+        "designed terms explicitly marked",
+        "internal consistency checks cover morphology, compounding, script, and glossary relations",
+        "canonical-edition status requires external adoption/review and new lane decision",
+        "pilot terms are versioned for audit"
+      ]
+    },
+    {
+      "lane_type": "computational_pivot",
+      "lanes": [
+        "mt_pivots",
+        "alignment_corpora"
+      ],
+      "rules": [
+        "pivot terms are tool outputs, not language usage",
+        "records store model/tool version, corpus source, and confidence where available",
+        "human review required before pivot output becomes reviewer-facing text"
+      ]
+    }
+  ],
+  "required_term_ledger_fields": [
+    "term_id",
+    "language_lane",
+    "sublane_or_script",
+    "term_record_type",
+    "decision_state",
+    "source_witness_id",
+    "source_page_or_location",
+    "source_context_status",
+    "project_term",
+    "alternatives",
+    "mathematical_concept",
+    "scope",
+    "reviewer_role",
+    "reviewer_decision",
+    "artifact_hash_reviewed",
+    "accepted_correction_id",
+    "rationale",
+    "next_action"
+  ],
+  "governance_invariants": [
+    "source_anchor_is_not_term_approval",
+    "reviewer_decision_must_identify_scope",
+    "term_approved_for_one_lane_not_automatically_approved_for_another",
+    "script_conversion_must_preserve_mathematical_meaning",
+    "ocr_text_extraction_uncertainty_must_remain_visible",
+    "open_source_publication_does_not_make_terminology_authoritative",
+    "constructed_pilot_terms_are_research_objects_unless_adoption_or_review_changes_status",
+    "accepted_terms_trace_to_source_evidence_rationale_reviewer_decision_and_artifact_hash"
+  ],
+  "promotion_path": [
+    "machine_candidate_or_observed_source_anchor",
+    "page_inspected_anchor",
+    "project_proposed_term",
+    "review_requested",
+    "reviewer_approved_term",
+    "accepted_correction_term",
+    "tex_pdf_rebuild_and_manifest_update"
+  ],
+  "immediate_next_gates": [
+    "reviewer_facing_glossary_tables_from_current_term_anchor_seeds",
+    "accepted_correction_ledger_template_using_required_term_ledger_fields",
+    "lane_specific_term_status_summaries",
+    "connect_future_tex_pdf_rebuilds_to_accepted_term_ids"
+  ]
+}
