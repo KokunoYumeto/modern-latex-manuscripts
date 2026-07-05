@@ -1,3 +1,12 @@
+## 2026-07-05: Slavic GitHub TeX queue and open-license residue payload
+
+Manifest: [20260705_slavic_github_tex_queue_and_residue_payload.json](../manifests/pending-zenodo-uploads/20260705_slavic_github_tex_queue_and_residue_payload.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Slavic_GitHub_OpenLicenseResidue_20260705.zip`, 22,691 bytes, SHA256 `3BEB5BCAF49533E01C0D3DFC1AFDEE378E718D6C4624D85B4FD3F3F539EC2D60`.
+- Scope/result: repeatable queue pass over recovered Slavic GitHub TeX candidate manifests. The queue has 399 candidate rows: 103 already represented by admitted payload rows, four additional open-license candidates downloaded into the residue ZIP, and 292 retained as URL/provenance-only or unclear-license candidates.
+- Caveat: source-corpus/provenance and Web/Pro source-register support only. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material. This is a continuation aid, not closure of the hundreds-per-language native mathematical TeX target.
+
 ## 2026-07-05: Slavic source-canon payloads recovered from remote branches
 
 Manifest: [20260705_slavic_source_canon_payloads_recovered_from_branches.json](../manifests/pending-zenodo-uploads/20260705_slavic_source_canon_payloads_recovered_from_branches.json)

@@ -11,6 +11,8 @@ They contain actual LaTeX-like file bodies, not only URLs, ledgers, or checksums
 - `Interlanguage_LaTeX_SourceBodies_Slavic_Linguistics_Arxiv_20260705.zip`: expanded arXiv source tarballs for Slavic/interlanguage computational-linguistics baseline papers, 54 entries, 49 TeX/Bib/Style-like entries.
 - `Interlanguage_LaTeX_SourceBodies_DirectGated_Slavic_Romance_20260705.zip`: direct gated source-canon upload from the Noether-PC/source-canon branch, 524 TeX-family source bodies, including Spanish mathematical TeX and Slavic-hint source trees.
 - `Interlanguage_LaTeX_SourceBodies_Romance_LiveArxivCandidates_20260705.zip`: five French/Spanish arXiv e-print source packages from the package-360 live verification pass, 22 entries, 10 extracted TeX/Bib/Style-like entries.
+- `Interlanguage_LaTeX_SourceBodies_Slavic_GitHub_OpenLicenseResidue_20260705.zip`: four additional open-license GitHub TeX source bodies left over after the recovered Slavic GitHub candidate manifests were compared against already-admitted payload rows.
+- `slavic_github_tex_queue_20260705/`: repeatable queue output for the recovered Slavic GitHub TeX candidates. It separates already-admitted payload rows, remaining open-license download candidates, and URL-only/unclear-license candidates.
 
 Additional recovered source-canon payloads live outside this folder under `noether-slavic-source-canon/20260704/` and `noether-source-corpus-provenance/20260704/`. They are indexed here because they are now part of the same Web/Pro source-body supply:
 
@@ -35,3 +37,5 @@ The 2026-07-05 direct gated Slavic/Romance bundle is a stronger feed than the ea
 The 2026-07-05 Romance live-arXiv candidate bundle closes the immediate package-360 omission gap for five verified French/Spanish e-print source packages. It remains candidate source-body/register evidence only: useful for Web/Pro language-register extraction, but not target-language approval, term promotion, source-license clearance, publication readiness, or a reader surface.
 
 The recovered Slavic source-canon payloads are stronger than the earlier generic Slavic/Interslavic support bundle for algebra-register work because they include actual TeX-family file bodies and open-license GitHub payload manifests. They still do not close the larger goal of hundreds of independently reviewed native mathematical LaTeX sources per language, and they do not certify native terminology or translation quality.
+
+The 2026-07-05 Slavic GitHub queue pass is deliberately small and conservative. It found 399 GitHub TeX candidate rows in the recovered manifests: 103 were already represented by admitted payload rows, four additional open-license candidates were downloaded into the residue ZIP, and 292 remain URL/provenance-only or unclear-license candidates. This is useful for repeatability and next-step triage, but it does not close the non-Russian/non-Ukrainian Slavic native mathematical TeX corpus gap.
