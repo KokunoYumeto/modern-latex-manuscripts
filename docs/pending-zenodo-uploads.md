@@ -1,3 +1,12 @@
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx236
+
+Manifest: [20260705_sga6_source_rescribe_idx236_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx236_workpass_refresh.json)
+
+- SGA support ZIP: `SGA6_SourceRescribe_Workpass_idx236_20260705.zip`, 2,987,561 bytes, SHA256 `B8CE325EAD6BD05D8B69AF6AFC2D1BAA2841912B8FE2749C508682805B6FEE18`.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #233, idx236 / volume p223 / Expose III p2; next cursor idx237 / volume p224 / Expose III p3.
+- Classification: source-rescribe/workpass provenance only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not index audit, not publication readiness, and not a critical edition.
+- Upload-order note: support/provenance artifact only; do not front above reader-facing SGA PDFs.
+
 ## 2026-07-05 Noether R796 P30 pp.36-37 and pp.42-45 source-emphasis candidate
 
 - Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).

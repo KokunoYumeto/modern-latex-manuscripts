@@ -1,12 +1,12 @@
-# SGA6 Claude/Codex strict source-rescribe workpass refresh through idx210
+# SGA6 Claude/Codex strict source-rescribe workpass refresh through idx236
 
 This is a compact support/provenance package for the active SGA6 strict source-rescribe/workpass lane.
 
 Current frontier:
 
-- CERT_LOG.md highest entry: #207.
-- Last scribed page: idx210 / volume p197 / Expose II p38.
-- Next cursor: idx211 / volume p198 / Expose II p39.
+- CERT_LOG.md highest entry: #233.
+- Last scribed page: idx236 / volume p223 / Expose III p2.
+- Next cursor: idx237 / volume p224 / Expose III p3.
 - Current compile gate: `sga6_fr_workpass.pdf` writes successfully; current observed log reports 390 pages and no fatal LaTeX stop in the searched diagnostics.
 
 Public classification:
