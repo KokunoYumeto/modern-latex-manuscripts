@@ -4,7 +4,7 @@ This file lists the current ZIP packets that actually contain TeX-family source 
 
 These packets are source-corpus/provenance feeds only. They are not native approval, accepted terminology, completed translation, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
-Machine-readable inventory: `manifests/source-intake/20260705_interlanguage_latex_source_body_inventory.md/json/csv` counts this shelf by ZIP SHA256 and language hint. Current unique count after duplicate-SHA removal: 15 ZIP payloads, 12,066 TeX-like entries.
+Machine-readable inventory: `manifests/source-intake/20260705_interlanguage_latex_source_body_inventory.md/json/csv` counts this shelf by ZIP SHA256 and language hint. Current unique count after duplicate-SHA removal: 18 ZIP payloads, 17,091 TeX-like entries.
 
 ## Feed First: Broad Source-Corpus Payloads
 
@@ -69,22 +69,40 @@ Machine-readable inventory: `manifests/source-intake/20260705_interlanguage_late
 
 ## Language-Family Payloads
 
-12. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Romance_ES_FR_20260704.zip`
+12. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_BackupDump_NonSlavic_TeXFeed_arabic_persianate_rtl_20260705.zip`
+    - 2.51 MB
+    - 1,833 ZIP entries
+    - 1,831 extracted source files
+    - TeX-only feed extracted from the local backup-dump Arabic/Persianate/RTL source shelf
+
+13. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_BackupDump_NonSlavic_TeXFeed_cjk_20260705.zip`
+    - 5.78 MB
+    - 1,162 ZIP entries
+    - 1,160 extracted source files
+    - TeX-only feed extracted from the local backup-dump CJK source shelf
+
+14. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_BackupDump_NonSlavic_TeXFeed_non_slavic_other_20260705.zip`
+    - 47.58 MB
+    - 2,036 ZIP entries
+    - 2,034 extracted source files
+    - TeX-only feed extracted from the remaining local backup-dump non-Slavic source shelves
+
+15. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Romance_ES_FR_20260704.zip`
     - 9.96 MB
     - 1,526 ZIP entries
     - 1,503 TeX-like entries
 
-13. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Romance_LiveArxivCandidates_20260705.zip`
+16. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Romance_LiveArxivCandidates_20260705.zip`
     - 0.24 MB
     - 22 ZIP entries
     - 10 TeX-like entries
 
-14. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Persian_RTL_Arabic_20260704.zip`
+17. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Persian_RTL_Arabic_20260704.zip`
     - 1.32 MB
     - 1,253 ZIP entries
     - 1,239 TeX-like entries
 
-15. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_CJK_ZH_JA_20260704.zip`
+18. `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_CJK_ZH_JA_20260704.zip`
     - 2.72 MB
     - 196 ZIP entries
     - 168 TeX-like entries

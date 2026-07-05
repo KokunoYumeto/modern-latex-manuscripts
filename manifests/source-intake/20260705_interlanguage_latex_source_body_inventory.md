@@ -4,9 +4,9 @@ Machine-readable inventory of ZIP packets containing TeX-family source bodies fo
 
 Classification: source-corpus/provenance support only. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
-- Unique ZIP payloads with TeX-like entries: 15
+- Unique ZIP payloads with TeX-like entries: 18
 - Duplicate ZIP paths by SHA256: 1
-- Total TeX-like entries counted, unique by ZIP SHA256: 12066
+- Total TeX-like entries counted, unique by ZIP SHA256: 17091
 - Package CSV: `20260705_interlanguage_latex_source_body_inventory_packages.csv`
 - Language-count CSV: `20260705_interlanguage_latex_source_body_inventory_language_counts.csv`
 - JSON: `20260705_interlanguage_latex_source_body_inventory.json`
@@ -16,9 +16,12 @@ Classification: source-corpus/provenance support only. Not native review, accept
 | language_hint | tex_like_entries | zip_count |
 |---|---:|---:|
 | fa | 3686 | 4 |
+| non_slavic_other | 2034 | 1 |
 | es | 1925 | 5 |
+| arabic_persianate_rtl | 1831 | 1 |
 | slavic | 1219 | 3 |
 | unknown | 1171 | 2 |
+| cjk_backup | 1160 | 1 |
 | isv | 539 | 1 |
 | ja | 491 | 3 |
 | ar | 359 | 4 |
@@ -50,6 +53,9 @@ Classification: source-corpus/provenance support only. Not native review, accept
 
 | ZIP | TeX-like entries | Size bytes | SHA256 |
 |---|---:|---:|---|
+| `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_BackupDump_NonSlavic_TeXFeed_non_slavic_other_20260705.zip` | 2034 | 49890992 | `FD6B67AAA50FACF73F87B342B394CCC610B003C1A29392885B95AA311BF83CF9` |
+| `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_BackupDump_NonSlavic_TeXFeed_arabic_persianate_rtl_20260705.zip` | 1831 | 2627018 | `A91D6E7B710B4E0FBC1103AC3B767E2BA4FCEE1A15C39FABB8F5096CEDCFBC6E` |
+| `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_BackupDump_NonSlavic_TeXFeed_cjk_20260705.zip` | 1160 | 6064488 | `E1184F2D0C7E080B28BC45C4D13261AD1AF1E414F401C4616F543515C0776EBA` |
 | `noether-source-corpus-provenance\20260704\archive-maintenance-extracted-payloads\Noether_Interlanguage_OpenSource_LaTeX_By_Language_From_GitHub_20260704.zip` | 3232 | 16453855 | `96508E9CF7245E266B5736D20ED84F2D9EADDF4F84D0DF0D88D4DC1C696AA2C5` |
 | `noether-source-corpus-provenance\20260704\NOETHER_SOURCE_LINK_PROVENANCE_INDEX_20260704T153636\payload_zips\NOETHER_SOURCE_CORPUS_LATEX_PAYLOAD_20260704T153636_part01.zip` | 2259 | 21320711 | `A4DFD7F26D487FFD666671EB677A2358A75E087FC7A15581E2119507BB5551D1` |
 | `interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_Romance_ES_FR_20260704.zip` | 1503 | 10440464 | `2AD0B89274D12B30BAE0D4C60AEA5120EA1F1A178F6A7BBF62CBB352A273F4D5` |
