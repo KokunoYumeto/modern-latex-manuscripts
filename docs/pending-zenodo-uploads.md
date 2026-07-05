@@ -1,3 +1,14 @@
+## 2026-07-05: Other-PC post-rate-limit source-body transfer
+
+Manifest: [20260705_other_pc_source_body_transfer_after_limit.json](../manifests/pending-zenodo-uploads/20260705_other_pc_source_body_transfer_after_limit.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Source branch: `origin/codex/noether-pc-20260629` advanced to `a62fedd70` (`Add CJK source body transfer packages`), 5 commits after `e5709da28`.
+- Actual observed delta: about 220 MB of new/changed payload; the whole side-branch tree is about 4.5 GB.
+- Staged ZIPs: Arabic RTL source bodies (135,549,678 bytes), CJK draft/source evidence (16,636,143 bytes), CJK native source bodies (489,937 bytes), Fable ledger block (22,408 bytes), Noether source-corpus provenance (70,592,284 bytes), non-Slavic coordination state (24,488 bytes), and OLP/relation-function support bodies (21,391,080 bytes).
+- Scope/result: real other-PC payloads were separated from coordination/log noise and staged as seven ZIPs under `publish_staging/interlanguage-methodology/20260705_other_pc_source_body_transfer_after_limit/`.
+- Caveat: source-body/source-witness/provenance and methodology support only. Not native review, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, blanket license clearance, or critical-edition material.
+
 ## 2026-07-05: Noether P24 p233 recovery and pp233-246 ledger webdrop
 
 Manifest: [20260705_noether_p24p233_recovery_pp233_246_ledger_webdrop.json](../manifests/pending-zenodo-uploads/20260705_noether_p24p233_recovery_pp233_246_ledger_webdrop.json)
