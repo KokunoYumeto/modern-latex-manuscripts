@@ -6,13 +6,13 @@ This refresh mirrors the local Claude/Codex SGA6 source-rescribe workpass after 
 
 ## GitHub mirror
 
-- $sourceDir
+- `sources/sga/sga6-claude-workpass-source-rescribe-20260704/`
 
 ## Staged Zenodo artifact
 
-- $zipRel
+- `publish_staging/sga/20260705_sga6_source_rescribe_idx158_refresh/SGA6_Claude_Workpass_SourceRescribe_idx158_20260705.zip`
 - Size: 7088551 bytes
-- SHA256: $zipHash
+- SHA256: `C83DBEC716A4EFCD9C98ECB490B1EB35C4A6284B4E1E2ED9817E9BBB84406559`
 
 The copied workpass compiles locally with 0 LaTeX errors to a 393-page PDF. Page count is compile evidence only and is not a completion signal.
 

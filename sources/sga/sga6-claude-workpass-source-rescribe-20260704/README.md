@@ -1,13 +1,14 @@
-# SGA6 Claude Workpass Source-Rescribe Evidence Mirror (2026-07-04/05)
+# SGA6 Claude/Codex Workpass Source-Rescribe Mirror
 
-This folder is a compact GitHub-visible mirror of the local Claude/Codex SGA6 source-rescribe workpass. It is preserved so public metadata, web sessions, and later local agents can see the actual evidence files instead of relying on chat summaries.
+This folder is a compact GitHub mirror of the local SGA6 source-rescribe workpass under:
 
-Current inspected local cursor: ledger entry #155, idx158 / volume p145 / Exposé I p68. The immediately preceding compact staging checkpoint was #151, idx154 / volume p141 / Exposé I p64. The current `CERT_LOG.md` also contains working-memory notes for later route planning; those notes are continuation scaffolding, not certification.
+`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`
 
-The copied workpass compiles locally with 0 LaTeX errors to a 393-page PDF. Page count is compile evidence only and is not a completion claim.
+Current mirrored state, refreshed 2026-07-05:
 
-Important status: this is source-repair provenance and continuation evidence only. The local audit found that the earlier SGA6 repair033 French TeX was a readable scaffold with paraphrased/condensed regions, not a globally faithful transcription. The current workpass is a source-rescribe lane against the better 360dpi Internet Archive scan `theoriedesinters0225bert`.
+- `CERT_LOG.md` reaches entry #163: scan idx166, volume p153, Expose I p76.
+- Next cursor recorded in the ledger: idx167, volume p154, Expose I p77.
+- `sga6_fr_workpass.tex` compiles locally with zero LaTeX errors to a 390-page PDF in this live workpass snapshot.
+- The earlier SGA6 repair033 TeX is treated as a scaffold with paraphrased/condensed regions; this workpass is a source-rescribe against the better 360dpi Internet Archive scan, not a completed critical edition.
 
-Do not cite this folder as SGA6 completion, English synchronization, whole-SGA6 source-faithfulness certification, index audit, publication readiness, or a critical edition. Older words such as complete, strict, source-checked, or high-fidelity in package names are legacy labels and not current global certification claims.
-
-Contents include the live `CERT_LOG.md`, `ERRATA_SGA6.md`, `sga6_fr_workpass.tex`, rendered PDF/logs, scratch/source-proof material under `_work/`, and `SHA256SUMS.txt`.
+Public status: live source-repair provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, and not a critical edition.
