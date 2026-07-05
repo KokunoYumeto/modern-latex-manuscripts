@@ -6,6 +6,15 @@ Manifest: [20260705_sga6_source_rescribe_idx202_workpass_refresh.json](../manife
 - Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #199, idx202 / volume p189 / Expose II p30; next cursor idx203 / volume p190 / Expose II p31.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
+## 2026-07-05: Backup-dump non-Slavic TeX-only source feeds
+
+Manifest: [20260705_backup_dump_non_slavic_tex_feed_bundles.json](../manifests/pending-zenodo-uploads/20260705_backup_dump_non_slavic_tex_feed_bundles.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifacts: three TeX-only source-body ZIPs under `interlanguage-sidecar/20260704/latex_source_body_bundles/`, extracted from the local backup-dump non-Slavic reference corpus.
+- Scope/result: 5,025 extracted source files across Arabic/Persianate/RTL, CJK, and other non-Slavic backup source shelves; no PDFs and no giant whole-tree backup archives.
+- Caveat: source-style/register anchor feeds only; not native review, not accepted terminology, not translation completion, not source-fidelity certification, not publication readiness, not reader output, and not critical-edition material.
+
 ## 2026-07-05: Interlanguage flat Pro-feed LaTeX source anchors
 
 Manifest: [20260705_interlanguage_flat_pro_feed_source_anchors.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_flat_pro_feed_source_anchors.json)
