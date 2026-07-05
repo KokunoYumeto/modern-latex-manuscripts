@@ -1,3 +1,12 @@
+## 2026-07-05: Recovered open-source LaTeX-by-language source-body ZIP
+
+Manifest: [20260705_recovered_open_source_latex_by_language_source_body_zip.json](../manifests/pending-zenodo-uploads/20260705_recovered_open_source_latex_by_language_source_body_zip.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `noether-source-corpus-provenance/20260704/archive-maintenance-extracted-payloads/Noether_Interlanguage_OpenSource_LaTeX_By_Language_From_GitHub_20260704.zip`, 16,453,855 bytes, SHA256 `96508E9CF7245E266B5736D20ED84F2D9EADDF4F84D0DF0D88D4DC1C696AA2C5`.
+- Scope/result: recovered open-source LaTeX-by-language source-body payload, 3,474 ZIP entries, 3,232 TeX-family entries, 0 PDFs. Selectively recovered from stale/divergent branch `origin/codex-archive-reconcile-source-heavy-20260611`; do not merge that branch wholesale.
+- Caveat: source-corpus/provenance and Web/Pro source-register support only. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx179
 
 Manifest: [20260705_sga6_source_rescribe_idx179_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx179_refresh.json)
@@ -126,8 +135,8 @@ Manifest: [20260705_noether_pc_package378_interlanguage_refresh.json](../manifes
 Manifest: [20260705_interlanguage_latex_source_body_inventory_refresh.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_latex_source_body_inventory_refresh.json)
 
 - Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
-- Artifact: `publish_staging/interlanguage-methodology/20260705_source_body_inventory/Interlanguage_LaTeX_SourceBody_Inventory_20260705.zip`, 27,159 bytes, SHA256 `C04FE3763D42BB5E8B7A9A290962E565ED972F0F60CD1350803E3FDBCE5CB34D`.
-- Scope/result: small inventory/readme/script packet for the current interlanguage LaTeX source-body ZIP shelf. It counts 13 unique ZIP payloads by SHA256, one duplicate ZIP path, and 8,630 TeX-like entries after duplicate removal, with per-language-hint counts for triage.
+- Artifact: `publish_staging/interlanguage-methodology/20260705_source_body_inventory/Interlanguage_LaTeX_SourceBody_Inventory_20260705.zip`, 34,655 bytes, SHA256 `DF83A260DA3EED4239458F56F22B56BA809C77CC7FE29CFD1C25EE6EFA9B7846`.
+- Scope/result: small inventory/readme/script packet for the current interlanguage LaTeX source-body ZIP shelf. It counts 14 unique ZIP payloads by SHA256, one duplicate ZIP path, and 11,862 TeX-like entries after duplicate removal, with per-language-hint counts for triage.
 - Caveat: source-corpus/provenance and methodology support only. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
 ## 2026-07-05: SGA6 source-rescribe workpass evidence through idx166
@@ -8688,6 +8697,7 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 
 
 
