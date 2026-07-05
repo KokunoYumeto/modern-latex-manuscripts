@@ -1,3 +1,21 @@
+## 2026-07-05: Noether Web2 R781 P30 ledger-truth webdrop
+
+Manifest: [20260705_noether_web2r781_p30_ledger_truth_webdrop.json](../manifests/pending-zenodo-uploads/20260705_noether_web2r781_p30_ledger_truth_webdrop.json)
+
+- Target record: [Emmy Noether](https://doi.org/10.5281/zenodo.20412587).
+- Artifact: `publish_staging/noether/20260705_web2r781_p30_ledger_truth_webdrop/Noether_LocalCodex_20260705_Web2R781_P30LedgerTruth_WebDrop.zip`, 3,254,279 bytes, SHA256 `173F6EB93CB8FB3C6B2A3B4D10B7AB57BF0B0E599FFC924781829D179820FF6D`, 12 ZIP entries.
+- Scope/result: compact current-head and ledger update after Web2/WebB R781 P30 pp.31-33 fixes. Corrects stale P24 p233 ledger language: direct 650dpi source crops show congrence `\equiv0(\frakm)`, not the older equality wording.
+- Caveat: source-control/ledger support only. The README states older P30 complete-page audit is coverage evidence rather than final certification. Not a reader release, Noether closure, whole-corpus/page-by-page certification, source-complete certification, multilingual synchronization, publication readiness, or critical edition.
+
+## 2026-07-05: Noether medium-queue closures, no text patch
+
+Manifest: [20260705_noether_medium_queue_closures_no_text_patch_webdrop.json](../manifests/pending-zenodo-uploads/20260705_noether_medium_queue_closures_no_text_patch_webdrop.json)
+
+- Target record: [Emmy Noether](https://doi.org/10.5281/zenodo.20412587).
+- Artifact: `publish_staging/noether/20260705_medium_queue_closures_no_text_patch_webdrop/Noether_LocalCodex_20260705_MediumQueueClosures_NoTextPatch_WebDrop.zip`, 7,926,221 bytes, SHA256 `3C4DF10263709BC1717718B064C803ADD56F7A86D8823C72DC20DA956C1582DF`, 18 ZIP entries.
+- Scope/result: ledger/current-head closure drop for medium-priority items: P15 p151 stale archaeology rows closed no-patch under WebB R779 Greek-nu reading; P13 p246 stale footnote row closed no-patch; P24 p233 equality wording superseded by congruence source evidence.
+- Caveat: ledger-only/source-control support. Not a new text patch beyond the already integrated WebB R781 P30 and P24 p233 head. Not a reader release, Noether closure, whole-corpus/page-by-page certification, source-complete certification, multilingual synchronization, publication readiness, or critical edition.
+
 ## 2026-07-05: Claude/Fable interlingua-program v8 pass-34 snapshot
 
 Manifest: [20260705_interlanguage_claude_v8_pass34_snapshot.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_claude_v8_pass34_snapshot.json)
