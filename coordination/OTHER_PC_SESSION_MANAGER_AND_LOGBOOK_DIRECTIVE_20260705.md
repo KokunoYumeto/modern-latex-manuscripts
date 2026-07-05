@@ -8,6 +8,8 @@ This directive is for the other Codex/AI sessions working on the Noether, interl
 
 Do not sit idle while related sessions are waiting, confused, or blocked.
 
+If you can see, supervise, message, or otherwise influence another local/web/Claude/Codex session, you are responsible for giving that session a concrete next task when it is idle or confused. Do not merely write what you personally did. Maintain the project state and move work to the sessions that can do it.
+
 Every active session must know:
 
 1. what lane it owns;
@@ -17,6 +19,30 @@ Every active session must know:
 5. what sibling sessions should do next.
 
 If a session has no current production task, it must become useful by reading the coordination directives, collecting source bodies, auditing existing outputs, or assigning clear next actions to a sibling session through GitHub-visible notes.
+
+## No-Idle Coordination Rule
+
+Every other-PC session must maintain a visible current-state note in its own output folder and, when possible, in GitHub. The note must answer:
+
+- What am I doing right now?
+- What did I finish last?
+- What exact file or folder proves that work exists?
+- What is blocked?
+- Which sibling session should do what next?
+
+If a session cannot answer those five questions, it is not coordinated enough to be trusted.
+
+If a manager/coordinator session sees idle sibling sessions, it must immediately assign them work from the queue below and record the assignment in `SIBLING_TASKS.md`. Acceptable idle-session tasks include:
+
+- collect full TeX/source-body corpora for one language or script;
+- package real source files, not only indexes or ledgers;
+- audit a recent package for whether it contains bodies, PDFs, TeX, scans, logs, or only metadata;
+- apply Fable/ChatGPT branch-weight and marginal-intelligibility constraints to one interlanguage terminology block;
+- build a small web/pro handoff ZIP with source bodies and a manifest;
+- inspect existing generated translations for source gaps, hallucinated compression, missing tables, missing diagrams, or fake completeness claims;
+- write a public-safe logbook excerpt explaining what was done and what remains.
+
+Do not let sessions wait for Floris to manually remember every lane. The point of the coordinator is to keep the machine-readable project state alive.
 
 ## Logbook Requirement
 
@@ -92,6 +118,10 @@ The coordinator must maintain:
 - `SOURCE_BODY_UPLOAD_QUEUE.md`: corpora found, corpora uploaded, corpora still missing;
 - `SIBLING_TASKS.md`: explicit tasks assigned to idle sessions;
 - `ACKNOWLEDGED_DIRECTIVES.md`: which directives each session has read.
+
+The coordinator must not merely report that other sessions exist. It must actively dispatch them. A useful line in `SIBLING_TASKS.md` looks like:
+
+`2026-07-05T17:40+02:00 | session-name | assigned: collect Polish mathematical TeX source bodies | expected output: ZIP + manifest + logbook | status: active`
 
 If a sibling session is idle, assign it one of these tasks:
 

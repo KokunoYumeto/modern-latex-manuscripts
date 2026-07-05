@@ -12,5 +12,7 @@ Other-PC / interlanguage / Interslavic sessions must read the coordination copy 
 4. apply Fable/ChatGPT-Pro branch-weighting and marginal-intelligibility findings;
 5. create an acknowledgement file under `coordination/acks/`;
 6. classify outputs conservatively.
+7. maintain `ACTIVE_SESSIONS.md`, `SIBLING_TASKS.md`, `SOURCE_BODY_UPLOAD_QUEUE.md`, and `ACKNOWLEDGED_DIRECTIVES.md` when acting as coordinator.
+8. if a session can see an idle sibling session, it must assign it a concrete task and record that assignment.
 
 If this duplicate and the coordination copy ever differ, the coordination copy controls.

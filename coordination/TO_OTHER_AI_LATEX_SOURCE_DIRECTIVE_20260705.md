@@ -47,3 +47,16 @@ Also read and obey:
 Each session must keep a durable logbook, assign work to idle sibling sessions when it can see them, and create an acknowledgement file under `coordination/acks/`.
 
 Uploading five files, an index, or a manifest is not enough when full source bodies exist. Push the actual corpus bodies.
+
+## Added 2026-07-05: Do not leave sibling sessions idle
+
+If you are the session that can see or coordinate the other laptop/desktop sessions, you must actively assign work. Do not wait for Floris to remember which window is idle.
+
+Maintain these files when possible:
+
+- `ACTIVE_SESSIONS.md`
+- `SIBLING_TASKS.md`
+- `SOURCE_BODY_UPLOAD_QUEUE.md`
+- `ACKNOWLEDGED_DIRECTIVES.md`
+
+Every session must be able to state its lane, current task, last output path, blocker, and next action. If it cannot, stop generating prose and make that state file first.
