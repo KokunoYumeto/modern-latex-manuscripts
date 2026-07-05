@@ -1,4 +1,32 @@
-# HARD DIRECTIVE: UPLOAD THE WHOLE LATEX/SOURCE CORPUS AS-IS
+# HARD DIRECTIVE: SET THE ACTIVE GOAL, THEN UPLOAD REAL PAYLOAD
+
+## First Action For Any Codex/AI Opening This Branch
+
+Do not merely read this file.
+
+Do not summarize this file.
+
+Do not acknowledge this file as output.
+
+Your first action is to set your active goal / pursuit goal / persistent task to the literal contents of:
+
+`SET_THIS_AS_YOUR_GOAL_VERBATIM_20260705.md`
+
+If your interface has a goal tool, use it now. If it has a visible "goal", "pursuit goal", "task", "mission", or "instructions" field, paste the complete markdown from `SET_THIS_AS_YOUR_GOAL_VERBATIM_20260705.md` into that field now. If you cannot programmatically set the goal, treat that file as your active goal verbatim and record in your local logbook that the goal mechanism was unavailable.
+
+After setting the active goal, execute it. The next pushed output must be payload: literal source bodies, usable source-checked translation/transcription output, concrete repair artifacts, or a real package containing those things.
+
+Reading instructions is not output.
+
+Setting the goal is not the final output.
+
+Acknowledging the goal is not output.
+
+If your next commit is only acknowledgement/status/governance/ledger material, archive maintenance will reset the branch again.
+
+Stay on `codex/noether-pc-20260629`. Do not touch `main`.
+
+# Corpus Directive: Upload The Whole LaTeX/Source Corpus As-Is
 
 Date: 2026-07-05
 
