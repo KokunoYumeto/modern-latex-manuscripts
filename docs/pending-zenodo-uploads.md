@@ -1,3 +1,11 @@
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx202
+
+Manifest: [20260705_sga6_source_rescribe_idx202_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx202_workpass_refresh.json)
+
+- SGA support ZIP: SGA6_ClaudeCodex_SourceRescribe_idx202_Workpass_20260705.zip, 2917484 bytes, SHA256 4665AFA09C1F14D09673026AFE1EFD03E4B2AF854D79763CFB0E1F14EF4C96DF.
+- Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #199, idx202 / volume p189 / Expose II p30; next cursor idx203 / volume p190 / Expose II p31.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
 ## 2026-07-05: Interlanguage flat Pro-feed LaTeX source anchors
 
 Manifest: [20260705_interlanguage_flat_pro_feed_source_anchors.json](../manifests/pending-zenodo-uploads/20260705_interlanguage_flat_pro_feed_source_anchors.json)
