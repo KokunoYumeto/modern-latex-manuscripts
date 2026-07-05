@@ -1,3 +1,14 @@
+## 2026-07-05: Other-PC R9 Africa/Horn/West source-body payload
+
+Manifest: [20260705_other_pc_r9_africa_horn_west_source_body_payload.json](../manifests/pending-zenodo-uploads/20260705_other_pc_r9_africa_horn_west_source_body_payload.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_other_pc_r9_africa_horn_west_source_body_payload/OtherPC_R9_Africa_Horn_West_SourceBodyPayload_20260705.zip`, 7,843,748 bytes, SHA256 `A3601253C8C52493E79FBCAB0BD20C4F1826167AF7DDA050E549A931F248631D`, 27 ZIP entries.
+- GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r9_africa_horn_west_source_body_payload_20260705/`.
+- Scope/result: real other-PC payload from `origin/codex/noether-pc-20260629` commit `7b3ed05b8`, containing Hausa and Tigrinya source-body/source-witness material: source ZIP/TAR/PDF, extracted Tigrinya TeX/build files, manifests, hashes, and session log excerpts.
+- Archive-maintenance repair: the side branch omitted manifest-tracked `main.bbl` because `.bbl` is globally ignored; this main import recovered it from the included arXiv tar before packaging. `icml2025.bst` was restored from the tar to preserve manifest hash bytes.
+- Caveat: source-canon/provenance support only. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, critical edition, or blanket license clearance.
+
 ## 2026-07-05: Noether R781 P13/P19 whole-paper audit
 
 Manifest: [20260705_noether_r781_p13p19_wholepaper_audit.json](../manifests/pending-zenodo-uploads/20260705_noether_r781_p13p19_wholepaper_audit.json)

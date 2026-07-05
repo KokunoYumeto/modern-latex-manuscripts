@@ -1,3 +1,11 @@
+## 2026-07-05 Other-PC R9 Africa/Horn/West source-body payload pending upload
+
+- Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_other_pc_r9_africa_horn_west_source_body_payload/OtherPC_R9_Africa_Horn_West_SourceBodyPayload_20260705.zip`
+- SHA256: `A3601253C8C52493E79FBCAB0BD20C4F1826167AF7DDA050E549A931F248631D`; size: 7,843,748 bytes; entries: 27.
+- GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r9_africa_horn_west_source_body_payload_20260705/`.
+- Status: real body-bearing source-canon/provenance payload from other-PC commit `7b3ed05b8`, containing Hausa and Tigrinya source ZIP/TAR/PDF bodies plus extracted Tigrinya TeX/build files and logs. Archive maintenance recovered manifest-tracked `main.bbl` from the included arXiv tar because the side branch omitted it under `.bbl` ignore. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, critical edition, or blanket license clearance.
+
 ## 2026-07-05 Noether R781 P13/P19 whole-paper audit pending upload
 
 - Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
