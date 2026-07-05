@@ -1,3 +1,11 @@
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx194
+
+Manifest: [20260705_sga6_source_rescribe_idx194_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx194_workpass_refresh.json)
+
+- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx194_Workpass_20260705.zip`, 7,157,472 bytes, SHA256 `33E2B9F8DA623DC0001B00F02BB1721F7256888B3C221037EA86E5AE981EA487`.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #191, idx194 / volume p181 / Expose II p22; next cursor idx195 / volume p182 / Expose II p23.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
 ## 2026-07-05: Recovered open-source LaTeX-by-language source-body ZIP
 
 Manifest: [20260705_recovered_open_source_latex_by_language_source_body_zip.json](../manifests/pending-zenodo-uploads/20260705_recovered_open_source_latex_by_language_source_body_zip.json)
