@@ -8,6 +8,10 @@ This directive is for the other Codex/AI sessions working on the Noether, interl
 
 Do not sit idle while related sessions are waiting, confused, or blocked.
 
+This is not a passive reporting instruction. If you are the other-PC coordinator, you must actively tell every visible sibling session what to do. A sibling session sitting at a prompt, waiting for Floris, or vaguely "available" is a failure of coordination unless it has a written task, output path, and next check.
+
+The other PC must not push to `main`. It works only on its assigned side branch. There is no exception for the other machine: this archive-maintenance session integrates or discards its side-branch output. If the other PC touches `main`, archive maintenance will delete/revert its changes and restore the archive-maintenance branch state.
+
 If you can see, supervise, message, or otherwise influence another local/web/Claude/Codex session, you are responsible for giving that session a concrete next task when it is idle or confused. Do not merely write what you personally did. Maintain the project state and move work to the sessions that can do it.
 
 Every active session must know:
@@ -31,6 +35,16 @@ Every other-PC session must maintain a visible current-state note in its own out
 - Which sibling session should do what next?
 
 If a session cannot answer those five questions, it is not coordinated enough to be trusted.
+
+The coordinator must poll visible sibling sessions and write assignments. Do not wait for the user to manually redirect each window. The coordinator should maintain a queue like:
+
+`idle -> assign source-body collection`
+
+`blocked -> assign audit/recovery task`
+
+`finished -> assign package/manifest/logbook task`
+
+`unclear output -> assign self-audit and evidence listing`
 
 If a manager/coordinator session sees idle sibling sessions, it must immediately assign them work from the queue below and record the assignment in `SIBLING_TASKS.md`. Acceptable idle-session tasks include:
 
@@ -119,9 +133,19 @@ The coordinator must maintain:
 - `SIBLING_TASKS.md`: explicit tasks assigned to idle sessions;
 - `ACKNOWLEDGED_DIRECTIVES.md`: which directives each session has read.
 
-The coordinator must not merely report that other sessions exist. It must actively dispatch them. A useful line in `SIBLING_TASKS.md` looks like:
+The coordinator must not merely report that other sessions exist. It must actively dispatch them. Every sibling session must have a row in `ACTIVE_SESSIONS.md`; every idle or blocked sibling session must also have a row in `SIBLING_TASKS.md`.
+
+A useful line in `SIBLING_TASKS.md` looks like:
 
 `2026-07-05T17:40+02:00 | session-name | assigned: collect Polish mathematical TeX source bodies | expected output: ZIP + manifest + logbook | status: active`
+
+If there are many sibling sessions, triage them in this order:
+
+1. sessions with no logbook: create logbook and current-state file;
+2. idle sessions: assign source-body collection or audit work;
+3. sessions producing only summaries/indexes: redirect to upload literal file bodies;
+4. sessions working on interlanguage/Interslavic: require Fable/ChatGPT-Pro constraints and decision ledgers;
+5. sessions producing archive-relevant work: package, hash, and push/upload evidence.
 
 If a sibling session is idle, assign it one of these tasks:
 
