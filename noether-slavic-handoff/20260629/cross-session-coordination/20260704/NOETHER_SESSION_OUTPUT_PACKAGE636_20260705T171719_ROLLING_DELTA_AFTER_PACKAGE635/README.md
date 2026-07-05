@@ -6,12 +6,12 @@ This is a rolling delta snapshot for PR #1 on branch `codex/noether-pc-20260629`
 
 ## Package Scope
 
-- Package kind: rolling delta after package 635.
-- Copied delta non-zip files: 20
+- Package kind: rolling delta after package 635, with package-metadata repair on 2026-07-05.
+- Copied delta non-zip files: 94
 - Omitted delta zip files: 0
 - Omitted raw source body files: 0
-- Copied bytes: 1659129
-- Package combined SHA-256: `A7D956E85B0DD626F5E8A6F9F66107CC1D1B475D46D71AA49C889B0C6D159B4F`
+- Copied bytes: 2145044
+- Package combined SHA-256: `1F7A6D694867E313E0ACE5F966D9217667E0DD1F8D0B52ABFD43AE70D54F17EF`
 
 ## Boundary
 
@@ -27,3 +27,7 @@ Raw source bodies, raw OCR dumps, credentials, runtime caches, and binary zip pr
 - `NOETHER_SESSION_OUTPUT_PACKAGE636_OMITTED_ZIPS.csv`: zip provenance and omission reasons for any zip delta.
 - `NOETHER_SESSION_OUTPUT_PACKAGE636_OMITTED_RAW_SOURCE_BODIES.csv`: raw source-body provenance and omission reasons for fetched/cache deltas.
 - `NOETHER_SESSION_OUTPUT_PACKAGE636_SHA256SUMS.txt`: hashes for copied lane-output files.
+
+## Package 636 repair note
+
+On 2026-07-05, package 636 metadata was repaired after committed-tree verification found hash drift and a copied OLP checksum sidecar that referenced files not included in the package. The repair copied those referenced OLP files into the package and regenerated package-local manifests and checksums. This does not promote any lane output to native review, accepted terminology, license clearance, gate promotion, or translation completion.
