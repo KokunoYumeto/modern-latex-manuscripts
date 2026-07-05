@@ -8,7 +8,7 @@
 
 ## Classification
 
-R794 is the newest inspected local Noether source-control head as of this receipt. It is a narrow integration package over LocalCodex R793, not a reader release or corpus closure.
+R794 was the newest inspected local Noether source-control head as of this receipt and is now superseded by R795. It is a narrow integration package over LocalCodex R793, not a reader release or corpus closure.
 
 It reconciles:
 

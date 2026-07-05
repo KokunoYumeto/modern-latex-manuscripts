@@ -1,9 +1,23 @@
+## 2026-07-05 Noether R795 P30 pp.33-35 source-emphasis candidate
+
+- Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
+- Artifact: $r795Rel, 84501977 bytes, SHA256 5C5C0B3A4C485366431F1749CAE571A9D5FC7027A67B24332CB53D2AFA8144EE, 139 ZIP entries.
+- Scope/result: narrow source-control candidate over R794. Restores Paper 30 printed pp.33-35 source-emphasis/source-style loci; includes source witnesses, R794-to-R795 diff, build logs, changed-page renders, and a 466-page German cumulative build.
+- Caveat: not a reader release, Noether closure, page-by-page certification, multilingual synchronization, source-complete certification, or critical edition. Fold into a curated Noether rollup instead of uploading loose under the 100-file ceiling.
+
+## 2026-07-05 exact original Fable/Claude interlanguage program ZIP
+
+- Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
+- Artifact: $fableExactRel, 25461633 bytes, SHA256 $fableExactHash, 264 ZIP entries.
+- Paired browseable mirror: $fableMirrorRel, 25556705 bytes, SHA256 $fableMirrorHash, 253 ZIP entries.
+- Scope/result: exact original generated Fable/Claude/ChatGPT interlanguage-program ZIP as provenance, paired with the normalized mirror already in GitHub.
+- Caveat: generated methodology/source-program evidence only; not native approval, accepted terminology, translation completion, reader output, source-fidelity certification, publication readiness, or critical-edition material.
 ## 2026-07-05: Fable/ChatGPT full interlanguage program mirror
 
 Manifest: [20260705_fable_chatgpt_interlanguage_program_full_mirror.json](../manifests/pending-zenodo-uploads/20260705_fable_chatgpt_interlanguage_program_full_mirror.json)
 
 - Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
-- Artifact: publish_staging/interlanguage-methodology/20260705_fable_chatgpt_interlingua_program_full/Fable_ChatGPT_Interlanguage_Program_Full_Mirror_20260705.zip, 25556705 bytes, SHA256 $fableHash, 253 ZIP entries.
+- Artifact: publish_staging/interlanguage-methodology/20260705_fable_chatgpt_interlingua_program_full/Fable_ChatGPT_Interlanguage_Program_Full_Mirror_20260705.zip, 25556705 bytes, SHA256 DDF8F59469AEC2FA6E8B5D09733A08AB92318BA06CEA08F05F1BFA4506E06A6E, 253 ZIP entries.
 - GitHub mirror: interlanguage-sidecar/20260705/fable_chatgpt_interlingua_program_full/.
 - Scope/result: full mirrored Fable/ChatGPT interlanguage-program folder currently available on this PC, including branch-weighting, heuristic, claim-ledger, source-use, Interslavic gate-map, defect-report, and concordance materials. This is the concrete program evidence now available to downstream sessions.
 - Caveat: generated methodology/source-corpus/interlanguage-program evidence only; not native approval, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
@@ -8918,4 +8932,3 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
-
