@@ -186,6 +186,12 @@ Clean source-anchor feeds have been prepared for web/pro review:
 
 The feeds contain actual TeX-family source-anchor material from Slavic, CJK, Romance, Persianate/Farsi, and related source-canon trees. They are intended as language/register anchors for later translation consistency work. They are not generated Noether translations, not term approvals, not native-review certification, and not critical editions. The latest other-machine packages 547-552 still contained route/manifests only and no TeX-family source bodies; these feeds were therefore built from the source trees already present locally plus freshly fetched Farsi GitHub source repositories.
 
+## 2026-07-05 Backup Dump Source-Archive Inventory
+
+A local inventory now records the non-Slavic/interlanguage source archives under `C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus`. The sweep found 181 source archives, 171 of them with TeX-family entries, about 11,393 TeX-like entries by archive listing, and 2,158 PDF entries. The largest buckets are Arabic/Persianate/RTL (76 archives / 7,015 TeX-like entries) and CJK (38 archives / 2,314 TeX-like entries). See `manifests/source-intake/20260705_backup_dump_non_slavic_source_archive_inventory.md/json/csv`.
+
+This is not yet a curated Web/Pro feed or Zenodo payload. It is a candidate inventory proving that additional source bodies exist locally and should be deduplicated into smaller source-body feed ZIPs before public upload.
+
 ## 2026-07-05 Package 553-556 Follow-Up
 
 Noether-PC/interlanguage packages 553-556 have been selectively imported from `origin/codex/noether-pc-20260629`, bringing the tracked branch to package 556 / remote head `126aa344`. They are staged as `Noether_PC_Interlanguage_Packages553_556_RollingDeltas_20260705.zip` (344,890 bytes, SHA256 `C6FC3A8F6BCE521946C786706BAF065F37FBED665D6DE48FF90BCBA75107B683`). They add Romance run logs, R6 Indigenous/Creole/Sign source-canon and boundary audits, and a non-Slavic core consolidation ledger. This tranche contains no TeX-family source bodies, no PDFs, and no ZIP payloads. Treat packages 553-556 as methodology/source-canon/access-governance coordination only, not the requested bulk native source-body corpus, not language completion, not native review, not term approval, not source-fidelity certification, not publication readiness, not reader output, and not critical-edition material.
