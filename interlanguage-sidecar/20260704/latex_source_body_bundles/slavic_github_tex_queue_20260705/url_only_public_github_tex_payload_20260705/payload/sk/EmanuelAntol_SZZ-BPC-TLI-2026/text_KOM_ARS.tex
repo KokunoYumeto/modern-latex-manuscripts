@@ -1,0 +1,341 @@
+\section{Komunikační technologie (BPC-KOM) a Architektura sítí (BPC-ARS)}
+    \subsection{Základní popis referenčního modelu TCP/IP, srovnání s ISO/OSI, telekomunikační sítě – definice, struktura, vlastnosti sítí se spojováním fyzických okruhů a datových jednotek, chybovost a zdroje zpoždění. }
+
+        \subsubsection{ISO/OSI, TCP/IP}
+            \textbf{Referenční model ISO/OSI}\\
+            Model ISO/OSI byl vytvořen jako otevřený standard pro propojování sítí. Skládá se ze \textbf{sedmi vrstev}: fyzické, spojové, síťové, transportní, relační, prezentační a aplikační. Tvůrci tohoto modelu předpokládali, že samotná síť bude spolehlivá a koncová zařízení budou relativně jednoduchá. Zajišťováním spolehlivosti se zabývá do určité míry každá vrstva.\\
+            \textbf{Referenční model TCP/IP} předpokládá existenci jednoduché, rychlé, ale nespolehlivé komunikační sítě (princip best effort). Zajištění spolehlivosti je úkolem výhradně koncových uzlů (transportní vrstvy). 
+            
+            Model \textbf{TCP/IP} používá nespojovaný přenos a dělí se na čtyři vrstvy:
+            \begin{enumerate}
+                \item \textbf{Vrstva síťového rozhraní:} Odpovídá fyzické a spojové vrstvě v ISO/OSI. Stará se o ovládání konkrétní přenosové cesty a závisí na použité technologii (např. Ethernet, Wi-Fi).
+                \item \textbf{Internetová vrstva:} Odpovídá síťové vrstvě v ISO/OSI. Hlavním protokolem je IP. Poskytuje nespolehlivou datagramovou službu a zajišťuje směrování paketů.
+                \item \textbf{Transportní vrstva:} Odpovídá transportní vrstvě ISO/OSI. Zajišťuje koncovou komunikaci mezi procesy aplikací. Využívá TCP (řízení toku, segmentace, kontrola chyb) nebo protokol UDP.
+                \item \textbf{Aplikační vrstva:} Sdružuje funkce aplikační, prezentační a relační vrstvy ISO/OSI. Obsahuje aplikační protokoly jako HTTP, FTP, SMTP, DNS či DHCP.
+            \end{enumerate}
+    \subsubsection{Telekomunikační sítě}
+        Elektronická komunikace představuje sdělování informací mezi několika koncovými uživateli nebo procesy na základě předem dohodnutých pravidel a protokolů.
+        
+        \textbf{Struktura:} Sítě se z obecného hlediska skládají z následujících komponent:
+        \begin{itemize}
+            \item \textbf{Koncová zařízení (end systems/hosts):} Např. PC, servery, mobilní telefony.
+            \item \textbf{Přenosové trasy:} Média (optika, metalika, bezdrátový prostor) mají určité vlastnosti.
+            \item \textbf{Propojující zařízení (mezilehlé uzly):} Především směrovače a přepínače, které předávají pakety na trase.
+        \end{itemize}
+        
+        Uzly mohou být spojeny buď dvoubodově (např. hvězda, kruh, strom, polygon), nebo sdílením všesměrového kanálu (broadcast/multipoint), typického pro rádiové sítě. Síť tvoří samostatně funkční celky zvané Autonomní systémy (AS), které jsou vzájemně propojené. Každý z AS může hrát různé role. Může se jednat například o ISP (Internet Service Provider), síť CDN (Content Delivery Netwrok) či Tranzitní AS.
+
+        \subsubsection*{Vlastnosti sítí se spojováním okruhů a paketů}
+            \begin{itemize}
+                \item \textbf{Komutace okruhů (Circuit switching)}
+                \begin{itemize}
+                    \item \textbf{Princip:} Před zahájením přenosu se vytvoří vyhrazená fyzická spojovací cesta (okruh) mezi koncovými účastníky, a to i napříč všemi mezilehlými uzly.
+                    \item \textbf{Vlastnosti:} Vytvoření spoje způsobuje počáteční zdržení. Komunikace je z hlediska alokace prostředků neefektivní a drahá, protože kapacita je vyhrazena po celou dobu spojení.
+                    \item \textbf{Využití:} Převážně pro klasickou pevnou a mobilní telefonii (hovorový signál), v datových sítích je dnes tento princip neobvyklý.
+                \end{itemize}
+                \item \textbf{Komutace paketů (Packet switching)}
+                \begin{itemize}
+                    \item \textbf{Princip:} Přenášená zpráva je rozdělena na menší datové bloky (pakety) o proměnné délce, která je obvykle limitována na 1500 bajtů (Ethernet). Jednotlivé pakety jsou sítí zasílány samostatně.
+                    \item \textbf{Vlastnosti:} Jednotlivé uzly dynamicky vyhledávají optimální trasy a mohou pakety ukládat do front. Pakety mohou k cíli dorazit v jiném pořadí, než byly odeslány. Metoda je z hlediska alokace prostředků pro datové sítě efektivní, avšak přináší vyšší nároky na řídicí informace (každý paket musí nést adresy).  Může fungovat jako \textbf{nespojovaná služba} (datagramy putují nezávisle), nebo jako \textbf{služba virtuálních okruhů} (vytváří se fixní logická cesta pro konkrétní datový tok).
+                    \item \textbf{Služby:} Internet :D
+                \end{itemize}
+            \end{itemize}
+
+        \subsubsection*{Chybovost a zdroje zpoždění}
+            Výkonnost a kvalita telekomunikační sítě je limitována dvěma hlavními negativními faktory:
+
+            \begin{itemize}
+                \item{\textbf{Zpoždění:}}
+                    \begin{itemize}
+                        \item \textbf{Zpoždění dané vzdáleností:} Je určeno rychlostí šíření signálu v médiu a fyzickou vzdáleností mezi komunikujícími uzly.
+                        \item \textbf{Zpoždění zpracováním:} Při komutaci paketů musí každý směrovač na trase paket přijmout, zkontrolovat jeho záhlaví, vyhledat cestu ve směrovací tabulce a poté jej odeslat na výstupní port.
+                        \item \textbf{Zpoždění ve frontách:} Pokud je linka nebo směrovač zahlcen, pakety musí čekat ve vyrovnávací paměti (frontě), což do přenosu vnáší proměnlivé zpoždění.
+                    \end{itemize}
+                \item{\textbf{Chybovost a ztrátovost:}}
+                    \begin{itemize}
+                        \item Chybovost představuje procento paketů, které nebyly v pořádku doručeny k příjemci.
+                        \item \textbf{Příčiny:} K zahození či ztrátě dochází z důvodu fyzického poškození signálu šumem na lince, při výpadku spojení na trase směrovačů, nebo při přetížení sítě, kdy dojde kapacita vyrovnávací paměti uzlu (tzv. zahlcení).
+                    \end{itemize}
+            \end{itemize}
+    \subsection{Fyzická a spojová vrstva přenosových systémů - rámce spojové vrstvy, metody zajištění spolehlivého přenosu, aktivní síťové prvky, SPT protokol. Ethernet, IEEE 802.11, průmyslový Ethernet.}
+        \begin{itemize}
+            \item\textbf{Fyzická vrstva} Stará se o přizpůsobení dat získaných od spojové vrstvy do podoby bitového toku, typicky prostřednictvím elektrických, optických či rádiových signálů. Řeší modulace, kódování dat a reprezentaci bitů.
+            \item\textbf{Spojová vrstva} Spojová vrstva mění tok bitů z fyzické vrstvy na cestu pro přenos datových bloků, tzv. \textbf{rámců}. Obvykle se člení na dvě podvrstvy:
+            \begin{itemize}
+                \item \textbf{LLC (Logical Link Control):} Tvoří rozhraní k síťové vrstvě (např. IP protokolu), umožňuje multiplexování protokolů třetí vrstvy a může se starat o kontrolu toku dat a chyb.
+                \item \textbf{MAC (Media Access Control):} Poskytuje služby specifické pro přenosové médium, řeší kódování, adresování, vytváření rámců a přístupové metody ke sdílenému médiu (řešení kolizí).
+            \end{itemize}
+        \end{itemize}
+
+    \subsubsection{Rámce spojové vrstvy}
+        Rámec je základní jednotka spojové vrstvy. Vytvoření rámce umožňuje uzlům synchronizaci a identifikaci dat. Obecně se skládá ze tří částí:
+        \begin{enumerate}
+            \item \textbf{Záhlaví (Header):} Obsahuje řídicí informace, jejichž formát závisí na technologii (nejčastěji Ethernet). Nejčastěji zahrnuje preambuli (pro určení začátku rámce a synchronizaci příjemce), cílovou a zdrojovou MAC adresu. [Pro ATM: Generic Flow Controll(4b), Virtual Path Identifier(8bit), Virtual Channel Identifier(16bit), Pyaload Type(3bit), Cell Loss Priority(1bit), Header Error controll(8bit)]
+            \item \textbf{Datová část (Body):} Samotný paket síťové vrstvy (např. IP paket), jehož tvar je nezávislý na použité spojové technologii.
+            \item \textbf{Zápatí (Trailer):} Ukončuje rámec a obsahuje zabezpečovací mechanismy proti chybám. Dominantní položkou je kontrolní sekvence \textbf{FCS (Frame Check Sequence)}.
+        \end{enumerate}
+
+        \begin{figure}[h]
+            \begin{center}
+            \includegraphics[scale=0.5]{EthernetFrame.png}
+            \caption{Ethernet rámec}
+            \end{center}
+        \end{figure}\textbf{}
+        \begin{figure}[h]
+            \begin{center}
+            \includegraphics[scale=0.85]{ATMFrame.png}
+            \caption{ATM rámec}
+            \end{center}
+        \end{figure}\textbf{}
+
+    \subsubsection{Metody zajištění spolehlivého přenosu}
+        \subsubsection*{Detekce chyb:}
+        \begin{itemize}
+            \item \textbf{Cyklické redundantní kontroly (CRC):} Matematický aparát (dělení polynomů), kde je zbytek po dělení uložen do pole FCS v zápatí rámce. 
+            \item Jiné jednodušší metody zahrnují paritní bity či kontrolní součty (méně spolehlivé).
+        \end{itemize}
+        
+        \subsubsection*{Řízení chybových stavů a toku dat (ARQ):} 
+            \textbf{Klouzavé okno} umožňuje vyslat více rámců najednou bez čekání na okamžité potvrzení. Přijímač může potvrzovat kumulativně. Zvyšuje propustnost a zároveň reguluje tok dat, aby vysílač nezahltil příjemce.
+        
+            Pokud je detekována chyba nebo se rámec ztratí, spojová vrstva (pokud nabízí spolehlivý přenos) vyžaduje opakování vysílání pomocí mechanismů \textbf{ARQ (Automatic Repeat reQuest)}:
+            
+            \begin{itemize}
+                \item \textbf{Stop-and-wait ARQ:} Odesílatel pošle rámec a čeká na potvrzení (ACK). Teprve po úspěšném potvrzení posílá další. Metoda je velmi pomalá a neefektivní z hlediska využití kapacity linky.
+                \item \textbf{Go-Back-N ARQ:} Pokud je rámec poškozen, přijímač jej zahodí a zašle žádost o opakování. Vysílač se vrátí k poškozenému rámci a musí znovu vyslat i všechny rámce, které byly vyslány po něm.
+                \item \textbf{Selective Repeat ARQ (SR):} Znovu je odeslán pouze rámec, u kterého se potvrdila chyba (příjemce zašle tzv. SREJ/NACK).
+            \end{itemize}
+
+
+        \subsubsection*{Aktivní síťové prvky}
+            \begin{itemize}
+                \item\textbf{Prvky fyzické vrstvy:} Tato zařízení nemají adresy a nerozumí obsahu přenášených dat (nevnímají rámce). Slouží k obnově (regeneraci) signálu a jeho dalšímu odeslání, přinášejí do sítě minimální zpoždění.
+                \begin{itemize}
+                    \item \textbf{Opakovač (Repeater):} Obsahuje dva porty. Zesiluje a obnovuje signál k prodloužení dosahu linky.
+                    \item \textbf{Rozbočovač (Hub):} Víceportový opakovač. Signál přijatý na jednom portu odešle jako kopii na všechny ostatní porty. Dnes se kvůli své neefektivitě používá jen okrajově.
+                \end{itemize}
+                \item\textbf{Prvky spojové vrstvy:}
+                \begin{itemize}
+                    \item \textbf{Přepínač (Switch):} Víceportové zařízení disponující vnitřní logikou. Vyhodnocuje zdrojové a cílové fyzické (MAC) adresy v rámcích. Pokud je známo, na kterém portu se cílová stanice nachází, odešle rámec pouze na tento konkrétní výstupní port. Tímto způsobem přepínač rozděluje síť do samostatných kolizních domén.
+                \end{itemize}
+                    \textbf{STP (Spanning Tree Protocol):} Protokol druhé vrstvy (L2), který zabraňuje vzniku smyček v síti tím, že blokuje redundantní cesty. Zajišťuje, aby v topologii existovala pouze jedna aktivní cesta mezi libovolnými dvěma uzly. Záložní trasy jsou automaticky aktivovány pouze v případě výpadku primární linky.
+            \end{itemize}
+
+        \subsubsection{Ethernet, Průmyslový Ethernet, IEEE 802.11}
+            
+            
+                \subsubsection*{Ethernet}
+                \textbf{Ethernet} je nejrozšířenější technologie druhé vrstvy. Standardy IEEE 802.3 definují způsob vytváření rámců. V praxi existují dva hlavní formáty: \textbf{IEEE 802.3} (používá pole Délka pro určení velikosti dat) a častější \textbf{Ethernet II} (místo délky používá pole Typ, které nese informaci o vyšším protokolu, např. IP).
+                
+                \begin{itemize}
+                    \item Využívá 48bitovou celosvětově unikátní \textbf{MAC adresu} zapsanou do síťové karty (NIC) výrobcem.
+                    \item Typicky využívá nedeterministickou metodu řešení kolizí na sdíleném médiu zvanou \textbf{CSMA/CD (Carrier Sense Multiple Access with Collision Detection)}.
+                \end{itemize}
+
+                \subsubsection*{Průmyslový Ethernet (Industrial Ethernet):}
+                Rozšíření standardního Ethernetu pro náročné průmyslové prostředí. Na rozdíl od běžného Ethernetu klade důraz na \textbf{determinismus} (zaručenou dobu odezvy) a mechanickou odolnost. Z tohoto důvodu se pro tuto infrastrukturu doporučují místo běžných UTP (nestíněných) kabelů symetrické kabely s dodatečným stíněním, jako jsou kabely typu STP nebo FTP. Mezi nejznámější protokoly patří \textbf{PROFINET} nebo \textbf{EtherCAT}, které modifikují standardní CSMA/CD mechanismy, aby eliminovaly kolize a umožnily komunikaci v reálném čase pro řízení strojů a senzorů.
+
+                \subsubsection*{IEEE 802.11 (Wi-Fi)}
+                     Bezdrátová lokální síť využívající volný prostor, kde dochází k častějším interferencím.
+    
+                    \begin{itemize}
+                        \item \textbf{Přístup k médiu:} Používá metodu \textbf{CSMA/CA (Collision Avoidance)}. Uzly se snaží kolizím aktivně vyhnout tím, že uzel po zjištění volného média předem informuje ostatní stanice o úmyslu zahájit vysílání a o jeho trvání. 
+                        \item \textbf{Struktura rámce:} Wi-Fi rámce jsou komplexnější než ethernetové; mohou obsahovat až \textbf{čtyři MAC adresy} (pro rozlišení koncových uzlů a přístupových bodů). Dále obsahují pole jako \textit{From DS} a \textit{To DS} v rámci řídicího pole \textit{Frame Control}, která indikují směr provozu vzhledem k distribučnímu systému (DS).
+                    \end{itemize}
+                    \begin{figure}[h]
+                        \begin{center}
+                        \includegraphics[scale=0.15]{802_11frame.png}
+                        \caption{802.11 rámec}
+                        \end{center}
+                    \end{figure}\textbf{}
+
+    \newpage
+    \subsection{Síťová vrstva přenosových systémů - služby síťové vrstvy s IPv4 i IPv6 protokolem, IPv4 adresy, techniky směrování a směrovací protokoly, IPv4 datagram, ARP, ICMPv4, IPv6 datagram a globální IPv6 adresa. }
+        \subsubsection{Služby síťové vrstvy s IPv4 i IPv6 protokolem}
+
+            Síťová vrstva je zodpovědná za \textbf{logické adresování} uzlů a za \textbf{směrování (routing)} paketů přes mezilehlé uzly (směrovače).
+            
+            V prostředí TCP/IP přistupuje síťová vrstva (implementovaná protokolem IPv4 nebo IPv6) ke komunikaci pomocí následujících principů:
+            
+            \begin{itemize}
+                \item \textbf{Jednotná abstrakce:} Síťová vrstva zastírá rozdíly mezi různými přenosovými technologiemi (Ethernet, Wi-Fi, ...). Paket síťové vrstvy má jednotný formát a pro přenos fyzickým médiem je zapouzdřen do rámce dané spojové vrstvy.
+                \item Komunikace funguje na principu přepojování paketů (packet switching), nevyžaduje se trvalé spojení a síťová vrstva negarantuje doručení. Pakety mohou dorazit v jiném pořadí, případně mohou být sítí zahozeny (tzv. služba \textbf{best effort}). Spolehlivost musí řešit vyšší vrstvy, jako TCP.
+                \item Mezi další služby (často delegované na podpůrné protokoly) patří omezené řízení toku dat, mechanismy pro ohlašování chyb (ICMP/ICMPv6) a fragmentace přenášených dat.
+            \end{itemize}
+                
+        \subsubsection{IPv4 adresy}
+
+            Protokol IPv4 využívá pro logickou identifikaci uzlů v síti \textbf{32bitové IP adresy}, z čehož plyne teoretický adresní prostor cca 4,3 miliardy adres.
+            
+            \begin{itemize}
+
+                \item \textbf{Struktura:} Adresa je hierarchická a dvousložková -- skládá se z \textbf{adresy sítě} (identifikuje konkrétní síť) a \textbf{adresy stanice} (identifikuje uzel). Hranice mezi částí pro síť a částí pro stanici je určena maskou sítě. Maska se často zapisuje zkráceně pomocí \textbf{délky prefixu} za lomítkem (např. /24).
+                \item Historicky se síťové adresy dělily na \textbf{třídy (A, B, C, D, E)} s fixně danou délkou masky, to však vedlo k plýtvání. Dnes se primárně využívá \textbf{beztřídní adresování (CIDR)}, které umožňuje síť libovolně dělit (tzv. \textbf{podsíťování -- subnetting}) vypůjčením bitů ze staniční části pro adresu podsítě.
+                \item \textbf{Rozdělení adres:}
+                \begin{itemize}
+                    \item \textbf{Veřejné adresy:} Globálně unikátní a směrovatelné v celém Internetu. Přiděluje je organizace IANA a regionální RIR.
+                    \item \textbf{Privátní adresy:} Vyčleněné rozsahy (např. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) pro užití v lokálních sítích oddělených od Internetu. Pro zajištění komunikace s Internetem vyžadují překlad adres (NAT).
+                    \item \textbf{Speciální adresy:} Adresa sítě (první adresa rozsahu), všesměrová broadcast adresa (poslední adresa rozsahu) a adresa lokální smyčky -- loopback (127.0.0.0/8).
+                \end{itemize}
+            \end{itemize}
+        \subsubsection{Techniky směrování a směrovací protokoly}
+            Směrování spočívá v hledání nejvhodnější cesty paketů od zdroje k cíli přes mezilehlé uzly.
+            \begin{itemize}
+                \item \textbf{Směrovací tabulky:} Každý směrovač udržuje tabulku mapující cílové sítě na "adresu dalšího skoku" (next-hop) nebo výstupní rozhraní. Rozhoduje se pouze na základě adresy sítě.
+                \item Aby se velikost tabulek minimalizovala, využívá se \textbf{agregace adres}, kdy se více dílčích sítí spojí do jedné s kratším prefixem.
+                \item \textbf{Směrovací protokoly:} Slouží k automatickému a dynamickému plnění a údržbě směrovacích tabulek. Internet se hierarchicky dělí na Autonomní systémy (AS).
+                \begin{itemize}
+                    \item Pro směrování \textbf{uvnitř AS} (tzv. Interior Gateway Protocols -- IGP) se využívají např. protokoly \textbf{RIP (distance-vector), OSPF (link-state), EIGRP} a \textbf{IS-IS}.
+                    \item Pro směrování \textbf{mezi AS} (Exterior Gateway Protocols -- EGP) se využívá protokol \textbf{BGP} (ve verzi 4 pro IPv4 a BGP4+ pro IPv6).
+                \end{itemize}
+            \end{itemize}
+        \subsubsection{IPv4 datagram}
+            IPv4 datagram je zapouzdřen do linkového rámce a skládá se ze \textbf{záhlaví} a datové části. Záhlaví má proměnnou délku \textbf{20 až 60 bajtů}. Nejvýznamnější pole IPv4 záhlaví jsou:
+            \begin{itemize}
+                \item \textbf{Verze a Délka záhlaví:} Indikuje verzi (4) a skutečnou délku záhlaví.
+                \item \textbf{Typ služby (ToS):} Specifikace kvality přenosu (QoS).
+                \item \textbf{Celková délka:} Udává délku celého datagramu (až 65 535 B).
+                \item \textbf{Identifikace, Příznaky (DF -- nefragmentovat, MF -- následují fragmenty) a Posunutí fragmentu:} Tyto tři položky slouží k \textbf{fragmentaci} datagramu na menší části, pokud překročí maximální povolenou velikost (MTU) na lince.
+                \item \textbf{Doba života (TTL -- Time To Live):} Definuje limit skoků (směrovačů). Každý směrovač hodnotu sníží a při dosažení nuly je paket zahozen (ochrana proti zacyklení).
+                \item \textbf{Protokol vyšší vrstvy:} Určuje transportní protokol uvnitř datagramu (např. TCP, UDP).
+                \item \textbf{Kontrolní součet (Header Checksum):} Ochrana proti bitovým chybám výhradně v záhlaví.
+                \item \textbf{Zdrojová a Cílová IP adresa:} Logické 32bitové adresy.
+            \end{itemize}
+        \subsubsection{ARP (Address Resolution Protocol)}
+            Protože IP adresy jsou abstrakcí, pro vytvoření rámce na spojové vrstvě (např. sítě Ethernet) potřebuje odesílatel fyzickou \textbf{MAC adresu}. Protokol ARP zajišťuje dynamické mapování IPv4 adresy a MAC adresy.
+            \begin{itemize}
+                \item \textbf{Princip:} Odesílatel nejprve prohledá svou vyrovnávací paměť (ARP cache). Pokud v ní záznam chybí, odešle všesměrový dotaz \textbf{ARP Request} po celé lokální síti. Uzel (nebo výchozí brána pro komunikaci mimo síť), který vlastní dotazovanou IP adresu, odpoví přímo (unicast) zprávou \textbf{ARP Reply}, v níž pošle svoji MAC adresu. Získané informace se ukládají s omezenou platností do ARP tabulky pro budoucí použití.
+            \end{itemize}
+        \subsubsection{ICMPv4 (Internet Control Message Protocol v4)}
+            Protokol IPv4 nemá integrované hlášení chyb, proto se používá servisní protokol ICMP. Jeho zprávy jsou bez uživatelských dat. Dělí se do dvou hlavních kategorií:
+            \begin{enumerate}
+                \item \textbf{Hlášení chyb:} Zprávy zasílané původnímu odesílateli paketu z místa vzniku chyby. Zahrnují stavy jako: nedoručitelný datagram (např. směrovač nezná cestu k cíli), vypršení doby života, přesměrování či problém s parametry v záhlaví. Pro identifikaci se připojuje záhlaví a prvních 8 bajtů chybného paketu.
+                \item \textbf{Dotazování (Query):} Typicky režim "žádost -- odpověď" (Echo Request / Echo Reply), na kterém je mimo jiné založena síťový nástroj \textbf{ping} a trasování pomocí \textbf{traceroute}.
+            \end{enumerate}
+    \subsubsection{IPv6 datagram}
+        \begin{itemize}
+            \item \textbf{Záhlaví IPv6:} Má zjednodušený fixní formát a délku přesně \textbf{40 bajtů}
+            \item \textbf{Hlavní úpravy a položky:}
+            \begin{itemize}
+                \item Chybí pole Kontrolního součtu (spoléhá se na L2 a L4, urychluje směrování).
+                \item Chybí proces fragmentace přímo v uzlech (nutné rozšiřující záhlaví).
+                \item Obsahuje pole: Verze, Třída provozu (priorita QoS), Identifikace toku dat (Flow label pro zjednodušení směrování), Celková délka přenášených dat (až 64 kB), Další záhlaví (nahrazuje "Protokol" v IPv4 a ukazuje na transportní protokol nebo volitelné hlavičky), Limit počtu skoků (Hop Limit místo TTL) a 128bitovou zdrojovou a cílovou IPv6 adresu.
+            \end{itemize}
+        \end{itemize}
+    \subsubsection{Globální IPv6 adresa}
+        \begin{itemize}
+            \item \textbf{Zápis:} Adresy se zapisují ve formě 8 bloků po čtyřech hexadecimálních číslicích oddělených dvojtečkou. Lze používat zkracování vynecháním vedoucích nul v blocích nebo nahrazením souvislé řady nulových bloků znaky \texttt{::}.
+            \item IPv6 zná skupinové (multicast) a výběrové (anycast) a \textbf{Individuální (unicast) adresy}. Globální individuální adresa slouží k plné identifikaci rozhraní v celosvětovém Internetu.
+            \item Struktura globální individuální adresy je pevná a trojsložková:
+            \begin{enumerate}
+                \item \textbf{Globální směrovací prefix (48 bitů):} Odpovídá veřejné adrese sítě. Prefixy centrálně přidělují organizace IANA, ...
+                \item \textbf{Identifikátor podsítě (16 bitů):} Definuje lokální topologii sítě uvnitř organizace/firmy (umožňuje alokovat až 65 536 podsítí pod jedním prefixem).
+                \item \textbf{Identifikátor rozhraní (64 bitů):} Slouží k jasnému odlišení koncových stanic uvnitř jedné konkrétní sítě nebo podsítě.
+            \end{enumerate}
+        \end{itemize}
+\subsection{Transportní vrstva přenosových systémů - UDP protokol, TCP protokol, NAT. }
+    \subsubsection{Transportní vrstva a její služby}
+        Transportní vrstva poskytuje prostředky pro komunikaci procesů běžících na hostitelských stanicích.\\
+        \textbf{Základní služby a vlastnosti transportní vrstvy:}
+        \begin{itemize}
+            \item \textbf{Adresování procesů (Porty):} K rozlišení jednotlivých aplikací se na stanici využívají 16bitové porty. Porty se dělí do tří skupin: dobře známé (\textit{well-known}, 0--1023), registrované (1024--49151) a soukromé/dynamické (49152--65535) přidělované klientským aplikacím. Kombinace IP adresy a čísla portu tvoří \textbf{síťový socket}.
+            \item \textbf{Segmentace a zapouzdřování:} Transportní vrstva rozděluje aplikační data na části -- u protokolu TCP se tato jednotka nazývá \textbf{segment}, u protokolu \textbf{UDP datagram}.
+            \item \textbf{Multiplexování a demultiplexování:} Vrstva vyřizuje požadavky aplikačních protokolů a sdružuje je pro přenos nižší vrstvou, při příjmu naopak na základě portů třídí a předává správným aplikacím.
+            \item \textbf{Řízení přenosu:} Má koncový charakter a u spolehlivých protokolů zahrnuje řízení toku dat (ochrana proti zahlcení příjemce), řízení chybových stavů (potvrzování doručení, číslování dat) a předcházení stavům zahlcení sítě.
+        \end{itemize}
+        Transportní vrstva může poskytovat buď službu \textbf{bez spojení}, nebo službu \textbf{se spojením}.
+    \subsubsection{User Datagram Protocol (UDP)}
+        UDP je jednoduchý transportní protokol poskytující nespolehlivou (\textit{best effort}) službu bez předchozího navazování spojení. Data přenáší formou samostatných a na sobě nezávislých datagramů.
+        \begin{itemize}
+            \item \textbf{Vlastnosti a řízení:} Datagramy nejsou číslovány, může dojít k jejich ztrátě či změně pořadí během přenosu. Protokol UDP nedisponuje žádnými mechanismy pro řízení toku dat, správu chybových stavů ani ochranu proti zahlcení sítě.
+            \item \textbf{Formát UDP datagramu:} UDP záhlaví má velikost \textbf{8 bajtů}. Skládá se ze čtyř 16bitových polí: \textit{Zdrojový port}, \textit{Cílový port}, \textit{Celková délka} a \textit{Kontrolní součet}.
+            \item \textbf{Využití protokolu:} Výhodou UDP je minimální režie a zpoždění. Používá se pro krátké transakce typu dotaz--odpověď (typicky systém DNS) nebo pro multimediální přenosy v reálném čase, např. hovory VoIP a protokol RTP.
+        \end{itemize}
+    \subsubsection{Transmission Control Protocol (TCP)}
+        TCP je protokol orientovaný na spojení, který nad nespolehlivou síťovou vrstvou vytváří iluzi spolehlivého spojení přenášejícího spojitý tok bajtů. Jednotkou přenosu je \textbf{TCP segment}.
+        \begin{itemize}
+            \item \textbf{Navazování a ukončování spojení:} Před samotnou výměnou dat navazazuje TCP virtuální spojení procesem zvaným \textit{Three-way handshake} (segmenty s příznaky SYN, SYN-ACK a ACK). Pro ukončení spojení probíhá \textit{Four-way handshake} (výměna zpráv FIN, ACK, FIN, ACK).
+            \item \textbf{Číslovací systém:}  Každá strana si udržuje pořadové číslo odesílaného bajtu (SEQ) a pořadové číslo dalšího očekávaného, tedy potvrzovaného bajtu (ACK) od protistrany.
+            \item \textbf{Řízení provozu:} Ke kontrole toku dat a zajištění spolehlivosti využívá TCP mechanismus \textit{klouzavého okna}. V záhlaví je přenášena "délka okna", která příjemci umožňuje dynamicky určovat, kolik bajtů může odeslat bez čekání na potvrzení, čímž se účinně brání zahlcení příjemce a sítě.
+            \item \textbf{Záhlaví TCP:} Standardní délka je \textbf{20 bajtů} (může být prodlouženo volitelnými položkami). Klíčová pole vedle portů zahrnují: Pořadové číslo (SEQ), Číslo potvrzení (ACK), Délku záhlaví, kontrolní součet, délku okna, ukazatel naléhavých dat a 6 kontrolních příznaků (flags): URG, ACK, PSH, RST, SYN, FIN.
+            \item \textbf{Využití protokolu:} Nasazuje se u aplikací vyžadujících bezchybný a uspořádaný přenos dat, jako je prohlížení webu (HTTP), přenos souborů (FTP) či elektronická pošta (SMTP). Režie na spojení a jeho zajištění je zde ovšem významná.
+        \end{itemize}
+    \subsubsection{NAT (Network Address Translation)}
+        Z důvodu nedostatku veřejných IPv4 adres používají lokální sítě privátní adresy. Zařízení oddělující tuto síť od Internetu (směrovač) provádí NAT (změnu IP adresy v záhlaví procházejících paketů).
+        \\
+        \textbf{Varianty:}
+        
+        \begin{itemize}
+            \item \textbf{SNAT (Source NAT):} Překládá se primárně zdrojová adresa odesílatele do Internetu. Spojení může být iniciováno pouze zevnitř sítě a jeho původ (vniřní adresa) je z pohledu IP skryt.
+            \item \textbf{DNAT (Destination NAT / Port Forwarding):} Překládá se cílová IP adresa. Slouží ke zveřejnění interních služeb z lokální sítě do veřejného Internetu.
+        \end{itemize}
+            \textbf{Nevýhody:} NAT narušuje přímočarou obousměrnou \textit{end-to-end} konektivitu. Taktéž mírně zvyšuje časové zpoždění paketů nutností přepisu hlaviček (a přepočtu kontrolních součtů).
+\subsection{Aplikační vrstva přenosových systémů - DHCP protokol, DNS systém, přenos souborů FTP protokolem, elektronická pošta a protokol SMTP, protokoly pro řízení a správu sítí (SNMP). }
+    \subsubsection{Aplikační vrstva}
+        Aplikační vrstva je nejvyšší vrstvou modelu ISO/OSI a zahrnuje komunikační funkce, které jsou specifické pro konkrétní aplikační procesy. Protokoly aplikační vrstvy typicky fungují na modelu klient--server.
+    \subsubsection{Dynamic Host Configuration Protocol (DHCP)}
+        DHCP je aplikační protokol využívající nespolehlivý transportní protokol UDP. Klient odesílá požadavky na port serveru 67 a server odpovídá na port klienta 68. DHCP přiděluje stanicím IP adresu, masku sítě, výchozí bránu a DNS servery na předem určenou omezenou dobu (\textit{lease time}). Po uplynutí této doby musí stanice požádat o obnovení.
+        \begin{itemize}
+            \item \textbf{Proces přidělení IP adresy (zprávy):}
+            \begin{enumerate}
+                \item \textbf{DHCP\_DISCOVER:} Po připojení do sítě klient odešle všesměrový dotaz (broadcast) pro nalezení DHCP serveru.
+                \item \textbf{DHCP\_OFFER:} Server zareaguje nabídkou IP konfigurace.
+                \item \textbf{DHCP\_REQUEST:} Klient si vybere jednu nabídku.
+                \item \textbf{DHCP\_ACK:} Server potvrdí zapůjčení konfigurace a stanoví \textit{lease time}.
+            \end{enumerate}
+            \item \textbf{DHCP Relay Agent:} Pokud je síť rozdělena směrovači a DHCP server není v každé podsíti přítomen, broadcastové DHCP\_DISCOVER dotazy by přes směrovač neprošly. Proto se využívá DHCP Relay Agent, který na směrovači zachytává broadcasty a cíleně (unicastem) je přeposílá DHCP serveru do jiné sítě s přiloženou informací o tom, ze které sítě dotaz pochází.
+        \end{itemize}
+    \subsubsection{Domain Name System (DNS)}
+        DNS je distribuovaná, hierarchicky organizovaná datová služba, která vytváří mapování mezi IP adresami a doménovými jmény.
+        \begin{itemize}
+            \item \textbf{Fungování:} Systém využívá k přenosu dat transportní port \textbf{UDP/53} a někdy \textbf{TCP/53}. Doménové jméno je tvořeno řetězci oddělenými tečkou a vyhodnocuje se zprava doleva (od kořenové TLD po konkrétní stroj).
+            \item \textbf{Komponenty (Resolvery a Servery):}
+            \begin{itemize}
+                \item \textit{Stub resolver:} Klientská část v OS, která udržuje lokální tabulky (hosts) a dočasnou paměť (cache), dohlíží na odeslání dotazu.
+                \item \textit{Rekurzivní resolver (místní DNS server):} Vyřizuje dotazy za klienta. Pokud záznam nemá, komunikuje postupně s nadřazenými servery.
+                \item \textit{Kořenové servery (Root servers):} Obsluhují nejvyšší (.) úroveň a přesměrovávají dotazy na servery spravující domény nejvyšší úrovně (TLD, např. .cz).
+            \end{itemize}
+            \item \textbf{Typy záznamů (RR -- Resource Records):} Mezi klíčové záznamy v databázi patří \textbf{A} (mapování jména na IPv4 adresu), \textbf{AAAA} (mapování na IPv6 adresu), \textbf{NS} (autoritativní DNS server dané domény), \textbf{MX} (poštovní server domény) a \textbf{CNAME} (alias neboli kanonické jméno).
+        \end{itemize}
+    \subsubsection{Přenos souborů protokolem FTP}
+        FTP slouží k přenosu souborů napříč TCP/IP sítěmi mezi systémy s různými operačními systémy. Je to stavový protokol (server si pamatuje nastavení režimu, aktuální adresář atd.) a ve své základní podobě přenáší data nešifrovaně, a to včetně přihlašovacích údajů.
+        \begin{itemize}
+            \item \textbf{Komunikace:} FTP protokol využívá dvou oddělených TCP spojení:
+            \begin{itemize}
+                \item \textit{Řídicí spojení (TCP/21 na serveru):} Trvá po celou dobu relace, zasílají se jím výlučně textové příkazy (např. USER, PASS, PASV, RETR) a server odpovídá tříčíselnými stavovými kódy.
+                \item \textit{Datové spojení (TCP/20 na serveru, nebo určený port):} Vzniká pouze dočasně pro samotný přenos dat a ihned po něm se uzavírá.
+            \end{itemize}
+            \item \textbf{Režimy spojení:}
+            \begin{itemize}
+                \item \textit{Aktivní režim (výchozí):} Klient si otevře náhodný port a sdělí ho řídicím kanálem serveru. Server se následně na tento port aktivně připojí pro datový přenos. Může činit problémy při NATu a firewallu.
+                \item \textit{Pasivní režim:} Server otevře náhodný port a prostřednictvím řídicího spojení vybídne klienta, aby datové spojení z vlastního podnětu navázal klient.
+            \end{itemize}
+        \end{itemize}
+    \subsubsection{Elektronická pošta a protokol SMTP}
+        Systém elektronické pošty pracuje na principu klient--server a k provozu využívá několik dílčích softwarových komponent.
+        \begin{itemize}
+            \item \textbf{Architektura:}
+            \begin{itemize}
+                \item \textit{MUA (Mail User Agent):} Poštovní klient na straně koncového uživatele.
+                \item \textit{MTA (Mail Transport Agent):} Modul poštovního serveru, který zajišťuje přesun zpráv mezi servery sítě internet.
+                \item \textit{MDA (Mail Delivery Agent):} Modul pro lokální doručení zprávy do konkrétní uživatelské schránky na serveru.
+            \end{itemize}
+            \item \textbf{Struktura zprávy:} Skládá se ze strukturovaného \textit{záhlaví} (header) a \textit{těla} (body) odděleného prázdným řádkem. Významnou položkou záhlaví je pole \textit{Received}, do kterého každý poštovní server, jímž zpráva projde, zapíše informaci.
+            \item \textbf{Protokol SMTP (Simple Mail Transfer Protocol):} Je hlavním protokolem pro odesílání emailů od uživatele (z MUA na MTA) a pro předávání emailů mezi poštovními servery navzájem. Využívá transportní protokol TCP, standardně na portu 25. Ve své původní podobě je to jednoduchý protokol předávající příkazy v čistém kódu ASCII. Modernější variantou je tzv. ESMTP (Extended SMTP), která podporuje přenos potvrzení o doručení zprávy a další funkce. (Pro čtení schránky se využívají jiné protokoly, např. POP3 či IMAP4).
+        \end{itemize}
+    \subsubsection{SNMP (Simple Network Management Protocol)}
+        SNMP je standardní protokol aplikační vrstvy pro vzdálený monitoring a správu síťových prvků. Využívá transportní protokol \textbf{UDP} (porty 161 a 162).
+        \begin{itemize}
+            \item \textbf{Architektura systému:}
+            \begin{itemize}
+                \item \textbf{Manažer (NMS):} Centrální stanice, která dotazuje agenty a zpracovává data.
+                \item \textbf{Agent:} Software v koncovém zařízení, který sbírá data a reaguje na příkazy.
+                \item \textbf{MIB (Management Information Base):} Hierarchická databáze definující sledované objekty identifikované pomocí \textbf{OID} (Object Identifier).
+            \end{itemize}
+            \item \textbf{Klíčové operace:}
+            \begin{itemize}
+                \item \textbf{GET / SET:} Synchronní dotaz manažera na hodnotu nebo příkaz ke změně konfigurace.
+                \item \textbf{TRAP:} Asynchronní výstraha odeslaná agentem při vzniku mimořádné události (např. kritická teplota).
+            \end{itemize}
+        \end{itemize}
+

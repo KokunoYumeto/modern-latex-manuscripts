@@ -1,0 +1,644 @@
+\documentclass{beamer}
+
+\usepackage[version=4]{mhchem}
+\usepackage{chemfig}
+
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+
+\usetheme{moloch}
+\setbeamertemplate{page number in head/foot}[totalframenumber]
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{section page}[progressbar]
+\setbeamertemplate{title}[plain]
+
+\setbeamercolor{palette primary}{bg=
+Maroon, fg=Cerulean!15!white}
+\setbeamercolor{palette secondary}{fg=blue,bg=red}
+\setbeamercolor{background canvas}{bg=GreenYellow!12!white}
+\setbeamercolor{normal text}{fg=RedViolet!10!black}
+\setbeamercolor{frametitle}{
+fg=Yellow!15!white}
+\setbeamercolor{title}{fg=MidnightBlue}
+\usebeamercolor[fg]{normal text}
+
+%wg dokumentacji to należy dodać expl3, amsmath and calc
+%\usepackage{expl3}
+\usepackage{amsmath}
+%\usepackage{calc}
+
+\title{\centerline{\color{Maroon}tryb chemiczny -- mchem i chemfig}}
+\subtitle{\centerline{warsztaty \LaTeX \ 2025}}
+\author{\centering natalia gajewska}
+\date{}
+
+% ------------- Creating a new block template ----------
+\makeatletter
+\def\th@newblock{%
+  \normalfont 
+  \def\inserttheoremblockenv{exampleblock}}
+\theoremstyle{newblock}
+\newtheorem{exercise}[theorem]{ćwiczenie}
+\makeatother
+
+\usepackage{environ}
+\usepackage{verbatim}
+
+\begin{document}
+\begin{frame}
+    \maketitle
+\end{frame}
+\begin{frame}[standout]
+    zakładam że umiecie już tryb matematyczny bo jak nie to może być wam ciężej ale powinno być ok
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{po co używać trybu chemicznego?}
+    to jest bardzo uzasadnione pytanie! wszak wiele związków można napisać równie łatwo w trybie matematycznym i chemicznym, tu porównanie:
+    \vspace{5mm}
+        \begin{columns}
+    \column{0.1\textwidth}
+        \verb|\ce{H2O}|         
+    \column{0.2\textwidth}
+        \verb|$H_2O$|
+    \end{columns}
+    \vspace{5mm}
+    \pause jednakże konwencją w chemii jest pisanie nazw związków bez kursywy, co różni się z konwencją matematyków, gdzie zmienne są pochylone. by to naprawić, tak naprawdę musielibyśmy pisać: \verb|$\mathrm{H_2O}$|.
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{po co używać trybu chemicznego?}
+    \ce{1/2 Ca(OH)2 + CO2 -> CaCO3 v + H2O} \\
+    \vspace{5mm}
+    tryb chemiczny: \\    
+    \verb|\ce{1/2 Ca(OH)2 + CO2 -> CaCO3 v + H2O}| \\
+    \vspace{5mm} tryb matematyczny: \\
+    \verb|$\mathrm{\frac{1}{2} Ca(OH)_2 + CO_2| \\ \verb|\longrightarrow CaCO_3 \downarrow + H_2O}$|
+\end{frame}
+
+\begin{frame}
+    pisanie jest po prostu sporo szybsze i prostsze \\
+    tryb chemiczny daje nam bardzo miłe pisanie strzałek i innych symboli rzadkich w matematyce, a podstawowych w chemii
+\end{frame}
+
+\begin{frame}[fragile]
+    warto jednak wspomnieć, że można i czasem* trzeba połączyć oba tryby by osiągnąć pewien efekt. tak jak w matematycznym, mamy możliwość pisania inline \verb|$ ... $| i blokowo \verb|\begin{equation} ... \end{equation}| \\
+    niemniej, zazwyczaj wystarczy \verb|\ce{}| by osiągnąć swój cel. ta pisownia się "liczy" jako inline!
+\end{frame}
+
+\begin{frame}[standout]
+    *o tym później ale proszę się nie bać
+\end{frame}
+
+\begin{frame}[fragile]
+    \begin{exampleblock}{zaczynamy!}
+        \verb|\usepackage[version=4]{mhchem}| \\
+        \verb|\usepackage{amsmath}| \\
+        \verb|\usepackage{chemfig}|
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{wzory sumaryczne i jony}
+    \begin{exampleblock}{wzory sumaryczne}
+        etanol, \ce{EtOH}, \verb|\ce{EtOH}| \\ \vspace{3mm}
+        glukoza, \ce{C6H12O6}, \verb|\ce{C6H12O6}| \\ \vspace{3mm}
+        wodorotlenek magnezu, \ce{Mg(OH)2}, \verb|\ce{Mg(OH)2}|
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{wzory sumaryczne i jony}
+    \textbf{uważajcie na spacje!}
+    \begin{exampleblock}{jony}
+        anion sodu, \ce{Na+}, \verb|\ce{Na+}| \\ \vspace{1mm}
+        sód plus (coś?), \ce{Na +}, \verb|\ce{Na +}| \\ \vspace{1mm}
+        kation wapnia, \ce{Ca^{2+}}, \verb|\ce{Ca^{2+}}| \\ \vspace{1mm}
+        \pause dwa wapnie bez elektronu? jednego?, \ce{Ca2+}, \verb|\ce{Ca2+}| \\ \vspace{3mm}
+        \pause psst! tak samo piszemy stopnie utlenienia! \ce{Fe^{III}} to \verb|\ce{Fe^{III}}|
+    \end{exampleblock}
+\end{frame}
+
+\newcounter{cwiczenia}
+\newcommand\showmycounter{\addtocounter{cwiczenia}{1}\thecwiczenia}
+
+\begin{frame}[fragile=singleslide]
+    \frametitle{ćwiczenie \showmycounter \ - wzory sumaryczne}
+    zapisz w trybie chemicznym 
+    
+    \begin{exampleblock}{związki}
+        \begin{equation}
+            \ce{CrO4^2-}
+        \end{equation}
+        \begin{equation}
+            \ce{1/2Sb2O3}
+        \end{equation}
+        \begin{equation}
+            \ce{[AgCl2]-}
+        \end{equation}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{rozwiązania!}
+\begin{exampleblock}{związki}
+    \begin{verbatim}
+            \ce{CrO4^2-}
+
+            \ce{1/2Sb2O3}
+
+            \ce{[AgCl2]-}
+    \end{verbatim}    
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+    aby napisać równania reakcji, przydadzą nam się strzałki! \vspace*{2mm}
+    
+    \ce{A -> B} to \verb|\ce{A -> B}|\\\vspace{1mm}
+    \ce{A <- B} to \verb|\ce{A <- B}|\\\vspace{1mm}
+    \ce{A <-> B} to \verb|\ce{A <-> B}|\\\vspace{1mm}
+    \ce{A <--> B} to \verb|\ce{A <--> B}|\\\vspace{1mm}
+    \ce{A <=> B} to \verb|\ce{A <=> B}|\\\vspace{1mm}
+    \ce{A <=>> B} to \verb|\ce{A <=>> B}|\\\vspace{1mm}
+    \ce{A <<=> B} to \verb|\ce{A <<=> B}|\\
+    \vspace*{3mm}
+    \pause przypominam że iupac nie lubi \ce{A <-> B} ale ja was nie uczę chemii tylko \LaTeX a
+    \vspace{5mm}
+    \pause    \begin{columns}
+    \column{0.25\textwidth}
+        \ce{ ^ } to \verb|\ce{ ^ }|         
+    \column{0.25\textwidth}
+        \ce{ v } to \verb|\ce{ v }|
+    \end{columns}
+\end{frame}
+\begin{frame}[fragile]
+    \ce{A ->[{góra}][{dól}] B} \vspace{5mm}
+    \verb|\ce{A ->[{góra}][{dół}] B}|
+\end{frame}
+\begin{frame}[fragile=singleslide]
+    \frametitle{ćwiczenie \showmycounter \ - równania reakcji} 
+    \begin{exampleblock}{reakcje}
+        \begin{equation}
+            \ce{NaCl ->[{H_2O}] Na+ + Cl-}
+        \end{equation}
+        \begin{equation}
+            \ce{^234_90Th -> ^0_-1\beta{} + ^234_91Pa}
+        \end{equation}
+        \begin{equation}
+            \ce{2Al^0 + 3Cu^{II}(NO3)2 -> 2Al^{III}(NO3)3 + 3Cu^{0}}
+        \end{equation}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}[fragile=singleslide]{rozwiązania!}
+\begin{exampleblock}{reakcje}
+    \begin{verbatim}
+        \ce{NaCl ->[{H_2O}] Na+ + Cl-}
+
+        \ce{^234_90Th -> ^0_-1\beta{} + ^234_91Pa}
+
+        \ce{2Al^0 + 3Cu^{II}(NO3)2 ->
+        2Al^{III}(NO3)3 + 3Cu^{0}}
+    \end{verbatim} 
+\end{exampleblock}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{rodniki i hydraty}
+    \begin{verbatim}
+        \ce{KCr(SO4)2*12H2O}
+        \ce{KCr(SO4)2.12H2O}
+        \ce{KCr(SO4)2 * 12 H2O} \end{verbatim}
+     to wszystko daje \ce{KCr(SO4)2*12H2O}\vspace{2mm}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{hydraty i rodniki}
+    wolne rodniki mają niesparowane elektrony, które oznaczamy kropką. dosłowną!\\ \vspace{2mm}
+     \ce{OH^.} to \verb|\ce{OH^.}| \\
+     \ce{CH3^.} to \verb|\ce{CH3^.}|
+\end{frame}
+\begin{frame}[fragile]
+    ponadto, jak łatwo zauważyć, wiele znaków itp jest takich samych jak w trybie matematycznym:\\
+    \ce{\alpha } to \verb|\ce{\alpha}| lub \verb|$\alpha$|\\\vspace{3mm}
+    \pause i czasami konieczne jest ich łączenie!\\
+    \ce{1/2}, czyli \verb|\ce{1/2}|, działa wyłącznie do prostych ułamków stechiometrycznych; do skomplikowanych użyjemy \verb|$\frac{licznik}{mianownik}$| jak zazwyczaj
+\end{frame}
+\begin{frame}[fragile=singleslide]
+    \frametitle{ćwiczenie \showmycounter \ - misc} 
+    \begin{exampleblock}{misc}
+        \begin{equation}
+            \ce{RNO2 <=>[+e] RNO2^{-.}}
+        \end{equation}
+        \begin{equation}
+            \ce{CaCl2.2H2O}
+        \end{equation}
+        \begin{equation}
+            K = \frac{[\ce{Hg^2+}][\ce{Hg}]}{[\ce{Hg2^2+}]}
+        \end{equation}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}[fragile=singleslide]{rozwiązania!}
+\begin{exampleblock}{misc}
+    \begin{verbatim}
+        \ce{RNO2 <=>[+e] RNO2^{-.}}
+
+        \ce{CaCl2.2H2O}
+
+        K = \frac{[\ce{Hg^2+}][\ce{Hg}]}
+        {[\ce{Hg2^2+}]}
+    \end{verbatim} 
+\end{exampleblock}
+\end{frame}
+\begin{frame}
+    \frametitle{myślnikowy problem}
+    w trybie chemicznym możemy wykorzystać myślnik na kilka sposobów, jako:
+    \begin{itemize}
+        \item ładunek w jonie, choćby \ce{Cl-}
+        \item minus w równaniu, jak \ce{3 - 2 = 1}
+        \item pauza w nazwie, np. $\ce{$cis${-}[PtCl2(NH3)2]}$
+        \item wiązanie pojedyncze w związku, np. \ce{C6H5-CHO}
+    \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{myślnikowy problem}
+    jako ładunek w jonie: \verb|\ce{Cl-}| \\ \vspace{1mm}
+    minus w równaniu: \verb|\ce{3 - 2 = 1}| \\\vspace{1mm}
+    pauza w nazwie: \verb|$\ce{$cis${-}[PtCl2(NH3)2]}$| \\\vspace{1mm}
+    wiązanie pojedyncze: \verb|\ce{C6H5-CHO}|
+    \\ \vspace{5mm}
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{kursywa problem}
+ tryb matematyczny, \verb|$...$|, wsadzony w \verb|\ce{...}|, podlega składni matematycznej, nie chemicznej - występuje kursywa etc. \\ chemiczny w matematycznym, \verb|$\ce{...}$|, ma składnię "chemiczną" \\ \vspace{3mm}
+    \verb|\ce{$H2O$}| to będzie \ce{$H2O$}, a nie   $\ce{H2O}$.\\ \vspace{1mm}
+    \verb|$\ce{$cis${-}buten}$| da nam $\ce{$cis${-}buten}$
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{proste wzory strukturalne}
+\verb|\ce{A-B=C#D}| daje nam 3 typy wiązań \ce{A-B=C#D} \\ \vspace{3mm}
+\pause ale czasem hasztag nie działa jako potrójne wiązanie, i wtedy można napisać \verb|\bond{3}| między pierwiastkami. za pomocą \verb|\bond{coś}| można napisać też ciekawsze wiązania:\\\vspace{5mm}
+\begin{columns}
+    \column{0.25\textwidth}
+    \ce{A\bond{->}B} \\\vspace{1mm}
+    \ce{A\bond{...}B} \\\vspace{1mm}
+    \ce{A\bond{~}B} \\\vspace{1mm}
+    \ce{A\bond{~--}B}
+    \column{0.35\textwidth}
+    \verb|\ce{A\bond{->}B}| \\\vspace{1mm}
+    \verb|\ce{A\bond{...}B}| \\\vspace{1mm}
+    \verb|\ce{A\bond{~}B}| \\\vspace{1mm}
+    \verb|\ce{A\bond{~--}B}|
+\end{columns}
+\end{frame}
+\begin{frame}[standout]
+    do bardziej zaawansowanych wzorów wykorzystamy chemfig. ale to za sekundkę
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+    \frametitle{ćwiczenie \showmycounter \ - wiązania+} 
+    \begin{exampleblock}{wiązania+}
+        \begin{equation}
+            \ce{O=C=O}
+        \end{equation}
+        \begin{equation}
+            \ce{H-C#C-H}
+        \end{equation}
+        \begin{equation}
+            \ce{(C5H5)2Fe2(\mu-CO)2(CO)2 <=> (C5H5)2Fe2(\mu-CO)2(CO)2}
+        \end{equation}
+        
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{rozwiązania!}
+\begin{exampleblock}{wiązania+}
+    \begin{verbatim}
+        \ce{O=C=O}
+        
+        \ce{H-C#C-H}
+        
+        \ce{(C5H5)2Fe2(\mu-CO)2(CO)2 <=>
+         (C5H5)2Fe2(\mu-CO)2(CO)2}
+    \end{verbatim} 
+\end{exampleblock}
+\end{frame}
+\begin{frame}
+    \frametitle{brawo!}
+    i tym samym skończyliśmy sekcję o mhchemie, która wystarczy wam do ok. 90\% waszych potrzeb chemicznych na sprawozdaniach. \\\vspace{5mm}
+    \pause na reszcie tej sekcji porozmawiamy o pakiecie chemfig    
+\end{frame}
+\begin{frame}[standout]
+    chemfig jest bazowany na TikZ, i zaczniemy od tego, co można nim zrobić, a nie jak działa
+\end{frame}
+\begin{frame}
+    \centering nie chcę żebyście mi uciekli.
+\end{frame}
+
+\begin{frame}
+    \frametitle{przykład}
+    \begin{figure}
+        \scalebox{1}{
+        \chemfig{
+            *6((=O)-N(-CH_3)-*5(-N=-N(-CH_3)-=)--(=O)-N(-H_3C)-)
+            }
+        }
+  \caption{kofeina, 100\% \LaTeX, nwm czy etyczna}
+  \label{kofeina}
+    \end{figure}
+i teraz mam ładną figurę, do której mogę się odwołać w tekście [\ref{kofeina}], elegancko podpisać, i ładnie skalować, bo to wektor ;>
+\end{frame}
+\begin{frame}[fragile]
+    \frametitle{reveal kodu}
+    \begin{verbatim}
+    \begin{figure}
+        \scalebox{1}{
+        \chemfig{
+            *6((=O)-N(-CH_3)-*5(-N=-N(-CH_3)-=)
+            --(=O)-N(-H_3C)-)
+            }
+        }
+  \caption{kofeina, 100\% \LaTeX, nwm czy etyczna}
+  \label{kofeina}
+    \end{figure}
+    \end{verbatim}
+\end{frame}
+\begin{frame}[standout]
+    jak widać, nie jest to takie straszne!
+\end{frame}
+\begin{frame}
+    \begin{figure}
+\scalebox{.65}{
+\schemestart
+\ce{O2^.-}\arrow (c1--c2){0}\ce{NO^.}\merge{v}(c1)(c2)--(c3)\ce{ONOO-}
+\arrow (--c4){<=>[*{0}\parbox{1.2cm}{\ce{+ H+}\\ pK 6.6}][*{0}\ce{- H+}]}[-90,1.5]\ce{ONOOH}
+\arrow(--c5){->[\ce{+ NO^.}][\ce{- HNO2}]}[0,1.5]\ce{NO2^.}
+\arrow(--c6){->[\ce{+ NO^.}]}\ce{N2O3}
+\arrow(@c4--c7){->[\ce{+ O2^.-}][\ce{- OH-},\ce{- O2}]}[180,1.5]\ce{NO2^.}
+\arrow(@c7--c8){->[\ce{+ O2^.-}]}[180]\parbox{1.5cm}{\centering \ce{O2NOO-}\\or \\\ce{NO2- + O2}}
+\arrow(@c3--@c7){->[\ce{+ CO2}][\ce{- CO3^.}]}[2.12]
+\arrow(@c3--@c5){->[\ce{+ CO2}][\ce{- CO3^.-}]}[2.12]
+\arrow(@c1--c9){->[\ce{+ O2^.-}, \ce{+ 2H+}][\ce{- O2}]}[180,1.5]\ce{H2O2}
+\arrow(@c9--c10){->[\ce{Fe2+}][\ce{- OH-}]}[180]\ce{^.OH}
+\arrow(@c2--c11){->[\ce{+ O2}]}$[$\ce{^.ONOO}$]$
+\arrow(@c11--c12){->[\ce{+ ^.NO}]}\ce{2 NO2^.}
+\schemestop
+}
+\end{figure}
+\pause naturalnie nie wyłożę tego na tej sekcji bo byśmy stąd w życiu nie wyszli \\
+\pause kodu też nie pokażę bo akurat ten jest zjebany
+\end{frame}
+
+\begin{frame}[fragile]
+    chemfig służy do wzorów strukturalnych, i jak mogliście zauważyć, dla samych wzorów jest dosyć prosty i zwięzły (co oznacza że się go łatwo pisze a trudno czyta). 
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{wiązania w chemfig}
+    wiązania, tak jak w mchem, piszemy za pomocą - i =, ale mamy więcej ekscytujących opcji! \vspace{5mm}
+\begin{columns}
+    \column{0.33\textwidth}
+        \centering
+        \verb|\chemfig{A-B}| \\
+        \chemfig{A-B}         
+    \column{0.33\textwidth}
+        \centering
+        \verb|\chemfig{A=B}| \\
+        \chemfig{A=B}
+    \column{0.33\textwidth}
+        \centering
+        \verb|\chemfig{A~B}| \\
+        \chemfig{A~B}
+\end{columns}
+\vspace{9mm}
+\begin{columns}
+    \column{0.33\textwidth}
+        \centering
+        \verb|\chemfig{A<B}| \\
+        \chemfig{A<B}        
+    \column{0.33\textwidth}
+        \centering
+        \verb|\chemfig{A<:B}| \\
+        \chemfig{A<:B}
+    \column{0.34\textwidth}
+        \centering
+        \verb|\chemfig{A<||\verb|B}|
+        \chemfig{A<|B}
+\end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    ale naturalnie, piszemy w chemfig bo chcemy wiele wiązań! \\ \vspace{3mm}
+    \chemfig{A-B<C>:D~E}
+    \vspace{3mm}
+    \\ możemy ustalać ich kąty na kilka sposobów, z ogólną formą \verb|\chemfig{A-[kąt]B}|:
+    \begin{itemize}
+        \item z góry ustalone w pakiecie (czyli wielokrotności 45 stopni)
+        \item bezwzględnie względem "kartki", od 0 do 360 stopni
+        \item względnie do poprzedniego "atomu" - (właśnie, chemfig ma ich dziwną definicję) wtedy możemy wartości ujemne w prawo i dodatnie w lewo
+        \item mamy też cool narzędzia do konkretnie związków o strukturze pierścieniowej
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\vspace{-2mm}
+\begin{columns}
+    \column{0.45\textwidth}
+        \centering
+        każde 1 to 45 stopni!
+        \verb|{A-[1]B-[-1]C-[-2]D}| \\ \vspace{3mm}
+        \chemfig{A-[1]B-[-1]C-[-2]D}       
+    \column{0.45\textwidth}
+        \centering
+        po ":" w stopniach
+        \verb|{A-[:45]B-[:-45]C-[:-90]D}| \\ \vspace{3mm}
+        \chemfig{A-[:45]B-[:-45]C-[:-90]D} 
+\end{columns}
+\vspace{6mm}
+\begin{columns}
+    \column{0.01\textwidth}
+    \column{0.98\textwidth}
+        \centering
+        po "::" mamy kąty względne do poprzedniego wiązania \\
+        \verb|{A-[::45]B-[::-90]C-[::-45]D}| \\ \vspace{3mm}      
+    \column{0.01\textwidth}
+\end{columns}
+\begin{columns}
+    \column{0.45\textwidth}
+        \centering
+        \chemfig{A-[::45]B-[::-90]C-[::-45]D}       
+    \column{0.45\textwidth}
+        \centering
+        \pause \chemfig{-[:45]-[:-45]-[:-90]} 
+\end{columns}
+\end{frame}
+\begin{frame}[fragile=singleslide]
+    \frametitle{ćwiczenie \showmycounter \ - proste wzory} 
+    \begin{exampleblock}{kąty}
+        \vspace{3mm}
+        \begin{columns}
+            \column{0.45\textwidth}
+            \centering
+            \chemfig{H-[:30]O-[:-30]H}
+            \column{0.45\textwidth}
+            \centering
+            \chemfig{R-C-[::-60]O-[::-60]C-[::-60]R}
+        \end{columns}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{rozwiązania!}
+     \begin{exampleblock}{kąty}
+        \begin{columns}
+    \column{0.01\textwidth}
+    \column{0.98\textwidth}
+        \centering
+        \begin{verbatim}
+            \chemfig{H-[:30]O-[:-30]H}
+
+            \chemfig{R-C-[::-60]O-[::-60]C-[::-60]R}
+        \end{verbatim}       
+    \column{0.01\textwidth}
+\end{columns}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{rozgałęzienia wzorów}
+\vspace{10mm}
+    \begin{columns}
+    \column{0.45\textwidth}
+        \centering
+        \chemfig{A-B-C(-[:45]D)(-[:-45]E)} \\
+        \vspace{3mm}
+        \verb|A-B-C(-[:45]D)(-[:-45]E)}| \\    
+    \column{0.45\textwidth}
+        \centering
+        \verb|{(-A)(-[2]B)(-[-2]D)(-[4]C)}| \\ \vspace{3mm}
+        \chemfig{(-A)(-[2]B)(-[-2]D)(-[4]C)}       
+\end{columns}    
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+    \frametitle{ćwiczenie \showmycounter \ - rozgałęzienie} 
+    \begin{exampleblock}{rozgałęzienia}
+        \vspace{3mm}
+        \begin{columns}
+            \column{0.01\textwidth}
+            \column{0.98\textwidth}
+            \centering
+            \chemfig{R-C(=[::+60]O)-[::-60]O-[::-60]C(=[::+60]O)-[::-60]R}
+            \column{0.01\textwidth}
+        \end{columns}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]{rozwiązania!}
+     \begin{exampleblock}{rozgałęzienia}
+        \begin{columns}
+    \column{0.01\textwidth}
+    \column{0.98\textwidth}
+        \centering
+        \begin{verbatim}
+            \chemfig
+            {R-C
+            -[::-60]O
+            -[::-60]C
+            -[::-60]R}
+        \end{verbatim}
+        zamieniamy na: \\
+        \begin{verbatim}
+            \chemfig
+            {R-C
+            (=[::+60]O)
+            -[::-60]O-[::-60]C
+            (=[::+60]O)
+            -[::-60]R}
+        \end{verbatim}       
+    \column{0.01\textwidth}
+\end{columns}
+\end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]
+    jeżeli mamy figurę opisaną kątami relatywnymi, czyli [::kąt], to całość możemy łatwo obrócić:\\ \vspace{3mm}
+    \begin{verbatim}
+    \chemfig{[:75]
+    R-C(=[::+60]O)-[::-60]O-[::-60]C(=[::+60]O)-[::-60]R}
+    \end{verbatim} \\ \vspace{7mm}
+    \begin{columns}
+    \column{0.01\textwidth}
+    \column{0.98\textwidth}
+    \centering
+    \chemfig{[:75]R-C(=[::+60]O)-[::-60]O-[::-60]C(=[::+60]O)-[::-60]R}
+    \column{0.01\textwidth}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{pierścienie}
+    stworzenie jednego jest bardzo proste! \\ \vspace{6mm}
+    \begin{columns}
+    \column{0.45\textwidth}
+        \centering
+        \verb|\chemfig{*5(-----)}| \\ \vspace{2mm}
+        \chemfig{*5(-----)}      
+    \column{0.45\textwidth}
+        \centering
+        \verb|\chemfig{*6(-----)}| \\ \vspace{2mm}
+        \chemfig{*6(------)}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]
+    \frametitle{pierścienie}
+    stworzenie jednego jest bardzo proste! \\ \vspace{6mm}
+    \begin{columns}
+    \column{0.45\textwidth}
+        \centering
+        \verb|\chemfig{*5(1-2-3-4-5-)}| \\ \vspace{2mm}
+        \chemfig{*5(1-2-3-4-5-)}      
+    \column{0.45\textwidth}
+        \centering
+        \verb|\chemfig{*6(1-2-3-4-5-6-)}| \\ \vspace{2mm}
+        \chemfig{*6(1-2-3-4-5-6-)}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile=singleslide]
+    \frametitle{ćwiczenie \showmycounter \ - fenol} 
+    \begin{exampleblock}{fenol}
+        \vspace{3mm}
+        \begin{columns}
+            \column{0.01\textwidth}
+            \column{0.98\textwidth}
+            \centering
+            \chemfig{*6(-=-=(-OH)-=)}
+            \column{0.01\textwidth}
+        \end{columns}
+    \end{exampleblock}
+\end{frame}
+\begin{frame}[fragile=singleslide]{rozwiązania!}
+     \begin{exampleblock}{rozgałęzienia}
+        \begin{columns}
+    \column{0.01\textwidth}
+    \column{0.98\textwidth}
+        \centering
+        \begin{verbatim}
+            \chemfig{*6(-=-=(-OH)-=)}
+        \end{verbatim}
+\end{columns}
+\end{exampleblock}
+btw, spróbujcie też \\ \verb|\chemfig{**6(----(-OH)--)}|
+\end{frame}
+\begin{frame}{co jeszcze robi chemfig?}
+    \begin{itemize}
+        \item czyści pierze bańki stawia
+        \item można kolorować konkretne atomy i wiązania
+        \item rozpisywać całe duże reakcje
+        \item kopiować wzory z dokumentacji (bo jest ich dużo i często to łatwiejsze od pisania ab initio)
+        \item definiować podjednostki molekuł (np. fosforany)
+    \end{itemize}
+\end{frame}
+\begin{frame}[standout]
+    dziękuję za uwagę!!
+\end{frame}
+\end{document}

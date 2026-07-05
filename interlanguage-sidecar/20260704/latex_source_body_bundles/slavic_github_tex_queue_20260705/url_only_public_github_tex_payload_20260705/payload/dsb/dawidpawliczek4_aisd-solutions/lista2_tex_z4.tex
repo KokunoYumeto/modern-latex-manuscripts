@@ -1,0 +1,151 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+\Large Dawid Pawliczek\\
+Lista 2, Zadanie 4
+\end{center}
+
+\bigskip
+\section*{Treść zadania}
+Masz początkowo do dyspozycji $m$ monet o nominale $1$ i nieskończoną
+liczbę monet o nominale $100$.
+W kolejnych $n$ dniach robisz zakupy
+(w $i$-tym dniu za kwotę $c_i$).
+Jeśli nie odliczysz dokładnie $c_i$ w jedynkach,
+kasa wyda resztę minimalną liczbą monet,
+używając wyłącznie nominałów $1$ i $100$,
+a Twoja „atrakcyjność kliencka” zmniejszy się
+o~$x\cdot w_i$, gdzie $x$ to liczba wydanych monet,
+zaś $w_i$ to zadany współczynnik.
+(Zakładamy $1\le c_i,w_i\le n$).
+Wyznacz, o~ile \emph{co najmniej} spadnie
+łączna atrakcyjność po wszystkich zakupach.
+
+\bigskip
+\section*{Rozwiązanie dynamiczne}
+
+Niech
+\[
+  \text{dp}[i][m]\;=\;
+  \text{największa możliwa atrakcyjność po } i\text{ dniach}
+  \text{ przy stanie portfela } m.
+\]
+Dla uproszczenia przyjmujemy $c_i<100$,
+bo zawsze w pierwszej kolejności płacimy pełnymi setkami.
+
+\begin{align*}
+\text{dp}[i+1][m-c_i]
+  &=\max\bigl(\text{dp}[i+1][m-c_i],\,\text{dp}[i][m]\bigr),
+  &&\text{jeśli }c_i\le m;\\[4pt]
+\text{dp}[i+1][m+100-c_i]
+  &=\max\bigl(\text{dp}[i+1][m+100-c_i],
+              \,\text{dp}[i][m]-(100-c_i)w_i\bigr),
+  &&\text{jeśli }c_i>m.
+\end{align*}
+
+Liczba możliwych stanów rośnie najwyżej
+o~$100$ dziennie, więc
+złożoność wynosi $O(n^2)$.
+
+\bigskip
+\section*{Obserwacja prowadząca do rozwiązania zachłannego}
+
+W każdym dniu wybór sprowadza się do:
+\[
+  \boxed{\text{zapłacić dokładnie}} 
+  \quad\text{lub}\quad
+  \boxed{\text{zapłacić }100\text{ i przyjąć koszt }(100-c_i)w_i.}
+\]
+Jeżeli w $i$-tym dniu zabraknie jedynek,
+możemy „cofnąć” którąś z wcześniejszych decyzji
+(zamienić płatność dokładną na setkę),
+ale warto to zrobić tylko tam,
+gdzie koszt $(100-c_j)w_j$ jest najmniejszy.
+
+\bigskip
+\section*{Algorytm zachłanny}
+
+\begin{algorithm}[H]
+\caption{\textsc{GreedyMin}}
+\begin{algorithmic}[1]
+\Require{$m$, tablice $c[1\dots n]$, $w[1\dots n]$}
+\Ensure{łączny spadek atrakcyjności}
+\State $loss\gets0$, \quad $heap\gets$ min-kopiec
+\For{$i\gets1$ \textbf{to} $n$}
+   \State $m\gets m-c_i$ \Comment{próbujemy zapłacić dokładnie}
+   \State $heap.\textsc{push}\bigl((100-c_i)w_i\bigr)$
+      \State $loss\gets loss+heap.\textsc{popMin}()$ \Comment{najtańsza „cofka”}
+      \State $m\gets m+100$
+\EndFor
+\State \Return{$loss$}
+\end{algorithmic}
+\end{algorithm}
+
+\medskip
+\noindent
+\textbf{Złożoność.}
+Każdy element wstawiamy i usuwamy z kopca co najwyżej raz,
+stąd czas $O(n\log n)$, pamięć $O(n)$.
+
+\medskip
+\noindent
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Poprawność}
+
+\paragraph{Inwariant.}
+Po obsłużeniu pierwszych $i$ dni algorytm utrzymuje:
+\begin{enumerate}
+  \item portfel zawiera co najmniej $0$ monet $1$,
+  \item z wszystkich dotychczas rozważonych dni do zbioru
+        płatności $100$ wybrano \emph{najtańsze} (koszt
+        $(100-c_t)w_t$) tak, aby liczba jedynek nie była ujemna.
+\end{enumerate}
+
+Punkt (1) jest spełniany, bo w razie deficytu
+algorytm natychmiast „cofa” kolejne dni,
+dopisując po $100$ jednostek do stanu portfela,
+aż $m\ge0$.
+Punkt (2) zachodzi, gdyż cofamy zawsze
+\emph{najmniejszą} dostępną wartość z kopca.
+
+\paragraph{Greedy $\to$ optymalny.}
+Załóżmy, że istnieje rozwiązanie $OPT$
+o mniejszym łącznym koszcie od wyniku algorytmu.
+Prześledźmy dni w kolejności
+i wybierzmy pierwszy dzień, w którym
+zbiory „cofnięć” algorytmu i $OPT$ różnią się.
+W tym momencie algorytm wybrał
+koszt minimalny spośród wszystkich
+niedotychczasowych dni,
+a $OPT$ — koszt co najmniej tak duży.
+Zamieniając w $OPT$
+jego droższy dzień na tańszy dzień algorytmu,
+poprawiamy lub nie zmieniamy kosztu i
+\textbf{nie} psujemy stanu portfela
+(bo liczba cofnięć się nie zmniejsza).
+Wykonując taką operację każdorazowo,
+stopniowo przekształcamy $OPT$
+w rozwiązanie identyczne z wynikiem algorytmu,
+bez zwiększania ceny.
+Sprzeczność z założeniem, że algorytm był droższy.
+
+\paragraph{Konkluzja.}
+Zawsze, gdy brakuje jedynek, trzeba dołożyć
+co najmniej jedną płatność $100$,
+a w każdym takim momencie algorytm wybiera
+najtańszą możliwą opcję —
+dlatego łączny koszt nie może być mniejszy.
+\hfill$\square$
+
+\end{document}

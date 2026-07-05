@@ -1,0 +1,150 @@
+\documentclass[a4paper]{article}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{esint}
+\setlength{\parindent}{0em}
+\setlength{\parskip}{1ex}
+
+\newcommand{\vct}[1]{\overrightarrow{#1}}
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\pd}[2]{\frac{\partial {#1}}{\partial {#2}}}
+\newcommand{\dd}[2]{\frac{\mathrm{d} {#1}}{\mathrm{d} {#2}}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\fn}[3]{{#1}\colon {#2} \rightarrow {#3}}
+\newcommand{\avg}[1]{\left\langle {#1} \right\rangle}
+\newcommand{\Sum}[2][0]{\sum_{{#2} = {#1}}^{\infty}}
+\newcommand{\Lim}[1]{\lim_{{#1} \rightarrow \infty}}
+\newcommand{\Binom}[2]{\begin{pmatrix} {#1} \cr {#2} \end{pmatrix}}
+\newcommand{\duline}[1]{\underline{\underline{#1}}}
+\newcommand{\bra}[1]{\left\langle {#1} \right|}
+\newcommand{\ket}[1]{\left| {#1} \right\rangle}
+\newcommand{\rot}{\vct{\nabla}\times}
+\newcommand{\dvg}{\vct{\nabla}\cdot}
+\renewcommand{\figurename}{Slika}
+
+\begin{document}
+\section{Greenove funkcije - nadaljevanje}
+\subsection{Von Neumannov robni pogoj}
+Za operator \(\mathcal{L} = \nabla^2 + q(\vct{r})\) i\v s\v cemo re\v sitev Neumannovega problema:
+\[\nabla^2u = f, \qquad \pd{u(\vct{r_B})}{n} =  g(\vct{r_n}),\]
+ko \(\vct{r_B}\) le\v zi na robu domene. Funkcij \(f\) in \(g\) ne moremo izbrati poljubno, temve\v c mora veljati konsisten\v cni pogoj:
+\[\int_{\partial\mathcal{D}}g(\vct{r_B})\dif S_B = \int_{\mathcal{D}}f(\vct{r})\dif^3\vct{r}\]
+Naivno bi lahko poskusili kot prej poiskati Neumannovo Greenovo funkcijo \(G_N\), za katero velja
+\[\nabla^2G_N = \delta(\vct{r} - \vct{r_0}) \text{  in  } \pd{G_N}{n}(\partial\mathcal{D}) = 0\]
+Te\v zava se pojavi, ker pri integralu levega pogoja dobimo \[\int\pd{G_N}{n}\dif S = 1,\]
+kar pa zaradi desnega pogoja ni mogo\v ce. Enega od pogojev moramo relaksirati, in sicer recimo:
+\[\nabla^2G_N = \delta(\vct{r} - \vct{r_0}) - \frac{1}{V},~V = \int_{\mathcal{D}}\dif^3\vct{r}\quad\text{  in  }\quad\pd{G_N}{n}(\partial\mathcal{D}) = 0\]
+Zaradi dodatnega \v clena \(1/V\) si robna pogoja ne nasprotujeta ve\v c. Izrazimo \(u\):
+\[u(\vct{r}) = \int_{\mathcal{D}}G_N(\vct{r}, \vct{r_0})f(\vct{r_0})\dif^3\vct{r_0} - \int_{\partial\mathcal{D}}g(\vct{r_B})G_N(\vct{r}, \vct{r_B})\dif S_B + \text{konst.}\]
+\subsection{Difuzijski operator}
+\[\mathcal{L} = \left(\pd{}{t} - D\nabla^2\right)\]
+\subsubsection{Dirichletov robni pogoj}
+Re\v sujemo problem \(\mathcal{L}u = f(\vct{r}, t)\)
+z Dirichletovim robnim pogojem \(u(\vct{r_B}, t) = g(\vct{r_B}, t)\) in nekak\v snim za\v cetnim pogojem \(h(\vct{r})\)
+Greenovo funkcijo i\v s\v cemo kot
+\[\mathcal{L}G = \delta(\vct{r} - \vct{r_0})\delta(t - t_0),\qquad G(\vct{r_B}, \vct{r_0}) = 0\]
+Ko jo enkrat imamo, deluje kot propagator in lahko izra\v cunamo
+\[u(\vct{r}, t) = \int_0^\infty\int_{\mathcal{D}}f(\vct{r_0}, \tau)G(\vct{r}, \vct{R_0}; t - \tau)\dif^3\vct{r_0}\dif\tau\]
+\[+ \int_{\mathcal{D}}h(\vct{r_0})G(\vct{r}, \vct{r_0};t)\dif^3\vct{r} - D\int_{0}^{\infty}\int_{\partial\mathcal{D}}g(\vct{r_B}, \tau)\pd{G}{n_B}(\vct{r}, \vct{r_B}, t - \tau)\dif^3\vct{r_B}\dif\tau\]
+Prvi integral je \v casovni razvoj nehomogenosti, drugi integral je \v casovni razvij za\v cetnega pogoja, tretji integral pa \v casovni razvoj robnega pogoja.
+\subsection{Greenova funkcija za krog}
+\subsubsection{Vsota neskon\v cne funkcije in re\v sitve z robnim pogojem}
+Imamo laplaceov operator \(\mathcal{L} = \nabla^2\) in Dirichletov robni pogoj za krog. I\v s\v cemo
+\[\nabla^2G(r, \varphi, r_0, \varphi_0) = \frac{1}{r}\delta(r - r_0)\delta(\varphi - \varphi_0)\]
+Predfaktor \(1/r\) potrebujemo, da se bo pri integriranju kraj\v sal z Jacobianom.
+To bomo naredili na tri na\v cine, in sicer z nastavkon \(G = G_\infty + g\). Za tak\v sen problem je \[G_\infty = \frac{\ln r}{2\pi}\]
+I\v s\v cemo \v se \(g\):
+\[\nabla^2 g = 0\]
+\[g\Big|_{\partial\mathcal{D}} = -\frac{1}{4\pi}\ln[R^2 + r_0^2 - 2Rr_0\cos(\varphi - \varphi_0)]\]
+Re\v sitev Laplaceove ena\v cbe na krogu so funkcije
+\[g = c_0 + \sum_{m=1}^{\infty} r^m\left(c_m\cos(m\varphi) + d_m\sin(m\varphi)\right)\]
+Velja:
+\[\ln\left[R^2\left(1 + \frac{r_0^2}{R^2} - \frac{2r_0}{R}\cos(\varphi - \varphi_0)\right)\right] = \ln R^2 + \sum_{m = 1}^{\infty} -\frac{r_0^m}{R^m}\frac{2}{m}\cos\left[m(\varphi - \varphi_0)\right]\]
+To lahko doka\v zemo na primer s primerjavo vrednosti in odvodov v \(\varphi - \varphi_0 = 0\). Uporabimo \v se adicijski izrek:
+\[\cos[m(\varphi - \varphi_0)] = \cos(m\varphi)\cos(m\varphi_0) + \sin(m\varphi)\sin(m\varphi_0)\]
+Da zadostimo robnemu pogoju, je
+\[c_0 = -\frac{\ln R^2}{4\pi}\]
+Nato pa primerjamo vrsti in preberemo koeficiente:
+\[c_m = \frac{1}{R^m}\left(\frac{r_0}{R}\right)^m \frac{1}{2\pi m}\cos(m\varphi_0)\]
+\[d_m = \frac{1}{R^m}\left(\frac{r_0}{R}\right)^m \frac{1}{2\pi m}\sin(m\varphi_0)\]
+Vse skupaj lahko malo kraj\v se zapi\v semo kot vrsto za \(g\):
+\[g(\vct{r}, \vct{r_0}) = \frac{1}{4\pi}\left[-\ln R^2 + \sum_{m = 1}^{\infty}\frac{2}{m}\left(\frac{r_0 r}{R^2}\right)^m\cos(m(\varphi - \varphi_0))\right]\]
+Uporabimo kar znano vsoto od prej in zapi\v semo
+\[-\frac{1}{4\pi}\ln\left[R^2 + \frac{(r_0r)^2}{R^2} - 2rr_0\cos(\varphi - \varphi_0)\right]\]
+To se\v stejemo z \(G_\infty\). Ozna\v cimo \v se \(|\vct{r_*}| = R^2/r_0\), \(\vct{r_*} \parallel \vct{r_0}\) (prezrcalimo \v cez rob kroga).
+\[G(\vct{r}, \vct{r_0}) = \frac{1}{4\pi}\ln\frac{|\vct{r} - \vct{r_0}|^2}{\left(\frac{r_0}{R}\right)^2|\vct{r} - \vct{r_*}|^2}\]
+\subsubsection{Lepljenje}
+Krog razdelimo na zunanje in notranje obmo\v cje. Notranje obmo\v cje je krog s polmerom \(r_0\), zunanje pa kolobar z zunanjim polmerom \(R\) (imejmo kot enoto \(R = 1\)) in notranjim polmerom \(r_0\). Koordinatni sistem obrnemo tako, da je \(\varphi_0 = 1\)
+Re\v sujemo Laplaceovi ena\v cbi
+\[\nabla^2G_n = \frac{1}{r}\delta(r - r_0)\delta(\varphi)\]
+\[\nabla^2G_z = \frac{1}{r}\delta(r - r_0)\delta(\varphi)\]
+Pomagamo si s splo\v sno re\v sitvijo Laplaceove ena\v cbe:
+\[u = (A_0 + B_0\ln r)(a_0 + b_0\varphi) + \sum_{m \in \Z \setminus \{0\}}\left(A_m r^{|m|} + B_m r^{-|m|}\right)\,e^{im\varphi}\]
+Zapi\v semo:
+\[\delta(\varphi) = \frac{1}{2\pi}\Sum[-\infty]{m}\cos(m\varphi)\]
+Ena\v cimo koeficiente in vidimo, da nam v splo\v sni re\v sitvi Laplaceove ena\v cbe zado\v s\v ca vzeti le \v clene s \(\cos m\varphi\):
+\[G_n = A_0 + \Sum[1]{m} A_m r^m \cos(m\varphi)\]
+\[G_z = (A_0' + B_0'\ln r) + \Sum[1]{m}\left(A_m'r^m + B_m'r^{-m}\right)\cos m\varphi\]
+Hkrati \v zelimo, da je \(G\) v \(r = r_0\) zvezna v \(r = r_0\).
+\paragraph{Opomba.} \v Ce si zamislimo, da imamo pri \(G_n\) razvoj
+\[G_n = \sum_m f_m(r)\cos(m\varphi),\]
+Vidimo, da ima odvod \(f_m'\) okoli \(r_0\) nezvezen skok:
+\[f_m'' + \frac{f_m'}{r} - \frac{m^2}{r^2}f_m = \frac{\delta(r - r_0)}{r\pi}\]
+\[(rf_m')' - \frac{m^2}{r} = \frac{\delta(r - r_0)}{\pi}\]
+Na obeh straneh integriramo od \(r_0 - \varepsilon\) do \(r_0 + \varepsilon\):
+\[rf_m'\Big|^{r_0 + \varepsilon}_{r_0 - \varepsilon} = \frac{1}{\pi}\]
+Se pravi:
+\[\Delta(r_0f_m') = \frac{1}{\pi}\]
+\[\Delta(r_0f_0') = \frac{1}{2\pi}\]
+Iz zahteve po zveznosti v \(r_0\) dobimo
+\[A_0 = B_0'\ln r_0,\qquad A_m = B_m'\left(\frac{1}{r_0^{2m}} - 1\right)\]
+Iz zahteve, da na robu \(r = R\) velja \(G_z = 0\), dobimo:
+\[A_0' = 0,\qquad A_m' + B_m' = 0\]
+Iz skoka v odvodu okoli \(r_0\) dobimo
+\[B_0' = \frac{1}{2\pi},\qquad B_m' = -\frac{r_0^m}{2m\pi}\]
+Dobili smo
+\[G_n = \frac{1}{2\pi}\ln r_0 + \Sum[1]{m}\frac{1}{m}r^m\left(r_0^m - \frac{1}{r_0^m}\right)\cos(m\varphi)\]
+\[G_z = \frac{1}{2\pi}\ln r + \Sum[1]{m}\frac{1}{m}r_0^m\left(r^m - \frac{1}{r^m}\right)\cos(m\varphi)\]
+Opazimo, da je edina razlika med funkcijama zamenjava spremenljivk \(r\) in \(r_0\), torej gre za nekak\v sno zrcaljenje. Spomnimo, da smo to izra\v cunali za \(R = 1\) in \(\varphi_0 = 0\).
+Za poljubem \(\varphi_0\) in poljuben polmer bi morali zamenjati
+\[\varphi \to \varphi - \varphi_0\]
+\[r \to r/R\]
+\[r_0 \to r_0/R\]
+\subsubsection{Razvoj po lastnih funkcijah}
+Recimo, da poznamo lastne funkcije, za katere je
+\[\mathcal{L}u_n = \lambda_n u_n\]
+in lahko razvijemo \(G\) in \(\delta(\vct{r} - \vct{r_0})\). Razvoj za \(\delta\) delta funkcijo je enostaven:
+\[\delta(\vct{r} - \vct{r_0}) = \sum_n c_n(\vct{r_0})u_n(\vct{r})\]
+\[c_n(\vct{r_0}) = \avg{u_n|\delta} = u_n^*(\vct{r_0})\]
+Razvoj Greenove funkcije je torej:
+\[G = \sum_{\vct{n}}\frac{u_n(\vct{r})u_n^*(\vct{r_0})}{\lambda_n}\]
+\paragraph{Opomba.} Opazimo nekaj lastnosti:
+\begin{itemize}
+    \item \(G(\vct{r}, \vct{r_0}) = G^*(\vct{r_0}, \vct{r})\)
+    \item \v Ce je \(\lambda_n = 0\), te \v clene preprosto izpustimo. V tem primeru za na\v so Greenofo funkcijo velja \[\mathcal{L}G = \delta(\vct{r} - \vct{r_0}) - \frac{1}{V},\] kjer je \(V = \sum_n u_n^*(\vct{r_0})u_n(\vct{r})\)
+\end{itemize}
+Spet vzamemo \(R = 1,~\varphi_0 = 0\).
+\v Ce je na primer za Laplaceov operator \(\mathcal{L} = \nabla^2\) lastna funkcija \[u_{mk} \propto J_m(\xi_{mk}r)\cos(m\varphi)\]
+Potrebujemo \v se normalizacijsko konstanto, ki je
+\[N_0 = \frac{1}{\sqrt{\pi}J_1(\xi_{0k})}\quad\text{ za }m = 0\]
+\[N_{m>0} = \sqrt{\frac{2}{\pi}}\frac{1}{J_{m+1}(\xi_{m, k})}\]
+Lastne vrednosti so \(-\xi_{m, k}^2\)
+\[G = -\Sum[1]{k}\frac{J_0(\xi_{0, k}r)J_0(\xi_{0, k}r_0)}{\pi\xi_{0, k}^2 J_1^2(\xi_{0, k})} - \Sum[1]{m}\Sum[1]{k}\frac{2J_m(\xi_{m, k}r)J_m(\xi_{m, k}r)}{\pi \xi_{m, k}^2J_{m+1}^2(\xi_{m, k})}\cos(m\varphi)\]
+Stvar lahko malo lep\v se napi\v semo z upo\v stevanjem lastnosti \(J_{-m} = -J_m\):
+\[G = \Sum[-\infty]{m}\Sum[1]{k}-\frac{J_m(\xi_{m, k}r)J_m(\xi_{m, k}r_0)}{\pi \xi_{m, k}^2J_{m+1}^2(\xi_{m, k})}\cos(m\varphi)\]
+Vidimo, da je
+\[\frac{\delta(r - r_0)}{r} = -2\Sum[1]{k}\frac{J_m(\xi_{m, k}r)J_m(\xi_{m, k}r_0)}{J_{m+1}^2(\xi_{m, k})}\,\qquad \forall m\]
+\subsection{Povzetek}
+za kon\v cen \(\mathcal{D}\) lahko Greenovo funkcijo poi\v s\v cemo na tri na\v cine:
+\begin{itemize}
+    \item Z nastavkom \(G = G_\infty + g\).
+    \item Z razvojem po lastnih funkcijah operatorja.
+    \item Z lepljenjem, pri katerem upo\v stevamo skok v odvodu koeficientov \(f_m'(r)\).
+\end{itemize}
+\end{document}

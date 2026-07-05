@@ -1,0 +1,699 @@
+\chapter{Številske množice}
+
+Številske množice (naravna števila, cela števila, \ldots) poznate že od nekdaj. O njih imate zadosti občutka oz.~intuitivne predstave, da jih lahko uporabljate in pridete do pravilnih rezultatov. Tudi v tej knjigi smo jih že kar naprej izkoriščali za razne primere.
+
+Ampak intuitivna predstava je tudi vse, kar zaenkrat imamo o številskih množicah. Nismo še podali natančne matematične definicije zanje, na osnovi katere bi lahko neizpodbitno dokazovali izreke o njih.
+
+Za vajo lahko sami premislite, ali bi znali na tem mestu podati natančno definicijo, kaj pomeni biti naravno, celo, racionalno oz.~realno število. Definicija seveda mora biti natančna --- npr.~reči, da so realna števila tista, ki ležijo na številski premici, ni zadovoljiva definicija (vsaj ne, če ne pojasnite nedvoumno, kaj pomeni ``številska premica'' in kaj pomeni ``ležati'' na njej).
+
+V tem poglavju se bomo sistematično lotili obravnave najpogosteje uporabljanih številskih množic. Podali bomo njihove konstrukcije, karakterizacije in temeljne lastnosti.
+
+
+\section{Naravna števila}
+
+\subsection{Peanovi aksiomi}
+
+Če vas kdo vpraša, kako dobiti vsa naravna števila, verjetno odgovorite nekaj v naslednjem smislu: naravna števila so $0$ in vsa tista števila, ki jih dobite s prištevanjem enice, tj.~jemanjem naslednika. Torej, začnemo z $0$, vzamemo naslednika in dobimo $1$, nato še enkrat vzamemo naslednika in dobimo $2$ itd.
+
+Prvi, ki je znal to intuitivno predstavo preliti v natančno matematično definicijo, je bil Peano\footnote{Giuseppe Peano (1858 -- 1932) je bil italijanski matematik.} komaj dobro stoletje nazaj. Pogoje, ki jih zahtevamo za neko množico, da jo lahko imenujemo ``množica naravnih števil'', po njem imenujemo \df{Peanovi aksiomi}. \davorin{Nekje bomo predebatirali, kaj je aksiom in zakaj jih uporabljamo. Peanove aksiome povežimo s tem.}
+
+Če boste brskali po literaturi, boste naleteli na mnogo različnih inačic Peanovih aksiomov. Mi bomo izbrali sledečo jedrnato različico.
+
+\begin{definicija}[Peano]\label{definicija:naravna-stevila}
+\df{Množica naravnih števil} je množica (običajno označena z $\NN$), skupaj z izbranim njenim elementom (običajno označenim z $0$, kar beremo ``ničla'' ali ``nič'') in preslikavo na tej množici (običajno označeno z $\suc\colon \NN \to \NN$, ki jo imenujemo ``naslednik''), kadar veljajo naslednje lastnosti:
+\begin{itemize}
+\item
+$\suc$ je injektivna preslikava,
+\item
+$0 \notin \rn{\suc}$,
+\item
+velja načelo \df{matematične indukcije}: če je $\phi$ predikat na $\NN$, za katerega velja
+\[\phi(0) \qquad\qquad \text{in} \qquad\qquad \all{n \in \NN} (\phi(n) \implies \phi\big(\suc(n)\big)),\]
+tedaj $\phi$ velja za vse elemente $\NN$.
+\end{itemize}
+\end{definicija}
+
+Poskusimo si zdaj natančno pojasniti pomen teh pogojev.
+
+S pomočjo elementa $0$ in preslikave $\suc$ lahko v nedogled generiramo elemente množice $\NN$. Začnemo z $0$, nato vzamemo naslednika in dobimo $\suc(0)$, nato vzamemo naslednika tega elementa in dobimo $\suc(\suc(0))$, nato naslednika $\suc(\suc(\suc(0)))$ itd. Takšen zapis je sicer precej nepraktičen --- si predstavljate, da rečete ``dobimo se čez naslednika od naslednika od naslednika od naslednika od naslednika ničle ur'' (namesto ``dobimo se čez pet ur'')? Zato sprejmemo dogovor: $\suc(0)$ označimo krajše z $1$ in preberemo ``ena'', $\suc(\suc(0))$ označimo z $2$ in preberemo ``dve'' in tako naprej.\footnote{Trenutno dogovorjena sistematična imena za števila gredo do \df{centiljona}, ki ga zapišemo z enico, ki ji sledi 600 ničel (vsaj pri nas; ponekod po svetu centiljon pomeni enica s 303 ničlami). To pomeni, da lahko sistematično izrazimo števila do $10^{606}-1$ (= devetsto devetindevetdeset centiljard devetsto devetindevetdeset centiljonov devetsto devetindevetdeset novemnonagintiljard\ldots). Nekateri razširijo to lestvico še z nadaljnjimi latinskimi izpeljankami, obstajajo pa tudi posebna imena za nekatera posamična velika števila, na primer \df{gugol} za $10^{100}$ (od tod izhaja ime spletnega brskalnika Google).}
+
+Smo na ta način dobili neskončno različnih elementov $\NN$? Če ne bi zahtevali zgornjih pogojev, to ne bi bilo nujno. Lahko bi se namreč zaciklali (v smislu, da je naslednik nekega elementa element, ki smo ga že prej navedli).
+
+Včasih je takšno zaciklanje nekaj, kar dejansko hočemo. Na primer, pri algebri boste spoznali tako imenovane \df{ciklične grupe}. Ciklično grupo z $n$ elementi označimo $\ZZ_n$, njene elemente pa kar z $0, 1, \ldots, n-1$. Spodaj je slika ciklične grupe $\ZZ_5$.
+
+\note{slika usmerjenega grafa, ki predstavlja $\ZZ_5$}
+
+Puščice označujejo, kako slika naslednik v tej grupi: naslednik $0$ je $1$, naslednik $1$ je $2$, naslednik $2$ je $3$, naslednik $3$ je $4$, nato pa se zacikla in naslednik $4$ je $0$.
+
+Pogoj $0 \notin \rn{\suc}$ reče, da nič ni naslednik nobenega naravnega števila. Na ta način se izognemo, da bi naravna števila tvorila ciklično grupo.
+
+Obstaja pa še en način, kako se lahko jemanje naslednika zacikla. Vzemimo spodnji primer.
+
+\note{slike polgrupe $\set{0, \ldots, 4}$, ki se zacikla $4 \to 2$}
+
+Nasledniki se lahko zaciklajo tudi pri elementu, ki ni $0$. V danem primeru je naslednik $0$ element $1$, naslednik $1$ je $2$, naslednik $2$ je $3$, naslednik $3$ je $4$, naslednik $4$ pa je $2$.
+
+Zakaj naravna števila niso taka? Ker v danem primeru $\suc$ ni injektivna preslikava. Pogoj o injektivnosti nam v bistvu pove sledeče: naravna števila se ne morejo zaciklati pri nobenem nasledniku.
+
+Vidimo, da se naravna števila ne morejo zaciklati niti na začetku (pri $0$) niti nekje vmes v verigi naslednikov --- torej gredo v nedogled, kot želimo. Z drugimi besedami, $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots so medsebojno različni elementi množice $\NN$ in naravnih števil je posledično neskončno.
+
+Čemu pa služi zadnji pogoj iz definicije~\ref{definicija:naravna-stevila}, tj.~načelo o indukciji? Že brez tega pogoja vemo, da so $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots naravna števila, česar pa ne vemo, je, da so to \emph{vsa} naravna števila --- da torej ni nobenih drugih.
+
+\begin{naloga}
+Premisli, da množica $\RR_{> -1}$ z naslednikom $\suc(x) \dfeq x+1$ zadošča vsem pogojem iz definicije~\ref{definicija:naravna-stevila}, razen načelu indukcije.
+\end{naloga}
+
+Vidimo, da bi brez načela indukcije lahko imeli v množici $\NN$ odvečna števila (takšna, ki jih ne štejemo kot naravna). S predpostavko o indukciji se to ne more zgoditi. Ta namreč pravi: če neka lastnost velja za začetni element verige $0$, $\suc(0)$, $\suc(\suc(0))$, $\suc(\suc(\suc(0)))$,\ldots in če lahko sklepamo, da kakor hitro ta lastnost velja za določen element verige, velja tudi za naslednjega, potem ta lastnost velja za vsa naravna števila. Če za lastnost vzamemo ``biti element te verige'', iz načela o indukciji sklenemo, da se vsako naravno število nahaja nekje v tej verigi. Peanovi aksiomi torej podajajo strukturo, ki ustreza naši intuitivni predstavi množice naravnih števil.
+
+Glede na to, da je načelo o matematični indukciji eden od osnovnih aksiomov, s katerimi so naravna števila podana, ne preseneča, da je indukcija eden najpogostejših načinov, kako dokazujemo izjave na naravnih številih. Natančneje rečeno, z matematično indukcijo dokazujemo univerzalno kvantificirane izjave na naravnih številih, torej izjave oblike
+\[\all{n \in \NN} \phi(n).\]
+Po načelu indukcije za dokaz take izjave zadostuje narediti naslednje. Najprej dokažemo
+\[\phi(0)\]
+(da torej lastnost $\phi$ velja za začetno naravno število). To imenujemo \df{temelj} ali \df{osnova} ali \df{baza} indukcije. Nato dokažemo izjavo
+\[\all{n \in \NN} \phi(n) \implies \phi(\suc(n));\]
+to imenujemo \df{indukcijski korak}. Z besedami, dokažemo, da kakor hitro velja lastnost $\phi$ za neko naravno število, mora veljati ta lastnost tudi za naslednje.
+
+Intuitivno je jasno, da to mora delovati. Temelj indukcije nam pove, da dana lastnost velja za $0$. Ker zdaj vemo, da velja za $0$, mora po indukcijskem koraku veljati za naslednika ničle, torej za $1$. Zdaj vemo, da velja za $1$, torej mora po indukcijskem koraku veljati tudi za $2$. Tako nadaljujemo: sklepamo, da lastnost velja za $3$, nato za $4$ in tako naprej. Ker se vsa naravna števila pojavijo v verigi naslednikov ničle, mora z indukcijo dokazana lastnost dejansko veljati za vsa naravna števila.
+
+V poglavju~\ref{poglavje:indukcija} se bomo vrnili k indukciji, jo natančneje preučili in si ogledali primere dokazovanja z njo. Na tem mestu pa jo bomo uporabili za izpeljavo \emph{rekurzije}, ki nam bo služila za definicijo nadaljnje strukture na naravnih številih.
+
+\subsection{Rekurzija}\label{podrazdelek:rekurzija}
+
+Poenostavljeno povedano, rekurzija pomeni, da določimo vrednost preslikave pri nekem argumentu iz (že prej naračunanih) vrednosti pri manjših argumentih. Tipičen primer rekurzivno podane preslikave je faktoriela: če zapišemo $0! \dfeq 1$ in $n! \dfeq (n+1) \cdot n!$ za vse $n \in \NN$, smo s tem enolično podali preslikavo $!\colon \NN \to \NN$.
+
+Naračunajmo nekaj vrednosti te preslikave. Neposredno iz definicije dobimo $0! = 1$ --- to je \df{temelj} oz.~\df{osnova} oz.~\df{baza} rekurzije. Od tod s pomočjo \df{rekurzijskega koraka} izpeljemo
+\[1! = 1 \cdot 0! = 1 \cdot 1 = 1.\]
+S pomočjo te vrednosti in z rekurzijskim korakom lahko naračunamo vrednost faktoriele pri naslednjem naravnem številu.
+\[2! = 2 \cdot 1! = 2 \cdot 1 = 2\]
+In tako naprej.
+\[3! = 3 \cdot 2! = 3 \cdot 2 = 6\]
+\[4! = 4 \cdot 3! = 4 \cdot 6 = 24\]
+\[5! = 5 \cdot 4! = 5 \cdot 24 = 120\]
+\[\vdots\]
+Vidimo, da lahko po tem postopku prej ali slej naračunamo $n!$ za poljuben $n \in \NN$.
+
+V primeru faktoriele smo neko vrednost naračunali iz predhodne, uporabljajo se pa tudi splošnejše rekurzivne definicije, kjer vrednost naračunamo iz večih prejšnjih. Slovit primer je \df{Fibonaccijevo zaporedje} $F\colon \NN \to \NN$, podano kot $F_0 \dfeq 0$, $F_1 \dfeq 1$ in $F_{n+2} \dfeq F_{n+1} + F_n$ za vse $n \in \NN$. Od tod lahko naračunamo:
+\begin{align*}
+F_0 &= 0, \\
+F_1 &= 1, \\
+F_2 &= F_1 + F_0 = 1 + 0 = 1, \\
+F_3 &= F_2 + F_1 = 1 + 1 = 2, \\
+F_4 &= F_3 + F_2 = 2 + 1 = 3, \\
+F_5 &= F_4 + F_3 = 3 + 2 = 5, \\
+F_6 &= F_5 + F_4 = 5 + 3 = 8, \\
+&\vdots
+\end{align*}
+Bo pa za naše potrebe zaenkrat zadostovala oblika rekurzije, kjer se skličemo samo na en predhodni člen, in na tako se bomo v tej knjigi tudi omejili. \davorin{Lahko pa vseeno v kakšni vaji zahtevamo od študentov, da zapišejo in dokažejo splošnejše načelo rekurzije.}
+
+Zakaj bi pa sploh podajali preslikave rekurzivno namesto z izrecnim (eksplicitnim) predpisom? Včasih to sledi iz narave problema. Na primer, imamo stanje, ki se razvija korak za korakom, kjer je trenutno stanje odvisno od prejšnjega. Zanima nas, kako se naš sistem razvija, in v tem primeru je naravno podati trenutno stanje sistema kot rekurzivno preslikavo. \note{ponazorimo s primerom}
+
+Včasih preslikavo podamo rekurzivno, ker je rekurzivni predpis mnogo enostavnejši kot izrecni. Na primer, izrecna predpisa za faktorielo in Fibonaccijevo zaporedje sta
+\[n! = \int_0^\infty x^n e^{-x} \; dx\]
+in
+\[F_n = \frac{\Big(\frac{1+\sqrt{5}}{2}\Big)^n - \Big(\frac{1-\sqrt{5}}{2}\Big)^n}{\sqrt{5}}.\]
+Odvisno od tega, katera vrednost vas zanima, utegneta biti ta dva predpisa mnogo bolj okorna za računanje, kot pa rekurzivna. Pravzaprav nekaj časa traja, da sploh dokažete, da so rezultati teh predpisov naravna števila!
+
+Včasih pa preslikavo podamo rekurzivno preprosto zato, ker nimamo druge možnosti. Zgornja predpisa sicer podajata preslikavi izrecno, ampak cena za to je uporaba zapletenih operacij na realnih številih, kot so integral, eksponentna funkcija z naravno osnovo in korenjenje. Strogo vzeto smo zaenkrat od številskih množic definirali samo naravna števila, pa še zanje znamo povedati zgolj, kaj je $0$ in kaj je naslednik. V bistvu še ne ``znamo'' niti seštevati!
+
+S pomočjo rekurzije bomo lahko definirali ostalo strukturo, ki jo poznamo na naravnih številih: seštevanje, množenje in tako naprej. Za začetek pa natančno izoblikujmo in dokažimo načelo o rekurziji na naravnih številih. Iz zgornje razprave je jasno, da je rekurzija tesno povezana z indukcijo, od koder jo bomo tudi izpeljali.
+
+\begin{izrek}[Načelo rekurzije]\label{izrek:rekurzija}
+Imejmo poljubni množici $X$ in $Y$ ter preslikavi $b\colon X \to Y$ in $r\colon X \times Y \times \NN \to Y$. Tedaj obstaja natanko ena preslikava $f\colon X \times \NN \to Y$, za katero velja
+\[f(x, 0) = b(x)\]
+in
+\[f\big(x, \suc(n)\big) = r\big(x, f(n, x), n\big)\]
+za vse $x \in X$ in $n \in \NN$.
+
+Temu natančneje rečemo \df{načelo parametrizirane rekurzije}, ker pri preslikavi $f$ na naravnih številih dopuščamo še poljuben parameter iz množice $X$. Če za $X$ vzamemo enojec, se zgornja izjava reducira na sledeče \df{načelo neparametrizirane rekurzije}.
+
+Če imamo množico $Y$, element $b \in Y$ in preslikavo $r\colon Y \times \NN \to Y$, tedaj obstaja natanko ena preslikava $f\colon \NN \to Y$, za katero velja
+\[f(0) = b\]
+in
+\[f\big(\suc(n)\big) = r\big(f(n), n\big)\]
+za vse $n \in \NN$.
+\end{izrek}
+
+\begin{proof}
+\end{proof}
+
+Rekurzijo smo na ta način izpeljali iz indukcije, poudarimo pa, da je možen tudi obraten pristop: načelo o rekurziji vzamemo kot osnoven aksiom naravnih števil \emph{namesto} indukcije, nato pa od tod izpeljemo načelo o indukciji. Poglejmo, kako to storimo.
+
+Vzemimo poljuben predikat $\phi\colon \NN \to \tvs$, za katerega velja $\phi(0)$ in $\all{n \in \NN} (\phi(n) \implies \phi(\suc(n)))$. Po načelu rekurzije obstaja natanko ena preslikava $f\colon \NN \to \tvs$, za katero velja $f(0) = \true$ in $f\big(\suc(n)\big) = f(n) \lor \phi\big(\suc(n)\big)$ za vse $n \in \NN$. Ampak predikat $\phi$ sam zadošča tema pogojema, saj lahko izjavo $\phi(n) \implies \phi\big(\suc(n)\big)$ enakovredno zapišemo kot $\phi\big(\suc(n)\big) = \phi(n) \lor \phi\big(\suc(n)\big)$. Očitno pa tudi povsod resničen predikat zadošča danima pogojema, od koder zaključimo $\phi = \lam{n \in \NN}{\true}$.
+
+V tem smislu sta načeli rekurzije in indukcije enakovredni. Kot vidimo, lahko pravzaprav na indukcijo gledamo kot na poseben primer rekurzije, konkretno za preslikave oblike $\NN \to \tvs$. To nam pove, da je ta primer tako generičen, da je iz njega možno dobiti načelo za poljubne preslikave oblike $X \times \NN \to Y$.
+
+\note{Premislek, da sta parametrizirano in neparametrizirano načelo rekurzije ekvivalentna (zaradi eksponentov). Rekurzor kot preslikava. Morda pripomba, ki zgornjo diskusijo poveže s primitivno rekurzijo iz teorije izračunljivosti.}
+
+\subsection{Računske operacije}\label{podrazdelek:racunske_operacije_na_naravnih_stevilih}
+
+Uporabimo zdaj izpeljano rekurzijo za natančno matematično definicijo strukture na naravnih številih, ki jo neformalno poznate že od malih nog. Začnimo z osnovnimi računskimi operacijami.
+
+Seštevanje želimo definirati kot preslikavo $\NN \times \NN \to \NN$. Da ga definiramo rekurzivno, moramo povedati, kaj pomeni prišteti ničlo in kaj pomeni prišteti naslednika nekega števila (izraženo z vsoto, ki jo dobimo iz prištetja tega števila samega). Smiselno je podati naslednje.
+\begin{align*}
+m + 0 &\dfeq m \\
+m + \suc(n) &\dfeq \suc(m + n)
+\end{align*}
+V tej definiciji $m$ nastopa kot parameter --- se pravi, uporabili bomo načelo parametrizirane rekurzije. Glede na oznake iz izreka~\ref{izrek:rekurzija} smo vzeli $X = \NN$, $Y = \NN$, $b(m) = m$ (torej je $b$ identiteta na $\NN$) in $r(m, v, n) = \suc(v)$ (se pravi, $r$ je kompozicija projekcije na drugo komponento in preslikave naslednika). Po tem izreku dobimo enolično določeno preslikavo $+\colon \NN \times \NN \to \NN$ (ki igra vlogo preslikave $f$ iz izreka).
+
+Dokažimo, da pravkar definirano seštevanje zadošča zakonom, na katere smo navajeni. Začnimo s tem, da preverimo, da je $0$ enota za seštevanje.
+
+Seveda velja $a + 0 = a$ za vse $a \in \NN$ --- to je del definicije seštevanja. Od tod pa ne smemo takoj sklepati na $0 + a = a$, saj še nismo dokazali izmenljivosti seštevanja. Lahko bi na tem mestu začeli z dokazom izmenljivosti, ampak kot bomo videli, bomo za to že potrebovali dejstvo, da je $0$ enota. Dokažimo torej $0 + a = a$ za vse $a \in \NN$ neposredno.
+
+Trditev dokazujemo z indukcijo. Najprej dokažemo trditev za $a = 0$, torej $0 + 0 = 0$. To je res po definiciji.
+
+Privzemimo, da velja $0 + a = a$ za neki $a \in \NN$. Dokazujemo $0 + \suc(a) = \suc(a)$. Preverimo:
+\[0 + \suc(a) = \suc(0 + a) = \suc(a).\]
+
+Kaj pa, če namesto $0$ prištejemo $1$? Takrat seveda pričakujemo, da dobimo naslednika. Preverimo.
+
+Za poljuben $a \in \NN$ dobimo $a + 1 = a + \suc(0) = \suc(a + 0) = \suc(a)$. Tukaj sploh nismo potrebovali indukcije. Jo pa potrebujemo za dokaz, da za vsak $a \in \NN$ velja $1 + a = \suc(a)$. Za $a = 0$ je to definicija oznake $1$. Recimo, da za neki $a \in \NN$ velja $1 + a = \suc(a)$. Tedaj $1 + \suc(a) = \suc(1 + a) = \suc(\suc(a))$.
+
+Prepričajmo se zdaj o družilnosti (asociativnosti) seštevanja. Dokazati želimo izjavo
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{(a + b) + c = a + (b + c)}.\]
+Vzemimo poljubna $a, b \in \NN$, notranjo univerzalno kvantificirano izjavo pa dokažimo z indukcijo (po spremenljivki $c$). Če vzamemo $c = 0$, izjava velja: $(a + b) + 0 = a + b = a + (b + 0)$. Privzemimo zdaj, da pri nekem $c \in \NN$ velja $(a + b) + c = a + (b + c)$. Poračunamo
+\[(a + b) + \suc(c) = \suc\big((a + b) + c\big) = \suc\big(a + (b + c)\big) = a + \suc(b + c) = a + \big(b + \suc(c)\big).\]
+
+Zdaj lahko dokažemo izmenljivost (komutativnost) seštevanja. Dokazati želimo izjavo
+\[\all{a \in \NN}\all{b \in \NN}{a + b = b + a}.\]
+Vzemimo poljuben $a \in \NN$, nato pa nadaljujmo z indukcijo (po $b$). Za $b = 0$ trdimo $a + 0 = 0 + a$. To smo že dokazali --- obe strani enakosti sta enaki $a$, saj vemo, da je $0$ enota za seštevanje.
+
+Predpostavimo zdaj, da velja $a + b = b + a$ za neki $b \in \NN$. Izpeljati želimo $a + \suc(b) = \suc(b) + a$. Preverimo:
+\[a + \suc(b) = \suc(a + b) = \suc(b + a) = 1 + (b + a) = (1 + b) + a = \suc(b) + a.\]
+
+Na podoben način lahko definiramo množenje in dokažemo njegove lastnosti. Smiselna rekurzivna definicija množenja je sledeča.
+\begin{align*}
+m \cdot 0 &\dfeq 0 \\
+m \cdot \suc(n) &\dfeq m \cdot n + m
+\end{align*}
+Če primerjamo z izrekom~\ref{izrek:rekurzija}, smo vzeli $X = Y = \NN$, $b(m) = 0$ (torej je $b$ konstantna ničelna preslikava) in $r(m, v, n) = v + m$ (to preslikavo lahko definiramo s pomočjo pravkar definiranega seštevanja). Izrek nam porodi enolično določeno preslikavo $\cdot\colon \NN \times \NN \to \NN$.
+
+Podobno kot prej pri seštevanju za začetek ugotovimo, kaj se zgodi, ko množimo z $0$ oziroma $1$. Po definiciji vemo $a \cdot 0 = 0$ za vse $a \in \NN$. Dokažimo še $0 \cdot a = 0$ za vse $a \in \NN$. Za $a = 0$ velja $0 \cdot 0 = 0$ po definiciji. Vzemimo, da velja $0 \cdot a = 0$ za neki $a \in \NN$. Tedaj $0 \cdot \suc(a) = 0 \cdot a + 0 = 0 + 0 = 0$.
+
+Število $1$ bi morala biti enota za množenje. Preverimo. Najprej $a \cdot 1 = a \cdot s(0) = a \cdot 0 + a = 0 + a = a$. Po drugi strani trditev, da za vse $a \in \NN$ velja $1 \cdot a = a$, dokažemo z indukcijo. Enakost $1 \cdot 0 = 0$ je jasna. Recimo, da trditev velja za neki $a \in \NN$. Tedaj $1 \cdot \suc(a) = 1 \cdot a + 1 = a + 1 = \suc(a)$.
+
+Preden se lotimo družilnosti in izmenljivosti množenja, dokažimo, da je množenje razčlenitveno (distributivno) čez seštevanje. Se pravi, dokazati želimo izjavi
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{(a + b) \cdot c = a \cdot c  + b \cdot c}\]
+in
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{a \cdot (b + c) = a \cdot b + a \cdot c}.\]
+Pri prvi od izjav (desni razčlenitvi) vzemimo poljubna $a, b \in \NN$, nato pa se lotimo indukcije po $c$. Dobimo $(a + b) \cdot 0 = 0 = 0 + 0 = a \cdot 0 + b \cdot 0$. Če velja $(a + b) \cdot c = a \cdot c  + b \cdot c$ za neki $c$, tedaj
+\[(a + b) \cdot \suc(c) = (a + b) \cdot c + (a + b) = a \cdot c + b \cdot c + a + b = a \cdot c + a + b \cdot c + b = a \cdot \suc(c) + b \cdot \suc(c).\]
+Pri drugi izjavi (levi razčlenitvi) sklepamo podobno: $a \cdot (b + 0) = a \cdot b = a \cdot b + 0 = a \cdot b + a \cdot 0$. Nato privzamemo izjavo za neki $c$ in poračunamo
+\[a \cdot \big(b + \suc(c)\big) = a \cdot \suc(b + c) = a \cdot (b + c) + a = a \cdot b + a \cdot c + a = a \cdot b + a \cdot \suc(c).\]
+
+Preverimo zdaj družilnost množenja, torej izjavo
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{(a \cdot b) \cdot c = a \cdot (b \cdot c)}.\]
+Vzemimo poljubna $a, b \in \NN$ in se lotimo indukcije po $c$. Za $c = 0$ dobimo $(a \cdot b) \cdot 0 = 0 = a \cdot 0 = a \cdot (b \cdot 0)$. Predpostavimo izjavo za neki $c$ in poračunamo
+\[(a \cdot b) \cdot \suc(c) = (a \cdot b) \cdot c + a \cdot b = a \cdot (b \cdot c) + a \cdot b = a \cdot (b \cdot c + b) = a \cdot \big(b \cdot \suc(c)\big).\]
+
+Naposled preverimo še izmenljivost množenja na naravnih številih, torej izjavo
+\[\all{a \in \NN}\all{b \in \NN}{a \cdot b = b \cdot a}.\]
+Vzemimo poljuben $a \in \NN$. Za $b = 0$ dobimo $a \cdot 0 = 0 = 0 \cdot a$. Vzemimo, da izjava velja za neki $b$. Tedaj
+\[a \cdot \suc(b) = a \cdot b + a = b \cdot a + a = b \cdot a + 1 \cdot a = (b + 1) \cdot a = \suc(b) \cdot a.\]
+
+Na kratko lahko to celotno razpravo povzamemo: množica naravnih števil $\NN$ tvori izmenljiv polkolobar z enico. \davorin{ta pojem bo pojasnjen že v prejšnjem poglavju o strukturah} Seveda pa ne tvori kolobarja; vemo, da naravnih števil ne moremo poljubno odštevati. Še vedno pa lahko odštevanje na naravnih številih podamo kot \emph{delno} operacijo, torej kot delno preslikavo $-\colon \NN \times \NN \parto \NN$. Spomnimo se namreč \note{od polkolobarjev v prejšnjem poglavju}, da je odštevanje delna preslikava natanko tedaj, ko je polkolobar krajšalen.
+
+Dokažimo krajšalnost polkolobarja naravnih števil, torej izjavo
+\[\all{a \in \NN}\all{b \in \NN}\all{x \in \NN}\big(a + x = b + x \implies a = b\big).\]
+Vzemimo poljubna $a, b \in \NN$, nato pa se kot običajno poslužimo indukcije. Pri $x = 0$ smo takoj na koncu. Privzemimo izjavo $a + x = b + x \implies a = b$ za neki $x$ in naj velja $a + \suc(x) = b + \suc(x)$. Tedaj $\suc(a + x) = \suc(b + x)$ in ker je $\suc$ injektivna preslikava (eden od Peanovih aksiomov!), sklepamo $a + x = b + x$, od tod pa $a = b$.\footnote{Injektivnost preslikave $\suc$ je točno to, kar potrebujemo za krajšalnost. Velja namreč tudi obrat: če imamo $\suc(a) = \suc(b)$, tj.~$a + 1 = b + 1$, in lahko krajšamo, potem $a = b$.}
+
+S pomočjo (delnega) odštevanja lahko definiramo \df{predhodnika} na naravnih številih, in sicer kot $\prd(n) \dfeq n - 1$. Tudi to je zgolj delna preslikava $\prd\colon \NN \parto \NN$; ničla je edino naravno število, ki ni v njenem definicijskem območju.
+
+\begin{naloga}
+Dokaži $\all{n \in \NN}{\prd\big(\suc(n)\big) \kleq n}$.
+\end{naloga}
+
+Včasih je pa uporabno imeti obliko predhodnika in odštevanja, ki sta celoviti preslikavi. Pri predhodniku se dogovorimo, da se pomaknemo za eno nazaj, če se le da (pri ničli torej ostanemo, kjer smo). To različico predhodnika lahko definiramo z rekurzijo na naslednji način.
+\begin{align*}
+\tprd(0) &\dfeq 0 \\
+\tprd\big(\suc(n)\big) &\dfeq n
+\end{align*}
+Po načelu o neparametrizirani rekurziji dobimo enolično določeno preslikavo $\tprd\colon \NN \to \NN$ (konkretno, v izreku~\ref{izrek:rekurzija} vzamemo $Y = \NN$, $b = 0$ in $r(v, n) = n$).\footnote{Morda se vam zdi vprašljivo, če bi to definicijo sploh imenovali ``rekurzivna'', saj $\tprd\big(\suc(n)\big)$ nismo izrazili s $\tprd(n)$ (ali z drugimi besedami, preslikava $r$ ni odvisna od svojega prvega argumenta). Ampak izrek~\ref{izrek:rekurzija} za ta primer še vedno velja in zgornja definicija torej podaja dobro definirano preslikavo $\tprd\colon \NN \to \NN$.}
+
+Od tod lahko definiramo tako imenovano \df{prisekano odštevanje} na naravnih številih. Simbol za to operacijo je $\monus$, kar se prebere ``monus'' (torej: $1 + 2$ se bere ``ena plus dve'', $1 - 2$ se bere ``ena minus dve'' in $1 \monus 2$ se bere ``ena monus dve'').
+
+Ideja prisekanega odštevanja je, da zmanjševanec zmanjšamo za tolikšen del odštevanca, kolikor le lahko (tako da še ostanemo v okviru naravnih števil). Z drugimi besedami: če se običajno odštevanje izide v naravnih številih, velja $a \monus b = a - b$, sicer pa velja $a \monus b = 0$. Natančna rekurzivna definicija je sledeča.
+\begin{align*}
+m \monus 0 &\dfeq m \\
+m \monus \suc(n) &\dfeq \tprd(m \monus n)
+\end{align*}
+Se pravi, če v izreku~\ref{izrek:rekurzija} vzamemo $X = Y = \NN$, $b(m) = m$ in $r(m, v, n) = \tprd(v)$, dobimo preslikavo $\monus\colon \NN \times \NN \to \NN$.
+
+\davorin{Ko se dokončno dogovorimo, kako bomo prevajali precendenco in asociiranje, povejmo, da ima prisekano odštevanje isto precendenco kot navadno odštevanje in da se asociira z leve.}
+
+Oglejmo si nekaj lastnosti, ki veljajo za prisekano odštevanje. Po definiciji je $0$ desna enota, ni pa leva enota, kot takoj sledi iz naslednje vaje (od tod je jasno tudi, da $\monus$ ni izmenljiv).
+
+\begin{naloga}
+Dokaži $\all{n \in \NN}{0 \monus n = 0}$.
+\end{naloga}
+
+Bolj zvito je preveriti, da za vse $n \in \NN$ velja $n \monus n = 0$. Če poskusimo to neposredno dokazati z indukcijo, bomo hitro naleteli na oviro. Namesto tega se raje lotimo splošnejše trditve: dokažimo
+\[\all{n \in \NN}\all{a \in \NN}{(n + a) \monus n = a}.\]
+Dokažimo trditev za $n = 0$. Vzemimo poljuben $a \in \NN$ in poračunajmo $(0 + a) \monus 0 = a \monus 0 = 0$. Predpostavimo zdaj, da velja trditev $\all{a \in \NN}{(n + a) \monus n = a}$ za neki $n$. Dokazati želimo $\all{a \in \NN}{\big(\suc(n) + a\big) \monus \suc(n) = a}$. Vzemimo poljuben $a \in \NN$. Tedaj
+\[\big(\suc(n) + a\big) \monus \suc(n) = \big(n + 1 + a\big) \monus \suc(n) = \big(n + \suc(a)\big) \monus \suc(n) =\]
+\[= \tprd\Big(\big(n + \suc(a)\big) \monus n\Big) = \tprd\big(\suc(a)\big) = a.\]
+Razmisli natančno, zakaj velja predzadnji enačaj! Če zamenjamo univerzalna kvantifikatorja v začetni izjavi, da dobimo $\all{a \in \NN}\all{n \in \NN}{(n + a) \monus n = a}$, in uporabimo trditev za $a = 0$, sklenemo naposled $n \monus n = 0$ za vse $n \in \NN$.
+
+Prisekano odštevanje seveda ni družilno (nič bolj kot navadno odštevanje). Kot nadomestek pa nam služi naslednja trditev:
+\[\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{(a \monus b) \monus c = a \monus (b + c)}.\]
+Dokažimo jo. Vzemimo poljubna $a, b \in \NN$ in se lotimo indukcije po $c$. Pri $c = 0$ dobimo $(a \monus b) \monus 0 = a \monus b = a \monus (b + 0)$. Privzemimo zdaj enakost pri nekem $c$ in jo preverimo pri nasledniku:
+\[(a \monus b) \monus \suc(c) = \tprd\big((a \monus b) \monus c\big) = \tprd\big(a \monus (b + c)\big) = a \monus \suc(b + c) = a \monus \big(b + \suc(c)\big).\]
+
+Preden dokažemo še členjenje množenja čez prisekanego odštevanje, si pripravimo pomožno trditev.
+
+\begin{lema}\label{lema:nic-ali-naslednik}
+Velja sledeče.
+\begin{enumerate}
+\item
+Vsako naravno število je bodisi nič bodisi naslednik; se pravi, velja trditev
+\[\all{n \in \NN}{n = 0 \xor \some{m \in \NN}{n = \suc(m)}}.\]
+Lahko smo še natančnejši: če je število naslednik, je naslednik svojega predhodnika. Trdimo torej
+\[\all{n \in \NN}{n = 0 \xor n = \suc\big(\tprd(n)\big)}.\]
+\item
+Velja
+\[\all{a \in \NN}\all{b \in \NN}{a \cdot \tprd(b) = a \cdot b \monus a}.\]
+\end{enumerate}
+\end{lema}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Po Peanovih aksiomih velja $0 \notin \rn{\suc}$, torej naravno število ne more biti hkrati nič in naslednik. Zadostuje potemtakem, da dokažemo samo še $\all{n \in \NN}{n = 0 \lor n = \suc\big(\tprd(n)\big)}$.
+
+Preverimo z indukcijo. Trditev očitno velja za $n = 0$. Recimo, da velja za neki $n$, in se lotimo dokazovanja za $\suc(n)$. Pri dokazovanju disjunkcije si izberimo, da dokazujemo drugi disjunkt. Z računom smo takoj konec: $\suc\Big(\tprd\big(\suc(n)\big)\Big) = \suc(n)$ (uporabili smo družilnost sklapljanja preslikav in rekurzivno definicijo celovitega predhodnika).
+\item
+Vzemimo poljubna $a, b \in \NN$. Po prejšnji točki velja bodisi $b = 0$ bodisi $b = \suc\big(\tprd(b)\big)$. V prvem primeru dobimo
+\[a \cdot \tprd(0) = a \cdot 0 = 0 = 0 \monus a = a \cdot 0 \monus a.\]
+Predpostavimo, da smo v drugem primeru, da torej velja $b = \suc\big(\tprd(b)\big)$. Račun bo bolj očiten, če začnemo z druge strani:
+\[a \cdot b \monus a = a \cdot \suc\big(\tprd(b)\big) \monus b = \big(a \cdot \tprd(b) + a\big) \monus a = a \cdot \tprd(b).\]
+\end{enumerate}
+\end{proof}
+
+Zdaj smo naposled pripravljeni, da dokažemo členjenje množenja čez prisekano odštevanje v naravnih številih. Ker že vemo, da je množenje izmenljivo, zadostuje preveriti členjenje samo na eni strani. Dokažimo torej $\all{a \in \NN}\all{b \in \NN}\all{c \in \NN}{a \cdot (b \monus c) = a \cdot b \monus a \cdot c}$.
+
+Vzemimo poljubna $a, b \in \NN$ in nadaljujmo z indukcijo po $c$. Pri $c = 0$ takoj dobimo $a \cdot (b \monus 0) = a \cdot b = a \cdot b \monus 0 = a \cdot b \monus a \cdot 0$. Recimo zdaj, da trditev velja za neki $c$. Dokažimo jo za $\suc(c)$:
+\[a \cdot \big(b \monus \suc(c)\big) = a \cdot \tprd(b \monus c) = a \cdot (b \monus c) \monus a = (a \cdot b \monus a \cdot c) \monus a = a \cdot b \monus (a \cdot c + a) = a \cdot b \monus a \cdot \suc(c).\]
+
+\subsection{Urejenost}\label{podrazdelek:urejenost-na-naravnih-stevilih}
+
+V prejšnjem podrazdelku smo se posvetili algebrski strukturi naravnih števil. V tem podrazdelku dodajmo še urejenostno strukturo. Formalno bomo definirali $\leq$ in $<$ na $\NN$ in preverili lastnosti teh relacij.
+
+Obstaja sicer ogromno ekvivalentnih definicij relacij $\leq$ in $<$ na $\NN$. \note{Mi si bomo izbrali sledeči, ekvivalenco z nekaterimi ostalimi pa preverite v tej in tej vaji.}
+
+Definirajmo $\leq$ kot dvomestno relacijo na $\NN$, dano s podmnožico
+\[\set[1]{(a, b) \in \NN \times \NN}{\some{x \in \NN}{a + x = b}}.\]
+Preverimo, da je $\NN$ linearno urejena z $\leq$.
+
+Refleksivnost je preprosta, saj velja $a + 0 = a$. Tudi tranzitivnost takoj izpeljemo: če velja $a + x = b$ in $b + y = c$, tedaj $a + (x + y) = (a + x) + y = b + y = c$. To pomeni, da je $\leq$ (vsaj) šibka urejenost na $\NN$.
+
+Če natančneje pogledamo to izpeljavo, vidimo, da načeloma ni bilo pomembno, da smo jemali elemente iz množice naravnih števil. Uporabili smo zgolj družilnost seštevanja in obstoj enote za seštevanje. Z zgornjim predpisom torej lahko definiramo šibko urejenost $\leq$ na poljubni množici, opremljeni z družilno operacijo z enoto. Množicam s tako strukturo rečemo \df{monoidi} in tako definiran $\leq$ se imenuje \df{naravna urejenost} monoida.
+
+V splošnem ta urejenost ni nič več kot šibka, konkretno na naravnih številih pa ima še več drugih lastnosti. Dokažimo, da je $\leq$ antisimetričen, torej delna urejenost na $\NN$.
+
+Vzemimo poljubna $a, b \in \NN$, za katera obstajata $x, y \in \NN$, tako da velja $a + x = b$ in $b + y = a$. Tedaj $a + x + y = b + y = a = a + 0$. Krajšamo $a$ in dobimo $x + y = 0$.
+
+Spomnimo se leme~\ref{lema:nic-ali-naslednik}: za $x$ se odločimo, ali je nič ali naslednik. Če $x = 0$, iz $a + x = b$ sledi $a = b$, kot želimo. Če je naslednik, pa dobimo $0 = x + y = y + x = y + \suc\big(\tprd(x)\big) = \suc\big(y + \tprd(x)\big)$. To bi pomenilo, da je $0$ v zalogi vrednosti preslikave $\suc$, kar je v protislovju s Peanovimi aksiomi in ta primer torej ne more nastopiti.
+
+Dokažimo še strogo sovisnost relacije $\leq$ in s tem sklenimo, da je linearna urejenost na $\NN$. Dokazujemo $\all{a \in \NN}\all{b \in \NN}{a \leq b \lor b \leq a}$.
+
+Izvedimo indukcijo po $a$. Začnimo z $a = 0$ in vzemimo poljuben $b \in \NN$. Velja $0 \leq b$, saj $0 + b = b$. Predpostavimo zdaj, da velja $\all{b \in \NN}{a \leq b \lor b \leq a}$ za neki $a$, in dokažimo to trditev za $\suc(a)$. Vzemimo poljuben $b \in \NN$. Po lemi~\ref{lema:nic-ali-naslednik} je $b$ bodisi nič bodisi naslednik. V prvem primeru velja $b \leq \suc(a)$. V drugem primeru uporabimo predpostavko, da dobimo $a \leq \tprd(b) \lor \tprd(b) \leq a$. Če velja $a \leq \tprd(b)$, torej če obstaja $x \in \NN$, tako da $a + x = \tprd(b)$, tedaj $\suc(a) + x = a + 1 + x = a + \suc(x) = \suc(a + x) = \suc\big(\tprd(b)\big) = b$, torej $\suc(a) \leq b$. Če velja $\tprd(b) \leq a$, potem pa imamo $x \in \NN$, za katerega $\tprd(b) + x = a$. Tedaj $b + x = \suc\big(\tprd(b)\big) + x = \suc\big(\tprd(b) + x\big) = \suc(a)$, od koder sklenemo $b \leq \suc(a)$.
+
+Oglejmo si zdaj strogo urejenost $<$ na naravnih številih. \davorin{A imamo kako ime za ``nestrogo'' urejenost $\leq$? Recimo ``ohlapna''?} Definirajmo jo kot dvomestno relacijo na $\NN$, dano s podmnožico
+\[\set[1]{(a, b) \in \NN \times \NN}{\some{x \in \NN}{a + \suc(x) = b}}.\]
+
+Očitno velja $a < b \implies a \leq b$ za vse $a, b \in \NN$ --- se pravi, $a < b$ je strožji pogoj od $a \leq b$ (od tod ime ``stroga urejenost'').
+
+Oglejmo si povezavo med $<$ in $\leq$ podrobneje.
+
+\begin{trditev}
+Velja sledeče za vse $a, b \in \NN$.
+\begin{enumerate}
+\item
+$a < b$ je ekvivalentno tako $\lnot(b \leq a)$ kot tudi $a \leq b \land a \neq b$.
+\item
+$a \leq b$ je ekvivalentno tako $\lnot(b < a)$ kot tudi $a < b \lor a = b$.
+\end{enumerate}
+\end{trditev}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Privzemimo $a < b$, torej imamo $x \in \NN$, tako da $a + \suc(x) = b$. Od tod izpeljimo $\lnot(b \leq a)$. Recimo, da velja $b \leq a$, da torej obstaja $y \in \NN$, tako da $b + y = a$. Potem $b + \suc(y + x) = b + y + \suc(x) = a + \suc(x) = b = b + 0$. Krajšamo $b$ in dobimo $\suc(y + x) = 0$. Izpeljali smo neresnico, saj po Peanovih aksiomih $0$ ni v zalogi vrednosti preslikave $\suc$. Sklenemo $\lnot(b \leq a)$.
+
+Predpostavimo $\lnot(b \leq a)$ in dokažimo $a \leq b \land a \neq b$. Vemo že, da je relacija $\leq$ strogo sovisna, torej velja $a \leq b \lor b \leq a$. Ker po predpostavki ne velja $b \leq a$, mora veljati $a \leq b$. Preverimo še $a \neq b$, kar je okrajšava za $\lnot(a = b)$. Recimo, da velja $a = b$. Tedaj velja tudi $b \leq a$, kar je v nasprotju s predpostavko.
+
+Privzemimo zdaj $a \leq b \land a \neq b$ in izpeljimo $a < b$. Po predpostavki obstaja $x \in \NN$, tako da velja $a + x = b$. Po lemi~\ref{lema:nic-ali-naslednik} velja $x = 0 \lor x = \suc\big(\tprd(x)\big)$. Če $x = 0$, potem $a = b$, kar je v nasprotju s predpostavko. Torej $a + \suc\big(\tprd(x)\big) = b$, kar pomeni $a < b$.
+\item
+Iz ekvivalence iz prejšnje točke po zakonu o dvojni negaciji sledi ekvivalenca $a \leq b \iff \lnot(b < a)$.
+
+Predpostavimo $a \leq b$ in izpeljimo $a < b \lor a = b$. Po zakonu o izključenem tretjem lahko ločimo primera $a = b$ in $a \neq b$. V prvem primeru smo takoj končali. V drugem primeru dobimo $a < b$ po ekvivalenci iz prejšnje točke.
+
+Predpostavimo $a < b \lor a = b$ in izpeljimo $a \leq b$. Vemo že, da iz $a < b$ sledi $a \leq b$. Po refleksivnosti $\leq$ seveda tudi iz $a = b$ sledi $a \leq b$.
+\end{enumerate}
+\end{proof}
+
+Iz te trditve lahko takoj izpeljemo nekaj lastnosti relacije $<$. Relacija je asimetrična: če bi hkrati veljalo $a < b$ in $b < a$, bi veljalo tudi $a < b$ in $b \leq a$, za kar pa že vemo, da se ne more zgoditi. Posledično je relacija $<$ tudi antisimetrična in irefleksivna. \davorin{Pri relacijah imejmo vajo, kjer se dokaže asimetričnost $\iff$ antisimetričnost $\land$ irefleksivnost.}
+
+Preverimo tranzitivnost relacije $<$. Pravzaprav lahko to lastnost okrepimo: ne samo, da lahko $a < c$ izpeljemo iz $a < b \land b < c$, pač pa lahko to izpeljemo tudi v primeru, ko naredimo enega od konjunktov ohlapnejšega. Dokažimo, da za vse $a, b, c \in \NN$ velja $a \leq b \land b < c \implies a < c$, drugo obliko ``krepke'' tranzitivnosti pa prepustimo za vajo.
+
+Vzemimo poljubne $a, b, c \in \NN$, za katere velja $a \leq b$ in $b < c$, torej imamo $x, y \in \NN$, tako da $a + x = b$ in $b + \suc(y) = c$. Potem $a + \suc(x + y) = a + x + \suc(y) = b + \suc(y) = c$, torej $a < c$.
+
+\begin{naloga}
+Dokaži $\all{a, b, c \in \NN}{a < b \land b \leq c \implies a < c}$. Premisli, zakaj takoj sledi tranzitivnost relacije $<$.
+\end{naloga}
+
+Tudi sovisnost $<$ takoj dobimo iz zgornje trditve. Vzemimo poljubna $a, b \in \NN$, za katera velja $a \neq b$. Gotovo velja $a \leq b \lor b \leq a$, kar je ekvivalentno $(a < b \lor a = b) \lor (b < a \lor b = a)$ ali krajše $a < b \lor b < a \lor a = b$. Zadnji disjunkt po predpostavki ne pride v poštev, torej smo izpeljali $a < b \lor b < a$.
+
+Če povzamemo: relacija $<$ na $\NN$ je stroga linearna urejenost.
+
+Ker je relacija $<$ asimetrična in sovisna, zadošča tako imenovanemu \df{zakonu trodelitve} (s tujko \df{zakon trihotomije}): za vsaka $a, b \in \NN$ velja natanko ena izmed možnosti $a < b$, $a = b$ oz.~$b < a$.
+
+\begin{naloga}
+Za poljubno dvomestno relacijo na neki množici formuliraj zakon trodelitve in dokaži, da mu relacija zadošča natanko tedaj, ko je asimetrična in sovisna.
+\end{naloga}
+
+\note{mrežna strukturo množice $\NN$, tj.~$\min$ in $\max$ \davorin{Pri mrežah (v poglavju o strukturah) že povejmo, da je vsaka linearna urejenost mreža.}, monotonost operacij}
+
+Povežimo urejenostno strukturo s prisekanim odštevanjem in si pripravimo trditev, ki nam bo kasneje prišla prav v razdelku o celih številih.
+
+\begin{trditev}\label{trditev:monus-in-urejenost}
+Za vse $a, b \in \NN$ veljata sledeči izjavi.
+\begin{enumerate}
+\item\label{trditev:monus-in-urejenost:neenakost}
+$a \leq b \iff a \monus b = 0$
+\item\label{trditev:monus-in-urejenost:maksimum}
+$a \monus b + b = \max\set{a, b}$
+\end{enumerate}
+\end{trditev}
+
+\begin{proof}
+\begin{enumerate}
+\item
+Vzemimo poljubna $a, b \in \NN$. Predpostavimo $a \leq b$, torej imamo $x \in \NN$, tako da $a + x = b$. Z upoštevanjem lastnosti, ki smo jih izpeljali za $\monus$, poračunamo: $a \monus b = a \monus (a + x) = (a \monus a) \monus x = 0 \monus x = 0$.
+
+Za dokaz obratne smeri predpostavimo $a \monus b = 0$. Ker je $\leq$ strogo sovisna relacija, velja $a \leq b \lor b \leq a$. V prvem primeru smo z dokazom končali. Predpostavimo, da smo v drugem primeru, da torej imamo $x \in \NN$, za katerega velja $b + x = a$. Tedaj $0 = a \monus b = (b + x) \monus b = x$, kar pomeni $a = b$ in posebej $a \leq b$.
+\item
+Ponovno zaradi stroge sovisnosti ločimo primera $a \leq b$ in $b \leq a$. V prvem primeru trditev sledi iz prejšnje točke in enakosti $\max\set{a, b} = b$. Recimo zdaj, da velja $b \leq a$, torej $\max\set{a, b} = a$ in obstaja $x \in \NN$, tako da $b + x = a$. Tedaj $a \monus b + b = (b + x) \monus b + b = x + b = a$.
+\end{enumerate}
+\end{proof}
+
+\subsection{Karakterizacija}
+
+Množico naravnih števil, skupaj z njeno strukturo, smo podali preko Peanovih aksiomov. Koliko pa pravzaprav je množic naravnih števil?
+
+Namreč, naravnih števil nismo podali kot neke konkretne množice; Peanovi aksiomi jo zgolj karakterizirajo. \note{Ko bomo napisali razdelek o definicijah oziroma poglavje o strukturah, navežimo to diskusijo s tisto. Torej, če definicija podaja objekt preko karakterizacije njegove strukture, potem se pojavi vprašanje obstoja in enoličnosti do izomorfizma.}
+
+Če obstaja vsaj ena množica naravnih števil, jih obstaja poljubno mnogo --- elemente lahko namreč poljubno preimenujemo, pa bodo še vedno zadoščali Peanovim aksiomom. Z drugimi besedami, karkoli izomorfnega množici naravnih števil je spet množica naravnih števil. Še dobro, da je tako --- bilo bi nadležno, če ne bi mogli vseh naslednjih zadev obravnavati kot množice naravnih števil: $\set{0, \suc(0), \suc(\suc(0)), \suc(\suc(\suc(0))),\ldots}$, $\set{0, 1, 2, 3,\ldots}$, $\set{\mathrm{0}, \mathrm{I}, \mathrm{II}, \mathrm{III},\ldots}$, $\set{\text{nič}, \text{ena}, \text{dve}, \text{tri},\ldots}$, $\set{\text{zero}, \text{one}, \text{two}, \text{three},\ldots}$, $\set{\text{null}, \text{eins}, \text{zwei}, \text{drei},\ldots}$\ldots
+
+Kako pa vemo, da obstaja vsaj ena množica naravnih števil? Ne moremo preprosto reči, da jo lahko skonstruiramo recimo kot množico $\set{0, 1, 2, 3,\ldots}$, saj tropičje nima natančnega matematičnega pomena.
+
+Dokaz obstoja bi podajala konstrukcija množice $\NN$ (skupaj z izbiro nekega njenega elementa, ki igra vlogo $0$, in konstrukcijo ustrezne preslikave $\suc\colon \NN \to \NN$). Taka konstrukcija bi iz določenih množic, za katere že vemo, da obstajajo, po določenih pravilih izpeljala $\NN$. Seveda to vprašanje obstoja zgolj pomakne za en korak nazaj: kako vemo, da te določene množice obstajajo in katera pravila za konstrukcijo množic so dopustna?
+
+Če hočemo karkoli izpeljati, moramo nekje začeti. Dogovoriti se torej moramo, katere \emph{aksiome} bomo sprejeli za množice same. Obstoj nekaterih množic in dopustnost nekateri pravil za konstrukcije novih množic iz starih preprosto privzamemo.
+
+Obstaja več različic aksiomov teorije množic. Na to temo bomo več povedali v \note{poglavju o hierarhiji množic}. Nasplošno pa velja, da se množica naravnih števil šteje za tako osnovno, da je njen obstoj kar eden od aksiomov. \davorin{Odvisno od tega, kako točno bomo formulirali aksiom o neskončnosti, lahko ta stavek še popravimo.} Z drugimi besedami, da množica naravnih števil obstaja, ``vemo'' zaradi tega, ker smo njen obstoj privzeli.
+
+Kaj pa enoličnost do izomorfizma? No, struktura množice naravnih števil je podana z izbiro elementa, ki predstavlja nič, in preslikavo, ki predstavlja naslednika. Vzemimo poljubni dve taki strukturirani množici $(\NN', 0', \suc')$ in $(\NN'', 0'', \suc'')$ in skonstruirajmo bijekcijo med njima, ki ohranja vso strukturo (v obe smeri).
+
+Za ti dve množici velja načelo o rekurziji, tako da lahko skonstruiramo preslikavi $f\colon \NN' \to \NN''$ in $g\colon \NN'' \to \NN'$ z rekurzivnima pogojema
+\begin{align*}
+f(0') &\dfeq 0'', & g(0'') &\dfeq 0', \\
+f\big(\suc'(x)\big) &\dfeq \suc''\big(f(x)\big), & g\big(\suc''(y)\big) &\dfeq \suc'\big(g(y)\big).
+\end{align*}
+Po definiciji $f$ in $g$ ohranjata strukturo naravnih števil. Kakor hitro preverimo, da sta ti dve preslikavi druga drugi obratni, imamo željeni izormorfizem.
+
+Dokažimo, da velja $g\big(f(x)\big) = x$ za vsak $x \in \NN'$. To bomo seveda dokazali z indukcijo. Po definiciji velja $g\big(f(0')\big) = g(0'') = 0'$. Predpostavimo, da trditev drži za neki $x \in \NN'$. Tedaj
+\[g\Big(f\big(\suc'(x)\big)\Big) = g\Big(\suc''\big(f(x)\big)\Big) = \suc'\Big(g\big(f(x)\big)\Big) = \suc'(x).\]
+Na enak način preverimo še, da $f\big(g(y)\big) = y$ za vse $y \in \NN''$. Sklenemo, da so Peanovi aksiomi dopustna karakterizacija strukture, saj določajo množico naravnih števil enolično do izomorfizma.
+
+Ni pa definicija~\ref{definicija:naravna-stevila} edina smiselna karakterizacija naravnih števil. V preostanku tega razdelka bomo omenili še nekaj drugih, ki se uporabljajo.
+
+V razdelku o rekurziji smo že omenili, da lahko načelo indukcije izpeljemo iz rekurzije (in obratno). Peanovi aksiomi se potemtakem lahko podajo z rekurzijo namesto indukcijo.
+
+V prejšnjih dveh razdelkih smo izpeljali običajno algebrsko in urejenostno strukturo naravnih števil. Včasih se del te strukture vključi v definicijo naravnih števil. Na primer, operacija seštevanja se vzame kot del osnovne strukture naravnih števil in enakosti $m + 0 = m$ ter $m + \suc(n) = \suc(m + n)$ se privzameta kot aksioma (ter podobno z ostalo strukturo).
+
+Pravzaprav je možno podati strnjeno definicijo naravnih števil, ki že vključuje algebrsko strukturo, s pomočjo kategorij (spomni se jih iz \note{razdelka o kategorijah v poglavju o strukturah}). Na kratko: $\NN$ je začetni polkolobar z enico.
+
+Pojasnimo to definicijo natančneje. Naj $\upkol$ označuje kategorijo, katere objekti so polkolobarji z enico, morfizmi pa preslikave med njimi, ki ohranjajo seštevanje, množenje ter enoti zanju. Tedaj lahko $\NN$ karakteriziramo kot začetni objekt v kategoriji $\upkol$.
+
+Preverimo, da to drži. Zadostuje preveriti, da $\NN$, dan z definicijo~\ref{definicija:naravna-stevila} in opremljen s polkolobarsko strukturo, izpeljano v podrazdelku~\ref{podrazdelek:racunske_operacije_na_naravnih_stevilih}, zadošča pogoju za začetni objekt. Namreč, vemo že, da Peanovi aksiomi določajo naravna števila do izomorfizma natančno, po drugi strani pa so tudi začetni objekti določeni do izomorfizma. Strogo gledano sicer gre tu za dve različni strukturi (in posledično načeloma različna pojma izomorfizma), ampak polkolobarsko strukturo na naravnih številih smo izpeljali iz ničle in naslednika, po drugi strani pa lahko ničlo in naslednika izpeljemo iz polkolobarske strukture: $0$ je enota za seštevanje, $1$ je enota za množenje in naslednik je dan s predpisom $x \mapsto x + 1$. Posledično se pojma izomorfizmov ujemata v smislu, da določata isti razpon objektov.
+
+Naj bo $X$ poljuben objekt v $\upkol$. Za lažje razumevanje označimo operacije, ki so del njegove strukture, z $X$ v indeksu, torej $+_X$, $0_X$, $\cdot_X$, $1_X$. Če je $f\colon \NN \to X$ poljuben morfizem v $\upkol$, mora zaradi ohranjanja operacij veljati $f(0) = 0_X$ in $f\big(\suc(n)\big) = f(n + 1) = f(n) +_X f(1) = f(n) +_X 1_X$. Ampak pogoja
+\begin{align*}
+f(0) &\dfeq 0_X \\
+f\big(\suc(n)\big) &\dfeq f(n) +_X 1_X
+\end{align*}
+po načelu o rekurziji enolično določata preslikavo $f\colon \NN \to X$. Če preverimo, da je ta preslikava homomorfizem polkolobarjev z enico, lahko zaključimo, da je $\NN$ res začetni objekt v $\upkol$.
+
+Enota za seštevanje se ohranja po definiciji. Preverimo, da se ohranja seštevanje kot celota: dokazujemo $\all{a \in \NN}\all{b \in \NN}{f(a + b) = f(a) +_X f(b)}$. Vzemimo poljuben $a \in \NN$ in se lotimo indukcije po $b$. Pri $b = 0$ velja $f(a + 0) = f(a) = f(a) +_X 0_X = f(a) +_X f(0)$. Recimo, da trditev velja za neki $b \in \NN$. Tedaj $f\big(a + \suc(b)\big) = f\big(\suc(a + b)\big) = f(a + b) +_X 1_X = f(a) +_X f(b) +_X 1_X = f(a) + f\big(\suc(b)\big)$.
+
+Kar se ohranjanja enice tiče, lahko poračunamo $f(1) = f\big(\suc(0)\big) = f(0) +_X 1_X = 0_X +_X 1_X = 1_X$. Preverimo, da se ohranja množenje, da torej velja $\all{a \in \NN}\all{b \in \NN}{f(a \cdot b) = f(a) \cdot_X f(b)}$. Vzemimo poljuben $a \in \NN$ in se poslužimo indukcije po $b$. Najprej $f(a \cdot 0) = f(0) = 0_X = f(a) \cdot_X 0_X = f(a) \cdot_X f(0)$, nato pa predpostavimo trditev za neki $b \in \NN$. Dobimo $f\big(a \cdot \suc(b)\big) = f(a \cdot b + a) = f(a \cdot b) +_X f(a) = f(a) \cdot_X f(b) +_X f(a) \cdot_X 1_X = f(a) \cdot_X \big(f(b) +_X 1_X\big) = f(a) \cdot_X f\big(\suc(b)\big)$.
+
+\begin{naloga}
+Premisli, da lahko $\NN$ okarakteriziramo tudi kot začetni izmenljiv polkolobar z enico.
+\end{naloga}
+
+Karakterizacija ``$\NN$ je začetni polkolobar z enico'' sicer uporablja seštevanje in množenje na naravnih številih. Možno je pa podati tudi kategorično definicijo naravnih števil, ki se sklicuje samo na ničlo in naslednika, tako kot Peanovi aksiomi (kot podani v definiciji~\ref{definicija:naravna-stevila}).
+
+Definirajmo kategorijo, katere objekti so diagrami oblike $\one \to X \to X$, kjer je $X$ poljubna množica, puščici pa predstavljata poljubni preslikavi (z domeno in kodomeno, kot podano v diagramu). Dogovorimo se, da so morfizmi iz objekta $\one \stackrel{a}{\longrightarrow} X \stackrel{t}{\longrightarrow} X$ v objekt $\one \stackrel{b}{\longrightarrow} Y \stackrel{u}{\longrightarrow} Y$ preslikave $f\colon X \to Y$, za katere velja $f \circ a = b$ in $f \circ t = u \circ f$ --- z drugimi besedami, komutirati mora sledeči diagram.
+
+\note{diagram}
+
+Naravna števila potem lahko definiramo kot začetni objekt v tej kategoriji.
+
+Preverimo, da je to res. Trdimo, da je $\one \stackrel{\nul}{\longrightarrow} \NN \stackrel{\suc}{\longrightarrow} \NN$ začetni objekt dane kategorije, kjer $\NN$ označuje množico naravnih števil, definirano s Peanovimi aksiomi, $\nul$ označuje preslikavo, ki odbere element $0$, $\suc$ pa kot običajno označuje naslednika.
+
+Vzemimo poljuben objekt $\one \stackrel{b}{\longrightarrow} Y \stackrel{u}{\longrightarrow} Y$. Preveriti želimo, da obstaja enolična preslikava $f\colon \NN \to Y$, za katero komutira sledeči diagram.
+
+\note{diagram}
+
+To pomeni, da imamo dva pogoja na $f$. Za začetek mora veljati $f \circ \nul = b$, kar je ekvivalentno $f\big(\nul(\unit)\big) = b(\unit)$ oziroma $f(0) = b(\unit)$. Drugi pogoj pravi $f \circ \suc = u \circ f$, tj.~za vsak $n \in \NN$ mora veljati $f\big(\suc(n)\big) = u\big(f(n)\big)$. Obstoj in enoličnost takšne preslikave $f$ nam poda načelo o rekurziji.
+
+Naravna števila (skupaj s podatkom o ničli in nasledniku) so torej res začetni objekt dane kategorije. Spomnimo se še, da tako Peanovi aksiomi kot začetnost objekta podajajo objekt do izomorfizma natančno. Bralcu prepuščamo, da preveri, da se pojma izomorfizma v obeh primerih ujemata.
+
+Videli smo, da je kategorična definicija naravnih števil ekvivalentna Peanovi, je pa v določenem smislu splošnejša. Objekti dane kategorije so bili oblike $\one \to X \to X$, kjer sta bila $\one$ in $X$ množici, puščici pa sta preslikavi (tj.~objekte in morfizme smo jemali iz kategorije~$\mnoz$). Takšne diagrame pa lahko tvorimo tudi v splošnejših kategorijah --- za $\one$ vzamemo končni objekt, $X$ je poljuben objekt, puščici pa poljubna morfizma (z ustrezno domeno in kodomeno). Zgornja definicija naravnih števil nam v bistvu da načelo neparametrizirane rekurzije in če imamo eksponente, lahko izpeljemo še načelo parametrizirane rekurzije (kot v podrazdelku~\ref{podrazdelek:rekurzija}). Torej nam kategorična definicija poda pojem naravnih števil v poljubni kartezično zaprti kategoriji! (Obstaja način, kako prilagoditi to definicijo, da že od začetka vključuje parametre; v tem primeru deluje celo za poljubno kategorijo s končnimi produkti.) To je uporabno, kadar želimo za temelje matematike vzeti kaj drugega kot običajne množice.
+
+
+\section{Cela števila}
+
+Zdaj ko imamo množico naravnih števil, lahko skonstruiramo nadaljnje številske množice. Naslednji korak so cela števila.
+
+\subsection{Konstrukcija}
+
+Težava z naravnimi števili je, da je odštevanje zgolj delna preslikava. Namen konstrukcije celih števil je razširiti množico naravnih števil ravno za toliko, da lahko neomejeno odštevamo (in ostale računske operacije še vedno imajo smisel ter zadoščajo običajnim zakonom).
+
+Kako to doseči? Za vsak par naravnih števil $a, b \in \NN$ želimo imeti element, ki predstavlja njuno razliko. Pretkana ideja, kako to doseči, je: razliko teh elementov predstavimo kar z elementoma samima, tj.~njuno razliko naj predstavlja par $(a, b)$. V tem kontekstu takemu paru zaradi tega rečemo \df{formalna razlika} elementov $a$ in $b$.
+
+Ti pari so elementi množice $\NN \times \NN = \NN^2$, ki jo lahko opremimo z operacijami in urejenostjo, če premislimo, kako se pri računanju obnašajo razlike. Na primer, pričakujemo, da velja $(a - b) + (c - d) = (a + c) - (b + d)$, zato definiramo seštevanje $+\colon \NN^2 \times \NN^2 \to \NN^2$ s predpisom
+\[(a, b) + (c, d) \dfeq (a + c, b + d)\]
+(se pravi, seštevamo po komponentah). Pri tem smo si privoščili zlorabo oznak: plusa na desni predstavljata v podrazdelku~\ref{podrazdelek:racunske_operacije_na_naravnih_stevilih} definirano seštevanje na naravnih številih, isti simbol $+$ na levi pa pravkar definirano operacijo na $\NN^2$.
+
+Kaj bi bilo smiselno množenje formalnih razlik? Pričakujemo $(a - b) \cdot (c - d) = a \cdot c - a \cdot d - b \cdot c + b \cdot d = (a \cdot c + b \cdot d) - (a \cdot d + b \cdot c)$, zato definiramo operacijo $\cdot\colon \NN^2 \times \NN^2 \to \NN^2$ s predpisom
+\[(a, b) \cdot (c, d) \dfeq (a \cdot c + b \cdot d, a \cdot d + b \cdot c).\]
+
+Preverimo lahko, da ti dve operaciji zadoščata običajnim lastnostim.
+%
+\begin{naloga}
+Preveri, da sta podani seštevanje in množenje na $\NN^2$ izmenljivi in družilni, da se množenje členi čez seštevanje, seštevanje je krajšalno ter da je $(0, 0)$ enota za seštevanje, $(1, 0)$ pa enota za množenje.
+\end{naloga}
+%
+Sklenemo: $\NN^2$ je s podano algebrsko strukturo izmenljiv krajšalen polkolobar z enico, podobno kot naravna števila. Pravzaprav lahko naravna števila vložimo ta polkolobar.
+%
+\begin{naloga}
+Preveri, da je preslikava $\NN \to \NN^2$, dana z $n \mapsto (n, 0)$, injektiven homomorfizem polkolobarjev z enico.
+\end{naloga}
+%
+V tem smislu lahko naravna števila obravnavamo kot podpolkolobar polkolobarja formalnih razlik naravnih števil. To ni presenetljivo; $(n, 0)$ predstavlja razliko $n - 0$, ki jo seveda poistovetimo z $n$.
+
+Razširimo pa lahko ne samo algebrske operacije, pač pa tudi urejenost. Kdaj velja $a - b \leq c - d$? Natanko tedaj, ko $a + d \leq b + c$. Vpeljimo torej urejenost na $\NN^2$ s predpisom
+\[(a, b) \leq (c, d) \dfeq a + d \leq b + c.\]
+Enako sklepamo za strogo urejenost, zato dodajmo še
+\[(a, b) < (c, d) \dfeq a + d < b + c.\]
+Ta dva predpisa dejansko razširjata definicijo urejenosti z naravnih števil, saj velja $(m, 0) \leq (n, 0) \iff m + 0 \leq n + 0 \iff m \leq n$ in podobno za $<$.
+
+\begin{naloga}
+Preveri, da je $\leq$ na $\NN^2$ šibka urejenost (refleksivna in tranzitivna).
+\end{naloga}
+
+Ni pa $\leq$ delna urejenost na $\NN^2$, saj ni antisimetrična. Velja na primer tako $(2, 1) \leq (5, 4)$ kot $(5, 4) \leq (2, 1)$. To je smiselno, saj bi razliki $2 - 1$ in $5 - 4$ morali biti enaki. Vidimo: če želimo dobiti dejanski pojem celih števil, moramo poistovetiti formalne razlike, ki so obojestransko primerljive in bi posledično morale predstavljati isto vrednost.
+
+Spomnimo se \note{od relacij urejenosti}, da vsaka šibka urejenost $\leq$ določa ekvivalenčno relacijo, dano z $x \approx y \dfeq x \leq y \land y \leq x$. V našem primeru to pomeni $(a, b) \approx (c, d) \iff a + d = b + c$. Definirajmo množico celih števil kot $\ZZ \dfeq \NN^2/_\approx$. Elementi množice $\ZZ$ so torej ekvivalenčni razredi $\ec[\approx]{(a, b)}$, ki jih bomo pa zavoljo lažje berljivosti pisali kar kot $\ec{a, b}$.
+
+Po konstrukciji šibka urejenost $\leq$ na $\NN^2$ porodi delno urejenost na kvocientu $\ZZ$, ki jo bomo spet označili z $\leq$. Premisli, da tudi $<$ na $\NN^2$ porodi dobro definirano relacijo na $\ZZ$.
+
+Ne velja pa samo za urejenost, da jo lahko prenesemo z $\NN^2$ na kvocient $\ZZ$ --- to lahko storimo tudi z algebrskimi operacijami.
+%
+\begin{naloga}
+Preveri, da je $\approx$ kongruenca za polkolobar $\NN^2$. Sklepaj, da je s porojenimi operacijami tudi $\ZZ$ izmenljiv krajšalen polkolobar z enico.
+\end{naloga}
+
+Kot smo omenili, lahko $\NN$ vložimo v $\NN^2$. Če to vložitev sklopimo z naravno kvocientno preslikavo, dobimo homomorfizem polkolobarjev z enico $\NN \to \ZZ$. Trdimo, da je tudi ta injektiven. Namreč, za poljubna $m, n \in \NN$ velja
+\[\ec{m, 0} = \ec{n, 0} \iff (m, 0) \approx (n, 0) \iff m + 0 = 0 + n \iff m = n.\]
+V tem smislu je $\NN$ podpolkolobar polkolobarja $\ZZ$. Vse omenjene operacije in relacije so uslajene med $\NN$ in $\ZZ$, zato ni problema, če prenalagamo \davorin{naj popravi, kdor se spomni, kako se v tem kontekstu prevaja izraz `overload'} simbole zanje.
+
+Zaenkrat smo izpeljali polkolobarsko strukturo celih števil, ampak te celotne konstrukcije smo se lotili, ker dodatno hočemo še odštevanje. Premislimo, da so cela števila pravzaprav kolobar.
+
+Kaj bi naj bila nasprotna vrednost razlike? Navajeni smo na $-(a - b) = b - a$, torej pričakujemo, da dobimo nasprotno vrednost para z zamenjavo komponent. Preverimo, da se to dejansko izide v celih številih:
+\[\ec{a, b} + \ec{b, a} = \ec{a + b, b + a} = \ec{0, 0},\]
+pri čemer zadnja enakost velja, ker $a + b + 0 = b + a + 0$ (vemo pa že tudi, da je $\ec{0, 0}$ enota za seštevanje v $\ZZ$).
+
+\begin{naloga}
+Vpeljava ekvivalenčne relacije je bistvena za konstrukcijo \emph{kolobarja}, ki razširja naravna števila. Premisli namreč, da polkolobar formalnih razlik $\NN^2$ \emph{ni} kolobar: z izjemo enote za seštevanje $(0, 0)$ noben par $(a, b)$ nima nasprotnega elementa (ne $(b, a)$ niti kateregakoli drugega).
+\end{naloga}
+
+Torej, $\ZZ$ je izmenljiv kolobar z enico. Kar se tiče njegove urejenostne strukture, smo že definirali $\leq$ in $<$ ter izpeljali nekaj njunih lastnosti. Za vajo prepuščamo še naslednje.
+%
+\begin{naloga}
+Preveri, da je $\leq$ linearna urejenost na $\ZZ$ (posledično je $\ZZ$ tudi mreža), $<$ pa stroga linearna urejenost na $\ZZ$ (in posledično zadošča zakonu trodelitve).
+\end{naloga}
+
+\begin{naloga}
+Razmisli, kako je z monotonostjo algebrskih operacij na polkolobarju formalnih razlik $\NN^2$ in kolobarju celih števil $\ZZ$.
+\end{naloga}
+
+Morda se vam sicer zdi predstavitev celih števil s formalnimi razlikami nekoliko nenavadna; povečini nismo navajeni nanjo. Vsekakor niste celih števil podali na ta način v osnovni šoli. Običajno pišemo cela števila kot naravna z ustreznim predznakom. Preverimo, da zgornja definicija celih števil dopušča takšen zapis.
+
+\begin{trditev}\label{trditev:kanonicna-oblika-celega-stevila}
+Vsak ekvivalenčni razred $\ec{a, b} \in \ZZ$ vsebuje natanko enega predstavnika, ki ima vsaj eno komponento enako $0$, in sicer velja $\ec{a, b} = \ec{a \monus b, b \monus a}$.
+\end{trditev}
+
+\begin{proof}
+Preverimo najprej enoličnost. Naj bosta $m, n \in \NN$ poljubni naravni števili. Vemo že, da iz $\ec{m, 0} = \ec{n, 0}$ sledi $m = n$ --- to je ravno injektivnost vložitve naravnih števil v cela. Na podoben način izpeljemo $\ec{0, m} = \ec{0, n} \implies (0, m) = (0, n)$. Recimo še, da velja $\ec{m, 0} = \ec{0, n}$, torej $m + n = 0$. V podrazdelku~\ref{podrazdelek:urejenost-na-naravnih-stevilih} smo že izpeljali, da potem velja $m = n = 0$, torej se predstavnika spet ujemata.
+
+S pomočjo trditve~\ref{trditev:monus-in-urejenost}(\ref{trditev:monus-in-urejenost:maksimum}) izpeljemo
+\[a + (b \monus a) = \max\set{b, a} = \max\set{a, b} = b + (a \monus b),\]
+torej res velja $\ec{a, b} = \ec{a \monus b, b \monus a}$. Upoštevajmo še trditev~\ref{trditev:monus-in-urejenost}(\ref{trditev:monus-in-urejenost:neenakost}) in sovisnost relacije $\leq$ na naravnih številih ter zaključimo, da je vsaj ena od komponent $a \monus b$, $b \monus a$ enaka $0$.
+\end{proof}
+
+Vsako celo število torej lahko predstavimo v obliki $\ec{n, 0}$ ali $\ec{0, n}$. V prvem primeru je celo število v zalogi vrednosti vložitve $\NN$ v $\ZZ$ in ga zato pišemo kar kot $n$ (ali če hočemo poudariti predznak, kot $+n$). V drugem primeru pa lahko upoštevamo $\ec{0, n} = -\ec{n, 0}$ in ga zato pišemo kot $-n$. V vsakem primeru ga lahko zapišemo kot predznačeno naravno število. V mejnem primeru, ko sta obe komponenti enaki $0$, gre za enoto za seštevanje, tj.~ničlo v celih števili, ki jo seveda lahko zapišemo s poljubnim predznakom.
+
+Načeloma bi lahko cela števila skonstruirali tudi na tovrsten način --- recimo kot $\set{+, -} \times \NN_{> 0} + \set{0}$ ali kot kvocient vsote $\NN + \NN$, kjer poistovetimo obe ničli, je pa potem bolj nadležno uvesti strukturo na cela števila, ker je kar naprej potrebno ločevati primere. Spomnite se definicije operacij in urejenosti na $\ZZ$ iz osnovne šole --- za vsa števila ste ločili primere glede na njihov predznak.
+
+
+\subsection{Karakterizacija}
+
+Naravna števila smo v prejšnjem razdelku karakterizirali s Peanovimi aksiomi, preverili, da so s tem določena do izomorfizma natančno, njihov obstoj pa smo privzeli. Pri celih številih smo zaenkrat ubrali drugačno strategijo --- zanje smo podali izrecno konstrukcijo.
+
+Pri naravnih številih smo že omenili, da je smiselno, da so določena le do izomorfizma: če števila zgolj preimenujemo, še vedno ohranijo strukturo, ki jo želimo. Enak argument velja tudi za druge številske množice. Spremenimo torej definicijo celih števil tako, da bodo podana s karakterizacijo, ki jih bo določala do izomorfizma natančno.
+
+Spomnimo se, da je ena od karakterizacij naravnih števil bila ``začetni polkolobar z enico''. Da dobimo cela števila, moramo dodati še neomejeno odštevanje, kar nam da idejo: definirajmo cela števila $\ZZ$ kot \emph{začetni kolobar z enico}.
+
+Če to natančneje pojasnimo: naj $\ukol$ označuje kategorijo, katere objekti so kolobarji z enico, morfizmi pa homomorfizmi kolobarjev, ki ohranjajo tudi enico. Tedaj je $\ZZ$ po definiciji začetni objekt kategorije $\ukol$.
+
+Kot začetni objekt je $\ZZ$ seveda določen do izomorfizma natančno. Konstrukcijo iz prejšnjega podrazdelka lahko potem obravnavamo kot en konkreten primerek $\ZZ$-ja, kar dokaže obstoj množice celih števil. Preverimo, da je kvocient množice formalnih razlik z danimi operacijami res začetni kolobar z enico.
+
+Vemo že, da je kolobar z enico. Naj bo $X$ z operacijami $+_X$, $0_X$, $-_X$, $\cdot_X$, $1_X$ poljuben kolobar z enico. Dokažimo, da obstaja natanko en homomorfizem kolobarjev z enico $\NN^2/_\approx \to X$.
+
+Vsak kolobar z enico je tudi polkolobar z enico, torej imamo enolično določen homomorfizem polkolobarjev z enico $v\colon \NN \to X$. Definirajmo preslikavo $f\colon \NN^2/_\approx \to X$ s predpisom
+\[f\big(\ec{a, b}\big) \dfeq v(a) -_X v(b).\]
+Preverimo, da je $f$ dobro definirana. Naj velja $(a, b) \approx (c, d)$, torej $a + d = b + c$. Posledično $v(a) +_X v(d) = v(a + d) = v(b + c) = v(b) +_X v(c)$. Odštejmo $v(b)$ in $v(d)$ na obeh straneh enačbe, da dobimo $v(a) -_X v(b) = v(c) -_X v(d)$, torej $f\big(\ec{a, b}\big) = f\big(\ec{c, d}\big)$, kot željeno.
+
+Dokaz, da je podani $f$ homomorfizem kolobarjev z enico, prepuščamo bralcu. Preverimo pa njegovo enoličnost.
+
+Naj bo $g\colon \NN^2/_\approx \to X$ poljuben homomorfizem kolobarjev z enico. Označimo z $i\colon \NN \to \NN^2/_\approx$ vložitev naravnih števil v cela, tj.~$i(n) = \ec{n, 0}$. Tedaj je $g \circ i\colon \NN \to X$ homomorfizem polkolobarjev z enico in je torej enak zgoraj omenjenemu $v$. Za poljubna $a, b \in \NN$ velja $\ec{a, b} = \ec{a, 0} + \ec{0, b} = \ec{a, 0} - \ec{b, 0} = i(a) - i(b)$, kar pomeni
+\[g\big(\ec{a, b}\big) = g\big(i(a) - i(b)\big) = g\big(i(a)\big) -_X g\big(i(b)\big) = v(a) -_X v(b).\]
+Torej je $g$ enak zgornjemu $f$.
+
+Seveda karakterizacija celih števil kot začetni kolobar z enico ni edina možna. S pomočjo teorije kategorij lahko neposredno izrazimo, kaj pomeni ``zapreti objekt za neko dodatno strukturo'' (v našem primeru želimo polkolobar $\NN$ zapreti za odštevanje). Pojem, ki formalno zajame tovrstna zaprtja, se imenuje kategorična \df{refleksija}. Natančen opis tega pojma je precej abstrakten in onkraj ciljev te knjige (tako da bomo, kar se celih števil tiče, ostali pri definiciji ``začetni kolobar z enico''), lahko pa ga vsaj v grobem opišemo v našem primeru.
+
+Kategorijo kolobarjev $\kol$ lahko vložimo v kategorijo polkolobarjev $\pkol$. Refleksija je preslikava v nasprotni smeri, ki polkolobar razširi za najmanj, kolikor lahko, da postane kolobar. Formalno se to izrazi na naslednji način: če je $X$ poljuben polkolobar, tedaj je refleksija $R(X)$ polkolobarja $X$ določena s pogoji, da je $R(X)$ kolobar, da se $X$ vloži v $R(X)$ in da se mora vsak homomorfizem polkolobarjev $X \to Y$, kjer je $Y$ kolobar, enolično razširiti do homomorfizma kolobarjev $R(X) \to Y$.
+
+Našo definicijo celih števil lahko izpeljemo iz tega splošnejšega pogleda. Velja namreč, da refleksije slikajo začetne objekte v začetne objekte. Če se z refleksijo omejimo na (pol)kolobarje z enico in že vemo, da so naravna števila začetni polkolobar z enico, tedaj mora njihova refleksija $\ZZ = R(\NN)$ biti začetni kolobar z enico.
+
+Mimogrede: tudi refleksije so določene do izomorfizma natančno.
+\note{komentar o splošnosti konstrukcije s formalnimi razlikami}
+
+
+\section{Racionalna števila}
+
+Kar se številskih množic tiče, smo začeli z naravnimi števili, ki jih lahko poljubno seštevamo in množimo (tj.~tvorijo polkolobar). Želeli smo še neomejeno odštevati (tj.~imeti kolobar), zato smo jih razširili do celih števil. Naslednji korak je seveda, da želimo še neomejeno deliti (razen z $0$, tj.~dobiti obseg), in jih zato razširimo do racionalnih števil.
+
+Ta razdelek bomo zastavili podobno kot prejšnji: podajmo konkretno konstrukcijo racionalnih števil, nato pa splošno karakterizacijo racionalnih števil in preverimo, da ji dana konstrukcija zadošča.
+
+\subsection{Konstrukcija}
+
+Ideja za konstrukcijo racionalnih števil je podobna, kot za cela števila: količnike predstavimo kar kot pare $(\text{deljenec}, \text{delitelj})$. Deljenci so lahko poljubna cela števila, delitelji pa morajo biti neničelni. Načeloma bi torej začeli z uvedbo operacij in urejenosti na $\ZZ \times \ZZ_{\neq 0}$, ampak to vodi do nadležnih ločevanj primerov pri urejenosti. Lahko se znajdemo in se omejimo na delitelje, ki so pozitivni: vemo namreč, da lahko minus ``nesemo'' iz imenovalca v števec.
+
+Definirajmo torej množico \df{formalnih količnikov} kot $\ZZ \times \ZZ_{> 0}$. Opremimo jo s strukturo. Če se spomnimo, kako računamo s količniki, pridemo do naslednjih definicij.
+\[(a, b) + (c, d) \dfeq (a \cdot d + b \cdot c, b \cdot d) \qquad\qquad (a, b) \cdot (c, d) \dfeq (a \cdot c, b \cdot d)\]
+Seštevanje in množenje sta na ta način dobro definirani, saj je zmnožek dveh pozitivnih celih števil spet pozitivno celo število. \note{če ne bo to že kje prej omenjeno, se na tem mestu preveri} Hitro vidimo, da je $(0, 1)$ enota za seštevanje in $(1, 1)$ enota za množenje.
+
+\begin{naloga}
+Prepričaj se, da je $\ZZ \times \ZZ_{> 0}$ z danima operacijama izmenljiv krajšalen polkolobar z enico in da predpis $a \mapsto (a, 1)$ podaja homomorfizem polkolobarjev z enico, če ga obravnavamo kot preslikavo $\NN \to \ZZ \times \ZZ_{> 0}$ oziroma $\ZZ \to \ZZ \times \ZZ_{> 0}$.
+\end{naloga}
+
+Uvedimo še urejenost: definirajmo
+\[(a, b) \leq (c, d) \dfeq a \cdot d \leq b \cdot d \qquad \text{in} \qquad (a, b) < (c, d) \dfeq a \cdot d < b \cdot c.\]
+
+\begin{naloga}
+Preveri, da je $\leq$ šibka urejenost na $\ZZ \times \ZZ_{> 0}$ (refleksivna in tranzitivna).
+\end{naloga}
+
+Tako kot prej pri celih številih bomo dobili željeno šele, ko naredimo kvocient po ekvivalenčni relaciji $\approx$, dani z $(a, b) \approx (c, d) \dfeq (a, b) \leq (c, d) \land (c, d) \leq (a, b)$, kar pomeni $(a, b) \approx (c, d) \iff a \cdot d = b \cdot c$. Definirajmo torej množico racionalnih števil kot $\QQ \dfeq (\ZZ \times \ZZ_{> 0})/_\approx$.
+
+Elementi tega kvocienta so ekvivalenčni razredi $\ec[\approx]{(a, b)}$, ki pa jih raje pišemo kot $\frac{a}{b}$. Na primer, ker velja $2 \cdot 3 = 6 \cdot 1$, dobimo $\ec[\approx]{(2, 6)} = \ec[\approx]{(1, 3)}$ oziroma $\frac{2}{6} = \frac{1}{3}$. \note{Če te razprave ne bo že prej (ob debati o razliki med izrazom in vrednostjo, ki jo izraz predstavlja), tu pojasnimo razliko med ulomkom in racionalnim številom, vključno s tem, kaj pomeni enakost v enem oz.~drugem primeru.}
+
+\begin{naloga}
+Preveri, da je $\approx$ kongruenca na polkolobarju $\ZZ \times \ZZ_{> 0}$ in da je potem tudi $\QQ$ izmenljiv krajšalen polkolobar z enico za porojene operacije. Preveri tudi, da je porojena $\leq$ linearna urejenost na $\QQ$ (torej je $\QQ$ mreža), porojena $<$ pa je stroga linearna urejenost na $\QQ$ (ki posledično zadošča zakonu trodelitve).
+\end{naloga}
+
+Trdimo: za poljuben $\frac{a}{b} \in \QQ$ je $\frac{-a}{b}$ njegov nasprotni element. Res: $\frac{a}{b} + \frac{-a}{b} = \frac{a \cdot b + b \cdot (-a)}{b^2} = \frac{0}{b^2} = \frac{0}{1}$, kar je enota za seštevanje v $\QQ$. Sklenemo, da je $\QQ$ kolobar.
+
+\begin{naloga}
+Preveri, da je preslikava $\NN \to \QQ$, $a \mapsto \frac{a}{1}$ homomorfizem polkolobarjev z enico, preslikava $\ZZ \to \QQ$, $a \mapsto \frac{a}{1}$ pa homomorfizem kolobarjev z enico. V tem smislu obravnavamo $\NN$ in $\ZZ$ kot pomnožici množice $\QQ$.
+\end{naloga}
+
+Ostane še preveriti, da je $\QQ$ obseg, da torej ima vsak neničelni element obrat. Očitno velja $\frac{a}{b} = \frac{0}{1} \iff a = 0$. Po zakonu trodelitve za cela števila lahko ločimo primere $a < 0$, $a = 0$, $a > 0$, pri čemer primer $a = 0$ odpade, če se omejimo na neničelna racionalna števila. V primeru $a > 0$ lahko zapišemo $(\frac{a}{b})^{-1} = \frac{b}{a}$, v primeru $a < 0$ pa $(\frac{a}{b})^{-1} = \frac{-b}{-a}$.
+
+\begin{naloga}
+Preveri, da na ta način dejansko dobimo obrat poljubnega neničelnega racionalnega števila.
+\end{naloga}
+
+Vidimo, da smo si pri računanju obratov nekoliko zakomplicirali življenje s tem, da smo za množico formalnih količnikov vzeli $\ZZ \times \ZZ_{> 0}$ namesto $\ZZ \times \ZZ_{\neq 0}$ --- v slednjem primeru bi namreč za obrat zadostovala zgolj formula $(\frac{a}{b})^{-1} = \frac{b}{a}$. Bi pa potem imeli več ločevanja primerov pri $\leq$ in $<$.
+
+\begin{naloga}
+Za primerjavo konstruiraj racionalna števila kot $(\ZZ \times \ZZ_{\neq 0})/_\approx$. Zapiši vse podrobnosti, predvsem definicijo in lastnosti relacij urejenosti. Dokaži, da sta obe konstrukciji izomorfni kot obsega in kot urejenosti.
+\end{naloga}
+
+V prejšnjem razdelku smo videli: če cela števila predstavimo s formalnimi razlikami naravnih števil, ima sicer vsako celo število mnogo predstavnikov, ampak eden izmed njih, dan v trditvi~\ref{trditev:kanonicna-oblika-celega-stevila}, je ``najboljši'', v smislu, da je z njim najlažje računati. Podobno trditev imamo tudi za racionalna števila: vsako racionalno število je možno predstaviti z okrajšanim ulomkom. Ker to že zelo dobro poznate, te trditve ne bomo izrecno dokazovali, lahko pa za vajo sami natančno formulirate trditev in jo skrbno dokažete.
+
+\subsection{Karakterizacija}
+
+\section{Realna števila}
+\label{sec:realna-stevila}
+
+
+\section{Kompleksna števila}
+
+\davorin{Se ustavimo že pri realnih številih? Gremo še dlje do kvaternionov?}
+
+
+\section{Vaje}
+
+\begin{vaja}
+Potenciranje na naravnih številih (torej kot preslikavo $\NN \times \NN \to \NN$) lahko definiramo rekurzivno z naslednjim predpisom.
+\begin{align*}
+m^0 &\dfeq 1 \\
+m^{\suc(n)} &\dfeq m^n \cdot m
+\end{align*}
+Premisli, da načelo o rekurziji zagotavlja dobro definiranost te preslikave, in izpelji sledeče znane zakone potenciranja.
+\begin{enumerate}
+\item
+$a^1 = a$
+\item
+$1^n = 1$
+\item
+$a^{m + n} = a^m \cdot a^n$
+\item
+$a^{m \cdot n} = (a^m)^n$
+\item
+$(a \cdot b)^n = a^n \cdot b^n$
+\item
+$\vdots$
+\end{enumerate}
+\end{vaja}
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "ucbenik-lmn"
+%%% End:

@@ -1,0 +1,609 @@
+\chapter{Koding Tingkat Medium}
+Pada bagian ini akan dibahas berbagai pemrograman Python yang lebih {\em advanced}. 
+Sebetulnya yang akan dibahas adalah contoh-contoh kode Python dengan menggunakan 
+berbagai paket yang tersedia.
+
+\section{Argumen CLI}
+Seringkali kita harus membuat sebuah program dalam bentuk {\em command line interface}
+(CLI) yang kemudian membaca argumen yang diberikan. 
+Misalnya kita ingin program kita memproses sebuah berkas yang namanya kita
+berikan di {\em command line}.
+
+\begin{verbatim}
+$ program filename.pdf
+\end{verbatim}
+
+Apa yang kita berikan kepada program di atas disebut {\em argument}.
+Pada contoh di atas, {\em argument}-nya adalah ``filename.pdf''.
+Program kita harus dapat membaca {\em argument} yang kita berikan kepada program
+tersebut. Bagaimana caranya? Ada banyak caranya. Salah satunya dicontohkan
+pada contoh berikut ini.
+
+\begin{verbatim}
+# contoh parsing argumen yang diberikan kepada program
+# beri nama skrip ini cli-args.py
+# cara menjalankan:
+#    python3 cli-args.py opsi1 opsi2 opsi3 
+# opsi bisa banyak
+
+import sys
+# periksa jumlah argumennya
+
+numberargs = len(sys.argv)
+# tanpa argumen, hasilnya akan 0 (nol)
+# nama skrip adalah sys.argv[0]
+
+# print argumen yang diberikan
+for i in range(numberargs):
+   print(i, sys.argv[i])
+\end{verbatim}}
+
+Dari contoh tersebut, Anda dapat mengembangkan hal-hal yang lain.
+Misalnya Anda ingin memastikan bahwa program Anda mendapatkan {\em argument}
+dalam jumlah yang cukup (misalnya harus 3). Jika argumen yang diberikan kurang,
+maka dia akan memberikan petunjuk cara penggunaan skrip (program) kita
+dan kemudian keluar (dengan exit).
+(Catatan: biasanya {\em exit} memiliki nilai tidak nol kalau ada kesalahan.
+Kalau keluar normal, angkanya nol.)
+
+\begin{verbatim}
+if (numberargs) < 4:
+   print("Usage: " + sys.argv[0] + " data1 data2 data3")
+exit(1)
+    
+\end{verbatim}
+
+\section{Numpy}
+{\em Numpy} adalah paket python untuk berbagai aplikasi {\em scientific}.
+Di dalamnya ada {\em N-dimensional object}, {\em linear algebra},
+{\em Fourier transform}, dan seterusnya.
+Sebagai contoh, jika kita ingin membangkitkan bilangan random dengan 
+distribusi tertentu (uniform atau normal), maka kita dapat menggunakan 
+paket Numpy ini.
+Biasanya paket Numpy ini sudah terpasang ketika kita memasang Python,
+tetapi jika belum terpasang maka modul Numpy ini dapat kita pasang sendiri.
+
+\begin{verbatim}
+$ sudo pip install numpy
+\end{verbatim}
+
+Contoh-contoh penggunaan paket Numpy akan digabungkan dengan bagian lain.
+Berikut ini adalah contoh sederhana penggunaan dari Numpy.
+Contoh pertama adalah dalam hal matriks.
+
+\begin{verbatim}
+>>> import numpy as np
+>>> a = np.arange(15).reshape(3, 5)
+>>> a
+array([[ 0,  1,  2,  3,  4],
+       [ 5,  6,  7,  8,  9],
+       [10, 11, 12, 13, 14]])
+\end{verbatim}
+
+Berikut adalah contoh operasional matriks dengan menggunakan numpy.
+Pertama, kita dapat membuat matriks $a$ dan $b$ kemudian menjumlahkan
+dan mengalikan matriks tersebut.
+
+\begin{equation*}
+   A = 
+   \begin{bmatrix}
+   1 & 2 & 3 \\
+   4 & 5 & 6 \\
+   7 & 8 & 9
+   \end{bmatrix}
+   \quad
+   B =
+   \begin{bmatrix}
+   3 & 3 & 3 \\
+   5 & 5 & 5 \\
+   5 & 3 & 1
+   \end{bmatrix}
+   \quad
+   C = A+B
+   \quad
+   D = A \times B
+\end{equation*}
+
+
+\begin{verbatim}
+import numpy as np
+a = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(a)
+b = np.array([[3,3,3],[5,5,5],[5,3,1]])
+print(b)
+c = a+b
+print(c)
+d = np.matmul(a, b)
+print(d)
+\end{verbatim}
+
+Keluaran dari perintah di atas adalah seperti ini. Pertama-tama ditampilkan
+matriks $a$ dan $b$, kemudian operasi penambahan dan perkalian.
+Perhatikan bahwa operasi perkalian matriks menggunakan fungsi {\em matmul}.
+\begin{verbatim}
+ [1 2 3]
+ [4 5 6]
+ [7 8 9]]
+
+[[3 3 3]
+ [5 5 5]
+ [5 3 1]]
+
+[[ 4  5  6]
+ [ 9 10 11]
+ [12 11 10]]
+
+[[ 28  22  16]
+ [ 67  55  43]
+ [106  88  70]]
+\end{verbatim}
+
+Contoh-contoh di atas hanya sekedar ilustrasi bagaimana kita menggunakan
+modul {\em Numpy}. Secara umum, jika ada pemrosesan data yang multi dimensional
+dan seringkali terkait dengan operasi matematika, maka Numpy
+sangat bermanfaat.
+
+Mari kita gunakan Numpy lagi untuk beberapa contoh.
+Kali ini kita akan menggunakan Numpy untuk statistik.
+Berikut ini contoh untuk menghasilkan 20 bilangan bulat secara acak
+dengan rentang dari 50 sampai dengan 99 (misal ini adalah berat badan).
+
+\begin{verbatim}
+import numpy as np
+berat = np.random.randint(low=50, high=100, size=20)
+print(berat)
+
+[98 84 72 57 61 98 60 96 75 86 95 81 62 77 67 52 73 96 95 71]
+\end{verbatim}
+
+Data di atas dapat disimpan dalam berkas untuk digunakan dalam
+proses lain. Numpy memiliki fungsi untuk menyipan data tersebut.
+Sebagai contoh, jika kita ingin menyimpan data tersebut dalam
+berkas `berat.csv' maka dapat dilakukan seperti berikut.
+Perhatikan bahwa perinta `fmt' digunakan untuk memformat data
+sebagai bilangan bulat (integer).
+\begin{verbatim}
+np.savetxt("berat.csv", berat, fmt='%i')
+\end{verbatim}
+
+Data tersebut di kemudian hari dapat dibaca dengan menggunakan perintah
+seperti contoh berikut. (Sebagai catatan kita sudah tahu bahwa data di
+dalam berkas `berat.csv' tersebut tercatat masing-masing dalam satu baris.
+Jika satu baris memiliki lebih dari satu data yang dipisahkan oleh tanda koma,
+maka kita dapat menggunakan perintah tambahan delimiter=',')
+\begin{verbatim}
+from numpy import genfromtxt
+my_data = genfromtxt('berat.csv')
+print(my_data)
+\end{verbatim}
+
+
+\section{Matlplotlib}
+Salah satu aplikasi yang cukup sering dibutuhkan ketika kita membuat program 
+untuk keperluan penelitian adalah membuat grafik (plot). 
+Salah satu {\em library} yang baik untuk digunakan adalah {\em matplotlib}. 
+Pada sistem Linux, paket ini membutuhkan paket lain, yaitu {\em python-tk}. 
+Untuk itu python-tk ini harus dipasang dulu. 
+Di bawah ini adalah contoh pemasangan python-tk di sistem Linux (berbasis Debian) 
+dengan menggunakan perintah apt-get.
+
+\begin{verbatim}
+$ sudo apt-get install python-tk
+$ sudo pip install matplotlib
+\end{verbatim}
+
+Berikut ini adalah contoh sederhana penggunaan Numpy dan Matlplotlib.
+Pada contoh ini kita akan melakukan plot sebuah grafik sederhana
+dari sebuah dataset.
+Langkah pertama dalam menggunakan {\em matplotlib} adalah melakukan
+proses import seperti halnya di Numpy.
+Yang ingin kita gunakan adalah fungsi-fungsi dari pyplot. Ini kita
+persingkat dengan menggunakan {\em plt}.
+
+\begin{verbatim}
+import matplotlib.pyplot as plt
+
+x1 = [1, 2, 3, 4, 5]
+y1 = [2, 4, 6, 8, 10]
+plt.plot(x1, y1, c='blue', label='Dataset 1')
+plt.legend()
+plt.show()
+\end{verbatim}
+
+Contoh di atas akan menghasilkan sebuah grafik plot sebagaimana
+ditampilkan pada~\ref{fig:contoh1}.
+Kita dapat juga mengubah grafik menjadi {\em scatter plot} dengan
+mengubah perintah {\em plt.plot} menjadi {\em plt.scatter}.
+Silahkan dicoba.
+
+\begin{figure}[ht]
+   \fbox{\includegraphics[width=1.0\linewidth]{graphics/matplotlib-contoh1.png}}
+   \caption{Contoh sederhana dari Matplotlib}
+   \label{fig:contoh1}
+\end{figure}
+
+Matplotlib dapat digunakan untuk menampilkan beberapa dataset sekaligus.
+Berikut ini contoh untuk menampilkan dua dataset sekaligus.
+Pada contoh ini kita menggunakan {\em scatter plot}. Tentu saja ini dapat
+juga digantikan dengan {\em line plot} sebagaimana ada dalam contoh sebelumnya.
+Hasilnya ditampilkan pada gambar~\ref{fig:contoh2}.
+
+\begin{verbatim}
+import matplotlib.pyplot as plt
+
+# dataset pertama
+x1 = [1, 2, 3, 4, 5]
+y1 = [2, 4, 6, 8, 10]
+# dataset kedua
+x2 = [1, 2, 3, 4, 5]
+y2 = [3, 1, 7, 5, 6]
+
+plt.scatter(x1, y1, c='blue', label='Dataset 1')
+plt.scatter(x2, y2, c='red', label='Dataset 2')
+plt.legend()
+plt.show()
+\end{verbatim}
+
+\begin{figure}[ht]
+   \fbox{\includegraphics[width=1.0\linewidth]{graphics/matplotlib-contoh2.png}}
+   \caption{Menampilkan Dua Dataset}
+   \label{fig:contoh2}
+\end{figure}
+
+Pada contoh selanjutnya kita akan membuat data random sebanyak 200 buah
+dengan distribusi Normal dengan mean (loc) di 75.
+(Jika pilihan `loc' tidak disebutkan, maka mean yang akan digunakan adalah 0.0.)
+Data tersebut kita plot dengan pilihan {\em histogram}.
+Ada banyak pilihan, misalkan kita dapat plot dengan {\em bins}
+dalam rentang antara 50 dan 101.
+
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+
+berat = np.random.normal(loc=75, scale=10, size=200)
+
+# plt.hist(berat)
+plt.hist(berat, bins=range(50, 101), align='left')
+plt.xlabel('Berat')
+plt.ylabel('Jumlah orang')
+plt.show()
+\end{verbatim}
+
+\begin{figure}[ht]
+\fbox{\includegraphics[width=1.0\linewidth]{graphics/matplotlib-gausian.png}}
+\caption{Contoh Random Data dan Tampilan Grafik}
+\label{fig:random-gausian}
+\end{figure}
+
+Contoh dari tampilan kode di atas dapat dilihat pada
+Gambar~\ref{fig:random-gausian}.
+Gambar ini sangat sederhana dan dapat dimodifikasi tapilannya,
+warna, legend, label, dan seterusnya.
+Untuk melihat pilihan-pilihan apa saja yang tersedia dapat dilakukan
+dengan membaca dokumentasi dan melihat contoh-contoh.
+Misal, jika kita ingin mengganti warna dari bar chart tersebut
+menjadi warna merah, tambahkan "Color='Red'" pada baris yang 
+dimulai dengan {\tt plt.hist}.
+
+
+Berikut ini adalah sebuah contoh penggunaan Matplotlib dan Numpy. Pada contoh ini kita akan membuat kumpulan data yang memiliki karakteristik ``sekitar'' persamaan 
+$Y = Ax + b$.
+Untuk itu perlu dihasilkan data yang sudah ditambahi atau dikurangi dengan angka random (yang dibuat dengan menggunakan Numpy). (Kode ini diambil dari buku ``Getting Started with Tensorflow''\cite{tensorflowstarted}.)
+Hasilnya dapat dilihat pada gambar~\ref{fig:randomnumpy}
+
+
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# persamaan y = a*x + b
+a = 0.25
+b = 0.75
+jumlah_titik = 300
+
+# buat dua list yang masih kosong
+x_point = []
+y_point = []
+
+for i in range(jumlah_titik):
+    x = np.random.normal(0.0,0.4)
+    y = a*x + b + np.random.normal(0.0,0.1)
+    x_point.append([x])
+    y_point.append([y])
+
+plt.plot(x_point,y_point,'o',label='Random Data')
+plt.legend()
+plt.show()
+\end{verbatim}
+
+
+\begin{figure}[ht]
+\fbox{\includegraphics[width=1.0\linewidth]{graphics/random-data.png}}
+\caption{Contoh Pembangkitan Random Data}
+\label{fig:randomnumpy}
+\end{figure}
+
+Jika kode di atas ingin dijalankan di dalam {\em Jupyter Notebook},
+maka baris pertama perlu ditambahkan ini:
+
+\begin{verbatim}
+%matplotlib notebook
+\end{verbatim}
+
+Data ($x$ dan $y$) pada contoh di atas dapat disimpan (diekspor) ke berkas
+dalam format CSV ({\em comma separated value}) dengan menggunakan Numpy
+seperti contoh di bawah ini.
+Berkas ``linear-regression.csv'' disimpan pada direktori dimana kode
+ini dijalankan. Variabel $x\_point$ dan $y\_point$ akan dimasukkan ke
+berkas tersebut dengan format yang didefinisikan dalam {\em fmt}.
+Pada contoh di bawah ini format yang akan digunakan adalah 
+{\em floating point} dengan 5 digit di belakang koma.
+Variabel tersebut dipisahkan dengan menggunakan koma (,) sebagaimana
+dijabarkan dalam {\em delimiter}.
+
+\begin{verbatim}
+np.savetxt("linear-regression.csv", np.column_stack([x_point, y_point]), fmt='%.5f', delimiter=', ')
+\end{verbatim}
+
+Data di atas dapat dibaca kembali dari berkas CSV dan dilakukan
+perhitungan ({\em linear regression}) untuk mencari faktor {\em gradient}
+(faktor $A$) dan $b$ dalam persamaan $Y = a*x + b$.
+Perhitungan ini membutuhkan modul {\em Scipy} yang harus dipasang
+secara terpisah. (Gunakan pip untuk memasang modul scipy itu.)
+
+\begin{verbatim}
+#read CSV of data and calculate a and b
+# y = ax + b
+import numpy as np
+# do not forget to install scipy first: python3 -m pip install scipy
+from scipy import stats
+
+my_csv = np.genfromtxt('linear-regression.csv', delimiter=',')
+xp, yp = my_csv.transpose()
+gradient,intercept,r_value,p_value,std_err=stats.linregress(xp,yp)
+print("Gradient and intercept",gradient,intercept)
+print("R-squared",r_value**2)
+print("p-value",p_value)
+\end{verbatim}
+
+Jika diperlukan, data tersebut dapat ditampilkan ulang dan garis (lurus)
+dapat digambarkan pula.
+
+
+Berikut ini adalah contoh lain untuk membuat dataset, menggunakan fungsi,
+dan juga menampilkannya dalam grafik (scattered plot).
+Dalam contoh ini kita akan membuat sebuah dataset yang terdiri dari 3~kelas.
+Masing-masing kelas memiliki titik pusat (centroid) yang berbeda.
+Semua data dimasukkan ke dalam satu {\em list} yang sama.
+Pura-puranya kita tidak tahu bahwa kita memiliki tiga kelas.
+(Nanti ini akan kita proses secara statistik untuk menentukan kelas tersebut.)
+
+\begin{verbatim}
+   import numpy as np
+   import matplotlib.pyplot as plt
+   
+   # buat function dulu
+   def buat_list(cx,cy):
+      x_point.append([cx])
+      y_point.append([cy])
+      for i in range(jumlah_data):
+         x = cx + np.random.normal(0.0,0.7)
+         y = cy + np.random.normal(0.0,0.7)
+         x_point.append([x])
+         y_point.append([y])
+   
+   jumlah_data=100
+   x_point = []
+   y_point = []
+   # cluster pertama, centroid di (10, 4,5)
+   buat_list(10.0, 4.5)
+   # cluster kedua, centroid di (3.5, 2.5)
+   buat_list(3.5, 2.5)
+   # cluster ketiga, centroid di (4.5, 8.5)
+   buat_list(4.5, 8.5)
+   # simpan dalam bentuk CSV
+   np.savetxt("cluster.csv", np.column_stack([x_point, y_point]), fmt='%.5f', delimiter=', ')
+   
+   plt.plot(x_point,y_point, 'x')
+   plt.show()
+\end{verbatim}
+
+Jika kode di atas kita jalankan, maka hasilnya adalah sebuah tampilan
+seperti yang ditunjukkan pada gambar~\ref{fig:clustercreate}.
+Pada gambar ini, semua data ditampilkan seperti satu kelas saja dan
+semua ditampilkan menggunakan simbol $x$. Padahal dengan mudahnya kita
+dapat melihat bahwa data tersebut terdiri dari tiga kelas.
+
+\begin{figure}[ht]
+   \fbox{\includegraphics[width=1.0\linewidth]{graphics/cluster-create.jpg}}
+   \caption{Tiga cluster data}
+   \label{fig:clustercreate}
+\end{figure}
+
+Kode di atas juga menunjukkan cara menggunakan fungsi di Python dan bagaimana
+memberikan parameter kepada fungsi tersebut.
+Ini adalah contoh, {\em pass by value}, yang mana nilai dari centroid
+diberikan ke fungsi dan akan mengisi variabel $cx$ dan $cy$ di dalam fungsi
+tersebut.
+Nanti akan dibahas juga bagaimana melakukan {\em pass by reference}.
+Juga dalam contoh ini, beberapa variabel masih menggunakan variabel global,
+yang mana ini adalah contoh yang kurang baik.
+
+\section{Pandas}
+Pandas adalah library untuk data processing. Dia banyak digunakan untuk
+berbagai aplikasi, seperti misalnya di {\em Artificial Intelligence}
+(AI) atau {\em Machine Learning}, statistik, dan operasi yang melibatkan
+banyak data dalam bentuk tabel.
+Bayangkan ini seperti menggunakan {\em spreadsheet} (seperti Excel).
+
+Langkah pertama yang dilakukan adalah memasang Pandas.
+Jika Anda menggunakan Python3, maka gunakan perintah berikut.
+\begin{verbatim}
+$ sudo python3 -m pip install pandas
+\end{verbatim}
+
+Setelah Pandas terpasang, mari kita coba membuat sebuat {\em Series}.
+Kali ini dia berisi data bilangan dan $NaN$.
+Pandas akan secara otomatis membuat indeks dari data tersebut (dengan
+index bilangan integer)\footnote{Contoh lain dapat dilihat di
+https://pandas.pydata.org/pandas-docs/stable/10min.html}.
+
+\begin{verbatim}
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# create series
+ser = pd.Series([1,3,5,7,np.nan,9,11])
+print(ser)
+\end{verbatim}
+
+Hasilnya adalah sebagai berikut. Perhatikan bentuk keluarannya
+yang seperti tabel dalam {\em spreadsheet}.
+\begin{verbatim}
+0     1.0
+1     3.0
+2     5.0
+3     7.0
+4     NaN
+5     9.0
+6    11.0
+dtype: float64
+\end{verbatim}
+
+Pandas dapat membaca data dalam bentuk CSV.
+Berikut ini adalah contoh kode yang membaca data dari berkas 'cluster.csv'
+(yang sebelumnya pernah kita buat).
+
+\begin{verbatim}
+import pandas as pd
+df = pd.read_csv('cluster.csv', header=None)
+# tambahkan label di kolomnya (tidak harus)
+df.columns = ['x', 'y']
+print(df)
+\end{verbatim}
+
+
+Mari kita lanjutkan contoh penggunaan Pandas untuk melakukan analisis
+statistik, yaitu {\em clustering} dengan menggunakan {\em k-means}.
+(Mengenai statistik ini ada dibahas di buku lain.
+Akan saya berikan referensinya di versi berikutnya.)
+Pada contoh sebelumnya kita membaca berkas cluster.csv yang di dalamnya
+berisi data yang terkumpul dalam tiga {\em cluster}.
+Kita ulangi lagi kodenya, akan tetapi sekarang kita tambahkan visualisasi
+(scattered graph) yang dapat dilakukan dengan menggunakan Pandasa.
+(Catatan: pada bagian akhir dibutuhkan perintah plt.show() agar grafik
+dapat ditampilkan.)
+
+\begin{verbatim}
+import pandas as pd
+import matplotlib.pyplot as plt
+   
+# baca data dahulu
+df = pd.read_csv('cluster.csv', header=None)
+df.columns = ['x', 'y']
+df.plot.scatter(x = 'x', y='y', c='red')
+plt.show()
+\end{verbatim}
+
+Hasil dari kode di atas adalah tampilan grafik yang mirip dengan
+yang sudah kita lakukan dengan menggunakan Matplotlib.
+(Lihat gambar~\ref{fig:3cluster}.)
+
+\begin{figure}[ht]
+   \fbox{\includegraphics[width=1.0\linewidth]{graphics/3cluster.jpg}}
+   \caption{Tiga cluster data dengan Pandas}
+   \label{fig:3cluster}
+\end{figure}
+
+Mari kita lanjutkan dengan melakukan {\em clustering}.
+Hal ini dapat kita lakukan dengan menggunakan pustaka ({\em library})
+lain, yaitu {\em Sklearn}.
+Tambahkan kode berikut ini ke kode sebelumnya.
+
+\begin{verbatim}
+from sklearn.cluster import KMeans
+kmeans = KMeans(n_clusters=3).fit(df)
+centroids = kmeans.cluster_centers_
+print(centroids)
+# tampilkan secara visual
+plt.scatter(df['x'],df['y'], c=kmeans.labels_.astype(float),s=50,alpha=0.5)
+plt.scatter(centroids[:, 0], centroids[:, 1], c='red')
+plt.show()
+\end{verbatim}
+
+Hasil dari kode di atas adalah tampilan tiga {\em cluster}
+beserta {\em centroidnya}.
+(Lihat gambar~\ref{fig:3cluster-kmeans}.)
+Anda dapat mengubah-ubah jumlah {\em cluster}-nya dengan mengubah
+variabel $n\_clusters$. Misal, Anda dapat menggantikan angka 3 menjadi 4
+untuk membuatnya menjadi 4 {\em cluster}.
+Pemilihan jumlah kluster yang paling optimal dapat dilakukan, tetapi
+ini akan menjadi pembahasan yang terpisah.
+Perlu diingat juga bahwa algoritma {\em k-means} yang kita gunakan ini
+akan menghasilkan urutan penomoran kluster yang berbeda
+setiap kita menjalankan kode ini.
+
+\begin{figure}[ht]
+   \fbox{\includegraphics[width=1.0\linewidth]{graphics/3cluster-kmeans.jpg}}
+   \caption{Tiga cluster dengan k-means}
+   \label{fig:3cluster-kmeans}
+\end{figure}
+
+Demikianlah sedikit contoh-contoh dari penggunaan pustaka Pandas.
+Pada prinsipnya jika ada masalah yang dalam pemikiran kita bentuknya
+adalah tabel (seperti {\em spreadsheet}), maka solusi dapat dilakukan
+dengan menggunakan Pandas.
+
+
+
+
+\input{opencv}
+
+\section{Kriptografi}
+Sebagaimana bidang lain, Python memiliki {\em library} yang lengkap untuk
+kriptografi. Berikut ini hanya beberapa contoh penggunaan {\em library}
+tersebut.
+
+\subsection{Fungsi Hash}
+Fungsi hash adalah fungsi satu arah yang memberikan tanda ({\em signature})
+dari data digital; {\em stream of data} dan berkas.
+Perubahan satu bit saja dari data tersebut akan mengubah nilai dari
+{\em hash} yang dihasilkan. Itulah sebabnya fungsi {\em hash} dapat
+digunakan untuk menjamin integritas data.
+
+Ada banyak algoritma fungsi hash. Algoritma yang terkenal adalah MD5
+dan SHA. Saat ini MD5 sudah dianggap tidak layak lagi karena sudah
+ditemukan {\em collision}, yaitu nilai {\em hash} yang sama untuk data
+yang berbeda. SHA~256 merupakan algoritma yang dianggap cocok saat ini.
+
+\begin{verbatim}
+unix$ echo "beli 10000" | shasum -a 256
+375a6c46228994656932f4aa17d9ae50f21da75a31ff17f8517c255c06cba809 -
+
+unix$ cat pesan1.txt
+beli 10000
+unix$ shasum -a 256 pesan1.txt
+375a6c46228994656932f4aa17d9ae50f21da75a31ff17f8517c255c06cba809 pesan1.txt
+
+unix$ cat pesan2.txt
+beli 1000
+unix$ shasum -a 256 pesan2.txt
+5901bccc6a0556fac2b4a164ef831a7ed4ceddeb60c6ddde1162f5a40b9d2917 pesan2.txt
+\end{verbatim}
+
+Contoh kode Python untuk hal di atas adalah sebagai berikut:
+
+\begin{verbatim}
+# Contoh fungsi hash
+import hashlib
+h = hashlib.sha256("beli 10000\n")
+print h.hexdigest()
+\end{verbatim}
+
+
+Salah satu pemanfaatan ``baru'' dari fungsi {\em hash} ini adalah pada
+algoritma {\em Blockchain} yang digunakan pada {\em Bitcoin}. Sedikit
+cerita tentang hal ini ada di blog
+saya~\footnote{https://rahard.wordpress.com/2018/03/10/berburu-hash/}.

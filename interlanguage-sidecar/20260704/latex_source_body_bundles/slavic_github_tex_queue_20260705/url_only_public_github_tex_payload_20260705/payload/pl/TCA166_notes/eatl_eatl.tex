@@ -1,0 +1,500 @@
+\documentclass{../notatki}
+
+\title{Elementy algebry i teorii liczb}
+
+\begin{document}
+
+\tableofcontents
+
+\noindent Kazali mi to zdawać choć algebrę miałem, jakbym nie miał ciekawszych
+rzeczy do roboty i potrzebował tej powtórki. Fun times.
+
+\section{Operacje}
+
+Każdą funkcję która ma dwa argumenty i zwraca jeden wynik można nazwać
+operacją. Teoretycznie zatem można konwencjonalne operatory traktować jako
+funkcje. $+(1, 1)=2$
+
+\subsection{Działanie wewnętrzne i zewnętrzne}
+
+Działanie wewnętrzne w zbiorze $A$: $*: A \times A \rightarrow A$.
+Działanie zewnętrzne w zbiorze $A$: $*: F \times A \rightarrow A$
+
+\subsection{Własności operacji}
+
+Rozróżniamy kilka własności, które mogą mieć operacje.
+
+\begin{itemize}
+  \item \textbf{Łączność} - $A * (B * C) = (A * B) * C$
+  \item \textbf{Przemienność} - $A * B = B * A$
+  \item \textbf{Rozdzielność} - $A * (B + C) = A * B + A * C$
+  \item \textbf{Element neutralny} - $A * E = A$
+  \item \textbf{Element odwrotny} - $A * A^{-1} = E$
+\end{itemize}
+
+\section{Grupa}
+
+Grupa to zbiór $G$ z działaniem wewnętrznym $*$ jeśli:
+\begin{itemize}
+  \item $*$ jest łączne
+  \item $*$ posiada element neutralny
+  \item $*$ posiada element odwrotny
+\end{itemize}
+Dodatkowo jeśli $*$ jest przemienne to mamy grupę abelową.
+
+\subsection{\texorpdfstring{Grupa $\mathbb{Z}_n$}{Grupa Zn}}
+
+Specyficzna grupa, która jest zbiorem liczb całkowitych od $0$ do $n-1$ z
+działaniem $+$ modulo $n$. Elementem przeciwnym dla $a$ jest $n - a$.
+
+\subsection{\texorpdfstring{Grupa $\mathbb{Z}_n^\times$}{Grupa Znx}}
+
+$$
+\mathbb{Z}_n^\times = \{a \in \mathbb{Z}_n : NWD(a,n) = 1\}
+$$
+A działanie tej grupy to mnożenie modulo $n$. Element przeciwny oblicza się
+algorytmem Euklidesa.
+
+\section{Podgrupa}
+
+Podgrupa to podzbiór grupy z odpowiednio dostosowanym działaniem. Na przykład
+podgrupą $\mathbb{Z}_{12}$ jest $(\{0, 4, 8\}, +)$, ponieważ nie
+ma pary elementów z
+podzbioru, które po dodaniu dałyby coś spoza podzbioru.
+
+\subsection{Generowanie}
+
+Niech $(G, *)$ będzie grupą z elementem neutralnym $E$. Wtedy:
+$$
+\langle g \rangle = \{\stackrel{n}{\overbrace{g * g * \dots * g}} : n
+\in \mathbb{N}\} \cup \{E\} \cup \{\stackrel{m}{\overbrace{g^{-1} * g^{-1} *
+  \dots * g^{-1}}} : m
+\in \mathbb{N}\}
+$$
+Jeśli $G = \langle g \rangle$ dla pewnego $g$ to $G$ jest grupą
+cykliczną. Rzędem
+$g$ jest $|\langle g \rangle|$
+
+W $\mathbb{Z}_{12}$ podgrupą generowaną przez $4$ jest $\{0, 4, 8\}$, a
+$rz(4) = |\langle 4 \rangle|$. Z kolei $\langle 1 \rangle = \mathbb{Z}_{12}$
+zatem $\mathbb{12}$ jest grupą cykliczną. Jeżeli $p$ jest liczbą pierwszą
+to $\mathbb{Z}_p^\times$ jest grupą cykliczną.
+
+\subsection{Przystawanie}
+
+Jeśli dwa elementy $a, b$ są przystające w Grupie $G$ to $a \equiv b$. Na
+przykład $32 \equiv 4$ w $\mathbb{Z}_7$, ponieważ $32 \mod 7 = 4$.
+Przystawanie ($\mod n$) implikuje:
+\begin{itemize}
+  \item że $a$ i $b$ przy dzieleniu przez $n$ mają tę samą resztę
+  \item $n$ dzieli $a - b$
+  \item $a = b + nk$ dla pewnego $k \in \mathbb{Z}$
+\end{itemize}
+
+\noindent
+Ogólnym rozwiązaniem kongruencji $x \equiv a \mod n$ jest:
+$$
+x = a + nk \text{ dla pewnego } k \in \mathbb{Z}
+$$
+$$
+(9x \equiv 6 \mod 15) \stackrel{\div 3}{\rightarrow} (3 \equiv 2 \mod 5)
+\stackrel{3^{-1}}{\rightarrow} 1 \equiv 4 \mod 5
+$$
+Dla $x^y \mod z$, gdzie $t$ jest długością cyklu: $x^y \mod z = y \mod t$.
+Na przykład: $522^{2024} \mod 65 = 2^{2024} \mod 65 = 2024 \mod 7$.
+
+\section{Funkcja Eulera}
+
+$$
+\varphi(n) =
+\begin{cases}
+  1 : n = 1\\
+  |\mathbb{Z}_n^\times| : n > 1\\
+\end{cases}
+$$
+
+Jeśli $p$ jest liczbą pierwszą to $\varphi(p^k) = p^k - p^{k-1}$ oraz
+$\varphi(p) = p - 1$. Jeśli $NWD(m, n) = 1$ to $\varphi(mn) =
+\varphi(m)\varphi(n)$.
+
+% z algebry
+
+\section{Permutacje}
+
+$$
+\pi =
+\begin{pmatrix}
+  1   & 2   & 3   & \cdots & n-1   \\
+  a_1 & a_2 & a_3 & \cdots &  a_n
+\end{pmatrix}
+$$
+
+$$
+a_n = \pi(n)
+$$
+
+\subsection{Rozkład na cykle}
+
+$$
+\pi =
+\begin{pmatrix}
+  a_1 & a_2 & a_3 & \cdots & a_n   \\
+  a_2 & a_3 & a_4 & \cdots & a_1
+\end{pmatrix}
+= (a_1, a_2, a_3, \dots, a_n)
+$$
+
+$$
+\pi' =
+\begin{pmatrix}
+  a_1 & a_2 & b_1 & b_2   \\
+  a_2 & a_1 & b_2 & a_1
+\end{pmatrix}
+= (a_1, a_2) \cdot (b_1, b_2)
+$$
+
+\subsection{Iloczyn transpozycji}
+
+$$
+(a_1, a_2, a_3, \dots, a_k) = (a_1, a_k) \cdot (a_1, a_{k-1}) \cdot
+\dots \cdot (a_1, a_3) \cdot (a_1, a_2)
+$$
+
+\subsection{Postać macierzowa}
+
+$$
+\pi =
+\begin{pmatrix}
+  1 & 2 & 3 & 4\\
+  2 & 2 & 4 & 3
+\end{pmatrix}
+=
+\begin{bmatrix}
+  0 & 0 & 0 & 0\\
+  1 & 1 & 0 & 0\\
+  0 & 0 & 0 & 1\\
+  0 & 0 & 1 & 0
+\end{bmatrix}
+$$
+
+\subsection{Znak permutacji}
+
+Ilość czynników w iloczynie transpozycji określa parzystość permutacji.
+
+$$(-1)^n$$ gdzie $n$ to ilość transpozycji
+
+\section{Pierścień}
+
+Pierścień to uporządkowana trójka $R(A, +, \cdot)$, gdzie $A$ to
+zbiór, a $+$ i $\cdot$ to działania spełniające następujące warunki:
+
+\begin{itemize}
+  \item $(A, +)$ jest grupą abelową
+  \item $+$ i $\cdot$ są są wewnętrzne dla $A$
+  \item Dla każdego $a, b, c \in A$ zachodzi rozdzielność mnożenia
+    względem dodawania: $a \cdot (b + c) = a \cdot b + a \cdot c$
+    oraz $(a + b) \cdot c = a \cdot c + b \cdot c$
+  \item Istnieje element neutralny mnożenia $1 \in A: \forall a \in
+    A: a \cdot 1 = 1 \cdot a = a$
+\end{itemize}
+
+\subsection{Pierścień z jedynką}
+
+Pierścień z jedynką to pierścień, w którym istnieje element neutralny
+mnożenia oraz $A \ne \emptyset$
+
+\subsection{Pierścień przemienny}
+
+Pierścień przemienny to pierścień, w którym mnożenie jest przemienne
+
+\section{Ciało}
+
+Ciało $\mathbb{C}(K, +, \cdot)$ to pierścień przemienny z jedynką, oraz $(K
+\setminus \{0\}, \cdot)$ jest grupą.
+% koniec algebry
+Innymi słowy: jest to niepusty zbiór $K$ z działaniami $+$ i $\cdot$, które
+są przemienne, łączne, posiadają elementy neutralne i odwrotne, oraz
+istnieją takie pary $(a, b)$ dla których:
+$$
+a + b = 0 \text{ oraz } a \cdot b = 1
+$$
+Przykładami ciał są: $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$.
+
+\section{Wielomiany}
+
+Mówimy, że liczba $z$ jest pierwiastkiem $n$-tego stopnia liczby $w$ jeśli
+$$
+z^n = w
+$$
+Każdy wielomian $f \in \mathbb{C}[x]$ stopnia $n$ ma $n$
+pierwiastków. Jeśli $f(x) = a_n x^n + a_{n-1} x^{n-1} + \dots + a_0$ to
+$$
+f(x) = a_n (x - z_1)(x - z_2) \dots (x - z_n)
+$$
+
+\subsection{Przykład ciała wielomianowego}
+
+Zbiór $\{0, 1, x, x+1\}$ z dodawaniem i mnożeniem modulo $f(x) = x^2
++ x + 1 \in \mathbb{Z}_2[x]$ jest ciałem.
+
+\begin{table*}[h]
+  \centering
+  \begin{tabular}{c|cccc}
+    \hline
+    $+$ & 0 & 1 & $x$ & $x + 1$ \\
+    \hline
+    0 & 0 & 1 & $x$ & $x + 1$ \\
+    1 & 1 & 0 & $x + 1$ & $x$ \\
+    $x$ & $x$ & $x + 1$ & 0 & 1 \\
+    $x + 1$ & $x + 1$ & $x$ & 1 & 0 \\
+    \hline
+  \end{tabular}
+  \caption{Dodawanie w wyżej zdefiniowanym ciele}
+\end{table*}
+
+Zbiór $\mathbb{Z}_n[x] / (f(x))$ jest ciałem wtedy i tylko wtedy gdy $f(x)$
+jest nierozkładalny w $\mathbb{Z}_n[x]$.
+
+\subsection{Rozkładalność a ciała}
+
+Dlaczego zbiór $\{0, 1, x, x + 1\}$ z dodawaniem i mnożeniem modulo
+$f(x) = x^2 + 1 \in \mathbb{Z}_2[x]$ nie jest ciałem? Ponieważ $x^2 +
+1$ jest rozkładalny w $\mathbb{Z}_2[x]$.
+
+Mówimy, że wielomian $f(x)$ jest rozkładalny w $\mathbb{Z}_p[x]$
+jeśli gdy istnieją
+wielomiany $g_1, g_2 \in \mathbb{Z}_p[x]$ stopnia co najmniej $1$ takie, że
+$f(x) = g_1(x)g_2(x)$.
+
+Dla każdego $n \in \mathbb{N}$ i każdej liczby pierwszej $p$ istnieje wielomian
+stopnia $n$ w $\mathbb{Z}_p[x]$ który jest nierozkładalny.
+
+\subsection{Ciała wielomianowe skończone}
+
+Dla ciała $\mathbb{Z}_2[x]$, możemy wybrać dowolny nierozkładalny wielomian
+stopnia $n$ i zdefiniować zbiór $\mathbb{Z}_2[x] / (f(x))$. Zbiór ten
+będzie ciałem, ponieważ $f(x)$ jest nierozkładalny. Co więcej będzie miał
+$2^n$ elementów, ponieważ $f(x)$ ma $n$ współczynników, a każdy z nich
+może przyjąć $2$ wartości. Zbiór $\mathbb{Z}_2[x] / (f(x))$ nazywamy
+\textbf{ciałem wielomianowym} i oznaczamy $\mathbb{F}_{2^n}$.
+
+Na przykład $\mathbb{F}_8 = \mathbb{Z}_2[x]/(x^3 + x + 1)$, gdzie
+$x^3 + x + 1$ jest nierozkładalny w $\mathbb{Z}_2[x]$. $\mathbb{F}_2$ to
+
+\subsection{Wspólne miejsca zerowe wielomianów jednej zmiennej}
+
+Mając wielomiany $f_1 \dots f_s \in \mathbb{F}[x]$ o współczynnikach
+z ciała $\mathbb{F}$, chcemy znaleźć $V = \{x \in \mathbb{F}: f_{1
+\dots s}(x) = 0 \}$.
+$$
+f(a) = 0 \leftrightarrow x - a | f(x)
+$$
+Aby znaleźć $V$ musimy obliczyć $NWD(f_1, \dots, f_s)$.
+
+\subsection{Wielomiany wielu zmiennych}
+
+$$
+\mathbb{F}[x_1, \dots, x_n] = \text{zbiór wielomianów zmiennych }
+x_1, \dots, x_n
+$$
+
+$$
+f(x_1, \dots, x_n) \in \mathbb{F}[x_1, \dots, x_n] = \sum_{i_1, \dots,
+i_n} a_{i_1, \dots, i_n} x_1^{i_1} \cdots x_n^{i_n}
+$$
+
+Konstrukcje typu $x_1^{i_1} \dots x_n^{i_n}$ można utożsamić z
+wektorami $(i_1, \dots, i_n)$, a te z kolei uporządkować. Na przykład można użyć
+porządku leksykograficznego gdzie $i \prec j \leftrightarrow
+\text{pierwszy niezerowy współczynnik } j - a \text{ jest dodatni}$
+
+Mając ustalony porządek, można zdefiniować dzielenie wielomianów
+wielu zmiennych. Każdy wielomian $f \in \mathbb{F}[x_1, \dots x_n]$
+można przedstawić w postaci:
+$$
+f = a_1f_1 + \dots + a_kf_k + r
+$$
+Na przykład dla $f(x, y) = x^2y + xy^2 + y^2$:
+$$
+f(x, y) = (x + y)(xy) + (y^2 - 1) + x + y + 1
+$$
+
+\section{Rozszerzony algorytm Euklidesa}
+
+Dla $a, b \in \mathbb{Z}$ wyznacza $NWD(a, b)$ oraz $x, y \in
+\mathbb{Z} : ax + by = NWD(a, b)$. Jest on zdefiniowany w następujący sposób:
+$$
+(r_0, s_0, t_0) = (a, 1, 0), (r_1, s_1, t_1) = (b, 0, 1)
+$$
+$$
+(r_{i + 1}, s_{i + 1}, t_{i + 1}) = (r_{i - 1}, s_{i - 1}, t_{i - 1}) - \lfloor
+\frac{r_{i - 1}}{r_i} \rfloor (r_i, s_i, t_i)
+$$
+Równanie $ax + by = c$ ma rozwiązanie w $\mathbb{Z}$ tylko jeśli
+$NWD(a, b) | c$.
+Na przykład: dla $30, 45$ mamy:
+\begin{enumerate}
+  \item (45, 1, 0), (30, 0, 1)
+  \item (45, 1, 0) - 1 * (30, 0, 1) = (15, \textcolor{red}{1, -1})
+  \item (30, 0, 1) - 2 * (15, 1, -1) = (0, -2, 3)
+  \item $NWD(30, 45) = 15$
+  \item $15 = -1 * 30 + 1 * 45$
+\end{enumerate}
+Albo inaczej: $61^{-1} \in \mathbb{Z}_{130} = ?$
+$$
+61^{-1} \in \mathbb{Z}_{130} \rightarrow 61x \equiv 1 \mod 130
+\rightarrow 61x + 130y = 1
+$$
+\begin{enumerate}
+  \item (130, 1, 0), (61, 0, 1)
+  \item (130, 1, 0) - 2 * (61, 0, 1) = (8, 1, -2)
+  \item (61, 0, 1) - 7 * (8, 1, -2) = (5, -7, 15)
+  \item (8, 1, -2) - 1 * (5, -7, 15) = (3, 8, -17)
+  \item (5, -7, 15) - 1 * (3, 8, -17) = (2, -15, 32)
+  \item (3, 8, -17) - 1 * (2, -15, 32) = (1, \textcolor{red}{23, -49})
+  \item (2, -15, 32) - 2 * (1, 23, -49) = (0, -61, 130)
+  \item $NWD(61, 130) = 1$
+  \item $1 = (-49) * 61 + 23 * 130$
+\end{enumerate}
+
+\section{Problem logarytmu dyskretnego}
+
+Dane: $a, c \in \mathbb{Z}, n \in \mathbb{N}$. Cel: znaleźć $x \in
+\mathbb{Z}_n$ takie, że $a^x = c \in \mathbb{Z}_n$. Alternatywnie można
+zdefiniować postać ogólną, gdzie mamy grupę $G$ oraz $|G| \in \mathbb{P}$,
+i chcemy znaleźć $x \in G : g^x = h$.
+
+\section{Test na pierwszość Fermata}
+
+Jeśli $p \in \mathbb{P}$ to $\forall_{a \in \mathbb{Z}_p \setminus
+\{0\}} a^{p - 1} = 1 \in \mathbb{Z}_p$.
+
+\begin{enumerate}
+  \item Losujemy $a \in \mathbb{Z}_p \setminus \{0\}$
+  \item Obliczamy $a^{p - 1} \mod p$
+  \item Jeśli $a^{p - 1} \ne 1$ to $p$ nie jest liczbą pierwszą
+\end{enumerate}
+
+\noindent
+Na przykład: $p = 7$, $a = 2$:
+$$
+2^{7 - 1} = 2^6 = 64 \mod 7 = 1
+$$
+Zatem $7$ może być liczbą pierwszą.
+
+\noindent
+Albo $p = 4$, $a = 2$:
+$$
+2^{4 - 1} = 2^3 = 8 \mod 4 = 0
+$$
+Zatem $4$ nie jest liczbą pierwszą.
+
+\section{Twierdzenie Eulera}
+
+Niech $\mathbb{Z}_n^\times = \{a \in \mathbb{Z}_n : NWD(a,n) = 1\}$,
+$\varphi(n) = |\mathbb{Z}_n^\times|$. Dla każdego $a \in \mathbb{Z}_n^\times$:
+$a^{\varphi(n)} \equiv 1 (\mod n)$.
+
+Jeśli $n = p_1^{\alpha_1}p_2^{\alpha_2} \dots p_k^{\alpha_k}$ jest rozkładem
+na czynniki pierwsze to:
+$$
+\varphi(n) = \prod_{i = 1}^k p_i^{\alpha_i - 1}(p_i - 1)
+$$
+
+\section{Chińskie twierdzenie o resztach}
+
+Niech $m_1, \dots m_k \in \mathbb{N}$ będą parami względnie pierwsze
+($NWD = 1$), oraz $M = \prod m$. Wtedy dla dowolnych $a_1, \dots a_k
+\in \mathbb{Z}$ istnieje $x < M$ takie, że:
+$$
+x \equiv a_i \mod m_i
+$$
+
+Innymi słowy, układ kongruencji, gdzie kolejne $m_i$ są parami
+względnie pierwsze, ma dokładnie jedno rozwiązanie w przedziale $[0, M)$.
+Na przykład:
+$$
+\begin{cases}
+  x \equiv 2 \mod 3\\
+  x \equiv 3 \mod 4\\
+  x \equiv 2 \mod 5
+\end{cases}
+$$
+\begin{enumerate}
+  \item Rozwiązaniem ogólnym pierwszej kongruencji jest: $2 + 3t$.
+  \item $2 + 3t$ dla $t = 3$ rozwiązuje drugą kongruencję:
+    $2 + 3 \cdot 3 =  \textcolor{red}{11} \equiv 3 \mod 4$.
+  \item Zatem dwie powyższe kongruencje możemy zapisać jako $x \equiv
+    \textcolor{red}{11} \mod 3 \cdot 4$ i jej rozwiązaniem jest $11 + 12t$.
+  \item Wracamy teraz do kroku 2, czyli znajdujemy rozwiązanie
+    trzeciej kongruencji: $11 + 12t \equiv 2 \mod 5$. $t = 3$ rozwiązuje tę
+    kongruencję.
+\end{enumerate}
+Czyli $x = 11 + 12 \cdot 3 = 47$ jest rozwiązaniem wszystkich trzech
+kongruencji.
+
+\section{Faktoryzacja wielomianu nad ciałem skończonym}
+
+Faktoryzacja danej liczby lub wielomianu to znalezienie takich
+czynników, że ich iloczyn daje tę liczbę lub wielomian.
+
+\subsection{Distinct-degree factorization}
+
+Wielomian $f(x) = a_0 + a_1x^1 \dots$ nazywamy unormowanym jeśli $a_n = 1$.
+Współczynniki $a_n$ nazywamy wiodącym. Ponieważ dla każdego $a \in
+\mathbb{F}_q \setminus \{0\}$ mamy $a^{q-1}$ więc:
+$$
+x^q - x = \prod_{a \in \mathbb{F}_q} (x - a)
+$$
+Dla każdego $d \ge 1$, $x^{q^d} - x \in \mathbb{F}_q[x]$ jest
+iloczynem wszystkich
+nierozkładalnych unormowanych wielomianów w $\mathbb{F}_q[x]$ stopnia $k|d$.
+
+\noindent
+\textbf{Przykład:} Niech
+$f(x) = x^{10} + x^8 + 2x^6 + 6x^5 + 5x^3 + 2x^2 + 6x + 4 \in \mathbb{Z}_7$.
+\begin{enumerate}
+  \item $h_0 = x, f_0 = f, q = 7$
+  \item $h_1 = x^q = x^7, g_1 = NWD(h_1 - h_0, f_0) = NWD(x^7 - x,
+    f_0) = \textcolor{green}{x^2 + 3x + 2}, f_1 = f_0 / g_1 = x^8 +
+    4x^7 + x^6 + 3x^5 +
+    5x^4 + 6x^3 + 2$
+  \item $h_2 = h_1^q = 4x^6 + x^4 + 6x^3 + 3, g_2 = NWD(h_2 - x, f_1)
+    = \textcolor{green}{x^2 + 1}, f_2 = f_1 / g_2 = x^6 + 4x^5 + 6x^3
+    + 5x^2 + 2$
+  \item $h_3 = x, g_3 = \textcolor{green}{x^6 + 4x^5 + 6x^3 + 5x^2 +
+    2}, f_3 = \textcolor{red}{1}$
+\end{enumerate}
+Zatem $f(x) = g_1 \cdot g_2 \cdot g_3 = (x^2 + 3x + 2)(x^2 + 1)(x^6 +
+4x^5 + 6x^3 + 5x^2 + 2)$.
+
+\subsection{Algorytm Cantora i Zassenhausa}
+
+Algorytm Cantora i Zassenhausa jest algorytmem probabilistycznym, który
+służy do faktoryzacji wielomianów nad ciałami skończonymi. Dla wejściowego
+wielomianu $f$ zwraca zbiór wielomianów $g_1, g_2, \dots, g_k$ takich, że
+$$
+f(x) = g_1(x)g_2(x) \dots g_k(x)
+$$
+Algorytm ten działa w następujący sposób:
+\begin{enumerate}
+  \item Losujemy $a \in \mathbb{F}_q$ i obliczamy $g = NWD(f, x^q - a)$.
+  \item Jeśli $g$ jest nierozkładalny to zwracamy $g$.
+  \item W przeciwnym razie dzielimy $f$ przez $g$ i powtarzamy krok 1.
+\end{enumerate}
+
+\section{Bazy Gröbnera}
+
+Dla porządku $\prec$ na $\mathbb{Z^n}$ oraz $f_1 \dots f_n \in
+\mathbb{F}[x_1, \dots x_n]$ to:
+$$
+\langle f_1, \dots, f_n \rangle = \{a_1f_1 + \dots + a_nf_n : a_i \in
+\mathbb{F}[x_1, \dots, x_n]\}
+$$
+nazywamy idealem generowanym przez $f_1, \dots, f_n$. Skończony podzbiór ideału,
+względem porządku $\prec$ nazywamy bazą Gröbnera, jeśli:
+$$
+\langle LT(g) : g \in G \rangle = \langle LT(f) : f \in I \rangle
+$$
+
+\end{document}

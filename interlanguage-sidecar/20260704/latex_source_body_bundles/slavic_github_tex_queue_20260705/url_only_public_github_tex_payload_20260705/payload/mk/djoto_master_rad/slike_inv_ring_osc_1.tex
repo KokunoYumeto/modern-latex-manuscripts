@@ -1,0 +1,55 @@
+\begin{figure}[!ht]
+    \centering
+    \vspace{0.2cm}
+    \begin{tikzpicture}[scale=1]
+        \ctikzset{tripoles/mos style/arrows}
+        \ctikzset{tripoles/pmos style/emptycircle}
+        \ctikzset{logic ports=ieee}
+        
+	\begin{scope}[shift={(0,0)}]
+	\draw 
+	(0,0) --++ (0,0.3) node[pmos, anchor=D](p1){$\text{MP}_1$}
+        (0,0) --++ (0,-0.3) node[nmos, anchor=D](n1){$\text{MN}_1$}
+	(p1.S) node[rground, rotate=180] {} ++ (0,0.7) node (anchor=south)(Vdd) {$V_\text{DD}$}
+	(n1.S) node[ground] {}
+        (p1.G) to (n1.G)
+	($(p1.G)!0.5!(n1.G)$) node[circ] () {} --++ (-1,0) node[] (in1) {} ++ (0.7,0) node[anchor=south] {$X$}
+	($(p1.D)!0.5!(n1.D)$) node[circ] (out1) {}
+	;
+        \end{scope}
+	
+	\begin{scope}[shift={(4,0)}]
+	\draw 
+        (0,0) --++ (0,0.3) node[pmos, anchor=D](p2){$\text{MP}_2$}
+        (0,0) --++ (0,-0.3) node[nmos, anchor=D](n2){$\text{MN}_2$}
+	(p2.S) node[rground, rotate=180] {} ++ (0,0.7) node (anchor=south)(Vdd) {$V_\text{DD}$}
+	(n2.S) node[ground] {}
+        (p2.G) to (n2.G)
+	($(p2.G)!0.5!(n2.G)$) node[circ] () {} --++ (-1,0) node[] (in2) {} ++ (0.7,0) node[anchor=south] {$Y$}
+	($(p2.D)!0.5!(n2.D)$) node[circ] (out2) {}
+	;
+        \end{scope}
+        
+
+	\begin{scope}[shift={(8,0)}]
+	\draw 
+        (0,0) --++ (0,0.3) node[pmos, anchor=D](p3){$\text{MP}_3$}
+        (0,0) --++ (0,-0.3) node[nmos, anchor=D](n3){$\text{MN}_3$}
+	(p3.S) node[rground, rotate=180] {} ++ (0,0.7) node (anchor=south)(Vdd) {$V_\text{DD}$}
+	(n3.S) node[ground] {}
+        (p3.G) to (n3.G)
+	($(p3.G)!0.5!(n3.G)$) node[circ] () {} --++ (-1,0) node[] (in3) {} ++ (0.7,0) node[anchor=south] {$Z$}
+	($(p3.D)!0.5!(n3.D)$) node[circ] (out3) {}
+	;
+        \end{scope}
+
+
+	\draw (out1) -- (in2.center);
+	\draw (out2) -- (in3.center);
+	\draw (out3) --++ (1.2,0) --++ (0,-3) -| (in1.center);
+
+    \end{tikzpicture}
+    \vspace{0.2cm}
+    \caption{Тростепени прстенасти осцилатор састављен од три CMOS инвертора.}
+    \label{inv_ring_osc_1}
+\end{figure}

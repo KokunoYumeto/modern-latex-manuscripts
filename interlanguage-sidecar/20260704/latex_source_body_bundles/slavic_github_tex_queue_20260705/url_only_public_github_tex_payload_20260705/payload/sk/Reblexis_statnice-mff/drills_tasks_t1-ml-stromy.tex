@@ -1,0 +1,23 @@
+\ulohahead{specializace UI-SU}{Rozhodovací stromy: kritéria větvení a prořezávání}
+\begin{zadani}
+\begin{enumerate}[label=(\alph*)]
+  \item \bod{1} Definujte rozhodovací strom a kritéria větvení: entropii a informační zisk, Gini index.
+  \item \bod{2} Popište hladovou konstrukci stromu. Spočtěte informační zisk štěpení, které z uzlu se 4 kladnými a 4 zápornými příklady udělá dva čisté listy (4/0 a 0/4).
+  \item \bod{3} Co je přeučení u stromu a jak mu brání prořezávání (pre-pruning vs post-pruning)?
+\end{enumerate}
+\end{zadani}
+
+\begin{reseni}
+\textbf{(a)} \emph{Rozhodovací strom}: vnitřní uzly testují příznak, listy přiřazují třídu (či hodnotu). \emph{Entropie} množiny $S$ s podíly tříd $p_k$: $H(S)=-\sum_k p_k\log_2 p_k$. \emph{Informační zisk} štěpení $S$ na části $S_j$: $\mathrm{IG}=H(S)-\sum_j\frac{|S_j|}{|S|}H(S_j)$. \emph{Gini}: $G(S)=1-\sum_k p_k^2$ (alternativní míra nečistoty).
+
+\textbf{(b)} \emph{Konstrukce} (ID3/CART): v každém uzlu zvol příznak s největším informačním ziskem (resp.\ nejmenší váženou nečistotou), rozděl data a rekurzivně pokračuj, dokud nejsou listy čisté nebo nenastane zastavení. Výpočet: rodič $4{+}/4{-}$ má $H=-\tfrac12\log_2\tfrac12-\tfrac12\log_2\tfrac12=1$ bit. Děti $4/0$ a $0/4$ jsou čisté: $H=0$. $\mathrm{IG}=1-\big(\tfrac12\cdot0+\tfrac12\cdot0\big)=1$ bit (maximální možný zisk - dokonalé rozdělení).
+
+\textbf{(c)} \emph{Přeučení}: strom roste do hloubky, učí se šum a na trénovacích datech má nulovou chybu, ale špatně generalizuje. \emph{Pre-pruning} (předčasné zastavení): omezení hloubky, minimální počet vzorku v listu, minimální zisk. \emph{Post-pruning}: nech strom dorůst a pak ořezávej podstromy, které nezlepšují chybu na validační množině (nahrazení listem).
+\end{reseni}
+
+\begin{jadro}
+Entropie $H(S)=-\sum_k p_k\log_2 p_k$, informační zisk $\mathrm{IG}=H(S)-\sum_j\frac{|S_j|}{|S|}H(S_j)$ (vážený), Gini $1-\sum p_k^2$. Greedy konstrukce podle max IG, prořezávání proti přeučení.
+\end{jadro}
+
+\kalibrace{Rozhodovací stromy jsou častý okruh (~33\,\%) a vděčí za body za entropii/Gini a jeden výpočet IG. Patří do plně zvládnutého jádra specializace.}
+\past{Entropie se počítá s $\log_2$ (bity). Informační zisk je \emph{vážený} podle velikostí dětí, ne prostý rozdíl entropií.}

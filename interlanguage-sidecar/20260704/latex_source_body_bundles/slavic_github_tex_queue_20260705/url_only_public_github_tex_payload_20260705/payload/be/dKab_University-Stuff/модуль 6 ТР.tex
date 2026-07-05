@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+%this is for cyrillic text
+\usepackage[main=russian,english]{babel}
+%this is needed for changing font
+%\usepackage{fontspec}
+\usepackage[a4paper, top=1cm]{geometry}
+%without this double integral \iint doesnt work
+\usepackage{mathtools}
+\usepackage{physics}
+\usepackage{tempora}
+%Чтобы LaTeX-овские лигатуры работали, типа тире, кавычек и прочего
+%\newfontfamily\cyrillicfont[Mapping=tex-text]{Times New Roman}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+%this font has cyrillic letters
+%\setmainfont{Times New Roman} - linux doesn't have this font
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\renewcommand{\labelenumi}{\Roman{enumi}}
+\begin{document} 
+\begin{center}
+\begin{Large}
+\textbf{Типовой расчет модуль 6 (Ряды). Вариант 6} \\
+\end{Large}
+\end{center}
+\stepcounter{section}
+\Roman{section}.
+ Исследуйте сходимость числовых рядов: a) Выясните, сходится или расходится положительный ряд; б) выясните сходится или расходится знакопеременный ряд; если ряд сходится, установите характер сходимости.
+\begin{flalign*}
+&\text{a)}\sum_{n=1}^{\infty} \frac{n^n}{2^nn!}&
+\end{flalign*}
+\[\lim\limits_{n \to \infty} \frac{(n+1)^{n+1}}{2^{n+1}(n+1)!}\cdot \frac{2^n!}{n^n} = \frac{1}{2}\lim\limits_{n \to \infty} \frac{(n+1)^n(n+1)n!}{n!(n+1)n^n} = \frac{1}{2}\lim\limits_{n \to \infty}\frac{(n+1)^n}{n^n} = \frac{1}{2}\lim\limits_{n \to \infty}\Big(\frac{n+1}{n}\Big)^n =  \]
+\[= \frac{1}{2}\lim\limits_{n \to \infty}\Big(1+ \frac{1}{n} \Big)^n = \frac{1}{2}\cdot e = \frac{e}{2} > 1\]
+По признаку Даламбера ряд расходится.
+\begin{flalign*}
+&\text{б)}\sum_{n=1}^{\infty} (-1)^nsin(\frac{e}{\pi})^n&
+\end{flalign*}
+ 
+Данный ряд не является знакочередующимся, но если умножить его на (-1), то получим знакочередующийся ряд 
+\begin{equation}
+\sum_{n = 1}^\infty (-1)^{n + 1} sin (\frac{e}{\pi})^n \label{eq:1}
+\end{equation}
+Исходный ряд и ряд \eqref{eq:1} сходятся или расходятся одновременнон согласно \textit{свойству 1} рядов, поэтому мы можем далее исследовать ряд \eqref{eq:1}.
+Последовательность абсолютных величин членов ряда $sin(\frac{e}{\pi})^n$ монотонно убывает, а общий член ряда стремится к нулю:
+\[\lim\limits_{n \to \infty} (-1)^{n+1} sin(\frac{e}{\pi})^n = 0 \]
+(предел произведения равен произведению пределов, предел правой части равен нулю, предел левой неопределен но ограничен сверху 1 и -1 снизу, т.о. произведение 0 и ограниченного числа есть 0).
+
+По признаку Лейбница ряд сходится.
+
+Чтобы установить характер сходимости, определим сходится или расходится ряд \\
+\begin{equation}
+\sum_{n=1}^\infty sin(\frac{e}{\pi})^n, \label{eq:2}
+\end{equation} составленный из модулей членов данного ряда.
+Воспользуемся для этого предельным признаком сравнения знакоположительных рядов.
+Рассмотрим ряд 
+\begin{equation}
+\sum_{n=1}^\infty (\frac{e}{\pi})^n \label{eq:3}
+\end{equation}
+Ряд \eqref{eq:3} есть ряд, полученный из сходящегося ряда геометрической прогрессии ($a + aq + aq^2 + \cdots + aq^{n-1} + \cdots (a = 1, q = \frac{e}{\pi} < 1)$) путём отбрасывания первого члена. По \textit{свойству 3} рядов сходится и ряд \eqref{eq:3}.
+
+Найдем предел отношения общих членов рядов \eqref{eq:2} и \eqref{eq:3}:
+\[ \lim\limits_{n \to \infty} \frac{sin(\frac{e}{\pi})^n}{(\frac{e}{\pi})^n}\] 
+
+Обозначив $(\frac{e}{\pi})^n = x$, заметим что $x \rightarrow 0$ при $n \rightarrow \infty.$ Тогда 
+
+\[\lim\limits_{n \to \infty} \frac{sin(\frac{e}{\pi})^n}{(\frac{e}{\pi})^n} = \lim\limits_{x \to 0} \frac{sinx}{x} = 1 \,(\text{первый замечетельный предел}) \]
+Т.е. ряд \eqref{eq:2} сходится и, значит, исходный ряд сходится абсолютно.\\
+\begin{center}
+{\large \textbf{Домашнее задание}}
+\end{center}
+Исследовать сходимость числовых рядов
+\begin{flalign*}
+&\text{a)} \sum_{n=1}^\infty\frac{3n^3+5}{n^3+6}&
+\end{flalign*}
+Это знакоположительный ряд.
+Рассмотрим ряд
+\[\sum_{n+1}^\infty \frac{3n^3+5}{n^3} \quad \text{(1)}\] 
+его общий член
+\[u_n = \frac{3n^3+5}{n^3} = \frac{3n^3}{n^3} + \frac{5}{n^3} = 3 + \frac{5}{n^3}\]
+Такой ряд удовлетворяет условию интегрального признака Коши
+т.к. $u_{n+1} < u_n$
+\[ \int_{1}^{+\infty} (3 + \frac{5}{n^3})dn = \lim\limits_{a \to \infty} \int_1^a (3+\frac{5}{n^3})dn = \eval{\lim\limits_{a \to \infty}(3n + \frac{5}{2n^2})}_1^a =  \]
+\[= \lim\limits_{a \to \infty}(3a + \frac{5}{2a^2} - 3 - \frac{5}{2}) = \infty \quad \text{- ряд расходится}\]
+\[\frac{3n^3 + 5}{n^3 + 6} : \frac{3n^3+5}{n^3} = \frac{3n^3+5}{n^3+6} \cdot \frac{n^3}{3n^3+5} = \frac{n^3}{n^3 + 6}\]
+\[\lim\limits_{n \to \infty} \frac{n^3}{n^3+6} = \lim\limits_{n \to \infty}\frac{3n^2}{3n^2} = 1\]
+Значит исходный ряд расходится, как и ряд (1) по предельному признаку сравнения. \\
+\begin{flalign*}
+&\text{b)}\sum_{n=5}^\infty \frac{2\cdot 5 \cdot \text{...} \cdot (3n-1)}{4^{n+2}(n-5)!}&
+\end{flalign*}
+Это знакоположительный ряд. Воспользуемся признаком Даламбера:
+\[\frac{2\cdot 5 \cdot \text{...} \cdot (3n-1)(3n + 2)}{4^{n+3}(n-4)!}:\frac{2\cdot 5 \cdot \text{...}\cdot(3n-1)}{4^{n+2}(n-5)!} = \frac{2\cdot 5 \cdot \text{...} \cdot (3n-1)(3n + 2)}{4^{n+3}(n-4)!}\cdot\frac{4^{n+2}(n-5)!}{2\cdot 5 \cdot \text{...}\cdot(3n-1)} = \]
+\[ = \frac{(3n+2)(n-5)!}{4(n-4)!} = \frac{(3n+2)(n-5)!}{4(n-5)!(n-4)} = \frac{3n+2}{4n-16}. \]
+\[\lim\limits_{n \to \infty}\frac{3n+2}{4n-16} = \lim\limits_{n \to \infty} \frac{3}{4} = \frac{3}{4} < 1. \]
+То есть ряд сходится (при вычислении предела было применено правило Лопиталя).
+\begin{flalign*}
+&\text{c)} \sum_{n=1}^\infty \arccos \frac{4}{n^2+1 }&
+\end{flalign*}
+\[u_n = \arccos \frac{4}{n^2+1 } = 2\arcsin\sqrt{\frac{1-\frac{4}{n^2+1}}{2}}\]
+\[(\arccos x = 2 \arcsin \sqrt{\frac{1-x}{2}})\]
+\[\lim\limits_{n \to \infty} u_n = \lim \limits_{n \to \infty} 2 \arcsin \sqrt{\frac{1-\frac{4}{n^2+1}}{2}} = 2 \arcsin \sqrt{\frac{1}{2}} = 2 \arcsin \frac{\sqrt{2}}{2} = 2 \cdot \frac{\pi}{4} = \frac{\pi}{2} \neq 0. \]
+т.о. ряд расходится т.к. не выполнен необходимый признак сходимости.
+\begin{flalign*}
+&\text{d)} \sum_{n=3}^\infty\frac{(-1)^n}{(n-1)\ln(n-1)} &
+\end{flalign*}
+\[u_n = \frac{(-1)^n}{(n-1)\ln(n-1)}.\]
+Рассмотрим ряд 
+\[\sum_{n=3}^\infty \frac{(-1)^{n+1}}{(n-1)\ln (n-1)} \]
+с общим членом
+\[v_n = \frac{1}{(n-1)\ln (n-1)}.\] Данный ряд получается путём умножения исходного ряда на -1 и является знакочередующимся.
+\[\lim\limits_{n \to \infty} v_n = \lim\limits_{n \to \infty} \frac{1}{(n-1)\ln (n-1)} = 0\]
+Заметим также что $v_n > v_{n+1}$ поэтому ряд сходится по признаку Лейбница, а значит, по \textit{свойству 1} рядов, сходится и исходный ряд.\\ Определим характер сходимости.\\
+Рассмотрим ряд
+\setcounter{equation}{0}
+\begin{equation}
+\sum_{n=3}^\infty = \frac{1}{(n-1)\ln (n-1)} \label{eq:4}
+\end{equation}
+Такой ряд удовлетворяет условиям интегрального признака Коши. Применим его:
+\[\int_3^{+\infty}\frac{dx}{(x-1)\ln (x-1)} = 
+\begin{bmatrix}
+t = x - 1; \\
+dt = dx
+\end{bmatrix}
+= \int_2^{+\infty} \frac{dt}{t\ln t} = \int_2^{+\infty} \frac{d(\ln t)}{\ln t} = \eval{\ln |\ln t|}_2^\infty = \infty. \]
+Т.е. несобственный интеграл расходится, стало быть расходится и ряд \eqref{eq:4}, состоящий из модулей членов исходного ряда. Т.о. исходный ряд сходится условно.
+\end{document}

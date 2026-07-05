@@ -1,0 +1,273 @@
+\section{Преглед TLA+ оператора}
+
+У овом поглављу дајемо кратак преглед свих основних TLA+ оператора и кључних речи.
+
+\subsection{Логички оператори}
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\textbf{Оператор} & \textbf{Опис} \\
+\hline
+\texttt{/\textbackslash} & Логичко И (\textit{and}) \\
+\texttt{\textbackslash/} & Логичко ИЛИ (\textit{or}) \\
+\texttt{\textasciitilde} & Логичка негација (\textit{not}) \\
+\texttt{=>}             & Импликација: $A \Rightarrow B$ \\
+\texttt{<=>}            & Еквиваленција: $A \Leftrightarrow B$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Релацијски и аритметички оператори}
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\textbf{Оператор} & \textbf{Опис} \\
+\hline
+\texttt{=}   & Једнакост \\
+\texttt{/=}  & Неједнакост \\
+\texttt{<}, \texttt{>}, \texttt{<=}, \texttt{>=} & Поређење бројева \\
+\texttt{+}, \texttt{-}, \texttt{*}, \texttt{\textbackslash div}, \texttt{\%} & Аритметичке операције (захтева \texttt{EXTENDS Naturals/Integers/Reals}) \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Оператори стања и прелаза}
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\textbf{Оператор} & \textbf{Опис} \\
+\hline
+\texttt{x'}              & Вредност променљиве $x$ у \textbf{следећем} стању \\
+\texttt{UNCHANGED x}     & Променљива $x$ не мења вредност: $x' = x$ \\
+\texttt{UNCHANGED <<x,y>>} & Ниједна од наведених променљивих се не мења \\
+\texttt{[][A]\_x}        & Темпорална формула: $A$ важи у свим прелазима или $x$ остаје непромењено \\
+\texttt{<>P}             & Темпорална формула: $P$ ће \textbf{евентуално} постати тачно \\
+\texttt{[]P}             & Темпорална формула: $P$ је \textbf{увек} тачно \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Теоријско-скуповни оператори}
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\textbf{Оператор} & \textbf{Опис} \\
+\hline
+\texttt{\textbackslash in}    & Припадност скупу: $x \in S$ \\
+\texttt{\textbackslash notin} & Неприпадност скупу: $x \notin S$ \\
+\texttt{\textbackslash cup}   & Унија скупова: $A \cup B$ \\
+\texttt{\textbackslash cap}   & Пресек скупова: $A \cap B$ \\
+\texttt{\textbackslash}       & Разлика скупова: $A \setminus B$ \\
+\texttt{SUBSET S}             & Скуп свих подскупова скупа $S$ \\
+\texttt{UNION S}              & Унија свих елемената скупа скупова $S$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Оператори над функцијама и торкама}
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\textbf{Оператор} & \textbf{Опис} \\
+\hline
+\texttt{f[x]}                        & Примена функције $f$ на аргумент $x$ \\
+\texttt{[x \textbackslash in S |-> e]} & Дефиниција функције: свако $x$ из $S$ се слика у $e$ \\
+\texttt{EXCEPT}                      & Ажурирање функције: \texttt{[f EXCEPT ![x] = v]} \\
+\texttt{DOMAIN f}                    & Домен функције $f$ \\
+\texttt{<<a, b, c>>}                 & Торка са елементима $a$, $b$, $c$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Квантификатори и \texttt{LET/IN}}
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\textbf{Оператор} & \textbf{Опис} \\
+\hline
+\texttt{\textbackslash A x \textbackslash in S : P} & Универзална квантификација: $P$ важи за све $x \in S$ \\
+\texttt{\textbackslash E x \textbackslash in S : P} & Егзистенцијална квантификација: постоји $x \in S$ за које важи $P$ \\
+\texttt{LET x == e IN ...}           & Локална дефиниција: уводи $x$ као скраћеницу за израз $e$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Кључне речи модула}
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\textbf{Кључна реч} & \textbf{Опис} \\
+\hline
+\texttt{MODULE}     & Почетак модула \\
+\texttt{EXTENDS}    & Увоз другог модула (нпр.\ \texttt{Naturals}, \texttt{Sequences}, \texttt{TLC}) \\
+\texttt{CONSTANTS}  & Декларација константи чије вредности се задају у конфигурационом фајлу \\
+\texttt{VARIABLES}  & Декларација променљивих стања \\
+\texttt{ASSUME}     & Претпоставка о вредности константи \\
+\texttt{INSTANCE}   & Инстанцирање другог модула \\
+\texttt{Init}       & Предикат почетног стања \\
+\texttt{Next}       & Предикат прелаза (дефинише следеће стање) \\
+\texttt{Spec}       & Потпуна спецификација система \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Оператор опсега}
+Оператор \texttt{a..b} (из модула \texttt{Naturals} или \texttt{Integers}) прави скуп свих целих бројева од $a$ до $b$ укључујући крајеве.
+\begin{center}
+\begin{tabularx}{\textwidth}{|c|X|}
+\hline
+\textbf{Израз} & \textbf{Опис} \\
+\hline
+\texttt{a..b} & Скуп $\{a, a+1, \ldots, b\}$, нпр.\ \texttt{1..10} даје $\{1,2,\ldots,10\}$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Записи}
+Записи (\textit{records}) су структуре са именованим пољима, слично структурама у C-у или речницима у Python-у.
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Синтакса} & \textbf{Опис} \\
+\hline
+\texttt{[f1 |-> v1, f2 |-> v2]} & Прављење записа са пољима \texttt{f1} и \texttt{f2} \\
+\texttt{r.field}                & Приступ пољу \texttt{field} записа \texttt{r} \\
+\texttt{[f1 : S1, f2 : S2]}     & Скуп свих записа где \texttt{f1} $\in$ \texttt{S1} и \texttt{f2} $\in$ \texttt{S2} \\
+\texttt{[r EXCEPT !.field = v]} & Нови запис идентичан \texttt{r} осим поља \texttt{field} које добија вредност \texttt{v} \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Секвенце (\texttt{EXTENDS Sequences})}
+Секвенце су уређене листе вредности. Да би се користиле потребно је увести модул \texttt{Sequences}.
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Оператор} & \textbf{Опис} \\
+\hline
+\texttt{<<a, b, c>>}      & Литерал секвенце са елементима $a$, $b$, $c$ \\
+\texttt{Len(s)}           & Дужина секвенце \texttt{s} \\
+\texttt{Head(s)}          & Први елемент секвенце \texttt{s} \\
+\texttt{Tail(s)}          & Секвенца без првог елемента \\
+\texttt{Append(s, e)}     & Нова секвенца са елементом \texttt{e} додатим на крај \\
+\texttt{s \textbackslash o t} & Конкатенација секвенци \texttt{s} и \texttt{t} \\
+\texttt{SubSeq(s, i, j)}  & Подсеквенца од индекса \texttt{i} до \texttt{j} \\
+\texttt{s[i]}             & Елемент секвенце на позицији \texttt{i} (индексирање од 1) \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Оператор \texttt{CHOOSE}}
+\texttt{CHOOSE} бира један одређени елемент скупа који задовољава дати предикат.
+Важно је напоменути да \texttt{CHOOSE} није случајан избор, увек враћа исти елемент за исти скуп и предикат.
+Ако ниједан елемент не задовољава предикат, резултат је недефинисан.
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Синтакса} & \textbf{Опис} \\
+\hline
+\texttt{CHOOSE x \textbackslash in S : P(x)} & Бира елемент $x$ из скупа $S$ такав да важи $P(x)$ \\
+\texttt{CHOOSE x : P(x)}                     & Бира елемент (произвољног типа) такав да важи $P(x)$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Израз \texttt{CASE}}
+\texttt{CASE} је условна конструкција са вишеструким гранањем, алтернатива угнежђеним \texttt{IF/THEN/ELSE} изразима.
+Грана \texttt{OTHER} покрива све случајеве које претходне гране нису покриле.
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Синтакса} & \textbf{Опис} \\
+\hline
+\texttt{CASE p1 -> e1}          & Ако је услов \texttt{p1} тачан, вредност је \texttt{e1} \\
+\texttt{[] p2 -> e2}            & Ако је услов \texttt{p2} тачан, вредност је \texttt{e2} \\
+\texttt{[] OTHER -> e}          & Подразумевана грана ако ниједан услов није тачан \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Оператори правичности (Fairness)}
+Оператори правичности служе за описивање \textit{liveness} особина, гарантују да систем неће заувек
+избегавати неку акцију ако је она изводљива.
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Оператор} & \textbf{Опис} \\
+\hline
+\texttt{WF\_vars(A)} & \textbf{Слаба правичност} (\textit{Weak Fairness}): ако акција $A$ постане трајно изводљива, мора се извршити \\
+\texttt{SF\_vars(A)} & \textbf{Јака правичност} (\textit{Strong Fairness}): ако акција $A$ постаје изводљива бесконачно пута, мора се извршити \\
+\hline
+\end{tabularx}
+\end{center}
+Слаба правичност спречава да систем „заглави" у стању у ком акција никада није извршена иако је увек могућа.
+Јака правичност је строжа, акција се мора извршити чак и ако се изводљивост повремено губи.
+
+\subsection{Оператор \texttt{ENABLED}}
+\texttt{ENABLED A} је предикат који је тачан ако и само ако постоји следеће стање у које се може прећи акцијом $A$ из тренутног стања.
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Синтакса} & \textbf{Опис} \\
+\hline
+\texttt{ENABLED A} & Тачно ако акција $A$ може да се изврши у тренутном стању \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Модул \texttt{FinSets} (коначни скупови)}
+Модул \texttt{FinSets} пружа операторе за рад са коначним скуповима. Увози се са \texttt{EXTENDS FinSets}.
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|X|}
+\hline
+\textbf{Оператор} & \textbf{Опис} \\
+\hline
+\texttt{IsFiniteSet(S)} & Тачно ако је скуп $S$ коначан \\
+\texttt{Cardinality(S)} & Број елемената коначног скупа $S$ \\
+\hline
+\end{tabularx}
+\end{center}
+
+\subsection{Конфигурациони фајл (\texttt{.cfg})}
+Конфигурациони фајл говори TLC верификатору шта да провери и које вредности да додели константама.
+Сваки пројекат има засебан \texttt{.cfg} фајл са истим именом као и модул (нпр.\ \texttt{Counter.cfg}).
+\begin{center}
+\begin{tabularx}{\textwidth}{|l|l|X|}
+\hline
+\textbf{Кључна реч} & \textbf{Синтакса} & \textbf{Опис} \\
+\hline
+\texttt{INIT}              & \texttt{INIT Init}                  & Задаје предикат почетног стања \\
+\texttt{NEXT}              & \texttt{NEXT Next}                  & Задаје предикат прелаза \\
+\texttt{SPEC}              & \texttt{SPEC Spec}                  & Алтернатива за \texttt{INIT}+\texttt{NEXT}: задаје целу темпоралну формулу \\
+\texttt{INVARIANT}         & \texttt{INVARIANT Inv}              & Инваријанта коју TLC проверава у сваком стању \\
+\texttt{PROPERTY}          & \texttt{PROPERTY Prop}              & Темпорална особина (нпр.\ liveness) коју TLC проверава \\
+\texttt{CONSTANTS}         & \texttt{N = 3}                      & Додељује конкретну вредност константи из спецификације \\
+\texttt{CONSTANTS} (скуп)  & \texttt{N \textbackslash in \{1,2,3\}} & TLC проверава за све вредности из датог скупа \\
+\texttt{CONSTRAINT}        & \texttt{CONSTRAINT StateConstr}     & Ограничава простор стања на стања која задовољавају предикат \\
+\texttt{ACTION\_CONSTRAINT}& \texttt{ACTION\_CONSTRAINT ActConstr} & Ограничава прелазе на оне који задовољавају предикат \\
+\texttt{SYMMETRY}          & \texttt{SYMMETRY Perm}              & Задаје симетрију ради смањења простора стања \\
+\texttt{VIEW}              & \texttt{VIEW ViewExpr}              & Дефинише шта TLC сматра јединственим стањем \\
+\hline
+\end{tabularx}
+\end{center}
+
+Пример конфигурационог фајла за Counter модул:
+\begin{lstlisting}
+INIT Init
+NEXT Next
+INVARIANT TypeInvariant
+\end{lstlisting}
+
+Пример са константама и провером особине:
+\begin{lstlisting}
+CONSTANTS
+    N = 5
+
+INIT Init
+NEXT Next
+INVARIANT SafetyProp
+PROPERTY LivenessProp
+\end{lstlisting}
+
+Напомена: \texttt{INVARIANT} се проверава у свим достижним стањима (safety), dok \texttt{PROPERTY}
+служи за темпоралне формуле попут $\square\lozenge P$ (увек евентуално $P$).
