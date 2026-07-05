@@ -1,0 +1,342 @@
+\documentclass{article}
+
+\input{../../definitions.tex}
+\usepackage{diagbox}
+
+\usepackage[numbers]{natbib}
+
+\usepackage{fullpage}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{La función generatriz para $B_k$. Polinomios de Bernoulli}
+\date{28 de Febrero de 2017}
+
+\usepackage{xcolor}
+\newcommand{\highlight}[1]{\colorbox{shadecolor}{$\displaystyle #1$}}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+\section*{La función generatriz para $B_k$}
+
+\begin{teorema*}
+Los números de Bernoulli pueden ser definidos por
+$$\frac{t\,e^t}{e^t - 1} = \sum_{k \ge 0} B_k \, \frac{t^k}{k!}.$$
+\end{teorema*}
+
+Aunque se puede pensar en esta identidad como en la serie de Taylor para $\frac{t\,e^t}{e^t - 1}$ en un entorno de $0$, para nosotros esto significa nada más que el cociente de series formales $\frac{t\,e^t}{e^t - 1}$ en $\QQ (\!(t)\!)$ es igual a la serie formal $\sum_{k \ge 0} B_k \, \frac{t^k}{k!}$.
+
+\begin{proof}
+Tenemos que ver que la identidad
+$$\left(\sum_{k \ge 0} B_k \, \frac{t^k}{k!}\right)\,(e^t-1) = t\,e^t.$$
+define los números de Bernoulli. Calculemos el producto al lado izquierdo:
+
+\begin{align*}
+\left(\sum_{k \ge 0} B_k \, \frac{t^k}{k!}\right)\,(e^t-1) & = 
+\left(\sum_{k \ge 0} B_k \, \frac{t^k}{k!}\right)\,\left(\sum_{k\ge 1} \frac{t^k}{k!}\right) \\
+ & = \sum_{k \ge 1} \left(\sum_{0 \le i \le k-1} \frac{B_i}{i!}\,\frac{1}{(k-i)!}\right)\,t^k \\
+ & = \sum_{k \ge 1} \left(\sum_{0 \le i \le k-1} \frac{B_i}{i!}\,\frac{k!}{(k-i)!}\right)\,\frac{t^k}{k!} \\
+ & = \sum_{k \ge 1} \left(\sum_{0 \le i \le k-1} {k \choose i} B_i\right)\,\frac{t^k}{k!} \\
+ & \stackrel{???}{=} \sum_{k\ge 1} \frac{t^k}{(k-1)!} = t\,e^t.
+\end{align*}
+
+La última igualdad se cumple si y solamente si
+$$\sum_{0 \le i \le k-1} {k \choose i} B_i = k.$$
+Como hemos visto, esta identidad define los números de Bernoulli.
+\end{proof}
+
+\begin{ejemplo*}
+Calculemos algunos términos de la serie formal $\frac{t\,e^t}{e^t - 1}$. Tenemos
+$$e^t - 1 = t + \frac{t^2}{2} + \frac{t^3}{6} + \frac{t^4}{24} + \frac{t^5}{120} + \cdots = t\,\left(1 + \frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right).$$
+Luego,
+$$\frac{t}{e^t - 1} = \cfrac{1}{1 + \cfrac{t}{2!} + \cfrac{t^2}{3!} + \cfrac{t^3}{4!} + \cfrac{t^4}{5!} + \cdots}$$
+Podemos calcular la última serie usando la fórmula
+$$\frac{1}{1 + f (t)} = 1 - f(t) + f (t)^2 - f(t)^3 + f (t)^4 - \cdots$$ Tenemos
+
+\begin{multline*}
+1 -
+\left(\frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right) +
+\left(\frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right)^2\\
+- \left(\frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right)^3 +
+\left(\frac{t}{2!} + \frac{t^2}{3!} + \frac{t^3}{4!} + \frac{t^4}{5!} + \cdots\right)^4 - \cdots\\
+= 1 -
+\left(\frac{t}{2} + \frac{t^2}{6} + \frac{t^3}{24} + \frac{t^4}{120} + \cdots\right) +
+\left(\frac{t^2}{4} + \frac{t^3}{6} + \frac{5\,t^4}{72} + \cdots\right) - \left(\frac{t^3}{8} + \frac{t^4}{8} + \cdots\right) + \left(\frac{t^4}{16} + \cdots\right) - \cdots \\
+= 1 - \frac{t}{2} + \frac{t^2}{12} + 0\cdot t^3 - \frac{t^4}{720} + \cdots
+\end{multline*}
+
+Multiplicando las seres, se obtiene
+$$\frac{t\,e^t}{e^t - 1} = \left(1 + t + \frac{t^2}{2!} + \frac{t^3}{3!} + \frac{t^4}{4!} + \cdots\right) \cdot \left(1 - \frac{t}{2} + \frac{t^2}{12} + 0\cdot t^3 - \frac{t^4}{720} + \cdots\right) = 1 + \frac{t}{2} + \frac{t^2}{12} - \frac{t^4}{720} + \cdots$$
+y entonces
+$$B_0 = 1, \quad B_1 = \frac{1}{2}, \quad B_2 = 2! \cdot \frac{1}{12} = \frac{1}{6}, \quad B_3 = 0, \quad B_4 = -4!\cdot\frac{1}{720} = -\frac{1}{30}.$$
+\end{ejemplo*}
+
+\begin{shaded}
+\small\noindent Por supuesto, el último ejemplo es un poco masoquista: todo esto se puede hacer en PARI/GP.
+
+\begin{verbatim}
+? ser = (t*exp(t))/(exp(t)-1)
+% = 1 + 1/2*t + 1/12*t^2 - 1/720*t^4 + 1/30240*t^6 - 1/1209600*t^8 + 1/47900160*t^10
+- 691/1307674368000*t^12 + 1/74724249600*t^14 + O(t^16)
+
+? vector (11,k, polcoeff(ser,(k-1),t)*(k-1)!)
+% = [1, 1/2, 1/6, 0, -1/30, 0, 1/42, 0, -1/30, 0, 5/66]
+\end{verbatim}
+\end{shaded}
+
+En muchos libros (y también en PARI/GP) se usa otra convención para los números de Bernoulli según la cual $B_1 = -\frac{1}{2}$. En este caso la función generatriz es $\frac{t\,e^t}{e^t - 1} - t = \frac{t}{e^t - 1}$.
+
+\begin{ejemplo*}
+La fórmula $\frac{t\,e^t}{e^t - 1} = \sum_{k \ge 0} \frac{B_k}{k!}\,t^k$ nos permite demostrar que $B_k = 0$ para $k \ge 3$ impar. En efecto, para ignorar el caso excepcional $B_1 = \frac{1}{2}$, examinemos la función
+$$f (t) \dfn \frac{t\,e^t}{e^t - 1} - \frac{t}{2} = B_0 + \frac{B_2}{2!}\,t^2 + \frac{B_3}{3!}\,t^3 + \frac{B_4}{4!}\,t^4 + \frac{B_5}{5!}\,t^5 + \cdots$$
+Tenemos
+$$f (t) = \frac{t\,e^t}{e^t - 1} - \frac{t}{2} = \frac{t\,(e^t - 1 + 1)}{e^t - 1} - \frac{t}{2} = \frac{t}{e^t - 1} + \frac{t}{2}.$$
+Luego,
+$$f (-t) = \frac{(-t)\,e^{-t}}{e^{-t}-1} - \frac{(-t)}{2} = \frac{t}{e^t - 1} + \frac{t}{2}.$$
+Entonces, $f (t) = f (-t)$, lo que implica que los coeficientes impares de $f (t)$ son nulos.
+\end{ejemplo*}
+
+Los números de Bernoulli también surgen en otras series. Por ejemplo, tenemos la siguiente
+
+\begin{proposicion*}
+$$t\,\cot (t) = 1 + \sum_{k \ge 1} (-1)^k \, 2^{2k}\,\frac{B_{2k}}{(2k)!}\,t^{2k}.$$
+\end{proposicion*}
+
+\noindent Esto ya tiene que ser interpretado analíticamente. Las series con números de Bernoulli para varias funciones como $\tan (t)$, $\cot (t)$, $\tanh (t)$, $\coth (t)$ fueron descubiertas por Euler.
+
+\begin{proof}
+Se tiene
+$$\cos (t) = \frac{e^{it} + e^{-it}}{2}, \quad \sen (t) = \frac{e^{it} - e^{-it}}{2i}.$$
+Luego,
+
+\begin{align*}
+t\,\cot (t) & = t\,\frac{\cos (t)}{\sen (t)} = it\,\frac{e^{it} + e^{-it}}{e^{it} - e^{-it}} = it\,\frac{e^{2it} + 1}{e^{2it} - 1} = -it + \frac{2it \, e^{2it}}{e^{2it} - 1}\\
+ & = -it + \sum_{k \ge 0} \frac{B_k\cdot (2it)^k}{k!} = 1 + \sum_{k \ge 1} (-1)^k \, 2^{2k} \, \frac{B_{2k}}{(2k)!}\,t^{2k}.
+\end{align*}
+\end{proof}
+
+\begin{ejercicio*}[Euler]
+% "Bernoulli Numbers and Zeta Functions", 1.15
+Demuestre la identidad
+$$(2k + 1)\,B_{2k} = -\sum_{1 \le \ell \le k-1} {2k \choose 2\ell}\,B_{2\ell}\,B_{2\,(k-\ell)} \quad \text{para }k\ge 2.$$
+Por ejemplo, para $k = 3$ tenemos
+$$-7\,\underbrace{B_6}_{= \frac{1}{42}} = \underbrace{{6 \choose 2}\,B_2\,B_4}_{= 15\cdot \frac{1}{6}\cdot\left(-\frac{1}{30}\right)} + \underbrace{{6 \choose 4}\,B_4\,B_2}_{= 15\cdot\left(-\frac{1}{30}\right)\cdot \frac{1}{6}}.$$
+
+\vspace{1em}
+
+\noindent Indicación: considere la función generatriz para los números pares $f (t) \dfn \frac{t\,e^t}{e^t - 1} - \frac{t}{2} = \sum_{k \ge 0} \frac{B_{2k}}{(2k)!}\,t^{2k}$. Demuestre la identidad con la derivada formal $f (t) - t\,f(t)' = f(t)^2 - \frac{t^2}{4}$; sustituya $f (t)$ por $\sum_{k \ge 0} \frac{B_{2k}}{(2k)!}\,t^{2k}$ y compare los coeficientes de $t^{2k}$.
+\end{ejercicio*}
+
+\begin{ejercicio*}
+% "Bernoulli Numbers and Zeta Functions", 1.16
+Demuestre por inducción que $(-1)^{k+1}\,B_{2k} > 0$ para todo $k \ge 1$.
+
+\noindent Indicación: use el ejercicio anterior.
+\end{ejercicio*}
+
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+
+\section*{Polinomios de Bernoulli}
+
+Hay varios modos de definir los polinomios de Bernoulli; el más común es por una función generatriz. Vamos a necesitar las series de potencias formales en dos variables:
+$$\sum_{k, \ell \ge 0} a_{k,\ell} \, t^k \, x^\ell,$$
+respecto a la suma término por término y multiplicación que extiende la multiplicación de polinomios en dos variables. Tenemos la serie formal $\frac{t}{e^t - 1} \in \QQ [\![t]\!] \subset \QQ [\![t,x]\!]$ y podemos multiplicarla por la serie
+$$e^{tx} \dfn \sum_{k \ge 0} \frac{t^k\,x^k}{k!} \in \QQ [\![t,x]\!].$$
+Un momento de reflexión demuestra que el resultado es de la forma
+
+\begin{equation}
+\label{polinomios-de-Bernoulli-por-una-funcion-generatriz}
+\frac{t\,e^{tx}}{e^t-1} \dfn \sum_{k \ge 0} B_k (x)\,\frac{t^k}{k!},
+\end{equation}
+
+\noindent donde $B_k (x)$ son algunos \emph{polinomios} en $x$.
+
+\begin{definicion*}
+El \term{polinomio de Bernoulli} $B_k (x)$ es el polinomio definido por \eqnref{polinomios-de-Bernoulli-por-una-funcion-generatriz}.
+\end{definicion*}
+
+\begin{ejemplo*}
+Vamos a ver un poco más adelante cómo calcular los polinomios $B_k (x)$; por el momento podemos obtener algunos de los primeros. Como hemos calculado arriba,
+$$\frac{t}{e^t - 1} = 1 - \frac{t}{2} + \frac{t^2}{12} - \frac{t^4}{720} + \cdots$$
+Luego,
+$$\frac{t}{e^t - 1} \, e^{tx} = \left(1 - \frac{t}{2} + \frac{t^2}{12} - \cdots\right) \, \left(1 + t\,x + \frac{t^2\,x^2}{2} + \cdots\right) = 1 + \left(x - \frac{1}{2}\right)\,t + \left(\frac{x^2}{2} - \frac{x}{2} + \frac{1}{12}\right)\,t^2 + \cdots$$
+de donde
+$$B_0 (x) = 1, \quad B_1 (x) = x - \frac{1}{2}, \quad B_2 (x) = x^2 - x + \frac{1}{6}.$$
+\end{ejemplo*}
+
+\begin{observacion*}
+Para todo $k\ge 0$,
+$$B_k (1) = B_k$$
+es el $k$-ésimo número de Bernoulli.
+
+\begin{proof}
+Comparando \eqnref{polinomios-de-Bernoulli-por-una-funcion-generatriz} con la función generatriz $\frac{t\,e^t}{e^t-1} = \sum_{k \ge 0} B_k\,\frac{t^k}{k!}$.
+\end{proof}
+\end{observacion*}
+
+Resulta que el término constante de $B_k (x)$ es también igual a $B_k$:
+
+\begin{observacion*}
+Para todo $k \ge 0$
+
+\begin{equation}
+\label{Bk(x+1)-y-Bk(x)}
+B_k (x+1) - B_k (x) = k\,x^{k-1}.
+\end{equation}
+
+En particular, para $x = 0$ y $k \ne 1$ tenemos
+$$B_k (1) = B_k (0) = B_k.$$
+
+\begin{proof}
+Tenemos la identidad
+$$\frac{t\,e^{(x+1)\,t}}{e^t-1} - \frac{t\,e^{t\,x}}{e^t-1} = t\,e^{t\,x},$$
+de donde
+$$\sum_{k\ge 0} (B_k (x+1) - B_k (x))\,\frac{t^k}{k!} = \sum_{k \ge 0} \frac{x^k}{k!}\,t^{k+1}.$$
+Comparando los coeficientes de $t^k$, se obtiene \eqnref{Bk(x+1)-y-Bk(x)}.
+\end{proof}
+\end{observacion*}
+
+Note que para $k = 1$ tenemos $B_1 (0) = -\frac{1}{2}$ y $B_1 (1) = +\frac{1}{2}$.
+
+\begin{observacion*}
+Para todo $k \ge 0$
+$$B_k (1-x) = (-1)^k\,B_k (x).$$
+\end{observacion*}
+
+\noindent (En particular, para $x = 0$ tenemos $B_k = (-1)^k\,B_k$ para $k \ge 3$, lo que implica que $B_k = 0$ para $k \ge 3$ impar, como ya hemos visto.)
+
+\begin{proof}
+Usando funciones generatrices,
+$$\sum_{k\ge 0} B_k (1-x)\,\frac{t^k}{k!} = \frac{t\,e^{(1-x)\,t}}{e^t - 1} = \frac{(-t)\,e^{x\,(-t)}}{e^{-t} - 1} = \sum_{k\ge 0} (-1)^k\,B_k (x)\,\frac{t^k}{k!}.$$
+\end{proof}
+
+Los polinomios de Bernoulli pueden ser expresados en términos de los números de Bernoulli:
+
+\begin{proposicion*}
+$$B_k (x) = \sum_{0 \le i \le k} (-1)^i \, {k \choose i}\,B_i\,x^{k-i}.$$
+
+\begin{proof}
+Calculemos el producto de series de potencias
+$$\frac{t}{e^t-1}\cdot e^{tx}.$$
+Tenemos
+$$\frac{t}{e^t-1} = \frac{(-t)\,e^{-t}}{e^{-t} - 1} = \sum_{k \ge 0} (-1)^k \, B_k \, \frac{t^k}{k!}, \quad e^{tx} = \sum_{k \ge 0} \frac{(tx)^k}{k!}.$$
+Luego,
+
+\begin{align*}
+\left(\sum_{k \ge 0} (-1)^k \, B_k \, \frac{t^k}{k!}\right) \cdot \left(\sum_{k \ge 0} \frac{(tx)^k}{k!}\right) & = \sum_{k \ge 0} \left(\sum_{0 \le i \le k} (-1)^i \, \frac{1}{i! \, (k-i)!} \, B_i\,x^{k-i}\right)\,t^k \\
+ & = \sum_{k \ge 0} \left(\sum_{0 \le i \le k} (-1)^i \, {k \choose i} \, B_i\,x^{k-i}\right)\,\frac{t^k}{k!}.
+\end{align*}
+\end{proof}
+\end{proposicion*}
+
+\begin{proposicion*}
+Para todo $k \ge 1$ se tiene
+$$B_k' (x) = k\,B_{k-1} (x), \quad \int_0^1 B_k (x)\,dx = 0.$$
+
+\begin{proof}
+Hay varios modos de verificar esto. Se puede usar la expresión $B_k (x) = \sum_{0 \le i \le k} (-1)^i \, {k \choose i}\,B_i\,x^{k-i}$. También podemos tomar las derivadas formales de la identidad \eqnref{funcion-generatriz-para-los-polinomios-de-bernoulli}:
+$$\frac{\partial}{\partial x} \left(\frac{t\,e^{tx}}{e^t - 1}\right) = \frac{t\cdot t\,e^{tx}}{e^t - 1} = t\,\sum_{k \ge 0} B_k (x) \, \frac{t^k}{k!} = \sum_{k \ge 1} B_{k-1} (x) \, \frac{t^k}{(k-1)!} = \sum_{k \ge 0} B_k' (x) \, \frac{t^k}{k!}.$$
+Luego, para ver que $\int_0^1 B_k (x)\,dx = 0$, es suficiente observar que $\int B_k (x)\,dx = \frac{1}{k+1}\,B_{k+1} (x) + C$, donde $B_{k+1} (0) = B_{k+1} (1)$.
+\end{proof}
+\end{proposicion*}
+
+Esto nos da otra definición de los polinomios de Bernoulli:
+
+\begin{definicion-alternativa*}
+Los polinomios $B_k (x)$ están definidos por
+$$B_0 (x) \dfn 1$$
+y
+$$B_k' (x) = k\,B_{k-1} (x), \quad \int_0^1 B_k (x) \, dx = 0 \quad \text{para }k \ge 1.$$
+\end{definicion-alternativa*}
+
+\noindent (En efecto, la identidad $B_k' (x) = k\,B_{k-1} (x)$ define $B_k (x)$ salvo el término constante, pero el último se recupera de la condición $\int_0^1 B_k (x) \, dx = 0$.) Recordemos que los polinomios $S_k (x)$ que hemos estudiado en la primera lección satisfacen la identidad
+$$S_k' (x) = k\,S_{k-1} (x) + B_k.$$
+Esto significa que las derivadas $S_k' (x)$ satisfacen la misma identidad que $B_k (x)$:
+$$S_k'' (x) = k\,S_{k-1}' (x).$$
+Además, para $k\ne 1$ tenemos $B_k (0) = S_k' (0) \rdfn B_k$, y se ve que los polinomios de Bernoulli son simplemente las derivadas de los polinomios $S_k (x)$:
+$$B_k (x) = S_k' (x), \quad \text{para }k\ne 1.$$
+(El caso $k = 1$ es excepcional: $S_1 (x) = \frac{1}{2}\,x^2\,+\frac{1}{2}\,x$, $B_1 (x) = x - \frac{1}{2}$.)
+
+\pagebreak
+
+Ahora podemos compilar fácilmente una lista de los primeros polinomios de Bernoulli:
+
+\begin{align*}
+B_0 (x) & = \highlight{1}, \\
+B_1 (x) & = x - \frac{1}{2}, \\
+B_2 (x) & = x^2 - x + \highlight{\frac{1}{6}}, \\
+B_3 (x) & = x^3 - \frac{3}{2}\,x^2 + \frac{1}{2}\,x,\\
+B_4 (x) & = x^4 - 2\,x^3 + x^2 \highlight{- \frac{1}{30}}, \\
+B_5 (x) & = x^5 - \frac{5}{2}\,x^4 + \frac{5}{3}\,x^3 - \frac{1}{6}\,x, \\
+B_6 (x) & = x^6 - 3\,x^5 + \frac{5}{2}\,x^4 - \frac{1}{2}\,x^2 + \highlight{\frac{1}{42}},\\
+B_7 (x) & = x^7 - \frac{7}{2}\,x^6 + \frac{7}{2}\,x^5 - \frac{7}{6}\,x^3 + \frac{1}{6}\,x, \\
+B_8 (x) & = x^8 - 4\,x^7 + \frac{14}{3}\,x^6 - \frac{7}{3}\,x^4 + \frac{2}{3}\,x^2 \highlight{- \frac{1}{30}},\\
+B_9 (x) & = x^9 - \frac{9}{2}\,x^8 + 6\,x^7 - \frac{21}{5}\,x^5 + 2\,x^3 - \frac{3}{10}\,x, \\
+B_{10} (x) & = x^{10} - 5\,x^9 + \frac{15}{2}\,x^8 - 7\,x^6 + 5\,x^4 - \frac{3}{2}\,x^2 \highlight{+ \frac{5}{66}}.
+\end{align*}
+
+\vspace{\fill}
+
+Podemos dibujar algunas gráficas para visualizar la relación $B_k (1-x) = (-1)^k \, B_k (x)$:
+
+\begin{center}
+\includegraphics{../pic/bernpol.mps}
+\end{center}
+
+\pagebreak
+
+\begin{shaded}
+\small
+
+\begin{verbatim}
+? Bpoly (k) = sum (i=0,k, (-1)^i * binomial(k,i) * B(i) * x^(k-i));
+
+? vector (10,k,Bpoly(k))  
+% = [x - 1/2,
+     x^2 - x + 1/6,
+     x^3 - 3/2*x^2 + 1/2*x,
+     x^4 - 2*x^3 + x^2 - 1/30,
+     x^5 - 5/2*x^4 + 5/3*x^3 - 1/6*x,
+     x^6 - 3*x^5 + 5/2*x^4 - 1/2*x^2 + 1/42,
+     x^7 - 7/2*x^6 + 7/2*x^5 - 7/6*x^3 + 1/6*x,
+     x^8 - 4*x^7 + 14/3*x^6 - 7/3*x^4 + 2/3*x^2 - 1/30,
+     x^9 - 9/2*x^8 + 6*x^7 - 21/5*x^5 + 2*x^3 - 3/10*x,
+     x^10 - 5*x^9 + 15/2*x^8 - 7*x^6 + 5*x^4 - 3/2*x^2 + 5/66]
+\end{verbatim}
+
+\begin{verbatim}
+? deriv (Bpoly(10),x)
+% = 10*x^9 - 45*x^8 + 60*x^7 - 42*x^5 + 20*x^3 - 3*x
+? 10 * Bpoly(9)
+% = 10*x^9 - 45*x^8 + 60*x^7 - 42*x^5 + 20*x^3 - 3*x
+\end{verbatim}
+
+\noindent Para comprobar los resultados, podemos directamente calcular la serie $\frac{t\,e^{tx}}{e^t - 1}$:
+
+\begin{verbatim}
+? ser = t*exp (t*x) / (exp (t) - 1);
+? polcoeff(ser,10,t)*10!
+% = x^10 - 5*x^9 + 15/2*x^8 - 7*x^6 + 5*x^4 - 3/2*x^2 + 5/66
+\end{verbatim}
+
+\noindent También podemos calcular las derivadas de $S_k (x)$:
+
+\begin{verbatim}
+? deriv (S(10),x)
+% = x^10 + 5*x^9 + 15/2*x^8 - 7*x^6 + 5*x^4 - 3/2*x^2 + 5/66
+\end{verbatim}
+
+\noindent En PARI/GP, la función predefinida \verb|bernpol(k)| devuelve el polinomio de Bernoulli $B_k (x)$:
+
+\begin{verbatim}
+? bernpol(1)
+% = x - 1/2
+? bernpol(2)
+% = x^2 - x + 1/6
+? bernpol(3)
+% = x^3 - 3/2*x^2 + 1/2*x
+\end{verbatim}
+\end{shaded}
+
+\end{document}

@@ -1,0 +1,208 @@
+%% GABARIT POUR MÉMOIRE STANDARD
+%%
+%% Consulter la documentation de la classe ulthese pour une
+%% description détaillée de la classe, de ce gabarit et des options
+%% disponibles.
+%%
+%% [Ne pas hésiter à supprimer les commentaires après les avoir lus.]
+%%
+%% Déclaration de la classe avec le type de grade
+%%   [l'un de MSc, LLM, MA, MMus, MServSoc, MScGeogr, MATDR]
+%% et les langues les plus courantes. Le français sera la langue par
+%% défaut du document.
+\documentclass[MSc,english,francais,nonatbib]{ulthese}
+%% Encodage utilisé pour les caractères accentués dans les fichiers
+%% source du document. Les gabarits sont encodés en UTF-8. Inutile avec
+%% XeLaTeX, qui gère Unicode nativement.
+\ifxetex\else \usepackage[utf8]{inputenc} \fi
+
+%% Charger ici les autres paquetages nécessaires pour le document.
+%% Quelques exemples; décommenter au besoin.
+\usepackage[numbers,square]{natbib}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{stmaryrd} % pour les \llbracket et \rrbracket
+\usepackage[mathscr]{euscript} % pour des belles lettres
+\usepackage{relsize} % pour utiliser \mathlarger{\mathlarger{}} sur des lettres de \mathscr
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows}
+
+
+%\usepackage{icomma}           % gestion de la virgule dans les nombres
+
+%% Utilisation d'une autre police de caractères pour le document.
+%% - Sous LaTeX
+%\usepackage{mathpazo}         % texte et mathématiques en Palatino
+%\usepackage{mathptmx}         % texte et mathématiques en Times
+%% - Sous XeLaTeX
+%\setmainfont{TeX Gyre Pagella}      % texte en Pagella (Palatino)
+%\setmathfont{TeX Gyre Pagella Math} % mathématiques en Pagella (Palatino)
+%\setmainfont{TeX Gyre Termes}       % texte en Termes (Times)
+%\setmathfont{TeX Gyre Termes Math}  % mathématiques en Termes (Times)
+
+%% Gestion des hyperliens dans le document. S'assurer que hyperref
+%% est le dernier paquetage chargé.
+\usepackage{hyperref}
+\hypersetup{colorlinks,allcolors=ULlinkcolor}
+
+%% Options de mise en forme du mode français de babel. Consulter la
+%% documentation du paquetage babel pour les options disponibles.
+%% Désactiver (effacer ou mettre en commentaire) si l'option
+%% 'nobabel' est spécifiée au chargement de la classe.
+\frenchbsetup{%
+    CompactItemize=false,         % ne pas compacter les listes
+    ThinSpaceInFrenchNumbers=true % espace fine dans les nombres
+}
+
+%% Style de la bibliographie.
+\bibliographystyle{alpha-fr}
+  
+  
+%%%%%%
+% MATH %
+\newenvironment{pre}[1][Preuve :]{\begin{trivlist} \item[\hskip \labelsep {\bfseries \em #1}]\em}{\end{trivlist}}
+\newcommand{\qed}{\newline ${}$ \hfill \small{Q.E.D.}}
+\providecommand{\norm}[1]{\lVert#1\rVert} % norme d'un vecteur
+\newcommand{\dtot}[2]{\frac{d #1}{d #2}} % dérivées
+\newcommand{\dpart}[2]{\frac{\partial #1}{\partial #2}} % dérivées partielles
+\newcommand{\Vv}[2]{\left(\begin{array}{c}#1\\#2\end{array}\right)} % vecteur 2D
+\newcommand{\Vvv}[3]{\left(\begin{array}{c}#1\\#2\\#3\end{array}\right)} % vecteur en 3D
+\newcommand{\matt}[4]{\begin{pmatrix} #1 & #2 \\ #3 & #4 \\ \end{pmatrix}} % matrice 2 x 2
+\renewcommand{\AA}{\mathbb{A}} % espace affine
+\newcommand{\PP}{\mathbb{P}} % espace projectif
+\newcommand{\R}{\mathcal{R}} % fibré iso
+\newcommand{\B}{\mathcal{B}} % fibré blocs
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\Q}{\mathcal{Q}} % quaternions généralisés
+\newcommand{\NN}{\mathbb{N}} % naturels
+\newcommand{\ZZ}{\mathbb{Z}} % entiers
+\newcommand{\QQ}{\mathbb{Q}} % rationels
+\newcommand{\RR}{\mathbb{R}} % réels
+\newcommand{\CC}{\mathbb{C}} % complexes
+\newcommand{\ov}[1]{\overline{#1}} % conjugué complexe
+\newcommand{\KK}{\mathbb{K}}
+\newcommand{\K}{\mathcal{K}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\TT}{\mathcal{T}}
+\newcommand{\DD}{\mathcal{D}}
+\newcommand{\SSS}{\mathcal{S}}
+\newcommand{\Z}{\mathcal{Z}}
+\newcommand{\LL}{\mathcal{L}} % algèbre de courants tordue
+\newcommand{\MM}{\mathcal{M}}
+\newcommand{\UU}{\mathcal{U}}
+\newcommand{\g}{\mathfrak{g}} % algèbre de Lie simple
+\newcommand{\Cat}{\mathcal{C}}
+\DeclareMathOperator{\HHH}{H} % H de cohomologie
+\newcommand{\cohomo}[2]{\HHH^1(#1 \; ; #2)} % première cohomologie
+\newcommand{\gcohomo}[2]{\HHH^1\big(#1 \; ; #2\big)} % première cohomologie (grosses parenthèses)
+\DeclareMathOperator{\im}{im} % image
+\DeclareMathOperator{\Id}{Id} % identité
+\DeclareMathOperator{\Sup}{Sup} % supremum
+\DeclareMathOperator{\Inf}{Inf} % infimum
+\DeclareMathOperator{\Span}{Span} % combinaisons linéaires
+\DeclareMathOperator{\Fl}{Fl} % drapeaux
+\DeclareMathOperator{\Stab}{Stab} % stabilisateur
+\DeclareMathOperator{\Hom}{Hom} % homomorphismes
+\DeclareMathOperator{\End}{End} % endomorphismes
+\DeclareMathOperator{\Aut}{Aut} % automorphismes
+\DeclareMathOperator{\Ext}{Ext} % extensions
+\DeclareMathOperator{\Der}{Der} % dérivations
+\DeclareMathOperator{\IDer}{IDer} % dérivations intérieures
+\DeclareMathOperator{\Max}{Max} % idéaux maximaux
+\DeclareMathOperator{\supp}{supp} % support
+\DeclareMathOperator{\Rep}{Rep} % classe d'iso d'irreps
+\DeclareMathOperator{\Bloc}{Ext-bloc} % classe d'iso d'irreps
+\DeclareMathOperator{\ev}{ev} % évaluation... (en un idéal maximal)
+\DeclareMathOperator{\nev}{nev   } % non-d'évaluation... (un module)
+\DeclareMathOperator{\bl}{Bl} % classes d'iso vers blocs
+\DeclareMathOperator{\lie}{Lie} % algèbre de Lie commutateur
+\DeclareMathOperator{\Reel}{Re} % algèbre de Lie commutateur
+\DeclareMathOperator{\Imagine}{Im} % algèbre de Lie commutateur
+\newcommand{\secr}{\mathlarger{\mathscr{T}}} % section fibré irreps
+\newcommand{\secb}{\mathlarger{\mathscr{S}}} % section fibré blocs
+\newcommand{\F}{\mathlarger{\mathscr{F}}} % sections class irreps
+\newcommand{\carspec}{\mathlarger{\mathscr{CS}}} % caractère spectraux
+%\newcommand{\yoyo}{$\mathfrak{sl}_2(\CC)$} % sl2
+
+
+\newcounter{con} \numberwithin{con}{section}
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\newtheorem{Def}[con]{D\'efinition}
+\newtheorem{Thm}[con]{Th\'eor\`eme}
+\newtheorem{Prop}[con]{Proposition}
+\newtheorem{Cor}[con]{Corollaire}
+\newtheorem{Lem}[con]{Lemme}
+\newtheorem{Rem}[con]{Remarque}
+\newtheorem{Conj}[con]{Conjecture}
+
+\newcounter{laid} \numberwithin{laid}{chapter}
+\newtheorem{annexeDef}[laid]{D\'efinition}
+\newtheorem{annexeThm}[laid]{Th\'eor\`eme}
+\newtheorem{annexeProp}[laid]{Proposition}
+\newtheorem{annexeCor}[laid]{Corollaire}
+\newtheorem{annexeLem}[laid]{Lemme}
+\newtheorem{annexeRem}[laid]{Remarque}
+\newtheorem{annexeConj}[laid]{Conjecture}
+
+  
+%% Déclarations de la page titre. Remplacer les éléments entre < >.
+%% Supprimer les caractères < >. Couper un long titre ou un long
+%% sous-titre manuellement avec \\.
+\titre{Extensions des modules de dimension finie pour les algèbres de courants tordues}
+% \titre{Ceci est un exemple de long titre \\
+%   avec saut de ligne manuel}
+% \soustitre{Sous-titre le cas échéant}
+% \soustitre{Ceci est un exemple de long sous-titre \\
+%   avec saut de ligne manuel}
+\auteur{Jean Auger}
+\programme{Maîtrise en mathématiques} %-- <majeure, s'il y a lieu>}
+\annee{2015}
+
+\begin{document}
+
+\frontmatter                    % pages liminaires
+
+\pagetitre                      % production de la page titre
+
+\include{resume}                % résumé français
+\include{abstract}              % résumé anglais
+\cleardoublepage
+
+\tableofcontents                % production de la TdM
+\cleardoublepage
+
+%\listoftables                   % production de la liste des tableaux
+%\cleardoublepage
+%
+%\listoffigures                  % production de la liste des figures
+%\cleardoublepage
+%
+\dedicace{Aux étudiants de 2012}
+\cleardoublepage
+%
+\epigraphe{Le mathématique est donc la présupposition fondamentale du savoir des choses.}{Martin Heidegger}
+\cleardoublepage
+%
+%\include{remerciements}         % remerciements
+\include{avantpropos}           % avant-propos
+
+\mainmatter                     % corps du document
+
+\include{introduction}          % introduction
+\include{chapitre1}             % chapitre 1
+\include{chapitre2}             % chapitre 2
+\include{chapitre3}             % chapitre 3
+\include{conclusion}            % conclusion
+
+\appendix                       % annexes le cas échéant
+\include{annexeA}                % annexe A
+\include{annexeB}                % annexe B
+
+~\nocite{EWliealg}
+
+\bibliography{Biblio}                 % production de la bibliographie
+
+
+\end{document}
