@@ -16,11 +16,13 @@ Before doing anything else:
 
 1. Stop current work.
 2. Fetch/reset to the assigned side branch.
-3. Create an acknowledgement file proving you read this.
-4. Create or update your logbook.
-5. Upload/push literal source bodies or a concrete blocker list.
+3. Create or update your logbook only as an internal receipt.
+4. Upload/push literal source bodies or usable translation/source-checking output.
+5. If you cannot upload bodies, push a concrete blocker list only once, then fix the blocker.
 
 Do not summarize this file. Do not reinterpret this file. Follow it.
+
+Acknowledgement-only output is false output. Do not push acknowledgement files as the deliverable. The deliverable is the work.
 
 Useful source-body material includes:
 
@@ -82,15 +84,14 @@ If you push noise instead of bodies or usable translation/source-checking output
 
 ## Required Next Push
 
-The next acceptable other-PC push should contain:
+The next acceptable other-PC push must contain actual work:
 
 1. literal source-body files or archives;
-2. a manifest with byte sizes and SHA256 hashes;
-3. a session logbook;
-4. a current-state file;
-5. a plain blocker list for anything not uploaded.
+2. or usable source-checked translation/output files;
+3. plus a manifest with byte sizes and SHA256 hashes;
+4. plus a session logbook.
 
-Nothing else counts as completion.
+Nothing else counts as progress.
 
 ## Main Branch Boundary
 
