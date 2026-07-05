@@ -1,0 +1,1030 @@
+% =====================================================================
+%  BÖLÜM 5: Önemli Dağılım Aileleri
+%  Kaynak: Feller Vol.I-II; Hogg & Craig; Casella & Berger; Klenke
+% =====================================================================
+\chapter{Önemli Dağılım Aileleri}
+\label{chp:dagilim_aileleri}
+
+\bolumalinti{%
+  Doğa, birkaç temel dağılımın sonsuz çeşitlemesinden ibarettir.%
+}{William Feller, \textit{An Introduction to Probability Theory and Its Applications}}
+
+% ---- Kazanımlar (TYMM) ----
+\begin{kazanimlar}
+Bu bölümün sonunda öğrenci:
+\begin{itemize}
+  \item Temel kesikli dağılımları (Bernoulli, Binom, Poisson, Geometrik,
+        Negatif Binom, Hipergeometrik, Çok Terimli) tanımlayabilir;
+        beklenti, varyans ve MÜF'lerini hesaplayabilir.
+  \item Temel sürekli dağılımları (Uniform, Normal, Üstel, Gama, Beta,
+        Cauchy, Lognormal, $\chi^2$, $t$, $F$) tanımlayabilir; türetme ilişkilerini açıklayabilir.
+  \item Üstel aile kavramını tanımlayabilir; doğal parametre ve yeterli istatistik
+        kavramlarıyla bağlantısını kurabilir.
+  \item Yer-ölçek ailesi kavramını açıklayabilir; standartlaştırma işlemini uygulayabilir.
+  \item Dağılımlar arasındaki türetme ve limit ilişkilerini (Poisson limiti,
+        normal yaklaşım, $\chi^2$ toplamı) ispatlayabilir.
+\end{itemize}
+\end{kazanimlar}
+
+% ---- Motivasyon ----
+\begin{motivasyon}
+Bölüm~\ref{chp:rasgele_degiskenler} ve~\ref{chp:beklenti}'de dağılım fonksiyonu
+ve beklenti soyut düzeyde incelendi. Şimdi pratikte en sık karşılaşılan dağılım
+ailelerini somutlaştırıyoruz. Bu dağılımlar teorik güzelliklerinin yanı sıra
+istatistiksel modellemenin (Kısım~\ref{part:istatistik}) temel yapı taşlarıdır.
+
+Her dağılım için standart bilgi şeması: PMF/PDF --- parametreler --- $E[X]$, $\mathrm{Var}(X)$ ---
+MÜF/KF --- özellikler --- tipik kullanım alanı.
+
+\medskip
+\textbf{Köprü.} Bölüm~\ref{chp:beklenti}'deki MÜF ve KF araçları burada her dağılım
+için hesaplanacak; Bölüm~\ref{chp:buyuk_sayilar} ve~\ref{chp:merkezi_limit}'te
+bu dağılımların asimptotik davranışı incelenecektir.
+\end{motivasyon}
+
+% =====================================================================
+\section{Kesikli Dağılımlar}
+\label{sec:kesikli_dagilimlar}
+% =====================================================================
+
+\subsection{Bernoulli ve Binom Dağılımı}
+\label{subsec:bernoulli_binom}
+
+\begin{tanim}[Bernoulli Dağılımı]
+\label{def:bernoulli}
+$0 < p < 1$ olsun. $X \sim \mathrm{Bernoulli}(p)$:
+\[
+  P(X = 1) = p, \quad P(X = 0) = 1 - p =: q.
+\]
+\textbf{Beklenti:} $E[X] = p$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X) = pq$. \quad
+\textbf{MÜF:} $M_X(t) = q + pe^t$.
+\end{tanim}
+
+\begin{tanim}[Binom Dağılımı]
+\label{def:binom}
+$X \sim \Binom(n, p)$: $n$ bağımsız $\mathrm{Bernoulli}(p)$ denemesinde başarı sayısı.
+\[
+  P(X = k) = \binom{n}{k} p^k q^{n-k}, \quad k = 0, 1, \ldots, n.
+\]
+\textbf{Beklenti:} $E[X] = np$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X) = npq$. \quad
+\textbf{MÜF:} $M_X(t) = (q + pe^t)^n$.
+\end{tanim}
+
+\begin{proof}[MÜF İspat]
+$X = X_1 + \cdots + X_n$ ($X_i$ bağımsız Bernoulli).
+$M_X(t) = \prod_{i=1}^n M_{X_i}(t) = (q+pe^t)^n$.
+\end{proof}
+
+\begin{teorem}[Binom Yeniden Üretkenliği]
+\label{thm:binom_yeniden}
+$X \sim \Binom(n, p)$, $Y \sim \Binom(m, p)$ bağımsız $\Rightarrow$
+$X + Y \sim \Binom(n+m, p)$.
+\end{teorem}
+
+\begin{proof}
+$M_{X+Y}(t) = (q+pe^t)^n(q+pe^t)^m = (q+pe^t)^{n+m}$.
+\end{proof}
+
+\begin{onerme}[Binom Mod ve Medyan]
+$\lfloor (n+1)p \rfloor$ binom dağılımının modudur (birden fazla mod olabilir).
+$n = 10$, $p = 0.3$: mod $= \lfloor 11 \cdot 0.3 \rfloor = 3$.
+\end{onerme}
+
+\subsection{Poisson Dağılımı}
+\label{subsec:poisson}
+
+\begin{tanim}[Poisson Dağılımı]
+\label{def:poisson}
+$\lambda > 0$ olsun. $X \sim \Pois(\lambda)$:
+\[
+  P(X = k) = \frac{\lambda^k e^{-\lambda}}{k!}, \quad k = 0, 1, 2, \ldots
+\]
+\textbf{Beklenti:} $E[X] = \lambda$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X) = \lambda$. \quad
+\textbf{MÜF:} $M_X(t) = e^{\lambda(e^t - 1)}$.
+\end{tanim}
+
+\begin{proof}[Beklenti ve MÜF]
+$E[X] = \sum_{k=0}^\infty k \frac{\lambda^k e^{-\lambda}}{k!}
+= \lambda e^{-\lambda} \sum_{k=1}^\infty \frac{\lambda^{k-1}}{(k-1)!} = \lambda$.
+$M_X(t) = \sum_{k=0}^\infty e^{tk} \frac{\lambda^k e^{-\lambda}}{k!}
+= e^{-\lambda} \sum_{k=0}^\infty \frac{(\lambda e^t)^k}{k!} = e^{-\lambda} e^{\lambda e^t} = e^{\lambda(e^t-1)}$.
+\end{proof}
+
+\begin{teorem}[Binom'dan Poisson Limiti]
+\label{thm:binom_poisson}
+$n \to \infty$, $p = p_n \to 0$, $np_n \to \lambda > 0$ iken
+$\Binom(n, p_n) \xrightarrow{d} \Pois(\lambda)$.
+\end{teorem}
+
+\begin{proof}
+$P(X_n = k) = \binom{n}{k} p_n^k (1-p_n)^{n-k}$.
+$np_n \to \lambda$, yani $p_n = \lambda_n/n$ ($\lambda_n = np_n \to \lambda$).
+\begin{align*}
+  \binom{n}{k} p_n^k (1-p_n)^{n-k}
+  &= \frac{n(n-1)\cdots(n-k+1)}{k!} \cdot \frac{\lambda_n^k}{n^k} \cdot \left(1 - \frac{\lambda_n}{n}\right)^{n-k} \\
+  &\to \frac{1}{k!} \cdot \lambda^k \cdot e^{-\lambda} = \frac{\lambda^k e^{-\lambda}}{k!}.
+\end{align*}
+(Her $k$ için: ilk çarpan $\to 1$, $(1-\lambda_n/n)^n \to e^{-\lambda}$, $(1-\lambda_n/n)^{-k} \to 1$.)
+\end{proof}
+
+\begin{onerme}[Poisson Yeniden Üretkenliği]
+$X \sim \Pois(\lambda)$, $Y \sim \Pois(\mu)$ bağımsız $\Rightarrow$ $X+Y \sim \Pois(\lambda+\mu)$.
+\end{onerme}
+
+\begin{proof}
+$M_{X+Y}(t) = e^{\lambda(e^t-1)} \cdot e^{\mu(e^t-1)} = e^{(\lambda+\mu)(e^t-1)}$.
+\end{proof}
+
+\begin{ornek}[Poisson Süreci]
+Birim zamanda ortalama $\lambda$ müşteri gelen bir bankada,
+$k$ müşteri gelme olasılığı $P(X=k) = e^{-\lambda}\lambda^k/k!$.
+$\lambda = 3$: $P(X = 0) = e^{-3} \approx 0.050$, $P(X \leq 2) \approx 0.423$.
+\end{ornek}
+
+\subsection{Geometrik ve Negatif Binom}
+\label{subsec:geometrik}
+
+\begin{tanim}[Geometrik Dağılım]
+\label{def:geometrik}
+$X \sim \mathrm{Geom}(p)$: ilk başarıya kadar gereken deneme sayısı.
+\[
+  P(X = k) = q^{k-1} p, \quad k = 1, 2, 3, \ldots
+\]
+\textbf{Beklenti:} $E[X] = 1/p$. \quad \textbf{Varyans:} $\mathrm{Var}(X) = q/p^2$.
+\textbf{MÜF:} $M_X(t) = pe^t / (1 - qe^t)$, $t < -\ln q$.
+\end{tanim}
+
+\begin{onerme}[Bellek Yoksunluğu]
+\label{prop:bellek_yoksunlugu}
+$X \sim \mathrm{Geom}(p)$ için her $m, n \geq 1$'de
+$P(X > m+n \mid X > m) = P(X > n)$.
+Kesikli dağılımlar arasında bellek yoksunluğu (memorylessness) özelliğine sahip
+tek dağılım geometrik dağılımdır.
+\end{onerme}
+
+\begin{proof}
+$P(X > k) = q^k$.
+$P(X > m+n \mid X > m) = \frac{P(X > m+n)}{P(X > m)} = \frac{q^{m+n}}{q^m} = q^n = P(X > n)$.
+Tersine: bu özelliği sağlayan tek kesikli dağılımın geometrik olduğu,
+$P(X > k) = P(X > 1)^k$ çarpım özelliğiyle gösterilir.
+\end{proof}
+
+\begin{tanim}[Negatif Binom Dağılımı]
+\label{def:neg_binom}
+$X \sim \mathrm{NegBin}(r, p)$: $r$'inci başarıya kadar gereken deneme sayısı.
+\[
+  P(X = k) = \binom{k-1}{r-1} p^r q^{k-r}, \quad k = r, r+1, \ldots
+\]
+\textbf{Beklenti:} $E[X] = r/p$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X) = rq/p^2$.\\
+$\mathrm{NegBin}(1, p) = \mathrm{Geom}(p)$.
+\end{tanim}
+
+\subsection{Hipergeometrik Dağılım}
+\label{subsec:hiper}
+
+\begin{tanim}[Hipergeometrik Dağılım]
+\label{def:hipergeometrik}
+$N$ elemanlı popülasyonda $K$ "başarılı" eleman var; $n$ elemanlık örneklem çekilsin
+(yerine koymadan). $X$: örneklemdeki başarılı sayısı.
+\[
+  P(X = k) = \frac{\binom{K}{k}\binom{N-K}{n-k}}{\binom{N}{n}},
+  \quad \max(0, n+K-N) \leq k \leq \min(n, K).
+\]
+\textbf{Beklenti:} $E[X] = nK/N$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X) = n \frac{K}{N}\frac{N-K}{N}\frac{N-n}{N-1}$.
+\end{tanim}
+
+\begin{onerme}[Binom Yaklaşımı]
+$N \to \infty$, $K/N \to p$ iken $\mathrm{Hiper}(N, K, n) \to \Binom(n, p)$.
+Yani büyük popülasyonda yerine koymadan örneklem $\approx$ yerine koyarak örneklem.
+\end{onerme}
+
+\subsection{Çok Terimli Dağılım}
+\label{subsec:multinomial}
+
+\begin{tanim}[Çok Terimli Dağılım]
+\label{def:multinomial}
+$n$ bağımsız deneme; her deneyde $k$ kategoriden biri $p_1, \ldots, p_k$ olasılıklarla seçilsin
+($\sum p_i = 1$). $X_i$: $i$'inci kategorinin deneme sayısı.
+$(X_1, \ldots, X_k) \sim \mathrm{Multinomial}(n; p_1, \ldots, p_k)$:
+\[
+  P(X_1 = n_1, \ldots, X_k = n_k) = \frac{n!}{n_1! \cdots n_k!} p_1^{n_1} \cdots p_k^{n_k},
+  \quad \sum n_i = n.
+\]
+\textbf{Beklenti:} $E[X_i] = np_i$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X_i) = np_i(1-p_i)$. \quad
+\textbf{Kovaryans:} $\mathrm{Cov}(X_i, X_j) = -np_i p_j$ ($i \neq j$).
+\end{tanim}
+
+% =====================================================================
+\section{Sürekli Dağılımlar}
+\label{sec:surekli_dagilimlar}
+% =====================================================================
+
+\subsection{Düzgün (Uniform) Dağılım}
+\label{subsec:uniform}
+
+\begin{tanim}[Uniform Dağılım]
+\label{def:uniform}
+$X \sim \Uniform(a, b)$ ($a < b$):
+\[
+  f_X(x) = \frac{1}{b-a}, \quad a < x < b.
+\]
+\textbf{Beklenti:} $E[X] = (a+b)/2$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X) = (b-a)^2/12$. \quad
+\textbf{MÜF:} $M_X(t) = \frac{e^{tb}-e^{ta}}{t(b-a)}$ ($t \neq 0$).
+\end{tanim}
+
+\begin{onerme}[Quantile Dönüşümü]
+\label{prop:quantile}
+$U \sim \Uniform(0,1)$ ve $F$ herhangi bir KDF ise $X = F^{-1}(U) \sim F$.
+Bu simülasyonun temelidir: uniform rassal sayılardan herhangi bir dağılım üretilebilir.
+\end{onerme}
+
+\begin{proof}
+$P(F^{-1}(U) \leq x) = P(U \leq F(x)) = F(x)$ ($U$ uniform olduğundan).
+\end{proof}
+
+\subsection{Normal Dağılım}
+\label{subsec:normal}
+
+\begin{tanim}[Normal (Gauss) Dağılımı]
+\label{def:normal}
+$X \sim \Normal(\mu, \sigma^2)$ ($\sigma > 0$):
+\[
+  f_X(x) = \frac{1}{\sigma\sqrt{2\pi}} \exp\!\left(-\frac{(x-\mu)^2}{2\sigma^2}\right), \quad x \in \mathbb{R}.
+\]
+\textbf{Beklenti:} $E[X] = \mu$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X) = \sigma^2$. \quad
+\textbf{MÜF:} $M_X(t) = e^{\mu t + \sigma^2 t^2/2}$.\\
+$Z = (X-\mu)/\sigma \sim \Normal(0,1)$ \textbf{standart normal}.
+\end{tanim}
+
+\begin{onerme}[Standart Normal Özellikleri]
+$Z \sim \Normal(0,1)$. PDF: $\phi(z) = (2\pi)^{-1/2} e^{-z^2/2}$. KDF: $\Phi(z) = \int_{-\infty}^z \phi(t)\,dt$.
+\begin{itemize}
+  \item $\phi(-z) = \phi(z)$ (simetri); $\Phi(-z) = 1 - \Phi(z)$.
+  \item $E[Z^{2k}] = (2k-1)!! = 1 \cdot 3 \cdots (2k-1)$; $E[Z^{2k+1}] = 0$.
+  \item $E[Z^4] = 3$: basıklık 0 (referans).
+\end{itemize}
+\end{onerme}
+
+\begin{teorem}[Normal Yeniden Üretkenliği]
+\label{thm:normal_yeniden}
+$X_i \sim \Normal(\mu_i, \sigma_i^2)$ bağımsız ($i=1,\ldots,n$) $\Rightarrow$
+$\sum_{i=1}^n a_i X_i \sim \Normal\!\left(\sum a_i\mu_i,\ \sum a_i^2\sigma_i^2\right)$.
+\end{teorem}
+
+\begin{proof}
+MÜF çarpım: $M_{\sum a_i X_i}(t) = \prod_i e^{\mu_i(a_i t) + \sigma_i^2(a_i t)^2/2}
+= \exp\!\bigl(\sum a_i\mu_i \cdot t + \tfrac{t^2}{2}\sum a_i^2\sigma_i^2\bigr)$.
+\end{proof}
+
+\begin{tanim}[Çok Değişkenli Normal Dağılım]
+\label{def:cok_normal}
+$\mathbf{X} = (X_1, \ldots, X_n)^\top \sim \Normal_n(\boldsymbol{\mu}, \boldsymbol{\Sigma})$:
+$\boldsymbol{\mu} \in \mathbb{R}^n$, $\boldsymbol{\Sigma}$ pozitif yarı-tanımlı $n\times n$ matris.
+$\boldsymbol{\Sigma}$ pozitif tanımlı ise ortak PDF:
+\[
+  f(\mathbf{x}) = \frac{1}{(2\pi)^{n/2}|\boldsymbol{\Sigma}|^{1/2}}
+  \exp\!\left(-\tfrac{1}{2}(\mathbf{x}-\boldsymbol{\mu})^\top \boldsymbol{\Sigma}^{-1}(\mathbf{x}-\boldsymbol{\mu})\right).
+\]
+$E[\mathbf{X}] = \boldsymbol{\mu}$, $\mathrm{Cov}(\mathbf{X}) = \boldsymbol{\Sigma}$.
+\end{tanim}
+
+\begin{teorem}[Çok Değişkenli Normal: Bağımsızlık]
+\label{thm:cok_normal_bagimsiz}
+$\mathbf{X} \sim \Normal_n(\boldsymbol{\mu}, \boldsymbol{\Sigma})$ ise
+bileşenler çiftler arası korelasyonsuzluğu $\Leftrightarrow$ bağımsızlıktır:
+$\Sigma_{ij} = 0$ ($i \neq j$) $\Leftrightarrow$ $X_i \perp X_j$.
+\end{teorem}
+
+\begin{proof}
+$\boldsymbol{\Sigma}$ köşegen ise ortak PDF $\prod_i f_{X_i}(x_i)$ çarpımına ayrışır.
+\end{proof}
+
+\begin{hataanalizi}
+Bu teorem genel dağılımlar için yanlıştır! Yalnızca çok değişkenli normal için
+korelasyonsuzluk ile bağımsızlık eşdeğerdir. Genel dağılımlarda korelasyonsuz
+ama bağımlı rasgele değişkenler inşa etmek mümkündür (bkz.\ Bölüm~\ref{sec:kovaryans}).
+\end{hataanalizi}
+
+\subsection{Üstel ve Gama Dağılımı}
+\label{subsec:gama}
+
+\begin{tanim}[Üstel Dağılım]
+\label{def:exp}
+$X \sim \Exp(\lambda)$ ($\lambda > 0$):
+\[
+  f_X(x) = \lambda e^{-\lambda x}, \quad x > 0.
+\]
+\textbf{Beklenti:} $E[X] = 1/\lambda$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X) = 1/\lambda^2$. \quad
+\textbf{MÜF:} $M_X(t) = \lambda/(\lambda - t)$, $t < \lambda$.
+\end{tanim}
+
+\begin{onerme}[Bellek Yoksunluğu --- Sürekli]
+$X \sim \Exp(\lambda)$ için her $s, t > 0$'da $P(X > s+t \mid X > s) = P(X > t)$.
+Sürekli dağılımlar arasında bellek yoksunluğu özelliğine sahip tek dağılım üsteldir.
+\end{onerme}
+
+\begin{proof}
+$P(X > t) = e^{-\lambda t}$.
+$P(X > s+t \mid X > s) = e^{-\lambda(s+t)}/e^{-\lambda s} = e^{-\lambda t} = P(X > t)$.
+Tersine: $P(X > s+t) = P(X > s)P(X > t)$ ise $G(t) := P(X>t)$ için
+$G(s+t) = G(s)G(t)$ ve süreklilik $G(t) = e^{-\lambda t}$ verir.
+\end{proof}
+
+\begin{tanim}[Gama Dağılımı]
+\label{def:gama}
+$X \sim \Gama(\alpha, \beta)$ ($\alpha, \beta > 0$):
+\[
+  f_X(x) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-\beta x}, \quad x > 0.
+\]
+$\Gamma(\alpha) = \int_0^\infty t^{\alpha-1} e^{-t} \, dt$ (Gama fonksiyonu).
+\textbf{Beklenti:} $E[X] = \alpha/\beta$. \quad
+\textbf{Varyans:} $\mathrm{Var}(X) = \alpha/\beta^2$. \quad
+\textbf{MÜF:} $M_X(t) = (\beta/(\beta-t))^\alpha$, $t < \beta$.\\
+Özel durumlar: $\Gama(1, \beta) = \Exp(\beta)$; $\Gama(n/2, 1/2) = \chi^2_n$ (aşağıda).
+\end{tanim}
+
+\begin{proof}[Beklenti]
+$E[X] = \frac{\beta^\alpha}{\Gamma(\alpha)} \int_0^\infty x^\alpha e^{-\beta x} dx
+= \frac{\beta^\alpha}{\Gamma(\alpha)} \cdot \frac{\Gamma(\alpha+1)}{\beta^{\alpha+1}}
+= \frac{\alpha}{\beta}$.
+($\Gamma(\alpha+1) = \alpha\Gamma(\alpha)$ yinelemeli bağıntısı kullanıldı.)
+\end{proof}
+
+\begin{teorem}[Gama Yeniden Üretkenliği]
+$X_i \sim \Gama(\alpha_i, \beta)$ bağımsız ($\beta$ aynı) $\Rightarrow$
+$\sum X_i \sim \Gama(\sum \alpha_i, \beta)$.
+\end{teorem}
+
+\begin{proof}
+$M_{\sum X_i}(t) = \prod_i (\beta/(\beta-t))^{\alpha_i} = (\beta/(\beta-t))^{\sum\alpha_i}$.
+\end{proof}
+
+\subsection{Beta Dağılımı}
+\label{subsec:beta}
+
+\begin{tanim}[Beta Dağılımı]
+\label{def:beta}
+$X \sim \Beta(\alpha, \beta)$ ($\alpha, \beta > 0$):
+\[
+  f_X(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, \quad 0 < x < 1.
+\]
+$B(\alpha, \beta) = \Gamma(\alpha)\Gamma(\beta)/\Gamma(\alpha+\beta)$ (Beta fonksiyonu).\\
+\textbf{Beklenti:} $E[X] = \alpha/(\alpha+\beta)$.\\
+\textbf{Varyans:} $\mathrm{Var}(X) = \alpha\beta / [(\alpha+\beta)^2(\alpha+\beta+1)]$.\\
+Özel durum: $\Beta(1,1) = \Uniform(0,1)$.
+\end{tanim}
+
+\begin{onerme}[Beta'nın Gama ile Bağlantısı]
+$X \sim \Gama(\alpha, 1)$, $Y \sim \Gama(\beta, 1)$ bağımsız $\Rightarrow$
+$U = X/(X+Y) \sim \Beta(\alpha, \beta)$, bağımsız olarak $X+Y \sim \Gama(\alpha+\beta, 1)$.
+\end{onerme}
+
+\begin{proof}
+$(U, V) = (X/(X+Y), X+Y)$ dönüşümü; Jacobian $= v$;
+$f_{U,V}(u,v) = f_{X,Y}(uv, v(1-u)) \cdot v$ hesaplanır;
+$U$ ve $V$'nin bağımsız Beta ve Gama olduğu görülür.
+\end{proof}
+
+\subsection{Cauchy Dağılımı}
+\label{subsec:cauchy}
+
+\begin{tanim}[Cauchy Dağılımı]
+\label{def:cauchy}
+$X \sim \mathrm{Cauchy}(\mu, \sigma)$ ($\sigma > 0$):
+\[
+  f_X(x) = \frac{1}{\pi\sigma\left[1 + \left(\frac{x-\mu}{\sigma}\right)^2\right]}, \quad x \in \mathbb{R}.
+\]
+\textbf{Beklenti mevcut değildir} ($\int |x| f(x) dx = \infty$).\\
+\textbf{KF:} $\varphi_X(t) = e^{i\mu t - \sigma|t|}$ (Laplace çekirdeği).\\
+$\mathrm{Cauchy}(0,1)$: $Z_1/Z_2$ ($Z_1, Z_2$ bağımsız standart normal).
+\end{tanim}
+
+\begin{karsiornek}[Cauchy --- Büyük Sayılar Kanunu Çöküyor]
+$X_1, X_2, \ldots$ bağımsız $\mathrm{Cauchy}(0,1)$ ise
+$\bar{X}_n = n^{-1}\sum X_i$ de $\mathrm{Cauchy}(0,1)$ dağılımlıdır ---
+ortalama $n$ büüdükçe stabilize olmaz. Büyük Sayılar Kanunu beklentinin
+varlığını gerektirir; Cauchy bunu ihlal eder.
+\end{karsiornek}
+
+\subsection{Lognormal Dağılım}
+\label{subsec:lognormal}
+
+\begin{tanim}[Lognormal Dağılım]
+\label{def:lognormal}
+$Y = e^X$, $X \sim \Normal(\mu, \sigma^2)$ ise $Y \sim \mathrm{Lognormal}(\mu, \sigma^2)$:
+\[
+  f_Y(y) = \frac{1}{y\sigma\sqrt{2\pi}} \exp\!\left(-\frac{(\ln y - \mu)^2}{2\sigma^2}\right), \quad y > 0.
+\]
+\textbf{Beklenti:} $E[Y] = e^{\mu + \sigma^2/2}$.\\
+\textbf{Varyans:} $\mathrm{Var}(Y) = e^{2\mu+\sigma^2}(e^{\sigma^2}-1)$.\\
+Tüm momentler mevcuttur ama MÜF yoktur ($E[e^{tY}] = \infty$ her $t > 0$ için).
+\end{tanim}
+
+\begin{ornek}[Finans Uygulaması]
+Black-Scholes modelinde hisse senedi fiyatı $S_t = S_0 e^{(\mu-\sigma^2/2)t + \sigma W_t}$
+lognormal dağılım izler. $\ln(S_t/S_0) \sim \Normal((\mu-\sigma^2/2)t, \sigma^2 t)$.
+\end{ornek}
+
+\subsection{Chi-Kare, \texorpdfstring{$t$}{t} ve \texorpdfstring{$F$}{F} Dağılımları}
+\label{subsec:chi_t_f}
+
+\begin{tanim}[Chi-Kare Dağılımı]
+\label{def:chi_kare}
+$Z_1, \ldots, Z_n$ bağımsız $\Normal(0,1)$ ise
+\[
+  \chi^2_n = \sum_{i=1}^n Z_i^2 \sim \Gama(n/2,\, 1/2).
+\]
+\textbf{Beklenti:} $E[\chi^2_n] = n$. \quad
+\textbf{Varyans:} $\mathrm{Var}(\chi^2_n) = 2n$. \quad
+\textbf{MÜF:} $M(t) = (1-2t)^{-n/2}$, $t < 1/2$.
+\end{tanim}
+
+\begin{proof}
+$Z_i^2 \sim \Gama(1/2, 1/2)$ (Bölüm~\ref{sec:rd_donusum}'deki $Y=X^2$ dönüşümü).
+Gama yeniden üretkenliği: $\sum Z_i^2 \sim \Gama(n/2, 1/2)$.
+\end{proof}
+
+\begin{tanim}[$t$ Dağılımı (Student)]
+\label{def:t_dagilim}
+$Z \sim \Normal(0,1)$, $V \sim \chi^2_n$ bağımsız. $T = Z/\sqrt{V/n} \sim t_n$ (Student-$t$).
+PDF:
+\[
+  f_T(t) = \frac{\Gamma((n+1)/2)}{\sqrt{n\pi}\,\Gamma(n/2)}\left(1+\frac{t^2}{n}\right)^{-(n+1)/2}, \quad t \in \mathbb{R}.
+\]
+$n = 1$: $t_1 = \mathrm{Cauchy}(0,1)$.
+$n \to \infty$: $t_n \xrightarrow{d} \Normal(0,1)$ (Böl.~\ref{chp:merkezi_limit}).\\
+\textbf{Beklenti:} $E[T] = 0$ ($n > 1$). \quad \textbf{Varyans:} $\mathrm{Var}(T) = n/(n-2)$ ($n > 2$).
+\end{tanim}
+
+\begin{tanim}[$F$ Dağılımı]
+\label{def:f_dagilim}
+$U \sim \chi^2_m$, $V \sim \chi^2_n$ bağımsız.
+$W = (U/m)/(V/n) \sim F(m, n)$.\\
+\textbf{Beklenti:} $E[W] = n/(n-2)$ ($n > 2$).\\
+Bağlantı: $T_n^2 \sim F(1, n)$.
+\end{tanim}
+
+\begin{hocanotu}
+$t_n$ ve $F(m,n)$ dağılımları istatistiksel hipotez testinin (Bölüm~\ref{chp:hipotez_testi})
+temel test istatistikleridir. Normal popülasyondan çekilen örneklem ortalaması
+$\bar{X}$ ve örneklem varyansı $S^2$ ile bunlar türetilir (Böl.~\ref{chp:istatistik_temelleri}).
+\end{hocanotu}
+
+% =====================================================================
+\section{Üstel Aile}
+\label{sec:ustel_aile}
+% =====================================================================
+
+\begin{kesif}
+Binom, Poisson, Normal, Gama, Beta --- bu dağılımların PDF/PMF'leri çok farklı görünüyor.
+Ama hepsinin $\exp(\ldots)$ biçiminde yazılabildiğini fark ettiniz mi?
+Bu yapı tesadüf mü, yoksa derin bir ortak özelliği mi yansıtıyor?
+\kesifcevap{Üstel aile: $f(x;\theta)=h(x)\exp[\eta(\theta)T(x)-A(\theta)]$.
+  Doğal parametre $\eta$, yeterli istatistik $T(x)$, log-bölümleme $A(\theta)$.
+  Binom, Poisson, Normal, Gama, Beta hepsi bu kalıba girer.
+  Üstel aile yapısı MLE analitiği, UMVUE (Rao-Blackwell) ve konjugat Bayes'i kolaylaştırır.}
+\end{kesif}
+
+\begin{tanim}[Tek Parametreli Üstel Aile]
+\label{def:ustel_aile}
+$\theta$'ya bağlı bir dağılım ailesi, eğer PDF/PMF'si
+\[
+  f(x \mid \theta) = h(x) \exp\!\bigl(\eta(\theta) T(x) - B(\theta)\bigr)
+\]
+biçiminde yazılabiliyorsa \textbf{(tek parametreli) üstel aile} (exponential family) üyesidir.
+Burada:
+\begin{itemize}
+  \item $\eta(\theta)$: \textbf{doğal parametre} (natural parameter),
+  \item $T(x)$: \textbf{yeterli istatistik} (sufficient statistic),
+  \item $B(\theta)$: normalleştirme sabiti (log-bölüşüm fonksiyonu),
+  \item $h(x)$: $\theta$'dan bağımsız taban ölçüsü.
+\end{itemize}
+\textbf{Çok parametreli genelleştirme:}
+$f(x \mid \boldsymbol{\theta}) = h(x) \exp\!\bigl(\sum_{j=1}^k \eta_j(\boldsymbol{\theta}) T_j(x) - B(\boldsymbol{\theta})\bigr)$.
+\end{tanim}
+
+\begin{ornek}[Üstel Aile Örnekleri]
+\begin{itemize}
+  \item \textbf{Normal} ($\sigma^2$ biliniyor): $\eta(\mu) = \mu/\sigma^2$, $T(x) = x$, $B(\mu) = \mu^2/(2\sigma^2)$.
+  \item \textbf{Poisson}: $\eta(\lambda) = \ln\lambda$, $T(k) = k$, $B(\lambda) = \lambda$, $h(k) = 1/k!$.
+  \item \textbf{Binom} ($n$ sabit): $\eta(p) = \ln(p/q)$ (log-odds), $T(k) = k$.
+  \item \textbf{Gama} ($\beta$ biliniyor): $\eta(\alpha) = \alpha-1$, $T(x) = \ln x$.
+\end{itemize}
+\end{ornek}
+
+\begin{teorem}[Log-Bölüşüm Fonksiyonunun Türevleri]
+\label{thm:log_bolüşüm}
+Doğal parametre formu $f(x \mid \eta) = h(x)\exp(\eta T(x) - B(\eta))$ için:
+\[
+  E_\eta[T(X)] = B'(\eta), \qquad \mathrm{Var}_\eta(T(X)) = B''(\eta).
+\]
+\end{teorem}
+
+\begin{proof}
+$1 = \int h(x) e^{\eta T(x) - B(\eta)} dx$ her $\eta$ için.
+$\eta$'ya göre türev: $0 = \int T(x) h(x) e^{\eta T - B} dx - B'(\eta) \cdot 1$,
+yani $B'(\eta) = E[T(X)]$.
+İkinci türev: $B''(\eta) = E[T(X)^2] - (E[T(X)])^2 = \mathrm{Var}(T(X))$.
+\end{proof}
+
+\begin{onerme}[Üstel Ailenin İstatistik Teorisindeki Önemi]
+Üstel aile üyesi dağılımlar için $\sum_{i=1}^n T(X_i)$ yeterli istatistiktir
+(Neyman faktorizasyon teoremi, Böl.~\ref{chp:nokta_tahmin}).
+Bu dağılımlar UMVUE tahminlerine (Rao-Blackwell, Böl.~\ref{chp:nokta_tahmin}) sahiptir.
+\end{onerme}
+
+% =====================================================================
+\section{Yer-Ölçek Aileleri}
+\label{sec:yer_olcek}
+% =====================================================================
+
+\begin{tanim}[Yer-Ölçek Ailesi]
+\label{def:yer_olcek}
+$f_0$ bir "standart" PDF olsun. \textbf{Yer-ölçek ailesi}:
+\[
+  f(x \mid \mu, \sigma) = \frac{1}{\sigma} f_0\!\left(\frac{x-\mu}{\sigma}\right),
+  \quad \mu \in \mathbb{R},\ \sigma > 0.
+\]
+$\mu$: yer parametresi (konum, location); $\sigma$: ölçek parametresi (scale).
+\end{tanim}
+
+\begin{ornek}[Yer-Ölçek Aileleri]
+\begin{itemize}
+  \item Normal: $f_0(z) = \phi(z)$; $\Normal(\mu, \sigma^2)$ yer-ölçek ailesi.
+  \item Üstel (ölçek): $f_0(z) = e^{-z}$; $\Exp(\lambda) = \mathrm{Ölçek}(1/\lambda)$ ailesi.
+  \item Cauchy: $f_0(z) = [\pi(1+z^2)]^{-1}$; $\mathrm{Cauchy}(\mu,\sigma)$ yer-ölçek.
+  \item Logistik: $f_0(z) = e^{-z}/(1+e^{-z})^2$; lojistik regresyon temeli.
+\end{itemize}
+\end{ornek}
+
+\begin{onerme}[Standartlaştırma]
+$(X - \mu)/\sigma$ "standart" dağılıma sahip; yani yer-ölçek ailelerinde
+tek bir "standart" tablo yeterlidir: $F(x \mid \mu, \sigma) = F_0((x-\mu)/\sigma)$.
+\end{onerme}
+
+% ---- Disiplinlerarası Bağlantı (TYMM) ----
+\begin{kopru}[Disiplinlerarası --- Biyoloji, Fizik, Mühendislik]
+\textbf{Biyoloji:} Popülasyon büyüklüğü, hücre bölünme süreleri üstel ve gama
+dağılımlarıyla modellenir; lognormal dağılım protein konsantrasyonlarını açıklar.\\
+\textbf{Fizik:} Maxwell-Boltzmann hız dağılımı gama ailesine aittir;
+termal gürültü normal dağılımdan kaynaklanır (Merkezi Limit Teoremi).\\
+\textbf{Mühendislik/Güvenilirlik:} Weibull dağılımı (Gama genellemesi)
+ürün ömrü modellemesinin standardıdır; üstel dağılım "bellek yoksunluğu"
+sayesinde sıra kuyruk modellerinin temelidir.
+\end{kopru}
+
+% ---- Öz-Yansıtma ----
+\begin{ozyansima}
+\begin{itemize}
+  \item Binom ile Poisson arasındaki "limit" ilişkisini kendi cümlelerinizle açıklayınız.
+        Hangi koşullar altında Poisson yaklaşımı makul bir seçimdir?
+  \item Bellek yoksunluğu özelliği fiziksel olarak ne anlama gelir?
+        Hangi gerçek hayat fenomenlerini modelleyebilir, hangilerini modelleyemez?
+  \item Üstel aile kavramı neden istatistik teorisi açısından önemlidir?
+  \item $t$ ve $F$ dağılımları neden "örneklem dağılımları" olarak anılır?
+\end{itemize}
+\end{ozyansima}
+
+% ---- Köprü Notu ----
+\begin{kopru}
+\textbf{Önceki bölüm:} Bölüm~\ref{chp:beklenti} --- beklenti, MÜF, KF araçları
+buradaki her dağılım için somutlaştırıldı.\\
+\textbf{Sonraki bölüm:} Bölüm~\ref{chp:buyuk_sayilar} --- büyük sayılar kanunlarında
+bu dağılımların asimptotik davranışı; Bölüm~\ref{chp:merkezi_limit}'te normal
+dağılıma yakınsama.\\
+\textbf{İstatistik kısmı:} Böl.~\ref{chp:nokta_tahmin}'de üstel aile ve yeterli
+istatistik; Böl.~\ref{chp:hipotez_testi}'nde $\chi^2$, $t$, $F$ test istatistikleri.
+\defterbaglantisi{bolum05\_dagilimlar.ipynb}{%
+  Dağılım grafikleri, parametre duyarlılığı, simülasyon karşılaştırması}
+\end{kopru}
+
+% =====================================================================
+\section{Weibull ve Pareto Dağılımları}
+\label{sec:weibull_pareto}
+% =====================================================================
+
+\begin{motivasyon}[Üstel Ötesi: Esnek Ömür Modelleri]
+Üstel dağılım "bellek yoksunluğu" ile idealdir --- ama gerçek cihaz ömürleri çoğunlukla
+bunu sağlamaz: eskiyen sistemlerde arıza oranı zamanla \emph{artar}.
+Weibull dağılımı bu esnekliği sağlar; şekil parametresi $k > 1$ azalan,
+$k < 1$ artan, $k = 1$ sabit arıza oranını modeller.
+\end{motivasyon}
+
+\begin{tanim}[Weibull Dağılımı]
+\label{def:weibull}
+$X \sim \mathrm{Weibull}(k, \lambda)$ ($k, \lambda > 0$):
+\[
+  f(x) = \frac{k}{\lambda}\left(\frac{x}{\lambda}\right)^{k-1} e^{-(x/\lambda)^k}, \quad x > 0.
+\]
+\textbf{KDF:} $F(x) = 1 - e^{-(x/\lambda)^k}$.
+\textbf{Beklenti:} $E[X] = \lambda\,\Gamma(1+1/k)$.
+\textbf{Varyans:} $\mathrm{Var}(X) = \lambda^2\bigl[\Gamma(1+2/k) - \Gamma(1+1/k)^2\bigr]$.
+
+Özel durum: $k = 1$ ise $X \sim \Exp(1/\lambda)$.
+\end{tanim}
+
+\begin{onerme}[Weibull --- Gama İlişkisi]
+$X \sim \mathrm{Weibull}(k, \lambda)$ ise $Y = (X/\lambda)^k \sim \Exp(1)$.
+Ters: $X = \lambda Y^{1/k}$. Bu dönüşüm simülasyonda kullanılır.
+\end{onerme}
+
+\begin{proof}
+$P(Y \leq y) = P((X/\lambda)^k \leq y) = P(X \leq \lambda y^{1/k}) = 1 - e^{-y}$. \checkmark
+\end{proof}
+
+\begin{tanim}[Pareto Dağılımı]
+\label{def:pareto}
+$X \sim \mathrm{Pareto}(\alpha, x_m)$ ($\alpha, x_m > 0$):
+\[
+  f(x) = \frac{\alpha x_m^\alpha}{x^{\alpha+1}}, \quad x \geq x_m.
+\]
+\textbf{KDF:} $F(x) = 1 - (x_m/x)^\alpha$.
+\textbf{Beklenti:} $E[X] = \alpha x_m/(\alpha-1)$ ($\alpha > 1$; yoksa $\infty$).
+\textbf{Varyans:} $\mathrm{Var}(X) = \alpha x_m^2/[(\alpha-1)^2(\alpha-2)]$ ($\alpha > 2$).
+\end{tanim}
+
+\begin{ornek}[Pareto --- Güç Yasası]
+$\alpha = 1.16$: Gelir dağılımı (80-20 kuralı --- Pareto ilkesi).
+$P(X > x) = (x_m/x)^\alpha$: "ağır kuyruk" (heavy tail) --- olasılık polinomik azalır.
+Üstel dağılımda $P(X > x) = e^{-\lambda x}$: üstel azalır.
+Pareto'da $\alpha < 2$: sonsuz varyans; $\alpha < 1$: sonsuz beklenti.
+\end{ornek}
+
+\begin{hataanalizi}
+"Pareto dağılımlı veriler için MLT'yi uygulayabilirim."
+Yanlış: $\alpha \leq 2$ ise sonlu varyans yok; MLT'nin koşulu bozulur.
+$\alpha \in (1,2)$: sonlu beklenti var ama sonlu varyans yok --- GBSK geçerli, MLT geçersiz.
+$\alpha \in (0,1]$: sonlu beklenti bile yok --- GBSK bile çöker.
+Ağır kuyruklu dağılımlarda istatistiksel yöntemler dikkatle seçilmelidir.
+\end{hataanalizi}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Güvenilirlik mühendisliği:} Weibull, ömür veri analizinde standart model;
+şekil parametresi $k$ "arıza hızı profili"ni tam belirler.\\
+\textbf{Finansal risk:} Pareto ve Fréchet dağılımları uç değer teorisinin
+(Extreme Value Theory) temelini oluşturur; büyük kayıpların modellemesinde kullanılır.\\
+\textbf{Sosyal bilimler:} Zipf yasası (kelime frekansı, şehir nüfusu) Pareto ile eşdeğerdir.
+\end{disiplinlerarasibaglan}
+
+% =====================================================================
+\section{Karışım Dağılımları}
+\label{sec:karisim_dagilim}
+% =====================================================================
+
+\begin{tanim}[Sonlu Karışım]
+\label{def:karisim}
+$f_1, \ldots, f_K$ PDF'ler, $\pi_k > 0$, $\sum_{k=1}^K \pi_k = 1$.
+\textbf{Karışım dağılımı} (mixture distribution):
+\[
+  f(x) = \sum_{k=1}^K \pi_k f_k(x).
+\]
+$\pi_k$: karışım ağırlıkları. Beklenti: $E[X] = \sum_k \pi_k E_k[X]$.
+Varyans: $\mathrm{Var}(X) = \sum_k \pi_k [\mathrm{Var}_k(X) + (E_k[X] - E[X])^2]$ (bileşke formülü).
+\end{tanim}
+
+\begin{proof}[Varyans Formülü]
+$E[X^2] = \sum_k \pi_k E_k[X^2]$; $\mathrm{Var}(X) = E[X^2] - (E[X])^2$.
+$\mathrm{Var}_k(X) = E_k[X^2] - (E_k[X])^2$, dolayısıyla $E_k[X^2] = \mathrm{Var}_k(X) + (E_k[X])^2$.
+$\mathrm{Var}(X) = \sum_k\pi_k[\mathrm{Var}_k(X) + (E_k[X])^2] - (\sum_k\pi_k E_k[X])^2$;
+son iki terimi toplama: $\sum_k\pi_k(E_k[X])^2 - (\sum_k\pi_k E_k[X])^2 = \sum_k\pi_k(E_k[X]-E[X])^2$.
+\end{proof}
+
+\begin{ornek}[Gaussian Karışımı]
+$K=2$: $f(x) = \pi_1 \phi_{\mu_1,\sigma_1^2}(x) + \pi_2 \phi_{\mu_2,\sigma_2^2}(x)$.
+Parametre: $(\pi_1, \mu_1, \sigma_1^2, \mu_2, \sigma_2^2)$.
+İki tepe oluşturabilir --- tek Normal'in modelleyemediği bimodal veri.
+Örnek: erkek-kadın boy dağılımı (iki normal, farklı ortalama).
+\end{ornek}
+
+\begin{ornek}[Negatif Binom --- Poisson Karışımı]
+$X \mid \Lambda = \lambda \sim \Pois(\lambda)$, $\Lambda \sim \Gama(\alpha, \beta)$.
+Marjinal: $P(X = k) = \int_0^\infty e^{-\lambda}\lambda^k/k! \cdot f_\Gamma(\lambda;\alpha,\beta)\,d\lambda$.
+Hesap sonucu: $X \sim \mathrm{NegBinom}(\alpha, \beta/(1+\beta))$.
+Bu "Negatif Binom = Poisson + Gama karışımı" yorumu, aşırı dağılımlı sayım verilerini açıklar.
+\end{ornek}
+
+\begin{teorem}[Karışım KDF'si]
+$F(x) = \sum_k \pi_k F_k(x)$ (bileşen KDF'lerinin ağırlıklı ortalaması).
+\end{teorem}
+
+\begin{kritiksorgu}
+Karışım dağılımı neden tek bileşenden daha esnek? Neden gerçek hayatta
+karışım modelleri yaygın kullanılır? Karışımların MLE tahmini neden standart yöntemlerle
+doğrudan yapılamaz? (İpucu: EM algoritması bu soruyu yanıtlar.)
+\end{kritiksorgu}
+
+% =====================================================================
+\section{Çok Değişkenli Normal Dağılım}
+\label{sec:cok_normal}
+% =====================================================================
+
+\begin{tanim}[Çok değişkenli normal]\label{def:cok_normal}
+$\mathbf{X}=(X_1,\ldots,X_p)^\top$ \emph{çok değişkenli normal} dağılımlıdır, $\mathbf{X}\sim\Normal_p(\boldsymbol\mu,\boldsymbol\Sigma)$, her doğrusal kombinasyon $\mathbf{a}^\top\mathbf{X}$'in univariant normal dağılımlı olması koşuluyla.
+\end{tanim}
+
+\begin{teorem}[Çok değişkenli normal yoğunluğu]\label{thm:cok_normal_yogunluk}
+$\boldsymbol\Sigma$ simetrik pozitif tanımlı ($p\times p$). $\mathbf{X}\sim\Normal_p(\boldsymbol\mu,\boldsymbol\Sigma)$:
+\[
+  f(\mathbf{x}) = \frac{1}{(2\pi)^{p/2}|\boldsymbol\Sigma|^{1/2}}
+  \exp\!\left(-\tfrac{1}{2}(\mathbf{x}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{x}-\boldsymbol\mu)\right).
+\]
+\end{teorem}
+
+\begin{teorem}[Bağımsızlık koşulları]\label{thm:cok_normal_bagimsiz}
+$\mathbf{X}\sim\Normal_p(\boldsymbol\mu,\boldsymbol\Sigma)$. Alt vektörler $\mathbf{X}_1,\mathbf{X}_2$ bağımsız $\iff$ $\Cov(\mathbf{X}_1,\mathbf{X}_2)=\mathbf{0}$ (korelasyonsuzluk = bağımsızlık, yalnızca normal için!).
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+MGF ayrışımı: $M_\mathbf{X}(\mathbf{t})=\exp(\boldsymbol\mu^\top\mathbf{t}+\tfrac12\mathbf{t}^\top\boldsymbol\Sigma\mathbf{t})$. $\Cov(\mathbf{X}_1,\mathbf{X}_2)=\mathbf{0}$ ise $\boldsymbol\Sigma$ blok köşegendir; MGF ayrışır: $M_{\mathbf{X}_1}(\mathbf{t}_1)\cdot M_{\mathbf{X}_2}(\mathbf{t}_2)$.
+\end{proof}
+
+\begin{ornek}[Koşullu normal]\label{ex:kosullu_normal}
+$\mathbf{X}=(\mathbf{X}_1^\top,\mathbf{X}_2^\top)^\top\sim\Normal_{p+q}$, $\boldsymbol\Sigma=\begin{pmatrix}\boldsymbol\Sigma_{11}&\boldsymbol\Sigma_{12}\\\boldsymbol\Sigma_{21}&\boldsymbol\Sigma_{22}\end{pmatrix}$. Koşullu dağılım:
+\[
+  \mathbf{X}_1|\mathbf{X}_2=\mathbf{x}_2\sim\Normal_p\!\left(\boldsymbol\mu_1+\boldsymbol\Sigma_{12}\boldsymbol\Sigma_{22}^{-1}(\mathbf{x}_2-\boldsymbol\mu_2),\;\boldsymbol\Sigma_{11}-\boldsymbol\Sigma_{12}\boldsymbol\Sigma_{22}^{-1}\boldsymbol\Sigma_{21}\right).
+\]
+Koşullu ortalama, $\mathbf{x}_2$'nin doğrusal fonksiyonudur --- çok değişkenli regresyonun temeli.
+\end{ornek}
+
+\begin{teorem}[Kareler dağılımı: ki-kare bağlantısı]\label{thm:kare_dagilimlari}
+$\mathbf{X}\sim\Normal_p(\mathbf{0},\mathbf{I}_p)$. O zaman $\|\mathbf{X}\|^2=\sum X_i^2\sim\chi^2_p$.
+Genel: $(\mathbf{X}-\boldsymbol\mu)^\top\boldsymbol\Sigma^{-1}(\mathbf{X}-\boldsymbol\mu)\sim\chi^2_p$ ($\boldsymbol\Sigma$ pozitif tanımlı).
+Bu, Mahalanobis mesafesinin dağılımıdır.
+\end{teorem}
+
+\begin{proof}
+$\boldsymbol\Sigma=\mathbf{A}\mathbf{A}^\top$ (Cholesky). $\mathbf{Z}=\mathbf{A}^{-1}(\mathbf{X}-\boldsymbol\mu)\sim\Normal_p(\mathbf{0},\mathbf{I}_p)$. $\|\mathbf{Z}\|^2\sim\chi^2_p$.
+\end{proof}
+
+\begin{hataanalizi}
+Genel olarak, korelasyonsuzluk bağımsızlık gerektirmez. Bu yalnızca normal dağılımda geçerlidir. $X\sim\Normal(0,1)$, $Y=X^2$: $\Cov(X,Y)=E[X^3]=0$ ama $Y$, $X$'e kesinlikle bağımlıdır.
+\end{hataanalizi}
+
+% =====================================================================
+\section{Yüksek Boyutlu Dağılımlar: Wishart ve Hotelling}
+\label{sec:wishart_hotelling}
+% =====================================================================
+
+\begin{tanim}[Wishart dağılımı]\label{def:wishart}
+$\mathbf{X}_1,\ldots,\mathbf{X}_n\iid\Normal_p(\mathbf{0},\boldsymbol\Sigma)$. $\mathbf{W}=\sum_{i=1}^n\mathbf{X}_i\mathbf{X}_i^\top$ \emph{Wishart dağılımlıdır}: $\mathbf{W}\sim W_p(n,\boldsymbol\Sigma)$.
+$\Beklenti[\mathbf{W}]=n\boldsymbol\Sigma$.
+\end{tanim}
+
+\begin{ornek}[Örneklem kovaryans matrisi]\label{ex:onek_kovaryans}
+$\mathbf{X}_1,\ldots,\mathbf{X}_n\iid\Normal_p(\boldsymbol\mu,\boldsymbol\Sigma)$. $(n-1)\mathbf{S}=\sum_{i=1}^n(\mathbf{X}_i-\bar{\mathbf{X}})(\mathbf{X}_i-\bar{\mathbf{X}})^\top\sim W_p(n-1,\boldsymbol\Sigma)$.
+$\mathbf{S}$ ve $\bar{\mathbf{X}}$ bağımsızdır (çok değişkenli Cochran teoremi).
+\end{ornek}
+
+\begin{tanim}[Hotelling $T^2$ istatistiği]\label{def:hotelling}
+$T^2 = n(\bar{\mathbf{X}}-\boldsymbol\mu_0)^\top\mathbf{S}^{-1}(\bar{\mathbf{X}}-\boldsymbol\mu_0)$. $\boldsymbol\mu=\boldsymbol\mu_0$ altında: $\frac{n-p}{p(n-1)}T^2\sim F(p,n-p)$ (Hotelling dağılımı).
+\end{tanim}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Makine Öğrenmesi:} Çok değişkenli normal, Gaussian Naive Bayes ve LDA (Doğrusal Diskriminant Analizi) sınıflandırıcılarının temeli. Wishart, Bayesçi kovaryans tahminin konjugat önselidir.
+
+\textbf{Nörobilim:} Mahalanobis mesafesi, beyin görüntüleme verilerinde sinyal gürültü ayırt etmede kullanılır; Hotelling $T^2$ çok değişkenli FMRI analizi testlerinin temelidir.
+\end{disiplinlerarasibaglan}
+
+\begin{mikroozet}
+Weibull: esnek ömür modeli; $k=1$ üstel, $k>1$ artan arıza oranı.
+Pareto: ağır kuyruk (heavy tail); $\alpha \leq 2$ sonsuz varyans.
+Karışım: $f = \sum\pi_k f_k$; bileşke varyans = içsel + dışsal.
+$\Normal_p$: korelasyonsuzluk $\iff$ bağımsızlık; koşullu dağılım $\Normal_p$; ki-kare bağlantısı.
+Wishart: örneklem kovaryans matrisi dağılımı; Hotelling $T^2$: çok boyutlu $t$-testi.
+\end{mikroozet}
+
+% =====================================================================
+%  ALIŞTIRMALAR
+% =====================================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.5.1]{A}{Poisson Hesabı}
+Birim saatte ortalama 5 arıza oluşan bir sistemde:
+(a) Tam 3 arıza olasılığı. (b) En az 1 arıza olasılığı. (c) En fazla 2 arıza olasılığı.
+\end{alistirma}
+\alcozum{%
+$X \sim \Pois(5)$.\\
+(a) $P(X=3) = e^{-5}5^3/3! = 125e^{-5}/6 \approx 0.1404$.\\
+(b) $P(X \geq 1) = 1 - P(X=0) = 1 - e^{-5} \approx 0.9933$.\\
+(c) $P(X \leq 2) = e^{-5}(1 + 5 + 25/2) = 18.5e^{-5} \approx 0.1247$.}
+
+\begin{alistirma}[Al.5.2]{A}{Normal Dağılım}
+$X \sim \Normal(70, 100)$ (not: sınav puanı, $\sigma = 10$).
+(a) $P(X > 85)$. (b) $P(60 < X < 80)$. (c) 90. yüzdeliği bulunuz.
+\end{alistirma}
+\alcozum{%
+$Z = (X-70)/10 \sim \Normal(0,1)$.\\
+(a) $P(X>85) = P(Z > 1.5) = 1 - \Phi(1.5) \approx 1 - 0.9332 = 0.0668$.\\
+(b) $P(60<X<80) = P(-1 < Z < 1) = 2\Phi(1) - 1 \approx 2(0.8413) - 1 = 0.6827$.\\
+(c) $\Phi(z_{0.9}) = 0.9 \Rightarrow z_{0.9} \approx 1.282$; $x_{0.9} = 70 + 10(1.282) = 82.82$.}
+
+\begin{alistirma}[Al.5.3]{B}{Gama Dağılımı ve Beklenti}
+$X \sim \Gama(3, 2)$.
+(a) $E[X]$, $\mathrm{Var}(X)$ ve $M_X(t)$'yi yazınız.
+(b) $P(X > 3)$'ü sayısal ifade ediniz (yarı analitik form yeterli).
+(c) $X_1, X_2 \sim \Gama(3, 2)$ bağımsız ise $X_1 + X_2$'nin dağılımını bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $E[X] = 3/2$, $\mathrm{Var}(X) = 3/4$, $M_X(t) = (2/(2-t))^3$ ($t < 2$).\\
+(b) $P(X>3) = \int_3^\infty \frac{2^3}{\Gamma(3)} x^2 e^{-2x} dx = 1 - F_{\Gama(3,2)}(3)$
+(tamamlanmamış gama fonksiyonu).\\
+(c) $X_1+X_2 \sim \Gama(6, 2)$.}
+
+\begin{alistirma}[Al.5.4]{B}{Üstel Ailede Log-Bölüşüm}
+$X \sim \Pois(\lambda)$'yı doğal parametre $\eta = \ln\lambda$ ile üstel aile formunda yazınız.
+$B(\eta)$'yı bulunuz ve $B'(\eta) = E[T(X)]$ formülüyle $E[X] = \lambda$'yı doğrulayınız.
+\end{alistirma}
+\alcozum{%
+$P(X=k) = \frac{\lambda^k e^{-\lambda}}{k!} = \frac{1}{k!} \exp(k\ln\lambda - \lambda)
+= \frac{1}{k!} \exp(\eta k - e^\eta)$.\\
+$T(k) = k$, $h(k) = 1/k!$, $B(\eta) = e^\eta = \lambda$.\\
+$B'(\eta) = e^\eta = \lambda = E[T(X)] = E[X]$. \checkmark}
+
+\begin{alistirma}[Al.5.5cozum]{B}{Çok Değişkenli Normal: Koşullu Dağılım}
+$(X,Y)\sim\Normal_2(\boldsymbol\mu,\Sigma)$; $\mu_X=2$, $\mu_Y=5$, $\sigma_X^2=4$, $\sigma_Y^2=9$, $\rho=0.6$.
+(a) $Y|X=x$'in koşullu dağılımını yazınız.
+(b) $E[Y|X=4]$ ve $\Var(Y|X=4)$'ü hesaplayınız.
+(c) $X$ ve $Y-0.9X$ bağımsız mıdır? Neden?
+\end{alistirma}
+\alcozum{%
+(a) Koşullu dağılım: $Y|X=x \sim \Normal(\mu_{Y|x},\,\sigma^2_{Y|x})$ ile
+\[
+  \mu_{Y|x} = \mu_Y + \rho\frac{\sigma_Y}{\sigma_X}(x-\mu_X) = 5 + 0.6\cdot\frac{3}{2}(x-2) = 5+0.9(x-2),
+\]
+\[
+  \sigma^2_{Y|x} = \sigma_Y^2(1-\rho^2) = 9(1-0.36) = 5.76.
+\]
+
+(b) $x=4$: $\mu_{Y|4}=5+0.9(4-2)=5+1.8=6.8$; $\Var(Y|X=4)=5.76$. Dolayısıyla $Y|X=4\sim\Normal(6.8,5.76)$.
+
+(c) $W=Y-0.9X$. $\Cov(X,W)=\Cov(X,Y)-0.9\Var(X)=\rho\sigma_X\sigma_Y-0.9\sigma_X^2=0.6\cdot2\cdot3-0.9\cdot4=3.6-3.6=0$. Ortak normal dağılımda kovaryans sıfır bağımsızlığa denk. Evet, $X$ ve $W=Y-0.9X$ bağımsız.}
+
+\begin{alistirma}[Al.5.5b]{C}{Beta Dağılımı ve Bayes Güncellemesi}
+$p\sim\Beta(\alpha,\beta)$ önsel. $n$ bağımsız Bernoulli($p$) denemesinde $x$ başarı gözlemleniyor.
+(a) Sonsal $p|x$'i bulunuz.
+(b) $\alpha=3$, $\beta=2$, $n=10$, $x=7$ için $E[p|x]$ ve $\mathrm{Mo}[p|x]$ (tepe) hesaplayınız.
+(c) $\alpha+\beta\to\infty$ (sabit $\alpha/(\alpha+\beta)=p_0$) durumunda sonsal beklenti ne olur?
+\end{alistirma}
+\alcozum{%
+(a) Olabilirlik: $L(p|x)=p^x(1-p)^{n-x}$. Önsel: $\pi(p)\propto p^{\alpha-1}(1-p)^{\beta-1}$. Sonsal:
+\[
+  \pi(p|x)\propto p^{x+\alpha-1}(1-p)^{n-x+\beta-1} \implies p|x\sim\Beta(\alpha+x,\,\beta+n-x).
+\]
+Konjugat aile özelliği.
+
+(b) $\alpha'=3+7=10$, $\beta'=2+3=5$. $E[p|x]=\dfrac{10}{15}=\dfrac{2}{3}$; $\mathrm{Mo}[p|x]=\dfrac{\alpha'-1}{\alpha'+\beta'-2}=\dfrac{9}{13}\approx0.692$.
+
+Karşılaştır: MLE $\hat p=7/10=0.700$. Bayes beklenti $2/3\approx0.667$ (önsel $p_0=3/5=0.6$'ya doğru çekilmiş).
+
+(c) Önsel ağırlık $\alpha+\beta$, veri ağırlığı $n$. $E[p|x]=\dfrac{\alpha+x}{\alpha+\beta+n}\to\dfrac{\alpha/(\alpha+\beta)\cdot(\alpha+\beta)+x}{\alpha+\beta+n}\to p_0$ çünkü $\alpha+\beta\gg n$. Çok güçlü önsel; veri baskın gelemez.}
+
+% ---
+
+
+\begin{alistirma}[Al.5.5]{A}{Binom Olasılık}
+10 soru içeren çoktan seçmeli testte her sorunun 4 şıkkı var; öğrenci tamamen rastgele cevaplıyor.
+(a) Tam 3 doğru cevap olasılığı. (b) En az 5 doğru cevap olasılığı.
+(c) $E[X]$ ve $\mathrm{Var}(X)$.
+\end{alistirma}
+\alcozum{%
+$X \sim \Binom(10, 1/4)$.
+(a) $\binom{10}{3}(1/4)^3(3/4)^7 \approx 0.2503$.
+(b) $P(X\geq5) = \sum_{k=5}^{10}\binom{10}{k}(1/4)^k(3/4)^{10-k} \approx 0.0781$.
+(c) $E[X] = 2.5$, $\mathrm{Var}(X) = 1.875$.}
+\begin{alistirma}[Al.5.6]{A}{Geometrik Uygulama}
+Bir üretim hattında her ürün $p = 0.05$ olasılıkla bozuk.
+(a) İlk bozuk ürünün 10. üründe çıkma olasılığı.
+(b) İlk bozuk üründen önce en az 20 ürün üretilme olasılığı.
+(c) Kaçıncı üründe ilk bozuğun çıkması beklenir?
+\end{alistirma}
+\alcozum{%
+$X \sim \mathrm{Geom}(0.05)$.
+(a) $P(X=10) = (0.95)^9(0.05) \approx 0.0315$.
+(b) $P(X>20) = (0.95)^{20} \approx 0.3585$.
+(c) $E[X] = 1/0.05 = 20$.}
+\alistirmalar
+
+
+
+\begin{alistirma}[Al.5.7]{B}{Beta Dağılımı}
+$X \sim \Beta(2, 3)$.
+(a) $E[X]$ ve $\mathrm{Var}(X)$'i hesaplayınız.
+(b) $P(X > 0.5)$'i analitik olarak bulunuz.
+(c) Bu dağılım hangi pratik durumu modelleyebilir?
+\end{alistirma}
+\alcozum{%
+(a) $E[X] = 2/5 = 0.4$. $\mathrm{Var}(X) = 2\cdot3/(25\cdot6) = 6/150 = 1/25$.\\
+(b) $f(x) = 12x(1-x)^2$.
+$P(X>0.5) = 12\int_{0.5}^1 x(1-x)^2 dx = 12[x^2/2 - 2x^3/3 + x^4/4]_{0.5}^1
+= 12[(1/2-2/3+1/4)-(1/8-1/12+1/16)] = 5/16$.\\
+(c) $[0,1]$'de değer alan oranlar: dönüşüm hata oranı, bir proje tamamlanma yüzdesi, vb.}
+
+\begin{alistirma}[Al.5.8]{B}{$\chi^2$ ve $t$ Dağılımı}
+$X_1, \ldots, X_5$ bağımsız $\Normal(0,1)$.
+(a) $V = \sum X_i^2$'nin dağılımını yazınız; $E[V]$ ve $\mathrm{Var}(V)$'yi bulunuz.
+(b) $Z \sim \Normal(0,1)$ bu $X_i$'lerden bağımsız. $T = Z/\sqrt{V/5}$'in dağılımını yazınız.
+(c) $T^2$'nin dağılımını yazınız.
+\end{alistirma}
+\alcozum{%
+(a) $V \sim \chi^2_5 = \Gama(5/2, 1/2)$. $E[V] = 5$, $\mathrm{Var}(V) = 10$.\\
+(b) $T \sim t_5$.\\
+(c) $T^2 \sim F(1, 5)$.}
+
+\begin{alistirma}[Al.5.9]{B}{Poisson-Gama Karışımı}
+$\Lambda \sim \Gama(\alpha, \beta)$ ve $X \mid \Lambda = \lambda \sim \Pois(\lambda)$.
+$X$'in koşulsuz dağılımının negatif binom olduğunu gösteriniz.
+\end{alistirma}
+\alcozum{%
+$P(X=k) = \int_0^\infty \frac{\lambda^k e^{-\lambda}}{k!} \cdot \frac{\beta^\alpha}{\Gamma(\alpha)}\lambda^{\alpha-1}e^{-\beta\lambda} d\lambda
+= \frac{\beta^\alpha}{k!\,\Gamma(\alpha)} \int_0^\infty \lambda^{k+\alpha-1} e^{-(\beta+1)\lambda} d\lambda
+= \frac{\beta^\alpha}{k!\,\Gamma(\alpha)} \cdot \frac{\Gamma(k+\alpha)}{(\beta+1)^{k+\alpha}}
+= \binom{k+\alpha-1}{k} \left(\frac{\beta}{\beta+1}\right)^\alpha \left(\frac{1}{\beta+1}\right)^k$.
+Bu $\mathrm{NegBin}(\alpha, \beta/(\beta+1))$ dağılımıdır.}
+
+\begin{alistirma}[Al.5.10]{B}{Yer-Ölçek Dönüşümü}
+$X \sim \mathrm{Cauchy}(0,1)$ ise $Y = \mu + \sigma X$ ($\sigma > 0$) için
+$Y \sim \mathrm{Cauchy}(\mu, \sigma)$ olduğunu gösteriniz.
+Cauchy dağılımı neden bir yer-ölçek ailesidir?
+\end{alistirma}
+\alcozum{%
+$f_X(x) = 1/(\pi(1+x^2))$. Jacobian dönüşümü: $x = (y-\mu)/\sigma$, $|dx/dy| = 1/\sigma$.
+$f_Y(y) = \frac{1}{\pi(1+((y-\mu)/\sigma)^2)} \cdot \frac{1}{\sigma}
+= \frac{1}{\pi\sigma(1+((y-\mu)/\sigma)^2)}$. Bu $\mathrm{Cauchy}(\mu,\sigma)$ PDF'sidir.
+Yer-ölçek ailesi: standart form $f_0(z) = 1/(\pi(1+z^2))$; $f(y|\mu,\sigma) = f_0((y-\mu)/\sigma)/\sigma$.}
+
+\begin{alistirma}[Al.5.11]{C}{Normal Dağılımın Üstel Aile Formu}
+$X \sim \Normal(\mu, \sigma^2)$'yi iki parametreli üstel ailede yazınız:
+$\boldsymbol{\eta} = (\eta_1, \eta_2)$, $\mathbf{T}(x) = (T_1(x), T_2(x))$ ile.
+$B(\boldsymbol{\eta})$'yı bulunuz ve $\partial B/\partial\eta_1 = E[T_1(X)]$,
+$\partial B/\partial\eta_2 = E[T_2(X)]$ formüllerini doğrulayınız.
+\end{alistirma}
+\alcozum{%
+$f(x|\mu,\sigma^2) = \frac{1}{\sqrt{2\pi}\sigma}\exp\!\left(-\frac{x^2}{2\sigma^2} + \frac{\mu}{\sigma^2}x - \frac{\mu^2}{2\sigma^2}\right)$.
+Doğal parametreler: $\eta_1 = \mu/\sigma^2$, $\eta_2 = -1/(2\sigma^2)$ (yani $\sigma^2 = -1/(2\eta_2)$, $\mu = \eta_1/(-2\eta_2)$).
+$T_1(x) = x$, $T_2(x) = x^2$.
+$B(\boldsymbol{\eta}) = -\eta_1^2/(4\eta_2) - \frac{1}{2}\ln(-2\eta_2) + \frac{1}{2}\ln(2\pi)$.
+$\partial B/\partial\eta_1 = -\eta_1/(2\eta_2) = \mu/\sigma^2 \cdot \sigma^2 = \mu = E[X]$. \checkmark
+$\partial B/\partial\eta_2 = \eta_1^2/(4\eta_2^2) - 1/(2\eta_2) = \mu^2 + \sigma^2 = E[X^2]$. \checkmark}
+
+\begin{alistirma}[Al.5.12]{C}{Binom $\to$ Poisson: Tam İspat}
+Teorem~\ref{thm:binom_poisson}'in ispatında kullanılan iki limiti kesin biçimde ispatlayınız:
+(a) $n(n-1)\cdots(n-k+1)/n^k \to 1$.
+(b) $(1 - \lambda_n/n)^n \to e^{-\lambda}$ ($\lambda_n \to \lambda$).
+\end{alistirma}
+\alcozum{%
+(a) $\frac{n(n-1)\cdots(n-k+1)}{n^k} = 1 \cdot (1-1/n) \cdots (1-(k-1)/n) \to 1^k = 1$ (sabit $k$, $n\to\infty$).\\
+(b) $\ln(1-\lambda_n/n)^n = n\ln(1-\lambda_n/n)$. Taylor: $\ln(1-x) = -x - x^2/2 - \cdots$,
+$n \cdot (-\lambda_n/n + O(1/n^2)) = -\lambda_n + O(1/n) \to -\lambda$.
+Dolayısıyla $(1-\lambda_n/n)^n \to e^{-\lambda}$.}
+
+\begin{alistirma}[Al.5.13]{B}{Weibull Dağılımı}
+$X \sim \mathrm{Weibull}(k, \lambda)$.
+(a) $Y = (X/\lambda)^k$ dönüşümünün dağılımını bulunuz.
+(b) $k = 2$, $\lambda = 1$ için $E[X]$ ve $\mathrm{Var}(X)$'i hesaplayınız
+    ($\Gamma(1/2) = \sqrt{\pi}$, $\Gamma(3/2) = \sqrt{\pi}/2$, $\Gamma(2) = 1$).
+(c) $P(X > 2)$'yi kapalı formda yazınız.
+\end{alistirma}
+\alcozum{%
+(a) $P(Y \leq y) = P((X/\lambda)^k \leq y) = 1 - e^{-y}$: $Y \sim \Exp(1)$.\\
+(b) $k=2$, $\lambda=1$: $E[X] = \Gamma(1+1/2) = \Gamma(3/2) = \sqrt{\pi}/2 \approx 0.886$.
+$E[X^2] = \Gamma(1+1) = \Gamma(2) = 1$. $\mathrm{Var}(X) = 1 - \pi/4 \approx 0.215$.\\
+(c) $P(X > 2) = e^{-(2/\lambda)^k} = e^{-4}$ ($k=2$, $\lambda=1$).}
+
+\begin{alistirma}[Al.5.14]{B}{Pareto Beklentisi ve Varyansı}
+$X \sim \mathrm{Pareto}(\alpha, x_m)$.
+(a) $\alpha = 3$, $x_m = 1$ için $E[X]$ ve $\mathrm{Var}(X)$'i hesaplayınız.
+(b) $P(X > 2x_m)$'yi $\alpha$ cinsinden yazınız.
+(c) "80-20 kuralı": $\alpha = \log 5/\log 4 \approx 1.16$ ise nüfusun üst \%20'si
+    toplam gelirin \%80'ini elde eder. $P(X > x_m \cdot 5^{1/\alpha})$'yi hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) $E[X] = \alpha x_m/(\alpha-1) = 3/2$ ($\alpha=3$, $x_m=1$).
+$\mathrm{Var}(X) = \alpha x_m^2/[(\alpha-1)^2(\alpha-2)] = 3/(4\cdot1) = 3/4$.\\
+(b) $P(X > 2x_m) = (x_m/(2x_m))^\alpha = (1/2)^\alpha = 2^{-\alpha}$.\\
+(c) $P(X > x_m \cdot 5^{1/\alpha}) = (1/5^{1/\alpha})^\alpha = 1/5 = 0.20$.
+Nüfusun \%20'si bu eşiğin üzerinde: 80-20 kuralı.}
+
+\begin{alistirma}[Al.5.15]{A}{Gaussian Karışımı}
+$f(x) = 0.3\,\phi(x+2) + 0.7\,\phi(x-1)$ ($\phi$ standart normal).
+(a) $E[X]$'i hesaplayınız. (b) $\mathrm{Var}(X)$'i bileşke formülle hesaplayınız.
+(c) PDF'nin tek modlu mu çift modlu mu olduğunu söyleyiniz.
+\end{alistirma}
+\alcozum{%
+(a) $E[X] = 0.3 \cdot (-2) + 0.7 \cdot 1 = -0.6 + 0.7 = 0.1$.\\
+(b) Bileşke: $\mathrm{Var}(X) = \sum_k\pi_k[\sigma_k^2 + (\mu_k - E[X])^2]$.
+$= 0.3[1 + (-2-0.1)^2] + 0.7[1 + (1-0.1)^2]$
+$= 0.3[1 + 4.41] + 0.7[1 + 0.81] = 0.3(5.41) + 0.7(1.81) = 1.623 + 1.267 = 2.890$.\\
+(c) Modlar: $\mu_1 = -2$, $\mu_2 = 1$; fark $= 3 > 2\sigma = 2$. Çift modlu (bimodal).}
+
+% =====================================================================
+\endinput

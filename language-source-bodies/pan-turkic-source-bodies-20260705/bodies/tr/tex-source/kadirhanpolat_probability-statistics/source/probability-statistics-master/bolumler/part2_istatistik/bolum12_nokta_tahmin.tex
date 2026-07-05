@@ -1,0 +1,784 @@
+%% ============================================================
+%% BÖLÜM 12 --- Nokta Tahmini
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Nokta Tahmini}
+\label{chp:nokta_tahmin}
+
+\bolumalinti{%
+  It is better to be roughly right than precisely wrong.
+}{John Maynard Keynes}
+
+\begin{kazanimlar}
+Bu bölümün sonunda okuyucu:
+\begin{itemize}
+  \item Tahmin edici kavramını tanımlar; yansızlık, verimlilik ve tutarlılık özelliklerini ispat ederek karşılaştırır.
+  \item Fisher bilgi matrisini hesaplar ve Cramér-Rao alt sınırını uygular.
+  \item Rao-Blackwell teoremini ve Lehmann-Scheffé teoremini kullanarak UMVUE inşa eder.
+  \item En çok olabilirlik yöntemini uygular; MLE'nin invaryant, tutarlı ve asimptotik normal olduğunu açıklar.
+  \item Momentler yöntemiyle tahmin edici türetir.
+  \item Konjugat önsel dağılımlar kullanarak Bayes tahmin edicisini hesaplar ve güvenilir aralık kurar.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+Önceki bölümlerde bir dağılımın olasılık yapısını teorik olarak inceledik. Şimdi tersine gidiyoruz: elimizde veriden oluşan bir örneklem var, gizli parametre $\theta$'yı bu veriden tahmin etmek istiyoruz. Bu soru modern istatistiğin merkezindedir.
+
+\medskip
+\noindent\textbf{Köprü:} Bölüm~\ref{chp:istatistik_temelleri}'de tanımladığımız yeterli istatistik kavramı burada kritik rol oynayacak. Bir tahmin edicinin yeterliliği, Rao-Blackwell teoremi aracılığıyla verimliliği artırmak için kullanılacak.
+\end{motivasyon}
+
+%% ============================================================
+\section{Tahmin Edici Kavramı}
+\label{sec:tahmin_edici}
+%% ============================================================
+
+\begin{kesif}
+$X_1,\ldots,X_n \sim \Normal(\mu,\sigma^2)$ i.i.d.\ olsun. $\mu$'yü nasıl tahmin ederiz? Doğal yanıt $\overline{X}_n$'dir. Peki neden bu iyi bir seçim? Başka seçenekler var mı?
+\kesifcevap{$\overline{X}_n$ yansız ($E[\overline{X}_n]=\mu$), tutarlı ($\overline{X}_n\xrightarrow{P}\mu$)
+  ve Normal ailede UMVUE'dur. Alternatifler: medyan (sağlam, Normal'de $\%86$ etkin),
+  kırpılmış ortalama (sağlamlık-etkinlik dengesi). MLE her zaman $\overline{X}_n$'i seçer.}
+\end{kesif}
+
+\begin{tanim}[Tahmin edici]\label{def:tahmin_edici}
+$(X_1,\ldots,X_n)$ bir örneklem olsun. $\theta \in \Theta$ parametresinin \textbf{tahmin edicisi} \emph{(estimator)}, veriye dayanan $W = W(X_1,\ldots,X_n)$ istatistiğidir. Gözlemlenen $x_1,\ldots,x_n$ için $w = W(x_1,\ldots,x_n)$ değerine \textbf{tahmin} \emph{(estimate)} denir.
+\end{tanim}
+
+\begin{tanimgerekce}
+Tahmin edici bir rasgele değişken; tahmin ise onun gözlemlenen gerçekleşmesidir. Bu ayrım çok önemli: $W = \overline{X}_n$ bir rasgele değişken, $w = \bar{x}_n = 3{,}14$ ise bir sayıdır.
+\end{tanimgerekce}
+
+\subsection{Yanlılık ve Yansızlık}
+
+\begin{tanim}[Yanlılık]\label{def:yanlilik}
+$W$ istatistiğinin $\theta$ için \textbf{yanlılığı} \emph{(bias)}:
+\[
+  \mathrm{Yanlılık}(W,\theta) = \Beklenti_\theta[W] - \theta.
+\]
+$\Beklenti_\theta[W] = \theta$ ise $W$'ye \textbf{yansız tahmin edici} \emph{(unbiased estimator)} denir.
+\end{tanim}
+
+\begin{teorem}[Standart örneklem istatistikleri]\label{thm:orn_istatistik}
+$X_1,\ldots,X_n \iid F$ ile $\Beklenti[X_i]=\mu$, $\Var(X_i)=\sigma^2 < \infty$ olsun. O zaman:
+\begin{enumerate}[(a)]
+  \item $\overline{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$ yansız: $\Beklenti[\overline{X}_n] = \mu$.
+  \item $S^2 = \frac{1}{n-1}\sum_{i=1}^n (X_i - \overline{X}_n)^2$ yansız: $\Beklenti[S^2] = \sigma^2$.
+  \item $\hat{\sigma}^2 = \frac{1}{n}\sum_{i=1}^n(X_i-\overline{X}_n)^2$ yanlı: $\Beklenti[\hat{\sigma}^2] = \frac{n-1}{n}\sigma^2$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(a) Beklentinin doğrusallığından doğrudan.
+
+(b) Özdeşlik kullanılır:
+\[
+  \sum_{i=1}^n (X_i - \overline{X}_n)^2 = \sum_{i=1}^n X_i^2 - n\overline{X}_n^2.
+\]
+Her iki tarafın beklentisini alalım. $\Beklenti[X_i^2] = \sigma^2 + \mu^2$ ve $\Beklenti[\overline{X}_n^2] = \Var(\overline{X}_n) + \mu^2 = \sigma^2/n + \mu^2$ olduğundan
+\[
+  \Beklenti\!\left[\sum_{i=1}^n(X_i-\overline{X}_n)^2\right] = n(\sigma^2+\mu^2) - n\!\left(\frac{\sigma^2}{n}+\mu^2\right) = (n-1)\sigma^2.
+\]
+$S^2$'nin böleni $n-1$ olduğundan $\Beklenti[S^2]=\sigma^2$.
+
+(c) $\hat{\sigma}^2 = \frac{n-1}{n}S^2$ olduğundan $\Beklenti[\hat{\sigma}^2] = \frac{n-1}{n}\sigma^2$.
+\end{proof}
+
+\begin{kritiksorgu}
+$S^2$'de neden $n-1$ kullanıyoruz? Özgürlük derecesi argümanı: $\sum(X_i-\overline{X}_n)=0$ kısıtı, $n$ sayıdan bağımsız olanları $n-1$'e indirger.
+\end{kritiksorgu}
+
+\subsection{Ortalama Karesel Hata}
+
+\begin{tanim}[OKH]\label{def:okh}
+$W$ tahmin edicisinin $\theta$ için \textbf{ortalama karesel hatası} \emph{(mean squared error)}:
+\[
+  \mathrm{OKH}(W,\theta) = \Beklenti_\theta\!\bigl[(W-\theta)^2\bigr].
+\]
+\end{tanim}
+
+\begin{teorem}[OKH ayrışımı]\label{thm:okh_ayrisim}
+$\mathrm{OKH}(W,\theta) = \Var_\theta(W) + [\mathrm{Yanlılık}(W,\theta)]^2$.
+\end{teorem}
+
+\begin{proof}
+$b = \Beklenti_\theta[W]-\theta$ yanlılık olsun. O zaman
+\[
+  (W-\theta)^2 = \bigl[(W-\Beklenti_\theta W) + b\bigr]^2
+  = (W-\Beklenti_\theta W)^2 + 2b(W-\Beklenti_\theta W) + b^2.
+\]
+Beklenti alındığında orta terim $2b\cdot\Beklenti[W-\Beklenti W]=0$ olur.
+\end{proof}
+
+\begin{hataanalizi}
+Yansızlık her zaman en iyi ölçüt değildir. Yanlı ama küçük varyanslı bir tahmin edici, yansız ama büyük varyanslı birinden daha küçük OKH'a sahip olabilir.
+\end{hataanalizi}
+
+\subsection{Tutarlılık}
+
+\begin{tanim}[Tutarlılık]\label{def:tutarlilik}
+Tahmin edici dizisi $\{W_n\}$ \textbf{tutarlı} \emph{(consistent)} ise: her $\theta$ ve $\varepsilon>0$ için
+\[
+  \Prob_\theta(|W_n - \theta|>\varepsilon) \to 0 \quad (n\to\infty).
+\]
+Yani $W_n \pto \theta$.
+\end{tanim}
+
+\begin{teorem}[Yeterli koşul]\label{thm:tutarli_yeterli}
+$\Beklenti_\theta[W_n]\to\theta$ ve $\Var_\theta(W_n)\to 0$ ise $W_n$ tutarlıdır.
+\end{teorem}
+
+\begin{proof}
+Chebyshev eşitsizliğinden: $\Prob(|W_n-\theta|>\varepsilon) \leq \mathrm{OKH}(W_n,\theta)/\varepsilon^2 \to 0$.
+\end{proof}
+
+%% ============================================================
+\section{Cramér-Rao Alt Sınırı}
+\label{sec:cramer_rao}
+%% ============================================================
+
+\begin{kesif}
+Yansız tahmin ediciler arasında en küçük varyanslısını bulmak istiyoruz. Varyansın ne kadar küçük olabileceğine dair evrensel bir alt sınır var mıdır?
+\kesifcevap{Cramér-Rao alt sınırı: $\mathrm{Var}(\hat\theta)\geq 1/(nI(\theta))$.
+  Fisher bilgisi $I(\theta)=E[(\partial\log f/\partial\theta)^2]$.
+  Yansız $\hat\theta$ bu sınıra ulaşırsa etkin (efficient) denir.
+  Normal'de $\overline{X}_n$ $\mu$ için, $S^2$ $\sigma^2$ için sınıra ulaşır.}
+\end{kesif}
+
+\subsection{Fisher Bilgi Miktarı}
+
+\begin{tanim}[Fisher bilgisi]\label{def:fisher_bilgisi}
+$f(x;\theta)$ yoğunluğu (ya da olasılık kitlesi) düzgün regularity koşullarını sağlasın. \textbf{Fisher bilgi miktarı} \emph{(Fisher information)}:
+\[
+  \mathcal{I}(\theta) = \Beklenti_\theta\!\left[\left(\frac{\partial}{\partial\theta}\log f(X;\theta)\right)^{\!2}\right].
+\]
+\end{tanim}
+
+\begin{teorem}[Fisher bilgisinin hesabı]\label{thm:fisher_hesap}
+Regularity koşulları altında:
+\begin{enumerate}[(a)]
+  \item $\Beklenti_\theta\!\left[\dfrac{\partial}{\partial\theta}\log f(X;\theta)\right] = 0$.
+  \item $\mathcal{I}(\theta) = -\Beklenti_\theta\!\left[\dfrac{\partial^2}{\partial\theta^2}\log f(X;\theta)\right]$.
+  \item $n$ i.i.d.\ gözlem için: $\mathcal{I}_n(\theta) = n\,\mathcal{I}_1(\theta)$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(a) $f(x;\theta)$'yı integre eden özdeliği $\theta$'ya göre türetelim:
+\[
+  0 = \frac{\partial}{\partial\theta}\int f(x;\theta)\,dx
+  = \int \frac{\partial f}{\partial\theta}\,dx
+  = \int \frac{\partial\log f}{\partial\theta} f(x;\theta)\,dx
+  = \Beklenti_\theta\!\left[\frac{\partial\log f}{\partial\theta}\right].
+\]
+(b) İkinci türev için aynı işlemi tekrarlayalım:
+\[
+  0 = \frac{\partial^2}{\partial\theta^2}\int f\,dx
+  = \int\!\left[\frac{\partial^2\log f}{\partial\theta^2} + \left(\frac{\partial\log f}{\partial\theta}\right)^{\!2}\right]f\,dx.
+\]
+Yeniden düzenlenince $\mathcal{I}(\theta) = -\Beklenti[\partial^2\log f/\partial\theta^2]$ elde edilir.
+
+(c) İ.i.d.\ durumda $\log f(\mathbf{x};\theta) = \sum_i \log f(x_i;\theta)$; türevler bağımsız toplam olduğundan varyans $n$ ile ölçeklenir.
+\end{proof}
+
+\begin{ornek}[Normal dağılım Fisher bilgisi]
+$X\sim\Normal(\mu,\sigma^2)$ sabit $\sigma^2$ ile. $\theta=\mu$ için:
+\[
+  \log f(x;\mu) = -\tfrac{1}{2}\log(2\pi\sigma^2) - \frac{(x-\mu)^2}{2\sigma^2}.
+\]
+$\partial\log f/\partial\mu = (x-\mu)/\sigma^2$; $\partial^2\log f/\partial\mu^2 = -1/\sigma^2$. Dolayısıyla $\mathcal{I}(\mu) = 1/\sigma^2$.
+\end{ornek}
+
+\subsection{Cramér-Rao Eşitsizliği}
+
+\begin{teorem}[Cramér-Rao]\label{thm:cramer_rao}
+$X_1,\ldots,X_n \iid f(x;\theta)$ ve $W = W(\mathbf{X})$ yansız tahmin edici olsun. Regularity koşulları altında:
+\[
+  \Var_\theta(W) \geq \frac{1}{n\,\mathcal{I}(\theta)}.
+\]
+\end{teorem}
+
+\begin{proof}
+Kovaryans-Cauchy-Schwarz argümanı kullanılır. $U = \partial\log f(\mathbf{X};\theta)/\partial\theta$ skor fonksiyonu olsun. Yansızlık koşulu $\int W(\mathbf{x})f(\mathbf{x};\theta)\,d\mathbf{x}=\theta$'yı $\theta$'ya göre türetelim:
+\[
+  1 = \int W(\mathbf{x})\frac{\partial\log f}{\partial\theta}f(\mathbf{x};\theta)\,d\mathbf{x}
+  = \Beklenti_\theta[W\cdot U] = \Cov_\theta(W,U),
+\]
+çünkü $\Beklenti[U]=0$. Cauchy-Schwarz:
+\[
+  1 = [\Cov(W,U)]^2 \leq \Var(W)\cdot\Var(U) = \Var(W)\cdot n\mathcal{I}(\theta).
+\]
+Dolayısıyla $\Var(W)\geq 1/(n\mathcal{I}(\theta))$.
+\end{proof}
+
+\begin{tanim}[Verimlilik]\label{def:verimlilik}
+Cramér-Rao alt sınırına ulaşan yansız tahmin ediciye \textbf{verimli tahmin edici} \emph{(efficient estimator)} denir.
+\end{tanim}
+
+\begin{teorem}[Üstel aile verimliliği]\label{thm:ustel_verimli}
+Tek parametreli üstel ailede $f(x;\theta)=h(x)\exp[\eta(\theta)T(x)-B(\theta)]$; $T(\mathbf{X}) = \sum T(X_i)/n$ her $\theta$ için Cramér-Rao sınırına ulaşır (verimlidir).
+\end{teorem}
+
+\begin{ispatiskele}
+Üstel ailede $\partial\log f/\partial\theta = \eta'(\theta)T(x) - B'(\theta)$; bu skor $T(x)$'in doğrusal fonksiyonu. Cramér-Rao'da eşitlik Cauchy-Schwarz'da eşitlikle, o da $W = aU+b$ doğrusallığıyla eşdeğer. Sonuç: $T$ verimlidir.
+\end{ispatiskele}
+
+%% ============================================================
+\section{UMVUE: Düzgün Minimum Varyanslı Yansız Tahmin Edici}
+\label{sec:umvue}
+%% ============================================================
+
+\begin{tanim}[UMVUE]\label{def:umvue}
+$W^*$ yansız tahmin edici, her yansız $W$ ve her $\theta\in\Theta$ için $\Var_\theta(W^*)\leq\Var_\theta(W)$ sağlıyorsa \textbf{UMVUE} \emph{(uniformly minimum variance unbiased estimator)} adını alır.
+\end{tanim}
+
+\subsection{Rao-Blackwell Teoremi}
+
+\begin{teorem}[Rao-Blackwell]\label{thm:rao_blackwell}
+$W$ yansız tahmin edici ve $T$ yeterli istatistik olsun. $W^* = \Beklenti[W\mid T]$ tanımlayalım. O zaman:
+\begin{enumerate}[(a)]
+  \item $W^*$ yansız: $\Beklenti[W^*] = \theta$.
+  \item $\Var(W^*)\leq\Var(W)$.
+  \item Eşitlik yalnızca $W = W^*(T)$ (neredeyse kesin) olduğunda geçerli.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(a) Kule özelliği: $\Beklenti[W^*] = \Beklenti[\Beklenti[W\mid T]] = \Beklenti[W] = \theta$.
+
+(b) Varyans ayrışımı: $\Var(W) = \Beklenti[\Var(W\mid T)] + \Var(\Beklenti[W\mid T]) = \Beklenti[\Var(W\mid T)] + \Var(W^*) \geq \Var(W^*)$.
+\end{proof}
+
+\begin{kritiksorgu}
+Rao-Blackwell sadece yeterli istatistiğe koşullanmak yeterli mi, UMVUE garanti eder mi? Hayır --- $T$ tamamlayıcı olmalı. Tamamlayıcılık olmazsa $W^*$ yeterli fakat UMVUE değil olabilir.
+\end{kritiksorgu}
+
+\subsection{Lehmann-Scheffé Teoremi}
+
+\begin{teorem}[Lehmann-Scheffé]\label{thm:lehmann_scheffe}
+$T$ tamamlayıcı yeterli istatistik ve $g(T)$ yansız tahmin edici olsun. O zaman $g(T)$ UMVUE'dür ve yegânedir (n.k.).
+\end{teorem}
+
+\begin{proof}
+Yegânlik: $g_1(T)$ ve $g_2(T)$ her ikisi de yansız ise $\Beklenti_\theta[g_1(T)-g_2(T)]=0$ her $\theta$ için. Tamamlayıcılıktan $g_1(T)=g_2(T)$ n.k.
+
+UMVUE: $W$ başka herhangi yansız tahmin edici olsun. $W^* = \Beklenti[W\mid T] = g(T)$ (yeterlilikten, $g$ sabit). Rao-Blackwell'den $\Var(g(T)) \leq \Var(W)$.
+\end{proof}
+
+\begin{ornek}[Poisson UMVUE]\label{ex:poisson_umvue}
+$X_1,\ldots,X_n\iid\Pois(\lambda)$. $T=\sum X_i \sim \Pois(n\lambda)$ tamamlayıcı yeterli. $\Beklenti[\bar{X}_n]=\lambda$ ve $\bar{X}_n = T/n$ bir $T$'nin fonksiyonu. Lehmann-Scheffé'den $\bar{X}_n$ UMVUE'dür.
+
+Peki $\Prob(X_1=0)=e^{-\lambda}$'yı tahmin et. $g(T)=\bigl(\frac{n-1}{n}\bigr)^T$ yansız ve $T$'nin fonksiyonu, dolayısıyla UMVUE'dür (hesabı alıştırma).
+\end{ornek}
+
+%% ============================================================
+\section{En Çok Olabilirlik Tahmini}
+\label{sec:mle}
+%% ============================================================
+
+\begin{tanim}[En çok olabilirlik tahmin edicisi]\label{def:mle}
+$\mathbf{x} = (x_1,\ldots,x_n)$ gözlemine karşılık \textbf{olabilirlik fonksiyonu}:
+\[
+  L(\theta;\mathbf{x}) = \prod_{i=1}^n f(x_i;\theta).
+\]
+$L(\hat{\theta};\mathbf{x}) = \sup_{\theta\in\Theta} L(\theta;\mathbf{x})$ sağlayan $\hat{\theta} = \hat{\theta}(\mathbf{x})$'ye \textbf{en çok olabilirlik tahmini} \emph{(maximum likelihood estimate, MLE)} denir; $\MLE{\theta}$ yazılır.
+\end{tanim}
+
+\begin{tanimgerekce}
+Pratikte log-olabilirlik $\ell(\theta) = \log L(\theta) = \sum\log f(x_i;\theta)$ maksimize edilir. Log dönüşümü maksimumu değiştirmez ama türev hesabını basitleştirir.
+\end{tanimgerekce}
+
+\begin{ornek}[Normal MLE]\label{ex:normal_mle}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$, $\theta=(\mu,\sigma^2)$.
+\[
+  \ell(\mu,\sigma^2) = -\frac{n}{2}\log(2\pi\sigma^2) - \frac{1}{2\sigma^2}\sum(x_i-\mu)^2.
+\]
+$\partial\ell/\partial\mu = 0 \Rightarrow \MLE{\mu}=\bar{x}$.
+$\partial\ell/\partial\sigma^2 = 0 \Rightarrow \MLE{\sigma^2} = \frac{1}{n}\sum(x_i-\bar{x})^2 = \hat{\sigma}^2$.
+
+Not: $\MLE{\sigma^2}$ yanlıdır ($1/n$ böleni), ama MLE doğal olarak bu sonucu verir.
+\end{ornek}
+
+\subsection{MLE'nin Özellikleri}
+
+\begin{teorem}[İnvaryant]\label{thm:mle_invaryant}
+$\MLE{\theta}$ var ve $g:\Theta\to\mathbb{R}$ bire-bir ise $\widehat{g(\theta)} = g(\MLE{\theta})$.
+\end{teorem}
+
+\begin{proof}
+$g$ bire-bir olduğundan $\eta=g(\theta)$, $\theta=g^{-1}(\eta)$. $L^*(\eta;\mathbf{x}) = L(g^{-1}(\eta);\mathbf{x})$'yi maksimize eden $\hat\eta = g(\MLE\theta)$.
+\end{proof}
+
+\begin{teorem}[Tutarlılık]\label{thm:mle_tutarlilik}
+Regularity koşulları altında $\MLE{\theta} \pto \theta_0$ (gerçek parametre).
+\end{teorem}
+
+\begin{ispatiskele}
+\textbf{Fikir:} $\frac{1}{n}\ell(\theta) = \frac{1}{n}\sum\log f(X_i;\theta) \asto \Beklenti_{\theta_0}[\log f(X;\theta)]$ (GBSK). Bu beklenti $\theta=\theta_0$'da maksimum alır (Gibbs eşitsizliği / KL ıraksama $\geq 0$). Dolayısıyla maksimum noktası $\theta_0$'a yakınsar.
+\end{ispatiskele}
+
+\begin{teorem}[Asimptotik normallik]\label{thm:mle_asimptotik}
+Regularity koşulları altında:
+\[
+  \sqrt{n}\bigl(\MLE{\theta} - \theta\bigr) \dto \Normal\!\left(0,\frac{1}{\mathcal{I}(\theta)}\right).
+\]
+Yani MLE asimptotik olarak verimlidir.
+\end{teorem}
+
+\begin{ispatiskele}
+\textbf{Fikir:} Skor denklemi $\ell'(\MLE\theta)=0$'ı $\theta_0$ çevresinde Taylor açılımı:
+\[
+  0 = \ell'(\theta_0) + (\MLE\theta-\theta_0)\ell''(\theta^*).
+\]
+$\frac{1}{\sqrt{n}}\ell'(\theta_0)\dto\Normal(0,\mathcal{I}(\theta))$ (MLT) ve $\frac{1}{n}\ell''(\theta^*)\asto -\mathcal{I}(\theta)$ (GBSK). Slütseva: $\sqrt{n}(\MLE\theta-\theta_0)\dto\Normal(0,1/\mathcal{I}(\theta))$.
+\end{ispatiskele}
+
+\begin{hataanalizi}
+MLE her zaman var olmak zorunda değildir, benzersiz olmak zorunda değildir, tutarlı olmak zorunda değildir (regularity ihlalinde). Uniform$[0,\theta]$ için $\MLE\theta=X_{(n)}$ tutarlı; ama bu durumda sınır değer problemi olduğundan regularity bozulur.
+\end{hataanalizi}
+
+%% ============================================================
+\section{Momentler Yöntemi}
+\label{sec:momentler_yontemi}
+%% ============================================================
+
+\begin{tanim}[Momentler yöntemi]\label{def:momentler_yontemi}
+$k$. popülasyon momenti $\mu_k'(\theta) = \Beklenti_\theta[X^k]$, $k$. örneklem momenti $m_k = \frac{1}{n}\sum X_i^k$ olsun. \textbf{Momentler yöntemi tahmin edicisi} \emph{(method of moments estimator)}, $\mu_k'(\hat{\theta}) = m_k$ denklem sisteminin çözümüdür.
+\end{tanim}
+
+\begin{ornek}[Gama momentler]\label{ex:gama_momentler}
+$X\sim\Gama(\alpha,\beta)$ ise $\Beklenti[X]=\alpha\beta$, $\Var(X)=\alpha\beta^2$.
+\[
+  \hat\alpha = \frac{\bar{X}^2}{S^2}, \qquad \hat\beta = \frac{S^2}{\bar{X}}.
+\]
+\end{ornek}
+
+\begin{teorem}[Momentler tahmin edicisinin tutarlılığı]
+Regularity koşulları altında momentler yöntemi tahmin edicisi tutarlıdır.
+\end{teorem}
+
+\begin{proof}
+GBSK'dan $m_k \asto \mu_k'(\theta_0)$. $g(\mu_1',\ldots,\mu_p')=\theta$ düzgün (sürekli türevlenebilir) ise Slütseva teoreminden $\hat\theta \asto \theta_0$.
+\end{proof}
+
+%% ============================================================
+\section{Bayes Tahmini}
+\label{sec:bayes_tahmin}
+%% ============================================================
+
+\begin{kesif}
+$X_1,\ldots,X_{10} \iid \mathrm{Ber}(p)$, $\sum x_i = 3$ gözlemlendi.
+MLE $\hat{p} = 0.3$ verir. Elimizde ``$p$'nin $0.5$ civarında olduğunu bekliyoruz''
+şeklinde bir ön bilgi varsa, bunu tahminde nasıl kullanırız?
+Sonuç $0.3$'ten nasıl farklılaşır?
+\kesifcevap{Önsel $\pi(p) = \mathrm{Beta}(5,5)$ ($p \approx 0.5$ sezgisi) seçilirse
+  sonsal $p \mid \mathbf{x} \sim \mathrm{Beta}(5+3, 5+7) = \mathrm{Beta}(8,12)$;
+  Bayes tahmini (kare kayıp) $= 8/20 = 0.4$. Veri az olduğundan önsel ağır çeker;
+  $n \to \infty$ limitinde Bayes tahmini MLE'ye yaklaşır.}
+\end{kesif}
+
+\begin{tanim}[Önsel ve sonsal dağılım]\label{def:onsel_sonsal}
+$\pi(\theta)$ önsel yoğunluk ve $f(\mathbf{x}\mid\theta)$ olabilirlik olsun. \textbf{Sonsal dağılım}:
+\[
+  \pi(\theta\mid\mathbf{x}) = \frac{f(\mathbf{x}\mid\theta)\,\pi(\theta)}{\int f(\mathbf{x}\mid\theta')\pi(\theta')\,d\theta'} \propto f(\mathbf{x}\mid\theta)\,\pi(\theta).
+\]
+\end{tanim}
+
+\begin{tanim}[Konjugat önsel]\label{def:konjugat_onsel}
+$\pi(\theta)$ \textbf{konjugat önsel} \emph{(conjugate prior)} ise, sonsal dağılım önsel ile aynı aile içinde kalır.
+\end{tanim}
+
+\subsection{Temel Konjugat Çiftler}
+
+\begin{teorem}[Beta-Binom konjugasyonu]\label{thm:beta_binom}
+$X\mid p \sim \Binom(n,p)$ ve $p\sim\Beta(\alpha,\beta)$ ise:
+\[
+  p\mid\mathbf{x} \sim \Beta\!\left(\alpha + \sum x_i,\; \beta + n - \sum x_i\right).
+\]
+Bayes tahmini (karesel kayıp altında):
+\[
+  \hat{p}_{\text{Bayes}} = \Beklenti[p\mid\mathbf{x}] = \frac{\alpha+\sum x_i}{\alpha+\beta+n}.
+\]
+\end{teorem}
+
+\begin{proof}
+$f(x\mid p)\propto p^x(1-p)^{n-x}$ ve $\pi(p)\propto p^{\alpha-1}(1-p)^{\beta-1}$. Sonsal $\propto p^{\alpha+\sum x_i-1}(1-p)^{\beta+n-\sum x_i-1}$, bu $\Beta(\alpha+\sum x_i, \beta+n-\sum x_i)$.
+\end{proof}
+
+\begin{teorem}[Normal-Normal konjugasyonu]\label{thm:normal_normal}
+$X_1,\ldots,X_n\mid\mu \iid \Normal(\mu,\sigma^2)$ (bilinen $\sigma^2$) ve $\mu\sim\Normal(\mu_0,\tau^2)$ ise:
+\[
+  \mu\mid\mathbf{x} \sim \Normal\!\left(\mu_n, \sigma_n^2\right)
+\]
+ile
+\[
+  \frac{1}{\sigma_n^2} = \frac{n}{\sigma^2} + \frac{1}{\tau^2}, \qquad
+  \mu_n = \sigma_n^2\!\left(\frac{n\bar{x}}{\sigma^2} + \frac{\mu_0}{\tau^2}\right).
+\]
+\end{teorem}
+
+\begin{proof}
+$\log\pi(\mu\mid\mathbf{x}) \propto -\frac{n}{2\sigma^2}\sum(x_i-\mu)^2 - \frac{1}{2\tau^2}(\mu-\mu_0)^2$. $\mu$'ya göre karesel; kareyi tamamla: $-\frac{1}{2\sigma_n^2}(\mu-\mu_n)^2$.
+\end{proof}
+
+\begin{teorem}[Gama-Poisson konjugasyonu]\label{thm:gama_poisson}
+$X_1,\ldots,X_n\mid\lambda\iid\Pois(\lambda)$ ve $\lambda\sim\Gama(\alpha,\beta)$ ise:
+\[
+  \lambda\mid\mathbf{x} \sim \Gama\!\left(\alpha+\sum x_i,\; \frac{\beta}{n\beta+1}\right).
+\]
+\end{teorem}
+
+\begin{proof}
+$f(\mathbf{x}\mid\lambda)\propto\lambda^{\sum x_i}e^{-n\lambda}$ ve $\pi(\lambda)\propto\lambda^{\alpha-1}e^{-\lambda/\beta}$. Sonsal $\propto\lambda^{\alpha+\sum x_i-1}e^{-\lambda(n+1/\beta)}$, bu $\Gama$.
+\end{proof}
+
+\subsection{Güvenilir Aralık}
+
+\begin{tanim}[Güvenilir aralık]\label{def:guvenilir_aralik}
+$(1-\alpha)$ kapsama olasılıklı \textbf{güvenilir aralık} \emph{(credible interval)} $[a,b]$:
+\[
+  \Prob(\theta\in[a,b]\mid\mathbf{x}) = \int_a^b \pi(\theta\mid\mathbf{x})\,d\theta = 1-\alpha.
+\]
+\textbf{HPD (highest posterior density)} aralığı: en kısa güvenilir aralık; sonsal yoğunluğun $c$ eşik değerini aşan kümesi.
+\end{tanim}
+
+\begin{ornek}[Beta sonsal güvenilir aralık]\label{ex:beta_credible}
+$n=20$ deneme, $\sum x_i=14$ başarı; $p\sim\Beta(1,1)$ (düzgün önsel). Sonsal $p\mid\mathbf{x}\sim\Beta(15,7)$. \%95 HPD aralığı Beta sonsal dağılımının \%2.5--\%97.5 kantilleri: sayısal olarak $[0{,}515, 0{,}913]$.
+\end{ornek}
+
+\begin{kendinleifade}
+Beta-Binom Bayes tahmin edicisini MLE olan $\bar{X}_n$ ile karşılaştır. $\alpha+\beta$ "hayali örneklem büyüklüğü" yorumunu açıkla. $n\to\infty$ limitinde ne olur?
+\kendinleifadecevap{Önsel $\mathrm{Beta}(\alpha,\beta)$ + $k$ başarı, $n$ deneme $\Rightarrow$
+  sonsal $\mathrm{Beta}(\alpha+k,\,\beta+n-k)$.
+  Bayes tahmincisi (kare kayıp): $\hat{p}_B = \frac{\alpha+k}{\alpha+\beta+n}
+  = \frac{n}{n+\alpha+\beta}\underbrace{\frac{k}{n}}_{\hat{p}_\mathrm{MLE}}
+  + \frac{\alpha+\beta}{n+\alpha+\beta}\underbrace{\frac{\alpha}{\alpha+\beta}}_{\text{önsel ort.}}$.
+  $\alpha+\beta$ "hayali örneklem": öncel inancın ağırlığı bu kadar gerçek gözleme eşdeğer.
+  $n\to\infty$: $\hat{p}_B\to\hat{p}_\mathrm{MLE}$ --- veri önsel'i bunaltır.}
+\end{kendinleifade}
+
+%% ============================================================
+\section{Minimax Tahmin ve Kabul Edilebilirlik}
+\label{sec:minimax}
+%% ============================================================
+
+\begin{tanim}[Minimax tahmin edici]\label{def:minimax}
+Tüm $\delta$ karar kuralları arasında $\delta^*$ \textbf{minimax}:
+\[
+  \sup_\theta R(\theta,\delta^*) = \inf_\delta\sup_\theta R(\theta,\delta).
+\]
+Worst-case riski minimize eder; $\theta$ hakkında bilgisiz (en kötümser) karar.
+\end{tanim}
+
+\begin{tanim}[Kabul edilemezlik]\label{def:kabul_edilemez}
+$\delta$ karar kuralı \textbf{kabul edilemez} \emph{(inadmissible)} eğer başka bir $\delta'$ ile $R(\theta,\delta')\leq R(\theta,\delta)$ tüm $\theta$'da ve en az bir $\theta^*$'da $R(\theta^*,\delta')<R(\theta^*,\delta)$. Aksi hâlde \textbf{kabul edilebilir} \emph{(admissible)}.
+\end{tanim}
+
+\begin{teorem}[Stein paradoksu]\label{thm:stein}
+$\mathbf{X}\sim\Normal_p(\boldsymbol\mu,I_p)$, $p\geq3$, karesel kayıp. O zaman $\bar{\mathbf{X}}$ (yansız MLE) kabul edilemezdir: \textbf{James-Stein tahmini}
+\[
+  \hat{\boldsymbol\mu}^{JS} = \left(1 - \frac{p-2}{\|\mathbf{X}\|^2}\right)\mathbf{X}
+\]
+her $\boldsymbol\mu$ için daha küçük OKH'a sahip.
+\end{teorem}
+
+\begin{ispatiskele}
+$\Beklenti[\|\hat{\boldsymbol\mu}^{JS}-\boldsymbol\mu\|^2]=p-(p-2)^2\Beklenti[1/\|\mathbf{X}\|^2]<p=\mathrm{OKH}(\mathbf{X})$. Detay: Efron-Morris (1977). Paradoks: $p=1,2$'de yansız tahmin kabul edilebilir; $p\geq3$'te değil.
+\end{ispatiskele}
+
+%% ============================================================
+\section{Skor Fonksiyonu ve Fisher Bilgisi --- İleri}
+\label{sec:fisher_ileri}
+%% ============================================================
+
+\begin{teorem}[Fisher bilgisi birleşimi]\label{thm:fisher_birlesen}
+$X_1,\ldots,X_n\iid f(x;\theta)$. Birleşik Fisher bilgisi $\mathcal{I}_n(\theta)=n\mathcal{I}(\theta)$.
+\end{teorem}
+
+\begin{proof}
+Bağımsız gözlemlerden skor toplamı: $\ell_n'(\theta)=\sum_{i=1}^n\partial\log f(X_i;\theta)/\partial\theta$. $\Var(\ell_n')=n\Var(\partial\log f/\partial\theta)=n\mathcal{I}(\theta)$.
+\end{proof}
+
+\begin{teorem}[Çok parametreli Cramér-Rao]\label{thm:cr_cok}
+$\theta\in\mathbb{R}^p$, Fisher bilgi matrisi $\mathbf{I}(\theta)=[I_{jk}]$ ile $I_{jk}=\Beklenti[-\partial^2\log f/\partial\theta_j\partial\theta_k]$. Her yansız $W$:
+\[
+  \Cov_\theta(W) \succeq \mathbf{I}(\theta)^{-1}
+\]
+(matris sıralaması anlamında).
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+Tek boyutlu Cauchy-Schwarz'ın matris versiyonu. $\Cov(W,\ell'(\theta))=I_p$ (normal denklem); Cauchy-Schwarz: $\Cov(W)\cdot\Cov(\ell')\succeq[\Cov(W,\ell')]^2$. $\Cov(\ell')=\mathbf{I}(\theta)$.
+\end{proof}
+
+\begin{ornek}[Normal Fisher bilgi matrisi]\label{ex:normal_fisher}
+$X\sim\Normal(\mu,\sigma^2)$, $\theta=(\mu,\sigma^2)$. $\log f = -\frac12\log\sigma^2 - \frac{(x-\mu)^2}{2\sigma^2}+$sabit. Fisher matrisi:
+\[
+  \mathbf{I}(\theta) = \begin{pmatrix}1/\sigma^2 & 0 \\ 0 & 1/(2\sigma^4)\end{pmatrix}.
+\]
+Cramér-Rao: $\Var(\hat\mu)\geq\sigma^2/n$, $\Var(\hat\sigma^2)\geq2\sigma^4/n$ --- yansız MLE her ikisini sağlar.
+\end{ornek}
+
+%% ============================================================
+\section{Tahmin Teorisinde Kayıp Fonksiyonları ve Risk}
+\label{sec:kayip_risk}
+%% ============================================================
+
+\begin{kesif}
+Bir tahmin edici ne zaman \emph{iyi}dir? Yansızlık tek ölçüt değildir. Karar teorisi, bir \emph{kayıp fonksiyonu} $L(\theta,d)$ aracılığıyla tahmin hatasının maliyetini sayısallaştırır.
+\kesifcevap{Risk: $R(\theta,d)=E_\theta[L(\theta,d(X))]$.
+  Kabul edilebilirlik: $d$'yi tüm $\theta$'da dominate eden $d'$ yoktur.
+  Bayes risk minimizasyonu genellikle kabul edilebilir tahmin ediciler üretir.
+  Stein paradoksu: $n\geq 3$'te $\bar{X}$ kare kayıpta kabul edilemezdir.}
+\end{kesif}
+
+\begin{tanim}[Kayıp fonksiyonu ve risk]\label{def:kayip_risk}
+$\theta\in\Theta$ parametre, $d\in\mathcal{D}$ karar (tahmin). \emph{Kayıp fonksiyonu} $L:\Theta\times\mathcal{D}\to[0,\infty)$ hata maliyetini ölçer. Bir tahmin edici $\delta(X)$'in \emph{riski}:
+\[
+  R(\theta,\delta) = \Beklenti_\theta[L(\theta,\delta(X))].
+\]
+\end{tanim}
+
+\begin{ornek}[Yaygın kayıp fonksiyonları]\label{ex:kayip_ornekleri}
+\begin{enumerate}
+  \item \textbf{Karesel kayıp} (\emph{squared error loss}): $L(\theta,d)=(\theta-d)^2$; risk = MSE $= \Var(\delta)+\text{bias}^2$.
+  \item \textbf{Mutlak kayıp} (\emph{absolute error loss}): $L(\theta,d)=|\theta-d|$; optimal tahmin edici posterior medyanıdır.
+  \item \textbf{0-1 kayıp}: $L(\theta,d)=\mathbf{1}[\theta\neq d]$; kesikli parametrelerde sık kullanılır; optimal tahmin edici moddur.
+  \item \textbf{LINEX kayıp} (\emph{linear-exponential}): $L(\theta,d)=e^{a(\theta-d)}-a(\theta-d)-1$; asimetrik maliyet durumlarında.
+\end{enumerate}
+\end{ornek}
+
+\begin{tanim}[MSE ayrışımı]\label{def:mse_ayrisim}
+Karesel kayıp altında
+\[
+  \mathrm{MSE}(\delta) = \Beklenti_\theta[(\delta(X)-\theta)^2]
+  = \Var_\theta(\delta(X)) + [\mathrm{bias}_\theta(\delta)]^2.
+\]
+\end{tanim}
+
+\begin{teorem}[Yanlı-varyans dengesi]\label{thm:yanlı_varyans}
+Küçük varyans ile küçük yanlılık aynı anda elde edilemeyebilir. MLE, $\hat\sigma^2_{\mathrm{MLE}}=\frac{1}{n}\sum(X_i-\bar X)^2$ örneğinde yanlı ama $\frac{n}{n-1}$ ile düzeltilince ($S^2$) varyans artar: $\mathrm{MSE}(\hat\sigma^2_{\mathrm{MLE}})<\mathrm{MSE}(S^2)$ tüm $n$ için.
+\end{teorem}
+
+\begin{proof}
+$\Beklenti[\hat\sigma^2_{\mathrm{MLE}}]=\frac{n-1}{n}\sigma^2$ (yanlı), $\Var(\hat\sigma^2_{\mathrm{MLE}})=\frac{2(n-1)\sigma^4}{n^2}$.
+$\mathrm{MSE}(\hat\sigma^2_{\mathrm{MLE}})=\frac{2(n-1)\sigma^4}{n^2}+\frac{\sigma^4}{n^2}=\frac{(2n-1)\sigma^4}{n^2}$.
+$\mathrm{MSE}(S^2)=\Var(S^2)=\frac{2\sigma^4}{n-1}$.
+$\frac{2n-1}{n^2}<\frac{2}{n-1}$ eşdeğerliği $(2n-1)(n-1)<2n^2$, yani $2n^2-3n+1<2n^2$, yani $-3n+1<0$: $n\geq1$ için doğru.
+\end{proof}
+
+\begin{hataanalizi}
+"Yansız tahmin edici her zaman daha iyidir" yanlıştır. MSE kriteri altında küçük yanlılık + küçük varyans ikilisi, büyük varyans + sıfır yanlılıktan üstün olabilir. Özellikle regresyon ve Lasso gibi yöntemler bilinçli yanlılık ekleyerek MSE'yi düşürür.
+\end{hataanalizi}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Makine Öğrenmesi:} Ridge regresyon ve Lasso, yanlı tahmin edicilerdir; ancak yüksek boyutlu ortamda MSE'yi sıfır yanlılıklı OLS'den düşük tutar. Varyans-yanlılık dengesi ("bias-variance tradeoff") derin öğrenme optimizasyonunun temel kavramlarından biridir.
+
+\textbf{Ekonometri:} LINEX kayıp, döviz kuru tahmininde asimetrik hata maliyetini modellemek için kullanılır: aşırı tahmin ile eksik tahminin maliyetleri farklıdır.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{MLE'nin Varlığı, Tekliği ve Düzenlilik Koşulları}
+\label{sec:mle_duzenlilk}
+%% ============================================================
+
+\begin{motivasyon}[MLE her zaman var mı?]
+MLE'nin skor denklemi $\ell_n'(\theta)=0$'ın çözümü her zaman mevcut olmayabilir ya da birden fazla olabilir. Bu bölüm MLE'nin varlık ve teklik koşullarını inceler.
+\end{motivasyon}
+
+\begin{tanim}[Düzenlilik koşulları (Cramér)]\label{def:duzenlilik}
+Aşağıdaki koşullar \emph{Cramér düzenlilik koşulları} olarak adlandırılır:
+\begin{enumerate}
+  \item[(R1)] Destek $\{x:f(x;\theta)>0\}$, $\theta$'ya bağlı değil.
+  \item[(R2)] $\log f(x;\theta)$ ikinci kez türevlenebilir; türevler integrasyon sırası ile değiştirilebilir.
+  \item[(R3)] Fisher bilgisi $0<\mathcal{I}(\theta)<\infty$.
+  \item[(R4)] Skor fonksiyonu $\ell_n'(\theta)=0$'ın $\hat\theta_n$ tek çözümü vardır ve bu \emph{global maksimum}dur.
+\end{enumerate}
+\end{tanim}
+
+\begin{teorem}[MLE tekliği --- üstel aile]\label{thm:mle_teklik}
+$\{f(x;\theta):\theta\in\Theta\}$ tam düzenli üstel aile olsun. O zaman $\hat\theta_n^{\mathrm{MLE}}$ her $n$ için vardır, tektir ve Rao-Blackwell'e göre UMVUE ile çakışır.
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+Tam düzenli üstel ailede $\ell_n(\theta)=n\bar T\cdot\eta(\theta)-nA(\eta(\theta))$ (doğal parametreli). $A(\eta)$ (log-normalizing constant) $\eta$'da kesinlikle dışbükeydir: $A''(\eta)=\Var(T)>0$. Bu nedenle $\ell_n(\eta)$ kesinlikle içbükeydir ve skor denkleminin tek çözümü vardır. Yeterlilik + tamlık + Lehmann-Scheffé $\Rightarrow$ bu tahmin edici UMVUE'dir.
+\end{proof}
+
+\begin{ornek}[Üstel ailede MLE]\label{ex:ustel_mle}
+\begin{enumerate}
+  \item $X_i\iid\Binom(m,p)$: $\hat p_n=\bar X/m$ --- tek çözüm, UMVUE.
+  \item $X_i\iid\Pois(\lambda)$: $\hat\lambda_n=\bar X$ --- tek çözüm, UMVUE.
+  \item $X_i\iid\Normal(\mu,\sigma^2)$ ($\sigma^2$ bilinmiyor): $(\hat\mu_n,\hat\sigma^2_n)=(\bar X,\frac1n\sum(X_i-\bar X)^2)$ --- $\mu$ için UMVUE ama $\sigma^2$ için yanlı.
+\end{enumerate}
+\end{ornek}
+
+\begin{kritiksorgu}
+Düzenlilik koşulları (R1) ihlal edilirse MLE ne olur? Örnek: $X_i\iid\Uniform(0,\theta)$. Destek $\theta$'ya bağlı olduğundan skor denklemi anlamsız olur; MLE $\hat\theta_n=X_{(n)}$ (maksimum) ama normal teori geçerli değildir ve $n(\theta-X_{(n)})\dto\Exp(1/\theta)$ (üstel yakınsama).
+\end{kritiksorgu}
+
+\begin{ispatiskele}
+\textbf{İspat taslağı: MLE tekliği --- üstel aile}
+\begin{enumerate}
+  \item $f(x;\theta)$'yı doğal parametreli üstel aile biçiminde yaz.
+  \item Log-olabilirlik $\ell_n(\eta)$'nun içbükeyliğini $A''(\eta)=\Var_\eta(T)>0$ ile göster.
+  \item Kesinlikle içbükey fonksiyonun en çok bir stasyoner noktası olduğunu belirt.
+  \item Bu stasyoner noktanın global maksimum olduğunu sonuçlandır.
+\end{enumerate}
+\end{ispatiskele}
+
+%% ============================================================
+\section{Semiparametrik Etkinlik ve Etkili Skor}
+\label{sec:semiparametrik}
+%% ============================================================
+
+Klasik CR alt sınırı, tam parametrik model varsayar. Semiparametrik istatistikte modelin bir kısmı bilinsiz bırakılır; bu durumda CR sınırı genişler.
+
+\begin{tanim}[Etkili skor]\label{def:etkili_skor}
+Parametrik model $\{p_{\theta,\eta}:\theta\in\mathbb{R},\,\eta\in\mathcal{H}\}$; $\theta$ ilgi parametresi, $\eta$ bozulma parametresi (sonsuz boyutlu olabilir). Etkili skor $\tilde\ell_\theta = \ell_\theta - \Pi(\ell_\theta|\mathcal{T})$; burada $\Pi$ projeksiyon $\ell_\eta$'nın oluşturduğu $\mathcal{T}$ uzayına.
+\end{tanim}
+
+\begin{teorem}[Semiparametrik CR alt sınırı]\label{thm:semi_cr}
+$\tilde I(\theta)=E[\tilde\ell_\theta^2]$ etkili Fisher bilgisi. $\theta$'nın yansız tahmincisi için:
+\[
+  \Var(\hat\theta) \geq \frac{1}{n\tilde I(\theta)}.
+\]
+$\tilde I(\theta)\leq I(\theta)$: semiparametrik sınır, parametrik sınırdan daha zayıf (daha geniş).
+\end{teorem}
+
+\begin{ornek}[Konum-ölçek modeli]\label{ex:konum_olcek}
+$X_i=\theta+\sigma\varepsilon_i$ ($\varepsilon_i$ bilinmeyen, simetrik yoğunluklu). Konum $\theta$ için etkili skor hesaplanır: $\tilde\ell_\theta=-f'(x-\theta)/f(x-\theta)$ (skor orijini). Kapalı form: $\tilde I(\theta)=\int[f'(x)/f(x)]^2f(x)dx$ --- bu tam olarak $f$ biliniyorsa parametrik bilgidir. Bilinmiyorsa $\tilde I<I$ --- belirsizlik kaybı.
+\end{ornek}
+
+\subsection{Adaptif Tahmin}
+
+\begin{tanim}[Adaptif tahmin edici]\label{def:adaptif}
+$\hat\theta_n$ adaptiftir (\emph{adaptive}): $\sqrt{n}(\hat\theta_n-\theta)\xrightarrow{d}\Normal(0,1/I(\theta))$ --- yani bozulma parametresi bilinmeseydi de aynı sınıra ulaşılır.
+\end{tanim}
+
+Stein (1956): simetrik yoğunluklar için adaptif tahmin edici mevcuttur. Bickel (1982): konum ailesi için kaçınılmaz koşullar.
+
+\begin{teorem}[Adaptivite koşulu]\label{thm:adaptivite}
+$f$ simetrik ve iki kez türevlenebilir olsun. Konum parametresi için adaptif tahmin edici mevcuttur $\iff$ $f$ belirli düzgünlük koşullarını sağlar (tipik olarak: $f\in C^2$, kuyruğun davranışı düzenli).
+\end{teorem}
+
+\noindent Bu, semiparametrik teorinin en çarpıcı sonuçlarından biridir: bilinmeyen hata dağılımı, asimptotik olarak hiçbir kayba yol açmaz.
+
+%% ============================================================
+
+\begin{mikroozet}
+\begin{itemize}
+  \item Yansızlık + minimum varyans = UMVUE; Cramér-Rao alt sınırı ulaşılabilir sınır koyar.
+  \item Yeterli + tamamlayıcı $\Rightarrow$ Rao-Blackwell + Lehmann-Scheffé $\Rightarrow$ UMVUE.
+  \item MLE: kolay hesap, invaryant, tutarlı, asimptotik verimli; ama yanlı olabilir.
+  \item Bayes: önsel + olabilirlik $\to$ sonsal; konjugat önsel analitik çözüm verir; güvenilir aralık Bayesçi belirsizlik ölçüsü.
+  \item Minimax: worst-case optimal; Stein paradoksu $p\geq3$'te yansız MLE'nin kabul edilemez olduğunu gösterir.
+  \item Kayıp fonksiyonu + risk: MSE = varyans + yanlılık$^2$; yanlı tahmin edici daha düşük MSE verebilir.
+  \item Üstel ailede MLE tekdir ve UMVUE ile çakışır; düzenlilik koşulları ihlalinde MLE farklı davranır.
+\end{itemize}
+\end{mikroozet}
+
+\begin{ozyansima}
+Hangi durumlarda MLE, UMVUE ile çakışır? Üstel ailede bu her zaman geçerli mi? Momentler yöntemi neden büyük örneklemlerde MLE'ye yakınsar?
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Nereden geldik:} Bölüm~\ref{chp:istatistik_temelleri}'deki yeterli istatistik, Rao-Blackwell argümanının temelidir.
+
+\textbf{Nereye gidiyoruz:} Bölüm~\ref{chp:guven_araliklari}'da nokta tahminini aralık tahminine dönüştüreceğiz; buradaki Fisher bilgisi ve asimptotik normallik, Wald güven aralığı için doğrudan kullanılacak.
+\end{kopru}
+
+%% ============================================================
+%% ALISTIRMALAR
+%% ============================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.12.1]{A}{Fisher bilgisi --- Bernoulli}
+$X\sim\mathrm{Ber}(p)$ için Fisher bilgisini hesapla ve Cramér-Rao alt sınırını yaz. $\bar{X}_n$'nin bu sınırı sağladığını doğrula.
+\end{alistirma}
+\alcozum{%
+$\log f(x;p) = x\log p+(1-x)\log(1-p)$; $\partial^2/\partial p^2 = -x/p^2-(1-x)/(1-p)^2$. Beklenti $-1/(p(1-p))$; dolayısıyla $\mathcal{I}(p)=1/(p(1-p))$. Alt sınır $p(1-p)/n = \Var(\bar{X}_n)$. Eşitlik sağlanır.%
+}
+
+\begin{alistirma}[Al.12.2]{B}{Eksponansiyel UMVUE}
+$X_1,\ldots,X_n\iid\Exp(\lambda)$ ($\Beklenti[X]=1/\lambda$). $T=\sum X_i$ tamamlayıcı yeterli. $g(T)=n/T$'nin yansız olduğunu göster ve UMVUE olduğunu belirt. \textit{(İpucu: $T\sim\Gama(n,1/\lambda)$.)}
+\end{alistirma}
+\alcozum{%
+$\Beklenti[n/T]=n\cdot\Beklenti[1/T]$. $T\sim\Gama(n,1/\lambda)$; $\Beklenti[1/T]=(n-1)^{-1}\cdot\lambda$ ($n>1$ için, negatif moment formülü). Bekle: $\Beklenti[T^{-1}]=\lambda/(n-1)$. O zaman $\Beklenti[n/T]=n\lambda/(n-1)\neq\lambda$. Düzeltme: yansız olan $\hat\lambda=(n-1)/T$. Bu $T$'nin fonksiyonu ve yansız, dolayısıyla UMVUE.%
+}
+
+\begin{alistirma}[Al.12.2b]{B}{Rao-Blackwell Adımı: Poisson}
+$X_1,\ldots,X_n\iid\Pois(\lambda)$. $\delta(X_1)=\mathbf{1}[X_1=0]=e^{-\lambda}$'nın yansız tahmincisi. $T=\sum X_i$ yeterli. (a) $\delta_{\mathrm{RB}}(T)=E[\delta(X_1)|T=t]$'yi hesapla. (b) Bu tahmin edici neden $\delta(X_1)$'den daha iyidir?
+\end{alistirma}
+\alcozum{%
+(a) $E[\mathbf{1}[X_1=0]|T=t]=P(X_1=0|T=t)$. $T=t$ koşulunda $X_1\sim\Binom(t,1/n)$ (Poisson birleşimi ayrışımı):
+$P(X_1=0|T=t)=(1-1/n)^t$.
+$\delta_\mathrm{RB}(T)=(1-1/n)^T$ --- UMVUE (tamamlayıcı yeterli $T$'nin fonksiyonu, yansız).
+(b) Rao-Blackwell: $\mathrm{Var}(\delta_\mathrm{RB})\leq\mathrm{Var}(\delta)$. $\delta(X_1)$ sadece $X_1$ kullanırken $\delta_\mathrm{RB}$ tüm $T$'yi kullanır.}
+
+\begin{alistirma}[Al.12.2c]{B}{MSE Karşılaştırması: MLE vs Yansız}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$. (a) $\hat\sigma^2_{\mathrm{MLE}}=\frac{1}{n}\sum(X_i-\bar X)^2$'nin MSE'sini hesapla. (b) $S^2=\frac{1}{n-1}\sum(X_i-\bar X)^2$'nin MSE'sini hesapla. (c) Hangisi daha küçük MSE'ye sahip?
+\end{alistirma}
+\alcozum{%
+$(n-1)S^2/\sigma^2\sim\chi^2_{n-1}$: $E[S^2]=\sigma^2$, $\Var(S^2)=2\sigma^4/(n-1)$.
+(a) $\hat\sigma^2_\mathrm{MLE}=\frac{n-1}{n}S^2$: $E[\hat\sigma^2_\mathrm{MLE}]=\frac{n-1}{n}\sigma^2$ (yanlı). $\mathrm{MSE}(\hat\sigma^2_\mathrm{MLE})=\Var+\mathrm{bias}^2=\frac{(n-1)^2}{n^2}\cdot\frac{2\sigma^4}{n-1}+\frac{\sigma^4}{n^2}=\frac{(2n-1)\sigma^4}{n^2}$.
+(b) $\mathrm{MSE}(S^2)=\Var(S^2)=\frac{2\sigma^4}{n-1}$.
+(c) $\frac{2n-1}{n^2}<\frac{2}{n-1}$: her $n\geq1$ için $\hat\sigma^2_\mathrm{MLE}$ daha küçük MSE'ye sahip.}
+
+
+\begin{alistirma}[Al.12.3]{A}{Momentler --- Beta}
+$X\sim\Beta(\alpha,\beta)$ için momentler yöntemi tahmin edicilerini $\bar{X}_n$ ve $S^2$ cinsinden yaz.
+\end{alistirma}
+\alcozum{%
+$\mu=\alpha/(\alpha+\beta)$, $\sigma^2=\alpha\beta/[(\alpha+\beta)^2(\alpha+\beta+1)]$. Çöz: $\hat\alpha=\bar{X}[\bar{X}(1-\bar{X})/S^2-1]$, $\hat\beta=(1-\bar{X})[\bar{X}(1-\bar{X})/S^2-1]$.%
+}
+\begin{alistirma}[Al.12.4]{B}{Poisson UMVUE --- $e^{-\lambda}$}
+$X_1,\ldots,X_n\iid\Pois(\lambda)$. $\Prob(X=0)=e^{-\lambda}$'nın UMVUE'sünün $g(T)=\left(\frac{n-1}{n}\right)^T$ ($T=\sum X_i$) olduğunu göster. \textit{(İpucu: $\Beklenti[g(T)]$ hesapla.)}
+\end{alistirma}
+\alcozum{%
+$T\sim\Pois(n\lambda)$; $\Beklenti[(1-1/n)^T]=\sum_{t=0}^\infty(1-1/n)^t e^{-n\lambda}(n\lambda)^t/t! = e^{-n\lambda}\exp(n\lambda(1-1/n))=e^{-n\lambda}\cdot e^{(n-1)\lambda}=e^{-\lambda}$. Dolayısıyla yansız; $T$ tamamlayıcı yeterli ve $g(T)$ fonksiyonu, dolayısıyla UMVUE.%
+}
+\alistirmalar
+
+
+
+\begin{alistirma}[Al.12.5]{B}{Normal-Normal Bayes}
+$X_1,\ldots,X_n\mid\mu\iid\Normal(\mu,4)$ ve $\mu\sim\Normal(0,1)$. $n=9$, $\bar{x}=2$ gözlemi için sonsal dağılımı ve Bayes tahmin edicisini hesapla. $n\to\infty$ limitini yorumla.
+\end{alistirma}
+\alcozum{%
+$1/\sigma_n^2=9/4+1/1=13/4$; $\sigma_n^2=4/13$. $\mu_n=(4/13)(9\cdot2/4+0/1)=(4/13)(9/2)=18/13\approx1{,}38$. $n\to\infty$: $\sigma_n^2\to0$, $\mu_n\to\bar{X}_n$ --- MLE baskın gelir.%
+}
+
+\begin{alistirma}[Al.12.6]{C}{Cramér-Rao sınırına ulaşma koşulu}
+Bir yansız tahmin edicinin Cramér-Rao sınırına ulaşmasının, skor fonksiyonunun $W$'nin doğrusal fonksiyonu olmasıyla eşdeğer olduğunu göster.
+\end{alistirma}
+\alcozum{%
+Cauchy-Schwarz'da $[\Cov(W,U)]^2=\Var(W)\Var(U)$ eşitliği ancak $W=aU+b$ (neredeyse kesin) ile sağlanır. Dolayısıyla $\partial\log f(\mathbf{x};\theta)/\partial\theta = c(\theta)(W-\theta)$ olmalı; yani $f(\mathbf{x};\theta)=h(\mathbf{x})\exp[A(\theta)W(\mathbf{x})+B(\theta)]$ üstel aile biçiminde.%
+}
+
+\begin{alistirma}[Al.12.7]{C}{Düzgün dağılımda MLE ve yansızlık}
+$X_1,\ldots,X_n\iid\Uniform[0,\theta]$. MLE'nin $X_{(n)}$ olduğunu göster, yanlılığını hesapla ve yansız tahmin ediciyi türet.
+\end{alistirma}
+\alcozum{%
+$L(\theta)=\theta^{-n}$ ($\theta\geq X_{(n)}$) azalıyor; dolayısıyla $\MLE\theta=X_{(n)}$. $F_{X_{(n)}}(t)=(t/\theta)^n$; $\Beklenti[X_{(n)}]=n\theta/(n+1)$. Yanlılık $-\theta/(n+1)<0$. Yansız: $W=\frac{n+1}{n}X_{(n)}$.%
+}
+
+\begin{alistirma}[Al.12.8]{C}{OKH karşılaştırması}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$. $\hat\sigma^2=\frac{1}{n}\sum(X_i-\bar{X})^2$ (yanlı) ve $S^2=\frac{1}{n-1}\sum(X_i-\bar{X})^2$ (yansız) OKH'larını karşılaştır. Hangi tahmin edici her $n$ için daha küçük OKH'a sahip?
+\end{alistirma}
+\alcozum{%
+$\hat\sigma^2=\frac{n-1}{n}S^2$. $S^2$'nin dağılımı $\sigma^2\chi^2_{n-1}/(n-1)$; $\Var(S^2)=2\sigma^4/(n-1)$. $\mathrm{OKH}(\hat\sigma^2)=\Var(\hat\sigma^2)+[\mathrm{Yanlılık}]^2=\frac{(n-1)^2}{n^2}\frac{2\sigma^4}{n-1}+\frac{\sigma^4}{n^2}=\frac{(2n-1)\sigma^4}{n^2}$. $\mathrm{OKH}(S^2)=\Var(S^2)=\frac{2\sigma^4}{n-1}$. Karşılaştır: $\frac{2n-1}{n^2}$ vs $\frac{2}{n-1}$. İlki her $n\geq2$ için daha küçük. Dolayısıyla yanlı $\hat\sigma^2$ daha küçük OKH'a sahip.%
+}
+
+\begin{alistirma}[Al.12.9]{B}{Çok parametreli Fisher bilgisi}
+$X\sim\Normal(\mu,\sigma^2)$ (her ikisi bilinmiyor). (a) Fisher bilgi matrisini hesapla. (b) $\mu$ için Cramér-Rao alt sınırını yaz. (c) $\sigma^2$ için yansız tahmin edici Cramér-Rao sınırına ulaşıyor mu?
+\end{alistirma}
+\alcozum{%
+(a) $\mathbf{I}(\mu,\sigma^2)=\begin{pmatrix}1/\sigma^2&0\\0&1/(2\sigma^4)\end{pmatrix}$ (köşegen: $\mu,\sigma^2$ bilgi ayrışır). (b) $\Var(\hat\mu)\geq\sigma^2/n$. (c) $S^2$'nin varyansı $2\sigma^4/(n-1)$; Cramér-Rao sınırı $2\sigma^4/n$. $2/(n-1)>2/n$: sınıra ulaşılmaz. Sadece Normal$(\mu,\sigma^2$ bilinmez) için MLE $\hat\sigma^2_{\mathrm{MLE}}=\hat\sigma^2$ (yanlı) daha küçük varyansa sahip ama yanlı.%
+}
+
+\begin{alistirma}[Al.12.10]{C}{James-Stein tahmini}
+$p=3$, $\mathbf{X}\sim\Normal_3(\boldsymbol\mu,I_3)$, $\mathbf{x}=(2,1,0)$ gözlendi. (a) $\|\mathbf{x}\|^2$'yi hesapla. (b) James-Stein tahmini $\hat{\boldsymbol\mu}^{JS}$'yi hesapla. (c) OKH farkı ne kadar?
+\end{alistirma}
+\alcozum{%
+(a) $\|\mathbf{x}\|^2=4+1+0=5$. (b) $c=1-(p-2)/\|\mathbf{x}\|^2=1-1/5=0.8$. $\hat{\boldsymbol\mu}^{JS}=0.8\cdot(2,1,0)=(1.6,0.8,0)$. (c) OKH$(\mathbf{X})=p=3$. OKH$(JS)=p-(p-2)^2E[1/\|\mathbf{X}\|^2]<3$. OKH kazancı: $(p-2)^2/\|\mathbf{x}\|^2\approx1/5=0.2$ mertebesinde (bu sadece bireysel veri için tahmin; gerçek kazanç beklenti üzerinden hesaplanır).%
+}

@@ -1,0 +1,932 @@
+% =====================================================================
+%  BÖLÜM 7: Büyük Sayılar Kanunları
+%  Kaynak: Feller Vol.I-II; Billingsley; Durrett; Klenke
+% =====================================================================
+\chapter{Büyük Sayılar Kanunları}
+\label{chp:buyuk_sayilar}
+
+\bolumalinti{%
+  Büyük sayılar kanunu olasılığın en derin gerçeğidir:\\
+  belirsizlik çoğunlukla sönümlenir.%
+}{Richard Durrett, \textit{Probability: Theory and Examples}}
+
+% ---- Kazanımlar (TYMM) ----
+\begin{kazanimlar}
+Bu bölümün sonunda öğrenci:
+\begin{itemize}
+  \item Neredeyse kesin, olasılıkla, dağılımla ve $L^p$ yakınsamalarını tanımlayabilir;
+        aralarındaki hiyerarşik ilişkileri ispatlayabilir.
+  \item Borel-Cantelli lemmalarını (her ikisini) ispatlayabilir ve uygulayabilir.
+  \item Zayıf Büyük Sayılar Kanunu'nu (ZBSK) Chebyshev yöntemiyle ispatlayabilir;
+        Helly seçim teoremi ile genel versiyonunu açıklayabilir.
+  \item Güçlü Büyük Sayılar Kanunu'nu (GBSK) Kolmogorov yaklaşımıyla ispatlayabilir.
+  \item Kolmogorov'un 0-1 Kanunu'nu ifade edip ispatlayabilir;
+        "erillik" ve olasılık-0 veya 1 sonuçlarını tanıyabilir.
+  \item Büyük sapma üst sınırlarını (Chernoff sınırı) türetebilir ve uygulayabilir.
+\end{itemize}
+\end{kazanimlar}
+
+% ---- Motivasyon ----
+\begin{motivasyon}
+Bir para atışında yazı gelme oranı $n$ büyüdükçe $1/2$'ye yaklaşır --- bu sezgi,
+matematiksel olarak tam olarak ne anlama gelir? "Yaklaşmak" birden fazla biçimde
+tanımlanabilir: \emph{her} örnek yolu için mi, yoksa çoğunlukla mı?
+
+Büyük Sayılar Kanunları bu soruyu yanıtlar. Zayıf versiyon (ZBSK) olasılıkla
+yakınsamayı, güçlü versiyon (GBSK) ise neredeyse kesin yakınsamayı garantiler.
+Aradaki fark ince ama derin: GBSK, "uzun vadede ortalama gerçek beklentiye eşit
+olur" ifadesinin en kesin matematiksel anlatımıdır.
+
+\medskip
+\textbf{Köprü.} Bölüm~\ref{chp:beklenti}'deki Chebyshev eşitsizliği ZBSK'nın
+kalbi; Bölüm~\ref{chp:olcum_teorisi}'deki Monoton Yakınsama Teoremi GBSK'nın
+temelidir. Bölüm~\ref{chp:merkezi_limit}'te yakınsama \emph{hızı} araştırılacak.
+\end{motivasyon}
+
+% =====================================================================
+\section{Yakınsama Türleri}
+\label{sec:yaklinsama_turleri}
+% =====================================================================
+
+\begin{motivasyon}[Neden Birden Fazla Yakınsama Türü?]
+$X_n \to X$ demek nedir? Dizinin her terimi bir rasgele değişken.
+Analiz derslerinin "nokta yakınsaması" (her $\omega$ için) çok kuvvetli;
+"düzgün yakınsama" daha da kuvvetli. Olasılık teorisi bu ikisinin yanı sıra
+daha zayıf ama yeterince güçlü iki kavram sunar: olasılıkla ve dağılımla yakınsama.
+\end{motivasyon}
+
+\begin{tanim}[Neredeyse Kesin Yakınsama]
+\label{def:nk_yaklinsama}
+$\{X_n\}$ rasgele değişkenler dizisi. $X_n \xrightarrow{\text{n.k.}} X$
+(\textbf{neredeyse kesin yakınsama}, almost sure convergence) denir, eğer
+\[
+  P\!\left(\left\{\omega : \lim_{n\to\infty} X_n(\omega) = X(\omega)\right\}\right) = 1.
+\]
+Eşdeğer: $P(|X_n - X| > \varepsilon \text{ sonsuz çok } n \text{ için}) = 0$ her $\varepsilon > 0$'da.
+\end{tanim}
+
+\begin{tanim}[Olasılıkla Yakınsama]
+\label{def:p_yaklinsama}
+$X_n \xrightarrow{P} X$ (\textbf{olasılıkla yakınsama}, convergence in probability) denir, eğer
+her $\varepsilon > 0$ için
+\[
+  \lim_{n\to\infty} P(|X_n - X| > \varepsilon) = 0.
+\]
+\end{tanim}
+
+\begin{tanim}[Dağılımla Yakınsama]
+\label{def:d_yaklinsama}
+$X_n \xrightarrow{d} X$ (\textbf{dağılımla yakınsama}, convergence in distribution) denir, eğer
+$F_X$ sürekli olan her $x$'te
+\[
+  \lim_{n\to\infty} F_{X_n}(x) = F_X(x).
+\]
+\end{tanim}
+
+\begin{tanim}[$L^p$ Yakınsaması]
+\label{def:lp_yaklinsama}
+$p \geq 1$ ve $E[|X_n|^p], E[|X|^p] < \infty$ ise $X_n \xrightarrow{L^p} X$ denir, eğer
+\[
+  \lim_{n\to\infty} E[|X_n - X|^p] = 0.
+\]
+\end{tanim}
+
+% =====================================================================
+\section{Yakınsama Türleri Arasındaki İlişkiler}
+\label{sec:yaklinsama_iliskileri}
+% =====================================================================
+
+\begin{teorem}[Yakınsama Hiyerarşisi]
+\label{thm:yaklinsama_hiyerarsi}
+Aşağıdaki çıkarımlar geçerlidir:
+\[
+  X_n \xrightarrow{\text{n.k.}} X \;\Rightarrow\; X_n \xrightarrow{P} X \;\Rightarrow\; X_n \xrightarrow{d} X,
+\]
+\[
+  X_n \xrightarrow{L^p} X \;\Rightarrow\; X_n \xrightarrow{P} X.
+\]
+Hiçbir ok ters yönde genel olarak geçerli değildir.
+\end{teorem}
+
+\begin{proof}
+\textbf{n.k.\ $\Rightarrow$ P:} Sabit $\varepsilon > 0$ için
+$\limsup_n \{|X_n - X| > \varepsilon\} \subseteq \{\omega : X_n(\omega) \not\to X(\omega)\}$.
+n.k.\ yakınsama: sağ tarafın olasılığı sıfır. Ölçünün monotonluğu:
+$P(|X_n-X| > \varepsilon) \leq P(\bigcup_{k\geq n}\{|X_k-X|>\varepsilon\})$,
+bu da $n\to\infty$'da sıfıra gider (azalan olaylar dizisi, Bölüm~\ref{chp:olcum_teorisi}).
+
+\textbf{P $\Rightarrow$ d:} $\varepsilon > 0$ ve $x$ süreklilik noktası alınız.
+$F_{X_n}(x) = P(X_n \leq x) \leq P(X \leq x+\varepsilon) + P(|X_n - X| > \varepsilon)$.
+$n\to\infty$: $\limsup F_{X_n}(x) \leq F_X(x+\varepsilon)$.
+Benzer şekilde alt sınır kurulur; $\varepsilon\to 0$ ile $F_{X_n}(x) \to F_X(x)$.
+
+\textbf{$L^p$ $\Rightarrow$ P:} Markov ($|X_n-X|^p \geq \varepsilon^p \mathbf{1}_{|X_n-X|>\varepsilon}$):
+$P(|X_n-X|>\varepsilon) \leq E[|X_n-X|^p]/\varepsilon^p \to 0$.
+\end{proof}
+
+\begin{karsiornek}[Okların Terslenmediğine Örnekler]
+\label{ex:yaklinsama_karsiornek}
+
+\textbf{P $\not\Rightarrow$ n.k.:} $\Omega = [0,1]$, $P = \lambda$. "Gezgin blok":
+$X_n = \mathbf{1}_{[(k-1)/m, k/m]}$ ($n = m(m-1)/2 + k$, $1 \leq k \leq m$).
+$P(|X_n| > 0) = 1/m \to 0$ ama her $\omega$ için sonsuz çok $n$'de $X_n(\omega) = 1$.
+
+\textbf{d $\not\Rightarrow$ P:} $X_n \equiv X \sim \Normal(0,1)$ ama $Y = -X \sim \Normal(0,1)$.
+$X_n \xrightarrow{d} Y$ ama $X_n - Y = 2X$ sıfıra olasılıkla yakınsamaz.
+\end{karsiornek}
+
+\begin{teorem}[Slutsky Teoremi]
+\label{thm:slutsky}
+$X_n \xrightarrow{d} X$ ve $Y_n \xrightarrow{P} c$ (sabit) ise:
+\begin{enumerate}[(i)]
+  \item $X_n + Y_n \xrightarrow{d} X + c$,
+  \item $X_n Y_n \xrightarrow{d} cX$,
+  \item $X_n / Y_n \xrightarrow{d} X/c$ ($c \neq 0$).
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textit{(i):} $P(X_n + Y_n \leq x) \leq P(X_n \leq x - c + \varepsilon) + P(|Y_n - c| > \varepsilon)$.
+$n\to\infty$: $\limsup \leq F_X(x-c+\varepsilon)$; $\varepsilon\to 0$: $F_{X+c}(x)$.
+Alt sınır benzer şekilde; eşitlik sağlanır.
+\end{proof}
+
+\begin{teorem}[Sürekli Haritalama Teoremi]
+\label{thm:surekli_haritalama}
+$g : \mathbb{R} \to \mathbb{R}$ sürekli ve $X_n \xrightarrow{d} X$ (veya $\xrightarrow{P}$ veya $\xrightarrow{\text{n.k.}}$)
+ise $g(X_n) \xrightarrow{d} g(X)$ (veya $\xrightarrow{P}$, $\xrightarrow{\text{n.k.}}$ sırasıyla).
+\end{teorem}
+
+\begin{proof}
+n.k.\ durumu: $X_n(\omega) \to X(\omega)$ ve $g$ sürekli $\Rightarrow$ $g(X_n(\omega)) \to g(X(\omega))$
+($P = 1$ kümesi üzerinde).
+Dağılımla yakınsama için Portmanteau teoremi kullanılır (ayrıntı: Billingsley~\cite{Billingsley1995}).
+\end{proof}
+
+\begin{mikroozet}
+Kuvvetli sıralaması: n.k.\ $\Rightarrow$ P $\Rightarrow$ d; $L^p$ $\Rightarrow$ P.
+Tersleri genel olarak yanlış. Slutsky: $X_n \xrightarrow{d} X$, $Y_n \xrightarrow{P} c \Rightarrow X_n+Y_n \xrightarrow{d} X+c$.
+\end{mikroozet}
+
+% =====================================================================
+\section{Borel-Cantelli Lemmaları}
+\label{sec:borel_cantelli}
+% =====================================================================
+
+\begin{kesif}
+$\{A_n\}$ olaylar dizisi. ``$A_n$ sonsuz çok gerçekleşir'' olayını
+Bölüm~\ref{chp:onbilgiler}'deki $\limsup$ dili ile nasıl ifade ederiz?
+\kesifcevap{``$A_n$ sonsuz çok gerçekleşir'' $= \limsup_n A_n
+  = \bigcap_{n=1}^\infty \bigcup_{k=n}^\infty A_k$.
+  Sezgi: $\bigcup_{k \geq n} A_k$ ``$n$'inci adımdan sonra en az biri gerçekleşir''
+  olayıdır; tüm $n$ için bu olayın gerçekleşmesi, sonsuz çok $A_k$'nın gerçekleşmesi demektir.}
+\end{kesif}
+
+\begin{tanim}[Sonsuz Sık Olay]
+$\{A_n\}$ olaylar dizisi için $\limsup_n A_n = \bigcap_{n=1}^\infty \bigcup_{k=n}^\infty A_k$.
+Bu olay "\textbf{$A_n$ sonsuz çok gerçekleşir}" (i.o.: infinitely often) diye okunur.
+\end{tanim}
+
+\begin{teorem}[Borel-Cantelli Birinci Lemması]
+\label{thm:bc1}
+$\{A_n\} \subseteq \mathcal{F}$ ve $\sum_{n=1}^\infty P(A_n) < \infty$ ise
+$P(\limsup_n A_n) = 0$.
+\end{teorem}
+
+\begin{proof}
+$B_n = \bigcup_{k=n}^\infty A_k$ için monoton azalma $B_n \downarrow \limsup_n A_n$.
+\[
+  P(\limsup_n A_n) = \lim_{n\to\infty} P(B_n) \leq \lim_{n\to\infty} \sum_{k=n}^\infty P(A_k) = 0,
+\]
+çünkü $\sum P(A_n) < \infty$ olduğundan kuyruk toplamı sıfıra gider.
+\end{proof}
+
+\begin{teorem}[Borel-Cantelli İkinci Lemması]
+\label{thm:bc2}
+$\{A_n\}$ \textbf{bağımsız} olaylar ve $\sum_{n=1}^\infty P(A_n) = \infty$ ise
+$P(\limsup_n A_n) = 1$.
+\end{teorem}
+
+\begin{proof}
+$P(\limsup_n A_n)^c = P(\liminf_n A_n^c)$.
+$P\!\left(\bigcap_{k=n}^m A_k^c\right) = \prod_{k=n}^m (1-P(A_k))$ (bağımsızlık).
+$1 - x \leq e^{-x}$: $\prod_{k=n}^m (1-P(A_k)) \leq \exp\!\left(-\sum_{k=n}^m P(A_k)\right) \to 0$
+($\sum P(A_k) = \infty$ olduğundan). Yani $P(\bigcap_{k=n}^\infty A_k^c) = 0$ her $n$ için.
+Sayılabilir birleşim: $P(\liminf A_n^c) = P(\bigcup_n \bigcap_{k\geq n} A_k^c) = 0$.
+\end{proof}
+
+\begin{hataanalizi}
+İkinci lemma için bağımsızlık şartı çıkarılamaz.
+Örnek: $A_n = A$ sabit olay, $P(A) = 1/2$, $\sum P(A_n) = \infty$.
+Ama $P(\limsup A_n) = P(A) = 1/2 \neq 1$.
+Bağımsızlık olmadan $\sum P(A_n) = \infty$ yalnızca üst sınır verir, kesin sonuç değil.
+\end{hataanalizi}
+
+\begin{ornek}[Para Atışı]
+$A_n = \{n\text{'inci atışta arka}\ k\ \text{kez art arda}\}$.
+$P(A_n) = 1/2^k$. $\sum P(A_n) = \infty$ ve $\{A_n\}$ bağımsız.
+İkinci Borel-Cantelli: herhangi bir $k$ için art arda $k$ arka gelme n.k.\ sonsuz kez gerçekleşir.
+\end{ornek}
+
+% =====================================================================
+\section{Zayıf Büyük Sayılar Kanunu}
+\label{sec:zbsk}
+% =====================================================================
+
+\begin{tanim}[Örneklem Ortalaması]
+$X_1, X_2, \ldots$ rasgele değişkenler; $\bar{X}_n = \frac{1}{n}\sum_{i=1}^n X_i$.
+\end{tanim}
+
+\begin{teorem}[Chebyshev ZBSK]
+\label{thm:chebyshev_zbsk}
+$X_1, X_2, \ldots$ çiftler arası korelasyonsuz (pairwise uncorrelated),
+$E[X_i] = \mu$ ve $\mathrm{Var}(X_i) \leq M < \infty$ ise
+$\bar{X}_n \xrightarrow{P} \mu$.
+\end{teorem}
+
+\begin{proof}
+$E[\bar{X}_n] = \mu$. Korelasyonsuzluktan:
+$\mathrm{Var}(\bar{X}_n) = \frac{1}{n^2}\sum_{i=1}^n \mathrm{Var}(X_i) \leq \frac{M}{n}$.
+Chebyshev: $P(|\bar{X}_n - \mu| > \varepsilon) \leq \mathrm{Var}(\bar{X}_n)/\varepsilon^2 \leq M/(n\varepsilon^2) \to 0$.
+\end{proof}
+
+\begin{teorem}[Genel ZBSK (Kolmogorov)]
+\label{thm:zbsk_genel}
+$X_1, X_2, \ldots$ \textbf{i.i.d.}, $E[|X_1|] < \infty$, $E[X_1] = \mu$ ise
+$\bar{X}_n \xrightarrow{P} \mu$.
+\end{teorem}
+
+\begin{proof}[Kırpma Yöntemi]
+$\mu = 0$ (genel durum ötelemeli indirgenir). Sabit $M > 0$ için kırpılmış rasgele değişken:
+$Y_i = X_i \mathbf{1}_{|X_i| \leq M}$.
+$E[Y_i] = E[X_i \mathbf{1}_{|X_i|\leq M}] \to E[X_i] = 0$ ($M\to\infty$, DCT).
+$\mathrm{Var}(Y_i) \leq E[Y_i^2] \leq ME[|Y_i|] \leq M \cdot E[|X_1|] < \infty$.
+
+$\bar{X}_n - \bar{Y}_n = \frac{1}{n}\sum(X_i - Y_i) = \frac{1}{n}\sum X_i \mathbf{1}_{|X_i|>M}$.
+Markov: $P(|\bar{X}_n - \bar{Y}_n| > \varepsilon) \leq \frac{1}{\varepsilon}E[|X_1|\mathbf{1}_{|X_1|>M}] \to 0$
+($M\to\infty$, DCT).
+$\bar{Y}_n \xrightarrow{P} E[Y_1] \approx 0$ (Chebyshev, $M$ büyük); ikisini birleştirince $\bar{X}_n \xrightarrow{P} 0$.
+\end{proof}
+
+\begin{ornek}[Monte Carlo Entegrasyonu]
+$g : [0,1] \to \mathbb{R}$ integrallenebilir. $U_1, \ldots, U_n \sim \Uniform(0,1)$ bağımsız.
+$\frac{1}{n}\sum g(U_i) \xrightarrow{P} E[g(U)] = \int_0^1 g(x)\,dx$.
+ZBSK, Monte Carlo yönteminin matematiksel garantisidir.
+\end{ornek}
+
+\begin{kritiksorgu}
+ZBSK şunu söyler: $P(|\bar{X}_n - \mu| > \varepsilon) \to 0$.
+Bu, $\bar{X}_n$'nin hiçbir zaman $\mu$'dan uzak olmadığı anlamına mı gelir?
+Hayır --- yalnızca büyük sapmalar giderek daha düşük olasılıklı hale gelir.
+$\bar{X}_n$'nin $\mu$'dan uzak olduğu anların kümesi boş olmayabilir;
+ama bu anların "oranı" sıfıra yaklaşır.
+\end{kritiksorgu}
+
+% =====================================================================
+\section{Güçlü Büyük Sayılar Kanunu}
+\label{sec:gbsk}
+% =====================================================================
+
+\begin{teorem}[Kolmogorov GBSK]
+\label{thm:gbsk}
+$X_1, X_2, \ldots$ \textbf{i.i.d.}, $E[|X_1|] < \infty$, $E[X_1] = \mu$ ise
+$\bar{X}_n \xrightarrow{\text{n.k.}} \mu$.
+\end{teorem}
+
+\begin{proof}
+$\mu = 0$ varsayalım. Dört-moment argümanı (i.i.d., sonlu dördüncü moment varsayarak):
+
+\textbf{Adım 1 (Dördüncü Moment Durumu):} $E[X_1^4] < \infty$ olsun.
+\[
+  E[(\bar{X}_n)^4] = \frac{1}{n^4} E\!\left[\left(\sum X_i\right)^4\right].
+\]
+$\sum X_i^4$ terim beklentisi $nE[X_1^4]$; çapraz terimler bağımsızlıkla yok olur;
+$E[(X_i X_j)^2]$ terimleri $n(n-1)/2$ adet, her biri $E[X_1^2]^2$:
+\[
+  E[(\bar{X}_n)^4] = \frac{nE[X_1^4] + 3n(n-1)(E[X_1^2])^2}{n^4} \leq \frac{C}{n^2}.
+\]
+Markov ile $\varepsilon > 0$: $P(|\bar{X}_n| > \varepsilon) \leq C/(n^2\varepsilon^4)$.
+$\sum_n P(|\bar{X}_n| > \varepsilon) \leq C/\varepsilon^4 \sum 1/n^2 < \infty$.
+Borel-Cantelli 1: $P(|\bar{X}_n| > \varepsilon \text{ i.o.}) = 0$ her $\varepsilon > 0$ için.
+Yani $\bar{X}_n \to 0$ n.k.
+
+\textbf{Adım 2 (Genel Durum --- Kolmogorov Kırpma):}
+$E[|X_1|] < \infty$ için kırpılmış dizi $Y_n = X_n \mathbf{1}_{|X_n|\leq n}$ kullanılır.
+Kolmogorov ölçütü: $\sum \mathrm{Var}(Y_n)/n^2 < \infty$ (Böl.~\ref{chp:olcum_teorisi}'deki
+Kronecker lemması). Ayrıntılar Billingsley~\cite{Billingsley1995}, §22 veya Durrett~\cite{Durrett2019}, §2.4'te.
+\end{proof}
+
+\begin{teorem}[GBSK $\leftrightarrow$ ZBSK İlişkisi]
+\label{thm:gbsk_zbsk}
+GBSK, ZBSK'yi içerir: n.k.\ yakınsama $\Rightarrow$ olasılıkla yakınsama
+(Teorem~\ref{thm:yaklinsama_hiyerarsi}). Tersi genel olarak yanlış.
+\end{teorem}
+
+\begin{ornek}[GBSK Uygulaması --- Monte Carlo Hassasiyeti]
+$g : [0,1] \to \mathbb{R}$ integrallenebilir. GBSK:
+$\frac{1}{n}\sum_{i=1}^n g(U_i) \xrightarrow{\text{n.k.}} \int_0^1 g(x)\,dx$.
+Bu, simülasyon çıktısının yalnızca "büyük ihtimalle" değil,
+neredeyse tüm örnek yollarında kesinlikle doğru değere yakınsadığını garanti eder.
+\end{ornek}
+
+\begin{karsiornek}[GBSK'nın Beklenti Koşulunu Kaldıramazsınız]
+$X_i \sim \mathrm{Cauchy}(0,1)$ bağımsız: $E[|X_1|] = \infty$.
+$\bar{X}_n$, Cauchy(0,1) dağılımını korur --- $0$'a yakınsamaz.
+$E[|X_1|] < \infty$ koşulu vazgeçilmezdir.
+\end{karsiornek}
+
+\begin{mikroozet}
+ZBSK: $\bar{X}_n \xrightarrow{P} \mu$ ($E[|X_1|] < \infty$, i.i.d.).
+GBSK: $\bar{X}_n \xrightarrow{\text{n.k.}} \mu$ (aynı koşul, daha güçlü sonuç).
+\end{mikroozet}
+
+% =====================================================================
+\section{Kolmogorov'un 0-1 Kanunu}
+\label{sec:01_kanunu}
+% =====================================================================
+
+\begin{tanim}[Kuyruk $\sigma$-Cebiri]
+\label{def:kuyruk_sigma}
+$\{X_n\}$ rasgele değişkenler. $\mathcal{F}_n = \sigma(X_1, \ldots, X_n)$,
+$\mathcal{T}_n = \sigma(X_{n+1}, X_{n+2}, \ldots)$. \textbf{Kuyruk $\sigma$-cebiri}:
+\[
+  \mathcal{T} = \bigcap_{n=1}^\infty \mathcal{T}_n.
+\]
+$\mathcal{T}$'nin olayları "sonlu sayıda $X_i$'yi değiştirmekten etkilenmeyen" olaylardır.
+Örnekler: $\{\lim_n \bar{X}_n \text{ var}\}$, $\{\limsup_n X_n > c\}$, $\{\sum X_n \text{ yakınsar}\}$.
+\end{tanim}
+
+\begin{teorem}[Kolmogorov'un 0-1 Kanunu]
+\label{thm:01_kanunu}
+$X_1, X_2, \ldots$ bağımsız rasgele değişkenler ise kuyruk $\sigma$-cebirindeki
+her $A \in \mathcal{T}$ olayı için $P(A) \in \{0, 1\}$.
+\end{teorem}
+
+\begin{proof}
+\textbf{Adım 1:} Her $A \in \mathcal{T}$ ve her $n$ için $A \in \mathcal{T}_n = \sigma(X_{n+1}, X_{n+2}, \ldots)$,
+dolayısıyla $A$, $\mathcal{F}_n = \sigma(X_1, \ldots, X_n)$'den bağımsızdır.
+
+\textbf{Adım 2:} $\pi$-sistemi argümanı. $\mathcal{F}_\infty = \sigma(\bigcup_n \mathcal{F}_n)$.
+Adım 1'deki bağımsızlık, $A$'nın $\mathcal{F}_\infty$'dan da bağımsız olduğunu gösterir
+($\pi$-sistemi genişleme: $\bigcup_n \mathcal{F}_n$ bir $\pi$-sistemi; bağımsızlık üzerinde
+$\lambda$-sistemi tutarlılığı ile Dynkin genişler).
+
+\textbf{Adım 3:} $A \in \mathcal{T} \subseteq \mathcal{F}_\infty$ (her kuyruk olayı $\mathcal{F}_\infty$'dadır).
+$A$, $\mathcal{F}_\infty$'dan bağımsız ve $A \in \mathcal{F}_\infty$:
+$P(A) = P(A \cap A) = P(A) \cdot P(A)$.
+Yani $P(A)^2 = P(A)$; çözüm: $P(A) \in \{0, 1\}$.
+\end{proof}
+
+\begin{ornek}[0-1 Kanunu Uygulamaları]
+$\{X_n\}$ bağımsız rasgele değişkenler:
+\begin{itemize}
+  \item $P(\lim_n \bar{X}_n \text{ var}) \in \{0,1\}$. (GBSK bu olasılığın 1 olduğunu söyler.)
+  \item $P(\sum X_n \text{ yakınsar}) \in \{0,1\}$.
+  \item $P(\limsup_n X_n = +\infty) \in \{0,1\}$.
+  \item $P(\limsup_n X_n/\sqrt{n\ln\ln n} = \sqrt{2}) \in \{0,1\}$. (Yinelenmiş logaritma kanunu.)
+\end{itemize}
+\end{ornek}
+
+\begin{kritiksorgu}
+0-1 Kanunu "olasılık ya 0 ya da 1" diyor. Bu deterministik mi?
+Hayır --- bu olaylar gerçek anlamda belirsiz olabilir; ancak birden fazla bağımsız
+deneyin asimptotik davranışını yöneten olaylar, her örnek yolunu etkilese de
+bütünleşik olarak keskin sınıflandırılabilir.
+\end{kritiksorgu}
+
+% =====================================================================
+\section{Büyük Sapmalar: Giriş}
+\label{sec:buyuk_sapmalar}
+% =====================================================================
+
+\begin{motivasyon}[Neden Büyük Sapmalar?]
+ZBSK: $P(|\bar{X}_n - \mu| > \varepsilon) \to 0$. Chebyshev bize $O(1/n)$ hız verir.
+Ama gerçek azalma çoğunlukla \emph{üstel}: $P(\bar{X}_n - \mu > \varepsilon) \approx e^{-nI(\varepsilon)}$.
+Bu üstel azalma hızını veren $I(\varepsilon)$ fonksiyonu "oran fonksiyonu"dur.
+\end{motivasyon}
+
+\begin{teorem}[Chernoff Sınırı]
+\label{thm:chernoff}
+$X_1, \ldots, X_n$ i.i.d., $M(t) = E[e^{tX_1}]$ mevcut. Her $a > \mu = E[X_1]$ için
+\[
+  P(\bar{X}_n \geq a) \leq e^{-n \sup_{t \geq 0}(ta - \ln M(t))} = e^{-n \Lambda^*(a)},
+\]
+burada $\Lambda^*(a) = \sup_{t \geq 0}(ta - \ln M(t)) > 0$: \textbf{oran fonksiyonu}.
+\end{teorem}
+
+\begin{proof}
+Her $t > 0$ için Markov ($e^{t\sum X_i} \geq e^{tna}$ olayından):
+\[
+  P(\bar{X}_n \geq a) = P\!\left(e^{t\sum X_i} \geq e^{tna}\right)
+  \leq \frac{E[e^{t\sum X_i}]}{e^{tna}} = \frac{M(t)^n}{e^{tna}} = e^{n(\ln M(t) - ta)}.
+\]
+$t$'ye göre minimize etmek: $\inf_{t>0} e^{n(\ln M(t)-ta)} = e^{-n\sup_t(ta - \ln M(t))} = e^{-n\Lambda^*(a)}$.
+\end{proof}
+
+\begin{ornek}[Binom için Chernoff]
+$X_i \sim \mathrm{Bernoulli}(p)$, $a > p$.
+$\ln M(t) = \ln(q + pe^t)$.
+$\Lambda^*(a) = a\ln(a/p) + (1-a)\ln((1-a)/q)$ (KL ıraksaması $\mathrm{Binom}$'dan $\mathrm{Binom}$'a).
+$P(\bar{X}_n \geq a) \leq \exp(-n\,\mathrm{KL}(\mathrm{Ber}(a)\|\mathrm{Ber}(p)))$.
+\end{ornek}
+
+\begin{hocanotu}
+Büyük sapmalar teorisi (Cramér teoremi, Varadhan'ın genel teorisi) bu kitabın
+kapsamını aşar; ancak Chernoff sınırı istatistik ve algoritmik uygulamalarda
+(öğrenme teorisi, randomize algoritmalar) sıkça kullanılır.
+Derinlemesine okuma için Dembo-Zeitouni~\cite{Dembo1998}.
+\end{hocanotu}
+
+% ---- Disiplinlerarası Bağlantı (TYMM) ----
+\begin{kopru}[Disiplinlerarası --- Ekonomi, Fizik, Bilgisayar Bilimi]
+\textbf{Ekonomi:} Büyük Sayılar Kanunu, ankete dayalı istatistiksel tahminlerin
+(seçim anketi, tüketici fiyat endeksi) hangi koşulda güvenilir olduğunu açıklar:
+gözlem sayısı $n$ büyüdükçe örneklem ortalaması nüfus ortalamasına yaklaşır.\\
+\textbf{Fizik:} Ergodik teori (zamana göre ortalama = uzaya göre ortalama)
+BSK'nın dinamik sistemler dilidir; termal dengedeki gaz molekülleri bu prensiple modellenir.\\
+\textbf{Bilgisayar bilimi:} Randomize algoritmaların analizi BSK'ya dayanır:
+$n$ tekrarlı bağımsız deneme, ortalama davranışı $O(1/\sqrt{n})$ hassasiyetle tahmin eder.
+\end{kopru}
+
+% ---- Öz-Yansıtma ----
+\begin{ozyansima}
+\begin{itemize}
+  \item ZBSK ile GBSK arasındaki matematiksel fark nedir? Pratikte bu fark önemli mi?
+  \item Borel-Cantelli lemmalarından birinin bağımsızlık koşulunu gerektirmesi,
+        diğerinin gerektirmemesi hakkında ne düşünüyorsunuz?
+  \item 0-1 Kanunu size "belirsizliğin çift değerli" olduğunu söylüyor;
+        sezginizle bu nasıl bağdaşıyor?
+  \item Chernoff sınırının Chebyshev'den daha güçlü olduğunu bir örnekle gösteriniz.
+\end{itemize}
+\end{ozyansima}
+
+% ---- Köprü Notu ----
+\begin{kopru}
+\textbf{Önceki bölümler:} Bölüm~\ref{chp:beklenti} (Chebyshev, DCT) ve
+Bölüm~\ref{chp:olcum_teorisi} (MYT) bu bölümün ispat araçlarını sağladı.\\
+\textbf{Sonraki bölüm:} Bölüm~\ref{chp:donusumler} --- Dönüşümler;
+ardından Bölüm~\ref{chp:merkezi_limit} --- BSK'nın öte boyutu:
+$\bar{X}_n$ ne kadar hızlı yaklaşır? Cevap: $\sqrt{n}$ ölçeğinde Merkezi Limit Teoremi.\\
+\textbf{İstatistik kısmı:} Bölüm~\ref{chp:istatistik_temelleri}'de büyük örneklem
+tutarlılığı BSK çerçevesinde yeniden ele alınacak.
+\defterbaglantisi{bolum07\_buyuk\_sayilar.ipynb}{%
+  BSK simülasyonu, yakınsama hızı görselleştirmesi, Chernoff sınırı karşılaştırması}
+\end{kopru}
+
+% =====================================================================
+\section{Yinelenmiş Logaritma Kanunu}
+\label{sec:yil_kanunu}
+% =====================================================================
+
+\begin{motivasyon}[Büyük Sayılar Ötesinde]
+GBSK: $\bar{X}_n \to \mu$ n.k. Ama ne \emph{kadar} hızlı yaklaşıyor?
+$\sqrt{n}$ ölçeğinde Merkezi Limit Teoremi normal dağılım verir.
+Daha ince soru: n.k.\ her örnek yolunun salınım büyüklüğü nedir?
+Yinelenmiş Logaritma Kanunu (YLK) bu soruyu tam olarak yanıtlar.
+\end{motivasyon}
+
+\begin{teorem}[Kolmogorov'un Yinelenmiş Logaritma Kanunu]
+\label{thm:ylk}
+$X_1, X_2, \ldots$ i.i.d., $E[X_1] = 0$, $E[X_1^2] = \sigma^2 \in (0,\infty)$.
+$S_n = X_1 + \cdots + X_n$ ise
+\[
+  P\!\left(\limsup_{n\to\infty} \frac{S_n}{\sqrt{2\sigma^2 n \ln\ln n}} = 1\right) = 1.
+\]
+Eşdeğer olarak: n.k.\ her örnek yolunda
+$\limsup_{n\to\infty} S_n/\sqrt{2\sigma^2 n\ln\ln n} = 1$
+ve $\liminf_{n\to\infty} S_n/\sqrt{2\sigma^2 n\ln\ln n} = -1$.
+\end{teorem}
+
+\begin{proof}[İspat Taslağı]
+İki yönlü ispat gerekir.
+
+\textbf{Üst sınır ($\limsup \leq 1$ n.k.):}
+Sabit $b > 1$. Geometrik alt dizi $n_k = \lfloor b^k \rfloor$ seçiniz.
+$A_k = \{S_{n_k} > (1+\varepsilon)\sqrt{2\sigma^2 n_k \ln\ln n_k}\}$.
+Olağan sapma tahmini ile $P(A_k) \leq C/k^{1+\varepsilon}$.
+$\sum P(A_k) < \infty$: Borel-Cantelli 1 ile $P(A_k \text{ i.o.}) = 0$.
+Alt diziler arası maksimum kontrolü tüm $n$'ye genişler.
+
+\textbf{Alt sınır ($\limsup \geq 1$ n.k.):}
+Uygun $\varepsilon_k \to 0$ ile olaylar
+$B_k = \{S_{n_{k+1}} - S_{n_k} > (1-\varepsilon)\sqrt{2\sigma^2(n_{k+1}-n_k)\ln\ln n_{k+1}}\}$
+tanımlanır. $\{B_k\}$ asimptotik bağımsız; $\sum P(B_k) = \infty$.
+Bağımsız Borel-Cantelli: $P(B_k \text{ i.o.}) = 1$.
+Tam ispat: Hartman-Wintner (1941), bkz. Billingsley~\cite{Billingsley1995}, §12.
+\end{proof}
+
+\begin{ornek}[YLK'nın Yorumu]
+$X_i \sim \Normal(0,1)$, $\sigma^2 = 1$. YLK:
+\[
+  \limsup_{n\to\infty} \frac{S_n}{\sqrt{2n\ln\ln n}} = 1 \quad \text{n.k.}
+\]
+$n = 10^6$: $\sqrt{2 \cdot 10^6 \cdot \ln\ln 10^6} = \sqrt{2\times10^6 \times 2.97} \approx 2439$.
+$S_n$ sonsuz çok kez $\approx 2439$'a ulaşır, ama asla $2439 \cdot (1+\varepsilon)$'ı
+sonsuz kez geçmez.
+\end{ornek}
+
+\begin{hataanalizi}
+YLK ve MLT'yi karıştırmak yaygın hatadır.
+MLT: $S_n/\sqrt{n\sigma^2} \xrightarrow{d} \Normal(0,1)$ --- dağılımsal limit.
+YLK: $\limsup S_n/\sqrt{2n\sigma^2\ln\ln n} = 1$ n.k. --- yol bazında keskin sınır.
+YLK, MLT'den \emph{daha güçlü} bir sonuçtur; her bir örnek yolu hakkında bilgi verir.
+\end{hataanalizi}
+
+\begin{mikroozet}
+YLK: $S_n$'nin n.k.\ salınım büyüklüğü tam olarak $\sqrt{2\sigma^2 n \ln\ln n}$ ölçeğindedir.
+GBSK ($S_n = o(n)$) ve MLT ($S_n = O(\sqrt{n})$) arasına düşer: $S_n = O(\sqrt{n\ln\ln n})$ n.k.
+\end{mikroozet}
+
+% =====================================================================
+\section{Yenileme Teorisi Girişi}
+\label{sec:yenileme_teorisi}
+% =====================================================================
+
+\begin{tanim}[Yenileme Süreci]
+\label{def:yenileme_sureci}
+$X_1, X_2, \ldots$ i.i.d., $X_i > 0$ n.k., $E[X_1] = \mu < \infty$.
+$X_i$: arası zamanlar. $S_0 = 0$, $S_n = X_1 + \cdots + X_n$.
+\textbf{Yenileme sayacı}: $N(t) = \max\{n \geq 0 : S_n \leq t\}$.
+$\{N(t), t \geq 0\}$: \textbf{yenileme süreci} (renewal process).
+\end{tanim}
+
+\begin{teorem}[Temel Yenileme Teoremi]
+\label{thm:temel_yenileme}
+$E[X_1] = \mu \in (0,\infty)$ ise
+\[
+  \frac{N(t)}{t} \xrightarrow{\text{n.k.}} \frac{1}{\mu} \quad (t \to \infty).
+\]
+Daha kesin: $E[N(t)]/t \to 1/\mu$ ve $\mathrm{Var}(N(t))/t \to \sigma^2/\mu^3$
+($\sigma^2 = \mathrm{Var}(X_1)$).
+\end{teorem}
+
+\begin{proof}
+$N(t) \geq n \Leftrightarrow S_n \leq t$. Dolayısıyla $S_{N(t)} \leq t < S_{N(t)+1}$.
+Her iki tarafı $N(t)$'ye böl:
+\[
+  \frac{S_{N(t)}}{N(t)} \leq \frac{t}{N(t)} < \frac{S_{N(t)+1}}{N(t)}.
+\]
+GBSK: $S_{N(t)}/N(t) \xrightarrow{\text{n.k.}} \mu$ ($N(t) \to \infty$ çünkü $\mu < \infty$).
+Sıkıştırma: $t/N(t) \xrightarrow{\text{n.k.}} \mu$, yani $N(t)/t \xrightarrow{\text{n.k.}} 1/\mu$.
+\end{proof}
+
+\begin{ornek}[Makine Bakım Modeli]
+Bir makine $X_i \sim \Exp(\lambda)$ ömrü sonunda yenileniyor.
+$E[X_i] = 1/\lambda$. Temel Yenileme: $N(t)/t \to \lambda$ n.k.
+$t$ birim zamanda ortalama $\lambda t$ yenileme yapılır.
+\end{ornek}
+
+\begin{teorem}[Blackwell'in Yenileme Teoremi]
+\label{thm:blackwell}
+$X_i$ aritmetik-olmayan (non-arithmetic) dağılımlı ise: her $h > 0$ için
+\[
+  E[N(t+h) - N(t)] \to \frac{h}{\mu} \quad (t \to \infty).
+\]
+Yani uzun vadede $[t, t+h]$ aralığındaki beklenen yenileme sayısı $h/\mu$'ya yaklaşır:
+sistem "kararlı duruma" (steady state) girer.
+\end{teorem}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Güvenilirlik Mühendisliği:} Yenileme süreci, ekipman ömürleri ve
+bakım planlamasının temel modelidir: $N(t)$ arızaların kümülatif sayısıdır.\\
+\textbf{Kuyruk Teorisi:} M/G/1 kuyruğunda servis süreleri yenileme sürecini oluşturur;
+Temel Yenileme Teoremi ortalama bekleme süresi hesaplamasında kullanılır.\\
+\textbf{Ekonomi:} Stok yönetiminde sipariş dönemleri yenileme yapısı taşır.
+\end{disiplinlerarasibaglan}
+
+% =====================================================================
+\section{Durağan Diziler için Ergodik Teorem}
+\label{sec:ergodik_teorem}
+% =====================================================================
+
+\begin{tanim}[Durağan Dizi]
+\label{def:duragan_dizi}
+$\{X_n\}$ rasgele değişkenler dizisi \textbf{(geniş anlamda) durağan}
+(stationary) denir, eğer her $k, n$ ve $h$ için
+$(X_k, X_{k+1}, \ldots, X_{k+n})$ ile $(X_{k+h}, X_{k+h+1}, \ldots, X_{k+h+n})$
+aynı dağılıma sahipse.
+
+Özel durumlar: i.i.d.\ diziler, durağan Markov zincirleri.
+\end{tanim}
+
+\begin{tanim}[Kaydırma Dönüşümü ve Ergodiklik]
+\label{def:ergodiklik}
+$\Omega$'da \textbf{kaydırma dönüşümü} $\theta: \theta(\omega)_n = \omega_{n+1}$.
+Dizi $\theta$-uyumlu: $X_n(\omega) = X_0(\theta^n \omega)$.
+$A \in \mathcal{F}$ \textbf{değişmez} (invariant) olay: $\theta^{-1}A = A$.
+$P$ ölçümü \textbf{ergodik}: her değişmez olay $A$ için $P(A) \in \{0,1\}$.
+\end{tanim}
+
+\begin{teorem}[Birkhoff'un Ergodik Teoremi]
+\label{thm:birkhoff}
+$\{X_n\}$ durağan ve ergodik (ölçüm $P$ ergodik), $E[|X_0|] < \infty$. O zaman
+\[
+  \frac{1}{n}\sum_{k=0}^{n-1} X_k \xrightarrow{\text{n.k.}} E[X_0].
+\]
+\end{teorem}
+
+\begin{proof}[İspat Notu]
+Bağımsız diziler için (i.i.d.) bu Kolmogorov GBSK'dır.
+Genel ergodik durum için ispat daha derindir: Maximal Ergodik Lemma (Maximal Lemma)
+ve Garsia'nın kombinatoryal argümanı kullanılır.
+Referans: Durrett~\cite{Durrett2019}, §7.2; Billingsley~\cite{Billingsley1995}, §24.
+\end{proof}
+
+\begin{ornek}[Ergodik Markov Zinciri]
+$\{Z_n\}$ sonlu durum uzaylı, geri dönüşümlü ve pozitif tekrarlı Markov zinciri;
+$\pi$ durağan dağılımı. $f: S \to \mathbb{R}$ her duruma bir değer atar.
+Birkhoff: $\frac{1}{n}\sum_{k=0}^{n-1} f(Z_k) \xrightarrow{\text{n.k.}} \sum_{s\in S} f(s)\pi(s) = E_\pi[f]$.
+
+Yani "zamansal ortalama = uzamsal ortalama" --- klasik ergodiklik eşitliği.
+\end{ornek}
+
+\begin{kritiksorgu}
+Ergodik teorem i.i.d.\ koşulunu gevşetiyor. Hangi koşulun gerektiğini tartışınız:
+bağımsızlık mı, durağanlık mı, yoksa ergodiklik mi? Ergodikliğin 0-1 Kanunu
+ile ilişkisini açıklayınız.
+\end{kritiksorgu}
+
+% =====================================================================
+\section{Yavaş Değişen Fonksiyonlar ve Düzenli Değişim}
+\label{sec:duzenli_degisim}
+% =====================================================================
+
+\begin{tanim}[Yavaş değişen fonksiyon]\label{def:yavas_degisen}
+$L:(0,\infty)\to(0,\infty)$ fonksiyonu \emph{yavaş değişen} (\emph{slowly varying}) denir, her $c>0$ için
+\[
+  \lim_{x\to\infty}\frac{L(cx)}{L(x)}=1.
+\]
+\end{tanim}
+
+\begin{ornek}[Yavaş değişen fonksiyon örnekleri]\label{ex:yavas_ornekler}
+\begin{enumerate}
+  \item Sabitler: $L(x)=c>0$.
+  \item $L(x)=\log x$, $L(x)=(\log\log x)^2$, $L(x)=\log(1+x^2)$.
+  \item İterated logarithm: $L(x)=\log_k(x)$ ($k$'ıncı yinelenmiş logaritma).
+\end{enumerate}
+\emph{Düzenli değişen}: $R(x)=x^\alpha L(x)$ ($L$ yavaş değişen, $\alpha\in\mathbb{R}$ indeks).
+\end{ornek}
+
+\begin{teorem}[Karamata temsil teoremi]\label{thm:karamata}
+$L$ yavaş değişen $\iff$ $L(x)=c(x)\exp\!\left(\int_1^x \frac{\varepsilon(t)}{t}dt\right)$,
+burada $c(x)\to c>0$ ve $\varepsilon(t)\to0$.
+\end{teorem}
+
+\begin{teorem}[Potter sınırları]\label{thm:potter}
+$L$ yavaş değişen. Her $\delta>0$ için $x_0>0$ mevcut:
+$x,y\geq x_0$ ise
+\[
+  \frac{L(y)}{L(x)} \leq 2\max\!\left\{\left(\frac{y}{x}\right)^\delta, \left(\frac{x}{y}\right)^\delta\right\}.
+\]
+\end{teorem}
+
+\begin{ornek}[Ağır kuyruklu dağılımlar]\label{ex:agir_kuyruk}
+$P(X>x)\sim x^{-\alpha}L(x)$ ($\alpha>0$, $L$ yavaş değişen): \emph{düzenli değişen kuyruk}.
+\begin{itemize}
+  \item $\alpha>2$: $E[X^2]<\infty$ --- standart MLT geçerli.
+  \item $1<\alpha\leq2$: $E[X]<\infty$ ama $E[X^2]=\infty$ --- kararlı dağılımlara yakınsama, ölçek $n^{1/\alpha}$.
+  \item $0<\alpha\leq1$: $E[X]=\infty$ --- büyük sayılar kanunu çöker.
+\end{itemize}
+Pareto$(\alpha)$, Cauchy $(\alpha=1)$, Student-$t_\nu$ ($\nu=\alpha$) bu sınıftadır.
+\end{ornek}
+
+\begin{hataanalizi}
+"Büyük sayılar kanunu her zaman geçerlidir" yanlıştır. $E[|X|]=\infty$ durumunda ZBSK ve GBSK çöker: Cauchy dağılımında örneklem ortalaması hiçbir değere yakınsamaz, her örneklem için farklı bir değer verir. Bu, finansta "ağır kuyruklu" kayıpların klasik istatistikle modellenememesinin matematiksel gerekçesidir.
+\end{hataanalizi}
+
+% =====================================================================
+\section{Büyük Sapmalar İçin Üst Sınırlar}
+\label{sec:buyuk_sapma_sinir}
+% =====================================================================
+
+\begin{teorem}[Markov eşitsizliği --- hatırlatma]\label{thm:markov_hatirlatma}
+$X\geq0$, $a>0$: $P(X\geq a)\leq E[X]/a$.
+\end{teorem}
+
+\begin{teorem}[Chebyshev eşitsizliği]\label{thm:chebyshev_hatirlatma}
+$E[X]=\mu$, $\Var(X)=\sigma^2<\infty$, $k>0$:
+$P(|X-\mu|\geq k\sigma)\leq 1/k^2$.
+\end{teorem}
+
+\begin{teorem}[Chernoff sınırı]\label{thm:chernoff}
+$X_1,\ldots,X_n\iid$, MGF $M(\lambda)=E[e^{\lambda X}]$ $\lambda_0>0$ için sonlu. $S_n=\sum_{i=1}^n X_i$. Her $t>E[X]$ için:
+\[
+  P(S_n\geq nt) \leq e^{-n\sup_{\lambda\geq0}[\lambda t - \log M(\lambda)]}.
+\]
+Üstel $[\lambda t - \log M(\lambda)]$ büyük sapma hızıdır (\emph{rate function} $I(t)$).
+\end{teorem}
+
+\begin{proof}
+$P(S_n\geq nt)=P(e^{\lambda S_n}\geq e^{n\lambda t})\leq e^{-n\lambda t}E[e^{\lambda S_n}]=e^{-n\lambda t}[M(\lambda)]^n=e^{-n[\lambda t-\log M(\lambda)]}$.
+$\lambda\geq0$'da supremum alınır.
+\end{proof}
+
+\begin{ornek}[Hoeffding eşitsizliği]\label{ex:hoeffding}
+$X_i\in[a_i,b_i]$ sınırlı bağımsız, $E[X_i]=0$. $P(S_n\geq t)\leq\exp\!\left(-\frac{2t^2}{\sum(b_i-a_i)^2}\right)$.
+Özellikle $a_i=0$, $b_i=1$, $t=n\varepsilon$: $P(\bar X_n\geq\varepsilon)\leq e^{-2n\varepsilon^2}$.
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Makine Öğrenmesi --- PAC öğrenimi:} Hoeffding eşitsizliği, bir öğrenme algoritmasının eğitim hatasının test hatasına $\varepsilon$ içinde yakınsadığını yüksek olasılıkla garanti eden PAC (\emph{probably approximately correct}) öğrenimi sınırının temelidir.
+
+\textbf{Finansal Risk:} Düzenli değişen kuyruklar (Pareto, $t_\nu$) piyasa çöküşlerini modellemek için kullanılır; Basle III sermaye yeterliliği hesaplamalarında VaR (değer-risk) bu dağılımlara dayanır.
+\end{disiplinlerarasibaglan}
+
+\begin{mikroozet}
+Durağan + ergodik dizilerde $\frac{1}{n}\sum_{k=0}^{n-1}X_k \to E[X_0]$ n.k.
+Bu, GBSK'nın i.i.d.\ ötesine genellemesidir; Markov zincirleri ve zaman serisi
+analizinin matematiksel temelidir.
+Düzenli değişen kuyruklar ($P(X>x)\sim x^{-\alpha}L(x)$): $\alpha\leq1$'de BSK çöker.
+Chernoff/Hoeffding: üstel büyük sapma sınırları; makine öğrenmesinde PAC sınırlarının temeli.
+\end{mikroozet}
+
+% =====================================================================
+%  ALIŞTIRMALAR
+% =====================================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.7.1]{A}{Yakınsama Türlerini Tanımak}
+$X_n = n^{-1/2}Z$ ($Z \sim \Normal(0,1)$, sabit). Gösteriniz:
+(a) $X_n \xrightarrow{\text{n.k.}} 0$. (b) $X_n \xrightarrow{P} 0$. (c) $X_n \xrightarrow{d} 0$.
+Bu örnek hangi tipik yanılgıyı düzeltiyor?
+\end{alistirma}
+\alcozum{%
+$X_n(\omega) = Z(\omega)/\sqrt{n} \to 0$ her $\omega$'da (sabit $Z$, deterministik yakınsama).
+(a)--(c) üçü de trivyal olarak sağlanır.\\
+Düzeltilen yanılgı: Burada $X_n$ "aynı $Z$'yi ölçekliyor"; dizi gerçekten bağımsız değil.
+Bağımsız $X_n$'lerin neredeyse kesin yakınsaması için Borel-Cantelli gerekir.}
+
+\begin{alistirma}[Al.7.2]{A}{Borel-Cantelli Uygulaması}
+$X_1, X_2, \ldots$ bağımsız, $P(X_n > n) = 1/n^2$.
+$P(X_n > n \text{ sonsuz çok } n \text{ için}) = ?$
+\end{alistirma}
+\alcozum{%
+$\sum_{n=1}^\infty P(X_n > n) = \sum 1/n^2 = \pi^2/6 < \infty$.
+Borel-Cantelli 1: $P(X_n > n \text{ i.o.}) = 0$.
+Yani yalnızca sonlu sayıda $n$ için $X_n > n$ gerçekleşir.}
+
+\begin{alistirma}[Al.7.3]{B}{ZBSK ve GBSK Karşılaştırması}
+$X_1, X_2, \ldots$ i.i.d.\ $\mathrm{Exp}(1)$. $\bar{X}_n$'nin hangi değere yakınsadığını
+belirtiniz. (a) Chebyshev ZBSK ile $P(|\bar{X}_n - 1| > \varepsilon)$ için $n$ sayısına bağlı
+üst sınır veriniz. (b) Bu yakınsamanın GBSK anlamında da geçerli olduğunu söyleyiniz.
+\end{alistirma}
+\alcozum{%
+$E[X_1] = 1$, $\mathrm{Var}(X_1) = 1$.\\
+(a) Chebyshev: $P(|\bar{X}_n - 1| > \varepsilon) \leq 1/(n\varepsilon^2)$.
+$\varepsilon = 0.1$ için $n = 100$ yeterli: $P(\ldots) \leq 1$.
+(İyi bir üst sınır değil ama metodoloji doğru; Chernoff çok daha iyi.)\\
+(b) $E[|X_1|] = 1 < \infty$, i.i.d.; GBSK: $\bar{X}_n \xrightarrow{\text{n.k.}} 1$.}
+
+\begin{alistirma}[Al.7.4]{B}{Chernoff Sınırı}
+$X_i \sim \mathrm{Bernoulli}(0.5)$ bağımsız, $n = 100$, $a = 0.6$.
+(a) Chebyshev ile $P(\bar{X}_{100} \geq 0.6)$ için üst sınır veriniz.
+(b) Chernoff ile üst sınır veriniz ve karşılaştırınız.
+\end{alistirma}
+\alcozum{%
+(a) Chebyshev: $P(\bar{X}_n \geq 0.6) \leq P(|\bar{X}_n-0.5|\geq 0.1) \leq \mathrm{Var}(\bar{X}_n)/(0.1)^2
+= (0.25/100)/0.01 = 0.25$.\\
+(b) Chernoff: $\Lambda^*(0.6) = 0.6\ln(0.6/0.5)+0.4\ln(0.4/0.5) = 0.6\ln(1.2)+0.4\ln(0.8)$.
+$\approx 0.6(0.1823)+0.4(-0.2231) = 0.1094-0.0892 = 0.0202$.
+$P(\bar{X}_{100}\geq 0.6)\leq e^{-100\times0.0202} = e^{-2.02} \approx 0.133$.
+Chebyshev: 0.25; Chernoff: 0.133. Gerçek değer $\approx 0.028$ (Chernoff daha yakın).}
+
+\begin{alistirma}[Al.7.4b]{B}{Bağımsızlık Olmadan BSK --- Ergodik Teorem}
+$(X_n)_{n\geq1}$ \emph{durağan ergodik} dizi; $E[|X_1|]<\infty$, $\mu=E[X_1]$.
+(a) Birkhoff ergodik teoremi ne söyler? Güçlü BSK ile nasıl kıyaslanır?
+(b) Markov zinciri $X_n$ durağan dağılım $\pi$ ile ergodikse $\frac{1}{n}\sum_{k=1}^n f(X_k)\to\sum_x f(x)\pi(x)$ n.k. Bunu simülasyon bağlamında yorumlayınız.
+(c) $X_1,X_2,\ldots$ i.i.d.\ ama simetrik Cauchy dağılımlı. $\bar X_n$ ne yapar? Neden BSK çalışmaz?
+\end{alistirma}
+\alcozum{%
+(a) \textbf{Birkhoff ergodik teoremi}: Durağan ergodik $(X_n)$ için $\bar X_n=\frac{1}{n}\sum_{k=1}^n X_k\xrightarrow{\text{n.k.}}\mu=E[X_1]$. Güçlü BSK, i.i.d.\ varsayımı altında ergodikliğin özel halidir; Birkhoff bağımlı ama durağan-ergodik dizilere geneller.
+
+(b) Markov Monte Carlo (MCMC) temeli: Zinciri durağan dağılımdan başlatınız (veya yeterince uzun ısın sonra) ve $\frac{1}{n}\sum f(X_k)$ ile $E_\pi[f]$'yi tahmin ediniz. Ergodiklik garantisi yakınsamayı sağlar; bağımsız örnekleme yerine geçer.
+
+(c) Cauchy için $E[|X_1|]=\infty$ (beklenti var olmaz). Güçlü BSK'nın koşulu $E[|X_1|]<\infty$ ihlal edilir. Gerçekte $\bar X_n$ Cauchy($0,1$) dağılımlı kalır: $n$ büyüse de dağılım daralmaz. Büyük sayılar kanunları geçerli değil.}
+
+\begin{alistirma}[Al.7.4c]{C}{Yavaş Değişen Fonksiyonlar ve Kuyruğun Ağırlığı}
+$L$ yavaş değişen (slowly varying) demek: her $c>0$ için $L(cx)/L(x)\to1$ ($x\to\infty$).
+(a) $L(x)=\log x$ ve $L(x)=(\log x)^2$'nin yavaş değişen olduğunu doğrulayınız.
+(b) $P(X>x)=L(x)/x^\alpha$ ($\alpha>0$) ise $X$'in ortalaması ne zaman sonlu?
+(c) $\alpha=1$, $L(x)=1$ durumunda (Cauchy benzeri), $S_n/n\to?$ Limitin ne olduğunu belirtiniz.
+\end{alistirma}
+\alcozum{%
+(a) $L(x)=\log x$: $\frac{\log(cx)}{\log x}=\frac{\log c+\log x}{\log x}=1+\frac{\log c}{\log x}\to1$. $\checkmark$ Benzer şekilde $(\log x)^2$ için de aynı argüman.
+
+(b) $E[X]=\int_0^\infty P(X>x)dx=\int_0^1 dx+\int_1^\infty \frac{L(x)}{x^\alpha}dx$. İkinci integral $\int_1^\infty x^{-\alpha}dx$ ile karşılaştırılır (Potter lemması: $L(x)\leq Cx^\varepsilon$ yeterince büyük $x$'te). Sonlu olması için $\alpha>1$ gerekir ($\alpha=1$ sınır: $\log$ düzeltmesiyle ince analiz).
+
+(c) $\alpha=1$, $P(X>x)\sim1/x$ ($L=1$): Cauchy dağılımı modeli. Stabil dağılım teorisi: $S_n/(n\log n)^{1/\alpha}$ için uygun normalleştirme gerekir; $S_n/n$ hiçbir sonlu limite yakınsamaz ($\bar X_n$ Cauchy kalır). BSK ve CLT her ikisi de çöker.}
+
+% ---
+
+
+\begin{alistirma}[Al.7.5]{A}{Yakınsama Türleri}
+Her biri için örnek veriniz ya da imkânsız olduğunu gösteriniz:
+(a) $X_n \xrightarrow{P} X$ ama $X_n \not\xrightarrow{\text{n.k.}} X$.
+(b) $X_n \xrightarrow{d} c$ (sabit) ama $X_n \not\xrightarrow{P} c$.
+\end{alistirma}
+\alcozum{%
+(a) Gezgin blok (Karşı Örnek~\ref{ex:yaklinsama_karsiornek}).\\
+(b) İmkânsız: $X_n \xrightarrow{d} c$ (dejenere) $\Leftrightarrow$ $X_n \xrightarrow{P} c$.
+Çünkü $P(|X_n-c|>\varepsilon) = P(X_n \leq c-\varepsilon) + P(X_n > c+\varepsilon) \to 0+0=0$.}
+\alistirmalar
+
+
+\begin{alistirma}[Al.7.6]{A}{0-1 Kanunu Uygulaması}
+$X_1, X_2, \ldots$ bağımsız. Aşağıdaki olayların olasılığını belirtiniz:
+(a) $A = \{\bar{X}_n \to 0\}$.
+(b) $B = \{\sum_{n=1}^\infty X_n/n \text{ yakınsar}\}$.
+(c) $C = \{\limsup_n X_n < \infty\}$.
+\end{alistirma}
+\alcozum{%
+Hepsi kuyruk $\sigma$-cebirinde. 0-1 Kanunu: $P(A), P(B), P(C) \in \{0,1\}$.
+Belirli dağılıma bağlı olmadan bu sonuç kesin --- spesifik değer ayrıca hesaplanmalı.}
+
+\begin{alistirma}[Al.7.7]{B}{Borel-Cantelli --- Kuvvetli Kanun}
+$X_1, X_2, \ldots$ bağımsız, $E[X_i] = \mu$, $\mathrm{Var}(X_i) = \sigma^2 < \infty$.
+Borel-Cantelli 1'i kullanarak $\bar{X}_{n^2} \xrightarrow{\text{n.k.}} \mu$ olduğunu ispatlayınız.
+($n^2$'nin kare indeksler olduğuna dikkat: $\bar{X}$ dizisinin alt dizisi.)
+\end{alistirma}
+\alcozum{%
+$\varepsilon > 0$. Chebyshev: $P(|\bar{X}_{n^2}-\mu|>\varepsilon) \leq \sigma^2/(n^2\varepsilon^2)$.
+$\sum_n 1/n^2 < \infty$: $\sum_n P(|\bar{X}_{n^2}-\mu|>\varepsilon) < \infty$.
+Borel-Cantelli 1: $P(|\bar{X}_{n^2}-\mu|>\varepsilon \text{ i.o.}) = 0$.
+Her $\varepsilon>0$ için geçerli: $\bar{X}_{n^2} \xrightarrow{\text{n.k.}} \mu$.}
+
+\begin{alistirma}[Al.7.8]{B}{Slutsky Uygulaması}
+$X_n \xrightarrow{d} \Normal(0,1)$ ve $S_n^2 \xrightarrow{P} \sigma^2 > 0$ (örnek varyans).
+$T_n = X_n / S_n$'nin limit dağılımını bulunuz.
+\end{alistirma}
+\alcozum{%
+$Y_n = S_n \xrightarrow{P} \sigma$; $g(y) = 1/y$ sürekli ($y\neq0$).
+Sürekli haritalama: $1/S_n \xrightarrow{P} 1/\sigma$.
+Slutsky çarpım: $T_n = X_n \cdot (1/S_n) \xrightarrow{d} \Normal(0,1) \cdot (1/\sigma) = \Normal(0,1/\sigma^2)$.}
+
+\begin{alistirma}[Al.7.9]{C}{GBSK --- Kolmogorov Yeterli Koşulu}
+$\{X_n\}$ bağımsız (mutlaka i.i.d.\ değil), $E[X_n] = 0$,
+$\sum_{n=1}^\infty \mathrm{Var}(X_n)/n^2 < \infty$.
+Kronecker lemmasını kullanarak $\bar{X}_n \xrightarrow{\text{n.k.}} 0$ olduğunu gösteriniz.
+(\textit{İpucu:} $S_n = \sum_{k=1}^n X_k/k$'nin n.k.\ yakınsadığını Borel-Cantelli ile kurunuz;
+ardından Kronecker: $S_n \to S$ ve $S_n = \sum X_k/k$ ise $\frac{1}{n}\sum_{k=1}^n X_k \to 0$.)
+\end{alistirma}
+\alcozum{%
+\begin{ipucu}{1}
+$Y_k = X_k/k$ tanımlayınız; $\sum E[Y_k^2] = \sum \mathrm{Var}(X_k)/k^2 < \infty$.
+$L^2$ yakınsaması + martingal argümanı veya Borel-Cantelli ile $\sum Y_k$ n.k.\ yakınsar.
+\end{ipucu}
+\textbf{Kronecker Lemması:} $\sum_{k=1}^\infty a_k/k$ yakınsarsa $\frac{1}{n}\sum_{k=1}^n a_k \to 0$.
+$a_k = X_k$ uygulandığında: $\sum X_k/k$ yakınsıyor (yukarıdaki ipucu) $\Rightarrow$ $\bar{X}_n \to 0$ n.k.}
+
+\begin{alistirma}[Al.7.10]{B}{Yinelenmiş Logaritma Kanunu --- Uygulama}
+$X_i \sim \Normal(0,1)$ i.i.d., $S_n = \sum_{i=1}^n X_i$.
+(a) YLK'ya göre $\limsup_{n\to\infty} S_n/\sqrt{2n\ln\ln n}$'nin değerini veriniz.
+(b) $n = 10^4$ için $\sqrt{2n\ln\ln n}$'yi sayısal olarak hesaplayınız.
+(c) "GBSK $\bar{X}_n \to 0$" ile "YLK $S_n/\sqrt{2n\ln\ln n} \to 1$" ifadelerinin
+    çelişmediğini açıklayınız.
+\end{alistirma}
+\alcozum{%
+(a) YLK (Teorem~\ref{thm:ylk}): $\sigma^2 = 1$ olduğundan $\limsup = 1$ n.k.\\
+(b) $n = 10^4$: $\ln n = \ln 10^4 = 4\ln 10 \approx 9.21$; $\ln\ln n = \ln 9.21 \approx 2.22$.
+$\sqrt{2 \times 10^4 \times 2.22} \approx \sqrt{44400} \approx 210.7$.
+Yani $S_{10^4}$ sonsuz kez $\approx 210.7$'ye ulaşır.\\
+(c) $\bar{X}_n = S_n/n \to 0$ (GBSK); $S_n/\sqrt{2n\ln\ln n} \to 1$ (YLK).
+$n^{-1} = o(n^{-1/2}(\ln\ln n)^{-1/2})$ olduğundan iki ifade farklı ölçek dilleridir.
+$\bar{X}_n \to 0$ yavaş yavaş gerçekleşir; YLK tam ne kadar yavaş olduğunu söyler.}
+
+\begin{alistirma}[Al.7.11]{B}{Yenileme Teorisi}
+Bir makine parçası $X_i \sim \Exp(2)$ dağılımına sahip ömürler geçiriyor ($i = 1, 2, \ldots$).
+Parça bozulduğunda hemen yenisiyle değiştiriliyor. $N(t)$ yenileme sayısı.
+(a) Temel Yenileme Teoremi ile $\lim_{t\to\infty} N(t)/t$'yi bulunuz.
+(b) Blackwell teoremini kullanarak $[100, 101]$ aralığındaki beklenen yenileme sayısını yaklaşık hesaplayınız.
+(c) $N(t)$'nin standart sapmasının $\sim \sqrt{\sigma^2 t/\mu^3}$ ölçeğinde olduğunu yorumlayınız
+    ($\sigma^2 = \mathrm{Var}(X_1) = 1/4$, $\mu = 1/2$).
+\end{alistirma}
+\alcozum{%
+$\mu = E[X_1] = 1/2$, $\sigma^2 = \mathrm{Var}(X_1) = 1/4$ ($\Exp(2)$ için).\\
+(a) $N(t)/t \xrightarrow{\text{n.k.}} 1/\mu = 2$. Uzun vadede dakikada 2 yenileme.\\
+(b) Blackwell: $E[N(101)-N(100)] \approx h/\mu = 1/(1/2) = 2$.
+$[100,101]$ aralığında beklenen 2 yenileme.\\
+(c) $\sigma^2 t/\mu^3 = (1/4) \cdot t/(1/8) = 2t$.
+$\mathrm{SD}(N(t)) \approx \sqrt{2t}$: büyük $t$'de $N(t)$ etrafında $\sqrt{2t}$ ölçeğinde salınır.}
+
+\begin{alistirma}[Al.7.12]{C}{Ergodik Markov Zinciri}
+$Z_n$ iki durumlı Markov zinciri, $S = \{0, 1\}$, geçiş matrisi
+$P = \begin{pmatrix}1-\alpha & \alpha \\ \beta & 1-\beta\end{pmatrix}$
+($0 < \alpha, \beta < 1$).
+(a) Durağan dağılım $\pi$'yi bulunuz.
+(b) $f(0) = 0$, $f(1) = 1$ ise Birkhoff Ergodik Teoremi'ne göre
+    $\frac{1}{n}\sum_{k=0}^{n-1} f(Z_k)$'nın sınırını veriniz.
+(c) Bu sonucu BSK ile karşılaştırınız: bağımsızlık gerekiyor mu?
+\end{alistirma}
+\alcozum{%
+(a) $\pi P = \pi$: $\pi_0(1-\alpha) + \pi_1 \beta = \pi_0$ ve $\pi_0 + \pi_1 = 1$.
+$\pi_0 \alpha = \pi_1 \beta \Rightarrow \pi_1/\pi_0 = \alpha/\beta$.
+$\pi_0 = \beta/(\alpha+\beta)$, $\pi_1 = \alpha/(\alpha+\beta)$.\\
+(b) Zincir geri dönüşümlü ve pozitif tekrarlı (sonlu durum, $\alpha,\beta > 0$) $\Rightarrow$ ergodik.
+Birkhoff: $\frac{1}{n}\sum f(Z_k) \xrightarrow{\text{n.k.}} E_\pi[f] = \pi_1 = \alpha/(\alpha+\beta)$.\\
+(c) BSK: bağımsızlık + i.i.d.\ gerekir. Ergodik teorem: yalnızca durağanlık + ergodiklik.
+Markov zinciri bağımlı olduğu hâlde "zamansal ortalama = uzamsal ortalama" geçerlidir.
+Bağımsızlık, ergodikliğin özel bir durumudur.}
+
+% =====================================================================
+\endinput

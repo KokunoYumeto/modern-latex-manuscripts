@@ -1,0 +1,565 @@
+%% ============================================================
+%% BÖLÜM 10 --- Stokastik Süreçlere Giriş  [OPSİYONEL]
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Stokastik Süreçlere Giriş}
+\label{chp:stokastik}
+
+\bolumalinti{%
+  The theory of stochastic processes is really a theory of families of random variables
+  indexed by a parameter set.
+}{Joseph Doob}
+
+\begin{kazanimlar}
+Bu bölümün sonunda okuyucu:
+\begin{itemize}
+  \item Stokastik süreç, örneklem yolu, durumlar uzayı kavramlarını tanımlar.
+  \item Markov zincirlerini tanımlayıcı özellikleriyle açıklar; geçiş matrislerini ve Chapman-Kolmogorov denklemini uygular.
+  \item Süreç sınıflarını (geri dönüşlü, geçici, ergodik, dönemsel) belirler ve durağan dağılımı hesaplar.
+  \item Poisson sürecini aksiyomlardan türetir; süreçler arası ilişkileri tanımlar.
+  \item Brownian hareketi tanımlar ve temel özelliklerini (bağımsız artışlar, süreklilik, Gaussian dağılım) listeler.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+Tek bir rasgele değişken statik bir belirsizliği modellerken, \emph{stokastik süreç} zamanla evrilen belirsizliği modelleyen rasgele değişken ailesidir. Hisse senedi fiyatları, kuyruklar, epidemi yayılımı, iklim değişkenliği --- bunların tümü stokastik süreçtir.
+
+\medskip
+\noindent\textbf{Köprü:} Bölüm~\ref{chp:martingaller}'daki filtrasyon ve uyum kavramları doğrudan burada kullanılacak. Markov zincirlerindeki geçişler aslında $\sigma$-cebirlerinin monoton dizisi anlamında "bilgi artışı" kavramıdır.
+\end{motivasyon}
+
+%% ============================================================
+\section{Temel Tanımlar}
+\label{sec:stokastik_temel}
+%% ============================================================
+
+\begin{tanim}[Stokastik süreç]\label{def:stokastik_surec}
+$(\Omega,\mathcal{F},\Prob)$ olasılık uzayı ve $T$ indeks kümesi olsun. \textbf{Stokastik süreç} \emph{(stochastic process)}, $\{X_t : t\in T\}$ rasgele değişken ailesidir. $T\subseteq\mathbb{Z}$ ise \textbf{ayrık zamanlı}, $T\subseteq[0,\infty)$ ise \textbf{sürekli zamanlı} denir. $S = X_t(\Omega)$ kümesine \textbf{durum uzayı} \emph{(state space)} denir.
+\end{tanim}
+
+\begin{tanim}[Örneklem yolu]\label{def:orneklem_yolu}
+Sabit $\omega\in\Omega$ için $t\mapsto X_t(\omega)$ fonksiyonuna \textbf{örneklem yolu} \emph{(sample path)} veya \textbf{yörünge} \emph{(trajectory)} denir.
+\end{tanim}
+
+\begin{ornek}[Basit rasgele yürüyüş]\label{ex:basit_yuruyus}
+$\xi_1,\xi_2,\ldots\iid$ ile $\Prob(\xi_i=+1)=p$, $\Prob(\xi_i=-1)=1-p$. $S_0=0$, $S_n=\sum_{k=1}^n\xi_k$. $\{S_n:n\geq0\}$ tam sayı değerli ayrık zamanlı stokastik süreçtir.
+\end{ornek}
+
+%% ============================================================
+\section{Markov Zincirleri}
+\label{sec:markov_zincirleri}
+%% ============================================================
+
+\begin{kesif}
+Basit rasgele yürüyüşte $S_{n+1}$'in dağılımı, tüm geçmiş $S_0,S_1,\ldots,S_n$
+yerine yalnızca $S_n$'e bağlıdır. Bu ``geçmişsizlik'' özelliğini koşullu
+olasılık notasyonuyla nasıl yazarsınız?
+\kesifcevap{$P(X_{n+1}=j \mid X_0=i_0,\ldots,X_n=i) = P(X_{n+1}=j \mid X_n=i)$.
+  Tüm geçmiş bilgisi tek bir sayıya, mevcut duruma $X_n=i$, indirgenebilir.
+  Geçiş olasılıkları $p_{ij}$ bu bilgiyi taşır; geçmişin ayrıntısı gereksizdir.}
+\end{kesif}
+
+\begin{tanim}[Markov zinciri]\label{def:markov_zinciri}
+Ayrık durum uzaylı ($S$ sayılabilir) ayrık zamanlı süreç $\{X_n\}$, aşağıdaki \textbf{Markov özelliğini} \emph{(Markov property)} sağlıyorsa Markov zinciri adını alır:
+\[
+  \Prob(X_{n+1}=j \mid X_0=i_0,\ldots,X_{n-1}=i_{n-1},X_n=i)
+  = \Prob(X_{n+1}=j\mid X_n=i).
+\]
+\end{tanim}
+
+\begin{tanim}[Geçiş olasılıkları]\label{def:gecis_olasiliklari}
+\textbf{Tek adım geçiş olasılığı}: $p_{ij} = \Prob(X_{n+1}=j\mid X_n=i)$.
+\textbf{Geçiş matrisi}: $P = (p_{ij})_{i,j\in S}$; $p_{ij}\geq0$, $\sum_j p_{ij}=1$ (stokastik matris).
+\end{tanim}
+
+\begin{teorem}[Chapman-Kolmogorov]\label{thm:chapman_kolmogorov}
+$p_{ij}^{(m+n)} = \sum_{k\in S} p_{ik}^{(m)}p_{kj}^{(n)}$, yani $P^{(m+n)} = P^{(m)}P^{(n)} = P^{m+n}$.
+\end{teorem}
+
+\begin{proof}
+Koşullu olasılığı $X_m$ üzerinden toplayalım:
+\[
+  p_{ij}^{(m+n)} = \Prob(X_{m+n}=j\mid X_0=i)
+  = \sum_k \Prob(X_{m+n}=j\mid X_m=k)\Prob(X_m=k\mid X_0=i)
+  = \sum_k p_{kj}^{(n)}p_{ik}^{(m)}.
+\]
+\end{proof}
+
+\subsection{Sınıf Yapısı}
+
+\begin{tanim}[Erişilebilirlik ve sınıf]\label{def:erisim}
+$j$ durumu $i$'den \textbf{erişilebilir} \emph{(accessible)}: $p_{ij}^{(n)}>0$ olan $n\geq0$ varsa; $i\leftrightarrow j$ ise ikisi \textbf{iletişimli} \emph{(communicating)}. İletişimli durumlar kümesi \textbf{sınıf} \emph{(class)} oluşturur. Her durum bir sınıfta. Tüm durumlar tek sınıf ise zincir \textbf{geri dönülemez} \emph{(irreducible)}.
+\end{tanim}
+
+\begin{tanim}[Geri dönüşlü ve geçici]\label{def:geri_donusluluk}
+Durum $i$ için $f_i = \Prob(\exists n\geq1: X_n=i\mid X_0=i)$ geri dönüş olasılığı.
+\begin{itemize}
+  \item $f_i=1$: \textbf{geri dönüşlü} \emph{(recurrent)}.
+  \item $f_i<1$: \textbf{geçici} \emph{(transient)}.
+\end{itemize}
+\end{tanim}
+
+\begin{teorem}[Geri dönüşlülük kriteri]\label{thm:geri_donus_krit}
+$\sum_{n=0}^\infty p_{ii}^{(n)} = \infty \iff i$ geri dönüşlü.
+\end{teorem}
+
+\begin{proof}
+$R = \sum_{n=1}^\infty \mathbf{1}[X_n=i]$ geri dönüş sayısı. $\Beklenti_i[R]=\sum_{n=1}^\infty p_{ii}^{(n)}$. Geometrik dağılım argümanıyla $\Beklenti_i[R]=f_i/(1-f_i)$: $f_i=1$ iff $\Beklenti_i[R]=\infty$ iff seri ıraksar.
+\end{proof}
+
+\begin{tanim}[Periyot]\label{def:periyot}
+$d(i) = \gcd\{n\geq1: p_{ii}^{(n)}>0\}$ durum $i$'nin \textbf{periyodu} \emph{(period)}. $d(i)=1$ ise \textbf{aperiyodik} \emph{(aperiodic)}.
+\end{tanim}
+
+\subsection{Durağan Dağılım}
+
+\begin{tanim}[Durağan dağılım]\label{def:duraganlik}
+Olasılık vektörü $\pi = (\pi_j)_{j\in S}$ ($\pi_j\geq0$, $\sum\pi_j=1$), $\pi P=\pi$ koşulunu sağlıyorsa \textbf{durağan dağılım} \emph{(stationary distribution)} denir.
+\end{tanim}
+
+\begin{teorem}[Ergodik teorem]\label{thm:ergodik}
+$\{X_n\}$ geri dönülemez, geri dönüşlü, aperiyodik Markov zinciri olsun. O zaman:
+\begin{enumerate}[(a)]
+  \item Yegâne durağan dağılım $\pi$ vardır: $\pi_j = 1/m_j$ ($m_j$ = ortalama geri dönüş süresi).
+  \item Her $i,j$: $p_{ij}^{(n)}\to\pi_j$ ($n\to\infty$).
+  \item Her $f:S\to\mathbb{R}$ sınırlı için zaman ortalaması olasılık ortalamasına yakınsar:
+  \[
+    \frac{1}{n}\sum_{k=0}^{n-1}f(X_k) \asto \sum_j f(j)\pi_j.
+  \]
+\end{enumerate}
+\end{teorem}
+
+\begin{ispatiskele}
+Geri dönüş teoremi, yenileme teorisine dayanır. $m_j=\Beklenti_j[T_j]$ (ilk geri dönüş zamanı). Ergodik limit, büyük sayılar kanunu analog. Tam ispat: Norris (1997) §1.8.
+\end{ispatiskele}
+
+\begin{ornek}[İki durumlu zincir]\label{ex:iki_durumlu}
+$S=\{0,1\}$, $P=\begin{pmatrix}1-\alpha&\alpha\\\beta&1-\beta\end{pmatrix}$. Durağan dağılım: $\pi_0=\beta/(\alpha+\beta)$, $\pi_1=\alpha/(\alpha+\beta)$. $\alpha,\beta>0$ ise ergodik.
+\end{ornek}
+
+\begin{ornek}[Gambler's ruin --- Markov zinciri]\label{ex:gambler_markov}
+$S=\{0,1,\ldots,N\}$; $p_{i,i+1}=p$, $p_{i,i-1}=q=1-p$, sınır durumları absorbe edici. Bu Markov zincirinde $0$ ve $N$ geri dönüşlü, diğerleri geçici. $i$'den başlayıp $N$'ye ulaşma olasılığı $\rho_i$:
+\[
+  \rho_i = \frac{1-(q/p)^i}{1-(q/p)^N} \quad (p\neq q), \qquad \rho_i = i/N \quad (p=q).
+\]
+\end{ornek}
+
+%% ============================================================
+\section{Poisson Süreci}
+\label{sec:poisson_sureci}
+%% ============================================================
+
+\begin{tanim}[Sayma süreci]\label{def:sayma_sureci}
+$N(t)$ ($t\geq0$) tam sayı değerli süreç; $N(0)=0$ ve $t\mapsto N(t)$ n.k.\ sağdan sürekli, artan ise \textbf{sayma süreci} \emph{(counting process)}.
+\end{tanim}
+
+\begin{tanim}[Poisson süreci]\label{def:poisson_sureci}
+Sayma süreci $\{N(t)\}$, aşağıdakileri sağlıyorsa $\lambda>0$ hızlı \textbf{Poisson süreci} \emph{(Poisson process)} adını alır:
+\begin{enumerate}[(i)]
+  \item $N(0)=0$.
+  \item \textbf{Bağımsız artışlar}: $0\leq s<t$, $N(t)-N(s)$ önceki artışlardan bağımsız.
+  \item \textbf{Durağan artışlar}: $N(t+s)-N(s) \overset{d}{=} N(t)$.
+  \item $\Prob(N(h)=1)=\lambda h+o(h)$, $\Prob(N(h)\geq2)=o(h)$.
+\end{enumerate}
+\end{tanim}
+
+\begin{teorem}[Poisson dağılımı]\label{thm:poisson_dagilim}
+$\{N(t)\}$ Poisson süreci ise $N(t)\sim\Pois(\lambda t)$.
+\end{teorem}
+
+\begin{proof}
+$p_n(t)=\Prob(N(t)=n)$ olsun. İleriye denklem: bağımsız artışlar ve aksiyom (iv) ile
+\[
+  p_n(t+h) = p_n(t)(1-\lambda h) + p_{n-1}(t)\lambda h + o(h).
+\]
+$h\to0$: $p_n'(t) = -\lambda p_n(t)+\lambda p_{n-1}(t)$, $p_0(0)=1$, $p_n(0)=0$ ($n\geq1$). Çözüm: $p_n(t)=e^{-\lambda t}(\lambda t)^n/n!$.
+\end{proof}
+
+\begin{teorem}[Varış araları]\label{thm:varis_aralari}
+$T_k$ ($k$-inci varış arası) i.i.d.\ $\Exp(\lambda)$.
+\end{teorem}
+
+\begin{proof}
+$\Prob(T_1>t) = \Prob(N(t)=0)=e^{-\lambda t}$; dolayısıyla $T_1\sim\Exp(\lambda)$. Markov özelliği (bağımsız artışlar) $T_2,T_3,\ldots$'yı da bağımsız $\Exp(\lambda)$ yapar.
+\end{proof}
+
+\begin{teorem}[İnceleme --- süperpozisyon]\label{thm:poisson_ozellikler}
+$\{N_1(t)\}$ ve $\{N_2(t)\}$ bağımsız, sırasıyla $\lambda_1$ ve $\lambda_2$ hızlı Poisson süreçleri.
+\begin{enumerate}[(a)]
+  \item \textbf{Süperpozisyon:} $N(t)=N_1(t)+N_2(t)$ ise $(\lambda_1+\lambda_2)$ hızlı Poisson.
+  \item \textbf{İnceleme:} Her olayı $p$ olasılıkla tut. Tutulan $\{M(t)\}$ ise $p\lambda$ hızlı Poisson.
+  \item \textbf{Koşullu:} $N(t)=n$ verildiğinde $n$ varış zamanı $[0,t]$ üzerinde i.i.d.\ $\Uniform[0,t]$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}[Proof (a)]
+Karakteristik fonksiyonla: $N_1(t)+N_2(t)$ bağımsız Poisson toplamı $\Pois((\lambda_1+\lambda_2)t)$.
+\end{proof}
+
+%% ============================================================
+\section{Brownian Hareket}
+\label{sec:brownian}
+%% ============================================================
+
+\begin{tarihselnot}
+Robert Brown (1827) su altındaki polenlerin rastgele hareketini gözlemledi. Einstein (1905) diffüzyon denklemini türetti. Wiener (1923) matematiksel temeli kurdu --- bu nedenle \emph{Wiener süreci} de denir.
+\end{tarihselnot}
+
+\begin{tanim}[Standart Brownian hareket]\label{def:brownian}
+$\{W(t): t\geq0\}$ süreci aşağıdakileri sağlıyorsa \textbf{standart Brownian hareket} \emph{(standard Brownian motion / Wiener process)} adını alır:
+\begin{enumerate}[(i)]
+  \item $W(0)=0$ n.k.
+  \item \textbf{Bağımsız artışlar:} $0\leq s<t$, $W(t)-W(s)$ öncesinden bağımsız.
+  \item \textbf{Gaussian artışlar:} $W(t)-W(s)\sim\Normal(0,t-s)$.
+  \item \textbf{Sürekli yollar:} $t\mapsto W(t)$ n.k.\ sürekli.
+\end{enumerate}
+\end{tanim}
+
+\begin{teorem}[Brownian hareketin temel özellikleri]\label{thm:brownian_ozellik}
+$\{W(t)\}$ standart Brownian hareket. O zaman:
+\begin{enumerate}[(a)]
+  \item $W(t)\sim\Normal(0,t)$.
+  \item $\Cov(W(s),W(t))=\min(s,t)$.
+  \item Yollar n.k.\ hiçbir noktada türevlenemez.
+  \item $W$ bir martingaldir.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(a) $W(t)=W(t)-W(0)\sim\Normal(0,t)$ tanımdan.
+
+(b) $s\leq t$: $\Cov(W(s),W(t))=\Cov(W(s),W(s)+(W(t)-W(s)))=\Var(W(s))=s$ (bağımsız artışlar).
+
+(c) Yol türevsizliği: Paley-Wiener-Zygmund teoremi (ileri konu, referans: Mörters-Peres).
+
+(d) $\Beklenti[W(t)\mid\mathcal{F}_s]=W(s)$: $W(t)-W(s)\perp\mathcal{F}_s$, $\Beklenti[W(t)-W(s)]=0$.
+\end{proof}
+
+\begin{ornek}[Geometrik Brownian hareket]\label{ex:geometrik_brownian}
+$S(t) = S_0\exp\!\bigl[(\mu-\tfrac{1}{2}\sigma^2)t + \sigma W(t)\bigr]$ formülü Black-Scholes modelinde hisse senedi fiyatını verir. $\log S(t)\sim\Normal(\log S_0+(\mu-\sigma^2/2)t,\,\sigma^2 t)$.
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Fizik:} Brownian hareket ısı difüzyonunu modelleyen $\partial u/\partial t = \frac{1}{2}\partial^2 u/\partial x^2$ denkleminin olasılıksal çözümüdür.
+\textbf{Finans:} Black-Scholes opsiyon fiyatlaması geometrik Brownian harekete dayanır.
+\textbf{Biyoloji:} Protein difüzyonu, nöral gürültü modelleri.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Sürekli Zamanlı Markov Zincirleri}
+\label{sec:ctmc}
+%% ============================================================
+
+\begin{tanim}[Sürekli zamanlı Markov zinciri]\label{def:ctmc}
+Durum uzayı $S$ sayılabilir, $\{X(t):t\geq0\}$ sürekli zamanlı süreç. \textbf{Markov özelliği}:
+\[
+  \Prob(X(t+s)=j\mid X(u),\;0\leq u\leq s) = \Prob(X(t+s)=j\mid X(s)).
+\]
+Türdeş (homogeneous) CTMC için $p_{ij}(t)=\Prob(X(t+s)=j\mid X(s)=i)$ yalnızca $t$'ye bağlı.
+\end{tanim}
+
+\begin{tanim}[Yoğunluk matrisi (Q-matrisi)]\label{def:q_matrisi}
+$q_{ij}\geq0$ ($i\neq j$): $i\to j$ geçiş hızı. $q_i=\sum_{j\neq i}q_{ij}$: $i$'den ayrılma hızı. $q_{ii}=-q_i$.
+
+\textbf{Q-matrisi} (jeneratör): $Q=(q_{ij})$; satır toplamları $0$.
+\end{tanim}
+
+\begin{teorem}[Kolmogorov ileri denklemi]\label{thm:kolmogorov_ileri}
+$P(t)=(p_{ij}(t))$ geçiş matrisi. O zaman $P'(t)=P(t)Q$ (ileri denklem) ve $P'(t)=QP(t)$ (geri denklem). Çözüm: $P(t)=e^{Qt}$ (matris üsteli).
+\end{teorem}
+
+\begin{ispatiskele}
+Kısa zaman adımı: $P(t+h)=P(t)(I+Qh)+o(h)$. $h\to0$: $P'(t)=P(t)Q$. Başlangıç $P(0)=I$; çözüm $e^{Qt}$.
+\end{ispatiskele}
+
+\begin{tanim}[Doğum-ölüm süreci]\label{def:dogum_olum}
+CTMC; $S=\{0,1,2,\ldots\}$. Yalnızca komşu geçişler:
+\[
+  q_{i,i+1}=\lambda_i \text{ (doğum hızı)}, \quad q_{i,i-1}=\mu_i \text{ (ölüm hızı)}, \quad i\geq0.
+\]
+Durağan dağılım: $\pi_i = \pi_0\prod_{k=0}^{i-1}\frac{\lambda_k}{\mu_{k+1}}$, $\pi_0 = \left[1+\sum_{i=1}^\infty\prod_{k=0}^{i-1}\frac{\lambda_k}{\mu_{k+1}}\right]^{-1}$.
+\end{tanim}
+
+\begin{ornek}[M/M/1 kuyruğu]\label{ex:mm1}
+$\lambda_i=\lambda$ (sabit varış), $\mu_i=\mu$ ($i\geq1$). $\rho=\lambda/\mu<1$ ise durağan dağılım:
+\[
+  \pi_i = (1-\rho)\rho^i, \quad i=0,1,2,\ldots
+\]
+(geometrik dağılım). Ortalama kuyruk uzunluğu: $L=\rho/(1-\rho)$. Little yasası: $L=\lambda W$ ($W$ ortalama bekleme süresi).
+\end{ornek}
+
+\begin{proof}[Proof --- M/M/1 durağan dağılım]
+Denge denklemi $\lambda\pi_{i-1}=\mu\pi_i$ (akış denge koşulu). Yinelemeli çözüm: $\pi_i=(\lambda/\mu)^i\pi_0$. Normalleştirme: $\sum\pi_i=\pi_0/(1-\rho)=1$ ise $\pi_0=1-\rho$.
+\end{proof}
+
+%% ============================================================
+\section{Stokastik İntegrasyon ve Itô Formülü}
+\label{sec:ito}
+%% ============================================================
+
+\begin{kesif}
+Riemann-Stieltjes toplamında bölüm noktası $t^*_k \in [t_k, t_{k+1}]$ serbestçe
+seçilir ve klasik analizde seçim limiti etkilemez. $W$ Brownian hareketi için
+$t^*_k = t_k$ (sol uç) ile $t^*_k = t_{k+1}$ (sağ uç) seçimlerinin aynı limiti
+verip vermeyeceğini düşününüz.
+\kesifcevap{Hayır --- Brownian artışlar $W_{t_{k+1}}-W_{t_k}$ değerlendirme
+  noktası $t^*_k$'ya bağımsız değildir. Sol uç ($t^*_k=t_k$) Itô integralini,
+  sağ uç Stratonovich integralini tanımlar. Somut fark:
+  $\int_0^T W_s\,dW_s = W_T^2/2 - T/2$ (Itô) vs.\ $W_T^2/2$ (Stratonovich).
+  Sol uç seçimi martingal özelliğini korur; bu istatistiksel uygulamalarda
+  standart tercihdir.}
+\end{kesif}
+
+\begin{tanim}[Itô integrali]\label{def:ito_integral}
+$g(t,\omega)$ uyumlu, $\Beklenti[\int_0^T g^2\,dt]<\infty$. Basamak fonksiyonlar için $\int_0^T g\,dW = \sum g(t_k)(W(t_{k+1})-W(t_k))$ (sol endpoint). Genel $g$ için $L^2$ limiti. Özellikler:
+\begin{itemize}
+  \item $\Beklenti[\int_0^T g\,dW]=0$ (martingal).
+  \item İsometri: $\Beklenti[(\int_0^T g\,dW)^2]=\Beklenti[\int_0^T g^2\,dt]$ (Itô isometrisi).
+\end{itemize}
+\end{tanim}
+
+\begin{teorem}[Itô formülü]\label{thm:ito_formul}
+$f:\mathbb{R}\to\mathbb{R}$ iki kez türevlenebilir. $X(t)$ Itô süreci ise ($dX=\mu\,dt+\sigma\,dW$):
+\[
+  df(X(t)) = f'(X(t))\,dX(t) + \frac{1}{2}f''(X(t))\,\sigma^2\,dt.
+\]
+Klasik zincir kuralından farkı: ikinci türev terimi $(\sigma^2\,dt)$ ekstra.
+\end{teorem}
+
+\begin{ornek}[Geometrik Brownian hareket çözümü]\label{ex:gbm_ito}
+$dS=\mu S\,dt+\sigma S\,dW$; $f(S)=\log S$. Itô:
+\[
+  d\log S = \frac{1}{S}dS - \frac{1}{2S^2}\sigma^2 S^2\,dt = (\mu-\tfrac{\sigma^2}{2})dt+\sigma\,dW.
+\]
+Entegre: $S(t)=S(0)\exp[(\mu-\sigma^2/2)t+\sigma W(t)]$ --- Bölüm~\ref{ex:geometrik_brownian}'deki sonuç türetildi.
+\end{ornek}
+
+\begin{ornek}[$W^2(t)$ hesabı]\label{ex:w2_ito}
+$f(W)=W^2$, $f''=2$. Itô: $d(W^2)=2W\,dW+dt$. Entegre:
+\[
+  W^2(t)-W^2(0)=2\int_0^t W(s)\,dW(s)+t \implies \int_0^t W(s)\,dW(s)=\frac{W^2(t)-t}{2}.
+\]
+Klasik hesap $\int_0^t W\,dW = W^2(t)/2$ verir --- Itô fazladan $-t/2$ terimi ekler.
+\end{ornek}
+
+%% ============================================================
+\section{Ornstein-Uhlenbeck Süreci}
+\label{sec:ou_sureci}
+%% ============================================================
+
+\begin{tanim}[Ornstein-Uhlenbeck süreci]\label{def:ou}
+Stokastik diferansiyel denklem (SDD):
+\[
+  dX(t) = -\theta X(t)\,dt + \sigma\,dW(t), \qquad \theta>0,\;\sigma>0.
+\]
+$\theta$: geri çekme hızı \emph{(mean reversion rate)}, denge nokta $0$ (genel: $dX=\theta(\mu-X)dt+\sigma dW$). OU süreci durağan, Gauss ve Markov özelliklerine sahiptir.
+\end{tanim}
+
+\begin{teorem}[OU sürecinin açık çözümü]\label{thm:ou_cozum}
+$X(0)=x_0$ başlangıç koşuluyla:
+\[
+  X(t) = x_0 e^{-\theta t} + \sigma\int_0^t e^{-\theta(t-s)}\,dW(s).
+\]
+Dağılım: $X(t)\sim\Normal\!\bigl(x_0 e^{-\theta t},\;\tfrac{\sigma^2}{2\theta}(1-e^{-2\theta t})\bigr)$.
+\end{teorem}
+
+\begin{proof}
+$f(t,x)=e^{\theta t}x$ formunu dene; Itô:
+\[
+  d(e^{\theta t}X) = e^{\theta t}(\theta X\,dt + dX) = e^{\theta t}\sigma\,dW.
+\]
+Entegre: $e^{\theta t}X(t) - x_0 = \sigma\int_0^t e^{\theta s}\,dW(s)$; $e^{-\theta t}$ ile böl. Dağılım: Itô izometrisi ile varyans hesaplanır.
+\end{proof}
+
+\begin{teorem}[OU --- durağan dağılım]\label{thm:ou_duraganlik}
+$t\to\infty$: $X(t)\dto X_\infty\sim\Normal(0,\sigma^2/(2\theta))$. Bu durağan dağılım: $\Beklenti[X_\infty]=0$, $\Var(X_\infty)=\sigma^2/(2\theta)$.
+\end{teorem}
+
+\begin{ornek}[Faiz oranı modeli --- Vasicek]
+Kısa faiz $r(t)$: $dr = a(b-r)dt + \sigma\,dW$. Bu OU sürecidir; $\theta=a$, denge $b$. $t\to\infty$: $r\to\Normal(b, \sigma^2/(2a))$. Negatif faiz olasılığı var --- gerçekçi sınırlama için CIR modeli kullanılır.
+\end{ornek}
+
+\begin{hataanalizi}
+OU süreci "ortalamaya dönüş" gösterir --- başlangıçtan uzaklaştığında bir çekme kuvveti etkiler. Brownian hareket ile karıştırmayınız: $W(t)$ sınırsız büyür ($\Var(W(t))=t\to\infty$), OU ise durağan dağılıma yakınsar.
+\end{hataanalizi}
+
+%% ============================================================
+\section{Markov Zinciri Monte Carlo (MCMC)}
+\label{sec:mcmc}
+%% ============================================================
+
+\begin{kesif}
+Bir yoğunluk $\pi(x)$'den örnekleme yapmak istiyoruz; normalleştirme sabiti $Z=\int\pi(x)dx$ hesaplanamıyor. Fikir: durağan dağılımı $\pi$ olan bir Markov zinciri kur; uzun vadede zincirin yolu $\pi$'den örnekler üretir.
+\kesifcevap{Metropolis-Hastings: öneri $q(y|x)$'den aday $y$ üret;
+  $\alpha=\min\!\left(1,\tfrac{\pi(y)q(x|y)}{\pi(x)q(y|x)}\right)$ oranıyla kabul et.
+  Normalleştirme sabitine gerek kalmaz ($\pi$ çarpımsal olarak bilinmesi yeterli).
+  Zincir ayrıntılı denge ($\pi_{ij}=\pi_{ji}$) koşuluyla $\pi$'ye yakınsar.}
+\end{kesif}
+
+\begin{tanim}[Ayrıntılı denge]\label{def:ayrintili_denge}
+Olasılık dağılımı $\pi$ ve geçiş çekirdeği $K(x,y)$ arasındaki \textbf{ayrıntılı denge} \emph{(detailed balance)} koşulu:
+\[
+  \pi(x)K(x,y) = \pi(y)K(y,x) \quad \text{tüm } x,y \text{ için}.
+\]
+Bu koşul $\pi K = \pi$'yi (durağanlık) garanti eder.
+\end{tanim}
+
+\begin{proof}
+$\int\pi(x)K(x,y)\,dx = \int\pi(y)K(y,x)\,dx = \pi(y)\int K(y,x)\,dx = \pi(y)$.
+\end{proof}
+
+\begin{tanim}[Metropolis-Hastings algoritması]\label{def:metropolis_hastings}
+Hedef $\pi(x)$; öneri dağılımı $q(x\to y)$. Her adımda:
+\begin{enumerate}
+  \item $y\sim q(x\to\cdot)$ öner.
+  \item Kabul oranı: $\alpha(x,y) = \min\!\left(1,\;\frac{\pi(y)q(y\to x)}{\pi(x)q(x\to y)}\right)$.
+  \item $U\sim\Uniform[0,1]$: $U\leq\alpha$ ise $X_{n+1}=y$; değilse $X_{n+1}=x$.
+\end{enumerate}
+\end{tanim}
+
+\begin{teorem}[Metropolis-Hastings geçerliliği]\label{thm:mh_gecerlilik}
+MH algoritmasıyla oluşturulan zincir ayrıntılı dengeyi sağlar; $\pi$ durağan dağılımdır. Zincir geri dönülemez ve aperiyodik ise $\pi$'ye yakınsar.
+\end{teorem}
+
+\begin{proof}[Proof --- ayrıntılı denge]
+$\pi(x)K_{\mathrm{MH}}(x,y) = \pi(x)q(x,y)\alpha(x,y)$. $\alpha(x,y)=\min(1,r)$ ($r=\pi(y)q(y,x)/[\pi(x)q(x,y)]$): $r\leq1$ ise $\alpha(x,y)=r=\pi(y)q(y,x)/[\pi(x)q(x,y)]$, yani $\pi(x)K=\pi(y)q(y,x)=\pi(y)K_{\mathrm{MH}}(y,x)$. Simetri; $r\geq1$ durumu benzer.
+\end{proof}
+
+\begin{ornek}[Random-walk Metropolis]
+Öneri: $q(x\to y)=\phi(y-x;0,\tau^2)$ (Gaussian yürüyüş). $q$ simetrik olduğundan $q(x,y)=q(y,x)$; $\alpha(x,y)=\min(1,\pi(y)/\pi(x))$. Hedef $\pi\propto e^{-x^2/2}$ için her adımda yalnızca $\pi(y)/\pi(x)$ oranı hesaplanır --- normalleştirme gerekmez.
+\end{ornek}
+
+\begin{teorem}[Gibbs örneklemesi]\label{thm:gibbs}
+$\pi(x_1,\ldots,x_d)$ çok değişkenli hedef. Gibbs örneklemesi her adımda tek bir bileşeni koşullu dağılımından örnekler: $X_j^{(t+1)}\sim\pi(x_j\mid x_{-j}^{(t)})$. MH'nin $\alpha=1$ özel durumudur.
+\end{teorem}
+
+\begin{ispatiskele}
+Her Gibbs adımının hedef dağılımın marjinalini koruduğunu göster: tek boyutlu koşullu örneklem ayrıntılı dengeyi sağlar. Bileşen yenilemelerinin birleşimi tüm $\pi$'yi durağan tutar.
+\end{ispatiskele}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Bayesçi istatistik:} Posterior dağılımdan örnekleme için MCMC; tahmin ve model karşılaştırmasında temel araç. \textbf{Fizik:} Metropolis algoritması istatistik mekanikte (Ising modeli) doğdu (1953). \textbf{Makine öğrenmesi:} Latent Dirichlet Allocation (LDA) konu modellemesinde Gibbs kullanılır.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+
+\begin{mikroozet}
+\begin{itemize}
+  \item Markov zinciri: gelecek yalnızca şimdiye bağlı; Chapman-Kolmogorov $P^{m+n}=P^m P^n$.
+  \item Durağan dağılım: $\pi P=\pi$; ergodik zincirde yegâne ve $p_{ij}^{(n)}\to\pi_j$.
+  \item Poisson süreci: bağımsız+durağan artışlar; $N(t)\sim\Pois(\lambda t)$; varış araları $\Exp(\lambda)$.
+  \item Brownian hareket: Gaussian bağımsız artışlar, sürekli türevsiz yollar, martingal.
+  \item CTMC: Q-matrisi; Kolmogorov denklemleri; M/M/1 geometrik durağan dağılım.
+  \item Itô: $df = f'\,dX + \frac12 f''\sigma^2\,dt$ --- ikinci türev terimi ekstra.
+\end{itemize}
+\end{mikroozet}
+
+\begin{ozyansima}
+Markov özelliği "geçmişi unutan" sistemleri ne kadar iyi modelliyor? Hangisi daha zengin: Markov zincirleri mi yoksa martingaller mi? Bu ikisinin kesişimi nedir?
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Nereden geldik:} Bölüm~\ref{chp:martingaller}'daki Doob yakınsama teoremi, geri dönüşlü Markov zincirlerin ergodik teoreminin özel durumudur.
+
+\textbf{Nereye gidiyoruz:} Part II'de (Böl.~\ref{chp:guven_araliklari} vd.) bu süreçlerin parametrelerini veriden tahmin etmeye odaklanacağız. Markov zinciri Monte Carlo (MCMC) Bayesçi istatistikte doğrudan kullanılır.
+\end{kopru}
+
+%% ============================================================
+%% ALISTIRMALAR
+%% ============================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.10.1]{A}{Durağan dağılım}
+Üç durumlu Markov zinciri $P=\begin{pmatrix}0.5&0.4&0.1\\0.3&0.5&0.2\\0.2&0.3&0.5\end{pmatrix}$. Durağan dağılımı bul.
+\end{alistirma}
+\alcozum{%
+$\pi P=\pi$, $\sum\pi_i=1$. Denklem sistemi: $0.5\pi_0+0.3\pi_1+0.2\pi_2=\pi_0$ vb. Çözüm: $\pi=(0.303,0.404,0.293)$ (yaklaşık; tam çözüm için lineer denklem sistemi).%
+}
+
+\begin{alistirma}[Al.10.2]{B}{Poisson süperpozisyon}
+Bir hastane acil birimine birbirinden bağımsız iki kaynaktan hasta geliyor: 112 araçlarından $\lambda_1=3$/saat, bireysel başvurulardan $\lambda_2=2$/saat. Bir saatte 10 veya daha fazla hasta gelme olasılığı nedir?
+\end{alistirma}
+\alcozum{%
+Toplam süreç $\Pois(5)$. $\Prob(N(1)\geq10)=1-\Prob(N(1)\leq9)=1-\sum_{k=0}^9 e^{-5}5^k/k!\approx1-0.9682=0.0318$.%
+}
+
+
+\begin{alistirma}[Al.10.3]{A}{Brownian varyans}
+$W(t)$ standart Brownian hareket. $\Beklenti[W(3)^2]$, $\Cov(W(2),W(5))$ ve $\Cor(W(2),W(5))$'i hesapla.
+\end{alistirma}
+\alcozum{%
+$\Beklenti[W(3)^2]=\Var(W(3))=3$. $\Cov(W(2),W(5))=\min(2,5)=2$. $\Cor=2/\sqrt{2\cdot5}=2/\sqrt{10}$.%
+}
+\begin{alistirma}[Al.10.4]{B}{İki durumlu ergodiklik}
+İki durumlu Markov zinciri $P=\begin{pmatrix}1-\alpha&\alpha\\\beta&1-\beta\end{pmatrix}$ ($\alpha,\beta\in(0,1)$). (a) Durağan dağılımı bul. (b) $p_{00}^{(n)}$'in kapalı formülünü türet. (c) $n\to\infty$ limitinin durağan dağılıma yakınsadığını doğrula.
+\end{alistirma}
+\alcozum{%
+(a) $\pi_0=\beta/(\alpha+\beta)$, $\pi_1=\alpha/(\alpha+\beta)$. (b) Özdeğerler $1$ ve $1-\alpha-\beta$: $p_{00}^{(n)}=\pi_0+\pi_1(1-\alpha-\beta)^n$. (c) $|1-\alpha-\beta|<1$ olduğundan ikinci terim $\to0$; $p_{00}^{(n)}\to\pi_0$.%
+}
+\begin{alistirma}[Al.10.5]{C}{Gambler's ruin --- genel}
+$p\neq q$ için Gambler's Ruin'de $i$'den başlayıp $N$'ye ulaşma olasılığı $\rho_i=\frac{1-(q/p)^i}{1-(q/p)^N}$ olduğunu fark denklemiyle ispat et. Ortalama oyun uzunluğunu $i=N/2$, $p=q=1/2$ özel durumunda hesapla.
+\end{alistirma}
+\alcozum{%
+Fark denklemi: $\rho_i=p\rho_{i+1}+q\rho_{i-1}$, $\rho_0=0$, $\rho_N=1$. Karakteristik denklem $pr^2-r+q=0$; kökler $1$ ve $q/p$. Genel çözüm $\rho_i=A+B(q/p)^i$; sınır koşullarıyla $\rho_i$ bulunur. $p=q=1/2$, $i=N/2$: ortalama süre $= i(N-i) = N^2/4$.%
+}
+\begin{alistirma}[Al.10.6]{B}{M/M/1 kuyruk özellikleri}
+$\lambda=4$ varış/dak., $\mu=6$ hizmet/dak. (a) $\rho$'yu hesapla; sistemin durağan mı? (b) Durağan durumda ortalama kuyruk uzunluğu $L$'yi bul. (c) Little yasasıyla ortalama bekleme süresini (sistemde) hesapla.
+\end{alistirma}
+\alcozum{%
+(a) $\rho=4/6=2/3<1$; durağan. (b) $L=\rho/(1-\rho)=(2/3)/(1/3)=2$ müşteri. (c) Little: $L=\lambda W$; $W=L/\lambda=2/4=0.5$ dak.%
+}
+\alistirmalar
+
+
+
+
+
+\begin{alistirma}[Al.10.7]{B}{Itô integrali hesabı}
+(a) $\int_0^t 1\,dW(s)$'nin beklentisini ve varyansını Itô izometrisi ile bul. (b) $\int_0^t s\,dW(s)$'nin beklentisini ve varyansını bul.
+\end{alistirma}
+\alcozum{%
+(a) $g=1$: $\Beklenti[\int_0^t dW]=0$ (martingal); Itô izometrisi $\Var=\Beklenti[\int_0^t 1^2\,ds]=t$. (b) $g(s)=s$: beklenti $=0$; varyans $=\Beklenti[\int_0^t s^2\,ds]=t^3/3$.%
+}
+
+\begin{alistirma}[Al.10.9]{B}{OU süreci varyansı}
+$X(0)=0$, $\theta=1$, $\sigma=2$. (a) $\Var(X(t))$'yi bul. (b) $t\to\infty$'da durağan varyansı hesapla. (c) $\Var(X(1))$'i numerik olarak ver.
+\end{alistirma}
+\alcozum{%
+(a) $\Var(X(t))=\frac{\sigma^2}{2\theta}(1-e^{-2\theta t})=2(1-e^{-2t})$. (b) $t\to\infty$: $\Var=2$. (c) $\Var(X(1))=2(1-e^{-2})\approx2(1-0.135)=1.73$.%
+}
+
+\begin{alistirma}[Al.10.10]{B}{Metropolis-Hastings --- kabul oranı}
+Hedef $\pi(x)\propto e^{-x^2/2}$ (standart Normal). $x=-1$'deyken $y=0.5$ önerildi. Kabul oranı $\alpha(-1,0.5)$'i simetrik öneri dağılımında hesapla ve yorumla.
+\end{alistirma}
+\alcozum{%
+$\alpha=\min(1,\pi(0.5)/\pi(-1))=\min(1,e^{-0.125}/e^{-0.5})=\min(1,e^{0.375})=\min(1,1.455)=1$. Kabul oranı $1$ --- önerilen nokta daha yüksek yoğunlukta, her zaman kabul edilir.%
+}
+
+\begin{alistirma}[Al.10.8]{C}{Doğum-ölüm durağan dağılım}
+Doğum-ölüm süreci: $\lambda_i=\lambda/(i+1)$ (artan yükle azalan varış), $\mu_i=\mu$ ($i\geq1$). (a) Durağan dağılım formülünü yaz. (b) $\lambda=\mu$ iken $\pi_i$'yi hesapla; hangi bilinen dağılım çıkar?
+\end{alistirma}
+\alcozum{%
+(a) $\pi_i=\pi_0\prod_{k=0}^{i-1}\frac{\lambda_k}{\mu_{k+1}}=\pi_0\prod_{k=0}^{i-1}\frac{\lambda/(k+1)}{\mu}=\pi_0\frac{\lambda^i}{\mu^i\cdot i!}$. (b) $\lambda=\mu$: $\pi_i=\pi_0/i!$. Normalleştirme: $\pi_0\sum_{i=0}^\infty 1/i!=\pi_0 e^1=1$; $\pi_0=e^{-1}$; $\pi_i=e^{-1}/i!$ --- Poisson$(1)$ dağılımı!%
+}
+
+\begin{alistirma}[Al.10.11]{B}{Wiener Süreci --- Kovaryans}
+$W(t)$ standart Brownian hareket. (a) $(W(s),W(t))$ ($s<t$) birleşik dağılımını bul. (b) $\Cov(W(s),W(t))=\min(s,t)$ olduğunu ispat et.
+\end{alistirma}
+\alcozum{%
+(a) Bağımsız artışlar: $W(s)\sim\Normal(0,s)$; $W(t)-W(s)\sim\Normal(0,t-s)$ bağımsız. Birleşik: $(W(s),W(t))\sim\Normal_2(\mathbf{0},\begin{pmatrix}s&s\\s&t\end{pmatrix})$.
+(b) $\Cov(W(s),W(t))=E[W(s)(W(s)+(W(t)-W(s)))]=E[W(s)^2]+0=s=\min(s,t)$.}
+
+\begin{alistirma}[Al.10.12]{B}{Itô Formülü: Karekök}
+$f(x)=\sqrt{x}$, $X(t)=|W(t)|$ (yansıyan Brownian). Resmi Itô formülü $d(\sqrt{W^2+\varepsilon})\to d|W|$ limitinde ne önerir? $E[|W(t)|]$'i hesapla.
+\end{alistirma}
+\alcozum{%
+Itô: $f(x)=\sqrt{x}$, $X(t)=W(t)^2$: $d\sqrt{X}=\frac{1}{2\sqrt{X}}dX-\frac{1}{8X^{3/2}}(dX)^2$. $dX=2W\,dW+dt$: $(dX)^2=4W^2\,dt$. $d|W|=\frac{W}{|W|}dW+\frac{1}{2|W|}dt$ (Tanaka formülü).
+$E[|W(t)|]=E[\sqrt{W(t)^2}]$; $W(t)\sim\Normal(0,t)$: $E[|W(t)|]=\sqrt{t}\cdot E[|Z|]=\sqrt{t}\cdot\sqrt{2/\pi}=\sqrt{2t/\pi}$.}
+
+\begin{alistirma}[Al.10.13]{C}{Gibbs Örnekleyicisi --- Çift Normal}
+$(X,Y)\sim\Normal_2(\mathbf{0},\boldsymbol\Sigma)$, $\boldsymbol\Sigma=\begin{pmatrix}1&\rho\\\rho&1\end{pmatrix}$. Gibbs adımlarının geçiş dağılımlarını yazınız. Neden durağan dağılım $\Normal_2(\mathbf{0},\boldsymbol\Sigma)$'dır?
+\end{alistirma}
+\alcozum{%
+Koşullu dağılımlar: $X|Y=y\sim\Normal(\rho y,1-\rho^2)$; $Y|X=x\sim\Normal(\rho x,1-\rho^2)$.
+Gibbs: (1) $x^{(t+1)}\sim\Normal(\rho y^{(t)},1-\rho^2)$; (2) $y^{(t+1)}\sim\Normal(\rho x^{(t+1)},1-\rho^2)$. Bu koşullu dağılımlar $\Normal_2$ tarafından sağlandığı için $\Normal_2$ durağandır; ayrıntılı denge $\Rightarrow$ Ergodik Teorem $\Rightarrow$ örnekler $\Normal_2$'ye yakınsar.}

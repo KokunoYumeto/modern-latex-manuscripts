@@ -1,0 +1,252 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{maarif}[2026/05/27 v0.1 Maarif Modeli akilli kitap pedagojik ortamlari]
+
+% =====================================================================
+%  Maarif Modeli "akilli kitap" pedagojik katmani
+%  Talimat belgelerindeki bilesenleri yeniden kullanilabilir LaTeX
+%  ortamlarina cevirir. Klasik teorem-ispat metnini, ogrenciyi
+%  konusturan/yazdiran/hata yaptirip duzelttiren bir calisma yuzeyine
+%  donusturmek icindir.
+% =====================================================================
+
+\RequirePackage{xcolor}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage{amssymb}
+\RequirePackage{enumitem}
+\usetikzlibrary{patterns,arrows.meta,positioning}
+
+% ---- Surum anahtari: ogrenci (bos) vs cozumler (cevapli/ogretmen) ----
+\newif\ifmaarifcozum
+\maarifcozumfalse
+\DeclareOption{cozumler}{\maarifcozumtrue}
+\DeclareOption{ogrenci}{\maarifcozumfalse}
+\ProcessOptions\relax
+
+% ---- Renk paleti ----
+\definecolor{maMotiv}{HTML}{0B5FA5}   % motivasyon  - mavi
+\definecolor{maSorgu}{HTML}{B0006D}   % kritik sorgu - macenta
+\definecolor{maKesif}{HTML}{1E7F4F}   % kesif kutusu - yesil
+\definecolor{maGerekce}{HTML}{6A4FB3} % tanim gerekcesi - mor
+\definecolor{maIpucu}{HTML}{C77800}   % ipucu - amber
+\definecolor{maHata}{HTML}{C0392B}    % hata analizi - kirmizi
+\definecolor{maKarsi}{HTML}{8A6D00}   % karsi ornek - hardal
+\definecolor{maIspat}{HTML}{2C7A7B}   % ispat iskelesi - teal
+\definecolor{maIfade}{HTML}{3A6EA5}   % kendinle ifade
+\definecolor{maOzet}{HTML}{4A5568}    % mikro ozet - gri
+\definecolor{maYansima}{HTML}{7A5195} % oz-yansitma
+\definecolor{maKopru}{HTML}{1F6F6F}   % kopru notu
+\definecolor{maDefter}{HTML}{8B3A00}  % notebook baglantisi
+\definecolor{maHoca}{HTML}{555555}    % hoca notu
+
+% ---- Ortak kutu stili ----
+\tcbset{
+  maarif@base/.style={
+    enhanced, breakable, sharp corners=downhill,
+    boxrule=0.4pt, left=3mm, right=3mm, top=2.2mm, bottom=2.2mm,
+    fonttitle=\bfseries\sffamily, coltitle=white,
+    attach boxed title to top left={xshift=2mm, yshift=-2.4mm},
+    boxed title style={sharp corners, boxrule=0pt, arc=1pt},
+    toptitle=0.6mm, bottomtitle=0.6mm,
+  }
+}
+\newcommand{\maarif@box}[3]{% #1 renk, #2 baslik, #3 ic
+  \begin{tcolorbox}[maarif@base, colframe=#1, colback=#1!4,
+      colbacktitle=#1, title={#2}]#3\end{tcolorbox}}
+
+% Kisa yardimci: bir ortamin baslik son eki (opsiyonel) -> " — metin"
+\newcommand{\maarif@suffix}[1]{\ifx\relax#1\relax\else\ \textnormal{\mdseries#1}\fi}
+
+% =====================================================================
+%  1) MOTIVASYON  (Talimat: bolum/konu basinda "bunu neden ogreniyoruz?")
+% =====================================================================
+\newtcolorbox{motivasyon}[1][]{maarif@base, colframe=maMotiv,
+  colback=maMotiv!4, colbacktitle=maMotiv,
+  title={Neden bu konu?\maarif@suffix{#1}}}
+
+% =====================================================================
+%  2) KRITIK SORGU  (kavram oncesi/sonrasi dusunduren cekirdek soru,
+%     topolojide "bu kosul kalkarsa ne bozulur?")
+% =====================================================================
+\newtcolorbox{kritiksorgu}[1][]{maarif@base, colframe=maSorgu,
+  colback=maSorgu!4, colbacktitle=maSorgu,
+  title={Kritik sorgu\maarif@suffix{#1}}}
+
+% =====================================================================
+%  3) KESIF KUTUSU  (tanim verilmeden once sezgisel karalama alani)
+% =====================================================================
+\newtcolorbox{kesif}[1][]{maarif@base, colframe=maKesif,
+  colback=maKesif!4, colbacktitle=maKesif,
+  title={Keşfet\maarif@suffix{#1}}}
+
+% =====================================================================
+%  4) TANIM GEREKCESI  ("neden bu tanim boyle?")
+% =====================================================================
+\newtcolorbox{tanimgerekce}[1][]{maarif@base, colframe=maGerekce,
+  colback=maGerekce!4, colbacktitle=maGerekce,
+  title={Neden bu tanım böyle?\maarif@suffix{#1}}}
+
+% =====================================================================
+%  5) HATA ANALIZI  (sik yapilan / makul gorunen yanlis)
+% =====================================================================
+\newtcolorbox{hataanalizi}[1][]{maarif@base, colframe=maHata,
+  colback=maHata!4, colbacktitle=maHata,
+  title={Hata analizi\maarif@suffix{#1}}}
+
+% =====================================================================
+%  6) KARSI ORNEK LABORATUVARI
+% =====================================================================
+\newtcolorbox{karsiornek}[1][]{maarif@base, colframe=maKarsi,
+  colback=maKarsi!4, colbacktitle=maKarsi,
+  title={Karşı örnek laboratuvarı\maarif@suffix{#1}}}
+
+% =====================================================================
+%  7) KENDINLE IFADE  ("kendi cumlenle acikla")
+% =====================================================================
+\newtcolorbox{kendinleifade}[1][]{maarif@base, colframe=maIfade,
+  colback=maIfade!4, colbacktitle=maIfade,
+  title={Kendi cümlenle açıkla\maarif@suffix{#1}}}
+
+% =====================================================================
+%  8) MIKRO OZET  (surec ici, kisa)
+% =====================================================================
+\newtcolorbox{mikroozet}[1][]{maarif@base, colframe=maOzet,
+  colback=maOzet!4, colbacktitle=maOzet,
+  title={Mikro özet\maarif@suffix{#1}}}
+
+% =====================================================================
+%  9) OZ-YANSITMA  (bolum sonu)
+% =====================================================================
+\newtcolorbox{ozyansima}[1][]{maarif@base, colframe=maYansima,
+  colback=maYansima!4, colbacktitle=maYansima,
+  title={Öz-yansıtma\maarif@suffix{#1}}}
+
+% =====================================================================
+% 10) KOPRU NOTU  (onceki/sonraki bolum, ileri okuma, notebook yonu)
+% =====================================================================
+\newtcolorbox{kopru}[1][]{maarif@base, colframe=maKopru,
+  colback=maKopru!4, colbacktitle=maKopru,
+  title={Köprü notu\maarif@suffix{#1}}}
+
+% =====================================================================
+% 11) HOCA NOTU  (ogretici mudahale alani)
+% =====================================================================
+\newtcolorbox{hocanotu}[1][]{maarif@base, colframe=maHoca,
+  colback=maHoca!5, colbacktitle=maHoca,
+  title={Hocanın notu\maarif@suffix{#1}}}
+
+% =====================================================================
+% 12) KADEMELI IPUCU HIYERARSISI
+%     \begin{ipucu}{1} ... \end{ipucu}  -> "Ipucu 1"
+%     Baski surumunde gorunur ama kademeli etiketlenir; tam etkilesim
+%     (tiklayinca acilma) Jupyter notebook katmaninda yasar.
+% =====================================================================
+\newtcolorbox{ipucu}[1]{maarif@base, colframe=maIpucu,
+  colback=maIpucu!5, colbacktitle=maIpucu,
+  title={İpucu #1}}
+
+% =====================================================================
+% 13) OGRENCI YAZMA / KARALAMA ALANI (entegre defter)
+%     \ogrencialani[yukseklik]  (varsayilan 3cm), cizgili zemin
+% =====================================================================
+\newcommand{\ogrencialani}[1][3cm]{%
+  \par\vspace{1mm}%
+  \begin{tcolorbox}[enhanced, breakable, colback=white, colframe=black!25,
+      boxrule=0.4pt, sharp corners, height=#1,
+      interior style={pattern=horizontal lines, pattern color=black!8}]
+  \mbox{}
+  \end{tcolorbox}\par\vspace{1mm}}
+
+% =====================================================================
+% 14) NOTEBOOK / DIJITAL KATMAN BAGLANTISI
+%     \defterbaglantisi{dosya.ipynb}{kisa aciklama}
+% =====================================================================
+\newcommand{\defterbaglantisi}[2]{%
+  \par\noindent
+  \begin{tcolorbox}[enhanced, sharp corners, boxrule=0.4pt,
+      colframe=maDefter, colback=maDefter!5, left=3mm, right=3mm,
+      top=1.6mm, bottom=1.6mm]
+  {\bfseries\sffamily\color{maDefter}Dijital katman.}\quad
+  \emph{Etkileşimli keşif:} #2.\\[0.4mm]
+  \footnotesize Defter: \texttt{\detokenize{#1}} \ (\texttt{\detokenize{../pytop}} ile çalışır).
+  \end{tcolorbox}\par}
+
+% =====================================================================
+% 15) ISPAT ISKELESI  (scaffolded proof) + doldurulacak bosluklar
+%     \begin{ispatiskele}[strateji ozeti] ... \end{ispatiskele}
+%     Ic kisimda \bosluk{cevap} kullanilir:
+%       - ogrenci surumu: bos doldurma cizgisi
+%       - cozumler surumu: cevap vurguli gosterilir
+% =====================================================================
+\newtcolorbox{ispatiskele}[1][]{maarif@base, colframe=maIspat,
+  colback=maIspat!4, colbacktitle=maIspat,
+  title={İspat iskelesi\maarif@suffix{#1}}}
+
+\newcommand{\bosluk}[1]{%
+  \ifmaarifcozum
+    \ifmmode \boxed{#1}\else {\colorbox{maIspat!12}{\strut\,#1\,}}\fi
+  \else
+    \underline{\hspace{3.2cm}}%
+  \fi}
+
+% Tek satirlik "kendin tamamla" adimi (numarali iskele icin pratik)
+\newcommand{\iskeleadim}[2]{\par\noindent\textbf{Adim #1.}\ #2\par}
+
+% =====================================================================
+% 16) ALISTIRMA COZUMU
+%     \alcozum{...}  — ogrenci suruumunde gizli, egitmen suruumunde gorunur
+%     Boeluum sonu aliştırmaların tam çözümleri için kullanılır.
+% =====================================================================
+\definecolor{maCozum}{HTML}{1A5276}  % cozum rengi - lacivert
+
+\newcommand{\alcozum}[1]{%
+  \ifmaarifcozum
+    \par\noindent
+    \begin{tcolorbox}[maarif@base, colframe=maCozum,
+        colback=maCozum!4, colbacktitle=maCozum,
+        title={Çözüm}]
+      #1
+    \end{tcolorbox}
+  \fi}
+
+% =====================================================================
+% 17) ALISTIRMA ORTAMI
+%     \begin{alistirma}[etiket]{seviye}{baslik} ... \end{alistirma}
+%     seviye: A / B / C
+%     Ardından \alcozum{...} ile çözüm eklenir (egitmen suruumunde gorunur).
+% =====================================================================
+\definecolor{maAlistirmaA}{HTML}{1E8449}  % A seviye - yesil
+\definecolor{maAlistirmaB}{HTML}{D68910}  % B seviye - turuncu
+\definecolor{maAlistirmaC}{HTML}{922B21}  % C seviye - koyu kirmizi
+
+\newenvironment{alistirma}[3][]{%
+  % #1: opsiyonel etiket (örn. Al.2.3), #2: seviye (A/B/C), #3: başlık
+  \def\maarif@alev{#2}%
+  \ifx\maarif@alev A\def\maarif@alcol{maAlistirmaA}\fi
+  \ifx\maarif@alev B\def\maarif@alcol{maAlistirmaB}\fi
+  \ifx\maarif@alev C\def\maarif@alcol{maAlistirmaC}\fi
+  \par\noindent
+  \begin{tcolorbox}[maarif@base, colframe=\maarif@alcol,
+      colback=\maarif@alcol!4, colbacktitle=\maarif@alcol,
+      title={\ifx\relax#1\relax\else\texttt{#1}\ \fi Seviye #2%
+             \ifx\relax#3\relax\else\ —\ #3\fi}]
+}{%
+  \end{tcolorbox}}
+
+% =====================================================================
+% 18) BOLUM SONU ALISTIRMA BLOKLARI
+%     \cozumlualıstirmalar  — çözümlü alıştırmalar başlığı
+%     \alistirmalar         — çözümsüz alıştırmalar başlığı
+% =====================================================================
+\newcommand{\cozumlualistirmalar}{%
+  \par\vspace{4mm}
+  {\sffamily\bfseries\large\color{maCozum}%
+   \rule[0.5ex]{2cm}{0.6pt}\quad Çözümlü Alıştırmalar \quad\rule[0.5ex]{2cm}{0.6pt}}
+  \par\vspace{2mm}}
+
+\newcommand{\alistirmalar}{%
+  \par\vspace{4mm}
+  {\sffamily\bfseries\large\color{maOzet}%
+   \rule[0.5ex]{2cm}{0.6pt}\quad Alıştırmalar \quad\rule[0.5ex]{2cm}{0.6pt}}
+  \par\vspace{2mm}}
+
+\endinput

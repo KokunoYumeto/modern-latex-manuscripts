@@ -1,0 +1,1352 @@
+% =====================================================================
+%  BÖLÜM 1 --- Ölçüm Teorisinin Temelleri
+%  Kaynaklar: Billingsley Böl.2-3; Klenke Böl.1-6; Shiryaev II.§1-§3
+% =====================================================================
+
+\chapter{Ölçüm Teorisinin Temelleri}
+
+\bolumalinti{``The theory of measure is the foundation on which
+  the modern theory of probability rests.''}{Andrey Kolmogorov (1903--1987)}
+
+\noindent\textbf{Ön Koşullar:} Bölüm~0 (küme cebiri, sayılabilirlik, $\limsup/\liminf$).
+
+\noindent\textbf{Bu Bölüm Sonraki Bölümlerde Kullanılır:}
+Bölüm~2 (olasılık ölçüsü),
+Bölüm~3 (rasgele değişkenler = ölçülebilir fonksiyonlar),
+Bölüm~4 (beklenti = Lebesgue integrali).
+
+\noindent\textbf{Tahmini Okuma Süresi:} $\approx 10$~saat.
+
+\vspace{0.5\baselineskip}
+
+\begin{kazanimlar}
+Bu bölümün sonunda öğrenci:
+\begin{itemize}
+  \item $\sigma$-cebiri tanımını verebilmeli, örnekler üretebilmeli ve
+        verilen bir aile tarafından üretilen $\sigma$-cebirini betimleyebilmeli,
+  \item Borel $\sigma$-cebirini $\mathcal{B}(\mathbb{R})$ tanımlayabilmeli ve
+        açık kümelerin, kapalı kümelerin, $F_\sigma$ ile $G_\delta$ kümelerinin
+        Borel olduğunu gösterebilmeli,
+  \item Ölçü aksiyomlarını ifade edebilmeli; monotonluk, alt-toplamsallık ve
+        aşağıdan/yukarıdan süreklilik özelliklerini ispatlayabilmeli,
+  \item Carathéodory genişleme teoremini ifade edebilmeli ve Lebesgue ölçüsünün
+        bu teoremden nasıl elde edildiğini açıklayabilmeli,
+  \item Ölçülebilir fonksiyon kavramını tanımlayabilmeli; basit fonksiyon
+        yaklaşımını ve Lebesgue integralinin yapısını açıklayabilmeli,
+  \item Monoton Yakınsama Teoremi, Fatou Lemması ve Dominante Yakınsama
+        Teoremini ispatlayabilmeli ve bunları integral hesaplarında uygulayabilmeli,
+  \item Fubini-Tonelli teoremini ifade edebilmeli ve çift integrallerin sırasını
+        değiştirme koşulunu açıklayabilmeli.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+Olasılık teorisinin Kolmogorov tarafından 1933'te aksiyomatik biçimde
+kurulmadan önce, ``olasılık'' kavramı kesin matematiksel temellere sahip
+değildi. Hangi olaylara olasılık atanabilir? Sonsuz çok olayı kapsayan
+deneyler nasıl ele alınır? Lebesgue integralinin beklentiyle ilişkisi nedir?
+
+Tüm bu soruların yanıtı ölçüm teorisinde yatar. Bu bölümde önce ``olası
+olayların ailesinin'' hangi yapıya sahip olması gerektiğini ($\sigma$-cebiri),
+ardından bu yapıya sayı atayan fonksiyonun özelliklerini (ölçü) inceleyeceğiz.
+
+\medskip
+
+\textbf{Köprü kurma.} Riemann integralini biliyorsunuz: fonksiyonu parçalara böler,
+dikdörtgen alanları toplarsınız. Lebesgue integrali tam tersi yönde çalışır:
+fonksiyonun değer aralığını böler, her değer kümesinin ``ölçüsünü'' hesaplar.
+Bu fark küçük görünse de, Lebesgue integrali sınır alma ile değiştirilebilirlik
+gibi son derece güçlü teoremler sağlar; Riemann integrali bunu sağlayamaz.
+\end{motivasyon}
+
+\begin{tarihselnot}
+Henri Lebesgue, 1901 yılında doktora tezinde yeni bir integral teorisi kurdu.
+Émile Borel daha önce belirli küme ailelerine ``ölçü'' atamayı düşünmüştü;
+Lebesgue bu fikri sistematikleştirdi. Carathéodory ise 1914'te dış ölçü
+yoluyla genişleme teoremini formüle etti. Kolmogorov, 1933'te tüm bu yapıyı
+olasılık teorisine uyguladı: olasılık uzayı $(\Omega, \mathcal{F}, \mathbb{P})$
+modern matematiksel olasılığın temel nesnesi oldu.
+\end{tarihselnot}
+
+
+% =====================================================================
+\section{$\sigma$-Cebirleri ve Borel Kümeler}
+% =====================================================================
+
+\begin{kesif}[$\sigma$-cebiri neden gerekli?]
+Bir madeni para \emph{sonsuz kez} atılıyor. ``İlk tura $n$-inci atışta gelir''
+olayını $A_n$ ile gösteriniz. ``En az bir kez tura gelir'' olayı nedir?
+Cevabınızı aşağıya yazınız.
+\kesifcevap{``En az bir kez tura gelir'' = $\bigcup_{n=1}^{\infty} A_n$.
+  Bu sonsuz birleşimi içeren her aile $\sigma$-cebiri olmak zorundadır;
+  aksi takdirde bu olaya olasılık atamak tutarsızlığa yol açar.
+  $\sigma$-cebirinin kapalılık koşulu buradan doğrudan çıkar.}
+Olasılık tanımlamak istediğimiz olaylar ailesi bu tür işlemler altında kapalı
+olmalıdır. Bu koşulun kesin matematiksel karşılığı $\sigma$-cebiriyidir.
+\end{kesif}
+
+\begin{tanimgerekce}
+Neden sadece sonlu işlemler değil, \emph{sayılabilir} işlemler istiyoruz?
+Çünkü sonsuz deneyler (bir madeni paranın sonsuz kez atılması, Poisson süreci)
+doğal olarak sayılabilir sonsuz birleşimler üretir. Sayılamaz birleşimlere
+izin versek, her tekil kümenin birleşimi tüm $\mathbb{R}$'yi verir; bu kümeler
+üzerinde Lebesgue ölçüsü gibi makul bir ölçü tanımlamak imkânsız olur.
+\end{tanimgerekce}
+
+\begin{tanim}[$\sigma$-Cebiri]\label{def:sigmacebiri}
+$\Omega$ boşalmayan bir küme olsun. $\mathcal{F} \subseteq \mathcal{P}(\Omega)$
+alt kümeler ailesine \textbf{$\sigma$-cebiri} \emph{($\sigma$-algebra,
+$\sigma$-field)} denir; eğer:
+\begin{enumerate}[label=\textbf{(\Alph*)}]
+  \item $\Omega \in \mathcal{F}$,
+  \item $A \in \mathcal{F} \Rightarrow A^c \in \mathcal{F}$ \quad(tümleme altında kapalı),
+  \item $A_1, A_2, \ldots \in \mathcal{F} \Rightarrow \bigcup_{n=1}^\infty A_n \in \mathcal{F}$
+        \quad(sayılabilir birleşim altında kapalı).
+\end{enumerate}
+$(\Omega, \mathcal{F})$ çiftine \textbf{ölçülebilir uzay} \emph{(measurable space)} denir.
+\end{tanim}
+
+\begin{sonuc}[Türetilen Özellikler]\label{cor:sigmaturev}
+$\mathcal{F}$ bir $\sigma$-cebiri ise:
+\begin{enumerate}[label=(\roman*)]
+  \item $\emptyset \in \mathcal{F}$,
+  \item $A_1, A_2, \ldots \in \mathcal{F} \Rightarrow \bigcap_{n=1}^\infty A_n \in \mathcal{F}$,
+  \item $A, B \in \mathcal{F} \Rightarrow A \setminus B \in \mathcal{F}$,
+  \item $A, B \in \mathcal{F} \Rightarrow A \triangle B \in \mathcal{F}$.
+\end{enumerate}
+\end{sonuc}
+
+\begin{proof}
+(i) $\Omega \in \mathcal{F}$'den (A), tümlemeyle $\emptyset = \Omega^c \in \mathcal{F}$.
+(ii) De~Morgan: $\bigcap_n A_n = \left(\bigcup_n A_n^c\right)^c$;
+her $A_n^c \in \mathcal{F}$ (B'den), birleşim $\mathcal{F}$'de (C), tümleyen $\mathcal{F}$'de (B).
+(iii) $A \setminus B = A \cap B^c$; (ii)'nin özel hali.
+(iv) $(A \setminus B) \cup (B \setminus A)$; (iii) ve (C)'den.
+\end{proof}
+
+\begin{ornek}[$\sigma$-cebiri örnekleri]\label{ex:sigmaoernekler}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Trivial (önemsiz) $\sigma$-cebiri:} $\mathcal{F} = \{\emptyset, \Omega\}$.
+        Her $\Omega$ üzerinde en küçük $\sigma$-cebiriyidir.
+  \item \textbf{Kuvvet kümesi:} $\mathcal{F} = \mathcal{P}(\Omega)$.
+        En büyük $\sigma$-cebiriyidir.
+  \item $\Omega = \{1,2,3,4\}$, $\mathcal{F} = \{\emptyset, \{1,2\}, \{3,4\}, \Omega\}$.
+        Doğrulayınız: (A), (B), (C) sağlanıyor.
+  \item $\mathcal{F} = \{A \subseteq \Omega : A \text{ sayılabilir ya da } A^c \text{ sayılabilir}\}$.
+        $\Omega$'nın herhangi bir güçte olabileceği bu ``sayılabilir-kosayılabilir''
+        $\sigma$-cebiri standart bir örnektir.
+\end{enumerate}
+\end{ornek}
+
+\begin{kritiksorgu}[Sonlu aileler yeterli değil mi?]
+Tanımda sayılabilir birleşimi sonlu birleşimle değiştirseydik, elde edeceğimiz
+yapıya \textbf{cebir} \emph{(algebra)} denir. Bir cebir, $\sigma$-cebiri olmak
+zorunda değildir: $\mathcal{F}_0 = \{A \subseteq [0,1] : A \text{ ya da } A^c
+\text{ sonlu birleşim aralıktır}\}$ bir cebirdir ama $\sigma$-cebiri değildir.
+\end{kritiksorgu}
+
+\subsection{Üretilmiş $\sigma$-Cebiri}
+
+\begin{tanim}[Üretilmiş $\sigma$-Cebiri]\label{def:sigmauretilensi}
+$\mathcal{E} \subseteq \mathcal{P}(\Omega)$ bir aile olsun.
+$\mathcal{E}$'yi içeren tüm $\sigma$-cebirlerin kesişimine
+$\mathcal{E}$ tarafından \textbf{üretilen $\sigma$-cebiri} denir ve
+$\sigma(\mathcal{E})$ ile gösterilir:
+\[
+  \sigma(\mathcal{E}) \coloneqq \bigcap \{\mathcal{F} : \mathcal{F} \text{ bir } \sigma\text{-cebiri}, \ \mathcal{E} \subseteq \mathcal{F}\}.
+\]
+\end{tanim}
+
+\begin{onerme}[$\sigma(\mathcal{E})$'nin iyi tanımlılığı]\label{prop:sigmaiyitanim}
+$\sigma(\mathcal{E})$:
+\begin{enumerate}[label=(\roman*)]
+  \item Bir $\sigma$-cebiriyidir.
+  \item $\mathcal{E}$'yi içeren en küçük $\sigma$-cebiriyidir:
+        $\mathcal{E} \subseteq \mathcal{G}$ ve $\mathcal{G}$ $\sigma$-cebiri ise
+        $\sigma(\mathcal{E}) \subseteq \mathcal{G}$.
+\end{enumerate}
+\end{onerme}
+
+\begin{proof}
+(i) $\sigma$-cebiri ailesinin keyfi kesişimi $\sigma$-cebiriyidir:
+(A), (B), (C) aksiyomlarının her biri kesişimde korunur.
+(ii) $\mathcal{G}$ kesişimde yer alan ailelerden biridir; dolayısıyla
+kesişim $\subseteq \mathcal{G}$.
+\end{proof}
+
+\subsection{Borel $\sigma$-Cebiri}
+
+\begin{tanim}[Borel $\sigma$-Cebiri]\label{def:borel}
+$\mathbb{R}$ üzerindeki \textbf{Borel $\sigma$-cebiri}
+\[
+  \mathcal{B}(\mathbb{R}) \coloneqq \sigma\bigl(\{(a,b) : a < b,\ a,b \in \mathbb{R}\}\bigr)
+\]
+açık aralıklar ailesi tarafından üretilen $\sigma$-cebiriyidir.
+$\mathcal{B}(\mathbb{R})$'nin elemanlarına \textbf{Borel kümesi} denir.
+\end{tanim}
+
+\begin{teorem}[Borel $\sigma$-Cebirinin Eşdeğer Üreticileri]\label{thm:boreldenk}
+$\mathcal{B}(\mathbb{R})$ aşağıdakilerin her biri tarafından üretilir:
+\begin{enumerate}[label=(\roman*)]
+  \item Açık aralıklar: $\{(a,b) : a<b\}$
+  \item Kapalı aralıklar: $\{[a,b] : a<b\}$
+  \item Yarı-açık aralıklar: $\{(a,b] : a<b\}$\ veya\ $\{[a,b) : a<b\}$
+  \item $\mathbb{R}$'nin açık kümeleri
+  \item $(-\infty, b]$ biçimindeki kümeler ($b \in \mathbb{R}$)
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(v) için göstereceğiz; diğerleri benzerdir.
+
+$\mathcal{E} = \{(-\infty, b] : b \in \mathbb{R}\}$ olsun. Önce $\mathcal{E} \subseteq \mathcal{B}(\mathbb{R})$:
+\[
+  (-\infty, b] = \bigcap_{n=1}^\infty (-\infty, b + 1/n)
+  = \bigcap_{n=1}^\infty \Bigl[(-n, b+1/n)\Bigr]^c \cup \ldots
+\]
+Daha doğrudan: $(-\infty, b] = \mathbb{R} \setminus (b, \infty)$ ve
+$(b,\infty) = \bigcup_{n=1}^\infty (b, b+n)$ açık aralıkların birleşimi;
+dolayısıyla Borel. Tümleni de Borel.
+
+Tersine, $(a,b) = (-\infty, b) \setminus (-\infty, a]$ ve
+$(-\infty, b) = \bigcup_{n=1}^\infty (-\infty, b - 1/n]$; dolayısıyla
+$\sigma(\mathcal{E})$ açık aralıkları içerir, yani $\mathcal{B}(\mathbb{R}) \subseteq \sigma(\mathcal{E})$.
+İki taraflı içerme ile $\sigma(\mathcal{E}) = \mathcal{B}(\mathbb{R})$.
+\end{proof}
+
+\begin{notkutu}
+Borel kümeleri çok geniş bir ailedir. Açık, kapalı, $G_\delta$ (açıkların sayılabilir
+kesişimi), $F_\sigma$ (kapalıların sayılabilir birleşimi), $G_{\delta\sigma}$, \ldots
+hepsi Boreldir. Buna karşın Borel olmayan Lebesgue-ölçülebilir kümeler
+mevcuttur (Lebesgue $\sigma$-cebirinin Borel $\sigma$-cebirinden geniş olduğunun kanıtı).
+\end{notkutu}
+
+\begin{disiplinlerarasibaglan}[Topoloji ve Fonksiyonel Analiz]
+$\mathcal{B}(\mathbb{R})$, metrik uzaylarda sürekli fonksiyonların doğal
+tanım alanıdır. Bir $f: \mathbb{R} \to \mathbb{R}$ fonksiyonu sürekli ise,
+her açık kümenin ters görüntüsü açıktır; dolayısıyla her Borel kümesinin
+ters görüntüsü Boreldir. Bu gözlem Bölüm~3'teki ölçülebilir fonksiyon
+kavramının temel örneğini oluşturur.
+\end{disiplinlerarasibaglan}
+
+\begin{mikroozet}[§1.1 özeti]
+$\sigma$-cebiri: tümleme ve sayılabilir birleşim altında kapalı küme ailesi.
+$\sigma(\mathcal{E})$: $\mathcal{E}$'yi içeren en küçük $\sigma$-cebiri.
+$\mathcal{B}(\mathbb{R})$: açık aralıkların ya da açık kümelerin ürettiği $\sigma$-cebiri.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Ölçüler ve Olasılık Ölçüleri}
+% =====================================================================
+
+\begin{tanimgerekce}
+Bir $\sigma$-cebirine sayı atayan fonksiyon neden $\sigma$-toplamsallık
+gerektiriyor? Çünkü ``uzunluk'', ``alan'', ``hacim'' ve ``olasılık'' gibi
+kavramların hepsinde \emph{ayrık parçaların toplamı bütüne eşittir.} Sonlu
+toplamsallık tek başına yeterli değil: sayılabilir sonsuz birleşimlerde
+süreklilik özelliği istiyoruz.
+\end{tanimgerekce}
+
+\begin{tanim}[Ölçü]\label{def:olcu}
+$(\Omega, \mathcal{F})$ bir ölçülebilir uzay ve
+$\mu: \mathcal{F} \to [0,+\infty]$ bir fonksiyon olsun.
+$\mu$'ya \textbf{ölçü} \emph{(measure)} denir; eğer:
+\begin{enumerate}[label=\textbf{(\Alph*)}]
+  \item $\mu(\emptyset) = 0$,
+  \item \textbf{$\sigma$-toplamsallık} \emph{($\sigma$-additivity)}: $(A_n)_{n \geq 1}$
+        ikili ayrık ve $A_n \in \mathcal{F}$ ise
+        \[
+          \mu\!\left(\bigcup_{n=1}^\infty A_n\right) = \sum_{n=1}^\infty \mu(A_n).
+        \]
+\end{enumerate}
+$(\Omega, \mathcal{F}, \mu)$ üçlüsüne \textbf{ölçüm uzayı} \emph{(measure space)} denir.
+\end{tanim}
+
+\begin{tanim}[Olasılık Ölçüsü]\label{def:olasilikolucu}
+$\mathbb{P}: \mathcal{F} \to [0,1]$ bir ölçüdür ve $\mathbb{P}(\Omega) = 1$
+ise $\mathbb{P}$'ye \textbf{olasılık ölçüsü} \emph{(probability measure)} denir.
+$(\Omega, \mathcal{F}, \mathbb{P})$ üçlüsüne \textbf{olasılık uzayı} denir.
+\end{tanim}
+
+\begin{notkutu}
+Olasılık ölçüsü bir ölçünün özel halidir: değerleri $[0,1]$'e kısıtlı ve
+tüm uzayın ölçüsü $1$'dir. Bölüm~2'de olasılık uzayını ayrıntılı inceleyeceğiz.
+\end{notkutu}
+
+\begin{teorem}[Ölçünün Temel Özellikleri]\label{thm:olcuozellik}
+$(\Omega, \mathcal{F}, \mu)$ bir ölçüm uzayı olsun. O zaman:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Sonlu toplamsallık:} $A_1, \ldots, A_n$ ikili ayrık ise
+        $\mu\!\left(\bigcup_{k=1}^n A_k\right) = \sum_{k=1}^n \mu(A_k)$.
+  \item \textbf{Monotonluk:} $A \subseteq B \Rightarrow \mu(A) \leq \mu(B)$.
+  \item \textbf{Alt-toplamsallık:} $\mu\!\left(\bigcup_{n=1}^\infty A_n\right)
+        \leq \sum_{n=1}^\infty \mu(A_n)$.
+  \item \textbf{Aşağıdan süreklilik:} $A_n \nearrow A \Rightarrow \mu(A_n) \nearrow \mu(A)$.
+  \item \textbf{Yukarıdan süreklilik:} $A_n \searrow A$ ve $\mu(A_1) < \infty$
+        $\Rightarrow \mu(A_n) \searrow \mu(A)$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textbf{(i)} $A_{n+1} = A_{n+2} = \cdots = \emptyset$ koyup $\sigma$-toplamsallığı uygulayınız;
+$\mu(\emptyset) = 0$ kullanınız.
+
+\textbf{(ii)} $B = A \cup (B \setminus A)$ ayrık birleşim; (i)'den
+$\mu(B) = \mu(A) + \mu(B \setminus A) \geq \mu(A)$.
+
+\textbf{(iii)} $B_n = A_n \setminus \bigcup_{k=1}^{n-1} A_k$ tanımlayınız.
+$(B_n)$ ikili ayrık, $\bigcup B_n = \bigcup A_n$ ve $B_n \subseteq A_n$.
+$\sigma$-toplamsallık ve monotonluktan:
+$\mu(\bigcup A_n) = \sum \mu(B_n) \leq \sum \mu(A_n)$.
+
+\textbf{(iv)} $B_1 = A_1$, $B_n = A_n \setminus A_{n-1}$ ($n \geq 2$) koyunuz.
+$(B_n)$ ikili ayrık ve $A_n = \bigcup_{k=1}^n B_k$, $A = \bigcup_{k=1}^\infty B_k$.
+$\sigma$-toplamsallıktan:
+\[
+  \mu(A) = \sum_{k=1}^\infty \mu(B_k) = \lim_{n\to\infty} \sum_{k=1}^n \mu(B_k) = \lim_{n\to\infty} \mu(A_n).
+\]
+
+\textbf{(v)} $C_n = A_1 \setminus A_n$ uygulayınız; $C_n \nearrow A_1 \setminus A$.
+(iv)'ten $\mu(C_n) \nearrow \mu(A_1 \setminus A) = \mu(A_1) - \mu(A)$.
+$\mu(A_n) = \mu(A_1) - \mu(C_n) \to \mu(A)$.
+($\mu(A_1) < \infty$ koşulu farkın tanımlı olması için gereklidir.)
+\end{proof}
+
+\begin{hataanalizi}[Yukarıdan süreklilik için sonluluk koşulu]
+$\mu(A_1) < \infty$ koşulu kaldırılamaz. Karşı örnek: $\Omega = \mathbb{N}$,
+$\mu$ sayma ölçüsü ($\mu(\{k\}) = 1$ her $k$ için), $A_n = \{n, n+1, n+2, \ldots\}$.
+O zaman $A_n \searrow \emptyset$ ama $\mu(A_n) = \infty$ her $n$ için; $\mu(\emptyset) = 0$'a yakınsamaz.
+\end{hataanalizi}
+
+\begin{ornek}[Sayma ölçüsü ve Dirac ölçüsü]\label{ex:saymadirac}
+\begin{enumerate}[label=(\alph*)]
+  \item \textbf{Sayma ölçüsü} \emph{(counting measure)}: $\Omega$ herhangi,
+        $\mathcal{F} = \mathcal{P}(\Omega)$,
+        $\mu(A) = |A|$ (eleman sayısı, sonsuz ise $+\infty$).
+
+  \item \textbf{Dirac ölçüsü} \emph{(Dirac measure)}: $x_0 \in \Omega$ sabit,
+        \[
+          \delta_{x_0}(A) = \gostf{A}(x_0) =
+          \begin{cases} 1 & x_0 \in A, \\ 0 & x_0 \notin A. \end{cases}
+        \]
+        $\delta_{x_0}$ bir olasılık ölçüsüdür. Tüm ölçü $x_0$ noktasında yoğunlaşmıştır.
+\end{enumerate}
+\end{ornek}
+
+\begin{mikroozet}[§1.2 özeti]
+Ölçü: $\mu(\emptyset)=0$ ve $\sigma$-toplamsallık. Olasılık ölçüsü: ölçü + $\mu(\Omega)=1$.
+Temel özellikler: monotonluk, alt-toplamsallık, aşağıdan/yukarıdan süreklilik
+(sonluluk koşuluyla). Örnekler: sayma ölçüsü, Dirac ölçüsü, Lebesgue ölçüsü.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Dış Ölçü ve Carathéodory'nin Genişleme Teoremi}
+% =====================================================================
+
+\begin{motivasyon}[§1.3]
+Lebesgue ölçüsünü nasıl kurarız? ``Uzunluk'' fonksiyonunu aralıklar üzerinde
+tanımlamak kolay: $\lambda((a,b)) = b-a$. Ama bu tanımı tüm Borel kümelerine
+nasıl genişletiriz? Carathéodory'nin yaklaşımı: önce tüm $\mathcal{P}(\mathbb{R})$
+üzerinde bir ``dış ölçü'' tanımla; ardından ölçülebilir kümeleri seç.
+\end{motivasyon}
+
+\begin{tanim}[Dış Ölçü]\label{def:dismolcu}
+$\mu^*: \mathcal{P}(\Omega) \to [0,+\infty]$ fonksiyonuna \textbf{dış ölçü}
+\emph{(outer measure)} denir; eğer:
+\begin{enumerate}[label=(\alph*)]
+  \item $\mu^*(\emptyset) = 0$,
+  \item $A \subseteq B \Rightarrow \mu^*(A) \leq \mu^*(B)$,
+  \item $\mu^*\!\left(\bigcup_{n=1}^\infty A_n\right) \leq \sum_{n=1}^\infty \mu^*(A_n)$.
+\end{enumerate}
+\end{tanim}
+
+\begin{tanim}[Carathéodory Ölçülebilirliği]\label{def:caratheodory}
+$E \subseteq \Omega$, $\mu^*$'a göre \textbf{Carathéodory-ölçülebilir} adını alır;
+eğer her $A \subseteq \Omega$ için
+\[
+  \mu^*(A) = \mu^*(A \cap E) + \mu^*(A \cap E^c).
+\]
+Carathéodory-ölçülebilir kümelerin ailesi $\mathcal{M}^*$ ile gösterilir.
+\end{tanim}
+
+\begin{teorem}[Carathéodory'nin Genişleme Teoremi]\label{thm:caratheodory}
+$\mu^*$ bir dış ölçü olsun. O zaman:
+\begin{enumerate}[label=(\roman*)]
+  \item $\mathcal{M}^*$ bir $\sigma$-cebiriyidir.
+  \item $\mu^*\!\restriction_{\mathcal{M}^*}$ bir ölçüdür.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textit{Fikir:} Carathéodory koşulu, $E$'nin her $A$'yı ``mükemmel biçimde''
+iki parçaya böldüğünü söyler; bu özellik $\sigma$-cebiri aksiyomlarıyla uyumludur.
+
+\medskip
+
+\textbf{$\mathcal{M}^*$ cebirdir (sonlu kapatma).}
+
+\textit{Tümleme:} $E \in \mathcal{M}^*$ ise $E^c \in \mathcal{M}^*$: tanım simetrik.
+
+\textit{Sonlu birleşim:} $E, F \in \mathcal{M}^*$, $A \subseteq \Omega$ olsun.
+$E$'nin Carathéodory koşulunu $A \cap F^c$'ye uygula:
+\[
+  \mu^*(A \cap F^c) = \mu^*(A \cap F^c \cap E) + \mu^*(A \cap F^c \cap E^c).
+\]
+$F$'nin koşulunu $A$'ya uygula: $\mu^*(A) = \mu^*(A \cap F) + \mu^*(A \cap F^c)$.
+Toplarsak ve $A \cap (E \cup F)^c = A \cap E^c \cap F^c$ göz önünde tutulursa,
+$\mu^*(A) = \mu^*(A \cap (E \cup F)) + \mu^*(A \cap (E \cup F)^c)$.
+
+\medskip
+
+\textbf{$\mathcal{M}^*$ sayılabilir birleşim altında kapalıdır ve $\sigma$-toplamsallık.}
+
+$(E_n) \subseteq \mathcal{M}^*$ ikili ayrık, $S_n = \bigcup_{k=1}^n E_k$, $S = \bigcup_n E_n$.
+Tümevarımla $S_n \in \mathcal{M}^*$. Her $A$ için:
+\[
+  \mu^*(A \cap S_n) = \sum_{k=1}^n \mu^*(A \cap E_k).
+\]
+(Bu eşitlik $E_k$'nin Carathéodory koşulunun $A \cap S_k$'ya uygulanmasıyla tümevarımla elde edilir.)
+$S_n \in \mathcal{M}^*$ koşulunu $A$'ya uygula ve $n \to \infty$ al:
+\[
+  \mu^*(A) = \mu^*(A \cap S_n) + \mu^*(A \cap S_n^c)
+  \geq \sum_{k=1}^n \mu^*(A \cap E_k) + \mu^*(A \cap S^c).
+\]
+$n \to \infty$: $\mu^*(A) \geq \sum_k \mu^*(A \cap E_k) + \mu^*(A \cap S^c)
+\geq \mu^*(A \cap S) + \mu^*(A \cap S^c) \geq \mu^*(A)$.
+Tüm eşitsizlikler eşitlik verir; $S \in \mathcal{M}^*$ ve $\sigma$-toplamsallık.
+\end{proof}
+
+\begin{mikroozet}[§1.3 özeti]
+Dış ölçü tüm kümelerde tanımlı ama yalnızca $\sigma$-alt-toplamsaldır.
+Carathéodory kriteri ölçülebilir kümeleri seçer; bu kümelerin oluşturduğu
+aile bir $\sigma$-cebiriyidir ve dış ölçünün kısıtlaması tam bir ölçüdür.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Lebesgue Ölçüsü}
+% =====================================================================
+
+\begin{tanim}[Lebesgue Dış Ölçüsü]\label{def:lebesgue_dis}
+$A \subseteq \mathbb{R}$ için \textbf{Lebesgue dış ölçüsü}:
+\[
+  \lambda^*(A) \coloneqq \inf\left\{
+    \sum_{n=1}^\infty (b_n - a_n) :
+    A \subseteq \bigcup_{n=1}^\infty (a_n, b_n)
+  \right\}.
+\]
+\end{tanim}
+
+\begin{teorem}[Lebesgue Ölçüsünün Varlığı]\label{thm:lebesgue_varlik}
+$\lambda^*$ bir dış ölçüdür ve $\lambda^*((a,b)) = b - a$ her $a < b$ için.
+Carathéodory teoremiyle, $\lambda^*$'nin kısıtlaması
+$\mathcal{L} \supseteq \mathcal{B}(\mathbb{R})$ üzerinde bir ölçü verir.
+Bu ölçüye \textbf{Lebesgue ölçüsü} $\lambda$ denir.
+\end{teorem}
+
+\begin{proof}[İspat (özet)]
+Dış ölçü aksiyomlarının doğruluğu $\lambda^*$ tanımından açıktır.
+$\lambda^*((a,b)) = b-a$: $\geq$ yönü $(a,b)$'nin kendisiyle örtülmesinden;
+$\leq$ yönü Heine-Borel teoremiyle (her açık örtünün sonlu alt örtüsü var)
+sağlanır; detay için Billingsley~\cite{billingsley1995} §3 bakınız.
+Borel kümelerinin Carathéodory-ölçülebilir olduğu doğrulanır.
+\end{proof}
+
+\begin{onerme}[Lebesgue Ölçüsünün Özellikleri]\label{prop:lebesgueozell}
+Lebesgue ölçüsü $\lambda$:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Ötelemede değişmez:} $\lambda(A + x) = \lambda(A)$ her $x \in \mathbb{R}$,
+        $A \in \mathcal{L}$ için.
+  \item \textbf{Ölçeklemede:} $\lambda(cA) = |c|\,\lambda(A)$ her $c \in \mathbb{R}$.
+  \item \textbf{$\sigma$-sonlu:} $\mathbb{R} = \bigcup_n (-n,n)$ ve $\lambda((-n,n)) = 2n < \infty$.
+  \item \textbf{Tam:} $\lambda(N) = 0$ ve $A \subseteq N$ ise $A \in \mathcal{L}$ ve $\lambda(A) = 0$.
+\end{enumerate}
+\end{onerme}
+
+\begin{karsiornek}[Vitali kümesi --- Lebesgue-ölçülemeyen küme]
+Seçim aksiyomu kabul edilirse, $[0,1]$'de Lebesgue-ölçülemeyen kümeler
+mevcuttur (\textbf{Vitali kümesi}). İnşaat: $[0,1]$'deki sayıları
+$\sim$ ile $x \sim y \iff x - y \in \mathbb{Q}$ denk bağıntısıyla sınıflandırınız.
+Her denk sınıftan bir eleman seçerek $V$ oluşturunuz. $V$ ölçülebilir değildir:
+ölçülebilir olsaydı ya $\lambda(V) = 0$ (ama $[0,1] \subseteq \bigcup_{q \in \mathbb{Q} \cap [-1,1]} (V+q)$,
+alt-toplamsallıkla çelişir) ya da $\lambda(V) > 0$ (ama $\lambda([0,2]) \geq \sum_{q} \lambda(V+q)$,
+ötelemede değişmezlikle $= \infty$; çelişki).
+\end{karsiornek}
+
+\begin{mikroozet}[§1.4 özeti]
+Lebesgue ölçüsü aralıkların uzunluğunu tüm Borel (ve daha geniş Lebesgue)
+kümelerine genişletir. Öteleme değişmezliği, tamlık ve $\sigma$-sonluluk
+temel özellikleridir. Ölçüm teorisinin zorunlu kıldığı Seçim Aksiyomu,
+ölçülemeyen kümelerin varlığını garanti eder.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Ölçülebilir Fonksiyonlar}
+% =====================================================================
+
+\begin{tanimgerekce}
+Rasgele değişken, sezgisel olarak ``rastlantıya bağlı sayısal bir sonuç''tur.
+Ama hangi fonksiyonlar rasgele değişken olarak kabul edilebilir? Cevap:
+olayları olaylara götürenler, yani ters görüntüsü $\sigma$-cebirini koruyanlar.
+\end{tanimgerekce}
+
+\begin{tanim}[Ölçülebilir Fonksiyon]\label{def:olculebilfon}
+$(\Omega, \mathcal{F})$ ve $(S, \mathcal{G})$ ölçülebilir uzaylar,
+$f: \Omega \to S$ bir fonksiyon olsun.
+$f$'ye $\mathcal{F}/\mathcal{G}$-\textbf{ölçülebilir} denir;
+eğer her $B \in \mathcal{G}$ için $f^{-1}(B) \in \mathcal{F}$.
+
+Özel olarak $S = \mathbb{R}$, $\mathcal{G} = \mathcal{B}(\mathbb{R})$ ise
+$f$ kısaca $\mathcal{F}$-\textbf{ölçülebilir} adını alır.
+\end{tanim}
+
+\begin{teorem}[Ölçülebilirlik Karakterizasyonları]\label{thm:olculebichar}
+$f: (\Omega,\mathcal{F}) \to (\mathbb{R}, \mathcal{B}(\mathbb{R}))$ için
+aşağıdakiler denktir:
+\begin{enumerate}[label=(\roman*)]
+  \item $f$ ölçülebilirdir.
+  \item Her $b \in \mathbb{R}$ için $\{f \leq b\} \coloneqq \{\omega : f(\omega) \leq b\} \in \mathcal{F}$.
+  \item Her $b \in \mathbb{R}$ için $\{f < b\} \in \mathcal{F}$.
+  \item Her $b \in \mathbb{R}$ için $\{f \geq b\} \in \mathcal{F}$.
+  \item Her $b \in \mathbb{R}$ için $\{f > b\} \in \mathcal{F}$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(i) $\Rightarrow$ (ii): $(-\infty,b] \in \mathcal{B}(\mathbb{R})$
+(Teorem~\ref{thm:boreldenk}(v)), dolayısıyla $f^{-1}((-\infty,b]) \in \mathcal{F}$.
+
+(ii) $\Rightarrow$ (i): $\mathcal{B}(\mathbb{R}) = \sigma(\{(-\infty,b] : b \in \mathbb{R}\})$.
+Koşul (ii), $\{(-\infty,b]\}$ ailesinin ters görüntülerinin $\mathcal{F}$'de
+olduğunu söyler. $\{B : f^{-1}(B) \in \mathcal{F}\}$ ailesinin bir $\sigma$-cebiri
+olduğu görülür (Bölüm~0, Teorem~\ref{thm:tergoriuntu}); bu $\sigma$-cebiri
+$\{(-\infty,b]\}$ ailesini içerdiğinden $\mathcal{B}(\mathbb{R})$'yi içerir.
+
+(ii) $\Leftrightarrow$ (iii)---(v) benzer dönüşümlerle: $\{f < b\} = \bigcup_n \{f \leq b - 1/n\}$, vb.
+\end{proof}
+
+\begin{onerme}[Ölçülebilir Fonksiyonların Kararlılığı]\label{prop:olculebikarar}
+\begin{enumerate}[label=(\roman*)]
+  \item $f, g$ ölçülebilir, $c \in \mathbb{R}$ sabit $\Rightarrow$
+        $f+g$, $fg$, $cf$, $|f|$, $f \vee g$, $f \wedge g$ ölçülebilir.
+  \item $f_n$ ölçülebilir ($n \geq 1$) $\Rightarrow$
+        $\sup_n f_n$, $\inf_n f_n$, $\limsup_n f_n$, $\liminf_n f_n$ ölçülebilir.
+  \item $f_n \to f$ noktasal ise ve her $f_n$ ölçülebilir ise $f$ ölçülebilir.
+\end{enumerate}
+\end{onerme}
+
+\begin{proof}
+(i) $\{f + g > b\} = \bigcup_{q \in \mathbb{Q}} (\{f > q\} \cap \{g > b-q\})$;
+rasyoneller sayılabilir, her küme $\mathcal{F}$'de. Geri kalanlar benzer.
+
+(ii) $\{\sup_n f_n > b\} = \bigcup_n \{f_n > b\} \in \mathcal{F}$.
+$\limsup_n f_n = \inf_n \sup_{k \geq n} f_k$; (ii)'nin tekrarlı uygulaması.
+
+(iii) Noktasal limit $\limsup = \liminf$ olduğu durumdur; (ii)'den.
+\end{proof}
+
+\begin{tanim}[Basit Fonksiyon]\label{def:basit}
+$f: \Omega \to \mathbb{R}$ \textbf{basit} \emph{(simple function)} adını alır; eğer
+yalnızca sonlu sayıda değer alıyorsa. Standart gösterim:
+\[
+  f = \sum_{k=1}^n c_k \gostf{A_k},
+  \quad c_k \in \mathbb{R},\quad A_k = f^{-1}(\{c_k\}) \in \mathcal{F},
+  \quad A_k \text{ ikili ayrık.}
+\]
+\end{tanim}
+
+\begin{teorem}[Basit Fonksiyon Yaklaşımı]\label{thm:basityaklasim}
+$f: (\Omega, \mathcal{F}) \to [0,\infty]$ ölçülebilir ise, her $n \geq 1$ için
+$0 \leq f_n \leq f_{n+1} \leq f$ ve $f_n \nearrow f$ noktasal olan ölçülebilir
+basit fonksiyonlar $(f_n)$ mevcuttur.
+\end{teorem}
+
+\begin{proof}
+$f_n(\omega) = \sum_{k=0}^{n 2^n - 1} \frac{k}{2^n} \gostf{\{k/2^n \leq f < (k+1)/2^n\}}(\omega) + n \gostf{\{f \geq n\}}(\omega)$
+tanımlayınız. $f_n$ ölçülebilir (her $A_k \in \mathcal{F}$), basit (sonlu değer alır),
+artan ($f_n \leq f_{n+1}$), ve $f_n(\omega) \nearrow f(\omega)$ her $\omega$ için
+($f(\omega) < \infty$ ise yakınsama açık; $f(\omega) = \infty$ ise $f_n(\omega) = n \to \infty$).
+\end{proof}
+
+\begin{mikroozet}[§1.5 özeti]
+Ölçülebilir fonksiyon: ters görüntüsü $\sigma$-cebirini koruyan fonksiyon.
+Karakterizasyon: $\{f \leq b\} \in \mathcal{F}$ her $b$ için yeterli ve gerekli.
+Basit fonksiyonlar ölçülebilir fonksiyonları aşağıdan yaklaşır: integral
+teorisinin temel aracı.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Lebesgue İntegrali}
+% =====================================================================
+
+\begin{motivasyon}[§1.6]
+Lebesgue integrali üç aşamada tanımlanır: önce basit fonksiyonlar için
+(sezgisel), sonra negatif olmayan fonksiyonlar için (supremum yoluyla),
+son olarak işaretli fonksiyonlar için ($f = f^+ - f^-$). Her aşama
+bir öncekine dayanır.
+\end{motivasyon}
+
+\begin{tanim}[Lebesgue İntegrali --- Üç Aşama]\label{def:lebesgueintegral}
+$(\Omega, \mathcal{F}, \mu)$ ölçüm uzayı.
+
+\medskip
+
+\textbf{Aşama 1.} $f = \sum_{k=1}^n c_k \gostf{A_k}$ ($c_k \geq 0$) basit:
+\[
+  \int f \, d\mu \coloneqq \sum_{k=1}^n c_k \, \mu(A_k) \in [0,\infty].
+\]
+
+\textbf{Aşama 2.} $f: \Omega \to [0,\infty]$ ölçülebilir:
+\[
+  \int f \, d\mu \coloneqq \sup\left\{ \int g \, d\mu :
+    g \text{ basit, } 0 \leq g \leq f \right\}.
+\]
+
+\textbf{Aşama 3.} $f: \Omega \to \mathbb{R}$ ölçülebilir. $f^+ = \max(f,0)$,
+$f^- = \max(-f,0)$. $f$ \textbf{$\mu$-integrallenebilir} adını alır; eğer
+$\int f^+ \, d\mu < \infty$ ve $\int f^- \, d\mu < \infty$. O zaman:
+\[
+  \int f \, d\mu \coloneqq \int f^+ \, d\mu - \int f^- \, d\mu.
+\]
+$L^1(\mu) \coloneqq \{f \text{ ölçülebilir} : \int |f| \, d\mu < \infty\}$.
+\end{tanim}
+
+\begin{notkutu}
+$A$ üzerinde integral: $\int_A f \, d\mu \coloneqq \int f \gostf{A} \, d\mu$.
+Olasılık teorisinde $\mu = \mathbb{P}$: $\int f \, d\mathbb{P} = \mathbb{E}[f]$.
+\end{notkutu}
+
+\begin{teorem}[Lebesgue İntegralin Özellikleri]\label{thm:lebesgueozell}
+$f, g \in L^1(\mu)$, $c \in \mathbb{R}$:
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Doğrusallık:} $\int (cf + g) \, d\mu = c \int f \, d\mu + \int g \, d\mu$.
+  \item \textbf{Monotonluk:} $f \leq g$ n.k. $\Rightarrow \int f \, d\mu \leq \int g \, d\mu$.
+  \item \textbf{Modül eşitsizliği:} $\left|\int f \, d\mu\right| \leq \int |f| \, d\mu$.
+  \item \textbf{Sıfır ölçülü küme:} $\mu(A) = 0 \Rightarrow \int_A f \, d\mu = 0$.
+  \item \textbf{N.k. eşitlik:} $f = g$ n.k. $\Rightarrow \int f \, d\mu = \int g \, d\mu$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+(i) Basit fonksiyonlar için doğrusallık tanımdan; genel durum Teorem~\ref{thm:basityaklasim}
+ve MYT (§1.7) ile taşınır.
+(ii) $g - f \geq 0$ n.k.; Aşama 2 tanımdan $\int(g-f) \geq 0$.
+(iii) $|f| = f^+ + f^-$, üçgen eşitsizliği.
+(iv), (v) Aşama 1 tanımdan; $\mu(A) = 0$ ise $c_k \mu(A_k \cap A) = 0$.
+\end{proof}
+
+\begin{mikroozet}[§1.6 özeti]
+Lebesgue integrali: basit fonksiyonlar $\to$ negatif olmayan $\to$ işaretli.
+$L^1(\mu)$: integrallenebilir fonksiyonlar. Doğrusallık, monotonluk, n.k.
+eşitlik temel özellikleri.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Monoton Yakınsama, Fatou ve Dominante Yakınsama}
+% =====================================================================
+
+\begin{motivasyon}[§1.7]
+Ne zaman $\lim_n \int f_n \, d\mu = \int \lim_n f_n \, d\mu$ yazabiliriz?
+Riemann teorisinde bu çok kısıtlıdır. Lebesgue teorisinin gücü burada ortaya
+çıkar: üç büyük geçiş teoremi bu soruyu kapsamlı biçimde yanıtlar.
+\end{motivasyon}
+
+\begin{teorem}[Monoton Yakınsama Teoremi (MYT)]\label{thm:myt}
+$f_n: (\Omega,\mathcal{F},\mu) \to [0,\infty]$ ölçülebilir ve $f_n \nearrow f$
+noktasal ise:
+\[
+  \int f \, d\mu = \lim_{n\to\infty} \int f_n \, d\mu.
+\]
+\end{teorem}
+
+\begin{proof}
+\textit{Fikir:} $\int f_n$ artan ve $\leq \int f$; yeterliyse limit $\int f$'ye eşit.
+
+\medskip
+
+\textbf{Adım 1.} $f_n \leq f$ ve monotonluktan $\int f_n \leq \int f$; dolayısıyla
+$L \coloneqq \lim_n \int f_n \leq \int f$.
+
+\textbf{Adım 2.} $L \geq \int f$ göstereceğiz. $0 < c < 1$ ve $g \leq f$ basit
+fonksiyon olsun. $E_n = \{f_n \geq c \cdot g\}$ tanımla; $f_n \nearrow f \geq g$'den
+$E_n \nearrow \Omega$.
+
+$\int f_n \, d\mu \geq \int_{E_n} f_n \, d\mu \geq c \int_{E_n} g \, d\mu$.
+
+$g = \sum_k a_k \gostf{A_k}$ basit; aşağıdan süreklilikten (Teorem~\ref{thm:olcuozellik}(iv)):
+$\int_{E_n} g \, d\mu = \sum_k a_k \mu(A_k \cap E_n) \to \sum_k a_k \mu(A_k) = \int g \, d\mu$.
+
+Dolayısıyla $L \geq c \int g \, d\mu$. $c \to 1^-$ ve ardından
+$g \nearrow f$ (Teorem~\ref{thm:basityaklasim}) ile $L \geq \int f$.
+\end{proof}
+
+\begin{sonuc}[MYT --- Seriler]\label{cor:mytseriler}
+$f_n \geq 0$ ölçülebilir ise $\int \sum_{n=1}^\infty f_n \, d\mu = \sum_{n=1}^\infty \int f_n \, d\mu$.
+\end{sonuc}
+
+\begin{proof}
+$g_N = \sum_{n=1}^N f_n \nearrow \sum_n f_n$; MYT uygula.
+\end{proof}
+
+\begin{teorem}[Fatou Lemması]\label{thm:fatou}
+$f_n \geq 0$ ölçülebilir ise:
+\[
+  \int \liminf_{n\to\infty} f_n \, d\mu \leq \liminf_{n\to\infty} \int f_n \, d\mu.
+\]
+\end{teorem}
+
+\begin{proof}
+$g_n = \inf_{k \geq n} f_k$ tanımla; $g_n \leq f_n$ ve $g_n \nearrow \liminf_n f_n$.
+MYT: $\int \liminf_n f_n = \lim_n \int g_n$.
+$g_n \leq f_k$ her $k \geq n$ için; dolayısıyla
+$\int g_n \leq \inf_{k \geq n} \int f_k$.
+$\lim_n \int g_n \leq \lim_n \inf_{k \geq n} \int f_k = \liminf_n \int f_n$.
+\end{proof}
+
+\begin{hataanalizi}[Fatou'da eşitsizlik keskin olabilir]
+Eşitlik her zaman sağlanmaz. $f_n = \gostf{[n,n+1]}$ alalım; $f_n \to 0$ noktasal,
+$\int f_n = 1$ her $n$ için. $\int \liminf f_n = 0 < 1 = \liminf \int f_n$.
+\end{hataanalizi}
+
+\begin{teorem}[Dominante Yakınsama Teoremi (DYT)]\label{thm:dyt}
+$f_n \to f$ n.k. ve $|f_n| \leq g$ n.k. (her $n$ için), $g \in L^1(\mu)$ ise:
+\[
+  \lim_{n\to\infty} \int f_n \, d\mu = \int f \, d\mu
+  \quad \text{ve} \quad
+  \lim_{n\to\infty} \int |f_n - f| \, d\mu = 0.
+\]
+\end{teorem}
+
+\begin{proof}
+\textit{Fikir:} $g + f_n \geq 0$ ve $g - f_n \geq 0$; Fatou uygulanabilir.
+
+\medskip
+
+$g + f_n \geq 0$; Fatou:
+$\int (g + f) \leq \liminf_n \int (g + f_n) = \int g + \liminf_n \int f_n$.
+$\int g < \infty$'dan $\int f \leq \liminf_n \int f_n$.
+
+$g - f_n \geq 0$; Fatou:
+$\int (g - f) \leq \liminf_n \int (g - f_n) = \int g - \limsup_n \int f_n$.
+$\limsup_n \int f_n \leq \int f$.
+
+İkisi birden: $\limsup_n \int f_n \leq \int f \leq \liminf_n \int f_n$,
+yani $\lim_n \int f_n = \int f$.
+
+$L^1$ yakınsaması: $|f_n - f| \leq 2g \in L^1$; noktasal $\to 0$; DYT yeniden uygulanır.
+\end{proof}
+
+\begin{ornek}[DYT uygulaması]\label{ex:dytuyg}
+$f_n(x) = \dfrac{nx}{1 + n^2 x^2}$, $x \in [0,1]$, Lebesgue ölçüsüyle.
+$f_n(x) \to 0$ her $x > 0$ için (ve $f_n(0) = 0$).
+$|f_n(x)| \leq \frac{1}{2}$ (AM-GM: $nx \cdot 1 \leq (nx + 1/(nx))/2$... daha basit:
+$f_n'(x) = 0$ çözümü $x = 1/n$; $f_n(1/n) = 1/2$). Dolayısıyla $g(x) = 1/2 \in L^1([0,1])$.
+DYT: $\int_0^1 f_n \, dx \to \int_0^1 0 \, dx = 0$.
+\end{ornek}
+
+\begin{mikroozet}[§1.7 özeti]
+MYT: artan + negatif olmayan $\Rightarrow$ limit içine girebilir.
+Fatou: negatif olmayan $\Rightarrow$ $\int \liminf \leq \liminf \int$.
+DYT: integrallenebilir dom. fonksiyon varsa noktasal yakınsama $\Rightarrow$ $L^1$ yakınsaması.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{Ürün Ölçüleri ve Fubini-Tonelli Teoremi}
+% =====================================================================
+
+\begin{motivasyon}[§1.8]
+İki rasgele değişkenin ortak dağılımını hesaplamak, $\mathbb{R}^2$ üzerinde
+bir integral almak gerektirir. Fubini teoremi bu iki boyutlu integrali
+tek boyutlu integrallerin ardışık uygulamasına indirgeyerek hesaplamayı
+mümkün kılar.
+\end{motivasyon}
+
+\begin{tanim}[Ürün $\sigma$-Cebiri]\label{def:urun_sigma}
+$(\Omega_1, \mathcal{F}_1)$ ve $(\Omega_2, \mathcal{F}_2)$ ölçülebilir uzaylar.
+\[
+  \mathcal{F}_1 \otimes \mathcal{F}_2 \coloneqq
+  \sigma\bigl(\{A_1 \times A_2 : A_1 \in \mathcal{F}_1, A_2 \in \mathcal{F}_2\}\bigr)
+\]
+$\Omega_1 \times \Omega_2$ üzerinde \textbf{ürün $\sigma$-cebiriyidir}.
+$A_1 \times A_2$ biçimindeki kümelere \textbf{dikdörtgen (measurable rectangle)} denir.
+\end{tanim}
+
+\begin{onerme}
+$\mathcal{B}(\mathbb{R}) \otimes \mathcal{B}(\mathbb{R}) = \mathcal{B}(\mathbb{R}^2)$.
+\end{onerme}
+
+\begin{proof}
+$\mathbb{R}^2$'deki açık dikdörtgenler $(a_1,b_1) \times (a_2,b_2)$ hem
+$\mathcal{B}(\mathbb{R}) \otimes \mathcal{B}(\mathbb{R})$'de hem de
+$\mathcal{B}(\mathbb{R}^2)$'de; karşılıklı içerme verir.
+\end{proof}
+
+\begin{teorem}[Ürün Ölçüsünün Varlığı ve Tekliği]\label{thm:urunoelcu}
+$(\Omega_1, \mathcal{F}_1, \mu_1)$ ve $(\Omega_2, \mathcal{F}_2, \mu_2)$ $\sigma$-sonlu
+ölçüm uzayları olsun. $\Omega_1 \times \Omega_2$ üzerinde tek bir $\mu_1 \otimes \mu_2$
+ölçüsü mevcuttur; öyle ki her dikdörtgen için:
+\[
+  (\mu_1 \otimes \mu_2)(A_1 \times A_2) = \mu_1(A_1) \cdot \mu_2(A_2).
+\]
+\end{teorem}
+
+\begin{proof}[İspat (özet)]
+Dikdörtgenler bir $\pi$-sistemi oluşturur. Carathéodory genişlemesi
+$\mu_1 \otimes \mu_2$'yi inşa eder. $\sigma$-sonluluk tekliği garantilemek
+için gereklidir (Dynkin'in $\pi$-$\lambda$ argümanı).
+Ayrıntı için Klenke~\cite{klenke2014} §14 bakınız.
+\end{proof}
+
+\begin{teorem}[Tonelli Teoremi]\label{thm:tonelli}
+$f: (\Omega_1 \times \Omega_2, \mathcal{F}_1 \otimes \mathcal{F}_2) \to [0,\infty]$
+ölçülebilir olsun. O zaman:
+\begin{enumerate}[label=(\roman*)]
+  \item $\omega_1 \mapsto \int f(\omega_1, \omega_2) \, d\mu_2(\omega_2)$ ve
+        $\omega_2 \mapsto \int f(\omega_1, \omega_2) \, d\mu_1(\omega_1)$
+        ölçülebilir fonksiyonlardır.
+  \item
+        \[
+          \int f \, d(\mu_1 \otimes \mu_2)
+          = \int\!\!\int f(\omega_1,\omega_2) \, d\mu_2(\omega_2) \, d\mu_1(\omega_1)
+          = \int\!\!\int f(\omega_1,\omega_2) \, d\mu_1(\omega_1) \, d\mu_2(\omega_2).
+        \]
+\end{enumerate}
+\end{teorem}
+
+\begin{teorem}[Fubini Teoremi]\label{thm:fubini}
+$f \in L^1(\mu_1 \otimes \mu_2)$ olsun. O zaman:
+\begin{enumerate}[label=(\roman*)]
+  \item $\mu_1$-n.k. her $\omega_1$ için $\omega_2 \mapsto f(\omega_1, \omega_2) \in L^1(\mu_2)$.
+  \item Tonelli teoremindeki tekrarlı integrasyon formülü geçerlidir.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}[İspat (özet)]
+Tonelli teoremini $f^+$ ve $f^-$'ya ayrı ayrı uygulayınız.
+$f \in L^1$ olduğundan $\int f^+ < \infty$ ve $\int f^- < \infty$;
+$\omega_1$-neredeyse her yerde tekil integraller de sonludur.
+\end{proof}
+
+\begin{hataanalizi}[$L^1$ koşulu olmadan Fubini başarısız olabilir]
+$f(x,y) = \frac{x^2 - y^2}{(x^2+y^2)^2}$ üzerinde $[0,1]^2$ Lebesgue ölçüsü.
+$\int_0^1 \int_0^1 f \, dx \, dy = \pi/4$ ama $\int_0^1 \int_0^1 f \, dy \, dx = -\pi/4$.
+$f \notin L^1([0,1]^2)$; Fubini koşulu sağlanmaz.
+\end{hataanalizi}
+
+\begin{ornek}[Fubini --- somut uygulama]
+$(\mathbb{R}^2, \mathcal{B}(\mathbb{R}^2), \lambda^2)$ üzerinde
+$f(x,y) = e^{-x^2 - y^2}$ integralini hesaplayınız.
+\[
+  \int_{\mathbb{R}^2} e^{-x^2-y^2} \, d\lambda^2
+  = \int_{-\infty}^\infty e^{-x^2} \, dx \cdot \int_{-\infty}^\infty e^{-y^2} \, dy
+  = \left(\int_{-\infty}^\infty e^{-x^2} \, dx\right)^{\!2}.
+\]
+Kutupsal koordinatlarla $\int_{\mathbb{R}^2} e^{-r^2} r \, dr \, d\theta = \pi$;
+dolayısıyla $\int_{-\infty}^\infty e^{-x^2} \, dx = \sqrt{\pi}$.
+Bu, Gaussian integralinin en zarif hesabıdır.
+\end{ornek}
+
+\begin{mikroozet}[§1.8 özeti]
+Ürün $\sigma$-cebiri: dikdörtgenler tarafından üretilen. Ürün ölçüsü dikdörtgenlerde
+çarpımsal. Tonelli: negatif olmayan için sıra serbesttir. Fubini: $L^1$'de sıra serbesttir.
+$L^1$ koşulu olmadan sıra değiştirme yanlış sonuç verebilir.
+\end{mikroozet}
+
+
+% =====================================================================
+\section{$L^p$ Uzayları ve İntegral Eşitsizlikleri}
+\label{sec:lp_uzaylari}
+% =====================================================================
+
+\begin{tanim}[$L^p$ Uzayı]
+\label{def:lp_uzay}
+$(\Omega, \mathcal{F}, \mu)$ ölçüm uzayı, $1 \leq p < \infty$.
+\[
+  L^p(\mu) = \{f \text{ ölçülebilir} : \|f\|_p := \left(\int |f|^p \, d\mu\right)^{1/p} < \infty\}.
+\]
+$L^\infty(\mu)$: $\|f\|_\infty = \inf\{M : \mu(\{|f| > M\}) = 0\}$ (esansiyel üst sınır).
+Teknik olarak $L^p$ sınıfları: eşdeğer fonksiyonlar (n.k.\ eşit) aynı sınıfa.
+\end{tanim}
+
+\begin{teorem}[Hölder Eşitsizliği]
+\label{thm:holder}
+$1/p + 1/q = 1$ ($p,q > 1$), $f \in L^p$, $g \in L^q$. O zaman $fg \in L^1$ ve
+\[
+  \int |fg| \, d\mu \leq \|f\|_p \, \|g\|_q.
+\]
+Özel durum $p = q = 2$: Cauchy-Schwarz eşitsizliği $\int|fg| \leq \|f\|_2\|g\|_2$.
+\end{teorem}
+
+\begin{proof}
+Young eşitsizliği: $ab \leq a^p/p + b^q/q$ ($a,b \geq 0$, $1/p+1/q=1$).
+$a = |f|/\|f\|_p$, $b = |g|/\|g\|_q$ koy; $\mu$-integral al:
+$\int |fg|/(\|f\|_p\|g\|_q) \leq \int |f|^p/(p\|f\|_p^p) + \int|g|^q/(q\|g\|_q^q) = 1/p + 1/q = 1$.
+\end{proof}
+
+\begin{teorem}[Minkowski Eşitsizliği]
+\label{thm:minkowski}
+$1 \leq p \leq \infty$, $f, g \in L^p$. O zaman $f + g \in L^p$ ve
+\[
+  \|f + g\|_p \leq \|f\|_p + \|g\|_p.
+\]
+\end{teorem}
+
+\begin{proof}
+$p=1$: üçgen eşitsizliği, $|f+g| \leq |f| + |g|$.
+$1 < p < \infty$: $\|f+g\|_p^p = \int|f+g|^p \leq \int|f+g|^{p-1}|f| + \int|f+g|^{p-1}|g|$.
+Her terime Hölder ($|f+g|^{p-1} \in L^q$ çünkü $(p-1)q = p$):
+$\leq \|f+g\|_p^{p-1}(\|f\|_p + \|g\|_p)$. $\|f+g\|_p^{p-1}$'e bölme ile sonuç.
+\end{proof}
+
+\begin{teorem}[$L^p$ Uzayı Tamlığı --- Riesz-Fischer]
+\label{thm:riesz_fischer}
+$L^p(\mu)$ ($1 \leq p \leq \infty$) Minkowski normuyla tam metrize edilebilir uzaydır
+(Banach uzayı). $p = 2$: Hilbert uzayı (iç çarpım $\langle f,g\rangle = \int fg$).
+\end{teorem}
+
+\begin{teorem}[$L^p$ Dahil Olma İlişkisi]
+\label{thm:lp_dahil}
+$\mu(\Omega) < \infty$ ise $1 \leq p \leq q \leq \infty$ için $L^q \subseteq L^p$.
+\end{teorem}
+
+\begin{proof}
+Hölder: $\|f\|_p^p = \int|f|^p \cdot 1 \leq \|f^p\|_{q/p} \cdot \|1\|_{q/(q-p)} = \|f\|_q^p \cdot \mu(\Omega)^{1-p/q}$.
+\end{proof}
+
+\begin{ornek}[$L^p$ Farklılıkları]
+$\Omega = (0,1)$, $\lambda$ Lebesgue. $f(x) = x^{-\alpha}$ ($0 < \alpha < 1$):
+$\int_0^1 x^{-\alpha p} \, dx < \infty \Leftrightarrow \alpha p < 1 \Leftrightarrow p < 1/\alpha$.
+Yani $f \in L^p$ ancak $p < 1/\alpha$ için. Küçük $p$'ler için $f \in L^p$, büyük $p$'ler için değil.
+\end{ornek}
+
+\begin{mikroozet}
+$L^p$: $p$-inci mutlak moment sonlu fonksiyonlar. Hölder: $\int|fg| \leq \|f\|_p\|g\|_q$.
+Minkowski: $\|f+g\|_p \leq \|f\|_p + \|g\|_p$ (üçgen). $L^p$ Banach; $L^2$ Hilbert.
+\end{mikroozet}
+
+% =====================================================================
+\section{Radon-Nikodym Teoremi}
+\label{sec:radon_nikodym}
+% =====================================================================
+
+\begin{tanim}[Mutlak Süreklilik]
+\label{def:mutlak_sureklilik}
+$\mu$ ve $\nu$ aynı $(\Omega, \mathcal{F})$ üzerinde ölçüler.
+$\nu$, $\mu$'ya göre \textbf{mutlak sürekli} ($\nu \ll \mu$) denir, eğer
+her $A \in \mathcal{F}$ için $\mu(A) = 0 \Rightarrow \nu(A) = 0$.
+\end{tanim}
+
+\begin{ornek}[Mutlak Süreklilik]
+$f \geq 0$, $\int f \, d\mu = 1$. $\nu(A) = \int_A f \, d\mu$: o zaman $\nu \ll \mu$.
+$\mu(A) = 0 \Rightarrow \int_A f \, d\mu = 0 \Rightarrow \nu(A) = 0$.
+\end{ornek}
+
+\begin{teorem}[Radon-Nikodym Teoremi]
+\label{thm:radon_nikodym}
+$(\Omega, \mathcal{F})$ üzerinde $\sigma$-sonlu $\mu$ ve $\nu$ ölçüleri, $\nu \ll \mu$.
+O zaman tek türlü ($\mu$-n.k.) ölçülebilir $f \geq 0$ ($\mu$-n.k.) fonksiyon vardır:
+\[
+  \nu(A) = \int_A f \, d\mu \quad \text{her } A \in \mathcal{F} \text{ için.}
+\]
+$f = d\nu/d\mu$: \textbf{Radon-Nikodym türevi} (yoğunluk / Nikodym türevi).
+\end{teorem}
+
+\begin{proof}[İspat Taslağı (Hilbert Uzayı Argümanı)]
+$\rho = \mu + \nu$. $\ell(g) = \int g \, d\nu$ ($g \in L^2(\rho)$) sınırlı lineer fonksiyonel.
+Riesz temsil: $\ell(g) = \int gh \, d\rho$ olan $h \in L^2(\rho)$ var.
+$0 \leq h \leq 1$ $\rho$-n.k.\ gösterilebilir. $f = h/(1-h)$ ($h < 1$ üzerinde) $\mu$-n.k.\ tanımlı;
+$\nu(A) = \int_A f \, d\mu$ doğrulanır. $f$ benzersizliği: iki RN türevi $f_1, f_2$
+ise $\int_A(f_1-f_2)d\mu = 0$ her $A$'da; $f_1 = f_2$ $\mu$-n.k.
+\end{proof}
+
+\begin{onerme}[Zincir Kuralı]
+$\nu \ll \mu \ll \lambda$ ise $d\nu/d\lambda = (d\nu/d\mu)(d\mu/d\lambda)$ ($\lambda$-n.k.).
+\end{onerme}
+
+\begin{ornek}[Olasılıkta Önemi]
+$X$ rasgele değişken, $P_X$ görüntü ölçüsü (dağılımı). $P_X \ll \lambda$ ise
+RN türevi $f = dP_X/d\lambda$: bu tam olarak $X$'in PDF'sidir.
+\emph{Koşullu beklenti} $E[X \mid \mathcal{G}]$ Radon-Nikodym teoreminden doğar
+(Bölüm~\ref{chp:beklenti}'de ayrıntılı işlendi).
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{İstatistik:} Olabilirlik oranı (likelihood ratio) $d\nu/d\mu$ Radon-Nikodym türevidir;
+Neyman-Pearson lemması ve yeterli istatistik teorisi bu çerçevede kurulur.\\
+\textbf{Bayesçi çıkarım:} Sonsal dağılım, önsel üzerine olabilirlik oranı ile Radon-Nikodym güncellemesidir.\\
+\textbf{Stokastik kalkülüs:} Girsanov teoremi, olasılık ölçüsü değiştirmeyi Radon-Nikodym teoremiyle gerçekleştirir.
+\end{disiplinlerarasibaglan}
+
+% =====================================================================
+\section{Lebesgue-Stieltjes İntegrali ve Beklenti}
+\label{sec:ls_integral}
+% =====================================================================
+
+\begin{tanim}[Lebesgue-Stieltjes ölçüsü]\label{def:ls_olcusu}
+$F:\mathbb{R}\to[0,1]$ KDF (sağdan sürekli, artan, $F(-\infty)=0$, $F(+\infty)=1$). Carathéodory genişlemesiyle $\mu_F$ tanımlanır: $\mu_F((a,b])=F(b)-F(a)$. Bu \emph{Lebesgue-Stieltjes ölçüsüdür}.
+\end{tanim}
+
+\begin{teorem}[Beklenti olarak LS integrali]\label{thm:beklenti_ls}
+$X$ rasgele değişken, $F_X$ KDF. Her borelci $g:\mathbb{R}\to\mathbb{R}$ için:
+\[
+  \Beklenti[g(X)] = \int_\Omega g(X(\omega))\,dP(\omega) = \int_\mathbb{R} g(x)\,d\mu_{F_X}(x)
+  = \int_\mathbb{R} g(x)\,dF_X(x).
+\]
+Sürekli $F_X$'te son integral Riemann-Stieltjes'e indirgenir.
+\end{teorem}
+
+\begin{ornek}[Karma dağılım beklentisi]\label{ex:karma_beklenti}
+$X$: $p=1/3$ olasılıkla $X=0$ (kesikli kısım), $(1-p)=2/3$ olasılıkla $\Uniform(0,1)$ (sürekli kısım).
+$F_X(x)=\frac13\mathbf{1}[x\geq0]+\frac23 x\mathbf{1}[0\leq x<1]+\frac23\mathbf{1}[x\geq1]$.
+$\Beklenti[X]=\frac13\cdot0+\frac23\int_0^1x\,dx=\frac23\cdot\frac12=\frac13$.
+LS integrali karma durumlarda tek çatı altında birleştirir.
+\end{ornek}
+
+\begin{teorem}[Riemann $\leftrightarrow$ Lebesgue]\label{thm:riemann_lebesgue}
+$f:[a,b]\to\mathbb{R}$ sınırlı. $f$ Riemann integrallenebilir $\iff$ $f$'nin süreksizlik noktaları $\lambda$-ölçüsü sıfır kümedir. Bu durumda Riemann ve Lebesgue integralleri eşittir.
+\end{teorem}
+
+\begin{hataanalizi}
+$f(x)=\mathbf{1}_\mathbb{Q}(x)$ Dirichlet fonksiyonu: Riemann integrallenemez (her alt aralıkta rasyonel + irrasyonel var), ama Lebesgue integrali sıfırdır ($\lambda(\mathbb{Q})=0$). Bu, Lebesgue integralinin Riemann'ı kesinlikle kapsadığını gösterir.
+\end{hataanalizi}
+
+% =====================================================================
+\section{Olasılık Ölçülerinin Zayıf Topolojisi}
+\label{sec:zayif_topoloji}
+% =====================================================================
+
+\begin{tanim}[Olasılık ölçülerinin zayıf yakınsaması]\label{def:zayif_yakin}
+$\mathcal{P}(\mathbb{R})$ olasılık ölçüleri uzayı. $\mu_n\overset{w}{\to}\mu$: her sınırlı, sürekli $f$ için $\int f\,d\mu_n\to\int f\,d\mu$. Bu \emph{zayıf yakınsama} (dağılımda yakınsama ile eşdeğer).
+\end{tanim}
+
+\begin{teorem}[Portmanteau teoremi]\label{thm:portmanteau}
+$\mu_n\overset{w}{\to}\mu$ aşağıdaki koşulların herhangi biriyle eşdeğerdir:
+\begin{enumerate}[(i)]
+  \item Her kapalı $F$ için $\limsup\mu_n(F)\leq\mu(F)$.
+  \item Her açık $G$ için $\liminf\mu_n(G)\geq\mu(G)$.
+  \item Her $\mu$-sınır kümesi $A$ ($\mu(\partial A)=0$) için $\mu_n(A)\to\mu(A)$.
+  \item Her sınırlı, Lipschitz $f$ için $\int f\,d\mu_n\to\int f\,d\mu$.
+\end{enumerate}
+\end{teorem}
+
+\begin{ornek}[Portmanteau uygulaması]\label{ex:portmanteau_uygulama}
+$X_n\dto X\sim\Normal(0,1)$. $A=(-\infty,1.96]$: $\mu(\partial A)=\mu(\{1.96\})=0$ ($\Normal$ sürekli). Portmanteau (iii): $P(X_n\leq1.96)\to\Phi(1.96)=0.975$. Normal tablolar bu güvenceyle kullanılabilir.
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Bayes İstatistiği:} Zayıf topoloji, büyük örneklem Bayes posteriorlarının (Bernstein-von Mises) incelenmesinde kullanılır --- posteriorun frekansçı normaline zayıf yakınsaması.
+
+\textbf{Optik Ağlar/Kuyruk Teorisi:} Servis süreleri dağılımları zayıf yakınsama çerçevesinde ele alınır; Portmanteau teoremi ağ kapasitesi sınırlarını garanti eder.
+\end{disiplinlerarasibaglan}
+
+\begin{mikroozet}
+$\nu \ll \mu$: sıfır $\mu$-ölçülü kümeler sıfır $\nu$-ölçülü.
+Radon-Nikodym: $\nu \ll \mu$ ve $\sigma$-sonlu $\Rightarrow$ $\nu(A) = \int_A f\,d\mu$ olan $f = d\nu/d\mu$ var.
+$f$: koşullu beklenti ve PDF'nin ölçüm teorisi temeli.
+LS integrali: karma dağılımları tek çatıda birleştirir; Riemann $\subset$ Lebesgue.
+Portmanteau: zayıf yakınsama için 4 eşdeğer koşul; normal tablo kullanımının garantisi.
+\end{mikroozet}
+
+% =====================================================================
+%  BÖLÜM SONU ÖZETİ
+% =====================================================================
+\section*{Bölüm Özeti}
+\addcontentsline{toc}{section}{Bölüm Özeti}
+
+\begin{bolumozeti}[Bölüm 1 --- Temel Sonuçlar]
+\begin{itemize}
+  \item \textbf{$\sigma$-cebiri:} (A)~$\Omega \in \mathcal{F}$;
+        (B)~tümleme kapalı; (C)~sayılabilir birleşim kapalı.
+        $\sigma(\mathcal{E})$: $\mathcal{E}$'yi içeren en küçük.
+        $\mathcal{B}(\mathbb{R}) = \sigma(\text{açık aralıklar})$.
+  \item \textbf{Ölçü:} $\mu(\emptyset)=0$ ve $\sigma$-toplamsallık.
+        Monotonluk, alt-toplamsallık, aşağıdan/yukarıdan süreklilik
+        (yukarıdan için $\mu(A_1)<\infty$).
+  \item \textbf{Carathéodory:} Dış ölçü $\mu^*$ verilince, Carathéodory-ölçülebilir
+        kümeler bir $\sigma$-cebiri oluşturur ve $\mu^*$ bu ailede ölçüdür.
+  \item \textbf{Lebesgue:} $\lambda^*$ dış ölçüden $\lambda$ elde edilir;
+        $\lambda((a,b))=b-a$, öteleme değişmez, tam ve $\sigma$-sonlu.
+  \item \textbf{Ölçülebilir $f$:} $f^{-1}(B) \in \mathcal{F}$ her $B \in \mathcal{B}$.
+        Eşdeğer: $\{f \leq b\} \in \mathcal{F}$ her $b$.
+        Basit fonksiyonlar artan limit.
+  \item \textbf{Lebesgue integrali:} Basit $\to$ $[0,\infty]$ $\to$ $\mathbb{R}$.
+        $L^1(\mu)$: $\int|f|<\infty$. Doğrusal, monoton, n.k.'ya duyarsız.
+  \item \textbf{MYT:} $f_n \nearrow f \geq 0 \Rightarrow \int f_n \to \int f$.
+  \item \textbf{Fatou:} $f_n \geq 0 \Rightarrow \int\liminf f_n \leq \liminf\int f_n$.
+  \item \textbf{DYT:} $f_n \to f$ n.k., $|f_n| \leq g \in L^1 \Rightarrow \int f_n \to \int f$.
+  \item \textbf{Fubini-Tonelli:} $\sigma$-sonlu + ($f\geq 0$ ya da $f\in L^1$)
+        $\Rightarrow$ tekrarlı integral sırası serbesttir.
+\end{itemize}
+\end{bolumozeti}
+
+\begin{ozyansima}
+\begin{itemize}
+  \item Bir $\sigma$-cebiri örnekleyiniz ve üç aksiyomu teker teker doğrulayınız.
+  \item Neden $\mu(A_1) < \infty$ koşulu olmadan yukarıdan süreklilik çöker?
+        Kendi örneğinizi üretiniz.
+  \item MYT, Fatou ve DYT'yi karşılaştırınız: hangi durumlarda hangisini kullanırsınız?
+  \item Fubini'nin neden $L^1$ koşulu gerektirdiğini karşı örnekle açıklayınız.
+\end{itemize}
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Sonraki bölüm (Bölüm~2: Olasılık Uzayları).}
+Bu bölümde geliştirilen ölçüm teorisi altyapısı, Bölüm~2'de olasılık ölçüsü
+$\mathbb{P}$ ile hayata geçirilecek. Koşullu olasılık, bağımsızlık ve Bayes
+teoremi $(\Omega,\mathcal{F},\mathbb{P})$ dili içinde yeniden formüle edilecek.
+
+\medskip
+
+\textbf{İleri okuma.}
+Billingsley~\cite{billingsley1995} Bölüm~1--3;
+Klenke~\cite{klenke2014} Bölüm~1--6;
+Shiryaev~\cite{shiryaev1996} Bölüm~II §1--3.
+\end{kopru}
+
+
+% =====================================================================
+%  ALIŞTIRMALAR
+% =====================================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.1.1]{A}{$\sigma$-cebiri doğrulama}
+$\Omega = \mathbb{R}$ ve $\mathcal{F} = \{A \subseteq \mathbb{R} : A \text{ ya da } A^c
+\text{ sayılabilirdir}\}$ ailesinin bir $\sigma$-cebiri olduğunu gösteriniz.
+\end{alistirma}
+\alcozum{%
+\textbf{(A)} $\mathbb{R}$ sayılamaz; dolayısıyla $\mathbb{R}^c = \emptyset$ sayılabilir.
+$\mathbb{R} \in \mathcal{F}$.
+
+\textbf{(B)} $A \in \mathcal{F}$: $A$ sayılabilirse $A^c$'nin tümleni $A$ sayılabilir,
+yani $A^c \in \mathcal{F}$; $A^c$ sayılabilirse $A^c \in \mathcal{F}$ doğrudan.
+
+\textbf{(C)} $(A_n) \subseteq \mathcal{F}$, $A = \bigcup_n A_n$.
+Eğer her $A_n$ sayılabilirse $A$ sayılabilir (Teorem~0.\ref{thm:sayilabilirbir});
+$A \in \mathcal{F}$.
+Eğer bazı $A_{n_0}$ sayılamaz ise $A_{n_0}^c$ sayılabilir ve
+$A^c = \bigcap_n A_n^c \subseteq A_{n_0}^c$ sayılabilir; $A \in \mathcal{F}$.
+$\blacksquare$%
+}
+
+\begin{alistirma}[Al.1.2]{B}{Aşağıdan süreklilik uygulaması}
+$(\mathbb{R}, \mathcal{B}(\mathbb{R}), \lambda)$ Lebesgue ölçüm uzayı.
+$A_n = (0, 1/n)$ için $\lambda(A_n)$'i hesaplayınız ve
+$\lambda\!\left(\bigcap_{n=1}^\infty A_n\right)$'yi yukarıdan süreklilik
+teoremi ile bulunuz. Doğrudan hesapla doğrulayınız.
+\end{alistirma}
+\alcozum{%
+$\lambda(A_n) = 1/n$. $A_n \searrow \emptyset$ ($\bigcap_n (0,1/n) = \emptyset$;
+eğer $x > 0$ ise $x \notin (0,1/n)$ yeterince büyük $n$ için; $x \leq 0$ ise hiç içermez).
+$\lambda(A_1) = 1 < \infty$; yukarıdan süreklilik:
+$\lambda\!\left(\bigcap_n A_n\right) = \lim_n \lambda(A_n) = \lim_n 1/n = 0$.
+Doğrudan: $\lambda(\emptyset) = 0$. Tutarlı. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.1.3]{B}{MYT uygulaması}
+$f_n(x) = \gostf{[0,n]}(x) \cdot e^{-x}$ ($x \geq 0$), Lebesgue ölçüsüyle.
+$\int_0^\infty f_n \, d\lambda$'yı hesaplayınız ve MYT kullanarak
+$\int_0^\infty e^{-x} \, d\lambda$'yı bulunuz.
+\end{alistirma}
+\alcozum{%
+$\int_0^\infty f_n \, d\lambda = \int_0^n e^{-x} \, dx = 1 - e^{-n}$.
+$f_n \nearrow e^{-x}$ noktasal ($f_n(x) = e^{-x}$ eğer $x \leq n$, $= 0$ eğer $x > n$).
+MYT: $\int_0^\infty e^{-x} \, d\lambda = \lim_n (1 - e^{-n}) = 1$. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.1.4]{A}{Basit fonksiyon inşası}
+$f(x) = x^2 + 1$, $x \in [0,2]$ için Teorem~\ref{thm:basityaklasim}'in
+$n=2$ adımındaki $f_2$'yi açıkça yazınız ve $\|f - f_2\|_\infty$'u hesaplayınız.
+\end{alistirma}
+\alcozum{%
+$n=2$: bölümleme $k/4$, $k=0,1,\ldots,7$ ve $\{f \geq 2\}$.
+$f([0,2]) = [1,5]$. $f_2 = \sum_{k=0}^{7} \frac{k}{4} \gostf{\{k/4 \leq f < (k+1)/4\}} + 2\gostf{\{f \geq 2\}}$.
+$f$ artan olduğundan $\{k/4 \leq f < (k+1)/4\}$ bir aralık. En büyük hata:
+$f$ ile $f_2$ arasındaki fark en fazla $1/4 = 1/2^n$. $\|f-f_2\|_\infty \leq 1/4$.
+$\blacksquare$%
+}
+
+
+\begin{alistirma}[Al.1.5]{A}{$\sigma$-cebiri işlemleri}
+$\mathcal{F}_1$ ve $\mathcal{F}_2$, $\Omega$ üzerinde iki $\sigma$-cebiri.
+(a)~$\mathcal{F}_1 \cap \mathcal{F}_2$'nin $\sigma$-cebiri olduğunu gösteriniz.
+(b)~$\mathcal{F}_1 \cup \mathcal{F}_2$'nin genel olarak $\sigma$-cebiri olmayabileceğini
+    bir karşı örnekle gösteriniz.
+\end{alistirma}
+\alcozum{%
+(a) $A \in \mathcal{F}_1 \cap \mathcal{F}_2 \Rightarrow A \in \mathcal{F}_1$ ve
+$A \in \mathcal{F}_2$; her iki $\sigma$-cebiri tümleme ve sayılabilir birleşim altında
+kapalı; kesişim de kapalı.
+
+(b) $\Omega = \{1,2,3\}$, $\mathcal{F}_1 = \{\emptyset,\{1\},\{2,3\},\Omega\}$,
+$\mathcal{F}_2 = \{\emptyset,\{2\},\{1,3\},\Omega\}$.
+$\{1\}, \{2\} \in \mathcal{F}_1 \cup \mathcal{F}_2$ ama
+$\{1\} \cup \{2\} = \{1,2\} \notin \mathcal{F}_1 \cup \mathcal{F}_2$. $\blacksquare$%
+}
+\begin{alistirma}[Al.1.6]{A}{Ölçü özellikleri}
+$(\Omega, \mathcal{F}, \mu)$ ölçüm uzayı, $A, B \in \mathcal{F}$ ve $\mu(A), \mu(B) < \infty$.
+Gösteriniz ki $\mu(A \cup B) = \mu(A) + \mu(B) - \mu(A \cap B)$.
+\end{alistirma}
+\alcozum{%
+$A \cup B = (A \setminus B) \cup (A \cap B) \cup (B \setminus A)$ ikili ayrık:
+$\mu(A \cup B) = \mu(A \setminus B) + \mu(A \cap B) + \mu(B \setminus A)$.
+$\mu(A) = \mu(A \setminus B) + \mu(A \cap B)$; $\mu(B) = \mu(B \setminus A) + \mu(A \cap B)$.
+Toplarsak: $\mu(A) + \mu(B) = \mu(A \cup B) + \mu(A \cap B)$. $\blacksquare$%
+}
+\begin{alistirma}[Al.1.7]{A}{Ölçülebilir fonksiyon}
+$f: \mathbb{R} \to \mathbb{R}$, $f(x) = \sin x$ fonksiyonunun
+$(\mathbb{R}, \mathcal{B}(\mathbb{R}))$ üzerinde ölçülebilir olduğunu gösteriniz.
+\end{alistirma}
+\alcozum{%
+$\sin: \mathbb{R} \to \mathbb{R}$ sürekli; sürekli fonksiyonlar Borel ölçülebilirdir
+(açık kümenin ters görüntüsü açık, dolayısıyla Borel). $\blacksquare$%
+}
+\alistirmalar
+
+
+
+
+\begin{alistirma}[Al.1.8]{A}{Fatou lemması --- kesin örnek}
+$f_n = n \gostf{(0,1/n)}$ ($n \geq 1$), $[0,1]$ üzerinde Lebesgue ölçüsüyle.
+(a)~$\liminf_n f_n$'i bulunuz.
+(b)~$\int \liminf_n f_n$ ile $\liminf_n \int f_n$'yi karşılaştırınız.
+\end{alistirma}
+\alcozum{%
+(a) Her $x > 0$ için yeterince büyük $n$'de $x \geq 1/n$; $f_n(x) = 0$.
+$f_n(0) = 0$ her zaman. $\liminf_n f_n = 0$ n.k.
+
+(b) $\int \liminf f_n = 0$.
+$\int f_n = n \cdot \lambda((0,1/n)) = n \cdot 1/n = 1$.
+$\liminf_n \int f_n = 1 > 0$.
+Fatou eşitsizliği $0 \leq 1$; kesin eşitsizlik. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.1.9]{B}{DYT ile integral sınırı}
+$f_n(x) = \dfrac{\sin(x/n)}{x/n} \cdot e^{-|x|}$ ($x \neq 0$),
+$f_n(0) = e^0 = 1$, Lebesgue ölçüsüyle $\mathbb{R}$ üzerinde.
+(a)~$f_n(x) \to e^{-|x|}$ noktasal olarak gösteriniz.
+(b)~Uygun dominant fonksiyonu bulunuz.
+(c)~$\lim_n \int_{-\infty}^\infty f_n \, d\lambda$'yı hesaplayınız.
+\end{alistirma}
+\alcozum{%
+(a) $|\sin t / t| \leq 1$ ve $\sin t / t \to 1$ ($t \to 0$); $x/n \to 0$;
+$f_n(x) \to 1 \cdot e^{-|x|} = e^{-|x|}$.
+
+(b) $|f_n(x)| \leq e^{-|x|}$ çünkü $|\sin t/t| \leq 1$.
+$g(x) = e^{-|x|} \in L^1(\mathbb{R})$: $\int_{-\infty}^\infty e^{-|x|} dx = 2$.
+
+(c) DYT: $\lim_n \int f_n = \int e^{-|x|} \, d\lambda = 2$. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.1.10]{B}{Fubini ve sıra değiştirme}
+$f(x,y) = e^{-xy}$, $(x,y) \in [0,\infty) \times [0,\infty)$, Lebesgue ölçüsüyle.
+$\int_1^\infty \left(\int_0^\infty e^{-xy} \, dy\right) dx$'i
+önce $y$'ye göre integralleyerek, ardından $x$'e göre integralleyerek hesaplayınız.
+Fubini'nin hangi koşulunu kontrol etmelisiniz?
+\end{alistirma}
+\alcozum{%
+İç integral: $\int_0^\infty e^{-xy} dy = 1/x$ ($x > 0$).
+Dış integral: $\int_1^\infty 1/x \, dx = \infty$.
+
+Önce $x$: $\int_1^\infty e^{-xy} dx = e^{-y}/y$ ($y > 0$).
+$\int_0^\infty e^{-y}/y \, dy$: $y \to 0^+$ yakınında $1/y$ integrallenemeyen sapma.
+
+Fubini koşulu: $\int_1^\infty \int_0^\infty |f| \, dy \, dx = \int_1^\infty 1/x \, dx = \infty$;
+$f \notin L^1([1,\infty) \times [0,\infty))$. Fubini uygulanamaz; sıra fark yaratır. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.1.11]{B}{Ölçü sürekliliği --- uygulama}
+$\mu$ $(\Omega,\mathcal{F})$ üzerinde bir olasılık ölçüsü. $A_n \in \mathcal{F}$
+ve $\sum_{n=1}^\infty \mu(A_n) < \infty$ ise, $\mu\!\left(\limsup_n A_n\right) = 0$
+olduğunu ispatlayınız.
+\end{alistirma}
+\alcozum{%
+$B_n = \bigcup_{k \geq n} A_k$ olsun; $B_n \searrow \limsup_n A_n$.
+Alt-toplamsallık: $\mu(B_n) \leq \sum_{k \geq n} \mu(A_k) \to 0$
+($\sum \mu(A_k) < \infty$ kuyruk toplamı).
+$\mu(B_1) \leq \sum_k \mu(A_k) < \infty$; yukarıdan süreklilik:
+$\mu(\limsup_n A_n) = \lim_n \mu(B_n) = 0$. $\blacksquare$
+
+\emph{Not:} Bu, Borel-Cantelli lemmasının birinci yarısıdır (Bölüm~7).%
+}
+
+\begin{alistirma}[Al.1.12]{C}{Lebesgue--Stieltjes ölçüsü}
+$F: \mathbb{R} \to \mathbb{R}$ sağdan sürekli, artan bir fonksiyon olsun.
+$\mu_F((a,b]) \coloneqq F(b) - F(a)$ ile tanımlanan set fonksiyonunun
+yarı-halkalar üzerinde bir ön-ölçü (pre-measure) olduğunu gösteriniz ve
+Carathéodory genişlemesiyle $\mathbb{R}$ üzerinde bir ölçü elde edildiğini açıklayınız.
+$F(x) = x$ durumunda Lebesgue ölçüsü geri gelir; bu nasıl görülür?
+\end{alistirma}
+\alcozum{%
+\begin{ipucu}{1}
+$\mu_F$ için $\sigma$-toplamsallık: $(a,b] = \bigcup_n (a_n, b_n]$ ikili ayrık ise
+$F(b) - F(a) = \sum_n (F(b_n) - F(a_n))$. Sağdan süreklilik bu eşitlik için gereklidir.
+\end{ipucu}
+
+$\mu_F(\emptyset) = F(a) - F(a) = 0$. Yarı-halka $\{(a,b]\}$ üzerinde $\sigma$-toplamsallık:
+$(a,b]$ ikili ayrık $(a_n,b_n]$ birleşimi ise, $F$'nin sağdan sürekliliği ve Heine-Borel
+gibi argümanlarla (ayrıntı için Billingsley~\cite{billingsley1995} §12 bakınız)
+$F(b)-F(a) = \sum_n (F(b_n)-F(a_n))$ kanıtlanır.
+
+Carathéodory genişlemesi bu ön-ölçüyü $\mathcal{B}(\mathbb{R})$'yi içeren bir
+$\sigma$-cebire taşır. $F(x)=x$: $\mu_F((a,b]) = b-a$; bu Lebesgue dış ölçüsünü
+aralıklarda tanımlar. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.1.13]{C}{$L^p$ uzayları}
+$(\Omega,\mathcal{F},\mu)$ ölçüm uzayı, $1 \leq p < \infty$.
+$L^p(\mu) = \{f \text{ ölçülebilir} : \int |f|^p \, d\mu < \infty\}$
+tanımlanıyor; $\|f\|_p = \left(\int |f|^p \, d\mu\right)^{1/p}$.
+
+(a)~Hölder eşitsizliğini ifade ediniz ve ispatlayınız:
+$\|fg\|_1 \leq \|f\|_p \|g\|_q$ ($1/p + 1/q = 1$).
+
+(b)~Minkowski eşitsizliğini kullanarak $\|\cdot\|_p$'nin üçgen eşitsizliğini
+    sağladığını gösteriniz (ispat özeti yeterli).
+
+(c)~$L^p \subseteq L^1$ olması ne zaman garantilenir? Karşı örnek veya koşul.
+\end{alistirma}
+\alcozum{%
+(a) Young eşitsizliği: $ab \leq a^p/p + b^q/q$ ($a,b \geq 0$).
+$|f(\omega)| / \|f\|_p$ ve $|g(\omega)| / \|g\|_q$'ya uygula ve integra al;
+$\int |fg| / (\|f\|_p \|g\|_q) \leq 1/p + 1/q = 1$. $\|fg\|_1 \leq \|f\|_p \|g\|_q$.
+
+(b) $\|f+g\|_p^p = \int|f+g|^p \leq \int|f+g|^{p-1}(|f|+|g|)$;
+Hölder'i $|f+g|^{p-1} \in L^q$'ya uygula; $\|f+g\|_p \leq \|f\|_p + \|g\|_p$.
+
+(c) $\mu(\Omega) < \infty$ ise Hölder ile $\|f\|_1 \leq \mu(\Omega)^{1/q} \|f\|_p < \infty$.
+Sonsuz ölçüde $L^p \not\subseteq L^1$: $f(x) = (1+x)^{-1/p}$ üzerinde $[0,\infty)$,
+$\int f^p = \infty$... daha dikkatli: $f(x) = x^{-1/2} \gostf{(0,1]} \in L^1 \setminus L^2$
+ve $g(x) = (1+x)^{-1} \in L^2(\mathbb{R}) \setminus L^1(\mathbb{R})$. $\blacksquare$%
+}
+
+\begin{alistirma}[Al.1.14]{B}{Radon-Nikodym Türevi}
+$\Omega = \{1, 2, 3, 4\}$, $\mathcal{F} = \mathcal{P}(\Omega)$.
+$\mu(\{k\}) = 1/4$ (uniform), $\nu(\{1\}) = 1/2$, $\nu(\{2\}) = 1/4$, $\nu(\{3\}) = 1/8$, $\nu(\{4\}) = 1/8$.
+(a) $\nu \ll \mu$ olduğunu doğrulayınız. (b) Radon-Nikodym türevi $f = d\nu/d\mu$'yu bulunuz.
+(c) $\nu(A) = \int_A f \, d\mu$ olduğunu $A = \{1,3\}$ için doğrulayınız.
+\end{alistirma}
+\alcozum{%
+(a) $\mu(A) = 0 \Rightarrow A = \emptyset \Rightarrow \nu(A) = 0$. Evet, $\nu \ll \mu$.\\
+(b) RN türevi: $f(\omega) = \nu(\{\omega\})/\mu(\{\omega\})$ (ayrık durumda).
+$f(1) = (1/2)/(1/4) = 2$; $f(2) = 1$; $f(3) = 1/2$; $f(4) = 1/2$.\\
+(c) $\nu(\{1,3\}) = 1/2 + 1/8 = 5/8$.
+$\int_{\{1,3\}} f \, d\mu = f(1)\mu(\{1\}) + f(3)\mu(\{3\}) = 2\cdot(1/4) + (1/2)\cdot(1/4) = 1/2 + 1/8 = 5/8$. \checkmark}
+
+\begin{alistirma}[Al.1.15]{B}{$L^p$ Norm Hesabı}
+$f(x) = e^{-x}$, $x \geq 0$; Lebesgue ölçüsü.
+(a) $\|f\|_p = (\int_0^\infty e^{-px} dx)^{1/p}$'yi hesaplayınız.
+(b) $p \to \infty$ limitinde $\|f\|_p$'nin ne olduğunu yorumlayınız.
+(c) Hölder eşitsizliğiyle $\int_0^\infty e^{-x}\cos x \, dx \leq \|f\|_2\|\cos\|_{L^2([0,\infty))}$
+    üst sınırını veriniz (dikkat: $\|\cos\|_{L^2([0,\infty))} = \infty$; bu ne anlama gelir?).
+\end{alistirma}
+\alcozum{%
+(a) $\|f\|_p^p = \int_0^\infty e^{-px} dx = 1/p$. $\|f\|_p = p^{-1/p}$.\\
+(b) $\|f\|_\infty = \sup_{x \geq 0} |e^{-x}| = e^0 = 1$. $\lim_{p\to\infty} p^{-1/p} = 1$ (çünkü $\ln(p^{-1/p}) = -\ln p/p \to 0$). $L^\infty$ normu esansiyel supremum.\\
+(c) $\cos \notin L^2([0,\infty))$ çünkü $\int_0^\infty \cos^2 x \, dx = \infty$ (yarı-periyot toplamı ıraksak). Hölder uygulanamaz --- $g \in L^q$ gerektirir. Bu, Hölder'in koşulsuz uygulanamayacağını gösterir.}

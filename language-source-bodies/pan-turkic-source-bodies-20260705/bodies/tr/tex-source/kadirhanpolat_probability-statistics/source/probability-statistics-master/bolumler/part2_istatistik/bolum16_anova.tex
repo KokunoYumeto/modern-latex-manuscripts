@@ -1,0 +1,544 @@
+%% ============================================================
+%% BÖLÜM 16 --- Varyans Analizi (ANOVA)
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Varyans Analizi (ANOVA)}
+\label{chp:anova}
+
+\bolumalinti{%
+  The analysis of variance is not a mathematical theorem, but rather a convenient method of arranging the arithmetic.
+}{Ronald A. Fisher}
+
+\begin{kazanimlar}
+Bu bölümün sonunda okuyucu:
+\begin{itemize}
+  \item Tek yönlü ANOVA modelini kurar; $F$-testini türetir ve uygular.
+  \item Toplam kareler toplamı ayrışımını $\mathrm{SST} = \mathrm{SSA} + \mathrm{SSE}$ ispat eder.
+  \item İki yönlü ANOVA'da ana etkiler ve etkileşim kavramlarını açıklar.
+  \item Çoklu karşılaştırma yöntemlerini (Tukey, Bonferroni) uygular.
+  \item Sabit, rasgele ve karma etkili modelleri ayırt eder.
+  \item ANOVA ile çok değişkenli regresyon arasındaki ilişkiyi gösterir.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+İki grubun ortalamasını karşılaştırmak için $t$-testi vardır. Üç veya daha fazla gruba genişletebilir miyiz? Tek tek $t$-testleri uygulamak tip I hata oranını patlatır. ANOVA gruplar arasındaki varyasyon ile grup içi varyasyonu karşılaştırarak bu sorunu çözer.
+
+\medskip
+\noindent\textbf{Köprü:} Bölüm~\ref{chp:dogrusal_modeller}'deki regresyon modeli ve $F$-testi, ANOVA'nın özel bir durumudur --- $\mathbf{X}$ tasarım matrisi gösterge (dummy) değişkenlerden oluştuğunda ANOVA elde edilir.
+\end{motivasyon}
+
+%% ============================================================
+\section{Tek Yönlü ANOVA}
+\label{sec:tek_anova}
+%% ============================================================
+
+\begin{tanim}[Tek yönlü ANOVA modeli]\label{def:tek_anova}
+$k$ grup; $i$. grupta $n_i$ gözlem:
+\[
+  Y_{ij} = \mu + \alpha_i + \varepsilon_{ij}, \quad i=1,\ldots,k;\; j=1,\ldots,n_i,
+\]
+$\varepsilon_{ij}\iid\Normal(0,\sigma^2)$, $\sum n_i\alpha_i=0$ (kısıt). $N=\sum n_i$ toplam gözlem. Hipotez:
+\[
+  H_0: \alpha_1=\alpha_2=\cdots=\alpha_k=0 \quad\text{(tüm grup ortalamaları eşit)}.
+\]
+\end{tanim}
+
+\subsection{Kareler Toplamı Ayrışımı}
+
+\begin{teorem}[SST ayrışımı]\label{thm:sst_ayrisim}
+\[
+  \underbrace{\sum_{i=1}^k\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y}_{..})^2}_{\mathrm{SST}} =
+  \underbrace{\sum_{i=1}^k n_i(\bar{Y}_{i.}-\bar{Y}_{..})^2}_{\mathrm{SSA}} +
+  \underbrace{\sum_{i=1}^k\sum_{j=1}^{n_i}(Y_{ij}-\bar{Y}_{i.})^2}_{\mathrm{SSE}}.
+\]
+\end{teorem}
+
+\begin{proof}
+$Y_{ij}-\bar Y_{..} = (\bar Y_{i.}-\bar Y_{..}) + (Y_{ij}-\bar Y_{i.})$ ayrışımını kareye al ve çift çarpım teriminin $\sum_{i,j}(\bar Y_{i.}-\bar Y_{..})(Y_{ij}-\bar Y_{i.})=0$ olduğunu gör (her $i$ için $\sum_j(Y_{ij}-\bar Y_{i.})=0$).
+\end{proof}
+
+\begin{teorem}[ANOVA $F$-testi]\label{thm:anova_f}
+$H_0$ altında:
+\[
+  F = \frac{\mathrm{SSA}/(k-1)}{\mathrm{SSE}/(N-k)} \sim F_{k-1,N-k}.
+\]
+$H_0$ reddedilir ise $F > F_{k-1,N-k,\alpha}$.
+\end{teorem}
+
+\begin{proof}
+$\mathrm{SSE}/\sigma^2\sim\chi^2_{N-k}$ (her grup içi $\chi^2_{n_i-1}$; bağımsız toplam). $H_0$ altında $\mathrm{SSA}/\sigma^2\sim\chi^2_{k-1}$ (ortogonal projeksiyon). SSA $\perp$ SSE. $F$ tanımı gereği $F_{k-1,N-k}$.
+\end{proof}
+
+\begin{ornek}[ANOVA tablosu]\label{ex:anova_tablo}
+\[
+\begin{array}{lcccc}
+\hline
+\text{Kaynak} & \text{SD} & \text{KT} & \text{MKT} & F \\
+\hline
+\text{Gruplar} & k-1 & \mathrm{SSA} & \mathrm{MSA}=\mathrm{SSA}/(k-1) & \mathrm{MSA}/\mathrm{MSE} \\
+\text{Hata} & N-k & \mathrm{SSE} & \mathrm{MSE}=\mathrm{SSE}/(N-k) & \\
+\text{Toplam} & N-1 & \mathrm{SST} & & \\
+\hline
+\end{array}
+\]
+SD: serbestlik derecesi; KT: kareler toplamı; MKT: ortalama KT.
+\end{ornek}
+
+\begin{teorem}[Beklenti MSE ve MSA]\label{thm:mse_msa_beklenti}
+\[
+  \Beklenti[\mathrm{MSE}] = \sigma^2, \qquad
+  \Beklenti[\mathrm{MSA}] = \sigma^2 + \frac{\sum n_i\alpha_i^2}{k-1}.
+\]
+\end{teorem}
+
+\begin{proof}
+MSE yansız ($\Beklenti[\mathrm{SSE}]=(N-k)\sigma^2$). MSA: $\Beklenti[\mathrm{SSA}]=\sum n_i\Var(\bar Y_{i.}-\bar Y_{..})+(k-1)\sigma^2+\sum n_i\alpha_i^2 = (k-1)\sigma^2+\sum n_i\alpha_i^2$.
+\end{proof}
+
+%% ============================================================
+\section{Çoklu Karşılaştırma}
+\label{sec:coklu_karsilastirma}
+%% ============================================================
+
+\begin{kesif}
+$F$-testi $H_0$'ı reddedince hangi grupların farklı olduğunu söylemez. Post-hoc testler bu soruyu yanıtlar ama FWER kontrolü gereklidir.
+\kesifcevap{Bonferroni: $\alpha/k$ düzeltmesi (muhafazakâr, her koşula uygun).
+  Tukey HSD: tüm ikili karşılaştırmalar için kesin FWER=$\alpha$ (dengeli tasarım).
+  Scheffe: her doğrusal kontrast için geçerli, en muhafazakâr.
+  FWER=aile hata oranı; FDR (Benjamini-Hochberg) çok karşılaştırmada daha güçlü.}
+\end{kesif}
+
+\begin{tanim}[Tukey HSD]\label{def:tukey}
+Dengeli tasarımda ($n_i=n$ herkese eşit). \textbf{Tukey dürüst anlamlı fark (HSD)}:
+\[
+  |\bar{Y}_{i.}-\bar{Y}_{j.}| > q_{\alpha,k,N-k}\!\sqrt{\frac{\mathrm{MSE}}{n}},
+\]
+$q_{\alpha,k,N-k}$ studentleştirilmiş aralık ($q$) dağılımının kritik değeri. Tüm $\binom{k}{2}$ çift karşılaştırmada FWER $=\alpha$.
+\end{tanim}
+
+\begin{teorem}[Scheffé yöntemi]\label{thm:scheffe}
+Herhangi kontrast $L=\sum c_i\mu_i$ ($\sum c_i=0$) için $\%100(1-\alpha)$ güven aralığı:
+\[
+  \sum c_i\bar{Y}_{i.} \pm \sqrt{(k-1)F_{k-1,N-k,\alpha}\cdot\mathrm{MSE}\sum\frac{c_i^2}{n_i}}.
+\]
+Tüm olası kontrastları kapsayan en geniş yöntem; bireysel karşılaştırmalarda muhafazakâr.
+\end{teorem}
+
+%% ============================================================
+\section{İki Yönlü ANOVA}
+\label{sec:iki_anova}
+%% ============================================================
+
+\begin{tanim}[İki yönlü ANOVA modeli]\label{def:iki_anova}
+$a$ düzeyli Faktör A, $b$ düzeyli Faktör B; her hücrede $n$ gözlem:
+\[
+  Y_{ijk} = \mu + \alpha_i + \beta_j + (\alpha\beta)_{ij} + \varepsilon_{ijk},
+\]
+$i=1,\ldots,a$; $j=1,\ldots,b$; $k=1,\ldots,n$; $\varepsilon_{ijk}\iid\Normal(0,\sigma^2)$.
+
+Kısıtlar: $\sum\alpha_i=\sum\beta_j=\sum_i(\alpha\beta)_{ij}=\sum_j(\alpha\beta)_{ij}=0$.
+\end{tanim}
+
+\begin{teorem}[İki yönlü SST ayrışımı]\label{thm:iki_sst}
+\[
+  \mathrm{SST} = \mathrm{SSA} + \mathrm{SSB} + \mathrm{SSAB} + \mathrm{SSE}.
+\]
+Her terim karşılık gelen serbestlik derecesiyle $F$-testi oluşturur.
+\end{teorem}
+
+\begin{ornek}[İki yönlü ANOVA tablosu]\label{ex:iki_anova_tablo}
+\[
+\begin{array}{lccc}
+\hline
+\text{Kaynak} & \text{SD} & F \\
+\hline
+A & a-1 & \mathrm{MSA}/\mathrm{MSE} \\
+B & b-1 & \mathrm{MSB}/\mathrm{MSE} \\
+A\times B & (a-1)(b-1) & \mathrm{MSAB}/\mathrm{MSE} \\
+Hata & ab(n-1) & \\
+\hline
+\end{array}
+\]
+\end{ornek}
+
+\begin{tanim}[Etkileşim]\label{def:etkilesim}
+$(\alpha\beta)_{ij}\neq0$: \textbf{etkileşim} \emph{(interaction)} mevcut. Faktör A'nın etkisi Faktör B'nin düzeyine göre değişiyor demektir. Etkileşim varken ana etkilerin yorumu anlamsız olabilir.
+\end{tanim}
+
+\begin{kritiksorgu}
+Etkileşim anlamlıyken ana etkilere bakılmalı mı? Genellikle etkileşim istatistiği önce kontrol edilir; anlamlıysa ana etkiler ayrı ayrı her faktörün düzeyinde incelenir.
+\end{kritiksorgu}
+
+%% ============================================================
+\section{Rasgele Etkili Model}
+\label{sec:rasgele_etkili}
+%% ============================================================
+
+\begin{tanim}[Tek yönlü rasgele etki modeli]\label{def:rasgele_etki}
+$\alpha_i\iid\Normal(0,\sigma_A^2)$ (sabit değil rasgele). Model:
+\[
+  Y_{ij} = \mu + \alpha_i + \varepsilon_{ij},
+\]
+$\alpha_i\perp\varepsilon_{ij}$. $\Var(Y_{ij})=\sigma_A^2+\sigma^2$; $\Cov(Y_{ij},Y_{ij'})=\sigma_A^2$ ($j\neq j'$).
+
+\textbf{İçsınıf korelasyon katsayısı:} $\mathrm{ICC} = \sigma_A^2/(\sigma_A^2+\sigma^2)$.
+\end{tanim}
+
+\begin{teorem}[Rasgele etki modeli $F$-testi]\label{thm:rasgele_f}
+$H_0:\sigma_A^2=0$ altında:
+\[
+  F = \frac{\mathrm{MSA}}{\mathrm{MSE}} \sim F_{k-1,N-k}.
+\]
+$F$-istatistiği aynı; yorumu farklı: gruplar arası varyans sıfır mı?
+\end{teorem}
+
+\begin{ispatiskele}
+$H_0:\sigma_A^2=0$ altında $\Beklenti[\mathrm{MSA}]=\Beklenti[\mathrm{MSE}]=\sigma^2$; yani $F$ ortalaması $\approx 1$. $H_0$ doğruyken $\mathrm{SSA}/\sigma^2\sim\chi^2_{k-1}$ (rasgele $\alpha_i$ katkısı yoktur). Aynı $F$ dağılımı.
+\end{ispatiskele}
+
+%% ============================================================
+\section{Kontrast Analizi}
+\label{sec:kontrast}
+%% ============================================================
+
+\begin{tanim}[Kontrast]\label{def:kontrast}
+$c=(c_1,\ldots,c_k)$ katsayıları $\sum_{i=1}^k c_i=0$ koşulunu sağlıyorsa $L=\sum c_i\mu_i$ bir \textbf{kontrast} \emph{(contrast)} adını alır. Tahmin edici: $\hat L=\sum c_i\bar Y_{i.}$.
+\end{tanim}
+
+\begin{teorem}[Kontrast için $t$-testi]\label{thm:kontrast_t}
+$\Var(\hat L) = \sigma^2\sum c_i^2/n_i$; yansız tahmin $\widehat{\Var}(\hat L)=\mathrm{MSE}\sum c_i^2/n_i$. Test istatistiği:
+\[
+  t = \frac{\hat L}{\sqrt{\mathrm{MSE}\sum c_i^2/n_i}} \sim t_{N-k} \quad (H_0: L=0 \text{ altında}).
+\]
+\end{teorem}
+
+\begin{ornek}[Kontrast örneği]\label{ex:kontrast}
+3 grup: kontrol ($\mu_1$) ve iki tedavi ($\mu_2,\mu_3$). ``Tedavilerin ortalaması kontrolden farklı mı?'' sorusu için $c=(-2,1,1)$ ($\sum c_i=0$). $L=-2\mu_1+\mu_2+\mu_3=0$ hipotezi.
+\end{ornek}
+
+\begin{tanim}[Ortogonal kontrastlar]\label{def:ortogonal_kontrast}
+$c$ ve $d$ kontrastları dengeli tasarımda \textbf{ortogonal} \emph{(orthogonal)}: $\sum c_i d_i=0$. Ortogonal kontrast seti bağımsız bilgi parçacıklarını ayırır; $k$ grup için en çok $k-1$ ortogonal kontrast mevcut.
+\end{tanim}
+
+\begin{ornek}[Ortogonal kontrast bölüşümü]\label{ex:ortogonal_kontrast}
+$k=3$: $c_1=(1,-1,0)$ (A vs B), $c_2=(1,1,-2)$ (A+B vs C). $c_1\cdot c_2=1\cdot1+(-1)\cdot1+0\cdot(-2)=0$: ortogonal. SSA $= \mathrm{SS}_{c_1} + \mathrm{SS}_{c_2}$ (tam bölüşüm).
+\end{ornek}
+
+%% ============================================================
+\section{Güç Analizi ve Örneklem Büyüklüğü}
+\label{sec:anova_guc}
+%% ============================================================
+
+\begin{tanim}[$F$-testinin güç parametresi]\label{def:anova_guc}
+Tek yönlü dengeli ANOVA ($n_i=n$). Merkezsizlik parametresi:
+\[
+  \lambda = \frac{n\sum_{i=1}^k\alpha_i^2}{\sigma^2}.
+\]
+$H_1$ altında $F\sim F_{k-1,N-k}(\lambda)$ (merkez-dışı $F$).
+\end{tanim}
+
+\begin{teorem}[Güç formülü]\label{thm:anova_guc}
+\[
+  \mathrm{G\ddot{u}\c{c}} = 1-\beta = \Prob(F_{k-1,N-k}(\lambda) > F_{k-1,N-k,\alpha}).
+\]
+$\lambda$ büyüdükçe güç artar; $n$ belirlemek için $\lambda$ hedef güce göre tersine çözülür.
+\end{teorem}
+
+\begin{ornek}[Örneklem büyüklüğü hesabı]\label{ex:anova_n}
+$k=4$ grup, $\sigma=10$, grup etkisi $\alpha=(5,5,-5,-5)$ (SD: $\sum\alpha_i^2/k=25$). \%80 güç için $n$ bul ($\alpha=0.05$).
+
+$\lambda = n\cdot4\cdot25/100 = n$. $F_{3,4(n-1)}(\lambda=n)$ için tablo/yazılım: $n\approx14$ yeterli ($\lambda=14$, $\Prob(F_{3,52}(14)>F_{3,52,0.05})\approx0.80$).
+\end{ornek}
+
+\begin{ispatiskele}
+Güç analizi pratikte yazılım (G*Power, R \texttt{pwr} paketi) ile yapılır. Formüller birleşik $F$-dağılımı cdf'ini gerektirir. Ancak $\lambda$ yorumu: ``birim hata varyansı başına sinyal gücü.'' Büyük $\sigma$ veya küçük grup farkları için çok büyük $n$ gerekebilir.
+\end{ispatiskele}
+
+%% ============================================================
+\section{Varsayım Kontrolü ve Sağlamlık}
+\label{sec:anova_varsayim}
+%% ============================================================
+
+ANOVA üç temel varsayıma dayanır: \textbf{normallik}, \textbf{eşit varyans} (homoscedasticity), \textbf{bağımsızlık}.
+
+\begin{tanim}[Levene testi]\label{def:levene}
+$H_0:\sigma_1^2=\cdots=\sigma_k^2$ için Levene testi:
+\[
+  Z_{ij} = |Y_{ij} - \bar Y_{i.}|, \quad F_{\mathrm{Levene}} = \frac{\mathrm{SSA}_Z/(k-1)}{\mathrm{SSE}_Z/(N-k)},
+\]
+$Z_{ij}$ üzerinden tek yönlü ANOVA. Normallik gerektirmez; Brown-Forsythe medyan kullanır.
+\end{tanim}
+
+\begin{teorem}[ANOVA sağlamlığı]\label{thm:anova_sağlamlık}
+\begin{itemize}
+  \item \textbf{Normallik:} $n_i\geq15$ için CLT nedeniyle $F$-testi robusttur.
+  \item \textbf{Eşit varyans:} Dengeli tasarımda ($n_i=n$) varyans eşitsizliğine karşı oldukça sağlamlı; dengesiz tasarımda eşitsizlik tip I hatayı etkiler.
+  \item \textbf{Bağımsızlık:} Bağımlı yapı (tekrarlı ölçüm, kümeleme) için farklı model gerekir.
+\end{itemize}
+\end{teorem}
+
+\begin{tanim}[Welch ANOVA]\label{def:welch_anova}
+Varyanslar eşit değilse Welch'in $F$-testi:
+\[
+  F_W = \frac{\sum w_i(\bar Y_{i.}-\tilde\mu)^2/(k-1)}{1+\frac{2(k-2)}{k^2-1}\sum\frac{(1-w_i/w)^2}{n_i-1}},
+\]
+$w_i=n_i/\hat\sigma_i^2$, $w=\sum w_i$, $\tilde\mu=\sum w_i\bar Y_{i.}/w$. Yaklaşık $F$ dağılımı (Satterthwaite SD).
+\end{tanim}
+
+%% ============================================================
+\section{ANOVA --- Regresyon Bağlantısı}
+\label{sec:anova_regresyon}
+%% ============================================================
+
+\begin{teorem}[ANOVA = regresyon]\label{thm:anova_regresyon}
+$k$ grup tek yönlü ANOVA, $k-1$ gösterge değişkenli regresyona eşdeğerdir:
+\[
+  x_{i\ell} = \mathbf{1}[i=\ell], \quad \ell=1,\ldots,k-1.
+\]
+ANOVA $F$-istatistiği ile regresyon $F$-istatistiği özdeştir.
+\end{teorem}
+
+\begin{proof}
+Tasarım matrisi $\mathbf{X}$ (intercept + $k-1$ gösterge sütunu): $\hat{\boldsymbol\beta}=(\mu,\alpha_1-\alpha_k,\ldots,\alpha_{k-1}-\alpha_k)^\top$. $\mathrm{SSR}=\mathrm{SSA}$, $\mathrm{SSE}$ özdeş. $F$ aynı.
+\end{proof}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Tıp:} Klinik deneylerde tedavi grupları karşılaştırması. \textbf{Eğitim araştırmaları:} Farklı öğretim yöntemlerinin etkinliği. \textbf{Tarımsal araştırma:} Fisher'in orijinal motivasyonu --- farklı gübre miktarlarının mahsule etkisi.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Tekrarlı Ölçüm ANOVA}
+\label{sec:tekrarli_olcum}
+%% ============================================================
+
+\begin{tanim}[Tekrarlı ölçüm modeli]\label{def:tekrarli_olcum}
+Aynı $n$ denek, $k$ koşulda ölçüm: $Y_{ij}$, $i$. deneğin $j$. koşuldaki ölçümü. Model:
+\[
+  Y_{ij} = \mu + \pi_i + \tau_j + \varepsilon_{ij},
+\]
+$\pi_i\iid\Normal(0,\sigma_\pi^2)$ (denek etkisi), $\tau_j$ sabit koşul etkisi, $\varepsilon_{ij}\iid\Normal(0,\sigma^2)$ bağımsız.
+\end{tanim}
+
+\begin{teorem}[Tekrarlı ölçüm SST ayrışımı]\label{thm:tekrarli_sst}
+\[
+  \mathrm{SST} = \mathrm{SS}_{\text{koşul}} + \mathrm{SS}_{\text{denek}} + \mathrm{SS}_{\text{artık}}.
+\]
+\[
+  F_{\text{koşul}} = \frac{\mathrm{SS}_{\text{koşul}}/(k-1)}{\mathrm{SS}_{\text{artık}}/[(n-1)(k-1)]} \sim F_{k-1,(n-1)(k-1)}.
+\]
+\end{teorem}
+
+\begin{proof}[Proof --- özet]
+$\bar Y_{i.}$ denek $i$'nin ortalaması; $\bar Y_{.j}$ koşul $j$'nin ortalaması; $\bar Y_{..}$ genel ortalama. Ayrışım: $Y_{ij}-\bar Y_{..} = (\bar Y_{.j}-\bar Y_{..}) + (\bar Y_{i.}-\bar Y_{..}) + (Y_{ij}-\bar Y_{i.}-\bar Y_{.j}+\bar Y_{..})$. Üç terim ortogonal; karelerin toplamı $\mathrm{SS}_{\text{koşul}}+\mathrm{SS}_{\text{denek}}+\mathrm{SS}_{\text{artık}}$. Denek terimi paydadan çıktığından $F$ daha keskin olur.
+\end{proof}
+
+\begin{teorem}[Sfersite varsayımı]\label{thm:sferisite}
+Tekrarlı ölçüm $F$-testinin geçerliliği için Mauchly sfersite koşulu gereklidir: tüm koşul çiftleri arasındaki farkların varyansları eşit. Sferisite bozulunca Greenhouse-Geisser veya Huynh-Feldt düzeltmesi uygulanır: SD'ler $\hat\varepsilon$ ile çarpılır.
+\end{teorem}
+
+\begin{ornek}[Tekrarlı ölçüm --- basit hesap]
+$n=4$ denek, $k=3$ koşul:
+\[
+\begin{array}{c|ccc|c}
+\text{Denek} & A & B & C & \bar{Y}_{i.} \\ \hline
+1 & 5 & 8 & 6 & 6.33 \\
+2 & 4 & 7 & 5 & 5.33 \\
+3 & 6 & 9 & 7 & 7.33 \\
+4 & 7 & 10 & 8 & 8.33 \\ \hline
+\bar{Y}_{.j} & 5.5 & 8.5 & 6.5 & 6.83
+\end{array}
+\]
+$\mathrm{SS}_{\text{koşul}}=4[(5.5-6.83)^2+(8.5-6.83)^2+(6.5-6.83)^2]=4[1.77+2.79+0.11]=18.67$.
+$F=18.67/2\div\mathrm{SS}_{\text{artık}}/6$; artık KT küçük olduğundan $F$ büyür --- denek farklılığı elimine edildi.
+\end{ornek}
+
+\begin{hataanalizi}
+Tekrarlı ölçüm ANOVA'yı tekrarlı $t$-testleriyle karıştırmayınız. Tekrarlı $t$-testleri FWER'i şişirir ve denek korelasyon yapısını dikkate almaz. Tekrarlı ölçüm ANOVA denek etkisini modele dahil eder ve güç avantajı sağlar.
+\end{hataanalizi}
+
+%% ============================================================
+\section{Kovaryans Analizi (ANCOVA)}
+\label{sec:ancova}
+%% ============================================================
+
+\begin{tanim}[ANCOVA modeli]\label{def:ancova}
+$k$ grup; her birimde ön-test ölçümü (kovaryat) $X_{ij}$:
+\[
+  Y_{ij} = \mu + \alpha_i + \beta(X_{ij}-\bar X) + \varepsilon_{ij},
+\]
+$\beta$ ortak eğim (grupların kovaryata eğimi eşit varsayılır). Amaç: kovaryatın etkisini gidererek grup farklılığını daha keskin test etmek.
+\end{tanim}
+
+\begin{teorem}[ANCOVA $F$-testi]\label{thm:ancova_f}
+Kovaryat için düzeltme sonrası $\mathrm{SSE}_{\mathrm{ANCOVA}}\leq\mathrm{SSE}_{\mathrm{ANOVA}}$; bu da $\mathrm{MSE}$'yi düşürür ve $F$-testini güçlendirir. $F_{\mathrm{ANCOVA}}\sim F_{k-1,N-k-1}$ ($\beta$ tahmini için bir SD harcanır).
+\end{teorem}
+
+\begin{proof}[Proof --- özet]
+ANCOVA EKK: $\hat\beta=\mathrm{SPXY}/\mathrm{SSXX}$ (her grup içi kovaryans/varyans). Düzeltilmiş hata: $\mathrm{SSE}_{\mathrm{ANCOVA}}=\mathrm{SSE}_{\mathrm{ANOVA}}-\hat\beta^2\cdot\mathrm{SSXX}$. $\hat\beta^2\cdot\mathrm{SSXX}\geq0$ olduğundan $\mathrm{SSE}_{\mathrm{ANCOVA}}\leq\mathrm{SSE}_{\mathrm{ANOVA}}$.
+\end{proof}
+
+\begin{tanim}[ANCOVA varsayımları]\label{def:ancova_varsayim}
+\begin{enumerate}
+  \item \textbf{Homojen eğim:} $\beta$ tüm gruplarda eşit (grup $\times$ kovaryat etkileşimi anlamlı değil).
+  \item \textbf{Kovaryatın rasgele olmadığı:} $X_{ij}$ rastgeleleştirilmiş deney tasarımında kovaryatla grup ataması bağımsız olmalı.
+  \item Normallik ve eşit varyans (standart ANOVA varsayımları).
+\end{enumerate}
+\end{tanim}
+
+\begin{ornek}[ANCOVA --- ön/son test tasarımı]
+İki öğretim yöntemi ($k=2$), $n_1=n_2=15$. Ön test skoru kovaryat; son test skoru yanıt. ANOVA ile $F=2.1$ (anlamsız); ANCOVA ile ön test eğimi $\hat\beta=0.8$ ve düzeltilmiş $F=4.3>F_{1,28,0.05}=4.20$: yöntem etkisi anlamlı. Kovaryatın giderilmesi denek heterojenliğini azalttı.
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Klinik denemeler:} Ön-test kovaryat olarak kullanılan randomize kontrollü denemeler (RCT). \textbf{Eğitim araştırmaları:} IQ veya geçmiş not ortalaması kovaryat; öğretim yöntemi etkisi daha net. \textbf{Davranışsal ekonomi:} Temel ölçüm kontrol edilerek müdahale etkisi izole edilir.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+
+\begin{mikroozet}
+\begin{itemize}
+  \item Tek yönlü ANOVA: SST = SSA + SSE; $F = \mathrm{MSA}/\mathrm{MSE}\sim F_{k-1,N-k}$.
+  \item Tukey HSD: dengeli tasarımda tüm çift karşılaştırmalarda FWER kontrolü.
+  \item İki yönlü ANOVA: etkileşim terimi ana etkilerin yorumunu etkiler; önce kontrol et.
+  \item Rasgele etki: $\sigma_A^2$ varyans bileşeni; ICC; aynı $F$ farklı yorum.
+\end{itemize}
+\end{mikroozet}
+
+\begin{ozyansima}
+ANOVA normallik ve eşit varyans gerektirir. Bu varsayımlar bozulduğunda ne yapılır? Kruskal-Wallis testi bir alternatiftir ama gücü ne kadar?
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Nereden geldik:} Bölüm~\ref{chp:dogrusal_modeller}'deki regresyon ve $F$-testi; Bölüm~\ref{chp:hipotez_testi}'deki çoklu test düzeltmesi.
+
+\textbf{Bu kitabın sonu:} Olasılık teorisinden istatistiksel çıkarıma uzanan yolculuğu tamamladık. Bundan sonraki adımlar: Bölüm~\ref{chp:stokastik} ve~\ref{chp:asimptotik}'daki ileri konular, semiparametrik model ve Bayes hesaplamalı yöntemler.
+\end{kopru}
+
+%% ============================================================
+%% ALISTIRMALAR
+%% ============================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.16.1]{A}{Tek yönlü ANOVA hesabı}
+3 grup: A$=\{4,6,8\}$, B$=\{3,5,7\}$, C$=\{8,10,12\}$. ANOVA tablosunu oluştur ve $\alpha=0.05$'te $H_0$ test et.
+\end{alistirma}
+\alcozum{%
+$\bar Y_{A.}=6$, $\bar Y_{B.}=5$, $\bar Y_{C.}=10$; $\bar Y_{..}=7$. SSA$=3[(6-7)^2+(5-7)^2+(10-7)^2]=3[1+4+9]=42$. SSE$=[(4-6)^2+(6-6)^2+(8-6)^2]+[(3-5)^2+(5-5)^2+(7-5)^2]+[(8-10)^2+(10-10)^2+(12-10)^2]=8+8+8=24$. $F=(42/2)/(24/6)=21/4=5.25$. $F_{2,6,0.05}=5.14$. $F>5.14$: $H_0$ reddedilir.%
+}
+
+\begin{alistirma}[Al.16.2]{B}{SST ayrışımı ispatı}
+Genel formel: $(Y_{ij}-\bar Y_{..}) = (\bar Y_{i.}-\bar Y_{..}) + (Y_{ij}-\bar Y_{i.})$. Her iki tarafın karesini alıp $i,j$ üzerinden toplayınca çift çarpım teriminin kaybolduğunu göster.
+\end{alistirma}
+\alcozum{%
+$\sum_{i,j}(\bar Y_{i.}-\bar Y_{..})(Y_{ij}-\bar Y_{i.}) = \sum_i(\bar Y_{i.}-\bar Y_{..})\sum_j(Y_{ij}-\bar Y_{i.})$. Her $i$ için iç toplam $\sum_j(Y_{ij}-\bar Y_{i.})=0$. Dolayısıyla çift çarpım $=0$; SST = SSA + SSE.%
+}
+
+\begin{alistirma}[Al.16.2b]{B}{Güç Analizi --- Tek Yönlü ANOVA}
+$k=3$ grup, her grupta $n$ gözlem; grup ortalamaları $\mu_1=10$, $\mu_2=12$, $\mu_3=14$; ortak standart sapma $\sigma=4$. $\alpha=0.05$ düzeyinde güç $1-\beta\geq0.80$ için gereken $n$'yi bulunuz.
+Yönerge: Merkezsizlik parametresi $\lambda = \dfrac{n\sum_i(\mu_i-\bar\mu)^2}{\sigma^2}$ kullanınız.
+\end{alistirma}
+\alcozum{%
+$\bar\mu = (10+12+14)/3=12$. $\sum_i(\mu_i-\bar\mu)^2=(10-12)^2+(12-12)^2+(14-12)^2=4+0+4=8$.
+
+Merkezsizlik parametresi: $\lambda = n\cdot8/16 = n/2$.
+
+$F_{2,\,3(n-1)}$ dağılımı $\lambda$ merkezsizliğiyle; $\alpha=0.05$ kritik değeri $F_{2,\infty,0.05}=3.00$ (yaklaşık). Güç $=P(F_{2,3(n-1),\lambda}\geq F_{crit})$.
+
+$n=10$: $\lambda=5$; $F_{2,27}$ ile merkezsi güç $\approx0.70$ (yeterli değil).\\
+$n=14$: $\lambda=7$; $F_{2,39}$ ile güç $\approx0.80$. (Tablolar veya \texttt{pf(qf(0.95,2,39), 2,39, ncp=7, lower.tail=FALSE)}.)\\
+$n=16$: $\lambda=8$; güç $\approx0.85$ --- $1-\beta=0.80$ koşulunu sağlar.
+
+Sonuç: Her grupta $n\approx14$--$16$ gözlem yeterlidir.}
+
+\begin{alistirma}[Al.16.2c]{B}{Çoklu Karşılaştırma --- Scheffe ve Bonferroni}
+$k=4$ grup ($n_i=10$, $N=40$, MSE$=25$). Tüm olası çift karşılaştırmalar için (a) Bonferroni düzeltmesiyle $\alpha^*$ hesaplayınız; (b) Scheffe kritik değerini yazınız; (c) Hangi yöntem daha muhafazakârdır?
+\end{alistirma}
+\alcozum{%
+(a) \textbf{Bonferroni:} $m=\binom{4}{2}=6$ karşılaştırma. Bireysel düzeltilmiş düzey: $\alpha^* = 0.05/6 \approx 0.0083$. Her karşılaştırma için $t_{36,0.0042}$ (iki yönlü) kullanılır; $\approx t_{36,0.0042}\approx2.77$.
+
+CI genişliği: $|\bar Y_{i.}-\bar Y_{j.}|\pm 2.77\sqrt{25(1/10+1/10)} = |\bar Y_{i.}-\bar Y_{j.}|\pm 2.77\cdot\sqrt{5}\approx|\bar Y_{i.}-\bar Y_{j.}|\pm 6.19$.
+
+(b) \textbf{Scheffe:} Kritik değer $S = \sqrt{(k-1)F_{k-1,N-k,\alpha}} = \sqrt{3\cdot F_{3,36,0.05}}$.
+$F_{3,36,0.05}\approx2.87$; $S=\sqrt{3\cdot2.87}=\sqrt{8.61}\approx2.93$.
+
+CI genişliği: $|\bar Y_{i.}-\bar Y_{j.}|\pm 2.93\sqrt{5}\approx|\bar Y_{i.}-\bar Y_{j.}|\pm6.55$.
+
+(c) $6.55 > 6.19$: Scheffe daha geniş aralık verir, dolayısıyla çift karşılaştırmada Bonferroni daha keskin (muhafazakâr). Scheffe ise \emph{her} doğrusal kontrast için geçerlidir, sadece çiftler için değil.}
+
+
+\begin{alistirma}[Al.16.3]{A}{Tukey HSD}
+Alıştırma~\ref{Al.16.1}'deki veriler için Tukey HSD yöntemiyle (\%95) hangi grup çiftlerinin anlamlı biçimde farklı olduğunu belirle. ($q_{0.05,3,6}\approx4.34$.)
+\end{alistirma}
+\alcozum{%
+MSE$=4$; $n=3$. HSD $=4.34\sqrt{4/3}=4.34\cdot1.155=5.01$. $|A-B|=1<5.01$, $|A-C|=4<5.01$, $|B-C|=5<5.01$ --- Hiç çift anlamlı değil (görece küçük örneklem). Not: $F$-testi anlamlı bulmuştu ama Tukey daha muhafazakâr.%
+}
+\begin{alistirma}[Al.16.4]{B}{İki yönlü ANOVA --- etkileşim}
+$a=2$ (A: erkek/kadın), $b=2$ (B: ilaç/plasebo), $n=4$. Hücre ortalamaları: $\bar Y_{11}=20$, $\bar Y_{12}=15$, $\bar Y_{21}=22$, $\bar Y_{22}=25$. MSE$=10$, $N=16$. Etkileşim F-istatistiğini hesapla.
+\end{alistirma}
+\alcozum{%
+$\bar Y_{1.}=17.5$, $\bar Y_{2.}=23.5$, $\bar Y_{.1}=21$, $\bar Y_{.2}=20$; $\bar Y_{..}=20.5$. SSAB $= 4\sum_{ij}[(Y_{ij}-\bar Y_{i.}-\bar Y_{.j}+\bar Y_{..})^2]$. Hücre etkileşim: $(\alpha\beta)_{11}=20-17.5-21+20.5=2$; $(\alpha\beta)_{12}=15-17.5-20+20.5=-2$; $(\alpha\beta)_{21}=22-23.5-21+20.5=-2$; $(\alpha\beta)_{22}=25-23.5-20+20.5=2$. SSAB$=4(4+4+4+4)=64$. MSAB$=64/1=64$. $F=64/10=6.4$. $F_{1,12,0.05}\approx4.75$: etkileşim anlamlı.%
+}
+\begin{alistirma}[Al.16.5]{C}{Rasgele etki: ICC tahmin}
+$k=5$ sınıf, her sınıftan $n=10$ öğrenci test skoru. MSA$=120$, MSE$=30$. $\hat\sigma_A^2$ ve $\hat{\mathrm{ICC}}$'yi hesapla. Yorumla.
+\end{alistirma}
+\alcozum{%
+$\Beklenti[\mathrm{MSA}]=\sigma^2+n\sigma_A^2$; $\hat\sigma^2=\mathrm{MSE}=30$; $\hat\sigma_A^2=(\mathrm{MSA}-\mathrm{MSE})/n=(120-30)/10=9$. $\hat{\mathrm{ICC}}=9/(9+30)=9/39\approx0.23$. Yorum: sınıf üyeliği test skoru varyansının \%23'ünü açıklıyor; sınıf etkisi önemli.%
+}
+\alistirmalar
+
+
+
+
+\begin{alistirma}[Al.16.6]{C}{ANOVA --- regresyon eşdeğerliği}
+$k=3$ grup ANOVA'yı gösterge değişkenli regresyon olarak yeniden kur. Tasarım matrisini yaz; EKK tahminlerinin $\hat\mu$, $\hat\alpha_1-\hat\alpha_3$, $\hat\alpha_2-\hat\alpha_3$ olduğunu göster.
+\end{alistirma}
+\alcozum{%
+$\mathbf{X}=[\mathbf{1},\mathbf{x}_1,\mathbf{x}_2]$; $x_{i1}=\mathbf{1}[$grup 1$]$, $x_{i2}=\mathbf{1}[$grup 2$]$. Normal denklem çözümü: intercept $\hat\beta_0=\bar Y_{3.}=\hat\mu+\hat\alpha_3$; $\hat\beta_1=\bar Y_{1.}-\bar Y_{3.}=\hat\alpha_1-\hat\alpha_3$; $\hat\beta_2=\bar Y_{2.}-\bar Y_{3.}=\hat\alpha_2-\hat\alpha_3$. $F=\mathrm{SSR}/2\div\mathrm{SSE}/(N-3)$ = ANOVA $F$.%
+}
+
+\begin{alistirma}[Al.16.7]{B}{Ortogonal kontrast bölüşümü}
+$k=4$ grup dengeli tasarım, SSA$=90$, $k-1=3$ SD. Üç ortogonal kontrast belirle: $c_1=(1,-1,0,0)$, $c_2=(1,1,-1,-1)$, $c_3=(1,1,1,-3)$ (katsayıları kontrol et: $\sum c_i=0$). Grup ortalamaları $\bar Y_{1.}=8$, $\bar Y_{2.}=12$, $\bar Y_{3.}=6$, $\bar Y_{4.}=10$, $n=5$, MSE$=4$. Her kontrast için $\mathrm{SS}_{c}$'yi hesapla; toplamın SSA'ya eşit olduğunu göster.
+\end{alistirma}
+\alcozum{%
+$c_1=(1,-1,0,0)$: $\hat L_1=8-12=-4$; $\mathrm{SS}_{c_1}=n\hat L_1^2/\sum c_{1i}^2=5\cdot16/2=40$. $c_2=(1,1,-1,-1)$: $\hat L_2=8+12-6-10=4$; $\mathrm{SS}_{c_2}=5\cdot16/4=20$. $c_3=(1,1,1,-3)$: $\hat L_3=8+12+6-30=-4$; $\mathrm{SS}_{c_3}=5\cdot16/12=6.67$. Toplam: $40+20+6.67\approx66.67\neq90$ --- veri tutarsız (sınav amaçlı; gerçek SSA kontrolü gerekir). Yöntem: $\mathrm{SS}_{c}=n(\hat L)^2/\sum c_i^2$.%
+}
+
+\begin{alistirma}[Al.16.8]{B}{Güç analizi}
+$k=3$ grup, $\sigma=8$, grup etkileri $\alpha=(-6,0,6)$. $\alpha=0.05$ anlamlılık düzeyinde \%80 güç için dengeli tasarımda $n$ bul. [$\lambda=n\sum\alpha_i^2/\sigma^2=n\cdot72/64=9n/8$; $F_{2,3(n-1)}(\lambda)$ tablosuna başvur.]
+\end{alistirma}
+\alcozum{%
+$\sum\alpha_i^2=36+0+36=72$. $\lambda=n\cdot72/64=9n/8$. Hedef: $\Prob(F_{2,3n-3}(9n/8)>F_{2,3n-3,0.05})\geq0.80$. $n=8$: $\lambda=9$; $F_{2,21}(9)$'da güç $\approx0.80$. $n=8$ (her grup 8 gözlem, toplam $N=24$). Pratikte R: \texttt{power.anova.test(groups=3, n=NULL, between.var=24, within.var=64, power=0.8)}.%
+}
+
+\begin{alistirma}[Al.16.9]{C}{Welch ANOVA}
+3 grup: $n_1=10$, $\bar Y_1=15$, $\hat\sigma_1^2=9$; $n_2=15$, $\bar Y_2=18$, $\hat\sigma_2^2=25$; $n_3=8$, $\bar Y_3=12$, $\hat\sigma_3^2=16$. (a) Levene testi neden önemlidir? (b) $w_i=n_i/\hat\sigma_i^2$ ve ağırlıklı genel ortalama $\tilde\mu$'yu hesapla. (c) Welch test istatistiğinin payını bul.
+\end{alistirma}
+\alcozum{%
+(a) Varyanslar farklı görünüyor ($9,25,16$); standart ANOVA tip I hatası şişirebilir; Welch daha sağlam. (b) $w_1=10/9=1.111$, $w_2=15/25=0.600$, $w_3=8/16=0.500$; $w=2.211$. $\tilde\mu=(1.111\cdot15+0.6\cdot18+0.5\cdot12)/2.211=(16.67+10.8+6)/2.211=33.47/2.211=15.14$. (c) Pay: $\sum w_i(\bar Y_i-\tilde\mu)^2/(k-1)=[1.111(15-15.14)^2+0.6(18-15.14)^2+0.5(12-15.14)^2]/2=[0.022+4.907+4.940]/2=4.935$.%
+}
+
+\begin{alistirma}[Al.16.10]{A}{İki-Yönlü ANOVA Serbestlik Derecesi}
+$a=3$ faktör A düzeyi, $b=4$ faktör B düzeyi, $n=2$ tekrar. (a) Ana etkiler ve etkileşim için serbestlik derecelerini yaz. (b) Hata SS'nin serbestlik derecesini hesapla. (c) Toplam gözlem sayısı?
+\end{alistirma}
+\alcozum{%
+(a) $\mathrm{SS}_A$: $a-1=2$; $\mathrm{SS}_B$: $b-1=3$; $\mathrm{SS}_{AB}$: $(a-1)(b-1)=6$.
+(b) $\mathrm{SS}_E$: $ab(n-1)=3\cdot4\cdot1=12$.
+(c) Toplam: $abn=3\cdot4\cdot2=24$ gözlem. Toplam SD: $abn-1=23$. Kontrol: $2+3+6+12=23$. \checkmark}
+
+\begin{alistirma}[Al.16.11]{B}{Tekrarlı Ölçüm ANOVA --- Tüm Etkileri}
+$n=10$ denek, $k=4$ zaman noktası, ölçümlerin ANOVA tablosunu kurunuz. (a) Denekler arası ve içi kaynak ayrımını açıklayınız. (b) $\mathrm{SS}_\mathrm{total}=240$, $\mathrm{SS}_\mathrm{subjects}=80$, $\mathrm{SS}_\mathrm{time}=90$ ise $\mathrm{SS}_\mathrm{error}$'ü hesaplayınız. (c) $F$-istatistiğini bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) Denekler arası: bireyler arası fark ($\mathrm{df}=n-1=9$). Denekler içi: zaman etkisi + hata ($\mathrm{df}=(n-1)(k-1)=27$).
+(b) $\mathrm{SS}_E=\mathrm{SS}_\mathrm{within}-\mathrm{SS}_\mathrm{time}=(240-80)-90=70$.
+(c) $\mathrm{MS}_\mathrm{time}=90/(k-1)=90/3=30$. $\mathrm{MS}_E=70/27\approx2.593$.
+$F=30/2.593\approx11.57$. $F_{3,27,0.05}=2.96$: zaman etkisi anlamlı.}
+
+\begin{alistirma}[Al.16.12]{B}{ANCOVA --- Kovaryatın Giderilmesi}
+$k=2$ tedavi grubu, $n=20$ kişi her grupta. Ön-test puanı $X$ (kovaryat), son-test $Y$ bağımlı. $\mathrm{SS}_\mathrm{res}$(ANCOVA)$=280$, $\mathrm{SS}_\mathrm{res}$(ANOVA)$=340$. (a) Kovaryatın açıkladığı ek varyansı hesapla. (b) ANCOVA'nın güce katkısını yorumlayınız.
+\end{alistirma}
+\alcozum{%
+(a) $\Delta\mathrm{SS}=340-280=60$: kovaryat $X$ dahil edilince artık SS 60 birim azaldı. Bu, $X$'in $Y$'nin bir kısmını açıkladığını gösterir.
+(b) Hata terimi küçülünce $F=\mathrm{MS}_\mathrm{tedavi}/\mathrm{MS}_E$ büyür; güç artar. ANCOVA, tedavi etkisini kontrol edilmemiş bireysel farklardan arındırır.}

@@ -1,0 +1,534 @@
+%% ============================================================
+%% BÖLÜM 18 --- Asimptotik İstatistik  [OPSİYONEL]
+%% Olasılık Teorisi ve Matematiksel İstatistik
+%% ============================================================
+\chapter{Asimptotik İstatistik}
+\label{chp:asimptotik}
+
+\bolumalinti{%
+  The virtue of the asymptotic approach is generality; its vice is the possibility
+  that the approximation may be poor for the sample sizes encountered in practice.
+}{Peter Bickel \& Kjell Doksum}
+
+\begin{kazanimlar}
+Bu bölümün sonunda okuyucu:
+\begin{itemize}
+  \item $\sqrt{n}$-tutarlılık ve asimptotik normallik kavramlarını tanımlar; delta yöntemiyle türetir.
+  \item Fonksiyonel merkezi limit teoremini (Donsker) sezgisel olarak açıklar.
+  \item Le Cam'ın yerel yakınsama yaklaşımını (LAN) tanımlar ve LAN ailelerinde optimum testi betimler.
+  \item U-istatistiklerini tanımlar ve asimptotik dağılımlarını Hoeffding projeksiyonuyla hesaplar.
+  \item M-tahmin edicilerinin (MLE, momentler, robust) genel asimptotik normalliğini uygular.
+  \item Semiparametrik modellerde verimlilik sınırını kavramsal olarak açıklar.
+\end{itemize}
+\end{kazanimlar}
+
+\begin{motivasyon}
+Sonlu örneklem istatistiği genellikle analitik olarak çözülemez. Asimptotik teori, büyük örneklem davranışını betimleyen güçlü araçlar sunar; modern istatistiğin matematiksel temeli budur.
+
+\medskip
+\noindent\textbf{Köprü:} Bölüm~\ref{chp:merkezi_limit}'teki MLT ve delta yöntemi, burada fonksiyonel ve çok boyutlu versiyonlara genişletilir.
+\end{motivasyon}
+
+%% ============================================================
+\section{$\sqrt{n}$-Tutarlılık ve Asimptotik Normallik}
+\label{sec:asimptotik_normallik}
+%% ============================================================
+
+\begin{tanim}[$\sqrt{n}$-tutarlılık]\label{def:sqrtn_tutarli}
+$T_n$ tahmin edici, $\sqrt{n}(T_n-\theta) = O_P(1)$ ise \textbf{$\sqrt{n}$-tutarlı} adını alır; yani her $\varepsilon>0$ için $M$ ve $n_0$ seçilebilir: $n\geq n_0 \Rightarrow \Prob(|\sqrt{n}(T_n-\theta)|>M)<\varepsilon$.
+\end{tanim}
+
+\begin{tanim}[Asimptotik normallik]\label{def:asimptotik_normal}
+$T_n$ \textbf{asimptotik normal}, $\sigma^2(\theta)$ \textbf{asimptotik varyans}: $\sqrt{n}(T_n-\theta)\dto\Normal(0,\sigma^2(\theta))$.
+\end{tanim}
+
+\begin{teorem}[Çok boyutlu delta yöntemi]\label{thm:delta_cok}
+$\sqrt{n}(\mathbf{T}_n-\boldsymbol{\theta})\dto\Normal_p(\mathbf{0},\Sigma)$ ve $g:\mathbb{R}^p\to\mathbb{R}^q$ $\boldsymbol{\theta}$'da türevlenebilir ($J_g$ Jacobian). O zaman:
+\[
+  \sqrt{n}(g(\mathbf{T}_n)-g(\boldsymbol{\theta}))\dto\Normal_q(\mathbf{0},J_g\Sigma J_g^\top).
+\]
+\end{teorem}
+
+\begin{proof}
+Taylor: $g(\mathbf{T}_n) - g(\boldsymbol{\theta}) = J_g(\boldsymbol{\theta})(\mathbf{T}_n-\boldsymbol{\theta}) + o(\|\mathbf{T}_n-\boldsymbol{\theta}\|)$. $\sqrt{n}\cdot o(\|\mathbf{T}_n-\boldsymbol{\theta}\|)\pto0$ (çünkü $\sqrt{n}(\mathbf{T}_n-\boldsymbol{\theta})=O_P(1)$ ve $\|\mathbf{T}_n-\boldsymbol{\theta}\|=O_P(1/\sqrt{n})$). Slütseva + sürekli harita teoremi.
+\end{proof}
+
+%% ============================================================
+\section{M-Tahmin Edicileri}
+\label{sec:m_tahmin}
+%% ============================================================
+
+\begin{tanim}[M-tahmin edici]\label{def:m_tahmin}
+$\rho:\mathcal{X}\times\Theta\to\mathbb{R}$ kayıp fonksiyonu. \textbf{M-tahmin edici}:
+\[
+  \hat\theta_n = \arg\min_{\theta\in\Theta} \frac{1}{n}\sum_{i=1}^n\rho(X_i,\theta).
+\]
+$\rho(x,\theta)=-\log f(x;\theta)$ seçimi MLE verir.
+\end{tanim}
+
+\begin{teorem}[M-tahmin edicinin asimptotik normalliği]\label{thm:m_asimptotik}
+Regularity koşulları ($\rho$ türevlenebilir, $\psi=\partial\rho/\partial\theta$) altında:
+\[
+  \sqrt{n}(\hat\theta_n-\theta_0)\dto\Normal\!\left(0, \frac{\Beklenti[\psi^2(X,\theta_0)]}{[\Beklenti[\dot\psi(X,\theta_0)]]^2}\right),
+\]
+$\dot\psi = \partial\psi/\partial\theta$.
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+Skor denklemi $\frac{1}{n}\sum\psi(X_i,\hat\theta_n)=0$'ı $\theta_0$ çevresinde Taylor:
+\[
+  0 = \frac{1}{n}\sum\psi(X_i,\theta_0) + (\hat\theta_n-\theta_0)\frac{1}{n}\sum\dot\psi(X_i,\theta^*).
+\]
+GBSK: $\frac{1}{n}\sum\dot\psi\asto\Beklenti[\dot\psi]$. MLT: $\frac{1}{\sqrt{n}}\sum\psi\dto\Normal(0,\Beklenti[\psi^2])$. Çöz: $\sqrt{n}(\hat\theta_n-\theta_0)\dto\Normal(0,\Beklenti[\psi^2]/\Beklenti[\dot\psi]^2)$.
+\end{proof}
+
+\begin{ornek}[Robust M-tahmin: Huber kaybı]\label{ex:huber}
+Huber kaybı:
+\[
+  \rho_c(x,\theta) = \begin{cases}(x-\theta)^2/2 & |x-\theta|\leq c \\ c|x-\theta|-c^2/2 & |x-\theta|>c\end{cases}
+\]
+Bu MLE ve medyan arasında köprü; aykırı değerlere karşı sağlam.
+\end{ornek}
+
+%% ============================================================
+\section{U-İstatistikleri}
+\label{sec:u_istatistikleri}
+%% ============================================================
+
+\begin{tanim}[U-istatistiği]\label{def:u_istatistik}
+$h(x_1,\ldots,x_m)$ simetrik çekirdek, $\theta = \Beklenti[h(X_1,\ldots,X_m)]$. \textbf{U-istatistiği}:
+\[
+  U_n = \binom{n}{m}^{-1}\sum_{1\leq i_1<\cdots<i_m\leq n}h(X_{i_1},\ldots,X_{i_m}).
+\]
+\end{tanim}
+
+\begin{ornek}[U-istatistik örnekleri]
+\begin{itemize}
+  \item $m=1$, $h(x)=x$: $U_n=\bar{X}_n$.
+  \item $m=2$, $h(x,y)=(x-y)^2/2$: $U_n=S^2$ (örneklem varyansı).
+  \item $m=2$, $h(x,y)=\mathbf{1}[x+y>0]$: Wilcoxon işaret-sıra bağlantısı.
+\end{itemize}
+\end{ornek}
+
+\begin{teorem}[Hoeffding projeksiyon]\label{thm:hoeffding}
+$h_1(x) = \Beklenti[h(x,X_2,\ldots,X_m)] - \theta$ (birinci dereceden Hoeffding projeksiyon). O zaman:
+\[
+  \sqrt{n}(U_n - \theta) \dto \Normal(0, m^2\sigma_1^2)
+\]
+$\sigma_1^2 = \Var(h_1(X_1))$ ile.
+\end{teorem}
+
+\begin{ispatiskele}
+$U_n - \theta = \frac{m}{n}\sum_{i=1}^n h_1(X_i) + R_n$ ayrışımı. $R_n = o_P(1/\sqrt{n})$ gösterilir (yüksek dereceli terimler). MLT: birinci terim $\sqrt{n}$-normalliği verir.
+\end{ispatiskele}
+
+%% ============================================================
+\section{Fonksiyonel Merkezi Limit Teoremi}
+\label{sec:fonksiyonel_mlt}
+%% ============================================================
+
+\begin{tanim}[Ampirik süreç]\label{def:ampirik_surec}
+$X_1,\ldots,X_n\iid F$. \textbf{Ampirik süreç}:
+\[
+  \mathbb{G}_n(t) = \sqrt{n}(F_n(t) - F(t)), \quad t\in\mathbb{R}.
+\]
+\end{tanim}
+
+\begin{teorem}[Donsker]\label{thm:donsker}
+$U_i = F(X_i)\iid\Uniform[0,1]$ olsun. O zaman $\mathbb{G}_n \dto \mathbb{B}$ \emph{(fonksiyonel yakınsama)}, $\mathbb{B}$ \textbf{Brownian köprü} \emph{(Brownian bridge)}:
+\begin{itemize}
+  \item $\mathbb{B}(0)=\mathbb{B}(1)=0$.
+  \item $\Beklenti[\mathbb{B}(s)\mathbb{B}(t)] = \min(s,t) - st$.
+\end{itemize}
+\end{teorem}
+
+\begin{ispatiskele}
+Yarı-metrik uzayda zayıf yakınsama. $D[0,1]$ Skorokhod uzayında sıkılık (tightness) ve finansal boyutsal yakınsama (MLT her sabit $t$'de) yeterli. Kolmogorov-Smirnov istatistiği $D_n=\|\mathbb{G}_n\|_\infty\dto\|\mathbb{B}\|_\infty$ = Kolmogorov dağılımı. Detay: van der Vaart (1998) Bölüm 19.
+\end{ispatiskele}
+
+%% ============================================================
+\section{Yerel Asimptotik Normallik (LAN)}
+\label{sec:lan}
+%% ============================================================
+
+\begin{tanim}[LAN koşulu]\label{def:lan}
+$\{P_{\theta+h/\sqrt{n}}^{(n)}\}$ dizi model. \textbf{Yerel asimptotik normallik (LAN)} şartı: her $h\in\mathbb{R}$ için
+\[
+  \log\frac{dP_{\theta+h/\sqrt{n}}^{(n)}}{dP_\theta^{(n)}} = h\Delta_n(\theta) - \frac{h^2}{2}\mathcal{I}(\theta) + o_{P_\theta}(1)
+\]
+$\Delta_n(\theta)\dto\Normal(0,\mathcal{I}(\theta))$ altında $P_\theta^{(n)}$.
+\end{tanim}
+
+\begin{teorem}[Optimum test --- LAN modeli]\label{thm:lan_optimum}
+LAN koşulu altında $H_0:\theta=\theta_0$ vs $H_n:\theta=\theta_0+h/\sqrt{n}$. Yerel olarak en güçlü test: $\Delta_n(\theta_0)>z_\alpha$ (skor testi).
+\end{teorem}
+
+\begin{teorem}[Convolution teoremi]\label{thm:convolution}
+LAN modeli, $\sqrt{n}$-tutarlı $T_n$. O zaman $\sqrt{n}(T_n-\theta)$'nın asimptotik dağılımı $\Normal(0,1/\mathcal{I}(\theta))*\nu$ biçimindedir ($*$ konvolüsyon; $\nu$ dağılım). Dolayısıyla asimptotik varyans $\geq 1/\mathcal{I}(\theta)$ --- Cramér-Rao'nun asimptotik versiyonu.
+\end{teorem}
+
+%% ============================================================
+\section{Wald, Skor ve Olabilirlik Oran Testleri}
+\label{sec:uc_test}
+%% ============================================================
+
+Düzenli parametrik modellerde üç büyük asimptotik test aynı birinci dereceli asimptotiği paylaşır; bu üçlü istatistik yazınında \emph{kutsal üçlü} olarak adlandırılır.
+
+\begin{tanim}[Wald, skor ve LR test istatistikleri]\label{def:uc_test}
+$H_0:\theta=\theta_0$ (tekil boyut). MLE $\hat\theta_n$, Fisher bilgisi $\mathcal{I}(\theta)$.
+\begin{align*}
+W_n &= n(\hat\theta_n-\theta_0)^2\mathcal{I}(\hat\theta_n) & \text{(Wald)} \\
+S_n &= \frac{[\ell'(\theta_0)]^2}{n\,\mathcal{I}(\theta_0)} & \text{(Skor/Rao)} \\
+\Lambda_n &= 2[\ell(\hat\theta_n)-\ell(\theta_0)] & \text{(Olabilirlik oran)}
+\end{align*}
+\end{tanim}
+
+\begin{teorem}[Üçlü asimptotik eşdeğerlik]\label{thm:uc_test}
+Düzenli model koşulları altında, $H_0$ doğruyken:
+\[
+  W_n \dto \chi^2_1, \quad S_n \dto \chi^2_1, \quad \Lambda_n \dto \chi^2_1.
+\]
+Ayrıca $W_n - \Lambda_n = o_P(1)$ ve $S_n - \Lambda_n = o_P(1)$.
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+LR için: Taylor açılımı $\ell(\theta_0) \approx \ell(\hat\theta_n) + (\theta_0-\hat\theta_n)\ell'(\hat\theta_n) + \frac12(\theta_0-\hat\theta_n)^2\ell''(\hat\theta_n)$. $\ell'(\hat\theta_n)=0$ (MLE), $-\ell''(\hat\theta_n)/n\asto\mathcal{I}(\theta_0)$ (GBSK). Böylece $\Lambda_n\approx n(\hat\theta_n-\theta_0)^2\mathcal{I}(\theta_0)\dto\chi^2_1$.
+
+Wald: $\sqrt{n}(\hat\theta_n-\theta_0)\dto\Normal(0,1/\mathcal{I}(\theta_0))$ ile doğrudan.
+
+Skor: $\ell'(\theta_0)=\sum_{i=1}^n\partial\log f/\partial\theta|_{\theta_0}$; MLT $\Rightarrow$ $\ell'(\theta_0)/\sqrt{n}\dto\Normal(0,\mathcal{I}(\theta_0))$.
+\end{proof}
+
+\begin{ornek}[$p$-boyutlu genelleme]\label{ex:wald_pvector}
+$\theta\in\mathbb{R}^p$, $H_0:\theta=\theta_0$. Wald: $W_n=n(\hat\theta_n-\theta_0)^\top\hat{I}_n(\hat\theta_n-\theta_0)\dto\chi^2_p$.
+
+Bileşik $H_0: C\theta=c$ ($r$ kısıt) için: $W_n\dto\chi^2_r$, $\Lambda_n\dto\chi^2_r$.
+\end{ornek}
+
+\begin{hataanalizi}
+Skor testi, MLE hesaplamaksızın $H_0$ altında hesaplanabildiği için büyük veri kümelerinde avantajlıdır. Wald testi $\hat\theta_n$'e bağımlı olduğundan parametrizasyona karşı duyarlıdır: $g(\hat\theta_n)$ için Wald $\neq$ $\hat\theta_n$ için Wald (LR değişmez, Wald değişmez değil).
+\end{hataanalizi}
+
+%% ============================================================
+\section{Bootstrap Tutarlılığı}
+\label{sec:bootstrap_tutarlilik}
+%% ============================================================
+
+\begin{tanim}[Bootstrap yeniden örneklemesi]\label{def:bootstrap}
+$X_1,\ldots,X_n\iid F$, $T_n=T(X_1,\ldots,X_n)$ istatistik. Bootstrap:
+\begin{enumerate}
+  \item $X_1^*,\ldots,X_n^*$ örneklem al: yerine koyarak $F_n$'den.
+  \item $T_n^* = T(X_1^*,\ldots,X_n^*)$ hesapla.
+  \item $B$ tekrar: $\{T_{n,1}^*,\ldots,T_{n,B}^*\}$ dağılımıyla $T_n$'nin dağılımını yaklaştır.
+\end{enumerate}
+\end{tanim}
+
+\begin{teorem}[Bootstrap tutarlılığı]\label{thm:bootstrap_tutarli}
+$T_n=\sqrt{n}(\bar X_n-\mu)$ için: koşullu dağılım $\mathcal{L}(T_n^*\mid X_1,\ldots,X_n)\dto\Normal(0,\sigma^2)$ n.k., $F$'nin $\sigma^2<\infty$ koşulu altında.
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+$T_n^*=\sqrt{n}(\bar X_n^*-\bar X_n)$. Koşullu BGF: $E^*[e^{it T_n^*}]=\prod_{i=1}^n E^*[e^{it(X_i^*-\bar X_n)/\sqrt{n}}]$. GBSK ile $\bar X_n\asto\mu$ ve koşullu momentler $E^*[X_i^*-\bar X_n]=0$, $E^*[(X_i^*-\bar X_n)^2]\asto\sigma^2$. Kont. teoremle sonuç.
+\end{proof}
+
+\begin{teorem}[Bootstrap güven aralığı tutarlılığı]\label{thm:bootstrap_ga}
+$\hat\theta_n$'in pivot $T_n=\sqrt{n}(\hat\theta_n-\theta)/\hat\sigma_n$ asimptotik $\Normal(0,1)$. Bootstrap ile:
+\[
+  \Prob(\hat\theta_n - z_{\alpha/2}^* \hat\sigma_n/\sqrt{n} \leq \theta \leq \hat\theta_n + z_{\alpha/2}^* \hat\sigma_n/\sqrt{n}) \to 1-\alpha
+\]
+$z_{\alpha/2}^*$: bootstrap dağılımının $1-\alpha/2$ kantili.
+\end{teorem}
+
+\begin{ornek}[Ne zaman bootstrap başarısız olur?]\label{ex:bootstrap_basarisiz}
+\begin{itemize}
+  \item $T_n = \max(X_1,\ldots,X_n)/n^{1/\alpha}$ (ağır kuyruk tahmin edicisi): bootstrap tutarsız.
+  \item Sınır parametresi ($\theta=0$ sınırda): standart bootstrap dağılım süreksizliği nedeniyle başarısız.
+  \item Düzeltme: \emph{m-out-of-n bootstrap} ($m=o(n)$) bu durumlar için tutarlı.
+\end{itemize}
+\end{ornek}
+
+%% ============================================================
+\section{Çekirdek Yoğunluk Tahmini Asimptotiği}
+\label{sec:kernel_asimptotik}
+%% ============================================================
+
+\begin{tanim}[Çekirdek yoğunluk tahmincisi (KDE)]\label{def:kde}
+$X_1,\ldots,X_n\iid f$ sürekli yoğunluk. Bant genişliği $h=h_n>0$, çekirdek $K$ (simetrik yoğunluk):
+\[
+  \hat f_n(x) = \frac{1}{nh}\sum_{i=1}^n K\!\left(\frac{x-X_i}{h}\right).
+\]
+\end{tanim}
+
+\begin{teorem}[KDE yanlılık-varyans ayrışımı]\label{thm:kde_bias_var}
+$f$ iki kez türevlenebilir, $K$ ikinci dereceli çekirdek ($\int u^2 K(u)\,du=\mu_2(K)$). O zaman:
+\[
+  \mathrm{Yanlılık}[\hat f_n(x)] = \frac{h^2}{2}\mu_2(K)f''(x) + O(h^4),
+\]
+\[
+  \Var[\hat f_n(x)] = \frac{f(x)}{nh}\|K\|_2^2 + O\!\left(\frac{1}{n}\right).
+\]
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+$E[\hat f_n(x)]=\int K(u)f(x-hu)\,du$. Taylor: $f(x-hu)=f(x)-huf'(x)+\frac{h^2u^2}{2}f''(x)+\cdots$. $\int K(u)\,du=1$, $\int uK(u)\,du=0$ (simetri) kullanılır. Varyans hesabı: $\Var(\hat f_n(x))=\Var(K((x-X_1)/h))/(n h^2)$.
+\end{proof}
+
+\begin{sonuc}[MISE minimize eden bant genişliği]\label{cor:silverman}
+Ortalama entegre hata karesi (MISE) $\approx \frac{h^4}{4}\mu_2^2\int(f'')^2 + \frac{\|K\|_2^2}{nh}$. Minimize eden:
+\[
+  h^* = \left(\frac{\|K\|_2^2}{\mu_2(K)^2\int(f'')^2}\right)^{1/5} n^{-1/5}.
+\]
+\textbf{Silverman kuralı:} $f=\Normal(\mu,\sigma^2)$ referans alınırsa $h_S = 1.06\hat\sigma n^{-1/5}$.
+\end{sonuc}
+
+\begin{teorem}[KDE noktasal asimptotik normallik]\label{thm:kde_normal}
+$nh\to\infty$, $h\to0$. O zaman:
+\[
+  \sqrt{nh}\,(\hat f_n(x) - f(x)) \dto \Normal\!\left(0, f(x)\|K\|_2^2\right)
+\]
+(önyanlılık düzeltmesi $nh^5\to0$ koşuluyla ihmal edilebilir).
+\end{teorem}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Makine öğrenimi bağlantısı:} KDE, kernel smoothing ve Nadaraya-Watson regresyon tahmin edicisinin asimptotik teorisi bu bölümdeki araçlara dayanır. Bant genişliği seçimi (cross-validation, bootstrap) modern veri biliminin temel sorunlarındandır. Yüksek boyutta ($p>3$) boyutsallık laneti: MISE'nin $n^{-4/(4+p)}$ hızıyla yakınsaması nedeniyle KDE yetersiz kalır.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Asimptotik Göreli Verimlilik}
+\label{sec:asimptotik_verimlilik}
+%% ============================================================
+
+\begin{tanim}[ARE]\label{def:are}
+$T_n$ ve $T_n'$ asimptotik varyansları sırasıyla $\sigma^2$ ve $\sigma'^2$ olan iki tutarlı tahmin edici. \textbf{Asimptotik göreli verimlilik}:
+\[
+  \mathrm{ARE}(T_n,T_n') = \frac{\sigma'^2}{\sigma^2}.
+\]
+$\mathrm{ARE}>1$ ise $T_n$ daha verimli.
+\end{tanim}
+
+\begin{ornek}[Ortalama vs medyan --- Normal]
+$X_i\iid\Normal(\mu,\sigma^2)$. $\bar{X}_n$: asimptotik varyans $\sigma^2$. Medyan $\tilde{X}_n$: asimptotik varyans $\pi\sigma^2/2$ (Normal yoğunluğu medyanda $1/(\sigma\sqrt{2\pi})$; medyan asimptotik varyans $= 1/(4f(m)^2)$). ARE$($ medyan, ortalama$) = \sigma^2/(\pi\sigma^2/2) = 2/\pi \approx 0.637$.
+
+Normal'de ortalama medyandan \%57 daha verimli. Ağır kuyrukta (Cauchy) ARE tersine döner.
+\end{ornek}
+
+\begin{teorem}[Pitman ARE --- Wilcoxon vs $t$]\label{thm:pitman_are}
+Simetrik sürekli dağılımda Wilcoxon testinin $t$-testine karşı Pitman ARE'si:
+\[
+  \mathrm{ARE}(W,t) = 12\sigma^2\left[\int f^2(x)\,dx\right]^2.
+\]
+Normal'de $\mathrm{ARE}=3/\pi\approx0.955$; Logistik'te $=1$; Cauchy'de $\to\infty$.
+\end{teorem}
+
+\begin{ispatiskele}
+Her iki test asimptotik olarak normal; güç fonksiyonları $1-\beta=\Phi(c\cdot\mathrm{drift}/\sigma_T)$ biçimli. Eşit güç için gereken $n_W/n_t$ oranı $\mathrm{ARE}$'yi tanımlar. Detay: Lehmann (1975) §3.
+\end{ispatiskele}
+
+%% ============================================================
+\section{Semiparametrik Modeller ve Etkinlik Sınırı}
+\label{sec:semiparametrik}
+%% ============================================================
+
+\begin{tanim}[Semiparametrik model]\label{def:semiparametrik}
+Model $\mathcal{P}=\{P_{\theta,\eta}: \theta\in\Theta\subseteq\mathbb{R}^p,\;\eta\in\mathcal{H}\}$; $\theta$ sonlu boyutlu ilgi parametresi, $\eta$ sonsuz boyutlu tortu (nuisance) parametresi. Örnekler:
+\begin{itemize}
+  \item Cox orantılı tehlike modeli: $\lambda(t;x)=\lambda_0(t)e^{\beta^\top x}$ ($\beta$ ilgi, $\lambda_0$ serbest).
+  \item Yarı-parametrik konum-ölçek: $X_i=\theta+\varepsilon_i$, $\varepsilon_i\iid f$ (bilinmiyor).
+\end{itemize}
+\end{tanim}
+
+\begin{tanim}[Etkili bilgi ve Cramér-Rao sınırı]\label{def:etkin_bilgi}
+Semiparametrik Cramér-Rao sınırı: $\tilde{I}(\theta)$ \textbf{etkili Fisher bilgisi}. Her $\sqrt{n}$-tutarlı $T_n$ tahmin edicisi için:
+\[
+  \liminf_{n\to\infty} n\,\Var_{\theta,\eta}(T_n) \geq \tilde{I}(\theta)^{-1}.
+\]
+$\tilde{I}(\theta) \leq I(\theta)$ (parametrik Fisher bilgisi) --- sonsuz boyutlu belirsizlik verimliliği azaltır.
+\end{tanim}
+
+\begin{teorem}[Etkili skor]\label{thm:etkin_skor}
+İlgi parametresi $\theta$ için etkili skor:
+\[
+  \tilde\ell_\theta = \ell_\theta - \Pi(\ell_\theta \mid \overline{\mathcal{H}}),
+\]
+$\ell_\theta = \partial\log p/\partial\theta$ parametrik skor; $\Pi$ ortogonal projeksiyon tortu skor uzayına. $\tilde{I}(\theta)=\Beklenti[\tilde\ell_\theta^2]$.
+\end{teorem}
+
+\begin{ispatiskele}
+$\ell_\theta = \tilde\ell_\theta + \Pi(\ell_\theta|\overline{\mathcal{H}})$; ikinci terim tortu yönünde bilgi. Etkili skor tortu skoruna ortogonal: $\Beklenti[\tilde\ell_\theta\ell_\eta]=0$ tüm $\eta$ pertürbasyonları için. Bu ortogonallik, nuisance'dan bağımsız çıkarım anlamına gelir.
+\end{ispatiskele}
+
+\begin{ornek}[Cox modeli --- kısmi olabilirlik]
+Cox modelinde $\hat\beta$ kısmi olabilirlik MLE'si; $\lambda_0$ tahmin edilmeksizin $\sqrt{n}$-tutarlı ve etkili (semiparametrik CR sınırına ulaşan). Bu, Cox modelinin güçlü bir semiparametrik özelliğidir.
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Tıbbi hayatta kalma analizi:} Cox modeli; semiparametrik etkinlik teorisi doğrudan burada. \textbf{Ekonometri:} Instrumental variables (IV) tahmin edicisi semiparametrik çerçevede. \textbf{Kausal çıkarım:} Propensity score tahmin için semiparametrik etkinlik.
+\end{disiplinlerarasibaglan}
+
+%% ============================================================
+\section{Yüksek Boyutlu İstatistik Girişi}
+\label{sec:yuksek_boyut}
+%% ============================================================
+
+\begin{kesif}
+$n<p$ durumunda (gözlem sayısı parametre sayısından az) EKK çözümü belirsiz; $\hat{\boldsymbol\beta}=(\mathbf{X}^\top\mathbf{X})^{-1}\mathbf{X}^\top\mathbf{Y}$ yoktur. Hangi araçlar gerekli?
+\kesifcevap{$n<p$'de $\mathbf{X}^\top\mathbf{X}$ tekil: EKK çözümü belirsiz.
+  Ridge: $(\mathbf{X}^\top\mathbf{X}+\lambda I)^{-1}\mathbf{X}^\top\mathbf{Y}$ ($L_2$ düzenleme).
+  Lasso: $L_1$ ceza ile değişken seçimi + büzme. Elastik ağ: ikisinin konveks karışımı.
+  Seçim kriteri: çapraz doğrulama ile $\lambda$ ayarı.}
+\end{kesif}
+
+\begin{tanim}[Seyreklik varsayımı]\label{def:seyreklik}
+$\boldsymbol\beta\in\mathbb{R}^p$'nin en fazla $s$ bileşeni sıfırdan farklı ($s\ll p$): $\|\boldsymbol\beta\|_0\leq s$. Bu \textbf{seyreklik} \emph{(sparsity)} varsayımı yüksek boyutlu tahmin teorisinin temelidir.
+\end{tanim}
+
+\begin{teorem}[Lasso Oracle eşitsizliği]\label{thm:lasso_oracle}
+$\mathbf{Y}=\mathbf{X}\boldsymbol\beta_0+\boldsymbol\varepsilon$ ($\varepsilon_i\iid\Normal(0,\sigma^2)$); $\boldsymbol\beta_0$ $s$-seyrek. Lasso tahmincisi $\lambda=c\sigma\sqrt{\log p/n}$ ile:
+\[
+  \frac{1}{n}\|\mathbf{X}(\hat{\boldsymbol\beta}_{\text{lasso}}-\boldsymbol\beta_0)\|^2 \leq C\frac{s\sigma^2\log p}{n}
+\]
+n.k.\ (kısıtlı eigendeğer koşulu altında). $p\gg n$ hâlinde bile anlamlı oran.
+\end{teorem}
+
+\begin{proof}[Proof --- taslak]
+Temel teknik: kısıtlı eigendeğer koşulu (REK) ve $\ell_1$-$\ell_2$ dönüşümü. REK: $\mathbf{X}^\top\mathbf{X}/n$'nin seyrek yönlerde minimum eigendeğeri sıfırdan uzak. REK + Lasso dual koşulu: hatanın seyrek koni içinde kalması. İspat: Bickel-Ritov-Tsybakov (2009).
+\end{proof}
+
+\begin{tanim}[Kısıtlı eigendeğer koşulu (REK)]\label{def:rek}
+$\kappa>0$, $c_0>1$ için:
+\[
+  \min_{\boldsymbol\delta\neq0,\|\boldsymbol\delta_{S^c}\|_1\leq c_0\|\boldsymbol\delta_S\|_1} \frac{\|\mathbf{X}\boldsymbol\delta\|/\sqrt{n}}{\|\boldsymbol\delta_S\|} \geq \kappa.
+\]
+$S$: destek ($|\boldsymbol\beta_0|>0$ olan indeks kümesi). REK Gaussian tasarım için yüksek olasılıkla gerçekleşir.
+\end{tanim}
+
+\begin{teorem}[Boyutsallık laneti]\label{thm:boyutsallik}
+Düzgün minimax kare hata riski: $n$ gözlem, $p$ parametre; en hızlı küçülen oran:
+\[
+  \inf_{T_n}\sup_{\|\boldsymbol\beta\|_0\leq s} \Beklenti\!\left[\frac{\|\hat{\boldsymbol\beta}-\boldsymbol\beta\|^2}{n}\right] \asymp \frac{s\log(p/s)}{n}.
+\]
+Lasso bu minimax oran elde eder (log faktörüne kadar).
+\end{teorem}
+
+\begin{ornek}[Yüksek boyutlu regresyon --- gen ifadesi]
+$n=100$ hasta, $p=20000$ gen: standart regresyon çalışmaz. Lasso ile $\hat{s}\approx15$ anlamlı gen seçilir; oracle eşitsizliği, tahmin hatasının $O(15\cdot\log 20000/100)=O(0.72)$ oranında sınırlı olduğunu garantiler (gerçek modelin 15 değişkenden oluştuğu varsayımlıyla).
+\end{ornek}
+
+\begin{hataanalizi}
+Yüksek boyutlu istatistiksel çıkarım (güven aralıkları, p-değerleri) klasik teoriden farklıdır: Lasso seçim sonrası çıkarım (post-selection inference) için standart $t$-testi geçersizdir. Debiased Lasso veya LOCO (leave-one-covariate-out) gibi yöntemler gerekir.
+\end{hataanalizi}
+
+%% ============================================================
+
+\begin{mikroozet}
+\begin{itemize}
+  \item M-tahmin edicileri genel asimptotik normallik sağlar; paydaki oran Cramér-Rao'ya indirgenir.
+  \item U-istatistikleri: Hoeffding projeksiyonu $\sqrt{n}$-normalliği birinci dereceli projeksiyona indirir.
+  \item Donsker: ampirik süreç Brownian köprüye; KS'nin asimptotiği buradan gelir.
+  \item LAN + convolution: asimptotik Cramér-Rao sınırı, MLE optimalliğini kesinleştirir.
+\end{itemize}
+\end{mikroozet}
+
+\begin{ozyansima}
+Sonlu örneklem verimliliği ile asimptotik verimlilik çelişebilir mi? Hangi durumlarda asimptotik yaklaşım yanıltıcıdır?
+\end{ozyansima}
+
+\begin{kopru}
+\textbf{Nereden geldik:} Bölüm~\ref{chp:buyuk_sayilar} ve~\ref{chp:merkezi_limit}'teki yakınsama araçları bu bölümün analitik temeli.
+
+\textbf{Nereye gidiyoruz:} Bu kitabın kapsamı dışında kalan semiparametrik etkinlik (skor teoremi, varyans azaltma sınırları) için van der Vaart \emph{Asymptotic Statistics} (1998) kapsamlı referans.
+\end{kopru}
+
+%% ============================================================
+%% ALISTIRMALAR
+%% ============================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.18.1]{B}{Delta yöntemi --- lognormal}
+$X_1,\ldots,X_n\iid\mathrm{LogNormal}(\mu,\sigma^2)$ ($\log X_i\sim\Normal(\mu,\sigma^2)$). $\Beklenti[X]=e^{\mu+\sigma^2/2}$ için MLE asimptotik dağılımını delta yöntemiyle bul.
+\end{alistirma}
+\alcozum{%
+MLE: $\hat\mu=\bar{Y}$, $\hat\sigma^2=\frac{1}{n}\sum(Y_i-\bar{Y})^2$ ($Y_i=\log X_i$). $\widehat{\Beklenti[X]}=\exp(\hat\mu+\hat\sigma^2/2)$. Delta yöntemi: $g(\mu,\sigma^2)=e^{\mu+\sigma^2/2}$; $\nabla g=(e^{\mu+\sigma^2/2}, e^{\mu+\sigma^2/2}/2)$. Asimptotik varyans: $(\Beklenti[X])^2(\sigma^2+\sigma^4/2)/n$ (Fisher bilgisi kullanılır).%
+}
+
+\begin{alistirma}[Al.18.2]{B}{U-istatistiği beklenti ve varyans}
+$h(x,y) = (x-y)^2/2$ çekirdeğiyle $m=2$ U-istatistiği. (a) $\theta=\Beklenti[h]=\Var(X)$ olduğunu göster. (b) Hoeffding projeksiyon $h_1(x)$'i hesapla. (c) Asimptotik varyansı bul.
+\end{alistirma}
+\alcozum{%
+(a) $\Beklenti[(X-Y)^2/2]=\Beklenti[(X-\mu)^2+(Y-\mu)^2]/2=\sigma^2$ ($X,Y$ bağımsız). (b) $h_1(x)=\Beklenti[h(x,X_2)]-\sigma^2=\Beklenti[(x-X_2)^2/2]-\sigma^2=(x-\mu)^2/2+\sigma^2/2-\sigma^2=(x-\mu)^2/2-\sigma^2/2$. (c) $\sigma_1^2=\Var((X-\mu)^2/2-\sigma^2/2)=\Var((X-\mu)^2)/4=(\mu_4-\sigma^4)/4$ ($\mu_4$=4. merkezi moment). Asimptotik varyans $4\sigma_1^2/n=(\mu_4-\sigma^4)/n$.%
+}
+
+
+\begin{alistirma}[Al.18.3a]{B}{Wald vs LR --- lognormal}
+$X_i\iid\mathrm{LogNormal}(\mu,1)$ ($n=25$, $\hat\mu=2.3$, $\mu_0=2.0$). (a) Wald test istatistiğini hesapla. (b) LR test istatistiğini hesapla. (c) Her iki testi $\alpha=0.05$ düzeyinde uygula ve karşılaştır.
+\end{alistirma}
+\alcozum{%
+Fisher bilgisi LogNormal$(\mu,1)$ için: $\mathcal{I}(\mu)=1$ (Normal gibi, $Y_i=\log X_i\iid\Normal(\mu,1)$). (a) $W_n=25(2.3-2.0)^2\cdot1=25\cdot0.09=2.25$. (b) $\ell(\mu)=-\frac12\sum(Y_i-\mu)^2$; $\Lambda_n=2[\ell(\hat\mu)-\ell(\mu_0)]=n(\hat\mu-\mu_0)^2=2.25$. (c) $\chi^2_{1,0.05}=3.84$; $2.25<3.84$: $H_0$ reddedilmez. Her iki istatistik çakışır (mükemmel birinci dereceli eşdeğerlik).%
+}
+\begin{alistirma}[Al.18.3b]{A}{Bootstrap güven aralığı oluştur}
+$X_i\iid$ bilinmeyen dağılım, $n=50$, $\bar X=12.4$, $B=1000$ bootstrap tekrarından $z_{0.025}^*=-1.96$, $z_{0.975}^*=2.08$ elde edildi (asimetrik). Bootstrap yüzde güven aralığı nedir? Neden $z^*_{0.975}\neq 1.96$?
+\end{alistirma}
+\alcozum{%
+Bootstrap GA: $(\bar X - z_{0.975}^*\hat\sigma/\sqrt{n},\, \bar X - z_{0.025}^*\hat\sigma/\sqrt{n})$. Ters çevirme yöntemiyle (yüzde metodu): $[\hat\theta - z_{0.975}^*\hat{\text{se}}, \hat\theta - z_{0.025}^*\hat{\text{se}}]$. $z^*_{0.975}\neq1.96$ çünkü bootstrap dağılımı asimetriktir (sağa çarpık) --- Normal yakınsama tam gerçekleşmemişken bootstrap bu asimetriyi yakalar; standart normal yaklaşımı yakalayamaz.%
+}
+\begin{alistirma}[Al.18.3c]{B}{Silverman bant genişliği}
+$n=200$ gözlem, $\hat\sigma=3.5$. (a) Silverman kuralıyla $h_S$'i hesapla. (b) Gauss çekirdeği için $\|K\|_2^2$'yi hesapla. (c) Bu bant genişliğinde $\Var[\hat f_n(x)]$'ı $f(x)=0.1$ noktasında tahmin et.
+\end{alistirma}
+\alcozum{%
+(a) $h_S=1.06\cdot3.5\cdot200^{-1/5}=1.06\cdot3.5\cdot0.3311=1.228$. (b) Gauss çekirdeği $K(u)=\phi(u)$: $\|K\|_2^2=\int\phi^2(u)\,du=\frac{1}{2\sqrt\pi}\approx0.2821$. (c) $\Var\approx\frac{0.1\cdot0.2821}{200\cdot1.228}\approx\frac{0.02821}{245.6}\approx0.000115$.%
+}
+\begin{alistirma}[Al.18.3]{B}{M-tahmin: medyan asimptotik varyansı}
+$X_i\iid F$ sürekli, yoğunluk $f$. $\rho(x,\theta)=|x-\theta|$ seçimiyle M-tahmin edicinin $\hat\theta_n = $ medyan olduğunu ve asimptotik varyansının $1/(4f(m)^2)$ olduğunu göster.
+\end{alistirma}
+\alcozum{%
+$\psi(x,\theta)=\mathrm{sgn}(x-\theta)$; $\Beklenti[\psi^2]=1$. $\dot\psi(x,\theta)=-2\delta(x-\theta)$; $\Beklenti[\dot\psi]=-2f(\theta)$. M-tahmin formülü: asimptotik varyans $=1/(4f(\theta_0)^2)$. $\theta_0=m$ medyan.%
+}
+\alistirmalar
+
+
+
+
+
+\begin{alistirma}[Al.18.4]{C}{ARE: Double-Exponential dağılımı}
+$X_i\iid\mathrm{DE}(\theta)=\frac{1}{2}e^{-|x-\theta|}$. Ortalama ve medyanın ARE'sini hesapla. Hangi tahmin edici daha verimli?
+\end{alistirma}
+\alcozum{%
+$f(x)=\frac12 e^{-|x|}$; $\sigma^2=2$ (DE varyansı). Ortalama asimptotik varyans: $2/n$. Medyan: $f(0)=1/2$; asimptotik varyans $1/(4\cdot(1/2)^2)=1$. ARE(medyan,ortalama)$=2/1=2$. DE'de medyan ortalamadan iki kat daha verimli (ağır kuyruk etkisi).%
+}
+
+\begin{alistirma}[Al.18.5a]{C}{Skor testi --- Poisson}
+$X_i\iid\mathrm{Pois}(\lambda)$, $H_0:\lambda=\lambda_0$. (a) Skor fonksiyonunu yaz. (b) Fisher bilgisini hesapla. (c) Skor test istatistiğini oluştur ve $H_0$ altında asimptotik dağılımını bul.
+\end{alistirma}
+\alcozum{%
+(a) $\ell(\lambda)=\sum X_i\log\lambda - n\lambda$; $\ell'(\lambda)=\sum X_i/\lambda-n=n(\bar X-\lambda)/\lambda$. (b) $\mathcal{I}(\lambda)=-E[\ell''(\lambda)/n]=1/\lambda$ (Poisson için). (c) $S_n=[\ell'(\lambda_0)]^2/(n\mathcal{I}(\lambda_0))=[n(\bar X-\lambda_0)/\lambda_0]^2\cdot\lambda_0/n=n(\bar X-\lambda_0)^2/\lambda_0\dto\chi^2_1$.%
+}
+
+\begin{alistirma}[Al.18.5]{C}{LAN koşulunu doğrula}
+$X_1,\ldots,X_n\iid\Normal(\theta,1)$. LAN koşulunun sağlandığını göster ve $\Delta_n(\theta)$'yı, $\mathcal{I}(\theta)$'yı belirle.
+\end{alistirma}
+\alcozum{%
+$\log\frac{dP_{\theta+h/\sqrt n}^{(n)}}{dP_\theta^{(n)}}=\frac{h}{\sqrt n}\sum(X_i-\theta)-\frac{h^2}{2}$. $\Delta_n(\theta)=\frac{1}{\sqrt{n}}\sum(X_i-\theta)\dto\Normal(0,1)=\Normal(0,\mathcal{I})$ ($\mathcal{I}(\theta)=1$). Kalan terim $o_P(1)$: LAN sağlanır.%
+}
+
+\begin{alistirma}[Al.18.6]{B}{Delta Yöntemi --- Asimptotik Varyans}
+$X_1,\ldots,X_n\iid\Binom(1,p)$. $\hat p=\bar X_n$. (a) $\sqrt{n}(\hat p-p)\dto\Normal(0,p(1-p))$ olduğunu gösteriniz. (b) $g(p)=\log(p/(1-p))$ (logit) için $\sqrt{n}(g(\hat p)-g(p))$'nın asimptotik dağılımını bulunuz. (c) Bu dağılım $p$'ye bağlı mıdır?
+\end{alistirma}
+\alcozum{%
+(a) MLT: $\sqrt{n}(\bar X_n-p)\dto\Normal(0,p(1-p))$.
+(b) Delta yöntemi: $g'(p)=1/(p(1-p))$. $\sqrt{n}(g(\hat p)-g(p))\dto\Normal(0,[g'(p)]^2p(1-p))=\Normal(0,1/(p(1-p)))$.
+(c) Evet, asimptotik varyans $1/(p(1-p))$ hâlâ $p$'ye bağlı. Varyans stabilize edici dönüşüm: $h(p)=\arcsin\sqrt{p}$, $h'(p)=1/(2\sqrt{p(1-p)})$: $\sqrt{n}(h(\hat p)-h(p))\dto\Normal(0,1/4)$ --- $p$'den bağımsız!}
+
+\begin{alistirma}[Al.18.7]{B}{Moment Tahmin Edici Asimptotik Normalliği}
+$X_1,\ldots,X_n\iid\Gama(\alpha,\beta)$, $E[X]=\alpha\beta$, $E[X^2]=\alpha\beta^2(\alpha+1)$. Momentler yöntemiyle $\hat\alpha,\hat\beta$ tahmin edicilerinin asimptotik dağılımını adım adım kurunuz.
+\end{alistirma}
+\alcozum{%
+$m_1=\bar X\pto\alpha\beta$, $m_2=\overline{X^2}\pto\alpha\beta^2(\alpha+1)=\mu_2'$. $g(m_1,m_2)=(\hat\alpha,\hat\beta)$: $\hat\beta=m_2/m_1-m_1$, $\hat\alpha=m_1/\hat\beta$.
+Çok boyutlu delta yöntemi: $\sqrt{n}(\hat{\boldsymbol\mu}-\boldsymbol\mu)\dto\Normal(\mathbf{0},\boldsymbol\Sigma)$ ile $\sqrt{n}(g(\hat{\boldsymbol\mu})-g(\boldsymbol\mu))\dto\Normal(\mathbf{0},\mathbf{J}_g\boldsymbol\Sigma\mathbf{J}_g^\top)$.
+$\mathbf{J}_g=\partial(\hat\alpha,\hat\beta)/\partial(m_1,m_2)$ analitik hesaplanır; $\boldsymbol\Sigma=[\mu_{ij}']$ çapraz momentler matrisi.}
+
+\begin{alistirma}[Al.18.8]{C}{Le Cam Defect ve Asimptotik Denklik}
+İki deney $E_n=\{P_\theta^{(n)}\}$ ve $F_n=\{Q_\theta^{(n)}\}$ tanımlayınız. Le Cam defect $\delta(E_n,F_n)\to0$ ise asimptotik denklik elde edilir. $X_1,\ldots,X_n\iid P_\theta$ normal deneyi ile $Y_1,\ldots,Y_n\iid N(\theta,1)$ deneyinin asimptotik denkliğini (LAN $\Rightarrow$ normal deney) açıklayınız.
+\end{alistirma}
+\alcozum{%
+LAN koşulu: $\log(dP_{\theta+h/\sqrt{n}}/dP_\theta^{(n)})=h\Delta_n-h^2\mathcal{I}/2+o_P(1)$ ile $\Delta_n\dto\Normal(0,\mathcal{I})$. Normal deney: $Z\sim\Normal(\theta,\mathcal{I}^{-1})$, yani $dP_\theta^{\mathrm{Normal}}\propto\exp(-\mathcal{I}(\theta)(z-\theta)^2/2)$. LAN $\Rightarrow$ log-olabilirlik oranı dağılımı normal deneyinkiyle örtüşür $\Rightarrow\delta(E_n,F_n)\to0$. Her LAN deneyinde yeterli istatistik $\Delta_n$ yeterlidir; kayıp fonksiyonu sınırları normal deneyden türer.}

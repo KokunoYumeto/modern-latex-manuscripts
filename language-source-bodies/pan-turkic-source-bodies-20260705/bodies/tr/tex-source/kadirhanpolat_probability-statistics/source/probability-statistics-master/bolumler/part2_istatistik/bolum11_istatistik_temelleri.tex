@@ -1,0 +1,733 @@
+% =====================================================================
+%  BÖLÜM 11: İstatistiğin Temelleri --- Model ve Örneklem
+%  Kaynak: Casella & Berger; Hogg & Craig; Lehmann & Casella
+% =====================================================================
+\chapter{İstatistiğin Temelleri: Model ve Örneklem}
+\label{chp:istatistik_temelleri}
+
+\bolumalinti{%
+  İstatistik, gözlemlerin ötesinde olanı anlamaya çalışır;
+  bu anlamda her istatistiksel çıkarım bir inançtır.%
+}{Erich Leo Lehmann, \textit{Theory of Point Estimation}}
+
+% ---- Kazanımlar (TYMM) ----
+\begin{kazanimlar}
+Bu bölümün sonunda öğrenci:
+\begin{itemize}
+  \item İstatistiksel model kavramını parametrik ve parametrik olmayan çerçevede tanımlayabilir;
+        istatistiksel karar, kayıp fonksiyonu ve risk kavramlarını açıklayabilir.
+  \item Örneklem, istatistik ve örneklem dağılımı kavramlarını tanımlayabilir;
+        $\bar{X}_n$ ve $S^2$'nin dağılımlarını türetebilir.
+  \item Yeterli istatistiği tanımlayabilir; Fisher-Neyman çarpanlaştırma teoremini
+        ispatlayabilir ve uygulamalarda yeterli istatistik bulabilir.
+  \item Tamamlayıcı ve en az yeterli istatistik kavramlarını tanımlayabilir;
+        bunları UMVUE teorisindeki rolleriyle ilişkilendirebilir.
+\end{itemize}
+\end{kazanimlar}
+
+% ---- Motivasyon ----
+\begin{motivasyon}
+Part~I'de olasılığın matematiksel temellerini inşa ettik: ölçüm teorisi,
+rasgele değişkenler, beklenti, dağılımlar, büyük sayılar ve limit teoremler.
+Şimdi bu araçları ters yönde kullanacağız: \emph{gözlemlerden} hareketle
+bilinmeyen parametreler hakkında çıkarım yapmak.
+
+İstatistik dili şöyle çalışır: gerçeklik, bilinmeyen parametre $\theta$ tarafından
+belirlenen bir dağılım $P_\theta$'dur. Biz yalnızca bu dağılımdan çekilen
+$n$ gözlemi görürüz ve $\theta$'yı tahmin etmeye ya da test etmeye çalışırız.
+
+\medskip
+\textbf{Köprü.} Bölüm~\ref{chp:dagilim_aileleri}'deki üstel aile,
+Bölüm~\ref{chp:beklenti}'deki koşullu beklenti ve
+Bölüm~\ref{chp:merkezi_limit}'teki asimptotik teori bu bölümün doğrudan ön koşullarıdır.
+\end{motivasyon}
+
+% =====================================================================
+\section{İstatistiksel Model Kavramı}
+\label{sec:istatistik_model}
+% =====================================================================
+
+\begin{tanim}[İstatistiksel Model]
+\label{def:istatistik_model}
+\textbf{İstatistiksel model} bir aile $\mathcal{P} = \{P_\theta : \theta \in \Theta\}$'dır;
+burada her $P_\theta$ $(\mathcal{X}, \mathcal{B})$ üzerinde bir olasılık ölçüsü,
+$\Theta \subseteq \mathbb{R}^k$ parametre uzayıdır.
+
+\begin{itemize}
+  \item \textbf{Parametrik model:} $\Theta$ sonlu boyutlu ($\Theta \subseteq \mathbb{R}^k$, $k$ sabit).
+        Örnek: $\Normal(\mu, \sigma^2)$ ailesi, $\Theta = \mathbb{R}\times\mathbb{R}_{>0}$.
+  \item \textbf{Parametrik olmayan model:} $\Theta$ sonsuz boyutlu.
+        Örnek: "tüm sürekli dağılımlar" ailesi.
+  \item \textbf{Yarı-parametrik model:} Parametrik bileşen + parametrik olmayan bileşen.
+        Örnek: Cox orantılı tehlike modeli.
+\end{itemize}
+\end{tanim}
+
+\begin{tanim}[Tanımlanabilirlik]
+\label{def:tanimlanabilirlik}
+Model $\{P_\theta\}$ \textbf{tanımlanabilir} (identifiable) dır, eğer
+$\theta \neq \theta'$ $\Rightarrow$ $P_\theta \neq P_{\theta'}$ ise.
+Tanımlanabilirlik olmadan $\theta$'yı veri ile ayırt etmek imkânsızdır.
+\end{tanim}
+
+\begin{ornek}[Tanımlanabilir ve Tanımlanamaz Modeller]
+\textbf{Tanımlanabilir:} $\Normal(\mu, \sigma^2)$: farklı $(\mu,\sigma^2)$ çiftleri
+farklı dağılımlar üretir.\\
+\textbf{Tanımlanamaz (örnek):} $\Normal(\mu_1+\mu_2, \sigma^2)$:
+$\mu_1=1, \mu_2=2$ ile $\mu_1=0, \mu_2=3$ aynı dağılımı verir.
+Bu model $\mu_1$ ve $\mu_2$'yi ayrı ayrı tanımlayamaz.
+\end{ornek}
+
+% =====================================================================
+\section{İstatistiksel Kararlar ve Kayıp Fonksiyonu}
+\label{sec:karar_teorisi}
+% =====================================================================
+
+\begin{tanim}[Karar Çerçevesi]
+\label{def:karar}
+\textbf{Karar teorisi} çerçevesi:
+\begin{itemize}
+  \item $\Theta$: parametre uzayı (gerçeklik kümesi),
+  \item $\mathcal{D}$: karar uzayı (verilen yanıtlar kümesi),
+  \item $L(\theta, d)$: \textbf{kayıp fonksiyonu} (loss function) ---
+        gerçek parametre $\theta$ iken $d$ kararı almanın maliyeti,
+  \item $\delta(\mathbf{X})$: \textbf{karar kuralı} --- gözlemden karara giden fonksiyon.
+\end{itemize}
+\textbf{Risk fonksiyonu:} $R(\theta, \delta) = E_\theta[L(\theta, \delta(\mathbf{X}))]$.
+\end{tanim}
+
+\begin{ornek}[Yaygın Kayıp Fonksiyonları]
+\begin{itemize}
+  \item \textbf{Karesel kayıp (squared error loss):} $L(\theta, d) = (\theta - d)^2$.
+        Risk $= E[(\theta - \delta(\mathbf{X}))^2]$ = ortalama karesel hata (OKH, MSE).
+  \item \textbf{Mutlak değer kaybı:} $L(\theta, d) = |\theta - d|$.
+        Optimal karar: koşullu medyan.
+  \item \textbf{0-1 kaybı (sınıflandırma):} $L(\theta, d) = \mathbf{1}_{d\neq\theta}$.
+        Risk = hata olasılığı.
+\end{itemize}
+\end{ornek}
+
+\begin{tanim}[Yansızlık ve OKH Ayrışımı]
+\label{def:yansizlik_okh}
+$\delta(\mathbf{X})$, $\theta$'nın \textbf{yansız tahmin edicisi} (unbiased estimator):
+$E_\theta[\delta(\mathbf{X})] = \theta$ her $\theta \in \Theta$.
+Karesel kayıp altında:
+\[
+  \mathrm{OKH}(\delta, \theta) = \mathrm{Var}_\theta(\delta) + [\mathrm{Yan}(\delta, \theta)]^2,
+\]
+burada $\mathrm{Yan}(\delta,\theta) = E_\theta[\delta] - \theta$. Yansız: $\mathrm{OKH} = \mathrm{Var}$.
+\end{tanim}
+
+\begin{proof}[OKH Ayrışımı]
+$E[(\delta-\theta)^2] = E[(\delta - E[\delta] + E[\delta]-\theta)^2]
+= \mathrm{Var}(\delta) + (E[\delta]-\theta)^2$ (çapraz terim sıfır).
+\end{proof}
+
+% =====================================================================
+\section{Örneklem ve İstatistik Kavramı}
+\label{sec:orneklem}
+% =====================================================================
+
+\begin{tanim}[Rasgele Örneklem]
+\label{def:rasgele_orneklem}
+$X_1, \ldots, X_n$ i.i.d.\ $P_\theta$ dağılımlı rasgele değişkenler;
+bu dizi $\theta$'lı dağılımdan alınan \textbf{rasgele örneklem} (random sample) dir.
+Veri $\mathbf{x} = (x_1,\ldots,x_n)$ bu dizinin bir gerçekleşmesidir.
+\end{tanim}
+
+\begin{tanim}[İstatistik]
+\label{def:istatistik}
+$T = T(X_1,\ldots,X_n) : \mathcal{X}^n \to \mathbb{R}^k$ ölçülebilir bir fonksiyon;
+$\theta$'ya \emph{doğrudan} bağlı olmayan (parametreyi bilmeden hesaplanabilen) böyle
+bir fonksiyona \textbf{istatistik} (statistic) denir.
+
+Temel istatistikler:
+\begin{align*}
+  \bar{X}_n &= \frac{1}{n}\sum_{i=1}^n X_i \quad \text{(örneklem ortalaması)}, \\
+  S^2 &= \frac{1}{n-1}\sum_{i=1}^n (X_i - \bar{X}_n)^2 \quad \text{(örneklem varyansı)}, \\
+  M_k &= \frac{1}{n}\sum_{i=1}^n X_i^k \quad \text{($k$'ıncı örneklem momenti)}.
+\end{align*}
+\end{tanim}
+
+% =====================================================================
+\section{Örneklem Dağılımları}
+\label{sec:orneklem_dagilim}
+% =====================================================================
+
+\subsection{Örneklem Ortalaması ve Varyansının Dağılımı}
+
+\begin{teorem}[Normal Popülasyondan Örneklem]
+\label{thm:normal_orneklem}
+$X_1,\ldots,X_n$ i.i.d.\ $\Normal(\mu,\sigma^2)$. O zaman:
+\begin{enumerate}[(i)]
+  \item $\bar{X}_n \sim \Normal(\mu,\, \sigma^2/n)$.
+  \item $\frac{(n-1)S^2}{\sigma^2} \sim \chi^2_{n-1}$.
+  \item $\bar{X}_n$ ve $S^2$ \textbf{bağımsızdır}.
+  \item $T = \frac{\bar{X}_n - \mu}{S/\sqrt{n}} \sim t_{n-1}$.
+\end{enumerate}
+\end{teorem}
+
+\begin{proof}
+\textit{(i):} $\bar{X}_n = n^{-1}\sum X_i$; bağımsız normalların doğrusal bileşimi
+Bölüm~\ref{thm:normal_yeniden}'den $\Normal(\mu, \sigma^2/n)$.
+
+\textit{(ii) ve (iii):} Ortogonal dönüşüm argümanı.
+$(X_1,\ldots,X_n)$ birim vektörlerle ifade edilirse, $\bar{X}_n$
+$\mathbf{1}/\sqrt{n}$ yönüne, $\sum(X_i-\bar{X}_n)^2$ ise buna dik olan $n-1$ boyutlu
+alt uzaya karşılık gelir. Ortogonal dönüşüm normalliği korur ve bağımsızlığı üretir.
+Dik bileşen: $n-1$ bağımsız standart normal karesinin toplamı $= \chi^2_{n-1}$.
+
+Alternatif ispat: $Y_1 = \sqrt{n}\bar{X}$, $Y_i = X_{i-1}-X_i$ ($i=2,\ldots,n$) dönüşümü;
+Jacobian hesabı; Fubini ile bağımsızlık.
+
+\textit{(iv):} $Z = \sqrt{n}(\bar{X}_n-\mu)/\sigma \sim \Normal(0,1)$;
+$V = (n-1)S^2/\sigma^2 \sim \chi^2_{n-1}$ bağımsız.
+$T = Z/\sqrt{V/(n-1)} \sim t_{n-1}$ (tanım gereği).
+\end{proof}
+
+\begin{hataanalizi}
+"$S^2 = \frac{1}{n}\sum(X_i-\bar{X}_n)^2$" örneklem varyansı için yaygın bir notasyon.
+Ancak bu yanlı tahmin edicidir: $E[S_n^2] = (n-1)\sigma^2/n \neq \sigma^2$.
+Kitabımızda $S^2 = \frac{1}{n-1}\sum(X_i-\bar{X}_n)^2$ (Bessel düzeltmesi) kullanılır:
+$E[S^2] = \sigma^2$.
+\end{hataanalizi}
+
+\begin{teorem}[Örneklem Ortalamasının Büyük Örneklem Dağılımı]
+\label{thm:buyuk_orneklem_dagilim}
+$X_1,\ldots,X_n$ i.i.d., $E[X_i]=\mu$, $\mathrm{Var}(X_i)=\sigma^2<\infty$.
+Dağılımı ne olursa olsun: $\bar{X}_n \xrightarrow{d} \Normal(\mu, \sigma^2/n)$ (MLT).
+$S^2 \xrightarrow{P} \sigma^2$ (BSK + sürekli haritalama).
+$T_n = \sqrt{n}(\bar{X}_n-\mu)/S \xrightarrow{d} \Normal(0,1)$ (Slutsky).
+\end{teorem}
+
+% =====================================================================
+\section{Yeterli İstatistik}
+\label{sec:yeterli_istatistik}
+% =====================================================================
+
+\begin{kesif}
+$X_1,\ldots,X_{100} \iid \Normal(\mu, 1)$ gözlemlendi.
+$\bar{X}_{100}$'ü not ettikten sonra ham veriyi silsek, $\mu$ tahmini için
+bir şey kaybeder miyiz? Peki ya yalnızca $X_1$'i tutup geri kalan
+$99$ gözlemi silseydik?
+\kesifcevap{$\bar{X}_{100}$'ü bildikten sonra ham veriyi silmek hiçbir bilgi
+  kaybettirmez: $\mu$'ya dair her şey $\bar{X}$'te özetlenmiştir.
+  Yalnızca $X_1$'i tutmak ise $99$ gözlemin bilgisini yok eder.
+  Aradaki fark: $\bar{X}$ yeterli istatistik, $X_1$ tek başına değil.}
+\end{kesif}
+
+\begin{tanimgerekce}
+Sezgi oturduğunda şu soru kalır: $T$'nin veriyi ``ne ölçüde özetlediğini''
+nasıl matematiksel olarak sınarız? Cevap, $T = t$ koşuluyla $\mathbf{X}$'in
+koşullu dağılımının $\theta$'ya bağlı olup olmadığıdır. Bağımlıysa ham veride
+hâlâ $\theta$ bilgisi vardır; değilse $T$ tüm bilgiyi taşıyor demektir.
+\end{tanimgerekce}
+
+\begin{tanim}[Yeterli İstatistik]
+\label{def:yeterli}
+$T = T(\mathbf{X})$ istatistiği $\theta$ için \textbf{yeterli} (sufficient) dır, eğer
+$\mathbf{X}$'in koşullu dağılımı $T = t$ verildiğinde $\theta$'dan bağımsız ise, yani
+$P_\theta(\mathbf{X} \in A \mid T = t)$ her $t$ için $\theta$'ya bağlı değilse.
+\end{tanim}
+
+\begin{teorem}[Fisher-Neyman Çarpanlaştırma Teoremi]
+\label{thm:fisher_neyman}
+$\mathbf{X}$ ortak PDF/PMF'si $f(\mathbf{x} \mid \theta)$ olan rasgele vektör.
+$T(\mathbf{X})$, $\theta$ için yeterlidir ancak ve ancak
+\[
+  f(\mathbf{x} \mid \theta) = g(T(\mathbf{x}), \theta) \cdot h(\mathbf{x})
+\]
+ayrışımı mevcut ise; burada $g$ yalnızca $T(\mathbf{x})$ ve $\theta$'ya, $h$ yalnızca $\mathbf{x}$'e bağlıdır.
+\end{teorem}
+
+\begin{proof}
+\textbf{Kesikli durum ($\Leftarrow$):}
+$P_\theta(\mathbf{X}=\mathbf{x} \mid T(\mathbf{X})=t) = \frac{P_\theta(\mathbf{X}=\mathbf{x},\, T(\mathbf{X})=t)}{P_\theta(T(\mathbf{X})=t)}$.
+$T(\mathbf{x})=t$ ise pay $= f(\mathbf{x}|\theta) = g(t,\theta)h(\mathbf{x})$.
+Payda $= \sum_{\mathbf{x}': T(\mathbf{x}')=t} g(t,\theta)h(\mathbf{x}') = g(t,\theta)\sum_{\mathbf{x}':T=t}h(\mathbf{x}')$.
+Oran $= h(\mathbf{x})/\sum_{\mathbf{x}':T=t}h(\mathbf{x}')$ --- $\theta$'dan bağımsız. $\Rightarrow$ $T$ yeterli.
+
+\textbf{($\Rightarrow$):} $T$ yeterli olsun.
+$f(\mathbf{x}|\theta) = P_\theta(\mathbf{X}=\mathbf{x}, T=T(\mathbf{x}))
+= P_\theta(\mathbf{X}=\mathbf{x}|T=T(\mathbf{x})) \cdot P_\theta(T=T(\mathbf{x}))$.
+$P_\theta(\mathbf{X}=\mathbf{x}|T=T(\mathbf{x})) =: h(\mathbf{x})$ ($\theta$'dan bağımsız).
+$P_\theta(T=T(\mathbf{x})) =: g(T(\mathbf{x}),\theta)$.
+Ayrışım sağlandı.
+\end{proof}
+
+\begin{ornek}[Binom için Yeterli İstatistik]
+$X_1,\ldots,X_n$ i.i.d.\ $\mathrm{Bernoulli}(p)$.
+$f(\mathbf{x}|p) = \prod p^{x_i}(1-p)^{1-x_i} = p^{\sum x_i}(1-p)^{n-\sum x_i}$.
+$g(T,p) = p^T(1-p)^{n-T}$ ($T = \sum x_i$), $h(\mathbf{x}) = 1$.
+Fisher-Neyman: $T = \sum X_i$ yeterli.
+\end{ornek}
+
+\begin{ornek}[Normal için Yeterli İstatistik]
+$X_i \sim \Normal(\mu, \sigma^2)$, $\theta = (\mu, \sigma^2)$.
+$f(\mathbf{x}|\theta) = (2\pi\sigma^2)^{-n/2}\exp\!\left(-\frac{\sum(x_i-\mu)^2}{2\sigma^2}\right)$.
+$\sum(x_i-\mu)^2 = \sum x_i^2 - 2\mu\sum x_i + n\mu^2$.
+$g(T_1,T_2,\theta) = (2\pi\sigma^2)^{-n/2}\exp\!\left(\frac{2\mu T_1 - T_2 - n\mu^2}{2\sigma^2}\right)$,
+$h(\mathbf{x})=1$; $T_1 = \sum x_i$, $T_2 = \sum x_i^2$.
+$(\sum X_i, \sum X_i^2)$ --- dolayısıyla $(\bar{X}_n, S^2)$ --- yeterli.
+\end{ornek}
+
+\begin{ornek}[Üstel Dağılım]
+$X_i \sim \mathrm{Exp}(\lambda)$: $f(\mathbf{x}|\lambda) = \lambda^n e^{-\lambda\sum x_i}$.
+$T = \sum X_i$ yeterli; $g(T,\lambda) = \lambda^n e^{-\lambda T}$, $h = 1$.
+\end{ornek}
+
+\begin{teorem}[Üstel Ailede Yeterli İstatistik]
+\label{thm:ustel_yeterli}
+Tek parametreli üstel aile $f(x|\theta) = h(x)\exp(\eta(\theta)T(x) - B(\theta))$.
+$n$ gözlemde: $f(\mathbf{x}|\theta) = \prod h(x_i) \cdot \exp\!\bigl(\eta(\theta)\sum T(x_i) - nB(\theta)\bigr)$.
+Fisher-Neyman: $\sum_{i=1}^n T(X_i)$ yeterli istatistiktir.
+\end{teorem}
+
+\begin{mikroozet}
+Yeterlilik $\equiv$ çarpanlaştırma: $f = g(T,\theta)\cdot h(\mathbf{x})$.
+Üstel ailede her zaman doğal yeterli istatistik: $\sum T(X_i)$.
+\end{mikroozet}
+
+% =====================================================================
+\section{Tamamlayıcı İstatistik}
+\label{sec:tamamlayici}
+% =====================================================================
+
+\begin{tanim}[Tamamlayıcı İstatistik]
+\label{def:tamamlayici}
+$T$ istatistiği $\theta$ için \textbf{tamamlayıcı} (complete) dır, eğer
+her ölçülebilir $g : \mathbb{R} \to \mathbb{R}$ için
+\[
+  E_\theta[g(T)] = 0 \quad \forall\,\theta \in \Theta \implies g(T) = 0 \quad \text{n.k.\ (her } \theta\text{'da)}.
+\]
+\end{tanim}
+
+\begin{onerme}[Tamamlayıcılığın Önemi]
+Tamamlayıcı bir istatistik varsa, $T$ üzerinden ifade edilen her yansız tahmin edici tek türlüdür.
+Bu, UMVUE (en küçük varyanslı yansız tahmin edici) teorisinin kilit adımıdır
+(Bölüm~\ref{chp:nokta_tahmin}, Lehmann-Scheffé teoremi).
+\end{onerme}
+
+\begin{teorem}[Üstel Ailede Tamamlayıcılık]
+\label{thm:ustel_tam}
+Tam rankli (tam parametreli) tek parametreli üstel ailede yeterli istatistik
+$T = \sum T(X_i)$ tamamlayıcıdır.
+\end{teorem}
+
+\begin{proof}
+$E_\theta[g(T)] = 0$ tüm $\theta$'da koşulu, Laplace ya da Moment dönüşümü argümanıyla
+$g = 0$ a.e.\ verir. Üstel aile ailesiyle MÜF biricikliği kullanılır.
+Ayrıntı: Lehmann-Casella~\cite{Lehmann1998}, Teorem 1.6.22.
+\end{proof}
+
+\begin{ornek}[Binom Tamamlayıcılığı]
+$T = \sum X_i \sim \Binom(n,p)$. $E_p[g(T)] = 0$ tüm $p \in (0,1)$:
+$\sum_{k=0}^n g(k)\binom{n}{k}p^k(1-p)^{n-k} = 0$.
+Bu $p$ polinomu --- sıfır polinom ancak $g(k) = 0$ tüm $k$'larda.
+$T$ tamamlayıcı.
+\end{ornek}
+
+% =====================================================================
+\section{En Az Yeterli İstatistik}
+\label{sec:en_az_yeterli}
+% =====================================================================
+
+\begin{tanim}[En Az Yeterli İstatistik]
+\label{def:en_az_yeterli}
+$T$ \textbf{en az yeterli} (minimal sufficient) dır, eğer:
+\begin{enumerate}[(i)]
+  \item $T$ yeterlidir.
+  \item Her yeterli $U$ için, $U$'nun bir fonksiyonu olarak $T$ ifade edilebilir:
+        $T = h(U)$ (ölçülebilir $h$).
+\end{enumerate}
+En az yeterli istatistik, veriyi mümkün olan en yoğun biçimde özetler.
+\end{tanim}
+
+\begin{teorem}[Lehmann-Scheffé En Az Yeterlilik Kriteri]
+\label{thm:ls_en_az}
+$f(\mathbf{x}|\theta)/f(\mathbf{y}|\theta)$ oranının $\theta$'dan bağımsız olması
+$\mathbf{x}$ ve $\mathbf{y}$'nin aynı $T$ değerini vermesiyle eşdeğer ise,
+$T$ en az yeterlidir.
+\end{teorem}
+
+\begin{ornek}[Normal --- En Az Yeterlilik]
+$X_i \sim \Normal(\mu, \sigma^2)$.
+$f(\mathbf{x}|\theta)/f(\mathbf{y}|\theta) = \exp\!\bigl(\frac{\sum x_i^2-\sum y_i^2}{-2\sigma^2}
++ \frac{\mu(\sum x_i - \sum y_i)}{\sigma^2}\bigr)$.
+Bu $\theta$'dan bağımsız $\Leftrightarrow$ $\sum x_i = \sum y_i$ ve $\sum x_i^2 = \sum y_i^2$.
+$(\sum X_i, \sum X_i^2)$ en az yeterli (= tamamlayıcı yeterli $\Rightarrow$ UMVUE mevcut).
+\end{ornek}
+
+\begin{hocanotu}
+Tamamlayıcı yeterli istatistik (complete sufficient statistic) her zaman en az yeterlidir.
+Tersine, en az yeterli istatistik her zaman tamamlayıcı olmak zorunda değildir ---
+ama üstel aileler için ikisi çakışır.
+\end{hocanotu}
+
+% ---- Disiplinlerarası Bağlantı (TYMM) ----
+\begin{kopru}[Disiplinlerarası --- Veri Bilimi, Biyomedikal Araştırma, Ekonometri]
+\textbf{Veri bilimi:} "Hangi özellikler (features) modeli tam olarak özetler?" sorusu,
+yeterli istatistik kavramının makine öğrenmesi karşılığıdır.
+Sıkıştırma (compression) teorisi, yeterlilik ile entropi arasındaki bağı kurar.\\
+\textbf{Klinik araştırma:} İlaç klinik denemelerinde birincil uç nokta (primary endpoint)
+seçimi bir istatistik seçim problemidir; yeterli ve duyarlı bir istatistik
+çalışmanın güç (power) hesabını doğrudan etkiler.\\
+\textbf{Ekonometri:} Araç değişken (instrumental variable) ve panel veri modellerinde
+parametre tanımlanabilirliği, bu bölümdeki kavramlarla doğrudan ilişkilidir.
+\end{kopru}
+
+% ---- Öz-Yansıtma ----
+\begin{ozyansima}
+\begin{itemize}
+  \item "Parametrik model" ve "parametrik olmayan model" arasındaki farkı bir örnekle açıklayınız.
+  \item Yeterli istatistiğin "veri özetleme" yorumunu ve pratikte neden önemli olduğunu anlatınız.
+  \item $(\bar{X}_n, S^2)$'nin $\sigma^2$ bilinen $\Normal(\mu,\sigma^2)$'de yeterli istatistik olup
+        olmadığını tartışınız. Tek bilinmeyen $\mu$ ise ne değişir?
+  \item OKH ayrışımı $= \mathrm{Var} + \mathrm{Yan}^2$ istatistiksel bir "uzlaşı"yı nasıl yansıtır?
+\end{itemize}
+\end{ozyansima}
+
+% ---- Köprü Notu ----
+\begin{kopru}
+\textbf{Önceki kısım:} Part~I'deki dağılım teorisi (Böl.~\ref{chp:dagilim_aileleri}),
+MLT (Böl.~\ref{chp:merkezi_limit}) ve koşullu beklenti (Böl.~\ref{chp:beklenti})
+bu bölümde doğrudan kullanıldı.\\
+\textbf{Sonraki bölüm:} Bölüm~\ref{chp:nokta_tahmin} --- yeterli istatistik + tamamlayıcılık
+$\to$ UMVUE; Fisher bilgisi + Cramér-Rao $\to$ verimlilik alt sınırı; MLE.\\
+\textbf{Bölüm~\ref{chp:guven_araliklari}:} Pivot yöntemi örneklem dağılımlarına dayanır.
+\defterbaglantisi{bolum11\_istatistik\_temelleri.ipynb}{%
+  Örneklem dağılımı simülasyonu, yeterli istatistik görselleştirmesi}
+\end{kopru}
+
+% =====================================================================
+\section{Sıra İstatistikleri}
+\label{sec:sira_istatistik}
+% =====================================================================
+
+\begin{tanim}[Sıra istatistikleri]\label{def:sira_ist}
+$X_1,\ldots,X_n\iid F$ sürekli dağılım. Sıralı değerler $X_{(1)}\leq X_{(2)}\leq\cdots\leq X_{(n)}$ \textbf{sıra istatistikleri} \emph{(order statistics)}, toplu vektörü $(X_{(1)},\ldots,X_{(n)})$ \textbf{sıralanmış örneklem} adını alır.
+\end{tanim}
+
+\begin{teorem}[Sıra istatistiği yoğunluğu]\label{thm:sira_yogunluk}
+$X_{(k)}$'nın yoğunluğu:
+\[
+  f_{X_{(k)}}(x) = \frac{n!}{(k-1)!(n-k)!}[F(x)]^{k-1}[1-F(x)]^{n-k}f(x).
+\]
+$X_{(1)}$ için $k=1$: $f_{X_{(1)}}(x) = n[1-F(x)]^{n-1}f(x)$.
+$X_{(n)}$ için $k=n$: $f_{X_{(n)}}(x) = n[F(x)]^{n-1}f(x)$.
+\end{teorem}
+
+\begin{proof}
+Kombinatorik argüman: $P(X_{(k)}\in[x,x+dx])$ = $\binom{n}{1}\binom{n-1}{k-1}$ yolu ile $k-1$ gözlem $<x$, bir gözlem $\in[x,x+dx]$, $n-k$ gözlem $>x$.
+\end{proof}
+
+\begin{teorem}[Min-max için özel formüller]\label{thm:min_max}
+$X_i\iid F$ bağımsız.
+\begin{enumerate}[(a)]
+  \item $F_{X_{(1)}}(x) = 1-[1-F(x)]^n$ (minimum KDF).
+  \item $F_{X_{(n)}}(x) = [F(x)]^n$ (maksimum KDF).
+  \item Aralık (range): $R_n=X_{(n)}-X_{(1)}$.
+\end{enumerate}
+\end{teorem}
+
+\begin{ornek}[Uniform sıra istatistikleri]\label{ex:uniform_sira}
+$X_i\iid\Uniform[0,1]$. $X_{(k)}\sim\mathrm{Beta}(k,n-k+1)$; $E[X_{(k)}]=k/(n+1)$. Dolayısıyla sıra istatistiklerinin beklentileri $[0,1]$'i eşit aralıklara böler.
+\end{ornek}
+
+% =====================================================================
+\section{Ampirik Dağılım Fonksiyonu}
+\label{sec:ampirik_dagilim}
+% =====================================================================
+
+\begin{tanim}[Ampirik dağılım fonksiyonu]\label{def:edf}
+$X_1,\ldots,X_n\iid F$. \textbf{Ampirik dağılım fonksiyonu} \emph{(empirical distribution function, EDF)}:
+\[
+  F_n(x) = \frac{1}{n}\sum_{i=1}^n\mathbf{1}[X_i\leq x].
+\]
+$F_n$ sıra istatistiklerinin basamak fonksiyonu: $F_n(X_{(k)}) = k/n$.
+\end{tanim}
+
+\begin{teorem}[Glivenko-Cantelli]\label{thm:glivenko_cantelli}
+$\|F_n - F\|_\infty = \sup_x|F_n(x)-F(x)|\asto0$.
+\end{teorem}
+
+\begin{proof}[Proof (taslak)]
+Her sabit $x$ için $F_n(x)\asto F(x)$ (GBSK). Süreklilik + sonlu sayıda bölüm argümanıyla süpremum kontrolü sağlanır. Detay: Bölüm~\ref{chp:buyuk_sayilar}.
+\end{proof}
+
+\begin{teorem}[Kolmogorov-Smirnov]\label{thm:ks_istatistik}
+$F$ sürekli altında $\sqrt{n}\|F_n-F\|_\infty\dto\|\mathbb{B}\|_\infty$ (Bölüm~\ref{chp:asimptotik}, Donsker teoremi). $H_0:F=F_0$ testi:
+\[
+  D_n = \sqrt{n}\sup_x|F_n(x)-F_0(x)|.
+\]
+$\alpha=0.05$ kritik değeri $\approx1.36$.
+\end{teorem}
+
+% =====================================================================
+\section{Neyman-Fisher Çarpanlaştırma --- Daha Fazla Örnek}
+\label{sec:carpanlastirma_ornekler}
+% =====================================================================
+
+\begin{ornek}[İki parametreli Normal --- $\mu$ bilinmiyor, $\sigma^2$ sabit]\label{ex:normal_mu_yeterli}
+$X_i\iid\Normal(\mu,\sigma_0^2)$. Fisher-Neyman:
+\[
+  f(\mathbf{x}|\mu) = (2\pi\sigma_0^2)^{-n/2}\exp\!\left(-\frac{\sum x_i^2}{2\sigma_0^2}+\frac{\mu\sum x_i}{\sigma_0^2}-\frac{n\mu^2}{2\sigma_0^2}\right).
+\]
+$g(T,\mu)=\exp(\mu T/\sigma_0^2-n\mu^2/(2\sigma_0^2))$ ($T=\sum X_i$), $h=$ sabit çarpan. $\bar{X}_n$ yeterli.
+\end{ornek}
+
+\begin{ornek}[Çift parametreli üstel aile]\label{ex:cift_param_ustel}
+Normal$(\mu,\sigma^2)$ her iki bilinmeyen: $\eta_1(\theta)=\mu/\sigma^2$, $\eta_2(\theta)=-1/(2\sigma^2)$. Doğal yeterli istatistik: $(\sum X_i, \sum X_i^2)$; tam rankli --- tamamlayıcı.
+\end{ornek}
+
+\begin{teorem}[Yeterli istatistik ve bağımsızlık]\label{thm:yeterli_bagimsizlik}
+$T$ yeterli ve $V$ herhangi bir istatistik. Eğer $\Prob_\theta(V\leq v\mid T=t)$ $\theta$'dan bağımsız ise, $V$'nin dağılımı yalnızca $T$'nin değerine bağlıdır. Özellikle $V$ bir pivot seçilirse çıkarım $T$ aracılığıyla yapılır.
+\end{teorem}
+
+% =====================================================================
+\section{Bayes Çıkarımına Giriş}
+\label{sec:bayes_giris}
+% =====================================================================
+
+\begin{kesif}
+Bir madeni para $n = 10$ kez atıldı ve $7$ tura geldi. Frekansçı yaklaşımda
+$\hat{p} = 0.7$ tahmini elde ederiz. ``Bu para adil mi?'' sorusuna
+$P(\text{adil para} \mid \text{veri})$ diyebilir miyiz?
+Bu ifade frekansçı çerçevede neden anlamsızdır; Bayesçi çerçevede ne anlam kazanır?
+\kesifcevap{Frekansçı: $\theta\in\Theta$ sabit ama bilinmeyen; $P(\theta=\text{adil})$
+  tanımsızdır çünkü $\theta$ rasgele değil. Güven aralığı parametreyi değil,
+  prosedürü kapsıyor.
+  Bayesçi: $\theta \sim \pi(\theta)$ önsel; $7$ tura sonrası
+  $\pi(\theta \mid \mathbf{x}) \propto L(\theta;\mathbf{x})\pi(\theta)$ sonsal.
+  ``Adil para'' olasılığı doğrudan $P(\theta=0.5 \mid \mathbf{x})$ ile hesaplanır;
+  bu güven aralığından kavramsal olarak farklıdır.}
+\end{kesif}
+
+\begin{tanim}[Bayes teoremi --- istatistik]\label{def:bayes_istatistik}
+$\theta$'nın önsel dağılımı $\pi(\theta)$, veri olabilirliği $f(\mathbf{x}|\theta)$. \textbf{Sonsal dağılım} \emph{(posterior distribution)}:
+\[
+  \pi(\theta|\mathbf{x}) = \frac{f(\mathbf{x}|\theta)\pi(\theta)}{m(\mathbf{x})}, \quad m(\mathbf{x}) = \int f(\mathbf{x}|\theta)\pi(\theta)\,d\theta.
+\]
+$m(\mathbf{x})$ marjinal olabilirlik \emph{(marginal likelihood)} veya kanıt \emph{(evidence)}.
+\end{tanim}
+
+\begin{tanim}[Konjugat önsel]\label{def:konjugat_onsel}
+$\pi(\theta)$ \textbf{konjugat önsel} \emph{(conjugate prior)}: sonsal $\pi(\theta|\mathbf{x})$ önsel ile aynı ailedendir. Hesap kolaylığı sağlar.
+\begin{itemize}
+  \item $\Binom(n,p)$ için $p\sim\Beta(\alpha,\beta)$: sonsal $\Beta(\alpha+\sum x_i, \beta+n-\sum x_i)$.
+  \item $\Pois(\lambda)$ için $\lambda\sim\Gama(\alpha,\beta)$: sonsal $\Gama(\alpha+n\bar x, \beta+n)$.
+  \item $\Normal(\mu,\sigma^2)$ ($\sigma^2$ bilinen) için $\mu\sim\Normal(\mu_0,\tau^2)$: sonsal $\Normal(\mu_1,\tau_1^2)$.
+\end{itemize}
+\end{tanim}
+
+\begin{teorem}[Normal konjugat güncelleme]\label{thm:normal_konjugat}
+$X_1,\ldots,X_n\iid\Normal(\mu,\sigma^2)$ ($\sigma^2$ bilinen); $\mu\sim\Normal(\mu_0,\tau^2)$. Sonsal:
+\[
+  \mu|\mathbf{X}\sim\Normal(\mu_1,\tau_1^2), \quad
+  \mu_1 = \frac{\mu_0/\tau^2 + n\bar{X}/\sigma^2}{1/\tau^2+n/\sigma^2}, \quad
+  \tau_1^2 = \frac{1}{1/\tau^2+n/\sigma^2}.
+\]
+\end{teorem}
+
+\begin{proof}
+$\pi(\mu|\mathbf{x})\propto\pi(\mu)f(\mathbf{x}|\mu)$. İkisi de Gaussian; çarpım da Gaussian (karede lineer). Üsteki $\exp[-(\mu-\mu_1)^2/(2\tau_1^2)+\text{sabit}]$ biçimine getirilince $\mu_1$ ve $\tau_1^2$ elde edilir.
+\end{proof}
+
+\begin{ornek}[Bayesçi ağırlıklı ortalama]
+$\mu_1 = w_0\mu_0 + w_1\bar{X}$ ($w_0=(\sigma^2/n)/(\tau^2+\sigma^2/n)$, $w_1=\tau^2/(\tau^2+\sigma^2/n)$). Sonsal ortalama, önsel ortalama ile örneklem ortalamasının ağırlıklı ortalamasıdır. $n\to\infty$: $\mu_1\to\bar{X}$ (veri öneli baskılar); $\tau\to\infty$: $\mu_1\to\bar{X}$ (bilgisiz önsel).
+\end{ornek}
+
+\begin{teorem}[Bayes tahmincisi ve OKH]\label{thm:bayes_tahmin}
+Karesel kayıp altında Bayes tahmincisi sonsal ortalama: $\hat\theta_{\text{Bayes}}=E[\theta|\mathbf{X}]$.
+
+Mutlak değer kaybında Bayes tahmincisi sonsal medyan.
+\end{teorem}
+
+\begin{proof}
+$E_{\theta|\mathbf{x}}[(\theta-d)^2]$ minimizasyonu: türev alıp sıfıra eşitle; $d^*=E[\theta|\mathbf{x}]$.
+\end{proof}
+
+\begin{kritiksorgu}
+Frekansçı ve Bayesçi yaklaşım ne zaman aynı sonucu verir? Büyük örneklemde (Bernstein-von Mises teoremi) sonsal $\Normal(\hat\theta_{\mathrm{MLE}}, I(\hat\theta)^{-1}/n)$'ye yakınsar --- Bayes ve frekansçı güven aralıkları örtüşür. Küçük örneklemde önsel seçim kritik önem taşır.
+\end{kritiksorgu}
+
+% =====================================================================
+\section{Yeterli İstatistik ve Bayes}
+\label{sec:yeterli_bayes}
+% =====================================================================
+
+\begin{teorem}[Yeterlilik ve Bayes]\label{thm:yeterlilik_bayes}
+$T$ yeterli istatistik ise $\pi(\theta|\mathbf{x}) = \pi(\theta|T(\mathbf{x}))$. Yani Bayesçi güncelleme tamamen $T$ üzerinden gerçekleşir; orijinal verinin tüm $\theta$-ilgili bilgisi $T$'de toplanmıştır.
+\end{teorem}
+
+\begin{proof}
+$\pi(\theta|\mathbf{x})\propto f(\mathbf{x}|\theta)\pi(\theta) = g(T(\mathbf{x}),\theta)h(\mathbf{x})\pi(\theta)$. $h(\mathbf{x})$ $\theta$'dan bağımsız; normalleştirmede iptal olur. Dolayısıyla $\pi(\theta|\mathbf{x})\propto g(T,\theta)\pi(\theta)=\pi(\theta|T)$.
+\end{proof}
+
+\begin{ornek}[Bayes ve yeterlilik --- Bernoulli]
+$X_i\iid\mathrm{Ber}(p)$; $T=\sum X_i$ yeterli. Sonsal $\pi(p|T=t)=\pi(p|\mathbf{x})$ --- 100 gözlem yerine sadece $t=\sum x_i$ yeterli. Hiçbir ek bilgi kaybolmadı.
+\end{ornek}
+
+\begin{disiplinlerarasibaglan}
+\textbf{Makine öğrenmesi:} Bayesçi sinir ağları (BNN) belirsizlik tahmini için sonsal dağılımı öğrenir. \textbf{Tıbbi teşhis:} Ön-test/son-test olasılığı (Bayes güncellemesi) tanısal testlerin yorumunda temel. \textbf{Sinyal işleme:} Kalman filtresi Bayesçi güncellemeler zinciridir (Gaussian konjugat).
+\end{disiplinlerarasibaglan}
+
+% =====================================================================
+%  ALIŞTIRMALAR
+% =====================================================================
+
+\cozumlualistirmalar
+
+\begin{alistirma}[Al.11.1]{A}{Örneklem Ortalaması ve Varyansı}
+$X_1,\ldots,X_5$ i.i.d.\ $\Normal(3, 4)$ ($\sigma^2=4$).
+(a) $\bar{X}_5$'in dağılımını yazınız.
+(b) $P(\bar{X}_5 > 4)$'ü hesaplayınız.
+(c) $(n-1)S^2/\sigma^2$'nin dağılımını yazınız ve $E[S^2]$'yi bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $\bar{X}_5 \sim \Normal(3, 4/5)$; $\sigma_{\bar{X}} = 2/\sqrt{5}$.\\
+(b) $P(\bar{X}_5>4)=P(Z>(4-3)/(2/\sqrt{5}))=P(Z>\sqrt{5}/2)=P(Z>1.118)=1-\Phi(1.118)\approx0.132$.\\
+(c) $4S^2/4 = S^2 \sim \chi^2_4/1$: $(n-1)S^2/\sigma^2 = 4S^2/4 \sim \chi^2_4$.
+$E[S^2] = \sigma^2 = 4$.}
+
+\begin{alistirma}[Al.11.2]{A}{Fisher-Neyman --- Poisson}
+$X_1,\ldots,X_n$ i.i.d.\ $\Pois(\lambda)$.
+(a) Ortak PMF'yi yazınız. (b) $T = \sum X_i$'nin yeterli istatistik olduğunu F-N teoremi ile gösteriniz.
+(c) $T \sim \Pois(n\lambda)$ olduğunu belirtiniz.
+\end{alistirma}
+\alcozum{%
+(a) $f(\mathbf{x}|\lambda) = \prod \frac{\lambda^{x_i}e^{-\lambda}}{x_i!} = \frac{\lambda^{\sum x_i}e^{-n\lambda}}{\prod x_i!}$.\\
+(b) $g(T,\lambda) = \lambda^T e^{-n\lambda}$, $h(\mathbf{x}) = 1/\prod x_i!$ --- ayrışım var.
+F-N: $T = \sum X_i$ yeterli.\\
+(c) Poisson yeniden üretkenliği: $T \sim \Pois(n\lambda)$.}
+
+\begin{alistirma}[Al.11.3]{B}{OKH Hesabı}
+$X_1,\ldots,X_n$ i.i.d.\ $\Normal(\mu,\sigma^2)$.
+$\tilde{S}^2 = \frac{1}{n}\sum(X_i-\bar{X})^2$ (yanlı tahmin edici) için:
+(a) $E[\tilde{S}^2]$ ve $\mathrm{Var}(\tilde{S}^2)$'yi bulunuz.
+(b) $\mathrm{OKH}(\tilde{S}^2, \sigma^2)$'yi hesaplayınız.
+(c) $\mathrm{OKH}(\tilde{S}^2,\sigma^2)$ ile $\mathrm{OKH}(S^2,\sigma^2)$'yi karşılaştırınız.
+\end{alistirma}
+\alcozum{%
+(a) $\tilde{S}^2 = \frac{n-1}{n}S^2$; $E[\tilde{S}^2] = \frac{n-1}{n}\sigma^2$.
+$\mathrm{Var}(\tilde{S}^2) = \left(\frac{n-1}{n}\right)^2\mathrm{Var}(S^2) = \left(\frac{n-1}{n}\right)^2 \frac{2\sigma^4}{n-1} = \frac{2(n-1)\sigma^4}{n^2}$.\\
+(b) $\mathrm{Yan} = -\sigma^2/n$; $\mathrm{OKH}(\tilde{S}^2) = \frac{2(n-1)\sigma^4}{n^2}+\frac{\sigma^4}{n^2} = \frac{(2n-1)\sigma^4}{n^2}$.\\
+(c) $\mathrm{OKH}(S^2) = \mathrm{Var}(S^2) = \frac{2\sigma^4}{n-1}$.
+$n \geq 3$'te $\tilde{S}^2$ daha küçük OKH'ye sahip (küçük yanlılık kazancı).}
+
+\begin{alistirma}[Al.11.4]{B}{Tamamlayıcılık --- Uniform}
+$X_1,\ldots,X_n$ i.i.d.\ $\Uniform(0,\theta)$.
+(a) $T = X_{(n)} = \max X_i$'nin yeterli olduğunu F-N ile gösteriniz.
+(b) $E_\theta[g(T)] = 0$ tüm $\theta > 0$'da koşulundan $g \equiv 0$ sonucunu türetiniz.
+(c) $T$ tamamlayıcı mı?
+\end{alistirma}
+\alcozum{%
+(a) $f(\mathbf{x}|\theta) = \theta^{-n}\mathbf{1}_{x_{(n)}\leq\theta}$;
+$g(T,\theta) = \theta^{-n}\mathbf{1}_{T\leq\theta}$, $h=1$. F-N: $T$ yeterli.\\
+(b) $f_{X_{(n)}}(t|\theta) = nt^{n-1}/\theta^n$ ($0<t<\theta$).
+$E[g(T)] = \int_0^\theta g(t)\frac{nt^{n-1}}{\theta^n}dt = 0$.
+$\frac{d}{d\theta}[\theta^n \cdot 0] = 0 = ng(\theta)\theta^{n-1}$, yani $g(\theta)=0$ tüm $\theta>0$.
+(c) Evet, tamamlayıcı.}
+
+\begin{alistirma}[Al.11.4b]{B}{GBHK --- Normal Ailede}
+$X_1,\ldots,X_n$ i.i.d.\ $\Normal(\mu,\sigma^2)$ ($\sigma^2$ bilinen).
+(a) $T=\bar{X}$ için Cramér-Rao alt sınırını hesaplayınız.
+(b) $\bar{X}$'in UMVUE olduğunu gösteriniz.
+(c) $\sigma^2$ de bilinmiyorsa ne değişir? Yeterli ve tamamlayıcı istatistik nedir?
+\end{alistirma}
+\alcozum{%
+(a) $\log f(x|\mu) = -\frac{(x-\mu)^2}{2\sigma^2} + C$; $\frac{\partial\log f}{\partial\mu}=\frac{x-\mu}{\sigma^2}$; Fisher bilgisi $I(\mu) = \frac{1}{\sigma^2}$. $n$ gözlem için $I_n(\mu)=n/\sigma^2$. GBHK: $\Var(\hat\mu)\geq\sigma^2/n$. $\Var(\bar{X})=\sigma^2/n$ alt sınıra eşit.
+
+(b) $\bar{X}$ yansız. $T=\sum X_i$ yeterli ve tamamlayıcı (üstel aile). Lehmann-Scheffé: $T$'nin yansız fonksiyonu UMVUE'dir. $\bar{X}=T/n$ $\mu$'nün yansız tahmincisi, $T$'nin fonksiyonu $\Rightarrow$ UMVUE.
+
+(c) $\sigma^2$ bilinmiyorsa, $(T_1,T_2)=(\sum X_i, \sum X_i^2)$ iki boyutlu yeterli ve tamamlayıcı istatistik (iki parametreli üstel aile). UMVUE çifti: $\bar{X}$ için $\mu$, $S^2$ için $\sigma^2$.}
+
+\begin{alistirma}[Al.11.4c]{C}{Eksik Yeterlilik --- Cauchy Ailesi}
+$X_1,\ldots,X_n$ i.i.d.\ $\mathrm{Cau}(\theta,1)$; $f(x|\theta)=\dfrac{1}{\pi[1+(x-\theta)^2]}$.
+(a) $\bar{X}$'in yeterli istatistik olduğunu Fisher-Neyman ile kontrol etmeyi deneyin. Ne gözlemliyorsunuz?
+(b) $X_{(1)}<\cdots<X_{(n)}$ sıra istatistikleri birlikte yeterli mi? Bu ne anlama gelir?
+(c) Neden Cauchy ailesinde GBHK genellikle uygulanamaz?
+\end{alistirma}
+\alcozum{%
+(a) Ortak yoğunluk: $f(\mathbf{x}|\theta)=\pi^{-n}\prod[1+(x_i-\theta)^2]^{-1}$. Bu çarpım $\theta$'dan kolay ayrışmaz; $g(T(\mathbf{x}),\theta)\cdot h(\mathbf{x})$ biçimine getirilemiyor çünkü $\theta$ her faktörde. $\bar X$ yeterli \emph{değildir}.
+
+(b) $(X_{(1)},\ldots,X_{(n)})$ sıra istatistikleri her zaman \emph{tamamlayıcı} yeterli istatistik sağlar (Halmos-Savage). Bu, veriyi sıralama dışında bilgisiz perütmasyonla sunmaya eşdeğer. Fakat boyut azaltma sağlamaz; boyut yine $n$.
+
+(c) GBHK için Fisher bilgisi $I(\theta)=\int\left(\frac{\partial\log f}{\partial\theta}\right)^2 f\,dx$'nin varlığı gerekir. Cauchy için $\partial\log f/\partial\theta = 2(x-\theta)/[1+(x-\theta)^2]$; $I(\theta)=1/2<\infty$. Teknik olarak GBHK var, fakat maksimum olabilirlik tahmincisi $\hat\theta_{\mathrm{MLE}}$ \emph{açık formda yok} (sayısal çözüm gerekir) ve $\bar X$'in Cauchy dağılımlı olup varyansı sonsuz olduğundan GBHK anlamsız.}
+
+% ---
+
+\alistirmalar
+
+\begin{alistirma}[Al.11.5]{A}{Örneklem $t$ Dağılımı}
+$X_1,\ldots,X_{16}$ i.i.d.\ $\Normal(\mu, 9)$.
+$T = \sqrt{16}(\bar{X}_{16}-\mu)/S$'nin dağılımını yazınız.
+$P(T > 2.131)$'i $t$ tablosundan söyleyiniz.
+\end{alistirma}
+\alcozum{%
+$T \sim t_{15}$.
+$t_{15,0.025} \approx 2.131$: $P(T > 2.131) = 0.025$.}
+
+\begin{alistirma}[Al.11.6]{A}{Yeterli İstatistik --- Üstel Aile}
+$X_i \sim \Gama(\alpha, \beta)$ ($\alpha$ biliniyor, $\beta$ bilinmiyor).
+(a) Ortak PDF'yi üstel aile formunda yazınız. (b) Yeterli istatistiği bulunuz.
+\end{alistirma}
+\alcozum{%
+(a) $f(\mathbf{x}|\beta) = \prod \frac{\beta^\alpha}{\Gamma(\alpha)}x_i^{\alpha-1}e^{-\beta x_i}
+= \left(\frac{\beta^\alpha}{\Gamma(\alpha)}\right)^n \prod x_i^{\alpha-1} \cdot e^{-\beta\sum x_i}$.
+(b) $g(T,\beta) = (\beta^\alpha/\Gamma(\alpha))^n e^{-\beta T}$, $h = \prod x_i^{\alpha-1}$.
+$T = \sum X_i$ yeterli.}
+
+\begin{alistirma}[Al.11.7]{B}{Bağımsızlık --- $\bar{X}$ ve $S^2$}
+$X_1, X_2, X_3$ i.i.d.\ $\Normal(\mu, \sigma^2)$.
+$(Y_1, Y_2, Y_3) = (X_1+X_2+X_3, X_1-X_2, X_1+X_2-2X_3)/\sqrt{6}$ dönüşümünü yapınız.
+(a) $Y_i$'lerin $\Normal(?, ?)$ dağılımını bulunuz.
+(b) $Y_1$ ile $(Y_2, Y_3)$'ün bağımsız olduğunu gösteriniz.
+(c) $\bar{X}$ ve $S^2$'nin bağımsızlığını bu sonuçtan çıkarınız.
+\end{alistirma}
+\alcozum{%
+(a) $Y_1 = (X_1+X_2+X_3)/\sqrt{3}\cdot\sqrt{3}/\sqrt{6}\cdot\sqrt{6}$ --- uygun normalize ile
+$Y_1 = \sqrt{3}\bar{X}$: $\Normal(\sqrt{3}\mu, \sigma^2)$.
+$Y_2 = (X_1-X_2)/\sqrt{2}$: $\Normal(0,\sigma^2)$. $Y_3 = (X_1+X_2-2X_3)/\sqrt{6}$: $\Normal(0,\sigma^2)$.\\
+(b) $(Y_1,Y_2,Y_3)$ bağımsız normal: kovaryans matrisi köşegen (ortogonal dönüşüm).
+$\mathrm{Cov}(Y_1,Y_2) = 0$; normal için $\Rightarrow$ bağımsız.\\
+(c) $\bar{X} = Y_1/\sqrt{3}$; $S^2 = (Y_2^2+Y_3^2)/2\sigma^2 \cdot \sigma^2/1$
+($(Y_2^2+Y_3^2)/\sigma^2 \sim \chi^2_2$). $Y_1 \perp (Y_2,Y_3)$ $\Rightarrow$ $\bar{X} \perp S^2$.}
+
+\begin{alistirma}[Al.11.8]{B}{En Az Yeterlilik --- Cauchy}
+$X_1,\ldots,X_n$ i.i.d.\ $\mathrm{Cauchy}(\theta, 1)$.
+$f(\mathbf{x}|\theta)/f(\mathbf{y}|\theta)$ oranını yazınız.
+Bu oranın $\theta$'dan bağımsız olması için hangi koşul gerekir?
+En az yeterli istatistik nedir?
+\end{alistirma}
+\alcozum{%
+$f(\mathbf{x}|\theta) = \prod \frac{1}{\pi(1+(x_i-\theta)^2)}$.
+Oran: $\prod \frac{1+(y_i-\theta)^2}{1+(x_i-\theta)^2}$ --- bu $\theta$'dan bağımsız olması için
+$(x_1,\ldots,x_n)$ ve $(y_1,\ldots,y_n)$'nin aynı sıra istatistiklerine sahip olması gerekir
+(çünkü Cauchy simetrik; terimlerin $\theta$-bağımlılığı birbirini ancak permütasyonla götürür).
+En az yeterli istatistik: $(X_{(1)},\ldots,X_{(n)})$ --- tam sıralı vektör.
+Bu, Cauchy'de boyut azaltılmış bir özet olmamasını gösterir.}
+
+\begin{alistirma}[Al.11.9]{A}{Sıra istatistiği dağılımı}
+$X_1,\ldots,X_5\iid\Uniform[0,1]$. (a) $X_{(3)}$'ün yoğunluğunu yaz. (b) $E[X_{(3)}]$'ü bul. (c) $\Prob(X_{(5)}>0.9)$'u hesapla.
+\end{alistirma}
+\alcozum{%
+(a) $f_{X_{(3)}}(x)=5!/(2!\cdot2!)x^2(1-x)^2\cdot1=30x^2(1-x)^2$ ($0<x<1$). (b) $E[X_{(3)}]=3/(5+1)=1/2$ (Uniform sıra istatistiği beklentisi $k/(n+1)$). (c) $F_{X_{(5)}}(x)=x^5$; $\Prob(X_{(5)}>0.9)=1-0.9^5=1-0.5905=0.4095$.%
+}
+
+\begin{alistirma}[Al.11.10]{B}{Ampirik dağılım ve KS testi}
+$n=5$ gözlem: $1.2, 2.5, 0.8, 3.1, 1.7$. $H_0: F=\mathrm{Exp}(1)$ (yani $F_0(x)=1-e^{-x}$) için KS istatistiğini hesapla.
+\end{alistirma}
+\alcozum{%
+Sıralı: $0.8,1.2,1.7,2.5,3.1$. $F_n(x_k)=k/5$. $F_0$: $F_0(0.8)=0.551$, $F_0(1.2)=0.699$, $F_0(1.7)=0.817$, $F_0(2.5)=0.918$, $F_0(3.1)=0.955$. $|F_n-F_0|$: $|0.2-0.551|=0.351$, $|0.4-0.699|=0.299$, $|0.6-0.817|=0.217$, $|0.8-0.918|=0.118$, $|1-0.955|=0.045$. $D_5=0.351$; $\sqrt{5}\cdot0.351=0.785<1.36$: $H_0$ reddedilemez.%
+}
+
+\begin{alistirma}[Al.11.11]{B}{Min için $n$ belirleme}
+$X_i\iid\Exp(\lambda)$. $P(X_{(1)}>1)=0.9$ olmasını istiyorsunuz. $n$ kaç olmalı?
+\end{alistirma}
+\alcozum{%
+$X_{(1)}\sim\Exp(n\lambda)$ (minimum üstel i.i.d. bağımsızsa). $P(X_{(1)}>1)=e^{-n\lambda}=0.9$; $n=-\log(0.9)/\lambda$. $\lambda=1$: $n=-\log(0.9)\approx0.105$; yani $n=1$ yetmez, tam tam değil --- düz: $e^{-n}=0.9$; $n=0.105$ gerçek sayı. Yani tek gözlemde $\lambda=0.105$ ya da $n=1$, $\lambda=0.105$. Pratik: $\lambda=1$ ise $P(X_{(1)}>1)=e^{-n}=0.9$ için $n=\lceil-\log0.9\rceil=1$.%
+}
+
+% =====================================================================
+\endinput
