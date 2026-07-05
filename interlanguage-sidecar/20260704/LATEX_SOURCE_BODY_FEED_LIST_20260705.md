@@ -4,6 +4,8 @@ This file lists the current ZIP packets that actually contain TeX-family source 
 
 These packets are source-corpus/provenance feeds only. They are not native approval, accepted terminology, completed translation, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+Machine-readable inventory: `manifests/source-intake/20260705_interlanguage_latex_source_body_inventory.md/json/csv` counts this shelf by ZIP SHA256 and language hint. Current unique count after duplicate-SHA removal: 13 ZIP payloads, 8,630 TeX-like entries.
+
 ## Feed First: Broad Source-Corpus Payloads
 
 1. `noether-source-corpus-provenance/20260704/NOETHER_SOURCE_LINK_PROVENANCE_INDEX_20260704T153636/payload_zips/NOETHER_SOURCE_CORPUS_LATEX_PAYLOAD_20260704T153636_part01.zip`
