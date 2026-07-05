@@ -8635,6 +8635,14 @@ Manifest: [20260705_noether_pc_packages410_412_interlanguage_refresh.json](../ma
 - Scope: packages 410-412 from `origin/codex/noether-pc-20260629` remote head `06dc5d30`, adding Arabic RTL durable run-log material and source-canon/source-probe checksum rows for corpus translation, Damascus linear algebra, GitHub/archive probes, MediaWiki/Wikibooks source-text probes, official PDF probing, and R3 cross-lane/current/gap/policy sync.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+## 2026-07-05: Noether-PC/interlanguage packages 422-424 Persianate/frontier coordination
+
+Manifest: [20260705_noether_pc_packages422_424_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages422_424_interlanguage_refresh.json)
+
+- Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages422_424_RollingDeltas_20260705.zip`, 44,990 bytes, SHA256 `A85F18108EE37DD8E56510574DFBE8812EB8845EFC91A1A8124F91CA217D61D5`, 27 entries.
+- Scope: packages 422-424 from `origin/codex/noether-pc-20260629` remote head `acc6a53a`, adding Persianate/Tajik draft-artifact manifest/checksum material and package-400/402 plus package-417 visibility/frontier recheck material.
+- Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 413-416 Pan-Turkic and Malay/SEA/Pacific coordination
 
 Manifest: [20260705_noether_pc_packages413_416_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages413_416_interlanguage_refresh.json)
