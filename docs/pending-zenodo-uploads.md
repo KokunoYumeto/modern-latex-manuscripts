@@ -1,3 +1,12 @@
+## 2026-07-05: Noether-PC/interlanguage packages 396-399 rolling deltas
+
+Manifest: [20260705_noether_pc_packages396_399_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages396_399_interlanguage_refresh.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_packages396_399/Noether_PC_Interlanguage_Packages396_399_RollingDeltas_20260705.zip`, 102,874 bytes, SHA256 `73539617360D7B5B73F7F214D7538F1B1188D5F1411095C150F66323775A18F3`.
+- Scope/result: selective import from `origin/codex/noether-pc-20260629`, covering packages 396-399 after package 395. Package 396 records two omitted Persianate/Tajik raw HTML source-body witnesses; package 397 adds Persianate/Tajik durable run-log and source-canon witness-cache table material; packages 398-399 add Persianate/Tajik draft-artifact/source-cache material and R3 Arabic/Persianate Internet Archive text-frontier probes.
+- Caveat: 0 TeX-like source files, 0 PDFs, and 0 ZIP payloads. Package 396 is an omission receipt for two raw HTML source bodies, not a source-body delivery. Methodology/source-canon/source-evidence coordination only. Not a bulk source-body corpus, not the requested hundreds-per-language native mathematical TeX corpus, not language completion, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 390-395 rolling deltas
 
 Manifest: [20260705_noether_pc_packages390_395_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages390_395_interlanguage_refresh.json)
