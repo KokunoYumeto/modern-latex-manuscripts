@@ -1,3 +1,21 @@
+## 2026-07-05: Noether known-band/tail ledger webdrop
+
+Manifest: [20260705_noether_known_bands_tail_ledger_webdrop.json](../manifests/pending-zenodo-uploads/20260705_noether_known_bands_tail_ledger_webdrop.json)
+
+- Target record: [Emmy Noether](https://doi.org/10.5281/zenodo.20412587).
+- Artifact: `publish_staging/noether/20260705_known_bands_tail_ledger_webdrop/Noether_LocalCodex_20260705_P13P24TailKnownBands_Ledger_WebDrop.zip`, 16,683,579 bytes, SHA256 `9092580B6EA438D618257287C403CFA021F93D111C7AEFD8AD1B72573CC37082`, 48 ZIP entries.
+- Scope/result: support/handoff package with R796-derived German cumulative TeX/PDF/log, master and page/paper QC ledgers, P13 archaeology records, Paper 24 p233 source-witness evidence, and tail/Schur known-band repair evidence.
+- Caveat: source-control/support and webdrop evidence only. Not a reader release, Noether closure, page-by-page certification, multilingual synchronization, source-complete certification, publication readiness, or critical-edition material. Fold into a curated Noether rollup rather than uploading loose above reader-facing PDFs.
+
+## 2026-07-05: ChatGPT/Fable interlanguage handoff refresh
+
+Manifest: [20260705_chatgpt_handoff_bundle_refresh.json](../manifests/pending-zenodo-uploads/20260705_chatgpt_handoff_bundle_refresh.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_chatgpt_handoff_bundle_refresh/CHATGPT_HANDOFF_BUNDLE_20260705_refresh.zip`, 196,959 bytes, SHA256 `ABD9FEA5170ADE943E9F9D4C96D97E91987BB2E5C97B4D343791C61C9F56375B`, 18 ZIP entries.
+- Scope/result: compact methodology/handoff refresh containing defect report, proof-prose lexicon, normalization tables, branch-weighting state, context-review queue, corpus-insertion coverage, tail-witness routing, and R1 draft normalization decisions.
+- Caveat: generated methodology/decision-support evidence only; zero TeX/PDF source bodies. Not native language approval, not a bulk source-body corpus, not accepted terminology, not translation completion, not reader output, not source-fidelity certification, not publication readiness, and not a critical edition.
+
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx236
 
 Manifest: [20260705_sga6_source_rescribe_idx236_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx236_workpass_refresh.json)
