@@ -1198,5 +1198,7 @@ Noether R565 local source-control update, 2026-07-02: `Noether_R565_LocalCodex_R
 
 - 2026-07-05: Interlanguage/Noether-PC branch selectively imported packages 361-366 from `origin/codex/noether-pc-20260629` remote head `17d926f9`. Staged support ZIP: `Noether_PC_Interlanguage_Packages361_366_R3_R6_SourceCanon_20260705.zip`, 277,299 bytes, SHA256 `8DBB4E78ED8F0C12E93F5314B087936FBAF8DAAE0B97A5361300430E013BB1EE`. The delta contains zero TeX-like source bodies and zero reader PDFs; classify as R3/R6 methodology/source-canon/access-governance coordination only, not the requested bulk native source corpus and not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+- 2026-07-05: Interlanguage/Noether-PC branch selectively imported packages 367-371 from `origin/codex/noether-pc-20260629` remote head `1e8caf66`. Staged support ZIP: `Noether_PC_Interlanguage_Packages367_371_R6_R9_SourceCanon_20260705.zip`, 485,385 bytes, SHA256 `4941CB69F6D78E46D6CEA8C13237B5FE7B3A01DADDD722B35C2BBF7FA1CA13A8`. The delta contains zero TeX-like source bodies and zero reader PDFs. R9 rows are PDF-source provenance pointers with open gates, not admitted translation evidence. Classify as R6/R9 methodology/source-canon/access-governance coordination only, not the requested bulk native source corpus and not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 
 
