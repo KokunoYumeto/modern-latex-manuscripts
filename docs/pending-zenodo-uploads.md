@@ -1,3 +1,12 @@
+## 2026-07-05: Expanded non-Slavic LaTeX source-anchor feed
+
+Manifest: [20260705_expanded_non_slavic_source_anchors.json](../manifests/pending-zenodo-uploads/20260705_expanded_non_slavic_source_anchors.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_expanded_non_slavic_source_anchors/Interlanguage_NonSlavic_SourceAnchors_EXPANDED_20260705.zip`, 82,390,033 bytes, SHA256 `7626ad0adb3a8d3a135e965252952c7a0d6dddf8eabd63d85a558b0113caef4e`, 8,555 ZIP entries.
+- Scope/result: 8,551 extracted non-Slavic source/support files, 4,496 unique file bodies, consolidating CJK, Arabic/Persianate/RTL, Romance, and other non-Slavic source-anchor shelves into one directly usable Web/Pro feed.
+- Caveat: source-anchor/register/style corpus only; not native review, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
+
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx208
 
 Manifest: [20260705_sga6_source_rescribe_idx208_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx208_workpass_refresh.json)
