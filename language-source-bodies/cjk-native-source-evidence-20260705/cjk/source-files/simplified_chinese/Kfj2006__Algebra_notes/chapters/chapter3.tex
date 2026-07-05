@@ -1,0 +1,441 @@
+\chapter*{Lecture03特殊群（I）}
+\addcontentsline{toc}{chapter}{Lecture03特殊群（I）}
+\stepcounter{chapter}
+
+\section{循环群}
+循环群这部分的内容非常重要，我期望读者最好可以做到烂熟于心，所有定理心里都有大概的证明思路。事实上，循环群也是一类非常简单的群。\\
+\kfj{定义：}若群G可由一个元素生成，那么称G是一个循环群，称这个元素为生成元。即：若$\exists a\in G$，使得$G=<a>$，那么称G是一个循环群，称元素$a$为这个循环群的一个生成元。\\
+\noteb{注：我们把由集合$\{a\}$生成的子群$<\{a\}>$简记为$<a>$}\\
+回顾整数加法群$\mathbb{Z}$，可知$\mathbb{Z}=<1>$；模n剩余类群$\mathbb{Z}_n=<\ovl{1}>$，他们都是循环群。\\
+下面我们就来解释为什么循环群具有很好的性质。\\
+\kfj{定理：}设G是一个循环群， 则：
+\[
+\begin{aligned}
+&(1)\text{若}G\text{是一个无限集，那么}G\cong \mathbb{Z}\\
+&(2)\text{若}G\text{的元素个数为n，则}G\cong \mathbb{Z}_n
+\end{aligned}
+\]
+\begin{proof}
+作映射$f\colon \mathbb{Z}\to G,\; m\mapsto a^m$，其中$G=<a>$\\
+$\forall s,\; t\in \mathbb{Z},\; f(s+t)=a^{s+t}=a^s\cdot a^t=f(s)\cdot f(t)\implies f$是群同态。\\
+$\forall g\in G,\; \exists k\in \mathbb{Z}$，使得$a^k=g\implies f(k)=g$，因此$f$是满同态。\\
+(1)：若$Kerf=\{0\}$，那么$f$也是单同态，从而可知$f$是同构。\\
+即：$\mathbb{Z}\cong G$\\
+(2)：若$Kerf\neq \{0\}$，由于$Kerf$是$\mathbb{Z}$的子集，因此可取到$Kerf$中最小正整数n\\
+那么若$a^m=e\in G$（即$m\in Kerf$)，则作带余除法：$m=pn+q$，其中$p,q\in \mathbb{Z},\; 0\leq q <n$\\
+此时有：$e=a^m=a^{pn+q}=e^p\cdot a^q=a^q\implies q\in Kerf$，所以由n的最小性可知：$q=0$\\
+$\therefore m=pn\implies Kerf\subset n\mathbb{Z}$，其中$n\mathbb{Z}$指的是所有n的整数倍所组成的加法群。\\
+而$\forall p\in \mathbb{Z},\; a^{np}=(a^n)^p=e\iff f(np)=e$，故$n\mathbb{Z}\subset Kerf$\\
+综上可知，$Kerf=n\mathbb{Z}$\\
+由同态基本定理：$Imf\cong \mathbb{Z}/Kerf \iff G\cong \mathbb{Z}/n\mathbb{Z}\cong \mathbb{Z}_n$
+\end{proof}
+\noteb{这个定理指出，只要是循环群，我们就可以把它看作$\mathbb{Z}$（无限的时候），或者$\mathbb{Z}_n$（群元素个数为n的时候）}\\
+\kfj{推论：}任取两个循环群$G_1$和$G_2$，若二者元素个数相同，那么二者同构。（若二者都是无限群，则二者同构）。\\
+我们由Lagrange定理的推论可知，若G是有限群，$H<G$，那么$|H|\bigm||G|$，（即H的元素个数是G的元素个数的因子）\\
+但事实上，随即指定群G元素个数$|G|$的因子p，并不一定存在G的p阶子群。\noteb{(例子我会在本Lecture的后一部分给出)}\\
+不过，对于循环群而言，这个命题是成立的。\\
+\kfj{定理：}
+\begin{align*}
+&(1)\text{若G是无限循环群，取G的子群H。若H}\neq \{e\},\text{则H是无限循环群}\\
+&(2)\text{若G的元素个数为n，设r是n的因子，则G的r阶子群存在且唯一。}
+\end{align*}
+\begin{proof}
+(1)：可知此时$G\cong \mathbb{Z}$，于是只需对$\mathbb{Z}$说明该结论。\\
+设H是$\mathbb{Z}$的非平凡子群，则$\forall k\in H,\; (-k)\in H$，故可取H中最小的正整数n。易知$<n>\subset H$\\
+$\forall m\in H$，做带余除法：$m=pn+q$，其中$p,q\in \mathbb{Z},\; 0\leq q < n$\\
+由于$pn\in H$，故$q=m-pn\in H$。由n的最小性可知，$q=0$，即$H\subset <n>$\\
+$\therefore H=n\mathbb{Z}$是无限循环群。\\
+此时设$f\colon G\to \mathbb{Z}$是群同构，那么对于G的任意子群$K$，可知$f(K)<\mathbb{Z}\implies \exists n\in \mathbb{Z},\; f(K)\cong n\mathbb{Z}$\\
+而易验证$K\cong f(K)$，故可知K是无限循环群。\\
+(2)：可知同理：$G\cong \mathbb{Z}_n$，故只需说明$\mathbb{Z}_n$相应的结论成立即可。\\
+(先证明存在性）：考虑自然同态$\pi\colon \mathbb{Z}\to \mathbb{Z}_n,\; k\mapsto \ovl{k}$\\
+如条件所述，任取n的因子r，令$q=\dfrac{n}{r}$，那么有$\forall k\in \mathbb{Z},\; nk=q\cdot (rk)\in q\mathbb{Z}\implies n\mathbb{Z}\subset q\mathbb{Z}$\\
+由满同态对应定理可知，$\mathbb{Z}$中包含$Ker\pi=n\mathbb{Z}$的子群与$\mathbb{Z}_n$的子群间存在一一对应。\\
+因此可知，存在$\mathbb{Z}_n$中的子群$H$，使得$H=\pi(q\mathbb{Z})$，其中$\pi(q\mathbb{Z})=\{\ovl{0},\;\ovl{q},\cdots,\ovl{(r-1)q}\}$是$\mathbb{Z}_n$的一个r阶子群。\\
+\noteb{（注：由于$q$被$q=\dfrac{n}{r}$唯一确定，因此这里事实上已经说明了r阶子群的唯一性）}\\
+(唯一性）：若$K'$是$\mathbb{Z}_n$的另一个r阶子群，那么有唯一一个整数$q'$，使得有对应$\pi(q'\mathbb{Z})=K'$\\
+同理有$\dfrac{n}{q'}=r\implies q'=\dfrac{n}{r}=q\implies K=K'=\pi(q\mathbb{Z})$\\
+所以可知，r阶子群是唯一的。
+\end{proof}
+事实上，不仅循环群自身的结构性质非常清晰，其上的自同构所构成的群也具有非常清晰的结构。\\
+我们先来熟悉以下自同构群。\\
+\kfj{定义：}设G是群，定义$AutG=\{f\colon G\to G| f\text{是同构}\}$\\
+显然$AutG$在映射复合下构成一个群。我们称之为G的自同构群。\\
+\kfj{例：}不难验证，$\mathbb{Z}_2$的自同构群有且只有一个元素，就是恒等映射。即$Aut\mathbb{Z}_2=\{Id\}$\\
+\noteb{$\mathbb{Z}_2$到自身的同构f必须把单位元$\ovl{0}$映射为单位元$\ovl{0}$，由于f是双射，故剩下的对应方式唯一决定。}\\
+\kfj{定义：}在群G中考虑一类特殊的自同构，取定元素$a\in G$，定义：$\phi_a\colon G\to G,\; x\mapsto ax\inv{a}$\\
+易知：$\phi_a(xy)=axy\inv{a}=(ax\inv{a})\cdot (ay\inv{a})=\phi_a(x)\phi_a(y)$，因此可知$\phi_a$是群同态。\\
+事实上，可定义$\inv{\phi_a}=\phi_{\inv{a}}\colon G\to G,\; x\mapsto \inv{a}xa$，不难验证在集合上$\inv{\phi_a}$是$\phi_a$的逆映射\\
+于是可知$\phi_a$是双射，因而是群同构。此时我们称之为G中元素$a$所决定的内自同构。\\
+记$InnG$为群G上的内自同构全体组成的集合，不难验证，$InnG$在映射复合下也构成一个群，称之为群G的内自同构群。\\
+\kfj{命题：}设G是群，则：
+\[
+InnG\cong G/C\text{且}\; InnG\zg AutG
+\]
+\begin{proof}
+考虑映射$\posi^{*}\colon G\to AutG,\; a\mapsto \phi_a,\; \phi_a(x)=ax\inv{a}$\\
+$\forall a,b,x\in G,\; (ab)^{*}(x)=(ab)x\inv{(ab)}=a(bx\inv{b})\inv{a}=\phi_a\circ\phi_b(x)=a^{*}b^{*}(x)\implies(ab)^{*}=a^{*}b^{*}$\\
+因此可知$\posi^{*}$是群同态。\\
+易知，$Im(\posi^{*})=InnG,\; Ker(\posi^{*})=\{g\in G| g^{*}=Id\}$\\
+而$g\in Ker(\posi^{*})\iff \forall x\in G,\; gx\inv{x}=x(\text{即}gx=xg)\iff g\in C$，其中$C$是群G的中心。\\
+$\therefore Ker(\posi^{*})=C$\\
+由同态基本定理：$G/Ker(\posi^{*})\cong Im(\posi^{*})\iff G/C\cong InnG$\\
+$\forall g\in AutG,\; \forall \phi_a\in InnG,\; \forall x\in G,\; f\circ \phi_a\circ \inv{f}(x)=f(a\inv{f}(x)\inv{a})=f(a)Id(x)f(\inv{a})=f(a)x\inv{f(a)}$\\
+即$f\circ \phi_a\circ \inv{f}\in InnG\implies InnG\zg AutG$
+\end{proof}
+\kfj{性质：}
+\begin{align*}
+&(1)\text{：若}\sigma \in AutG,\text{则}\; o(\sigma(a))=o(a),\; \forall a\in G\\
+&(2)\text{：若}\sigma \in AutG,\text{则若}\;G=<S>,\;\text{那么}G=<\sigma(S)>
+\end{align*}
+\begin{proof}
+(1)：若$o(a)=n$，则$\sigma(a)^n=\sigma(a^n)=\sigma(e)=e$\\
+而对于整数k，若$\sigma(a)^k=e\iff \sigma(a^k)=e$，则由$\sigma$是同构可知$a^k=e$\\
+又由于$o(a)=n$，故$m\bigm|k\implies o(\sigma(a))=m=o(a)$\\
+(2)：$\forall g\in G$，设$g=s_1^{\varepsilon_1}\cdots s_n^{\varepsilon_n}\in <S>,\; s_i\in S,\; \varepsilon_i\in\{\pm1\}$\\
+$\therefore \sigma(g)=\sigma(s_1)^{\varepsilon_1}\cdots \sigma(s_n)^{\varepsilon_n}$\\
+由于$\sigma$是满射，故任意G中元素由如上形式$\implies G\subset<\sigma(S)>\implies G=<\sigma(S)>$\\
+\end{proof}
+\kfj{例：}$Aut\mathbb{Z}\cong\mathbb{Z}_2$
+\begin{proof}
+$\mathbb{Z}$有且仅有两个生成元，分别是$-1$和$1$\\
+$\therefore \sigma\in Aut\mathbb{Z}\implies\sigma(1)=1\text{或}\sigma(1)=(-1)$\noteb{(否则$\sigma(1)$无法生成$\mathbb{Z}$，这与自同构的性质（2）矛盾)}\\
+\[
+\begin{aligned}
+&\text{若}\sigma(1)=1,\text{则}\forall n\in \mathbb{Z},\; \sigma(n)=\sigma(\overbrace{1+\cdots +1}^n)=\overbrace{\sigma(1)+\cdots+\sigma(1)}^n=n\implies \sigma=Id\\
+&\text{若}\sigma(1)=-1,\text{则}\forall n\in \mathbb{Z},\; \sigma(n)=\sigma(\overbrace{1+\cdots +1}^n)=\overbrace{\sigma(1)+\cdots+\sigma(1)}^n=-n\implies \sigma=-Id
+\end{aligned}
+\]
+$\therefore Aut\mathbb{Z}=\{Id,-Id\}\cong \mathbb{Z}_2$\noteb{(素数阶群必为循环群，此时2是素数)}\\
+\end{proof}
+ 为了给出n阶循环群的计算方式，我们先引入一个新的群。\\
+\kfj{定义：}对于给定正整数$n$，定义$U_n=\{\text{小于}n\text{且与}n\text{互素的正整数}\}$。在上述定义的$U_n$中定义乘法：
+\[
+\forall a,b\in U_n,\; \text{做整数乘法}a\times b=x,\; \text{再做带余除法}x=pn+q,\; p\in \mathbb{Z},\; 0\leq q <n,\; \text{定义}a\cdot b=q
+\]
+由于带余除法所给出的余数$q$是唯一的，因此如此定义乘法是良好定义的。当然，对于这个“模n”的操作而言，我们也可以把它看成模n剩余类群中自然的操作。因而也可有如下定义方式：\\
+\kfj{定义：}在模n剩余类群$\mathbb{Z}_n$中，等价类$\ovl{k}$中有一个元素与整数n互素等价于该等价类中所有元素均与n互素，因而可取$\mathbb{Z}_n$的子集$U(\mathbb{Z}_n)=\{\ovl{k}\in\mathbb{Z}_n|k\text{与}n\text{互素}\}$。在上述定义的$U(\mathbb{Z}_n)$中定义乘法：
+\[
+\forall \ovl{a},\ovl{b}\in \mathbb{Z}_n,\; \text{定义}\ovl{a}\cdot \ovl{b}=\ovl{a\times b},\;\text{其中“}\times\text{”是整数乘法}
+\]
+$(a+k_1n)\times(b+k_2n)=a\times b+n(ak_2+bk_1+k_1k_2n)$，因此可知如此定义乘法是合理的。\\
+事实上，若整数$a$与$n$互素，则由整数上的Bezout定理可知：$\exists p,q\in \mathbb{Z}$，使得$pa+qn=1\iff pa=1-qn$，也就是说，在$U_n$中，$p$是$a$的逆元，在$U(\mathbb{Z}_n)$中，$\ovl{p}$是$\ovl{a}$的逆元，二者都在其上定义的乘法下构成一个群。做映射$f\colon U_n\to U(\mathbb{Z}_n),\; k\mapsto \ovl{k}$，易知该映射是即单又满的群同态，所以是群同构。特别地，有$U_n\cong U(\mathbb{Z}_n)$，我们称这个群为模n剩余类环的单位群。下文为了打字方便，均使用$U_n$代替$U(\mathbb{Z}_n)$\\
+\noteb{(注：)}如果第一次接触数论中的Bezout定理也不必着急，在这里只需要感知这个定理确实是对的即可（当然自行证明也非常好）。我们在环论的部分之中会通过$\mathbb{Z}$本身的性质，从序关系知其是欧几里得环因而Bezout定理成立，并且我们也会详细说明什么是一个环的单位群，以及单位群的一些性质。\\
+\kfj{引理：}$\ovl{m}$是$\mathbb{Z}_n$的生成元$\iff$m与n互素。
+\begin{proof}
+依Bezout定理，m与n互素等价于：$\exists p,q\in \mathbb{Z}$，使得$pm+qn=1$\\
+这又等价于：$\exists p\in \mathbb{Z}$，使得$p\cdot \ovl{m}=\ovl{1}$\noteb{(这里的意为p个$\ovl{m}$相加)}\\
+而$\ovl{1}$是$\mathbb{Z}_n$的生成元，因此可知：$<\ovl{m}>=\mathbb{Z}_n$
+\end{proof}
+\kfj{定理：}设G是n阶循环群，那么有：$AutG\cong U_n$
+\begin{proof}
+（事实上，与之前的命题同理，只需证明$Aut\mathbb{Z}_n\cong U_n$即可。）\\
+我们先来分析一下：若$\sigma$是$\mathbb{Z}_n$的自同构，那么$\sigma$把生成元打到生成元。又由于$\mathbb{Z}_n$可以只有一个生成元，因此该生成元的对应关系唯一确定自同构$\sigma$\\
+做映射$f\colon U_n\to Aut\mathbb{Z}_n,\; \ovl{m}\mapsto g_{\ovl{m}}$\\
+其中$g_{ovl{m}}\colon \mathbb{Z}_n\to\mathbb{Z}_n,\; \ovl{k}\mapsto \ovl{mk}$\\
+由于$\ovl{m}\in U_n$，故m与n互素，从而$\ovl{k}$的代表元$k$遍历整数$\mathbb{Z}$时$\ovl{mk}$遍历$\mathbb{Z}_n$\\
+同时，若$\ovl{k_1},\; \ovl{k_2}$，使得$\ovl{mk_1}=\ovl{mk_2}$，则由于$\ovl{m}$是$\mathbb{Z}_n$的生成元可知，$\ovl{k_1-k_2}=0\implies \ovl{k_1}=\ovl{k_2}\implies \phi_{\ovl{m}}$是单射\\
+$\therefore \phi_{\ovl{m}}\in Aut\mathbb{Z}_n$\\
+由此可知$f\colon U_n\to Aut\mathbb{Z}_n$是良好定义的。又易知f是单射（由最开始的分析可知）。\\
+同时，$\forall \sigma\in Aut\mathbb{Z}_n$，设$\sigma_1$是$\sigma(\ovl{1})$的某一个代表元，可知$\forall \ovl{k}\in \mathbb{Z}_n,\; \sigma(\ovl{k})=\sigma(\overbrace{\ovl{1}+\cdots +\ovl{1}}^k)=\overbrace{\sigma(\ovl{1})+\cdots +\sigma(\ovl{1})}^k=\ovl{k\sigma_1}$\\
+$\therefore\sigma=\phi_{\ovl{\sigma_1}}=\phi_{\sigma(\ovl{1})}=f(\sigma(\ovl{1}))$，由引理知，$\sigma(\ovl{1})\in U_n$\\
+$\therefore f$是满射，因而是双射。\\
+现证$f$是群同态。设$\ovl{m_1},\ovl{m_2}\in U_n$，则$f(\ovl{m_1}\cdot\ovl{m_2})=f(\ovl{m_1m_2})=\phi_{\ovl{m_1m_2}}$\\
+$\forall \ovl{k}\in \mathbb{Z}_n,\; \phi(\ovl{k})=\ovl{m_1m_2\cdot k}=\ovl{m_1\cdot m_2k}=\phi_{\ovl{m_1}}(\phi_{\ovl{m_2}}(\ovl{k}))$\\
+$\therefore f(\ovl{m_1}\cdot\ovl{m_2})=\phi_{ovl{m_1}}\circ\phi_{\ovl{m_2}}=f(\ovl{m_1})\circ f(\ovl{m_2})$\\
+所以可知f是同态。又因为f是双射，因此f是群同构。\\
+$\therefore U_n\cong Aut\mathbb{Z}_n$
+\end{proof}
+\kfj{例：}计算$Aut\mathbb{Z}_6$\\
+可知：$U_6=\{\ovl{1},\ovl{5}\}\implies Aut\mathbb{Z}_6=\{\phi_{\ovl{1}},\phi_{\ovl{5}}\}=\{Id,\phi_{\ovl{5}}\}$\\
+\kfj{例：}设p是素数，求$Aut\mathbb{Z}_{p^n}$的元素个数。\\
+可知，从1到$p^n$中p的倍数共有$p^{n-1}$个，因此$U_{p^n}$的元素个数为$p^n-p^{n-1}$个。\\
+\kfj{练习：}设$G=\mathbb{Q}/\mathbb{Z}$，求证：任取正整数n，G的n阶循环子群存在且唯一。\noteb{（望读者自证）}
+\begin{proof}
+在$\mathbb{Q}/\mathbb{Z}$中，群元素形如$\dfrac{q}{p}+\mathbb{Z}$，其中p和q互素（或$\dfrac{q}{p}$是即约真分数）。\\
+(存在性）：循环群$<\dfrac{1}{p}+\mathbb{Z}>$是$\mathbb{Q}/\mathbb{Z}$的子群，做映射$f\colon <\dfrac{1}{p}+\mathbb{Z}>\to \mathbb{Z}_p,\; k\cdot(\dfrac{1}{p}+\mathbb{Z})\mapsto \ovl{k}$\\
+易知f是群同构，因此可知$<\dfrac{1}{p}+\mathbb{Z}>$是$\mathbb{Q}/\mathbb{Z}$的p阶子群\\
+(唯一性）：易知$<\dfrac{q}{p}+\mathbb{Z}>\subset<\dfrac{1}{p}+\mathbb{Z}>$，又p和q互素，由Bezout定理，$\exists a,b\in \mathbb{Z}$，使得$ap+bq=1$\\
+此时$b\cdot (\dfrac{q}{p}+\mathbb{Z})=\dfrac{1}{p}+a+\mathbb{Z}=\dfrac{1}{p}+\mathbb{Z}\implies <\dfrac{q}{p}+\mathbb{Z}>\supset<\dfrac{1}{p}+\mathbb{Z}>$\\
+因此$<\dfrac{q}{p}+\mathbb{Z}>=<\dfrac{1}{p}+\mathbb{Z}>$
+\end{proof}
+
+\section{置换群}
+这部分我们要介绍的群我个人而言不是很喜欢，因为计算置换的乘法真的很烦，并且这类群的性质并不是很好。正因如此，置换群会给出我们之前一些“错误”推广的反例；同时，在Galois理论中会应用到置换群，因此这类群也是比较重要的。我期望读者在阅读完这部分之后，会计算置换之间的乘法，且对相应的几个结论有印象即可，完全没必要记住其证明。\\
+\kfj{定义：}对于某个n元有限集合$X=\{x_1,\cdots,x_n\}$，定义双射：$\sigma \colon X\to X,\; x_k\mapsto x_{i_k}$我们称该双射为集合X上的一个置换。\\
+此时我们可以将这个映射的对应关系写出：
+$\left\{
+\begin{array}{cccc}
+&x_1&x_2\cdots &x_n\\
+&x_{i_1}&x_{i_2}\cdots &x_{i_n}
+\end{array}
+\right\}$，我们今后有时以这个对应关系代表这个双射。\\
+事实上，每一个置换仅仅是一种对应关系，因此上述对应关系通常记为：
+\[
+\sigma=
+\left\{
+\begin{array}{cccc}
+1&2\ldots &n\\
+i_1&i_2\ldots &i_n
+\end{array}
+\right\}
+\]
+易知集合$\{1,\cdots,n\}$上的所有置换在映射复合下构成一个群，记之为$S_n$，称为n阶置换群。这个群中的运算也称为置换乘法。\\
+下面我们来计算一下置换乘法的例子\\
+\kfj{例：}
+$\sigma =
+\left \{
+\begin{array}{cccc}
+1&2&3&4\\
+3&1&2&4
+\end{array}
+\right\}
+,\; \tau=
+\left\{
+\begin{array}{cccc}
+1&2&3&4\\
+1&3&2&4
+\end{array}
+\right\}$\\
+则：$\sigma\tau=
+\left\{
+\begin{array}{cccc}
+1&2&3&4\\
+3&2&1&4
+\end{array}
+\right\}$\\
+\noteb{(注：一定要注意乘法的顺序，这里置换的乘法是映射的复合，请按照映射的复合来计算置换的乘法)}\\
+\kfj{定义：}设X是一个有限集，$\theta$是X上的一个置换，若$\exists x_{i_1}\in X,\; k\in \mathbb{Z}$，使得$\theta^k(x_{i_1})=x_{i_1}$，则称$\theta$是一个循环。\\
+$\forall 1\leq l\leq k$，记$\theta^{l-1}(x_{i_1})=x_{i_l}$，我们有时也会使用记号：$(i_1,\cdots,i_k)$来代替$
+\left\{
+\begin{array}{ccccc}
+i_1&i_2&i_3\cdots &i_k\\
+i_2&i_3&i_4\cdots &i_1
+\end{array}
+\right\}
+$\\
+特别地，$(i,j)$称作一个对换，即$(i,j)=
+\left\{
+\begin{array}{cc}
+i&j\\
+j&i
+\end{array}
+\right\}
+$\\
+\kfj{定义：}对于循环$(i_1,\cdots,i_k)$和循环$(j_1,\cdots,j_l)$，定义循环之间的相交与否：
+\[
+\begin{aligned}
+&\text{若两个集合：}\{i_1,\cdots,i_k\}\cap\{j_1,\cdots,j_l\}\neq \varnothing,\;\text{则称这两个循环是有交的}\\
+&\text{若两个集合：}\{i_1,\cdots,i_k\}\cap\{j_1,\cdots,j_l\}= \varnothing,\;\text{则称这两个循环是无交的}
+\end{aligned}
+\]
+\kfj{事实：}任意置换都可写为无交的循环之积\\
+我们考虑集合X上的任意一个置换$\theta \colon X\to X$\\
+在X上定义等价关系$\sim\colon a\sim b\iff \exists i\in \mathbb{Z}$，使得$a=\theta^i(b)$\\
+易验证这是一个等价关系，那么立即可知：$\sim$给出了X上的一个划分，且每个等价类内部可以由单个元素经过若干次置换$\theta$遍历整个等价类。于是可知，将置换$\theta$限制在每一个等价类上，就是一个循环。\\
+\kfj{事实：}两个无交循环之间的复合可交换。\noteb{(注：证明略，但是可以想象的到，两个循环施加作用的是集合的两个无交的部分，互不干扰。)}\\
+\kfj{例：}
+\[
+\theta=\left\{
+\begin{array}{cccccccc}
+1&2&3&4&5&6&7&8\\
+2&3&8&1&6&4&7&5
+\end{array}
+\right\}
+=(1,2,3,8,5,6,4)\cdot(7)
+\]
+\kfj{说明：}像上述例子中的循环有单个元素$(7)$，这说明这个映射不会改变7，事实上$(7)$不仅不会改变7，也不会改变其他元素，即恒等映射。这时就没有必要把不进行变动的元素写出来了，于是我们干脆就写做：$\theta=(1,2,3,8,5,6,4)$。但是随之而来的也会出现一个问题，就是如果我直接给出一个循环$(i_1,\cdots,i_k)$，那么它是否已经省略过恒等映射呢？这时就需要进行人为规定：我们把写做$(i_1,\cdots,i_k)$形式的循环均看成作用在正整数集$\mathbb{N}^*$上的置换，省略掉其余所有的恒等映射。\\
+如何计算（可以有相交的）循环之积？我们以两个例子来说明计算该如何进行：\\
+\kfj{例：}计算：$(5,6,4,1)\cdot(2,6,8)$\noteb{(注：这里注意以映射复合的顺序来进行计算！)}\\
+$(2,6,8)=\left\{
+\begin{array}{cccccccc}
+1&2&3&4&5&6&7&8\\
+1&6&6&4&5&8&7&2
+\end{array}\right\}$\\
+$(5,6,4,1)=\left\{
+\begin{array}{cccccccc}
+1&2&3&4&5&6&7&8\\
+5&2&3&1&6&4&7&8
+\end{array}\right\}$\\
+$(5,6,4,1)\cdot(2,6,8)=\left\{
+\begin{array}{cccccccc}
+1&2&3&4&5&6&7&8\\
+5&4&3&1&6&8&7&2
+\end{array}\right\}$\\
+\kfj{性质：}对于a,b,c,d四个不同的元素而言，有以下等式成立：
+\begin{align*}
+&(1),\;(a,b)=(b,a)\\
+&(2),\;(a,b)(c,d)=(c,d)(a,b)\\
+&(3),\;(a,c)(b,c)(a,b)(c,d)=(a,d)(b,c)
+\end{align*}
+对于前两条性质，不难看出是非常显然的，我们来验证一下第三条性质。
+\begin{proof}
+这个时候列表就略显麻烦，可以参考下面的追踪法：\\
+\[\left\{
+\begin{aligned}
+&a\to a\to b\to d\to d\\
+&b\to b\to a\to a\to c\\
+&c\to d\to d\to b\to b\\
+&d\to c\to c\to c\to a
+\end{aligned}\right.\text{每一个箭头代表经过一个置换作用}
+\]
+因此：$(a,c)\cdot(b,d)\cdot(a,b)\cdot(c,d)=
+\left\{
+\begin{array}{cccc}
+a&b&c&d\\
+d&c&b&a
+\end{array}\right\}=(a,d)(b,c)$\\
+\end{proof}
+\kfj{性质：}设$(i_1,\cdots,i_k)$，是一个循环，$\sigma$是一个置换，那么：
+\[
+\sigma(i_1,\cdots,i_k)\inv{\sigma}=(\sigma(i_1),\cdots,\sigma(i_k))
+\]
+\begin{proof}
+若$j\notin \{i_1,\cdots,i_k\}$，那么$(i_1,\cdots,i_k)(j)=j$\\
+若$\exists 1\leq s < k$，使得$j=i_s$，那么：$(i_1,\cdots,i_k)(j)=i_{s+1}$\\
+若$j=i_k$，则$(i_1,\cdots,i_k)(j)=i_{1}$\\
+(1)$\inv{\sigma}(x)\notin\{i_1,\cdots,i_k\}$时，$[\sigma(i_1,\cdots,i_k)\inv{\sigma}](x)=\sigma\circ\inv{\sigma}(x)=x$\\
+(2)$\inv{\sigma}(x)\in\{i_1,\cdots,i_{k-1}\}$时，不妨设$x=\sigma(i_s),\; 1\leq s<k$，于是有$[\sigma(i_1,\cdots,i_k)\inv{\sigma}](x)=\sigma(i_1,\cdots,i_k)(i_s)=\sigma(i_{s+1})$\\
+(3)$x=\sigma(i_k)$时，$[\sigma(i_1,\cdots,i_k)\inv{\sigma}](x)=\sigma(i_1,\cdots,i_k)(i_k)=\sigma(i_1)$\\
+因此可知：$[\sigma(i_1,\cdots,i_k)\inv{\sigma}]=(\sigma(i_1),\cdots,\sigma(i_k))$
+\end{proof}
+\kfj{定义：}若一个置换可分解为奇数个对换之积，则称为奇置换；相反若可分解为偶数个对换之积，则成为偶置换。
+\noteb{注：}（1）存在性有保证是由于任意置换均可写为无交的循环之积，而任意循环$(i_1,i_2,i_3,i_4,\cdots,i_k)=(i_1,i_2)\cdot(i_1,i_3)\cdot(i_1,i_4)\cdots(i_1,i_k)$成立。\\
+(2)分解的奇偶性唯一是由于：若将置换$\sigma$作用在$\Delta=\prod_{i<j}(x_i-x_j)$上，那么可知$\Delta$的符号仅仅与$\sigma$有关，即$\sigma(\Delta)$于$\Delta$相等时是偶置换，相差一个负号时是奇置换。因此一个置换不会既是奇置换又是偶置换。由这个性质我们也可以看出，恒等映射是一个偶置换。\\
+\kfj{定义：}易知偶置换之积仍然是偶置换。记所有$\{1,\cdots,n\}$上的偶置换为$A_n$。于是可知，$A_n$在映射复合下构成一个群，称为n阶交错群，记为$A_n<S_n$。\\
+\kfj{性质：}$A_n\zg S_n$，且$|A_n|=\dfrac{1}{2}n!$。\\
+\begin{proof}
+取定一个对换$\tau$，任取一个奇置换$\sigma$，有：$\inv{\tau}\sigma\in A_n\implies \sigma\in \tau A_n$\\
+$\therefore$可知，$S_n=A_n\cup \tau A_n\implies[S_n,A_n]=2$\\
+此时由Lagrange定理以及正规子群与商群一节中的一个推论可立即得到证明。\\
+\noteb{(注：推论就在商群的定义之后紧接着的那个例子中)}
+\end{proof}
+\kfj{新看法：}我们其实已经知道置换的奇偶性可以由$\Delta$被其作用后的符号唯一确定。因此我们可以够做如下映射：
+\[
+\tau\colon S_n\to \{\pm1\},\; \sigma\mapsto \frac{\sigma(\Delta)}{\Delta}
+\]
+即奇置换对应$-1$，偶置换对应$1$。事实上，两个奇置换相乘就变为了偶置换，两个偶置换相乘还是偶置换，一个奇置换和一个偶置换相乘就是奇置换。因此我们易知这个映射$\tau$是一个群同态，其中$\{\pm1\}$在实数乘法下构成一个群。此时我们来看$Ker\tau$，不难看出，$Ker\tau=A_n$。因此立即得到交错群在置换群中的正规性。并且由同构基本定理：
+\[
+S_n/A_n\cong \{\pm1\}\implies |S_n/A_n|=2
+\]
+于是又立即得到$|A_n|=\dfrac{1}{2}n!$。\\
+我们严格地用群同态地语言来叙述这个事实：
+\begin{proof}
+做映射：
+\[
+Sgn\colon S_n\to \{\pm 1\},\; \sigma \mapsto \frac{\sigma(\Delta)}{\Delta}
+\]
+$\forall \sigma,\; \tau\in S_n$，可知：
+\[
+Sgn(\sigma\tau)=\prod_{1\leq i<j\leq n}\frac{x_{\sigma\tau(i)}-x_{\sigma\tau(j)}}{x_i-x_j}=\prod_{1\leq i<j\leq n}\frac{x_{\sigma\tau(i)}-x_{\sigma\tau(j)}}{x_{\tau(i)}-x_{\tau(j)}}\cdot\prod_{1\leq i<j\leq n}\frac{x_{\tau(i)}-x_{\tau(j)}}{x_i-x_j}
+\]
+事实上，我们知道在每一个乘积项中，同时调换被减数的位置不会造成单个乘积项的符号变动，因此可知：
+\[
+Sgn(\sigma\tau)=\prod_{1\leq \tau(i)<\tau(j)\leq n}\frac{x_{\sigma(\tau(i))}-x_{\sigma(\tau(j))}}{x_{\tau(i)}-x_{\tau(j)}}\cdot\prod_{1\leq i<j\leq n}\frac{x_{\tau(i)}-x_{\tau(j)}}{x_i-x_j}=Sgn(\sigma)\cdot Sgn(\tau)
+\]
+因此可知$Sgn$是群同态，因而$A_n=Ker(Sgn)\zg S_n$，且由
+\[
+S_n/A_n\cong \{\pm 1\}
+\]
+知，$|S_n|/|A_n|=|\{\pm 1\}|\iff 2\cdot |A_n|=|S_n|\iff |A_n|=\dfrac{1}{2}n!$
+\end{proof}
+\kfj{定义：}设G是群，如果G除了G本身和$\{e\}$之外，没有其他的正规子群，那么称G是一个单群。\\
+\kfj{例：}p是素数，则$\mathbb{Z}_p$是单群。这是一个非常容易验证的单群。\\
+\kfj{定理：}$n\geq 5$时，$A_n$是单群。在这里，这个定理的证明由于过于枯燥以及无聊，所以省去了。如果有兴趣的读者可以自行在网上或者部分参考书上搜索这个定理的证明。\\
+\indent 之前我们陈述过两个事实：一个是任意指定群阶数的因子，不一定存在该因子阶的子群；另一个是“正规”性质不可以转递。现在我们分别对这两个命题给出例子。\\
+\kfj{命题：}设G是群，G的元素个数为n，r是n的因子。那么不一定存在G的r阶子群。\\
+对于5阶交错群$A_5$而言，可以计算得知，其元素个数为60。那么$A_5$一定不存在30阶子群，否则若记这个30阶子群为H的话，由$[A_5,H]=2$可知H是正规子群，这与$A_5$是单群矛盾。因此$A_5$不存在30阶子群。\\
+\kfj{命题：}正规性质不可以传递，即：$A\zg B,\; B\zg C$，不能得出$A\zg C$。\\
+考虑交错群$A_4$，记$K=\{Id,(1,2)(3,4),(1,3)(2,4),(1,4)(2,3)\}$。我们由对换乘积的第三条性质：任意四个不同的元素a,b,c,d都有$(a,c)(b,c)(a,b)(c,d)=(a,d)(b,c)$可知，我们将a,b,c,d以不同次序带入1,2,3,4这四个数字，那么立即借助对换乘积的第一第二条性质可得出：该群中两个非幺元素的乘积必然得出第三个非幺元素。\\
+事实上，还有：$(a,b)(c,d)(a,b)(c,d)=(a,b)(a,b)(c,d)(c,d)=Id$，因此可知$K$是$A_4$的子群。\\
+不仅如此，任取$S_4$中置换$\sigma$，有$\forall (i_1,i_2)(1_3,i_4)\in K$，$i_1,i_2,i_3,i_4$互不相同。则有：$\sigma(i_1,i_2)(1_3,i_4)\inv{\sigma}=\sigma(i_1,i_2)\inv{\sigma}\circ\sigma(i_3,i_4)\inv{\sigma}=(\sigma(i_1),\sigma(i_2))(\sigma(i_3),\sigma(i_4))$\\
+由于$\sigma$是双射，因此$\sigma(i_1),\sigma(i_2),\sigma(i_3),\sigma(i_4)$是四个互不相同的元素，因而可知$(\sigma(i_1),\sigma(i_2))(\sigma(i_3),\sigma(i_4))\in K$。特别地，取$\sigma\in A_4$，上述属于关系仍然成立。因此可知，$K$是$A_4$的正规子群，即$K\zg A_4$。事实上，这个$K$有一个名字叫Klein四元数群。\\
+再取$K$的子集$H=\{Id,(1,2)(3,4)\}$，易知$H$是$K$的子群。由于$|K|=4,\;|H|=2$，可知，$[H,K]=2$，从而看出$H$是$K$的正规子群。\\
+此时有$H\zg K,\; K\zg A_4$，但是，对于偶置换$(1,3)(1,2)\in A_4$而言，有：
+\[
+\begin{aligned}
+&[(1,3)(1,2)]\cdot[(1,2)(3,4)]\cdot\inv{[(1,3)(1,2)]}\\
+=&
+\left\{
+\begin{array}{cccc}
+1&2&3&4\\
+2&3&1&4
+\end{array}\right\}
+\cdot\left\{
+\begin{array}{cccc}
+1&2&3&4\\
+2&1&4&3
+\end{array}\right\}
+\cdot\left\{
+\begin{array}{cccc}
+2&3&1&4\\
+1&2&3&4
+\end{array}\right\}
+\\
+=&
+\left\{
+\begin{array}{cccc}
+1&2&3&4\\
+4&3&2&1
+\end{array}\right\}
+=(1,4)(2,3)\notin H
+\end{aligned}
+\]
+因此可知，$H$不是$A_4$的正规子群。
+
+\section{导群以及群的交换化}
+\kfj{定义：}设G是一个群，$a,b$是G中的两个元素，记
+\[
+[a,b]=ab\inv{a}\inv{b}
+\]
+称作元素$a$和$b$的交换子(commutator)。对于G的两个子群X和Y，记集合
+\[
+[X,Y]=<\{[x,y]|x\in X,\; y\in Y\}>
+\]
+是由所有交换子$[x,y]$生成的子群。\\
+\kfj{定义：}设G是一个群，我们称子群$[G,G]$为G的导群，记作$G'=[G,G]$。进一步的，我们再作导群$(G')'=[G',G']$，则称之为二次导群，记为$G^{(2)}$。当然我们也可以再重复作导群这个操作，归纳得到n次导群$G^{(n)}$：
+\[
+G^{(n)}=[G^{(n-1)},G^{(n-1)}]
+\]
+\indent 我们容易知道，若两个元素$a$和$b$可交换，那么他们地交换子$[a,b]=e$。也就是说，导群$G'$“专门”挑选出G中不可交换的元素对。那么自然地想法就是，我们人为地“强制”让这些交换子是单位元，那么是不是就可以把这个群变成一个交换群呢？于是我们给出下面这个定理。\\
+\kfj{定理：}对于任意一个群G，有：
+\[
+\left\{
+\begin{aligned}
+&(1)[G,G]\zg G\\
+&(2)G/[G,G]\text{是Abel群}
+\end{aligned}\right.
+\]
+\begin{proof}
+(1)：任取$g,a,b\in G$，则有：
+\[
+g[a,b]\inv{g}=gab\inv{a}\inv{b}\inv{g}=(ga\inv{g})\cdot (gb\inv{g})\cdot (g\inv{a}\inv{g})\cdot (g\inv{b}\inv{g})=[ga\inv{g},gb\inv{g}]\in [G,G]
+\]
+进一步地对于$\forall a_1,\cdots,a_n,b_1,\cdots,b_n\in G$，$\forall g\in G$，
+\[
+g\prod_{i=1}^{n}[a_i,b_i]\inv{g}=\prod_{i=1}^{n}(g[a_i,b_i]\inv{g})=\prod_{i=1}^{n}[ga_i\inv{g},gb_i\inv{g}]\in [G,G]
+\]
+由此可知$[G,G]\zg G$\\
+(2)：$\forall \ovl{x},\; \ovl{y}\in G/[G,G]$，我们有：
+\[
+\ovl{x}\cdot\ovl{y}=\ovl{xy}=xy[G,G]=yx\cdot \inv{x}\inv{y}xy[G,G]
+\]
+而$\inv{x}\inv{y}xy=[\inv{x},\inv{y}]\in [G,G]$，因此可知
+\[
+\ovl{x}\cdot\ovl{y}=yx[G,G]=\ovl{yx}=\ovl{y}\cdot\ovl{x}
+\]
+于是我们可知，$G/[G,G]$是交换群。
+\end{proof}
+\kfj{命题：}对任意一个群G而言，导群$[G,G]$是使得商群$G/H$交换的正规子群H中最小的子群。
+\begin{proof}
+若H是G的正规子群且满足$G/H$交换，那么任取$a,b\in G$，则有$\ovl{a}\ovl{b}\inv{\ovl{a}}\inv{\ovl{b}}=\ovl{0}\in G/H$，因此可知有$[a,b]=ab\inv{a}\inv{b}\in H$。所以有$[G,G]\subset H$
+\end{proof}
+                                         
+
+
+
+
+
+
+
+

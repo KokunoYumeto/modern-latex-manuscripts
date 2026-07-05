@@ -1,0 +1,215 @@
+\chapter*{Lecture01:群的定义、子群以及陪集}
+\addcontentsline{toc}{chapter}{Lecture01:群的定义、子群以及陪集}
+\stepcounter{chapter}
+
+\section{群的定义}
+
+\textbf {\underline{定义：}}设G是一个非空集合，运算$\cdot \colon G \times G \to G$\\
+若G满足：
+\[
+\text{(1)结合律：}\forall a,b,c\in G ,\; (a \cdot b)\cdot c = a \cdot (b \cdot c)
+\]
+那么称G是一个半群。更进一步地，在满足（1）的条件下，还满足：
+\[
+\text{(2)含单位元（幺元）：}\exists e \in G,\; \forall g \in G,\; e\cdot g=g\cdot e =g
+\]
+那么称G是一个幺半群。再进一步地，在满足（1）和（2）的条件下，还满足：
+\[
+\text{(3)有逆元：}\forall g \in G,\; \exists x \in G,\;\text{使得}\: x\cdot g =g\cdot x = e
+\]
+此时称每个$g$对应的$x$为$g$的逆元，记作$g^{-1}$\\
+\textbf{注：}首先，对于事先了解过一些群论的读者，可能会认为我没有提及群的封闭性。事实上，"$\cdot$"是二元运算已经保证了封闭性。其次，下面我们就会看到，在这个定义中,(2)里的单位元是唯一的，这保证了(3)的陈述是良好定义的。\\
+\textbf{\underline{性质：}}
+\begin{align*}
+&(1)\text{幺半群中单位元是唯一的}\\
+&(2)\text{群中每个元素的逆元是唯一的}
+\end{align*}
+\begin{proof}
+(1):\;设$e,e'\in G , \; \forall g\in G,\; g\cdot e =e \cdot g= e'\cdot g= g\cdot e'$于是我们有：
+\[
+e'=e\cdot e' =e
+\]
+由此可知单位元唯一。\\
+(2):\;任取$g\in G$,设$x,y \in G, \; x\cdot g=g \cdot x= y\cdot g= g\cdot y$于是我们有：
+\[
+y=y\cdot (g\cdot x)=(y\cdot g)\cdot x=e\cdot x =x
+\]
+由此可知逆元唯一
+\end{proof}
+事实上，这样的唯一性我们会经常作为默认的性质，我们常常忽视对唯一性的确认。在下面的这个命题中，我们会看到忽视唯一性会导致很严重的错误。\\
+\kfj{命题：}已知运算$\cdot \colon G \times G \to G$，则G是一个群
+$\iff
+\left\{
+\begin{aligned}
+&\forall a,b\in G ,\; \text{方程}ax=b\text{有唯一解}\\
+&\forall a,b\in G ,\; \text{方程}ya=b\text{有唯一解}
+\end{aligned}\right.$\\
+（为了方便书写，有时候我们省略运算符号"$\cdot$"）
+\begin{proof}
+$(\Rightarrow)$方向是显然的，我们只需要证明$(\Leftarrow)$方向。\\
+$\forall a,b\in G,\;$依题意：
+$\left\{
+\begin{aligned}
+&ax=a\text{有唯一解}x_1\\
+&bx=x\text{有唯一解}x_2\\
+&ya=b\text{有唯一解}y_0
+\end{aligned}\right.$
+所以有：$ax_1=a\Rightarrow y_0ax_1=y_0a\Rightarrow bx_1=b$，由解的唯一性知：$x_1=x_2$，由此我们说明了所有的元素共用同一个右单位元$e_{r}$；同理可知，所有元素共用同一个左单位元$e_{l}$。于是再由方程
+\[
+e_{l}\cdot x^{*}=e_{l}
+\]
+的唯一解为$e_{r}$可知：$e_{r}=e_{r}\cdot e_{l}=e_{l}$。由此可知G有单位元因而是一个幺半群。\\
+此时我们从方程$ax=e$和$xa=e$知，存在唯一的$x_3$和$x_4$使得$ax_3=e,\; x_4a=e$。
+然而
+\[
+ax_3=e\Rightarrow x_4ax_3=x_4\Rightarrow x_3=x_4
+\]
+由此可知，任意元素存在唯一的逆元，因此G成群。
+\end{proof}
+这样的一个等价定义我们并不经常使用，但是我们一般会把他当作群的一个重要的性质，它揭示了具有消去律也是群的本质之一。\\
+如果你跟着一起做了上面的证明，那么你可能已经对群的性质略微有一些掌握了，下面我给出几个例子方便理解。\\
+\kfj{例：}$S^1={z\in \mathbb{C}|\abs{z}=1}$是复平面内的单位圆周。其中的复数在复数乘法下构成一个群。单位元是实数1。\\
+\kfj{例：}整数$\mathbb{Z}$在整数加法下构成一个群。单位元是整数0.\\
+事实上，群这个代数结构中，结合律是非常重要的，我们就从下面这个练习来体会一下结合律的重要性。\noteb{(注：此处练习希望读者自证)}\\
+\kfj{练习：}非空集合G是半群，则有：
+\[
+G\text{是群}\iff \left\{
+\begin{aligned}
+&(1):\exists e\in G,\text{使得}\forall g\in G,\; g\cdot e=g\\
+&(2):\forall g\in G,\; \exists g'\in G,\text{使得}g\cdot g'=e
+\end{aligned}\right.
+\]
+\begin{proof}
+($\implies$)这个方向是显然的\\
+$(\impliedby)$：在(2)的条件下，若$a\cdot a=a$，则有：$(a\cdot a)\cdot a'=a\cdot a'\iff a\cdot (a\cdot a')=a\cdot a'\iff a
+\cdot e=e\iff a=e$\\
+此时，对于$\forall g\in G,\; \exists g'\in G,\text{使得}g\cdot g'=e$，我们有：$g'\cdot g=g'\cdot (g\cdot g')\cdot g=(g'\cdot g)\cdot (g'\cdot g)$。此时由上一行结论可知，$g'\cdot g=e$。\\
+$\therefore \forall g\in G,g=g\cdot (g'\cdot g)=(g\cdot g')\cdot g=e\cdot g$
+\end{proof}
+\noteb{(注：这个命题当然可以改为 G存在左单位元并且每个元素都存在左逆元，对此我就不再过多赘述了，不过注意改的时候（1）（2）两个条件要同时改。)}
+
+\section{子群以及陪集}
+
+\kfj{定义：}G是一个群，$\cdot \colon G\to G$是群G的运算。H是G的非空子集，如果运算“$\cdot$”在H上的限制构成H上的运算，即
+\[
+\cdot |_{H} \colon H\times H\to H
+\]
+且H在这个限制运算下也构成一个群，那么称H是G的子群，简记为$H< G$\\
+\kfj{定理：}（子群判别定理）H是G的子群$\iff \forall a,b\in H,\; a\cdot \inv{b}\in H$
+\begin{proof}
+$(\Rightarrow)$方向是显然的\\
+$(\Leftarrow)$：可知由于H非空，因此有
+\[
+\exists a\in H\implies e=a\cdot \inv{a}\in H\implies \forall h\in H ,\; \inv{h}=e\cdot\inv{h}\in H
+\]
+于是可知，$\forall a,b\in H,\; a\cdot b=a\cdot \inv{(\inv{b})}\in H$因此群G的运算在H上的限制也构成H上的运算。同时我们还证明了H含有单位元，且每一个元素的逆元都在H之中。我们由群的定义可知H构成一个群，从而是G的子群。
+\end{proof}
+\kfj{性质：}设G是群，$H<G,\; K<G$，那么$H\cap K<G$
+\begin{proof}
+$\forall a,\;b\in H\cap K$由于$H<G,\; K<G$，因此$a\inv{b}\in H,\; a\inv{b}\in K\implies a\inv{b}\in H\cap K$\\
+由此可知$H\cap K$是G的子群。
+\end{proof}
+我们来看几个比较重要的子群例子。\\
+\kfj{例：}设G是一个群，$A\subset G$是G的子集，
+\[
+\text{定义A的中心化子}C(A)=\{g\in G|\forall a\in A,\; ga=ag\}
+\]
+下面我们来证明中心化子是子群。
+\begin{proof}
+$\forall g\in G,\; \forall a \in A,\; ga=ag \implies \inv{g}\cdot ga\cdot\inv{g}=\inv{g}\cdot ag\cdot\inv{g}\implies \inv{g}\in C(A)$。因此可知：$\forall g_1,g_2\in C(A),\; \inv{g_2}\in C(A),$
+\[
+\therefore \forall a\in A,\; (g_1 \inv{g_2})\cdot a=g_1\cdot(\inv{g_2}a)=(g_1a)\cdot \inv{g_2}=a\cdot(g_1\inv{g_2})\implies g_1\inv{g_2}\in G
+\]
+由子群判别定理知，$C(A)$是G的子群。
+\end{proof}
+\kfj{例：}设G是一个群，S是G的子集，记$<S>$是所有包含S的子群的交集。如果$<S>$是G的子群，那么称$<S>$是G中由S生成的子群。\\
+\kfj{命题：}$<S>=\left\{a_1^{\varepsilon_1}\cdots a_n^{\varepsilon_n}|n\in \mathbb{N}^*,\; \varepsilon_i=\pm 1,\; a_i\in S\right\}$
+\begin{proof}
+$(LHS\subset RHS)$：易知RHS构成一个群，因而是G的子群。并且显然有S是RHS的子集，因此由定义可知$LHS\subset RHS$\\
+$(RHS\subset LHS)$：设$H<G$且$S\subset H$,\;$\forall y\in RHS,\; \exists a_1,\cdots,a_n\in S,\text{使得}y=a_1^{\varepsilon_1}\cdots a_n^{\varepsilon_n}$\\
+由于$\forall 1\leq i \leq n,\; a_i\in S\subset H$所以$a_1^{\varepsilon_1}\cdots a_n^{\varepsilon_n}\in H$。由H的任意性可知，$RHS\subset LHS$
+\end{proof}
+\kfj{命题：}若$H<G,K<G$那么$K\cap H<G$
+\begin{proof}
+$\forall c,b\in H\cap K$，有：
+$\left\{
+\begin{aligned}
+&a\inv{b}\in H\\
+&a\inv{b}\in K
+\end{aligned}
+\right.\implies H\cap K<G$\\
+特别地，$H\cap K$构成一个群。
+\end{proof}
+\kfj{定义：}若存在最小的自然数n，使得$a^n=e$，其中$a\in G$，e是G的单位元。则称a在G中的阶(order)$\abs{a}=n$\\
+事实上，我们可以注意到，对于a生成的循环群$<a>$，不多不少恰好有n个元素。因此$\abs{a}=\abs{<a>}$\\
+\kfj{定义：}设G是一个群，$H<G$，取$g\in G$。
+\[
+\text{记}gH=\{gh|h\in H\} ;\; Hg=\{hg|h\in H\}
+\]
+其中，称gH为G的一个左陪集，Hg成为G的一个右陪集。\\
+\kfj{定理：}(陪集相等判别定理）$H<G,\; a,b\in G$，那么$aH=bH\iff\inv{b}a\in H$
+\begin{proof}
+$(\implies)e\in H\implies ae=a\in aH=bH$因此$a\in bH\implies \exists h\in H$使得$a=bh$。所以有$\inv{b}a=h\in H$\\
+$(\impliedby)$：$\inv{b}a\in H\implies \exists h\in H$使得$\inv{b}a=h\iff a=bh$。于是有：
+\[\left\{
+\begin{aligned}
+&\text{任取}bh_1\in bH,\;\text{有}b=a\inv{h}\implies bh_1=a\inv{h}h_1\in aH \implies bH\subset aH\\
+&\text{任取}ah_2\in aH,\;\text{同理有}ah_2=a\cdot \inv{h}\cdot h\cdot h_2=a\cdot \inv{a}b\cdot h\cdot h_2=bhh_2\in bH\implies aH\subset bH
+\end{aligned}
+\right.\]
+由此可知，$aH=bH$
+\end{proof}
+\kfj{推论：}aH和bH要么相等，要么相交为空集。\\
+(注：否则$\exists ah_1\in aH,\; bh_2\in bH$使得$ah_1=bh_2$因而有：$\inv{b}a=h_2\inv{h_1}\in H\implies aH=bH$)\\
+\kfj{性质：}$|aH|=|H|$
+\begin{proof}
+做映射$f_a\colon H\to aH,\; h\mapsto ah$。易知当自变量h遍历H时可遍历$aH$，再由群中有消去律可知，$f_a(h)=f_a(h')\iff ah=ah'\iff h=h'$，于是我们知道$f_a$是双射。
+\end{proof}
+\kfj{性质总结：}
+\begin{align*}
+&(1)\ aH = bH \iff \inv{b}a \in H, & (1)'\ &Ha = Hb \iff a\inv{b} \in H \\
+&(2)\ |aH| = |bH|,  & (2)'\ &|Ha| = |Hb| \\
+&(3)\ aH \text{与} bH \text{相等或无交}; & (3)'\ &Ha \text{与} Hb \text{相等或无交}。
+\end{align*}
+下面我们将会给出第一个出现的非常重要的定理。\\
+\kfj{Lagrange定理：}设G是群，子群H在左陪集意义下给出G的一个划分\\
+\kfj{推论：}若G是有限群，H是G的子群，那么：
+\[
+\abs{H}\bigm|\abs{G},\;\text{记}[G:H]=\frac{\abs{G}}{\abs{H}}\text{称为}H\text{在}G\text{中的指数}
+\]
+\begin{proof}
+\[
+\forall g\in G,\; G\in gH\implies G=\bigcup_{g\in G}gH
+\]
+可知子群H把G分割称相互无交的区域，每一个区域就是一个陪集，同时由G是有限群，
+\[
+\implies \exists g_1\cdots g_r\in G,\; \text{使得}G=\bigcup_{i=1}^r(g_iH)
+\]
+再由每个陪集元素个数相等可知:
+\[
+\abs{G}=r\cdot \abs{H},\text{即}[G:H]=\frac{\abs{G}}{\abs{H}}
+\]
+\end{proof}
+子群对于群的划分可以如图直观理解：
+\begin{figure}[H]
+\centering
+\fbox{\includegraphics[height=5cm]{figures/Lagrange.jpg}}
+\caption*{(子群对于群的划分)}
+\end{figure}
+\indent 事实上，所有左陪集构成的商集与所有右陪集构成的商集等势。
+\begin{proof}
+做$\theta\colon \{gH|g\in H\}\to \{Hg|g\in H\},\;gH\mapsto H\inv{g}$。我们知道$aH=bH\iff \inv{b}a\in H\iff \inv{b}\inv{\inv{a}}\in H\iff H\inv{a}=H\inv{b}$。因此可知所定义的$\theta$不仅是良定义的，还是一个单射。而易知$\theta$是满射，因而是双射
+\end{proof}
+\kfj{命题：}$\left\{
+\begin{aligned}
+&(1):\abs{a}\bigm|\abs{G}\\
+&(2)\text{若}\abs{G}\text{是素数，则G是循环群}
+\end{aligned}
+\right.$
+\begin{proof}
+(1):可知，$\abs{a}=\abs{<a>}$而$<a>$是G的子群，于是由Lagrange定理可知，$\abs{a}\bigm|\abs{G}$\\
+(2):取$g\in G,\; g\ne e$，那么$<g>$是G的子群$\implies \abs{<g>}\bigm|\abs{G}$，又由于G是素数阶群，且$g\ne e$，所以$\abs{<g>}=\abs{G}\implies <g>=G$。所以G是循环群。
+\end{proof}
+(初稿本节后续还有两道习题，但是我觉得仅仅拿这部分内容直接来出习题与群论的精神相悖，所以我把他们删去了。如果想加深对这部分知识的印象的话也不用着急，我认为后面的证明看多了自然也就熟悉了。）
+
+

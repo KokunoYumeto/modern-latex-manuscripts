@@ -1,0 +1,244 @@
+\documentclass[lang=cn,newtx,10pt,scheme=chinese,thmcnt=section]{elegantbook}
+
+\title{Advanced Alegebra Notes}
+\author{Dengyu Li}
+\date{\today}
+\version{1.0}
+
+\setcounter{tocdepth}{3}
+
+\usepackage{array}
+\newcommand{\ccr}[1]{\makecell{{\color{#1}\rule{1cm}{1cm}}}}
+
+\usepackage{cprotect}
+
+%% personalized settings
+\usepackage{tocloft}
+
+\renewcommand{\cftsecpresnum}{\S\ }   % 目录中 section 编号前加 §
+\renewcommand{\cftsecaftersnum}{}     % 编号后不额外加东西
+\addtolength{\cftsecnumwidth}{1.5em}  % 给前面的符号留出宽度
+
+\numberwithin{equation}{section}
+\usepackage{empheq}
+
+\newcounter{propertycnt}[section]
+\renewcommand{\thepropertycnt}{\thesection.\arabic{propertycnt}}
+
+\newenvironment{numberedproperty}{
+  \refstepcounter{propertycnt}
+  \par\noindent\textbf{\color{third}性质~\thepropertycnt}\quad\citshape
+}{
+  \par
+}
+
+\begin{document}
+
+\maketitle
+\frontmatter
+
+\tableofcontents
+
+\mainmatter
+
+\chapter{行列式}
+
+\section{二阶行列式}
+设有二元一次方程组：
+\begin{equation}
+\begin{cases}
+a_{11}x_1 + a_{12}x_2 = b_1 \\
+a_{21}x_1 + a_{22}x_2 = b_2
+\end{cases}
+\end{equation}
+用$a_{22}$乘以第一式的两边，用$a_{12}$乘以第二式的两边，然后相减，得：
+\[
+(a_{11}a_{22}-a_{12}a_{21})x_1 = b_1a_{22}-b_2a_{12}
+\]
+于是
+\[
+x_1 = \frac{b_1a_{22}-b_2a_{12}}{a_{11}a_{22}-a_{12}a_{21}}
+\]
+用类似的办法消去$x_1$，得：
+\[ 
+x_2 = \frac{b_2a_{11}-b_1a_{21}}{a_{11}a_{22}-a_{12}a_{21}}
+\]
+注意到分母$a_{11}a_{22}-a_{12}a_{21}$是一个重要的量，它在行列式中有着重要的作用。于是我们引入二阶行列式如下：
+\[  
+\begin{vmatrix}
+a_{11} & a_{12} \\
+a_{21} & a_{22}
+\end{vmatrix} = a_{11}a_{22}-a_{12}a_{21}
+\]
+则上述解可以用行列式表示：
+\begin{equation}
+x_1 = \frac{\begin{vmatrix}b_1 & a_{12} \\
+b_2 & a_{22}\end{vmatrix}}{\begin{vmatrix}a_{11} & a_{12} \\ a_{21} & a_{22}\end{vmatrix}}, \quad
+x_2 = \frac{\begin{vmatrix}a_{11} & b_1 \\ a_{21} & b_2\end{vmatrix}}{\begin{vmatrix}a_{11} & a_{12} \\ a_{21} & a_{22}\end{vmatrix}}
+\end{equation}
+\begin{definition}
+    二阶行列式的定义为：
+    \[|A| = 
+    \begin{vmatrix}
+    a_{11} & a_{12} \\
+    a_{21} & a_{22}
+    \end{vmatrix} = a_{11}a_{22}-a_{12}a_{21}
+    \]
+
+\end{definition}
+\newpage
+
+\section{三阶行列式}
+设有三元一次方程组：
+\begin{empheq}[left=\empheqlbrace]{align}
+a_{11}x_1 + a_{12}x_2 + a_{13}x_3 = b_1 \\
+a_{21}x_1 + a_{22}x_2 + a_{23}x_3 = b_2 \\
+a_{31}x_1 + a_{32}x_2 + a_{33}x_3 = b_3
+\end{empheq}
+我们采用待定系数消元法，即对$(1.2.3)$乘以$u$，$(2.2.3)$乘以$v$，$(3.2.3)$乘以$w$，然后三式相加，消去$x_2$和$x_3$，得到：
+\begin{empheq}[left=\empheqlbrace]{align}
+&(a_{11}u + a_{21}v + a_{31}w)x_1 = b_1u + b_2v + b_3w \\
+&a_{12}u + a_{22}v + a_{32}w = 0 \\
+&a_{13}u + a_{23}v + a_{33}w = 0
+\end{empheq}
+对于$(1.2.5)$和$(1.2.6)$,我们把$a_{32}w$和$a_{33}w$移到右边，再除以w得到关于$\dfrac{u}{w}$和$\dfrac{v}{w}$的二元一次方程组：
+\begin{equation}
+\begin{cases}
+a_{12}\dfrac{u}{w} + a_{22}\dfrac{v}{w} = -a_{32} \\
+a_{13}\dfrac{u}{w} + a_{23}\dfrac{v}{w} = -a_{33}
+\end{cases}
+\end{equation}
+由1.1节的结论可知，(1.2.7)的解为：
+\[
+\dfrac{u}{w} = \frac{\begin{vmatrix}-a_{32} & a_{22} \\ -a_{33} & a_{23}\end{vmatrix}}{\begin{vmatrix}a_{12} & a_{22} \\ a_{13} & a_{23}\end{vmatrix}}, \quad
+\dfrac{v}{w} = \frac{\begin{vmatrix}a_{12} & -a_{32} \\ a_{13} & -a_{33}\end{vmatrix}}{\begin{vmatrix}a_{12} & a_{22} \\ a_{13} & a_{23}\end{vmatrix}}
+\]
+令$u=$$\begin{vmatrix}a_{22} & a_{23} \\ a_{32} & a_{33}\end{vmatrix}$, $v=-$ $\begin{vmatrix}a_{12} & a_{13} \\ a_{32} & a_{33}\end{vmatrix}$, $w=$ $\begin{vmatrix}a_{12} & a_{13} \\ a_{22} & a_{23}\end{vmatrix}$,再由1.1节二阶行列式的定义可知：
+\[
+x_1=\frac{b_1u + b_2v + b_3w}{a_{11}u + a_{21}v + a_{31}w} = \frac{\begin{vmatrix}b_1 & a_{12} & a_{13} \\ b_2 & a_{22} & a_{23} \\ b_3 & a_{32} & a_{33}\end{vmatrix}}{\begin{vmatrix}a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33}\end{vmatrix}}
+\]
+\[
+\begin{vmatrix}
+    a_{11} & a_{12} & a_{13} \\ a_{21} & a_{22} & a_{23} \\ a_{31} & a_{32} & a_{33} 
+\end{vmatrix} = a_{11}\begin{vmatrix}a_{22} & a_{23} \\ a_{32} & a_{33}\end{vmatrix} - a_{12}\begin{vmatrix}a_{21} & a_{23} \\ a_{31} & a_{33}\end{vmatrix} + a_{13}\begin{vmatrix}a_{21} & a_{22} \\ a_{31} & a_{32}\end{vmatrix}
+\]
+\begin{definition}
+    三阶行列式的递归定义为：
+    \[|A| = 
+    \begin{vmatrix}
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+    \end{vmatrix}
+    = a_{11}\begin{vmatrix}a_{22} & a_{23} \\ a_{32} & a_{33}\end{vmatrix} - a_{12}\begin{vmatrix}a_{21} & a_{23} \\ a_{31} & a_{33}\end{vmatrix} + a_{13}\begin{vmatrix}a_{21} & a_{22} \\ a_{31} & a_{32}\end{vmatrix}
+    \]
+\end{definition}
+\newpage
+
+\section{$n$阶行列式}
+    由两条竖线围成的n行n列的元素组成的式子(数值)称为n阶行列式，记为：
+    \begin{equation}
+    |A| = 
+    \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+    \end{vmatrix}
+    \end{equation}
+    称第i行为：$a_{i1}, a_{i2}, \cdots, a_{in}$，第j列为：$a_{1j}, a_{2j}, \cdots, a_{nj}$，称$a_{ij}$为行列式的元素。\\
+    元素$a_{11}, a_{22}, \cdots, a_{nn}$称为行列式的主对角线元素，$a_{1n}, a_{2,n-1}, \cdots, a_{n1}$称为行列式的副对角线元素。
+    \begin{definition}
+        定义元素$a_{ij}$的余子式为$M_{ij}$为由行列式$|A|$中去掉第$i$行和第$j$列后得到的$(n-1)$阶行列式：
+        \[M_{ij} =\begin{vmatrix}
+            a_{11} & \cdots & a_{1,j-1} & a_{1,j+1} & \cdots & a_{1n} \\
+            \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            a_{i-1,1} & \cdots & a_{i-1,j-1} & a_{i-1,j+1} & \cdots & a_{i-1,n} \\
+            a_{i+1,1} & \cdots & a_{i+1,j-1} & a_{i+1,j+1} & \cdots & a_{i+1,n} \\
+            \vdots & \ddots & \vdots & \vdots & \ddots & \vdots \\
+            a_{n1} & \cdots & a_{n,j-1} & a_{n,j+1} & \cdots & a_{nn}
+        \end{vmatrix}\]
+    \end{definition}
+    \begin{definition}
+        当$n=1$时，$(1.3.1)$的值为$|A| = a_{11}$，现假设对$n-1$阶行列式已经定义了它们的值，则对$\forall i,j,M_{ij}$的值已经定义，定义n阶行列式$|A|$的值为：
+        \begin{equation}
+        |A| = a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{1+n}a_{1n}M_{1n}
+        \end{equation}
+    \end{definition}
+    对于任一自然数$n$，$(1.3.2)$式给出了一个计算$n$阶行列式的方法：将$n$阶行列式展开为$n$个$(n-1)$阶行列式的代数和，再化$n-1$阶行列式为$n-2$阶行列式，以此类推，直到计算出$|A|$行列式的值。
+    为了使$(1.3.2)$式更为简洁，我们引进代数余子式的概念
+    \begin{definition}
+    定义元素$a_{ij}$的代数余子式为：
+    \[
+        A_{ij} = (-1)^{i+j}M_{ij}
+    \]
+    其中$M_{ij}$为$a_{ij}$的余子式\\
+    用代数余子式，$(1.3.2)$式可以写为：
+    \begin{equation}
+        |A| = a_{11}A_{11} + a_{12}A_{12} + \cdots + a_{1n}A_{1n}
+    \end{equation}
+    \end{definition}
+    \begin{numberedproperty}
+        对于任意的$n$阶行列式$|A|$，且：
+        \[
+            |A_1| = \begin{vmatrix}
+                a_{11} & a_{12} & \cdots & a_{1n} \\
+                0 & a_{22} & \cdots & a_{2n} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                0 & 0 & \cdots & a_{nn}
+            \end{vmatrix},
+            \text{或}\quad
+            |A_2| = \begin{vmatrix}
+                a_{11} & 0 & \cdots & 0 \\
+                a_{12} & a_{22} & \cdots & a_{n2} \\
+                \vdots & \vdots & \ddots & \vdots \\
+                a_{1n} & a_{2n} & \cdots & a_{nn}
+            \end{vmatrix}
+        \]
+        则$|A_1|,|A_2| = a_{11}a_{22}\cdots a_{nn}$，即行列式的值等于主对角线元素的乘积。
+    \end{numberedproperty}
+
+    \begin{proof}
+        我们称上式中左边的行列式为上三角行列式(这时$a_{ij} = 0 , \forall i > j$),称右边的行列式为下三角行列式(这时$a_{ij} = 0 , \forall j > i$)，现在用数学归纳法分别证明上述结论。\\
+        First(上三角行列式):\\
+        当n=1时，结论显然成立。假设上述结论对$n-1$阶行列式成立，既证$n$阶行列式的情形。\\
+        由定义1.3.2可知：
+        \[|A_1|=a_{11}M_{11}\]
+        其中$M_{11}$为$n-1$阶上三角行列式，由归纳假设可知：
+        \[M_{11} = a_{22}a_{33}\cdots a_{nn}\]
+        因此：
+        \[|A_1| = a_{11}a_{22}a_{33}\cdots a_{nn}\]证毕。\\
+        Second(下三角行列式):\\
+        由定义$1.3.2$可知：
+        \[|A_2| = a_{11}M_{11} - a_{12}M_{12} + \cdots + (-1)^{1+n}a_{1n}M_{1n}\]
+        考虑余子式$M_{k1}(1 \le k \le n)$,设$M_{k1}=(b_{ij})$其为$n-1$阶行列式，则
+        \[
+            b_{ij} = 
+            \begin{cases}
+                a_{i,j+1}, & 1 \le i \le k-1\\
+                a_{i+1,j+1}, & k \le i \le n
+            \end{cases}
+        \]
+        由下三角行列式的定义：对于$\forall i > j, a_{ij} = 0$。而对于$b_{ij}$,无论$k$取何值，其都满足$\forall i > j, b_{ij} = a_{i(j+1)} $ 或 $ a_{(i+1)(j+1)}= 0$，因此$M_{k1}$为$n-1$阶下三角行列式，于是有下列断言。\\
+        
+        \begin{proposition}
+            当$k \ge 2$时，$M_{k1}$总有一个主对角线元素为0，其递归展开后的值也必为0。
+        \end{proposition}
+        \begin{proof}
+            当$k \ge 2$时, $b_{\,(k-1)(k-1)} = a_{(k-1)k} $，而由下三角行列式的定义，$a_{(k-1)k} = 0$一定成立，因此$M_{k1}$总有一个主对角线元素为0，由定义$1.3.2$可知，故其递归展开后值必为0
+        \end{proof}
+        由归纳假设可知，$M_{k1} = 0( k \ge 2)$，$M_{11}= a_{22}a_{33}\cdots a_{nn}$，因此：$|A_2| = a_{11}M_{11} = a_{11}a_{22}a_{33}\cdots a_{nn}$，证毕。\\
+
+
+        
+
+
+    \end{proof}
+
+    \begin{numberedproperty}\label{pro:det-one}
+        
+    \end{numberedproperty}
+
+\chapter{矩阵}
+
+\end{document}
