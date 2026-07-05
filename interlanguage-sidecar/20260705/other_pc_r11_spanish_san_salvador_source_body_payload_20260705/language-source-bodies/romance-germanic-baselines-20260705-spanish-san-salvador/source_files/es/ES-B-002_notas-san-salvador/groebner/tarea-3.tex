@@ -1,0 +1,612 @@
+\documentclass{article}
+
+\def\exercisespersection{}
+\input{../definitions.tex}
+
+\usepackage{fullpage}
+
+\theoremstyle{definition}
+\newtheorem{ejerc}{Ejercicio}
+\newenvironment{solucion}{\begin{proof}[Solución]}{\end{proof}}
+
+\def\mystrut(#1,#2){\vrule height #1 depth #2 width 0pt}
+
+\newcolumntype{f}[1]{%
+>{\mystrut(3ex,2ex)\centering}%
+p{#1}%
+<{}}
+
+\begin{document}
+
+\mybanner{Álgebra computacional. Tarea 3. Fecha límite: 03/05/2019}{Universidad de El Salvador, ciclo impar 2019}
+
+\section*{Más bases de Gröbner}
+
+\begin{ejerc}
+  Consideremos el ideal
+  $$I = (x^3 y - z, \, y^2 - z - 1, \, x^2 + 1) \subset k[x,y,z].$$
+
+  \begin{enumerate}
+  \item[1)] Usando la computadora, encuentre una base de Gröbner para $I$
+    respecto al orden lexicográfico. Encuentre la base monomial correspondiente
+    para $k[x,y,z]/I$ como un espacio vectorial sobre $k$.
+
+  \item[2)] La misma pregunta para el orden graduado lexicográfico.
+
+  \item[3)] Compile las tablas de multiplicación en $k[x,y,z]/I$ respecto a
+    estas dos bases.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Respecto al orden lexicográfico, se obtiene
+    $$G = \{ x+yz+y, \, y^2-z-1, \, z^2+z+1 \}.$$
+    Entonces,
+    $$(LT (I)) = (LT (G)) = (x, y^2, z^2).$$
+    Esto nos da la base monomial
+    $$1, \, y, \, z, \, yz.$$
+
+    La tabla de multiplicación correspondiente viene dada por
+    \begin{center}
+\begin{tabular}{f{1.25cm}|f{1.25cm}|f{1.25cm}|f{1.25cm}|f{1.25cm}}
+$\cdot$ & $1$ & $y$ & $z$ & $yz$ \tabularnewline
+\hline
+$1$ & $1$ & $y$ & $z$ & $yz$ \tabularnewline
+\hline
+$y$ & $y$ & $z+1$ & $yz$ & $-1$ \tabularnewline
+\hline
+$z$ & $z$ & $yz$ & $-z-1$ & $-yz - y$ \tabularnewline
+\hline
+$yz$ & $yz$ & $-1$ & $-yz - y$ & $-z$ \tabularnewline
+\end{tabular}
+    \end{center}
+    (Todo esto se calcula tomando los restos de división $\overline{f}^G$.)
+
+    Ahora respecto al orden graduado lexicográfico, se tiene
+    $$G = \{ x^2+1, \, xy+z, \, xz-y, \, y^2-z-1, \, yz+x+y, \, z^2+z+1 \}.$$
+    Entonces,
+    $$(LT (I)) = (LT (G)) = (x^2, \, xy, \, xz, \, y^2, \, yz, \, z^2).$$
+    La base monomial correspondiente es
+    $$1, \, x, \, y, \, z,$$
+    y la tabla de multiplicación viene dada por
+
+    \begin{center}
+\begin{tabular}{f{1.25cm}|f{1.25cm}|f{1.25cm}|f{1.25cm}|f{1.25cm}}
+$\cdot$ & $1$ & $x$ & $y$ & $z$ \tabularnewline
+\hline
+$1$ & $1$ & $x$ & $y$ & $z$ \tabularnewline
+\hline
+$x$ & $x$ & $-1$ & $-z$ & $y$ \tabularnewline
+\hline
+$y$ & $y$ & $-z$ & $z+1$ & $-x-y$ \tabularnewline
+\hline
+$z$ & $z$ & $y$ & $-x - y$ & $-z-1$ \tabularnewline
+\end{tabular}
+    \end{center}
+
+    En particular, se ve que diferentes órdenes monomiales nos dan diferentes
+    bases monomiales.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que las siguientes condiciones son equivalentes:
+
+  \begin{enumerate}
+  \item[a)] $\dim_k (k [x_1,\ldots,x_n]/I) < \infty$;
+
+  \item[b)] $\#\{ x^\alpha \mid x^\alpha \notin (LT (I)) \} < \infty$;
+
+  \item[c)] para todo $i = 1,\ldots,n$ existe $\alpha_i \ge 0$ tal que
+    $x_i^{\alpha_i} \in (LT (I))$;
+
+  \item[d)] si $G$ es una base de Gröbner para $I$, entonces para todo
+    $i = 1,\ldots,n$ existe $\alpha_i \ge 0$ tal que $x_i^{\alpha_i} = LM (g)$
+    para algún $g\in G$.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Los monomios $x^\alpha \notin (LT (I))$ forman una base de
+    $k [x_1,\ldots,x_n]/I$ como un espacio vectorial sobre $k$, así que a) y b)
+    son equivalentes. Luego, si para todo $i$ existe $\alpha_i$ tal que
+    $x_i^{\alpha_i} \in (LT (I))$, entonces el número de monomios tales que
+    $x^\beta \notin (LT (I))$ es finito: si
+    $x^\beta = x_1^{\beta_1}\cdots x_n^{\beta_n} \notin (LT (I))$, entonces
+    necesariamente $\beta_i < \alpha_i$. Esto demuestra la implicación
+    {c)$\Rightarrow$b)}. La otra implicación {b)$\Rightarrow$c)} es evidente.
+
+    En fin, relacionemos todo con la condición d). Para una base de Gröbner
+    $G = \{ g_1, \ldots, g_s \}$ tenemos
+    $$(LT (I)) = (LM (g_1), \ldots, LM (g_s)),$$
+    así que
+    \[ x_i^{\beta_i} \in (LT (I)) \iff
+       LM (g) \mid x_i^{\beta_i} \text{ para algún }g\in G \iff
+       x_i^{\alpha_i} = LM (g)\text{ para }g\in G, \, \alpha_i \le \beta_i. \]
+    Esto establece la equivalencia entre c) y d).
+\end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que $\dim_k (k [x_1,\ldots,x_n]/I) < \infty$ si y solamente si
+  $I \cap k [x_i] \ne 0$ para todo $i = 1,\ldots,n$.
+
+  \noindent \emph{Sugerencia: use el ejercicio anterior y el orden lexicográfico
+    con $x_j \succ x_i$ para todo $j \ne i$.}
+
+  \ifdefined\solutions\begin{solucion}
+    Recordemos que una base de Gröbner para $I \cap k [x_i]$ respecto al orden
+    lexicográfico puede ser obtienida a partir de una base de Gröbner para $I$
+    respecto al orden lexicográfico con $x_j \succ x_i$ para $j \ne i$. La
+    condición $I \cap k[x_i] \ne 0$ quiere decir que en tal base de Gröbner para
+    $I$ existe un polinomio $g \in G \cap k [x_i]$. En particular,
+    $LM (g) = x_i^{\alpha_i}$. Si esto se cumple para todo $i$, entonces
+    $\dim_k (k [x_1,\ldots,x_n]/I) < \infty$ por la condición d) del ejercicio
+    anterior.
+
+    Viceversa, si $\dim_k (k [x_1,\ldots,x_n]/I) < \infty$, entonces para todo
+    $i$ existe $g \in G$ tal que $LM (g) = x_i^{\alpha_i}$, pero puesto que el
+    orden es lexicográfico con $x_j \succ x_i$ para $j \ne i$, esto implica que
+    $g \in I \cap k [x_i]$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Consideremos el ideal
+  $$I = (x^3 y - z, \, y^2 - z - 1, \, x^2 + 1) \subset k[x,y,z].$$
+  Usando Macaulay2, encuentre generadores de los ideales principales
+  $$I \cap k[x], \quad I \cap k[y], \quad I \cap k[z].$$
+
+  \ifdefined\solutions\begin{solucion}
+    Los cálculos en Macaulay2 nos dan lo siguiente.
+
+    \begin{framed}\small
+\begin{verbatim}
+i1 : R = QQ[x,y,z];
+
+i2 : I = ideal (x^3*y - z, y^2 - z - 1, x^2 + 1);
+
+o2 : Ideal of R
+
+i3 : eliminate ({y,z},I)
+
+            2
+o3 = ideal(x  + 1)
+
+o3 : Ideal of R
+
+i4 : eliminate ({x,z},I)
+
+            4    2
+o4 = ideal(y  - y  + 1)
+
+o4 : Ideal of R
+
+i5 : eliminate ({x,y},I)
+
+            2
+o5 = ideal(z  + z + 1)
+
+o5 : Ideal of R
+\end{verbatim}
+    \end{framed}
+
+    Entonces,
+    \[ I \cap k [x] =
+       (x^2+1), \quad I \cap k [y] =
+       (y^4 - y^2 + 1), \quad I \cap k [z] =
+       (z^2 + z  + 1). \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que en $k [x_1,\ldots,x_n]$ se cumple
+  $$(f) \cap (g) = (\mcm (f,g)).$$
+
+  \ifdefined\solutions\begin{solucion}
+    El anillo de polinomios $k [x_1,\ldots,x_n]$ es un dominio de ideales
+    principales, así que siempre existe
+    $$\mcm (f,g) = \prod_p p^{\max (v_p (f), v_p (g))},$$
+    donde el producto es sobre todos los polinomios irreducibles
+    $p \in k [x_1,\ldots,x_n]$ no asociados entre sí.  Puesto que
+    $f \mid \mcm (f,g)$ y $g \mid \mcm (f,g)$, tenemos
+    $$(\mcm (f,g)) \subseteq (f), \quad (\mcm (f,g)) \subseteq (g).$$
+    Ahora si tenemos $I \subseteq (f) \cap (g)$, entonces todo polinomio
+    $h \in I$ cumple $f \mid h$ y $g \mid h$, y luego $\mcm (f,g) \mid h$. Esto
+    demuestra la inclusión $I \subseteq (\mcd (f,g))$. Entonces, $(\mcd (f,g))$
+    es el máximo ideal contenido en $(f)$ y $(g)$, así que
+    \[ (\mcd (f,g)) = (f) \cap (g). \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+El orden lexicográfico que hemos usado en el teorema de eliminación no es muy
+bueno en práctica. En los siguientes ejercicios vamos a investigar otro orden
+que también funciona y suele ser mejor en los cálculos.
+
+\begin{ejerc}
+  Para $1 \le \ell \le n$ consideremos la relación sobre los monomios en
+  $k [x_1,\ldots,x_n]$
+  $$x^\alpha \prec_\ell x^\beta \iff \left\{\begin{array}{c}
+\alpha_1+\cdots+\alpha_\ell < \beta_1+\cdots+\beta_\ell \\
+\text{ o bien }\\
+\alpha_1+\cdots+\alpha_\ell = \beta_1+\cdots+\beta_\ell \text{ y } \alpha\prec_{grevlex} \beta \\
+\end{array}\right\}$$
+
+  \begin{enumerate}
+  \item[1)] Demuestre que $\prec_\ell$ es un orden monomial.
+
+  \item[2)] Demuestre que para un ideal $I \subseteq k [x_1,\ldots,x_n]$, si $G$
+    es una base de Gröbner respecto al orden $\prec_\ell$, entonces,
+    $G \cap k [x_{\ell+1},\ldots,x_n]$ es una base de Gröbner para
+    $I \cap k [x_{\ell+1},\ldots,x_n]$ respecto al orden grevlex.
+  \end{enumerate}
+
+  Este orden monomial puede ser especificado en Macaulay2 como
+  \begin{center}
+    \texttt{MonomialOrder=>Eliminate $\ell$}
+  \end{center}
+
+  \ifdefined\solutions\begin{solucion}
+    La parte 1) es una verificación directa. En la parte 2), basta revisar
+    nuestra prueba para la eliminación ${I \cap k [x_{\ell+1},\ldots,x_n]}$
+    respecto al orden lexicográfico. Allí lo único que usamos del orden monomial
+    es la siguiente propiedad: si las variables $x_1,\ldots,x_\ell$ no aparecen
+    en $LT (g)$, entonces estas tampoco aparecen en otros términos de $g$. El
+    orden $\prec_\ell$ cumple la misma propiedad, así que el mismo argumento
+    funciona palabra por palabra.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Consideremos el ideal
+  $$I = (t^2 + x^2 + y^2 + z^2, \, t^2 + 2 x^2 - xy - z^2, \, t + y^3 - z^3) \subset \QQ [t,x,y,z].$$
+
+  \begin{enumerate}
+  \item[1)] Calcule en Macaulay2 la base de Gröbner reducida de $I$ respecto al
+    orden lexicográfico. Encuentre la base de Gröbner correspondiente para
+    $I \cap \QQ [x,y,z]$.
+
+  \item[2)] Haga el mismo cálculo para el orden $\prec_1$ del ejercicio anterior
+    (es decir, $\prec_\ell$ con $\ell = 1$). Encuentre la base de Gröbner
+    correspondiente para $I \cap \QQ [x,y,z]$.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    La base de Gröbner respecto al orden lexicográfico es bastante grande:
+
+    \begin{framed}\small
+\begin{verbatim}
+i1 : R = QQ[t,x,y,z, MonomialOrder=>Lex];
+
+i2 : I = ideal (t^2+x^2+y^2+z^2, t^2+2*x^2-x*y-z^2, t+y^3-z^3);
+
+o2 : Ideal of R
+
+i3 : groebnerBasis I
+
+o3 = | y12-4y9z3+5y8+6y6z6+6y6z2-10y5z3+5y4-4y3z9-12y3z5+5y2z6+13y2z2+z12+6z8+9z4
+     -----------------------------------------------------------------------------
+     xz6+3xz2-y11+4y8z3-5y7-5y5z6-3y5z2+10y4z3-5y3+2y2z9+6y2z5-3yz6-7yz2
+     -----------------------------------------------------------------------------
+     xy+y6-2y3z3+2y2+z6+3z2 x2+y6-2y3z3+y2+z6+z2 t+y3-z3 |
+
+             1       5
+o3 : Matrix R  <--- R
+\end{verbatim}
+    \end{framed}
+
+    Aquí solo el último polinomio $t+y^3-z^3$ contiene $t$. Hagamos ahora el
+    mismo cálculo para el orden $\prec_1$.
+
+    \begin{framed}\small
+\begin{verbatim}
+i1 : R = QQ[t,x,y,z, MonomialOrder=>Eliminate 1];
+
+i2 : I = ideal (t^2+x^2+y^2+z^2, t^2+2*x^2-x*y-z^2, t+y^3-z^3);
+
+o2 : Ideal of R
+
+i3 : groebnerBasis I
+
+o3 = | x2-xy-y2-2z2 y6-2y3z3+z6+xy+2y2+3z2 t+y3-z3 |
+
+             1       3
+o6 : Matrix R  <--- R
+\end{verbatim}
+    \end{framed}
+
+    Esto nos da una base de $I \cap k[x,y,z]$ respecto al orden grevlex
+    \[ G = (x^2-xy-y^2-2z^2, \, y^6-2y^3z^3+z^6+xy+2y^2+3z^2). \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\ifdefined\solutions\pagebreak\fi
+
+\section*{Conjuntos algebraicos}
+
+\begin{ejerc}
+  Describa la unión de los $n$ ejes de coordenadas en $\AA^n (k)$ como un
+  conjunto algebraico.
+
+  \ifdefined\solutions\begin{solucion}
+    El $i$-ésimo eje de coordenadas es el conjunto
+    \[ \{ (a_1,\ldots,a_n) \mid a_j = 0 \text{ para }j \ne i \} =
+       \bigcap_{j\ne i} \mathbf{V} (x_j) =
+       \mathbf{V} (x_1, \ldots, \widehat{x_i}, \ldots, x_n). \]
+    La unión de los ejes es
+    \[ \bigcup_{1 \le i \le n} \mathbf{V} (x_1, \ldots, \widehat{x_i}, \ldots, x_n) =
+       \mathbf{V} \Bigl(\bigcap_i (x_1, \ldots, \widehat{x_i}, \ldots, x_n)\Bigr). \]
+    La intersección de los ideales monomiales
+    $(x_1, \ldots, \widehat{x_i}, \ldots, x_n)$ fue calculada en la primera
+    tarea. Tenemos entonces
+    \[ \mathbf{V} (x_i x_j \mid 1 \le i < j \le n). \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que si $k$ es un cuerpo infinito, entonces la topología de Zariski
+  sobre $\AA^2 (k)$ es más fina que la topología producto sobre
+  $\AA^1 (k) \times \AA^1 (k)$.
+
+  \ifdefined\solutions\begin{solucion}
+    Primero notamos que si $k$ es un cuerpo finito, entonces la topología sobre
+    $\AA^1 (k)$, $\AA^1 (k) \times \AA^1 (k)$ y $\AA^2 (k)$ es discreta, así que
+    la hipótesis de que $k$ es infinito es importante.
+
+    Los conjuntos cerrados en $\AA^1 (k)$ son ceros de polinomios $f \in k [x]$,
+    así que son finitos o coinciden con todo $\AA^1 (k)$. Si $k$ es infinito,
+    esto implica que para cualesquiera $U_1, U_2 \subset \AA^1 (k)$ abiertos no
+    vacíos se tiene $U_1 \cap U_2 \ne \emptyset$, y en particular $\AA^1 (k)$ no
+    es Hausdorff.
+
+    Para dos polinomios $f \in k [x_1]$ y $g \in k [x_2]$ podemos identificar
+    \[ \mathbf{V} (f) \times \mathbf{V} (g) =
+       \mathbf{V} (f) \cap \mathbf{V} (g) =
+       \mathbf{V} (f,g). \]
+    Entonces, todo subconjunto cerrado de $\AA^1 (k) \times \AA^1 (k)$ es
+    cerrado en $\AA^2 (k)$.
+
+    Bajo la hipótesis de que $k$ es infinito, podemos encontrar un subconjunto
+    cerrado de $\AA^2 (k)$ que no es cerrado en la topología producto de
+    $\AA^1 (k)\times \AA^1 (k)$: bastaría considerar la diagonal
+    $$\Delta = \mathbf{V} (x_1 - x_2) =  \{ (a,a) \mid a \in k \} \subset \AA^2 (k).$$
+    Ahora se puede usar el siguiente resultado: un espacio $X$ es Hausdorff si y
+    solo si la diagonal $\Delta \in X\times X$ es cerrada.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que si $k$ es un cuerpo infinito, entonces $I (\AA^n (k)) = 0$.
+  ¿Por qué esto es falso para cuerpos finitos?
+
+  \ifdefined\solutions\begin{solucion}
+    Si $n = 1$, entonces para un polinomio en una variable
+    $f = \sum_i a_i\,x^i \in I (\AA^1 (k))$, dado que $f$ tiene un número
+    infinito de raíces, se tiene $f = 0$ (todo polinomio no nulo tiene
+    $\le \deg f$ raíces).
+
+    Para un polinomio en $n$ variables
+    $$f = \sum_{i_1,\ldots,i_n} a_{i_1,\ldots,i_n}\,x_1^{i_1}\cdots x_n^{i_n} \in I (\AA^n (k)),$$
+    para todo $i = 1, \ldots, n$ se puede considerar el polinomio
+    $$f_i \dfn f (1, \ldots, x_i, \ldots, 1) \in k [x_i].$$
+    Se tiene $f_i \in I (\AA^1 (k))$, y luego $f_i = 0$. Esto significa que todo
+    monomio donde aparece $x_i$ tiene coeficiente $0$. Aplicando este argumento
+    a $i = 1,\ldots,n$, podemos concluir que $f$ es un polinomio constante, pero
+    puesto que $f \in I (\AA^n (k))$, se tiene $f = 0$.
+
+    Si $k = \FF_q$ es un cuerpo finito, entonces para todo $c \in \FF_q^\times$
+    se tiene $c^{q-1} = 1$. Entonces, $x^q - x \in I (\AA^1 (\FF_q))$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Sea $k$ un cuerpo algebraicamente cerrado.
+
+  \begin{enumerate}
+  \item[a)] Para $\fchar k \ne 2$ consideremos los siguientes conjuntos
+    algebraicos en $\AA^2 (k)$:
+    $$Z_1 \dfn \mathbf{V} (u\,(t - 1) - 1), \quad Z_2 \dfn \mathbf{V} (y^2 - x^2 (x + 1)).$$
+    Demuestre que el morfismo
+    $$Z_1 \to Z_2, \quad (t, u) \mapsto (t^2 - 1, t\,(t^2 - 1))$$
+    es biyectivo, pero no es un isomorfismo. Demuestre que en general,
+    $Z_1 \not\isom Z_2$.
+
+  \item[b)] Demuestre que el morfismo
+    \[ \AA^1 (k) \to \mathbf{V} (y^2 - x^3) \subset \AA^2 (k), \quad
+       t \mapsto (t^2, t^3) \]
+    es biyectivo, pero no es un isomorfismo. Demuestre que en general,
+    $\AA^1 (k) \not\isom \mathbf{V} (y^2 - x^3)$.
+  \end{enumerate}
+
+  \noindent Sugerencia: demuestre que $\Gamma (Z_1) \not\isom \Gamma (Z_2)$ y
+  $\Gamma (\mathbf{V} (y^2 - x^3)) \not\isom k[t]$.
+
+  \ifdefined\solutions\begin{solucion}
+    Notamos que $Z_1$ es una hipérbola, mientras que $Z_2$ es una
+    \term{cúbica nodal}; en el segundo caso, $\mathbf{V} (y^2 - x^3)$ es una
+    \term{cúbica cuspidal}.
+
+    \begin{center}
+      \begin{tikzpicture}[x=1cm, y=1cm]
+
+        \foreach \i [count=\j from 1] in {0, ..., 99}
+        \draw ({-1 + 1/50*\i}, {sqrt ((-1 + 1/50*\i)^3 + (-1 + 1/50*\i)^2)}) -- ({-1 + 1/50*\j}, {sqrt ((-1 + 1/50*\j)^3 + (-1 + 1/50*\j)^2)});
+
+        \foreach \i [count=\j from 1] in {0, ..., 99}
+        \draw ({-1 + 1/50*\i}, {-sqrt ((-1 + 1/50*\i)^3 + (-1 + 1/50*\i)^2)}) -- ({-1 + 1/50*\j}, {-sqrt ((-1 + 1/50*\j)^3 + (-1 + 1/50*\j)^2)});
+
+        \draw[->] (-2,0) -- (2,0) node[right] {$x$};
+        \draw[->] (0,-2) -- (0,2) node[above] {$y$};
+      \end{tikzpicture}
+      \quad\quad \begin{tikzpicture}[x=0.666cm, y=0.666cm]
+
+        \foreach \i [count=\j from 1] in {0, ..., 85}
+        \draw ({1/50*\i}, {sqrt ((1/50*\i)^3)}) -- ({1/50*\j}, {sqrt ((1/50*\j)^3)});
+
+        \foreach \i [count=\j from 1] in {0, ..., 85}
+        \draw ({1/50*\i}, {-sqrt ((1/50*\i)^3)}) -- ({1/50*\j}, {-sqrt ((1/50*\j)^3)});
+
+        \draw[->] (-3,0) -- (3,0) node[right] {$x$};
+        \draw[->] (0,-3) -- (0,3) node[above] {$y$};
+      \end{tikzpicture}
+    \end{center}
+    En ambos casos no habrá isomorfismo precisamente por la singularidad en el
+    origen $(0,0)$.
+
+    \begin{enumerate}
+    \item[(a)] Consideremos la aplicación
+      $$\phi\colon (t, u) \mapsto (t^2 - 1, t\,(t^2 - 1)).$$
+      Notamos que
+      $$(t\,(t^2 - 1))^2 - (t^2 - 1)^2\,((t^2 - 1) + 1) = 0,$$
+      y entonces la imagen de esta aplicación está en $Z_2$. Para ver que la
+      aplicación es inyectiva, asumamos que
+      $$(t_1^2 - 1, t_1\,(t_1^2 - 1)) = (t_2^2 - 1, t_2\,(t_2^2 - 1)).$$
+      Entonces, $t_1^2 = t_2^2$ y $t_1\,(t_1^2 - 1) = t_2\,(t_1^2 - 1)$. Notamos
+      que $t \ne 1$ para $(u,t) \in Z_1$.
+
+      \begin{itemize}
+      \item Si $t_1 \ne -1$, entonces la ecuación
+        $t_1\,(t_1^2 - 1) = t_2\,(t_1^2 - 1)$ implica $t_1 = t_2$. Además,
+        $u_1\,(t_1-1) = u_2\,(t_2-1)$ implica $u_1 = u_2$.
+
+      \item El otro caso es $t_1 = t_2 = -1$ y $u_1 = u_2 = -\frac{1}{2}$
+        (usando la hipótesis de que $\fchar k \ne 2$).
+      \end{itemize}
+
+      Para la sobreyectividad, consideremos un punto $(x,y)$ tal que
+      $y^2 = x^2\,(x+1)$. Si $x = 0$, entonces $y = 0$. Tenemos
+      $$\phi (-1,-1/2) = (0,0).$$
+      Ahora asumamos que $x \ne 0$. Sea $t$ una de las dos soluciones de la
+      ecuación $t^2 = x + 1$. Se tiene
+      $$(t\,(t^2-1))^2 = t^2\,(t^2-1)^2 = (x+1)\,x^2 = y^2.$$
+      Luego,
+      $$t\,(t^2-1) = \pm y.$$
+      Sea $t$ la raíz de $t^2 = x+1$ que nos da
+      $$t\,(t^2-1) = y.$$
+      Notamos que $t \ne 1$, y se puede poner
+      $$u \dfn \frac{1}{t-1}.$$
+      Ahora
+      $$\phi (t,u) = (t^2 - 1, t\,(t^2-1)) = (x, y).$$
+      Esto establece la sobreyectividad.
+
+      Para ver que $\phi$ no es un isomorfismo, vamos a ver que en general, los
+      anillos de coordenadas
+      $$k [t,u] / (u(t-1)-1), \quad k [x,y] / (y^2 - x^2\,(x+1))$$
+      no son isomorfos. Para esto nos servirá la noción de
+      \term{anillo integralmente cerrado} que vimos el año pasado en el curso de
+      álgebra conmutativa.
+
+      Notamos que
+      \begin{align*}
+        k [t,u] / (u(t-1)-1) & \xrightarrow{\isom} k [t,u]/(tu-1) \isom k [t,t^{-1}],\\
+        \overline{t} & \mapsto \overline{t}+1,\\
+        \overline{u} & \mapsto \overline{u}.
+      \end{align*}
+      Se trata de la localización del anillo de polinomios $k [t]$ en $t$.
+      El anillo $k [t]$ es integralmente cerrado, puesto que es un DFU. Luego,
+      $k [t,t^{-1}]$ es también integralmente cerrado, dado que la localización
+      preserva la cerradura integral.
+
+      Por otra parte, el anillo $k [x,y] / (y^2 - x^2\,(x+1))$ no es
+      integralmente cerrado. Para verlo, consideremos el homomorfismo de
+      $k$-álgebras inducido por $\phi$:
+      \begin{align*}
+        \phi^*\colon k [x,y] / (y^2 - x^2\,(x+1)) & \to k [t,u] / (u(t-1)-1) \xrightarrow{\isom} k [t,u]/(tu-1) \isom k [t,t^{-1}],\\
+        \overline{x} & \mapsto \overline{t}^2 - 1 \mapsto \overline{t}^2 + 2\,\overline{t},\\
+        \overline{y} & \mapsto \overline{t}\,(\overline{t}^2 - 1) \mapsto (\overline{t}+1)\,((\overline{t}+1)^2-1) = \overline{t}^3 + 3\,\overline{t}^2 + 2\,\overline{t}.
+      \end{align*}
+      Este es inyectivo. Sin embargo, $\phi^*$ no es sobreyectivo: tenemos por
+      ejemplo $t \notin \phi^*$. Entonces, $\phi^*$ no es un isomorfismo, y
+      $\phi$ tampoco lo es. Sin embargo, nuestro objetivo es ver que entre los
+      dos conjuntos algebraicos no existe \emph{ningún} isomorfismo.
+
+      Notamos que en el cuerpo de fracciones se tiene
+      $$\frac{t^3 + 3\,t^2 + 2\,t}{t^2 + 2t} - 1 = t,$$
+      así que el cuerpo de fracciones de $\im \phi^*$ es $k (t)$. Ahora
+      $t \in k (t)$ cumple la ecuación mónica
+      $$t^2 + 2\,t - c = 0, \quad c = t^2 + 2t \in \im \phi_*,$$
+      aunque $t \notin \im \phi_*$. Esto significa que el anillo
+      $$\im \phi_* \isom k [x,y] / (y^2 - x^2\,(x+1))$$
+      no es integralmente cerrado, a diferencia de $k [t,u] / (u(t-1) - 1)$.
+
+    \item[(b)] Para el morfismo $\AA^1 (k) \to V (y^2 - x^3) \subset \AA^2 (k)$,
+      $t \mapsto (t^2, t^3)$ funciona el mismo argumento. Es fácil verificar la
+      biyectividad. Consideremos los anillos de coordenadas
+      $$k [t], \quad k [x,y] / (y^2 - x^3).$$
+      El anillo $k [t]$ es integralmente cerrado (es un DFU), mientras que el
+      segundo anillo es isomorfo a $k [t^2,t^3]$, cuyo cuerpo de fracciones es
+      $k (t)$, pero la ecuación mónica
+      $$(t^3/t^2)^2 - c = 0, \quad c = t^2 \in k [t^2,t^3]$$
+      demuestra que $k [t^2,t^3]$ no es integralmente cerrado.
+    \end{enumerate}
+
+    Entonces, no solamente probamos que las aplicaciones en cuestión no son
+    isomorfismos, sino que no puede haber ningún isomorfismo.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que $X$ es un espacio Hausdorff noetheriano si y solo si $X$ es
+  finito con la topología discreta.
+
+  \ifdefined\solutions\begin{solucion}
+    Si $X$ es un espacio noetheriano, entonces, $X$ tiene un número finito de
+    componentes irreducibles:
+    $$X = Z_1 \cup \cdots \cup Z_s.$$
+    Ahora si $X$ es Hausdorff, entonces cada $Z_i$ es irreducible y Hausdorff,
+    y por ende es unipuntual. Esto demuestra que todo espacio Hausforff
+    noetheriano es necesariamente finito.
+
+    Ahora si $X$ es un espacio Hausdorff finito, entonces todo punto de $X$ es
+    cerrado: para todo $y \ne x$ existe un entorno abierto $U_y \ni y$ tal que
+    $x \notin U_y$, y luego
+    $$\{ x \} = \bigcap_{y\ne x} U_y^c$$
+    es cerrado. Usando la finitud de $X$, todo subconjunto $Y \subset X$ puede
+    ser escrito como una intersección finita de abiertos
+    $$Y = \{ x_1, \ldots, x_n \}^c = \{ x_1 \}^c \cap \cdots \cap \{ x_n \}^c.$$
+    Entonces, todo subconjunto de $X$ es abierto.
+
+    Viceversa, si $X$ es finito con la topología discreta, entonces $X$ es
+    trivialmente Hausdorff (como todo espacio discreto) y noetheriano (dado que
+    es finito).
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Encuentre las componentes irreducibles de los siguientes conjuntos algebraicos
+  ($k$ es un cuerpo algebraicamente cerrado):
+  \begin{enumerate}
+  \item[1)] $\mathbf{V} (x\,(x+1), y) \subset \AA^2 (k)$;
+  \item[2)] $\mathbf{V} (xz, yz) \subset \AA^3 (k)$;
+  \item[3)] $\mathbf{V} (xy^2-x^2\,(x^2-1)) \subset \AA^2 (k)$.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Hay que encontrar las descomposiciones primarias de los ideales
+    correspondientes.
+
+    \begin{enumerate}
+    \item[1)] Tenemos
+      $$(x\,(x+1), y) = (x,y) \cap (x+1,y),$$
+      donde los ideales $(x,y)$ e $(x+1,y)$ son primos. Entonces, la
+      descomposición en componentes irreducibles es
+      \[ \mathbf{V} (x\,(x+1), y) =
+         \mathbf{V} (x,y) \cup \mathbf{V} (x+1, y) =
+         \{ (0,0) \} \cup \{ (-1,0) \}. \]
+
+    \item[2)] Para el ideal monomial $(xz, yz) \subset k [x,y,z]$ está claro que
+      $$(xz, yz) = (x,y) \cap (z),$$
+      así que
+      $$\mathbf{V} (xz, yz) = \mathbf{V} (x,y) \cup \mathbf{V} (z).$$
+
+    \item[3)] Tenemos
+      $$xy^2-x^2\,(x^2-1) = x\,(y^2 - x\,(x^2-1)),$$
+      donde el polinomio $y^2 - x\,(x^2-1) \in k [x,y]$ es
+      irreducible. Entonces,
+      $$(xy^2-x^2\,(x^2-1)) = (x) \cap (y^2 - x\,(x^2-1)),$$
+      y la descomposición en componentes irreducibles es
+      \[ \mathbf{V} (xy^2-x^2\,(x^2-1)) =
+         \mathbf{V} (x) \cup \mathbf{V} (y^2 - x\,(x^2-1)). \qedhere \]
+    \end{enumerate}
+  \end{solucion}\fi
+\end{ejerc}
+
+\end{document}

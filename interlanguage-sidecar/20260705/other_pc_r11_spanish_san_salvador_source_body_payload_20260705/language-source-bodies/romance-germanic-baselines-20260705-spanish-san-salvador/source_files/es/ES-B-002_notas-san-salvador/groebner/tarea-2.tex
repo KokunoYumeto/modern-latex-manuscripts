@@ -1,0 +1,145 @@
+\documentclass{article}
+
+\def\exercisespersection{}
+\input{../definitions.tex}
+
+\usepackage{fullpage}
+
+\theoremstyle{definition}
+\newtheorem{ejerc}{Ejercicio}
+
+\begin{document}
+
+\mybanner{Álgebra computacional. Tarea 2. Fecha límite: 11/04/2019}{Universidad de El Salvador, ciclo impar 2019}
+
+Fijemos un orden monomial sobre $k [x_1,\ldots,x_n]$.
+
+\begin{ejerc}
+  Sea $I \subseteq k [x_1,\ldots,x_n]$ un ideal. Demuestre que para cualquier
+  polinomio $f \in k [x_1,\ldots,x_n]$ existe único $r \in k [x_1,\ldots,x_n]$
+  con las siguientes propiedades:
+
+  \begin{enumerate}
+  \item[1)] los términos que aparecen en $r$ no son divisibles por ningún
+    elemento de $LT (I)$;
+
+  \item[2)] $f = g+r$ para algún $g \in I$.
+  \end{enumerate}
+\end{ejerc}
+
+\begin{ejerc}
+  Para un ideal $I \subseteq k [x_1,\ldots,x_n]$, sea $\{ g_1,\ldots,g_s \}$ un
+  conjunto tal que $I = (g_1,\ldots,g_s)$ y para todo $f \in I$ el resto de
+  división de $f$ por $g_1,\ldots,g_s$ es nulo. Demuestre que
+  $\{ g_1,\ldots,g_s \}$ es una base de Gröbner para $I$.
+\end{ejerc}
+
+\begin{ejerc}
+  Sean $\{ g_1, \ldots, g_s \}$ y $\{ g_1', \ldots, g_t' \}$ dos bases de
+  Gröbner para un ideal $I \subseteq k [x_1,\ldots,x_n]$. Demuestre que para
+  cualquier polinomio $f \in k [x_1,\ldots,x_n]$ el resto de la división de $f$
+  por $g_1, \ldots, g_s$ y por $g_1', \ldots, g_t'$ coinciden.
+\end{ejerc}
+
+\begin{ejerc}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Demuestre que
+    $$\multideg (S (f,g)) < \gamma,$$
+    donde
+    $$x^\gamma = \mcm (LM (f), LM (g)).$$
+
+  \item[2)] Encuentre un par de polinomios $f,g$ tales que $S (f,g)$ es
+    diferente respecto a diferentes órdenes monomiales.
+  \end{enumerate}
+\end{ejerc}
+
+\begin{ejerc}
+  Consideremos el anillo $k [x,y,z]$.
+
+  \begin{enumerate}
+  \item[1)] Para
+    $$g_1 \dfn z^2-x, \quad g_2 \dfn z^3-y,$$
+    usando el criterio de Buchberger, determine respecto a cuáles órdenes
+    monomiales entre lex, grlex y grevlex los polinomios $g_1$ y $g_2$ forman
+    una base de Gröbner.
+
+  \item[2)] La misma pregunta para
+    $$g_1 \dfn z^2 - x, \quad g_2 \dfn xz - y, \quad g_3 \dfn x^2 - yz.$$
+  \end{enumerate}
+\end{ejerc}
+
+\pagebreak
+
+En los siguientes ejercicios se puede/se debe usar la computadora.
+
+\begin{ejerc}
+  Analice todos los pasos del algoritmo de Buchberger y el algoritmo de
+  reducción para calcular la base de Gröbner reducida de $I = (f_1,f_2)$, donde
+  $$f_1 \dfn x^2 + y, \quad f_2 \dfn x^3 + 2 x^2 y + y^2 + 3,$$
+  respecto al orden lexicográfico y graduado lexicográfico.
+\end{ejerc}
+
+\begin{ejerc}
+  Use las bases de Gröbner para determinar si
+
+  \begin{enumerate}
+  \item[1)] $xy^3 - z^2 + y^5 - z^3 \in (-x^3 + y, x^2 y - z)$;
+  \item[2)] $x^3z - 2y^2 \in (xz - y, xy + 2z^2, y - z)$.
+  \end{enumerate}
+\end{ejerc}
+
+\begin{ejerc}
+  Para la función $f\colon \RR^2 \to \RR$ definida por
+  $$f (x, y) \dfn (x^2 + y^2 - 4)\,(x^2 + y^2 - 1) + (x - 3/2)^2 + (y - 3/2)^2$$
+  determine sus \term{puntos críticos} usando las bases de Gröbner; es decir,
+  los puntos donde
+  $$\frac{\partial f}{\partial x} = \frac{\partial f}{\partial y} = 0.$$
+
+  \noindent Sugerencia: para las derivadas en Macaulay2, consulte la documentación sobre la función \verb|diff|.
+\end{ejerc}
+
+\begin{ejerc}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Calcule la base de Gröbner reducida para
+    $I \dfn (f_1,f_2,f_3) \subset k [x,y,z]$, donde
+    \[ f_1 \dfn x+2y+z-1, \quad
+       f_2 \dfn 2x-y+z = 0, \quad
+       f_3 \dfn x + 2y - z - 2. \]
+
+  \item[2)] En general, sean $f_1, \ldots, f_s \in k [x_1,\ldots,x_n]$
+    polinomios lineales; es decir, polinomios de la forma
+    $$a_1 x_1 + \cdots + a_n x_n + c, \quad a_1,\ldots,a_n, c\in k.$$
+    Explique por qué el cálculo de la base de Gröbner reducida para
+    $I = (f_1,\ldots,f_s)$ corresponde al método de Gauss para resolver el
+    sistema de ecuaciones
+    $$f_1 (x) = \cdots = f_s (x) = 0.$$
+  \end{enumerate}
+\end{ejerc}
+
+\begin{ejerc}
+  Usando nuestro código para el algoritmo de Buchberger, implemente en Macaulay2
+  las siguientes funciones.
+
+  \begin{itemize}
+  \item Una función que para $f$ y $f_1,\ldots,f_s$ determina si
+    $f \in (f_1,\ldots,f_s)$.
+
+  \item Una función que para $f$ y $f_1,\ldots,f_s$ determina si
+    $f \in \sqrt{(f_1,\ldots,f_s)}$.
+
+  \item Una función que para $f_1,\ldots,f_s, g_1,\ldots,g_t$ determina si
+    $(f_1,\ldots,f_s) \subseteq (g_1,\ldots,g_t)$.
+
+  \item Una función que para $f_1,\ldots,f_s, g_1,\ldots,g_t$ determina si
+    $(f_1,\ldots,f_s) = (g_1,\ldots,g_t)$.
+
+  \item Una función que para $f_1,\ldots,f_s$ determina si el ideal
+    $(f_1,\ldots,f_s)$ es propio.
+  \end{itemize}
+\end{ejerc}
+
+\end{document}

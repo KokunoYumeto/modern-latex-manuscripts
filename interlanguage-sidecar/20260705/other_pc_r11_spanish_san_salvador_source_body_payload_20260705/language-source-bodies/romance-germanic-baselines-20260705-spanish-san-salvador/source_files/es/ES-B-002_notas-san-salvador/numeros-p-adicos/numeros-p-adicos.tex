@@ -1,0 +1,3144 @@
+\documentclass{article}
+
+\input{../definitions.tex}
+
+\numberwithin{equation}{section}
+
+\usepackage[numbers]{natbib}
+
+\usepackage{fullpage}
+
+\usepackage{tocloft}
+
+\renewcommand\cftsecfont{\normalfont}
+\renewcommand\cfttoctitlefont{\sffamily\large\bfseries}
+\renewcommand\cftsecpagefont{\normalfont}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftsecdotsep}}
+\renewcommand\cftsecdotsep{\cftdot}
+\renewcommand\cftsubsecdotsep{\cftdot}
+
+\author{Alexey Beshenov (cadadr@gmail.com)}
+\title{Introducción a los números p-ádicos}
+\date{Universidad de El Salvador. Abril de 2018}
+
+\hypersetup{
+  pdftitle = {Introducción a los números p-ádicos},
+  pdfauthor = {Alexey Beshenov (cadadr@gmail.com)},
+  pdfdisplaydoctitle = true
+}
+
+\usepackage{multicol}
+
+\setlength{\columnseprule}{0.4pt}
+
+\theoremstyle{definition}
+\newtheorem{ejerc}{Ejercicio}
+
+\usepackage{multirow}
+
+\begin{document}
+
+{\normalfont\sffamily\bfseries \maketitle}
+
+Estos son mis apuntes para una serie de charlas con una introducción
+a los números $p$-ádicos que di para los estudiantes de la maestría
+en la Universidad de El Salvador. Otras fuentes recomendadas son
+\cite{Koblitz-1984} y \cite{Katok-2007}.
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagebreak
+\section{Recordatorio: espacios métricos}
+
+\begin{definicion}
+  Un \term{espacio métrico} es un conjunto $X$ dotado de una aplicación
+  $d\colon X\times X \to \RR_{\ge 0}$ (\term{distancia}) que satisface
+  los siguientes axiomas.
+
+  \begin{enumerate}
+  \item[M1)] La distancia entre $x$ e $y$ es nula si y solamente si $x = y$:
+    $$d (x,y) = 0 \iff x = y$$
+    para cualesquiera $x,y\in X$.
+
+  \item[M2)] La distancia es \term{simétrica}:
+    $$d (x,y) = d (y,x)$$
+    para cualesquiera $x,y\in X$.
+
+  \item[M3)] Se cumple la \term{desigualdad del triángulo}:
+    $$d (x,y) \le d (x,z) + d (z,y)$$
+    para cualesquiera $x,y,z\in X$.
+  \end{enumerate}
+\end{definicion}
+
+\begin{definicion}
+  Sea $(X,d)$ un espacio métrico. La \term{bola abierta} de radio $\epsilon > 0$
+  centrada en $x_0\in X$ es el subconjunto
+  $$B (x_0,\epsilon) \dfn \{ x\in X \mid d (x_0,x) < \epsilon \}.$$
+  La \term{bola cerrada} correspondiente es el subconjunto
+  $$\overline{B} (x_0,\epsilon) \dfn \{ x\in X \mid d (x,x_0) \le \epsilon \}.$$
+\end{definicion}
+
+A todo espacio métrico $(X,d)$ se puede asociar una topología.
+
+\begin{definicion}
+  Para un espacio métrico $(X,d)$, la topología \term{inducida por la métrica}
+  $d$ es la topología que tiene como su base de conjuntos abiertos las bolas
+  abiertas $B (x_0,\epsilon)$ para todo $x_0\in X$ y $\epsilon > 0$.
+\end{definicion}
+
+\begin{ejerc}
+  \label{ejerc:bola-cerrada-es-cerrada}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Toda bola cerrada $\overline{B} (x_0,\epsilon)$ es cerrada en la
+    topología de arriba.
+
+  \item[2)] La topología inducida por una métrica es Hausdorff (T2).
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos que ver que
+    \[ X\setminus \overline{B} (x_0,\epsilon) =
+       \{ x\in X \mid d (x,x_0) > \epsilon \} \]
+    es un subconjunto abierto. Si
+    $x \in X\setminus \overline{B} (x_0,\epsilon)$, tenemos
+    $d (x,x_0) = d > \epsilon$, y luego
+    $B (x,d - \epsilon) \subset X\setminus \overline{B} (x_0,\epsilon)$.
+    En efecto, si
+    $B (x,d - \epsilon) \not\subset X\setminus \overline{B} (x_0,\epsilon)$,
+    entonces existe algún $y \in B (x,d - \epsilon)$ tal que
+    $y \notin X\setminus \overline{B} (x_0,\epsilon)$.
+    Es decir, $d (y,x) < d-\epsilon$ y $d (y,x_0) \le \epsilon$. Pero en este
+    caso tenemos
+    $$d = d (x,x_0) \le d (x,y) + d (y,x_0) < d-\epsilon + \epsilon = d,$$
+    que es una contradicción.
+
+    En 2) para $x \ne y$ tenemos $d (x,y) = d \ne 0$, y luego
+    $B (x,d/2) \cap B (y,d/2) = \emptyset$.
+  \end{solucion}\fi
+\end{ejerc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Normas}
+
+Nos va a interesar la situación cuando la métrica viene de una norma sobre
+un anillo conmutativo, o en particular un cuerpo.
+
+\begin{definicion}
+  \label{dfn:norma-sobre-cuerpo}
+  Sea $R$ un anillo conmutativo. Una \term{norma} sobre $R$ es una aplicación
+  $\|\cdot\|\colon R\to \RR_{\ge 0}$ que satisface las siguientes propiedades.
+  \begin{enumerate}
+  \item[N1)] $\|x\| = 0$ si y solamente si $x = 0$.
+
+  \item[N2)] La norma es multiplicativa: $\|xy\| = \|x\|\cdot \|y\|$ para
+    cualesquiera $x,y\in R$.
+
+  \item[N3)] Se cumple la \term{desigualdad del triángulo}
+    $\|x + y\| \le \|x\| + \|y\|$ para cualesquiera $x,y\in R$.
+  \end{enumerate}
+
+  Se dice que $\|\cdot\|$ es una norma \term{no arquimediana}, si para
+  cualesquiera $x,y\in R$ se cumple la \term{desigualdad ultramétrica}
+  \begin{enumerate}
+  \item[N3${}^*$)] $\|x + y\| \le \max \{ \|x\|, \|y\| \}$.
+  \end{enumerate}
+  En el caso contrario, se dice que $\|\cdot\|$ es
+  \term{arquimediana}.
+\end{definicion}
+
+Note que N2) implica que si $xy = 0$, entonces $x = 0$ o $y = 0$; es decir,
+según nuestra definición, el anillo conmutativo $R$ no puede tener divisores
+de cero.
+
+\begin{ejemplo}
+  Demuestre que para cualquier subanillo $R\subseteq \CC$, el valor absoluto
+  habitual
+  $$|x+y\sqrt{-1}| = \sqrt{x^2 + y^2}$$
+  es una norma arquimediana.
+\end{ejemplo}
+
+\begin{ejerc}
+  Demuestre que la multiplicatividad de la norma implica las siguientes
+  propiedades:
+
+  \begin{enumerate}
+  \item[1)] $\|1\| = \|-1\| = 1$,
+
+  \item[2)] $\|-x\| = \|x\|$ para todo $x\in R$,
+
+  \item[3)] $\|x^n\| = \|x\|^n$ para todo $x\in R, ~ n = 1,2,3,\ldots$,
+
+  \item[4)] $\|x^{-1}\| = \|x\|^{-1}$ para todo $x\in R^\times$.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    En efecto, tenemos
+    $$\|1\| = \|1\cdot 1\| = \|1\|\cdot \|1\|,$$
+    y $\|1\| \ne 0$, ya que $0\ne 1$, y por lo tanto $\|1\| = 1$. De la misma
+    manera,
+    $$1 = \|1\| = \|-1\cdot -1\| = \|-1\|\cdot \|-1\|,$$
+    y entonces $\|-1\| = 1$. Esto implica que para todo $x\in R$ tenemos
+    $$\|-x\| = \|-1\cdot x\| = \|-1\|\cdot \|x\| = \|x\|.$$
+    La identidad
+    $$\|x^n\| = \|x\|^n$$
+    sigue de la multiplicatividad de $\|\cdot\|$ por inducción sobre $n$. Para
+    los elementos inversos, tenemos
+    $$1 = \|1\| = \|x\cdot x^{-1}\| = \|x\|\cdot \|x^{-1}\|,$$
+    y entonces $\|x^{-1}\| =  \|x\|^{-1}$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{observacion}
+  Si $R$ es un anillo conmutativo con alguna norma $\|\cdot\|$, entonces
+  la aplicación
+  \begin{align*}
+    d\colon R\times R & \to \RR_{\ge 0},\\
+    (x,y) & \mapsto \|x-y\|
+  \end{align*}
+  define una estructura de \term{espacio métrico} sobre $R$.
+
+  \begin{proof}
+    La propiedad M1) corresponde a N1) de \ref{dfn:norma-sobre-cuerpo}. Luego,
+    para M2), notamos que
+    $$\|x-y\| = \|-(x-y)\| = \|y-x\|.$$
+    En fin, M3) corresponde a N3):
+    \[ \|x-y\| = \|(x-z) + (z-y)\| \le \|x-z\| + \|z-y\|. \qedhere \]
+  \end{proof}
+\end{observacion}
+
+En particular, todo anillo conmutativo $R$ con norma $\|\cdot\|$ lleva
+una topología inducida por $\|\cdot\|$. Cuando un anillo está equipado con
+una topología respecto a cual las operaciones son continuas, se dice que $R$
+es un \term{anillo topológico}. En particular, esto sucede cuando la topología
+está inducida por una norma.
+
+\begin{ejerc}
+  Deduzca de los axiomas de normas la \term{desigualdad del triángulo inversa}
+  $$\Bigl|\|x\|-\|y\|\Bigr| \le \|x-y\|.$$
+  Note que esta significa que la norma $\|\cdot\|\colon R\to \RR_{\ge 0}$
+  es una aplicación continua respecto a la topología habitual sobre $\RR$
+  y la topología sobre $R$ inducida por $\|\cdot\|$.
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos
+    $$\|x\| = \|x - y + y\| \le \|x-y\| + \|y\|,$$
+    y luego
+    $$\|x\| - \|y\| \le \|x-y\|.$$
+    De la misma manera, tenemos
+    $$\|y\| - \|x\| \le \|y-x\| = \|x-y\|.$$
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que si $R$ es un anillo conmutativo con norma $\|\cdot\|$, entonces
+  las operaciones
+  $$(x,y) \mapsto x+y, \quad (x,y) \mapsto x\cdot y, \quad x \mapsto -x$$
+  son continuas respecto a la topología inducida por $\|\cdot\|$. De la misma
+  manera, para los elementos invertibles la operación $x \mapsto x^{-1}$ es
+  continua. Note que todo esto es equivalente a demostrar que
+
+  \begin{enumerate}
+  \item[1)] para cualesquiera $x,y\in R$ y $\epsilon > 0$ existe $\delta > 0$
+    tal que
+    \[ \|x'-x\| < \delta, ~ \|y'-y\| < \delta \Longrightarrow
+       \|(x'+y') - (x+y)\| < \epsilon; \]
+
+  \item[2)] para cualesquiera $x,y\in R$ y $\epsilon > 0$ existe $\delta > 0$
+    tal que
+    \[ \|x'-x\| < \delta, ~ \|y'-y\| < \delta \Longrightarrow
+       \|x'y' - xy\| < \epsilon; \]
+
+  \item[3)] para todo $x\in R$ y $\epsilon > 0$ existe $\delta > 0$ tal que
+    $$\|x'-x\| < \delta \Longrightarrow \|(-x') - (-x)\| < \epsilon;$$
+
+  \item[4)] para todo $x\in R^\times$ y todo $\epsilon > 0$ existe $\delta > 0$
+    tal que
+    $$\|x'-x\| < \delta \Longrightarrow \|(x')^{-1} - x^{-1}\| < \epsilon.$$
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    \begin{enumerate}
+    \item[1)] Tenemos que ver que para cualesquiera $x,y\in R$ y todo
+      $\epsilon > 0$ existe $\delta > 0$ tal que
+      \[ \|x'-x\| < \delta, ~ \|y'-y\| < \delta \Longrightarrow
+         \|(x'+y') - (x+y)\| < \epsilon. \]
+      Por la desigualdad del triángulo,
+      $$\|(x'+y') - (x+y)\| \le \|x'-x\| + \|y'-y\|,$$
+      entonces podemos tomar $\delta = \epsilon/2$.
+
+    \item[2)] Tenemos que ver que para cualesquiera $x,y\in R$ y todo
+      $\epsilon > 0$ existe $\delta > 0$ tal que
+      \[ \|x'-x\| < \delta, ~ \|y'-y\| < \delta \Longrightarrow
+         \|x'y' - xy\| < \epsilon. \]
+      Tenemos
+      \begin{multline*}
+        \|x'y' - xy\| = \|x'y' - x'y + x'y - xy\| \le
+        \|x'\|\cdot \|y'-y\| + \|x'-x\|\cdot \|y\| \\
+        \le (\|x' - x\| + \|x\|)\cdot \|y'-y\| + \|x'-x\|\cdot \|y\|.
+      \end{multline*}
+      Entonces, si $\|x'-x\| < \delta$ y $\|y'-y\| < \delta$,
+      $$\|x'y' - xy\| < (\delta + \|x\|)\,\delta + \delta\,\|y\|,$$
+      y de aquí se ve cómo escoger $\delta = \delta (\|x\|, \|y\|)$ tal que
+      $\|x'y' - xy\| < \epsilon$.
+
+    \item[3)] Tenemos que ver que para todo $x\in R$ y todo $\epsilon > 0$
+      existe $\delta > 0$ tal que
+      $$\|x'-x\| < \delta \Longrightarrow \|(-x') - (-x)\| < \epsilon.$$
+      Tenemos
+      $$\|(-x') - (-x)\| = \|x' - x\|,$$
+      así que podemos tomar $\delta = \epsilon$.
+
+    \item[4)] Tenemos que ver que para todo $x\in R^\times$ y todo
+      $\epsilon > 0$ existe $\delta > 0$ tal que
+      $$\|x'-x\| < \delta \Longrightarrow \|(x')^{-1} - x^{-1}\| < \epsilon.$$
+      Por la desigualdad del triángulo, tenemos
+      $$\|x\| = \|x - x' + x'\| \le \|x'-x\| + \|x'\|,$$
+      así que
+      \[ \|x'\| \ge \|x\| - \|x'-x\| > 0 \quad
+         \text{para }\|x' - x\|\text{ suficientemente pequeño}. \]
+      Luego,
+      \[ \|(x')^{-1} - x^{-1}\| =
+         \left\|\frac{x-x'}{x'x}\right\| =
+         \frac{\|x'-x\|}{\|x'\| \cdot \|x\|} \le
+         \frac{\|x'-x\|}{(\|x\| - \|x'-x\|) \cdot \|x\|}
+         \xrightarrow{\|x'-x\| \to 0} 0.  \]
+    \end{enumerate}
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejemplo}
+  \label{ejemplo:norma-trivial}
+  Para cualquier anillo conmutativo $R$ tenemos la \term{norma trivial} definida
+  por
+  $$\|x\| = \begin{cases}
+    1, & \text{si }x \ne 0,\\
+    0, & \text{si }x = 0.
+  \end{cases}$$
+  \emph{Trivialmente}, es no arquimediana. Más adelante vamos a ver ejemplos no
+  triviales de normas no arquimedianas.
+\end{ejemplo}
+
+\begin{ejemplo}
+  \label{ejemplo:normas-sobre-cuerpos-finitos}
+  Sobre los cuerpos finitos $\FF_q$ no hay normas no triviales. En efecto,
+  el grupo de las unidades $\FF_q^\times$ es cíclico de orden $q-1$,
+  y por lo tanto para todo $a \ne 0$ en $\FF_q$ tenemos $a^{q-1} = 1$.
+  Luego, si $\|\cdot\|$ es una norma sobre $\FF_q$, tenemos
+  $\|a^{q-1}\| = \|a\|^{q-1} = 1$, así que $\|a\| = 1$.
+\end{ejemplo}
+
+\begin{ejerc}
+  Demuestre que si la norma $\|\cdot\|$ sobre $R$ es trivial, entonces
+  la topología inducida por $\|\cdot\|$ es discreta.
+
+  \ifdefined\solutions\begin{solucion}
+    Para todo $x_0\in R$ y $\epsilon < 1$ tenemos
+    $$B (x_0,\epsilon) = \{ x\in R ~\mid~ \|x_0-x\| < \epsilon \} = \{ x_0 \},$$
+    así que todo punto de $R$ forma un conjunto abierto.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  \label{ejerc:extension-de-normas-al-cuerpo-de-fracciones}
+  Sea $R$ un anillo conmutativo y sea $\|\cdot\|$ una norma sobre $R$.
+  Demuestre que $\|\cdot\|$ se extiende de modo único a una norma sobre
+  el cuerpo de fracciones $\Frac (R)$ mediante la fórmula
+  $$\left\|\frac{x}{y}\right\| = \frac{\|x\|}{\|y\|},$$
+  y si $\|\cdot\|$ es una norma no arquimediana, entonces su extensión
+  a $\Frac (R)$ es no arquimediana.
+
+  \ifdefined\solutions\begin{solucion}
+    En efecto, como hemos notado, tenemos
+    $$\left\|\frac{1}{y}\right\| = \left\|y\right\|^{-1} = \frac{1}{\|y\|},$$
+    y luego
+    \[ \left\|\frac{x}{y}\right\| =
+       \left\|x\,\frac{1}{y}\right\| =
+       \|x\|\cdot \left\|\frac{1}{y}\right\| =
+       \frac{\|x\|}{\|y\|}. \]
+    Tenemos que ver que esta fórmula no depende de $x,y$; es decir,
+    que dos fracciones $\frac{x}{y} = \frac{x'}{y'}$ tienen la misma norma.
+    Por la construcción del cuerpo de fracciones $\Frac (R)$, tenemos
+    $\frac{x}{y} = \frac{x'}{y'}$ si
+    $$xy' = x'y.$$
+    Luego,
+    \begin{multline*}
+      \left\|\frac{x}{y}\right\| \dfn
+      \frac{\|x\|}{\|y\|} =
+      \|x\|\cdot\|y\|^{-1} \cdot \|y'\|\cdot \|y'\|^{-1} =
+      \|xy'\| \cdot \|y\|^{-1}\cdot \|y'\|^{-1} \\
+    = \|x'y\|\cdot \|y\|^{-1}\cdot \|y'\|^{-1} =
+      \|x'\|\cdot \|y'\|^{-1} =
+      \left\|\frac{x'}{y'}\right\|.
+    \end{multline*}
+
+    Tenemos que ver que se cumplen los axiomas de normas. Para los productos,
+    tenemos
+    \[ \left\|\frac{x}{y}\cdot \frac{x'}{y'}\right\| =
+       \left\|\frac{xx'}{yy'}\right\| =
+       \frac{\|xx'\|}{\|yy'\|} =
+       \frac{\|x\|\cdot\|x'\|}{\|y\|\cdot\|y'\|} =
+       \frac{\|x\|}{\|y\|}\cdot\frac{\|x'\|}{\|y'\|} =
+       \left\|\frac{x}{y}\right\| \cdot \left\|\frac{x'}{y'}\right\|, \]
+    y para las sumas,
+    \begin{multline*}
+      \left\|\frac{x}{y} + \frac{x'}{y'}\right\| =
+      \left\|\frac{xy' + x'y}{yy'}\right\| =
+      \frac{\|xy' + x'y\|}{\|yy'\|} \le
+      \frac{\|xy'\| + \|x'y\|}{\|yy'\|} \\
+    = \frac{\|x\|\cdot\|y'\|}{\|y\|\cdot \|y'\|} +
+      \frac{\|x'\|\cdot\|y\|}{\|y\|\cdot\|y'\|} =
+      \frac{\|x\|}{\|y\|} + \frac{\|x'\|}{\|y\|} =
+      \left\|\frac{x}{y}\right\| + \left\|\frac{x'}{y'}\right\|.
+    \end{multline*}
+
+    Si $\|\cdot\|$ satisface la desigualdad ultramétrica, tenemos de la misma manera
+    $$\left\|\frac{x}{y} + \frac{x'}{y'}\right\| \le \max \{ \frac{\|x\|}{\|y\|}, \frac{\|x'\|}{\|y'\|} \}.$$
+  \end{solucion}\fi
+\end{ejerc}
+
+Nos van a interesar las normas no arquimedianas (las que satisfacen
+$\|x + y\| \le \max \{ \|x\|, \|y\| \}$). Notemos que de los axiomas se sigue
+que si $\|x\| \ne \|y\|$, entonces $\|x+y\|$ es precisamente el máximo entre
+$\|x\|$ e $\|y\|$:
+
+\begin{observacion}
+  \label{obs:norma-no arquimediana-propiedad-mas-fuerte}
+  Si $\|\cdot\|$ es una norma no arquimediana, entonces
+  $$\|x + y\| = \max \{ \|x\|, \|y\| \} \quad\text{si }\|x\| \ne \|y\|.$$
+
+  \begin{proof}
+    Supongamos que se cumple la desigualdad estricta
+    $$\|x+y\| < \max \{ \|x\|, \|y\| \}.$$
+    Tenemos entonces
+    $$\|x\| = \|x+y-y\| \le \max \{ \|x+y\|, \|y\| \} = \|y\|$$
+    y
+    $$\|y\| = \|x+y-x\| \le \max \{ \|x+y\|, \|x\| \} = \|x\|,$$
+    así que $\|x\| = \|y\|$.
+  \end{proof}
+\end{observacion}
+
+Por inducción se sigue que para las normas no arquimedianas
+$$\|x_1 + \cdots + x_n\| \le \max \{ \|x_1\|, ~ \ldots, ~ \|x_n\| \},$$
+y \ref{obs:norma-no arquimediana-propiedad-mas-fuerte} implica que
+$$\|x_1 + \cdots + x_n\| = \max \{ \|x_1\|, ~ \ldots, ~ \|x_n\| \}$$
+si entre $\|x_1\|, ~ \ldots, ~ \|x_n\|$ hay un valor que es estrictamente mayor
+que los otros.
+
+\vspace{1em}
+
+He aquí una caracterización útil de normas no arquimedianas:
+
+\begin{observacion}
+  \label{obs:caracterizacion-de-normas-no-arquimedianas-valor-en-Z}
+  Las siguientes condiciones son equivalentes:
+
+  \begin{enumerate}
+  \item[1)] $\|\cdot\|$ es una norma no arquimediana,
+
+  \item[2)] para todo $n\in \NN$ se tiene
+    $$\|\underbrace{1+1+\cdots+1}_n\| \le 1.$$
+  \end{enumerate}
+
+  \begin{proof}
+    1) $\Rightarrow$ 2) se demuestra por inducción. La base de inducción
+    es $\|0\| = 0$ o $\|1\| = 1$. Luego, si $\|\cdot\|$ es no arquimediana,
+    entonces
+    $$\|n+1\| \le \max \{ \|n\|, \|1\| \} \le 1.$$
+
+    Para ver que 2) $\Rightarrow$ 1), consideremos
+    \[ \|x+y\|^n =
+       \|(x+y)^n\| =
+       \left\|\sum_{0 \le k \le n} {n\choose k}\,x^k\,y^{n-k}\right\| \le
+       \sum_{0\le k \le n} \left\|{n\choose k}\right\|\cdot\|x\|^k\cdot\|y\|^{n-k}. \]
+    Por nuestra hipótesis, $\left\|{n\choose k}\right\| \le 1$, así que
+    \[ \|x+y\|^n \le
+       \sum_{0\le k \le n} \|x\|^k \cdot \|y\|^{n-k} \le
+       (n+1)\,\max \{ \|x\|, \|y\| \}^n. \]
+    Tomando las raíces $n$-ésimas, tenemos
+    $$\|x+y\| \le \sqrt[n]{n+1}\,\max \{ \|x\|, \|y\| \},$$
+    que para $n \to +\infty$ nos da la desigualdad deseada.
+  \end{proof}
+\end{observacion}
+
+\begin{corolario}
+  \label{corr:caracterizacion-de-normas-no-arquimedianas}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Si $R$ es un subanillo de $S$, una norma $\|\cdot\|$ sobre $S$ es no
+    arquimediana si y solamente si su restricción a $R$ es no arquimediana.
+
+  \item[2)] Si $R$ es un anillo conmutativo de característica positiva, toda
+    norma sobre $R$ es no arquimediana.
+  \end{enumerate}
+
+  \begin{proof}
+    1) sigue de
+    \ref{obs:caracterizacion-de-normas-no-arquimedianas-valor-en-Z}. En 2), si
+    $\fchar R = n$, entonces $\ZZ/n\ZZ \subset R$. Si $n$ no es primo, $R$ tiene
+    divisores de cero y por lo tanto no tiene ninguna norma. Si $n = p$,
+    entonces la única norma sobre $\ZZ/p\ZZ \isom \FF_p$ es trivial, como hemos
+    notado en \ref{ejemplo:normas-sobre-cuerpos-finitos}.
+  \end{proof}
+\end{corolario}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Valuaciones}
+
+Las normas no arquimedianas normalmente surgen de valuaciones.
+
+\begin{definicion}
+  \label{dfn:valuaciones}
+  Una \term{valuación} sobre un anillo conmutativo $R$ es una función
+  $$v\colon R \to \ZZ \cup \{ +\infty \}$$
+  que satisface las siguientes propiedades:
+
+  \begin{enumerate}
+  \item[V1)] $v (x) = +\infty$ si y solamente si $x = 0$.
+
+  \item[V2)] $v (xy) = v (x) + v (y)$.
+
+  \item[V3)] La desigualdad ultramétrica $v (x + y) \ge \min \{ v (x), v (y) \}$.
+  \end{enumerate}
+\end{definicion}
+
+Note que en V2), si $xy = 0$, entonces $+\infty = v (x) + v (y)$, lo que quiere
+decir que $x = 0$ o $y = 0$. Esto significa que según nuestra definición, un
+anillo conmutativo con valuación es necesariamente un dominio de integridad.
+
+\begin{ejerc}
+  Demuestre que la propiedad V2) implica
+
+  \begin{enumerate}
+  \item[1)] $v (1) = v (-1) = 0$,
+
+  \item[2)] $v (-x) = v (x)$ para todo $x\in R$,
+
+  \item[3)] $v (x^n) = n\,v (x)$ para todo $x\in R, ~ n = 1,2,3,\ldots$,
+
+  \item[4)] $v (x^{-1}) = -v(x)$ para todo $x\in R^\times$.
+  \end{enumerate}
+\end{ejerc}
+
+\begin{ejerc}
+  \label{ejerc:extension-de-valuaciones-al-cuerpo-de-fracciones}
+  Sea $R$ un dominio de integridad y sea $v$ una valuación sobre $R$. Entonces
+  $v$ se extiende de modo único a una valuación sobre el cuerpo de fracciones
+  $\Frac (R)$ mediante la fórmula
+  $$v \left(\frac{x}{y}\right) = v (x) - v (y).$$
+  (Esto es similar al ejercicio
+  \ref{ejerc:extension-de-normas-al-cuerpo-de-fracciones}.)
+\end{ejerc}
+
+Ya conocemos bien un ejemplo de valuaciones.
+
+\begin{ejemplo}
+  \label{ejemplo:valuacion-por-grado}
+  Sea $R$ un dominio de integridad. Para el producto de dos polinomios
+  $f,g\in R [X]$ se cumple
+  $$\deg (fg) = \deg f + \deg g.$$
+  Para que esta igualdad se cumpla en el caso cuando $f = 0$ es el polinomio
+  nulo, se pone
+  $$\deg 0 \dfn -\infty.$$
+  Para la suma de polinomios se tiene
+  $$\deg (f+g) \le \max \{ \deg f, \deg g \}.$$
+  Entonces,
+  $$v (f) \dfn -\deg f$$
+  es una valuación sobre el anillo de polinomios.
+\end{ejemplo}
+
+\begin{ejemplo}
+  \label{ejemplo:valuacion-por-X}
+  De nuevo, sea $R$ un dominio de integridad. Para un polinomio no nulo
+  $f = \sum_{i\ge 0} a_i\,X^i \in R [X]$ definamos
+  $$v_X (f) \dfn \min \{ i \mid a_i \ne 0 \}.$$
+  Si $f = 0$, pongamos
+  $$v_X (0) \dfn +\infty.$$
+  Para el producto de dos polinomios $f = \sum_{i\ge 0} a_i\,X^i$
+  y $g = \sum_{j\ge 0} b_j\,X^j$ tenemos
+  \[ fg = \sum_{k\ge 0} c_k\,X^k, \quad
+     \text{donde }c_k = \sum_{i+j = k} a_i b_j. \]
+  Ahora si $v_X (f) = m$ y $v_X (g) = n$, se ve que $c_k = 0$ si $k < m+n$,
+  mientras que $c_{m+n} = a_m\,b_n \ne 0$, puesto que $a_m\ne 0$
+  y $b_n\ne 0$. Entonces, podemos concluir que
+  $$v_X (fg) = v_X (f) + v_X (g).$$
+  Para la suma de dos polinomios, se ve que
+  $$v_X (f+g) \ge \min \{ v_X (f), v_X (g) \}.$$
+  Entonces, lo que acabamos de definir es también una valuación sobre el anillo
+  de polinomios.
+\end{ejemplo}
+
+\begin{ejerc}
+  \label{ejerc:valuacion-propiedad-mas-fuerte}
+  Para toda valuación tenemos
+  $$v (x + y) = \min \{ v (x), v (y) \} \quad\text{si } v (x) \ne v (y).$$
+  (Esto es similar a \ref{obs:norma-no arquimediana-propiedad-mas-fuerte}.)
+
+  \ifdefined\solutions\begin{solucion}
+    Si tenemos la desigualdad estricta
+    $$v (x+y) > \min \{ v (x), v (y) \},$$
+    entonces
+    $$v (x) = v (x+y-y) \ge \min \{ v (x+y), v (y) \} = v (y)$$
+    y
+    $$v (y) = v (x+y-x) \ge \min \{ v (x+y), v (x) \} = v (x),$$
+    así que $v (x) = v (y)$.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{observacion}
+  \label{obs:norma-a-partir-de-valuacion}
+  Si $R$ es un anillo conmutativo con valuación $v$, fijemos un número real
+  $0 < \rho \le 1$. Entonces
+  $$\|x\|_v \dfn \rho^{v (x)}$$
+  define una norma no arquimediana sobre $R$.
+\end{observacion}
+
+\noindent (Si $\rho = 1$, se obtiene la norma trivial
+(\ref{ejemplo:norma-trivial}).)
+
+\begin{proof}
+  Tenemos $\|x\|_v = 0$ si y solamente si $v (x) = +\infty$, si y solamente si
+  $x = 0$. Entonces, la propiedad V1) implica N1). Luego, V2) implica N2):
+  \[ \|xy\|_v =
+     \rho^{v (xy)} =
+     \rho^{v (x) + v (y)} =
+     \rho^{v (x)}\,\rho^{v (y)} =
+     \|x\|_v\cdot \|y\|_v, \]
+  y V3) implica N3${}^*$): $\|x+y\|_v \dfn \rho^{v (x+y)}$, donde
+  $v (x+y) \ge \min \{ v (x), v (y) \}$, y entonces
+  \[ \|x+y\|_v \le \max \{ \|x\|_v, \|y\|_v \}. \qedhere \]
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Valuaciones y normas $p$-ádicas sobre $\QQ$}
+
+Hemos desarrollado un poco de la teoría de normas y valuaciones, pero todavía
+no hemos visto muchos ejemplos, excepto \ref{ejemplo:valuacion-por-grado} y
+\ref{ejemplo:valuacion-por-X}. Ahora vamos a estudiar el ejemplo más importante
+para nosotros.
+
+\begin{definicion}
+  Fijemos un número primo $p = 2,3,5,7,11,13,\ldots$ Para un número entero
+  $n \in \ZZ$ su \term{valuación $p$-ádica} (u \term{orden $p$-ádico}) $v_p (n)$
+  es la potencia máxima de $p$ que divide a $n$:
+  $$v_p (n) \dfn \max \{ k ~\mid~ p^k \mid n \}.$$
+  Para $n = 0$ se define
+  $$v_p (0) \dfn +\infty.$$
+\end{definicion}
+
+En efecto $v_p (\cdot)$ es una valuación en el sentido de
+\ref{dfn:valuaciones}. Por la definición, tenemos $v_p (n) = +\infty$
+si y solamente si $n = 0$. Luego, sean $m, n$ dos enteros no nulos
+(si uno de ellos es nulo, las propiedades de valuaciones V2) y V3)
+son evidentes). Supongamos que las valuaciones $p$-ádicas correspondientes
+son $v_p (m) = k$ y $v_p (n) = \ell$; es decir, $m = p^k\,m'$, $n = p^\ell\,n'$,
+donde $p\nmid m'$, $p\nmid n'$. Luego, $mn = \ell^{k+\ell}\,m'\,n'$, donde
+$p \nmid m'\,n'$, entonces
+$$v_p (mn) = v_p (m) + v_p (n).$$
+Para la suma, sin pérdida de generalidad, supongamos que $k \le \ell$. Entonces
+$m + n = p^k \, (m' + p^{\ell-k}\,n')$, y
+\[ v_p (m+n) =
+   v_p (p^k \, (m' + p^{\ell-k}\,n')) =
+   v_p (p^k) + v_p (m' + p^{\ell-k}\,n') \ge v_p (p^k) =
+   k = \min \{ v_p (m), v_p (n) \}. \]
+Así que $v_p$ es una valuación sobre $\ZZ$. Como hemos visto en el ejercicio
+\ref{ejerc:extension-de-valuaciones-al-cuerpo-de-fracciones}, $v_p$ se extiende
+de modo único a una valuación sobre $\QQ$ mediante la fórmula
+$$v_p \left(\frac{m}{n}\right) = v_p (m) - v_p (n).$$
+
+Para todo número $a\in \QQ^\times$ se tiene la factorización en primos
+$$a = \pm \prod_{p\text{ primo}} p^{v_p (a)}.$$
+
+\begin{ejemplo}
+  \begin{gather*}
+    v_2 (128) = v_2 (2^7) = 7, \quad
+    v_3 (57) = v_3 (3\cdot 19) = 1, \quad
+    v_7 (10^{2018}) = 0, \quad
+    v_3 (9!) = v_3 (2^7\cdot 3^4\cdot 5\cdot 7) = 4,\\
+    v_2 (128/7) = 7, \quad
+    v_7 (128/7) = -1, \quad
+    v_2 (-800/23) = v_2 (-2^5\cdot 5^2 / 23) = 5. \qedhere
+  \end{gather*}
+\end{ejemplo}
+
+La siguiente desigualdad es trivial, pero es útil en algunos casos.
+
+\begin{observacion}
+  Para $n \ge 1$ tenemos
+  $$v_p (n) \le \lfloor\log_p (n)\rfloor.$$
+\end{observacion}
+
+\begin{ejerc}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Demuestre que para los coeficientes binomiales se tiene
+    \[ v_p \left( {p\choose n} \right) = 1
+       \quad \text{para todo }n = 1,2,\ldots,p-1. \]
+
+  \item[2)] En general, demuestre que
+    \[ v_p \left( {p^k\choose n} \right) = k - v_p (n)
+       \quad \text{para todo }n = 1,2,\ldots,p^k. \]
+    Sugerencia: calcule las valuaciones $p$-ádicas de ambos lados de
+    la identidad
+    $$n!\,{p^k\choose n} = p^k\,(p^k - 1)\,(p^k-2)\cdots (p^k-n+1).$$
+    Note que $v_p (p^k - a) = v_p (a)$ para todo $a = 1,2,\ldots,p^k-1$
+    (véase el ejercicio \ref{ejerc:valuacion-propiedad-mas-fuerte}).
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Para $n = 1,2,\ldots,p-1$ en el número
+    $${p\choose n} = \frac{p\,(p-1)\,(p-2)\cdots (p-n+1)}{n!}$$
+    $p$ aparece precisamente una vez en el numerador y no aparece en
+    el denominador $n!$; en otras palabras,
+    \[ v_p \left({p\choose n}\right) =
+       v_p(p) + \underbrace{v_p(p-1) + v_p(p-2) + \cdots
+           + v_p(p-n+1) - v_p(n!)}_{=0} = 1. \]
+
+    Para ver que
+    \[ v_p \left( {p^k\choose n} \right) = k - v_p (n)
+       \quad \text{para todo }n = 1,2,\ldots,p^k, \]
+    podemos calcular las valuaciones $p$-ádicas de la identidad
+    $$n!\,{p^k\choose n} = p^k\,(p^k - 1)\,(p^k-2)\cdots (p^k-n+1).$$
+    Notemos que para $a = 1,2,\ldots,p^k-1$ tenemos $v_p (p^k) \ne v_p (a)$,
+    y por lo tanto
+    $$v_p (p^k - a) = \min \{ v_p (p^k), v_p (a) \} = v_p (a).$$
+    Entonces,
+    \begin{multline*}
+      v_p (n!) + v_p \left( {p^k\choose n} \right) =
+      v_p (p^k) + v_p (p^k - 1) + v_p (p^k - n + 1) \\
+      = k + v_p (1) + v_p (2) + \cdots + v_p (n-1) =
+      k + v_p ((n-1)!),
+    \end{multline*}
+    así que
+    \[ v_p \left( {p^k\choose n} \right) =
+       k + v_p ((n-1)!) - v_p (n!) = k - v_p (n). \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+He aquí un cálculo curioso de las valuaciones $p$-ádicas.
+
+\begin{observacion}[Fórmula de Legendre]
+  \label{obs:formula-de-legendre}
+  Para un número natural $n$,
+  $$v_p (n!) = \sum_{i\ge 1} \lfloor n/p^i\rfloor = \frac{n - s_p (n)}{p-1},$$
+  donde $s_p (n) \dfn \sum_i a_i$ denota la suma de sus dígitos en la base $p$:
+  $$n = a_0 + a_1\,p + a_2\,p^2 + \cdots + a_k\,p^k, \quad 0 \le a_i < p.$$
+\end{observacion}
+
+\begin{ejemplo}
+  Un par de ejemplos específicos:
+  $$5 = 1 + 2^2,$$
+  y
+  $$v_2 (5!) = 5 - 2 = 3 = v_2 (2^3\cdot 3\cdot 5).$$
+  Otro ejemplo:
+  $$2018 = 2 + 2^5 + 2^6 + 2^7 + 2^8 + 2^9 + 2^{10},$$
+  y entonces
+ \[ v_2 (2018!) = 2018 - 7 = 2011. \qedhere \]
+\end{ejemplo}
+
+\begin{proof}[Demostración de \ref{obs:formula-de-legendre}]
+  Entre los números $1,2,\ldots,n$, precisamente $\lfloor n/p^i \rfloor$
+  son divisibles por $p^i$. Entre estos números, algunos pueden ser divisibles
+  por potencias superiores de $p$. En total, tenemos
+  $$\lfloor n/p^i \rfloor - \lfloor n/p^{i+1}\rfloor$$
+  números de valuación $p$-ádica igual a $i$. Entonces,
+  \[ v_p (n!) =
+     (\lfloor n/p\rfloor - \lfloor n/p^2\rfloor) +
+     2\,(\lfloor n/p^2\rfloor - \lfloor n/p^3\rfloor) +
+     3\,(\lfloor n/p^3 \rfloor - \lfloor n/p^4\rfloor) + \cdots \]
+  (note que la suma es finita: $\lfloor n/p^i \rfloor = 0$ para
+  $i\gg 0$). Simplificando esta expresión, tenemos
+  $$v_p (n!) = \sum_{i\ge 1} \lfloor n/p^i \rfloor.$$
+  Ahora para la expansión de $n$ en la base $p$
+  $$n = a_0 + a_1\,p + a_2\,p^2 + \cdots + a_k\,p^k$$
+  notamos que
+  \[ \lfloor n/p^j \rfloor =
+     a_j + a_{j+1}\,p + a_{j+2}\,p^2 + \cdots + a_k\,p^{k-j}. \]
+  Luego,
+  \begin{multline*}
+    v_p (n!) = \sum_{1 \le j\le k} \lfloor n/p^j \rfloor
+    = \sum_{1\le j\le k} (a_j + a_{j+1}\,p + a_{j+2}\,p^2 + \cdots + a_k\,p^{k-j})
+    = \sum_{1 \le i\le k} \sum_{1 \le j \le i} a_i\,p^{i-j}\\
+    = \sum_{1 \le i\le k} a_i\,\sum_{0 \le \ell \le i-1} p^\ell
+    = \sum_{1 \le i\le k} a_i \, \frac{p^i-1}{p-1}
+    = \frac{1}{p-1}\,(\sum_{1 \le i\le k} a_i\,p^i - \sum_{1 \le i\le k} a_i)\\
+    = \frac{1}{p-1}\,(\sum_{0 \le i\le k} a_i\,p^i - \sum_{0 \le i\le k} a_i)
+    = \frac{n - \sum_i a_i}{p-1}.  \qedhere
+  \end{multline*}
+\end{proof}
+
+\begin{ejerc}
+  Demuestre que
+  \begin{align*}
+    v_p (p^k!) & = \frac{p^k - 1}{p-1} =
+                 1 + p + p^2 + \cdots + p^{k-1},\\
+    v_p ((a\,p^k)!) & = \frac{a\,p^k - a}{p-1} =
+                      a\,(1 + p + p^2 + \cdots + p^{k-1})
+                      \quad\text{para }0 \le a \le p-1.
+  \end{align*}
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre la cota
+  $$v_p \left({m \choose n}\right) \le \lfloor\log_p m\rfloor - v_p (n).$$
+  Sugerencia: la fórmula de Legendre nos dice que
+  \[ v_p \left({m \choose n}\right) =
+    \sum_{i\ge 1} (\lfloor m/p^i\rfloor - \lfloor n/p^i\rfloor - \lfloor (m-n)/p^i\rfloor). \]
+  Note que cada término de esta suma es igual a $0$ o $1$, y es siempre igual
+  a $0$ para $k \le v_p (n)$ y para $k > \lfloor\log_p m\rfloor$.
+
+  \ifdefined\solutions\begin{solucion}
+    Gracias a la fórmula de Legendre,
+    \[ v_p \left({m \choose n}\right) =
+       v_p \left(\frac{m!}{n!\,(m-n)!}\right) =
+       \sum_{i\ge 1} (\lfloor m/p^i\rfloor - \lfloor n/p^i\rfloor - \lfloor (m-n)/p^i\rfloor). \]
+    Aquí para todo $i$ tenemos
+    $\lfloor m/p^i\rfloor - \lfloor n/p^i\rfloor - \lfloor (m-n)/p^i\rfloor = 0\text{ o }1$.
+
+    Luego, notamos que
+    \begin{itemize}
+    \item $\lfloor m/p^i\rfloor - \lfloor n/p^i\rfloor - \lfloor (m-n)/p^i\rfloor = 0$
+      para $i > \lfloor\log_p m\rfloor$.
+
+    \item $\lfloor m/p^i\rfloor - \lfloor n/p^i\rfloor - \lfloor (m-n)/p^i\rfloor = 0$
+      para $i \le v_p (n)$. De hecho, en este caso
+      $\lfloor n/p^i\rfloor = n/p^i \in \NN$, y tenemos
+      $\lfloor m/p^i\rfloor - \lfloor n/p^i\rfloor = \lfloor (m-n)/p^i\rfloor$.
+    \end{itemize}
+  \end{solucion}\fi
+\end{ejerc}
+
+Como hemos visto en \ref{obs:norma-a-partir-de-valuacion}, toda valuación
+$v (\cdot)$ define una norma no-arquimediana
+$\|\cdot\|_v \dfn \rho^{v (\cdot)}$, donde $0 < \rho \le 1$ es algún parámetro
+fijo. Para la valuación $p$-ádica $v_p$ normalmente se escoge $\rho = 1/p$.
+
+\begin{definicion}
+  \label{def:norma-p-adica}
+  Sea $p$ un número primo. Para $a\in \QQ$ la \term{norma $p$-ádica} es dada por
+  $$|a|_p \dfn \begin{cases}
+    p^{-v_p (a)}, & \text{si }a \ne 0,\\
+    0, & \text{si }a = 0.
+  \end{cases}$$
+\end{definicion}
+
+Por supuesto, se puede considerar $\rho^{-v_p (a)}$ para cualquier
+$0 < \rho < 1$, y la norma que se obtiene va a ser equivalente a $|\cdot|_p$
+(en cierto sentido preciso que vamos a investigar más adelante).
+
+Note que para $m,n\in \ZZ$, la relación $m\equiv n \pmod{p^k}$ significa
+precisamente que $|m - n|_p \le 1/p^k$: los números son cercanos en la métrica
+$p$-ádica $d (m,n) \dfn |m - n|_p$ si son congruentes módulo una potencia alta
+de $p$.
+
+Para un número racional $a\in \QQ$ y un primo $p$, si tenemos $|a|_p \le 1$,
+esto quiere decir que $v_p (a) \ge 0$; en otras palabras, que $p$ no aparece en
+el denominador de $a$. Así que
+$$\{ a\in\QQ ~\mid~ |a|_p \le 1 \} = \{ m/n ~\mid~ p\nmid n \} = \ZZ_{(p)},$$
+donde $\ZZ_{(p)}$ denota la \term{localización} de $\ZZ$ afuera del ideal primo
+$(p) \subset \ZZ$. Luego,
+$$\bigcap_p \ZZ_{(p)} = \{ a\in\QQ ~\mid~ |a|_p \le 1 \text{ para todo }p \} = \ZZ.$$
+Es un caso particular de la identidad
+$$\bigcap_{\substack{\mathfrak{m}\subset R \\ \text{ideal maximal}}} R_\mathfrak{m} = R$$
+que se cumple para cualquier dominio de integridad $R$.
+
+\vspace{1em}
+
+La normalización $\rho = 1/p$ en la definición de la norma $p$-ádica se usa para
+que se cumpla la siguiente identidad importante.
+
+\begin{ejerc}[Fórmula del producto]
+  Demuestre que para todo $a\in \QQ^\times$ se cumple
+  $$\prod_p |a|_p = 1,$$
+  donde el producto es sobre todos los números primos y $p = \infty$
+  y $|a|_\infty \dfn |a|$ denota el valor absoluto habitual (arquimediano).
+  El producto tiene sentido, ya que para $a$ fijo $|a|_p \ne 1$
+  (es decir, $v_p (a) \ne 0$) para un número finito de valores de $p$.
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos la factorización en números primos
+    $$|a|_\infty = \prod_{p < \infty} p^{v_p (a)}.$$
+    Luego,
+    \[ \prod_p |a|_p =
+       |a|_\infty \cdot \prod_{p < \infty} |a|_p =
+       \prod_{p < \infty} p^{v_p (a)} \cdot \prod_{p < \infty} p^{-v_p (a)}
+       = 1. \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Usando la fórmula del producto, demuestre que para todo
+  $n = 1, 2, 3, 4, \ldots$ se cumple $|n|_p \ge 1/n$.
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos
+    \[ \prod_p |n|_p =
+       |n|_\infty \cdot |n|_p \cdot
+       \prod_{\substack{q\ne p \\ q < \infty}} |n|_q = 1, \]
+    pero $|n|_q \le 1$ para todo $q$, así que $|n|_\infty \cdot |n|_p \ge 1$.
+  \end{solucion}\fi
+\end{ejerc}
+
+Veremos alguna aplicación de las normas $p$-ádicas.
+
+\begin{aplicacion}
+  El $n$-ésimo \term{número armónico} es la suma de los recíprocos de los
+  primeros $n$ enteros positivos:
+  \[ H_n \dfn \sum_{1 \le k \le n} \frac{1}{k} =
+     1 + \frac{1}{2} + \frac{1}{3} + \cdots +  + \frac{1}{n}. \]
+  He aquí los primeros de estos números:
+  \[ H_1 = 1, ~
+     H_2 = \frac{3}{2}, ~
+     H_3 = \frac{11}{6}, ~
+     H_4 = \frac{25}{12}, ~
+     H_5 = \frac{137}{60}, ~
+     H_6 = \frac{49}{20}, ~
+     H_7 = \frac{363}{140}, ~
+     H_8 = \frac{761}{280}, ~
+     H_9 = \frac{7129}{2520}. \]
+  Se ve que $H_n \notin \ZZ$ para $n > 1$. ¿Cómo podemos demostrarlo? Se ve que
+  en los denominadores aparecen potencias de $2$. Podemos separarlas para
+  calcular las normas $2$-ádicas correspondientes:
+  \begin{align}
+    \notag H_2 & = 1 + \frac{1}{2} = \frac{3}{2},\\
+    \notag H_3 & = 1 + \frac{1}{2} + \frac{1}{3} = \frac{11}{2\cdot 3},\\
+    \notag H_4 & = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{2^2} = \frac{25}{2^2\cdot 3},\\
+    \notag H_5 & = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{2^2} + \frac{1}{5} = \frac{137}{2^2\cdot 3\cdot 5},\\
+    \label{eqn:suma-H-6} H_6 & = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{2^2} + \frac{1}{5} + \frac{1}{2\cdot 3} = \frac{49}{2^2\cdot 5},\\
+    \notag H_7 & = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{2^2} + \frac{1}{5} + \frac{1}{2\cdot 3} + \frac{1}{7} = \frac{363}{2^2\cdot 5\cdot 7},\\
+    \notag H_8 & = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{2^2} + \frac{1}{5} + \frac{1}{2\cdot 3} + \frac{1}{7} + \frac{1}{2^3} = \frac{761}{2^3\cdot 5\cdot 7},\\
+    \notag H_9 & = 1 + \frac{1}{2} + \frac{1}{3} + \frac{1}{2^2} + \frac{1}{5} + \frac{1}{2\cdot 3} + \frac{1}{7} + \frac{1}{2^3} + \frac{1}{3^2} = \frac{7129}{2^3\cdot 3^2\cdot 5\cdot 7}.
+  \end{align}
+
+  Si $2^\ell \le n < 2^{\ell+1}$, entonces para $k = 1, \ldots, n$
+  tenemos $|1/k|_2 \le 2^\ell$. Además, el único término en la suma
+  $\sum_{1\le k\le n} 1/k$ con $2^\ell$ en el denominador
+  es $1/2^\ell$. Entonces, la desigualdad ultramétrica nos da la \emph{igualdad}
+  $$\left|\sum_{1\le k\le n} 1/k\right|_2 = \max_{1\le k\le n} \{ |1/k|_2 \} = 2^\ell.$$
+  Esto demuestra que para $n > 1$ el número $H_n$ tiene $2^\ell$ en
+  el denominador (donde $\ell = \lfloor\log_2 n\rfloor$) y por lo tanto
+  no es entero.
+
+  Note que para los primos diferentes de $2$ el mismo argumento no demuestra que
+  $|H_n|_p \xrightarrow{n\to\infty} +\infty$ (es decir,
+  $v_p (H_n) \xrightarrow{n\to\infty} -\infty$): la potencia máxima de $p$ puede
+  aparecer dos veces en los denominadores, como, por ejemplo, $3$ en la suma
+  \eqnref{eqn:suma-H-6}.
+
+  \[ \begin{array}{rrrrrrrrrrrrrrrrrr}
+       \hline
+       n\colon & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 \\
+       \hline
+       v_2 (H_n)\colon & -1 & -1 & -2 & -2 & -2 & -2 & -3 & -3 & -3 & -3 & -3 & -3 & -3 & -3 & -4 & -4 & -4 \\
+       v_3 (H_n)\colon & 1 & -1 & -1 & -1 & 0 & 1 & 0 & -2 & -2 & -2 & -2 & -2 & -2 & -2 & -2 & -2 & -1 \\
+       v_5 (H_n)\colon & 0 & 0 & 2 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 \\
+       v_7 (H_n)\colon & 0 & 0 & 0 & 0 & 2 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 & -1 \\
+       \hline
+     \end{array} \]
+\end{aplicacion}
+
+\begin{aplicacion}
+  El siguiente resultado es conocido como el \term{lema de Gauss}
+  (\emph{Disquisitiones Arithmeticae}, Artículo 42).
+
+  \noindent\emph{Si $f\in \ZZ [X]$ es un polinomio mónico con coeficientes
+    enteros y $f (X) = g (X)\cdot h (X)$ para algunos polinomios mónicos
+    $g (X), h (X) \in \QQ [X]$, entonces los coeficientes de $g$ y $h$ son
+    enteros}.
+\end{aplicacion}
+
+He aquí la observación clave que dejo como un ejercicio.
+
+\begin{ejerc}
+  Sea $k$ un cuerpo con norma no-arquimediana $\|\cdot\|$. Para un polinomio
+  $g (X) = \sum_i a_i\,X^i \in k [X]$ definamos su \term{norma de Gauss}
+  correspondiente como el máximo de las normas de sus coeficientes:
+  $$\|g (X)\| \dfn \max_i \{ \|a_i\| \}.$$
+  Demuestre que
+  $$\|g (X)\cdot h (X)\| = \|g (X)\|\cdot \|h (X)\|.$$
+
+  \ifdefined\solutions\begin{solucion}
+    Si $g (X) = \sum_i a_i\,X^i$ y $h (X) = \sum_j b_j\,X^j$, entonces
+    $$g (X)\cdot h (X) = \sum_n \left(\sum_{i+j = n} a_i\,b_j\right)\,X^n.$$
+    La desigualdad triangular implica que
+    $$\|g (X)\cdot h (X)\| \le \|g (X)\|\cdot \|h (X)\|,$$
+    y necesitamos ver que algún coeficiente de $g (X)\cdot h (X)$ tiene norma
+    $\|g (X)\|\cdot \|h (X)\|$. El caso de $g (X) = 0$ o $h (X) = 0$ es trivial,
+    así que podemos descartarlo. Supongamos que $\|g (X)\| = \|a_m\|$, donde $m$
+    es el mínimo índice con esta propiedad; es decir,
+    \[ \|a_0\| < \|a_m\|, ~
+       \|a_1\| < \|a_m\|, ~
+       \ldots, ~
+       \|a_{m-1}\| < \|a_m\|, ~
+       \|a_{m+1}\| \le \|a_m\|, ~
+       \|a_{m+2}\| \le \|a_m\|, ~
+       \ldots \]
+    De la misma manera, supongamos que $\|h (X)\| = \|b_n\|$ donde $n$ es
+    el mínimo índice con esta propiedad. Luego, para el coeficiente de $X^{m+n}$
+    de $g (X)\cdot h (X)$ tenemos por la desigualdad triangular
+    \[ \left\|\sum_{i+j = m+n} a_i\,b_j\right\| =
+       \max_{i+j = m+n} \{\|a_i\|\cdot\|b_j\| \} =
+       \|a_m\|\cdot\|b_n\| = \|g (X)\|\cdot\|h (X)\|. \qedhere \]
+  \end{solucion}\fi
+\end{ejerc}
+
+Ahora podemos volver al lema de Gauss. Si $f (X) = g (X)\cdot h (X)$, donde
+$f (X)$ es mónico y tiene coeficientes enteros, entonces para todo $p$
+$$|g (X)|_p \cdot |h (X)|_p = |f (X)|_p = 1$$
+---el coeficiente mayor de $f (X)$ es $1$, y los coeficientes enteros tienen
+normas $|a_i|_p \le 1$. Luego, si $g (X)$ y $h (X)$ son mónicos, entonces
+$|g (X)|_p \ge 1$ y $|h (X)|_p \ge 1$, y la última identidad nos da
+$$|g (X)|_p = |h (X)|_p = 1.$$
+Esto significa que $p$ no aparece en los denominadores de los coeficientes
+de $g (X)$ y $h (X)$; es decir, $g (X), h (X) \in \ZZ_{(p)} [X]$. Aplicado para
+todo $p$, este argumento demuestra que $g (X)$ y $h (X)$ tienen coeficientes
+en $\bigcap_p \ZZ_{(p)} = \ZZ$. \qed
+
+\vspace{1em}
+
+La demostración usa una idea muy común: para ver que $x\in\ZZ$, se puede
+demostrar por separado que $x\in\ZZ_{(p)}$ para todo primo $p$.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Espacios ultramétricos}
+
+\begin{definicion}
+  Si $(X,d)$ es un espacio métrico donde en lugar de la desigualdad
+  del triángulo se cumple la propiedad más fuerte
+  \begin{enumerate}
+  \item[M3${}^*$)] $d (x,y) \le \max \{ d (x,z), d (z,y) \}$,
+  \end{enumerate}
+  se dice que $X$ es un \term{espacio ultramétrico}.
+\end{definicion}
+
+\begin{observacion}
+  Sea $R$ es un anillo conmutativo con alguna norma no-arquimediana
+  $\|\cdot\|$. La distancia
+  $$d (x,y) \dfn \|x-y\|$$
+  define una estructura de espacio ultramétrico.
+
+  \begin{proof}
+    La propiedad N3${}^*$) corresponde a M3${}^*$).
+  \end{proof}
+\end{observacion}
+
+\begin{ejemplo}
+  $\ZZ$ y $\QQ$ son espacios ultramétricos respecto a la distancia $p$-ádica
+  $d (a,b) \dfn |a-b|_p$.
+\end{ejemplo}
+
+Nuestra intuición para espacios métricos normalmente viene del ejemplo más común
+y geométrico, que es $\RR^n$ con la distancia habitual inducida por el valor
+absoluto arquimediano $|\cdot|$. Si $X$ es un espacio ultramétrico
+(en particular, un cuerpo con una norma no-arquimediana), muchas propiedades
+topológicas de $X$ son bastante contraintuitivas. Dediquemos esta sección
+a las propiedades de espacios ultramétricos.
+
+\begin{observacion}
+  En un espacio ultramétrico, todo punto de una bola abierta es su centro:
+  si $y_0 \in B (x_0,\epsilon)$, entonces $B (y_0,\epsilon) = B (x_0,\epsilon)$.
+
+  \begin{proof}
+    Si $x, y_0 \in B (x_0,\epsilon)$, entonces
+    $$d (x,x_0) < \epsilon, \quad d (x_0,y_0) < \epsilon,$$
+    y luego
+    $$d (x,y_0) \le \max \{ d (x,x_0), d (x_0,y_0) \} < \epsilon.$$
+    Así que $B (x_0,\epsilon) \subseteq B (y_0,\epsilon)$. De la misma manera,
+    $B (y_0,\epsilon) \subseteq B (x_0,\epsilon)$.
+  \end{proof}
+\end{observacion}
+
+Otro resultado inesperado:
+
+\begin{observacion}
+  \label{obs:esferas-son-abiertas}
+  En un espacio ultramétrico, la esfera de radio $r > 0$
+  $$S_r (x_0) \dfn \{ x \in X \mid d (x,x_0) = r \}$$
+  es un subconjunto abierto.
+
+  \begin{proof}
+    Para $x \in S_r (x_0)$ y $\epsilon < r$ tenemos
+    $B (x,\epsilon) \subset S_r (x_0)$. En efecto, si $y \in B (x,\epsilon)$,
+    tenemos $d (y,x) < \epsilon < r$, y luego
+    $$d (y, x_0) \le \max \{ d (y,x), d (x,x_0) \} = r,$$
+    así que $y \in S_r (x_0)$.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  \label{obs:bolas-abiertas-son-cerradas-en-espacio-ultrametrico}
+  En un espacio ultramétrico
+  \begin{enumerate}
+  \item[1)] las bolas abiertas $B (x_0,\epsilon)$ son conjuntos cerrados
+    al mismo tiempo,
+  \item[2)] las bolas cerradas $\overline{B} (x_0,\epsilon)$ son conjuntos
+    abiertos al mismo tiempo.
+  \end{enumerate}
+\end{observacion}
+
+\noindent (Note que \emph{no} estamos diciendo que toda bola abierta
+$B (x_0,\epsilon)$ coincide con una bola cerrada $\overline{B} (x_0,\epsilon')$
+para algún $\epsilon'$ y viceversa. Esto sucede cuando los valores de
+$d (\cdot,\cdot)$ son discretos, pero en general es falso.)
+
+\begin{proof}
+  En 1) necesitamos ver que
+  $$X \setminus B (x_0,\epsilon) = \{ x\in X \mid d (x,x_0) \ge \epsilon \}$$
+  es un conjunto abierto. En efecto, es la union de la esfera
+  $$S_\epsilon (x_0) = \{ x\in X \mid d (x,x_0) = \epsilon \},$$
+  que es abierta según \ref{obs:esferas-son-abiertas}, y el conjunto
+  $$X\setminus \overline{B} (x_0,\epsilon) = \{ x\in X \mid d (x,x_0) > \epsilon \}$$
+  que es abierto según el ejercicio \ref{ejerc:bola-cerrada-es-cerrada}.
+  De la misma manera en 2), tenemos
+  \[ \overline{B} (x_0,\epsilon) =
+     \{ x\in X \mid d (x,x_0) \le \epsilon \} =
+     B (x_0,\epsilon)\cup S_\epsilon (x_0), \]
+  que es la unión de dos conjuntos abiertos.
+\end{proof}
+
+En particular, en un espacio ultramétrico, $\overline{B} (x_0,\epsilon)$
+\emph{no es} la clausura de $B (x_0,\epsilon)$, ya que $B (x_0,\epsilon)$
+es un conjunto cerrado.
+
+\begin{ejerc}
+  Recordemos que la \term{frontera} de un subespacio $A \subset X$ es dada por
+  la intersección de la clausura de $A$ con la clausura del complemento de $A$:
+  $$\fr A \dfn \overline{A} \cap \overline{X\setminus A}.$$
+  Nuestra intuición para $\RR^n$ diría que
+  $\fr B (x_0,\epsilon) = S_\epsilon (x_0)$, pero es falso en un espacio
+  ultramétrico. Demuestre que en este caso $\fr B (x_0,\epsilon) = \emptyset$.
+
+  \ifdefined\solutions\begin{solucion}
+    Puesto que la bola $B (x_0,\epsilon)$ es un conjunto cerrado y abierto
+    al mismo tiempo, tenemos
+    \[ \fr B (x_0,\epsilon) =
+       \overline{B (x_0,\epsilon)} \cap \overline{X\setminus B (x_0,\epsilon)} =
+       B (x_0,\epsilon) \cap (X\setminus B (x_0,\epsilon)) = \emptyset. \]
+  \end{solucion}\fi
+\end{ejerc}
+
+Recordemos la noción de espacio conexo.
+
+\begin{definicion}
+  Se dice que un espacio topológico $X$ es \term{inconexo} si $X = U\cup V$,
+  para algunos subconjuntos abiertos no vacíos $U \subset X$ y $V \subset X$
+  tales que $U\cap V = \emptyset$. (Note que en este caso $U$ y $V$ son también
+  cerrados.)
+
+  Si $X$ no es \term{inconexo}, se dice que $X$ es \term{conexo}.
+\end{definicion}
+
+Por ejemplo, $\RR$ es conexo. Todo espacio ultramétrico es inconexo en el peor
+sentido posible.
+
+\begin{observacion}
+  Todo espacio ultramétrico es \term{totalmente inconexo}: los únicos
+  subespacios conexos de $X$ son $\emptyset$ y $\{ x \}$ para $x\in X$.
+
+  \begin{proof}
+    Esto se sigue de la misma propiedad que las bolas abiertas son cerradas.
+    Para $x \in X$, sea $A \subset X$ un subconjunto tal que
+    $\{ x \} \subsetneq A$. Tenemos $B (x,\epsilon) \cap A \ne A$ para algún
+    $\epsilon > 0$. Luego, tenemos la unión disjunta
+    $$A = (B (x,\epsilon) \cap A) \cup ((X \setminus B (x,\epsilon)) \cap A),$$
+    donde $B (x,\epsilon)$ y $X \setminus B (x,\epsilon)$ son abiertos.
+  \end{proof}
+\end{observacion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Límites y sucesiones de Cauchy}
+
+Recordemos algunas nociones de análisis. Voy a formular todo para un anillo
+conmutativo $R$ dotado de una norma $\|\cdot\|$, arquimediana o no arquimediana.
+
+\begin{definicion}
+  Se dice que una sucesión $(a_n)_n$ de elementos de $R$ tiene \term{límite}
+  $a\in R$ respecto a $\|\cdot\|$ y se escribe
+  $$\lim_{n\to\infty} a_n = a,$$
+  si para todo $\epsilon > 0$ existe $N$ tal que
+  $$\|a - a_n\| < \epsilon\quad\text{para todo }n > N.$$
+\end{definicion}
+
+\begin{ejemplo}
+  \label{ejemplo:1+p+p^2+cdots}
+  Sea $a_n \dfn 1 + p + p^2 + \cdots + p^n$. La sucesión $(a_n)_n$ tiene límite
+  en $\QQ$ respecto a la norma $p$-ádica:
+  $$\lim_{n\to\infty} a_n = \frac{1}{1-p}.$$
+  En efecto, esto se sigue de
+  \[ \left|a_n - \frac{1}{1-p}\right|_p =
+     \left|\frac{(1-p)\,(1 + p + p^2 + \cdots + p^n) - 1}{1-p}\right|_p =
+     \left|\frac{p^{n+1}}{p-1}\right|_p =
+     |p^{n+1}|_p = \frac{1}{p^{n+1}}. \qedhere \]
+\end{ejemplo}
+
+\begin{ejerc}
+  Demuestre que para la sucesión
+  $$a_n \dfn 1 - p + p^2 - p^3 + \cdots + (-1)^n\,p^n$$
+  se tiene
+  $$\lim_{n\to\infty} a_n = \frac{1}{1+p}$$
+  respecto a la norma $p$-ádica.
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos
+    $$a_n = \sum_{0 \le k \le n} (-p)^k = \frac{1 - (-p)^{n+1}}{1+p}.$$
+    Luego,
+    \[ \left|a_n - \frac{1}{1+p}\right|_p =
+       \left|\frac{\pm p^{n+1}}{1+p}\right|_p =
+       \frac{1}{p^{n+1}}. \]
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Supongamos que $\|\cdot\|$ es una norma no arquimediana sobre algún
+  cuerpo. Como siempre, en análisis, la serie $\sum_{n\ge 0} a_n$ denota
+  el límite de la sucesión de las sumas parciales $\sum_{0\le n\le k} a_n$.
+
+  \begin{enumerate}
+  \item[1)] Demuestre que la serie geométrica $\sum_{n\ge 0} x^n$ converge
+    si y solamente si $\|x\| < 1$ y en este caso
+    $$\sum_{n\ge 0} x^n = \frac{1}{1-x}.$$
+
+  \item[2)] Calcule las series
+    $$1 - p + p^2 - p^3 + p^4 - p^5 + \cdots$$
+    y
+    $$1 + (p-1)\,p + p^2 + (p-1)\,p^3 + p^4 + (p-1)\,p^5 + \cdots$$
+    en $\QQ$ respecto a la norma $p$-ádica.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Consideremos las sumas parciales
+    $$\sum_{0 \le k \le n} x^k = 1 + x + \cdots + x^n.$$
+    Primero notemos que para $\|x\| \ge 1$ la sucesión
+    $(\sum_{0 \le k \le n} x^k)_n$ no es de Cauchy. En efecto, tenemos
+    \[ \left\|\sum_{0 \le k \le n} x^k - \sum_{0 \le k \le n-1} x^k\right\| =
+       \|x^n\| = \|x\|^n, \]
+    y luego
+    $$\begin{cases}
+      \|x\|^n = 1, & \text{si } \|x\| = 1,\\
+      \|x\|^n \xrightarrow{n\to\infty} +\infty, & \text{si } \|x\| > 1.
+    \end{cases}$$
+    Ahora supongamos que $\|x\| < 1$. Esto implica en particular que $x \ne 1$
+    y que
+    $$\|1 - x\| = \max \{ \|1\|, \|x\| \} = 1.$$
+    Recordemos la fórmula
+    $$\sum_{0 \le k \le n} x^k = \frac{1 - x^{n+1}}{1 - x}.$$
+    En efecto,
+    \[ (1 - x)\cdot (1 + x + x^2 + \cdots + x^n) =
+       (1 + x + x^2 + \cdots + x^n) - (x + x^2 + \cdots + x^n + x^{n+1}) =
+       1 - x^{n+1}. \]
+    Luego,
+    \[ \left\|\sum_{0 \le k \le n} x^k - \frac{1}{1-x}\right\| =
+       \left\|\frac{-x^{n+1}}{1 - x}\right\| = \frac{\|x\|^{n+1}}{\|1-x\|} =
+       \|x\|^{n+1} \xrightarrow{n \to \infty} 0. \]
+
+    Luego, en 2) tenemos
+    \[ 1 - p + p^2 - p^3 + p^4 - p^5 + \cdots =
+       \sum_{n\ge 0} p^{2n} - p\,\sum_{n\ge 0} p^{2n} =
+       \frac{1}{1-p^2} - \frac{p}{1-p^2} = \frac{1}{1+p}. \]
+
+    \begin{multline*}
+      1 + (p-1)\,p + p^2 + (p-1)\,p^3 + p^4 + (p-1)\,p^5 + \cdots \\
+    = \sum_{n\ge 0} p^{2n} + (p-1)\,p\,\sum_{n\ge 0} p^{2n} =
+      \frac{1}{1-p^2} + \frac{(p-1)\,p}{1-p^2} =
+      \frac{p^2-p+1}{1-p^2}.
+    \end{multline*}
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{definicion}
+  Se dice que $(a_n)_n$ es una \term{sucesión de Cauchy} respecto a $\|\cdot\|$
+  si para todo $\epsilon > 0$ existe $N$ tal que
+  $$\|a_m - a_n\| < \epsilon\quad\text{para cualesquiera }m,n > N.$$
+\end{definicion}
+
+\begin{observacion}
+  Si una sucesión $(a_n)_n$ tiene límite respecto a $\|\cdot\|$, entonces es una
+  sucesión de Cauchy respecto a $\|\cdot\|$.
+
+  \begin{proof}
+    Si $\lim_{n\to\infty} a_n = a$, entonces para todo $\epsilon > 0$ existe $N$
+    tal que
+    $$\|a - a_n\| < \epsilon/2\quad\text{para todo }n > N.$$
+    Luego, por la desigualdad del triángulo, para cualesquiera $m,n > N$ tenemos
+    \[ \|a_m - a_n\| = \|(a - a_n) - (a - a_m)\|
+       \le \|a - a_n\| + \|a - a_m\| \le \epsilon. \qedhere \]
+  \end{proof}
+\end{observacion}
+
+\begin{ejemplo}
+  Para todo $a\in R$, tenemos la sucesión constante $(a)$ definida por
+  $a_n \dfn a$ para todo $n\in\NN$. Obviamente, es una sucesión de Cauchy.
+\end{ejemplo}
+
+En nuestra notación ``$\lim_{n\to\infty} a_n$'' la norma es implícita.
+Por supuesto, una sucesión puede tener diferentes límites respecto a diferentes
+normas, o tener límite respecto a una norma y no tenerlo respecto a otra.
+
+\begin{ejerc}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Demuestre que la sucesión $a_n = p^n$ no tiene límite respecto
+    al valor absoluto habitual $|\cdot|$ sobre $\QQ$, pero $a_n$ tiende a $0$
+    respecto a la norma $p$-ádica $|\cdot|_p$. Demuestre que no es de Cauchy
+    respecto a $|\cdot|_q$ para $q\ne p$.
+
+  \item[2)] Demuestre que la sucesión $a_n \dfn \frac{p^n}{p^n + 1}$ tiene
+    límites diferentes respecto a $|\cdot|_p$ y respecto al valor absoluto
+    habitual $|\cdot|$.
+
+  \item[3)] Construya una sucesión de números enteros que converja a dos números
+    diferentes respecto a $|\cdot|_p$ y $|\cdot|_q$ donde $p\ne q$ son dos
+    primos fijos diferentes.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    En 1) tenemos
+    $|p^n - p^{n-1}|_q = |p^{n-1}|_q\cdot |p-1|_q = |p-1|_q$.
+    Aunque puede ser que $q^k \mid p-1$, el número $|p-1|_q$ es constante.
+
+    En 3)
+    \[ v_p \left(\frac{p^n}{p^n + 1}\right) =
+       v_p (p^n) - \underbrace{v_p (p^n + 1)}_{= 0} = n, \]
+    así que
+    \[ \left|\frac{p^n}{p^n + 1}\right|_p = \frac{1}{p^n}
+       \xrightarrow{n\to\infty} 0; \]
+    y respecto el valor absoluto habitual,
+    $$\frac{p^n}{p^n + 1} \xrightarrow{n\to\infty} 1.$$
+
+    En 4) sean $p$ y $q$ dos primos diferentes y sean $x$ e $y$ dos enteros
+    diferentes. Según el teorema chino del resto, para todo $n$ se puede
+    encontrar $a_n$ tal que
+    $$a_n \equiv x \pmod{p^n}, \quad a_n \equiv y \pmod{q^n},$$
+    o en términos de normas $p$-ádicas,
+    $$|a_n - x|_p \le \frac{1}{p^n}, \quad |a_n - y|_q \le \frac{1}{q^n}.$$
+    Luego, la sucesión $a_n$ converge a $x$ respecto a la norma $|\cdot|_p$
+    y a $y$ respecto a la norma $|\cdot|_q$.
+  \end{solucion}\fi
+\end{ejerc}
+
+Los ejemplos de arriba son bastante tontos, pero algunos principiantes creen
+que, por ejemplo, si una sucesión $a_n\in\QQ$ tiende a algún número racional
+respecto a $|\cdot|_p$ y respecto a otro número racional respecto a $|\cdot|$,
+entonces los dos límites coinciden. Como acabamos de ver, esto es totalmente
+falso.
+
+\begin{ejerc}
+  \label{ejerc:1/10n-respecto-a-norma-p-adica}
+  Demuestre que las siguientes sucesiones de números racionales no son de Cauchy
+  respecto a ninguna de las normas $p$-ádicas $|\cdot|_p$:
+
+  \begin{enumerate}
+  \item[1)] $1$, $1/10$, $1/100$, $1/1000$, $1/10000$, $\ldots$;
+
+  \item[2)] $1$, $1/2$, $1/3$, $1/4$, $1/5$, $\ldots$;
+
+  \item[3)] $a_n \dfn \sum_{0\le i \le n} i$.
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Tenemos
+    \[ \left|\frac{1}{10^n} - \frac{1}{10^{n+1}}\right|_p =
+       \left|\frac{9}{10^{n+1}}\right|_p. \]
+    Si $p = 2, 5$, se ve que
+    $$\left|\frac{9}{10^{n+1}}\right|_{2,5} \xrightarrow{n\to\infty} +\infty.$$
+    Si $p = 3$, entonces para todo $n$
+    $$\left|\frac{9}{10^{n+1}}\right|_3 = \frac{1}{3^2}.$$
+    Si $p\ne 2, 3, 5$, entonces para todo $n$
+    $$\left|\frac{9}{10^{n+1}}\right|_p = 1.$$
+    En todos los casos posibles, esto demuestra que la sucesión no es de Cauchy.
+
+    Para la serie $a_n = 1/n$, de la misma manera,
+    $$a_n - a_{n+1} = \frac{1}{n} - \frac{1}{n+1} = \frac{1}{n\,(n+1)},$$
+    y la norma $p$-ádica de este número puede ser arbitrariamente grande para
+    $n\to\infty$.
+
+    En 3) tenemos $a_n - a_{n-1} = n$, y entonces cuando $p\nmid n$,
+    $$|a_n - a_{n-1}|_p = 1.$$
+    Esto demuestra que la sucesión $(a_n)$ no es de Cauchy.
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{ejerc}
+  Para la sucesión $a_n \dfn \frac{n!}{n! + 1}$, encuentre su límite respecto
+  a todas las normas $p$-ádicas $|\cdot|_p$ y respecto al valor absoluto
+  habitual $|\cdot|$.
+
+  \ifdefined\solutions\begin{solucion}
+    Respecto al valor absoluto habitual, obviamente,
+    $a_n \xrightarrow{n\to\infty} 1$. Luego,
+    \[ v_p \left(\frac{n!}{n! + 1}\right) =
+       v_p (n!) - \underbrace{v_p (n! + 1)}_{= 0}
+       \xrightarrow{n\to\infty} +\infty. \]
+    Esto significa que
+    $$\left|\frac{n!}{n! + 1}\right|_p \xrightarrow{n\to\infty} 0.$$
+  \end{solucion}\fi
+\end{ejerc}
+
+\begin{observacion}
+  \label{obs:sucesion-de-Cauchy-sucesion-de-normas}
+  Si $(a_n)_n$ es una sucesión de Cauchy, entonces las normas $(\|a_n\|)_n$
+  forman una sucesión de Cauchy en $\RR$; en particular, el límite
+  $\lim_{n\to\infty} \|a_n\|$ existe.
+
+  \begin{proof}
+    Si $(a_n)_n$ es una sucesión de Cauchy, entonces para todo $\epsilon > 0$
+    existe $N$ tal que
+    $$\|a_m - a_n\| < \epsilon\quad\text{ para cualesquiera }m,n > N.$$
+    Luego, por la desigualdad del triángulo inversa,
+    \[ \Bigl|\|a_m\|-\|a_n\|\Bigr| \le \|a_m-a_n\|. \qedhere \]
+  \end{proof}
+\end{observacion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Equivalencia de normas}
+
+Para simplificar la exposición, vamos a introducir la siguiente noción solamente
+para normas sobre cuerpos.
+
+\begin{definicion}
+  \label{dfn:normas-equivalentes}
+  Se dice que dos normas $\|\cdot\|_1$ y $\|\cdot\|_2$ sobre un cuerpo $F$ son
+  \term{equivalentes} si se cumple una de las siguientes condiciones:
+
+  \begin{enumerate}
+  \item[1)] una sucesión en $F$ es de Cauchy respecto a $\|\cdot\|_1$
+    si y solamente si es de Cauchy respecto a $\|\cdot\|_2$;
+
+  \item[2)] para todo $x\in F$ tenemos
+    $$\|x\|_1 < 1 \iff \|x\|_2 < 1;$$
+
+  \item[$2'$)] para todo $x\in F$ tenemos
+
+    \begin{align}
+      \label{eqn:normas-equivalentes-<>1-1} \|x\|_1 < 1 & \iff \|x\|_2 < 1,\\
+      \label{eqn:normas-equivalentes-<>1-2} \|x\|_1 > 1 & \iff \|x\|_2 > 1,\\
+      \label{eqn:normas-equivalentes-<>1-3} \|x\|_1 = 1 & \iff \|x\|_2 = 1;
+    \end{align}
+
+  \item[3)] existe algún $\alpha > 0$ tal que $\|x\|_1 = \|x\|_2^\alpha$ para
+    todo $x\in F$;
+
+  \item[4)] $\|\cdot\|_1$ y $\|\cdot\|_2$ inducen la misma topología sobre $F$.
+  \end{enumerate}
+\end{definicion}
+
+En general, para normas sobre \emph{anillos}, las condiciones de arriba
+son diferentes. Por ejemplo, sobre $\ZZ$, podemos considerar la norma trivial
+(definida por $\|n\| = 1$ para todo $n\ne 0$) y el valor absoluto habitual
+$|\cdot|$. Luego, una sucesión $(a_n)_n$ es de Cauchy si y solamente si
+$a_n = a_m$ para $m,n \gg 0$, así que se cumple la condición 1).
+También se cumple 4): ambas normas inducen la topología discreta:
+$B (n,\epsilon) = \{ n \}$ para $\epsilon < 1$ respecto a ambas normas.
+Sin embargo, 2), $2'$), 3) no se cumplen.
+
+También notamos que la condición 3) no significa que si $\|\cdot\|$ es una norma
+sobre $F$, entonces $\|\cdot\|^\alpha$ es también una norma para todo
+$\alpha > 0$. Por ejemplo, si $|\cdot|$ es el valor absoluto habitual sobre
+$\QQ$, entonces $|\cdot|^2$ no es una norma: tenemos $|1+1|^2 > |1|^2 + |1|^2$,
+así que la desigualdad de triángulo no se cumple.
+
+\begin{ejerc}
+  Sea $|\cdot|$ el valor absoluto habitual sobre $\QQ$. Encuentre para cuáles
+  valores $\alpha > 0$ la función $x\mapsto |x|^\alpha$ es una norma sobre
+  $\QQ$.
+
+  \ifdefined\solutions\begin{solucion}
+    La respuesta: para $0 < \alpha < 1$.
+
+    Sea $|\cdot|$ el valor absoluto habitual sobre $\QQ$. Encontremos todas
+    las normas equivalentes a $|\cdot|$. Por la definición, son de la forma
+    $\|x\| \dfn |x|^\alpha$ para algún $\alpha > 0$. Necesitamos ver cuándo esto
+    define una norma. Tenemos $|x|^\alpha = 0$ si y solamente si $|x| = 0$
+    si y solamente si $x = 0$. La multiplicatividad es también evidente:
+    $$|xy|^\alpha = (|x|\cdot |y|)^\alpha = |x|^\alpha\cdot |y|^\alpha.$$
+    Tenemos que verificar la desigualdad del triángulo
+    $$|x+y|^\alpha \le |x|^\alpha + |y|^\alpha.$$
+    Sin perdida de generalidad, $|x| \ge |y|$. También podemos suponer
+    que $x \ne 0$, ya que en el caso contrario la desigualdad del triángulo
+    es obvia. Note que si $\alpha > 1$, la desigualdad del triángulo
+    no se cumple: por ejemplo, en este caso tenemos
+    $$|1+1|^\alpha > |1|^\alpha + |1|^\alpha.$$
+    Si $\alpha \le 1$, la desigualdad se cumple:
+    \begin{align*}
+      |x+y|^\alpha & \le (|x|+|y|)^\alpha =
+                     |x|^\alpha \cdot \left(1 + \frac{|y|}{|x|}\right)^\alpha \\
+                   & \le |x|^\alpha \cdot \left(1 + \frac{|y|}{|x|}\right)
+                     \quad\quad (\text{ya que }1 + |y|/|x| \ge 1, ~ \alpha \le 1)\\
+                   & \le |x|^\alpha \cdot \left(1 +
+                     \frac{|y|^\alpha}{|x|^\alpha}\right)
+                     \quad\quad (\text{ya que }|y|/|x| \le 1, ~ \alpha \le 1)\\
+                   & = |x|^\alpha + |y|^\alpha.
+    \end{align*}
+
+    Para resumir, todas las normas sobre $\QQ$ equivalentes a $|\cdot|$ son
+    $|\cdot|^\alpha$ para $0 < \alpha < 1$.
+  \end{solucion}\fi
+\end{ejerc}
+
+Ahora demostremos que las condiciones 1), 2), $2')$, 3), 4) son equivalentes.
+
+\vspace{1em}
+
+\noindent\textbf{Para la implicación $1) \Rightarrow 2)$}, supongamos que una
+sucesión es de Cauchy respecto a $\|\cdot\|_1$ si y solamente si lo es respecto
+a $\|\cdot\|_2$. Si tenemos $\|x\|_1 < 1$, entonces la sucesión $(x^n)_n$ es de
+Cauchy respecto a $\|\cdot\|_1$: tenemos
+$$\|x^n\|_1 = \|x\|^n_1 \xrightarrow{n\to\infty} 0.$$
+Ahora si $\|x\|_2 > 1$, entonces
+$$\|x^n\|_2 = \|x\|^n_2 \xrightarrow{n\to\infty} \infty,$$
+y $(a_n)_n$ no es de Cauchy respecto a $\|\cdot\|_2$. Si $\|x\|_2 = 1$, tenemos
+$$\|x^{n+1} - x^n\|_2 = \|x-1\|_2 \cdot \|x\|^n_2 = \|x-1\|_2.$$
+Aquí $\|x-1\|_2 \ne 0$, ya que $x\ne 1$ por nuestra hipótesis
+$\|x\|_1 < 1$. Esto demuestra que $(x^n)_n$ no es una sucesión de Cauchy
+respecto a $\|\cdot\|_2$. Así que tenemos la implicación
+$$\|x\|_1 < 1 \Longrightarrow \|x\|_2 < 1,$$
+y de la misma manera,
+$$\|x\|_2 < 1 \Longrightarrow \|x\|_1 < 1.$$
+
+\vspace{1em}
+
+\noindent\textbf{Ahora notemos que $2) \Leftrightarrow 2')$}. En efecto,
+\eqnref{eqn:normas-equivalentes-<>1-1} aplicado a $x^{-1}$ implica
+\eqnref{eqn:normas-equivalentes-<>1-2}, y luego
+\eqnref{eqn:normas-equivalentes-<>1-1} y \eqnref{eqn:normas-equivalentes-<>1-2}
+implican \eqnref{eqn:normas-equivalentes-<>1-3}.
+
+\vspace{1em}
+
+\noindent\textbf{La implicación más complicada es
+  $2') \Rightarrow 3)$}. Supongamos que para $\|\cdot\|_1$ y $\|\cdot\|_2$
+se cumple \eqnref{eqn:normas-equivalentes-<>1-1},
+\eqnref{eqn:normas-equivalentes-<>1-2},
+\eqnref{eqn:normas-equivalentes-<>1-3}. Tenemos que ver que
+$\|\cdot\|_1 = \|\cdot\|_2^\alpha$ para algún $\alpha > 0$. Si $\|\cdot\|_1$
+es una norma trivial, entonces según \eqnref{eqn:normas-equivalentes-<>1-2},
+$\|\cdot\|_2$ es también trivial, y funciona cualquier $\alpha > 0$.
+Ahora si $\|\cdot\|_1$ no es trivial, entonces existe algún $x_0\in F$ tal que
+$\|x_0\|_1 \ne 1$. Tenemos
+\[ \|x_0\|_1 = \|x_0\|_2^\alpha,
+   \quad \text{donde } \alpha = \frac{\log \|x_0\|_1}{\log \|x_0\|_2}. \]
+Aquí $\alpha > 0$ porque por nuestra hipótesis 2), tenemos o bien
+$\|x_0\|_1 < 1$, $\|x_0\|_2 < 1$, o bien $\|x_0\|_1 > 1$, $\|x_0\|_2 > 1$, y por
+lo tanto $\log \|x_0\|_1$ y $\log \|x_0\|_2$ tienen el mismo signo. Necesitamos
+ver que
+$$\|x\|_1 = \|x\|_2^\alpha \quad \text{para todo }x\in F.$$
+Si $\|x\|_2 = 1$, entonces también $\|x\|_1 = 1$, y la relación se cumple.
+Será suficiente analizar el caso cuando $\|x\|_1 < 1$ (y entonces
+$\|x\|_2 < 1$); si $\|x\|_1 > 1$ se puede considerar $x^{-1}$. Podemos escribir
+la relación de arriba como
+\[ \frac{\log \|x\|_1}{\log \|x\|_2} =
+   \frac{\log \|x_0\|_1}{\log \|x_0\|_2} = \alpha
+   \quad \text{para todo }x\in F, \]
+o como
+\[ \frac{\log \|x_0\|_1}{\log \|x\|_1} =
+   \frac{\log \|x_0\|_2}{\log \|x\|_2}
+   \quad \text{para todo }x\in F. \]
+Ahora, si
+$\frac{\log \|x_0\|_1}{\log \|x\|_1} < \frac{\log \|x_0\|_2}{\log \|x\|_2}$,
+entonces existe un número racional $\frac{m}{n}$ tal que
+\[ 0 < \frac{\log\|x_0\|_1}{\log\|x\|_1} <
+  \frac{m}{n} <
+  \frac{\log\|x_0\|_2}{\log\|x\|_2}. \]
+Luego,
+$$\|x_0\|_1 < \|x\|_1^{m/n} \quad y \quad \|x\|_2^{m/n} < \|x_0\|_2.$$
+Podemos escribir estas desigualdades como
+$$\|x_0\|_1^n < \|x\|_1^m \quad y \quad \|x\|_2^m < \|x_0\|_2^n.$$
+Esto nos da
+\[ \left\|\frac{x_0^n}{x^m}\right\|_1 = \frac{\|x_0\|_1^n}{\|x\|_1^m} < 1, \quad
+   \left\|\frac{x_0^n}{x^m}\right\|_2 = \frac{\|x_0\|_2^n}{\|x\|_2^m} > 1, \]
+lo que contradice 2). De la misma manera, podemos descartar el caso
+$\frac{\log \|x_0\|_1}{\log \|x\|_1} > \frac{\log \|x_0\|_2}{\log \|x\|_2}$.
+
+\vspace{1em}
+
+\noindent\textbf{La implicación $3) \Rightarrow 1)$ es fácil}:
+si $\|\cdot\|_1 = \|\cdot\|_2^\alpha$ para algún $\alpha > 0$, entonces está
+claro que una sucesión es de Cauchy respecto a $\|\cdot\|_1$ si y solamente si
+es de Cauchy respecto a $\|\cdot\|_2$.
+
+\vspace{1em}
+
+\noindent\textbf{Claramente, tenemos $3) \Rightarrow 4)$}: la condición 3)
+implica que las bolas abiertas correspondientes son las mismas.
+
+\vspace{1em}
+
+\noindent\textbf{En fin, $4) \Rightarrow 2)$}. En efecto, para $x\in F$ tenemos
+$\|x\| < 1$ si y solamente si el límite
+$$\lim_{n\to\infty}\!\!{}^{\|\cdot\|} (x^n) = 0$$
+respecto a la norma $\|\cdot\|$. Si las topologías inducidas por $\|\cdot\|_1$
+y $\|\cdot\|_2$ coinciden, entonces,
+\[ \|x\|_1 < 1 \iff
+   \lim_{n\to\infty}\!\!{}^{\|\cdot\|_1} (x^n) = 0 \iff
+   \lim_{n\to\infty}\!\!{}^{\|\cdot\|_2} (x^n) = 0 \iff
+   \|x\|_2 < 1. \]
+Esto termina la demostración de
+$1) \Leftrightarrow 2) \Leftrightarrow 3) \Leftrightarrow 4)$. \qed
+
+\begin{observacion}
+  Si $\|\cdot\|_1$ y $\|\cdot\|_2$ son dos normas equivalentes sobre un cuerpo
+  $F$, entonces $\|\cdot\|_1$ es trivial si y solamente si $\|\cdot\|_2$ es
+  trivial.
+
+  \begin{proof}
+    Evidente de la condición 2) de \ref{dfn:normas-equivalentes}.
+  \end{proof}
+\end{observacion}
+
+\begin{observacion}
+  Dos normas equivalentes $\|\cdot\|_1$ y $\|\cdot\|_2$ sobre un cuerpo son
+  o bien ambas arquimedianas o bien ambas no arquimedianas.
+
+  \begin{proof}
+    Según \ref{obs:caracterizacion-de-normas-no-arquimedianas-valor-en-Z},
+    una norma es no-arquimediana si y solamente si $\|n\| \le 1$ para todo
+    $n\in\ZZ$. Entonces, la condición 2) de \ref{dfn:normas-equivalentes}
+    lo demuestra todo.
+  \end{proof}
+\end{observacion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Teorema de Ostrowski: normas sobre $\QQ$}
+\label{sec:ostrowski-para-Q}
+
+Sobre $\QQ$ tenemos la norma arquimediana $|\cdot|$, el valor absoluto habitual,
+y normas no arquimedianas $|\cdot|_p$ para diferentes primos $p$. Resulta que,
+salvo equivalencia, estas son todas las normas no triviales sobre $\QQ$.
+
+\begin{teorema}[Ostrowski\footnote{\href{http://www-history.mcs.st-andrews.ac.uk/Biographies/Ostrowski.html}{\personality{Alexander Ostrowski}}
+    (1893--1986), matemático de origen judío-ucraniano. Nació en Kiev, en ese
+    tiempo parte del imperio ruso. Estudió en Alemania e hizo su tesis en
+    Gotinga bajo dirección de \personality{Edmund Landau} y \personality{Felix
+      Klein}. A partir de 1927 trabajo en la Universidad de Basilea.}]
+  \label{thm:ostrowski}
+  Toda norma sobre $\QQ$ es equivalente a una de las siguientes:
+
+  \begin{enumerate}
+  \item[1)] la norma trivial (\ref{ejemplo:norma-trivial});
+
+  \item[2)] el valor absoluto habitual arquimediano, que se denota por
+    $|\cdot|_\infty$;
+
+  \item[3)] las normas no arquimedianas $p$-ádicas $|\cdot|_p$ para diferentes
+    primos $p$ (\ref{def:norma-p-adica}).
+  \end{enumerate}
+\end{teorema}
+
+Recordemos que según el criterio 3) de \ref{dfn:normas-equivalentes},
+equivalencia de dos normas sobre un cuerpo quiere decir que
+$\|\cdot\|_1 = \|\cdot\|_2^\alpha$ para algún $\alpha > 0$. Note que $|\cdot|_p$
+y $|\cdot|_q$ no son equivalentes para $p \ne q$. En efecto, en este caso
+tenemos $|p|_p = 1/p$ y $|p|_q = 1$, así que $|\cdot|_p \ne |\cdot|_q^\alpha$.
+
+\begin{proof}
+  Sea $\|\cdot\|$ una norma sobre $\QQ$. Dado que
+  \[ \left\|\frac{m}{n}\right\| = \|m\|\cdot \|n\|^{-1}, \quad
+     \|m\| = \|-m\|, \quad
+     \|n\| = \|-n\|, \]
+  la norma está definida por sus valores $\|n\|$ en los enteros positivos
+  $n = 1, 2, 3, \ldots$
+
+  \vspace{1em}
+
+  \noindent\textbf{Caso 1.} Si para todo entero positivo $n$ tenemos
+  $\|n\| = 1$, la norma es trivial.
+
+  \vspace{1em}
+
+  \noindent\textbf{Caso 2.} Supongamos que existe un entero positivo $n$ tal que
+  $\|n\| > 1$. Esto significa que la norma es arquimediana (véase
+  \ref{obs:caracterizacion-de-normas-no-arquimedianas-valor-en-Z}), y vamos a
+  ver que es equivalente a $|\cdot|_\infty$; es decir, que existe algún número
+  $\alpha > 0$ tal que $\|n\| = n^\alpha$ para todo $n = 1,2,3,\ldots$
+
+  Sea $n_0$ el mínimo entero positivo tal que $\|n_0\| > 1$. Tenemos
+  $\|n_0\| = n_0^\alpha$ para algún $\alpha > 0$. Todo entero positivo $n$ puede
+  ser escrito en la base $n_0$:
+  $$n = a_0 + a_1 n_0 + a_2 n_0^2 + \cdots + a_s n_0^s. \quad\quad (0 \le a_i < n_0, ~ a_s \ne 0)$$
+  La desigualdad del triángulo nos da
+  \[ \|n\| \le \|a_0\| + \|a_1 n_0\| + \|a_2 n_0^2\| + \cdots + \|a_s n_0^s\| =
+     \|a_0\| + \|a_1\|\cdot n_0^\alpha + \|a_2\|\cdot n_0^{2\alpha} + \cdots +
+     \|a_s\|\cdot n_0^{s\alpha}. \]
+  Ya que $a_i < n_0$ para todo $i$, tenemos $\|a_i\| \le 1$ por nuestra elección
+  de $n_0$, así que
+  \[ \|n\| \le 1 + n_0^\alpha + n_0^{2\alpha} + \cdots + n_0^{s\alpha} =
+     n_0^{s\alpha} \, (1 + n_0^{-\alpha} + n_0^{-2\alpha} + \cdots +
+     n_0^{-s\alpha}) \le n_0^{s\alpha} \, \sum_{k\ge 0} \frac{1}{(n_0^\alpha)^k}
+     \le n^\alpha \, \sum_{k\ge 0} \frac{1}{(n_0^\alpha)^k}, \]
+  donde la última desigualdad sigue de $n \ge n_0^s$. Dado que $n_0^\alpha < 1$,
+  la serie $\sum_{k\ge 0} \frac{1}{(n_0^\alpha)^k}$ converge a alguna constante
+  $C$. Entonces, hemos demostrado que para todo entero positivo $n$ se tiene
+  $$\|n\| \le C\,n^\alpha,$$
+  donde $C$ no depende de $n$. En particular, podemos reemplazar $n$ por $n^N$,
+  donde $N$ es algún número natural suficientemente grande. Tenemos la
+  desigualdad
+  $$\|n\|^N \le C\,n^{N\alpha},$$
+  y tomando raíces $N$-ésimas,
+  $$\|n\| \le \sqrt[N]{C}\,n^\alpha.$$
+  Para $N \to \infty$, esto nos da
+  $$\|n\| \le n^\alpha.$$
+  Ahora, para la expansión de $n$ en la base $n_0$, tenemos
+  $n_0^{s+1} > n \ge n_0^s$, y por la desigualdad del triángulo,
+  $$\|n_0^{s+1}\| = \|n + n_0^{s+1} - n\| \le \|n\| + \|n_0^{s+1} - n\|,$$
+  de donde
+  \[ \|n\| \ge \|n_0^{s+1}\| - \|n_0^{s+1} - n\| =
+     \|n_0\|^{s+1} - \|n_0^{s+1} - n\| \ge n_0^{(s+1)\,\alpha} - (n_0^{s+1} - n)^\alpha. \]
+  (usando la desigualdad $\|n_0^{s+1} - n\| \le (n_0^{s+1} - n)^\alpha$
+  que acabamos de demostrar). Ya que $n \ge n_0^s$, tenemos
+  \[ \|n\| \ge
+     n_0^{(s+1)\,\alpha} - (n_0^{s+1} - n_0^s)^\alpha =
+     n_0^{(s+1)\,\alpha} \, \left(1 - \left(1 - \frac{1}{n_0}\right)^\alpha\right) \ge
+     C'\,n^\alpha, \]
+  donde $C'$ es alguna constante que depende de $n_0$ y $\alpha$ y no depende
+  de $n$. Por el mismo argumento de arriba, esto nos da la desigualdad
+  $$\|n\| \ge n^\alpha.$$
+  Podemos concluir que existe algún $\alpha > 0$ tal que para todo
+  $n = 1,2,3,\ldots$
+  $$\|n\| = n^\alpha.$$
+  Esto significa que la norma es equivalente a $|\cdot|_\infty$.
+
+  \vspace{1em}
+
+  \noindent\textbf{Caso 3.} Supongamos que $\|n\| \le 1$ para todo entero
+  positivo $n$, y existe algún $n$ tal que $\|n\| < 1$. Esto significa que
+  la norma es no-arquimediana y no es trivial, y nos gustaría ver que es
+  equivalente a $|\cdot|_p$ para algún primo $p$. Sea $n_0$ el mínimo entero
+  positivo tal que $\|n_0\| < 1$. Notemos que $n_0 = p$ tiene que ser primo:
+  en efecto, si $n_0 = n_1\cdot n_2$ para algunos $1 < n_1 < n$ y $1 < n_2 < n$,
+  entonces $\|n_0\| = \|n_1\|\cdot \|n_2\|$, y $\|n_1\| < 1$ o $\|n_2\| < 1$,
+  lo que contradice nuestra elección de $n_0$.
+
+  Ahora si $q$ es otro primo diferente de $p$, tenemos $\|q\| = 1$. En efecto,
+  si $\|q\| < 1$, entonces tenemos la relación de Bézout
+  $$1 = ap + bq$$
+  para algunos enteros $a$ y $b$, y luego la desigualdad ultramétrica nos da una
+  contradicción
+  $$1 = \|1\| \le \max \{ \|a\|\cdot \|p\|, \|b\|\cdot \|q\| \} < 1.$$
+  Entonces, $\|q\| = 1$ para todo primo $q \ne p$. Todo entero positivo $n$
+  puede ser factorizado en números primos:
+  $$n = p_1^{v_{p_1} (n)}\cdot p_2^{v_{p_2} (n)}\cdots p_s^{v_{p_s} (n)},$$
+  y
+  \[ \|n\| =
+     \|p_1\|^{v_{p_1} (n)}\cdot\|p_2\|^{v_{p_2}(n)}\cdots\|p_s\|^{v_{p_s}(n)}. \]
+  Si $p_i \ne p$, el factor correspondiente es igual a $1$. Entonces,
+  $$\|n\| = \|p\|^{v_p (s)},$$
+  donde $0 < \|p\| < 1$. Esta norma es equivalente a $|\cdot|_p$.
+\end{proof}
+
+\begin{ejerc}[Teorema de Ostrowski para $k (X)$]
+  Ahora para un cuerpo $k$ consideremos el anillo de polinomios $k [X]$.
+  Este es un dominio de factorización única, y en tal sentido es parecido
+  al anillo $\ZZ$. Los polinomios irreducibles son análogos de los números
+  primos. El cuerpo de fracciones correspondiente
+  $$k (X) = \{ f/g \mid f,g\in k [X], ~ g\ne 0 \}$$
+  es el cuerpo de funciones racionales y es un análogo de $\QQ$.
+
+  \vspace{1em}
+
+  Supongamos que $\|\cdot\|$ es una norma sobre $k (X)$ tal que $\|\cdot\|$ es
+  trivial sobre $k$.
+
+  \begin{enumerate}
+  \item[1)] Note que bajo esta hipótesis, $\|\cdot\|$ es necesariamente
+    no arquimediana (véase
+    \ref{corr:caracterizacion-de-normas-no-arquimedianas}).
+
+  \item[2)] Note que $\|\cdot\|$ está definida por sus valores sobre
+    $k [X] \subset k (X)$.
+
+  \item[3)] Supongamos que $\|X\| > 1$. Demuestre que para todo $f \in k [X]$
+    se cumple $\|f\| = \|X\|^{\deg f}$, así que la norma es equivalente
+    a la norma $f \mapsto \rho^{-\deg f}$ para $0 < \rho < 1$ que viene de
+    \ref{ejemplo:valuacion-por-grado}.
+
+    (Use la desigualdad ultramétrica y la hipótesis que $\|\cdot\|$ es trivial
+    sobre $k$.)
+
+  \item[4)] Supongamos que $\|X\| \le 1$. Note que $\|f\| \le 1$ para todo
+    $f\in k [X]$ (de nuevo, use la desigualdad ultramétrica). Supongamos que
+    la norma no es trivial y sea $f_0\ne 0$ un polinomio mónico del mínimo grado
+    posible tal que $\|f_0\| < 1$. Deduzca que $f_0 = p$ es un polinomio
+    irreducible y $\|q\| = 1$ si $q\ne p$ es otro polinomio mónico
+    irreducible. Concluya que la norma es equivalente a
+    $f \mapsto \rho^{v_p (f)}$, donde
+    $$v_p (f) \dfn \max \{ k ~\mid~ p^k \mid f \}.$$
+
+    (El argumento sería idéntico a la parte no arquimediana de nuestra
+    demostración del teorema de Ostrowski.)
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Sea $\|\cdot\|$ una norma sobre $k (X)$ tal que $\|\cdot\|$ es trivial sobre
+    $k$. Notemos que $\|\cdot\|$ está definida por sus valores sobre $k [X]$:
+    $$\left\|\frac{f}{g}\right\| = \|f\|\cdot \|g\|^{-1}.$$
+    Y ya que
+    $$\|\underbrace{1+1+\cdots+1}_n\| = 1$$
+    para todo $n \in \NN$, la norma $\|\cdot\|$ es no-arquimediana
+    (véase \ref{obs:caracterizacion-de-normas-no-arquimedianas}).
+
+    \vspace{1em}
+
+    \noindent\textbf{Caso 1}. Supongamos que $\|X\| > 1$. Para un polinomio
+    $$f = a_d\,X^d + a_{d-1}\,X^{d-1} + \cdots + a_1\,X + a_0$$
+    por la desigualdad ultramétrica tenemos
+    $$\|f\| \le \max \{ \|a_d\,X^d\|, \|a_{d-1}\,X^{d-1}\|, \|a_1\,X\|, \|a_0\| \}.$$
+    Aquí
+    $$\|a_i\| = \begin{cases}
+      1, & \text{si } a_i \ne 0,\\
+      0, & \text{si } a_i = 0;
+    \end{cases}$$
+    y en particular, $\|a_d\| = 1$. Luego,
+    $$\|a_d\,X^d\| = \|a_d\|\cdot \|X^d\| = \|X\|^d,$$
+    y para $0 \le i < d$ tenemos
+    $$\|a_i\,X^i\| = \|a_i\|\cdot \|X\| \le \|X\|^i < \|X\|^d,$$
+    usando nuestra hipótesis que $\|X\| > 1$. Entonces, ya que la desigualdad de
+    arriba es estricta, tenemos igualdad
+    $$\|f\| = \|X\|^d = \|X\|^{\deg f}.$$
+    Esta norma es equivalente a $|\cdot|_\infty$ (en este caso el parámetro
+    $\rho$ es igual a $1/\|X\|$).
+
+    \vspace{1em}
+
+    \noindent\textbf{Caso 2}. Supongamos que $\|X\| \le 1$. Entonces la
+    desigualdad ultramétrica
+    \[ \|a_d\,X^d + a_{d-1}\,X^{d-1} + \cdots + a_1\,X + a_0\| \le
+       \max \{ \|a_d\|\cdot \|X\|^d, \|a_{d-1}\|\cdot\|X\|^{d-1}, \|a_1\|\cdot\|X\|, \|a_0\| \} \]
+    implica que para todo polinomio se tiene $\|f\| \le 1$.  Si la norma
+    no es trivial, existe algún $f \ne 0$ tal que $\|f\| < 1$. Este polinomio
+    no puede ser constante, ya que $\|\cdot\|$ es trivial sobre
+    las constantes. Sea $f_0$ tal polinomio del mínimo grado posible.
+    Esto implica que $f_0 = p$ es irreducible: de hecho, si
+    $f_0 = f_1 \cdot f_2$ para algunos $f_1$ y $f_2$ no constantes, entonces
+    $\|f_0\| = \|f_1\|\cdot \|f_2\| = 1$ significa que $\|f_1\| < 1$ y
+    $\|f_2\| < 1$, lo que contradice nuestra elección de $f_0$.
+
+    Podemos suponer que $p$ es mónico: si para su coeficiente principal tenemos
+    $a_d \ne 1$, reemplacemos $p$ por $a_d^{-1}\cdot p$. Esto no cambia
+    la norma:
+    $$\|a_d^{-1}\cdot p\| = \|a_d^{-1}\|\cdot \|p\| = \|p\|.$$
+
+    Ahora si $q$ es otro polinomio mónico irreducible diferente de $p$, tenemos
+    $\|q\| = 1$. En efecto, si $\|q\| < 1$, entonces tenemos la relación
+    de Bézout
+    $$1 = f\,p + g\,q$$
+    para algunos polinomios $f$ y $g$, y entonces
+    $$1 = \|1\| \le \max \{ \|f\|\cdot \|p\|, \|g\|\cdot \|q\| < 1,$$
+    que es una contradicción. Todo polinomio puede ser escrito de modo único
+    como producto de polinomios irreducibles:
+    $$f = p_1^{k_1} \cdot p_2^{k_2} \cdots p_n^{k_2},$$
+    y tenemos
+    $$\|f\| = \|p_1\|^{k_1} \cdot \|p_2\|^{k_2} \cdots \|p_n\|^{k_2},$$
+    donde $\|p_i\| = 1$ si $p_i \ne p$. Así que
+    $$\|f\| = \|p\|^{v_p (f)},$$
+    y la norma es equivalente a $|\cdot|_p$ (el parámetro $\rho$ es igual
+    a $\|p\|$).
+  \end{solucion}\fi
+\end{ejerc}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Completación respecto a una norma: definición}
+
+En esta sección vamos a revisar la construcción de la completación de un anillo
+$R$ respecto a una norma $\|\cdot\|$. El lector debe conocer este material
+de los cursos de análisis real donde el mismo método se usa para construir
+los números reales $\RR$. Note que por nuestra definición, una norma sobre $R$
+es una aplicación $R\to \RR_{\ge 0}$, así que ya se asume que hemos construido
+$\RR$ como la completación de $\QQ$ respecto al valor absoluto arquimediano
+$|\cdot|$. En particular, vamos a usar que toda sucesión de Cauchy en $\RR$
+converge.
+
+\begin{definicion}
+  Sea $R$ un anillo conmutativo dotado de una norma $\|\cdot\|$.
+  La \term{completación} de $R$ respecto a esta norma es un anillo $\widehat{R}$
+  junto con un homomorfismo de anillos
+  \begin{align*}
+    R & \to \widehat{R},\\
+    a & \mapsto \widehat{a} \dfn i (a)
+  \end{align*}
+  que satisface las siguientes propiedades.
+
+  \begin{enumerate}
+  \item[1)] La norma $\|\cdot\|$ se extiende a una norma sobre $\widehat{R}$,
+    que vamos a denotar también por $\|\cdot\|$ por abuso de notación. Para
+    cualquier $a\in R$ se tiene
+    $$\|\widehat{a}\| = \|a\|.$$
+    (En particular,
+    $\widehat{a} = 0 \iff \|\widehat{a}\| = 0 \iff \|a\| = 0 \iff a = 0$, así
+    que $i$ es un homomorfismo inyectivo. Además, se nota que es automáticamente
+    continuo respecto a las topologías inducidas por las normas sobre $R$ y
+    $\widehat{R}$.)
+
+  \item[2)] $R$ es \term{denso} en $\widehat{R}$; es decir, todo elemento de
+    $x\in \widehat{R}$ es el límite de alguna sucesión de elementos de $R$:
+    $$x = \lim_{n\to\infty} \widehat{a_n}.$$
+
+  \item[3)] $\widehat{R}$ es \term{completo}; es decir, toda sucesión de Cauchy
+    en $\widehat{R}$ converge en $\widehat{R}$.
+  \end{enumerate}
+\end{definicion}
+
+La construcción de $\widehat{R}$ requiere un poco de trabajo, pero de
+la definición de arriba se puede deducir que $\widehat{R}$ está definido
+de modo único.
+
+\begin{lema}
+  \label{lema:norma-sobre-la-completacion}
+  Para $x = \lim_{n\to\infty} \widehat{a_n} \in \widehat{R}$ la norma viene dada
+  por
+  \[ \left\|\lim_{n\to\infty} \widehat{a_n}\right\| =
+     \lim_{n\to\infty} \|\widehat{a_n}\| =
+     \lim_{n\to\infty} \|a_n\|. \]
+
+  \begin{proof}
+    La norma $\|\cdot\|\colon \widehat{R}\to \RR_{\ge 0}$ es continua respecto
+    a la topología inducida por la misma norma y por lo tanto conmuta con
+    límites.
+  \end{proof}
+\end{lema}
+
+\begin{lema}
+  Sean
+  $$R \to \widehat{R}, \quad a \mapsto \widehat{a}$$
+  y
+  $$R \to \widetilde{R}, \quad a \mapsto \widetilde{a}$$
+  dos completaciones del mismo anillo respecto a la misma norma
+  $\|\cdot\|$. Entonces el homomorfismo identidad $R\to R$ se extiende
+  de modo único a un isomorfismo de anillos
+  $\widehat{R} \xrightarrow{\isom} \widetilde{R}$ que preserva la norma
+  ($\|f (x)\| = \|x\|$ para todo $x\in R$):
+
+  \[ \begin{tikzcd}
+      R\ar{d}\ar[=]{r}{\idid} & R\ar{d} \\
+      \widehat{R}\ar[dashed]{r}{\exists ! f}[swap]{\isom} & \widetilde{R} \\
+    \end{tikzcd} \]
+
+  \begin{proof}
+    Gracias a la densidad, todo elemento $x\in\widehat{R}$ puede ser expresado
+    como
+    \begin{equation}
+      \label{eqn:expresion-de-x-por-densidad}
+      x = \lim_{n\to\infty} \widehat{a_n}
+    \end{equation}
+    para algunos $a_n\in R$. En particular, $(\widehat{a_n})_n$ es una sucesión
+    de Cauchy en $\widehat{R}$, siendo una sucesión convergente. Luego, tenemos
+    para todo $n$
+    $$\|\widehat{a_n}\| = \|a_n\| = \|\widetilde{a_n}\|,$$
+    así que $(\widetilde{a_n})_n$ es una sucesión de Cauchy
+    en $\widetilde{R}$. Por nuestra hipótesis el anillo $\widetilde{R}$
+    es completo, y por lo tanto $(\widetilde{a_n})_n$ converge a algún elemento
+    de $\widetilde{R}$. Ya que $f$ debe preservar la norma, $f$ debe ser
+    una aplicación continua y preservar los límites. Para hacer conmutar
+    el diagrama, $f$ debe satisfacer
+    $$f (\widehat{a}) = \widetilde{a}$$
+    para todo $a\in R$. Entonces, la aplicación $f$ debe ser dada por
+    \begin{equation}
+      \label{eqn:unica-posible-formula-para-f}
+      f (x) = f \left(\lim_{n\to\infty} \widehat{a_n}\right)
+            = \lim_{n\to\infty} f (\widehat{a_n})
+            = \lim_{n\to\infty} \widetilde{a_n}.
+    \end{equation}
+
+    Veamos que que la fórmula \eqnref{eqn:unica-posible-formula-para-f}
+    no depende de una expresión particular
+    \eqnref{eqn:expresion-de-x-por-densidad}, sino de $x$. Supongamos que
+    $$\lim_{n\to\infty} \widehat{a_n} = \lim_{n\to\infty} \widehat{a_n'}$$
+    para algunos $a_n'\in R$. Entonces
+    \[ \|\widetilde{a_n} - \widetilde{a_n'}\| =
+       \|\widetilde{a_n - a_n'}\| =
+       \|a_n - a_n'\| =
+       \|\widehat{a_n - a_n'}\| =
+       \|\widehat{a_n} - \widehat{a_n'}\|
+       \xrightarrow{n\to\infty} 0 \]
+    y la desigualdad del triángulo inversa
+    \[ \Bigl| \|\widetilde{a_n}\| - \|\widetilde{a_n'}\|\Bigr| \le
+       \|\widetilde{a_n} - \widetilde{a_n'}\| \]
+    demuestra que
+    $$\lim_{n\to\infty} \widetilde{a_n} = \lim_{n\to\infty} \widetilde{a_n'}.$$
+    Luego, $f$ preserva la norma gracias a
+    \ref{lema:norma-sobre-la-completacion}:
+    \[ \left\|\lim_{n\to\infty} \widehat{a_n}\right\| =
+       \lim_{n\to\infty} \|a_n\| =
+       \left\|\lim_{n\to\infty} \widetilde{a_n}\right\|. \]
+    En particular, $f$ es automáticamente una aplicación inyectiva.
+
+    Veamos que $f$ es un homomorfismo de anillos:
+    \begin{align*}
+      f \left(\lim_{n\to\infty} \widehat{a_n} \pm \lim_{n\to\infty} \widehat{b_n}\right) =
+      f\left(\lim_{n\to\infty} (\widehat{a_n}\pm\widehat{b_n})\right) =
+      f\left(\lim_{n\to\infty} \widehat{a_n\pm b_n}\right) =
+      \lim_{n\to\infty} \widetilde{a_n\pm b_n} \\
+      = \lim_{n\to\infty} (\widetilde{a_n}\pm \widetilde{b_n}) =
+      \lim_{n\to\infty} \widetilde{a_n}\pm \lim_{n\to\infty} \widetilde{b_n} =
+      f \left(\lim_{n\to\infty} \widehat{a_n}\right) \pm f \left(\lim_{n\to\infty} \widehat{b_n}\right),
+    \end{align*}
+    donde hemos usado que las operaciones $+$ y $-$ son continuas y por ende
+    conmutan con límites. De modo similar, se demuestra que
+    \[ f \left(\lim_{n\to\infty} \widehat{a_n}\cdot\lim_{n\to\infty} \widehat{b_n}\right) =
+       f \left(\lim_{n\to\infty} \widehat{a_n}\right)\cdot f \left(\lim_{n\to\infty} \widehat{b_n}\right). \]
+    Por fin, si $1\in R$ es la identidad del anillo, entonces $\widehat{1}$ es
+    la identidad en $\widehat{R}$ y $\widetilde{1}$ es la identidad en
+    $\widetilde{R}$. Por nuestra definición se tiene
+    $f (\widehat{1}) = \widetilde{1}$ y en general
+    $f (\widehat{a}) = \widetilde{a}$ para todo $a\in R$.
+
+    Nos queda ver que $f$ es un isomorfismo. Ya sabemos que es una aplicación
+    inyectiva y falta ver que es sobreyectiva. Gracias a la densidad de $R$ en
+    $\widetilde{R}$, todo elemento $y\in \widetilde{R}$ se expresa como
+    $$y = \lim_{n\to\infty} \widetilde{a_n}$$
+    para algunos $a_n \in R$. En particular, aquí $(\widetilde{a_n})_n$
+    es una sucesión de Cauchy en $\widetilde{R}$, pero esto implica que
+    $(\widehat{a_n})_n$ es una sucesión de Cauchy en $\widehat{R}$ que converge,
+    puesto que $\widehat{R}$ es completo, y
+    \[ f \left(\lim_{n\to\infty} \widehat{a_n}\right) =
+       \lim_{n\to\infty} \widetilde{a_n}. \qedhere \]
+  \end{proof}
+\end{lema}
+
+\begin{lema}
+  Si la norma $\|\cdot\|$ sobre $R$ es arquimediana (resp. no arquimediana),
+  entonces su extensión a $\widehat{R}$ es también arquimediana
+  (resp. no arquimediana).
+
+  \begin{proof}
+    El homomorfismo $R \to \widehat{R}$ es una inyección, así que $R$ puede ser
+    identificado con un subanillo de $\widehat{R}$ con la misma norma.
+    Luego, una norma será no arquimediana sobre $\widehat{R}$ si y solamente si
+    es no arquimediana sobre $R$
+    (véase \ref{corr:caracterizacion-de-normas-no-arquimedianas}).
+  \end{proof}
+\end{lema}
+
+\begin{lema}
+  Si $R = F$ es un cuerpo, entonces $\widehat{F}$ es también un cuerpo.
+
+  \begin{proof}
+    Sea $x \in \widehat{R}$ un elemento no nulo. Gracias a la densidad,
+    $$x = \lim_{n\to\infty} \widehat{a_n},$$
+    donde $\widehat{a_n}$ es alguna sucesión de Cauchy en $\widehat{R}$, y por
+    lo tanto $a_n$ es una sucesión de Cauchy en $R$. Ya que $x$ no es nulo,
+    \[ \|x\| = \left\|\lim_{n\to\infty} \widehat{a_n}\right\| =
+       \lim_{n\to\infty} \|a_n\| \ne 0. \]
+    Entonces, existen $N$ y $C > 0$ tales que
+    $$\|a_n\| > C\quad\text{para todo }n > N.$$
+    En particular,
+    $$a_n \ne 0\quad\text{para todo }n > N.$$
+    Definamos
+    $$b_n \dfn \begin{cases}
+      1, & \text{si } n \le N,\\
+      a_n^{-1}, & \text{si } n > N.
+    \end{cases}$$
+    Ahora para $m,n > N$ tenemos
+    \[ \|b_m - b_n\| =
+       \left\|\frac{1}{a_m} - \frac{1}{a_n}\right\| =
+       \left\|\frac{a_n - a_m}{a_m\,a_n}\right\| =
+       \left\|\frac{1}{a_m\,a_n}\right\|\cdot \|a_n - a_m\| <
+       \frac{1}{C^2}\cdot \|a_n - a_m\|. \]
+    Puesto que $(a_n)_n$ es una sucesión de Cauchy en $R$, de aquí se ve que
+    $(b_n)_b$ lo es, y $(\widehat{b_n})_n$ es una sucesión de Cauchy en
+    $\widehat{R}$. Sea
+    $$y \dfn \lim_{n\to\infty} \widehat{b_n} \in \widehat{R}.$$
+    Este límite existe puesto que $\widehat{R}$ es un anillo completo.
+    Luego,
+    \[ x\cdot y =
+       \lim_{n\to\infty} \widehat{a_n}\cdot \lim_{n\to\infty} \widehat{b_n} =
+       \lim_{n\to\infty} \widehat{a_n}\,\widehat{b_n} =
+       \lim_{n\to\infty} \widehat{a_n\,b_n}. \]
+    Pero $a_n\,b_n = 1$ (y por lo tanto
+    $\widehat{a_n\,b_n} = \widehat{a_n}\,\widehat{b_n} = \widehat{1}$)
+    para $n\gg 0$ y
+    \[ x\cdot y = \lim_{n\to\infty} \widehat{1} = \widehat{1}. \qedhere \]
+  \end{proof}
+\end{lema}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Completación respecto a una norma: construcción}
+
+\epigraph{Dios hizo los números enteros,\\
+el resto es obra del hombre.}{Leopold Kronecker}
+
+Ahora procedamos con la construcción de la completación. Escribí las pruebas
+de abajo solo para no dejar la impresión de que todo queda en el aire, pero no
+nos va a servir ninguna construcción particular. El lector puede aceptar la
+existencia de completación y pasar a la siguiente sección.
+
+\begin{lema}
+  El conjunto
+  $$SC (R) \dfn \{ \text{sucesiones de Cauchy en }R \}.$$
+  es un anillo conmutativo respecto a las operaciones
+  \begin{align*}
+    (a_n)_n + (b_n)_n & \dfn (a_n + b_n)_n,\\
+    (a_n)_n \cdot (b_n)_n & \dfn (a_n b_n)_n,
+  \end{align*}
+  y el cero y la identidad en $SC (R)$ son las series constantes
+  \[ \widehat{0} \dfn (0,0,0,\ldots)
+     \quad\text{y}\quad
+     \widehat{1} \dfn (1,1,1,\ldots). \]
+  Asociando a todo $a\in R$ la sucesión constante $(a) \in SC (R)$, se obtiene
+  un homomorfismo inyectivo $R \hookrightarrow SC (R)$.
+
+  \begin{proof}
+    Se ve fácilmente que las sumas y productos de sucesiones de Cauchy son
+    también sucesiones de Cauchy (¡ejercicio para el lector!). El resto debe ser
+    claro.
+  \end{proof}
+\end{lema}
+
+Podemos tratar de extender la norma $\|\cdot\|$ de $R$ al anillo $SC (R)$
+mediante la fórmula
+$$\|(a_n)_n\| \dfn \lim_{n\to\infty} \|a_n\|.$$
+Este límite existe para toda sucesión de Cauchy $(a_n)$, como hemos notado en
+\ref{obs:sucesion-de-Cauchy-sucesion-de-normas}. Sin embargo, esta fórmula
+no define una norma sobre $SC (R)$, ya que para una sucesión de Cauchy
+$(a_n) \ne (0,0,0,\ldots)$ el límite $\lim_{n\to\infty} \|a_n\|$ puede ser nulo,
+lo que contradice el axioma de normas N1). Para resolver este problema, podemos
+considerar las sucesiones de Cauchy módulo las sucesiones tales que
+$\lim_{n\to\infty} \|a_n\| = 0$.
+
+\begin{definicion}
+  Se dice que una sucesión $(a_n)_n$ es \term{nula} si
+  $\lim_{n\to\infty} a_n = 0$.
+\end{definicion}
+
+Note que esto es equivalente a $\lim_{n\to\infty} \|a_n\| = 0$. Toda sucesión
+nula es una sucesión de Cauchy, puesto que esta tiene límite.
+
+\begin{ejemplo}
+  La sucesión $(p^n)_n$ en $\QQ$ es nula respecto a la norma $p$-ádica.
+\end{ejemplo}
+
+\begin{lema}
+  Las sucesiones nulas de elementos de $R$ forman un ideal $N (R)$ en el anillo
+  $SC (R)$.
+
+  \begin{proof}
+    Está claro que $\widehat{0} = (0,0,0,\ldots) \in N (R)$. Luego, si
+    $(a_n)_n, (b_n)_n \in N (R)$ y $(c_n)_n \in SC (R)$, entonces
+    $(a_n)_n \pm (b_n)_n \dfn (a_n\pm b_n)_n \in N (R)$. En efecto, en este caso
+    \[ \lim_{n\to\infty} \|a_n + b_n\| \le
+       \lim_{n\to\infty} (\|a_n\| + \|b_n\|) =
+       \lim_{n\to\infty} \|a_n\| + \lim_{n\to\infty} \|b_n\| = 0. \]
+    Ahora si $(a_n)_n\in N (R)$ y $(c_n)_n\in SC (R)$, entonces
+    \[ \lim_{n\to\infty} \|c_n a_n\| =
+       \lim_{n\to\infty} (\|c_n\|\cdot \|a_n\|) =
+       \lim_{n\to\infty} \|c_n\| \cdot \lim_{n\to\infty} \|a_n\| = 0, \]
+    así que $(c_n)_n\cdot (a_n)_n \dfn (c_n a_n)_n \in N (R)$.
+  \end{proof}
+\end{lema}
+
+Ahora podemos pasar al anillo cociente $SC(R)/N(R)$.
+
+\begin{lema}
+  La fórmula
+  $$\|(a_n)_n\| \dfn \lim_{n\to\infty} \|a_n\|$$
+  define una norma sobre $SC (R) / N (R)$.
+
+  \begin{proof}
+    Si tenemos $(a_n)_n \equiv (a_n') \pmod{N (R)}$, esto quiere decir que
+    $$(a_n)_n - (a_n')_n = (a_n - a_n')_n \text{ es una sucesión nula};$$
+    luego, la desigualdad del triángulo inversa nos da
+    $$\Bigl|\|a_n\| - \|a_n'\| \Bigr| \le \|a_n - a_n'\| \xrightarrow{n\to\infty} 0,$$
+    y podemos concluir que
+    \[ \|(a_n)_n\| \dfn \lim_{n\to\infty} \|a_n\| =
+       \lim_{n\to\infty} \|a_n'\| \rdfn \|(a_n')_n\|. \]
+    Esto significa que la formula para $\|\cdot\|$ sobre $SC(R)/N(R)$ no depende
+    de un representante particular de una clase de equivalencia módulo $N (R)$.
+
+    Verifiquemos ahora los axiomas de norma. Los axiomas N2) y N3) se cumplen
+    gracias a los mismos axiomas para la norma $\|\cdot\|$ sobre $R$, mientras
+    que N1) se cumple porque hemos tomado el cociente por las sucesiones de
+    norma nula:
+    \begin{enumerate}
+    \item[N1)] $\|(a_n)_n\| \dfn \lim_{n\to\infty} \|a_n\| = 0$ significa
+      precisamente que la sucesión es nula; es decir, representa el elemento
+      nulo en el anillo cociente $SC (R) / N (R)$;
+
+    \item[N2)] para los productos tenemos
+      \[ \|(a_n)_n\cdot (b_n)_n\| =
+         \|(a_n b_n)_n\| =
+         \lim_{n\to\infty} \|a_n b_n\| =
+         \lim_{n\to\infty} \|a_n\| \cdot \lim_{n\to\infty} \|a_n\| =
+         \|(a_n)_n\|\cdot \|(b_n)_n\|; \]
+
+    \item[N3)] se cumple la desigualdad del triángulo:
+      \[ \|(a_n)_n + (b_n)_n\| =
+         \|(a_n + b_n)_n\| =
+         \lim_{n\to\infty} \|a_n+b_n\| \le
+         \lim_{n\to\infty} \|a_n\| + \lim_{n\to\infty} \|b_n\| =
+         \|(a_n)_n\| + \|(b_n)_n\|. \qedhere \]
+    \end{enumerate}
+  \end{proof}
+\end{lema}
+
+El siguiente resultado sigue directamente de las definiciones.
+
+\begin{lema}
+  La inclusión de sucesiones constantes induce un homomorfismo de anillos
+  \begin{align*}
+    R & \to SC(R)/N(R),\\
+    a & \mapsto \widehat{a} \dfn (a,a,a,\ldots).
+  \end{align*}
+
+  Se cumple $\|\widehat{a}\| = \|a\|$ para todo $a\in R$.
+\end{lema}
+
+Ahora $R\to SC(R)/N(R)$ es un homomorfismo inyectivo y continuo, así que $R$
+puede ser identificado con un subanillo topológico de $SC(R)/N(R)$.
+
+\begin{lema}
+  El subanillo $R \subset SC (R) / N (R)$ es \term{denso} en $SC (R) / N (R)$:
+  todo elemento de $SC (R) / N (R)$ es el límite de alguna sucesión de elementos
+  de $R$.
+
+  \begin{proof}
+    Por nuestra construcción, un elemento de $SC (R)$ está representado por
+    una sucesión de Cauchy $(a_n)_n$, donde $a_n\in R$. Para todo $m$ fijo
+    podemos considerar la sucesión constante correspondiente
+    $$\widehat{a_m} \dfn (a_m,a_m,a_m,\ldots).$$
+    Ahora $(\widehat{a_m})_m$ representa un elemento en $SC (R)/N (R)$ y
+    $(\widehat{a_m})_m$ tiene $(a_n)_n$ como su límite:
+    $$\lim_{m\to\infty} \widehat{a_m} = (a_n)_n.$$
+    En efecto, $(a_n)_n - \widehat{a_m}$ es la sucesión representada por
+    $(a_n - a_m)_n$, y luego, puesto que $(a_n)_n$ es una sucesión de Cauchy,
+    tenemos
+    \[ \lim_{m\to\infty} \|(a_n)_n - \widehat{a_m}\| =
+       \lim_{m\to\infty} \lim_{n\to\infty} \|a_m - a_n\| = 0. \qedhere \]
+  \end{proof}
+\end{lema}
+
+\begin{lema}
+  $SC (R) / N (R)$ es un anillo completo respecto a la norma $\|\cdot\|$:
+  toda sucesión de Cauchy $(x_m)_m$ en $SC (R)/N (R)$ converge a algún elemento
+  de $SC (R)/N (R)$.
+
+  \begin{proof}[Demostración (argumento diagonal)]
+    Si tenemos una sucesión $(x_m)$ en $SC (R)/N (R)$, esto quiere decir que
+    cada $x_m$ es una clase de equivalencia representada por una sucesión
+    de Cauchy en $R$. Gracias a la densidad sabemos que
+    $$x_m = \lim_{n\to\infty} \widehat{a_{mn}}$$
+    para algunos $a_{mn}\in R$. En particular, para todo $m$ existe $k (m)$ tal
+    que
+    $$\|x_m - \widehat{a_{mn}}\| < \frac{1}{m}\quad\text{para todo }n > k (m).$$
+    Si necesario, podemos reemplazar los $k (m)$ por números más grandes
+    y suponer que
+    $$k (0) < k (1) < k (2) < \cdots$$
+    Consideremos
+    $$c_n \dfn a_{n,k(n)}.$$
+
+    \begin{enumerate}
+    \item[1)] Veamos que $(c_n)_n$ es una sucesión de Cauchy en $R$
+      y por lo tanto representa un elemento de $SC (R)/N(R)$.
+      De hecho, por la desigualdad del triángulo,
+      \begin{multline*}
+        \|c_{n_1} - c_{n_2}\| =
+        \|a_{n_1,k(n_1)} - a_{n_2,k(n_2)}\| =
+        \|\widehat{a_{n_1,k(n_1)}} - \widehat{a_{n_2,k(n_2)}}\| \\
+      = \|(\widehat{a_{n_1,k(n_1)}} - x_{n_1}) + (x_{n_1} - x_{n_2}) + (x_{n_2} - \widehat{a_{n_2,k(n_2)}})\| \\
+    \le \|x_{n_1} - \widehat{a_{n_1,k(n_1)}}\| + \|x_{n_1} - x_{n_2}\| + \|x_{n_2} - \widehat{a_{n_2,k(n_2)}}\|.
+      \end{multline*}
+
+      Ya que $(x_n)_n$ es una sucesión de Cauchy en $SC (R) / N (R)$,
+      en particular, para todo $\epsilon > 0$ existe $N$ tal que
+      $$\|x_{n_1} - x_{n_2}\| < \epsilon/3\quad\text{para cualesquiera }n_1,n_2 > N.$$
+      Luego, por nuestra elección de $k (n)$, tenemos
+      \[ \|x_{n_1} - \widehat{a_{n_1,k(n_1)}}\| < \epsilon/3
+         \quad\text{y}\quad
+         \|x_{n_2} - \widehat{a_{n_2,k(n_2)}}\| < \epsilon/3
+         \quad\text{para cualesquiera }n_1,n_2 > 3/\epsilon. \]
+      Entonces,
+      \[ \|c_{n_1} - c_{n_2}\| < \epsilon
+         \quad\text{para cualesquiera }n_1, n_2 > \max \{ N, 3/\epsilon \}, \]
+      lo que demuestra que $(c_n)_n$ es una sucesión de Cauchy en $R$.
+
+    \item[2)] Veamos que $\lim_{m\to\infty} x_m = (c_n)_n$. Notemos que
+      \[ \|(c_n)_n - x_m\| =
+         \| ((c_n)_n - \widehat{a_{m, k(m)}}) + (\widehat{a_{m, k(m)}} - x_m) \| \le
+         \|(c_n)_n - \widehat{a_{m, k(m)}}\| + \|x_m - \widehat{a_{m, k(m)}}\|. \]
+      Luego, para el primer término, tenemos
+      $$\|(c_n)_n - \widehat{a_{m, k(m)}}\| = \lim_{n\to\infty} \|c_n - c_m\|,$$
+      y, como acabamos de ver en la parte 1), existe $N$ tal que
+      \[ \|c_n - c_m\| < \frac{\epsilon}{2}
+         \quad\text{para cualesquiera }m,n > N. \]
+
+      Para el segundo término, se cumple
+      \[ \|x_m - \widehat{a_{m, k(m)}}\| < \frac{\epsilon}{2}
+         \quad\text{para todo }m > 2/\epsilon. \]
+      Entonces,
+      \[ \|(c_n)_n - x_m\| < \epsilon
+         \quad\text{para todo }m > \max \{N, 2/\epsilon\}, \]
+      lo que demuestra que $(c_n)_n$ es el límite de las sucesiones $x_m$. \qedhere
+    \end{enumerate}
+  \end{proof}
+\end{lema}
+
+Resumamos todo lo que hemos demostrado.
+
+\begin{teorema}
+  \label{thm:existencia-de-completacion}
+  Sea $R$ un anillo con norma $\|\cdot\|$. Entonces (salvo isomorfismo que
+  preserva $R$ y la norma) su completación viene dada por
+  $$\widehat{R} = SC (R) / N (R),$$
+  junto con el homomorfismo natural $R \to \widehat{R}$ (la inclusión de
+  las sucesiones constantes) y la norma definida por
+  $$\|(a_n)_n\| \dfn \lim_{n\to\infty} \|a_n\|.$$
+\end{teorema}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Los números $p$-ádicos $\QQ_p$ y los enteros $p$-ádicos $\ZZ_p$}
+
+\epigraph{En la larga historia de las matemáticas, por ``número'' se entendía
+  un número real, y no fue sino hasta relativamente hace poco que nos dimos
+  cuenta de que existe el mundo de los números $p$-ádicos. Fue como si alguien
+  que haya visto el cielo solamente de día se maraville ante el cielo
+  nocturno. El firmamento matemático es ahora completamente distinto.
+  En el cielo nocturno, $\QQ_p$ emite ``la~luz del número primo $p$'' cual
+  una estrella que no podemos ver debido al sol $\RR$, que emite ``la~luz de
+  los números reales'' durante el día. Así como hay incontables estrellas en
+  el cielo nocturno, existe un $\QQ_p$ para cada $p$; cada estrella es al sol
+  como cada $\QQ_p$ es a $\RR$. De la misma forma en que los objetos del espacio
+  se aprecian mejor de noche, hemos comenzado a explorar el profundo universo
+  matemático a través de los números $p$-ádicos.}{\cite[\S 2.4]{Kato-NT-1}}
+
+\begin{definicion}
+  El \term{cuerpo de los números $p$-ádicos} $\QQ_p$ es la completación
+  del cuerpo de los números reales $\QQ$ respecto a la norma $p$-ádica
+  $|\cdot|_p$.
+\end{definicion}
+
+Según el teorema de Ostrowski, todas las normas sobre $\QQ$ salvo equivalencia
+son la norma trivial, la norma habitual arquimediana $|\cdot|$ y las normas
+$p$-ádicas $|\cdot|_p$ para todo primo $p$. De la caracterización de normas
+equivalentes (\ref{dfn:normas-equivalentes}) se ve que
+si $\|\cdot\|_1 \sim \|\cdot\|_2$, entonces
+$SC (R,\|\cdot\|_1) = SC (R,\|\cdot\|_2)$ y
+$N (R,\|\cdot\|_1) = N (R,\|\cdot\|_2)$, así que nuestra construcción
+de $\widehat{R} = SC (R)/N(R)$ nos dice que la completación respecto a normas
+equivalentes nos da el mismo resultado. Entonces, $\QQ$ tiene las siguientes
+completaciones no triviales: $\RR$ es la completación respecto a $|\cdot|$ y
+para cada primo $p$ el cuerpo $\QQ_p$ es la completación respecto a $|\cdot|_p$.
+
+\[ \begin{tikzcd}[column sep=0.2cm]
+    \RR\ar[-]{drr} & \QQ_2\ar[-]{dr} & \QQ_3\ar[-]{d} & \QQ_5\ar[-]{dl} & \cdots\ar[-]{dll} \\
+    & & \QQ
+  \end{tikzcd} \]
+
+\begin{comentario}
+  Se puede demostrar que $\RR$ y los $\QQ_p$ para diferentes primos $p$ no
+  son isomorfos como cuerpos abstractos. Normalmente esto se demuestra mediante
+  el lema de Hensel.
+\end{comentario}
+
+Según la teoría general, la norma $p$-ádica se extiende a una norma
+no arquimediana sobre $\QQ_p$ que también vamos a denotar por
+$|\cdot|_p$. Específicamente, para $0\in\QQ_p$ tenemos
+$$|0|_p = 0,$$
+y si
+$$x = \lim_{n\to\infty} a_n \in \QQ_p^\times$$
+para alguna sucesión de Cauchy $(a_n)_n$ en $\QQ$, entonces
+$$|x|_p \dfn \lim_{n\to\infty} |a_n|_p = |a_m|_p\text{ para }m \gg 0$$
+según el siguiente resultado.
+
+\begin{lema}
+  \label{lema:valores-absolutos-no-arquimedianos-se-estabilizan}
+  Sea $R$ un anillo con una norma no arquimediana $\|\cdot\|$. Sea $(a_n)_n$
+  una sucesión de Cauchy \underline{no nula} en $R$ respecto
+  a $\|\cdot\|$. Entonces existe $N$ tal que
+  $$\|a_m\| = \|a_n\|\quad\text{para cualesquiera }m,n > N.$$
+
+  \begin{proof}
+    Como vimos en \ref{obs:sucesion-de-Cauchy-sucesion-de-normas}, si $(a_n)_n$
+    es una sucesión de Cauchy, entonces $(\|a_n\|)_n$ es una sucesión de Cauchy
+    en $\RR$ y por lo tanto el límite $\lim_{n\to\infty} \|a_n\|$ existe.
+    Es algún número positivo $C > 0$ (la sucesión no es nula por nuestra
+    hipótesis). Entonces, existe $N_1$ tal que
+    $$\|a_n\| > C/2\quad\text{para todo }n > N_1.$$
+    Y ya que $(a_n)_n$ es una sucesión de Cauchy, existe $N_2$ tal que
+    $$\|a_m - a_n\| < C/2\quad\text{para cualesquiera }m,n > N_2.$$
+    Luego, para $N \dfn \max \{ N_1, N_2 \}$ tenemos
+    $$\|a_n\| > \|a_m-a_n\| \quad \text{para cualesquiera }m,n > N,$$
+    y por lo tanto,
+    \[ \|a_m\| = \| (a_m - a_n) + a_n \|
+               = \max \{ \|a_m-a_n\|, \|a_n\| \}
+               = \|a_n\| \quad \text{para cualesquiera }m,n > N. \qedhere \]
+  \end{proof}
+\end{lema}
+
+Podemos concluir que la norma $|\cdot|_p$ sobre $\QQ_p^\times$ toma los mismos
+valores $\{ 1/p^n \mid n\in\ZZ \}$ que la norma $p$-ádica sobre $\QQ^\times$.
+
+\begin{comentario}
+  ~
+
+  \begin{enumerate}
+  \item[1)] El lema de arriba es falso si la norma es arquimediana: por ejemplo,
+    los números
+    \[ a_0 = 1, ~
+       a_1 = 1.4, ~
+       a_2 = 1.41, ~
+       a_3 = 1.414, ~
+       a_4 = 1.4142, ~
+       a_5 = 1.41421, ~
+       a_6 = 1.414213, ~
+      \ldots \]
+    forman una sucesión de Cauchy en $\QQ$ que converge a un número no nulo
+    $\sqrt{2}$ en $\RR$, pero sus valores absolutos no se estabilizan para
+    $n\gg 0$.
+
+  \item[2)] La hipótesis de que la sucesión no sea nula es también importante:
+    la sucesión $a_n = p^n$ es nula en $\QQ$ respecto a la norma $p$-ádica
+    $|\cdot|_p$, y en particular es una sucesión de Cauchy, pero los valores
+    $|p^n|_p = 1/p^n$ no se estabilizan.
+  \end{enumerate}
+\end{comentario}
+
+\begin{teorema}
+  \label{thm:definicion-y-propiedades-de-Zp}
+  ~
+
+  \begin{enumerate}
+  \item[1)] El conjunto
+    $$\ZZ_p \dfn \{ x \in \QQ_p ~\mid~ |x|_p \le 1 \}$$
+    es un subanillo de $\QQ_p$. Este es el \term{anillo de los enteros
+      $p$-ádicos}.
+
+  \item[2)] El grupo de los elementos invertibles en $\ZZ_p$ viene dado por
+    $$\ZZ_p^\times = \{ x\in\ZZ_p ~\mid~ |x|_p = 1 \}.$$
+
+  \item[3)] Todo elemento $x\in \QQ_p^\times$ puede ser escrito de modo único
+    como $up^n$ para algunos $u \in \ZZ_p^\times$ y $n\in \ZZ$.
+
+  \item[4)] $\QQ_p$ es el cuerpo de fracciones de $\ZZ_p$.
+
+  \item[5)] $\ZZ_p$ es un \term{anillo local}; es decir, tiene un único ideal
+    maximal, a saber
+    $$\mathfrak{m} \dfn \{ x\in\ZZ_p ~\mid~ |x|_p < 1 \} = p\ZZ_p.$$
+
+  \item[6)] Todo ideal no nulo en $\ZZ_p$ es de la forma
+    $\mathfrak{m}^n = p^n\,\ZZ_p$ para algún $n = 0,1,2,3,\ldots$ En particular,
+    $\ZZ_p$ es un dominio de ideales principales.
+  \end{enumerate}
+
+  \begin{proof}
+    Para 1) notamos que $|0|_p = 0 < 1$ y $|1|_p = 1$, y si tenemos
+    $|x|_p \le 1$ y $|y|_p \le 1$, entonces
+    $$|x+y|_p \le \max \{ |x|_p, |y|_p \} \le 1$$
+    y
+    $$|xy|_p = |x|_p\cdot |y|_p \le 1.$$
+
+    \vspace{1em}
+
+    En 2), si $x, x^{-1}\in \ZZ_p$, entonces $|x|_p \le 1$ y
+    $|x^{-1}|_p \le 1$. Sin embargo, $|x^{-1}|_p = |x|_p^{-1}$ así que
+    $|x|_p = 1$. En la otra dirección, si $|x|_p = 1$, entonces $x \ne 0$
+    y $x$ es invertible en $\QQ_p$. Luego, $|x^{-1}|_p = |x|_p^{-1} = 1$
+    y $x^{-1} \in \ZZ_p$.
+
+    \vspace{1em}
+
+    En 3) si $x \in \QQ_p^\times$, entonces $|x|_p = 1/p^n$ para algún
+    $n$. Luego, $|x\,p^{-n}|_p = 1$, así que $u \dfn x\,p^{-n} \in \ZZ_p^\times$
+    y $x = up^n$.
+
+    Para ver que la expresión $x = up^n$ es única, supongamos que
+    $up^n = vp^m$. Sin pérdida de generalidad $m\ge n$, y tenemos
+    $v^{-1} u = p^{m-n} \in \ZZ_p^\times$, así que $m = n$, y por lo tanto
+    $u = v$.
+
+    \vspace{1em}
+
+    Luego, ya que todo elemento de $\ZZ_p$ puede ser escrito como $up^n$ donde
+    $u\in\ZZ_p^\times$ y $n\in\NN$, y todo elemento de $\QQ_p$ tiene la misma
+    forma con $n\in\ZZ$, está claro que $\QQ_p$ es el mínimo cuerpo que contiene
+    $\ZZ_p$. Esto establece 4).
+
+    \vspace{1em}
+
+    Para 5) primero notamos que $\mathfrak{m}$ es un ideal. Evidentemente,
+    $0\in\mathfrak{m}$, y si $x,y\in\mathfrak{m}$, entonces
+    $|x\pm y|_p \le \max \{ |x|_p, |y|_p \} < 1$, así que
+    $x\pm y \in \mathfrak{m}$. Por fin, si $z\in\ZZ_p$ y $x\in\mathfrak{m}$,
+    entonces $|z\pm x|_p = |z|_p\cdot |x|_p < 1$.
+
+    Ahora comparando 1) y 2), notamos que todo elemento no invertible de $\ZZ_p$
+    pertenece a $\mathfrak{m}$, y por esto $\mathfrak{m}$ es el único ideal
+    maximal. Luego, se ve que todo $x \in \mathfrak{m}$ se expresa como
+    $x = up^n$ para algún $u \in \ZZ_p^\times$, así que $\mathfrak{m} = p\ZZ_p$.
+
+    \vspace{1em}
+
+    Finalmente, en 6), si $\mathfrak{a} \subset \ZZ_p$ es un ideal no nulo, todo
+    elemento no nulo $x\in \mathfrak{a}$ puede ser escrito como $x = up^n$ para
+    $u \in \ZZ_p^\times$ y $n\in \NN$. Sea $x$ tal elemento con el valor mínimo
+    de $n$. Tenemos $p^n = u^{-1}\,x \in p^n\ZZ_p$, así que
+    $p^n\ZZ_p \subseteq \mathfrak{a}$. Luego, para cualquier otro elemento no
+    nulo $y \in \mathfrak{a}$, tenemos $y = v\,p^m$, donde $m \ge n$ por nuestra
+    elección de $n$, así que $y = v\,p^{m-n}\,p^n \in p^n\ZZ_p$. Esto demuestra
+    la otra inclusión $\mathfrak{a} \subseteq p^n\ZZ_p$.
+  \end{proof}
+\end{teorema}
+
+Sabiendo que los ideales no nulos de $\ZZ_p$ son de la forma $p^n\ZZ_p$ para
+$n = 0,1,2,\ldots$, sería interesante calcular los anillos cociente
+correspondientes $\ZZ_p/p^n\ZZ_p$.
+
+\begin{proposicion}
+  Tenemos $\ZZ_p/p^n\ZZ_p\isom \ZZ/p^n\ZZ$ y en particular
+  $\ZZ_p/p\ZZ_p\isom \FF_p$.
+
+  \begin{proof}
+    Consideremos primero el subanillo
+    \[ \ZZ_{(p)} \dfn \Bigl\{ \frac{m}{n} \in \QQ \Bigm| p\nmid n \Bigr\} =
+       \{ a \in \QQ ~\mid~ |a|_p \le 1 \} \subset \ZZ_p. \]
+    Tenemos
+    $$p^n\ZZ_{(p)} = p^n\ZZ_p \cap \ZZ_{(p)}.$$
+    Consideremos el homomorfismo de anillos
+
+    \begin{align*}
+      f\colon \ZZ_{(p)} & \hookrightarrow \ZZ_p \epi \ZZ_p/p^n\ZZ_p,\\
+      a & \quad\longmapsto\quad a + p^n\ZZ_p.
+    \end{align*}
+
+    El núcleo de este homomorfismo es
+    $$\ker f = \{ a \in \ZZ_{(p)} ~\mid~ p^n\mid a \} = p^n\,\ZZ_{(p)}.$$
+    Además, $f$ es sobreyectivo. En efecto, supongamos que $x \in \ZZ_p$;
+    es decir, $|x|_p \le 1$. Ya que $\QQ$ es denso en $\QQ_p$, existe algún
+    $a \in \QQ$ tal que
+    $$|a-x|_p \le 1/p^n,$$
+    y entonces $x \equiv a \pmod{p^n\ZZ_p}$. Tenemos
+    $$|a|_p = |a - x + x|_p \le \max \{ |a-x|_p, |x|_p \} \le 1,$$
+    y por lo tanto $a \in \ZZ_{(p)}$. Gracias al teorema de isomorfía, podemos
+    concluir que $f$ induce un isomorfismo de anillos
+    $$\ZZ_p/p^n\ZZ_p \isom \ZZ_{(p)}/p^n\ZZ_{(p)}.$$
+    Por último,
+    $$\ZZ_{(p)}/p^n\ZZ_{(p)} \isom \ZZ/p^n\ZZ.$$
+    En efecto, dado que para $\frac{a}{b}\in \ZZ_{(p)}$ se cumple $p\nmid b$,
+    la ``reducción módulo $p$''
+    \begin{align*}
+      \ZZ_{(p)} & \to \ZZ/p^n\ZZ,\\
+      \frac{a}{b} & \mapsto a\,b^{-1}
+    \end{align*}
+    está bien definida, es sobreyectiva y su núcleo es igual a $p^n\,\ZZ_{(p)}$.
+  \end{proof}
+\end{proposicion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Las expansiones $p$-ádicas}
+
+Como siempre, una serie $\sum_{n\ge 0} a_n$ denota el límite de las sumas
+parciales $\lim_{n\to \infty} s_n$, donde
+$s_n \dfn \sum_{0 \le i \le n} a_n$. Primero notamos que en cualquier caso,
+arquimediano o no, una serie convergente debe cumplir
+$\|a_n\| \xrightarrow{n \to \infty} 0$. En efecto, la sucesión $(s_n)$ debe ser
+de Cauchy, y en particular
+$$\|a_n\| = \|s_n - s_{n-1}\| \xrightarrow{n \to \infty} 0.$$
+Resulta que en el caso no arquimediano, esto es \emph{suficiente} para concluir
+que la serie es convergente.
+
+\begin{lema}[El criterio de convergencia de series no arquimedianas]
+  \label{lema:series-convergentes-no-arquimedianas}
+  En un cuerpo completo no arquimediano una serie $\sum_{n\ge 0} a_n$ converge
+  si y solamente si $\|a_n\| \xrightarrow{n\to\infty} 0$.
+
+  \begin{proof}
+    Usando la desigualdad ultramétrica, notamos que para cualesquiera $m > n$
+    las sumas parciales cumplen
+    \[ \|s_m - s_n\| =
+       \left\|\sum_{n+1\le i \le m} a_i\right\| \le
+       \max_{n+1 \le i \le m} \{ \|a_i\| \}, \]
+    así que si $\|a_i\| \xrightarrow{i\to\infty} 0$, la sucesión $(s_n)$ es
+    de Cauchy.
+  \end{proof}
+\end{lema}
+
+\begin{teorema}[Expansiones $p$-ádicas]
+  ~
+
+  \begin{enumerate}
+  \item[1)] Todo elemento $x \in \ZZ_p$ puede ser representado de modo único por
+    una serie
+    $$x = a_0 + a_1\,p + a_2\,p^2 + a_3\,p^3 + a_4\,p^4 + \cdots$$
+    donde $0 \le a_i \le p-1$. Es decir, tenemos un límite $p$-ádico
+    $$x = \lim_{n\to\infty} x_n,$$
+    donde
+    $$x_n \dfn a_0 + a_1\,p + \cdots + a_{n-1}\,p^{n-1} + a_n\,p^n.$$
+
+  \item[2)] En general, todo elemento de $\QQ_p$ puede ser representado de modo
+    único por una serie
+    \[ x = a_{-m}\,p^{-m} + a_{-m+1}\,p^{-m+1} + \cdots +
+      a_0 + a_1\,p + a_2\,p^2 + a_3\,p^3 + a_4\,p^4 + \cdots \]
+    para algún $m$.
+  \end{enumerate}
+
+  \begin{proof}
+    Sabemos que todo elemento de $\QQ_p$ puede ser escrito como $x = up^n$ para
+    algunos $u \in \ZZ_p^\times$ y $n\in \ZZ$, así que 1) implica 2).
+
+    Para demostrar 1), notamos primero que el límite $\lim_{n\to\infty} x_n$
+    existe en $\QQ_p$. Esto se sigue del criterio
+    \ref{lema:series-convergentes-no-arquimedianas}, puesto que
+    $$|a_n\,p^n|_p \le \frac{1}{p^n} \xrightarrow{n\to\infty} 0$$
+    (aquí $|a_i|_p = 0 \text{ o } 1$). Además,
+    $$|x|_p = \lim_{n\to\infty} |x_n|_p \le 1,$$
+    así que $x \in \ZZ_p$. Ahora veamos cómo a partir de $x \in \ZZ_p$ se pueden
+    encontrar los coeficientes $0 \le a_n \le p-1$. Puesto que
+    $\{ 0, 1, 2, \ldots, p-1 \}$ son representantes de
+    $\ZZ_p/p\ZZ_p \isom \FF_p$, existe un único $0 \le a_0 \le p-1$ tal que
+    $x = a_0 + y_1\,p$ para algún $y_1 \in \ZZ_p$. Luego,
+    $$|x - a_0|_p = |y_1|_p\cdot|p|_p \le 1/p.$$
+    Sea $0 \le a_1 \le p-1$ el único elemento tal que $y_1 = a_1 + y_2\,p$ para
+    algún $y_2 \in \ZZ_p$. Tenemos
+    $$x = a_0 + a_1\,p + y_2\,p^2$$
+    y
+    $$|x - (a_0 + a_1\,p)|_p = |y_2|_p\cdot |p|_p^2 \le 1/p^2.$$
+    Continuando de este modo, por inducción se encuentran $0 \le a_i \le p-1$
+    tales que
+    $$|x - (a_0 + a_1\,p + \cdots + a_{n-1}\,p^{n-1} + a_n\,p^n)|_p \le 1/p^{n+1}.$$
+    Entonces,
+    $$x_n \dfn a_0 + a_1\,p + \cdots + a_{n-1}\,p^{n-1} + a_n\,p^n$$
+    es una sucesión que tiene como su límite $x$. Si tenemos otra expansión
+    diferente
+    $$x = a_0' + a_1'\,p + a_2'\,p^2 + a_3'\,p^3 + \cdots$$
+    con $0 \le a_i' \le p-1$, sea $n$ el primer índice donde
+    $a_n' \ne a_n$. Tenemos $a_n' \not\equiv a_n \pmod{p}$, así que
+    $|a_n' - a_n|_p = 1$. Denotemos
+    $$x_n' \dfn a_0' + a_1'\,p + \cdots + a_{n-1}'\,p^{n-1} + a_n'\,p^n.$$
+    Tenemos
+    \[ |x_n' - x_n|_p =
+       |(a_n' - a_n)\,p^n|_p =
+       |a_n'-a_n|_p\cdot |p^n|_p =
+       1/p^n. \]
+    Sin embargo,
+    \[ |x_n' - x_n|_p =
+       |(x_n' - x) + (x - x_n)|_p \le
+       \max \{ |x_n' - x|_p, |x - x_n|_p \} \le 1/p^{n+1}, \]
+    y hemos obtenido una contradicción.
+  \end{proof}
+\end{teorema}
+
+\begin{corolario}
+  El anillo $\ZZ_p$ es la completación de $\ZZ$ respecto a la norma $p$-ádica.
+
+  \begin{proof}
+    Gracias a las expansiones $p$-ádicas, sabemos que todo elemento de $\ZZ_p$
+    es un límite de una sucesión $(a_n)$ donde $a_n\in \ZZ$. Ya que $\QQ_p$ es
+    completo, toda sucesión $(x_n)$ con $x_n\in\ZZ_p$ converge a algún
+    $x\in \QQ_p$, pero $|x_n|_p \le 1$ implica que
+    $|x|_p = \lim_{n\to\infty} |x_n|_p \le 1$.
+  \end{proof}
+\end{corolario}
+
+Los enteros $p$-ádicos son literalmente series formales en $p$ en el siguiente
+sentido.
+
+\begin{corolario}
+  Se tiene un isomorfismo $\ZZ_p \isom \ZZ [\![X]\!]/(X-p)$, donde
+  $$\ZZ [\![X]\!] = \Bigl\{ \sum_{n\ge 0} a_n\,X^n \Bigm| a_n \in \ZZ \Bigr\}$$
+  es el anillo de las series formales con coeficientes enteros.
+
+  \begin{proof}
+    La aplicación
+    $$\ZZ [\![X]\!] \to \ZZ_p, \quad \sum_{n\ge 0} a_n\,X^n \mapsto \sum_{n\ge 0} a_n\,p^n$$
+    es un homomorfismo de anillos bien definido (evaluación de series en
+    $p$). En efecto, notamos que para cualquier serie formal
+    $$f = \sum_{n\ge 0} a_n\,X^n \in \ZZ [\![X]\!]$$
+    la serie
+    $$f (p) \dfn \sum_{n\ge 0} a_n\,p^n$$
+    converge a un entero $p$-ádico. Esto se sigue del criterio
+    \ref{lema:series-convergentes-no-arquimedianas}:
+    \[ |a_n\,p^n|_p =
+       |a_n|_p\cdot |p^n|_p \le |p^n|_p =
+       \frac{1}{p^n} \xrightarrow{n \to \infty} 0. \]
+
+    El homomorfismo de arriba es sobreyectivo porque todo entero $p$-ádico puede
+    ser escrito como una suma $\sum_{n\ge 0} a_n\,p^n$ con $0 \le a_n < p$.
+    Para calcular el núcleo, asumamos que $f (p) = 0$ en $\ZZ_p$. En el anillo
+    $\QQ [\![X]\!]$ se tiene
+    \[ g \dfn (X-p)^{-1}\,f =
+       (X-p)^{-1}\,\sum_{n\ge 0} a_n\,X^n =
+       \Bigl(-\sum_{n\ge 0} p^{-n-1}\,X^n\Bigr)\cdot \Bigl(\sum_{n\ge 0} a_n\,X^n\Bigr) =
+       \sum_{n\ge 0} b_n\,X^n, \]
+    donde
+    $$b_n = -\sum_{0 \le i \le n} a_i\,p^{i-n-1}.$$
+    Notamos que
+    \[ b_n = p^{-n-1}\,\underbrace{\sum_{i\ge 0} a_i\,p^i}_{=0}
+                 - \sum_{0\le i\le n} a_i\,p^{i-n-1}
+           = \sum_{i\ge n+1} a_i\,p^{i-n-1}, \]
+    de donde se ve que $b_n \in \ZZ_p \cap \QQ = \ZZ$. Podemos concluir que
+    existe una serie de potencias $g \in \ZZ [\![X]\!]$ tal que
+    $(X-p)\,g = f$. Esto demuestra que $f$ pertenece al ideal generado por
+    $X-p$. Viceversa, está claro que $X-p$ está en el núcleo de la evaluación
+    en $p$.
+  \end{proof}
+\end{corolario}
+
+El último resultado significa que para obtener los números $p$-ádicos, se puede
+primero construir $\ZZ_p$ y luego declarar que $\QQ_p$ es el cuerpo de
+fracciones de $\ZZ_p$.
+
+\begin{ejemplo}
+  Para un número natural $n$, su expansión $p$-ádica es la expresión de $n$ en
+  base $p$. Por ejemplo,
+  \[ 23 = 1 + 2 + 2^2 + 2^4. \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  La expansión $p$-ádica de $-1$ viene dada por
+  \[ -1 = \sum_{n\ge 0} (p-1)\,p^n
+        = (p-1) + (p-1)\,p + (p-1)\,p^2 + (p-1)\,p^3 + (p-1)\,p^4 + \cdots \]
+  Esto se sigue del hecho de que
+
+  \begin{align*}
+    -1 & \equiv p-1 \pmod{p},\\
+    -1 & \equiv p^2-1 = p-1 + (p-1)\,p \pmod{p^2},\\
+    -1 & \equiv p^3-1 = p-1 + (p-1)\,p + (p-1)\,p^2 \pmod{p^3},\\
+       & \cdots
+  \end{align*}
+
+  En efecto, usando la fórmula para la serie geométrica se obtiene
+  \[ \sum_{n\ge 0} (p-1)\,p^n \equiv
+     (p-1)\,\sum_{0 \le n \le k-1} p^n \pmod{p^k} =
+     (p-1)\,\frac{p^k-1}{p-1} \equiv
+     -1 \pmod{p^k}. \qedhere \]
+\end{ejemplo}
+
+\begin{ejemplo}
+  Sea $p$ un primo impar. Entonces la expansión $p$-ádica de
+  $\frac{1}{2} \in \ZZ_p$ viene dada por
+  \[ \frac{1}{2} =
+     \frac{p+1}{2} + \frac{p-1}{2}\,p + \frac{p-1}{2}\,p^2 +
+     \frac{p-1}{2}\,p^3 + \frac{p-1}{2}\,p^4 + \cdots \]
+  En efecto, la serie geométrica nos da
+  \[ \frac{p+1}{2} + \frac{p-1}{2} \, \sum_{n\ge 1} p^n =
+     \frac{p+1}{2} + \frac{p-1}{2}\,\frac{p}{1 - p} =
+     \frac{p+1}{2} - \frac{p}{2} = \frac{1}{2}. \qedhere \]
+\end{ejemplo}
+
+\begin{framed}
+  El programa PARI/GP (\url{http://pari.math.u-bordeaux.fr/}) puede hacer
+  cálculos con los números $p$-ádicos. Para especificar un número $p$-ádico,
+  se puede escribir una serie en $p$ truncada, y luego poner
+  \texttt{+~O~($p$\textasciicircum$k$)} para especificar que los términos
+  a partir de $a_k\,p^k$ están omitidos: {\small
+\begin{verbatim}
+1 + 2 + 2^3 + 2^5 + 2^7 + 2^9 + O(2^10)
+\end{verbatim}}
+
+  Con estas expresiones se pueden hacer las operaciones aritméticas habituales;
+  por ejemplo
+
+  {\small
+\begin{verbatim}
+? (1 + 2 + O(2^10)) * (1 + 2 + 2^3 + 2^5 + 2^7 + 2^9 + O(2^10))
+% = 1 + O(2^10)
+\end{verbatim}}
+
+  Para encontrar los primeros términos de la expansión $p$-ádica de un número
+  racional, podemos escribirlo y poner después
+  ``\texttt{+~O~($p$\textasciicircum$k$)}'':
+
+{\small
+\begin{verbatim}
+? 1/2 + O (7^10)
+% = 4 + 3*7 + 3*7^2 + 3*7^3 + 3*7^4 + 3*7^5 + 3*7^6 + 3*7^7 + 3*7^8 + 3*7^9 + O(7^10)
+? 1/5 + O (3^10)
+% = 2 + 3^2 + 2*3^3 + 3^4 + 3^6 + 2*3^7 + 3^8 + O(3^10)
+? 1/5 + O (5^10)
+% = 5^-1 + O(5^10)
+? -1/5 + O (3^10)
+% = 1 + 2*3 + 3^2 + 3^4 + 2*3^5 + 3^6 + 3^8 + 2*3^9 + O(3^10)
+\end{verbatim}}
+
+  La función \texttt{valuation ($x$,$p$)} devuelve la valuación $p$-ádica
+  de $x$, donde $x$ es un número entero, racional o $p$-ádico:
+
+{\small
+\begin{verbatim}
+? valuation (2018,2)
+% = 1
+? valuation (3/32,2)
+% = -5
+? valuation (3*7^4 + 3*7^5 + 3*7^6 + 3*7^7 + 3*7^8 + 3*7^9 + O(7^10), 7)
+% = 4
+\end{verbatim}}
+\end{framed}
+
+En términos de las expansiones $p$-ádicas, la norma
+de $x = \sum_{-m\le n} a_n\,p^n\in\QQ_p$ viene dada por
+$$|x|_p = p^{-v_p (x)},$$
+donde $v_p (x) = n$ es el primer índice en la serie con $a_n \ne 0$.
+Luego, tenemos
+\[ \ZZ_p^\times =
+   \{ x\in\ZZ_p ~\mid~ |x|_p = 1 \} =
+   \{ a_0 + a_1\,p + a_2\,p^2 + a_3\,p^3 + a_4\,p^4 + \cdots \mid a_0 \ne 0 \}. \]
+Todo ideal no nulo en $\ZZ_p$ es de la forma
+\[ p^n\,\ZZ_p =
+   \{ a_n\,p^n + a_{n+1}\,p^{n+1} + a_{n+2}\,p^{n+2} + a_{n+3}\,p^{n+3} + \cdots \} \]
+para $n = 1,2,3,\ldots$
+
+La biyección
+\[ \{ 0,1,\ldots,p-1 \}^\NN \ni (a_0,a_1,a_2,a_3,\ldots)
+   \longleftrightarrow
+   a_0 + a_1\,p + a_2\,p^2 + a_3\,p^3 + \cdots\in \ZZ_p \]
+demuestra que la cardinalidad de $\ZZ_p$ es $p^{\aleph_0} = 2^{\aleph_0}$,
+la cardinalidad del continuo. De la misma manera, $\QQ_p$ tiene cardinalidad
+$2^{\aleph_0}$ (por ejemplo, podemos notar que en general, si $R$ es un dominio
+de integridad, entonces hay inyecciones de conjuntos
+$R \hookrightarrow \Frac (R) \hookrightarrow R\times R$). En particular, $\QQ_p$
+y $\ZZ_p$ no son numerables.
+
+Note que todo número real también puede ser escrito como una fracción decimal,
+por ejemplo $\pi = 3.1415926\ldots$ Sin embargo, estas expansiones
+no son únicas: tenemos $1.00000\ldots = 0.99999\ldots$, etc. Como acabamos
+de ver, en el caso no arquimediano las expansiones sí son únicas.
+
+\begin{advertencia}
+  Aunque las expansiones $p$-ádicas permiten hacer cálculos específicos con
+  los números $p$-ádicos, el lector no tiene por qué pensar en los últimos como
+  en sumas de la forma $\sum_n a_n\,p^n$, de la misma manera que uno raramente
+  piensa en los números reales como en fracciones decimales infinitas.
+\end{advertencia}
+
+\begin{ejerc}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Demuestre que si $x\in \ZZ_p$ tiene expansión $p$-ádica
+    \[ x = \sum_{n\ge 0} a_n\,p^n
+         = a_0 + a_1\,p + a_2\,p^2 + a_3\,p^3 + \cdots, \]
+    entonces
+    \[ -x = (p-a_0) + \sum_{n\ge 1} (p-1-a_n)\,p^n
+          = (p-a_0) + (p-1-a_1)\,p + (p-1-a_2)\,p^2 + (p-1-a_3)\,p^3 + \cdots \]
+    Note que, según esta fórmula, los números enteros negativos tienen expansión
+    $p$-ádica infinita; por ejemplo, para $23 = 1 + 2 + 2^2 + 2^4$ tenemos
+    $$-23 = 1 + 2^3 + 2^5 + 2^6 + 2^7 + 2^8 + 2^9 + 2^{10} + \cdots \in \ZZ_2$$
+
+  \item[2)] Si la expansión $p$-ádica de $x\in \QQ_p$ es dada por
+    \[ x = \sum_{n \ge -m} a_n\,p^n
+         = a_{-m}\,p^{-m} + a_{-m+1}\,p^{-m+1} + \cdots
+               + a_0 + a_1\,p + a_2\,p^2 + \cdots, \]
+    demuestre que
+    \begin{multline*}
+      -x = (p-a_{-m}) + \sum_{n \ge -m+1} (p-1-a_n)\,p^n =
+      (p-a_{-m})\,p^{-m} + (p-1-a_{-m+1})\,p^{-m+1} + \cdots\\
+      + (p-1-a_0) + (p-1-a_1)\,p + (p-1-a_2)\,p^2 + \cdots$$
+    \end{multline*}
+  \end{enumerate}
+\end{ejerc}
+
+\begin{ejerc}
+  ~
+
+  \begin{enumerate}
+  \item[1)] Demuestre que un número $p$-ádico tiene expansión de la forma
+    $$x = a_0 + a_1\,p + a_2\,p^2 + \cdots + a_n\,p^n + 0\cdot p^{n+1} + 0\cdot p^{n+2} + \cdots$$
+    que termina en ceros si y solamente si $x$ es un número natural
+    $0,1,2,3,\ldots$
+
+  \item[2)] Demuestre que un número $p$-ádico tiene expansión de la forma
+    \[ x = a_{-m}\,p^{-m} + a_{-m+1}\,p^{-m+1} + \cdots +
+           a_0 + a_1\,p + a_2\,p^2 + \cdots +
+           a_n\,p^n + 0\cdot p^{n+1} + 0\cdot p^{n+2} + \cdots \]
+    que termina en ceros si y solamente si $x$ es un número racional
+    \emph{no negativo} con denominador $p^m$ para algún $m = 0,1,2,\ldots$
+  \end{enumerate}
+
+  \ifdefined\solutions\begin{solucion}
+    Si $\alpha = r/p^m$ para algún $a \ge 0$ y algún $m$, entonces $a$ tiene
+    expansión
+    $$a = a_0 + a_1\,p + a_2\,p^2 + \cdots + a_n\,p^n$$
+    y luego
+    \[ \alpha = a_0\,p^{-m} + a_1\,p^{-m+1} + a_2\,p^{-m+2} + \cdots +
+                    a_n\,p^{-m+n}. \]
+    Viceversa, si tenemos una expansión de esta forma, podemos escribir
+    $$\alpha = \frac{a_0 + a_1\,p + a_2\,p^2 + \cdots + a_n\,p^n}{p^m}.$$
+  \end{solucion}\fi
+\end{ejerc}
+
+Recordemos que en $\RR$ los números racionales son precisamente los números
+con expansión decimal eventualmente periódica; por ejemplo,
+$5/3 = 1.666666666\ldots$ El mismo resultado se cumple para $\QQ_p$
+y la expansión $p$-ádica.
+
+\begin{ejerc}
+  Supongamos que en la expansión $p$-adica
+  $x = \sum_{-m\le n} a_n\,p^n \in\QQ_p$ los dígitos $a_n$ son periódicos
+  a partir de algún momento. Deduzca que $x\in\QQ$.
+
+  \noindent (Use la serie geométrica.)
+\end{ejerc}
+
+También es cierto que para todo número racional $x\in\QQ$ los dígitos $p$-ádicos
+son periódicos a partir de algún momento, pero la prueba es un poco más técnica
+y no la doy como un ejercicio.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Topología sobre $\QQ_p$ y $\ZZ_p$}
+
+Consideremos $\QQ_p$ como un espacio métrico respecto a la norma $p$-ádica
+$d (x,y) = |x-y|_p$. Como todo espacio métrico, es de Hausdorff. Sin embargo,
+es un espacio ultramétrico, así que es totalmente inconexo y satisface otras
+propiedades exóticas. Además, $\QQ_p$ tiene otras propiedades especiales que
+vienen del hecho de que los posibles valores de $|x|_p$ para $x\in\QQ_p^\times$
+son \emph{discretos}: son de la forma $1/p^n$ para $n\in \ZZ$.
+
+Por ejemplo, aparte de las bolas abiertas
+$$B (x_0,\epsilon) \dfn \{ x \in \QQ_p ~\mid~ |x-x_0|_p < \epsilon \}$$
+que por la definición forman una base de la topología sobre $\QQ_p$, podríamos
+considerar las bolas cerradas
+\[ \overline{B} (x_0,\epsilon) \dfn
+   \{ x \in \QQ_p ~\mid~ |x-x_0|_p \le \epsilon \}. \]
+Sin embargo,
+\[ B (x_0,1/p^n) =
+   \{ x \in \QQ_p ~\mid~ |x-x_0|_p < 1/p^n \} =
+   \{ x \in \QQ_p ~\mid~ |x-x_0|_p \le 1/p^{n+1} \} =
+   \overline{B} (x_0,1/p^{n+1}). \]
+
+Recordemos brevemente algunas nociones de la topología general.
+
+\begin{definicion}
+  ~
+
+  \begin{itemize}
+  \item Un espacio métrico $(X,d)$ es \term{secuencialmente compacto} si toda
+    sucesión de puntos $x_n \in X$ contiene una subsucesión convergente respecto
+    a la métrica $d$.
+
+  \item Un espacio topológico $X$ es \term{compacto} si todo recubrimiento
+    abierto $X = \bigcup_{i\in I} U_i$ contiene un subrecubrimiento finito.
+
+  \item Un espacio topológico $X$ es \term{localmente compacto} si para todo
+    punto $x\in X$ existe un subespacio compacto $C \subset X$ tal que $C$
+    contiene un entorno abierto de $x$.
+
+  \item Un espacio métrico $(X,d)$ es \term{totalmente acotado} si para todo
+    $\epsilon > 0$ existe un recubrimiento finito de $X$ por bolas de radio
+    $\epsilon$.
+  \end{itemize}
+\end{definicion}
+
+Mencionemos algunos resultados relevantes (el lector puede consultar
+\cite{Munkres-2000}).
+
+\begin{itemize}
+\item Todo subespacio cerrado $Z \subset X$ de un espacio métrico completo es
+  también completo.
+
+  (En efecto, si $(x_n)$ es una sucesión de Cauchy en $Z$, esta converge a algún
+  punto $x\in X$, entonces $x\in \overline{Z} = Z$, ya que $Z$ es cerrado.)
+
+\item En un espacio de Hausdorff, todo subespacio compacto es cerrado
+  \cite[Theorem 26.3]{Munkres-2000}.
+
+\item Un espacio métrico $X$ es secuencialmente compacto si y solamente si
+  es compacto respecto a la topología inducida por la métrica
+  \cite[Theorem 28.2]{Munkres-2000}.
+
+\item Un espacio métrico es compacto si y solamente si es completo y totalmente
+  acotado \cite[Theorem 45.1]{Munkres-2000}.
+
+  En particular, en un espacio métrico completo, un subespacio es compacto
+  si y solamente si es cerrado y totalmente acotado. Es una generalización
+  del \term{teorema de Heine--Borel} (que dice que todo subconjunto de $\RR^n$
+  es compacto si y solamente si es cerrado y acotado; en $\RR^n$ ``acotado''
+  implica ``totalmente acotado'').
+\end{itemize}
+
+\begin{teorema}
+  $\ZZ_p$ es compacto y $\QQ_p$ es localmente compacto.
+\end{teorema}
+
+\begin{proof}[Primera demostración]
+  Toda bola $B (x,\epsilon)$ en $\QQ_p$ es cerrada y por lo tanto completa.
+
+  Además, toda bola $B (x,r)$ es totalmente acotada. Para simplificar
+  el argumento, podemos suponer que $r = p$ (después se puede escalar las bolas
+  que aparecen en la prueba) y que $x = 0$ (después se puede trasladar las bolas
+  por $x$). Entonces, sin pérdida de generalidad,
+  $B (x,r) = B (0,p) = \overline{B} (0,1) = \ZZ_p$. Necesitamos cubrir $\ZZ_p$
+  por las bolas de radio $0 < \epsilon < 1$. Sea $n\in\NN$ un número tal que
+  $1/p^n < \epsilon$. Luego,
+  $$p^n\,\ZZ_p = \overline{B} (0,1/p^n) \subseteq B (0,\epsilon).$$
+  El cociente
+  $$\ZZ_p/p^n\,\ZZ_p \isom \ZZ/p^n\ZZ$$
+  es finito y la expresión
+  $$\ZZ_p = \bigcup_{x_0 \in \{ 0, 1, \ldots, p^n-1 \}} (x_0 + p^n\,\ZZ_p).$$
+  nos da un recubrimiento finito de $\ZZ_p$ por las bolas $x_0 + p^n\,\ZZ_p$.
+
+  Entonces, toda bola es compacta. Esto implica que $\ZZ_p$ es compacto y que
+  $\QQ_p$ es localmente compacto.
+\end{proof}
+
+\begin{proof}[Segunda demostración]
+  Podemos demostrar que $\ZZ_p$ es secuencialmente compacto. Sea $(x_n)_n$ una
+  sucesión en $\ZZ_p$. Escribamos las expansiones $p$-ádicas correspondientes:
+  $$x_n = a_{n,0} + a_{n,1}\,p + a_{n,2}\,p^2 + a_{n,3}\,p^3 + \cdots$$
+  donde $a_{n,i}$ pertenecen al conjunto \emph{finito}
+  $\{ 0, 1, \ldots, p-1 \}$. Entonces existe un número infinito de $x_n$
+  con el mismo primer dígito $a_{n,0} = b_0$\footnote{Esto es el \term{principio
+      del palomar infinito}: si un número infinito de palomas se distribuyen en
+    un número finito de palomares, entonces al menos habrá un palomar con un
+    número infinito de palomas :-)}; estos $x_n$ forman una subsucesión
+  $(x_n^{(0)})$. Por la misma razón, $(x_n^{(0)})$ contiene una subsucesión
+  $(x_n^{(1)})$ donde todos los elementos tienen el mismo segundo dígito
+  $a_{n,1} = b_1$, etcétera. De este modo se obtiene una cadena de subsucesiones
+  $$(x_n) \supset (x_n^{(0)}) \supset (x_n^{(1)}) \supset (x_n^{(2)}) \supset \cdots$$
+  donde todos los elementos de $x_n^{(k)}$ empiezan por
+  $$b_0 + b_1\,p + b_2\,p^2 + \cdots + b_k\,p^k$$
+  Podemos entonces tomar la ``sucesión diagonal''
+  $$x_0^{(0)}, ~ x_1^{(1)}, ~ x_2^{(2)}, ~ x_3^{(3)}, ~ \ldots$$
+  que es una subsucesión de $(x_n)$ y por la construcción converge a
+  $$b_0 + b_1\,p + b_2\,p^2 + b_3\,p^3 + \cdots$$
+
+  Para ver que $\QQ_p$ es localmente compacto, notamos que para todo
+  $x_0\in \QQ_p$ y $\epsilon > 0$ la bola
+  \[ B (x,\epsilon) =
+     \{ x \in \QQ_p ~\mid~ |x-x_0|_p < \epsilon \} =
+     \{ x \in \QQ_p ~\mid~ |x-x_0|_p \le 1/p^m \}
+     \quad\text{para algún }m\in\ZZ \]
+  es compacta. De hecho, a toda sucesión $(x_n)_n$ en $B (x,\epsilon)$
+  corresponde una sucesión $(p^{-m}\,x_n)_n$ en $\ZZ_p$. Esta sucesión tiene
+  una subsucesión que converge a algún $y\in\ZZ_p$ a la cual corresponde
+  una subsucesión de $(x_n)_n$ que converge a algún
+  $p^{-m}\,y\in B (x,\epsilon)$.
+\end{proof}
+
+Para ver que $\QQ_p$ no es secuencialmente compacto, podemos considerar, por
+ejemplo, la sucesión $x_n = p^{-n}$. Para $m\ne n$ se tiene
+$$|p^{-m} - p^{-n}|_p = p^{\max \{ m, n \}}.$$
+Los puntos $x_n$ cada vez están más lejos en la distancia inducida por
+$|\cdot|_p$, y entre ellos no se puede encontrar una subsucesión convergente.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Series formales (ejercicios adicionales)}
+
+En esta sección vamos a revisar brevemente los cuerpos de series formales
+$\FF_q (\!(X)\!)$ que son un análogo de los cuerpos $\QQ_p$. Una diferencia
+fundamental es que los $\QQ_p$ son cuerpos de característica $0$, mientras que
+los $\FF_q (\!(X)\!)$ son cuerpos de característica positiva. Los resultados
+de abajo pueden ser deducidos imitando nuestras pruebas para $\QQ_p$. De hecho,
+hay una noción de \term{cuerpo local no arquimediano} que abarca $\QQ_p$,
+$\FF_q (\!(X)\!)$ y sus extensiones finitas.
+
+\vspace{1em}
+
+Consideremos el cuerpo de funciones racionales con coeficientes en un cuerpo
+$k$:
+$$k (X) = \{ f/g \mid f,g\in k [X], g\ne 0 \}$$
+y la norma no arquimediana sobre $k (X)$ que corresponde a la valuación definida
+en \ref{ejemplo:valuacion-por-X}:
+\begin{gather*}
+v_X \left(\sum_{i\ge 0} a_i\,X^i\right) \dfn \min \{ i \mid a_i \ne 0 \},\\
+v_X (0) \dfn +\infty, \quad v_X (f/g) \dfn v_X (f) - v_X (g),\\
+|f/g|_X \dfn \rho^{v_X (f/g)},
+\end{gather*}
+donde $0 < \rho < 1$ es algún parámetro fijo.
+
+\vspace{1em}
+
+Sea $k (\!(X)\!)$ la completación de $k (X)$ respecto a la norma $|\cdot|_X$.
+
+\begin{ejerc}
+  Demuestre que los posibles valores de $|\cdot|_X$ sobre $k (\!(X)\!)$ son $0$
+  y $\rho^n$ para $n\in\ZZ$.
+\end{ejerc}
+
+\begin{ejerc}
+  Establezca los siguientes análogos de las propiedades
+  de \ref{thm:definicion-y-propiedades-de-Zp}.
+
+  \begin{enumerate}
+  \item[1)] Demuestre que
+    $$k [\![X]\!] \dfn \{ \phi \in k (\!(X)\!) ~\mid~ |\phi|_X \le 1 \}$$
+    es un subanillo de $k (\!(X)\!)$.
+
+  \item[2)] Demuestre que
+    $$k [\![X]\!]^\times = \{ \phi \in k [\![X]\!] ~\mid~ |\phi|_X = 1 \}.$$
+
+  \item[3)] Demuestre que todo elemento $\phi \in k (\!(X)\!)^\times$ puede ser
+    escrito como $uX^n$, donde $u\in k [\![X]\!]^\times$ y $n\in\ZZ$.
+
+  \item[4)] Demuestre que $k (\!(X)\!)$ es el cuerpo de fracciones
+    de $k [\![X]\!]$.
+
+  \item[5)] Demuestre que $k [\![X]\!]$ es un anillo local: su único ideal
+    maximal viene dado por
+    \[ \mathfrak{m} = \{ \phi \in k [\![X]\!] ~\mid~ |\phi|_X < 1 \}
+                    = X\,k [\![X]\!]. \]
+
+  \item[6)] Demuestre que todo ideal no nulo en $k [\![X]\!]$ es de la forma
+    $\mathfrak{m}^n = X^n\,k [\![X]\!]$ para $n = 0,1,2,3,\ldots$
+
+  \item[7)] Demuestre que
+    $$k [\![X]\!]/X^n k [\![X]\!] \isom k [X]/X^n k [X].$$
+  \end{enumerate}
+\end{ejerc}
+
+\begin{ejerc}
+  Demuestre que los elementos de $k [\![X]\!]$ y $k (\!(X)\!)$ son series en
+  $X$.
+
+  \begin{enumerate}
+  \item[1)] Todo elemento $\phi\in k [\![X]\!]$ puede ser representado de modo
+    único por una serie
+    $$\phi = a_0 + a_1\,X + a_2\,X^2 + a_3\,X^3 + a_4\,X^4 + \cdots$$
+    donde $a_i \in k$.
+
+  \item[2)] En general, todo elemento $\phi\in k (\!(X)\!)$ puede ser
+    representado de modo único por una serie
+    \[ \phi = a_{-m}\,X^{-m} + a_{-m+1}\,X^{-m+1} + \cdots +
+              a_0 + a_1\,X + a_2\,X^2 + a_3\,X^3 + a_4\,X^4 + \cdots \]
+  \end{enumerate}
+\end{ejerc}
+
+El anillo $k [\![X]\!]$ se denomina el \term{anillo de series formales} en
+la variable $X$ con coeficientes en $k$, y el cuerpo $k (\!(X)\!)$ se denomina
+el \term{cuerpo de series de Laurent} en la variable $X$ con coeficientes en
+$k$.
+
+\begin{ejerc}
+  Si $k = \FF_q$ es un cuerpo finito, demuestre que $\FF_q [\![X]\!]$
+  es compacto y $\FF_q (\!(X)\!)$ es localmente compacto.
+\end{ejerc}
+
+\begin{framed}
+  PARI/GP puede hacer cálculos con series formales (con coeficientes
+  en $\ZZ, \QQ, \ZZ/n\ZZ, \FF_q$, etc.):
+
+{\small
+\begin{verbatim}
+? 1/(1+X) + O (X^10)
+% = 1 - X + X^2 - X^3 + X^4 - X^5 + X^6 - X^7 + X^8 - X^9 + O(X^10)
+? (1 + X + 1/2*X^2 + 1/6*X^3 + 1/24*X^4 + 1/120*X^5 + 1/720*X^6 + O (X^7))^3
+% = 1 + 3*X + 9/2*X^2 + 9/2*X^3 + 27/8*X^4 + 81/40*X^5 + 81/80*X^6 + O(X^7)
+? valuation ((X + 1/2*X^2 + 1/6*X^3 + O (X^4))^5, X)
+% = 5
+? 1/(1-X-X^2) + O (X^10)
+% = 1 + X + 2*X^2 + 3*X^3 + 5*X^4 + 8*X^5 + 13*X^6 + 21*X^7 + 34*X^8 + 55*X^9
++ O(X^10)
+\end{verbatim}}
+\end{framed}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\bibliographystyle{../amsalpha-cust}
+{\small\bibliography{../salvador}}
+
+\end{document}
