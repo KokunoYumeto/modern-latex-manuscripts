@@ -2,13 +2,13 @@
 
 - Date: 2026-07-05
 - Artifact: `publish_staging/noether/20260705_known_bands_tail_ledger_webdrop/Noether_LocalCodex_20260705_P13P24TailKnownBands_Ledger_WebDrop.zip`
-- Bytes: 16,683,579
-- SHA256: `9092580B6EA438D618257287C403CFA021F93D111C7AEFD8AD1B72573CC37082`
-- ZIP entries: 48
+- Bytes: 20,364,398
+- SHA256: `768F49B5403A65825021F989D9A56A1E74BBA44F64C071D252284DA143019804`
+- ZIP entries: 51
 
 ## Contents
 
-This is a Noether support/handoff package, not a new reader release. It includes a current R796-derived German cumulative TeX/PDF/log, master and page/paper QC ledgers, P13 archaeology records, Paper 24 p233 source-witness evidence, and tail/Schur known-band repair evidence.
+This is a Noether support/handoff package, not a new reader release. It includes a current R796-derived German cumulative TeX/PDF/log, master and page/paper QC ledgers, P13 archaeology records, Paper 24 p233 source-witness evidence, tail/Schur known-band repair evidence, and p763 tail-symbol resolution evidence.
 
 Notable bodies:
 
@@ -19,6 +19,7 @@ Notable bodies:
 - `02_ledgers/NOETHER_PAPER_QC_INDEX_20260705.csv`
 - `04_p24_p233_evidence/P24_GDZ_MathAnn90_printed_p233_native400_full.jpg`
 - `05_tail_schur_evidence/`
+- `06_tail_p763_resolution/P43tail_collected_p763_relation_symbol_resolution_20260705.md`
 
 ## Classification
 

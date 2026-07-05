@@ -1,10 +1,20 @@
+## 2026-07-05: Noether WebR781 P13 p249 / P30 survival webdrop
+
+Manifest: [20260705_noether_webr781_p13p249_p30survival_webdrop.json](../manifests/pending-zenodo-uploads/20260705_noether_webr781_p13p249_p30survival_webdrop.json)
+
+- Target record: [Emmy Noether](https://doi.org/10.5281/zenodo.20412587).
+- Artifact: `publish_staging/noether/20260705_webr781_p13p249_p30survival_ledger_webdrop/Noether_LocalCodex_20260705_WebR781_P13p249_P30Survival_Ledger_WebDrop.zip`, 5,367,852 bytes, SHA256 `FEFA11A051E0845502E89B382E5420EEAF012F86AD9F14C012EA5D0D0BE9C8E9`, 23 ZIP entries.
+- Scope/result: support/update webdrop after Web R781. Includes current German cumulative TeX/PDF/log after one promoted P13 printed p249 correction, updated correction/page/hard-math ledgers, Web R781 P13/P19 audit files, P13 p249 source evidence crops, and P30 R126 pp.43-61 survival ledger.
+- Promoted correction: P13 printed p249 / current output p140 changes `\left. B_i(...,t)\right|_{t=1}` to source-backed `B_i(...,t)_{t=1}`.
+- Caveat: source-control/support only. Not a reader release, Noether closure, whole-corpus/page-by-page certification, multilingual synchronization, source-complete certification, publication readiness, or critical-edition material. Fold into the next curated Noether rollup.
+
 ## 2026-07-05: Noether known-band/tail ledger webdrop
 
 Manifest: [20260705_noether_known_bands_tail_ledger_webdrop.json](../manifests/pending-zenodo-uploads/20260705_noether_known_bands_tail_ledger_webdrop.json)
 
 - Target record: [Emmy Noether](https://doi.org/10.5281/zenodo.20412587).
-- Artifact: `publish_staging/noether/20260705_known_bands_tail_ledger_webdrop/Noether_LocalCodex_20260705_P13P24TailKnownBands_Ledger_WebDrop.zip`, 16,683,579 bytes, SHA256 `9092580B6EA438D618257287C403CFA021F93D111C7AEFD8AD1B72573CC37082`, 48 ZIP entries.
-- Scope/result: support/handoff package with R796-derived German cumulative TeX/PDF/log, master and page/paper QC ledgers, P13 archaeology records, Paper 24 p233 source-witness evidence, and tail/Schur known-band repair evidence.
+- Artifact: `publish_staging/noether/20260705_known_bands_tail_ledger_webdrop/Noether_LocalCodex_20260705_P13P24TailKnownBands_Ledger_WebDrop.zip`, 20,364,398 bytes, SHA256 `768F49B5403A65825021F989D9A56A1E74BBA44F64C071D252284DA143019804`, 51 ZIP entries.
+- Scope/result: support/handoff package with R796-derived German cumulative TeX/PDF/log, master and page/paper QC ledgers, P13 archaeology records, Paper 24 p233 source-witness evidence, tail/Schur known-band repair evidence, and p763 tail-symbol resolution evidence.
 - Caveat: source-control/support and webdrop evidence only. Not a reader release, Noether closure, page-by-page certification, multilingual synchronization, source-complete certification, publication readiness, or critical-edition material. Fold into a curated Noether rollup rather than uploading loose above reader-facing PDFs.
 
 ## 2026-07-05: ChatGPT/Fable interlanguage handoff refresh
