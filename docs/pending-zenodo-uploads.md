@@ -1,3 +1,12 @@
+## 2026-07-05: Noether-PC/interlanguage package 403 rolling delta
+
+Manifest: [20260705_noether_pc_package403_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package403_interlanguage_refresh.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_package403/Noether_PC_Interlanguage_Package403_RollingDelta_20260705.zip`, 53,039 bytes, SHA256 `804A1A5ED90B9DBCCFED6F8C90D07F67CCE4576A458D4C18806B3B0E817D5570`.
+- Scope/result: selective import from `origin/codex/noether-pc-20260629`, covering package 403 after package 402. It adds Romance source-evidence draft-lane manifests/logs, a Romance source-canon continuation audit, and French batch-3 live arXiv rate-limit error/gap records.
+- Caveat: 0 TeX-like source files, 0 PDFs, 0 ZIP payloads, and 0 omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only. Not a bulk source-body corpus, not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: SGA6 source-rescribe workpass evidence through idx172
 
 Manifest: [20260705_sga6_source_rescribe_idx172_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx172_refresh.json)
