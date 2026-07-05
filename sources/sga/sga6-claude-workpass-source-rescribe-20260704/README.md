@@ -1,18 +1,9 @@
-# SGA6 Claude/Codex strict source-rescribe workpass refresh through idx236
+# SGA6 Source-Rescribe Workpass Mirror
 
-This is a compact support/provenance package for the active SGA6 strict source-rescribe/workpass lane.
+This folder mirrors the active Claude/Codex SGA6 source-rescribe workpass lane from `SGA continuation 2/_claude_aid/sga6_full_audit_20260703`.
 
-Current frontier:
+Current public classification: source-rescribe/workpass provenance only. This is not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
-- CERT_LOG.md highest entry: #233.
-- Last scribed page: idx236 / volume p223 / Expose III p2.
-- Next cursor: idx237 / volume p224 / Expose III p3.
-- Current compile gate: `sga6_fr_workpass.pdf` writes successfully; current observed log reports 390 pages and no fatal LaTeX stop in the searched diagnostics.
+Current frontier in this mirror: CERT_LOG entry #235, idx238 / volume p225 / Exposé III p4; next cursor idx239 / volume p226 / Exposé III p5. Current workpass compile reports 390 pages / 0 LaTeX errors.
 
-Public classification:
-
-This is source-rescribe/workpass provenance only. It is not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not index audit, not publication readiness, and not a critical edition. The log itself explicitly says never to certify complete. It should be uploaded as a support layer beneath reader-facing SGA PDFs.
-
-Important caveat:
-
-The active SGA6 audit identified that earlier SGA6 workpass material was a readable/paraphrastic rendering in places and is being corrected page-by-page toward symbol-level source completeness. Use this package as evidence of the ongoing correction stream, not as a completion claim.
+The audit identified earlier SGA6 workpass material as readable/paraphrastic in places and is correcting it page-by-page toward symbol-level source completeness against the 360dpi IA scan. Use as continuation/provenance, not as closure.
