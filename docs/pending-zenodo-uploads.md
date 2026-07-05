@@ -1,3 +1,12 @@
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx238
+
+Manifest: [20260705_sga6_source_rescribe_idx238_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx238_workpass_refresh.json)
+
+- SGA support ZIP: `SGA6_SourceRescribe_Workpass_idx238_20260705.zip`, 7,256,963 bytes, SHA256 `E24037ECD53B198B476E9ED1DAF6B3CD2F48CB97BEEC52194970BD09501EBF0D`, 48 ZIP entries.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #235, idx238 / volume p225 / Expose III p4; next cursor idx239 / volume p226 / Expose III p5. The checkpoint adds the idx237 and idx238 source repairs, including the Expose III p4 diagram-arrow/pushforward correction.
+- Classification: source-rescribe/workpass provenance only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not index audit, not publication readiness, and not a critical edition.
+- Upload-order note: support/provenance artifact only; do not front above reader-facing SGA PDFs.
+
 ## 2026-07-05: Other-PC R9 Africa/Horn/West source-body payload
 
 Manifest: [20260705_other_pc_r9_africa_horn_west_source_body_payload.json](../manifests/pending-zenodo-uploads/20260705_other_pc_r9_africa_horn_west_source_body_payload.json)
@@ -47,7 +56,7 @@ Manifest: [20260705_chatgpt_handoff_bundle_refresh.json](../manifests/pending-ze
 - Scope/result: compact methodology/handoff refresh containing defect report, proof-prose lexicon, normalization tables, branch-weighting state, context-review queue, corpus-insertion coverage, tail-witness routing, and R1 draft normalization decisions.
 - Caveat: generated methodology/decision-support evidence only; zero TeX/PDF source bodies. Not native language approval, not a bulk source-body corpus, not accepted terminology, not translation completion, not reader output, not source-fidelity certification, not publication readiness, and not a critical edition.
 
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx236
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx236 (superseded by idx238)
 
 Manifest: [20260705_sga6_source_rescribe_idx236_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx236_workpass_refresh.json)
 
@@ -119,12 +128,12 @@ Manifest: [20260705_expanded_non_slavic_source_anchors.json](../manifests/pendin
 - Scope/result: 8,551 extracted non-Slavic source/support files, 4,496 unique file bodies, consolidating CJK, Arabic/Persianate/RTL, Romance, and other non-Slavic source-anchor shelves into one directly usable Web/Pro feed.
 - Caveat: source-anchor/register/style corpus only; not native review, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
 
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx210
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx210 (superseded by idx238)
 
 Manifest: [20260705_sga6_source_rescribe_idx210_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx210_workpass_refresh.json)
 
 - SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx210_Workpass_20260705.zip`, 2,930,063 bytes, SHA256 `F4BE15D83B9455173E3B46C43F75658C46E2570D18A3DD876577DEA933E620AB`.
-- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #207, idx210 / volume p197 / Expose II p38; next cursor idx211 / volume p198 / Expose II p39.
+- Scope: superseded local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #207, idx210 / volume p197 / Expose II p38; next cursor idx211 / volume p198 / Expose II p39.
 - Classification: source-rescribe/workpass provenance only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not index audit, not publication readiness, and not a critical edition.
 - Upload-order note: support/provenance artifact only; do not front above reader-facing SGA PDFs.
 
@@ -133,7 +142,7 @@ Manifest: [20260705_sga6_source_rescribe_idx210_workpass_refresh.json](../manife
 Manifest: [20260705_sga6_source_rescribe_idx209_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx209_workpass_refresh.json)
 
 - SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx209_Workpass_20260705.zip`, 2,928,444 bytes, SHA256 `352133ef707abc003dfd70ef5481963e5d43f16457ad92729515e91597719759`.
-- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #206, idx209 / volume p196 / Expose II p37; next cursor idx210 / volume p197 / Expose II p38.
+- Scope: superseded local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #206, idx209 / volume p196 / Expose II p37; next cursor idx210 / volume p197 / Expose II p38.
 - Caveat: source-rescribe/workpass provenance only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx208 (superseded by idx209)
