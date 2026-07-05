@@ -6,8 +6,8 @@ This folder is a compact GitHub mirror of the local SGA6 source-rescribe workpas
 
 Current mirrored state, refreshed 2026-07-05:
 
-- `CERT_LOG.md` reaches entry #163: scan idx166, volume p153, Expose I p76.
-- Next cursor recorded in the ledger: idx167, volume p154, Expose I p77.
+- `CERT_LOG.md` reaches entry #166: scan idx169, volume p156, Expose I p79.
+- Next cursor recorded in the ledger: idx170, volume p157, Expose I p80.
 - `sga6_fr_workpass.tex` compiles locally with zero LaTeX errors to a 390-page PDF in this live workpass snapshot.
 - The earlier SGA6 repair033 TeX is treated as a scaffold with paraphrased/condensed regions; this workpass is a source-rescribe against the better 360dpi Internet Archive scan, not a completed critical edition.
 
