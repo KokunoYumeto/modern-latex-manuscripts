@@ -7,7 +7,15 @@ Manifest: [20260705_expanded_non_slavic_source_anchors.json](../manifests/pendin
 - Scope/result: 8,551 extracted non-Slavic source/support files, 4,496 unique file bodies, consolidating CJK, Arabic/Persianate/RTL, Romance, and other non-Slavic source-anchor shelves into one directly usable Web/Pro feed.
 - Caveat: source-anchor/register/style corpus only; not native review, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
 
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx208
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx209
+
+Manifest: [20260705_sga6_source_rescribe_idx209_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx209_workpass_refresh.json)
+
+- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx209_Workpass_20260705.zip`, 2,928,444 bytes, SHA256 `352133ef707abc003dfd70ef5481963e5d43f16457ad92729515e91597719759`.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #206, idx209 / volume p196 / Expose II p37; next cursor idx210 / volume p197 / Expose II p38.
+- Caveat: source-rescribe/workpass provenance only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx208 (superseded by idx209)
 
 Manifest: [20260705_sga6_source_rescribe_idx208_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx208_workpass_refresh.json)
 
