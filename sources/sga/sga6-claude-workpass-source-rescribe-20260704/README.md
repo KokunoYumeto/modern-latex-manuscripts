@@ -1,15 +1,16 @@
-# SGA6 Claude/Codex Workpass Source-Rescribe Mirror
+# SGA6 Claude/Codex source-rescribe workpass evidence
 
-This folder is a compact GitHub mirror of the local SGA6 source-rescribe workpass under:
+This compact mirror preserves the current local SGA6 French source-rescribe workpass evidence from:
 
 `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`
 
-Current mirrored state, refreshed 2026-07-05 after the latest local workpass update:
+Current status as of 2026-07-05:
 
-- `CERT_LOG.md` reaches entry #176: scan idx179, volume p166, Expose II p7.
-- Milestone recorded in the ledger: Expose I is complete through its bibliography page, and the source-rescribe is proceeding through Expose II.
-- Next cursor recorded in the ledger: idx180, volume p167, Expose II p8.
-- `sga6_fr_workpass.tex` compiles locally with zero LaTeX errors to a 394-page PDF in this live workpass snapshot.
-- The earlier SGA6 repair033 TeX is treated as a scaffold with paraphrased/condensed regions; this workpass is a source-rescribe against the better 360dpi Internet Archive scan, not a completed critical edition.
+- `CERT_LOG.md` reaches entry #178: scan idx181, volume p168, Expose II p9.
+- The next cursor recorded in the ledger is idx182, volume p169, Expose II p10.
+- Expose I is complete through bibliography in this source-rescribe ledger; Expose II is underway.
+- `sga6_fr_workpass.tex` is the current French workpass TeX, with matching PDF/log included.
 
-Public status: live source-repair provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, and not a critical edition.
+Classification:
+
+This is source-rescribe provenance and continuation evidence only. It is not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not index audit, not publication readiness, and not a critical edition. The earlier SGA6 repair033/strict files should still be treated as useful scaffold/navigation layers where the ledger says the source-rescribe has not yet reached them.
