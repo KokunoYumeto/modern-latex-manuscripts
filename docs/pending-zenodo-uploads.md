@@ -1,3 +1,12 @@
+## 2026-07-05: Noether-PC/interlanguage packages 557-562 rolling deltas
+
+Manifest: [20260705_noether_pc_packages557_562_interlanguage_rollup.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages557_562_interlanguage_rollup.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_packages557_562/Noether_PC_Interlanguage_Packages557_562_RollingDeltas_20260705.zip`, 375,983 bytes, SHA256 `7943B6C9FAE391B9670E7259CAAE167A90199CC2B93E6C9BC97AC36DD599E397`.
+- Scope: packages 557-562 from `origin/codex/noether-pc-20260629`, through remote head `23f4ff56`.
+- Caveat: methodology/source-canon/source-evidence/access-governance coordination only. Contains no TeX-family source bodies, no PDFs, and no ZIP payloads. Do not present as source-anchor delivery.
+
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx194
 
 Manifest: [20260705_sga6_source_rescribe_idx194_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx194_workpass_refresh.json)
