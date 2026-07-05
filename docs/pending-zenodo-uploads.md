@@ -8442,6 +8442,14 @@ Manifest: [20260705_noether_pc_packages361_366_source_canon_coordination.json](.
 - Scope: packages 361-366 from `origin/codex/noether-pc-20260629` remote head `17d926f9`, adding R3 Arabic/Persianate frontier/omission/source-canon ledgers and R6 Indigenous/Creole/Sign access/source-canon/authority/boundary ledgers.
 - Caveat: the delta contains no TeX-like source bodies and no reader PDFs. Methodology/source-canon/access-governance coordination only; not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+## 2026-07-05: Noether-PC/interlanguage packages 367-371 R6/R9 source-canon coordination
+
+Manifest: [20260705_noether_pc_packages367_371_source_canon_coordination.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages367_371_source_canon_coordination.json)
+
+- Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages367_371_R6_R9_SourceCanon_20260705.zip`, 485,385 bytes, SHA256 `4941CB69F6D78E46D6CEA8C13237B5FE7B3A01DADDD722B35C2BBF7FA1CA13A8`, 65 entries.
+- Scope: packages 367-371 from `origin/codex/noether-pc-20260629` remote head `1e8caf66`, adding R6 Indigenous/Creole/Sign source-state/package-boundary/checksum/witness ledgers and R9 Africa/Horn/West source-body provenance ledgers.
+- Caveat: the delta contains no TeX-like source bodies and no reader PDFs. R9 rows are PDF-source provenance pointers with open source/reviewer/license gates, not admitted translation evidence. Methodology/source-canon/access-governance coordination only; not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 
 
 
