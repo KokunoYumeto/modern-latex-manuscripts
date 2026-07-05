@@ -8,6 +8,12 @@ Public title: Interlanguage Mathematical Translation Methodology: Slavic, Inters
 
 ## What This Record Contains And Should Continue To Contain
 
+## 2026-07-05 Fable/ChatGPT Full Mirror And Other-PC Package 627-631 Check
+
+The full Fable/ChatGPT interlanguage-program folder available on this machine has now been mirrored into GitHub at interlanguage-sidecar/20260705/fable_chatgpt_interlingua_program_full/ and staged for this record as Fable_ChatGPT_Interlanguage_Program_Full_Mirror_20260705.zip (25556705 bytes, SHA256 $fableHash). This is the concrete Fable/ChatGPT methodology and source-corpus program evidence, including branch-weighting, heuristic, source-use, defect-report, gate-map, and concordance material. Treat it as generated methodology/source-corpus/interlanguage-program evidence only, not native approval, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
+
+The other-PC branch was also swept through package 631. Packages 627-631 have been imported and staged as Noether_PC_Interlanguage_Packages627_631_RollingDeltas_20260705.zip (438262 bytes, SHA256 $pkgHash). They contain useful methodology/source-canon/log deltas but zero TeX-family source bodies, zero PDFs, zero ZIP payloads, and no FABLE_REQUIREMENTS_ACKNOWLEDGED_YYYYMMDD.md acknowledgement. The Fable blocking directive remains active: future interlanguage pushes should include the actual full source corpus as-is, per-language source indexes, branch-weight/marginal-intelligibility ledgers, source-use ledgers, and explicit acknowledgement that Fable/ChatGPT findings govern the interlanguage repair.
+
 The startup public payload fronts `00 Overview - Interlanguage Methodology 20260702.pdf` and includes two compact log/method ZIPs: `Noether_interlanguage_logs_quick_20260701.zip` and `Noether_Interlanguage_Logs_QuickFeed_20260701.zip`. Larger Slavic/Interslavic reader/source payloads remain pointer/provenance material until deliberately curated.
 
 Latest Claude interlingua final handoff, 2026-07-05: Claude_Interlingua_Program_Final_Handoff_20260705.zip is staged for the interlanguage methodology record (SHA256 18B162D869722913D55491F0EF31668606862CBB0FC6D7E06A9F6B09C912B55C, 329632 bytes) and mirrored at interlanguage-sidecar/20260704/claude_interlingua_program_20260705_final_handoff/. It distills the late Claude interlingua-program work into a compact handoff: V4 defect report, proof-prose lexicon v2.7b, marker table v3.2, normalization decisions, register-doublet branch evidence, context-review logs, and corpus-insertion coverage. Treat it as methodology/generated-internal lexicon-register/context-review evidence only, not native-language approval, accepted terminology, source-fidelity certification, translation completion, mathematical reader output, publication readiness, or critical-edition material.
@@ -219,6 +225,7 @@ Noether-PC/interlanguage package 430 has been selectively imported from `origin/
 ## 2026-07-05 Package 431 Follow-Up
 
 Noether-PC/interlanguage package 431 has been selectively imported from `origin/codex/noether-pc-20260629`, bringing the tracked branch to package 431 / remote head `249e26e4`. It is staged as `Noether_PC_Interlanguage_Package431_RollingDelta_20260705.zip` (67,624 bytes, SHA256 `AC43D59DA4B50C87AF77C8D17B77AF75A642B96FCEB55ADA52803A4063E2F54B`, 22 entries). It adds CJK source-canon package-incorporation audit/B3 request material and R9 Africa/Horn/West artifact checksum/run-log/package-index material. This tranche contains no TeX-like files, no PDFs, no ZIP payloads, and no omitted raw source-body rows. Treat package 431 as methodology/source-canon/audit-log coordination only, not the requested bulk native source-body corpus, not language completion, not native review, not term approval, not source-fidelity certification, not publication readiness, not reader output, and not critical-edition material.
+
 
 
 

@@ -1,3 +1,22 @@
+## 2026-07-05: Fable/ChatGPT full interlanguage program mirror
+
+Manifest: [20260705_fable_chatgpt_interlanguage_program_full_mirror.json](../manifests/pending-zenodo-uploads/20260705_fable_chatgpt_interlanguage_program_full_mirror.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: publish_staging/interlanguage-methodology/20260705_fable_chatgpt_interlingua_program_full/Fable_ChatGPT_Interlanguage_Program_Full_Mirror_20260705.zip, 25556705 bytes, SHA256 $fableHash, 253 ZIP entries.
+- GitHub mirror: interlanguage-sidecar/20260705/fable_chatgpt_interlingua_program_full/.
+- Scope/result: full mirrored Fable/ChatGPT interlanguage-program folder currently available on this PC, including branch-weighting, heuristic, claim-ledger, source-use, Interslavic gate-map, defect-report, and concordance materials. This is the concrete program evidence now available to downstream sessions.
+- Caveat: generated methodology/source-corpus/interlanguage-program evidence only; not native approval, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
+
+## 2026-07-05: Noether-PC packages 627-631 rolling deltas
+
+Manifest: [20260705_noether_pc_packages627_631_rolling_deltas.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages627_631_rolling_deltas.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: publish_staging/interlanguage-methodology/20260705_noether_pc_packages627_631/Noether_PC_Interlanguage_Packages627_631_RollingDeltas_20260705.zip, 438262 bytes, SHA256 $pkgHash, 66 ZIP entries.
+- Source check: [20260705_noether_pc_packages627_631_source_check.md](../manifests/source-intake/20260705_noether_pc_packages627_631_source_check.md).
+- Scope/result: imports package 627-631 metadata/source-canon/log deltas from origin/codex/noether-pc-20260629.
+- Caveat: zero TeX-family source bodies, zero PDFs, zero ZIP payloads, and no Fable acknowledgement file. Preserve as coordination evidence only; do not present as the requested full native source corpus.
 ## 2026-07-05: Expanded non-Slavic LaTeX source-anchor feed
 
 Manifest: [20260705_expanded_non_slavic_source_anchors.json](../manifests/pending-zenodo-uploads/20260705_expanded_non_slavic_source_anchors.json)
@@ -8899,3 +8918,4 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
