@@ -1,18 +1,28 @@
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx205
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx206
+
+Manifest: [20260705_sga6_source_rescribe_idx206_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx206_workpass_refresh.json)
+
+- SGA support ZIP: SGA6_ClaudeCodex_SourceRescribe_idx206_Workpass_20260705.zip, 2926296 bytes, SHA256 F9CF69466C370ABF7D4B19AC81F938BC35D3680F4ECAE3886EA64AE288E3DB6E.
+- Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #203, idx206 / volume p193 / Expose II p34; next cursor idx207 / volume p194 / Expose II p35.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx205 (superseded by idx206)
 
 Manifest: [20260705_sga6_source_rescribe_idx205_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx205_workpass_refresh.json)
 
 - SGA support ZIP: SGA6_ClaudeCodex_SourceRescribe_idx205_Workpass_20260705.zip, 2923983 bytes, SHA256 9C152852E6C847AA8038562BAC67984CAD49E62184D9C72B19DADE213044C5C7.
 - Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #202, idx205 / volume p192 / Expose II p33; next cursor idx206 / volume p193 / Expose II p34.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx203 (superseded by idx205)
+
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx203 (superseded by idx206)
 
 Manifest: [20260705_sga6_source_rescribe_idx203_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx203_workpass_refresh.json)
 
 - SGA support ZIP: SGA6_ClaudeCodex_SourceRescribe_idx203_Workpass_20260705.zip, 2923767 bytes, SHA256 C6F95DE47A470DB189E7527AC07079580DD0E41A24C536E1B13B03128E36DE4F.
 - Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #200, idx203 / volume p190 / Expose II p31; next cursor idx204 / volume p191 / Expose II p32.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx202 (superseded by idx205)
+
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx202 (superseded by idx206)
 
 Manifest: [20260705_sga6_source_rescribe_idx202_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx202_workpass_refresh.json)
 
@@ -71,6 +81,7 @@ Manifest: [20260705_sga6_source_rescribe_idx198_workpass_refresh.json](../manife
 - SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx198_Workpass_20260705.zip`, 2,905,165 bytes, SHA256 `50A364C1BE818A4BE0ABC5DBE990F3D75A3EF7EF1F7170EFFDE7E68B5F07FDDF`.
 - Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #195, idx198 / volume p185 / Expose II p26; next cursor idx199 / volume p186 / Expose II p27.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx197
 
 Manifest: [20260705_sga6_source_rescribe_idx197_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx197_workpass_refresh.json)
@@ -104,6 +115,7 @@ Manifest: [20260705_sga6_source_rescribe_idx196_workpass_refresh.json](../manife
 - SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx196_Workpass_20260705.zip`, 7,155,961 bytes, SHA256 `2FFC6C3743E5832C22A5F4B2D786061EF0F55D0ABB4BEAD95F268D969BEFB4F5`.
 - Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #193, idx196 / volume p183 / Expose II p24; next cursor idx197 / volume p184 / Expose II p25.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 563-565 rolling deltas
 
 Manifest: [20260705_noether_pc_packages563_565_interlanguage_rollup.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages563_565_interlanguage_rollup.json)
@@ -181,6 +193,7 @@ Manifest: [20260705_noether_pc_package404_interlanguage_refresh.json](../manifes
 - Artifact details: see the linked pending-upload manifest for exact staged filename, size, and SHA256.
 - Scope/result: selective import from origin/codex/noether-pc-20260629, covering package 404 after package 403. It adds CJK native-source-evidence durable logs and package requests, non-Slavic consolidation notes, R6 Indigenous/Creole/Sign source/access/gap ledgers, and R9 Africa/Horn/West source/access/package-index logs.
 - Caveat: 0 TeX-like source files, 0 PDFs, 0 ZIP payloads, 3 omitted raw source-body rows, and 0 omitted ZIP rows. Methodology/source-canon/access-governance/source-evidence coordination only. Not a bulk source-body corpus, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage package 403 rolling delta
 
 Manifest: [20260705_noether_pc_package403_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package403_interlanguage_refresh.json)
@@ -279,6 +292,7 @@ Manifest: [20260705_sga6_source_rescribe_idx166_refresh.json](../manifests/pendi
 - Artifact: `publish_staging/sga/20260705_sga6_source_rescribe_idx166/SGA6_ClaudeCodex_SourceRescribe_idx166_20260705.zip`, 7,105,008 bytes, SHA256 `BEA74035B45CBB545FDD43005C75EEFDCFBA6D402F5E43B2C533C6CE9F7DDD26`.
 - Scope/result: GitHub mirror and staged evidence packet for the latest local SGA6 Claude/Codex source-rescribe workpass, through CERT_LOG.md entry #163, idx166 / volume p153 / Expose I p76. Next cursor is idx167 / volume p154 / Expose I p77. The copied workpass compiles with 0 LaTeX errors to a 390-page PDF; page count is compile evidence only.
 - Caveat: the local audit found earlier SGA6 `repair033` was a readable scaffold with paraphrased/condensed regions. This packet is source-rescribe provenance only, not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 374-377 rolling deltas
 
 Manifest: [20260705_noether_pc_packages374_377_import.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages374_377_import.json)
@@ -2639,6 +2653,7 @@ Manifest: [20260626_noether_r128_p34_batch33_pp670_675_sourcefix.json](../manife
 - Checked/source-disposition pages: printed pp.670-675; p675 source page is staged for continuity, but no separate p675 targeted repair is claimed by this wrapper.
 - Source quality: GDZ Math. Z. 30 raw full-page JPG witnesses identify as 400 ppi. Targeted crops are upscaled for legibility only, not native 1000 ppi. This remains below the strict native 650+ certification floor.
 - Caveat: targeted German cumulative repair/provenance only. Not whole-Paper-34 certification, not Noether corpus closure, not multilingual synchronization, and not critical-edition material.
+
 ## 2026-06-26: Noether R128 Paper 34 Batch32 pp.664-669 targeted source fixes
 
 Manifest: [20260626_noether_r128_p34_batch32_pp664_669_sourcefix.json](../manifests/source-intake/20260626_noether_r128_p34_batch32_pp664_669_sourcefix.json)
@@ -4894,6 +4909,7 @@ Local source root: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-
 - Sense-check caveats: no TeX patch was applied and no source-certain body fix is claimed. This materially improves the local Paper 30 source gap, but both IA and GDZ witnesses are about 400 PPI, below the current 650+ source-certification floor and 1000+ dense-math floor. Paper 30 body prose, equations, and footnotes remain open for page-by-page audit.
 
 Next action: keep as Noether source-witness/provenance support or upload with a future Noether source-audit/provenance version. Do not present as Paper 30 closure, reader-facing promotion, multilingual propagation, whole-corpus certification, or a critical edition.
+
 ## 2026-06-24: Noether R123 / R123+P08 survival, context, and targeted P08 source-fix cluster
 
 Manifest: [20260624_noether_r123_survival_audit_cluster.json](../manifests/pending-zenodo-uploads/20260624_noether_r123_survival_audit_cluster.json)
