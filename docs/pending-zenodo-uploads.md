@@ -1,9 +1,9 @@
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx178
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx179
 
-Manifest: [20260705_sga6_source_rescribe_idx178_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx178_refresh.json)
+Manifest: [20260705_sga6_source_rescribe_idx179_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx179_refresh.json)
 
-- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx178_20260705.zip`, 2,875,383 bytes, SHA256 `9A6D5B2E71B0C3521DE15E159B29EC2B08B571F9BAE0BDD7B16B5793CCB747A2`, 13 entries.
-- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #175, idx178 / volume p165 / Expose II p6; next cursor idx179 / volume p166 / Expose II p7.
+- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx179_20260705.zip`, 2,878,543 bytes, SHA256 `110D2BBB97936E11AA9CE8E89EC1620F6F4193A54BA352B109ECA29250616AD5`, 13 entries.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #176, idx179 / volume p166 / Expose II p7; next cursor idx180 / volume p167 / Expose II p8.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
 ## 2026-07-05: Noether-PC/interlanguage package 432 rolling delta
