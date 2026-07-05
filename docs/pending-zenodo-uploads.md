@@ -1,3 +1,11 @@
+## 2026-07-05: SGA6 source-rescribe workpass evidence through idx166
+
+Manifest: [20260705_sga6_source_rescribe_idx166_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx166_refresh.json)
+
+- Target record: [SGA working translation/source-audit record](https://doi.org/10.5281/zenodo.20410947).
+- Artifact: `publish_staging/sga/20260705_sga6_source_rescribe_idx166/SGA6_ClaudeCodex_SourceRescribe_idx166_20260705.zip`, 7,105,008 bytes, SHA256 `BEA74035B45CBB545FDD43005C75EEFDCFBA6D402F5E43B2C533C6CE9F7DDD26`.
+- Scope/result: GitHub mirror and staged evidence packet for the latest local SGA6 Claude/Codex source-rescribe workpass, through CERT_LOG.md entry #163, idx166 / volume p153 / Expose I p76. Next cursor is idx167 / volume p154 / Expose I p77. The copied workpass compiles with 0 LaTeX errors to a 390-page PDF; page count is compile evidence only.
+- Caveat: the local audit found earlier SGA6 epair033 was a readable scaffold with paraphrased/condensed regions. This packet is source-rescribe provenance only, not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 ## 2026-07-05: Noether-PC/interlanguage packages 374-377 rolling deltas
 
 Manifest: [20260705_noether_pc_packages374_377_import.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages374_377_import.json)
