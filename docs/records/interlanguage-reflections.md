@@ -166,6 +166,16 @@ Representative notes to include or distill:
 
 Front a concise human-readable overview or PDF when available. Keep raw logbooks, role packets, and large internal package dumps in artifact ZIPs unless a logbook itself is the object being cited. Cross-link the Noether record because this branch began there, and cross-link the workflow record because the method generalizes beyond Noether.
 
+## 2026-07-05 LaTeX Source Anchor Feeds
+
+Clean source-anchor feeds have been prepared for web/pro review:
+
+- `Interlanguage_LaTeX_SourceAnchors_AllAvailable_20260705.zip`
+- `Interlanguage_Slavic_LaTeX_SourceAnchors_20260705.zip`
+- `Interlanguage_NonSlavic_LaTeX_SourceAnchors_CJK_Romance_Persianate_Farsi_20260705.zip`
+
+The feeds contain actual TeX-family source-anchor material from Slavic, CJK, Romance, Persianate/Farsi, and related source-canon trees. They are intended as language/register anchors for later translation consistency work. They are not generated Noether translations, not term approvals, not native-review certification, and not critical editions. The latest other-machine packages 547-552 still contained route/manifests only and no TeX-family source bodies; these feeds were therefore built from the source trees already present locally plus freshly fetched Farsi GitHub source repositories.
+
 ## 2026-07-05 Package 422-424 Follow-Up
 
 Noether-PC/interlanguage packages 422-424 have been selectively imported from `origin/codex/noether-pc-20260629`, bringing the tracked branch to package 424 / remote head `acc6a53a`. They are staged as `Noether_PC_Interlanguage_Packages422_424_RollingDeltas_20260705.zip` (44,990 bytes, SHA256 `A85F18108EE37DD8E56510574DFBE8812EB8845EFC91A1A8124F91CA217D61D5`, 27 entries). Package 422 adds Persianate/Tajik draft-artifact manifest/checksum material; packages 423-424 add package-400/402 visibility and package-417 frontier recheck material. This tranche contains no TeX-like files, no PDFs, no ZIP payloads, and no omitted raw source-body rows. Treat packages 422-424 as methodology/source-canon/source-evidence coordination only, not the requested bulk native source-body corpus, not language completion, not native review, not term approval, not source-fidelity certification, not publication readiness, not reader output, and not critical-edition material.
