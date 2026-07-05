@@ -1,3 +1,12 @@
+## 2026-07-05: Noether-PC/interlanguage packages 563-565 rolling deltas
+
+Manifest: [20260705_noether_pc_packages563_565_interlanguage_rollup.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages563_565_interlanguage_rollup.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_packages563_565/Noether_PC_Interlanguage_Packages563_565_RollingDeltas_20260705.zip`, 126,739 bytes, SHA256 `ED4C39E88AC90EDA53F278DCA71C3349557F85AD1F6C600C0506F1616C285792`.
+- Scope: packages 563-565 from `origin/codex/noether-pc-20260629`, through remote head `f98ba37d`.
+- Caveat: methodology/source-canon/source-evidence/access-governance coordination only. Contains no TeX-family source bodies, no PDFs, and no ZIP payloads. Do not present as source-anchor delivery.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 557-562 rolling deltas
 
 Manifest: [20260705_noether_pc_packages557_562_interlanguage_rollup.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages557_562_interlanguage_rollup.json)
@@ -7,12 +16,12 @@ Manifest: [20260705_noether_pc_packages557_562_interlanguage_rollup.json](../man
 - Scope: packages 557-562 from `origin/codex/noether-pc-20260629`, through remote head `23f4ff56`.
 - Caveat: methodology/source-canon/source-evidence/access-governance coordination only. Contains no TeX-family source bodies, no PDFs, and no ZIP payloads. Do not present as source-anchor delivery.
 
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx194
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx195
 
-Manifest: [20260705_sga6_source_rescribe_idx194_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx194_workpass_refresh.json)
+Manifest: [20260705_sga6_source_rescribe_idx195_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx195_workpass_refresh.json)
 
-- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx194_Workpass_20260705.zip`, 7,157,472 bytes, SHA256 `33E2B9F8DA623DC0001B00F02BB1721F7256888B3C221037EA86E5AE981EA487`.
-- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #191, idx194 / volume p181 / Expose II p22; next cursor idx195 / volume p182 / Expose II p23.
+- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx195_Workpass_20260705.zip`, 7,154,736 bytes, SHA256 `7399F704192A7FB7FD3299EA0DCBF58D26833F70514F54DB8A2D48A7B55EAD32`.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #192, idx195 / volume p182 / Expose II p23; next cursor idx196 / volume p183 / Expose II p24.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
 ## 2026-07-05: Recovered open-source LaTeX-by-language source-body ZIP
@@ -8714,6 +8723,8 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
+
 
 
 
