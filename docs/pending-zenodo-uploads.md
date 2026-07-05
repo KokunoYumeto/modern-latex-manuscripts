@@ -1,3 +1,12 @@
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx200
+
+Manifest: [20260705_sga6_source_rescribe_idx200_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx200_workpass_refresh.json)
+
+- SGA support ZIP: SGA6_ClaudeCodex_SourceRescribe_idx200_Workpass_20260705.zip, 2911906 bytes, SHA256 6ED5B6449D4DB3A38CFF3B84F53CD71B2847B1F9C5ECC6CA322BD3350A12FAFC.
+- Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #197, idx200 / volume p187 / Expose II p28; next cursor idx201 / volume p188 / Expose II p29.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+
+
 ## 2026-07-05: SGA6 source-rescribe workpass refresh through idx199
 
 Manifest: [20260705_sga6_source_rescribe_idx199_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx199_workpass_refresh.json)
@@ -102,7 +111,7 @@ Manifest: [20260705_noether_pc_package432_interlanguage_refresh.json](../manifes
 Manifest: [20260705_noether_pc_packages406_408_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages406_408_interlanguage_refresh.json)
 
 - Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
-- Artifact: $zipRel, 144182 bytes, SHA256 $hash.
+- Artifact details: see the linked pending-upload manifest for exact staged filename, size, and SHA256.
 - Scope/result: selective import from origin/codex/noether-pc-20260629, covering packages 406-408 after package 405. These add Slavic canonical-baseline source-canon route/cache/handoff/noncontamination ledgers, Slavic canonical-baseline run/output-hash logs, and an Arabic RTL Damascus linear-algebra source probe.
 - Caveat: 0 TeX-like source files, 0 PDFs, 0 ZIP payloads, 0 omitted raw source-body rows, and 0 omitted ZIP rows. Methodology/source-canon/access-governance/source-evidence coordination only. Not a bulk source-body corpus, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
@@ -111,7 +120,7 @@ Manifest: [20260705_noether_pc_packages406_408_interlanguage_refresh.json](../ma
 Manifest: [20260705_noether_pc_package405_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package405_interlanguage_refresh.json)
 
 - Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
-- Artifact: $zipRel, 19105 bytes, SHA256 $hash.
+- Artifact details: see the linked pending-upload manifest for exact staged filename, size, and SHA256.
 - Scope/result: selective import from origin/codex/noether-pc-20260629, covering package 405 after package 404. It adds R6 Indigenous/Creole/Sign package-boundary audit and output-checksum manifests.
 - Caveat: 0 TeX-like source files, 0 PDFs, 0 ZIP payloads, 3 omitted raw source-body rows, and 0 omitted ZIP rows. Methodology/source-canon/access-governance/source-evidence coordination only. Not a bulk source-body corpus, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
@@ -120,7 +129,7 @@ Manifest: [20260705_noether_pc_package405_interlanguage_refresh.json](../manifes
 Manifest: [20260705_noether_pc_package404_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package404_interlanguage_refresh.json)
 
 - Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
-- Artifact: $zipRel, 295061 bytes, SHA256 $hash.
+- Artifact details: see the linked pending-upload manifest for exact staged filename, size, and SHA256.
 - Scope/result: selective import from origin/codex/noether-pc-20260629, covering package 404 after package 403. It adds CJK native-source-evidence durable logs and package requests, non-Slavic consolidation notes, R6 Indigenous/Creole/Sign source/access/gap ledgers, and R9 Africa/Horn/West source/access/package-index logs.
 - Caveat: 0 TeX-like source files, 0 PDFs, 0 ZIP payloads, 3 omitted raw source-body rows, and 0 omitted ZIP rows. Methodology/source-canon/access-governance/source-evidence coordination only. Not a bulk source-body corpus, native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 ## 2026-07-05: Noether-PC/interlanguage package 403 rolling delta
@@ -220,7 +229,7 @@ Manifest: [20260705_sga6_source_rescribe_idx166_refresh.json](../manifests/pendi
 - Target record: [SGA working translation/source-audit record](https://doi.org/10.5281/zenodo.20410947).
 - Artifact: `publish_staging/sga/20260705_sga6_source_rescribe_idx166/SGA6_ClaudeCodex_SourceRescribe_idx166_20260705.zip`, 7,105,008 bytes, SHA256 `BEA74035B45CBB545FDD43005C75EEFDCFBA6D402F5E43B2C533C6CE9F7DDD26`.
 - Scope/result: GitHub mirror and staged evidence packet for the latest local SGA6 Claude/Codex source-rescribe workpass, through CERT_LOG.md entry #163, idx166 / volume p153 / Expose I p76. Next cursor is idx167 / volume p154 / Expose I p77. The copied workpass compiles with 0 LaTeX errors to a 390-page PDF; page count is compile evidence only.
-- Caveat: the local audit found earlier SGA6 epair033 was a readable scaffold with paraphrased/condensed regions. This packet is source-rescribe provenance only, not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+- Caveat: the local audit found earlier SGA6 `repair033` was a readable scaffold with paraphrased/condensed regions. This packet is source-rescribe provenance only, not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 ## 2026-07-05: Noether-PC/interlanguage packages 374-377 rolling deltas
 
 Manifest: [20260705_noether_pc_packages374_377_import.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages374_377_import.json)
@@ -8771,19 +8780,4 @@ Manifest: [20260705_noether_pc_packages419_421_interlanguage_refresh.json](../ma
 - Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Packages419_421_RollingDeltas_20260705.zip`, 298,784 bytes, SHA256 `92FB445FC5A0468F552F79BA1AD4AA16F17C666A9714BE59B805462A16EDD2D3`, 58 entries.
 - Scope: packages 419-421 from `origin/codex/noether-pc-20260629` remote head `83995c2d`, adding R3 source-body package-omit manifests, R3 source-canon cross-lane sync/open-gap/action rows, Persianate/Tajik durable run-log and draft-artifact manifests, and interlanguage visibility/frontier recheck material.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/source-evidence coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
