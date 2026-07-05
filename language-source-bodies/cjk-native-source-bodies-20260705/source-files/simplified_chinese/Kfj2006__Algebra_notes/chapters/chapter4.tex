@@ -1,0 +1,517 @@
+\chapter*{Lecture04特殊群（II）}
+\addcontentsline{toc}{chapter}{Lecture04特殊群（II）}
+\stepcounter{chapter}
+
+\section{群的直积}
+\noteb{(注：本节只处理有限个群的直积)}\\
+我们引入群的直积，有两个目的，一个是从已知群构造较为复杂的新群，另一个是把复杂的群分解。\\
+\kfj{定义：}设$\{G_i\}$是n个群，做他们的笛卡尔积：$G=G_1\times \cdots \times G_n$，定义G中乘法：
+\[
+(g_1,\cdots,g_n)\cdot (h_1,\cdots,h_n)=(g_1h_1,\cdots,g_nh_n),\;\text{其中}g_i,\; h_i\in G_i
+\]
+显然若设$e_i$为$G_i$中幺元，那么$G$中幺元为$(e_1,\cdots,e_n)$。$(g_1,\cdots,g_n)$的逆元为$(\inv{g_1},\cdots,\inv{g_n})$。因此可知$G$再此乘法下构成一个群，称为$\{G_i\}$的外直积。\\
+\kfj{定义：}设G是一个群，$\{N_i\}$是G的n个正规子群。且满足：
+\[
+\begin{aligned}
+&(1):G=N_1\cdots N_n=\{g_1\cdots g_n|\forall 1\leq i \leq n,\;g_i\in N_i\}\\
+&(2)N_i\cap(N_1\cdots N_{i-1}N_{i+1}\cdots N_n\}=\{e\},\; \forall 1\leq i \leq n
+\end{aligned}
+\]
+则称G是$\{N_i\}$的内直积。\\
+\kfj{命题：}G是$\{N_i\}$的内直积$\iff$G可用$\{N_i\}$中元素表示，且表示唯一。\\
+我们先证明一个引理：\\
+\kfj{引理：}若$H_1\zg G,\; H_2\zg G,\; H_1\cap H_2=\{e\}$，那么$\forall h_1\in H_1,\; h_2\in H_2$，都有$h_1h_2=h_2h_1$\\
+\begin{proof}
+$\forall h_1\in H_1,\; h_2\in H_2$，考察$(h_1h_2)\inv{(h_2h_1)}=h_1h_2\inv{h_1}\inv{h_2}$\\
+此时$H_1\zg G,\; H_2\zg G\implies h_1h_2\inv{h_1}\in H_2,\; h_2\inv{h_1}\inv{h_2}\in H_1$\\
+$\therefore (h_1h_2)\inv{(h_2h_1)}=h_1\cdot (h_2\inv{h_1}\inv{h_2})=(h_1h_2\inv{h_1})\cdot \inv{h_2}\in H_1\cap H_2=\{e\}\implies h_1h_2=h_2h_1$\\
+\end{proof}
+此时再证明命题：
+\begin{proof}
+($\implies$):由内直积定义中的条件一知，G中元素可由$\{N_i\}$中元素表示，下面只需证唯一性即可。\\
+$\forall j\neq i,\; N_i\cap N_j\subset N_i\cap(N_1\cdots N_{i-1}N_{i+1}\cdots N_n)=\{e\}$\\
+$\therefore \text{由于子群必包含单位元}, \forall j\neq i,\; N_i\cap N_j=\{e\}\implies \forall n_i\in N_i,\; n_j\in N_j,\; n_in_j=n_jn_i$\\
+对于$\forall g\in G$，设其有两个表示：$g=g_1\cdots g_n=h_1\cdots h_n$，其中$g_k,\; h_k\in N_k$。\noteb{允许表示中的元素是单位元。}\\
+$g_1\cdots g_n=h_1\cdots h_n\iff \forall 1\leq k\leq n,\; (g_1\cdots g_{k-1}g_{k+1}\cdots g_n)\cdot g_k=(h_1\cdots h_{k-1}h_{k+1}\cdots h_n)\cdot h_k$\\
+$\iff g_k\inv{h_k} =\inv{(g_1\cdots g_{k-1}g_{k+1}\cdots g_n)}(h_1\cdots h_{k-1}h_{k+1}\cdots h_n)$\\$\iff g_k\inv{h_k}=(\inv{g_1}\cdots \inv{g_{k-1}}\inv{g_{k+1}}\cdots \inv{g_n})(h_1\cdots h_{k-1}h_{k+1}\cdots h_n)$\\
+$\iff g_k\inv{h_k}=(\inv{g_1}h_1)\cdots(\inv{g_{k-1}}h_{k-1})(\inv{g_{k+1}}h_{k+1})\cdots (\inv{g_n}h_n)\in N_k\cap(N_1\cdots N_{k-1}N_{k+1}\cdots N_n)\implies g_k\inv{h_k}=e\iff g_k=h_k$\\
+由此可知，G中元素由$\{N_i\}$中元素唯一表示。\\
+($\impliedby$)G中元素可由$\{N_i\}$中元素表示自动推出内直积定义中的条件(1)，下面我们来证明满足条件(2)。\\
+设$g\in N_k\cap(N_1\cdots N_{k-1}N_{k+1}\cdots N_n),\; g=g_1\cdots g_{k-1}g_{k+1}\cdots g_n,\; g_i\in N_i$\\
+此时有$g=e\cdots e\cdot g \cdot e\cdots e=g_1\cdots g_{k-1}\cdot e\cdot g_{k+1}\cdots g_n$\\
+由表示唯一可知：$g_1=\cdots =g_n=g=e$。故有$N_k\cap(N_1\cdots N_{k-1}N_{k+1}\cdots N_n)=\{e\}$\\
+\end{proof}
+\kfj{定理：}设G是$\{N_i\}$的内直积，T是$\{N_i\}$的外直积，那么有群同构：$G\cong T$
+\begin{proof}
+做映射$f\colon T\to G ,\; (g_1,\cdots ,g_n)\mapsto g_1\cdots g_n$\\
+由证明上述命题的引理可知，任取$(g_1,\cdots ,g_n)$和$(h_1,\cdots ,h_n)$属于$T$，则有：\\
+$f((g_1,\cdots ,g_n)\cdot (h_1,\cdots ,h_n))=f(g_1h_1,\cdots ,g_nh_n)=(g_1h_1)\cdots (g_nh_n)$\\$=(g_1\cdots g_n)\cdot (h_1\cdots h_n)=f(g_1,\cdots ,g_n)\cdot f(h_1,\cdots ,h_n)$\\
+$\therefore$可知$f\colon T\to G$是群同态。\\
+而$Kerf=\{(g_1,\cdots ,g_n)\in T|g_1\cdots g_n=e\}$。由内直积的唯一表示性可知，$Kerf=\{(e,\cdots,e)\}$，因而是单同态。再由内直积可唯一表示知，$f$是满同态，因而$f$是群同构。
+\end{proof}
+
+\section{正规群列}
+\kfj{定义：}设群G有如下子群序列：
+\[
+\{e\}=G_0\zg G_1 \zg \cdots \zg G_{r-1}\zg G_r=G
+\]
+那么称这个序列为G的一个子群序列。其中，$G_i/G_{i-1},\; 1\leq i\leq r$，称为该正规群列的商因子。正规群列中出现的非$\{e\}$的商因子的个数称为该群列的长度。\\
+\kfj{定义：}设G有一个正规群列$\{e\}=G_0\zg G_1 \zg \cdots \zg G_{r-1}\zg G_r=G$，若$\forall i\leq i\leq r$，$G_{i-1}$在$G_i$中都是极大的正规子群（即$G_i$中包含$G_{i-1}$的正规子群只有$G_i$），则称该群列是一个合成群列。。\\
+\indent 事实上，如果我们回忆满同态对应定理，并将其应用在满同态$p_i\colon G_i\to G_i/G_{i-1}$上，则可立即得到$G_{i-1}$在$G_i$中是极大的正规子群$\iff G_i/G_{i-1}$是单群。于是可知上述合成群列的长度为$r$\\
+\kfj{事实：}有限群都可以写出一个合成群列。（依次找极大真正规子群即可，每次元素数目严格下降，故有限次之后必然降到1，即$\{e\}$是平凡子群。）但是，值得注意的是，无限求不一定可以写出一个合成群列。\\
+\kfj{例：}整数群$\mathbb{Z}$无法写出一个合成群列。
+\begin{proof}
+若不然，那么可以写出一个合成群列。特别地，存在$\mathbb{Z}$的子群$H$，使得$\{e\}$是$H$的极大真正规子群。由循环群一节的结论知，$\exists n\in \mathbb{N}$，使得$H=n\mathbb{Z}$。\\
+\indent 任取素数$p$，可知$(p\cdot n)\mathbb{Z}<n\mathbb{Z}$，再由以上所有群都是关于加法构成交换群，因此得出子群的正规性：$(p\cdot n)\mathbb{Z}\zg n\mathbb{Z}$，因此$\{e\}$不是$H$的极大真正规子群，矛盾。
+\end{proof}
+我们下面即将给出本节内容的三个中心定理。\\
+\kfj{(Zassenhaus引理)}\\
+\kfj{定理(Zassenhaus)：}设群G中有四个子群$A,B,A^*,B^*$，若它们满足$A\zg A^*,\; B\zg B^*$，那么有：
+\[
+\begin{aligned}
+&(1)A(A^* \cap B)\zg A(A^*\cap B^*),\; B(B^*\cap A)\zg B(B^*\cap A^*)\\
+&(2)\dfrac{A(A^*\cap B^*)}{A(A^*\cap B)}\cong \dfrac{B(B^*\cap A^*)}{B(B^*\cap A)}
+\end{aligned}
+\]
+\noteb{(注：回忆$HK=\{hk|h\in H,\; k\in K\}$，记号$A(A^* \cap B)=\{ab|a\in A,\; x\in A^* \cap B\}$。以及分数线的代表分子作为一个群商去分母所代表的群所得到的商群)}
+\begin{proof}
+先证明商去操作合法。回忆群的第二同构定理中的一个衍生结论：
+\[
+(HK\text{构成一个群，且}H\zg HK)\iff (\forall k\in K,\; h\in H,\; kh\inv{k}\in H)
+\]
+此时由于$A\zg A^*,\l (A^*\cap B)\subset A^*$，因此
+\[
+\forall a\in A,\; \forall x\in (A^*\cap B)\subset A^*, \text{有}xa\inv{x}\in A
+\]
+故$A\zg A(A^*\cap B)$。同理由于$(A^*\cap B^*)\subset A^*,\; B\zg B^*,\; (B^*\cap A)\subset B^*,\; (B^*\cap A^*)\subset B^*$，从而得出下面四个式子：
+\[
+A\zg(A^*\cap B),\; A\zg (A^*\cap B^*),\; B\zg(B^*\cap A),\; B\zg(B^*\cap A^*)
+\]
+其中，由$B\zg B(A\cap B^*)$得出：
+\[
+\forall b\in (A^*\cap B)\subset B,\; \forall x\in (A\cap B^*),\text{有}xb\inv{x}\in B
+\]
+而$x\in A\subset A^*,\; b\in (A^*\cap B)\subset A^*$，因而显然有$xb\inv{x}\in A^*$。整理得$xb\inv{b}\in A^*\cap B$，于是同理又有：
+\[
+\forall b\in (A^*\cap B),\;\forall x\in (A\cap B^*),\text{有}xb\inv{x}\in (A^*\cap B)\implies (A^*\cap B)(A\cap B^*)\text{构成一个群}
+\]
+于是令$X=A^*\cap B^*,\; D=(A^*\cap B)(A\cap B^*)$，我们下面证明$D\zg X$。\\
+任取$D$中元素$y_1y_2$，其中$y_1\in (A^*\cap B),\; y_2\in (A\cap B^*)$，任取$x\in X$。我们有：
+\[
+xy_1y_2\inv{x}=xy_1\inv{x}\cdot xy_2\inv{x}\in (A^*\cap B)(A\cap B^*)=D
+\]
+这是由于$x\in X\subset B^*,\; y_1\in B,\; B\zg B^*$，因此得到$xy_1\inv{x}\in B$，再由$x$和$y_1$均属于$A^*$，故又可知$xy_1\inv{x}\in A^*$，即$xy_1\inv{x}\in (A^*\cap B)$。同理可知$xy_2\inv{x}\in (B\cap A^*)$。故上式得证，因而我们得到$D\zg X$\\
+\indent 此时我们作映射：
+\[
+f\colon AX\to X/D,\; ax\mapsto xD
+\]
+我们先证明此映射是良定义的：\noteb{(注：这里有良定义的问题是由于$AX$只告诉我们其中的元素都可被$a\cdot x$的形式来表出，但未必是唯一表出。因此该映射只依赖“$x$”项的合法性有待考究)}\\
+设$a_1x_1=a_2x_2$，变形知$x_2\inv{x_1}=a_1\inv{a_2}$。易知$x_2\inv{x_1}\in X=(A^*\cap B^*),\; a_1\inv{a_2}\in A$。于是$x_2\inv{x_1}=a_1\inv{a_2}\in (A^*\cap B^*)\cap A=(A\cap B^*)\subset (A^*\cap B)(A\cap B^*)=D$。回忆陪集相等判别定理可知，$x_2\inv{x_1}\in D\iff x_2D=x_1D$。即$f(a_1x_1)=f(a_2x_2)$，因此该映射是良定义的。\\
+\indent 我们再来证明这个映射是一个群同态。任取$AX$中的元素$a_1x_1,\; a_2x_2$，已知$A\zg AX$，故$x_1a_2\inv{x_1}\in A$。所以有：$a_1x_1a_2x_2=a_1\cdot x_1a_2\inv{x_1} \cdot x_1x_2$。依定义：
+\[
+f(a_1x_1a_2x_2)=f[(a_1\cdot x_1a_2\inv{x_1} )\cdot x_1x_2]=x_1x_2D=x_1D\cdot x_2D=f(a_1x_1)\cdot f(a_2x_2)
+\]
+\noteb{(注：第三个等号是从商群中乘法的定义而来)}\\
+由此可知，$f$是群同态。对于同态核我们可知：
+\[
+Kerf=\{ax|a\in A,\; x\in D\}=AD=A(A^*\cap B)
+\]
+且不难看出$f$是满同态(令$AX$的$X$项跑遍整个$X$即可)，于是立即由群同态基本定理：
+\[
+AX/Kerf\cong Imf \iff \frac{A(A^*\cap B^*)}{A(A^*\cap B}\cong \frac{A^*\cap B^*}{(A^*\cap B)(A\cap B^*)}
+\]
+事实上，$A$和$B$的地位是对等的，我们只需要将上述证明过程中的字母A和字母B交换，即可得出一个相似的结论：
+\[
+\frac{B(B^*\cap A^*)}{B(B^*\cap A)}\cong \frac{B^*\cap A^*}{(B^*\cap A)(B\cap A^*)}
+\]
+又由于$(A^*\cap B)(A\cap B^*)$构成一个群，故$(A^*\cap B)(A\cap B^*)=(B^*\cap A)(B\cap A^*)$，从而证明我们的定理：
+\[
+\frac{A(A^*\cap B^*)}{A(A^*\cap B}\cong \frac{A^*\cap B^*}{(A^*\cap B)(A\cap B^*)}\cong\frac{B(B^*\cap A^*)}{B(B^*\cap A)}
+\]
+\noteb{(注：定理中的(1)由$Kerf\zg AX$以及交换$A$和$B$后的该性质自然得出)}
+\end{proof}
+\kfj{(Schreier加细定理)}\\
+为了阐述这个定理，我们先引入两个定义\\
+\kfj{定义：}设$\{e\}=H_0\zg H_1\cdots \zg H_n=G$和$\{e\}=K_0\zg K_1\cdots \zg K_m=G$是G的两个正规群列，若存在映射
+\[
+\theta\colon \left\{H_i/H_{i-1}|1\leq i\leq n\right\}\to \left\{K_j/K_{j-1}|1\leq j\leq m\right\}
+\]
+是一一对应（也就是双射），并且满足
+\[
+H_i/H_{i-1}\cong \theta(H_i/H_{i-1})
+\]
+是群同构，则称G的这两个正规群列是相互等价的。我们可以看出，如果上述两个群列是等价的，那么不仅他们的长度相等，且$m=n$，以及相应商因子的同构关系。\\
+\kfj{定义：}设$\{e\}=G_0\zg G_1\cdots \zg G_{r-1}\zg G_r=G$是G的一个正规群列，若我们找到一个G的子群N，使得
+\[
+\exists 1\leq k\leq r,\; G_{k-1}\zg N\zg G_k
+\]
+那么称正规群列
+\[
+\{e\}=G_0\zg G_1\cdots\zg G_{k-1}\zg N\zg G_k\cdots \zg G_{r-1}\zg G_r=G
+\]
+是群列$\{e\}=G_0\zg G_1\cdots \zg G_{r-1}\zg G_r=G$的一个加细。自然地，群列加细的加细仍称为原群列的一个加细；做有限次加细后也称为原群列的加细。\\
+\kfj{定理(Schreier)：}G的任意两个正规群列分别存在它们的加细使得这两个加细是互相等价的正规群列。
+\begin{proof}
+设G有两个正规群列：
+\[
+\left\{
+\begin{aligned}
+&\{e\}=H_0\zg H_1\cdots \zg H_{n-1}\zg H_n=G\\
+&\{e\}=K_0\zg K_1\cdots \zg K_{m-1}\zg K_m=G
+\end{aligned}
+\right.
+\]
+那么构造以下子群：
+\[
+\left\{
+\begin{aligned}
+&\forall 1\leq i\leq n,\; \forall 0\leq j\leq m,\; \text{作} H_{i-1}(H_i\cap K_j)\\
+&\forall 1\leq s\leq m,\; \forall 0\leq t\leq n,\; \text{作} K_{s-1}(K_s\cap H_t)
+\end{aligned}
+\right.
+\]
+我们已知$\forall 1\leq i\leq n,\; \forall 1\leq s\leq m,\; H_{i-1}\zg H_i,\; K_{s-1}\zg K_s$\\
+于是由Zassenhaus引理我们立即得到：
+\[
+\left\{
+\begin{aligned}
+&H_{i-1}(H_i\cap K_{s-1})\zg H_{i-1}(H_i\cap K_s)\\
+&K_{s-1}(K_s\cap H_{i-1})\zg K_{s-1}(K_s\cap H_i)
+\end{aligned}
+\right.
+\]
+且有：
+\[
+\frac{H_{i-1}(H_i\cap K_s)}{H_{i-1}(H_i\cap K_{s-1})}\cong \frac{K_{s-1}(K_s\cap H_i)}{K_{s-1}(K_s\cap H_{i-1})}
+\]
+因此我们对$\forall 1\leq i\leq n$，有
+\[
+H_{i-1}=H_{i-1}(H_i\cap K_0)\zg H_{i-1}(H_i\cap K_1)\zg \cdots \zg H_{i-1}(H_i\cap K_{m-1})\zg H_{i-1}(H_i\cap K_m)=H_i
+\]
+同理对$\forall 1\leq s\leq m$，有
+\[
+K_{s-1}=K_{s-1}(K_s\cap H_0)\zg K_{s-1}(K_s\cap H_1)\zg \cdots \zg K_{s-1}(K_s\cap H_{n-1})\zg K_{s-1}(K_s\cap H_n)=K_s
+\]
+\noteb{(注：上述式子中不难观察到：$K_0=H_0=\{e\},\; K_m=H_n=G$，因此上述式子中最左侧和最右侧的等号是成立的)}\\
+当我们在每个$H_{i-1}$与$H_i$之间、$K_{s-1}$和$K_s$之间都作上述加细，则分别得到两个正规群列的加细，并且有映射：
+\[
+\theta\colon \left\{\left.\frac{H_{i-1}(H_i\cap K_j)}{H_{i-1}(H_i\cap K_{j-1})}\right|0\leq i\leq n,\; 0\leq j\leq m\right\}\to \left\{\left.\frac{K_{s-1}(K_s\cap H_t)}{K_{s-1}(K_s\cap H_{t-1})}\right|0\leq s\leq m,\; 0\leq t\leq n\right\}
+\]
+其中
+\[
+\theta\left(\frac{H_{i-1}(H_i\cap K_j)}{H_{i-1}(H_i\cap K_{j-1})}\right)=\frac{K_{j-1}(K_j\cap H_i)}{K_{j-1}(K_j\cap H_{i-1})}
+\]
+事实上，我们也可以构造映射：
+\[
+\phi\colon \left\{\left.\frac{K_{s-1}(K_s\cap H_t)}{K_{s-1}(K_s\cap H_{t-1})}\right|0\leq s\leq m,\; 0\leq t\leq n\right\}\to \left\{\left.\frac{H_{i-1}(H_i\cap K_j)}{H_{i-1}(H_i\cap K_{j-1})}\right|0\leq i\leq n,\; 0\leq j\leq m\right\}
+\]
+其中
+\[
+\phi\left(\frac{K_{s-1}(K_s\cap H_t)}{K_{s-1}(K_s\cap H_{t-1})}\right)=\frac{H_{t-1}(H_t\cap K_s)}{H_{t-1}(H_t\cap K_{s-1})}
+\]
+由于符号较乱，我们引入如下记号方便书写以及记忆：
+\[
+H(i,j)=\frac{H_{i-1}(H_i\cap K_j)}{H_{i-1}(H_i\cap K_{j-1})},\; K(s,t)=\frac{K_{s-1}(K_s\cap H_t)}{K_{s-1}(K_s\cap H_{t-1})}
+\]
+于是我们翻译一下上面对$\theta$和$\phi$的定义，就能得到：
+\[
+\theta(H(i,j))=K(j,i),\; \phi(K(s,t))=H(t,s)
+\]
+于是立即可知，
+\[
+\theta\phi=Id,\; \phi\theta=Id
+\]
+\noteb{(注：上面两个$Id$是不同集合上的两个恒等映射)}\\
+因此$\theta$和$\phi$都是双射。综上可知，这两个加细是互相等价的。
+\end{proof}
+回忆合成群列的定义，我们其实已经知道任意一个有限群都可以写出一个合成群列，但是所写出的合成群列不一定唯一。下面的定理告诉我们，群的合成群列在“群列的等价关系”下是唯一确定的。\\
+\kfj{(Jordan-H\"{o}lder定理)：}对于群G而言，若可写出G的合成群列，那么任两个合成群列是互相等价的。\\
+\begin{proof}
+假设有两个G的合成群列：
+\[
+\left\{
+\begin{aligned}
+&\{e\}=H_0\zg H_1\cdots \zg H_{n-1}\zg H_n=G\\
+&\{e\}=K_0\zg K_1\cdots \zg K_{m-1}\zg K_m=G
+\end{aligned}
+\right.
+\]
+我们对其进行Schreier加细定理中所构造的加细，于是得到：
+\[
+\left\{
+\begin{aligned}
+&H_{i-1}=H_{i-1}(H_i\cap K_0)\zg H_{i-1}(H_i\cap K_1)\zg \cdots \zg H_{i-1}(H_i\cap K_{m-1})\zg H_{i-1}(H_i\cap K_m)=H_i\\
+&K_{s-1}=K_{s-1}(K_s\cap H_0)\zg K_{s-1}(K_s\cap H_1)\zg \cdots \zg K_{s-1}(K_s\cap H_{n-1})\zg K_{s-1}(K_s\cap H_n)=K_s
+\end{aligned}
+\right.
+\]
+但是我们由合成群列的定义可知，$H_{i-1}$是$H_i$的极大正规子群、$K_{s-1}$是$K_s$的极大正规子群。因此可知$\forall 0\leq s\leq m,\; H_{i-1}(H_i\cap K_s)$要么等于$H_{i-1}$，要么等于$H_i$；同理$\forall 0\leq i\leq n,\; K_{s-1}(K_s\cap H_i)$要么等于$K_{s-1}$，要么等于$K_s$。且有：\\
+$\forall 1\leq i\leq n$，存在唯一的$s_i$在0到m之间，使得下式成立：
+\[
+H_{i-1}=H_{i-1}(H_i\cap K_{s_i-1}),\; H_{i-1}(H_i\cap K_{s_i})=H_i
+\]
+$\forall 1\leq s\leq m$，存在唯一的$i_s$在0到n之间，使得下式成立：
+\[
+K_{s-1}=K_{s-1}(K_s\cap H_{i_s-1}),\; K_{s-1}(K_s\cap H_{i_s})=K_s
+\]
+再利用Schreier加细定理中的同构关系，我们可以得到：
+\[
+H_i/H_{i-1}=\frac{H_{i-1}(H_i\cap K_{s_i})}{H_{i-1}(H_i\cap K_{s_i-1})}\cong \frac{K_{s_i-1}(K_{s_i}\cap H_{i})}{K_{s_i-1}(K_{s_i}\cap H_{i-1})}=K_{s_i}/K_{s_i-1}
+\]
+于是我们可以构造映射：
+\[
+\sigma\colon \{1,\cdots ,n\}\to \{1,\cdots ,m\},\; i\mapsto s_i
+\]
+同理我们有：
+\[
+K_s/K_{s-1}=\frac{K_{s-1}(K_s\cap H_{i_s})}{K_{s-1}(K_s\cap H_{i_s-1})}\cong \frac{H_{i_s-1}(H_{i_s}\cap K_{s})}{H_{i_s-1}(H_{i_s}\cap K_{s-1})}=H_{i_s}/H_{i_s-1}
+\]
+于是我们可以构造映射：
+\[
+\tau\colon\{1,\cdots,m\}\to \{1,\cdots,n\},\; s\mapsto i_s
+\]
+我们回顾Schreier加细中引入的记号和所定义的两个加细之间的一一对应，重写一下上述等式就得到：
+\[
+\left\{
+\begin{aligned}
+&H_i/H_{i-1}=H(i,s_i)\cong \theta(H(i,s_i))=K(s_i,i)=K_{s_i}/K_{s_i-1}\\
+&K_s/K_{s-1}=K(s,i_s)\cong \phi(K(s,i_s))=H(i_s,s)=H_{i_s}/H_{i_s-1}
+\end{aligned}
+\right.
+\]
+对于上述第一个式子而言，我们进一步地在$K_{s_i-1}$到$K_{s_i}$之间找到唯一的$K_{\tau(s_i)}$，使得其满足：
+\[
+K_{s_i-1}=K_{s_i-1}(K_{s_i}\cap H_{\tau(s_i)-1}),\; K_{s_i-1}(K_{s_i}\cap H_{\tau(s_i)})=K_{s_i}
+\]
+于是可知：
+\[
+K(s_i,\tau(s_i))=K_{s_i}/K_{s_i-1}
+\]
+但是我们由合成群列的性质可知，$K(s_i,1),\cdots ,K(s_i,n)$这n个商因子中有且只有一个等于$K_{s_i}/K_{s_i-1}$。又由于$K(s_i,i)=K_{s_i}/K_{s_i-1}$，所以可知，$K(s_i,i)$和$K(s_i,\tau(s_i))$是同一个商因子，因此我们得到：
+\[
+i=\tau(s_i)=\tau\sigma(i)\implies \tau\sigma=Id
+\]
+同理我们也可得到$H(i_s,s)$和$H(i_s,\sigma(i_s))$是同一个商因子，于是也有：
+\[
+s=\sigma(i_s)=\sigma\tau(s)\implies \sigma\tau=Id
+\]
+因此我们可知，$\tau$是$\sigma$的逆映射，故$\sigma$和$\tau$都是双射，特别地有$m=n$。由此我们建立了商因子之间的一一对应：
+\[
+H_i/H_{i-1}\cong K_{\sigma(i)}/K_{\sigma(i)-1}
+\]
+综上可知这两个合成群列是相互等价的
+\end{proof}
+
+\section{可解群和幂零群}
+本节我们主要讨论可解群、幂零群与下面即将介绍的三种特殊的群列之间有怎样的关系。\\
+\kfj{定义：}\\
+\indent (I)\kfj{导出群列}：$G\zgbh G^{(1)}\zgbh G^{(2)}\cdots$。其中，回忆上一个Lecture中提到的k阶导群，这里$G^{(k)}$就是指k阶导群。\\
+\indent (II)\kfj{降中心列}：$G=d_0(G)\zgbh d_1(G)\zgbh d_2(G)\zgbh \cdots$。其中，我们归纳定义：
+\[
+d_{k+1}(G)=[G,d_k(G)],\; \forall k\geq 1
+\]
+特别地，我们知道$d_1(G)=[G,G],\; d_2(G)=[G,[G,G]]$。\\
+\indent (III)\kfj{升中心列}：$\{e\}=C_0(G)\zg C_1(G)\zg C_2(G)\zg \cdots$。\\
+\indent 其中，$C_n(G)$我们将如下定义：令$C_0(G)=\{e\}$，称为群G的零次中心；令G的中心$C=C_1(G)$，称为群G的一次中心。我们仍进行归纳定义。我们已知$k=0,1$时有$C_k(G)\zg G$，因此我们假设对于对于G的k次中心也有$C_k(G)\zg G$。\noteb{(注：如果我们能验证下面所定义的$C_{k+1}(G)$也是G的正规子群的话，就说明我们这个定义在此处是良好定义的。)}\\
+于是我们此时希望找到一个G的正规子群H，使得
+\[
+H/C_k(G)=C(G/C_k(G))
+\]
+并称所找到的这个子群H为G的$k+1$次中心，其中$C(G/C_k(G))$是指商群$G/C_k(G)$的中心。那么我们是否可以找到这样的子群H呢？答案是肯定的，事实上，我们考虑自然同态
+\[
+\pi_k\colon G\to G/C_k(G),\; g\mapsto\ovl{g}= gC_k(G)
+\]
+于是由满同态对应定理，我们可知商群$G/C_k(G)$的中心$C(G/C_k(G))$是$G/C_k(G)$的一个正规子群，因而对应唯一一个G中的正规子群H，满足
+\[
+\pi_k(H)=C(G/C_k(G)),\; \text{即}H/C_k(G)=C(G/C_k(G))
+\]
+此时我们可以知道，我们所要找的满足要求的正规子群H存在且唯一，故这样归纳定义G的k次中心是良好定义的。此时我们就得到了通常教材可能会书写的形式：
+\[
+\{e\}=C_0(G)\zg C_1(G)\zg \cdots,\; C_{k+1}=\inv{pi_k}(C(G/C_k(G)))
+\]
+\noteb{(注：导出列、降中心列、以及升中心列都不一定是正规群列，即“无法到头”)}\\
+\kfj{定理：}\\
+\indent (1)：若$\exists k>0$，使得$G^{(k)}=G^{(k+1)}$，则$\forall l>k,\; G^{(k)}=G^{(l)}$。\\
+\indent (2)：若$\exists k>0$，使得$d_k(G)=d_{k+1}(G)$，则$\forall l>k,\; d_k(G)=d_{k+1}(G)$。\\
+\indent (3)：若$\exists k>0$，使得$C_k(G)=C_{k+1}(G)$，则$\forall l>k,\; C_k(G)=C_{k+1}(G)$。\\
+由于导出列、降中心列、以及升中心列都是归纳定义而得，故显然定理成立。\\
+
+\kfj{定义：}设G是一个群，若存在一个正规群列：
+\[
+\{e\}=G_0\zg G_1\zg \cdots \zg G_{r-1}\zg G_r=G
+\]
+使得$\forall 1\leq i\leq r$，$G_i/G_{i-1}$是Abel群，那么称G是可解群。\\
+\kfj{定理：}设G是一个群，$N^*$是全体正整数，则有：
+\[
+G\text{是可解群}\iff \exists n\in N^*,\; G^{(n)}=\{e\}
+\]
+亦可翻译为G是可解群等价于G的导出群列是正规群列。
+\begin{proof}
+($\impliedby$)：此时G的导出群列就是可解群定义中所要求的正规群列\\
+($\implies$)：依定义，我们假设G有正规群列
+\[
+\{e\}=G_0\zg G_1\zg \cdots \zg G_{r-1}\zg G_r=G
+\]
+使得$\forall 1\leq i\leq r$，$G_i/G_{i-1}$是Abel群。回忆上一个Lecture中提及的导群的最小性，可知：
+\[
+\forall 1\leq i\leq r,\; G^{(r-i)}\subset G_i
+\]
+于是立即得到：$G^{(r)}\subset\{e\}\iff G^{(r)}=\{e\}$。
+\end{proof}
+\kfj{例：}非交换单群都是不可解群。
+\begin{proof}
+设G是非交换单群，那么依定义可知$[G,G]$是平凡正规子群。\\
+(1)：若$[G,G]=\{e\}$，那么有：$\forall a,b\in G,\; [a,b]\in \{e\}\implies ab\inv{a}\inv{b}=e$所以可知G是一个交换群，从而矛盾。\\
+(2)：若$[G,G]=G$，此时可知$\forall k\in N^*,\; G^{(k)}=G$，因此G不可解。
+\end{proof}
+\kfj{推论：}$n\geq 5$时，$A_n$是不可解群。\\
+\kfj{事实：}事实上，若G是交换单群，则由于其所有子群皆正规，因此G没有非平凡的子群。于是我们取G中非幺元的元素$g$，那么可知循环群$<g>$是G的子群，因而有$G=<g>$，故G是循环群。我们再回顾循环群可以指定其子群的性质，我们可知G还必须是素数阶的循环群。\\
+\kfj{定理：}若G是有限群，那么有：
+\[
+\text{G是可解群}\iff\text{G的合成群列商因子均为素数阶循环群}
+\]
+\begin{proof}
+($\impliedby$)：可知素数阶循环群是单群，因此G的合成群列就是可解群所要求的正规群列。\\
+($\implies$)：由于G是可解群，我们假设G的r次导群是$\{e\}$，于是有导出群列：
+\[
+\{e\}=G^{(r)}\zg G^{(r-1)}\zg \cdots \zg G^{(1)}\zg G^{(0)}=G
+\]
+我们可知，有限群总能写出一个合成群列，于是应用Schreier加细定理，我们对导出群列应用加细定理中给出的加细，可以得到一个与某个合成群列等价的加细。此时我们对于这个导出群列的加细，可以删去那些为$\{e\}$的商因子，从而得到一个合成群列。我们假设这个合成群列中，$G^{(k)}$与$G^{(k-1)}$之间为：
+\[
+G^{(k)}=A_k^0\zg A_k^1\zg\cdots \zg A_k^{n_k-1}\zg A_k^{n_k}=G^{(k-1)}
+\]
+其中，$\forall 0\leq i\leq n_k$，
+\[
+A_k^{i}/A_k^{i-1}
+\]
+都是单群。下面我们通过说明这些商因子都是交换群从而说明这些商因子都是素数阶循环群。\\
+$\forall 1\leq i\leq n_k$，我们考虑第一同构定理：
+\[
+(A_k^{i}/G^{(k)})/(A_k^{i-1}/G^{(k)})\cong A_k^{i}/A_k^{i-1}
+\]
+其中，我们知道：
+\[
+A_k^{i}/G^{(k)}\subset G^{(k-1)}/G^{(k)}
+\]
+而$G^{(k-1)}/G^{(k)}$是交换群，因此商群
+\[
+(A_k^{i}/G^{(k)})/(A_k^{i-1}/G^{(k)})
+\]
+也是交换群，再由其与$A_k^{i}/A_k^{i-1}$的同构关系可知这个商因子也是交换群。我们知道，所构造出的正规群列$\{A_k^i\}$是合成群列，因此商因子都是单群。利用之前提到的“事实”可知，我们得到了一个商因子都是素数阶循环群的合成群列。\\
+\noteb{(注：由Jordan-H\"{o}lder定理，合成群列之间都是互相等价的，因此已经说明所有合成群列的商因子都满足该条件了)}
+\end{proof}
+\kfj{(幂零群)}\\
+\kfj{定理：}设G是一个群，且由正规群列：
+\[
+\{e\}=L_0\zg L_1\zg L_2\zg \cdots \zg L_n=G
+\]
+那么则有：$\forall 1\leq i\leq n$，
+\[
+L_i/L_{i-1}<C(G/L_{i-1})\iff [G,L_i]<L_{i-1}
+\]
+\begin{proof}
+\[
+\begin{aligned}
+L_i/L_{i-1}<C(G/L_{i-1})\iff & \forall h\in L_i,\; \forall g\in G,\; ghL_{i-1}=hgL_{i-1}\\
+\iff &\forall h\in L_i,\; \forall g\in G,\; \inv{(hg)}gh=\inv{g}\inv{h}gh\in L_{i-1}\\
+\iff &\forall h\in L_i,\; \forall g\in G,\; [g,h]\in L_{i-1}\\
+\iff &[G,L_i]<L_i
+\end{aligned}
+\]
+\end{proof}
+\kfj{定义：}我们称满足上述条件，即：$\forall 1\leq i\leq n,\; [G,L_i]<L_{i-1}$的正规群列称为中心列。\\
+\kfj{推论：}降中心列、中心列若是正规群列（“可到头”），那么是中心列。\\
+\indent 我们不难看出，升、降中心列和中心列关系密切，然而密切程度远远不止于此。我们即将给出本节最有“统一”性质的定理\\
+\kfj{定理：}
+\[
+\begin{aligned}
+&(1)\text{G有中心列}\iff \text{G的升中心列是正规群列}\\
+&(2)\text{G有中心列}\iff \text{G的降中心列是正规群列}
+\end{aligned}
+\]
+为了证明这个定理，我们先证明一个引理：\\
+\kfj{引理：}任取一个中心列
+\[
+\{e\}=L_0\zg L_1\zg L_2\zg \cdots \zg L_n=G
+\]
+那么则有：$\forall 1\leq k\leq n$，
+\[
+\begin{aligned}
+&(1)L_k<C_k(G)\\
+&(2)d_k(G)<L_{n-k}
+\end{aligned}
+\]
+\begin{proof}
+(1)：已知$C_0(G)=L_0=\{e\}$。于是做数学归纳法，假设$i-1$时命题成立，即$L_{i-1}<C_{i-1}(G)$\\
+我们从中心列和升中心列的定义可知：
+\[
+\left\{
+\begin{aligned}
+&C_i(G)=\inv{\pi_{i-1}}(D(G/C_{i-1}(G)))\\
+&[G,L_i]<L_{i-1}
+\end{aligned}\right.
+\]
+此时再结合归纳假设，我们有：$[G,L_i]<L_{i-1}<C_{i-1}(G)$\\
+考察$\pi_{i-1}(L_i)=L_i/C_{i-1}(G)$\\
+此时对于$\forall h\in L_i,\; g\in G$，有$\ovl{g}\cdot \ovl{h}=\ovl{gh}=ghC_{i-1}(G)=hg\cdot (\inv{g}\inv{h}gh)C_{i-1}(G)$\\
+由于$[G,L_i]<C_{i-1}(G)$，因此可知$\ovl{g}\ovl{h}=\ovl{h}\ovl{g}$。再由群中心的定义，我们就得出：
+\[
+L_i/C_{i-1}(G)<C(G/C_{i-1}(G))\iff \pi_{i-1}(L_i)<\pi_{i-1}(C_i(G))
+\]
+由于$\pi_{i-1}\colon G\to G/C_{i-1}(G)$是良定义的映射，因此得：
+\[
+\pi_{i-1}(L_i)\subset \pi_{i-1}(C_i(G))\iff L_i\subset C_i(G)
+\]
+\noteb{(注：上述等价从集合角度看就比较显然。且$L_i$成群，故集合包含符号也可改为子群包含符号)}\\
+(2)：已知$d_0(G)=L_n=G$，于是做数学归纳法，假设$i-1$时命题成立，即$d_{i-1}(G)<L_{n+1-i}$。\\
+我们由中心列和降中心列的定义可知：
+\[
+\left\{
+\begin{aligned}
+&d_i(G)=[G,d_{i-1}(G)]\\
+&[G,L_{n+1-i}]<L_{n-i}
+\end{aligned}\right.
+\]
+由归纳假设，$d_{i-1}(G)<L_{n+1-i}$，可知：$[G,d_{i-1}(G)]<[G,L_{n+1-i}]$\\
+\noteb{(注：这是由于$[G,d_{i-1}(G)]$的生成元集$\{[g,h]|g\in G,\; h\in d_{i-1}(G)\}$是$[G,L_{n+1-i}]$生成元集的子集。)}\\
+于是我们有：
+\[
+d_i(G)=[G,d_{i-1}(G)]<[G,L_{n+1-i}]<L_{n-i}
+\]
+\end{proof}
+有了引理之后我们就开始证明定理：
+\begin{proof}
+(1)：($\impliedby$)显然。($\implies$)：若G有中心列：
+\[
+\{e\}\zg L_1\zg \cdots \zg L_n=G
+\]
+那么由引理可知：
+\[
+G=L_n<C_n(G)\iff C_n(G)=G
+\]
+此时可知G的升中心列是正规群列。\\
+(2)：($\impliedby$)显然。($\implies$)若G有中心列：
+\[
+\{e\}\zg L_1\zg \cdots \zg L_n=G
+\]
+那么由引理可知：
+\[
+d_n(G)<L_{n-n}=L_0=\{e\} \iff d_n(G)=\{e\}
+\]
+此时可知G的降中心列是正规群列。\\
+\end{proof}
+我们把这个定理用图画出来：
+\begin{figure}[H]
+\centering
+\fbox{\includegraphics[height=9cm]{figures/Central Series.png}}
+\caption*{(中心列)}
+\end{figure}
+\kfj{定义：}若群G有中心列，则称G是一个幂零群。
+
+
+
+
+
+
+
+

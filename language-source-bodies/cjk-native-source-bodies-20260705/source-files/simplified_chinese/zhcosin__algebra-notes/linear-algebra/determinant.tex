@@ -1,0 +1,469 @@
+
+\section{行列式}
+\label{sec:determinant}
+
+\subsection{排列}
+\label{sec:arrangement}
+
+\begin{definition}
+  由$1,2,\ldots,n$共$n$组成的一个有序数组称为一个$n$级 \emph{排列}.
+\end{definition}
+
+例如，1234和2341都是4级排列，$n$级排列一共有$n!$个.
+
+\begin{definition}
+  在一个排列中，如果一对数的大小顺序与先后顺序相反，即前面的数大于后面的数，则称这个数对是一个\emph{逆序}，一个排列中的逆序总数，称为该排列的\emph{逆序数}.
+\end{definition}
+
+排列$j_1,j_2,\ldots,j_n$的逆序数记为$\tau(j_1,j_2,\ldots,j_n)$.
+
+\begin{definition}
+  逆序数为奇数的排列称为\emph{奇排列}，逆序数为偶数的排列称为\emph{偶排列}.
+\end{definition}
+
+把一个排列中的两个数互换一下位置，称为一次对换操作。
+
+\begin{theorem}
+  对换改变排列的奇偶性。
+\end{theorem}
+
+\begin{proof}[证明]
+  假定原排列是$a_1,a_2,\ldots,a_n$，从中取定一对数$a_i,a_j(i<j)$进行对换，我们对$j-i$作归纳法，如果$j-i=1$，那么对换的是两个相邻的元素，显然逆序增一或者减一，奇偶性自然会改变，假如$j-i\leqslant k$时，对换操作改变排列的奇偶性，那么当$j-i=k+1$时，我们把这个对换操作分成三步来进行，先对换$i$和$j-1$位置上的元素，再对换$j-1$和$j$位置上的元素，最后再对换$i$和$j-1$位置上的元素，这样与直接将$i$和$j$位置上的元素对换得出的排列相同，因而具有相同的逆序数，根据归纳假设，三次对换操作的下标之差都不超过$k$，因而这三次对换将使排列的奇偶性改变三次，等同于改变一次奇偶性，结论得证。
+\end{proof}
+
+\begin{inference}
+  在$n!$个$n$级排列中，奇偶排列各占一半。
+\end{inference}
+
+\begin{proof}[证明]
+  通过将前两个元素对换的操作，可以在所有$n$级排列的集合中建立起一一映射，且奇排列和偶排列无交集，故奇排列个数与偶排列个数相同。
+\end{proof}
+
+\begin{theorem}
+  任何一个$n$级排列，都可以通过一系列对换变成自然排列$1,2,\ldots,n$，且对换次数的奇偶性与原排列的奇偶性相同。
+\end{theorem}
+
+\begin{proof}[证明]
+  对$n$作归纳法，对$n=2$结论显然成立，假如对级数不超过$n$的排列都有此结论，则对一个$n+1$级排列，如果它的逆序数不是零，则任选一个不在正确位置上的元素，将它与它的正确位置上的元素进行一次对换，在新的排列中除去它，就是一个$n$级的对换，按归纳假设，它可以通过一系列对换变成自然排列，且对换次数与新排列的逆序数相同，再加上第一次对换也改变了一次奇偶性，结论便得到证明。
+\end{proof}
+
+\subsection{行列式的概念}
+\label{sec:concept-of-determinant}
+
+\begin{definition}
+  $n$级行列式
+  \[
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+\]
+是所有取自不同行不同列的元素组合的乘积
+\[ a_{1i_1}a_{2i_2}\cdots a_{ni_n} \]
+们的代数和，这里$i_1,i_2,\ldots,i_n$是$1,2,\ldots,n$的排列，代数和是指带正负号的和，每一个项的符号是由排列$i_1,i_2,\ldots,i_n$决定的，奇排列时取正号，偶排列时取负号，即
+  \[
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  = \sum_{i_1,i_2,\ldots,i_n} (-1)^{\tau(i_1,i_2,\ldots,i_n)} a_{1i_1}a_{2i_2}\cdots a_{ni_n}
+\]
+这里取和要遍及所有可能的排列。
+\end{definition}
+
+\begin{example}
+  计算行列式
+  \[
+    \begin{vmatrix}
+      0 & 0 & 0 & 1 \\
+      0 & 0 & 2 & 0 \\
+      0 & 3 & 0 & 0 \\
+      4 & 0 & 0 & 0
+    \end{vmatrix}
+    \]
+    这个行列式的展开式中，只有唯一一项不为零，即$(-1)^{\tau(4,3,2,1}4\cdot 3 \cdot 2 \cdot 1$，所以行列式的值为24.
+\end{example}
+
+\begin{example}
+  上三角行列式
+  \[
+    \begin{vmatrix}
+      a_{11} & a_{12} & \cdots & a_{1n} \\
+      0 & a_{22} & \cdots & a_{2n} \\
+      \vdots & \vdots & & \vdots \\
+      0 & 0 & \cdots & a_{nn}
+    \end{vmatrix}
+  \]
+  行列式中从左上角到右下角这条斜线称为行列式的\emph{主对角线}，从右上角到左下角的这条斜线称为\emph{次对角线}，对于上三角行列式而言，主对角线下方的元素全是零，那么这个行列式的展开式中，要使某一项不为零，则最后一行必须取最后一个元素，而倒数第二行则只能取倒数第二个元素，依次下去，这个行列式的展开式中只有一个非零项，这一项就是主对角线上各元素的乘积，并且还带着正号，所以有
+  \[
+    \begin{vmatrix}
+      a_{11} & a_{12} & \cdots & a_{1n} \\
+      0 & a_{22} & \cdots & a_{2n} \\
+      \vdots & \vdots & & \vdots \\
+      0 & 0 & \cdots & a_{nn}
+    \end{vmatrix}
+    = a_{11}a_{22}\cdots a_{nn}
+  \]
+  更特殊的情形是
+   \[
+    \begin{vmatrix}
+      a_{11} & 0 & \cdots & 0 \\
+      0 & a_{22} & \cdots & 0 \\
+      \vdots & \vdots & & \vdots \\
+      0 & 0 & \cdots & a_{nn}
+    \end{vmatrix}
+    = a_{11}a_{22}\cdots a_{nn}
+  \]
+像这样，除主对角线以外的元素全是零的行列式，称为\emph{对角形行列式}.
+\end{example}
+
+显然，如果行列式中的所有元素都是数域$P$中的数，那么行列式的值也是数域$P$中的数，即行列式运算具有封闭性，因为它只有乘法和加法两种运算。
+
+在上面的讨论中，行列式中的每一项我们是按行指标的顺序写成
+\[ a_{1i_1}a_{2i_2}\cdots a_{ni_n} \]
+事实上，可以写成更一般的形式
+\[ a_{i_1j_1}a_{i_2j_2}\cdots a_{i_nj_n} \]
+问题是，前一种形式，它的符号是$\tau(i_1,i_2,\ldots,i_n)$，那么，后一种形式呢?
+
+我们知道，排列$i_1,i_2,\ldots,i_n$可以通过一系列对换变成自然排列$1,2,\ldots,n$，且对换的次数的奇偶性与排列的奇偶性相同，反之，反过来对换也是一样，因此，将前一种形式通过一系列对换后变成后一种形式，对换次数的奇偶性与$tau(i_1,i_2,\ldots,i_n)$的奇偶性相同，而序列$j_1,j_2,\ldots,j_n$也经历了同样的对换过程，因此新的$j'_1,j'_2,\ldots,j'_n$的逆序数的奇偶性与
+\[ \tau(i_1,i_2,\ldots,i_n)+\tau(j_1,j_2,\ldots,j_n) \]
+相同，因此我们有如下的行列式展开式
+  \[
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  = \sum (-1)^{\tau(i_1,i_2,\ldots,i_n)+\tau(j_1,j_2,\ldots,j_n)} a_{i_1j_1}a_{i_2j_2}\cdots a_{i_nj_n}
+\]
+要注意的是这个展开式中，这个求和，要么固定行指标的排列而对所有可能的列指标的排列进行求和，要么就固定列指标的排列而对所有可能的行指标的排列进行求和，不能同时对行和列的排列进行求和。
+
+同样，上式中，当固定列的排列$(j_1,j_2,\ldots,j_n) = (1,2,\ldots,n)$时，展开式成为
+  \[
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  = \sum (-1)^{\tau(i_1,i_2,\ldots,i_n)} a_{i_11}a_{i_22}\cdots a_{i_nn}
+\]
+
+由此得到
+\begin{property}
+  行列互换，行列式的值不变，即
+  \[
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  = 
+  \begin{vmatrix}
+    a_{11} & a_{21} & \cdots & a_{n1} \\
+    a_{12} & a_{22} & \cdots & a_{n2} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{1n} & a_{2n} & \cdots & a_{nn}
+  \end{vmatrix}
+\]
+\end{property}
+
+将一个行列式中的行和列进行互换后所得新的行列式称为原行列式的\emph{转置行列式}，这条性质即是说，行列式与它的转置行列式具有相等的值。
+
+这条性质表明，行列式的行和列的地位是相同的，对行成立的性质，也对列成立，比如把上三角行列式转置就成为下三角行列式，于是就有
+  \[
+  \begin{vmatrix}
+    a_{11} & 0 & \cdots & 0 \\
+    a_{21} & a_{22} & \cdots & 0 \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  = a_{11}a_{22}\cdots a_{nn}
+  \]
+  在下一小节中，我们讨论行列式的性质，这些性质主要是对行而言的，但由于行列式的行和列地位对等，所以这些性质对列也是成立的，在下一小节就不再说明了。
+
+\subsection{行列式的性质}
+\label{sec:properties-of-determinant}
+
+行列式的展开式中，项的数目是非常多的，一个$n$级的行列式，按定义，它的展开式中将包含$n!$项，这对于行列式的计算来说是比较费事的，所以在这一小节，我们来推导一些行列式的性质。
+
+因为一个行列式的每一项，是由不同行不同列的元素相乘而得，所以对于固定的一行来说，我们可以把展开式中的项，按照这一项在指定行取的哪一个元素进行分类，将展开式归并成如下形式:
+\[ a_{i1}A_{i1}+a_{i2}A_{i2}+\cdots+a_{in}A_{in} \]
+这些$A_{ij}$，都不再包含第$i$行的元素作为因子，而是其它行的一些元素的乘积，因此，我们可以得到下面的结论。
+\begin{property}
+  在$n$级行列式$(a_{ij})_{n \times n}$中，有
+  \begin{eqnarray*}
+    & & 
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    (kb_1+lc_1) & (kb_2+lc_2) & \cdots & (kb_n+lc_n) \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  \\
+   & = &  
+  k
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    b_1 & b_2 & \cdots & b_n \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  +
+  l
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    c_1 & c_2 & \cdots & c_n \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  \end{eqnarray*}
+\end{property}
+
+\begin{proof}[证明]
+  对于右边而言，它的展开式是
+  \[ (kb_1+lc_1)A_{i1}+(kb_2+lc_2)A_{i2}+\cdots+(kb_n+lc_n)A_{in} \]
+  对于左右两边的三个行列式而言，除第$i$行以外的元素都是相同的，所以诸$A_{ij}$都是相同的，于是便有结论。
+\end{proof}
+
+这里提一下几个特殊情况。
+
+  1. 把一个行列式的某一行都乘以一实数$k$，则新行列式的值也是原来行列式的值的$k$倍，即
+\[
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    ka_{i1} & ka_{i2} & \cdots & ka_{in} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  = k
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{i1} & a_{i2} & \cdots & a_{in} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  \]
+
+  由此立即得知，如果行列式中有一行全是零，则行列式为零。
+
+  2. 有
+  \[
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    (b_1+c_1) & (b_2+c_2) & \cdots & (b_n+c_n) \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  =
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    b_1 & b_2 & \cdots & b_n \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  +
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    c_1 & c_2 & \cdots & c_n \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  \]
+
+\begin{property}
+    如果行列式中有两行相同，即这两行对应元素相等，则行列式为零。
+\end{property}
+
+\begin{proof}[证明]
+  设一个$n$级行列式$(a_{ij})_{n \times n}$中，第$r$行与第$s$行的元素对应相同，那么对于满足$1 \leqslant j_1,j_2 \leqslant n$且$j_1 \neq j_2$的两个整数$j_1$和$j_2$，行列式的展开式中必然同时包含着下面两项(符号先不考虑)
+  \[ \cdots a_{rj_1} \cdots a_{sj_2} \cdots \]
+  和
+  \[ \cdots a_{rj_2} \cdots a_{sj_1} \cdots \]
+ 这两项其它因子都相同，无非是在这两行的元素的选择(选择列)上正好是相反的，显然这两项绝对值相等，而符号，则因为列指标的排列仅仅相差一个对换，即$j_1$和$j_2$的顺序，因而这两项的符号相反，正好抵消。当$j_1$和$j_2$遍及所有可能取值时，上述项就遍及行列式的所有项，因而行列式的所有项都被抵消掉，其值为零。
+\end{proof}
+
+容易推得
+\begin{inference}
+  如果行列式的两行成比例，则行列式为零。
+\end{inference}
+
+\begin{proof}[证明]
+  \[
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    ka_{r1} & ka_{r2} & \cdots & ka_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  = k
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+   = 0
+    \]
+\end{proof}
+
+由前述性质立即可得
+\begin{property}
+  把行列式的一行乘以某一倍数后加到另一行，行列式的值不变.
+\end{property}
+
+\begin{proof}[证明]
+  \begin{eqnarray*}
+    & & 
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{s1}+ka_{r1} & a_{s2}+ka_{r2} & \cdots & a_{sn}+ka_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+    \\
+    & = & 
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{s1} & a_{s2} & \cdots & a_{sn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+   + k                 
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+    \\
+    & = &
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{s1} & a_{s2} & \cdots & a_{sn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  \end{eqnarray*}
+\end{proof}
+
+接下来可得
+\begin{property}
+  对换行列式的两行，行列式的值反号。
+\end{property}
+
+\begin{proof}[证明]
+  \begin{eqnarray*}
+    & & 
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{s1} & a_{s2} & \cdots & a_{sn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+    \\
+    & = &
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{s1}+a_{r1} & a_{s2}+a_{r2} & \cdots & a_{sn}+a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+    \\
+    & = &
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    -a_{s1} & -a_{s2} & \cdots & -a_{sn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{s1}+a_{r1} & a_{s2}+a_{r2} & \cdots & a_{sn}+a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+    \\
+    & = &
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    -a_{s1} & -a_{s2} & \cdots & -a_{sn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+    \\
+    & = &
+          -
+  \begin{vmatrix}
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{s1} & a_{s2} & \cdots & a_{sn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{r1} & a_{r2} & \cdots & a_{rn} \\
+    \vdots & \vdots & \vdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+  \end{vmatrix}
+  \end{eqnarray*}
+  这里是先将第$r$行加到第$s$行，再把新的第$s$行乘以$-1$加到第$r$行，再把这时的第$r$行再加到第$s$行，最后把第$r$行的负号提出来。
+\end{proof}
+
+\subsection{行列式的计算}
+\label{sec:computition-of-determinant}
+
+\subsection{行列式按一行(列)展开}
+\label{sec:determinant-expand-by-row-or-colume}
+
+\subsection{行列式的递归定义}
+\label{sec:recursive-definition-of-determinant}
+
+\subsection{克拉默(Cramer)法则}
+\label{sec:cramer-rule}
+
+\subsection{拉普拉斯(Laplace)定理，行列式的乘法规则}
+\label{sec:laplace-theorem-of-determinant}
+
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "../algebra-note"
+%%% End:
