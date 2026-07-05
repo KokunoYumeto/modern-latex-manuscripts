@@ -1,3 +1,19 @@
+## 2026-07-05: Noether-PC/interlanguage package 566 rolling delta
+
+Manifest: [20260705_noether_pc_package566_interlanguage_rollup.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package566_interlanguage_rollup.json)
+
+- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
+- Artifact: `publish_staging/interlanguage-methodology/20260705_noether_pc_package566/Noether_PC_Interlanguage_Package566_RollingDelta_20260705.zip`, 13,267 bytes, SHA256 `086A20A129142B3C88CCBA92886F2CB104E489F6E51F67C5E0909C1E79BFCA39`.
+- Scope: package 566 from `origin/codex/noether-pc-20260629`, through remote head `4f00d3f1`.
+- Caveat: methodology/source-canon/access-governance coordination only. Contains no TeX-family source bodies, no PDFs, and no ZIP payloads. Do not present as source-anchor delivery.
+
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx196
+
+Manifest: [20260705_sga6_source_rescribe_idx196_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx196_workpass_refresh.json)
+
+- SGA support ZIP: `SGA6_ClaudeCodex_SourceRescribe_idx196_Workpass_20260705.zip`, 7,155,961 bytes, SHA256 `2FFC6C3743E5832C22A5F4B2D786061EF0F55D0ABB4BEAD95F268D969BEFB4F5`.
+- Scope: latest local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #193, idx196 / volume p183 / Expose II p24; next cursor idx197 / volume p184 / Expose II p25.
+- Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 ## 2026-07-05: Noether-PC/interlanguage packages 563-565 rolling deltas
 
 Manifest: [20260705_noether_pc_packages563_565_interlanguage_rollup.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages563_565_interlanguage_rollup.json)
