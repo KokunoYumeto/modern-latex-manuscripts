@@ -8651,6 +8651,14 @@ Manifest: [20260705_noether_pc_packages425_429_interlanguage_refresh.json](../ma
 - Scope: packages 425-429 from `origin/codex/noether-pc-20260629` remote head `6ca2cc29`, adding R6 Indigenous/Creole/Sign access/source-canon/coverage/reader-integration/checksum material, Romance source-canon/French batch-3 local TeX metadata-probe notes, and durable interlanguage run-log updates.
 - Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-canon/access-governance coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
 
+## 2026-07-05: Noether-PC/interlanguage package 430 R9 access retry
+
+Manifest: [20260705_noether_pc_package430_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_package430_interlanguage_refresh.json)
+
+- Interlanguage methodology support ZIP: `Noether_PC_Interlanguage_Package430_RollingDelta_20260705.zip`, 8,551 bytes, SHA256 `10074BE2037EE272B92B3F7708458D671CBB2BC2053671B3B5ECE8DCE2D8F30B`, 9 entries.
+- Scope: package 430 from `origin/codex/noether-pc-20260629` remote head `998ac7cd`, adding R9 Africa/Horn/West known-route access-retry CSV/MD material.
+- Caveat: the delta contains no TeX-like source bodies, no reader PDFs, no ZIP payloads, and no omitted raw source-body rows. Methodology/source-route/access coordination only; not the requested bulk native mathematical LaTeX source-body corpus, not language completion, native review, term approval, source-fidelity certification, publication readiness, reader output, or critical-edition material.
+
 ## 2026-07-05: Noether-PC/interlanguage packages 413-416 Pan-Turkic and Malay/SEA/Pacific coordination
 
 Manifest: [20260705_noether_pc_packages413_416_interlanguage_refresh.json](../manifests/pending-zenodo-uploads/20260705_noether_pc_packages413_416_interlanguage_refresh.json)
