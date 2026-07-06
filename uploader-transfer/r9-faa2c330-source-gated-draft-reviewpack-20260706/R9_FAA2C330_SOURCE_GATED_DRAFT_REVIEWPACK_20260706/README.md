@@ -1,0 +1,24 @@
+# R9 FAA2C330 Source-Gated Draft Reviewpack
+
+Current branch context: `faa2c330deb886098750dafb5c500e244e1333fe`.
+
+This package crosswalks generated-draft/noncanonical pretranslation/interlinear rows to source-body, render, term-alternative, formula-neighbor, exact blocker, and recovery-queue evidence.
+
+It is reviewer-facing support only. It is not accepted translation evidence, term approval, native review, license clearance, gate promotion, source certification, final status, or translation completion.
+
+## Metrics
+
+- `current_branch_head`: faa2c330deb886098750dafb5c500e244e1333fe (current head from latest mutual-wake context)
+- `input_frontier_head`: 1233d6f1557c831c23f6de8395182d8ae81e2217 (source-return/draft evidence carried from 1233D6F1 frontier)
+- `draft_review_rows`: 70 (one row per generated-draft/noncanonical pretranslation/interlinear row)
+- `draft_summary_language_rows`: 7 (one row per R9 language/scope)
+- `draft_do_not_use_rows`: 70 (adverse/do-not-use guardrail row for every draft row)
+- `source_context_capture_task_rows`: 35 (formula-neighbor/source-context capture tasks)
+- `source_body_witness_rows_carried_forward`: 1071 (source witness rows remain source-return/provenance only)
+- `exact_blocker_probe_rows_carried_forward`: 189 (blocker probes from FAA2C330 recovery-search workpack)
+- `b3_target_root`: uploader-transfer/post-faa2c330-r9-source-gated-draft-reviewpack-20260706/noether-r9-africa-horn-west/outputs/R9_FAA2C330_SOURCE_GATED_DRAFT_REVIEWPACK_20260706/ (suggested B3 pickup path; no lane push)
+- `boundary`: R9 source-use/provenance/gap/generated-draft/noncanonical support only; no native review, accepted terminology, canonical approval, license clearance, gate promotion, source certification, final status, bridge/pilot, visual inventory, term spine, sign rendering, or translation completion (labels preserved and claims blocked)
+
+## Boundary
+
+R9 source-use/provenance/gap/generated-draft/noncanonical support only; no native review, accepted terminology, canonical approval, license clearance, gate promotion, source certification, final status, bridge/pilot, visual inventory, term spine, sign rendering, or translation completion.
