@@ -37,3 +37,21 @@ Public-surface cleanup is part of the workflow, not clerical afterthought. The r
 - known caveats and non-certification claims.
 
 This same rule should be applied to workflow, interlanguage, Weber, Deligne, non-European, and author-level records during subsequent sweeps.
+
+## Workflow / Replication Packet
+
+- Concept DOI: <https://doi.org/10.5281/zenodo.20461174>
+- New cleaned version: <https://doi.org/10.5281/zenodo.21212502>
+- Change: replaced the accumulated loose-addendum surface with 4 files.
+- Front files: current AI-run workflow PDF and matching Markdown source.
+- Grouped files: one ZIP for older workflow addenda, scripts, OCR/source-witness lessons, audit-harness notes, and cleanup logs.
+- Status language: this is the project operating manual and replication packet. It is not a critical edition and not certification of any author corpus.
+
+## Interlanguage Methodology
+
+- Concept DOI: <https://doi.org/10.5281/zenodo.21124403>
+- New cleaned version: <https://doi.org/10.5281/zenodo.21212547>
+- Change: replaced the earlier loose/log-heavy surface with 6 files.
+- Front files: current interlanguage methodology PDF and Markdown source.
+- Grouped files: full Claude/ChatGPT provenance ZIP, Interslavic weighted automaton and term-ledger ZIP, and other-PC source-body baseline transfer ZIP.
+- Status language: methodology and corpus-support infrastructure only. It is not native-speaker approval, accepted terminology, translation completion, language-branch certification, or a critical edition.
