@@ -4,6 +4,14 @@ Date: 2026-07-05
 Applies to: every Codex/AI lane touching interlanguage, Interslavic, Slavic, Romance, Persian/Farsi, Turkic, CJK, or any constructed/bridge-language work.
 Status: BLOCKING coordination directive.
 
+## 2026-07-06 Interslavic branch-weighting addendum
+
+The Fable/Claude/ChatGPT branch-weighting machinery is now mandatory for the Interslavic lane. Any session touching Interslavic translation, glossary, or bridge-language work must read and apply `BRANCH_WEIGHTING_SPEC.md`, `INTERSLAVIC_GATE_MAP.md`, `INTERSLAVIC_LEDGER_RETROFIT_20260704.csv/json`, `interslavic_term_decisions_20260704.json`, `HEURISTIC_REGISTER.md`, and `SOURCE_USE_POLICY.md` from `interlanguage-sidecar/20260705/fable_chatgpt_interlingua_program_full/interlingua_program_20260704/`.
+
+The immediate object remains a weighted rooted-tree witness measure / branch-weight witness ledger, with marginal-intelligibility scores, dominance penalties, adverse-evidence flags, and source-use categories. Do not call the implemented object "weighted automata" unless an actual automaton layer is built.
+
+The standalone instruction file is `interlanguage-sidecar/coordination/URGENT_INTEGRATE_FABLE_BRANCH_WEIGHTING_INTO_INTERSLAVIC_20260706.md`.
+
 This directive is additive to `UPLOAD_ALL_LATEX_SOURCE_BODIES_NOW_20260705.md`. It does not replace the raw-source requirement. It tells the other PC what to do with the Fable/ChatGPT interlanguage program once the source bodies exist.
 
 ## Immediate rule
