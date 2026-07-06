@@ -1,14 +1,3 @@
-## 2026-07-06: Claude/ChatGPT interlingua program full provenance dump
-
-Manifest: [20260706_claude_chatgpt_interlingua_program_full_provenance.json](../manifests/pending-zenodo-uploads/20260706_claude_chatgpt_interlingua_program_full_provenance.json)
-
-- Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403).
-- Artifact: `publish_staging/interlanguage-methodology/20260706_claude_chatgpt_interlingua_program_full_provenance/Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip`, 146,055,857 bytes, SHA256 `2D587A77FCBDFB79EC949F8ED94B548CCAC2E311EB0990AB1E239945E9004A6B`, 407 ZIP entries.
-- Source: `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`.
-- GitHub/other-PC visibility: pushed to `origin/codex/noether-pc-20260629` at commit `2f76ca629` under `interlanguage-sidecar/20260706/claude_chatgpt_interlingua_program_full_provenance_dump/`.
-- Scope/result: preserves the full Claude/ChatGPT interlingua-program working folder currently needed by the interlanguage branch, including weighted-automaton/branch-weight ledgers, Fable/ChatGPT methodology notes, source-use policy material, generated review artifacts, and local Web/Pro handoff/source-anchor support.
-- Caveat: methodology/provenance/source-canon support only; not native approval, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, blanket license clearance, or critical-edition material.
-
 ## 2026-07-05: Other-PC post-rate-limit source-body transfer
 
 Manifest: [20260705_other_pc_source_body_transfer_after_limit.json](../manifests/pending-zenodo-uploads/20260705_other_pc_source_body_transfer_after_limit.json)
