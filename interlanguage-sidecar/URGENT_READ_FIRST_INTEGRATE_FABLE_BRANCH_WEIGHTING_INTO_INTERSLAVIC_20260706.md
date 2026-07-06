@@ -6,9 +6,19 @@ Any Codex/AI session touching Interslavic, Slavic bridge-language, or interlangu
 
 The controlling artifacts are in:
 
+`20260706/interslavic_weighted_automaton_chain/`
+
+and the older/base Fable program is in:
+
 `20260705/fable_chatgpt_interlingua_program_full/interlingua_program_20260704/`
 
-Minimum required files:
+First read and apply the fresh 20260706 chain:
+
+- `INTERSLAVIC_FULL_TERM_WEIGHT_LEDGER_DELIVERABLE_v1_20260705.zip`
+- `INTERSLAVIC_WEIGHTED_AUTOMATON_ANALYSIS_v2_20260705.zip`
+- `INTERSLAVIC_AUTOMATON_RECONCILIATION_v2_1_20260705.zip`
+
+Then use the base-program files:
 
 - `BRANCH_WEIGHTING_SPEC.md`
 - `INTERSLAVIC_GATE_MAP.md`
@@ -19,4 +29,3 @@ Minimum required files:
 - `SOURCE_USE_POLICY.md`
 
 The implemented object is the branch-weight witness ledger / weighted rooted-tree witness measure. The Interslavic train is not considered functionally aligned until the translation/glossary work has per-language source indexes, per-concept indexes, branch weights, marginal-intelligibility scores, dominance/adverse-evidence flags, and source-use categories.
-
