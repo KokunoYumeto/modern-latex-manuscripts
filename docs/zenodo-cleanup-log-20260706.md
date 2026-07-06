@@ -55,3 +55,12 @@ This same rule should be applied to workflow, interlanguage, Weber, Deligne, non
 - Front files: current interlanguage methodology PDF and Markdown source.
 - Grouped files: full Claude/ChatGPT provenance ZIP, Interslavic weighted automaton and term-ledger ZIP, and other-PC source-body baseline transfer ZIP.
 - Status language: methodology and corpus-support infrastructure only. It is not native-speaker approval, accepted terminology, translation completion, language-branch certification, or a critical edition.
+
+## Deligne
+
+- Concept DOI: <https://doi.org/10.5281/zenodo.20410853>
+- New cleaned version: <https://doi.org/10.5281/zenodo.21212608>
+- Change: replaced the old 100-file surface with 6 files.
+- Front files: English and French sequential cumulative reader PDFs for Papers 001-016p080.
+- Grouped files: English paper/letter PDF ZIP, French paper/letter PDF ZIP, and one TeX/source/QA/update ZIP.
+- Status language: useful Deligne working drafts and source/QA packets, not a critical edition and not a blanket source-faithfulness claim. Diagram-heavy and equation-dense material still needs source comparison.
