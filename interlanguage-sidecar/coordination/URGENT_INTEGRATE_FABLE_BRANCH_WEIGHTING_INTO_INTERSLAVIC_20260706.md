@@ -8,6 +8,18 @@ Status: mandatory coordination note for any other-PC Codex/AI session touching I
 
 The Fable/Claude/ChatGPT interlanguage program now contains the governing branch-weighting and marginal-intelligibility machinery for the Interslavic lane. Do not treat this as optional background reading.
 
+Fresh 2026-07-06 correction: the current actionable package is not only the older mirrored Fable folder. It is the newly staged Interslavic weighted-automaton / branch-weight chain at:
+
+`interlanguage-sidecar/20260706/interslavic_weighted_automaton_chain/`
+
+This folder contains:
+
+- `INTERSLAVIC_FULL_TERM_WEIGHT_LEDGER_DELIVERABLE_v1_20260705.zip`
+- `INTERSLAVIC_WEIGHTED_AUTOMATON_ANALYSIS_v2_20260705.zip`
+- `INTERSLAVIC_AUTOMATON_RECONCILIATION_v2_1_20260705.zip`
+
+The v2.1 reconciliation package is the freshest layer and must be applied before further Interslavic production.
+
 Before producing or revising any Interslavic translation, glossary, terminology table, or bridge-language text, integrate the following artifacts:
 
 - `interlanguage-sidecar/20260705/fable_chatgpt_interlingua_program_full/interlingua_program_20260704/BRANCH_WEIGHTING_SPEC.md`
@@ -36,4 +48,3 @@ Any future Interslavic push must include:
 - a short acknowledgement file stating exactly which Fable artifacts above were applied.
 
 Acknowledgement-only output is not sufficient. The actual ledgers or patched translation/glossary files must be present.
-
