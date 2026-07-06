@@ -1,3 +1,10 @@
+## 2026-07-06: Noether and SGA reader-first cleanups published
+
+- Noether concept DOI: <https://doi.org/10.5281/zenodo.20412587>; latest cleaned version: <https://doi.org/10.5281/zenodo.21212395>.
+- SGA concept DOI: <https://doi.org/10.5281/zenodo.20410947>; latest cleaned version: <https://doi.org/10.5281/zenodo.21212365>.
+- Result: the visible Noether and SGA Zenodo surfaces no longer expose 100 loose files. Noether is now 7 reader/grouped files. SGA is now 6 reader/grouped files.
+- Consequence for the entries below: many 2026-07-05 Noether/SGA rows are no longer pending as loose uploads. They have been folded into the July 6 reader-first rollups where relevant, while older granular provenance remains preserved in previous Zenodo versions or local/GitHub staging. Do not re-upload these as top-level loose files unless a later sweep explicitly promotes a new coherent rollup.
+
 ## 2026-07-05: Other-PC post-rate-limit source-body transfer
 
 Manifest: [20260705_other_pc_source_body_transfer_after_limit.json](../manifests/pending-zenodo-uploads/20260705_other_pc_source_body_transfer_after_limit.json)
