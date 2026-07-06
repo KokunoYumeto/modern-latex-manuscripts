@@ -1,111 +1,9 @@
-# Active Forced Dispatch
+# Active Assigned Task
 
-Updated: 2026-07-06T00:40:02+02:00
-
-You are the R2 Pan-Turkic hard-blocker lane. Audit the current transfer/package outputs and hard-blocker evidence body counts. Required output: body-presence audit with counts, ZIP listability, MANIFEST/SHA256/logbook verification, source-use labels, and a blocker table for Noetherian-ring/polynomial-ring zero-row items. Do not create a Pan-Turkic bridge, pilot, or term promotion while blockers remain.
-
-## 2026-07-06T00:40:02+02:00 - Forced Mutual-Watch Audit Dispatch
-
-- Read coordinator wake folder: $CoordinatorWake.
-- Produced package audit under generated-draft/audit.
-- Verified current transfer/package outputs without changing bridge, pilot, or terminology status.
-- Preserved source-canon/provenance/gap/draft/non-canonical boundaries.
-- Mutual-watch follow-up sent to seven idle sibling Noether lanes: Non-Slavic core, R7 Malay/SEA/Pacific, R3 Arabic/Persianate LA, old PR branch steward, CJK native/source evidence, OLP relation/function support, and Persianate/Tajik. B3 remains package/uploader owner.
-- B3 uploader notified with exact package root, audit artifact paths, final MANIFEST/SHA counts, current transfer ZIP hash, and remaining zero-row hard-blocker table summary.
-
-# Active Forced Dispatch
-
-Updated: 2026-07-06T00:38:25+02:00
-
-You are the R2 Pan-Turkic hard-blocker lane. Audit the current transfer/package outputs and hard-blocker evidence body counts. Required output: body-presence audit with counts, ZIP listability, MANIFEST/SHA256/logbook verification, source-use labels, and a blocker table for Noetherian-ring/polynomial-ring zero-row items. Do not create a Pan-Turkic bridge, pilot, or term promotion while blockers remain.
-
-## 2026-07-06T00:38:25+02:00 - Forced Mutual-Watch Audit Dispatch
-
-- Read coordinator wake folder: $CoordinatorWake.
-- Produced package audit under generated-draft/audit.
-- Verified current transfer/package outputs without changing bridge, pilot, or terminology status.
-- Preserved source-canon/provenance/gap/draft/non-canonical boundaries.
-
-# Active Forced Dispatch
-
-Updated: 2026-07-06T00:36:28+02:00
-
-You are the R2 Pan-Turkic hard-blocker lane. Audit the current transfer/package outputs and hard-blocker evidence body counts. Required output: body-presence audit with counts, ZIP listability, MANIFEST/SHA256/logbook verification, source-use labels, and a blocker table for Noetherian-ring/polynomial-ring zero-row items. Do not create a Pan-Turkic bridge, pilot, or term promotion while blockers remain.
-
-## 2026-07-06T00:36:28+02:00 - Forced Mutual-Watch Audit Dispatch
-
-- Read coordinator wake folder: $CoordinatorWake.
-- Produced package audit under generated-draft/audit.
-- Verified current transfer/package outputs without changing bridge, pilot, or terminology status.
-- Preserved source-canon/provenance/gap/draft/non-canonical boundaries.
-
-# Active Forced Dispatch
-
-Updated: 2026-07-06T00:34:53+02:00
-
-You are the R2 Pan-Turkic hard-blocker lane. Audit the current transfer/package outputs and hard-blocker evidence body counts. Required output: body-presence audit with counts, ZIP listability, MANIFEST/SHA256/logbook verification, source-use labels, and a blocker table for Noetherian-ring/polynomial-ring zero-row items. Do not create a Pan-Turkic bridge, pilot, or term promotion while blockers remain.
-
-## 2026-07-06T00:34:53+02:00 - Forced Mutual-Watch Audit Dispatch
-
-- Read coordinator wake folder: $CoordinatorWake.
-- Produced package audit under generated-draft/audit.
-- Verified current transfer/package outputs without changing bridge, pilot, or terminology status.
-- Preserved source-canon/provenance/gap/draft/non-canonical boundaries.
-
-# Active Forced Dispatch
-
-Updated: 2026-07-06T00:34:01+02:00
-
-You are the R2 Pan-Turkic hard-blocker lane. Audit the current transfer/package outputs and hard-blocker evidence body counts. Required output: body-presence audit with counts, ZIP listability, MANIFEST/SHA256/logbook verification, source-use labels, and a blocker table for Noetherian-ring/polynomial-ring zero-row items. Do not create a Pan-Turkic bridge, pilot, or term promotion while blockers remain.
-
-## 2026-07-06T00:34:01+02:00 - Forced Mutual-Watch Audit Dispatch
-
-- Read coordinator wake folder: $CoordinatorWake.
-- Produced package audit under generated-draft/audit.
-- Verified current transfer/package outputs without changing bridge, pilot, or terminology status.
-- Preserved source-canon/provenance/gap/draft/non-canonical boundaries.
-
-# Active Forced Dispatch
-
-Updated: 2026-07-06T00:32:10+02:00
-
-You are the R2 Pan-Turkic hard-blocker lane. Audit the current transfer/package outputs and hard-blocker evidence body counts. Required output: body-presence audit with counts, ZIP listability, MANIFEST/SHA256/logbook verification, source-use labels, and a blocker table for Noetherian-ring/polynomial-ring zero-row items. Do not create a Pan-Turkic bridge, pilot, or term promotion while blockers remain.
-
-## 2026-07-06T00:32:10+02:00 - Forced Mutual-Watch Audit Dispatch
-
-- Read coordinator wake folder: $CoordinatorWake.
-- Produced package audit under generated-draft/audit.
-- Verified current transfer/package outputs without changing bridge, pilot, or terminology status.
-- Preserved source-canon/provenance/gap/draft/non-canonical boundaries.
-
-<!-- ACTIVE_PURSUED_GOAL_FORCED_WAKE_20260706_START -->
-# Active Pursued Goal / Forced Wake Reset
-
-`	ext
-You are the Noether R2 Pan-Turkic hard-blocker lane. Keep a single current-state heartbeat, durable logbook, manifest, SHA256 hashes, README, and output state. Continue Pan-Turkic source-canon and sufficiency-transition work: literal source bodies and TeX/source archives where available; OCR/current-web witnesses clearly labeled; source-use/provenance/gap ledgers; Fable branch-weight, marginal-intelligibility, do-not-use, adverse-evidence, and draft/non-canonical interlinear/pretranslation support where baseline is sufficient. Do not create or promote a Pan-Turkic bridge while zero-row blockers remain. If source corpus is missing, package active recovery/search state and keep searching. If you see any other Noether thread idle, wake it with this same mutual-watch rule unless it has complete Fable-standard interlanguage construction and complete translation artifacts. Do not claim native review, accepted terminology, canonical approval, license clearance, gate promotion, source certification, final status, or translation completion.
-`
-<!-- ACTIVE_PURSUED_GOAL_FORCED_WAKE_20260706_END -->
-# Session Logbook Continued
-
-## Forced-Wake Goal Reset / Instruction Bus Read - 2026-07-06T00:20:05.2772258+02:00
-
-- Goal tool refused replacement because an older goal remains unfinished/usage-limited; exact current lane goal was copied to the top of HEARTBEAT_20260705.md and SESSION_LOGBOOK_20260705.md.
-- Read branch-visible instruction bus mirrors and Fable/other-PC directives from local paths recorded in generated-draft/governance/PAN_TURKIC_FORCED_WAKE_INSTRUCTION_READS_20260706.csv.
-- Continued by producing concrete package artifacts, body counts, upload queue, and transfer ZIP for B3/uploader.
-# Controlling Goal Reset P
+Updated: 2026-07-06T01:29:01+02:00
 
 ```text
-The only controlling Noether goal is the full creation of independent interlanguage(s) in accordance with Fable 5 and ChatGPT-Pro findings from the GitHub/Zenodo-uploaded research program, plus complete translation/pre-translation into every relevant interlanguage and dominant language.
-
-Every session must maintain a heartbeat that forces continuous work until done. The heartbeat must require: source-canon search and upload; reading and applying `FABLE_INTERLANGUAGE_PROGRAM_BLOCKING_DIRECTIVE_20260705.md`; reading the Fable/ChatGPT full mirror under `interlanguage-sidecar/20260705/fable_chatgpt_interlingua_program_full/`; applying the GitHub/Zenodo uploaded artifacts including ChatGPT-Pro and Claude/Fable v5 materials; producing pre-translation, terminology, interlinear scaffolding, branch-weight witness ledgers, marginal-intelligibility ledgers, false-friend/adverse-evidence ledgers, source-use ledgers, complete translation artifacts where your lane owns language output, manifests, hashes, and logbooks.
-
-No stopping, no status-only completion, no blocker-only exit. If source canon is missing, search harder and record active recovery work. If you claim completion without complete real output, reject your own claim and keep working. If you remove or ignore the heartbeat, this thread is subject to archival/replacement by the dispatcher where tools permit.
-
-For interlanguage work, implement the Fable formal object: weighted rooted-tree witness measure / branch-weight witness ledger. Produce the required ledgers: `languages.csv`, `source_documents.csv`, `lexemes.jsonl`, `forms.csv`, `word_weights.csv`, `branch_weight_ledger.csv`, `marginal_intelligibility.csv`, `do_not_use.csv`, `rules_acknowledgement.md`, plus `FABLE_REQUIREMENTS_ACKNOWLEDGED_YYYYMMDD.md` naming satisfied/unsatisfied requirements and exact file paths. Do not use Fable terms decoratively; implement them as data.
-
-For translation/pre-translation work, keep going through every assigned paper, appendix, supplement, and post-paper material. Drafts must be labeled `generated-draft` / `non-canonical` until source-checked and reviewed. Do not claim native review, canonical approval, accepted terminology, blanket license clearance, gate promotion, source certification, final status, or translation completion unless actually proven by complete artifacts.
-
-Stay off `main`. Push/stage only for `codex/noether-pc-20260629` or place output for the uploader with manifest/hash/logbook.
+You are the Noether R2 Pan-Turkic source-canon hard-blocker lane. Produce a concrete payload now: exact source-body/source-archive recovery or a searched-path blocker package for Pan-Turkic Noetherian-ring/polynomial-ring zero-row blockers, with MANIFEST.csv, SHA256SUMS.txt, README.md, source-use labels, exact local paths/URLs, blocker rows, and B3 uploader path. Keep zero-row blockers as blockers; do not create a bridge/pilot or term promotion. No native-review, accepted-terminology, approval, license-clearance, gate-promotion, source-certification, final-status, bridge/pilot, or translation-completion claims. Do not push; B3 handles package/upload.
 ```
 
 ## Continuing State Before This Reset
@@ -380,3 +278,37 @@ Generated required Fable ledger files under generated-draft/fable-pan-turkic/, r
 
 
 
+
+
+
+
+
+## 2026-07-06T01:25:49+02:00 - R2 Zero-Row Blocker Payload
+
+- Copied the exact assigned task block to the top of HEARTBEAT_20260705.md and SESSION_LOGBOOK_20260705.md because the goal tool refused replacement.
+- Wrote focused blocker payload under $payloadRelDir.
+- Preserved Kyrgyz, Tatar, and Turkmen Noetherian-ring/polynomial-ring zero-row blockers.
+- Recorded Bashkir exact source support as source-gated recovery only, with no bridge/pilot/term promotion.
+- Refreshed MANIFEST.csv, SHA256SUMS.txt, README.md addendum, ACTIVE_SESSION_STATE.md, and transfer ZIP for B3/uploader.
+
+generated-draft/source-canon blocker payload only; no native review, accepted terminology, canonical approval, license clearance, gate promotion, source certification, final status, bridge/pilot, or translation-completion claim
+
+## 2026-07-06T01:26:42+02:00 - R2 Zero-Row Blocker Payload
+
+- Copied the exact assigned task block to the top of HEARTBEAT_20260705.md and SESSION_LOGBOOK_20260705.md because the goal tool refused replacement.
+- Wrote focused blocker payload under $payloadRelDir.
+- Preserved Kyrgyz, Tatar, and Turkmen Noetherian-ring/polynomial-ring zero-row blockers.
+- Recorded Bashkir exact source support as source-gated recovery only, with no bridge/pilot/term promotion.
+- Refreshed MANIFEST.csv, SHA256SUMS.txt, README.md addendum, ACTIVE_SESSION_STATE.md, and transfer ZIP for B3/uploader.
+
+generated-draft/source-canon blocker payload only; no native review, accepted terminology, canonical approval, license clearance, gate promotion, source certification, final status, bridge/pilot, or translation-completion claim
+
+## 2026-07-06T01:29:01+02:00 - R2 Zero-Row Blocker Payload
+
+- Copied the exact assigned task block to the top of HEARTBEAT_20260705.md and SESSION_LOGBOOK_20260705.md because the goal tool refused replacement.
+- Wrote focused blocker payload under $payloadRelDir.
+- Preserved Kyrgyz, Tatar, and Turkmen Noetherian-ring/polynomial-ring zero-row blockers.
+- Recorded Bashkir exact source support as source-gated recovery only, with no bridge/pilot/term promotion.
+- Refreshed MANIFEST.csv, SHA256SUMS.txt, README.md addendum, ACTIVE_SESSION_STATE.md, and transfer ZIP for B3/uploader.
+
+generated-draft/source-canon blocker payload only; no native review, accepted terminology, canonical approval, license clearance, gate promotion, source certification, final status, bridge/pilot, or translation-completion claim
