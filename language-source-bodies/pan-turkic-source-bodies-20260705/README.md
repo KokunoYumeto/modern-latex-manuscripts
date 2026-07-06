@@ -109,3 +109,8 @@ This package now includes current-web Uzbek and Kazakh hard-row source witnesses
 ## Forced-Wake Transfer Addendum, 2026-07-06
 
 The exact forced-wake pursued goal was copied to the top of HEARTBEAT_20260705.md and SESSION_LOGBOOK_20260705.md because the goal tool refused replacement. This package includes source bodies and Fable/source-use ledgers; a transfer ZIP for B3/uploader is written outside the package under outputs/transfer/.
+
+<!-- PAN_TURKIC_R2_ZERO_ROW_PAYLOAD_20260706 -->
+## R2 Zero-Row Blocker Payload Addendum, 2026-07-06
+
+This package now includes a focused zero-row blocker/source-use payload under generated-draft/zero-row-blocker-payload-20260706/. It records exact Bashkir source rows as source-gated recovery only and preserves Kyrgyz, Tatar, and Turkmen Noetherian-ring/polynomial-ring rows as source-acquisition blockers. A refreshed transfer ZIP is written under outputs/transfer/ for B3/uploader.
