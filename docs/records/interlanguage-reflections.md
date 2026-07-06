@@ -8,6 +8,12 @@ Public title: Interlanguage Mathematical Translation Methodology: Slavic, Inters
 
 ## What This Record Contains And Should Continue To Contain
 
+## 2026-07-06 Claude/ChatGPT Interlingua Program Full Provenance Dump
+
+A full provenance snapshot of the live Claude/ChatGPT interlingua-program working folder is staged for the interlanguage methodology DOI as `Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip` (146,055,857 bytes, SHA256 `2D587A77FCBDFB79EC949F8ED94B548CCAC2E311EB0990AB1E239945E9004A6B`, 407 ZIP entries). The source folder is `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`. The same material is visible to the other-PC Codex branch at `origin/codex/noether-pc-20260629` commit `2f76ca629`, under `interlanguage-sidecar/20260706/claude_chatgpt_interlingua_program_full_provenance_dump/`.
+
+This is important provenance/methodology material for the interlanguage sidecar: it includes weighted-automaton and branch-weighting materials for Interslavic/interlanguage repair, Fable/ChatGPT methodology ledgers, source-use policy and status files, generated review artifacts, and local Web/Pro handoff/source-anchor support present in the working folder. Classify it as methodology/provenance/source-canon support only: not native approval, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, blanket license clearance, or critical-edition material.
+
 ## 2026-07-05 Other-PC Post-Rate-Limit Source-Body Transfer
 
 The other-PC branch `origin/codex/noether-pc-20260629` advanced to `a62fedd70` after the prior tracked head `e5709da28`. The branch is roughly 4.5 GB total, but the newest burst added about 220 MB of new/changed payload, not 5 GB of fresh material. The useful pieces have been split into seven staged ZIPs for this methodology record: Arabic RTL source witnesses, CJK native source bodies, CJK draft/source-evidence separation, OLP/relation-function support bodies, a small Fable ledger block, Noether source-corpus provenance, and non-Slavic coordinator state.
