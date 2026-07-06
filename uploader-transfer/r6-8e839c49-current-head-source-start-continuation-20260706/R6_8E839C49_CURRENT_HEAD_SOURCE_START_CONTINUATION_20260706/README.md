@@ -1,6 +1,6 @@
 # R6 8E839C49 Current-Head Source-Start Continuation
 
-Recorded UTC: 2026-07-06T16:50:11Z
+Recorded UTC: 2026-07-06T17:01:09Z
 
 This packet responds to the current-head wake for 8e839c490e413b64f4d5dad9ebc10c84d14a3dab. The lane workspace is not a git checkout, so remote branch visibility could not be verified here; this is recorded as an explicit branch-current blocker for B3. The packet carries forward the verified previous source witness state and updates source-use, ethics/authority, blocker, and Fable/adverse-evidence rows.
 
@@ -15,8 +15,8 @@ This packet responds to the current-head wake for 8e839c490e413b64f4d5dad9ebc10c
 - Sign/access metadata rows carried: 90
 - Generated-draft/noncanonical rows carried: 6
 - Local 8E839C49-named file/path hits: 0
-- Mutual-watch sibling wake prompts sent: 15
-- B3 handoff prompt sent: 1
+- Mutual-watch sibling wake prompts sent: 25
+- B3 handoff prompt sent: 2
 
 ## Boundary
 
