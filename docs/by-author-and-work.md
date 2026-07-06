@@ -14,7 +14,7 @@ This index is ordered by current public usefulness. Substantial source-aware rea
 | Best current reader/translation surfaces | Noether, Weber, Frobenius, Kneser, Sylvester, al-Battani | Coherent reader surfaces and source/audit packages exist for a named scope. Still not certified critical editions. |
 | Serious source-aware work, but caveat-heavy | Bianchi, Gordan, Steinitz, Gibbs, Maxwell, SGA, Deligne, Ukrainian applied mathematics, non-European/Chinese/Indian/Islamic records | Real reader or translation work exists, but source closure, continuity, diagram/table fidelity, or work-level completion varies. SGA belongs here rather than in a generic stub tier because SGA5 has real page-local repair work, while SGA6/SGA7 and parts of SGA5 still carry explicit source-faithfulness caveats. |
 | Partial author records and workstreams | Dedekind, Dirichlet, Gauss, Riemann, Poincare, Classical algebra/arithmetic mixed shelf, Additional author cluster | Useful working material exists, but read package-by-package rather than as seamless author-complete editions. |
-| Support/OCR/provenance/stub/source-intake lanes | EGA, Cayley, Galois source staging | Useful for preservation, repair, or future work. EGA is partial/OCR-and-draft support; Cayley is currently salvage/repair material; Galois currently has source masters and locator witnesses only. None of these are promoted source-faithful reader editions unless a future page-by-page source audit explicitly re-promotes an exact range or package. |
+| Support/OCR/provenance/stub/source-intake lanes | EGA, Cayley, Galois/Eisenstein/Steiner source staging | Useful for preservation, repair, or future work. EGA is partial/OCR-and-draft support; Cayley is currently salvage/repair material; Galois, Eisenstein, and Steiner currently have source masters, handoff packets, and locator/comparator witnesses only. None of these are promoted source-faithful reader editions unless a future page-by-page source audit explicitly re-promotes an exact range or package. |
 
 ## Algebraic Geometry
 
@@ -90,6 +90,8 @@ These have useful source packets for future work, but they are not reader releas
 | Author | Current Surface |
 |---|---|
 | Galois | Local source-start packet only: 1897 printed `Oeuvres` JP2 image master, University of Michigan manuscript TIFF image master, derivative PDFs, OCR locator text, and manifests. No promoted transcription, translation, reader release, DOI claim, or critical-edition claim yet. |
+| Eisenstein | Local source-start packet only: UofT raw JP2/PDF witness for `Mathematische Abhandlungen`, BSB and Google/IA comparator PDFs, JP2/OCR locator material, upload ZIPs, SHA256 manifests, and source-quality notes. No promoted transcription, translation, reader release, DOI claim, or critical-edition claim yet. |
+| Steiner | Local source-start packet only: Volume I primary 600 ppi MBP/Pittsburgh witness, Volume I BSB JP2 comparator, and Volume II Google source for Steiner's `Gesammelte Werke`, plus upload ZIPs, manifests, and source-quality notes. No promoted transcription, translation, reader release, DOI claim, or critical-edition claim yet. |
 
 ## Author Records
 
