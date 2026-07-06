@@ -1,6 +1,6 @@
 # 2026-07-06 Claude/ChatGPT Interlingua Program Full Provenance Dump
 
-Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403)
+Target record: [Interlanguage Mathematical Translation Methodology](https://doi.org/10.5281/zenodo.21124403). Published version: [10.5281/zenodo.21212251](https://doi.org/10.5281/zenodo.21212251).
 
 Artifact: `publish_staging/interlanguage-methodology/20260706_claude_chatgpt_interlingua_program_full_provenance/Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip`
 
@@ -14,4 +14,4 @@ Scope: full Claude/ChatGPT interlingua-program working folder as of 2026-07-06, 
 
 Classification: methodology/provenance/source-canon support only; not native approval, accepted terminology, translation completion, source-fidelity certification, reader output, publication readiness, blanket license clearance, or critical-edition material.
 
-Archive action: staged as a Zenodo upload candidate for the interlanguage methodology DOI and mirrored through GitHub metadata/manifests.
+Archive action: published on Zenodo record 21212251 and mirrored through GitHub metadata/manifests.
