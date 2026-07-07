@@ -26,7 +26,8 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "20836364"),
-    ("noether", "20836874"),
+    ("lean_formalization_sidecars", "21129946"),
+    ("noether", "21246462"),
     ("weber", "20837104"),
     ("cayley", "20617845"),
     ("sga", "20822648"),
@@ -76,10 +77,13 @@ RECORD_NOTES = {
         "Repair032 is public as a bundled audit-support artifact on record 20822648, but it is not a completed or certified SGA5 edition. The latest local compact SGA5 delta is `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip` under manifest `20260626_sga5_fullaudit_webdrop_p260_p265_delta.json`; it advances the page-local French workpass/source-audit boundary from p259 to p265 and sets p266 as the next cursor. The earlier `SGA5_FullAudit_WebDrop_p001_p254_certified_staged_p255_p484_20260626.zip` remains larger provenance/source-witness material, and the p255-p259 compact delta is superseded as current cursor but preserved as provenance. p260-p265 cover Expose VI Remarque after Proposition 1.2.5, Proposition 1.2.6 and proof, tensor products in 1.3.1, Proposition 1.3.2, cHom, invertible sheaves/Tate twist, A-faisceaux, D143 (the A-action square), and the opening of Q_l-faisceaux. p266 and later crops/cursor text remain active/pending scratch only and are not promoted by this delta. This is live French workpass/source-audit evidence only: not complete SGA5, not synchronized English, not global source-faithfulness certification, and not a critical edition. Local ledger words such as certified, clean, or complete mean page-local workpass status only. Compile-clean TeX can still be mathematically wrong. Legacy filename warning: several SGA5/SGA6 files retain older names containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity`; those names are preserved file labels, not current quality claims.",
     ],
     "noether": [
-        "Current Noether update 2026-06-24: latest public surface is record 20836874. It carries forward the curated reader/source-audit surface and adds file 119, `119 Noether - PostR124 Survival Rollup NoNewPatch Audit 2026-06-24.zip`, a compact post-R124 survival/no-new-patch audit rollup. It confirms earlier repairs survive or that source-quality blockers remain; it does not introduce a new canonical TeX body patch. This is a working draft/source-audit record, not a certified critical edition, not whole-corpus mathematical certification, and not final high-resolution certification. The Noether record is now at Zenodo's 100-file ceiling, so further Noether updates require deliberate pruning/replacement rather than simple append. Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.",
+        "Current Noether update 2026-07-07: latest public surface is record 21246462. It keeps the reader-first German/English cumulative readers up front and replaces the old 100-file sprawl with compact R787-R804 source-repair/audit rollups plus CSV manifests/checksums. New grouped evidence covers Paper 30, Paper 24, Paper 34, Paper 40, Paper 14, and Paper 19 support packets, plus an auxiliary OCR-locator companion. Local intake gaps are explicit: R790 and R799 had checksum sidecars but no matching ZIPs in the swept Noether folder; duplicate R795/R798 downloads were excluded. This is a high-value working corpus and source-repair/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. Packet filenames containing `COMPLETE` are inherited local-task labels only.",
     ],
     "kneser": [
         "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
+    ],
+    "lean_formalization_sidecars": [
+        "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
@@ -96,6 +100,7 @@ TITLE_OVERRIDES = {
     "frobenius": "Ferdinand Georg Frobenius: Group Character Papers, German Source and English Translation Working Drafts",
     "poincare": "Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts",
     "kneser": "Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts",
+    "lean_formalization_sidecars": "Classical Mathematics Lean 4 Formalization Sidecars",
 }
 
 
