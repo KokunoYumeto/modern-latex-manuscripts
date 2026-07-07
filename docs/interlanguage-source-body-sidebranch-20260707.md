@@ -6,7 +6,7 @@ GitHub branch URL: <https://github.com/KokunoYumeto/modern-latex-manuscripts/tre
 
 This is a reader-facing map of the other-PC source-body branch. The branch contains real corpus/source-body packages and interlanguage methodology material, but also coordination logs and root-level session-control instructions. It should not be merged wholesale into the public `main` surface without curation.
 
-Classification: source-body/provenance/support branch. It is useful for interlanguage and Noether-Slavic continuation, but it is not native language approval, not accepted terminology, not translation completion, not source-fidelity certification, not a critical edition, and not a reader/language-certification release. The curated grouped payloads from this branch are public in interlanguage version [10.5281/zenodo.21247131](https://doi.org/10.5281/zenodo.21247131).
+Classification: source-body/provenance/support branch. It is useful for interlanguage and Noether-Slavic continuation, but it is not native language approval, not accepted terminology, not translation completion, not source-fidelity certification, not a critical edition, and not a reader/language-certification release. The curated grouped payloads from this branch are public in interlanguage version [10.5281/zenodo.21247868](https://doi.org/10.5281/zenodo.21247868), including the post-2DE route-context delta at branch head `516abae30`. The later post-516 route-recovery-only delta through branch head `e013d2e69` is mirrored in GitHub at `interlanguage-sidecar/20260707/post516-route-recovery-delta/`; it has no promoted source-body/TeX/PDF reader payload and is not yet on Zenodo in this session.
 
 Inventory scope below covers 358 source/provenance package roots, 18,350 files, 5,045,628,896 bytes.
 
@@ -104,6 +104,10 @@ Full machine inventory: [`manifests/interlanguage-source-body-sidebranch-2026070
 - Promote curated ZIP groups to the interlanguage Zenodo record only after grouping them into human-readable packages with front README/status notes.
 - Preserve Fable/ChatGPT interlanguage program material and weighted-automaton/term-ledger outputs as methodology/provenance, not as language authority.
 - Treat source-body packages as baseline/witness material for translation-lane consistency, not as proof that any generated translation branch is correct.
+
+## Post-2DE route-context delta
+
+After the initial grouped source-body publication, the side branch advanced from `2de72748d` to `516abae30` through three commits: `aab4cc97a`, `7748c1195`, and `516abae30`. The resulting 257-file route-context/provenance delta is public in interlanguage version [10.5281/zenodo.21247868](https://doi.org/10.5281/zenodo.21247868) as `10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip`, with companion checksum CSV. It contains route-context returns, Persianate/Tajik source-use gap ledgers, non-Slavic route packets, and transfer-audit rows. It is support/provenance material only, not language certification or source-fidelity certification.
 
 ## Known caveat
 

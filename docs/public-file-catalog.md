@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1043
+Total files indexed: 1045
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -158,26 +158,28 @@ Record: <https://doi.org/10.5281/zenodo.20461174>
 
 Record: <https://doi.org/10.5281/zenodo.21124403>
 
-Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21247131 fronts the methodology PDF and groups the Claude/ChatGPT provenance dump, Interslavic weighted automaton and term ledgers, baseline source-body packages, and five other-PC grouped source-body/provenance payload ZIPs. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.
+Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21247868 fronts the methodology PDF, preserves the grouped Claude/ChatGPT/Fable provenance and source-body payloads, and adds file 10 for the post-2DE other-PC route-context delta at branch head 516abae30. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0026 | [00_Interlanguage_Methodology_Current_20260706.md](https://zenodo.org/records/21247131/files/00_Interlanguage_Methodology_Current_20260706.md) |
-| reader/reference PDF | 0.0028 | [00_Interlanguage_Methodology_Current_20260706.pdf](https://zenodo.org/records/21247131/files/00_Interlanguage_Methodology_Current_20260706.pdf) |
-| artifact/source ZIP | 139.2897 | [01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip](https://zenodo.org/records/21247131/files/01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip) |
-| artifact/source ZIP | 4.2149 | [02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip](https://zenodo.org/records/21247131/files/02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip) |
-| artifact/source ZIP | 232.3934 | [03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip](https://zenodo.org/records/21247131/files/03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip) |
-| artifact/source ZIP | 243.7605 | [04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip](https://zenodo.org/records/21247131/files/04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip) |
-| artifact/source ZIP | 1132.7524 | [05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip](https://zenodo.org/records/21247131/files/05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip) |
-| artifact/source ZIP | 843.7354 | [06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip](https://zenodo.org/records/21247131/files/06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip) |
-| artifact/source ZIP | 448.0475 | [07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip](https://zenodo.org/records/21247131/files/07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip) |
-| artifact/source ZIP | 1236.5100 | [08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip](https://zenodo.org/records/21247131/files/08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip) |
-| manifest/status | 0.0769 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv](https://zenodo.org/records/21247131/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv) |
-| manifest/status | 0.0142 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md](https://zenodo.org/records/21247131/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md) |
-| manifest/status | 0.0022 | [09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv](https://zenodo.org/records/21247131/files/09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv) |
-| manifest/status | 0.0021 | [09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv](https://zenodo.org/records/21247131/files/09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv) |
-| manifest/status | 0.0004 | [99_Interlanguage_Public_Status_20260706.md](https://zenodo.org/records/21247131/files/99_Interlanguage_Public_Status_20260706.md) |
-| manifest/status | 0.0021 | [99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md](https://zenodo.org/records/21247131/files/99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md) |
+| manifest/status | 0.0026 | [00_Interlanguage_Methodology_Current_20260706.md](https://zenodo.org/records/21247868/files/00_Interlanguage_Methodology_Current_20260706.md) |
+| reader/reference PDF | 0.0028 | [00_Interlanguage_Methodology_Current_20260706.pdf](https://zenodo.org/records/21247868/files/00_Interlanguage_Methodology_Current_20260706.pdf) |
+| artifact/source ZIP | 139.2897 | [01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip](https://zenodo.org/records/21247868/files/01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip) |
+| artifact/source ZIP | 4.2149 | [02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip](https://zenodo.org/records/21247868/files/02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip) |
+| artifact/source ZIP | 232.3934 | [03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip](https://zenodo.org/records/21247868/files/03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip) |
+| artifact/source ZIP | 243.7605 | [04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip](https://zenodo.org/records/21247868/files/04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip) |
+| artifact/source ZIP | 1132.7524 | [05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip](https://zenodo.org/records/21247868/files/05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip) |
+| artifact/source ZIP | 843.7354 | [06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip](https://zenodo.org/records/21247868/files/06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip) |
+| artifact/source ZIP | 448.0475 | [07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip](https://zenodo.org/records/21247868/files/07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip) |
+| artifact/source ZIP | 1236.5100 | [08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip](https://zenodo.org/records/21247868/files/08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip) |
+| manifest/status | 0.0769 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv](https://zenodo.org/records/21247868/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv) |
+| manifest/status | 0.0142 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md](https://zenodo.org/records/21247868/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md) |
+| manifest/status | 0.0022 | [09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv](https://zenodo.org/records/21247868/files/09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv) |
+| manifest/status | 0.0021 | [09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv](https://zenodo.org/records/21247868/files/09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv) |
+| artifact/source ZIP | 0.4956 | [10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip](https://zenodo.org/records/21247868/files/10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip) |
+| manifest/status | 0.0002 | [10_Interlanguage_Post2DE_RouteContext_Returns_sha256_20260707.csv](https://zenodo.org/records/21247868/files/10_Interlanguage_Post2DE_RouteContext_Returns_sha256_20260707.csv) |
+| manifest/status | 0.0004 | [99_Interlanguage_Public_Status_20260706.md](https://zenodo.org/records/21247868/files/99_Interlanguage_Public_Status_20260706.md) |
+| manifest/status | 0.0021 | [99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md](https://zenodo.org/records/21247868/files/99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md) |
 
 ## Classical Mathematics Lean 4 Formalization Sidecars
 

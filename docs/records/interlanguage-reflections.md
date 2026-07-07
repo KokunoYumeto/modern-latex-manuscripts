@@ -1,12 +1,18 @@
 # Interlanguage And Constructed-Language Mathematical Translation Notes
 
-Zenodo record: [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403). Latest record version: [10.5281/zenodo.21247131](https://doi.org/10.5281/zenodo.21247131).
+Zenodo record: [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403). Latest record version: [10.5281/zenodo.21247868](https://doi.org/10.5281/zenodo.21247868).
 
 Public title: Interlanguage Mathematical Translation Methodology: Slavic, Interslavic, Constructed-Language, and Terminology-Governance Notes
 
 **Quality warning:** This is a methodology, linguistics, and translation-practice lane. It is not a reader release for a mathematical corpus, not a source-certified mathematical edition, not native-speaker approval, and not term approval. It should be maintained as a companion to the workflow and Noether records.
 
 ## What This Record Contains And Should Continue To Contain
+
+## 2026-07-07 Post-2DE Route-Context Delta
+
+The latest public version is now [10.5281/zenodo.21247868](https://doi.org/10.5281/zenodo.21247868). It preserves the July 7 grouped other-PC source-body/provenance update and adds `10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip`, a 257-file route-context/provenance delta from `origin/codex/noether-pc-20260629` after commit `2de72748d` through branch head `516abae30`.
+
+Classification stays conservative: this new file is route-context, methodology, provenance, and source-body routing support only. It is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
 
 ## 2026-07-07 Grouped Other-PC Source-Body / Provenance Update
 

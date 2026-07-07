@@ -7,7 +7,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
 | Workflow / Replication Packet | 23 | 3 | 11 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
-| Interlanguage Methodology | 16 | 1 | 8 | 4280.8 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
+| Interlanguage Methodology | 18 | 1 | 9 | 4281.3 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |
 | Emmy Noether | 18 | 2 | 10 | 2116.3 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
