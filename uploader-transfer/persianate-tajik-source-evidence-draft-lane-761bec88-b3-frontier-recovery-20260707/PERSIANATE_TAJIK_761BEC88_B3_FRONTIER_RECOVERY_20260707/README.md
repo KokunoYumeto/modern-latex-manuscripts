@@ -15,6 +15,7 @@ This packet continues the Persianate/Tajik lane without treating a wake or parti
 - `761BEC88_ADJACENT_ROUTE_CONTEXT_ROWS_20260707.csv` records OLP 761 and R2 761 route-context evidence plus the 4065 packet receipt as prior lineage only.
 - `761BEC88_EXACT_BLOCKER_RECOVERY_ROWS_20260707.csv` records local Git verification, direct source-body, OLP generated-draft, R2 adjacent-route, prs_AF, tg_Cyrl_TJ, and 4065-prior-context blockers.
 - `761BEC88_B3_HANDOFF_BOUNDARIES_20260707.csv` records B3 handoff boundaries without packaging, approval, certification, or completion claims.
+- `761BEC88_SAME_FRONTIER_DEDUP_RECOVERY_ROWS_20260707.csv` records the 2026-07-07T07:34Z wake from source thread 019f2b3d-0b6a-79f3-8cf4-4ab1d84ffc0d as same-frontier dedup/recovery only, with no new Persianate/Tajik source-body or promotion evidence.
 
 Sublane decisions:
 - fa_IR: source-gated generated-draft/manual-review rows only.
