@@ -29,6 +29,14 @@
 - GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r9_africa_horn_west_source_body_payload_20260705/`.
 - Status: real body-bearing source-canon/provenance payload from other-PC commit `7b3ed05b8`, containing Hausa and Tigrinya source ZIP/TAR/PDF bodies plus extracted Tigrinya TeX/build files and logs. Archive maintenance recovered manifest-tracked `main.bbl` from the included arXiv tar because the side branch omitted it under `.bbl` ignore. Not native review, accepted terminology, translation completion, source-fidelity certification, publication readiness, critical edition, or blanket license clearance.
 
+## 2026-07-07 Noether R805 source-control update published
+
+- Target DOI: [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587) (Emmy Noether concept DOI).
+- Published version: [10.5281/zenodo.21247333](https://doi.org/10.5281/zenodo.21247333).
+- New front file: `00_Noether_German_Cumulative_Working_SourceControl_R805_20260707.pdf`.
+- New evidence packet: `08_Noether_SourceRepair_Audit_R805_P19p57_EFamilyCorrection_20260707.zip`.
+- Status: R805 is a narrow Paper 19 printed p57 E-family source-control correction. It preserves TeX/PDF, source crops, before/after render checks, a diff, audit CSVs, compile logs, and stage notes. The R787-R804 rollups and R804 integrated v11 package remain preserved in the same record. This is source-control/support/public hygiene material only, not Noether closure, paper certification, whole-corpus certification, multilingual synchronization, or critical-edition material.
+
 ## 2026-07-05 Noether R781 P13/P19 whole-paper audit pending upload
 
 - Target DOI: 10.5281/zenodo.20412587 (Emmy Noether).
