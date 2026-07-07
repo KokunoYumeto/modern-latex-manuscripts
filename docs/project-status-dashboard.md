@@ -22,18 +22,18 @@ These counts describe the public file surface. They are useful for release hygie
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 31 |
-| Public files indexed | 1022 |
+| Public files indexed | 1024 |
 | Top-level PDFs | 507 |
-| Artifact/source ZIPs | 431 |
-| Manifest/status files | 76 |
+| Artifact/source ZIPs | 432 |
+| Manifest/status files | 77 |
 | Editable TeX files | 8 |
-| Total public file surface | 38.55 GB |
+| Total public file surface | 39.00 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
 Quality rule: the dashboard counts public files and working coverage, not critical-edition status. No record here is a certified critical edition unless a future release explicitly says so. Filename terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy labels or scoped working labels; record caveats and source witnesses govern reliability.
 
-Latest Noether public hygiene: the current Noether version is the 2026-07-07 R787-R804 source-repair rollup, [10.5281/zenodo.21246462](https://doi.org/10.5281/zenodo.21246462). It has 13 files: 2 reader PDFs, 8 coherent ZIPs, 2 CSV manifests/checksums, and one public status note. R787-R804 evidence is grouped as 06a/06b/06c/06d rather than loose micro-packets. R790 and R799 were not uploaded because their ZIPs were absent from the swept local Noether folder despite checksum sidecars; duplicate R795/R798 downloads were excluded. This is source-control/support material only, not a reader release, Noether closure, whole-corpus certification, 650+ source certification, multilingual synchronization, or critical-edition material.
+Latest Noether public hygiene: the current Noether version is the 2026-07-07 R804 integrated v11 source-control head, [10.5281/zenodo.21246784](https://doi.org/10.5281/zenodo.21246784). It has 15 files: 2 reader PDFs, 9 coherent ZIPs, 4 manifest/status files, and keeps the v11 current-head package as `07_Noether_Current_SourceControl_Integrated_v11_R800_R804_20260707.zip`. The record still fronts the German/English reader PDFs, keeps R787-R804 evidence grouped as 06a/06b/06c/06d, and does not claim reader release, Noether closure, whole-corpus certification, 650+ source certification, multilingual synchronization, or critical-edition status.
 
 Latest Noether source-support hygiene: the current public-facing rule is reader PDFs and compact current source-control packages first; micro-ZIPs, support witnesses, OCR, and no-patch survival packets stay behind those as evidence. Noether remains a high-value working corpus with active German/source reconciliation, not whole-corpus closure, page-by-page certification, multilingual synchronization, or a critical edition.
 
@@ -57,7 +57,7 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | Record | Files | PDFs | ZIPs | Size | State |
 |---|---:|---:|---:|---:|---|
 | **Best current reader/translation surfaces** |  |  |  |  |  |
-| [Noether](https://doi.org/10.5281/zenodo.20412587) | 13 | 2 | 8 | 1.60 GB | Reader-facing first: latest version [10.5281/zenodo.21246462](https://doi.org/10.5281/zenodo.21246462) fronts cumulative German/English readers, keeps standalone English papers grouped, and adds R787-R804 source-repair/audit rollups. R790/R799 ZIPs were missing locally despite checksum sidecars; duplicate R795/R798 downloads were excluded. Working corpus/source-control lane only, not whole-corpus closure, page-by-page certification, 650+ certification, multilingual synchronization, or a critical edition. |
+| [Noether](https://doi.org/10.5281/zenodo.20412587) | 15 | 2 | 9 | 2.06 GB | Reader-facing first: latest version [10.5281/zenodo.21246784](https://doi.org/10.5281/zenodo.21246784) fronts cumulative German/English readers, keeps standalone English papers grouped, preserves R787-R804 source-repair/audit rollups, and adds `07_Noether_Current_SourceControl_Integrated_v11_R800_R804_20260707.zip` as the current German/source-control head. Working corpus/source-control lane only, not whole-corpus closure, page-by-page certification, 650+ page/source certification, multilingual synchronization, or a critical edition. |
 | [Weber](https://doi.org/10.5281/zenodo.20412153) | 54 | 8 | 38 | 1486.86 MB | `Lehrbuch der Algebra` Volume I represented as repaired but still under source-audit correction; Volume II readers through §176 plus recursive repair packets; Volume III current repaired cumulative. Latest public version <https://doi.org/10.5281/zenodo.20837104> adds Batch137, Batch138, and B139. The completed 2026-07-02 20-page Volume I sample-cert audit failed as certification: §26/p90 and §164/p544 are major reconstructed/reformulated sections needing full re-transcription; p400 and p580 content drops were fixed locally; 12 pages were clean; §141-188 should be reverified page-by-page. Not English synchronized, not whole-Volume-I certification, and not a certified critical edition. |
 | [Frobenius](https://doi.org/10.5281/zenodo.20673444) | 8 | 2 | 2 | 333.59 MB | Dedicated selected group-character German/English working package. Latest public record 20821858 adds RA05, top-level German/English cumulative PDF/TeX readers, English item 070 formula-punctuation fixes, directly compilable cumulative TeX/PDF, verified extraction, and zero reported post-fix structural/formula/build flags. |
 | [Adolf Kneser](https://doi.org/10.5281/zenodo.20836971) | 8 | 3 | 1 | 116.74 MB | Dedicated `Lehrbuch der Variationsrechnung` German-source and English working-translation record through p0011-p0248, with HQ source witness through p0001-p0248 and the p0234 lower-p0248 slice/audit package. Worklist reports 248/336 source pages done (73.8%), latest slice §§53-55 completing the Sixth Section, next p0249 / Seventh Section / §56. Not a certified critical edition. |
