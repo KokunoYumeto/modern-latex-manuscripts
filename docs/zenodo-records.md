@@ -113,27 +113,27 @@
 - Size/SHA256: 2,930,063 bytes / `F4BE15D83B9455173E3B46C43F75658C46E2570D18A3DD876577DEA933E620AB`
 - Status: source-rescribe/workpass provenance only through CERT_LOG.md entry #207, idx210 / volume p197 / Expose II p38; next cursor idx211 / volume p198 / Expose II p39. Do not front above reader PDFs and do not describe as complete, critical, or globally source-faithful.
 
-## 2026-07-05 SGA6 source-rescribe idx209 support ZIP pending upload (superseded by idx210)
+## 2026-07-05 SGA6 source-rescribe idx209 support ZIP pending upload (superseded by idx238)
 
 - Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).
 - Artifact: publish_staging/sga/20260705_sga6_source_rescribe_idx209_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx209_Workpass_20260705.zip
 - Size/SHA256: 2,928,444 bytes / `352133ef707abc003dfd70ef5481963e5d43f16457ad92729515e91597719759`
 - Status: source-rescribe/workpass provenance only through CERT_LOG.md entry #206, idx209 / volume p196 / Expose II p37; next cursor idx210 / volume p197 / Expose II p38. Do not front above reader PDFs and do not describe as complete, critical, or globally source-faithful.
 
-## 2026-07-05 SGA6 source-rescribe idx208 support ZIP pending upload (superseded by idx209)
+## 2026-07-05 SGA6 source-rescribe idx208 support ZIP pending upload (superseded by idx238)
 
 - Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).
 - Artifact: publish_staging/sga/20260705_sga6_source_rescribe_idx208_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx208_Workpass_20260705.zip
 - Size/SHA256: 2929329 bytes / 67A9F450D91CD41792532F8F6550103E97867173F8E117A518D4509E0EEC4A76
 - Status: source-rescribe/workpass provenance only through CERT_LOG.md entry #205, idx208 / volume p195 / Expose II p36; next cursor idx209 / volume p196 / Expose II p37. Do not front above reader PDFs and do not describe as complete, critical, or globally source-faithful.
-## 2026-07-05 SGA6 source-rescribe idx206 support ZIP pending upload (superseded by idx208)
+## 2026-07-05 SGA6 source-rescribe idx206 support ZIP pending upload (superseded by idx238)
 
 - Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).
 - Artifact: publish_staging/sga/20260705_sga6_source_rescribe_idx206_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx206_Workpass_20260705.zip
 - Size/SHA256: 2926296 bytes / F9CF69466C370ABF7D4B19AC81F938BC35D3680F4ECAE3886EA64AE288E3DB6E
 - Status: superseded source-rescribe/workpass provenance only through CERT_LOG.md entry #203, idx206 / volume p193 / Expose II p34; next cursor idx207 / volume p194 / Expose II p35. Do not front above reader PDFs and do not describe as complete, critical, or globally source-faithful.
 
-## 2026-07-05 SGA6 source-rescribe idx205 support ZIP pending upload (superseded by idx208)
+## 2026-07-05 SGA6 source-rescribe idx205 support ZIP pending upload (superseded by idx238)
 
 - Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).
 - Artifact: publish_staging/sga/20260705_sga6_source_rescribe_idx205_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx205_Workpass_20260705.zip
@@ -147,14 +147,14 @@
 - Size/SHA256: 329632 bytes / 18B162D869722913D55491F0EF31668606862CBB0FC6D7E06A9F6B09C912B55C
 - Status: methodology/generated-internal lexicon-register/context-review support only; do not describe as native approval, term approval, translation completion, reader output, or critical-edition material.
 
-## 2026-07-05 SGA6 source-rescribe idx203 support ZIP pending upload (superseded by idx208)
+## 2026-07-05 SGA6 source-rescribe idx203 support ZIP pending upload (superseded by idx238)
 
 - Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).
 - Artifact: publish_staging/sga/20260705_sga6_source_rescribe_idx203_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx203_Workpass_20260705.zip
 - Size/SHA256: 2923767 bytes / C6F95DE47A470DB189E7527AC07079580DD0E41A24C536E1B13B03128E36DE4F
 - Status: superseded source-rescribe/workpass provenance only through CERT_LOG.md entry #200, idx203 / volume p190 / Expose II p31; next cursor idx204 / volume p191 / Expose II p32. Do not front above reader PDFs and do not describe as complete, critical, or globally source-faithful.
 
-## 2026-07-05 SGA6 source-rescribe idx202 support ZIP pending upload (superseded by idx208)
+## 2026-07-05 SGA6 source-rescribe idx202 support ZIP pending upload (superseded by idx238)
 
 - Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).
 - Artifact: publish_staging/sga/20260705_sga6_source_rescribe_idx202_workpass_refresh/SGA6_ClaudeCodex_SourceRescribe_idx202_Workpass_20260705.zip
@@ -172,13 +172,13 @@
 2026-07-05 Noether-PC packages 627-631: origin/codex/noether-pc-20260629 advanced through commit c8fd72191 and packages 627-631 were selectively imported and staged as Noether_PC_Interlanguage_Packages627_631_RollingDeltas_20260705.zip (SHA256 B4A372C1783143EBD0E13AFCF76603CC5F7AA4D02B1AE584AA60AF0B652ABCF7, 438262 bytes, 66 entries). They add 61 metadata/source-canon/log paths but zero TeX-family source bodies, zero PDFs, zero ZIP payloads, and no Fable acknowledgement file. Preserve as coordination evidence only; do not describe as the requested native/full source corpus.
 The public project is intentionally split across a small number of logical Zenodo records rather than one unstructured dump.
 
-2026-07-05 SGA6 idx208 addendum, superseded by idx209: the local SGA6 source-rescribe mirror now reaches CERT_LOG.md entry #205, idx208 / volume p195 / Expose II p36. Expose I is complete through its bibliography page and the source-rescribe is proceeding through Expose II; next cursor is idx209 / volume p196 / Expose II p37. The current workpass log reports a 391-page PDF build. The staged evidence ZIP is SGA6_ClaudeCodex_SourceRescribe_idx208_Workpass_20260705.zip (SHA256 67A9F450D91CD41792532F8F6550103E97867173F8E117A518D4509E0EEC4A76, 2,929,329 bytes). Source-rescribe provenance only; not a completed SGA6 reader release or certification.
+2026-07-05 SGA6 idx208 addendum, superseded by idx238: the local SGA6 source-rescribe mirror now reaches CERT_LOG.md entry #205, idx208 / volume p195 / Expose II p36. Expose I is complete through its bibliography page and the source-rescribe is proceeding through Expose II; next cursor is idx209 / volume p196 / Expose II p37. The current workpass log reports a 391-page PDF build. The staged evidence ZIP is SGA6_ClaudeCodex_SourceRescribe_idx208_Workpass_20260705.zip (SHA256 67A9F450D91CD41792532F8F6550103E97867173F8E117A518D4509E0EEC4A76, 2,929,329 bytes). Source-rescribe provenance only; not a completed SGA6 reader release or certification.
 
 2026-07-05 SGA6 idx206 addendum: the local SGA6 source-rescribe mirror now reaches CERT_LOG.md entry #203, idx206 / volume p193 / Expose II p34. Expose I is complete through its bibliography page and the source-rescribe is proceeding through Expose II; next cursor is idx207 / volume p194 / Expose II p35. The current workpass log reports a 391-page PDF build. The staged evidence ZIP is SGA6_ClaudeCodex_SourceRescribe_idx206_Workpass_20260705.zip (SHA256 F9CF69466C370ABF7D4B19AC81F938BC35D3680F4ECAE3886EA64AE288E3DB6E, 2,926,296 bytes). Source-rescribe provenance only; not a completed SGA6 reader release or certification.
 
-2026-07-05 SGA6 idx203 addendum, superseded by idx209: the local SGA6 source-rescribe mirror now reaches `CERT_LOG.md` entry #200, idx203 / volume p190 / Expose II p31. Expose I is complete through its bibliography page and the source-rescribe is proceeding through Expose II; next cursor is idx204 / volume p191 / Expose II p32. The current workpass log reports a 390-page PDF build. The staged evidence ZIP is `SGA6_ClaudeCodex_SourceRescribe_idx203_Workpass_20260705.zip` (SHA256 `C6F95DE47A470DB189E7527AC07079580DD0E41A24C536E1B13B03128E36DE4F`, 2,923,767 bytes). Source-rescribe provenance only; not a completed SGA6 reader release or certification.
+2026-07-05 SGA6 idx203 addendum, superseded by idx238: the local SGA6 source-rescribe mirror now reaches `CERT_LOG.md` entry #200, idx203 / volume p190 / Expose II p31. Expose I is complete through its bibliography page and the source-rescribe is proceeding through Expose II; next cursor is idx204 / volume p191 / Expose II p32. The current workpass log reports a 390-page PDF build. The staged evidence ZIP is `SGA6_ClaudeCodex_SourceRescribe_idx203_Workpass_20260705.zip` (SHA256 `C6F95DE47A470DB189E7527AC07079580DD0E41A24C536E1B13B03128E36DE4F`, 2,923,767 bytes). Source-rescribe provenance only; not a completed SGA6 reader release or certification.
 
-2026-07-05 SGA6 idx202 addendum, superseded by idx209: the local SGA6 source-rescribe mirror now reaches `CERT_LOG.md` entry #199, idx202 / volume p189 / Expose II p30. Expose I is complete through its bibliography page and the source-rescribe is proceeding through Expose II; next cursor is idx203 / volume p190 / Expose II p31. The current workpass log reports a 390-page PDF build. The staged evidence ZIP is `SGA6_ClaudeCodex_SourceRescribe_idx202_Workpass_20260705.zip` (SHA256 `4665AFA09C1F14D09673026AFE1EFD03E4B2AF854D79763CFB0E1F14EF4C96DF`, 2,917,484 bytes). Source-rescribe provenance only; not a completed SGA6 reader release or certification.
+2026-07-05 SGA6 idx202 addendum, superseded by idx238: the local SGA6 source-rescribe mirror now reaches `CERT_LOG.md` entry #199, idx202 / volume p189 / Expose II p30. Expose I is complete through its bibliography page and the source-rescribe is proceeding through Expose II; next cursor is idx203 / volume p190 / Expose II p31. The current workpass log reports a 390-page PDF build. The staged evidence ZIP is `SGA6_ClaudeCodex_SourceRescribe_idx202_Workpass_20260705.zip` (SHA256 `4665AFA09C1F14D09673026AFE1EFD03E4B2AF854D79763CFB0E1F14EF4C96DF`, 2,917,484 bytes). Source-rescribe provenance only; not a completed SGA6 reader release or certification.
 
 2026-07-05 SGA6 idx199 addendum: the local SGA6 source-rescribe mirror now reaches `CERT_LOG.md` entry #196, idx199 / volume p186 / Expose II p27. Expose I is complete through its bibliography page and the source-rescribe is proceeding through Expose II; next cursor is idx200 / volume p187 / Expose II p28. The current workpass log reports a 390-page PDF build. The staged evidence ZIP is `SGA6_ClaudeCodex_SourceRescribe_idx199_Workpass_20260705.zip` (SHA256 `295A8F92F3A9D400F71430611330F5824A8417E55C1A5CBE36FFA4AC2E03C23B`, 2,910,241 bytes). Source-rescribe provenance only; not a completed SGA6 reader release or certification.
 

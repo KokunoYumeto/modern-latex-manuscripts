@@ -229,7 +229,7 @@ Manifest: [20260705_sga6_source_rescribe_idx210_workpass_refresh.json](../manife
 - Classification: source-rescribe/workpass provenance only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not index audit, not publication readiness, and not a critical edition.
 - Upload-order note: support/provenance artifact only; do not front above reader-facing SGA PDFs.
 
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx209 (superseded by idx210)
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx209 (superseded by idx238)
 
 Manifest: [20260705_sga6_source_rescribe_idx209_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx209_workpass_refresh.json)
 
@@ -237,7 +237,7 @@ Manifest: [20260705_sga6_source_rescribe_idx209_workpass_refresh.json](../manife
 - Scope: superseded local SGA6 source-rescribe evidence through `CERT_LOG.md` entry #206, idx209 / volume p196 / Expose II p37; next cursor idx210 / volume p197 / Expose II p38.
 - Caveat: source-rescribe/workpass provenance only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx208 (superseded by idx209)
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx208 (superseded by idx238)
 
 Manifest: [20260705_sga6_source_rescribe_idx208_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx208_workpass_refresh.json)
 
@@ -269,9 +269,9 @@ Manifest: [20260705_sga6_source_rescribe_idx206_workpass_refresh.json](../manife
 
 - SGA support ZIP: SGA6_ClaudeCodex_SourceRescribe_idx206_Workpass_20260705.zip, 2926296 bytes, SHA256 F9CF69466C370ABF7D4B19AC81F938BC35D3680F4ECAE3886EA64AE288E3DB6E.
 - Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #203, idx206 / volume p193 / Expose II p34; next cursor idx207 / volume p194 / Expose II p35.
-- Caveat: superseded by idx208. Source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
+- Caveat: superseded by idx238. Source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx205 (superseded by idx208)
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx205 (superseded by idx238)
 
 Manifest: [20260705_sga6_source_rescribe_idx205_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx205_workpass_refresh.json)
 
@@ -279,7 +279,7 @@ Manifest: [20260705_sga6_source_rescribe_idx205_workpass_refresh.json](../manife
 - Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #202, idx205 / volume p192 / Expose II p33; next cursor idx206 / volume p193 / Expose II p34.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx203 (superseded by idx208)
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx203 (superseded by idx238)
 
 Manifest: [20260705_sga6_source_rescribe_idx203_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx203_workpass_refresh.json)
 
@@ -287,7 +287,7 @@ Manifest: [20260705_sga6_source_rescribe_idx203_workpass_refresh.json](../manife
 - Scope: latest local SGA6 source-rescribe evidence through CERT_LOG.md entry #200, idx203 / volume p190 / Expose II p31; next cursor idx204 / volume p191 / Expose II p32.
 - Caveat: source-rescribe provenance and continuation evidence only. Not a completed SGA6 reader release, not English synchronization, not whole-SGA6 source-faithfulness certification, not an index audit, not publication readiness, and not a critical edition.
 
-## 2026-07-05: SGA6 source-rescribe workpass refresh through idx202 (superseded by idx208)
+## 2026-07-05: SGA6 source-rescribe workpass refresh through idx202 (superseded by idx238)
 
 Manifest: [20260705_sga6_source_rescribe_idx202_workpass_refresh.json](../manifests/pending-zenodo-uploads/20260705_sga6_source_rescribe_idx202_workpass_refresh.json)
 
