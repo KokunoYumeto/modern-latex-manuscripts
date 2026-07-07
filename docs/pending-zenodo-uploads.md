@@ -1,8 +1,8 @@
-## 2026-07-07: Noether rollup and SGA reader-first cleanup published
+## 2026-07-07: Noether R805, Noether rollup, and SGA reader-first cleanup published
 
-- Noether concept DOI: <https://doi.org/10.5281/zenodo.20412587>; latest version: <https://doi.org/10.5281/zenodo.21246784>.
+- Noether concept DOI: <https://doi.org/10.5281/zenodo.20412587>; latest version: <https://doi.org/10.5281/zenodo.21247333>.
 - SGA concept DOI: <https://doi.org/10.5281/zenodo.20410947>; latest cleaned version: <https://doi.org/10.5281/zenodo.21212365>.
-- Result: the visible Noether and SGA Zenodo surfaces no longer expose 100 loose files. Noether is now a reader-first surface with R787-R804 source-repair/audit rollups grouped as 06a/06b/06c/06d plus the R804 integrated v11 current-head package as file 07. SGA is now 6 reader/grouped files.
+- Result: the visible Noether and SGA Zenodo surfaces no longer expose 100 loose files. Noether is now a reader-first surface with the R805 German/source-control PDF fronted, R787-R804 source-repair/audit rollups grouped as 06a/06b/06c/06d, the R804 integrated v11 source-control package retained as file 07, and the R805 Paper 19 p57 E-family correction packet added as file 08. SGA is now 6 reader/grouped files.
 - Consequence for the entries below: many 2026-07-05 Noether/SGA rows are no longer pending as loose uploads. They have been folded into the July 6/July 7 reader-first rollups where relevant, while older granular provenance remains preserved in previous Zenodo versions or local/GitHub staging. Do not re-upload these as top-level loose files unless a later sweep explicitly promotes a new coherent rollup.
 
 ## 2026-07-05: Other-PC post-rate-limit source-body transfer
