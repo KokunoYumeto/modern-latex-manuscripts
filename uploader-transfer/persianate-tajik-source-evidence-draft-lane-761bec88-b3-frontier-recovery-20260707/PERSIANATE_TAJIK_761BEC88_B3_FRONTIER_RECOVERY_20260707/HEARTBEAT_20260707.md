@@ -9,4 +9,6 @@ Work performed: created 761BEC88 B3 current-frontier adjacent route-context reco
 
 Addendum: adjacent OLP 761 and R2 761 artifacts were recorded as source-use/gap/provenance context only. R2 records 761 as verified by git ls-remote; local Persianate/Tajik Git verification remains blocked because this workspace is not a Git repository. OLP records generated-draft support with zero reviewer_return, mapping, translation, and approval deltas. No new fa_IR/prs_AF/tg_Cyrl_TJ source-body or promotion evidence was present.
 
+Same-frontier dedup recovery: 2026-07-07T07:34:59Z wake from source thread 019f2b3d-0b6a-79f3-8cf4-4ab1d84ffc0d was recorded in `761BEC88_SAME_FRONTIER_DEDUP_RECOVERY_ROWS_20260707.csv` and `761BEC88_EXACT_BLOCKER_RECOVERY_ROWS_20260707.csv`. The wake supplied no new Persianate/Tajik source-body, reviewer-return, promotion, or gate evidence beyond existing 761BEC88 artifacts.
+
 Five-hour reset rule: after any five-hour pause or app/token/rate-limit reset, reread heartbeat/logbook/local frontier, verify branch/frontier if possible, wake stale Noether siblings, and continue from artifacts rather than stale previews.

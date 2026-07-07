@@ -9,6 +9,6 @@ fa_IR_status: source-gated generated-draft/manual-review rows carried forward
 prs_AF_status: independent source-gate blockers preserved; no promoted Dari rows
 tg_Cyrl_TJ_status: source-discovery only; zero promoted term rows
 formal_object_status: Fable required tables copied into packet as audit/carryforward data
-frontier_recovery_status: 761BEC88 current B3 frontier recorded with adjacent OLP/R2 source-use/gap context only; local Git verification blocker, Persian/Dari/Tajik separation, and Tajik source-discovery-only status preserved
+frontier_recovery_status: 761BEC88 current B3 frontier recorded with adjacent OLP/R2 source-use/gap context only; 2026-07-07T07:34Z same-frontier dedup wake recorded without new Persianate/Tajik source-body or promotion evidence; local Git verification blocker, Persian/Dari/Tajik separation, and Tajik source-discovery-only status preserved
 language_lane_push: no
 claims: no native review, accepted terminology, approval, license clearance, gate promotion, source certification, final status, bridge/pilot, or translation completion
