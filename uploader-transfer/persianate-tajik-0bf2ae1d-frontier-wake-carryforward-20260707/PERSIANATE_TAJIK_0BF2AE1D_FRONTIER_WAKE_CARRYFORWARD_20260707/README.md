@@ -34,3 +34,5 @@ No direct fa_IR/prs_AF source-body, promotion, or reviewer evidence was found in
 ## Same-Frontier Source-Gap Accounting
 
 `0BF2AE1D_SAME_FRONTIER_SOURCE_GAP_ACCOUNTING_20260707.csv` records the 2026-07-07T14:31:25Z same-frontier wake and the coordinator source-gap report that no local Persianate/Tajik 0BF2 packet was found in one scan. The local packet path above is the recovery pointer. This row does not add source-body, reviewer, promotion, approval, gate, source-certification, final, bridge-pilot, or translation-completion evidence.
+
+`0BF2AE1D_DEDUP_RECOVERY_ROWS_20260707.csv` records the 2026-07-07T14:36:43Z persistent-idle/unread dedup wake from source thread `019f2b1b-b71d-7a13-8daa-f60f930faf65`. It preserves the same 0BF2 evidence ceiling and records local Git verification as blocked because this language-lane workspace is not a Git checkout.
