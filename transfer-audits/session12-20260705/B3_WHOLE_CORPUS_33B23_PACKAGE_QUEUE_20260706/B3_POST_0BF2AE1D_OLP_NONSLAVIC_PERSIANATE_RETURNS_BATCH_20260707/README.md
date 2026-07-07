@@ -1,0 +1,5 @@
+# B3 0BF2AE1D OLP / Non-Slavic / Persianate Returns Batch
+
+B3 packaged five clean 0BF2AE1D current-frontier/local-return roots: three repaired OLP route packets, the finalized Non-Slavic Core 0BF A9C/04A child-return route, and the Persianate/Tajik 0BF frontier wake carryforward. The three repaired OLP transfer notes were imported with SHA256 checks.
+
+This is package/source-use/provenance/gap/Fable/review-only/generated-draft/non-canonical route accounting only. It preserves fa_IR/prs_AF/tg_Cyrl_TJ separation and Tajik source-discovery-only status. OLP real reviewer return rows, mapping deltas, translation deltas, and approval deltas remain zero. No GitHub Issues were used. This is not native review, accepted terminology, approval, license clearance, gate promotion, source certification, final status, bridge-pilot, interlanguage bridge, or translation completion.
