@@ -1,3 +1,10 @@
+## 2026-07-07: Reader-file ordering check needed on Zenodo UI
+
+- Records checked by public API: Noether latest <https://doi.org/10.5281/zenodo.21247333>, SGA latest <https://doi.org/10.5281/zenodo.21212365>, interlanguage latest <https://doi.org/10.5281/zenodo.21247868>, and Weber latest <https://doi.org/10.5281/zenodo.20837104>.
+- The project docs and filenames identify reader-facing PDFs or methodology PDFs as the first files a human should open. However, the Zenodo public API currently returns small manifest/status files before the reader PDFs for at least Noether and SGA.
+- Next credential-bearing cleanup action: check the actual Zenodo web UI. If the UI also surfaces manifest/status files before the reader PDFs, make a new cleanup version or file-order repair so the likely human first-read PDFs are visually first. Keep grouped ZIPs behind the PDFs and keep status/manifests last where possible.
+- This is a public-surface usability issue, not a content-status change. Noether remains R805 working source-control evidence, SGA remains not-certified workpass/source-repair material, and neither is a critical edition.
+
 ## 2026-07-07: Noether R805, Noether rollup, and SGA reader-first cleanup published
 
 - Noether concept DOI: <https://doi.org/10.5281/zenodo.20412587>; latest version: <https://doi.org/10.5281/zenodo.21247333>.
