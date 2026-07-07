@@ -15,3 +15,6 @@ Core files:
 Evidence summary: R3 contributes same-frontier source-use/gap/Fable/adverse/blocker rows with zero new source-body rows and zero canonical translation rows; R6 contributes source-use/gap/Fable/adverse/blocker accounting with prior package SHA verification failures at zero; B3 contributes a 2-root, 25-file package validation with zero validation issues.
 
 Boundary: source-use/provenance/gap/generated-draft/non-canonical route only; Tajik remains source-discovery only until promoted by source evidence; no GitHub Issues, no coordinator/language push, no native review, community consent, accepted terminology, approval, license clearance, gate promotion, source certification, final status, bridge-pilot, pan-CJK authority, Korean-school authority, visual inventory, term spine, sign rendering, or translation completion.
+
+Persianate/Tajik child return incorporated: C:\Users\memo_\Documents\Codex\2026-07-04\noether-persianate-tajik-source-evidence-draft-lane\outputs\PERSIANATE_TAJIK_A55A9D0F_R3_R6_ACCOUNTING_REFRESH_ROUTE_20260707. It verifies the parent route packet OK=10/NONOK=0, packet SHA OK=30/NONOK=0, root SHA OK=1749/NONOK=0, preserves fa_IR/prs_AF/tg_Cyrl_TJ separation, and keeps Tajik source-discovery-only. The commit-label discrepancy is preserved as a blocker/recovery row.
+
