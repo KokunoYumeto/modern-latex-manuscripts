@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1111
+Total files indexed: 1022
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -128,8 +128,6 @@ Record: <https://doi.org/10.5281/zenodo.20393488>
 
 Record: <https://doi.org/10.5281/zenodo.20461174>
 
-Lean note: older workflow filenames that say `Formal Checking` are legacy/local labels. The Lean lane should be read as useful Lean 4 / mathlib-style candidate additions motivated by adding more mathematics to Lean. It is not proof or certification of the transcription/translation archive, not a source-fidelity audit, and not a critical-edition claim.
-
 | Role | Size MB | File |
 |---|---:|---|
 | artifact/source ZIP | 0.0089 | [AI-Run Modern LaTeX Workflow Packet - Lean Formal Checking Addendum 20260609.zip](https://zenodo.org/records/20836364/files/AI-Run%20Modern%20LaTeX%20Workflow%20Packet%20-%20Lean%20Formal%20Checking%20Addendum%2020260609.zip) |
@@ -156,126 +154,37 @@ Lean note: older workflow filenames that say `Formal Checking` are legacy/local 
 | manifest/status | 0.0062 | [workflow_addendum_20260624_source_witness_public_surface.md](https://zenodo.org/records/20836364/files/workflow_addendum_20260624_source_witness_public_surface.md) |
 | artifact/source ZIP | 0.0023 | [Workflow_Lessons_20260611.zip](https://zenodo.org/records/20836364/files/Workflow_Lessons_20260611.zip) |
 
-## Interlanguage Mathematical Translation Methodology
+## Classical Mathematics Lean 4 Formalization Sidecars
 
-Record: <https://doi.org/10.5281/zenodo.21124403>
+Record: <https://doi.org/10.5281/zenodo.21129945>
 
-This is a methodology and linguistics lane, not a mathematical reader release, native-speaker approval, term approval, source certification, language synchronization proof, or critical edition.
+Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.0032 | [00 Overview - Interlanguage Methodology 20260702.pdf](https://zenodo.org/records/21124458/files/00%20Overview%20-%20Interlanguage%20Methodology%2020260702.pdf) |
-| artifact/source ZIP | 0.2709 | [Noether_interlanguage_logs_quick_20260701.zip](https://zenodo.org/records/21124458/files/Noether_interlanguage_logs_quick_20260701.zip) |
-| artifact/source ZIP | 0.1094 | [Noether_Interlanguage_Logs_QuickFeed_20260701.zip](https://zenodo.org/records/21124458/files/Noether_Interlanguage_Logs_QuickFeed_20260701.zip) |
+| artifact/source ZIP | 0.0094 | [ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip](https://zenodo.org/records/21129946/files/ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip) |
 
-## Emmy Noether: Modern LaTeX Drafts and English Translation Working Drafts
+## Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Drafts (R787-R804 Source-Repair Rollup)
 
 Record: <https://doi.org/10.5281/zenodo.20412587>
 
-Current Noether update 2026-06-24: latest public surface is record 20836874. It carries forward the curated reader/source-audit surface and adds file 119, `119 Noether - PostR124 Survival Rollup NoNewPatch Audit 2026-06-24.zip`, a compact post-R124 survival/no-new-patch audit rollup. It confirms earlier repairs survive or that source-quality blockers remain; it does not introduce a new canonical TeX body patch. This is a working draft/source-audit record, not a certified critical edition, not whole-corpus mathematical certification, and not final high-resolution certification. The Noether record is now at Zenodo's 100-file ceiling, so further Noether updates require deliberate pruning/replacement rather than simple append. Slavic Ukrainian/Russian/Interslavic branches remain work-so-far translation and linguistics material.
+Current Noether update 2026-07-07: latest public surface is record 21246462. It keeps the reader-first German/English cumulative readers up front and replaces the old 100-file sprawl with compact R787-R804 source-repair/audit rollups plus CSV manifests/checksums. New grouped evidence covers Paper 30, Paper 24, Paper 34, Paper 40, Paper 14, and Paper 19 support packets, plus an auxiliary OCR-locator companion. Local intake gaps are explicit: R790 and R799 had checksum sidecars but no matching ZIPs in the swept Noether folder; duplicate R795/R798 downloads were excluded. This is a high-value working corpus and source-repair/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. Packet filenames containing `COMPLETE` are inherited local-task labels only.
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0012 | [00 Noether - Public Status Curated 20260612.md](https://zenodo.org/records/20836874/files/00%20Noether%20-%20Public%20Status%20Curated%2020260612.md) |
-| reader/reference PDF | 2.5616 | [01 Noether - German Source Cumulative RA20 Paper02 Display Fix.pdf](https://zenodo.org/records/20836874/files/01%20Noether%20-%20German%20Source%20Cumulative%20RA20%20Paper02%20Display%20Fix.pdf) |
-| reader/reference PDF | 2.4925 | [02 Noether - English Cumulative RA10 Apparatus Branch.pdf](https://zenodo.org/records/20836874/files/02%20Noether%20-%20English%20Cumulative%20RA10%20Apparatus%20Branch.pdf) |
-| reader/reference PDF | 2.3587 | [03 Noether - Spanish Cumulative RA10.pdf](https://zenodo.org/records/20836874/files/03%20Noether%20-%20Spanish%20Cumulative%20RA10.pdf) |
-| reader/reference PDF | 2.2272 | [04 Noether - Japanese Cumulative RA10.pdf](https://zenodo.org/records/20836874/files/04%20Noether%20-%20Japanese%20Cumulative%20RA10.pdf) |
-| reader/reference PDF | 1.3822 | [05 Noether - French Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20836874/files/05%20Noether%20-%20French%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
-| reader/reference PDF | 1.2276 | [06 Noether - Simplified Chinese Cumulative Checkpoint through Paper19s06.pdf](https://zenodo.org/records/20836874/files/06%20Noether%20-%20Simplified%20Chinese%20Cumulative%20Checkpoint%20through%20Paper19s06.pdf) |
-| artifact/source ZIP | 43.6905 | [10 Noether - German Source Current 20260612.zip](https://zenodo.org/records/20836874/files/10%20Noether%20-%20German%20Source%20Current%2020260612.zip) |
-| artifact/source ZIP | 44.4732 | [108 Noether - German R124 plus P40 Source Repair Working Baseline 2026-06-24.zip](https://zenodo.org/records/20836874/files/108%20Noether%20-%20German%20R124%20plus%20P40%20Source%20Repair%20Working%20Baseline%202026-06-24.zip) |
-| manifest/status | 0.0017 | [109 Noether - Source Audit Status and Caveats 2026-06-24.md](https://zenodo.org/records/20836874/files/109%20Noether%20-%20Source%20Audit%20Status%20and%20Caveats%202026-06-24.md) |
-| artifact/source ZIP | 13.7201 | [11 Noether - English Papers Current 20260612.zip](https://zenodo.org/records/20836874/files/11%20Noether%20-%20English%20Papers%20Current%2020260612.zip) |
-| artifact/source ZIP | 44.5457 | [112 Noether - German R124 plus P40 Full Range Best Available Source Repair 2026-06-24.zip](https://zenodo.org/records/20836874/files/112%20Noether%20-%20German%20R124%20plus%20P40%20Full%20Range%20Best%20Available%20Source%20Repair%202026-06-24.zip) |
-| manifest/status | 0.0017 | [113 Noether - Current Source Audit Status Addendum 2026-06-24.md](https://zenodo.org/records/20836874/files/113%20Noether%20-%20Current%20Source%20Audit%20Status%20Addendum%202026-06-24.md) |
-| artifact/source ZIP | 106.5645 | [114 Noether - R124plusP40 Survival NoNewPatch Audit Cluster 2026-06-24.zip](https://zenodo.org/records/20836874/files/114%20Noether%20-%20R124plusP40%20Survival%20NoNewPatch%20Audit%20Cluster%202026-06-24.zip) |
-| artifact/source ZIP | 62.7860 | [115 Noether - R124plusP40 P35 P36 P38 P39 Rebased Source Repairs 2026-06-24.zip](https://zenodo.org/records/20836874/files/115%20Noether%20-%20R124plusP40%20P35%20P36%20P38%20P39%20Rebased%20Source%20Repairs%202026-06-24.zip) |
-| artifact/source ZIP | 2.2652 | [116 Noether - R124plusP40 P34 Hotspot Disposition NoNewPatch 2026-06-24.zip](https://zenodo.org/records/20836874/files/116%20Noether%20-%20R124plusP40%20P34%20Hotspot%20Disposition%20NoNewPatch%202026-06-24.zip) |
-| artifact/source ZIP | 248.3215 | [117 Noether - Slavic WorkSoFar Papers01-34sec02 PublicSafe 2026-06-24.zip](https://zenodo.org/records/20836874/files/117%20Noether%20-%20Slavic%20WorkSoFar%20Papers01-34sec02%20PublicSafe%202026-06-24.zip) |
-| artifact/source ZIP | 33.8780 | [118 Noether - P30 Anchor-Closed Footnote Formula Date Source Repair 2026-06-24.zip](https://zenodo.org/records/20836874/files/118%20Noether%20-%20P30%20Anchor-Closed%20Footnote%20Formula%20Date%20Source%20Repair%202026-06-24.zip) |
-| artifact/source ZIP | 8.3554 | [119 Noether - PostR124 Survival Rollup NoNewPatch Audit 2026-06-24.zip](https://zenodo.org/records/20836874/files/119%20Noether%20-%20PostR124%20Survival%20Rollup%20NoNewPatch%20Audit%202026-06-24.zip) |
-| artifact/source ZIP | 2.9758 | [12 Noether - Spanish Current RA10 20260612.zip](https://zenodo.org/records/20836874/files/12%20Noether%20-%20Spanish%20Current%20RA10%2020260612.zip) |
-| artifact/source ZIP | 2.8659 | [13 Noether - Japanese Current RA10 20260612.zip](https://zenodo.org/records/20836874/files/13%20Noether%20-%20Japanese%20Current%20RA10%2020260612.zip) |
-| artifact/source ZIP | 9.1047 | [14 Noether - French and Simplified Chinese Checkpoint P19s06 20260612.zip](https://zenodo.org/records/20836874/files/14%20Noether%20-%20French%20and%20Simplified%20Chinese%20Checkpoint%20P19s06%2020260612.zip) |
-| reader/reference PDF | 0.2069 | [20.01 Noether Paper 01 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.01%20Noether%20Paper%2001%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.5139 | [20.02 Noether Paper 02 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.02%20Noether%20Paper%2002%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1955 | [20.03 Noether Paper 03 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.03%20Noether%20Paper%2003%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4010 | [20.04 Noether Paper 04 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.04%20Noether%20Paper%2004%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1495 | [20.05 Noether Paper 05 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.05%20Noether%20Paper%2005%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3565 | [20.06 Noether Paper 06 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.06%20Noether%20Paper%2006%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2221 | [20.07 Noether Paper 07 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.07%20Noether%20Paper%2007%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2542 | [20.08 Noether Paper 08 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.08%20Noether%20Paper%2008%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3509 | [20.09 Noether Paper 09 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.09%20Noether%20Paper%2009%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2694 | [20.10 Noether Paper 10 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.10%20Noether%20Paper%2010%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2453 | [20.11 Noether Paper 11 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.11%20Noether%20Paper%2011%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2423 | [20.12 Noether Paper 12 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.12%20Noether%20Paper%2012%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3009 | [20.13 Noether Paper 13 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.13%20Noether%20Paper%2013%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3175 | [20.14 Noether Paper 14 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.14%20Noether%20Paper%2014%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3281 | [20.15 Noether Paper 15 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.15%20Noether%20Paper%2015%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2377 | [20.16 Noether Paper 16 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.16%20Noether%20Paper%2016%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3854 | [20.17 Noether Paper 17 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.17%20Noether%20Paper%2017%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1424 | [20.18 Noether Paper 18 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.18%20Noether%20Paper%2018%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4197 | [20.19 Noether Paper 19 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.19%20Noether%20Paper%2019%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2543 | [20.20 Noether Paper 20 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.20%20Noether%20Paper%2020%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1784 | [20.21 Noether Paper 21 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.21%20Noether%20Paper%2021%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3868 | [20.22 Noether Paper 22 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.22%20Noether%20Paper%2022%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2426 | [20.23 Noether Paper 23 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.23%20Noether%20Paper%2023%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3888 | [20.24 Noether Paper 24 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.24%20Noether%20Paper%2024%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1820 | [20.25 Noether Paper 25 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.25%20Noether%20Paper%2025%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0585 | [20.26 Noether Paper 26 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.26%20Noether%20Paper%2026%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0961 | [20.27 Noether Paper 27 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.27%20Noether%20Paper%2027%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0582 | [20.28 Noether Paper 28 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.28%20Noether%20Paper%2028%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2346 | [20.29 Noether Paper 29 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.29%20Noether%20Paper%2029%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4011 | [20.30 Noether Paper 30 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.30%20Noether%20Paper%2030%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3566 | [20.31 Noether Paper 31 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.31%20Noether%20Paper%2031%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2478 | [20.32 Noether Paper 32 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.32%20Noether%20Paper%2032%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1516 | [20.33 Noether Paper 33 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.33%20Noether%20Paper%2033%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4001 | [20.34 Noether Paper 34 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.34%20Noether%20Paper%2034%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2085 | [20.35 Noether Paper 35 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.35%20Noether%20Paper%2035%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0715 | [20.36 Noether Paper 36 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.36%20Noether%20Paper%2036%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2056 | [20.37 Noether Paper 37 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.37%20Noether%20Paper%2037%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1940 | [20.38 Noether Paper 38 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.38%20Noether%20Paper%2038%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1775 | [20.39 Noether Paper 39 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.39%20Noether%20Paper%2039%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3093 | [20.40 Noether Paper 40 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.40%20Noether%20Paper%2040%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2072 | [20.41 Noether Paper 41 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.41%20Noether%20Paper%2041%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2077 | [20.42 Noether Paper 42 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.42%20Noether%20Paper%2042%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2368 | [20.43 Noether Paper 43 - English Translation.pdf](https://zenodo.org/records/20836874/files/20.43%20Noether%20Paper%2043%20-%20English%20Translation.pdf) |
-| manifest/status | 0.0117 | [90 Noether - Public Summary.json](https://zenodo.org/records/20836874/files/90%20Noether%20-%20Public%20Summary.json) |
-| manifest/status | 0.0006 | [99 Noether - Public Summary - RA23 Display Gate 20260612.json](https://zenodo.org/records/20836874/files/99%20Noether%20-%20Public%20Summary%20-%20RA23%20Display%20Gate%2020260612.json) |
-| manifest/status | 0.0004 | [99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json](https://zenodo.org/records/20836874/files/99_Noether_-_Public_Summary_-_RA26_Paper02_p76-80_20260612.json) |
-| manifest/status | 0.0009 | [99_Noether_Public_Summary_RA28_nu_inversion_20260612.json](https://zenodo.org/records/20836874/files/99_Noether_Public_Summary_RA28_nu_inversion_20260612.json) |
-| artifact/source ZIP | 16.3629 | [N_SYM_RA23_display_all_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA23_display_all_20260612.zip) |
-| artifact/source ZIP | 7.7748 | [N_SYM_RA25_P02_p71_76_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA25_P02_p71_76_20260612.zip) |
-| artifact/source ZIP | 15.3214 | [N_SYM_RA26_P02_p76_80_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA26_P02_p76_80_20260612.zip) |
-| artifact/source ZIP | 12.5866 | [N_SYM_RA27_P02_p80_83_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA27_P02_p80_83_20260612.zip) |
-| artifact/source ZIP | 12.0009 | [N_SYM_RA28_nu_restore_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA28_nu_restore_20260612.zip) |
-| artifact/source ZIP | 6.6298 | [N_SYM_RA28_nu_validated_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA28_nu_validated_20260612.zip) |
-| artifact/source ZIP | 13.0741 | [N_SYM_RA29_P02_p84_90_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA29_P02_p84_90_20260612.zip) |
-| artifact/source ZIP | 14.3162 | [N_SYM_RA30_P02_tables_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA30_P02_tables_20260612.zip) |
-| artifact/source ZIP | 14.6367 | [N_SYM_RA31_P02_tableI_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA31_P02_tableI_20260612.zip) |
-| artifact/source ZIP | 12.5543 | [N_SYM_RA33_P02_tableII_top_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA33_P02_tableII_top_20260612.zip) |
-| artifact/source ZIP | 11.7772 | [N_SYM_RA34_P02_tableII_lower_20260612.zip](https://zenodo.org/records/20836874/files/N_SYM_RA34_P02_tableII_lower_20260612.zip) |
-| artifact/source ZIP | 26.6651 | [Noether_Better_Source_Upgrade_P21_P23_GDZ_600PPI_20260623.zip](https://zenodo.org/records/20836874/files/Noether_Better_Source_Upgrade_P21_P23_GDZ_600PPI_20260623.zip) |
-| artifact/source ZIP | 85.9553 | [Noether_R120_20260623.zip](https://zenodo.org/records/20836874/files/Noether_R120_20260623.zip) |
-| artifact/source ZIP | 156.1000 | [Noether_R122_20260623.zip](https://zenodo.org/records/20836874/files/Noether_R122_20260623.zip) |
-| artifact/source ZIP | 3.8321 | [Noether_R122_P10_P12_Reconcile_WebDrop_20260624.zip](https://zenodo.org/records/20836874/files/Noether_R122_P10_P12_Reconcile_WebDrop_20260624.zip) |
-| artifact/source ZIP | 16.4720 | [Noether_R122_P16_SourceAudit_WebDrop_20260624.zip](https://zenodo.org/records/20836874/files/Noether_R122_P16_SourceAudit_WebDrop_20260624.zip) |
-| artifact/source ZIP | 10.0978 | [Noether_R122_P16P13_SourceAudit_WebDrop_20260624.zip](https://zenodo.org/records/20836874/files/Noether_R122_P16P13_SourceAudit_WebDrop_20260624.zip) |
-| artifact/source ZIP | 20.1956 | [Noether_R122_P20_SourceAudit_WebDrop_20260624.zip](https://zenodo.org/records/20836874/files/Noether_R122_P20_SourceAudit_WebDrop_20260624.zip) |
-| artifact/source ZIP | 0.5220 | [Noether_R122_SourceFix_Rollup_P12_P13_P16_P20_WebDrop_20260624.zip](https://zenodo.org/records/20836874/files/Noether_R122_SourceFix_Rollup_P12_P13_P16_P20_WebDrop_20260624.zip) |
-| artifact/source ZIP | 24.4928 | [Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip](https://zenodo.org/records/20836874/files/Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip) |
-| artifact/source ZIP | 33.3629 | [Noether_R123_Salvage_P12_P13_P16_P20_P39_WebDrop_20260624.zip](https://zenodo.org/records/20836874/files/Noether_R123_Salvage_P12_P13_P16_P20_P39_WebDrop_20260624.zip) |
-| artifact/source ZIP | 4.5426 | [Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip](https://zenodo.org/records/20836874/files/Noether_R124plus_LocalCodex_PostR124_Consolidated_WebDrop_20260624.zip) |
-| manifest/status | 0.0010 | [noether_ra25_public_summary.json](https://zenodo.org/records/20836874/files/noether_ra25_public_summary.json) |
-| manifest/status | 0.0005 | [noether_ra27_public_summary.json](https://zenodo.org/records/20836874/files/noether_ra27_public_summary.json) |
-| manifest/status | 0.0009 | [Noether_RA33_Public_Status_20260613.md](https://zenodo.org/records/20836874/files/Noether_RA33_Public_Status_20260613.md) |
-| manifest/status | 0.0010 | [Noether_RA34_Public_Status_20260613.md](https://zenodo.org/records/20836874/files/Noether_RA34_Public_Status_20260613.md) |
-| artifact/source ZIP | 695.7802 | [Noether_Slavic_ZenodoDrive_Transfer_CurrentSources_20260623T1920Z.zip](https://zenodo.org/records/20836874/files/Noether_Slavic_ZenodoDrive_Transfer_CurrentSources_20260623T1920Z.zip) |
-| artifact/source ZIP | 4.9474 | [nu_inversion_revert_for_RA28_20260612.zip](https://zenodo.org/records/20836874/files/nu_inversion_revert_for_RA28_20260612.zip) |
-| reader/reference PDF | 247.0305 | [source_witness_cumulative_R120.pdf](https://zenodo.org/records/20836874/files/source_witness_cumulative_R120.pdf) |
-| manifest/status | 0.0006 | [STATUS_NOETHER_RA25_BACKFILL_20260612.md](https://zenodo.org/records/20836874/files/STATUS_NOETHER_RA25_BACKFILL_20260612.md) |
-| manifest/status | 0.0005 | [STATUS_NOETHER_RA27_BACKFILL_20260612.md](https://zenodo.org/records/20836874/files/STATUS_NOETHER_RA27_BACKFILL_20260612.md) |
+| reader/reference PDF | 2.5231 | [00_Noether_German_Cumulative_Working_SourceControl_R796_20260705.pdf](https://zenodo.org/records/21246462/files/00_Noether_German_Cumulative_Working_SourceControl_R796_20260705.pdf) |
+| reader/reference PDF | 2.4925 | [01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf](https://zenodo.org/records/21246462/files/01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf) |
+| artifact/source ZIP | 10.2346 | [02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip](https://zenodo.org/records/21246462/files/02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip) |
+| artifact/source ZIP | 321.9144 | [03_Noether_Current_SourceControl_TeX_and_Readers_R796_20260706.zip](https://zenodo.org/records/21246462/files/03_Noether_Current_SourceControl_TeX_and_Readers_R796_20260706.zip) |
+| artifact/source ZIP | 345.3624 | [04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip](https://zenodo.org/records/21246462/files/04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip) |
+| artifact/source ZIP | 25.0978 | [05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip](https://zenodo.org/records/21246462/files/05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip) |
+| manifest/status | 0.0008 | [06_Noether_R787_R804_public_upload_sha256_20260707.csv](https://zenodo.org/records/21246462/files/06_Noether_R787_R804_public_upload_sha256_20260707.csv) |
+| manifest/status | 0.0032 | [06_Noether_R787_R804_rollup_manifest_20260707.csv](https://zenodo.org/records/21246462/files/06_Noether_R787_R804_rollup_manifest_20260707.csv) |
+| artifact/source ZIP | 350.7858 | [06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip](https://zenodo.org/records/21246462/files/06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip) |
+| artifact/source ZIP | 320.9525 | [06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip](https://zenodo.org/records/21246462/files/06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip) |
+| artifact/source ZIP | 251.7752 | [06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip](https://zenodo.org/records/21246462/files/06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip) |
+| artifact/source ZIP | 12.3384 | [06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip](https://zenodo.org/records/21246462/files/06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip) |
+| manifest/status | 0.0020 | [99_Noether_Public_Status_NotCritical_20260707.md](https://zenodo.org/records/21246462/files/99_Noether_Public_Status_NotCritical_20260707.md) |
 
 ## Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 
@@ -342,7 +251,7 @@ Record: <https://doi.org/10.5281/zenodo.20412153>
 
 Record: <https://doi.org/10.5281/zenodo.20520749>
 
-Accuracy warning 2026-06-09/12/25: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Complete`, `Source-Checked`, or `critical` are obsolete labels rather than current source-faithfulness claims. No Cayley range is presently promoted as source-faithful until a future per-page glyph/source audit re-promotes that exact range. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.
+Accuracy warning 2026-06-09/12: Cayley files listed here are retained for provenance and repair. Current Cayley PDFs/TeX are not accuracy-certified; package names containing `Source-Checked` are obsolete labels until a future per-page glyph/source audit re-promotes specific ranges. The narrow `Cayley_V1_critical_p001_045_v2_20260609.zip` packet is the current promoted restart tranche for Volume I printed pp.1-58 / Papers 1-9 as a source-inspected working packet, not as a critical edition; v2 corrects the Paper 6 low-comma subscript notation and removes forced source-page whitespace. A later source-quality audit found that several Cayley repair lanes had been working from low-DPI Internet Archive derivative PDFs; future source-faithful repair should prefer the IA `_jp2.zip` master image archives and verified scan-page maps where available.
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -435,9 +344,7 @@ Accuracy warning 2026-06-09/12/25: Cayley files listed here are retained for pro
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Repair032 is public as a bundled audit-support artifact on record 20822648, but it is not a completed or certified SGA5 edition. The latest local compact SGA5 delta is `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip` under manifest `20260626_sga5_fullaudit_webdrop_p260_p265_delta.json`; it advances the page-local French workpass/source-audit boundary from p259 to p265 and sets p266 as the next cursor. The earlier `SGA5_FullAudit_WebDrop_p001_p254_certified_staged_p255_p484_20260626.zip` remains larger provenance/source-witness material, and the p255-p259 compact delta is superseded as current cursor but preserved as provenance. p260-p265 cover Expose VI Remarque after Proposition 1.2.5, Proposition 1.2.6 and proof, tensor products in 1.3.1, Proposition 1.3.2, cHom, invertible sheaves/Tate twist, A-faisceaux, D143 (the A-action square), and the opening of Q_l-faisceaux. p266 and later crops/cursor text remain active/pending scratch only and are not promoted by this delta. This is live French workpass/source-audit evidence only: not complete SGA5, not synchronized English, not global source-faithfulness certification, and not a critical edition. Local ledger words such as certified, clean, or complete mean page-local workpass status only. Compile-clean TeX can still be mathematically wrong.
-
-Legacy filename warning: several SGA5/SGA6 files below retain older names containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity`. Those names are preserved file labels, not current quality claims; the caveat above controls.
+Repair032 is public as a bundled audit-support artifact on record 20822648, but it is not a completed or certified SGA5 edition. The latest local compact SGA5 delta is `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip` under manifest `20260626_sga5_fullaudit_webdrop_p260_p265_delta.json`; it advances the page-local French workpass/source-audit boundary from p259 to p265 and sets p266 as the next cursor. The earlier `SGA5_FullAudit_WebDrop_p001_p254_certified_staged_p255_p484_20260626.zip` remains larger provenance/source-witness material, and the p255-p259 compact delta is superseded as current cursor but preserved as provenance. p260-p265 cover Expose VI Remarque after Proposition 1.2.5, Proposition 1.2.6 and proof, tensor products in 1.3.1, Proposition 1.3.2, cHom, invertible sheaves/Tate twist, A-faisceaux, D143 (the A-action square), and the opening of Q_l-faisceaux. p266 and later crops/cursor text remain active/pending scratch only and are not promoted by this delta. This is live French workpass/source-audit evidence only: not complete SGA5, not synchronized English, not global source-faithfulness certification, and not a critical edition. Local ledger words such as certified, clean, or complete mean page-local workpass status only. Compile-clean TeX can still be mathematically wrong. Legacy filename warning: several SGA5/SGA6 files retain older names containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity`; those names are preserved file labels, not current quality claims.
 
 | Role | Size MB | File |
 |---|---:|---|
