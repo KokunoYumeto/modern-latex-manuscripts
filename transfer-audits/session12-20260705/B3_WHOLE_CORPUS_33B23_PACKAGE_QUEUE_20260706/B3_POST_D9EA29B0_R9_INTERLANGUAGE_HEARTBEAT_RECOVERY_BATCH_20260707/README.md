@@ -1,0 +1,5 @@
+# B3 D9 R9 / Interlanguage Heartbeat Recovery Batch
+
+This B3 package-steward audit freezes three clean manifest/SHA-verified heartbeat/recovery roots from current B3 parent d9ea29b008edeac55aba342edb6948440bdb145d: R9 D9 frontier correction recovery, R9 C0CB heartbeat instruction recovery, and Interlanguage/Fable C0CB source-canon upload-prep heartbeat.
+
+The Interlanguage/Fable heartbeat references a large source-corpus ZIP by path/hash only; that raw archive is not copied into this package. All imported material remains source-use/provenance/gap/generated-draft/non-canonical/review-only or blocker accounting context. B3 makes no native-review, community-consent, accepted-terminology, approval, license-clearance, gate-promotion, source-certification, final-status, bridge-pilot, or translation-completion claim. No GitHub Issues were used.
