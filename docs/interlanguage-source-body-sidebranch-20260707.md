@@ -6,7 +6,7 @@ GitHub branch URL: <https://github.com/KokunoYumeto/modern-latex-manuscripts/tre
 
 This is a reader-facing map of the other-PC source-body branch. The branch contains real corpus/source-body packages and interlanguage methodology material, but also coordination logs and root-level session-control instructions. It should not be merged wholesale into the public `main` surface without curation.
 
-Classification: source-body/provenance/support branch. It is useful for interlanguage and Noether-Slavic continuation, but it is not native language approval, not accepted terminology, not translation completion, not source-fidelity certification, not a critical edition, and not a Zenodo reader release by itself.
+Classification: source-body/provenance/support branch. It is useful for interlanguage and Noether-Slavic continuation, but it is not native language approval, not accepted terminology, not translation completion, not source-fidelity certification, not a critical edition, and not a reader/language-certification release. The curated grouped payloads from this branch are public in interlanguage version [10.5281/zenodo.21247131](https://doi.org/10.5281/zenodo.21247131).
 
 Inventory scope below covers 358 source/provenance package roots, 18,350 files, 5,045,628,896 bytes.
 

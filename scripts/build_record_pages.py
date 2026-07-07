@@ -32,6 +32,7 @@ RECORD_TIERS = [
         [
             "main",
             "workflow",
+            "interlanguage_reflections",
             "lean_formalization_sidecars",
         ],
     ),
@@ -91,6 +92,7 @@ RECORD_ORDER = [label for _, labels in RECORD_TIERS for label in labels]
 DISPLAY_NAMES = {
     "main": "Main Project Landing",
     "workflow": "Workflow / Replication Packet",
+    "interlanguage_reflections": "Interlanguage Methodology",
     "lean_formalization_sidecars": "Lean Formalization Sidecars",
     "noether": "Emmy Noether",
     "weber": "Heinrich Weber",
@@ -156,6 +158,9 @@ RECORD_NOTES = {
     "lean_formalization_sidecars": [
         "Small Lean 4 / Mathlib-style sidecar package for useful formal mathematics connected to Noether, Steinitz, Weber, and Jordan. This is library-candidate/formalization material with build logs and toolchain metadata. It is not proof that any scanned edition or translation is source-faithful, not source-fidelity evidence, not translation certification, and not critical-edition material.",
     ],
+    "interlanguage_reflections": [
+        "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current public version 21247131 fronts the methodology PDF and groups the Claude/ChatGPT provenance dump, Interslavic weighted automaton and term ledgers, baseline source-body packages, and five other-PC grouped source-body/provenance payload ZIPs. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.",
+    ],
     "riemann": [
         "Dedicated Riemann author record. The current surface has two reader PDFs, one selected-papers reader and one broader Gesammelte Werke complete-draft reader, plus matching artifact ZIPs with TeX/source/provenance material. These are machine-assisted working drafts for checking and continuation, not proofread critical editions.",
     ],
@@ -178,7 +183,7 @@ RECORD_NOTES = {
         "Current Weber public surface: latest public version is record 20837104 / DOI 10.5281/zenodo.20837104 under the permanent concept DOI 10.5281/zenodo.20412153. Volume I is represented as a repaired/source-scan-audited working edition; Volume II has current German/English cumulative reader material through section 176 plus localized recursive repairs/ledgers; Volume III remains the current repaired cumulative from the earlier baseline. Batch137 is now public and supersedes the public Batch132 ledger status: it reports scan-reviewed no-change closures for Volume I sections 120, 122, 128, 145, 148, 149, 150, 156, 158, 162, 163, 168, 169, 173, 174, 175, 176, 179, 180, 181, 182, and 183, with the active 112-row ledger at 112/112 closed. Batch138 is public as a focused Volume II section 6 control-character footnote fix. B139 is public as a focused Volume II English section 49 merged-tag repair and recursive range-tag scan rule. These are working/source-witnessed repair-ledger packages, not certified critical editions; Batch137's Volume II patch candidates remain candidate evidence unless later integrated. OCR and display ledgers are omission guards and locator layers, not independent authority.",
     ],
     "noether": [
-        'Current Noether public surface: latest published Zenodo version is record 21246462 / DOI 10.5281/zenodo.21246462 under concept DOI 10.5281/zenodo.20412587. It keeps the reader-first German/English cumulative readers up front and adds compact R787-R804 source-repair/audit rollups as 06a/06b/06c plus 06d OCR-locator support, CSV manifests, and checksums. The July 7 rollup covers Paper 30, Paper 24, Paper 34, Paper 40, Paper 14, and Paper 19 support packets. R790 and R799 were not uploaded because the local sweep found checksum sidecars but no matching ZIPs; duplicate R795/R798 downloads were excluded. These files are working/source-audit/provenance packages only: not promoted critical editions, not whole-corpus mathematical certification, not downstream multilingual synchronization proof, not final high-resolution certification, and not source-faithfulness certification. Inherited `COMPLETE` filename words mean only that a local packet task completed.',
+        'Current Noether public surface: latest published Zenodo version is record 21246784 / DOI 10.5281/zenodo.21246784 under concept DOI 10.5281/zenodo.20412587. It keeps the reader-first German/English cumulative readers up front, preserves compact R787-R804 source-repair/audit rollups as 06a/06b/06c plus 06d OCR-locator support, and adds the R804 integrated v11 source-control head as `07_Noether_Current_SourceControl_Integrated_v11_R800_R804_20260707.zip`. The July 7 rollup covers Paper 30, Paper 24, Paper 34, Paper 40, Paper 14, and Paper 19 support packets. R790 and R799 standalone ZIPs were absent in the swept local Noether folder despite checksum sidecars; later cumulative material carries the R799 p684 correction into v11. These files are working/source-audit/provenance packages only: not promoted critical editions, not whole-corpus mathematical certification, not downstream multilingual synchronization proof, not final high-resolution certification, and not source-faithfulness certification. Inherited `COMPLETE` filename words mean only that a local packet task completed.',
         'Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>. For citation-critical use, verify formulas, tables, theorem statements, diagrams, apparatus notes, and unusual notation against the included source witnesses and current audit ledgers.',
     ],
     "albattani_opus_astronomicum": [

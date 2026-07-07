@@ -1,12 +1,18 @@
 # Interlanguage And Constructed-Language Mathematical Translation Notes
 
-Zenodo record: [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403). Latest record version: [10.5281/zenodo.21212251](https://doi.org/10.5281/zenodo.21212251).
+Zenodo record: [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403). Latest record version: [10.5281/zenodo.21247131](https://doi.org/10.5281/zenodo.21247131).
 
 Public title: Interlanguage Mathematical Translation Methodology: Slavic, Interslavic, Constructed-Language, and Terminology-Governance Notes
 
 **Quality warning:** This is a methodology, linguistics, and translation-practice lane. It is not a reader release for a mathematical corpus, not a source-certified mathematical edition, not native-speaker approval, and not term approval. It should be maintained as a companion to the workflow and Noether records.
 
 ## What This Record Contains And Should Continue To Contain
+
+## 2026-07-07 Grouped Other-PC Source-Body / Provenance Update
+
+The latest public version is now [10.5281/zenodo.21247131](https://doi.org/10.5281/zenodo.21247131). It keeps the July 6 front methodology PDF/MD and adds the curated grouped payloads from `origin/codex/noether-pc-20260629`: Slavic/Noether-Slavic source bodies, Romance+CJK bodies, RTL/Persianate/Arabic bodies, Turkic/Indigenous/SEA/OLP bodies, and Fable/method/transfer-audit material. The public version contains 16 files totaling about 4.49 GB, with manifests and SHA256 checksums.
+
+Classification stays conservative: this is methodology, source-body, corpus-infrastructure, and provenance material. It is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or critical-edition material. The grouped payloads make the useful side-branch bodies visible to downstream Web/Pro/Codex sessions without merging the raw side branch or its root-level coordination instructions into the main public surface.
 
 ## 2026-07-06 Claude/ChatGPT Interlingua Program Full Provenance Dump
 
