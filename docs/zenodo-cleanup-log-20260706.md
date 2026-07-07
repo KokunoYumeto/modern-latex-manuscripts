@@ -6,8 +6,9 @@ This records reader-facing archive maintenance decisions. It is not a mathematic
 
 - Concept DOI: <https://doi.org/10.5281/zenodo.20412587>
 - New source-repair rollup version: <https://doi.org/10.5281/zenodo.21246462>
-- Change: kept the July 6 reader-first Noether layout and added R787-R804 source-repair/audit evidence in coherent grouped ZIPs rather than loose micro-packets.
-- Public surface: 13 files total: 2 reader PDFs, 8 ZIPs, 2 CSV manifests/checksums, and 1 not-critical status note.
+- Current R804 integrated v11 version: <https://doi.org/10.5281/zenodo.21246784>
+- Change: kept the July 6 reader-first Noether layout, added R787-R804 source-repair/audit evidence in coherent grouped ZIPs rather than loose micro-packets, then added the R804 integrated v11 German/source-control head as the current package.
+- Public surface: reader PDFs first, grouped language/source ZIPs next, then R787-R804 evidence ZIPs, R804 v11 current-head package, manifests/checksums, and a not-critical status note.
 - New grouped files: `06a` for R787-R789 Paper 30 evidence, `06b` for R791-R798 Paper 30 evidence, `06c` for R792-R804 Paper 24/Paper 34/Paper 40/Paper 14/Paper 19 evidence, and `06d` as OCR-locator support.
 - Intake caveat: R790 and R799 were not included because the swept local Noether folder contained checksum sidecars but no matching ZIP files. Duplicate R795/R798 downloads were excluded.
 - Status language: inherited `COMPLETE` labels inside packet names mean local packet/task completion only. This release is not Noether closure, paper certification, multilingual synchronization, or a critical edition.
