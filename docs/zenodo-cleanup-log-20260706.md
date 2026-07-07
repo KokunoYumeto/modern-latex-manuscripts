@@ -61,7 +61,7 @@ This same rule should be applied to workflow, interlanguage, Weber, Deligne, non
 ## Interlanguage Methodology
 
 - Concept DOI: <https://doi.org/10.5281/zenodo.21124403>
-- New cleaned version: <https://doi.org/10.5281/zenodo.21212547>
+- New cleaned version: <https://doi.org/10.5281/zenodo.21212547> (superseded by grouped source-body/provenance update <https://doi.org/10.5281/zenodo.21247131>)
 - Change: replaced the earlier loose/log-heavy surface with 6 files.
 - Front files: current interlanguage methodology PDF and Markdown source.
 - Grouped files: full Claude/ChatGPT provenance ZIP, Interslavic weighted automaton and term-ledger ZIP, and other-PC source-body baseline transfer ZIP.

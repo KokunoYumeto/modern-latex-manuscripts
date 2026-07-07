@@ -26,6 +26,7 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "20836364"),
+    ("interlanguage_reflections", "21247131"),
     ("lean_formalization_sidecars", "21129946"),
     ("noether", "21246784"),
     ("weber", "20837104"),
@@ -85,6 +86,9 @@ RECORD_NOTES = {
     "lean_formalization_sidecars": [
         "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
     ],
+    "interlanguage_reflections": [
+        "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21247131 fronts the methodology PDF and groups the Claude/ChatGPT provenance dump, Interslavic weighted automaton and term ledgers, baseline source-body packages, and five other-PC grouped source-body/provenance payload ZIPs. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.",
+    ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
     ],
@@ -101,6 +105,7 @@ TITLE_OVERRIDES = {
     "poincare": "Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts",
     "kneser": "Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts",
     "lean_formalization_sidecars": "Classical Mathematics Lean 4 Formalization Sidecars",
+    "interlanguage_reflections": "Interlanguage and Constructed-Language Mathematical Translation Methodology",
 }
 
 
