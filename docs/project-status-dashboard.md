@@ -22,12 +22,12 @@ These counts describe the public file surface. They are useful for release hygie
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 32 |
-| Public files indexed | 1043 |
-| Top-level PDFs | 508 |
-| Artifact/source ZIPs | 441 |
+| Public files indexed | 949 |
+| Top-level PDFs | 437 |
+| Artifact/source ZIPs | 418 |
 | Manifest/status files | 86 |
 | Editable TeX files | 8 |
-| Total public file surface | 43.19 GB |
+| Total public file surface | 40.66 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -64,7 +64,7 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | [Sylvester](https://doi.org/10.5281/zenodo.20520692) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-witnessed working draft through book page 608; Papers 59-60 are represented in the latest tranche, next continuation p.609. |
 | [al-Battani](https://doi.org/10.5281/zenodo.20539593) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition with complete trilingual text over 100 segments, complete fixed-star catalogue data (485 stars), complete geography gazetteer (269 localities), chronology framework/canon partial, and zodiac auxiliary tables documented as not cleanly present in Nallino's Latin table source. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
 | **Serious source-aware work, but caveat-heavy** |  |  |  |  |  |
-| [SGA](https://doi.org/10.5281/zenodo.20410947) | 100 | 74 | 25 | 3.23 GB | SGA 5/6 and further SGA working translation material, plus source/reference and audit packets. Latest compact promoted SGA5 delta remains p260-p265, but later live ledger/provenance now records the local French SGA5 workpass through p480 and locally claims body-text completion for the selected 10-exposé branch, with about 60 numbered TeX-fix events (TALLY 59 / max fix #60), ERRATA 115, D001-D193 diagram tracking, and a 306pp/0err compile gate. Recert spot-checks still found real defects, including p455 interpolation/removal and p274-p275 notation fixes. Treat p266-p480 as live workpass/provenance metadata only unless later compactly packaged and independently checked, not SGA5 completion, not synchronized English, not a critical edition, and not global source-faithfulness. Agent/diagram-aid ledgers are finders rather than certification. SGA6 is substantial but not complete; SGA7-I is still partial starter work. Corrections are welcome via GitHub issues or pull requests. |
+| [SGA](https://doi.org/10.5281/zenodo.20410947) | 6 | 3 | 2 | 720.96 MB | Latest compact public version [10.5281/zenodo.21212365](https://doi.org/10.5281/zenodo.21212365) replaces the old 100-file surface with three reader/checking PDFs and two grouped TeX/audit/source-support ZIPs. It fronts the SGA5 French workpass, SGA6 French source-rescribe workpass, and SGA6 English unsynchronized working draft. SGA5 still is not complete, not English-synchronized, not index-audited, not globally source-faithful, and not a critical edition. The local SGA5 workpass ledger reaches p480 and locally claims selected-branch body-text coverage, but recert spot-checks found real defects including p455 interpolation/removal and p274-p275 notation fixes. SGA6 source-rescribe reaches entry #235 / idx238 as provenance only. SGA7-I is still partial starter work. Corrections are welcome via GitHub issues or pull requests. |
 | [Deligne](https://doi.org/10.5281/zenodo.20410853) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
 | [Luigi Bianchi](https://doi.org/10.5281/zenodo.20615814) | 22 | 5 | 12 | 1.92 GB | `Lezioni di geometria differenziale` Vol. I represented through source pdfpages 001-543; A2 latest public compact/core package `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` extends working coverage through source p0135 while earlier large scan-heavy p0105 packages remain provenance/backstop. Loose p0135 Italian/English reader PDFs/TeX and the p0121-p0135 source witness are queued as reader-convenience/fronting files, not new content. |
 | [Paul Gordan and Clebsch-Gordan](https://doi.org/10.5281/zenodo.20616260) | 45 | 0 | 39 | 1.83 GB | Dedicated package set now includes Abel27, Abelsche FinalAuditFix02, `De linea geodetica` p001-p047, theta fix06, and `Vorlesungen ueber Invariantentheorie` Bd. 1 p001-p028 on the latest 2026-06-24 version DOI `10.5281/zenodo.20822196`, which also adds the compact project-control/status update. Working/source-audit drafts only, not a certified critical edition. |
