@@ -14,6 +14,10 @@ The latest public version is now [10.5281/zenodo.21247868](https://doi.org/10.52
 
 Classification stays conservative: this new file is route-context, methodology, provenance, and source-body routing support only. It is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, publication readiness, or critical-edition material.
 
+## 2026-07-07 Later GitHub-Only Route-Support Mirrors
+
+After the latest Zenodo publication, the other-PC branch advanced again to `e013d2e69` and then `3eb1cd59`. Two small public-ready route-support ZIPs are mirrored in GitHub under `interlanguage-sidecar/20260707/`: file `11` for the post-516 non-Slavic route-recovery delta and file `12` for the post-E013 OLP/Persianate/Tajik route-return delta. They include route-context, source-use, Fable adverse, branch-weight, marginal-intelligibility, lexeme, and word-weight support rows. They are not promoted TeX/PDF/source-body readers, not native approval, not accepted terminology, not language completion, not source-fidelity certification, and not critical-edition material. They are not yet on Zenodo from this session because no Zenodo credential was visible after the reset.
+
 ## 2026-07-07 Grouped Other-PC Source-Body / Provenance Update
 
 The latest public version is now [10.5281/zenodo.21247131](https://doi.org/10.5281/zenodo.21247131). It keeps the July 6 front methodology PDF/MD and adds the curated grouped payloads from `origin/codex/noether-pc-20260629`: Slavic/Noether-Slavic source bodies, Romance+CJK bodies, RTL/Persianate/Arabic bodies, Turkic/Indigenous/SEA/OLP bodies, and Fable/method/transfer-audit material. The public version contains 16 files totaling about 4.49 GB, with manifests and SHA256 checksums.
