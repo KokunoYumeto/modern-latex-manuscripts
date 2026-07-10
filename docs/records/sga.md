@@ -16,6 +16,8 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 
 Current public SGA surface is record 21300786. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #352 / scan idx355, and the unsynchronized SGA6 English working draft. TeX, audit ledgers, source crops, and build logs are grouped in two ZIPs. The SGA6 source-rescribe documents whole-page compression, omitted proofs, an invented lemma statement, wrong mathematical relations, notation drift, and unsupported equation tags in the older scaffold. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not index audit, and not a critical edition. Local and inherited completion labels remain scoped workpass labels only.
 
+The live GitHub workpass mirror currently runs three source pages beyond this frozen release, through ledger entry #355 / scan idx358 / Exposé V p49, with next cursor idx359. That delta includes restoration of an entire omitted page of section 6 mathematics. It is visible for checking and continuation, but remains volatile source-rescribe material rather than a second public release.
+
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs
