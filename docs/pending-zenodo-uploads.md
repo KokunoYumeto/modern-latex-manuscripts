@@ -1,3 +1,11 @@
+## 2026-07-10: Heartbeat sweep - SGA6 cert log now 343 entries, Expose V cursor idx347
+
+Manifest: [20260710_heartbeat_sweep_sga6_certlog343_idx347.json](../manifests/pending-zenodo-uploads/20260710_heartbeat_sweep_sga6_certlog343_idx347.json)
+
+- SGA6 local workpass advanced materially again under `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`. The current `CERT_LOG.md` contains **343** numbered entries. The highest current entry is **#343**: `idx346 (vol p333 = Exposé V p37)` with heavy restoration of Exposé V §4.2/§4.3/Déf. 4.4/4.5; the current sweep cursor points to **idx347 (vol p334 = Exposé V p38)**. The same log also records front-matter/Exposé 0/RRR appendix work and earlier cursor material, so treat it as a live nonlinear workpass rather than a simple finished reader. Current compile log reports `Output written on sga6_fr_workpass.pdf (389 pages, 2823947 bytes)`. Current hashes: TeX `E1DDAFB2196FB520E23EA645728481A6A055BCE0E6FF4742B1645F0D583B08BE`, PDF `95C872E2667546C8634E858A8EEE123FB0455E4A0992DB4C1094255B9202F3EF`, CERT_LOG `ECF9F8E3411ACC61D6E9BE17F552F906448B372C2FEADDF2A781AD3D9A0F5B66`.
+- Classification: high-value active SGA6 source-rescribe/support work with real mathematical corrections and scan-based restoration, but still not a reader release, not English synchronization, not whole-volume certification, not publication readiness, and not a critical edition. The public wording should emphasize "active source-rescribe workpass" and "changing page count" until a coherent SGA package is explicitly prepared.
+- No new branch commits, Noether package, Deligne OCR package, SGA7 source witness, or relevant Downloads artifact was visible in this pass. Downloads contained generated Gemini images only. No visible Zenodo token is present in-session, so no live Zenodo edit/upload was attempted.
+
 ## 2026-07-10: Heartbeat sweep - SGA6 IA-scan source-rescribe advances to Expose 0 p3
 
 Manifest: [20260710_heartbeat_sweep_sga6_ia_rescribe_idx17.json](../manifests/pending-zenodo-uploads/20260710_heartbeat_sweep_sga6_ia_rescribe_idx17.json)
