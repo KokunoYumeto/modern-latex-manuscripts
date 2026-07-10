@@ -25,13 +25,13 @@ from typing import Any
 
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
-    ("workflow", "20836364"),
-    ("interlanguage_reflections", "21247868"),
+    ("workflow", "21300795"),
+    ("interlanguage_reflections", "21300808"),
     ("lean_formalization_sidecars", "21129946"),
-    ("noether", "21247333"),
+    ("noether", "21300773"),
     ("weber", "20837104"),
     ("cayley", "20617845"),
-    ("sga", "20822648"),
+    ("sga", "21300786"),
     ("deligne", "20617786"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -75,10 +75,10 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Repair032 is public as a bundled audit-support artifact on record 20822648, but it is not a completed or certified SGA5 edition. The latest local compact SGA5 delta is `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip` under manifest `20260626_sga5_fullaudit_webdrop_p260_p265_delta.json`; it advances the page-local French workpass/source-audit boundary from p259 to p265 and sets p266 as the next cursor. The earlier `SGA5_FullAudit_WebDrop_p001_p254_certified_staged_p255_p484_20260626.zip` remains larger provenance/source-witness material, and the p255-p259 compact delta is superseded as current cursor but preserved as provenance. p260-p265 cover Expose VI Remarque after Proposition 1.2.5, Proposition 1.2.6 and proof, tensor products in 1.3.1, Proposition 1.3.2, cHom, invertible sheaves/Tate twist, A-faisceaux, D143 (the A-action square), and the opening of Q_l-faisceaux. p266 and later crops/cursor text remain active/pending scratch only and are not promoted by this delta. This is live French workpass/source-audit evidence only: not complete SGA5, not synchronized English, not global source-faithfulness certification, and not a critical edition. Local ledger words such as certified, clean, or complete mean page-local workpass status only. Compile-clean TeX can still be mathematically wrong. Legacy filename warning: several SGA5/SGA6 files retain older names containing `Complete`, `Strict`, `Source-Checked`, or `High-Fidelity`; those names are preserved file labels, not current quality claims.",
+        "Current SGA public surface is record 21300786. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #352 / scan idx355, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, source crops, and build logs are grouped in two ZIPs. The SGA6 source-rescribe has found whole-page compression, omitted proofs, an invented lemma statement, wrong mathematical relations, notation drift, and unsupported equation tags in the older scaffold. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not index audit, and not a critical edition. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.",
     ],
     "noether": [
-        "Current Noether update 2026-07-07: latest public surface is record 21247333. It fronts the R805 German/source-control PDF, keeps the reader-first German/English cumulative readers available, preserves the compact R787-R804 source-repair/audit rollups, retains the R804 integrated v11 source-control package as file `07`, and adds the R805 Paper 19 printed p57 E-family correction packet as file `08`. The grouped evidence covers Paper 30, Paper 24, Paper 34, Paper 40, Paper 14, and Paper 19 support packets, plus an auxiliary OCR-locator companion. This is a high-value working corpus and source-repair/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. Packet filenames containing `COMPLETE` are inherited local-task labels only.",
+        "Current Noether update 2026-07-10: latest public surface is record 21300773. It fronts the 466-page R813/integrated-v12 German source-control reader, keeps the English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 source-repair rollups, and groups the checked R805-R813 chain in file `07`. The final semantic delta is confined to Paper 19. This is a high-value working corpus and source-control/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. Packet filenames containing `COMPLETE` are inherited local-task labels only.",
     ],
     "kneser": [
         "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
@@ -87,7 +87,7 @@ RECORD_NOTES = {
         "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
     ],
     "interlanguage_reflections": [
-        "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21247868 fronts the methodology PDF, preserves the grouped Claude/ChatGPT/Fable provenance and source-body payloads, and adds file 10 for the post-2DE other-PC route-context delta at branch head 516abae30. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.",
+        "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21300808 fronts the July 10 methodology PDF, preserves the grouped Claude/ChatGPT/Fable and other-PC source-body payloads, and adds the consolidated v0.4 executable-methodology workspace as file `11`. Its connective analysis finds 10 of 15 rows lack even a Slavic-internal pan-root and none has a secure cross-family global attractor. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",

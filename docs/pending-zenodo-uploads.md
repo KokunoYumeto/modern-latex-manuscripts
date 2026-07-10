@@ -1,3 +1,16 @@
+## 2026-07-10: Four-record publication queue closed
+
+The July 10 Noether R813/v12, SGA6 idx355, workflow-method, and interlanguage-v0.4 refreshes are **published**, not staged:
+
+- Noether: [10.5281/zenodo.21300773](https://doi.org/10.5281/zenodo.21300773)
+- SGA: [10.5281/zenodo.21300786](https://doi.org/10.5281/zenodo.21300786)
+- Workflow: [10.5281/zenodo.21300795](https://doi.org/10.5281/zenodo.21300795)
+- Interlanguage: [10.5281/zenodo.21300808](https://doi.org/10.5281/zenodo.21300808)
+
+Publication receipts: [`20260710_noether_r813_v12_record_21300773.json`](../manifests/published-zenodo/20260710_noether_r813_v12_record_21300773.json), [`20260710_sga6_idx355_record_21300786.json`](../manifests/published-zenodo/20260710_sga6_idx355_record_21300786.json), [`20260710_workflow_method_refresh_record_21300795.json`](../manifests/published-zenodo/20260710_workflow_method_refresh_record_21300795.json), and [`20260710_interlanguage_v04_record_21300808.json`](../manifests/published-zenodo/20260710_interlanguage_v04_record_21300808.json).
+
+Older pending rows for the individual R805-R813 Noether tranches, the frozen SGA6 idx355 packet, the July 10 workflow refresh, or the Claude/Fable v0.4 methodology workspace are superseded by these grouped releases. Do not re-upload them as loose files. Later local work remains pending only if it advances beyond these exact published heads.
+
 ## 2026-07-10: Heartbeat sweep - SGA6 cert log reaches 348 entries, Expose V cursor idx352
 
 Manifest: [20260710_heartbeat_sweep_sga6_certlog348_idx352.json](../manifests/pending-zenodo-uploads/20260710_heartbeat_sweep_sga6_certlog348_idx352.json)
