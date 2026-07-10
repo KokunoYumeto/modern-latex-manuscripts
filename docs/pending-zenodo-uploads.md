@@ -1,3 +1,11 @@
+## 2026-07-10: Heartbeat sweep - SGA6 volatile workpass rebuild and Noether source scan intake
+
+Manifest: [20260710_heartbeat_sweep_sga6_workpass_noether_mathann83.json](../manifests/pending-zenodo-uploads/20260710_heartbeat_sweep_sga6_workpass_noether_mathann83.json)
+
+- SGA6 local workpass files changed under `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`: `sga6_fr_workpass.tex`, `sga6_fr_workpass.pdf`, and compile logs were regenerated at about 2026-07-10 16:33 local. The latest compile log reports `Output written on sga6_fr_workpass.pdf (388 pages, 2814699 bytes)`. The TeX hash is `ADC063FA2B1FD28E561D017C953B53FB057980E0BBC1E769423455E4C8234ED6`; the PDF hash is `825EEC14EE62B4E9F18F03663F67D619C3861E34D90F7EEF1E23277A419A0B20`. Classification: volatile SGA6 workpass rebuild/source-support only. The certification ledger did not advance with this rebuild, and earlier local notes mentioned a 394-page compile, so do not promote this as a release or certification without a fresh SGA audit cursor/ledger update.
+- A new Göttingen scan appeared in Downloads: `C:\Users\Floris\Downloads\PPN235181684_0083.pdf`, 24,110,106 bytes, 333 pages, SHA256 `83B6E73DF30C1D2C1F83452951631D74878B4D9E6F7F20A93A0093561ACB7B19`. `pdftotext` extracts only the Göttingen cover/rights sheet, but visual spot-checking confirms it is `Mathematische Annalen` 83 (1921) and contains E. Noether material, including a page headed `E. Noether` / `Ausdehnung der Untersuchung der Moduln...`. Classification: Noether-relevant source-scan intake/witness only; not OCR, not source-audited TeX, not a transcription or translation release, and not a critical edition. Next action: route it into the Noether source witness/source-intake shelf if/when a source package is made; do not upload as a loose public reader.
+- Other recent Downloads hits during this pass were private-looking JSON character files and generated images. They were ignored as unrelated to this archive-maintenance workflow.
+
 ## 2026-07-10: Heartbeat sweep - Noether v12 R805-R813 rollup and interlanguage v0.4 framework
 
 Manifest: [20260710_heartbeat_sweep_noether_v12_interlanguage_v04.json](../manifests/pending-zenodo-uploads/20260710_heartbeat_sweep_noether_v12_interlanguage_v04.json)
