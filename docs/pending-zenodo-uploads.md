@@ -1,3 +1,11 @@
+## 2026-07-10: Heartbeat sweep - SGA6 IA-scan source-rescribe advances to Expose 0 p3
+
+Manifest: [20260710_heartbeat_sweep_sga6_ia_rescribe_idx17.json](../manifests/pending-zenodo-uploads/20260710_heartbeat_sweep_sga6_ia_rescribe_idx17.json)
+
+- SGA6 local workpass advanced again under `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`. `CERT_LOG.md` is newest-first and now records a full method pivot using the 360 dpi Internet Archive scan `Théorie des Intersections et Théorème de Riemann-Roch.pdf`, manual page-by-page source transcription, and entries through **#11**. The latest cursor is **Exposé 0 p4 = scan idx17** after re-transcribing Exposé 0 p3; completed/checked material now includes Préface, Introduction, Table des matières, Exposé 0 pp.1-3, and earlier method/setup entries. The latest compile log reports `Output written on sga6_fr_workpass.pdf (387 pages, 2814819 bytes)`. Current hashes: TeX `A0D770A152A3B126840DBBF0EA0039301CACB04DFDF41D382A63312DE5D11D41`, PDF `C44031EBE507B5E94CF81E8D296B79EB79FC1B4BDB2C422B5207249D83EE49F9`, CERT_LOG `ABAD5039C9A0E857A7DAB9EE3466C63B7836D6D608B5DD606DE467CF843B7BF7`.
+- Classification: active SGA6 source-rescribe/workpass support with real audit progress, but still not a reader release, not English synchronization, not whole-volume source-faithfulness certification, not publication readiness, and not a critical edition. The changing page count is expected while the paraphrased repair033 base is being replaced by source-faithful text; do not promote until a coherent SGA package is explicitly prepared.
+- No new GitHub branch commits appeared beyond `bbacb8d65` during this pass. A recent Downloads shortcut was ignored as unrelated. No visible Zenodo token is present in-session, so no live Zenodo edit/upload was attempted.
+
 ## 2026-07-10: Heartbeat sweep - SGA6 volatile workpass rebuild and Noether source scan intake
 
 Manifest: [20260710_heartbeat_sweep_sga6_workpass_noether_mathann83.json](../manifests/pending-zenodo-uploads/20260710_heartbeat_sweep_sga6_workpass_noether_mathann83.json)
