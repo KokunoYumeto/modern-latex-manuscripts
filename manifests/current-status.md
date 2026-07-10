@@ -1,3 +1,9 @@
+## 2026-07-10 SGA6 live GitHub continuation through idx358
+
+The stable GitHub workpass mirror at `sources/sga/sga6-claude-workpass-source-rescribe-20260704/` now carries the active SGA6 French source-rescribe through ledger entry #355 / scan idx358 / volume p345 / Exposé V p49, with next cursor idx359 / volume p346 / Exposé V p50. Entries #353-#355 remove a fabricated equation tag, restore the end of Proposition 5.7 and the opening of section 6, and recover an entire omitted source page containing the two functor-morphism displays, the `1+Â⁺` ring construction, and formulas (6.1.1)-(6.1.3). The current mirror compiles to 391 pages with no fatal LaTeX error; a missing footnote destination and infinite-glue warnings remain logged.
+
+The immutable Zenodo surface remains [record 21300786](https://doi.org/10.5281/zenodo.21300786), deliberately frozen at entry #352 / scan idx355. The three-page live delta is mirrored on GitHub and registered in `manifests/source-intake/20260710_sga6_live_continuation_idx358.json`; it does not justify minting a competing Zenodo version minutes after the curated release. Classification remains active source-rescribe/workpass evidence only, not completed SGA6, English synchronization, whole-volume source-faithfulness certification, publication readiness, or a critical edition.
+
 ## 2026-07-10 Noether, SGA, workflow, and interlanguage refresh published
 
 Four curated reader/methodology-first Zenodo versions are now live and mirrored in the public catalog:
