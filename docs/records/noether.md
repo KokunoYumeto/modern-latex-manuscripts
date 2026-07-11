@@ -2,53 +2,54 @@
 
 Zenodo concept DOI: [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587)
 
-Current public version: [10.5281/zenodo.21306772](https://doi.org/10.5281/zenodo.21306772)
+Current public version: [10.5281/zenodo.21312393](https://doi.org/10.5281/zenodo.21312393)
 
-Public title: *Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Drafts (R816 / Integrated v19 Source-Control Update)*
+Public title: *Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Drafts (Integrated v26 Source-Control Update)*
 
-**Status:** high-value working corpus and source-repair/source-control surface. This is not a critical edition, not whole-corpus closure, not page-by-page certification, not multilingual synchronization, and not source-faithfulness certification. The retained English and multilingual readers predate some current German repairs. Inherited words such as `COMPLETE` inside packet filenames mean local packet completion only.
+**Status:** high-value working corpus and source-repair/source-control surface. This is not a critical edition, whole-corpus closure, paper-by-paper certification, multilingual synchronization, publication-grade proofreading, or source-faithfulness certification. The retained English and multilingual readers predate some current German repairs. Inherited words such as `COMPLETE`, `closure`, or `closed` mean only that a bounded local packet task completed.
+
+| Files | PDFs | ZIPs | Total MB |
+|---:|---:|---:|---:|
+| 15 | 2 | 8 | 1796.6 |
 
 ## What To Open First
 
 | Role | File |
 |---|---|
-| German working source-control reader | [`00_Noether_German_Cumulative_Working_SourceControl_R816_v19_20260711.pdf`](https://zenodo.org/records/21306772/files/00_Noether_German_Cumulative_Working_SourceControl_R816_v19_20260711.pdf) |
-| English cumulative working reader | [`01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf`](https://zenodo.org/records/21306772/files/01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf) |
-| Standalone English paper PDFs | [`02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip`](https://zenodo.org/records/21306772/files/02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip) |
-| Current integrated source-control TeX/readers | [`07_Noether_Current_SourceControl_Integrated_v19_R814_R816_20260711.zip`](https://zenodo.org/records/21306772/files/07_Noether_Current_SourceControl_Integrated_v19_R814_R816_20260711.zip) |
-| Multilingual checkpoints | [`05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip`](https://zenodo.org/records/21306772/files/05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip) |
+| German working source-control reader | [`00_Noether_German_Cumulative_Working_SourceControl_v26_20260711.pdf`](https://zenodo.org/records/21312393/files/00_Noether_German_Cumulative_Working_SourceControl_v26_20260711.pdf) |
+| English cumulative working reader | [`01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf`](https://zenodo.org/records/21312393/files/01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf) |
+| Standalone English paper PDFs | [`02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip`](https://zenodo.org/records/21312393/files/02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip) |
+| Current integrated source-control TeX/readers | [`07_Noether_Current_German_SourceControl_v26_20260711.zip`](https://zenodo.org/records/21312393/files/07_Noether_Current_German_SourceControl_v26_20260711.zip) |
+| Multilingual checkpoints | [`05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip`](https://zenodo.org/records/21312393/files/05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip) |
 
 ## Current Head
 
-The current fronted German/source-control PDF is [`00_Noether_German_Cumulative_Working_SourceControl_R816_v19_20260711.pdf`](https://zenodo.org/records/21306772/files/00_Noether_German_Cumulative_Working_SourceControl_R816_v19_20260711.pdf). It compiles to 466 pages.
+The current fronted German/source-control PDF is a 466-page build. The grouped v26 package contains one safe root, 883 ZIP entries, and a verified 882-row SHA-256 manifest with no missing or mismatched payloads.
 
-The current grouped source-control package is [`07_Noether_Current_SourceControl_Integrated_v19_R814_R816_20260711.zip`](https://zenodo.org/records/21306772/files/07_Noether_Current_SourceControl_Integrated_v19_R814_R816_20260711.zip). It retains R805-R813, integrates R814-R816, and adds independent LocalCodex v14-v19 source passes. The chain repairs source-bearing notation and proof steps in Papers 19, 31, 32, and 34. v19 independently checks Paper 34 printed pp. 641-649 and 663-668; together with v18's pp. 650-662 pass, the current head has continuous direct checking through printed p. 668. The newest repair restores three p648 isomorphism-theorem conclusions from homomorphism signs to the source's isomorphism signs.
+Since the previous v19 public head, the v20-v26 chain records:
 
-Earlier v11/v12, narrow R805, and v18 current-control files were removed from the latest surface to avoid presenting several competing heads. They remain preserved in earlier immutable Zenodo versions. The current v19 package is source-control evidence, not Noether closure, multilingual synchronization, or a critical edition. A compact editable mirror is available at `sources/noether/current-german-source-control-r816-v19-20260711/`.
+- direct Paper 34 checking through printed p. 692;
+- current-head page passes for Papers 35-39;
+- five integrated R817 Paper 19 source/style corrections;
+- a Paper 41 regression repair;
+- page dispositions for all 21 printed pages of Paper 43;
+- seven newest Paper 43 atomic repairs, including `alpha = alpha e`, congruence modulo `S_i`, and `Komponentenzerlegung der Differente`.
 
-## Preserved Rollups And Current Manifest
+The newer WebB R818 Paper 20 packet contains real source-audited deltas, including a substantive `U_i` to `U_lambda` correction, but it was not integrated into v26. The LocalCodex v27 Paper 40 directory was also active and unsealed at publication time. Neither is presented as a competing public head.
 
-The July 7 public surface keeps compact source-repair/audit evidence instead of loose micro-packets:
+A compact editable mirror is available at `sources/noether/current-german-source-control-v26-20260711/`.
+
+## Preserved Rollups
 
 | Scope | File |
 |---|---|
-| R787-R789 Paper 30 evidence | [`06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip`](https://zenodo.org/records/21306772/files/06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip) |
-| R791-R798 Paper 30 evidence | [`06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip`](https://zenodo.org/records/21306772/files/06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip) |
-| R792-R804 Paper 24, Paper 34, Paper 40, Paper 14, and Paper 19 evidence | [`06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip`](https://zenodo.org/records/21306772/files/06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip) |
-| Auxiliary OCR/locator support | [`06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip`](https://zenodo.org/records/21306772/files/06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip) |
-| Rollup manifest | [`06_Noether_R787_R804_rollup_manifest_20260707.csv`](https://zenodo.org/records/21306772/files/06_Noether_R787_R804_rollup_manifest_20260707.csv) |
-| Rollup checksums | [`06_Noether_R787_R804_public_upload_sha256_20260707.csv`](https://zenodo.org/records/21306772/files/06_Noether_R787_R804_public_upload_sha256_20260707.csv) |
-| v19 manifest | [`07_Noether_R816_v19_public_manifest_20260711.csv`](https://zenodo.org/records/21306772/files/07_Noether_R816_v19_public_manifest_20260711.csv) |
-| v19 checksums | [`07_Noether_R816_v19_public_sha256_20260711.csv`](https://zenodo.org/records/21306772/files/07_Noether_R816_v19_public_sha256_20260711.csv) |
-| Public caveat note | [`99_Noether_Public_Status_NotCritical_R816_v19_20260711.md`](https://zenodo.org/records/21306772/files/99_Noether_Public_Status_NotCritical_R816_v19_20260711.md) |
-
-R790 and R799 standalone ZIPs were not included because the local sweep found checksum sidecars but no matching ZIP files. Later cumulative material carries the R799 p684 correction into v11. Duplicate R795/R798 downloads were excluded.
-
-## Public File Counts
-
-| Files | PDFs | ZIPs | Status/CSV | Total |
-|---:|---:|---:|---:|---:|
-| 15 | 2 | 8 | 5 | about 1.71 GiB |
+| R787-R789 Paper 30 evidence | [`06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip`](https://zenodo.org/records/21312393/files/06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip) |
+| R791-R798 Paper 30 evidence | [`06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip`](https://zenodo.org/records/21312393/files/06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip) |
+| R792-R804 Papers 24, 34, 40, 14, and 19 | [`06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip`](https://zenodo.org/records/21312393/files/06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip) |
+| Auxiliary OCR/locator support | [`06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip`](https://zenodo.org/records/21312393/files/06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip) |
+| v26 manifest | [`07_Noether_v26_public_manifest_20260711.csv`](https://zenodo.org/records/21312393/files/07_Noether_v26_public_manifest_20260711.csv) |
+| v26 checksums | [`07_Noether_v26_public_sha256_20260711.csv`](https://zenodo.org/records/21312393/files/07_Noether_v26_public_sha256_20260711.csv) |
+| Public caveat note | [`99_Noether_Public_Status_NotCritical_v26_20260711.md`](https://zenodo.org/records/21312393/files/99_Noether_Public_Status_NotCritical_v26_20260711.md) |
 
 ## Reliability Guidance
 
