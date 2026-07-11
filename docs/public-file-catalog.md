@@ -178,29 +178,29 @@ Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-can
 |---|---:|---|
 | artifact/source ZIP | 0.0094 | [ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip](https://zenodo.org/records/21129946/files/ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip) |
 
-## Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Drafts (R816 / Integrated v19 Source-Control Update)
+## Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Drafts (Integrated v26 Source-Control Update)
 
 Record: <https://doi.org/10.5281/zenodo.20412587>
 
-Current Noether update 2026-07-11: latest public surface is record 21306772. It fronts the 466-page R816/integrated-v19 German source-control reader, keeps the older English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 source-repair rollups, and groups R814-R816 plus LocalCodex v14-v19 in file `07`. The chain adds source-backed repairs in Papers 19, 31, 32, and 34; v19 restores three Paper 34 isomorphism-theorem conclusions from homomorphism signs to the source's isomorphism signs and extends continuous direct checking through printed p. 668. This is a high-value working corpus and source-control/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. Retained English/multilingual readers predate some German repairs. Packet filenames containing `COMPLETE` are inherited local-task labels only.
+Current Noether update 2026-07-11: latest public surface is record 21312393. It fronts the 466-page integrated-v26 German source-control reader, keeps the older English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 rollups, and groups the complete source-heavy v26 chain in file `07`. Since v19, direct source work covers Paper 34 through printed p692, current-head page passes for Papers 35-39, a Paper 41 regression repair, five R817 Paper 19 corrections, and page dispositions for all 21 printed pages of Paper 43. This is a high-value working corpus and source-control/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. R818 Paper 20 and active v27 Paper 40 remain unintegrated continuation inputs. Retained English/multilingual readers predate some German repairs. Packet filenames containing `COMPLETE`, `closure`, or `closed` are bounded local-task labels only.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 2.5257 | [00_Noether_German_Cumulative_Working_SourceControl_R816_v19_20260711.pdf](https://zenodo.org/records/21306772/files/00_Noether_German_Cumulative_Working_SourceControl_R816_v19_20260711.pdf) |
-| reader/reference PDF | 2.4925 | [01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf](https://zenodo.org/records/21306772/files/01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf) |
-| artifact/source ZIP | 10.2346 | [02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip](https://zenodo.org/records/21306772/files/02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip) |
-| artifact/source ZIP | 345.3624 | [04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip](https://zenodo.org/records/21306772/files/04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip) |
-| artifact/source ZIP | 25.0978 | [05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip](https://zenodo.org/records/21306772/files/05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip) |
-| manifest/status | 0.0008 | [06_Noether_R787_R804_public_upload_sha256_20260707.csv](https://zenodo.org/records/21306772/files/06_Noether_R787_R804_public_upload_sha256_20260707.csv) |
-| manifest/status | 0.0032 | [06_Noether_R787_R804_rollup_manifest_20260707.csv](https://zenodo.org/records/21306772/files/06_Noether_R787_R804_rollup_manifest_20260707.csv) |
-| artifact/source ZIP | 350.7858 | [06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip](https://zenodo.org/records/21306772/files/06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip) |
-| artifact/source ZIP | 320.9525 | [06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip](https://zenodo.org/records/21306772/files/06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip) |
-| artifact/source ZIP | 251.7752 | [06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip](https://zenodo.org/records/21306772/files/06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip) |
-| artifact/source ZIP | 12.3384 | [06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip](https://zenodo.org/records/21306772/files/06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip) |
-| artifact/source ZIP | 429.0725 | [07_Noether_Current_SourceControl_Integrated_v19_R814_R816_20260711.zip](https://zenodo.org/records/21306772/files/07_Noether_Current_SourceControl_Integrated_v19_R814_R816_20260711.zip) |
-| manifest/status | 0.0006 | [07_Noether_R816_v19_public_manifest_20260711.csv](https://zenodo.org/records/21306772/files/07_Noether_R816_v19_public_manifest_20260711.csv) |
-| manifest/status | 0.0006 | [07_Noether_R816_v19_public_sha256_20260711.csv](https://zenodo.org/records/21306772/files/07_Noether_R816_v19_public_sha256_20260711.csv) |
-| manifest/status | 0.0015 | [99_Noether_Public_Status_NotCritical_R816_v19_20260711.md](https://zenodo.org/records/21306772/files/99_Noether_Public_Status_NotCritical_R816_v19_20260711.md) |
+| reader/reference PDF | 2.5270 | [00_Noether_German_Cumulative_Working_SourceControl_v26_20260711.pdf](https://zenodo.org/records/21312393/files/00_Noether_German_Cumulative_Working_SourceControl_v26_20260711.pdf) |
+| reader/reference PDF | 2.4925 | [01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf](https://zenodo.org/records/21312393/files/01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf) |
+| artifact/source ZIP | 10.2346 | [02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip](https://zenodo.org/records/21312393/files/02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip) |
+| artifact/source ZIP | 345.3624 | [04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip](https://zenodo.org/records/21312393/files/04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip) |
+| artifact/source ZIP | 25.0978 | [05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip](https://zenodo.org/records/21312393/files/05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip) |
+| manifest/status | 0.0008 | [06_Noether_R787_R804_public_upload_sha256_20260707.csv](https://zenodo.org/records/21312393/files/06_Noether_R787_R804_public_upload_sha256_20260707.csv) |
+| manifest/status | 0.0032 | [06_Noether_R787_R804_rollup_manifest_20260707.csv](https://zenodo.org/records/21312393/files/06_Noether_R787_R804_rollup_manifest_20260707.csv) |
+| artifact/source ZIP | 350.7858 | [06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip](https://zenodo.org/records/21312393/files/06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip) |
+| artifact/source ZIP | 320.9525 | [06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip](https://zenodo.org/records/21312393/files/06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip) |
+| artifact/source ZIP | 251.7752 | [06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip](https://zenodo.org/records/21312393/files/06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip) |
+| artifact/source ZIP | 12.3384 | [06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip](https://zenodo.org/records/21312393/files/06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip) |
+| artifact/source ZIP | 475.0238 | [07_Noether_Current_German_SourceControl_v26_20260711.zip](https://zenodo.org/records/21312393/files/07_Noether_Current_German_SourceControl_v26_20260711.zip) |
+| manifest/status | 0.0005 | [07_Noether_v26_public_manifest_20260711.csv](https://zenodo.org/records/21312393/files/07_Noether_v26_public_manifest_20260711.csv) |
+| manifest/status | 0.0005 | [07_Noether_v26_public_sha256_20260711.csv](https://zenodo.org/records/21312393/files/07_Noether_v26_public_sha256_20260711.csv) |
+| manifest/status | 0.0018 | [99_Noether_Public_Status_NotCritical_v26_20260711.md](https://zenodo.org/records/21312393/files/99_Noether_Public_Status_NotCritical_v26_20260711.md) |
 
 ## Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 
@@ -356,22 +356,22 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 | artifact/source ZIP | 14.0192 | [Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20617845/files/Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip) |
 | artifact/source ZIP | 227.8307 | [Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip](https://zenodo.org/records/20617845/files/Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip) |
 
-## SGA: Working Translation, Source-Repair, and Audit Drafts (SGA6 idx413 Source-Rescribe Checkpoint)
+## SGA: Working Translation, Source-Repair, and Audit Drafts (SGA6 idx438 Source-Rescribe Checkpoint)
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Current SGA public surface is record 21306092. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #410 / scan idx413 / Expose VI p36, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, representative source crops, and build logs are grouped in two ZIPs. The GitHub workpass mirror is seven directly checked pages ahead at #417 / idx420 / Expose VI p43. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not index audit, and not a critical edition. Content after the stated GitHub cursor remains inherited working scaffold until directly checked. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.
+Current SGA public surface is record 21312517. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #435 / scan idx438 / Expose VII p10, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, representative source crops, and build logs are grouped in two ZIPs. The 25-page delta since public entry #410 completes Expose VI pp37-51 and covers Expose VII pp1-10. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Content after idx438 remains inherited scaffold until directly checked. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.9223 | [00_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21306092/files/00_SGA5_French_Workpass_NotCertified_20260706.pdf) |
-| reader/reference PDF | 2.7120 | [01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx413_20260711.pdf](https://zenodo.org/records/21306092/files/01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx413_20260711.pdf) |
-| reader/reference PDF | 2.3394 | [02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf](https://zenodo.org/records/21306092/files/02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf) |
-| artifact/source ZIP | 704.9033 | [03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip](https://zenodo.org/records/21306092/files/03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip) |
-| manifest/status | 0.0006 | [04_SGA6_idx413_public_manifest_20260711.csv](https://zenodo.org/records/21306092/files/04_SGA6_idx413_public_manifest_20260711.csv) |
-| manifest/status | 0.0005 | [04_SGA6_idx413_public_sha256_20260711.csv](https://zenodo.org/records/21306092/files/04_SGA6_idx413_public_sha256_20260711.csv) |
-| artifact/source ZIP | 7.3034 | [04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx413_20260711.zip](https://zenodo.org/records/21306092/files/04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx413_20260711.zip) |
-| manifest/status | 0.0013 | [99_SGA_Public_Status_NotCritical_idx413_20260711.md](https://zenodo.org/records/21306092/files/99_SGA_Public_Status_NotCritical_idx413_20260711.md) |
+| reader/reference PDF | 1.9223 | [00_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21312517/files/00_SGA5_French_Workpass_NotCertified_20260706.pdf) |
+| reader/reference PDF | 2.7121 | [01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx438_20260711.pdf](https://zenodo.org/records/21312517/files/01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx438_20260711.pdf) |
+| reader/reference PDF | 2.3394 | [02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf](https://zenodo.org/records/21312517/files/02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf) |
+| artifact/source ZIP | 704.9033 | [03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip](https://zenodo.org/records/21312517/files/03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip) |
+| manifest/status | 0.0005 | [04_SGA6_idx438_public_manifest_20260711.csv](https://zenodo.org/records/21312517/files/04_SGA6_idx438_public_manifest_20260711.csv) |
+| manifest/status | 0.0005 | [04_SGA6_idx438_public_sha256_20260711.csv](https://zenodo.org/records/21312517/files/04_SGA6_idx438_public_sha256_20260711.csv) |
+| artifact/source ZIP | 7.3409 | [04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx438_20260711.zip](https://zenodo.org/records/21312517/files/04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx438_20260711.zip) |
+| manifest/status | 0.0015 | [99_SGA_Public_Status_NotCritical_idx438_20260711.md](https://zenodo.org/records/21312517/files/99_SGA_Public_Status_NotCritical_idx438_20260711.md) |
 
 ## Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
 

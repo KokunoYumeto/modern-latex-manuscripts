@@ -28,10 +28,10 @@ RECORDS: list[tuple[str, str]] = [
     ("workflow", "21300795"),
     ("interlanguage_reflections", "21300808"),
     ("lean_formalization_sidecars", "21129946"),
-    ("noether", "21306772"),
+    ("noether", "21312393"),
     ("weber", "20837104"),
     ("cayley", "20617845"),
-    ("sga", "21306092"),
+    ("sga", "21312517"),
     ("deligne", "20617786"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -75,10 +75,10 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current SGA public surface is record 21306092. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #410 / scan idx413 / Expose VI p36, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, representative source crops, and build logs are grouped in two ZIPs. The GitHub workpass mirror is seven directly checked pages ahead at #417 / idx420 / Expose VI p43. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not index audit, and not a critical edition. Content after the stated GitHub cursor remains inherited working scaffold until directly checked. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.",
+        "Current SGA public surface is record 21312517. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #435 / scan idx438 / Expose VII p10, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, representative source crops, and build logs are grouped in two ZIPs. The 25-page delta since public entry #410 completes Expose VI pp37-51 and covers Expose VII pp1-10. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Content after idx438 remains inherited scaffold until directly checked. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.",
     ],
     "noether": [
-        "Current Noether update 2026-07-11: latest public surface is record 21306772. It fronts the 466-page R816/integrated-v19 German source-control reader, keeps the older English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 source-repair rollups, and groups R814-R816 plus LocalCodex v14-v19 in file `07`. The chain adds source-backed repairs in Papers 19, 31, 32, and 34; v19 restores three Paper 34 isomorphism-theorem conclusions from homomorphism signs to the source's isomorphism signs and extends continuous direct checking through printed p. 668. This is a high-value working corpus and source-control/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. Retained English/multilingual readers predate some German repairs. Packet filenames containing `COMPLETE` are inherited local-task labels only.",
+        "Current Noether update 2026-07-11: latest public surface is record 21312393. It fronts the 466-page integrated-v26 German source-control reader, keeps the older English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 rollups, and groups the complete source-heavy v26 chain in file `07`. Since v19, direct source work covers Paper 34 through printed p692, current-head page passes for Papers 35-39, a Paper 41 regression repair, five R817 Paper 19 corrections, and page dispositions for all 21 printed pages of Paper 43. This is a high-value working corpus and source-control/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. R818 Paper 20 and active v27 Paper 40 remain unintegrated continuation inputs. Retained English/multilingual readers predate some German repairs. Packet filenames containing `COMPLETE`, `closure`, or `closed` are bounded local-task labels only.",
     ],
     "kneser": [
         "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
