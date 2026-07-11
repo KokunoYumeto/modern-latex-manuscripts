@@ -28,7 +28,7 @@ RECORDS: list[tuple[str, str]] = [
     ("workflow", "21300795"),
     ("interlanguage_reflections", "21300808"),
     ("lean_formalization_sidecars", "21129946"),
-    ("noether", "21300773"),
+    ("noether", "21306360"),
     ("weber", "20837104"),
     ("cayley", "20617845"),
     ("sga", "21306092"),
@@ -78,7 +78,7 @@ RECORD_NOTES = {
         "Current SGA public surface is record 21306092. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #410 / scan idx413 / Expose VI p36, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, representative source crops, and build logs are grouped in two ZIPs. Since the prior idx379 checkpoint, the SGA6 pagewise source-rescribe checks 34 further Expose VI pages through p36, restoring omitted content and repairing relations, notation, display structure, diagrams, and unsupported equation tags. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not index audit, and not a critical edition. Content after idx413 in the compiled PDF remains inherited working scaffold until directly checked. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.",
     ],
     "noether": [
-        "Current Noether update 2026-07-10: latest public surface is record 21300773. It fronts the 466-page R813/integrated-v12 German source-control reader, keeps the English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 source-repair rollups, and groups the checked R805-R813 chain in file `07`. The final semantic delta is confined to Paper 19. This is a high-value working corpus and source-control/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. Packet filenames containing `COMPLETE` are inherited local-task labels only.",
+        "Current Noether update 2026-07-11: latest public surface is record 21306360. It fronts the 466-page R816/integrated-v18 German source-control reader, keeps the older English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 source-repair rollups, and groups R814-R816 plus LocalCodex v14-v18 in file `07`. The chain adds source-backed repairs in Papers 19, 31, 32, and 34, including restoration of an omitted Paper 34 proof step. This is a high-value working corpus and source-control/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. Retained English/multilingual readers predate some German repairs. Packet filenames containing `COMPLETE` are inherited local-task labels only.",
     ],
     "kneser": [
         "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
