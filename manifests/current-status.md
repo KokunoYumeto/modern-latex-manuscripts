@@ -1,4 +1,10 @@
-## 2026-07-11 SGA6 source-rescribe checkpoint through idx379 published
+## 2026-07-11 SGA6 source-rescribe checkpoint through idx413 published
+
+The stable GitHub workpass mirror at `sources/sga/sga6-claude-workpass-source-rescribe-20260704/` and Zenodo version [10.5281/zenodo.21306092](https://doi.org/10.5281/zenodo.21306092) now freeze the SGA6 French source-rescribe through ledger entry #410 / scan idx413 / volume p400 / Exposé VI p36, with next cursor idx414 / volume p401 / Exposé VI p37. The thirty-four-page delta since idx379 continues the Exposé VI pagewise audit through p36, restoring omitted content and repairing relations, notation, display structure, diagrams, and equation-tag drift.
+
+The 389-page PDF has no fatal LaTeX error, overfull box, or underfull box; four inherited accent-command warnings and one missing footnote destination remain logged. The audited frontier and Proposition 1.7 layout repair were rendered and checked without clipping or overlap. Classification remains active source-rescribe/workpass evidence only, not completed SGA6, English synchronization, whole-volume source-faithfulness certification, publication readiness, or a critical edition. Material after idx413 remains inherited scaffold until directly source-checked; the first page beyond the cursor already shows known notation drift. Machine-readable state is in `manifests/source-intake/20260711_sga6_public_checkpoint_idx413.json`.
+
+## 2026-07-11 SGA6 source-rescribe checkpoint through idx379 published (superseded)
 
 The stable GitHub workpass mirror at `sources/sga/sga6-claude-workpass-source-rescribe-20260704/` and Zenodo version [10.5281/zenodo.21302915](https://doi.org/10.5281/zenodo.21302915) now freeze the SGA6 French source-rescribe through ledger entry #376 / scan idx379 / volume p366 / Exposé VI p2, with next cursor idx380 / volume p367 / Exposé VI p3. The twenty-four-page delta since idx355 traverses Exposé V pp47-68 and enters Exposé VI through p2. It restores two whole omitted pages, removes unsupported tags, and repairs relations, notation, and diagrams in the inherited scaffold.
 
@@ -9,7 +15,7 @@ The 390-page PDF has no fatal LaTeX error, overfull box, or underfull box; three
 Four curated reader/methodology-first Zenodo versions are now live and mirrored in the public catalog:
 
 - **Noether:** [10.5281/zenodo.21300773](https://doi.org/10.5281/zenodo.21300773), 15 files. The front PDF is the 466-page R813/integrated-v12 German source-control reader; the checked R805-R813 chain is grouped in file `07`. Classification: source-control/working corpus, not closure, certification, multilingual synchronization, or critical edition.
-- **SGA:** [10.5281/zenodo.21302915](https://doi.org/10.5281/zenodo.21302915), 8 files. The SGA6 French source-rescribe is frozen through ledger entry #376 / scan idx379 and fronted beside the SGA5 French workpass and unsynchronized SGA6 English reader. Classification: not-certified workpass/source-rescribe, not completed SGA5/SGA6 or critical edition.
+- **SGA:** [10.5281/zenodo.21306092](https://doi.org/10.5281/zenodo.21306092), 8 files. The SGA6 French source-rescribe is frozen through ledger entry #410 / scan idx413 and fronted beside the SGA5 French workpass and unsynchronized SGA6 English reader. Classification: not-certified workpass/source-rescribe, not completed SGA5/SGA6 or critical edition.
 - **Workflow:** [10.5281/zenodo.21300795](https://doi.org/10.5281/zenodo.21300795), 7 files. The July 10 PDF/Markdown and grouped method ZIP now record OCR/VLM witness roles, local/web handoffs, reader-first publication hygiene, and the SGA6 compile-clean-but-wrong failure catalogue.
 - **Interlanguage:** [10.5281/zenodo.21300808](https://doi.org/10.5281/zenodo.21300808), 21 files. The July 10 methodology PDF is fronted and the consolidated Claude/Fable v0.4 workspace is grouped as file `11`; earlier source-body/provenance payloads remain available. Classification: methodology/corpus infrastructure, not native approval, accepted terminology, or completed language.
 
