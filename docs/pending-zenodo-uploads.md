@@ -1,11 +1,11 @@
-## 2026-07-11: Noether v18 and SGA6 idx413 publication queue closed
+## 2026-07-11: Noether v19 and SGA6 idx413 publication queue closed
 
 The current Noether and SGA source-control heads are published, not staged:
 
-- Noether R816/integrated v18: [10.5281/zenodo.21306360](https://doi.org/10.5281/zenodo.21306360)
+- Noether R816/integrated v19: [10.5281/zenodo.21306772](https://doi.org/10.5281/zenodo.21306772)
 - SGA6 source-rescribe through #410/idx413: [10.5281/zenodo.21306092](https://doi.org/10.5281/zenodo.21306092)
 
-Publication receipts: [`20260711_noether_r816_v18_record_21306360.json`](../manifests/published-zenodo/20260711_noether_r816_v18_record_21306360.json) and [`20260711_sga6_idx413_record_21306092.json`](../manifests/published-zenodo/20260711_sga6_idx413_record_21306092.json). The Noether v18 current-control ZIP supersedes v12 as the current German source-control head while immutable earlier versions preserve v12 and its predecessors. The SGA idx413 package supersedes idx379 as the current frozen source-rescribe checkpoint. Do not upload the intervening micro-packets as loose top-level files.
+Publication receipts: [`20260711_noether_r816_v19_record_21306772.json`](../manifests/published-zenodo/20260711_noether_r816_v19_record_21306772.json) and [`20260711_sga6_idx413_record_21306092.json`](../manifests/published-zenodo/20260711_sga6_idx413_record_21306092.json). The Noether v19 current-control ZIP supersedes v18 as the current German source-control head while immutable earlier versions preserve v18, v12, and their predecessors. The SGA idx413 package supersedes idx379 as the current frozen source-rescribe checkpoint. Do not upload intervening micro-packets as loose top-level files.
 
 ## 2026-07-10: Four-record publication queue closed (superseded heads retained as history)
 
