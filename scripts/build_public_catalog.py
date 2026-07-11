@@ -31,7 +31,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "21300773"),
     ("weber", "20837104"),
     ("cayley", "20617845"),
-    ("sga", "21302915"),
+    ("sga", "21306092"),
     ("deligne", "20617786"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -75,7 +75,7 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current SGA public surface is record 21302915. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #376 / scan idx379 / Expose VI p2, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, representative source crops, and build logs are grouped in two ZIPs. Since the prior idx355 checkpoint, the SGA6 pagewise source-rescribe traverses Expose V pp47-68 and enters Expose VI through p2, restoring two whole omitted source pages and repairing relations, notation, diagrams, and unsupported equation tags. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not index audit, and not a critical edition. Content after idx379 in the compiled PDF remains inherited working scaffold until directly checked. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.",
+        "Current SGA public surface is record 21306092. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #410 / scan idx413 / Expose VI p36, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, representative source crops, and build logs are grouped in two ZIPs. Since the prior idx379 checkpoint, the SGA6 pagewise source-rescribe checks 34 further Expose VI pages through p36, restoring omitted content and repairing relations, notation, display structure, diagrams, and unsupported equation tags. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not index audit, and not a critical edition. Content after idx413 in the compiled PDF remains inherited working scaffold until directly checked. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.",
     ],
     "noether": [
         "Current Noether update 2026-07-10: latest public surface is record 21300773. It fronts the 466-page R813/integrated-v12 German source-control reader, keeps the English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 source-repair rollups, and groups the checked R805-R813 chain in file `07`. The final semantic delta is confined to Paper 19. This is a high-value working corpus and source-control/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. Packet filenames containing `COMPLETE` are inherited local-task labels only.",
