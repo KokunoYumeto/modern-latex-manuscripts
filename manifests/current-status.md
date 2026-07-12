@@ -1,3 +1,9 @@
+## 2026-07-12 Noether v26/R819 Paper 20 integration published
+
+Noether version [10.5281/zenodo.21320035](https://doi.org/10.5281/zenodo.21320035), under concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587), now fronts the 466-page v26/R819 German source-control reader. The 15-file public surface retains the English cumulative reader, standalone English papers, multilingual checkpoints, and compact R787-R804 evidence while replacing the former current-head files with one reader PDF, one grouped current German package, a file map, checksums, and a status note.
+
+This revision changes only Paper 20. R818 contributes 17 direct source-backed corrections across printed pp.26-32; R819 contributes eight additional source-backed emphasis and punctuation corrections across pp.31-33. No OCR text was promoted. The integration check proves that all text outside Paper 20 is byte-preserved from v26 and that the integrated Paper 20 exactly matches the sealed R819 text. XeLaTeX passes twice to 466 pages with no fatal, overfull, or underfull diagnostics; output pages 218-223 were rendered and visually checked. The 989-row grouped-package manifest and ZIP CRC check pass. Classification remains high-value working/source-control evidence, not corpus closure, paper certification, multilingual synchronization, or a critical edition. The compact mirror is `sources/noether/current-german-source-control-v26-r819-20260712/`.
+
 ## 2026-07-12 Split-zero sidecar and SGA6 idx442 published
 
 The existing split-zero concept DOI now has version [10.5281/zenodo.21316072](https://doi.org/10.5281/zenodo.21316072). It fronts the concise 12-page common-deformation-register research note, retains the broader 91-page split-support geometry draft and prior Version 10 files, and groups editable source, formalization/check artifacts, release notes, manifests, and checksums. The concise paper's Python verifier passes 30/30; sixteen broader verification scripts pass; the included Lean file builds without `sorry`, `axiom`, or `admit`; and all six PDFs were compiled, rendered, and visually checked. These are scoped artifact checks, not peer review or certification of every broader claim.
@@ -6,7 +12,7 @@ SGA version [10.5281/zenodo.21316718](https://doi.org/10.5281/zenodo.21316718) f
 
 The SGA build also exposed a workflow failure worth retaining: long Windows paths can leave stale TeX/render output even when a wrapper command reports success. The promoted PDF was rebuilt from a short ASCII path and checked through both extracted text and page renders. A zero-width TeX guard was required to prevent one source-present sentence from disappearing in the generated PDF; compile success alone would not have caught it.
 
-## 2026-07-11 Noether integrated v26 and SGA6 idx438 published (SGA superseded)
+## 2026-07-11 Noether integrated v26 and SGA6 idx438 published (both superseded)
 
 Noether version [10.5281/zenodo.21312393](https://doi.org/10.5281/zenodo.21312393) now fronts the 466-page integrated-v26 German source-control reader and groups the source-heavy v26 chain in file `07`. The retained English cumulative reader, standalone English papers, multilingual checkpoints, and R787-R804 rollups remain available but are not synchronized to every new German repair.
 

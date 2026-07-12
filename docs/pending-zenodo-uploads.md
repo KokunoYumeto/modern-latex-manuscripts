@@ -1,11 +1,19 @@
-## 2026-07-11: Noether v26 and SGA6 idx438 publication queue closed
+## 2026-07-12: Noether v26/R819 publication queue closed
+
+The R818/R819 Paper 20 source pass is published, not staged:
+
+- Noether v26/R819: [10.5281/zenodo.21320035](https://doi.org/10.5281/zenodo.21320035)
+
+Publication receipt: [`20260712_noether_v26_r819_record_21320035.json`](../manifests/published-zenodo/20260712_noether_v26_r819_record_21320035.json). The update replaces only Paper 20 in the v26 German base, integrates 25 direct-source corrections, promotes no OCR, and preserves all other paper text exactly. Active Noether v27 Paper 40 and multilingual propagation remain continuation work rather than loose public files.
+
+## 2026-07-11: Noether v26 and SGA6 idx438 publication queue closed (both superseded)
 
 The current Noether and SGA source-control heads are published, not staged:
 
 - Noether integrated v26: [10.5281/zenodo.21312393](https://doi.org/10.5281/zenodo.21312393)
 - SGA6 source-rescribe through #435/idx438: [10.5281/zenodo.21312517](https://doi.org/10.5281/zenodo.21312517)
 
-Publication receipts: [`20260711_noether_v26_record_21312393.json`](../manifests/published-zenodo/20260711_noether_v26_record_21312393.json) and [`20260711_sga6_idx438_record_21312517.json`](../manifests/published-zenodo/20260711_sga6_idx438_record_21312517.json). The Noether v26 grouped ZIP supersedes v19 as the current German source-control head while immutable earlier versions preserve v19, v18, v12, and predecessors. The SGA idx438 package supersedes idx413. R818 Paper 20 and active Noether v27 Paper 40 remain unintegrated continuation inputs rather than loose public files.
+Publication receipts: [`20260711_noether_v26_record_21312393.json`](../manifests/published-zenodo/20260711_noether_v26_record_21312393.json) and [`20260711_sga6_idx438_record_21312517.json`](../manifests/published-zenodo/20260711_sga6_idx438_record_21312517.json). The Noether v26 grouped ZIP superseded v19 at that point while immutable earlier versions preserve v19, v18, v12, and predecessors. The SGA idx438 package superseded idx413. Noether R818/R819 is now integrated in the 2026-07-12 head above; active Noether v27 Paper 40 remains continuation work.
 
 ## 2026-07-10: Four-record publication queue closed (superseded heads retained as history)
 
