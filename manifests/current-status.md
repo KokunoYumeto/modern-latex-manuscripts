@@ -1,4 +1,12 @@
-## 2026-07-11 Noether integrated v26 and SGA6 idx438 published
+## 2026-07-12 Split-zero sidecar and SGA6 idx440 published
+
+The existing split-zero concept DOI now has version [10.5281/zenodo.21316072](https://doi.org/10.5281/zenodo.21316072). It fronts the concise 12-page common-deformation-register research note, retains the broader 91-page split-support geometry draft and prior Version 10 files, and groups editable source, formalization/check artifacts, release notes, manifests, and checksums. The concise paper's Python verifier passes 30/30; sixteen broader verification scripts pass; the included Lean file builds without `sorry`, `axiom`, or `admit`; and all six PDFs were compiled, rendered, and visually checked. These are scoped artifact checks, not peer review or certification of every broader claim.
+
+SGA version [10.5281/zenodo.21316248](https://doi.org/10.5281/zenodo.21316248) freezes the French source-rescribe at ledger entry #437 / scan idx440 / volume p427 / Exposé VII p12, with idx441 next. The two-page delta since #435 / idx438 restores a dropped sentence, omitted words and parentheticals, proof labels and references, punctuation and notation, and many formulas wrongly shifted from inline text to displays. The unfinished local start on idx441 was excluded; content after idx440 remains inherited scaffold. Publication fix 1 removes a stray minus caught in the freeze diff. The corrected 387-page build has no fatal, overfull, or underfull diagnostics. Classification remains workpass/source-rescribe evidence only, not completed SGA6, English synchronization, diagram-by-diagram certification, whole-volume source-faithfulness certification, or critical edition.
+
+The SGA build also exposed a workflow failure worth retaining: long Windows paths can leave stale TeX/render output even when a wrapper command reports success. The promoted PDF was rebuilt from a short ASCII path and checked through both extracted text and page renders. A zero-width TeX guard was required to prevent one source-present sentence from disappearing in the generated PDF; compile success alone would not have caught it.
+
+## 2026-07-11 Noether integrated v26 and SGA6 idx438 published (SGA superseded)
 
 Noether version [10.5281/zenodo.21312393](https://doi.org/10.5281/zenodo.21312393) now fronts the 466-page integrated-v26 German source-control reader and groups the source-heavy v26 chain in file `07`. The retained English cumulative reader, standalone English papers, multilingual checkpoints, and R787-R804 rollups remain available but are not synchronized to every new German repair.
 

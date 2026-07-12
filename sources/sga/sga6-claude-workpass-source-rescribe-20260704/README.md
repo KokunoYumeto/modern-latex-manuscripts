@@ -1,13 +1,30 @@
-# SGA6 Source-Rescribe Workpass Mirror
+# SGA6 French Source-Rescribe Workpass: idx440
 
-This folder mirrors the active Claude/Codex SGA6 source-rescribe lane from `SGA continuation 2/_claude_aid/sga6_full_audit_20260703`.
+This compact GitHub mirror freezes the active pagewise French source-rescribe workpass at `CERT_LOG.md` entry #437, scan index 440, volume p. 427, Exposé VII p. 12. The next unchecked page is scan index 441, volume p. 428, Exposé VII p. 13. The fuller source-crop/render-check package is on Zenodo at record `21316248`.
 
-Current public classification: source-rescribe/workpass provenance and a useful French working reader. This is not a completed SGA6 edition, English synchronization, whole-volume source-faithfulness certification, publication-grade proofreading, diagram-by-diagram certification, or a critical edition.
+## What This Update Adds
 
-Current frozen frontier: `CERT_LOG.md` entry #435, scan idx438 / volume p425 / Exposé VII p10; next cursor idx439 / volume p426 / Exposé VII p11. The mirrored publication-layout copy compiles to 388 pages with no fatal LaTeX error, overfull boxes, or underfull boxes. It retains inherited accent-command warnings and a missing `Hfootnote.424` destination warning.
+Relative to the preceding public freeze at entry #435 / scan index 438, this package adds two directly checked pages: Exposé VII pp. 11-12. The work is narrow but substantive. The inherited scaffold had converted numerous inline formulas to displays, dropped a complete sentence and several smaller phrases, changed proof labels and references, altered capitalization, removed product dots and parentheticals, and changed source punctuation and wording. Entries #436 and #437 in `CERT_LOG.md` record the exact repairs.
 
-The current immutable Zenodo release is [record 21312517](https://doi.org/10.5281/zenodo.21312517), frozen at the same #435 / idx438 frontier. The public record fronts the current French workpass, retains the unsynchronized SGA6 English draft and incomplete SGA5 material, and groups TeX, ledgers, crop witnesses, and logs into compact ZIPs.
+An unfinished local start on idx441 was not promoted. The public TeX takes the verified source through the end of idx440 and then resumes the prior clean scaffold. Material after idx440 therefore remains inherited and unchecked regardless of whether later local work had begun touching it.
 
-The audit demonstrates why compile-clean scaffolds cannot be treated as faithful editions. Earlier material contained compressed or missing pages, rewritten statements, wrong relations, notation drift, unsupported equation tags, and display/inline restructuring. Entries #355 and #356 restore two entire source pages that the older scaffold silently skipped. The latest public delta covers 25 directly checked pages from Exposé VI p37 through Exposé VII p10; the newest page alone required thirteen source-backed repair groups.
+## Files
 
-The TeX here includes one publication-only line break inside Proposition 1.7 to remove a 129 pt overfull box. Mathematical content is unchanged. The page immediately beyond the stated cursor remains inherited scaffold until directly checked. Use this mirror for continuation and provenance, not as closure.
+- `sga6_fr_workpass.tex` and `.pdf`: current French publication freeze.
+- `CERT_LOG.md`: pagewise source-comparison ledger and next cursor.
+- `ERRATA_SGA6.md`: running source/edition errata notes.
+- `sga6_fr_workpass.log`: full final LaTeX log.
+- `SHA256SUMS.txt`: integrity manifest for this compact mirror.
+- Zenodo file `04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx440_20260712.zip`: two short-path publication-build logs, 300 dpi source witnesses for the newly promoted pages, rendered output checks, and a package-level checksum manifest.
+
+## Build And Render Notes
+
+The publication copy retains the earlier layout-only line break inside Proposition 1.7. It also places a zero-width `\hspace{0pt}` before one Exposé VII sentence. Without that guard, pdfTeX silently omitted the middle of the sentence even though the source was present and the compiler reported no error; the guarded build renders and extracts the full sentence. Neither layout intervention changes mathematical text.
+
+Publication fix 1 removes a stray minus introduced beside the Proposition 1.7 continuation line during the first idx440 freeze merge. The corrected output page was rebuilt and visually checked before the replacement Zenodo version was published.
+
+The final build was made from a short ASCII working directory because a long Windows working path had left a stale PDF in place despite a successful process exit. The final 387-page PDF has zero fatal errors, zero overfull boxes, and zero underfull boxes. Render and text-extraction checks confirm the previously omitted sentence is present.
+
+## Classification
+
+This is source-rescribe/workpass provenance and a useful current French working reader. It is **not** a completed SGA6 edition, critical edition, whole-volume source-faithfulness certification, English synchronization, publication-grade proofreading, or diagram-by-diagram certification. Material after scan index 440 remains inherited scaffold until directly checked. SGA5 is incomplete and error-bearing; SGA7 remains partial and caveat-heavy.

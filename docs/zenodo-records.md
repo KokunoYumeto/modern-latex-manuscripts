@@ -14,6 +14,24 @@
 - GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r12_packages636_637_and_verbatim_goals_20260705/`.
 - Status: coordination, goal-dispatch, methodology, and rolling-delta evidence only. Contains 12 exact pursued-goal files for sibling sessions. Contains no new TeX/PDF source bodies beyond package metadata, and is not native review, accepted terminology, translation completion, reader output, or source-fidelity certification.
 
+## 2026-07-12 split-zero research-sidecar update published
+
+- Concept DOI: [10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444).
+- Published version: [10.5281/zenodo.21316072](https://doi.org/10.5281/zenodo.21316072).
+- Front PDF: `00_Common_Deformation_Register_Research_Note_20260712.pdf`, 12 pages.
+- Retained broader draft: `03_Split_Support_Geometry_Version_11_20260712.pdf`, 91 pages, plus unchanged Version 10 history.
+- Support: editable sources, scoped Lean/Python/formal checks, release notes, manifest, and checksums are grouped behind the reader PDFs.
+- Status: exploratory side research, not peer review or certification of every broader claim; third-party reference papers were excluded.
+
+## 2026-07-12 SGA6 source-rescribe idx440 published
+
+- Concept DOI: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947).
+- Published version: [10.5281/zenodo.21316248](https://doi.org/10.5281/zenodo.21316248), publication fix 1.
+- Frontier: ledger entry #437, scan idx440 / volume p427 / Exposé VII p12; idx441 is next.
+- Delta: two directly checked pages beyond #435 / idx438; unfinished local idx441 material was excluded.
+- Build: 387 pages; zero fatal, overfull, or underfull diagnostics; short-path rebuild and visual/text readback used to reject stale or silently omitted output. Publication fix 1 removes a stray minus caught in the final freeze diff and verified on rendered page 201.
+- Status: source-rescribe/workpass evidence only; not completed SGA5/SGA6, English synchronization, whole-volume source-faithfulness certification, diagram-by-diagram certification, or critical edition.
+
 ## 2026-07-05 SGA6 source-rescribe idx238 support ZIP pending upload
 
 - Target DOI: 10.5281/zenodo.20410947 (SGA satellite record).
