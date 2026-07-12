@@ -1,56 +1,51 @@
 # Emmy Noether
 
-Zenodo concept DOI: [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587)
+Current Zenodo version: [10.5281/zenodo.21320035](https://doi.org/10.5281/zenodo.21320035)
 
-Current public version: [10.5281/zenodo.21312393](https://doi.org/10.5281/zenodo.21312393)
+Permanent concept DOI: [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587)
 
-Public title: *Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Drafts (Integrated v26 Source-Control Update)*
+Public title: Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Drafts (v26/R819 Paper 20 Source Integration)
 
-**Status:** high-value working corpus and source-repair/source-control surface. This is not a critical edition, whole-corpus closure, paper-by-paper certification, multilingual synchronization, publication-grade proofreading, or source-faithfulness certification. The retained English and multilingual readers predate some current German repairs. Inherited words such as `COMPLETE`, `closure`, or `closed` mean only that a bounded local packet task completed.
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
-| 15 | 2 | 8 | 1796.6 |
+| 15 | 2 | 8 | 1846.8 |
 
-## What To Open First
+## How To Read This Record
 
-| Role | File |
-|---|---|
-| German working source-control reader | [`00_Noether_German_Cumulative_Working_SourceControl_v26_20260711.pdf`](https://zenodo.org/records/21312393/files/00_Noether_German_Cumulative_Working_SourceControl_v26_20260711.pdf) |
-| English cumulative working reader | [`01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf`](https://zenodo.org/records/21312393/files/01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf) |
-| Standalone English paper PDFs | [`02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip`](https://zenodo.org/records/21312393/files/02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip) |
-| Current integrated source-control TeX/readers | [`07_Noether_Current_German_SourceControl_v26_20260711.zip`](https://zenodo.org/records/21312393/files/07_Noether_Current_German_SourceControl_v26_20260711.zip) |
-| Multilingual checkpoints | [`05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip`](https://zenodo.org/records/21312393/files/05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip) |
+Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
-## Current Head
+Current Noether public surface: latest published Zenodo version is record 21320035 / DOI 10.5281/zenodo.21320035 under concept DOI 10.5281/zenodo.20412587. It fronts the 466-page v26/R819 German source-control reader, keeps the older English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 rollups, and groups the current German package in `07_Noether_Current_German_SourceControl_v26_R819integrated_20260712.zip`. This version integrates only Paper 20 from the R818/R819 direct-source chain: 17 R818 corrections across printed pp26-32 and eight R819 emphasis/punctuation corrections across pp31-33, with no OCR text promoted. Integration checks preserve every byte outside Paper 20 and make the integrated Paper 20 exactly equal to sealed R819. Earlier v20-v26 evidence for Papers 34-43 remains inherited. These files are working/source-audit/provenance packages only: not promoted critical editions, not whole-corpus mathematical certification, not downstream multilingual synchronization proof, not final high-resolution certification, and not source-faithfulness certification. Active v27 Paper 40 remains a continuation input. Retained English/multilingual readers predate some German repairs. Inherited `COMPLETE`, `closure`, and `closed` words mean only that a bounded local task completed.
 
-The current fronted German/source-control PDF is a 466-page build. The grouped v26 package contains one safe root, 883 ZIP entries, and a verified 882-row SHA-256 manifest with no missing or mismatched payloads.
+Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>. For citation-critical use, verify formulas, tables, theorem statements, diagrams, apparatus notes, and unusual notation against the included source witnesses and current audit ledgers.
 
-Since the previous v19 public head, the v20-v26 chain records:
+## Reader And Reference PDFs
 
-- direct Paper 34 checking through printed p. 692;
-- current-head page passes for Papers 35-39;
-- five integrated R817 Paper 19 source/style corrections;
-- a Paper 41 regression repair;
-- page dispositions for all 21 printed pages of Paper 43;
-- seven newest Paper 43 atomic repairs, including `alpha = alpha e`, congruence modulo `S_i`, and `Komponentenzerlegung der Differente`.
+| Size MB | File |
+|---:|---|
+| 2.5273 | [00_Noether_German_Cumulative_Working_SourceControl_v26_R819integrated_20260712.pdf](https://zenodo.org/records/21320035/files/00_Noether_German_Cumulative_Working_SourceControl_v26_R819integrated_20260712.pdf) |
+| 2.4925 | [01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf](https://zenodo.org/records/21320035/files/01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf) |
 
-The newer WebB R818 Paper 20 packet contains real source-audited deltas, including a substantive `U_i` to `U_lambda` correction, but it was not integrated into v26. The LocalCodex v27 Paper 40 directory was also active and unsealed at publication time. Neither is presented as a competing public head.
+## Artifact ZIPs
 
-A compact editable mirror is available at `sources/noether/current-german-source-control-v26-20260711/`.
+| Size MB | File |
+|---:|---|
+| 10.2346 | [02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip](https://zenodo.org/records/21320035/files/02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip) |
+| 345.3624 | [04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip](https://zenodo.org/records/21320035/files/04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip) |
+| 25.0978 | [05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip](https://zenodo.org/records/21320035/files/05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip) |
+| 350.7858 | [06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip](https://zenodo.org/records/21320035/files/06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip) |
+| 320.9525 | [06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip](https://zenodo.org/records/21320035/files/06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip) |
+| 251.7752 | [06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip](https://zenodo.org/records/21320035/files/06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip) |
+| 12.3384 | [06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip](https://zenodo.org/records/21320035/files/06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip) |
+| 525.2286 | [07_Noether_Current_German_SourceControl_v26_R819integrated_20260712.zip](https://zenodo.org/records/21320035/files/07_Noether_Current_German_SourceControl_v26_R819integrated_20260712.zip) |
 
-## Preserved Rollups
+## Manifest And Status Files
 
-| Scope | File |
-|---|---|
-| R787-R789 Paper 30 evidence | [`06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip`](https://zenodo.org/records/21312393/files/06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip) |
-| R791-R798 Paper 30 evidence | [`06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip`](https://zenodo.org/records/21312393/files/06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip) |
-| R792-R804 Papers 24, 34, 40, 14, and 19 | [`06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip`](https://zenodo.org/records/21312393/files/06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip) |
-| Auxiliary OCR/locator support | [`06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip`](https://zenodo.org/records/21312393/files/06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip) |
-| v26 manifest | [`07_Noether_v26_public_manifest_20260711.csv`](https://zenodo.org/records/21312393/files/07_Noether_v26_public_manifest_20260711.csv) |
-| v26 checksums | [`07_Noether_v26_public_sha256_20260711.csv`](https://zenodo.org/records/21312393/files/07_Noether_v26_public_sha256_20260711.csv) |
-| Public caveat note | [`99_Noether_Public_Status_NotCritical_v26_20260711.md`](https://zenodo.org/records/21312393/files/99_Noether_Public_Status_NotCritical_v26_20260711.md) |
-
-## Reliability Guidance
-
-Use the German/source-control branch as the authority for downstream language work. For citation-critical use, verify formulas, tables, theorem statements, diagrams, apparatus notes, and unusual notation against the included source witnesses and current audit ledgers. Corrections can be proposed through GitHub issues or pull requests at [KokunoYumeto/modern-latex-manuscripts](https://github.com/KokunoYumeto/modern-latex-manuscripts).
+| Size MB | File |
+|---:|---|
+| 0.0008 | [06_Noether_R787_R804_public_upload_sha256_20260707.csv](https://zenodo.org/records/21320035/files/06_Noether_R787_R804_public_upload_sha256_20260707.csv) |
+| 0.0032 | [06_Noether_R787_R804_rollup_manifest_20260707.csv](https://zenodo.org/records/21320035/files/06_Noether_R787_R804_rollup_manifest_20260707.csv) |
+| 0.0019 | [07_Noether_v26_R819_public_manifest_20260712.csv](https://zenodo.org/records/21320035/files/07_Noether_v26_R819_public_manifest_20260712.csv) |
+| 0.0006 | [07_Noether_v26_R819_public_sha256_20260712.csv](https://zenodo.org/records/21320035/files/07_Noether_v26_R819_public_sha256_20260712.csv) |
+| 0.0020 | [99_Noether_Public_Status_NotCritical_v26_R819_20260712.md](https://zenodo.org/records/21320035/files/99_Noether_Public_Status_NotCritical_v26_R819_20260712.md) |
