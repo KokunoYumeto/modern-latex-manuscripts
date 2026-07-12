@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 937
+Total files indexed: 948
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -177,6 +177,26 @@ Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-can
 | Role | Size MB | File |
 |---|---:|---|
 | artifact/source ZIP | 0.0094 | [ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip](https://zenodo.org/records/21129946/files/ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip) |
+
+## Split-Zero Geometry and Common Deformation Registers: Exploratory Research Sidecar
+
+Record: <https://doi.org/10.5281/zenodo.20822444>
+
+Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21316072 fronts a concise 12-page common-deformation-register research note, retains the broader 91-page split-support geometry draft and prior Version 10 files, and groups editable sources, Lean/Python/formal checks, manifests, and supplementary working material. The scoped checks passed, including the included Lean file, but this does not constitute peer review, a proof of the Riemann hypothesis or Schanuel's conjecture, or certification of every broader claim.
+
+| Role | Size MB | File |
+|---|---:|---|
+| reader/reference PDF | 0.3545 | [00_Common_Deformation_Register_Research_Note_20260712.pdf](https://zenodo.org/records/21316072/files/00_Common_Deformation_Register_Research_Note_20260712.pdf) |
+| reader/reference PDF | 0.9372 | [00_SplitSupport_GeometryArithmeticCurve_v10_20260626.pdf](https://zenodo.org/records/21316072/files/00_SplitSupport_GeometryArithmeticCurve_v10_20260626.pdf) |
+| artifact/source ZIP | 0.3500 | [01_Common_Deformation_Register_Source_and_Verification_20260712.zip](https://zenodo.org/records/21316072/files/01_Common_Deformation_Register_Source_and_Verification_20260712.zip) |
+| editable TeX | 0.2709 | [01_SplitSupport_GeometryArithmeticCurve_v10_20260626.tex](https://zenodo.org/records/21316072/files/01_SplitSupport_GeometryArithmeticCurve_v10_20260626.tex) |
+| artifact/source ZIP | 1.2998 | [02_SplitZero_Research_Program_Supplements_Formalization_and_Checks_20260712.zip](https://zenodo.org/records/21316072/files/02_SplitZero_Research_Program_Supplements_Formalization_and_Checks_20260712.zip) |
+| manifest/status | 0.0028 | [02_VERSION_NOTES_v2_to_v10_20260626.md](https://zenodo.org/records/21316072/files/02_VERSION_NOTES_v2_to_v10_20260626.md) |
+| reader/reference PDF | 1.1460 | [03_Split_Support_Geometry_Version_11_20260712.pdf](https://zenodo.org/records/21316072/files/03_Split_Support_Geometry_Version_11_20260712.pdf) |
+| artifact/source ZIP | 1.0141 | [04_Split_Support_Geometry_V11_Source_20260712.zip](https://zenodo.org/records/21316072/files/04_Split_Support_Geometry_V11_Source_20260712.zip) |
+| manifest/status | 0.0026 | [90_RELEASE_NOTES_AND_STATUS_20260712.md](https://zenodo.org/records/21316072/files/90_RELEASE_NOTES_AND_STATUS_20260712.md) |
+| manifest/status | 0.0030 | [91_RELEASE_MANIFEST_20260712.json](https://zenodo.org/records/21316072/files/91_RELEASE_MANIFEST_20260712.json) |
+| manifest/status | 0.0011 | [92_SHA256SUMS_20260712.txt](https://zenodo.org/records/21316072/files/92_SHA256SUMS_20260712.txt) |
 
 ## Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Drafts (Integrated v26 Source-Control Update)
 
@@ -356,22 +376,22 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 | artifact/source ZIP | 14.0192 | [Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20617845/files/Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip) |
 | artifact/source ZIP | 227.8307 | [Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip](https://zenodo.org/records/20617845/files/Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip) |
 
-## SGA: Working Translation, Source-Repair, and Audit Drafts (SGA6 idx438 Source-Rescribe Checkpoint)
+## SGA: Working Translation, Source-Repair, and Audit Drafts (SGA6 idx440 Source-Rescribe Checkpoint)
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Current SGA public surface is record 21312517. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #435 / scan idx438 / Expose VII p10, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, representative source crops, and build logs are grouped in two ZIPs. The 25-page delta since public entry #410 completes Expose VI pp37-51 and covers Expose VII pp1-10. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Content after idx438 remains inherited scaffold until directly checked. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.
+Current SGA public surface is record 21316248. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #437 / scan idx440 / Expose VII p12, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, source crops for the new pages, render checks, and build logs are grouped in two ZIPs. The two-page delta since #435 / idx438 restores a dropped sentence, omitted words and proof labels, notation and punctuation, and numerous formulas wrongly shifted from inline text to displays. The unfinished local start on idx441 is excluded; content after idx440 remains inherited scaffold. Publication fix 1 removes a stray minus introduced beside the older Proposition 1.7 layout-only continuation line. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.9223 | [00_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21312517/files/00_SGA5_French_Workpass_NotCertified_20260706.pdf) |
-| reader/reference PDF | 2.7121 | [01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx438_20260711.pdf](https://zenodo.org/records/21312517/files/01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx438_20260711.pdf) |
-| reader/reference PDF | 2.3394 | [02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf](https://zenodo.org/records/21312517/files/02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf) |
-| artifact/source ZIP | 704.9033 | [03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip](https://zenodo.org/records/21312517/files/03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip) |
-| manifest/status | 0.0005 | [04_SGA6_idx438_public_manifest_20260711.csv](https://zenodo.org/records/21312517/files/04_SGA6_idx438_public_manifest_20260711.csv) |
-| manifest/status | 0.0005 | [04_SGA6_idx438_public_sha256_20260711.csv](https://zenodo.org/records/21312517/files/04_SGA6_idx438_public_sha256_20260711.csv) |
-| artifact/source ZIP | 7.3409 | [04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx438_20260711.zip](https://zenodo.org/records/21312517/files/04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx438_20260711.zip) |
-| manifest/status | 0.0015 | [99_SGA_Public_Status_NotCritical_idx438_20260711.md](https://zenodo.org/records/21312517/files/99_SGA_Public_Status_NotCritical_idx438_20260711.md) |
+| reader/reference PDF | 1.9223 | [00_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21316248/files/00_SGA5_French_Workpass_NotCertified_20260706.pdf) |
+| reader/reference PDF | 2.7110 | [01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx440_20260712.pdf](https://zenodo.org/records/21316248/files/01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx440_20260712.pdf) |
+| reader/reference PDF | 2.3394 | [02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf](https://zenodo.org/records/21316248/files/02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf) |
+| artifact/source ZIP | 704.9033 | [03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip](https://zenodo.org/records/21316248/files/03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip) |
+| manifest/status | 0.0006 | [04_SGA6_idx440_public_manifest_20260712.csv](https://zenodo.org/records/21316248/files/04_SGA6_idx440_public_manifest_20260712.csv) |
+| manifest/status | 0.0006 | [04_SGA6_idx440_public_sha256_20260712.csv](https://zenodo.org/records/21316248/files/04_SGA6_idx440_public_sha256_20260712.csv) |
+| artifact/source ZIP | 11.0627 | [04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx440_20260712.zip](https://zenodo.org/records/21316248/files/04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx440_20260712.zip) |
+| manifest/status | 0.0019 | [99_SGA_Public_Status_NotCritical_idx440_20260712.md](https://zenodo.org/records/21316248/files/99_SGA_Public_Status_NotCritical_idx440_20260712.md) |
 
 ## Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
 

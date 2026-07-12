@@ -28,10 +28,11 @@ RECORDS: list[tuple[str, str]] = [
     ("workflow", "21300795"),
     ("interlanguage_reflections", "21300808"),
     ("lean_formalization_sidecars", "21129946"),
+    ("split_zero_research_sidecar", "21316072"),
     ("noether", "21312393"),
     ("weber", "20837104"),
     ("cayley", "20617845"),
-    ("sga", "21312517"),
+    ("sga", "21316248"),
     ("deligne", "20617786"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -75,7 +76,7 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current SGA public surface is record 21312517. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #435 / scan idx438 / Expose VII p10, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, representative source crops, and build logs are grouped in two ZIPs. The 25-page delta since public entry #410 completes Expose VI pp37-51 and covers Expose VII pp1-10. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Content after idx438 remains inherited scaffold until directly checked. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.",
+        "Current SGA public surface is record 21316248. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #437 / scan idx440 / Expose VII p12, and the unsynchronized SGA6 English working draft. Editable TeX, ledgers, source crops for the new pages, render checks, and build logs are grouped in two ZIPs. The two-page delta since #435 / idx438 restores a dropped sentence, omitted words and proof labels, notation and punctuation, and numerous formulas wrongly shifted from inline text to displays. The unfinished local start on idx441 is excluded; content after idx440 remains inherited scaffold. Publication fix 1 removes a stray minus introduced beside the older Proposition 1.7 layout-only continuation line. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.",
     ],
     "noether": [
         "Current Noether update 2026-07-11: latest public surface is record 21312393. It fronts the 466-page integrated-v26 German source-control reader, keeps the older English cumulative reader and multilingual checkpoints available, preserves compact R787-R804 rollups, and groups the complete source-heavy v26 chain in file `07`. Since v19, direct source work covers Paper 34 through printed p692, current-head page passes for Papers 35-39, a Paper 41 regression repair, five R817 Paper 19 corrections, and page dispositions for all 21 printed pages of Paper 43. This is a high-value working corpus and source-control/audit surface, not corpus closure, page-by-page certification, multilingual synchronization, source-faithfulness certification, or a critical edition. R818 Paper 20 and active v27 Paper 40 remain unintegrated continuation inputs. Retained English/multilingual readers predate some German repairs. Packet filenames containing `COMPLETE`, `closure`, or `closed` are bounded local-task labels only.",
@@ -85,6 +86,9 @@ RECORD_NOTES = {
     ],
     "lean_formalization_sidecars": [
         "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
+    ],
+    "split_zero_research_sidecar": [
+        "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21316072 fronts a concise 12-page common-deformation-register research note, retains the broader 91-page split-support geometry draft and prior Version 10 files, and groups editable sources, Lean/Python/formal checks, manifests, and supplementary working material. The scoped checks passed, including the included Lean file, but this does not constitute peer review, a proof of the Riemann hypothesis or Schanuel's conjecture, or certification of every broader claim.",
     ],
     "interlanguage_reflections": [
         "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21300808 fronts the July 10 methodology PDF, preserves the grouped Claude/ChatGPT/Fable and other-PC source-body payloads, and adds the consolidated v0.4 executable-methodology workspace as file `11`. Its connective analysis finds 10 of 15 rows lack even a Slavic-internal pan-root and none has a secure cross-family global attractor. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.",
@@ -106,6 +110,7 @@ TITLE_OVERRIDES = {
     "kneser": "Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts",
     "lean_formalization_sidecars": "Classical Mathematics Lean 4 Formalization Sidecars",
     "interlanguage_reflections": "Interlanguage and Constructed-Language Mathematical Translation Methodology",
+    "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers: Exploratory Research Sidecar",
 }
 
 

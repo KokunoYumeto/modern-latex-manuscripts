@@ -37,6 +37,12 @@ RECORD_TIERS = [
         ],
     ),
     (
+        "Separate mathematics research sidecar",
+        [
+            "split_zero_research_sidecar",
+        ],
+    ),
+    (
         "Best current reader/translation surfaces",
         [
             "noether",
@@ -94,6 +100,7 @@ DISPLAY_NAMES = {
     "workflow": "Workflow / Replication Packet",
     "interlanguage_reflections": "Interlanguage Methodology",
     "lean_formalization_sidecars": "Lean Formalization Sidecars",
+    "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers",
     "noether": "Emmy Noether",
     "weber": "Heinrich Weber",
     "cayley": "Arthur Cayley",
@@ -161,6 +168,9 @@ RECORD_NOTES = {
     "interlanguage_reflections": [
         "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current public version 21300808 fronts the July 10 methodology PDF, preserves the grouped Claude/ChatGPT/Fable and other-PC source-body payloads, and adds the consolidated v0.4 executable-methodology workspace as file `11`. Its connective analysis finds 10 of 15 rows lack even a Slavic-internal pan-root and none has a secure cross-family global attractor. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.",
     ],
+    "split_zero_research_sidecar": [
+        "Separate exploratory mathematics record, not part of the manuscript-translation completion ranking. Version 21316072 fronts a concise 12-page common-deformation-register research note and retains the broader 91-page split-support geometry draft, editable sources, formalization/check artifacts, manifests, and prior Version 10 history. The included scoped Lean/Python checks passed, but the record is not peer review, not a proof of the Riemann hypothesis or Schanuel's conjecture, and not certification of every broader claim.",
+    ],
     "riemann": [
         "Dedicated Riemann author record. The current surface has two reader PDFs, one selected-papers reader and one broader Gesammelte Werke complete-draft reader, plus matching artifact ZIPs with TeX/source/provenance material. These are machine-assisted working drafts for checking and continuation, not proofread critical editions.",
     ],
@@ -177,7 +187,7 @@ RECORD_NOTES = {
         "Dedicated Gibbs / old-physics working-edition split. Current coverage is The Scientific Papers of J. Willard Gibbs, Volume I, printed pp.001-134: Graphical Methods in the Thermodynamics of Fluids, A Method of Geometrical Representation by Surfaces, and the opening continuation of On the Equilibrium of Heterogeneous Substances. Top-level PDF/TeX files are reader-facing cumulative surfaces, including the updated Paper 3 pp.055-134 reader; ZIP packets preserve source-scan slices, TeX, and method/audit notes. This is a source-scan-backed working tranche, not a complete Gibbs corpus or final critical edition. Continue after p.134.",
     ],
     "sga": [
-        "Current public SGA surface is record 21312517. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #435 / scan idx438 / Expose VII p10, and the unsynchronized SGA6 English working draft. TeX, audit ledgers, representative source crops, and build logs are grouped in two ZIPs. The 25-page delta since entry #410 completes Expose VI pp37-51 and covers Expose VII pp1-10. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Content after idx438 remains inherited scaffold until directly checked. Local and inherited completion labels remain scoped workpass labels only.",
+        "Current public SGA surface is record 21316248. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #437 / scan idx440 / Expose VII p12, and the unsynchronized SGA6 English working draft. TeX, audit ledgers, source crops for the new pages, render checks, and build logs are grouped in two ZIPs. The two-page delta since #435 / idx438 restores omitted prose, proof labels, notation, punctuation, and inline/display fidelity. The unfinished local start on idx441 is excluded; content after idx440 remains inherited scaffold. Publication fix 1 removes a stray minus introduced beside the older Proposition 1.7 layout-only continuation line. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Local and inherited completion labels remain scoped workpass labels only.",
     ],
     "weber": [
         "Current Weber public surface: latest public version is record 20837104 / DOI 10.5281/zenodo.20837104 under the permanent concept DOI 10.5281/zenodo.20412153. Volume I is represented as a repaired/source-scan-audited working edition; Volume II has current German/English cumulative reader material through section 176 plus localized recursive repairs/ledgers; Volume III remains the current repaired cumulative from the earlier baseline. Batch137 is now public and supersedes the public Batch132 ledger status: it reports scan-reviewed no-change closures for Volume I sections 120, 122, 128, 145, 148, 149, 150, 156, 158, 162, 163, 168, 169, 173, 174, 175, 176, 179, 180, 181, 182, and 183, with the active 112-row ledger at 112/112 closed. Batch138 is public as a focused Volume II section 6 control-character footnote fix. B139 is public as a focused Volume II English section 49 merged-tag repair and recursive range-tag scan rule. These are working/source-witnessed repair-ledger packages, not certified critical editions; Batch137's Volume II patch candidates remain candidate evidence unless later integrated. OCR and display ledgers are omission guards and locator layers, not independent authority.",
