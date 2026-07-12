@@ -23,6 +23,15 @@
 - Support: editable sources, scoped Lean/Python/formal checks, release notes, manifest, and checksums are grouped behind the reader PDFs.
 - Status: exploratory side research, not peer review or certification of every broader claim; third-party reference papers were excluded.
 
+## 2026-07-12 SGA6 source-rescribe idx442 published
+
+- Concept DOI: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947).
+- Published version: [10.5281/zenodo.21316718](https://doi.org/10.5281/zenodo.21316718).
+- Frontier: ledger entry #439, scan idx442 / volume p429 / Exposé VII p14; idx443 is next.
+- Delta: two directly checked pages beyond #437 / idx440 replace a fabricated one-line Proposition 1.9 proof with the printed statement, reference, and full proof, restore Proposition 1.10 and its omitted proof, and verify the opening of section 2 with formulas (2.1.1)-(2.1.3).
+- Build: 388 pages; zero fatal, overfull, or underfull diagnostics; source witnesses and rendered pages were checked at the changed frontier. Output page 232 crosses the checked boundary and does not certify idx443.
+- Status: source-rescribe/workpass evidence only; not completed SGA5/SGA6, English synchronization, whole-volume source-faithfulness certification, diagram-by-diagram certification, or critical edition.
+
 ## 2026-07-12 SGA6 source-rescribe idx440 published
 
 - Concept DOI: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947).
