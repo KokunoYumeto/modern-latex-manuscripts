@@ -1,3 +1,13 @@
+## 2026-07-14 SGA6 source-rescribe idx540 published
+
+- Concept DOI: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947).
+- Published version: [10.5281/zenodo.21364946](https://doi.org/10.5281/zenodo.21364946).
+- Frontier: ledger entry #537, scan idx540 / volume p527 / Exposé X p9; idx541 / volume p528 / Exposé X p10 is next.
+- Delta: 98 directly checked source pages beyond #439 / idx442 finish Exposé VII, cover Exposés VIII and IX, and reach Exposé X p9.
+- Evidence: editable TeX, certification and errata ledgers, a 98-page high-resolution source witness, boundary images, output renders, PDF-text readback, clean compile logs, and checksums.
+- Build: 383 pages; zero fatal, overfull, underfull, or invalid math-accent diagnostics.
+- Status: source-rescribe/workpass evidence only; not completed SGA5/SGA6, English synchronization, whole-volume source-faithfulness certification, diagram-by-diagram certification, or critical edition. Material after idx540 remains inherited scaffold.
+
 ## 2026-07-05 Other-PC R11 Spanish source-body payload pending upload
 
 - Target DOI: 10.5281/zenodo.21124403 (Interlanguage Mathematical Translation Methodology).
