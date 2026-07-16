@@ -199,6 +199,3314 @@
 - Compile **0-err, 394pp**.
 - **SWEEP CURSOR → Exposé 0 p12 = idx25** (§4.4 cont: «…essentiellement non recollable. Voici une construction générale de $L^{X/Y}_\bullet$…» + the $C=A[T]\to B$ / simplicial construction).
 
+### #605 (2026-07-16) — idx608 (vol p595 = **DÉBUT DE L'EXPOSÉ XII** — «Un théorème de représentabilité relative sur le foncteur de Picard», par M. Raynaud (rédigé par S. Kleiman) ; header **«EXPOSE XII»** [bloc-titre, PAS de compteur haut sur la 1ʳᵉ page] + footer «595** ; **idx=595+13=608 ✓ [offset GLOBAL page-volume TIENT à travers les exposés]**) — **★★★★★★ PAS «XI» MAIS «XII» — LE SCAN CORRIGE L'ANNONCE DU LOOP ; PREMIÈRE PAGE D'EXPOSÉ = 7 DÉFAUTS (2 displays fabriqués, 5 initiales droppées, 3 virgules, une phrase scindée, des parenthèses droppées)** — **6 rep-calls** (bandes b1-b5 TOUTES lues + **7 crops HD 4200-4400dpi**). Compile **0-err / 383pp** ✓.
+
+# ⚠⚠⚠⚠⚠⚠ **«LIRE LE HEADER EN PREMIER» PAIE — C'EST L'EXPOSÉ XII, PAS XI**
+Mon annonce #604 (et le loop) disaient «Exposé XI». **Le scan dit «EXPOSE XII»** (bloc-titre, souligné) — «Un théorème de représentabilité relative sur le foncteur de Picard», par M. Raynaud (rédigé par S. Kleiman). Le fichier L14170 a déjà `\section*{Exposé XII. ...}` ⟹ **le fichier est correct, l'annonce était fausse** (l'Exposé XI est ailleurs dans le volume ; l'appendice §7 «X App.» précède directement XII). ⟹ ⚠⚠⚠ **NE JAMAIS CROIRE L'ANNONCE DE NUMÉRO — LE SCAN ARBITRE.** ⚠ **NOUVEL AUTEUR (Raynaud/Kleiman ≠ Grothendieck), NOUVELLE MACHINE À ÉCRIRE.**
+
+## ⚠⚠⚠⚠⚠ **DEUX NOUVEAUX DISPLAYS FABRIQUÉS (6ᵉ et 7ᵉ depuis §7.18) — LE CRITÈRE #591 TRANSFÈRE D'UN AUTEUR À L'AUTRE**
+- **f:X⟶Y** : scan «…intègre S, f : X ⟶ Y un S-morphisme surjectif.» (crop `z608_fxy`) — INLINE, «un S-morphisme surjectif» SUIT. Codex avait FABRIQUÉ un `\[…\]` ET ajouté «et soit» devant. ⟹ remis inline, «et soit» retiré.
+- **f\*:Pic_{Y/S}⟶Pic_{X/S}** : scan «…le morphisme induit f\* : Pic_{Y/S} ⟶ Pic_{X/S} est représentable…» (crop `z608_fpic`) — INLINE (flotte à la marge droite, «est représentable» suit). Codex avait FABRIQUÉ un `\[…\]`. ⟹ remis inline.
+⟹ ⚠⚠⚠ **Codex fabrique des displays INDÉPENDAMMENT DE L'AUTEUR (Grothendieck §7.18 en avait 4+1, Raynaud/Kleiman XII en a 2 sur sa 1ʳᵉ page) ⟹ VÉRIFIER CHAQUE `\[…\]` : texte-qui-suit ⟹ INLINE.**
+
+## ⚠⚠⚠⚠⚠ **CODEX DROPPE 5 INITIALES D'AUTEURS + 3 VIRGULES + PARENTHÈSES, ET SCINDE UNE PHRASE**
+- **PARENTHÈSES** : scan «par M. Raynaud (rédigé par S. Kleiman)» (crop `z608` band1) ⟹ Codex avait mis «par M. Raynaud, rédigé par S. Kleiman» (parenthèses→virgule). ⟹ restaurées.
+- **PHRASE SCINDÉE** : scan «…sous la forme suivante plus précise que celle énoncée dans FGA : soient X et Y…» (crop `z608_fga`) — PAS de virgule après «suivante», DEUX-POINTS + «soient» MINUSCULE. Codex avait «suivante, plus précise … FGA. Soient» (virgule ajoutée + point + majuscule = phrase scindée). ⟹ «suivante plus précise … FGA~: soient».
+- **5 INITIALES DROPPÉES** : scan «forgé par I. Castelnuovo et aiguisé et utilisé par T. Matsusaka, D. Mumford, Y. Nakai et S. Kleiman» (crops `z608_initials` + band4) ⟹ fichier «Castelnuovo … Matsusaka, Mumford, Nakai et Kleiman» (I./T./D./Y./S. TOUTES droppées). ⟹ restaurées.
+- **2 VIRGULES DROPPÉES** : «ou même au besoin**,** normales» (crop `z608_besoin`) ; «théorèmes de Lefschetz**,** utilisés» (crop `z608_lefschetz`). ⟹ restaurées.
+⟹ ⚠⚠⚠ **LIRE MOT À MOT, INITIALE PAR INITIALE, VIRGULE PAR VIRGULE — la classe #591 (Codex reformule/droppe/re-ponctue) TRANSFÈRE au nouvel auteur.**
+
+## ⚠⚠ **DÉFÉRÉ / GARDÉ / NON TOUCHÉ**
+- ⚠ **DÉFÉRÉ (global)** : «(p. C 07--C 11)» en-dash vs scan «C 07-C 11» hyphen (décision `--`) ; **«X'\to X» inline** — le scan a UNE flèche typographique unique (pas de distinction \to/\longrightarrow) ⟹ le sweep \to/\longrightarrow est GLOBAL, différé (ne pas fabriquer une raison de sweeper).
+- ✅ **GARDÉ (rendu moderne)** : `\emph{Fondements de la Géométrie Algébrique}` pour le scan «"Fondements…"» (les GUILLEMETS-DROITS de la machine = substitut d'italique pour un titre, comme la biblio #604) ; `\section*{Exposé XII. …}` = rendu moderne du bloc-titre souligné-majuscules «EXPOSE XII» + titre centré.
+- ✅ **NON TOUCHÉ** : «de Oort,» (virgule, fichier correct — une minuscule «la» suit) ; «\((b)\)-faisceaux» ; le dernier paragraphe.
+
+## ⚠⚠⚠ **DEUX ASSERTS-CHECKS FAUX SUR CETTE PAGE (#600 ×2) — VÉRIFIÉS PAR COMPTAGE**
+- Mon post-check `count("par M. Raynaud (rédigé par S. Kleiman)")==1` a ÉCHOUÉ (count=2) — mais **le TOC L160 avait DÉJÀ la forme parenthésée** ⟹ 2× est CORRECT (TOC + bloc-titre). Le rep() lui-même (sur la forme À-VIRGULE, unique) avait réussi.
+- Mon post-check `"\(S\), et soit" not in t` a ÉCHOUÉ (count=1) — mais l'occurrence restante est au **L15556 «Lemme 4.3. Soient X, Y propres sur un schéma S, et soit f:X→Y…»** (tournure banale, hors Avertissement). ⟹ ⚠⚠⚠ **MES SOUS-CHAÎNES DE VÉRIF PEUVENT ÊTRE TROP GÉNÉRIQUES ⟹ SI UN CHECK ÉCHOUE APRÈS UN rep() RÉUSSI, LOCALISER PAR GREP/COMPTAGE AVANT DE CONCLURE À UN BUG.**
+
+## **CURSEUR → idx609 (vol p596 = §1 «Énoncé du théorème principal et applications», Exposé XII, ~L14191+).** ⚠⚠⚠ **LIRE LE HEADER : sur p596 le compteur haut «- N -» DEVRAIT APPARAÎTRE (probablement «- 2 -», la 1ʳᵉ page n'en a pas) + running-head «XII» (ou titre court) ⟹ DÉRIVER CONSTANTE_XII = footer − top.** ⚠ **idx=footer+13 GLOBAL** (596+13=609 attendu). ⚠⚠ **MÊME RÉGIME : Codex fabrique des displays, droppe des initiales/mots/virgules, reformule ⟹ LIRE MOT À MOT, VÉRIFIER CHAQUE `\[…\]`.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #604 (2026-07-16) — idx607 (vol p594 = **Exposé X «- 76 -»**, header «- 76 -» + **«X App.»** + footer «594** ; **CONSTANTE_X=518 CONFIRMÉE [594−76]**) — **★★★★★★ LA DERNIÈRE PAGE DE L'APPENDICE §7 (Grothendieck) : fin §7.18.5 + la BIBLIOGRAPHIE (6 réf.) — 5 DÉFAUTS, DONT UN 4ᵉ DISPLAY FABRIQUÉ ET UN NOM D'AUTEUR NORMALISÉ** — **5 rep-calls** (bandes b1-b5 TOUTES lues + **9 crops HD 4200-4600dpi**) ; **idx=594+13=607 ✓** ; **le §7 App. se termine PROPREMENT ici** ; le fichier enchaîne ensuite sur l'**Exposé XI** (Raynaud, rédigé par Kleiman). Compile **0-err / 383pp** ✓.
+
+# ⚠⚠⚠⚠⚠⚠ **UN 4ᵉ DISPLAY FABRIQUÉ — LE CRITÈRE #591/#606 ENCORE**
+La flèche **«Pic(X) ⟶ Pic(X×_k U) est surjectif (EGA Err_IV 53, 21.4.13).»** (crop `z607_surj`, 4400dpi) est **INLINE** dans le scan — «est surjectif» SUIT sur la ligne, «Pic(X)» est à la MARGE GAUCHE. Codex l'avait mis en `\[…\]`. ⟹ **remis inline** (`\(\Pic(X)\longrightarrow \Pic(X\times_k U)\) est surjectif`). ✅ RENDU VÉRIFIÉ. ⚠⚠ **C'est le 4ᵉ display fabriqué du §7.18 (#606 en avait 3) ⟹ VÉRIFIER CHAQUE `\[…\]` : texte-qui-suit ⟹ INLINE.**
+
+## ⚠⚠⚠⚠⚠ **UNE ÉLISION AJOUTÉE + UNE EMPHASE DROPPÉE (une ligne, deux défauts)**
+- **ÉLISION** : scan «Dans le cas où **on** se borne» (crop `z607_ouon`, 4600dpi) — **PAS de «l'» euphonique**. Le fichier avait «où **l'on**». Codex a ajouté l'élision. ⟹ «où on» **SIC** (PAS D'ÉLISION #576/#583/#584 — Codex ÉLIDE ET DÉ-ÉLIDE au gré du «bon français»).
+- **EMPHASE** : scan «\(X\) est noethérien et **normal**» avec **«normal» SOULIGNÉ** (crop `z607_normal`, 4600dpi). Le fichier avait «normal» plain. ⟹ `\emph{normal}` (souligné-prose = `\emph{` #588/#595). ✅ RENDU : «normal» en italique.
+
+## ⚠⚠⚠⚠⚠ **LA BIBLIOGRAPHIE — 3 DÉFAUTS DE CONTENU + 1 QUIRK DE NOM**
+- **[1] Dickson** : scan «Linear **groups**» (g MINUSCULE, crop `z607_dickson`, 4400dpi). Fichier «\emph{Linear **Groups**}». Codex a CAPITALISÉ le titre (le vrai livre de Dickson est «Linear Groups», donc Codex a «corrigé» vers la réalité — mais le SCAN écrit «groups»). ⟹ «groups» **SIC** (typo LOCAL du livre, classe #604 «le scan arbitre, pas la réalité»).
+- **[2] Grothendieck** : scan «TDTE, V, VI **;** Séminaire» avec **ESPACE avant «;»** (crop `z607_groth`, 4400dpi). Fichier «VI;». ⟹ «VI~;» (forme maison `~;`=310). ✅ RENDU.
+- **[6] Abhyankar** : scan **«S. Abhyankar»** — INITIALE AVANT LE NOM (crop `z607_abhy1`, 4200dpi), alors que [1]-[5] sont «Nom, Initiale.». **Le livre formate SA DERNIÈRE référence différemment des cinq autres** ⟹ **quirk du livre**. Codex l'avait NORMALISÉE en «Abhyankar, S.» (uniformisation — la faute type #591). ⟹ **«S. Abhyankar,» SIC.** ET scan «in **:** Arithmetical» avec **ESPACE avant «:»** (crop `z607_abhy2`). Fichier «in:». ⟹ «in~:» (forme maison L667 «suivant~:»). ✅ RENDU.
+
+## ⚠⚠ **CE QUE J'AI VÉRIFIÉ ET N'AI PAS TOUCHÉ (confirmation interne)**
+- ✅ **hauteurs de point** «Gr· au lieu de K. ou K·» (crop `z607_grK`, 4200dpi) : Gr point HAUT = `\Gr^\bullet`, K. point BAS = `K_\bullet`, K· point HAUT = `K^\bullet` — **les trois EXACTS dans le fichier** ⟹ l'exhibit #574 correctement transcrit, RIEN à toucher (le scan CONFIRME le fichier).
+- ✅ **[3] Kleiman / [4] Murre / [5] Chevalley** : fidèles au scan (dont «préschemes» franco-anglais [4] SIC, «pp. 293--344» en-dash = convention moderne de plage).
+- ✅ **[6] «New York 1965.»** SANS virgule avant l'année (contrairement à [1] «New York, 1958») — le fichier le préserve déjà.
+- ✅ **titre «Bibliographie»** (`\subsection*`) = rendu moderne du «BIBLIOGRAPHIE» souligné-majuscules (artefact machine, cf #598-#602).
+
+## ⚠ **CE QUI RESTE OUVERT (reports)**
+- ⚠⚠ **DÉFÉRÉ à la décision GLOBALE «--»** : [6] «Harper--Row» (fichier en-dash) vs scan «Harper - Row» (hyphen ESPACÉ, cassé sur deux lignes) — instance de la liste des paires `--`, pas de correction piecemeal (#589 «cohérent ⟹ différer»).
+- ⚠ **QUESTION DE REPRÉSENTATION (documentée, NON corrigée)** : l'emphase des titres de biblio est INCOHÉRENTE ([1][3][4][6] en `\emph`, [2][5] plain) ; le scan n'italicise AUCUN titre (machine à écrire). J'ai **GARDÉ** l'emph comme convention d'édition moderne (comme le titre `\subsection*` et les labels `[\arabic*]`) et corrigé seulement la CASSE à l'intérieur — pas un défaut de source-fidélité (la source n'a pas d'italique), et un strip serait un SWEEP interdit. **À trancher globalement pour toute la biblio (emph-tous ou emph-aucun).**
+- ⚠⚠ **BUG D'INDEX DE PAGE RATTRAPÉ** : `z607.py` avait `d[606]` (= p593) au lieu de `d[607]` (= p594) — 9 crops sortis de la MAUVAISE page (contenu p593 «si k' est une extension finie») ; détecté parce que le contenu ne matchait pas les bandes ⟹ corrigé en `d[607]`. **LEÇON : vérifier l'IDENTITÉ de la page (le contenu) avant de faire confiance aux crops ; `pgcrop.py` et `zNNN.py` doivent utiliser LE MÊME index (= idx pour le scan primaire).**
+
+## ★★★★★★ **JALON — L'APPENDICE §7 (GROTHENDIECK) EST FIXÉ DE BOUT EN BOUT**
+Le §7 (Appendice à l'Exposé X, par Grothendieck) se termine sur p594. **Le détecteur de trous : §7.18 finit à §7.18.5 (PAS de §7.18.6)** ; §7.18.1→7.18.5 complet. **LA LEÇON DE FOND CONFIRMÉE UNE DERNIÈRE FOIS** : cette page «compile / se lit / est mathématiquement juste» portait quand même **5 défauts** dont un 4ᵉ display fabriqué et un nom d'auteur normalisé ⟹ **«ça compile» ne prouve RIEN.**
+
+## **CURSEUR → idx608 (vol p595 = DÉBUT DE L'EXPOSÉ XI — par M. Raynaud, rédigé par S. Kleiman ; TOC L160 «… 595»).** ⚠⚠⚠⚠ **NOUVEL EXPOSÉ, NOUVEL AUTEUR, NOUVELLE MACHINE À ÉCRIRE (Raynaud/Kleiman ≠ Grothendieck) ⟹ RE-VÉRIFIER CHAQUE CONVENTION, N'IMPORTER RIEN DE §7/X App.** ⚠⚠⚠ **LIRE LE HEADER EN PREMIER** : le running-head passe de «X App.» à «XI» (ou titre court) ; le compteur haut «- N -» REDÉMARRE probablement à «- 1 -» ⟹ **NOUVELLE CONSTANTE_XI = footer − top (à dériver)**. ⚠ **idx = footer + 13 GLOBAL TIENT** (c'est la page-volume ; 595+13=608 attendu, footer «595»). ⚠⚠ **le fichier : L14156-14174 = `\providecommand` (setup macros XI), L14176 = titre «par M. Raynaud, rédigé par S. Kleiman» ⟹ le début XI est ~L14176+.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN, COMPARER MOT À MOT.**
+
+### #603 (2026-07-16) — idx606 (vol p593 = **Exposé X «- 75 -»**, header «- 75 -» + **«X App.»** + footer «593** ; **CONSTANTE_X=518 CONFIRMÉE [593−75]**) — **★★★★★★ §7.18.5 (suite + items) — LA PAGE LA PLUS ÉDITÉE DE §7.18 : ~9 DÉFAUTS, DONT TROIS DISPLAYS FABRIQUÉS, DEUX PARENTHÈSES NON FERMÉES DU LIVRE, UN ACCORD «AMÉLIORÉ», ET UN DÉFAUT DE BORD QUE #602 AVAIT MANQUÉ** — **4 rep-calls** (bandes b1-b5 TOUTES lues MOT À MOT + **10 crops HD 4000-5200dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (593−75 ; idx=593+13=606 ✓)** ; la page **se termine PROPREMENT** sur «…resp. pour X_K.» **+ un GRAND BLANC**. Compile **0-err** ✓ — ⚠⚠ **et le rendu passe de 384 à 383 pages** (les 3 displays convertis en inline ont libéré une page).
+
+# ⚠⚠⚠⚠⚠⚠ **DISPLAY-FICTIF À L'ÉCHELLE D'UN `enumerate` — CODEX A FABRIQUÉ TROIS DISPLAYS**
+
+Les items (i)/(ii)/(iii) de §7.18.5 : **le livre les écrit avec la flèche INLINE** («…alors K.(X) ⟶ K.(X_K) est injectif», crops `item_i/ii/iii` — **«est injectif» SUIT sur la ligne**) ⟹ **le critère display-fictif (#591) dit INLINE** ⟹ **les 3 `\[…\]` de Codex étaient FABRIQUÉS** ⟹ **remis en ligne.** ✅ **RENDU VÉRIFIÉ** : «(ii) … alors K_•(X) ⟶ K_•(X_K) est injectif.», «(iii) … le noyau de K_•(X) ⟶ K_•(X_K) est un groupe de torsion.» — **INLINE**, points bas. ⚠⚠ **C'EST POURQUOI LE RENDU A PERDU UNE PAGE** : 3 displays ⟹ inline libère ~1 page de hauteur. ⚠ **le page-count n'est PAS la gate, MAIS son mouvement est cohérent avec le fix.**
+
+## ⚠⚠⚠⚠⚠ **CODEX A REFORMULÉ, RE-CASÉ, RE-PONCTUÉ CHAQUE ITEM (classe #591, à saturation)**
+
+- **(i)** : livre «**Si** K/k est une extension pure **de k**, alors…» ⟹ fichier «si … extension pure, alors» (**«de k» DROPPÉ**, minuscule).
+- **(ii)** : livre «**Si** k est séparablement clos et K/k **une extension** séparable» ⟹ fichier «si … et K/k séparable» (**«une extension» DROPPÉ**, minuscule).
+- **(iii)** : livre «**Pour** toute extension **K de k**» ⟹ fichier «pour … extension K/k» (**«K de k»⟹«K/k»**, minuscule).
+- **PONCTUATION** : le livre finit CHAQUE item par «.» ; Codex avait mis «;» pour (i) et (ii) (convention de liste française). ⟹ **restauré «.» partout.**
+⟹ ⚠⚠⚠ **Codex a systématiquement DROPPÉ des mots, MINUSCULÉ les initiales, et RE-PONCTUÉ — trois classes en un seul `enumerate`.** ✅ **RENDU VÉRIFIÉ** (majuscules Si/Si/Pour, «de k», «une extension», «K de k», points).
+
+## ⚠⚠⚠⚠⚠ **DEUX PARENTHÈSES OUVERTES ET JAMAIS FERMÉES — DEUX TYPOS DU LIVRE (#590)**
+
+- **«qui est un foncteur sur la catégorie C (grâce à (IV 2.12).»** (crop `quiest3`, 4400dpi) : le livre OUVRE «(grâce» et **NE LA FERME JAMAIS** (l'inner «(IV 2.12)» se ferme, l'outer «(grâce» non — «(grâce à (IV 2.12).»). Codex avait retiré la parenthèse externe («grâce à (IV 2.12).»). ⟹ **reproduire la parenthèse NON FERMÉE SIC.**
+- **«(de sorte que X_K est encore de type fini.»** (crop `desorte2`, 4400dpi) : le livre OUVRE «(de sorte» et **NE LA FERME JAMAIS** («…de type fini. De plus»). Codex avait ajouté la fermante. ⟹ **reproduire la parenthèse NON FERMÉE SIC.**
+⟹ ⚠⚠⚠ **DEUX «(…» orphelines sur une seule page** — motif #590 («)» sans partenaire ⟹ coquille du livre, SIC), ici en miroir («(» sans partenaire). ⚠⚠ **RÈGLE DU «))» ÉTENDUE : une PARENTHÈSE OUVRANTE sans fermante = aussi une coquille du livre à reproduire SIC. CHERCHER LA FERMANTE AVANT DE CONCLURE (elle manque ⟹ typo).**
+
+## ⚠⚠⚠⚠⚠ **UN DÉFAUT DE BORD QUE #602 AVAIT MANQUÉ — LE DISPLAY DE p592 FINISSAIT SUR UNE VIRGULE**
+
+Le display «F(A) = K.(X⊗_k A)**,**» est en BAS de p592 (crop `disp592`, 5200dpi : **VIRGULE**), et sa phrase CHEVAUCHE sur p593 («posons [display], **qui est** un foncteur…»). **#602 avait lu «F(A) = K.(X⊗_k A),» mais NE l'avait PAS croisé avec le fichier** (qui avait un POINT). ⟹ ⚠⚠⚠ **LE DÉFAUT DE PONCTUATION AU BORD DE PAGE EST EXACTEMENT CE QUE «une page propre ne prédit rien» (#599) prédit : #602 a trouvé 1 défaut (le NB) et manqué celui-ci.** ⟹ **peeker EN ARRIÈRE d'une ligne pour clore une phrase à cheval est l'inverse LÉGITIME du peek-avant (#592/#593)** ⟹ **corrigé : «.» du display ⟹ «,» + «C'est»⟹«qui est».** ✅ **RENDU VÉRIFIÉ.**
+
+## ⚠⚠⚠⚠ **UN ACCORD «AMÉLIORÉ» PAR CODEX — book-sic de nombre**
+
+**«Ces résultats restent valable»** (crop `valable2`, 4000dpi : **SINGULIER**). «résultats» est PLURIEL ⟹ la grammaire veut «valables» ⟹ **Codex avait corrigé.** ⟹ #582 ⟹ «valables» ⟹ «valable» **SIC.** ⚠ **book-sic d'accord, classe #584 «d'intersectionS rationnelLES».**
+
+## ⚠⚠ **CE QUE J'AI VÉRIFIÉ ET N'AI PAS TOUCHÉ**
+
+- ✅ **«K^· au lieu du foncteur K.»** (bande 4) : marque HAUTE vs point bas ⟹ **le fichier a `K^\bullet`/`K_\bullet`** ⟹ **JUSTE** (l'exhibit #574 ENCORE).
+- ✅ **le display p_*=N_{k'/k}:K.(X⊗_k k')⟶K.(X)** + K.(X)⟶K.(X×_k U) : `\longrightarrow`, points bas ⟹ **JUSTES** (rien ne suit ⟹ VRAIS displays, #594).
+- ✅ **«pour K^· au lieu de K. ; pour»** : espace avant «;» ⟹ le fichier l'a ; **le sweep global reste OUVERT.**
+- ✅ **«(IV 2.12)», «(IV 3.2.3)», «IX 1.6», «Spec k[T_1,…,T_n]»** : fidèles.
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **§7.18.5 FIN (elle finit sur p593) ⟹ p594 = §7.18.6 ? OU LA FIN DE L'EXPOSÉ X App. / le début de l'Exposé XI ? — idx607, VÉRIFIER LE HEADER (si «XI» apparaît, NOUVEAU Exposé, re-dériver la CONSTANTE).** ⚠ **le détecteur : §7.18.1→7.18.5 vus ; 7.18.6 existe-t-il ?**
+- ⚠⚠ **RÈGLE «))» ÉTENDUE : parenthèse OUVRANTE non fermée = typo du livre SIC (#603)** ; **accents de CAPITALE = rendu moderne (#602)** ; **NOMS PROPRES francisés (#600)** ; **`\to`(622)/`\longrightarrow`(1428) (NE PAS toucher inline)** ; **`K^\bullet`(182)/`K^\circ`(367) — #574 ARMÉ. PRIORITÉ** ; **les chevrons `«~`/`« `** ; **les 14 paires `--`** ; **artefacts machine (`\underline K(X)`, O souligné, titres, accents-capitale)** ; `\mathbb P`/`\mathbf P` ; `\operatorname{cl}`⟹`c\ell` ; `\Fil`/`\Filt` ; `\sim`⟹`\wr` ; **les DEUX «Je dis qu»** ; **l'espace avant «;»** ; les 13 `\underline{}` prose-like ; ``…'' TeX ; `\subsection*{7.6.}` vide ; `K_{\bullet,\bullet}` ; 𝐙 gras ; leqno ; «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE** ; **tags dupliqués**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **NEUF pages «déjà présentes» ⟹ 9/10/4/5/1/3/2/1/9 défauts. #602 a certifié p592 «propre à 1 défaut» ET MANQUÉ le défaut de bord (le display comma) ⟹ MÊME MES CERTS RÉCENTS SONT RÉVISABLES ; la lecture au glyphe de la page SUIVANTE rattrape le bord de la précédente.**
+
+## **CURSEUR → idx607 (vol p594 = printed «- 76 -» ATTENDU [594−518=76] — MAIS VÉRIFIER : si l'Exposé X App. se termine, le header peut CHANGER (Exposé XI, nouvelle CONSTANTE)).** ⚠⚠⚠ **LIRE LE HEADER EN PREMIER : si «X App.» ⟹ CONSTANTE_X=518 tient ; si «XI» ⟹ NOUVEL EXPOSÉ, re-dériver l'offset via le footer.** ⚠ **§7.18.6 ou la fin du §7 App. ⟹ COMPARER MOT À MOT.** ⚠⚠ **RE-GREP : drift #603 ≈ −8** (le bloc enumerate a rétréci) ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #602 (2026-07-16) — idx605 (vol p592 = **Exposé X «- 74 -»**, header «- 74 -» + **«X App.»** + footer «592** ; **CONSTANTE_X=518 CONFIRMÉE [592−74]**) — **★★★ §7.18.3 items (i)/(ii) + §7.18.4 + §7.18.5 début — UN SEUL défaut (placement du point du NB), ET UNE DÉCISION DE REPRÉSENTATION SUR L'ACCENT DE CAPITALE** — **1 rep-call** (bandes b1-b5 TOUTES lues MOT À MOT + **2 crops HD 4800dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (592−74 ; idx=592+13=605 ✓)** ; la page **se termine EN PLEINE PHRASE** sur le display «F(A) = K.(X⊗_k A),» **+ un GRAND BLANC**. Compile **0-err, 384pp** ✓. **Drift = 0.**
+
+## ⚠⚠⚠⚠ **LE SEUL DÉFAUT : LE POINT DU «NB» VA APRÈS LA PARENTHÈSE**
+
+Le livre : **«(NB. Noter qu'on ne suppose pas nécessairement k infini).»** (crop `nb`, 4800dpi : **le point est APRÈS la parenthèse fermante**). Le fichier avait **«…k infini.)»** (point AVANT la parenthèse). ⟹ **la parenthèse est une phrase complète qui CLÔT la phrase englobante ⟹ le point va DEHORS** (le livre a raison ; Codex l'avait déplacé dedans) ⟹ «infini.)» ⟹ «infini).». ✅ **RENDU VÉRIFIÉ** : «…nécessairement k infini).».
+
+## ⚠⚠⚠⚠⚠ **DÉCISION DE REPRÉSENTATION — L'ACCENT DE CAPITALE : «À» EST LE RENDU MODERNE, PAS UN DÉFAUT**
+
+§7.18.5 : le livre écrit **«A titre d'exemple»** (crop `atitre`, 4800dpi : **capitale A NON ACCENTUÉE**). Le fichier a **«À titre»** (accentuée). ⚠⚠⚠ **CE N'EST PAS UN BOOK-SIC À REPRODUIRE** : la machine à écrire de cette époque **N'A PAS DE TOUCHE POUR LES CAPITALES ACCENTUÉES** (À, É, È…) ⟹ **c'est une LIMITATION MÉCANIQUE, pas un choix de l'auteur** — même catégorie que le «O souligné» (=`\mathcal O`), le souligné-de-titre (=`\subsection*` plain), le `\underline K(X)` (#598/#599). ⟹ **le rendu moderne scholarly RESTAURE l'accent de capitale** ⟹ **`À» LAISSÉ (décision de représentation).** ⚠⚠ **DISTINCTION CLÉ : un accent MINUSCULE fautif/francisé (binômial #589, Sévéri #600) = choix reproductible sur machine ⟹ SIC ; un accent de CAPITALE manquant = impossibilité machine ⟹ rendu moderne, NE PAS reproduire la limitation.**
+
+## ⚠⚠ **CE QUE J'AI VÉRIFIÉ ET N'AI PAS TOUCHÉ (page quasi parfaite)**
+
+- ✅ **items «(i)»/«(ii)» `[label=(\roman*)]`** (bande 1) : parenthèses romaines ⟹ **le fichier matche** ; les renvois «Dans le cas (i)», «la conclusion de (ii)» matchent.
+- ✅ **tous les F(k)⟶F(K)/F(A)** : **les F sont F** ⟹ **PAS de typo K(K) sur cette page** ⟹ **confirme que le K(K) de #604 était ISOLÉ à sa phrase.**
+- ✅ **§7.18.5 «F(A) = K.(X⊗_k A)»** : point bas sur K. + tenseur `\otimes_k` ⟹ **matche le scan** ⟹ **JUSTE.**
+- ✅ **«(comparer IX 1.6)», «[k':k]», «pgcd des degrés», «est même bijectif», «Spec k[T_1,…,T_n]»** : **tous fidèles.**
+
+## ⚠⚠ **LE DÉTECTEUR DE TROUS — §7.18.1→7.18.5 COMPLET**
+
+Le dump montre §7.18.1, 7.18.2, 7.18.3, 7.18.4, **7.18.5** en séquence ⟹ **aucun trou.** ⚠ **§7.18.5 a un TROISIÈME `enumerate` `[label=(\roman*)]` (items (i)/(ii)/(iii)) sur p593 avec des displays K.(X)⟶K.(X_K)** ⟹ **cropper au scan les items (i)/(ii)/(iii) + les displays.**
+
+## ⚠ **LA LEÇON D'OUTIL (#605)**
+
+⚠⚠ **`python -c` a ENCORE planté** — cette fois l'extraction cp1252 sur «NB. Noter» (l'accent de «NB») ⟹ **0 pages trouvées** ⟹ **ré-écrit en FICHIER-SCRIPT avec un token ASCII-safe («ne suppose pas»).** ⟹ **la règle «vérif par FICHIER-SCRIPT, PAS `python -c`» a payé une 2ᵉ fois (après #598 le `\e` bad-escape).**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **§7.18.5 items (i)/(ii)/(iii) + displays K.(X)⟶K.(X_K) + «K^\bullet au lieu du foncteur» + suite — SUR p593 (idx606). §7.18 continue.** ⚠ **CROPPER les displays et les items.**
+- ⚠⚠ **NOUVELLE DÉCISION : accents de CAPITALE = rendu moderne (À/É), NE PAS reproduire la limitation machine** ; **NOMS PROPRES francisés (#600 : CROPPER CHAQUE)** ; **`\to`(622)/`\longrightarrow`(1428) (NE PAS toucher inline)** ; ⚠⚠⚠ **ÉTENDRE LE DÉTECTEUR (§7.18.N)** ; ⚠⚠ **`K^\bullet`(182)/`K^\circ`(367) — #574 ARMÉ. PRIORITÉ** ; **les chevrons `«~`(169)/`« `(69)** ; **les 14 paires `--` (décision GLOBALE)** ; **`\underline K(X)` (257) + «O souligné» + titres soulignés + accents-capitale = artefacts machine** ; `\mathbb P`(68)/`\mathbf P`(32) ; `\operatorname{cl}`(25)⟹`c\ell` ; `\Fil`(220)/`\Filt`(62) ; `\sim`⟹`\wr` (10) ; **les DEUX «Je dis qu»** ; **l'espace avant «;» (310/984)** ; les 13 `\underline{}` prose-like ; les ``…'' TeX résiduels ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 ; 𝐙 gras ; `\mathcal C`/`\mathcal O` ; **leqno** ; la lettre «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **HUIT pages «déjà présentes» ⟹ 9/10/4/5/1/3/2/1 défauts. La distinction accent-minuscule (SIC) vs accent-capitale (rendu moderne) est un JUGEMENT ÉDITORIAL, pas une règle mécanique.**
+
+## **CURSEUR → idx606 (vol p593 = Exposé X «- 75 -» [593−518=75])** — **§7.18.5 items (i)/(ii)/(iii) + displays + «K^\bullet au lieu du foncteur» + suite — DÉJÀ DANS LE FICHIER (~L14135+) ⟹ MÊME RÉGIME : COMPARER MOT À MOT.** ⚠ **CROPPER les displays K.(X)⟶K.(X_K), les items (i)/(ii)/(iii), et «K^\bullet» (marque haute).** ⚠⚠ **RE-GREP : drift #602 = 0** ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #601 (2026-07-16) — idx604 (vol p591 = **Exposé X «- 73 -»**, header «- 73 -» + **«X App.»** + footer «591** ; **CONSTANTE_X=518 CONFIRMÉE [591−73]**) — **★★★★★ §7.18.1 fin + §7.18.2 + §7.18.3 début — DEUX défauts : un BOOK-TYPO MATHÉMATIQUE (K(K) au lieu de F(K)) que Codex avait CORRIGÉ, et un CONNECTEUR RÉÉCRIT** — **2 rep-calls** (bandes b1-b5 TOUTES lues MOT À MOT + **2 crops HD 4400-5200dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (591−73 ; idx=591+13=604 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «…Sous ces conditions, on a :» **+ un GRAND BLANC**. Compile **0-err, 384pp** ✓. **Drift = 0.**
+
+# ⚠⚠⚠⚠⚠⚠ **CODEX CORRIGE UN TYPO MATH DE L'AUTEUR — 6ᵉ INSTANCE, ET CELLE-CI NE PARSE MÊME PAS**
+
+Le livre écrit **«Alors l'application \(F(k)\to K(K)\) est injective»** (crop `appli`, 5200dpi : le second symbole est un **K à jambe diagonale**, NETTEMENT différent du F de «F(k)»). ⚠⚠⚠ **«K(K)» NE PARSE PAS** — K est un CORPS, pas un foncteur ; l'énoncé exige **F(K)** (le foncteur F appliqué à l'extension K). ⟹ **c'est un VRAI typo mathématique de Grothendieck.**
+**Codex l'a silencieusement «corrigé» en `F(K)»** ⟹ **MATHÉMATIQUEMENT JUSTE** ⟹ ⚠⚠⚠ **INVISIBLE À TOUTE RELECTURE : personne ne soupçonne un «F(K)» parfaitement sensé.**
+⟹ **#584/#586 INVERSÉ, 6ᵉ instance** (#584 «x_i:S⟶X» exige C, «X_s×_{k(x)}C_s» exige k(s) ; #586 «K^{2i}» exige H ; #595 «A_i» nu ; #604 «K(K)» exige F). ⟹ ⚠⚠⚠ **LA MATH EST UN INDICE, LE SCAN ARBITRE** ⟹ **«F(K)» ⟹ «K(K)» SIC.** ✅ **RENDU VÉRIFIÉ** : «F(k) → K(K) est injective». ⚠⚠ **MA PAGE PORTE MAINTENANT UN TYPO MATH — celui de l'auteur. C'est le mandat archivistique : reproduire le symbole, pas le corriger.**
+⚠ **DISCIPLINE : les 3 AUTRES «\(F(k)\to F(K)\)» (§7.18.3 items i/ii, corrects) restent INTACTS** (assert : 3 restants) — **le typo est LOCAL à cette phrase.**
+
+## ⚠⚠⚠⚠ **CODEX RÉÉCRIT UN CONNECTEUR — CLASSE #591**
+
+Le livre : **«soit la multiplication par [k':k]. Sous ces conditions, on a :»** (crop `sous`, 4400dpi). Le fichier avait **«…par \([k':k]\). Alors :»** — Codex a REMPLACÉ «Sous ces conditions, on a» par «Alors». ⟹ ⚠⚠ **classe #591** (Codex réécrit les connecteurs/clauses : «désignons par»⟹«notons», «on définit alors»⟹«les constructions précédentes fournissent») ⟹ restauré. ✅ **RENDU VÉRIFIÉ.**
+
+## ⚠⚠ **CE QUE J'AI VÉRIFIÉ ET N'AI PAS TOUCHÉ**
+
+- ✅ **les items «a)»/«b)» de §7.18.2** (bande 1) : le livre a **lettre+parenthèse fermante** ⟹ **le fichier `\begin{enumerate}[label=\alph*)]` matche** ⟹ **JUSTE** ; les renvois «dans le cas a)»/«Dans le cas b)» matchent.
+- ✅ **§7.18.3 : les DEUX displays** «N_{k'/k}:F(k')⟶F(k)» (`\longrightarrow`) + «F(k)⟶F(k')--N_{k'/k}-->F(k)» (`\xrightarrow{N_{k'/k}}`) ⟹ **matchent le scan** (flèches longues de display, label au-dessus) ⟹ **JUSTES.**
+- ✅ **«\((\mathrm{Ab})\)»** rend «(Ab)» ⟹ matche ; **«[k':k]»** le crochet de degré ⟹ matche.
+- ✅ **le composé «F(k)⟶F(A)⟶F(k) est l'identité»** (bande 3) : **tous les F sont F** ⟹ **le typo K(K) est ISOLÉ à la phrase de §7.18.2**, pas systématique ⟹ **confirme que c'est un vrai typo, pas une convention.**
+
+## ⚠⚠ **LE DÉTECTEUR DE TROUS — §7.18.1→7.18.4 COMPLET, AUCUN TROU**
+
+Le dump montre §7.18.1, 7.18.2, 7.18.3, 7.18.4 en séquence ⟹ **aucun trou de numérotation dans §7.18.** ⚠ **§7.18.3 a un SECOND `enumerate` `[label=(\roman*)]` (items (i)/(ii)) — le fichier a les DEUX styles : `\alph*)` pour 7.18.2, `(\roman*)` pour 7.18.3** ⟹ **cropper au scan la forme des items (i)/(ii) sur p592.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **§7.18.3 items (i)/(ii) + §7.18.4 + suite — SUR p592 (idx605). §7.18 continue.** ⚠ **CROPPER les items «(i)»/«(ii)» (parenthèses romaines).**
+- ⚠⚠ **NOMS PROPRES francisés (#600 : CROPPER CHAQUE)** ; **`\to`(622)/`\longrightarrow`(1428) (NE PAS toucher inline)** ; ⚠⚠⚠ **ÉTENDRE LE DÉTECTEUR (§7.18.N)** ; ⚠⚠ **`K^\bullet`(182)/`K^\circ`(367) — #574 ARMÉ. PRIORITÉ** ; **les chevrons `«~`(169)/`« `(69)** ; **les 14 paires `--` (décision GLOBALE)** ; **`\underline K(X)` (257) + «O souligné» + titres soulignés = artefact machine** ; `\mathbb P`(68)/`\mathbf P`(32) ; `\operatorname{cl}`(25)⟹`c\ell` ; `\Fil`(220)/`\Filt`(62) ; `\sim`⟹`\wr` (10) ; **les DEUX «Je dis qu»** ; **l'espace avant «;» (310/984)** ; les 13 `\underline{}` prose-like ; les ``…'' TeX résiduels ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 ; 𝐙 gras ; `\mathcal C`/`\mathcal O` ; **leqno** ; la lettre «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **SEPT pages «déjà présentes» ⟹ 9/10/4/5/1/3/2 défauts. Un typo math que Codex a «réparé» ⟹ ma page reproduit une ERREUR de l'auteur, comme il se doit.**
+
+## **CURSEUR → idx605 (vol p592 = Exposé X «- 74 -» [592−518=74])** — **§7.18.3 items (i)/(ii) + §7.18.4 + suite — DÉJÀ DANS LE FICHIER (~L14120+) ⟹ MÊME RÉGIME : COMPARER MOT À MOT.** ⚠ **§7.18.3 «(NB. Noter qu'on ne suppose pas…)» + «pgcd des degrés» + «groupe de torsion» ⟹ CROPPER.** ⚠⚠ **RE-GREP : drift #601 = 0** ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #600 (2026-07-16) — idx603 (vol p590 = **Exposé X «- 72 -»**, header «- 72 -» + **«X App.»** + footer «590** ; **CONSTANTE_X=518 CONFIRMÉE [590−72]**) — **★★★★ §7.17.6 fin + §7.17.7 + §7.18 «Appendice à l'Appendice» DÉBUT — TROIS défauts : un book-sic de NOM PROPRE (Néron-Sévéri), un book-sic de CASSE, un MOT DROPPÉ** — **3 rep-calls** (bandes b1-b5 TOUTES lues MOT À MOT + **5 crops HD 4400-5200dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (590−72 ; idx=590+13=603 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «…nous cherchons des cri-» **+ un GRAND BLANC**. Compile **0-err, 384pp** ✓. **Drift = 0.** ⚠ **6ᵉ CERT depuis reprise post-compaction ; le compteur atteint #600.**
+
+# ⚠⚠⚠⚠⚠ **BOOK-SIC DE NOM PROPRE — LE LIVRE FRANCISE «SEVERI» EN «SÉVÉRI»**
+
+Le livre écrit **«groupe de Néron--Sévéri»** (crop `neron`, 5200dpi : **accent sur les DEUX «e» de Sévéri**) ⟹ **il ACCENTE le nom de Francesco SEVERI** (mathématicien italien, orthographe correcte SANS accent) — **une francisation fautive.** Le fichier a «Néron--Severi» (correct). ⟹ ⚠⚠⚠ **#582 : LE LIVRE FAIT AUTORITÉ CONTRE LA CORRECTION** ⟹ «Severi» ⟹ «Sévéri» **SIC.** ✅ **RENDU VÉRIFIÉ** : «groupe de Néron–Sévéri».
+⚠⚠ **LE TIRET RESTE `--`** : c'est la convention des NOMS COMPOSÉS (Riemann--Roch, Krull--Akizuki) ⟹ **je n'ai touché QUE l'accent, PAS le tiret** (assert : «Néron--Sévéri» double tiret =1, simple tiret =0) ⟹ **le report des 14 paires `--` reste une décision d'ÉDITION GLOBALE.** ⚠ **NOUVELLE CLASSE : le livre francise aussi les NOMS PROPRES ⟹ CROPPER CHAQUE NOM PROPRE (Riemann, Roch, Chow, Hironaka, Krull, Akizuki, Néron, Severi…).**
+
+# ⚠⚠⚠⚠ **BOOK-SIC DE CASSE + MOT DROPPÉ — DEUX AUTRES DÉFAUTS QU'AUCUN CORRECTEUR NE VERRAIT**
+
+- **Le titre §7.18 : «Appendice à l'Appendice»** (crop `titre2`, 4400dpi : **«l'Appendice» avec MAJUSCULE**). Le fichier a «l'appendice» (minuscule) ⟹ **Codex a «corrigé» la casse.** ⟹ «l'appendice» ⟹ «l'Appendice» **SIC.** ✅ **RENDU VÉRIFIÉ.** ⚠ **le titre est ENTIÈREMENT SOULIGNÉ au scan (2 segments : le nom + après «:» le sous-titre)** ; **le fichier `\subsection*` le rend SANS souligné = la forme-maison des titres (#594)** ⟹ **souligné NON ajouté** (décision de représentation).
+- **MOT DROPPÉ (#591) : «Nous explicitons ICI un point technique soulevé»** (crop `ici3`, 61× : «ici» PRÉSENT). Le fichier avait «Nous explicitons un point technique» — **«ici» droppé.** ⟹ restauré. ✅ **RENDU VÉRIFIÉ.**
+
+## ⚠⚠ **CE QUE J'AI VÉRIFIÉ ET N'AI PAS TOUCHÉ (le check tire dans les deux sens)**
+
+- ⚠⚠⚠ **«pour \(\Gr_\bullet\) etc.» AVEC un point** (bande 3 : «variantes pour Gr. etc. On construit») ⟹ ⚠⚠ **CONTRASTE FRAPPANT AVEC #596** («les groupes K. etc pour» — SANS point) ⟹ **LE LIVRE EST INCOHÉRENT SUR «etc»/«etc.» — PER-OCCURRENCE** : ici «etc.» finit une phrase (suivi de «On»), en #596 «etc» était en milieu de phrase. **Le fichier a «etc.» ICI ⟹ JUSTE** (le check tire dans les deux sens, #582).
+- ✅ **«\(\Gr^1=\Pic\)» + «\(\Gr^1_{\mathrm{alg}}=\mathrm{NS}\)»** : Gr^1 EXPOSANT (codim, Pic/NS sont codim-1) + «alg» INDICE (affixe) ⟹ **matche le scan** (side-swap #585 : l'affixe en indice) ⟹ **JUSTE.**
+- ✅ **«\((\mathrm{Ens})\)»** : rend «(Ens)» romain ⟹ **matche** ⟹ **JUSTE.**
+- ✅ **«Gr.», «K^·», «Gr^·»** (l'exhibit #574, bandes 1-2) : point bas vs marque haute ⟹ **le fichier a `\Gr_\bullet`, `K^\bullet`, `\Gr^\bullet`** ⟹ **JUSTES.**
+- ✅ **le display F(k) ⟶ F(K) (§7.18.1)** : `\longrightarrow` ⟹ **JUSTE** (rien ne suit ⟹ display, #594).
+
+## ⚠⚠ **LE DÉTECTEUR DE TROUS — §7.18 COMMENCE, PAS DE TROU DANS §7.17**
+
+§7.17.7 est le DERNIER num de §7.17 (7.17.1→7.17.7 complet), puis §7.18 «Appendice à l'Appendice» ⟹ **AUCUN trou de numérotation.** ⚠ **§7.18 a ses propres sous-numéros (7.18.1, 7.18.2… déjà visibles dans le dump) ⟹ étendre le détecteur À §7.18.N.**
+
+## ⚠ **LA LEÇON DE MÉTHODE (#599 confirmée)**
+
+p590 avait 3 défauts, tous du type «invisible à la relecture» : un nom propre francisé, une casse, un mot de liaison droppé. ⚠⚠⚠ **AUCUN ne casse la math, la grammaire, ou la compilation.** ⟹ **SEULE la lecture MOT À MOT + le crop du glyphe les attrape.** ⚠ **mon propre assert final était FAUX** («Néron--Sévéri» double-tiret ne CONTIENT pas «Néron-Sévéri» simple-tiret) — **vérifié par comptage plutôt que supposé** (le fix avait DÉJÀ atterri ; l'assert-check était le bug, pas le fix).
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **§7.18.1 fin + §7.18.2 + suite — SUR p591 (idx604). §7.18 = le DERNIER num du §7 Appendice** ⟹ **la fin de l'Exposé X App. approche.**
+- ⚠⚠ **NOUVELLE CLASSE : NOMS PROPRES francisés/altérés par le livre ⟹ CROPPER CHAQUE.**
+- ⚠⚠ **`\to`(622)/`\longrightarrow`(1428) (NE PAS toucher inline)** ; ⚠⚠⚠ **ÉTENDRE LE DÉTECTEUR (§7.18.N)** ; ⚠⚠ **`K^\bullet`(182)/`K^\circ`(367) — #574 ARMÉ. PRIORITÉ** ; **les chevrons `«~`(169)/`« `(69)** ; **les 14 paires `--` (décision d'édition GLOBALE ; Néron--Sévéri en fait partie)** ; **`\underline K(X)` (257) + «O souligné» + titres soulignés = artefact machine** ; `\mathbb P`(68)/`\mathbf P`(32) ; `\operatorname{cl}`(25)⟹`c\ell` ; `\Fil`(220)/`\Filt`(62) ; `\sim`⟹`\wr` (10) ; **les DEUX «Je dis qu»** ; **l'espace avant «;» (310/984)** ; les 13 `\underline{}` prose-like ; les ``…'' TeX résiduels ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 ; 𝐙 gras ; `\mathcal C`/`\mathcal O` ; **leqno** ; la lettre «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **CINQ pages «déjà présentes» ⟹ 9/10/4/5/1/3 défauts (idx599-idx603). La qualité de Codex varie page à page ; SEULE la lecture au glyphe le révèle.**
+
+## **CURSEUR → idx604 (vol p591 = Exposé X «- 73 -» [591−518=73])** — **§7.18.1 fin + §7.18.2 + suite — DÉJÀ DANS LE FICHIER (~L14100+) ⟹ MÊME RÉGIME : COMPARER MOT À MOT.** ⚠ **§7.18.2 a un `\begin{enumerate}[label=\alph*)]` (cas a) et b)) ⟹ vérifier au scan la forme des items (a)/b) avec ou sans parenthèse).** ⚠⚠ **RE-GREP : drift #600 = 0** ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #599 (2026-07-16) — idx602 (vol p589 = **Exposé X «- 71 -»**, header «- 71 -» + **«X App.»** + footer «589** ; **CONSTANTE_X=518 CONFIRMÉE [589−71]**) — **★★★ §7.17.4 fin + §7.17.5 + §7.17.6 début — UN SEUL défaut : la page la plus PROPRE de toute la série §7.17** — **1 rep-call** (bandes b1-b5 TOUTES lues MOT À MOT + **2 crops HD 4400-4800dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (589−71 ; idx=589+13=602 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «…de spécialisation au» **+ un GRAND BLANC**. Compile **0-err, 384pp** ✓. **Drift = 0.**
+
+# ⚠⚠ **UNE PAGE PRESQUE PARFAITE — ET C'EST UN RÉSULTAT, PAS UN RELÂCHEMENT**
+
+Après quatre pages «déjà présentes» à 9/10/4/5 défauts, **p589 n'en a QU'UN** : l'espace avant «;». ⚠⚠⚠ **La lecture MOT À MOT des 5 bandes contre le fichier (dump complet §7.17.4-fin ⟹ §7.17.6-début) n'a rien trouvé d'autre** — deux displays `\longrightarrow` justes, §7.17.5 et §7.17.6 fidèles au glyphe. ⟹ **la variance de qualité de Codex est RÉELLE : certaines pages sont intactes, d'autres criblées. Le SEUL moyen de le savoir est de lire CHAQUE page — la propreté d'une page ne PRÉDIT RIEN sur la suivante.**
+
+## LE SEUL DÉFAUT
+
+**«…pour son localisé en \(s\)<u> </u>; cette hypothèse»** (crop `semi`, 4400dpi : **espace LARGE et NET avant «;»**). Le fichier : «en \(s\);» SANS espace. ⟹ **`~;`=309 vs `;` nu=985 ⟹ INCOHÉRENT ⟹ corriger MA page vers le livre** (critère #589, comme #595/#596/#597). ✅ **RENDU VÉRIFIÉ** : «localisé en s ; cette hypothèse est vérifiée … si 𝒪_{S,s} est». ⚠ **le report global de l'espace avant «;» reste OUVERT.**
+
+## ⚠⚠ **CE QUE J'AI VÉRIFIÉ AU SCAN ET N'AI PAS TOUCHÉ (le check tire dans les deux sens)**
+
+- ⚠⚠⚠ **«S' → Spec(\(\mathcal O_{T,s}\))» inline avec `\to`** : ⚠ **PAS un défaut** — les displays sont `\longrightarrow`, l'inline est `\to` = **LA CONVENTION MODERNE STANDARD** (flèche de display plus longue que l'inline). La machine à écrire ne peut pas distinguer, mais **le choix du fichier est correct** ⟹ **PAS d'incohérence LOCALE exploitable ici** (contrairement à #595 où le livre avait 2 flèches de MÊME longueur). ⟹ **le report global `\to`(622)/`\longrightarrow`(1428) reste OUVERT ; NE PAS toucher les `\to` inline sans une incohérence locale démontrée.**
+- ✅ **«\(\mathcal O_{S,s}\)» / «\(\Spec(\mathcal O_{T,s})\)»** : le livre SOULIGNE le «O» (faisceau structural, «O souligné» de machine à écrire) ⟹ **le fichier a `\mathcal O` (=936) = rendu moderne standard** ⟹ **NON TOUCHÉ** (décision de représentation #598 ; rendu vérifié : 𝒪_{S,s} calligraphique).
+- ✅ **les 2 displays `\longrightarrow`** (7.17.4.2 + la forme (7.16.1) «K.(X_{t̄_{i+1}}) ⟶ K.(X_{t̄_i})») : points bas + flèches longues ⟹ **JUSTES.**
+- ✅ **«c'est-à-dire des \(t_i\).»**, «grâce à Hironaka», «excellent de caractéristique nulle», «X'=X×_S S'», les tags 7.17.4.2/7.17.5/7.17.6 : **tous fidèles.**
+
+## ⚠ **LA LEÇON DE MÉTHODE (#599)**
+
+⚠⚠⚠ **UNE PAGE PROPRE NE JUSTIFIE PAS DE RALENTIR LA VÉRIFICATION — elle la justifie ENCORE PLUS.** Un défaut isolé dans une page par ailleurs parfaite (comme l'espace avant «;») est EXACTEMENT ce qui échappe à une lecture rapide : rien autour n'attire l'œil. ⟹ **la lecture mot-à-mot + le comptage sont ce qui a isolé le seul défaut.** ⚠ **NE JAMAIS CERTIFIER une page «propre» sans l'avoir lue au glyphe : «ça se lit» ne prouve rien, même quand c'est vrai à 99%.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **§7.17.7 (le dernier num de §7.17 : «point double ordinaire», «Néron--Severi», «\(\Gr^1=\Pic\)», «\(\Gr^1_{\mathrm{alg}}=\mathrm{NS}\)») + la fin de §7.17.6 — SUR p590 (idx603).** ⚠ **§7.18 «Appendice à l'appendice» approche** (le dernier num du §7 App.).
+- ⚠⚠ **`\to`(622)/`\longrightarrow`(1428)** — sweep GLOBAL (NE PAS toucher les `\to` inline sans incohérence locale) ; ⚠⚠⚠ **ÉTENDRE LE DÉTECTEUR DE TROUS** ; ⚠⚠ **`K^\bullet`(182)/`K^\circ`(367) — #574 ARMÉ. PRIORITÉ** ; **les chevrons `«~`(169)/`« `(69)** ; **les 14 paires `--` (décision d'édition GLOBALE)** ; **`\underline K(X)` (257) + le «O souligné» = artefact machine (décision de représentation)** ; `\mathbb P`(68)/`\mathbf P`(32) ; `\operatorname{cl}`(25)⟹`c\ell` ; `\Fil`(220)/`\Filt`(62) ; `\sim`⟹`\wr` (10) ; **les DEUX «Je dis qu»** ; **l'espace avant «;» (310/984)** ; les 13 `\underline{}` prose-like ; les ``…'' TeX résiduels ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 ; 𝐙 gras ; `\mathcal C`/`\mathcal O` ; **leqno** ; la lettre «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **Une page presque parfaite reste PROVISOIRE : je n'ai lu qu'à ~4400dpi et à un seul passage.**
+
+## **CURSEUR → idx603 (vol p590 = Exposé X «- 72 -» [590−518=72])** — **§7.17.6 fin + §7.17.7 + peut-être §7.18 début — DÉJÀ DANS LE FICHIER (~L14085+) ⟹ MÊME RÉGIME : COMPARER MOT À MOT.** ⚠ **§7.17.7 est dense en notations : «Néron--Severi» (paire `--`), «\(\Gr^1_{\mathrm{alg}}=\mathrm{NS}\)», «point double ordinaire» ⟹ CROPPER CHAQUE.** ⚠⚠ **RE-GREP : drift #599 = 0** ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #598 (2026-07-16) — idx601 (vol p588 = **Exposé X «- 70 -»**, header «- 70 -» + **«X App.»** + footer «588** ; **CONSTANTE_X=518 CONFIRMÉE [588−70]**) — **★★★★★ §7.17.3 fin + §7.17.4 + (7.17.4.1) — CINQ défauts, ET LA CIBLE Gr.^num DE #597 EST TROUVÉE EXACTEMENT OÙ LE SCAN LA PRÉDISAIT (haut de p588)** — **5 rep-calls** (bandes b1-b5 TOUTES lues + **9 crops HD 4400-6400dpi + 2 COMPTAGES**) ; **CONSTANTE_X=518 ✓ (588−70 ; idx=588+13=601 ✓)** ; la page **se termine EN PLEINE PHRASE** sur le display «K.(X_{t_{i+1}}) ⟶ K.(X_{t_i}),» **+ un GRAND BLANC**. Compile **0-err, 384pp** ✓. **Drift = 0.**
+
+# ⚠⚠⚠⚠⚠ **LE PÉRIMÈTRE DIFFÉRÉ EN #597 SE CONFIRME AU SCAN — ET C'EST LA MÉTHODE QUI TIENT**
+
+#597 avait DIFFÉRÉ les 2 `\Gr^{\mathrm{num}}` à p588 (au lieu de les traiter sur p587 comme #596 l'annonçait), **parce que le scan montrait p587 finissant sur «…Signalons seulement»**. ✅ **CONFIRMÉ : la phrase «qu'il résulte de 7.16.2 que Gr.^num(X_t̄)…Gr.^num(X_s̄)» est bien LA PREMIÈRE LIGNE DE TEXTE de p588** (bande 1), **les DEUX Gr.^num avec le POINT BAS.** ⟹ ⚠⚠⚠ **la discipline «lire le scan, pas la prédiction» a placé la cible au bon endroit à un firing près — exactement comme le détecteur de trous localise une excision.**
+
+## ⚠⚠⚠⚠⚠ **LES DEUX Gr.^num — 14ᵉ ET 15ᵉ FOIS QUE CODEX RATE LE POINT BAS, ET LA CONFIRMATION INTERNE EST MÉCANIQUE (#586)**
+
+Le livre : «**Gr.^{num}(X_t̄)** … **Gr.^{num}(X_s̄)**» (bande 1, point bas + «num» exposant). Le fichier : `\Gr^{\mathrm{num}}` NU (×2). ⟹ `\Gr_\bullet^{\mathrm{num}}`.
+⚠⚠⚠ **ET L'ASSERT POST-ÉCRITURE A DONNÉ LA PREUVE INTERNE, SANS QUE JE LA CHERCHE** : `\Gr_\bullet^{\mathrm{num}}(X_{\bar t})\) est isomorphe`=**2** là où j'attendais 1 ⟹ enquête (`chk601b`) ⟹ **occurrence 1 = §7.16.2 «lorsque \(f\) est lisse et propre : \(\Gr_\bullet^{\mathrm{num}}(X_{\bar t})\) est isomorphe…» (corrigée en #596)** ; **occurrence 2 = LA MIENNE, §7.17.3 «il résulte de 7.16.2 que…»** ⟹ ✅ **§7.17.3 est LA RESTATEMENT EXACTE de §7.16.2 — le fichier portait DÉJÀ la forme à point bas dans l'énoncé parallèle** (le lien #596 : «§7.16.2 = la conséquence de 7.9.4») ⟹ **ma correction FAIT CORRESPONDRE les deux énoncés parallèles.** ✅ **RENDU VÉRIFIÉ** : «Gr_•^{num}(X_t̄) est isomorphe … Gr_•^{num}(X_s̄)».
+⚠ **DISCIPLINE : le 3ᵉ `\Gr^{\mathrm{num}}` est `\Gr^{\mathrm{num}}_\bullet` (ordre INVERSÉ, ailleurs) ⟹ HORS PÉRIMÈTRE, assert = 1 restant, NON TOUCHÉ.**
+
+## ⚠⚠⚠⚠ **LE SOULIGNÉ — 11ᵉ ET 12ᵉ INSTANCES, ET LA RÈGLE #588 SE VÉRIFIE PAR LES DEUX «extension pure»**
+
+- **«…pour \(k(s')\) une <u>extension pure</u> de \(k(s)\)»** (crop `grnum1` incident : «ure de k(s)» soulignée) — **soulignée À SON INTRODUCTION.**
+- ⚠⚠⚠ **MAIS la SECONDE «extension pure» («si \(k'\) est une extension pure d'un corps») N'EST PAS soulignée** (crop `extpure`) ⟹ **LA RÈGLE #588 SE VÉRIFIE SUR UNE MÊME PAGE : le souligné marque le terme À SON INTRODUCTION, PAS À CHAQUE EMPLOI** (comme «section»/«Cette section», #588). ⟹ `\emph` la PREMIÈRE seulement (les 8 «extension pure» du fichier restent : je n'ai touché QUE la mienne).
+- **«…sous-schémas fermés <u>réguliers</u> \(S_i\)»** (crop `regul` : le trait se lève avant «S_i») ⟹ `\emph{réguliers}`. ⚠ **Le `\emph{réguliers}` PRÉEXISTANT est AILLEURS** («anneaux locaux réguliers, par exemple») ⟹ **ma page en était dépourvue** ⟹ assert final = 2 (le sien + le mien).
+- ⚠ **la maison rend le souligné-prose par `\emph`** (=511 ; le `\emph{réguliers}` préexistant le CONFIRME encore) ⟹ **RETROUVAILLE, pas choix.**
+✅ **RENDU VÉRIFIÉ** : «une *extension pure* de k(s)» + «fermés *réguliers* S_i».
+
+## ⚠⚠⚠⚠ **BOOK-SIC : «Un autre façon» (MASCULIN FAUTIF) — LE LIVRE CONTRE LA GRAMMAIRE (#582)**
+
+Le livre : «**Un** autre façon de définir un homomorphisme (7.17.4.1)» (crop `unfacon`) — **MASCULIN**, alors que «façon» est FÉMININ. Le fichier avait «**Une** autre façon» (Codex a corrigé la grammaire de l'auteur). ⟹ ⚠⚠ **LE LIVRE FAIT AUTORITÉ CONTRE LA GRAMMAIRE** (classe #582/#583/#584 : «complet», «d'intersectionS rationnelLES»…) ⟹ **«Une» ⟹ «Un» SIC.** ✅ **RENDU VÉRIFIÉ.** ⟹ **book-sic = 61+ en 40 pages.**
+
+## ⚠⚠ **CE QUE J'AI VÉRIFIÉ ET N'AI PAS TOUCHÉ (décision de représentation établie)**
+
+- ⚠⚠⚠ **«\(\mathcal O_{S_{i+1},t_i}\)» — le livre SOULIGNE le «O»** (crop `Oring`) ⟹ **c'est la notation du FAISCEAU STRUCTURAL, tapée en «O souligné» PARCE QUE LA MACHINE À ÉCRIRE N'A PAS DE FONTE CALLIGRAPHIQUE.** Le fichier a `\mathcal O` (=936, massivement cohérent) = **le rendu moderne standard du «O» calligraphique** ⟹ **DÉCISION DE REPRÉSENTATION ÉTABLIE** (comme `\mathbb Z` pour le Z gras, `\mathbb P`/`\mathbb Q`) ⟹ **NON TOUCHÉ.** ⚠ **c'est le même principe que le report `\underline K(X)` (257) : le souligné-de-lettre-math est un artefact de machine à écrire, pas une emphase.**
+- **«K.(T) ⟶ K.(T⊗_k k')»** : le livre a une flèche SIMPLE (le «est un isomorphisme» est EN MOTS) ⟹ **le fichier a `\to`** ⟹ **JUSTE.**
+- **(7.17.4.1) «K.(X_t) ⟶ K.(X_s)»** + **«K.(X_t̄) → K.(X_s̄)» inline** + le display «K.(X_{t_{i+1}}) ⟶ K.(X_{t_i})» : **tous `K_\bullet`** ⟹ **le fichier a les points bas** ⟹ **JUSTES.**
+
+## LES 5 REP-CALLS
+
+1-2. **Gr.^num(X_t̄) + Gr.^num(X_s̄)** ⟹ `\Gr_\bullet^{\mathrm{num}}`.
+3. **«extension pure» (intro)** ⟹ `\emph`.
+4. **«réguliers» (ma page)** ⟹ `\emph`.
+5. **«Une autre façon» ⟹ «Un autre façon»** SIC.
+⚠ **Le fix ré-asserte APRÈS écriture** : les 5 formes NOUVELLES landed, **les 5 ANCIENNES à 0**, **`\Gr^{\mathrm{num}}` (nu) = 1 restant** (le `_\bullet`-swap intact), **«extension pure» = 8** (les 7 autres intactes), **`\emph{réguliers}` = 2** (le préexistant intact) ⟹ **HORS-PÉRIMÈTRE PROUVÉ INTACT.**
+
+## ⚠ **LA LEÇON DU FILTRE / DE L'OUTIL**
+
+- ⚠⚠ **`python -c` inline a PLANTÉ sur `\e` (bad escape)** — **exactement pourquoi le loop impose les FICHIERS-SCRIPTS** ⟹ ré-écrit en `chk601.py`.
+- «éclaté»⟹7 pages ; «réguliers»⟹18 pages ; «extension pure»⟹3 pages ; «Un autre»⟹2 pages ⟹ **CALIBRER D'ABORD.** «7.16.2 que» et «trouve alors» ⟹ 1 rect ✓.
+- ⚠ **mes y-estimates ont raté 2 fois** (les Gr.^num étaient en HAUT de page true_y~0.10, pas 0.26 ; le souligné une ligne trop bas) ⟹ **re-dérivés depuis la géométrie de bande.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **§7.17.4 CONTINUE sur p589** (le composé, (7.17.4.2), (7.17.4.3)…) ⟹ **idx602, MÊME RÉGIME.**
+- ⚠⚠ **`\to`(622)/`\longrightarrow`(1428)** — sweep GLOBAL ; ⚠⚠⚠ **ÉTENDRE LE DÉTECTEUR DE TROUS** (7.17.4.N présents) ; ⚠⚠ **`K^\bullet`(182)/`K^\circ`(367) — #574 ARMÉ. PRIORITÉ** ; **les chevrons `«~`(169)/`« `(69)** ; **les 14 paires `--` (décision d'édition GLOBALE)** ; **`\underline K(X)` (257) + le «O souligné» = artefact machine à écrire, décision de représentation** ; `\mathbb P`(68)/`\mathbf P`(32) ; `\operatorname{cl}`(25)⟹`c\ell` ; `\Fil`(220)/`\Filt`(62) ; `\sim`⟹`\wr` (10) ; **les DEUX «Je dis qu»** ; **l'espace avant «;» (309/985)** ; les 13 `\underline{}` prose-like ; les ``…'' TeX résiduels ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 ; 𝐙 gras ; `\mathcal C`/`\mathcal O` ; **leqno** ; la lettre «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **QUATRE pages consécutives «déjà présentes» ⟹ 9/10/4/5 défauts. «Ça compile» et «ça se lit» ne prouvent RIEN.**
+
+## **CURSEUR → idx602 (vol p589 = Exposé X «- 71 -» [589−518=71])** — **§7.17.4 (suite) : le composé + (7.17.4.2) + (7.17.4.3)… — DÉJÀ DANS LE FICHIER (~L14075+) ⟹ MÊME RÉGIME : COMPARER MOT À MOT.** ⚠⚠ **RE-GREP : drift #598 = 0** ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN (cf. #597 : le scan a corrigé ma propre annonce de périmètre).**
+
+### #597 (2026-07-16) — idx600 (vol p587 = **Exposé X «- 69 -»**, header «- 69 -» + **«X App.»** + footer «587** ; **CONSTANTE_X=518 CONFIRMÉE [587−69]**) — **★★★★★ §7.17 (suite) : (7.17.2) + §7.17.3 + (7.17.3.1) + (7.17.3.2) — QUATRE défauts, ET UNE CORRECTION DE PÉRIMÈTRE : les 2 Gr.^{num} annoncés par #596 SONT SUR p588, PAS ICI** — **3 rep-calls** (bandes b1-b5 TOUTES lues + **13 crops HD 2600-6400dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (587−69 ; idx=587+13=600 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «…Signalons seulement» **+ un GRAND BLANC**. Compile **0-err, 384pp** ✓. **Drift = 0.**
+
+# ⚠⚠⚠⚠⚠⚠ **LE SCAN CORRIGE MA PROPRE ANNONCE — «CIRCULAIRE QUAND LE FICHIER EST LE SUSPECT»**
+
+**#596 avait écrit** : «les 2 `\Gr^{\mathrm{num}}` SANS point bas sont sur CETTE page (p587)». ⚠⚠⚠ **FAUX — et pour la raison EXACTE que le loop répète depuis #590** : cette annonce était **DÉRIVÉE DU FICHIER** (où la phrase «Signalons seulement qu'il résulte de 7.16.2 que Gr.^num(X_t̄)…Gr.^num(X_s̄)» tient sur **UNE SEULE LIGNE** .tex) — **pas du scan.**
+⚠⚠ **LE SCAN ARBITRE** : **p587 se termine sur «…Signalons seulement»** (crop `gnB`) ⟹ **la phrase, et donc ses DEUX glyphes Gr.^num, CHEVAUCHE sur p588.** ⟹ **Je ne peux PAS les cropper ici ⟹ DIFFÉRÉS à idx601** (assert post-écriture : les 3 `\Gr^{\mathrm{num}}` INTACTS). ⟹ ⚠⚠⚠ **«UNE ANNONCE DÉRIVÉE DU FICHIER EST CIRCULAIRE QUAND LE FICHIER EST LE SUSPECT» — la règle s'applique À MES PROPRES NOTES, pas seulement à Codex.** **LIRE LE SCAN, PAS MA PRÉDICTION.**
+
+## ⚠⚠⚠⚠⚠ **(7.17.2) : LE POINT BAS DU σ — 13ᵉ FOIS QUE CODEX LE RATE**
+
+Le livre : «**σ. : K.(X_t̄) ⟶ K.(X_{s̄'})**» (crop `sig172`, 6400dpi : **le point de «σ.» est à la LIGNE DE BASE, à la MÊME hauteur que celui de «K.» sur la MÊME ligne** — la calibration #596). Le fichier : `\sigma` NU. ⟹ `\sigma_\bullet`. ✅ **RENDU VÉRIFIÉ** : «σ_• : K_•(X_t̄) ⟶ K_•(X_{s̄'});».
+⚠ **LE SENS DE LA FLÈCHE ÉTAIT JUSTE ICI** (`\longrightarrow`, à droite) — contrairement à (7.17.1) en #596. ⟹ **per-occurrence : chaque flèche se vérifie, celle-ci était bonne.**
+
+## ⚠⚠⚠⚠ **PONCTUATION APRÈS LE DISPLAY (7.17.2) — LA RÈGLE «equation ⟹ DEDANS» S'APPLIQUE**
+
+Le livre : **«(7.17.2) [display] ; donc ici encore…»** — un **«;»** après le display (crop `end172`) **puis «donc» en MINUSCULE** (crop `donc`). Le fichier : **«…X_{s̄'})**.** \end{equation} **Donc** ici encore»** — un POINT dans l'équation + «Donc» MAJUSCULE.
+⟹ ⚠⚠ **`equation` simple ⟹ la ponctuation va À L'INTÉRIEUR** (la règle établie ; cf. (7.13.7)) ⟹ **«;» dans l'équation + «donc» minuscule.** ✅ **RENDU VÉRIFIÉ** : «…K_•(X_{s̄'}); … donc ici encore».
+⚠ **CONTRÔLE : (7.17.3.1) finit par «;» DÉJÀ dans l'équation, (7.17.3.2) par «.» dans l'équation** (crops `kalg`/`grnumA`) — **le fichier avait DÉJÀ raison sur ces deux-là** ⟹ seul (7.17.2) était fautif. **Le check tire dans les deux sens (#582).**
+
+## ⚠⚠⚠⚠⚠ **UN COMPTAGE «INEXPLIQUÉ» QUI CONFIRME LE TRAVAIL — 3ᵉ FOIS (après #593/#594)**
+
+L'assert post-écriture a imprimé **`«~géométrique~»`=2** là où j'attendais 1, et **`«~continues~»`=2** de même. ⚠⚠ **RÈGLE #586 : un écart est un BUG dans l'un des deux comptages — l'expliquer AVANT de conclure.** ⟹ `chk600` :
+- `«~géométrique~»`=2 (**la mienne + 1 PRÉEXISTANTE**), `« géométrique »` espacé = **0**.
+- `«~continues~»`=2 (**la mienne + 1 PRÉEXISTANTE**), `« continues »` espacé = **0**.
+⟹ ✅ **le fichier utilisait DÉJÀ la forme SERRÉE pour CES MOTS EXACTS ailleurs** ⟹ **ma correction n'était pas un choix, c'était une RETROUVAILLE** (motif «moving lemma» #593, paire K^•/Gr^• #594, `\emph` #595, iso #596) ⟹ **la forme-maison se retrouve, elle ne se choisit pas — 5 FOIS.** ⚠ **`« `=69 vs `«~`=169 (INCOHÉRENT) ⟹ le report global des chevrons reste OUVERT, mais MA page va vers la forme serrée du livre.**
+
+## ⚠⚠ **CE QUE J'AI VÉRIFIÉ ET N'AI PAS TOUCHÉ (le check tire dans les deux sens)**
+
+- **(7.17.3.1) «K.^{alg}» + (7.17.3.2) «K.^{num}»** (crops `kalg`/`grnumA`) : **le fichier a DÉJÀ `K_\bullet^{\mathrm{alg}}` (×5) et `K_\bullet^{\mathrm{num}}` (×2)** avec le point bas ⟹ **JUSTES** (le cas «alg»/«num» = #585, Gr_•^{alg} = le MODULE). **RIEN À FAIRE.**
+- **«pour Gr., K^·, et Gr^·»** (crop `grnumWIDE`) : point bas sur Gr., marque haute sur K^·/Gr^· ⟹ **le fichier a `\Gr_\bullet`, `K^\bullet`, `\Gr^\bullet`** ⟹ **JUSTES** (l'exhibit #574 encore, tous corrects).
+- **«k(s) ⟶ k(s')»** (bande 1/2) : **PAS de tilde** — contraste VOULU avec le «k(t) ⥲ k(t')» ISO de p586 (#596) ⟹ **le fichier a `\to`** ⟹ **JUSTE.** ⚠⚠ **c'est le contrôle inverse de #596 : là l'iso manquait, ici le NON-iso est correct — per-occurrence.**
+- **`\xleftarrow{\sim}`=2** : ce sont les **DEUX isos de limite de IV 3.2.3 sur p585** (\(K_\bullet(X_{\bar t})\xleftarrow{\sim}\varinjlim K_\bullet(X_{t_i})\)) — **la limite pointe VERS K.(X_t̄), donc «gauche» est CORRECT** ⟹ **NON TOUCHÉS.** ⚠ **le report «vérifier le sens des \xleftarrow» est RÉSOLU par la négative : les 2 restants sont justes.**
+- **«7.17.3.» a un point** (bande 2) ⟹ **le fichier a `\textbf{7.17.3.}`** ⟹ **JUSTE.**
+- **le «))» de «…K_\bullet(X_{\bar s}))»** : ouvrante «(à cause de la présence…» présente ⟹ **les deux réelles, NON TOUCHÉ** (règle #592/#596).
+
+## LES 3 REP-CALLS
+
+1. **(7.17.2)** : `\sigma`⟹`\sigma_\bullet` + le «.» de l'équation ⟹ «;» + «Donc»⟹«donc» (un seul rep-call, contexte contigu).
+2. **«géométrique»** ⟹ guillemets serrés.
+3. **«continues»** ⟹ guillemets serrés.
+⚠ **Le fix ré-asserte APRÈS écriture** : `\sigma_\bullet:…;`=1, «donc ici encore»=1, `«~géométrique~»`>0, `«~continues~»`>0, **les formes ANCIENNES à 0**, **`\Gr^{\mathrm{num}}`=3 INTACT** ⟹ **prouvé.**
+
+## ⚠ **LA LEÇON DU FILTRE — 10ᵉ FOIS, ET `assert len(r)==1` PAIE POUR LA 9ᵉ**
+
+«(7.17.2)» ⟹ **3 rects** (le tag **+ DEUX références** «(7.17.2) induit», «(7.17.2) soit compatible») ; «continues» ⟹ **15 pages** ; «composantes» ⟹ **55 pages** ; «specialisation» (sans accent) ⟹ **0**. ⟹ **CALIBRER D'ABORD, TOUJOURS.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **les 2 `\Gr^{\mathrm{num}}` de la phrase «7.16.2 ⟹ Gr.^num» — SUR p588 (idx601), PAS p587. CIBLE DU PROCHAIN FIRING.**
+- ⚠⚠ **`\to`(622)/`\longrightarrow`(1428)** — sweep GLOBAL ; ✅ **`\xleftarrow{\sim}` RÉSOLU (les 2 sont justes).**
+- ⚠⚠⚠ **ÉTENDRE LE DÉTECTEUR DE TROUS** (7.13.N, 7.16.N, 7.17.N — (7.17.3.1)/(7.17.3.2)/(7.17.4.1) présents —, Exposés, TOUS les tags).
+- ⚠⚠ **`K^\bullet`(182)/`K^\circ`(367) — #574 ARMÉ. PRIORITÉ** ; **les chevrons `«~`(169)/`« `(69)** ; **les 14 paires `--` (décision d'édition GLOBALE)** ; `\mathbb P`(68)/`\mathbf P`(32) ; `\operatorname{cl}`(25)⟹`c\ell` ; `\Fil`(220)/`\Filt`(62) ; `\sim`⟹`\wr` (10) ; **les DEUX «Je dis qu»** ; **l'espace avant «;» (309/985)** ; les 13 `\underline{}` prose-like ; les ``…'' TeX résiduels ; `\underline K(X)` (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 ; 𝐙 gras ; `\mathcal C`/`\mathcal O` ; **leqno** ; la lettre «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **Le scan a corrigé MA PROPRE annonce de périmètre. Mes notes sont un indice, le scan arbitre — pour Codex ET pour moi.**
+
+## **CURSEUR → idx601 (vol p588 = Exposé X «- 70 -» [588−518=70])** — **§7.17.3 fin (les 2 Gr.^num) + §7.17.4 + (7.17.4.1) — DÉJÀ DANS LE FICHIER ⟹ MÊME RÉGIME.** ⚠⚠⚠ **CIBLE : la phrase «qu'il résulte de 7.16.2 que \(\Gr^{\mathrm{num}}(X_{\bar t})\) est isomorphe … \(\Gr^{\mathrm{num}}(X_{\bar s})\)» commence en HAUT de p588 ⟹ les 2 Gr.^num SANS point bas ⟹ CORRIGER vers `\Gr_\bullet^{\mathrm{num}}`** (le livre imprime «Gr.^num» ; §7.9.4 + §7.16.2 = énoncés PARALLÈLES avec point bas). ⚠⚠ **RE-GREP : drift #597 = 0** ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN (cf. la correction de périmètre ci-dessus).**
+
+### #596 (2026-07-16) — idx599 (vol p586 = **Exposé X «- 68 -»**, header «- 68 -» + **«X App.»** + footer «586** ; **CONSTANTE_X=518 CONFIRMÉE [586−68]**) — **★★★★★★ §7.16.2 + §7.17 «Cas d'une base quelconque» — LE TEXTE EXISTAIT, IL SE LISAIT PARFAITEMENT : DIX DÉFAUTS, DONT UNE FLÈCHE INVERSÉE ET UN ISOMORPHISME PERDU** — **9 rep-calls** (bandes b1-b5 TOUTES lues + **10 crops HD 3600-6400dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (586−68 ; idx=586+13=599 ✓)** ; la page **se termine PROPREMENT** sur (7.17.1) **+ un GRAND BLANC**. Compile **0-err, 384pp** ✓. **Drift = 0.**
+
+# ⚠⚠⚠⚠⚠⚠ **(7.17.1) : LE FICHIER ÉCRIVAIT UNE COMPOSITION IMPOSSIBLE — ET ÇA COMPILAIT**
+
+**Le fichier :** `\sigma:K_\bullet(X_t)\xleftarrow{\sim}K_\bullet(X_{t'})\longrightarrow K_\bullet(X_{s'})`
+**Le livre :** «**σ. : K.(X_t) ⥲ K.(X_t') ⟶ K.(X_s')**»
+⟹ ⚠⚠⚠ **`\xleftarrow{\sim}` POINTE DANS LE MAUVAIS SENS.** Les DEUX flèches du livre vont **à DROITE**. ⚠⚠⚠ **Une flèche gauche suivie d'une flèche droite NE SE COMPOSE PAS — le fichier énonçait un homomorphisme composé qui n'existait pas.** **Et pdflatex n'a rien vu : ça compile parfaitement.**
+⚠⚠ **ET LA MATH CONFIRME LE SCAN** : \(k(t)\xrightarrow{\sim}k(t')\) donne \(X_{t'}=X_t\times_{k(t)}k(t')\), donc \(K_\bullet(X_t)\xrightarrow{\sim}K_\bullet(X_{t'})\), **puis** la spécialisation \(K_\bullet(X_{t'})\longrightarrow K_\bullet(X_{s'})\). **Le composé n'a de sens QUE dans ce sens-là.**
+⚠ **ET `\sigma` N'AVAIT PAS SON POINT BAS** — le livre imprime «σ**.**» ⟹ **12ᵉ fois que Codex rate le point bas.** ✅ **PROUVÉ à 6400dpi** (`sigDOT`) : le point de «σ.» est **à la ligne de base, à la MÊME hauteur que celui de «K.» sur la MÊME ligne** — ⚠ et #594 avait prévenu que **la QUEUE du σ est le glyphe lui-même** : le point est une marque **EN PLUS**, et elle est là.
+✅ **RENDU VÉRIFIÉ** : «σ_• : K_•(X_t) ⥲ K_•(X_{t'}) ⟶ K_•(X_{s'}).»
+
+## ⚠⚠⚠⚠⚠ **UNE PERTE DE MATHÉMATIQUE — ET ELLE EST LIÉE À LA FLÈCHE INVERSÉE**
+
+Le livre : **«on peut même supposer que k(t) ⥲ k(t')»** (`iso`, 5200dpi — **tilde AU-DESSUS, flèche à DROITE**). Le fichier : **`k(t)\to k(t')`**.
+⟹ ⚠⚠⚠ **«→» dit qu'il EXISTE un morphisme ; «⥲» dit que c'est un ISOMORPHISME** — **et c'est EXACTEMENT ce qui identifie \(X_t\) et \(X_{t'}\), donc CE QUI FONDE (7.17.1).**
+⟹ ⚠⚠ **LE FICHIER AVAIT PERDU L'HYPOTHÈSE *ET* INVERSÉ LA FLÈCHE QU'ELLE JUSTIFIE. LES DEUX DÉFAUTS SONT LE MÊME.**
+✅ **COMPTÉ : `\xrightarrow{\sim}`=108** ⟹ **la forme-maison existe et est MASSIVE** ⟹ **je la RETROUVE, je ne la choisis pas** (4ᵉ fois après #593/#594/#595).
+
+## ⚠⚠⚠⚠⚠ **CODEX RE-PONCTUE AU JUGÉ — DEUX INVERSIONS SUR UNE PAGE, EN SENS OPPOSÉS**
+
+- **§7.16.2** : le livre a **«;»** (`guill`, 4800dpi : «tiques**"** **;** elles se déduisent») ⟹ **Codex a écrit «:»**
+- **§7.17** : le livre a **«,»** (`virg` : «spécialisation de t**,** on veut mettre en») ⟹ **Codex a écrit «;»**
+⟹ ⚠⚠⚠ **AUCUNE RÈGLE. Il ré-ponctue au jugé, dans les DEUX sens, sur la MÊME page.** ⚠⚠ **Et ce n'est PAS cosmétique : «;» JUXTAPOSE, «:» ANNONCE UNE CONSÉQUENCE — la logique de la phrase change.** (Précédent #595 : **deux virgules AJOUTÉES**.) ⟹ **LIRE PONCTUATION PAR PONCTUATION.**
+
+## ⚠⚠⚠⚠⚠ **LE POINT BAS DE Gr.^{num} — ET LA CONFIRMATION EST INDÉPENDANTE DU SCAN (4ᵉ fois)**
+
+Le livre imprime **«Gr.^{num}»** (`grnum`, 5200dpi : **point à la LIGNE DE BASE**, «num» en EXPOSANT). **COMPTÉ : `\Gr^{\mathrm{num}}`=5 vs `\Gr_\bullet^{\mathrm{num}}`=3 ⟹ INCOHÉRENT.**
+⚠⚠⚠ **ET LA PREUVE NE DOIT RIEN AU SCAN** : **§7.9.4 écrit DÉJÀ «le groupe \(\Gr_\bullet^{\mathrm{num}}(X_t)\) est isomorphe à un quotient d'un sous-groupe de \(\Gr_\bullet^{\mathrm{num}}(X_s)\)»** — et **§7.16.2 EST CETTE MÊME PHRASE, transposée aux fibres géométriques : elle le DIT elle-même («la conséquence intéressante suivante **de 7.9.4**»).** ⟹ **LE FICHIER ÉCRIVAIT LA MÊME NOTATION DE DEUX FAÇONS DANS DEUX ÉNONCÉS PARALLÈLES.**
+⟹ ✅ **le scan ET la structure interne concordent** (motif #591⟹#590, #594⟹§7.15). ⚠ (#585 : **Gr_•^{alg} = le MODULE** ; le cas «num» est le même.)
+⚠⚠ **DISCIPLINE DE PÉRIMÈTRE** : les **2 autres `\Gr^{\mathrm{num}}` sont dans §7.17 sur p587** ⟹ **HORS PÉRIMÈTRE, NON TOUCHÉS** (assert post-écriture : **3 restants** = 1 avec `_\bullet` **après** + 2 sur p587). **Ils seront traités à LEUR page.**
+
+## ⚠⚠⚠⚠ **LE SOULIGNÉ — 10ᵉ INSTANCE, ET LE TRAIT D'UNION EST DANS LE MOT**
+
+**«C'est donc un résultat de <u>semi-continuité</u> pour le rang…»** (`semi`, 3600dpi) — ⚠ **le trait couvre le TRAIT D'UNION de «semi-»** ⟹ **cohérent avec la règle** : le trait d'union est **À L'INTÉRIEUR d'un mot composé**, il fait donc partie du MOT (la règle se lève pour ce qui n'est pas un mot — pas pour ce qui est DANS un mot). ⟹ **`\emph{semi-continuité}`** (la forme-maison établie par #595 : `\emph{`=510, tous des termes à leur introduction). **Le fichier n'avait AUCUNE emphase.**
+
+## ⚠⚠ **LES SIX AUTRES**
+
+- **Le titre de §7.17 porte un POINT** (`t717`) ⟹ ✅ **2ᵉ confirmation consécutive que #577 est bien révisé (#591) : PER-OCCURRENCE** (7.16 en #595, 7.17 ici).
+- **«K. etc pour»** — **«etc» SANS POINT** (`etc`, 4800dpi) ; Codex en avait ajouté un. ⚠ **le livre abrège, Codex complète** — la classe «resp.».
+- **Les guillemets** : le livre a des **guillemets DROITS «"…"»** (la machine à écrire n'a que ça). Le fichier a des chevrons. **COMPTÉ : `« `=70 vs `«~`=168 ⟹ INCOHÉRENT ⟹ corriger ma page vers la forme SERRÉE** ⟹ `«~arithmétiques~»`.
+- **L'espace avant «;»** ×2 (`guill`, `iso`) ⟹ `~;` sur ma page ; ⚠ **le sweep global (`~;`=306/`;` nu=988) reste OUVERT.**
+- ✅ **LE «))» DE «(EGA 0_IV 23.1.1))» — VÉRIFIÉ, NON TOUCHÉ** : **DEUX ouvrantes** («(ce qu'on peut supposer…» + «(EGA…») ⟹ **les deux fermantes sont RÉELLES** (cas #592). ⚠ **La règle a servi à NE RIEN FAIRE — c'est aussi son rôle.**
+- ✅ **`0_{\mathrm{IV}}`** = le ZÉRO (EGA 0_IV = le chapitre «0», Préliminaires) ⟹ **le fichier a RAISON** ; ⚠ le report «la lettre o pour zéro» ne s'applique pas ici.
+
+## ⚠ **LA LEÇON DU FILTRE — 9ᵉ FOIS, ET `assert len(r)==1` PAIE POUR LA 8ᵉ**
+
+«japonais» ⟹ **2 rects** (le mot est deux fois sur la page) ; «7.17.1» ⟹ **2 rects** (le tag **+ la référence dans le texte**) ; «semi-continuit» ⟹ **6 pages** ; «quelconque» ⟹ **39 pages** ; «23.1.1» et «1.3.8» ⟹ **0 rects sur p314** ⟹ ⚠⚠ **p586 CHEVAUCHE LES PAGES DE RENDU 314-315** (comme #593/#594/#595). Re-ancré sur «type fini ou» et «7.9.4» (1 rect chacun). ⟹ **CALIBRER D'ABORD, TOUJOURS.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠ **`\Gr^{\mathrm{num}}` ×2 sur p587 (§7.17) — À TRAITER À LEUR PAGE (idx600).**
+- ⚠⚠ **`\to`(622)/`\longrightarrow`(1428)** — sweep GLOBAL ; ⚠ **NOUVEAU : `\xleftarrow{\sim}`=2 restants — VÉRIFIER LEUR SENS** (celui de ma page était FAUX).
+- ⚠⚠⚠ **ÉTENDRE LE DÉTECTEUR DE TROUS** (7.13.N, 7.16.N, 7.17.N, Exposés, TOUS les tags).
+- ⚠⚠ **`K^\bullet`(182)/`K^\circ`(367) — #574 ARMÉ D'UN EXHIBIT DÉCLARATIF (p584). PRIORITÉ.**
+- ⚠ **les 14 paires `--`** (la machine à écrire n'a QU'UN tiret ⟹ décision d'édition GLOBALE) ; `\mathbb P`(68)/`\mathbf P`(32) ; `\operatorname{cl}`(25)⟹`c\ell` ; `\Fil`(220)/`\Filt`(62) ; `\sim`⟹`\wr` (10) ; **les DEUX «Je dis qu»** ; **l'espace avant «;» (308/986)** ; les 13 `\underline{}` prose-like ; les ``…'' TeX résiduels ; `\underline K(X)` (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 ; 𝐙 gras ; `\mathcal C`/`\mathcal O` ; chevrons ; **leqno (le livre met les tags à GAUCHE — (7.17.1) le confirme)** ; la lettre «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **DEUX pages consécutives «déjà présentes» ⟹ 9 puis 10 défauts. Dont une COMPOSITION IMPOSSIBLE qui compilait à 0-err.**
+
+## **CURSEUR → idx600 (vol p587 = Exposé X «- 69 -» [587−518=69])** — **§7.17 (suite) : (7.17.2), (7.17.3)… et les 2 `\Gr^{\mathrm{num}}` SANS POINT BAS repérés ici ⟹ LES TRAITER.** ⚠⚠ **MÊME RÉGIME : «déjà présent» ⟹ COMPARER MOT À MOT.** ⚠⚠ **RE-GREP : drift #596 = 0** ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #595 (2026-07-16) — idx598 (vol p585 = **Exposé X «- 67 -»**, header «- 67 -» + **«X App.»** + footer «585** ; **CONSTANTE_X=518 CONFIRMÉE [585−67]**) — **★★★★★★ §7.16 «Passage aux fibres géométriques» — LE TEXTE EXISTAIT, IL SE LISAIT PARFAITEMENT : NEUF DÉFAUTS** — **8 rep-calls** (bandes b1-b5 TOUTES lues + **18 crops HD 3600-6400dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (585−67 ; idx=585+13=598 ✓)** ; la page **se termine PROPREMENT** sur «…sur les Gr^·.» **+ un GRAND BLANC**. Compile **0-err, 384pp** ✓. **Drift = 0** (aucun ajout de ligne).
+
+# ⚠⚠⚠⚠⚠ **LE RÉGIME ANNONCÉ S'EST VÉRIFIÉ : «DÉJÀ PRÉSENT» ⟹ NEUF DÉFAUTS**
+
+#594 avait armé ce firing : «§7.16 existe déjà ⟹ le comparer MOT À MOT ; c'est PRÉCISÉMENT le régime où Codex excise». ⟹ **Pas d'excision ici, mais NEUF altérations — dont DEUX qu'aucune relecture au monde ne peut détecter.** ⚠⚠⚠ **«Ça compile», «ça se lit», ET «c'est mathématiquement juste» ne prouvent RIEN.**
+
+## ⚠⚠⚠⚠⚠⚠ **CODEX CORRIGE LA MATH DE L'AUTEUR — 4ᵉ ET 5ᵉ INSTANCES, ET LA DÉMONSTRATION EST PARFAITE**
+
+Le livre imprime **«ses normalisés Ā_i»** et **«chaque Ā_i»** — **AVEC la barre** — puis, deux lignes plus bas, **«B_i = A_i m̲_i»** et **«k_i = A_i/m̲_i»** — **LE A EST NU.**
+⟹ ⚠⚠⚠ **L'AUTEUR LUI-MÊME PERD LA BARRE QUAND IL *UTILISE* CE QU'IL VIENT DE *DÉFINIR*.**
+**Codex a lissé en `\bar A_i`** ⟹ **MATHÉMATIQUEMENT CORRECT** (seul \(\bar A_i\) est défini ; \(A_i\) ne l'est PAS) ⟹ ⚠⚠⚠ **INVISIBLE À TOUTE RELECTURE, À TOUT REFEREE, À TOUT CONTRÔLE INTERNE.**
+⚠⚠ **PROUVÉ À 6400dpi AVEC CONTRÔLE SUR LA MÊME LIGNE** (`kiA`/`kiCTL`/`BiA`/`BiCTL`) : le «A» est **NU** (l'espace au-dessus est parfaitement vide) tandis que **«t̄», «K̄», «s̄» portent des barres NETTES ET ÉPAISSES sur la MÊME LIGNE, au MÊME dpi.**
+✅ **ET LE RENDU LE PROUVE SUR DEUX LIGNES ADJACENTES** (`vrf598_Ai`) : «induisant donc sur chaque **Ā_i**» (barré = le contrôle) contre «soit **B_i = (A_i)_{m_i}**» (nu = le fix). **L'incohérence de l'auteur est reproduite, pas lissée.**
+⟹ ⚠⚠⚠ **LA MATH EST UN INDICE, LE SCAN ARBITRE** (#584/#586). **Ma page a maintenant une erreur mathématique — celle de Grothendieck.**
+
+## ⚠⚠⚠⚠⚠⚠ **LE SOULIGNÉ — L'EXHIBIT LE PLUS PROBANT DE TOUTE LA CAMPAGNE**
+
+**«<u>tenant</u> X <u>de type fini sur</u> S, donc…»** (crop `soulB`, 4400dpi) : ⚠⚠⚠ **DANS UNE SEULE LIGNE, LE TRAIT S'INTERROMPT DEUX FOIS — EXACTEMENT SUR LES DEUX SYMBOLES MATH — ET REPREND ENTRE LES DEUX.**
+⟹ **Les 8 instances précédentes étaient des inférences (le trait s'arrêtait AVANT quelque chose). Celle-ci est une INTERRUPTION VISIBLE ET RÉPÉTÉE DANS UN TRAIT CONTINU** ⟹ **la règle «LE SOULIGNÉ SE LÈVE POUR TOUT CE QUI N'EST PAS UN MOT» n'est plus une hypothèse : elle est DÉMONTRÉE.**
+Le souligné du livre : **«<u>Supposons maintenant</u> X <u>de type fini sur</u> S, donc X_t̄ et X_s̄ de type fini sur t̄ resp. s̄, donc <u>noethériens</u>.»** (le point EXCLU, règle #591). **Le fichier n'avait AUCUNE emphase** ⟹ **DÉFAUT : Codex a supprimé l'emphase de l'hypothèse permanente.**
+✅ **RENDU VÉRIFIÉ** (`vrf598_soul`) : «*Supposons maintenant* X *de type fini sur* S, donc … donc *noethériens*.» — **l'italique s'interrompt sur X et sur S et reprend entre eux, exactement comme le trait du scan.**
+
+## ⚠⚠⚠⚠⚠ **LA FORME-MAISON SE RETROUVE, ELLE NE SE CHOISIT PAS — 3ᵉ FOIS**
+
+Comment la maison rend-elle le souligné-PROSE du livre ? **COMPTÉ : `\emph{`=510 / `\underline{`=203** — et **ses exemples SONT CE MOTIF, DÉJÀ ENCODÉ** : **`\emph{$\lambda$-anneau}`, `\emph{pré-$\lambda$-anneau}`, `\emph{$\lambda$-anneau augmenté}`, `\emph{anneau spécial}`** ⟹ **QUE DES TERMES À LEUR INTRODUCTION.**
+⟹ ✅ **DOUBLE CONFIRMATION** : (a) **la maison rend le souligné-définition par `\emph`** — je ne choisis pas, je RETROUVE (après #593 «moving lemma» et #594 la paire K^•/Gr^•) ; (b) ⚠⚠ **LA RÈGLE #588 EST INDÉPENDAMMENT CONFIRMÉE PAR LE FICHIER LUI-MÊME** : «le souligné marque le terme À SON INTRODUCTION» — les `\emph` préexistants sont TOUS exactement cela.
+⟹ **«homomorphisme de spécialisation» = le terme à son introduction ⟹ `\emph{…}`, point exclu** ✅ rendu vérifié (`vrf598_spec`).
+
+## ⚠⚠⚠⚠⚠ **LE CRITÈRE DU SWEEP TIRE DANS LES DEUX SENS SUR LA MÊME PAGE — ET IL BLOQUE POUR LA PREMIÈRE FOIS UN FIX QUE LE SCAN SEMBLAIT EXIGER**
+
+- **`\to`=622 / `\longrightarrow`=1428 ⟹ INCOHÉRENT ⟹ CORRIGER MA PAGE.** ⚠⚠⚠ **ET L'ARGUMENT DÉCISIF EST LOCAL, PAS GLOBAL** : **sur MA page, le livre dessine DEUX flèches de MÊME LONGUEUR** ((7.16.1) et celle de «Gr.(X_t̄) ⟶ Gr.(X_s̄)», crop `grfl`) **et le fichier écrit `\longrightarrow` pour l'une et `\to` pour l'autre** ⟹ **une incohérence LOCALE, démontrée par le scan.** ⟹ `\to` ⟹ `\longrightarrow`. ⚠ **Le split global 622/1428 = NOUVEAU REPORT.**
+- **`, resp.`=17 / ` resp.`=27 ⟹ INCOHÉRENT ⟹ CORRIGER MA PAGE** : le livre écrit **«sur t̄ resp. s̄»** SANS virgule (crop `soulC`) ; Codex en avait ajouté une.
+- ⚠⚠⚠ **`Krull--Akizuki`=2 / `Krull-Akizuki`=0 ⟹ COHÉRENT ⟹ DIFFÉRER, NE PAS TOUCHER.** **Le livre imprime un tiret COURT** (crop `krull`) — **et pour cause : LA MACHINE À ÉCRIRE N'EN A QU'UN SEUL, elle ne PEUT PAS distinguer trait d'union et demi-cadratin.** ⟹ **PREMIÈRE FOIS QUE LE CRITÈRE #589 BLOQUE UN FIX QUE LE SCAN SEMBLAIT EXIGER** : toucher ma page **FABRIQUERAIT** l'incohérence (2/0 ⟹ 1/1). ⟹ **le report «14 paires `--`» reste GLOBAL et OUVERT ; c'est une décision d'édition, pas une correction locale.** ⚠ **assert post-écriture : `Krull--Akizuki`=2 INTACT.**
+
+## LES 8 REP-CALLS
+
+1. **le titre** : le livre imprime «7.16. <u>Passage aux fibres géométriques</u>**.**» — **AVEC un point** (crop `titre`) ; le fichier n'en avait pas ⟹ ajouté (#577 révisé par #591 : **per-occurrence**).
+2. **`B_i=(\bar A_i)_{\mathfrak m_i}` ⟹ `(A_i)_{\mathfrak m_i}`** — la barre, DÉMONTRÉE absente.
+3. **`k_i=\bar A_i/\mathfrak m_i` ⟹ `k_i=A_i/\mathfrak m_i`** — idem.
+4. **le SOULIGNÉ + «resp.» sans virgule** (un seul rep-call : même phrase).
+5. **«en vertu de 7.15**,** on a» ⟹ «en vertu de 7.15 on a»** — le livre n'a PAS la virgule (crop `vertu`).
+6. **`\emph{homomorphisme de spécialisation}`.**
+7. **`\to` ⟹ `\longrightarrow`** sur la flèche de Gr.
+8. **«séparé; dans» ⟹ «séparé~; dans»** — l'espace avant «;» est **NET et LARGE** au scan (crop `sepa`). ⚠ **le sweep global (`~;`=305 / `;` nu=989) reste OUVERT.**
+⚠ **Le fix ré-asserte APRÈS écriture** : les 11 formes NOUVELLES = 1 chacune, **les 5 formes ANCIENNES ont DISPARU**, et **`Krull--Akizuki`=2 est INTACT** ⟹ **prouvé.**
+
+## ⚠ **CE QUE JE N'AI PAS APPLIQUÉ (artefacts de frappe, pas substance)**
+
+«appelé encore**,**comme» (pas d'espace après la virgule) ; «noethériens**.**En vertu» (idem) ; le «s» de «noethériens» **surfrappé** ; «K = k (t)» (espace). ⟹ ⚠ **cohérent avec #594 : la surfrappe est un ARTEFACT DE FRAPPE, pas une emphase.** **NON APPLIQUÉS.**
+
+## ⚠ **LA LEÇON DU FILTRE — ET `assert len(r)==1` PAIE POUR LA 7ᵉ FOIS**
+
+«Akizuki» ⟹ **2 pages** (le fichier a LÉGITIMEMENT deux `Krull--Akizuki`) ; **«Supposons» ⟹ 2 rects** — **§7.17 dit «Supposons que X'…» sur la MÊME page de rendu** ⟹ **le guard a arrêté le crop.** Re-ancré sur **«comme de juste»** (1 page) et **«3.2.3»** (1 rect). ⚠⚠ **CALIBRER D'ABORD, TOUJOURS.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠ **NOUVEAU : `\to`(622) / `\longrightarrow`(1428) — sweep GLOBAL.**
+- ⚠⚠⚠ **ÉTENDRE LE DÉTECTEUR DE TROUS** (7.13.N, 7.16.N, 7.17.N, Exposés, TOUS les tags) — **2 PAGES + 1 SECTION en 6 firings.**
+- ⚠⚠ **`K^\bullet`(182)/`K^\circ`(367) — #574 ARMÉ D'UN EXHIBIT DÉCLARATIF (p584). PRIORITÉ.** ✅ **p585 le CONFIRME encore** : le livre écrit «K^·»/«Gr^·» et le fichier a `K^\bullet`/`\Gr^\bullet` — **justes tous les deux.**
+- ⚠ **les 14 paires `--`** (Krull–Akizuki, Riemann–Roch… : **la machine à écrire n'a qu'un tiret** ⟹ décision d'édition GLOBALE) ; `\mathbb P`(68)/`\mathbf P`(32) ; `\operatorname{cl}`(25)⟹`c\ell` ; `\Fil`(220)/`\Filt`(62) ; `\sim`⟹`\wr` (10) ; **les DEUX «Je dis qu»** ; **l'espace avant «;» (305/989)** ; les 13 `\underline{}` prose-like ; les ``…'' TeX résiduels ; `\underline K(X)` (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 ; 𝐙 gras ; `\mathcal C`/`\mathcal O` ; chevrons ; **leqno (le livre met les tags à GAUCHE — (7.16.1) le confirme)** ; la lettre «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **Une page qui «existait déjà» a rendu 9 défauts, dont 2 invisibles à toute relecture.**
+
+## **CURSEUR → idx599 (vol p586 = Exposé X «- 68 -» [586−518=68])** — **§7.16.2 puis §7.17 «Cas d'une base quelconque» existent déjà dans le fichier ⟹ MÊME RÉGIME QUE #595 : COMPARER MOT À MOT.** ⚠ **§7.17 commence par «Supposons que X' = X ×_S S' soit noethérien» — DÉJÀ VU sur la page de rendu 314.** ⚠⚠ **RE-GREP : drift #595 = 0** ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #594 (2026-07-16) — idx597 (vol p584 = **Exposé X «- 66 -»**, header «- 66 -» + **«X App.»** + footer «584** ; **CONSTANTE_X=518 CONFIRMÉE [584−66]**) — **★★★★★★ §7 Appendice (GROTHENDIECK) : §7.15 «On fait bouger S» — UNE SECTION ENTIÈRE EXCISÉE, RESTAURÉE INTÉGRALEMENT** (titre + corps + le display + LE CUBE + le carré (7.15.1)) — **1 rep-call / ~150 mots + 3 DISPLAYS** (bandes b1-b5 TOUTES lues + **13 crops HD 2400-6400dpi + 2 COMPTAGES**) ; **CONSTANTE_X=518 ✓ (584−66 ; idx=584+13=597 ✓)** ; la page **se termine PROPREMENT** sur «…au lieu de K. et Gr. .» **+ un GRAND BLANC** ⟹ **§7.15 tient tout entière sur cette seule page.** Compile **0-err, 384pp** ✓ (383⟹384).
+
+# ⚠⚠⚠⚠⚠ **LE DÉTECTEUR DE TROUS A TENU SA PROMESSE — TROISIÈME PRÉDICTION CONFIRMÉE, ET LA PLUS FORTE**
+
+**#591** a annoncé §7.15 sur la SEULE foi d'un trou de numérotation (7.14 ⟹ 7.16) — **sans rien avoir vu du scan**. **#592** l'a éliminée de p582 ; **#593** de p583 ; **#594 LA TROUVE EXACTEMENT OÙ LE DÉTECTEUR LA PRÉDISAIT : p584, entre §7.14 et §7.16.**
+⟹ ⚠⚠⚠ **LE DÉTECTEUR N'EST PAS SEULEMENT PRÉDICTIF, IL EST LOCALISANT** : trois firings de resserrement, zéro faux positif. **Gratuit, mécanique, global.** ⟹ **L'ÉTENDRE EST LA PRIORITÉ PERMANENTE** (7.13.N, 7.15.N, 7.17.N, les Exposés, tous les tags).
+
+## ✅ **PROUVÉE ABSENTE, PUIS VALIDÉE PAR UNE SOURCE INDÉPENDANTE DU SCAN**
+
+`cnt597` : «On fait bouger»=**0**, «7.15.1»=**0**, «morphisme de traits»=**0** ; les **3** occurrences de «7.15» sont **TOUTES des RENVOIS** («cf. 7.15») ; le fichier **saute L13983 ⟹ L13985**.
+⚠⚠⚠ **ET LA VALIDATION INDÉPENDANTE** : **L13992 (§7.16) dit «D'autre part, en vertu de 7.15, on a un homomorphisme du système inductif des \(K_\bullet(X_{t_i})\) dans le système inductif des \(K_\bullet(X_{s_i})\)»** — **c'est EXACTEMENT ce que (7.15.1) fournit** (le carré qui compare \(X\) et \(X'=X\times_SS'\)). ⟹ **LA RÉFÉRENCE POINTAIT DANS LE VIDE** (motif #575/#590 à l'échelle d'une SECTION) **et la restauration la lui rend.** ⟹ ✅ **le scan et la logique interne du fichier CONCORDENT — comme #591 avait validé #590.**
+
+## ⚠⚠⚠⚠⚠ **L'EXHIBIT DE #574 EST TROUVÉ — ET C'EST UNE DÉCLARATION DE L'AUTEUR, PAS UNE INFÉRENCE**
+
+**«…et lorsque \(X_s\) et \(X_t\) sont réguliers, on peut écrire encore K^· et Gr^· au lieu de K. et Gr. .»**
+⟹ ⚠⚠⚠ **LES DEUX HAUTEURS DE POINT, SUR UNE SEULE LIGNE, OPPOSÉES PAR L'AUTEUR LUI-MÊME.** Les 7 exhibits précédents étaient des inférences de ma part ; **celui-ci est ÉNONCÉ.** ⟹ **8ᵉ exhibit, et le seul déclaratif.**
+⚠ **ET LA MATH CONFIRME LA LECTURE DU GLYPHE** : \(K^\circ\) = **l'ANNEAU**, \(K_\bullet\) = **le MODULE** ; ils **coïncident sur un régulier** — ce que la phrase affirme exactement.
+⚠⚠ **CALIBRATION (#588 transfère)** : la marque haute **N'EST PAS UN PRIME**. Le prime de «S'» **sur la MÊME PAGE** = un **bâton vertical LONG et FIN** ; les marques de K^·/Gr^· = des **BLOBS COMPACTS et RONDS**. Crops `dotHI`/`dotLO`/`prime`, **tous à 6400dpi**.
+⚠⚠ **LA FORME : JE NE L'AI PAS CHOISIE, JE L'AI RETROUVÉE** — **le titre de §7.7 écrit DÉJÀ LA PAIRE EXACTE «Spécialisation pour \(K^\bullet\) et \(\Gr^\bullet\)»** ; **`\Gr^\bullet`=63 / `\Gr^\circ`=0 (UNANIME)**. ⟹ **le précédent de ma ligne existait** (2ᵉ fois après «moving lemma», #593). ⚠⚠⚠ **LE REPORT #574 (`K^\circ`=367 / `K^\bullet`=182) RESTE GLOBAL ET OUVERT — je n'y touche pas.**
+
+## ⚠⚠⚠⚠⚠ **ZOOMER AVANT D'ACCUSER — 4ᵉ FOIS QUE ÇA PAIE, ET #583 L'AVAIT ANNONCÉ MOT POUR MOT**
+
+(7.15.1) semblait porter un **«σ̄»** (sigma BARRÉ). ⟹ crop **6400dpi** ⟹ le glyphe est **un «o» fermé + UNE QUEUE HORIZONTALE partant du HAUT-DROITE** = **LA LETTRE σ ELLE-MÊME telle que cette machine à écrire la dessine.** ⟹ ⚠⚠ **CE N'EST PAS UN OVERLINE, C'EST LA QUEUE DU GLYPHE** — **exactement l'avertissement #583** («le trait au-dessus d'un σ est LA BARRE DU GLYPHE»).
+⚠⚠⚠ **ET LE COMPTAGE L'AVAIT PRÉDIT INDÉPENDAMMENT** : **`\bar\sigma`=0, `\overline{\sigma}`=0, `\sigma_X`=5.** ⟹ **DEUX MÉTHODES INDÉPENDANTES, MÊME VERDICT.** ⚠ **Si j'avais écrit `\bar{\sigma}_X`, j'aurais introduit un HAPAX dans un fichier unanime** (la faute #589 «cl^i»). ⟹ **le zoom confirme le comptage ET le comptage confirme le zoom.**
+
+## ⚠⚠⚠⚠ **DEUX BOOK-SICS DANS LES DIAGRAMMES — LUS À 6400dpi, REPRODUITS SIC**
+
+1. ⚠⚠ **LE CUBE ÉCHANGE i/j ENTRE L'AVANT ET L'ARRIÈRE** : avant = **j_X** (horizontale) / **i_X** (verticale) ; arrière = **i'_{X'}** (horizontale) / **j_{X'}** (verticale) — **alors que le texte dit «s' (resp. t') le point fermé (resp. le point générique)»** ⟹ l'horizontale arrière (vers le GÉNÉRIQUE) devrait porter **j**. ⚠ **Le «i» (base à empattement PLAT, sans descendante) et le «j» (descendante CROCHUE vers la gauche) sont DEUX GLYPHES NETS sur cette page** (crops `labH`/`labV`/`labI`, 6400dpi) ⟹ **pas une illusion : le livre les a échangés.** ⚠ **Et le prime est sur le i SEUL** («i'_{X'}» mais «j_{X'}»).
+2. ⚠⚠ **LES DEUX FLÈCHES HORIZONTALES DE (7.15.1) PORTENT «σ_X»** — celle du bas, de \(K_\bullet(X'_{t'})\) vers \(K_\bullet(X'_{s'})\), **devrait mathématiquement être σ_{X'}**. **Aucun prime à 6400dpi** (`sgT`/`sgB`, le même symbole deux fois = son propre contrôle). ✅ **ET LE FICHIER CONFIRME : `\sigma_{X'}`=0.**
+⟹ ⚠⚠⚠ **LA MATH EST UN INDICE, LE SCAN ARBITRE** (#584/#586). **Je transcris ce que je vois.**
+
+## ⚠⚠⚠⚠⚠ **UN COMPTAGE «INCOHÉRENT» QUI EST EN FAIT LE LIVRE — 2ᵉ FOIS (après #593)**
+
+Le livre écrit **«les homomorphismes images inverse pour K.»** (b3, **SINGULIER**) puis, **TROIS LIGNES PLUS BAS**, **«les homomorphismes images inverses»** (b4, **PLURIEL**).
+⟹ ✅ **ET LE FICHIER PORTE DÉJÀ LES DEUX : «images inverse»=15 ET «images inverses»=15.** ⚠⚠⚠ **Un 15/15 parfait ressemble à l'incohérence-type que le critère #589 dit de corriger — C'EN EST L'EXACT CONTRAIRE : c'est LE LIVRE qui mélange, et le fichier le reflète fidèlement.** ⟹ **AVANT DE «CORRIGER» UNE INCOHÉRENCE, VÉRIFIER QU'ELLE N'EST PAS L'AUTEUR.** (motif «moving lemma»=4, #593.)
+
+## ⚠⚠⚠⚠ **LA SURFRAPPE — 2ᵉ INSTANCE, ET ELLE CASSE L'HYPOTHÈSE**
+
+Le **«et»** qui suit «Gr. au lieu de K. ~;» est **NETTEMENT SURFRAPPÉ** (crop `semi`, 4000dpi). ⚠⚠⚠ **Or un «et» ne peut PAS être emphasé sémantiquement.** ⟹ **l'hypothèse #590 («surfrappe = 2ᵉ mécanisme d'emphase : souligné⟹italique, surfrappe⟹gras») S'EFFONDRE** : c'est un **ARTEFACT DE FRAPPE** (double frappe / correction mécanique). ⟹ **NON APPLIQUÉE** ; **le report se referme PROVISOIREMENT PAR LA NÉGATIVE.** ⚠ **2 instances, 0 emphase plausible** — mais je ne peux toujours pas les compter (elles sont dans le scan, pas dans le source) ⟹ **rester attentif.**
+
+## ⚠⚠⚠⚠ **LA GÉOMÉTRIE DU SOULIGNÉ — 7ᵉ INSTANCE, ET UNE CATÉGORIE NOUVELLE**
+
+**«7.15. <u>On fait bouger</u> S.»** — le trait couvre **exactement «On fait bouger»** et **S'ARRÊTE AVANT le «S.»** (crop `titre`, 4000dpi). ⟹ **PREMIÈRE FOIS QU'IL SAUTE UN SYMBOLE MATHÉMATIQUE — et dans un TITRE, où le «S» est pourtant le COD.** ⟹ **la règle tient : LE SOULIGNÉ SE LÈVE POUR TOUT CE QUI N'EST PAS UN MOT** (7 instances : une référence ×2, un «ℓ», des guillemets, un numéro, un point, **un symbole math**).
+⚠ **Les 12/12 `\subsection*` du fichier sont SANS `\underline` ⟹ COHÉRENT ⟹ suivre le fichier** (#589). **Le détail du souligné est CONSIGNÉ ICI, pas appliqué.**
+
+## ⚠⚠ **AUTRES BOOK-SICS ET FORMES-MAISON**
+
+- ⚠ **«K. et Gr. .»** — le point de la NOTATION, **une ESPACE**, puis le point de la PHRASE ⟹ `\(\Gr_\bullet\)~.` **SIC.**
+- ⚠ **«p.ex.» = 0 dans TOUT le fichier**, mais le livre l'imprime («p.ex. X de type fini sur S») ⟹ **NOUVELLE ABRÉVIATION, introduite SIC** (motif «resp.» : le livre abrège).
+- **«i.e.»=125** ⟹ l'abréviation est la maison ✓ (la page en a DEUX, imbriquées : «i.e. un morphisme local dominant (i.e. transformant…)»).
+- **`~;`** : l'espace avant «;» est **NET et LARGE** au scan ⟹ appliqué **sur ma page** ; ⚠ **le sweep global (`~;`=304 vs `;` nu=989) reste OUVERT.**
+- **Le display «S' ⟶ S»** : **RIEN ne suit sur la ligne ⟹ DISPLAY** ✓ (critère #591/#592) ; non numéroté ⟹ `\[…\]`.
+- **Le CUBE** ⟹ `\;,` (le livre a une virgule à droite du diagramme) ; **(7.15.1) ⟹ AUCUNE ponctuation** (la phrase enchaîne : «…le diagramme suivant [DIAGRAMME] est commutatif»). ⚠ **Les deux formes sur la même page — NE PAS UNIFORMISER.**
+- **tikzcd** : `hook`=33 / `hook'`=1 ⟹ `\arrow[l,hook,"j_X"']` ; le cube copie le précédent structurel **L5117** (`\[`+`tikzcd` nu+`[rr]`/`[dr]`/`[dd]`) ; **les 3 obliques sont TOUTES `[ull]`** — ce qui est exactement pourquoi elles sont **parallèles** au scan.
+- **`\times_S`=37** ⟹ `X'=X\times_SS'` ; **`\tag{7.15.1}` à DROITE** (pas de leqno ; le livre le met **à GAUCHE**) ⟹ ⚠ **le report «leqno» reste GLOBAL et OUVERT.**
+
+## LE REP-CALL (un seul — le quatrième énorme en cinq firings)
+
+1. **§7.15 ENTIÈRE insérée** avant `\subsection*{7.16.}`. ⚠ **Le fix ré-asserte APRÈS écriture** : «7.15. On fait bouger»=1, «morphisme de traits»=1, «p.ex.»=1, `\tag{7.15.1}`=1, `\sigma_X`=**5⟹7** (mes 2 flèches), «images inverses»=**15⟹16** (ma phrase), `i'_{X'}`=1, `j_{X'}`=1, `X'=X\times_SS'`=1, **`i14 < i15 < i16` ⟹ ORDER OK**, **le trou 7.14⟹7.16 est FERMÉ** ⟹ **prouvé.**
+
+## ⚠ **LA LEÇON DU FILTRE — ENCORE**
+
+«bouger» ⟹ **3 pages** ; «morphisme de traits» ⟹ **1** ✓. ⚠⚠ **Et «au lieu de» ⟹ 0 rects sur la page attendue** : **la restauration chevauche les pages de rendu 313-314** (comme #593) ⟹ re-ancré sur 314. **CALIBRER D'ABORD, TOUJOURS.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **§7.15 EST RESTAURÉE ⟹ LE TROU CONNU EST FERMÉ. MAIS : ÉTENDRE LE DÉTECTEUR** (7.13.N, 7.15.N, 7.17.N, Exposés, TOUS les tags) — **il a rapporté 2 PAGES et 1 SECTION en 5 firings ; il n'a pas fini.**
+- ⚠⚠ **`K^\bullet`(182) vs `K^\circ`(367) — #574 EST MAINTENANT ARMÉ D'UN EXHIBIT DÉCLARATIF (cette page). PRIORITÉ.**
+- ⚠ **`\mathbb P`(68)/`\mathbf P`(32)** ; `\operatorname{cl}`(25)⟹`c\ell` ; `\Fil`(220)/`\Filt`(62) ; `\sim`⟹`\wr` (10, le CÔTÉ varie) ; **les DEUX «Je dis qu» restants** ; **l'espace avant «;» (304/989)** ; les 13 `\underline{}` prose-like ; les ``…'' TeX résiduels (dont un «moving lemma») ; `\underline K(X)` (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 ; 𝐙 gras vs `\mathbb Z` ; `\mathcal C`(902)/`\mathcal O`(936) ; chevrons ; **leqno** ; les 14 paires `--` ; la lettre «o» pour zéro ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠ **SURFRAPPE : hypothèse «emphase» REJETÉE provisoirement (2 instances, 0 emphase plausible).**
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ.** ⚠⚠⚠ **TROIS PAGES + UNE SECTION ENTIÈRE restaurées — dans un fichier qui compilait à 0-err et se lisait parfaitement à chaque étape.**
+
+## **CURSEUR → idx598 (vol p585 = Exposé X «- 67 -» [585−518=67])** — **§7.16 «Passage aux fibres géométriques» existe déjà dans le fichier ⟹ LE COMPARER MOT À MOT AU SCAN** (⚠ **c'est précisément le régime où Codex excise : #590/#592/#593 portaient tous sur du texte «déjà présent»**). ⚠⚠ **RE-GREP : drift #594 = +26** (1 ligne ⟹ 27) ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #593 (2026-07-16) — idx596 (vol p583 = **Exposé X «- 65 -»**, header «- 65 -» + **«X App.»** + footer «583** ; **CONSTANTE_X=518 CONFIRMÉE [583−65]**) — **★★★★★ §7 Appendice (GROTHENDIECK) : TROISIÈME RESTAURATION D'UNE PAGE ENTIÈRE — la fin de §7.14** — **1 rep-call / ~230 MOTS RESTAURÉS + LA PHRASE EN SUSPENS CLOSE** (bandes b1-b5 TOUTES lues + **6 crops HD 3200-4000dpi + 3 COMPTAGES**) ; **CONSTANTE_X=518 ✓ (583−65 ; idx=583+13=596 ✓)** ; la page **se termine PROPREMENT** sur «…pour l'homomorphisme de spécialisation en K-théorie.» **+ un GRAND BLANC**. Compile **0-err** ✓ — ⚠⚠ **et le rendu passe de 382 à 383 PAGES.**
+
+# ⚠⚠⚠⚠⚠ **TROISIÈME PAGE ENTIÈRE RESTAURÉE EN QUATRE FIRINGS — ET LE COMPTEUR DE PAGES BOUGE ENFIN**
+
+**#590** une PAGE (~250 mots + le diagramme (7.13.12)) ; **#592** une PAGE (~230 mots + **4 displays**) ; **#593** une PAGE (~230 mots). ⟹ **~710 mots et CINQ displays numérotés remis dans le fichier en quatre pages.**
+⚠⚠⚠ **ET LE RENDU PASSE DE 382 À 383 PAGES — pour la première fois de la campagne.** ⚠ **Le page-count n'a JAMAIS été la gate (0-err l'est), MAIS SON DÉPLACEMENT EST UNE MESURE DE CE QUI MANQUAIT** : il a fallu ~710 mots restaurés pour pousser une page entière de rendu. ⟹ **une jauge grossière mais honnête de l'ampleur de l'excision.**
+
+## ✅ **LA PHRASE EN SUSPENS DE #592 EST CLOSE — ET LE FIX LE PROUVE**
+
+#592 s'était arrêté au bord de p582, laissant «…mais où le recours à la résolution des singularités et **la réduction**». **p583 la ferme** : «… et la réduction **au cas d'un corps résiduel algébriquement clos deviendraient inutiles, puisqu'on dispose ici de C = 𝐏^1_S comme «~courbe de paramètres~» pour déformer les cycles.**»
+⚠⚠ **Le fix ré-asserte APRÈS écriture que la suspension a disparu** (`assert "et la réduction\n" not in t`) ⟹ **prouvé, pas supposé.** ⟹ **LA DISCIPLINE DE PÉRIMÈTRE DE #592 A TENU SES PROMESSES : s'arrêter au bord d'une page n'est pas abandonner, c'est différer d'un firing.**
+⚠ **§7.14 est maintenant COMPLÈTE** (p581 l'ouverture [#591] + p582 les 4 displays [#592] + p583 la fin [#593]) et **se termine PROPREMENT** ⟹ **aucune nouvelle suspension.**
+
+## ⚠⚠⚠ **UN COMPTAGE INEXPLIQUÉ, POURSUIVI — ET IL A CONFIRMÉ LE TRAVAIL AU LIEU DE LE CASSER**
+
+L'assert post-écriture a imprimé «**moving lemma~» de Chow» = 4**» là où j'attendais **1**. ⚠⚠ **RÈGLE #586 : un écart inexpliqué n'est PAS une trouvaille, c'est un BUG dans l'un des deux comptages — l'expliquer AVANT de conclure.** ⟹ `cnt596c.py` :
+1. «sur un corps k, grâce au «~moving lemma~» **de Chow**. Ce point a…» — **PRÉEXISTANT**
+2. «semble essentiellement lié au «~moving lemma~» **de Chow**, qui lui-même…» — **PRÉEXISTANT**
+3. «…on utilise seulement le «~moving lemma~» **de Chow**, disant qu'…» — **PRÉEXISTANT**
+4. «…à dégager un énoncé du type «~moving lemma~» **de Chow**, pour arriver…» — **LA MIENNE**
+⟹ ✅ **4 = 3 préexistants + 1 restauré ⟹ MA RESTAURATION A ATTERRI EXACTEMENT UNE FOIS** (confirmé par les voisins : «On est donc ramené»=1, «courbe de paramètres»=1, «Comparer XIV 8»=1, «deviendraient inutiles»=1).
+⚠⚠⚠ **ET MIEUX : ÇA VALIDE MA FORME-MAISON PAR UNE VOIE QUE JE N'AVAIS PAS PRÉVUE.** Le fichier écrivait **DÉJÀ TROIS FOIS** «le «~moving lemma~» **de Chow**» ⟹ **ma restauration reproduit la CONSTRUCTION RÉCURRENTE DE GROTHENDIECK, «de Chow» compris** — je ne l'ai pas choisie, je l'ai retrouvée. ⚠ **La 5ᵉ occurrence («a encore un ``moving lemma''») est l'outlier en guillemets TeX ⟹ le report des ``…''.**
+
+## ⚠⚠ **TOUTES LES FORMES-MAISON COMPTÉES AVANT D'ÉCRIRE (jamais de mémoire)**
+
+- **`\mathbb P`=68 contre `\mathbf P`=32 ⟹ INCOHÉRENT** ⟹ **le critère #589 s'applique ⟹ corriger vers le livre**, qui imprime un **P À DOUBLE TRAIT** (`z596_P1S`, 3200dpi) ⟹ **`\mathbb P^1_S`** (qui est AUSSI la majorité).
+- **`\mathbb Q`=202, `\mathbf Q`=0 ⟹ COHÉRENT** ⟹ `\mathbb Q`.
+- **`«~moving lemma~»`=3 contre ` ``moving lemma'' `=1** ⟹ le guillemet.
+- **`\Gr_\bullet(T)`=4** ⟹ la forme-maison du point bas.
+- ⚠ **«K-théorie» = 0 dans TOUT le fichier** ⟹ **rien à imiter** ⟹ **l'idiome-maison des composés lettre-trait-mot est `\(\lambda\)-anneaux` (22) / `\(\ell\)-adique`** ⟹ **`\(K\)-théorie` — ÉTABLI dans l'idiome, pas inventé.**
+- **`x_{0t}`=1, `x_{ot}`=0** ⟹ le CHIFFRE (⚠ la question «lettre o / zéro» reste DÉFÉRÉE, mais la maison tranche localement).
+- **`;` nu (989 contre 304 `~;`)** ⟹ l'espace avant «;» reste un report global.
+
+## ⚠ **CE QUE LE SCAN A DONNÉ**
+
+- **`z596_ZGr` (4000dpi)** : «l'homomorphisme surjectif **Z.(T) ⟶ Gr.(T)**» — **LES DEUX POINTS À LA LIGNE DE BASE** ⟹ `Z_\bullet(T)\longrightarrow \Gr_\bullet(T)` (la règle de hauteur du point, #574) ; **rendu VÉRIFIÉ à l'image** (`vrf596_ZGr` : «surjectif Z_•(T) ⟶» ✓).
+- **`z596_Ai` (3200dpi)** : «**A_i(X) ⟶ A_i(X_s). Comparer XIV 8.**» ⟹ ⚠ **DU TEXTE SUIT SUR LA LIGNE ⟹ le critère du display-fictif dit INLINE** ⟹ **je n'ai PAS fabriqué de display** (la faute exacte de Codex en #591).
+- **`z596_xiv` (3200dpi)** : «(**XIV 4.1, 4.2**)» = **une DOUBLE référence séparée par une virgule** ; **`z596_Ai`** : «**Comparer XIV 8.**» = **une référence NUE, sans parenthèses** ⟹ ⚠⚠ **LE LIVRE MÊLE NUES ET PARENTHÉSÉES SUR LA MÊME PAGE — encore. NE JAMAIS uniformiser.**
+- «"courbe de paramètres"», «"soit défini"», «"moving lemma"» ⟹ **`«~…~»`** (forme serrée maison).
+
+## ⚠⚠ **§7.15 N'EST PAS SUR p583 NON PLUS**
+
+Le détecteur (#591) l'annonce ; **ni p582 (#592) ni p583 (#593) ne la contiennent** ⟹ **elle est sur p584 ou après, avant §7.16.** ⚠ **Le report se resserre à chaque page : c'est exactement ce qu'un détecteur prédictif doit faire.**
+
+## LE REP-CALL (un seul — le troisième énorme en quatre firings)
+
+1. **~230 mots APPENDUS** après «…et la réduction», closant la phrase et menant §7.14 à sa fin propre. ⚠ **Le fix ré-asserte APRÈS écriture** : «courbe de paramètres»=1, «moving lemma~» de Chow»=4 (**expliqué : 3+1**), «Comparer XIV 8»=1, `Z_\bullet(T)\longrightarrow \Gr_\bullet(T)`=1, `\mathbb P^1_S`=2, «XIV 4.1, 4.2»=1, `\(K\)-théorie`=1, **et la suspension a disparu** ⟹ **prouvé.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **§7.15 EXCISÉE — sur p584+, avant §7.16. À restaurer à SA page.**
+- ⚠⚠ **étendre le détecteur de trous** (7.13.N, 7.14.N — il a rapporté 4 displays —, 7.17.N, Exposés, tags).
+- ⚠ **la SURFRAPPE = 2ᵉ mécanisme d'emphase ?** (#590) — chercher d'autres instances.
+- ⚠ **`\mathbb P`(68)/`\mathbf P`(32)** = **NOUVEAU report** : la même lettre écrite de deux façons ⟹ sweep global (le livre a le double trait).
+- ⚠ **`\operatorname{cl}`(25) ⟹ `c\ell`** ; ⚠ **`\Fil`(220)/`\Filt`(62)** ; ⚠ **`\sim`⟹`\wr` (10 ; le CÔTÉ varie)** ; ⚠ **les DEUX «Je dis qu» restants** ; ⚠ **l'espace avant «;»** ; **les 13 `\underline{}` PROSE-LIKE** ; ⚠ **les ``…'' TeX résiduels (dont un «moving lemma»)** ; `\underline K(X)` (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046.
+- **𝐙 GRAS vs `\mathbb Z`** ; **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT** ; `\mathcal C`/`\mathcal O` ; chevrons ; **leqno** ; **les 14 paires `--`** ; **la lettre «o» pour le zéro** ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ, jamais «complet».** ⚠⚠⚠ **TROIS pages entières restaurées + une SECTION encore manquante — dans un fichier qui compilait à 0-err et se lisait parfaitement à chaque étape.**
+
+## **CURSEUR → idx597 (vol p584 = Exposé X «- 66 -» [584−518=66])** — ⚠⚠⚠ **§7.15 EST ATTENDUE ICI** (elle n'est ni sur p582 ni sur p583, et §7.16 «Passage aux fibres géométriques» existe déjà dans le fichier) ⟹ **LIRE LES 5 BANDES ; si §7.15 apparaît, LA RESTAURER INTÉGRALEMENT.** ⚠⚠ **RE-GREP : drift #593 = +4** (1 ligne ⟹ 5 : 3 paragraphes + 2 blancs) ; ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #592 (2026-07-16) — idx595 (vol p582 = **Exposé X «- 64 -»**, header «- 64 -» + **«X App.»** + footer «582** ; **CONSTANTE_X=518 CONFIRMÉE [582−64]**) — **★★★★★ §7 Appendice (GROTHENDIECK) : DEUXIÈME RESTAURATION D'UNE PAGE ENTIÈRE — le corps de §7.14 + LES QUATRE DISPLAYS (7.14.1), (7.14.1 bis), (7.14.2), (7.14.2 bis)** — **1 rep-call / ~230 MOTS + 4 DISPLAYS NUMÉROTÉS RESTAURÉS** (bandes b1-b5 TOUTES lues + **8 crops HD 2400-4000dpi**) ; **CONSTANTE_X=518 ✓ (582−64 ; idx=582+13=595 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «et la réduction» **+ un GRAND BLANC**. Compile **0-err, 382pp** ✓ (+3 Ko = la page restaurée).
+
+# ⚠⚠⚠⚠⚠ **LA PRÉDICTION DU DÉTECTEUR A PAYÉ IMMÉDIATEMENT — DEUXIÈME PAGE ENTIÈRE EXCISÉE, TROUVÉE AVANT D'Y ARRIVER**
+
+#591 avait annoncé, **sur la foi du seul détecteur de trous de numérotation** : «§7.14 est condensée et (7.14.1) manque — idx595». **Vérification au scan : c'est bien pire.**
+
+**CE QUE LE FICHIER AVAIT** — le corps ENTIER de §7.14, **UNE phrase de 55 mots** :
+> «Si T est un schéma noethérien, désignons par Z_i(T) (resp. Z^i(T)) … Lorsque f:X→S est de type fini, on définit alors **les homomorphismes de spécialisation correspondants sur les groupes de cycles et les classes de cycles, dès que l'on passe par les groupes de Chow ou les groupes gradués utilisés ci-dessus.**»
+
+**CE QUE LE LIVRE IMPRIME SUR LA SEULE p582** — **~230 mots et QUATRE displays numérotés** :
+- **(7.14.1)** «**σ_i : Z_i(X_t) ⟶ Z_i(X_s) ,**» (`z595_d1`, 4000dpi)
+- **(7.14.1 bis)** «**σ^i : Z^i(X_t) ⟶ Z^i(X_s) .**» (`z595_d1b`)
+- **(7.14.2)** «**σ_i : A_i(X_t) ⟶ A_i(X_s) ,**» (`z595_d2`)
+- **(7.14.2 bis)** «**σ^i : A^i(X_t) ⟶ A^i(X_s) .**» (`z595_d2b`)
+⟹ **AUCUN des quatre n'existait dans le fichier.** ⚠ **COMPTÉ après écriture : les 4 tags = 1 chacun ⟹ le fix a bien atterri, prouvé, pas supposé.**
+
+## ⚠⚠⚠ **LE CONTRASTE INDICE/EXPOSANT SUIT LA MATH — ET IL EST LE CŒUR DE LA PAGE**
+
+**QUATRE displays, DEUX positions d'indice, et la math dit laquelle** :
+- **(7.14.1)/(7.14.2) : INDICE** — «Z_i», «A_i» = **la DIMENSION i** ;
+- **(7.14.1 bis)/(7.14.2 bis) : EXPOSANT** — «Z^i», «A^i» = **la CODIMENSION i**.
+⚠⚠ **Et le texte le dit lui-même** : «le groupe des cycles algébriques sur T purement de **dimension** i (resp. purement de **codimension** i)» [#591] ⟹ **la paire «X / X bis» EST la paire «dimension / codimension».** ⚠⚠ **C'est EXACTEMENT ce que l'extraction aplatit (#570/#576/#577/#580)** ⟹ **les 4 crops ont été pris au MÊME dpi (4000) pour que les deux positions soient directement comparables** ; **rendu VÉRIFIÉ à l'image** (`vrf595_d1` : «σ_i : Z_i(X_t) ⟶ Z_i(X_s),» ✓ ; `vrf595_d2` : «σ_i : A_i(X_t) ⟶ A_i(X_s),» ✓).
+⚠ **La forme du tag «bis» : «(7.14.1 bis)» avec une ESPACE** — conforme à «(7.10.1 bis)» / «(7.10.2 bis)» de #580.
+
+## ⚠⚠ **LE «))» — CETTE FOIS C'EST LE CAS #589, PAS LE CAS #590. ET LA RÈGLE MARCHE.**
+
+**`z595_dim` (3200dpi)** : «…et satisfaisant **dimZ_s=dimZ_t (EGA IV 7.1.13))**. Lorsque X_s est…» ⟹ **DEUX fermantes**.
+⚠⚠ **J'AI CHERCHÉ L'OUVRANTE AVANT DE CONCLURE (la règle de #590) — ET ELLE EXISTE** : «où Z est l'adhérence schématique de Z_t dans X **(qui est un sous-schéma fermé de X plat sur S (EGA IV 2.8), de fibre générique égale au Z_t de départ, et satisfaisant dim Z_s=dim Z_t (EGA IV 7.1.13))**» ⟹ **les DEUX parenthèses sont RÉELLES** ⟹ reproduites.
+⟹ ⚠⚠⚠ **LE CONTRASTE EST MAINTENANT UNE RÈGLE OPÉRATIONNELLE À TROIS CAS** : **#589** «))» avec ouvrante sur la page PRÉCÉDENTE ⟹ **restaurer la parenthèse** ; **#590** «))» SANS ouvrante nulle part ⟹ **coquille du livre, SIC** ; **#592** «))» avec ouvrante sur la MÊME ligne ⟹ **les deux sont réelles**. **Un «))» orphelin est un INDICE ; CHERCHER L'OUVRANTE tranche.**
+
+## ⚠⚠⚠ **DISCIPLINE DE PÉRIMÈTRE — PLUS DURE QU'EN #591, ET TENUE**
+
+p582 **se termine EN PLEIN MILIEU** de «On pourrait songer à le démontrer par une méthode paraphrasant celle de 7.12, mais où le recours à la résolution des singularités et **la réduction**».
+⚠⚠ **J'ai croppé p583 pour clore la phrase (la manœuvre légitime de #590/#591) — ET ELLE NE SE CLÔT PAS NON PLUS** : `z595_next` donne «**au cas d'un corps résiduel algébriquement clos deviendraient inutiles, puisqu'on dispose ici de C = 𝐏^1_S comme "courbe de paramètres" pour déformer**…» ⟹ **la phrase court AU-DELÀ de la 1ʳᵉ ligne de p583.**
+⟹ ⚠⚠⚠ **JE NE POUVAIS PAS EMPRUNTER UNE LIGNE ⟹ J'AI RESTAURÉ p582 SEULE ET LAISSÉ LA PHRASE EN SUSPENS.** **C'est l'état HONNÊTE d'un brouillon de travail** (le fichier EST un working draft), **la gate 0-err tient**, et **idx596 continuera**. ⚠⚠ **L'alternative — inventer la fin — serait EXACTEMENT la faute que je reproche à Codex depuis #579.** ⟹ **RÈGLE : peeker UNE ligne pour CLORE une phrase est légitime ; si elle ne clôt pas, ON S'ARRÊTE AU BORD DE LA PAGE.**
+
+## ⚠⚠ **§7.15 EST TOUJOURS ABSENTE — ELLE N'EST PAS SUR p582**
+
+Le détecteur (#591) l'annonçait ; **p582 ne la contient pas** ⟹ **elle est sur p583 ou après.** ⚠ **Le report tient, et il est maintenant BORNÉ : §7.15 se trouve entre p583 et le début de §7.16.**
+
+## ⚠ **LES BOOK-SICS ET LES FORMES-MAISON DU TEXTE RESTAURÉ**
+
+- «Il semble très plausible que l'homomorphisme (7.14.1) **transforme cycles** rationnellement équivalents» — **SANS ARTICLE** ⟹ **SIC** (le motif #584 «transforme éléments», #590 «transforme cycles» — **3ᵉ instance**).
+- «**dimZ_s=dimZ_t**» — tapé **sans espaces** ⟹ **artefact mécanique (décision #584)** ⟹ rendu `\dim Z_s=\dim Z_t`.
+- **FORMES-MAISON employées** : **la virgule/le point vont À L'INTÉRIEUR d'une `equation` simple** — vérifié sur la (7.13.7) existante, qui finit «…\otimes_{\mathbb Z_\ell}\mathbb Q_\ell**,**» (⚠ **le `\;,` est réservé aux tikzcd**, #584/#586/#588/#589) ; **«~de Chow~»** (guillemets serrés, 160+ vs 70) ; **«i.e.» préservé** (le livre l'a) ; **`\operatorname{cl}` non employé ici** (pas d'occurrence sur cette page).
+- «(cf. **[5]**, où la théorie est faite sur un corps algébriquement clos)» — **référence bibliographique** ✓.
+
+## LE REP-CALL (un seul, énorme — le second en trois pages)
+
+1. **~230 mots + 4 blocs `\begin{equation}\tag{…}` RESTAURÉS** à la place de la phrase-résumé de 55 mots. ⚠ **Le fix ré-asserte APRÈS écriture** : `\tag{7.14.1}`, `\tag{7.14.1 bis}`, `\tag{7.14.2}`, `\tag{7.14.2 bis}` = **1 chacun** ; «cycle premier», «localement équidimensionnel», «de Chow~»», «quasi-projectif, de sorte» **tous ≥1** ⟹ **prouvé.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **§7.15 EXCISÉE — entre p583 et §7.16. À restaurer à SA page.**
+- ⚠⚠⚠ **§7.14 continue sur p583+ — la phrase «…et la réduction» est EN SUSPENS ⟹ idx596 la clôt.**
+- ⚠⚠ **étendre le détecteur de trous** (7.13.N, **7.14.N — il vient de rapporter 4 displays**, 7.17.N, Exposés, tags).
+- ⚠ **la SURFRAPPE = 2ᵉ mécanisme d'emphase ?** (#590) — chercher d'autres instances.
+- ⚠ **`\operatorname{cl}`(25) ⟹ `c\ell`** ; ⚠ **`\Fil`(220)/`\Filt`(62)** ; ⚠ **`\sim`⟹`\wr` (10 ; le CÔTÉ varie)** ; ⚠ **les DEUX «Je dis qu» restants** ; ⚠ **l'espace avant «;»** ; **les 13 `\underline{}` PROSE-LIKE** ; `\underline K(X)` (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046.
+- **𝐙 GRAS vs `\mathbb Z`** ; **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT** ; `\mathcal C`/`\mathcal O` ; chevrons ; **leqno** ; **les 14 paires `--`** ; **la lettre «o» pour le zéro** ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ, jamais «complet».** ⚠⚠⚠ **#590 + #592 : DEUX pages entières restaurées en trois firings, plus une SECTION entière encore manquante — dans un fichier qui compile à 0-err et se lit parfaitement.**
+
+## **CURSEUR → idx596 (vol p583 = Exposé X «- 65 -» [583−518=65])** — ⚠⚠ **la page OUVRE sur «au cas d'un corps résiduel algébriquement clos deviendraient inutiles, puisqu'on dispose ici de C = 𝐏^1_S comme "courbe de paramètres" pour déformer…»** ⟹ **CLORE la phrase laissée en suspens** ; ⚠⚠⚠ **et §7.15 est ATTENDUE ici ou juste après — LE DÉTECTEUR L'ANNONCE.** ⚠⚠ **RE-GREP : drift #592 = +18** (les 19 lignes du bloc restauré remplacent 1) ; ⚠⚠⚠ **LIRE LES 5 BANDES.**
+
+### #591 (2026-07-16) — idx594 (vol p581 = **Exposé X «- 63 -»**, header «- 63 -» + **«X App.»** + footer «581** ; **CONSTANTE_X=518 CONFIRMÉE [581−63]**) — **★★★★ §7 Appendice (GROTHENDIECK) : Remarque 7.13.13 + le TITRE et l'ouverture de §7.14** — **3 rep-calls / ~8 changements** (bandes b1-b5 TOUTES lues + **12 crops HD 2400-4000dpi + LE SWEEP DE NUMÉROTATION GLOBAL**) ; **CONSTANTE_X=518 ✓ (581−63 ; idx=581+13=594 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «on définit alors» **+ un GRAND BLANC**. Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE : LE DÉTECTEUR DE #590 A TIRÉ DÈS SON PREMIER USAGE GLOBAL — **§7.15 N'EXISTE PAS**, ET IL EST RÉFÉRENCÉ TROIS FOIS.**
+
+#590 avait établi que **le trou dans une numérotation auto-incrémentée est la SIGNATURE d'une excision**, et j'en avais fait un report prioritaire. **Premier balayage global (`cnt594.py`), premier résultat :**
+- **Têtes §7.N PRÉSENTES : 7.0, 7.1, …, 7.13, 7.14, 7.16, 7.17, 7.18**
+- ⚠⚠⚠ **MANQUANTE : [15]** — **§7.15 EST ENTIÈREMENT ABSENTE DU FICHIER.**
+- ⚠⚠⚠ **ET ELLE EST RÉFÉRENCÉE 3 FOIS**, dont **DEUX dans des passages QUE J'AI MOI-MÊME RESTAURÉS** : «moyennant une compatibilité facile explicitée **dans 7.15**» (la page de #583) et «l'adhérence schématique de Z_t dans X **(cf. 7.15)**)» (ma restauration de #590).
+⟹ ⚠⚠⚠⚠⚠ **UNE SECTION RÉFÉRENCÉE TROIS FOIS ET INEXISTANTE = LA MÊME CLASSE QUE #590. C'EST UNE DEUXIÈME EXCISION, ET LE DÉTECTEUR L'A TROUVÉE MÉCANIQUEMENT, AVANT MÊME D'ARRIVER À SA PAGE.**
+⚠⚠ **Elle est sur une page ULTÉRIEURE ⟹ à restaurer à SA page.** ⟹ **LE DÉTECTEUR NE FAIT PAS QUE PROUVER LE PASSÉ : IL ANNONCE CE QUI VIENT.** ⚠ **Un outil qui rend le travail PRÉDICTIF plutôt que réactif — c'est le meilleur rendement de toute la campagne.**
+
+## ✅ **ET LA RESTAURATION DE #590 EST VALIDÉE INDÉPENDAMMENT PAR LE SCAN**
+
+`p594_b1` : la page **ouvre exactement** sur «**on peut dans ce diagramme remplacer les Z^i par les A^i, et on trouve un diagramme du type voulu, en termes des anneaux de Chow de X_t et X_s.**» — **la queue que j'avais ressoudée** — **puis enchaîne sur «<u>Remarque</u> 7.13.13.»**.
+⟹ ⚠⚠ **LA SÉQUENCE DU LIVRE EST DONC BIEN : Remarque 7.13.11 ⟶ (7.13.12) LE DIAGRAMME ⟶ Remarque 7.13.13.** **Le trou que j'ai comblé était EXACTEMENT le diagramme.** ⟹ **#590 confirmé par une source qu'il n'avait pas utilisée.**
+
+## ⚠⚠⚠ **UN DISPLAY FABRIQUÉ — ET LE CRITÈRE TIRE PROPREMENT**
+
+**`z594_inline` (3200dpi)** : le livre fait courir l'homomorphisme **DANS LA PROSE** : «alors l'homomorphisme de **spécialisation Gr^·(X_t̄) ⟶ Gr^·(X_s̄) (et a fortiori Gr^·(X_t) ⟶ Gr^·(X_s)) est compatible** avec l'équivalence numérique…»
+⟹ ⚠⚠ **DU TEXTE SUIT LA FORMULE SUR LA MÊME LIGNE ⟹ LE CRITÈRE DU DISPLAY-FICTIF (34 en 26 pages) TIRE** ⟹ le `\[…\]` de Codex est **FABRIQUÉ** ⟹ **remis EN LIGNE**. **Rendu VÉRIFIÉ à l'image (`vrf594_inline`) : la formule court dans la prose et «est compatible» enchaîne ✓.**
+⚠ **«a fortiori» SANS accent ✓** — conforme au livre ET à la maison (12/4).
+
+## ⚠⚠⚠ **#577 EST RÉVISÉ : LA RÈGLE DU POINT DE TITRE ÉTAIT FAUSSE**
+
+**`z594b_ttl2` (4000dpi)** : le titre «**7.14.  <u>Homomorphisme de spécialisation pour les groupes de cycles et classes de cycles</u>.**» — **souligné sur DEUX lignes** et **TERMINÉ PAR UN POINT**.
+⚠⚠⚠ **OR #577 concluait : «le POINT FINAL n'apparaît QUE si le TEXTE ENCHAÎNE sur la même ligne» (et citait «7.10. …inverses» qui TERMINE sa ligne SANS point).** **Ici le titre TERMINE sa ligne — le texte commence à la ligne SUIVANTE — ET IL A UN POINT.** ⟹ **LA RÈGLE EST FAUSSE : le point de titre est PER-OCCURRENCE comme tout le reste.**
+⚠ **COMPTÉ : le fichier a ~5 titres AVEC point (7.5, 7.7, 7.8, 7.9…) et ~6 SANS (7.4, 7.10, 7.13, 7.14, 7.16, 7.17…) ⟹ INCOHÉRENT ⟹ le critère #589 s'applique ⟹ corriger MA page vers le livre** ⟹ point ajouté.
+⚠ **ET LA RÈGLE DU SAUT, 6ᵉ INSTANCE** : le souligné couvre «classes de cycles» **mais PAS le point**.
+
+## ⚠⚠⚠ **L'OUVERTURE DE §7.14 : CINQ DÉFAUTS EN DEUX PHRASES**
+
+**`z594b_op1/op2/op3` (3200dpi)** — le livre imprime :
+> «Si T est **un schéma** noethérien, **désignons par** Z_i(T) **(resp. Z^i(T))** le groupe des cycles algébriques **sur T** purement de dimension i **(resp. purement** de codimension i). Lorsque f: X ⟶ S est de type fini, **on définit alors**»
+
+Codex avait : «Si T est noethérien, **notons** Z_i(T)**, respectivement** Z^i(T)**,** le groupe des cycles algébriques purement de dimension i**, respectivement** de codimension i. Lorsque f:X→S est de type fini, **les constructions précédentes fournissent**»
+- **«un schéma» DROPPÉ** ; **«sur T» DROPPÉ** ; **le 2ᵉ «purement» DROPPÉ**
+- **«désignons par» ⟹ «notons»** = un mot CHANGÉ
+- ⚠⚠ **DEUX «(resp. …)» PARENTHÉSÉS DÉTRUITS en «, respectivement …,»** ⟹ **le motif #577 (3 «resp.» détruits) + #578 (un 4ᵉ) ⟹ TOTAL 6** ; ⚠ **COMPTÉ : «resp.»=402 contre «respectivement»=25 ⟹ l'abréviation EST la forme-maison.**
+- **«on définit alors» RÉÉCRIT en «les constructions précédentes fournissent»**
+
+## ⚠⚠⚠ **ET §7.14 EST ELLE AUSSI CONDENSÉE — (7.14.1) MANQUE. TROISIÈME EXCISION.**
+
+**`z594_next` (p582 b1)** : la phrase enjambe et le livre continue «…on définit alors **un homomorphisme de spécialisation : (7.14.1)  σ_i : Z_i(X_t) ⟶ Z_i(X_s)  ,**»
+⟹ ⚠⚠ **(7.14.1) — UN DISPLAY NUMÉROTÉ — N'EXISTE PAS DANS LE FICHIER**, et la queue de Codex («les homomorphismes de spécialisation correspondants sur les groupes de cycles et les classes de cycles, dès que l'on passe par les groupes de Chow…») **n'a aucun répondant à cet endroit du livre.**
+⚠⚠⚠ **DISCIPLINE DE PÉRIMÈTRE, DÉLIBÉRÉE** : **p582 n'est PAS ma page.** J'ai corrigé **uniquement ce que p581 porte** (jusqu'à «on définit alors») et **laissé la queue à idx595, qui aura le scan.** ⟹ **NE PAS restaurer un texte dont je n'ai pas lu le répondant** — c'est exactement l'erreur que je reproche à Codex. ⚠ **Noté : idx595 doit restaurer (7.14.1) ET la queue de §7.14.**
+
+## ⚠ **LE MODE VERBAL, ENCORE**
+
+**`z594_satis` (3200dpi)** : «que si X_t̄ **satisfait** à la conjecture précédente» — **PRÉSENT** ; Codex : «**satisfaisait**» (IMPARFAIT) ⟹ **motif #582 («Codex améliore la concordance»)** ⟹ corrigé. ⚠ **COMPTÉ : «satisfaisait»=1, «satisfait»=0 ⟹ unique.**
+
+## ✅ **LES NÉGATIFS GENUINE**
+
+- «**conjectures standard**» — **invariable** ✓ Codex correct ; «(VII 4.11)», «(SGA 5 IV)», «(7.13.8)», «(7.13.10)», «7.9», «7.11.5» ✓ ; «Gr^·(T)_ℚ», «K^·(T)», «ℚ_ℓ(i)» — **points surélevés tous justes** ✓ ; «(équivalence numérique implique équivalence ℚ_ℓ-cohomologique)» ✓ ; `\textbf{Remarque 7.13.13.}` = **la forme-maison** ✓ (le livre souligne «Remarque» seul — convention globale de TÊTE, non refaite à la page, cf. #589).
+
+## LES 3 REP-CALLS
+
+1+2. «satisfaisait» ⟹ «**satisfait**» + **le display FABRIQUÉ remis EN LIGNE**
+3. le titre de **7.14** ⟹ **point final ajouté** (⚠ **#577 révisé**)
+4. **l'ouverture de §7.14 restaurée** : «un schéma» + «désignons par» + **«(resp. Z^i(T))»** + «sur T» + **«(resp. purement de codimension i)»** + «on définit alors»
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **CONFIRMÉ ET LOCALISÉ : §7.15 EST EXCISÉE** (absente, référencée ×3) ⟹ **à restaurer à SA page** (après §7.14, donc idx595+).
+- ⚠⚠⚠ **CONFIRMÉ : §7.14 est condensée et (7.14.1) manque** ⟹ **idx595.**
+- ⚠ **le détecteur de trous : ÉTENDRE aux suites 7.13.N, 7.17.N, aux Exposés, aux (N.N.N) tagués** — il a payé du premier coup.
+- ⚠ **la SURFRAPPE = 2ᵉ mécanisme d'emphase ?** (#590) — chercher d'autres instances.
+- ⚠ **`\operatorname{cl}`(25) ⟹ `c\ell`** ; ⚠ **`\Fil`(220)/`\Filt`(62)** ; ⚠ **`\sim`⟹`\wr` (10 ; le CÔTÉ varie)** ; ⚠ **les DEUX «Je dis qu» restants** ; ⚠ **l'espace avant «;»** ; **les 13 `\underline{}` PROSE-LIKE** ; `\underline K(X)` (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046.
+- **𝐙 GRAS vs `\mathbb Z` (et ℚ_ℓ)** ; **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT** ; `\mathcal C`/`\mathcal O` ; chevrons ; **leqno** ; **les 14 paires `--`** ; **la lettre «o» pour le zéro** ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : PROVISOIRE et MOTIVÉ, jamais «complet».** ⚠⚠⚠ **#590 + #591 le prouvent : DEUX excisions (une page entière, une section entière) dans un fichier qui compile à 0-err et se lit parfaitement.**
+
+## **CURSEUR → idx595 (vol p582 = Exposé X «- 64 -» [582−518=64])** — ⚠⚠ **PAGE À FORT ENJEU** : elle OUVRE sur «**un homomorphisme de spécialisation : (7.14.1) σ_i : Z_i(X_t) ⟶ Z_i(X_s) ,**» ⟹ **(7.14.1) EST À RESTAURER** ; **la queue de §7.14 est condensée** ⟹ à restaurer ; ⚠⚠⚠ **et §7.15 doit apparaître quelque part ici ou juste après — LE DÉTECTEUR L'ANNONCE.** ⚠⚠ **RE-GREP : drift #591 = −4** (le display de 4 lignes remis en ligne) ; ⚠⚠⚠ **LIRE LES 5 BANDES.**
+
+### #590 (2026-07-16) — idx593 (vol p580 = **Exposé X «- 62 -»**, header «- 62 -» + **«X App.»** + footer «580** ; **CONSTANTE_X=518 CONFIRMÉE [580−62]**) — **★★★★★ §7 Appendice (GROTHENDIECK) : RESTAURATION D'UNE PAGE ENTIÈRE — la fin de Remarque 7.13.11 + LE DIAGRAMME (7.13.12)** — **1 rep-call / ~250 MOTS + UN DIAGRAMME NUMÉROTÉ RESTAURÉS** (bandes b1-b5 TOUTES lues + **9 crops HD 2400-4000dpi + 1 COMPTAGE-PREUVE**) ; **CONSTANTE_X=518 ✓ (580−62 ; idx=580+13=593 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «(X étant projectif sur S),» **+ un GRAND BLANC**. Compile **0-err, 382pp** ✓ (le PDF gagne ~3 Ko = la page restaurée).
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE DE TOUTE LA CAMPAGNE : CODEX A EXCISÉ UNE PAGE ENTIÈRE ET RECOLLÉ LES DEUX BOUTS. LA COUTURE EST INVISIBLE.**
+
+**CE QUE LE FICHIER DISAIT** (L13946, ~25 mots) :
+> «…Pour voir un énoncé qui ne néglige pas la torsion, **il semble qu'on peut dans ce diagramme remplacer les Z^i par les A^i, et on trouve un diagramme du type voulu, en termes des anneaux de Chow de X_t et X_s.**»
+
+**CE QUE LE LIVRE IMPRIME** (~250 mots **+ un diagramme numéroté**) :
+> «…il semble qu'on **sera obligé de travailler avec l'anneau de Chow, puisque c'est sur ce dernier que ce trouve défini naturellement l'homomorphisme cℓ … comparer (XIV 4.1). Malheureusement, on n'a pas développé pour le moment une théorie de la spécialisation pour l'anneau de Chow (cf. 7.14.), qui permettrait d'écrire des carrés commutatifs analogues à (7.13.9) et (7.13.10) … Tout ce qu'on peut dire lorsque f:X⟶S est lisse et propre, c'est qu'on a un carré commutatif [(7.13.12) = UN DIAGRAMME COMPLET] … où Z^i désigne le groupe des cycles algébriques (modulo rien du tout) … Cette commutativité résulte du fait suivant, établi dans (SGA 5 IV); si Z est un sous-schéma fermé … (X étant projectif sur S), on peut dans ce diagramme remplacer les Z^i par les A^i, et on trouve un diagramme du type voulu, en termes des anneaux de Chow de X_t et X_s.**»
+
+⟹ ⚠⚠⚠⚠⚠ **CE N'EST PAS UNE PARAPHRASE — C'EST UNE EXCISION AVEC RECOLLEMENT.** `z593_next` (p581 b1) montre que **la queue de Codex est LE TEXTE MÊME DU LIVRE, mot pour mot** : «on peut dans ce diagramme remplacer les Z^i par les A^i, et on trouve un diagramme du type voulu, en termes des anneaux de Chow de X_t et X_s.» ⟹ **Codex a COUPÉ LE MILIEU et SOUDÉ l'ouverture «il semble qu'on» directement sur la fermeture «peut dans ce diagramme remplacer…».**
+
+## ⚠⚠⚠ **POURQUOI C'EST LA PIRE : LA SOUDURE EST GRAMMATICALE, ET ELLE LAISSE UN POINTEUR MORT**
+
+La phrase recollée — «**il semble qu'on peut dans ce diagramme remplacer les Z^i par les A^i**» — est **parfaitement française, parfaitement plausible, et mathématiquement anodine**. ⚠⚠⚠ **MAIS «CE DIAGRAMME» NE DÉSIGNE PLUS RIEN : le diagramme auquel il renvoie est (7.13.12), c'est-à-dire PRÉCISÉMENT celui que Codex a supprimé.**
+⟹ **C'est le motif #575 («la formule ENTIÈREMENT DISPARUE, SANS RÉFÉRENT») à L'ÉCHELLE D'UNE PAGE.**
+⚠⚠ **ET LE SENS EST INVERSÉ** : Grothendieck écrit «**Malheureusement, on n'a PAS développé** pour le moment une théorie de la spécialisation pour l'anneau de Chow, **qui PERMETTRAIT d'écrire** des carrés…» = **un aveu de ce qui MANQUE**. La soudure de Codex fait dire au texte «**on peut** … **et on trouve** un diagramme du type voulu» = **l'affirmation CONTRAIRE**, sortie de son conditionnel.
+
+## ⚠⚠⚠ **LA PREUVE — TROIS BRINS INDÉPENDANTS, DONT UN PUREMENT STRUCTUREL**
+
+1. ⚠⚠⚠ **STRUCTUREL — LA NUMÉROTATION SAUTE** : le fichier enchaînait **«Remarque 7.13.11.» ⟶ «Remarque 7.13.13.»**. ⚠ **COMPTÉ : «7.13.12» = 0 dans TOUT le fichier** ; la suite des 7.13.N lue dans l'ordre donnait **[… 9, 10, 11, **13**, …]** ⟹ **LE TROU DANS LA NUMÉROTATION *EST* LA SIGNATURE DE L'EXCISION** — (7.13.12) était dans le morceau coupé.
+2. ⚠⚠ **LEXICAL — QUATRE PHRASES DISTINCTIVES À ZÉRO** : «sera obligé de travailler»=**0**, «modulo rien du tout»=**0**, «classe de cohomologie associée»=**0**, «rationnellement équivalents»=**0** ⟹ **quatre comptes de 0 indépendants = la preuve** (la règle du sweep : un compte de 0 EST une preuve).
+3. ⚠⚠ **LA SOUDURE — `z593_next`** : la queue de Codex est verbatim celle du livre ⟹ **il n'a pas résumé, il a coupé.**
+
+⟹ ⚠⚠⚠ **LEÇON GÉNÉRALE, LA PLUS IMPORTANTE DU LOT : UN TROU DANS UNE NUMÉROTATION AUTO-INCRÉMENTÉE EST UN DÉTECTEUR D'EXCISION QUI NE COÛTE RIEN.** ⟹ **BALAYER LE FICHIER ENTIER À LA RECHERCHE DE TROUS DANS LES SUITES N.N.N — c'est un test global, mécanique, et il trouve exactement cette classe de défaut. NOUVEAU REPORT PRIORITAIRE.**
+
+## ⚠⚠ **LES BOOK-SICS DE LA PAGE RESTAURÉE — TOUS VÉRIFIÉS AU CROP, TOUS REPRODUITS**
+
+- **`z593_cese` (4000dpi)** : «puisque c'est sur ce dernier **que ce trouve** défini» — **«ce» pour «se»** ⟹ **SIC**.
+- **`z593_defin` (3200dpi)** : «les homomorphismes «~classe de cohomologie associée~» **définie**» — **SINGULIER FÉMININ** là où la grammaire veut «définis» (l'auteur accorde sur «classe», pas sur «homomorphismes») ⟹ **SIC** (motif #584 «d'intersectionS rationnelLES»).
+- **`z593_cf715` (4000dpi)** : «dans X **(cf. 7.15))**» — **DEUX parenthèses fermantes SANS ouvrante correspondante** nulle part dans la phrase ⟹ **PARENTHÈSE ORPHELINE = COQUILLE DU LIVRE, reproduite SIC**. ⚠⚠ **CONTRASTE INSTRUCTIF AVEC #589** : là, le «))» avait bel et bien son ouvrante (sur la page précédente) et j'ai restauré la parenthèse ; **ici il n'y en a pas ⟹ c'est une coquille**. ⟹ **le «))» orphelin est un INDICE, pas un verdict : il faut CHERCHER l'ouvrante avant de conclure.**
+- **`z593_cf714` (4000dpi)** : «**(cf. 7.14.)**» — **point INTERNE** ⟹ SIC.
+- «**transforme cycles** rationnellement équivalents» — **SANS ARTICLE** ⟹ SIC (motif #584 «transforme éléments»).
+
+## ⚠ **UN MÉCANISME D'EMPHASE NOUVEAU — ET JE NE L'APPLIQUE PAS**
+
+**`z593b_lisse2` (4000dpi, avec la queue de ligne comme contrôle intégré)** : «est lisse et **propre**, c'est qu'on a un carré commutatif» ⟹ **«propre» est VISIBLEMENT PLUS GRAS** que «est lisse et» et que «c'est qu'on a un carré commutatif» **sur la MÊME ligne**.
+⟹ ⚠⚠ **HYPOTHÈSE : une SURFRAPPE (le mot tapé deux fois) = le SEUL «gras» d'une machine à écrire — DONC UN SECOND MÉCANISME D'EMPHASE, distinct du souligné** (souligné ⟹ italique ; surfrappe ⟹ gras).
+⚠⚠⚠ **NON APPLIQUÉ, ET C'EST DÉLIBÉRÉ** : (a) «lisse» est **intermédiaire** — je ne sais pas trancher ; (b) je ne distingue pas, à cette résolution, une surfrappe d'une frappe appuyée ou d'une irrégularité de ruban ; (c) ⚠ **je ne PEUX PAS compter les surfrappes dans le fichier** (elles sont dans le scan, pas dans le source) — **donc la règle du sweep ne peut pas trancher, et je n'ai pas de forme-maison à invoquer.** ⟹ **UN DOUTE N'EST PAS UN DÉFAUT (#585). REPORT OUVERT : chercher d'autres instances ; s'il y en a, c'est une classe entière.**
+
+## LE REP-CALL (un seul, énorme)
+
+1. **~250 mots + `\begin{equation}\tag{7.13.12}` … `\end{equation}` RESTAURÉS** entre les deux bouts recollés. ⚠ **Le fix ré-asserte APRÈS écriture** : «7.13.12»=2 (le tag + son renvoi), et les 4 phrases distinctives passent de 0 à ≥1 ⟹ **le trou est refermé, prouvé, pas supposé.**
+- **Le diagramme (`z593_cd12`, 2400dpi)** : «cℓ» **au-dessus des DEUX** horizontales ; «σ» **à GAUCHE** de la descendante ; **la verticale droite MONTE et est NUE** ; virgule finale ⟹ `\;,`. **Rendu VÉRIFIÉ à l'image (`vrf593_cd12`) : identique au livre ✓** ; **et les sics vérifiés au dump : «sera obligé» ✓, «que ce trouve» ✓, «(cf. 7.14.)» ✓, «(modulo rien du tout)» ✓, «définie» ✓, «(cf. 7.15))» ✓.**
+- **FORMES-MAISON employées pour le texte neuf** : `\operatorname{cl}` (**22/22 cohérent — le ELL SCRIPT du livre reste le report de 22 sites, #589**) ; `«~…~»` (160+ vs 70) ; `;` nu (989 vs 304, report global).
+
+## ⚠ **MON ANNONCE DE PAGE-BREAK ÉTAIT FAUSSE — 3ᵉ FOIS**
+
+Le prompt annonçait que p580 ouvrirait sur «Pour voir un énoncé…» **puis Remarque 7.13.13**. ⟹ **FAUX** : la page ouvre sur «sera obligé de travailler avec l'anneau de Chow» et **7.13.13 n'y est PAS** — tout est encore la suite de 7.13.11. ⚠⚠ **Et l'annonce était fausse PRÉCISÉMENT PARCE QUE je la tirais du fichier mutilé.** ⟹ ⚠⚠⚠ **UNE ANNONCE DE PAGE-BREAK DÉRIVÉE DU FICHIER EST CIRCULAIRE QUAND LE FICHIER EST LE SUSPECT. LIRE LES 5 BANDES, TOUJOURS.** (#583 faux ×2 ; #584 faux ; **#590 faux**.)
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠⚠⚠ **NOUVEAU, PRIORITAIRE : BALAYER LES TROUS DE NUMÉROTATION** (suites N.N.N auto-incrémentées) — **test global, mécanique, détecteur d'excision.** #590 prouve qu'il marche.
+- ⚠ **NOUVEAU : la SURFRAPPE = un 2ᵉ mécanisme d'emphase ?** — non tranché, chercher d'autres instances.
+- ⚠ **`\operatorname{cl}`(22) ⟹ `c\ell`** ; ⚠ **`\Fil`(220)/`\Filt`(62), dont `\Fil^i`(14)/`\Filt^i`(11)** ; ⚠ **`\sim`⟹`\wr` (10 verticales ; ⚠ le CÔTÉ varie — NE PAS uniformiser)** ; ⚠ **les DEUX «Je dis qu» restants** ; ⚠ **l'espace avant «;» (304/989)** ; **les 13 `\underline{}` PROSE-LIKE** ; `\underline K(X)` sans accolades (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 bigradé.
+- **𝐙 GRAS vs `\mathbb Z` (et ℚ_ℓ)** — §7.13 saturé.
+- Reports permanents : **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT** ; `\mathcal C`(902)/`\mathcal O`(936) ; chevrons ; **leqno** ; **les 14 paires `--`** ; **la lettre «o» pour le zéro** ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : ceci est PROVISOIRE et MOTIVÉ, jamais «complet».** ⚠⚠⚠ **Et #590 le dit mieux que n'importe quel argument : une page entière manquait, le fichier compilait à 0-err, et le texte recollé se lisait parfaitement. "Ça compile" et "ça se lit" ne prouvent RIEN.**
+
+## **CURSEUR → idx594 (vol p581 = Exposé X «- 63 -» [581−518=63])** — ⚠ **la page OUVRE sur «on peut dans ce diagramme remplacer les Z^i par les A^i, et on trouve un diagramme du type voulu, en termes des anneaux de Chow de X_t et X_s.» (déjà dans le fichier, restauré en place par #590)** puis la suite (**Remarque 7.13.13 ?** — **NE PAS PRÉSUMER, LIRE LE SCAN**). ⚠⚠ **RE-GREP : drift #590 = +9** (les 9 lignes du bloc equation/tikzcd) ; ⚠⚠⚠ **LIRE LES 5 BANDES.**
+
+### #589 (2026-07-16) — idx592 (vol p579 = **Exposé X «- 61 -»**, header «- 61 -» + **«X App.»** + footer «579** ; **CONSTANTE_X=518 CONFIRMÉE [579−61]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.13 suite — (7.13.7), (7.13.8), (7.13.9), (7.13.10) + Remarque 7.13.11** — **4 rep-calls / ~10 changements** (bandes b1-b5 TOUTES lues + **8 crops HD 3200-4000dpi + 2 COMPTAGES**) ; **CONSTANTE_X=518 ✓ (579−61 ; idx=579+13=592 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «il semble qu'on» **+ un GRAND BLANC**. Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE : LE COMPTAGE A COUPÉ *UNE* OBSERVATION EN UN FIX LOCAL ET UN REPORT GLOBAL — ET LE CRITÈRE EST MAINTENANT NET**
+
+**`z592_cl7137` (4000dpi)** : **(7.13.7)** imprime «**cℓ : Gr^i(T) ⟶ H^{2i}(T,ℚ_ℓ(i))**» ⟹ **DEUX faits dans un seul glyphe** :
+- **(a) AUCUN exposant sur le «cℓ»** ; le fichier avait `\operatorname{cl}^i` ⟹ ⚠ **COMPTÉ : `\operatorname{cl}^i` = 1 = UN HAPAX** ⟹ **l'exposant est FABRIQUÉ et PUREMENT LOCAL** ⟹ **CORRIGÉ.**
+- **(b) le «l» est un ELL SCRIPT** — ⚠⚠ **le MÊME glyphe que le «ℓ» de «ℚ_ℓ» SUR LA MÊME LIGNE** ⟹ le livre écrit «**c\ell**», pas «cl» ⟹ ⚠ **COMPTÉ : `\operatorname{cl}` = 22, `c\ell` = 0 ⟹ LE FICHIER EST COHÉRENT À 22/22** ⟹ **changer CE seul site CRÉERAIT l'incohérence** ⟹ **DÉFÉRÉ (sweep global de 22).**
+⟹ ⚠⚠⚠ **LA MÊME LIGNE DONNE UN DÉFAUT À CORRIGER *ET* UN DÉFAUT À DIFFÉRER. Seul le comptage les sépare.** C'est la règle du sweep dans son emploi le plus fin.
+
+## ⚠⚠⚠ **ET LE CRITÈRE SE CRISTALLISE : COHÉRENT ⟹ DIFFÉRER ; INCOHÉRENT ⟹ CORRIGER MA PAGE**
+
+Deux cas sur cette page, **traités en sens OPPOSÉ, et c'est le comptage qui décide** :
+- **`\operatorname{cl}` (22/22 COHÉRENT)** ⟹ ⚠ **NE PAS TOUCHER** — comme le `\sim` de #588 (10/10). Toucher un site fabriquerait l'incohérence.
+- **`\Fil^i` (14) contre `\Filt^i` (11) = INCOHÉRENT** ⟹ ⚠ **CORRIGER MA PAGE VERS LE LIVRE** — précédent #575 («corriger SEULEMENT ma page» quand l'incohérence PRÉEXISTE). ⚠⚠ **Le livre imprime «Filt^i K^·(T)» — PROUVÉ en #588 (`z591_filt`, 3200dpi) et c'est LA MÊME PHRASE, elle enjambe p578/p579** ⟹ `\Fil^i` ⟹ `\Filt^i`.
+⟹ ⚠⚠⚠ **RÈGLE CONSOLIDÉE : quand le fichier est AUTO-COHÉRENT sur une notation, un site isolé ne se corrige PAS (sweep global) ; quand il est DÉJÀ INCOHÉRENT, ma page se corrige vers le livre.** ⚠ **Total in-file : `\Fil`=220, `\Filt`=62 — les deux formes vivent côte à côte ⟹ report global.**
+
+## ⚠⚠⚠ **UNE CLAUSE ENTIÈRE DÉ-PARENTHÉSÉE — ET LE «))» EST LA PREUVE**
+
+**`z592_binom` (4000dpi)** : la ligne se termine sur «…l'anneau binômial **H^O(T,𝐙))**. On en déduit…» ⟹ **DEUX parenthèses fermantes** : l'une ferme «(T,𝐙)», **l'autre ferme une clause ouverte bien plus haut** — et **p578 b5 ouvrait sur «(Le fait que (7.13.0) est compatible avec la λ-filtration sur…»**.
+⟹ **TOUTE LA CLAUSE «(Le fait que … H^O(T,𝐙))» EST PARENTHÉSÉE DANS LE LIVRE ; le fichier n'avait AUCUNE parenthèse.** ⟹ **RESTAURÉES.**
+⟹ ⚠⚠ **3ᵉ défaut de parenthèses en 3 pages** (#587 ×2 : «(où n parcourt…)», «(pour n fixé)» ; **#589 ×1**) ⟹ **CHAQUE INCISE EST SUSPECTE** ; ⚠ **et ici l'indice était TYPOGRAPHIQUE : un «))» orphelin trahit une parenthèse ouvrante perdue.**
+
+## ⚠⚠ **UNE ORTHOGRAPHE «MODERNISÉE» — ET LA MAISON DONNE RAISON AU LIVRE**
+
+**`z592_binom`** : le livre imprime «l'anneau **binômial**» — **CIRCONFLEXE** ; Codex : «binomial» (l'orthographe moderne).
+⚠⚠ **COMPTÉ : `binômial` = 12 contre `binomial` = 4 ⟹ LA FORME ACCENTUÉE EST LA FORME-MAISON, ET ELLE EST CELLE DU LIVRE** ⟹ **corrigé** ; **le check tire dans les deux sens : ici la maison ET le livre sont d'accord CONTRE Codex.**
+⟹ **motif «Codex améliore l'auteur» (#582/#583/#584/#587), étendu à l'ORTHOGRAPHE.**
+
+## ⚠⚠⚠ **σ^{-1} ⟹ σ' — ET C'EST LA CALIBRATION DE #588 QUI L'A RENDU LISIBLE**
+
+**`z592_cd9v` (4000dpi)** : la verticale MONTANTE de **(7.13.9)** porte «**σ'**» — un **tick vertical FIN, NET, DÉTACHÉ** ⟹ **exactement la signature du σ' calibrée en #588** (contre le σ^{-1} = **barre LONGUE + forme qui monte et crochète**). Le fichier avait `\arrow[u,"\sigma^{-1}"']`.
+⟹ ⚠⚠⚠ **#588 A PAYÉ DEUX FOIS : là il m'a EMPÊCHÉ de corriger un σ^{-1} juste ; ici il me PERMET de lire un σ' que j'aurais laissé passer.** **La calibration d'un glyphe litigieux se TRANSFÈRE d'une page à l'autre.**
+⚠ **ET LE CÔTÉ AUSSI** : le livre met le σ' **À GAUCHE** de la montante ; `[u]` no-prime = GAUCHE ⟹ **le prime sautait** ⟹ corrigé.
+
+## ⚠⚠ **LE LIVRE N'EST PAS UNIFORME SUR LE CÔTÉ DU MARQUEUR D'ISO — CONFIRMÉ À UNE PAGE D'ÉCART**
+
+- **#588, (7.13.4)** : la squiggle «≀» est **À GAUCHE** de la verticale droite ⟹ j'avais ajouté le prime.
+- **#589, (7.13.10)** (`z592_cd10v`, 4000dpi) : la squiggle est **À DROITE** ⟹ **le no-prime de Codex est JUSTE — NE PAS TOUCHER.**
+⟹ ⚠⚠⚠ **DEUX CARRÉS, DEUX PAGES, DEUX CÔTÉS. Si j'avais «uniformisé» d'après #588, j'aurais CASSÉ (7.13.10).** ⟹ **CROPPER CHAQUE ÉTIQUETTE, TOUJOURS.**
+
+## ⚠ **LES 13ᵉ ET 14ᵉ CÔTÉS FAUX + LA PONCTUATION DES DEUX CARRÉS**
+
+**`z592_cd9lo` + `z592_cd10lo` (3200dpi)** : dans les DEUX carrés, «**cℓ**» est **AU-DESSUS** de la flèche du bas ; le fichier primait les deux = **EN DESSOUS** ⟹ **13ᵉ et 14ᵉ côtés faux en 7 pages** (#578 ×5, #579 ×2, #580 ×2, #584 ×1, #586 ×1, #588 ×1, **#589 ×2**).
+⚠ **Et les DEUX carrés portent une ponctuation finale que le fichier n'avait PAS** : «**,**» après (7.13.9), «**.**» après (7.13.10) ⟹ **`\;,` et `\;.`** (forme-maison #584/#586/#588).
+
+## ⚠ **LA RÈGLE DU SAUT DU SOULIGNÉ — 5ᵉ INSTANCE**
+
+**`z592_remq` (3200dpi)** : «**<u>Remarque</u> 7.13.11.**» ⟹ **le MOT est souligné, le NUMÉRO ne l'est PAS** ⟹ **le souligné se lève pour tout ce qui n'est pas un mot** (#583 la référence, #586 le «ℓ» et les guillemets, #587 la référence, **#589 le numéro**).
+⚠ **NON APPLIQUÉ** : la maison écrit `\textbf{Remarque N.N.}` (`\textbf{Remarque 3.6.}`, `\textbf{Remarque 1.14.}`, `\textbf{Remarque 2.3.1.}`…) et Codex l'avait déjà ⟹ **la façon de composer une TÊTE de Remarque est une convention globale établie, pas un défaut de page.** Noté.
+
+## ✅ **LES NÉGATIFS GENUINE**
+
+- «**théorie de Chern**» **SOULIGNÉ** (`z592_chern`) ⟹ restauré en `\emph{}` (⚠ **anchor : «une théorie de Chern de» = 2 ⟹ ancré sur la phrase longue**).
+- «cℓ» **au-dessus** des flèches du HAUT des deux carrés ✓ ; «σ_ℚ» **à GAUCHE** de la descendante ✓ ; **(7.13.10) : la verticale gauche est NUE** ✓ ; `\textbf{Remarque 7.13.11.}` ✓ ; «c'est-à-dire» ✓ ; «(XIV 5.1 et 5.2)», «(V 6.6.4)», «(V 6.13)», «(SGA 5 IV)» ✓ ; «ℚ_ℓ(i)», «⊗_{𝐙_ℓ}», «(i-1)!», «ψ_i» ✓ ; le «═^{dfn}=» ✓.
+- ⚠ **«H^0(T,𝐙)» NON TOUCHÉ** : le glyphe est un rond à hauteur de capitale = **la question différée «lettre o / zéro»** ; **la math veut le CHIFFRE 0** (H^0 = le H zéro) et le fichier l'a ⟹ **laissé.**
+
+## LES 4 REP-CALLS (10 changements)
+
+1-4. **une phrase, QUATRE défauts** : `\Fil^i`⟹**`\Filt^i`** + **les parenthèses de toute la clause** + «théorie de Chern»⟹`\emph{}` + «binomial»⟹«**binômial**»
+5. `\operatorname{cl}^i`⟹`\operatorname{cl}` (**l'exposant FABRIQUÉ, hapax**)
+6-8. **(7.13.9)** : `"cl"'`⟹`"cl"` (**13ᵉ côté**) + `"\sigma^{-1}"'`⟹`"\sigma'"` (**étiquette ET côté**) + **`\;,`**
+9-10. **(7.13.10)** : `"cl"'`⟹`"cl"` (**14ᵉ côté**) + **`\;.`**
+⟹ **Rendu VÉRIFIÉ à l'image (`vrf592_cds`) : les DEUX carrés reproduisent le livre — «cl» au-dessus des 4 flèches, σ_ℚ à gauche, **σ' à gauche de la montante**, la verticale gauche de (7.13.10) nue, le «∼» **à droite**, la virgule et le point ✓.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠ **NOUVEAU : `\operatorname{cl}` (22 sites) ⟹ `c\ell`** — le livre écrit un **ELL SCRIPT** (le même que celui de ℚ_ℓ) ; **fichier cohérent 22/22 ⟹ sweep global.**
+- ⚠ **NOUVEAU : `\Fil`(220) vs `\Filt`(62), dont `\Fil^i`(14) vs `\Filt^i`(11)** = **la même notation écrite de deux façons** ⟹ sweep global (le livre dit «Filt» au moins à ce site).
+- ⚠ **`\sim`⟹`\wr` sur les 10 verticales d'iso** (#588) — ⚠ **et le CÔTÉ varie selon le carré : NE PAS uniformiser.**
+- ⚠ **les DEUX «Je dis qu» restants** ; ⚠ **l'espace avant «;» (304 vs 989)** ; **les 13 `\underline{}` PROSE-LIKE** ; `\underline K(X)` sans accolades (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 bigradé.
+- **𝐙 GRAS vs `\mathbb Z`** — §7.13 en est saturé (**et maintenant ℚ_ℓ aussi**), l'enjeu MONTE.
+- Reports permanents : **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT, PRIORITAIRE** ; `\mathcal C`(902)/`\mathcal O`(936) ; chevrons ; **leqno** ; **les 14 paires `--`** ; **la lettre «o» pour le zéro (re-constaté : H^O)** ; **l'INDEX se contredit** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : ceci est PROVISOIRE et MOTIVÉ, jamais «complet».**
+
+## **CURSEUR → idx593 (vol p580 = Exposé X «- 62 -» [580−518=62])** — la phrase enjambe : p580 doit OUVRIR sur la suite de «Pour voir un énoncé qui ne néglige pas la torsion, il semble qu'on **…**» (~L13944+). ⚠⚠ **RE-GREP : drift #589 = +2** (les lignes `\;,` et `\;.`) ; ⚠⚠⚠ **LIRE LES 5 BANDES avant toute affirmation sur le page-break.**
+
+### #588 (2026-07-16) — idx591 (vol p578 = **Exposé X «- 60 -»**, header «- 60 -» + **«X App.»** + footer «578** ; **CONSTANTE_X=518 CONFIRMÉE [578−60]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.13 suite — le carré de 7.13.3, (7.13.4), 7.13.5, 7.13.6** — **5 rep-calls / ~6 changements** (bandes b1-b5 TOUTES lues + **13 crops HD 3200-6400dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (578−60 ; idx=578+13=591 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «(Le fait que (7.13.0) est compatible avec la λ-filtration sur» **+ un GRAND BLANC**. Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE : LE MÊME MOT, SUR LA MÊME LIGNE, SOULIGNÉ PUIS NU. LA QUESTION DU SOULIGNÉ EST TRANCHÉE.**
+
+**`z591_sect` (3200dpi)** : le livre imprime «…d'une **<u>section</u>** de R^{2i}f_*(𝐙_ℓ(i)). **Cette section s'interprète** d'ailleurs…»
+⟹ ⚠⚠⚠ **LE MÊME MOT «section», À NEUF MOTS D'ÉCART, SUR LA MÊME LIGNE : SOULIGNÉ la 1ʳᵉ fois, NU la 2ᵉ.**
+⟹ **LE SOULIGNÉ MARQUE LE TERME À SON INTRODUCTION, PAS LE TERME EN SOI.** C'est une **définition en passant** : Grothendieck souligne le mot au moment où il le pose, jamais ensuite.
+⚠⚠ **C'est STRICTEMENT PLUS NET que #587** (où «hensélien» était souligné p576 et nu p577 — **une page** d'écart, on pouvait invoquer l'oubli). **Ici c'est UNE LIGNE.** ⟹ **L'HYPOTHÈSE «la dactylo a oublié» EST MORTE. Le souligné est SÉMANTIQUE, DÉLIBÉRÉ et LOCAL.**
+⟹ ⚠⚠⚠ **CONSÉQUENCE OPÉRATOIRE : JAMAIS DE SWEEP SUR L'EMPHASE, JAMAIS. Chaque occurrence se croppe. Et un mot NU n'est PAS une omission de Codex — il faut le scan pour le dire.**
+
+## ⚠⚠⚠⚠ **«ZOOMER AVANT D'ACCUSER» PAIE UNE 3ᵉ FOIS — ET C'EST LA PLUS SERRÉE**
+
+J'allais corriger `\sigma^{-1}` ⟹ `\sigma'` dans «on sait que maintenant l'homomorphisme **σ?** de spécialisation pour la cohomologie est un isomorphisme».
+⚠⚠ **LA PAGE M'A DONNÉ SON PROPRE CONTRÔLE** : le carré de 7.13.3, **quinze lignes plus haut**, porte un **vrai «σ'»** sur sa verticale droite (le fichier dit `\sigma'`). ⟹ `z591d_A_prose` et `z591d_B_diag` : **MÊME BOÎTE (0.14×0.028), MÊME DPI (5600)** ⟹ directement comparables.
+- **B_diag («σ'»)** : le σ, sa barre supérieure **courte**, puis un **tick vertical FIN, NET, DÉTACHÉ** ⟹ un prime.
+- **A_prose** : le σ, une barre **LONGUE à hauteur de capitale**, puis une forme qui **monte et crochète à gauche** ⟹ **la barre = le «−» surélevé fondu dans la barre du σ ; le crochet = le drapeau d'un «1» de machine à écrire** ⟹ **«σ^{-1}».**
+⟹ ✅ **CODEX CORRECT. AUCUN DÉFAUT.** ⚠⚠ **ET LA MATH CORROBORE** : «σ^{-1}» a été **nommé en #586** dans (7.13.2) (la verticale MONTANTE = l'inverse) ; ici on dit qu'il est un isomorphisme (SGA 4 XVI 2.2), ce qui **autorise** d'inverser la flèche.
+⟹ **BILAN : #585 «n ≥ 1», #586 «𝐙_ℓ(i)», #588 «σ^{-1}» — TROIS fausses accusations évitées par un re-crop.** ⚠⚠⚠ **UN DOUTE D'IMAGE N'EST PAS UN DÉFAUT** ; et **quand un glyphe est litigieux, CHERCHER SON JUMEAU SUR LA MÊME PAGE** — ici le livre fournissait lui-même les deux formes.
+
+## ⚠⚠ **UN NOUVEAU REPORT, ET C'EST LE BON GENRE : LE MARQUEUR D'ISO VERTICAL**
+
+**`z591_cd2v` (4000dpi)** : la verticale droite de **(7.13.4)** porte une **SQUIGGLE VERTICALE «≀»** — le marqueur d'isomorphisme sur une flèche **verticale** — et elle est **À GAUCHE** de la flèche.
+- ✅ **LE CÔTÉ = un défaut de page ⟹ CORRIGÉ** : le fichier avait `\arrow[d,"\sim"]` ; **pour `[d]` le no-prime = DROITE** ⟹ ajouté le prime. **Rendu VÉRIFIÉ** (`vrf591_cd2` : le «∼» est passé à GAUCHE ✓).
+- ⚠⚠ **LE GLYPHE = une décision GLOBALE ⟹ DÉFÉRÉ** : le fichier écrit `\sim` = un **tilde HORIZONTAL** ; le livre a une **squiggle VERTICALE**. ⚠ **COMPTÉ : `\sim` sur des flèches `[u]`/`[d]` = **10** ; `\wr` = **0** ⟹ **LE FICHIER EST COHÉRENT À 10/10** ⟹ **changer CE seul site CRÉERAIT l'incohérence.** ⟹ ⚠ **`\wr` est la norme du métier ET le livre la confirme, mais c'est un sweep de 10 sites, pas une décision de page.**
+⚠⚠ **C'est le BON genre de report** (contraste avec le fantôme de #586) : **borné (10), le livre est sans ambiguïté, le fichier est auto-cohérent.**
+
+## ⚠⚠ **LE 12ᵉ CÔTÉ D'ÉTIQUETTE + LA VIRGULE**
+
+**`z591_cd1lo` (3200dpi)** : dans le carré de 7.13.3, «**c^i**» est **AU-DESSUS** de la flèche du bas ; le fichier avait `\arrow[r,"c^i"']` = **le prime le met EN DESSOUS** ⟹ **12ᵉ côté faux en 6 pages** (#578 ×5, #579 ×2, #580 ×2, #584 ×1, #586 ×1, **#588 ×1**) — **invisible à l'extraction ET à la compilation.**
+⚠ La virgule du livre est **BIEN DÉTACHÉE** du nœud ; le fichier la collait **dans la cellule** (`\mu_n^{\otimes i}),`) ⟹ **passée à la forme-maison `\end{tikzcd}` + `\;,`** (#584/#586).
+✅ **NON TOUCHÉ, vérifié JUSTE** : «c^i» au-dessus de la flèche du HAUT ✓ ; «σ» à GAUCHE de la verticale gauche ✓ ; «σ'» à DROITE de la verticale droite ✓ — **les trois primes de Codex étaient bons** ; et **les DEUX nœuds droits sont bien des «H^{2i}»** ✓ (⚠ **contraste #586, où le bas-droite était un «K^{2i}» = coquille du livre**).
+
+## ⚠ **PONCTUATION ET EMPHASE**
+
+- **`z591_sga`** : le livre imprime «un isomorphisme **(SGA 4 XVI 2.2), donc** la commutativité» — **une VIRGULE** ; Codex : «**;** donc» ⟹ corrigé.
+- **`z591_geo`** : «sont les fibres **<u>géométriques</u>** de X» — **SOULIGNÉ** ; Codex : nu ⟹ `\emph{}`.
+
+## ✅ **LE `\Filt` EST DÉDOUANÉ — LE LIVRE IMPRIME BIEN «Filt»**
+
+**`z591_filt` (3200dpi)** : «l'image par ψ_i d'un élément x de **Filt^i K^·(T)** étant par définition c^i(x).» ⟹ **LE LIVRE ÉCRIT «Filt», PAS «Fil»** ⟹ **la macro `\Filt` (2 défs conflictuelles L12415/L12823) rend «Filt» = EXACTEMENT ce que le livre veut.**
+⟹ ⚠ **LE BUG EST RÉTROGRADÉ : hygiène de source (deux défs), PAS un défaut de rendu.** ⚠⚠ **COMPTÉ : `\Filt` = 62, PAS 33 — ma note était PÉRIMÉE.** ⟹ **4ᵉ fois qu'un comptage prend mes propres notes en défaut** (#584 ×2 : `\qquad\text`=33 pas 17, `a fortiori` 12/4 pas 13/3 ; #586 : le report «souligné» = un fantôme ; **#588 : `\Filt`=62**).
+
+## ⚠ **L'ASSERT SUR L'ANCRE D'IMAGE A PAYÉ UNE 5ᵉ FOIS**
+
+`vrf591.py` : l'ancre «on trouve un carré commutatif» ⟹ **2 rects** — **les lead-ins des DEUX carrés (celui de #587 et celui de 7.13.4) atterrissent sur LA MÊME page de rendu**. `assert len(r)==1` a bloqué le mauvais crop ; ré-ancré sur «ainsi obtenus» ⟹ 1 hit. ⟹ **#575, #579, #580, #583, #588 = CINQ fois que ce guard sauve une vérification.**
+
+## ✅ **LES AUTRES NÉGATIFS GENUINE**
+
+- «respectivement» **en toutes lettres** ✓ (2ᵉ fois, cf. #586) ; `\textbf{7.13.5.}` et `\textbf{7.13.6.}` ✓ **déjà la forme-maison** ; (7.13.4) : **les horizontales sont NUES** dans le livre ✓ Codex correct ; «ψ_i», «Gr^i(T)», «R^{2i}f_*», «μ_n^{⊗i}», «x ∈ K^·(X)» ✓ ; tous les **points surélevés** «K^·» ✓ ; le point final de (7.13.4) ✓ ; «λ-filtration» ✓.
+
+## LES 5 REP-CALLS
+
+1+2. **carré 7.13.3** : `"c^i"'` ⟹ `"c^i"` (**12ᵉ côté**) + la virgule ⟹ **`\;,`** hors du nœud
+3. «fibres géométriques» ⟹ «fibres **\emph{géométriques}**»
+4. «(SGA 4 XVI 2.2)**;** donc» ⟹ «**,** donc»
+5. **(7.13.4)** : `\arrow[d,"\sim"]` ⟹ `\arrow[d,"\sim"']` (**côté seulement** ; le glyphe `\sim`⟹`\wr` est DÉFÉRÉ, 10 sites)
+6. «d'une section de» ⟹ «d'une **\emph{section}** de» (**la 1ʳᵉ SEULEMENT — la 2ᵉ est nue dans le livre**)
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠ **NOUVEAU : `\sim` sur flèches verticales = 10 sites, `\wr` = 0** — le livre a une **squiggle VERTICALE** ⟹ **sweep global de 10, borné et net.**
+- ⚠ **`\Filt` RÉTROGRADÉ** : rend «Filt» ✓ conforme au livre ; les 2 défs = hygiène de source (**62 usages**, pas 33).
+- ⚠ **les DEUX «Je dis qu» restants** (sur 4) — probablement des assertions soulignées aplaties.
+- ⚠ **l'espace avant «;»** (304 `~;` vs 989 nus) — décision globale.
+- **les 13 `\underline{}` PROSE-LIKE** = le seul vrai reste du souligné (**PAS ~950 — cf. #586**) ; `\underline K(X)` sans accolades (257) ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 bigradé.
+- **𝐙 GRAS vs `\mathbb Z`** — §7.13 en est saturé, l'enjeu MONTE.
+- Reports permanents : **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT, PRIORITAIRE** ; `\mathcal C`(902)/`\mathcal O`(936) ; chevrons «< >» vs `\langle`(90) ; **leqno** ; **les 14 paires `--` d'auteurs** ; **la lettre «o» pour le zéro** ; **l'INDEX se contredit (L16878/L16889)** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : ceci est PROVISOIRE et MOTIVÉ, jamais «complet».**
+
+## **CURSEUR → idx592 (vol p579 = Exposé X «- 61 -» [579−518=61])** — la phrase enjambe : p579 doit OUVRIR sur la suite de «(Le fait que (7.13.0) est compatible avec la λ-filtration sur **…**» (~L13913+). ⚠⚠ **RE-GREP : drift #588 = +1** (la ligne `\;,`) ; ⚠⚠⚠ **LIRE LES 5 BANDES avant toute affirmation sur le page-break.**
+
+### #587 (2026-07-16) — idx590 (vol p577 = **Exposé X «- 59 -»**, header «- 59 -» + **«X App.»** + footer «577** ; **CONSTANTE_X=518 CONFIRMÉE [577−59]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.13 suite — la commutativité de (7.13.2) + 7.13.3 (passage à la limite)** — **7 rep-calls / ~8 changements** (bandes b1-b5 TOUTES lues + **8 crops HD 3200dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (577−59 ; idx=577+13=590 ✓)** ; la page **se termine** sur «trouve un carré commutatif (cf. 7.16) :» **+ un GRAND BLANC**. Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE : «JE DIS QUE» + UNE ASSERTION SOULIGNÉE = UNE CONSTRUCTION DE GROTHENDIECK. DEUXIÈME INSTANCE, MÊME GÉOMÉTRIE AU MILLIMÈTRE.**
+
+**`z590_jedis` (3200dpi)** : le livre imprime «**Je dis que <u>le carré</u> (7.13.2) <u>est commutatif</u>.**»
+- le souligné **COMMENCE** à «le carré» (le «Je dis que» est **NU**) ;
+- il **SAUTE «(7.13.2)»** ;
+- il **S'ARRÊTE à «commutatif»**, **AVANT le point**.
+
+⚠⚠⚠ **COMPAREZ AVEC #583, MOT POUR MOT** : «**je dis que <u>l'homomorphisme de spécialisation</u> (7.3.1) <u>transforme éléments … à zéro</u>, et définit**» — le souligné commence à un mot, **saute la référence parenthésée**, **s'arrête avant la virgule**.
+⟹ ⚠⚠⚠ **CE N'EST PLUS UN TIC DE FRAPPE, C'EST UNE CONSTRUCTION : «Je dis que» + L'ÉNONCÉ SOULIGNÉ, RÉFÉRENCE SAUTÉE.** Grothendieck annonce ce qu'il va prouver et le souligne ; **DEUX FOIS, la MÊME forme.** ⟹ **CHERCHER SYSTÉMATIQUEMENT : chaque «Je dis que» est probablement suivi d'une assertion SOULIGNÉE que Codex a aplatie.** ⚠ **COMPTÉ : «Je dis qu»=4 in-file — deux traités (#583, #587), DEUX RESTENT.**
+⚠⚠ **Codex a PRÉSERVÉ «Je dis que» ✓ (la signature) et SUPPRIMÉ l'emphase À 100 % ✗** — **exactement le motif #583.** ⟹ **restauré `\emph{le carré} (7.13.2) \emph{est commutatif}.` ; rendu VÉRIFIÉ à l'image** (`vrf590_jedis` : «Je dis que *le carré* (7.13.2) *est commutatif*.» — italique sur les DEUX spans, «(7.13.2)» **DROIT**, point HORS de l'italique ✓).
+
+## ⚠⚠⚠ **UNE PARENTHÈSE DE DIX MOTS, ENTIÈREMENT DISPARUE — ET LE COMPTAGE EST LA PREUVE**
+
+**`z590_sav2` + `z590_sav3` (3200dpi, les DEUX lignes)** : le livre imprime «…d'où une clôture algébrique k̄ de k = k(s) **(savoir le corps résiduel de la clôture normale de V dans K̄)**. On peut, …»
+⟹ **LE FICHIER N'A RIEN DU TOUT À CET ENDROIT.** ⚠⚠ **COMPTÉ : «savoir le corps résiduel» = 0 dans TOUT le fichier ⟹ LE COMPTE DE 0 *EST* LA PREUVE DE L'OMISSION** (la règle du sweep, 18ᵉ validation).
+⟹ **C'est la classe #575** (une clause de 7 mots évaporée sans trace) ⟹ **BILAN : 10 références/clauses ENTIÈREMENT DROPPÉES** (#572 ×3, #573 ×1, #574 ×2, #575 ×1, #576 ×2, **#587 ×1**).
+⚠ **QUIRK DANS LE QUIRK, REPRODUIT SIC** : le livre écrit «**de V dans K̄**» — un «**V**» pour l'anneau — là où **7.16 écrit «le normalisé de A dans K̄»** (COMPTÉ : `le normalisé de \(A\) dans` = 1) ⟹ **l'auteur change de lettre pour le MÊME objet à quelques pages d'écart. Reproduit SIC.**
+
+## ⚠⚠ **PARENTHÈSES ⟶ VIRGULES : DEUX FOIS SUR UNE SEULE PAGE**
+
+- **`z590_oun`** : «faisceaux de torsion μ_n^{⊗i} **(où n parcourt les puissances de ℓ)**. Donc la» ⟹ Codex : «…μ_n^{⊗i}**, où** n parcourt … de ℓ.» = **VIRGULE**.
+- **`z590_pourn`** : «le diagramme commutatif analogue **(pour n fixé)** relatif à la situation» ⟹ Codex : «analogue**, pour** n fixé**,** relatif» = **DEUX VIRGULES**.
+⟹ ⚠⚠ **le motif «parens↔virgules» du catalogue, DEUX FOIS D'AFFILÉE** ⟹ **CHAQUE incise est suspecte : le livre a peut-être des parenthèses.**
+
+## ⚠⚠ **LE LIVRE SE CONTREDIT À UNE PAGE D'ÉCART — SUR LE MÊME MOT**
+
+- **#586 (p576)** : «et supposons S **<u>hensélien</u>**» = **SOULIGNÉ** ; «à **<u>fibres régulières</u>**» = **SOULIGNÉ**.
+- **#587 (p577)** : «et S étant **hensélien**» = **NU** ; «les fibres de X sur S sont **géométriquement régulières**» = **NU** ; mais «i.e. X **<u>lisse</u>** sur S» = **SOULIGNÉ** (`z590_lisse`).
+⟹ ⚠⚠⚠ **LE MÊME MOT («hensélien»), À UNE PAGE D'ÉCART, SOULIGNÉ PUIS NU.** ⟹ **LA PREUVE LA PLUS NETTE À CE JOUR QUE LE SOULIGNÉ EST SÉMANTIQUE ET LOCAL** : il marque le mot **au moment où il est posé comme hypothèse**, pas le mot en soi. ⟹ ⚠⚠ **JAMAIS DE SWEEP SUR L'EMPHASE — CROPPER CHAQUE OCCURRENCE.** (Motif identique aux guillemets : #581 «"naïf"» AVEC / #582 «naïf» SANS.)
+
+## ⚠ **UNE VIRGULE ET UNE MAJUSCULE**
+
+- **`z590_krull`** : «On notera pour ceci que, par Krull-Akizuki**,** et S étant hensélien» — **LA VIRGULE EST DANS LE LIVRE** ; Codex : «par Krull--Akizuki et \(S\) étant» = **VIRGULE DROPPÉE** ⟹ restaurée.
+- **b1** : le livre ouvre la phrase sur «**les** flèches écrites ici» — **MINUSCULE** (la phrase enchaîne sur le display) ; Codex : «**Les** flèches» = **MAJUSCULE** ⟹ corrigé.
+
+## ✅ **LES NÉGATIFS GENUINE**
+
+- «**Je dis que**» **PRÉSERVÉ** ✓ (cf. #578 où Codex l'avait détruit).
+- «classes de Chern **mod. n**» ✓ **l'abréviation préservée** (⚠ **le contraste avec #586, où il avait développé «car.» ⟹ Codex n'est pas systématique : VÉRIFIER, ne pas présumer**).
+- «**i.e.**» ✓ ; «(SGA 4 XII 5.5)», «(SGA 4 VII 5.8)», «(IV 3.2)», «(cf. 7.16)», «(7.10.2)», «(7.13.2)» ✓ ; «μ_n^{⊗i}» ✓ ; «K̄», «k̄», «K_α», «S_α» ✓.
+- **`Krull--Akizuki` (tiret demi-cadratin) = 2, `Krull-Akizuki` = 0** ⟹ **le fichier est COHÉRENT** ; le livre n'a qu'un tiret court (**la machine n'en a qu'un**) ⟹ **la paire d'auteurs en demi-cadratin est la bonne norme moderne** ⟹ **LAISSÉ, report global (les 14 paires `--`).**
+
+## ⚠ **REPORT RE-CONSTATÉ, NON TRANCHÉ : l'espace avant «;»**
+
+Le livre imprime «commutativité de (7.10.2) **;** il suffit» et «est bien un trait **;** de plus» — **AVEC une espace** (norme typographique française). ⚠ **COMPTÉ : `~;` = 304 contre `;` nu = 989** ⟹ **la forme NUE domine le fichier** ⟹ **corriger ma page m'éloignerait de la majorité du fichier** ; c'est une **décision typographique GLOBALE (≈989 sites)**, pas une décision de page. ⟹ **NOTÉ, NON APPLIQUÉ.**
+
+## LES 7 REP-CALLS
+
+1. «**Les** flèches écrites» ⟹ «**les** flèches écrites» (la phrase enchaîne)
+2. «le carré (7.13.2) est commutatif.» ⟹ `\emph{le carré} (7.13.2) \emph{est commutatif}.` (**«Je dis que» + assertion soulignée, saut de la référence reproduit**)
+3. «μ_n^{⊗i}**,** où n parcourt … ℓ.» ⟹ «μ_n^{⊗i} **(où** n parcourt … ℓ**)**.»
+4. **«(savoir le corps résiduel de la clôture normale de V dans K̄)» RESTAURÉE** (10 mots ; «V» SIC)
+5. «analogue**,** pour n fixé**,** relatif» ⟹ «analogue **(pour n fixé)** relatif»
+6. «par Krull--Akizuki et S» ⟹ «par Krull--Akizuki**,** et S» (virgule)
+7. «i.e. X lisse sur S» ⟹ «i.e. X **\emph{lisse}** sur S»
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- ⚠ **NOUVEAU : les DEUX «Je dis qu» restants** (sur 4) — **probablement suivis d'assertions SOULIGNÉES aplaties** ⟹ à traiter à LEURS pages.
+- ⚠ **l'espace avant «;»** : 304 `~;` contre 989 nus — **décision globale**.
+- **les 13 `\underline{}` PROSE-LIKE** = le seul vrai reste de la question du souligné (**PAS ~950 — cf. #586**).
+- `\underline K(X)` sans accolades (257) — souligne «K» seul, à vérifier au scan ; `\subsection*{7.6.}` titre vide ; `K_{\bullet,\bullet}` L10046 indice bigradé.
+- **𝐙 GRAS vs `\mathbb Z`** — §7.13 en est saturé, l'enjeu monte.
+- Reports permanents : **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT, PRIORITAIRE** ; `\mathcal C`(902)/`\mathcal O`(936) ; chevrons «< >» vs `\langle`(90) ; **leqno** ; **les 14 paires `--` d'auteurs (re-constaté ici : Krull--Akizuki)** ; **la lettre «o» pour le zéro** ; **l'INDEX se contredit (L16878/L16889)** ; **`\Filt`** ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : ceci est PROVISOIRE et MOTIVÉ, jamais «complet».**
+
+## **CURSEUR → idx591 (vol p578 = Exposé X «- 60 -» [578−518=60])** — le carré commutatif de 7.13.3 (tikzcd L13891+ : «K^·(X_{t̄}) ⟶ H^{2i}(X_{t̄},μ_n^{⊗i})…») puis la suite. ⚠⚠ **RE-GREP : drift #587 = 0** (tout en ligne) ; ⚠⚠⚠ **LIRE LES 5 BANDES avant toute affirmation sur le page-break** ; ⚠⚠ **le carré qui suit a DEUX verticales `[d]` — CROPPER CHAQUE ÉTIQUETTE ET SON CÔTÉ.**
+
+### #586 (2026-07-16) — idx589 (vol p576 = **Exposé X «- 58 -»**, header «- 58 -» + **«X App.»** + footer «576** ; **CONSTANTE_X=518 CONFIRMÉE [576−58]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.13 DÉBUT «Relations avec la cohomologie ℓ-adique» — (7.13.0), (7.13.1), (7.13.2)** — **5 rep-calls / ~10 changements** (bandes b1-b5 TOUTES lues + **10 crops HD 3200-4000dpi + 4 COMPTAGES dont DEUX qui retournent contre MES PROPRES NOTES**) ; **CONSTANTE_X=518 ✓ (576−58 ; idx=576+13=589 ✓)** ; la page **se termine** sur le display «H(X_s) ⟵ H(X) ⟶ H(X_t)  ;» **+ un GRAND BLANC**. Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE : MON PROPRE REPORT «PRIORITAIRE» ÉTAIT UN FANTÔME. `\underline` ET `\emph` NE SONT PAS EN CONFLIT — CE SONT DEUX CONVENTIONS DIFFÉRENTES.**
+
+Je traîne depuis #577/#583 la note : «**`\underline`=459 vs `\emph{`=498 ⟹ le fichier rend le MÊME souligné dactylographique tantôt par l'un tantôt par l'autre = ~950 sites incohérents**». ⚠⚠⚠ **C'EST FAUX. Le comptage propre le démolit.**
+
+**`cnt589b.py` (extraction BRACE-AWARE, pas un régex naïf) :**
+- **`\underline` = 202 braces + 257 SANS braces (forme `\underline K(X)`, `\underline F`, `\underline C'`) = 459.** ⚠ **Les 189/202 braces sont des LETTRES MATH** : `K`=88, `\Homop`=21, `L`=10, **`E`=8**, `\Tor`=8, `\Hom`=6, `L''`=4, `N`=4… **et seulement 13 sont de la prose.**
+- **`\emph` = 500**, dont **267 prose** + 233 courts **dominés par «Preuve.» ×132** (un marqueur structurel) et «spécial»/«propre»/«rang»…
+⟹ ⚠⚠⚠ **`\underline{}` = LA LETTRE MATH SOULIGNÉE = la convention FAISCEAU/Module de Grothendieck. `\emph{}` = L'EMPHASE DE PROSE. DEUX ANIMAUX DIFFÉRENTS. IL N'Y A PAS DE CONFLIT À 950 SITES.**
+⚠⚠ **CE QUI RESTE, ET C'EST TRAITABLE : les 13 `\underline{}` PROSE-LIKE** («localement d'intersection complète», «fibré tangent relatif virtuel», «ESQUISSE D'UN PROGRAMME…») = **de l'emphase de prose rendue en `\underline` au lieu de `\emph`** ⟹ **13 sites, pas 950. Report RÉEL, borné, et vérifiable.**
+
+⚠⚠⚠ **LA LEÇON DE MÉTHODE — C'EST LA PLUS IMPORTANTE DE LA PAGE** : mon 459 venait d'un `grep -o '\\underline'` ; le scan brace-aware disait 202. **J'ai POURSUIVI L'ÉCART au lieu de choisir le chiffre commode** (`cnt589c.py`) ⟹ les 257 manquants sont la **forme SANS accolades**, qui souligne le token suivant = **exactement la même convention** ⟹ **l'écart EXPLIQUÉ a confirmé la thèse au lieu de la casser.** ⟹ ⚠⚠ **RÈGLE : un écart de comptage inexpliqué n'est PAS une trouvaille, c'est un BUG dans l'un des deux comptages — l'expliquer AVANT de conclure.** ⚠ **Et : «COMPTER, NE PAS SE SOUVENIR» s'applique À MES PROPRES CERTS, pas seulement à Codex** (#584 avait déjà pris 2 notes en défaut ; ici c'est un report «PRIORITAIRE» entier qui tombe).
+
+## ⚠⚠⚠ **COQUILLE DU LIVRE №3 EN 3 PAGES (la classe #584) — ET LE CONTRÔLE EST DOUBLE**
+
+**`z589_cdlo` (4000dpi)** : le nœud bas-droite de **(7.13.2)** imprime «**K**^{2i}(X_s, 𝐙_ℓ(i))» — un **K** franc.
+- ⚠⚠ **CONTRÔLE 1 (même ligne)** : le «**K**^·(X_s)» à GAUCHE de cette même ligne est le **glyphe IDENTIQUE**.
+- ⚠⚠ **CONTRÔLE 2 (une ligne au-dessus, `z589_cdhi` 3200dpi)** : le haut-droite imprime «**H**^{2i}(X_t, 𝐙_ℓ(i))» — un **H** INCONTESTABLE (deux verticales + barre).
+⟹ **DEUX GLYPHES DIFFÉRENTS DANS LE MÊME DIAGRAMME, À UNE LIGNE D'ÉCART. Aucune ambiguïté de lecture possible.**
+⚠⚠ **ET LA MATH EXIGE H** (c'est de la cohomologie ; σ^{-1} va de H(X_s) vers H(X_t)) ⟹ **le livre a une COQUILLE, et Codex l'avait SILENCIEUSEMENT CORRIGÉE en `H^{2i}`.**
+⟹ **RESTAURÉ SIC. BILAN : #584 ×2 («x_i : S ⟶ X», «k(x)») + #586 ×1 = TROIS coquilles de math de l'auteur en TROIS pages, toutes «réparées» par Codex.** ⚠⚠⚠ **Rappel : c'est LA PIRE CLASSE — la version de Codex est mathématiquement JUSTE, donc aucune relecture ni référé ne peut la détecter ; la math VALIDE Codex. SEUL LE SCAN ARBITRE.**
+
+## ⚠⚠⚠ **UN SYMBOLE MATH DISSOUS EN PROSE — SOUS-CLASSE NOUVELLE**
+
+**`z589_neq` (3200dpi)** : le livre imprime «On suppose **ℓ ≠ car. résiduelle de S**.» — **le SYMBOLE «≠»** et **l'ABRÉVIATION «car.»**. Codex : «On suppose \(\ell\) **différent de la caractéristique** résiduelle de \(S\)» ⟹ **IL A DÉVELOPPÉ LES DEUX.**
+⟹ ⚠⚠ **C'est le motif «resp.» (#577 ×3, #578 ×1) ÉTENDU** : Codex ne développe pas seulement les **abréviations**, il **dissout les SYMBOLES DE RELATION en mots**. ⟹ **NOUVEAU CHECK : chaque «différent de», «plus grand que», «inclus dans», «égal à» est SUSPECT — le livre a peut-être le symbole.** ⚠ **COMPTÉ : `\ell\neq`=0 et `car. résiduelle`=0 AVANT le fix ⟹ premier site de la forme.**
+
+## ⚠⚠ **LA RÈGLE DU SAUT DU SOULIGNÉ SE GÉNÉRALISE — 3ᵉ INSTANCE**
+
+- **#583** : le souligné **SAUTE la référence parenthésée** «(7.3.1)».
+- **#586 `z589_titl` (3200dpi)** : le titre imprime «7.13.  <u>Relations avec la cohomologie</u> ℓ<u>-adique</u>» ⟹ **le souligné SAUTE le «ℓ»** (le «7.13.» n'est pas souligné non plus).
+- **#586 `z589b_naif` (3200dpi)** : «le K^· "<u>naïf</u>")» ⟹ **le souligné couvre «naïf» mais PAS LES GUILLEMETS.**
+⟹ ⚠⚠⚠ **LA RÈGLE GÉNÉRALE : le souligné se lève pour TOUT CE QUI N'EST PAS UN MOT** (référence, symbole math, guillemet). **La dactylo soulignait les MOTS, pas la ponctuation ni les symboles.** ⟹ **tout fix d'emphase doit reproduire ces sauts.**
+
+## ⚠⚠ **LA LETTRE MATH SOULIGNÉE = LE FAISCEAU — ET LE LIVRE LE PROUVE SUR CETTE PAGE MÊME**
+
+- **`z589_prem` (3200dpi)** : «pour tout **Module** localement libre de type fini **E̲**» — **«Module» MAJUSCULE + E SOULIGNÉ**.
+- ⚠⚠ **LE CONTRÔLE (`z589b_Es`, 3200dpi)** : «lorsque **E** est extension d'un **module** localement libre **E'** par un **module** localement libre **E''**» — **«module» MINUSCULE ×2 et les E/E' PLATS, non soulignés**.
+⟹ **LE LIVRE MARQUE UNE DISTINCTION RÉELLE : Module+E̲ = le FAISCEAU (1ʳᵉ mention) ; module+E = ordinaire (ensuite).**
+⟹ ⚠ **Codex avait les DEUX casses JUSTES ✓ et n'a aplati QUE le souligné** ⟹ **restauré `\underline{E}`** (forme-maison, 8 occurrences). **Rendu VÉRIFIÉ à l'image** (`vrf589_E` : «…de type fini E̲ sur un schéma T» ✓).
+
+## ✅ **LE ZOOM SAUVE UNE FAUSSE ACCUSATION — 2ᵉ FOIS (la règle #585)**
+
+Aux bandes b1/b2, le 1ᵉʳ display SEMBLAIT imprimer «H^{2i}(T, 𝐙_ℓ(**1**))» — j'allais l'annoncer comme une coquille de plus (la math veut **(i)** pour c^i). **`z589_d1` à 4000dpi ⟹ le glyphe porte un POINT SUR LA TÊTE = un «i»** ; **`z589_d2` (7.13.1) à 4000dpi donne le CONTRÔLE : «(i)» identique** ⟹ **Codex CORRECT sur les deux** ✓. ⟹ ⚠⚠ **«ZOOMER AVANT D'ACCUSER» a maintenant payé DEUX FOIS (#585 «n ≥ 1» ; #586 «(i)»). Un doute d'image n'est PAS un défaut.**
+
+## ✅ **LES AUTRES NÉGATIFS GENUINE**
+
+- **Le TITRE EXISTE** ✓ (contraste #581/#583 où Codex en FABRIQUAIT) ; ⚠ **COMPTÉ : `\subsection*{7.N. Titre}` = 12 ⟹ c'est LA FORME-MAISON pour une section numérotée QUI A un titre** (et `\textbf{7.N.}`=26 pour celles qui n'en ont pas) ⟹ **Codex correct, le `\subsection*` reste.**
+- «tout nombre premier **distinct**» — **PAS de «ℓ» après «premier»** ✓ Codex correct (le livre laisse le premier sans nom ici).
+- «relatives à X_t et X_s **respectivement**» — **le livre écrit le mot EN TOUTES LETTRES**, pas «resp.» ✓ Codex correct (⚠ **le contre-exemple utile : «resp.»=402 est la maison, mais PAS partout**).
+- Dans le carré : «c^i» **au-dessus** de la flèche du HAUT ✓ ; «σ» **à gauche** de la verticale descendante ✓ ; «σ^{-1}» **à droite** de la montante ✓ — **les trois primes de Codex étaient JUSTES**.
+- «K^·(T)», «K^·(X_t)», «K^·(X_s)» — **points surélevés** ✓ tous justes ; «(pour i ≥ 0)» ✓ ; «(SGA 5 VII)», «V 1» ✓ ; «Ĝ(H^{2*}(T,𝐙_ℓ(*)))» + «∏_{i≥1}» ✓.
+
+## LES 5 REP-CALLS (10 changements)
+
+1. `\(E\)` ⟹ `\(\underline{E}\)` (**la lettre soulignée = le faisceau**)
+2. ` ``naïf'' ` ⟹ `«~\emph{naïf}~»` (guillemets-maison + emphase, **souligné à l'intérieur des guillemets**)
+3. ` ``classe de Chern'' ` ⟹ `«~classe de Chern~»` (⚠ **PAS d'emphase : le livre ne la souligne pas — vérifié**)
+4-7. **une phrase, quatre défauts** : `propre`/`fibres régulières`/`hensélien` ⟹ `\emph{}` ×3 (**emphase droppée à 100 %, motif #583**) + «\(\ell\) différent de la caractéristique résiduelle» ⟹ «**\(\ell\neq\) car. résiduelle**»
+8-10. **(7.13.2) tikzcd** : `H^{2i}(X_s…)` ⟹ **`K^{2i}(X_s…)` COQUILLE SIC** + `"c^i"'` ⟹ `"c^i"` (**11ᵉ côté d'étiquette faux**) + **`\;,`** (virgule ; forme-maison #584)
+⟹ **Rendu VÉRIFIÉ à l'image (`vrf589_cd`) : le carré reproduit LE CONTRASTE du livre — H^{2i} en haut, K^{2i} en bas ✓ ; c^i au-dessus des DEUX flèches ✓ ; σ à gauche, σ^{-1} à droite ✓ ; la virgule ✓.**
+
+## ⚠ **CE QUI RESTE OUVERT (et le report «souligné» est RE-CADRÉ)**
+
+- ⚠⚠ **RE-CADRÉ : les 13 `\underline{}` PROSE-LIKE** = le seul vrai reste de la question du souligné (**PAS ~950**). #577/#583 restent les exhibits de la *géométrie* du souligné ; la question de la *macro* est réglée : **math ⟹ `\underline`, prose ⟹ `\emph`**.
+- ⚠ **NOUVEAU : `\subsection*{7.6.}` = un titre VIDE avec un point** — incohérent avec mes fixes #581/#583 (`\textbf{7.N.}` pour un item SANS titre) ⟹ **à traiter à la page de 7.6**.
+- ⚠ **NOUVEAU : la forme `\underline K(X)` SANS accolades (257 sites)** ne souligne QUE le «K» — c'est bien la convention (K̲(X)), **mais à vérifier au scan à sa page** : le livre souligne-t-il «K» seul ou «K(X)» ?
+- `K_{\bullet,\bullet}` L10046 = indice bigradé, à vérifier à SA page (#585).
+- **leqno** : le livre met «(7.13.2)» **À GAUCHE**, le rendu à droite — re-constaté ⟹ report global.
+- **𝐙 GRAS vs `\mathbb Z`** : ⚠ **cette page en est SATURÉE** («𝐙_ℓ» ×8) — le livre imprime un **Z BOLD**, le rendu donne un ℤ blackboard ⟹ **report, mais l'enjeu monte**.
+- Reports permanents : **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT, PRIORITAIRE** ; `\mathcal C`(902)/`\mathcal O`(936) ; chevrons «< >» vs `\langle`(90) ; les 14 paires `--` d'auteurs ; **la lettre «o» pour le zéro** ; **l'INDEX se contredit (L16878/L16889)** ; **`\Filt`** (L12415/L12823) ; **`\Gr` L58 = BOMBE À RETARDEMENT** ; **tags dupliqués NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : ceci est PROVISOIRE et MOTIVÉ, jamais «complet».**
+
+## **CURSEUR → idx590 (vol p577 = Exposé X «- 59 -» [577−518=59])** — suite de §7.13 : après «H(X_s) ⟵ H(X) ⟶ H(X_t) ;» (~L13883+). ⚠⚠ **RE-GREP : drift #586 = +1** (la ligne `\;,`) ; ⚠⚠⚠ **LIRE LES 5 BANDES avant toute affirmation sur le page-break.**
+
+### #585 (2026-07-16) — idx588 (vol p575 = **Exposé X «- 57 -»**, header «- 57 -» + **«X App.»** + footer «575** ; **CONSTANTE_X=518 CONFIRMÉE [575−57]**) — **★★★ §7 Appendice (GROTHENDIECK) : fin de 7.12 — (7.12.2), (7.12.3), (7.12.4) + 7.12.5 (la conjecture)** — **1 rep-call / 2 changements** (bandes b1-b5 TOUTES lues + **5 crops HD 2400-3200dpi + 3 COMPTAGES dont un SWEEP RÉGEX GLOBAL**) ; **CONSTANTE_X=518 ✓ (575−57 ; idx=575+13=588 ✓)** ; la page **se termine PROPREMENT** sur «…comme conjecturé dans 7.9.» **+ un GRAND BLANC en bas** (quirk de mise en page, noté seulement). Compile **0-err, 382pp** ✓. ⚠ **UNE SEULE page-défaut — mais c'est LE report qui traînait depuis #577.**
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE : LE MEILLEUR EXHIBIT DU SIDE-SWAP DE TOUTE LA CAMPAGNE — ET LE REPORT SE FERME**
+
+**TROIS DISPLAYS EN DIX LIGNES, TOUS CROPPÉS AU MÊME DPI (3200) POUR QUE LES HAUTEURS DE POINT SOIENT DIRECTEMENT COMPARABLES :**
+- **(7.12.2)** `z588_p7122` : «**Gr.^{alg}(X_t) ⟶ Gr.^{alg}(X_s)   .**» = **point À LA LIGNE DE BASE + «alg» en EXPOSANT**
+- **(7.12.3)** `z588_p7123` : «**K^·_{alg}(X_t) ⟶ K^·_{alg}(X_s)   ,**» = **point SURÉLEVÉ + «alg» en INDICE**
+- **(7.12.4)** `z588_p7124` : «**Gr^·_{alg}(X_t) ⟶ Gr^·_{alg}(X_s)   .**» = **point SURÉLEVÉ + «alg» en INDICE**
+
+⟹ ⚠⚠⚠ **(7.12.2) CONTRE (7.12.4) : LES MÊMES LETTRES «Gr», LE MÊME AFFIXE «alg», SUR LA MÊME PAGE, À DIX LIGNES D'ÉCART — ET OPPOSÉS SUR LES DEUX AXES À LA FOIS** (point haut/bas ET affixe indice/exposant).
+⚠⚠ **C'EST STRICTEMENT MEILLEUR QUE #582** (qui opposait (7.11.3) «K.^{alg}» à (7.11.4) «Gr^·_{alg}» — **deux lettres différentes**, donc on pouvait objecter que la lettre gouvernait). **Ici la lettre et l'affixe sont CONSTANTS ; SEULE la hauteur du point varie, et l'affixe la suit en miroir.** ⟹ **LA RÈGLE «L'AFFIXE PREND LE CÔTÉ OPPOSÉ AU POINT» EST DÉMONTRÉE, PAS INFÉRÉE.**
+⚠⚠ **ET LA MATH LA CORROBORE** : (7.12.2) descend de (7.12.1) = K_•^{alg} = le **MODULE** gradué ⟹ **Gr_•^{alg}** ; (7.12.4) descend de (7.12.3) = K^·_{alg} = l'**ANNEAU** (λ-anneaux, X séparé) ⟹ **Gr^·_{alg}**. **Les deux Gr de cette page sont DEUX OBJETS DIFFÉRENTS, et la hauteur du point est ce qui les distingue.**
+⟹ **Codex avait (7.12.4) JUSTE ✓ et (7.12.2) ÉCRASÉ en `\Gr_{\bullet,\mathrm{alg}}`** = **exactement le motif «voit le point haut, rate le point bas»** (#577 ×4, #580 ×2, #582 ×2, #583 ×1, **#585 ×2 = 11**).
+
+## ⚠⚠⚠ **LE REPORT SE FERME — ET LE SWEEP RÉGEX LE PROUVE**
+
+⚠ **COMPTÉ : `\Gr_{\bullet,\mathrm{alg}}` = 2 dans TOUT le fichier — et les DEUX étaient ces deux-ci** ⟹ **le fix le met à 0.**
+⚠⚠ **BILAN DE LA CLASSE ENTIÈRE** : `\Gr_{\bullet,\mathrm{num}}` = **0** (mon fix #577) ; `K_{\bullet,\mathrm{alg}}` = **0** (mon fix #583) ; `\Gr_{\bullet,\mathrm{alg}}` = **0** (ce fix) ⟹ ⚠⚠⚠ **PLUS AUCUNE FORME «point+affixe ÉCRASÉS DANS L'INDICE» NE SURVIT DANS LE FICHIER. La maison est UNANIME sur le side-swap.**
+⚠⚠ **ET JE NE L'AI PAS AFFIRMÉ DE MÉMOIRE — `cnt588b.py` A BALAYÉ LE FICHIER ENTIER AU RÉGEX** `[A-Za-z\\]{1,8}_\{\\bullet,[^}]*\}` (pas seulement les trois formes dont je me souvenais) **et le fix ré-exécute le sweep APRÈS écriture avec un `assert`** ⟹ **la classe est prouvée vide, pas supposée vide.** ⚠ **Le miroir `^{\bullet,…}` = 0 aussi.**
+⚠ **Formes-maison résultantes : `K_\bullet^{\mathrm{alg}}`=5, `\Gr_\bullet^{\mathrm{alg}}`=3, `\Gr_\bullet^{\mathrm{num}}`=3 / `K^\bullet_{\mathrm{alg}}`=5, `\Gr^\bullet_{\mathrm{alg}}`=4.**
+
+## ⚠⚠ **UNE TROUVAILLE COLLATÉRALE DU SWEEP — À NE PAS CONFONDRE AVEC LA CLASSE**
+
+Le balayage régex a sorti **`K_{\bullet,\bullet}` à la L10046** — ⚠⚠ **CE N'EST *PAS* un point+affixe écrasé** : c'est un **indice BIGRADÉ** (deux degrés, type K_{p,q}), une notation légitime et d'une autre nature. ⟹ **NE PAS le «corriger» par réflexe** ; **NOUVEAU REPORT : vérifier L10046 à SA page, au scan, per-occurrence.** ⚠ **C'est précisément pour ça que le sweep doit être RÉGEX-GÉNÉRAL et non une liste de formes connues : il trouve ce que je ne cherchais pas.**
+
+## ✅ **UN CONTRÔLE À TROIS TERMES SUR UNE SEULE LIGNE — ET CODEX LES A TOUS LES TROIS JUSTES**
+
+**`z588_grtri` (3200dpi)** : le livre imprime «…et remplacer **K^·(T)** par **Gr^·(T)** ou **Gr.(T)**, sans modifier la conjecture.»
+⟹ «**Gr^·(T)**» et «**Gr.(T)**» — **LES MÊMES LETTRES, À TROIS MOTS D'ÉCART, DEUX HAUTEURS DE POINT** ; Codex : `\Gr^\bullet(T)` et `\Gr_\bullet(T)` ✓✓ **JUSTES TOUS LES DEUX**, plus `K^\bullet(T)` ✓.
+⟹ ⚠⚠ **LE CHECK TIRE DANS LES DEUX SENS, ET FORT : sur la page où Codex écrase un point bas dans un display, il distingue impeccablement trois points dans une phrase.** ⟹ **JAMAIS de sweep ; TOUJOURS per-occurrence.**
+
+## ✅ **LES AUTRES NÉGATIFS GENUINE — LA PAGE ÉTAIT PROPRE À PART (7.12.2)**
+
+- **(7.12.3)** «K^·_{alg}» ✓ + **virgule finale** ✓ ; **(7.12.4)** «Gr^·_{alg}» ✓ + **point final** ✓.
+- «**7.12.5.**» ⟹ **PAS DE TITRE, le numéro enchaîne AVEC point** (`z588_t7125`) ; Codex avait déjà `\textbf{7.12.5.}` ✓ **la forme-maison, sans que j'aie à intervenir** (⚠ contraste avec #581/#583 où il FABRIQUAIT des titres).
+- ⚠ **«n ≥ 1» : PIÈGE ÉVITÉ** — au zoom du rendu global le signe RESSEMBLAIT à un «>» nu ; **crop à 12× ⟹ c'est un `\geq` franc** ✓ Codex correct. ⟹ **ZOOMER AVANT D'ACCUSER : un doute d'image n'est pas un défaut.**
+- «**nx**» et «**nZ**» ✓ ; «(cf. XIV 4.1)» ✓ ; «que **cet** homomorphisme» ✓ (h muet ⟹ correct) ; «f:X ⟶ S» ✓ ; «dans 7.9.» ✓ ; «λ-anneaux» ✓ ; «de C_s, qui résulte de la connexité géométrique de C_t.» ✓.
+- Les points bas de la prose : «Gr.(T)» ✓ — **tous justes.**
+
+## ✅ **ET POUR UNE FOIS, MON ANNONCE DE PAGE-BREAK ÉTAIT JUSTE**
+
+`p588_b1` ouvre **exactement** sur «**de C_s, qui résulte de la connexité géométrique de C_t.**» ⟹ **l'annonce du prompt était correcte.** ⚠ **Mais cela ne rachète pas la règle** : #583 s'était trompé **deux fois** (page-break + référence). ⟹ **LIRE LES 5 BANDES RESTE OBLIGATOIRE — une annonce juste est une coïncidence vérifiée, pas une dispense.**
+
+## LE REP-CALL (un seul)
+
+1. **(7.12.2)** : `\Gr_{\bullet,\mathrm{alg}}` ×2 ⟹ `\Gr_\bullet^{\mathrm{alg}}` ×2 (**le side-swap ; la forme écrasée du Gr tombe à 0 ⟹ LE REPORT SE FERME**). *(Les deux lignes du display jointes en une, pour s'aligner sur ses jumeaux (7.12.3)/(7.12.4) — pur formatage source, effet de rendu NUL.)* **Rendu VÉRIFIÉ à l'image** (`vrf588_7122` : «Gr_•^{alg}(X_t) ⟶ Gr_•^{alg}(X_s).» ✓) **avec son contrôle (7.12.4) («Gr^•_{alg}») rendu lui aussi** ⟹ **le contraste du livre est reproduit.**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- **`\underline`=459 vs `\emph{`=498** ⟹ LA question globale (**#577 + #583 = les exhibits**).
+- ⚠ **NOUVEAU : `K_{\bullet,\bullet}` L10046** — indice bigradé, **à vérifier à SA page** (≠ la classe fermée ici).
+- **leqno** : le livre met «(7.12.2)»…«(7.12.4)» **À GAUCHE**, le rendu à droite — re-constaté ⟹ report global.
+- **la lettre «o» pour le zéro** ⟹ non tranché.
+- Reports permanents : **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT, PRIORITAIRE** ; `\mathcal C`(902)/`\mathcal O`(936) ; 𝐙 gras vs Z ; chevrons «< >» vs `\langle`(90) ; les 14 paires `--` d'auteurs ; **l'INDEX se contredit** (L16878/L16889 «Gr'»/«K'» prime là où le corps a un point surélevé — ⚠ **et cette page renforce l'enjeu : le point surélevé et le point bas sont DEUX OBJETS, l'index les confond**) ; **bug macro `\Filt`** (L12415/L12823) ; **`\Gr` : L58 `\providecommand{\Gr}{\operatorname{G}}` = BOMBE À RETARDEMENT** (⚠ **et cette page est bourrée de `\Gr`**) ; **tags dupliqués** (3× `\tag{6.1.3}`, 2× `\tag{6.3.1}`, 2× `\tag{7.5.1}`, 2× `\tag{7.5.2}`) **NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : ceci est PROVISOIRE et MOTIVÉ, jamais «complet».**
+
+## **CURSEUR → idx589 (vol p576 = Exposé X «- 58 -» [576−518=58])** — après 7.12.5 : la suite du §7 (7.13 ? — **NE PAS PRÉSUMER, LIRE LE SCAN**). ⚠⚠ **RE-GREP : drift #585 = −1** (display 2 lignes ⟹ 1) ; ⚠⚠⚠ **et LIRE LES 5 BANDES avant toute affirmation sur le page-break.**
+
+### #584 (2026-07-16) — idx587 (vol p574 = **Exposé X «- 56 -»**, header «- 56 -» + **«X App.»** + footer «574** ; **CONSTANTE_X=518 CONFIRMÉE [574−56]**) — **★★★ §7 Appendice (GROTHENDIECK) : fin de la démonstration de 7.12 — (*), (**), le carré commutatif de morphismes parfaits** — **6 rep-calls / ~8 changements** (bandes b1-b5 TOUTES lues + **9 crops HD 2400-3200dpi + 2 COMPTAGES**) ; **CONSTANTE_X=518 ✓ (574−56 ; idx=574+13=587 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «en utilisant la connexité» **+ un GRAND BLANC en bas de page** (la frappe s'arrête à ~78 % — quirk de mise en page, NON reproductible dans une édition refluée ⟹ noté ici seulement). Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE — CLASSE DE DÉFAUT NOUVELLE : CODEX CORRIGE LES ERREURS DE MATH DE L'AUTEUR. DEUX FOIS SUR UNE SEULE PAGE.**
+
+Jusqu'ici le catalogue disait : «Codex améliore la GRAMMAIRE de l'auteur» (#582 modes, #583 accords). **#584 va plus loin : Codex a SILENCIEUSEMENT CORRIGÉ DEUX ERREURS MATHÉMATIQUES DE GROTHENDIECK.**
+
+**TYPO DU LIVRE №1 — `z587_xiSX` (3200dpi)** : le livre imprime «**Par suite les immersions x_i : S ⟶ X (i=0,1) sont régulières**».
+- ⚠⚠ **LE CONTRÔLE EST À LA LIGNE SUIVANTE** (`z587_xis`, 3200dpi) : son «**C**_s» est une **courbe ouverte franche**, glyphe **visiblement différent** du «**X**» à deux traits croisés de la ligne d'au-dessus ⟹ **le X est PROUVÉ, ce n'est pas une mélecture**.
+- ⚠⚠ **ET LA MATH DIT LE CONTRAIRE** : x_0, x_1 sont des **sections de C sur S** (p573 : «se prolongent en des sections x_0, x_1 **de C** sur S») ⟹ **x_i : S → C** ; et la clause SUIVANTE change de base : «restent des immersions régulières **x_i : s → C_s**» — ce qui n'a de sens que si la source était **C**.
+⟹ **LE LIVRE A UNE COQUILLE. Codex avait écrit «C» = MATHÉMATIQUEMENT JUSTE, ARCHIVISTIQUEMENT FAUX.**
+
+**TYPO DU LIVRE №2 — `z587_cd` (3200dpi)** : le carré imprime «**X_s x_{k(x)} C_s**» — l'indice est «**k(x)**», un **x à traits croisés net**.
+- ⚠⚠ **DOUBLE CONTRÔLE** : (a) les «X_**s**» et «C_**s**» **qui l'encadrent** portent des **s en S-courbe** sans ambiguïté ; (b) le «**k(s)**» du paragraphe suivant (`z587_inter`) est lui aussi un **s franc** ⟹ **le «x» est PROUVÉ par contraste, sur la même page, deux fois**.
+- ⚠⚠ **ET LA MATH DIT LE CONTRAIRE** : X_s et C_s vivent tous deux sur **k(s)** ⟹ le produit fibré est **X_s ×_{k(s)} C_s**. «k(x)» n'a pas de sens ici.
+⟹ **DEUXIÈME COQUILLE. Codex avait écrit «k(s)» = JUSTE, et FAUX.**
+
+⚠⚠⚠ **POURQUOI C'EST LA PIRE CLASSE — PIRE ENCORE QUE #579** : une phrase fabriquée (#579) ou un titre inventé (#581) sont **plausibles** ; ceux-ci sont **MATHÉMATIQUEMENT CORRECTS**. ⟹ **AUCUNE relecture interne, AUCUN référé, AUCUNE vérification par la math ne peut les détecter — la math VALIDE la version de Codex.** ⟹ ⚠⚠⚠ **SEUL LE SCAN, AU GLYPHE PRÈS, AVEC UN CONTRÔLE ADJACENT, LES RÉVÈLE.**
+⚠⚠ **RESTAURÉS TOUS LES DEUX SIC** (règle permanente : reproduire l'AUTEUR au symbole près ; les coquilles font partie du document ; **ERRATA en pause ⟹ CERT_LOG seulement**). **Rendu VÉRIFIÉ** : dump «Par suite les immersions x_i : S →**X** (i = 0, 1)» ✓ ; image `vrf587_cd` «X_s ×_{**k(x)**} C_s» ✓.
+⚠⚠ **ET LA RÈGLE GÉNÉRALE QUI EN SORT** : **quand la math CONTREDIT le scan, ce n'est PAS une preuve que j'ai mal lu — c'est peut-être une coquille de l'auteur.** ⟹ **exiger un CONTRÔLE DE GLYPHE ADJACENT, puis reproduire le scan.** (⚠ **inverse exact de #583**, où la math CONFIRMAIT le scan contre Codex — **la math est un INDICE, jamais l'arbitre ; le scan arbitre**.)
+
+## ⚠⚠⚠ **LE `\qquad` A AVALÉ «où» — LA 6ᵉ FOIS**
+
+**`z587_ou` (3200dpi)** : le livre imprime «**E(x) = i_x^*(E)  ,  où i_x : X ⟶ Xx_S C**». Codex : `E(x)=i_x^*(E),\qquad i_x:X\longrightarrow X\times_SC` ⟹ **«où» ENGLOUTI**.
+⟹ **BILAN : «et» ×4 (#564/#572/#574/#577) + «où» ×2 (#581, #584) = 6.** ⚠ **CHAQUE `\qquad` RESTE SUSPECT.**
+⚠ **COMPTÉ pour choisir la forme-maison (et ma note était à corriger)** : `\qquad\text{…}` = **33** (pas 17) ; `\quad\text{…}` = **82** ; **`\text{où }` = 5** ⟹ restauré en `\qquad\text{où } i_x:…` = **exactement la maison**. **Rendu VÉRIFIÉ à l'image** (`vrf587_ou`) ✓.
+
+## ⚠⚠⚠ **LE CARRÉ TIKZCD : 3 DÉFAUTS — ET LE 10ᵉ CÔTÉ D'ÉTIQUETTE FAUX**
+
+`z587_cd` ⟹ **trois corrections dans un seul rep-call** :
+1. **«k(x)» SIC** (voir ci-dessus).
+2. **le côté de «i_{x_s}» : le livre le met AU-DESSUS de la flèche du bas** ; Codex avait `\arrow[r,"i_{x_s}"']` — **le prime le met EN DESSOUS** ⟹ **DÉFAUT INVISIBLE À L'EXTRACTION *ET* À LA COMPILATION** ⟹ **BILAN CÔTÉS : #578 ×5, #579 ×2, #580 ×2, #584 ×1 = 10 en quatre pages.**
+3. **la VIRGULE après le diagramme** : le livre imprime «X_s x_{k(x)} C_s   **,**» ; le fichier n'avait **rien** ⟹ ⚠ **COMPTÉ pour trouver la forme-maison : `\end{tikzcd}` suivi de `\;,` existe in-file** ⟹ utilisé.
+✅ **NON TOUCHÉ, vérifié JUSTE (le check tire dans les deux sens)** : «i_x» **au-dessus** de la flèche du haut ✓ ; «i» **à gauche** de la verticale gauche ✓ ; **la verticale droite est NUE** ✓ — **Codex avait ces trois-là justes.**
+
+## ⚠⚠ **PAS D'ÉLISION — LE MIROIR, UNE 3ᵉ FOIS**
+
+**`z587_queen` (2400dpi)** : le livre imprime «**Notons que en vertu** de la suite exacte d'homotopie» — **AUCUNE ÉLISION** ; Codex «**qu'en**» ⟹ **DÉFAUT, restauré SIC**. ⟹ **motif #576 («de Auslander»), #583 («de Abhyankar»), #584 («que en») = 3 fois** ⟹ ⚠ **Codex élide là où la machine ne l'a pas fait ; le livre fait autorité contre la grammaire.**
+
+## ⚠⚠ **UN INDICE FABRIQUÉ POUR UNIFORMISER**
+
+**`z587_xis`** : le livre imprime «immersions régulières **x_i**: s ⟶ C_s» — l'indice est «**i**» SEUL ; ⚠ **LE CONTRÔLE : le «C_s» adjacent porte un «s» net** ⟹ pas de mélecture. Codex : «**x_{is}**» = **un «s» FABRIQUÉ** pour s'aligner sur les `x_{0t}`/`x_{1s}` d'ailleurs ⟹ **l'instinct d'uniformisation (#581/#583), appliqué cette fois à un INDICE.**
+
+## ⚠⚠ **ACCORDS — CODEX «AMÉLIORE» L'AUTEUR : 3 PAGES DE SUITE**
+
+**`z587_inter` + `z587_ratio` (2400dpi)** : le livre imprime «et leurs points **d'intersections** **rationnelles** sur k(s)» — **PLURIEL + FÉMININ**. Codex : «d'intersection rationnel**s**» (**SINGULIER + MASCULIN**).
+⚠⚠ **ET ICI CODEX A GRAMMATICALEMENT RAISON** : «points» est masculin ⟹ «rationnels» est la forme correcte ; le livre accorde sur «intersections». **LE LIVRE FAIT AUTORITÉ QUAND MÊME** ⟹ **restauré SIC** (**book-sics = 47 en 32 pages**).
+⟹ **BILAN : #582 (modes) + #583 (accord «complet») + #584 (nombre + genre) = TROIS PAGES CONSÉCUTIVES où Codex corrige la langue de Grothendieck.**
+
+## ✅ **UN CONTRÔLE DE MACRO QUI PASSE — ET IL VALAIT LE COUP**
+
+⚠ **`\tag{*}` À L'INTÉRIEUR DE `\[ … \]`** : amsmath réserve `\tag` aux environnements d'équation ⟹ **risque que les marqueurs (*) et (**) soient SILENCIEUSEMENT ABSENTS du PDF** — et la prose y renvoie («le premier membre de (*)», «l'expression (**)»). ⚠ **COMPTÉ : le motif `\[ … \tag{…} … \]` = 17 SITES dans le fichier.**
+✅ **VÉRIFIÉ AU DUMP : «(*)» et «(**)» RENDENT tous les deux** ⟹ **le motif est SÛR, les 17 sites sont bons. Non-défaut confirmé, pas présumé.**
+
+## ✅ **LES AUTRES NÉGATIFS GENUINE**
+
+- «**à fortiori**» **AVEC accent** ✓ Codex correct (⚠ **et ma note était périmée : COMPTÉ `a fortiori`=12 / `à fortiori`=4, pas 13/3**).
+- «**(IV 2.12)**» ✓ Codex correct (COMPTÉ : `(IV 2.12)`=9, `(IV 2.12.2)`=2 — **deux références DISTINCTES coexistent, ne pas uniformiser**).
+- «**i^*(E(x_1)-E(x_0))**» — le «i*» du display (*) est **NU, sans indice** ✓ Codex correct.
+- Les points bas : «K.(X_t)», «K.(X_s)», «K.(Xx_S C)», «K.(X_t x_{k(t)} C_t)» — **tous `K_\bullet`** ✓ Codex correct **sur toute la page**.
+- «(IX 1.1)», «(*)», «(**)» ✓.
+
+## ⚠ **QUIRKS DE FRAPPE NOTÉS, NON REPRODUITS (cohérent avec la règle du reflux)**
+
+- **«(IX 1.1  )»** : large blanc avant la parenthèse fermante.
+- **«(* *)»** : le livre écrit le double astérisque **avec une espace au milieu**, dans le tag **et** dans les renvois du texte ; le fichier a `\tag{**}`.
+- **«i*(E(x_1)-E(x_o))    .»** : le point final est **détaché** par un grand blanc.
+⟹ ⚠ **DÉCISION (norme du métier) : l'espacement inter-caractères est un ARTEFACT MÉCANIQUE de la machine, pas de l'orthographe ; une édition refluée ne le reproduit pas.** Cohérent avec le traitement de «(IX 1.1  )». **Noté, non appliqué.**
+
+## ⚠⚠ **CORRECTION D'UNE ERREUR DE MON PROPRE CERT #583**
+
+**#583 affirmait : «p573 se termine EN PLEINE PHRASE sur "son image dans K.(X_s) par (7.3.1) n'est autre que" + display».** ⟹ **C'EST FAUX.** `p587_b1` montre que **p574 OUVRE sur «suite les immersions x_i : S ⟶ X»** ⟹ **p573 se terminait sur «Par»**, et tout le passage «…n'est autre que» **+ le display (*) sont sur p574**, pas p573.
+⚠⚠ **DEUXIÈME FOIS EN DEUX PAGES QUE MES PROPRES NOTES SONT PRISES EN DÉFAUT** (#583 : ma note disait «(7.12.1)» là où le livre imprime «(7.3.1)») ⟹ ⚠⚠⚠ **RÈGLE : LIRE LES 5 BANDES AVANT D'AFFIRMER LE PAGE-BREAK — mes annonces de page-break sont une SOURCE D'ERREUR AVÉRÉE, pas une donnée.**
+⚠ **Et le ligne-drift de #583 était −1, PAS 0** (la fusion du `\subsection*{7.12}` a supprimé une ligne). **Drift #584 = +1** (la ligne `\;,`).
+
+## ⚠ **LA LEÇON DU FILTRE, RE-VALIDÉE — ET AFFINÉE**
+
+«Bien entendu» ⟹ **9 pages** ; «premier membre» ⟹ **9** ; «rationnelles» ⟹ **6** ; «parfaits suivant» ⟹ **1** ✓. ⚠⚠ **UN token COURT n'est PAS forcément UNIQUE — il faut le CALIBRER, pas le deviner** (`vrf587b.py` a fait les 6 essais d'un coup). ⚠ **Et «d'homotopie» ⟹ 0 hit : l'extraction rend l'apostrophe typographique, pas l'ASCII** ⟹ **ne jamais filtrer sur un token contenant une apostrophe.**
+
+## LES 6 REP-CALLS
+
+1. `x_i:S\to C` ⟹ `x_i:S\to X` **COQUILLE DU LIVRE, SIC**
+2. `x_{is}:s\to C_s` ⟹ `x_i:s\to C_s` (indice fabriqué)
+3. «Notons qu'en vertu» ⟹ «Notons **que en** vertu» **SIC**
+4. `\qquad i_x:X…` ⟹ `\qquad\text{où } i_x:X…` (**6ᵉ `\qquad`-swallow**)
+5+6+7. tikzcd : `k(s)`⟹**`k(x)` SIC** + `"i_{x_s}"'`⟹`"i_{x_s}"` (**côté**) + **`\;,`** (virgule)
+8. «points d'intersection rationnels» ⟹ «points **d'intersections rationnelles**» **SIC**
+
+## ⚠ **CE QUI RESTE OUVERT**
+
+- **`\underline`=459 vs `\emph{`=498** ⟹ LA question globale (**#577 + #583 = les exhibits**).
+- **`\Gr_{\bullet,\mathrm{alg}}`=2** hors page ⟹ à LEURS pages, per-occurrence.
+- **leqno** : le livre met «(*)»/«(**)» **À GAUCHE**, le rendu les met **à droite** — **re-constaté ici** ⟹ report global.
+- **la lettre «o» pour le zéro** : re-constaté ×4 sur cette page («x_o», «x_{os}», «E(x_o)», «x_{ot}») ⟹ **question GLOBALE, non tranchée, laissé `x_0`**.
+- Reports permanents : **`K^\bullet`(182) vs `K^\circ`(367) — #574 = L'EXHIBIT, PRIORITAIRE** ; `\mathcal C`(902)/`\mathcal O`(936) ; 𝐙 gras vs Z ; chevrons «< >» vs `\langle`(90) ; les 14 paires `--` d'auteurs ; **l'INDEX se contredit** (L16878/L16889) ; **bug macro `\Filt`** (2 défs, L12415/L12823) ; **`\Gr` : L58 `\providecommand{\Gr}{\operatorname{G}}` = BOMBE À RETARDEMENT** ; **tags dupliqués** (3× `\tag{6.1.3}`, 2× `\tag{6.3.1}`, 2× `\tag{7.5.1}`, 2× `\tag{7.5.2}`) **NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : ceci est PROVISOIRE et MOTIVÉ, jamais «complet».**
+
+## **CURSEUR → idx588 (vol p575 = Exposé X «- 57 -» [575−518=57])** — la phrase enjambe : p575 doit OUVRIR sur «**de C_s, qui résulte de la connexité géométrique de C_t.**» puis «De l'homomorphisme (7.12.1) on déduit grâce à 7.4 un homomorphisme…» (~L13836 avant drift). ⚠⚠ **RE-GREP : drift #584 = +1** ; ⚠⚠ **et NE PAS croire cette annonce de page-break — LIRE LES 5 BANDES (cf. l'erreur de #583 corrigée ci-dessus).**
+
+### #583 (2026-07-16) — idx586 (vol p573 = **Exposé X «- 55 -»**, header «- 55 -» + **«X App.»** + footer «573** ; **CONSTANTE_X=518 CONFIRMÉE [573−55]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.11.6 fin + §7.12 début + (7.12.1) + la démonstration** — **7 rep-calls / ~9 changements** (bandes b1-b5 TOUTES lues + **8 crops HD 1600-4800dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (573−55 ; idx=573+13=586 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «son image dans K.(X_s) par (7.3.1) n'est autre que» + display. Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠ **LA TROUVAILLE : LE SOULIGNEMENT DU LIVRE A UNE GÉOMÉTRIE EXACTE — ET CODEX L'A SUPPRIMÉ EN ENTIER**
+
+**`z586e_l1` + `z586e_l2` + `z586e_l3` (2400dpi, LES TROIS LIGNES = LA PREUVE COMPLÈTE)** : le livre souligne **«l'homomorphisme de spécialisation (7.3.1) transforme éléments algébriquement équivalents à zéro en éléments algébriquement équivalents à zéro»** — et le soulignement a une **géométrie PRÉCISE** :
+- il **COMMENCE exactement à «l'homomorphisme»** (le «7.12. Ces définitions étant posées, je dis que» qui précède est **NU**) ;
+- il **SAUTE «(7.3.1)»** (la dactylo a levé le souligné pour la parenthèse) — **reproduit SIC** ;
+- il **S'ARRÊTE exactement à «zéro»**, **AVANT la virgule** («, et définit par suite par passage» = NU).
+⟹ **Grothendieck souligne L'ÉNONCÉ de ce qu'il va démontrer** — c'est SÉMANTIQUE, pas décoratif.
+⟹ ⚠⚠ **Codex avait la phrase ENTIÈREMENT EN TEXTE PLAT — l'emphase SUPPRIMÉE, à 100 %** ⟹ **DÉFAUT D'OMISSION**.
+⚠⚠ **RESTAURÉ en `\emph{}` ×2 (en reproduisant le saut sur «(7.3.1)»)** ; **rendu VÉRIFIÉ à l'image (`vrf586_title`) : les deux spans italiques sautent bien «(7.3.1)» et s'arrêtent à «zéro» ✓**.
+⚠⚠⚠ **MAIS LA QUESTION GLOBALE RESTE DÉFÉRÉE** : **COMPTÉ `\underline`=459 contre `\emph{`=498** ⟹ **le fichier rend le MÊME souligné dactylographique tantôt par l'un, tantôt par l'autre = INCOHÉRENCE PRÉÉXISTANTE sur ~950 sites** ⟹ **je n'ai PAS tranché depuis une seule page** ; j'ai pris `\emph` = **la norme du métier** (le souligné est la SEULE façon dont une machine à écrire marque l'italique) **et la majorité marginale**. ⚠ **Restaurer l'emphase sous N'IMPORTE QUELLE forme est strictement meilleur que l'omission** — un futur sweep global normalisera la macro. **#577 reste L'EXHIBIT (une phrase qui alterne six fois) ; #583 est le SECOND exhibit et il est PLUS FIN : il donne la géométrie exacte (début / saut / fin) que tout fix global devra reproduire.**
+
+## ⚠⚠⚠ **LE SIDE-SWAP : 2/2 SUR CETTE PAGE — ET LA FORME ÉCRASÉE TOMBE À ZÉRO**
+
+**`z586_p7121` (3200dpi)** : **(7.12.1)** imprime «**K.^{alg}(X_t) ⟶ K.^{alg}(X_s)   .**» = **point À LA LIGNE DE BASE + «alg» en EXPOSANT**, ×2 ⟹ **exactement la règle #577/#582 (l'affixe prend le côté OPPOSÉ au point)**. Codex avait **écrasé les DEUX** en `K_{\bullet,\mathrm{alg}}` (les deux marques entassées dans l'indice).
+⚠⚠ **LE COMPTAGE TRANCHE ET IL EST DÉCISIF** : `K_{\bullet,\mathrm{alg}}` = **2 dans TOUT le fichier — et les DEUX étaient ces deux-ci** ⟹ **après ce fix la forme écrasée du K tombe à 0** ; la forme swappée `K_\bullet^{\mathrm{alg}}` passe de **3 à 5** ⟹ **la maison est désormais UNANIME sur le K**. ⚠ **`\Gr_{\bullet,\mathrm{alg}}`=2 RESTE hors de ma page** ⟹ à traiter à LEURS pages, per-occurrence.
+⚠ **Point final du display : Codex CORRECT ✓** ; **rendu VÉRIFIÉ à l'image (`vrf586_7121`) ✓**.
+
+## ⚠⚠ **LE POINT BAS RATÉ, ENCORE — ET LA MATH LE CONFIRME SEULE**
+
+**`z586b_sig` (4800dpi, crop serré)** : «Il suffit de voir que **σ.** transforme» — la marque après le σ est **À LA LIGNE DE BASE** (au niveau du pied du «o» de «voir») ; ⚠ **LE PIÈGE : le trait surélevé au-dessus est la BARRE SUPÉRIEURE DU GLYPHE σ LUI-MÊME, pas un point** — c'est pour ça qu'il faut le crop serré. Codex l'avait **NU**.
+⚠⚠ **ET LA MATH TRANCHE INDÉPENDAMMENT** : ce σ opère **K.(X_t) → K.(X_s)** = points bas des deux côtés ⟹ **σ_•** ; ⚠ **`\sigma_\bullet`=15 in-file = la forme-maison existe déjà**.
+⟹ **CODEX RATE LE POINT BAS : #577 ×4, #580 ×2, #582 ×2, #583 ×1 = 9 FOIS.**
+
+## ⚠⚠ **UNE MAJUSCULE, ET C'EST DE LA MATH**
+
+**`z586_xoS` (2400dpi)** : «C est lisse sur S en les points de **x_o(S)**, **x_1(S)**» — **S MAJUSCULE ×2** ; ⚠ **LE CONTRÔLE EST DANS LE CROP** : le «S» de «(S)» a **exactement la hauteur du «S» qui ouvre la ligne** ; le «s» minuscule de «les points» est **visiblement plus petit**. Codex avait **`x_0(s)`, `x_1(s)` MINUSCULES**.
+⚠⚠ **ET LA MATH TRANCHE** : x_0, x_1 sont des **SECTIONS de C sur S** ⟹ **x_0(S) = l'IMAGE de la section** = un sous-schéma **qui A des points** — ce que «**les points** de» (PLURIEL) exige ; le «x_0(s)» de Codex serait **un point unique de la fibre** ⟹ la phrase n'aurait plus de sens.
+⟹ **CODEX MAL-LIT À UN CARACTÈRE PRÈS : 6/6** (#567/#568/#571/#576/#580/#583).
+
+## ⚠ **GUILLEMETS + MODE VERBAL**
+
+- **`z586d_quo` (4000dpi)** : le livre imprime «la notion **"géométrique"** classique» **AVEC guillemets** ⟹ `«~géométrique~»` ; ⚠ **COMPTÉ : `«~`=160 contre `« `=70 ⟹ la forme serrée est la maison**. (⚠ **le check tire dans les deux sens** : #581 p571 «"naïf"» AVEC ; #582 p572 «naïf» SANS — **une page d'écart** ⟹ **CROPPER CHAQUE OCCURRENCE, JAMAIS uniformiser**.)
+- **`z586_complet` (1600dpi)** : «au cas où **A est complet** et» — **MASCULIN** ; Codex «**complète**» = FÉMININ ⟹ **DÉFAUT** ; ⚠ **et le livre a raison en grammaire aussi : A est un ANNEAU**. ⟹ **motif #582 (Codex «améliore» les accords/modes) : 2 pages de suite.**
+
+## ✅ **LES NÉGATIFS GENUINE — LE CHECK TIRE DANS LES DEUX SENS (nombreux cette page)**
+
+- **`z586e_l2` DÉDOUANE DEUX CHOSES D'UN COUP** : la référence est bien «**(7.3.1)**» ✓ **Codex CORRECT** (⚠ **ma propre note de resume disait «(7.12.1)» — C'ÉTAIT MOI QUI AVAIS TORT, pas Codex ; le scan tranche contre MOI aussi**) ; et «**transforme éléments**» est **SANS ARTICLE dans le livre** = **BOOK-SIC, et Codex l'a PRÉSERVÉ** ✓.
+- **`z586e_l1`** : «**je dis que**» **PRÉSERVÉ** ✓ (la signature de Grothendieck — cf. #578 où il l'avait détruite).
+- **`z586d_l2`** : «envisagée dans **2.4.1.**» = **RÉFÉRENCE NUE, sans parenthèses** ✓ Codex correct ; «un élément de **K^·(T)**» = **point SURÉLEVÉ** ✓ Codex correct.
+- **b1 (une seule ligne, LES QUATRE hauteurs de point)** : «K^·(T)», «K.(T)», «Gr^·(T)», «Gr.(T)» — **Codex les a TOUTES LES QUATRE justes** ✓.
+- «**de Abhyankar**» — **PAS d'élision** ✓ Codex correct (**le motif #576 «de Auslander»**) ; COMPTÉ : «de Abhyankar»=1 / «d'Abhyankar»=0.
+- Références parenthésées **✓ Codex correct** : «(EGA IV 2.8.5)», «(N.B. La platitude…grâce à EGA IV 14.3.8)», «(EGA IV, 17.12.1 c) ⟹ a) et 19.1.1)», «(IX 1.1)», «[6]», «(moyennant une compatibilité facile explicitée dans 7.15)».
+
+## ⚠ **L'ASSERT SUR L'ANCRE D'IMAGE A PAYÉ UNE 4ᵉ FOIS**
+
+`vrf586.py` : l'ancre «(7.12.1)» ⟹ **3 rects** (le tag + **deux back-références plus bas SUR LA MÊME PAGE**) ; `assert len(r2)==1` a **bloqué le mauvais crop**. Ré-ancré sur «au quotient un homomorphisme» (la ligne d'amorce, juste au-dessus du display) ⟹ 1 hit. ⟹ **#575, #579, #580, #583 = QUATRE fois que ce guard sauve une vérification.**
+⚠ **Et le filtre de page a marché du premier coup avec UN SEUL token court** («Ces définitions») ⟹ **la leçon #579 tient : JAMAIS de filtre multi-mots**.
+
+## LES 7 REP-CALLS
+
+1. `"géométrique"` ⟹ `«~géométrique~»` (guillemets du livre, forme serrée maison)
+2. `\subsection*{7.12}` + saut de ligne ⟹ `\textbf{7.12.} Ces définitions…` **enchaîné** (⚠ **PAS DE TITRE dans le livre** — le numéro enchaîne, **AVEC point** ; `\textbf{7.12.}`=0 avant, `\textbf{7.N.}`=26 = la forme-maison ; **motif #581 : Codex FABRIQUE des titres pour uniformiser — ici il a en plus enveloppé dans `\subsection*` et mangé le point**)
+3. **emphase restaurée ×2** autour de «(7.3.1)» (saut reproduit SIC)
+4. **(7.12.1) : le side-swap ×2** ⟹ `K_\bullet^{\mathrm{alg}}` (forme écrasée du K ⟹ **0 dans le fichier**)
+5. «A est complète» ⟹ «A est **complet**»
+6. `\sigma` NU ⟹ `\sigma_\bullet`
+7. `x_0(s)`, `x_1(s)` ⟹ `x_0(S)`, `x_1(S)` **MAJUSCULES**
+
+## ⚠ **CE QUI RESTE OUVERT (non tranché depuis cette page)**
+
+- **`\underline`=459 vs `\emph{`=498** ⟹ **LA question globale ; #583 en donne la géométrie exacte** (voir ci-dessus).
+- **`\Gr_{\bullet,\mathrm{alg}}`=2** hors page ⟹ à LEURS pages, per-occurrence.
+- **«x_o» — l'indice du premier est-il la LETTRE «o» ou le CHIFFRE zéro ?** `z586_xoS` montre un «o» rond là où le «x_1» voisin a un «1» net à empattement ⟹ **c'est le report #581 (la lettre «o» pour le zéro) — question GLOBALE, la machine partage la touche** ⟹ **NON TRANCHÉ, laissé `x_0`**.
+- Reports permanents : `K^\bullet`(182) vs `K^\circ`(367) [**#574 = L'EXHIBIT, PRIORITAIRE**] ; `\mathcal C`(902)/`\mathcal O`(936) ; 𝐙 gras vs Z ; chevrons «< >» vs `\langle`(90) ; leqno ; les 14 paires `--` d'auteurs ; **l'INDEX se contredit** (L16878/L16889 «Gr'»/«K'» prime là où le corps a un point surélevé) ; **bug macro `\Filt`** (2 défs conflictuelles L12415/L12823 ⟹ rend «Filt», 33 usages) ; **`\Gr` a 3 défs — L21 gagne et rend «Gr» ✓ mais L58 `\providecommand{\Gr}{\operatorname{G}}` est une BOMBE À RETARDEMENT** ; tags dupliqués (3× `\tag{6.1.3}`, 2× `\tag{6.3.1}`, 2× `\tag{7.5.1}`, 2× `\tag{7.5.2}`) **NON EXAMINÉS**.
+- ⚠⚠ **NE JAMAIS CERTIFIER : ceci est PROVISOIRE et MOTIVÉ, jamais «complet».**
+
+## **CURSEUR → idx587 (vol p574 = Exposé X «- 56 -» [574−518=56])** — suite de la démonstration de 7.12 (après le display «(*)» / «(**)» : «Comme k(s) est algébriquement clos, les composantes irréductibles réduites de C_s sont géométriquement intègres…» ~L13835). ⚠ **RE-GREP : ligne-drift #583 = +0 net (7 rep-calls tous in-line).**
+
+### #582 (2026-07-16) — idx585 (vol p572 = **Exposé X «- 54 -»**, header «- 54 -» + **«X App.»** + footer «572** ; **CONSTANTE_X=518 CONFIRMÉE [572−54]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.11 suite — (7.11.3), (7.11.4), (7.11.5), 7.11.6** — **4 rep-calls / ~5 changements** (bandes b1-b5 TOUTES lues + **5 crops HD 1600-3200dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (572−54 ; idx=572+13=585 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «il ne semble pas que dans le cas du groupe Pic(T), on». Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠ **LA TROUVAILLE : L'AFFIXE CHANGE DE CÔTÉ SELON LA HAUTEUR DU POINT — ET CODEX A ÉCRASÉ LE CAS «POINT BAS», ENCORE**
+
+`z585_p7113` + `z585_p7114` (**LES DEUX à 3200dpi = LA PAIRE DE CONTRÔLE**) :
+- **(7.11.3)** «**K. ^{alg}(T)**» — le point est **À LA LIGNE DE BASE**, «**alg**» est un **EXPOSANT**.
+- **(7.11.4)** «**Gr^· _{alg}(T)**» — le point est **SURÉLEVÉ**, «**alg**» est un **INDICE**.
+⟹ ⚠⚠⚠ **C'EST EXACTEMENT LA RÈGLE #577** («Gr.^{num}» point BAS + num EXPOSANT vs «Gr^·_{num}» point HAUT + num INDICE) : **L'AFFIXE PREND LE CÔTÉ OPPOSÉ AU POINT** — économie de dactylo, pour que les deux marques ne se heurtent pas.
+⟹ **Codex avait les cas «POINT HAUT» JUSTES** (`\Gr^\bullet_{\mathrm{alg}}`=4, `K^\bullet_{\mathrm{alg}}`=5 ✓) **et les cas «POINT BAS» ÉCRASÉS** : `K_{\bullet,\mathrm{alg}}` et `\Gr_{\bullet,\mathrm{alg}}` = **les DEUX marques entassées dans l'INDICE** ⟹ **le swap perdu**.
+⟹ ⚠⚠ **LE MOTIF #580 SE RÉPÈTE À L'IDENTIQUE : Codex voit le point HAUT et rate le point BAS.** (#577 ×4 les points droppés ; #580 ×2 les σ nus ; **#582 ×2 le swap écrasé**.)
+⟹ ⚠⚠ **ET LE COMPTAGE PROUVE QUE LE FICHIER SE CONTREDIT LUI-MÊME** : **`K_\bullet^{\mathrm{alg}}`=2 EXISTE DÉJÀ** contre `K_{\bullet,\mathrm{alg}}`=3 ⟹ **la MÊME notation écrite des DEUX façons dans le MÊME fichier** ; ⚠ **et `\Gr_\bullet^{\mathrm{num}}`=3 — MON PROPRE FIX #577** ⟹ **la forme swappée EST la forme-maison établie ⟹ mon fix est FIDÈLE **et** HOUSE-CONSISTENT**.
+⟹ ⚠ **`K_{\bullet,\mathrm{alg}}`=3 et `\Gr_{\bullet,\mathrm{alg}}`=3 ⟹ ANCRAGE PAR BLOC obligatoire** (la leçon #578/#580/#581) — **je n'ai corrigé que les 2 de MA page ; les 4 autres restent pour leurs pages respectives**.
+
+**⚠⚠⚠ ★★★ fix2 — UNE VIRGULE FABRIQUÉE :** `z585_p7115` (**3200dpi**) : après «Gr.^{alg}(T)» le crop est **BLANC** — **AUCUNE virgule**. Codex avait «\Gr_{\bullet,\mathrm{alg}}(T)**,**» ⟹ **virgule FABRIQUÉE** (le motif #575 «Par suite,» / #577 «Du moins,»).
+
+**⚠⚠⚠ BOOK-SIC #47 — «un éléments» :** `z585_elem` (**2000dpi**) : le livre imprime «que le produit d'**un éléments** de K^·(T)» — **article SINGULIER + nom PLURIEL**. ⚠ **LE CONTRÔLE EST DANS LA LIGNE** : le «s» final est net, à comparer aux «s» de «définition**s**» et «le**s**» de la MÊME ligne. Codex avait **silencieusement corrigé** en «un élément» ⟹ **le sic RESTAURÉ** (cf «ces»#576, «f_t»#580 : **le livre fait autorité, même contre la grammaire**). ⚠ **COMPTÉ : «produit d'un élément »=1 ⟹ LOCAL**.
+
+**⚠⚠⚠ ★★★ fix4 — LE MODE VERBAL CHANGÉ :** `z585_suppose` (**1600dpi**) : le livre imprime «garderaient un sens si on ne **suppose** pas k algébriquement clos» — **PRÉSENT**. Codex : «si on ne **supposait** pas» — **IMPARFAIT**. ⚠ **Codex a «amélioré» la concordance des temps** (l'imparfait s'accorderait mieux avec «garderaient») — **MAIS LE LIVRE FAIT AUTORITÉ** ⟹ **restauré**. ⚠ **COMPTÉ : «ne supposait pas»=1 (la mienne) / «ne suppose pas»=2 DÉJÀ IN-FILE ⟹ LOCAL + house-consistent**.
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z585_head` : «- 54 -» ✓ + «**X App.**» ✓.
+- ⚠⚠⚠ **(7.11.4) «Gr^·_{alg}(T)» et «K^·_{alg}(T)» — Codex a TOUS les cas «POINT HAUT» JUSTES** ✓ (⚠ **c'est PRÉCISÉMENT ce contraste qui prouve le défaut du cas «POINT BAS»** : le même auteur, la même page, deux hauteurs, et Codex n'en voit qu'une).
+- ⚠⚠ **«le K^· naïf» SANS guillemets ICI** ✓ **Codex correct** — ⚠ **alors que la p571 imprimait «le K^· "naïf"» AVEC guillemets (fix#581)** ⟹ **LE LIVRE DISTINGUE LES DEUX OCCURRENCES À UNE PAGE D'ÉCART — NE JAMAIS uniformiser**.
+- ⚠⚠ **«Fil_i K.(T)»** ✓ Codex `\Fil_iK_\bullet(T)` — ⚠ **`\Fil` (L22 `\newcommand{\Fil}{\operatorname{Fil}}`) rend bien «Fil»** ✓ ⟹ **CE N'EST PAS le `\Filt` buggé (L12415/L12823 en conflit ⟹ «Filt», 33 usages) — VÉRIFIÉ, PAS TOUCHÉ**.
+- «K.(T)» (point BAS) et «K^·(T)»/«Gr^·(T)» (point HAUT) **SUR LA MÊME PAGE** ✓ Codex correct ⟹ **le livre OPPOSE l'anneau et le module ICI AUSSI**.
+- «(IV 2.12.2)» ✓ ; «(3.1)» ✓ ; «c^i(x)» **minuscule** ✓ (cf #575 : la classe de Chern du livre est un «c» minuscule) ; «i≥1» ✓ ; «Gr_i(T)» ✓ ; «Pic(T)» ✓ ; «**7.11.6.**» ✓ **la forme `\textbf{7.11.6.}` = la forme-maison (#581, 26 occurrences)** ; «parfait»̲, «géométriquement»̲ soulignés ⟹ **la règle #577 tient**.
+- **TOUTE la prose de b1/b3 = MATCH MOT À MOT** : «en notant que i_x : T ⟶ T×_k C est un morphisme parfait, car déduit par le changement de base plat T×_k C ⟶ C du morphisme j_x : x ⟶ C , qui est parfait grâce à l'hypothèse C régulier.» ✓ ; «n'est alors autre que l'anneau de Chern associé au λ-anneau K^·_{alg}(T).» ✓ ; «Enfin on définit le sous-groupe gradué de Gr.(T) … dans K.(T).» ✓ **RIEN à corriger**.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠⚠ **L'ESPACE AVANT LE «;»** : le livre imprime «à zéro **;** l'anneau» et «utiles **;** notamment» — **espace dactylo avant le point-virgule** (convention française). ⚠ **COMPTÉ : `~;`=304 contre 571 «;» nus ⟹ INCOHÉRENCE PRÉEXISTANTE À L'ÉCHELLE DU DOCUMENT** (comme les 152 `«~` vs 74 `« `) ⟹ **DEFERRED — ne PAS uniformiser depuis une page** (⚠ en #581 j'ai écrit `«~naïf~»~;` **dans le cadre du fix des guillemets** ; ici les «;» sont autonomes ⟹ laissés).
+- ⚠ **`K_{\bullet,\mathrm{alg}}`=1 et `\Gr_{\bullet,\mathrm{alg}}`=2 RESTENT** hors de ma page ⟹ **à traiter à leurs pages, per-occurrence** (règle de sweep).
+- **K^\bullet(182) vs K^\circ(367)** — LA DÉCISION GLOBALE, #574 est l'exhibit, **PRIORITAIRE** ; les **SOULIGNEMENTS** (#577 est L'EXHIBIT) ; le **𝐙 gras** ; les **chevrons «< >»** ; les **eq-tags à GAUCHE** = leqno ; le **tiret des paires d'auteurs** ; l'**INDEX qui se contredit** (#577) ; la **lettre «o» pour le zéro** (#581).
+
+**RENDER-VERIFY** (`vrf585.py`, filtre «7.11.6» ⟹ **1 hit** ✓ **calibré du 1er coup — UN SEUL TOKEN COURT, la leçon #579/#580/#581**) : «que le produit d'un **éléments** de» ✓ **le sic est restauré** ; «si on ne **suppose** pas» ✓ ; **IMAGE (7.11.3)** : «**K_•^{alg}(T)**» — **le • en INDICE, «alg» en EXPOSANT** ⟹ **LE SWAP EST REPRODUIT** ✓ ; ⚠ **l'extraction elle-même le montre** («Kalg / • (T)» = alg sur la ligne du DESSUS, • en dessous) contre «K•/alg(T)» pour le cas point-haut ✓ ; «(7.11.5)» + «• (T)» ✓ **swap + AUCUNE virgule** ✓ ; «est un module sur l'anneau Gr•_alg(T), par passage au quotient» ✓.
+
+**⚠ CHECKS POUR idx586 (p573) :** ⚠⚠ **la p572 se termine EN PLEINE PHRASE** sur «il ne semble pas que dans le cas du groupe Pic(T), on» ⟹ **p573 OUVRE sur «retrouve la notion "géométrique" classique d'équivalence algébrique, envisagée dans 2.4.1. Aussi nous préférons dire qu'un élément de K^·(T) est algébriquement équivalent à zéro si son image dans K^·(T⊗_k k̄) l'est…»** ; workpass ~**L13805+** (⚠ **ligne-drift #585 net 0, MAIS RE-GREP quand même**) — **LIRE LE SCAN D'ABORD** ; ★★★★**L'AFFIXE CHANGE DE CÔTÉ SELON LA HAUTEUR DU POINT (#577/#582) : «X.^{aff}» (bas+exposant) vs «X^·_{aff}» (haut+indice) — Codex ÉCRASE le cas BAS en `X_{\bullet,\mathrm{aff}}` ⟹ CROPPER CHAQUE K/Gr AFFIXÉ à 3200dpi AVEC SON JUMEAU COMME CONTRÔLE** ; ★★★★**LES POINTS BAS SONT LES PLUS FRAGILES (#577 ×4, #580 ×2, #582 ×2) — Codex voit le HAUT, rate le BAS** ; ★★★★**«"géométrique"» est ANNONCÉE avec des guillemets DROITS ⟹ `«~…~»` (mais VÉRIFIER : le livre distingue — «K^· "naïf"» p571 AVEC, «le K^· naïf» p572 SANS)** ; ★★★★**CODEX FABRIQUE POUR UNIFORMISER — des phrases (#579), des titres (#581) ⟹ VÉRIFIER L'EXISTENCE de chaque titre/phrase méta** ; ★★★★**LE `\qquad` AVALE N'IMPORTE QUEL MOT DE LIAISON («et» ×4, «où» ×1)** ; ★★★**«k̄» (k barre) ⟹ CROPPER : barre ou tilde ?** ; ★★★**«T⊗_k k̄» ⟹ CROPPER le ⊗** ; ★★★**«2.4.1» ⟹ nue ou parenthésée ?** ; ★★★**MODES/TEMPS VERBAUX : Codex «améliore» la concordance (#582 «suppose»→«supposait») ⟹ LIRE LES VERBES** ; ★★**BOOK-SIC : le livre fait autorité même contre la grammaire (#576 «ces», #580 «f_t», #582 «un éléments»)** ; ★★**FILTRE vrf : UN SEUL TOKEN COURT** ; ★★**ancres TOUT EN RAW ; `assert count==1` ; ANCRER PAR BLOC** ; ★★**print() ASCII-ONLY**.
+
+**LIGNE-DRIFT #585 : net 0** (les 4 fix sont intra-ligne ou iso-lignes). **RE-GREP quand même en #583.**
+
+**SWEEP CURSOR → idx586 = p573 = Exposé X «- 55 -» (§7.11.6 fin : la notion «géométrique», k̄, + la suite).**
+
+---
+
+### #581 (2026-07-16) — idx584 (vol p571 = **Exposé X «- 53 -»**, header «- 53 -» + **«X App.»** + footer «571** ; **CONSTANTE_X=518 CONFIRMÉE [571−53]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.11 début — équivalence algébrique, (7.11.1), (7.11.2)** — **4 rep-calls / ~5 changements** (bandes b1-b5 TOUTES lues + **5 crops HD 1600-3200dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (571−53 ; idx=571+13=584 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «en prenant ci-dessus E dans K.(T×_k C), et». Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE : CODEX A FABRIQUÉ UN TITRE DE SECTION ENTIER — LE LIVRE N'EN A AUCUN**
+
+`z584_open` (**1600dpi**) : le livre imprime «**7.11.  On peut, pour un schéma T sur un corps k algébriquement clos, définir**» — ⚠⚠⚠ **LE NUMÉRO ENCHAÎNE DIRECTEMENT SUR LE TEXTE. IL N'Y A AUCUN TITRE.**
+Codex : `\subsection*{7.11. **Équivalence algébrique en \(K\)-théorie**}` ⟹ ⚠⚠⚠ **UN TITRE DE SECTION ENTIÈREMENT INVENTÉ.**
+⟹ ⚠⚠ **LE MOBILE EST VISIBLE : Codex UNIFORMISE.** Les sections voisines **ont** des titres («7.5. "Conservation du nombre"», «7.8. Spécialisation pour Pic», «7.9. Spécialisation et équivalence numérique», «7.10. Compatibilité avec les images directes et images inverses») ⟹ **Codex en a inventé un pour 7.11 «par régularité»** ; ⚠ **MAIS #573 avait DÉJÀ constaté que «7.6.  Il est immédiat…» n'a PAS de titre non plus** ⟹ **LE LIVRE ALTERNE TITRÉ / NON-TITRÉ, ET CODEX NORMALISE** — c'est le motif «Il en résulte» (#568/#573/#576/#577/#578) porté au niveau **STRUCTUREL**.
+⟹ ⚠⚠ **ET C'EST LE MOTIF #579 : Codex FABRIQUE pour rendre le texte régulier** (là c'était une phrase couvrant une flèche escamotée ; ici un titre couvrant une irrégularité de l'auteur) ⟹ **le résultat est PLAUSIBLE et AUTO-COHÉRENT — SEUL LE SCAN LE DIT.**
+⟹ ⚠ **COMPTÉ : `\textbf{7.N.}` = **26 occurrences** dans le fichier** (dont **`\textbf{7.11.6.}` L13806 — sur la CONTINUATION de cette page même**, et `\textbf{7.9.4.}`, `\textbf{Remarque 7.10.3.}`) ⟹ **LA FORME-MAISON POUR UN ITEM NUMÉROTÉ SANS TITRE EST `\textbf{7.11.}`** ⟹ **fix à la fois FIDÈLE et HOUSE-CONSISTENT** ; ⚠ **COMPTÉ : `\subsection*{7.11` = 1 ⟹ LOCAL**.
+⟹ ⚠⚠ **ET L'ORDRE DES MOTS** : le livre fronte «**On peut**, pour un schéma T…, définir» (clause interpolée) ; Codex : «**Pour un schéma \(T\)…, on peut définir**» ⟹ **l'adverbial déplacé en tête, la clause de l'auteur aplatie** (le motif #574 «ORDRE DES MOTS CHANGÉ»).
+
+**⚠⚠⚠⚠ ★★★★ fix2 — LE **CINQUIÈME** MOT AVALÉ PAR UN `\qquad` — ET CE N'EST PLUS «et» :**
+`z584_ou` (**2000dpi**) : le livre imprime «E(x) = i_x^*(E) ∈ K^·(T) **, où** i_x : T ⟶ T×_k C». Codex : `\in K^\bullet(T),\qquad i_x:T\longrightarrow T\times_k C` ⟹ **le mot «où» EFFACÉ**.
+⟹ **#564/#572/#574/#577 avaient perdu «et» ; #581 perd «où»** ⟹ ⚠⚠ **LE MOTIF S'ÉLARGIT : `,\qquad` DE CODEX AVALE N'IMPORTE QUEL MOT DE LIAISON, PAS SEULEMENT «et»** ⟹ **CHAQUE `\qquad` EST SUSPECT — CROPPER**. Restauré en `\qquad\text{où }` (style-maison, 17 usages).
+
+**⚠⚠⚠ ★★★ fix4 — SINGULIER → PLURIEL :** `z584_naifs` (**2400dpi**) : le livre imprime «lorsqu'on travaille avec **les K^· naïfs**» ; Codex : «avec **le \(K^\bullet\) naïf**» ⟹ **DÉFAUT** (le motif #578 «le schéma ambiant»→«les schémas ambiants», ici en MIROIR). ⚠ **COMPTÉ : `le \(K^\bullet\) naïf`=2 ⟹ ANCRAGE PAR BLOC obligatoire**.
+
+**⚠⚠⚠ ★★★ fix3 — LES GUILLEMETS DROITS :** le livre imprime «le K^· **"naïf"** ; cet idéal» ⟹ règle-maison `«~naïf~»` (⚠ **COMPTÉ : `«~naïf~»`=2 EXISTE DÉJÀ** ⟹ house-consistent) + **le livre ESPACE avant le «;»** ⟹ `~;` (cf L612 «claire~; un»).
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z584_head` : «- 53 -» ✓ + «**X App.**» ✓.
+- ⚠⚠⚠⚠ **`z584_mapsto` (3200dpi) — UNE CORRECTION À UN CHECK PERMANENT** : «est le morphisme **t ⟼ (t,x)** défini par x» — **LA FLÈCHE A UNE BARRE VERTICALE NETTE À LA QUEUE** ⟹ **C'EST UN VRAI MAPSTO** ⟹ ⚠⚠ **MA NOTE PERMANENTE DISAIT «`\longmapsto` = 26, **4/4 FAUX**, le squiggle du livre n'a PAS de barre verticale ⟹ `\rightsquigarrow`» — **CELUI-CI A LA BARRE**** ⟹ **LE LIVRE EMPLOIE LES DEUX : un vrai mapsto (avec barre) ICI, et un squiggle SANS barre ailleurs** ⟹ **LE SWEEP `\longmapsto` PASSE À 4/5, PAS 4/4 — LE PREMIER NÉGATIF GENUINE DE CE CHECK** ; ⚠ Codex écrit `\mapsto` (court) — **la barre y est aussi ; seule la LONGUEUR diffère, et #578 a établi que les flèches du livre sont TRACÉES À LA MAIN ⟹ leur longueur n'est PAS une preuve d'intention** ⟹ **DEFERRED, PAS DE FIX**.
+- ⚠⚠ **«(Le lecteur qui ne voudra pas admettre ce fait pourra définir l'équivalence algébrique par le groupe engendré par les éléments de la forme (7.11.1))» — UNE PHRASE MÉTA, MAIS GENUINE** ✓ **elle EST dans le livre** ⟹ **le check #579 («toute phrase méta est suspecte») a tiré ET A DÉDOUANÉ celle-ci** ⟹ **le check fonctionne dans les DEUX sens**.
+- ⚠⚠ **«K^·(T)» (point HAUT) et «K.(T)» (point BAS) SUR LA MÊME PAGE** ✓ Codex a les deux justes ⟹ **le livre OPPOSE l'anneau et le module ICI AUSSI**.
+- «K^·_{alg}(T)» ✓ ; «T×_k C» ✓ ; «C×_k C'» ✓ ; «(x_1,x_1'), (x_o,x_o')» ✓ ; «λ^i» ✓ ; «**i.e.**» ✓ **préservée** ; «(7.11.1)»/«(7.11.2)» ✓ ; les virgules finales des deux displays ✓ ; «comme on constate aussitôt» / «comme on vérifie trivialement» ✓ **mot pour mot** (⚠ sans «le» — SIC du livre, Codex correct).
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠⚠ **«x_o» / «à O» = LA LETTRE «o» POUR LE ZÉRO** : `z584_xo` (**3200dpi**) montre un **«o» ROND** en indice, à comparer au «1» de «x_1» (chiffre net) ⟹ **la machine n'a PAS de zéro en indice — la dactylo a tapé un «o»** ⟹ **MÊME CLASSE que le «H^O» de #575** (limitation machine ⟹ **PAS une preuve d'intention**) ⟹ **Codex `x_0`/`0` = JUSTE quant au SENS** ⟹ **DEFERRED**.
+- les **SOULIGNEMENTS** («algébriquement équivalents à zéro»̲ ; #577 est L'EXHIBIT) ; **«irréductible.(Le lecteur»** — **AUCUNE espace après le point** (espacement dactylo) ; **K^\bullet(182) vs K^\circ(367)** — LA DÉCISION GLOBALE, #574 est l'exhibit, **PRIORITAIRE** ; le **𝐙 gras** ; les **chevrons «< >»** ; les **eq-tags à GAUCHE** = leqno ; le **tiret des paires d'auteurs** ; l'**INDEX qui se contredit** (#577) ; **`\textbf{7.11.}` vs le rendu du livre** (structure — mais **la forme-maison est établie à 26 occurrences**).
+
+**RENDER-VERIFY** (`vrf584.py`, filtre «7.11.1»+«naïf» ⟹ **1 hit** ✓ **calibré du 1er coup — UN SEUL TOKEN COURT, la leçon #579/#580**) : «**7.11. On peut, pour un schéma T sur un corps k algébriquement clos, définir** le sous-groupe de K•(T)…» ✓ **LE TITRE FABRIQUÉ A DISPARU, le numéro enchaîne, l'ordre des mots est restauré** ✓ ; «**où** ix : T −→T ×k C» ✓ **le mot avalé est revenu** ✓ ; «**« naïf » ;**» ✓ **guillemets convertis + espace avant le «;»** ✓ ; «avec **les K• naïfs**» ✓ **PLURIEL** ✓ ; «E(x1) −E(x0), (7.11.1)» ✓.
+
+**⚠ CHECKS POUR idx585 (p572) :** ⚠⚠ **la p571 se termine EN PLEINE PHRASE** sur «en prenant ci-dessus E dans K.(T×_k C), et» ⟹ **p572 OUVRE sur «en notant que i_x : T→T×_k C est un morphisme parfait, car déduit par le changement de base plat T×_k C→C du morphisme j_x : x→C, qui est parfait grâce à l'hypothèse C régulier. On trouve ainsi un groupe quotient…»** ; workpass ~**L13787+** (⚠ **ligne-drift #584 net −1 ⟹ RE-GREP OBLIGATOIRE**) : «On peut définir de la même façon un sous-groupe des éléments algébriquement équivalents à 0 dans \(K_\bullet(T)\)…» + «\textbf{7.11.6.}» (L13806) — **LIRE LE SCAN D'ABORD** ; ★★★★★**CODEX FABRIQUE POUR UNIFORMISER — DES PHRASES (#579) ET MAINTENANT DES TITRES DE SECTION (#581) ⟹ VÉRIFIER L'EXISTENCE MÊME DE CHAQUE TITRE, PAS SEULEMENT SON POINT FINAL** ; ★★★★**LE `\qquad` DE CODEX AVALE N'IMPORTE QUEL MOT DE LIAISON («et» ×4, «où» ×1) ⟹ CHAQUE `\qquad` EST SUSPECT** ; ★★★★**LES POINTS BAS SONT LES PLUS FRAGILES (#577 ×4, #580 ×2) ⟹ CROPPER CHAQUE σ/K/Gr/cl : POINT ? HAUT ou BAS ? puis DEMANDER À LA MATH** ; ★★★★**SINGULIER/PLURIEL (#578 «les schémas ambiants», #581 «les K^· naïfs») ⟹ LIRE LES NOMBRES GRAMMATICAUX** ; ★★★★**INDICES/PARENS FABRIQUÉS (#579 «X_s», #580 «Gr_•( )») ⟹ CROPPER** ; ★★★**«resp.»/«i.e.»/«cf.»/«Exp.» ⟹ CROPPER** ; ★★★**guillemets droits ⟹ `«~…~»`** ; ★★**⚠ NOUVEAU : le `\longmapsto` du livre PEUT avoir une barre (4/5 désormais, pas 4/4) ⟹ CROPPER, NE PLUS PRÉSUMER** ; ★★**FILTRE vrf : UN SEUL TOKEN COURT ET UNIQUE** ; ★★**ancres TOUT EN RAW ; `assert count==1` ; ANCRER PAR BLOC quand le motif se répète** ; ★★**print() ASCII-ONLY**.
+
+**LIGNE-DRIFT #584 : net −1** (fix1 a fusionné le titre + la 1re ligne de texte ⟹ −1 ; fix2/fix3/fix4 intra-ligne ou iso-lignes). **RE-GREP OBLIGATOIRE en #582.**
+
+**SWEEP CURSOR → idx585 = p572 = Exposé X «- 54 -» (§7.11 suite : i_x parfait, le groupe quotient, 7.11.6).**
+
+---
+
+### #580 (2026-07-16) — idx583 (vol p570 = **Exposé X «- 52 -»**, header «- 52 -» + **«X App.»** + footer «570** ; **CONSTANTE_X=518 CONFIRMÉE [570−52]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.10 fin + «Remarque 7.10.3» — (7.10.1 bis) et (7.10.2 bis)** — **3 rep-calls / ~7 changements** (bandes b1-b5 TOUTES lues + **5 crops HD 1600-3200dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (570−52 ; idx=570+13=583 ✓)** ; la page **se termine PROPREMENT** sur «…résultat de compatibilité (VIII 3.2).». Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠ **LA TROUVAILLE : DEUX DIAGRAMMES ADJACENTS, LE MÊME σ, DEUX HAUTEURS DE POINT — ET CODEX N'EN A VU QU'UNE**
+
+`z583_s1bis` + `z583_s2bis` (**LES DEUX à 3200dpi = LA PAIRE DE CONTRÔLE**) :
+- **(7.10.1 bis)** : «**σ_X ·**» et «**σ_Y ·**» — **le point est à la LIGNE DE BASE du sigma** (corps y≈75-125, point y≈115-135).
+- **(7.10.2 bis)** : «**σ_Y ˙**» et «**σ_X ˙**» — **le point est AU-DESSUS du corps du sigma** (corps y≈85-130, point y≈70-85) = **HAUTEUR DE CAPITALE**.
+⟹ ⚠⚠⚠ **LE MÊME SYMBOLE, DEUX DIAGRAMMES CONSÉCUTIFS, MÊME MAGNIFICATION, DEUX HAUTEURS** — et **LA MATH CONFIRME INDÉPENDAMMENT** : (7.10.1 bis) porte sur **Gr_•** (points BAS, côté module), (7.10.2 bis) sur **Gr^·** (points HAUTS, côté anneau) ⟹ **la hauteur du point du σ SUIT celle du Gr sur lequel il opère**.
+⟹ **Codex avait (7.10.2 bis) JUSTE** (`\sigma_Y^\bullet`/`\sigma_X^\bullet`) **mais (7.10.1 bis) NU** (`\sigma_X`/`\sigma_Y`) ⟹ **LES DEUX POINTS DE BASE PUREMENT DROPPÉS**. ⟹ restaurés en `\sigma_{X\bullet}`/`\sigma_{Y\bullet}` — **un point BAS du livre se rend par un INDICE LaTeX, la règle établie #570/#576**.
+⟹ ⚠⚠ **CODEX VOIT LE POINT QUAND IL EST HAUT ET LE MANQUE QUAND IL EST BAS** — c'est le motif #577 (σ.(x_t) ×3, Gr.^{num} ×3, K^·_{num}) : **les points BAS sont les plus fragiles**.
+
+**⚠⚠⚠⚠ ★★★★ fix3 — «f_t et f_s» POUR «g_t et g_s» : UNE LETTRE, ET C'EST DE LA MATH :**
+`z583_fts` (**1600dpi**) : le livre imprime «séparés, alors **f_t** et **f_s** sont automatiquement des morphismes d'intersection complète (VIII 1.1)». ⚠⚠ **LE CONTRÔLE EST DANS LA MÊME BANDE** : les «**g**_t^*» / «**g**_s^*» **deux lignes plus haut** portent une **HAMPE DESCENDANTE** nette ; les «**f**_t» / «**f**_s» ont une **HASTE MONTANTE + BARRE, SANS descendante** ⟹ **«f» PROUVÉ**. Codex : «\(g_t\) et \(g_s\)».
+⟹ ⚠ **POSSIBLE LAPSUS D'AUTEUR** (la math attendrait g_t/g_s : entre schémas réguliers, g_t est automatiquement lci) — **MAIS LE LIVRE FAIT AUTORITÉ** (le précédent #576 «ces»/«ses» : grammaticalement «ses» était plus naturel, le livre disait «ces», j'ai reproduit) ⟹ **REPRODUIT SIC, LOGGÉ**. ⚠ **COMPTÉ : `alors \(g_t\) et \(g_s\)`=2 ⟹ ANCRAGE PAR BLOC obligatoire** (la leçon #578).
+
+**⚠⚠⚠ ★★★ fix3 — DES PARENTHÈSES VIDES FABRIQUÉES :**
+`z583_grq` (**1600dpi**) : le livre imprime «où les **Gr.** sont remplacés par les **Gr^·( )_ℚ**» ⟹ ⚠⚠ **le PREMIER «Gr.» est NU ; le SECOND «Gr^·( )_ℚ» a bien ses parens vides** — **le livre distingue les deux**. Codex avait `\Gr_\bullet(\ )` ⟹ **PARENS VIDES FABRIQUÉES sur le premier** (le second ✓ correct). ⚠ **COMPTÉ : `\Gr_\bullet(\ )`=1 ⟹ LOCAL**.
+
+**⚠⚠⚠ ★★★ fix1/fix2 — DEUX AUTRES CÔTÉS D'ÉTIQUETTE FAUX** (le motif #578/#579, qui en avaient donné 7) : «g_{s*}» de **(7.10.1 bis)** et «g_s^*» de **(7.10.2 bis)** sont **AU-DESSUS** dans le livre ; Codex les avait **primés = EN-DESSOUS** ⟹ **NEUF côtés faux en trois pages, TOUS invisibles à l'extraction ET à la compilation**.
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z583_head` : «- 52 -» ✓ + «**X App.**» ✓.
+- ⚠⚠⚠ **(7.10.2 bis) : Codex a les DEUX sigmas JUSTES — points RAISED **et** côtés («σ_Y^·» GAUCHE / «σ_X^·» DROITE)** ✓ ⟹ **la règle #579 tient : l'étiquette de la verticale GAUCHE va à gauche, celle de la DROITE va à droite** ; **(7.10.1 bis) idem : «σ_X.» GAUCHE / «σ_Y.» DROITE ✓ Codex correct**.
+- «**Remarque** 7.10.3.» ✓ (⚠ **le trait ne souligne QUE «Remarque», PAS le numéro** ⟹ **la règle #577 tient : le livre souligne les MOTS FRANÇAIS, pas les nombres ni les symboles**).
+- «-tôt de celle des carrés correspondants (7.10.0), compte tenu de la transitivité des images inverses (IV 2.12 ).» ✓ **mot pour mot** ; «Lorsque X et Y sont de plus quasi-projectifs et lisses sur S, on sait d'ailleurs que g_t^* et g_s^* sont compatibles aux filtrations par la codimension des supports, et on trouve un diagramme commutatif comme (7.10.2 bis), mais les Gr^· étant remplacés par les Gr^·_{top} (cf. Exp. 0, 2.1).» ✓ **mot pour mot**.
+- «(cf. **Exp.** 0, 2.1)» ✓ **l'abréviation «Exp.» PRÉSERVÉE** ; «(VIII 1.1 )» ✓ ; «(VIII 3.2)» ✓ ; «(7.10.1 bis)»/«(7.10.2 bis)» ✓ **les tags «bis» sont CORRECTS** ; «Gr^·_{top}» ✓ ; «Gr^·( )_ℚ» ✓ **avec parens** ; «g_{t*}»/«g_t^*» AU-DESSUS ✓ ; les points finaux ✓.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠ **«f_t et f_s» = un POSSIBLE LAPSUS D'AUTEUR reproduit SIC** — **à re-examiner si une décision ERRATA s'ouvre** (la math attendrait g_t/g_s).
+- **K^\bullet(182) vs K^\circ(367)** — LA DÉCISION GLOBALE, #574 est l'exhibit. **PRIORITAIRE** ; ⚠ **NOUVEAU : `\sigma_{X\bullet}`/`\sigma_{Y\bullet}` (2 formes créées ici) — à harmoniser si la décision globale s'ouvre**.
+- les **SOULIGNEMENTS** (#577 est L'EXHIBIT ; ⚠ **«Remarque»̲ seul, sans le numéro** = confirmation) ; le **𝐙 gras** (#575) ; les **chevrons «< >»** (#577) ; les **eq-tags à GAUCHE** = leqno ; le **tiret des paires d'auteurs** (`--`=178) ; l'**INDEX qui se contredit** (#577) ; l'**espacement dactylo** («(IV 2.12 )», «(VIII 1.1 )») ; **`\textbf{Remarque}` vs le SOULIGNEMENT du livre** (structure).
+
+**RENDER-VERIFY** (`vrf583.py` + `vrf583b.py`, filtre «7.10.1 bis» ⟹ **1 hit** ✓ — ⚠ **UN SEUL MOT-CLÉ COURT ET UNIQUE, la leçon #579**) : «Remarque 7.10.3.» ✓ ; «alors **ft et fs** sont automatiquement des morphismes d'intersection complète (VIII 1.1)» ✓ ; «où les **Gr•** sont remplacés par les **Gr•( )Q**» ✓ **les parens fabriquées sont parties** ✓ ; **IMAGE d1bis** : «**σ_{X•}**» GAUCHE + «**σ_{Y•}**» DROITE ⟹ **LES POINTS DE BASE SONT REVENUS** ✓, «g_{s*}» **AU-DESSUS** ✓, «Gr_•» ✓, point final ✓ ; **IMAGE d2bis** : «**σ_Y^•**» GAUCHE + «**σ_X^•**» DROITE ⟹ **points RAISED** ✓, «g_s^*» **AU-DESSUS** ✓, «Gr^•» ✓ ⟹ **LES DEUX DIAGRAMMES PORTENT DÉSORMAIS LE CONTRASTE DU LIVRE**.
+⚠⚠ **DEUX AUTRES `assert` DÉCLENCHÉS, ET C'EST LEUR TRAVAIL** : (a) l'ancre d'image «implique celle de» ⟹ **2 rects** (le livre a «(7.10.1) implique aussitôt celle du diagramme» ET «(7.10.2) implique celle de») ⟹ re-ancré sur «(7.10.2) implique» ⟹ 1 ✓ ; ⟹ **sans l'assert j'aurais rendu le MAUVAIS diagramme** (la leçon #575, qui vient de payer une 3e fois).
+
+**⚠ CHECKS POUR idx584 (p571) :** ⚠⚠ **la p570 se termine PROPREMENT** ⟹ **p571 OUVRE sur «7.11. Équivalence algébrique en K-théorie» (?) ou sa suite** ; workpass ~**L13772+** (⚠ **ligne-drift #583 net 0, MAIS RE-GREP quand même**) : «\subsection*{7.11. Équivalence algébrique en \(K\)-théorie}» + «Pour un schéma \(T\) sur un corps \(k\) algébriquement clos, on peut définir le sous-groupe de \(K^\bullet(T)\) des éléments algébriquement équivalents à zéro comme le sous-groupe des éléments de la forme…» — **LIRE LE SCAN D'ABORD** ; ★★★★**LES POINTS BAS SONT LES PLUS FRAGILES (#577 ×4, #580 ×2) — Codex voit le point HAUT et manque le point BAS ⟹ CROPPER CHAQUE σ/K/Gr/cl : POINT ? HAUT ou BAS ? puis DEMANDER À LA MATH (le point du σ SUIT celui du Gr/K sur lequel il opère)** ; ★★★★**LE TITRE 7.11 : le POINT FINAL n'apparaît QUE si le TEXTE ENCHAÎNE sur la même ligne (#577) ⟹ REGARDER** ; ★★★★**CODEX FABRIQUE DES PHRASES MÉTA POUR COUVRIR SES OMISSIONS (#579) ⟹ «qu'on laisse au lecteur», «pour abréger», «comme on le voit aisément» ⟹ CROPPER** ; ★★★★**LES CÔTÉS TIKZCD : 9 FAUX en 3 pages ⟹ IMAGE OBLIGATOIRE** ; ★★★★**PARENS VIDES / INDICES FABRIQUÉS (#579 «X_s», #580 «Gr_•( )») ⟹ CROPPER CHAQUE «( )» ET CHAQUE INDICE** ; ★★★**«resp.»/«i.e.»/«cf.»/«Exp.»/«mod.» ⟹ CROPPER** ; ★★★**«Je dis que» (4 in-file)** ; ★★**FILTRE vrf : UN SEUL MOT COURT ET UNIQUE (les chaînes multi-mots se brisent sur le retour à la ligne, #579)** ; ★★**ancres TOUT EN RAW ; `assert count==1` ; ANCRER PAR BLOC quand le motif se répète** ; ★★**print() ASCII-ONLY**.
+
+**LIGNE-DRIFT #583 : net 0** (les 3 fix sont intra-ligne ou iso-lignes). **RE-GREP quand même en #581.**
+
+**SWEEP CURSOR → idx584 = p571 = Exposé X «- 53 -» (§7.11 «Équivalence algébrique en K-théorie»).**
+
+---
+
+### #579 (2026-07-16) — idx582 (vol p569 = **Exposé X «- 51 -»**, header «- 51 -» + **«X App.»** + footer «569** ; **CONSTANTE_X=518 CONFIRMÉE [569−51]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.10 suite — carrés de changement de base, tor-indépendance, (7.10.2)** — **4 rep-calls / ~8 changements** (bandes b1-b5 TOUTES lues + **5 crops HD 1400-3200dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (569−51 ; idx=569+13=582 ✓)** ; la page **se termine EN PLEIN MOT** sur «Or la commutativité de ces carrés résulte aussi-». Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **LA TROUVAILLE LA PLUS GRAVE DE TOUTE LA SÉRIE : CODEX A FABRIQUÉ UNE PHRASE POUR JUSTIFIER SA PROPRE FABRICATION**
+
+**LA DETTE #578 EST TRANCHÉE, ET LE VERDICT EST PIRE QUE PRÉVU.**
+`z582_open` (**1600dpi**) : **la p569 OUVRE DIRECTEMENT sur «Or ces deux carrés sont les carrés "de changement de base" déduits des…»** (nouveau paragraphe indenté). ⟹ ⚠⚠⚠ **LA PHRASE «la flèche diagonale gauche omise étant \(i_X^*\).» N'EXISTE PAS DANS LE LIVRE. NULLE PART.**
+
+Reconstituons ce que Codex a fait au prisme (*) de la p568 :
+1. il a **FABRIQUÉ** une flèche `\arrow[ur,"j_Y^*\,g_*"']` de K.(X) vers K.(Y_t) — **le livre ne dessine PAS cette diagonale**, et l'étiquette «j_Y^* g_*» est **inventée** ;
+2. il a **OMIS** la flèche `\arrow[dl,"i_X^*"]` (K.(X)→K.(X_s)) — **que le livre dessine** (⚠ **COMPTÉ : `"i_X^*"` = 0 dans TOUT le fichier ⟹ elle avait purement disparu**) ;
+3. ⚠⚠⚠ **puis il a ÉCRIT UNE PHRASE EXPLIQUANT SON PROPRE ESCAMOTAGE** : «la flèche diagonale gauche omise étant \(i_X^*\).»
+⟹ **CE N'EST PLUS DE LA PARAPHRASE, NI MÊME UNE OMISSION : C'EST UNE PHRASE FABRIQUÉE QUI COUVRE UN DIAGRAMME FABRIQUÉ.** Le texte devient **auto-cohérent et parfaitement plausible** — un lecteur n'a **aucun moyen interne** de le détecter. **Seul le scan le dit.**
+⟹ ⚠⚠ **ET MA DÉCISION #578 DE NE PAS CORRIGER UNE MOITIÉ DE FIGURE DONT LA NOTE ÉTAIT SUR LA PAGE SUIVANTE ÉTAIT LA BONNE** : si j'avais «corrigé» le prisme en #578 en gardant la phrase, j'aurais laissé une phrase fabriquée pointant sur une flèche désormais présente = **une incohérence pire que le défaut d'origine**. ⟹ **RÈGLE : NE JAMAIS CORRIGER UNE MOITIÉ DE FIGURE DONT L'EXPLICATION EST HORS-PAGE — REPORTER D'UNE PAGE.**
+**fix1 a donc : retiré la flèche fabriquée, RESTAURÉ `i_X^*`, remis «g_{s*}» AU-DESSUS, et SUPPRIMÉ LA PHRASE.** **IMAGE de vérif : le prisme a maintenant EXACTEMENT les QUATRE diagonales du livre (j*_X, i*_X, j*_Y, i*_Y) et AUCUNE autre** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix2 — UN INDICE FABRIQUÉ = DE LA MATH : «X_s» pour «X» :**
+`z582_XYs` (**1600dpi**) : le livre imprime «que **X** et Y_s sont tor-indépendants sur Y» — **le X n'a AUCUN indice** (⚠ **LE CONTRÔLE EST DANS LE CROP : le «Y_s» juste à côté porte un «s» net**). Codex : «que \(X_s\) et \(Y_s\)».
+⟹ ⚠⚠ **ET LA MATH TRANCHE INDÉPENDAMMENT** : la phrase de la MÊME PAGE (b1) énumère «des couples **(X,Y_t)** et **(X,Y_s)** de schémas sur Y qui sont tor-indépendants sur Y» ⟹ **le second couple EST (X,Y_s)** ⟹ **«X et Y_s» est EXIGÉ par la phrase qui précède** ⟹ **DEUX preuves convergent** (le motif #576). ⚠ **COMPTÉ : `que \(X_s\) et \(Y_s\)`=1 ⟹ LOCAL**.
+
+**⚠⚠⚠⚠ ★★★★ fix4 — UN POINT SURÉLEVÉ PRIS POUR UN ASTÉRISQUE : «K^·» → Codex «K^*» :**
+`z582_Kdot` + `z582_gstar` (**LES DEUX à 3200dpi = LA PAIRE DE CONTRÔLE**) :
+- «d'anneaux **K^·** .» — la marque après le K est un **PETIT POINT ROND à hauteur de capitale** ; le point de phrase à côté est un **carré sur la ligne de base** ⟹ **le contraste est DANS LE CROP**.
+- **LE CONTRÔLE, à la MÊME magnification** : «g_{t*} , g_* , g_{s*}» portent des **ASTÉRISQUES À SIX BRANCHES, GRANDS ET STRUCTURÉS** — **un glyphe COMPLÈTEMENT DIFFÉRENT**.
+⟹ **«K^·» = `K^\bullet`, PAS `K^*`.** ⚠ **COMPTÉ : `K^*`=1 (la mienne) contre `K^\bullet`=181 et `K^\circ`=367 ⟹ l'astérisque était un HAPAX ⟹ LOCAL, SÛR**. ⚠⚠ **ET LA MATH : «un diagramme d'anneaux K^·» — K^· EST L'ANNEAU** (cf #576) ✓.
+
+**⚠⚠⚠ ★★★ fix1/fix3 — DEUX AUTRES CÔTÉS D'ÉTIQUETTE FAUX** (le motif #578, qui en avait donné 5) : le «g_{s*}» du **prisme (*)** et le «g_s^*» de **(7.10.2)** sont **AU-DESSUS** dans le livre ; Codex les avait **primés = EN-DESSOUS**. ⟹ **7 côtés faux en deux pages, TOUS invisibles à l'extraction ET à la compilation.**
+
+**⚠⚠⚠ ★★★ fix1 — LES GUILLEMETS DROITS :** `z582_open` : le livre imprime «**"de changement de base"**» — **guillemets droits de machine** ⟹ règle-maison `«~…~»` (cf «~naïf~»#574, «~homomorphisme de spécialisation~»#575).
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z582_head` : «- 51 -» ✓ + «**X App.**» ✓.
+- ⚠⚠ **«Je dis qu'il en est alors de même de g_t et g_s» PRÉSERVÉ PAR CODEX** ✓ — **LE CHECK #578 A PAYÉ** : après avoir vu «Je dis qu'alors»→«Alors» en p568, je surveillais celui-ci ; **il est intact** ⟹ **Codex n'aplatit PAS systématiquement la locution ⟹ VÉRIFIER, ne pas présumer**.
+- ⚠⚠ **(7.10.2) : «σ_Y» à GAUCHE et «σ_X» à DROITE — ASYMÉTRIQUE — Codex a les DEUX justes ✓** (le même motif qu'en (7.10.1) : **l'étiquette de la verticale GAUCHE va à gauche, celle de la verticale DROITE va à droite**) ⟹ **NE PAS uniformiser sur (7.10.0), qui met ses 4 verticales à gauche**.
+- «g_t^*» AU-DESSUS ✓ ; la **VIRGULE finale** de (7.10.2) ✓ ; «K.(Y_t)» etc. points **BAS** ✓ `K_\bullet`.
+- ⚠ **«conditions de 7.7 i.e. sont à fibres régulières» — SANS virgule ✓ Codex CORRECT ICI** (⚠ alors qu'en p568 il en avait fabriqué une : **le MÊME auteur, la MÊME phrase, à deux pages d'écart — Codex correct une fois sur deux**).
+- «(IV 2.12)» ✓ ; «(IV 3)» ✓ (⚠ le livre écrit «(IV  3  )» avec des **espaces dactylo** — classe espacement, DEFERRED) ; «(7.10.0)» ✓.
+- **TOUTE la prose de b1/b2 = MATCH MOT À MOT** : «Il faut seulement vérifier que ces carrés correspondent à des couples (X,Y_t) et (X,Y_s) de schémas sur Y qui sont tor-indépendants sur Y. Cela est trivial pour le premier couple, Y_t ⟶ Y étant plat, et aussi immédiat pour le deuxième, l'immersion Y_s ⟶ Y étant régulière de codimension 1 et restant ainsi après le changement de base X ⟶ Y.» ✓ ; et b4 «…mais où les homomorphismes image directe g_{t*} , g_* , g_{s*} sont remplacés par les homomorphismes image inverse g_t^* , g^* , g_s^* .» ✓ **RIEN à corriger** ⟹ **Codex n'est pas uniformément mauvais**.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- **K^\bullet(181+1) vs K^\circ(367)** — LA DÉCISION GLOBALE, #574 est l'exhibit. **PRIORITAIRE** (⚠ **fix4 a ajouté un `K^\bullet` — cohérent avec les voisins**).
+- les **SOULIGNEMENTS** (#577 est L'EXHIBIT) ; le **𝐙 gras vs maigre** (#575) ; les **chevrons «< >»** (`\langle`=90, #577) ; les **eq-tags à GAUCHE** = leqno ; le **tiret des paires d'auteurs** (`--`=178, 14 paires) ; l'**INDEX qui se contredit** (#577) ; l'**espacement dactylo** («(IV  3  )», «g_{t*} , g_*») ; la **représentation 2D du prisme 3D** (LAYOUT tikzcd — ⚠ **mais les FLÈCHES sont désormais celles du livre**).
+
+**RENDER-VERIFY** (`vrf582c.py`) : «**Or ces deux carrés** sont les carrés **« de changement de base »** déduits des deux carrés (7.10.0), de sorte qu'on peut appliquer (IV 3).» ✓ **LA PHRASE FABRIQUÉE A DISPARU** ✓ **les guillemets sont convertis** ✓ ; «que **X** et Ys sont tor-indépendants sur Y» ✓ **l'indice fabriqué est parti** ✓ ; «**Je dis qu'il** en est alors de même de gt et gs» ✓ **intact** ; «diagramme d'anneaux **K•**.» ✓ **l'astérisque est parti** ✓ ; **IMAGE du prisme** : «K_•(X_t) --g_{t*}--> K_•(Y_t)», «K_•(X) --g_*--> K_•(Y)», **les QUATRE diagonales j*_X / i*_X / j*_Y / i*_Y** ✓, **AUCUNE flèche K_•(X)→K_•(Y_t)** ✓, tag «(*)» ✓ ⟹ **LE PRISME EST CELUI DU LIVRE**.
+⚠⚠⚠ **DEUX PIÈGES DE FILTRE, ET LES ASSERTS LES ONT ATTRAPÉS** : (a) «tor-indépendants»+«changement de base» ⟹ **2 hits** (158 et 306) = **TROP LARGE** ; (b) je l'ai resserré sur «Or ces deux carrés»+«tor-indépendants» ⟹ **0 hit — PARCE QUE LA PHRASE SE COUPE SUR UN SAUT DE LIGNE DANS LE RENDU** ⟹ ⚠⚠ **NOUVEAU PIÈGE : LES CHAÎNES DE FILTRE MULTI-MOTS SE BRISENT SUR LE RETOUR À LA LIGNE DU RENDU** ⟹ **filtrer sur des mots COURTS et UNIQUES, ou vider la page connue directement** ; **les `assert` ont bloqué les deux fois au lieu de me laisser vérifier la mauvaise page** (la leçon #575).
+
+**⚠ CHECKS POUR idx583 (p570) :** ⚠⚠ **la p569 se termine EN PLEIN MOT** sur «Or la commutativité de ces carrés résulte aussi-» ⟹ **p570 OUVRE sur «-tôt de celle des carrés correspondants (7.10.0), compte tenu de la transitivité des images inverses (IV 2.12).»** ; workpass ~**L13750+** (⚠ **ligne-drift #582 net 0, MAIS RE-GREP quand même**) : «Or la commutativité de ces carrés résulte aussitôt de celle des carrés correspondants (7.10.0), compte tenu de la transitivité des images inverses (IV 2.12).» + la suite (§7.11 ?) — **LIRE LE SCAN D'ABORD** ; ★★★★⚠⚠⚠ **CODEX FABRIQUE DES PHRASES ENTIÈRES POUR COUVRIR SES PROPRES OMISSIONS (#579) ⟹ TOUTE PHRASE MÉTA («la flèche … omise», «qu'on laisse au lecteur», «pour abréger», «comme on le voit aisément») EST SUSPECTE : LA CROPPER** ; ★★★★**LES CÔTÉS DES ÉTIQUETTES TIKZCD : 7 FAUX en deux pages, invisibles à l'extraction ⟹ RENDRE CHAQUE DIAGRAMME EN IMAGE** ; ★★★★**INDICES/EXPOSANTS FABRIQUÉS = MATH (#579 «X_s» pour «X») ⟹ CROPPER CHAQUE INDICE, puis DEMANDER À LA MATH** ; ★★★★**POINT SURÉLEVÉ vs ASTÉRISQUE (#579 «K^·»/«K^*») ⟹ CROPPER À 3200dpi AVEC UN «g_*» COMME CONTRÔLE** ; ★★★**«resp.»/«i.e.»/«cf.»/«mod.» ⟹ CROPPER** ; ★★★**«Je dis que» = signature Grothendieck (4 in-file)** ; ★★★**guillemets droits ⟹ `«~…~»`** ; ★★**FILTRE vrf : les chaînes multi-mots se brisent sur le retour à la ligne ⟹ mots COURTS et UNIQUES** ; ★★**ancres TOUT EN RAW** ; ★★**print() ASCII-ONLY**.
+
+**LIGNE-DRIFT #582 : net 0** (fix1 a supprimé une phrase EN MILIEU DE LIGNE ⟹ 0 ligne ; fix2/fix3/fix4 intra-ligne). **RE-GREP quand même en #580.**
+
+**SWEEP CURSOR → idx583 = p570 = Exposé X «- 52 -» (§7.10 fin : «-tôt de celle des carrés correspondants (7.10.0)…» + la suite).**
+
+---
+
+### #578 (2026-07-16) — idx581 (vol p568 = **Exposé X «- 50 -»**, header «- 50 -» + **«X App.»** + footer «568** ; **CONSTANTE_X=518 CONFIRMÉE [568−50]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.10 suite — (7.10.0) les deux carrés cartésiens, (7.10.1), le prisme (*)** — **5 rep-calls / ~9 changements** (bandes b1-b5 TOUTES lues + **7 crops HD 1200-2000dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (568−50 ; idx=568+13=581 ✓)** ; p567 finissait en pleine phrase ⟹ **p568 OUVRE sur «les morphismes i,j pour X (resp. Y) des fibres…» — ⚠ PREVIEW PARTIELLEMENT FAUX (voir ci-dessous)** ; la page **se termine sur le prisme (*)** + point final. Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠ **LA TROUVAILLE : LES CÔTÉS DES ÉTIQUETTES TIKZCD — CINQ FAUX, ET L'EXTRACTION NE PEUT PAS LES VOIR**
+
+`z581_d7100` (**1200dpi**) — **(7.10.0), les deux carrés cartésiens côte à côte** :
+⟹ ⚠⚠ **LES QUATRE flèches verticales ont leur étiquette À GAUCHE** («j_X», «j_Y», «i_X», «i_Y») ; Codex n'avait primé que `j_X`/`i_X` ⟹ **`j_Y` et `i_Y` étaient à DROITE** = **FAUX**.
+⟹ ⚠⚠ **LES DEUX «g» horizontaux sont AU-DESSUS** de leur flèche ; Codex les avait primés (`"g"'`) ⟹ **EN-DESSOUS** = **FAUX ×2**.
+`z581_d7101` (**1400dpi**) — **(7.10.1)** :
+⟹ ⚠⚠ **«g_{s*}» est AU-DESSUS** ; Codex `"g_{s*}"'` ⟹ **EN-DESSOUS** = **FAUX**.
+⟹ ⚠⚠⚠ **MAIS «σ_X» est à GAUCHE et «σ_Y» à DROITE — ASYMÉTRIQUE — et Codex a les DEUX justes ✓** ⟹ **LE LIVRE N'EST PAS UNIFORME : (7.10.0) met ses 4 verticales à GAUCHE, (7.10.1) en met une à gauche et une à droite** ⟹ **NE JAMAIS uniformiser ; CROPPER CHAQUE ÉTIQUETTE**.
+⟹ ⚠⚠ **AUCUN de ces 5 défauts n'apparaît dans l'extraction de texte** (les étiquettes tikzcd ne s'extraient pas, #571/#575) — **il a fallu RENDRE LES DEUX DIAGRAMMES EN IMAGE, à l'aller ET au retour**. **Compile 0-err : rien ne les signalait.**
+
+**⚠⚠⚠⚠ ★★★★ fix1 — SIX MOTS + UN **QUATRIÈME** «resp.» DROPPÉS, ET UN MOT CHANGÉ, ET UN SINGULIER PLURALISÉ :**
+`z581_ij` (**1600dpi**) : le livre imprime «…et par i_X, j_X (resp. i_Y, j_Y) **les morphismes i,j pour X (resp. Y)** des fibres spéciales et **générales** dans **le schéma ambiant**.»
+Codex : «…(resp. \(i_Y,j_Y\)) les morphismes des fibres spéciales et **génériques** dans **les schémas ambiants**.»
+⟹ (a) ⚠⚠⚠ **«i,j pour X (resp. Y)» = DROPPÉ EN ENTIER — 6 MOTS + un QUATRIÈME «resp.»** (⚠ **#577 en avait déjà détruit TROIS sur la phrase PRÉCÉDENTE — c'est la MÊME phrase qui continue !**). L'apposition du livre explicite que «i_X,j_X (resp. i_Y,j_Y)» **sont** «les morphismes i,j pour X (resp. Y)» — sans elle, la phrase perd son antécédent.
+⟹ (b) ⚠⚠ **«générales» → «génériques»** — **UN MOT CHANGÉ** (⚠ **COMPTÉ : «fibres spéciales et générales»=0, «…et génériques»=1 = la mienne ⟹ LOCAL** ; ⚠ «générales» est inhabituel — on dit d'ordinaire «fibre générique» — **mais le livre fait autorité, reproduit SIC**).
+⟹ (c) ⚠⚠ **«le schéma ambiant» (SINGULIER) → «les schémas ambiants» (PLURIEL)** (`z581_ambiant` **2000dpi** ; ⚠ **COMPTÉ : «le schéma ambiant»=0, «les schémas ambiants»=1 ⟹ LOCAL**).
+
+**⚠⚠⚠⚠ ★★★★ fix3 — «Je dis qu'alors» EFFACÉ : UNE SIGNATURE DE GROTHENDIECK :**
+`z581_jedis` (**1600dpi**) : le livre : «Supposons d'abord g **propre**̲. **Je dis qu'alors** le diagramme suivant est commutatif :». Codex : «Supposons d'abord \(g\) propre. **Alors** le diagramme suivant…»
+⟹ ⚠⚠ **TROIS MOTS → UN.** ⚠⚠ **«Je dis que» EST UNE LOCUTION-SIGNATURE DE GROTHENDIECK** — ⚠ **COMPTÉ : «Je dis qu»=4 dans le fichier** (dont **L13739 «Je dis qu'il en est alors de même de g_t et g_s» à DOUZE LIGNES de là**, et L6560 «Je dis que l'homomorphisme (3.2.1.1) est un isomorphisme») ⟹ **LA MAISON GARDE LA LOCUTION ⟹ DÉFAUT CERTAIN** ; le render-verify le montre : «Je dis qu'alors» et «Je dis qu'il en est alors de même» **sur la même page rendue**.
+
+**⚠⚠⚠ ★★★ fix5 — UNE VIRGULE FABRIQUÉE, ET LE FICHIER SE CONTREDIT LUI-MÊME :**
+`z581_ie77` (**1600dpi**) : le livre : «conditions de 7.7 **i.e.** sont à fibres régulières» — **AUCUNE virgule avant «i.e.»**. Codex : «conditions de 7.7**,** i.e.» ⟹ **VIRGULE FABRIQUÉE**.
+⚠⚠ **COMPTÉ : «de 7.7, i.e.»=1 (la mienne) / «de 7.7 i.e.»=1 (L13748)** ⟹ **LA MÊME PHRASE APPARAÎT DEUX FOIS DANS LE FICHIER, UNE FOIS AVEC VIRGULE ET UNE FOIS SANS** ⟹ **la forme SANS virgule (= celle du livre) EXISTE DÉJÀ ⟹ fix LOCAL SÛR, et l'incohérence interne se résorbe d'elle-même**.
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z581_head` : «- 50 -» ✓ + «**X App.**» ✓.
+- ⚠⚠ **le display «g_t : X_t ⟶ Y_t **,** g_s : X_s ⟶ Y_s» est RÉEL** (rien ne suit sur la ligne) ✓ **et la VIRGULE entre les deux est bien celle du livre** ✓ Codex `,\qquad` ✓ **CORRECT** ⟹ **le motif «,\qquad suspect» ne se déclenche PAS ici — vérifier, ne pas présumer**.
+- ⚠⚠ **les tags (7.10.0) ET (7.10.1) sont CORRECTS** ✓ (je craignais une renumérotation — **un check reporté n'est pas une constatation, et celui-ci était STÉRILE**).
+- «g_t»/«g_s» AU-DESSUS ✓ ; «j_X»/«i_X» à GAUCHE ✓ ; **«σ_X» GAUCHE / «σ_Y» DROITE ✓ (l'asymétrie du livre !)** ; les points finaux des deux diagrammes ✓.
+- «K.(X_t)» etc. = points **BAS** ✓ `K_\bullet` ; «des **K^·**» = point **HAUT** ✓ `K^\bullet` (`z581_recrire`) ⟹ **le livre OPPOSE les deux SUR LA MÊME PAGE**.
+- «**i.e.**» PRÉSERVÉE ✓ ; «généralise **7.5**» et «conditions de **7.7**» **NUES** ✓ ; «**(7.3.2)**» parenthésée ✓ ; «(car pour X = S, …)» parenthèse ✓ ; «de **𝐙**» ✓ ; «**tor-dimension**» ✓ ; «qu'on laisse au lecteur **de récrire**» ✓ **mot pour mot**.
+
+**⚠⚠⚠⚠ DEFERRED — ★★★★ LE PRISME (*) : UNE FLÈCHE FABRIQUÉE ET UNE FLÈCHE OMISE, MAIS LA NOTE EXPLICATIVE EST SUR LA PAGE SUIVANTE :**
+`p581_b4`/`p581_b5` : le livre dessine un **PRISME 3D** : face haute «K.(X_t) --g_{t*}--> K.(Y_t)», face milieu «K.(X) --g*--> K.(Y)», face basse «K.(X_s) --g_{s*}--> K.(Y_s) .», **plus QUATRE diagonales** («j*_X» : K.(X)→K.(X_t) ; «i*_X» : K.(X)→K.(X_s) ; «j*_Y» : K.(Y)→K.(Y_t) ; «i*_Y» : K.(Y)→K.(Y_s)) **plus DEUX verticales longues NUES** (σ_X, σ_Y).
+⟹ ⚠⚠⚠ **Codex (L13731) a `\arrow[ur,"j_Y^*\,g_*"']` de K.(X) vers K.(Y_t) — UNE FLÈCHE QUE LE LIVRE N'A PAS, AVEC UNE ÉTIQUETTE INVENTÉE** ; et il a **OMIS** `\arrow[dl,"i_X^*"]` (K.(X)→K.(X_s)) ; puis **L13737 AJOUTE une phrase** : «la flèche diagonale gauche omise étant \(i_X^*\)».
+⟹ ⚠⚠ **CETTE PHRASE EST SUR LA p569 — QUE JE N'AI PAS ENCORE CROPPÉE.** Si le livre ne l'a pas, c'est **une phrase entièrement fabriquée pour justifier une omission**. ⟹ **JE NE CORRIGE PAS UNE MOITIÉ DE FIGURE DONT LA NOTE EST SUR LA PAGE SUIVANTE** ⟹ **À TRANCHER EN #579 (idx582 = p569), NOTE EN MAIN.** ⚠ La **représentation 2D d'un prisme 3D** relève par ailleurs du LAYOUT tikzcd (deferred) — **mais une flèche fabriquée et une flèche omise sont du CONTENU**.
+
+**⚠⚠⚠ AUTRES DEFERRED (loggés, non édités) :**
+- **les SOULIGNEMENTS** : «**propre**̲» (7.10.1), «**lisse**̲», «**monomorphismes**̲» ⟹ **la règle #577 tient : le livre souligne les mots français, pas les symboles** ; **#577 reste L'EXHIBIT**.
+- ⚠ **le `\to` vs `\longrightarrow` dans le display g_t/g_s** : le livre dessine une flèche **LONGUE** ; Codex écrit `\to` (courte). Les flèches du livre sont **tracées à la main** ⟹ leur longueur n'est **pas une preuve d'intention** (même classe que le tiret `--` et le 𝐙 gras) ⟹ **DEFERRED**.
+- **K^\bullet(178+2) vs K^\circ(367)** — LA DÉCISION GLOBALE, #574 est l'exhibit. **PRIORITAIRE** ; le **𝐙 gras vs maigre** (#575) ; les **chevrons «< >» vs `\langle`** (90, #577) ; les **eq-tags à GAUCHE** = leqno ; le **tiret des paires d'auteurs** (`--`=178, 14 paires) ; l'**INDEX qui se contredit** (#577).
+
+**RENDER-VERIFY** (`vrf581.py`, filtre «carrés cartésiens»+«récrire» ⟹ **1 hit** ✓ **calibré du 1er coup**, pages 304/305/306 vidées ; **+ DEUX IMAGES**, chacune avec `assert len(r)==1` sur son ancre — la leçon #575) : «et par iX, jX (resp. iY, jY) **les morphismes i, j pour X (resp. Y)** des fibres spéciales et **générales** dans **le schéma ambiant**.» ✓ ; «Supposons d'abord g propre. **Je dis qu'alors** le diagramme suivant est commutatif :» ✓ (**et «Je dis qu'il en est alors de même» apparaît 12 lignes plus bas — la confirmation est SUR LA PAGE RENDUE**) ; «conditions de 7.7 **i.e.** sont à fibres régulières» ✓ **sans virgule** ✓ (**et identique à celle de L13748 désormais**) ; «avec des K•, qu'on laisse au lecteur de récrire.» ✓.
+**IMAGE d7100** : «j_X» **GAUCHE**, «j_Y» **GAUCHE**, «i_X» **GAUCHE**, «i_Y» **GAUCHE**, «g_t»/«g_s» **AU-DESSUS**, **les DEUX «g» AU-DESSUS**, «Y.» final ✓ ⟹ **LES 4 DÉFAUTS DE CÔTÉ CORRIGÉS**.
+**IMAGE d7101** : «g_{t*}» AU-DESSUS ✓, «σ_X» **GAUCHE** ✓, «σ_Y» **DROITE** ✓ (**asymétrie préservée**), «g_{s*}» **AU-DESSUS** ✓, «K_•(Y_s).» ✓.
+
+**⚠ CHECKS POUR idx582 (p569) :** ⚠⚠ **la p568 se termine sur le prisme (*) + point** ⟹ **p569 OUVRE probablement sur «Or ces deux carrés sont les carrés "de changement de base" déduits des deux carrés (7.10.0)…» — ⚠⚠ MAIS VÉRIFIER D'ABORD SI LA PHRASE «la flèche diagonale gauche omise étant i_X^*» EXISTE DANS LE LIVRE** ; workpass ~**L13737+** (⚠ **ligne-drift #581 net 0, MAIS RE-GREP quand même**) : «la flèche diagonale gauche omise étant \(i_X^*\). Or ces deux carrés sont les carrés "de changement de base" déduits des deux carrés (7.10.0), de sorte qu'on peut appliquer (IV 3). Il faut seulement vérifier que ces carrés correspondent à des couples \((X,Y_t)\) et \((X,Y_s)\)…» + «Ne supposons plus maintenant \(g\) propre, mais supposons-le en revanche de tor-dimension finie. Je dis qu'il en est alors de même de \(g_t\) et \(g_s\)…» + «\tag{7.10.2}» — **LIRE LE SCAN D'ABORD** ; ★★★★⚠⚠ **LE PRISME (*) EST EN SUSPENS DEPUIS #578 : Codex a FABRIQUÉ `\arrow[ur,"j_Y^*\,g_*"']` (le livre n'a PAS cette flèche) et OMIS `i_X^*` ⟹ TRANCHER AVEC LA NOTE p569 EN MAIN** ; ★★★★**LES CÔTÉS DES ÉTIQUETTES TIKZCD : 5 FAUX en #578, INVISIBLES à l'extraction ⟹ RENDRE CHAQUE DIAGRAMME EN IMAGE, À L'ALLER ET AU RETOUR ; le livre N'EST PAS UNIFORME (7.10.0 : 4 verticales à gauche ; 7.10.1 : une gauche + une droite)** ; ★★★★**«resp.» : #577 en a détruit 3, #578 un 4e — TOUS SUR LA MÊME PHRASE ÉTENDUE ⟹ CROPPER CHAQUE «et»/«respectivement»** ; ★★★★**«Je dis que» = signature Grothendieck (4 in-file) ⟹ VÉRIFIER que Codex ne l'a pas aplatie en «Alors»** ; ★★★★**MOTS CHANGÉS : «générales»→«génériques» (#578) ⟹ LIRE MOT À MOT, même les adjectifs** ; ★★★**guillemets droits «de changement de base» ⟹ `«~…~»` ?** ; ★★★**«(IV 3)» / «(IV 2.12)» ⟹ nues ou parenthésées ?** ; ★★**ancres TOUT EN RAW** ; ★★**print() ASCII-ONLY**.
+
+**LIGNE-DRIFT #581 : net 0** (les 5 fix sont intra-ligne ou iso-lignes). **RE-GREP quand même en #579.**
+
+**SWEEP CURSOR → idx582 = p569 = Exposé X «- 51 -» (§7.10 suite : les carrés de changement de base, tor-indépendance, + (7.10.2) ; ⚠ ET LE PRISME (*) EN SUSPENS).**
+
+---
+
+### #577 (2026-07-16) — idx580 (vol p567 = **Exposé X «- 49 -»**, header «- 49 -» + **«X App.»** + footer «567** ; **CONSTANTE_X=518 CONFIRMÉE [567−49]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.9 fin (7.9.3), 7.9.4 + §7.10 «Compatibilité avec les images directes et images inverses» début** — **6 rep-calls / ~20 changements** (bandes b1-b5 TOUTES lues + **11 crops HD 1000-2400dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (567−49 ; idx=567+13=580 ✓)** ; p566 finissait sur (7.9.2) ⟹ **p567 OUVRE sur «dont ils sont déduits est compatible…» — PREVIEW CONFIRMÉ** ; la page **se termine EN PLEINE PHRASE** sur «et par i_X, j_X (resp. i_Y,j_Y)». Compile **0-err, 382pp** ✓. **LA PAGE LA PLUS DENSE EN DÉFAUTS DE LA SÉRIE.**
+
+# ⚠⚠⚠⚠ **LE MOT «pour» → PARENS FABRIQUÉES : **3/3** — LE MOTIF EST CONFIRMÉ**
+
+`z580_p793Z` (**2400dpi**) : le livre imprime **(7.9.3)** «< σ.(x_t), σ^·(y_t) > = <x_t,y_t>    **pour**  x_t ∈Gr.(X_t)  y_t ∈ Gr^·(X_t) **,**».
+Codex : `\langle\sigma(x_t),\sigma^\bullet(y_t)\rangle = \langle x_t,y_t\rangle \qquad (x_t\in\Gr_\bullet(X_t),\ y_t\in\Gr^\bullet(X_t)),`
+⟹ (a) ⚠⚠⚠ **«pour» REMPLACÉ PAR DES PARENTHÈSES FABRIQUÉES — 3/3** (#570 «x λ_{-1}(N) **pour** x∈K.(Y)» ; #573 «χ_t(x) **pour** x∈K.(X_t)» ; **#577**) ⟹ **CODEX CONVERTIT SYSTÉMATIQUEMENT LE QUANTIFICATEUR EN PROSE DE L'AUTEUR EN NOTATION** ⟹ restauré en `\qquad\text{pour }` (style-maison, 17 usages).
+⟹ (b) ⚠⚠ **«σ.(x_t)» = point SUR LA LIGNE DE BASE** ⟹ `\sigma_\bullet` ; **Codex avait `\sigma` NU** (le même défaut qu'en #576 (7.9.1) ligne 1) ; «σ^·(y_t)» raisé ✓ Codex correct.
+⟹ (c) ⚠⚠ **AUCUNE VIRGULE entre «Gr.(X_t)» et «y_t»** — le livre met **UN SIMPLE ESPACE** (2400dpi : blanc) ⟹ **virgule FABRIQUÉE**.
+
+**⚠⚠⚠⚠ ★★★★ fix4+5 — 7.9.4 : UN SEUL rep-call, HUIT défauts imbriqués :**
+`z580_grnum` / `z580_isomo` / `z580_partic` / `z580_knum` :
+Livre : «…par la relation d'équivalence numérique **Gr.^{num}** **et** **Gr^·_{num}** . **Du moins** ce qui précède implique que **le groupe** **Gr.^{num}**(X_t) est isomorphe à un quotient d'un sous-groupe de **Gr.^{num}**(X_s) **(et en particulier, il a un rang au plus égal à celui de Gr.^{num}(X_s))**, **et de même pour** Gr^·_{num}, et aussi pour **K^·_{num}** lui-même.»
+⟹ (a) ⚠⚠⚠ **DISPLAY-FICTIF #34 : TOUT EST INLINE — la ligne CONTINUE «. Du moins ce qui précède…»** ; Codex en avait fait un `\[…\]`.
+⟹ (b) ⚠⚠ **LE «et» AVALÉ — 4e FOIS** (#564/#572/#574/#577) : Codex écrit «**,\qquad**» là où le livre met «**et**».
+⟹ (c) **«Du moins ce qui»** — **PAS de virgule** ⟹ Codex «Du moins**,** ce qui» = **VIRGULE FABRIQUÉE**.
+⟹ (d) **«que le groupe Gr.^{num}(X_t)»** ⟹ Codex a droppé «**le groupe**» = **2 MOTS**.
+⟹ (e) ⚠⚠ **LE POINT DE BASE DROPPÉ ×3** : le livre a «**Gr.**^{num}(X_t/X_s)» = `\Gr_\bullet^{\mathrm{num}}` ; **Codex écrivait `\Gr^{\mathrm{num}}` — SANS AUCUN point**.
+⟹ (f) **«(et en particulier…))»** = **PARENTHÈSES** ⟹ Codex «**;** en particulier…» = **PARENS → POINT-VIRGULE**.
+⟹ (g) **«il a un rang»** ⟹ «**son rang est**» = **PARAPHRASE**.
+⟹ (h) ⚠⚠⚠ **«celui de Gr.^{num}(X_s)» ⟹ «celui de CE DERNIER GROUPE»** = **UNE FORMULE DISSOUTE EN GROUPE PRONOMINAL — LA TROISIÈME FOIS** (#574 «l'homomorphisme (7.7.1) est»→«c'est» ; #576 la réf droppée) ⟹ **CODEX REMPLACE LES EXPRESSIONS EXPLICITES PAR DES ANAPHORES.**
+⟹ (i) **«, et de même pour»** ⟹ «**. Il en va de même pour**» = **SCISSION + PARAPHRASE**.
+⟹ (j) ⚠⚠ **«K^·_{num}» — POINT SURÉLEVÉ ⟹ Codex `K_{\mathrm{num}}` = AUCUN point** ⟹ restauré `K^\bullet_{\mathrm{num}}`.
+⚠ **NOTATION REMARQUABLE : le «num» CHANGE DE CÔTÉ pour ne pas heurter le point** — «**Gr.^{num}**» (point BAS + num EXPOSANT) vs «**Gr^·_{num}**» (point HAUT + num INDICE) ⟹ **économie de dactylo, et Codex a bien reproduit l'ARRANGEMENT** ✓ (seul le point manquait).
+
+**⚠⚠⚠⚠ ★★★★ fix7 — TROIS «resp.» DÉTRUITS SUR UNE PHRASE, DE TROIS FAÇONS DIFFÉRENTES :**
+`z580_resp1` / `z580_resp2` (**1600dpi**) : le livre : «On désigne par **σ_X (resp. σ_Y)** **l'homomorphisme** de spécialisation pour **X (resp. Y)**, et par **i_X, j_X (resp. i_Y, j_Y)**».
+Codex : «On désigne par σ_X **et** σ_Y **les homomorphismes** de spécialisation pour X **et** Y, et par i_X,j_X**, respectivement** i_Y,j_Y**,**».
+⟹ (a) «(resp. σ_Y)» → «**et** σ_Y» ; (b) «pour X (resp. Y)» → «pour X **et** Y» ; (c) «(resp. i_Y,j_Y)» → «**, respectivement** i_Y,j_Y**,**» = **ABRÉVIATION DÉVELOPPÉE + PARENS→VIRGULES**.
+⟹ ⚠⚠⚠ **ET LE DÉFAUT EN CASCADE — LE MOTIF #575 EXACTEMENT** : détruire le «resp.» **A FORCÉ** «l'homomorphisme» (SINGULIER) → «**les homomorphismes**» (PLURIEL) ⟹ **UN défaut en FABRIQUE un autre** (cf #575 : dropper les guillemets a forcé «de»→«d'»).
+⟹ ⚠ **COMPTÉ : «resp.»=402 / «respectivement»=25 ⟹ la maison GARDE l'abréviation ⟹ DÉFAUT CERTAIN.**
+
+**⚠⚠⚠ ★★★ fix3 — L'ABRÉVIATION «mod.torsion» DÉVELOPPÉE + LE TIRET DROPPÉ :**
+`z580_modt` (**2000dpi**) : le livre : «est un épimorphisme **mod.torsion**, **-** circonstance qui…» — ⚠ **«mod.torsion» est écrit COLLÉ** (pas d'espace après le point).
+Codex : «est un épimorphisme **modulo torsion**, circonstance…» ⟹ (a) **ABRÉVIATION DÉVELOPPÉE** (le motif «cl.»→«classes» #572, «resp.»→«et» #575) ; (b) ⚠⚠ **LE TIRET APRÈS LA VIRGULE ENTIÈREMENT DROPPÉ**.
+⚠ **COMPTÉ : «modulo torsion»=21 dans le fichier, «mod.»=32** ⟹ **les DEUX formes existent ⟹ je ne corrige QUE ma page (crop-justifiée) ; les 20 autres restent — le livre les écrit peut-être en toutes lettres** ⟹ **NE PAS uniformiser**.
+
+**⚠⚠⚠ BOOK-SIC #44 — «exceptio*n*ellement» :** `z580_except` (**2400dpi**) : le livre imprime «qu'assez **exceptionellement**» — **UN SEUL «n»** (le français correct veut «exceptio**nn**ellement»). Codex avait la forme correcte ⟹ **le sic RESTAURÉ**. ⚠ **COMPTÉ : «exceptionnellement»=1 (la mienne) ⟹ LOCAL ✓.**
+
+**⚠⚠⚠ BOOK-SIC #45 — «Donnons nous» :** `z580_t710` (**1200dpi**) : le livre imprime «**Donnons nous** un morphisme» — **AUCUN TRAIT D'UNION** (le français correct veut «Donnons-nous»). Codex avait «Donnons-nous» ⟹ **le sic RESTAURÉ**. ⚠ **COMPTÉ : «Donnons-nous»=1 ⟹ LOCAL ✓.**
+
+**⚠⚠ ★★ fix1 — TROIS MOTS DROPPÉS :** le livre : «et grâce à (7.5.1), on **trouve que l'on** a» ; Codex : «on a» ⟹ **«trouve que l'on» DROPPÉ**.
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z580_head` : «- 49 -» ✓ + «**X App.**» ✓.
+- ⚠⚠⚠⚠ **LE TITRE 7.10 N'A **PAS** DE POINT FINAL — ET ÇA AFFINE LA RÈGLE** : `z580_t710` montre «7.10.  Compatibilité avec les images directes et images inverses» **SEUL SUR SA LIGNE**, **sans point**, suivi d'un **NOUVEAU PARAGRAPHE indenté** («Donnons nous…»). ⟹ **Codex `\subsection*{7.10. …}` SANS point = CORRECT** ✓. ⟹ ⚠⚠ **LA RÈGLE AFFINÉE : le POINT n'apparaît QUE quand le TEXTE ENCHAÎNE sur la même ligne** (7.5/7.6/7.7/7.8/7.9) ; **quand le titre TERMINE la ligne, il n'y a PAS de point** (7.10). ⟹ **NE PAS ajouter mécaniquement un point à chaque titre — REGARDER SI LE TEXTE ENCHAÎNE.**
+- ⚠⚠ **«i.e.» PRÉSERVÉE** ✓ (7.9.4) ; **«resp.» PRÉSERVÉE** dans «(resp. de Gr^·(X_t))» et «(resp. σ^·(x))» ✓ ⟹ **Codex ne détruit PAS systématiquement les abréviations — VÉRIFIER, ne pas présumer** (cf #576 «cf.» préservée).
+- «(4.5.1)» ✓ parenthésée ; «**de 4.1**» ✓ **NUE** ; «(7.9.2)» ✓ ; «(7.9.1)» ✓ ; «(7.5.1)» ✓ ⟹ **le livre mêle NUES et parenthésées SUR CETTE PAGE AUSSI**.
+- «Gr^·_{num}» ✓ `\Gr_{\mathrm{num}}^\bullet` **Codex correct** ; l'arrangement num-indice/num-exposant ✓.
+- «σ_X»/«σ_Y» **sans point** ✓ Codex correct ; «monomorphismes» ✓ ; «Module»/«groupe» ✓.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠⚠⚠⚠ **LES SOULIGNEMENTS — L'EXHIBIT DÉFINITIF EST SUR CETTE PAGE.** La phrase «on déduit formellement que **si x est un élément de**̲ Gr.(X_t) (**resp. de**̲ Gr^·(X_t)) **tel que**̲ σ.(x) (**resp.**̲ σ^·(x) ) **soit numériquement équivalent à zéro**̲ (4.5.1), **alors il en est de même de**̲ x.» ⟹ ⚠⚠⚠ **LE TRAIT ALTERNE : IL COUVRE CHAQUE FRAGMENT FRANÇAIS ET S'INTERROMPT SUR CHAQUE SYMBOLE MATHÉMATIQUE** — sur UNE phrase, SIX fois. ⟹ **LA RÈGLE #576 («le livre souligne les mots français, pas les symboles») EST PROUVÉE AU-DELÀ DU DOUTE.** Idem «lisse»̲, «monomorphismes»̲, «intègre»̲, le titre 7.10̲. ⟹ **quand la décision «soulignements» s'ouvrira, CETTE PAGE EST L'EXHIBIT.**
+- ⚠⚠ **LES CHEVRONS «< >» vs `\langle`/`\rangle`** : le livre imprime «**< x,y >**» avec des **< et > de machine à écrire, ESPACÉS** (la machine n'a QUE ça ⟹ **PAS une preuve d'intention**, même classe que le 𝐙 gras et le tiret `--`). ⚠ **COMPTÉ : `\langle`=90 / `\rangle`=90 ⟹ CONVENTION DOCUMENT-WIDE ⟹ DEFERRED**.
+- ⚠⚠⚠ **K^\bullet(178+2) vs K^\circ(367), `\Gr^\bullet`(63) — LA DÉCISION GLOBALE ; #574 EST L'EXHIBIT. PRIORITAIRE** (⚠ **#577 a ajouté `K^\bullet_{\mathrm{num}}` — cohérent avec les voisins de la page**).
+- l'**espace dactylo avant le point** («Gr^· . De ceci», «Gr^·_{num} . Du moins», «σ^·(x) )») ; le **𝐙 gras vs maigre** (#575) ; l'**exposant H^O/H^°** ; les **eq-tags à GAUCHE** = leqno ; le **tiret des paires d'auteurs** (`--`=178, 14 paires) ; la **STRUCTURE des titres**.
+- ⚠ **L'INDEX SE CONTREDIT** : L16878 «\(\operatorname{Gr}'_{\num},\ \operatorname{Gr}_{\cdot}^{\num}\)» et L16889 «\(K'_{\num},\ K_{\cdot}^{\num}\)» — **l'index utilise «Gr'»/«K'» (PRIME) là où le corps met un point surélevé, et `K_{\cdot}^{\num}` (point INDICE + num EXPOSANT) là où la p567 met «K^·_{num}» (point EXPOSANT + num INDICE)** ⟹ **À EXAMINER quand l'index sera atteint — NE PAS toucher depuis ici.**
+
+**RENDER-VERIFY** (`vrf580.py`, filtre «exceptionellement»+«accouplements» ⟹ **1 hit** ✓ **calibré du 1er coup**, pages 303/304/305 vidées ; **+ IMAGE du (7.9.3)** avec `assert len(r)==1` sur l'ancre — la leçon #575) : «on **trouve que l'on** a» ✓ ; «⟨σ•(xt), σ•(yt)⟩= ⟨xt, yt⟩ **pour** xt ∈Gr•(Xt)  yt ∈Gr•(Xt),» ✓ **«pour» + AUCUNE virgule** ✓ ; **IMAGE** : «⟨**σ_•**(x_t), **σ^•**(y_t)⟩ = ⟨x_t,y_t⟩ **pour** x_t ∈ **Gr_•**(X_t)  y_t ∈ **Gr^•**(X_t),» ⟹ **INDICE vs EXPOSANT reproduits** ✓ ; «est un épimorphisme **mod.torsion**, **–** circonstance … qu'assez **exceptionellement**.» ✓ ; «numérique **Gr^num_• et Gr^•_num. Du moins ce qui précède implique que le groupe Gr^num_•(X_t)** … de **Gr^num_•(X_s)** **(et en particulier, il a un rang au plus égal à celui de Gr^num_•(X_s))**, **et de même pour** Gr^•_num, et aussi pour **K^•_num** lui-même.» ✓ **TOUT INLINE** ✓ ; «7.10. Compatibilité avec les images directes et images inverses» ✓ **sans point** ✓ ; «**Donnons nous** un morphisme» ✓ ; «par σX **(resp.** σY**)** **l'homomorphisme** de spécialisation pour X **(resp.** Y**)**, et par iX, jX **(resp.** iY, jY**)** les morphismes» ✓ **LES TROIS resp. + LE SINGULIER** ✓.
+⚠⚠ **L'EXTRACTION APLATIT ENCORE `_\bullet`/`^\bullet`** («σ•(x) (resp. σ•(x))» — les deux IDENTIQUES dans le dump) ⟹ **SANS L'IMAGE, les fix des points étaient INVÉRIFIABLES** (leçon #576 re-confirmée).
+
+**⚠ CHECKS POUR idx581 (p568) :** ⚠⚠ **la p567 se termine EN PLEINE PHRASE** sur «et par i_X, j_X (resp. i_Y,j_Y)» ⟹ **p568 OUVRE sur «les morphismes des fibres spéciales et génériques dans les schémas ambiants. Nous désignons par…»** ; workpass ~**L13702+** (⚠ **ligne-drift #580 net −5 ⟹ RE-GREP OBLIGATOIRE**) : «…les morphismes des fibres spéciales et génériques dans les schémas ambiants. Nous désignons par» + «\(g_s:X_s\to Y_s\)», «\(g_t:X_t\to Y_t\)» + «\tag{7.10.1}» + «(7.10.2)» — **LIRE LE SCAN D'ABORD** ; ★★★★**«resp.» — TROIS détruits en #577, sur UNE phrase, de TROIS façons ; et ça CASCADE (singulier→pluriel) ⟹ CROPPER CHAQUE «et»/«respectivement» DE CODEX** ; ★★★★**«pour»→PARENS = 3/3 ⟹ CHAQUE `\qquad(…)` EST SUSPECT** ; ★★★★**LE POINT DE BASE/SURÉLEVÉ DROPPÉ ×4 en #577 (σ ×3, K^·_num) ⟹ CROPPER CHAQUE σ/K/Gr : point ? HAUT ou BAS ?** ; ★★★★**L'EXTRACTION APLATIT LES POINTS ⟹ IMAGE OBLIGATOIRE** ; ★★★★**FORMULE→PRONOM = 3 fois (#574/#576/#577) ⟹ VÉRIFIER que chaque «ce dernier»/«celui-ci»/«c'» n'a pas remplacé une EXPRESSION EXPLICITE** ; ★★★★**DISPLAY-FICTIF #34 ⟹ LE CRITÈRE : RIEN NE SUIT la formule sur la ligne** ; ★★★**TITRES : ⚠⚠ LA RÈGLE EST AFFINÉE (#577) — le POINT n'apparaît QUE si le TEXTE ENCHAÎNE ; si le titre TERMINE la ligne, PAS de point (7.10 ✓ Codex correct)** ; ★★★**«mod.»/«i.e.»/«cf.»/«resp.» ⟹ CROPPER** ; ★★**ancres TOUT EN RAW** ; ★★**print() ASCII-ONLY**.
+
+**LIGNE-DRIFT #580 : net −5** (fix4+5 a aplati un bloc de 6 lignes en 1 ⟹ −5 ; fix1/fix2/fix3/fix6/fix7 intra-ligne ou iso-lignes). **RE-GREP OBLIGATOIRE en #578.**
+
+**SWEEP CURSOR → idx581 = p568 = Exposé X «- 50 -» (§7.10 suite : g_s/g_t, les morphismes des fibres, (7.10.1)).**
+
+---
+
+### #576 (2026-07-16) — idx579 (vol p566 = **Exposé X «- 48 -»**, header «- 48 -» + **«X App.»** + footer «566» ; **CONSTANTE_X=518 CONFIRMÉE [566−48]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.8 fin (Auslander-Buchsbaum, prolongement de L_t) + §7.9 «Spécialisation et équivalence numérique» début** — **5 rep-calls / ~16 changements** (bandes b1-b5 TOUTES lues + **12 crops HD 1000-4800dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (566−48 ; idx=566+13=579 ✓)** ; p565 finissait sur (7.8.1) ⟹ **p566 OUVRE sur «Une façon équivalente de décrire ce dernier…» — PREVIEW CONFIRMÉ** ; la page **se termine sur le display (7.9.2)** + marge blanche. Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠ **LA TROUVAILLE : (7.9.2) — CODEX A MIS UN INDICE LÀ OÙ LE LIVRE MET UN EXPOSANT ⟹ IL A CHANGÉ LE MODULE EN ANNEAU**
+
+`z579b_792sig` (**4800dpi, clip serré**) : le livre imprime «σ : **K^·**(X_t) ⟶ **K^·**(X_s)» — **le point est à HAUTEUR DE CAPITALE**. ⚠⚠ **LE CONTRÔLE EST DANS LE CROP** : le «**:**» juste avant a son point INFÉRIEUR sur la ligne de base, **très en dessous** du point du K. Codex écrivait `\sigma:K_\bullet(X_t)\longrightarrow K_\bullet(X_s)` = **INDICES**.
+⟹ ⚠⚠⚠ **CE N'EST PAS LA QUESTION DEFERRED `\bullet`/`\circ`** (celle-là oppose deux graphies du MÊME exposant) : **c'est EXPOSANT vs INDICE = ANNEAU vs MODULE = DE LA MATH.**
+⟹ ⚠⚠ **ET LA MATH TRANCHE INDÉPENDAMMENT DU CROP** : la phrase qui suit dit «…**est compatible avec les structures d'anneaux**» — **K^· EST L'ANNEAU** (fibrés vectoriels, produit tensoriel) ; **K_• n'est qu'un MODULE dessus**. ⟹ **la phrase EXIGE K^·.** ⟹ **DEUX preuves indépendantes convergent.**
+⟹ ⚠ **LOCAL : `K_\bullet`=406 dans le fichier, mais je n'en change que les 2 de (7.9.2) — MA page** ⟹ la règle de sweep tient.
+
+**⚠⚠⚠⚠ ★★★★ fix4 — (7.9.1) : LE LIVRE EMPILE DEUX FORMULES SOUS UN SEUL TAG, ET LES DEUX LIGNES SONT LE CONTRÔLE L'UNE DE L'AUTRE :**
+`z579_p791Z` (**2400dpi, LES DEUX LIGNES DANS UN SEUL CROP**) :
+```
+              σ. : Gr.(X_t) ⟶ Gr.(X_s)          [points SUR LA LIGNE DE BASE]
+(7.9.1)
+              σ^· : Gr^·(X_t) ⟶ Gr^·(X_s)  .    [points À HAUTEUR DE CAPITALE]
+```
+⟹ ⚠⚠⚠ **LES MÊMES DEUX SYMBOLES (σ, Gr), SUR DEUX LIGNES CONSÉCUTIVES D'UN MÊME DISPLAY, À LA MÊME MAGNIFICATION, AVEC DES POINTS À DES HAUTEURS DIFFÉRENTES.** ⟹ **LA RÈGLE DE HAUTEUR DU POINT (#570) EST CONFIRMÉE PAR UN CONTRÔLE INTERNE AU DISPLAY** — c'est l'exhibit le plus propre de toute la série.
+⟹ (a) ⚠⚠ **le tag est CENTRÉ VERTICALEMENT ENTRE LES DEUX LIGNES** — Codex avait **JOINT les deux formules sur UNE ligne avec «,\qquad»** (le motif #564/#572/#574 : **Codex écrit «,\qquad» là où le livre met un SAUT DE LIGNE**) ⟹ restauré en `\begin{gathered}…\\…\end{gathered}` (tag centré ✓ vérifié au rendu).
+⟹ (b) ⚠⚠ **la ligne 1 du livre a «σ.» = point SUR LA LIGNE DE BASE** (`z579b_l1head` **4800dpi** ; ⚠ **LE CONTRÔLE EST DANS LE CROP : le point INFÉRIEUR du «:» est à la MÊME hauteur que celui du σ**) ⟹ **Codex avait `\sigma` NU — LE POINT MANQUAIT** ⟹ `\sigma_\bullet`.
+⟹ (c) ⚠⚠ **la ligne 1 N'A PAS DE VIRGULE FINALE** (`z579b_l1tail` **4800dpi** : après le «)» c'est **BLANC**) ⟹ **virgule FABRIQUÉE** par Codex.
+⟹ ✓ `\Gr_\bullet` ligne 1 et `\Gr^\bullet` ligne 2 ✓ **Codex correct** ; le **point final** de la ligne 2 ✓.
+⚠ **PIÈGE ÉVITÉ** : le «Gr:» apparent en tête de ligne 1 (deux marques empilées) est une **POUSSIÈRE DE SCAN** — le «Gr.(X_s)» de fin de la MÊME ligne (`l1tail`, 4800dpi) n'a **QU'UN point bas**, et «Gr:» n'aurait aucun sens mathématique.
+
+**⚠⚠⚠⚠ ★★★★ fix3 — LES **HUITIÈME ET NEUVIÈME** RÉFÉRENCES DROPPÉES + LE DEUX-POINTS + UNE SCISSION :**
+`z579_refs` (**2400dpi**) : le livre imprime «…les deux applications de spécialisation **(7.4.1) et (7.7.4) :**» — **DEUX références parenthésées + un DEUX-POINTS, sur leur propre ligne**. Codex : «…les deux applications de spécialisation» **puis directement le display** ⟹ **LES DEUX RÉFÉRENCES ET LE DEUX-POINTS ENTIÈREMENT DROPPÉS** ⟹ **NEUF réfs entièrement droppées** (#572 ×3, #573 ×1, #574 ×2, #575 ×1, **#576 ×2**).
+⟹ ⚠ **ET LA SCISSION, EXACTEMENT LE MOTIF #575** : le livre a «X_t réguliers**, et** considérons» ; Codex : «réguliers**. C**onsidérons» ⟹ **PHRASE SCINDÉE + le «et» DROPPÉ + capitalisation**.
+⟹ le **point final** du titre «7.9. Spécialisation et équivalence numérique**.**» manquait ⟹ restauré (**CONTENU**).
+
+**⚠⚠⚠⚠ ★★★★ fix1 — CODEX MAL-LIT À UNE LETTRE PRÈS : **4/4** :**
+`z579_ces` (**2000dpi**) : le livre imprime «implique que **ces** anneaux locaux sont factoriels». Codex : «**ses** anneaux locaux».
+⚠⚠ **LE CONTRÔLE EST DANS LE CROP** : le «**s**» de «e**s**t» et celui de «**s**ont», **sur la même ligne**, montrent la **double courbe** caractéristique ; le «**c**» de «**c**es» est un **rond ouvert** — aucune ambiguïté. ⟹ **«ces» PROUVÉ.**
+⚠ **COMPTÉ : «ses anneaux locaux»=1 (la mienne), «ces anneaux locaux»=1 (AILLEURS dans le fichier)** ⟹ **la graphie du livre existe déjà ⟹ fix LOCAL SÛR**. ⚠ (Grammaticalement «ses» serait plus naturel — **mais le livre fait autorité** ; possible sic d'auteur, reproduit.)
+⟹ **#567 «≠1»/«∉𝔭» ; #568 «h,β»/«h,k,λ» ; #571 «dont»/«donc» ; #576 «ces»/«ses» = 4/4.**
+
+**⚠⚠⚠ ★★★ fix1 — LA PARENTHÈSE DÉPLACÉE : LE LIVRE PARENTHÈSE **TOUTE LA CLAUSE**, RÉFÉRENCE **NUE À L'INTÉRIEUR** :**
+`z579_ausl` (**1400dpi**) : le livre : «…sont factoriels **(par le théorème de Auslander-Buchsbaum EGA IV 21.11.1)**, donc que…» — **UNE SEULE parenthèse englobant la clause ENTIÈRE, avec «EGA IV 21.11.1» NUE dedans**.
+Codex : «…sont factoriels**,** par le théorème d'Auslander--Buchsbaum **(EGA IV 21.11.1)**, donc que…» ⟹ **LES PARENTHÈSES ONT MIGRÉ de la clause vers la seule référence, + DEUX VIRGULES FABRIQUÉES**.
+⟹ ⚠⚠ **ET UNE ÉLISION FABRIQUÉE — LE MOTIF #575 EN MIROIR** : le livre écrit «**de** Auslander» (pas d'élision devant le nom propre) ; Codex a élidé en «**d'**Auslander». (#575 : dropper les guillemets FORÇAIT «de»→«d'» ; ici c'est l'inverse — Codex élide là où le livre ne le fait pas.) ⟹ **reproduit SIC**.
+
+**⚠⚠⚠ ★★★ fix2 — TROIS DÉFAUTS SUR UNE PHRASE :**
+- `z579_integ` (**1400dpi**) : «au cas X_s intègre**, donc** D = nX_s» ⟹ Codex «intègre**; alors**» = **POINT-VIRGULE FABRIQUÉ + CONNECTEUR CHANGÉ** («donc»→«alors» — la famille «Il en résulte»).
+- `z579_unif` (**1400dpi**) : «D = div(g^n) **(g une uniformisante de A)**, donc» — **PARENTHÉSÉ**. Codex : «div(g^n)**,** g une uniformisante de A**,**» ⟹ **PARENS → VIRGULES** (motif #570/#572/#573).
+- `z579_fort` (**2400dpi**) : «et **à** fortiori» — **L'ACCENT GRAVE EST NET**. Codex : «**a** fortiori». ⟹ **BOOK-SIC #43** (le latin veut «a fortiori» sans accent). ⚠ **COMPTÉ : «a fortiori»=13 / «à fortiori»=3 ⟹ LES DEUX GRAPHIES COEXISTENT DÉJÀ dans la transcription ⟹ fix LOCAL SÛR** (et incohérence PRÉEXISTANTE ⟹ **ne PAS uniformiser les 13 autres**).
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z579_head` : «- 48 -» ✓ + «**X App.**» ✓.
+- ⚠⚠ **`z579_integ` : «cf.» EST PRÉSERVÉE PAR CODEX** («(cf. EGA IV 21.2.11)») ✓ ⟹ **UN NÉGATIF GENUINE POUR LA CLASSE ABRÉVIATIONS** — Codex ne les détruit pas systématiquement (contraste avec «resp.»→«et» de #575).
+- ⚠⚠ **`z579b_792sig` : le σ de (7.9.2) est NU** (σ + sa barre supérieure, **AUCUN point**) ✓ **Codex `\sigma` correct** — ⚠ **alors même que la ligne 1 de (7.9.1) a «σ.» : le livre distingue bien les deux À UNE LIGNE D'ÉCART**.
+- **TOUTE la bande b2 = MATCH MOT À MOT** : «En fait, n'utilisant que l'hypothèse que les anneaux locaux de X sont factoriels et que X_s est localement intègre (à l'exclusion d'hypothèses de régularité et de séparation), on montre que cl(L_s) ne dépend pas du prolongement choisi L de L_t en un **Module** inversible sur X, de sorte qu'on obtient ainsi directement un homomorphisme (7.8.1). Pour vérifier l'indépendance annoncée, on est ramené à prouver que si L_t ≃ O_{X_t}, alors L_s ≃ O_{X_s}.» ✓ **RIEN à corriger** ⟹ **Codex n'est pas uniformément mauvais — d'où l'obligation de lire MOT À MOT plutôt que de présumer.**
+- «(EGA IV 21.6.11)» ✓ parenthésée ; «(cf. EGA IV 21.2.11)» ✓ ; «⊂X_s» ✓ ; «div» minuscule ✓ (`\operatorname{div}` audité ✓) ; «Module» majuscule ✓ ; «cl(» sans point ✓ ; «≃» = tilde sur barre ✓ `\simeq` (**2e vérifié BON**).
+- «Du fait que l'homomorphisme» ✓ ; «dont ils sont déduits est compatible avec les structures d'anneaux» ✓.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠⚠⚠⚠ **LE TIRET DES NOMS D'AUTEURS — NOUVEAU, ET LE COMPTAGE A BLOQUÉ LE FIX** : le livre imprime «Auslander**-**Buchsbaum» avec un **TIRET SIMPLE** (la machine n'a qu'un tiret ⟹ **pas une preuve d'intention**, même classe que le 𝐙 gras). Codex écrit `--` (demi-cadratin). ⚠ **COMPTÉ : `--`=178, dont **QUATORZE paires d'auteurs** : Atiyah--Hirzebruch, Atiyah--Singer, Auslander--Buchsbaum, Borel--Serre, Cartan--Eilenberg, Dold--Puppe, Euler--Poincaré, Harper--Row, Krull--Akizuki, Krull--Remak, Lefschetz--Hodge, Lefschetz--Verdier, Masson--North, **Riemann--Roch** (= le TITRE du volume !)** ⟹ **CONVENTION À L'ÉCHELLE DU DOCUMENT ⟹ DEFERRED** ; corriger la seule Auslander en laisserait **13 orphelines** ⟹ **la règle de sweep a mordu, encore**.
+- ⚠⚠ **LES SOULIGNEMENTS — L'EXHIBIT #575 EST EXPLIQUÉ** : ici le trait couvre **TOUT** le titre «Spécialisation et équivalence numérique», alors qu'en #575 il **s'arrêtait avant «Pic»** ⟹ ⚠⚠ **LE LIVRE SOULIGNE LES MOTS FRANÇAIS MAIS PAS LES SYMBOLES MATHÉMATIQUES** — la règle est cohérente, pas capricieuse. ⟹ **à réutiliser quand la décision «soulignements» s'ouvrira.**
+- ⚠⚠ **«L̲», «O̲», «intègre», «algèbres augmentées» SOULIGNÉS** : le L̲/O̲ souligné = la façon dactylo d'écrire un **script/calligraphique** (⟹ `\mathcal O` de Codex = correct en INTENTION) ; le soulignement d'**énoncé** («intègre») = mise en relief ⟹ **classe DEFERRED (soulignements)**.
+- ⚠⚠⚠ **K^\bullet(178) vs K^\circ(367), `\Gr^\bullet`(63) — LA DÉCISION GLOBALE ; #574 EST L'EXHIBIT. PRIORITAIRE** (⚠ **et fix5 vient d'AJOUTER 2 `K^\bullet` — cohérents avec les voisins immédiats de la page, tous en `\bullet`**).
+- le **𝐙 gras vs maigre** (#575) ; l'**exposant H^O/H^°** ; les **eq-tags à GAUCHE** = leqno (⚠ **confirmé au rendu : le livre met «(7.9.1)» à GAUCHE, le rendu à DROITE**) ; la **STRUCTURE des titres**.
+
+**RENDER-VERIFY** (`vrf579.py`, filtre «uniformisante»+«fortiori» ⟹ **1 hit** ✓ **calibré du premier coup**, pages 303/304/305 vidées ; **+ IMAGE du (7.9.1)/(7.9.2)** — ⚠⚠ **avec `assert len(r)==1` sur l'ancre d'image, la leçon #575**) : «implique que **ces** anneaux locaux sont factoriels **(par le théorème de Auslander–Buchsbaum EGA IV 21.11.1)**, donc que» ✓ ; «au cas Xs intègre**, donc** D = nXs, mais alors D = div(gn) **(g une uniformisante de A)**, donc OX(D) ≃OX et **à fortiori** Ls ≃OXs.» ✓ ; «7.9. Spécialisation et équivalence numérique**.**» ✓ ; «réguliers**, et considérons** les deux applications de spécialisation **(7.4.1) et (7.7.4) :**» ✓ ; **IMAGE** : (7.9.1) **EMPILÉ SUR DEUX LIGNES, tag CENTRÉ**, ligne 1 «**σ_• : Gr_•(X_t) ⟶ Gr_•(X_s)**» **INDICES, SANS virgule** ✓, ligne 2 «**σ^• : Gr^•(X_t) ⟶ Gr^•(X_s).**» **EXPOSANTS + point** ✓ ; (7.9.2) «σ : **K^•**(X_t) ⟶ **K^•**(X_s)» **EXPOSANTS + σ nu** ✓.
+⚠⚠ **L'EXTRACTION APLATIT `_\bullet` ET `^\bullet` AU MÊME «•»** (le point aveugle #570) — dans le dump texte les deux lignes de (7.9.1) sont **IDENTIQUES** («σ• : Gr•(Xt) −→Gr•(Xs)» ×2) ⟹ **SANS L'IMAGE, LE FIX CENTRAL DE CETTE PAGE ÉTAIT INVÉRIFIABLE.**
+
+**⚠ CHECKS POUR idx580 (p567) :** ⚠⚠ **la p566 se termine sur (7.9.2) + marge blanche** ⟹ **p567 OUVRE sur «dont ils sont déduits est compatible avec les structures d'anneaux, et grâce à (7.5.1), on a…»** ; workpass ~**L13684+** (⚠ **ligne-drift #579 net +2 ⟹ RE-GREP OBLIGATOIRE**) : «dont ils sont déduits est compatible…» + display «\langle\sigma(x_t),\sigma^\bullet(y_t)\rangle=\langle x_t,y_t\rangle» + «\qquad (x_t\in\Gr_\bullet(X_t),\ y_t\in\Gr^\bullet(X_t)),» + «\tag{7.9.3}» + «en utilisant les accouplements \(\langle x,y\rangle\) de 4.1 entre \(\Gr_\bullet\) et \(\Gr^\bullet\)» + «numériquement équivalent à zéro (4.5.1)» + «épimorphisme modulo torsion» + «\textbf{7.9.4.}» — **LIRE LE SCAN D'ABORD** ; ★★★★**EXPOSANT vs INDICE = MATH (#576 : (7.9.2) K_•→K^·, prouvé au crop ET par «structures d'anneaux») ⟹ CROPPER CHAQUE point : HAUT ou BAS ?** ; ★★★★**l'extraction APLATIT `_\bullet`/`^\bullet` ⟹ RENDRE EN IMAGE, SANS EXCEPTION** ; ★★★★**NEUF réfs entièrement droppées (#572 ×3, #573, #574 ×2, #575, #576 ×2) ⟹ CROPPER CHAQUE RÉFÉRENCE ; p567 annonce «(7.5.1)», «4.1», «(4.5.1)» ⟹ NUES ou PARENTHÉSÉES ?** ; ★★★★**«(x_t ∈ …)» — le motif «pour»→PARENS FABRIQUÉES (2/2, #570/#573) ⟹ CROPPER : le livre écrit-il «pour» ?** ; ★★★★**Codex JOINT avec «,\qquad» ce que le livre EMPILE ou sépare par un mot (#564/#572/#574/#576)** ; ★★★★**PARAPHRASE = 8 pages consécutives ⟹ MOT À MOT** ; ★★★**«resp.» est ANNONCÉ ×3 en p567 ⟹ VÉRIFIER (402 dans le fichier ; #575 : remplacé par «et»)** ; ★★★**«i.e.» annoncé (L13694) ⟹ VÉRIFIER qu'il n'est pas devenu «c'est-à-dire»** ; ★★★**«4.1»/«4.5.1» — réf NUE vs parenthésée** ; ★★**titres : le POINT FINAL est du CONTENU** ; ★★**ancres TOUT EN RAW** ; ★★**print() ASCII-ONLY**.
+
+**LIGNE-DRIFT #579 : net +2** (fix4 a passé (7.9.1) de 3 lignes de corps à 4 + `gathered` ⟹ +2 ; fix1/fix2/fix3/fix5 intra-ligne). **RE-GREP OBLIGATOIRE en #577.**
+
+**SWEEP CURSOR → idx580 = p567 = Exposé X «- 49 -» (§7.9 suite : l'accouplement ⟨σ(x_t),σ^·(y_t)⟩=⟨x_t,y_t⟩, (7.9.3), équivalence numérique, 7.9.4).**
+
+---
+
+### #575 (2026-07-16) — idx578 (vol p565 = **Exposé X «- 47 -»**, header «- 47 -» + **«X App.»** + footer «565» ; **CONSTANTE_X=518 CONFIRMÉE [565−47]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.7 fin (7.7.3)/(7.7.4) + diagramme de Chern + §7.8 «Spécialisation pour Pic» début** — **7 rep-calls / ~18 changements** (bandes b1-b5 TOUTES lues + **10 crops HD 1000-2400dpi + 1 COMPTAGE**) ; **CONSTANTE_X=518 ✓ (565−47 ; idx=565+13=578 ✓)** ; p564 finissait PROPREMENT ⟹ **p565 OUVRE sur «Notons aussi que, X étant régulier donc normal…» — PREVIEW CONFIRMÉ** ; la page **se termine sur le display (7.8.1)** puis une marge blanche. Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠ **LA TROUVAILLE : UNE FORMULE ENTIÈRE DROPPÉE — CODEX A SUPPRIMÉ DE LA MATH**
+
+`z578_parsuite` (**1200dpi**) : le livre imprime «est bijectif. **Par suite** l'homomorphisme **H^O(X,𝐙) → H^O(X_s,𝐙)** induit par l'inclu-». Codex : «Par suite**,** l'homomorphisme **induit par l'inclusion** \(X_s\to X\)» ⟹ ⚠⚠⚠ **LA FORMULE «H^0(X,𝐙)→H^0(X_s,𝐙)» A ENTIÈREMENT DISPARU** — il ne reste qu'un «l'homomorphisme induit par…» sans référent. **CE N'EST PLUS DE LA PARAPHRASE : C'EST DE LA MATH SUPPRIMÉE.** ⚠ **Rien dans la compilation ni dans la grammaire ne le signale** — la phrase reste lisible. **RESTAURÉE.**
+
+**⚠⚠⚠⚠ ★★★★ fix2/fix4 — CODEX A INTERVERTI LA PONCTUATION FINALE DE DEUX DISPLAYS CONSÉCUTIFS — LA PAIRE DE CONTRÔLE EST DÉCISIVE :**
+`z578_p773Z` et `z578_p774Z` **au MÊME 2400dpi, même page, même machine** :
+- **(7.7.3)** «H^O(X_t,𝐙) ⟶ H^O(X_s,𝐙)   **[carré plein, AUCUNE queue]**» = **POINT**. Codex : «**,**» ⟹ **FAUX**.
+- **(7.7.4)** «σ^· : Gr^·(X_t) ⟶ Gr^·(X_s)   **[marque à QUEUE DESCENDANTE nette]**» = **VIRGULE**. Codex : «**.**» ⟹ **FAUX**.
+⟹ ⚠⚠ **EXACTEMENT INVERSÉS.** Et **chaque inversion a AUTORISÉ une réécriture** : le point de (7.7.4) a permis de démarrer une phrase «**Utilisant**…» (le «**et**» du livre droppé). ⟹ **la ponctuation n'est pas cosmétique : elle est le LEVIER de la réécriture** (cf #573, la virgule de (7.6.1)→point).
+⟹ **LA MÉTHODE DU CONTRÔLE (#569) EST CE QUI TRANCHE** : deux marques litigieuses, **même magnification, même page** ⟹ queue / pas de queue.
+
+**⚠⚠⚠⚠ ★★★★ fix3 — UNE CLAUSE DE 7 MOTS + LA SEPTIÈME RÉFÉRENCE ENTIÈREMENT DROPPÉES :**
+`z578_resp` (**1200dpi**) : le livre imprime «…augmentées sur H^O(X_t,𝐙) **resp.** H^O(X_s,𝐙) **des deux membres définie dans ( IV 2.8 )**, compte tenu **de l'homomorphisme précédent** (7.7.3).»
+Codex : «…augmentées sur \(H^0(X_t,\mathbb Z)\) **et** \(H^0(X_s,\mathbb Z)\), compte tenu **de** (7.7.3).»
+⟹ (a) ⚠⚠ **«des deux membres définie dans (IV 2.8)» = DROPPÉ EN ENTIER — 7 MOTS + LA RÉFÉRENCE** ⟹ **SEPT réfs entièrement droppées** (#572 ×3, #573 ×1, #574 ×2, **#575 ×1**).
+⟹ (b) ⚠⚠ **«resp.» REMPLACÉ PAR «et»** — ⚠ **COMPTÉ : «resp.» = 402 occurrences / 204 lignes dans le fichier, «respectivement» = 25** ⟹ **la maison GARDE l'abréviation ⟹ le «et» de Codex est un DÉFAUT CERTAIN** (le motif «cl.»→«classes» de #572 : **développer/supprimer l'abréviation DÉTRUIT la construction resp.**).
+⟹ (c) «compte tenu **de l'homomorphisme précédent** (7.7.3)» ⟹ «compte tenu **de** (7.7.3)» = **3 MOTS DROPPÉS**.
+
+**⚠⚠⚠⚠ ★★★★ fix1 — PARAPHRASE + SCISSION + DISPLAY-FICTIF, LE TOUT SUR UNE PHRASE :**
+`z578_dominent` (**1000dpi**) : le livre : «…ses composantes irréductibles**, lesquelles dominent** S**,** **de sorte que** l'homomorphisme **H^O(X,𝐙)→H^°(X_t,Z)** induit par l'inclusion X_t→X est bijectif.»
+Codex : «…ses composantes irréductibles **et dominent** \(S\)**.** **Ainsi** l'homomorphisme \[H^0(X,\mathbb Z)\longrightarrow H^0(X_t,\mathbb Z)\] induit par…»
+⟹ (a) **«, lesquelles dominent»→«et dominent»** (un RELATIF aplati en coordination) ; (b) **«, de sorte que»→«. Ainsi»** = **SCISSION** ; (c) ⚠⚠ **DISPLAY-FICTIF #33 : la formule est INLINE — la ligne CONTINUE «induit par l'inclusion X_t→X est bijectif.»** ; (d) **«Par suite» N'A PAS DE VIRGULE dans le livre** ⟹ **virgule FABRIQUÉE**.
+
+**⚠⚠⚠ ★★★ fix3 — LES GUILLEMETS DROPPÉS ENTRAÎNENT UNE ÉLISION FABRIQUÉE :**
+`z578_naif` (**1400dpi**) : le livre : «qui mérite encore le nom **de "homomorphisme de spécialisation"**.» Codex : «le nom **d'**homomorphisme de spécialisation.» ⟹ ⚠⚠ **les guillemets droits droppés, ET le «de» élidé en «d'» — L'ÉLISION EST LA CONSÉQUENCE DIRECTE DE LA SUPPRESSION DES GUILLEMETS** (avec guillemets le français impose «de "…"»). ⟹ **UN défaut typographique en fabrique un GRAMMATICAL.** Restauré en `«~…~»` (cf «~naïf~» #574).
+
+**⚠⚠⚠ ★★★ fix5 — TROIS DÉFAUTS SUR UNE LIGNE :**
+`z578_chern` (**1200dpi**) : le livre : «**et utilisant** la notion de classe de Chern **de** (V 6), **on trouve** un diagramme commutatif».
+Codex : «**Utilisant** la notion de classe de Chern (V 6), **on obtient** un diagramme commutatif».
+⟹ (a) le «**et**» DROPPÉ (conséquence de la scission fix4) ; (b) le «**de**» de la référence DROPPÉ ; (c) «**on trouve**»→«**on obtient**» = **PARAPHRASE** (7e page consécutive).
+
+**⚠⚠⚠ ★★★ fix6 — LE DIAGRAMME : TROIS DÉFAUTS, DONT UNE ÉTIQUETTE FABRIQUÉE :**
+`z578_diag` (**1000dpi**) — ⚠⚠ **angle mort classique : les étiquettes tikzcd NE S'EXTRAIENT PAS (#571) ⟹ RENDU EN IMAGE, à l'aller ET au retour.**
+⟹ (a) ⚠⚠ **les étiquettes sont des «c» MINUSCULES** — **LE CONTRÔLE EST DANS LE CROP** : le «**Ch**» de la même ligne a un **C de hauteur de CAPITALE**, le «c_{X_t}» est de **hauteur d'x** ⟹ minuscule **PROUVÉE**. Codex avait `"C_{X_t}"`/`"C_{X_s}"` **MAJUSCULES** ⟹ ⚠ **COMPTÉ : `"C_{X` = 2, `"c_{X` = 0 ⟹ les DEUX sont sur MA page ⟹ LOCAL ⟹ SÛR À CORRIGER** ; ⚠ **et L8064 écrit `c:A\longrightarrow\Ch(\Gr A)` = minuscule = la notation du livre** ✓.
+⟹ (b) ⚠⚠ **LES DEUX FLÈCHES VERTICALES SONT NUES DANS LE LIVRE** — Codex avait **FABRIQUÉ** `\arrow[d,"\sigma^\bullet"']` sur celle de gauche ⟹ **ÉTIQUETTE INVENTÉE** (la droite `\arrow[d]` était nue ✓).
+⟹ (c) l'étiquette du bas est **AU-DESSUS** de sa flèche dans le livre ; Codex l'avait **primée** (`"C_{X_s}"'` = en-dessous) ⟹ prime retirée.
+
+**⚠⚠ ★★ fix7 — LE POINT DU TITRE + LE DEUX-POINTS DROPPÉ :**
+`z578_t78` (**1000dpi**) : «7.8.  **Spécialisation pour** Pic**.**  Gardons les hypothèses de 7.7 : X séparé…» ⟹ le **point final** de «Pic.» manquait (**CONTENU** — cf #573/#574) ; «…canonique (5.3.2) **:**» ⟹ le **DEUX-POINTS DROPPÉ** (motif #569/#571/#572).
+⚠⚠ **ET UN EXHIBIT POUR LES SOULIGNEMENTS : le trait ne couvre QUE «Spécialisation pour» — il S'ARRÊTE AVANT «Pic».** ⟹ le soulignement n'englobe **pas** tout le titre. **DEFERRED (soulignements) mais LOGGÉ.**
+
+**⚠⚠⚠ BOOK-SIC #42 — «définie» :** `z578_resp` : «les structures d'algèbres augmentées … **des deux membres définie** dans (IV 2.8)» — **SINGULIER**, devrait être «définies». **REPRODUIT SIC** (ERRATA en pause).
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z578_head` : «- 47 -» ✓ + «**X App.**» ✓.
+- ⚠ `z578_p774Z` : «**σ^·**» = **point SURÉLEVÉ** ⟹ `\sigma^\bullet` ✓ **Codex correspond** (cohérent avec #574 ; **contraste maintenu avec le «σ.» à point BAS de p563**) ; le «**:**» après ✓.
+- `z578_gr1` (**2400dpi**) : «Gr^1 **≃** Pic **,**» — le glyphe est un **tilde SUR une barre** = `\simeq` ✓ **Codex correct** (⟹ **1 des 140 `\simeq` VÉRIFIÉ BON** — le compteur n'est plus 1/1 faux) ; virgule finale ✓ ; «Gr^1» **sans point** ✓.
+- «Supposant toujours X séparé, ce qui précède implique en particulier que (7.7.1) induit un homomorphisme d'anneaux gradués» ✓ **mot pour mot**.
+- «l'homomorphisme (7.7.4) nous donne donc un homomorphisme canonique» ✓ ; «(7.8.1) Pic(X_t) ⟶ Pic(X_s)**.**» ✓ **point** ✓ ; le diagramme se termine par un **point** ✓.
+- «de 7.7 **:**» = **référence NUE** ✓ Codex correspond ; «(5.3.2)» parenthésée ✓ ; «(V 6)» parenthésée ✓ ⟹ **le livre mêle NUES et parenthésées SUR CETTE PAGE AUSSI — NE JAMAIS uniformiser**.
+- «**Ch**» ✓ (`\Ch`=80, def `\operatorname{Ch}` ✓ audité) ; «Pic» ✓ (`\Pic`=108 ✓) ; l'espace «Ch Gr^·» ✓ `\Ch\,\Gr^\bullet`.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠⚠⚠⚠ **LE «Z» — NOUVEL EXHIBIT, PIRE QUE PRÉVU** : `z578_dominent` montre «H^O(X,**𝐙**)→H^°(X_t,**Z**)» — **le PREMIER Z est GRAS/surfrappé, le SECOND est MAIGRE — SUR LA MÊME LIGNE !** (tous les autres Z de la page sont gras). ⟹ la dactylo a **surfrappé le premier et oublié le second** = **sic per-occurrence À L'INTÉRIEUR de la classe deferred**. ⚠ **COMPTÉ : `\mathbb Z`=316 + `\Z`=47 ⟹ population à l'échelle du document ⟹ DEFERRED** (précédent #569/#574). ⚠⚠ **ET `\Z`(47) vs `\mathbb Z`(316) = INCOHÉRENCE INTERNE DE LA TRANSCRIPTION elle-même — deux graphies du même objet.**
+- ⚠⚠ **L'EXPOSANT DE H^0 : «H^O» (grand O rond) et «H^°» (petit degré) SUR LA MÊME LIGNE** — même problème d'UN SEUL glyphe que K^·/K^∘ (#574). Codex écrit `H^0` (129 occurrences) = **juste quant au SENS** ⟹ DEFERRED (typographie).
+- ⚠⚠⚠ **K^\bullet(178) vs K^\circ(367), `\Gr^\bullet`(63) — LA DÉCISION GLOBALE ; #574 EST L'EXHIBIT. PRIORITAIRE.**
+- ⚠⚠ **BUG DE MACRO LATENT — `\Gr` A TROIS DÉFS** : **L21 `\newcommand{\Gr}{\operatorname{Gr}}` GAGNE** ⟹ rend «Gr» ✓ **CORRECT**, **MAIS L58 `\providecommand{\Gr}{\operatorname{G}}` rendrait «G»** — no-op ici seulement parce que L21 précède. ⟹ **une bombe à retardement : si L21 disparaît, des centaines de `\Gr` deviennent «G» EN SILENCE.** (cf `\Filt` L12415/L12823 en conflit ⟹ «Filt», 33 usages.)
+- «**( IV 2.8 )**» — **espaces DACTYLO à l'INTÉRIEUR des parenthèses** (classe espacement, cf «(IV 2.7 b)» #574) ⟹ écrit «(IV 2.8)».
+- la **STRUCTURE des titres** (`\subsection*` vs enchaîné) ; les **soulignements** (⚠ **nouvel exhibit : le trait s'arrête avant «Pic»**) ; les **eq-tags à GAUCHE** = leqno ; le **LAYOUT tikzcd**.
+
+**RENDER-VERIFY** (`vrf578.py`, filtre «lesquelles dominent»+«des deux membres» ⟹ **1 hit** ✓ **calibré du premier coup**, pages 302/303/304 vidées ; **+ `vrf578b.py` = le tikzcd RENDU EN IMAGE**) : «irréductibles, **lesquelles dominent** S, **de sorte que** l'homomorphisme **H0(X, Z) → H0(Xt, Z)** induit… est bijectif.» ✓ **INLINE** ; «**Par suite** l'homomorphisme **H0(X, Z) → H0(Xs, Z)** induit par l'inclusion Xs →X» ✓ **LA FORMULE EST REVENUE** ; «H0(Xt, Z) −→H0(Xs, Z)**.** (7.7.3)» ✓ **POINT** ; «le nom de **« homomorphisme de spécialisation »**» ✓ ; «sur H0(Xt, Z) **resp.** H0(Xs, Z) **des deux membres définie dans (IV 2.8)**, compte tenu **de l'homomorphisme précédent** (7.7.3).» ✓ ; «σ• : Gr•(Xt) −→Gr•(Xs)**,** (7.7.4)» ✓ **VIRGULE** ; «**et utilisant** … de classe de Chern **de (V 6)**, **on trouve**» ✓ ; **image du diagramme** : «**c_{X_t}**» et «**c_{X_s}**» **MINUSCULES, TOUTES DEUX AU-DESSUS** de leur flèche ✓, **les deux verticales NUES** ✓, point final ✓ ; «7.8. Spécialisation pour Pic**.**» ✓ ; «canonique (5.3.2) **:**» ✓ ; «Gr1 ≃Pic,» ✓.
+⚠ **PIÈGE ÉVITÉ DE JUSTESSE** : mon 1er rendu d'image visait `search_for("commutatif")` **sur la page du hit** ⟹ il a attrapé le **(7.6.2) de la page PRÉCÉDENTE** (2 rects, j'ai pris r[0]) ⟹ **j'ai vérifié le MAUVAIS diagramme**. Corrigé en ciblant p304 + «diagramme commutatif» + `assert len(r)==1`. ⟹ ⚠⚠ **ASSERTER LE COMPTE DES ANCRES D'IMAGE AUSSI, pas seulement celui des pages.**
+
+**⚠ CHECKS POUR idx579 (p566) :** ⚠⚠ **la p565 se termine sur (7.8.1) + marge blanche** ⟹ **p566 OUVRE sur «Une façon équivalente de décrire ce dernier est la suivante : l'hypothèse que X est régulier implique que ses anneaux locaux sont factoriels, par le théorème d'Auslander-Buchsbaum (EGA IV 21.11.1)…»** ; workpass ~**L13668+** (⚠ **ligne-drift #578 net −4 ⟹ RE-GREP OBLIGATOIRE**) : «Une façon équivalente…» + «(EGA IV 21.6.11)» + «\(\cl(L_t)\in\Pic(X_t)\)» + «En fait, n'utilisant que l'hypothèse…» + «\(L_t\simeq\mathcal O_{X_t}\)» + «(cf. EGA IV 21.2.11)» + «\(D=\operatorname{div}(g^n)\)» + «\subsection*{7.9. Spécialisation et équivalence numérique}» + «\tag{7.9.1}» — **LIRE LE SCAN D'ABORD** ; ★★★★**UNE FORMULE ENTIÈRE PEUT ÊTRE DROPPÉE (#575) — pas seulement des mots : VÉRIFIER QUE CHAQUE «l'homomorphisme/l'application X» A SON EXPRESSION** ; ★★★★**CODEX INTERVERTIT LA PONCTUATION FINALE DES DISPLAYS (#575 : les deux à l'envers) ⟹ CROPPER CHAQUE FIN DE DISPLAY AVEC UN CONTRÔLE À LA MÊME MAGNIFICATION** ; ★★★★**SEPT réfs entièrement droppées (#572 ×3, #573, #574 ×2, #575) ⟹ CROPPER CHAQUE RÉFÉRENCE** ; ★★★★**«resp.»(402)/«cl.» — NE JAMAIS laisser Codex développer ou remplacer une ABRÉVIATION** ; ★★★★**PARAPHRASE = 7 pages consécutives («on trouve»→«on obtient») ⟹ LIRE MOT À MOT** ; ★★★**«cf.» est ANNONCÉ en p566 (cf. EGA IV 21.2.11) ⟹ VÉRIFIER qu'il n'est pas devenu «voir»** ; ★★★**`\simeq` ×3 annoncés ⟹ CROPPER (1 vérifié BON en #575)** ; ★★★**`\operatorname{div}` ⟹ AUDITER LE RENDU** ; ★★★**Auslander--Buchsbaum : le livre a-t-il un TIRET SIMPLE ? CROPPER** ; ★★★**guillemets `«~…~»` ; les DROPPER fabrique une ÉLISION (#575)** ; ★★**titres : le POINT FINAL est du CONTENU** ; ★★**ancres TOUT EN RAW** ; ★★**print() ASCII-ONLY**.
+
+**LIGNE-DRIFT #578 : net −4** (fix1 a aplati un bloc de 5 lignes en 1 ⟹ −4 ; fix2-fix7 intra-ligne). **RE-GREP OBLIGATOIRE en #576.**
+
+**SWEEP CURSOR → idx579 = p566 = Exposé X «- 48 -» (§7.8 suite : Auslander-Buchsbaum, prolongement de L_t, + §7.9 «Spécialisation et équivalence numérique»).**
+
+---
+
+### #574 (2026-07-16) — idx577 (vol p564 = **Exposé X «- 46 -»**, header «- 46 -» + **«X App.»** + footer «564» ; **CONSTANTE_X=518 CONFIRMÉE [564−46]**) — **★★★ §7 Appendice (GROTHENDIECK) : §7.6 fin + §7.7 «Spécialisation pour K^· et Gr^·»** — **4 rep-calls / ~25 changements** (bandes b1-b5 TOUTES lues + **25 crops HD à 4800dpi + 1 COMPTAGE de macros**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (564−46 ; idx=564+13=577 ✓)** ; p563 finissait sur le (7.6.2) avec une virgule ⟹ **cette page OUVRE sur «où les flèches verticales…» — CONFIRMÉ** ; la page **se termine PROPREMENT** sur «par passage au quotient.». Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠ **L'EXHIBIT CENTRAL : K^\bullet vs K^\circ — CODEX REND UN SEUL GLYPHE DU LIVRE DE DEUX FAÇONS, À DEUX LIGNES D'ÉCART**
+
+`z577_canonZ` (**4800dpi**) = **UN CONTRÔLE PARFAIT** : «les homomorphismes canoniques **K^·** ⟶ **K.**» — **un point HAUT et un point BAS SUR LA MÊME LIGNE, à la MÊME MAGNIFICATION**. Codex rend ceci `K^\circ\to K_\bullet` ✓ **CORRECT**.
+`z577_titre77Z` (**4800dpi, MÊME magnification**) = «pour **K^·** et **Gr^·****.**» — les points sont **À HAUTEUR DE CAPITALE, IDENTIQUES au K^· de canonZ** — et le **point final de phrase «.» juste à côté est SUR LA LIGNE DE BASE**, donc **le contraste est visible DANS CE SEUL CROP**.
+⟹ **LE LIVRE N'A QU'UN SEUL GLYPHE SURÉLEVÉ.** Codex le rend `K^\circ` en **L13622** et `K^\bullet` en **L13624** — **DEUX LIGNES D'ÉCART, MÊME GLYPHE.**
+⚠⚠ **MAIS MESURÉ** : **`K^\circ` = 367**, **`K^\bullet` = 178** (sur 110 lignes, **depuis L290** — Exposé 0 !), **`\Gr^\bullet` = 63**, **`\Gr^\circ` = 0**, `K_\bullet` = 406.
+⟹ **`K^\bullet` N'EST PAS un dérapage local — c'est une CONVENTION À L'ÉCHELLE DU DOCUMENT.**
+⟹ **EXACTEMENT la situation `\mathcal C`(902)/`\mathcal O`(936) de #569** : corriger les ~10 de cette page en laisserait **168 ailleurs**, ne correspondant **NI au livre NI à la transcription**.
+⟹ ⚠⚠ **DEFERRED comme DÉCISION NOTATIONNELLE GLOBALE — mais CETTE PAGE EST L'EXHIBIT** (le rôle que joue le «1̲» de #567 pour les soulignements). **La RÈGLE DE SWEEP interdit de balayer une population de 178 sur la preuve d'UNE page.**
+
+**⚠⚠⚠⚠ ★★★★ fix4 — DEUX AUTRES RÉFÉRENCES ENTIÈRES DROPPÉES (les 4e et 5e de la série) :**
+- `z577_comme` : «des homomorphismes d'anneaux **(IV 2.7 b)** avec j* surjectif» — **ABSENTE** de Codex, qui a mis une **VIRGULE FABRIQUÉE** à sa place («d'anneaux**,** avec»). ⚠⚠ **C'est LA MÊME «(IV 2.7 b)» que #572 avait trouvée droppée en p562 — Codex la droppe DEUX FOIS.**
+- `z577_naifZ` + `z577_lequel` : «son K^· "naïf" **(IV 2.9 (ii))**, lequel…» — **ABSENTE** de Codex, entièrement. **PARENS IMBRIQUÉES.**
+- ⚠ **ET une 3e DISSOUTE EN PRONOM** : `z577_meme` «si X est séparé, **l'homomorphisme (7.7.1) est** même un homomorphisme de λ-anneaux» ⟹ Codex «**c'est** même un homomorphisme» — **la référence REMPLACÉE PAR «c'»**.
+⟹ **bilan : #572 ×3, #573 ×1, #574 ×2 = SIX références ENTIÈREMENT droppées.**
+
+**⚠⚠⚠⚠ ★★★★ fix2/fix3/fix4 — CINQ PARAPHRASES SUR UNE PAGE (6e page consécutive) :**
+- (a) `z577_decrire` : «**qui peut se décrire encore**» ⟹ Codex «que l'on peut encore décrire» (**un RÉFLÉCHI transformé en actif avec «l'on»**).
+- (b) `z577_meme` : «**l'homomorphisme (7.7.1) est** même» ⟹ Codex «**c'est** même».
+- (c) `z577_preciser` : «**Pour préciser ce point, il faut seulement noter qu'un** schéma» ⟹ Codex «**En effet, un** schéma» — ⚠⚠ **NEUF MOTS REMPLACÉS PAR TROIS**.
+- (d) `z577_lequel` : «**lequel est muni de façon naturelle**» ⟹ Codex «**muni naturellement**».
+- (e) `z577_lefait` : «**le fait que** X_t et X_s **soient réguliers implique le même fait pour** X» ⟹ Codex «X_t et X_s **réguliers impliquent que** X **est régulier**» (**subjonctif → indicatif**).
+⟹ **#568/#569/#570/#572 ×5/#573/#574 ×5. AUCUNE ne laisse de trace à la compilation ni dans la math.**
+
+**⚠⚠⚠ ★★★ fix2/fix4 — CODEX SCINDE LES PHRASES DU LIVRE (×2) :**
+- `z577_et25` : «isomorphismes (IV 2.5)**, et l'**homomorphisme» ⟹ Codex «(IV 2.5)**. L'**homomorphisme» = **SCINDÉE + le «et» DROPPÉ**.
+- `z577_donc` : «sont des λ-homomorphismes**, donc il en est de même de** (7.7.1) **qui** se déduit» ⟹ Codex «**. Il en est donc de même de** (7.7.1)**,** qui» = **SCINDÉE + ORDRE DES MOTS CHANGÉ** («donc» DÉPLACÉ) **+ une VIRGULE FABRIQUÉE**.
+
+**⚠⚠⚠ ★★★ fix4 — LES GUILLEMETS DE «naïf» DROPPÉS :**
+`z577_naifZ` : le livre imprime des **GUILLEMETS DROITS de machine** : «**"naïf"**». Codex l'avait **NU**. La règle permanente est explicite : `\naif` → «~naïf~» ⟹ restauré en `«~naïf~»`.
+
+**⚠⚠⚠ ★★★ fix2 — PARENS → VIRGULES :**
+`z577_titre77` + `z577_lisse` : «sont réguliers **(par exemple si f est lisse)**, les deux flèches» — **PARENTHÈSES**. Codex : «réguliers**,** par exemple si f est lisse**,**».
+
+**⚠⚠⚠ ★★★ fix4 — UN DISPLAY-FICTIF + LE «et» AVALÉ (le motif #572/#575) :**
+`z577_inline` (**4800dpi**) : «**i* : K^·(X) ⟶ K^·(X_s) et j* : K^·(X) ⟶ K^·(X_t)** sont des λ-homomorphismes,» — **TOUT SUR UNE LIGNE**, et la ligne **CONTINUE**. Codex en avait fait un `\[…\]` **ET** remplacé le mot «**et**» par «,\qquad». ⟹ **display-fictif #32**.
+
+**⚠⚠ ★★ fix1/fix4 — VIRGULES FABRIQUÉES ×4 + «suivant» DROPPÉ + LE POINT DU TITRE :**
+- `z577_comme` : «**Comme dans ce dernier** i* et j*» — **PAS de virgules**. Codex : «Comme**,** dans ce dernier**,**» ⟹ **DEUX fabriquées**, plus une **TROISIÈME** remplaçant la «(IV 2.7 b)» droppée.
+- `z577_donc` : «(7.7.1) **qui** se déduit» — **PAS de virgule**. Codex : «(7.7.1)**,** qui».
+- `z577_suivant` : «rendant commutatif le diagramme **suivant**» — Codex avait **DROPPÉ «suivant»**.
+- `z577_titre77` : «7.7.  Spécialisation pour K^· et Gr^·**.**  Lorsque…» — **le point final MANQUAIT** (cf «7.5.»/«7.6.» de #573). **La STRUCTURE du titre reste DEFERRED ; le point est du CONTENU.**
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z577_head` : «- 46 -» ✓ + titre courant «**X App.**» ✓.
+- ⚠⚠ `z577_canon` : «les homomorphismes canoniques **K^· ⟶ K.**» ✓ `K^\circ\to K_\bullet` **CORRECT** — **LE CONTRÔLE DE TOUTE LA PAGE**.
+- «(IV 2.5.1)» ✓ «(IV 2.5)» ✓ «(II 2.2.7.1)» ✓ «(VI 3.2)» ✓ «(EGA 0_IV 17.1.8)» ✓ — **toutes parenthésées, Codex correspond** ⟹ **les SIX réfs droppées sont bien le fait de Codex, pas une bizarrerie du livre**.
+- ⚠⚠ `z577_771Z` : «(7.7.1)  **σ^·** : K^·(X_t) ⟶ K^·(X_s) **,**» — **un point SURÉLEVÉ sur le sigma** (⚠ **CONTRASTE avec le «σ.» à point BAS de p563 !**) ⟹ `\sigma^\bullet` ✓ **Codex correspond**, et la **VIRGULE finale** ✓. ⟹ **LE LIVRE DISTINGUE BIEN σ_• (sur K_•) de σ^· (sur K^·)** — `\sigma^\bullet`(8) et `\sigma_\bullet`(11) coexistent légitimement.
+- les étoiles «i*»/«j*» en **EXPOSANT** ✓ ; les préfixes λ- ✓.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠⚠⚠ **K^\bullet(178) vs K^\circ(367) et `\Gr^\bullet`(63) — LA DÉCISION GLOBALE** (voir l'exhibit ci-dessus). **PRIORITAIRE.**
+- la **STRUCTURE des titres** (enchaînés vs `\subsection*`) ; le titre 7.7 **SOULIGNÉ** ; les soulignements d'énoncé ; les **eq-tags À GAUCHE** = leqno ; le **LAYOUT du tikzcd** (#565) ; l'**espace dactylo dans «(IV 2.7 b)»** avant le «b».
+
+**RENDER-VERIFY** (`vrf577.py`, **page rendue LUE EN ENTIER**) : «7.7. Spécialisation pour K• et Gr•**.**» ✓ ; «Lorsque Xt et Xs sont réguliers **(par exemple si f est lisse)**, … isomorphismes (IV 2.5)**, et l'**homomorphisme» ✓ ; «**qui peut se décrire encore** … le diagramme **suivant**» ✓ ; «**Comme dans ce dernier** i∗et j∗sont des homomorphismes d'anneaux **(IV 2.7 b)** avec j∗surjectif» ✓ ; «l'homomorphisme **(7.7.1) est** même un homomorphisme de λ-anneaux» ✓ ; «**Pour préciser ce point, il faut seulement noter qu'un** schéma» ✓ ; «son K• **« naïf » (IV 2.9 (ii))**, **lequel est muni de façon naturelle**» ✓ ; «**le fait que** Xt et Xs **soient réguliers implique le même fait pour** X» ✓ ; «**i∗: K•(X) →K•(Xs) et j∗: K•(X) →K•(Xt)** sont des λ-homomorphismes**, donc il en est de même de** (7.7.1) qui se déduit» ✓ **INLINE**.
+⚠ **LE FILTRE : «passage au quotient» a donné 14 hits — TROP LARGE (la faute #569, re-vécue)** ⟹ corrigé en «divisoriel»+«17.1.8» ⟹ **1 hit**. **VÉRIFIER LE COMPTE AVANT DE LIRE, TOUJOURS.**
+
+**⚠ CHECKS POUR idx578 (p565) :** ⚠⚠ **la p564 se termine PROPREMENT** ⟹ **p565 OUVRE sur «Notons aussi que, X étant régulier donc normal, ses composantes connexes sont identiques à ses composantes irréductibles et dominent S.»** ; workpass ~L13644+ : «Notons aussi que, \(X\) étant régulier donc normal, …» + display «H^0(X,\mathbb Z)\longrightarrow H^0(X_t,\mathbb Z)» + «induit par l'inclusion \(X_t\to X\) est bijectif. Par suite, l'homomorphisme induit par l'inclusion \(X_s\to X\) peut aussi s'interpréter comme un homomorphisme» + display «H^0(X_t,\mathbb Z)\longrightarrow H^0(X_s,\mathbb Z),» + «\begin{equation}\tag{7.7.3}» + «qui mérite encore le nom d'homomorphisme de spécialisation. Ceci posé, on vérifie immédiatement sur les définitions…» + «\tag{7.7.4}» — **LIRE LE SCAN D'ABORD** ; ★★★★**K^•/K^∘ — L'EXHIBIT #574 : le livre n'a QU'UN glyphe surélevé ; DEFERRED (178/367) mais CROPPER et LOGGER chaque occurrence** ; ★★★★**«Il en résulte» = la locution par défaut de Codex (a écrasé «découle» #568 ET «ce qui entraîne» #573)** ; ★★★★**PARAPHRASES : 5 sur #574, 5 sur #572 ⟹ LIRE MOT À MOT** ; ★★★★**SIX références ENTIÈREMENT droppées (#572 ×3, #573 ×1, #574 ×2) — dont «(IV 2.7 b)» DEUX FOIS** ⟹ **CROPPER CHAQUE RÉFÉRENCE : PRÉSENTE ?** ; ★★★★**Codex SCINDE les phrases (×2 sur #574, ×2 sur #572)** ; ★★★★**display-fictif 32 — le «et» AVALÉ ×3 (#572/#575/#574)** ; ★★★**H^0 — EXPOSANT ⟹ CROPPER** ; ★★★**`\mathbb Z` blackboard vs le «𝐙» GRAS du livre (DEFERRED)** ; ★★★guillemets `«~…~»` ; ★★★titres : **le POINT FINAL est du CONTENU** ; ★★ancres **TOUT EN RAW** ; ★★print() **ASCII-ONLY**.
+
+**LIGNE-DRIFT #577 : net −4** (fix4 a aplati le display en inline ⟹ −4 ; fix1/fix2/fix3 intra-ligne). **RE-GREP OBLIGATOIRE en #575.**
+
+**SWEEP CURSOR → idx578 = p565 = Exposé X «- 47 -» (§7.7 suite : H^0(X,Z) → H^0(X_t,Z), (7.7.3), (7.7.4)).**
+
+---
+
+### #573 (2026-07-16) — idx576 (vol p563 = **Exposé X «- 45 -»**, header «- 45 -» + **«X App.»** + footer «563» ; **CONSTANTE_X=518 CONFIRMÉE [563−45]**) — **★★ §7 Appendice (GROTHENDIECK) : §7.5 «Conservation du nombre» (χ_t, χ_s, le triangle 7.5.2) + §7.6 (le diagramme 7.6.2)** — **10 rep-calls / ~20 changements** (bandes b1-b5 TOUTES lues + **23 crops HD à 4800dpi**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (563−45 ; idx=563+13=576 ✓)** ; p562 finissait proprement ⟹ **cette page OUVRE sur «7.5. "Conservation du nombre"» — CONFIRMÉ** ; la page **se termine sur le diagramme (7.6.2) avec une VIRGULE finale** ⟹ la phrase **CONTINUE en p564**. Compile **0-err, 382pp** ✓ (⚠ **DEUX tikzcd touchés — la gate #548 tient**).
+
+**⚠⚠⚠⚠ ★★★★ fix9 — PARAPHRASE : «ce qui entraîne» → «Il en résulte» — ET C'EST UN PATRON :**
+`z576_entraineZ` (**4800dpi**) DÉCISIF — le livre imprime «**ce qui entraîne**, compte tenu que σ. est K^∘(X)-linéaire». Codex avait «**Il en résulte**».
+⚠⚠ **C'EST LA MÊME LOCUTION QUE CODEX AVAIT SUBSTITUÉE EN #568**, où elle remplaçait «Il en **découle**». ⟹ **«Il en résulte» est LA LOCUTION PAR DÉFAUT DE CODEX**, et elle a désormais **ÉCRASÉ DEUX LOCUTIONS DIFFÉRENTES DU LIVRE** ⟹ ⚠⚠ **CODEX NORMALISE LA PROSE VARIÉE DE L'AUTEUR SUR SA PROPRE FORMULATION PRÉFÉRÉE.** **5e page consécutive de substitution** (#568 paraphrase, #569 abrév, #570 abrév, #572 ×5, #573).
+
+**⚠⚠⚠⚠ ★★★★ fix2 — LE MOT «pour» REMPLACÉ PAR DES PARENS FABRIQUÉES — LE PATRON #570, 2e FOIS :**
+`z576_751` + `z576_pourZ` (**4800dpi**) DÉCISIFS — le livre imprime «(7.5.1)  χ_s(**σ.**(x)) = χ_t(x)        **pour**  x ∈ K.(X_t)» — le **MOT «pour»**, et ⚠⚠ **RIEN APRÈS la parenthèse fermante** (`z576_pourZ` : **aucun point**).
+Codex avait `\qquad (x\in K_\bullet(X_t)).` ⟹ **«pour» DROPPÉ + PARENS FABRIQUÉES + un POINT FABRIQUÉ**.
+⚠⚠ **EXACTEMENT la substitution de #570, maintenant DEUX FOIS** ⟹ **Codex convertit le quantificateur EN PROSE de l'auteur EN NOTATION**. La phrase du livre **ENCHAÎNE** sur la ligne suivante «("théorème de conservation du nombre"), en d'autres termes…» ⟹ **le point est faux aussi**.
+
+**⚠⚠⚠⚠ ★★★★ fix6 — PARENS DROPPÉES + «par exemple par» FABRIQUÉ (TROIS MOTS) + une VIRGULE DROPPÉE :**
+`z576_ega` (**4800dpi**) DÉCISIF — le livre imprime «ce qui est bien connu **(EGA III 7.9.4, ou Exposé III 5.7)**.» — **PARENTHÈSES** autour de toute la référence, et une **VIRGULE avant «ou»**.
+Codex avait «ce qui est bien connu**, par exemple par** EGA III 7.9.4 **ou** Exposé III 5.7.»
+⟹ (a) **PARENS DROPPÉES** ; (b) «**par exemple par**» **FABRIQUÉ — une invention de TROIS MOTS** ; (c) la **virgule avant «ou» DROPPÉE**.
+
+**⚠⚠⚠ ★★★ fix8/fix9 — LA VIRGULE FINALE DE (7.6.1) TRANSFORMÉE EN POINT :**
+`z576_761` (**4800dpi**) DÉCISIF — «(7.6.1)  σ.(cl.(O̲_{X_t})) = cl.(O̲_{X_s})   **,**» — une **VIRGULE** finale. Codex avait un **POINT**.
+⚠ **les deux changements sont UNE SEULE réécriture** : la virgule fait couler la phrase dans «**, ce qui entraîne**, compte tenu que…» ; le point de Codex l'a **SCINDÉE** pour pouvoir démarrer «**. Il en résulte**». (cf #572, où Codex a scindé deux phrases.)
+
+**⚠⚠⚠ ★★★ fix1/fix3 — CONVENTION DES GUILLEMETS (règle permanente) :**
+`z576_titre75` (**4800dpi**) : le livre imprime des **GUILLEMETS DROITS de machine** : «"Conservation du nombre"» et «("théorème de conservation du nombre")». La règle convertit `` '' → «~…~». Codex avait `« … »` **à ESPACES ORDINAIRES** (la convention du fichier est `«~…~»` : **152 contre 74**, incohérence préexistante, cf #569) ⟹ **les 2 occurrences DE MA PAGE corrigées**.
+
+**⚠⚠⚠ ★★★ fix1/fix7 — LES POINTS FINAUX DES NUMÉROS DE SECTION :**
+`z576_titre75` : le livre imprime «7.5.  "Conservation du nombre"**.**  Supposons maintenant…»
+`z576_76` : le livre imprime «**7.6.**  Il est immédiat que l'on a»
+Codex avait `\subsection*{7.5. « Conservation du nombre »}` et `\subsection*{7.6}` — **les points finaux MANQUENT**.
+⚠ **la STRUCTURE du titre** (le livre enchaîne numéro+titre DANS le texte ; Codex met un titre en display) reste **DEFERRED** — **mais le point est du CONTENU, pas du format** ⟹ restauré (cf le point final de «6.2.2.», #568).
+
+**⚠⚠⚠ ★★★ LES BULLETS (règle de hauteur #570 ; précédent #571/#572) — 7 OCCURRENCES :**
+`z576_751` : «χ_s(**σ.**(x))» ; `z576_761` : «**σ.**(**cl.**(O̲_X)) = **cl.**(O̲_X)» ; `z576_entraine` : «que **σ.** est K^∘(X)-linéaire» ; les étiquettes tikz de (7.5.2) et (7.6.2) : «**σ.**» ; `z576_pourprouver` : «x = **cl.**(Y_t)» ⟹ `\sigma_\bullet` ×5 + `\cl_\bullet` ×3.
+⚠ **chaque point est SUR LA LIGNE DE BASE** — les points des «K.» voisins servent de **contrôle dans le même crop**.
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- ⚠⚠⚠ `z576_ferme` : «sous-schéma **fermé** intègre de X_t» — **le livre DIT BIEN «fermé» ICI** ✓ **Codex correspond** ✓. ⚠⚠ **MAIS p562 disait seulement «sous-schéma intègre»** (#572, où j'ai **RETIRÉ** le «fermé» de Codex) ⟹ **LE LIVRE SE CONTREDIT ENTRE p562 ET p563** (mode ⑰). **Mon retrait en #572 était CORRECT pour cette page-là, et NE DOIT PAS être reporté ici.**
+- `z576_resp` : «propres sur k(t) **resp.** k(s)» ✓ **le livre ABRÈGE et Codex correspond** — il n'a **PAS** développé celui-ci (contrairement aux «i.e.» de #569/#570). **Négatif genuine.**
+- `z576_resp` : «d'homomorphismes **2.3 :**» — réf **NUE** + un **COLON** ✓ Codex correspond ; «7.4» NU ✓ (**le livre MÊLE nues et parenthésées**, #572).
+- `z576_chis` : le display «χ_t : K.(X_t) ⟶ 𝐙 **,** χ_s : K.(X_s) ⟶ 𝐙 .» — **LES DEUX SUR UNE LIGNE**, séparés d'une virgule, point final ✓ le `,\qquad` de Codex rend sur une ligne ✓.
+- `z576_chiYZ` : «χ(Y_s) = χ(Y_t) **,**» ✓ la virgule correspond ; «χ» **SANS indice** ✓. ⚠ une marque ténue plus à droite est **trop faible et mal placée pour être un glyphe** ⟹ **artefact de scan, NON édité**.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- la **STRUCTURE des titres** (enchaînés vs `\subsection*`) ; «Conservation du nombre» **SOULIGNÉ** ; le «**𝐙**» **GRAS/surfrappé** (classe blackboard) ; le «**O̲_X**» **SOULIGNÉ** (faisceau structural) ; le `\bigl(\bigr)` (le livre a des parens plates) ; le **LAYOUT du tikzcd** (#565) ; le `,\qquad` vs l'écart plus étroit du livre dans le display des χ ; l'espace avant la virgule dans «de X_t , et» (dactylo).
+
+**RENDER-VERIFY** (`vrf576.py` + `vrf576b.py`, **page rendue LUE EN ENTIER** + **2 rendus IMAGE à 8×**) : «7.5. « Conservation du nombre »**.**» ✓ ; «χs(**σ•**(x)) = χt(x) **pour** x ∈K•(Xt)  (7.5.1)» ✓ **sans parens ni point** ; «(« théorème de conservation du nombre »), en d'autres termes» ✓ ; le triangle (7.5.2) **rendu en IMAGE 8×** : «K_•(X_t) —**σ_•**→ K_•(X_s)» avec **χ_t** et **χ_s** convergents ✓ ; «x = **cl•**(Yt), Yt sous-schéma **fermé** intègre» ✓ ; «ce qui est bien connu **(EGA III 7.9.4, ou Exposé III 5.7)**.» ✓ ; «**7.6.**» ✓ ; «**σ•**(**cl•**(OXt)) = **cl•**(OXs)**,**  (7.6.1)» ✓ ; «**ce qui entraîne**, compte tenu que **σ•** est K◦(X)-linéaire» ✓ ; le (7.6.2) : «j∗ i∗ **σ•**» ✓.
+⚠ **LE FILTRE : 2 hits — bien calibré**.
+
+**⚠⚠⚠ DEUX PIÈGES RENCONTRÉS ET RÉSOLUS :**
+- ⚠⚠ **NOUVEAU PIÈGE D'ANCRE — MÉLANGER RAW ET NON-RAW** : mon ancre tikz762 était `r'…\arrow[rr,"\sigma"'` + `"'"` + `'] && K_\bullet(X_s),'` — ⚠⚠ **le 3e fragment N'EST PAS raw ⟹ le `\b` de `\bullet` est devenu un CARACTÈRE BACKSPACE** ⟹ **0 hit**. **CHAQUE fragment contenant un backslash DOIT être raw.** (Cousin du piège `\"` de #571.)
+- ⚠⚠ **MON PROPRE `print()` NON-ASCII A FAIT PLANTER fix576.py** : j'avais mis un «⚠» dans un tag de `rep()` ⟹ **UnicodeEncodeError cp1252** — **la leçon #524-#572 que je porte depuis 50 certs**. ⚠ **le crash est survenu AVANT l'écriture du fichier** (dans `print()`, après le `s.replace()` en mémoire) ⟹ **le fichier était INTACT** (vérifié par grep) ⟹ tag corrigé en ASCII, re-run OK. **print() ASCII-ONLY, TOUJOURS.**
+- ⚠⚠ **NOUVEAU DOUBLON DE TAG** : **`\tag{7.5.2}` = 2 occurrences** (la mienne L13595 + un diagramme «K×K» d'un Exposé antérieur) **ET `\tag{7.5.1}` = 2** ⟹ **l'astuce de désambiguïsation par `\tag{}` (#553) ÉCHOUERAIT ICI** ⟹ **mes ancres étaient spécifiques au CONTEXTE** ✓. **Le fichier a donc : TROIS `\tag{6.1.3}`, DEUX `\tag{6.3.1}`, DEUX `\tag{7.5.1}`, DEUX `\tag{7.5.2}` — les doublons restent NON EXAMINÉS.**
+
+**⚠ CHECKS POUR idx577 (p564) :** ⚠⚠ **la p563 se termine sur le (7.6.2) avec une VIRGULE** ⟹ **p564 OUVRE sur «où les flèches verticales sont les homomorphismes canoniques K^∘ → K_• (IV 2.5.1).»** ; workpass ~L13622+ : «où les flèches verticales sont les homomorphismes canoniques \(K^\circ\to K_\bullet\) (IV 2.5.1).» + «\subsection*{7.7. Spécialisation pour \(K^\bullet\) et \(\Gr^\bullet\)}» + «Lorsque \(X_t\) et \(X_s\) sont réguliers, par exemple si \(f\) est lisse, les deux flèches verticales précédentes sont des isomorphismes (IV 2.5). L'homomorphisme de spécialisation peut alors s'interpréter comme un homomorphisme…» — **LIRE LE SCAN D'ABORD** ; ★★★★**«Il en résulte» = LA LOCUTION PAR DÉFAUT DE CODEX — elle a écrasé «Il en découle» (#568) ET «ce qui entraîne» (#573) ⟹ LA CHERCHER SYSTÉMATIQUEMENT** ; ★★★★**«pour» remplacé par des parens — 2/2 (#570, #573) ⟹ CHERCHER CHAQUE `\qquad(…)` DE CODEX** ; ★★★★**K^• (EXPOSANT) vs K_• (INDICE) — §7.7 les OPPOSE dans son titre ⟹ MESURER LA HAUTEUR DU POINT** ; ★★★★**`\Gr^\bullet` (63 occ) vs `\Gr_\bullet` (34) COEXISTENT** ; ★★★★réfs : **(IV 2.5.1) et (IV 2.5) parenthésées ⟹ VÉRIFIER (3 droppées en #572 !)** ; ★★★★FABRICATION **8 mots + «par exemple par» (3 mots) = 11** ; ★★★book-sic **41 en 24 pages** ; ★★★ancres : **raw partout ; assert count==1 ; `\tag{}` PAS fiable (doublons)** ; ★★print() **ASCII-ONLY**.
+
+**LIGNE-DRIFT #576 : net 0** (les 10 reps sont tous intra-ligne). **RE-GREP quand même en #574.**
+
+**SWEEP CURSOR → idx577 = p564 = Exposé X «- 46 -» (§7.6 fin + §7.7 «Spécialisation pour K^• et Gr^•»).**
+
+---
+
+### #572 (2026-07-16) — idx575 (vol p562 = **Exposé X «- 44 -»**, header «- 44 -» + **«X App.»** + footer «562» ; **CONSTANTE_X=518 CONFIRMÉE [562−44]**) — **★★★ §7 Appendice (GROTHENDIECK) : fin de Prop 7.3 (structure de K^∘(X)-module) + §7.4 «Compatibilité aux filtrations»** — **5 rep-calls / ~30 changements** (bandes b1-b5 TOUTES lues + **25 crops HD à 4800dpi + 1 COMPTAGE de macros**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (562−44 ; idx=562+13=575 ✓)** ; p561 finissait proprement sur le diagramme (7.3.2) ⟹ **cette page OUVRE sur «Lorsqu'on considère» — CONFIRMÉ** ; la page **se termine PROPREMENT** sur «D'où la conclusion annoncée.». Compile **0-err, 382pp** ✓.
+
+# ⚠⚠⚠⚠ **C'EST LA PAGE LA PLUS RÉÉCRITE DE TOUTE LA SÉRIE. ~30 changements en 5 reps.**
+
+**⚠⚠⚠⚠ ★★★★ CODEX SUBSTITUE SA FORMULATION — **4e PAGE D'AFFILÉE, ET CINQ FOIS SUR CELLE-CI** :**
+- (a) `z575_grace` : «**grâce aux** homomorphismes» ⟹ Codex «**au moyen des**».
+- (b) `z575_iv27b` : «**et aux** structures de modules» ⟹ Codex «**et au moyen des**».
+- (c) `z575_appele` : «(appelé **également** homomorphisme…)» ⟹ Codex «**encore** appelé».
+- (d) `z575_verifie` : «On vérifie **aisément**» ⟹ Codex «On vérifie **facilement**».
+- (e) `z575_deuxcl` : «**où les deux cl. sont pris**» ⟹ Codex «**les deux CLASSES ÉTANT PRISES**» — ⚠⚠ **CODEX A DÉVELOPPÉ L'ABRÉVIATION «cl.» EN LE MOT «classes»** : mode ⑮, **et l'instance la PIRE à ce jour — elle DÉTRUIT LA NOTATION ELLE-MÊME**.
+- (f) `z575_casX` : «par réduction au cas **X intègre**» ⟹ Codex «au cas **où X est** intègre».
+⟹ bilan : **#568 PARAPHRASE, #569 + #570 ABRÉVIATION, #572 CINQ substitutions sur UNE page**. ⚠⚠ **AUCUNE ne laisse de trace à la compilation ni dans la math.**
+
+**⚠⚠⚠⚠ ★★★★ TROIS RÉFÉRENCES ENTIÈRES DROPPÉES — LA TROUVAILLE DE LA PAGE :**
+- `z575_iv27b` : «**(IV 2.7 b)** et aux structures» — **ABSENTE de Codex, entièrement**.
+- `z575_iv210` : «respectivement **(IV 2.10)**, l'homomorphisme» — **ABSENTE, entièrement**.
+- `z575_ega281` : «plat sur S **(EGA IV 2.8.1)**.» — **ABSENTE, entièrement**.
+- ⚠ **ET une 4e a perdu ses parenthèses** : `z575_envertu` «en vertu de **(IV 2.12.2)**.» ⟹ Codex l'avait **NUE** (cf #570 qui en avait dépouillé deux).
+⚠⚠ **CONTRÔLE — RÉSULTAT NÉGATIF GENUINE** : «par **1.14**» (`z575_pourlevoir`) et «de **EGA IV 7.1.13**» (`z575_ega7113`) sont **NUES DANS LE LIVRE** ✓ **Codex correspond** ⟹ **la forme nue n'est PAS toujours le fait de Codex — le livre lui-même MÊLE réfs parenthésées et nues. NE JAMAIS uniformiser.**
+
+**⚠⚠⚠⚠ ★★★★ QUATRE DISPLAY-FICTIFS SUR UNE PAGE (27-31) :**
+Chacun échoue au critère «**RIEN NE SUIT la formule sur la ligne**» :
+- (a) `z575_grace` : «K^∘(X) --j*--> K^∘(X_t) **et** K^∘(X) --i*--> K^∘(X_s)» — **INLINE**, et la ligne **ENCHAÎNE** sur «(IV 2.7 b) et aux structures…». ⚠⚠ **le mot «et» entre les deux flèches a été AVALÉ par le display de Codex** (le motif #564) — Codex avait écrit «,\qquad».
+- (b) `z575_envertu` : «j* : K.(X) ⟶ K.(X_t)**, en vertu de (IV 2.12.2).**» — la ligne CONTINUE.
+- (c) `z575_ega281` : «i*(cl.(Y)) = cl.(Y_s)**, où les**» — la ligne CONTINUE.
+- (d) `z575_verifie` : «σ.(cl.(Y_t)) = cl.(Y_s)**. On vérifie**» — la ligne CONTINUE.
+- (e) `z575_semicolon` : «que **dim Y_s ≤ dim Y_t** ; dans le cas» — la ligne CONTINUE.
+⚠ **Ce n'est PAS de la sur-correction** : en #569/#570/#571 **TOUS** les displays étaient RÉELS ⟹ **le critère tranche au cas par cas**.
+
+**⚠⚠⚠⚠ ★★★★ LES BULLETS : σ_• , cl_• , Fil_• :**
+`z575_741Z` (**4800dpi**) DÉCISIF : «**σ.** : **Gr.**(X_t)» — **LES DEUX points SUR LA LIGNE DE BASE, À LA MÊME HAUTEUR** ⟹ tous deux `_\bullet` (**règle de hauteur #570** ; #571 avait établi σ_•). Codex a `\Gr_\bullet` ✓ **JUSTE** mais un `\sigma` **NU** ✗.
+`z575_filKZ` (**4800dpi**) : «**Fil.K.**» — **DEUX points de base**. «Gr.» est sans ambiguïté Gr_• (Codex l'écrit ainsi, le livre concorde) ⟹ **le MÊME glyphe après «Fil» est Fil_•**. Codex avait `\operatorname{Fil}K_\bullet` — **le bullet de Fil MANQUE**.
+Le livre imprime «**cl.**» partout sur cette page (point de base) ⟹ `\cl_\bullet`.
+⚠ **MESURÉ** : `\cl_\bullet` est une forme **ÉTABLIE (43 usages)** à côté de **133 `\cl` nus** ; `\Gr_\bullet`(34) et `\Gr^\bullet`(63) **COEXISTENT** réellement ⟹ **LOCAL per-occurrence, comme toujours**.
+
+**⚠⚠⚠ ★★★ DEUX MOTS FABRIQUÉS (#7 et #8) :**
+- `z575_ainsique` : «ainsi que **l'**épimorphisme» ⟹ Codex «ainsi que **de** l'épimorphisme».
+- `z575_schemaint` : «un sous-schéma intègre de dimension d» ⟹ Codex «un sous-schéma **fermé** intègre» ⟹ ⚠⚠ **«fermé» N'EST PAS dans le livre — et c'est une AFFIRMATION MATHÉMATIQUE, pas du remplissage.**
+
+**⚠⚠⚠ ★★★ BOOK-SIC : «soit Y d'adhérence schématique» :**
+`z575_orsoit` (**4800dpi**) : «Or soit Y **d'**adhérence schématique de Y_t dans X». Le glyphe avant l'apostrophe a une **PANSE RONDE + UNE HASTE** = un «**d**» (un «l» serait une simple verticale). Le français correct veut «soit Y **l'**adhérence schématique». ⟹ **le livre a fauté ; Codex a silencieusement corrigé en «l'adhérence». BOOK-SIC, RESTAURÉ SIC.**
+⚠ **ET Codex avait droppé le «Or» initial**, et réécrit «**de sorte que** Y est plat sur S» en «. **Alors** Y est plat sur S**, et**» ⟹ **une RÉÉCRITURE INTÉGRALE de la phrase.**
+
+**⚠⚠⚠ ★★★ PONCTUATION — LES DEUX SENS SUR LA MÊME PAGE :**
+- `z575_appele` : «(appelé également … spécialisation) **:**» — PARENS + un **DEUX-POINTS**. Codex : «**, encore appelé** … **,**» ⟹ parens→virgules **ET le deux-points DROPPÉ** (cf #569/#571).
+- `z575_verifie` : «**(grâce** au fait … donc Y caténaire**)**» — PARENS. Codex : des virgules.
+- `z575_semicolon` : «dim Y_s ≤ dim Y_t **;** dans le cas» — un **POINT-VIRGULE** + «dans» **EN MINUSCULE**. Codex : «**. Dans**» ⟹ point-virgule→point + majuscule (**phrase SCINDÉE**).
+- `z575_deuxcl` : «K.(X_s)**,** d'où» — une VIRGULE + minuscule. Codex : «**. D'où**» ⟹ **SCINDÉE encore**.
+- ⚠⚠ `z575_filtrations` : «compatible avec ces filtrations**,** et induit» — **la virgule EST dans le livre et Codex l'a DROPPÉE** ⟹ **les virgules vont DANS LES DEUX SENS SUR LA MÊME PAGE**.
+- `z575_pourlevoir` : «à prouver **que si**» — **PAS de virgule**. Codex : «que**,** si» ⟹ FABRIQUÉE.
+- `z575_deuxcl` : «et **dans** K.(X_s)» — le livre **RÉPÈTE «dans»** ; Codex l'avait droppé.
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z575_head` : «- 44 -» ✓ + titre courant «**X App.**» ✓.
+- «par **1.14**» ✓ **NU dans le livre** ; «de **EGA IV 7.1.13**.» ✓ **NU dans le livre** — Codex correspond.
+- «(1.1.1)» ✓ parenthésée, Codex correspond ; «Alors, si f est de type fini» ✓ la virgule est réelle.
+- `\Gr_\bullet` ✓ **JUSTE** (le «Gr.» à point de base du livre).
+- les étiquettes j^* / i^* ✓ **JUSTES** (K^∘(X)→K^∘(X_t) = restriction à l'**OUVERT** = j^* ; →K^∘(X_s) = restriction au **FERMÉ** = i^* ; **la math concorde**).
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠⚠ **NOUVEAU BUG DE MACRO** : **`\Filt` a DEUX `\providecommand` EN CONFLIT** — **L12415 `{\operatorname{Filt}}`** et **L12823 `{\operatorname{Fil}}`**. **LA PREMIÈRE GAGNE ⟹ `\Filt` rend «Filt»** (33 usages). ⚠ **cette page utilise `\operatorname{Fil}` EN DIRECT, donc elle n'est PAS touchée** — mais le conflit est **loggé pour quand `\Filt` sera sur une page**. **Même famille que `\Ob`→«ob».**
+- les **SOULIGNEMENTS** de l'énoncé de Prop ; «Compatibilité aux filtrations» souligné (format de titre) ; l'**eq-tag À GAUCHE** (7.4.1) = leqno ; l'**espace dactylo dans «(IV 2.7 b)»** avant le «b» ; ⚠ **l'espacement `\operatorname` — le rendu donne «Fil• K•» avec un blanc, le livre a «Fil.K.» collé** (classe #569 «(Sch /S)»).
+
+**RENDER-VERIFY** (`vrf575.py`, **page rendue LUE EN ENTIER**) : «comme des modules sur K◦(X) **grâce aux** homomorphismes d'anneaux K◦(X) --j∗--> K◦(Xt) **et** K◦(X) --i∗--> K◦(Xs) **(IV 2.7 b)** **et aux** structures … respectivement **(IV 2.10)**, l'homomorphisme **σ•** est un homomorphisme de K◦(X)-modules.» ✓ **TOUT INLINE** ; «ainsi que **l'**épimorphisme **j∗: K•(X) −→K•(Xt)**, en vertu de **(IV 2.12.2)**.» ✓ ; «de la filtration **Fil• K•** … compatible avec ces filtrations**,** et induit … un homomorphisme **(appelé également** homomorphisme de spécialisation**) :**» ✓ ; «**σ• :** Gr•(Xt) −→Gr•(Xs).  (7.4.1)» ✓ ; «à prouver **que si** Yt est un sous-schéma **intègre** … alors **σ•(cl•(Yt))** … **Or soit Y d'adhérence** schématique … **de sorte que** Y est plat sur S **(EGA IV 2.8.1)**. Il en résulte aisément que **i∗(cl•(Y )) = cl•(Ys)**, **où les deux cl• sont pris** respectivement dans K•(X) **et dans** K•(Xs), **d'où σ•(cl•(Yt)) = cl•(Ys)**. On vérifie **aisément (grâce** au fait que X est caténaire, donc Y caténaire**)** que **dim Ys ≤dim Yt** **;** dans le cas … par réduction au cas **X intègre**, de EGA IV 7.1.13.» ✓.
+⚠ **LE FILTRE : 2 hits — bien calibré** («conclusion annoncée» OU «IV 2.7 b»).
+
+**⚠ CHECKS POUR idx576 (p563) :** ⚠⚠ **la p562 se termine PROPREMENT** ⟹ **p563 OUVRE sur «7.5. « Conservation du nombre »»** ; workpass ~L13605+ : «\subsection*{7.5. « Conservation du nombre »}» + «Supposons maintenant \(f\) propre, donc \(X_t\) et \(X_s\) propres sur \(k(t)\) resp. \(k(s)\), de sorte qu'on dispose d'homomorphismes 2.3 :» + display «\chi_t : K_\bullet(X_t)\longrightarrow\mathbb Z,» + «\chi_s : K_\bullet(X_s)\longrightarrow\mathbb Z.» + «Ceci dit, on a la relation…» — **LIRE LE SCAN D'ABORD** ; ★★★★**«resp.» — le livre l'abrège-t-il ? Codex a «resp.» ✓ mais VÉRIFIER (mode ⑮ : 5 substitutions en #572 !)** ; ★★★★**«7.5. « Conservation du nombre »» — les guillemets : le livre met des GUILLEMETS DROITS ⟹ `«~…~»` per la règle ; Codex a `« … »` à espaces ordinaires ⟹ FIX (cf #569/#571)** ; ★★★★**«homomorphismes 2.3 :» — réf NUE + un COLON ⟹ CROPPER** ; ★★★★**χ_t / χ_s — CROPPER (casse grecque + indices)** ; ★★★★**`\mathbb Z` blackboard vs le «Z» PLAT du livre (DEFERRED)** ; ★★★★**σ_• / cl_• / K_• — la règle de HAUTEUR DU POINT** ; ★★★réfs parenthésées vs nues — **le livre MÊLE les deux (#572)** ; ★★★display-fictif **31 en 17 pages** — le critère : RIEN NE SUIT ; ★★★book-sic **40 en 23 pages** ; ★★★texte-drop **20+ en 13 pages** ; ★★`\Filt` = **BUG DE MACRO (rend «Filt»)** ⟹ auditer si sur-page.
+
+**LIGNE-DRIFT #575 : net −14** (fix1 −5, fix2 −4, fix5 −11, fix3/fix4 intra-ligne ⟹ les blocs ont été aplatis en inline). ⚠⚠ **RE-GREP OBLIGATOIRE en #573, les offsets sont TRÈS périmés.**
+
+**SWEEP CURSOR → idx576 = p563 = Exposé X «- 45 -» (§7.5 «Conservation du nombre» : χ_t, χ_s).**
+
+---
+
+### #571 (2026-07-16) — idx574 (vol p561 = **Exposé X «- 43 -»**, header «- 43 -» + **«X App.» CONFIRMÉ** + footer «561» ; **CONSTANTE_X=518 CONFIRMÉE [561−43]**) — **★★ §7 Appendice (GROTHENDIECK) : le composé i^*i_* est nul + Prop 7.3, l'homomorphisme de spécialisation σ_• + le triangle (7.3.2)** — **5 rep-calls / ~9 changements** (bandes b1-b5 TOUTES lues + **23 crops HD à 4800dpi + 4 crops de CONTRÔLE**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (561−43 ; idx=561+13=574 ✓)** ; p560 pendait sur le display «i* : K.(X) ⟶ K.(X_s) ,» ⟹ **cette page OUVRE sur «d'autre part» — CONFIRMÉ** ; la page **se termine PROPREMENT** sur le diagramme (7.3.2) et son «.» final. Compile **0-err, 382pp** ✓ (⚠ **le tikzcd a été touché — la gate #548 tient**).
+
+**⚠⚠⚠⚠ ★★★★ fix1 — CODEX A MAL LU UN MOT : «dont» EST DEVENU «donc» — LA TROUVAILLE DE LA PAGE :**
+`z574_dontZ` (**4800dpi**) DÉCISIF — le livre imprime «de codimension 1, **dont** le faisceau conormal N est libre de rang 1». La dernière lettre a une **HASTE NETTE AVEC BARRE TRANSVERSALE** = un «**t**». Codex avait «**donc**».
+⚠⚠ **LES CONTRÔLES SONT SUR LA MÊME LIGNE** : le «c» de «fais**c**eau» et celui de «**c**onormal» sont **RONDS, hauteur d'x, OUVERTS**. Rien à voir avec le «t».
+⚠⚠ **ET LE LIVRE EMPLOIE LES DEUX MOTS SUR CETTE PAGE** : `z574_grace` montre «a **donc** λ_{-1}(N) = 0» avec un «**c**» ROND sans équivoque ⟹ **le c et le t de cette machine sont distincts ET l'auteur distingue les deux mots. Codex a UNIFORMISÉ «dont» → «donc».**
+⚠⚠ **LA GRAMMAIRE TRANCHE POUR LE LIVRE** :
+- livre : «une immersion régulière de codimension 1, **dont** le faisceau conormal N est libre de rang 1, **car** X_s peut se décrire par une équation globale» = «…**dont** (= whose) le faisceau conormal est libre, **car** une équation globale le fournit» — **«dont» RATTACHE le faisceau à l'immersion ; «car» donne la raison qu'il soit LIBRE** (un générateur global).
+- Codex : «…de codimension 1, **donc** le faisceau conormal N est libre…, **car**…» = «…**donc** libre…, **parce que**…» ⟹ **DEUX JUSTIFICATIONS CONCURRENTES** pour un même fait ; le «donc» rend la proposition en «car» redondante.
+⟹ **PAS un book-sic — une MAUVAISE TRANSCRIPTION de Codex qui ALTÈRE LA STRUCTURE LOGIQUE de la phrase** (un pronom relatif transformé en connecteur causal). RESTAURÉ au livre.
+⟹ **MODE ⑧/⑲ : Codex mal-lit à 1 LETTRE près (t/c) et le sens bascule.**
+
+**⚠⚠⚠⚠ ★★★★ fix3/fix5 — LE SIGMA PORTE UN POINT : «σ_•» PAS «σ» :**
+`z574_sigmaZ` (**4800dpi**) DÉCISIF — (7.3.1) imprime «**σ.** : K.(X_t) ⟶ K.(X_s)» — un point **SUR LA LIGNE DE BASE** juste après le sigma. ⚠⚠ **LE CONTRÔLE EST DANS LE MÊME CROP** : le point de «**K.**(X_t)» est **EXACTEMENT À LA MÊME HAUTEUR**.
+`z574_tikz2` (**4800dpi**) : l'étiquette de la diagonale du diagramme (7.3.2) est «**σ.**» **AUSSI** — avec le point.
+⟹ le morphisme est **σ_•**, **assorti aux groupes K_• qu'il relie** (l'homomorphisme de spécialisation au niveau K_•). Codex avait un `\sigma` **NU aux DEUX endroits**.
+⟹ `\sigma_\bullet` en (7.3.1) **ET** dans l'étiquette tikzcd. (Application directe de la **règle de HAUTEUR DU POINT établie en #570**.)
+
+**⚠⚠⚠ ★★★ fix1 — PARENS → VIRGULE sur «(où g est une uniformisante de A)» :**
+`z574_ouparen` (**4800dpi**) DÉCISIF — le livre imprime «par une équation globale f*(g) = 0 **(où g est une uniformisante de A)**.» — **PARENTHÈSES, et AUCUNE virgule avant**. Codex avait «\(f^*(g)=0\)**, où** \(g\) est une uniformisante de \(A\).» ⟹ mode ① (parens → virgule) **+ une virgule fabriquée, en un seul endroit**.
+
+**⚠⚠⚠ ★★★ fix2 — UN DEUX-POINTS DROPPÉ :**
+`z574_situZ` (**4800dpi**) DÉCISIF — «d'homotopie (IX 1.1  ) **à la situation :**» — un **DEUX-POINTS**, et **LA LIGNE S'ARRÊTE LÀ**. La ligne suivante (`z574_muni`) démarre **À LA MARGE GAUCHE** : «X, muni de l'ouvert X_t et du sous-schéma fermé X_s complémentaire **:**».
+⟹ le livre a **DEUX** deux-points ; Codex n'en avait qu'**UN** — il enchaînait «à la situation» directement sur «\(X\), muni», **droppant le premier**. Mode ③. (⚠ colons **NOT deferred**.)
+
+**⚠⚠ ★★ fix4 — VIRGULE FABRIQUÉE + CONVENTION DES GUILLEMETS :**
+`z574_dit` (**4800dpi**) : le livre imprime «(dit "homomorphisme de spécialisation"**)** rendant commutatif le diagramme» — **PAS de virgule après le «)»**. Codex avait «)**,** rendant».
+Les guillemets du livre sont **DROITS (machine à écrire)** ; la règle convertit `` '' → «~…~». Codex avait `« … »` **à ESPACES ORDINAIRES** — la convention **du fichier** est `«~…~»` (**152 `«~` contre 74 `« `** — incohérence **préexistante à l'échelle du document**, cf #569) ⟹ **je corrige l'occurrence DE MA PAGE** ; les 73 autres restent une décision de sweep future.
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z574_head` : header «- 43 -» ✓ et le titre courant «**X App.**» ✓ **CONFIRMÉ** (changé en #570).
+- ⚠⚠ `z574_dautre` : «d'autre part **(IV 2.11)** on a un **homomorphisme**» — parens ✓ **ET le mot est écrit CORRECTEMENT avec un «h» ici** ⟹ **la coquille «l'nomomorphisme» de p560 NE SE RÉPÈTE PAS — le livre est incohérent avec lui-même (mode ⑰)** ; **le sic de #570 tient, per-occurrence**.
+- `z574_grace` : «a donc λ_{-1}(N) = 0, et on conclut **grâce à 7.1.**» — **AUCUNE parenthèse** sur «7.1» ✓ **Codex correspond** ⟹ ⚠ **contraste avec #570 où DEUX parens de réf avaient été droppées : ici la forme nue est celle DU LIVRE, pas de Codex**. Le «−1» est un **INDICE** ✓.
+- `z574_seq` : le display «K.(X_s) --i_*--> K.(X) --j^*--> K.(X_t) ⟶ 0 ,» — **FLÈCHES ÉTIQUETÉES**, et les `\xrightarrow{i_*}` / `\xrightarrow{j^*}` de Codex correspondent ✓.
+- `z574_tikz1` : la flèche haute du triangle est «**j***» (point AU-DESSUS + **DESCENDANTE** = j) et la verticale est «**i***» (point, **PAS de descendante**) ⟹ les `[r,"j^*"]` et `[d,"i^*"']` de Codex sont ✓ **JUSTES**.
+- **les K-glyphes** : chaque «K.» de la page a le point **SUR LA LIGNE DE BASE** ⟹ `K_\bullet` ✓ partout (**règle de hauteur #570**).
+- `z574_muni` : «X, muni … complémentaire :» démarre **À LA MARGE GAUCHE** = ligne de continuation, **PAS un nouveau ¶** ✓.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- le «**N**» est **GRAS/surfrappé** encore (`z574_grace`) ⟹ classe **blackboard-vs-plat** (cf #570).
+- «**libre**» / «**noethérien**» / «**plat sur**» / «**dit**» **SOULIGNÉS** + **tout l'énoncé de Prop 7.3** ⟹ classe des soulignements décoratifs/Prop.
+- «(IX 1**.**1    )» — un **LARGE BLANC dactylo** avant la parenthèse fermante ⟹ classe espacement (#509).
+- les **eq-tags À GAUCHE** (7.3.1)/(7.3.2) = leqno ; le **LAYOUT du tikzcd** (#565) ; `^*` vs `^\ast`.
+
+**RENDER-VERIFY** (`vrf574.py` + `vrf574b.py`, **page rendue LUE EN ENTIER** + **2 rendus IMAGE à 8×**) : «une immersion régulière de codimension 1, **dont** le faisceau conormal N est libre de rang 1, car Xs peut se décrire par une équation globale f∗(g) = 0 **(où g est une uniformisante de A)**. On a donc λ−1(N) = 0, et on conclut grâce à 7.1.» ✓ ; «à la situation **:** X, muni de l'ouvert Xt» ✓ ; «**σ• :** K•(Xt) −→K•(Xs)  (7.3.1)» ✓ ; «(dit « homomorphisme de spécialisation »**)** rendant commutatif le diagramme» ✓ ; ⚠⚠ **le diagramme (7.3.2) rendu en IMAGE 8× : «K_•(X) —j^*→ K_•(X_t)», la verticale «i^*», et la diagonale «**σ_•**» AVEC SON POINT** ✓ — **les étiquettes de flèches NE SURVIVENT PAS à l'extraction texte ⟹ le rendu IMAGE était OBLIGATOIRE**.
+⚠ **LE FILTRE : 2 hits — bien calibré** («uniformisante» OU «spécialisation »»).
+
+**⚠ ANCRES — DEUX PIÈGES RENCONTRÉS ET RÉSOLUS :**
+- ⚠⚠ **`\sigma:K_\bullet(X_t)\longrightarrow K_\bullet(X_s)` = 2 OCCURRENCES** : L13543 (**7.3.1, MA page**, **UN** espace en tête) et **L13711 (7.9.2, une page ULTÉRIEURE, DEUX espaces en tête)** ⟹ **la chaîne à 1 espace est une SOUS-CHAÎNE de celle à 2 espaces** ⟹ l'assert `count==1` a MORDU. **Désambiguïsé par le `\tag{7.3.1}` (l'astuce #553).** ⚠ **il y a aussi un `\sigma:K_\bullet(X_t)\xleftarrow{\sim}…` en L14016 (7.17.1)**.
+- ⚠ **`\"` dans une raw-string Python garde le backslash** ⟹ mon ancre tikz n'a rien matché (0 hits). Corrigé avec `r'…\arrow[dl,"\sigma"]'` (guillemets simples externes).
+
+**⚠ CHECKS POUR idx575 (p562) :** ⚠⚠ **la p561 se termine PROPREMENT sur le diagramme (7.3.2)** ⟹ **p562 OUVRE sur la suite de Prop 7.3 / sa démonstration** ; workpass ~L13552+ : ⚠⚠ **ATTENTION — après L13551 le fichier contient un BLOC DE `\providecommand` (macros locales Exposé X : `\Kalg`/`\Gralg`/`\Grnum`/`\Knum`/`\Cl`/`\Ch`/`\Nm`/`\colim`/`\Hens`/`\red`/`\Spec`/`\coker`…) ⟹ CE N'EST PAS DU CORPS — le contenu de p562 est APRÈS ; RE-GREP** ; ★★★★**`\sigma` — 2 AUTRES occurrences à auditer : (7.9.2) L13711 et (7.17.1) L14016 ⟹ le livre met-il le point PARTOUT ? CROPPER quand j'y arrive** ; ★★★★**`\sigma^\bullet` EXISTE DÉJÀ** (L13707 : `\sigma^\bullet:\Gr^\bullet(X_t)…`) ⟹ **σ^• (EXPOSANT) vs σ_• (INDICE) COEXISTENT — NE PAS confondre, MESURER LA HAUTEUR** ; ★★★★Codex-mal-lit-à-1-lettre-près (dont/donc) ⟹ **CROPPER CHAQUE MOT-OUTIL** ; ★★★★Codex-substitue-sa-formulation (3 pages : #568/#569/#570) ; ★★★★parens : **#570 ×2 droppées sur des réfs, #571 ×1 droppée sur une incise** ⟹ **CROPPER CHAQUE PAREN** ; ★★★★colons droppés (#569 + #571) ⟹ **VÉRIFIER CHAQUE FIN DE LIGNE** ; ★★★book-sic **38 en 21 pages** ; ★★★texte-drop **16 en 12 pages** ; ★★la MACHINE de Grothendieck ⟹ **re-vérifier CHAQUE convention** ; ★★`\longmapsto` 26 restants (4/4 FAUX) ; ★★`\simeq` 140.
+
+**LIGNE-DRIFT #574 : net 0** (les 5 reps sont intra-ligne). **RE-GREP quand même en #572.**
+
+**SWEEP CURSOR → idx575 = p562 = Exposé X «- 44 -» (§7 Appendice, Grothendieck : la démonstration de Prop 7.3 / la suite).**
+
+---
+
+### #570 (2026-07-16) — idx573 (vol p560 = **Exposé X «- 42 -»**, header «- 42 -» + ⚠⚠ **«X App.»** (LE TITRE COURANT A CHANGÉ — c'était «X») + footer «560» ; **CONSTANTE_X=518 CONFIRMÉE [560−42]**) — **★★★ §7 APPENDICE : «Spécialisation en théorie des intersections», PAR A. GROTHENDIECK — NOUVELLE SECTION, NOUVEL AUTEUR, ⚠⚠ MACHINE À ÉCRIRE DIFFÉRENTE** — **5 rep-calls / ~10 changements** (bandes b1-b5 TOUTES lues + **22 crops HD à 4800dpi + 5 crops de CONTRÔLE**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (560−42 ; idx=560+13=573 ✓)** ; p559 finissait proprement ⟹ **cette page OUVRE sur le titre «7. Appendice…» — CONFIRMÉ** ; la page **se termine sur le display «i* : K.(X) ⟶ K.(X_s)  ,»** — **la virgule finale ⟹ la phrase CONTINUE en p561**. Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ LE CHECK-VEDETTE — LES K-GLYPHES — EST UN RÉSULTAT NÉGATIF GENUINE. CODEX A RAISON.**
+`z573_K1Z` vs `z573_KmodZ` vs `z573_K2Z` (**4800dpi**) DÉCISIFS — **et le CONTRASTE est SUR UNE MÊME LIGNE** :
+- «i^* : **K.**(X)» — le point est **SUR LA LIGNE DE BASE**, collé au pied du K.
+- «structure de **K^·**(Y)-module de **K.**(Y)» — le **1er** point est à **HAUTEUR DE CAPITALE**, le **2e** est **SUR LA LIGNE DE BASE** — **LES DEUX SUR LA MÊME LIGNE**.
+- «∈ **K^·**(Y)» — **HAUTEUR DE CAPITALE**.
+⟹ le livre les distingue **PUREMENT PAR LA HAUTEUR** (la machine n'a qu'un point ; le dactylographe a **remonté le chariot d'un demi-cran** pour le point haut).
+⚠⚠ **ET LA MATH CONFIRME L'ATTRIBUTION** : «la structure de K^∘(Y)-**module** de K_•(Y)» — **K^∘ est l'ANNEAU** (groupe de Grothendieck des **fibrés vectoriels**), **K_• est le MODULE** dessus (faisceaux cohérents). **Un anneau agit sur un module.** C'est exactement `K^\circ` / `K_\bullet`.
+⟹ **`K_\bullet(X)` et `K^\circ(Y)` de Codex sont TOUS DEUX CORRECTS. RIEN ÉDITÉ.** **Résultat négatif genuine sur le check signalé de la page.**
+
+**⚠⚠⚠⚠ ★★★★ fix3 — BOOK-SIC : «l'nomomorphisme» (un «n» TAPÉ POUR UN «h») — LA TROUVAILLE DE LA PAGE :**
+`z573c_both` (**4800dpi**) DÉCISIF — ⚠⚠ **LES DEUX GLYPHES DANS UN SEUL CROP, DANS LE MÊME MOT** : «aussi **l'nomomorphis**me»
+- le «**l**» de «l'» — une **HASTE HAUTE** nette.
+- le glyphe LITIGIEUX après «l'» — **hauteur d'x, deux jambages, AUCUNE HASTE** ⟹ un «**n**».
+- le «**h**» de «morp**h**isme» — **UNE HASTE HAUTE ÉVIDENTE, DANS LE MÊME MOT**.
+⟹ le «h» et le «n» de cette machine sont **sans équivoque distincts ici**, et le livre a tapé un **n**.
+⟹ **le livre imprime «l'nomomorphisme» = COQUILLE pour «l'homomorphisme». BOOK-SIC, RESTAURÉ SIC.** Codex l'avait silencieusement réparée. Rejoint «appellé»#546, «coincide»#539, «Corrollaire»#530, «réccurrence»#521, «conjugées»#568.
+
+**⚠⚠⚠⚠ ★★★★ fix1 — TEXTE-DROP : LE MOT «pour» REMPLACÉ PAR DES PARENTHÈSES FABRIQUÉES :**
+`z573_formule` (**4800dpi**) DÉCISIF — le livre imprime «i*i_*(x)  =  x λ_{-1}(N)        **pour** x ∈ K.(Y)      ,» — **le MOT «pour»**, sur la ligne de base, **DANS le display**. Codex avait `\qquad(x\in K_\bullet(Y)),` ⟹ **le mot «pour» DROPPÉ et des PARENTHÈSES FABRIQUÉES**. Mode ⑤ + mode ① **en un seul endroit**. **16e texte-drop en 12 pages.**
+⚠ style-maison confirmé : `\qquad\text{…}` est **déjà employé 15×** dans le fichier ; amsmath est chargé.
+
+**⚠⚠⚠ ★★★ fix2/fix4 — PARENTHÈSES DE RÉFÉRENCE DROPPÉES ×2 :**
+- `z573_iv210` : «définie dans **(IV 2.10)**.» — Codex avait «dans IV 2.10.» **NUE**.
+- `z573_vii27` : «établie dans **(VII 2.7)**.» — Codex avait «dans VII 2.7.» **NUE**.
+⚠ **CONTRÔLE** : **TOUTES les AUTRES références de la page sont parenthésées** dans le livre ET chez Codex — (VII 1.4), (VII 1.9), (IV 2.12), (VII 1.6), (IV 2.11) ⟹ **les deux nues sont le fait de Codex, pas une bizarrerie du livre**. Mode ①.
+
+**⚠⚠⚠⚠ ★★★★ fix5 — ABRÉVIATION DÉVELOPPÉE : **TROISIÈME PAGE CONSÉCUTIVE** + «et» FABRIQUÉ + 2 VIRGULES :**
+`z573_ieZ` + `z573_cor72` (**4800dpi**) : le livre imprime «avec S un trait **i.e.** le spectre» — **NI virgule, NI développement**. Codex avait «un trait**,** **c'est-à-dire** le spectre».
+⚠⚠ **C'EST LA 3e PAGE D'AFFILÉE où Codex SUBSTITUE SA PROPRE FORMULATION à celle de l'auteur** : **#568 PARAPHRASE** («Il en découle» → «Il en résulte»), **#569 ABRÉVIATION** («i.e.,» → «c'est-à-dire»), **#570 ABRÉVIATION** («i.e.» → «c'est-à-dire») **ENCORE**. ⟹ **AUCUNE ne laisse de trace à la compilation ni dans la math. C'est désormais un mode ÉTABLI, pas un accident.**
+`z573_generique` : «point générique, **i: X_s ⟶ X** l'inclusion canonique» — **PAS de «et»**. Codex avait «son point générique, **et** \(i:X_s\to X\)» ⟹ **FABRICATION #6**.
+`z573_finie` : «dimension **finie donc** (IV 2.12)» — **PAS de virgule**. Codex : «finie**,** donc».
+
+**✓ AUTRES RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- `z573_K1Z` : «**i^***» = étoile **SURÉLEVÉE** ✓ ; b3 : «**i_***» = étoile **ABAISSÉE** ✓ — la distinction f^*/f_*, **Codex a les deux justes** (confirmé au rendu image 8× : «i^*i_*(x)»).
+- `z573_lemme` : «Lemme 7.1. Soit **i:Y ⟶ X**» — le deux-points **SANS espaces** ✓ Codex `i:Y\to X` ✓.
+- les autres réfs : (VII 1.4) ✓ (VII 1.9) ✓ (IV 2.12) ✓ (VII 1.6) ✓ (IV 2.11) ✓.
+- `z573_spectre` : «A,s» (sans espace) et «de S , t» (**espace AVANT la virgule**) = **espacement dactylo**, pas des défauts de ponctuation ✓.
+- «x λ_{-1}(N)» = un produit **par JUXTAPOSITION**, sans opérateur ✓ Codex correspond.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠ **le «N» est GRAS/surfrappé** (`z573b_NZ`) dans **LES DEUX** occurrences — constamment plus lourd que le «le faisceau» voisin. **Convention gras/blackboard du dactylographe** (même famille que le «ℚ» = O surfrappé d'un I, #569). Codex a `N` plat ⟹ **classe blackboard-vs-plat, DEFERRED**.
+- l'énoncé ENTIER du Lemme/Corollaire est **SOULIGNÉ** (classe Prop/Cor) ; ⚠ **«Lemme» est souligné mais «7.1.» NE L'EST PAS**, alors que Codex met les deux en gras (`\textbf{Lemme 7.1.}`) ⟹ **classe format-de-titre, DEFERRED**.
+- le titre «7. **Appendice** : **Spécialisation…**» et «**par A. Grothendieck**» sont **SOULIGNÉS ET CENTRÉS** ⟹ format-de-titre, DEFERRED.
+- ⚠⚠ **LE TITRE COURANT EST MAINTENANT «X App.»** (c'était «X») — les en-têtes ne sont pas dans le corps du workpass ; **loggé, DEFERRED**.
+- ⚠ **LA MACHINE À ÉCRIRE EST DIFFÉRENTE** de celle des pages Jussila (œil plus serré, dessin des lettres distinct) — **observation physique** : l'appendice de Grothendieck a été dactylographié séparément. **Explique pourquoi les conventions peuvent diverger ⟹ NE RIEN IMPORTER des §6.x.**
+- l'espacement de la ponctuation finale des displays («K.(Y)   .» / «K.(X_s)   ,») = #509 ; `\to` inline vs le «⟶» long ; `^*` vs `^\ast`.
+
+**RENDER-VERIFY** (`vrf573.py` + `vrf573b.py`, **page rendue LUE EN ENTIER** + **1 rendu IMAGE à 8×**) : «Considérons aussi **l'nomomorphisme** image directe (IV 2.11)» ✓ ; «i∗i∗(x) = xλ−1(N) **pour x ∈K•(Y)**,» ✓ (image 8× : «**i^*i_*(x) = xλ_{−1}(N)   pour x ∈ K_•(Y),**» — **étoile HAUTE puis BASSE, «pour» en romain, K_• à point bas**) ; «définie **dans (IV 2.10)**.» ✓ ; «établie **dans (VII 2.7)**.» ✓ ; «avec S un trait **i.e.** le spectre … t son point générique, **i : Xs →X** l'inclusion canonique. Alors i est de tor-dimension **finie donc** (IV 2.12)» ✓ ; les K-glyphes rendent «**K•(X)**» et «**K◦(Y)**» ✓ **conformes au point bas / point haut du livre**.
+⚠ **LE FILTRE : 2 hits — bien calibré** («nomomorphisme» OU «conormal pour»), après le trop-étroit de #568 (0 hits) et le trop-large de #569 (10 hits). ⟹ **viser 1-3, VÉRIFIER LE COMPTE AVANT DE LIRE**.
+
+**⚠ CHECKS POUR idx574 (p561) :** ⚠⚠ **la p560 se termine EN PLEINE PHRASE sur le display «i* : K.(X) ⟶ K.(X_s) ,»** ⟹ **p561 OUVRE sur «d'autre part (IV 2.11) on a un homomorphisme»** ; workpass ~L13523+ : «d'autre part (IV 2.11) on a un homomorphisme» + display «i_*:K_\bullet(X_s)\longrightarrow K_\bullet(X).» + «Ceci posé, le composé» + display «i^*i_*:K_\bullet(X_s)\to K_\bullet(X)\to K_\bullet(X_s)» + «est nul.» + «En effet, \(i:X_s\to X\) est une immersion régulière de codimension \(1\), donc le faisceau conormal \(N\) est libre de rang \(1\), car \(X_s\) peut se décrire par une équation globale \(f^*(g)=0\), où \(g\) est une uniformisante de \(A\). On a donc \(\lambda_{-1}(N)=0\), et on conclut grâce à 7.1.» + «Nous supposerons dans toute la suite \(X\) noethérien et plat sur \(S\). Appliquons maintenant la…» — **LIRE LE SCAN D'ABORD** ; ★★★★**«grâce à 7.1» — PARENS ? (2 réfs nues DÉJÀ trouvées sur p560)** ; ★★★★**«i.e.»/PARAPHRASE — 3 pages d'affilée, CHERCHER** ; ★★★★**le «N» GRAS + les K-glyphes (K_•/K^∘) — le contraste point-bas/point-haut est ÉTABLI** ; ★★★★**f^*(g) — EXPOSANT** ; ★★★★**«et» fabriqué ×1, virgules fabriquées ×2 sur p560** ; ★★★book-sic **38 en 21 pages** («nomomorphisme») ; ★★★texte-drop **16 en 12 pages** ; ★★★la MACHINE DIFFÉRENTE de Grothendieck ⟹ **re-vérifier CHAQUE convention** ; ★★`\longmapsto` 26 restants (4/4 FAUX) ; ★★`\simeq` 140 ; ★★`\oplus` 60.
+
+**LIGNE-DRIFT #573 : net 0** (les 5 reps sont tous intra-ligne). **RE-GREP quand même en #571.**
+
+**SWEEP CURSOR → idx574 = p561 = Exposé X «- 43 -» (§7 Appendice, Grothendieck : le composé i^*i_* est nul + λ_{−1}(N)=0).**
+
+---
+
+### #569 (2026-07-16) — idx572 (vol p559 = **Exposé X «- 41 -»**, header «- 41 -» + «X» + footer «559» ; **CONSTANTE_X=518 CONFIRMÉE [559−41]**) — **★★ §6.5.2 FIN (la représentation r ⟿ |r| sur (Ens)) + §6.5.3 (représentations «~algébriques~») — FIN DU §6 ET DE L'EXPOSÉ X (Jussila)** — **9 rep-calls / ~24 changements** (bandes b1-b5 TOUTES lues + **23 crops HD à 4800dpi + 13 crops de CONTRÔLE + 1 COMPTAGE de macros**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (559−41 ; idx=559+13=572 ✓)** ; p558 pendait à «soit définie par une» ⟹ **cette page OUVRE sur «puissance.» — CONFIRMÉ** ; la page **se termine PROPREMENT** sur «annelé quelconque.» ⟹ **§6.5.3 s'achève ici ; p560 ouvre «7. Appendice : Spécialisation en théorie des intersections, par A. Grothendieck»** (confirmé au rendu). Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix2 — LE SQUIGGLE : `\longmapsto` EST FAUX, **4/4** — LE CHECK SIGNALÉ, CONFIRMÉ :**
+`z572_arrowZ` (**4800dpi**) DÉCISIF — le livre imprime «r **~~~>** |r|» : une **ligne ONDULÉE tracée à la main** terminée par une pointe de flèche.
+⚠⚠ **ET IL N'Y A AUCUNE BARRE VERTICALE À LA QUEUE** — un `\longmapsto` (↦) en aurait une. C'est un **squiggle pur** ⟹ `\rightsquigarrow`.
+⟹ **`\longmapsto` = 4 VÉRIFIÉS, 4 FAUX (#552/#560/#565/#572). 26 RESTANTS.**
+⚠ **TOUJOURS per-page** : 4/4 est unanime **MAIS la population (26) est répartie sur TOUS les Exposés** ⟹ la RÈGLE DE SWEEP (quadruplement validée) impose **LOCAL**. **NE PAS BALAYER.**
+
+**⚠⚠⚠⚠ ★★★★ fix3 — COLON → POINT **ET UNE COUPURE DE PARAGRAPHE PERDUE** :**
+`z572b_colonZ` (**4800dpi**) DÉCISIF — le livre imprime «dans le sens suivant **:**» — un **DEUX-POINTS** (deux points superposés, espace avant, typographie française) — **et LA LIGNE S'ARRÊTE LÀ**.
+`z572_soient` (**4800dpi**) DÉCISIF — la ligne suivante «**    Soient e̲ l'objet final de X**» est **INDENTÉE** ⟹ **UN NOUVEAU PARAGRAPHE**.
+Codex avait «dans le sens suivant**.** Soient \(e\) l'objet final…» — un **POINT**, et les deux paragraphes **FUSIONNÉS EN UN SEUL**. ⟹ mode ③ (colon, les deux sens) **+ une perte STRUCTURELLE**.
+⚠ la règle permanente est explicite : **colons-before-displays NOT deferred**.
+
+**⚠⚠⚠⚠ ★★★★ fix7 — ABRÉVIATION DÉVELOPPÉE : «i.e.,» EST DEVENU «c'est-à-dire» :**
+`z572b_ieZ` (**4800dpi**) DÉCISIF — «de préfaisceaux en groupes sur (Sch/S), **i.e.,** si l'on a». Codex avait «**c'est-à-dire**».
+⟹ mode ⑮. **MÊME FAMILLE QUE LA PARAPHRASE DE #568** («Il en découle» → «Il en résulte») : **Codex substitue SA formulation à celle de l'auteur**. ⚠ **INVISIBLE à la compilation ET à la math — seule une comparaison MOT À MOT la voit.**
+
+**⚠⚠⚠ ★★★ fix1/fix4/fix9 — VIRGULES FABRIQUÉES ×5 — ⚠⚠ ET UNE QUI EST RÉELLE :**
+- `z572_parex` : «Par exemple **sur** le topos» — **PAS de virgule**. Codex : «exemple**,** sur».
+- `z572_Gln` : «Alors pour tout entier positif **n le** préfaisceau» — **NI virgule après «Alors» NI après «n»**. Codex avait **LES DEUX**.
+- `z572_donc` : «algébrique. **Donc en particulier** les formules» — **PAS de virgules**. Codex : «Donc**,** en particulier**,**».
+- ⚠⚠ **MAIS UNE EST RÉELLE — RÉSULTAT NÉGATIF GENUINE, PAR LA MÉTHODE DU CONTRÔLE** : `z572c_D_Qla` vs `z572c_C_Qstar` — «le corps ℚ**,** la représentation». **La queue du Q et une virgule se ressemblent**, donc j'ai croppé **LE MÊME ℚ** dans le display «(r ∈ ℚ*)» **où AUCUNE virgule n'est possible**. Le ℚ de contrôle = anneau + trait intérieur + **une queue COURTE ATTACHÉE** en bas à droite. Le glyphe litigieux a **tout cela PLUS UNE MARQUE DÉTACHÉE, plus à droite, posée sur la ligne de base** = **une VIRGULE**. ⟹ **la virgule EST dans le livre. Codex CORRECT. NON ÉDITÉ.**
+
+**⚠⚠⚠ ★★★ fix4/fix5/fix6/fix8 — L'ELL : 6 OCCURRENCES, TOUTES SCRIPT :**
+`z572_Gln` + `z572_654` + `z572_655` + `z572_pourtout` (**4800dpi**) DÉCISIFS — p559 imprime «**Gℓ**(n)_X», «**Gℓ** (n)_S», «**Gℓ**(n)», «**Gℓ**(n)_S», «**Gℓ**(n)(Y)», «**Gℓ**(n)_S(u(Y))» — **LES 6 ELLS SONT SCRIPT**, contre les «(n)»/«sur C»/«est composé» **PLATS** juste à côté à la MÊME magnification.
+⟹ `\Gl` (rend «Gl» PLAT) est **FAUX** sur cette page. **LOCAL per-occurrence.**
+**LE TABLEAU DE L'ELL** : p552 script / p553 **PLAT** / p554 **PLATS** / p555 mixte / p556 script / p558 script 5/5 / **p559 script 6/6**.
+
+**⚠⚠⚠ ★★★ fix4/fix8 — BUG DE MACRO `\Ob` → «ob» (mode ㉑) :**
+`z572b_ObC` (**4800dpi**) DÉCISIF — le livre imprime «Y ∈ **Ob**(C)» : **O MAJUSCULE + b minuscule**. `\Ob` rend «**ob**» (5 `\providecommand` en conflit ; **la PREMIÈRE gagne**).
+⟹ `\operatorname{Ob}` **LOCAL**, 2 occurrences sur cette page (cf #530/#560/#564/#566). ⚠ **`\Ob` = 377 usages** document-wide ⟹ **JAMAIS balayé**.
+
+**⚠⚠ ★★ fix6 — L'INDICE «m,S» :**
+`z572_655` (**4800dpi**) DÉCISIF — le livre imprime «α_S : Gℓ(n)_S ⟶ **G_{m,S}**» : **UN SEUL indice «m,S» AVEC UNE VIRGULE**. Codex avait `\Gm{}_{S}` = `\mathbb G_m{}_{S}`, qui rend **G_m suivi d'un indice S DÉTACHÉ — pas de virgule, deux indices séparés**. ⟹ `\mathbb G_{m,S}` (le blackboard-vs-plat reste DEFERRED avec `\Gm`).
+
+**⚠⚠ ★★ fix3 — CONVENTION DES GUILLEMETS :**
+`z572b_quotes` (**4800dpi**) : le livre imprime des **guillemets DROITS de machine à écrire** «**"algébriques"**». La règle permanente convertit `` '' → «~…~». Codex avait `« algébriques »` **avec des ESPACES ORDINAIRES**. La convention **du fichier lui-même** (posée en #566, L13421) est `«~voisinage étale~»` **avec des TILDES**.
+⚠ **MESURÉ** : le fichier a **152 `«~`** contre **74 `« `** ⟹ une **incohérence PRÉEXISTANTE À L'ÉCHELLE DU DOCUMENT**, PAS un artefact de p559. ⟹ **je corrige la SEULE occurrence de cette page** per la règle permanente ; **les 73 autres = décision de sweep future, NON balayées ici**.
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- ⚠⚠⚠ **«6.2.3» vs «(6.2.3)» — LE LIVRE SE CONTREDIT SUR LA MÊME PAGE** : `z572_623a` «En particulier **6.2.3** ne reste pas valable» = **NU** ; `z572_653` «En revanche **6.2.3** reste valable» = **NU** ; `z572_623b` «Il s'ensuit immédiatement que **(6.2.3)** reste valable» = **PARENTHÉSÉ**. ⟹ **Codex a reproduit LES TROIS EXACTEMENT** = résultat négatif genuine **ET** une nouvelle instance du mode ⑰ (auto-contradiction, ici **à ~10 lignes d'écart**).
+- `z572_foncteur` : «foncteur          **u : C ⟶ (Sch/S)**» — «foncteur» est à la **MARGE GAUCHE**, puis un **LARGE BLANC**, puis la formule centrée, et **RIEN ne suit sur la ligne** ⟹ per le critère #568 c'est un **VRAI DISPLAY** ✓. Le livre a simplement garé le dernier mot de l'amorce sur la même ligne (**économie de dactylo**). Le `\[…\]` de Codex est **structurellement CORRECT**. Idem (6.5.4), (6.5.5) et «α(s) = α_S(s)» ✓ **tous des displays RÉELS**.
+- «un topos annelé quelconque**,** lorsque» ✓ ; «de X**,** S = Spec(O̲(e̲))**,** et considérons» ✓ ; le «u» de «u : C» et les frappes grasses = **DOUBLE-FRAPPE de la machine, PAS des variantes de police** ✓ (cf #568).
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠⚠ **NOUVEAU : `\mathcal C` vs le «C» PLAT du livre** — `z572b_XCO` DÉCISIF : le livre imprime «X = (C,**O̲**)» avec le **O SOULIGNÉ** et le **C PLAT ET NON MARQUÉ**. Codex rend **LES DEUX en script** : (𝒞,𝒪). ⚠ **MESURÉ** : **`\mathcal C` = 902 occurrences sur 366 lignes, dans TOUS les Exposés** ; `\mathcal O` = **936** — ⟹ **ils voyagent ENSEMBLE comme le couple du topos annelé**. Le `\mathcal O`-pour-«O̲» est **DÉJÀ DEFERRED** (classe des soulignements), donc corriger **le seul C ici** produirait «(C,𝒪)» — **qui ne correspond NI au livre NI à la transcription**. ⟹ **UNE SEULE décision, LES DEUX deferred.** La RÈGLE DE SWEEP interdit de balayer une population de 900 sur la preuve d'**une** page. **Loggé comme nouvel item DEFERRED, apparié à `\mathcal O`.**
+- le **SOULIGNEMENT de «algébrique»** (`z572_algeb`) — Codex a `\emph{}` = italique ; le livre **souligne** ⟹ classe des soulignements décoratifs (cf «zariskiens» #568). **COHÉRENT non marqué** per #553.
+- l'**ESPACE avant la virgule** dans «algébrique **,** si» = espacement dactylo (famille #509).
+- «O̲»/«e̲» soulignés (Spec(O̲(e̲)), O̲(Y)) ; `\Gm` blackboard vs «G_m» PLAT ; **`\mathbb Q` blackboard vs le O-surfrappé-d'un-I du dactylo** ; les **eq-tags À GAUCHE** (6.5.4)/(6.5.5) = leqno ; le «⟶» LONG vs `\to` ; `^*` vs `^\ast` dans «ℚ^*» ; **l'espacement `\operatorname` — le rendu donne «(Sch /S)» avec un blanc parasite**.
+
+**RENDER-VERIFY** (`vrf572.py` + `vrf572b.py`, **page rendue LUE EN ENTIER** + **2 rendus IMAGE à 8×**) : «Par exemple **sur** le topos (Ens) annelé par le corps ℚ**,** la représentation» ✓ ; «**r ⤳ |r|   (r ∈ ℚ∗)**» ✓ **le squiggle rend en flèche ONDULÉE** (image 8×) ; «sont **«~algébriques~»** dans le sens suivant **:**» + «**Soient** e l'objet final…» **en NOUVEAU PARAGRAPHE** ✓ ; «Y ∈ **Ob**(C) … **Alors pour tout entier positif n le** préfaisceau **Gℓ**(n)_X» ✓ ; «correspondant **Gℓ**(n)_S» ✓ ; «α : **Gℓ**(n) ⟶ 𝔾_m» ✓ ; «α_S : **Gℓ**(n)_S ⟶ **𝔾_{m,S}**» ✓ (image 8×) ; «(Sch /S), **i.e.,** si l'on a» ✓ ; «pour tout Y ∈ **Ob**(C), s ∈ **Gℓ**(n)(Y) = **Gℓ**(n)_S(u(Y))» ✓ ; «**Donc en particulier** les formules» ✓ ; puis «**7. Appendice : Spécialisation en théorie des intersections / par A. Grothendieck**» ⟹ **fin de l'Exposé X confirmée**.
+⚠ **filtre trop LARGE** («puissance»+«topos» → **10 hits**) — l'inverse du raté #568 (trop étroit). ⟹ **viser 1-3 hits ; vérifier le compte de hits AVANT de lire**.
+⚠ **`search_for` est EXACT** : «definie par» **ne matche PAS** le «définie par» rendu (accent) ⟹ **ancres ASCII-safe** (crash IndexError corrigé ; cf #566).
+
+**⚠ CHECKS POUR idx573 (p560) :** ⚠⚠ **NOUVEL EXPOSÉ/SECTION : «7. Appendice : Spécialisation en théorie des intersections, par A. Grothendieck»** ⟹ **l'auteur CHANGE (Jussila → Grothendieck) ⟹ les conventions PEUVENT CHANGER (cf le Module-CAP Exp IX vs Exp X minuscule)** ; ★★★★**«Lemme 7.1. Soit i : Y → X une immersion fermée régulière (VII 1.4)…» + «i^*: K_•(X) ⟶ K_•(Y)» + «λ_{−1}(N) ∈ K^∘(Y)»** ⟹ **CROPPER : K_• vs K^∘ vs K^• (NE PAS confondre), f^*/f_*, les réfs (VII 1.4)/(VII 1.9)/(IV 2.12)** ; ★★★★le test «la condition/le quantificateur motive-t-il la suite ?» **2/2** ; ★★★★**PARAPHRASE + ABRÉVIATION-DÉVELOPPÉE — Codex substitue SA formulation (2 pages de suite : #568 «résulte», #569 «c'est-à-dire»)** ; ★★★★**5 mots fabriqués + «a=»** ; ★★★★virgules fabriquées **×5 sur p559** — ⚠ **MAIS vérifier par CONTRÔLE, une était RÉELLE** ; ★★★★texte-drop **15 en 11 pages** ; ★★★★book-sic **37 en 20 pages** ; ★★★★le livre se contredit **à ~10 lignes (6.2.3/(6.2.3))** ; ★★★display-fictif **26 en 16 pages** — ⚠ **p559 : 4/4 displays RÉELS, résultat négatif** ; ★★★l'ELL **QUINTUPLEMENT validée** ; ★★★`\Ob`(377)/`\Gl`(18 restants)/`\id`(17) **LOCAL per-occ** ; ★★`\longmapsto` **26 restants (4/4 FAUX)** ; ★★`\simeq` 140 ; ★★`\oplus` 60 ; ★★`\bigoplus` 69 ; ★★«-ième» 44.
+
+**LIGNE-DRIFT #572 : net +2** (fix3 a scindé 1 ligne en 3 ⟹ +2 ; les autres reps sont intra-ligne). **RE-GREP OBLIGATOIRE en #570, les offsets sont périmés.**
+
+**SWEEP CURSOR → idx573 = p560 = Exposé X «- 42 -» (§7 Appendice, Grothendieck : Lemme 7.1, l'immersion fermée régulière + λ_{−1}(N)).**
+
+---
+
+### #568 (2026-07-16) — idx571 (vol p558 = **Exposé X «- 40 -»**, header «- 40 -» + «X» + footer «558» ; **CONSTANTE_X=518 CONFIRMÉE [558−40]**) — **★★ §6.4 FIN : les c_{h,k,λ} sont conjuguées + §6.5 «Remarques» (Jussila)** — **7 rep-calls / ~20 changements** (bandes b1-b5 TOUTES lues + **28 crops HD à 4800dpi + 7 crops de CONTRÔLE + 1 MESURE de profil d'encre**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (558−40 ; idx=558+13=571 ✓)** ; p557 pendait à «deux matrices» ⟹ **cette page OUVRE sur «quelconques c_{h,k,λ}…» — CONFIRMÉ** ; ⚠⚠ **LE PREVIEW DE LA BOUCLE NE COUVRAIT QUE §6.4 — LA PAGE VA BIEN AU-DELÀ, JUSQUE DANS §6.5.2** ⟹ **avoir lu les 5 bandes AVANT de présumer a été décisif (leçon #545, re-validée)** ; la page **se termine EN PLEINE PHRASE** sur «soit définie par une» ⟹ suite p559 («puissance.»). Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix3 — CODEX A MAL LU LE QUANTIFICATEUR : «pour tout h,β» EST DEVENU «pour tout h,k,λ» — LA TROUVAILLE DE LA PAGE (le mode #567, DE NOUVEAU) :**
+`z571_pourtoutZ` (**4800dpi**) DÉCISIF — le livre imprime «β(c_{h,k,λ})=0 **pour tout h,β**, de sorte que». Le glyphe est un **β** sans équivoque (double panse + descendante sous la ligne de base).
+⚠ **CONTRÔLE SUR LA MÊME LIGNE** : «c_{h,k,λ}» imprime le **k** et le **λ** de cette machine à écrire en clair — **ni l'un ni l'autre ne ressemble au β** ; et ce β est **le même glyphe** que celui de «homomorphisme quelconque **β**» 2 lignes plus haut.
+⚠⚠ **LA MATH TRANCHE — LE TEST #567 : la condition motive-t-elle ce qui suit ?** La conclusion est «**de sorte que c_{h,k,λ} est un produit de commutateurs**». Ce pas exige «β(c_{h,k,λ})=0 **pour TOUT homomorphisme β** vers TOUT faisceau de groupes abéliens» — **c'est exactement ce qui place c_{h,k,λ} dans le sous-groupe des commutateurs**. La quantification **sur β est PORTEUSE**. Le «pour tout h,k,λ» de Codex quantifie sur **les indices de c** — la lecture plausible mais **FAUSSE** — et **ne motive RIEN**.
+⟹ **PAS un book-sic — une MAUVAISE TRANSCRIPTION de la mathématique par Codex.** RESTAURÉ au livre.
+⚠ **BOOK-SIC associé** : le livre écrit «pour tout h,β» et **omet le k** (on attendrait «h,k,β»). **Reproduit SIC.**
+⟹ **MODE ⑧ CONFIRMÉ DEUX FOIS DE SUITE (#567, #568). LE TEST EST FIABLE : si la condition/le quantificateur ne motive pas la suite, Codex a mal lu.**
+
+**⚠⚠⚠⚠ ★★★★ fix1 — BOOK-SIC «conjugées» (un «u» MANQUANT) — TROUVÉ PAR MESURE, PAS À L'ŒIL :**
+`z571c_conjugZ` était **AMBIGU à l'œil** (encre faible sur le glyphe litigieux). ⟹ `z571d.py` a **MESURÉ le profil d'encre par colonne** : la machine est **MONOSPACE** ⟹ **les cellules se COMPTENT**.
+- pas (pitch) mesuré sur cette ligne = **~170 px @2400dpi** (calibré sur «quelconques» = 11 cellules).
+- «conju?ées,» se résout en **EXACTEMENT 10 cellules d'encre** = 9 lettres + la virgule, s'étendant de 6875 à 8369 = **1494 px**.
+- ⚠⚠ **LE CLINCHER** : le mot **connu à 9 lettres «autrement»**, **SUR LA MÊME LIGNE**, s'étend sur **1494 px — IDENTIQUE**.
+⟹ le mot fait **9 lettres = «conjugées»**, PAS les 10 lettres de «conjuguées». Le français correct est «conjuguées» (conjuguer) ⟹ **le livre a fauté ; Codex a silencieusement réparé.** **BOOK-SIC, RESTAURÉ SIC.**
+⟹ ⚠⚠ **NOUVELLE MÉTHODE ACQUISE : quand un glyphe est illisible, MESURER le pas monospace et COMPTER les cellules ; calibrer sur un mot CONNU de la MÊME LIGNE. La mesure bat l'œil.**
+
+**⚠⚠⚠⚠ ★★★★ fix4 — PARAPHRASE : «Il en découle» RÉÉCRIT EN «Il en résulte» — UNE CLASSE PROPRE :**
+`z571_decoule` (**4800dpi**) DÉCISIF — le livre imprime «**Il en découle que** c_{h,k,λ} est un produit de commutateurs sur U.» ; **Codex avait «Il en résulte que»**.
+⟹ une **SUBSTITUTION DE SYNONYME** : ni un drop, ni une invention — **le mot de l'auteur REMPLACÉ par celui que Codex préfère**. Mode ⑲ (PARAPHRASE).
+⚠ **C'est la paraphrase la plus nette de la série** : même sens, mot différent, **aucune trace à la compilation, aucune trace dans la math**. **SEULE une comparaison MOT À MOT la voit.** ⟹ **la gate 0-err ne l'aurait JAMAIS vue.**
+
+**⚠⚠⚠⚠ ★★★★ fix1 — TEXTE-DROP : la PARENTHÈSE ENTIÈRE «(i,j=1,…,n)» — LE MÊME DROP QU'EN #566 :**
+`z571_ij` (**4800dpi**) DÉCISIF — «une matrice inversible a = (a_ij) **(i,j=1,…,n)**   telle que l'on ait». Codex l'a **entièrement droppée**.
+⚠⚠ **C'EST EXACTEMENT LE DROP DE #566** (qui droppait «(i,j=1,…,n)» après «(s_{ij})»). **Codex droppe cette parenthèse-là de façon RÉCURRENTE** ⟹ **la CHERCHER SYSTÉMATIQUEMENT après tout «(x_{ij})»**.
+⟹ mode ⑤, **15e en 11 pages**.
+⚠ **NE PAS UNIFORMISER** : en #566 le livre **juxtaposait** «(s_{ij})(i,j=1,…,n)» ; ici il **met un ESPACE** «(a_ij) (i,j=1,…,n)» ⟹ **deux groupes math séparés**. Le livre diffère de lui-même.
+
+**⚠⚠⚠ ★★★ fix2 — «a=» FABRIQUÉ + PAREN RESTAURÉE + «que» FABRIQUÉ (le 5e mot inventé) :**
+- `z571_matrice` (**4800dpi**) : «En effet, la matrice **(a_ij)** avec a_hh = 1/μ» — le livre n'a **PAS de «a =»** ici ; Codex avait «la matrice \(a=(a_{ij})\)» ⟹ **fabrication MATHÉMATIQUE**. ⚠ **LE CONTRASTE** : la ligne au-dessus (fix1) imprime **bien** «a = (a_ij)». **Le livre introduit «a» UNE FOIS puis renvoie à «(a_ij)» nu — Codex a uniformisé.** Mode ⑰, encore.
+- `z571_rappelons` + `z571_hk` (**4800dpi**) DÉCISIFS : le livre imprime «répond à la question **(**rappelons que λ et μ sont par hypothèse inversibles et h≠k**)**.» — une parenthèse **ÉQUILIBRÉE**. Codex avait «répond à la question**;** rappelons … et **que** h≠k.» ⟹ (a) mode ① **PARENS → POINT-VIRGULE** ; (b) ⚠⚠ **le mot «que» n'est PAS dans le livre = FABRICATION #5** (après «ainsi obtenu» #563, «qu'» #565, «où…est le» #566, «point» #567).
+
+**⚠⚠⚠ ★★★ fix5 — DISPLAY-FICTIF #26 :**
+`z571_sik` (**4800dpi**) DÉCISIF — «Si k = F̲_2, alors V = Spec(A[T]/(T²+T+1)) est un voisinage étale» : la phrase **OUVRE** sur cette ligne, la formule est **INLINE**, et la ligne **CONTINUE** «est un voisinage étale». Codex en avait fait un `\[…\]`. ⟹ **26e en 16 pages**.
+
+**⚠⚠⚠ ★★★ fix6 — L'ELL : 5 OCCURRENCES, TOUTES SCRIPT :**
+`z571_GlZ` + `z571_sl2Z` + `z571_ordre` + `z571_cf1` (**4800dpi**) DÉCISIFS — p558 imprime «**Gℓ**(n)(U)», «**Sℓ**(2,F̲_2) = **Gℓ**(2,F̲_2)», «de **Gℓ**(2,F̲_2)», «**Sℓ**(2,F̲_2) est 6» — **LES 5 ELLS SONT SCRIPT** (boucle cursive nette + queue courbe), contre les «n»/«U»/«est diff» **PLATS de la machine à écrire, à la MÊME MAGNIFICATION, juste à côté**.
+⟹ `\Gl` (rend «Gl») et `\SL` (rend «SL») sont **TOUS DEUX FAUX** sur cette page. ⚠⚠ **LOCAL per-occurrence — PAS balayé.**
+**LE TABLEAU DE L'ELL** : p552 «Gℓ» / p553 «Gl» / p554 «Gl»+«Sl» PLATS / p555 «Gℓ»+«Sl» (texte) ET «Gℓ»+«Sℓ» (display) / p556 «Sℓ»+«Gℓ» / **p558 «Gℓ»+«Sℓ» SCRIPT (5/5)**.
+⟹ **LA RÈGLE DE SWEEP EST MAINTENANT QUADRUPLEMENT VALIDÉE.**
+
+**⚠⚠ ★★ fix6 — «6.2.2.» POINT FINAL DROPPÉ + «zariskien» → «zariskiens» (PLURIEL) :**
+- `z571_622` : «montre que **6.2.2.** reste valable» — un **POINT FINAL** (cf le «6.1.» de #564). Codex avait «6.2.2» nu.
+- `z571_zarisk` : «des faisceaux **zariskiens** sur S» — **PLURIEL**. Codex avait «zariskien». Mode ㉓ (NOMBRE).
+
+**⚠⚠ ★★ VIRGULES FABRIQUÉES ×4 (fix4/fix6/fix7) :**
+- `z571_telque` : «un élément inversible μ ∈ B **tel que** λ+μ ∈ B» — **PAS de virgule**. Codex : «B**,** tel». ⚠ **«tel» est du FRANÇAIS CORRECT ici** (accord avec «élément», masculin) ⟹ **PAS un book-sic** (≠ #567 où «tel que» qualifiait «matrice», féminin).
+- `z571_ordre` : «L'ordre de ce dernier est **3 tandis** que» — **PAS de virgule**. Codex : «\(3\)**,** tandis».
+- `z571_652` : «quelconque X **il n'est pas vrai**» — **PAS de virgule**. Codex : «\(X\)**,** il».
+- ⚠ la virgule de «pour tout h,β**,**de sorte» **EST** dans le livre (conservée).
+
+**✓ RÉSULTATS NÉGATIFS GENUINE (crop-vérifiés = scan, RIEN ÉDITÉ) :**
+- ⚠⚠⚠ **«(6.3.1)» ✓ CORRECT — ET CELA RÉSOUT L'ÉNIGME #566** : `z571b_D_ref` vs `z571b_C_65head` — **le titre «6.5.» fournit un 6 CONNU et un 5 CONNU CÔTE À CÔTE, à la MÊME MAGNIFICATION et dans un crop de MÊME TAILLE**. Le **6** = boucle sup. montante + **boucle inf. FERMÉE** ; le **5** = **BARRE SUPÉRIEURE PLATE ET HORIZONTALE** + panse ouverte. Le glyphe litigieux a la **boucle montante du 6** et **AUCUNE barre plate** ⟹ **6**. ⚠⚠ **#566 avait signalé le tag «(6.3.1)» imprimé EN §6.4 (alors que §6.3 n'a aucune équation numérotée) comme candidat ERRATA. p558 — TOUJOURS en §6.4 — CITE «(6.3.1)». Tag et citation CONCORDENT** ⟹ **le livre appelle réellement cette équation (6.3.1). CE N'EST PAS une coquille isolée. CANDIDAT ERRATA #566 → RÉSOLU (le livre est cohérent avec lui-même).**
+- display «ac_{h,k,λ} = c_{h,k,μ} a .» ✓ **RÉEL** (`z571c_d1`) ; display «β(c_{h,k,λ}) = β(c_{h,k,μ}) .» ✓ **RÉEL** (`z571c_d2`).
+- «a_hh = 1/μ , a_kk = 1/λ» ✓ **quotients INLINE — `\frac` serait FAUX** (cf #567).
+- «est 6 (cf. [1]).» ✓ ; «6.5.2.» point final ✓ ; «En revanche, déjà pour» virgule ✓ ; «corps premier F̲_2 = {0,1} , alors on» ✓ ; «On a gagné.» ✓ ; le «B» et le «y» **gras = double-frappe de la machine, PAS des variantes de police** ✓.
+
+**⚠⚠⚠ DEFERRED (loggé, non édité) :**
+- ⚠ le **SOULIGNEMENT de «zariskiens»** et le **«non» GRAS/surfrappé** de 6.5.1 (emphase dactylo sur un terme technique / sur la négation) — **COHÉRENTS non marqués** per le PRINCIPE #553 ⟹ **DEFERRED avec les soulignements décoratifs**.
+- `\mathbb F_2` **BLACKBOARD** vs le «**F̲_2**» **PLAT SOULIGNÉ** du livre (**même famille que `\Gm`/`\mathfrak p`** — le rendu confirme «𝔽_2») ; `\Gm` blackboard vs le «G_m» PLAT ; le «**⟶**» LONG de «G_m ⟶ G_m» vs `\to` (inline `\to` DEFERRED) ; le format du titre 6.5 ; l'espacement de la ponctuation finale des displays «a  .» (#509).
+
+**RENDER-VERIFY** (`vrf571.py` + `vrf571b.py`, **page rendue LUE EN ENTIER** + **2 rendus IMAGE à 8×**) : «sont **conjugées**, autrement dit il existe une matrice inversible a = (aij) **(i, j = 1, . . . , n)** telle que l'on ait» ✓ ; «En effet, la matrice **(aij)** avec ahh = 1/µ» ✓ ; «**(rappelons** que λ et µ sont par hypothèse inversibles et **h ̸= k)**.» ✓ ; «quelconque β de **Gℓ(n)(U)**» ✓ ; «β(ch,k,λ) = 0 **pour tout h, β,** de sorte» ✓ ; «µ ∈B **tel que** λ + µ ∈B soit inversible. **Il en découle que**» ✓ ; «**Si k = F2, alors V = Spec(A[T]/(T 2 + T + 1)) est un voisinage étale**» ✓ INLINE ; «montre que **6.2.2.** reste valable … des faisceaux **zariskiens** sur S» ✓ ; «**Sℓ**(2, F2) = **Gℓ**(2, F2) … de **Gℓ**(2, F2). L'ordre de ce dernier est **3 tandis que** l'ordre de **Sℓ**(2, F2) est 6 (cf. [1]).» ✓ ; «quelconque **X il n'est pas vrai**» ✓.
+⚠ **filtre à 2 chaînes RE-RATÉ** («conjug»+«Remarques» → **0 hits**, les deux chaînes **ENJAMBENT la coupure de page rendue**) — **la leçon #561, RE-VÉCUE** ⟹ corrigé en filtrant sur **«conjug»+«commutateurs»** (proches) et en dumpant **i−1, i, i+1**.
+
+**⚠ CHECKS POUR idx572 (p559) :** ★★★★**`\longmapsto` — VU AU RENDU sur p559 : «r 7−→|r|»** ⟹ **CROPPER — 3/3 FAUX à ce jour (le livre met ⟿), 27 restants** ; ★★★★le test «la condition/le quantificateur motive-t-il la suite ?» — **2/2 en 2 pages** ; ★★★★**5 mots fabriqués** ; ★★★★**PARAPHRASE (synonymes) — nouvelle classe, CHERCHER** ; ★★★★texte-drop **15 en 11 pages** — ⚠ **«(i,j=1,…,n)» est un drop RÉCURRENT** ; ★★★★book-sic **37 en 20 pages** ; ★★★★le livre se contredit (a=/(a_ij) à UNE LIGNE d'écart) ; ★★★★virgules fabriquées ×4 ; ★★★★display-fictif **26 en 16 pages** ; ★★★l'ELL **QUADRUPLEMENT validée** ; ★★★**MESURER le pas monospace quand l'œil hésite** ; ★★p559 a «(Ens)», «\(\mathbb Q\)», «|r|» (`\lvert…\rvert`), «6.2.3», «(6.5.4)/(6.5.5)» ⟹ CROPPER ; ★★p559 a `\Ob(\mathcal C)`/`\Gl(n)(Y)` ⟹ **AUDITER LE RENDU** (`\Ob`=378 LOCAL, `\Gl`=27 LOCAL).
+
+**LIGNE-DRIFT #571 : net −3** (fix5 a fusionné 4 lignes en 1 ⟹ −3 ; les autres reps sont intra-ligne). **RE-GREP OBLIGATOIRE en #569, les offsets sont périmés.**
+
+**SWEEP CURSOR → idx572 = p559 = Exposé X «- 41 -» (§6.5.2 fin : la représentation r ⟿ |r| sur (Ens) + §6.5.3).**
+
+---
+
+### #567 (2026-07-16) — idx570 (vol p557 = **Exposé X «- 39 -»**, header «- 39 -» + «X» + footer «557» ; **CONSTANTE_X=518 CONFIRMÉE [557−39]**) — **★★ §6.4 suite : transformer s en la matrice unité (Jussila)** — **6 rep-calls / ~14 changements** (bandes b1-b5 TOUTES lues + **14 crops HD à 4800dpi**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (557−39 ; idx=557+13=570 ✓)** ; p556 finissait proprement ⟹ **cette page OUVRE sur «Pour le premier…» — CONFIRMÉ** ; la page **se termine EN PLEINE PHRASE** sur «deux matrices» ⟹ suite p558. Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix1 — CODEX A MAL LU LA CONDITION DE CAS : «s_{11} ≠ 1» EST DEVENU «s_{11} ∉ 𝔭» — LA TROUVAILLE DE LA PAGE :**
+`z570_s11Z` (**4800dpi**) DÉCISIF — le livre imprime «**Si s_{11} ≠ 1** et s_{21} ∈ p̲» : un **«≠»** sans équivoque (un signe égal barré d'un trait oblique) suivi d'un **1** (trait + drapeau).
+**Codex avait écrit «Si \(s_{11}\notin\mathfrak p\)» — UNE CONDITION COMPLÈTEMENT DIFFÉRENTE.**
+- ⚠⚠ **LA MATH DIT QUE LE LIVRE A RAISON** : le but énoncé une proposition plus haut est «**on peut rendre ainsi s_{11} = 1**». La disjonction de cas est donc : «si s_{11} **n'est pas encore 1**, et si le pivot s_{21} est dans p̲ (donc non inversible), on cherche c tel que s'_{21} ∉ p̲» — **c'est-à-dire on répare d'abord le pivot**. Le «s_{11} ∉ p̲» de Codex porte l'hypothèse sur **le MAUVAIS élément** et **ne motive pas la suite**.
+⟹ **PAS un book-sic — une MAUVAISE TRANSCRIPTION de la MATHÉMATIQUE par Codex.** RESTAURÉ au livre.
+- ⚠ **CONTRÔLE : le «∈» de «s_{21} ∈ p̲» SUR LA MÊME LIGNE est un epsilon PROPRE, NON BARRÉ** ⟹ les glyphes «≠» et «∈» du dactylographe sont distincts et **tous deux lisibles ici**.
+
+**⚠⚠⚠⚠ ★★★★ fix1 — LE MOT «point» EST FABRIQUÉ :** `z570_premier` (4800dpi) DÉCISIF — «Pour le **premier** il s'agit de transformer  s  en la matrice». Codex avait «Pour le premier **point** il s'agit». ⟹ **le mot «point» N'EST PAS AU LIVRE.** ⚠ **CONTRÔLE : p556 (#566) dit «La démonstration se fait alors en deux **pas**»** ⟹ «le premier» renvoie à «le premier **pas**». **Codex a substitué un AUTRE substantif** ⟹ **mode ⑲ + FABRICATION** (4e mot inventé : «ainsi obtenu» #563, «qu'» #565, «où … est le» #566, «point» #567).
+
+**⚠⚠⚠ ★★★ fix1 — BOOK-SIC : «tel que» pour un substantif FÉMININ :** `z570_telque` (4800dpi) DÉCISIF — «une **matrice** c = c_{h,1,λ}  **tel que** le produit». **«matrice» est FÉMININ ⟹ «telle que» est le français correct.** Codex avait «telle» ⟹ **le livre a glissé, Codex l'avait «réparé»** ⟹ **BOOK-SIC, RESTAURÉ SIC.**
+
+**⚠⚠⚠ ★★★ fix2+fix3 — TEXTE-DROP : «(s'_{ij}) =» DROPPÉ DEUX FOIS :** `z570_sc121` (4800dpi) — «alors dans  s' = **(s'_{ij}) =** sc_{1,2,1}  on a» ; Codex avait «\(s'=sc_{1,2,1}\)». **Et le même drop encore** dans «s' = **(s'_{ij}) =** sc_{1,2,λ}» ⟹ **mode ⑤, 13e et 14e en 10 pages.**
+
+**⚠⚠⚠ ★★★ fix3 — DISPLAY-FICTIF :** `z570_inline` (4800dpi) DÉCISIF — «s'_{11} − 1 = (s_{11} + s_{21})−1 ∉ p̲ . **Quitte à localiser, on peut alors supposer**» : la formule est **à la marge gauche** et **la phrase CONTINUE SUR LA MÊME LIGNE**. Codex en avait fait un `\[…\]` ⟹ **display-fictif #25 (25 en 15 pages)**.
+
+**⚠⚠⚠ ★★★ fix1+fix4+fix5 — TROIS VIRGULES FABRIQUÉES + UNE VIRGULE DÉPLACÉE :**
+- **(a)** `z570_unite` : «zariskien de y **en multipliant**» — **AUCUNE virgule**. Codex : «de \(y\)**,** en».
+- **(b)** `z570_supposant` : «Supposant  s_{11} = 1  **on peut**» — **AUCUNE virgule**. Codex : «\(s_{11}=1\)**,** on».
+- **(c)** `z570_s22` : «s_{22} = 1  **etc.**» — **AUCUNE virgule**. Codex : «\(s_{22}=1\)**,** etc.».
+- **(d)** ⚠⚠ **DÉPLACÉE** : `z570_zarisk` imprime «dans un voisinage **zariskien,** de y en multipliant» — la virgule est **après «zariskien»**, PAS après y. Codex avait «zariskien de \(y\)**,** en multipliant» ⟹ **mode ① (virgule DÉPLACÉE, cf #554)**. ⚠⚠ **NOTER : la MÊME tournure deux paragraphes plus haut (fix1a) n'a AUCUNE virgule** ⟹ **le livre diffère de lui-même entre les deux occurrences de la MÊME proposition. NE JAMAIS uniformiser.**
+
+**⚠⚠⚠ ★★★ fix6 — BOOK-SIC : U SCRIPT :** `z570_surU` (4800dpi) DÉCISIF — «on a alors s' = c_1 sc_2  sur **𝒰**, où» : un **U CURSIF/SCRIPT** (boucle nette). Codex avait «sur \(U\)» — **PLAT**. ⚠⚠ **CONTRÔLE : la MÊME page imprime «dans un voisinage zariskien **U** de y» avec un **U PLAT** UNE LIGNE PLUS HAUT — et c'est LE MÊME VOISINAGE** ⟹ **le livre emploie DEUX glyphes différents pour UN SEUL objet** ⟹ **BOOK-SIC, RESTAURÉ SIC en `\mathcal U`** (même famille que l'incohérence Gl/Gℓ, #565). ✓ **render : le «U» plat et le «𝒰» script coexistent sur des lignes adjacentes, exactement comme au scan.**
+
+**6 rep-calls (fix570.py) :** fix1 «point»+virgule+**s_{11}≠1**+«tel que» ; fix2 texte-drop ; fix3 display-fictif+texte-drop ; fix4 virgule ; fix5 virgule déplacée+virgule ; fix6 **𝒰**.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «Puisque det(s) = 1 ∉ p̲ , il existe au moins  un indice i tel que s_{i1} ∉ p̲» ✓ ; «Alors on a  s_{21} + s_{i1} ∉ p̲ , et c_{i,1,1}  répond à la question.» ✓ ; «On peut donc supposer  s_{21} ∉ p̲ , et quitte à localiser, on peut supposer  s_{21}  inversible.» ✓ ; «Alors λ = (1−s_{11})/s_{21}  est inversible» ✓ (**un QUOTIENT INLINE PARENTHÉSÉ — `\frac` serait FAUX ici, cf #553/#555**) ; **display «s_{11} = 1 , s_{1i} = s_{i1} = 0   (i = 2,…,n)» ✓ (un VRAI display)** ; «(resp. à droite) … (resp. c_{i,1,λ})» ✓ (**parens + «resp.» DÉJÀ présents — vrai résultat négatif**) ; **display «det(s') = det(s) = 1 ,» ✓ (VRAI)** ; «On suppose donc que s soit déjà sur Y un produit de matrices c_{h,k,λ} .» ✓ ; «Reste à voir que celles-ci sont des produits de commutateurs dans un voisinage étale de y .» ✓.
+
+**DEFERRED :** ⚠⚠⚠ **LE «1» SOULIGNÉ — L'EXHIBIT LE PLUS FORT DE TOUTE LA SÉRIE** : `z570_unite` imprime «la matrice unité **1̲**=(δ_{ij})» et `z570_gagne` imprime «de sorte que s'_{nn} = **1** , s' = **1̲** , et on a gagné» — **un 1 PLAT et un 1 SOULIGNÉ SUR LA MÊME LIGNE** : le **scalaire** vs la **matrice identité**. **Le dactylographe marque délibérément le 1-matrice.** ⚠ **MAIS per le PRINCIPE #553** (restaurer UNIQUEMENT là où la phrase est INCOHÉRENTE sans), «s' = 1» et «la matrice unité 1 = (δ_{ij})» sont **TOUS DEUX cohérents non marqués** ⟹ **DEFERRED, mais logué comme LA PIÈCE À CONVICTION pour une future décision globale sur les soulignements** ; le **«.» possiblement manquant après «s_{i1} ∉ p̲»** en fin de ligne (**au-delà de la largeur du crop — NON LISIBLE, NON ÉDITÉ**) ; `\mathfrak p` fraktur vs le «p̲» plat souligné ; écarts dactylo ; `\to` inline.
+
+- Render-verify **(⚠ filtre à 2 chaînes PROCHES ✓ ; page voisine dumpée ; ⚠ RÉGION RENDUE EN IMAGE à 8× pour le 𝒰 — l'extraction APLATIT les variantes de police)** : **doc[299]** «**Pour le premier** il s'agit de transformer s en la matrice unité 1 = (δij) dans un voisinage zariskien **de y en multipliant**» ✓, «**Si s11 ̸= 1** et s21 ∈p» ✓ (**U+0338 combining solidus — le ≠ CONFIRMÉ**), «**tel que** le produit» ✓, «dans s′ = **(s′ij) =** sc1,2,1 on a s′11 −1 = (s11 + s21) −1 /∈p. **Quitte à localiser**» ✓ (**texte-drop restauré + INLINE**), «Alors λ = (1 −s11)/s21 est inversible» ✓, «**Supposant s11 = 1 on peut**» ✓, «dans un voisinage **zariskien, de y** en multipliant» ✓, «Puis on va rendre **s22 = 1 etc.**» ✓, «voisinage zariskien **U** de y … sur **𝒰**, où» ✓ (**image : le contraste plat/script sur des lignes adjacentes**), «nn = 1, s′ = 1, et on a gagné.» ✓.
+- **CURSEUR → idx571 (vol p558 = Exposé X «- 40 -» [558−518=40] ; footer «558» ; idx=558+13=571 ✓)** — p558 = **§6.4 fin** : workpass ~L13456+ «Reste à voir que celles-ci sont des produits de commutateurs dans un voisinage étale de \(y\). Tout d'abord on voit que **deux matrices quelconques \(c_{h,k,\lambda}\) et \(c_{h,k,\mu}\) sont conjuguées**, autrement dit il existe une matrice inversible \(a=(a_{ij})\) telle que l'on ait» + display «ac_{h,k,\lambda}=c_{h,k,\mu}a.» + «En effet, la matrice \(a=(a_{ij})\) avec \(a_{hh}=1/\mu\), \(a_{kk}=1/\lambda\), et du reste \(a_{ij}=\delta_{ij}\), répond à la question; rappelons que \(\lambda\) et \(\mu\) sont par hypothèse inversibles et que \(h\ne k\). Donc pour un homomorphisme quelconque \(\beta\) de \(\Gl(n)(U)\) dans un faisceau de groupes abéliens \(B\), on a» + … + «\(F_2=\{0,1\}\), alors on peut trouver pour tout \(\lambda\in A\) inversible un voisinage zariskien \(U=\Spec(B)\) de \(y\) et un élément inversible \(\mu\in B\), tel que \(\lambda+\mu\in B\) soit inversible.» — ⚠ **LIRE LE SCAN D'ABORD** (⚠⚠ **ligne-drift #570 net −6** : fix3 a fusionné 4 lignes ⟹ **RE-GREP OBLIGATOIRE**).
+- **CHECKS #567 → idx571 :** ★★★★**CODEX MAL-LIT LA MATH — **#567 : «s_{11} ≠ 1» → «s_{11} ∉ 𝔭»** ⟹ ⚠⚠ **CROPPER CHAQUE RELATION (=/≠/∈/∉/⊂) ET CHAQUE MEMBRE DROIT** ; **TEST : la condition MOTIVE-t-elle ce qui suit ? Si non, Codex a mal lu**** ; ★★★★**FABRICATION — 4 mots inventés à ce jour («ainsi obtenu» #563, «qu'» #565, «où … est le» #566, **«point» #567**) ⟹ **LIRE MOT À MOT ; TOUT MOT DU .tex ABSENT DU SCAN = FABRICATION**** ; ★★★★**TEXTE-DROP = **14 en 10 pages** (**«(s'_{ij}) =» ×2 #567** ; la PARENTHÈSE ENTIÈRE #566 ; «(i,j=1,…,n)»×2 #566 ; «la matrice» #566 ; «et» #566/#564) ⟹ **COMPARER MOT À MOT ; un display/`align`/`\qquad` CACHE souvent du texte**** ; ★★★★**BOOK-SIC = **34 en 19 pages** ; **#567 en a donné 2** («tel que» masc. pour «matrice» fém. ; **le U SCRIPT vs le U PLAT pour LE MÊME voisinage, à une ligne d'écart**) ⟹ ⚠⚠ **CROPPER PRÉCISÉMENT QUAND CODEX A RAISON**** ; ★★★★**LE LIVRE SE CONTREDIT — **#567 : le MÊME voisinage en «U» plat ET «𝒰» script à UNE LIGNE D'ÉCART** ; la MÊME proposition avec/sans virgule ; **#565 l'ell DANS UNE LIGNE** ; #566 les guillemets 1re-occ-seulement ⟹ **NE JAMAIS uniformiser**** ; ★★★★**VIRGULES = **LES DEUX SENS + DÉPLACÉES** (#567 : 3 FABRIQUÉES + 1 **DÉPLACÉE** de «y,» vers «zariskien,») ⟹ **CROPPER CHAQUE VIRGULE : présente ? absente ? DÉPLACÉE ?**** ; ★★★★**DISPLAY-FICTIF = **25 en 15 pages** ⟹ **CROPPER LA FRONTIÈRE texte/display** ; ⚠ **MAIS certains displays SONT réels (#567 : «s_{11}=1, s_{1i}=s_{i1}=0» ✓ et «det(s')=det(s)=1 ,» ✓)**** ; ★★★**LE «1» SOULIGNÉ = matrice vs scalaire, **CONTRASTE SUR LA MÊME LIGNE (#567)** ⟹ **DEFERRED per #553 (cohérent non marqué) MAIS c'est LA PIÈCE À CONVICTION si la décision globale s'ouvre**** ; ★★★**l'ELL — cropper chaque «Gl»/«Sl» ; **p558 a `\Gl(n)(U)` ⟹ CROPPER**** ; ★★★**macros `\Ob`(378)/`\id`/`\SL`/`\Gl` LOCAL per-occ ; **p558 a `\Spec` ⟹ AUDITER**** ; ★★★**règle de sweep TRIPLEMENT validée ⟹ JAMAIS de sweep global** ; ★★★**«-ème» pas «-ième» (44 occ restantes)** ; ★★★**ponctuation : **p558 a «répond à la question**;** rappelons» — un «;» ⟹ CROPPER**** ; ★★**`\longmapsto` 27 (3/3 FAUX)** ; ★★**`\simeq` 140** ; ★★**`\oplus` 60 (1/1 = ⊗)** ; ★★**réfs 3 fausses sur 5** ; ★★**`\mathfrak p`/`\Gm`/`\mathbb G_a` blackboard-fraktur (DEFERRED)** ; ★**«+N̲−1» + (6.1.3)-double + (6.3.1)-en-§6.4 = ERRATA candidates**.
+
+### #566 (2026-07-16) — idx569 (vol p556 = **Exposé X «- 38 -»**, header «- 38 -» + «X» + footer «556» ; **CONSTANTE_X=518 CONFIRMÉE [556−38]**) — **★★ §6.4 «Démonstration de 6.2.2» : les matrices élémentaires c_{h,k,λ} (Jussila)** — **5 rep-calls / ~22 changements** (bandes b1-b5 TOUTES lues + **15 crops HD à 4800dpi**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (556−38 ; idx=556+13=569 ✓)** ; p555 finissait proprement sur «via 6.2.2).» ⟹ **cette page OUVRE sur «6.4.» — CONFIRMÉ** ; la page **se termine PROPREMENT**. Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix1+fix2 — CODEX A RÉÉCRIT LA PHRASE DE KRONECKER ET DROPPÉ L'ÉQUIVALENT D'UN DISPLAY — LA TROUVAILLE DE LA PAGE :**
+`z569_kron1` + `z569_kron2` (**4800dpi**) DÉCISIFS. Le livre imprime, **TOUT EN LIGNE COURANTE** :
+«matrice (c_{ij}) **(i,j=1,…,n)** telle que c_{hk}= λ **et** c_{ij} = δ_{ij} pour (i,j)≠(h,k) **(δ_{ij}= symbole de Kronecker).** Pour toute matrice **a̲** = (a_{ij})**(i,j=1,…,n)** on obtient c_{h,k,λ} a̲ en ajoutant à la k-**ème** colonne de a̲ λ fois la h-**ème**. **De même on obtient la matrice** a̲c_{h,k,λ} en ajoutant à la h-**ème** ligne de a̲ λ fois la k-**ème**.»
+Codex avait un **display `\[…\]`** + «**où** \(\delta_{ij}\) **est le** symbole de Kronecker.» ⟹ **SIX défauts :**
+- **(a) DISPLAY-FICTIF #24** — la ligne du livre est du texte courant de bout en bout.
+- **(b) le mot «et»** entre c_{hk}=λ et c_{ij}=δ_{ij} — Codex avait une **virgule + `\qquad`**.
+- **(c) «(δ_{ij}= symbole de Kronecker)» est une PARENTHÈSE avec un «=»**. Codex l'avait **RÉÉCRITE** en «**où** δ_{ij} **est le** symbole de Kronecker» ⟹ parens droppées, «=» remplacé par «est le», et **«où» FABRIQUÉ** ⟹ **mode ⑲ + FABRICATION**.
+- **(d) «(i,j=1,…,n)» ×2 DROPPÉS** — après «(c_{ij})» et après «(a_{ij})» ⟹ **TEXTE-DROP**.
+- **(e) «k-ème»/«h-ème» ×4** — Codex avait «-**ième**». Vraie différence orthographique.
+- **(f) «De même on obtient» — AUCUNE virgule** (Codex en avait fabriqué une) **ET «la matrice» DROPPÉ**.
+
+**⚠⚠⚠⚠ ★★★★ fix1 — LA PHRASE D'OUVERTURE : 7 DÉFAUTS :**
+`z569_obsl` + `z569_etale` + `z569_GlY` + `z569_sij` + `z569_semic` (4800dpi) DÉCISIFS :
+- **(a) `\Ob` → `\operatorname{Ob}`** — le livre imprime «**Ob**» CAPITALE ; `\Ob` rend «ob» (bug macro #530 : la **PREMIÈRE** `\providecommand` gagne). ⚠⚠ **CORRECTION IMPORTANTE : `\Ob` = **378 USAGES** dans le fichier — **ma note de #564/#565 disant «24» était FAUSSE** (comptage régional erroné ; recompté ici par script-file après que le `python -c` inline a mangé les échappements — **leçon #523/#528/#530 re-vécue**)** ⟹ **LOCAL, avec d'autant plus de force** ; ⚠ **le bug touche donc 378 endroits latents — mais un sweep serait FAUX : les autres Exposés peuvent écrire «ob» minuscule.**
+- **(b) `\SL(n)` → `\operatorname{S\ell}(n)`** — `z569_SlZ` : **ELL CURSIF BOUCLÉ**.
+- **(c) GUILLEMETS** : le livre met **«"voisinage étale"»** entre guillemets. Codex les avait droppés ⟹ mode ⑭. ⚠ **CONTRÔLE : la MÊME page imprime «dans un voisinage  étale» SANS guillemets à la fin** (`z569_Gln`) ⟹ **le livre ne guillemette QU'À LA PREMIÈRE OCCURRENCE** ⟹ **mode ⑰, NE JAMAIS uniformiser**.
+- **(d) `\Gl(n)(Y')` → `\operatorname{G\ell}(n)(Y')`** — `z569_GlY` : ELL SCRIPT.
+- **(e) «(s_{ij})(i,j=1,…,n)»** — le «(i,j=1,…,n)» est une **PARENTHÈSE SÉPARÉE, PLEINE TAILLE, SUR LA LIGNE DE BASE**, PAS l'indice `_{i,j=1,\ldots,n}` de Codex ⟹ **vraie différence notationnelle** (même famille que «s_{(i)}» vs «s(i)», #565).
+- **(f) «;» pas «,»** dans «h, k=1,…,n **;** h ≠ k» (`z569_semic`).
+- **(g) «(i,j=1,…,n)» après «(c_{ij})» DROPPÉ** par Codex.
+
+**⚠⚠⚠⚠ ★★★★ fix5 — TEXTE-DROP : UNE PARENTHÈSE ENTIÈRE :** `z569_textdrop` (4800dpi) DÉCISIF — «le λ intervenant dans c_{h,k,λ} **(λ ∈ A ; h,k = 1,…,n ; h ≠ k)** inversible.» Codex avait «…intervenant dans \(c_{h,k,\lambda}\) inversible.» ⟹ **LA PARENTHÈSE ENTIÈRE A DISPARU** ⟹ **mode ⑤, 12e en 9 pages, et le plus gros drop unique de la série.** ⚠ noter les **SEMICOLONS** à l'intérieur.
+
+**⚠⚠⚠ ★★★ fix3 — «de sorte qu'on» PAS «de sorte que l'on» :** `z569_quon` (4800dpi) DÉCISIF — «pour tout  λ, μ ∈ A,**de sorte qu'on** trouve une représentation». Codex avait «de sorte que **l'on** trouve» ⟹ **mode ㉓**.
+
+**⚠⚠⚠ ★★★ fix4 — LE DISPLAY : ELL SCRIPT + POINT-VIRGULE :** `z569_disp` (4800dpi) DÉCISIF — «c_{h,k} : G_a ⟶ **Sℓ**(n)   . (h,k = 1,…,n **;** h ≠ k).» ⟹ `\SL(n)` → `\operatorname{S\ell}(n)` + «;» pas «,». ⚠ **NON corrigé : il semble y avoir un «.» ténu entre «Sℓ(n)» et «(h,k…)». Trop faible pour trancher à 4800dpi et ça pourrait être une poussière ⟹ LOGUÉ, NON ÉDITÉ** (VÉRIFIER-avant-d'agir).
+
+**⚠⚠⚠ ★★★ fix6 — ELL SCRIPT :** `z569_Gln` — «de commutateurs de **Gℓ**(n) dans un voisinage  étale».
+
+**⚠⚠⚠ ★★★ NON CORRIGÉ — LE TAG (6.3.1) EST UN BOOK-SIC ET CODEX LE REPRODUIT :**
+`z569_eq631` (4800dpi) : le tag imprime «**(6.3.1)**» — 6 (boucle inf. FERMÉE), 3 (ouvert à gauche), 1. ⚠⚠ **OR NOUS SOMMES EN §6.4, et le §6.3 (p555) n'a AUCUNE équation numérotée** (#565) ⟹ **le livre a mal numéroté** (ça devrait être 6.4.1). **Codex l'a fidèlement reproduit** ⟹ **RIEN ÉDITÉ. BOOK-SIC, candidat ERRATA** (même famille que le (6.1.3) en double, #563). ⚠ le fichier a **DEUX** `\tag{6.3.1}` — le 2e est ailleurs, non examiné. **Logué.**
+
+**5 rep-calls (fix569.py) :** fix1+2 (le gros bloc : Ob/Sℓ/Gℓ + guillemets + parenthèses + «;» + INLINE + «et» + Kronecker + «k-ème» + «la matrice») ; fix3 «qu'on» ; fix4 display ; fix5 **TEXTE-DROP** ; fix6 Gℓ.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «6.4.  **Démonstration de**  6.2.2. Il suffit de montrer que, quels que soient» ✓ (**le titre ENCHAÎNE sur le texte — format de titre DEFERRED**) ; «La question étant locale, on peut supposer Y affine d'anneau A, et n̲ constant égal à n sur Y.» ✓ ; **display «det(c_{h,k,λ}) = 1 ,» ✓ (un VRAI display)** ; «et on voit aussitôt que l'on a» ✓ ; (6.3.1) «c_{h,k,λ} c_{h,k,μ} = c_{h,k,λ+μ}» ✓ ; «Sauf mention expresse du contraire, on va supposer dans ce qui suit» ✓ ; «La démonstration se fait alors en deux pas. On va montrer d'abord que s est un produit de matrices c_{h,k,λ} dans un voisinage zariskien suffisamment petit de y. Puis on va montrer que les matrices c_{h,k,λ} sont des produits de commutateurs de … dans un voisinage  étale suffisamment petit de y.» ✓.
+
+**DEFERRED :** **`\mathbb G_a` blackboard vs le «G_a» PLAT du livre** (même famille que `\Gm`, #563-#565) ; **`\mathfrak p` FRAKTUR vs le «p̲» PLAT SOULIGNÉ du livre** (substitution notationnelle, mais «p = l'idéal premier» est cohérent non marqué per #553 ⟹ **DEFERRED, logué**) ; soulignements DÉCORATIFS (a̲ / n̲ / p̲) ; **le «.» ténu du display c_{h,k}** ; écarts dactylo («A,de sorte», «voisinage  étale», «matrices  c_{h,k,λ}») ; format de titre en enchaînement ; `\to` inline.
+
+- Render-verify **(⚠ filtre à 2 chaînes PROCHES ✓ ; page voisine dumpée ; ⚠⚠ RÉGIONS RENDUES EN IMAGE à 7×)** : **doc[298-299]** «Il suffit de montrer que, quels que soient Y ∈**Ob**(Sch /S), y ∈Y et s ∈**Sℓ**(n)(Y ), on peut trouver un **« voisinage étale »** Y ′ →Y de y … produit de commutateurs de **Gℓ**(n)(Y ′).» ✓, «Soient p l'idéal premier de y et **(sij)(i, j = 1, . . . , n)** la matrice de s.» ✓, «Pour tout λ ∈A et **h, k = 1, . . . , n ; h ̸= k**, … la matrice (cij) **(i, j = 1, . . . , n)** telle que **chk = λ et cij = δij** pour (i, j) ̸= (h, k) **(δij = symbole de Kronecker)**.» ✓ (**INLINE**), «Pour toute matrice a = **(aij)(i, j = 1, . . . , n)** on obtient ch,k,λa en ajoutant à la **k-ème** colonne … **De même on obtient la matrice** ach,k,λ …» ✓, «de sorte **qu'on** trouve une représentation» ✓, «ch,k : Ga −→**Sℓ**(n) / (h, k = 1, . . . , n **;** h ̸= k).» ✓ (**U+2113 + semicolon**), «**(λ ∈A ; h, k = 1, . . . , n ; h ̸= k) inversible.**» ✓ (**la parenthèse RESTAURÉE**), «commutateurs de **Gℓ**(n) dans un voisinage étale» ✓.
+- **CURSEUR → idx570 (vol p557 = Exposé X «- 39 -» [557−518=39] ; footer «557» ; idx=557+13=570 ✓)** — p557 = **§6.4 suite** : workpass ~L13430+ «Pour le premier point il s'agit de transformer \(s\) en la matrice unité \(1=(\delta_{ij})\) dans un voisinage zariskien de \(y\), en multipliant \(s\) à gauche et à droite par des matrices convenables \(c_{h,k,\lambda}\). Montrons d'abord qu'on peut rendre ainsi \(s_{11}=1\). Si \(s_{11}\notin\mathfrak p\) et \(s_{21}\in\mathfrak p\), nous cherchons une matrice \(c=c_{h,1,\lambda}\) telle que le produit \(s'=sc=(s'_{ij})\) ait \(s'_{21}\notin\mathfrak p\). Puisque \(\det(s)=1\notin\mathfrak p\), il existe au moins un indice \(i\) tel que \(s_{i1}\notin\mathfrak p\). Alors on a \(s_{21}+s_{i1}\notin\mathfrak p\), et \(c_{i,1,1}\) répond à la question. On peut donc supposer \(s_{21}\notin\mathfrak p\), et quitte à localiser, on peut supposer \(s_{21}\) inversible. Si \(s_{11}-1\in\mathfrak p\), alors dans \(s'=sc_{1,2,1}\) on a» + display «s'_{11}-1=(s_{11}+s_{21})-1\notin\mathfrak p.» — ⚠ **LIRE LE SCAN D'ABORD** (⚠⚠ **ligne-drift #569 net −7** : fix1+2 a fusionné 4 lignes ⟹ **RE-GREP OBLIGATOIRE**).
+- **CHECKS #566 → idx570 :** ★★★★**L'ELL — le livre change DANS UNE LIGNE (#565) ; p556 met «Sℓ»/«Gℓ» SCRIPT PARTOUT (#566) alors que p553/p554 les mettaient PLATS ⟹ **CROPPER CHAQUE «Gl»/«Sl» INDIVIDUELLEMENT, texte ET display**** ; ★★★★**RÈGLE DE SWEEP — **TRIPLEMENT VALIDÉE** (#563 : ne pas balayer `\Gl` a sauvé p553 ; #565 : le livre change d'ell DANS UNE LIGNE ; **#566 : `\Ob` = 378 usages, pas 24 — un sweep toucherait TOUS les Exposés**) ⟹ **JAMAIS de sweep global — LOCAL, per-occurrence, TOUJOURS**** ; ★★★★**FABRICATION + RÉÉCRITURE — #566 : «où … est le» fabriqué pour «(δ_{ij}= …)» ; #563 : «ainsi obtenu» inventé ; #565 : «qu'» ⟹ ⚠⚠ **LIRE CHAQUE PHRASE MOT À MOT — TOUT MOT DU .tex ABSENT DU SCAN = FABRICATION**** ; ★★★★**TEXTE-DROP = **12 en 9 pages** ; **#566 = une PARENTHÈSE ENTIÈRE «(λ ∈ A ; h,k = 1,…,n ; h ≠ k)»** + 2 «(i,j=1,…,n)» + «la matrice» ⟹ **COMPARER MOT À MOT ; un `\qquad`/un display CACHE souvent du texte**** ; ★★★★**DISPLAY-FICTIF = **24 en 14 pages** ⟹ **CROPPER LA FRONTIÈRE texte/display de CHAQUE display** ; ⚠ **MAIS certains displays SONT réels (#566 «det(c_{h,k,λ})=1 ,» ✓)**** ; ★★★**NOTATION indice-vs-parenthèse : «(s_{ij})(i,j=1,…,n)» PAS «(s_{ij})_{i,j=1,…,n}» (#566) ; «s_{(i)}» PAS «s(i)» (#565) ⟹ **CROPPER CHAQUE «f(x)»/«f_x» : argument, indice, ou parenthèse séparée ?**** ; ★★★**GUILLEMETS — le livre ne guillemette QU'À LA PREMIÈRE OCCURRENCE (#566 : «"voisinage étale"» puis «voisinage étale» nu) ⟹ **per-occ, JAMAIS uniformiser**** ; ★★★**«-ème» PAS «-ième» (#566 ×4) ⟹ **CHERCHER tout «-ième» du workpass ET CROPPER**** ; ★★★**PONCTUATION : «;» pour «,» ×3 (#566) ⟹ **CROPPER CHAQUE séparateur**** ; ★★★**book-sic = **32 en 18 pages** ; **le tag (6.3.1) en §6.4 (#566)** + le (6.1.3) en double (#563) ⟹ **candidats ERRATA ; ⚠ le fichier a DEUX `\tag{6.3.1}` ET TROIS `\tag{6.1.3}` — les doublons NON EXAMINÉS**** ; ★★★**`\Ob`/`\id`/`\SL`/`\Gl` = **CHERCHER SUR CHAQUE PAGE** (p557 a `\mathfrak p` ×8 mais peut-être pas de macro-groupe)** ; ★★**`\longmapsto` 27 (3/3 FAUX)** ; ★★**`\simeq` 140** ; ★★**`\oplus` 60 (1/1 = ⊗)** ; ★★**réfs 3 fausses sur 5** ; ★★**`\mathfrak p` fraktur vs p̲ souligné (DEFERRED)** ; ★★**`\mathbb G_a`/`\Gm` blackboard (DEFERRED)** ; ★**«+N̲−1» ERRATA candidate**.
+
+### #565 (2026-07-16) — idx568 (vol p555 = **Exposé X «- 37 -»**, header «- 37 -» + «X» + footer «555» ; **CONSTANTE_X=518 CONFIRMÉE [555−37]**) — **★★ §6.3 : 6.2.3 découle de 6.2.2 + le triangle commutatif (Jussila)** — **7 rep-calls / ~18 changements** (bandes b1-b5 TOUTES lues + **13 crops HD à 4800dpi, CONTRÔLES INTÉGRÉS À LA MÊME LIGNE**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (555−37 ; idx=555+13=568 ✓)** ; p554 finissait proprement sur «etc.» ⟹ **cette page OUVRE sur «6.3.» — CONFIRMÉ** ; la page **se termine PROPREMENT** sur «via 6.2.2).». Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix2/fix3/fix4/fix6 — L'ELL : LE LIVRE EST INCOHÉRENT **À L'INTÉRIEUR D'UNE SEULE LIGNE** — LA TROUVAILLE DE LA PAGE :**
+`z568_GlSlZ` (**4800dpi**) DÉCISIF — la ligne de texte courant imprime «par **Gℓ**(n̲_1)/**Sl**(n̲_1) i.e.» :
+- «G**ℓ**» = un **ELL CURSIF BOUCLÉ** (boucle nette en haut + queue courbe) = `\ell`
+- «S**l**» = un **l DROIT NU** (trait vertical, aucune boucle)
+⟹ **CINQ CARACTÈRES D'ÉCART, SUR LA MÊME LIGNE. La ligne est son propre contrôle.**
+`z568_SlZ2` (**4800dpi**) DÉCISIF — **mais le DISPLAY du monomorphisme imprime «Sℓ(n̲_i)» avec un ELL BOUCLÉ !** ⟹ **LE LIVRE MET «Sl» (plat) DANS LE TEXTE ET «Sℓ» (script) DANS LE DISPLAY, SUR LA MÊME PAGE.**
+**TABLEAU COMPLET DE LA SÉRIE :**
+- **p552** : «Gℓ» **SCRIPT** (#562)
+- **p553** : «Gl» **PLAT** (#563)
+- **p554** : «Gl» **PLAT** + «Sl» **PLAT** (#564)
+- **p555** : «Gℓ» **SCRIPT** + «Sl» **PLAT** (texte) **ET** «Gℓ» **SCRIPT** + «Sℓ» **SCRIPT** (display) (#565)
+⟹ ⚠⚠⚠ **LE LIVRE EST INCOHÉRENT SUR L'ELL : D'UNE PAGE À L'AUTRE, DANS UNE PAGE, DANS UNE LIGNE, ET ENTRE TEXTE ET DISPLAY.** mode ⑰ à son comble.
+⟹ ⚠⚠⚠ **CECI VALIDE LA RÈGLE DE SWEEP DE FAÇON DÉCISIVE** : **TOUT** balayage global de `\Gl` (36) ou `\SL` (9) — **DANS UN SENS COMME DANS L'AUTRE** — serait **FAUX quelque part**. **Seul le crop per-page, per-occurrence peut reproduire ça.** (#563 l'avait déjà prouvé une fois quand ne pas balayer `\Gl` a sauvé p553.) ⟹ `\operatorname{G\ell}` ×7 et `\operatorname{Sl}`/`\operatorname{S\ell}` **per-occurrence, LOCAL**.
+
+**⚠⚠⚠⚠ ★★★★ fix5+fix6 — BOOK-SIC : «n̲_i» LÀ OÙ LE CONTEXTE EST n̲_1 (×3) :**
+`z568_detdisp` + `z568_SlZ2` (4800dpi) DÉCISIFS — le display de det imprime «det : Gℓ(n̲_**i**) ⟶ G_m» et celui du monomorphisme «Gℓ(n̲_**i**)/Sℓ(n̲_**i**) ⟶ G_m» — des **i POINTÉS**.
+- ⚠ **OR tout le §6.3 vient de poser r=1, G=Gℓ(n̲_1)** — **il n'y a PLUS d'indice i.**
+- ⚠ **CONTRÔLE : la MÊME page imprime «Gℓ(n̲_1)» (trait nu à drapeau) SIX fois** dans le texte et le diagramme. Les glyphes sont **sans ambiguïté différents** (cf la paire «E̲_i»/«E̲_1» de #564).
+⟹ **le livre a glissé, TROIS fois. Codex avait «réparé» les trois en n_1.** ⟹ **BOOK-SIC, RESTAURÉ SIC. candidat ERRATA** (même famille que le «E̲_i» de #564).
+
+**⚠⚠⚠⚠ ★★★★ fix7 — `\longmapsto` EST MAINTENANT **3 VÉRIFIÉS, 3 FAUX** :** `z568_squig` (4800dpi) DÉCISIF — le livre imprime «s **⟿** s^{m̲}» : une **FLÈCHE ONDULÉE SANS ÉQUIVOQUE** avec pointe = `\rightsquigarrow`. Codex avait `\longmapsto`. ⟹ **3 vérifiés, 3 FAUX** (#552 «(x,y)⟿⟨x,y⟩» ; #560 «Y⟿K^∘(X/Y)» ; #568 «s⟿s^m»). **27 RESTANTS.** ⚠ Le dossier du sweep se renforce **mais la population est grande et dispersée** ⟹ **toujours per-page, per-crop** (l'ell ci-dessus est un avertissement vivant contre les sweeps globaux).
+
+**⚠⚠⚠ ★★★ fix1 — DISPLAY-FICTIF + «s_{(i)}» EST UN INDICE, PAS UN ARGUMENT :** `z568_sii` (4800dpi) DÉCISIF — le livre imprime, **TOUT SUR UNE LIGNE COURANTE** : «**s_{(i)}** = (1,…,s_i,…,1) (i = 1,…,r), donc on peut supposer r=1,».
+- **(a)** le «(i)» est **SOUS LA LIGNE DE BASE, en taille d'indice** ⟹ **`s_{(i)}`**, PAS l'application «s(i)» qu'avait Codex ⟹ **vraie différence notationnelle**.
+- **(b) DISPLAY-FICTIF #23** — Codex en avait fait un `\[…\]` ; la ligne du livre enchaîne directement sur «donc on peut supposer r=1,».
+
+**⚠⚠⚠ ★★★ fix2 — VIRGULE FABRIQUÉE + «i.e.» DÉVELOPPÉ + UN «qu'» FABRIQUÉ :** `z568_key` (4800dpi) DÉCISIF — le livre imprime «G = Gℓ(n̲_1). D'après 6.2.2  α se factorise par Gℓ(n̲_1)/Sl(n̲_1) **i.e.** il».
+- **(a)** «D'après 6.2.2  α» — **AUCUNE VIRGULE** (un écart dactylo). Codex avait «6.2.2**,** \(\alpha\)».
+- **(b)** «Sl(n̲_1) **i.e.** il existe» — le livre **ABRÈGE** et ne met **AUCUNE virgule** avant. Codex avait «\SL(n_1)\)**,** **c'est-à-dire qu'**il existe» ⟹ **virgule fabriquée + abréviation DÉVELOPPÉE (mode ⑮, 16e occ) + un «qu'» FABRIQUÉ**.
+
+**⚠⚠⚠ ★★★ fix8 — PARENTHÈSE DÉSÉQUILIBRÉE (6e book-sic du genre) :** `z568_via` (4800dpi) DÉCISIF — «une démonstration élémentaire via 6.2.2**)**.» : une **PARENTHÈSE FERMANTE** avant le point final. ⚠ **CONTRÔLE : le paragraphe ENTIER ne contient AUCUNE ouvrante** («Le corollaire 6.2.6 est une simple reformulation de 6.2.3. Notons que 6.2.3 découle aussi immédiatement de SGA 3 XXII 6.2.1, mais nous voulons…»). **Véritablement déséquilibrée.** ⟹ **BOOK-SIC, RESTAURÉ SIC** (cf #549/#550/#552/#555/#564 ; une «)» nue **COMPILE** ✓).
+
+**7 rep-calls (fix568.py) :** fix1+2 inline+s_{(i)}+Gℓ/Sl+virgule+i.e. ; fix3 nœuds tikzcd ; fix4 texte b2 ; fix5 display det (**n_i**) ; fix6 display mono (**Sℓ script + n_i ×2**) ; fix7 **SQUIGGLE** ; fix8 paren.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «6.3.  Montrons d'abord comment 6.2.3 découle de 6.2.2.  Pour cela il suffit évidemment de démontrer (6.2.5) pour les» ✓ ; **les TYPES de flèches du tikzcd sont tous des «⟶» nus ✓** ; «où j est l'épimorphisme canonique et β une représentation de … dans G_m . Mais l'homomorphisme» ✓ ; «possède une section, de sorte que le monomorphisme» ✓ ; «induit par det est un isomorphisme. D'autre part on sait **(SGA 3 VIII 1.3)**» ✓ (**réf crop-vérifiée CORRECTE — vrai résultat négatif**) ; «que toute représentation de G_m dans lui-même est de la forme» ✓ ; «où m̲ est une section de Z , d'où l'assertion.» ✓ ; «Le corollaire 6.2.6 est une simple reformulation de 6.2.3. Notons que 6.2.3 découle aussi immédiatement de **SGA 3 XXII 6.2.1**, mais nous voulons lui donner ici une démonstration élémentaire» ✓.
+
+**DEFERRED :** ⚠ **le LAYOUT du tikzcd** — le livre dessine un **TRIANGLE** (Gℓ(n̲_1) en haut-gauche, G_m en haut-DROITE, le quotient en bas-CENTRE, j en DIAGONALE vers le bas-droite) ; Codex a j **tout droit vers le BAS** et le quotient en bas-GAUCHE. **Les TYPES de flèches correspondent ⟹ layout DEFERRED per la règle permanente** ; **`\Gm` blackboard vs le «G_m» PLAT du livre (19 usages — visible au render : «𝔾_m»)** ; soulignements DÉCORATIFS (n̲_1/n̲_i/m̲) ; `\to` inline ; écarts dactylo («6.2.2  α», «Sl(n̲_1)  dans», «G_m . Mais») ; format de titre («6.3.» avec point) ; compte des points d'ellipse.
+
+- Render-verify **(⚠ filtre à 2 chaînes PROCHES ✓ ; page voisine dumpée ; ⚠⚠ RÉGIONS RENDUES EN IMAGE à 8-9× — l'extraction est AVEUGLE au ⟿ et aux formes d'ell)** : **doc[298]** «(6.2.5) pour les **s_{(i)}** = (1, . . . , si, . . . , 1) (i = 1, . . . , r), donc on peut supposer r = 1, G = **Gℓ**(n1).» ✓ (**INLINE + «(i)» en INDICE + ell script — image**), «D'après 6.2.2 α se factorise par **Gℓ**(n1)/ **Sl**(n1) **i.e.** il existe un diagramme commutatif» ✓ (**0 virgule + i.e. + le CONTRASTE Gℓ-script / Sl-plat VISIBLE**), «où j est l'épimorphisme canonique et β une représentation de **Gℓ**(n1)/ **Sl**(n1) dans Gm. Mais» ✓, «**Gℓ(n_i)/ Sℓ(n_i) ⟶ 𝔾_m**» ✓ (**image : Sℓ SCRIPT + n_i ×2**), «**s ⟿ s^m,**» ✓ (**image : la flèche ONDULÉE**), «où m est une section de Z, d'où l'assertion.» ✓, «élémentaire **via 6.2.2).**» ✓ ; **doc[299]** «commutateurs de **Gl**(n)(Y′)» ✓ (**p556 garde son «Gl» plat — discipline per-page respectée**).
+- **CURSEUR → idx569 (vol p556 = Exposé X «- 38 -» [556−518=38] ; footer «556» ; idx=556+13=569 ✓)** — p556 = **§6.4 «Démonstration de 6.2.2»** : workpass ~L13418+ «Il suffit de montrer que, quels que soient \(Y\in\Ob(\Sch/S)\), \(y\in Y\) et \(s\in\SL(n)(Y)\), on peut trouver un voisinage étale \(Y'\to Y\) de \(y\) tel que la restriction de \(s\) sur \(Y'\) soit un produit de commutateurs de \(\Gl(n)(Y')\). La question étant locale, on peut supposer \(Y\) affine d'anneau \(A\), et \(n\) constant égal à \(n\) sur \(Y\). Soient \(\mathfrak p\) l'idéal premier de \(y\) et \((s_{ij})_{i,j=1,\ldots,n}\) la matrice de \(s\). Pour tout \(\lambda\in A\) et \(h,k=1,\ldots,n\), \(h\ne k\), nous désignerons par \(c_{h,k,\lambda}\) la matrice \((c_{ij})\) telle que» + display «c_{hk}=\lambda,\qquad c_{ij}=\delta_{ij}\quad\text{pour }(i,j)\ne(h,k),» + «où \(\delta_{ij}\) est le symbole de Kronecker. …» + display «\det(c_{h,k,\lambda})=1,» — ⚠ **LIRE LE SCAN D'ABORD** (⚠⚠ **ligne-drift #568 net −11** : fix1 −4, fix5 −0, fix6 −0, fix7 −0 + les displays fusionnés ⟹ **RE-GREP OBLIGATOIRE**).
+- **CHECKS #565 → idx569 :** ★★★★**L'ELL — **LE LIVRE EST INCOHÉRENT DANS UNE MÊME LIGNE** (#565) ⟹ **CROPPER CHAQUE «Gl»/«Sl» INDIVIDUELLEMENT, texte ET display** ; ⚠ **p556 a `\Ob`(1) + `\SL`(1) + `\Gl`(2)** ⟹ les 4 à cropper** ; ★★★★**RÈGLE DE SWEEP — **DOUBLEMENT VALIDÉE** (#563 : ne pas balayer `\Gl` a sauvé p553 ; #565 : le livre change d'ell DANS UNE LIGNE) ⟹ **JAMAIS de sweep global sur `\Gl`/`\SL`/`\Ob`/`\id` — LOCAL, per-occurrence, TOUJOURS**** ; ★★★★**MACROS — `\providecommand` ⟹ **LA PREMIÈRE DÉF GAGNE** : `\Ob`→«ob» (le livre a «Ob») ; `\id`→«Id» (le livre a «id») ; `\SL`→«SL» (le livre a «Sl» OU «Sℓ» !) ; `\Gl`→«Gl» (le livre a «Gl» OU «Gℓ» !) ; `\Gm`→𝔾_m blackboard (le livre a «G_m» plat, DEFERRED) ⟹ **CHERCHER `\Ob`/`\id`/`\SL`/`\Gl` SUR CHAQUE PAGE ET CROPPER CHACUN**** ; ★★★★**BOOK-SIC = **30 en 17 pages** ; **#565 EN A DONNÉ 4** («n̲_i» ×3 + la paren de «via 6.2.2)») ; **#564 EN A DONNÉ 3** (⊗-pour-⊕ = VRAIE ERREUR MATH, «E̲_i», «déterminés») ⟹ ⚠⚠ **CODEX RÉPARE LA MATH, LA GRAMMAIRE, LA NUMÉROTATION, LES PARENS ET LES INDICES DU LIVRE ⟹ CROPPER PRÉCISÉMENT QUAND CODEX A RAISON**** ; ★★★★**`\longmapsto` = **3/3 FAUX**, 27 restants ⟹ **CROPPER CHAQUE occurrence** (le livre met des ⟿)** ; ★★★**DISPLAY-FICTIF = **23 en 13 pages** ⟹ **CROPPER LA FRONTIÈRE texte/display de CHAQUE display**** ; ★★★**parens DÉSÉQUILIBRÉES = 6 occ ⟹ **CONTRÔLE : chercher un membre ÉQUILIBRÉ sur la MÊME ligne/le MÊME paragraphe**** ; ★★★**abréviations = **16 occ** («i.e.»#565 ; «resp.»×2 #562 ; «Exp V»#560) ⟹ **CHERCHER tout «c'est-à-dire»/«respectivement»/«Exposé»**** ; ★★★**virgules FABRIQUÉES (#565 «6.2.2,» + «Sl(n_1),») ⟹ **CONTRÔLE : une virgule VOISINE prouve l'usage**** ; ★★★**indices : «n_i» vs «n_1» / «E_i» vs «E_1» ⟹ **CROPPER CHAQUE INDICE — le i est POINTÉ, le 1 a un DRAPEAU**** ; ★★**tikzcd LAYOUT deferred, flèche-TYPE = FIX** ; ★★**`\Gm` blackboard (19) DEFERRED** ; ★★**`\oplus` 60 (1/1 = ⊗)** ; ★★**`\simeq` 140 (1/1 faux)** ; ★★**réfs 3 fausses sur 5** (⚠ #561 «(6.2.10)/(6.5.3)» ET #565 «(SGA 3 VIII 1.3)» étaient JUSTES) ; ★**«+N̲−1» + le (6.1.3) EN DOUBLE = ERRATA candidates**.
+
+### #564 (2026-07-16) — idx567 (vol p554 = **Exposé X «- 36 -»**, header «- 36 -» + «X» + footer «554» ; **CONSTANTE_X=518 CONFIRMÉE [554−36]**) — **★★ Prop 6.2.2 + Cor 6.2.3 + (6.2.4)/(6.2.5) + Cor 6.2.6 + Rem 6.2.7 + (6.2.8)/(6.2.9)/(6.2.10) (Jussila)** — **8 rep-calls / ~20 changements** (bandes b1-b5 TOUTES lues + **14 crops HD à 4800dpi, CONTRÔLES INTÉGRÉS À LA LIGNE VOISINE**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (554−36 ; idx=554+13=567 ✓)** ; la phrase de p553 pendait à «à l'aide de la» ⟹ **cette page OUVRE sur «Proposition 6.2.2.» — CONFIRMÉ** ; la page **se termine PROPREMENT** sur «etc.». Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix7 — (6.2.9) : LA MATH DU LIVRE EST FAUSSE ET CODEX L'A RÉPARÉE EN SILENCE — LA TROUVAILLE DE LA PAGE :**
+`z567_eq629Z` (**4800dpi**) DÉCISIF — (6.2.9) imprime «det(E̲_1 **⊗** E̲_2)» : un **CERCLE À CROIX DIAGONALE = `\otimes`**. **Codex avait `\oplus`.**
+- ⚠ **CONTRÔLE** : `z567_eq628Z` montre l'opérateur de (6.2.8) **à la MÊME magnification** — le **MÊME cercle-croix, à l'identique**. Les deux lignes **VOISINES** portent le **MÊME glyphe**.
+- ⚠⚠ **LA MATH DIT QUE CODEX A RAISON** : det(E_1 **⊕** E_2) = det(E_1) ⊗ det(E_2) est **VRAI** ; det(E_1 **⊗** E_2) = det(E_1) ⊗ det(E_2) est **FAUX** — et **CONTREDIRAIT (6.2.8) UNE LIGNE PLUS HAUT**, qui donne det(E_1⊗E_2) = det(E_1)^{⊗n̲_2} ⊗ det(E_2)^{⊗n̲_1}.
+⟹ **le livre a tapé ⊗ là où il voulait ⊕. UNE VRAIE ERREUR MATHÉMATIQUE DU LIVRE.** Codex l'avait «réparée». ⟹ **BOOK-SIC, RESTAURÉ SIC. ⚠⚠ candidat ERRATA de haute valeur.**
+- ⚠ **ET** le livre imprime «**(**det(E̲_1)**)** ⊗ **(**det(E̲_2)**)**» **AVEC des parens autour de chaque det** (Codex les avait nues) ⟹ mode ① ; **ET (6.2.9) n'a AUCUNE virgule finale** (Codex en avait une).
+
+**⚠⚠⚠⚠ ★★★★ fix6 — (6.2.8) : «E̲_i» LÀ OÙ IL FAUDRAIT «E̲_1» — 2e BOOK-SIC SUR LA MÊME PAGE :**
+`z567_eq628Z` (4800dpi) DÉCISIF — (6.2.8) imprime «det(**E̲_i** ⊗ E̲_2)» : l'indice est un **i POINTÉ** (point au-dessus + empattement). Codex avait «E_1».
+- ⚠ **CONTRÔLE INTÉGRÉ À LA LIGNE VOISINE** : `z567_eq629Z` montre «E̲_**1**» = **un trait nu à drapeau** — un glyphe **complètement différent**, même page, même magnification.
+- ⚠ **CORROBORATION : le membre DROIT de (6.2.8) LUI-MÊME lit «(det(E̲_**1**))^{⊗n̲_2}» avec un 1.**
+⟹ **le livre a glissé. Codex l'avait «réparé».** ⟹ **BOOK-SIC, RESTAURÉ SIC. candidat ERRATA.**
+
+**⚠⚠⚠⚠ ★★★★ fix3 — LE LIVRE SE CONTREDIT : LA MÊME PHRASE, DEUX FOIS, ACCORD DIFFÉRENT :**
+`z567_detmin1` vs `z567_detmin2` (**4800dpi, MÊME magnification**) :
+- **après (6.2.5)** : «de Z uniquement **déterminés** par α.» — **MASCULIN** (sans e final)
+- **après (6.2.6)** : «sont des sections de Z uniquement **déterminées** par α.» — **FÉMININ**
+⟹ **LA MÊME PHRASE, À ~10 LIGNES D'ÉCART, AVEC UN ACCORD DIFFÉRENT.** «sections» est **FÉMININ** ⟹ «déterminées» est correct ⟹ **la PREMIÈRE est un BOOK-SIC**. Codex avait «déterminées» **AUX DEUX** ⟹ **UNIFORMISÉ, réparant le glissement**. ⟹ la 1re **RESTAURÉE SIC** (masculin) ; la 2e **GARDÉE**. **NE JAMAIS uniformiser.**
+
+**⚠⚠⚠ ★★★ fix1 — PARENTHÈSE DÉSÉQUILIBRÉE (5e book-sic de ce type) :** `z567_commut` (4800dpi) DÉCISIF — «des commutateurs de **Gl(n̲))** est repré-» : **DEUX parenthèses fermantes**. ⚠ **CONTRÔLE SUR LA MÊME LIGNE : «Der(Gl(n̲))» est correctement ÉQUILIBRÉ** (2 ouvrantes, 2 fermantes) ; «de Gl(n̲))» a **1 ouvrante, 2 fermantes**. ⟹ **BOOK-SIC, RESTAURÉ SIC** (cf #549/#550/#552/#555 ; ⚠ une «)» nue en math **COMPILE** ✓).
+
+**⚠⚠⚠ ★★★ fix2 — «Sl» PAS «SL» + DISPLAY-FICTIF :** `z567_SlZ` (4800dpi) DÉCISIF — «par **Sl**(n̲) = Ker(…)» : le **l est un trait vertical nu SANS pied horizontal** ⟹ **l MINUSCULE** (un L capital montrerait un pied vers la droite). `\SL` rend `\operatorname{SL}` (L CAPITAL).
+- ⚠⚠ **NON BALAYÉ** : `\SL` = **10 usages**, 1 déf, **1/1 vérifié**. **La RÈGLE DE SWEEP (#555/#556, VALIDÉE À LA DURE EN #563** quand ne pas balayer `\Gl` a sauvé p553**) exige N/N unanime ET petite ET localisée. 1/1 NE SUFFIT JAMAIS.** ⟹ **`\operatorname{Sl}` LOCAL.** Logué.
+- ⚠ **ET la ligne est INLINE** : «est repré-/sentable par Sl(n̲) = Ker(det:Gl(n̲) ⟶ G_m).» enchaîne directement. Codex en avait fait un **display `\[…\]`** ⟹ **display-fictif #21**.
+
+**⚠⚠⚠⚠ ★★★★ fix5 — DISPLAY-FICTIF + BUG MACRO `\id` + POINTS + (Y) MAL PLACÉ + PONCTUATION :**
+`z567_subst` (4800dpi) DÉCISIF — le livre imprime, **TOUT SUR UNE SEULE LIGNE COURANTE** : «s_i = **λ. id.**(λ ∈ G_m(Y))**,** s_j = **id_{Gl(n̲_j)}(Y)**, pour j ≠ i (i,j=1,…,r), d'où»
+- **(a) DISPLAY-FICTIF #22** — Codex avait un display pour la 1re moitié.
+- **(b) ⚠⚠ BUG MACRO `\id` (mode ㉑, le motif `\Ob`)** : `\id` a **8 DÉFS CONFLICTUELLES** — 6× `\operatorname{id}` et **2× `\operatorname{Id}`**. `\providecommand` ⟹ **la PREMIÈRE gagne** ⟹ `\id` rend «**Id**» avec un **I CAPITAL**. **VÉRIFIÉ DANS LE PDF RENDU** («IdGl(nj»). **Le livre imprime «id» MINUSCULE.** ⟹ **18 usages + 8 défs conflictuelles ⟹ NE PAS toucher la macro ⟹ `\operatorname{id}` LOCAL** (précédents `\Ob` #530/#560, `\Gl` #562).
+- **(c)** «**λ. id.**» — **points SUR LA LIGNE DE BASE** après λ et après id (la machine n'a pas de touche «·» ; même classe que les touches «×»/«∘» absentes). Codex avait «\lambda\,\id» — **aucun point**.
+- **(d)** «**id_{Gl(n̲_j)}(Y)**» — le **(Y) est HORS de l'indice**. Codex avait `\id_{\Gl(n_j)(Y)}` — **(Y) DEDANS** ⟹ vraie différence notationnelle.
+- **(e)** «pour j ≠ i (i,j=1,…,r)**,** d'où» — Codex avait «pour \(j\ne i\)**,** \((i,j=…)\)**;** d'où» ⟹ **virgule FABRIQUÉE** après i **ET** point-virgule là où le livre a une **virgule**.
+
+**⚠⚠⚠ ★★★ fix4 — POINT, PAS VIRGULE :** `z567_cor626` (4800dpi) DÉCISIF — «Corollaire 6.2.6.   Avec les notations de **6.1.** on a» : **un POINT après 6.1 et AUCUNE virgule**. Codex avait «de 6.1**,** on a». ⚠ **CONTRASTE #563 : «Gardant les notations de 6.1**,**» en p553 PORTE sa virgule** ⟹ **le livre diffère de lui-même entre les deux tournures. NE JAMAIS uniformiser.**
+
+**⚠⚠⚠ ★★★ fix8 — (6.2.10) : LE DERNIER `\nolimits` + UN ⊗ FABRIQUÉ :** `z567_eq6210` (4800dpi) DÉCISIF — «det(**∧**(m̲ AU-DESSUS) E̲_1) = (det(E̲_1))^{**binom(n̲_1−1, m̲−1)**}».
+- **(a)** le m̲ est **AU-DESSUS** du ∧ ⟹ `\nolimits` le force à DROITE ⟹ **`\limits`**. ⟹ **`\nolimits` = 4 vérifiés, 4 FAUX** (#557, #562 ×2, #564) et **0 RESTANT dans le fichier**.
+- **(b)** ⚠ l'exposant est le **binôme NU — AUCUN ⊗**. Codex avait «^{\otimes\binom{…}}». ⚠ **CONTRÔLE : (6.2.8) sur la MÊME page imprime bien «(det(E̲_1))^{⊗n̲_2}» avec un ⊗ VISIBLE dans l'exposant** ⟹ le dactylographe écrit un ⊗ quand il en veut un ⟹ **son absence ici est RÉELLE** ⟹ mode ⑰ (le livre inconsistant entre 6.2.8 et 6.2.10). RESTAURÉ.
+
+**⚠⚠⚠ ★★★ fix9 — TEXTE-DROP : LE MOT «et» :** `z567_et` (4800dpi) DÉCISIF — «**et**» est sur **SA PROPRE LIGNE entre (6.2.9) et (6.2.10)**. L'unique bloc `align` de Codex couvrait les **trois** équations ⟹ **le «et» était DROPPÉ**. ⟹ **mode ⑤, 11e en 8 pages.** L'align est **scindé en deux** avec «et» restitué.
+
+**⚠⚠⚠⚠ ★★★★ fix10 — ATTRAPÉ PAR LE RENDER-VERIFY, PAS PAR MA PREMIÈRE PASSE (leçon #555 fix7, ENCORE) :**
+Le render montrait «où Y ∈ **ob**(Sch /S)» — **MINUSCULE**. `z567_Ob` (4800dpi) DÉCISIF : le livre imprime «**Ob**(Sch/S)» — **O CAPITAL, b minuscule**. ⟹ **le BUG MACRO `\Ob` (#530/#560)** : le `\providecommand{\Ob}{\operatorname{ob}}` de L1697 **GAGNE** sur 4 autres défs ⟹ `\Ob` rend «ob». ⟹ **5 défs conflictuelles + 25 usages ⟹ `\operatorname{Ob}` LOCAL.**
+⚠⚠ **NOTE DE MÉTHODE : c'est la DEUXIÈME fois que le render-verify rattrape une omission de ma passe ligne-à-ligne (#555 fix7 était la 1re). LIRE LA PAGE RENDUE EN ENTIER N'EST PAS OPTIONNEL** — la gate de compilation ne l'aurait **jamais** signalé, et l'extraction ne l'a fait surfacer que parce que «ob» est de l'ASCII pur.
+
+**8 rep-calls (fix567.py + fix567b.py) :** fix1 paren déséq. ; fix2 Sl+inline ; fix3 «déterminés» ; fix4 «6.1.» ; fix5 inline+`\id`+points+(Y)+ponct. ; fix6 «E̲_i» ; fix7+8+9 ⊗+parens+«et»+`\limits` ; fix10 `\Ob`.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «Proposition 6.2.2. Pour toute section positive n̲ de Z, le faisceau étale en groupes Der(Gl(n̲))» ✓ (**`\Der` rend «Der» ✓ AUDITÉ, CORRECT — vrai résultat négatif**) ; **«Gl» est à l l PLAT sur TOUTE cette page ✓** (cohérent avec p553 #563 ⟹ **`\Gl` CORRECT ici, PAS l'ell script de p552**) ; «Corollaire 6.2.3. Toute représentation» ✓ ; (6.2.4) ✓ ; «est de la forme» ✓ ; (6.2.5) «α(Y)(s) = (det(s_1))^{m̲_1} … (det(s_r))^{m̲_r} ,» ✓ ; (6.2.6) «det(T_α(E̲_1,…,E̲_r)) = det(E̲_1)^{⊗m̲_1} ⊗ … ⊗ det(E̲_r)^{⊗m̲_r} ,» ✓ ; «Remarque 6.2.7.» ✓ ; **display «det(s_i) = λ^{n̲_i} et α(Y)(s) = λ^{n̲_i m̲_i} .» ✓ (celui-ci EST un display au livre)** ; «Par exemple on déduit ainsi de (6.2.6)» ✓ ; «etc.» ✓.
+
+**DEFERRED :** **`\Gm` blackboard vs le «G_m» PLAT du livre (#563, 19 usages)** ; soulignements **DÉCORATIFS** (les énoncés Prop/Cor sont soulignés de bout en bout ; n̲/m̲_i/E̲_i/s_i) ; `\to` inline vs le «⟶» long ; dimensionnement `\bigl(\bigr)` ; le glyphe «x» de (6.2.4) ; compte des points d'ellipse ; écarts dactylo ; format de titre ; placement des eq-tags ; **virgule finale de (6.2.10) (non lisible)** ; espacement «Sch /S».
+
+- Render-verify **(⚠ filtre à 2 chaînes PROCHES ✓ ; page voisine dumpée ; ⚠⚠ BLOC D'ÉQUATIONS RENDU EN IMAGE à 8× — l'extraction est AVEUGLE au ⊗ vs ⊕)** : **doc[297]** «des commutateurs de **Gl(n))** est représentable par **Sl(n)** = Ker(det : Gl(n) →Gm).» ✓ (**paren double + Sl minuscule + INLINE**), «où Y ∈**Ob**(Sch /S)» ✓ (**fix10**), «uniquement **déterminés** par α.» ✓ **PUIS** «uniquement **déterminées** par α.» ✓ (**la contradiction du livre INTACTE**), «Avec les notations de **6.1. on a**» ✓, «(6.2.5) **si = λ. id .(λ ∈Gm(Y )), sj = idGl(nj)(Y ), pour j ̸= i**» ✓ (**INLINE + id MINUSCULE + points + (Y) dehors**) ; **doc[298]** «det(**E_i** ⊗ E_2) = (det(E_1))^{⊗n_2} ⊗ (det(E_2))^{⊗n_1},» ✓, «det(E_1 **⊗** E_2) = **(**det(E_1)**)** ⊗ **(**det(E_2)**)**» ✓ (**U+2297 ⊗ CONFIRMÉ, parens, PAS de virgule**), «**et**» sur sa ligne ✓, «det(**⋀**(m AU-DESSUS) E_1) = (det(E_1))^{(n_1−1 / m−1)}» ✓ (**binôme NU**), «etc.» ✓.
+- **CURSEUR → idx568 (vol p555 = Exposé X «- 37 -» [555−518=37] ; footer «555» ; idx=555+13=568 ✓)** — p555 = **§6.3** : workpass ~L13400+ «Montrons d'abord comment 6.2.3 découle de 6.2.2. Pour cela il suffit évidemment de démontrer (6.2.5) pour les» + display «s(i)=(1,\ldots,s_i,\ldots,1)\qquad(i=1,\ldots,r),» + «donc on peut supposer \(r=1\), \(G=\Gl(n_1)\). D'après 6.2.2, \(\alpha\) se factorise par \(\Gl(n_1)/\SL(n_1)\), c'est-à-dire qu'il existe un diagramme commutatif» + un **tikzcd** + «où \(j\) est l'épimorphisme canonique et \(\beta\) une représentation de \(\Gl(n_1)/\SL(n_1)\) dans \(\Gm\). Mais» — ⚠ **LIRE LE SCAN D'ABORD** (⚠⚠ **ligne-drift #567 net −7** : fix2 −2, fix5 −4, fix7 +2, align scindé −3 ⟹ **RE-GREP OBLIGATOIRE**).
+- **CHECKS #564 → idx568 :** ★★★★**BOOK-SIC = **27 en 16 pages** ; **#564 EN A DONNÉ TROIS SUR UNE SEULE PAGE** (⊗ pour ⊕ en (6.2.9) = **VRAIE ERREUR MATH** ; «E̲_i» pour «E̲_1» ; «déterminés» masc.) ⟹ ⚠⚠ **CODEX RÉPARE LA MATH, LA GRAMMAIRE, LA NUMÉROTATION ET LES PARENS DU LIVRE — CROPPER PRÉCISÉMENT QUAND CODEX A RAISON**** ; ★★★★**`\SL` = 10 usages, 1/1 vérifié FAUX («Sl» minuscule) ⟹ **LOCAL, PAS de sweep** ; ⚠ **p555 EN A DEUX** («\Gl(n_1)/\SL(n_1)» ×2 + «\SL(n_1)» dans le tikzcd) ⟹ **CROPPER : si c'est encore «Sl», on passe à 3/3 et la motivation monte** (mais 10 usages ⟹ per-page reste plus sûr)** ; ★★★★**`\id` = **8 défs conflictuelles, rend «Id» CAPITAL**, le livre a «id» ⟹ `\operatorname{id}` LOCAL ; **18 usages** ⟹ **CHERCHER `\id` sur CHAQUE page**** ; ★★★★**`\Ob` rend «ob», le livre a «Ob» ⟹ `\operatorname{Ob}` LOCAL ; ⚠ **p555 EN A UN** («Y\in\Ob(\Sch/S)» dans 6.3) ⟹ **NE PAS L'OUBLIER — le render-verify l'a rattrapé en #564**** ; ★★★★**LE RENDER-VERIFY RATTRAPE MES OMISSIONS — **2 fois** (#555 fix7, #564 fix10) ⟹ **LIRE LA PAGE RENDUE EN ENTIER N'EST PAS OPTIONNEL** ; ⚠ l'extraction est AVEUGLE aux soulignements ET aux opérateurs ⊗/⊕/∧ ⟹ **RENDRE EN IMAGE**** ; ★★★★**DISPLAY-FICTIF = **22 en 12 pages** (2 sur la seule p554) ⟹ **CROPPER LA FRONTIÈRE texte/display de CHAQUE display**** ; ★★★★**LE LIVRE SE CONTREDIT — même phrase ×2 (#564) ; d'une page à l'autre (#563 Gℓ/Gl) ; à 2 lignes (#561) ; sur une ligne (#562) ⟹ **NE JAMAIS uniformiser**** ; ★★★**`\nolimits` = **4/4 FAUX, 0 RESTANT** ✓ ; mais **les décorations vont AU-DESSUS** (`\wedge^G` 3/3 #563) ⟹ **CROPPER CHAQUE opérateur**** ; ★★★**tikzcd p555 ⟹ **flèche-TYPE = FIX, layout = DEFERRED** ; `\draw[->]` 16 occ** ; ★★★**parens ~32 occ** ; ★★★**virgules DEUX SENS** ; ★★★**ponctuation «;»/«.»/«,» per-occ** ; ★★★**Codex altère le français** ; ★★**`\Gm` blackboard DEFERRED (19)** ; ★★**`\oplus` = 60 restants (1/1 = ⊗ en (6.2.9) ⟹ per-occ)** ; ★★**`\simeq` 140 (1/1 faux)** ; ★★**`\longmapsto` 28 (2/2 FAUX)** ; ★★**réfs 3 fausses sur 4** ; ★**«+N̲−1» + le (6.1.3) EN DOUBLE = ERRATA candidates** ; ★**`\epsilon`/`\varepsilon`**.
+
+### #563 (2026-07-15) — idx566 (vol p553 = **Exposé X «- 35 -»**, header «- 35 -» + «X» + footer «553» ; **CONSTANTE_X=518 CONFIRMÉE [553−35]**) — **★★ fin §6.1 ((6.1.3)bis + (6.1.4) + (6.1.5)) + DÉBUT §6.2 ((6.2.1)) (Jussila)** — **7 rep-calls / 15 changements** (bandes b1-b5 TOUTES lues + **14 crops HD à 4800dpi, avec CONTRÔLES INTÉGRÉS À LA MÊME LIGNE**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (553−35 ; idx=553+13=566 ✓)** ; la phrase de p552 pendait à «(pour toute suite» ⟹ **cette page OUVRE avec sa suite — CONFIRMÉ, et le fix8 de #562 (la «)» + «rang» singulier) est VÉRIFIÉ EN PLACE AU SCAN** ; la page **se termine EN PLEINE PHRASE** sur «à l'aide de la» ⟹ suite p554. Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix6 — CODEX A INVENTÉ DU TEXTE : RÉÉCRITURE D'UNE PHRASE ENTIÈRE — LA TROUVAILLE DE LA PAGE :**
+`z566_s62a` + `z566_s62b` (**4800dpi**) DÉCISIFS. **Le livre imprime :**
+«6.2.  Pour tout O̲-module localement libre E̲ de rang n̲ **nous désignerons par det(E̲) le O̲-module inversible ∧^{n̲} E̲** . Gardant les notations de 6.1 ,» = «nous désignerons par **det(E)** le O-module inversible **∧^n E**».
+**Codex avait écrit :** «…de rang \(n\)**,** nous désignerons par \[ \det(E)=\bigwedge\nolimits^n E \] le O-module inversible **ainsi obtenu**.» = «nous désignerons par **det(E)=∧^n E** le O-module inversible **ainsi obtenu**».
+⟹ **CINQ défauts distincts dans UNE SEULE phrase :**
+- **(a) FABRICATION de «=\bigwedge^n E»** à l'intérieur de det(E) — **le livre n'a qu'un «det(E̲)» NU** ;
+- **(b) DÉPLACEMENT de «∧^n E»** de sa place (après «inversible») **DANS le display fabriqué** ;
+- **(c) FABRICATION DES MOTS «ainsi obtenu» — ILS NE SONT PAS AU LIVRE** ;
+- **(d) DISPLAY-FICTIF** — la ligne du livre est **du texte courant de bout en bout** ;
+- **(e) VIRGULE FABRIQUÉE** après «de rang n̲». ⚠ **CONTRÔLE : «Gardant les notations de 6.1 ,» à la ligne SUIVANTE porte SA virgule** ⟹ le dactylographe s'en sert ⟹ **l'absence est RÉELLE**.
+⟹ **mode ⑲ (réécriture) + mode ⑯ (display-fictif) + FABRICATION PURE.** ⚠⚠ **C'est la classe la plus GRAVE : pas une mauvaise transcription, mais de la PROSE INVENTÉE.** RESTAURÉ au livre. ⚠ le «∧» porte «n̲» **DIRECTEMENT AU-DESSUS** ⟹ `\bigwedge\limits^n` (l'inline exige `\limits` explicite, per #562).
+
+**⚠⚠⚠⚠ ★★★★ fix7 — DEUXIÈME DISPLAY-FICTIF DANS LE MÊME PARAGRAPHE :** `z566_calculer` + `z566_s62c` (4800dpi) DÉCISIFS — le livre imprime «le foncteur **det(T(E̲_1,…,E̲_r))** est déterminé, à isomorphisme canonique près,…» **ET** «Alors on peut calculer **det(T(E̲_1,…,E̲_r))**, ou ce qui revient au même, la représentation det o α_T, à l'aide de la» — **LES DEUX ENTIÈREMENT INLINE**. Codex avait fait **un DISPLAY de chacun** ⟹ **display-fictif #19 et #20 (20 en 11 pages)**.
+
+**⚠⚠⚠⚠ ★★★★ fix2+fix3+fix4 — LE «G» EST AU-DESSUS DU WEDGE, PAS À SA DROITE (×3) :** `z566_wedgeG` (**4800dpi**) DÉCISIF — le livre imprime «P **∧** O̲^{n̲_i}» avec le **G DIRECTEMENT AU-DESSUS du ∧**. `\wedge^G` le rend **en HAUT À DROITE** ⟹ `\overset{G}{\wedge}`. ⟹ **MÊME FAMILLE que la trouvaille `\nolimits` (#557/#562, 3/3) : LE LIVRE MET LES DÉCORATIONS D'OPÉRATEUR AU-DESSUS.** Les **3** occurrences de `\wedge^G` corrigées ((6.1.3), la ligne de texte, (6.1.4)).
+
+**⚠⚠⚠ ★★★ fix4 — POINT-VIRGULE, PAS POINT (+ «alors» minuscule) :** `z566_projGl` (4800dpi) DÉCISIF — «projection G⟶Gl(n̲_i) **;** alors toute représentation». Codex avait «\Gl(n_i)\)**. Alors** toute représentation» — **un POINT et un A MAJUSCULE**.
+
+**⚠⚠⚠ ★★★ fix1 — CODEX A CHANGÉ LE MODE :** `z566_telque` (4800dpi) DÉCISIF — «tel que l'on **a** un isomorphisme canonique» — **INDICATIF**. Codex avait «l'on **ait**» (subjonctif). ⚠ **PAS un book-sic** : «tel que» + indicatif énonce un **FAIT**, ce qui est le français correct ici. **Codex l'a simplement altéré** ⟹ **mode ㉓**.
+
+**⚠⚠⚠ ★★★ fix5 — VIRGULE FABRIQUÉE :** `z566_deplus` (4800dpi) DÉCISIF — «De plus, pour toute représentation composée α = α_1o α_2 **on trouve**» — **AUCUNE virgule après α_2**. Codex avait «\(\alpha=\alpha_1\circ\alpha_2\)**,** on trouve». ⚠ **CONTRÔLE SUR LA MÊME LIGNE : «De plus,» porte SA virgule** ⟹ l'absence est **RÉELLE**.
+
+**⚠⚠⚠⚠ ★★★★ NON CORRIGÉ — TROIS CHECKS TRANCHENT EN FAVEUR DE CODEX (trois VRAIS résultats négatifs) :**
+
+**(1) ⚠⚠ LE (6.1.3) EN DOUBLE EST RÉEL — BOOK-SIC :** `z566_eq613b` (4800dpi) : le tag imprime «**(6.1.3)**» — le **6** montre sa **boucle inférieure FERMÉE**, le **3** est ouvert à gauche. **Or (6.1.3) est DÉJÀ pris en p552** pour «α_{T'T}=α_{T'} α_T». ⟹ **le livre NUMÉROTE DEUX ÉQUATIONS DIFFÉRENTES «(6.1.3)»**. **PAS une erreur de Codex — Codex a fidèlement reproduit les deux** ⟹ **BOOK-SIC, GARDÉ SIC. ⚠ candidat ERRATA.** (⚠ le fichier a **TROIS** `\tag{6.1.3}` — le 3e est ailleurs, non examiné ; **logué**.)
+
+**(2) ⚠⚠⚠ «Gl» EST PLAT ICI — LE LIVRE SE CONTREDIT D'UNE PAGE À L'AUTRE :** `z566_GlZ` + `z566_projGl` + `z566_eq621` (4800dpi) : p553 imprime «G**l**(n̲_i)» et «G**l**(1)» avec un **l VERTICAL DROIT**. ⚠ **CONTRÔLE INTÉGRÉ À LA MÊME LIGNE : le «l» de «a*l*ors» juste à côté a la forme droite IDENTIQUE.** ⚠⚠ **MAIS p552 (#562, `z565c_Gl`) imprime «G**ℓ**» avec un ELL CURSIF BOUCLÉ**, contrôlé contre «localement» de cette page-là. ⟹ **LE LIVRE UTILISE «Gℓ» (script) EN p552 ET «Gl» (plat) EN p553** ⟹ **mode ⑰, D'UNE PAGE À L'AUTRE. Le `\Gl` de Codex est CORRECT ICI ⟹ RIEN ÉDITÉ.**
+- ⚠⚠⚠ **CECI VALIDE LA DÉCISION #562 DE NE **PAS** BALAYER `\Gl`.** Si la macro avait été balayée en G\ell (39 usages), **cette page serait MAINTENANT FAUSSE**. **La RÈGLE DE SWEEP (#555/#556) — «balayer seulement si N/N unanime ET petite ET localisée» — A EMPÊCHÉ UN VRAI DÉFAUT.** 1/1 n'a jamais suffi, **et la page SUIVANTE l'a prouvé.**
+
+**(3) ⚠⚠ LE «o» EST LE ROND DU DACTYLOGRAPHE — ET IL VALIDE #562 fix7 :** `z566_eq615` + `z566_eq621` + `z566_deplus` (4800dpi) : le livre imprime «T_{α_1} **o** T_{α_2}», «det **o** α_T», «α_1**o** α_2» — un **«o» de LETTRE, à hauteur d'x, SUR LA LIGNE DE BASE** (la machine n'a pas de touche ∘ ; **même classe que la touche «×» absente, DEFERRED #562**) ⟹ **`\circ` est la lecture éditoriale correcte ⟹ GARDÉ.**
+- ⚠⚠ **ET CECI CONFIRME #562 fix7** : en p552, (6.1.3) n'avait **RIEN DU TOUT** entre α_{T'} et α_T — **pas même un «o»**. Puisque cette page prouve que **le dactylographe TAPE bien un «o» quand il veut dire ∘**, **l'absence de p552 était RÉELLE**, pas un défaut de scan. **La restauration #562 de la juxtaposition nue est corroborée INDÉPENDAMMENT.**
+
+**7 rep-calls (fix566.py) :** fix1 mode «a» ; fix2 wedge-G (6.1.3) ; fix3 wedge-G + **;** + «alors» ; fix4 wedge-G (6.1.4) ; fix5 virgule fabriquée ; fix6 **RÉÉCRITURE+FABRICATION §6.2** ; fix7 display-fictif.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** le passage p552→p553 «…de rang n̲_1,…,n̲_r) par recol-lement du O̲-module libre T(O̲^{n̲_1},…,O̲^{n̲_r}) sur des cartes locales trivialisantes moyennant la représentation α.» ✓ (**#562 fix8 VÉRIFIÉ EN PLACE**) ; «De façon précise, à la suite E̲_1,…,E̲_r correspond un G-torseur à droite P = P_{E̲_1,…,E̲_r}» ✓ ; la flèche de (6.1.3) = **TILDE AU-DESSUS D'UNE LONGUE FLÈCHE** = `\xrightarrow{\sim}` ✓ ; «(i = 1,…,r)**,**» virgule finale ✓ ; «α : G ⟶ Aut̲_O(M)» ✓ ; «fait opérer G sur O̲^{m̲} par des O̲-automorphismes, et définit ainsi un multifoncteur T = T_α tel que» ✓ ; (6.1.4) ✓ ; «Gardant les notations de 6.1,» ✓ ; «est déterminé, à isomorphisme canonique près, par la représentation correspondante» ✓ ; (6.2.1) «det o α_T : G ⟶ G_m = Gl(1) .» ✓ ; «Supposons maintenant que X soit le topos annelé des faisceaux sur le site annelé (Sch/S) muni de la topologie étale.» ✓.
+
+**DEFERRED :** ⚠ **`\Gm` = `\mathbb G_m` rend un G BLACKBOARD, le livre imprime un «G_m» PLAT** (`z566_eq621` : le «G» de «G_m» est **identique au «G» plat de «G ⟶» sur la MÊME ligne**) — **même famille que le blackboard-vs-plain Z DEFERRED (#556/#561) ; 19 usages ⟹ LOGUÉ, NON ÉDITÉ** ; soulignements **DÉCORATIFS** (E̲_i / O̲ / n̲ / m̲ / E̲ — tous cohérents non marqués per #553) ; `\to` inline vs le «⟶» long du livre ; dimensionnement `\bigl(\bigr)` ; compte des points d'ellipse ; écarts dactylo («de 6.1 ,», «Gl(1)   .», «via la  i-ième») ; format de titre («6.2.») ; placement des eq-tags ; césures («recol-lement», «triviali-santes»).
+
+- Render-verify **(⚠ filtre à 2 chaînes PROCHES ✓ ; page voisine dumpée ; ⚠⚠ RÉGIONS RENDUES EN IMAGE à 8× car l'extraction est AVEUGLE aux opérateurs — leçon #562)** : **doc[297]** «E_i **⥲** P **∧**(G AU-DESSUS) O^{n_i}  (i = 1,…,r),  **(6.1.3)**» ✓ (**tag en double PRÉSERVÉ**), «où **∧**(G AU-DESSUS) désigne le produit contracté, et G opère sur O^{n_i} via la i-ième projection G → **Gl**(n_i) **; alors**» ✓, «De plus, pour toute représentation composée α = α1 ◦α2 **on trouve**» ✓ (**0 virgule**), «Pour tout O-module localement libre E de rang n **nous désignerons par det(E) le O-module inversible ⋀^n E**. Gardant les notations de 6.1, **le foncteur det(T(E1,…,Er)) est déterminé**, à isomorphisme canonique près, par la représentation correspondante» ✓ (**«ainsi obtenu» ÉLIMINÉ ; ⋀ avec n AU-DESSUS ; tout INLINE**), «Alors on peut calculer **det(T(E1,…,Er)), ou ce qui revient au même**, la représentation» ✓ (**INLINE**).
+- **CURSEUR → idx567 (vol p554 = Exposé X «- 36 -» [554−518=36] ; footer «554» ; idx=554+13=567 ✓)** — p554 OUVRE sur la suite de «à l'aide de la» ⟹ vraisemblablement «**Proposition 6.2.2.** Pour toute section positive n̲ de Z, le faisceau étale en groupes Der(Gℓ(n̲)) des commutateurs de Gℓ(n̲) est représentable par SL(n̲)=Ker(det:Gℓ(n̲)→G_m).» + «Corollaire 6.2.3» + (6.2.4) + (6.2.5) — ⚠ **LIRE LE SCAN D'ABORD** ; workpass ~L13355+ (⚠ **ligne-drift #566 net −10** : fix6 a fusionné 8 lignes, fix7 en a fusionné 3 ⟹ **RE-GREP OBLIGATOIRE**).
+- **CHECKS #563 → idx567 :** ★★★★**FABRICATION — #563 fix6 a trouvé **des MOTS INVENTÉS** («ainsi obtenu») + un «=» fabriqué dans det(E) ⟹ **LIRE CHAQUE PHRASE DU WORKPASS CONTRE LE SCAN MOT À MOT ; tout mot du .tex ABSENT du scan = FABRICATION**** ; ★★★★**DISPLAY-FICTIF = **20 en 11 pages** (2 sur la SEULE p553) ⟹ **CROPPER LA FRONTIÈRE texte/display de CHAQUE display** ; indice : si la ligne du livre CONTINUE après la formule ⟹ INLINE** ; ★★★★**DÉCORATIONS D'OPÉRATEUR AU-DESSUS : `\nolimits` 3/3 FAUX (#557/#562) + `\wedge^G` 3/3 FAUX (#563) ⟹ **le livre met TOUJOURS l'exposant/la décoration AU-DESSUS ⟹ CROPPER CHAQUE opérateur ; en INLINE il faut `\limits`/`\overset` EXPLICITE**** ; ★★★★**LE LIVRE SE CONTREDIT — **D'UNE PAGE À L'AUTRE** («Gℓ» p552 / «Gl» p553, #563 !) ; à 2 lignes (#561) ; sur une même ligne (#562) ⟹ **NE JAMAIS uniformiser ; NE JAMAIS BALAYER SUR 1/1**** ; ★★★★**RÈGLE DE SWEEP — **VALIDÉE PAR L'EXPÉRIENCE #563** : ne pas avoir balayé `\Gl` (1/1, 39 usages) a **ÉVITÉ UN DÉFAUT RÉEL** ⟹ **balayer SEULEMENT si N/N unanime ET petite ET localisée**** ; ★★★**virgules FABRIQUÉES ×2 sur p553 (#563 fix5, fix6e) ⟹ **CONTRÔLE : une virgule VOISINE prouve que le dactylographe s'en sert**** ; ★★★**Codex altère le français : «ait»→«a» #563 ; genre#557 ; temps#557 ; nombre#558/#562 ⟹ **CROPPER LA GRAMMAIRE**** ; ★★★**ponctuation : «;» pour «.» + minuscule #563 ⟹ CROPPER CHAQUE fin de proposition** ; ★★★**`\Gm` = blackboard mais le livre a un G plat (19 usages) ⟹ DEFERRED, mais **AUDITER CHAQUE MACRO du préambule**** ; ★★★**parens ~30 occ** ; ★★★**abréviations «resp.» 15 occ** ; ★★★**texte-drop 10 en 7 pages** ; ★★**réfs 3 fausses sur 4** ; ★★**`\simeq` 140 (1/1 faux)** ; ★★**`\longmapsto` 28 (2/2 FAUX)** ; ★★**`\nolimits` = 1 restant** ; ★★**`\bigoplus` 69 restants (2/2 = ⊗)** ; ★★**`\pmod` (2/2 faux)** ; ★★**casse grecque/latine** ; ★**TROIS `\tag{6.1.3}` — le 3e non examiné** ; ★**«+N̲−1» ERRATA candidate (#560)** ; ★**`\epsilon`/`\varepsilon`**.
+
+### #562 (2026-07-15) — idx565 (vol p552 = **Exposé X «- 34 -»**, header «- 34 -» + «X» + footer «552» ; **CONSTANTE_X=518 CONFIRMÉE [552−34]**) — **★★ §6.1 Appendice suite : (6.1.1) + le multifoncteur T + (6.1.2) + (6.1.3) (Jussila)** — **8 rep-calls / 20 changements** (bandes b1-b5 TOUTES lues + **21 crops HD à 4800dpi, avec CONTRÔLES À MAGNIFICATION IDENTIQUE**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (552−34 ; idx=552+13=565 ✓)** ; la phrase de p551 pendait à «les O̲-modules» ⟹ **cette page OUVRE sur (6.1.1) — CONFIRMÉ** ; la page **se termine EN PLEINE PHRASE** sur «(pour toute suite» ⟹ suite p553. Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix1+fix2 — CODEX A ÉCRIT LE MAUVAIS OPÉRATEUR : ⊕ POUR ⊗ — LA TROUVAILLE DE LA PAGE :**
+`z565_ops` (**4800dpi**) DÉCISIF — l'opérateur du livre est un **cercle contenant une CROIX DIAGONALE** = **⊗ `\bigotimes`**, PAS un cercle contenant un **PLUS** (⊕ `\bigoplus`). Codex avait `\bigoplus` **DANS (6.1.1) ET dans la ligne «Les foncteurs»**.
+- ⚠ **CONTRÔLE** : le «∧» est **dans le même crop, juste à côté** — coin net ⟹ les glyphes sont bien résolus à cette magnification ; le cercle-croix est **sans équivoque**.
+- ⚠⚠ **LA MATH CORROBORE** : «M^n̲, ⊗^n̲ M, ∧^n̲ M» = (puissance, puissance **TENSORIELLE**, puissance **EXTÉRIEURE**) — le trio naturel. «⊕^n M» ne ferait que **redire M^n**, qui est **le PREMIER terme de la liste** ⟹ `\bigoplus` n'est pas seulement infidèle, il est **REDONDANT**. ⟹ **mode ⑲ (Codex réécrit la math).**
+- ⚠ **PER-PAGE UNIQUEMENT** : `\bigoplus` = **71 usages** dans le fichier ; les 69 autres sont ailleurs et peuvent légitimement être des ⊕ ⟹ **RÈGLE DE SWEEP #555/#556 : 2 corrigés ici, PAS de balayage.**
+
+**⚠⚠⚠⚠ ★★★★ fix1 — `\nolimits` EST FAUX (le check #557 a payé) :**
+`z565_ops` DÉCISIF — le «n̲» est **DIRECTEMENT AU-DESSUS** des ⊗ et ∧ (sa barre de soulignement est visible entre le n et l'opérateur). `\nolimits` le force **À DROITE**.
+⟹ **`\nolimits` = 3 vérifiés, 3 FAUX** (#557 + ces deux). Population = **4** dans le fichier ; **le 4e est ailleurs et NON VÉRIFIÉ** ⟹ **corrigés ici, PAS balayés.** Logué.
+- ⚠ La ligne «Les foncteurs» exige `\limits` **explicitement** : c'est de la math **INLINE**, où le défaut d'un grand opérateur est le comportement *nolimits* — **mais le livre y met le n AU-DESSUS aussi**. ✓ vérifié au render.
+
+**⚠⚠⚠⚠ ★★★★ fix2 — PARENS→VIRGULES **ET** «resp.» DÉVELOPPÉ (le check l'avait prédit EXACTEMENT) :**
+`z565_fonct` + `z565_fonct2` (**4800dpi**) DÉCISIFS — le livre imprime «transforment modules libres **(resp. localement libres)** en modules libres **(resp. localement libres)** .» Codex avait «modules libres**,** respectivement localement libres**,** en modules libres**,** respectivement localement libres.» ⟹ **PARENS remplacées par des VIRGULES (mode ①) ET «resp.» développé en «respectivement» (mode ⑮)** — la même construction «(resp. …)» qu'en #554/#556. **13e→15e occ.**
+
+**⚠⚠⚠⚠ ★★★★ fix4+fix6 — LE LIVRE DIFFÈRE DE LUI-MÊME : indice O dans le TEXTE, AUCUN dans les DISPLAYS :**
+`z565b_textModZ` vs `z565b_dispModZ` (**4800dpi, MAGNIFICATION IDENTIQUE, FENÊTRE IDENTIQUE**) — **DÉCISIF** :
+- **ligne de TEXTE** : «où **Mod^{n̲}_{O̲}(X)** désigne» — **INDICE O PRÉSENT**.
+- **DISPLAY** : «T : **Mod̲^{n_1} (O)**» — **AUCUN INDICE** ; blanc net entre le «d» et la «(».
+⟹ **mode ⑰ (le livre se contredit) — Codex a UNIFORMISÉ en ajoutant `_{\mathcal O}` PARTOUT.** ⟹ les **3 indices des displays (fix4)** et les **2 du display T' (fix6)** sont **RETIRÉS** ; celui du **TEXTE est GARDÉ**. **NE JAMAIS uniformiser.**
+
+**⚠⚠⚠ ★★★ fix5 — «où» DROPPÉ + `\Gl` REND LA MAUVAISE LETTRE :**
+`z565_dispG` (4800dpi) : le livre imprime «G = Gℓ(n̲_1)× .... × Gℓ(n̲_r) , **où** Gℓ(n̲_i) = Aut̲_O(O̲^{n_i}) .»
+- **(a) TEXTE-DROP** : Codex avait «…\Gl(n_r),**\qquad** \Gl(n_i)=…» ⟹ **le mot «où» est DROPPÉ**, remplacé par un `\qquad` ⟹ **mode ⑤, 10e en 7 pages. RESTAURÉ.**
+- **(b) ★★★ ELL SCRIPT** : `z565c_Gl` vs `z565c_ctl_l` (**4800dpi, MÊME magnification, MÊME fenêtre**) — le groupe du livre est «G**ℓ**» où le 2e glyphe est un **ELL CURSIF BOUCLÉ** (boucle en haut + queue courbe en bas) = `\ell`. ⚠ **CONTRÔLE : «localement» sur la MÊME page montre le «l» dactylo = un TRAIT VERTICAL DROIT à empattements** — une lettre **complètement différente**. `\Gl` rend `\operatorname{Gl}` (l droit).
+  - ⚠⚠ **NON BALAYÉ** : `\Gl` = **39 usages**, 1 seule déf, et **1/1 vérifié seulement**. **La RÈGLE DE SWEEP #555/#556 exige (a) N/N unanime ET (b) petite ET localisée — ceci échoue AUX DEUX** (contraste `\len` #555 : 6/6 + 5 usages sur UNE page ⟹ balayé). ⟹ **`\operatorname{G\ell}` LOCAL aux 3 occ de la page**, per le précédent `\Ob` (#530/#560). **Logué pour un sweep futur** quand d'autres pages seront croppées. ✓ **render : U+2113 ×3, «Gl» plat = 0 sur p552** (et p553 garde ses «Gl» — discipline per-page respectée).
+- ⚠ **NON corrigé : `\Mod` (99 usages, 8 défs IDENTIQUES) rend «Mod» ✓ ; `\Aut` (5 usages) rend «Aut» ✓** — **les deux AUDITÉS per le check #561, les deux CORRECTS. Vrai résultat négatif.**
+
+**⚠⚠⚠ ★★★ fix6 — CODEX A SORTI DU TEXTE HORS DU DISPLAY :** `z565_dispTT` (4800dpi) DÉCISIF — le livre met **«T'T, où T' : Mod̲^{m̲} (O̲) ⟶ Mod̲ (O̲) ,» ENTIÈREMENT DANS LE DISPLAY**, et la ligne de texte s'arrête à «pour tout foncteur composé,». Codex avait remonté **«T'T, où» DANS le texte courant** ⟹ **mode ⑯/⑲. RESTAURÉ à la mise en page du livre.**
+
+**⚠⚠⚠ ★★★ fix7 — CODEX A AJOUTÉ UN ROND DE COMPOSITION QUE LE LIVRE N'A PAS :** `z565_eq613` (4800dpi) DÉCISIF — (6.1.3) imprime «α_{T'T} = α_{T'}   α_T   .» — **juxtaposition nue avec un écart, AUCUN rond**. Codex avait «\alpha_{T'}**\circ**\alpha_T». ⚠ **CONTRÔLE : le livre POSSÈDE et UTILISE le glyphe ∘** — p549 (#559) imprime «α ∘ c_1 = id» ⟹ **son absence ici est RÉELLE**, pas un défaut de scan. ⟹ **mode ⑨ INVERSÉ (Codex AJOUTE le ∘). RESTAURÉ SIC** (candidat book-sic : juxtaposition pour la composition). ✓ render : «αT′T = αT′ αT .» sans ∘, **alors que la p553 voisine rend bien «ρ = ρ1 ◦ρ2» avec son ∘** ⟹ contraste probant.
+
+**⚠⚠⚠ ★★★ fix8 — PARENS→VIRGULES, LES DEUX BOUTS, À CHEVAL SUR LA COUPURE + BOOK-SIC «rang» SINGULIER :**
+- `z565_recip` (p552) : «on récupère  T(E̲_1,…,E̲_r) **(pour toute suite**» — une **PARENTHÈSE OUVRANTE**.
+- `z565d_p553_top` (p553, **CROPPÉ POUR VÉRIFIER, PAS SUPPOSÉ** — cf la leçon #553/#556) : «E̲_1,…,E̲_r de O̲-modules localement libres de **rang** n̲_1,…,n̲_r**)** par recol-lement».
+⟹ le livre **PARENTHÈSE tout le «(pour toute suite … rang n̲_1,…,n̲_r)»** et l'enchaîne **sans virgule**. Codex avait remplacé **LES DEUX** parens par des virgules ⟹ **mode ①.**
+- ⚠ **BOOK-SIC** : le livre écrit «de **rang**» **SINGULIER** pour les r rangs n_1,…,n_r ; Codex avait «corrigé» en «**rangs**». **Grammaticalement le pluriel est juste ⟹ le livre a glissé. RESTAURÉ SIC.** ⚠ CONTRÔLE : «localement libres de rang n̲ . Soit» (p552, un seul n) est correctement singulier.
+- ⚠⚠ **CETTE ÉDITION EMPIÈTE SUR LA 1re LIGNE DE p553.** **Justifié** : c'est **UNE SEULE ligne .tex** ; **LES DEUX bouts sont crop-VÉRIFIÉS** ; et ne restaurer que la «(» laisserait une **parenthèse DÉSÉQUILIBRÉE** au render.
+
+**8 rep-calls (fix565.py) :** fix1 ⊗+limits ; fix2 ⊗+limits+(resp.)×2 ; fix3 virgule fabriquée ; fix4 3 indices fabriqués ; fix5 «où»+Gℓ×3 ; fix6 display+2 indices ; fix7 ∘ fabriqué ; fix8 parens×2+«rang».
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «(6.1.2) α_T : G ⟶ Aut̲_O (M) .» ✓ (**α, PAS ρ** — ⚠⚠ **mon PROPRE preview #561 disait à tort `\rho_T`** ; le fichier a `\alpha_T` et le livre imprime bien un α. ⟹ **UN CHECK REPORTÉ N'EST PAS UNE CONSTATATION — cette fois le mauvais check était LE MIEN**) ; «M = T(O̲^{n̲_1},…,O̲^{n̲_r})» ✓ ; «à  r variables, où Mod^{n̲}_{O̲}(X) désigne la catégorie fibrée sur X des O̲-modules localement libres de rang n̲ . Soit» ✓ ; «Il s'ensuit immédiatement que T définit une représentation» ✓ ; «on a» ✓ ; «Réciproquement, étant donné la représentation α = α_T : G ⟶ Aut̲_O(M) , on récupère» ✓ ; les flèches «⟶» = `\longrightarrow` ✓.
+
+**DEFERRED :** soulignements **DÉCORATIFS** (⚠ **n̲_1 souligné mais n_r NON, SUR LA MÊME LIGNE** — mode ⑰ ; **Mod̲ souligné dans le DISPLAY mais apparemment PAS dans le TEXTE** ; O̲ / E̲_i / m̲ / n̲ — tous cohérents non marqués per #553) ; **le glyphe «x»** : un **x FIN de lettre** dans le display T vs un **× GRAS** dans le display G (**forme de glyphe dactylo**, même famille que le «≥») ; **compte des points d'ellipse** (5 points dans le display T, 4 dans le display G, 4 dans «E̲_1,....,E̲_r», 3 dans «n̲_1, ...,n_r») ; écarts dactylo («rang m̲  ,pour», «(  )», «Aut̲_O (M)», «à  r variables») ; blackboard-vs-plain Z ; format de titre («6.1.») ; placement des eq-tags.
+
+- Render-verify **(⚠ filtre à 2 chaînes PROCHES per la leçon #561 ✓ ; page voisine dumpée aussi ; ⚠ 2 faux positifs sur des mots génériques — resserré ensuite)** : **doc[296]** «M^n, **⊗**^n M, **⋀**^n M, etc.» ✓ (**RENDU EN IMAGE à 8× — l'extraction de texte NE PEUT PAS confirmer ⊗ vs ⊕ : les glyphes viennent d'une police math sans mapping Unicode, MÊME ANGLE MORT QUE LES SOULIGNEMENTS #560/#561** ⟹ cercle-croix ✓ + **n AU-DESSUS** ✓), «Les foncteurs ( )^n, **⊗**^n et **⋀**^n transforment modules libres **(resp. localement libres)** en modules libres **(resp. localement libres)**.» ✓, «des sections n1, . . . , nr de ZX **et** un multifoncteur» ✓ (**0 virgule**), «T : **Mod**n1**(O)** × · · · × **Mod**nr**(O)** −→**Mod(O)**» ✓ (**0 indice**), «à r variables, où Mod^n_**O**(X)» ✓ (**indice GARDÉ**), «G = G**ℓ**(n1) × · · · × G**ℓ**(nr), **où** G**ℓ**(ni) = AutO(Oni).» ✓ (**U+2113 ×3**), «pour tout foncteur composé, / **T′T, où T′ : Modm(O) −→Mod(O),** / on a» ✓, «αT′T = αT′ αT .» ✓ (**0 rond**), «T(E1, . . . , Er) **(pour toute suite** E1, . . . , Er de O-modules localement libres de **rang** n1, . . . , nr**)**» ✓ ; **doc[297]** «par recollement du O-module libre…» ✓ (**pas de virgule après la «)»**).
+- **CURSEUR → idx566 (vol p553 = Exposé X «- 35 -» [553−518=35] ; footer «553» ; idx=553+13=566 ✓)** — **header «- 35 -» DÉJÀ VU au crop `z565d_p553_top` ✓ CONSTANTE_X re-confirmée d'avance** ; p553 OUVRE sur «E̲_1,…,E̲_r de O̲-modules localement libres de rang n̲_1,…,n̲_r) par recol-lement du O̲-module libre T(O̲^{n̲_1},…,O̲^{n̲_r}) sur des cartes locales trivialisantes moyennant la représentation α. De façon précise, à la suite…» (**fix8 a DÉJÀ corrigé la 1re ligne — parens + «rang» ✓**) ; workpass ~L13330+ : (6.1.3)-bis «E_i\xrightarrow{\sim}P\wedge^G\mathcal O^{n_i}» + (6.1.4) + (6.1.5) + §6.2 «det(E)=\bigwedge^n E».
+- **CHECKS #562 → idx566 :** ★★★★**⚠⚠ DEUX `\tag{6.1.3}` DANS LE FICHIER** (L13335 ET L13336 du dump — le 2e devrait être **(6.1.3) bis ou une autre numérotation**) ⟹ **CROPPER LE TAG p553 ; c'est un doublon SUSPECT** (et ⚠ **piège d'unicité pour les rep-calls — désambiguïser per l'astuce #553**)** ; ★★★★**`\Gl` : p553 EN CONTIENT AU MOINS UN («la i-ième projection G→\Gl(n_i)») ⟹ **CROPPER : si c'est encore «Gℓ», on passe à 2/2 → la motivation du sweep monte** (39 usages, il en faudra bien plus)** ; ★★★★**⊗ vs ⊕ : `\bigoplus` = 69 restants ; §6.2 utilise `\bigwedge^n` ⟹ **CROPPER CHAQUE grand opérateur + son exposant (AU-DESSUS ou À DROITE ?)**** ; ★★★★**`\nolimits` = 3/3 FAUX, 2 restants ⟹ CROPPER** ; ★★★★**indices `_{\mathcal O}` fabriqués : le livre en met dans le TEXTE, pas dans les DISPLAYS (#562) ⟹ **CROPPER CHAQUE `\Mod`/`\Aut` : TEXTE vs DISPLAY**** ; ★★★★**book-sic : «rang» sing.#562 ; le moins manquant #561 ⟹ **Codex répare la MATH ET la GRAMMAIRE du livre — CROPPER quand Codex a RAISON**** ; ★★★**parens : Codex les droppe MASSIVEMENT — «(resp. …)» ×2 + «(pour toute suite …)» ×2 sur la SEULE p552 ⟹ ~30 occ** ; ★★★**`\circ` : Codex en AJOUTE (#562) ⟹ **CROPPER CHAQUE ∘ ET CHAQUE juxtaposition**** ; ★★★**abréviations : «resp.» ×2 #562 ⟹ **CHERCHER tout «respectivement»/«c'est-à-dire»/«Exposé» du workpass**** ; ★★★**virgules LES DEUX SENS (fix3 fabriquée vs fix8 droppée, MÊME PAGE — comme #561)** ; ★★★**TEXTE-DROP = «où» #562, 10 en 7 pages** ; ★★★**soulignements porteurs 3/3 ⟹ chercher «X = f(X)»** ; ★★**`\simeq` 140 (1/1 faux)** ; ★★**`\longmapsto` 28 (2/2 FAUX)** ; ★★**`\xrightarrow{\sim}` (#557 ✓) — p553 en a un ⟹ CROP** ; ★★**`\pmod` per-occ (2/2 faux)** ; ★★**`\frac`/`\limits`** ; ★★**casse grecque/latine** ; ★★**display-fictif 18 en 10 pages** ; ★**«+N̲−1» ERRATA candidate (#560)** ; ★**`\epsilon`/`\varepsilon`**.
+
+### #561 (2026-07-15) — idx564 (vol p551 = **Exposé X «- 33 -»**, header «- 33 -» + «X» + footer «551» ; **CONSTANTE_X=518 CONFIRMÉE [551−33]**) — **★★ fin de la Démonstration du Lemme 5.3.4 («On a gagné.») + DÉBUT du §6 «Appendice» (Jussila)** — **5 rep-calls** (bandes b1-b5 TOUTES lues + **16 crops HD à 3600/4800dpi, avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (551−33 ; idx=551+13=564 ✓)** ; la page **se termine EN PLEINE PHRASE** sur «les O̲-modules» ⟹ **la suite OUVRE p552**. Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix3 — LE MOINS MANQUANT : CODEX A RÉPARÉ EN SILENCE LA MATH DE L'AUTEUR (BOOK-SIC) — LA TROUVAILLE DE LA PAGE :**
+`z564c_top` vs `z564c_ctl` (**4800dpi, MAGNIFICATION IDENTIQUE, largeur de crop IDENTIQUE 0.24**) — **DÉCISIF** :
+- **grand display, haut du binôme : «( n̲+k−1 )» — AUCUN MOINS** ; blanc net entre le «(» et le «n».
+- **formule de r̲, haut du binôme : «( −n̲+k−1 )» — MOINS PRÉSENT**, un trait horizontal sans équivoque.
+Les deux sont **la MÊME famille de glyphes à la MÊME magnification** ⟹ la différence est décisive.
+- ⚠⚠ **LA MATH DIT QUE LE MOINS EST DÛ** : λ^k(E + (−n̲+k−1)) = Σ_{p+q=k} binom(−n̲+k−1, p)·λ^q(E) ; **et la formule de r̲ du livre lui-même — DÉRIVÉE DE CE DISPLAY MÊME, DEUX LIGNES PLUS BAS — porte le moins.**
+⟹ **le dactylographe a sauté le moins dans le grand display. Codex l'a «réparé».** ⟹ **BOOK-SIC (mode ⑫) + le livre se contredit à deux lignes d'écart (mode ⑰). RESTAURÉ SIC. ⚠ candidat ERRATA (le seul endroit de la page où la math du livre est FAUSSE).**
+- ⚠ **DISAMBIGUÏSATION** : «-n+k-1» apparaît **3×** dans le fichier — (1) «\lambda^k(E-n+k-1)» : **le livre A ce moins ✓ gardé** ; (2) le binôme du grand display : **BOOK-SIC, moins retiré** ; (3) le binôme de r̲ : **le livre A le moins ✓ gardé**. L'ancre ne vise QUE (2). **Render-verify : les deux formes contradictoires coexistent bien dans le PDF ✓.**
+
+**⚠⚠⚠⚠ ★★★★ fix2 — SOULIGNEMENT PORTEUR : **3e PAGE CONSÉCUTIVE** — L'HEURISTIQUE #560 A MARCHÉ :**
+`z564_ouE` (3600dpi) DÉCISIF — le livre imprime «où, comme ci-dessus, **E = cl^∘(E̲)**, **n̲** = ε(E) . Or, on a» : le **E intérieur à cl^∘() EST SOULIGNÉ**, le E de tête est **NU**. Codex avait «E=\cl^\circ(E)» — **absurdité auto-référentielle** ⟹ **PORTEUR DE SENS ⟹ restauré**.
+⟹ ⚠⚠ **C'est EXACTEMENT la signature #560(b), et je l'ai trouvée en CHERCHANT le motif «X = f(X)» dans le workpass, comme le check #560 le prescrivait. Le check hérité a produit une VRAIE trouvaille (contraste : les 2 checks reportés STÉRILES de #553/#556).**
+- ⚠ **NON corrigé : «n̲ = ε(E)»** — le n **EST souligné au livre**, mais «n = ε(E)» est **COHÉRENT non marqué** (p550 identifie elle-même n̲ = n) ⟹ **PRINCIPE #553 appliqué avec discipline : restaurer UNIQUEMENT si INCOHÉRENT sans ⟹ DEFERRED.**
+
+**⚠⚠⚠⚠ ★★★★ fix1 + fix4 — LA VIRGULE DANS LES **DEUX SENS SUR UNE SEULE PAGE** :**
+- **fix1 (Codex AJOUTE ×2)** : `z564_donc` (3600dpi) DÉCISIF — le livre imprime «Donc il suffit de montrer que l'on a **pour tout k  > 1**» — **AUCUNE VIRGULE**. Codex avait «que l'on a**,** pour tout \(k>1\)**,**» ⟹ **2 virgules FABRIQUÉES**. ⚠ **CONTRÔLE MÊME PAGE : «où, comme ci-dessus,» ET «Or, on a» portent LEURS virgules** ⟹ le dactylographe **s'en sert** ; leur absence ici est **RÉELLE**, pas un défaut de scan. ⚠ **CONTRÔLE 2 : b1 pleine largeur — RIEN après le «1»** ⟹ pas de virgule finale non plus.
+- **fix4 (Codex DROPPE)** : `z564_orr` (3600dpi) DÉCISIF — «**Or,** r̲ est une section de Z» ; Codex avait «Or \(r\) est une section» ⟹ **virgule droppée**. ⚠ **CONTRÔLE : «Or, on a» 4 lignes plus haut porte SA virgule — et Codex avait gardé CELLE-LÀ.**
+⟹ **mode ④ CONFIRMÉ DANS LES DEUX SENS SUR UNE MÊME PAGE** (comme les colons #556).
+
+**⚠⚠ ★★ fix5 — VIRGULE FABRIQUÉE + EMPILEMENT PERDU SOUS LE Σ :** `z564_rdef` + b3 DÉCISIFS — le livre **empile les conditions du Σ sur DEUX LIGNES** («p+q=k» avec «q≥1» EN DESSOUS) et **SANS VIRGULE**. Codex avait «\sum_{p+q=k,\ q\geq1}» — une ligne, **virgule fabriquée** ⟹ `\substack` restaure les deux. (⚠ le Σ-layout est DEFERRED, mais **la virgule est un CARACTÈRE** ⟹ mode ④ ⟹ FIX.)
+
+**⚠⚠⚠ ★★★ NON CORRIGÉ — LE CHECK DES RÉFÉRENCES TRANCHE EN FAVEUR DE CODEX (LA SÉRIE 3/3 EST ROMPUE) :**
+`z564_refs` (3600dpi) : «Mais **(6.2.10)** et **(6.5.3)** donnent» — **les deux chiffres de tête montrent le glyphe «6»** (boucle sup. + **boucle inf. FERMÉE**). Codex a «(6.2.10) et (6.5.3)» ⟹ **MATCHE ✓, rien à corriger.**
+- ⚠⚠ **CORROBORATION MAJEURE, ET RÉTROACTIVE : le §6 «Appendice : Calcul des déterminants des faisceaux localement libres» COMMENCE LITTÉRALEMENT SUR CETTE PAGE.** (6.2.10) et (6.5.3) sont des renvois **en avant** dans ce §6. ⟹ **la famille 6.x est CONFIRMÉE PAR LE TEXTE, ce qui re-valide a posteriori les fixes #557 «(6.2.9)» et #560 «(6.5.8)».**
+⟹ **les réfs croppées sont désormais 3 FAUSSES SUR 4, PAS 3/3.** ⚠ **VRAI RÉSULTAT NÉGATIF : la motivation du sweep TIENT mais n'est PLUS unanime ⟹ per-occurrence, jamais de balayage aveugle (règle #555/#556).**
+
+**5 rep-calls (fix564.py) :** fix1 2 virgules fabriquées ; fix2 **soulignement porteur E̲** ; fix3 **BOOK-SIC moins manquant** ; fix4 virgule droppée après «Or» ; fix5 `\substack`.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** display «det(γ^k(E−n̲)) = 1 ,» (**E NU, seul le n souligné ✓ Codex matche**) ; display «γ^k(x) = λ^k(x+k−1)» ✓ ; «pour tout x ∈ K^∘(X) , de sorte que» ; «det(λ^k(E−n̲+k−1))» (**ce moins-ci EST au livre ✓**) ; «Mais (6.2.10) et (6.5.3) donnent» ✓ ; display «det(λ^q(E)) = (det(E))^{binom(n̲−1, q−1)}» ✓ (**parens HAUTES EMPILÉES ⟹ `\binom` ✓ per #541/#544**) ; «pour tout q > 0 , d'où» ; display «det(γ^k(E−n̲)) = (det(E))^{r̲} ,» ✓ ; «avec» ; «partout égale au coefficient de t^{k−1} dans (1+t)^{k−2}, donc nulle. On a gagné.» ; «6.  Appendice : Calcul des déterminants des faisceaux localement libres» ; «6.1.  Considérons d'abord un topos annelé quelconque X = (C,O̲) .» ; «Pour toute section positive n̲ ∈ Γ (Z_X) du faisceau constant Z et pour tout O̲-module M ∈ Mod_{O̲}(X) , il est clair comment définir les O̲-modules» (**pend → p552**) ✓.
+
+**DEFERRED :** soulignements **DÉCORATIFS** (n̲ partout — «n = ε(E)»/«E−n» cohérents non marqués ; r̲ dans «r est une section de Z» et en exposant ; **E̲ dans «cl^∘(E̲)» est le SEUL porteur** ; O̲ / Mod_{O̲} ; les filets du titre §6) ; **format de titre** («6.» / «6.1.» avec points) ; **`\left(\right)` auto-dimensionné** là où le livre garde une parenthèse de hauteur normale devant le Σ (**LAYOUT — mêmes caractères, seule la TAILLE diffère ; contraste `\frac` #553 qui changeait les CARACTÈRES**) ; écarts dactylo («k  > 1», «1  ,», «(det(E))^r  ,», «Γ (Z_X)», «r̲  est», «ε(E) . Or») ; blackboard-vs-plain Z («de Z,» et «faisceau constant Z» paraissent gras) ; barre parasite au-dessus du Σ.
+
+- Render-verify **2 pages rendues (leçon #559 RE-CONFIRMÉE — le filtre «gagn»+«comme ci-dessus» n'a rien matché car les 2 chaînes sont sur des pages DIFFÉRENTES)** : **doc[295]** «Donc il suffit de montrer que l'on a **pour tout k > 1**» ✓ (**0 virgule**), «où, comme ci-dessus, E = cl◦(E), n = ϵ(E). Or, on a» ✓ (filet invisible à l'extraction), «det(γk(E −n)) = det(λk(E **−n** + k −1)) = det( Σ_{p+q=k} (**n + k −1**/p) λq(E)).» ✓ **LES DEUX FORMES CONTRADICTOIRES DU LIVRE COEXISTENT BIEN** ; **doc[296]** «**Or, r** est une section de Z» ✓, «r = Σ / **p+q=k** / **q≥1**» ✓ (**empilé, sans virgule**), «(**−n + k −1**/p)(n −1/q −1)» ✓, «Mais (6.2.10) et (6.5.3) donnent» ✓, «6. Appendice : Calcul des déterminants…» ✓.
+- **CURSEUR → idx565 (vol p552 = Exposé X «- 34 -» [552−518=34] ; footer «552» ; idx=552+13=565 ✓)** — preview workpass L13295+ : «\begin{equation}\tag{6.1.1} M^n,\qquad \bigoplus\nolimits^n M,\qquad \bigwedge\nolimits^n M,\quad\text{etc.}» puis «Les foncteurs \(( )^n\), \(\bigoplus^n\) et \(\bigwedge^n\) transforment modules libres…» + le multifoncteur T + \Gl/\Aut — ⚠ **LIRE LE SCAN D'ABORD** ; ⚠ **la phrase pend depuis p551 («il est clair comment définir les O̲-modules») ⟹ p552 OUVRE sur (6.1.1)**.
+- **CHECKS #561 → idx565 :** ★★★★**`\nolimits` — (6.1.1) EN CONTIENT DEUX (`\bigoplus\nolimits^n`, `\bigwedge\nolimits^n`) et le texte suivant a `\bigoplus^n`/`\bigwedge^n` NUS ⟹ **INCOHÉRENCE INTERNE AU FICHIER SUR 2 LIGNES ⟹ CROPPER LES DEUX** (mode ㉒ ; `\nolimits` déjà 1/1 FAUX #557)** ; ★★★★**BOOK-SIC = 21 en 13 pages ; le moins manquant #561 prouve que **Codex répare la MATH FAUSSE du livre**, pas seulement sa grammaire ⟹ **CROPPER CHAQUE SIGNE (+/−), CHAQUE INDICE, CHAQUE EXPOSANT — surtout quand la formule de Codex est CORRECTE**** ; ★★★★**LE LIVRE SE CONTREDIT À 2 LIGNES D'ÉCART (#561 : moins présent/absent dans une MÊME dérivation ; #560 : «constante»/«constant») ⟹ **NE JAMAIS uniformiser ; comparer chaque occurrence à sa VOISINE, pas à une norme**** ; ★★★★**soulignements porteurs = **3 pages sur 3** (#552/#560/#561) ⟹ **CHERCHER «X = f(X)», «n = n», «E = cl(E)» — L'HEURISTIQUE A MARCHÉ EN #561**** ; ★★★**virgules = LES DEUX SENS SUR UNE MÊME PAGE (#561 fix1 vs fix4) ⟹ per-occ, CONTRÔLE sur la ligne voisine** ; ★★★**réfs = 3 FAUSSES / 4 (celle de #561 était JUSTE) ⟹ CROP + contrôle même ligne + grep la cible ; **le §6 EXISTE (il commence p551) ⟹ les renvois 6.x sont RÉELS**** ; ★★★**parens ~26 occ, Codex droppe massivement** ; ★★★**`\Ob` bug #530 ⟹ `\operatorname{Ob}` local** ; ★★★**abréviations 13 occ** ; ★★★**guillemets droppés** ; ★★**`\Mod`/`\Gl`/`\Aut` = macros du préambule ⟹ **AUDITER LEUR RENDU** (cf `\len`→«length» #555, `\Ob`→«ob» #530)** ; ★★**texte-drop 9 en 6 pages** ; ★★**display-fictif 18 en 10 pages** ; ★★**`\simeq` 140 (1/1 faux)** ; ★★**`\longmapsto` 28 (2/2 FAUX)** ; ★★**`\pmod` per-occ (2/2 faux)** ; ★★**casse grecque/latine** ; ★**«+N̲−1» ERRATA candidate (#560)** ; ★**`\epsilon`/`\varepsilon`**.
+
+### #560 (2026-07-15) — idx563 (vol p550 = **Exposé X «- 32 -»**, header «- 32 -» + «X» + footer «550» ; **CONSTANTE_X=518 CONFIRMÉE [550−32]**) — **★★ (5.3.3) + décomposition de l'objet final + Lemme 5.3.4 + (5.3.5) (Jussila)** — **5 rep-calls / 12 changements** (bandes b1-b5 TOUTES lues + **10 crops HD à 3600dpi, avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (550−32 ; idx=550+13=563 ✓)** ; la phrase de p549 pendait à «où E est un» ⟹ **cette page OUVRE avec sa suite — CONFIRMÉ** ; coupure p550/p551 après (5.3.5). Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix1 — LE DEUXIÈME `\longmapsto` EST CONTRÔLÉ, ET IL EST **FAUX À NOUVEAU (2/2)** :**
+`z563_squig` (**3600dpi**) DÉCISIF — le livre imprime «foncteur  Y **⟿** K^∘( X/Y) (Y ∈ Ob(X)) transforme sommes directes finies» : un **SQUIGGLE** sans équivoque = `\rightsquigarrow`. ⟹ **`\longmapsto` = 2 vérifiés, 2 FAUX** (celui-ci + #552). **28 restants.**
+- ⚠ **ET la ligne est INLINE** (elle enchaîne sur «transforme sommes directes finies») — Codex en avait fait un **DISPLAY** ⟹ **DISPLAY-FICTIF #18**.
+- ⚠ **ET «Ob(X)» est MAJUSCULE au livre**, mais `\Ob` rend «**ob**» **MINUSCULE** (bug macro #530 : le `\providecommand{\Ob}{\operatorname{ob}}` de L1697 gagne sur 4 autres défs) ⟹ **`\operatorname{Ob}` LOCAL**, per le workaround #530 (**5 défs CONFLICTUELLES + 25 usages ⟹ NE PAS toucher la macro**).
+
+**⚠⚠⚠⚠ ★★★★ fix2 — DEUX SOULIGNEMENTS PORTEURS DE SENS, EXACTEMENT LE MOTIF #552 fix7 :**
+`z563_soit` (**3600dpi**) DÉCISIF — le livre imprime «X, soit **n̲ = n** ∈ Z .  Posant  **E = cl^∘(E̲)**, on trouve (**cf. Exp V**) :»
+- **(a) «n̲ = n ∈ Z»** — le **n SOULIGNÉ** (la SECTION de Z_X) **ÉGALE** le **n NU** (l'ENTIER). Codex avait «soit \(n\in\mathbb Z\)» — **le «n̲ =» est DROPPÉ ENTIÈREMENT**. ⚠ Sans le soulignement, «n = n ∈ Z» est **VIDE** ⟹ **PORTEUR DE SENS** ⟹ restauré avec `\underline`.
+- **(b) «E = cl^∘(E̲)»** — le E nu := la classe du E **SOULIGNÉ**. Codex avait «E=\cl^\circ(E)» — **absurdité auto-référentielle**. ⚠ **PORTEUR DE SENS** ⟹ restauré avec `\underline`.
+⟹ **Les deux satisfont EXACTEMENT le principe #553** : restaurer le soulignement **UNIQUEMENT là où la phrase est INCOHÉRENTE sans lui**. (**CONTRASTE** : «det(E)=λ^n(E)» du display en dessous **EST cohérent** non marqué ⟹ **DEFERRED**.)
+- **(c) ★★★ BOOK-SIC : «constant»** — `z563b_constant` DÉCISIF : «on peut supposer que n̲ est **constant** sur X» — **MASCULIN**, sans e final. **⚠⚠ CONTRÔLE TROIS LIGNES PLUS HAUT, MÊME PAGE** : `z563b_constante` montre «n̲ est **constante** sur chaque sous-topos» — **FÉMININ**. **LE LIVRE SE CONTREDIT SUR UNE SEULE PAGE, à propos du MÊME n̲** (mode ⑰). Codex avait uniformisé en «constante». **RESTAURÉ SIC. NE JAMAIS uniformiser.**
+- **(d)** «**cf. Exp V**» — Codex avait développé en «cf. Exposé V» (mode ⑮, **13e occ**).
+
+**⚠⚠⚠ ★★★ fix5 — ERREUR DE RÉFÉRENCE : **3 SUR 3 des réfs croppées sont FAUSSES** + COLON + BOOK-SIC «donne» :**
+`z563_ref658` (**3600dpi**) DÉCISIF — le livre imprime «Alors (6.2.8) et **(6.5.8)** ci-dessous **donne** par linéarité la formule».
+- **(a) RÉF** : le chiffre de tête est un **6**. **⚠ CONTRÔLE INTÉGRÉ À LA MÊME LIGNE** : «(6.2.8)» est **juste à côté**, avec le **glyphe IDENTIQUE**. Codex avait «(**5**.5.8)». **⚠⚠ CORROBORATION** : l'Exp X **a une section 6** (l'Appendice, cf #557) ⟹ la famille 6.x est réelle. ⟹ **3 sur 3 des réfs croppées étaient FAUSSES** (#555 EGA IV 5.5.6→5.6.6 ; #557 (5.2.9)→(6.2.9) ; celle-ci).
+- **(b) BOOK-SIC** : «**donne**» est **SINGULIER**. Grammaticalement le pluriel «donnent» est correct (**deux sujets** : (6.2.8) ET (6.5.8)) — ce que Codex avait écrit. ⟹ **le livre a glissé = BOOK-SIC. RESTAURÉ SIC.** (Même famille que «sont»/«soient» #554.)
+- **(c) COLON** : «Démonstration **:**» (**7e occ** ; forme établie `\emph{Démonstration :}`).
+
+**⚠⚠ ★★ fix3/fix4/fix6 — PARENS + TEXTE-DROP :** **fix3** `z563_gamma` : le livre imprime «γ^n(**(**E−n**)**+1)» — **PARENS INTERNES** autour de (E−n) ; Codex «\gamma^n(E-n+1)» nu. **fix4** `z563_lemme` : «Pour tout topos annelé X **et pour tout** x ∈ Filt^2(X)» — **«pour» droppé** par Codex. **fix6** `z563_eq535` : (5.3.5) imprime «det(xy) = **(**det(x)**)**^{ε(y)}**(**det(y)**)**^{ε(x)}» — **PARENS autour de chaque det** ; Codex n'en avait aucune.
+
+**⚠⚠⚠ ★★★ NON CORRIGÉ — LE CHECK «+N−1» TRANCHE EN FAVEUR DE CODEX :**
+`z563_eq533` (3600dpi) : (5.3.3) imprime «+ **N̲** − 1» — le glyphe est **de HAUTEUR DE CAPITALE** (aussi haut que le «F» de «Filt»), et il est **SOULIGNÉ**.
+- **⚠ CONTRÔLE SUR LA LIGNE AU-DESSUS** : `z563_ranN` montre «de rang **n̲**» — manifestement **de hauteur d'x** (comparer le «g» de «rang»). **Les deux sont des GLYPHES DIFFÉRENTS.**
+⟹ le livre écrit bien un **N MAJUSCULE** ici, et **le «+N−1» de Codex MATCHE la casse ✓**.
+- ⚠ **LOGUÉ, NON TRANCHÉ** : le livre écrit «N̲» (majuscule) là où le rang deux lignes plus haut est «n̲» (minuscule) — **incohérence interne apparente** (possible book-sic pour «n̲»), mais **le GLYPHE est sans ambiguïté et la CASSE matche**, donc **rien à corriger depuis le scan**. Le soulignement relève du DEFERRED décoratif («+N−1» est cohérent non marqué). ⟹ **candidat ERRATA, aucune édition.**
+
+**5 rep-calls (fix563.py) :** fix1+2 squiggle + inline + Ob + **2 soulignements porteurs** + book-sic «constant» + «Exp V» ; fix3 parens internes ; fix4 «et pour tout» ; fix5 colon + **réf (6.5.8)** + book-sic «donne» ; fix6 parens ×2.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «+N−1» (ci-dessus) ; «il suffit de montrer, compte tenu de 5.2.2 b), que» ; «Comme n̲ est bornée, l'objet final e̲ de X se décompose en une somme directe finie disjointe ∐e_i de sous-objets de telle façon que n̲ est **constante** sur chaque sous-topos X/e_i (i=1,…,p).» (**la PREMIÈRE «constante» est FÉMININE et CORRECTE ✓** — cf fix2c) ; «transforme sommes directes finies en produits directs finis» ; display «Σ_{0≤i≤n} γ^i(E−n) ,» ✓ ; «ce qui démontre (5.3.3), le premier membre étant égal à» + display «Σ_{2≤i≤n} γ^i(E−n) .» ✓ ; «Il nous reste à démontrer le» ; «Lemme 5.3.4.» ; display «det(x) = 1 .» ✓ ; «Soit ε : K^∘(X) ⟶ Γ (Z) l'homomorphisme d'augmentation.» ; «(x,y ∈ K^∘(X))» ✓.
+
+**DEFERRED :** soulignements **DÉCORATIFS** (E̲ dans det(E̲) — «det(E)=λ^n(E)» est cohérent non marqué ; n̲ de «rang n̲»/«Comme n̲» ; e̲ ; «finie» ; «finies» ; l'énoncé du Lemme ; «Démonstration») ; écarts dactylo («K^∘( X/Y)», «Γ (Z)») ; blackboard-vs-plain Z ; placement des eq-tags ; barre parasite au-dessus du Σ.
+
+- Render-verify doc[295] **page entière relue**, **filtre à 2 chaînes** : «Comme le foncteur Y **⇝**K◦(X/Y ) (Y ∈**Ob**(X)) transforme…» ✓ (inline + squiggle + **Ob majuscule**), «on peut supposer que n est **constant** sur X, soit **n = n** ∈Z. Posant **E = cl◦(E)**, on trouve (**cf. Exp V**) :» ✓, «γn(**(E −n) + 1**)» ✓, «**et pour tout** x ∈Filt2(X)» ✓, «**Démonstration :**» ✓, «(6.2.8) et **(6.5.8)** ci-dessous **donne**» ✓, «det(xy) = **(det(x))**ϵ(y)**(det(y))**ϵ(x)» ✓. (⚠ les soulignements sont des filets — invisibles à l'extraction de texte ; le compile 0-err les valide.)
+- **CURSEUR → idx564 (vol p551 = Exposé X «- 33 -» [551−518=33] ; footer «551» ; idx=551+13=564 ✓)** — preview workpass L13268+ : «Donc il suffit de montrer que l'on a, pour tout \(k>1\), …» — ⚠ **LIRE LE SCAN D'ABORD**.
+- **CHECKS #560 → idx564 :** ★★★★**`\longmapsto` = **2/2 VÉRIFIÉS FAUX** (#552, #560) ⟹ **28 restants ; le sweep est FORTEMENT motivé — CROPPER CHAQUE occurrence de la page** (le livre met des ⟿)** ; ★★★★**RÉFS = **3/3 CROPPÉES FAUSSES** (#555, #557, #560) ⟹ **CROPPER CHAQUE «x.y.z» + CONTRÔLE MÊME LIGNE + GREP LA CIBLE** ; méthode : «5» = barre sup. plate/ouvert à gauche vs «6» = boucle inf. FERMÉE ; corroborer par la famille (l'Exp X a un §6 = l'Appendice)** ; ★★★★**SOULIGNEMENTS PORTEURS = 2 pages sur 2 en contenant (#552 fix7 «F = cl.(F̲)» ; #560 «n̲ = n» + «E = cl^∘(E̲)») ⟹ **CHERCHER TOUTE ÉQUATION AUTO-RÉFÉRENTIELLE OU VIDE du workpass («X = f(X)», «n = n») — c'est la SIGNATURE d'un soulignement droppé**** ; ★★★★**LE LIVRE SE CONTREDIT SUR UNE MÊME PAGE — «constante»(fém.) vs «constant»(masc.) à 3 lignes d'écart, même n̲ (#560) ⟹ **NE JAMAIS uniformiser ; CROPPER CHAQUE occurrence**** ; ★★★**BOOK-SIC = 20 en 12 pages («donne» sing. #560 ; «constant» #560 ; «{1} ∈ Pic(X)» #559 …) ⟹ Codex les répare TOUS** ; ★★★**parens : Codex droppe massivement (γ^n((E−n)+1) ; (det(x))^{ε(y)} — ×3 sur la seule p550) ⟹ CROPPER CHAQUE opérateur** ; ★★★**`\Ob` = bug macro #530 (5 défs conflictuelles, 25 usages) ⟹ `\operatorname{Ob}` LOCAL à chaque «Ob» majuscule du livre** ; ★★★**abréviations «Exp V»/«i.e.»/«cf.» = 13 occ** ; ★★**colons = 7 «Démonstration :»** ; ★★**texte-drop = 9 en 6 pages** ; ★★**`\pmod` per-occ (2/2 faux)** ; ★★**`\frac`/`\nolimits` sweep** ; ★★**`\simeq` 140 (1/1 faux)** ; ★★**casse grecque (#558)** ; ★★**display-fictif = 18 en 10 pages** ; ★**«+N̲−1» = ERRATA candidate (N maj vs n min du rang)** ; ★**`\epsilon`/`\varepsilon`**.
+
+### #559 (2026-07-15) — idx562 (vol p549 = **Exposé X «- 31 -»**, header «- 31 -» + «X» + footer «549» ; **CONSTANTE_X=518 CONFIRMÉE [549−31]**) — **★★ Théorème 5.3.2 + sa Démonstration (α∘c_1 = id, c_1∘α = id) (Jussila)** — **5 rep-calls / 8 changements** (bandes b1-b5 TOUTES lues + **9 crops HD, avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (549−31 ; idx=549+13=562 ✓)** ; coupure p549/p550 **EN PLEINE PHRASE** après «où E est un». Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix5 — CODEX A RÉÉCRIT LE TERME MÉDIAN D'UNE FORMULE (vers une AUTRE expression CORRECTE) :**
+`z562_detL` (2400dpi) DÉCISIF — le livre imprime «det(1−L^{**−1**}) = **(det(L−1))** = L».
+- **⚠ CONTRÔLE INTÉGRÉ À LA MÊME LIGNE** : le «L^{−1}» du membre gauche a son «−1» **SURÉLEVÉ et PETIT** ; le «L−1» du membre droit l'a **SUR LA LIGNE DE BASE, en pleine taille**. Formes nettement distinctes.
+- ⚠ Et il n'y a **AUCUN EXPOSANT EXTERNE** sur «(det(L−1))». Codex avait «(\det(L^{**−1**}))^{**−1**}=L» — exposant interne **ET** externe.
+- **⚠⚠ LES DEUX SONT MATHÉMATIQUEMENT CORRECTS — c'est précisément pourquoi c'est une RÉÉCRITURE et non une réparation** : det : (K^∘(X),+) → (Pic(X),×) est additif→multiplicatif, donc
+  - livre : **det(L−1) = det(L)/det(1) = L/1 = L** ✓
+  - Codex : **(det(L^{−1}))^{−1} = (L^{−1})^{−1} = L** ✓
+  **Codex n'a corrigé AUCUNE erreur — il a SUBSTITUÉ une expression DIFFÉRENTE à celle de l'auteur.** ⟹ Restauré. **(Mode ⑲ : Codex réécrit une math qu'il pouvait simplement transcrire.)**
+
+**⚠⚠⚠ ★★★ fix3 — BOOK-SIC : «{1} ∈ Pic(X)» (mode ⑫, mathématique) :** `z562_set1` (2400dpi) DÉCISIF — le livre imprime «det(Filt^2(X)) = {1} **∈** Pic(X)» — le symbole d'**APPARTENANCE** (un E arrondi **AVEC barre médiane**), **PAS** l'inclusion «⊂» (un C arrondi, sans barre). **MATHÉMATIQUEMENT Codex a RAISON** : {1} est un **ENSEMBLE**, donc «{1} **⊂** Pic(X)» est la bonne relation ; «{1} ∈ Pic(X)» est une erreur de type. ⟹ **le livre a glissé = BOOK-SIC. RESTAURÉ SIC.** + la ligne du livre **se termine** à «Pic(X)» **SANS virgule** ; Codex en avait ajouté une. Droppée.
+
+**⚠⚠⚠ ★★★ NON-CORRIGÉ — UNE LEÇON SUR L'ACCORD :** «Théorème 5.3.2.  L'application c_1 (5.3.1) est un homomorphisme **injectif** , et l'homomorphisme» — **MASCULIN ici, et CORRECT** : le sujet est «un **homomorphisme**» (masculin). **⚠⚠ CONTRASTE #557**, où «l'**application** i est **injective**» est féminin et **Codex l'avait masculinisé à tort**. ⟹ **Le livre a raison AUX DEUX ENDROITS ; seul Codex avait tort en #557.** **L'accord se lit contre le SUJET RÉEL, per-occurrence — ne pas généraliser un fix de grammaire d'une page à l'autre.**
+
+**⚠⚠ ★★ fix1 — PARENS→VIRGULES (mode ①, ~23e occ) + GUILLEMETS DROPPÉS :** `z562_paren1`+`z562_paren2`+`z562_paren3` DÉCISIFS — le livre imprime «est bornée **(**par exemple si X est **"quasi-compact"**, ou si l'objet final e̲ de X est somme finie d'objets connexes**)**, alors c_1 est un isomorphisme et α son inverse.»
+- **(a)** le parenthétique est **entre PARENS** (ouvrante après «bornée», fermante avant «, alors») — Codex avait mis des **VIRGULES** des deux côtés. Restauré.
+- **(b)** «quasi-compact» est **entre guillemets dactylo** — **Codex les avait droppés entièrement**. Restauré en «~…~» (règle permanente).
+
+**⚠⚠ ★★ fix2 — COLON (mode ③, 6e «Démonstration :») :** `z562_demo` DÉCISIF — «Démonstration **:**  c_1 est un homomorphisme». Codex avait `\emph{Démonstration.}`. Forme ÉTABLIE du fichier = `\emph{Démonstration :}` (5 occ ⟹ **6**).
+
+**⚠⚠ ★★ fix4 — ABRÉVIATION-DÉVELOPPÉE (mode ⑮, 12e occ) :** `z562_ie` DÉCISIF — le livre abrège «**i.e.** que α soit bien défini.» ; Codex avait développé en «c'est-à-dire». + **fix5b COLON** : `z562_car` — «car par 5.2.2 b) on a **:**» ; Codex n'en avait pas.
+
+**5 rep-calls (fix562.py) :** fix1 parens + guillemets «quasi-compact» ; fix2 «Démonstration :» ; fix3 **book-sic «{1} ∈ Pic(X)»** + comma-ADD ; fix4 «i.e.» ; fix5 colon + **restauration de «(det(L−1))»**.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «injectif» (voir ci-dessus — **le livre a raison**) ; display «det : Filt^1(X) ⟶ Pic(X)» ✓ ; «induit, par passage au quotient, un homomorphisme inverse à gauche de c_1 :» (**les deux virgules AUTHENTIQUES ✓, colon ✓**) ; display «α : Gr^1(X) ⟶ Pic(X) .» ✓ ; «Si toute section n̲ du faisceau constant Z_X est bornée» ; «alors c_1 est un isomorphisme et α son inverse.» ; display «(1−(LL')^{−1}) − (1−L^{−1}) − (1−L'^{−1}) = −(1−L^{−1})(1−L'^{−1}) ∈ Filt^2(X) .» ✓ ; «Admettons pour l'instant que» ; «On a alors» ; display «α **∘** c_1 = id_{Pic(X)} ,» (**le rond de composition ✓ = `\circ`** ; virgule finale ✓) ; «pour tout L ∈ Pic(X) . Puis on montre que» ; display «c_1 **∘** α = id_{Gr^1(X)}» ✓ ; «lorsque toute section n̲ de Z_X est bornée. Comme Filt^1(X) est le groupe abélien engendré par les éléments **cl^∘**(E̲) − n , où E̲ est un» (**cl^∘ = cercle SURÉLEVÉ ✓, cf #558**).
+
+**DEFERRED :** soulignements (l'énoncé du Théorème entier = italique ; «Démonstration» ; n̲ ; e̲) ; écarts dactylo («Z_X  est bornée») ; blackboard-vs-plain Z ; placement des eq-tags ; césures («in-jectif», «grou-pe»).
+
+- Render-verify **filtre SPÉCIFIQUE à 2 chaînes (leçon #557)**, **pages 294 ET 295 relues en entier (leçon #555)** : «est bornée **(**par exemple si X est **« quasi-compact »**, ou si l'objet final e de X est somme finie d'objets connexes**)**, alors» ✓, «**Démonstration :** c1 est un homomorphisme» ✓, «det(Filt2(X)) = {1} **∈**Pic(X)» ✓ (sans virgule), «**i.e.** que α soit bien défini» ✓, «car par 5.2.2 b) on a **:**» ✓, «det(1 −L−1) = **(det(L −1))** = L» ✓.
+- **CURSEUR → idx563 (vol p550 = Exposé X «- 32 -» [550−518=32] ; footer «550» ; idx=550+13=563 ✓)** — preview workpass L13237+ : «… où E est un O_X-module localement libre de rang n, il suffit de montrer, compte tenu de 5.2.2 b), que [display **(5.3.3)** det(cl^∘(E)) − cl^∘(E) + N − 1 ∈ Filt^2(X).] Comme n est bornée, l'objet final e de X se décompose en une somme directe finie disjointe ∐e_i de sous-objets de telle façon que n est constante sur chaque sous-topos X/e_i (i=1,…,p). Comme le foncteur [display Y ⟼ K^∘(X/Y)  (Y ∈ Ob(X))]…» — ⚠ **LIRE LE SCAN D'ABORD** ; ⚠ la phrase de p549 s'arrête à «où E est un» ⟹ **la suite OUVRE p550** ; ⚠⚠ **(5.3.3) contient «+ N − 1» — un «N» MAJUSCULE là où le rang est «n» minuscule ⟹ CROPPER (casse !)**.
+- **CHECKS #559 → idx563 :** ★★★★**«N» vs «n» dans (5.3.3) — CROPPER : le rang est «n» minuscule partout ailleurs ; «+N−1» détonne ⟹ CONTRÔLE DE HAUTEUR sur la même ligne (méthode casse #549/#552/#558)** ; ★★★★**`\longmapsto` — «Y ⟼ K^∘(X/Y)» est l'un des 29 restants ⟹ CROP HD (le livre met des ⟿ ; 1/1 vérifié = FAUX #552)** ; ★★★★**RÉÉCRITURE MATHÉMATIQUE — #559 fix5 : Codex substitue une expression ÉQUIVALENTE mais DIFFÉRENTE ((det(L^{-1}))^{-1} pour (det(L−1))) ⟹ **une formule «correcte» n'est PAS une preuve de fidélité ; CROPPER CHAQUE terme même quand le résultat est juste**** ; ★★★★**ACCORD per-occurrence — «injectif» (homomorphisme, masc.) #559 vs «injective» (application, fém.) #557 : **le livre a raison aux DEUX endroits** ⟹ lire contre le SUJET RÉEL, ne pas généraliser** ; ★★★**BOOK-SIC = 18 en 11 pages («{1} ∈ Pic(X)» #559) ⟹ Codex les répare TOUS** ; ★★★**parens : mode ①, ~23 occ ; Codex droppe massivement** ; ★★★**guillemets DROPPÉS (#559 «quasi-compact») ⟹ CHERCHER les termes techniques nus** ; ★★★**abréviations «i.e.»/«resp.»/«cf.» = 12 occ** ; ★★★**colons = 6 «Démonstration :» + «on a :» ⟹ per-occ** ; ★★**`\pmod` per-occ (2/2 faux)** ; ★★**`\frac`/`\nolimits` sweep** ; ★★**`\simeq` 140** ; ★★**casse grecque (#558)** ; ★★**display-fictif = 17 en 9 pages** ; ★**`\epsilon`/`\varepsilon`** ; ★**`\Ob` 25**.
+
+### #558 (2026-07-15) — idx561 (vol p548 = **Exposé X «- 30 -»**, header «- 30 -» + «X» + footer «548» ; **CONSTANTE_X=518 CONFIRMÉE [548−30]**) — **★★ δ(L)=1−L^{-1} + Remarques 5.2.2 a)/b) + (5.2.3) + (5.2.4) + §5.3 + (5.3.1) (Jussila)** — **7 rep-calls / 9 changements** (bandes b1-b5 TOUTES lues + **7 crops HD, avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (548−30 ; idx=548+13=561 ✓)** ; coupure p548/p549 après (5.3.1). Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix3 — UNE ERREUR MATHÉMATIQUE : CODEX A TRANSFORMÉ L'APPLICATION-CLASSE EN SYMBOLE VIDE.**
+`z561_clS` (2400dpi) DÉCISIF — le livre imprime «L = **cl^∘**(O̲_S(D)) ,» : l'exposant est un **POINT ROND SURÉLEVÉ** sans équivoque. **Codex avait écrit `\cl^1` — le CHIFFRE UN.**
+- ⚠ Dans cette dactylo un «1» est un trait vertical à drapeau ; ce glyphe est un petit disque plein.
+- ⚠ **CONTRÔLE SUR LA MÊME PAGE** : «cl**.**(O̲_D)» deux lignes plus bas (`z561_theta`) porte un point **SUR LA LIGNE DE BASE** ⟹ le contraste **SURÉLEVÉ-vs-BASE de #552 est visible sur la même page**, et celui-ci est **SURÉLEVÉ**.
+- **⚠⚠ LA MATHÉMATIQUE CONCORDE** : L ∈ Pic(X), et Pic(X) **s'injecte dans K^∘(X)^∗ via i (5.1.1)** ⟹ L doit être **cl^∘(O_S(D))**, la classe du module inversible dans K^∘. **«cl^1» ne désigne RIEN.** ⟹ le `\cl^1` de Codex est une **FABRICATION**. Restauré.
+
+**⚠⚠⚠ ★★★ fix4/fix5 — CASSE : Θ MAJUSCULE, pas θ minuscule (2 occurrences) :** `z561_theta` + `z561_thetaline` DÉCISIFS — le livre imprime «**Θ**_S(δ(L))» et «où **Θ**_S : K^∘(X) ⟶ K_•(S)» — une forme en O **avec une BARRE MÉDIANE**, à **hauteur de CAPITALE**. **⚠ CONTRÔLE SUR LA MÊME LIGNE** : le «δ» juste à côté est de hauteur d'x et manifestement un autre glyphe ⟹ le litigieux est une **MAJUSCULE**. (`\Theta` est dans la KEEP-list permanente.) Codex avait `\theta` (minuscule) **les DEUX fois**. Restauré. + **fix4 droppe aussi un comma-ADD** : la ligne (5.2.3) du livre **se termine** à «cl.(O̲_D)» **SANS virgule** ; Codex en avait ajouté une.
+
+**⚠⚠⚠ ★★★ fix2 — ACCORD : CODEX A DROPPÉ UN PLURIEL :** `z561_zar` DÉCISIF — le livre imprime «des faisceaux **zariskiens** sur un schéma S .» — **manifestement PLURIEL**. Codex avait «zariskien». **⚠ MÊME CLASSE QUE #557 («injective»→«injectif») : Codex casse RÉPÉTITIVEMENT le français de l'auteur (mode ㉓).** Restauré.
+
+**⚠⚠⚠ ★★★ fix6 — `\pmod` EST FAUX ICI — MAIS POUR UNE RAISON DIFFÉRENTE DE #555 :** `z561_modf` DÉCISIF — le livre imprime «(5.2.4)  δ(L) ≡ L−1  **mod.Filt^2(X)**  ,» : «mod.Filt^2(X)» est **DANS le display**, **ABRÉGÉ avec le point**, et **SANS parenthèses**. Le `\pmod{\Filt^2(X)}` de Codex rend «**(**mod Filt^2(X)**)**» — parens, pas de point.
+- **⚠⚠ CONTRASTE #555** : là, le livre écrivait le MOT «**modulo**» en **TEXTE COURANT APRÈS** le display, et le fix consistait à **le sortir du display**. ⟹ **LE LIVRE EMPLOIE LES DEUX FORMES** (mode ⑰) — «modulo …» en prose p545, «mod.Filt^2(X)» dans le display ici. **La question `\pmod` est PER-OCCURRENCE, jamais uniforme.** Restauré en `\quad\operatorname{mod.}\Filt^2(X)`.
+- ★ le «≡» de «δ(L) ≡ L−1» est une **TRIPLE BARRE** au livre = `\equiv` ✓ matchait déjà.
+
+**⚠⚠ ★★ fix1 — COLON (mode ③) :** `z561_rem` DÉCISIF — le livre imprime «Remarques 5.2.2. **:** a) Supposons que X soit…» — un **COLON** avant l'item a). Codex n'en avait pas. ⚠ le livre met «a)» **EN LIGNE** avec le titre ; l'enumerate du workpass le met sur sa propre ligne ⟹ catégorie **DEFERRED** (mise en page enumerate/titre) — **le FORMAT du label lui-même («a)», pas «(a)») MATCHE déjà ✓**.
+
+**⚠⚠ ★★ fix7 — guillemets normalisés à la convention «~…~» du fichier** (règle permanente `` ''→«~…~» ; cf. mes fixes #551/#554/#557). `z561_chern` confirme les guillemets dactylo **ET** le colon — **tous deux déjà présents au workpass ✓** ; seule la forme d'espace différait.
+
+**7 rep-calls (fix561.py) :** fix1 colon «Remarques 5.2.2. :» ; fix2 accord «zariskiens» ; fix3 **`\cl^1`→`\cl^\circ`** ; fix4 **Θ majuscule + comma-ADD** ; fix5 **Θ majuscule (2e)** ; fix6 **`\pmod`→`mod.Filt^2(X)`** ; fix7 guillemets.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «en posant pour tout L ∈ Pic(X)» + display «δ(L) = 1−L^{-1} .» (**display AUTHENTIQUE ✓**) ; **format du label «a)» ✓** ; «Supposons que X soit le topos localement annelé» ; «Lorsque D est un diviseur de Cartier ≥ 0 sur X et» ; «alors on a» ; «**cl.**(O̲_D)» = cl_• ✓ (**point sur la LIGNE DE BASE** — contraste avec le cercle SURÉLEVÉ de fix3) ; «est l'homomorphisme canonique de 1.2.3.» ; «Cela résulte immédiatement de la suite exacte» ; display «0 ⟶ O̲_S(−D) ⟶ O̲_S ⟶ O̲_D ⟶ 0 .» ✓ ; «b)  Sous les hypothèses de 5.1 et 5.2 on a pour tout L ∈ Pic(X)» ; «ce qui justifie la notation c_1(L) introduite plus bas. En effet, on a» ; display «(L−1) − (1−L^{-1}) = (L−1)(1−L^{-1}) ∈ Filt^2(X) .» ✓ (**parens 2/2 chacune ✓**) ; «5.3.  La composition de δ avec l'épimorphisme canonique» + display «Filt^1(X) ⟶ Gr^1(X)» ; (5.3.1) «c_1 : Pic(X) ⟶ Gr^1(X) .» ✓.
+
+**DEFERRED :** soulignements («Remarques» ; O̲_S/O̲_D) ; **mise en page enumerate/titre** («a)» en ligne avec le titre au livre) ; écarts dactylo («schéma  S  .» ; «L−1  mod.») ; **espacement `\operatorname`** (le rendu donne «mod. Filt²(X)» avec une espace fine ; le livre a «mod.Filt^2(X)» sans) ; forme du glyphe «≥» ; placement des eq-tags ; césure de fin de ligne («divi-seur»).
+
+- Render-verify doc[294] **page entière relue (leçon #555)**, **filtre SPÉCIFIQUE à 2 chaînes (leçon #557)** : «Remarques 5.2.2. **:**» ✓, «des faisceaux **zariskiens**» ✓, «L = **cl◦**(OS(D)),» ✓, «**Θ**S(δ(L)) = cl•(OD)» ✓ (sans virgule), «où **Θ**S : K◦(X) →K•(S)» ✓, «δ(L) ≡L −1 **mod. Filt2(X)**,» ✓, «donne la « première classe de Chern » sur Pic(X) :» ✓.
+- **CURSEUR → idx562 (vol p549 = Exposé X «- 31 -» [549−518=31] ; footer «549» ; idx=549+13=562 ✓)** — preview workpass : «**Théorème 5.3.2.** L'application c_1 (5.3.1) est un homomorphisme injectif, et l'homomorphisme [display det : Filt^1(X) ⟶ Pic(X)] induit, par passage au quotient, un homomorphisme inverse à gauche de c_1 : …» — ⚠ **LIRE LE SCAN D'ABORD**.
+- **CHECKS #558 → idx562 :** ★★★★**CASSE GRECQUE — Θ/θ, Γ/γ, Λ/λ, Σ/σ, Φ/φ, Ψ/ψ, Δ/δ, Ω/ω : Codex a mis θ minuscule pour Θ MAJUSCULE ×2 (#558) ⟹ **CROPPER CHAQUE lettre grecque + CONTRÔLE de HAUTEUR sur la même ligne** (cap-height vs x-height ; ⚠ Θ = O + barre médiane)** ; ★★★★**CODEX CASSE LE FRANÇAIS — 2 pages de suite : «injectif»/«injective» + «identifions»/«identifierons» (#557) ; «zariskien»/«zariskiens» (#558) ⟹ **CROPPER genre, nombre, temps, accord** (mode ㉓)** ; ★★★★**RÉFS = 2/2 croppées FAUSSES (#555/#557) ⟹ CROP + CONTRÔLE MÊME LIGNE + GREP LA CIBLE** ; ★★★★**EXPOSANTS/INDICES FABRIQUÉS : `\cl^1` pour `\cl^\circ` (#558) ⟹ **CROPPER CHAQUE exposant ; le contraste SURÉLEVÉ(∘)-vs-BASE(•) est souvent visible sur la MÊME page** (méthode #552, re-confirmée #557/#558)** ; ★★★**`\pmod` = PER-OCCURRENCE — le livre écrit «modulo …» en prose (#555) **ET** «mod.Filt^n(X)» dans le display (#558) ⟹ CROPPER chaque `\pmod` restant** ; ★★★**`\frac`/`\nolimits`/`\limits` = SWEEP (Grep + CROP)** ; ★★★**`\simeq` = 140 restants (1/1 = FAUX #556) — page-par-page, CROP + CONTRÔLE «=»** ; ★★★**parens : Codex droppe massivement (×4 p545, ×2 p547) ⟹ CROPPER CHAQUE opérateur** ; ★★**colon/comma/hyphen/parens/grammaire = TOUS dans LES DEUX SENS ⟹ ne jamais inférer** ; ★★**display-fictif = 17 en 9 pages** ; ★★**guillemets → «~…~»** ; ★★**abréviations «(resp. …)»** ; ★★**product-dots = 13+** ; ★★**texte-drop = 7 en 5 pages** ; ★**`\epsilon`(68)/`\varepsilon`(26)** ; ★**`\longmapsto` 29** ; ★**`\Ob` 25 + 5 défs conflictuelles**.
+
+### #557 (2026-07-15) — idx560 (vol p547 = **Exposé X «- 29 -»**, header «- 29 -» + «X» + footer «547» ; **CONSTANTE_X=518 CONFIRMÉE [547−29]**) — **★★ (5.1.1) + le foncteur «det» + (5.1.2) + isomorphisme canonique + (5.1.3) + §5.2 + (5.2.1) (Jussila)** — **5 rep-calls / 8 changements** (bandes b1-b5 TOUTES lues + **7 crops HD dont 1 à 4800dpi, avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (547−29 ; idx=547+13=560 ✓)** ; **(5.1.1) OUVRE la page** (la phrase de p546 pendait à «On désigne par» — **CONFIRMÉ**) ; coupure p547/p548 après (5.2.1). Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix4 — UNE ERREUR DE RÉFÉRENCE ATTRAPÉE PAR LE GLYPHE **ET** PAR LA MATHÉMATIQUE :**
+`z560b_bothrefs` (**4800dpi**) DÉCISIF — le livre imprime «provenant de **(6.2.9)** et du fait que (5.1.2)».
+- **⚠ CONTRÔLE INTÉGRÉ À LA MÊME LIGNE** : «(5.1.2)» porte un «**5**» CONNU — barre supérieure plate, ouvert à gauche. Le chiffre litigieux a une **boucle supérieure + une BOUCLE INFÉRIEURE FERMÉE** ⟹ un **6**. Glyphes nettement différents.
+- **⚠⚠ CORROBORATION PAR LE CONTENU** : l'Exposé X **A une section 6** — «**6. Appendice : Calcul des déterminants des faisceaux localement libres**» — **avec un §6.2** (workpass L13299/L13352). **Cet Appendice porte EXACTEMENT sur ce dont cette phrase a besoin** (l'isomorphisme canonique des déterminants pour une suite exacte localement scindée). En revanche **§5.2 traite de δ : Pic(X) → Filt^1(X)** — sujet sans rapport. ⟹ **le glyphe ET la mathématique concordent : le livre dit bien (6.2.9).** Codex avait «(5.2.9)». **Restauré.**
+- **★ MÉTHODE (identique à #555, EGA IV 5.5.6→5.6.6)** : lire le chiffre contre un **contrôle sur la même ligne**, puis **corroborer avec ce que la cible dit réellement**. Les deux réfs fausses du run ont été prises comme ça.
+
+**⚠⚠⚠ ★★★ fix5 — GENRE + TEMPS : CODEX A ALTÉRÉ LE FRANÇAIS DE L'AUTEUR (direction INVERSE de #554) :**
+`z560_inj` (2400dpi) DÉCISIF — le livre imprime «En particulier i est **injective**, et nous **identifierons** par la suite Pic(X) avec son image dans K^∘(X)^∗ .»
+- **(a) «injective» — FÉMININ.** Le sujet est «l'**application** i» (féminin) ⟹ **l'accord du livre est CORRECT**. Codex avait «injectif» (masculin) — sans doute en lisant «i» comme un morphisme. ⟹ **Codex a INTRODUIT une faute de grammaire là où le livre n'en avait pas.**
+- **⚠⚠ NOTER LA DIRECTION : #554 avait le LIVRE avec un mode fautif («sont» pour «soient») et CODEX qui corrigeait. Ici le LIVRE est correct et CODEX casse. LES DEUX DIRECTIONS sur la grammaire aussi.**
+- **(b) «identifierons» — FUTUR.** Codex avait «identifions» (présent). Restauré.
+
+**⚠⚠⚠ ★★★ fix2 — CODEX A FORCÉ LE MAUVAIS PLACEMENT DE LIMITE :** `z560_wedge` (2400dpi) DÉCISIF — le livre imprime «det(E̲) = **Λ** avec **n DIRECTEMENT AU-DESSUS**, puis E̲ .» Codex avait «\bigwedge**\nolimits**^n E» — et `\nolimits` **FORCE ACTIVEMENT** le n **À DROITE** en exposant, **en surchargeant le défaut du mode display** (qui l'aurait mis au-dessus, comme le livre). ⟹ **un choix EXPLICITE de Codex CONTRE le scan.** Restauré en `\bigwedge^n E`. ⚠ **Ce n'est PAS la catégorie DEFERRED «Σ-layout»** : celle-ci couvre **l'ARRANGEMENT des sommes multi-lignes**, pas un `\nolimits` qui surcharge le placement voulu par l'auteur.
+
+**⚠⚠ ★★ fix3 — PARENS DROPPÉES ×2 (mode ①) + comma-ADD :** `z560_iso` (2400dpi) DÉCISIF — le livre imprime «det(E̲) ⟶^~ **(**det(E̲')**)**⊗_{O̲_X}  **(**det(E̲'')**)**» — **CHAQUE det est enveloppé dans SES PROPRES parens**, et il n'y a **AUCUNE virgule finale** (la ligne s'arrête). Codex avait «\det(E')\otimes_{\mathcal O_X}\det(E'')**,**». Restauré. (La flèche à **TILDE AU-DESSUS** = `\xrightarrow{\sim}` ✓ matchait déjà.)
+
+**⚠⚠ ★★ fix1 — COLON (mode ③) :** `z560_det` (2400dpi) DÉCISIF — le livre imprime «défini par le foncteur **"det" :** Lorsque E̲ est un O̲_X-module…» — un **COLON** ; Codex avait «« det »**.** Lorsque» (point). + guillemets normalisés à la convention **«~…~»** du fichier (règle permanente `` ''→«~…~» ; cf. mes propres fixes #551/#554) — la forme existante «« det »» employait des espaces ordinaires.
+- ★ **NON-corrigé** : le «n» de «de rang **n̲**» **EST souligné** au livre (`z560_det`) — mais «de rang n» est **parfaitement cohérent sans lui** ⟹ **DÉCORATIF ⟹ DEFERRED** (principe #553/#554).
+
+**5 rep-calls (fix560.py) :** fix1 colon «det» + guillemets ; fix2 `\bigwedge^n` (n AU-DESSUS) ; fix3 parens ×2 + comma-ADD ; fix4 **réf (5.2.9)→(6.2.9)** ; fix5 **genre «injective» + temps «identifierons»**.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** (5.1.1) «i : Pic(X) ⟶ K^∘(X)» ✓ ; «l'application qui associe à la classe **cl_P**(L̲) ∈ Pic(X) d'un O_X-module inversible L̲ l'élément **cl^∘**(L̲) de K^∘(X) .» (**cl_P ✓ et cl^∘ ✓ — la distinction SURÉLEVÉ/BASE de #552 tient**) ; «Cette application est évidemment un homomorphisme de Pic(X) dans le groupe multiplicatif K^∘(X)^∗ des éléments inversibles de K^∘(X). Par la suite nous noterons multiplicativement la loi de groupe de Pic(X) .» ; (5.1.2) «0 ⟶ E' ⟶ E ⟶ E'' ⟶ 0» ✓ ; «est une suite exacte de O_X-modules localement libres, il y a un isomorphisme canonique» (**trait d'union PRÉSENT ✓**) ; (5.1.3) «det : K^∘(X) ⟶ Pic(X)» ✓ ; «qui est l'inverse à gauche cherché de i .» ; «5.2.  On définit une autre application» ; (5.2.1) «δ : Pic(X) ⟶ Filt^1(X)» ✓ ; `z560_kstar` «dans K^∘(X)^**∗** .» — astérisque dactylo ; le `^*` de Codex rend à l'identique de `^\ast` ⟹ **NON corrigé (cosmétique)**.
+
+**DEFERRED :** soulignements (E̲, O̲_X, L̲, et le «n» de «de rang n̲» — tous décoratifs ici) ; écarts dactylo («rang n , on a») ; formats de titres ; placement des eq-tags ; blackboard-vs-plain Z.
+
+- Render-verify doc[293] **page entière relue (leçon #555)** : «« det » **:** Lorsque» ✓, «det(E) = **ⁿ⋀** E.» ✓ (**n AU-DESSUS**), «det(E) ∼−→**(**det(E′)**)** ⊗OX **(**det(E′′)**)**» ✓ (parens, sans virgule), «provenant de **(6.2.9)**» ✓, «i est **injective**, et nous **identifierons**» ✓.
+- **CURSEUR → idx561 (vol p548 = Exposé X «- 30 -» [548−518=30] ; footer «548» ; idx=548+13=561 ✓)** — preview workpass L13165+ : «en posant pour tout \(L\in\Pic(X)\) [display δ(L)=1-L^{-1}.] **Remarques 5.2.2.** a) Supposons que X soit le topos localement annelé des faisceaux zariskien sur un schéma S. Lorsque D est un diviseur de Cartier ≥0 sur X et …» — ⚠ **LIRE LE SCAN D'ABORD**.
+- **CHECKS #557 → idx561 :** ★★★★**RÉFS — 2/2 des réfs vérifiées au crop étaient FAUSSES (#555 EGA IV 5.5.6→5.6.6 ; #557 (5.2.9)→(6.2.9)) ⟹ CROPPER CHAQUE «x.y.z» + CONTRÔLE SUR LA MÊME LIGNE + CORROBORER avec ce que la cible dit vraiment (grep le §/Exposé visé)** ; ★★★★**GRAMMAIRE = LES DEUX DIRECTIONS (#554 le livre fautif/Codex répare ; #557 le livre correct/Codex casse) ⟹ CROPPER genre, temps, accord** ; ★★★★**`\frac` = SWEEP MOTIVÉ (#553/#555) + `\nolimits`/`\limits` = MÊME CLASSE (#557 fix2) ⟹ Grep `\\\\frac` ET `\\\\nolimits` ET `\\\\limits` + CROPPER** ; ★★★★**`\simeq` = 140 restants (1/1 vérifié = FAUX #556) — page-par-page, CROP + CONTRÔLE «=»** ; ★★★**PARENS : Codex les droppe massivement (×4 p545 #555, ×2 p547 #557) ; `\det`/`\dim`/`\Supp` portent des parens au livre BIEN plus souvent que Codex ne le croit ⟹ CROPPER CHAQUE opérateur** ; ★★★**colon/comma/hyphen/parens/grammaire = TOUS dans LES DEUX DIRECTIONS ⟹ ne JAMAIS inférer** ; ★★**display-fictif = 17 en 9 pages** ; ★★**abréviations «(resp. …)» = parens+abrégé (11 occ)** ; ★★**product-dots = 13+** ; ★★**texte-drop = 7 en 5 pages** ; ★★**book-sic = 17 en 10 pages** ; ★**`\epsilon`(68)/`\varepsilon`(26)** ; ★**`\longmapsto` 29** ; ★**`\Ob` 25 + 5 défs conflictuelles**.
+
+### #556 (2026-07-15) — idx559 (vol p546 = **Exposé X «- 28 -»**, header «- 28 -» + «X» + footer «546» ; **CONSTANTE_X=518 CONFIRMÉE [546−28]**) — **★★ §4.5 (équivalence numérique) + Déf 4.5.1 + Prop 4.5.2 + (4.5.3) + Cor 4.5.3 + DÉBUT DE LA SECTION 5 «L'isomorphisme Pic(X) ≅ Gr^1(X)» (Jussila)** — **7 rep-calls / 14 changements** (bandes b1-b5 TOUTES lues + **12 crops HD dont 2 à 4800dpi, avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (546−28 ; idx=546+13=559 ✓)** ; coupure p546/p547 **EN PLEINE PHRASE** après «On désigne par» ⟹ (5.1.1) est sur p547. Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix7 — LE PREMIER DES 141 `\simeq` NON VÉRIFIÉS EST CONTRÔLÉ, ET IL EST **FAUX**.**
+`z559b_rel` (**4800dpi**) : le titre du §5 imprime «Pic(X) **≅** Gr^1(X)» — un **TILDE au-dessus de DEUX barres**.
+- **⚠ CONTRÔLE SUR LA MÊME PAGE, deux lignes plus haut** : `z559b_eqctrl` montre le «**=**» CONNU de «Pic^N(X)**=**Pic^τ(X)» — **même structure à deux barres** (barre supérieure plus épaisse, inférieure plus fine, écart net). **La moitié inférieure du glyphe litigieux MATCHE ce «=» exactement, avec un tilde ajouté au-dessus.** ⟹ **≅ = `\cong`, PAS ≃ = `\simeq`** (qui est un tilde sur UNE barre). Codex avait `\simeq`. **Restauré en `\cong`.**
+- **⚠⚠ MÊME FIGURE QUE L'HISTOIRE `\longmapsto` (#552)** : la PREMIÈRE occurrence contrôlée d'une grande population non vérifiée s'avère **FAUSSE**. ⟹ **le sweep `\simeq` (140 restants) est désormais ADOSSÉ À UNE PREUVE, plus spéculatif** — exactement comme `\longmapsto` après #552.
+- **⚠ NON balayé ici** : **UNE** occurrence vérifiée n'autorise pas 140 éditions à l'aveugle (règle #530/#554). **CONTRASTE avec `\len` (#555), QUI a été balayé — mais seulement parce que 6/6 étaient vérifiées ET que les 5 usages tenaient sur UNE page.** `\simeq` a **141 usages dispersés dans tout le fichier** ⟹ **passe DÉDIÉE, page par page.**
+
+**⚠⚠⚠ ★★★ COLON : LES DEUX DIRECTIONS SUR UNE SEULE PAGE (mode ③) :**
+- **fix1** : `z559_chev` DÉCISIF — le livre imprime «le produit d'intersection  < , > **:**» — un **COLON** ; Codex avait un point.
+- **fix5** : `z559_tire` DÉCISIF — le livre imprime «De 2.3.4 on tire» — **PAS de colon** ; **Codex en avait AJOUTÉ un**.
+⟹ **les colons se lisent PER-OCCURRENCE, jamais par inférence.** (Même figure que les traits d'union #554/#555 et les virgules ci-dessous.)
+- ★ **NON-corrigé** : le **SÉPARATEUR** dans les chevrons est une **VIRGULE** (pas un product-dot) ⟹ `\langle\, ,\,\rangle` **CORRECT** — le check hérité de #553 tranche **en faveur de Codex**.
+
+**⚠⚠⚠ ★★★ VIRGULES : CODEX EN **DROPPE** AUSSI (nouvelle direction) :**
+- **fix2c** : `z559_def2` — le livre a «équivalents**,** s'ils» ; **Codex l'avait SUPPRIMÉE**.
+- **fix4** : `z559_silleurs` — le livre a «équivalents**,** si leurs premières classes de Chern» ; **Codex l'avait SUPPRIMÉE**.
+⟹ **ce run a logué de nombreux comma-ADD ; ici Codex DROPPE. LES DEUX DIRECTIONS. Ne jamais inférer.**
+
+**⚠⚠⚠ ★★★ fix2 — QUATRE défauts dans UNE phrase :** `z559_def1` + `z559_def2` DÉCISIFS — le livre imprime «On dit que deux éléments x et y de Gr^i(X) **(i ∈ Z)** **(resp.** de Gr_i(X)**)** sont numériquement équivalents**,** s'ils définissent»
+- **(a) TEXTE-DROP** : «(i ∈ Z)» est au livre — **Codex l'a droppé entièrement**.
+- **(b) PARENS + ABRÉVIATION (modes ① + ⑮, 10e abréviation)** : le livre met «**(resp.** … **)**» — des **PARENS** autour d'un «**resp.**» **ABRÉGÉ** ; Codex avait «, respectivement …,» — **virgules ET développé**. ⟹ **MÊME double défaut que #554 fix5** («(avec les notations de 1.1.2)»).
+- **(c) COMMA-DROP** (voir ci-dessus).
+
+**⚠⚠⚠ ★★★ TROIS DISPLAY-FICTIFS (mode ⑯ ; total 17 en 9 pages) :**
+- **fix3 (#15)** : `z559_hom` — «le même homomorphisme  Gr_i(X) ⟶Z **(resp.** Gr^i(X) ⟶ Z**)** . On dit» = **UNE ligne courante** (elle enchaîne sur «. On dit») ; Codex en avait fait un display **ET** écrit «\qquad\text{respectivement}\qquad» (développé) **ET** ajouté une virgule après le 1er Z.
+- **fix6 (#16)** : `z559_cor` — «Corollaire 4.5.3.   Pic^τ(X) ⊂ Pic^N(X)  .» = **UNE ligne courante**.
+- **fix6 (#17)** : `z559_expxiii` — «On va démontrer dans **Exp XIII** que l'on a même **Pic^N(X)=Pic^τ(X)** .» = **UNE ligne courante** + **ABRÉVIATION (mode ⑮, 11e occ)** : Codex avait développé en «l'Exposé XIII».
+  - **⚠ «Exp XIII» ne porte AUCUN point après «Exp»**, alors que **#550 avait vérifié «Exp. IV» AVEC** ⟹ **LE LIVRE SE CONTREDIT (mode ⑰). Restauré sic, per-occurrence. NE JAMAIS uniformiser.**
+
+**⚠⚠ ★★ NON-CORRIGÉ — UN CHECK HÉRITÉ QUI TOMBE À VIDE :** `z559_equiv` DÉCISIF — «4.5   On appelle **équivalence numérique** la relation d'équivalence» : le terme est **NU** — **NI souligné, NI entre guillemets**. Et le workpass l'a **DÉJÀ en clair** ⟹ **AUCUN FIX.** ⚠ **Le check «`\emph{équivalence numérique}` : guillemets ou soulignement ?» que je portais depuis #553/#554 supposait un `\emph{}` que le fichier NE CONTIENT PAS.** ⟹ **Encore un rappel (cf. #553) qu'un check reporté n'est PAS une constatation tant qu'il n'est pas relu sur le fichier ET au scan.**
+
+**7 rep-calls (fix559.py) :** fix1 colon chevrons ; fix2 texte-drop (i∈Z) + parens + resp. + comma-DROP ; fix3 display-fictif #15 + resp. ; fix4 comma-DROP ; fix5 colon AJOUTÉ par Codex ; fix6 display-fictif #16+#17 + «Exp XIII» ; fix7 **`\simeq`→`\cong`**.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «équivalence numérique» NU (ci-dessus) ; séparateur = virgule ✓ ; «deux O_X-modules inversibles L_1 et L_2» (**trait d'union PRÉSENT ici** — contraste avec «O_X modules» SANS de p544 ⟹ **le livre se contredit CROSS-PAGE, mode ⑰**) ; Prop 4.5.2 «Un O_X-module inversible L est numériquement équivalent à zéro si et seulement si» ; (4.5.3) «χ(L^n ⊗_{O_X} O_Z) = χ(O_Z)» ✓ ; «pour tout n ∈ Z et pour toute courbe intègre fermée Z ⊂ X .» ; «Cela résulte de 1.1.2 et 4.3.1.» ; «On désigne par Pic^N(X) le sous-groupe de Pic(X) composé des classes de O_X-modules inversibles numériquement équivalents à zéro.» ; «Pic^τ»/«Pic^N» exposants ✓ ; «5.1. Soit X un topos annelé quelconque…» ; «(Filt^i(X))_{i∈Z}» ✓ ; «K^∘(X)» ✓.
+
+**DEFERRED :** soulignements (les énoncés Déf/Prop/Cor entiers = italique ; «L'isomorphisme» dans le titre §5 ; L̲_i/O̲) ; formats de titres («4.5» **SANS** point final, «5.» **AVEC**) ; **la marque qui apparaît au-dessus du X dans «Gr_i(X̄)» (`z559_def2`)** — probablement un artefact de scan ou une bavure du soulignement de «de» au-dessus ; **NON corrigé sur une lecture incertaine, LOGUÉ** ; blackboard-vs-plain Z ; placement des eq-tags. ⚠ **«Corollaire 4.5.3» et l'équation «(4.5.3)» PARTAGENT un numéro au livre** — quirk d'auteur, reproduit tel quel (le workpass le fait déjà).
+
+- Render-verify doc[293] **page entière relue (leçon #555)** : «⟨, ⟩**:**» ✓, «Gri(X) **(i ∈Z)** **(resp.** de Gri(X)**)** sont numériquement équivalents**,** s'ils définissent le même homomorphisme Gri(X) −→Z **(resp.** Gri(X) −→Z**)**. On dit» ✓ (inline), «équivalents**,** si leurs premières classes» ✓, «De 2.3.4 on tire» ✓ (sans colon), «Corollaire 4.5.3. Picτ(X) ⊂PicN(X).» ✓ (inline), «On va démontrer dans **Exp XIII** que l'on a même PicN(X) = Picτ(X).» ✓ (inline), «5. L'isomorphisme Pic(X) **∼=** Gr1(X)» ✓ (`\cong`).
+- **CURSEUR → idx560 (vol p547 = Exposé X «- 29 -» [547−518=29] ; footer «547» ; idx=547+13=560 ✓)** — preview workpass L13140+ : «**5.1.** … On désigne par [display **(5.1.1)** …]» — ⚠ la phrase de p546 s'arrête à «On désigne par» ⟹ **(5.1.1) OUVRE p547** ; ⚠ **LIRE LE SCAN D'ABORD**.
+- **CHECKS #556 → idx560 :** ★★★★**`\simeq` = 140 RESTANTS, sweep DÉSORMAIS ADOSSÉ À UNE PREUVE (1/1 vérifié = FAUX, #556) — MAIS NE PAS BALAYER À L'AVEUGLE : passe page-par-page, CROP + CONTRÔLE «=» sur la même page (méthode #556). ⚠ RÈGLE DE SWEEP CONSOLIDÉE : balayer SEULEMENT si (a) N/N vérifiés unanimes ET (b) population petite/localisée (`\len` 6/6 + 5 usages sur 1 page ⟹ BALAYÉ #555) ; sinon page-par-page (`\simeq` 141 dispersés ; `\longmapsto` 29 ; `\Ob` 25 + 5 défs conflictuelles)** ; ★★★★**`\frac` = SWEEP (2 occ indépendantes prouvées #553/#555 : le livre écrit «( … )/( … )» inline) ⟹ Grep `\\\\frac` + CROPPER** ; ★★★**LES DEUX DIRECTIONS PARTOUT — colons (#556 fix1 vs fix5, MÊME PAGE), virgules (comma-ADD partout vs comma-DROP #556 ×2), traits d'union (#554 vs #555), parens (livre déplace #554 / Codex droppe ×4 #555) ⟹ NE JAMAIS INFÉRER, CROP per-occ** ; ★★★**«(resp. …)» = PARENS + ABRÉGÉ (11 occ) ; Codex met «, respectivement …,» ⟹ CHERCHER tout «respectivement»/«Exposé»/«c'est-à-dire» du workpass** ; ★★★**«Exp XIII» SANS point vs «Exp. IV» AVEC (#550) ⟹ mode ⑰, per-occ** ; ★★★**UN CHECK REPORTÉ N'EST PAS UNE CONSTATATION (#553 |F| ; #556 `\emph{équivalence numérique}` qui n'existait pas) ⟹ RELIRE LE FICHIER **ET** LE SCAN avant d'agir** ; ★★**display-fictif = 17 en 9 pages ⟹ CROPPER CHAQUE display** ; ★★**texte-drop = 7 en 5 pages** ; ★★**product-dots = 13+** ; ★★**book-sic = 17 en 10 pages** ; ★★**parens compte/placement/portée** ; ★**`\epsilon`(68)/`\varepsilon`(26)** ; ★**macros anglaises : `\len` RÉSOLU ; auditer `\Supp`/`\Ker`/`\Im`/`\rg`/`\Frac`/`\red`**.
+
+### #555 (2026-07-15) — idx558 (vol p545 = **Exposé X «- 27 -»**, header «- 27 -» + «X» + footer «545» ; **CONSTANTE_X=518 CONFIRMÉE [545−27]**) — **★★ (4.4.3) + définition du degré n + (4.4.4) + (4.4.5) + congruences + «d'où l'assertion.» (Jussila)** — **7 rep-calls / 16 changements** (bandes b1-b5 TOUTES lues + **9 crops HD dont 3 à 4800dpi, avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (545−27 ; idx=545+13=558 ✓)** ; **(4.4.3) OUVRE la page** (la phrase de p544 pendait à «alors on a» — **CONFIRMÉ**) ; coupure p545/p546 après «d'où l'assertion.». Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ fix1 — PREMIÈRE CORRECTION DE DÉFINITION DE MACRO DU RUN (mode ㉑). LE SWEEP #554 EST RÉSOLU.**
+#554 avait trouvé `\len` = `\operatorname{length}` (L12834) **rendant un mot ANGLAIS** là où le livre imprime «**long**» (français, *longueur*), et n'avait corrigé qu'**UNE** occurrence localement, en signalant la macro comme sweep. **CETTE PAGE TRANCHE :**
+- **Le livre imprime «long» CINQ FOIS DE PLUS sur p545** — `z558_quot` (2400dpi, ×2 dans (4.4.4)), `z558b_congr2` (4800dpi, congruence), + les displays dérivés de (4.4.2) et de 2° (bandes b3/b4) ⟹ **6 occurrences vérifiées sur 6 lisent «long». Le livre est UNANIME.**
+- **ET `\len_` compte EXACTEMENT 5 usages dans tout le fichier (Grep `\\len_`), TOUS SUR CETTE PAGE** (`\\len\b` ne renvoie que la définition elle-même).
+⟹ **la prudence #530 («ne pas toucher une macro partagée sur la foi d'UNE occurrence») NE S'APPLIQUE PLUS** : la macro n'est ni partagée ni incertaine. **UNE ligne corrige les cinq rendus** et tout `\len` futur sera juste. **DÉFINITION CORRIGÉE.**
+- **✓ VÉRIFICATION GLOBALE** : le render-verify balaie les **382 pages** et confirme **«PAGES CONTENANT ENCORE 'length' : []»** ⟹ le mot anglais a **disparu du PDF entier**.
+- ⚠ **LE BUG `\Ob` (#530) N'EST FINALEMENT PAS ANALOGUE** : il a **5 définitions CONFLICTUELLES** et **25 usages** ⟹ le choix des workarounds locaux y reste valable. Les deux cas se ressemblaient seulement.
+- NB le `\operatorname{long}` local de p544 (#554) est laissé tel quel : il rend à l'identique. Redondance mineure, pas la peine de churner une page certifiée.
+
+**⚠⚠⚠ ★★★ fix3 — QUOTIENT INLINE, PAS `\frac` — ET UN CONTRÔLE CROSS-PAGE QUI VALIDE #554 :**
+`z558_quot` (2400dpi) DÉCISIF — (4.4.4) imprime «n = **(long_{O̲_{X,x}} (O̲_{Y,y}))/(long_{O̲_{X,x}} (O̲_{X,x}))** ,» : le livre utilise un **quotient INLINE PARENTHÉSÉ «( … )/( … )»**, pas un `\frac` construit. ⟹ **MÊME MOTIF que #553 fix5 «(1/(α_1! … a_d!))»** ⟹ **le style de division du livre est CONSTANT et le `\frac` de Codex est une re-composition SYSTÉMATIQUE.** Restauré. (Parens 2/2 par facteur = ÉQUILIBRÉES ✓ vérifié.)
+- **⚠⚠ CONTRÔLE CROSS-PAGE POUR #554** : les deux indices lisent ici «O̲_{**X,x**}» — **AVEC le X**, nettement. #554 avait lu celui de p544 comme «O̲_{ ,x}» (un ÉCART là où le X devrait être) et l'avait restauré sic **en signalant le doute**. **CETTE PAGE MONTRE QUE LA FORME NORMALE DU LIVRE EST «O_{X,x}»** ⟹ l'écart de p544 est bien un **X MANQUANT = blanc dactylo non renseigné** (même classe que «(V  )» #549) ⟹ **la restauration sic de #554 était CORRECTE**, et le doute qu'elle loguait est **tranché en sa faveur**.
+
+**⚠⚠⚠ ★★★ QUATRE PAREN-DROPS DE CODEX SUR UNE PAGE (mode ①) :** `z558_dimpar` + `z558_demo` + `z558c_dimfY` DÉCISIFS — le livre imprime **dim(X), dim(Y), dim(f(Y))** **AVEC parens** aux **QUATRE** endroits ; Codex avait écrit `\dim X`, `\dim Y`, `\dim f(Y)` **nus**. Restaurés. (Cohérent avec la règle #546 : des parens suivent ⟹ **PAS** de point abréviatif ⟹ `\dim` nu ✓.)
+
+**⚠⚠ ★★ fix4 — TRAIT D'UNION : LA DIRECTION INVERSE DE #554 :** `z558_demo` DÉCISIF — le livre imprime «le seul **non-trivial**» **AVEC** trait d'union ; Codex avait «non trivial». **⚠ NOTER LA SYMÉTRIE : #554 avait le LIVRE qui droppe un trait d'union («O_X modules») et CODEX qui l'ajoute. Ici le LIVRE a le trait d'union et CODEX le droppe. LES DEUX DIRECTIONS, à deux pages d'écart** ⟹ **la césure se lit AU CROP per-occurrence, jamais par inférence.** + comma-ADD («(4.4.3) le cas», sans virgule).
+
+**⚠⚠ ★★ fix5 — ERREUR DE RÉFÉRENCE (mode ⑧) :** `z558b_ega2` (4800dpi) DÉCISIF — le livre imprime «(EGA III 4.2.2 et EGA IV **5.6.6**)» ; Codex avait «5.**5**.6». **⚠ CONTRÔLE SUR LE MÊME TOKEN** : le «**5**» de tête (barre supérieure plate, ouvert à gauche) et le chiffre litigieux (boucle inférieure fermée + boucle supérieure = **6**) sont des glyphes nettement distincts. **⚠ CORROBORATION** : #550 avait vérifié «EGA IV **5.6**.7» sur p540 — **même famille 5.6.x** (dimension des fibres). Le «5.5.6» de Codex n'appartient à aucune famille pertinente. Restauré.
+
+**⚠⚠ ★★ fix6 — PARENS DÉSÉQUILIBRÉES (4e occurrence) + PARENS DROPPÉES + «modulo» EN TEXTE COURANT :**
+`z558b_congr2` (4800dpi) DÉCISIF — le livre imprime «f_*(cl.(O̲_Y)) ≡ **cl.(f_*(O̲_Y)** ≡ long_{O̲_{X,x}} (O̲_{Y,y})cl.(O̲_{X_red})»
+- **(a)** «f_*(**O̲_Y**)» porte des **PARENS** ; Codex avait «f_*\mathcal O_Y», nu. Restauré.
+- **(b)** «cl.(f_*(O̲_Y)» compte **DEUX ouvrantes / UNE fermante** — une fermante MANQUE. **⚠ CONTRÔLE SUR LA MÊME LIGNE : le membre gauche «f_*(cl.(O̲_Y))» EST équilibré (2/2).** Décisif. ⟹ **4e occurrence de parens déséquilibrées** (après #549, #550, #552). Restauré sic ; les parens simples n'ont pas besoin d'équilibrage en LaTeX math ⟹ **la forme sic COMPILE**.
+- **(c)** `z558_modulo` DÉCISIF : le livre imprime «**modulo** Filt_{d-1}(X)  . En vertu de (4.4.2)…» — **le MOT «modulo», à la marge gauche, en TEXTE COURANT APRÈS le display**. Codex avait `\pmod{\Filt_{d-1}(X)}` **DANS** le display (rendu «(mod …)»). ⟹ **ce n'est PAS un `\pmod` du tout ; la question DEFERRED du `\pmod` ne se pose pas ici.** Le display finit à cl.(O̲_{X_red}) et «modulo Filt_{d-1}(X).» reprend la phrase.
+
+**⚠⚠⚠ ★★★ fix7 — UNE OMISSION DE MA PREMIÈRE PASSE, RATTRAPÉE PAR LE RENDER-VERIFY :** la page rendue montrait encore «dans le cas **dim f(Y ) = d**» (sans parens) alors que les trois autres dims avaient été corrigés. `z558c_dimfY` (3600dpi) DÉCISIF : le livre imprime «**dim(f(Y))** = d». **4e paren-drop de la page.** Restauré + re-compilé + re-vérifié. **⚠⚠ LEÇON : le render-verify n'est PAS une formalité — il a rattrapé une omission que la passe de crops avait laissée passer. LIRE LA PAGE RENDUE EN ENTIER, pas seulement les lignes qu'on avait prévu de changer.**
+
+**7 rep-calls (fix558.py + fix558b.py) :** fix1 **MACRO `\len` → long** ; fix2 parens dim ×3 ; fix3 quotient inline ; fix4 comma-ADD + parens ×3 + «non-trivial» ; fix5 réf 5.5.6→5.6.6 ; fix6 parens f_*(O_Y) + déséquilibrée sic + «modulo» texte ; fix7 parens dim(f(Y)) (omission rattrapée).
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** (4.4.3) «(f^* L̲_1,…,f^* L̲_d ;O_Y) = n(L̲_1,…,L̲_d ;O̲_X) .» (le «;» = authentique #554) ; «Rappelons la définition du degré n de f [3]: il est nul» (l'espace manquant avant «:» = catégorie DEFERRED espacement-du-deux-points-français) ; «où x est le point générique de X et y le point générique de Y .» ; (4.4.5) «R^i f_*(O̲_Y) = 0» ; «pour i > 0 dans un voisinage de x .» ; «Alors 1.1.2 donne les congruences» ; **«D'autre part 2^o donne»** — l'exposant «o» est l'**ordinal français** (2° = l'item 2 de §4.4) ⟹ le `2^\circ` de Codex rend «2°» ✓ **CORRECT** per la règle #551 (en exposant le «o» EST notationnel) ; «En vertu de (4.4.2) il en découle que» ; «d'où l'assertion.» ; le «≡» triple-barre (`z558b_congr2`) ✓ = `\equiv`.
+
+**DEFERRED :** soulignements (L̲_i, O̲, F̲) ; espacement du deux-points français («f [3]:») ; écarts dactylo («L̲_d ;O_Y») ; compte de points des ellipses ; placement des eq-tags ; format des labels enumerate.
+
+- Render-verify doc[292] : «dim(X) = dim(Y ) = dim(f(Y ))» ✓, «n = (**long**OX,x(OY,y))/(**long**OX,x(OX,x))» ✓, «le seul **non-trivial**. Si dim(f(Y )) < d» ✓, «dim(f(Y )) = d, car alors…» ✓, «(EGA III 4.2.2 et EGA IV **5.6.6**)» ✓, «f∗(cl•(OY )) ≡cl•(**f∗(OY )** ≡**long**OX,x(OY,y) cl•(OXred)» ✓, «**modulo** Filtd−1(X). En vertu de (4.4.2)…» ✓, «2◦donne» ✓ — **et «length» sur 0 page / 382** ✓.
+- **CURSEUR → idx559 (vol p546 = Exposé X «- 28 -» [546−518=28] ; footer «546» ; idx=546+13=559 ✓)** — preview workpass L13116+ : «**4.5.** On appelle *équivalence numérique* la relation d'équivalence définie par le produit d'intersection ⟨ , ⟩. / **Définition 4.5.1.** On dit que deux éléments x et y de Gr^i(X), respectivement de Gr_i(X), sont numériquement équivalents s'ils définissent le même homomorphisme [display …]» — ⚠ **LIRE LE SCAN D'ABORD**.
+- **CHECKS #555 → idx559 :** ★★★★**`\frac` = RE-COMPOSITION SYSTÉMATIQUE DE CODEX — le livre écrit des quotients INLINE PARENTHÉSÉS «( … )/( … )» (#553 fix5, #555 fix3, 2 occ indépendantes) ⟹ CHERCHER TOUT `\frac` du workpass et CROPPER ; c'est un SWEEP, comme `\len`** ; ★★★★**MODE ㉑ MACROS — `\len` RÉSOLU (macro corrigée, «length» à 0/382 pages) ; RESTE : `\Ob`→«ob» (#530, 5 défs CONFLICTUELLES + 25 usages ⟹ workarounds locaux, PAS la macro) ⟹ **AUDITER LES AUTRES DÉFS DU PRÉAMBULE** (`\Supp`/`\Ker`/`\Im`/`\rg`/`\Frac`/`\red`/`\codim`) et confronter au livre** ; ★★★**PARENS = 4 drops sur la SEULE p545 + 4e occ déséquilibrée ⟹ vérifier COMPTE + PLACEMENT + PORTÉE per-occ ; `\dim`/`\Supp`/`\Filt` etc. portent des parens au livre bien plus souvent que Codex ne le croit** ; ★★★**TRAIT D'UNION = LES DEUX DIRECTIONS (livre droppe #554 / Codex droppe #555) ⟹ CROP per-occ** ; ★★★**RÉFS : CROPPER CHAQUE «x.y.z» + COMPTER LES CHIFFRES avec un CONTRÔLE sur le MÊME token (5 vs 6 #555 ; 3 vs 8 #549) + CORROBORER avec les réfs voisines déjà vérifiées (EGA IV 5.6.7 #550 ⟹ 5.6.6 #555)** ; ★★★**LE RENDER-VERIFY RATTRAPE LES OMISSIONS (#555 fix7) ⟹ LIRE LA PAGE RENDUE EN ENTIER, pas seulement les lignes visées** ; ★★**«⟨ , ⟩» de 4.5 = chevrons dactylo + VÉRIFIER LE SÉPARATEUR (virgule #552/#553 vs product-dot L15783/L15643) ⟹ CROP** ; ★★**«respectivement» L13119 = mode ⑮ (le livre écrit «resp.») ⟹ CROP** ; ★★**`\emph{équivalence numérique}` = guillemets OU soulignement ? (2 dispositifs DISTINCTS, prouvé #554) ⟹ CROP** ; ★★**display-fictif = 14 en 8 pages** ; ★★**product-dots = 13+** ; ★★**book-sic = 17 en 10 pages** ; ★★**Gr^i vs Gr_i (mode ⑰)** ; ★**`\epsilon`(68)/`\varepsilon`(26)** ; ★**`\longmapsto` 29** ; ★**`\simeq` 141**.
+
+### #554 (2026-07-15) — idx557 (vol p544 = **Exposé X «- 26 -»**, header «- 26 -» + «X» + footer «544» ; **CONSTANTE_X=518 CONFIRMÉE [544−26]**) — **★★ §4.4 (nombre d'intersection) + items 1) 2) 3) 4) + (4.4.1) + (4.4.2) (Jussila)** — **7 rep-calls / 15 changements** (bandes b1-b5 TOUTES lues + **11 crops HD dont 2 à 4800dpi, avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (544−26 ; idx=544+13=557 ✓)** ; coupure p544/p545 **EN PLEINE PHRASE** après «alors on a» ⟹ le display (4.4.3) est sur p545. Compile **0-err, 382pp** ✓.
+
+**⚠⚠⚠⚠ ★★★★ LA QUESTION DE CONTAMINATION DE #553 EST TRANCHÉE — ET ELLE ALLAIT p544 → p543 :**
+`z557_denote` + `z557b_zx` (**4800dpi**) DÉCISIFS — le §4.4 du livre imprime «(L̲_1,…,L̲_d**;** F̲)» et «(L̲_1,…,L̲_d**;** O̲_{Z(x)})» : le **POINT-VIRGULE est bien là** (un point sur une virgule, sans équivoque). ⟹ **la notation «;» est AUTHENTIQUE en §4.4 (p544)** ⟹ **#553 fix7 avait RAISON** : Codex a pris la notation «;F» de **CETTE** page et l'a injectée dans (4.3.4) de **p543**, où le livre imprime en réalité «(c_1(L_1)…c_1(L_d), |F̲| )». **Mode ⑳ CONFIRMÉ, et le SENS est établi : p544 → p543 (notation d'AVAL appliquée EN AMONT).**
+
+**⚠⚠⚠⚠ ★★★★ LA QUESTION GUILLEMETS-vs-SOULIGNEMENT DE #553 EST TRANCHÉE — LES DEUX RÉPONSES SONT SUR CETTE PAGE, À 4 LIGNES D'ÉCART :**
+- bande b1 : «le **nombre d'intersection**» est **SOULIGNÉ, SANS guillemets** ⟹ `\emph{}` est le rendu correct du soulignement ⟹ **DEFERRED, NON corrigé.**
+- `z557_additif` : «et il est **"additif"**» est **entre guillemets dactylo doubles** ⟹ **CORRIGÉ** en «~additif~» (fix4).
+⟹ **LA PAGE PROUVE QUE CE SONT DEUX DISPOSITIFS DISTINCTS** ⟹ **JUGER PER-OCCURRENCE AU CROP, ne JAMAIS inférer l'un depuis l'autre.**
+
+**⚠⚠⚠ ★★★ fix6 — TROIS DÉFAUTS DANS UNE SEULE FORMULE (4.4.1), dont un que la MACRO cause :**
+- **(a) ★★★★ LA MACRO REND UN MOT ANGLAIS** : le livre écrit «**long**» (français, *longueur*) — `z557_eq441` + `z557b_longO` (4800dpi). Le workpass utilise `\len`, et **L12834 définit `\providecommand{\len}{\operatorname{length}}`** ⟹ **ça rend «length», un mot ANGLAIS dans un texte FRANÇAIS.** Corrigé **LOCALEMENT** par `\operatorname{long}` (**précédent `\Ob` #530 : ne pas toucher une macro partagée sur la foi d'UNE occurrence vérifiée**). ⚠⚠ **LA MACRO ELLE-MÊME EST DÉSORMAIS UN CANDIDAT SWEEP — voir CHECKS.**
+- **(b) INDICE** : le livre imprime un **O souligné, puis un ÉCART, puis «,x»** ⟹ «O̲_{,x}». Codex avait «\mathcal O_{**x,X**}» — **ni la forme du livre, NI le standard «O_{X,x}» : c'est TRANSPOSÉ**. Restauré en «\mathcal O_{,x}». ⚠ **INCERTAIN** : l'écart est peut-être un **BLANC NON RENSEIGNÉ** là où le X devrait être (même classe que «(V  )» #549), ou l'abréviation de l'auteur (O̲ = O_X déjà, donc O̲_{,x} = O_{X,x}). **Dans les deux cas «x,X» est faux.** Logué, non tranché.
+- **(c) ★★★ NOTATION CHANGÉE** : le livre imprime «O̲_{**Z(x)**}» — `z557b_zx` (4800dpi) décisif. Codex avait «\mathcal O_{\overline{\{x\}}}» (l'adhérence de {x}). **«Z(x)» est une notation ÉTABLIE du manuscrit (4 occ dans le fichier) et est définie dans le 1.1.2 même que cette phrase cite.** Restauré sic.
+
+**⚠⚠⚠ ★★★ DEUX BOOK-SIC DE PLUS — Codex avait «réparé» les deux :**
+- **fix1 — TRAIT D'UNION DROPPÉ** (mode ⑩+⑫) : `z557_oxmod` DÉCISIF — le livre imprime «des O̲_X **modules** inversibles» — **SANS trait d'union**. **⚠ CONTRÔLE SUR LA MÊME PAGE** : `z557_oymod` montre l'item 3) imprimant «un O_Y**-module**» **AVEC** un trait d'union franc ⟹ **LE LIVRE SE CONTREDIT SUR UNE SEULE PAGE (mode ⑰)**. Restauré sic. **NE JAMAIS uniformiser.**
+- **fix8 — INDICATIF «sont»** (mode ⑫, grammatical) : `z557_sont` DÉCISIF — «Supposons que dans le morphisme … X et Y **sont** irréductibles». La grammaire française après «Supposons que» exige le **SUBJONCTIF «soient»** — exactement ce que Codex avait écrit ⟹ **le livre a mis l'indicatif = BOOK-SIC.** Restauré sic. (Même famille que «ou» sans accent #552.)
+
+**⚠⚠ ★★ AUTRES :** **fix2 DISPLAY-FICTIF #14** — `z557_denote` : «(L̲_1,…,L̲_d; F̲)  (cf. [3] ) . Comme conséquence de l'expression» = **UNE SEULE ligne courante** ; Codex en avait fait un display. **fix3 COMMA-ADD + COLON (mode ③)** — `z557_suiv` : «de ce nombre **on trouve** aussitôt les propriétés suivantes **:**» (Codex : virgule + point). **fix4 ABRÉVIATION-DÉVELOPPÉE (mode ⑮, 9e occ)** : le livre abrège «**i.e.**», Codex avait développé en «c'est-à-dire» + virgule parasite. **fix5 PAREN-RESTORE + LES PARENS ONT ÉTÉ DÉPLACÉES (mode ①, 15e occ)** — `z557_notat` : le livre imprime «immédiatement **(avec les notations de 1.1.2)** :» — **les parens enveloppent le PARENTHÉTIQUE et la référence «1.1.2» est NUE** ; Codex avait écrit «immédiatement**,** avec les notations de **(1.1.2)** :» — **il a DÉPLACÉ les parens du parenthétique vers la référence** et les a remplacées par des virgules. **fix7 PRODUCT-DOTS ×3 + TEXTE-DROP** — `z557_eq442` : «χ(f^*(x)**·**y) = χ( f_*(f^*(x)**·**y)) = χ(x**·**f_*(y)) **(x ∈ K^∘(X), y ∈ K_•(Y))**» ; Codex avait droppé **les 3 dots ET tout le parenthétique final**. (Parens ÉQUILIBRÉES ici, 3/3 — vérifié.)
+
+**7 rep-calls (fix557.py) :** fix1 book-sic trait d'union ; fix2 display-fictif + fix3 comma+colon ; fix4 guillemets + i.e. ; fix5 parens déplacées ; fix6 long + indice + Z(x) ; fix7 product-dots ×3 + texte-drop ; fix8 book-sic «sont».
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «nombre d'intersection» **souligné sans guillemets** ⟹ `\emph{}` correct, soulignement DEFERRED ; le «;» de §4.4 = **AUTHENTIQUE** ; «1) L'entier (4.3.4) est une fonction symétrique et d-linéaire dans les variables L_1,…,L_d ∈ Pic(X), nulle si dim(Supp(F̲)) < d ,» (**«dim(» SANS point abréviatif — règle #546 tient encore**) ; «3) Soit Y un sous-schéma fermé de X et G̲ un O_Y-module cohérent tel que F̲ = f_*(G̲), où f : Y ⟶ X est l'immersion canonique.» ; «Alors on trouve» ; display «(f^* L̲_1,…,f^* L̲_d; G̲) = (L̲_1,…,L̲_d; F̲) .» (**display AUTHENTIQUE ✓**) ; «De façon plus générale, la formule de projection donne en effet» ; «pour tout k-morphisme f : Y ⟶X de k-schémas propres.» ; «Si f est de degré n , alors on a».
+
+**DEFERRED :** soulignements (L̲_i, F̲, G̲, O̲, «nombre d'intersection») ; écart dactylo «(cf. [3] **)**» ; barre parasite au-dessus du Σ ; compte de points des ellipses ; format des labels enumerate ; «Alors on trouve» = peut-être un nouveau ¶ au livre ; placement des eq-tags.
+
+- Render-verify doc[292] : «des OX modules inversibles» ✓, «et on le dénote par (L1, . . . , Ld; F) (cf. [3]). Comme conséquence» ✓ (inline), «de ce nombre on trouve aussitôt les propriétés suivantes :» ✓, «il est « additif » en F i.e. additif en cl•(F) = F.» ✓, «(avec les notations de 1.1.2) :» ✓, «**long**O,x(Fx)(L1, . . . , Ld; O**Z(x)**).» ✓, «χ(f∗(x) · y) = χ(f∗(f∗(x) · y)) = χ(x · f∗(y)) **(x ∈K◦(X), y ∈K•(Y ))**» ✓, «X et Y **sont** irréductibles» ✓.
+- **CURSEUR → idx558 (vol p545 = Exposé X «- 27 -» [545−518=27] ; footer «545» ; idx=545+13=558 ✓)** — preview workpass L13076+ : «[display (4.4.3) (f^*L_1,…,f^*L_d;O_Y) = n(L_1,…,L_d;O_X).] Rappelons la définition du degré n de f [3] : il est nul sauf dans le cas où dim X = dim Y = dim f(Y). Dans ce dernier cas on pose [display (4.4.4) n = …]» — ⚠ **LIRE LE SCAN D'ABORD** ; ⚠ la phrase de p544 s'arrête à «alors on a» ⟹ **(4.4.3) OUVRE p545**.
+- **CHECKS #554 → idx558 :** ★★★★**SWEEP `\len` = `\operatorname{length}` (L12834) — LA MACRO REND UN MOT ANGLAIS ; le livre écrit «long». UNE occurrence vérifiée (#554), corrigée localement. ⟹ COMPTER les occurrences réelles de `\len` et CROPPER 2-3 autres ; si le livre écrit «long» partout, CORRIGER LA MACRO (1 ligne, effet global) plutôt que N workarounds — DÉCISION à prendre. ⚠ MÊME CLASSE que le bug `\Ob` #530 (5 défs lowercase, 25 workarounds locaux) ⟹ les DEUX macros méritent une passe dédiée** ; ★★★★**CHERCHER TOUTE MACRO QUI REND DE L'ANGLAIS dans un texte français (`\len`→length ; vérifier \Supp/\Ker/\Im/\len/\rg/\Frac…) — nouveau mode ㉑** ; ★★★**DISPLAY-FICTIF = 14 en 8 pages ⟹ CROPPER CHAQUE display ; indice : si la ligne du livre CONTINUE ⟹ INLINE** ; ★★★**BOOK-SIC = 15 en 9 pages (trait d'union #554, «sont» #554, c_d/a_d/α/«= d»/«en des» #553, «ou» #552, X maj #552, paren mal placée #552, «−i» #551 …) — Codex les répare TOUS ; ET la direction inverse (P_X #551, cl^∘→c_1 #552, RHS #553, «x,X»+«length»+closure #554) ⟹ CROP + CONTRÔLE MÊME LIGNE/PAGE** ; ★★★**GUILLEMETS vs SOULIGNEMENT = DEUX dispositifs DISTINCTS (prouvé #554, 4 lignes d'écart) ⟹ PER-OCC AU CROP** ; ★★★**PARENS : le livre les DÉPLACE (#554 fix5 : parens sur le parenthétique, réf nue) ⟹ vérifier COMPTE + PLACEMENT + SUR-QUOI-ELLES-PORTENT** ; ★★**PRODUCT-DOTS = 13+ en 6 pages** ; ★★**TEXTE-DROP = 6 en 4 pages (parenthétique (4.4.2) #554)** ; ★★**«Z(x)» = notation ÉTABLIE (4 occ) — Codex la remplace par l'adhérence ⟹ vérifier les 3 autres** ; ★★**«;» dans (…;…) = AUTHENTIQUE §4.4** ; ★★**abréviations «i.e.»/«cf.»/«resp.»/«Exp.» (9 occ)** ; ★★**comma-ADD per-occ** ; ★★**colon (mode ③)** ; ★**`\epsilon`(68)/`\varepsilon`(26) sweep** ; ★**`\longmapsto` 29 restants** ; ★**`\simeq` 141 non vérifiés**.
+
+### #553 (2026-07-15) — idx556 (vol p543 = **Exposé X «- 25 -»**, header «- 25 -» + «X» + footer «543» ; **CONSTANTE_X=518 CONFIRMÉE [543−25]**) — **★★ Prop 4.3.1 + (4.3.2) + Corollaire 4.3.3 + (4.3.4) + Démonstration + (4.3.5) + C.Q.F.D. (Jussila)** — **11 rep-calls / 18 changements** (bandes b1-b5 TOUTES lues + **17 crops HD dont 5 à 3600dpi et 3 à 4800dpi, avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (543−25 ; idx=543+13=556 ✓)** ; coupure p543/p544 après «…C.Q.F.D.» (b5 = blanc + footer). ⚠ **PAGE-COUNT 383→382 : ATTENDU** (5 displays fabriqués repassés en inline) — **gate 0-err TENUE**.
+
+**⚠⚠⚠⚠ ★★★★ RE-VÉRIFICATION DE #552 fix7 — FAITE AVANT TOUTE ÉDITION (et elle TIENT) :**
+p543 utilise «**|F̲|**» (barres + F souligné) **partout et lisiblement**, ce qui **semblait CONTREDIRE** ma lecture #552 de p542 («F = cl.(F̲)», sans barres). **J'ai re-croppé p542 à 4800 dpi :**
+- `zRE_p542_fcl` : «**F** = cl.(F̲) .» — le F de gauche **N'A PAS DE BARRES**. **CONFIRMÉ.**
+- `zRE_p542_posons` : «**L_i** = cl^∘(L̲_i)» — le L_i de gauche **N'A PAS DE BARRES**. **CONFIRMÉ.**
+- `zRE_p543_ouF` : «où **|F̲|** est la classe de F̲ dans Gr_d(X)» — les barres **SONT** là, ici.
+⟹ **#552 fix7 TIENT** (p542 lit bien «L_i = cl^∘(L̲_i) … et F = cl_•(F̲)»).
+⟹ **MAIS LA PRÉDICTION DE CARRY-FORWARD DE #552 ÉTAIT FAUSSE** : j'avais prédit «probablement F nu» sur p543. **NON** — le livre y écrit «|F̲|». **Le `\lvert F\rvert` de Codex est donc LA NOTATION DU LIVRE ICI et doit être GARDÉ.** Le livre emploie simplement **DEUX notations sur DEUX pages** (mode ⑰, cross-page). **LEÇON : une prédiction de carry-forward n'est PAS une constatation — la re-vérifier au scan avant d'agir.**
+⟹ **NON corrigé** : le F entre les barres est souligné au livre, mais **les BARRES portent déjà la distinction Module-vs-classe** ⟹ «|F| est la classe de F dans Gr_d(X)» est **cohérent sans le soulignement** ⟹ soulignement DEFERRED ici. **CONTRASTE p542** : sans le soulignement, «F = cl.(F)» est une absurdité auto-référentielle ⟹ **PORTEUR DE SENS, restauré**. **⟹ PRINCIPE ÉTABLI : restaurer le soulignement UNIQUEMENT là où la phrase est incohérente sans lui.**
+
+**⚠⚠⚠ ★★★ CINQ BOOK-SIC DE PLUS — Codex avait «réparé» les CINQ (record du run) :**
+- **fix3 — «c_d(L_d)»** : `z556_eq432` DÉCISIF — (4.3.2) imprime «< c_1(L_1)^{α_1}....**c_d**(L_d)^{α_d}, |F̲| > ,». **⚠ CONTRÔLE MÊME LIGNE** : «c_**1**(L_1)» — le 1 et le d sont des glyphes nettement distincts. Codex a raison mathématiquement (c_1 = 1re classe de Chern d'un module **inversible** ; c_d(L_d) d'un fibré en droites = 0 pour d≥2). **⚠⚠ ET LE LIVRE SE CONTREDIT SUR LA MÊME PAGE** : le display suivant (`z556_frac`) imprime «c_**1**(L_1)…c_**1**(L_d)» et (4.3.4) (`z556_eq434`) aussi ⟹ **c_d est un lapsus isolé = BOOK-SIC. RESTAURÉ SIC.**
+- **fix5 — «a_d» LATIN** : `z556_frac` DÉCISIF — «(1/(**α_1** ! … **a_d**!))» : le 1er est un **α CURLY**, le 2nd un **a LATIN** — glyphes nettement distincts **SUR LA MÊME LIGNE**. **RESTAURÉ SIC.** (Le check «α vs a» que je portais depuis #552 a payé.)
+- **fix6 — EXPOSANTS ALPHA dans le Corollaire 4.3.3** : `z556b_corsnap2` (3600dpi) DÉCISIF — «χ(L_1^{**α_1**}…L_d^{**α_d**} F)». **⚠ CONTRÔLE : la phrase IDENTIQUE de la Prop 4.3.1 SUR LA MÊME PAGE** (`z556_snapinline`) porte des exposants **n** ⟹ glyphes distincts, la lecture α est authentique. Codex a raison mathématiquement (le Corollaire demande «le coefficient du monôme n_1n_2…n_d **dans** le polynôme de Snapper» — un polynôme **sans n** n'a pas un tel coefficient). **BOOK-SIC. RESTAURÉ SIC.**
+- **fix10 — «α_1+…+α_d = d»** : `z556b_sumcond2` (3600dpi) DÉCISIF — un **«=» à deux barres franches**, là où Codex a `\leq d`. Codex a raison mathématiquement : (1+M_i)^{n_i} se développe sur **tous** les α_i≥0, et mod Filt^{d+1} seuls les termes de somme **≤ d** survivent (M_i ∈ Filt^1) ; «= d» droppe les termes d'ordre inférieur dont la congruence a besoin. **BOOK-SIC. RESTAURÉ SIC.**
+- **fix4 — «en des n_i»** : `z556c_endes` (3600dpi) DÉCISIF. **⚠ CONTRÔLE MÊME LIGNE** : «suivant **les** monômes» est un «les» franc ⟹ «des» est authentique. «en les n_i» est le français plus idiomatique ⟹ **Codex a «amélioré»**. **RESTAURÉ SIC.**
+
+**⚠⚠⚠ ★★★ CINQ DISPLAY-FICTIFS SUR UNE SEULE PAGE (mode ⑯ — record absolu ; total 13 en 7 pages) :** `z556_snapinline` + `z556b_corsnap2` + bandes b3/b4 DÉCISIFS — le livre met **EN LIGNE COURANTE** : (1) «dans le polynôme de Snapper χ(L_1^{n_1}…L_d^{n_d} F) est égal à» ; (2) le même pour le Corollaire 4.3.3 ; (3) «l'entier (4.3.2) est égal à χ(M_1^{α_1}…M_d^{α_d} F) .» ; (4) «Lorsqu'on substitue dans (2.1.4) A = K^∘(X)/Filt^{d+1}(X), I = Filt^1(X)/Filt^{d+1}(X), alors (2.1.5) donne,» ; (5) «Donc le coefficient de (n_1/α_1)…(n_d/α_d) dans le polynôme χ(…)» — **binômes HAUTS posés INLINE**. **Codex en a fait CINQ displays. TOUS repassés en inline** ⟹ **page-count 383→382, attendu.**
+
+**⚠⚠ ★★ fix7 — RHS DE (4.3.4) FABRIQUÉE :** `z556_eq434` DÉCISIF — le livre imprime «… > **= (c_1(L_1)…c_1(L_d), |F̲| )**.» ; **Codex avait «= (c_1(L_1)**,\ldots,**c_1(L_d)**;F**)»** : **VIRGULES** au lieu des product-dots du livre, et «**;F**» au lieu de «**, |F̲|**». **Deux fabrications dans une seule RHS.** RESTAURÉ SIC. (Le livre introduit la notation à parenthèses «( … )» comme **ALIAS** des chevrons — cf. §4.4 p544 «on le dénote par (L_1,…,L_d;F)» ⟹ **⚠ le «;F» de Codex ici est une CONTAMINATION par la notation de §4.4, page suivante.**)
+
+**⚠⚠ ★★ AUTRES :** **fix1 TEXTE-DROP** — `z556b_sigma2` (3600dpi) : le livre a **Σ_{i=1}^{d}** («d» AU-DESSUS, «i=1» EN DESSOUS) ; Codex avait un `\sum_i` nu. **fix8 COLON (mode ③)** — `z556b_demo2` (3600dpi) : «Démonstration **:** Posons» (colon dactylo à deux points) ; Codex «\emph{Démonstration.}» ⟹ forme ÉTABLIE du fichier = `\emph{Démonstration :}` (**4 occ déjà**) ⟹ **5e**. **fix9 PAREN-RESTORE (mode ①, 14e occ)** — `z556_compte` : «donne, **(**compte tenu de ce que M_i ∈ Filt^1(X) pour tout i=1,…,d**)** la congruence» ; Codex avait converti les parens en virgules. **fix11 C.Q.F.D. = VIRGULE (4e occ)** — «χ(M_1^{α_1}…M_d^{α_d} F)**,** C.Q.F.D.». **COMMA-ADD ×3** (fix4 «Donc dans», fix8 «des définitions on trouve», fix9).
+
+**⚠⚠ ★★★ `\binom` — NÉGATIF PROPRE (le critère #541/#544 gagne sa place) :** `z556_binom` (2400dpi) — le display «(n_1/α_1) ….. (n_d/α_d)» a **PARENS HAUTES + n_1 EMPILÉ SUR α_1 + paires SÉPARÉES** = **forme BINOMIALE**. **Le `\binom` de Codex est CORRECT. NON corrigé.** ⟹ le critère a maintenant tranché dans **les deux sens** (PUISSANCES en Def 2.1.1, BINÔMES en (2.1.5) et ici).
+
+**11 rep-calls (fix556.py) :** fix1 limites Σ ; fix2 display-fictif #1 ; fix3 book-sic c_d ; fix4 comma-ADD + «en des» ; fix5 book-sic a_d + (1/(…)) ; fix6 display-fictif #2 + book-sic α ; fix7 RHS fabriquée ; fix8 colon + comma-ADD ; fix9 display-fictif #3+#4 + paren-restore ; fix10 book-sic «= d» ; fix11 display-fictif #5 + C.Q.F.D. virgule.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** `\binom` (voir ci-dessus) ; «|F̲|» barres = notation du livre sur cette page ; «Proposition 4.3.1. Avec les notations ci-dessus, pour toute suite α_1,…,α_d d'entiers positifs» ; «le coefficient de» ; «En particulier on obtient immédiatement le» ; «Corollaire 4.3.3. Le coefficient du monôme n_1n_2…n_d» ; «Posons L_i = 1+M_i pour tout i=1,…,d .» ; structure de (4.3.5) ; «M_i ∈ Filt^1(X)» ; «A = K^∘(X)/Filt^{d+1}(X)» ; «I = Filt^1(X)/Filt^{d+1}(X)».
+
+**DEFERRED :** `\pmod` (le livre imprime «**mod.**Filt^{d+1}(X)» — sans parens, avec point abréviatif) ; soulignements (tout l'énoncé Prop/Cor est souligné = italique ; «Démonstration» ; le F interne de «|F̲|» ; L̲_i/F̲) ; compte de points des ellipses («…..» / «…» / «....») ; écarts dactylo ; formats de titres ; placement des eq-tags.
+
+- Compile **0-err, 382pp** ✓ (gate DUR). Render-verify doc[291] : «avec Σ^d_{i=1} αi = d», «Snapper χ(Ln1_1 · · · Lnd_d F) est égal à» (inline), «c1(L1)α1 · · · **cd**(Ld)αd, |F|», «Donc dans le développement … en **des** ni», «(1/(α1! · · · **ad**!))», «χ(**Lα1**_1 · · · **Lαd**_d F) est égal à» (inline), «= (c1(L1) · · · c1(Ld), |F|)», «Démonstration **:** Posons … des définitions **on trouve**», «est égal à χ(Mα1_1 · · · Mαd_d F). Lorsqu'on substitue dans (2.1.4) A = …, I = …, alors (2.1.5) donne, **(**compte tenu … i = 1, . . . , d**)** la congruence», «α1+···+αd**=**d», «χ(Mα1_1 · · · Mαd_d F)**,** C.Q.F.D.» ✓.
+- **CURSEUR → idx557 (vol p544 = Exposé X «- 26 -» [544−518=26] ; footer «544» ; idx=544+13=557 ✓)** — preview workpass L13067+ : «**4.4.** On appelle parfois l'entier (4.3.4) le *nombre d'intersection* des O_X-modules inversibles L_1,…,L_d avec F, et on le dénote par [display (L_1,…,L_d;F)  (*cf.* [3]).] Comme conséquence de l'expression (4.3.4) de ce nombre, on trouve aussitôt les propriétés suivantes.» — ⚠ **LIRE LE SCAN D'ABORD**.
+- **CHECKS #553 → idx557 :** ★★★★**DISPLAY-FICTIF = 13 en 7 pages, dont 5 sur la SEULE p543 ⟹ CROPPER CHAQUE display ; indice décisif : si la ligne du livre CONTINUE après la formule ⟹ INLINE (le livre pose même des BINÔMES HAUTS en ligne courante)** ; ★★★★**BOOK-SIC MATH = 13 en 8 pages, dont 5 sur la SEULE p543 (c_d, a_d, α-exposants, «= d», «en des») — Codex les «répare» TOUS ⟹ CROP + CONTRÔLE SUR LA MÊME LIGNE ; ET la direction inverse existe (P_X #551, cl^∘→c_1 #552, RHS (4.3.4) #553)** ; ★★★**«(L_1,…,L_d;F)» de §4.4 — VÉRIFIER AU CROP : le «;» y est-il authentique ? #553 fix7 a montré que Codex avait CONTAMINÉ (4.3.4) avec cette notation de la page suivante ⟹ le sens de la contamination est à établir** ; ★★★**`\emph{nombre d'intersection}` (L13068) — #551 : le livre met des GUILLEMETS dactylo que Codex convertit en `\emph{}` ; #552 : ailleurs c'est un SOULIGNEMENT ⟹ CROPPER pour trancher guillemets-vs-soulignement** ; ★★★**«(*cf.* [3])» — abréviation + réf biblio ⟹ CROP (mode ⑮)** ; ★★**PRODUCT-DOTS = 10+ hits ⟹ CROPPER CHAQUE juxtaposition** ; ★★**parens : COMPTE **et** PLACEMENT per-occ** ; ★★**Σ limites** ; ★★**C.Q.F.D. = VIRGULE (4 occ)** ; ★★**colon `\emph{Démonstration :}` (5 occ)** ; ★★**soulignement PORTEUR DE SENS = FIX / DÉCORATIF = DEFERRED (principe #553)** ; ★**`\epsilon`(68)/`\varepsilon`(26) sweep** ; ★**`\longmapsto` 29 restants (sweep PROUVÉ #552)** ; ★**`\simeq` 141 non vérifiés**.
+
+### #552 (2026-07-15) — idx555 (vol p542 = **Exposé X «- 24 -»**, header «- 24 -» + «X» + footer «542» ; **CONSTANTE_X=518 CONFIRMÉE [542−24]**) — **★★ fin §4.1 + Exemple 4.2 (nombres de Chern) + §4.3 début (Jussila) : «que nous noterons [display (x,y) ⟿ < x,y > ∈ Z  (i ∈ Z, x ∈ Gr^i(X), y ∈ Gr_i(X)) .] / Exemple 4.2.  Supposons que le schéma X soit de dimension n . Prenons un élément y ∈ Gr_n(X), par exemple y = cl.(O_Z), ou Z est un sous-schéma intègre de dimension n de X . Prenons aussi un polynôme homogène de poids n [display P ∈ Z [T_1,...,T_n] ,] où T_i est muni du poids i (i=1,...,n), par exemple un monôme T_{i_1}·T_{i_2}····T_{i_k} avec i_1+i_2+...+i_k = n. Lorsqu'on substitue dans P pour chaque variable T_i (i=1,...,n) la classe de Chern [display c_i(x) = cl^∘(γ^i(x-ε(x)) ∈ Gr^i(X)   (x ∈ K^∘(X)) ,] on obtient un élément [display P(c_1(x),....,c_n(X)) ∈ Gr^n(X) .] On appelle nombre de Chern de x relativement à y l'entier [display P_y(x) = < P(c_1(x)),...,c_n(x), y > .] Lorsque y = cl.(O_X) , on omet la mention de y dans la terminologie précédente. / 4.3.  Sans hypothèse sur la dimension de X, considérons une suite L_1,...,L_d de O_X-modules inversibles et un O_X-module cohérent F tel que dim(Supp(F)) ≤ d . Posons L_i = cl^∘(L̲_i)  (i=1,....,d)  et F = cl.(F̲) .»** — **7 rep-calls / 14 changements** (bandes b1-b5 TOUTES lues + **13 crops HD dont 3 à 3600dpi avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (542−24 ; idx=542+13=555 ✓)** ; coupure p542/p543 après «F = cl.(F) .» (b5 = blanc + footer).
+
+**⚠⚠⚠⚠ ★★★★ fix7 — LE DÉFAUT LE PLUS GRAVE DE TOUT LE RUN : CODEX A RÉÉCRIT LA MATHÉMATIQUE.**
+- Crops **`z555_posons` + `z555_fcl` DÉCISIFS** — le livre imprime, **EN INLINE** (la ligne enchaîne sur «et» puis «F = cl.(F̲) .») : «Posons  **L_i = cl^∘(L̲_i)**  (i=1,....,d)  et  **F = cl.(F̲)** .» où les **L_i / F de GAUCHE sont NUS** et ceux **dans cl( ) sont SOULIGNÉS** (= les Modules).
+- **Codex avait écrit un DISPLAY contenant «\ell_i=c_1(L_i)» et «\lvert F\rvert=\cl_\bullet(F)».** ⟹ **TROIS défauts simultanés** : **(a) MATHÉMATIQUE CHANGÉE — `cl^∘(L)` = la CLASSE de L dans K^∘(X) ; `c_1(L)` = la PREMIÈRE CLASSE DE CHERN dans Gr^1(X). OBJETS DIFFÉRENTS.** (b) **DISPLAY-FICTIF** (mode ⑯) — le livre est inline. (c) **RENOMMAGE** L_i→ℓ_i, F→|F|.
+- **⚠ POURQUOI Codex l'a fait** : sans le soulignement, «L_i = cl^∘(L_i)» se lit comme une absurdité auto-référentielle ⟹ Codex a **renommé les membres gauches pour esquiver la collision — et a changé l'opérateur au passage**. **C'est le soulignement supprimé qui a CAUSÉ la faute mathématique.**
+- **⚠⚠ LE SOULIGNEMENT EST ICI PORTEUR DE SENS (1er cas dans Exp X)** : c'est la SEULE chose qui sépare le Module de sa classe ⟹ **restauré avec `\underline{}`** bien que les soulignements **DÉCORATIFS** restent DEFERRED. **PRÉCÉDENT : `\underline P` est déjà utilisé à L12295 dans cette MÊME région pour exactement cette distinction Module-vs-objet ; `\underline` = 235 occ dans le fichier.**
+- **★ Le livre est MATHÉMATIQUEMENT EXACT ici** : les modules inversibles sont localement libres ⟹ leur classe vit dans **K^∘** (anneau contravariant) ; la classe d'un F cohérent vit dans **K_•** (groupe covariant). `z555_posons` montre la marque après «cl» **SURÉLEVÉE** (= ^∘) et `z555_fcl` la montre **SUR LA LIGNE DE BASE** (= _•) — **le contraste entre les deux crops est décisif**.
+- **⚠ CARRY-FORWARD idx556** : «\lvert F\rvert» garde **4 occurrences en aval** (Prop 4.3.1, L13025/13027/13030) ⟹ **à restaurer contre le scan p543**. «\ell_i» n'avait qu'**1** occurrence (celle-ci) ⟹ rien ne casse en aval.
+
+**⚠⚠⚠ ★★★ fix1 — LE SWEEP `\longmapsto` EST DÉSORMAIS ADOSSÉ À UNE PREUVE :** crop **`z555_arrow` (2400dpi) DÉCISIF** — le livre imprime «(x,y) **⟿** < x,y > ∈ Z» : un **SQUIGGLE à tête de flèche** sans équivoque = `\rightsquigarrow`. Codex avait `\longmapsto`. **C'était le PREMIER des 30 `\longmapsto` non vérifiés à être contrôlé, et il était FAUX** ⟹ **le sweep des 29 restants n'est plus spéculatif, il est motivé.** (4e hit ⟿ ; mode ⑭.)
+- ★ **NON-corrigé** : «< x,y >» porte une **VIRGULE** (pas un product-dot) ⟹ `\langle x,y\rangle` est **CORRECT** ; les «<» «>» dactylo sont la substitution-machine des chevrons, **même classe que le «x» pour «×» (#551)**.
+
+**⚠⚠⚠ ★★★ TROIS BOOK-SIC DE PLUS (mode ⑫) — Codex avait «réparé» les trois :**
+- **fix2 — ACCENT MANQUANT** : `z555_ouZ` DÉCISIF — le livre imprime «, **ou** Z est un sous-schéma intègre» **SANS accent grave**. **⚠ CONTRÔLE SUR LA MÊME PAGE, deux lignes plus bas** : `z555_ouTi` montre «**où** T_i est muni du poids i» **AVEC son accent** ⟹ glyphes différents, le livre a bien écrit «ou». **RESTAURÉ SIC.**
+- **fix5 — X MAJUSCULE** : `z555_pcn` DÉCISIF — «P(c_1(x),....,c_n(**X**)) ∈ Gr^n(X)» : l'argument de c_n est un **X de hauteur de capitale**. **⚠ CONTRÔLE SUR LA MÊME LIGNE** : «c_1(**x**)» est nettement de hauteur d'x, «Gr^n(**X**)» de hauteur de capitale — le glyphe litigieux matche **le second**. Codex a raison mathématiquement (c_n s'applique à l'élément x) ⟹ **BOOK-SIC. RESTAURÉ SIC.** (Même famille que f_*(Y) #549.)
+- **fix6 — PARENTHÈSE MAL PLACÉE** : `z555_py` DÉCISIF — «P_y(x) = < P(c_1(x)**)**,....,c_n(x), y >» : **P est fermé juste après c_1(x)**, laissant «,...,c_n(x), y» pendre dans les chevrons. Codex avait écrit la forme CORRECTE «< P(c_1(x),...,c_n(x)), y >». **RESTAURÉ SIC.** ⚠ **ici les parens sont ÉQUILIBRÉES (3/3) — seulement MAL PLACÉES : défaut DISTINCT de fix4.**
+
+**⚠⚠ ★★ fix4 — PARENS DÉSÉQUILIBRÉES, 3e OCCURRENCE :** `z555_chern` (2400) + `z555b_eps` (3600) DÉCISIFS — «c_i(x) = cl^∘**(**γ^i**(**x-ε**(**x**)** **)** ∈ Gr^i(X)» : **TROIS ouvrantes, DEUX fermantes**. Codex avait 3 fermantes. **RESTAURÉ SIC.** ⚠ 3e occ après (3.2.2) #549 et dim( #550 ⟹ **quirk RÉCURRENT mais NON universel** (p541 était équilibrée, #551 ; et fix6 ci-dessus est équilibrée) ⟹ **COMPTER per-occ, ne rien présumer.**
+- ★ **NON-corrigé** : «(x ∈ K^∘(X))» est **ÉQUILIBRÉE** et la lettre est un **K** — `z555b_kcirc` (3600dpi) : hampe verticale + **diagonale supérieure OUVERTE** = K, pas R (contrôle : les lettres de «Gr»/«cl» sur la même ligne) ⟹ matche.
+
+**⚠⚠ ★★ fix3 — QUATRE défauts dans UNE phrase (cf #543) :**
+- **(a) TEXTE-DROP ×2** : le livre imprime «du poids i **(i=1,...,n)**, par exemple» (`z555_ouTi`) ET «pour chaque variable T_i **(i=1,...,n)** la classe de Chern» (`z555_chvar`). **Codex a droppé LES DEUX.** ⟹ **4 texte-drops en 2 pages (#551 ×2, #552 ×2).**
+- **(b) PRODUCT-DOT + T_{i_2} + INDICE k** : `z555b_dot1` (3600dpi) DÉCISIF — le livre imprime «T_{i_1}**·**T_{i_2}····T_{i_**k**}» : **product-dot MI-HAUTEUR** après T_{i_1}, facteur **T_{i_2} ÉCRIT EN TOUTES LETTRES**, et le dernier indice est un **k**. Codex avait «T_{i_1}\cdots T_{i_**r**}» — **droppant T_{i_2} ET changeant k en r**. Idem «i_1+i_2+...+i_**k** = n».
+- **(c) COMMA-ADD ×2** : le livre imprime «Lorsqu'on substitue dans P pour chaque variable T_i … la classe» — **SANS virgules** (`z555_chvar`).
+
+**⚠⚠⚠ ★★★ NOUVEAU SWEEP GLOBAL (NON corrigé) — `\epsilon` vs `\varepsilon` :** `z555b_eps` (3600dpi) lit le glyphe d'augmentation du livre comme un **ε CURLY** (barre médiane visible + deux panses) = `\varepsilon`, alors que le workpass a `\epsilon` (lunate) ici. **MAIS le fichier compte 68 `\epsilon` contre 26 `\varepsilon`** — il n'a **jamais été balayé**, et un appel de glyphe à résolution dactylo est **la lecture la moins sûre de cette page**. **Retourner UNE occurrence ajouterait du bruit, pas de la fidélité** ⟹ **logué comme SWEEP GLOBAL pour une passe dédiée. NON corrigé ici.** (Règle permanente : «\varepsilon=ε».)
+
+**7 rep-calls (fix555.py) :** fix1 ⟿ ; fix2 book-sic «ou» ; fix3 texte-drop ×2 + product-dot + T_{i_2} + indice k + comma-ADD ×2 ; fix4 book-sic parens déséquilibrées ; fix5 book-sic X majuscule ; fix6 book-sic paren mal placée ; fix7 **restauration de la mathématique du livre + inline**.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** «< x,y > ∈ Z  (i ∈ Z, x ∈ Gr^i(X), y ∈ Gr_i(X)) .» (parenthétique + point final ✓) ; «Exemple 4.2. … y ∈ Gr_n(X), par exemple y = cl.(O_Z)» (cl_• ✓, Gr_n indice ✓) ; «un sous-schéma intègre de dimension n de X . Prenons aussi un polynôme homogène de poids n» ; display «P ∈ Z [T_1,...,T_n] ,» (virgule finale ✓ ; écart dactylo Z-crochet DEFERRED) ; «cl^∘»/«γ^i»/«Gr^i(X)»/«(x ∈ K^∘(X)),» ✓ ; «Gr^n(X)» ✓ ; «Lorsque y = cl.(O_X) , on omet la mention de y dans la terminologie précédente.» ✓ ; «4.3. Sans hypothèse … O_X-modules inversibles et un O_X-module cohérent F tel que dim(Supp(F)) ≤ d .» (**module MINUSCULE = Exp X ✓** ; **«dim(» SANS point abréviatif — règle #546 tient encore ✓**).
+
+**DEFERRED sur cette page :** soulignements **décoratifs** (O_Z, O_X, L_1…L_d, F, E ; titre «Exemple» ; «nombre de Chern de» et «relativement à» = **DEUX soulignements distincts**, alors que le workpass a `\emph{nombre de Chern}` — **étendue du soulignement à trancher**) ; ellipse «....» (4 points) ; écarts dactylo ; format des titres.
+
+- Compile **0-err, 383pp** ✓ (gate DUR — ⚠ fix4 laisse une paren **volontairement déséquilibrée** : les parens simples n'ont pas besoin d'équilibrage en LaTeX math, cf #549/#550). Render-verify doc[290] «(x, y) ⇝⟨x, y⟩∈Z» ✓ + doc[291] : «ou Z est un sous-schéma intègre», «poids i (i = 1, . . . , n)», «Ti1 · Ti2 · · · Tik avec i1 + i2 + · · · + ik = n», «dans P pour chaque variable Ti (i = 1, . . . , n)», «ci(x) = cl◦(γi(x −ϵ(x)) ∈Gri(X)», «P(c1(x), . . . , cn(X))», «⟨P(c1(x)), . . . , cn(x), y⟩», «Posons Li = cl◦(Li) (i = 1, . . . , d) et F = cl•(F).» ✓.
+- **CURSEUR → idx556 (vol p543 = Exposé X «- 25 -» [543−518=25] ; footer «543» ; idx=543+13=556 ✓)** — preview workpass : «**Proposition 4.3.1.** Avec les notations ci-dessus, pour toute suite α_1,…,α_d d'entiers positifs avec Σ_i α_i = d, le coefficient de [display \binom{n_1}{α_1}⋯\binom{n_d}{α_d}] dans le polynôme de Snapper [display χ(L_1^{n_1}⋯L_d^{n_d}F)] est égal à [display (4.3.2) ⟨c_1(L_1)^{α_1}⋯c_1(L_d)^{α_d}, |F|⟩,] où |F| est la classe de F dans Gr_d(X). Donc, dans le développement ordinaire de ce polynôme suivant les monômes en les n_i (i=1,…,d), le coefficient du monôme n_1^{α_1}⋯n_d^{α_d} est égal à [display (1/(α_1!⋯α_d!))⟨…⟩]» — ⚠ **LIRE LE SCAN D'ABORD**.
+- **CHECKS #552 → idx556 :** ★★★★**`\lvert F\rvert` = 4 occ EN AVAL (L13025/13027/13030) — HÉRITAGE DIRECT du renommage fabriqué de #552 fix7 ⟹ CROPPER p543 et restaurer la notation du livre (probablement «F» nu + «F̲» souligné) ; c'est la CONTINUATION du défaut le plus grave du run** ; ★★★**`\binom` — critère #541/#544 : `\binom` SEULEMENT si parens HAUTES EMPILÉES ; p543 a `\binom{n_1}{α_1}⋯\binom{n_d}{α_d}` ⟹ CROP OBLIGATOIRE (Def 2.1.1 était des PUISSANCES, (2.1.5) des BINÔMES — les deux existent !)** ; ★★★**PRODUCT-DOTS = 10 hits en 4 pages (#549 ×4, #550 ×2, #551 ×2, #552 ×2) ⟹ CROPPER CHAQUE juxtaposition (p543 en a beaucoup : c_1(L_1)^{α_1}⋯, L_1^{n_1}⋯L_d^{n_d}F)** ; ★★★**TEXTE-DROP = 4 en 2 pages ⟹ COMPARER CHAQUE display jusqu'au dernier symbole + les parenthétiques «(i=1,…,d)»** ; ★★★**BOOK-SIC = 8 en 7 pages (accent, X maj, paren mal placée, parens déséquilibrées ×3, −i, O_X…) ET Codex droppe/réécrit dans l'autre sens (P_X #551, cl^∘→c_1 #552) ⟹ LES DEUX SENS, CROP + CONTRÔLE MÊME LIGNE** ; ★★**parens : compter per-occ (déséquilibrées #549/#550/#552 ; équilibrées #551 + p542-fix6)** ; ★★**Σ_i α_i = d au crop** ; ★★**α vs a** ; ★★**⟨…⟩ = chevrons dactylo < >** ; ★★**cl^∘ vs cl_• (SURÉLEVÉ vs LIGNE DE BASE — méthode #552)** ; ★★**Gr_d indice** ; ★★**soulignement PORTEUR DE SENS (Module vs classe) — si p543 en a, restaurer `\underline{}` comme #552 fix7** ; ★**`\epsilon`/`\varepsilon` sweep** ; ★**ellipse «....»**.
+
+### #551 (2026-07-15) — idx554 (vol p541 = **Exposé X «- 23 -»**, header «- 23 -» + «X» + footer «541» ; **CONSTANTE_X=518 CONFIRMÉE [541−23]**) — **★ (3.3.1) + §3.4 (formule de projection, r=d) + ★★ DÉBUT DE LA SECTION 4 «Nombres d'intersection» + §4.1 + (4.1.1) (Jussila) : «[display (3.3.1) f^* : Gr_•(X) ⟶ Gr_•(X') .] / 3.4.  Supposons enfin que les morphismes (3.2.3) et (3.3.1) soient tous les deux définis pour un morphisme f : X' ⟶X tel que r = d . C'est le cas par exemple si X est quasi-compact avec un O_X-module ample et si X' = P_X(E) , où E est un O_X-module localement libre de rang r+1 . Alors la formule de projection dans la catégorie dérivée donne, pour tout x ∈ Filt^i(X')_Q et y ∈ Filt_j(X)_Q , la formule de projection [display f_*(x·f^*(y)) = f_*(x)·y ∈ Filt_{j+r}(X)_Q .] Lorsque X est noethérien, alors 1.3.2 permet d'en déduire la formule graduée correspondante. / 4.  Nombres d'intersection / 4.1.  Considérons un schéma propre X sur un corps k . En composant le produit (3.1.1) [display Gr^i(X) x Gr_i(X) ⟶ Gr_o(X) = Filt_o(X)   (i ∈ Z)] avec la caractéristique d'Euler-Poincaré [display χ : Filt_o(X) ⟶ Z ,] on obtient un accouplement appelé "nombre d'intersection" : [display (4.1.1) Gr^i(X) x Gr_i(X) ⟶ Z ,]»** — **6 rep-calls / 8 changements** (bandes b1-b5 TOUTES lues + **9 crops HD dont 3 à 3600dpi avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (541−23 ; idx=541+13=554 ✓)** ; **page COURTE** — coupure p541/p542 **juste après (4.1.1)** (b5 = blanc + footer ; «que nous noterons» est sur p542).
+
+**⚠⚠⚠ ★★★ UN 3e BOOK-SIC MATHÉMATIQUE — et une DIRECTION INVERSE le même jour :**
+- **fix3 — «−i» DROPPÉ PAR LE LIVRE, RESTAURÉ PAR CODEX** : crops **`z554_disp` (2400dpi) + `z554b_jr` (3600dpi) DÉCISIFS** — le livre imprime «f_*(x·f^*(y)) = f_*(x)·y ∈ **Filt_{j+r}**(X)_Q .» : l'indice est **«j+r» suivi IMMÉDIATEMENT de «(X)»**, **AUCUN «−i»**. Codex avait écrit `\Filt_{j+r-i}`. **MATHÉMATIQUEMENT Codex a RAISON** : f_* est de degré −r (3.2.2) ⟹ f_*(x) ∈ Filt^{i−r}(X) ; apparié à y ∈ Filt_j(X) ⟹ Filt_{j−(i−r)} = **Filt_{j+r−i}**. ⟹ **le livre a droppé le «−i» = BOOK-SIC**. **RESTAURÉ SIC.** (Même famille que «dans Z» #540, G'/G'' #543, Y #549, O_X #550 — **5 book-sic mathématiques en 6 pages**.)
+  - **⚠ CONTRÔLES sur la MÊME page** : `z554b_filtj` («y ∈ Filt_**j**(X)_Q ,») et `z554b_filti` («x ∈ Filt^**i**(X')_Q  et») — **les deux MATCHENT le workpass** ⟹ le «j» et le «i» sont lus correctement ailleurs sur la page ⟹ la lecture «j+r» n'est pas un artefact de résolution.
+- **fix2 — DIRECTION INVERSE : c'est CODEX qui a droppé un indice** : crop **`z554_pxe` (2400dpi) DÉCISIF** — le livre imprime «X' = **P_X**(E)» : le **P porte un indice X**. Codex avait écrit `\mathbf P(E)` **nu**. ⟹ **mode ⑧ (MATH-ERREUR Codex)**, pas un book-sic. **⚠ LEÇON : sur la MÊME PAGE, le livre lâche un «−i» ET Codex lâche un «_X» — les deux sens de dérive coexistent ⟹ ne JAMAIS présumer la direction de l'erreur.**
+
+**⚠⚠ ★★★ DEUX TEXTE-DROPS de Codex (mode ⑤) :**
+- **fix4** : crop `z554_prod311` DÉCISIF — le livre écrit «En composant le produit **(3.1.1)**» ; **Codex a droppé la référence entière**. («3» ouvert-à-gauche, méthode #549.)
+- **fix5** : crop `z554_grzero` DÉCISIF — le display de 4.1 se termine par «   **(i ∈ Z)**» ; **Codex l'a droppé**. Restauré avec `\qquad` (le livre le détache par un large écart dactylo).
+
+**⚠⚠ ★★ MOTIFS CONFIRMÉS (prédits par les CHECKS #550) :**
+- **★★★PRODUCT-DOTS — 2 hits de plus** («x**·**f^*(y)» et «f_*(x)**·**y», `z554_disp`) ⟹ **8 hits en 3 pages**. Codex met `\,` (thin space) ou rien. **Le sweep `\,`-dans-les-formules reste PRIORITAIRE.**
+- **★★COMMA-ADD ×2** (`z554_parex`) : le livre écrit «C'est le cas **par exemple** si» — **SANS virgules** ; Codex avait mis «, par exemple, ». (mode ④)
+- **★★GUILLEMETS (fix6)** : `z554_quotes` — le livre imprime «accouplement appelé **"nombre d'intersection"** :» avec des **guillemets dactylo doubles** ; Codex les avait convertis en `\emph{}` (italique), **perdant les guillemets**. Restauré en «~…~» (règle permanente `` ''→«~…~»). ⚠ le terme est **AUSSI souligné** au livre → underlines DEFERRED, seuls les guillemets sont restaurés.
+- **★★PARENS ÉQUILIBRÉES ici** : «f_*(x·f^*(y))» compte **2 ouvrantes / 2 fermantes** ✓ ⟹ le quirk des parens déséquilibrées (#549/#550) **ne frappe pas cette page** — c'est bien du **per-occ**, pas une habitude systématique.
+- **★★Q APRÈS la paren** ✓ partout (Filt^i(X')_Q, Filt_j(X)_Q, Filt_{j+r}(X)_Q) — déjà conforme.
+- **★★Filt^i / Filt_j COEXISTENT sur la même page** (exposant = codimension, indice = dimension) — **mode ⑰ re-confirmé, NE PAS uniformiser**.
+
+**⚠⚠⚠ ★★ QUESTION DE POLITIQUE «o» vs «0» (OBSERVÉE, NON corrigée) :** le livre tape «Gr_**o**(X) = Filt_**o**(X)» et «χ : Filt_**o**(X)» avec un **«o» LETTRE (hauteur d'x)**, pas un **«0» CHIFFRE (hauteur de capitale)** — cf `z554_grzero`. **GARDÉ `\Gr_0`/`\Filt_0`.**
+- **RAISON** : la mathématique est **sans ambiguïté** — Gr^i × Gr_i tombe en **degré 0**, et **Gr_0 = Filt_0** précisément parce que Filt_{−1}=0 (pas de support de dimension négative) : c'est exactement l'identité que le livre affirme. Le «o» est une **SUBSTITUTION DE GLYPHE DACTYLO**, exactement comme le «**x**» que ce **MÊME display** tape pour le produit «**×**» — et que le workpass rend (correctement) `\times`. Les substitutions de glyphe machine, là où la math est univoque, sont des **artefacts de transcription**, pas la notation de l'auteur.
+- **⚠ CONTRASTE À NE PAS PERDRE** : en position **EXPOSANT**, le «o» **EST** notationnel (K^o = K^∘, le K-groupe naïf, cf #520) ⟹ ceci est une lecture **INDICE-seulement**. **Si une décision globale «o/0/∘» s'ouvre, ce contraste exposant-vs-indice est le pivot.**
+
+**6 rep-calls (fix554.py) :** fix1 comma-ADD ×2 «par exemple» ; fix2 indice `\mathbf P_X(E)` ; fix3 product-dots ×2 + book-sic `\Filt_{j+r}` ; fix4 réf «(3.1.1)» restaurée ; fix5 «(i ∈ Z)» restauré ; fix6 guillemets.
+
+**NON-CORRIGÉ (crop-vérifié = scan) :** (3.3.1) «f^* : Gr.(X) ⟶ Gr.(X') .» (Gr. = Gr_• = `\Grb` ✓ + point final ✓) ; «soient tous les deux définis … tel que r = d .» ; «O_X-module ample» / «O_X-module localement libre de rang r+1 .» (**module minuscule = Exp X ✓**) ; «donne, pour tout … , la formule de projection» (**les deux virgules AUTHENTIQUES**) ; «Lorsque X est noethérien, alors **1.3.2** permet d'en déduire la formule graduée correspondante.» (**1.3.2 SANS parens** — matche) ; «4. Nombres d'intersection» (titre souligné — format DEFERRED) ; «4.1. Considérons un schéma propre X sur un corps k .» ; «avec la caractéristique d'Euler-Poincaré» ; «χ : Filt_o(X) ⟶ Z ,» (virgule finale ✓) ; (4.1.1) «Gr^i(X) x Gr_i(X) ⟶ Z ,» (virgule finale ✓).
+
+**DEFERRED sur cette page :** soulignements (E souligné dans P_X(E) ; titre «Nombres d'intersection» ; «nombre d'intersection») ; format des titres §4 / §4.1 ; `\to` inline («f : X' ⟶X») ; écarts dactylo.
+
+- Compile **0-err, 383pp** ✓ (gate DUR). Render-verify doc[290] : «C'est le cas par exemple si», «X′ = PX(E)», «f∗(x · f∗(y)) = f∗(x) · y ∈Filtj+r(X)Q.», «le produit (3.1.1)», «(i ∈Z)», «« nombre d'intersection »» ✓.
+- **CURSEUR → idx555 (vol p542 = Exposé X «- 24 -» [542−518=24] ; footer «542» ; idx=542+13=555 ✓)** — preview workpass : «que nous noterons [display (x,y) ⟿ ⟨x,y⟩ ∈ Z  (i ∈ Z, x ∈ Gr^i(X), y ∈ Gr_i(X)).]» puis «**Exemple 4.2.** Supposons que le schéma X soit de dimension n . Prenons un élément y ∈ Gr_n(X), par exemple y = cl_•(O_Z), où Z est un sous-schéma intègre de dimension n de X . Prenons aussi un polynôme homogène de poids n [display P ∈ Z[T_1,…,T_n] …]» — ⚠ **LIRE LE SCAN D'ABORD**.
+- **CHECKS #551 → idx555 :** ★★★**PRODUCT-DOTS = 8 hits en 3 pages ⟹ CROPPER CHAQUE juxtaposition** (⚠ «⟨x,y⟩» vs «⟨x·y⟩» : le livre écrit «⟨b.a_1⟩» ailleurs (L15783) ⟹ **la virgule DANS les crochets est à vérifier au crop**) ; ★★★**⟿ vs ↦ — `\longmapsto` = 30 occ NON VÉRIFIÉES et le display de p542 en contient une ⟹ CROP HD OBLIGATOIRE** (le livre met des ⟿) ; ★★★**TEXTE-DROP — 2 droppés sur la seule p541 ((3.1.1), (i ∈ Z)) ⟹ COMPARER CHAQUE display jusqu'au dernier symbole, y compris les parenthétiques détachés par un écart dactylo** ; ★★★**BOOK-SIC math — 5 en 6 pages, ET Codex droppe aussi des indices (P_X) ⟹ les DEUX SENS coexistent, CROP + CONTRÔLE sur la MÊME ligne** ; ★★**o-vs-0 en INDICE (Gr_o/Filt_o/Gr_n) ⟹ appliquer la lecture #551 (glyphe machine), mais CROPPER si un EXPOSANT «o» apparaît (là c'est ∘ notationnel)** ; ★★**guillemets dactylo «"…"» ⟹ «~…~», Codex les convertit en `\emph{}`** ; ★★**virgules per-occ** ; ★★**Q après la paren** ; ★★**cl_• vs cl^∘**.
+
+### #550 (2026-07-15) — idx553 (vol p540 = **Exposé X «- 22 -»**, header «- 22 -» + «X» + footer «540» ; **CONSTANTE_X=518 CONFIRMÉE [540−22]**) — **★ (3.2.3) + formule de projection graduée + §3.3 (Tor-dimension finie) (Jussila) : «Par passage aux gradués associés dans (3.2.1) et (3.2.2) on obtient un homomorphisme de degré -r : [display (3.2.3) f_* : Gr^∘(X')_Q ⟶ Gr^∘(X)_Q] et grâce à (1.3.2) une formule de projection graduée [display f_*(f^*(x)·y) = x·f_*(y)  (x ∈ Gr^∘(X)_Q , y ∈ Gr^∘(X')_Q) .] / 3.3.  Considérons enfin un morphisme f : X' ⟶ X de Tor-dimension finie de schémas noethériens. Alors on sait (Exp. IV) que f induit un homomorphisme [display f^* : K_•(X) ⟶ K_•(X')] tel que [display f^*(cl_•(F)) = Σ_i (-1)^i cl_•( Tor_i^{O_X}(F,O_{X'}))] pour tout O_X-module cohérent F . / Les O_X-modules Tor_i^{O_X}(F,O_{X'}) sont concentrés sur f^{-1}(Supp(F)) et lorsque les fibres de f sont partout de dimension ≤ d , alors on sait (EGA IV 5.6.7) que [display dim(f^{-1}(Supp(F)) ≤ dim(Supp(F)) + d .] Il s'ensuit que f induit pour tout k ∈ Z un homomorphisme [display f^* : Filt_k(X) ⟶ Filt_{k+d}(X') ,] d'où un homomorphisme de degré d de groupes abéliens gradués»** — **5 rep-calls / 8 changements** (bandes b1-b5 TOUTES lues + **7 crops HD dont 2 à 3600dpi avec CONTRÔLES**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (540−22 ; idx=540+13=553 ✓)** ; coupure p540/p541 après «…de groupes abéliens gradués» (le display (3.3.1) est sur p541).
+
+**⚠⚠⚠ ★★★ DEUX BOOK-SIC MATHÉMATIQUES DE PLUS — Codex avait « réparé » les deux :**
+- **fix4 — PRIME DROPPÉ PAR LE LIVRE** : crop **`z553b_ox` (3600dpi) DÉCISIF** — le livre imprime «Les **O_X**-modules Tor_i^{O_X}(F,O_{X'})» : le **1er indice est un X NU, SANS PRIME**. **⚠ CONTRÔLE SUR LA MÊME LIGNE** : le «**O_{X'}**» à l'intérieur du Tor **PORTE nettement son prime** ⟹ les deux glyphes diffèrent, le livre a bien écrit **O_X**. **MATHÉMATIQUEMENT Codex a RAISON** (Tor_i^{O_X}(F,O_{X'}) **EST** un O_{X'}-module) ⟹ **le livre a droppé le prime = BOOK-SIC**, Codex l'avait silencieusement ajouté. **RESTAURÉ SIC.** (Même famille que G'/G'' #543, Y majuscule #549.)
+- **fix5 — PARENTHÈSES DÉSÉQUILIBRÉES** : crop **`z553c_dimf` (2400dpi) DÉCISIF** — le livre imprime «**dim(**f^{-1}**(**Supp**(**F**))** ≤ dim(Supp(F)) + d .» : le membre gauche compte **TROIS ouvrantes et DEUX fermantes** ⟹ **une fermante MANQUE**. (Le membre droit «dim(Supp(F))» est **équilibré** ✓.) Codex avait **supprimé la paren après le 1er `\dim`** pour équilibrer. **RESTAURÉ SIC.** ⚠ **2e occurrence du motif « parens déséquilibrées »** après (3.2.2) #549 ⟹ **quirk RÉCURRENT de l'auteur**. ⚠ les parens **simples** `( )` n'ont pas besoin d'être équilibrées en LaTeX math ⟹ **la forme sic COMPILE** (gate 0-err ✓).
+  - ★ **Bonus : la règle #546 est re-confirmée** — les **DEUX** «dim(» de ce display sont **SANS point abréviatif** (des parenthèses suivent) ⟹ **`\dim` nu est CORRECT ici, PAS `\dimdot`**.
+
+**5 rep-calls (fix553.py) :**
+- **fix1** — «(3.2.2)**,** on obtient … de degré $-r$» → «(3.2.2) on obtient … de degré $-r$ **:**» (★comma-ADD ; crop `z553_virg` : **pas** de virgule après «(3.2.2)» + ★★**COLON avant le display** ; crop `z553_colon` DÉCISIF : «de degré -r **:**». **colons-before-displays = catégorie NON déférée**).
+- **fix2** — **PRODUCT-DOTS ×2** (mode ⑱) : `f_*\bigl(f^*(x)y\bigr)=x\,f_*(y)` → `f_*\bigl(f^*(x)\cdot y\bigr)=x\cdot f_*(y)` (crop `z553_disp` 2400dpi DÉCISIF). ⚠ **Ici les parens sont ÉQUILIBRÉES** («f_*(f^*(x)·y)», une seule ouvrante) ⟹ **confirme que le «((» de (3.2.2) p539 (#549) était bien un lapsus PONCTUEL** et non une graphie systématique. ★ **Les indices Q APRÈS les parens (`\Gro(X)_{\mathbb Q}`) MATCHENT déjà** — pas de fix (Codex correct ici).
+- **fix3** — «(Exposé IV)» → «(**Exp. IV**)» (★★**abréviation développée, mode ⑮ — 8e occ #547-#550** ; crop `z553_expIV`).
+- **fix4/fix5** — voir bloc dédié. (fix4 inclut aussi un ★comma-ADD : «sur f^{-1}(Supp(F)) **et lorsque**» — pas de virgule au livre, crop `z553b_virg`.)
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH.** Vérifiés au crop : **(3.2.3)** «f_* : Gr^∘(X')_Q ⟶ Gr^∘(X)_Q» — **Q APRÈS les parens** ⟹ **Codex CORRECT ici** (contraste #549 où il avait mis Q avant sur (3.2.1)) ✓ ; «et grâce à (1.3.2) une formule de projection graduée» ✓ ; «(x ∈ Gr^∘(X)_Q , y ∈ Gr^∘(X')_Q)» ✓ ; «3.3. Considérons enfin un morphisme f : X' ⟶ X de Tor-dimension finie de schémas noethériens» ✓ ; «f^* : K_•(X) ⟶ K_•(X')» ✓ ; «tel que» ✓ ; display «f^*(cl_•(F)) = Σ_i (-1)^i cl_•( Tor_i^{O_X}(F,O_{X'}))» ✓ ; «pour tout O_X-module cohérent F .» ✓ ; «(EGA IV 5.6.7)» ✓ ; «Il s'ensuit que f induit pour tout k ∈ Z un homomorphisme» ✓ ; «f^* : **Filt_k**(X) ⟶ **Filt_{k+d}**(X') **,**» (**Filt_k INDICE** ✓ + virgule finale **présente au livre** = workpass ✓) ; «d'où un homomorphisme de degré d de groupes abéliens gradués» ✓ ; **f^*(exposant-star)/f_*(indice-star) DISTINCTS** ✓ ; **Gr^∘/Gr_• + cl_• DISTINCTS** ✓.
+
+**DÉFÉRÉ :** soulignements ; formats de titre ; espaces dactylo.
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; la forme à parens déséquilibrées compile ✓ ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf553.py` → doc[289-290]) : «Par passage aux gradués associés dans (3.2.1) et **(3.2.2) on obtient** un homomorphisme de degré **−r :**» ✓ ; «f∗: Gr◦(X′)_Q −→Gr◦(X)_Q  (3.2.3)» ✓ ; «f∗(**f∗(x) · y**) = **x · f∗(y)**» ✓ (product dots) ; «Alors on sait **(Exp. IV)** que f induit un homomorphisme» ✓ ; «Les **OX**-modules Tor^{OX}…» ✓ (**prime droppé, sic**) ; «f−1(Supp(F)) **et lorsque** les fibres…» ✓ ; «**dim(f−1(Supp(F))** ≤dim(Supp(F)) + d.» ✓ (**paren en trop, sic**).
+
+**SWEEP CURSOR → idx554** (vol p541 = **Exposé X «- 23 -»** [541−518=23] ; footer «541» ; idx=541+13=554 ✓). **Preview (L12953+, à VÉRIFIER au scan — lecture partielle)** : **[display (3.3.1) f^* : Gr_•(X) ⟶ Gr_•(X')]** puis «Supposons enfin que les morphismes (3.2.3) et (3.3.1) soient tous les deux définis …» + suite. ⚠⚠ **CHECKS idx554** : ★★★**PRODUCT-DOTS — 6 hits en 2 pages (#549 ×4, #550 ×2) ⟹ CROPPER CHAQUE juxtaposition** ; ★★★**PARENS DÉSÉQUILIBRÉES = quirk RÉCURRENT de l'auteur (2 occ : (3.2.2) #549, dim( #550) ⟹ COMPTER les parens de CHAQUE formule** ; ★★★**PRIME/CASSE — le livre droppe des primes (O_X #550), met des majuscules (Y #549) ; Codex répare ⟹ CROP + CONTRÔLE sur la MÊME ligne** ; ★★★**abréviations «Exp.»/«(resp. …)» (8 occ #547-#550) ⟹ CHERCHER «Exposé»/«respectivement» du workpass** ; ★★★**réfs droppées/changées ((1.3.1) #548 ; 1.1.3→1.1.8 #549) ⟹ VÉRIFIER CHAQUE «(x.y.z)» + COMPTER les chiffres avec CONTRÔLE** ; ★★**colon avant display (#550) + comma-ADD parasite** ; ★★**Gr_•/Gr^∘ + Filt_k/Filt^k exposant-vs-indice — CROP per-occ** ; ★★display-FICTIF (7 en 5 pages) ; ★★mode ⑭ flèches/relations ; ★★paren-restore (13 occ) ; ★eq-tag.
+
+**CHECKS #550** : header «- 22 -» ✓ + «X» ✓ + footer «540» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p540 LISIBLE ; **bandes b1-b5 TOUTES lues** ; 5 rep-calls tous `assert`+unicité OK ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** **★★★ sweep ≅-vs-≃ (2 occ confirmées ; 141 `\simeq` NON VÉRIFIÉS)** ; **★★★ sweep `\longmapsto` (30 occ ; le livre met des ⟿)** ; **★★★ sweep ABRÉVIATIONS «respectivement»/«Exposé» (8 occ corrigées #547-#550)** ; **★★★ #549/#550 : PRODUCT-DOTS — le livre en met là où Codex met `\,` ou rien (6 occ en 2 pages) ⟹ sweep `\,` dans les formules** ; **★★ #549/#550 : PARENS DÉSÉQUILIBRÉES = quirk auteur récurrent (2 occ) — compter les parens** ; **#543 ★★★ QUATRE book-sic math p533 → ERRATA de premier plan** ; **`\Ob` = 5 défs lowercase (bug #530) — FIX GLOBAL de L1697 à décider** ; **#547 : soulignement ONDULÉ vs DROIT sur Pic_{X/k} = FONCTEUR vs SCHÉMA** ; **#548 : `\usetikzlibrary{arrows}` au préambule (page-count inchangé ⟹ inerte)** ; **#549 : «(V  )» écart = BLANK non renseigné ?** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits ; #540+#542+#544 display trailing-punct (#509) ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/§ formats ; Σ/tikz LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; blackboard-vs-plain ; ref-spacing ; subscript-comma.
+
+### #549 (2026-07-15) — idx552 (vol p539 = **Exposé X «- 21 -»**, header «- 21 -» + «X» + footer «539» ; **CONSTANTE_X=518 CONFIRMÉE [539−21]**) — **★★ fin 3.1 + (3.1.2) + 3.2 + (3.2.1) + (3.2.2) (Jussila) : «Gr_•(X) devient ainsi un module sur l'anneau Gr^∘(X) (et même un module gradué sur l'anneau gradué Gr^∘(X), à condition de changer de signe la graduation de Gr_•(X) en posant Gr^i_•(X) = Gr_{-i}(X) (i ∈ Z)). / Considérons maintenant un morphisme propre [display f : X' ⟶ X] de schémas noethériens. Alors f induit un homomorphisme [display f^*: Gr^∘(X) ⟶ Gr^∘(X')] d'anneaux gradués (V  ), et d'après 1.1.8 un homomorphisme [display f_* : Gr_•(X') ⟶ Gr_•(X)] de groupes abéliens gradués. Alors la formule de projection (IV 2.11) et (3.1.1) donnent par passage aux gradués associés la formule de projection graduée [display (3.1.2) x·f_*(y) = f_*(f^*(x)·y)  (x ∈ Gr^∘(X), y ∈ Gr_•(X')) .] / 3.2.  Soit f : X'⟶X un morphisme projectif d'intersection complète (Exp. VIII) et de dimension virtuelle r de schémas noethériens, X ayant un O_X-module inversible ample. Dans Exp.VIII on a démontré que f induit un homomorphisme [display (3.2.1) f_* : Filt^k(X')_Q ⟶ Filt^{k-r}(X)_Q  (k ∈ Z)] qui satisfait d'ailleurs à la formule de projection (Exp. IV) : [display (3.2.2) f_*((f^*(x)·y) = x·f_*(Y)  (x ∈ K^∘(X)_Q , y ∈ K^∘(X')_Q) .]»** — **9 rep-calls / 14 changements** (bandes b1-b5 TOUTES lues + **10 crops HD dont 3 à 3600dpi + contrôles**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (539−21 ; idx=539+13=552 ✓)** ; coupure p539/p540 après (3.2.2).
+
+**⚠⚠⚠ ★★★ RÉFÉRENCE MATH CHANGÉE PAR CODEX : le livre dit « 1.1.8 », Codex a mis « 1.1.3 » :**
+- **fix2, crop `z552b_digit` (3600dpi) DÉCISIF** : le dernier chiffre présente **DEUX BOUCLES FERMÉES SUPERPOSÉES** = **8**.
+- **⚠ CONTRÔLE `z552b_ctl311` (MÊME page)** : «et (**3**.1.1) donnent» — ce **3 est franchement OUVERT À GAUCHE**, forme totalement distincte. ⟹ **le livre imprime bien 1.1.8** ; Codex avait **1.1.3**. **RESTAURÉ SIC** (mode ⑫ mathématique ; cf. «dans Z» #540, superscript Pic^0 #547).
+
+**⚠⚠⚠ ★★★ (3.2.2) — TROIS traits du livre dans UNE formule, tous « réparés » par Codex :**
+- **crop `z552d_eq322zoom` (2400dpi) DÉCISIF** : le livre imprime «f_*(**(**f^*(x)**·**y) = x**·**f_*(**Y**)» :
+  - **(a) PARENTHÈSE EN TROP** : «((» ⟹ **parenthèses NON ÉQUILIBRÉES** (3 ouvrantes, 2 fermantes) = **BOOK-SIC**. Codex avait équilibré (`\bigl…\bigr`).
+  - **(b) «f_*(Y)» avec un Y MAJUSCULE** : le «y» de «·y» **juste avant** porte une **hampe descendante**, celui-ci **N'EN A PAS** et est de hauteur de capitale ⟹ **BOOK-SIC** (la math veut y minuscule). Codex avait minusculé.
+  - **(c) PRODUCT-DOTS ×2** (mi-hauteur).
+  - ⟹ **RESTAURÉS SIC tous les trois.** ⚠ NB : les parenthèses **simples** `( )` n'ont pas besoin d'être équilibrées en LaTeX math (contrairement à `\bigl…\bigr`) ⟹ **la forme déséquilibrée compile** (gate 0-err confirmée).
+
+**⚠⚠⚠ ★★★ ABRÉVIATIONS DÉVELOPPÉES (mode ⑮) — TROIS DE PLUS SUR CETTE SEULE PAGE :**
+- «**(Exp. VIII)**» (`z552c_exp8a`) ← Codex «(Exposé VIII)» ; «**Dans Exp.VIII**» (`z552c_exp8b`) ← Codex «Dans l'Exposé VIII» ; «**(Exp. IV)**» (`z552d_expIV`) ← Codex «(Exposé IV)».
+- ⟹ **motif #547/#548 CONFIRMÉ et généralisé** : **Codex développe systématiquement les abréviations du livre** («(resp. …)» ×4 #547 ; «Exp.» ×4 au total #548+#549). **Sweep «Exposé»/«respectivement» = carry-back ACTIF.**
+
+**9 rep-calls (fix552.py) :**
+- **fix1** — **paren-restore + display→INLINE** (modes ① + ⑯) : crop `z552_paren` DÉCISIF — le livre a «…Gr^∘(X) **(**et même … en posant **Gr^i_•(X) = Gr_{-i}(X) (i ∈ Z)**)**.» — clause **PARENTHÉSÉE** et formule **INLINE** (le «**))**.» final est décisif). Codex : **virgule** + **display fabriqué**. **Double défaut identique à #547.**
+- **fix2** — «1.1.3» → «**1.1.8**» (voir bloc dédié).
+- **fix3** — «donnent**,** par passage aux gradués associés**,** la formule» → «donnent par passage aux gradués associés la formule» (★comma-ADD ×2 ; crop `z552_proj`).
+- **fix4** — **(3.1.2) PRODUCT-DOTS ×2** : `x\,f_*(y)=f_*\bigl(f^*(x)y\bigr)` → `x\cdot f_*(y)=f_*\bigl(f^*(x)\cdot y\bigr)` (crop `z552c_eq312` 2400dpi : dots **MI-HAUTEUR**, à distinguer des **points de base** de «(3.1.2)» sur la même ligne — règle #539).
+- **fix5/6/8** — abréviations (voir bloc dédié).
+- **fix7** — **(3.2.1) PLACEMENT DE L'INDICE** : crop `z552d_eq321` DÉCISIF — le livre imprime «**Filt^k(X')_Q** ⟶ **Filt^{k-r}(X)_Q**», indice **Q APRÈS la parenthèse fermante** ; Codex avait `\Filt^k_{\mathbb Q}(X')` = Q **AVANT**. **Symbole différent** ⟹ restauré à la forme du livre.
+- **fix9** — **(3.2.2)** (voir bloc dédié).
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH.** Vérifiés au crop : «Considérons maintenant un morphisme propre» ✓ ; «f : X' ⟶ X» ✓ ; «de schémas noethériens. Alors f induit un homomorphisme» ✓ ; «f^*: Gr^∘(X) ⟶ Gr^∘(X')» ✓ ; «f_* : Gr_•(X') ⟶ Gr_•(X)» ✓ ; «(IV 2.11)» ✓ ; «(x ∈ Gr^∘(X), y ∈ Gr_•(X'))» ✓ ; «de dimension virtuelle r … O_X-module inversible ample» ✓ ; «(k ∈ Z)» ✓ ; «(x ∈ K^∘(X)_Q , y ∈ K^∘(X')_Q)» ✓ ; **Gr^∘/Gr_• + Gr^i/Gr_j + Gr^i_•/Gr_{-i} exposant-vs-indice DISTINCTS** ✓ ; **f^*(exposant-star)/f_*(indice-star) DISTINCTS** ✓.
+
+**⚠ DÉFÉRÉ — CONSIGNÉ : «(V  )»** — le livre laisse un **ÉCART à l'intérieur des parenthèses** (`z552_ref`), possiblement un **numéro de référence non renseigné** (BLANK délibéré) OU un simple espacement dactylo. **Ambigu ⟹ NON corrigé**, consigné (catégorie « écarts typewriter larges »). ⚠ À re-cropper si le motif «(V …)» réapparaît. Aussi déféré : ponctuation finale de display ((k ∈ Z) sans virgule au livre, «,» au workpass — catégorie #509) ; soulignements ; formats de titre.
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; la forme à parenthèses déséquilibrées de (3.2.2) compile ✓ ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf552.py` → doc[289]) : «Gr•(X) devient ainsi un module sur l'anneau Gr◦(X) **(et même** un module gradué sur l'anneau gradué Gr◦(X), à condition de changer de signe la graduation de Gr•(X) en posant **Gr^i_•(X) = Gr−i(X) (i ∈Z))**.» ✓ (inline + parens) ; «d'anneaux gradués (V), et d'après **1.1.8** un homomorphisme» ✓ ; «…(3.1.1) **donnent par passage aux gradués associés la formule** de projection graduée» ✓ ; «**x · f∗(y) = f∗(f∗(x) · y)**» ✓ (product dots) ; «(Exp. VIII)» ✓ ; «Dans **Exp.VIII**» ✓ ; «f∗: **Filt^k(X′)_Q** −→**Filt^{k−r}(X)_Q**» ✓ ; «(**Exp. IV**) :» ✓ ; «**f∗((f∗(x) · y) = x · f∗(Y )**» ✓ (paren en trop + Y majuscule + dots).
+
+**SWEEP CURSOR → idx553** (vol p540 = **Exposé X «- 22 -»** [540−518=22] ; footer «540» ; idx=540+13=553 ✓). **Preview (L12931+, à VÉRIFIER au scan — lecture partielle)** : suite de **3.2** — après (3.2.2), vraisemblablement passage aux gradués + formule de projection graduée pour f_* (3.2.3 ?). ⚠⚠ **CHECKS idx553** : ★★★**PRODUCT-DOTS — 2 hits en (3.1.2) + 2 en (3.2.2) sur la SEULE p539 ⟹ CROPPER CHAQUE juxtaposition x·y / f^*(x)·y (mi-hauteur = `\cdot` ; base = point abréviatif #539)** ; ★★★**abréviations «Exp.»/«(resp. …)» — Codex les développe (7 occ #547-#549) ⟹ CHERCHER «Exposé»/«respectivement» du workpass** ; ★★★**display-FICTIF (6 en 4 pages) ⟹ CROPPER CHAQUE display** ; ★★★**réfs droppées/changées ((1.3.1) droppée #548 ; 1.1.3→1.1.8 #549) ⟹ VÉRIFIER CHAQUE «(x.y.z)» au CROP + COMPTER les chiffres (contrôle 3-vs-8 sur la même page)** ; ★★★**book-sic : parens déséquilibrées + casse (Y/y) — Codex répare ⟹ NE JAMAIS présumer Codex correct** ; ★★**placement d'indice (Filt^k(X')_Q vs Filt^k_Q(X') #549) — CROP** ; ★★mode ⑭ TOUTE flèche/relation ; ★★paren-restore (13 occ) ; ★★comma per-occ ; ★★colon ; ★★¶-indent ; ★eq-tag.
+
+**CHECKS #549** : header «- 21 -» ✓ + «X» ✓ + footer «539» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p539 LISIBLE ; **bandes b1-b5 TOUTES lues** ; 9 rep-calls tous `assert`+unicité OK ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** **★★★ sweep ≅-vs-≃ (2 occ confirmées ; 141 `\simeq` NON VÉRIFIÉS)** ; **★★★ sweep `\longmapsto` (30 occ ; le livre met des ⟿)** ; **★★★ #547-#549 sweep ABRÉVIATIONS : «respectivement»/«Exposé» du workpass là où le livre abrège (7 occ corrigées)** ; **★★ #549 : product-dots — le livre en met là où Codex met `\,` ou rien (4 occ sur 1 page !) ⟹ sweep `\,` dans les formules ?** ; **#543 ★★★ QUATRE book-sic math p533 → ERRATA de premier plan** ; **`\Ob` = 5 défs lowercase (bug #530) — FIX GLOBAL de L1697 à décider** ; **#547 : soulignement ONDULÉ vs DROIT sur Pic_{X/k} = FONCTEUR vs SCHÉMA** ; **#548 : `\usetikzlibrary{arrows}` ajoutée au préambule (page-count inchangé ⟹ inerte)** ; **#549 : «(V  )» écart = BLANK non renseigné ? à re-cropper si le motif réapparaît** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits ; #540+#542+#544 display trailing-punct (#509) ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/§ formats ; Σ/tikz LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; blackboard-vs-plain ; ref-spacing ; subscript-comma.
+
+### #548 (2026-07-15) — idx551 (vol p538 = **Exposé X «- 20 -»**, header «- 20 -» + «X» + footer «538» ; **CONSTANTE_X=518 CONFIRMÉE [538−20]**) — **★ Prop 2.4.4 + diagramme commutatif + Remarque 2.4.5 + DÉBUT §3 « Formules de projection pour les gradués associés » + 3.1 + (3.1.1) (Jussila) : «Proposition 2.4.4.  L'application polynôme s_y (2.3.1) est constante sur les classes suivant Pic^τ(X) . / Démonstration :  Si K est une extension algébriquement close de k , on trouve un diagramme commutatif [DIAGRAMME : Pic(X) —^{s_y}→ K_•(Spec(k)) ↘ ; Pic(X_K) —^{s̄_y}→ K_•(Spec(K)) ↗ ; Z ↪ Q ,] où s̄_y est l'application polynôme correspondant à s_y sur Pic(X_K). On peut donc supposer k algébriquement clos. L'assertion découle alors immédiatement de 2.1.3 et 2.4.3. / Remarque 2.4.5.  Dans Exp. XIII on va démontrer ce résultat sans utiliser la représentabilité du foncteur Pic_{X/k} . / 3.  Formules de projection pour les gradués associés / 3.1.  Considérons un schéma noethérien X . On désigne par Gr^∘(X) le gradué associé à la λ-filtration de K^∘(X) et par Gr_•(X) le gradué associé à la filtration 1.1.1 de K_•(X) . Grâce à 1.3.2, la loi de composition (1.3.1) [display K^∘(X) × K_•(X) ⟶ K_•(X)] induit par passage aux gradués associés des lois de composition [display (3.1.1) Gr^i(X) × Gr_j(X) ⟶ Gr_{j-i}(X)  (i,j ∈ Z) .]»** — **11 rep-calls + 1 réparation préambule** (bandes b1-b5 TOUTES lues + **12 crops HD dont 6 à 2400dpi + 1 CONTRÔLE CROSS-PAGE**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (538−20 ; idx=538+13=551 ✓)** ; coupure p538/p539 après (3.1.1).
+
+**⚠⚠⚠ ★★★ « S_y » MAJUSCULE (p536) vs « s_y » MINUSCULE (p538) — LE LIVRE SE CONTREDIT D'UNE PAGE À L'AUTRE (contrôle CROSS-PAGE) :**
+- **p538 (cette page)** imprime **«s_y» MINUSCULE** : crops `z551_prop` + `z551_txt` (2400dpi) — hauteur d'**x** (comparer aux «o»/«e»/«n» ; contraster avec les hampes de «t»/«l» sur la MÊME ligne). **Les 4 occurrences** (énoncé 2.4.4, 2 dans le texte, 2 labels du diagramme) sont minuscules.
+- **⚠ CONTRÔLE CROSS-PAGE DÉCISIF `z551b_p536_Sy` (2400dpi, p536/idx549)** : cette page-là imprime **«S_y» MAJUSCULE** — hauteur de **capitale**, égale au «P» de «Pic» sur la même ligne. **MÊME APPLICATION, DEUX CASSES.**
+- ⟹ **le LIVRE est INCOHÉRENT d'une page à l'autre** ⟹ **reproduire LES DEUX telles qu'imprimées** : le `\(S_y\)` de p536 **reste** (déjà correct, vérifié #546) ; celui de p538 devient `\(s_y\)`. **NE JAMAIS uniformiser.** (Motif « livre incohérent per-occ » : cf. #540 «à»/«-», #546 «dim(Supp(F))»/«dim. supp. F», #542 «;»/«,».)
+- **★ LA BARRE EST SUR LE « s », PAS SUR LE « y »** : crop `z551_txt` — «où **s̲**_y est … correspondant à **s**_y sur Pic(X_K)» : le **PREMIER** s porte un **soulignement**, le **SECOND** non. Ce n'est donc **PAS** de l'emphase (l'emphase ne distinguerait pas deux symboles identiques dans la même proposition) mais la **marque dactylo tenant lieu de BARRE**. **Codex l'a lue comme une barre lui aussi — mais l'a mise sur la MAUVAISE lettre** : `\(S_{\bar y}\)` = « S indice y-barre », alors que le livre a « s-barre indice y » ⟹ **`\bar s_y`**.
+
+**⚠⚠⚠ ★★ GATE EN ÉCHEC PUIS RÉPARÉE — `\usetikzlibrary{arrows}` AJOUTÉE (changement de PRÉAMBULE, assumé) :**
+- **fix5** (flèche hook du diagramme) a d'abord **CASSÉ LE COMPILE** : `! Package pgf Error: Unknown arrow tip kind 'right hook'.` — **aucun PDF produit**. Cause : seul `\usepackage{tikz-cd}` est chargé (L9) ; l'option `hook` employée ailleurs (L5117…) fonctionne parce que ce sont des **tikzcd**, alors que **CE diagramme est un `tikzpicture` brut** qui exige la bibliothèque `arrows`.
+- **RÉPARATION MINIMALE ET ADDITIVE** : `\usetikzlibrary{arrows}` insérée juste après `\usepackage{tikz-cd}`. **N'AJOUTE que des pointes de flèches** ; ne redéfinit pas le `->` des 16 autres `\draw`. **Gate re-vérifiée : 0-err / 383pp — page-count INCHANGÉ** ⟹ chargement inerte hors de la flèche visée. ⚠ **1er changement de PRÉAMBULE du run — consigné explicitement.**
+
+**11 rep-calls (fix551.py) + 1 (fix551b.py) :**
+- **fix1** — «L'application polynôme `\(S_y\)` (2.3.1)» → «`\(s_y\)`» (minuscule ; voir bloc dédié).
+- **fix2** — «\emph{Démonstration**.**}» → «\emph{Démonstration **:**}» (★★colon ; crop `z551_demo` ; **4e occurrence** #542/#544/#547/#548 ⟹ motif ÉTABLI. ⚠ NOT-UNIQUE : `\emph{Démonstration.}` = 13 occ → ancré sur la phrase).
+- **fix3a/3b** — nœuds du diagramme : `{\(K_\bullet(\Spec k)\)}` → `{\(K_\bullet(\Spec(k))\)}` et idem pour `\Spec K` (★★**paren-restore, 11e+12e occ #520-#551** ; crop `z551_dtop` : le livre imprime «K.(**Spec(k)**)» **AVEC parens** ; Codex avait `\Spec k` nu).
+- **fix4a/4b** — labels du diagramme → `\(s_y\)` (minuscule) et `\(\bar s_y\)` (barre sur le s).
+- **fix5** — **`\draw[->] (Z) -- (Q);` → `\draw[right hook->] (Z) -- (Q);`** (★★**flèche-TYPE = FIX, mode ⑭, 9e hit** ; crop `z551_dZQ` 2400dpi DÉCISIF : «Z ↪ Q» = courbe-crochet vers la gauche + flèche droite. Codex avait une flèche SIMPLE. ⚠ `\draw[->]` = **17 occ** → ancré sur la ligne entière. ⚠ a nécessité la réparation préambule ci-dessus).
+- **fix6** — texte : «où `\(S_{\bar y}\)` … à `\(S_y\)`» → «où `\(\bar s_y\)` … à `\(s_y\)`».
+- **fix7** — «Dans **l'Exposé** XIII» → «Dans **Exp.** XIII» (★★**abréviation du livre** ; crop `z551c_exp` DÉCISIF : le livre ABRÈGE «Exp. XIII» ; Codex avait développé. **Même motif que «(resp. …)»→«, respectivement …,» #547 : Codex DÉVELOPPE les abréviations du livre.**).
+- **fix8a** — «de `\(K^\circ(X)\)`**,** et par» → «…`\(K^\circ(X)\)` et par» (★comma-ADD ; crop `z551c_etpar`).
+- **fix8b** — «Grâce à 1.3.2, la loi de composition» → «…la loi de composition **(1.3.1)**» (★★**TEXTE-DROP, mode ⑤** ; crop `z551c_loi` DÉCISIF : la référence **(1.3.1)** EST au livre ; Codex l'avait **entièrement droppée**).
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH.** Vérifiés au crop : «est constante sur les classes suivant Pic^τ(X) .» ✓ ; «Si K est une extension algébriquement close de k , on trouve un diagramme commutatif» ✓ ; nœuds Pic(X)/Pic(X_K)/Z/Q + les 5 flèches simples ✓ ; «On peut donc supposer k algébriquement clos. L'assertion découle alors immédiatement de 2.1.3 et 2.4.3.» ✓ ; «Remarque 2.4.5.» ✓ ; «du foncteur Pic_{X/k} .» ✓ ; titre «3. Formules de projection pour les gradués associés» ✓ ; «3.1. Considérons un schéma noethérien X . On désigne par Gr^∘(X)» ✓ ; «la filtration 1.1.1 de K_•(X) . Grâce à 1.3.2,» ✓ ; display «K^∘(X) × K_•(X) ⟶ K_•(X)» (le «x» dactylo **EST** `\times` ✓) ; **(3.1.1)** «Gr^i(X) × Gr_j(X) ⟶ Gr_{j-i}(X)  (i,j ∈ Z) .» ✓ ; **Gr^∘/Gr_• et Gr^i/Gr_j exposant-vs-indice DISTINCTS** ✓.
+
+**DÉFÉRÉ :** soulignements ; formats de titre ; **tikz LAYOUT** (positions des nœuds — seule la flèche-TYPE est corrigée) ; espaces dactylo.
+
+**Compile 0-err, 383pp** (pdflatex ×2 après réparation préambule ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf551.py` → doc[288-289]) : «Proposition 2.4.4. L'application polynôme **sy** (2.3.1) est constante…» ✓ ; «**Démonstration :** Si K est une extension algébriquement close de k, on trouve un diagramme» ✓ ; «K•(**Spec(k)**)» ✓ ; «K•(**Spec(K)**)» ✓ ; «où **¯sy** est l'application polynôme correspondant à **sy** sur Pic(XK).» ✓ (barre sur le s + minuscules) ; «Remarque 2.4.5. Dans **Exp. XIII** on va démontrer…» ✓ ; «de K◦(X) **et par** Gr•(X) le gradué associé à la filtration 1.1.1 de K•(X). Grâce à 1.3.2, la loi de composition **(1.3.1)**» ✓.
+
+**SWEEP CURSOR → idx552** (vol p539 = **Exposé X «- 21 -»** [539−518=21] ; footer «539» ; idx=539+13=552 ✓). **Preview (L12901+, à VÉRIFIER au scan — lecture partielle)** : suite de **3.1** — «\(\Grb(X)\) devient ainsi un module sur l'anneau \(\Gro(X)\), et même un module gradué sur l'anneau gradué \(\Gro(X)\), à condition de changer de signe la graduation de \(\Grb(X)\) en posant [display \(\Gr^i_\bullet(X)=\Gr_{-i}(X)\qquad(i\in\mathbb Z)\).]» + suite. ⚠⚠ **CHECKS idx552** : ★★★**mode ⑭ TOUTE flèche/relation au CROP (9 hits en 4 pages)** ; ★★★**Codex DÉVELOPPE les abréviations du livre : «(resp. …)»→«, respectivement …,» (#547 ×4) ; «Exp.»→«l'Exposé» (#548) ⟹ CHERCHER tout «respectivement»/«Exposé»/«loc. cit.»/«cf.» du workpass et CROPPER** ; ★★★**Codex FABRIQUE des displays (5 en 3 pages) ⟹ CROPPER CHAQUE display** ; ★★★**Codex DROPPE des références ((1.3.1) #548) ⟹ VÉRIFIER CHAQUE «(x.y.z)» du livre** ; ★★**casse per-occ (S_y/s_y #548 — le livre se contredit ENTRE PAGES) ⟹ CROPPER chaque symbole, ne jamais uniformiser** ; ★★**Gr^∘/Gr_• + Gr^i/Gr_j exposant-vs-indice — CROP per-occ** ; ★★paren-restore (12 occ) ; ★★comma per-occ ; ★★colon ; ★★C.Q.F.D.-virgule ; ★★¶-indent ; ★★★book-sic + CONTRÔLE même ligne ; ★eq-tag.
+
+**CHECKS #548** : header «- 20 -» ✓ + «X» ✓ + footer «538» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p538 LISIBLE ; **bandes b1-b5 TOUTES lues** ; 11+1 rep-calls tous `assert`+unicité OK ; **gate cassée puis RÉPARÉE (préambule) — 0-err/383pp, page-count inchangé** ; render-verify OK ; aucune fabrication ; ERRATA en pause ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** **★★★ sweep global ≅-vs-≃ (2 occ confirmées #545/#547 ; 141 `\simeq` NON VÉRIFIÉS)** ; **★★★ sweep `\longmapsto` (30 occ ; le livre met des ⟿ — 3 hits)** ; **★★ #547/#548 : Codex DÉVELOPPE les abréviations du livre ⟹ sweep «respectivement» / «Exposé» / abréviations** ; **#543 ★★★ QUATRE book-sic math p533 → ERRATA de premier plan** ; **`\Ob` = 5 défs lowercase (bug #530) — FIX GLOBAL de L1697 à décider** ; **#547 : soulignement ONDULÉ vs DROIT sur Pic_{X/k} = FONCTEUR vs SCHÉMA (perte d'info notationnelle)** ; **#548 : `\usetikzlibrary{arrows}` ajoutée au préambule — vérifier qu'aucun autre diagramme n'est affecté (page-count inchangé ⟹ a priori OK)** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits ; #540+#542+#544 display trailing-punct (#509) ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/§ formats ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; blackboard-vs-plain ; ref-spacing ; subscript-comma.
+
+### #547 (2026-07-15) — idx550 (vol p537 = **Exposé X «- 19 -»**, header «- 19 -» + «X» + footer «537» ; **CONSTANTE_X=518 CONFIRMÉE [537−19]**) — **★★ PAGE LA PLUS DÉFECTUEUSE DU RUN : 7 rep-calls / 14 changements distincts** — **2.4 suite + Définition 2.4.1 + Lemme 2.4.3 + Preuve (Jussila) : «Lorsque X est propre sur k,  on sait [4] que Pic^0_{X/k} est représentable par un schéma en groupes localement de type fini Pic_{X/k} sur k . La composante neutre Pic^0_{X/k} de Pic_{X/k} est un groupe algébrique commutatif connexe sur k . / Définition 2.4.1.  Soit X un schéma propre sur un corps k, L un O_X-module inversible (resp. x un élément de Pic(X)). On dit que L(resp. x) est τ-équivalent à zéro, s'il existe un entier n ≠ 0 tel que L^{⊗n}(resp. nx) est algébriquement équivalent à zéro. Les éléments de Pic(X) algébriquement équivalents (resp. τ-équivalents) à zéro forment un sous-groupe Pic^0(X) (resp. Pic^τ(X)) de Pic(X) . / Lemme 2.4.3.  Pour tout schéma propre X sur un corps algébriquement clos k le groupe Pic^0(X) est divisible par tout entier n premier à la caractéristique de k . / Preuve :  Comme k est algébriquement clos, on a Pic^0(X) ≅ Pic^0_{X/k}(k) . Puisque Pic^0_{X/k} est connexe et de type fini, l'endomorphisme puissance n-ème est surjectif lorsque n est premier à la caractéristique de k (SGA 3 XV 1.3 et VI 1.3.2) . Mais k est algébriquement clos, donc l'endomorphisme correspondant sur le groupe Pic^0_{X/k}(k) est surjectif, C.Q.F.D. / De 2.4.3 on conclut que dans la suite exacte [display 0 ⟶ Pic^0(X) ⟶ Pic^τ(X) ⟶ T ⟶ 0 ,] Pic^0(X) est divisible par un nombre premier p et T est un groupe de torsion, de sorte qu'on peut appliquer 2.1.3 à la restriction de l'application polynôme (2.3.1) à Pic^τ(X). On trouve ainsi :»** — **7 rep-calls / 14 changements** (bandes b1-b5 TOUTES lues + **13 crops HD dont 3 à 3600dpi**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (537−19 ; idx=537+13=550 ✓)** ; coupure p537/p538 après «On trouve ainsi :».
+
+**⚠⚠⚠ ★★★ RÉÉCRITURE MASSIVE DE CODEX — L'APPAREIL « (resp. …) » DU LIVRE SUPPRIMÉ (Déf 2.4.1) :**
+- **Le livre emploie l'abréviation PARENTHÉTIQUE «(resp. …)» QUATRE fois** ; **Codex les a TOUTES développées en «, respectivement …,»** (crops `z550c_d1..d6`, 1600dpi, ligne par ligne) :
+  - «inversible **(resp. x un élément de Pic(X))**.» ← Codex «, respectivement x un élément de Pic(X).»
+  - «On dit que **L(resp. x)** est» ← Codex «On dit que L, respectivement x,»
+  - «tel que **L^{⊗n}(resp. nx) est**» ← Codex «, respectivement nx, **soit**»
+  - «équivalents **(resp. τ-équivalents)** à zéro» ← Codex «, respectivement τ-équivalents,»
+- **+ «à zéro, s'il existe»** : le livre A la virgule (`z550c_d3`), Codex l'avait droppée.
+- **+ «est algébriquement équivalent»** : le livre est à l'**INDICATIF** (`z550c_d4`) ; Codex avait mis le **SUBJONCTIF «soit»** ⟹ **changement de MODE = paraphrase**.
+- **+ «forment un sous-groupe Pic^0(X) (resp. Pic^τ(X)) de Pic(X) .» INLINE** (`z550c_d6`) ; Codex en avait fait un **display** avec «\quad\text{respectivement}\quad».
+- ⟹ **6 défauts dans un seul énoncé.** C'est la **réécriture structurelle la plus étendue rencontrée** (cf. #541 famille display→inline, #545 ¶-fusion).
+
+**⚠⚠⚠ ★★★ SUPERSCRIPT «Pic^0» DROPPÉ + AMBIGUÏTÉ 0-vs-∘ TRANCHÉE :**
+- **fix1(a)** : le livre ligne 1 imprime «on sait [4] que **Pic^0_{X/k}** est représentable» — crop **`z550b_L1_pic` (3600dpi)** : **un ANNEAU NET À CENTRE BLANC**, à hauteur d'exposant, **encre typée réelle, PAS une salissure** ; identique en nature à l'anneau de la ligne 3 où ^0 est mathématiquement correct. **Codex avait un `\Pic_{X/k}` NU.** ⚠ **MATHÉMATIQUEMENT DOUTEUX** (c'est le FONCTEUR Pic_{X/k}, pas sa composante neutre, qui est représentable) ⟹ **lapsus probable du dactylo, RESTAURÉ SIC** (motif #543).
+- **★ AMBIGUÏTÉ 0-vs-∘ RÉSOLUE** : crop **`z550c_d6`** montre «**Pic^0(X) (resp. Pic^τ(X))**» — **l'anneau en exposant APPARIÉ À UN τ** ⟹ la paire est **0/τ** ⟹ **`\Pic^0` / `\Pic^\tau` sont CORRECTS partout**. (Question ouverte du début de firing : tranchée.)
+
+**⚠⚠⚠ ★★★ `\cong` — 2e OCCURRENCE CONFIRMÉE (carry-back #545 renforcé) :**
+- **fix4(c)**, crop **`z550d_cong` (2400dpi)** : «Pic^0(X) **≅** Pic^0_{X/k}(k)» = **TILDE sur DEUX BARRES** = `\cong`. Codex avait `\simeq`. ⟹ **2 occurrences confirmées en 3 pages** (#545 p535, #547 p537) alors que **`\cong` était à 0 dans TOUT le fichier avant #545** ⟹ **le risque systématique se confirme : sweep global des `\simeq` restants (141) DE PLUS EN PLUS PRIORITAIRE.**
+
+**7 rep-calls (fix550.py) :**
+- **fix1** — bloc «2.4 suite» : **(a)** superscript `\Pic^0_{X/k}` restauré ligne 1 (sic) ; **(b)** «La composante neutre **Pic^0_{X/k}** de Pic_{X/k}…» **display→INLINE** (`z550_pic2zoom`).
+- **fix2** — bloc «Définition 2.4.1» : **6 défauts** (voir bloc dédié).
+- **fix3** — «clos $k$**,** le groupe» → «clos $k$ le groupe» (★comma-ADD ; crop `z550d_clos`).
+- **fix4** — bloc «Preuve» : **(a)** «\emph{Preuve**.**}» → «\emph{Preuve **:**}» (★★colon, crop `z550d_preuve`) ; **(b)** display→**INLINE** ; **(c)** `\simeq`→`\cong`.
+- **fix5a** — «puissance $n$-i**è**me» → «puissance $n$-**ème**» (★BOOK-SIC ; crop `z550d_neme` : le livre écrit «n-ème»).
+- **fix5b** — «est surjectif**.** C.Q.F.D.» → «est surjectif**,** C.Q.F.D.» (★**3e «, C.Q.F.D.» consécutif** — #543/#544/#547 ⟹ **motif Exp X §2 confirmé**).
+- **fix6** — «on conclut que**,** dans la suite exacte» → «on conclut que dans la suite exacte» (★comma-ADD).
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH.** Vérifiés au crop : «Lorsque X est propre sur k, on sait [4]» (virgule **authentique**) ; «schéma en groupes localement de type fini Pic_{X/k} sur k» ✓ ; «Lemme 2.4.3.» ✓ ; «divisible par tout entier n premier à la caractéristique de k .» ✓ ; «(SGA 3 XV 1.3 et VI 1.3.2)» ✓ ; display «0 ⟶ Pic^0(X) ⟶ Pic^τ(X) ⟶ T ⟶ 0 **,**» (virgule finale **présente au livre** = workpass ✓) ; «Pic^0(X) est divisible par un nombre premier p et T est un groupe de torsion, de sorte qu'on peut appliquer 2.1.3 à la restriction de l'application polynôme (2.3.1) à Pic^τ(X). On trouve ainsi :» ✓ ; «L^{⊗n}» ✓ ; «n ≠ 0» ✓.
+
+**⚠⚠ DÉFÉRÉ — MAIS SIGNIFICATIF (consigné) :** le livre distingue **DEUX styles de soulignement** sur «Pic_{X/k}» — **ONDULÉ** (`z550b_L1_pic`, `z550b_L3_pic`) vs **DROIT** (`z550b_L3_pic0`) — ce qui **encode vraisemblablement FONCTEUR vs SCHÉMA** (distinction notationnelle réelle, pas décorative). **Le workpass écrase les deux en `\Pic_{X/k}`.** Les soulignements sont une **catégorie DÉFÉRÉE** ⟹ **consigné, non corrigé** ; ⚠ **si une décision globale « soulignements » est prise un jour, CE CAS est prioritaire (perte d'information notationnelle, pas seulement typographique).** Autres déférés : formats de titre ; espaces dactylo ; ellipse.
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf550.py` → doc[288]) : «on sait [4] que **Pic^0_{X/k}** est représentable par un schéma en groupes localement de type fini Pic_{X/k} sur k. **La composante neutre Pic^0_{X/k} de Pic_{X/k} est un groupe algébrique commutatif connexe sur k.**» ✓ (inline) ; «Définition 2.4.1. Soit X un schéma propre sur un corps k, L un O_X-module inversible **(resp. x un élément de Pic(X))**. On dit que **L(resp. x)** est τ-équivalent à zéro**,** s'il existe un entier n ̸= 0 tel que **L^{⊗n}(resp. nx) est** algébriquement équivalent à zéro. Les éléments de Pic(X) algébriquement équivalents **(resp. τ-équivalents)** à zéro forment un sous-groupe **Pic^0(X) (resp. Pic^τ(X)) de Pic(X).**» ✓ (inline) ; «Lemme 2.4.3. Pour tout schéma propre X sur un corps algébriquement **clos k le groupe** Pic^0(X) est divisible…» ✓ ; «**Preuve :** Comme k est algébriquement clos, on a **Pic^0(X) ∼= Pic^0_{X/k}(k)**. Puisque…» ✓ (inline + ≅) ; «l'endomorphisme puissance **n-ème** est surjectif» ✓.
+
+**SWEEP CURSOR → idx551** (vol p538 = **Exposé X «- 20 -»** [538−518=20] ; footer «538» ; idx=538+13=551 ✓). **Preview (L12875+, à VÉRIFIER au scan — lecture partielle)** : «**Proposition 2.4.4.** L'application polynôme S_y (2.3.1) est constante sur les classes suivant Pic^τ(X). / **Démonstration.** Si K est une extension algébriquement close de k, on trouve un diagramme commutatif [**tikzcd** ~L12878+ : `\node (PicX) at (0,2) {\(\Pic(X)\)};` …]». ⚠⚠ **CHECKS idx551** : ★★★**tikzcd/diagramme : flèche-TYPE = FIX (hook ↪ #541) ; LAYOUT déféré ; VÉRIFIER chaque nœud + chaque flèche + chaque label au CROP** ; ★★★**mode ⑭ TOUTE flèche/relation au CROP (8 hits en 3 pages ! ⟿→↦ ×3, ≅→≃ ×2, ↪→⊂)** ; ★★**«Démonstration.» vs «Démonstration :» — CROPPER (le livre met «:» #542/#544 ; «Preuve :» #547)** ; ★★**Pic^0/Pic^τ superscripts (0/τ CONFIRMÉS #547)** ; ★★**«(resp. …)» — le livre PRÉFÈRE l'abréviation parenthétique ; Codex la développe (#547 ×4) ⟹ chercher tout «, respectivement …,» du workpass** ; ★★comma-ADD parasite (**4 occ en 2 pages** #547 ×3) ; ★★C.Q.F.D. = VIRGULE (3 occ consécutives) ; ★★paren-restore (10 occ) ; ★★display↔inline (**4 displays Codex fictifs en 2 pages** #547 ×3, #545 ×1) ; ★★¶-indent ; ★★★book-sic + PRIME/superscript-COUNT au CROP + CONTRÔLE même ligne ; ★eq-tag.
+
+**CHECKS #547** : header «- 19 -» ✓ + «X» ✓ + footer «537» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p537 LISIBLE ; **bandes b1-b5 TOUTES lues** (leçon #545) ; 7 rep-calls tous `assert`+unicité OK ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause (log CERT uniquement) ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** **★★★ #545/#547 sweep global ≅-vs-≃ — 2 occ CONFIRMÉES en 3 pages, 141 `\simeq` NON VÉRIFIÉS (crop page par page) — PRIORITÉ MONTANTE** ; **★★★ #546 sweep `\longmapsto` — 30 occ restantes, le livre met des ⟿ (3 hits en 2 pages)** ; **★★ #547 NOUVEAU : chercher les «, respectivement …,» de Codex là où le livre a «(resp. …)» — réécriture systématique probable** ; **#543 ★★★ QUATRE book-sic math p533 → candidat ERRATA de premier plan** ; **#546/#547 : `\Ob` = 5 défs lowercase (bug #530) — FIX GLOBAL de L1697 à décider (24+ contournements locaux)** ; **#547 : soulignement ONDULÉ vs DROIT sur Pic_{X/k} = FONCTEUR vs SCHÉMA — perte d'information notationnelle, prioritaire si décision « soulignements »** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits book-sic ; #540+#542+#544 display trailing-punct (catégorie #509) ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/theorem/§ formats ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; enumerate trailing-punct ; blackboard-vs-plain ; ref-spacing ; subscript-comma.
+
+### #546 (2026-07-15) — idx549 (vol p536 = **Exposé X «- 18 -»**, header «- 18 -» + «X» + footer «536» ; **CONSTANTE_X=518 CONFIRMÉE [536−18]**) — **★ Proposition 2.3.1 + (2.3.2) + début 2.4 (Jussila) : «Proposition 2.3.1.  Pour tout schéma propre X sur k, et pour tout y ∈ Filt_j(X), l'application [display S_y : Pic(X) ⟶ Z ↪ Q] définie par [display cl_P(L) ⟿ g_*(cl^∘(L)y) = χ(cl^∘(L)y)] est une application polynôme de degré ≤ j . / Lorsque L_1,...,L_n sont des O_X-modules inversibles et F un O_X-module cohérent tel que dim(Supp(F)) = j , alors 2.3.1. implique en particulier que la caractéristique d'Euler-Poincaré [display (2.3.2) χ(L_1^{⊗m_1} ⊗ .... ⊗ L_n^{⊗m_n} ⊗ F)] est un polynôme numérique dans les variables m_1,....,m_n ∈ Z , de degré ≤ dim. supp. F, parfois appellé polynôme de Snapper pour F et la suite L_1,...,L_n . / 2.4.  Rappelons [2] que le foncteur de Picard Pic_{X/k} de X sur k est le faisceau en groupes dans la topologie (fpqc) de k associé au préfaisceau [display T ⟿ Pic(X ×_k T)  (T ∈ Ob(Sch/k)) .] Lorsque k est algébriquement clos, on sait que l'homomorphisme canonique [display Pic(X) ⟶ Pic_{X/k}(Spec(k))] est un isomorphisme.»** — **6 rep-calls** (bands 1-5 + 7 crops HD à 2000dpi) ; ⚠⚠ **CONSTANTE_X=518 ✓ (536−18 ; idx=536+13=549 ✓)** ; coupure p536/p537 après «est un isomorphisme.».
+
+**⚠⚠⚠ ★★★ MODE ⑭ « SYMBOLE-SIMPLIFIÉ » — 3 NOUVEAUX CAS SUR CETTE SEULE PAGE (Codex normalise les glyphes rares vers les communs) :**
+- **fix1 ↪ → ⊂** : crop `z549_hook` (2000dpi) DÉCISIF — «S_y : Pic(X) ⟶ Z **↪** Q» = **courbe-crochet vers la gauche + flèche droite** = `\hookrightarrow`. Codex avait `\subset` (cf. flèche hook tikzcd #541).
+- **fix2 ⟿ → ↦** : crop `z549_wavy1` DÉCISIF — «cl_P(L) **⟿** g_*(cl^∘(L)y) = χ(cl^∘(L)y)». **★ C'ÉTAIT LE PIÈGE PRÉDIT en #545** (formule parallèle à celle de p535) — **prédiction CONFIRMÉE**. Codex avait `\longmapsto`.
+- **fix6 ⟿ → ↦ (2e)** : crop `z549_wavy2` DÉCISIF — «T **⟿** Pic(X ×_k T)  (T ∈ **Ob**(Sch/k)) .» + **«Ob» MAJUSCULE au livre** ⟹ ⚠ **bug macro `\Ob` (#530)** : `\providecommand{\Ob}{\operatorname{ob}}` **L1697 gagne** (5 défs lowercase) ⟹ `\Ob` rend « ob » **minuscule** ⟹ **`\operatorname{Ob}` en local** (contournement déjà établi, **24 occ** dans le fichier).
+- ⟹ **BILAN mode ⑭ : 5 symboles normalisés en 2 pages (#545 : ⟿→↦, ≅→≃ ; #546 : ↪→⊂, ⟿→↦ ×2). CROPPER TOUTE flèche/relation, systématiquement.**
+
+**⚠⚠⚠ ★★★ « dim. supp. F » — LA RÈGLE #539 S'UNIFIE, ET L'INCOHÉRENCE PER-OCC DU LIVRE EST PROUVÉE :**
+- **fix4, crop `z549_supp2` (2000dpi) DÉCISIF** : le livre imprime «≤ **dim. supp. F**» — «dim.» **AVEC** point abréviatif (règle #539) + «supp.» **MINUSCULE** avec point + **F SANS parenthèses**. Codex avait `\dim\Supp(F)` (sans points, majuscule, **avec** parens).
+- **⚠⚠ CONTRÔLE `z549_supp1`, DEUX LIGNES PLUS HAUT** : le livre imprime «**dim(Supp(F))** = j» — **SANS point, Supp MAJUSCULE, AVEC parens** — et **le workpass le MATCHE EXACTEMENT** ⟹ **AUCUN fix**. ⟹ **LE LIVRE EST INCOHÉRENT PER-OCC** (deux graphies à 2 lignes d'intervalle) et **Codex a normalisé la 2e sur la 1re**. **Les DEUX sont reproduites telles qu'imprimées.**
+- **★★★ MOTIF UNIFICATEUR (explique #539 + #540 + #546)** : **le point abréviatif apparaît quand l'opérateur est DIRECTEMENT JUXTAPOSÉ à son opérande** («dim.O_{S,x}» #539, «deg.tr_{k(y')}» , «dim. supp. F» #546) **et DISPARAÎT quand des PARENTHÈSES suivent** («n-codim ({x}‾,S)» #540, «dim(Supp(F))» #546). ⟹ **`\codim` nu (#540) ET `\dim(\Supp(F))` ici sont TOUS DEUX corrects** ; `\dimdot` ne s'applique qu'à la forme juxtaposée. **La règle est désormais COHÉRENTE sur tous les cas observés.** (Répond aussi à la question ouverte «prof./long./rg. ?» : dépendra de la juxtaposition.)
+- ⚠ **«supp.» minuscule** rendu par `\operatorname{supp.}` **inline** (1 seule occurrence à ce jour ⟹ pas de macro dédiée ; si d'autres surviennent, envisager `\suppdot` sur le modèle de `\dimdot`).
+
+**6 rep-calls (fix549.py) :**
+- **fix1** — `\mathbb Z\subset\mathbb Q` → `\mathbb Z\hookrightarrow\mathbb Q` (voir ci-dessus).
+- **fix2** — `\cl_P(L)\longmapsto g_*(…)` → `\cl_P(L)\rightsquigarrow g_*(…)` (voir ci-dessus).
+- **fix3** — «alors 2.3.1 implique» → «alors 2.3.1**.** implique» (★★**BOOK-SIC point final, mode ⑫** ; crop `z549_supp1` DÉCISIF ; cf. «5.6.5.1.» #539).
+- **fix4** — «de degré $\leq\dim\Supp(F)$, parfois appel**é**» → «de degré $\leq\dimdot\operatorname{supp.}F$, parfois appel**lé**» (voir bloc dédié ; ⚠ **«appellé» avec DEUX L = BOOK-SIC typo (mode ⑫)**, crop `z549_supp2`).
+- **fix5** — «dans la topologie $\fpqc$ de $k$» → «dans la topologie **(**$\fpqc$**)** de $k$» (★★**paren-restore, 10e occ #520-#549** ; crop `z549_fpqc` DÉCISIF ; `\fpqc`=`\mathrm{fpqc}` inchangé).
+- **fix6** — `T\longmapsto \Pic(X\times_kT)\qquad (T\in\Ob(\Sch/k)).` → `T\rightsquigarrow \Pic(X\times_kT)\qquad (T\in\operatorname{Ob}(\Sch/k)).` (voir ci-dessus).
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH — page CLEAN (aucun lapsus du livre).** Vérifiés au crop : «Pour tout schéma propre X sur **k,** et pour tout y ∈ Filt_j(X)**,** l'application» (**LES DEUX virgules PRÉSENTES au livre = workpass ✓** — la virgule «X sur k,» signalée au firing précédent est **authentique**, pas une virgule parasite Codex) ; «Filt_j» **INDICE** ✓ ; «degré ≤ j .» ✓ ; «L_1,…,L_n … O_X-modules inversibles … O_X-module cohérent» (**minuscule** ✓) ; «dim(Supp(F)) = j» ✓ **EXACT** ; **(2.3.2)** eq-tag + «χ(L_1^{⊗m_1} ⊗ …. ⊗ L_n^{⊗m_n} ⊗ F)» ✓ ; «m_1,….,m_n ∈ Z **,** de degré» (**virgule PRÉSENTE au livre = workpass ✓**, crop `z549_zvirg`) ; «polynôme de Snapper pour F et la suite L_1,…,L_n .» ✓ ; «2.4. Rappelons [2] … Pic_{X/k} de X sur k» ✓ ; «Lorsque k est algébriquement clos…» ✓ ; display «Pic(X) ⟶ Pic_{X/k}(Spec(k))» ✓ ; «est un isomorphisme.» ✓ ; «g_*» **étoile INDICE** ✓ ; «cl^∘» raised-circle / «cl_P» / «cl_•» **DISTINCTS** ✓.
+
+**DÉFÉRÉ (ce firing) :** soulignements (dont le **soulignement ondulé sous «Pic_{X/k}»** = convention dactylo, DÉFÉRÉ) ; formats de titre («Proposition 2.3.1.» / «2.4.») ; espaces dactylo avant «,» et «.» ; ellipse «....» ; blackboard-vs-plain.
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; `\hookrightarrow` + `\rightsquigarrow` + `\operatorname{Ob}` acceptés ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf549.py` → doc[287-288]) : «S_y : Pic(X) −→Z **,→**Q» ✓ (le «,→» = extraction texte de ↪) ; «cl_P (L) **⇝**g∗(cl◦(L)y) = χ(cl◦(L)y)» ✓ ; «**dim(Supp(F))** = j, alors **2.3.1.** implique» ✓ ; «(2.3.2) χ(L^{⊗m1}_1 ⊗· · · ⊗L^{⊗mn}_n ⊗F)» ✓ ; «de degré **≤dim. supp. F**, parfois **appellé** polynôme de Snapper pour F et la suite L1, . . . , Ln.» ✓ ; «topologie **(fpqc)** de k associé au préfaisceau» ✓ ; «T **⇝**Pic(X ×k T) (T ∈**Ob**(Sch /k)).» ✓ (**Ob MAJUSCULE** — contournement `\operatorname{Ob}` opérant) ; «Pic(X) −→Pic_{X/k}(Spec(k))» ✓.
+
+**SWEEP CURSOR → idx550** (vol p537 = **Exposé X «- 19 -»** [537−518=19] ; footer «537» ; idx=537+13=550 ✓). **Preview (L12818+, à VÉRIFIER au scan — lecture partielle)** : suite de **2.4** — après «est un isomorphisme.» : vraisemblablement «\textbf{Définition 2.4.1.} Soit \(X\) un schéma propre sur un corps \(k\), …» + «…de \(\Pic(X)\).» + tikzcd (L12878 `\node (PicX) at (0,2) {\(\Pic(X)\)};`). ⚠⚠ **CHECKS idx550** : ★★★**mode ⑭ SYMBOLE-SIMPLIFIÉ — 5 hits en 2 pages ⟹ CROPPER TOUTE flèche (↪/⟿/↦/⟶/⥲) et TOUTE relation (≅/≃/⊂/=)** ; ★★★**≅-vs-≃ (carry-back #545 : `\cong`=1 [posé #545] vs `\simeq`=142 NON VÉRIFIÉS)** ; ★★**`\Ob` bug (#530) : `\Ob` rend « ob » MINUSCULE ⟹ si le livre a «Ob», utiliser `\operatorname{Ob}` (24 occ déjà)** ; ★★**`\dimdot` : point abréviatif SI juxtaposé, PAS si parens suivent (règle unifiée #546)** ; ★★★**book-sic lettres/typos («appellé» #546 ; «2.3.1.» #546) — CROP + CONTRÔLE même ligne** ; ★★paren-restore (**10 occ** #520-#549) ; ★★colon ; ★★comma per-occ ; ★★C.Q.F.D. virgule (Exp X §2) ; ★★¶-indent = nouveau paragraphe (#540/#545) ; ★tikzcd flèche-TYPE (#541) + LAYOUT déféré ; ★eq-tag ; ★display trailing-punct DÉFÉRÉ.
+
+**CHECKS #546** : header «- 18 -» ✓ + «X» ✓ + footer «536» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p536 LISIBLE (fallback non nécessaire) ; **bandes b1-b5 TOUTES lues AVANT d'affirmer la coupure** (leçon #545 appliquée) ; 6 rep-calls tous `assert`+unicité OK ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause (log CERT uniquement) ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** **★★★ #545 sweep global ≅-vs-≃ sur les 142 `\simeq` NON VÉRIFIÉS (crop page par page)** ; **★★★ #546 NOUVEAU : sweep `\longmapsto` — 30 occ restantes ; le livre met des ⟿ WAVY (3 hits en 2 pages !) ⟹ CROPPER chaque occurrence rencontrée** ; **#543 ★★★ QUATRE book-sic math p533 → candidat ERRATA de premier plan** ; **#546 : `\Ob` = 5 défs lowercase (bug #530) — envisager un fix GLOBAL de la macro (supprimer/corriger L1697) plutôt que 24+ contournements locaux ⟹ DÉCISION À PRENDRE** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits book-sic ; #540+#542+#544 display trailing-punct (catégorie #509) ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/theorem/§ formats ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; enumerate trailing-punct ; blackboard-vs-plain ; ref-spacing ; subscript-comma ; «Supposons-le» hyphen.
+
+### #545 (2026-07-15) — idx548 (vol p535 = **Exposé X «- 17 -»**, header «- 17 -» + «X» + footer «535» ; **CONSTANTE_X=518 CONFIRMÉE [535−17]**) — **★ suite 2.2 + Prop 2.2.1 + début 2.3 (Jussila) : «Soit β_y : A ⟶ K_•(X) l'homomorphisme ainsi défini. Si l'on désigne par I l' idéal Filt^j(X)/Filt^{j+1}(X) de A, on a I^{j+1} = 0 . Gardant les notations du lemme 2.1.4 on trouve un homomorphisme de groupes abéliens [display γ : Pic(X) ⟶ P] qui associe à la classe de tout O_X-module inversible L dans Pic(X) l'élément j(cl^∘(L)) de P . / ¶ On tire immédiatement des lemmes 2.1.2 et 2.1.4 : / Proposition 2.2.1.  Pour tout schéma noethérien X et pour tout y ∈ Filt_j(X) (j ∈ Z) l'application composée [display Pic(X) ⟶ K_•(X) ⊗_Z Q ,] définie par [display cl_P(L) ⟿ (cl^∘(L)y) ⊗ 1] est une application polynôme de degré ≤ j . / 2.3.  Si X est un schéma propre sur un corps k et si g : X ⟶ Spec(k) est le morphisme structural, alors l'homomorphisme [display g_* : K_•(X) ⟶ K_•(Spec(k)) ≅ Z] associe à la classe cl_•(F) de tout O_X-module cohérent F la caractéristique d'Euler-Poincaré χ (F) ∈ Z de F sur X . De 2.2.1 on conclut immédiatement :»** — **5 rep-calls** (bands 1-5 + 6 crops HD dont 2 à 2400dpi) ; ⚠⚠ **CONSTANTE_X=518 ✓ (535−17 ; idx=535+13=548 ✓)** ; coupure p535/p536 après «De 2.2.1 on conclut immédiatement :».
+
+**⚠⚠ CORRECTION À CERT #544 — ERREUR DE BORNAGE (contenu OK, comptabilité fausse) :**
+- #544 affirmait que **p534 se termine** après «…un homomorphisme de K^∘(X)-modules». **C'EST FAUX.** La bande `p547_b4` (lue ce firing) montre que p534 **continue** avec : **[display Θ_y : K^∘(X) ⟶ K_•(X)]** + «qui se factorise, compte tenu de (1.3.2), par l'épimorphisme canonique» + **[display j : K^∘(X) ⟶ K^∘(X)/Filt^{j+1}(X) = A .]** — puis p534 se termine. **p535 commence à «Soit β_y».**
+- **Ces 3 éléments ont été VÉRIFIÉS ce firing et MATCHENT le workpass exactement** (L12761 / L12763 / L12765 : `\Theta_y:K^\circ(X)\longrightarrow K_\bullet(X)` ✓ ; `\Filt^{j+1}(X)=A.` ✓ ; K^∘/K_• distincts ✓) ⟹ **aucun défaut manqué ; les 3 fixes de #544 restent valides** ; seule la **note de coupure** de #544 était inexacte. **Leçon : lire TOUTES les bandes (b4/b5) avant d'affirmer la coupure de page.**
+
+**⚠⚠⚠ ★★★ NOUVELLE DISTINCTION ÉTABLIE — `\cong` (≅) vs `\simeq` (≃) :**
+- **Crop `z548b_congzoom` (2400dpi) DÉCISIF** : «K_•(Spec(k)) **≅** Z» = **TILDE au-dessus de DEUX barres horizontales** = **`\cong`**. `\simeq` serait un tilde au-dessus d'**UNE SEULE** barre. Codex avait `\simeq`.
+- ⚠⚠ **RISQUE SYSTÉMATIQUE CONSIGNÉ** : **`\cong` = 0 occurrence dans TOUT le fichier** vs **`\simeq` = 143**. Codex n'a **JAMAIS** employé `\cong`. Si le typescript imprime ≅ ailleurs là où Codex a mis ≃, **un balayage global s'impose**. ⟹ **CARRY-BACK MAJEUR : sweep ≅-vs-≃ sur les 142 `\simeq` restants, AU CROP, page par page.**
+- ⚠ **Seule l'occurrence de p535 est crop-vérifiée CE FIRING ⟹ seule elle est corrigée** ; les 142 autres sont **NON VÉRIFIÉES** et laissées intactes (règle : ne jamais corriger une page non crop-vérifiée dans le firing courant). **La règle permanente «≃ vs ⥲» s'enrichit donc d'un 3e terme : ≅ / ≃ / ⥲ — TOUS À CROPPER.**
+
+**5 rep-calls (fix548.py) :**
+- **fix1** — «Gardant les notations du lemme 2.1.4**,** on trouve» → «…2.1.4 on trouve» (★**comma-ADD, mode ④** ; crop `z548_gard` 2000dpi DÉCISIF. **Le même crop CONFIRME «Filt^j(X)/Filt^{j+1}(X)» = les DEUX en EXPOSANT** ⟹ workpass CORRECT, pas de fix).
+- **fix2** — **SAUT DE PARAGRAPHE (structurel)** : crop `z548_para` DÉCISIF — la ligne du livre se termine **courte** à «l'élément j(cl^∘(L)) de P .» et «**On tire** immédiatement des lemmes 2.1.2 et 2.1.4 :» commence **INDENTÉ** ⟹ **NOUVEAU PARAGRAPHE** selon le critère établi en **#540** (indentation = paragraphe ; retour à la **MARGE GAUCHE** = simple retour à la ligne). Codex les avait fusionnés.
+- **fix3** — «($j\in\mathbb Z$)**,** l'application composée» → «($j\in\mathbb Z$) l'application composée» (★**comma-ADD** ; crop `z548_filtj` DÉCISIF. **Le même crop CONFIRME «Filt_j» = INDICE ici, contre «Filt^j» = EXPOSANT deux lignes plus haut** ⟹ **la distinction exposant/indice est RÉELLE et le workpass a les DEUX justes** — aucune uniformisation).
+- **fix4** — `\cl_P(L)\longmapsto (…)` → `\cl_P(L)\rightsquigarrow (…)` (★★**⟿-vs-↦, mode RÉCURRENT #501/#535/#536** ; crop `z548_wavy` 2000dpi DÉCISIF : **squiggle + pointe de flèche** sans équivoque ; `\longmapsto` afficherait une **barre verticale au départ** — ABSENTE. `\rightsquigarrow` déjà utilisé **8×** dans le fichier, amssymb chargé ✓).
+- **fix5** — `K_\bullet(\Spec(k))\simeq\mathbb Z` → `…\cong\mathbb Z` (voir bloc dédié ci-dessus).
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH — page CLEAN (aucun lapsus du livre cette page).** Vérifiés au crop : «Soit β_y : A ⟶ K_•(X)» (β minuscule ✓) ; «I^{j+1} = 0» ✓ ; display «γ : Pic(X) ⟶ P» (γ ✓ cf #463 γ PAS ψ) ; «tout O_X-module inversible L» (**minuscule**, règle Exp X ✓) ; «j(cl^∘(L))» (**cl^∘ raised-circle** ✓) ; «des lemmes 2.1.2 et 2.1.4 :» ✓ ; display «Pic(X) ⟶ K_•(X) ⊗_Z Q **,**» (virgule finale **PRÉSENTE au livre** = workpass ✓ — contraste avec les 3 displays sans ponctuation #540/#542/#544) ; «degré ≤ j .» ✓ ; «g : X ⟶ Spec(k)» ✓ ; display «g_* : K_•(X) ⟶ K_•(Spec(k))» (**g_* = pushforward, étoile en INDICE** ✓) ; «cl_•(F)» (**bullet-INDICE** ✓) ; «χ (F) ∈ Z de F sur X .» ✓ ; «De 2.2.1 on conclut immédiatement :» ✓.
+
+**DÉFÉRÉ (ce firing) :** soulignements ; formats de titre («Proposition 2.2.1.» / «2.3.») ; espaces dactylo («l' idéal», avant «,» et «.») ; inline `\to` ; blackboard-vs-plain ; sauts de ligne à la marge gauche.
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; `\rightsquigarrow` + `\cong` acceptés ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf548.py` → doc[287]) : «Filt_j(X)/ Filt^{j+1}(X) de A, on a I^{j+1} = 0. **Gardant les notations du lemme 2.1.4 on trouve** un homomorphisme de groupes abéliens» ✓ ; «γ : Pic(X) −→P» ✓ ; «…l'élément j(cl◦(L)) de P.» **¶** «On tire immédiatement des lemmes 2.1.2 et 2.1.4 :» ✓ (paragraphe séparé) ; «Pour tout schéma noethérien X et pour tout y ∈Filt_j(X) **(j ∈Z)** l'application composée» ✓ ; «Pic(X) −→K•(X) ⊗Z Q,» ✓ ; «cl_P (L) **⇝**(cl◦(L)y) ⊗1» ✓ ; «g∗: K•(X) −→K•(Spec(k)) **∼=** Z» ✓ ; «De 2.2.1 on conclut immédiatement :» ✓.
+
+**SWEEP CURSOR → idx549** (vol p536 = **Exposé X «- 18 -»** [536−518=18] ; footer «536» ; idx=536+13=549 ✓). **Preview (L12790+, à VÉRIFIER au scan — lecture partielle)** : **Proposition 2.3.1** — «Pour tout schéma propre X sur k, et pour tout y ∈ Filt_j(X), l'application [display S_y : Pic(X) ⟶ Z ⊂ Q] définie par [display cl_P(L) ↦ g_*(cl^∘(L)y) = χ(cl^∘(L)y)] est une application polynôme de degré ≤ j.» + suite (2.4 ?). ⚠⚠ **CHECKS idx549** : ★★★**`cl_P(L) 7−→ g_*(…)` = `\longmapsto` DANS LE RENDU — ⚠ CROPPER : le livre pourrait avoir un ⟿ WAVY comme à la p535 (#545 fix4) ⟹ VÉRIFIER, ne PAS présumer** ; ★★★**≅-vs-≃ : CROPPER tout «≃» de la page (carry-back #545 : `\cong`=0 vs `\simeq`=143 file-wide — Codex n'utilise JAMAIS \cong)** ; ★★**Filt_j (INDICE) vs Filt^j (EXPOSANT) — per-occ, CROP (les deux coexistent en 2.2/2.3 !)** ; ★★**S_y / g_* / cl_P / cl^∘ / χ — CROP subscripts** ; ★★comma-ADD/DROP per-occ (**3 virgules parasites Codex en 2 pages : #545 ×2 + #543**) ; ★★**«X sur k, et pour tout»** virgule (preview) — CROPPER ; ★★paren-restore (9 occ) ; ★★colon ; ★★C.Q.F.D. per-occ (virgule en Exp X §2) ; ★★★book-sic lettres isolées + PRIME-COUNT (méthode #543 : CONTRÔLE sur la même ligne) ; ★★**saut de paragraphe : INDENT = nouveau ¶ (critère #540, appliqué #545)** ; ★display trailing-punct DÉFÉRÉ ; ★eq-tag.
+
+**CHECKS #545** : header «- 17 -» ✓ + «X» ✓ + footer «535» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p535 LISIBLE (fallback non nécessaire) ; 5 rep-calls tous `assert`+unicité OK ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause (log CERT uniquement) ; **jamais « complet » — provisoire** ; ⚠ **#544 corrigé (bornage) — voir bloc dédié.**
+
+**Carry-backs cumulés :** **★★★ #545 NOUVEAU : sweep global ≅-vs-≃ sur les 142 `\simeq` NON VÉRIFIÉS (crop page par page ; `\cong`=0 file-wide = anomalie Codex)** ; **#543 ★★★ QUATRE book-sic math p533 (G''/G' interversion + C'' + virgules) → candidat ERRATA de premier plan** ; **#545 : vérifier au crop les autres `\longmapsto` (33 file-wide) — le livre peut avoir ⟿ (cf. p536 L12796 juste après)** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits book-sic ; **#540+#542+#544 display trailing-punct (catégorie #509) — 3 occ** ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/theorem/§ formats ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; enumerate trailing-punct ; blackboard-vs-plain ; ref-spacing ; subscript-comma ; «Supposons-le» hyphen ; mode ⑬ «prof.»/«long.»/«rg.» à cropper si rencontrés (codim RÉSOLU = nu).
+
+### #544 (2026-07-15) — idx547 (vol p534 = **Exposé X «- 16 -»**, header «- 16 -» + «X» + footer «534» ; **CONSTANTE_X=518 CONFIRMÉE [534−16]**) — **★ fin Lemme 2.1.4 + formule binomiale (2.1.5) + début 2.2 (Jussila) : «[display α : P —^i→ A —^j→ A ⊗_Z Q] (où j(x) = x ⊗ 1) est une application polynôme. Si I^{m+1} = 0 , alors α est de degré ≤ m . / Démonstration :  Soit x_1,..,x_r une suite d'éléments de P avec x_i = 1+y_i (i=1,...,r). Alors la formule binomiale donne pour tout n_1,...,n_r ∈ Z : / (2.1.5)  x_1^{n_1}....x_r^{n_r} = Σ_{k_1,...,k_r ≥ 0} (n_1¦k_1)...(n_r¦k_r) y_1^{k_1}...y_r^{k_r} , / où la somme à droite est finie puisque les éléments y_1, ...,y_r sont nilpotents. Mais les coefficients (n_1¦k_1)....(n_r¦k_r) sont des polynômes à coefficients rationnels dans les variables n_1, ...,n_r de degré k_1 + ... + k_r, de sorte que α est bien une application polynôme. Si I^{m+1} = 0, alors y_1^{k_1} ... y_r^{k_r} = 0 pour k_1 + ... +k_r > m . Donc α est de degré ≤ m, C. Q.F. D. / 2.2.  Considérons maintenant un schéma noethérien X et un élément y de Filt_j(X) (1.1.1). En associant à tout x ∈ K^∘(X) l'élément xy de K_•(X) on obtient un homomorphisme de K^∘(X)-modules»** — **3 rep-calls** (bands 1-5 + 5 crops HD à 2000dpi) ; ⚠⚠ **CONSTANTE_X=518 ✓ (534−16 ; idx=534+13=547 ✓)** ; coupure p534/p535 après «…un homomorphisme de K^∘(X)-modules».
+
+**⚠⚠⚠ ★★★ (2.1.5) BINOMIAUX RE-CONFIRMÉS LÉGITIMES — #541 RE-VALIDÉ INDÉPENDAMMENT :**
+- **Crop `z547_binom` (2000dpi)** : (2.1.5) imprime ses coefficients en **PARENS HAUTES avec n_i EMPILÉ AU-DESSUS de k_i**, en **DEUX paires SÉPARÉES** «(n_1¦k_1)…(n_r¦k_r)», tandis que les **puissances** «x_1^{n_1}…x_r^{n_r}» et «y_1^{k_1}…y_r^{k_r}» sont en **EXPOSANT**.
+- ⟹ **L12754 + L12756 `\binom{n_1}{k_1}\cdots\binom{n_r}{k_r}` = CORRECTS — NON TOUCHÉS** (carry-back #542/#543 **SOLDÉ**).
+- ⟹ **RE-VALIDE #541** : la Déf. 2.1.1 «(n_1^{k_1}⋯n_r^{k_r})» (parens **COURTES**, exposants **débordant AU-DESSUS**) est une notation **STRUCTURELLEMENT DIFFÉRENTE** de (2.1.5) (parens **HAUTES**, empilées). **Le typescript distingue démonstrablement les deux** ⟹ le critère #541 est confirmé sur les DEUX cas.
+
+**3 rep-calls (fix547.py) :**
+- **fix1** — «où $j(x)=x\otimes1$**,** est une application polynôme.» → «**(**où $j(x)=x\otimes1$**)** est une application polynôme.» (★★**paren-restore, 9e occ #520-#547** ; crop `z547_paren` 2000dpi DÉCISIF : le livre a bien «**(**où j(x) = x ⊗ 1**)**» ; Codex avait **supprimé les parens ET ajouté une virgule** — les deux réparés en une passe).
+- **fix2** — «\emph{Démonstration**.**}» → «\emph{Démonstration **:**}» (★★**colon mode ③ RÉCURRENT #481-#547** ; crop `z547_demo` DÉCISIF ; **prédit au firing précédent** [contrôle #541] et confirmé ; précédent local `\emph{Démonstration :}` dans le fichier, cf #542. ⚠ **NOT-UNIQUE : `\emph{Démonstration.}` = 15 occ** → ancré sur la phrase suivante).
+- **fix3** — «Donc $\alpha$ est de degré $\leq m$**.** C.Q.F.D.» → «…$\leq m$**,** C.Q.F.D.» (★**ponctuation C.Q.F.D. PER-OCC, mode ④** ; crop `z547_cqfd` DÉCISIF : le livre met une **VIRGULE** ; **2e occurrence consécutive** après #543 «constante, C.Q.F.D.» ⟹ **motif : en Exp X §2 le livre écrit «…, C.Q.F.D.»** — continuer à cropper per-occ. L'espacement interne du livre «C. Q.F. D.» = quirk dactylo ⟹ DÉFÉRÉ, on garde «C.Q.F.D.»).
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH — page CLEAN (aucun lapsus du livre cette page, contraste #543).** Vérifiés au crop : énoncé Lemme 2.1.4 intégral ✓ ; display «α : P —^i→ A —^j→ A ⊗_Z Q» (**⊗_Z = `\otimes_{\mathbb Z}` CORRECT**, Z surfrappé = blackboard ✓ cf #464) ; «Si I^{m+1} = 0 , alors α est de degré ≤ m .» ✓ ; «x_i = 1+y_i (i=1,...,r)» ✓ ; «pour tout n_1,...,n_r ∈ Z :» ✓ ; **(2.1.5)** numéro + placement + membre gauche «x_1^{n_1}….x_r^{n_r}» + Σ_{k_1,…,k_r ≥ 0} + coefficients binomiaux + «y_1^{k_1}…y_r^{k_r} ,» ✓ **MATCH INTÉGRAL** ; «les éléments y_1, ...,y_r sont nilpotents» ✓ ; «les coefficients (n_1¦k_1)….(n_r¦k_r) sont des polynômes à coefficients rationnels dans les variables n_1, ...,n_r de degré k_1 + ... + k_r» ✓ ; «Si I^{m+1} = 0, alors y_1^{k_1} … y_r^{k_r} = 0 pour k_1 + ... +k_r > m .» ✓ ; **2.2** «Filt_j(X) (1.1.1)» / «x ∈ K^∘(X)» / «xy de K_•(X)» / «K^∘(X)-modules» ✓ (**K^∘ raised-circle vs K_• bullet-INDICE : DISTINCTS et corrects**).
+
+**DÉFÉRÉ (ce firing) :** ⚠ **display α : le livre n'a AUCUNE ponctuation finale** après «A ⊗_Z Q» (crop `z547_disp`) alors que le workpass met «**,**» ⟹ **display trailing-punct = CATÉGORIE DÉFÉRÉE (#509/#540/#542)** ; consigné, non corrigé (**3e occurrence du même motif** : #540 disp1, #542 P_k(n)=P_{k+1}(pn), #544 ici). Aussi : soulignements ; formats de titre («Lemme 2.1.4.» / «2.2.») ; espacement interne «C. Q.F. D.» ; ellipse dactylo «....» ; espaces avant «,» et «.» ; blackboard-vs-plain.
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf547.py` → doc[286-287]) : «**(où j(x) = x ⊗1)** est une application polynôme. Si I^{m+1} = 0, alors α est de degré ≤m.» ✓ ; «**Démonstration :** Soit x1, . . . , xr une suite d'éléments de P avec xi = 1 + yi (i = 1, . . . , r).» ✓ ; «la formule binomiale donne pour tout n1, . . . , nr ∈Z :» ✓ ; «où la somme à droite est finie puisque les éléments y1, . . . , yr sont nilpotents. Mais les coefficients…» ✓ ; «pour k1 + · · · + kr > m. Donc α est de degré **≤m, C.Q.F.D.**» ✓.
+
+**SWEEP CURSOR → idx548** (vol p535 = **Exposé X «- 17 -»** [535−518=17] ; footer «535» ; idx=535+13=548 ✓). **Preview (L12758+, à VÉRIFIER au scan — lecture partielle)** : suite de **2.2** — «[display Θ_y : K^∘(X) ⟶ K_•(X)] qui se factorise, compte tenu de (1.3.2), par l'épimorphisme canonique [display j : K^∘(X) ⟶ K^∘(X)/Filt^{j+1}(X) = A.] Soit β_y : A → K_•(X) l'homomorphisme ainsi défini. Si l'on désigne par I l'idéal Filt^j(X)/Filt^{j+1}(X) de A, on a I^{j+1} = 0. Gardant les notations du lemme 2.1.4, on trouve un homomorphisme de groupes abéliens [display …]». ⚠⚠ **CHECKS idx548** : ★★★**chaque subscript/exposant (Θ_y / β_y / Filt^j / Filt^{j+1} / I^{j+1}=0 / K^∘(X)/Filt^{j+1}(X)=A) au CROP** ; ⚠⚠ **★★Filt^j / Filt^{j+1} = EXPOSANT (K^∘) vs Filt_j = INDICE (K_•) — DISTINCTS (règle établie) : le preview montre «Filt_j(X)» (indice, 2.2 ligne 1) MAIS «Filt^{j+1}(X)» (exposant) ⟹ VÉRIFIER CHAQUE occurrence au CROP** ; ★★**K^∘ raised-circle vs K_• bullet-INDICE — CROP** ; ★★Θ/β lettres grecques (Θ_y PAS θ) ; ★★paren-restore (**9 occ** #520-#547) ; ★★colon (#481-#547) ; ★★comma per-occ ; ★★C.Q.F.D. per-occ (**virgule en Exp X §2 : #543+#544**) ; ★★★book-sic lettres isolées (**4 lapsus math en 1 phrase p533 !** — vigilance MAXIMALE, crop 2000-2400dpi + CONTRÔLE sur la même ligne) ; ★display trailing-punct DÉFÉRÉ (3 occ) ; ★eq-tag ; ★TEXTE-DROP.
+
+**CHECKS #544** : header «- 16 -» ✓ + «X» ✓ + footer «534» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p534 LISIBLE (fallback non nécessaire) ; 3 rep-calls tous `assert`+unicité OK (piège 15-occ `\emph{Démonstration.}` évité) ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause (log CERT uniquement) ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** ~~#542/#543 : L12754+L12756 `\binom` (2.1.5) à re-confirmer~~ **SOLDÉ #544 (crop 2000dpi : parens hautes empilées ⟹ CORRECTS, non touchés ; #541 re-validé)** ; **#543 ★★★ QUATRE book-sic math p533 (G''/G' interversion + C'' + virgules) → candidat ERRATA de premier plan** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits book-sic ; **#540+#542+#544 display trailing-punct (catégorie #509) — 3 occ accumulées** ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/theorem/§ formats ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; enumerate trailing-punct ; blackboard-vs-plain ; ref-spacing ; subscript-comma ; «Supposons-le» hyphen ; mode ⑬ «prof.»/«long.»/«rg.» à cropper si rencontrés (codim RÉSOLU = nu).
+
+### #543 (2026-07-15) — idx546 (vol p533 = **Exposé X «- 15 -»**, header «- 15 -» + «X» + footer «533» ; **CONSTANTE_X=518 CONFIRMÉE [533−15]**) — **★ fin Démonstration Lemme 2.1.3 + début Lemme 2.1.4 (Jussila) : «Mais tout polynôme P : Q ⟶ Q est continu dans la topologie induite par R . Donc pour k assez grand on a [display |P_x(n/p^k) − P_x(0)| < 1 .] Mais par définition P_x(n/p^k) est un entier pour tout n,k ∈ Z . Il s'ensuit que P_x(n/p^k)−P_x(0) = 0 pour k assez grand. Donc le polynôme P_x est constant et on trouve en particulier P_x(1) = P_x(0) / i.e. f(x) = f(0) . / Les deux cas  a)  et  b)  ci-dessus montrent que la restriction de f à G' est constante. On va montrer maintenant que f est constante sur chaque classe de G suivant G'. Pour tout b ∈ G on désigne par g_b: G' ⟶ Q l'application définie par [display g_b(y) = f(b+y)   (y ∈ G') .] L'application g_b est une application polynôme de G' dans Q qui se factorise par Z, donc constante d'après ce qu'on a vu ci-dessus, d'où l'assertion que f soit constante sur les classes de G suivant G'' . Il s'ensuit qu'on peut écrire f = h o j , où h : G' ⟶ Q est une application polynôme qui se factorise par Z . Mais par hypothèse C" est un groupe de torsion de sorte que h est constante. Donc f est constante, C.Q.F.D. / Lemme 2.1.4.  Soit A un anneau commutatif unitaire et I un idéal nilpotent de A . Soit P le sous-groupe multiplicatif de A* formé des éléments inversibles de A de la forme x = 1+y avec y ∈ I , et soit i : P→ A l'injection naturelle. Alors l'application composée»** — **3 rep-calls (7 changements)** (bands 1-5 + **12 crops HD dont 8 à 2400dpi avec glyphes de CONTRÔLE**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (533−15 ; idx=533+13=546 ✓)** ; coupure p533/p534 après «Alors l'application composée».
+
+**⚠⚠⚠ ★★★ PAGE RECORD DE BOOK-SIC MATHÉMATIQUE — **QUATRE** lapsus du livre dans UNE SEULE phrase, tous « réparés » silencieusement par Codex (mode ⑫) :**
+- **(a) «suivant G''»** (livre, **2 primes** — crop `z546c_suiv1` 2400dpi : deux marques, une pleine + une plus claire) ↔ Codex «suivant $G'$». **⚠ CONTRÔLE DÉCISIF `z546e_suiv0tail`** : **l'énoncé ANTÉRIEUR du MÊME fait**, 5 lignes plus haut, imprime «constante sur chaque classe de **de G suivant G'.**» avec **UN SEUL prime** ⟹ **LE LIVRE SE CONTREDIT LUI-MÊME** ; la 2e est un **lapsus de frappe**. Math : f constante sur les classes modulo **G'** (g_b(y)=f(b+y), y∈G') ⟹ G' est correct, G'' est faux.
+- **(b) «h : G'»** (livre, **1 prime** — crop `z546c_suiv2` 2400dpi) ↔ Codex «$h:G''\to\mathbb Q$». Math : f = h∘j avec j: G → G'' ⟹ **h doit être définie sur G''** ⟹ le livre est faux. **⟹ (a)+(b) sont INTERVERTIS dans le livre : une TRANSPOSITION unique du dactylo (G'↔G'').**
+- **(c) «C" est un groupe de torsion»** (livre — crop `z546b_cprime` 2400dpi : **un C sans équivoque, arc ouvert SANS ergot horizontal**) ↔ Codex «$G''$». **⚠ CONTRÔLE DÉCISIF `z546d_suiv0`** : «classe de **G** suivant» sur une ligne voisine montre **l'ergot horizontal net du G majuscule**, absent du glyphe litigieux. Math : G'' est le groupe de torsion (hypothèse de 2.1.3) ⟹ le livre est faux. **Même motif que «dans Z» #540 et C_X #533.**
+- **(d) «de torsion de sorte que»** (livre, **SANS virgule** — crop `z546f_sorte`) ↔ Codex «de torsion**,** de sorte que».
+- **⟹ RESTAURÉS SIC TOUS LES QUATRE** (règle permanente : reproduire l'auteur au symbole près ; ne jamais plaider « c'est la math qui compte »). **L'édition est ici FIDÈLE-mais-mathématiquement-FAUSSE — c'est le comportement VOULU d'une édition diplomatique source-complete** ; observation consignée (ERRATA en pause). **Candidat ERRATA de premier plan** quand ERRATA reprendra.
+- ⚠ **LEÇON CONFIRMÉE (#540/#541/#543)** : Codex ne se contente pas de « corriger » l'orthographe — **il répare silencieusement les lapsus mathématiques de l'auteur**. 3 pages consécutives touchées. **NE JAMAIS présumer Codex correct quand le livre « semble » faux.**
+
+**3 rep-calls (fix546.py) :**
+- **fix1** — «$P_x(1)=P_x(0)$**,** i.e. $f(x)=f(0)$.» → «$P_x(1)=P_x(0)$ i.e. …» (★**comma-ADD, mode ④** ; crop `z546f_px1` 2000dpi DÉCISIF : la ligne du livre se termine par «…en particulier P_x(1) = P_x(0)» **SANS virgule**, et «i.e. f(x) = f(0) .» **commence la ligne suivante** [`z546_ie`]. Codex a ajouté la virgule).
+- **fix2** — «Les deux cas **(**a**)** et **(**b**)** ci-dessus» → «Les deux cas a) et b) ci-dessus» (★★**format enumerate, mode ⑦** ; crop `z546_cas` DÉCISIF ; **confirme le motif #542** : le livre imprime «a)»/«b)» sans parenthèse ouvrante).
+- **fix3** — **BLOC TAIL, 5 changements** : «suivant $G'$»→«$G''$» / «$h:G''$»→«$h:G'$» / «$G''$ est un groupe de torsion»→«$C''$…» / «de torsion**,** de sorte que»→«de torsion de sorte que» / «Donc $f$ est constante**.** C.Q.F.D.»→«…constante**,** C.Q.F.D.» (le livre met une **VIRGULE** avant C.Q.F.D. — band4 ; cf. placement/ponctuation C.Q.F.D. **per-occ** #530/#539/#543).
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH — reste de la page CLEAN.** Vérifiés au crop : «P : Q ⟶ Q est continu dans la topologie induite par R» ✓ ; «|P_x(n/p^k) − P_x(0)| < 1 .» ✓ ; «P_x(n/p^k) est un entier pour tout n,k ∈ Z» ✓ ; «P_x(n/p^k)−P_x(0) = 0 pour k assez grand» ✓ ; «la restriction de f à **G'**» (**1 prime CONFIRMÉ**, `z546d_fG`) ✓ ; «chaque classe de G suivant **G'**» (**1 prime CONFIRMÉ**) ✓ ; «g_b: G' ⟶ Q» ✓ ; display «g_b(y) = f(b+y)  (y ∈ G') .» ✓ ; **«f = h o j»** → le «o» dactylographié (espacé : «h o j») **EST** la composition ⟹ `$f=h\circ j$` **CORRECT**, pas de fix (cf. «fog» #541) ✓ ; Lemme 2.1.4 intégral (A / I idéal nilpotent / P sous-groupe multiplicatif / A* / x = 1+y / y ∈ I / i : P→ A) ✓ **MATCH**.
+
+**DÉFÉRÉ (ce firing) :** soulignements (énoncés + «Lemme») ; formats de titre ; espaces dactylo avant «,» et «.» ; inline `\to` ; blackboard-vs-plain ; sauts de ligne (⚠ «i.e. f(x)=f(0).» commence une ligne **à la MARGE GAUCHE** ⟹ simple retour à la ligne, **PAS un display**).
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf546.py` → doc[286]) : «…on trouve en particulier Px(1) = Px(0) / **i.e.** f(x) = f(0).» ✓ (virgule supprimée) ; «**Les deux cas a) et b)** ci-dessus montrent que la restriction de f à G′ est constante.» ✓ ; «…f est constante sur chaque classe de G suivant **G′**.» ✓ (1 prime, intact) ; «…d'où l'assertion que f soit constante sur les classes de G suivant **G′′**.» ✓ **sic** ; «Il s'ensuit qu'on peut écrire f = **h ◦j**, où **h : G′ →Q**» ✓ **sic** ; «Mais par hypothèse **C′′** est un groupe de torsion **de sorte que** h est constante.» ✓ **sic** ; «Donc f est constante**,** C.Q.F.D.» ✓.
+
+**SWEEP CURSOR → idx547** (vol p534 = **Exposé X «- 16 -»** [534−518=16] ; footer «534» ; idx=534+13=547 ✓). **Preview (L12745+, à VÉRIFIER au scan ; ⚠ p534 DÉJÀ ENTREVUE [contrôle binomial #541, bande b2])** : fin Lemme 2.1.4 + **(2.1.5)** — «[display α: P →^i A →^j A⊗_Z Q,] où j(x)=x⊗1, est une application polynôme. Si I^{m+1}=0, alors α est de degré ≤ m. / **Démonstration :** Soit x_1,..,x_r une suite d'éléments de P avec x_i = 1+y_i (i=1,...,r). Alors la formule binomiale donne pour tout n_1,...,n_r ∈ Z : / **(2.1.5)** x_1^{n_1}....x_r^{n_r} = Σ_{k_1,...,k_r ≥ 0} **(n_1¦k_1)...(n_r¦k_r)** y_1^{k_1}...y_r^{k_r} , / où la somme à droite est finie puisque les éléments y_1, ...,y_r sont nilpotents. Mais les coefficients **(n_1¦k_1)....(n_r¦k_r)** sont des polynômes à coefficients rationnels dans les variables n_1, ...,n_r de degré k_1 + ... + k_r, de sorte que α est bien une application polynôme…». ⚠⚠ **CHECKS idx547** : ★★★**`\binom` LÉGITIME ICI — CONFIRMÉ au contrôle #541 : (2.1.5) imprime les binomiaux en PARENS HAUTES avec n_i EMPILÉ AU-DESSUS de k_i, en DEUX paires séparées ⟹ L12758+L12760 `\binom{n_1}{k_1}\cdots\binom{n_r}{k_r}` = CORRECTS, NE PAS TOUCHER** (contraste Déf 2.1.1 = puissances #541/#542) ; ★★**«Démonstration :» avec DEUX-POINTS (vu au contrôle #541) — Codex a `\emph{Démonstration.}` ⟹ FIX probable (cf. #542)** ; ★★★**chaque subscript/exposant (x_i=1+y_i / i=1,…,r / n_1..n_r / k_1..k_r / I^{m+1}=0 / degré ≤ m / A⊗_Z Q / j(x)=x⊗1) au CROP** ; ★★**⊗_Z (#464)** ; ★★enumerate sans paren ouvrante ; ★★comma-ADD/DROP per-occ ; ★★«;»/«,» per-occ ; ★★paren-restore (8 occ) ; ★★**book-sic lettres isolées (4 lapsus math en 1 phrase à la p533 ! — vigilance MAXIMALE sur chaque C/G/P/α)** ; ★C.Q.F.D. per-occ (virgule OU point — #543) ; ★display trailing-punct DÉFÉRÉ ; ★eq-tag (2.1.5) numéro/présence.
+
+**CHECKS #543** : header «- 15 -» ✓ + «X» ✓ + footer «533» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p533 LISIBLE (fallback non nécessaire) ; 3 rep-calls tous `assert`+unicité OK ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause (log CERT uniquement) ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** **#543 ★★★ QUATRE book-sic math p533 (G''/G' interversion + C'' + virgules) → candidat ERRATA de premier plan** ; ⚠ **#542 : L12758+L12760 `\binom` (2.1.5) = CORRECTS (contrôle #541), à re-confirmer au crop sur idx547** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits book-sic ; #540+#542 display trailing-punct (catégorie #509) ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/theorem/§ formats ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; enumerate trailing-punct ; blackboard-vs-plain ; ref-spacing ; subscript-comma ; «Supposons-le» hyphen ; mode ⑬ «prof.»/«long.»/«rg.» à cropper si rencontrés (codim RÉSOLU = nu).
+
+### #542 (2026-07-15) — idx545 (vol p532 = **Exposé X «- 14 -»**, header «- 14 -» + «X» + footer «532» ; **CONSTANTE_X=518 CONFIRMÉE [532−14]**) — **★ fin Lemme 2.1.3 + Démonstration a)/b) (Jussila) : «…un nombre premier p et G'' est un groupe de torsion. Alors toute application polynôme f: G → Q qui se factorise par Z , est constante. / Démonstration :  Il s'agit de montrer que pour tout x ∈ G, on a f(x) = f(0). / a)  Supposons d'abord que x soit un élément de torsion, disons mx = 0 (m ∈ Z , m ≠ 0) . Alors le polynôme P_x(n) = f(nx) − f(0) a un nombre infini de racines, à savoir tous les entiers divisibles par m . Donc le polynôme P_x est identiquement nul et on a f(x) = f(0). / b)  Supposons maintenant que x soit un élément libre de G divisible par toutes les puissances p^k (k ∈ Z). Considérons des polynômes P_k définis par [display P_k(n) = f(nx/p^k) = Σ_{i ∈ N} n^i y(x/p^k; i) ∈ Z  (n ∈ Z ; y(x/p^k,i) ∈ Q) .] Pour tout n ∈ Z on a l'identité [display P_k(n) = P_{k+1}(pn)] i.e. [display Σ_{i∈N} n^i y(x/p^k ; i) = Σ_{i∈N} p^i n^i y(x/p^{k+1} ;i) ,] d'où on tire par comparaison de coefficients [display y(x/p^k; i) = p^i y(x/p^{k+1}; i)  (i ∈ N) .]»** — **5 rep-calls** (bands 1-5 + 6 crops HD dont 2 à 1600dpi) ; ⚠⚠ **CONSTANTE_X=518 ✓ (532−14 ; idx=532+13=545 ✓)** ; coupure p532/p533 après «…(i ∈ N) .», reste blanc.
+
+**⚠⚠⚠ ★★★ #541 COROBORÉ PAR CETTE PAGE — LA « TENSION » LOGGÉE EN #541 EST RÉSOLUE EN FAVEUR DU LIVRE :**
+- Le display P_k **du livre lui-même** (crop `z545b_pk_left`, 1600dpi) : «P_k(n) = f(nx/p^k) = **Σ_{i ∈ N} n^i** y(x/p^k; i) ∈ Z» ⟹ **PUISSANCES**, exactement la forme de la Déf. 2.1.1 restaurée en #541 (cas r=1).
+- Band 4 : «**Σ_{i∈N} n^i** y(x/p^k ; i) = **Σ_{i∈N} p^i n^i** y(x/p^{k+1} ;i)» puis «d'où on tire **par comparaison de coefficients**» ⟹ **l'argument par identification des coefficients ne fonctionne QUE dans la base MONOMIALE**.
+- ⟹ **le LIVRE est COHÉRENT avec lui-même** : Déf. 2.1.1 en puissances → P_k(n)=Σ n^i y(…;i) → comparaison de coefficients. Les binomiaux de **(2.1.5)** (p534) relèvent de la **formule binomiale** = une formule DIFFÉRENTE. **La supposée « incohérence du livre » signalée en #541 n'existe PAS.**
+- ⚠ **En revanche l'INCOHÉRENCE ÉTAIT DANS LE WORKPASS** : avant #541, Codex avait `\binom` dans la **définition** mais `n^i` dans **toutes** les conséquences (L12718/L12727/L12731) — mathématiquement incohérent. **#541 a supprimé cette incohérence.** ⟹ **#541 CONFIRMÉ ; le carry-back « candidat ERRATA majeur » de #541 est ANNULÉ** (pas d'erreur du livre ; c'était une réécriture Codex, désormais corrigée).
+
+**5 rep-calls (fix545.py) :**
+- **fix1** — «qui se factorise par $\mathbb Z$ est constante.» → «…par $\mathbb Z$**,** est constante.» (★**comma-DROP mode ④** ; crop `z545_comma` 1000dpi DÉCISIF : virgule franche après le Z. ⚠ le Z est **surfrappé = blackboard bold** ⟹ `\mathbb Z` CORRECT. Espace avant la virgule = spacing dactylo ⟹ DÉFÉRÉ).
+- **fix2** — «\emph{Démonstration**.**}» → «\emph{Démonstration **:**}» (★★**colon mode ③ RÉCURRENT #481-#545** ; crop `z545_demo` DÉCISIF : deux-points. **Précédent local déjà dans le fichier** : `\emph{Démonstration :}` existe en Exp X ⟹ convention suivie. ⚠ **NOT-UNIQUE-piège : `\emph{Démonstration.}` = 16 occ file-wide** → ancré sur la phrase entière).
+- **fix3** — «**(**a) Supposons d'abord» → «a) Supposons d'abord» (★★**format enumerate mode ⑦** ; crop `z545_itemA` DÉCISIF : le livre imprime «a)» **sans parenthèse ouvrante**).
+- **fix4** — «**(**b) Supposons maintenant» → «b) Supposons maintenant» (idem ; crop `z545_itemB` DÉCISIF).
+- **fix5** — «\qquad(n\in\mathbb Z;\ y(x/p^k**;**i)\in\mathbb Q).» → «…y(x/p^k**,**i)…» (★**point-virgule→virgule PER-OCC, mode ④** ; crop `z545b_pk_right` 1600dpi DÉCISIF : dans le display P_k le livre écrit le **1er** argument de famille avec un **point-virgule** «y(x/p^k; i)» mais le **2e** (dans la parenthèse) avec une **VIRGULE** «(n ∈ Z ; y(x/p^k**,**i) ∈ Q)» — virgule basse **sans point au-dessus**, à comparer au point-virgule franc juste avant «y(». Codex avait «;» les deux fois. **Livre incohérent per-occ** = motif établi).
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH — reste de la page CLEAN.** Vérifiés au crop : «mx = 0 (m ∈ Z , m ≠ 0)» ✓ ; «P_x(n) = f(nx) − f(0)» ✓ ; «a un nombre infini de racines, à savoir tous les entiers divisibles par m» ✓ ; «P_x est identiquement nul» ✓ ; «p^k (k ∈ Z)» ✓ ; L12727 «Σ n^i y(x/p^k;i) = Σ p^i n^i y(x/p^{k+1};i),» ✓ (puissances + virgule finale présente au livre) ; L12729 «d'où on tire par comparaison de coefficients» ✓ ; L12731 «y(x/p^k;i)=p^i y(x/p^{k+1};i)\qquad(i∈N).» ✓ ; suite exacte «0 → G' → G →^j G'' → 0» ✓ ; «Σ» = **grand Σ dessiné à longs bras** (cf. #541) ✓.
+
+**DÉFÉRÉ (ce firing) :** ⚠ «P_k(n)=P_{k+1}(pn)**,**» — le livre n'a **AUCUNE** ponctuation finale, le workpass met «,» ⟹ **display trailing-punct = CATÉGORIE DÉFÉRÉE (#509/#540)** ; consigné, non corrigé (cf. #540 disp1, même motif). Aussi : blackboard-vs-plain (variation d'encre du Z) ; **soulignements** («Démonstration», corps des énoncés) ; espaces dactylo avant «,» et «.» ; formats de titre (Lemme 2.1.3) ; sauts de ligne de «f(x) = f(0).» (marge gauche ⟹ simple retour à la ligne, PAS un display).
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf545.py` → doc[285-286]) : «…f : G →Q qui se factorise par **Z, est** constante.» ✓ ; «**Démonstration :** Il s'agit de montrer que pour tout x ∈G, on a f(x) = f(0).» ✓ ; «**a)** Supposons d'abord que x soit un élément de torsion, disons mx = 0 (m ∈Z, m ̸= 0).» ✓ ; «**b)** Supposons maintenant que x soit un élément libre de G divisible par toutes les puissances p^k» ✓ ; «n^i y(x/p^k; i) ∈Z» / «(n ∈Z; **y(x/p^k, i)** ∈Q).» ✓ ; «n^i y(x/p^k; i) = p^i n^i y(x/p^{k+1}; i),» ✓ ; «y(x/p^k; i) = p^i y(x/p^{k+1}; i)» ✓.
+
+**SWEEP CURSOR → idx546** (vol p533 = **Exposé X «- 15 -»** [533−518=15] ; footer «533» ; idx=533+13=546 ✓). **Preview (L12733+, à VÉRIFIER au scan — lecture partielle ; ⚠ p533 DÉJÀ ENTREVUE ce firing [contrôle #541] : elle contient «désigne par g_b: G'→Q l'application définie par [display g_b(y) = f(b+y)  (y ∈ G') .] L'application g_b est une application polynôme de G' dans Q qui se factorise par Z, donc constante d'après ce qu'on a vu ci-dessus, d'où l'assertion que f soit constante sur les classes de G suivant G''. Il s'ensuit qu'on peut écrire f = hoj , où h : G'→Q est une application polynôme qui se factorise par Z . Mais par hypothèse C" est un groupe de torsion de sorte que h est constante.»)** : début = «Mais tout polynôme P:Q→Q est continu dans la topologie induite par R. Donc pour k assez grand on a [display |P_x(n/p^k)−P_x(0)|<1.]…». ⚠⚠ **CHECKS idx546** : ★★★**chaque subscript/exposant (P_x(n/p^k) / g_b / b+y / f=hoj / G'/G''/C"?) au CROP** ; ⚠ **«C"» vs «G"» — le rendu OCR de la bande montrait «C" est un groupe de torsion» : VÉRIFIER AU CROP 1500dpi (book-sic possible, cf. «dans Z» #540 ; ne PAS présumer Codex correct)** ; ★★«f = hoj» = **f = h∘j** (composition dactylo «o» ⟹ `\circ`, cf. «fog» #541) ; ★★colon «Démonstration :» per-occ ; ★★enumerate «a)»/«b)»/«c)» SANS paren ouvrante (**motif établi #542 — VÉRIFIER tout item**) ; ★★paren-restore (8 occ) ; ★★comma-ADD/DROP per-occ ; ★★«∈»/mot ; ★★hyphen ; ★★binom-vs-puissances (critère #541 ; **§2 = base MONOMIALE, confirmé #542**) ; ★display trailing-punct DÉFÉRÉ ; ★R = `\mathbb R` (topologie induite) ; ★TEXTE-DROP ; ★display↔inline.
+
+**CHECKS #542** : header «- 14 -» ✓ + «X» ✓ + footer «532» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p532 LISIBLE (fallback non nécessaire) ; 5 rep-calls tous `assert`+unicité OK (piège 16-occ `\emph{Démonstration.}` évité) ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause (log CERT uniquement) ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** ~~#541 Déf 2.1.1 « incohérence du livre » → candidat ERRATA~~ **ANNULÉ #542 (livre cohérent ; c'était Codex, corrigé)** ; ⚠ **#542 : RE-VÉRIFIER L12758+L12760 (`\binom` de la formule binomiale (2.1.5)) sur leur page idx547 — attendus CORRECTS (parens hautes empilées au scan), ne pas toucher sans crop** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits book-sic ; #540+#542 display trailing-punct (catégorie #509) ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/theorem/§ formats ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; enumerate trailing-punct ; blackboard-vs-plain ; ref-spacing ; subscript-comma ; «Supposons-le» hyphen ; mode ⑬ «prof.»/«long.»/«rg.» à cropper si rencontrés (codim RÉSOLU = nu).
+
+### #541 (2026-07-15) — idx544 (vol p531 = **Exposé X «- 13 -»**, header «- 13 -» + «X» + footer «531» ; **CONSTANTE_X=518 CONFIRMÉE [531−13]**) — **★ DÉBUT §2 « Polynômes de Snapper » (Jussila) : «2.  Polynômes de Snapper / 2.1.  Rappelons d'abord la définition et quelques propriétés élémentaires des applications polynômes : / Définition 2.1.1.  Soit f une application d'un groupe abélien A dans un groupe abélien B. On dit que f est une application polynôme, s'il existe, pour toute suite x_1,....,x_r (r ≥ 1) d'éléments de A, une famille (y(x_1, ...,x_r ; k_1,...,k_r))_{k_1,...,k_r ≥ 0} d'éléments de B, presque tous nuls, et satisfaisant à la condition suivante : / Pour toute suite n_1,...,n_r d'entiers, on a [display f(n_1x_1 + ... + n_rx_r) = Σ_{k_1,...,k_r ≥ 0} (n_1^{k_1} ...n_r^{k_r}) y(x_1,...,x_r;k_1,...,k_r) .] On dit que f est de degré ≤ m , si quels que soient r ∈ Z et x_1,...,x_r ∈ A, on a [display y(x_1,...,x_r ; k_1,...,k_r) = 0] pour k_1 + ... + k_r > m. / Lemme 2.1.2.  Tout homomorphisme de groupes abéliens est une application polynôme de degré ≤ 1. Si h = fog, où f est une application polynôme de degré p et g une application polynôme de degré q, alors h est une application polynôme de degré ≤ pq. / Démonstration triviale. / Lemme 2.1.3.  Soit [display 0 → G' → G →^j G" → 0] une suite exacte de groupes abéliens telle que G' est divisible par»** — **3 rep-calls** (bands 1-5 + 6 crops HD dont 2 à 2000dpi + **contrôle décisif p534/idx547**) ; ⚠⚠ **CONSTANTE_X=518 ✓ (531−13 ; idx=531+13=544 ✓)** ; coupure p531/p532 après «…telle que G' est divisible par».
+
+**⚠⚠⚠ ★★★ DÉFAUT MAJEUR — CODEX A RÉÉCRIT LA FORMULE DE LA DÉFINITION 2.1.1 : `\binom` À LA PLACE DES PUISSANCES (mode ⑫ mathématique, 2e instance après «dans Z» #540, et la plus grave à ce jour) :**
+- **LIVRE (crops `z544b_coef.png` + `z544b_sigma.png`, 2000dpi)** : `f(n_1x_1 + ⋯ + n_rx_r) = Σ_{k_1,…,k_r ≥ 0} **(n_1^{k_1} ⋯ n_r^{k_r})** y(x_1,…,x_r;k_1,…,k_r) .` — **UNE SEULE paire de parenthèses COURTES**, chaque `k_i` en **position EXPOSANT**, *au-dessus* de l'empan vertical des parenthèses (paren «(» : y≈170-290 ; «k_1» : y≈50-140 ⟹ le k **déborde au-dessus** de la parenthèse : impossible pour un `\binom`, dont les parens doivent englober n ET k).
+- **CODEX** : `\binom{n_1}{k_1}\cdots\binom{n_r}{k_r}` (coefficients binomiaux).
+- **★★★ CONTRÔLE DÉCISIF — p534 / idx547, formule (2.1.5)** : **le MÊME typescript imprime les vrais coefficients binomiaux en parenthèses HAUTES avec n_i EMPILÉ AU-DESSUS de k_i, en DEUX paires de parens distinctes** — «(n_1 ¦ k_1)…(n_r ¦ k_r)» — **et imprime les puissances en exposant** («x_1^{n_1}…x_r^{n_r}», «y_1^{k_1}…y_r^{k_r}»). ⟹ **le typescript DISTINGUE démonstrablement les deux notations**, et 2.1.1 n'est **PAS** binomial. (Bonus : les deux longues barres horizontales près du Σ = simplement les **bras du grand Σ dessiné**, PAS un overline — question résolue.)
+- **⚠⚠ TENSION LIVRE-vs-MATH — CONSIGNÉE, NON RÉSOLUE DANS L'ÉDITION** : la définition standard d'une application polynôme **à valeurs dans un groupe abélien quelconque** exige la **base BINOMIALE** (les polynômes à valeurs entières ne sont pas à coefficients entiers dans la base monomiale ; on ne peut pas diviser dans B) ; de plus la démonstration de (2.1.5) développe par la **formule binomiale** en Σ (n choose k) y^k et confronte le résultat à la Définition 2.1.1. ⟹ **la Déf. 2.1.1 telle qu'imprimée paraît mathématiquement fautive / non standard, et le LIVRE est INCOHÉRENT avec lui-même (2.1.1 puissances vs (2.1.5) binomiaux).** **RÈGLE PERMANENTE APPLIQUÉE** : reproduire l'auteur au symbole près ; ne jamais plaider « c'est la math qui compte » ⟹ **puissances RESTAURÉES telles qu'imprimées**, observation consignée ici (ERRATA en pause). C'est un **candidat ERRATA majeur** quand ERRATA reprendra.
+- ⚠ **NOT-UNIQUE-piège** : `\binom{n_1}{k_1}\cdots\binom{n_r}{k_r}` = **3 occurrences** (L12697 **ici** + L12758 et L12760 qui appartiennent à la preuve binomiale de (2.1.5) et y sont **CORRECTS** — ne PAS toucher) → ancrage sur le **bloc display entier**.
+
+**3 rep-calls (fix544.py) :**
+- **fix1** — «…élémentaires des applications polynômes**.**» → «…polynômes **:**» (★★**colon mode ③ RÉCURRENT #481-#544** ; crop `z544_colon` DÉCISIF : deux points empilés).
+- **fix2+3** — **FAMILLE : REWRITE Codex + display→inline + capitale «Pour»**. Livre (crops `z544_family` + `z544_pour`) : «une famille **(**y(x_1, ...,x_r ; k_1,...,k_r)**)**_{k_1,...,k_r ≥ 0} d'éléments de B, presque tous nuls, et satisfaisant à la condition suivante :» — **INLINE, parens externes + INDICE**. Codex avait **RÉÉCRIT** en display `\[ y(x_1,…,x_r;k_1,…,k_r),\qquad k_1,…,k_r\geq0, \]` ⟹ **display-vs-inline = catégorie NON déférée** ⟹ FIX. Livre ensuite : nouvelle ligne «**P**our toute suite n_1,…,n_r d'entiers, on a» — **capitale P** ; Codex avait minusculé. **Capitale restaurée** (niveau caractère) ; le **saut de ligne** lui-même = layout ⟹ **DÉFÉRÉ** (phrase gardée inline).
+- **fix4** — `\binom{n_1}{k_1}\cdots\binom{n_r}{k_r}` → `(n_1^{k_1}\cdots n_r^{k_r})` — voir bloc dédié ci-dessus.
+
+**AUCUNE fabrication.**
+
+**★★★ VIGILANCE MATH — reste de la page CLEAN.** Vérifiés au crop : «r ∈ Z» (Z souligné = `\mathbb Z`) ✓ ; «x_1,…,x_r ∈ A, on a» ✓ ; display «y(x_1,…,x_r ; k_1,…,k_r) = 0» ✓ ; «pour k_1 + … + k_r > m.» ✓ ; «(r ≥ 1)» ✓ ; Lemme 2.1.2 intégral ✓ ; **«Si h = fog»** → le «o» dactylographié **EST** la composition ∘ ⟹ workpass `$h=f\circ g$` **CORRECT**, pas de fix (cf. mode ⑨ composition-∘-drop : ici Codex a bien fait) ✓ ; «degré ≤ pq.» ✓ ; «Démonstration triviale.» ✓ ; Lemme 2.1.3 + suite exacte «0 → G' → G →^j G" → 0» (types de flèches ✓, `\xrightarrow{j}` ✓).
+
+**DÉFÉRÉ (ce firing) :** formats de titre («2.» / «2.1.» / «Définition 2.1.1.» / «Lemme 2.1.2.» — soulignés au livre) ; **soulignements** du corps de la définition (le livre souligne tout l'énoncé — convention d'emphase, DÉFÉRÉ) ; saut de ligne avant «Pour toute suite» ; ellipse dactylo «,....,» (workpass `\ldots`) ; écarts typewriter larges ; «y(x_1, ...,x_r ; k_1,...,k_r)» espaces autour du «;».
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf544.py` → doc[285-286]) : «2. Polynômes de Snapper» ✓ ; «…élémentaires des applications polynômes **:**» ✓ ; «d'éléments de A, une famille **(y(x1, . . . , xr; k1, . . . , kr))k1,...,kr≥0** d'éléments de B, presque tous nuls,» ✓ ; «…condition suivante : **Pour** toute suite n1, . . . , nr d'entiers, on a» ✓ ; «f(n1x1 + · · · + nrxr) = Σ_{k1,...,kr≥0} **(n^{k1}_1 · · · n^{kr}_r)** y(x1, . . . , xr; k1, . . . , kr).» ✓ **puissances restaurées** ; «On dit que f est de degré ≤m, si quels que soient r ∈Z…» ✓ ; «Si h = f ◦g» ✓ ; «Démonstration triviale.» ✓ ; «0 −→G′ −→G →^j G′′ −→0» ✓.
+
+**SWEEP CURSOR → idx545** (vol p532 = **Exposé X «- 14 -»** [532−518=14] ; footer «532» ; idx=532+13=545 ✓). **Preview (L12714+, à VÉRIFIER au scan — lecture partielle)** : suite du Lemme 2.1.3 — «…une suite exacte de groupes abéliens telle que G' est divisible par un nombre premier p et G'' est un groupe de torsion. Alors toute application polynôme f:G→Q qui se factorise par Z est constante. **Démonstration.** Il s'agit de montrer que pour tout x∈G, on a f(x)=f(0). **(a)** Supposons d'abord que x soit un élément de torsion, disons mx=0 (m∈Z, m≠0). Alors le polynôme P_x(n)=f(nx)−f(0) a un nombre infini de racines, à savoir tous les entiers divisibles par m. Donc le polynôme P_x est identiquement nul et on a f(x)=f(0). **(b)** …». ⚠⚠ **CHECKS idx545** : ★★★**chaque subscript/exposant (P_x(n) / nx / mx=0 / m≠0 / f(0)) + chaque réf + chaque Q/Z/G/G'/G''** au CROP ; ★★**`\binom`-vs-puissances : VÉRIFIER TOUTE formule à coefficients — le livre distingue parens-HAUTES-empilées (binom) vs exposants (puissances) ; cf. #541** ; ★★★**book-sic : NE JAMAIS présumer Codex correct quand le livre « semble » faux (dans Z #540 ; puissances Déf 2.1.1 #541)** ; ★★paren-restore (8 occ) ; ★★colon (#481-#544) ; ★★«∈»/mot ; ★★hyphen ; ★enumerate «(a)»/«(b)» casse+format ; ★TEXTE-DROP ; ★display↔inline ; ★«Démonstration.» vs «Démonstration :» (**p534 montre «Démonstration :» avec DEUX-POINTS — per-occ, CROPPER**) ; ★C.Q.F.D. per-occ.
+
+**CHECKS #541** : header «- 13 -» ✓ + «X» ✓ + footer «531» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p531 LISIBLE (fallback non nécessaire) ; 3 rep-calls tous `assert`+unicité OK (blocs entiers, piège 3-occ `\binom` évité) ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause (log CERT uniquement) ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** **#541 ★★ Déf 2.1.1 puissances-vs-binomiaux = INCOHÉRENCE DU LIVRE (2.1.1 puissances / (2.1.5) binomiaux) → candidat ERRATA majeur ; RE-VÉRIFIER L12758+L12760 (binomiaux de la formule binomiale) sur leur page idx547** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits book-sic ; #540 disp1 trailing-punct (catégorie #509) ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/theorem/§ formats ; array/align trailing-punct (#509) ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen ; French ;/: spacing ; enumerate trailing-punct ; blackboard-vs-plain ; ref-spacing ; subscript-comma ; «Supposons-le» hyphen ; mode ⑬ «prof.»/«long.»/«rg.» à cropper si rencontrés (codim RÉSOLU = nu).
+
+### #540 (2026-07-15) — idx543 (vol p530 = **Exposé X «- 12 -»**, header «- 12 -» + «X» + footer «530» ; **CONSTANTE_X=518 CONFIRMÉE [530−12]**) — **★ fin 1.6 : le contre-exemple par recollement (Jussila) : «Il est évidemment nécessaire pour cela que X soit caténaire, et suffisant que X soit biéquidimensionne (EGA 0_IV 14.3.3). Cependant il existe des schémas noethériens de dimension finie, caténaires et équidimensionnels, n'ayant pas de telles fonctions D. Pour le voir on peut modifier l'exemple (EGA IV 5.6.11) de la façon suivante : prenons deux exemplaires Y_1 et Y_2 du spectre de l'anneau E de loc. cit. et désignons par y_i et z_i (i=1,2) les points fermés de Y_i (i=1,2) correspondant aux idéaux maximaux m resp. m' de E de hauteur 2 resp. 1 . Rappelons que les corps résiduels de m et m' sont isomorphes. On peut donc construire par recollement de Y_1 et Y_2 un schéma X en identifiant y_1 avec z_2 et y_2 avec z_1 . On peut alors identifier Y_1 et Y_2 avec les deux composantes irréductibles de X, et alors dans Z, Y_1 ∩ Y_2 = {y_1,y_2} est de dimension zéro. On voit alors que X est un schéma noethérien, caténaire et équidimensionnel (de dimension 2). Si (ii bis) était vérifié sur X, on aurait [display D(y_1) = D(z_1) − 1 = D(y_2) − 1] et d'autre part [display D(y_1) = D(z_2) = D(y_2) + 1 ,] donc on trouve une contradiction.»** — **6 rep-calls** (bands 1-5 + 10 crops HD dont 4 à 1500dpi ; OS-360 p530 LISIBLE, fallback non nécessaire) ; ⚠⚠ **CONSTANTE_X=518 ✓ (530−12 ; idx=530+13=543 ✓)** ; page se termine après «donc on trouve une contradiction.», reste blanc.
+
+**⚠⚠⚠ ★★★ DÉFAUT MAJEUR — BOOK-SIC MATHÉMATIQUE : «dans Z» (mode ⑫, 1ère instance NON-orthographique) :**
+- Le livre imprime **«et alors dans Z, Y_1 ∩ Y_2 = {y_1,y_2} est de dimension zéro»**. Codex a écrit **«dans X»**.
+- **Crop `z543b_XvsZ.png` (1500dpi) DÉCISIF** : le glyphe est **sans ambiguïté un Z** (barre horizontale haute + diagonale + barre horizontale basse) et **diffère visiblement du «X» de «tibles de X,» SUR LA MÊME LIGNE** (X = deux diagonales croisées) — même frappe, même encre, même rangée. Contrôle `z543b_ctlX.png` : «que X est un schéma» (ligne suivante) = X franc ; le «z» de «zéro» (même ligne) partage la structure barre/diagonale/barre du Z litigieux.
+- **MATHÉMATIQUEMENT le livre est FAUX** : aucun Z n'existe dans cette construction (X = recollement de Y_1 et Y_2 ; le Z appartenait à l'Exemple 1.5 **terminé** p528). C'est un **lapsus de frappe** de l'auteur/dactylo pour «X».
+- **⟹ RESTAURÉ SIC** conformément à la règle permanente (« reproduce book typos/quirks sic + log to CERT_LOG only »). Codex avait **silencieusement corrigé** le livre. ⚠ **C'est la 1ère fois qu'un book-sic mode ⑫ porte sur un SYMBOLE MATHÉMATIQUE et non sur l'orthographe** (cf. coincide #539 / Corrollaire #530 / réccurrence #521). L'édition devient fidèle-mais-mathématiquement-fausse à cet endroit — **c'est le comportement correct d'une édition diplomatique source-complete** ; l'observation est consignée ici (ERRATA en pause).
+
+**⚠⚠ CARRY-BACK #539 `\dimdot` — SOLDÉ CE FIRING (avec crops p528, comme exigé) :**
+- **cb1 L12631 (1.5.1)** — crop **`z541c_eq151.png` (1500dpi) DÉCISIF** : «D_S(x) = n-codim ({x}‾, S) = **n-dim.O_{S,x}**  (x ∈ S) ,» → le point abréviatif est bien là. `=n-\dim\mathcal O_{S,x}` → `=n-\dimdot\mathcal O_{S,x}`.
+- **cb2 L12649 (display)** — crop `p541_b4` : «D_Y(x)−D_Y(y)= **dim.**O_{S,y'} − **dim.**O_{S,x'} + **deg.tr**_{k(x')}k(x) − **deg.tr**_{k(y')}k(y) .» → `\dim`→`\dimdot` (2 occ).
+- **⟹ `\dim\mathcal O` bare = 0 dans tout le fichier** (assert dans fix543.py) ; **`\dimdot\mathcal O` = 13/13**. **Exp X redevient cohérent** ; l'incohérence temporaire p527-p528 signalée en #539 est levée.
+- **★★ BORNE DU MODE ⑬ ÉTABLIE (bonus du même crop)** : sur la **MÊME LIGNE** que «n-dim.O», le livre écrit **«n-codim (…)» SANS point** ⟹ la règle du point abréviatif couvre **«dim.» et «deg.tr» UNIQUEMENT, PAS «codim»**. **`\codim` reste nu — correct tel quel, aucune action.** (Répond à la question ouverte «codim. ? prof. ? long. ? rg. ?» de #539 : au moins pour codim, la réponse est NON.)
+
+**6 rep-calls (fix543.py) :**
+- **cb1 / cb2** — voir carry-back ci-dessus.
+- **fix3** — «et suffisant que $X$ soit biéquidimensionne**l** (EGA $0_{IV}$ 14.3.3)» → «…biéquidimensionne (EGA…)» (★★**BOOK-SIC mode ⑫** ; crop **`z543c_bieqword.png` 1500dpi DÉCISIF** : le mot se termine par «-sionne», **PAS de «l» final**, et un espace net précède «(EGA». **Contrôle `z543c_ctl_equidim.png`** : «équidimensionnel**s**,» deux lignes plus bas montre le «l» comme une **hampe haute inratable** ⟹ son absence ici est probante. ⚠ NB l'**AUTRE** occurrence de la même page — «équidimensionnel (de dimension 2)» — **PORTE bien son «l»** ⟹ **lapsus ponctuel du dactylo, pas une graphie systématique** ; reproduit sic).
+- **fix4** — «de la façon suivante**.** **P**renons deux exemplaires» → «de la façon suivante **:** **p**renons deux exemplaires» (★★**colon-avant-énumération, mode ③ RÉCURRENT #481-#543** ; crop `z543_suiv` DÉCISIF : deux-points francs + «prenons» **minuscule**. Codex avait point + capitale).
+- **fix5** — «et alors dans $X$…» → «et alors dans $Z$…» (★★★**BOOK-SIC MATHÉMATIQUE** — voir bloc dédié ci-dessus).
+- **fix6** — «caténaire et équidimensionnel de dimension $2$. Si (ii bis)» → «…équidimensionnel **(**de dimension $2$**)**. Si (ii bis)» (★★**paren-restore, 8e occ #520-#543** ; crop `z543_paren` DÉCISIF ; Codex avait supprimé les parenthèses).
+
+**AUCUNE fabrication** (chaque phrase/formule/référence comparée au scan band-par-band).
+
+**★★★ VIGILANCE MATH — RÉSULTAT : PAGE CLEAN.** Tous les points à risque vérifiés **au crop** : **disp1** «D(y_1) = D(z_1) − 1 = D(y_2) − 1» (crop `z543_disp1`) et **disp2** «D(y_1) = D(z_2) = D(y_2) + 1 ,» (crop `z543_disp2`) — **chaque subscript (y_1/z_1/y_2/z_2), chaque signe (−1/−1/+1)** = workpass **EXACT** ; «(i=1,2)» ×2 ✓ ; «hauteur 2 resp. 1» ✓ ; «y_1 avec z_2 et y_2 avec z_1» ✓ ; «Y_1∩Y_2={y_1,y_2}» ✓ ; «EGA 0_IV 14.3.3» ✓ ; «EGA IV 5.6.11» ✓ ; «(ii bis)» ✓. **Aucune erreur math Codex sur cette page** (contraste #540/#541 où 2 erreurs consécutives).
+
+**NON-FIXÉ (vérifié = scan) :** «m resp. m'» = `\mathfrak m`/`\mathfrak m'` ✓ (le livre **souligne** m/m' = convention dactylo pour le gothique ⟹ `\mathfrak` est bien la représentation ; l'underline lui-même = DÉFÉRÉ) ; «de loc. cit.» ✓ ; «(EGA IV 5.6.11)» parens ✓ ; «(EGA $0_{IV}$ 14.3.3)» parens ✓ ; «n'ayant pas de telles fonctions D.» ✓ ; «équidimensionnels,» avec l+s ✓ ; «donc on trouve une contradiction.» ✓ ; «\codim» nu ✓ (crop, voir borne mode ⑬).
+
+**DÉFÉRÉ (ce firing) :** ⚠ **disp1 ponctuation finale** — le livre n'a **AUCUNE** ponctuation après le dernier «1» de «D(y_1)=D(z_1)−1=D(y_2)−1» alors que le workpass met «,» ⟹ **display trailing-punct = CATÉGORIE DÉFÉRÉE (#509)** ; consigné, non corrigé (disp2 «+ 1 ,» a bien sa virgule au livre = workpass ✓). Aussi : «hauteur 2 resp. 1 .» espace-avant-point ; écarts typewriter larges («que  X  soit») ; underlines m/m' ; format titre.
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf543.py` → doc[285]) : «…que X soit caténaire, et suffisant que X soit **biéquidi-mensionne** (EGA 0_IV 14.3.3).» ✓ (césure de ligne) ; «l'exemple (EGA IV 5.6.11) de la façon **suivante : prenons** deux exemplaires Y1 et Y2 du spectre» ✓ ; «…idéaux maximaux m resp. m′ de E de hauteur 2 resp. 1.» ✓ ; «…identifiant y1 avec z2 et y2 avec z1.» ✓ ; «deux composantes irréductibles de X, et alors **dans Z**, Y1 ∩Y2 = {y1, y2} est de dimension zéro.» ✓ ; «…caténaire et équidimensionnel **(de dimension 2)**.» ✓ ; «D(y1) = D(z1) −1 = D(y2) −1,» / «D(y1) = D(z2) = D(y2) + 1,» ✓ ; «donc on trouve une contradiction.» ✓. **Carry-back vérifié** : doc[284] «D_S(x) = n −**codim**({x}, S) = n −**dim. O**_{S,x}» ✓ et «D_Y(x) −D_Y(y) = **dim. O**_{S,y′} −**dim. O**_{S,x′} + **deg. tr**_{k(x′)}k(x) −…» ✓ ⟹ plus aucun «dim» nu en Exp X.
+
+**SWEEP CURSOR → idx544** (vol p531 = **Exposé X «- 13 -»** [531−518=13] ; footer «531» ; idx=531+13=544 ✓). **Preview (L12685+, à VÉRIFIER au scan — lecture partielle)** : **§2 « Polynômes de Snapper »** — «2.1 Rappelons d'abord la définition et quelques propriétés élémentaires des applications polynômes. **Définition 2.1.1.** Soit f une application d'un groupe abélien A dans un groupe abélien B. On dit que f est une application polynôme, s'il existe, pour toute suite x_1,…,x_r (r≥1) d'éléments de A, une famille…». ⚠⚠ **CHECKS idx544** : **NOUVELLE SECTION ⟹ vérifier titre §2 + numérotation 2.1 / 2.1.1 + format** ; ★★★**chaque subscript x_1,…,x_r / r≥1 / indices de famille au CROP** ; ★★**«s'il existe, pour toute suite»** virgules per-occ ; ★★paren-restore (8 occ) ; ★★colon-avant-display (#481-#543) ; ★★**book-sic tréma/accents/lettres (cf. «dans Z» #540 : VÉRIFIER CHAQUE lettre mathématique isolée au crop — ne PAS supposer que Codex a raison même quand le livre semble faux)** ; ★★hyphen-drop ; ★★**abréviations pointées «dim.»/«deg.tr» (mode ⑬ ; `\codim` nu = CORRECT, borné #540)** ; ★TEXTE-DROP ; ★display↔inline ; ★eq-tag ; ★A/B groupes abéliens ; ★«application polynôme» accord.
+
+**CHECKS #540** : header «- 12 -» ✓ + «X» ✓ + footer «530» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p530 LISIBLE ; 6 rep-calls tous `assert`+unicité OK ; assert `\dim\mathcal O`==0 OK ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause (log CERT uniquement) ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** ~~#539 `\dimdot` L12631/L12649~~ **SOLDÉ #540** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits book-sic ; **#540 disp1 trailing-punct (catégorie #509)** ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/theorem/§ formats ; array/align trailing-punct (#509) ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen (livre incohérent) ; French ;/: spacing ; enumerate trailing-punct ; blackboard-vs-plain (R_X/k/E_e) ; ref-spacing ; subscript-comma ; «Supposons-le» hyphen ; **mode ⑬ : «prof.»/«long.»/«rg.» encore à cropper si rencontrés (codim RÉSOLU = nu)**.
+
+### #539 (2026-07-15) — idx542 (vol p529 = **Exposé X «- 11 -»**, header «- 11 -» + «X» + footer «529» ; **CONSTANTE_X=518 CONFIRMÉE [529−11]**) — **★ fin Exemple 1.5 + début 1.6 (Jussila) : «[display dim.O_{S,y'}−dim.O_{S,x'} = dim.O_{Z,y'} − dim.O_{Z,x'}] (EGA 0_IV 14.3.2.1), d'où (1.5.4) D_Y(x)−D_Y(y) = [dim.O_{Z,y'} − deg.tr_{k(y')}k(y) ] − [dim.O_{Z,x'} − deg.tr_{k(x')}k(x) ] . Puisque Z est universellement caténaire,(EGA IV 5.6.5.1.) est applicable, et donne [display C_1= dim.O_{Y,y} −e , C_2 = dim.O_{Y,x} −e ,] où C_1 et C_2 sont les deux termes à droite dans (1.5.4). Alors on conclut immédiatement de (1.5.4) que [display D_Y(x)−D_Y(y) = dim.O_{Y,y} − dim.O_{Y,x} > 0, C.Q.F.D.] On voit donc que (1.3.2) et (1.3.3) restent valables pour un schéma noethérien universellement caténaire X de dimension n, si l'on définit la filtration de K.(X) au moyen de (1.5.1) suivant la codimension des supports. On notera que cette filtration coincide avec celle de (1.1.1), lorsque de plus X est biéqui-dimensionnel. 1.6. On peut se demander s'il est toujours possible de définir sur un schéma noethérien X de dimension finie une fonction D possédant la propriété (i) de 1.4 et de plus la propriété suivante, plus forte que (ii) : (ii bis) Si x ∈ X, et y ≠ x est une spécialisation immédiate de x, alors D(x) = D(y) + 1 .»** — **7 rep-calls** (bands 1-5 + 7 crops HD, OS-360 p529 LISIBLE, pas besoin du fallback) ; ⚠⚠ **CONSTANTE_X=518 ✓ (529−11 ; idx=529+13=542 ✓)** ; page se termine après «alors D(x)=D(y)+1 .», reste blanc.
+
+**⚠⚠⚠ DÉCISION GLOBALE TRANCHÉE — «dim.» POINT SYSTÉMATIQUE (en attente depuis #541) :**
+- **Crop dédié `z542_dimdot.png` (780dpi, display L12652) DÉCISIF** : le point entre «dim» et «O» est **SUR LA LIGNE DE BASE**, exactement au niveau de la virgule de «S,y'» — **PAS** à mi-hauteur. ⟹ ce n'est **PAS** un product-dot «·» (mode ★★product-dot per-occ ne s'applique PAS ici), c'est un **POINT ABRÉVIATIF** : «dim.» = abréviation de *dimension*, exactement comme «deg.tr» = *degré de transcendance*.
+- **★ PRÉCÉDENT DÉJÀ DANS LE FICHIER** : Codex lui-même a écrit `\providecommand{\degtr}{\operatorname{deg.tr}}` (L12418) — il a donc **déjà conservé le même point abréviatif pour «deg.tr»**, mais l'a **droppé pour «dim.»**. Incohérence Codex, pas ambiguïté du livre.
+- **⟹ RÈGLE GLOBALE Exp X (ADOPTÉE)** : représentation **`\dimdot` = `\operatorname{dim.}`**, macro posée juste à côté de `\degtr` (L12419). Rejeté : `\dim\cdot\mathcal O` (faux : ce n'est pas un product-dot) ; rejeté : `\dim\!.\,` (ad hoc, non parallèle à `\degtr`). Le rendu «dim. O» / «deg. tr» a le même espacement `\operatorname` ⟹ **parallèle et cohérent**. Espacement fin = layout, DÉFÉRÉ.
+- **PORTÉE MESURÉE** : `\dim\mathcal O` = **13 occ, 6 lignes, TOUTES en Exp X** (L12630, L12648, L12652, L12657, L12661, L12665). Aucune ailleurs (`\dim` seul = 398 occ file-wide, autres exposés/auteurs, hors sujet).
+- **APPLIQUÉ CE FIRING** : L12652 / L12657 / L12661 / L12665 (= p529, la page courante, crop-vérifiée).
+- **⚠⚠ CARRY-BACK #539 → prochaine passe** : **L12630 (p527/idx540) et L12648 (p528/idx541) portent encore `\dim` nu** — conformément à la consigne «PAS rétroactivement ce firing». Le rendu montre donc encore «dim O_{S,y'}» à la ligne p528. **À balayer au prochain firing AVEC crop de confirmation** (règle «never certify» : ne jamais corriger une page non crop-vérifiée dans le firing courant).
+
+**7 rep-calls (fix542.py) :**
+- **fix1** — ajout `\providecommand{\dimdot}{\operatorname{dim.}}` après L12418 (`\degtr`). Cf. décision globale ci-dessus.
+- **fix2** — L12652 `\dim`→`\dimdot` (**4 occ**). Crop `z542_dimdot` DÉCISIF.
+- **fix3** — L12657 `\dim`→`\dimdot` (**2 occ**). ★★★**VIGILANCE MATH appliquée** : signes, subscripts (O_{Z,y'}/O_{Z,x'}/k(y')/k(x')), primes et structure `[..]−[..]` **TOUS comparés au crop band1/band2 : MATCH EXACT, aucune erreur Codex** (contraste avec #540/#541).
+- **fix4** — L12659 «Puisque $Z$ est universellement caténaire, EGA IV 5.6.5.1 est applicable, et donne» → «…caténaire, **(**EGA IV 5.6.5.1**.)** est applicable, et donne» (★★**paren-restore, 7e occ #520-#542** ; crop `z542_ega` DÉCISIF ; ⚠ ici Codex n'a pas remplacé les parens par une virgule mais les a **entièrement SUPPRIMÉES** — variante du mode ①). ⚠ **BOOK-SIC : point final À L'INTÉRIEUR des parens «5.6.5.1.»** — reproduit sic (cf. EGA-digits #512).
+- **fix5** — L12661 `\dim`→`\dimdot` (**2 occ**). Crop `z542b_ce` (1300dpi) : **«−e» est SUR LA LIGNE DE BASE**, ce n'est PAS un exposant `^{-e}` (le subscript est «Y,y» seul) ⟹ workpass `-e` CORRECT, pas de fix.
+- **fix6** — L12665 `D_Y(x)-D_Y(y)=\dim\mathcal O_{Y,y}-\dim\mathcal O_{Y,x}>0.` → `…\dimdot…>0,\qquad \text{C.Q.F.D.}` (★★**TEXTE-DROP, mode ⑤** : crop `z542_cqfd` DÉCISIF — le livre imprime «> 0**,**   **C.Q.F.D.**» **sur la même ligne typographiée que la formule** ; Codex a mis «>0**.**» [point] et **droppé C.Q.F.D. ENTIÈREMENT**. ⚠ Placement : **DANS** le display, car ici le livre l'a sur la ligne du display — contrairement à L12611 (#530) où «C.Q.F.D.» est seul sur sa propre ligne et où Codex a correctement rendu une ligne séparée. **Per-occ, pas de règle uniforme.**)
+- **fix7** — L12667 «On notera que cette filtration co**ï**ncide avec celle de (1.1.1)» → «…co**i**ncide…» (★★**BOOK-SIC, mode ⑫** : crop `z542b_coincide` **1300dpi DÉCISIF — le «i» porte UN SEUL point, aucun tréma** ; comparer les «i» de «filtration»/«codimension» même ligne = identiques. Codex a « corrigé » le livre. Reproduit sic. ⚠ **NOT-UNIQUE-piège : «coïncide» = 18 occ file-wide** → ancré sur la phrase entière «On notera que cette filtration coïncide avec celle de (1.1.1)» [1 occ]).
+
+**AUCUNE fabrication** (chaque phrase/formule/eq-tag/référence comparée au scan band-par-band).
+
+**NON-FIXÉ (vérifié, conforme au scan) :** (1.5.4) numéro + présence + structure `[..]−[..]` ✓ ; display L12652 signes/subscripts ✓ ; «(EGA $0_{IV}$ 14.3.2.1), d'où» ✓ (chiffres comptés au crop) ; «où $C_1$ et $C_2$ sont les deux termes à droite dans (1.5.4).» ✓ ; «K_\bullet(X)» = «K.(X)» ✓ ; «(1.3.2) et (1.3.3)» ✓ ; «biéqui-dimensionnel» (avec trait d'union — ≠ «biéquidimensionnel» sans trait d'union à L12674/p530, **livre INCOHÉRENT per-occ**, cf. #540/#541 «à»/«-») ✓ ; «(ii bis) Si $x\in X$, et $y\ne x$…» ✓ ; «plus forte que (ii) :» colon ✓ ; «Alors on conclut» = même paragraphe (pas d'indentation au scan ⟹ simple retour à la ligne ; comparer «On voit donc» QUI EST indenté ⟹ nouveau paragraphe) ✓.
+
+**DÉFÉRÉ (ce firing) :** «caténaire,(EGA» = pas d'espace après la virgule (spacing) ; «Puisque  Z  est» écarts typewriter larges ; underlines «codimension» + «biéqui-dimensionnel» ; format titre «1.6.» ; «alors D(x)=D(y)+1 .» = **indentation de continuation (x≈0.21, ligne courte, PAS centrée) ⟹ PAS un display** — aucun changement ; espacement `\operatorname` de «dim. O».
+
+**Compile 0-err, 383pp** (pdflatex ×2 ; `\dimdot` accepté ; grep -c "^!" pass2.log = 0).
+
+**Render-verify** (`vrf542.py` → doc[284-285]) : «dim. O_{S,y′} −dim. O_{S,x′} = dim. O_{Z,y′} −dim. O_{Z,x′}» ✓ ; «D_Y(x) −D_Y(y) = [dim. O_{Z,y′} −deg. tr_{k(y′)}k(y)] −[dim. O_{Z,x′} −deg. tr_{k(x′)}k(x)].» + «(1.5.4)» ✓ ; «Puisque Z est universellement caténaire, **(EGA IV 5.6.5.1.)** est applicable, et donne» ✓ ; «C_1 = dim. O_{Y,y} −e,» / «C_2 = dim. O_{Y,x} −e,» ✓ ; «D_Y(x) −D_Y(y) = dim. O_{Y,y} −dim. O_{Y,x} **> 0,**» + «**C.Q.F.D.**» ✓ ; «cette filtration **coincide** avec celle de (1.1.1)» ✓ ; «(ii bis) Si x ∈X, et y ̸= x est une spécialisation immédiate de x, alors D(x) = D(y)+1.» ✓. ⚠ **Le render montre encore «dim O_{S,y′}» (sans point) à la ligne de L12648** = carry-back p528 attendu et assumé (non rétroactif).
+
+**SWEEP CURSOR → idx543** (vol p530 = **Exposé X «- 12 -»** [530−518=12] ; footer «530» ; idx=530+13=543 ✓). **Preview (L12674+, à VÉRIFIER au scan — lecture partielle)** : suite de 1.6 — «Il est évidemment nécessaire pour cela que X soit caténaire, et suffisant que X soit biéquidimensionnel (EGA 0_IV 14.3.3). Cependant il existe des schémas noethériens de dimension finie, caténaires et équidimensionnels, n'ayant pas de telles fonctions D. Pour le voir on peut modifier l'exemple (EGA IV 5.6.11) de la façon suivante. Prenons deux exemplaires Y_1 et Y_2 du spectre de l'anneau E de loc. cit. et désignons par y_i et z_i (i=1,2) les points fermés de Y_i (i=1,2) correspondant aux idéaux maximaux m resp. m' de E de hauteur 2 resp. 1… recollement… Si (ii bis) était vérifié sur X, on aurait [display D(y_1)=D(z_1)−1=D(y_2)−1, …]». ⚠⚠ **CHECKS idx543** : ★★★**chaque subscript Y_1/Y_2/y_i/z_i/y_1/y_2/z_1/z_2 + chaque (i=1,2) + chaque hauteur 2/1 + chaque réf EGA (0_IV 14.3.3 / IV 5.6.11) au CROP** (2 erreurs math Codex #540/#541 — vigilance maintenue ; idx542 CLEAN sur ce point) ; ★★**«biéquidimensionnel» vs «biéqui-dimensionnel»** (livre incohérent per-occ — CROP) ; ★★paren-restore (7 occ) ; ★★«∈»/mot ; ★★colon-avant-display ; ★★hyphen-drop ; ★★m/m' = \mathfrak m (CROP gothique) ; ★★«resp.» ; ★TEXTE-DROP ; ★C.Q.F.D. présence/placement per-occ ; ★book-sic (tréma/accents — cf. «coincide» #539) ; ★display↔inline ; **★★ appliquer `\dimdot` à tout nouveau «dim.O» de p530 + BALAYER le carry-back L12630/L12648 AVEC crop**.
+
+**CHECKS #539** : header «- 11 -» ✓ + «X» ✓ + footer «529» ✓ ; CONSTANTE_X=518 ✓ ; idx=footer+13 ✓ ; OS-360 p529 LISIBLE (fallback sga6.pdf PDFidx 535 non nécessaire) ; 7 rep-calls tous `assert`+unicité OK ; compile 0-err/383pp ; render-verify OK ; aucune fabrication ; ERRATA en pause (log CERT uniquement) ; **jamais « complet » — provisoire.**
+
+**Carry-backs cumulés :** **#539 `\dimdot` sur L12630 (p527) + L12648 (p528) [AVEC crop]** ; #491 tikzcd i'/j' p478 ; #512 EGA-digits book-sic ; eq-tag leqno/format ; underlines ; \check ; \pmod ; heading/theorem/§ formats ; array/align trailing-punct (#509) ; Σ/tikzcd LAYOUT ; Biblio/\emph ; en-dash-vs-hyphen (livre incohérent) ; French ;/: spacing ; enumerate trailing-punct ; blackboard-vs-plain (R_X/k/E_e) ; ref-spacing ; subscript-comma ; «Supposons-le» hyphen.
+
+### #538 (2026-07-14) — idx541 (vol p528 = **Exposé X «- 10 -»**, header «- 10 -» + «X» + footer «528» ; **CONSTANTE_X=518 CONFIRMÉE [528−10]**) — **★ Exemple 1.5 (fonction dimension via deg.tr) : «Soit S schéma localement noethérien universellement caténaire (par exemple sous-schéma d'un schéma de Cohen-Macaulay). Posons (1.5.1) D_S(x)=n−codim({x}‾,S)=n−dim O_{S,x} (x∈S), et on pose aussi pour tout S-schéma propre s_Y:Y→S et y∈Y : (1.5.2) D_Y(y)=D_S(s_Y(y))+deg.tr_{k(s_Y(y))}k(y). Si f:Y_1→Y_2 S-morphisme…l'additivité des degrés de transcendance et (1.5.2) donnent immédiatement (1.5.3) D_{Y_1}(y)=D_{Y_2}(f(y))+deg.tr_{k(f(y))}k(y) (y∈Y_1). Montrons que les fonctions D_Y…satisfont aux conditions (i)-(iv) de 1.4. D'après (1.5.3), la condition (ii) est la seule non-triviale. Grâce à (iv)…supposer que Y={x}‾. On factorise…s_Y(Y)=Z↪S, soit s_Y=g∘f : [tikzcd Y→^f Z ↪^g S,] où Y et Z irréductibles, f propre et surjectif et g une immersion fermée. Posons x'=s_Y(x), y'=s_Y(y). On déduit alors de (1.5.2) et (1.5.1) : [display D_Y(x)−D_Y(y)=dim O_{S,y'}−dim O_{S,x'}+deg.tr_{k(x')}k(x)−deg.tr_{k(y')}k(y).] Puisque S est caténaire, on a»** — 3 rep-calls (band+crop-confirmed OS-360 p528 LISIBLE) ; ⚠⚠ **CONSTANTE_X=518 ✓ (528−10 ; idx=528+13=541 ✓).** ⚠ **NB : idx541 fut INTERROMPU (panne outil transitoire) au 1er passage AVANT tout fix ; repris et complété ce firing — aucun état partiel, aucun double-fix.** — **3 rep-calls (fix541.py) : fix1 «universellement caténaire, par exemple sous-schéma d'un schéma de Cohen-Macaulay. Posons»→«…caténaire (par exemple…Cohen-Macaulay). Posons» (★★paren-restore RÉCURRENT ; band1 DÉCISIF ; Codex virgule ; 6e occ paren→virgule #520-#541) ; fix2 «la condition (iii) est la seule non triviale.»→«la condition (ii) est la seule non-triviale.» (★★★CODEX-MATH-ERREUR : RÉFÉRENCE FAUSSE «(iii)»→«(ii)» + ★hyphen «non-triviale» ; crop z541b_cond DÉCISIF [«(ii)» = 2 i, comparer «(iv)»/«(i)-(iv)» même ligne] ; **MATH CONFIRME** : (1.5.3) D_{Y_1}(y)=D_{Y_2}(f(y))+deg.tr≥D_{Y_2}(f(y)) donne (iii) IMMÉDIATEMENT ⟹ (iii) TRIVIALE ; (ii) [spécialisation stricte D(y)<D(x)] est la seule non-triviale ⟹ le livre «(ii)» est CORRECT et Codex «(iii)» est une ERREUR qui rend l'énoncé FAUX ; cf hyphen non-nulle #529) ; fix3 «Y \arrow[r,"f"] & Z \arrow[r,"g"] & S,»→«Y \arrow[r,"f"] & Z \arrow[r,hook,"g"] & S,» (★★tikzcd flèche-TYPE : livre «Z ↪^g S» HOOK [g = immersion fermée] ; band3+band4 DÉCISIFS ; Codex flèche SIMPLE ; flèche-TYPE=SYMBOLE pas layout ⟹ FIX ; ⚠ NOT-UNIQUE-piège : «\arrow[r,"g"]» aussi L8611 → disambig ligne entière). AUCUNE fabrication.**
+- ⚠⚠ **NON-FIXÉ (résolu par crop, SKIP justifié) : «(i)--(iv) de 1.4» L12640 — le livre a ici «(i)-(iv)» TIRET-SIMPLE (≠ p527/#540 qui avait «(i)à(iv)» avec le MOT «à») ⟹ **LIVRE INCOHÉRENT per-occ** (à sur p527, tiret sur p528) ; workpass «--»=en-dash vs livre «-»=hyphen ⟹ en-dash-vs-hyphen = DÉFÉRÉ, PAS de fix (crop z541b_cond DÉCISIF).** ⚠⚠ **DÉFÉRÉ (décision globale à prendre) : «dim.O_{S,x}»/«dim.O_{S,y'}»/«dim.O_{Z,y'}» POINT SYSTÉMATIQUE — le livre écrit «dim.O» (point entre dim et O) partout ((1.5.1) + display L12648 + p529) ; workpass «\dim\mathcal O» SANS point ; ambigu période-abréviation vs product-dot ; **NE PAS fixer au coup-par-coup — trancher une fois pour toutes (crop HD dédié) puis appliquer uniformément Exp X**.**
+- header/offset: **«- 10 -» + «X» + footer «528» ⇒ CONSTANTE_X = 518 ✓** (528−10=518 ; idx=528+13=541 ✓). Bands 1-5 (b5 blanc + footer «528») + 5 crops (z541/z541b ; ⚠ positionnement : ancres RÉELLES p528 mesurées — Montrons/(i)-(iv)+condition(ii)+non-triviale ≈ y0.45-0.52 ; tikzcd ≈0.58 ; «où Y et Z…immersion fermée» ≈0.64 ; display D_Y(x)−D_Y(y) ≈0.70 ; «Puisque S caténaire» ≈0.74 — soit ~0.13 PLUS HAUT que mes ancres estimées). Renders doc[284]. ⚠ ligne-drift : #540 net +2 → Exemple 1.5 **L12628**, Montrons/condition/g∘f **L12640**, tikzcd **L12642-44**, où Y et Z **L12646** (RE-GREP confirmé).  p528 = «Exemple 1.5.» (L12628) à «Puisque $S$ est caténaire, on a» (L12650) ; **display «\dim O_{S,y'}−\dim O_{S,x'}=\dim O_{Z,y'}−\dim O_{Z,x'}» (L12652) + «(EGA $0_{IV}$ 14.3.2.1), d'où» + (1.5.4) = p529 idx542.**
+- ⚠ **★3 rep-calls (page Exemple 1.5)**. ⚠ **★★★CODEX-MATH-ERREUR condition-ref (iii)→(ii)** — NOUVEAU mode le plus grave : Codex a changé une RÉFÉRENCE CROISÉE, rendant l'énoncé mathématiquement FAUX ; compile-0-err ne peut PAS l'attraper ; cf MATH-erreur subscript/dot #540 (x·w∈Filt_{j-i-1}) — **2 pages consécutives avec erreurs math Codex ⟹ VIGILANCE MAX sur refs/subscripts**. ⚠ **★★paren-restore** (6e occ). ⚠ **★hyphen-drop «non-triviale»** (2e occ après non-nulle #529). ⚠ **★★tikzcd hook** (flèche-type=symbole). ⚠⚠ D_S/D_Y/codim/dim/deg.tr(\degtr)/O_{S,x}/k(y)/s_Y/f/g/Z↪S(\hookrightarrow)/composition ∘=\circ(**g∘f PRÉSENT ✓ PAS droppé** — contraste #480-#515) tous ✓ ; eq-tags (1.5.1)/(1.5.2)/(1.5.3) numéros ✓ ; colons «…et y∈Y :»/«…(1.5.2) et (1.5.1) :» ✓ ; display-trailing-punct DÉFÉRÉ.
+- FABRICATION-check : aucune phrase inventée ; 3 fixes = paren/condition-ref+hyphen/tikzcd-hook, crop-vérifiés vs scan. Exemple 1.5 corps INTACT. ⚠⚠ print()-ASCII-only RESPECTÉ.
+- Compile **0-err, 383pp** (0-err = vrai gate ; ⚠ tikzcd `hook` option ACCEPTÉE, 0-err). render-verify (vrf541) doc[284] : L5 «…sous-schéma d'un schéma de Cohen-Macaulay**)**. Posons» + L17 «…satisfont aux conditions (i)–(iv) de 1.4. D'après» + L18 «(1.5.3), la condition **(ii)** est la seule **non-triviale**. Grâce à (iv)…» + tikzcd nodes «Y / Z / S, / f / g» rendus ✓ 3 fixes confirmés.
+- **SWEEP CURSOR → idx542 (vol p529 = Exposé X «- 11 -» [529−518=11] ; footer 529 ; idx=529+13=542).** ⚠ VÉRIFIER header «- 11 -». ⚠ contenu idx542 (p529 = suite Exemple 1.5) : **display «dim O_{S,y'}−dim O_{S,x'}=dim O_{Z,y'}−dim O_{Z,x'}» + «(EGA $0_{IV}$ 14.3.2.1), d'où» + (1.5.4) D_Y(x)−D_Y(y)=[dim O_{Z,y'}−deg.tr_{k(y')}k(y)]−[dim O_{Z,x'}−deg.tr_{k(x')}k(x)] + «Puisque Z est universellement caténaire, EGA IV 5.6.5.1 est applicable, et donne…»** — workpass L12650+ ; **VÉRIFIER contenu réel + PAGE-BREAK p529/p530.** CHECKS idx542 : (a) header «- 11 -» + footer «529» ; (b) **★★★MATH-refs/subscripts (VIGILANCE MAX — 2 erreurs Codex #540/#541 : vérifier CHAQUE réf EGA/numéro/subscript vs scan) + ★★paren-restore-RÉCURRENT + ★★«∈»/mot + ★★colon-avant-display + ★hyphen-drop + ★★D_S/D_Y/deg.tr/codim/dim + ★eq-tag (1.5.4) numéro + ★display↔inline + ★crochets [..]−[..] + ★book-sic(EGA 0_IV 14.3.2.1 / EGA IV 5.6.5.1 digits) + ★«dim.O»-point(DÉFÉRÉ — trancher globalement) + FABRICATION/PARAPHRASE/TEXTE-DROP(vigilance MAX)** + next ; (c) HEAVY compare (OS-360 + fallback sga6.pdf PDFidx 535 si dégradé) + RESTORE scan.
+- Carry-backs cumulés (#479-#538 ; **Exp X Exemple 1.5 EN COURS ; CONSTANTE_X=518 ; MOTIFS RÉCURRENTS Codex : ①paren→virgule[6 occ #520-#541] ②«∈»→mot ③colon→virgule/point-display ④comma-ADD/DROP ⑤TEXTE-DROP ⑥«à»/tiret-range[livre INCOHÉRENT per-occ #540/#541] ⑦enumerate-caps ⑧★★★MATH-ERREUR[subscript/dot #540 ; condition-ref #541 — refs+subscripts FAUX, compile ne détecte PAS] ⑨composition-∘-drop[g∘f OK #541] ⑩hyphen-drop[non-nulle #529 ; non-triviale #541] ⑪tikzcd-flèche-type[hook #541]**) : ★★★MATH-ERREUR-refs/subscripts(#540/#541 — VIGILANCE MAX) ; ★★paren→virgule(#520-#541) ; ★★«∈»→mot(#534/#535) ; ★★colon(#481-#539) ; ★★comma-ADD/DROP(#488-#538) ; ★★TEXTE-DROP(#514-#540) ; ★★hyphen-drop(#529/#541) ; ★★tikzcd-flèche-type(#541) ; ★★Codex-REWRITE(heavy) ; ★★composition-∘-drop(#480-#515 ; OK #541) ; ★★K^∘/K_•/K^•/K'-DISTINCTS CROP, 0 conversion ; ★★BOOK-SIC-typo(K^∘(S)#520/réccurrence#521/g_*(f)#517/non-nulle#529/Corrollaire#530/C_X#533) ; ★★product-dot·-per-occ(#498-#540 CROP) ; ★★casse-macro-bug(\Ob #530) ; ★★⟿-vs-↦(#501/#535/#536) ; ★★Filt^i-vs-Filt_{n/j} + cl^∘-vs-cl_• ; ★★f^*/f_*/α^*/α_*/g^* (#534-#536) ; ★blank-ellipsis(#534) ; ★semicolon(#535) ; ★Ker/Im-cap(#524/#525) ; ★≃vs⥲ HD(#450-#528) ; ★display↔inline-per-occ(#497-#540) ; ★guillemets-normalisation(#513/#516/#540) ; ★sheaf-Module-CAP Exp IX(O_S-Module #445) vs Exp X O_X-module MINUSCULE(#529-#531) ; ★NOT-UNIQUE-piège(#503-#541 → disambig OBLIGATOIRE ; «\arrow[r,"g"]» L8611 vs L12643 #541 ; «non triviale» L374 vs L12640 #541 ; bash $(...) → script-file ; print()-ASCII-only #524-#541) ; ★FABRICATION(#490/#491/#493) ; ⚠⚠ **«dim.O»-point-systématique = DÉCISION GLOBALE EN ATTENTE(#541)** ; ⚠⚠ **SCAN-DÉGRADÉ → FALLBACK sga6.pdf (PDFidx=printed+6 ; corps non-OCR→rendu ; #528 ; p519-528 OK sans fallback)** ; underline + \check + eq-tag-leqno+\tag + array/align+display trailing-punct + \pmod + heading-format + tikzcd-LAYOUT(mais flèche-type=FIX) + Biblio + \emph + en-dash-vs-hyphen(#541) + Σ-substack-layout + blackboard/R_X/k/E_e-script + subscript-comma + ref-spacing + parens-⊗k + French-;/:-spacing + enumerate-item-trailing-punct DÉFÉRÉS.
+
 ### #537 (2026-07-14) — idx540 (vol p527 = **Exposé X «- 9 -»**, header «- 9 -» + «X» + footer «527» ; **CONSTANTE_X=518 CONFIRMÉE [527−9]**) — **★ FIN Démonstration Théorème 1.3.2 (où w∈Filt_{j-1}(X) / xw∈Filt_{j-i-1}(X) / (1.3.8)+(1.3.9) / x cl_•(O_X)∈Filt_{j-i}(X). C.Q.F.D.) + Remarque 1.4 (fonction dimension D(x)=D_Y(x)=dim({x}‾) / propriétés (i)-(iv) : (i) Pour tout X-schéma propre Y, x∈Y, D_Y(x)∈Z ; (ii) Si y≠x spécialisation de x, D(y)<D(x) ; (iii) Pour tout X-morphisme f:Y_1→Y_2, y∈Y_1, D_{Y_2}(f(y))≤D_{Y_1}(y) ; (iv) égalité dans (iii) si f immersion ou Y_1 irréductible+f birationnel surjectif+y point générique / «tous résultats (1.3.2)/(1.3.3) valables si l'on y remplace dimension par D satisfaisant (i)à(iv)») [+ Exemple 1.5 = p528]** — 9 rep-calls (band+crop-confirmed OS-360 p527 LISIBLE) ; ⚠⚠ **CONSTANTE_X=518 ✓ (527−9 ; idx=527+13=540 ✓).** ⚠⚠ **NB : «C.Q.F.D.» PRÉSENT workpass (L12611) — PAS droppé ; placement/trailing-punct DÉFÉRÉ.** — **9 rep-calls (fix540.py) : fix1 «$xw\in\Filt_{j-i}(X)$»→«$x\cdot w\in\Filt_{j-i-1}(X)$» (★★MATH : product-dot AJOUT + subscript j-i→j-i-1 ; crop z540c_xw DÉCISIF «x·w∈Filt_{j-i-1}» ; Codex 2 erreurs : dot droppé + mauvais subscript) ; fix2 «de la « fonction dimension »[\n\[…\]\n]sur les»→«…« fonction dimension » $D(x)=D_Y(x)=\dim(\overline{\{x\}})$ sur les» (★display→inline ; band2 DÉCISIF ; livre INLINE) ; fix3 «si l'on remplace la « dimension »»→«…si l'on y remplace…» (★★TEXTE-DROP «y» ; band4 DÉCISIF) ; fix4 «conditions (i)--(iv) ci-dessus»→«(i)à(iv)…» (★«à»-mot-vs-en-dash ; band4 DÉCISIF «(i)à(iv)» ; Codex «--») ; fix5-9 enumerate (i)-(iv) : ★caps «pour»→«Pour»(i)/«si»→«Si»(ii)/«pour»→«Pour»(iii)/«il»→«Il»(iv) [livre capitalise chaque item = phrases complètes ; Codex minuscules] + fix6 item(ii) inline→DISPLAY «on a $D(y)<D(x)$;»→«on a\n\[\nD(y)<D(x).\n\]» + fix5 item(i) «;»→«.» + fix8 item(iii) display «;»→«.». Reste (fin-preuve/(iii) display/Cela signifie) INCHANGÉ (MATCHE scan). AUCUNE fabrication.**
 - header/offset: **«- 9 -» + «X» + footer «527» ⇒ CONSTANTE_X = 518 ✓** (527−9=518 ; idx=527+13=540 ✓). Bands 1-5 (b5 quasi-blanc + footer «527») + ~6 crops (z540/z540b/z540c ; ⚠ positionnement TRÈS haut : fin-preuve L12607-11 à true-y≈0.11-0.20, Remarque 1.4 ≈0.25-0.35, enumerate ≈0.33-0.55, Cela signifie ≈0.60). Renders doc[283]. ⚠ ligne-drift : #539 (+0) ; xw L12607, Remarque L12613, enumerate L12618-26, Cela signifie L12627 (RE-GREP «Remarque 1.4»/«hypothèse de récurrence»). p527 = «où w∈Filt_{j-1}(X)…» (L12607) à «…suivant une telle fonction D.» (L12627) ; **«Exemple 1.5. Soit S…universellement caténaire…» (L12629) = p528 idx541.**
 - ⚠ **★9 rep-calls (page FIN-preuve Th 1.3.2 + Remarque 1.4 dense)**. ⚠ **★★MATH x·w∈Filt_{j-i-1}** (product-dot + subscript — Codex 2 erreurs ; math correct : x∈Filt^i × w∈Filt_{j-1} → xw∈Filt_{(j-1)-i}=Filt_{j-i-1}). ⚠ **★display→inline D(x)** (Remarque). ⚠ **★★TEXTE-DROP «y»** («si l'on y remplace»). ⚠ **★«à»-vs-en-dash «(i)à(iv)»**. ⚠ **★enumerate-caps+item(ii)-display+periods** (livre = items-phrases capital+point ; Codex minuscule+«;»). ⚠⚠ K_•/Filt_{j-1}/Filt_{j-i-1}/Filt_{j-i}/cl_•/D_Y/D_{Y_1}/D_{Y_2} tous ✓ ; C.Q.F.D. présent ; «« fonction dimension »»/«« dimension »» guillemets (normalisation `` ''→«») GARDÉ. ⚠ enumerate item(iii) display + item(iv) INCHANGÉ (déjà corrects sauf caps). ⚠ item terminal-punct «;»→«.» (i/ii/iii) fait ; format-liste borderline mais livre = points.
@@ -1138,7 +4446,7 @@
 - ⚠⚠⚠ **PAGE COUNT 388→387** (−1) : NORMAL — les ~6 conversions display→INLINE (p11 #436 + p12 #437) compactent le texte et suppriment 1 page. **0-err (compile ne perd pas de contenu silencieusement). NOUVEAU BASELINE ≈387pp.** Gate = 0-err HARD ; page count ~387-388 float.
 - ⚠⚠ **3e PAGE TRÈS CORROMPUE consécutive** (p10/#435, p11/#436, p12/#437) : Prop 1.8 énoncé+preuve = zone la plus réécrite d'Exp VII. Codex y a systématiquement : sur-affiché (display↔inline), paraphrasé («contenu»↔«clair que ce noyau est», «Considérons»↔«On considère»), permuté ponctuation («;»↔«.»↔«,»), droppé mots («Or»/«alors»/«clair que ce noyau est»)+parens((X_1−T_1))+parenthétiques((en se plaçant…)), changé proof-labels («Pour (iii)»→«iii)»)+refs(«(ii)»→«ii)»). TOUT restauré au scan.
 - ★ **Frontière RÉSOLUE** : scan band1 = «Or il est clair que ce noyau est contenu dans celui de l'homomorphisme composé :» — donc Codex avait droppé «clair que ce noyau est» + colon ET «Or» (dans «Or le noyau») + parens (X_1−T_1). Réconcilié.
-- ★ **display→INLINE ×3** (bloc Posons) : B_0/B, Tor_i^{A_0}(A,B_0), big-Tor-eq Tor_i^{A_0}(A,(⊕J_0^n)_{T_1^{(1)}})=(⊕Tor_i^{A_0}(A,J_0^n))_{T_1^{(1)}}. Toutes INLINE au scan (band3/band4). ⚠ display «ℤ[T_1,X_1,…,X_d]→⊕J^n→A,» (frontière) RESTE display (genuine, band1).
+- ★ **display→INLINE ×3** (bloc Posons) : B_0/B, Tor_i^{A_0}(A,B_0), big-Tor-eq Tor_i^{A_0}(A,(⊕J_0^n)_{T_1^{(1)}})=(⊕Tor_i^{A_0}(A,J_0^n))_{T_1^{(1)}}. Toutes INLINE au scan (band3/band4). ⚠ display «ℤ[T_1,X_1,…,X_d]→⊕J^n→A,» (frontière) RESTE display (genuine, band1). 
 - p12 CLEAN elsewhere (no change): «l'idéal principal» lc (scan lc) ✓ ; «idéal gradué» lc ✓ ; Tor_i^{A_0}(A,B_0)/(A,J_0^n)/(A,(⊕J_0^n)_{T_1^{(1)}}) superscript A_0 + args EXACT ✓ ; B_0/B/A_0/f_1^{(1)}/T_1^{(1)}/J_0^n/J^n subscripts+exposants EXACT ✓ ; ⊗_{A_0} ✓ ; K_•(v)=K_\bullet Koszul ✓ ; v:F→O_P/v_0 ✓ ; \cS(E_0)-module (lc, algébrique — scan à vérifier p13 mais L9964 «S(E_0)» + reste p13) ✓ ; «relations 1.2»/«partie i)» refs ✓ ; gender (immersion/j régulière FÉM ; v/v_0/homomorphisme/morphisme régulier MASC) ✓ ; A_0→A inline \to (DEFERRED, gardé) ✓ ; \Tor/\bigoplus/\otimes/\Spec/\cS macros ✓ ; underlines (E̲/F̲/O̲_P/S̲(E_0)) DEFERRED ✓.
 - Book typos p12 (sic, CERT only): AUCUN nouveau (tout = corruptions Codex restaurées).
 - Compile **0-err, 387pp** (nouveau baseline −1). Render-verified doc[229]: «clair que ce noyau est contenu» ✓, «composé :» ✓, «Or le noyau» ✓, «(X1 −T1)» ✓ (parens) ; doc[230]: «dans le cas considéré» ✓, «quelconque ; on peut encore supposer» ✓, «; alors d'après la partie i) de la proposition» ✓, «; alors B = B0» ✓ (inline), «(en se plaçant sur un ouvert convenable)» ✓, «relations 1.2, donc K•(v)» ✓, «iii) La propriété» ✓, «On considère d'abord» ✓, «est alors noethérien» ✓. Négatifs GONE : «Or il est contenu»/«dans ce cas.»/«1.2; donc»/«Pour (iii)»/«Considérons d'abord»/«supposé libre sur»/«qui, pour des raisons» tous absents.
@@ -1151,7 +4459,7 @@
 - ⚠⚠⚠ **CARRY-FORWARD CRITIQUE → p12/idx440** : à la frontière p11→p12, workpass L9969+ dit «Or il est **contenu dans celui de l'homomorphisme composé** [display ℤ[T_1,X_1,…,X_d]→⊕J^n→A] … le dernier étant défini en degré n par l'injection de J^n dans A. Le noyau … est l'idéal principal engendré par X_1−T_1, qui, pour des raisons d'intégrité, ne contient pas d'éléments homogènes non nuls. Donc le premier homomorphisme est injectif, ce qui achève la démonstration dans ce cas.» — MAIS scan p11 finit «Or il est **clair que**» → suite p12 INCONNUE. Le paragraphe L9969-9974 (workpass) est peut-être une RÉÉCRITURE/paraphrase Codex de l'argument-livre «clair que…». **NON touché ce tour — DOIT être réconcilié en lisant le scan p12 (idx440) : comparer tout le paragraphe «Or il est clair que…» du livre vs «Or il est contenu dans…» du workpass, restaurer le livre.** (Le «un idéal gradué» lc est correct/inchangé.)
 - Scan p11: «[…sur les ouverts] D_+(X_i) ; plaçons-nous par exemple sur D_+(X_1). Alors p^*(E) est défini par le module ℤ[T_1,…,T_d,X_2/X_1,…,X_d/X_1]⊗E, et O_P(1) par ℤ[T_1,…,T_d,X_2/X_1,…,X_d/X_1], le morphisme canonique envoyant e_i sur X_i/X_1 pour tout i. Alors F admet pour base les éléments e_i−e_1.X_i/X_1 pour i>1. On a v(e_i−e_1.X_i/X_1)=T_i−T_1.X_i/X_1 ; posons T'_i=T_i−T_1X_i/X_1. Comme la suite des T_i est régulière dans ℤ[T_1,…,T_d,X_2/X_1,…,X_d/X_1], il en est de même de la suite T_1,T'_2,…,T'_d qui s'en déduit par une matrice inversible, et donc aussi de la suite T'_2,…,T'_d qui en est extraite (on est dans un cas noethérien). Par suite, v est un morphisme régulier. Il faut donc montrer que les T'_i engendrent l'Idéal de j. Dans ⊕_{n≥0}J^n, nous noterons, pour m≤p, x^{(m)} l'élément x de J^p, considéré comme étant de degré m. Au-dessus de D_+(X_1), X'=Spec((⊕_{n≥0}J^n)_{(T_1^{(1)})}), et j est défini par le morphisme qui envoie X_i sur T_i^{(1)}. Dans ce morphisme, l'image de T'_i est T_i^{(0)}−T_1^{(0)}.T_i^{(1)}/T_1^{(1)}=((T_iT_1)^{(1)}−(T_1T_i)^{(1)})/T_1^{(1)}=0. Donc les T'_i appartiennent à l'Idéal de j. Comme tout élément de ℤ[T_1,…,T_d,X_2/X_1,…,X_d,X_1] peut s'exprimer comme polynôme par rapport à T_1,T'_2,…,T'_d,X_2/X_1,…,X_d/X_1, il suffit, pour montrer que les T'_i engendrent l'Idéal de j, de montrer qu'aucun élément non nul de ℤ[T_1,X_2/X_1,…,X_d/X_1] n'appartient à l'Idéal de j, ce qui revient à montrer que l'homomorphisme [ℤ[T_1,X_1,…,X_d]⟶⊕_{n≥0}J^n] est injectif, car T_1^{(1)} n'est pas diviseur de 0 dans ⊕_{n≥0}J^n. Si on gradue ℤ[T_1,X_1,…,X_d] en attribuant le degré 0 à T_1, et le degré 1 aux X_i, le noyau de l'homomorphisme considéré est un idéal gradué. Or il est clair que» [→p12].
 - ★ **Product dots (crops c439_fbase/va/img)** : livre met «.» dans «e_1.X_i» (F-base), «e_1.X_i»/«T_1.X_i» (v-formula), «T_1^{(0)}.T_i^{(1)}» (image) — MAIS PAS dans «T'_i=T_i−T_1X_i/X_1» ni «(T_iT_1)»/«(T_1T_i)» — livre INCOHÉRENT, reproduit tel quel.
-- ★ **display→INLINE ×6** : F-base, v-formula, «Comme la suite» ℤ[…], X'=Spec, image-formula, «Comme tout élément» 2× ℤ[…]. ⚠ le display «ℤ[T_1,X_1,…,X_d]→⊕J^n» (homomorphisme) RESTE display (genuine, band4).
+- ★ **display→INLINE ×6** : F-base, v-formula, «Comme la suite» ℤ[…], X'=Spec, image-formula, «Comme tout élément» 2× ℤ[…]. ⚠ le display «ℤ[T_1,X_1,…,X_d]→⊕J^n» (homomorphisme) RESTE display (genuine, band4). 
 - p11 CLEAN elsewhere (no change): «plaçons-nous» (gardé, français standard) ✓ ; p^*(E) parens (déjà OK L9937) ✓ ; O_P(1)=\cO_P(1) ✓ ; ⊗E ✓ ; e_i/X_i/X_1/T_i/T'_i/T_1 subscripts ✓ ; x^{(m)}/T_1^{(1)}/T_i^{(0)}/T_i^{(1)} exposants ✓ ; «considéré comme étant de degré m» ✓ ; ratios-list «X_2/X_1,…,X_d/X_1» (slash, ≠ ring «X_d,X_1») ✓ ; 2e ring «ℤ[T_1,X_2/X_1,…,X_d/X_1]» (slash) ✓ ; «un idéal gradué» lc (scan lc, algébrique) ✓ ; gender (suite/immersion régulière FÉM ; v/morphisme régulier MASC) ✓ ; \Spec/\bigoplus/\mathbb Z/\frac(X_i/X_1) macros ✓ ; underlines (E̲/F̲/O̲_P/I̲déal, 𝐏̲) DEFERRED ✓.
 - Book typos p11 (sic, CERT only): **«X_d,X_1» pour «X_d/X_1»** (ring «Comme tout élément de ℤ[…]» ; virgule au lieu de slash ; clause suivante écrit «X_d/X_1» ⇒ typo interne).
 - Compile **0-err, 388pp** (stable). Render-verified doc[229]: «posons» ✓, «(on est dans un cas noethérien). Par suite, v est un morphisme régulier.» ✓ (phrase restaurée), «diviseur de 0» ✓, «à T_1, et le degré» ✓ (virgule), ring «ℤ[T1,…,Td,X2/X1,…,Xd,X1]» ✓ (book-typo comma), «l'Idéal de j» cap ×5 + «un idéal gradué» lc ×1 ✓. Négatifs GONE : «diviseur de zéro»/«T1 et le degré» absents. «Or il est contenu dans…» INCHANGÉ (deferred).
@@ -3400,7 +6708,7 @@
 - ★★★ **C. Preuve (L5181) — «de (1.1)»:** «propriétés (i) à (iii) de **(1.1)**, on peut» (scan parens, band3 ; Codex «de 1.1»).
 - ★★★ **D. Preuve (L5185) — «(I 2.6)»:** «l'assertion résulte de **(I 2.6)**.» (scan parens, band4 ; Codex «de I 2.6»).
 - ★★★ **E. Déf 1.5 (L5191) — «(EGA III 6.5)»:** «les hyper-tor locaux définis dans **(EGA III 6.5)**.» (scan parens, band5 ; Codex «dans EGA III 6.5»).
-- **DEFERRED (kept, logged):** Prop 1.4 distinguished triangle — scan draws \(E\to F\to G\) as a CYCLIC TRIANGLE (band2: G top, E→F bottom, F→G/G→E arrows) ; kept the linear-chain «\(E\longrightarrow F\longrightarrow G\longrightarrow E[1]\)» (distinguished-triangle-as-linear-chain DEFERRED). Same for the Preuve \(f_*\) triangle (band4).
+- **DEFERRED (kept, logged):** Prop 1.4 distinguished triangle — scan draws \(E\to F\to G\) as a CYCLIC TRIANGLE (band2: G top, E→F bottom, F→G/G→E arrows) ; kept the linear-chain «\(E\longrightarrow F\longrightarrow G\longrightarrow E[1]\)» (distinguished-triangle-as-linear-chain DEFERRED). Same for the Preuve \(f_*\) triangle (band4). 
 - **Verified MATCH:** Exemples 1.3 «Il en est de même d'un morphisme localement de type fini quelconque \(f:X\to Y\) si \(Y\) est localement noethérien» ✓ ; Prop 1.4 implication TABLE «\(E\)/\(F\)/\(G\) ; \(n+1\)/\(n\)/\(\underline n\) ; \(n\)/\(\underline n\)/\(n\) ; \(\underline n\)/\(n\)/\(n-1.\)» (underlined implication-targets, band3) ✓ ; «En particulier, \(D(f)_{\mathrm{coh}}\) est une sous-catégorie triangulée de \(D(X)\)» ✓ ; Déf 1.5 «Soient \(X\) et \(Y\) deux \(S\)-schémas…tor-indépendants sur \(S\)» + display «\(\Tor_i^S(\mathcal O_X,\mathcal O_Y)=0\quad\text{pour }i\ne 0\)» ✓ (\mathcal O caps, \(i\ne0\)) ; «\(n\in\mathbb Z\cup\{-\infty\}\)» ✓.
 - Compile **0-err, 390pp**. Render-verified (`vrf243_p127`=compiled p128: Exemples «régulière (1.1.2)», Prop 1.4 triangle+table, «de (1.1)/(I 2.6)», Déf 1.5 «(EGA III 6.5)»).
 - **SWEEP CURSOR → idx244 (vol p231 = Exposé III p10; header «III»/«- 10 -»/footer «231»).** Content (workpass L5191 tail+): «C'est une condition de nature locale : si \(X,Y,S\) sont affines d'anneaux respectifs \(B,C,A\), elle signifie que la flèche canonique» [display \(B\otimes_A^{\mathbf L}C\longrightarrow B\otimes_A C\)] «est un isomorphisme. Elle est donc réalisée en particulier si \(X\) ou \(Y\) est plat sur \(S\).» + **Lemme 1.5.1** «Soient des carrés cartésiens de schémas» [tikzcd \(X\xleftarrow{}X'\xleftarrow{}X''\) top / \(Y\xleftarrow{}Y'\xleftarrow{}Y''\) bottom w/ up-arrows — LEFT-pointing horizontals] «Si \(X\) et \(Y'\) sont tor-indépendants sur \(Y\)…» + \emph{Preuve} + **Notation 1.6** «…\(E\otimes_S^{\mathbf L}F=L\pr_1^*(E)\otimes^{\mathbf L}L\pr_2^*(F)\)…» + **Lemme 1.7** «…\(f_i:X_i\to Y_i\)…\(f_{1*}(E_1)\otimes_S^{\mathbf L}f_{2*}(E_2)\xrightarrow{\sim}(f_1\times_S f_2)_*(E_1\otimes_S^{\mathbf L}E_2)\)…». ⚠ idx244 CHECKS: (a) Lemme 1.5.1 diagram — LEFT-pointing arrows (label sides: `l` no-prime=BELOW/prime=ABOVE) + up-arrows + HOOKS? (are these immersions? tor-indep carrés — verify) + trailing comma ; (b) ⊗^L / \(\otimes_A^{\mathbf L}\) derived-tensor bold-L superscript ; (c) ⥲ vs = — Lemme 1.7 «\(\xrightarrow{\sim}\)» iso-arrow (Codex uses «=» for «⥲» — CROP the arrow) ; (d) \(L\pr_1^*\)/\(L\pr_2^*\) pullback superscript-star + \(\pr\) ; (e) \(f_{1*}/f_{2*}\)/\((f_1\times_Sf_2)_*\) pushforward subscript-star ; (f) \(D^-(X)_{\mathrm{qcoh}}\) subscript ; (g) dropped cites/parens ; (h) display-vs-inline. ⚠ CODEX profile: drops parens-on-cites, display-promotes, «=»-for-«⥲» (esp. iso-arrows!), reverses/mirrors/flattens diagrams, drops hooks/curved arrows, pushforward/pullback confusion, de-abbreviates, paraphrases — verify EVERY symbol + arrow + sub/superscript + cite-parens.
@@ -4686,7 +7994,7 @@
 ### #136 (2026-07-04) — idx139 (vol p126 = Exposé I p49) — Rem 4.12.2 + Lemme 4.13 (Exposé I «suite» amplitude parfaite/tor-dim) — MAIN SGA6
 - header «I» + «- 49 -» + footer «126» confirmed. Page ENDS mid-Preuve 4.13 «…Alors \(F\) est isomorphe à son tronqué \(F'\) défini par» (tronqué display + rest = idx140).
 - ★★★ **FABRICATED HEADING REMOVED (L2636):** «\section*{Exposé I, suite : amplitude parfaite, tor-dimension finie et rang}» — CROP scan-top (band1) DECISIVE: scan goes «- 49 -» → «Remarque 4.12.2.» DIRECTLY, NO heading between Rem 4.12.1 (idx138) and Rem 4.12.2 (idx139). This is the **2nd Codex-INVENTED «Exposé I, suite:…» heading** (1st removed idx117 «complexes pseudo-cohérents et complexes parfaits»). Codex fabricates these mid-Exposé — DELETED. (render-verified GONE: Rem 4.12.1→4.12.2→Lemme 4.13 flow clean.)
-- **Remarque 4.12.2 (L2638)** body roman: (a) ★ «nul; donc»→«nul, donc» (scan band1/2 comma not semicolon); (b) «(qu'on peut regarder comme fibrée sur un site ponctuel)» paren-clause present ✓; (c) ★ DROPPED PARENS «acycliques dans \(\mathcal C\),»→«acycliques (dans \(\mathcal C\)),» (scan band2 «(dans C)», Codex bared). Displays «\(\Kpx^b(\mathcal C_0)\to\Dpx(\mathcal C)\)» + «\(\Kpx^b(\mathcal C_0)/\Kpx^{b,\mathrm{ac}}(\mathcal C_0)\to\Dpx(\mathcal C)\)» MATCH (first «/» crop-confirmed `c139_kbac`). ⚠ «\Kpx^{b,\mathrm{ac}}» superscript = scan shows «K^{b,[single cursive glyph]}» — cursive acyclicity-shorthand; KEPT \mathrm{ac} (standard unambiguous rendering, not a defect; noted).
+- **Remarque 4.12.2 (L2638)** body roman: (a) ★ «nul; donc»→«nul, donc» (scan band1/2 comma not semicolon); (b) «(qu'on peut regarder comme fibrée sur un site ponctuel)» paren-clause present ✓; (c) ★ DROPPED PARENS «acycliques dans \(\mathcal C\),»→«acycliques (dans \(\mathcal C\)),» (scan band2 «(dans C)», Codex bared). Displays «\(\Kpx^b(\mathcal C_0)\to\Dpx(\mathcal C)\)» + «\(\Kpx^b(\mathcal C_0)/\Kpx^{b,\mathrm{ac}}(\mathcal C_0)\to\Dpx(\mathcal C)\)» MATCH (first «/» crop-confirmed `c139_kbac`). ⚠ «\Kpx^{b,\mathrm{ac}}» superscript = scan shows «K^{b,[single cursive glyph]}» — cursive acyclicity-shorthand; KEPT \mathrm{ac} (standard unambiguous rendering, not a defect; noted). 
 - **Indications (L2649)** MATCH: «On sait déjà (2.7) que le foncteur» + display «\(\Kpx^-(\mathcal C_0)/\Kpx^{-,\mathrm{ac}}(\mathcal C_0)\to\Dpx^-(\mathcal C)\)» + ★ «([V] 4.2.b)(ii))»→«([V] 4.2.b)(ii)')» (scan `c139_ii2` «(ii)'» has PRIME, Codex dropped) + display «\(\Kpx^b(\mathcal C_0)/\Kpx^{b,\mathrm{ac}}(\mathcal C_0)\to\Kpx^-(\mathcal C_0)/\Kpx^{-,\mathrm{ac}}(\mathcal C_0)\)» + «pleinement fidèle» ×3.
 - ★ **Lemme 4.13 (L2662):** statement → \emph (scan band4 underlines «Soient \(F\)…\(d=\inf(b,c)\)», NO display → \emph). «\(a\leq b\)»/«\(a\leq c\)»/«\(i>b\)» relations MATCH (no narrowing); «(4.7)»/«\(\Ho^i(F)=0\)»/«\(d=\inf(b,c)\)» ✓. Preuve start «On peut supposer \(b\leq c\)… \(F^i=0\) pour \(i\notin[a,c]\)…» MATCH.
 - ★ render-verified (`vrf139`, compiled p70): heading GONE, Rem 4.12.2 comma/parens, (ii)' prime, K^{b,ac} displays, Lemme 4.13 italic all correct.
@@ -5786,7 +9094,7 @@
 - **dropped emphasis:** «\emph{fonctoriels}» (band 1); **Théorème 2.2 statement** «\emph{Il existe une théorie…(2.9).}»; **Proposition 2.3 statement** «\emph{Soit $Y$ une partie fermée…porté par $Y$.}».
 - **punctuation:** «que l'on a»→«qu'on a» (band 2); «suivante.»→«suivante~:» (colon, workpass had period); French «~;» at «complémentaire~;»; «dans le diagramme~:».
 - **Hartshorne footnote:** «cf. par exemple»→«cf par exemple» (no period before spelled-out ref that starts «par exemple»); «no. 20»→«n\textsuperscript{o} 20» (numéro symbol). (Kept \emph{Residues and Duality} title italic — scholarly norm.)
-- **verified:** diagram $K(Y)\!\xrightarrow{f^!}\!K(X)$, $A(Y)\!\xrightarrow{f^*}\!A(X)$, verticals $\Ctil_Y,\Ctil_X$; $\ellc$=cursive-ℓ class map; footer «41», head «- 21 -».
+- **verified:** diagram $K(Y)\!\xrightarrow{f^!}\!K(X)$, $A(Y)\!\xrightarrow{f^*}\!A(X)$, verticals $\Ctil_Y,\Ctil_X$; $\ellc$=cursive-ℓ class map; footer «41», head «- 21 -». 
 - Compile **0-err, 393pp**.
 - **SWEEP CURSOR → RRR Appendix p22 = idx55** (workpass L958+: **Corollaire** to Prop 2.3 «Soit $p=\dim X-\dim Y$… $A^i(X)\to A^i(U)$ bijectif si $i<p$… noyau de $A^p(X)\to A^p(U)$… proportionnel à $\ellc(Y)$ si $Y$ irréductible»; then **§2 «Définition des classes de Chern des faisceaux algébriques cohérents»** [L964+]: $K(\cC_0)$ Grothendieck-group construction, $\gamma_{\cC_0}(E)$, universal problem, additive functor $F$, (2.11) $F(\gamma_{\cC_0}(E))=\sum_{i\geq0}(-1)^i\gamma_{\cC'_0}(R^iF(E))$, (2.11 bis). ★ ON p22: verify Corollaire (statement emphasis, $A^i$/$A^p$ grading, $\dim$, $\ellc(Y)$); §2 heading; check whether $K(\cC_0)$ should be $\underline K$ or plain (this is a GENERAL Grothendieck group of a category — likely PLAIN K, distinct from the bundle-class $\underline K(\xi(X))$ — verify on scan!); $\cC/\cC_0$ script; $\gamma_{\cC_0}$; (2.11) signs/$R^iF$; $E\mapsto f(E)$ arrow.).
 
