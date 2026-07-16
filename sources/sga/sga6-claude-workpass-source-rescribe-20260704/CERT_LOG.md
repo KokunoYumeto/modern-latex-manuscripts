@@ -199,6 +199,2043 @@
 - Compile **0-err, 394pp**.
 - **SWEEP CURSOR → Exposé 0 p12 = idx25** (§4.4 cont: «…essentiellement non recollable. Voici une construction générale de $L^{X/Y}_\bullet$…» + the $C=A[T]\to B$ / simplicial construction).
 
+### #662 (2026-07-16) — idx645 (vol p632 = **Exposé XIII «- 17 -»**, footer «632» ⟹ **632−615=17, 18ᵉ confirmation** ; idx=632+13=645) — **4 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p632 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ⚠⚠⚠⚠⚠⚠ **JE DOIS CASSER MA PROPRE «LOI» — LE COMPTE DES CONNECTEURS EST 24/28, PAS 24/24**
+**#661 concluait : «24/24 — ce n'est plus un signal, c'est une LOI de ce fichier : tout connecteur est faux jusqu'à preuve du contraire.»** ⚠⚠⚠ **p632 la casse.**
+**Ses QUATRE connecteurs — «Par conséquent», «En effet», «Par suite», «Alors» — sont TOUS JUSTES.** ⟹ **24/28.**
+⟹ ★★★★★★ **CE N'ÉTAIT PAS UNE LOI, C'ÉTAIT UNE SÉRIE DE TROIS PAGES.** ⚠⚠ **Et c'est exactement la leçon de #654 («Codex ne fabrique pas systématiquement les displays») que je venais d'oublier sur un autre axe.**
+⟹ ★★★★ **LE SIGNAL RESTE FORT (24 sur 28) ET IL RESTE LE PREMIER À VÉRIFIER — MAIS IL SE VÉRIFIE, IL NE SE PRÉSUME PAS.** ⟹ **VÉRIFIER LES DEUX SENS, TOUJOURS, SUR TOUT AXE.**
+
+## ★★★★★★ **DEUX BLOCS PROPRES — LES PREMIERS DU PROJET**
+1. ✅ **«Par conséquent (EGA IV 8.14.2), si le foncteur de Picard est représenté par un S-schéma Pic_{X/S}, alors Pic_{X/S} est localement de présentation finie.»** ⟹ **le fichier le dit MOT-POUR-MOT.**
+2. ✅ **«Proposition 3.2. Soient S un schéma noethérien et X un S-schéma propre. On suppose que le foncteur de Picard est représenté par un S-schéma Pic_{X/S}. Alors : (i) Pic_{X/S} est localement de type fini sur S.»** ⟹ **MOT-POUR-MOT.**
+⟹ ★★★ **ET CETTE FOIS J'AI SUPERPOSÉ LES DEUX TEXTES** (la faute de #661 : «j'ai lu le scan» ≠ «j'ai comparé»). **Le fichier a été sorti, ligne par ligne, et confronté au scan.**
+⟹ ⚠ **Leur SEUL défaut : l'ITALIQUE manquait** (le scan souligne les corps) ⟹ **régime 1** ⟹ **posée.**
+
+# ⚠⚠⚠⚠⚠⚠ **LA TROUVAILLE DU CYCLE : «Pic» SOULIGNÉ = LE FONCTEUR ; «Pic» NU = LE S-SCHÉMA**
+**#661 avait vu 2 sites et laissé la question ouverte (décision globale, ne pas sweeper).** ✅ **p632 en donne ~10 — ET LE SCAN LES DISTINGUE LUI-MÊME, DANS LES DEUX SENS.**
+| **SOULIGNÉ ⟹ LE FONCTEUR** | **NU ⟹ LE S-SCHÉMA** |
+|---|---|
+| le display **3.1.1** (×2) | «représenté par un S-schéma **Pic**_{X/S}, alors **Pic**_{X/S} est localement de présentation finie» (b2) |
+| «un élément λ_α de **Pic**_{X/S}(Z_α)» | «représenté par un S-schéma **Pic**_{X/S}. Alors :» (Prop 3.2, b4) |
+| «dans **Pic**_{X/S}(Z)» · «l'élément neutre de **Pic**_{X/S}(Z)» · «dans **Pic**_{X/S}(Z_β)» | «(i) **Pic**_{X/S} est localement de type fini sur S» (b4) |
+| le **footnote** de p631 («pour la définition de **Pic**_{X/S}») | |
+## ★★★★★★ **ET C'EST MATHÉMATIQUEMENT DÉCISIF, PAS TYPOGRAPHIQUE**
+• «le foncteur de Picard est **REPRÉSENTÉ PAR** un S-schéma Pic_{X/S}» ⟹ **on ne représente pas un foncteur PAR un foncteur** ⟹ **le Pic NU est LE SCHÉMA.**
+• «un élément λ_α **de Pic_{X/S}(Z_α)**» ⟹ **on ÉVALUE un FONCTEUR en Z_α** ⟹ **le Pic SOULIGNÉ est LE FONCTEUR.**
+## ★★★★★★ **LE DISCRIMINANT EST STRUCTUREL — ET C'EST L'INVERSE DE MON HYPOTHÈSE DE #661**
+**#661 supposait : «le footnote est ROMAIN et Pic y est souligné quand même ⟹ régime 5».** ✅ **Juste, mais pour une raison plus profonde :**
+• **Dans un CORPS D'ÉNONCÉ** (déjà souligné, régime 1), **le «Pic» du SCHÉMA n'est PAS souligné** — **le trait le SAUTE**, exactement comme il saute S, X, H, r (**22 conf.**).
+• **Dans une PREUVE, un FOOTNOTE ou un DISPLAY** (tous **ROMAINS**), **le «Pic» du FONCTEUR EST souligné.**
+⟹ ★★★★★★ **LE TRAIT PORTE DU SENS, PAS DE LA MISE EN FORME. Et les deux régimes coexistent sur la MÊME LIGNE.**
+⟹ ⚠⚠⚠ **LE FICHIER ÉCRIT `\Pic` POUR LES DEUX ⟹ IL IDENTIFIE UN FONCTEUR ET LE SCHÉMA QUI LE REPRÉSENTE.** ⟹ **11ᵉ PERTE DE SENS — et la plus structurelle du projet : ce n'est pas un mot perdu, ce sont DEUX OBJETS DISTINCTS CONFONDUS.**
+
+## ★★★★★ **LE RENDU — LE PRÉCÉDENT DU FICHIER, ET IL EST MASSIF (leçon #2, 2ᵉ fois payante)**
+✅ **Le fichier écrit DÉJÀ `\underline{K}(G)`, `\underline{K}(\cC_0)`, `\underline C'(X,Y)` — 110 OCCURRENCES.**
+⟹ **`\underline{}` EST la convention DE CETTE ÉDITION pour «l'objet souligné est distinct du nu».** ⟹ **`\underline{\Pic}_{X/S}` pour le FONCTEUR. Je n'invente rien.**
+★★ **ET L'INDICE TOMBE JUSTE** : `\underline{\Pic}_{X/S}` met le trait **sous «Pic» SEUL**, l'indice **RESTE DEHORS** ⟹ **exactement ce que montre le scan** (22 conf. de «le trait couvre le mot, jamais le symbole accolé»). ⟹ **la convention et l'observation coïncident sans forcer.**
+⚠⚠ **JE N'AI TOUCHÉ QUE LES SITES DE p631/p632, VUS AU SCAN.** **Les autres `\Pic` du fichier ne sont PAS vérifiés** ⟹ **REPORT, PAS DE SWEEP.**
+
+## ⚠⚠⚠ **DEUX PERTES DE SENS DE PLUS — 11ᵉ ET 12ᵉ**
+11. ★★★★★ **`\Pic` pour le foncteur ET le schéma** (ci-dessus).
+12. ★★★★★★ **«L'image λ de λ_α» ⟹ «L'image de λ_α» — LE «λ» QUI NOMME L'IMAGE EST SUPPRIMÉ.**
+    ⟹ **ET LA PHRASE SUIVANTE DIT «Si λ est l'élément neutre de Pic_{X/S}(Z)…» — QUI NE RENVOIE PLUS À RIEN.**
+    ⟹ ★★★★★ **EXACTEMENT LE PATRON DE #659** («et raisonnons par récurrence sur r» supprimé, puis «D'après l'hypothèse de récurrence» gardé). ⟹ **CLASSE ÉTABLIE, 2 SITES INDÉPENDANTS : CODEX SUPPRIME L'INTRODUCTION D'UN OBJET ET GARDE LA PHRASE QUI L'UTILISE.**
+
+## ★★★★ **UN SIC NEUF — ET IL ÉCLAIRE LE «L'_K» DE #650, RESTÉ INEXPLIQUÉ DEPUIS 12 CYCLES**
+✅ **«image inverse de L_α» — 5600 (`z645c_A_prime`) : LE SCAN N'A PAS DE PRIME.**
+★★★ **LA CALIBRATION EST DANS LE CADRE, SUR LA MÊME LIGNE** : «faisceau inversible **L'**» (KNOWN prime, net), «X_{Z**'**}», «où Z**'** =» — **tous primés** ; **«L_α» est NU.**
+★ **La math tranche (calibration B)** : l'objet introduit deux lignes plus haut est **L'_α** ⟹ **BRANCHE 1 ⟹ SIC ⟹ REPRODUIT ✅.**
+⟹ ★★★ **ET LE FICHIER L'AVAIT RÉPARÉ** (localement) ⟹ **12ᵉ conf. de «il répare tout ce qui dévie».**
+⟹ ★★★★★ **ET SURTOUT : «L'_K» (#650) ÉTAIT MARQUÉ «RESTE INEXPLIQUÉ» DEPUIS 12 CYCLES. LE VOICI EXPLIQUÉ : L'AUTEUR LAISSE TOMBER LE PRIME SUR «L».** ⟹ **2 SITES INDÉPENDANTS (L'_K #650, L'_α #662).** ⚠⚠ **NE PAS FERMER SUR 2 — COMPTER.** ⟹ **CLASSE NAISSANTE : «LE PRIME OMIS SUR L».**
+
+## ⚠⚠ **LES AUTRES DÉFAUTS DE p632**
+| **LE SCAN** | **LE FICHIER (avant #662)** |
+|---|---|
+| «soit **≃** O_{X_{Z''}}» (×2) | «soit **isomorphe à** O_{X_{Z''}}» ⟹ **il DÉVELOPPE un symbole en mots** |
+| «En vertu de **(**EGA IV 8.8.2, … 8.5.2.4**)**,» | «En vertu de EGA IV 8.8.2, … 8.5.2.4,» ⟹ **7ᵉ site «il supprime les parenthèses»** |
+| «il existe **un** β ≥ α» | «il existe β ≥ α» |
+| «Par suite **3.1.1** est injective» · «La surjectivité de **3.1.1**» | «**(3.1.1)**» ×2 ⟹ **il PARENTHÈSE les tags** (report #5, instance concrète) |
+| «sur un X_{Z'_α} **où**» · «Z''_β ⟶ Z'_β **où** … Z_β **tel que**» | 3 **VIRGULES AJOUTÉES** |
+| **3 PARAGRAPHES** (indentations vues à b2/b3/b4) | **1 SEUL** ⟹ **il a FUSIONNÉ 3 paragraphes** |
+| «Alors **:**» (espacé) | «Alors**:**» (collé) |
+
+## ✅ **CE QUI EST FIXÉ (4 rep-calls, `fix645a`)**
+1. ✅ **FIX A — l'ITALIQUE DU LEMME 3.1, LE REPORT DIFFÉRÉ DE #661, ENFIN FAISABLE** (j'avais besoin de p632 pour fermer l'`\emph{}`). **Coupée en 3 morceaux** : ⚠ le corps contient un `\footnote{}` ⟹ **couper autour** (#648) ; ⚠ il encadre le `\[…\]` du tag 3.1.1 ⟹ **couper** (#657). **+ les 3 `\underline{\Pic}` du foncteur** (le corps, le footnote, le display ×2).
+2. ✅ **FIX B — «Par conséquent»** : **l'`\emph{}` DISCONTINUE** («(EGA IV 8.14.2)», entre parenthèses, **n'est PAS souligné au scan**) ; **les 2 «Pic» gardés NUS** — le fichier avait raison.
+3. ✅ **FIX C — la démonstration** : le **«λ» restauré** · le **SIC «L_α»** · les **2 «≃»** · les **parenthèses de (EGA IV …)** · le **«un β»** · les **3 virgules** · les **2 tags nus** · les **3 paragraphes rendus** · les **4 `\underline{\Pic}`**.
+4. ✅ **FIX D — la Proposition 3.2** : **l'italique** + **«Alors~:»** espacé + **l'italique de l'item (i)**.
+
+## ✅ **p632 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 17 -»/«XIII» ✅ (18ᵉ conf.) · **l'italique du Lemme 3.1 ✅ POSÉE (morceaux 2 et 3)** · **le display 3.1.1 ✅ VRAI (centré, x≈0.29), non touché** · **«Pic» ×2 ✅ `\underline{}`** · tag «3.1.1» à GAUCHE ⟹ report #5.
+**b2** : **«Par conséquent» ✅ PROSE PROPRE + italique posée + les 2 Pic NUS confirmés** · **«En effet…» ✅ FIXÉ** (le λ, le SIC L_α, la virgule, le Pic foncteur) · «Posons Z = lim← Z_α» ✅ CONCORDE.
+**b3** : **«Si λ est l'élément neutre…» ✅ FIXÉ** (nouveau paragraphe, ≃, les parenthèses, «un β», le Pic foncteur) · **«Par suite 3.1.1 est injective» ✅ FIXÉ.**
+**b4** : **«La surjectivité de 3.1.1…» ✅ FIXÉ** (nouveau paragraphe + tag nu) · **Proposition 3.2 ✅ PROSE PROPRE + italique posée + «Alors~:»** · **item (i) ✅ italique posée.**
+**b5** : ✅ **VIDE + footer «632»** ⟹ **18ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — CONSIGNÉ, PAS FIXÉ**
+1. ⚠⚠ **Les items (ii) et (iii) de la Proposition 3.2 sont sur p633** ⟹ **NON VÉRIFIÉS** ⟹ **PAS d'`\emph{}` dessus** ⟹ **À FAIRE SUR p633.** ★ **Même situation que le Lemme 3.1 en #661 — et elle s'est résolue proprement en attendant la page suivante. Ne pas forcer.**
+2. ⚠ **«tel que l'image inverse de L'_α**.** sur X_{Z''_β}»** — **un POINT parasite** après «L'_α» au milieu de la phrase (b3). **NON ZOOMÉ** ⟹ **rature ? tache d'encre ? point d'indice ?** ⟹ **pas d'action.**
+3. ⚠⚠⚠ **LES AUTRES `\Pic` DU FICHIER — NON VÉRIFIÉS AU SCAN** ⟹ **REPORT.** ⚠ **Chacun doit être tranché foncteur/schéma À SA PAGE. NE JAMAIS SWEEPER.**
+4. ⚠ **`~:` pour le «:» espacé** ⟹ **c'est le précédent du fichier** («on ait~:», «la relation~:», «les généralisations suivantes~:») ⟹ **mais ça fait un TROISIÈME régime d'espacement** (après `;` collé / espacé / `\,;`) ⟹ **REPORT GLOBAL #4 étendu au «:».**
+5. ⚠ **Le renvoi de note «(*)»** (report #1) et le **tag «3.1.1» à gauche** (report #5) — inchangés.
+
+## ★★★★ **CE QUE p632 AJOUTE À LA MÉTHODE**
+★★★★★★ **UNE «LOI» BÂTIE SUR TROIS PAGES N'EST PAS UNE LOI.** **J'ai écrit «24/24 ⟹ c'est une loi» en #661, et p632 l'a cassée le cycle suivant.** ⟹ **#653 s'applique AUSSI aux régularités FORTES, pas seulement aux hypothèses fragiles.** ⟹ **le bon mot était «signal à vérifier», pas «loi».**
+★★★★ **ET LE CORRECTIF EST DÉJÀ DANS MES NOTES** : #654 disait «**Codex ne fabrique pas systématiquement** ⟹ vérifier les deux sens». **Je l'avais appliqué aux displays et pas aux connecteurs.** ⟹ **UNE LEÇON APPRISE SUR UN AXE DOIT ÊTRE PORTÉE SUR TOUS LES AXES.**
+★★★★★ **ET LA PATIENCE PAYE** : **l'italique du Lemme 3.1, différée en #661 faute d'avoir lu p632, s'est fixée proprement ce cycle.** **Le «L'_K» de #650, inexpliqué depuis 12 cycles, s'est expliqué tout seul quand un 2ᵉ site est arrivé.** ⟹ **ce qui est consigné revient ; ce qui est forcé se paie.**
+
+## **CURSEUR → idx646 (p633).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #661 (2026-07-16) — idx644 (vol p631 = **Exposé XIII «- 16 -»**, footer «631» ⟹ **631−615=16, 17ᵉ confirmation** ; idx=631+13=644) — **4 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p631 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ⚠⚠⚠⚠⚠⚠ **LA RÉPONSE À LA QUESTION DU CYCLE : L'HYPOTHÈSE RÉSIDUELLE EST RÉFUTÉE**
+**#660 laissait survivre une piste : «Codex respecterait les énoncés FORMELS (Lemme/Proposition/Théorème) et réécrirait tout le reste.»** ⚠⚠⚠ **p631 la tue.**
+**L'ÉNONCÉ DU LEMME 2.11 — un énoncé formel — EST PARAPHRASÉ, AVEC 8 DÉFAUTS.**
+| **LE SCAN** | **LE FICHIER (avant #661)** |
+|---|---|
+| «\(X\) **un \(S\) schéma projectif**» | «\(X\) **projectif sur \(S\)**» |
+| «**Alors** pour que \(\mathcal L\) soit limitée» | «Pour que \(\mathcal L\) soit limitée» |
+| «**(il faut et)** il suffit» | «**il faut et il suffit**» |
+| «il suffit **que dans** les polynômes» | «il suffit que**,** dans les polynômes» |
+| «**tous les** coefficients \(a_i\) **restent** bornés» | «les coefficients \(a_i\) **soient** bornés» |
+| «sont **aussi** géométriquement normales, **alors** il suffit» | «sont géométriquement normales, il suffit» |
+| «**les trois** coefficients … **restent** bornés» | «les coefficients … **soient** bornés» |
+| le polynôme de Hilbert **EN LIGNE** | **\[…\]** ⟹ **105ᵉ display fabriqué** |
+⟹ ★★★★★★ **LA PARAPHRASE EST PARTOUT : DÉMONSTRATIONS, REMARQUES, ET ÉNONCÉS FORMELS.** **Il n'y a plus aucune zone du texte présumée sûre.**
+
+## ⚠⚠⚠⚠⚠⚠ **ET J'AI UNE FAUTE DE MÉTHODE À CONSIGNER CONTRE MOI-MÊME**
+**L'unique point qui portait cette hypothèse était : «l'énoncé du Lemme 2.9 (p628 b4) est mot-pour-mot juste» (#659).** ⚠⚠⚠ **JE NE L'AI JAMAIS VÉRIFIÉ.** En #659 j'ai **relu le scan** de p628 b4 en zoomant le «a_i» — **je n'ai JAMAIS sorti l'énoncé du FICHIER pour le superposer.** J'ai écrit «mot-pour-mot juste» à partir d'une lecture du scan SEUL.
+⟹ ★★★★★★ **C'EST EXACTEMENT LA RÈGLE «NE JAMAIS CERTIFIER» QUI MORD : ma seule affirmation de conformité du projet était une affirmation NON VÉRIFIÉE, et elle a porté une théorie pendant deux cycles.**
+⟹ ⚠⚠⚠⚠ **L'ÉNONCÉ DU LEMME 2.9 REJOINT LA DETTE p616→p628. Ne pas le recompter comme un point.**
+
+## ★★★★★★ **DEUX SIC NEUFS — ET LA CALIBRATION (A) LES A LIVRÉS TOUS LES DEUX**
+### 1. ★★★★★ **«S schéma» — LE TRAIT D'UNION MANQUANT**
+✅ **5600 (`z644c_B_Sschema211`)** : «X **un** S **schéma projectif**,» — **AUCUN trait d'union**, une espace-mot ordinaire.
+★★★★ **ET LE SOULIGNÉ LE PROUVE** : il couvre «un», **saute l'espace ET le «S»**, puis reprend sous «schéma projectif» ⟹ **le «S» est traité comme un SYMBOLE ISOLÉ**, pas comme le membre d'un composé ⟹ **22ᵉ confirmation de «le trait couvre le mot, jamais le symbole».**
+★★★★★★ **LA CALIBRATION (A) TRANCHE (`z644c_C_Sschema31`)** : **le Lemme 3.1, UNE DEMI-PAGE PLUS BAS, MÊME AUTEUR, MÊME TOURNURE** («Soient \(S\) un schéma … et \(X\) un \(S\)(-)schéma …»), écrit «un **S-schéma** quasi-compact» **AVEC UN TRAIT D'UNION NET**. ⟹ **«S schéma» (2.11) EST LE SITE DÉVIANT** ⟹ **BRANCHE 1 ⟹ SIC ⟹ REPRODUIT ✅.**
+⟹ ★★★★★ **ET CODEX NE L'A PAS RÉPARÉ LOCALEMENT — IL A RÉÉCRIT LA PHRASE** («X projectif sur S»).
+### 2. ★★★★★ **«supp» POUR «sup»**
+✅ **5600 (`z644c_A_supp`)** : «soit \(\delta=\) **supp** \(\{d(L_K)\}\)» — **QUATRE lettres, DEUX «p»** nettement séparés dans leurs cellules monospace.
+★ **LA MATH TRANCHE (calibration B)** : \(\delta\) est le **SUPREMUM** des degrés — la preuve enchaîne «Si \(\delta>0\) … on peut ainsi supposer \(\delta\le0\)» ⟹ \(\delta\) est **un nombre comparé à 0**. Le «support» d'un ensemble de nombres n'a aucun sens. ⟹ **BRANCHE 1 ⟹ SIC ⟹ REPRODUIT ✅** (`\operatorname{supp}`).
+⟹ ★★★ **ET CODEX L'A RÉPARÉ — LOCALEMENT cette fois** (il a gardé la phrase, il a juste écrit `\sup`).
+
+## ★★★★★★ **LA NUANCE QUI SORT DE CE CYCLE — CODEX A *DEUX* MÉCANISMES, PAS UN**
+⚠⚠ **La tentation était d'écrire : «la paraphrase EST le mécanisme de réparation».** ⚠⚠⚠ **C'EST TROP FORT, ET p631 le montre elle-même** :
+• **«S schéma» ⟹ réparé PAR RÉÉCRITURE** de la phrase entière.
+• **«supp» ⟹ réparé LOCALEMENT**, la phrase intacte.
+⟹ ★★★★ **DONC : il répare les sites déviants (10-11 conf.) ET il paraphrase (3 pages) — CE SONT DEUX CHOSES.** **Ce qui est ÉTABLI (3 sites : «quelque soit» #660, «S schéma» #661, et le «(il faut et)» ci-dessous), c'est que LA PARAPHRASE EFFACE LES SIC — comme EFFET, pas comme CAUSE.** ⟹ **#653 respecté : la formule grandiose est refusée, le fait mesuré est gardé.**
+
+## ⚠⚠⚠ **DEUX PERTES DE SENS DE PLUS — 8ᵉ ET 9ᵉ DU PROJET**
+8. ★★★★★ **«(IL FAUT ET) il suffit» ⟹ «il faut et il suffit» — LES PARENTHÈSES SUPPRIMÉES.** **L'auteur MET LA NÉCESSITÉ ENTRE PARENTHÈSES : c'est une réserve, une mise à distance — le contenu réel de son lemme est la SUFFISANCE.** Sans les parenthèses, c'est un **ssi symétrique**. ⟹ **la réserve de l'auteur est effacée.** ★ **6ᵉ site de la classe «il échange/supprime les parenthèses».**
+9. ★★★★ **«dans le cas OÙ LES FIBRES DE X/S SONT géométriquement normales» ⟹ «Dans le cas géométriquement normal».** ⟹ **le scan dit CE QUI est normal (les FIBRES de X/S) ; le fichier abstrait ⟹ L'OBJET A DISPARU.**
+⚠ **+ trois discrètes** : **«aussi»** supprimé (l'hypothèse est **CUMULATIVE** : intègres **ET** normales) · **«tous les»/«les trois»** supprimés (ils disent **COMBIEN**) · **«restent» ⟹ «soient»** (**«restent» porte l'uniformité sur la FAMILLE** ; «soient» ne la porte pas).
+
+## ★★★★ **UNE CLASSE NEUVE : IL CASSE LE PARALLÉLISME DE L'AUTEUR**
+**Le scan écrit «en vertu de 1.13» ET «en vertu de 2.9» — MÊME formule, deux renvois, en écho.** **Le fichier écrit «en vertu de 1.13» PUIS «d'après 2.9».**
+★★ **ET IL A PERMUTÉ** : il met «**par** 2.5» là où le scan dit «**d'après** 2.5», et «**d'après** 2.9» là où le scan dit «**en vertu de** 2.9». ⟹ **il redistribue les formules de citation au hasard.**
+★★ **MÊME CHOSE DANS L'ÉNONCÉ/LA PREUVE** : le scan fait rimer «tous les coefficients \(a_i\) restent bornés» (énoncé) et «si tous les coefficients \(a_i\) restent bornés» (preuve) ; «les trois coefficients … restent bornés» (énoncé) et «les trois coefficients … restent bornés» (preuve). ⟹ **le fichier a cassé LES DEUX échos.**
+
+## ✅ **CE QUI EST FIXÉ (4 rep-calls, `fix644a`)**
+1. ✅ **FIX A — le report de p630 FERMÉ** : «on ait **:** \(a_i^{(m)}=P_i^{(m,r)}(a_r,\ldots,a_i)\).» ⟹ **104ᵉ display fabriqué remis en ligne + le «:» d'annonce restitué.** ✅ **Confirmé à 5600 (`z644d_A_onait`).**
+2. ✅ **FIX B — l'énoncé du Lemme 2.11** : les 8 défauts + **l'ITALIQUE POSÉE** (`\emph{}`, régime 1). ★ **Et comme le display redevient EN LIGNE, le corps n'encadre plus de `\[…\]` ⟹ UN SEUL `\emph{}` suffit** (#648 : le mode math est immunisé) — **le fix a simplifié sa propre contrainte.**
+3. ✅ **FIX C — la démonstration du Lemme 2.11** : les 7 défauts, dont le SIC «supp», la phrase **recollée en une seule**, et le parallélisme «en vertu de» restauré.
+4. ✅ **FIX D — le Lemme 3.1** : le «;» espacé ⟹ `\,;`.
+
+## ★★★★ **LE 1/i — 5ᵉ SITE TRANCHÉ, LE FICHIER A RAISON UNE 5ᵉ FOIS**
+✅ **«on ait : a_i^{(m)} = P_i^{(m,r)}(a_r,…,a_i).» — 5600 (`z644d_A_onait`).**
+★★★ **CALIBRATION IDÉALE, ET GRATUITE** : **le «i» du MOT «a_i_t»** est dans le même cadre, à pleine taille — **un «i» connu, à quatre caractères des trois glyphes à trancher.** Les trois indices portent **un point net, aucun drapeau**. ⟹ **«a_i», «P_i», «a_i» ⟹ LE FICHIER A RAISON.**
+⟹ **SOUPÇONNÉ POUR RIEN 9 FOIS.** ★ **Et je l'ai zoomé alors que je ne changeais PAS ces tokens** — précisément pour ne pas rouvrir une dette comme celle du «a_i» de p628, qui avait traîné 3 cycles.
+
+## ⚠⚠ **PIÈGE DE CHECK — LE 17ᵉ, ET IL A RAPPORTÉ**
+**`CHK9` (`\delta=\sup\{d(L_K)\}` not in t) a échoué APRÈS 4 rep() RÉUSSIS et un compile 0-err.** ⟹ **la règle a joué : GREPER AVANT de conclure au bug.**
+⟹ ✅ **Le check était TROP GÉNÉRIQUE (variante 1) — et il a découvert UN SECOND SITE : `\delta=\sup\{d(L_K)\}` existe AUSSI à L15133**, sur une page à venir.
+⟹ ⚠⚠ **REPORT : quand j'atteindrai L15133, VÉRIFIER SI LE SCAN Y DIT «supp» AUSSI.** ★ **Un check trop générique a rendu un service que le check juste n'aurait pas rendu.**
+
+## ✅ **p631 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 16 -»/«XIII» ✅ (17ᵉ conf.) · **«on ait :» + 104ᵉ ✅ FIXÉS** · **1/i ✅ TRANCHÉ** · **le début de l'énoncé 2.11 ✅ FIXÉ** (le SIC «S schéma» + l'italique) · **le trait saute les symboles ✅ 22ᵉ conf.**
+**b2** : **la fin de l'énoncé 2.11 ✅ FIXÉE** («Alors», «(il faut et)», 105ᵉ, «tous», «restent», «aussi», «alors», «les trois») · **«En effet, soit δ = supp {d(L_K)}» ✅ FIXÉ** (le SIC + le modal «on peut»).
+**b3** : **la fin de la preuve ✅ FIXÉE** («grâce à», `\,;`, «ainsi», «d'après 2.5», «tous les»/«restent», la phrase recollée, «en vertu de 2.9»).
+**b4** : **«3. Théorèmes de finitude généraux»** ✅ le fichier a `\subsection*{}` (report #3) · **Lemme 3.1 : le «;» ✅ FIXÉ** · ⚠ **l'ITALIQUE DIFFÉRÉE** · ⚠ **«Pic» souligné NON TRANCHÉ** · ⚠ **le renvoi de note «(*)»** · ⚠ **«n° 232»**.
+**b5** : ✅ **le footnote + footer «631»** ⟹ **17ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE SUR p631 — CONSIGNÉ, PAS FIXÉ**
+1. ⚠⚠ **L'ITALIQUE DU LEMME 3.1 — DIFFÉRÉE, ET LÉGITIMEMENT** : son corps **ENJAMBE SUR p632** (p631 s'arrête à «…de \(S\)-schémas» + le footnote) ⟹ **je ne peux pas fermer l'`\emph{}` sans avoir lu p632** ⟹ **discipline page-locale : À FAIRE SUR p632.**
+2. ⚠⚠⚠ **«Pic» EST SOULIGNÉ — 2 sites (le Lemme 3.1 ET le footnote).** ★★★★ **LE FOOTNOTE EST LE DISCRIMINANT** : il est en **ROMAIN** (ce n'est pas un corps d'énoncé), **et «Pic» y est SOULIGNÉ QUAND MÊME** ⟹ **ce n'est PAS l'italique de l'énoncé ⟹ C'EST LE RÉGIME 5** (le trait veut dire «le FONCTEUR de Picard», par opposition au GROUPE Pic). ⚠⚠ **Le fichier a `\Pic` = `\operatorname{Pic}` ⟹ ne le rend pas.** ⚠⚠⚠ **DÉCISION GLOBALE (`\Pic` a de nombreux usages ailleurs) ⟹ NE PAS SWEEPER, comme pour les «Ext» ⟹ NON TRANCHÉ.**
+3. ⚠⚠ **LE RENVOI DE NOTE EST «(*)» AU SCAN**, pas un numéro ⟹ **REPORT GLOBAL #1 (les 89 notes) — 1ʳᵉ instance CONCRÈTE vue au scan.** Le fichier utilise `\footnote{}` ⟹ rend un **numéro**.
+4. ⚠ **«FGA n° 232»** au scan (un «o» surélevé, la machine n'a pas de touche «°») **contre «FGA no 232»** au fichier ⟹ **BRANCHE 3 probable** ⟹ **NON ZOOMÉ ⟹ pas d'action.**
+5. ⚠ **L'AUTEUR EST INCONSTANT AVEC LUI-MÊME** : «f.p.p.f.» (avec points, dans le Lemme 3.1) contre «fpqc»/«fppf» (sans points, dans le footnote). **Le fichier reproduit LES DEUX** ⟹ **ils concordent, aucune action** ⟹ **consigné comme SIC probable.**
+6. ⚠ **«ici,comme indiqué,»** — la virgule est **collée** à «ici» au scan (artefact de frappe) ; le fichier écrit «ici, comme indiqué,» ⟹ **consigné, pas d'action** (ce n'est pas un choix, c'est un raté d'espacement).
+7. ⚠ **LE FICHIER MÉLANGE LES ACCENTS** : L14921-14927 en **UTF-8** («schéma»), L14930+ en **échappements LaTeX** (`sch\'ema`). ⟹ **rendu identique, aucun défaut** ⟹ **consigné : source incohérente.**
+8. ⚠ **La virgule finale du display de p630** («…\binom{mn+j}{j}**,**») reste **NON VÉRIFIÉE** (elle tombait à la coupure) ⟹ **grammaticalement correcte dans la phrase restaurée** ⟹ **gardée, consignée.**
+9. ⚠ **`\operatorname{supp}` existe DÉJÀ 7× dans le fichier** comme un vrai «support» (L255, L457, L14559 ×2, L15442, L15470, L15510) ⟹ **mon SIC est INDISTINGUABLE d'un support légitime dans la source** ⟹ **l'ERRATA devra NOMMER le site.**
+
+## ★★★★ **LE COMPTE DES CONNECTEURS — 24/24**
+**p629 ⟹ 8/8. p630 ⟹ 9/9. p631 ⟹ 7/7** («Alors» supprimé ×2 · «grâce à»⟹«compte tenu de» · «ainsi»⟹«donc» · «d'après 2.5»⟹«par» · «en vertu de 2.9»⟹«d'après» · «, et, dans le cas où»⟹«. Dans le cas»).
+⟹ ★★★★★★ **VINGT-QUATRE SUR VINGT-QUATRE. Ce n'est plus un signal — c'est une loi de ce fichier.**
+
+## **CURSEUR → idx645 (p632).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #660 (2026-07-16) — idx643 (vol p630 = **Exposé XIII «- 15 -»**, footer «630» ⟹ **630−615=15, 16ᵉ confirmation** ; idx=630+13=643) — **3 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p630 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ⚠⚠⚠⚠⚠⚠ **L'HYPOTHÈSE DE #658/#659 EST RÉFUTÉE — LA PARAPHRASE N'EST PAS QUE DANS LES DÉMONSTRATIONS**
+**#659 avançait, avec 2 points : «Codex respecte les ÉNONCÉS et réécrit les DÉMONSTRATIONS.»** ⚠⚠⚠ **p630 la tue.**
+**La «Remarque 2.10» N'EST PAS une démonstration — c'est un BLOC D'ÉNONCÉ.** **Et elle est paraphrasée AUSSI LOURDEMENT que la preuve qui la précède** — article changé, variable supprimée, phrase entière restructurée, singulier passé au pluriel, «:» mangé.
+⟹ ★★★★★★ **LA PARAPHRASE EST PARTOUT.** ⟹ **le report «p616→p628 sont suspectes» n'est plus une prudence : c'est la lecture la plus probable.**
+⚠ **CE QUI SURVIT DE L'HYPOTHÈSE, ET C'EST MINCE** : le SEUL bloc vérifié mot-pour-mot juste reste **l'énoncé FORMEL du Lemme 2.9 (p628 b4)**. ⟹ **piste résiduelle : Codex respecterait les énoncés FORMELS (Lemme/Proposition/Théorème) et réécrirait TOUT LE RESTE (preuves ET remarques).** ⚠⚠ **UN SEUL POINT. NE PAS BÂTIR DESSUS (#653). Le prochain énoncé formel est le Lemme 2.11 (p631) ⟹ 2ᵉ point à venir.**
+
+# ★★★★★★ **LA TROUVAILLE DU CYCLE : LA PARAPHRASE EFFACE LES SIC**
+✅ **VÉRIFIÉ À 5600 (`z643c_A_quelque`)** : le scan écrit «on en conclut que **quelque soit** m ≥ -2». **«quelque» est EN UN SEUL MOT** — aucune espace interne ; l'espacement monospace le prouve (gaps larges **avant** et **après** «quelque», **aucun** entre «quel» et «que»). **Le français standard veut «QUEL QUE soit».**
+⟹ **CRITÈRE #644, BRANCHE 1** : le scan dit X, la langue veut Y ⟹ **SIC DE L'AUTEUR** ⟹ **REPRODUIT** ✅.
+⟹ ★★★★★★ **ET DONC : LE FICHIER AVAIT EFFACÉ CE SIC EN PARAPHRASANT** («on en conclut que quelque soit» ⟹ «on obtient pour tout»).
+⟹ ★★★★★★ **LA PARAPHRASE NE DÉTRUIT PAS QUE LE STYLE — ELLE DÉTRUIT LA TRACE DES TICS DE L'AUTEUR.** **Chaque site de paraphrase est un SIC potentiellement effacé, sans laisser de marque.** ⟹ ⚠⚠⚠ **L'ERRATA (en pause) EST COMPROMIS : on ne peut pas recenser les coquilles d'un auteur dans un texte qui a été réécrit.** ⟹ **l'ERRATA ne pourra être bâti QU'APRÈS la restauration de la prose.**
+
+## ✅ **LA QUESTION TRAÎNÉE DE #659 EST TRANCHÉE**
+**#659 laissait ouverte la virgule après «Donc par (i)», qui tombait pile à la coupure de page.** ✅ **p630 b1 ligne 1 répond** : le scan écrit «Donc par (i) **déjà prouvé**, on en conclut que…» ⟹ **PAS de virgule après «(i)»** — elle vient **après «déjà prouvé»**. ⟹ **ET «déjà prouvé» avait été SUPPRIMÉ par Codex.** ⟹ **FERMÉ.**
+
+## ⚠⚠ **LA PARAPHRASE DE p630, SITE PAR SITE (23 défauts)**
+| **LE SCAN** | **LE FICHIER (avant #660)** |
+|---|---|
+| «Donc par (i) **déjà prouvé**, on en conclut que **quelque soit** m ≥ -2,» | «Donc par (i)**,** on obtient **pour tout** m≥-2,» |
+| «**Par 2.5,** L_Y est un (O,…,O,a_r)-faisceau.» | «**D'autre part,** L_Y est un (0,…,0,a_r)-faisceau **par 2.5**.» |
+| «**Soient** c_i=g_{r-i}(…) **pour i=1,…,r et** m=P_{r-2}(…).» | «**Posons** \[…\]**\quad(i=1,…,r)** **et** \[…\]» |
+| «**Donc** par 1.4 (ii), h¹(L(m-2))≥…» | «Par 1.4 (ii), **on a** h¹(L(m-2))≥…» |
+| «**Donc si l'on définit des polynômes par** M=… et h_r=…, **alors on a (ii) en vertu de 2.9.2**.» | «**Si l'on pose** \[…\] **alors (ii) résulte de (2.9.2)**.» |
+| «Enfin, **comme** L_Y est m-régulier» | «Enfin, **puisque** L_Y est m-régulier» |
+| «par 1.4 (i) **; d'où** Σ…» | «par 1.4 (i)**. Donc** \[…\]» |
+| «**Donc si l'on définit** g_r=…, **on a** (iii).» | «**Ainsi, en posant** \[…\] **on obtient** (iii).» |
+| «considérons **une** égalité de polynômes **en n :**» | «considérons **l'**égalité de polynômes» |
+| «**Alors on trouve facilement la formule** \[…\] **en raisonnant par récurrence sur r afin que a_{m,i} devienne a_{m,0}, et en faisant n = -1.**» | «**On voit par récurrence sur r, en faisant n=-1, que** \[…\]» |
+| «De même, **on trouve qu'**il existe **un polynôme** … **qui est croissant** en X_i, **tel que** dans l'égalité **suivante :**» | «De même, il existe **des polynômes** …, **croissants** en X_i, **tels que,** dans l'égalité» |
+
+## ⚠⚠⚠ **DEUX PERTES DE SENS DE PLUS — 6ᵉ ET 7ᵉ DU PROJET**
+6. ★★★ **«AFIN QUE a_{m,i} DEVIENNE a_{m,0}» SUPPRIMÉ.** **C'est LE BUT de la récurrence** — pourquoi on la fait. Le fichier garde «par récurrence sur r» et jette la raison ⟹ **le lecteur voit la méthode, pas son objet.**
+7. ★★★ **«il existe UN POLYNÔME … QUI EST CROISSANT» (SINGULIER) ⟹ «il existe DES POLYNÔMES …, CROISSANTS» (PLURIEL).** ⟹ **Codex a changé LE NOMBRE d'un objet mathématique.**
+⚠ **ET UNE 3ᵉ, plus discrète** : **«égalité de polynômes EN n»** ⟹ **«égalité de polynômes»** — **la VARIABLE est supprimée** ⟹ on ne sait plus **en quoi** ce sont des polynômes (or toute la Remarque repose là-dessus : on fait n = -1).
+
+## ★★★★★★ **DEUX CLASSES PASSENT DE «INFÉRÉE» À «ÉTABLIE» — 2ᵉ SITE INDÉPENDANT CHACUNE**
+1. ✅✅ **«Soient» ⟹ «Posons»** : **p629 b1** («Soient g_i(…) pour i=0,1,2 et h_2(…)» ⟹ «Posons \[…\] et \[…\]») **ET p630 b1** («Soient c_i=g_{r-i}(…) pour i=1,…,r et m=…» ⟹ «Posons \[…\] et \[…\]»). ⟹ **MÊME substitution, MÊME structure (Soient A pour I et B), MÊME conséquence (2 displays fabriqués).** ⟹ **CLASSE, pas accident.**
+2. ✅✅ **«D'autre part» AJOUTÉ** : **p629** («D'autre part, soit X plongé dans…» — absent du scan) **ET p630** («D'autre part, L_Y est un …-faisceau par 2.5» — le scan dit «Par 2.5, L_Y est un …-faisceau»). ⟹ **Codex INSÈRE ce connecteur ET DÉPLACE le renvoi de la tête vers la queue.**
+3. ✅✅ **L'ARTICLE** : **p629** («on a **une** suite exacte» ⟹ «**la** suite exacte») **ET p630** («considérons **une** égalité» ⟹ «considérons **l'**égalité»). ⟹ **il définitise l'indéfini.**
+⟹ ★★★★ **#653 est respecté : trois classes, chacune sur DEUX sites indépendants.**
+
+## ✅ **CE QUI EST FIXÉ (3 rep-calls, `fix643a`)**
+1. ✅ **BLOC 1** : «Donc par (i) **déjà prouvé**, on en conclut que **quelque soit** \(m\ge -2\),» ⟹ **le SIC reproduit.**
+2. ✅ **BLOC 2** : toute la fin de la démonstration du Lemme 2.9 — «Par 2.5,» en tête · «Soient» · «Donc par 1.4 (ii),» · «Donc si l'on définit des polynômes par» · «alors on a (ii) en vertu de 2.9.2» · «Enfin, comme» · «\,; d'où» · «Donc si l'on définit … on a (iii)» ⟹ **99ᵉ→103ᵉ displays fabriqués remis EN LIGNE.**
+3. ✅ **BLOC 3** : la Remarque 2.10 — «une égalité de polynômes **en \(n\)** **:**» · «Alors on trouve facilement la formule» · «**afin que \(a_{m,i}\) devienne \(a_{m,0}\)**» · «on trouve qu'il existe **un** polynôme … **qui est croissant**» · «tel que dans l'égalité **suivante :**» · **le point ajouté au display retiré** (le scan n'en a pas — la phrase continue).
+
+## ★★★★ **LE 1/i — 4ᵉ SITE TRANCHÉ, LE FICHIER A RAISON UNE 4ᵉ FOIS**
+✅ **«c_i = g_{r-?}(a_{r-2},a_{r-1},a_r)» — 9600 dpi (`z643d_A_gri`), boîte minuscule.**
+★★★ **LA CALIBRATION EST DANS LE CADRE** : le **«i» de «c_i»** (KNOWN) est **à trois caractères** du glyphe à trancher, **au même corps d'indice**. **Les deux ont EXACTEMENT la même structure** : **point détaché au sommet** (gap blanc net), fût court, large empattement de base. **Aucun drapeau.**
+★ **Et le contre-témoin est là aussi** (`z643d_B_known`, «pour **i**=**1**») : le **«1»** est **haut, à drapeau, SANS point**.
+★ **Et la math concorde (calibration B)** : p628 item (iii) pose «|a_i| ≤ **g_{r-i}**(a_{r-2},a_{r-1},a_r) pour i=0,…,r» ⟹ **c_i (la borne de |a_i|) = g_{r-i}(…)** ✓.
+⟹ **«g_{r-i}» ⟹ LE FICHIER A RAISON.** ⟹ **SOUPÇONNÉ POUR RIEN 8 FOIS.** ⚠ **Et toujours : ne pas en conclure «ne plus zoomer».**
+
+## ✅ **p630 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 15 -»/«XIII» ✅ (16ᵉ conf.) · **«déjà prouvé / quelque soit» ✅ FIXÉ (SIC reproduit)** · **la virgule après «(i)» ✅ FERMÉE** · **le display 2.9.2 ✅ VRAI (centré, x≈0.26), non touché** · «pour tout n ≤ m.» ✅ CONCORDE · **«Par 2.5,» ✅ FIXÉ** · **«Soient» ✅ FIXÉ** · **99ᵉ/100ᵉ ✅** · **1/i «g_{r-i}» ✅ TRANCHÉ.**
+**b2** : **«Donc par 1.4 (ii),» ✅** · **«Donc si l'on définit des polynômes par … en vertu de 2.9.2» ✅ + 101ᵉ** · **«Enfin, comme … \,; d'où» ✅ + 102ᵉ** · «Mais h^o(L(m)) ≤ a_r(…) par 1.8 (i).» ✅ CONCORDE · **«Donc si l'on définit g_r … on a (iii)» ✅ + 103ᵉ.**
+**b3** : **«Remarque 2.10 … une égalité … en n :» ✅ FIXÉ** · **le display Σ=Σ ✅ VRAI (centré, x≈0.22), non touché** · **«Alors on trouve facilement la formule» ✅ FIXÉ** · **le display a_{m,i} ✅ VRAI (centré, x≈0.25), point retiré** · **«afin que a_{m,i} devienne a_{m,0}» ✅ RESTAURÉ.**
+**b4** : **«De même, on trouve qu'il existe un polynôme … suivante :» ✅ FIXÉ** · **le display final ✅ VRAI (centré, x≈0.26), non touché.**
+**b5** : ✅ **VIDE + footer «630»** ⟹ la page s'arrête à b4. **16ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE SUR p630 — CONSIGNÉ, PAS FIXÉ**
+1. ⚠ **La virgule finale du display «…\binom{mn+j}{j}**,**» et le «on ait» qui suit** tombent **APRÈS la fin de p630** ⟹ **NON VÉRIFIABLES** ⟹ **À TRANCHER SUR p631.**
+2. ⚠ **«mn+j» (b4) contre «m+n+j» (b3)** : le fichier écrit les deux **comme le scan** ⟹ **ils concordent, donc aucune action**. ⚠ **Mais est-ce un SIC** (le parallèle voudrait «m+n») **ou deux constructions distinctes** (a_{m,i} vs a_i^{(m)}) ? **NON TRANCHÉ — pas d'action.**
+3. ⚠ **Le trait de «Remarque»** ne couvre que **le MOT**, pas le «2.10» ⟹ **REPORT GLOBAL #2** (20ᵉ conf.).
+4. ⚠ **Le tag «2.9.2»** est **À GAUCHE** au scan ⟹ **REPORT GLOBAL #5.**
+5. ⚠ **1 nouveau `\,;`** (scan espacé) ⟹ **REPORT GLOBAL #4** (11→12 en `\,;`).
+
+## ★★★★ **CE QUE p630 AJOUTE À LA MÉTHODE**
+★★★★★ **LA RÈGLE MAÎTRESSE DE #659 A PAYÉ IMMÉDIATEMENT.** **Sur p630, LES SYMBOLES ÉTAIENT ENCORE TOUS JUSTES** — le 1/i «g_{r-i}» ✓, «h¹(L(m-2))» ✓, les trois displays centrés ✓, «a_r\binom{m+r}{r}» ✓ — **et 23 défauts de prose.** ⟹ **DEUXIÈME PAGE CONSÉCUTIVE OÙ LE DÉFAUT EST À 100% DANS LA PROSE.**
+★★★★★ **LE SIGNAL DES CONNECTEURS TIENT** : **p629 ⟹ 8 connecteurs, 8 réécrits. p630 ⟹ 9 connecteurs, 9 réécrits.** ⟹ **17/17.** ⟹ **CE N'EST PLUS UN SIGNAL D'ALERTE, C'EST UNE CERTITUDE : tout connecteur du fichier est faux jusqu'à preuve du contraire.**
+
+## **CURSEUR → idx644 (p631).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #659 (2026-07-16) — idx642 (vol p629 = **Exposé XIII «- 14 -»**, footer «629» ⟹ **629−615=14, 15ᵉ confirmation** ; idx=629+13=642) — **4 rep-calls.** Compile **0-err / 378pp** ✓ (−1p : 6 displays remis en ligne). ✅ **p629 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+# ⚠⚠⚠⚠⚠⚠ **LA PARAPHRASE N'ÉTAIT PAS UN COIN DE PAGE — ELLE EST LA PAGE ENTIÈRE**
+**#658 l'avait trouvée sur b1/b2. b3, b4 et la fin de b2 en portent AUTANT.** ⟹ **~20 SITES SUR UNE SEULE PAGE.** ⚠ **p629 est INTÉGRALEMENT la démonstration du Lemme 2.9 — et elle est réécrite DU DÉBUT À LA FIN.**
+
+## ⚠⚠⚠⚠ **DEUX PERTES DE SENS DE PLUS — ET LA MÊME, DEUX FOIS**
+| **LE SCAN** | **LE FICHIER (avant #659)** |
+|---|---|
+| «Supposons maintenant **que** \(r\ge3\) **et raisonnons par récurrence sur \(r\)**.» | «Supposons maintenant \(r\ge3\).» |
+| «**Comme hypothèse de récurrence, on suppose que** les polynômes \(g_i\) **et** \(h_i\) **sont définis** pour \(i\le r-1\).» | «**Supposons** les polynômes \(g_i,h_i\) **construits** pour \(i\le r-1\).» |
+⟹ ★★★★★★ **CODEX A EFFACÉ LA MÉTHODE DE PREUVE — DEUX FOIS SUR UNE SEULE PAGE.** **La démonstration procède PAR RÉCURRENCE SUR \(r\) ; le scan l'annonce deux fois ; le fichier ne l'annonce JAMAIS** — **puis il écrit «D'après l'hypothèse de récurrence…» et «Supposons les polynômes construits…», QUI NE RENVOIENT PLUS À RIEN.** ⟹ **le lecteur du fichier ne sait pas qu'il lit une récurrence.** **3ᵉ et 5ᵉ pertes de sens du projet.**
+⚠⚠⚠ **ET UNE RE-ATTRIBUTION DE RENVOIS (4ᵉ perte de sens)** : le scan écrit «et comme \(n\ge2\) **par (ii) pour \(r=2\)**, **2.4 donne** \(h^o(L_Y(-n))=0\)» — **(ii) justifie «\(n\ge2\)» ; 2.4 SEUL donne \(h^o=0\)**. Le fichier écrit «**2.4 et (ii) pour \(r=2\) donnent** \(h^0(L_Y(-n))=0\)» — **il attribue \(h^0=0\) AUX DEUX.** ⟹ ★★★ **Codex ne perd pas seulement des mots : IL REBRANCHE LES JUSTIFICATIONS.**
+
+## ⚠⚠ **LA PARAPHRASE, SITE PAR SITE (b2-fin → b4)**
+| **LE SCAN** | **LE FICHIER** |
+|---|---|
+| «**Or,**» | «**D'autre part,**» |
+| «**Donc** \(\Omega^1_{Y/k}\otimes L_Y^{-1}(-1)\) est 3-régulier **et par 1.4**,» | «**Par suite** … est 3-régulier**, et donc,** par 1.4,» |
+| «Par conséquent**,** \(h^1(L(-n))=0\)» | «Par conséquent \(h^1(L(-n))=0\)» ⟹ **virgule SUPPRIMÉE** |
+| «pour \(n\ge2+h^1(L(-2))\) **; d'où (i).**» | «…**, ce qui démontre (i).**» |
+| «**Soit** \(Y\) une section hyperplane normale de \(X\) **et considérons** la suite exacte **:**» | «**Si** \(Y\) **est** une section hyperplane normale de \(X\), **on a** la suite exacte» |
+| «**Donc pour** \(n\ge2+h_2(\dots)\), **l'hypothèse de récurrence donne** \(h^1(L_Y(-n))=0\),» | «**D'après l'hypothèse de récurrence, si** \[…\] **on a** \(h^1(L_Y(-n))=0\);» |
+| «**; d'où** \(h^1(L(-n-1))=h^1(L(-n))\).» | «**Par suite** \[…\]» |
+| «(**voir** FGA 149 § 6) **; d'où (i).**» | «(FGA 149**,** § 6)**,** d'où (i).» |
+| «**Alors** pour tout \(n\), … **grâce à 2.9.1. Donc par (i)**» | «Pour tout \(n\), **(2.9.1) donne** \[…\] **D'où, grâce à (i),**» |
+
+## ★★★★★★ **LA CALIBRATION (A) EST CONFIRMÉE, PAS SUPPOSÉE — «(voir FGA 149 § 6)» ×2**
+✅ **b2 ET b4 portent LA MÊME INCISE**, et **les deux fois** le scan écrit «**voir** FGA 149 **§** 6» (sans virgule) et **les deux fois** Codex a **supprimé «voir» ET ajouté une virgule**. ⟹ ★★★★ **DEUX SITES INDÉPENDANTS, MÊME TRANSFORMATION** ⟹ **la classe est ÉTABLIE, pas inférée d'un site (#653 respecté).**
+
+## ✅ **CE QUI EST FIXÉ (4 rep-calls)**
+1. ✅ **`fix642c` (2 rep)** : toute la prose de b2-fin/b3/b4 restaurée — «Or,» · «Donc» · «3-régulier et par 1.4,» · «Par conséquent,» · «\,; d'où (i).» · **«que \(r\ge3\) et raisonnons par récurrence sur \(r\)»** · «Soit \(Y\) … et considérons la suite exacte **:**» · «Donc pour … l'hypothèse de récurrence donne …» · **«par (ii) pour \(r=2\), 2.4 donne …»** · «(voir FGA 149 § 6)\,; d'où (i).» ⟹ **93ᵉ→97ᵉ displays fabriqués remis EN LIGNE du même coup.**
+2. ✅ **`fix642d` (1 rep)** : **«Ext» ⟹ `\mathcal E\!xt`.**
+3. ✅ **`fix642e` (1 rep)** : **«Comme hypothèse de récurrence, on suppose que … sont définis»** · «Alors pour tout \(n\),» · «grâce à 2.9.1. Donc par (i)» ⟹ **98ᵉ display remis en ligne.**
+
+## ★★★★★ **«Ext» SOULIGNÉ — TRANCHÉ PAR TROIS VOIES CONVERGENTES**
+✅ **LE TRAIT (5600, `z642l_B_Ext`)** : une **barre épaisse sous «Ext»**, et **sous LE MOT SEUL** — ni l'exposant «N-2», ni l'indice «O_P». ⟹ **19ᵉ confirmation de «le trait couvre le mot, jamais le symbole accolé».**
+✅ **LA MATH (calibration B)** : \(\omega=\mathcal Ext^{N-2}_{\mathcal O_P}(\mathcal O_X,\Omega^N_{P/k})\) est **le faisceau dualisant**. Le texte dit ensuite «\(\omega\) est inversible en dehors de \(Z\)», «\(\omega_Y(1)\simeq\Omega^1_{Y/k}\)», «\(\omega\otimes L^{-1}\)» ⟹ **\(\omega\) est un FAISCEAU, pas un groupe.** **Le Ext GLOBAL donnerait un module** ⟹ **c'est le Ext-FAISCEAU.**
+✅ **LE PRÉCÉDENT DU FICHIER (leçon #2)** : le fichier écrit **DÉJÀ** `\mathcal H\!om` pour le «Hom» souligné (1 occurrence, posée en #648) ⟹ **je n'invente rien, je suis la convention DE CETTE ÉDITION** ⟹ `\mathcal E\!xt`.
+⟹ **CRITÈRE #644, BRANCHE 3 (artefact de médium)** : «le glyphe est-il sur le clavier ?» **NON** ⟹ le dactylo a tapé «Ext» et l'a souligné pour dire «script» ⟹ **rendre Y, aucun défaut de l'auteur.**
+⚠⚠ **NE PAS SWEEPER** : les autres «Ext»/`\Ext` du fichier ne sont **PAS** vérifiés au scan ⟹ **REPORT.**
+
+## ✅ **DEUX REPORTS FERMÉS — ET LE FICHIER AVAIT RAISON LES DEUX FOIS**
+1. ✅ **«P = ℙ^N_k» (5600, `z642l_A_P`)** : le **1ᵉʳ** P (après «dans») est un **P romain simple** ; le **2ᵉ** est **DOUBLE-FRAPPÉ** — **fût vertical DÉDOUBLÉ**, la façon dactylo de faire un ℙ ajouré. Le fichier écrit `P=\mathbb P_k^N` ⟹ **JUSTE.** ⟹ **FERMÉ.**
+2. ✅ **«a_i» de p628 (5600, `z641yy_A_aiii`)** — **le 1/i traîné depuis #657 est ENFIN SATISFAIT.** ★ **Calibration idéale DANS LE CADRE** : «(**iii**)» + «g_{r-**i**}» (points) contre «a_{r-**1**}» (fût + drapeau, **sans point**). ⟹ **«a_i» ⟹ le fichier a raison.** ⟹ **FERMÉ.**
+
+## ★★★★ **LE 1/i — TROIS SITES TRANCHÉS CE CYCLE, LE FICHIER A RAISON TROIS FOIS**
+1. ✅ **«d'où (i)» — 9600 dpi (`z642i`), boîtes minuscules.** ★★★ **LE DISCRIMINANT ENFIN ÉNONCÉ PROPREMENT** : le **«1» KNOWN** (exposant de \(h^1\), **même ligne, 20 caractères**) est un **BLOC UNIFORMÉMENT NOIR** dont le **drapeau est l'élément le PLUS HAUT — rien au-dessus**. Le glyphe de «(?)» porte un **POINT ARRONDI CENTRÉ SUR LE FÛT**, avec un **LISERÉ GRIS à la jonction** (⟹ **deux frappes distinctes que l'encre a soudées**) puis un **empattement d'attaque à gauche**. ⟹ **«i»**. ★ **Et la math concorde** : (iii) et (ii) sont déjà faits ⟹ **il reste (i)**.
+2. ✅ **«a_{i+1}» — 5600 (`z642j`).** ★ **Calibration idéale** : «Σ^{**r-1**}_{**i**=0} a_{**?**+**1**}(^{n+**i**}_**i**)» ⟹ **le «1» et le «i» quatre fois dans le même cadre.** ⟹ **«a_{i+1}»**.
+3. ✅ **«a_i» de p628 — 5600.** (ci-dessus.)
+⟹ ★★★ **LE 1/i NE M'A JAMAIS DONNÉ UN DÉFAUT — 3 sites de plus, 0 défaut. Total : SOUPÇONNÉ POUR RIEN 7 FOIS.** ⚠ **NE PAS EN CONCLURE «ne plus zoomer» : le coût d'un crop est nul, celui d'un indice faux est permanent.**
+
+## ✅ **p629 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 14 -»/«XIII» ✅ · **paraphrase ✅ FIXÉE (#658)** · **88ᵉ→91ᵉ ✅** · **nouveau paragraphe ✅** (confirmé par l'OCR : «Soient» à **x=0.165, INDENTÉ**) · **«Ext» ✅ FIXÉ (#659)** · **«P=ℙ^N_k» ✅ FERMÉ.**
+**b2** : **paraphrase ✅ FIXÉE (#658 + #659)** · **92ᵉ, 93ᵉ ✅** · **le display centré (x≈0.24) ✅ VRAI, non touché** · «Or,» ✅ · «Donc» ✅.
+**b3** : **94ᵉ, 95ᵉ ✅** · «Par conséquent,» ✅ · «\,; d'où (i).» ✅ · **la récurrence ✅ RESTAURÉE** · «et considérons … **:**» ✅ · **le display 2.9.1 ✅ VRAI (centré), non touché** · **1/i «(i)» ✅ TRANCHÉ.**
+**b4** : **96ᵉ, 97ᵉ, 98ᵉ ✅** · **la re-attribution ✅ CORRIGÉE** · «(voir FGA 149 § 6)» ✅ · **la 2ᵉ récurrence ✅ RESTAURÉE** · «définis» ✅ · «grâce à 2.9.1. Donc par (i)» ✅ · **1/i «a_{i+1}» ✅ TRANCHÉ.**
+**b5** : ✅ **VIDE + footer «629»** ⟹ la page s'arrête à b4. **15ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE SUR p629 — CONSIGNÉ, PAS FIXÉ**
+1. ⚠ **La virgule après «Donc par (i)»** tombe **PILE À LA COUPURE DE PAGE** ⟹ **NON VÉRIFIABLE depuis p629** ⟹ j'ai gardé celle du fichier ⟹ **À TRANCHER SUR p630.**
+2. ⚠ **L'indice «P/k» de \(\Omega^N_{P/k}\)** : le scan écrit un **P romain** (on ne double-frappe pas un indice) ; le fichier écrit **P romain** ⟹ **ILS CONCORDENT, donc rien à faire** — mais **est-ce un SIC de l'auteur** (il devrait être ℙ, cf. le ℙ double-frappé de la même ligne) ? **NON TRANCHÉ — pas d'action.**
+3. ⚠ **Le tag «2.9.1»** est **À GAUCHE** au scan ⟹ **REPORT GLOBAL #5** (507 tags).
+4. ⚠ **4 nouveaux `\,;`** introduits (scan espacé, vérifié 5600) ⟹ **REPORT GLOBAL #4** (360 collés / 112 espacés / 7→11 en `\,;`).
+
+## ⚠⚠⚠⚠⚠⚠ **LE REPORT LE PLUS GRAVE DU CYCLE : MES 13 PAGES PRÉCÉDENTES SONT SUSPECTES**
+**L'hypothèse de #658 était : «Codex respecte les ÉNONCÉS et réécrit les DÉMONSTRATIONS.»** **p629 lui donne un 2ᵉ point** : la page est **intégralement une démonstration**, et elle est **réécrite de bout en bout** ; **l'ÉNONCÉ du Lemme 2.9 (p628 b4), que je viens de RE-LIRE au passage, est mot-pour-mot juste.**
+⚠⚠⚠ **MAIS VOICI LE PROBLÈME.** **p616→p628 ont été déclarées «finies page-localement» PAR UNE MÉTHODE QUI NE COMPARAIT PAS LA PROSE.** J'y ai cherché des virgules, des parenthèses, des indices, des displays — **pas des phrases.** **Or la paraphrase est INVISIBLE à tout sauf à la comparaison mot-à-mot** : elle compile, elle se lit bien, elle est mathématiquement juste (sauf quand elle ne l'est pas). ⟹ ★★★★★★ **JE N'AI AUCUNE RAISON DE CROIRE QUE p616-p628 SONT PROPRES. J'AI DE BONNES RAISONS DE CROIRE LE CONTRAIRE :** les démonstrations y sont nombreuses, et **je ne les ai jamais lues comme du texte.**
+⟹ ⚠⚠⚠⚠ **REPORT PERMANENT : RE-VÉRIFIER LA PROSE DE p616→p628 (13 pages) APRÈS L'EXPOSÉ.** **NE PAS les considérer comme certifiées.** ⚠ **Et ne pas re-parcourir maintenant : le loop avance page par page ; ce report est la dette, il doit être écrit, pas improvisé.**
+
+## ★★★★★★ **LA RÈGLE QUI SORT DE CE CYCLE**
+★★★★★★ **LA COMPARAISON DE LA PROSE EST LE TEST PRINCIPAL, PAS UN SUPPLÉMENT.** **Sur p629 : les symboles étaient JUSTES (3 sites 1/i vérifiés, 0 défaut ; le P juste ; le display centré juste) — et la PAGE ÉTAIT FAUSSE.** ⟹ **le défaut n'était PAS où je regardais depuis 8 cycles.**
+⟹ ★★★★ **PROCÉDURE : sur chaque bande, LIRE LA PHRASE DU SCAN, PUIS LIRE LA PHRASE DU FICHIER, PUIS LES SUPERPOSER MOT À MOT. Les symboles viennent APRÈS.**
+⟹ ★★★ **ET LE SIGNAL D'ALERTE EST NOMMABLE** : **tout connecteur logique** («Or» / «Donc» / «D'autre part» / «Par suite» / «D'où» / «Alors» / «En effet») **est un site de paraphrase jusqu'à preuve du contraire** — Codex les permute sans changer le sens apparent. **Sur p629 : 8 connecteurs, 8 réécrits.**
+
+## **CURSEUR → idx643 (p630).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #658 (2026-07-16) — idx642 (vol p629 = **Exposé XIII «- 14 -»**, footer «629» ⟹ **629−615=14, 14ᵉ confirmation** ; idx=629+13=642) — **2 rep-calls.** Compile **0-err / 379pp** ✓. ⚠⚠ **PAGE PARTIELLE — b3, b4, b5 NON LUES.**
+# ⚠⚠⚠⚠⚠⚠ **LA TROUVAILLE DU PROJET : CODEX N'A PAS TRANSCRIT — IL A RÉÉCRIT. C'EST DE LA PARAPHRASE.**
+
+## ✅ **VÉRIFIÉ À 5600 dpi SUR 3 SITES** (`z642a_A_prose1`, `z642a_B_prose2`)
+| **LE SCAN** | **LE FICHIER (avant #658)** |
+|---|---|
+| «**En effet, traitons d'abord** le cas r = 2.» | «**Prouvons** le cas \(r=2\).» |
+| «**Soient** g_i(…)=X_{2-i}² **pour i = 0,1,2 et** h_2(…)=X_1(X_1+1)X_2−X_o.» | «**Posons** \[…\] **et** \[…\]» |
+| «**Alors (iii) est évident et (ii) est 2.7 (i).**» | «**L'assertion (iii) est alors évidente, et (ii) n'est autre que 2.7 (i).**» |
+| «**Soient X dans P = ℙ^N_k et ω = Ext^{N-2}_{O_P}(O_X,Ω^N_{P/k}).**» | «**D'autre part, soit X plongé dans un espace projectif P=ℙ_k^N, et soit** \[…\]» |
+| «**Alors** h¹(L(-n)) = h¹(ω⊗L^{-1}(n))…» | «**Par dualité, on a** \[…\]» |
+| «…en dehors de l'ensemble fini Z **des points singuliers** de X (**voir** FGA 149 § 6).» | «…en dehors d'**un ensemble fini de points Z de X** (FGA 149**,** § 6).» |
+| «Soit Y une section hyperplane normale de X, **qui ne contient pas Z**.» | «…, **ne contenant aucun point de Z**.» |
+| «et on a **une** suite exacte **:**» | «et on a **la** suite exacte» |
+| «**Or,** h¹(Ω^1_{Y/k}⊗L_Y^{-1}(n))=…» | «**D'autre part,** \[…\]» |
+| «**Donc** Ω^1_{Y/k}⊗L_Y^{-1}(-1) est 3-régulier **et par 1.4**, ω⊗L^{-1} est» | «**Par suite** … **, et donc, par 1.4,** …» |
+
+## ⟹ ★★★★★★ **CE N'EST PAS DE LA PONCTUATION — C'EST DE LA RÉÉCRITURE**
+**Codex a : SUPPRIMÉ des mots** («En effet,», «voir», ★★★ **«singuliers»**) · **REMPLACÉ des mots** («traitons d'abord»⟹«Prouvons» ; «Soient»⟹«Posons» ; «Or,»⟹«D'autre part,» ; «Donc»⟹«Par suite» ; «une»⟹«la») · **AJOUTÉ des mots QUI NE SONT PAS AU SCAN** («D'autre part», «plongé dans un espace projectif», «Par dualité, on a», «L'assertion … est alors évidente», «n'est autre que»).
+⟹ ★★★★★ **ET UNE PERTE DE SENS MATHÉMATIQUE : «l'ensemble fini Z DES POINTS SINGULIERS de X» ⟹ «un ensemble fini DE POINTS Z de X».** **«Les points singuliers» est une CARACTÉRISATION ; «des points» ne l'est pas.** ⟹ **le fichier ne dit plus CE QU'EST Z.**
+⚠⚠⚠ **ET C'ÉTAIT DÉJÀ CONNU DU PROJET** — la mémoire dit : «**Codex repair033 condensé/paraphrasé → restaurer au scan**». ⟹ **JE VIENS DE LE RETROUVER EN CLAIR, ET DE LE MESURER : ~10 SITES SUR UNE DEMI-PAGE.**
+⟹ ★★★★★★ **ÇA RECADRE TOUT LE TRAVAIL : je passe des cycles sur des virgules pendant que Codex RÉÉCRIT DES PHRASES ENTIÈRES.** ⚠⚠ **ET LA PARAPHRASE EST INVISIBLE À TOUT SAUF AU SCAN : elle compile, elle se lit bien, elle est mathématiquement juste (sauf «singuliers»).**
+⟹ ★★★★ **HYPOTHÈSE À VÉRIFIER : la paraphrase est-elle PARTOUT, ou seulement dans les DÉMONSTRATIONS ?** ⚠ **Les ÉNONCÉS (Lemmes 2.3-2.9) que j'ai vérifiés jusqu'ici étaient mot-pour-mot justes** ⟹ **PISTE : Codex respecte les ÉNONCÉS et réécrit les DÉMONSTRATIONS.** ⚠⚠ **À ÉTAYER — c'est exactement le genre de théorie que #653 m'a appris à ne pas bâtir sur un site.**
+
+## ✅ **CE QUI EST FIXÉ (2 rep-calls)**
+1. ✅ **Toute la prose de b1 restaurée** : «En effet, traitons d'abord le cas r=2. Soient g_i(…) pour i=0,1,2 et h_2(…). Alors (iii) est évident et (ii) est 2.7 (i).» + **nouveau paragraphe** «Soient X dans P=ℙ_k^N et ω=Ext^{N-2}_{O_P}(O_X,Ω^N_{P/k}). Alors h¹(L(-n))=h¹(ω⊗L^{-1}(n)) et ω est inversible…» ⟹ **88ᵉ→91ᵉ displays fabriqués remis en ligne DU MÊME COUP.**
+2. ✅ **La prose de b2 restaurée** : «en dehors de **l'ensemble fini Z des points singuliers de X** (**voir** FGA 149 § 6). Soit Y une section hyperplane normale de X, **qui ne contient pas Z**. Alors ω_Y(1)≃Ω^1_{Y/k} et on a **une** suite exacte **:**» ⟹ **92ᵉ display + le «:» restitué.**
+
+## ⚠⚠ **CE QUI RESTE SUR p629**
+1. ⚠⚠⚠ **b3, b4, b5 NON LUES.** **RE-ARMÉ SUR LE MÊME idx642.**
+2. ⚠⚠ **LA PARAPHRASE DE b2, SUITE — REPÉRÉE, NON FIXÉE** : «**D'autre part,**» (≈L14879) ⟹ le scan dit «**Or,**» ; «**Par suite** … **et donc, par 1.4**» (≈L14883) ⟹ le scan dit «**Donc** … **et par 1.4**».
+3. ⚠ **Le display «h¹(Ω^1_{Y/k}⊗L_Y^{-1}(n))=h^o(L_Y(-n))» (≈L14881)** est **EN LIGNE** au scan («Or, h¹(…)=h^o(L_Y(-n)) pour tout n, et h^o(L_Y(-n))=0 pour n≥1 par 2.5.») ⟹ **93ᵉ display fabriqué, NON FIXÉ.**
+4. ⚠ **«Ext» est SOULIGNÉ au scan** (b1) ⟹ **5ᵉ régime (script/faisceau)** ⟹ le fichier a `\operatorname{Ext}` ⟹ **devrait être `\mathcal Ext` ?** **NON TRANCHÉ.**
+5. ⚠ **«Soient X dans P = ℙ^N_k»** — le scan semble avoir **DEUX P ajourés** ; le fichier écrit `P=\mathbb P_k^N` (un P romain, un ℙ ajouré). **NON ZOOMÉ.**
+✅ **NON TOUCHÉ, VRAI DISPLAY** : «0 → ω⊗L^{-1}(-1) ⟶ ω⊗L^{-1} ⟶ Ω^1_{Y/k}⊗L_Y^{-1}(-1) → 0   .» est **CENTRÉ (x≈0.24)**, point détaché ⟹ **le fichier a raison.**
+
+## ✅ **p629 — BANDES LUES : b1, b2 SEULEMENT**
+**b1** : header «- 14 -»/«XIII» ✅ (14ᵉ conf.) ; **la PARAPHRASE ✅ FIXÉE** ; **88ᵉ→91ᵉ ✅ FIXÉS** ; ⚠ «Ext» souligné NON TRANCHÉ ; ⚠ «P=ℙ^N_k» NON ZOOMÉ.
+**b2** : **la PARAPHRASE (singuliers/voir/qui ne contient pas Z/une suite exacte :) ✅ FIXÉE** ; **92ᵉ ✅ FIXÉ** ; le display centré ✅ VRAI ; ⚠ **«D'autre part,»/«Par suite» NON FIXÉS** ; ⚠ **93ᵉ NON FIXÉ**.
+**b3, b4, b5** : ⚠⚠⚠ **NON LUES.**
+
+## **CURSEUR → idx642 (LE MÊME : p629 est PARTIELLE).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #657 (2026-07-16) — idx641 (vol p628, 3ᵉ passe) — **3 rep-calls (6 au total sur la page).** Compile **0-err / 379pp** ✓. ✅ **p628 FINIE page-localement** (provisoire) — **les 5 bandes sont lues.**
+
+# ⚠⚠⚠⚠ **J'AI CASSÉ LE COMPILE — ET LE GATE L'A ATTRAPÉ IMMÉDIATEMENT**
+⚠⚠ **`fix641c` a laissé un `\]` ORPHELIN ⟹ «Bad math environment delimiter» + FATAL, AUCUN PDF PRODUIT.** ✅ **Réparé par `fix641d` ⟹ 0-err.**
+★★★ **LA CAUSE : le display `a_0=2α_2+2α_o−Σa_i(…)−β_0**,**` SE TERMINAIT PAR UNE VIRGULE — c'est-à-dire qu'il ENJAMBAIT : son `\]` était SUR LA LIGNE SUIVANTE, après «et comme d(L^{-1}(δ))≤0…».** J'ai ancré jusqu'à `-\beta_0,` et laissé le `\]` en rade.
+⟹ ★★★★ **RÈGLE NEUVE : QUAND UN DISPLAY FINIT PAR UNE VIRGULE, IL ENJAMBE — SON `\]` EST PLUS BAS. TOUJOURS ANCRER JUSQU'AU `\]` INCLUS.**
+⟹ ★★★ **ET ÇA VALIDE LE GATE : «0-err DUR» n'est pas une formalité — il a attrapé ma faute au premier compile.** ⚠ **À rapprocher de #655 : «retirer une parenthèse COMPILE SANS ERREUR» ⟹ LE GATE PROTÈGE DE LA SYNTAXE, PAS DU SENS.**
+
+# ★★★★★ **LE BLOC DE LA DÉMO DU LEMME 2.8 — 6 DISPLAYS FABRIQUÉS D'UN COUP (82ᵉ→87ᵉ)**
+✅ **b2/b3 écrivent TOUTE la démonstration EN LIGNE, À LA MARGE, la prose continuant sur la ligne.** ⟹ **remis en ligne : «χ(L^{⊗m}(δ-1))=α_2m²+α_1m+α_o» · «2α_2=⟨c_1(L)²⟩» · «α_o=Σ^2_{i=0}e_i(…)» · «α_2+α_1+α_o=Σ^2_{i=0}a_i(…)» · «χ(L^{-1}(δ)(n))=Σ^2_{i=0}β_i(^{n+i}_i)» · «β_o=α_2−α_1+α_o» · «β_1=d(L^{-1}(δ))+e_1» · «a_o=2α_2+2α_o−Σ^2_{i=1}a_i(…)−β_o».**
+★★★ **ET UN «que» RESTITUÉ :** le scan écrit «que 2α_2=⟨c_1(L)²⟩, **que** α_o=…» ; le fichier fusionnait les deux dans **UN SEUL** display avec un `\qquad` ⟹ **il avait MANGÉ le «que».**
+⟹ ★★★ **LA CLASSE #652 S'ÉLARGIT : FABRIQUER UN DISPLAY MANGE LA PROSE QUI SÉPARE DEUX FORMULES** — pas seulement le «:» d'annonce, aussi les «que», «et», «alors» de liaison. ⟹ **87 fabriqués au compteur.**
+
+# ★★★★★ **LE LEMME 2.9 — LA PONCTUATION DES ITEMS, ET UNE RATURE DU DACTYLO**
+⚠⚠ **`z641c_A_items` (PLEINE LARGEUR x=0.00→1.00, règle #637) — LES 3 ITEMS EMPILÉS :**
+• **(i)** «…h_2(a_{r-2},a_{r-1},a_r)**,**» ⟹ **VIRGULE.** Le fichier mettait un **POINT.** ✅ **FIXÉ.**
+• **(ii)** «…pour tout n**.,**» ⟹ ★★★ **UN POINT PUIS UNE VIRGULE.** Le fichier mettait un **POINT.** ✅ **FIXÉ EN VIRGULE.**
+• **(iii)** «…pour i = 0,…,r**,**» ⟹ **VIRGULE** ⟹ ✅ **le fichier a RAISON.**
+★★★★ **LE «n.,» EST UNE RATURE DU DACTYLO** : il a tapé le point (fin de liste), s'est aperçu que l'énumération continuait, et a **ajouté la virgule SANS EFFACER le point.** ⟹ **CE N'EST PAS DU TEXTE — c'est un ACCIDENT MATÉRIEL, comme une tache d'encre.**
+★★ **CALIBRATION DANS L'EMPILEMENT MÊME : (i) ET (iii) finissent TOUS DEUX par une VIRGULE** ⟹ **les 3 items sont une ÉNUMÉRATION dans UNE SEULE PHRASE, qui se poursuit par «où h_2(…) … sont des polynômes universels…»** ⟹ **VIRGULES, pas POINTS.** ⟹ **on rend la VIRGULE (la forme VOULUE), pas la rature.**
+⟹ ★★★★ **DÉCISION D'ÉDITION : UNE RATURE NON EFFACÉE N'EST PAS UN SYMBOLE À REPRODUIRE.** ⟹ **classe NEUVE, à distinguer du SIC : le SIC est un CHOIX fautif de l'auteur ; la rature est un ACCIDENT que le dactylo a TENTÉ D'ANNULER.** ⟹ **le SIC se reproduit, la rature se résout.**
+⟹ ★★★ **8ᵉ CONFIRMATION de «CODEX RÉPARE TOUT CE QUI DÉVIE» — il a mis des POINTS parce qu'«un item finit par un point» est la forme attendue.**
+
+# ★★ **CONVENTION (1) — LE LEMME 2.9 EN `\emph{}`, COUPÉ EN CINQ**
+✅ **b3/b4 soulignent «On suppose que», «que», «et que», «soit normal», «Alors», «pour», «pour tout», «pour», ET TOUTE LA QUEUE** («où h_2(X_o,X_1,X_2),… et g_o(…),… sont des polynômes universels à coefficients dans ℚ, qui ne dépendent ni de k ni de X.»).
+⚠⚠ **LA QUEUE EST APRÈS L'`enumerate`** ⟹ **l'`\emph{}` a dû être COUPÉ EN CINQ : l'entête, les 3 items, la queue.** ⟹ ★ **STRUCTURE NEUVE : un énoncé dont le corps ENCADRE son enumerate.** ⚠ **Le «:» d'annonce laissé HORS de l'`\emph{}`.**
+
+## ✅ **p628 — RE-PARCOURS DES 5 BANDES, CHAQUE ÉLÉMENT COCHÉ (6 rep-calls, #655+#657)**
+**b1** : header «- 13 -»/«XIII» ✅ (13ᵉ conf.) ; **le SIC de la PARENTHÈSE ✅ FIXÉ** ; **80ᵉ+81ᵉ ✅ FIXÉS** ; **«Or,» ✅ FIXÉ** ; le display «2.7.2» ✅ CENTRÉ = VRAI ; ⚠ **le tag «2.7.2» SANS point (vs «2.7.1.» AVEC en p627) ⟹ report n°5** ; «;» ⟹ report n°4.
+**b2** : **Lemme 2.8 ⟹ `\emph{}` ✅ FIXÉ** ; **le signe «+β(β+1)» ✅ FIXÉ ET QUALIFIÉ SIC (#656)** ; le display ✅ CENTRÉ = VRAI ; **82ᵉ→87ᵉ ✅ FIXÉS**.
+**b3** : ★★★★ **la démo QUALIFIE le signe (#656)** ; «a_i» ✅ fichier OK ⚠ **(non zoomé — règle 1/i NON satisfaite, CONSIGNÉ)** ; **Lemme 2.9 ⟹ `\emph{}` ✅ FIXÉ** ; **items (i)/(ii) ⟹ VIRGULES ✅ FIXÉES**.
+**b4** : **la queue du Lemme 2.9 ⟹ `\emph{}` ✅ FIXÉE** ; **la rature «n.,» ✅ RÉSOLUE EN VIRGULE** ; «ℚ» ✅ le fichier a `\mathbb Q`.
+**b5** : footer «628» ✅ ; **rien d'autre.**
+
+## ⚠ **LE SEUL RESTE CONSIGNÉ**
+⚠ **«a_i» de «Σ^2_{i=0}a_i(…)» — NON ZOOMÉ à 5600.** **Le fichier écrit `a_i` et b3 semble d'accord, MAIS LA RÈGLE ABSOLUE DU 1/i N'EST PAS SATISFAITE** ⟹ **CONSIGNÉ, PAS CERTIFIÉ.** ⚠ **Le 1/i a été soupçonné pour rien 4 fois — le risque est faible, mais la règle est la règle.**
+
+## **CURSEUR → idx642 (p629 = Exposé XIII, header «- 14 -» attendu : 629−615=14 ; footer «629» ; idx=629+13=642).** ⚠ **Le fichier y a un display «g_i(X_0,X_1,X_2)=X_{2-i}^2 (i=0,1,2)» (≈L14866) ⟹ TEST DE L'INDENTATION.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #656 (2026-07-16) — idx641 (vol p628, 2ᵉ passe) — **0 rep-call.** Compile inchangé **0-err / 379pp** ✓. ⚠⚠ **PAGE ENCORE PARTIELLE — b4 ET b5 NON LUES.** ⚠ **CYCLE SANS FIX — MAIS IL QUALIFIE LE SIGNE ET IL CORRIGE MON PROPRE RAISONNEMENT.**
+
+# ★★★★★★★★★★ **LE SIGNE «+β(β+1)» EST QUALIFIÉ : C'EST UN SIC — ET MON FIX DE #655 TIENT**
+✅ **b3 DÉROULE LA DÉMONSTRATION ET DONNE LA MATH :** «Donc **a_o = 2α_2 + 2α_o − Σ^2_{i=1} a_i(^{δ-1+i}_i) − β_o** et comme d(L^{-1}(δ)) ≤ 0, on a **β_o ≤ β(β+1)** par 2.7 (ii) ; d'où l'assertion.»
+★★★ **LE CALCUL :** β_o ≤ β(β+1) ⟹ **−β_o ≥ −β(β+1)** ⟹ **a_o ≥ 2α_2 + 2α_o − Σ^2_{i=1} a_i(…) − β(β+1)**. Et avec **2α_2 = ⟨c_1(L)²⟩** et **α_o = Σ^2_{i=0} e_i(…) = e_o + Σ^2_{i=1} e_i(…)** : «2α_2 + 2α_o − Σ^2_{i=1} a_i(…) = ⟨c_1(L)²⟩ + 2e_o + Σ^2_{i=1}(2e_i − a_i)(…)» ✓
+⟹ ★★★★★ **LA MATH VEUT «a_o ≥ ⟨c_1(L)²⟩ + 2e_o + Σ(2e_i−a_i)(…) − β(β+1)» — AVEC UN MOINS.**
+⟹ ★★★★ **LE SCAN ÉCRIT «+» (vérifié 5600dpi, la CROIX vs la BARRE du «−» de «(2e_i − a_i)» sur la MÊME LIGNE) ; LA MATH VEUT «−»** ⟹ **BRANCHE 1 du critère #644 ⟹ COQUILLE DE L'AUTEUR ⟹ SIC ⟹ ERRATA.**
+⟹ ✅ **MON FIX DE #655 ÉTAIT LE BON — on fixe VERS LE SCAN. RIEN À RE-FIXER.** ⚠ **Mais je l'avais laissé NON QUALIFIÉ ; il l'est maintenant : SIC, pas erreur de Codex.**
+⟹ ★★★★ **4ᵉ SITE OÙ LE FICHIER AVAIT «CORRIGÉ» L'AUTEUR** (après «L'_K» #650, «c(L)» #652, la PARENTHÈSE #655). ⟹ **7ᵉ confirmation de «CODEX RÉPARE TOUT CE QUI DÉVIE».**
+⟹ ★★★ **LEÇON : LA DÉMONSTRATION EST LA CALIBRATION MATHÉMATIQUE.** **Le signe d'un ÉNONCÉ se tranche en DÉROULANT SA PREUVE — elle est presque toujours 5 lignes plus bas.** ⟹ **c'est le pendant mathématique de «la forme correcte est à côté» (#655).**
+
+# ⚠⚠⚠ **CINQ DISPLAYS FABRIQUÉS DE PLUS — REPÉRÉS, NON FIXÉS (contexte)**
+**b2/b3 écrivent TOUTE la démonstration du Lemme 2.8 EN LIGNE, À LA MARGE, la prose continuant sur la ligne :** «En effet, soit **χ(L^{⊗m}(δ-1))=α_2m²+α_1m+α_o** ; alors il résulte en comparant des polynômes que **2α_2=⟨c_1(L)²⟩**, que **α_o=Σ^2_{i=0}e_i(…)** et que **α_2+α_1+α_o=Σ^2_{i=0}a_i(…)**. Soit **χ(L^{-1}(δ)(n))=Σ^2_{i=0}β_i(^{n+i}_i)** ; alors **β_o=α_2−α_1+α_o** et par 2.3, **β_1=d(L^{-1}(δ))+e_1**, ce qui égale β. Donc **a_o=2α_2+2α_o−Σ^2_{i=1}a_i(…)−β_o** et comme d(L^{-1}(δ))≤0, on a **β_o≤β(β+1)** par 2.7 (ii) ; d'où l'assertion.»
+⚠⚠ **LE FICHIER EN FAIT ~7 `\[…\]` : L14863 (α_o=…), L14867-14868 (α_2+α_1+α_o=…), L14872 (χ(L^{-1}(δ)(n))=…), L14876 (β_o=…), L14880 (β_1=…), L14884 (a_o=…), + celui de «χ(L^{⊗m}(δ-1))» et «2α_2=⟨c_1(L)²⟩» avant.**
+⟹ ★★ **~82ᵉ→88ᵉ DISPLAYS FABRIQUÉS — TOUT UN BLOC.** **NON FIXÉS — À FAIRE AU PROCHAIN CYCLE.**
+
+# ✅ **PEEK DÉMENTI — «a_1» vs «a_i»**
+✅ **Le fichier écrit `\sum_{i=0}^{2}a_i\binom{\delta-1+i}{i}` (L14868) ; b3 montre «Σ^2_{i=0}a_i(…)».** ⟹ **le fichier a raison** ⟹ ⚠ **MAIS NON ZOOMÉ à 5600 — la RÈGLE ABSOLUE du 1/i n'est PAS satisfaite ⟹ CONSIGNÉ, pas certifié.** ⟹ **5ᵉ fois que le 1/i est soupçonné pour rien (probablement).**
+
+# ⚠ **REPÉRÉS EN b3 — NON TRAITÉS**
+1. ★★ **Lemme 2.9** («On suppose que», «que», «et que», «soit normal», «Alors» **SOULIGNÉS**) ⟹ **corps ITALIQUE ⟹ `\emph{}` À FAIRE.**
+2. ⚠ **Item (i) : «h¹(L(-n))=0 pour n ≥2 + h_2(a_{r-2},a_{r-1},a_r)**,**»** — **finit par une VIRGULE** («pour» souligné). ⟹ **à comparer au fichier.**
+3. ⚠⚠ **Item (ii) : «h¹(L(n)) ≤ h_r(a_{r-2},a_{r-1},a_r) pour tout n**.,**»** — **le scan semble écrire «n.,» (POINT PUIS VIRGULE ?)** ⟹ **BIZARRE — À ZOOMER EN PLEINE LARGEUR.**
+4. ⚠ **«2.7 (ii) ; d'où l'assertion.»** — espace avant «;» ⟹ **report global n°4, 10ᵉ confirmation.**
+
+## ⚠⚠ **CE QUI RESTE SUR p628**
+1. ⚠⚠⚠ **b4 ET b5 NON LUES.** **RE-ARMÉ SUR LE MÊME idx641.**
+2. ⚠⚠ **~7 DISPLAYS FABRIQUÉS (le bloc de la démo du Lemme 2.8) — REPÉRÉS, NON FIXÉS.**
+3. ⚠ **Le Lemme 2.9 ⟹ `\emph{}` — NON FIXÉ.**
+4. ⚠ **«a_i» — NON ZOOMÉ (règle 1/i non satisfaite).**
+5. ⚠⚠ **L'item (ii) du Lemme 2.9 : «n.,» ?? — À ZOOMER EN PLEINE LARGEUR.**
+
+## ✅ **p628 — BANDES LUES : b1, b2, b3**
+**b1** : header ✅ (13ᵉ conf.) ; le SIC de la parenthèse ✅ FIXÉ (#655) ; 80ᵉ+81ᵉ ✅ FIXÉS ; «Or,» ✅ FIXÉ ; le display «2.7.2» ✅ VRAI.
+**b2** : Lemme 2.8 ⟹ `\emph{}` ✅ FIXÉ ; **le signe «+β(β+1)» ✅ FIXÉ (#655) ET MAINTENANT QUALIFIÉ : SIC** ; le display ✅ VRAI ; ⚠ **~7 displays fabriqués NON FIXÉS**.
+**b3** : ★★★★ **la démo QUALIFIE le signe** ; «a_i» ✅ fichier OK (non zoomé) ; ⚠ **Lemme 2.9 ⟹ `\emph{}` NON FIXÉ** ; ⚠ **«n.,» à zoomer** ; «;» ⟹ report.
+**b4, b5** : ⚠⚠⚠ **NON LUES.**
+
+## **CURSEUR → idx641 (LE MÊME : p628 est PARTIELLE).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #655 (2026-07-16) — idx641 (vol p628 = **Exposé XIII «- 13 -»**, footer «628» ⟹ **628−615=13, 13ᵉ confirmation** ; idx=628+13=641) — **3 rep-calls, 6 défauts.** Compile **0-err / 379pp** ✓. ⚠⚠ **PAGE PARTIELLE — b3, b4 ET b5 NON LUES (contexte épuisé).**
+
+# ★★★★★★★★★★ **LE SIC DE LA PARENTHÈSE MANQUANTE — CONFIRMÉ PAR CONTRASTE À UNE LIGNE**
+⚠⚠ **Le fichier écrivait `h^2(L(-a_1-2))=0` ; le scan écrit «h^2(L(-a_1-2)=0».** `z641a_A_parens` (**5600dpi**) : **DEUX parenthèses OUVRANTES «(L(» et UNE SEULE FERMANTE «-2)».**
+★★★★ **CALIBRATION À UNE LIGNE DE DISTANCE** (`z641a_B_or`, 5600dpi) : **la ligne SUIVANTE écrit «h^o(L(-a_1-2)**))**» — AVEC LA DOUBLE FERMANTE.**
+⟹ ★★★ **L'AUTEUR ÉCRIT LA FORME CORRECTE À LA LIGNE SUIVANTE ET LA FAUTIVE À LA LIGNE D'AVANT** ⟹ **SIC CONFIRMÉ PAR CONTRASTE** — exactement comme le «c(L)» (#653) et le «F(1)» (#645). ⚠ **La math veut DEUX fermantes** ⟹ **BRANCHE 1 ⟹ COQUILLE DE L'AUTEUR ⟹ SIC ⟹ ERRATA.** ✅ **FIXÉ VERS LE SCAN.**
+⟹ ★★★★ **3ᵉ SITE où le fichier avait «corrigé» l'auteur — MAIS COHÉRENT AVEC #653, PAS DE THÉORIE NEUVE :** Codex a **UNIFORMISÉ sur la forme majoritaire** (partout ailleurs les parenthèses s'équilibrent), il n'a **PAS «compris»**.
+⟹ ★★★ **LA PRÉDICTION S'ÉLARGIT D'UN CRAN : «CODEX RÉPARE TOUT CE QUI DÉVIE DE LA FORME ATTENDUE» — pas seulement les INCONSTANCES DE STYLE, aussi les DÉRAPAGES PONCTUELS.** ⟹ **6ᵉ confirmation.**
+
+# ★★★★ **LE SIGNE DU LEMME 2.8 : «−β(β+1)» ⟹ «+β(β+1)» — FIXÉ, NATURE NON TRANCHÉE**
+⚠⚠ **Le fichier écrivait `-\beta(\beta+1)` ; le scan écrit «**+** β(β+1)».** `z641b_A_signe` (**5600dpi**) : ★★ **CALIBRATION SUR LA MÊME LIGNE, À QUELQUES CENTIMÈTRES — le «−» de «(2e_i **−** a_i)» est UNE SIMPLE BARRE HORIZONTALE ; le «+» de «**+** β(β+1)» est UNE CROIX (barre horizontale ET verticale).** ⟹ **manifestement différents. LE SCAN DIT «+».** ✅ **FIXÉ VERS LE SCAN.**
+⚠⚠ **SIC ou ERREUR DE CODEX ? NON TRANCHÉ** — il faudrait dérouler la démonstration (b3/b4, **NON LUES**) pour savoir ce que veut la math. **«−β(β+1)» AFFAIBLIT la borne inférieure sur a_o ; «+» la RENFORCE.** ⟹ **les deux branches fixent VERS LE SCAN ⟹ le fix est le même ; la consignation attend.**
+⚠⚠⚠ **SI la math veut «+», c'est une ERREUR DE CODEX ⟹ 2ᵉ DÉFAUT SÉMANTIQUE qu'il a INTRODUIT** (après le «0<» de #652, qui avait cassé une preuve). ⟹ **À TRANCHER AU PROCHAIN CYCLE.**
+
+# ★★★ **80ᵉ + 81ᵉ DISPLAYS FABRIQUÉS + LA VIRGULE DE «Or»**
+✅ **81ᵉ** : «par 1.4 ; d'où **h¹(L(-a_1-2)) = h^o(L(-a_1-2))−χ(L(-a_1-2)).** Or,» — **À LA MARGE, prose sur la ligne.**
+✅ **80ᵉ** : «Or, **h^o(L(-a_1-2))≤a_2(^{-a_1}_2)** par 1.8 (i) puisque L est un (0,0,a_2)-faisceau par 2.5.» — **À LA MARGE.**
+✅ **«Or» ⟹ «Or,»** : `z641a_B_or` (5600dpi) montre **«Or,» AVEC la virgule** ; le fichier écrivait «Or» sans ⟹ **classe #648.**
+
+# ★★★ **L'AUTEUR EST INCONSTANT SUR SON PROPRE FORMAT DE TAG — ET ÇA NOURRIT LE REPORT n°5**
+⚠⚠ **b1 : le display numéroté écrit «2.7.2»** (tag dans la marge gauche, formule centrée, point détaché) — **SANS point final après le tag.** ⚠⚠ **p627 écrivait «2.7.1**.**» — AVEC.**
+⟹ ★★★ **L'AUTEUR EST INCONSTANT SUR SON PROPRE FORMAT DE TAG.** ⟹ **le report n°5 (507 `\tag{}`) se complique : ce n'est pas «le scan met toujours un point», c'est PER-OCCURRENCE.** ⚠⚠ **UN SWEEP SUR LES 507 SERAIT DONC FAUX — il faut vérifier CHAQUE tag au scan.**
+
+# ★★ **CONVENTION (1) — LE LEMME 2.8 PASSÉ EN `\emph{}`**
+✅ **b2 souligne «On suppose que», «et», «Soient», «et», «Alors»** ⟹ **corps ITALIQUE.** ⚠ **Le «:» d'annonce n'est PAS souligné ⟹ HORS de l'`\emph{}`.** ⚠ **L'`\emph{}` fermé avant le `\[…\]` qui suit.**
+
+# ✅ **NON TOUCHÉS — LE FICHIER A RAISON**
+✅ **Le display «2.7.2   0 ≤ h¹(L(-a_1-2)) ≤ -a_1(-a_1-1)-a_o   .»** : **CENTRÉ (x≈0.26)**, tag dans la marge, point détaché ⟹ **VRAI display.**
+✅ **Le display du Lemme 2.8** («a_o ≥ <c_1(L)²> + 2e_o + Σ…») : **CENTRÉ (x≈0.20)**, point détaché ⟹ **VRAI display** (seul son SIGNE était faux).
+
+## ⚠⚠ **CE QUI RESTE SUR p628**
+1. ⚠⚠⚠ **b3, b4 ET b5 NON LUES.** **Contexte épuisé — RE-ARMÉ SUR LE MÊME idx641.**
+2. ⚠⚠ **LE SIGNE «+β(β+1)» : NATURE NON TRANCHÉE** ⟹ **dérouler la démo (b3/b4) pour savoir ce que veut la math.**
+3. ⚠ **b2 montre 3 formules INLINE** («χ(L^{⊗m}(δ-1))=α_2m²+α_1m+α_o» ; «2α_2= <c_1(L)²>, α_o=Σ^2_{i=0}e_i(…)» ; «α_2+α_1+α_o=Σ^2_{i=0}a_1(…)» ; «χ(L^{-1}(δ)(n))=Σ^2_{i=0}β_i(^{n+i}_i)») ⟹ **COMPARER AU FICHIER — probables displays fabriqués.**
+4. ⚠ **«α_2+α_1+α_o=Σ^2_{i=0}a_1(^{δ-1+i}_i)»** (b2) : **«a_1» ou «a_i» ?** ⟹ **PAIRE 1/i — NON ZOOMÉE, RÈGLE ABSOLUE : 5600 dpi.**
+
+## ✅ **p628 — BANDES LUES : b1, b2 SEULEMENT**
+**b1** : header «- 13 -»/«XIII» ✅ (13ᵉ conf.) ; **le SIC de la parenthèse ✅ FIXÉ** ; **80ᵉ+81ᵉ ✅ FIXÉS** ; **«Or,» ✅ FIXÉ** ; le display «2.7.2» ✅ VRAI, non touché ; ⚠ **le tag «2.7.2» sans point ⟹ report n°5** ; «;» ⟹ report n°4.
+**b2** : **Lemme 2.8 ⟹ `\emph{}` ✅ FIXÉ** ; **le signe «+β(β+1)» ✅ FIXÉ (nature non tranchée)** ; le display ✅ VRAI, non touché ; ⚠ **3-4 formules inline NON COMPARÉES** ; ⚠ **«a_1»/«a_i» NON ZOOMÉ**.
+**b3, b4, b5** : ⚠⚠⚠ **NON LUES.**
+
+## **CURSEUR → idx641 (LE MÊME : p628 est PARTIELLE — b3/b4/b5 à lire, le signe à qualifier, les formules inline à comparer, «a_1»/«a_i» à zoomer).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #654 (2026-07-16) — idx640 (vol p627 = **Exposé XIII «- 12 -»**, footer «627» ⟹ **627−615=12, 12ᵉ confirmation** ; idx=627+13=640) — **5 rep-calls, 9 défauts.** Compile **0-err / 379pp** ✓. ✅ **p627 FINIE page-localement** (provisoire) — **les 5 bandes sont lues.**
+
+# ★★★★★★★★★★ **REPORT GLOBAL NEUF — LE 5ᵉ, ET IL EST MASSIF : LES 507 `\tag{}`**
+⚠⚠⚠ **b4 : le scan écrit «**2.7.1.**        h¹(L(n)) ≤ h¹(L(-a_1-2))+(-a_1-1)(-a_2a_1+a_1)     .»** ⟹ **LE TAG EST DANS LA MARGE GAUCHE, SUIVI D'UN POINT, et la formule est CENTRÉE.**
+⚠⚠ **Le fichier écrit `\tag{2.7.1}` — qui rend «(2.7.1)» À DROITE, ENTRE PARENTHÈSES.** ⟹ **DEUX écarts d'un coup : LE CÔTÉ et LA FORME.**
+⚠⚠⚠⚠ **MESURE : 507 SITES `\tag{` DANS LE FICHIER.** ⟹ **ABSOLUMENT INSWEEPABLE dans un cycle de page — c'est un PASSAGE DÉDIÉ (préambule : redéfinir le format et le côté du tag, PUIS RE-COMPILER, cf #618).** ⟹ **REPORT GLOBAL n°5.**
+★ **ET C'EST UNE STRUCTURE NEUVE DU LIVRE : le display NUMÉROTÉ (tag à gauche + formule centrée + point détaché).**
+
+# ★★★★★ **LE TEST DU DISPLAY — 3 FAUX / 2 VRAIS SUR CETTE PAGE (79 FABRIQUÉS)**
+⚠ **FABRIQUÉS, remis en ligne** (tous **À LA MARGE x≈0.07 AVEC LA PROSE QUI CONTINUE**) : **75ᵉ** «par 2.4, h^o(L(-1))=0 puisque d(L(-1))<0.» · **76ᵉ** «et soit 0 → L(-1) → L → L_Y → 0 une suite exacte définie par Y.» · **77ᵉ** «à polynôme de Hilbert χ(L_Y(n))=a_1+a_2(n+1/1). Donc par 1.11,» · **78ᵉ** «car il existe une injection L_Y(n-1) → L_Y(n), et h^o(…) …» · **79ᵉ** «donc pour n≤-a_1-2, on a h¹(L(n))-h¹(L(n+1))≤-a_2a_1+a_1. Comme conséquence,»
+✅ **VRAIS DISPLAYS, NON TOUCHÉS — LES DEUX CENTRÉS, LES DEUX À POINT DÉTACHÉ LOIN À DROITE :** b3 «H^o(L_Y(n)) ⟶ H¹(L(n-1)) ⟶ H¹(L(n)) ⟶ H¹(L_Y(n))     .» (x≈0.22) ; b4 «2.7.1.     h¹(L(n)) ≤ …     .» (x≈0.24).
+⟹ ★★ **LE TEST A DONC DISCRIMINÉ 5 FAUX ET 2 VRAIS SUR UNE SEULE PAGE.** ⚠ **79 fabriqués au compteur.**
+
+# ★★★★★ **LE POINT DE L'ITEM (i) — 5ᵉ CONFIRMATION DE «L'AUTEUR EST INCONSTANT, CODEX LISSE»**
+⚠⚠ **`z640a_A_items` (PLEINE LARGEUR x=0.00→1.00, règle #637) : «(i) Pour tout n, h¹(L(n)) ≤ a_1(a_1+1)a_2-a_o» — AUCUN POINT FINAL, et RIEN de détaché à droite** (le crop couvre toute la largeur).
+★★ **CALIBRATION PARFAITE : l'item (ii) JUSTE EN DESSOUS A un point** («a_o ≤ a_1(a_1+1)**.**») ⟹ **la référence est à UNE LIGNE de distance.**
+⟹ ★★★ **LE SCAN : (i) SANS point, (ii) AVEC. Le fichier met un point aux DEUX.** ⟹ **CODEX A UNIFORMISÉ.** ✅ **FIXÉ : le point de (i) retiré, celui de (ii) préservé.**
+⟹ ★★★★ **5ᵉ CONFIRMATION de la prédiction de #653** (après «2.3»/«1.3», «E_K, où»/«E_K où», «1.5»/«1.6», «c_1(L)»/«c(L)»). ⟹ ★★ **ET ÇA ÉTEND LA CLASSE «Codex PONCTUE» (#637, les fins de DIAGRAMME) AUX FINS D'ITEM.**
+⟹ ★★★ **LA RÈGLE «CROPPER EN PLEINE LARGEUR POUR LA PONCTUATION» (#637) VIENT DE PAYER : sans elle j'aurais pu croire à un point détaché.**
+
+# ★★ **CONVENTION (1) — LE LEMME 2.7 PASSÉ EN `\emph{}`**
+✅ **b2 souligne «Si», «et», «alors» (l'énoncé) et «Pour tout» (item (i))** ⟹ **corps ITALIQUE.** ⚠ **Le «:» d'annonce n'est PAS souligné ⟹ laissé HORS de l'`\emph{}`.** ✅ **Le label était DÉJÀ `(\roman*)`.**
+
+# ✅ **PEEKS DÉMENTIS — LE FICHIER A RAISON**
+1. ✅ **«h^0(L_Y(-1))=a_1»** (b1) : **DÉJÀ EN LIGNE dans le fichier** ⟹ **AUCUN FIX.** ⟹ ★ **Codex ne fabrique PAS systématiquement — il faut vérifier LES DEUX SENS.**
+2. ✅ **«a_o-faisceau», «a_o ≤ …»** : **«o» LETTRE** ⟹ **BRANCHE 3** ⟹ `a_0` est le bon rendu.
+3. ✅ **Les 2 displays centrés** ⟹ **le fichier a raison, non touchés.**
+
+## ⚠ **REPORT CONFIRMÉ — NON TRAITÉ**
+⚠⚠ **L'ESPACE AVANT «;» — 2 confirmations NEUVES** : b1 «= a_1 **;** donc L est un (0,a_1)-faisceau» ; b3 «par 1.3 (i) **;** pour n≤-1» ; b4 «= 0 **;** donc pour n≤-a_1-2». ⟹ **le global n°4 tient (360 collés / 112 espacés / 7 en `\,;`).**
+
+## ✅ **p627 — RE-PARCOURS DES 5 BANDES, CHAQUE ÉLÉMENT COCHÉ**
+**b1** : header «- 12 -»/«XIII» ✅ (12ᵉ conf.) ; **75ᵉ+76ᵉ ✅ FIXÉS** ; «h^0(L_Y(-1))=a_1» ✅ déjà en ligne ; «a_o» ✅ branche 3 ; «;» ⟹ report.
+**b2** : **Lemme 2.7 ⟹ `\emph{}` ✅ FIXÉ** ; **le point de trop sur (i) ✅ RETIRÉ** ; le point de (ii) ✅ préservé ; label ✅ déjà `(\roman*)`.
+**b3** : **77ᵉ ✅ FIXÉ** ; **le display «H^o(L_Y(n)) ⟶ …» ✅ CENTRÉ = VRAI, non touché** ; point détaché ✅ ; «;» ⟹ report.
+**b4** : **78ᵉ+79ᵉ ✅ FIXÉS** ; **le display «2.7.1.» ✅ CENTRÉ = VRAI, non touché** ; ⚠⚠⚠ **le TAG (côté + forme) ⟹ REPORT GLOBAL NEUF, 507 sites** ; «;» ⟹ report.
+**b5** : footer «627» ✅ ; **rien d'autre — la page s'arrête là.**
+
+## **CURSEUR → idx641 (p628 = Exposé XIII, header «- 13 -» attendu : 628−615=13 ; footer «628» ; idx=628+13=641).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #653 (2026-07-16) — idx639 (vol p626, 2ᵉ passe) — **0 rep-call.** Compile inchangé **0-err / 380pp** ✓. ✅ **p626 FINIE page-localement** (provisoire). ⚠ **UN CYCLE SANS AUCUN FIX — ET C'EST LE PLUS INSTRUCTIF DEPUIS #648.**
+
+# ★★★★★★★★★★ **LE «c(L)» EST UNE ANOMALIE ISOLÉE — ET ÇA CORRIGE MA LECTURE DE #652**
+✅ **`z639b_A_degre` (5600dpi) : b2 écrit «Soit L un faisceau inversible sur X. L'entier < **c_1**(L). **c_1**(H)^{r-1} >» — AVEC L'INDICE «1» SUR LES DEUX «c».** ★ **CALIBRATION : les deux «c_1» sont CÔTE À CÔTE sur la MÊME LIGNE.** ⟹ **LE FICHIER A RAISON EN b2. AUCUN FIX.**
+⟹ ★★★★ **DONC LE «c(L)» DE b4 (#652) EST UNE ANOMALIE ISOLÉE — CONFIRMÉE PAR CONTRASTE SUR LA MÊME PAGE.** **La MÊME PAGE écrit «c_1(L)» à la DÉFINITION du degré (b2) et «c(L)» dans la DÉMONSTRATION (b4)** ⟹ **l'auteur a laissé tomber l'indice UNE SEULE FOIS.** ⟹ **même forme que le «F(1)»/«F(-1)» de #642/#645 : ★ AVANCER (ou simplement LIRE LA MÊME PAGE EN ENTIER) CONFIRME LES SIC.**
+
+# ★★★★★★★★★★ **ET ÇA DÉMONTE L'HYPOTHÈSE DRAMATIQUE DE #652 — POUR UNE MEILLEURE**
+⚠⚠⚠ **En #652 j'ai écrit : «on ne peut pas MAL LIRE un indice qui n'existe pas ⟹ Codex a INVENTÉ le _1 ⟹ IL CORRIGE LA MATH DE L'AUTEUR».** ⚠⚠ **C'ÉTAIT TROP FORT.**
+★★★★ **EXPLICATION PLUS ÉCONOMIQUE, ET QUI COLLE MIEUX : CODEX A *UNIFORMISÉ* b4 SUR b2.** Le scan écrit VRAIMENT «c_1(L)» en b2 — Codex n'a eu **AUCUN BESOIN DE COMPRENDRE LA MATH** : il a vu «c_1(L)» partout ailleurs et a «complété» le site déviant.
+⟹ ★★★★★ **CE N'EST PAS «IL CORRIGE LA MATH» — C'EST «IL UNIFORMISE», exactement comme pour la ponctuation (#648), les parenthèses (#649/#651), les abréviations (#649) et les displays.** ⟹ ★★★ **LA CLASSE UNIFIÉE S'ÉTEND À LA NOTATION MATH — et elle reste MÉCANIQUE, sans intelligence.**
+⟹ ★★★ **LA PRÉDICTION OPÉRATIONNELLE NE CHANGE PAS, ET ELLE S'AFFINE : «LÀ OÙ L'AUTEUR EST INCONSTANT, CODEX LISSE» ⟹ CHERCHER LES INCONSTANCES DE L'AUTEUR — c'est là que le fichier ment.** ✅ **Confirmé 4 fois : «2.3»/«1.3» (#638/#647) ; «E_K, où»/«E_K où» entre (iv) et (v) (#648) ; «1.5»/«1.6» (#649) ; «c_1(L)»/«c(L)» (#652/#653).**
+⚠⚠ **LE «L'_K» DE #650 RESTE NON EXPLIQUÉ PAR L'UNIFORMISATION** (il n'y a pas de «L'_K» ailleurs à imiter) ⟹ **1 seul site vraiment inexpliqué ⟹ PAS de classe. CONTINUER À COMPTER.**
+⟹ ★★ **LEÇON DE MÉTHODE : J'AI SUR-INTERPRÉTÉ UN SITE UNIQUE EN «CLASSE» AVANT D'AVOIR LU LA MÊME PAGE EN ENTIER.** ⟹ **la règle «ne pas étendre une classe sans avoir vu le site» vaut AUSSI pour MES PROPRES THÉORIES.**
+
+# ✅ **LE 2ᵉ RESTE SE DISSOUT — IL N'ÉTAIT PAS SUR CETTE PAGE**
+✅ **La démonstration du Lemme 2.5** («En effet, si \(r=0\), \(L\) est évidemment un \(a_0\)-faisceau. Si \(r\ge1\), par 2.4, …») **est sur p627, PAS sur p626** : b4 s'arrête à l'énoncé du Lemme 2.5, et **b5 ne porte que le footer**. ⟹ **rien à fermer ici — c'est le travail de idx640.**
+⚠ **Le fichier y a DÉJÀ 2 displays (`h^0(L(-1))=0` ≈L14821, `0 ⟶ L(-1) ⟶ L ⟶ L_Y ⟶ 0` ≈L14826) ⟹ APPLIQUER LE TEST DE L'INDENTATION SUR p627.**
+
+## ✅ **p626 — RE-PARCOURS FINAL DES 5 BANDES (7 rep-calls au total, #652)**
+**b1** : header «- 11 -»/«XIII» ✅ (11ᵉ conf.) ; **70ᵉ+71ᵉ displays ✅ FIXÉS** ; «<…>»/«...»/«.Y» ✅ branche 3 ; «2.2.» ✅ romain.
+**b2** : **72ᵉ+73ᵉ displays + le «:» ✅ FIXÉS** ; «degré» ✅ le fichier a DÉJÀ `\emph{}` ; **★ «c_1(L)» ✅ VÉRIFIÉ 5600dpi — LE FICHIER A RAISON.**
+**b3** : **Lemme 2.3 ⟹ `\emph{}` ✅** ; **«(Si r≥1)» parenthèses ✅** ; **le display centré ✅ VRAI, non touché** ; point détaché ✅.
+**b4** : **Lemme 2.4 ⟹ `\emph{}` ✅** ; **74ᵉ display ✅** ; **le signe «0<»⟹«0≥» ✅ (la preuve était cassée)** ; **le SIC «c(L)» ✅ (anomalie ISOLÉE, confirmée par b2)** ; **Lemme 2.5 ⟹ `\emph{}` ✅**.
+**b5** : footer «626» ✅ ; **rien d'autre — la page s'arrête là.**
+
+## **CURSEUR → idx640 (p627 = Exposé XIII, header «- 12 -» attendu : 627−615=12 ; footer «627» ; idx=627+13=640).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #652 (2026-07-16) — idx639 (vol p626 = **Exposé XIII «- 11 -»**, footer «626» ⟹ **626−615=11, 11ᵉ confirmation** ; idx=626+13=639) — **7 rep-calls, 12 défauts.** Compile **0-err / 380pp** ✓. ⚠ **PAGE PARTIELLE — les 5 bandes sont LUES, mais 2 restes.**
+
+# ★★★★★★★★★★ **CODEX AVAIT CASSÉ LA DÉMONSTRATION — LE SIGNE «0<» ⟹ «0≥»**
+⚠⚠⚠ **Le fichier écrivait `0<\langle c_1(L)\cdot c_1(H)^{r-1}\rangle=\langle c_1(H)^{r-1}\cdot Y\rangle\ge1`.** `z639a_A_signe` (**5600dpi**) : **le scan écrit «on aurait 0 ≥ < c(L).c_1(H)^{r-1} >» — un «≥» NET (le «>» avec sa barre dessous), PAS un «<».**
+★★★ **ET LA MATH VEUT «≥» AUSSI** : l'hypothèse du Lemme 2.4 est **d(L) ≤ 0** ; si Y > 0 alors ⟨c_1(H)^{r-1}·Y⟩ ≥ 1 ; donc «**0 ≥ d(L) = ⟨…⟩ = ⟨…⟩ ≥ 1**» — **LA CONTRADICTION QUI FAIT MARCHER LA PREUVE.**
+⚠⚠⚠⚠ **AVEC «<», LE FICHIER ÉCRIVAIT «0 < … ≥ 1» — QUI N'EST PAS CONTRADICTOIRE DU TOUT.** ⟹ ★★★★ **CODEX AVAIT DÉTRUIT LE RAISONNEMENT, ET ÇA COMPILAIT SANS BRONCHER.**
+⟹ **scan «≥» + math «≥» ⟹ BRANCHE 2 ⟹ ERREUR DE CODEX ⟹ simple correction.** ✅ **FIXÉ.**
+⟹ ★★★ **PAIRE DE GLYPHES NEUVE : «<» vs «≥».** ⟹ **et LEÇON : un défaut SÉMANTIQUE ne se voit NI au compile NI à la relecture rapide — SEUL LE SCAN LE DIT.**
+
+# ★★★★★★★★★★ **LE SIC «c(L)» — 2ᵉ SITE OÙ LE FICHIER AVAIT «CORRIGÉ» L'AUTEUR, ET ÇA FAIT BASCULER L'HYPOTHÈSE #650**
+⚠⚠ **Le fichier écrivait `c_1(L)` ; le scan écrit «c(L)».** `z639a_A_signe` (**5600dpi**) : ★★ **CALIBRATION SUR LA MÊME LIGNE — «c(L)**.**c_1(H)^{r-1}» : LE SECOND «c» PORTE UN INDICE «1», LE PREMIER N'EN A AUCUN.**
+⚠ **LA MATH VEUT «c_1(L)»** (la 1ʳᵉ classe de Chern ; «c(L)» seul serait la classe TOTALE, et toute la section 2 parle de c_1) ⟹ ★★★★ **BRANCHE 1 ⟹ COQUILLE DE L'AUTEUR ⟹ SIC ⟹ ERRATA.** ✅ **FIXÉ VERS LE SCAN.**
+⟹ ★★★★★ **2ᵉ SITE OÙ LE FICHIER AVAIT CORRIGÉ L'AUTEUR (après le «L'_K» de #650).**
+⟹ ★★★★★ **ET ÇA TRANCHE L'AMBIGUÏTÉ DE #650 : ON NE PEUT PAS «MAL LIRE» UN INDICE QUI N'EXISTE PAS.** **Une méprise PERD un indice ; elle n'en INVENTE pas.** ⟹ **Codex a INVENTÉ le «_1» ⟹ C'EST UNE CORRECTION, PAS UNE ERREUR DE LECTURE.**
+⟹ ★★★★ **L'HYPOTHÈSE #650 DEVIENT SÉRIEUSE : «CODEX CORRIGE SILENCIEUSEMENT LES COQUILLES MATH DE L'AUTEUR».** **SI c'est systématique : les SIC que je trouve sont CEUX QU'IL A RATÉS, et un fichier qui se lit mathématiquement bien n'est PAS une preuve de fidélité — c'est une preuve de NORMALISATION.** ⟹ ★★★ **CHERCHER LÀ OÙ LE FICHIER SE LIT PARFAITEMENT.** ⚠ **2 sites ≠ une classe — CONTINUER À COMPTER.**
+
+# ★★★★★ **CINQ DISPLAYS FABRIQUÉS (70ᵉ→74ᵉ) — ET UN VRAI PRÉSERVÉ**
+⚠ **FABRIQUÉS, remis en ligne** (tous **À LA MARGE x≈0.07 AVEC LA PROSE QUI CONTINUE SUR LA LIGNE**) : **70ᵉ** «⟨c_1(L_1)⋯c_1(L_s)·Y⟩ le nombre d'intersection…» · **71ᵉ** «…polynôme de Snapper χ(L_1^{⊗n_1}⊗⋯⊗L_s^{⊗n_s}⊗O_Y) (X 4.3.1).» · **72ᵉ** «L'entier ⟨c_1(L)·c_1(H)^{r-1}⟩ est appelé le degré…» · **73ᵉ** «…polynômes de Hilbert : χ(L(n))=Σ… et χ(O_X(n))=Σ….» · **74ᵉ** «on aurait 0≥⟨c(L)·c_1(H)^{r-1}⟩=⟨c_1(H)^{r-1}·Y⟩≥1.»
+✅ **VRAI DISPLAY, NON TOUCHÉ** — b3 : **«χ(L^{⊗m}⊗H^{⊗n}) = Σ_{i+j≤r} f_{ij}(m+i/i)(n+j/j) .» est CENTRÉE (x≈0.22)** ⟹ **le fichier a raison.** ★ **ET SON POINT TERMINAL EST DÉTACHÉ TRÈS LOIN À DROITE** — la classe «le typographe détache le point» (#637), confirmée.
+⟹ ★★ **74 fabriqués au compteur. Le test #649 a de nouveau discriminé 5 FAUX et 1 VRAI sur une page.**
+
+# ★★★ **CLASSE NEUVE : FABRIQUER UN DISPLAY DÉTRUIT LE «:» D'ANNONCE**
+⚠ **Le scan écrit «les polynômes de Hilbert **:** χ(L(n)) = …» — AVEC un deux-points. Le fichier n'en avait PAS** : en fabriquant le display, Codex l'a **mangé**. ✅ **RESTITUÉ.** ⟹ ★ **à vérifier sur les ~74 autres sites : le display fabriqué a-t-il avalé un «:» ?**
+
+# ★★★ **«CODEX ÉCHANGE LES PARENTHÈSES CONTRE DES VIRGULES» — 5ᵉ SITE**
+✅ **FIXÉ** : b3 écrit «(ii) **(Si r≥1)**, a_{r-1} − e_{r-1} = d(L).» — **AVEC parenthèses** ; le fichier écrivait «Si \(r\ge1\), …» **sans**. ⟹ **la classe est à 5 sites.**
+
+# ★★ **CONVENTION (1) — TROIS CORPS D'ÉNONCÉ PASSÉS EN `\emph{}`**
+✅ **Lemme 2.3** (b3 souligne «**On a**» et «**Si**») ; ✅ **Lemme 2.4** (b4 souligne «Si», «et», «alors», «donc», «et») ; ✅ **Lemme 2.5** (b4 souligne «Si», «alors», «est un», «faisceau», «avec», «zéros»).
+⚠ **Le «:» d'annonce de «On a :» laissé HORS de l'`\emph{}`** (b3 : le trait s'arrête à «On a»). ✅ **Le label du Lemme 2.3 était DÉJÀ `(\roman*)`.**
+★ **Lemme 2.5 : «L est un (0,…,0,a_r)-faisceau» — seul «faisceau» est souligné, PAS le «(0,…,0,a_r)-»** ⟹ **18ᵉ confirmation de «le trait couvre LE MOT».**
+
+# ✅ **PEEKS DÉMENTIS — LE FICHIER A RAISON**
+1. ✅ **«degré»** : b2 le souligne ; **le fichier a DÉJÀ `\emph{degré}`** (L14809) ⟹ **AUCUN FIX.**
+2. ✅ **«< … >», «...», «.Y»** : le scan n'a ni chevrons, ni «⋯», ni «·» (**la machine ne les a pas**) ⟹ **BRANCHE 3** ⟹ **`\langle…\rangle`, `\cdots`, `\cdot` sont les bons rendus modernes.**
+3. ✅ **«2.1.» et «2.2.»** : paragraphes numérotés, corps **ROMAIN** au scan, **non soulignés** ⟹ **PAS d'`\emph{}`** ⟹ **le fichier a raison.** ⟹ ★ **confirme que la convention (1) se vérifie PAR TYPE D'ÉNONCÉ.**
+
+## ⚠⚠ **CE QUI RESTE SUR p626 — 2 RESTES**
+1. ⚠ **«< c(L). c_1(H)^{r-1} >» de b2** (le «degré», L14809 environ) : **le fichier a `c_1(L)`** ⟹ ⚠⚠ **LE MÊME SIC QU'EN b4 ?** **NON ZOOMÉ — le crop de b4 ne couvre PAS ce site.** ⟹ ★ **PRIORITÉ DU PROCHAIN CYCLE : zoomer b2 y≈0.28, et SI le scan y écrit «c_1(L)», alors le «c(L)» de b4 est une anomalie ISOLÉE (comme le «F(1)» de #642).**
+2. ⚠ **Le corps de la démonstration du Lemme 2.5** («En effet, si r=0, L est évidemment un a_0-faisceau. Si r≥1, par 2.4, …») **déborde sur p627 — NON VÉRIFIÉ.**
+
+## ✅ **p626 — RE-PARCOURS DES 5 BANDES**
+**b1** : header «- 11 -»/«XIII» ✅ (11ᵉ conf.) ; **70ᵉ ✅ FIXÉ** ; **71ᵉ ✅ FIXÉ** ; «<…>»/«...»/«.Y» ✅ branche 3, fichier OK ; «2.2.» ✅ romain, fichier OK.
+**b2** : **72ᵉ ✅ FIXÉ** ; **73ᵉ + le «:» ✅ FIXÉS** ; «degré» ✅ le fichier a DÉJÀ `\emph{}` ; ⚠ **«c(L)» du degré NON ZOOMÉ.**
+**b3** : **Lemme 2.3 ⟹ `\emph{}` ✅ FIXÉ** ; **«(Si r≥1)» ⟹ parenthèses ✅ FIXÉES** ; **le display centré ✅ VRAI, non touché** ; point détaché ✅ confirmé.
+**b4** : **Lemme 2.4 ⟹ `\emph{}` ✅ FIXÉ** ; **74ᵉ ✅ FIXÉ** ; **le signe «0<»⟹«0≥» ✅ FIXÉ** ; **le SIC «c(L)» ✅ FIXÉ** ; **Lemme 2.5 ⟹ `\emph{}` ✅ FIXÉ**.
+**b5** : footer «626» ✅ ; rien d'autre.
+
+## **CURSEUR → idx639 (LE MÊME : p626 garde 2 restes — le «c(L)» du degré à zoomer, la démo de 2.5 à fermer en avançant).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #651 (2026-07-16) — idx638 (vol p625, 2ᵉ passe) — **3 rep-calls (7 au total sur la page).** Compile **0-err / 380pp** ✓. ✅ **p625 FINIE page-localement** (provisoire) — **les 5 bandes sont lues.**
+
+# ★★★★★★★★★★ **LE TEST DU DISPLAY TRANCHE DANS LES DEUX SENS — ET LA MÊME PAGE LE PROUVE**
+✅ **69ᵉ display au compteur, MAIS DEUX VRAIS DISPLAYS PRÉSERVÉS SUR CETTE MÊME PAGE :**
+• ⚠ **FABRIQUÉS (67ᵉ+68ᵉ+69ᵉ), remis en ligne** — b2/b3 : «conoyaux d'homomorphismes de la forme **O_{X_K}(-m_1)^{⊕(M_1+M_2)} ⟶ O_{X_K}(-m)^{⊕M}**.» ; «et tous les **R^q(f_T)_\*𝓗om_{O_{X_T}}(E',E)** (où…)» ; «afin que la formation de **G=(f_T)_\*𝓗om_{O_{X_T}}(E',E)** commute…» — **les 3 sont À LA MARGE (x≈0.07) AVEC LA PROSE QUI CONTINUE SUR LA LIGNE.**
+• ✅ **VRAI DISPLAY, NON TOUCHÉ** — b4 : **«E'_R ⟶ E_R ⟶ F ⟶ 0» est CENTRÉE (x≈0.27)** ⟹ **le fichier a raison, son `\[…\]` reste.**
+⟹ ★★★★ **LE TEST #649 («CENTRÉE = display ; AU FER À GAUCHE = inline») A DONC DISCRIMINÉ 3 FAUX ET 1 VRAI SUR UNE SEULE PAGE.** ⟹ **ce n'est pas un préjugé anti-display : c'est un critère.** ⚠ **p625 totalise 8 displays fabriqués (62ᵉ→69ᵉ) — record absolu.**
+
+# ★★★★ **«CODEX ÉCHANGE LES PARENTHÈSES CONTRE DES VIRGULES» — LA CLASSE PASSE À 4 SITES**
+✅ **2 SITES NEUFS, FIXÉS** (b3) : le scan écrit «on peut supposer en plus que X_T **(donc 𝓗om_{O_{X_T}}(E',E))** et tous les» ; le fichier écrivait «que \(X_T\)**,** donc \(\mathcal H\!om…\)**,** et tous les». Et le scan écrit «**(où f_T:X_T ⟶ T est le morphisme structural)** sont plats sur T» ; le fichier écrivait «où \(f_T:X_T\to T\) est le morphisme structural**,** sont plats».
+⟹ ★★★ **AVEC «(avec K algébriquement clos)» et «(resp. E')» (#649), LA CLASSE EST À 4 SITES — SOLIDE, PLUS UNE ANECDOTE.** ⟹ **Codex préfère SYSTÉMATIQUEMENT la virgule à la parenthèse pour une incise.**
+✅ **1 VIRGULE DE PLUS (classe #648)** : `z638b_A_chern` (5600dpi) — «la classe de Chern de **L_i et Y** un» — **AUCUNE virgule** ; le fichier écrivait «de \(L_i\)**,** et \(Y\)». ⟹ **devant un «et» DE COORDINATION — même forme que «(7.9.5), et c'est» de p624.**
+
+# ✅✅ **TROIS PEEKS DÉMENTIS — LE FICHIER AVAIT RAISON**
+1. ★★★ **«Hom» SOULIGNÉ (le 5ᵉ régime) : LE FICHIER LE REND DÉJÀ CORRECTEMENT EN `\mathcal H\!om`.** ⟹ **le 5ᵉ régime de souligné est CONFIRMÉ (le trait veut dire «FAISCEAU», la machine n'ayant pas de calligraphique) — ET le fichier le respectait déjà. AUCUN FIX.**
+2. ★★★★ **«c_1(L_i)» — LA CALIBRATION IDÉALE : LE «1» ET LE «i» SONT CÔTE À CÔTE DANS LE MÊME SYMBOLE.** `z638b_A_chern` (5600dpi) : le **«1» a le FÛT À DRAPEAU DIAGONAL + LARGE EMPATTEMENT, SANS POINT** ; le **«i» a un FÛT COURT + UN POINT**. ⟹ **le fichier a raison : `c_1(L_i)`, `L_i`.**
+3. ✅ **«m_1»** : `z638b_B_m1` (5600dpi) — «Ext^1(O_{X_K}(-m_1),I_K) = H^1(I_K(m_1))» : **tous les «1» ont le drapeau et l'empattement, AUCUN POINT** ⟹ **le fichier a raison : `m_1`, `M_1`, `Ext^1`, `H^1`.**
+⟹ ★★ **LE 1/i A ENCORE ÉTÉ SOUPÇONNÉ POUR RIEN — 4ᵉ FOIS. LA RÈGLE «AUCUN 1/i SOUS 5600 dpi» PROTÈGE AUTANT LE FICHIER QUE MOI.**
+
+# ✅ **LA MACRO `\V` N'EST PAS MORTE — REPORT FERMÉ**
+b3 : «Soit **R = 𝕍(G\*)**» — **V AJOURÉ (double-struck) au scan** ; le fichier écrit `\V(G^*)` (L14785 environ) ⟹ ✅ **le report «macro `\V` (L14166) — morte ?» SE FERME : elle est VIVANTE et employée ici.**
+
+## ⚠ **NON TRAITÉS — REPORTS, PAS DES RESTES DE PAGE**
+1. ⚠ **La 1ʳᵉ flèche de «0 ⟶ I ⟶^u L ⟶ E ⟶ 0» (b1) semblait plus courte au scan** ⟹ **NON ZOOMÉE.** **Rattaché au report global `\to`/`\longrightarrow`** (les flèches du dactylo sont tracées à la main et varient) ⟹ **risque faible, mais NON VÉRIFIÉ.**
+2. ⚠ **«``universelle''» (L14786)** : le scan écrit **«"universelle"» avec des GUILLEMETS DROITS** (branche 3 : la machine n'a que la double-quote) ; le fichier met les quotes ANGLAISES ` ``…'' `. ⟹ **le français moderne veut des CHEVRONS** ⟹ **report «chevrons», GLOBAL, non traité.**
+3. ⚠ **17ᵉ CONFIRMATION de la convention des tags** : b4 souligne **«Plusieurs lemmes techniques» SEUL**, pas le «2.» ; le fichier a `\subsection*{2. Plusieurs lemmes techniques}`. **GLOBAL.**
+
+## ✅ **p625 — RE-PARCOURS DES 5 BANDES, CHAQUE ÉLÉMENT COCHÉ (7 rep-calls, #650+#651)**
+**b1** : header «- 10 -»/«XIII» ✅ (10ᵉ conf.) ; **62ᵉ ✅ FIXÉ** ; **63ᵉ ✅ FIXÉ** ; **«m_1» ✅ VÉRIFIÉ 5600dpi, fichier OK** ; 1ʳᵉ flèche ⚠ report.
+**b2** : **64ᵉ+65ᵉ+66ᵉ ✅ FIXÉS** ; **le SIC «L'_K» ✅ FIXÉ** ; **«Ext^1»/«H^1» ✅ vérifiés, fichier OK**.
+**b3** : **67ᵉ+68ᵉ+69ᵉ ✅ FIXÉS** ; **2 sites de PARENTHÈSES ✅ FIXÉS** ; **«Hom» souligné ✅ le fichier a DÉJÀ `\mathcal H\!om`** ; **`\V` ✅ VIVANTE, report fermé** ; guillemets ⚠ report.
+**b4** : **«E'_R ⟶ E_R ⟶ F ⟶ 0» ✅ CENTRÉE = VRAI display, fichier OK, NON TOUCHÉ** ; «2. Plusieurs lemmes techniques» ⚠ report tags (17ᵉ) ; **«c_1(L_i)» ✅ vérifié, fichier OK** ; **la virgule de Chern ✅ FIXÉE**.
+**b5** : footer «625» ✅ (offset reconfirmé) ; rien d'autre.
+
+## **CURSEUR → idx639 (p626 = Exposé XIII, header «- 11 -» attendu : 626−615=11 ; footer «626» ; idx=626+13=639).** ⚠ **Le fichier y a DÉJÀ un display «⟨c_1(L_1)⋯c_1(L_s)·Y⟩» (L14794) et un «polynôme de Snapper» ⟹ APPLIQUER LE TEST DE L'INDENTATION.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #650 (2026-07-16) — idx638 (vol p625 = **Exposé XIII «- 10 -»**, footer «625» ⟹ **625−615=10, 10ᵉ confirmation** ; idx=625+13=638) — **4 rep-calls, 6 défauts.** Compile **0-err / 380pp** ✓. ⚠⚠ **PAGE PARTIELLE — b4 ET b5 NON LUES (contexte épuisé).**
+
+# ★★★★★★★★★★ **LE SIC «L'_K» — ET CE QU'IL RÉVÈLE**
+⚠⚠ **Le scan écrit «soit γ la composition «L'_K ⟶ E'_K ⟶ E_K» ; le fichier écrivait «\(L_{1,K}\to E'_K\to E_K\)».** `z638a_A_LprimeK` (**5600dpi**) : ★ **CALIBRATION — le prime de «L'» est À LA MÊME HAUTEUR ET DE LA MÊME FORME que celui de «E'_K» JUSTE À CÔTÉ SUR LA LIGNE. Ce n'est PAS un indice «1» (qui serait EN BAS, comme le «K»).** ⟹ **le scan dit bien «L'_K».**
+⚠⚠ **MAIS LA MATH VEUT «L_{1,K}»** : la surjection introduite 2 lignes plus haut est **«L_1 ⟶ E'»**, et **«δ : L_{1,K} ⟶ L_K» relève γ** ⟹ γ doit être définie SUR L_{1,K}.
+⟹ ★★★★ **BRANCHE 1 DU CRITÈRE #644 : le scan dit X, la math veut Y ⟹ COQUILLE DE L'AUTEUR ⟹ SIC ⟹ ERRATA.** ✅ **FIXÉ VERS LE SCAN.**
+⟹ ★★★★★ **ET C'EST LE PREMIER SITE OÙ LE FICHIER AVAIT «CORRIGÉ» L'AUTEUR — exactement ce que le projet INTERDIT.**
+⚠⚠⚠ **HYPOTHÈSE À VÉRIFIER, PAS UNE CLASSE PROUVÉE : je NE PEUX PAS distinguer «Codex a MAL LU le prime comme un 1» de «Codex a CORRIGÉ la coquille».** **Les deux produisent le même fichier.** ⟹ **SI c'est «il corrige», alors : les SIC que je trouve sont CEUX QUE CODEX A RATÉS, et un fichier qui se lit mathématiquement bien n'est PAS une preuve de fidélité — c'est une preuve de NORMALISATION.** ⟹ ★★★ **PISTE : chercher là où le fichier se lit PARFAITEMENT.** ⚠ **À ÉTAYER SUR D'AUTRES SITES AVANT D'EN FAIRE UNE CLASSE.**
+★ **PAIRE DE GLYPHES NEUVE À LA LISTE : 1/prime** (l'indice «1» EN BAS vs le prime EN HAUT).
+
+# ★★★★★ **CINQ DISPLAYS FABRIQUÉS SUR UNE SEULE PAGE (62ᵉ→66ᵉ) — LE TEST #649 TOUCHE 5 FOIS**
+**Le scan écrit TOUTES ses formules EN LIGNE, À LA MARGE (x≈0.07), LA PROSE CONTINUANT SUR LA LIGNE :**
+1. ✅ **«prenons une surjection L = O_{X_T}(-m)^{⊕M} ⟶ E. Quitte à couper T…»** (b1) ⟹ **62ᵉ.**
+2. ✅ **«la formation de la suite exacte 0 ⟶ I ⟶^u L ⟶ E ⟶ 0 commute au passage aux fibres.»** (b1) ⟹ **63ᵉ.**
+3. ✅ **«pour que tous les Ext¹(O_{X_K}(-m_1),I_K) = H¹(I_K(m_1)) soient nuls…»** (b2) ⟹ **64ᵉ.**
+4. ✅ **«et qu'il existe des surjections L_1 = … ⟶ E' et α : L_2 = … ⟶ I.»** (b2) ⟹ **65ᵉ.**
+5. ✅ **«Alors les applications Hom(L_{1,K},L_K) ⟶ Hom(L_{1,K},E_K) sont surjectives.»** (b2) ⟹ **66ᵉ.**
+⟹ ★★★★ **CE N'EST PLUS UNE ERREUR DISPERSÉE : SUR p625 C'EST SYSTÉMATIQUE — Codex a fait un display de CHAQUE formule, et le scan n'en a AUCUNE.** ⟹ **le test «CENTRÉE = display ; AU FER À GAUCHE = inline» (#649) a tenu 5 fois d'affilée dès son 1ᵉʳ emploi.**
+
+# ★★★ **DEUX TROUVAILLES DE b3 — NON TRAITÉES**
+1. ★★★ **BRANCHE 3, MEMBRE NEUF : LE DACTYLO SOULIGNE POUR DIRE «FAISCEAU».** b3 écrit **«Hom» SOULIGNÉ** dans «**Hom**_{O_{X_T}}(E',E)» et «R^q(f_T)_***Hom**_{O_{X_T}}(E',E)» et «G=(f_T)_***Hom**_{O_{X_T}}(E',E)». ⟹ **la machine n'a PAS de calligraphique ⟹ le dactylo SOULIGNE pour marquer le Hom-FAISCEAU** ⟹ **artefact de médium ⟹ le rendu moderne est `\mathcal{H}om`.** ⚠⚠ **NON VÉRIFIÉ DANS LE FICHIER — À FAIRE.** ⟹ ★★ **ET ÇA RE-QUALIFIE LE SOULIGNÉ : le trait ne veut PAS toujours dire «italique». Ici il veut dire «SCRIPT». ⟹ 5ᵉ RÉGIME DE SOULIGNÉ.**
+2. ★ **«Soit R = 𝕍(G\*)»** (b3) : le scan a un **V AJOURÉ (double-struck)** ⟹ ★ **LA MACRO `\V` (L14166) N'EST PAS MORTE — ELLE EST ICI.** ⟹ **le report «macro \V — morte ?» se ferme probablement sur cette page. À VÉRIFIER.**
+⚠ **«"universelle"» (b3) : le scan a des GUILLEMETS DROITS** ⟹ **artefact de médium (la machine n'a que la double-quote)** ⟹ **le report «chevrons» s'y rattache. NON TRAITÉ.**
+
+## ⚠⚠ **CE QUI RESTE SUR p625 — LA PAGE EST PARTIELLE**
+1. ⚠⚠⚠ **b4 ET b5 NON LUES.** **Contexte épuisé — RE-ARMÉ SUR LE MÊME idx638.**
+2. ⚠⚠ **«Hom» souligné (b3) ⟹ `\mathcal{H}om` ?** — **non vérifié dans le fichier, NON FIXÉ.**
+3. ⚠ **La suite exacte de b1 : le scan semble avoir une PREMIÈRE FLÈCHE plus courte/pointillée** («0 ⇢ I ⟶^u L») ⟹ **NON ZOOMÉ** (probable artefact de lecture ; le fichier a `\longrightarrow`).
+4. ⚠ **«m_1» — LA PAIRE 1/i, NON ZOOMÉE** (le fichier écrit `m_1` partout). ⚠⚠ **RÈGLE ABSOLUE : aucun 1/i sous 5600 dpi.**
+5. ⚠ **«R = 𝕍(G\*)» et «X_R»** — non comparés au fichier.
+
+## ✅ **p625 — BANDES LUES : b1, b2, b3 SEULEMENT**
+**b1** : header «- 10 -»/«XIII» ✅ (10ᵉ conf.) ; **62ᵉ ✅ FIXÉ** ; **63ᵉ ✅ FIXÉ** ; «m_1» ⚠ non zoomé ; 1ʳᵉ flèche ⚠ non zoomée.
+**b2** : **64ᵉ ✅ FIXÉ** ; **65ᵉ ✅ FIXÉ** ; **66ᵉ ✅ FIXÉ** ; **le SIC «L'_K» ✅ FIXÉ**.
+**b3** : «Hom» souligné ⚠ **REPÉRÉ, NON FIXÉ** ; `\V` ⚠ **repéré** ; guillemets droits ⚠ repérés.
+**b4, b5** : ⚠⚠⚠ **NON LUES.**
+
+## **CURSEUR → idx638 (LE MÊME : p625 est PARTIELLE — b4/b5 à lire, «Hom» souligné à trancher, «m_1» à zoomer).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #649 (2026-07-16) — idx637 (vol p624 = **Exposé XIII «- 9 -»**, footer «624» ⟹ **624−615=9, 9ᵉ confirmation** ; idx=624+13=637) — **10 rep-calls, 14 défauts.** Compile **0-err / 380pp** ✓. ✅ **p624 FINIE page-localement** (provisoire).
+
+# ★★★★★★★★★★ **LE TEST DU DISPLAY — ENFIN MÉCANIQUE (61 FABRIQUÉS, ET JE COMPRENDS POURQUOI)**
+**b3 porte LES TROIS présentations SUR UNE SEULE PAGE — c'est la calibration parfaite :**
+1. **«0 ⟶ F'_K ⟶ E_K ⟶ F_K ⟶ 0»** démarre à **x≈0.25** ⟹ **CENTRÉE À LA MAIN** (le dactylo pousse aux espaces) ⟹ ✅ **VRAI DISPLAY — le fichier a raison, NON TOUCHÉ.**
+2. **«M = max(χ(F_K(m)) et E = O_X(-m)^{⊕M}.»** démarre à **x≈0.07** ⟹ **LA MARGE GAUCHE**, exactement comme la prose au-dessus («L'implication (iii)…») et en dessous («exactes»).
+3. **«σ_1,…,σ_r ∈ H^o(O_X(1)) qui est F-régulière.»** démarre à x≈0.07 **ET LA PROSE CONTINUE SUR LA LIGNE.**
+⚠⚠ **J'ai d'abord cru que le test était «rien d'autre ne partage sa ligne» ⟹ ça aurait sauvé le cas 2 à tort.** ⟹ ★★★ **LE TEST EST CONFONDU PAR LA FIN DE PHRASE : la formule du cas 2 n'entrait pas après «en prenant», elle a été RENVOYÉE À LA LIGNE, et la phrase s'arrête là. Rien d'autre ne la partage — mais elle est INLINE.**
+⟹ ★★★★★ **LE VRAI TEST, MÉCANIQUE ET CALIBRÉ : *CENTRÉE = DISPLAY ; AU FER À GAUCHE = INLINE* — que la prose partage la ligne ou non.** ⟹ ★★ **ET ÇA EXPLIQUE LES 61 : Codex voit «formule en début de ligne» et en fait un display. Il ne regarde PAS l'indentation.**
+⟹ ✅ **59ᵉ + 60ᵉ + 61ᵉ DISPLAYS FABRIQUÉS remis en ligne** (les 3 cas ci-dessus, sauf le n°1 qui est vrai).
+
+# ★★★★★★★★ **LE RENVOI «1.5» ⟹ «1.6» — CALIBRATION COMPLÈTE 5 vs 6**
+⚠⚠ **Le fichier écrit «en vertu de 1.5», le scan écrit «en vertu de 1.6».** `z637a_A_vertu16` + `z637b_C_795` + `z637b_D_quitte` (**5600dpi**) :
+★ **UN «5» CONNU — «(EGA III 7.9.5)» : BARRE HORIZONTALE PLATE en tête, jonction ANGULAIRE.**
+★ **UN «6» CONNU — «(EGA III 7.7.6)» : courbe arquant vers le HAUT-GAUCHE, PANSE FERMÉE, AUCUNE barre plate.**
+★ **Le glyphe litigieux MATCHE LE 6, sans ambiguïté.** ⟹ ✅ **FIXÉ EN 1.6.**
+⟹ ★★★★ **ET ÇA DIT QUELQUE CHOSE DE GRAND : CODEX A LES MÊMES CONFUSIONS DE GLYPHES QUE MOI.** Le 5/6 ici ; le **1/i** qui m'a mordu **3 fois** (#640/#641/#643) ; le **H/h** (#637/#645). ⟹ ★★★ **PARTOUT OÙ UNE PAIRE EST CONFUSABLE À 360 dpi, CODEX EST PROBABLEMENT FAUX — ET MOI AUSSI SI JE NE ZOOME PAS.** ⟹ **la liste des paires à zoomer n'est pas une lubie : c'est la carte des erreurs de Codex.**
+⚠ **SIC ou erreur de Codex ? NON TRANCHÉ** — il faudrait lire 1.5 ET 1.6 pour savoir ce que veut la math. **Les deux branches fixent VERS LE SCAN ⟹ le fix est le même ; seule la consignation attend.**
+
+# ★★★★★★ **LA CLASSE #648 S'ÉLARGIT — 9 SITES SUR UNE SEULE PAGE**
+**Codex re-ponctue vers l'usage standard, DANS LES DEUX SENS — et ça ne s'arrête pas aux virgules :**
+✅ **«(EGA III 7.9.5)**,** et c'est» ⟹ sans virgule** (VÉRIFIÉ 5600dpi) · ✅ **«que si**,** pour un t∈T» ⟹ «que si pour un»** · ✅ **«dans T (voir» ⟹ «dans T**,** (voir»** (**Codex avait RETIRÉ** — le moderne ne virgule pas devant une parenthèse) · ✅ **«que**,** quitte à couper» ⟹ sans virgule** (VÉRIFIÉ 5600dpi) · ✅ **«où**,** pour t∈T» ⟹ «où pour t∈T»** · ✅ **«de 1.3 (iii)**,** en prenant» ⟹ sans virgule** (prédiction «(a) près d'un RENVOI» — PILE) · ✅ **«Par hypothèse**,** la famille» ⟹ sans virgule** (prédiction «(c) adverbe en tête» — PILE) · ✅ **«donc**,** par l'implication» ⟹ sans virgule** · ✅ **«Donc**,** en appliquant» ⟹ sans virgule** (prédiction (c) — PILE).
+⟹ ★★★ **LES 3 PRÉDICTIONS DE #648 ONT TOUTES TOUCHÉ, DÈS LA PAGE SUIVANTE.**
+★★★ **ET DEUX MÉCANISMES NEUFS, TOUS DEUX «VERS LE STANDARD» :**
+1. ⚠⚠ **CODEX ÉCHANGE LES PARENTHÈSES CONTRE DES VIRGULES.** `z637a_B_clos` (5600dpi) : le scan écrit «tous les E_K **(avec K algébriquement clos)** soient» ; le fichier écrit «tous les E_K**,** avec K algébriquement clos**,** soient». ⟹ **les deux sont du français correct — Codex a pris la virgule.** ⟹ **FIXÉ.**
+2. ⚠⚠ **CODEX DÉVELOPPE LES ABRÉVIATIONS *ET* ÉCHANGE LES PARENTHÈSES — LES DEUX D'UN COUP.** b5 : le scan écrit «On peut supposer E **(resp. E')** de la forme» ; le fichier écrit «On peut supposer E**,** **respectivement** E'**,** de la forme». ⟹ **FIXÉ.**
+⟹ ★★★★ **LA CLASSE UNIFIÉE N'EST PLUS «la ponctuation» : C'EST «CODEX NORMALISE LE TEXTE VERS CE QU'UN ÉDITEUR MODERNE ÉCRIRAIT» — virgules, parenthèses, abréviations, displays.** **C'est EXACTEMENT ce que le projet interdit.**
+
+# ✅ **NON-DÉFAUTS — LE FICHIER A RAISON**
+1. ✅ **«o≤i≤r»** (b2) : le scan écrit un **«o» LETTRE**, pas un zéro ⟹ **BRANCHE 3 (artefact de médium)** ⟹ `\(0\le i\le r\)` est le bon rendu. **AUCUN FIX.**
+2. ✅ **«σ_1,…,σ_i (EGA III 7.7.5)»** (b2) : le scan écrit bien **«σ_i»** ⟹ **le fichier a raison ici** (⚠ **le report L14817 «3ᵉ site» est un site DIFFÉRENT, plus bas — TOUJOURS OUVERT**).
+3. ✅ **«0 ⟶ F'_K ⟶ E_K ⟶ F_K ⟶ 0»** : **centrée au scan ⟹ vrai display** ⟹ **non touché** ; et le fichier a déjà `\longrightarrow` ✓.
+
+## ⚠⚠ **REPORTS — CONFIRMÉS, NON TRAITÉS**
+⚠⚠ **L'ESPACE AVANT «;» — 2 confirmations NEUVES** : b3 «satisfasse à (iv) **;** il existe», «est limitée **;** donc par». ⟹ **le global #4 tient (360 collés / 112 espacés / 7 en `\,;`). Passage DÉDIÉ.**
+
+## ✅ **p624 — RE-PARCOURS DES 5 BANDES, CHAQUE ÉLÉMENT COCHÉ**
+**b1** : header «- 9 -»/«XIII» ✅ ; **«(7.9.5) et» ✅ FIXÉ** ; **«que si pour un» ✅ FIXÉ** ; **«dans T, (voir» ✅ FIXÉ**.
+**b2** : **«que quitte» ✅ FIXÉ** ; **59ᵉ display ✅ FIXÉ** ; **60ᵉ display ✅ FIXÉ** ; **«où pour t∈T» ✅ FIXÉ** ; «o≤i≤r» ✅ branche 3, fichier OK ; «σ_i» ✅ fichier OK ; **«de 1.3 (iii) en prenant» ✅ FIXÉ**.
+**b3** : **61ᵉ display («M = max…») ✅ FIXÉ** ; «0→F'_K→E_K→F_K→0» ✅ **centrée = vrai display, fichier OK** ; **«Par hypothèse la» ✅ FIXÉ** ; **«donc par» ✅ FIXÉ** ; «;» ⟹ report.
+**b4** : **«(avec K algébriquement clos)» ✅ FIXÉ** ; **«1.5»⟹«1.6» ✅ FIXÉ** ; **«est fini et en vertu» ✅ FIXÉ** ; **«Donc en appliquant» ✅ FIXÉ**.
+**b5** : **«(resp. E')» ✅ FIXÉ** ; footer «624» ✅.
+
+## **CURSEUR → idx638 (p625 = Exposé XIII, header «- 10 -» attendu : 625−615=10 ; footer «625» ; idx=625+13=638).** ⚠ **Le fichier y a DÉJÀ un display «L=O_{X_T}(-m)^{⊕M} ⟶ E.» ⟹ VÉRIFIER S'IL EST CENTRÉ AU SCAN.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #648 (2026-07-16) — idx636 (vol p623 = **Exposé XIII «- 8 -»**, footer «623» ⟹ **623−615=8, 8ᵉ confirmation** ; idx=623+13=636) — **7 rep-calls, 8 défauts.** Compile **0-err / 380pp** ✓ (**−1 page : le display supprimé raccourcit le texte — ATTENDU, le gate est 0-err, pas la pagination**). ✅ **p623 FINIE page-localement** (provisoire).
+
+# ★★★★★★★★★★ **LA CLASSE UNIFIÉE DE LA PONCTUATION — LES DEUX SENS SUR UNE SEULE PAGE**
+✅ **`\(E'_K\to E_K\), où` ⟹ `\(E'_K\to E_K\) où`** (item **(v)**). `z636b_B_v_ou` (**5600dpi**) : **AUCUNE virgule** avant «où». ⟹ **Codex a AJOUTÉ.**
+✅ **`. Alors le nombre` ⟹ `. Alors, le nombre`.** `z636b_C_alors` (**5600dpi**) : «F plat sur T. **Alors,**» — **LA VIRGULE EST LÀ.** ⟹ **Codex l'avait PERDUE.**
+⟹ ★★★★ **LA CLASSE N'EST PAS «Codex AJOUTE des virgules» (#645) : C'EST «CODEX RE-PONCTUE VERS L'USAGE STANDARD DU FRANÇAIS MODERNE, DANS LES DEUX SENS».** Les 3 cas connus le vérifient : «de la forme E_K**,** où E est» (le moderne détache le relatif ⟹ **ajouté**) ; «**Alors,** le nombre» (le moderne ne virgule pas un «Alors» bref en tête ⟹ **retiré**) ; «par 1.4**,** F est» #645 (le moderne détache le renvoi ⟹ **ajouté**). ⟹ ★★★ **DANS LES TROIS CAS CODEX PRODUIT LA PONCTUATION *CORRECTE*, ET C'EST LA PONCTUATION IDIOSYNCRATIQUE DE L'AUTEUR QUI EST LA VRAIE.**
+⟹ ★★★ **PRÉDICTION EXPLOITABLE : SUSPECTER TOUTE VIRGULE près (a) d'un RENVOI, (b) d'un RELATIF, (c) d'un ADVERBE EN TÊTE DE PHRASE.**
+★★ **ET L'AUTEUR EST INCONSTANT ENTRE SES PROPRES ITEMS** : `z636b_A_iv_EK` (5600dpi) montre que **(iv) A la virgule** («forme **E_K,** où E est un faisceau cohérent») — **et le fichier aussi ⟹ (iv) NON TOUCHÉ** — alors que **(v) ne l'a PAS**. ⟹ **même forme que l'inconstance «2.3»/«1.3» (#638/#647) : Codex LISSE, l'auteur NON** ⟹ **PER-OCCURRENCE, TOUJOURS.**
+
+# ✅ **LES DÉFAUTS STRUCTURELS FIXÉS**
+1. ⚠⚠⚠ **58ᵉ DISPLAY FABRIQUÉ** — le scan écrit l'item **(v) TOUT EN LIGNE** : «…et E' et E de la forme **O_X(-m')^{⊕M'} et O_X(-m)^{⊕M}**.» ; le fichier en avait fait un `\[…\]` avec `\quad\text{et}\quad`. ⟹ **remis en ligne.**
+2. ★★★ **CONVENTION (1) — le corps du Théorème 1.13 ⟹ `\emph{}`.** b1 : **le scan SOULIGNE tout le corps, le trait SAUTANT la math** («Soient» souligné, «S» non, «un schéma noethérien et» souligné, «X» non, «un S-schéma projectif» souligné, «O_X(1)» non…).
+⟹ ★★★★ **DÉCOUVERTE DE MÉTHODE : `\emph{}` AUTOUR DU CORPS ENTIER SUFFIT — LE MODE MATH EST IMMUNISÉ CONTRE `\emph`.** ⟹ **la discontinuité du trait se reproduit TOUTE SEULE ; il est INUTILE de couper l'`\emph{}` autour de chaque `\(…\)`.** ⟹ ★ **et donc le fix «sur» de #646 aurait pu s'écrire en UN SEUL `\emph{}` — les deux formes rendent à l'identique.** ⚠ **Seules VRAIES contraintes : `\[…\]` et `\begin{enumerate}` (fermer avant).**
+⚠ **Le «:» final N'EST PAS souligné au scan ⟹ laissé HORS de l'`\emph{}`.**
+3. ★★ **CONVENTION (3) CONFIRMÉE SUR SITE : `label=\roman*)` ⟹ `label=(\roman*)`.** b2/b3 : le scan écrit **«(i)» «(ii)» «(iii)» «(iv)» «(v)» — parenthèses DES DEUX CÔTÉS**, et **les labels ne sont PAS soulignés**.
+4. ★★ **Les 5 corps d'`\item` sont soulignés au scan ⟹ chacun dans son propre `\emph{}`** (5 rep-calls).
+
+# ★★★★★ **CE QUE p623 A PROUVÉ SUR MA PROPRE PRUDENCE (#647)**
+⚠⚠⚠ **En #647 j'ai REFUSÉ d'étendre `\emph{famille}` au site L14761 parce que je ne l'avais PAS VU au scan. p623 me donne le site — et il me DONNE RAISON, mais PAS pour la raison que je croyais.**
+**Au scan, (ii) finit par «(b)-famille.» : «(b)-» n'est PAS souligné, «famille» l'EST.** ⟹ **ce n'est PAS un définiendum : c'est simplement LE TRAIT DU CORPS QUI CONTINUE et qui SAUTE LA MATH `\((b)\)`.**
+⟹ ★★★★ **SI J'AVAIS «ÉTENDU LA CLASSE» SANS REGARDER, j'aurais écrit `\emph{… \((b)\)-\emph{famille} …}` — un `\emph{}` IMBRIQUÉ dans un corps italique ⟹ LaTeX REBASCULE EN ROMAIN ⟹ «famille» serait sorti DROIT dans un corps ITALIQUE ⟹ EXACTEMENT L'INVERSE DU SCAN.**
+⟹ ★★★ **LA RÈGLE «NE PAS ÉTENDRE UNE CLASSE SANS AVOIR VU LE SITE» VIENT DE PAYER, CONCRÈTEMENT, POUR LA PREMIÈRE FOIS DE FAÇON MESURABLE.** ✅ **Vérifié AU RENDU : «(b)-famille» sort avec «(b)» en math romain et «-famille» en italique — le scan, exactement.**
+
+# ✅ **RENDU VÉRIFIÉ (la source ment — donc on rend et on regarde)**
+`pg.get_text("dict")` sur la page 333 du workpass : **«Théorème»/«1.13.» = `LMRoman10-Bold` ; «Soient», «schéma», «noethérien», «projectif», … = `LMRoman10-Italic` ; «(1))» = `LMRoman10-Regular`** ⟹ ✅ **normal : en mode math, chiffres et parenthèses sont en ROMAIN — la math n'a PAS été touchée par l'`\emph{}`.** ✅ **Vu à l'image : labels «(i)»…«(v)», item (v) EN LIGNE, «E'_K → E_K où E'» sans virgule, «Alors, le nombre» avec.**
+
+# ⚠ **NON-DÉFAUTS — LE FICHIER A RAISON**
+1. ✅ **La GRAISSE du «E»** : b3 donnait l'impression que «E_K» et «et **E** de la forme» étaient PLUS GRAS que «où E est un faisceau cohérent». `z636b_A_iv_EK` + `z636b_B_v_ou` (5600dpi) : **même lettre, même graisse — c'est de l'ENCRE.** ⟹ **PEEK DÉMENTI.**
+2. ✅ **«H^o(O_{X_s}(1))»** (exposant lettre-o) et **«O_X(1)»** (O non calligraphique) ⟹ **BRANCHE 3 (artefact de médium)** : la machine n'a ni le zéro-en-exposant ni le O calligraphique ⟹ **`H^0` et `\mathcal O` sont les bons rendus modernes.** ⚠ **À NOTER : le «𝓕» du scan EST une script tracée À LA MAIN** ⟹ **le dactylo dessinait les scripts qu'il jugeait indispensables** ⟹ **l'absence de script O n'est PAS une décision de l'auteur.**
+
+## ⚠⚠ **REPORTS — CONFIRMÉS, NON TRAITÉS (délibérément)**
+1. ⚠⚠ **L'ESPACE AVANT «;» — 2 confirmations NEUVES sur p623** : b1 «(1)) **;** soit 𝓕» ; b4 «un X_T **;** quitte à couper». ⟹ **le global #4 (#647) tient : 360 collés / 112 espacés / 7 en `\,;`.** **Passage DÉDIÉ.**
+2. ⚠⚠ **CONVENTION DES TAGS — 16ᵉ confirmation** : b1 souligne **«Théorème» SEUL**, pas «1.13.» ; le fichier a `\textbf{Théorème 1.13.}` (**les DEUX en gras — vérifié au rendu**). **GLOBAL, non traité.**
+3. ⚠ **`\to` vs `\longrightarrow`** : b4 montre une **flèche LONGUE** dans «E'_K ⟶ E_K» ; le fichier a `\to` (court). ⟹ **évidence NEUVE pour le report global. Non touché.**
+
+## ✅ **p623 — RE-PARCOURS DES 5 BANDES, CHAQUE ÉLÉMENT COCHÉ**
+**b1** : header «- 8 -»/«XIII» ✅ ; tag ⟹ report global ; **corps ⟹ `\emph{}` ✅ FIXÉ** ; «H^o»/«O_X» ✅ branche 3, fichier OK ; «;» ⟹ report.
+**b2** : **labels ⟹ `(\roman*)` ✅ FIXÉ** ; **item (i) ✅ FIXÉ** ; **item (ii) ✅ FIXÉ** ; «(b)-famille» ✅ résolu PAR le corps.
+**b3** : **items (iii)+(iv) ✅ FIXÉS** ; virgule (iv) ✅ vérifiée, PRÉSERVÉE ; graisse du E ✅ démentie.
+**b4** : **item (v) ✅ FIXÉ (display + virgule + emph)** ; **«Alors,» ✅ FIXÉ** ; «;» et flèche ⟹ reports.
+**b5** : footer «623» ✅ ; rien d'autre.
+
+## **CURSEUR → idx637 (p624 = Exposé XIII, header «- 9 -» attendu : 624−615=9 ; footer «624» ; idx=624+13=637).** ⚠ **p624 porte DÉJÀ des displays vus au rendu : «σ_1,…,σ_r ∈ H^0(O_X(1))», «t ⟼ h^0(F_{t,i}(-1)),», «M = max(χ(F_K(m))) et E = O_X(-m)^{⊕M}.», «0 → F'_K → E_K → F_K → 0» ⟹ VÉRIFIER LES DEUX SENS.** ⚠ **Et le report L14817 «σ_1,…,σ_i — 3ᵉ site» y est.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #647 (2026-07-16) — idx635 (vol p622, 3ᵉ passe) — **1 rep-call (6 au total sur la page).** Compile **0-err / 381pp** ✓. ✅ **LES 3 RESTES SONT TRANCHÉS — p622 FINIE page-localement** (provisoire, comme toujours).
+
+# ★★★★★★★★★★ **LA TROISIÈME BRANCHE DU CRITÈRE #644 : L'ARTEFACT DE MÉDIUM**
+⚠⚠ **«X_T = X x_S T» — LE FICHIER A RAISON, ET C'EST UNE CLASSE NEUVE.** `z635d_B_xt_serre` (**5600dpi**) : ★ **CALIBRATION DÉCISIVE — le «X» de «X_T» (à gauche) et le «X» juste après le «=» sont IDENTIQUES en hauteur ; le 2ᵉ glyphe est VISIBLEMENT PLUS PETIT — hauteur d'x SEULEMENT, exactement celle du «o» de «où» DE LA MÊME LIGNE** — et le «S» s'indice dessous. ⟹ **le scan écrit bien un «x» MINUSCULE en guise de «×».** ⟹ ✅ **HYPOTHÈSE DE LA MACHINE À ÉCRIRE CONFIRMÉE VISUELLEMENT.**
+⟹ ★★★★ **LE CRITÈRE #644 A TROIS BRANCHES, PAS DEUX :**
+• **le scan dit X, la math veut Y** ⟹ coquille de l'AUTEUR ⟹ **SIC** ⟹ ERRATA.
+• **le scan dit X, la math veut X AUSSI** ⟹ **ERREUR DE CODEX** ⟹ simple correction.
+• ★★ **le scan dit X PARCE QUE LA MACHINE N'A PAS DE TOUCHE POUR Y** ⟹ **ARTEFACT DE MÉDIUM** ⟹ **rendre Y (rendu moderne)** ⟹ **AUCUN défaut, consigner seulement.**
+⟹ ★★★ **LE TEST QUI SÉPARE LA BRANCHE 1 DE LA BRANCHE 3 : «LE GLYPHE EST-IL SUR LE CLAVIER ?»** Si la machine ne PEUT PAS le produire, ce n'est pas un choix de l'auteur — donc pas un SIC.
+⟹ ★★★★ **ET ÇA EXPLIQUE RÉTROSPECTIVEMENT LES DEUX RÈGLES QUE LE PROJET AVAIT DÉJÀ** («accents des CAPITALES» et **«o» pour zéro** = rendu moderne) : **c'étaient DEUX MEMBRES d'une classe que personne n'avait nommée.** ✅ **Membres de la branche 3 : «o» pour zéro ; accents des capitales manquants ; ★ «x» pour «×».**
+
+# ✅ **LE FIX (1 rep-call)**
+★★ **`\((b)\)-famille` ⟹ `\((b)\)-\emph{famille}`** (site de la DÉFINITION seulement). `z635d_C_bfamille` (5600dpi) : **le trait commence EXACTEMENT au «f» de «famille» et s'arrête au «e», AVANT la virgule — le «(b)-» n'est PAS souligné.** ★ **CALIBRATION : `z635d_A_dite_limitee`, MÊME PAGE, MÊME tournure «est dite …» — le trait commence au mot qui suit «est dite».** Contexte ROMAIN (paragraphe ordinaire) ⟹ `\emph{}` simple.
+⟹ ★★★ **C'EST LE MÊME PRINCIPE QUE LA CONVENTION DES TAGS** («Lemme 1.7» ⟹ seul «Lemme» souligné) : **LE TRAIT COUVRE LE MOT, JAMAIS LE SYMBOLE/NUMÉRO QUI LUI EST ACCOLÉ.** ⟹ **15ᵉ confirmation, dans un contexte NEUF** (un paramètre entre parenthèses, pas un numéro de tag). ⟹ ★ **la convention des tags n'est PAS une règle sur les tags : c'est une règle sur LE SOULIGNEMENT DES MOTS.**
+⚠ **Les 2 AUTRES sites `\((b)\)-famille` (emplois, L14761 et L15119) NON TOUCHÉS — non vus au scan** (checks CHK2/CHK3 les protègent).
+
+# ✅ **DEUX NON-DÉFAUTS CONFIRMÉS — LE FICHIER A RAISON**
+1. ✅ **«en vertu de 1.3 (i)»** — `z635d_D_vertu13` (5600dpi) : **le «1» a son DRAPEAU DIAGONAL et son LARGE EMPATTEMENT, sans point** ⟹ bien «1.3» ; **le «(i)» a un POINT et un fût court** ⟹ bien «i». **AUCUN FIX.** ⚠ **Et ça re-confirme que l'auteur est INCONSTANT : «2.3» p618/p619, «1.3» ici, pour la MÊME référence.**
+2. ✅ **Le fix «sur» de #646 est CONFIRMÉ AU SCAN** — `z635d_A_dite_limitee` : **le trait court sans interruption sous «limitée par le faisceau cohérent», S'ARRÊTE NET avant le «F» (l'écart est visible), puis REPREND sous le «s» de «sur».** ⟹ ✅ **le définiendum DISCONTINU est RÉEL, pas une lecture optimiste.**
+
+# ⚠⚠⚠ **REPORT GLOBAL NEUF ET MESURÉ — L'ESPACE AVANT «;» (4ᵉ GLOBAL)**
+★ **Trouvé par un crop qui visait autre chose** (leçon n°1 : «un crop montre AUTRE CHOSE»). `z635d_D_vertu13` (5600dpi) : **le scan écrit «1.3 (i) ; d'où» — AVEC une espace avant le point-virgule** (usage typographique français). **Le fichier écrit «(i); d'où».**
+✅ **VÉRIFIÉ : AUCUN babel/french dans le préambule** ⟹ **LaTeX n'insère RIEN tout seul** ⟹ **le rendu colle bien le «;».** (⟹ la source ne ment PAS ici.)
+⚠⚠ **MESURE : 360 sites «;» COLLÉS au mot ; 112 sites avec une ESPACE DÉJÀ présente ; 7 sites en `\,;`.** ⟹ ★★★ **LE FICHIER SE CONTREDIT — TROIS RÉGIMES POUR LA MÊME PONCTUATION** ⟹ **exactement la forme des bombes `\providecommand` (Codex incohérent avec lui-même à ~49%).**
+⚠⚠⚠ **INSWEEPABLE EN AVEUGLE : dans le code tikz/pgf le «;» est de la SYNTAXE, pas de la ponctuation** (408 lignes portent des marqueurs tikz) ⟹ **un sweep aveugle injecterait une espace DANS LA SYNTAXE des diagrammes.** ★ **Le PRÉCÉDENT DU FICHIER dit `\,;` (7 sites).** ⟹ **REPORT : à traiter par un passage dédié, PAS dans le fil des pages.**
+
+## ✅ **p622 — RE-PARCOURS DES 5 BANDES, CHAQUE ÉLÉMENT COCHÉ (6 rep-calls, #645+#646+#647)**
+**b1** : 54ᵉ display ✅ fixé ; «(b_1,…,b_r)» ✅ fichier OK ; «F(-1)» ✅ fichier OK.
+**b2** : 55ᵉ+56ᵉ+57ᵉ displays ✅ fixés ; «h^q» ✅ fixé ; «par 1.4 F» ✅ fixé ; **«1.3 (i)» ✅ VÉRIFIÉ 5600dpi, fichier OK**.
+**b3** : «⊗_K» ✅ fixé ; «sur» ✅ fixé **ET confirmé au scan** ; **«X x_S T» ✅ VÉRIFIÉ 5600dpi, fichier OK (artefact de médium)**.
+**b4** : **«(b)-famille» ✅ FIXÉ**.
+**b5** : lue (#645), rien de flaggé.
+⚠ **NON RÉSOLU, HORS PAGE :** le report «;» (global) ; `label=\roman*)` au L14759 (le Théorème 1.13 déborde sur p623 ⟹ **à trancher EN AVANÇANT**).
+
+## **CURSEUR → idx636 (p623 = Exposé XIII, header «- 8 -» attendu : 623−615=8 ✓ ; footer «623» ; idx=623+13=636 ✓).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #646 (2026-07-16) — idx635 (vol p622, 2ᵉ passe) — **2 rep-calls (5 au total sur la page).** Compile **0-err / 381pp** ✓. ⚠ **PAGE ENCORE PARTIELLE : 3 restes.**
+
+# ✅ **LES 2 FIXES — TOUS DEUX DES ERREURS DE CODEX, PAS DES SIC**
+1. ★★ **`F_K\otimes K''` ⟹ `F_K\otimes_K K''`.** `z635b_otimes` (**5600dpi**) : «que F_{K''}(=**F_K ⊗_K K''**) et F'_{K''} soient isomorphe[s]». ★ **CALIBRATION : le petit «K» APRÈS le ⊗ est À LA MÊME HAUTEUR D'INDICE que celui de «F_K» DE LA MÊME LIGNE**, alors que le «K''» qui suit est **à PLEINE HAUTEUR** ⟹ **c'est bien un INDICE sur le ⊗.**
+⚠ **La math veut «⊗_K» AUSSI** (tenseur sur K) ⟹ **ERREUR DE CODEX** (critère #644). ⟹ ★ **CLASSE NEUVE : Codex PERD LES INDICES SUR LES OPÉRATEURS.**
+2. ⚠ **`\emph{limitée par le faisceau cohérent} \(F\) sur` ⟹ `… \(F\) \emph{sur}`.** `z635b_xxs` (5600dpi) : **le trait sous «sur» est NET et DISTINCT de celui sous «cohérent»** ⟹ le soulignement couvre «limitée par le faisceau cohérent» **ET** «sur» — **mais PAS «F» ni «X_T» (math)** ⟹ ✅ **parfaitement conforme à la règle : le scan souligne la PROSE, jamais la math.** ⟹ ★ **le définiendum d'une DÉFINITION peut être DISCONTINU (coupé par de la math) — l'`\emph{}` doit l'être aussi.**
+
+## ⚠ **NON TRANCHÉS — 3 RESTES**
+1. ⚠⚠ **«X_T = XX_S T»** : le fichier a `X\times_S T`. ★ **PISTE : la machine à écrire n'a PAS de touche «×» — les dactylos tapent un «x» MINUSCULE.** ⚠ **À 5600 dpi je ne distingue PAS le 2ᵉ glyphe (X majuscule ou x minuscule) : les deux se ressemblent trop à cette taille.** ⟹ **SANS CALIBRATION, NE PAS TRANCHER : CONSIGNÉ.** ⟹ **prochain cycle : cropper TRÈS SERRÉ sur les 2 glyphes seuls (x 0.55-0.68), et CALIBRER contre le «X» de «X_T» de la MÊME LIGNE (majuscule connue) ET contre un «x» minuscule du texte courant.**
+2. ⚠ **`une \((b)\)-famille`** (L14772) : b4 souligne «**famille**» seul ⟹ **définiendum** ⟹ probable `\((b)\)-\emph{famille}`. ★ **CALIBRATION DISPONIBLE : la MÊME PAGE écrit «est dite \emph{limitée}» — même tournure «est dite …».** **NON ZOOMÉ.**
+3. ⚠ **«en vertu de 1.3 (i)»** : ici l'auteur écrit **1.3** (le fichier aussi) — alors que p618/p619 l'ont surpris à écrire **2.3** pour la MÊME référence ⟹ ⚠⚠ **L'AUTEUR EST INCONSTANT SUR SES PROPRES RENVOIS.** **NON ZOOMÉ** (ma lecture de bande matche le fichier ⟹ faible risque, mais NON VÉRIFIÉ).
+
+## ★ **CE QUE p622 A APPORTÉ**
+1. ★★ **CLASSE NEUVE : Codex PERD LES INDICES SUR LES OPÉRATEURS** (`⊗_K` ⟹ `⊗`) — s'ajoute à «il perd la casse / les points de tag / les parenthèses / les abréviations / les indices de variables».
+2. ★ **Le définiendum peut être DISCONTINU** (le trait saute la math et reprend) ⟹ **l'`\emph{}` doit suivre le trait, pas la phrase.**
+3. ★ **Codex AJOUTE des virgules** («par 1.4, F») — symétrique de «il PERD les points de tag».
+4. ★★ **2 SIC antérieurs CONFIRMÉS PAR CONTRASTE** : p622 écrit «F(-1)» et «b_r» ⟹ **le «F(1)» du Lemme 1.7 (#642) est bien une anomalie ISOLÉE.**
+5. ⚠ **57 displays fabriqués** au compteur — **8 sur les 3 dernières pages.**
+
+## **CURSEUR → idx635 (LE MÊME : p622 est PARTIELLE pour ces 3 points).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #645 (2026-07-16) — idx635 (vol p622 = **Exposé XIII «- 7 -»**, footer «622» ⟹ **622−7=615, 7ᵉ confirmation** ; idx=622+13=635) — **3 rep-calls, 6 défauts dont 4 displays.** Compile **0-err / 381pp** ✓. ⚠ **PAGE PARTIELLE.**
+
+# ✅ **DEUX PEEKS TRANCHÉS D'UN COUP PAR b1**
+1. ✅ **L14756 «(b_1,\ldots,b_r)» — LE FICHIER A RAISON.** b1 : «où G est un **(b_1,…,b_r)**-faisceau» ⟹ **AUCUN FIX.** (⚠ **et c'est cohérent avec le SIC de #643** : le scan écrit «b_r» aux DEUX sites ; c'est la math qui veut «b_s» au 1ᵉʳ.)
+2. ✅ **La suite exacte de p622 écrit «0 → F(-1) → F → G → 0» — avec un MOINS NET** ⟹ **le fichier a raison** ⟹ ⚠⚠ **et ça CONFIRME le SIC «F(1)» de #642 : le Lemme 1.7 est bien la SEULE occurrence fautive** — les autres, dont celle-ci, écrivent toutes «F(-1)».
+
+# ✅ **LES DÉFAUTS FIXÉS**
+1. ⚠⚠ **54ᵉ+55ᵉ+56ᵉ+57ᵉ DISPLAYS FABRIQUÉS — 4 SUR UNE PAGE** (égale le record de p620). Le scan écrit **TOUT EN LIGNE** : b1 «on voit que si **n = P_{r-1}(c_1,…,c_r)**, alors n ≥ 0…» ; b2 «Donc, **h¹(F(n-1))=h^o(F(n-1))-χ(F(n-1))**, ce qui est **≤ Σ^r_{i=0}(b_i-a_i)(n-1+i/i)** par 1.8 (i), car b_i ≥ 0. Enfin, F est **[n+Σ^r_{i=0}c_i(n-1+i/i)]**-régulier en vertu de 1.3 (i)» — **3 formules dans UNE phrase courante, le fichier en avait fait 3 `\[…\]`.**
+2. ★★ **`H^q(F(n-1))=0` ⟹ `h^q(F(n-1))=0` — DÉFAUT SÉMANTIQUE (classe #637).** `z635_hq_a` (**5600dpi**) : ★ **CALIBRATION IDÉALE — le «h» de «h^q» a une HAMPE, IDENTIQUE aux «h» de «h¹» et «h^o» DE LA MÊME LIGNE** («et **h**^q(F(n-1))=0 pour q ≥ 2. Donc, **h**¹(F(n-1))=**h**^o(F(n-1))-χ(…»). ⚠ **La math veut «h» AUSSI** (la phrase enchaîne sur h¹ = h^o − χ) ⟹ **ERREUR DE CODEX, PAS un SIC** (critère #644).
+3. ⚠ **«par 1.4, F est» ⟹ «par 1.4 F est»** — le scan n'a **PAS de virgule** après «1.4». ⟹ ★ **CLASSE NEUVE : Codex AJOUTE des virgules** (il **PERD** les points de tag #635 et **AJOUTE** des virgules ici).
+
+## ⚠ **NON TRAITÉS — PAGE PARTIELLE**
+⚠ **`F_{K''}(=F_K\otimes K'')`** : b3 semble montrer «F_K **⊗_K** K''» — **avec un indice K sur le ⊗** ; le fichier a `\otimes` nu. **NON ZOOMÉ.**
+⚠ **`une \((b)\)-famille`** (L14772) : b4 souligne «**famille**» (et pas «(b)-») ⟹ **définiendum** ⟹ probable `\emph{}`. **NON FIXÉ.**
+⚠ **`\emph{limitée par le faisceau cohérent} \(F\) sur`** (L14770) : b3 souligne aussi «**sur**» ⟹ le trait couvre «limitée par le faisceau cohérent F **sur** X_T». **NON FIXÉ.**
+⚠ **«XX_S T»** (b3) : le scan semble écrire «XX_S T» pour «X ×_S T» ; le fichier a `X\times_S T`. **NON ZOOMÉ** — ⚠ **possible SIC (× manquant) ou artefact de lecture.**
+⚠ **«en vertu de 1.3 (i)»** : ici l'auteur écrit **1.3** — alors que p618/p619 l'ont surpris à écrire **2.3** pour la même référence ⟹ ⚠⚠ **L'AUTEUR EST INCONSTANT SUR SES PROPRES RENVOIS.** **NON ZOOMÉ** (le fichier a «1.3», ce qui matche ma lecture de bande).
+
+## ★ **CE QUE p622 A APPORTÉ**
+1. ★ **Codex AJOUTE des virgules** («par 1.4, F») — symétrique de «il PERD les points de tag» (#635).
+2. ★★ **2 SIC antérieurs CONFIRMÉS PAR CONTRASTE** : p622 écrit «F(-1)» et «b_r» ⟹ **le «F(1)» du Lemme 1.7 (#642) est bien une anomalie ISOLÉE**, et le «b_r» est bien la forme constante de l'auteur.
+3. ⚠ **57 displays fabriqués** au compteur — **8 sur les 3 dernières pages.**
+
+## **CURSEUR → idx635 (LE MÊME : p622 est PARTIELLE).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #644 (2026-07-16) — idx634 (vol p621, 2ᵉ passe) — ★ **p621 EST FINIE PAGE-LOCALEMENT.** 1 rep-call (5 au total sur la page). Compile **0-err / 381pp** ✓. Rendu vérifié.
+
+# ★★★★★★ **LE DERNIER RESTE — ET CE N'EST PAS UN SIC, C'EST UNE VRAIE ERREUR DE CODEX**
+⚠ **`\sum_{i=0}^{s}` ⟹ `\sum_{i=0}^{r}`** dans le Théorème 1.11.
+`z634b_sum_a` (**5600dpi**) : «…ceau **sur** X et χ(F(n)) = **Σ^r**_{i=0} a_i(n+i/i)» — l'exposant est un «**r**» NET (arche + crochet à droite). ★★ **CALIBRATION IDÉALE : c'est LE MÊME GLYPHE que le «r» de «su**r**» DE LA MÊME LIGNE, à ~5 cm à gauche.**
+⚠⚠ **ET LA MATH VEUT «r» AUSSI** — tout le Théorème est indexé par r : «(c) = (c_0,…,**c_r**)», «m = P_**r**(c)», «le **r**-ième (b)-polynôme».
+⟹ ★★★ **CE N'EST DONC PAS UN SIC : Codex a changé r ⟹ s, c'est une VRAIE ERREUR DE TRANSCRIPTION** (et non une coquille de l'auteur « réparée »). **Le fix rétablit À LA FOIS le scan ET la math** — le seul cas de la page. ✅ **Le rendu confirme : le Théorème est cohérent de bout en bout (c_r, P_r(c), r-ième, Σ^r).**
+
+## ⚠ **PIÈGE DE CHECK — 16ᵉ FOIS, ET C'EST MON PROPRE CHK3 QUI L'EXPLIQUE**
+`assert "…\sum_{i=0}^{s}…le polynôme de Hilbert" not in t` a **ÉCHOUÉ** après un rep-call **RÉUSSI** (CHK1 passé) ⟹ **grep ⟹ L14712 = la Prop 1.8 de p620**, **que mon CHK3 protégeait explicitement** (c'est le site au **«Σ^■» ILLISIBLE**). ⟹ **mon CHK2 était plus générique que mon ancre** ⟹ **PAS un bug.** ✅ **grep ⟹ L14712 `^{s}` (Prop 1.8, intact) + L14746 `^{r}` (Th. 1.11, mon fix) : le rep-call a atterri exactement où il fallait.**
+
+# ✅ **RE-PARCOURS DES 5 BANDES — p621, BILAN DES 2 PASSES (#643+#644, 5 rep-calls)**
+**b1** ⟹ header «- 6 -» ✓ ; **`dim{.}supp`(G) FIXÉ** ; ★ **SIC «b_r» FIXÉ** ; les 2 displays ⟹ **VRAIS, MATCHENT**. **b2** ⟹ «par récurrence sur s … d'où (i)» ✓ **MATCHE** ; **«(b_1,…,b_{s-1},a_s)» ⟹ LE FICHIER A RAISON** (5600dpi) ; Déf 1.9 **FIXÉE** (italique + définiendum imbriqué — **le crop `z634b_sum_a` l'a reconfirmé au passage : «On appelle» souligné / «(b)-polynômes» PAS souligné / «les pol…» souligné**). **b3** ⟹ le bloc `cases` ✓ ; ★ **Remarque 1.10 ⟹ LE FICHIER A RAISON (corps ROMAIN)** ; Th. 1.11 commence. **b4** ⟹ Th. 1.11 **FIXÉ** (point DEHORS, 53ᵉ display, `dim{.}supp`, italique, **Σ^r**). **b5** ⟹ **BLANCHE** + folio «621» ✓.
+⟹ **TOUT EST TRAITÉ.** ⚠ **Les 3 reports GLOBAUX (note, tags, titre) ne bloquent pas : ils bloqueraient les 381 pages à l'identique.**
+
+# ★★ **CE QUE p621 A APPORTÉ**
+1. ★★★ **LE LIVRE N'ITALICISE PAS LES REMARQUES** ⟹ **le livre a QUATRE régimes de souligné**, et **la convention #634 se vérifie PAR TYPE D'ÉNONCÉ, pas « tout tag ⟹ italique »**. ⚠⚠ **Sans regarder, j'aurais cassé la Remarque.**
+2. ★★ **La distinction SIC / erreur-de-Codex est TRANCHABLE** : «b_r» (le scan dit r, **la math veut s**) ⟹ **SIC** ; «Σ^r» (le scan dit r, **la math veut r AUSSI**) ⟹ **erreur de Codex**. ⟹ ★ **le critère n'est pas « le scan dit X » mais « le scan dit X ET la math dit quoi ? » — les deux cas se fixent vers le scan, mais ils ne se CONSIGNENT pas pareil (ERRATA vs simple correction).**
+3. ★ **Le 1/i a mordu une 3ᵉ fois** («b_i» ⟹ c'est «b_1») ⟹ **AUCUN 1/i SOUS 5600 dpi.**
+4. ★ **Codex DÉPLACE LA PONCTUATION** («(…(b)-faisceaux**.**)» au lieu de «(…(b)-faisceaux)**.**»).
+
+## **CURSEUR → idx635 (vol p622 = Exposé XIII «- 7 -» ; footer «622» ; 622−7=615 ✓ ; idx=622+13=635).** ⚠ **PEEKS (À VÉRIFIER, PAS À CROIRE) : L14754 `\dim\operatorname{Supp}` — 3ᵉ site de la classe, page pas parcourue ; L14756 écrit «(b_1,\ldots,b_r)» — à calibrer ; L14817 «σ_1,…,σ_i» — 3ᵉ site σ.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #643 (2026-07-16) — idx634 (vol p621 = **Exposé XIII «- 6 -»**, footer «621» ⟹ **621−6=615, 6ᵉ confirmation** ; idx=621+13=634) — **4 rep-calls, ~8 défauts.** Compile **0-err / 381pp** ✓. Rendu vérifié. ⚠ **1 point NON TRANCHÉ ⟹ PAGE PARTIELLE.**
+
+# ★★★★★★ **DONNÉE NEUVE SUR LA CONVENTION : LE LIVRE N'ITALICISE PAS LES REMARQUES**
+La **Remarque 1.10** (b3) a **«Remarque» SOULIGNÉ** (14ᵉ confirmation de la convention des tags) — **MAIS SON CORPS NE L'EST PAS** : «Pour les (b)-polynômes, on voit tout de suite par récurrence sur r ≥ t que» **n'a AUCUN trait**.
+⟹ ★★★ **LE LIVRE DISTINGUE : Définition / Lemme / Proposition / Théorème ⟹ corps SOULIGNÉ (italique) ; REMARQUE ⟹ corps NON SOULIGNÉ.**
+✅ **ET LE FICHIER AVAIT DÉJÀ RAISON** : `\textbf{Remarque 1.10.} Pour les…` **en romain** ⟹ **AUCUN FIX.** ⚠⚠ **Si j'avais appliqué l'italique « par convention » sans regarder, j'aurais CASSÉ la Remarque.** ⟹ ★ **la convention #634 n'est PAS « tout tag ⟹ italique » : elle se vérifie PAR TYPE D'ÉNONCÉ.**
+⟹ **Le livre a donc QUATRE régimes** : (1) énoncé italique ; (2) définiendum dé-souligné DANS un énoncé ; (3) emphase d'un mot isolé DANS une démonstration (#639) ; **(4) REMARQUE en romain.**
+
+# ✅ **LES DÉFAUTS FIXÉS**
+1. ★★ **`\dim\operatorname{Supp}` ⟹ `\operatorname{dim{.}supp}` — 2 SITES** (L14721 b1 «dim.supp(G)=s-1» ; L14750 b4 «s=dim.supp(F)»). **LE PEEK DE #642 EST CONFIRMÉ AUX DEUX.** ⚠ **`{.}` et PAS `.`** — sinon LaTeX insère une espace (#641/#642).
+2. ★★ **SIC «(b_1,…,b_s)» ⟹ «(b_1,…,b_r)»** — `z634_br` (**5600dpi**) : «avec G un **(b_1,…,b_r)**-faisceau et dim.supp(G» — le 1ᵉʳ indice est un «**1**» NET (drapeau+empattement), le 2ᵉ un «**r**» NET (arche + crochet). ⚠ **La math veut «b_s»** (G a dim.supp = s−1 ⟹ G est un (b_1,…,b_s)-faisceau) ⟹ **COQUILLE DE L'AUTEUR que Codex avait réparée** ⟹ **SIC.** ⚠ **Le fichier se contredit lui-même : L14756 écrit DÉJÀ «(b_1,\ldots,b_r)»** — **NON TOUCHÉ** (page pas parcourue).
+3. ⚠ **53ᵉ DISPLAY FABRIQUÉ** : b4 montre «et χ(F(n)) = Σ^r_{i=0} a_i(n+i/i) **le polynôme de Hilbert de F ;**» — **le texte SUIT SUR LA MÊME LIGNE.**
+4. ⚠ **LE POINT DU TITRE DU THÉORÈME** : le scan (b3/b4) écrit «(Le théorème principal sur les (b)-faisceaux)**.**» — **le point est DEHORS** ; le fichier l'avait **DEDANS** («…(b)-faisceaux**.**)»). ⟹ **classe «Codex déplace la ponctuation».**
+5. ⚠ **ITALIQUE** des corps d'énoncé (Déf 1.9 + Th 1.11) + **définiendum «(b)-polynômes» en `\emph{}` imbriqué.**
+
+## ✅✅ **7ᵉ PEEK DÉMENTI — LE 1/i MORD POUR LA 3ᵉ FOIS À BASSE RÉSOLUTION**
+J'avais lu à la bande b2 : «G est un **(b_i**,…,b_{s-1},a_s)-faisceau» et noté un défaut (le fichier a `b_1`).
+✅ **`z634_bi` (5600dpi) : c'est un «1» NET** — drapeau + empattement, **AUCUN point** — **calibré contre les «s» de «a_s», «b_s», «b_{s-1}» de la MÊME LIGNE.** ⟹ **LE FICHIER A RAISON, AUCUN FIX.**
+⟹ ★★★★ **3ᵉ fois que la confusion 1/i mord** (#640 : 1⟹i ; #641 : i⟹1 ; **#643 : 1⟹i**). ⟹ **RÈGLE ABSOLUE : AUCUN 1/i SOUS 5600 dpi.**
+
+## ⚠ **NON TRANCHÉ — 1 POINT**
+⚠⚠ **`\sum_{i=0}^{s}` dans le Théorème 1.11** : la bande b4 montre «χ(F(n)) = **Σ^r**_{i=0} a_i(n+i/i)» — **un «r»**, pas un «s». ⚠ **Et TOUT le Théorème est indexé par r** : «(c) = (c_0,…,**c_r**)», «m = P_**r**(c)», «le **r**-ième (b)-polynôme» ⟹ **la math VEUT «r»** ⟹ **le fichier aurait TORT.** ⚠⚠ **MAIS NON ZOOMÉ À 5600 — et #643 vient de prouver que je me trompe à basse résolution.** ⟹ **CONSIGNÉ.** ⟹ **prochain cycle : cropper la ligne «un (b)-faisceau sur X et χ(F(n)) = Σ^?_{i=0}» (b4, ≈ y 0.31-0.35, x 0.05-0.60, 5600dpi).**
+
+## **CURSEUR → idx634 (LE MÊME : p621 est PARTIELLE pour le seul «Σ^r/s»).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #642 (2026-07-16) — idx633 (vol p620, 2ᵉ passe) — ★ **p620 EST FINIE PAGE-LOCALEMENT.** 4 rep-calls (8 au total sur la page), **dont 2 SIC tranchés à 5600 dpi**. Compile **0-err / 381pp** ✓. Rendu vérifié ×3.
+
+# ★★★★★★ **LES 2 SIC — TRANCHÉS À 5600 dpi, CHACUN PAR UNE CALIBRATION SUR SA PROPRE LIGNE**
+1. ★★ **«Lemme 1.7. Soit \(0\to F(-1)\to…\)» ⟹ «\(0\to F(1)\to…\)»** — `z633b_f1` (5600dpi) : «**Lemme 1.7. Soit 0 → F(1) → F → G**» — **entre le «(» et le «1» il n'y a RIEN, aucun tiret.** ★ **CALIBRATION : le «1» est identique à celui de «Lemme 1.**7**» DE LA MÊME LIGNE.**
+⚠ **La math veut F(-1)** — et **les 5 autres occurrences de cette MÊME suite exacte dans l'exposé** écrivent «F(-1)» (dont **b4 : «0 ⟶ F(-1) ⟶ F ⟶ G ⟶ 0» avec un MOINS net, sur la MÊME PAGE**) ⟹ **COQUILLE DE L'AUTEUR que Codex avait réparée** ⟹ **SIC.** ✅ **Le rendu confirme : «Soit 0 → F(1) → F → G → 0».**
+2. ★★ **«soient \(S\) l'espace affine» ⟹ «soient \(S'\)…»** — `z633b_sprime` (5600dpi) : «**En effet, soient S' l'espace**» — **le PRIME est NET.** ★★ **CALIBRATION IDÉALE : le «'» de «S'» est LE MÊME GLYPHE que l'apostrophe de «l'espace» DE LA MÊME LIGNE** — même forme, même hauteur.
+⚠ **Et la MÊME PHRASE écrit ensuite «et T l'ouvert de S» SANS prime** ⟹ **la math veut le MÊME symbole aux 2 endroits** ⟹ **INCOHÉRENCE DE L'AUTEUR, DANS UNE SEULE PHRASE** ⟹ **Codex l'avait aplatie en «S» aux deux** ⟹ **SIC** (le «S» nu du 2ᵉ site est **conservé**, checké).
+
+# ✅ **LE REPORT «dim.supp» EST CLOS — ET LE RENDU L'A PROUVÉ**
+#641 avait signalé que `\operatorname{dim.supp}` rend «dim. **supp**» **avec une ESPACE** : LaTeX traite le «.» comme une **ponctuation math** et insère une espace fine. Le scan écrit «dim.supp» **SERRÉ**.
+✅ **`\operatorname{dim{.}supp}`** — les accolades retirent au «.» son statut de ponctuation. **Fix GLOBAL, 2 sites** (L14679 Déf 1.5 + L14712 Prop 1.8), `repall()` avec **compte attendu = 2**, **re-compilé** (règle #618). ✅ **Le rendu confirme : «s = dim.supp(F)» — SERRÉ.**
+⚠ **Le précédent EN CLAIR de L1046 («avec dim.supp.\ $F\leq n-i$») est du TEXTE, pas de la math ⟹ NON TOUCHÉ** (checké).
+⟹ ★ **Ce défaut était INVISIBLE DANS LA SOURCE : `\operatorname{dim.supp}` a l'air juste. Il n'apparaît QU'AU RENDU.** — **même classe que le `0 .` de #635.**
+
+# ⚠ **LE «Σ^■» N'EST PAS « NON TRANCHÉ » : IL EST ILLISIBLE AU SCAN**
+La limite supérieure de la somme de la Prop 1.8 est un **PÂTÉ D'ENCRE** aux bandes b3 **et** b4. ⚠ **Aucun dpi ne rend lisible une tache d'encre** ⟹ **ce n'est PAS un problème de calibration, c'est un DÉFAUT DU SCAN.**
+⟹ **Le fichier a «s», et la math l'impose** (la somme court jusqu'à **s = dim.supp(F)**, défini deux mots plus haut ; le Lemme 1.7 juste au-dessus utilise «r» pour son propre polynôme). ⟹ **LAISSÉ TEL QUEL, et consigné comme ILLISIBLE AU SCAN.** ⚠⚠ **Je ne le compte PAS comme vérifié — mais je ne laisse pas un défaut du SCAN bloquer la page indéfiniment.**
+
+# ✅ **RE-PARCOURS DES 5 BANDES — p620, BILAN DES 2 PASSES (#641+#642, 8 rep-calls)**
+**b1** ⟹ header «- 5 -» ✓ ; **SIC «S'»** ; «Donc **(i)**» ⟹ **le fichier avait RAISON** (#641, 5600dpi). **b2** ⟹ «(EGA III, 7.7.5)» ✓ **citation intacte** ; «(ii) résulte de (i)» ✓ ; Lemme 1.7 : **SIC «F(1)» + italique**. **b3** ⟹ les 2 vrais displays du Lemme ✓ **MATCHENT** ; **48ᵉ+49ᵉ displays fabriqués** ⟹ INLINE ; «alors» isolé ⟹ **italique**. **b4** ⟹ Prop 1.8 : **`dim.supp` + `label=(\roman*)` + italique + 50ᵉ+51ᵉ+52ᵉ displays** ; **le display «0 ⟶ F(-1) ⟶ F ⟶ G ⟶ 0» est un VRAI display ⟹ NON TOUCHÉ** ✓. **b5** ⟹ **BLANCHE** + folio «620» ✓.
+⚠ **1 seul élément non vérifié : le «Σ^■» (scan illisible).**
+
+# ★★ **CE QUE p620 A APPORTÉ**
+1. ★★ **5 DISPLAYS FABRIQUÉS SUR UNE SEULE PAGE** (record) ⟹ **52 au compteur.**
+2. ★★ **2 SIC de plus** : **«F(1)» pour «F(-1)»** (le signe !) et **«S'» pour «S»** (le prime !) ⟹ **DEUX CLASSES NEUVES : le SIGNE DES ARGUMENTS et les PRIMES.**
+3. ★★ **L'auteur se contredit DANS UNE SEULE PHRASE** («soient S'… l'ouvert de S»).
+4. ★ **Un défaut visible SEULEMENT AU RENDU** («dim. supp» avec espace) — 2ᵉ de cette classe après le `0 .` de #635.
+5. ⚠ **Le fichier se contredisait lui-même à 40 lignes** (`dim.supp` en Déf 1.5, `\dim\operatorname{Supp}` en Prop 1.8) — **et c'est MON fix #639 qui avait créé l'écart** ⟹ ★ **un fix per-occurrence CRÉE des incohérences internes tant que la page suivante n'est pas faite. C'est normal et attendu — mais il faut les fermer en avançant.**
+
+## **CURSEUR → idx634 (vol p621 = Exposé XIII «- 6 -» ; footer «621» ; 621−6=615 ✓ ; idx=621+13=634).** ⚠ **PEEKS (À VÉRIFIER, PAS À CROIRE) : L14725 écrit «\dim\operatorname{Supp}(G)=s-1» — MÊME CLASSE que le fix de ce cycle, et c'est la PREMIÈRE LIGNE de p621.** ⚠ **L14754 : 2ᵉ site plus loin.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #641 (2026-07-16) — idx633 (vol p620 = **Exposé XIII «- 5 -»**, footer «620» ⟹ **620−5=615, 5ᵉ confirmation** ; idx=620+13=633) — **4 rep-calls, ~9 défauts dont 5 displays fabriqués.** Compile **0-err / 381pp** ✓. Rendu vérifié. ⚠ **3 points NON TRANCHÉS ⟹ PAGE PARTIELLE.**
+
+# ★★★★★★★★ **LE MIROIR DE #640 — LA CONFUSION 1/i JOUE DANS LES DEUX SENS**
+À la lecture des bandes, j'avais lu «non-vide. Donc **(1)** résulte de…» et noté un défaut (le fichier écrit «(i)»).
+✅ **CROP À 5600 dpi (`z633_un`) : LE SCAN ÉCRIT «(i)».** Le glyphe entre parenthèses porte un **POINT**, identique au «i» de «non-v**i**de» de **la MÊME LIGNE**. ⟹ **LE FICHIER A RAISON, AUCUN FIX.**
+⟹ ★★★★ **#640 : à basse résolution un «1» passait pour un «i». #641 : à basse résolution un «i» passe pour un «1».** ⟹ **LA CONFUSION 1/i JOUE DANS LES DEUX SENS** ⟹ **NE JAMAIS TRANCHER UN 1/i SOUS 5600 dpi, ET TOUJOURS CALIBRER SUR UN «i» CONNU DE LA MÊME LIGNE.** ✅ **Référence acquise : `z633_f1` montre «tout **i**, (**ii**)» à 5600 dpi — le point est net.**
+⚠⚠ **6ᵉ PEEK DÉMENTI.**
+
+# ✅ **LES DÉFAUTS FIXÉS**
+1. ★★ **`\dim\operatorname{Supp}(F)` ⟹ `\operatorname{dim.supp}(F)`** (Prop 1.8) : le scan (b3/b4) écrit «s=**dim.supp**(F)» — **MINUSCULE et avec un POINT** ; le fichier avait **«Supp» MAJUSCULE**. ⚠⚠ **ET LE FICHIER SE CONTREDISAIT LUI-MÊME DEPUIS MON FIX #639** : la Déf 1.5 (L14679) avait déjà `dim.supp`, la Prop 1.8 avait `\dim\operatorname{Supp}` — **à 40 lignes d'écart.** ✅ **Précédent du fichier : L1046 écrit «avec dim.supp.\ $F\leq n-i$» EN CLAIR.**
+2. ⚠ **48ᵉ+49ᵉ DISPLAYS FABRIQUÉS** : le scan (b3) écrit «En effet, χ(G(n)) = χ(F(n))−χ(F(n−1)) = Σ…[…] ; donc χ(G(n)) = Σ…, d'où l'assertion.» **TOUT EN LIGNE, sur 2 lignes de texte courant** ⟹ le fichier en avait fait **2** `\[…\]`.
+3. ⚠ **50ᵉ DISPLAY FABRIQUÉ** : «χ(F(n)) = Σ^s_{i=0} a_i(n+i/i) **le polynôme de Hilbert de F. Alors :**» — **le texte SUIT SUR LA MÊME LIGNE** (b4).
+4. ⚠ **51ᵉ DISPLAY FABRIQUÉ** : «(i) Pour n ≥ −1, h^o(F(n)) ≤ Σ^s_{i=0} b_i(n+i/i).» **TOUT EN LIGNE** (b4).
+5. ⚠ **52ᵉ DISPLAY FABRIQUÉ** — **repéré en RELISANT le fichier APRÈS le fix** : «c'est clair car a_o=h^o(F) = h^o(F(-1)) ≤ b_o **. Lorsque s ≥ 1, on a une suite exacte**» — **le texte SUIT** (b4). ★ **La relecture post-fix rapporte.**
+6. ⚠ **Prop 1.8 : `label=\roman*)` ⟹ `label=(\roman*)`.**
+7. ⚠ **ITALIQUE** des corps d'énoncé (Lemme 1.7 + son «alors» isolé, Prop 1.8 + ses 2 items).
+✅ **NON TOUCHÉ, à raison : le display «0 ⟶ F(-1) ⟶ F ⟶ G ⟶ 0» EST un VRAI display au scan** (centré, ligne propre) — **et c'est le dernier élément de p620** (b5 blanche + folio «620» ✓).
+
+## ⚠ **PIÈGE DE CHECK — 15ᵉ FOIS, ET IL A ENCORE RAPPORTÉ**
+`assert "\dim\operatorname{Supp}(F)" not in t` a **ÉCHOUÉ** après **3 rep-calls RÉUSSIS** (CHK1-CHK7 passés) ⟹ **grep ⟹ 2 AUTRES sites : L14725 et L14754.**
+⟹ **L14725** («avec G un (b_1,…,b_s)-faisceau et **dim Supp**(G)=s−1») vient **APRÈS le display final de p620** ⟹ **c'est p621** ⟹ **NON TOUCHÉ.** **L14754** : plus loin encore. ⟹ **PEEKS, à vérifier au scan le moment venu.**
+★ **Et c'est en relisant cette zone que j'ai trouvé le 52ᵉ display fabriqué.** ⟹ **un check trop générique n'est pas une perte de temps : il montre le voisinage.**
+
+## ⚠⚠ **NON TRANCHÉS — 3 POINTS**
+1. ⚠⚠ **«Lemme 1.7. Soit 0 → F(1) → F → G → 0»** : à la bande b2 le scan semble écrire «**F(1)**» — **PLUS 1** — alors que **toutes** les autres occurrences (et b4) écrivent «F(**-1**)» et que le fichier a `F(-1)`. ⚠ **Mon crop `z633_f1` a raté la ligne** ⟹ **NON TRANCHÉ.** ★ **CALIBRATION DISPONIBLE : b4 montre «0 ⟶ F(-1) ⟶ F ⟶ G ⟶ 0» avec un MOINS net ⟹ comparer À 5600 dpi.** ⚠ **Si c'est «F(1)», c'est une coquille de l'auteur ⟹ SIC.**
+2. ⚠ **«En effet, soient S' l'espace affine»** : la bande b1 semble montrer un **PRIME** sur le S, alors que la même phrase écrit ensuite «l'ouvert de **S**» **sans prime**, et que le fichier a `S` nu aux deux. ⚠ **Crop raté** ⟹ **NON TRANCHÉ.** ★ **CALIBRATION IDÉALE : les 2 «S» sont dans LA MÊME PHRASE.**
+3. ⚠ **«Σ^■_{i=0}»** (Prop 1.8) : la limite supérieure est un **pâté illisible** aux bandes b3/b4 ; le fichier a `s`. **NON ZOOMÉ.**
+
+## ⚠ **REPORT NEUF — LE RENDU DE «dim.supp»**
+Le rendu montre «s = **dim. supp**(F)» — **avec une ESPACE après le point** : LaTeX traite le «.» de `\operatorname{dim.supp}` comme une **ponctuation math** et insère une espace fine. **Le scan écrit «dim.supp» SERRÉ.** ⚠ **Le point y est — l'essentiel du fix — mais la forme demande un affinage** (`\operatorname{dim{.}supp}` ou `\mathrm{dim.supp}`) ⟹ **et ça touche AUSSI mon fix #639 (L14679).** **À TRANCHER, 2 sites.**
+
+## **CURSEUR → idx633 (LE MÊME : p620 est PARTIELLE pour ces points).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #640 (2026-07-16) — idx632 (vol p619, 3ᵉ passe) — ★ **p619 EST FINIE PAGE-LOCALEMENT.** 2 rep-calls (10 au total sur la page). Compile **0-err / 381pp** ✓. Rendu vérifié.
+
+# ★★★★★★★★ **LE DERNIER RESTE — ET IL A FALLU 5600 dpi POUR LE TRANCHER**
+⚠ **«des zéros de σ_1,…,σ_?»** — le dernier indice : «1» (coquille) ou «i» (le fichier a `\sigma_i`) ?
+**PREMIER VERDICT À 4200 dpi (`z632f_a`) : «i» sur la Prop 1.6** — le glyphe semblait porter un **point**. **J'ai failli conclure que le livre se contredisait entre (1.5.2) [«1»] et la Prop 1.6 [«i»]** — ce qui aurait été parfaitement crédible vu ses habitudes.
+✅ **VERDICT À 5600 dpi** (`z632g_d152` + `z632g_p16`, **MÊME dpi, MÊME hauteur**, recette #623) : **LES DEUX LIGNES ÉCRIVENT «σ_1,…,σ_1».** Les 4 indices sont des «**1**» **identiques** — fût + **DRAPEAU DIAGONAL en haut à gauche** + **LARGE EMPATTEMENT DE BASE**, **AUCUN POINT** ; alors que les «i» de **F_i**, **b_i** et «0 ≤ **i** ≤ r» de **la MÊME LIGNE** portent tous un **point**. **Calibration à double sens, sur la même ligne.**
+⟹ ★★★★ **À 4200 dpi, LE DRAPEAU DU «1» RESSEMBLE À UN POINT.** ⟹ **RÈGLE NEUVE : quand 2 lignes semblent se contredire, MONTER EN DPI AVANT de conclure à une incohérence du livre.** ⚠ **L'hésitation de #639 («SANS CALIBRATION, NE PAS TRANCHER») a évité un fix FAUX sur la Prop 1.6.**
+⟹ **La math veut «σ_i» ⟹ COQUILLE DE L'AUTEUR, DEUX FOIS ⟹ Codex avait réparé LES DEUX ⟹ SIC ×2** (L14688, L14692). ✅ **Le rendu confirme : «des zéros de σ_1,…,σ_1, alors h⁰(F_{σ,i}(−1)) ≤ b_i» — les «i» de F_{σ,i}/b_i RESTENT des i.**
+
+## ⚠ **PIÈGE DE CHECK — 13ᵉ FOIS, ET IL A RÉVÉLÉ UN 3ᵉ SITE**
+`assert count("des zéros de \(\sigma_1,\ldots,\sigma_i\)") == 0` a **ÉCHOUÉ** après **2 rep-calls RÉUSSIS** (CHK1-CHK3 passés) ⟹ **grep ⟹ un 3ᵉ site existe : L14817**, sur une page **PAS ENCORE PARCOURUE**.
+⟹ ✅ **NON TOUCHÉ — per-occurrence : le livre peut très bien y écrire «σ_i» légitimement** (il vient de prouver 4 fois qu'il se contredit). ⟹ **PEEK POUR PLUS TARD, à vérifier au scan le moment venu.**
+⚠ **Et les 2 sites de p619 partageaient le MÊME fragment** «des zéros de \(\sigma_1,\ldots,\sigma_i\), alors» ⟹ **ancrés sur le CONTEXTE DROIT qui les distingue** (`F_i` vs `F_{\sigma,i}`).
+
+# ✅ **RE-PARCOURS DES 5 BANDES — p619, BILAN DES 3 PASSES (#638+#639+#640, 10 rep-calls)**
+**b1** ⟹ header «- 4 -» ✓ ; **SIC «par 2.3 (ii)»** ; **46ᵉ display** ⟹ INLINE ; ★ **SIC composé «⟼ n¹(F(n))»** ; ★ **`\emph{strictement}`** (police vérifiée). **b2** ⟹ Déf 1.5 : **italique + définiendum imbriqué + «dim.supp»**. **b3** ⟹ items (1.5.1) : **italique + «(Lorsque r≥1)» parenthèses restaurées** ; (1.5.2) : **italique + 47ᵉ display + SIC σ_1**. **b4** ⟹ Prop 1.6 : **`label=(\roman*)` + italique + SIC σ_1** ; «En effet, soient S l'espace affine…» **NON soulignée** ⟹ romain ✓ **correct**. **b5** ⟹ **BLANCHE** + folio «619» ✓.
+⟹ **TOUT EST TRAITÉ. Les 3 reports GLOBAUX (note, tags, titre) ne bloquent pas : ils bloqueraient les 381 pages à l'identique.**
+
+# ★★ **CE QUE p619 A APPORTÉ AU CATALOGUE**
+1. ★★★ **La coquille COMPOSÉE** («⟼ n¹» pour «n ⟼ h¹» : le «n» migre et écrase le «h» — **2 erreurs en une, mathématiquement incohérent**) ⟹ **ERRATA.**
+2. ★★ **Le livre a TROIS usages du souligné** : corps d'énoncé / définiendum (dé-souligné) / **EMPHASE D'UN MOT ISOLÉ DANS UNE DÉMONSTRATION** («strictement»). ⟹ **NE PLUS LIRE « souligné ⟹ énoncé » : REGARDER L'ÉTENDUE DU TRAIT.**
+3. ★★ **Le renvoi «2.3» est une HABITUDE de l'auteur** (p618 «(i)» + p619 «(ii)», la math veut 1.3 aux deux) ⟹ **SIC ×2.**
+4. ★ **L'auteur écrit «σ_1» pour «σ_i»** — **2 fois sur la même page** ⟹ **SIC ×2.**
+5. ★ **Codex perd les parenthèses** («(Lorsque r≥1)») et **les abréviations** («dim.supp» ⟹ «dim supp»).
+⟹ ⚠⚠ **p619 est la page la plus fautive de XIII : 10 rep-calls, dont 5 SIC.**
+
+## **CURSEUR → idx633 (vol p620 = Exposé XIII «- 5 -» ; footer «620» ; 620−5=615 ✓ ; idx=620+13=633).** ⚠ **PEEK (À VÉRIFIER, PAS À CROIRE) : L14817 écrit «des zéros de \(\sigma_1,\ldots,\sigma_i\)» — 3ᵉ site de la classe ⟹ CALIBRER AU SCAN À 5600 dpi le moment venu.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #639 (2026-07-16) — idx632 (vol p619, 2ᵉ passe) — **3 rep-calls, 4 défauts fixés dont 2 SIC.** Compile **0-err / 381pp** ✓. Rendu vérifié + **contrôle de POLICE**. ⚠ **1 point NON TRANCHÉ ⟹ page encore PARTIELLE.**
+
+# ★★★★★★ **LA COQUILLE COMPOSÉE — «donc ⟼ n¹(F(n))»**
+`z632b_mapsto` (**4200dpi**) — **CALIBRATION IDÉALE, TOUT SUR UNE SEULE LIGNE :**
+«, alors **h**¹(F(n-1)) > **h**¹(F(n)) ; donc **⟼ n**¹(F(n))»
+⟹ les **DEUX «h»** avant la flèche ont une **HAMPE** nette ; le glyphe **APRÈS** la flèche n'en a **PAS** — c'est une arche simple ⟹ **c'est un «n»**. ⚠ **ET le «n» qui devrait PRÉCÉDER la flèche est ABSENT.**
+⟹ **L'auteur a écrit «⟼ n¹(F(n))» là où la math veut «n ⟼ h¹(F(n))»** — **DEUX erreurs en une** (le «n» a migré de l'avant vers l'après de la flèche, en écrasant le «h»). **Le résultat est mathématiquement incohérent** («⟼» sans source, «n¹» non défini).
+⟹ **Codex avait « réparé » LES DEUX** ⟹ ★ **LE SCAN ARBITRE MÊME QUAND LA MATH DIT LE CONTRAIRE ⟹ SIC.** (`\mapsto` gardé : la LONGUEUR de la flèche n'est pas le défaut ⟹ changement minimal.)
+✅ **Le rendu confirme : «donc ↦ n¹(F(n)) est …» — et les «h» voisins RESTENT des h.**
+⚠⚠ **C'est la coquille la plus lourde rencontrée dans XIII. Elle mérite l'ERRATA.**
+
+# ★ **CLASSE NEUVE : L'EMPHASE EN TEXTE COURANT, DANS UNE DÉMONSTRATION**
+`z632b_strict` (4200dpi) : «est **strictement** décroissant depuis h¹(F(m-1))» — **le trait est EXACTEMENT sous «strictement»**, ni sous «est», ni sous «décroissant». ⚠ **Or la règle #634 dit que les démonstrations ne sont PAS soulignées** ⟹ **ce n'est PAS un corps d'énoncé : c'est une EMPHASE ISOLÉE.** ⟹ **`\emph{strictement}`.**
+✅ **Vérifié AU NIVEAU DE LA POLICE : `LMRoman10-Italic`.**
+⟹ ★★ **LE LIVRE A DONC TROIS USAGES DU SOULIGNÉ : (1) corps d'énoncé (italique) ; (2) définiendum (dé-souligné DANS un énoncé) ; (3) EMPHASE d'un mot isolé DANS une démonstration.** ⚠ **Ne plus lire « souligné ⟹ énoncé » : regarder l'ÉTENDUE du trait.**
+
+# ✅ **LES 2 AUTRES FIXES**
+3. ★ **«\dim\operatorname{supp}(F)» ⟹ «\operatorname{dim.supp}(F)».** `z632c_dimsupp` (4200dpi) : «≥ **dim.supp**(F)» — **CALIBRATION SUR LA MÊME LIGNE** : la marque entre «dim» et «supp» est **ronde, ligne de base, SANS queue** ; les **virgules** de «(b_o,…,b_r)» **de la même ligne** ont une **queue descendante** ⟹ **c'est un POINT.** Le fichier rendait «dim supp» (espace fine).
+✅✅ ★ **ET LE FICHIER A DÉJÀ LE PRÉCÉDENT : L1046 écrit «avec dim.supp.\ $F\leq n-i$» EN CLAIR** (rendu page PDF 31) ⟹ **l'abréviation de l'auteur est DÉJÀ reproduite ailleurs** ⟹ **mon fix suit le propre précédent du fichier, il n'invente rien.** (cf aussi la macro `parf.amp` du fichier — même style d'abréviation.)
+4. ⚠ **DÉFAUT NEUF, repéré par un crop qui avait « raté » sa cible :** le scan écrit «(iii) **(Lorsque r≥1)**, il existe une section…» — **ENTRE PARENTHÈSES** ; le fichier les avait **PERDUES** ⟹ classe «Codex élague les précisions». ★ **Un crop qui rate sa ligne n'est pas perdu : il montre autre chose.**
+
+## ⚠ **NON TRANCHÉ — 1 POINT**
+⚠ **«des zéros de σ_1,…,σ_?»** (2 occurrences : (1.5.2) et Prop 1.6 (i)) : le dernier indice ressemble à «**1**» là où la math veut «**i**» ; le fichier a `\sigma_i`. ⚠ **3 crops ont raté la ligne** (0.425-0.465, 0.505-0.545, 0.525-0.565 ⟹ tous trop haut) ⟹ **prochain cycle : viser ≈ y 0.560-0.600, x 0.05-0.62, 4200dpi. CALIBRATION IDÉALE DISPONIBLE : le «σ_1» du DÉBUT de la même expression donne le glyphe «1» de référence.**
+
+# ⚠⚠ **2 PIÈGES D'OUTIL NEUFS — LES INTERSECTIONS DE TOKENS**
+1. ⚠⚠ **«jusqu'au moment de devenir» ⟹ LISTE VIDE : le PDF rend l'APOSTROPHE TYPOGRAPHIQUE (U+2019)**, pas l'apostrophe droite du .tex ⟹ **NE JAMAIS METTRE D'APOSTROPHE DANS UN TOKEN DE RECHERCHE.**
+2. ⚠⚠⚠ **«moment de devenir» ⟹ LISTE VIDE AUSSI — alors que le texte EST là.** **Cause : PyMuPDF insère un SAUT DE LIGNE dans `get_text()` à chaque retour à la ligne du PDF** ⟹ **une intersection à 2 tokens peut échouer sur un simple RETOUR À LA LIGNE, pas seulement sur un saut de page (#635)** ⟹ ★ **TOKENS COURTS (1-2 mots), et si ça échoue : LOCALISER D'ABORD chaque token SÉPARÉMENT.**
+⚠ **Et «strictement» est sur 41 pages** ⟹ un mot courant ne localise rien ⟹ **combiner, ou passer par un numéro de page déjà connu.**
+
+## **CURSEUR → idx632 (LE MÊME : p619 est PARTIELLE pour le seul indice σ).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #638 (2026-07-16) — idx632 (vol p619 = **Exposé XIII «- 4 -»**, footer «619» ⟹ **619−4=615, 4ᵉ confirmation** ; idx=619+13=632) — **5 rep-calls, ~9 défauts fixés.** Compile **0-err / 381pp** ✓. Rendu vérifié ×2. ⚠ **2 points NON TRANCHÉS ⟹ PAGE PARTIELLE.**
+
+# ✅ **RE-PARCOURS DES 5 BANDES — CE QUI EST *FIXÉ*, PAS CE QUI EST LU**
+**b1** ⟹ header «- 4 -»+«XIII» ✓ ; **2 FIXES** (renvoi SIC, 46ᵉ display) ; ⚠ **2 NON TRANCHÉS** (voir ci-dessous). **b2** ⟹ Déf 1.5 : **FIXÉE** (italique + définiendum imbriqué). **b3** ⟹ items (1.5.1) **FIXÉS** ; (1.5.2) **FIXÉ** (italique + 47ᵉ display). **b4** ⟹ Prop 1.6 **FIXÉE** (parenthèses + italique) ; «En effet, soient S l'espace affine…» **NON soulignée** ⟹ romain ✓ **correct**. **b5** ⟹ **BLANCHE** + folio «619» ✓.
+
+# ✅ **LES DÉFAUTS FIXÉS**
+1. ★★ **«par 1.3 (ii)» ⟹ «par 2.3 (ii)» — SIC, 2ᵉ OCCURRENCE.** `z632_strict` (3600dpi) : «surjectif par **2.3** (ii) ; donc α_{n+1} est surjectif.» ⟹ **la MÊME coquille qu'en #637** («par 2.3 (i)», calibrée contre le «2» de «q ≥ 2»). ⚠ **La math veut 1.3 dans les DEUX cas** ⟹ **l'auteur écrit systématiquement «2.3» pour «1.3» dans cette démonstration** ⟹ **Codex avait corrigé les DEUX** ⟹ **SIC.** ★ **Ce n'est donc pas un lapsus isolé : c'est une habitude de l'auteur sur 2 pages.**
+2. ⚠ **46ᵉ DISPLAY FABRIQUÉ** : `z632_strict` montre «…≃→ **0. D'autre part, si**» **EN LIGNE** ⟹ le fichier en avait fait un `\[…\]`.
+3. ⚠ **47ᵉ DISPLAY FABRIQUÉ** : (1.5.2) — le scan (b3) écrit «**alors** h^o(F_i(-1)) ≤ b_i.» **EN LIGNE** (le «alors» précède sur la même ligne).
+4. ⚠ **Prop 1.6 : `label=\roman*)` ⟹ `label=(\roman*)`** (b4 : «(i)» «(ii)»). ✅ **La Déf 1.5 avait DÉJÀ `label=(\roman*)` ⟹ le fichier se contredit LUI-MÊME à 15 lignes d'écart.**
+5. ⚠ **ITALIQUE DES CORPS D'ÉNONCÉ** — Déf 1.5, ses 3 items (1.5.1), le (1.5.2), la Prop 1.6 + ses 2 items.
+6. ★ **DÉFINIENDUM «(b)-faisceau» : `\emph{}` IMBRIQUÉ.** b2 : «est dit un» **SOULIGNÉ** / «(b)-faisceau» **NON** / «s'il satisfait» **SOULIGNÉ** ⟹ **dé-souligné dans la DÉFINITION** ⟹ l'`\emph{}` imbriqué le rebascule en romain ✓ **le rendu le confirme.**
+✅✅ ★ **ET LA RÈGLE #634 SE VÉRIFIE D'ELLE-MÊME SUR LA MÊME PAGE :** dans la **Prop 1.6**, «(b)-faisceau» rend **ITALIQUE** — parce que c'est un **EMPLOI**, pas une définition. **Définition ≠ emploi, sur une seule page, sans rien forcer.**
+
+## ⚠⚠ **NON TRANCHÉS — 2 POINTS, TOUS DEUX SUR b1 (L14681)**
+1. ⚠⚠ **«strictement» est SOULIGNÉ AU SCAN — dans une DÉMONSTRATION.** b1 : «donc … est **strictement** décroissant depuis h^1(F(m-1))». ⚠ **Or les démonstrations ne sont PAS soulignées** (règle #634) ⟹ **c'est une EMPHASE DANS LE TEXTE COURANT**, pas un corps d'énoncé. Le fichier n'emphase pas. ⟹ **probable `\emph{strictement}` — MAIS NON ZOOMÉ ⟹ NON TRANCHÉ.**
+2. ⚠⚠ **«donc ⟼ n^1(F(n))» — LECTURE INCERTAINE.** Le fichier écrit `\(n\mapsto h^1(F(n))\)`. À la bande b1, le «n» avant «⟼» semble **absent** et ce qui suit ressemble à «**n**^1(F(n))» plutôt qu'à «h^1(F(n))». ⚠ **SANS CALIBRATION, JE NE TRANCHE PAS** (et #637 a prouvé que le livre distingue H/h — donc h/n est à vérifier de près). ⟹ **CONSIGNÉ.**
+⚠ **Mes 2 crops sur b1 ont dérapé en y** (`z632_ref` = bruit) ⟹ **prochain cycle : cropper ≈ y 0.095-0.135, x 0.30-0.90, 4200dpi.**
+
+## ⚠ **AUTRES REPÉRÉS-NON-FIXÉS**
+⚠ **«dim.supp(F)»** : le scan (b2) écrit «≥ dim.**supp**(F)» — **avec un POINT** entre «dim» et «supp» ; le fichier a `\dim\operatorname{supp}` ⟹ rend «dim supp» (espace). **NON ZOOMÉ.**
+⚠ **«des zéros de σ_1,…,σ_1»** (b3 ET b4) : le dernier indice ressemble à «**1**» là où la math veut «**i**» ; le fichier a `\sigma_i`. ⚠ **2 occurrences** ⟹ **si c'est «1» au scan, c'est une coquille de l'auteur ⟹ SIC.** **NON ZOOMÉ.**
+
+## **CURSEUR → idx632 (LE MÊME : p619 est PARTIELLE pour ces points).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #637 (2026-07-16) — idx631 (vol p618 = **Exposé XIII «- 3 -»**, footer «618» ⟹ **618−3=615 = CONSTANTE_XIII, 3ᵉ confirmation** ; idx=618+13=631) — ★ **p618 FINIE PAGE-LOCALEMENT. 6 défauts fixés, 4 rep-calls.** Compile **0-err / 381pp** ✓. Rendu vérifié ×2. **ET J'AI RE-CONTRÔLÉ MES PROPRES FIXES DE p617 — ILS TIENNENT.**
+
+# ✅ **RE-PARCOURS DES 5 BANDES — CE QUI EST *FIXÉ*, PAS CE QUI EST LU**
+**b1** ⟹ header «- 3 -»+«XIII» ✓ ; fin de la démonstration de 1.3 ⟹ **MATCHE mot à mot** (voir le démenti ci-dessous). **b2** ⟹ Prop 1.4 : **4 FIXES** (parenthèses, `H^1`, italique, «En particulier»). **b3** ⟹ **2 FIXES** (renvoi SIC, 45ᵉ display) ; display `H^{q-1}(G(n))→…→H^q(G(n)),` **MATCHE** (le «,» est **confirmé au crop : queue descendante nette**) ; suite exacte : **1 FIX** (point). **b4** ⟹ «Elle implique (ii). Or, supposons α_n surjectif…» **MATCHE** ; diagramme **MATCHE** (α_n⊗id et α_{n+1} au-dessus, β_n à droite) ; **le point de «H^0(G(n+1)).» est LÉGITIME — NON TOUCHÉ** (voir ci-dessous). **b5** ⟹ **BLANCHE** + folio «618» ✓.
+
+# ★★★★★★★★ **AUTO-CONTRÔLE : J'AI FAILLI CROIRE QUE #635/#636 AVAIENT INTRODUIT UN DÉFAUT**
+`z631d_gn1` (p618) montre «H^o(G(n+1))» **sans point collé — MAIS AVEC UN POINT ISOLÉ LOIN À DROITE (x≈0.71)** ⟹ ★ **LE TYPOGRAPHE DÉTACHE LE POINT DE FIN DE PHRASE APRÈS UN DIAGRAMME** (même motif qu'aux displays de p615/p617).
+⚠⚠ **ALORS MES FIXES DE p617 («0 .»⟹«0» #635 ; «F(n)(1).»⟹«F(n)(1)» #636) ONT-ILS SUPPRIMÉ UN POINT RÉEL ? Mes crops s'arrêtaient à x=0.82/0.85 — assez loin ?**
+⟹ ✅ **RE-CONTRÔLE PLEINE LARGEUR (x=0.00→1.00, `zrecheck_p617_fn1` + `zrecheck_p617_zero`) : RIEN à droite, ni du «0», ni de «F(n)(1)», sur TOUTE LA LARGEUR DE PAGE.** ⟹ **MES DEUX FIXES SONT VALIDÉS.**
+⟹ ⚠⚠⚠ **ET LA TROUVAILLE S'AIGUISE : LE LIVRE EST INCOHÉRENT — les 2 diagrammes de p617 n'ont AUCUN point terminal, celui de p618 EN A UN.** ⟹ **le `H^0(G(n+1)).` de p618 est CORRECT ⟹ NON TOUCHÉ.** ⚠⚠ **Un sweep «Codex ponctue les diagrammes ⟹ tout dépoint er» AURAIT CASSÉ p618.** ★ **LEÇON : quand une classe de défaut se confirme, RE-VÉRIFIER SES PROPRES FIXES ANTÉRIEURS AVANT DE L'ÉTENDRE — et cropper PLEINE LARGEUR pour la ponctuation détachée.**
+
+# ✅ **LES 6 DÉFAUTS FIXÉS — TOUS CONFIRMÉS AU SCAN**
+1. ★★ **`h^1(F(n))=0` ⟹ `H^1(F(n))=0` en (iii) — DÉFAUT SÉMANTIQUE.** `z631b_iii` (3600dpi) : **(ii) et (iii) DANS LE MÊME CROP** ⟹ les «h» de (ii) sont des **minuscules** (fût + épaule) ; le «**H**» de (iii) est une **CAPITALE** (deux fûts + barre). **Le livre DISTINGUE H^1 (le GROUPE) de h^1 (sa DIMENSION)** — et il les emploie **sur des lignes adjacentes**. **Calibration idéale.**
+2. ★★ **«par 1.3 (i)» ⟹ «par 2.3 (i)» — SIC.** `z631b_ref` (3600dpi) : le «**2**» de «2.3» est **IDENTIQUE au «2» de «q ≥ 2» de la MÊME LIGNE**. ⚠ **La math veut 1.3** (c'est la Prop 1.3(i) qui donne l'annulation) ⟹ **«2.3» est une COQUILLE DE L'AUTEUR (renvoi EN AVANT), et c'est justement pour ça que Codex l'a « corrigée ».** ⟹ **LE SCAN ARBITRE MÊME QUAND LA MATH DIT LE CONTRAIRE ⟹ SIC.**
+3. ⚠ **45ᵉ DISPLAY FABRIQUÉ** : le scan écrit «Donc H^q(F(m-q)) ≃→ … ≃→ **…, mais, par le théorème de Serre…**» **TOUT EN LIGNE** ⟹ **INLINE.**
+4. ⚠ **`label=\roman*)` ⟹ `label=(\roman*)`** (parenthèses des 2 côtés, comme p616).
+5. ⚠ **ITALIQUE DU CORPS D'ÉNONCÉ** (Prop 1.4 + les 3 items + «En particulier, F est […]-régulier.») — convention p616 #634 appliquée.
+6. ⚠ **`\to0.` ⟹ `\to0`** (suite exacte) — **3ᵉ occurrence de la classe** ; `z631d_suite` : le «0» est à x≈0.815, **rien jusqu'à 0.95**.
+⚠ **Et `"\alpha_{n+1}"'` ⟹ sans le «'»** (label au-dessus) — inclus dans le rep-call 1.
+
+## ✅✅ **LE PEEK EST DÉMENTI — LE MÉLANGE DE GENRES EST CELUI DE L'AUTEUR**
+J'avais armé ce cycle en signalant «α_n est **surjectif** … β_{n+1} est **surjectif** … β_{n+1} est **surjective**» comme un mélange suspect (#633 a prouvé que Codex retouche le genre).
+**b1 montre que LE SCAN ÉCRIT EXACTEMENT ÇA** — «surjectif», «surjectif», puis «**surjective**» **deux lignes plus bas, sur le MÊME β** ⟹ **c'est l'auteur** ⟹ **le fichier a RAISON, AUCUN FIX** ⟹ **6ᵉ contre-exemple à « Codex répare les coquilles » : ici il a reproduit.**
+⚠⚠ **5ᵉ PEEK-AVANT DÉMENTI EN 5 CYCLES** (#631 «Coker» ; #633 «projectif»+renvoi ; #634 «Exposé XI» ; #635 «β_{n+1}» ; **#637 le genre**) ⟹ ★★★★ **LE PEEK-AVANT EST UN SIGNAL, PAS UNE VÉRITÉ.**
+
+## ⚠ **PIÈGE DE CHECK — 12ᵉ FOIS**
+`assert "par 1.3 (i)" not in t` a **ÉCHOUÉ** après un rep() **RÉUSSI** ⟹ **grep ⟹ l'autre site est L14965** («car h^1(L_Y(n))=0 par 1.3 (i)», **section 2, page bien plus loin, légitime**). ⟹ **check trop générique, PAS un bug.** ⚠ **Et le «ERRORS: 3» affiché était un ARTEFACT : le `&&` avait court-circuité après l'échec du script, donc pdflatex a tourné dans le MAUVAIS répertoire. Re-compilé proprement ⟹ 0-err.** ★ **Ne jamais lire un compte d'erreurs sans vérifier que le compile a tourné au bon endroit.**
+
+## **CURSEUR → idx632 (vol p619 = Exposé XIII «- 4 -» ; footer «619» ; 619−4=615 ✓ ; idx=619+13=632).** ⚠ **PEEK (À VÉRIFIER, PAS À CROIRE) : L14677 écrit «par 1.3 (ii)» — MÊME CLASSE que le «2.3» SIC de ce cycle ⟹ CALIBRER AU SCAN.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #636 (2026-07-16) — idx630 (vol p617 = **Exposé XIII «- 2 -»**) — ★ **p617 EST FINIE PAGE-LOCALEMENT. 6 défauts au total (5 en #635 + 1 ici), 5 rep-calls.** Compile **0-err / 381pp** ✓. Rendu vérifié.
+
+# ✅ **LE DERNIER RESTE EST TRANCHÉ**
+⚠ **«F(n)(1).» ⟹ «F(n)(1)»** — `z630e_fn1_a` (**4200dpi**, descendu de +0.02 et **RESSERRÉ EN X**, le crop de #635 coupait le nœud au bord) : le nœud terminal du 2ᵉ diagramme est **SEUL** — flèche à gauche, β_{n+1} au-dessus, **RIEN à sa droite**. ⟹ **le fichier ajoutait un point.**
+⟹ ★ **2ᵉ occurrence de la MÊME CLASSE en une page** (après «0 .» #635) ⟹ **CODEX PONCTUE LES FINS DE DIAGRAMME.** ⚠ **À vérifier systématiquement sur chaque diagramme désormais.**
+
+# ✅ **RE-PARCOURS DES 5 BANDES — CE QUI EST *FIXÉ*, PAS CE QUI EST LU**
+**b1** ⟹ header «- 2 -»+«XIII» ✓ ; démonstration de la Prop 1.3 **NON soulignée** ⟹ romain ✓ ; **2 FIXES** (44ᵉ display ⟹ INLINE ; «par 1.2,»⟹«par 1.2.,»). **b2** ⟹ «Considérons la suite exacte correspondante :» + display ⟹ **VRAI display, MATCHE** ; «Par l'hypothèse de récurrence… ce qui donne (i).» **MATCHE mot à mot**. **b3** ⟹ diagramme 1 : **2 FIXES** (parenthèse SIC ; «0» nu) ; structure **MATCHE** (oblique, 2 lignes, 3 verticales). **b4** ⟹ «où la flèche oblique… par l'hypothèse de récurrence.» **MATCHE mot à mot** ; diagramme 2 : **2 FIXES** (label au-dessus ; «F(n)(1)» nu). **b5** ⟹ **BLANCHE** + folio «617» ✓.
+✅✅ **ET LES 3 REPORTS GLOBAUX NE S'APPLIQUENT MÊME PAS ICI : p617 n'a NI ÉNONCÉ, NI TAG, NI NOTE** (c'est de la démonstration pure + 2 diagrammes) ⟹ **rien à différer** ⟹ **la page est réellement finie page-localement.**
+
+# ★★ **CE QUE p617 AJOUTE AU CATALOGUE**
+1. ★ **Codex PONCTUE LES FINS DE DIAGRAMME** — «0 .» **et** «F(n)(1).» **sur la même page** ⟹ **classe confirmée, à vérifier sur tout diagramme.** ⚠ **Piège LaTeX : `0 .` en math mode ignore l'espace ⟹ rend «0.» — le défaut est INVISIBLE À LA LECTURE DE LA SOURCE, il n'apparaît QU'AU RENDU.**
+2. ★ **Il PERD les points de tag** («par 1.2,» au lieu de «par 1.2.,»).
+3. ★ **Il « RÉPARE » les parenthèses de l'auteur** («H^o(G(n+1)» ⟹ «H^0(G(n+1))») ⟹ **SIC restauré.**
+4. ⚠ **44ᵉ display fabriqué** — le compteur monte toujours.
+
+## **CURSEUR → idx631 (vol p618 = Exposé XIII «- 3 -» ; footer «618» ; 618−3=615 ✓ ; idx=618+13=631).** ⚠ **PEEK (À VÉRIFIER AU SCAN, PAS À CROIRE — 4 démentis en 4 cycles) : le fichier écrit «α_n est surjectif» PUIS «β_{n+1} est surjective» à 2 lignes d'écart ⟹ MÉLANGE DE GENRES ; #633 a montré que Codex « corrige » le genre de l'auteur ⟹ CALIBRER AU SCAN.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #635 (2026-07-16) — idx630 (vol p617 = **Exposé XIII «- 2 -»**, footer «617» ⟹ **617−2=615 = CONSTANTE_XIII CONFIRMÉE SUR SA PROPRE PAGE** ; idx=617+13=630) — **5 défauts fixés, 4 rep-calls.** Compile **0-err / 381pp** ✓. Rendu vérifié ×3. ⚠ **1 point NON TRANCHÉ ⟹ PAGE PARTIELLE.**
+
+# ✅ **RE-PARCOURS DES 5 BANDES — CE QUI EST *FIXÉ*, PAS CE QUI EST LU**
+**b1** ⟹ header «- 2 -»+«XIII» ✓ ; démonstration de la Prop 1.3, **NON soulignée** ⟹ romain dans le fichier ✓ **correct** ; **2 FIXES**. **b2** ⟹ «Considérons la suite exacte correspondante :» + display ⟹ **VRAI display, MATCHE** ; le paragraphe «Par l'hypothèse de récurrence… ce qui donne (i).» **MATCHE mot à mot**. **b3** ⟹ diagramme 1 : **2 FIXES**, structure **MATCHE** (oblique, 2 lignes, 3 verticales). **b4** ⟹ texte «où la flèche oblique… par l'hypothèse de récurrence.» **MATCHE mot à mot** ; diagramme 2 : **1 FIX** ; ⚠ **1 NON TRANCHÉ**. **b5** ⟹ **BLANCHE** + folio «617» ✓ ⟹ la page s'arrête après le 2ᵉ diagramme.
+
+# ✅ **LES 5 DÉFAUTS FIXÉS — TOUS CONFIRMÉS AU SCAN**
+1. ⚠ **44ᵉ DISPLAY FABRIQUÉ** — le scan (b1) écrit «alors σ définit une suite exacte **0 → F(-1) → F → G → 0, et G est** m-régulier par 1.2., à support de dimension s-1.» — **TOUT SUR UNE LIGNE, le texte CONTINUE** ⟹ le fichier en avait fait un `\[…\]` ⟹ **INLINE.**
+2. ⚠ **«par 1.2,» ⟹ «par 1.2.,» — LE POINT MANQUAIT.** `z630_un12` (3600dpi) : «m-régulier par  **1.2 .,**  à support». ⟹ c'est **le point final du tag** («Lemme 1.2.») **suivi de la virgule de la phrase** ; le fichier avait perdu le point. ⚠ **L'espace erratique de la machine («par␣␣1.2␣.,») n'est PAS reproduit : artefact de frappe, comme les CAPITALES** — la frappe est erratique partout, la reproduire serait absurde (et je ne l'ai jamais fait en 22 pages).
+3. ★ ⚠⚠ **«H^0(G(n+1))» ⟹ «H^0(G(n+1)» — COQUILLE DE L'AUTEUR, RESTAURÉE (SIC).** `z630b_gn1` **et** `z630_zero` (3600dpi, **2 crops**) : le scan écrit «H^o(G(n+1)» avec **DEUX parenthèses OUVRANTES et UNE SEULE FERMANTE**. **CALIBRATION SUR LE MÊME DIAGRAMME : «H^o(F(n+1))» en a bien deux.** ⟹ **Codex avait « réparé » la coquille** ⟹ **LE SCAN ARBITRE MÊME QUAND LA MATH DIT LE CONTRAIRE ⟹ SIC** (signalement = ERRATA, pas correction silencieuse). ⚠ **LaTeX : «(» et «)» n'ont pas besoin d'être équilibrés en math mode ⟹ 0-err.**
+4. ⚠ **«0 .» ⟹ «0» — POINT AJOUTÉ PAR CODEX.** `z630c_zero` (4200dpi) : le «0» terminal du 1ᵉʳ diagramme est **SEUL, rien à sa droite**. Le fichier écrivait `& & & & & 0 .` — **et en math mode l'espace est IGNORÉ** ⟹ rendait **«0.»** (visible dans `vrf630_diag1.png`). ⚠ **Ce n'est pas un point de fin de phrase : la phrase CONTINUE par «où la flèche oblique…».**
+5. ⚠ **`\arrow[r,"\beta_n\otimes\mathrm{id}"']` ⟹ sans le «'»** : `z630d_d2b` (3600dpi) montre «β_n⊗id» **AU-DESSUS** de la flèche ; le «'» de tikzcd le mettait **DESSOUS**.
+
+## ✅✅ **UNE PRÉSOMPTION DE PLUS EST TOMBÉE — LE FICHIER AVAIT RAISON**
+J'ai soupçonné `\arrow[d,"\beta_{n+1}"]` de placer le label **à gauche** de la verticale, alors que le scan le met **à droite**. **Le rendu (`vrf630b_diag2.png`) montre β_{n+1} À DROITE** ⟹ **c'est le défaut de tikzcd pour les flèches descendantes** ⟹ **le fichier était DÉJÀ correct ⟹ AUCUN FIX.** Idem «α_n» au-dessus ✓.
+⚠⚠ **4ᵉ PEEK-AVANT DÉMENTI EN 4 CYCLES** (#631 «Coker» ; #633 «projectif»+renvoi ; #634 «Exposé XI» ; **#635 «β_{n+1}»**) ⟹ ★ **RÈGLE : NE PAS RAISONNER SUR LES DÉFAUTS DE tikzcd — RENDRE ET REGARDER.**
+
+## ★★ **LA LEÇON #626 SE VÉRIFIE EN DIRECT**
+`vrf630.py` avec «flèche oblique»+«hypothèse de récurrence» ⟹ **LISTE VIDE**. **Cause : le contenu de la page-scan p617 s'étale sur les pages PDF 329 ET 330** ⟹ les 2 tokens étaient sur des pages **DIFFÉRENTES**. ⟹ **Corrigé en prenant 2 tokens de la MÊME PHRASE** («définit une suite exacte»+«à support de dimension» ⟹ **329** ; «flèche oblique»+«seconde colonne» ⟹ **330**). ⚠ **«PROCHES» veut dire MÊME PHRASE, pas « même page-scan ».**
+
+# ⚠⚠ **NON TRANCHÉ — 1 SEUL POINT**
+⚠ **«F(n)(1).» (nœud terminal du 2ᵉ diagramme, L14641)** : le fichier met un **point** ; le scan (b4) semble n'en avoir **pas** — **MÊME CLASSE que le «0 .» du fix 4** (Codex ponctue les fins de diagramme). ⚠ **MAIS MON CROP COUPE LE NŒUD AU BORD** (`z630d_d2b`) ⟹ **SANS CALIBRATION, JE NE TRANCHE PAS : CONSIGNÉ.** ⟹ **prochain cycle : cropper ≈y 0.735-0.775, x 0.55-0.85.**
+
+## **CURSEUR → idx630 (LE MÊME : p617 est PARTIELLE pour ce seul point).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #634 (2026-07-16) — idx629 (vol p616 = **Exposé XIII p1**, CONSTANTE_XIII=615) — ★★ **p616 : TOUS LES DÉFAUTS PAGE-LOCAUX SONT FIXÉS.** 3 rep-calls. Compile **0-err / 381pp** ✓. Rendu vérifié ×2 (`vrf629_body.png` + `vrf629b_note.png`, **contrôle de POLICE** — plus fort qu'un coup d'œil). ⚠ **Restent 3 reports GLOBAUX (qui bloqueraient IDENTIQUEMENT les 381 pages) ⟹ curseur avancé.**
+
+# ✅ **RE-PARCOURS DES 5 BANDES — CE QUI EST *FIXÉ*, PAS CE QUI EST LU**
+**b1** ⟹ titre ×3 blocs **TRANCHÉ = NON-DÉFAUT LOCAL** (voir ci-dessous) ; «KLEIMAN» **NON-DÉFAUT** (#633, **reconfirmé par la TDM**) ; «1. Les (b)-faisceaux» ✓ ; «Soient k un corps… k-schéma projectif…» ✓ **matche mot à mot** («projectif» vérifié #633). **b2** ⟹ Déf 1.1 **✅ FIXÉE** (`\emph{}` + définiendum) ; display `H^q(F(m-q))=0.` ✓. **b3** ⟹ Lemme 1.2 **✅ FIXÉ** (#633 inline + `\emph{}` ici) ; «En effet…» **✅ FIXÉ** (#633) **et vérifié ROMAIN** ; display+«.» **✅ FIXÉ** (#633) ; Prop 1.3 **✅ FIXÉE**. **b4** ⟹ (i)(ii)(iii) **✅ FIXÉS** (#633 + `\emph{}` ici) ; note ✓ présente, complète, **vérifiée ROMAINE**. **b5** ⟹ note + folio «616» ✓.
+
+# ★★★★★★ **LE DÉFINIENDUM EST TRANCHÉ — CALIBRATION SUR LA MÊME LIGNE, ENCORE UNE FOIS**
+`z629e_defd_a` (**4200dpi, RESSERRÉ EN X** — le piège de #633) : «**dit** m-régulier **si**, **en chaque point d**…»
+⟹ **«dit» SOULIGNÉ — «m-régulier» *PAS* SOULIGNÉ (trou net dans le trait) — «si» SOULIGNÉ — «en chaque point d» SOULIGNÉ.**
+⟹ ★ **LE LIVRE DÉ-SOULIGNE LE DÉFINIENDUM À L'INTÉRIEUR D'UN ÉNONCÉ ITALIQUE** (convention classique : énoncé italique, définiendum en romain).
+⚠⚠ **ET ÇA EXPLIQUE L'INDICE CONTRAIRE DE #633** : dans le **Lemme 1.2** et la **Prop 1.3**, «m-régulier»/«n-régulier» **EST** souligné — **parce que c'est un EMPLOI, pas une DÉFINITION.** ⟹ **le livre distingue les deux** ⟹ **per-occurrence, une fois de plus.**
+✅ **Et c'est EXACTEMENT le comportement de l'`\emph{}` IMBRIQUÉ de LaTeX** (il rebascule en romain) ⟹ **le `\emph{$m$-régulier}` existant est CONSERVÉ tel quel à l'intérieur du corps passé en `\emph{}`. Rien à inventer.**
+
+# ✅ **ITALIQUE DES CORPS D'ÉNONCÉ — APPLIQUÉ SUR p616 (le report avait sa preuve, il a maintenant son fix)**
+Le scan **souligne la prose des 4 énoncés et JAMAIS la math** ; démonstrations et note **NON soulignées** ⟹ **le livre distingue énoncé/démonstration par l'ITALIQUE** (le souligné = l'italique à la machine). **Le fichier avait déjà la convention (L788 `\textbf{Proposition 1.3.} \emph{Soit…}`)** ⟹ **incohérence interne, pas convention à inventer.**
+⚠ **Contraintes LaTeX gérées :** (1) `\emph{}` **ne peut pas enjamber** `\[…\]` ni `\begin{enumerate}` ⟹ **fermé avant**, chaque item en `\emph{}` séparé. (2) ⚠⚠ **RISQUE RÉEL : une `\footnote{}` DANS un `\emph{}` fait passer LE TEXTE DE LA NOTE en italique** — or **le scan ne souligne PAS la note** ⟹ **`\emph{}` COUPÉ AUTOUR de la `\footnote{}`.** ✅ **VÉRIFIÉ AU NIVEAU DE LA POLICE : `LMRoman9-Regular` ⟹ ROMAIN.** (Le rendu confirme : énoncés italiques, «En effet…» droit.)
+⚠ **Piège de check n°1 (11ᵉ fois) :** `\item \emph{` compte **18** occurrences dans le fichier ⟹ check trop générique ⟹ **les 3 rep-calls avaient RÉUSSI, le fichier était DÉJÀ écrit** (l'écriture précède les asserts) ⟹ **grep ciblé ⟹ OK.** ⚠ **Et ces 18 sites sont un RENSEIGNEMENT : d'autres exposés italicisent DÉJÀ leurs items ⟹ la convention se confirme.**
+
+# ✅✅ **TITRE ×3 BLOCS — TRANCHÉ : LE FICHIER A RAISON (localement)**
+`grep` des 15 `\section*{Expos…}` ⟹ **TOUS utilisent la forme FUSIONNÉE** `\section*{Exposé N. Titre}` (0, I, II, II-App-II, III, IV, V, VI, VII, VIII, IX, X, XII, XIII, XIV).
+⟹ **C'est une CONVENTION D'ÉDITION UNIFORME sur 15 exposés ⟹ casser XIII seul créerait l'incohérence ⟹ NON-DÉFAUT LOCAL, report GLOBAL.**
+⚠⚠ **MAIS LE REPORT S'AIGUISE : LA TDM DU FICHIER, ELLE, UTILISE LES 3 BLOCS — ET MATCHE LE SCAN.** L157-164 : `\underline{EXPOSÉ XIII}\\` / `Les Théorèmes de Finitude pour le Foncteur de Picard\\` / `par S. Kleiman \dotfill 616`. ⟹ ⚠⚠⚠ **LE FICHIER SE CONTREDIT ENCORE : sa TDM suit le scan (3 blocs), son corps normalise (fusion), uniformément.** ⟹ **VRAIE DÉCISION D'ÉDITION sur 15 exposés — à trancher globalement, PAS page par page.**
+✅ **Et la TDM écrit «par S. Kleiman» EN MINUSCULES** ⟹ **reconfirme le verdict #633 : les CAPITALES du scan sont un artefact machine ⟹ rendu moderne ⟹ NON-DÉFAUT.**
+
+## ✅✅ **FAUSSE ALERTE STRUCTURELLE : «IL MANQUE L'EXPOSÉ XI»**
+Le grep des sections saute de **X à XII** ⟹ j'ai cru à un **trou structurel majeur**. **FAUX.** La TDM (L158) dit : **«\underline{EXPOSÉ XI} -- Non rédigé»** ⟹ **l'Exposé XI N'A JAMAIS ÉTÉ ÉCRIT, il est absent DU LIVRE** ⟹ **le fichier a raison de ne pas en avoir.**
+⚠⚠ **3ᵉ PEEK-AVANT DÉMENTI EN 3 CYCLES** (#631 «Coker» minuscule ; #633 «projectif» + renvoi «(\*)» ; **#634 «Exposé XI manquant»**) ⟹ ★ **RÈGLE CONFIRMÉE : LE PEEK-AVANT EST UN SIGNAL, PAS UNE VÉRITÉ.**
+
+# ⚠⚠ **CE QUI RESTE — 3 REPORTS *GLOBAUX*, PAS DES DÉFAUTS DE p616**
+1. ⚠⚠⚠ **APPEL DE NOTE «X^{89}»** — le rendu montre «cohérents sur **X⁸⁹**.» ⟹ **se lit «X puissance 89»**. Le scan écrit «sur X **(\*)**.». ⚠ **NON FIXÉ : 89 notes ; les 88 autres NON VÉRIFIÉES au scan** ; et ⚠ **il est DÉFENDABLE que la note NUMÉROTÉE soit du RENDU MODERNE légitime** (comme les CAPITALES, comme «o»-pour-zéro) — **le vrai bug est la COLLISION avec la math**, pas la numérotation. **DÉCISION GLOBALE ⟹ si tenté : PRÉAMBULE + RE-COMPILER (#618).**
+2. ⚠⚠ **CONVENTION DES TAGS** — le scan ne souligne QUE LE MOT, pas le numéro (**7 confirmations**) ; le fichier met le numéro DANS le gras **partout, 381 pages**. **GLOBAL.**
+3. ⚠ **STRUCTURE DU TITRE DES EXPOSÉS** — corps fusionné (×15) vs TDM en 3 blocs vs scan en 3 blocs. **GLOBAL.**
+⟹ ⚠⚠ **CES 3 REPORTS BLOQUERAIENT *IDENTIQUEMENT* LES 381 PAGES : les laisser bloquer p616 stopperait le loop pour toujours.** ⟹ **CURSEUR AVANCÉ — et ce n'est PAS une certification : p616 est «page-local fixé», PAS «complet».**
+
+## **CURSEUR → idx630 (vol p617 = Exposé XIII «- 2 -» ; footer «617» ; 617−615=2 ✓ ; idx=617+13=630).** ⚠ **CONSTANTE_XIII=615 déjà vérifiée sur ce header même (#632).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #633 (2026-07-16) — idx629 (vol p616 = **Exposé XIII p1**, CONSTANTE_XIII=615 ; idx=616+13=629) — ⚠ **PAGE ENCORE PARTIELLE, mais 3 rep-calls / 7 défauts fixés.** Compile **0-err / 381pp** ✓. Rendu vérifié (`vrf629_body.png`, tokens PROCHES «sous-entendu, ici comme»+«surjectif» ⟹ 1 page).
+
+# ✅ **VÉRIFICATION BANDE PAR BANDE (les 5 bandes LUES ce cycle : b2-b3-b4 étaient les manquantes)**
+**b1** ⟹ titre ×3 blocs **NON FIXÉ** (report) ; «projectif» **VÉRIFIÉ NON-DÉFAUT** ; «KLEIMAN» **NON-DÉFAUT**. **b2** ⟹ Définition 1.1 + display `H^q(F(m-q))=0.` **MATCHENT** ; italique d'énoncé **NON FIXÉ** (report). **b3** ⟹ **3 FIXES** (Lemme 1.2, «En effet», terminateur). **b4** ⟹ **4 FIXES** (parenthèses, «.», inline, «surjectif») ; note ⟹ **REPORT NEUF**. **b5** ⟹ note présente dans le fichier ✓ + folio «616» ✓.
+
+## ✅✅ **DEUX PRÉSOMPTIONS DE #632 SONT TOMBÉES — LE FICHIER AVAIT RAISON**
+1. ✅ **«projectif» (défaut #3 annoncé) : NON-DÉFAUT.** b2 montre que le scan écrit «**k-schéma pro-** / **jectif**» — **coupé en fin de ligne**. C'est bien **PROJECTIF**. ⚠ **Le mot était tronqué par le SAUT DE LIGNE, pas par le crop — j'avais pris une césure pour une ambiguïté.**
+2. ✅✅ **LE RENVOI «(\*)» EST DANS LE FICHIER** (L14594, `\footnote{Il est sous-entendu, ici comme dans la suite dans des situations analogues, que F(-1)→F est défini par tensorisation par une section donnée de O_X(1).}`) — **texte COMPLET, mot à mot.** ⚠ **J'attaquais ce cycle en le désignant «HAUTE PRIORITÉ, classe de défaut #3 (Codex élague les renvois)». FAUX.** ⟹ **5ᵉ CONTRE-EXEMPLE à « Codex élague/répare systématiquement ».** ⚠⚠ **Et b5 est RELUE : son texte n'est PAS du corps de texte, c'est LA NOTE DE BAS DE PAGE** (b4 montre le filet horizontal + «(\*)  Il est sous-entendu…»). **#632 l'avait lue comme du corps.**
+
+# ✅ **LES 7 DÉFAUTS FIXÉS (3 rep-calls) — TOUS CONFIRMÉS AU SCAN**
+1. ⚠ **42ᵉ DISPLAY FABRIQUÉ** — Lemme 1.2 : le scan écrit «Soit 0→F(-1)→F→G→0 **une suite exacte de faisceaux cohérents sur X (\*).**» **tout sur UNE ligne, du texte suit** ⟹ le fichier en avait fait un `\[…\]` ⟹ **INLINE.**
+2. ⚠⚠ **STATUT DU PROPOS — LA DÉMONSTRATION ÉTAIT COLLÉE DANS L'ÉNONCÉ.** Le fichier écrivait «…alors $G$ l'est. En effet, on a la suite exacte correspondante :» **d'un seul tenant**. Le scan (`z629_dispL12`, 3600dpi) montre «**En effet…**» **INDENTÉ, en paragraphe neuf, et NON SOULIGNÉ** — alors que l'énoncé qui précède EST souligné. ⟹ **c'est la DÉMONSTRATION, pas l'énoncé** ⟹ **paragraphe séparé.** (2ᵉ occurrence de cette classe après #628.)
+3. ⚠ **Terminateur du display** : fichier «**,**» ⟹ scan «**.**» (`z629d_dispend`, 3000dpi : **point rond isolé à droite, SANS queue descendante**) ⟹ **cohérent avec le display de la Déf 1.1 que le fichier terminait DÉJÀ par «.»** ⟹ le «,» était l'anomalie.
+4. ⚠ **`label=\roman*)` ⟹ `label=(\roman*)`** : le scan (`z629_items`) écrit «**(i)**» «**(ii)**» «**(iii)**» — **parenthèses DES DEUX CÔTÉS** ; le fichier n'en mettait qu'une.
+5. ⚠ **item (i) : «;» ⟹ «.»** (scan : «(i) F est n-régulier**.**»).
+6. ⚠ **43ᵉ DISPLAY FABRIQUÉ** — item (ii) : le scan l'écrit **INLINE** («(ii) H⁰(F(n)) ⊗ H⁰(O_X(1)) → H⁰(F(n+1)) est surjectif.»).
+7. ★ ⚠⚠ **«est surjective;» ⟹ «est surjectif.»** — **CALIBRÉ SUR LA MÊME LIGNE** (`z629c_surj`, 3000dpi) : «**F(n+1)) est surjectif.**» — **masculin**, **point final**, **et SOULIGNÉ** alors que le «F(n+1))» voisin ne l'est pas. ⟹ **Codex avait « corrigé » le GENRE de l'auteur** (le scan accorde au masculin sous-entendu «homomorphisme»). **2 défauts sur un seul item.**
+⚠ **Piège de crop rencontré 2× : strip trop LARGE en x ⟹ downscale ×10 à l'affichage ⟹ détail perdu. RESSERRER EN X, pas seulement en y.** Et **la calibration y a dérapé de ~0.045** («En effet» à 0.497 et non 0.453) ⟹ **±0.02 appliqué 2×, comme la règle l'impose.**
+
+# ⚠⚠⚠ **REPORT NEUF — HAUTE PRIORITÉ : LES APPELS DE NOTE RENDENT «X^{89}»**
+Le rendu (`vrf629_body.png`) montre : «une suite exacte de faisceaux cohérents sur **X⁸⁹**. Si F est m-régulier…»
+⟹ `sur $X$\footnote{…}` fait imprimer le **numéro de note 89 EN EXPOSANT, COLLÉ À LA MATH** ⟹ **ça se lit «X puissance 89».** **Le scan écrit «sur X (\*).»** — **astérisque parenthésé, à la ligne de base** — et la note elle-même commence par «**(\*)**».
+⚠⚠ **NON FIXÉ — DÉLIBÉRÉMENT** : le fichier a **89 notes** ; savoir si les 88 autres correspondent à des «(\*)» du scan (ou sont des notes du rédacteur) **est une décision GLOBALE que je n'ai pas vérifiée**, et bricoler `\thefootnote`/`\footnotetext` est exactement la manœuvre qui a **cassé le gate en #618**. ⟹ **À TRANCHER : convention d'appel de note, GLOBAL.** ⚠ **Mais le fait LOCAL est solide : ici le scan dit «(\*)», le fichier dit «⁸⁹».**
+
+# ⚠⚠ **DÉFAUTS REPÉRÉS-NON-FIXÉS SUR p616**
+1. ⚠ **STRUCTURE DU TITRE** : scan = **3 blocs séparés** ; fichier = `\section*{Exposé XIII. Les théorèmes…}` **fusionné** ⟹ **exige de regarder les 12 autres exposés AVANT** (cohérence globale).
+2. ⚠⚠ **ITALIQUE DES CORPS D'ÉNONCÉ — LE REPORT GLOBAL A UNE PREUVE NEUVE ET FORTE.** Le scan **SOULIGNE la prose des 4 énoncés de la page** (Déf 1.1, Lemme 1.2, Prop 1.3, items (i)(ii)(iii)) **et JAMAIS la math** — c'est la façon machine de rendre l'**ITALIQUE**. Les démonstrations («En effet…») et la note **ne sont PAS soulignées** ⟹ **le livre distingue énoncé / démonstration par l'italique.** ⚠⚠ **ET LE FICHIER A DÉJÀ CETTE CONVENTION AILLEURS : L788 = `\textbf{Proposition 1.3.} \emph{Soit $N\in\widetilde A$…}`** ⟹ **`\textbf{tag}` + `\emph{corps}` est la convention PROPRE DU FICHIER, et tout l'Exposé XIII s'en écarte (corps en romain).** ⟹ **Ce n'est PAS une convention à inventer : c'est une INCOHÉRENCE INTERNE du fichier, que le scan tranche.** ⚠ **NON FIXÉ ce cycle (contexte) — À FAIRE PAGE PAR PAGE en avançant, PAS EN SWEEP.**
+3. ⚠ **Définiendum «m-régulier» dans la Déf 1.1 : NON TRANCHÉ.** Le fichier a `\emph{$m$-r\'egulier}` **dans un corps romain** ; si le corps passe en `\emph{}`, le `\emph{}` imbriqué **repasse en romain** — ce qui serait la convention correcte du définiendum. ⚠ **MAIS LE CROP A RATÉ LA LIGNE** («dit m-régulier si, en chaque point du support de F») ⟹ **SANS CALIBRATION, JE NE TRANCHE PAS : CONSIGNÉ.** ⚠ **Indice contraire : dans le Lemme 1.2 et la Prop 1.3, «m-régulier»/«n-régulier» EST souligné** ⟹ le livre pourrait ne PAS dé-souligner le définiendum ⟹ **à vérifier au crop.**
+4. ⚠ **Convention des tags — 4ᵉ, 5ᵉ, 6ᵉ ET 7ᵉ CONFIRMATIONS ce cycle** (`z629_mreg`, 4200dpi : «**Définition**» souligné, «1.1 (Mumford).» **PAS** souligné ; idem «**Lemme**» / «1.2.», «**Proposition**» / «1.3.»). **Le fichier met le numéro DANS le gras partout** ⟹ **GLOBAL, 7 confirmations, toujours ouvert.**
+
+## **CURSEUR → idx629 (LE MÊME : p616 reste PARTIELLE).** Restent : titre ×3 blocs (après contrôle des 12 autres exposés), italique des corps d'énoncé (preuve L788 acquise), définiendum «m-régulier» (crop à refaire), appel de note «(\*)». ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #632 (2026-07-16) — idx629 (vol p616 = **DÉBUT DE L'EXPOSÉ XIII**, «Les théorèmes de finitude pour le foncteur de Picard», par S. KLEIMAN) — ⚠⚠ **PAGE PARTIELLE : AUCUN FIX. Cycle consommé par les 2 tâches d'AMORÇAGE — et la 2ᵉ a explosé.** Compile **inchangée 0-err / 381pp** (aucune écriture dans le .tex).
+
+# ✅ **AMORÇAGE (1) : CONSTANTE_XIII = 615 — DÉRIVÉE, PAS PRÉSUMÉE**
+⚠ **p616 est la PAGE DE TITRE ⟹ AUCUN header «- N -»** ⟹ la constante ne peut pas s'en déduire. **Contournement :** cropper le header de la page SUIVANTE (p617 = d[630], `zconst13_p617head.png`, 2600dpi) ⟹ **«- 2 -» + «XIII»** ⟹ **617 − 2 = 615**.
+**Double contrôle :** la page de titre est donc «- 1 -» (header omis) ⟹ 616 − 1 = **615** ✓. **Offset global idx = footer + 13 CONFIRMÉ** (629 = 616+13 ✓, footer «616» lu en b5).
+⟹ **CONSTANTE_XIII = 615. CE N'EST PAS 594.** (rappel : CONSTANTE_X=518, CONSTANTE_XII=594 — **chaque exposé a la sienne, la présomption aurait décalé TOUT l'exposé.**)
+
+# ★★★★★★★★★★ **AMORÇAGE (2) : LA BOMBE `\red` N'ÉTAIT PAS UN CAS ISOLÉ — C'EST UN DÉFAUT SYSTÉMIQUE DU FICHIER**
+`zdup.py` a scanné **tout** le .tex. Résultat :
+- **214 macros `\providecommand` distinctes**
+- **105 SONT DUPLIQUÉES (~49 %)** — jusqu'à **×12** (`\Ob`), ×10 (`\Spec`), ×9 (`\id`), ×8 (`\Hom`, `\im`, `\RHom`, `\coh`)
+- **24 ONT DES CORPS QUI DIFFÈRENT** ⟹ **24 bombes potentielles** (`\providecommand` ne définit QUE si la macro est indéfinie ⟹ **la 1ʳᵉ occurrence DANS LE FICHIER gagne, toutes les suivantes sont des NO-OPS SILENCIEUX**).
+⚠ **Rappel #618 : c'est exactement ce mécanisme qui faisait rendre «red» au lieu de «réd» PARTOUT — et c'est en le corrigeant sans passer par le PRÉAMBULE que j'ai CASSÉ LE GATE.**
+
+## ✅ **TRIAGE PAR SITES D'USAGE (`zuse.py`) — 8 DES 24 SONT MORTES ⟹ NON-DÉFAUTS**
+⚠ **Une bombe n'est un DÉFAUT que si le corps GAGNANT est FAUX pour un site d'USAGE RÉEL.** Comptage des usages hors lignes `\providecommand` :
+**MORTES (0 usage, à ignorer) :** `\etale`, `\colim`, `\cE`, `\cG`, `\cL`, `\cK`, `\cN`, `\Kb`.
+⟹ **la panique `\mathscr` vs `\mathcal` (`\cE`/`\cG`/`\cL`/`\cK`/`\cN`) est SANS OBJET** ; idem `\colim`→`\varinjlim` et `\Kb`→`K^\bullet`.
+
+## ⚠⚠ **16 BOMBES VIVANTES — INVENTAIRE (corps GAGNANT ⟹ ce qui est RENDU) :**
+| macro | usages | corps GAGNANT (rendu réel) | corps PERDUS (no-ops) |
+|---|---|---|---|
+| `\Ob` | **256** | `\operatorname{ob}` (L1699) **minuscule** | **8 des 12** voulaient `Ob` |
+| `\Gr` | **152** | `\operatorname{Gr}` (L43) | L59 voulait **`G`** |
+| `\coh` | 73 | `\operatorname{coh}` (L2131) | 4 voulaient `\mathrm{coh}` |
+| `\parf` | 53 | `\operatorname{parf}` (L3170) | 3 voulaient `\mathrm{parf}` |
+| `\Filt` | 46 | `\operatorname{Filt}` (L12416) | L12824 voulait **`Fil`** |
+| `\RHom` | 45 | `\mathrm R\!\operatorname{Hom}` (L1698) | L3502 voulait `\operatorname{RHom}` |
+| `\naif` | 41 | `\text{naïf}` (L6101) | L16552 voulait `\operatorname{naif}` |
+| `\varinjlim` | 25 | `\mathop{\mathrm{lim}}\limits_{\to}` (L2139) | L6106 voulait `\varinjlim` |
+| `\parfamp` | 24 | `\operatorname{parf.amp}` (L5557) | L16545 voulait **`par.amp`** |
+| `\Sym` | 17 | `\operatorname{Sym}` (L80) | L6700 voulait **`\mathfrak S`** |
+| `\varprojlim` | 16 | `\mathop{\mathrm{lim}}\limits_{\gets}` (L2140) | L6107 voulait `\varprojlim` |
+| `\qcoh` | 16 | `\operatorname{qcoh}` (L2141) | 3 voulaient `\mathrm{qcoh}` |
+| `\torf` | 12 | `\operatorname{torf}` (L2631) | 2 voulaient `\mathrm{torf}` |
+| `\id` | 7 | `\operatorname{Id}` (L1705) **MAJUSCULE** | **7 des 9** voulaient `id` |
+| `\Db` | 4 | `\mathrm D` (L1396) | L16077 voulait `D` |
+| `\coker` | **2** | `\operatorname{Coker}` (L3498) **MAJUSCULE** | **3 voulaient `coker` minuscule** |
+
+## ✅ **CONTRÔLE URGENT : MON FIX #626 N'EST *PAS* UN NO-OP**
+⚠ Alerte immédiate : `\coker` rend **«Coker» MAJUSCULE partout** (L3498 gagne) — **or j'ai fixé p610 vers «coker» MINUSCULE au scan (#626). Fix mort ?**
+**NON :** les 2 seuls sites `\coker` sont **L14464** (`\coker\bigl(\Pic^0_{X_s/s}\to\Pic^0_{Y_s/s}\bigr)`) et **L14483** (`\coker(\pi_1-\pi_2)`) — **pas p610.** Mon fix p610 utilisait un **littéral**, pas la macro ⟹ **il rend bien.** ✅
+
+## ⚠⚠⚠ **CE QUE JE NE FAIS *PAS* — ET POURQUOI**
+**AUCUN de ces 16 sites n'est corrigé ce cycle. C'EST DÉLIBÉRÉ.**
+1. ⚠⚠ **L'INTENTION DE CODEX N'EST PAS LA VÉRITÉ.** Que L14156 ait voulu `coker` minuscule ne prouve RIEN : **c'est le SCAN qui tranche** — et **il se contredit déjà lui-même** («coker» p610 #626, «ker» p614 #630, **«Coker»/«Ker» p615 #631**). **Réparer les 16 bombes «vers l'intention de Codex» serait exactement le SWEEP qui aurait cassé p615.**
+2. ⚠ **`\Ob` ×256 et `\Gr` ×152 : un fix global toucherait 400+ sites sur ~10 exposés que je n'ai pas lus.** Hors de question sans scan.
+3. ⚠ **#618 : le seul correctif sûr passe par le PRÉAMBULE, et TOUJOURS RE-COMPILER APRÈS.**
+⟹ **Ces 16 lignes deviennent un REPORT PERMANENT, à trancher PAGE PAR PAGE, AU SCAN, PER-OCCURRENCE.** ⚠ **Quand une page rend un de ces 16 opérateurs, CALIBRER LA CASSE SUR LA MÊME LIGNE avant de conclure.**
+⚠⚠ **DEUX BOMBES À SÉMANTIQUE MATH (les plus graves — à zoomer en priorité quand elles apparaissent) :**
+- **`\Sym`** : L6700 voulait **`\mathfrak S`** = le **GROUPE SYMÉTRIQUE 𝔖_n**, pas `Sym` (l'algèbre symétrique). **Si un des 17 sites veut 𝔖_n, le fichier rend une AUTRE NOTION.**
+- **`\Gr`** : L59 voulait **`G`** — or en SGA 6 **K(X) vs G(X)** (K-théorie des faisceaux cohérents) **est une distinction SÉMANTIQUE RÉELLE.** **Si un des 152 sites veut G, idem.**
+⟹ **`\Fil`/`\Filt` : LE REPORT OUVERT EST EXPLIQUÉ** — ce n'est pas une incohérence de frappe, c'est **la bombe `\providecommand`** (L12416 `Filt` gagne, L12824 `Fil` = no-op, 46 usages). **`\Gr` L43/L58 «À TRANCHER» : même mécanisme, désormais quantifié (152 usages).**
+
+# ⚠⚠ **p616 — ÉTAT RÉEL : 2 BANDES LUES SUR 5, ZÉRO FIX**
+**b1 LUE :** «**E X P O S E  XIII**» (lettres espacées, souligné) / «**LES THEOREMES DE FINITUDE POUR LE FONCTEUR DE PICARD**» (CAPITALES, centré, souligné) / «**par S. KLEIMAN**» (CAPITALES, centré, souligné) / «**1. Les (b)-faisceaux**» (souligné) / «Soient k un corps algébriquement clos et X un k-schéma pro[…]».
+**b5 LUE :** «…que F(-1) → F est défini par tensorisation par une section donnée de O_X(1).» + folio «**616**» ✓.
+⚠⚠ **b2, b3, b4 : NON LUES.** ⟹ **PAGE PARTIELLE.**
+
+## ⚠ **DÉFAUTS REPÉRÉS — *NON FIXÉS* (à traiter au prochain cycle)**
+1. ⚠ **STRUCTURE DU TITRE** : le scan a **TROIS blocs séparés** («EXPOSE XIII» / le titre / «par S. KLEIMAN») ; le fichier **FUSIONNE numéro+titre** en un seul `\section*{Exposé XIII. Les théorèmes de finitude pour le foncteur de Picard}` (L14577). ⚠ **Avant de fixer : REGARDER COMMENT LES AUTRES EXPOSÉS SONT FAITS DANS LE FICHIER — c'est une décision de cohérence globale, pas locale.**
+2. ⚠ **«par S. Kleiman» (L14579) vs le scan «par S. KLEIMAN»** (CAPITALES) — ⚠ mais **CAPITALES = artefact machine ⟹ rendu moderne** (règle établie) ⟹ **probablement NON-DÉFAUT — à confirmer contre le traitement des autres exposés.**
+3. ⚠⚠ **«un $k$-schéma **projectif**» (L14583)** : le scan est **coupé à «pro[…]» en b1** ⟹ **«projectif» ou «propre» ? NON TRANCHÉ — b2 REQUISE.** ⚠ **SANS CALIBRATION, NE PAS TRANCHER.**
+(«EXPOSE»/«THEOREMES» sans accents = CAPITALES ⟹ artefact machine ⟹ rendu moderne.)
+
+## **CURSEUR → idx629 (LE MÊME : p616 est PARTIELLE).** **CONSTANTE_XIII=615 ACQUISE, l'amorçage est FAIT** ⟹ le prochain cycle attaque directement **b2-b3-b4**, puis les 3 défauts ci-dessus. ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #631 (2026-07-16) — idx628 (vol p615 = **Exposé XII «- 21 -»**, footer **«615»** ⟹ **615−21=594 = CONSTANTE_XII** ; idx=615+13=628) — **★★★★★★★★★★ p615 COMPLÈTE — ET L'EXPOSÉ XII EST TERMINÉ. Seulement 2 rep-calls : LE PEEK-AVANT DE #630 EST DÉMENTI, LE FICHIER AVAIT RAISON.** Compile **0-err / 381pp** ✓ (**382→381 : les 2 displays revenus en prose ont fait remonter une page — attendu**). Rendu vérifié (`vrf628_body.png`, tokens PROCHES «diagramme de base»+«épimorphisme»).
+
+# ✅ **VÉRIFICATION BANDE PAR BANDE**
+**b1** ⟹ les 2 displays fixés + «Coker»/«Ker»/«diagramme» **vérifiés au zoom** — **FIXÉE**. **b2** ⟹ fin du texte, puis **BLANC**. **b3-b4** ⟹ **BLANCHES**. **b5** ⟹ folio «615». ⟹ **LES 5 BANDES SONT TRAITÉES.**
+⚠ **PAGE COURTE : ~7 lignes puis blanc** ⟹ **c'est la FIN DE L'EXPOSÉ XII** (le fichier enchaîne sur «% Expose XIII local macros» en L14571) ✓ **cohérent.**
+
+# ✅✅✅✅ **LE PEEK-AVANT DE #630 EST DÉMENTI — ET C'EST LA TROUVAILLE DU CYCLE**
+J'avais armé ce cycle en annonçant le `\operatorname{Coker}` du fichier comme **«fort candidat minuscule»** (le scan écrit «coker» MINUSCULE en p610 #626 et «ker» MINUSCULE en p614 #630).
+**Crop `z628b_coker` (4200dpi)** : «i.e. qui rend **Coker** u nul. **Comme** la formation de **Coker** u commute au…» — **le «C» de «Coker» est IDENTIQUE EN HAUTEUR au «C» de «Comme»** (tous deux pleine hauteur), et ils **contrastent nettement** avec les minuscules de «qui rend» / «la formation de». Idem **«Ker»** (bande b2, calibré contre «commute»).
+⟹ **«Coker»/«Ker» SONT MAJUSCULES ICI ⟹ LE FICHIER EST JUSTE ⟹ AUCUN FIX SUR LA CASSE.**
+⚠⚠⚠ **LE LIVRE ÉCRIT DONC : «coker» MINUSCULE (p610), «ker» MINUSCULE (p614), «Coker»/«Ker» MAJUSCULES (p615). IL SE CONTREDIT ENTRE PAGES, ENCORE.** ⟹ **Mes fixes #626 et #630 étaient JUSTES POUR LEURS PAGES ; celui-ci n'avait pas lieu d'être.** ⚠⚠ **UN SWEEP SUR LA CASSE DES OPÉRATEURS AURAIT CASSÉ CETTE PAGE. Le peek-avant est un SIGNAL, PAS UNE VÉRITÉ — il se vérifie au scan comme tout le reste.**
+
+## ⚠⚠⚠ **4ᵉ CONTRE-EXEMPLE : «commute au DIAGRAMME de base»**
+Le scan écrit «Comme la formation de Coker u commute au **diagramme** de base» — là où la math veut **«changement»** — **et la phrase SUIVANTE écrit «commute au CHANGEMENT de base» CORRECTEMENT, deux lignes plus bas.** ⟹ **coquille de l'auteur, dans une page qui contient sa propre correction** ⟹ **et le fichier l'AVAIT DÉJÀ REPRODUITE ⟹ NON TOUCHÉ.** Le rendu montre les deux formes côte à côte.
+⚠ **4ᵉ contre-exemple** (après «restreindre» #629, les verticales p605 #621, `f^*` #623, `\simeq`/`\xrightarrow{\sim}` #627) ⟹ **Codex ne « répare » PAS systématiquement.**
+
+## ⚠⚠ **LES 2 SEULS DÉFAUTS : 40ᵉ ET 41ᵉ DISPLAYS FABRIQUÉS**
+Le scan écrit «…on voit qu'il est représenté par l'ouvert **S−λ(supp(Coker u)) de S**.» et «…le foncteur envisagé est représenté par l'ouvert **S−λ(supp(Ker u)) de S**.» — **tout sur une ligne, du texte SUIT («de S.»)** ⟹ **INLINE** ; le fichier en avait fait 2 `\[…\]`.
+✅ **TOUT LE RESTE DE LA PAGE MATCHE** (vérifié mot à mot) : `\operatorname{Coker}` / `\operatorname{Ker}` / `\operatorname{supp}` / `S-\lambda(\ldots)` / «On se ramène comme d'habitude…» (déjà vérifié #630).
+
+# ★★★★★★ **L'EXPOSÉ XII EST TERMINÉ — BILAN**
+**§1 COMPLET** (#605-#608) ; **§2 COMPLET** (p599 #609 → p604 #617) ; **§3 «Le dévissage de Oort» COMPLET** (p604 #617 → p609 #624) ; **§4 «Démonstration de II\*» COMPLET** (p609 #624, p610 #626, p611 #627, p612 #628, p613 #629, p614 #630, **p615 #631**). **CONSTANTE_XII=594 vérifiée sur les 21 pages.**
+⚠⚠ **CE QUI RESSORT DES 21 PAGES — ET QUI VAUT POUR LA SUITE :**
+1. **Codex REFORMATE dans les 2 sens** : 41 displays fabriqués **ET** 1 aplati (#628).
+2. **Il TRADUIT** : la prose en symboles («est égal au foncteur»→«=»), le vocabulaire de l'auteur («splittage»→«scindage»).
+3. **Il ÉLAGUE LE RAISONNEMENT** : connecteurs, renvois, précisions — jusqu'à **8 droppages sur une phrase** (#626) — et **change le STATUT du propos** (incise ⟹ fil principal, #628).
+4. **Il « RÉPARE » LES COQUILLES DE L'AUTEUR** — sur **14 pages de suite** — mais **PAS systématiquement** (4 contre-exemples).
+5. ⚠⚠⚠ **LE LIVRE SE CONTREDIT LUI-MÊME, ENTRE PAGES ET SUR UNE MÊME PAGE** : ×_y/×_Y, f_\*O_Y/f_\*O_X, les 2 nilrad, les 3 formes de label, j/i, «catégorie»/«catégoire» dans la MÊME phrase, «lemme suivant» complet ET tronqué sur la MÊME page, **coker/Coker entre p610 et p615**, «diagramme»/«changement» à 2 lignes d'écart.
+⟹ **LA SEULE MÉTHODE QUI TIENT : per-occurrence, calibrée sur la MÊME LIGNE, JAMAIS DE SWEEP.**
+
+## **CURSEUR → idx629 (vol p616 = **DÉBUT DE L'EXPOSÉ XIII** ; footer «616» ; idx=616+13=629).** ⚠⚠ **NOUVEL EXPOSÉ ⟹ CONSTANTE_XIII À DÉRIVER : lire le header («- N -» + «XIII») et le footer, puis CONSTANTE = footer − N.** ⚠ **NE PAS PRÉSUMER que c'est 594 : chaque exposé a la sienne** (CONSTANTE_X=518, CONSTANTE_XII=594). ⚠ **Le fichier a un bloc «% Expose XIII local macros» en L14571+ (`\providecommand{\Ass}{\operatorname{Ass}}`…) ⟹ VÉRIFIER S'IL Y A DES `\providecommand` EN DOUBLE (la bombe `\red` #618 / `\Gr` L43-L58).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #630 (2026-07-16) — idx627 (vol p614 = **Exposé XII «- 20 -»**, footer **«614»** ⟹ **614−20=594 = CONSTANTE_XII** ; idx=614+13=627) — **★★★★★★★ p614 COMPLÈTE EN UN PASSAGE — 5 rep-calls / ~20 DÉFAUTS : LA 3ᵉ CITATION REFORMATÉE, LA 3ᵉ COQUILLE D'EXPOSANT EN 3 PAGES, UN «I» RENOMMÉ EN «T» — ET UNE PREUVE QUE LE REPORT «…suivante.» EST BIEN PER-OCCURRENCE** — (5 bandes b1-b5 + 4 crops `z627_Rn`/`IorT` 4000dpi, `z627_ker`/`OYmod` 4200dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf627_body.png`, tokens PROCHES «Murre»+«294-11»).
+
+# ✅ **VÉRIFICATION BANDE PAR BANDE**
+**b1** ⟹ R^n + début citation — **FIXÉE**. **b2** ⟹ citation Murre complète — **FIXÉE** ; **Lemme 4.5 MATCHE** (non touché). **b3** ⟹ «I → S», labels, parenthèses, «ker», «on applique le» — **FIXÉE**. **b4** ⟹ Lemme 4.6 (O_Y-Modules) — **FIXÉE** ; **«On se ramène comme d'habitude…» MATCHE** (vérifié par grep, non touché). **b5** ⟹ folio. ⟹ **LES 5 BANDES SONT TRAITÉES.**
+
+# ✅✅✅ **LE REPORT «…suivante.» EST BIEN PER-OCCURRENCE — LE SCAN LE PROUVE ICI**
+Le scan écrit **«la représentabilité de S_n résulte du LEMME SUIVANT (voir : J.P. Murre, …)»** — **l'auteur emploie BEL ET BIEN la tournure «lemme suivant» ici** ⟹ **CE N'EST PAS le motif ⟹ NON TOUCHÉ.**
+⚠⚠ **C'EST LA CONFIRMATION QUE LE REPORT NE PEUT PAS ÊTRE UN SWEEP** : sur la MÊME PAGE, l'auteur écrit «résulte du **lemme suivant**» (tournure complète, à garder) **ET** «ensuite on applique **le**» + bloc «Lemme 4.6.» (tournure tronquée, à restaurer). ⟹ **6ᵉ site du motif fixé, et le contre-exemple est sur la même page.**
+
+## ⚠⚠⚠⚠⚠ **LA 3ᵉ CITATION REFORMATÉE (après les 2 d'Oort, #617/#620)**
+Scan : «(voir : **J.P.** Murre, Representation of unramified functors, Séminaire Bourbaki **;** Mai 1965, **p.294-11**, **th.2**) :»
+Le fichier avait : **«J.-P.»** (trait d'union **fabriqué**), **«Bourbaki;»** (le «;» **collé**), **«p. 294-11»** et **«th. 2»** (espaces **fabriquées**). ⟹ **4 défauts dans une seule référence.** ⚠ **3 citations sur 3 ont été reformatées ⟹ VÉRIFIER SYSTÉMATIQUEMENT CHAQUE CITATION.**
+⚠ **NOUVELLE PREUVE POUR LE REPORT «emph des titres»** : le scan **NE SOULIGNE PAS** «Representation of unramified functors» (romain nu) — **contrairement au «Commutative group schemes» de p607, qui est ENTRE GUILLEMETS** ⟹ **le livre distingue les deux** ; l'`\emph{}` du fichier est laissé (report GLOBAL) mais **l'évidence s'accumule**.
+
+## ⚠⚠⚠⚠⚠ **LA 3ᵉ COQUILLE D'EXPOSANT EN 3 PAGES**
+Crop `z627_Rn` (**4000dpi**) : «on peut supposer que **R^n** f_\*(F) est S-plat **pour i ≥ n+1**» — **l'exposant est un «n», IDENTIQUE aux «n» de «n+1» de la MÊME LIGNE.** La math veut **R^i** (le quantificateur suit) ⟹ **COQUILLE DE L'AUTEUR ⟹ SIC** ; le fichier avait « réparé » en `R^i`.
+⚠⚠ **SÉRIE : R^i/R^j (#626), R^1 (#629), R^n (#630) — TROIS PAGES CONSÉCUTIVES. L'auteur se trompe systématiquement d'exposant sur les R^• f_\*, et Codex le corrige à chaque fois.**
+
+## ⚠⚠⚠⚠ **UN «I» RENOMMÉ EN «T» — ET LE «I» ÉTAIT CORRECT**
+Crop `z627_IorT` (**4000dpi**) : «commutent aux changements de base **I ⟶ S**» — **c'est un «I»** (hampe à empattements **haut ET bas**), pas un «T». Le fichier écrivait **`T\to S`** ⟹ **RENOMMAGE.**
+⚠ **ET LE «I» EST MATHÉMATIQUEMENT JUSTE** : c'est le **schéma affine représentant Isom**, introduit en **p612** («Il est représenté par un schéma affine I…» / «Après le changement de base I ⟶ S…»). ⟹ **Codex a cassé un renvoi à 2 pages de distance.**
+
+## ⚠⚠⚠ **«ker» MINUSCULE + «O_Y-Modules» + LE RESTE**
+- **«N = ker(π_1−π_2)»** (crop `z627_ker`, 4200dpi) — le **«k» est MINUSCULE**, calibré contre le **«N» MAJUSCULE qui le précède sur la MÊME LIGNE** ; le fichier avait **`\Ker`** ⟹ **`\ker`.** ⚠ **Même classe que le `\Coker`→`\coker` de #626** ⟹ **le fichier majuscule les opérateurs de l'auteur.** ✅ **`\operatorname{coker}` de la condition 3) était DÉJÀ minuscule ⟹ le fichier se contredisait.**
+- **«un homomorphisme de O_Y-Modules»** (crop `z627_OYmod`, 4200dpi) : **«O_Y»** — l'indice est un **Y**, alors que la math attend **O_X** (λ : X → S, donc F et G vivent sur X) ⟹ **COQUILLE DE L'AUTEUR ⟹ SIC** (le fichier : `\mathcal O_X`) ; **+ «Modules» avec un «M» MAJUSCULE** = la **convention EGA de l'auteur** (Module = module quasi-cohérent) ; le fichier avait «modules».
+- **39ᵉ DISPLAY FABRIQUÉ** → INLINE («N = ker(π_1−π_2) **commute aussi**»).
+- **LABELS NUS** : «3)», «1) et 2)», «4)», «3)» (le fichier parenthésait tout).
+- **PARENTHÈSES DE FAISCEAU ×4** — **10ᵉ PAGE CONSÉCUTIVE** : «f_\*(L)» ×2, «g_\*(p_1\*L)» ×2.
+- **«on note que d'après 3)»** (virgule parasite) ; **2 espaces avant «;»**.
+
+## **CURSEUR → idx628 (vol p615 = **Exposé XII «- 21 -»**, footer «615» ; idx=615+13=628).** ⚠ **ATTENDU : la suite du Lemme 4.6 — «…Représentons d'abord le foncteur qui rend u un épimorphisme, i.e. qui rend Coker u nul. Comme la formation de Coker u commute au diagramme de base, on voit qu'il est représenté par l'ouvert…» ; ~L14559+.** ⚠⚠ **PEEK-AVANT (À CONFIRMER) : le fichier écrit `\operatorname{Coker}u` avec un «C» MAJUSCULE en L14559 — or le scan écrit «coker» MINUSCULE en p610 (#626) et «ker» MINUSCULE en p614 (#630) ⟹ FORT CANDIDAT.** ⚠⚠ **RÉGIME p614 : Codex reformate les citations (3/3), « répare » les exposants de l'auteur (3 pages de suite), renomme les variables (I→T, cassant un renvoi à 2 pages), majuscule les opérateurs (\Ker, \Coker) ⟹ CHAQUE CITATION, CHAQUE EXPOSANT, CHAQUE LETTRE.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #629 (2026-07-16) — idx626 (vol p613 = **Exposé XII «- 19 -»**, footer **«613»** ⟹ **613−19=594 = CONSTANTE_XII** ; idx=613+13=626) — **★★★★★★★ p613 COMPLÈTE EN UN PASSAGE — 8 rep-calls / ~18 DÉFAUTS : UN «{∅}» LU COMME UN «{φ}», UN «R^1» DE L'AUTEUR RESTAURÉ, ET UNE COQUILLE QUE CODEX AVAIT DÉJÀ REPRODUITE** — (5 bandes b1-b5 + 1 crop `z626_emptyset` 4200dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf626_body.png`, tokens PROCHES «restreindre au-dessus»+«précisément»).
+
+# ✅ **VÉRIFICATION BANDE PAR BANDE**
+**b1** ⟹ «4) et 5)», «O_Y~;», «restreindre» (**déjà juste**) — **FIXÉE**. **b2** ⟹ «1)-5)», «L=O_X~;», «1) à 5)», «1) et 2)», «on applique le» — **FIXÉE**. **b3** ⟹ «{∅}», «R^1», «exact» — **FIXÉE**. **b4** ⟹ «pour i ≥ n», «sur S~;», display→inline, «n>r~;» — **FIXÉE**. **b5** ⟹ folio. ⟹ **LES 5 BANDES SONT TRAITÉES.**
+
+# ⚠⚠⚠⚠⚠⚠ **UN «{∅}» LU COMME UN «{φ}» — ET LA CALIBRATION EST PARFAITE**
+Crop `z626_emptyset` (**4200dpi**) — **les deux symboles sont sur la MÊME LIGNE**, ce qui rend la comparaison définitive :
+«(précisément, **S_n(T) = {∅}** si R^1(f_T)_\*(F_T) est plat pour tout i≥n, **S_n(T) = ∅** sinon)»
+- **Le symbole entre accolades est IDENTIQUE au «∅» NU de la fin de la même ligne** ⟹ **c'est l'ENSEMBLE VIDE.** Le fichier écrivait **`\{\varphi\}`** (un **phi**) ⟹ **MÉLECTURE de Codex.**
+- ⚠⚠ **ET LA MATH DU LIVRE EST JUSTE** : **{∅}** est le **SINGLETON** (l'ensemble à un élément, dont l'unique élément est l'ensemble vide) et **∅** l'ensemble vide ⟹ c'est exactement la définition d'un **sous-foncteur** de S : la valeur est un point ou rien. **Le «{φ}» de Codex détruisait la définition.**
+
+## ⚠⚠⚠⚠⚠ **UN «R^1» DE L'AUTEUR — 2ᵉ COQUILLE D'EXPOSANT EN 2 PAGES**
+Même crop : «si **R^1**(f_T)_\*(F_T) est plat **pour tout i≥n**» — **l'exposant est un «1» NET** (base à empattement), alors que **le quantificateur de la MÊME LIGNE est un «i»** ⟹ **la math veut R^i** ⟹ **COQUILLE DE L'AUTEUR ⟹ SIC** ; le fichier avait « réparé » en `R^i`. ⚠⚠ **MÊME MOTIF QU'EN #626 («R^i» dans la preuve vs «R^j» dans l'énoncé) : l'auteur se trompe d'exposant, et Codex le corrige à chaque fois.**
+
+## ✅✅ **UNE COQUILLE QUE CODEX AVAIT DÉJÀ REPRODUITE — LE CONTRE-EXEMPLE UTILE**
+Le scan écrit «donc la donnée de descente sur L **restreindre** au-dessus de V=f^{-1}(V)» — un **INFINITIF** là où le français exige «restreint**e**» (participe). ⟹ **coquille du livre** — **et le fichier l'avait DÉJÀ** ⟹ **NON TOUCHÉ.**
+⚠⚠ **C'est le 3ᵉ contre-exemple (après les verticales de p605 #621, le `f^*` de #623 et les `\simeq`/`\xrightarrow{\sim}` de #627) : Codex ne « répare » PAS systématiquement. ⟹ LA RÈGLE RESTE : VÉRIFIER, NE PAS PRÉSUMER.**
+
+## ⚠⚠⚠ **5ᵉ SITE DU MOTIF «…suivante.» + LES LABELS + «exact»**
+- **5ᵉ SITE** : le scan lit «Pour 1) et 2) **on applique le**» puis enchaîne sur le bloc «**Lemme 4.4.**» ; Codex avait fabriqué **«lemme suivant.»** ⟹ **fixé** (comme #624/#625/#628). **Rendu vérifié.** ⚠ **Le motif est maintenant confirmé 5 fois et 4 sites sont faits.**
+- **LES LABELS, ENCORE** : le scan écrit **«4) et 5)»**, **«1)-5)»**, **«1) à 5)»**, **«1) et 2)»** — **TOUS NUS** ; le fichier parenthésait **tout** («(4) et (5)», «(1)--(5)», «(1) à (5)», «(1) et (2)») **et** mettait un **`--`** là où le scan a un **«-» simple**.
+- **«qui rend EXACT les foncteurs»** — le scan écrit **«exact»** au singulier (le fichier : «exacts») ⟹ **quirk d'accord du livre ⟹ SIC** (classe «affines» #622, «formée» #614).
+- **«pour i ≥ n»** : le scan écrit **«pour»** (souligné) rejeté à droite du display ; le fichier avait **droppé le «pour»** et mis 2 virgules («,\qquad i\ge n,»).
+- **38ᵉ DISPLAY FABRIQUÉ** : «et pour n > r, **R^n f_\*(F_V ⊗ λ_V\*M) = 0.** L'assertion est donc vraie pour n > r ;» — tout sur une ligne ⟹ INLINE.
+- **4 ESPACES avant «;»** restaurés («O_Y~;», «L=O_X~;», «sur S~;», «n>r~;»).
+- ✅ **NON TOUCHÉ, JUSTE** : le display du Lemme 4.4 (**VRAI** — «où M parcourt» repart à la marge) ; «S_n\hookrightarrow S» ; «\longmapsto».
+
+## **CURSEUR → idx627 (vol p614 = **Exposé XII «- 20 -»**, footer «614» ; idx=614+13=627).** ⚠ **ATTENDU : la suite de la preuve de 4.4 («en procédant par récurrence décroissante, supposons qu'elle est connue pour n+1…») + le **Lemme 4.5** (Murre, \emph{Representation of unramified functors}, Séminaire Bourbaki, Mai 1965) + «Pour représenter la condition (3) de 4.3…» + le **Lemme 4.6** ; ~L14553+.** ⚠ **LA CITATION DE MURRE EST À VÉRIFIER** (les 2 citations d'Oort avaient été reformatées, #617/#620). ⚠⚠ **RÉGIME p613 : Codex MÉLIT les symboles (∅→φ), « répare » les exposants de l'auteur (R^1, R^j), parenthèse les labels nus, droppe les «pour» — MAIS il reproduit parfois les coquilles («restreindre») ⟹ VÉRIFIER CHACUNE, NE RIEN PRÉSUMER.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #628 (2026-07-16) — idx625 (vol p612 = **Exposé XII «- 18 -»**, footer **«612»** ⟹ **612−18=594 = CONSTANTE_XII** ; idx=612+13=625) — **★★★★★★★★★ p612 COMPLÈTE EN UN PASSAGE — 5 rep-calls / ~25 DÉFAUTS : ★ UNE CLASSE NOUVELLE ET INVERSE — CODEX A APLATI UN VRAI DISPLAY ★ + UNE PHRASE DE L'AUTEUR REMPLACÉE PAR UN «=», UNE REMARQUE INCIDENTE FONDUE DANS LE FIL PRINCIPAL, ET UN «f^\*» DROPPÉ** — (5 bandes b1-b5 + 2 crops `z625_fL` 4200dpi / `z625_oule` 5000dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf625_body.png`, tokens PROCHES «Remarquons en passant»+«cocycle»).
+
+# ✅ **VÉRIFICATION BANDE PAR BANDE**
+**b1** ⟹ f^\*L, «est égal au foncteur», «où les», «, qui est» — **FIXÉE**. **b2** ⟹ «(d'après…)», nouveau paragraphe, «donc» ; le display «i : Deff ↪ Isom(…)» **MATCHE** (non touché) — **FIXÉE**. **b3** ⟹ display→inline, guillemets, «Mais on a le», **display RESTAURÉ** — **FIXÉE**. **b4** ⟹ «réalisées.» + items 1)-5) — **FIXÉE**. **b5** ⟹ folio. ⟹ **LES 5 BANDES SONT TRAITÉES.**
+
+# ★★★★★★ **CLASSE NOUVELLE ET INVERSE : CODEX A APLATI UN VRAI DISPLAY**
+Le scan met **«φ : p_1\*L ~⟶ p_2\*L .» EN DISPLAY CENTRÉ** dans l'énoncé du Lemme 4.3 (le «.» est rejeté à droite, et «Pour que» repart à la marge). **Le fichier l'avait mis EN INLINE.**
+⚠⚠⚠ **PREMIÈRE OCCURRENCE DE CETTE CLASSE EN 25 CYCLES. Jusqu'ici Codex FABRIQUAIT des displays (37 recensés) ; ici il en SUPPRIME un.** ⟹ **LA RÈGLE «du texte suit ⟹ inline» NE SUFFIT PLUS : il faut AUSSI vérifier que les VRAIS displays n'ont pas été aplatis.** ⚠ **Le biais n'est donc pas «displayifier» mais «reformater» — dans les DEUX sens.**
+
+## ⚠⚠⚠⚠⚠ **UNE PHRASE DE L'AUTEUR REMPLACÉE PAR UN «=»**
+Scan : «Par définition **Rec est égal au foncteur** Isom(p_1\*L, p_2\*L) **où les** p_i : X×_Y X → X sont les projections**, qui est** représenté par un schéma affine I…»
+Le fichier avait : **un 35ᵉ display fabriqué contenant «\mathrm{Rec}=\Isom(…)»** ⟹ **la PHRASE «est égal au foncteur» était devenue un SIGNE «=»**, «les» était droppé, et la phrase était SCINDÉE («sont les projections. **Il est** représenté» au lieu de «**, qui est** représenté»). ⚠ **Codex ne se contente pas de displayifier : il TRADUIT la prose de l'auteur EN SYMBOLES.**
+
+## ⚠⚠⚠⚠⚠ **UNE REMARQUE INCIDENTE FONDUE DANS LE FIL PRINCIPAL**
+Scan : «…quasi-affine (d'après EGA IV 8.11.2).» **[NOUVEAU PARAGRAPHE]** «**Remarquons en passant que** si l'on y tient on peut restreindre Isom(…) en imposant la condition de cocycle, mais ce n'est pas indispensable pour la suite.»
+Le fichier avait **droppé «Remarquons en passant que» ET fusionné le paragraphe** ⟹ **une REMARQUE que l'auteur signale explicitement comme incidente devenait une affirmation du raisonnement principal.** ⚠ **classe #626 («Codex élague le raisonnement») — mais ici c'est le STATUT du propos qui change.**
+
+## ⚠⚠⚠⚠ **UN «f^\*» DROPPÉ + LE 4ᵉ SITE DU MOTIF «…suivante.»**
+- Crop `z625_fL` (4200dpi) : «des données de recollement sur **f^\* L**» — le «f» porte clairement le blob d'exposant (l'astérisque, cf #623). **Le fichier écrivait «sur L»** ⟹ **le «f^\*» était DROPPÉ.**
+- **4ᵉ SITE DU MOTIF** : le scan lit «Mais on a le» puis enchaîne sur le bloc «**Lemme 4.3.**» ; Codex avait fabriqué «lemme suivant.» ⟹ **fixé** (comme #624 et #625). **Rendu vérifié : «Mais on a le / **Lemme 4.3.** Sous les conditions de 4.1…» se lit exactement comme le scan.** ⚠ **Le motif est maintenant confirmé 4 fois ⟹ le report ne tient plus qu'au site L14191, dont la page reste à localiser.**
+- **GUILLEMETS** : «représenter le sous-foncteur de S **«~qui rend cette donnée effective~»**» — le scan met la clause **entre guillemets** ; le fichier l'avait nue ⟹ classe «"…" TERME → guillemets maison» (cf p607).
+
+## ⚠⚠⚠ **UNE CLAUSE DÉPLACÉE ET DÉPARENTHÉSÉE + UN «ou» SANS ACCENT**
+Crop `z625_oule` (**5000dpi**), item 3) : le scan écrit «…est plat sur S, **(ou le dernier isomorphisme est g_\*(φ))**.» — la clause est **APRÈS** et **ENTRE PARENTHÈSES**. **Le fichier l'avait mise AVANT et SANS parenthèses** («où le dernier isomorphisme est g_\*(φ), est plat sur S.»).
+- ⚠⚠ **«(OU le dernier…» — le «ou» est SANS ACCENT GRAVE** là où le français exige «où» (pronom relatif) ⟹ **COQUILLE DU LIVRE ⟹ SIC** (accent **minuscule** manquant = coquille de l'auteur, à la différence des accents **CAPITALES** qui sont des artefacts machine).
+- ⚠ **ASYMÉTRIE DU LIVRE** : «g_\*(p_1\*L)» **SANS** parenthèses internes **MAIS** «g_\*(p_2\*(L))» **AVEC** ⟹ **reproduite telle quelle.**
+
+## ⚠⚠ **LE RESTE**
+- **36ᵉ + 37ᵉ DISPLAYS FABRIQUÉS** → INLINE (la donnée de recollement ; le conoyau de l'item 3).
+- **PARENTHÈSES DE FAISCEAU ×6** — **9ᵉ PAGE CONSÉCUTIVE** : items 1) «R^i f_\*(L)», 2) «R^j g_\*(p_1\*L)», 3) «f_\*(L)»/«g_\*(p_1\*L)», 4) «f_\*(L)»/«g_\*(p_1\*L)».
+- **«on est DONC ramené»** («donc» droppé) ; **«(D'APRÈS EGA IV 8.11.2)»** («d'après» droppé) ; **«sur X muni»** (virgule parasite) ; **«sur S d'après 2.4»** (virgule parasite) ; **«réalisées.»** (le fichier : «réalisées :»).
+- ✅ **NON TOUCHÉ, JUSTE** : le display «i : Deff ↪ Isom(p_1\*L,p_2\*L)» (VRAI — rien ne suit) ; item 5) ; `\xrightarrow{\sim}` ; `\Isom` ; `p_1^*L`.
+
+## **CURSEUR → idx626 (vol p613 = **Exposé XII «- 19 -»**, footer «613» ; idx=613+13=626).** ⚠ **ATTENDU : «En effet ces conditions sont suffisantes car déjà (4) et (5) entraînent l'effectivité. Réciproquement soit M inversible sur Y tel qu'il existe un isomorphisme f^\*M ≃ L compatible avec la donnée de recollement. On peut recouvrir Y par des ouverts V, au-dessus desquels M est isomorphe à O_Y ; …» ; ~L14545+.** ⚠⚠ **RÉGIME p612 : Codex APLATIT AUSSI les vrais displays (classe NOUVELLE), TRADUIT la prose en symboles («est égal au foncteur»→«=»), FOND les remarques incidentes dans le fil principal, DÉPLACE des clauses, et droppe les «f^\*» ⟹ VÉRIFIER LES DISPLAYS DANS LES DEUX SENS.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #627 (2026-07-16) — idx624 (vol p611 = **Exposé XII «- 17 -»**, footer **«611»** ⟹ **611−17=594 = CONSTANTE_XII** ; idx=611+13=624) — **★★★★★★★★ p611 COMPLÈTE EN UN PASSAGE — 5 rep-calls / ~15 DÉFAUTS : UNE PARENTHÈSE OUVRANTE QUE L'AUTEUR A OUBLIÉE, UN «catégoire» QU'IL A MAL ORTHOGRAPHIÉ, UNE RÉFÉRENCE EGA LUE COMME UNE VIRGULE, ET UN 3ᵉ TAG «(\*)» PERDU** — (5 bandes b1-b5 + 3 crops `z624_homgamma` 3600dpi / `z624_ega0` / `z624_categoire` 4200dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf624_body.png`, tokens PROCHES «catégoire»+«5.4.10.1» ⟹ 1 seule page).
+
+# ✅ **VÉRIFICATION BANDE PAR BANDE**
+**b1** ⟹ en-tête Lemme 4.2 — **FIXÉE** ; son display **MATCHE** (non touché). **b2** ⟹ Hom_{O_Y}, «Γ Y,N)», EGA 0_I, ⊗_{O_Y} ×2, tag (\*) — **FIXÉE**. **b3** ⟹ «hypothèse~;», «lemme,», «α~;», tournure de l'auteur, «catégoire» — **FIXÉE**. **b4** ⟹ conforme **sauf** le «de S-points» (**NON ZOOMÉ ⟹ consigné**). **b5** ⟹ blanche + folio. ⟹ **LES 5 BANDES SONT TRAITÉES.**
+
+## ⚠⚠⚠⚠⚠⚠ **L'AUTEUR A OUBLIÉ UNE PARENTHÈSE OUVRANTE — ET C'EST REPRODUIT**
+Crop `z624_homgamma` (**3600dpi**) : le 1ᵉʳ terme du display est **«Γ Y,N)»** — **AUCUNE encre entre le Γ et le Y**, alors que les **DEUX AUTRES Γ de la MÊME LIGNE** («Γ(X,f^\*N)», «Γ(X×_Y X,g^\*N)») ont **clairement leur «(»**. ⟹ **COQUILLE DU LIVRE ⟹ SIC ⟹ `\Gamma\ Y,N)`.** Le rendu montre le contraste : «**Γ Y,N)** ⟶ Γ(X,f^\*N) ⇉ Γ(X×_Y X,g^\*N)». ⚠ **Même classe que les 5 têtes de flèche (#621) et l'étoile manquante (#619) : le caractère n'a pas été frappé. Codex l'avait « réparé ».**
+
+## ⚠⚠⚠⚠⚠ **«catégoire» — UNE FAUTE D'ORTHOGRAPHE DE L'AUTEUR**
+Crop `z624_categoire` (**4200dpi**) : «…et la **catégoire** Deff(S) des données de descente effectives» — **le «r» et le «i» sont INTERVERTIS**, sans ambiguïté. ⟹ **COQUILLE DU LIVRE ⟹ SIC** ; le fichier avait « corrigé » en «catégorie». ⚠ **La MÊME PHRASE écrit «la catégorie C» CORRECTEMENT 2 lignes plus haut ⟹ l'auteur se trompe UNE fois sur DEUX dans la même phrase ⟹ reproduit des deux côtés.** (classe «celà» #611, «voluatif» #608, «formée» #614, «affines» #622.)
+
+## ⚠⚠⚠⚠ **UNE RÉFÉRENCE EGA LUE COMME UNE VIRGULE**
+Crop `z624_ega0` (**4200dpi**) : «ou bien **(d'après EGA 0_I 5.4.10.1)** que la suite».
+- **Le fichier écrivait «ou bien, d'après EGA 0**,** 5.4.10.1, que»** ⟹ **il a pris l'INDICE «_I» pour une VIRGULE** ⟹ la référence «EGA 0_I» (chapitre 0, partie I — la référence EGA standard) était devenue «EGA 0» suivi d'un nombre flottant. ⟹ **`EGA \(0_{\mathrm I}\)`.**
+- **+ les PARENTHÈSES** (le fichier avait des virgules).
+
+## ⚠⚠⚠⚠ **3ᵉ TAG «(\*)» PERDU + LE TENSEUR DÉSINDEXÉ**
+- **«Mais la suite (\*) O_Y ⟶ f_\*O_X ⇉ g_\*O_{X×_YX}»** — le tag **«(\*)»** était **DROPPÉ** ⟹ **3ᵉ renvoi «(\*)» perdu** (après #624 et #626). ⚠ **Ce tag renvoie à l'item 4) de la Prop 4.1, dont j'ai restauré le tag en #626 — la chaîne de renvois était rompue AUX DEUX BOUTS.**
+- **«⊗_{O_Y}» ×2** : l'indice du tenseur était **absent** du fichier («\otimes N» au lieu de «\otimes_{\mathcal O_Y}N»).
+- **«Hom_{O_Y}(L,M)»** : le fichier écrivait **`\Hom_Y`** (Y seul, sans le O).
+
+## ⚠⚠⚠ **UNE PHRASE RÉÉCRITE + LES CONNECTEURS**
+- **RÉÉCRITURE** : scan «…entre la catégorie C des couples (M,φ) **d'un faisceau inversible M sur Y et d'un isomorphisme** φ : f^\*M ~⟶ L» ; le fichier avait **«des couples (M,φ), OÙ M EST UN faisceau inversible sur Y ET φ:f^\*M…»** ⟹ **la tournure de l'auteur restaurée.**
+- **«c'est-à-dire POUR tout couple»** — le fichier avait **fabriqué un «que,»** («c'est-à-dire **que, pour**»).
+- **«à α~; d'après 4.2»** (le fichier : «. D'après» — point + majuscule) ; **«hypothèse~;»** ; **«le lemme, en lui»** (virgule) ; **«libres~;»** (espace).
+
+## ⚠ **NON VÉRIFIÉ ⟹ NON TOUCHÉ**
+- **«l'ensemble Z(S) DE S-points»** (b4) — la bande semblait montrer **«de»** et non «des» ; **PAS ZOOMÉ** ⟹ laissé, consigné.
+- ✅ **NON TOUCHÉ, JUSTE** : les 2 displays (VRAIS — rien ne suit) ; **`\xrightarrow{\sim}`** (crop : tilde AVEC tête) vs **`\simeq`** («Mais si f^\*M ≃ L» : tilde SANS tête) — **les 2 coexistent sur cette page et le fichier les distingue déjà correctement** ; `\Gamma(N\otimes -)`.
+
+## **CURSEUR → idx625 (vol p612 = **Exposé XII «- 18 -»**, footer «612» ; idx=612+13=625).** ⚠ **ATTENDU : la suite — «Il existe un monomorphisme canonique de Deff dans le foncteur Rec des données de recollement sur L. Par définition Rec=Isom(p_1^\*L,p_2^\*L), où p_i:X×_YX→X sont les projections. Il est représenté par un schéma affine I de présentation finie sur S, d'après 2.4. Il reste donc à représenter le monomorphisme i:Deff↪Isom(p_1^\*L,p_2^\*L)…» ; ~L14517+.** ⚠⚠ **RÉGIME p611 : l'AUTEUR oublie des caractères (parenthèse, étoile, tête de flèche) et fait des FAUTES D'ORTHOGRAPHE («catégoire»), Codex les « répare » ; et Codex perd les RENVOIS («(\*)» ×3), les INDICES (⊗_{O_Y}, Hom_{O_Y}, EGA 0_I) et RÉÉCRIT les tournures ⟹ CHAQUE CARACTÈRE, CHAQUE INDICE, CHAQUE TAG.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #626 (2026-07-16) — idx623, **2ᵉ PASSAGE** (vol p610 = **Exposé XII «- 16 -»**, footer **«610»** ⟹ **610−16=594 = CONSTANTE_XII** ; idx=610+13=623) — **★★★★★★★★ p610 COMPLÈTE — 4 rep-calls / ~30 DÉFAUTS : HUIT DROPPAGES SUR UNE SEULE PHRASE, UN 2ᵉ TAG «(\*)» PERDU, UN «R^j» QUI « RÉPARE » L'AUTEUR, ET UN `\Coker` QUI CONTREDISAIT LE FICHIER LUI-MÊME** — (5 bandes b1-b5 + 2 crops `z623_coker` / `z623_Rij` 5000dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf623_body.png`).
+
+# ✅ **VÉRIFICATION BANDE PAR BANDE**
+**b1** ⟹ item 3) (**MATCHE, non touché**) ; item 4) : tag «(\*)» + «coker» — **FIXÉE**. **b2** ⟹ display→inline + «1)-4)» + «T ⟶ S» + «Mais» + R^i + parenthèses + «commutent» — **FIXÉE**. **b3** ⟹ «conditions 3)», «π_1−π_2 :», «donc» ×2, «(d'après 4))», «~;» — **FIXÉE**. **b4** ⟹ «choses:a.», «2)», 2 virgules parasites — **FIXÉE**. **b5** ⟹ blanche + folio — **rien à traiter.** ⟹ **LES 5 BANDES SONT TRAITÉES.**
+
+## ⚠⚠⚠⚠⚠⚠ **HUIT DROPPAGES SUR UNE SEULE PHRASE**
+La phrase «En effet notons d'abord que…» du scan contient **huit éléments que Codex avait supprimés** :
+1. **«changement de base T ⟶ S.»** — le «T ⟶ S» droppé.
+2. **«MAIS d'après la formule de Künneth»** — «Mais» droppé.
+3. **«la stabilité des CONDITIONS 3)»** — «conditions» droppé.
+4. **«du conoyau DE π_1−π_2 : f_\*O_X ⟶ g_\*O_{X×_Y X}»** — **«π_1−π_2 :» droppé** (et le «⇉» du fichier est un **«⟶» simple** au scan).
+5. **«commute DONC aussi»** — «donc» droppé.
+6. **«plat sur S (D'APRÈS 4))»** — **«(d'après 4))» droppé** — un renvoi de plus.
+7. **«commute aux changements de base T ⟶ S»** — le «T ⟶ S» droppé une 2ᵉ fois.
+8. **«et est DONC égal»** — «donc» droppé une 2ᵉ fois.
+⟹ **Codex ne compresse pas au hasard : il élague les CONNECTEURS («Mais», «donc»), les RENVOIS («(d'après 4))») et les PRÉCISIONS («T ⟶ S», «π_1−π_2 :», «conditions») — c'est-à-dire tout ce qui fait le RAISONNEMENT de l'auteur, en gardant les énoncés.**
+
+## ⚠⚠⚠⚠⚠ **UN «R^j» QUI « RÉPARE » L'AUTEUR — 9ᵉ PAGE CONSÉCUTIVE**
+Crop `z623_Rij` (**5000dpi**) : «formation des **R^i** f_\*(O_X) et **R^i** g_\*(O_{X×_Y X}) **commutent**» — **LES DEUX EXPOSANTS SONT DES «i» IDENTIQUES**, calibrés l'un sur l'autre **sur la MÊME LIGNE**. Le fichier écrivait **`R^jg_*`** sur le second. **La math VEUT un j** (c'est un indice indépendant, et l'item 3) juste au-dessus écrit bien «Pour i,j≥0») ⟹ **COQUILLE DE L'AUTEUR, que Codex a réparée** ⟹ **SIC.** + **parenthèses de faisceau ×2** (8ᵉ page de suite) + **«commutent» au PLURIEL** (le fichier : «commute»).
+⚠ **NON TOUCHÉ : l'item 3) écrit bien «R^if_\*O_X et R^jg_\*O_{X×_YX}» avec un j — il MATCHE le scan** ⟹ **le livre écrit j dans l'énoncé et i dans la preuve : incohérence interne, reproduite des deux côtés.**
+
+## ⚠⚠⚠⚠ **UN 2ᵉ TAG «(\*)» PERDU + UN `\Coker` QUI CONTREDISAIT LE FICHIER**
+- **Le display de l'item 4) porte un tag «(\*)» au scan** ; le fichier n'en avait **aucun** ⟹ **2ᵉ renvoi «(\*)» droppé après #624.** ⟹ `\begin{equation}\tag{*}` (le tag dans un `enumerate` compile sans problème).
+- **«coker» MINUSCULE** (crop `z623_coker`, 5000dpi : le «c» est à **hauteur d'x**, calibré contre les «O_Y» et «S.» **MAJUSCULES de la MÊME LIGNE**) ; le fichier écrivait **`\Coker`**. ⚠⚠ **ET LE FICHIER SE CONTREDISAIT LUI-MÊME : il écrit déjà `\coker` en p609** (le «coker(Pic^0…)» de la Remarque 3.6) ⟹ **la même notation rendue de 2 façons dans le même document.**
+
+## ⚠⚠⚠ **34ᵉ DISPLAY FABRIQUÉ + LES LABELS**
+- **34ᵉ** : «**Alors f^\*:Pic_{Y/S} ⟶ Pic_{X/S} est représentable par un morphisme quasi-affine de présentation finie.**» — tout INLINE au scan. ✓ **«quasi-affine» était déjà juste.**
+- **LES LABELS, ENCORE** : le scan écrit **«1)-4)»**, **«3) et 4)»**, **«1) et 3)»**, **«conditions 3)»**, **«d'après a) et 2)»** — **TOUS NUS** ; le fichier parenthésait **tout** («(1)--(4)», «(3) et (4)», «(1) et (3)», «et (2)») **et** mettait un **`--`** là où le scan a un **«-» simple**. ⚠ **MAIS le scan écrit «(d'après 4))» AVEC parenthèses** ⟹ **le livre mélange ENCORE les 2 formes sur la MÊME PAGE** (cf #622) ⟹ **per-occurrence, jamais de sweep.**
+- **«deux choses:a.»** — le deux-points est **COLLÉ** au «a.» (le fichier : «choses: a.») ; **«Z image réciproque … dans Pic_{Y/S} est représentable»** — le fichier avait **encadré l'apposition de 2 VIRGULES.**
+
+## ⚠⚠ **PIÈGE DE TOKEN — 3ᵉ VARIANTE**
+`vrf623` a échoué **deux fois** : «rigidification»+«conoyau» ⟹ **liste VIDE**, puis «rigidification» seul ⟹ **3 pages**. **Cause : le contenu de la page-scan p610 s'étale sur 2 PAGES PDF** (les 2 tokens sont de part et d'autre du saut). ⚠ **RÈGLE : intersecter 2 tokens NE MARCHE QUE s'ils sont sur la MÊME page PDF — choisir 2 tokens PROCHES l'un de l'autre** («rigidification»+«descente supposer» ⟹ 1 page ✓).
+
+## **CURSEUR → idx624 (vol p611 = **Exposé XII «- 17 -»**, footer «611» ; idx=611+13=624).** ⚠ **ATTENDU : la suite — «**Lemme 4.2.** Sous les conditions de 4.1, f est un morphisme de descente pour la catégorie des faisceaux localement libres ; c'est-à-dire que, pour tout couple L,M de faisceaux localement libres sur Y, le diagramme Hom_Y(L,M) ⟶ Hom_X(f^\*L,f^\*M) ⇉ Hom_{X×_YX}(g^\*L,g^\*M) est exact.» + «En effet, si N=Hom_Y(L,M), on doit montrer que la suite Γ(Y,N) ⟶ Γ(X,f^\*N) ⇉ …» ; ~L14495+.** ⚠⚠ **RÉGIME p610 : Codex ÉLAGUE LE RAISONNEMENT (8 droppages sur une phrase : connecteurs, renvois, précisions), perd les TAGS, et « répare » les coquilles de l'auteur (9 pages de suite) ⟹ CHAQUE CONNECTEUR, CHAQUE RENVOI, CHAQUE TAG.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #625 (2026-07-16) — idx623 — **★★★★★ REPORT «…suivante.» : 2ᵉ SITE FIXÉ (le VÉRIFIÉ) — LE 3ᵉ RESTE OUVERT FAUTE DE PREUVE.** ⚠⚠ **p610 : SEULES b1-b2 SONT LUES, RIEN N'EST FIXÉ ⟹ PARTIEL, RE-ARMÉ SUR idx623.** Compile **0-err / 382pp** ✓. Rendu vérifié (`vrfsuiv_body.png`).
+
+# ✅✅ **REPORT «…suivante.» — LE SITE #616 EST FIXÉ**
+Le crop `z616d_stein2` (#616, 2600dpi) montrait déjà : «…Pour factoriser de même Y_o ⟶ Y, **on utilise le**» puis la page **enchaîne DIRECTEMENT sur le bloc souligné «Lemme 2.6.»**. Codex avait fabriqué **«lemme suivant.»**. ⟹ **restauré.** **Rendu vérifié : «Pour factoriser de même Y_0 → Y, on utilise le / **Lemme 2.6.** Soient Y un schéma noethérien…» se lit exactement comme le scan.** ⟹ **2ᵉ des 3 sites du motif, après celui tranché en #624.**
+
+## ⚠⚠⚠ **LE 3ᵉ SITE (#604, L14191) N'EST **PAS** FIXÉ — ET C'EST VOLONTAIRE**
+L14191 finit par «…on va en déduire le cas général **en utilisant le lemme suivant.**». **Je n'ai PAS retrouvé sa page au scan** : j'ai cropé **p598 (`d[611]`)**, qui **se termine sur «Remarque 1.7. On ignore si 1.1 reste valable…»** ⟹ **le site est sur p596 ou p597, non localisé.** ⟹ **RÈGLE : NE PAS FIXER CE QUI N'EST PAS VÉRIFIÉ** (la leçon du «f^?» de #622/#623 : deviner sur une impression aurait introduit un faux dans un fichier juste). ⟹ **REPORT LAISSÉ OUVERT SUR CE SEUL SITE, avec sa localisation à faire (`pg=d[609]` ou `d[610]`).**
+⚠⚠ **PIÈGE ÉVITÉ AU PASSAGE : un `grep` large sur «le lemme suivant»/«la proposition suivante» remonte ~15 sites dans D'AUTRES EXPOSÉS** («Il reste donc à prouver le lemme suivant~:», «Nous admettrons aussi la proposition suivante~:», «Rappelons d'abord le lemme suivant (SGA 2 II 9)~:»…) — **ce sont les mots de l'AUTEUR, PAS le motif de Codex.** ⟹ **UN SWEEP AURAIT DÉTRUIT LE TEXTE. Le report ne porte QUE sur les sites où le scan montre la phrase COURANT DANS le bloc d'énoncé.**
+
+## ✅ **CONFIRMATION AU PASSAGE — LA CONVENTION DES LABELS**
+Le crop `zsuiv_p598bot` montre **«**Remarque** 1.7.»** : **seul le MOT est souligné, le NUMÉRO ne l'est pas.** ⟹ **3ᵉ confirmation** (après «**Lemme** 2.6.» #616 et «3.6. **Remarque.**» #624) ⟹ **le report «`\textbf{3.2.}` / convention des tags» est bien réel : le fichier met le numéro DANS le gras partout.**
+
+## ⚠⚠ **p610 (idx623) — PARTIEL, RIEN DE FIXÉ**
+**Seules b1-b2 sont lues** (le contexte est parti dans le report). **Header «- 16 -» + «XII» ⟹ 610−16=594 = CONSTANTE_XII ✓.** Contenu (**NOTES, PAS DES VÉRITÉS — RE-LIRE LE SCAN**) :
+- **b1** : «3) Pour i,j≥0, R^i f_\* O_X et R^j g_\* O_{X×_Y X} sont plats sur S.» (semble MATCHER le fichier) ; «4) La suite» + **display TAGUÉ «(\*)»** : «(\*) O_Y → f_\* O_X ⇉[π_1/π_2] g_\* O_{X×_Y X}» + «est exacte et **coker**(π_1−π_2) est un O_Y-module plat sur S.»
+  - ⚠ **DÉFAUT REPÉRÉ, NON FIXÉ : le tag «(\*)» est ABSENT du fichier** (L14487-14491) — **2ᵉ renvoi «(\*)» droppé après #624.**
+  - ⚠ **DÉFAUT REPÉRÉ, NON FIXÉ : «coker» MINUSCULE au scan ; le fichier écrit `\Coker`** (majuscule) — **à ZOOMER.**
+- **b2** : «**Alors f^\*:Pic_{Y/S} ⟶ Pic_{X/S} est représentable par un morphisme QUASI-AFFINE de présentation finie.**» — **du texte SUIT ⟹ INLINE ; le fichier en fait un `\[…\]` (34ᵉ display fabriqué) ⟹ REPÉRÉ, NON FIXÉ.** ⚠ **«QUASI-affine» — vérifier le mot du fichier.**
+  - «En effet notons d'abord que 1)-4) sont stables par tout changement de base T ⟶ S. Seule la stabilité de 3) et 4) n'est pas évidente. Mais d'après la formule de Künneth (EGA III 6.9.9), 1) et 3) impliquent que la formation des **R^i f_\*(O_X)** et **R^i g_\*(O_{X×_Y X})** commutent aux changements de base T → S, ce qui implique aussitôt la stabilité des conditions 3). De plus…» — ⚠ **parenthèses de faisceau ×2 (8ᵉ page de suite) ⟹ REPÉRÉ, NON FIXÉ.**
+- ⚠ **b3-b4-b5 NON LUES.**
+
+## **CURSEUR → idx623 (vol p610, **2ᵉ PASSAGE**).** ⚠⚠ **NE PAS PASSER À p611. CE CYCLE : (1) `python pgcrop.py 623:5` ⟹ **LIRE b3-b4-b5** ; (2) GREP (~L14485+) ; (3) **FIXER LA PAGE ENTIÈRE** — en commençant par les 4 défauts DÉJÀ REPÉRÉS ci-dessus (tag «(\*)», «coker» minuscule, 34ᵉ display fabriqué, parenthèses ×2).** ⚠⚠⚠ **AVANT D'ÉCRIRE «COMPLÈTE» : RE-PARCOURIR LES 5 BANDES ET COCHER CHAQUE ÉLÉMENT.**
+
+### #624 (2026-07-16) — idx622, **2ᵉ PASSAGE** (vol p609 = **Exposé XII «- 15 -»**, footer **«609»** ⟹ **609−15=594 = CONSTANTE_XII** ; idx=609+13=622) — **★★★★★★★★ p609 COMPLÈTE — 6 rep-calls / ~25 DÉFAUTS : CINQ DÉFAUTS DANS UNE SEULE FORMULE, UN «0⟶» FABRIQUÉ, UN TAG «(\*)» DROPPÉ, UN LABEL À L'ENVERS — ET DEUX CONFIRMATIONS RÉTROSPECTIVES QUI VALIDENT DES DÉCISIONS ANCIENNES** — (5 bandes b1-b5 + 2 crops `z622_coker` 5000dpi / `z622_timesY` 4000dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf622_body.png`, token INTERSECTÉ «groupe unipotent»+«résiduelles»).
+
+# ✅ **VÉRIFICATION BANDE PAR BANDE** (la leçon de #619/#620)
+**b1** ⟹ «(f_K)_\*(O_{X'_K})» + display «[(f_{S'})_\*(O_{X'_{S'}})]_réd ≃ […]» — **FIXÉE** (parenthèses ×3). **b2** ⟹ «~; quitte», «3.6. Remarque.», display→inline, 𝕍(Q_i), coker — **FIXÉE**. **b3** ⟹ «II\*~:», «et la suite (\*)», display→inline, «prouver la» — **FIXÉE**. **b4** ⟹ Prop 4.1 + items 1)/2) — **FIXÉE**. **b5** ⟹ blanche + folio — **rien à traiter.** ⟹ **LES 5 BANDES SONT TRAITÉES.**
+
+## ⚠⚠⚠⚠⚠⚠ **CINQ DÉFAUTS DANS UNE SEULE FORMULE**
+Crop `z622_coker` (**5000dpi**) : le scan écrit **«coker(Pic^0_{X_s/s} ⟶ Pic^0_{Y_s/s})»**. Le fichier avait **`\coker\bigl(\Pic_{X_s/S}\longrightarrow\Pic_{X'_s/S}\bigr)`** :
+1. **«Pic^0» ×2** — un **EXPOSANT 0 NET** (le «O» machine pour ZÉRO) ; le fichier n'avait **AUCUN exposant**.
+2. **le 2ᵉ terme est un «Y»** ; le fichier avait **«X'»**.
+3. **les 2 dénominateurs sont des «s» MINUSCULES** (le point s) ; le fichier avait **«S»**.
+⟹ **Pic^0 = la composante neutre du schéma de Picard de la FIBRE X_s sur le corps résiduel s** — sans l'exposant 0 ni le bon dénominateur, l'énoncé ne dit plus rien de ce que l'auteur affirme. ⚠ **Une seule formule, cinq erreurs : le régime «Codex réécrit» atteint ici son maximum.**
+
+## ⚠⚠⚠⚠⚠ **DEUX CONFIRMATIONS RÉTROSPECTIVES — LE SCAN VALIDE MES DÉCISIONS SIC ANCIENNES**
+- ✅✅ **«f_\*O_X» (p609) vs «f_\* O_Y» (p603, #616)** : la suite (\*) est **réécrite ici**, et l'auteur y met **correctement O_X**. ⟹ **CELA PROUVE RÉTROSPECTIVEMENT QUE LE «f_\* O_Y» DE p603 ÉTAIT BIEN UNE COQUILLE** — il ne la refait pas. **Ma décision SIC de #616 est validée par le livre lui-même.**
+- ✅✅ **«X×_Y X» (p609, MAJUSCULE) vs «X×_y X» (p603, MINUSCULE, #616)** : crop `z622_timesY` (4000dpi), **le Y en indice est calibré contre le «Y» pleine taille de la MÊME LIGNE** ⟹ **majuscule certaine** ⟹ **le fichier est JUSTE ici, non touché.** ⚠⚠ **LE LIVRE SE CONTREDIT ENTRE PAGES sur la MÊME notation ⟹ les 2 reproduites telles quelles ⟹ PREUVE DÉFINITIVE QU'UN SWEEP SERAIT FAUX.**
+
+## ⚠⚠⚠⚠ **UN «0⟶» FABRIQUÉ + UN TAG «(\*)» DROPPÉ + UN «que» INVENTÉ**
+Scan : «…intègres sur S **et la suite (\*)** O_Y ⟶ f_\*O_X ⇉ g_\*(O_{X×_Y X}) **est exacte ; en** appliquant…»
+- **le «0 ⟶» initial du fichier est PUREMENT FABRIQUÉ** — le scan commence directement par «O_Y ⟶». ⚠ **Codex n'ajoute pas que des displays : il ajoute des TERMES aux suites exactes.**
+- **le tag «(\*)» était DROPPÉ** (il renvoie au display (\*) de p603 — **un renvoi perdu**, classe #611).
+- **«et que la suite»** : le «que» était **fabriqué**.
+- **33ᵉ display fabriqué → INLINE** + **«exacte. En»→«exacte~; en»** + **«II\*:»→«II\*~:»**.
+
+## ⚠⚠⚠⚠ **3ᵉ OCCURRENCE DU MOTIF «…suivante.» ⟹ JE TRANCHE LE REPORT GLOBAL**
+Scan : «on se ramène à prouver **la**» puis **enchaîne DIRECTEMENT sur le bloc «Proposition 4.1.»**. Codex avait **fabriqué «proposition suivante.»**. **MÊME MOTIF QU'EN #604 («en utilisant le») ET #616 («on utilise le lemme suivant.»).**
+⟹ **3 sites, le scan est CONSTANT ⟹ DÉCISION PRISE : le texte de l'auteur est restauré.** Le rendu confirme que **«on se ramène à prouver la **Proposition 4.1.** Soient S…» se lit parfaitement** — c'est exactement ce que dit le scan.
+⚠⚠ **#604 ET #616 DOIVENT RECEVOIR LE MÊME TRAITEMENT ⟹ REPORT GLOBAL À FINIR (2 sites restants).**
+
+## ⚠⚠⚠ **LE RESTE**
+- **32ᵉ DISPLAY FABRIQUÉ** : «Pic_{X_{i-1}/S} ⟶ Pic_{X_i/S} ⟶ 𝕍(Q_i), **que pour tout s ∈ S**» — texte suit ⟹ INLINE ; + **`V(Q_i)`→`\mathbb V(Q_i)`** (cf #618) ; + **2 virgules parasites** («que, pour tout s∈S,»).
+- ⚠⚠ **L'ORDRE DU LABEL ÉTAIT INVERSÉ** : le scan écrit **«3.6.  Remarque.»** (le **NUMÉRO d'abord**, puis le mot **SOULIGNÉ**) ; le fichier avait **«Remarque 3.6.»** ⟹ **`\textbf{3.6. Remarque.}`**. ⚠ **Le scan ne souligne QUE le mot, pas le numéro — même motif que «**Lemme** 2.6.» (crop #616) ⟹ à joindre au report ouvert «`\textbf{3.2.}` non gras».**
+- **PARENTHÈSES DE FAISCEAU ×5** — **7ᵉ PAGE CONSÉCUTIVE** : «(f_K)_\*(O_{X'_K})», «(f_{S'})_\*(O_{X'_{S'}})», «(f_{S'})_\*(O_{X_{S'}})», «g_\*(O_{X×_Y X})».
+- **«au-dessus de V'~; quitte»** (le fichier : «. Quitte» — point + majuscule) ; **«surjectif et g»** (virgule parasite) ; **«On suppose que»** SANS deux-points ; **item 2) «= O_S**,** μ_\*O_Y = O_S universellement»** (le fichier avait un «et» à la place de la virgule + une virgule avant «universellement»).
+- ✅ **NON TOUCHÉ** : `\longrightarrow` (le scan montre des flèches COURTES ici — mais c'est le **sweep GLOBAL documenté**) ; les crochets `[ ]` ; `\simeq` ; `\red` ; item 1) ; le titre `\section*`.
+
+## **CURSEUR → idx623 (vol p610 = **Exposé XII «- 16 -»**, footer «610» ; idx=610+13=623).** ⚠ **ATTENDU : les items 3) et 4) de la Prop 4.1 (déjà dans le fichier L14485-14492 : «Pour i,j≥0, R^if_\*O_X et R^jg_\*O_{X×_YX} sont plats sur S» ; «La suite O_Y ⟶ f_\*O_X ⇉ g_\*O_{X×_YX} est exacte et Coker(π_1−π_2) est un O_Y-module plat sur S») + «Alors f^\*:Pic_{Y/S}⟶Pic_{X/S}…» ; ~L14485+.** ⚠⚠ **RÉGIME p609 : Codex ajoute des TERMES aux suites exactes («0⟶»), droppe les RENVOIS («(\*)»), inverse l'ORDRE des labels, et peut accumuler CINQ erreurs dans une seule formule ⟹ CHAQUE TERME, CHAQUE EXPOSANT, CHAQUE DÉNOMINATEUR.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #623 (2026-07-16) — idx622 — **★★★★★★ LES DEUX DETTES SONT SOLDÉES — DONT UNE QUI SE RÉVÈLE ÊTRE UN NON-DÉFAUT.** ⚠⚠ **p609 : SEULE b1 EST LUE, RIEN N'EST FIXÉ ⟹ PARTIEL, RE-ARMÉ SUR idx622.** Compile **0-err / 382pp** ✓. Rendu vérifié (`vrfdebt_nilrad.png`).
+
+# ✅✅✅✅ **DETTE (a) — LE «f^?» DE p608 : LE FICHIER AVAIT RAISON, RIEN À CHANGER**
+En #622 j'avais noté au 5000dpi que l'exposant de «f» (display Prop 3.5 **et** «N = Ker f^?») était **«nettement plus dense que les astérisques propres du document»** — j'avais **refusé de trancher faute d'étoile connue sur la MÊME LIGNE.**
+**La calibration correcte** : **DEUX crops de la MÊME PAGE, au MÊME dpi (5600), de MÊME hauteur** ⟹ directement comparables :
+- `zdebt2_certstar` : «R^i **f_\***(I)» — astérisque **à 6 lobes**, moyeu central net, en position d'**INDICE**.
+- `zdebt_kerf` : «Ker **f^\***» — **EXACTEMENT la même structure à 6 lobes**, en position d'**EXPOSANT**, frappée un peu plus fort.
+⟹ **C'EST LE MÊME GLYPHE : UNE ASTÉRISQUE.** L'impression de «#» venait de la **position en exposant + un surplus d'encre**, pas d'un caractère différent. ⟹ **`f^*` CONFIRMÉ, AUCUN FIX.**
+⚠⚠⚠ **LEÇON — ET ELLE VAUT PLUS QUE LE FIX QU'ELLE N'A PAS PRODUIT : mon refus de deviner en #622 était le BON CHOIX. Si j'avais « tranché » sur l'impression visuelle, j'aurais introduit un `f^{\#}` FAUX dans un fichier JUSTE. ⟹ SANS CALIBRATION, NE PAS TRANCHER — ET LA CALIBRATION PEUT AUSSI DISCULPER CODEX.**
+
+## ✅✅✅✅ **DETTE (b) — LE 2ᵉ «nilrad» DE p606 : LE LIVRE SE CONTREDIT, ET C'EST REPRODUIT**
+Crop `zdebt_nilrad2` (5000dpi, `d[619]`) : «n_β ∈ nilrad(Γ(X,**O_X**))**;** on a alors…» — **l'indice du O est un «X» NU, SANS PRIME.** Or le **1ᵉʳ nilrad de la MÊME PAGE** porte **BIEN le prime** («nilrad(Γ(X,O_{X'}))», confirmé en #619 par `z619b_nilrad`).
+⟹ **INCOHÉRENCE DU LIVRE** : la math exige **O_{X'} aux DEUX** (n_β est dans le nilradical du **même** anneau). **Codex avait uniformisé en O_{X'}.** ⟹ **SIC : le 2ᵉ passe à `\Gamma(X,\mathcal O_X)`, le 1ᵉʳ garde son prime.** Rendu vérifié : les deux sites **DIFFÈRENT** désormais à l'écran. ⚠ **7ᵉ page consécutive où Codex « répare » l'auteur.**
+
+## ⚠⚠ **p609 (idx622) — PARTIEL, RIEN DE FIXÉ**
+**Seule la bande b1 est lue** (le contexte est parti dans les 2 dettes). **Header «- 15 -» + «XII» ⟹ 609−15=594 = CONSTANTE_XII ✓.** Contenu b1 (**NOTES, PAS DES VÉRITÉS — RE-LIRE LE SCAN**) :
+- «Il existe une extension finie K de k(S) telle que **(f_K)_\*(O_{X'_K})** ait toutes ses extensions résiduelles triviales. Si S' est un schéma intègre fini et plat sur un ouvert V de S, de corps de fonctions k(S') = K, il existe un ouvert V' de S' tel que» + un **display** «[(f_{S'})_\*(O_{X'_{S'}})]_**réd** ≃ [(f_{S'})_\*(O_{X_{S'}})]_**réd**» (lecture INCERTAINE, à re-cropper).
+- ⚠ **«(f_K)_\*(O_{X'_K})» — PARENTHÈSES de faisceau** ; le fichier a `(f_K)_*\mathcal O_{X'_K}` ⟹ **DÉFAUT REPÉRÉ, NON FIXÉ** (7ᵉ page de suite pour cette classe).
+- ⚠ **b2-b5 NON LUES.**
+
+## ⚠⚠ **DETTES RESTANTES**
+- ⚠ **p605 diag.1 ligne 2 : le scan finit «⟶ 0» mais le fichier rend «0,»** (virgule) ⟹ **non re-zoomé** (mineur, 3ᵉ mention).
+- ✅ **TÊTES DE FLÈCHE : CLOS (#621).** ✅ **`\red` : CLOS (#618, confirmé #619, #621, #622).** ✅ **«f^\*» : CLOS (#623, non-défaut).** ✅ **2ᵉ nilrad : CLOS (#623).**
+
+## **CURSEUR → idx622 (vol p609, **2ᵉ PASSAGE**).** ⚠⚠ **NE PAS PASSER À p610. CE CYCLE : (1) `python pgcrop.py 622:5` ⟹ **LIRE b2-b5** ; (2) GREP (~L14458+) ; (3) FIXER LA PAGE ENTIÈRE** — en commençant par le **«(f_K)_\*(O_{X'_K})»** déjà repéré et par le **display de b1** (à re-cropper : «[(f_{S'})_\*(O_{X'_{S'}})]_réd ≃ […]_réd» — **vérifier les crochets, les primes, le «≃» (tilde-sur-barre SANS tête ?) et les indices S'/K**). ⚠⚠⚠ **AVANT D'ÉCRIRE «COMPLÈTE» : RE-PARCOURIR LES 5 BANDES ET COCHER CHAQUE ÉLÉMENT** (#619 avait confondu «lu» et «traité»).
+
+### #622 (2026-07-16) — idx621, **2ᵉ PASSAGE** (vol p608 = **Exposé XII «- 14 -»**, footer **«608»** ⟹ **608−14=594 = CONSTANTE_XII** ; idx=608+13=621) — **★★★★★★★ p608 COMPLÈTE — 5 rep-calls / ~20 DÉFAUTS : DEUX DISPLAYS FABRIQUÉS (30ᵉ-31ᵉ), UNE PHRASE ENTIÈRE DÉPARENTHÉSÉE, DEUX PRIMES PERDUS, UNE RESTRICTION «|V» REFAITE — ET UN GLYPHE QUE J'AI REFUSÉ DE TRANCHER** — (5 bandes b1-b5 + 2 crops `z621_fsharp` 5000dpi / `z621_Xprime` 4000dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf621_body.png`, token INTERSECTÉ «unipotentes»+«p.g.c.d»).
+
+# ✅ **VÉRIFICATION BANDE PAR BANDE AVANT D'ÉCRIRE «COMPLÈTE»** (la leçon de #619/#620)
+- **b1** ⟹ ouverture du Corollaire 3.4 — **FIXÉE** (virgule, parenthèse ouvrante, X'_i, «réd» ✓).
+- **b2** ⟹ fin du corollaire («est 1). Alors … X×_k V.») + «Finalement… suivante~:» + en-tête Prop 3.5 + display «f^\*:Pic|V» — **FIXÉE**.
+- **b3** ⟹ «~; en fait, N = Ker f^\* … **affines** … (au sens de SGA 3 XVII).» + «En effet X … filtration I_o=I⊃…⊃I_n=0 tels que N I_i ⊂ I_{i-1}, où N est le nilradical de O_Y (par exemple I_k=N^k I).» — **FIXÉE**.
+- **b4** ⟹ «X_i ↪ X_{i-1}. On peut donc supposer que **N.I** = 0 **;** c'est la condition **i)** de 3.1 … (EGA IV 6.9.1) appliqué … les conditions **ii)**, **iii)** et **iv)** sont vérifiées.» — **FIXÉE**.
+- **b5** ⟹ blanche + folio «608» — **rien à traiter.**
+⟹ **LES 5 BANDES SONT TRAITÉES, PAS SEULEMENT LUES.**
+
+## ⚠⚠⚠⚠⚠ **UNE PHRASE ENTIÈRE DÉPARENTHÉSÉE (Corollaire 3.4)**
+Le scan écrit : «…possède un faisceau inversible universel. **(**Par exemple, ce sera le cas, d'après la théorie de descente, si toute composante connexe X'_i de X_réd possède un point rationnel, par exemple si k est algébriquement clos, ou plus généralement si le p.g.c.d. des degrés des 0-cycles de tout X'_i est 1**)**. Alors…» — **la parenthèse ouvre en b1 et ferme en b2, sur 4 lignes.** Codex avait **droppé les DEUX parenthèses** ⟹ l'exemple devenait une affirmation du corollaire au lieu d'une parenthèse. ⟹ restaurées. + **«Soient k un corps, X un k-schéma»** (le fichier avait fabriqué un **«et»**).
+
+## ⚠⚠⚠⚠⚠ **DEUX PRIMES PERDUS — 6ᵉ PAGE CONSÉCUTIVE**
+Crop `z621_Xprime` (4000dpi) : «si toute composante connexe **X'_i** de X_réd» — **le tick est net, distinct de l'indice i placé en dessous**. Le fichier écrivait **«X_i»** aux **2 occurrences** ⟹ restaurées. ⚠ **Codex perd les primes de l'auteur (#619 «Γ(X_T;…)», #620 «H^1(X_T,…)») OU en ajoute de parasites (#610) — dans les DEUX sens.**
+
+## ⚠⚠⚠⚠ **LA RESTRICTION «|V» N'ÉTAIT PAS UN INDICE**
+Crop `z621_fsharp` (5000dpi) : le scan écrit **«Pic_{Y/S}| V»** — **une barre PLEINE HAUTEUR, un ESPACE, puis un «V» EN TAILLE NORMALE.** Le fichier écrivait **`|_V`** (V en **INDICE**) ⟹ **`|V` ×2.** ⚠ **Même classe que le «Pic_{(zar)(X/S)}» de #620 : Codex REFAIT la typographie des notations de l'auteur — hauteur d'indice comprise.**
+
+## ⚠⚠⚠⚠ **30ᵉ ET 31ᵉ DISPLAYS FABRIQUÉS**
+- **30ᵉ** : «…de présentation finie **;** en fait, **N = Ker f^\*** est un schéma en groupes affines…» — tout sur une ligne ⟹ INLINE ; + **«finie. En fait,»→«finie~; en fait,»** (point+majuscule → point-virgule+minuscule) ; + **`\Ker(f^*)`→`\Ker f^*`** (parenthèses fabriquées) ; + **«(au sens de SGA 3 XVII)»** re-parenthésé.
+- **31ᵉ** : «…filtration par des idéaux **I_o = I ⊃ I_1 ⊃ … ⊃ I_n = 0 tels que N I_i ⊂ I_{i-1}**, où N est…» — du texte suit ⟹ INLINE.
+- + **«de O_Y (par exemple I_k = N^k I).»** — **3ᵉ parenthèse restaurée sur la page** (le fichier : «, par exemple … .»).
+
+## ⚠⚠⚠ **«affines» AU PLURIEL + «N.I» + LES LABELS QUI SE CONTREDISENT**
+- **«un schéma en groupes affines»** — **PLURIEL au scan** («un schéma … affines» = faute d'accord) ⟹ **quirk du livre SIC** ; le fichier avait « corrigé » en «affine». (classe «formée» #614.)
+- **«N.I = 0 ~;»** — le livre écrit le produit **avec un POINT** ⟹ cohérent avec l'item i) de 3.1 fixé en **#617** ✓ ; le fichier avait «NI=0;».
+- ⚠⚠ **LE LIVRE MÉLANGE LES 3 FORMES DE LABEL SUR LA MÊME PAGE** : «c'est la condition **i)**» (NU), «les autres conditions **(ii)** à **(v)**» (**PARENTHÉSÉ**), «les conditions **ii)**, **iii)** et **iv)**» (NU). ⟹ **les formes nues restaurées, la forme parenthésée LAISSÉE INTACTE** (le fichier était juste là-dessus). ⚠ **PREUVE QU'UN SWEEP SUR LES LABELS SERAIT FAUX.**
+- + **«En effet X»** (virgule parasite retirée) ; **«(EGA IV 6.9.1) appliqué»** (virgule parasite) ; **«suivante~:»** (le fichier finissait par un POINT) ; **«ii), iii) et iv)»** (virgule parasite avant «et»).
+
+## ⚠⚠⚠ **UN GLYPHE QUE J'AI REFUSÉ DE TRANCHER — ET POURQUOI**
+Le crop `z621_fsharp` (**5000dpi**) montre que l'exposant de «f» (display Prop 3.5 **et** «Ker f^?») est **NETTEMENT PLUS DENSE que les astérisques propres du document** — on dirait un **«#»** ou un **«\*» surfrappé**. **MAIS il n'y a AUCUNE étoile connue SUR LA MÊME LIGNE pour calibrer**, et **la calibration same-line est précisément ce qui a tranché A_i/B_i (#617), R'/R^1 (#618), t_α/t_β et l'étoile manquante (#619), le S majuscule (#620) et les 5 têtes de flèche (#621)**. ⟹ **JE LAISSE «f^\*» ET JE CONSIGNE.** ⚠ **À TRANCHER par un crop contenant À LA FOIS le «f^?» ET un «f_\*»/«O\*» certain** (p608 en a en b4 : «R^i f_\*(I)»). ⚠⚠ **NE PAS LAISSER POURRIR 3 CYCLES COMME LA DETTE DES FLÈCHES.**
+
+## ⚠⚠ **DETTES**
+- ⚠⚠ **NOUVEAU : le glyphe «f^?» de p608** (cf supra).
+- ⚠ **2ᵉ «nilrad(Γ(X,O_{X'}))» de p606 (L14414)** — «Γ(X,O_X)» SANS prime ? ⟹ **TOUJOURS NON ZOOMÉ** (`pg=d[619]`). **2ᵉ cycle de report.**
+- ⚠ **p605 diag.1 ligne 2 : «0,» vs «0» au scan** — non re-zoomé.
+- ✅ **`\red` : 3ᵉ page indépendante de confirmation** (p605 #618, p606 #619, **p608 «X_réd» ×3 #622**) ⟹ **le report est SOLIDE.**
+
+## **CURSEUR → idx622 (vol p609 = **Exposé XII «- 15 -»**, footer «609» ; idx=609+13=622).** ⚠ **ATTENDU : la suite de la preuve de 3.5 — «Il existe une extension finie K de k(S) telle que (f_K)_\*O_{X'_K} ait toutes ses extensions résiduelles triviales. Si S' est un schéma intègre fini et plat sur un ouvert V de S, de corps de fonctions k(S')=K, il existe un ouvert V' de S' tel que…» ; ~L14458+.** ⚠⚠ **RÉGIME p608 : Codex DÉPARENTHÈSE des phrases entières, PERD les primes, REFAIT la typographie des notations (|_V vs |V), fabrique des displays (31), et « corrige » les accords de l'auteur ⟹ CHAQUE PARENTHÈSE, CHAQUE PRIME, CHAQUE HAUTEUR D'INDICE.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #621 (2026-07-16) — idx621 — **★★★★★★ DETTE DES TÊTES DE FLÈCHE : TRANCHÉE ET SOLDÉE (après 3 cycles de report) — CINQ CONNECTEURS SANS TÊTE RESTAURÉS SUR p605 ET p607.** ⚠⚠ **p608 : SEULE LA BANDE b1 EST LUE — RIEN N'EST FIXÉ ⟹ PARTIEL, RE-ARMÉ SUR idx621.** Compile **0-err / 382pp** ✓. Rendu vérifié (`vrfarrow_p605.png` / `vrfarrow_p607.png`, tokens INTERSECTÉS).
+
+# ✅✅✅✅✅ **LA DETTE EST SOLDÉE — LES CINQ CONNECTEURS SONT BIEN SANS TÊTE**
+J'avais reporté cette question **trois cycles de suite** (#618, #619, #620) en la consignant «NON ZOOMÉ». **Zoomée cette fois à 3600-4200dpi, chaque crop contenant des flèches À TÊTE CERTAINE SUR LA MÊME LIGNE** (la calibration qui tranche à chaque fois) :
+1. **p605 diag.1 ligne 1** (`zarrow2_row1`, 4200dpi) : «0 ⟶ I_T ⟶ O_{X_T} **────** O_{X'_T} ⟶ 0» — le **3ᵉ connecteur est NU**, face aux **1ᵉʳ, 2ᵉ et 4ᵉ à têtes pleines et nettes**. Sans la moindre ambiguïté.
+2. **p605 diag.1 ligne 2** (`zarrow2_row2`, 4200dpi) : «0 ⟶ I_T **──α──** O\*_{X_T} ⟶ O\*_{X'_T} ⟶ 0» — le **2ᵉ connecteur (labellé α) est NU**, face aux 1ᵉʳ/3ᵉ/4ᵉ à têtes.
+3. **p607 diag.1 ligne 2** (`zarrow3_d1row2`, 4200dpi) : «0 ⟶ 𝕍(E^ˇ) **───** Pic_{(fppf)(X/S)} → Pic_{(fppf)(X'/S)} → 𝕍(Q)» — le **2ᵉ connecteur est NU**, face aux 1ᵉʳ/3ᵉ/4ᵉ.
+4+5. **p607 diag.2 ligne 1** (`zarrow3_d2row1`, 3600dpi) : «H^1(X_T,I_T) **⟶** H^1(X_T,O\*_{X_T}) **────** H^1(X_T,O\*_{X'_T}) **────** H^2(X_T,I_T)» — les **2ᵉ ET 3ᵉ connecteurs sont NUS**, face au 1ᵉʳ à tête franche.
+⟹ **`\arrow[r,dash]` ×4 + `\arrow[r,"\alpha",dash]` ×1.**
+
+## ⚠⚠⚠ **POURQUOI SIC — ET POURQUOI CE N'EST PAS UN CAPRICE**
+Une flèche exacte «O_{X_T} → O_{X'_T}» **SANS tête** est mathématiquement fausse (c'est la surjection de la suite exacte). Mais c'est **exactement la classe de l'étoile manquante de #619** («R^1(f_T)_\*(O_{X'_T})» sans le «\*» alors que le 1ᵉʳ terme l'a) et **des primes manquants de #619/#620** («Γ(**X_T**;…)», «H^1(**X_T**,O\*_{X'_T})») : **l'auteur n'a pas terminé le caractère à la machine.** ⟹ **LE SCAN ARBITRE MÊME QUAND LA MATH DIT LE CONTRAIRE ⟹ SIC.** Codex avait « réparé » les cinq. ⚠ **Si un jour on décide de signaler ces coquilles, ce sera par ERRATA — PAS en les corrigeant silencieusement dans le corps.**
+
+## ✅ **CE QUE LE ZOOM A CONFIRMÉ COMME JUSTE**
+- **Les verticales de p605 diag.1** (`zarrow_p605row1`) : **«‖ ↑ ↑»** ⟹ le fichier (`\arrow[u,equal]` / `\arrow[u]` / `\arrow[u]`, montantes) est **CORRECT** ⟹ non touché. ⚠ **Contraste instructif avec #618, où la verticale du diag.2 de p605 était bel et bien INVERSÉE : Codex ne se trompe pas systématiquement — d'où l'obligation de vérifier CHAQUE flèche, pas d'appliquer une règle.**
+- **«(α(i) = 1+i)»** entre parenthèses (fixé #618) ✓ ; **«Pic_{(zar)(X/S)}»** et **«↓S»** (fixés #620) ✓ ; **«R^1(f_T)_\*(I_T)»** parenthésé (fixé #618) ✓ — tous re-confirmés au passage.
+
+## ⚠⚠ **p608 (idx621) — PARTIEL, RIEN DE FIXÉ**
+**Seule la bande b1 est lue** (le contexte s'est épuisé sur la dette). **Header «- 14 -» + «XII» ⟹ 608−14=594 = CONSTANTE_XII ✓.** Contenu b1 (**NOTES, PAS DES VÉRITÉS — RE-LIRE LE SCAN**) :
+- **«Corollaire 3.4.** Soient k un corps, X un k-schéma propre. **On suppose que** Pic_{X_**réd**/k} possède un faisceau inversible universel. (Par exemple, ce sera le cas, d'après la théorie de descente, si toute composante connexe X'_i de X_**réd** possède un point rationnel, par exemple si k est algébriquement clos, ou plus généralement si le p.g.c.d. des degrés des **0-cycles** de tout X'_i est»
+- ✅✅ **«réd» ×2 ⟹ 3ᵉ PAGE INDÉPENDANTE QUI CONFIRME LA DÉCISION MACRO `\red` DE #618** (après p605 et p606). **Le report est solide.**
+- ⚠ **«0-cycles»** : le scan écrit «O-cycles» (lettre o) = **artefact machine pour le ZÉRO** ⟹ rendu moderne «0-cycles».
+- ⚠ **«On suppose que»** — cf #614/#617 : Codex droppe régulièrement ce «que».
+- ⚠ **b2-b5 NON LUES.**
+
+## ⚠⚠ **DETTE RESTANTE**
+- ⚠ **2ᵉ «nilrad(Γ(X,O_{X'}))» de p606 (L14414)** — la bande b3 semblait montrer «Γ(X,O_X)» **SANS prime** (le 1ᵉʳ, lui, a le prime) ⟹ **TOUJOURS NON ZOOMÉ** (`pg=d[619]`). ⚠ **Ne pas la laisser pourrir 3 cycles comme celle des flèches.**
+- ⚠ **p605 diag.1 ligne 2 finit «⟶ 0» au scan ; le fichier rend «0,»** (virgule) ⟹ **REPÉRÉ, NON FIXÉ** (lecture marginale, non re-zoomée).
+
+## **CURSEUR → idx621 (vol p608, **2ᵉ PASSAGE**).** ⚠⚠ **NE PAS PASSER À p609. CE CYCLE : (1) `python pgcrop.py 621:5` ⟹ **LIRE b2-b5** ; (2) GREP (~L14443+) ; (3) FIXER LA PAGE ENTIÈRE.** ⚠ **ATTENDU : la fin du Corollaire 3.4 (items 1)/2) ?) + sa preuve.** ⚠⚠⚠ **AVANT D'ÉCRIRE «COMPLÈTE» : RE-PARCOURIR LES 5 BANDES ET COCHER CHAQUE ÉLÉMENT — #619 avait annoncé p606 complète à tort pour avoir confondu «lu» et «traité».**
+
+### #620 (2026-07-16) — idx620 (vol p607 = **Exposé XII «- 13 -»**, header **«- 13 -»** + **«XII»** + footer **«607»** ⟹ **607−13=594 = CONSTANTE_XII** ; idx=607+13=620) — **★★★★★★★★ 7 rep-calls / ~28 DÉFAUTS : CODEX A TRADUIT UN MOT DE L'AUTEUR (NOUVELLE CLASSE), UNE NOTATION D'INDICE ENTIÈREMENT REFAITE, 2 COQUILLES DU LIVRE, 4 LABELS DE FLÈCHE MIS EN MINUSCULE — ET J'AI RATTRAPÉ UNE DETTE QUE #619 AVAIT LAISSÉE** — (5 bandes b1-b5 + 3 crops `z620_supT` 3200dpi / `z620_Slabel` 3000dpi / `z620_diag2` 2600dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf620_body.png`, token INTERSECTÉ «splittage»+«lemme des cinq»).
+
+# ⚠⚠⚠⚠⚠⚠ **AVEU — #619 A ANNONCÉ p606 COMPLÈTE À TORT**
+La **fin de la bande b4 de p606** — le display «0 ⟶ 𝕍(E^ˇ) ⟶ Pic_{X/S} ⟶ Pic_{X'/S} **--u-->** 𝕍(Q)» et la phrase «Si P = Ker(u), le monomorphisme P ↪ Pic_{X'/S} s'obtient…» — **n'avait PAS été fixée** : j'avais lu la bande, traité le display d'AVANT, et déclaré la page complète. **Rattrapé ici** (le passage est contigu à p607) : **label «u» restauré** sur la dernière flèche, **«P\to»→«P↪» ×2** et **«S\to»→«S↪»** (le scan a des flèches CROCHET), **«. Comme»→«~; comme»**, **«est représenté»→«est représentable»**, **𝕍 ×3**. ⚠⚠ **LEÇON : «j'ai lu les 5 bandes» ≠ «j'ai traité les 5 bandes». Le CERT doit lister ce qui est FIXÉ, pas ce qui est LU.**
+
+## ⚠⚠⚠⚠⚠⚠ **NOUVELLE CLASSE — CODEX TRADUIT LES MOTS DE L'AUTEUR**
+Le scan écrit : «grâce à la descente f.p.q.c. à partir d'un **"splittage"** du torseur» — un **anglicisme francisé que l'auteur met LUI-MÊME entre guillemets** (il le tient à distance). **Codex l'avait remplacé par «scindage»** — le mot français « correct ». ⟹ **restauré «~splittage~» SIC.** ⚠⚠⚠ **CE N'EST PLUS DE LA MISE EN FORME : Codex CORRIGE LE VOCABULAIRE DE GROTHENDIECK. Chercher d'autres anglicismes « nettoyés ».**
+
+## ⚠⚠⚠⚠⚠ **UNE NOTATION D'INDICE ENTIÈREMENT REFAITE**
+Crops `z620_supT` (3200dpi) et `z620_Slabel` (3000dpi), **sans ambiguïté** : le scan écrit **«Pic_{(zar)(X/S)}»** — **TOUT «(zar)(X/S)» est À HAUTEUR D'INDICE, parenthèses comprises.** Le fichier écrivait **`\Pic_{\zar}(X'/S)`** = indice «zar» **puis un «(X'/S)» EN TAILLE NORMALE** ⟹ **deux défauts en un** (parenthèses absentes + argument sorti de l'indice). ⟹ **`\Pic_{(\zar)(X'/S)}` ×8** (les macros `\zar`=`\mathrm{zar}` / `\fppf`=`\mathrm{fppf}` restent intactes — inutile d'y toucher). + **item ii) : «(T)» est un EXPOSANT** ⟹ **`^{(T)}` ×2** (le fichier en faisait un argument).
+
+## ⚠⚠⚠⚠ **QUATRE LABELS DE FLÈCHE MIS EN MINUSCULE + DEUX LABELS FABRIQUÉS/DROPPÉS**
+- **Diagramme 1** : les 5 flèches verticales portent un **«S» MAJUSCULE** (crop `z620_Slabel` : pleine hauteur, calibré sur le «0» de la ligne) ; le fichier avait **`"s"` minuscule ×4** ⟹ restaurés. ✅ **la 3ᵉ verticale est NUE au scan ET dans le fichier ⟹ juste, non touchée.**
+- **«--w-->»** : la flèche Pic_{X/S}→P porte le label **«w»** ; le fichier l'avait **nue** ⟹ restauré. Et le texte qui suit dit **«**w** est représentable»** — le fichier avait **«il est représentable»** ⟹ **le label droppé avait rendu le pronom nécessaire : un défaut en engendre un autre.**
+- **«--u-->»** (dette p606, cf supra).
+
+## ⚠⚠⚠⚠ **2ᵉ CITATION D'OORT MALTRAITÉE (après celle de p604, #617)**
+Scan : «(**voir :** Oort, "Commutative group schemes", Proposition **(17.4)**).» — le fichier avait **droppé «voir :»** et **déparenthésé «(17.4)»** ⟹ restaurés. ✅ **`\emph{Commutative group schemes}` GARDÉ** : le scan met le titre entre **guillemets droits** ⟹ classe «"…" **titre** → `\emph{}`» (rendu moderne) — **à distinguer de «"…" terme → guillemets «~…~»», qui est précisément le cas du «splittage» ci-dessus. Les deux conventions coexistent sur CETTE PAGE et le scan les distingue.**
+
+## ⚠⚠⚠⚠ **DEUX COQUILLES DU LIVRE (diagramme 2) — 5ᵉ PAGE CONSÉCUTIVE**
+Crop `z620_diag2` (2600dpi) :
+1. **«H^1(X_T,O\*_{X'_T})»** (ligne 1, terme 3) — le 1ᵉʳ argument est **«X_T» SANS PRIME**, alors que **l'indice du O porte le sien SUR LE MÊME TERME** ⟹ **coquille** ; fichier «X'_T». **SIC.**
+2. **«H^o(T,R^2 f_\* I_T)»** (ligne 2, terme 4) — **«f_\*» SANS «(f_T)»**, alors que **les TROIS termes précédents** écrivent «(f_T)_\*» ⟹ **coquille** ; fichier «(f_T)_\*». **SIC.**
++ **«(I_T)» AVEC PARENTHÈSES** (ligne 2, terme 1 ; fichier : I_T nu).
+
+## ⚠⚠⚠ **LE RESTE**
+- **29ᵉ DISPLAY FABRIQUÉ** : «Enfin 0 ⟶ … ⟶ 0 **est un torseur pour f.p.p.f. ;**» — tout sur une ligne ⟹ INLINE.
+- **«pour la topologie f.p.p.f.»** : le scan dit **«pour f.p.p.f.»** ⟹ **«la topologie» FABRIQUÉ** ; + «f.p.p.f.~;» (espace).
+- **«Sous les conditions de 3.1, on a»** : le fichier avait **«de 3.1 :»** ⟹ **«on a» DROPPÉ + deux-points FABRIQUÉ.**
+- **«…topologie de Zariski»** SANS deux-points (fichier : «Zariski :»).
+- **«(ii) résulte du diagramme à lignes exactes SUIVANT»** en **NOUVEAU PARAGRAPHE** ; le fichier avait **«…des cinq. L'assertion (ii) résulte…exactes»** ⟹ **«L'assertion» FABRIQUÉ, «suivant» DROPPÉ, paragraphe FUSIONNÉ.**
+- ⚠ **«En effet (i)» / «(ii)» sont PARENTHÉSÉS ici**, alors que p606 écrit «D'après ii)» / «D'après i)» **nus** ⟹ **incohérence du livre, reproduite des deux côtés.**
+- ✅ **`\mathbb V` ×9** (cf #618) ; **«H^0»** («o» machine pour ZÉRO) gardé.
+- ⚠⚠ **NON VÉRIFIÉ ⟹ NON TOUCHÉ** : **les têtes de flèche des lignes des 2 diagrammes** — certaines paraissent **SANS TÊTE** dans les bandes (même doute qu'en p605) ⟹ **PAS ZOOMÉ.** ⚠ **DETTE QUI S'ACCUMULE : c'est la 3ᵉ page où je reporte cette question. À TRANCHER PAR UN ZOOM DÉDIÉ.**
+
+## **CURSEUR → idx621 (vol p608 = **Exposé XII «- 14 -»**, footer «608» ; idx=608+13=621).** ⚠ **ATTENDU : la suite du §3 (après «car les flèches verticales extérieures sont des isomorphismes, T étant affine.») ; ~L14443+.** ⚠⚠ **RÉGIME : Codex TRADUIT le vocabulaire de l'auteur («splittage»→«scindage»), REFAIT ses notations d'indice (Pic_{(zar)(X/S)}), MINUSCULISE ses labels (S→s), DROPPE ses labels de flèche (u, w) — ce qui l'oblige ensuite à FABRIQUER des pronoms —, et répare ses coquilles (5 pages de suite) ⟹ CHAQUE MOT, CHAQUE INDICE, CHAQUE LABEL.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #619 (2026-07-16) — idx619 (vol p606 = **Exposé XII «- 12 -»**, header **«- 12 -»** + **«XII»** + footer **«606»** ⟹ **606−12=594 = CONSTANTE_XII** ; idx=606+13=619) — **★★★★★★★★★ PAGE COMPLÈTE EN UN PASSAGE — 6 rep-calls / ~30 DÉFAUTS : SEPT DISPLAYS FABRIQUÉS D'UN COUP (22ᵉ-28ᵉ), CINQ COQUILLES DU LIVRE RESTAURÉES, UN TERME DE FORMULE DROPPÉ, ET LE «réd» DE #618 CONFIRMÉ SUR UNE 2ᵉ PAGE** — (5 bandes b1-b5 + **6 crops HD** `z619_gamma`/`cocycle`/`talpha`/`ftT` 3000-3600dpi + `z619b_dapres`/`nilrad` 2600dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf619_body.png`, token INTERSECTÉ «cocycle»+«nilrad» ⟹ 1 seule page).
+
+# ⚠⚠⚠⚠⚠⚠ **TOUTE LA PAGE EST DE LA PROSE INLINE — CODEX EN A FAIT SEPT DISPLAYS**
+La preuve de 3.2 est, au scan, **un seul bloc de prose courante** où chaque formule est suivie de texte sur la MÊME ligne («~; δ_T(g), à celle de», «et donc g = Σ…», «est surjectif ; par suite», «où h = Σ…», «donc Im δ\*_T ⊂ Im δ_T»). Codex y avait planté **SEPT `\[…\]`** ⟹ **22ᵉ à 28ᵉ displays fabriqués — le record d'une seule page.** ✅ **Les 2 VRAIS displays sont préservés** : «δ_T(g) = g δ\*_T(g)» (rien ne suit) et la suite exacte fonctorielle. ⚠⚠ **La classe DISPLAY-FICTIF n'est pas un tic ponctuel : sur une page de calcul dense, Codex displayifie PRESQUE TOUT.**
+
+## ⚠⚠⚠⚠⚠ **CINQ COQUILLES DU LIVRE QUE CODEX AVAIT RÉPARÉES — 4ᵉ PAGE CONSÉCUTIVE**
+Toutes tranchées par calibration **sur un couple connu de la MÊME LIGNE** :
+1. **«Γ(X_T ; O\*_{X'_T})»** (`z619_gamma`, 3600dpi) — le 1ᵉʳ argument est **«X_T» SANS PRIME**, net face au **«de X_T.»** de la même ligne ET au **«X'_T»** en indice du O (qui a le sien) ⟹ la math exige Γ(X'_T;…) ⟹ **coquille de l'auteur** ; le fichier avait «réparé» en X'_T. **SIC.**
+2. **«t_α»** (`z619_talpha`, 3600dpi) — «Finalement soit g = Σ g_β⊗**t_α**» : l'alpha est **NET face aux DEUX «g_β» de la MÊME LIGNE** ⟹ **coquille** (partout ailleurs c'est t_β) ; fichier «t_\beta». **SIC.**
+3. **«v(h)»** (même crop) — «Soit g_β = **v(h)** + n_β» **SANS INDICE**, alors que la ligne d'avant écrit «v(h_β)» ⟹ **coquille** ; fichier «v(h_\beta)». **SIC.**
+4. **«R^1(f_t)»** (`z619_ftT`, 3000dpi) — un **«t» MINUSCULE**, net face au **«R^1(f_T)»** du terme SUIVANT ⟹ **coquille** ; fichier «f_T». **SIC.**
+5. **«R^1(f_T)_\*(O_{X'_T})» SANS ÉTOILE** (même crop) — le 1ᵉʳ terme porte clairement «(O\*_{X_T})», le 3ᵉ montre un **BLANC sans encre** là où l'étoile devrait être ⟹ **coquille** ; fichier «\mathcal O_{X'_T}^{*}». **SIC.**
+⚠⚠ **Codex « répare » l'auteur sur p603, p604, p605 ET p606 ⟹ ce n'est plus une observation, c'est le RÉGIME.**
+
+## ⚠⚠⚠⚠⚠ **UN TERME DE FORMULE DROPPÉ (classe #611)**
+`z619_cocycle` (3600dpi) : le scan écrit **«δ_{ij} = (g_i−g_j) = g_j δ\*_{ij} = g δ\*_{ij},»** — **TROIS membres**. Le fichier n'en avait que **DEUX** : «δ_{ij}=g_i-g_j=g_j\delta_{ij}^\*,» ⟹ **le terme «= g δ\*_{ij}» était PUREMENT ET SIMPLEMENT ABSENT** — et le texte restait grammatical et compilait. + **PARENTHÈSES** restaurées sur les deux membres droits : **«(g_i g_j^{-1} − 1)»** et **«(g_i−g_j)»**.
+
+## ⚠⚠⚠ **LE LIVRE MÉLANGE «;» ET «,» DANS LA MÊME FORMULE — SIC**
+`z619b_dapres` : **«Γ(X_T**;**O_{X'_T}) = Γ(X**;**O_{X'}) ⊗_S Γ(T**,**O_T)»** — DEUX points-virgules puis UNE virgule, dans **une seule formule**. Idem b1 : «Γ(X_T**;**O\*_{X'_T})», «Γ(V_i**;**O\*_{X_T})», «Γ(X**;**O_X)» ; mais «Γ(T,O_T)», «Γ(X,O_X)→Γ(X,O_{X'})», «H^1(X_T,I_T)», «Γ(X_T,O_{X'_T})» ont des VIRGULES. **Codex avait tout uniformisé en virgules** ⟹ **les 4 points-virgules restaurés, les virgules justes laissées.**
+
+## ⚠⚠⚠ **LABELS + PRIME PERDU + PONCTUATION**
+- **«D'après ii)» / «D'après i)» / «3.2, iii) et iv)»** — **SANS parenthèses** au scan ; le fichier écrivait «(ii)», «(i)», «(iii), et (iv)» (+ une virgule fabriquée avant «et») ⟹ restaurés. ⚠ **MAIS «Or par (v)» EST bien parenthésé au scan** ⟹ **incohérence du livre, reproduite telle quelle.**
+- **PRIME PERDU** : «l'opération de Γ(X_T,**O_{X'_T}**)» — le fichier avait «O_{X_T}» ⟹ prime restauré.
+- **«surjectif~;»** (espace avant «;») ; **«…fonctorielle en T~:»** (deux-points absent du fichier) ; **3 virgules parasites** retirées (avant «pour» ×2, avant «et») ; **«où»** rétabli là où Codex avait mis un `\qquad`.
+- ✅ **«réd» ×2** (`z619b_nilrad`) ⟹ **CONFIRME LA DÉCISION MACRO DE #618 SUR UNE 2ᵉ PAGE INDÉPENDANTE** — le report `\red` tient. ✅ **`\mathbb V` ×2** (cf #618).
+
+## ⚠⚠ **MES CHECKS — 9ᵉ ET 10ᵉ FOIS**
+- `"\Gamma(X,\mathcal O_{X'})\) et"` count=**2** ⟹ **FAUX POSITIF** : L14378 est la ligne **pré-existante et JUSTE** «g_β ∈ Γ(X,O_{X'}) et t_β ∈ Γ(T,O_T)», L14381 est la neuve. **Vérifié par GREP avant de conclure** (la règle a fonctionné).
+- `"V(E^\vee)(T)\longrightarrow"` déclaré «OLD SURVIVED» ⟹ **FAUX POSITIF** : c'est un **SOUS-CHAÎNE de ma PROPRE forme neuve `\mathbb V(E^\vee)(T)\longrightarrow`**. ⚠⚠ **NOUVELLE VARIANTE DU PIÈGE : un check «old-form-gone» est FAUX dès que la forme neuve CONTIENT l'ancienne (préfixe ajouté) ⟹ ancrer les checks old-form sur un contexte GAUCHE.**
+
+## ⚠⚠ **NON VÉRIFIÉ ⟹ NON TOUCHÉ**
+- Le **2ᵉ «nilrad(Γ(X,O_{X'}))»** (L14414) : la bande b3 semblait montrer **«Γ(X,O_X)» SANS prime** (le 1ᵉʳ, lui, a le prime — `z619b_nilrad`) ⟹ **PAS ZOOMÉ ⟹ LAISSÉ, consigné** (candidat coquille du livre).
+- **DETTES DE p605 NON REVUES** (hors écran sur p606) : têtes de flèche du diagramme 1 ; `\textbf{3.2.}` non gras au scan (**il est À L'ÉCRAN en haut de p606 et toujours gras dans le rendu**).
+
+## **CURSEUR → idx620 (vol p607 = **Exposé XII «- 13 -»**, footer «607» ; idx=607+13=620).** ⚠ **ATTENDU : la suite de «…il résulte que P ↪ Pic_{X'/S} est représentable par une [immersion fermée ?]» + la suite de la preuve de 3.1 ; ~L14432+.** ⚠⚠ **RÉGIME p606 : sur une page de CALCUL, Codex displayifie presque tout (7 d'un coup), droppe des TERMES de formule, uniformise la ponctuation mathématique de l'auteur, et répare ses coquilles (5 sur cette seule page) ⟹ LIRE CHAQUE FORMULE MEMBRE PAR MEMBRE, CALIBRÉE SUR LA MÊME LIGNE.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #618 (2026-07-16) — idx618 (vol p605 = **Exposé XII «- 11 -»**, header **«- 11 -»** + **«XII»** + footer **«605»** ⟹ **605−11=594 = CONSTANTE_XII** ; idx=605+13=618) — **★★★★★★★★ PAGE COMPLÈTE EN UN PASSAGE — 9 rep-calls + 2 fixes GLOBAUX / ~30 DÉFAUTS : LE REPORT `\red` EST TRANCHÉ ET RÉCONCILIÉ, UNE FLÈCHE VERTICALE INVERSÉE, TROIS DISPLAYS FABRIQUÉS (20-21), UNE 2ᵉ PARENTHÈSE NON REFERMÉE, L'OPÉRATEUR 𝕍 PERDU, ET UN «R'» DU LIVRE RESTAURÉ** — (5 bandes b1-b5 + 3 crops `z618_red` 4000dpi / `z618_Vop` 2600dpi / `z618_Rprime` 2600dpi). Compile **0-err / 382pp** ✓ (**après un CASSAGE DU GATE que j'ai provoqué et réparé — voir infra**). Rendu vérifié (`vrf618_body.png`, token unique «carré de gauche»+«torseur» ⟹ 1 seule page).
+
+# ✅✅✅✅✅ **REPORT GLOBAL `\red` — TRANCHÉ, PUIS RÉCONCILIÉ SUR TOUT LE FICHIER**
+- **PREUVE** : crop `z618_red` (**4000dpi**) — item v) : «L'homomorphisme (f_\*O_X)_**réd** ⟶ (f_\*O_{X'})_**réd** est surjectif.» — **l'ACCENT AIGU est NET sur les DEUX occurrences.**
+- **DIAGNOSTIC** : `\red` était **`\providecommand` TROIS FOIS** (L12835 `\mathrm{red}`, L13565 `\mathrm{red}`, L14155 `\operatorname{red}`). Comme **`\providecommand` ne définit QUE si la macro est indéfinie, la PREMIÈRE gagne et les DEUX AUTRES sont des NO-OPS SILENCIEUX** ⟹ la macro rendait **«red» SANS ACCENT PARTOUT**. ⚠⚠ **C'EST EXACTEMENT LA BOMBE `\Gr` (L43 `\operatorname{Gr}` GAGNE, L58 `\operatorname{G}` = no-op) ⟹ le report «\Gr L58 = bombe» est CONFIRMÉ comme un MOTIF, pas un accident.**
+- **CORRECTIF** : `\red` **défini UNE SEULE FOIS DANS LE PRÉAMBULE** (après `\Gr`, L44) en **`\text{réd}`** (et non `\mathrm{réd}` : l'accent en math-mode casse avec `\mathrm` ; `\text` vient d'amsmath, chargé L7) + **les 3 doublons mi-document SUPPRIMÉS** ⟹ **la bombe est DÉSAMORCÉE, pas déplacée.** ⚠ **RÉCONCILIE #607** : la macro a désormais le corps `\text{réd}` que #607 écrivait littéralement ⟹ **les 2 chemins de balisage rendent l'identique.**
+- **RÉCONCILIATION GLOBALE** : le fichier écrivait AUSSI **`\mathrm{red}` EN DUR à 7 sites** (L12084-12088 ×5, L15562, L15621, L16070) ⟹ **le MÊME document rendait la MÊME notation de DEUX façons.** Les 7 unifiés sur la macro. **Sweep du PDF rendu : les lignes «red» sans accent passent de 15 à 9, et les 9 restantes sont des FAUX POSITIFS** («redéfinir», «redouter», «redescendre», «contredit», «redonneraient») ⟹ **les 6 vrais sites (p271 ×3, p349, p350, p359) rendent maintenant «réd».**
+- ⚠⚠ **PORTÉE HONNÊTE : l'accent n'est VÉRIFIÉ AU SCAN QU'À p605.** Les 7 sites littéraux vivent sur p271/p349/p350/p359 (**autres exposés, pages NON re-vérifiées individuellement**). Le changement se justifie **maintenant** parce que **l'incohérence interne était fausse dans les deux sens** et que p605 est la seule preuve disponible. ⟹ **SI UNE PAGE ULTÉRIEURE MONTRE UN «red» NU, REVENIR DESSUS.**
+
+## ⚠⚠⚠⚠⚠⚠ **J'AI CASSÉ LE GATE — ET C'EST INSTRUCTIF**
+`fix618b.py` a unifié les 7 sites littéraux sur `\red`… **mais le site le plus précoce est L12084 et la 1ʳᵉ `\providecommand{\red}` était L12835** ⟹ **`\red` INDÉFINI À LA PREMIÈRE UTILISATION ⟹ «! Undefined control sequence» ⟹ AUCUN PDF PRODUIT.** ⚠ **LEÇON : l'idiome `\providecommand` en plein document du fichier n'est pas seulement redondant — il rend TOUTE unification de macro dangereuse. Le seul correctif sûr est le PRÉAMBULE.** ✅ Réparé par `fix618c.py`, gate re-vérifié **0-err/382pp**.
+
+## ⚠⚠⚠⚠⚠ **UNE FLÈCHE VERTICALE INVERSÉE (diagramme 2)**
+Crop `z618_Rprime` (2600dpi) : la flèche verticale gauche **POINTE VERS LE HAUT** (de la ligne 2 vers la ligne 1). Le fichier avait **`\arrow[d]` sur la cellule de la ligne 1** (elle DESCENDAIT). ⟹ **`\arrow[u]` sur la cellule de la ligne 2.** ⚠⚠ **2ᵉ page consécutive où Codex RETOURNE une relation/direction (cf #617 : ⊂→⊃ et ∉→∈) ⟹ LA CLASSE EST CONFIRMÉE, PAS UN ACCIDENT.**
+
+## ⚠⚠⚠⚠⚠ **«R'» — COQUILLE DU LIVRE RESTAURÉE**
+Même crop : «… → R^1(f_T)_\*(O\*_{X_T}) → **R'**(f_T)_\*(O\*_{X'_T}) → R^2(f_T)_\*(I_T) .» — le **«R'» est un PRIME**, **net face aux DEUX «R^1» qui l'encadrent** (exposant «1» à empattement) **et au «R^2» qui suit**. ⟹ **coquille de l'auteur (R' pour R^1)** ⟹ **SIC** ; le fichier avait « réparé » en `R^1`. ⚠ **3ᵉ page consécutive où Codex répare l'auteur** (cf A_i #617, f_\*O_Y/×_y #616).
+
+## ⚠⚠⚠⚠⚠ **L'OPÉRATEUR 𝕍 PERDU — ET LE LIVRE SE CONTREDIT SUR LE DUAL**
+Crop `z618_Vop` (2600dpi) :
+- **Le «V» des displays est SURFRAPPÉ (double barre)** = l'opérateur fibré vectoriel **𝕍** (SGA 3 I 4.6). **La maison écrit `\mathbb V`** (L12211/12287/12294/12306 + mon fix #614 en L14301). Le fichier écrivait un **`V(` NU (V italique)** + une **macro `\V`=`\operatorname{V}` FABRIQUÉE (L14166)** ⟹ **`\mathbb V` restauré ×4.** ⚠ **le report «chercher d'autres W(» était JUSTE : c'est une 3ᵉ orthographe (W, V, 𝕍) pour le MÊME opérateur.**
+- ⚠ **INCOHÉRENCE DU LIVRE — LE DUAL** : display1 écrit **«E^ˇ» (caron EN EXPOSANT)** ; le texte ET display2 écrivent **«Ě» (caron SUR le E)**. Le fichier avait **uniformisé en «E^\vee» partout** ⟹ **display1 garde `E^\vee` (forme exposant), texte + display2 passent à `\check E`.**
+- ⚠ **Le «V» de la ligne de TEXTE n'est PAS surfrappé** (V simple) alors que les displays le sont ⟹ **inconsistance de frappe** ; **j'ai rendu `\mathbb V` partout** (même opérateur, même phrase) — **DÉCISION ASSUMÉE : classe «artefact machine» comme «o»→0 ; reproduire une surfrappe-vs-pas comme deux symboles différents serait lire du bruit comme du signal.**
+
+## ⚠⚠⚠⚠ **20ᵉ ET 21ᵉ DISPLAYS FABRIQUÉS + UNE 2ᵉ PARENTHÈSE NON REFERMÉE**
+- **20ᵉ** : item **v)** tient **SUR UNE SEULE LIGNE** (crop `z618_red`) ⟹ INLINE ; Codex en avait fait un `\[…\]`.
+- **21ᵉ** : «Alors le morphisme canonique Pic_{X/S} ⟶ Pic_{X'/S} **est représentable par**…» — texte SUIT ⟹ INLINE.
+- ⚠⚠ **«est exacte)»** : le «)» **REFERME le «(c'est-à-dire, la suite…»** ; le fichier écrivait «est exacte.» ⟹ **PARENTHÈSE JAMAIS REFERMÉE — EXACTEMENT L'ACCIDENT DE p604 (#617)** ⟹ **CLASSE CONFIRMÉE : un display fabriqué CASSE L'ÉQUILIBRE DES PARENTHÈSES du texte porteur.**
+
+## ⚠⚠⚠ **LE RESTE**
+- **Flèche à LABEL FABRIQUÉ** : «Pic_{X/S} ⟶ Pic_{X'/S}» est **NUE** au scan ; le fichier lui inventait un **`\xrightarrow{v}`** ⟹ `\longrightarrow`. (Le «u» de la flèche suivante, lui, est BIEN au scan.)
+- **«𝕍(Q)»** sans virgule finale (fichier «V(Q),») ; **«f.p.p.f.,»** AVEC virgule (fichier sans) ; **«finie~; plus»** (espace avant «;») ; **«immersion fermée et»** (virgule retirée) ; **«(c'est-à-dire, la suite»** (parenthèse + virgule ; le «que» du fichier était fabriqué).
+- **PARENTHÈSES DE FAISCEAU** — **5ᵉ PAGE CONSÉCUTIVE** : item iv) «f_\*(O_{X'})» ; diagramme 2 : **6 arguments** «(f_T)_\*(O_{X'_T})», «R^1(f_T)_\*(I_T)» ×2, «R^1(f_T)_\*(O\*_{X_T})», «R'(f_T)_\*(O\*_{X'_T})», «R^2(f_T)_\*(I_T)».
+- **«(α(i) = 1+i)»** ENTRE PARENTHÈSES (fichier sans, + virgule parasite).
+- **«n'est pas nécessairement commutatif» SOULIGNÉ** ⟹ `\emph{}` (le fichier l'avait perdu) + **«Cependant on a~:»** (deux-points absent du fichier).
+- ✅ **NON TOUCHÉ** : le display «R^2f_\*(I⊗f^\*M) ≃ Hom_{O_S}(Q,M)» (**VRAI** display, rien ne suit ; `\simeq` = tilde-sur-barre sans tête ✓) ; «P\hookrightarrow» ✓ ; `\arrow[d,equal]` (le «‖» est symétrique) ; «Im».
+- ⚠⚠ **NON VÉRIFIÉ — À REPRENDRE** : **les têtes de flèche du diagramme 1** («O_{X_T} ── O_{X'_T}» et «I_T ──α── O\*_{X_T}» **semblent SANS TÊTE** dans la bande b3) ⟹ **JE N'AI PAS ZOOMÉ ⟹ NON TOUCHÉ, consigné.**
+- ⚠ **DÉFÉRÉ** : **`\textbf{3.2.}`** — le scan écrit «3.2.» **EN MARGE GAUCHE et NON GRAS** (convention de label d'équation) ⟹ question de convention, à trancher globalement avec les autres tags.
+
+## **CURSEUR → idx619 (vol p606 = **Exposé XII «- 12 -»**, footer «606» ; idx=606+13=619).** ⚠ **ATTENDU : la preuve de 3.2 — «En effet on peut évidemment supposer S et T affines. Prenons un recouvrement affine {V_i} de X_T…» + les cocycles δ\*_{ij}=g_ig_j^{-1}−1 / δ_{ij}=g_i−g_j=g_jδ\*_{ij} + «donc on a δ_T(g)=g δ\*_T(g)» ; ~L14375+.** ⚠⚠ **RÉGIME p605 : Codex RETOURNE les directions (2ᵉ page de suite), perd l'opérateur 𝕍, uniformise les duals, fabrique des displays (21) — dont un qui CASSE LES PARENTHÈSES (2ᵉ page de suite) —, invente des labels de flèche, et droppe les parenthèses de faisceau (5ᵉ page de suite) ⟹ CROPPER CHAQUE FLÈCHE, CHAQUE DIRECTION, CHAQUE OPÉRATEUR.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #617 (2026-07-16) — idx617 (vol p604 = **Exposé XII «- 10 -»**, header **«- 10 -»** + **«XII»** + footer **«604»** ⟹ **604−10=594 = CONSTANTE_XII RE-CONFIRMÉE** ; idx=604+13=617) — **★★★★★★★ PAGE COMPLÈTE EN UN SEUL PASSAGE — 7 rep-calls / ~20 DÉFAUTS : DEUX INVERSIONS DE SENS MATHÉMATIQUE (⊂/⊃ ET ∈/∉), UN 5ᵉ RENOMMAGE (A_i→B_i), DEUX DISPLAYS FABRIQUÉS (18ᵉ ET 19ᵉ), UNE PARENTHÈSE JAMAIS REFERMÉE, ET UNE CITATION REFORMATÉE** — (5 bandes b1-b5 + 2 crops `z617_tensor` 3600dpi / `z617_absurde` 3000dpi). Compile **0-err / 382pp** ✓. Rendu vérifié (`vrf617_body.png`, token unique «absurde»+«Nakayama» ⟹ 1 seule page). **b5 BLANCHE sauf le folio** (la page s'arrête sur «…isomorphisme fonctoriel en le O_S-module cohérent M,» ⟹ le blanc est un saut de page, rien à reproduire).
+
+# ⚠⚠⚠⚠⚠⚠ **DEUX INVERSIONS DE SENS MATHÉMATIQUE DANS LA MÊME PHRASE**
+Crop `z617_absurde` (3000dpi, **sans la moindre ambiguïté**) : «…donc une immersion fermée **(Nakayama)**; comme **B ⊂ A_i**, on a **B = A_i**, et **s ∉ S**, **absurde**.»
+- **«B ⊂ A_i»** — le fichier écrivait **«\(B\supset B_i\)»** ⟹ **LE SENS DE L'INCLUSION EST INVERSÉ.**
+- **«et s ∉ S, absurde.»** — le fichier écrivait **«contradiction avec \(s\in S\)»** ⟹ **LE «N'APPARTIENT PAS» EST DEVENU UN «APPARTIENT»** et la conclusion a été réécrite. (L'auteur DÉRIVE «s ∉ S» et conclut «absurde» — puisque s ∈ S par construction ; Codex a « reformulé » en retournant le symbole.)
+- **«(Nakayama)»** (parenthèses) ⟹ fichier «par Nakayama».
+⚠⚠⚠ **NOUVELLE CLASSE, LA PLUS GRAVE À CE JOUR : Codex n'altère pas seulement la forme, il RETOURNE DES RELATIONS. ⟹ CHAQUE ⊂/⊃/∈/∉/≤/≥ EST À CROPPER.**
+
+## ⚠⚠⚠⚠⚠ **5ᵉ RENOMMAGE : «A_i» → «B_i» — ET LE SCAN L'ÉCRIT 4 FOIS**
+Crop `z617_tensor` (3600dpi) : «B_{i-1} ⊗_A B_{i-1} ~⟶ B_{i-1} ⊗_{**A_i**} B_{i-1}» — le **«A_i»** du 2ᵉ tenseur **CONTRASTE avec le «⊗_A» (A NU, sans indice) du 1ᵉʳ tenseur de la MÊME LIGNE** ⟹ lecture certaine. Idem dans `z617_absurde` : **«Spec( A_i)»**, **«B ⊂ A_i»**, **«B = A_i»** — le «A» contraste avec les «B» du «B_i = B_{i+1}» de la **même ligne**. **4 occurrences.** Le fichier avait **«B_i» partout** ⟹ **restauré A_i.**
+⚠⚠ **«A_i» N'EST DÉFINI NULLE PART** (le texte ne pose que A=O_Y, B_o=f_\*(O_X), B_i=Ker(…)) ⟹ **quirk de notation du livre (l'auteur voulait sans doute B_i)** ⟹ **SIC : LE SCAN ARBITRE MÊME QUAND LA MATH DIT LE CONTRAIRE** (classe #607/#610/#616). ⚠ **Codex a « réparé » l'auteur une 3ᵉ page consécutive.**
+
+## ⚠⚠⚠⚠⚠ **18ᵉ ET 19ᵉ DISPLAYS FABRIQUÉS — DONT UN QUI LAISSAIT UNE PARENTHÈSE OUVERTE**
+- **18ᵉ** (fin de l'énoncé du Lemme 2.6) : le scan écrit «…(i.e. tel que la suite O_{Y_i} ⟶ (f_i)_\*(O_{Y_{i-1}}) ⇉ (g_i)_\*(O_{Y_{i-1}} ⊗_{O_{Y_i}} O_{Y_{i-1}}) **soit exacte)**.» — **«soit exacte)» SUIT SUR LA MÊME LIGNE ⟹ INLINE.** ⚠⚠ **ET LE «)» REFERME LE «(i.e.» OUVERT DEUX LIGNES PLUS HAUT : le fichier écrivait «soit exacte.» ⟹ LA PARENTHÈSE N'ÉTAIT JAMAIS REFERMÉE** (défaut hérité du display fabriqué — cf le «(i.e. …), alors» restauré en #616 : **le 17ᵉ et le 18ᵉ display fabriqués sont le MÊME accident, à cheval sur p603/p604**).
+- **19ᵉ** : «B_i = Ker (B_{i-1} ⇉ B_{i-1} ⊗_A B_{i-1}). **On vérifie aussitôt que**» — texte suit ⟹ **INLINE.**
+
+## ⚠⚠⚠ **VERBES CHANGÉS + MOTS DROPPÉS + PHRASE SCINDÉE**
+- **«Posons … et définissons par récurrence»** — le fichier avait **«On pose … et on définit»** ⟹ **Codex change la personne/le mode des verbes de l'auteur** (variante de la classe #610 «verbes finis→participes»). Restauré. + **virgule parasite** avant «et» retirée.
+- **«on a»** DROPPÉ : scan «Reste à prouver que pour i assez grand, **on a** B_i = A» ; fichier «que, **pour** i assez grand, B_i=A» (+ virgule parasite).
+- **«En effet considérons»** (fichier «En effet, considérons») — classe #614.
+- **PHRASE SCINDÉE** : scan «…est stationnaire**, soit S la valeur** stationnaire.» ; fichier «…est stationnaire**. Soit S sa valeur** stationnaire.» ⟹ **point→virgule, majuscule→minuscule, «sa»→«la»** (3 défauts en 4 mots).
+- **«Sinon soit s»** (fichier «Sinon, soit s») ; **«la suite (M_i)»** — **PARENTHÈSES** (fichier «la suite M_i»).
+- **`f_*(\mathcal O_X)`** : le scan parenthèse le faisceau — **4ᵉ page consécutive** où Codex les droppe.
+
+## ⚠⚠⚠ **CITATION REFORMATÉE + «que» DROPPÉ (Proposition 3.1)**
+Scan : «**Proposition 3.1.** (Oort, **Bull. soc. math. France, t. 90-1962**). Soient S un schéma localement noethérien, f : X ⟶ S un morphisme propre, X' ⊂ X un sous-schéma fermé. **On suppose que :**»
+- fichier : «Proposition 3.1» (**point manquant**) + «Bull. **Soc. Math.** France» (**capitales fabriquées**) + «**90 (1962)**» (**format moderne fabriqué**) + «On suppose **:**» (**«que» droppé — EXACTEMENT comme en #614**). ⟹ tout restauré.
+- ⚠ **DÉFÉRÉ : `\emph{Bull. soc. math. France}` — LE SCAN NE SOULIGNE PAS la citation** (le souligné ne commence qu'à «Soient S un») ⟹ **l'italique est une invention de Codex** ; MAIS la question «emph des titres de revue» est un **REPORT GLOBAL déjà ouvert** ⟹ **texte corrigé, emph laissé à la décision globale.**
+- ✅ **«de Oort»** (et non «d'Oort») gardé **SIC**, titre ET citation.
+
+## ⚠⚠ **ITEMS i)/ii)/iii)**
+- **i)** : «…nilradical N de X **et N. I = 0**.» — fichier «de X**, et** \(NI=0\)» ⟹ **virgule retirée** + **le livre écrit le produit «N.I» avec un POINT** ⟹ **`\(N.I=0\)`** (notation de l'auteur).
+- **ii)** : **CORRECT**, non touché.
+- **iii)** : scan «en dimension 0 et 1 **de sorte que (d'après EGA III 7.4.6) il existe** … un isomorphisme **fonctoriel en le**» ; fichier «et 1**,** de sorte que**,** d'après EGA III 7.4.6**,** il existe … fonctoriel**,** en le» ⟹ **PARENTHÈSES→VIRGULES + 3 virgules parasites** restaurés.
+- ✅ **`\xrightarrow{\sim}`** (crop `z617_tensor` : tilde AVEC tête de flèche) ⟹ **CORRECT, non touché** — contraste avec le `\simeq` (tilde sans tête) et le `\xleftarrow{\sim}` de #616 : **les 3 variantes coexistent sur 2 pages consécutives et Codex en fusionne deux.**
+- ✅ **«B_0» / «en dimension 0 et 1»** : le scan écrit «B_o»/«O» (lettre o) = **artefact machine pour le ZÉRO** ⟹ rendu moderne gardé.
+
+## **CURSEUR → idx618 (vol p605 = **Exposé XII «- 11 -»**, footer «605» ; idx=605+13=618).** ⚠ **ATTENDU : la SUITE de la Proposition 3.1 — le display de l'isomorphisme fonctoriel («R^2f_\*(I⊗f^\*M) ≃ Hom_{O_S}(Q,M)» ?) puis les items iv)/v) («Le conoyau E de f_\*O_{X'}→R^1f_\*(I) est localement libre» ; «L'homomorphisme (f_\*O_X)_réd ⟶ (f_\*O_{X'})_réd est surjectif») et la suite ; ~L14343+.** ⚠⚠ **RÉGIME p604 : Codex RETOURNE DES RELATIONS (⊂/⊃, ∈/∉), renomme les indices (A_i→B_i), fabrique des displays (19) — dont un qui CASSE L'ÉQUILIBRE DES PARENTHÈSES —, change les verbes, droppe «on a»/«que»/les parenthèses de faisceau, et reformate les citations ⟹ CROPPER CHAQUE RELATION, CHAQUE INDICE, CHAQUE PARENTHÈSE.** ⚠ **La macro `\red` (report GLOBAL «red» vs scan «réd») apparaît en L14349 ⟹ elle sera À L'ÉCRAN sur p605.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #616 (2026-07-16) — idx616, **3ᵉ ET DERNIER PASSAGE** (vol p603 = **Exposé XII «- 9 -»**, footer «603» ✓ ; **CONSTANTE_XII=594** ; idx=603+13=616) — **★★★★★★★ p603 ENFIN COMPLÈTE : b3-b4-b5 — 7 rep-calls / ~11 DÉFAUTS : UN 17ᵉ DISPLAY FABRIQUÉ, DEUX COQUILLES DU LIVRE REPRODUITES SIC, UNE FLÈCHE «←~»→«≃», UN «η»→«n», ET LE DOUTE η/n DE #615 TRANCHÉ** — (5 strips serrés 2600dpi : `z616b_starstrip` / `z616c_star2` / `z616b_steinstrip` / `z616d_stein2` / `z616d_lemme26`). Compile **0-err / 382pp** ✓ (**383→382 : le display→inline du Lemme 2.6 a rendu une ligne ⟹ une page remonte — ATTENDU, le compte de pages n'est PAS le gate**). Rendu vérifié en image (`vrf616_body.png`, token unique «factorisation de Stein» ⟹ 1 seule page).
+
+# ⚠⚠⚠⚠⚠⚠ **LE DOUTE η/n DE #615 EST TRANCHÉ — LES DEUX SONT VRAIS**
+Le strip `z616b_steinstrip` (2600dpi) montre le display du §2.5 : **«X →f_o→ Y_o →f_1→ Y_1 ⟶ ⋯ →f_η→ Y_η = Y»** — le **η** (descendante caractéristique) est **NET**, et il est calibré contre le **«f_1»/«Y_1» (CHIFFRE un) de la MÊME LIGNE**. Le fichier avait **«f_n»/«Y_n»** ⟹ **corrigé en `f_\eta`/`Y_\eta`**. **MAIS** le strip `z616d_lemme26` montre que le **Lemme 2.6** écrit, lui, un **vrai «Y_n»** (n propre, sans descendante) ⟹ **le livre utilise η au §2.5 et n au Lemme 2.6 — les deux reproduits tels quels.** ⚠⚠ **MA LECTURE b3 DE #615 ÉTAIT JUSTE ET MON «DÉMENTI» b4 AUSSI : ce n'était pas une contradiction mais DEUX notations différentes à deux endroits ⟹ le réflexe «consigner le doute plutôt que deviner» (#615) a payé.**
+
+## ⚠⚠⚠⚠⚠ **17ᵉ DISPLAY FABRIQUÉ — DANS L'ÉNONCÉ DU LEMME 2.6, AVEC UN «f_i» DROPPÉ AU PASSAGE**
+Scan (`z616d_lemme26`) : «…se factorise en une suite finie de morphismes finis **f_i**  X ≃ Y_o →f_1→ Y_1 ⟶ ⋯ ⟶ Y_n = Y **qui sont des** épimorphismes effectifs…» — **DU TEXTE SUIT SUR LA MÊME LIGNE ⟹ INLINE.** Codex en avait fait un **`\[…\]`** ET avait **droppé le «f_i»** qui introduit la suite. ⟹ **inline restauré + `\(f_i\)` restauré.** ⚠ **Les 2 AUTRES displays de la page — «(\*)» (tag en marge) et la factorisation du §2.5 — sont de VRAIS displays ⟹ NON TOUCHÉS.**
+
+## ⚠⚠⚠⚠⚠ **DEUX COQUILLES DU LIVRE DANS LE MÊME DISPLAY (\*) — REPRODUITES SIC**
+Scan (`z616c_star2`, pleine largeur depuis x=0) : **«(\*)   O_Y ⟶ f_\* O_Y ⇉ g_\*(O_{X×_y X})»**
+- **«f_\* O_Y»** : l'indice du 2ᵉ terme est **Y**, alors que la math exige **O_X** (c'est la suite de descente de f : X→Y !) ⟹ **COQUILLE DE L'AUTEUR** ; le fichier avait «corrigé» en `f_*\mathcal O_X` ⟹ **restauré `f_*\mathcal O_Y` SIC.**
+- **«X×_y X»** : le produit fibré est indexé par un **y MINUSCULE** (2 occurrences : dans le display ET dans «(où g : X×_y X ⟶ Y…)») ⟹ **COQUILLE** ; fichier `\times_YX` ⟹ **`\times_yX` SIC ×2.**
+⚠⚠ **classe #607/#610/#612/#614 («Z'», prime parasite, «α^\*L», «formée») : LE SCAN ARBITRE MÊME QUAND LA MATH DIT LE CONTRAIRE — et ici Codex a « réparé » silencieusement l'auteur.**
+
+## ⚠⚠⚠⚠ **UNE FLÈCHE CHANGÉE : «←~» → «≃» — ET L'AUTEUR DISTINGUE LES DEUX SUR LA MÊME PAGE**
+Scan (`z616d_stein2`) : «…de sorte que **f_{o\*}(O_X) ←~ O_{Y_o}**…» — une flèche **VERS LA GAUCHE surmontée d'un tilde** = **`\xleftarrow{\sim}`** (tête de flèche NETTE). Le fichier avait **`\simeq`**. ⟹ **restauré.** ⚠⚠ **PREUVE QUE CE N'EST PAS DU BRUIT DE SCAN : le Lemme 2.6, 4 lignes plus bas, écrit «X ~ Y_o» = un tilde sur une barre SANS tête ⟹ un VRAI `\simeq` ⟹ l'auteur emploie les DEUX symboles sur la MÊME PAGE et Codex les a fusionnés.** (cf #597 : 2 `\xleftarrow{\sim}` déjà JUSTES ailleurs ⟹ ~⟶/≃/←~ = 3ᵉ variante de la classe «SYMBOLE CHANGÉ».)
+
+## ⚠⚠⚠ **«(i.e. …), alors» → «, c'est-à-dire … . Alors» — CODEX RÉÉCRIT LA SYNTAXE DES ÉNONCÉS**
+Lemme 2.6, scan : «un épimorphisme fini **(i.e.** tel que O_Y ⟶ f_\*(O_X) soit injectif**), alors** f se factorise…» et «épimorphismes effectifs **(i.e. tel** que la suite…». Codex avait **«, c'est-à-dire tel que … soit injectif. Alors»** (parenthèses→virgules, abréviation→locution, phrase SCINDÉE en deux) et **«, c'est-à-dire tels que»**. ⟹ **les 2 parenthèses + les 2 «i.e.» + le «), alors» minuscule restaurés.** ⚠ **«tel» est au SINGULIER dans le scan** («des épimorphismes effectifs (i.e. **tel** que…») = **quirk d'accord du livre ⟹ SIC** (classe «formée» #614).
+
+## ⚠⚠ **PARENTHÈSES DE FAISCEAU DROPPÉES + «En fait,» DROPPÉ + «:» COLLÉ**
+- **`f_*(\mathcal O_X)`** : le scan parenthèse SYSTÉMATIQUEMENT le faisceau — «Spec(f_\*(O_X))», «f_{o\*}(O_X)», «f_\*(O_X)» (Lemme 2.6) ⟹ **3 paires restaurées** (Codex écrivait `f_*\mathcal O_X`).
+- **«En fait, il suffit pour ceci de prouver…»** (`z616c_star2`) : Codex avait droppé **«En fait,»** ⟹ restauré (classe #611 «Enfin,»).
+- **«à l'assertion suivante:»** : le **«:» est COLLÉ** (`z616b_starstrip`, sans ambiguïté) ⟹ le fichier avait «suivante~:» ⟹ **`~` retiré.** ⚠ **CONFIRME la règle per-occurrence : la maison met `~;`/`~:` (310 occ.) MAIS le scan colle parfois — NE JAMAIS SWEEPER.**
+
+## ⚠⚠ **CE QUI EST GARDÉ / DÉFÉRÉ**
+- ✅ **«Y_0»** gardé : le scan écrit «Y_o» (lettre o) = **artefact machine pour le ZÉRO** ⟹ rendu moderne.
+- ✅ **«X\simeq Y_0»** (Lemme 2.6) gardé : tilde-sur-barre SANS tête ⟹ vrai `\simeq` (cf supra).
+- ✅ **«f:X\to Y»** non touché (sweep GLOBAL `\to`/`\longrightarrow`).
+- ✅ **DÉTECTEUR DE TROUS** : continuité **2.3 → 2.4 → 2.5 → 2.6** vérifiée dans le fichier ; et le rendu montre que «(i.e. tel que la suite» enchaîne bien sur le display «O_{Y_i} ⟶ (f_i)_\*O_{Y_{i-1}} ⇉ (g_i)_\*(O_{Y_{i-1}} ⊗_{O_{Y_i}} O_{Y_{i-1}})» + «soit exacte.» ⟹ **le raccord b5→p604 est propre.**
+- ⚠⚠ **NOUVEAU REPORT GLOBAL — «on utilise le lemme suivant.»** : le scan lit **«…on utilise le»** puis enchaîne DIRECTEMENT sur le bloc souligné **«Lemme 2.6.»** (la phrase court DANS l'énoncé). Codex a **fabriqué «lemme suivant.»**. **MÊME MOTIF QU'EN #604 («en utilisant le»)** ⟹ **NON FIXÉ ICI : décision GLOBALE à prendre une fois** (restaurer «on utilise le \textbf{Lemme 2.6.}» — qui se lit parfaitement et est fidèle — vs garder l'adaptation de #604). **À RÉCONCILIER AVEC #604.**
+
+## **CURSEUR → idx617 (vol p604 = **Exposé XII «- 10 -»**, footer «604» ; idx=604+13=617).** ⚠ **ATTENDU : la fin de l'énoncé du Lemme 2.6 (display «O_{Y_i} ⟶ (f_i)_\*O_{Y_{i-1}} ⇉ (g_i)_\*(O_{Y_{i-1}} ⊗_{O_{Y_i}} O_{Y_{i-1}})» + «soit exacte.») puis sa DÉMONSTRATION ; ~L14321+.** ⚠⚠ **RÉGIME p603 CONFIRMÉ : Codex fabrique des displays (17), «répare» les coquilles de l'auteur (f_\*O_Y, ×_y), fusionne les symboles (←~/≃), renomme les indices (η→n), droppe les parenthèses de faisceau et les connecteurs («En fait,»), et réécrit «(i.e. …), alors» ⟹ LIRE LETTRE PAR LETTRE, TÊTE DE FLÈCHE PAR TÊTE DE FLÈCHE.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #615 (2026-07-16) — idx616 **(2ᵉ PASSAGE — LECTURE b3-b4 CONSIGNÉE, AUCUN FIX)** (vol p603, Exposé XII «- 9 -», CONSTANTE_XII=594) — **⚠⚠ PAGE TOUJOURS PARTIELLE : b1-b2 fixées (#614) ; b3-b4 LUES mais NON FIXÉES ; b5 NON LUE.** Aucun changement fichier ce cycle (contexte de session épuisé après la lecture). Compile inchangée **0-err / 383pp**.
+
+# ⚠⚠⚠ **CONTENU DU SCAN b3-b4 CONSIGNÉ (pour aller droit au fix au prochain passage)**
+
+**b3** (après le §2.5 «Finalement réduisons l'assertion II' à l'assertion suivante**:**» — ⚠ «:» semble COLLÉ, fichier ~L14325 a «suivante :») :
+- **II\*.** (ÉTOILE) «Le théorème 1.1 lorsque X et Y sont intègres sur S et que la suite» — énoncé SOULIGNÉ.
+- display tagué **«(\*)»** : «O_Y ⟶ f_\* O_Y ⇉ g_\*(O_{X×_y X})» ⚠⚠ **ZOOMER «f_\* O_Y» (f_\*O_X attendu ?) et «X×_y X» (y MINUSCULE ?) — coquilles possibles du livre ⟹ SIC si confirmées.**
+- «(où g : X×_y X ⟶ Y est le morphisme structural) est exacte.»
+- «En fait, il suffit pour ceci de prouver qu'il existe une factorisation de f» + display «X →f_o→ Y_o →f_1→ Y_1 ⟶ … →f_?→ Y_? = Y» ⚠⚠⚠ **J'AVAIS LU «f_η»/«Y_η» — MAIS b4 (Lemme 2.6) montre un «Y_n» NET ⟹ ma lecture «η» en b3 est SUSPECTE ⟹ ZOOMER 6400dpi le dernier indice (η vs n).**
+- «telle que tout f_i satisfasse à (\*) et, quitte à restreindre S, tout Y_i soit intègre sur S.»
+
+**b4** :
+- «Pour ceci, on pose Y_o=Spec(f_\*(O_X)), f_o provenant de la **factorisation de Stein** de f (EGA III 4.3.3), de sorte que **f_{o\*}(O_X) ←~ O_{Y_o}**, et que f_o satisfait donc bien à (\*).» ⚠ **la flèche est un ~ AU-DESSUS d'une flèche VERS LA GAUCHE (`\xleftarrow{\sim}`)** — cf le report «`\xleftarrow{\sim}`=2 JUSTES» (#597) : en voici peut-être une 3ᵉ.
+- «Pour factoriser de même Y_o ⟶ Y, on utilise le»
+- **Lemme 2.6.** «Soient Y un schéma noethérien, f : X ⟶ Y un épimorphisme fini (**i.e.** tel que O_Y ⟶ f_\*(O_X) soit injectif), **alors** f se factorise en une suite finie de morphismes finis f_i : X ~ Y_o →f_1→ Y_1 ⟶ … ⟶ **Y_n** = Y qui sont des épimorphismes effectifs (**i.e.** tel que la suite [→p604]» ⚠ **«i.e.» ×2 ; «Y_n» avec n NET ; énoncé SOULIGNÉ ; noter «alors» après la parenthèse (pas de virgule ?).**
+
+## ⚠⚠ **CE QUI RESTE**
+**b5 NON LUE** ; **AUCUN des points b3-b4 ci-dessus n'est FIXÉ** ; le §2.5/II\*/Lemme 2.6 ne sont pas encore comparés au fichier (~L14325+ — **RE-GREP**, le drift a bougé après #612/#613/#614). ⚠ **Le détecteur de trous : §2.5 et Lemme 2.6 existent ⟹ vérifier la continuité 2.3/2.4/2.5/2.6 dans le fichier.**
+
+## **CURSEUR → idx616 (3ᵉ PASSAGE — vol p603 : LIRE b5, puis COMPARER-FIXER b3-b4-b5 au fichier).** ⚠⚠⚠ **NE PAS PASSER À p604.** ⚠ **header «- 9 -» + «XII» + footer «603» confirmés ; CONSTANTE_XII=594 ; b1-b2 fixées (#614).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — RE-LIRE LE SCAN (mes lectures b3-b4 ci-dessus sont des NOTES, pas des vérités : cf le doute η/n).**
+
+### #614 (2026-07-16) — idx616 (vol p603 = **Exposé XII «- 9 -»**, header **«- 9 -»** + **«XII»** + footer «603** ; **CONSTANTE_XII=594 CONFIRMÉE [603−9]**) — **⚠⚠ PAGE PARTIELLE : BANDES b1-b2 SEULEMENT (4 défauts) ; b3-b5 NON TRAITÉES** — fin Lemme 2.4 + preuve + début §2.5. **4 rep-calls**. Compile **0-err / 383pp** ✓.
+
+# ✅ **LA PARENTHÈSE INFÉRÉE EN #613 EST CONFIRMÉE**
+Le scan p603 b1 ouvre sur «…**section donnée de X)**, le sous-foncteur…» ⟹ **la fermante est bien après «de X»**, exactement où #613 l'avait inférée depuis p602. ⚠ **le peek-avant sur une parenthèse à cheval fonctionne — mais il FAUT le confirmer (fait ici).**
+
+## ⚠⚠⚠⚠⚠ **UN RENOMMAGE DE NOTATION : «𝕍» (fibré vectoriel) → «W»**
+Le scan écrit les fibrés vectoriels **«𝕍(E)» et «𝕍(F)»** (V à double trait — **la notation EGA du fibré vectoriel associé à un module**, cf EGA II 1.7.8) ; Codex avait mis **«W(E)»/«W(F)»**. ⟹ **`\mathbb V` restauré ×4** (2 dans «fibrés vectoriels 𝕍(E) et 𝕍(F)», 2 dans «un fermé F de 𝕍(E)×_S𝕍(F)»). ⚠⚠⚠ **4ᵉ RENOMMAGE (après q→φ #606, S_2→S'_1 #607, η→s̄ #610) — et le 1ᵉʳ sur un OPÉRATEUR STANDARD : Codex a remplacé la notation EGA canonique par une lettre arbitraire ⟹ VÉRIFIER MÊME LES NOTATIONS «ÉVIDENTES».**
+
+## ⚠⚠⚠⚠ **UNE COQUILLE D'ACCORD DU LIVRE : «formée»**
+Scan (b1) : «le sous-foncteur de Isom(L,M) **formée** des isomorphismes compatibles…» — **«formée» au FÉMININ** alors que «le sous-foncteur» est MASCULIN ⟹ **coquille du livre**. Codex avait corrigé en «formé». ⟹ **«formée» SIC** (classe #611 «celà», #608 «voluatif», #606 «valable»).
+
+## ⚠⚠⚠ **LABELS + PONCTUATION**
+- «En effet, **ii)** est clair. Quant à **i)**,» — labels SANS parenthèse ouvrante (b1) ; Codex avait «(ii)»/«(i)» (même motif qu'en #611 «(a)»→«a)»).
+- «un fermé F de 𝕍(E)×_S𝕍(F) **et** il est clair» — virgule retirée (b2).
+
+## ⚠⚠⚠ **REPÉRÉ EN b2-b3 MAIS **NON** FIXÉ (contexte épuisé)**
+- **§2.5** : «Finalement réduisons l'assertion II' à l'assertion suivante**:**» — le scan semble avoir le «:» COLLÉ (pas d'espace) ; le fichier a «suivante :». **À VÉRIFIER/FIXER.**
+- **assertion II\*** (étoile, pas prime) : «II\*. Le théorème 1.1 lorsque X et Y sont intègres sur S et que la suite» + le display tagué **«(\*)»** : «O_Y ⟶ f_* O_Y ⇉ g_*(O_{X×_y X})» ⚠ **noter «f_* O_Y» (et non f_*O_X ?) et «X×_y X» (y MINUSCULE) — POSSIBLES COQUILLES DU LIVRE, à zoomer.**
+- «(où g : X×_y X ⟶ Y est le morphisme structural) est exacte.» ; «En fait, il suffit pour ceci de prouver qu'il existe une factorisation de f» + display «X →f_o→ Y_o →f_1→ Y_1 ⟶ … →f_η→ Y_η = Y» (⚠ **«f_o»/«Y_o» = «o» pour ZÉRO ; «η» comme indice terminal**) ; «telle que tout f_i satisfasse à (\*) et, quitte à restreindre S, tout Y_i soit intègre sur S.» ; «Pour ceci, on pose Y_o=Spec(f_*(O_X)), f_o provenant de la factorisation de…»
+- **b4-b5 NON LUES.**
+
+## **CURSEUR → idx616 À NOUVEAU (vol p603, bandes b3-b5 + les points repérés ci-dessus).** ⚠⚠⚠ **NE PAS PASSER À p604 : la page 603 est INCOMPLÈTE.** ⚠ **header «- 9 -» + «XII» + footer «603» DÉJÀ confirmés ; CONSTANTE_XII=594.** ⚠⚠ **Reprendre à `python pgcrop.py 616:5` et LIRE b3-b5** (b1-b2 déjà traitées). ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #613 (2026-07-16) — idx615 **(2ᵉ PASSAGE — p602 MAINTENANT COMPLÈTE)** (vol p602 = **Exposé XII «- 8 -»** ; CONSTANTE_XII=594) — **★★★★★★ BANDES b3-b5 : 6 rep-calls / 6 DÉFAUTS — DEUX DISPLAYS FABRIQUÉS DE PLUS (15ᵉ ET 16ᵉ) + LE LEMME 2.4** — Compile **0-err / 383pp** ✓. **AVEC #612 (b1-b2, 7 défauts) ⟹ p602 = 13 DÉFAUTS AU TOTAL.**
+
+# ⚠⚠⚠⚠⚠ **UN 15ᵉ ET UN 16ᵉ DISPLAY FABRIQUÉS — SUR LA MÊME PAGE**
+- **15ᵉ** : «…L est le noyau de l'homomorphisme canonique **(f_1)_*L_1⊕(f_2)_*L_2 ⟶ (f|Y_1∩Y_2)_*L_2 défini par φ.**» — **INLINE** au scan (b3 : tout sur UNE ligne, «défini par φ.» SUIT). Codex avait un `\[…\]` sur 4 lignes.
+- **16ᵉ** : «…par les ensembles d'isomorphismes **φ : (L_1)_T|_{(Y_1∩Y_2)_T} ~⟶ (L_2)_T|_{(Y_1∩Y_2)_T} tels que (u_1)_T=(u_2)_T∘φ.**» — **INLINE** au scan (b3). Codex avait un `\[…\]`.
+⟹ **remis inline tous les deux.** ⚠⚠ **p602 à elle seule a 3 displays fabriqués (14ᵉ en b2 #612, 15ᵉ+16ᵉ en b3) ⟹ sur les pages de PREUVE denses en formules, Codex «displayifie» presque toutes les formules inline.**
+
+## ⚠⚠⚠⚠ **LE LEMME 2.4 : «et» de trop, parenthèses, deux-points**
+Scan : «Soient L, M deux faisceaux inversibles sur X, **Isom(L,M)** le foncteur des isomorphismes L_T → M_T **(pour T/S)**. **Alors**» — **PAS de «et»** avant Isom, **PARENTHÈSES** autour de «pour T/S» (Codex avait une virgule), **PAS de «:»** après «Alors» (Codex en avait un). ⟹ les trois restaurés.
+- **item i)** : «par un schéma affine sur S **de** présentation finie.» — Codex avait une virgule.
+- **item ii)** : «munis de rigidifications **(**relativement à une section donnée de X**)**, le sous-foncteur…» — PARENTHÈSE ouvrante au scan (b4). ⚠ **la fermante est sur p603 — portée inférée «de X)» ⟹ À VÉRIFIER au passage p603.**
+
+## ⚠⚠ **AUTRE**
+- «Il suffit donc d'appliquer le lemme suivant (où l'on prend X = Y_1∩Y_2)**~;**» — le scan a un **POINT-VIRGULE** (b3/b4) ; Codex avait un point.
+- ✅ «Ce L correspond alors à un point λ de Pic_{Y/S} qui va sur μ.» — conforme, non touché.
+
+## **CURSEUR → idx616 (vol p603 = suite Lemme 2.4 (fin item ii + preuve : (ii) est clair, W(E), W(F), EGA III 7.7.8, F≃I…) ; ~L14309+).** ⚠ **CONSTANTE_XII=594 ⟹ ATTENDU «- 9 -» + «XII», footer «603» ; idx=603+13=616.** ⚠⚠ **VÉRIFIER EN PREMIER la PARENTHÈSE FERMANTE de «(relativement à une section donnée de X)» (portée inférée en #613, à confirmer au scan).** ⚠⚠ **MÊME RÉGIME : Codex displayifie les formules inline (16 fabriqués), droppe des formules entières, change des symboles (~⟶/≃, ⋃/⊔, ↪/⊂), renomme des variables, remplace parenthèses↔virgules ⟹ LIRE MOT À MOT, SYMBOLE PAR SYMBOLE.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #612 (2026-07-16) — idx615 (vol p602 = **Exposé XII «- 8 -»**, header **«- 8 -»** + **«XII»** + footer «602** ; **CONSTANTE_XII=594 CONFIRMÉE [602−8] ; idx=602+13=615 ✓**) — **⚠⚠ PAGE PARTIELLE : BANDES b1-b2 SEULEMENT (7 défauts fixés) ; BANDES b3-b5 NON TRAITÉES** — preuve Prop 2.3 (μ, L_i, rigidifications, recollement). **7 rep-calls** + **3 crops HD 6000dpi**. Compile **0-err / 383pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **UNE COQUILLE DU LIVRE : «α^* L» LÀ OÙ LA MATH VEUT «β^* L»**
+Le scan écrit **«une rigidification u : α^* L ~⟶ O_S»** (crop `z615_ualpha`, 6000dpi — **α, alpha, NET**). Or la section de Y est **β** (le texte dit «qui définit des sections α_i de Y_i et **β** de Y») ⟹ la math veut «β^* L». **Le livre a typé α ⟹ COQUILLE.** Codex l'avait «corrigée» en β. ⟹ **«α^* L» reproduit SIC** (classe #604 «K(K)», #607 «Z'», #610 prime parasite : **le scan arbitre même quand la math dit le contraire**).
+
+## ⚠⚠⚠⚠⚠ **UNE RELATION «≃» LÀ OÙ LE LIVRE A UNE FLÈCHE «~⟶»**
+Le scan : **«u_i : α_i^* L_i ~⟶ O_S»** et **«u : α^* L ~⟶ O_S»** — un **LONG ARROW SURMONTÉ D'UN TILDE** (`\xrightarrow{\sim}`), pas la relation `\simeq` (≃) du fichier. ⟹ **`\xrightarrow{\sim}` restauré ×2.** ⚠⚠ **3ᵉ changement de symbole (après #610 «↪»→«⊂» et #611 «⋃»→«⊔») ⟹ Codex confond ISOMORPHISME-FLÈCHE et RELATION-≃ ⟹ CROPPER CHAQUE ≃/≅/~⟶.** ⚠ **le «f_i^*(L) ≃ L_i» de la même page EST une vraie relation `\simeq` — ne pas sur-corriger.**
+
+## ⚠⚠⚠⚠ **INCOHÉRENCE DU LIVRE SUR LES PARENTHÈSES DE Pic**
+- **p601 (Prop 2.3)** : «Pic_{**(**Y_1⊔Y_2**)**/S}» — AVEC parenthèses.
+- **p602** : «Pic_{Y_1⊔Y_2/S}» — **SANS** (crop `z615_picparen`, 6000dpi).
+⟹ **incohérence du livre**, reproduite des deux côtés (le fichier avait des parenthèses partout).
+
+## ⚠⚠⚠⚠ **UN 14ᵉ DISPLAY FABRIQUÉ + PONCTUATION**
+- **14ᵉ display** : «φ : L_1|_{Y_1∩Y_2} ~⟶ L_2|_{Y_1∩Y_2} **tel que u_1 = u_2∘φ.**» — INLINE au scan («tel que…» SUIT sur la ligne). ⟹ remis inline.
+- «pour i=1,2» (virgule retirée) ; «f_i^*(L) ≃ L_i **où**» (virgule retirée) ; «**Réciproquement si**» (virgule retirée) ; «suivant φ **~;** explicitement» (espace ajouté).
+
+## ⚠⚠⚠ **CE QUI RESTE À FAIRE SUR CETTE PAGE (b3-b5)**
+Bandes b3-b5 de p602 **NON LUES** (contexte de session épuisé). ⚠ **Un 15ᵉ display fabriqué est DÉJÀ REPÉRÉ en b2 mais NON FIXÉ** : «l'homomorphisme canonique **(f_1)_*L_1⊕(f_2)_*L_2 ⟶ (f|_{Y_1∩Y_2})_*L_2 défini par φ.**» — le scan l'a INLINE («défini par φ.» SUIT) alors que le fichier (L14299-14301) a un `\[…\]`. ⟹ **À FIXER AU PROCHAIN PASSAGE.** ⚠ Restent aussi à vérifier : le foncteur I (L14304-14308), le **Lemme 2.4** (L14310+), et tout le reste de b3-b5.
+
+## **CURSEUR → idx615 À NOUVEAU (vol p602, bandes b3-b5 + le 15ᵉ display repéré).** ⚠⚠⚠ **NE PAS PASSER À p603 : la page 602 est INCOMPLÈTE.** ⚠ **CONSTANTE_XII=594 ; header «- 8 -» + «XII» ; footer «602» — déjà confirmés.** ⚠⚠ **Reprendre à `python pgcrop.py 615:5` et LIRE b3-b5** (b1-b2 déjà traitées, cf ci-dessus). ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #611 (2026-07-16) — idx614 (vol p601 = **Exposé XII «- 7 -»**, header **«- 7 -»** + **«XII»** + footer «601** ; **CONSTANTE_XII=594 CONFIRMÉE [601−7] ; idx=601+13=614 ✓**) — **★★★★★★ FIN §2.2 + Proposition 2.3 + preuve — 8 rep-calls / ~17 DÉFAUTS : UNE FORMULE ENTIÈRE DROPPÉE, UN SYMBOLE «⋃»→«⊔», UN 13ᵉ DISPLAY FABRIQUÉ, UN TYPO «celà» SIC** — (bandes b1-b5 + **2 crops HD 5600dpi**). Compile **0-err / 383pp** ✓.
+
+# ⚠⚠⚠⚠⚠⚠ **CODEX A DROPPÉ UNE FORMULE ENTIÈRE**
+Le scan : «…les composantes connexes de X **;** alors f se décompose, **f = ⊔_k f_k : ⊔_k(⊔_{i∈I(k)} X_i) ⟶ Y_k**, et l'assertion en résulte.» Codex avait : «…de X**.** Alors f se décompose, et l'assertion en résulte.» ⟹ **LA DÉCOMPOSITION EXPLICITE ÉTAIT ENTIÈREMENT ABSENTE** (+ «. Alors»→«~; alors»). ⟹ **restaurée.** ⚠⚠⚠ **classe #579/#594 : une FORMULE peut disparaître sans laisser de trace — le texte reste grammatical et compile.**
+
+## ⚠⚠⚠⚠⚠ **UN SYMBOLE CHANGÉ : «⋃» (union) → «⊔» (coproduit)**
+Scan : **«Y_k = ⋃_{i∈I(k)} X_i»** — le symbole est un **⋃ ARRONDI (bigcup)** (crop `z614_cup`, 5600dpi ; à comparer au «⊔» CARRÉ de «f = ⊔_k f_k» sur la MÊME ligne). Codex avait `\coprod`. ⟹ **`\bigcup` restauré.** ⚠⚠ **2ᵉ changement de symbole après #610 («↪»→«⊂») ⟹ CROPPER CHAQUE GRAND OPÉRATEUR (⋃/⊔/∏/Σ), leur forme arrondie/carrée les distingue.**
+
+## ⚠⚠⚠⚠⚠ **UNE PHRASE RÉÉCRITE AVEC PERTE DES RÉFÉRENCES CERCLÉES**
+Scan : «…au cas d'un morphisme X_1 ⊔ X_2 → X**. ① et ③ résultent** alors, quitte à restreindre S d'après **(**EGA III 7.8.6**)**, de la proposition suivante.» Codex : «…X_1 ⊔ X_2 → X**, et le résultat résulte** alors, … d'après EGA III 7.8.6, …» ⟹ **les renvois ① et ③ étaient PERDUS** (+ parenthèses de la réf droppées + «Enfin,» droppé). ⟹ restaurés.
+
+## ⚠⚠⚠⚠ **PROPOSITION 2.3 : «On suppose que», items en POINTS, parenthèses, et un 13ᵉ DISPLAY FABRIQUÉ**
+- «un morphisme propre **et** Y_1,Y_2» (Codex avait une virgule) ; **«On suppose que»** (Codex avait «On suppose **:**»).
+- **item a)** finit par **«.»** (Codex avait «;») ; **item b)** : «= O_S **et** (g_i)_*» (virgule retirée) + **«universellement (où g_i=g|Y_i, i=1,2).»** — PARENTHÈSES + point (Codex avait des virgules + «;»).
+- **13ᵉ DISPLAY FABRIQUÉ** : «Alors Pic_{Y/S} ⟶ Pic_{(Y_1⊔Y_2)/S} est représentable par un morphisme affine de présentation finie.» — **INLINE** au scan (énoncé souligné continu, bandes b2/b3). ⟹ remis inline.
+
+## ⚠⚠⚠⚠ **PREUVE : «En effet» droppé, «celà» corrigé par Codex, ponctuation**
+- **«En effet** notons d'abord» (Codex avait droppé «En effet»).
+- **«Pour (c), celà résulte»** — le scan écrit **«celà»** avec un ACCENT GRAVE (crop `z614_cela`, 5600dpi) = **coquille du livre** pour «cela». Codex l'avait corrigée. ⟹ **«celà» SIC** (accent MINUSCULE = choix de l'auteur, #589/#600).
+- «des deux suites exactes **:**» (deux-points droppé) ; display 2 finit par «⟶ 0 **;**» (Codex avait «0.») ; «**la** première montre … sur S **~;** ensuite la seconde **que**» (Codex avait «La» majuscule, pas d'espace avant «;», et un «montre» en trop).
+
+## ⚠⚠⚠ **#600 UNE 7ᵉ/8ᵉ FOIS — CETTE FOIS SUR UNE FORME *NEUVE*** : `"On suppose que"` = **37 occurrences** dans le document (phrase banale !), `"présentation finie sur S."` = 3, `"En effet notons d'abord"` = 2 ⟹ **mes checks (old ET new) sont trop génériques dès que le token est une tournure courante ⟹ TOUJOURS ancrer le check sur la forme COMPLÈTE/CONTEXTUALISÉE ; le rep() sur la forme unique fait foi.**
+
+## **CURSEUR → idx615 (vol p602 = suite preuve Prop 2.3 (μ, faisceaux inversibles L_i, rigidifications u_i, recollement φ…) ; ~L14296+).** ⚠ **CONSTANTE_XII=594 ⟹ ATTENDU «- 8 -» + «XII», footer «602» ; idx=602+13=615.** ⚠⚠ **MÊME RÉGIME : Codex droppe des FORMULES entières, change des SYMBOLES (⋃/⊔, ↪/⊂), renomme des variables (η/s̄, q/φ), perd des renvois (①③), fabrique des displays, remplace parenthèses↔virgules, corrige les typos du livre ⟹ LIRE MOT À MOT, SYMBOLE PAR SYMBOLE ; VÉRIFIER QU'AUCUNE FORMULE NE MANQUE.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #610 (2026-07-16) — idx613 (vol p600 = **Exposé XII «- 6 -»**, header **«- 6 -»** + **«XII»** + footer «600** ; **CONSTANTE_XII=594 CONFIRMÉE [600−6] ; idx=600+13=613 ✓**) — **★★★★★★ §2.2 (2 diagrammes + preuve) — 7 rep-calls / ~9 DÉFAUTS : UN RENOMMAGE «η»→«\bar s», UNE FLÈCHE «↪»→«⊂», DES VERBES FINIS→PARTICIPES, ET UNE INCOHÉRENCE DE PRIME DU LIVRE REPRODUITE SIC** — (bandes b1-b5 + **7 crops HD 3600-6400dpi**). Compile **0-err / 383pp** ✓. ✅ **LES 2 DIAGRAMMES tikzcd SONT CORRECTS — NON TOUCHÉS.**
+
+# ⚠⚠⚠⚠⚠⚠ **CODEX A RENOMMÉ LE POINT GÉOMÉTRIQUE : «η» → «\bar s» (s-barre)**
+Le scan écrit **«soit η le point géométrique de S. Alors X_η a comme composantes irréductibles les (X_i)_η et, … si et seulement si (X_i)_η ∩ (X_j)_η = ∅»** (crop `z613_etastrip`, 3600dpi — **η, la lettre grecque eta, NETTE**). Codex avait **«\bar s»** (s-barre) aux **5 occurrences** + **«UN point»** au lieu de **«LE point»** + une virgule ajoutée avant «et». ⟹ **η ×5, «le point», virgule retirée.** ⚠⚠⚠ **3ᵉ RENOMMAGE DE VARIABLE (après q→φ #606, S_2→S'_1 #607) ⟹ Codex substitue SYSTÉMATIQUEMENT sa notation préférée à celle de l'auteur ⟹ CHAQUE LETTRE EST À VÉRIFIER AU SCAN.**
+
+## ⚠⚠⚠⚠⚠ **UNE FLÈCHE CHANGÉE : «↪» (immersion) → «⊂» (inclusion)**
+Display 1 : scan **«X_o ↪ ⊔X_i ⟶ Y,»** — la 1ʳᵉ flèche est un **HOOK (hookrightarrow, immersion)**, vérifié au 6400dpi (crops `z613_seq1`/`z613_primeRef`). Codex avait écrit **«X_0 \subset ⊔X_i»** (relation d'inclusion). ⟹ **`\hookrightarrow` restauré.** ⚠⚠ **NOUVELLE CLASSE : Codex change le TYPE de flèche (immersion→inclusion) — sémantiquement proche, visuellement différent ⟹ CROPPER CHAQUE FLÈCHE.**
+
+## ⚠⚠⚠⚠⚠ **INCOHÉRENCE DE PRIME DU LIVRE — REPRODUITE SIC**
+- Display 1 : **«⊔X_i»** — **PAS de prime** (crop `z613_primeRef`, 6400dpi : X propre).
+- Display 2 : **«Pic_{⊔X'_i/S}»** — **PRIME** (crop `z613_primeQ`, 6400dpi : tick net en haut-droite du X).
+⟹ **les deux «suites» sont DUALES et devraient porter le MÊME ⊔X_i** ⟹ **coquille de l'auteur (prime parasite dans la 2ᵈ)** ⟹ **reproduite SIC** (le fichier n'avait de prime nulle part). ⚠⚠ **classe #607 («Z'» typo) : le scan arbitre même quand la math dit le contraire.**
+
+## ⚠⚠⚠⚠ **VERBES FINIS → PARTICIPES + PONCTUATION (classe #591)**
+- **VERBES** : scan «les X_i **sont** les composantes irréductibles de X et **sont** intègres sur S». Codex avait «les X_i **étant** les composantes … et **étant** intègres» (participes présents). ⟹ **verbes finis restaurés.** ⚠ **NOUVELLE VARIANTE : Codex «subordonne» les propositions de l'auteur.**
+- «au cas **où** Y **est** intègre»→scan «au cas Y intègre» (Codex avait ajouté «où»+«est»).
+- «⊔X_i → X**,** où»→«⊔X_i → X où» (virgule) ; «les Pic_{X_i/S}**,** donc aussi Pic_{⊔X_i/S}**,** sont … et **que** le morphisme»→scan sans les 2 virgules ni «que» ; «de 1.2**,** on est»→«de 1.2 on est».
+- **PHRASE FUSIONNÉE** : scan «à démontrer **II'. Le** théorème 1.1 …» (POINT + majuscule ; II' est un énoncé SÉPARÉ, souligné band4). Codex avait «II'**, le** théorème» (virgule+minuscule, fusionné). ⟹ restauré.
+
+## ⚠⚠ **CE QUI EST CORRECT / GARDÉ**
+- ✅✅ **LES 2 DIAGRAMMES tikzcd** : le carré (Y←⊔_j Y_j / ↑↑ / X←⊔_j Σ_j) ET le carré Pic (Pic_{Y/S}→①→Pic_{⊔_j Y_j/S}=∏_j Pic_{Y_j/S} / ↓② ↓④ / Pic_{X/S}→③→Pic_{⊔_j Σ_j/S}=∏_j Pic_{Σ_j/S}) — **positions, flèches, SENS, et labels cerclés ①②③④ TOUS CORRECTS** (bandes b1-b2) ⟹ **NON TOUCHÉS** (2ᵉ page consécutive où les diagrammes de Codex sont justes).
+- ✅ **«X_0»** gardé : le scan écrit «X_o» (lettre o) = **artefact machine pour le ZÉRO** ⟹ rendu moderne «X_0» (cf report «la lettre o pour zéro»).
+- ⚠ **DÉFÉRÉ** : macro `\red`→«red» vs scan «réd» (décision GLOBALE, cf #609).
+
+## ⚠⚠⚠ **#600 UNE 6ᵉ FOIS** — `"\bar s" not in t` a ÉCHOUÉ : reste (à raison) en **L12877/L12883 («\bar s_y», autre variable)** et **L13894-13909 («X_{\bar s}», fibres géométriques de l'Exposé X)** ⟹ **VÉRIFIÉ PAR GREP** ; le rep() sur la phrase COMPLÈTE (unique) avait réussi. ⟹ **mes checks old-form sont systématiquement trop génériques quand le token est une notation courante ⟹ GREPER/COMPTER.**
+
+## **CURSEUR → idx614 (vol p601 = suite §2.2 fin (Soient Y_k=⊔_{i∈I(k)}X_i … récurrence … EGA III 7.8.6) + **Proposition 2.3** + sa preuve ; ~L14270+).** ⚠ **CONSTANTE_XII=594 ⟹ ATTENDU header «- 7 -» + «XII», footer «601» ; idx=601+13=614.** ⚠⚠ **MÊME RÉGIME : Codex renomme des variables (η→s̄, q→φ, S_2→S'_1), change des flèches (↪→⊂), subordonne les verbes, fabrique des displays, remplace parenthèses↔virgules ⟹ LIRE MOT À MOT, LETTRE PAR LETTRE, FLÈCHE PAR FLÈCHE, PRIME PAR PRIME.** ⚠ **PEEK-ARRIÈRE : la phrase «(X_i)_η ∩ (X_j)_η = ∅» a été fixée ici (elle chevauche p600/p601).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #609 (2026-07-16) — idx612 (vol p599 = **Exposé XII «- 5 -»**, header **«- 5 -»** + **«XII»** + footer «599** ; **CONSTANTE_XII=594 CONFIRMÉE [599−5] ; idx=599+13=612 ✓**) — **★★★★★★ §2 «Premières réductions» (§2.1, assertions I/II, §2.2 début) — 7 GROUPES / 8 DÉFAUTS : PHRASE SCINDÉE, PRIME DROPPÉ, PARENTHÈSES↔VIRGULES, 12ᵉ DISPLAY FABRIQUÉ, ET DEUX DIAGRAMMES tikzcd VÉRIFIÉS CORRECTS** — **7 rep-calls** (bandes b1-b5 + **4 crops HD 4600-6000dpi**). Compile **0-err / 383pp** ✓.
+
+# ⚠⚠⚠⚠⚠ **§2.1 : PHRASE SCINDÉE, 2 VIRGULES AJOUTÉES, PRIME DROPPÉ, «suivant :» DROPPÉ**
+- **PHRASE SCINDÉE** : scan «Appliquons 1.3 à X/S et Y/S **:** on trouve» (deux-points + minuscule). Codex avait «Y/S**.** **O**n trouve» (point + majuscule). ⟹ «~: on trouve».
+- **2 VIRGULES AJOUTÉES** : scan «un schéma intègre S' **et** un morphisme fini plat S'⟶V **tels** que» (SANS virgules). Codex avait «S'**,** et … S'⟶V**,** tels». ⟹ retirées.
+- **PRIME DROPPÉ (sur X seulement)** : scan «composante irréductible **X'_i** de X_{S'} et **Y'_j** de Y_{S'}» (crop `z612_Xprime2`, 6000dpi — les DEUX ont un prime). Codex avait «X_i» (prime droppé) mais gardé «Y'_j». ⟹ «X'_i» restauré. ⚠⚠ **Codex droppe les primes DE FAÇON INCOHÉRENTE (X oui, Y non) ⟹ vérifier CHAQUE prime, pas seulement le premier.**
+- **«suivant :» DROPPÉ** : scan «Il résulte alors du diagramme commutatif **suivant :**» avant le 1ᵉʳ diagramme (le 2ᵈ «impliquant le diagramme commutatif» n'a PAS de «suivant :»). Codex l'avait droppé. ⟹ restauré «suivant~:».
+
+## ⚠⚠⚠⚠⚠ **DEUX DIAGRAMMES tikzcd VÉRIFIÉS CORRECTS + UN 12ᵉ DISPLAY FABRIQUÉ**
+- **DIAGRAMMES** : les 2 diagrammes commutatifs (X_réd→Y_réd/i,j/X→Y ; et Pic_{X_réd/S}←Pic_{Y_réd/S}/↑↑/Pic_{X/S}←Pic_{Y/S}) — **STRUCTURE (flèches, positions, sens) CORRECTE au scan** (bandes b2/b3) ⟹ NON touchés (contraste avec «14 côtés tikzcd faux» du §6.x — ici Codex a bien rendu les diagrammes).
+- **12ᵉ DISPLAY FABRIQUÉ** (§2.2) : scan «soit Σ_j = ⊔_{φ(i)=j} X_i**.** Alors on a les deux diagrammes» — INLINE (crop `z612_sigma`, «Alors on a» suit sur la ligne). Codex l'avait mis en `\[…\]`. ⟹ remis inline. Plus «Y_j**,** et soit»→«Y_j, soit» (Codex avait ajouté «et»).
+
+## ⚠⚠⚠⚠ **AUTRES + CE QUI EST GARDÉ / DÉFÉRÉ**
+- **assertion I** : scan «une immersion **(**nécessairement nilpotente**)**.» — PARENTHÈSES. Codex avait «immersion**,** nécessairement nilpotente». ⟹ parenthèses.
+- **sorites** : scan «(EGA II 5.1.10 (ii) (v))» — SANS virgule (crop `z612_iiv`). Codex avait «(ii)**,** (v)». ⟹ virgule retirée.
+- ✅ **GARDÉ** : «Étudions» (accent de CAPITALE = rendu moderne #602) ; «φ(i)» = VRAI φ (fonction d'indice, ≠ le q→φ de #606) ; assertion II «X_i/Y_i» SANS primes (correct — contexte différent de §2.1).
+- ⚠⚠ **DÉFÉRÉ (décision GLOBALE)** : la macro `\red` (L14159) rend **«red»** (anglais) mais le scan écrit **«réd»** (français, é) dans TOUS les subscripts réduits (X_réd, Pic_{X_réd/S}…) ⟹ **redéfinir `\red`→«réd» globalement** (une ligne) ET **réconcilier avec #607 qui a utilisé «\text{réd}»** (incohérence introduite). NON touché par-page.
+
+## ⚠⚠⚠ **#600 UNE 4ᵉ/5ᵉ FOIS — CHECKS OLD-FORM TROP GÉNÉRIQUES ⟹ COMPTER**
+- `"intègre \(S'\), et un morphisme" not in t` a ÉCHOUÉ : reste (à raison) dans le **Lemme 1.3** («…intègre S', et un morphisme fini **et** plat…», L14195) — le rep() sur la forme §2.1 COMPLÈTE («fini plat», unique) avait réussi.
+- `"X'_i de X_{S'}"` = 2 : **Lemme 1.3 (#607)** + **§2.1 (ce fix)**, les DEUX corrects. ⟹ **VÉRIFIÉ PAR COMPTAGE ; le check spécifique du fix (avec «et \(Y'_j\)») avait confirmé l'atterrissage unique.**
+
+## **CURSEUR → idx613 (vol p600 = suite §2.2 (les 2 diagrammes de §2.2 + §2.3 ? ; ~L14246+).** ⚠ **CONSTANTE_XII=594 ⟹ ATTENDU header «- 6 -» + «XII», footer «600» ; idx=600+13=613.** ⚠⚠ **MÊME RÉGIME : Codex scinde/restructure des phrases, droppe/ajoute des primes (incohéremment), fabrique des displays, remplace parenthèses↔virgules, change des références ⟹ LIRE MOT À MOT, PRIME PAR PRIME, VÉRIFIER CHAQUE `\[…\]`, CHAQUE INCISE, CHAQUE DIAGRAMME (côtés/flèches/sens).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
+### #608 (2026-07-16) — idx611 (vol p598 = **Exposé XII «- 4 -»**, header **«- 4 -»** + **«XII»** + footer «598** ; **CONSTANTE_XII=594 CONFIRMÉE [598−4] ; idx=598+13=611 ✓**) — **★★★★★★ FIN DU §1 (fin preuve Lemme 1.4, Cor 1.5, Cor 1.6, Rem 1.7) — 5 GROUPES / ~13 DÉFAUTS : UNE PHRASE RESTRUCTURÉE, UN 11ᵉ DISPLAY FABRIQUÉ, PARENTHÈSES↔VIRGULES ×2, UN TYPO «voluatif» SIC** — **5 rep-calls** (bandes b1-b5 + **5 crops HD 5200-6400dpi**). Compile **0-err / 383pp** ✓. **§1 de l'Exposé XII COMPLET.**
+
+# ⚠⚠⚠⚠⚠ **UNE PHRASE ENTIÈREMENT RESTRUCTURÉE PAR CODEX**
+Fin preuve Lemme 1.4 : scan «D'ailleurs **on sait (SGA 3 …) que** P/R⟶Q est une immersion fermée, donc affine, **donc** il en est de même» (crop `z611_sga3ref`). Codex avait DROPPÉ «on sait … que», DÉPLACÉ la référence APRÈS «immersion fermée», et changé «donc»→«et» : «P/R→Q est une immersion fermée (réf), donc affine, **et** il en est de même». ⟹ **structure restaurée + «et»→«donc».** ⚠ **RÉFÉRENCE «(SGA 3 I 4.2)» GARDÉE** : le glyphe du scan est ambigu «I.4.2»/«1.4.2» (I/1 machine à écrire + point-séparateur vs espace du fichier) ; SGA 3 numérote ses exposés en ROMAIN ⟹ désambiguïsation savante = Exposé I, 4.2 ⟹ gardé «I 4.2» (le contenu est correct ; noté que le scan a une forme «I.4.2»). ⚠⚠ **quand un glyphe I/1 est ambigu, le CONTEXTE (SGA 3 = exposés romains) désambiguïse — ce n'est PAS corriger une coquille, c'est LIRE le caractère voulu.**
+
+## ⚠⚠⚠⚠⚠ **UN 11ᵉ DISPLAY FABRIQUÉ + PARENTHÈSES↔VIRGULES ×2 + UN TYPO «voluatif»**
+- **DISPLAY (Cor 1.5 b)** : scan «Alors le morphisme induit f\*:Pic_{Y/k}⟶Pic_{X/k} est affine» — INLINE (band2, «est affine» suit). Codex l'avait mis en `\[…\]`. ⟹ remis inline (11ᵉ).
+- **PARENTHÈSES (Cor 1.6 a)** : scan «normal sur S **(**c'est-à-dire plat à fibres géométriquement normales**)**, alors». Codex avait des virgules. ⟹ parenthèses.
+- **PARENTHÈSES (Cor 1.6 b)** : scan «essentiellement propre sur S **(**c'est-à-dire, s'il satisfait … si Y est lisse sur S**)** alors» + «est fini **(**et en particulier, affine**)**». Codex avait des virgules aux deux. ⟹ parenthèses ×2.
+- **TYPO «voluatif» SIC** : scan «au critère **voluatif** de propreté» (crop `z611_voluatif`) — coquille du livre pour «valuatif». Codex l'avait corrigé. ⟹ «voluatif» SIC.
+- **VIRGULES** : «(c'est-à-dire**,** s'il satisfait» + «par exemple**,** si Y» (virgules ajoutées par l'auteur, droppées par Codex) ; virgules autour de «alors» RETIRÉES (scan «) alors quitte» sans virgule).
+
+## ⚠⚠⚠⚠ **LES LABELS a)/b) ET LES ESPACES AVANT «;» (preuve)**
+- scan «En effet dans **a)**, pour tout … Dans **b)** f\*» — labels «a)»/«b)» (style enumerate, PAS «(a)»/«(b),»). Codex avait «(a)»/«(b),». ⟹ «a)»/«b)».
+- 2 espaces avant «;» restaurés : «affine~; sa» et «(iii))~; R_s».
+
+## ⚠⚠ **CE QUI ÉTAIT DÉJÀ CORRECT / NON TOUCHÉ**
+- ✅ **Rem 1.7 «« quasi-affine »»** : le fichier a DÉJÀ les guillemets maison (rendu correct du «"quasi-affine"» de la machine, cf règle #606 terme-entre-guillemets→guillemets) ⟹ NON touché.
+- ✅ **«(J. P. Murre)»** : espacement d'initiales (représentation) ⟹ laissé.
+- ✅ **cette page : TOUS mes checks de vérif ont passé** (pas de sous-chaîne trop générique cette fois — contraste avec #600/#605/#607).
+
+## **CURSEUR → idx612 (vol p599 = §2 de l'Exposé XII (le §1 est FINI avec la Rem 1.7) ; ~L14224+).** ⚠ **CONSTANTE_XII=594 ⟹ ATTENDU header «- 5 -» + «XII», footer «599» ; idx=599+13=612.** ⚠⚠ **MÊME RÉGIME : Codex restructure des phrases, fabrique des displays, remplace parenthèses↔virgules, renomme des variables, corrige des typos du livre, change des références ⟹ LIRE MOT À MOT, VÉRIFIER CHAQUE `\[…\]`, CHAQUE INCISE (parenthèses/virgules), CHAQUE RÉFÉRENCE, CHAQUE SYMBOLE (zoom subscript).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN, COMPARER MOT À MOT.**
+
+### #607 (2026-07-16) — idx610 (vol p597 = **Exposé XII «- 3 -»**, header **«- 3 -»** + **«XII»** + footer «597** ; **CONSTANTE_XII=594 CONFIRMÉE [597−3] ; idx=597+13=610 ✓**) — **★★★★★★ LA PAGE LA PLUS DENSE JUSQU'ICI : 16 DÉFAUTS (§1 suite : fin Lemme 1.3, preuve 1.2, Lemme 1.4) — RENOMMAGE DE VARIABLE, PRIMES DROPPÉS, RÉFÉRENCE CHANGÉE, 2 DISPLAYS FABRIQUÉS, ET UNE INCOHÉRENCE INTERNE DU LIVRE REPRODUITE SIC** — **12 rep-calls** (bandes b1-b5 + **~22 crops HD 4400-6400dpi, dont subscripts au 6400dpi**). Compile **0-err / 383pp** ✓.
+
+# ⚠⚠⚠⚠⚠⚠ **INCOHÉRENCE INTERNE DU LIVRE REPRODUITE SIC — LE SCAN MÉLANGE «S_2» ET «S_1»**
+Dans la preuve du Lemme 1.3, le livre écrit : «Il existe un ouvert non vide **S_2** de S_1 tel que toute composante irréductible de **X_{S_1}**, **muni** de la structure réduite induite, soit intègre **sur S_1** (EGA IV 9.7.7). Prenons V=V_1−**h(S_1−S_2)**…». ⟹ **l'ouvert est «S_2» mais les conditions portent sur «X_{S_1}» / «sur S_1»** — mathématiquement incohérent (l'ouvert rétréci S_2 ne sert à rien si la condition est sur S_1). **Vérifié au 6400dpi** (crops `z610_subX`/`z610_subSur`/`z610_subH`) : les glyphes «1» (vertical + serif) et «2» (courbe) sont DISTINCTS ⟹ ce N'EST PAS une erreur de lecture, c'est une **coquille de l'auteur**. Codex avait «nettoyé» en renommant TOUT en «S'_1» (cohérent). ⟹ **reproduit le scan SIC : S_2 ouvert, X_{S_1}, muni, sur S_1, h(S_1−S_2).** ⚠⚠⚠ **LE SCAN ARBITRE MÊME QUAND IL EST MATHÉMATIQUEMENT FAUX (feedback_archival : «ne jamais argumenter que la math est le point»).**
+
+## ⚠⚠⚠⚠⚠ **RENOMMAGE DE VARIABLE + PRIMES DROPPÉS (Codex «normalise» la notation)**
+- **RENOMMAGE «S_2»→«S'_1»** (l'ouvert auxiliaire, multi-occurrences) — Codex a renommé la variable de l'auteur (comme «q»→«φ» #606, mais multi-occurrences). ⟹ restauré «S_2».
+- **PRIME DROPPÉ «X'_i»→«X_i»** (les composantes, crops `z610_Xi_lemme`/`z610_demontrons`/`z610_fiZi`) — le livre écrit «X'_i» (X PRIME indice i) partout (Lemme 1.3, «Démontrons», «f_i:Z_i→X'_i»). Codex a droppé le prime. ⟹ restauré «X'_i» (×4).
+- **PRIME AJOUTÉ «Pic_{Z/S'}»→ le livre a «Pic_{Z'/S'}»** (Z PRIME, crop `z610_stripA`) dans le morphisme f\* — coquille du livre (devrait être Z), Codex l'avait «corrigé» en Z. ⟹ reproduit «Pic_{Z'/S'}» SIC. ⚠ **le VRAI «Pic_{Z/S'}=∏_i Pic_{Z_i/S'}» (L14206) reste INTACT — typo LOCAL.**
+- **«sur S'»→«sur S»** (crop `z610_surS`) — le livre écrit «Z_i intègre sur S» (sans prime ; Codex avait ajouté le prime). ⟹ «sur S» SIC.
+⟹ ⚠⚠⚠ **Codex NORMALISE la notation de l'auteur (renomme, ajoute/droppe des primes) ⟹ LE SCAN ARBITRE CHAQUE SYMBOLE, PRIME PAR PRIME, INDICE PAR INDICE (zoom 6400dpi sur les subscripts).**
+
+## ⚠⚠⚠⚠⚠ **UNE RÉFÉRENCE CHANGÉE + DEUX DISPLAYS FABRIQUÉS (9ᵉ, 10ᵉ)**
+- **RÉFÉRENCE** : scan «(SGA 3 **VI_B** 11.11)» (parenthèses, VI indice B, 11.11 ; crop `z610_stripB`). Codex avait «SGA 3 VI 1.1» (pas de parenthèses, pas d'indice B, «1.1»). ⟹ restauré «(SGA 3 VI_B 11.11)». ⚠⚠ **LES RÉFÉRENCES NE SONT PAS À L'ABRI DE CODEX ⟹ CROPPER CHAQUE.**
+- **2 DISPLAYS FABRIQUÉS** : «Soit f: Z=⊔_i Z_i ⟶ X'=X_{S'} le morphisme canonique» (crop `z610_soitf`) et «f\*:Pic_{X'/S'} ⟶ Pic_{Z'/S'} est représentable» (crop `z610_stripA`) — INLINE au scan (texte suit). Codex les avait mis en `\[…\]`. ⟹ remis inline. Plus le display «On prend \[V=…\]» → «Prenons \(V=…\) et \(S'=…\)» inline (3ᵉ, «On prend»→«Prenons», «\qquad»→«et»).
+
+## ⚠⚠⚠⚠ **AUTRES : notation/ponctuation/mots (classe #591)**
+- **NOTATION** : «X_{\Spec L}»→**«(X_L)_réd»** (crop `z610_XLred` — Codex a changé la base-change ET droppé «réd») ; «Pic_{X/V}»→**«Pic_{X/S}|_V»** (crop `z610_stripA`) ; «h:S'→V»→«h:S'→**V_1**».
+- **PONCTUATION** : «En effet,»→«En effet» ; «Enfin 1.1 dit que,»→«**Enfin, 1.1 dit que**» (virgule déplacée) ; «présentation de Chow, avec»→«Chow avec» ; «localement de type fini, et soit»→«fini et soit» ; **«R=Ker(f)**.** R est»→«R=Ker(f)~; R est»** (POINT→POINT-VIRGULE) ; 3 espaces avant «;» restaurés.
+- **MOTS** : «d'après» restauré ; «les» retiré («et les X_i»→«et X'_i») ; «munie»→«muni» (accord book-sic) ; «On prend»→«Prenons».
+
+## ⚠⚠⚠ **LEÇONS DE MÉTHODE**
+- ⚠⚠ **SUBSCRIPT-LEVEL = ZOOM 6400dpi** : distinguer S_1/S_2, X'/X, Z'/Z exige des crops SERRÉS au 6400dpi sur le seul subscript (calibrer «1» vs «2» sur un couple connu comme «h(S_1−S_2)»).
+- ⚠⚠ **#600 UNE 3ᵉ FOIS** : mon check `"\Pic_{Z/S'}" not in t` a ÉCHOUÉ car «\Pic_{Z/S'}» reste (à raison) dans le VRAI «\Pic_{Z/S'}=\prod_i» de L14206 ⟹ **VÉRIFIÉ PAR COMPTAGE** (le rep() sur le bloc-display complet, unique, avait réussi). ⟹ **checks old-form-gone TROP GÉNÉRIQUES ⟹ COMPTER.**
+- ⚠ **CALIBRATION Y** : mes crops atterrissaient ~0.024 trop bas ; le shift a sur-corrigé le bas ⟹ **bandes-strips hautes + zoom subscript, plutôt que crops par-ligne, quand une page est dense.**
+
+## **CURSEUR → idx611 (vol p598 = suite §1 Exposé XII : Cor 1.5 (suite b), Cor 1.6, puis §2 ? ~L14216+).** ⚠ **CONSTANTE_XII=594 ⟹ ATTENDU header «- 4 -» + «XII», footer «598» ; idx=598+13=611.** ⚠⚠ **MÊME RÉGIME, TRÈS DENSE : Codex renomme des variables, droppe/ajoute des primes, change des références, fabrique des displays, remplace parenthèses↔virgules, scinde/re-connecte ⟹ LIRE MOT À MOT, PRIME PAR PRIME, INDICE PAR INDICE (zoom 6400dpi), VÉRIFIER CHAQUE `\[…\]` ET CHAQUE RÉFÉRENCE.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN. Peek-arrière : le Lemme 1.4 preuve straddlait p597/p598 (déjà lu jusqu'à «R est alors affine.»).**
+
+### #606 (2026-07-16) — idx609 (vol p596 = **Exposé XII «- 2 -»**, header **«- 2 -»** [le compteur haut REDÉMARRE — la 1ʳᵉ page n'en avait pas] + **«XII»** + footer «596** ; **CONSTANTE_XII = 596−2 = 594 DÉRIVÉE [≠ CONSTANTE_X=518] ; idx=596+13=609 ✓**) — **★★★★★★ §1 (Th 1.1, Cor 1.2 + preuve, Lemme 1.3) — 9 DÉFAUTS, DONT CODEX A CHANGÉ UNE VARIABLE MATH «q»→«φ» ET REMPLACÉ DES PARENTHÈSES PAR DES VIRGULES (2×)** — **6 rep-calls** (bandes b1-b5 TOUTES lues + **7 crops HD 4400-5000dpi**). Compile **0-err / 383pp** ✓.
+
+# ⚠⚠⚠⚠⚠⚠ **CODEX A CHANGÉ UNE VARIABLE MATHÉMATIQUE : «q»→«φ» (\varphi) — NOUVELLE CLASSE**
+Le scan écrit le polynôme de Hilbert **«q»** : «décomposer Pic_{X/S} en somme d'ouverts **Pic^q_{X/S}, q ∈ Q[t]**» + «les **Pic^q_{X/S}** sont de type fini» (crop `z609_qphi`, 5000dpi — un «q» minuscule NET, avec descendante). Le fichier avait **«\varphi» (φ) aux 3 occurrences** (φ est la lettre conventionnelle pour un polynôme de Hilbert, donc Codex a «amélioré» vers l'usage — mais l'AUTEUR a écrit «q»). ⟹ **restauré «q» ×3.** ⚠⚠⚠ **NOUVELLE CLASSE : Codex substitue une lettre math «plus jolie» à celle de l'auteur (comme #584 x_i/C, #586 K^{2i}/H, mais ici c'est le CHOIX DE VARIABLE, pas une coquille) ⟹ LE SCAN ARBITRE LE SYMBOLE, PAS LA CONVENTION.**
+
+## ⚠⚠⚠⚠⚠ **CODEX REMPLACE LES PARENTHÈSES PAR DES VIRGULES — 2× SUR CETTE PAGE**
+- **Th 1.1** : scan «entre les foncteurs de Picard **(**localisés pour la topologie f.p.p.f**)** soit» (crop `z609_fppf`) — PARENTHÈSES, et **«f.p.p.f» SANS point final**. Codex avait «**,** localisés … f.p.p.f**.,** soit» (virgules + point). ⟹ parenthèses restaurées, point retiré.
+- **Preuve** : scan «intègre sur S **(**c'est-à-dire plat à fibres géométriquement intègres**)**.» (crop `z609_cad`) — PARENTHÈSES. Codex avait «**,** c'est-à-dire … intègres**.**» (virgules). ⟹ parenthèses restaurées.
+⟹ ⚠⚠⚠ **Codex NORMALISE les parenthèses en virgules (motif inverse de l'ajout de parenthèses ; #605 avait le cas parenthèses→virgule sur le nom d'auteur) ⟹ CHAQUE INCISE : le scan a-t-il parenthèses ou virgules ? CROPPER.**
+
+## ⚠⚠⚠⚠⚠ **CODEX DROPPE/ANGLICISE/SCINDE/RE-CONNECTE — CLASSE #591 (preuve, un seul paragraphe)**
+- **«En effet» DROPPÉ** : scan «**En effet** rappelons le fait suivant» (crop `z609_fga232`). ⟹ restauré.
+- **«N°»→«no.»** : scan «(FGA **N°**232)» (N + signe numéro °). Codex avait «(FGA **no.** 232)» (abrév. anglaise). ⟹ «N\textsuperscript{o}232».
+- **PHRASE SCINDÉE** : scan «(FGA N°232) **:** soient S» (deux-points + minuscule). Codex avait «232)**.** **S**oient» (point + majuscule). ⟹ «)~: soient» (même motif que #605 «FGA. Soient»→«FGA : soient»).
+- **GUILLEMETS DROPPÉS** : scan «des **"**polynômes de Hilbert**"** permet» (crop `z609_hilbert2`) — scare-quotes de la machine. Codex les avait droppés. ⟹ restaurés en guillemets maison «~…~» (cf L5655 «~commute…~»). ⚠ **DISTINCT du titre-de-livre p595 «"Fondements…"»→`\emph{}` : titre=italique, terme-entre-guillemets=guillemets.**
+- **2 VIRGULES AJOUTÉES** : scan «on démontre **sous** l'hypothèse supplémentaire S noethérien **que** les» (SANS virgules). Codex avait «démontre**,** sous … noethérien**,** que». ⟹ retirées.
+- **«donc»→«alors»** : scan «On sait **alors** que 1.2» (band4). Codex avait «On sait **donc**». ⟹ restauré (Codex re-connecte, comme #604 «Sous ces conditions»→«Alors»).
+
+## ⚠⚠ **REPRÉSENTATION / DÉFÉRÉ / GARDÉ**
+- ✅ **ÉNONCÉS DE THÉORÈME SOULIGNÉS = rendu moderne** : la machine SOULIGNE tout l'énoncé (Th/Cor/Lemme) ; le fichier rend `\textbf{Théorème 1.1.}` + **corps ROMAIN** (style «définition»), de façon COHÉRENTE dans tout le fichier. ⟹ **GARDÉ tel quel** (ne PAS italiciser par page = sweep interdit). ⚠ **QUESTION GLOBALE : corps-romain vs corps-italique pour les énoncés — trancher globalement.**
+- ✅ **«Pic» SOULIGNÉ = opérateur** → `\Pic` (correct, même dans la preuve hors énoncé — le souligné d'un NOM D'OPÉRATEUR = rendu roman/opérateur, artefact machine).
+- ✅ **display «f\*:Pic_{Y/S}|_V ⟶ Pic_{X/S}|_V» (Th 1.1)** = VRAI display (centré, «entre les foncteurs» à la ligne suivante — RIEN ne suit sur la ligne) ⟹ correct, NON touché (#591 : rien ne suit ⟹ display).
+- ⚠ **DÉFÉRÉ** : «f:X\to Y» (\to vs scan «⟶» — sweep GLOBAL \to/\longrightarrow) ; «\mathbb Q[t]» = rendu moderne de «Q» (gardé) ; «en utilisant le lemme suivant.» = adaptation au bloc `\textbf{Lemme 1.3.}` (le scan a «…en utilisant le» + le label ; gardé, noté).
+
+## **CURSEUR → idx610 (vol p597 = suite §1 Exposé XII : fin Lemme 1.3, preuve «il existe une extension finie L…», Lemme 1.4, Cor 1.5, Cor 1.6 ; ~L14195+).** ⚠ **CONSTANTE_XII=594 ⟹ ATTENDU header «- 3 -» + «XII», footer «597» ; idx=597+13=610 ✓.** ⚠⚠ **MÊME RÉGIME : Codex change des variables math (q/φ), remplace parenthèses↔virgules, droppe mots/guillemets, scinde/re-connecte, ajoute/retire virgules ⟹ LIRE MOT À MOT, SYMBOLE PAR SYMBOLE, VÉRIFIER CHAQUE INCISE (parenthèses vs virgules) ET CHAQUE `\[…\]`.** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.**
+
 ### #605 (2026-07-16) — idx608 (vol p595 = **DÉBUT DE L'EXPOSÉ XII** — «Un théorème de représentabilité relative sur le foncteur de Picard», par M. Raynaud (rédigé par S. Kleiman) ; header **«EXPOSE XII»** [bloc-titre, PAS de compteur haut sur la 1ʳᵉ page] + footer «595** ; **idx=595+13=608 ✓ [offset GLOBAL page-volume TIENT à travers les exposés]**) — **★★★★★★ PAS «XI» MAIS «XII» — LE SCAN CORRIGE L'ANNONCE DU LOOP ; PREMIÈRE PAGE D'EXPOSÉ = 7 DÉFAUTS (2 displays fabriqués, 5 initiales droppées, 3 virgules, une phrase scindée, des parenthèses droppées)** — **6 rep-calls** (bandes b1-b5 TOUTES lues + **7 crops HD 4200-4400dpi**). Compile **0-err / 383pp** ✓.
 
 # ⚠⚠⚠⚠⚠⚠ **«LIRE LE HEADER EN PREMIER» PAIE — C'EST L'EXPOSÉ XII, PAS XI**

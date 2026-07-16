@@ -1,13 +1,8 @@
 # Source Provenance
 
-Authoritative scan used by the pagewise source-rescribe:
+- Governing high-resolution source: `C:\Users\Floris\Documents\Papors\OS\Theorie des Intersections et Theoreme de Riemann-Roch.pdf` (filesystem name carries French accents), Internet Archive item `theoriedesinters0225bert`.
+- Current source-rescribe workpass: `SGA continuation 2\_claude_aid\sga6_full_audit_20260703\sga6_fr_workpass.tex`.
+- Directly checked frontier in this freeze: scan idx645 / volume p.632 / Expose XIII p.17.
+- Next unchecked source page: idx646 / volume p.633 / Expose XIII p.18.
+- Material after the frontier is inherited scaffold and is not certified by inclusion.
 
-- Local file: `C:\Users\Floris\Documents\Papors\OS\Théorie des Intersections et Théorème de Riemann-Roch.pdf`
-- Internet Archive item: `theoriedesinters0225bert`
-- Public item page: https://archive.org/details/theoriedesinters0225bert
-- Full scan extent: 720 PDF pages
-- Main page image: approximately 360 dpi
-
-The compact GitHub delta witness `_work/SGA6_source_idx541_608.pdf` contains zero-based scan indexes 541 through 608 inclusive, or 68 pages. The fuller Zenodo ZIP uses the equivalent `source_witness/` path. `_work/current_boundary_idx608/scan_idx609_NEXT_UNCHECKED.png` is included only to make the boundary unambiguous; it is not claimed as checked.
-
-The scan, not OCR text or the inherited TeX scaffold, is the authority for page-local promotion. OCR is used only as a locator and omission witness.

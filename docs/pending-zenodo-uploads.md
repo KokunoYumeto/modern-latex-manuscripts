@@ -1,10 +1,18 @@
-## 2026-07-16: SGA6 idx608 publication queue closed
+## 2026-07-16: Weber Volume I p88 publication queue closed
+
+The direct German Volume I p1-p99 source gap-pass checkpoint is published, not staged:
+
+- Weber p88: [10.5281/zenodo.21402223](https://doi.org/10.5281/zenodo.21402223)
+
+Publication receipt: [`20260716_weber_v1_p088_record_21402223.json`](../manifests/published-zenodo/20260716_weber_v1_p088_record_21402223.json). The frontier is printed p88, with p89 next and 11 pages remaining in the p1-p99 tranche. The grouped source-evidence ZIP includes the current German TeX/PDF/log, full ledgers, exact p76-to-p88 diff, source pages/crops, and render checks. The English Volume I PDF predates the latest German repairs and is explicitly labeled unsynchronized. Zenodo revision 4 explicitly selects the current German p88 PDF as the default reader preview; the readback receipt is [`20260716_weber_reader_preview_revision4.json`](../manifests/published-zenodo/20260716_weber_reader_preview_revision4.json). This is active source-repair material, not whole-volume certification or a critical edition.
+
+## 2026-07-16: SGA6 idx645 publication queue closed
 
 The SGA6 French source-rescribe checkpoint is published, not staged:
 
-- SGA6 idx608: [10.5281/zenodo.21394244](https://doi.org/10.5281/zenodo.21394244)
+- SGA6 idx645: [10.5281/zenodo.21402087](https://doi.org/10.5281/zenodo.21402087)
 
-Publication receipt: [`20260716_sga6_idx608_record_21394244.json`](../manifests/published-zenodo/20260716_sga6_idx608_record_21394244.json). The public frontier is ledger entry #605 / scan idx608 / volume p595 / Exposé XII p1, with idx609 next. Material after idx608 remains inherited scaffold. SGA5 remains incomplete and error-bearing; SGA6 remains a source-rescribe workpass; SGA7 remains partial. None is promoted as complete, globally source-faithful, diagram-certified, or a critical edition. Zenodo revision 4 explicitly sets the SGA5 French workpass PDF as the page preview; the reader-preview receipt is [`20260716_reader_preview_revision4_noether_sga.json`](../manifests/published-zenodo/20260716_reader_preview_revision4_noether_sga.json).
+Publication receipt: [`20260716_sga6_idx645_record_21402087.json`](../manifests/published-zenodo/20260716_sga6_idx645_record_21402087.json). The public French frontier is ledger entry #662 / scan idx645 / volume p632 / Exposé XIII p17, with idx646 next. The grouped ZIP also carries a separately labeled English Exposé X restart for idx532-537; it is not a synchronized whole-volume English edition. Material after idx645 remains inherited scaffold. SGA5 remains incomplete and error-bearing; SGA6 remains a source-rescribe workpass; SGA7 remains partial. None is promoted as complete, globally source-faithful, diagram-certified, or a critical edition. The current record response lists the SGA6 French PDF first; no new explicit default-preview override was claimed for this version.
 
 ## 2026-07-16: Noether v26/R821 publication queue closed
 
