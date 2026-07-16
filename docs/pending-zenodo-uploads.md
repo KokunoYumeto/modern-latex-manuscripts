@@ -1,10 +1,18 @@
-## 2026-07-12: Noether v26/R819 publication queue closed
+## 2026-07-16: SGA6 idx608 publication queue closed
 
-The R818/R819 Paper 20 source pass is published, not staged:
+The SGA6 French source-rescribe checkpoint is published, not staged:
 
-- Noether v26/R819: [10.5281/zenodo.21320035](https://doi.org/10.5281/zenodo.21320035)
+- SGA6 idx608: [10.5281/zenodo.21394244](https://doi.org/10.5281/zenodo.21394244)
 
-Publication receipt: [`20260712_noether_v26_r819_record_21320035.json`](../manifests/published-zenodo/20260712_noether_v26_r819_record_21320035.json). The update replaces only Paper 20 in the v26 German base, integrates 25 direct-source corrections, promotes no OCR, and preserves all other paper text exactly. Active Noether v27 Paper 40 and multilingual propagation remain continuation work rather than loose public files.
+Publication receipt: [`20260716_sga6_idx608_record_21394244.json`](../manifests/published-zenodo/20260716_sga6_idx608_record_21394244.json). The public frontier is ledger entry #605 / scan idx608 / volume p595 / Exposé XII p1, with idx609 next. Material after idx608 remains inherited scaffold. SGA5 remains incomplete and error-bearing; SGA6 remains a source-rescribe workpass; SGA7 remains partial. None is promoted as complete, globally source-faithful, diagram-certified, or a critical edition. Zenodo revision 4 explicitly sets the SGA5 French workpass PDF as the page preview; the reader-preview receipt is [`20260716_reader_preview_revision4_noether_sga.json`](../manifests/published-zenodo/20260716_reader_preview_revision4_noether_sga.json).
+
+## 2026-07-16: Noether v26/R821 publication queue closed
+
+The R820/R821 Paper 20 refinement pass is published, not staged:
+
+- Noether v26/R821: [10.5281/zenodo.21394234](https://doi.org/10.5281/zenodo.21394234)
+
+Publication receipt: [`20260716_noether_v26_r821_record_21394234.json`](../manifests/published-zenodo/20260716_noether_v26_r821_record_21394234.json). The update replaces only Paper 20 in the v26 German base, adds 12 direct-source emphasis and typography refinements beyond R819, promotes no OCR, preserves all other paper text exactly, and makes integrated Paper 20 equal to sealed R821. Active Noether v27 Paper 40 and multilingual propagation remain continuation work rather than loose public files. Zenodo revision 4 explicitly sets the German R821 reader PDF as the page preview; the reader-preview receipt is [`20260716_reader_preview_revision4_noether_sga.json`](../manifests/published-zenodo/20260716_reader_preview_revision4_noether_sga.json).
 
 ## 2026-07-11: Noether v26 and SGA6 idx438 publication queue closed (both superseded)
 
