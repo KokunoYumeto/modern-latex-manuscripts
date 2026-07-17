@@ -1,0 +1,427 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.interlanguage.invalid/schemas/operational-decision-interface-1.0.0.json",
+  "title": "Interlanguage operational decision record",
+  "description": "Channel-separated, provenance-preserving research interface for a term, register, script, or translation decision. It intentionally has no scalar readiness field.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "record_id",
+    "work",
+    "lane",
+    "concept",
+    "target",
+    "intervention_type",
+    "candidates",
+    "evidence",
+    "risk_controls",
+    "readiness_gates",
+    "decision",
+    "invariants",
+    "provenance"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "record_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "record_status": {
+      "enum": ["draft", "active", "superseded", "frozen_archaeology"],
+      "default": "draft"
+    },
+    "supersedes": {
+      "type": ["string", "null"]
+    },
+    "work": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["work_id", "title", "source_language", "source_unit_id", "source_snapshot"],
+      "properties": {
+        "work_id": {"type": "string"},
+        "title": {"type": "string"},
+        "author": {"type": ["string", "null"]},
+        "source_language": {"type": "string"},
+        "source_unit_id": {"type": "string"},
+        "source_snapshot": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path_or_uri", "sha256_or_version"],
+          "properties": {
+            "path_or_uri": {"type": "string"},
+            "sha256_or_version": {"type": "string"},
+            "page_or_line_anchor": {"type": ["string", "null"]}
+          }
+        }
+      }
+    },
+    "lane": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["manager_lane_id", "linguistic_sublane_id", "scope_note"],
+      "properties": {
+        "manager_lane_id": {
+          "enum": [
+            "slavic_interslavic",
+            "cjk",
+            "romance",
+            "english_germanic",
+            "turkic",
+            "arabic_persianate_rtl",
+            "malay_sea_pacific",
+            "africa_horn_west"
+          ]
+        },
+        "linguistic_sublane_id": {"type": "string", "minLength": 1},
+        "scope_note": {"type": "string", "minLength": 1}
+      }
+    },
+    "concept": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["concept_id", "preferred_gloss", "intended_sense", "stratum"],
+      "properties": {
+        "concept_id": {"type": "string"},
+        "preferred_gloss": {"type": "string"},
+        "intended_sense": {"type": "string", "minLength": 1},
+        "excluded_senses": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "stratum": {
+          "enum": ["proof_grammar", "curriculum_mathematics", "work_specific_historical", "general_prose", "metadata"]
+        },
+        "trap_flags": {
+          "type": "array",
+          "items": {
+            "enum": ["modulus", "ground_form", "complete_system", "binary_form", "covariant", "contravariant", "homograph", "other"]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["language", "script", "register", "audience"],
+      "properties": {
+        "language": {"type": "string"},
+        "language_tag": {"type": ["string", "null"]},
+        "script": {"type": "string"},
+        "register": {"type": "string"},
+        "audience": {"type": "string"},
+        "direction": {"enum": ["ltr", "rtl", "vertical", "mixed"]}
+      }
+    },
+    "intervention_type": {
+      "enum": ["zonal_bridge", "controlled_register", "script_bridge", "local_standard_crosswalk", "ordinary_translation", "no_intervention"]
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["candidate_id", "form", "status"],
+        "properties": {
+          "candidate_id": {"type": "string"},
+          "form": {"type": "string"},
+          "script_forms": {
+            "type": "object",
+            "additionalProperties": {"type": "string"}
+          },
+          "variants": {
+            "type": "array",
+            "items": {"type": "string"},
+            "uniqueItems": true
+          },
+          "status": {
+            "enum": ["discovered", "candidate", "held", "internally_accepted", "externally_reviewed", "rejected"]
+          },
+          "definition_or_gloss": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["support", "candidate", "competitor", "adverse", "veto", "absence"],
+      "properties": {
+        "support": {"$ref": "#/$defs/evidenceRecords"},
+        "candidate": {"$ref": "#/$defs/evidenceRecords"},
+        "competitor": {"$ref": "#/$defs/evidenceRecords"},
+        "adverse": {"$ref": "#/$defs/evidenceRecords"},
+        "veto": {"$ref": "#/$defs/evidenceRecords"},
+        "absence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["language_or_branch", "search_scope", "search_date", "status"],
+            "properties": {
+              "language_or_branch": {"type": "string"},
+              "search_scope": {"type": "string"},
+              "search_date": {"type": "string", "format": "date"},
+              "status": {"const": "searched_no_evidence"},
+              "notes": {"type": ["string", "null"]}
+            }
+          }
+        }
+      }
+    },
+    "branch_model": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["evidence_unit", "deduplication_key", "partition", "target_distribution", "tree_or_dependence_model", "statistics"],
+      "properties": {
+        "evidence_unit": {
+          "enum": ["source", "language", "cohort", "concept_language_presence", "row_verified_witness", "other"]
+        },
+        "evidence_unit_note": {"type": ["string", "null"]},
+        "deduplication_key": {"type": "string"},
+        "partition": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["id", "members"],
+            "properties": {
+              "id": {"type": "string"},
+              "members": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+            }
+          }
+        },
+        "target_distribution": {
+          "type": "object",
+          "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}
+        },
+        "target_distribution_rationale": {"type": "string"},
+        "tree_or_dependence_model": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["model_id", "topology_declared", "edge_lengths_declared", "symmetry_or_justification"],
+          "properties": {
+            "model_id": {"type": "string"},
+            "topology_declared": {"type": "boolean"},
+            "edge_lengths_declared": {"type": "boolean"},
+            "symmetry_or_justification": {"type": "string"},
+            "saturation_rule": {"type": ["string", "null"]}
+          }
+        },
+        "statistics": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "raw_mass": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0}},
+            "normalized_distribution": {"type": "object", "additionalProperties": {"type": "number", "minimum": 0, "maximum": 1}},
+            "D1": {"type": ["number", "null"], "minimum": 1},
+            "D2": {"type": ["number", "null"], "minimum": 1},
+            "KL_to_target": {"type": ["number", "null"], "minimum": 0},
+            "edge_coverage_PD": {"type": ["number", "null"], "minimum": 0},
+            "status": {"enum": ["not_computed", "exploratory", "reproduced", "reviewed"]},
+            "interpretation_limit": {"const": "evidence concentration or coverage only; not intelligibility, truth, or certification"}
+          },
+          "required": ["status", "interpretation_limit"]
+        }
+      }
+    },
+    "risk_controls": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sense", "false_friend", "homograph", "dominance", "register", "script", "source_scarcity"],
+      "properties": {
+        "sense": {"$ref": "#/$defs/controlStatus"},
+        "false_friend": {"$ref": "#/$defs/controlStatus"},
+        "homograph": {"$ref": "#/$defs/controlStatus"},
+        "dominance": {"$ref": "#/$defs/controlStatus"},
+        "register": {"$ref": "#/$defs/controlStatus"},
+        "script": {"$ref": "#/$defs/controlStatus"},
+        "source_scarcity": {"$ref": "#/$defs/controlStatus"},
+        "other": {"type": "array", "items": {"$ref": "#/$defs/controlStatus"}}
+      }
+    },
+    "readiness_gates": {
+      "description": "Vector of hard gates. This object must not be collapsed into one readiness score.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_floor", "context_review", "adverse_review", "branch_or_cohort_review", "script_policy", "internal_qa", "external_review", "human_comprehension"],
+      "properties": {
+        "source_floor": {"$ref": "#/$defs/gateStatus"},
+        "context_review": {"$ref": "#/$defs/gateStatus"},
+        "adverse_review": {"$ref": "#/$defs/gateStatus"},
+        "branch_or_cohort_review": {"$ref": "#/$defs/gateStatus"},
+        "script_policy": {"$ref": "#/$defs/gateStatus"},
+        "internal_qa": {"$ref": "#/$defs/gateStatus"},
+        "external_review": {"$ref": "#/$defs/gateStatus"},
+        "human_comprehension": {"$ref": "#/$defs/gateStatus"}
+      }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "selected_candidate_id", "rationale", "reviewer_question", "auto_promotion_prohibited"],
+      "properties": {
+        "status": {
+          "enum": [
+            "candidate",
+            "candidate_after_context_check",
+            "concept_shelf_witness",
+            "row_verified_witness",
+            "internally_reviewed_for_use",
+            "held",
+            "gap",
+            "not_applicable",
+            "externally_reviewed_for_use",
+            "rejected"
+          ]
+        },
+        "selected_candidate_id": {"type": ["string", "null"]},
+        "rationale": {"type": "string", "minLength": 1},
+        "reviewer_question": {"type": ["string", "null"]},
+        "auto_promotion_prohibited": {"const": true},
+        "decision_authority": {"type": "string"},
+        "decision_date": {"type": ["string", "null"], "format": "date"}
+      }
+    },
+    "invariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["invariant_id", "must_preserve", "test", "status"],
+        "properties": {
+          "invariant_id": {"type": "string"},
+          "must_preserve": {"type": "string"},
+          "may_change": {"type": ["string", "null"]},
+          "test": {"type": "string"},
+          "status": {"enum": ["not_run", "pass", "fail", "not_applicable"]}
+        }
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["created_by", "created_at", "input_artifacts", "pre_change_snapshot_preserved"],
+      "properties": {
+        "created_by": {"type": "string"},
+        "created_at": {"type": "string", "format": "date-time"},
+        "input_artifacts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path_or_uri", "version_or_hash", "role"],
+            "properties": {
+              "path_or_uri": {"type": "string"},
+              "version_or_hash": {"type": "string"},
+              "role": {"type": "string"}
+            }
+          }
+        },
+        "pre_change_snapshot_preserved": {"type": "boolean"},
+        "applied_diff_path_or_uri": {"type": ["string", "null"]},
+        "notes": {"type": ["string", "null"]}
+      }
+    }
+  },
+  "$defs": {
+    "evidenceRecords": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/evidenceRecord"}
+    },
+    "evidenceRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "candidate_id",
+        "source",
+        "language",
+        "concept_match",
+        "context_window",
+        "provenance_level",
+        "review_status",
+        "permitted_uses",
+        "weight_semantics"
+      ],
+      "properties": {
+        "evidence_id": {"type": "string"},
+        "candidate_id": {"type": ["string", "null"]},
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["source_id", "path_or_uri", "source_class", "sha256_or_version"],
+          "properties": {
+            "source_id": {"type": "string"},
+            "path_or_uri": {"type": "string"},
+            "source_class": {
+              "enum": [
+                "canonical_source_authority",
+                "native_independent_target_source",
+                "language_family_reference_shelf",
+                "dictionary_or_terminology_standard",
+                "draft_translation",
+                "generated_corpus",
+                "ai_synthesis",
+                "external_community_review"
+              ]
+            },
+            "sha256_or_version": {"type": "string"},
+            "bibliographic_citation": {"type": ["string", "null"]}
+          }
+        },
+        "language": {"type": "string"},
+        "branch_or_cohort": {"type": ["string", "null"]},
+        "observed_form": {"type": ["string", "null"]},
+        "concept_match": {"enum": ["exact", "near", "ambiguous", "wrong_sense", "not_applicable"]},
+        "context_window": {"type": "string"},
+        "register": {"type": ["string", "null"]},
+        "script": {"type": ["string", "null"]},
+        "provenance_level": {
+          "enum": ["discovered", "concept_shelf", "row_verified", "internally_reviewed", "externally_reviewed"]
+        },
+        "review_status": {"enum": ["unreviewed", "context_checked", "sense_checked", "internally_reviewed", "externally_reviewed", "rejected"]},
+        "permitted_uses": {
+          "type": "array",
+          "items": {"enum": ["source_normalization", "candidate_discovery", "consistency_check", "target_witness", "competitor_evidence", "adverse_evidence", "external_certification"]},
+          "uniqueItems": true
+        },
+        "weight_semantics": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["raw_mass", "permitted_use_weight", "is_truth_probability"],
+          "properties": {
+            "raw_mass": {"type": "number", "minimum": 0},
+            "permitted_use_weight": {"type": "number", "minimum": 0},
+            "is_truth_probability": {"const": false},
+            "notes": {"type": ["string", "null"]}
+          }
+        }
+      }
+    },
+    "controlStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "notes"],
+      "properties": {
+        "status": {"enum": ["not_run", "clear", "risk", "adverse", "veto", "not_applicable"]},
+        "notes": {"type": "string"}
+      }
+    },
+    "gateStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "evidence_or_reason"],
+      "properties": {
+        "status": {"enum": ["pass", "fail", "pending", "not_required"]},
+        "evidence_or_reason": {"type": "string"}
+      }
+    }
+  }
+}
