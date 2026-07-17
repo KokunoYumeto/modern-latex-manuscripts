@@ -1,3 +1,12 @@
+## 2026-07-17: SGA6 idx662 publication queue closed
+
+- SGA6 idx662: [10.5281/zenodo.21419947](https://doi.org/10.5281/zenodo.21419947)
+
+Publication receipt: [`20260717_sga6_idx662_layout_repaired_record_21419947.json`](../manifests/published-zenodo/20260717_sga6_idx662_layout_repaired_record_21419947.json). The public French frontier is ledger entry #679 / scan idx662 / volume p649 / Exposé XIII p34, with idx663 next. The grouped ZIP contains the sixteen-page idx647-662 source delta and retains the separately labeled English Exposé X idx532-537 restart. Material after idx662 remains inherited scaffold, and output page 346 crosses the frontier without certifying idx663. Corrected Zenodo revision 3 explicitly selects the SGA5 French workpass as default preview. SGA5 remains incomplete and error-bearing; SGA6 remains a source-rescribe workpass; SGA7 remains partial. None is promoted as complete, globally source-faithful, diagram-certified, or a critical edition.
+
+
+Correction trail: interim record [10.5281/zenodo.21419703](https://doi.org/10.5281/zenodo.21419703) is retained as an immutable historical version and now carries a superseded notice. Independent validation found one inherited 129 pt overfull Proposition 1.7 display there; current record 21419947 restores the prior continuation-row layout without changing words or formulas and rebuilds cleanly.
+
 ## 2026-07-17: Noether v26/R823 and synchronized-components publication queue closed
 
 - Noether v26/R823: [10.5281/zenodo.21419257](https://doi.org/10.5281/zenodo.21419257)

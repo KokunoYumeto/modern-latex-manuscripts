@@ -187,7 +187,7 @@ RECORD_NOTES = {
         "Dedicated Gibbs / old-physics working-edition split. Current coverage is The Scientific Papers of J. Willard Gibbs, Volume I, printed pp.001-134: Graphical Methods in the Thermodynamics of Fluids, A Method of Geometrical Representation by Surfaces, and the opening continuation of On the Equilibrium of Heterogeneous Substances. Top-level PDF/TeX files are reader-facing cumulative surfaces, including the updated Paper 3 pp.055-134 reader; ZIP packets preserve source-scan slices, TeX, and method/audit notes. This is a source-scan-backed working tranche, not a complete Gibbs corpus or final critical edition. Continue after p.134.",
     ],
     "sga": [
-        "Current public SGA surface is record 21416482. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #663 / scan idx646 / volume p633 / Expose XIII p18, and the inherited unsynchronized SGA6 English working draft. The grouped SGA6 ZIP adds a separately labeled English Expose X source-checked restart for indexes 532-537; this six-page tranche is not a synchronized whole-volume English edition. TeX, audit ledgers, the high-resolution idx646 source witness, boundary images, render checks, PDF-text readback evidence, and clean build logs are grouped in two ZIPs. The one-page direct-source delta continues Expose XIII through p18. Content after idx646 remains inherited scaffold, and output page 339 crosses the frontier without certifying idx647. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Local and inherited completion labels remain scoped workpass labels only.",
+        "Current public SGA surface is record 21419947. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #679 / scan idx662 / volume p649 / Expose XIII p34, and the inherited unsynchronized SGA6 English working draft. The grouped SGA6 ZIP retains a separately labeled English Expose X source-checked restart for indexes 532-537; this six-page tranche is not a synchronized whole-volume English edition. TeX, audit ledgers, the high-resolution sixteen-page idx647-662 source delta, boundary images, render checks, PDF-text readback evidence, and clean build logs are grouped in two ZIPs. The direct-source delta continues Expose XIII from p19 through p34. Content after idx662 remains inherited scaffold, and output page 346 crosses the frontier without certifying idx663. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Local and inherited completion labels remain scoped workpass labels only.",
     ],
     "weber": [
         "Current Weber public surface: latest public version is record 21402223 / DOI 10.5281/zenodo.21402223 under the permanent concept DOI 10.5281/zenodo.20412153. The active Volume I German p1-p99 direct content-fidelity pass reaches printed p88, with p89 next; the p77-p88 package includes the current TeX/PDF, exact diff, ledgers, twelve source pages, high-resolution crops, render checks, and checksums. It rebuilds the damaged section 23 and restores omitted displays, rows, proof text, labels, and notation. The Volume I English reader predates these German repairs and is explicitly unsynchronized. Volume II retains current German/English cumulative material through section 176 plus localized recursive repairs/ledgers; Volume III remains the current repaired cumulative. Historical Batch137/B138/B139 packets remain provenance and repair evidence. These are working/source-witnessed drafts and repair-ledger packages, not whole-volume symbol-by-symbol certification or critical editions; OCR and display ledgers are omission guards and locator layers, not independent authority.",
@@ -268,7 +268,8 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
     display = DISPLAY_NAMES.get(label, label.replace("_", " ").title())
     title = rows[0]["record_title"]
     record_id = rows[0]["record_id"]
-    url = concept_urls.get(record_id, f"https://zenodo.org/records/{record_id}")
+    record_url = f"https://zenodo.org/records/{record_id}"
+    concept_url = concept_urls.get(record_id)
     pdfs = [row for row in rows if row["filename"].lower().endswith(".pdf")]
     zips = [row for row in rows if row["filename"].lower().endswith(".zip")]
     manifests = role_rows(rows, "manifest/status")
@@ -280,10 +281,14 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
     else:
         how_to_read = "This record has no top-level reader PDFs in the current file surface. Open the artifact ZIPs for TeX, component PDFs, source witnesses, OCR, page images, render checks, and provenance material."
 
+    zenodo_line = f"Zenodo record: [{record_id}]({record_url})"
+    if concept_url:
+        zenodo_line += f"; concept DOI: [{concept_url}]({concept_url})"
+
     lines = [
         f"# {display}",
         "",
-        f"Zenodo record: [{record_id}]({url})",
+        zenodo_line,
         "",
         f"Public title: {html.escape(title)}",
         "",
