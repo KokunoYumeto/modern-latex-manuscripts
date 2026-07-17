@@ -1,6 +1,6 @@
 # Heinrich Weber
 
-Zenodo record: [21402223](https://doi.org/10.5281/zenodo.20412153)
+Zenodo record: [21402223](https://zenodo.org/records/21402223); concept DOI: [https://doi.org/10.5281/zenodo.20412153](https://doi.org/10.5281/zenodo.20412153)
 
 Public title: Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 

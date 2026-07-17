@@ -1,6 +1,6 @@
 # Historical Reference Witnesses
 
-Zenodo record: [20415777](https://doi.org/10.5281/zenodo.20415776)
+Zenodo record: [20415777](https://zenodo.org/records/20415777); concept DOI: [https://doi.org/10.5281/zenodo.20415776](https://doi.org/10.5281/zenodo.20415776)
 
 Public title: Historical Reference Witnesses for Non-European Mathematics: LaTeX and Translation Drafts
 

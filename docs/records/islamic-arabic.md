@@ -1,6 +1,6 @@
 # Islamic and Arabic Mathematical Texts
 
-Zenodo record: [20415770](https://doi.org/10.5281/zenodo.20415769)
+Zenodo record: [20415770](https://zenodo.org/records/20415770); concept DOI: [https://doi.org/10.5281/zenodo.20415769](https://doi.org/10.5281/zenodo.20415769)
 
 Public title: Islamic and Arabic Mathematical Texts: Original LaTeX and English Translation Drafts
 

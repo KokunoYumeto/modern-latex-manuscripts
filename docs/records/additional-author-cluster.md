@@ -1,6 +1,6 @@
 # Additional Author Cluster
 
-Zenodo record: [20672984](https://doi.org/10.5281/zenodo.20411006)
+Zenodo record: [20672984](https://zenodo.org/records/20672984); concept DOI: [https://doi.org/10.5281/zenodo.20411006](https://doi.org/10.5281/zenodo.20411006)
 
 Public title: Minkowski, Hecke, Landau, Kneser, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 

@@ -1,6 +1,6 @@
 # Non-European Mathematics, Consolidated
 
-Zenodo record: [20586401](https://doi.org/10.5281/zenodo.20410957)
+Zenodo record: [20586401](https://zenodo.org/records/20586401); concept DOI: [https://doi.org/10.5281/zenodo.20410957](https://doi.org/10.5281/zenodo.20410957)
 
 Public title: Non-European Mathematics Manuscripts: Multilingual Translation Drafts and Modern LaTeX Sources
 
@@ -15,8 +15,6 @@ Public title: Non-European Mathematics Manuscripts: Multilingual Translation Dra
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
 Consolidated multilingual record. Some inherited al-Battani file names still contain `Complete Critical Edition`; those names are not current critical-edition certification. Treat OCR, reconstructed tables, translations, and source-intake readers as working material unless the relevant work-level record gives a narrower promoted status.
-
-Current status overlay: this is a heterogeneous multilingual working corpus, not one uniform source-certification level. Some files are readable translations, some are table/data reconstructions, some are OCR/source-witness or locator aids, and some are repair packets. Script rendering, table collation, source completeness, and bidirectional/complex-script typesetting remain active audit targets.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

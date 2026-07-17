@@ -1,6 +1,6 @@
 # Ernst Steinitz
 
-Zenodo record: [20822189](https://doi.org/10.5281/zenodo.20616988)
+Zenodo record: [20822189](https://zenodo.org/records/20822189); concept DOI: [https://doi.org/10.5281/zenodo.20616988](https://doi.org/10.5281/zenodo.20616988)
 
 Public title: Ernst Steinitz: Modern LaTeX Source Transcriptions and English Translation Working Packets
 

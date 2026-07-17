@@ -1,6 +1,6 @@
 # Adolf Kneser
 
-Zenodo record: [20836972](https://doi.org/10.5281/zenodo.20836971)
+Zenodo record: [20836972](https://zenodo.org/records/20836972); concept DOI: [https://doi.org/10.5281/zenodo.20836971](https://doi.org/10.5281/zenodo.20836971)
 
 Public title: Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts
 

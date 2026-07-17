@@ -1,6 +1,6 @@
 # Classical Algebra and Arithmetic
 
-Zenodo record: [20583048](https://doi.org/10.5281/zenodo.20414787)
+Zenodo record: [20583048](https://zenodo.org/records/20583048); concept DOI: [https://doi.org/10.5281/zenodo.20414787](https://doi.org/10.5281/zenodo.20414787)
 
 Public title: Cayley, Dedekind, and Dirichlet: Classical Algebra and Arithmetic LaTeX Drafts
 

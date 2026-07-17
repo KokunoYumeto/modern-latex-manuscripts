@@ -1,6 +1,6 @@
 # Richard Dedekind
 
-Zenodo record: [20586067](https://doi.org/10.5281/zenodo.20520669)
+Zenodo record: [20586067](https://zenodo.org/records/20586067); concept DOI: [https://doi.org/10.5281/zenodo.20520669](https://doi.org/10.5281/zenodo.20520669)
 
 Public title: Richard Dedekind: Source-Witnessed Working Drafts and English Translations
 

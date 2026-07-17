@@ -1,12 +1,10 @@
 # Split-Zero Geometry and Common Deformation Registers
 
-Zenodo concept DOI: [10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444)
+Zenodo record: [21316072](https://zenodo.org/records/21316072); concept DOI: [https://doi.org/10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444)
 
-Current public version: [10.5281/zenodo.21316072](https://doi.org/10.5281/zenodo.21316072)
+Public title: Split-Zero Geometry and Common Deformation Registers: Exploratory Research Sidecar
 
-Public title: *Split-Zero Geometry and Common Deformation Registers: Working Papers, Formalization, and Checks*
-
-**Status:** exploratory research sidecar. The included scoped checks are useful reproducibility evidence, but they are not peer review, a proof of the Riemann hypothesis or Schanuel's conjecture, or certification of every broader claim.
+**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
 | Files | PDFs | ZIPs | Total MB |
 |---:|---:|---:|---:|
@@ -18,7 +16,7 @@ Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, sourc
 
 Separate exploratory mathematics record, not part of the manuscript-translation completion ranking. Version 21316072 fronts a concise 12-page common-deformation-register research note and retains the broader 91-page split-support geometry draft, editable sources, formalization/check artifacts, manifests, and prior Version 10 history. The included scoped Lean/Python checks passed, but the record is not peer review, not a proof of the Riemann hypothesis or Schanuel's conjecture, and not certification of every broader claim.
 
-Corrections, formalization checks, and LaTeX improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
+Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
 ## Reader And Reference PDFs
 
