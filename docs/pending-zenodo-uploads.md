@@ -1,3 +1,9 @@
+## 2026-07-17: Noether Paper 06 Slavic Tranche 001 publication queue closed
+
+- Noether Paper 06 Slavic Tranche 001: [10.5281/zenodo.21418246](https://doi.org/10.5281/zenodo.21418246)
+
+Publication receipt: [`20260717_noether_p06_slavic_t001_record_21418246.json`](../manifests/published-zenodo/20260717_noether_p06_slavic_t001_record_21418246.json). File `08` adds the checksum-verified 15.5 MB working package: 16 units each in Interslavic Latin, Interslavic Cyrillic, Russian, and Ukrainian; 17 reviewed orthographic replacements were applied to the two Interslavic branches, while Russian and Ukrainian were retained as controls. All 64 standalone TeX files compile. Zenodo revision 5 explicitly selects the German R822 PDF as default preview. The package still needs line-by-line Paper 06 source reconciliation and linguistic review; it is not source closure, native-speaker certification, publication finality, or a critical edition.
+
 ## 2026-07-16: Weber Volume I p88 publication queue closed
 
 The direct German Volume I p1-p99 source gap-pass checkpoint is published, not staged:
