@@ -26,7 +26,7 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "21300795"),
-    ("interlanguage_reflections", "21300808"),
+    ("interlanguage_reflections", "21418942"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21316072"),
     ("noether", "21418246"),
@@ -94,7 +94,7 @@ RECORD_NOTES = {
         "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21316072 fronts a concise 12-page common-deformation-register research note, retains the broader 91-page split-support geometry draft and prior Version 10 files, and groups editable sources, Lean/Python/formal checks, manifests, and supplementary working material. The scoped checks passed, including the included Lean file, but this does not constitute peer review, a proof of the Riemann hypothesis or Schanuel's conjecture, or certification of every broader claim.",
     ],
     "interlanguage_reflections": [
-        "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21300808 fronts the July 10 methodology PDF, preserves the grouped Claude/ChatGPT/Fable and other-PC source-body payloads, and adds the consolidated v0.4 executable-methodology workspace as file `11`. Its connective analysis finds 10 of 15 rows lack even a Slavic-internal pan-root and none has a secure cross-family global attractor. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.",
+        "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21418942 fronts the 19-page v0.5 research-method report, retains the earlier source-body/provenance payloads, and adds file `12`, a reproducible research-department and automata audit package. Fresh checks reproduce State C as 1,229 ledger rows, 1,215 unique term identifiers, 100 concept buckets, and 9,124 edges; W0 remains a projection only. The unified v6.2 graph contains 15 lanes, 1,522 markers, 6,088 edges, and 362 concepts, while its numerical readiness proxy is explicitly rejected as a quality decision measure. This is not native-speaker approval, accepted terminology, language completion, source-fidelity certification, reader output, or a critical edition.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",

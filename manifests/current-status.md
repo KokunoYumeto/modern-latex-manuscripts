@@ -1,3 +1,11 @@
+## 2026-07-17 Interlanguage research method and automata audit published
+
+Interlanguage version [10.5281/zenodo.21418942](https://doi.org/10.5281/zenodo.21418942), under concept DOI [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403), fronts the 19-page v0.5 research-method report and retains the earlier source-body/provenance payloads. File `12_Interlanguage_Research_Department_and_Automata_v05_20260717.zip` is a 50-entry grouped package containing the 21-file research department, exact source archives, extracted data, eight lane handoffs, executable audit, fresh results, manifests, and checksums. Its SHA256 is `9D934C29FEB0FA4C68055065DB24EDCE153678F8BD0C440B49424532F83035BE`.
+
+Fresh checks reproduce the Interslavic State C snapshot as 1,229 ledger rows, 1,215 unique term identifiers, 100 concept buckets, and 9,124 edges; W0 remains explicitly a projection only. The unified v6.2 routing graph contains 15 lane rows, 1,522 markers, 6,088 edges, and 362 concepts. Its numerical readiness proxy is reproducible but rejected as a readiness or quality measure. The exact GitHub mirror is `interlanguage-sidecar/methodology/research-department-v05-20260717/`.
+
+This release is research method, reproducibility data, routing infrastructure, and manager handoff documentation. It does not certify native-speaker approval, community acceptance, accepted terminology, a finished interlanguage, a completed translation corpus, mathematical source fidelity, or a critical edition.
+
 ## 2026-07-17 Noether Paper 06 Slavic Tranche 001 published
 
 Noether version [10.5281/zenodo.21418246](https://doi.org/10.5281/zenodo.21418246), under concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587), retains the 466-page v26/R822 German source-control reader as the explicit default preview and adds `08_Noether_Paper06_Slavic_WorkingTranslation_Tranche001_20260716.zip`.

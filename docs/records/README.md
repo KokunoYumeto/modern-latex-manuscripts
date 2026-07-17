@@ -7,7 +7,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |
 | Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
 | Workflow / Replication Packet | 7 | 1 | 2 | 0.3 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
-| Interlanguage Methodology | 21 | 1 | 10 | 4430.4 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
+| Interlanguage Methodology | 24 | 1 | 11 | 4431.4 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |
 | Split-Zero Geometry and Common Deformation Registers | 11 | 3 | 3 | 5.4 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
