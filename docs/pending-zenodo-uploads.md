@@ -1,3 +1,9 @@
+## 2026-07-17: Noether v26/R823 and synchronized-components publication queue closed
+
+- Noether v26/R823: [10.5281/zenodo.21419257](https://doi.org/10.5281/zenodo.21419257)
+
+Publication receipt: [`20260717_noether_v26_r823_record_21419257.json`](../manifests/published-zenodo/20260717_noether_v26_r823_record_21419257.json). The 466-page R823 German source-control PDF is the default preview. File `07` groups the German TeX, direct witnesses, renders, audit records, and build transcripts; file `09` groups bounded R823-synchronized English, CJK/Korean, and Slavic components. Full-language synchronization and native-language review remain open. This is working source-control and component evidence, not corpus closure or a critical edition.
+
 ## 2026-07-17: Noether Paper 06 Slavic Tranche 001 publication queue closed
 
 - Noether Paper 06 Slavic Tranche 001: [10.5281/zenodo.21418246](https://doi.org/10.5281/zenodo.21418246)

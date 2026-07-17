@@ -1,0 +1,1 @@
+P20 was reopened directly against the article witness P20_GDZ_article_LOG_0010_absolute_irreduzibilitaet.pdf. For this package, full-page PNGs for printed pp. 27-31 and five regenerated source strips per page were rendered afresh from that source PDF.

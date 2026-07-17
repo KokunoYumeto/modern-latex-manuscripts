@@ -6,6 +6,14 @@ Fresh checks reproduce the Interslavic State C snapshot as 1,229 ledger rows, 1,
 
 This release is research method, reproducibility data, routing infrastructure, and manager handoff documentation. It does not certify native-speaker approval, community acceptance, accepted terminology, a finished interlanguage, a completed translation corpus, mathematical source fidelity, or a critical edition.
 
+## 2026-07-17 Noether v26/R823 and synchronized components published
+
+Noether version [10.5281/zenodo.21419257](https://doi.org/10.5281/zenodo.21419257), under concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587), fronts the 466-page v26/R823 German source-control reader. R823 reopens Paper 20 printed pages 27-31 directly against the GDZ article witness and makes six bounded source-layout or punctuation repairs. No OCR text was promoted. The grouped German package includes editable TeX, direct witnesses, before/after renders, audit records, and two successful XeLaTeX transcripts.
+
+File `09_Noether_R823_SourceSynchronized_Multilingual_Components_20260717.zip` adds bounded R823-synchronized components: English Papers 10, 20, 26, 28, 29, and 37; Simplified Chinese, Traditional Chinese, Japanese, and Korean Papers 26 and 36; and the lecture-book title/introduction in Ukrainian, Russian, Interslavic Latin, and Interslavic Cyrillic. The German and component ZIPs verify against their internal manifests with zero failures and are mirrored at `sources/noether/current-german-source-control-v26-r823-20260717/` and `sources/noether/r823-synchronized-components-20260717/`.
+
+The retained full English reader remains the older RA10 branch; the full Chinese and Japanese readers have not been rebased unit by unit to R823; Korean coverage is bounded; and the Slavic book-front is 1 of 32 core units. This is a high-value working corpus and component release, not corpus closure, native-language certification, complete multilingual synchronization, publication-grade proofreading, or a critical edition.
+
 ## 2026-07-17 Noether Paper 06 Slavic Tranche 001 published
 
 Noether version [10.5281/zenodo.21418246](https://doi.org/10.5281/zenodo.21418246), under concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587), retains the 466-page v26/R822 German source-control reader as the explicit default preview and adds `08_Noether_Paper06_Slavic_WorkingTranslation_Tranche001_20260716.zip`.
