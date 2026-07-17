@@ -15,9 +15,9 @@ Correction trail: interim record [10.5281/zenodo.21419703](https://doi.org/10.52
 
 ## 2026-07-17: Noether v26/R823 and synchronized-components publication queue closed
 
-- Noether v26/R823: [10.5281/zenodo.21419257](https://doi.org/10.5281/zenodo.21419257)
+- Noether v26/R823 plus Spanish working reader: [10.5281/zenodo.21420665](https://doi.org/10.5281/zenodo.21420665)
 
-Publication receipt: [`20260717_noether_v26_r823_record_21419257.json`](../manifests/published-zenodo/20260717_noether_v26_r823_record_21419257.json). The 466-page R823 German source-control PDF is the default preview. File `07` groups the German TeX, direct witnesses, renders, audit records, and build transcripts; file `09` groups bounded R823-synchronized English, CJK/Korean, and Slavic components. Full-language synchronization and native-language review remain open. This is working source-control and component evidence, not corpus closure or a critical edition.
+Publication receipt: [`20260718_noether_r823_spanish_record_21420665.json`](../manifests/published-zenodo/20260718_noether_r823_spanish_record_21420665.json). The 466-page R823 German source-control PDF remains the default preview; a 473-page Spanish R823 working translation is directly exposed as file `02a`. File `07` groups German TeX/source evidence, file `09` groups twelve English R823 components plus CJK/Korean and Slavic units, and file `10` groups Spanish TeX, exact authority, parity/build/hash/QA evidence. Spanish passed its declared 81-unit gate; full synchronization and native-language review across the other branches remain open. This is working source-control and translation evidence, not corpus closure or a critical edition.
 
 ## 2026-07-17: Noether Paper 06 Slavic Tranche 001 publication queue closed
 
