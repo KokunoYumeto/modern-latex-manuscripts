@@ -1,6 +1,6 @@
 # Indian and Sanskrit Mathematical Classics
 
-Zenodo record: [20415755](https://doi.org/10.5281/zenodo.20415754)
+Zenodo record: [20415755](https://zenodo.org/records/20415755); concept DOI: [https://doi.org/10.5281/zenodo.20415754](https://doi.org/10.5281/zenodo.20415754)
 
 Public title: Indian and Sanskrit Mathematical Classics: Original LaTeX and English Translation Drafts
 

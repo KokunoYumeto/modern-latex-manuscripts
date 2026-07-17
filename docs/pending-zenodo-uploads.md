@@ -1,4 +1,10 @@
-## 2026-07-17: SGA6 idx662 publication queue closed
+## 2026-07-17: SGA5 English synchronization publication queue closed
+
+- SGA5 English synchronization: [10.5281/zenodo.21420146](https://doi.org/10.5281/zenodo.21420146)
+
+Publication receipts: [`20260717_sga5_english_publish_summary.json`](../manifests/published-zenodo/20260717_sga5_english_publish_summary.json), [`20260717_sga5_english_record_21420146_revision4.json`](../manifests/published-zenodo/20260717_sga5_english_record_21420146_revision4.json), and [`20260717_sga5_english_retitle_summary.json`](../manifests/published-zenodo/20260717_sga5_english_retitle_summary.json). The 309-page English PDF is the explicit default preview. The grouped ZIP contains editable TeX, the full LNM589 scan, current French and inherited-English controls, correction/formula/structural/terminology ledgers, manifests, build logs, and rendered QA. This closes the queue for this coherent SGA5 release; the live SGA6 English lane remains outside the queue until all release artifacts freeze at one endpoint.
+
+## 2026-07-17: SGA6 idx662 predecessor publication queue closed
 
 - SGA6 idx662: [10.5281/zenodo.21419947](https://doi.org/10.5281/zenodo.21419947)
 

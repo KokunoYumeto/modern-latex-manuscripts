@@ -1,6 +1,6 @@
 # P. G. Lejeune Dirichlet
 
-Zenodo record: [20586064](https://doi.org/10.5281/zenodo.20520679)
+Zenodo record: [20586064](https://zenodo.org/records/20586064); concept DOI: [https://doi.org/10.5281/zenodo.20520679](https://doi.org/10.5281/zenodo.20520679)
 
 Public title: P. G. Lejeune Dirichlet: Werke Band II Source-Witnessed Working Drafts and English Translations
 
@@ -15,10 +15,6 @@ Public title: P. G. Lejeune Dirichlet: Werke Band II Source-Witnessed Working Dr
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
-
-## Local Source-Intake Note
-
-2026-07-01 local sweep registered `Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629_v3` as a four-ZIP web/pro continuation upload set, 778,351,208 bytes total. It includes control manifests, Papers 01-14 foundation/cumulative material, Papers XXIII-XLI main continuation material, and Volume I source backfill/current through p80. This is source-witness/continuation handoff material for future repair work, not a new reader release, not source-complete certification, and not critical-edition material. See `manifests/source-intake/20260701_dirichlet_pro_continuation_packet_v3.md`.
 
 ## Reader And Reference PDFs
 

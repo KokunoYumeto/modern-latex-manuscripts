@@ -1,6 +1,6 @@
 # Emmy Noether
 
-Zenodo record: [21419257](https://doi.org/10.5281/zenodo.20412587)
+Zenodo record: [21419257](https://zenodo.org/records/21419257); concept DOI: [https://doi.org/10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587)
 
 Public title: Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Drafts (R823 Source Control and Synchronized Components)
 

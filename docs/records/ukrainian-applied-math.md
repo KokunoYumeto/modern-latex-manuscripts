@@ -1,6 +1,6 @@
 # Ukrainian Applied Mathematics
 
-Zenodo record: [20520721](https://doi.org/10.5281/zenodo.20490906)
+Zenodo record: [20520721](https://zenodo.org/records/20520721); concept DOI: [https://doi.org/10.5281/zenodo.20490906](https://doi.org/10.5281/zenodo.20490906)
 
 Public title: Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources
 

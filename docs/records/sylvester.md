@@ -1,6 +1,6 @@
 # James Joseph Sylvester
 
-Zenodo record: [20649689](https://doi.org/10.5281/zenodo.20520692)
+Zenodo record: [20649689](https://zenodo.org/records/20649689); concept DOI: [https://doi.org/10.5281/zenodo.20520692](https://doi.org/10.5281/zenodo.20520692)
 
 Public title: James Joseph Sylvester: Collected Mathematical Papers, Source-Witnessed Modern LaTeX Working Drafts
 

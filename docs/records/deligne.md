@@ -1,6 +1,6 @@
 # Pierre Deligne
 
-Zenodo record: [20617786](https://doi.org/10.5281/zenodo.20410853)
+Zenodo record: [20617786](https://zenodo.org/records/20617786); concept DOI: [https://doi.org/10.5281/zenodo.20410853](https://doi.org/10.5281/zenodo.20410853)
 
 Public title: Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
 
@@ -13,8 +13,6 @@ Public title: Pierre Deligne Papers: Modern LaTeX Drafts and English Translation
 ## How To Read This Record
 
 Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
-
-Current status overlay: this is a mixed Deligne working-draft record, not a critical edition. The correspondence/letter lane and several sequential or descending paper packets are useful reader surfaces, but diagram-heavy papers and dense displays still need source checking. Treat flattened, OCR-derived, or merely plausible commutative diagrams as repair targets until a packet explicitly records source-level diagram verification.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

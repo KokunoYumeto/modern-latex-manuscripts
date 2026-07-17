@@ -1,6 +1,6 @@
 # Ferdinand Georg Frobenius
 
-Zenodo record: [20821858](https://doi.org/10.5281/zenodo.20673444)
+Zenodo record: [20821858](https://zenodo.org/records/20821858); concept DOI: [https://doi.org/10.5281/zenodo.20673444](https://doi.org/10.5281/zenodo.20673444)
 
 Public title: Ferdinand Georg Frobenius: Group Character Papers, German Source and English Translation Working Drafts
 

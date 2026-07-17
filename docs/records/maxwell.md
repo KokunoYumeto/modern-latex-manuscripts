@@ -1,6 +1,6 @@
 # James Clerk Maxwell
 
-Zenodo record: [20821947](https://doi.org/10.5281/zenodo.20653107)
+Zenodo record: [20821947](https://zenodo.org/records/20821947); concept DOI: [https://doi.org/10.5281/zenodo.20653107](https://doi.org/10.5281/zenodo.20653107)
 
 Public title: James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volume I Source-Witnessed LaTeX Working Tranches
 

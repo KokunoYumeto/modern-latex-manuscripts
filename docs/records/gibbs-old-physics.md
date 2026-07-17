@@ -1,6 +1,6 @@
 # J. Willard Gibbs / Old Physics
 
-Zenodo record: [20821820](https://doi.org/10.5281/zenodo.20649835)
+Zenodo record: [20821820](https://zenodo.org/records/20821820); concept DOI: [https://doi.org/10.5281/zenodo.20649835](https://doi.org/10.5281/zenodo.20649835)
 
 Public title: J. Willard Gibbs: Scientific Papers Volume I, Old-Physics Modern LaTeX Working Editions
 

@@ -1,6 +1,6 @@
 # Bernhard Riemann
 
-Zenodo record: [20434317](https://doi.org/10.5281/zenodo.20429778)
+Zenodo record: [20434317](https://zenodo.org/records/20434317); concept DOI: [https://doi.org/10.5281/zenodo.20429778](https://doi.org/10.5281/zenodo.20429778)
 
 Public title: Bernhard Riemann: Selected Mathematical Papers and Collected Works (Modern LaTeX Working Drafts)
 

@@ -1,6 +1,6 @@
 # EGA
 
-Zenodo record: [20454552](https://doi.org/10.5281/zenodo.20414353)
+Zenodo record: [20454552](https://zenodo.org/records/20454552); concept DOI: [https://doi.org/10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
 
 Public title: Elements de Geometrie Algebrique (EGA): French Originals, OCR/Support, and Partial English Drafts
 
@@ -12,11 +12,11 @@ Public title: Elements de Geometrie Algebrique (EGA): French Originals, OCR/Supp
 
 ## How To Read This Record
 
-Treat this as a reference/draft support lane. Open the French NUMDAM originals as source references; treat the English PDFs as partial working drafts; use artifact ZIPs when you need TeX, OCR, build material, source witnesses, page images, render checks, or provenance. This record is useful preservation and continuation material, not a source-audited working edition comparable to the active SGA lane.
+Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
-## Reference PDFs And Draft Readers
+## Reader And Reference PDFs
 
 | Size MB | File |
 |---:|---|
