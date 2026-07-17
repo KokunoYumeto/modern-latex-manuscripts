@@ -6,6 +6,12 @@ The direct German Volume I p1-p99 source gap-pass checkpoint is published, not s
 
 Publication receipt: [`20260716_weber_v1_p088_record_21402223.json`](../manifests/published-zenodo/20260716_weber_v1_p088_record_21402223.json). The frontier is printed p88, with p89 next and 11 pages remaining in the p1-p99 tranche. The grouped source-evidence ZIP includes the current German TeX/PDF/log, full ledgers, exact p76-to-p88 diff, source pages/crops, and render checks. The English Volume I PDF predates the latest German repairs and is explicitly labeled unsynchronized. Zenodo revision 4 explicitly selects the current German p88 PDF as the default reader preview; the readback receipt is [`20260716_weber_reader_preview_revision4.json`](../manifests/published-zenodo/20260716_weber_reader_preview_revision4.json). This is active source-repair material, not whole-volume certification or a critical edition.
 
+## 2026-07-17: SGA6 idx646 publication queue closed
+
+- SGA6 idx646: [10.5281/zenodo.21416482](https://doi.org/10.5281/zenodo.21416482)
+
+Publication receipt: [`20260717_sga6_idx646_record_21416482.json`](../manifests/published-zenodo/20260717_sga6_idx646_record_21416482.json). The public French frontier is ledger entry #663 / scan idx646 / volume p633 / Exposé XIII p18, with idx647 next. The grouped ZIP retains the separately labeled English Exposé X restart for idx532-537; it is not a synchronized whole-volume English edition. Material after idx646 remains inherited scaffold, and output page 339 crosses the frontier without certifying idx647. SGA5 remains incomplete and error-bearing; SGA6 remains a source-rescribe workpass; SGA7 remains partial. None is promoted as complete, globally source-faithful, diagram-certified, or a critical edition.
+
 ## 2026-07-16: SGA6 idx645 publication queue closed
 
 The SGA6 French source-rescribe checkpoint is published, not staged:
