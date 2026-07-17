@@ -199,6 +199,60 @@
 - Compile **0-err, 394pp**.
 - **SWEEP CURSOR → Exposé 0 p12 = idx25** (§4.4 cont: «…essentiellement non recollable. Voici une construction générale de $L^{X/Y}_\bullet$…» + the $C=A[T]\to B$ / simplicial construction).
 
+### #663 (2026-07-16) — idx646 (vol p633 = **Exposé XIII «- 18 -»**, footer «633» ⟹ **633−615=18, 19ᵉ confirmation** ; idx=633+13=646) — **4 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p633 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ★★★★★★ **LA RÈGLE «Pic» SOULIGNÉ/NU (#662) TIENT SUR UNE 2ᵉ PAGE — ET LE FICHIER AVAIT RAISON PARTOUT**
+**p633 est presque entièrement des «Pic» de SCHÉMA (nus), et le scan les laisse tous nus** : «Les parties Λ **de** Pic_{X/S}» · «Une famille Λ **de** Pic_{X/S}» · «les K-points **de** Pic_{X/S}» · «la partie Λ **de** Pic_{X/S}» · «l'inclusion U ⟶ Pic_{X/S}» · «un morphisme f : T ⟶ Pic_{X/S}». ⟹ **le fichier les avait TOUS laissés nus ⟹ JUSTE.**
+✅ **ET LA DÉFINITION 3.3 DONNE LE CONTRE-CAS SUR LA MÊME PAGE** : «un morphisme entre les **FONCTEURS** de Picard \[**Pic**_{Y/S} ⟶ **Pic**_{X/S}\]» — **les DEUX Pic du display SONT SOULIGNÉS au scan** ⟹ **foncteurs ⟹ `\underline{\Pic}`.** ⟹ **la distinction n'est pas un accident de p632 : elle est SYSTÉMATIQUE, et le scan la porte des DEUX côtés sur DEUX pages.**
+⟹ ★★★★ **le fichier confondait les deux (11ᵉ perte de sens, #662) — mais PAS À CHAQUE SITE : sur p633 il avait déjà raison sur ~6 «Pic» nus. ⟹ le défaut est CIBLÉ sur les foncteurs, pas global.** ⚠⚠ **CHACUN reste à trancher À SA PAGE — ne pas sweeper.**
+
+## ⚠⚠ **LA DÉMONSTRATION «En effet» — 5 DÉFAUTS, DONT UN SIC NEUF**
+| **LE SCAN** | **LE FICHIER (avant #663)** |
+|---|---|
+| «(i) résulte de (3.1) **;** (ii)**, du fait suivant :** si s…» | «(i) résulte de (3.1)**. Pour (ii),** si s…» |
+| «et K **est** une extension» | «et K une extension» ⟹ **«est» supprimé** |
+| «de k(s)**, alors** les K-points» | «de k(s), les K-points» ⟹ **«alors» supprimé** |
+| «**Réciproquement** supposons» | «**Réciproquement,** supposons» ⟹ **virgule ajoutée** |
+| «Par suite Λ est **quasi-compact** et on a (iii)» | «Par suite Λ est **quasi-compactE**» |
+★★★★ **LE 1ᵉʳ SITE EST UNE RÉÉCRITURE** : «(3.1) ; (ii), du fait suivant :» ⟹ «(3.1). Pour (ii),» — **le «;» devient «.», «du fait suivant :» (l'annonce du fait + son «:») est SUPPRIMÉ, «Pour» est AJOUTÉ.** ✅ **5600 (`z646c_A_effet`).**
+
+## ★★★★★ **UN SIC NEUF — 3ᵉ SOUS-CLASSE DE «LA LANGUE» : L'ACCORD OMIS**
+✅ **«quasi-compact» — 5600 (`z646c_D_qc`) : LE SCAN N'A PAS DE «e».** Le mot finit par «-compact», un espace, «et».
+★★★ **CALIBRATION DANS LA PAGE (calibration A)** : le scan écrit «soit **quasi-compacte**» (b2, item iii soit) et «elle est **quasi-compacte**» (b3, l'image de f) — **DEUX «e» sur la même page**. **Le DERNIER, sans «e», DÉVIE.**
+★ **La langue tranche** : Λ est «la partie»/«une famille» ⟹ **féminin** ⟹ «compacte» ⟹ **BRANCHE 1 ⟹ SIC (l'auteur a laissé tomber l'accord) ⟹ REPRODUIT ✅.**
+⟹ ★★★ **ET LE FICHIER L'AVAIT CORRIGÉ ⟹ 13ᵉ conf. de «il répare tout ce qui dévie».**
+⟹ **CLASSE 9 «LA LANGUE» A MAINTENANT 3 SOUS-TYPES : «quelque soit» (#660, mot composé) ; «S schéma» (#661, trait d'union) ; «quasi-compact» (#663, accord).** ⟹ **l'auteur dérape sur la langue, pas seulement sur la math.**
+
+## ⚠ **LE COMPTE DES CONNECTEURS — LE «alors» SUPPRIMÉ N'EST PAS UN «FAUX CONNECTEUR»**
+**«de k(s), alors les K-points» ⟹ «de k(s), les K-points»** : le fichier a **SUPPRIMÉ** «alors», il ne l'a pas **permuté**. ⟹ **ce n'est pas un connecteur FAUX (comme «Or»⟹«D'autre part»), c'est un connecteur ABSENT.** ⟹ **le compte 24/28 (connecteurs présents mais réécrits) reste juste** ; ⟹ **NOUVELLE CLASSE DE DÉFAUT : le connecteur SUPPRIMÉ (à côté du connecteur permuté).** ✅ **p633 : «Grâce à», «Par suite», «Quant à», «Réciproquement», «Enfin» — tous JUSTES ⟹ le signal reste vérifiable dans les deux sens.**
+
+## ✅ **CE QUI EST FIXÉ (4 rep-calls, `fix646a`)**
+1. ✅ **FIX A — les items (ii)/(iii) de la Prop 3.2 : l'ITALIQUE POSÉE** (régime 1, le report différé de #662 — j'avais besoin de p633). ✅ **Comparés MOT À MOT d'abord : ils étaient justes ⟹ seul défaut = l'italique.** ★ **les «Pic» y sont NUS (schéma) ⟹ gardés nus.**
+2. ✅ **FIX B — la démonstration «En effet» : les 5 défauts** (la réécriture du 1ᵉʳ site, «est», «alors», la virgule, le SIC «quasi-compact»).
+3. ✅ **FIX C — «suivante~:»** (le «:» espacé).
+4. ✅ **FIX D — la Définition 3.3 : l'ITALIQUE (partie p633) + les 2 `\underline{\Pic}` du display** (foncteurs).
+
+## ✅ **p633 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 18 -»/«XIII» ✅ (19ᵉ conf.) · **items (ii)/(iii) ✅ ITALIQUE POSÉE + prose vérifiée juste + «Pic» nus corrects** · «En effet, (i) résulte de (3.1) ;» ✅ FIXÉ.
+**b2** : **«(ii), du fait suivant :» ✅ RESTAURÉ** · **«est» ✅** · **«alors» ✅** · «K-points de Pic» nu ✅ · «partie Λ de Pic» nu ✅.
+**b3** : **«Réciproquement» sans virgule ✅** · «U ⟶ Pic» / «f : T ⟶ Pic» nus ✅ · **«quasi-compact» ✅ SIC REPRODUIT** · ⚠ «(plat)de» et «inversible(1.13 (i))afin» collés (ratés dactylo) ⟹ consignés.
+**b4** : **«Grâce à 3.2 … suivante~:» ✅ FIXÉ** · **Définition 3.3 : italique p633 ✅ + display `\underline{\Pic}` ×2 ✅** · ⚠ «est dit de type fini…» ENJAMBE sur p634 ⟹ italique DIFFÉRÉE.
+**b5** : ✅ **VIDE + footer «633»** ⟹ **19ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — CONSIGNÉ, PAS FIXÉ**
+1. ⚠⚠ **L'ITALIQUE DE LA DÉFINITION 3.3 — la fin («est dit de type fini si toute famille limitée … a comme image inverse une famille limitée …») ENJAMBE sur p634** ⟹ **À FERMER SUR p634.** ★ **3ᵉ fois qu'un corps d'énoncé enjambe (Lemme 3.1 #661→#662, Def 3.3 #663) — le motif est stable : italiser la page courante, différer la suite.**
+2. ⚠ **«(plat)de type fini»** et **«inversible(1.13 (i))afin»** : le scan COLLE (raté d'espacement dactylo, comme «ici,comme» #661) ⟹ le fichier espace ⟹ **ce n'est pas un choix ⟹ consigné, pas d'action.**
+3. ⚠ **`\operatorname{supp}` à L15133 (2ᵉ site, report #661)** — non atteint (page à venir).
+4. ⚠ **Le point parasite «L'_α.» de p632 b3 (#662)** — p633 ne l'éclaire pas ⟹ **laissé.**
+5. ⚠ **«(3.1)» ENTRE PARENTHÈSES au scan ICI** (b2), alors que «3.1.1» était NU (#662) ⟹ **l'auteur est inconstant sur les renvois — CONFIRMÉ sur 2 sites de signe opposé** ⟹ **report #5 : un sweep serait faux, per-occurrence obligatoire.** ✅ **le fichier a «(3.1)» ⟹ juste ici.**
+
+## ★★★★ **CE QUE p633 CONFIRME**
+★★★★★ **«J'AI COMPARÉ» AVANT DE POSER L'ITALIQUE (#661/#662)** : j'ai sorti les items (ii)/(iii) du fichier et superposé au scan AVANT de les italiser — ils étaient justes, donc l'italique était le seul geste. **Ne jamais italiser un corps sans l'avoir d'abord comparé — l'italique fige la prose.**
+★★★★★ **LA PATIENCE PAYE (#662, re-confirmé)** : l'italique des items (ii)/(iii), différée en #662, s'est posée proprement ce cycle une fois p633 lue.
+★★★★ **LE DÉFAUT «Pic» EST CIBLÉ, PAS GLOBAL** : sur p633, le fichier avait raison sur ~6 «Pic» nus et tort seulement sur les 2 foncteurs du display 3.3. ⟹ **Codex ne confond pas systématiquement — il se trompe là où le trait porte du sens contre l'attente. ⟹ #654/#662 : vérifier les deux sens.**
+
+## **CURSEUR → idx647 (p634).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p634 : FERMER l'italique de la Définition 3.3 (le «est dit de type fini si…»).**
+
 ### #662 (2026-07-16) — idx645 (vol p632 = **Exposé XIII «- 17 -»**, footer «632» ⟹ **632−615=17, 18ᵉ confirmation** ; idx=632+13=645) — **4 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p632 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
 
 # ⚠⚠⚠⚠⚠⚠ **JE DOIS CASSER MA PROPRE «LOI» — LE COMPTE DES CONNECTEURS EST 24/28, PAS 24/24**
