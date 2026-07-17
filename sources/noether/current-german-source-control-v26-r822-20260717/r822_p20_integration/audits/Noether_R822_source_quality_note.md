@@ -1,0 +1,1 @@
+Primary witness for this pass: GDZ article PDF P20_GDZ_article_LOG_0010_absolute_irreduzibilitaet.pdf rendered to source-page PNGs already bundled in R821. The witness is good enough for punctuation, quote-style, and local display-structure adjudication in the reopened band. This pass did not rely on OCR or output-render surrogates as authority.

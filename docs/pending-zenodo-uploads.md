@@ -9239,3 +9239,10 @@ Manifest: [20260705_other_pc_r10_rtl_persianate_arabic_source_body_payload.json]
 - Interlanguage methodology source-body ZIP: `OtherPC_R10_RTL_Persianate_Arabic_SourceBodyPayload_20260705.zip`, 17,114,464 bytes, SHA256 `D35E82F8B3D4849465E7D52167F884E6B51091C4AF5A35E80BE6CCEB80C0FCD0`, 29 entries.
 - Scope: other-PC commit `18bbadaa8` plus archive-maintenance side-branch directive `2d72c779f`, adding an RTL/Persianate/Arabic source-body/source-witness package with 3 TeX files, 3 source ZIPs, 4 source-witness PDFs, manifests, checksums, logbook excerpt, and exact pursued-goal dispatch instructions.
 - Caveat: source-canon/provenance support only. Not native review, not accepted terminology, not translation completion, not source-fidelity certification, not publication readiness, not a critical edition, and not blanket license clearance. Arabic, Persian/Farsi, and Dari/Persianate evidence are kept separate.
+## 2026-07-17: Noether v26/R822 publication queue closed
+
+The bounded Paper 20 R822 refinement is published, not staged:
+
+- Noether v26/R822: [10.5281/zenodo.21406056](https://doi.org/10.5281/zenodo.21406056)
+
+Publication receipt: [`20260717_noether_v26_r822_record_21406056.json`](../manifests/published-zenodo/20260717_noether_v26_r822_record_21406056.json). R822 restores four direct-source details on printed pp26, 28, 29, and 31: a sentence-bridge dash, two display-semicolon/layout readings, and German quotation marks. No OCR text was promoted. Guarded integration preserves every byte outside Paper 20 and makes the integrated Paper 20 exactly equal to sealed R822. Render changes are confined to output pp218-220; pp221-223 are pixel-identical to R821. Zenodo revision 4 explicitly selects the German R822 PDF as the default reader preview; see [`20260717_noether_reader_preview_revision4.json`](../manifests/published-zenodo/20260717_noether_reader_preview_revision4.json). English and multilingual readers remain unsynchronized working translations. This is source-control evidence, not corpus closure, paper certification, publication-grade proofreading, multilingual synchronization, or a critical edition.
