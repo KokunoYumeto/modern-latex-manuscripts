@@ -1,40 +1,76 @@
-# SGA6 French Source-Rescribe Workpass: idx646
+# SGA6 French Source-Rescribe Workpass: idx662
 
-This package freezes the active pagewise French source-rescribe workpass at `CERT_LOG.md` entry #663, scan index 646, volume p. 633, Expose XIII p. 18. The next unchecked page is scan index 647, volume p. 634, Expose XIII p. 19.
+This package freezes the active pagewise French source-rescribe workpass at
+`CERT_LOG.md` entry #679, scan index 662, volume p. 649, Expose XIII p. 34.
+The next unchecked page is scan index 663, volume p. 650, Expose XIII p. 35.
 
-The grouped reader/source/audit package is published at Zenodo record [`21416482`](https://doi.org/10.5281/zenodo.21416482), under the permanent SGA concept DOI [`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947).
+The grouped reader/source/audit package is published under the permanent SGA
+concept DOI [`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947).
 
 ## What This Update Adds
 
-Relative to the preceding public freeze at entry #662 / scan index 645, this package adds one directly checked source page, scan index 646. The linear pass now continues Expose XIII through p. 18.
+Relative to the preceding public freeze at entry #663 / scan index 646, this
+package adds sixteen directly checked source pages, scan indices 647--662. The
+linear pass continues Expose XIII from p. 19 through p. 34.
 
-On p. 633 the source comparison restores the exact connector and sentence structure in the proof of Proposition 3.2, including `est` and `alors`; removes an added comma after `Reciproquement`; reproduces the source's anomalous masculine `quasi-compact` rather than silently regularizing it; restores source italics in Proposition 3.2 and Definition 3.3; and underlines `Pic` only where it denotes the Picard functor. Plain `Pic` remains plain where it denotes the representing scheme. These are page-local source decisions, not global search-and-replace rules.
+The pagewise comparison restores source-visible theorem structure, complete
+parenthetical clauses, Picard-functor versus representing-scheme notation,
+inline mathematical arrangements, cross-references, punctuation, and source
+typography. It also records source anomalies instead of silently replacing
+them with normalized prose. Every decision is documented in `CERT_LOG.md` and
+`ERRATA_SGA6.md`.
 
-Material after scan index 646 remains inherited and unchecked scaffold. Output page 339 crosses the checked boundary and therefore does not certify scan index 647 or later material. Presence in the compiled reader is not a source-check claim. Reader page count is not a completion metric because source restoration and layout reflow can add or remove pages.
+Material after scan index 662 remains inherited and unchecked scaffold.
+Output page 346 crosses the checked boundary and therefore does not certify
+scan index 663 or later material. Presence in the compiled reader is not a
+source-check claim. Reader page count is not a completion metric because
+source restoration and layout reflow can add or remove pages.
 
-## English Translation Restart
+## Retained English Restart
 
-`english_source_checked_restart/` contains the new English Expose X continuation through current indexes 532-537, source-PDF pp. 526-531, printed pp. 519-524. It was translated directly from scans with the current French text as a control, compiled, and visually checked. It is a source-checked continuation tranche, not a synchronized whole-volume English edition.
+`english_source_checked_restart/` retains the previously published English
+Expose X continuation through current indices 532--537, source-PDF pp.
+526--531, printed pp. 519--524. It is a source-checked continuation tranche,
+not a synchronized whole-volume English edition. A newer local English
+workpass exists, but its release metadata and manifests were still changing
+when this freeze was made, so it is not promoted here.
 
 ## Files
 
 - `sga6_fr_workpass.tex` and `.pdf`: current French publication freeze.
 - `CERT_LOG.md`: pagewise source-comparison ledger and exact next cursor.
 - `ERRATA_SGA6.md`: running book-versus-edition decisions.
-- `compile_logs/`: two clean short-path publication builds and the full LaTeX log.
-- `source_witness/SGA6_source_idx646.pdf`: high-resolution source witness for this one-page public delta.
-- `source_witness/boundary_pages/`: the last two checked source pages and next unchecked page.
-- `render_checks/`: rendered output pages around the current frontier and the repaired Proposition 1.7 layout.
-- `english_source_checked_restart/`: editable English tranche, source witnesses, builds, and audit files.
+- `compile_logs/`: two fresh clean publication builds and the final LaTeX log.
+- `source_witness/SGA6_source_idx647_662.pdf`: sixteen-page high-resolution
+  source delta.
+- `source_witness/boundary_pages/`: previous checked, last checked, and next
+  unchecked source pages.
+- `render_checks/`: rendered output pages around the current frontier and a
+  combined output/source contact sheet.
+- `english_source_checked_restart/`: retained English restart evidence.
 - `publication_pdf_text.txt`: extracted PDF text used for readback checks.
 - `PACKAGE_SHA256.csv`: package integrity manifest.
 
 ## Build And Readback Notes
 
-The publication copy repeats one presentation-only repair used in the preceding release: item (iii) in Proposition 1.7 is wrapped across continuation rows so the unchanged text and formula remain inside the A4 text block. No mathematical content was altered.
+The frozen TeX was rebuilt twice with pdfLaTeX from a short ASCII working
+directory. The resulting 377-page A4 PDF has zero fatal errors, zero overfull
+boxes, zero underfull boxes, no missing characters, and no unresolved
+references. The boundary render shows the checked p. 649 text on output page
+346 and makes the first unchecked p. 650 continuation visible as a boundary,
+not as certified content.
 
-The final build is made from a short ASCII working directory to avoid stale-output failures on long Windows paths. The resulting 378-page PDF has zero fatal errors, zero overfull boxes, zero underfull boxes, no missing characters, and no unresolved references. Visual checks cover the repaired display, the current Expose XIII frontier, and the first output page crossing beyond that frontier.
+Independent release validation caught and repaired one presentation-only
+overfull array in the inherited Proposition 1.7 material. The prior
+continuation-row layout was restored without changing any words or formulas;
+`render_checks/output_page_201_layout_fix.png` records the final page. The two
+final build logs are the post-repair logs and contain no overfull-box warning.
 
 ## Classification
 
-This is substantive source-rescribe/workpass provenance and a useful current French working reader. It is **not** a completed SGA6 edition, critical edition, whole-volume source-faithfulness certification, synchronized English edition, publication-grade proofread edition, or diagram-by-diagram certification. SGA5 remains incomplete and error-bearing. SGA7 remains partial and caveat-heavy.
+This is substantive source-rescribe/workpass provenance and a useful current
+French working reader. It is **not** a completed SGA6 edition, critical
+edition, whole-volume source-faithfulness certification, synchronized English
+edition, publication-grade proofread edition, or diagram-by-diagram
+certification. SGA5 remains incomplete and error-bearing. SGA7 remains partial
+and caveat-heavy.

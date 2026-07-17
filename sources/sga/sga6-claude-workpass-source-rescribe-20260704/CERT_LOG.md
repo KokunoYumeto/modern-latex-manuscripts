@@ -199,6 +199,617 @@
 - Compile **0-err, 394pp**.
 - **SWEEP CURSOR → Exposé 0 p12 = idx25** (§4.4 cont: «…essentiellement non recollable. Voici une construction générale de $L^{X/Y}_\bullet$…» + the $C=A[T]\to B$ / simplicial construction).
 
+### #679 (2026-07-17) — idx662 (vol p649 = **Exposé XIII «- 34 -»**, footer «649» ⟹ **649−615=34, 35ᵉ confirmation** ; idx=649+13=662) — **10 rep-calls.** Compile **0-err / 377pp** ✓. ✅ **p649 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ✅ **CONTENU DE p649** : **suite de la PREUVE Th 4.7** (ROMAINE, L15172-15184). ⚠ **La page finit à «…n'a qu'un»** — le tail de L15184 («seul polynôme de Hilbert; donc (iii) résulte de 2.11.») + **Remarque 4.8** (L15186) sont sur **p650** (idx663).
+
+## ★★★ **PREUVE Th 4.7 (ROMAINE) — PARAPHRASE + PARENTHÈSE SUPPRIMÉE + 2 RE-NOTATIONS χ + 1 COQUILLE SIC**
+✅ **L15172 (Chow)** : «présentation de Chow**:**»⟹«Chow**~:**» (spaced) ; «projectif sur S**,** et f»⟹«sur S**\,;** et f» (scan b1 spaced ; ; Codex ;→,).
+✅ **L15174** : «Si**,** pour un s∈S»⟹«Si pour un» (virgule Codex, scan b2) ; ★★★★★★ **COQUILLE SIC (z662_A, 6800) : «on a donc établi (a)» ⟹ scan «établi​t» (final «t» net).** L'auteur a tapé **établit** (coquille grammaticale pour le participe «établi») ⟹ **SIC branche 1 : restauré «établit» + ERRATA.** ⚠ **Codex avait corrigé (motif «corrige les coquilles de l'auteur», cf L^{⊗r} #677).**
+✅ **L15176** : «4.7**(iii)**»⟹«4.7 **(iii)**» + «3.4**(i)** appliqué»⟹«3.4 **(i)** appliqué» (espaces de l'auteur, cf «4.6 (i)» déjà dans le fichier ; Codex collait) ; «c'est clair**;** et pour» (z662_B) ⟹ «c'est clair**,** et pour» (virgule au scan ; Codex ,→;).
+✅ **L15178** : «induite**,** soit intègre» (z662_C) ⟹ «induite soit» (virgule Codex) ; ★★★★★★ **PARENTHÈSE SUPPRIMÉE PAR CODEX (z662_D)** : scan «il suffit de le faire pour X_{S'}/S', **(**dans (b), par descente **;** dans (iii) par récurrence noethérienne et 3.4 (i)**)**.» ; fichier «…, dans (b), par descente**;** dans (iii)**,** par … et 3.4(i).» ⟹ **restauré la ( ) + «descente\,;» + «dans (iii) par» (−virgule) + «3.4 (i)».** (motif «Codex PERD les parenthèses», cf #668/#672.)
+✅ **L15180/L15182 : PROSE COMPARÉE MOT À MOT = FIDÈLE** (aucun changement).
+✅ **L15184** : ★★★★★★ **RE-NOTATION MATH PAR CODEX (z662c/z662d)** : l'auteur écrit **«χ(L_t^{⊗m}(n))»** (L indice t + exposant ⊗m) et **«χ(O_{X_t}(n))»** (structure sheaf de la fibre X_t) ; Codex a re-noté **«χ((L^{⊗m}(n))_t)»** et **«χ((O_X(n))_t)»** (restriction du tout à t). ⟹ **restauré la notation de l'auteur** (`\chi(L_t^{\otimes m}(n))`, `\chi(\mathcal O_{X_t}(n))`). ⟹ **NOUVEAU motif : Codex RE-NOTE les math (même objet, arrangement de symboles différent).**
+
+## ✅ **p649 — LES 5 BANDES, COCHÉES**
+**b1** : header «- 34 -»/«XIII» ✅ (35ᵉ conf.) · L15172 «Soit f:X'→X une présentation de Chow~: X' est projectif sur S ; et f est surjectif. Si l'on admet (a),(b),(c) et (iii) pour X', alors ils en résultent pour X en vertu de 4.3 et 3.5. On peut donc supposer X projectif sur S.» ✅.
+**b2** : L15174 «Soit H ample pour X/S. Si pour un s∈S, (L^{⊗m}⊗H)_s est ample, alors (L^{⊗m}⊗H)_t est ample pour toute générisation t de s (EGA III 4.7.1). Grâce à l'équivalence de 4.6 (i) et (iv), on a donc établit (a).» ✅ (SIC établit) · L15176 «Pour (b),(c) et 4.7 (iii), on peut supposer S intègre avec s point générique dans (b) et (c) (Pour (b) et (c), c'est clair, et pour (iii), cela résulte de 3.4 (i) appliqué au morphisme ∐S_i→S, où les S_i sont les composantes irréductibles de S, munies de la structure réduite induite).» ✅.
+**b3** : L15178 «Il existe un schéma intègre S' et un morphisme f.p.p.f. S'→S, tels que toute composante irréductible X'_i de X_{S'}, munie de la structure réduite induite soit intègre sur S' (XII 1.3). Pour prouver (b) et (iii), il suffit de le faire pour X_{S'}/S', (dans (b), par descente ; dans (iii) par récurrence noethérienne et 3.4 (i)).» ✅ (paren restaurée).
+**b4** : L15180 «Enfin, considérons le morphisme surjectif canonique ∐X'_i→X_{S'}. Alors (b) et (iii) pour X_{S'}/S' résultent de (c) et (iii) pour les X'_i/S', en vertu de 4.3, 3.5 et 3.7.» ✅ · L15182 «On s'est donc ramené à prouver (c) et (iii), en supposant S intègre de point générique s, et X projectif et intègre sur S.» ✅ · L15184 «Soit O_X(1) un faisceau très ample pour X/S. Alors pour tout m,n, χ(L_t^{⊗m}(n)) et χ(O_{X_t}(n)) ne dépendent pas de t∈S (EGA III 7.9.4). Donc (c) résulte de 4.6 (i)⟺(v), qui implique aussi que la famille des classes des faisceaux inversibles τ-équivalents à 0 sur les fibres de X/S n'a qu'un…» ✅ (2 χ re-notés).
+**b5** : «…n'a qu'un» + footer «649» ⟹ **35ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p650 (idx663)**
+1. ⚠ **tail L15184** : «…n'a qu'un seul polynôme de Hilbert; donc (iii) résulte de 2.11.» ⟹ spacing «Hilbert;» + comparer.
+2. ⚠⚠ **Remarque 4.8 L15186 (ROMAINE)** : «Soit X propre et intègre sur S noethérien. Sans hypothèse de projectivité sur X/S, on ignore s'il reste vrai que \Pic^τ_{X/S}→\Pic_{X/S} est une immersion fermée, sauf lorsque X est normal sur S et \Pic_{X/S} est représentable (FGA 236, 2.3).» ⟹ **`\Pic` per-occurrence (immersion fermée de foncteurs ⟹ probable `\underline` ; «\Pic_{X/S} représentable» ⟹ SCHÉMA nu à trancher) + «FGA 236» + comparer.**
+3. ⚠ **La suite du §5 / §4 fin** (ce qui vient après Rem 4.8) ⟹ LIRE LE SCAN p650.
+
+## ★★★★ **CE QUE p649 CONFIRME**
+★★★★★★ **NOUVEAU MOTIF : Codex RE-NOTE les math** (χ(L_t^{⊗m}(n))→χ((L^{⊗m}(n))_t)) — pas seulement la prose. ⟹ **COMPARER CHAQUE FORMULE INLINE symbole par symbole, pas juste l'indentation.**
+★★★★★★ **Codex PERD des parenthèses entières dans les preuves** (L15178) — motif confirmé (#668/#672 énoncés, ici preuve). ⟹ **chercher les incises parenthétiques manquantes.**
+★★★★★★ **2ᵉ coquille SIC de l'auteur corrigée par Codex** (établit ; cf L^{⊗r}) ⟹ **zoomer les mots grammaticalement «trop corrects».**
+★★ **L'auteur espace «N.M (roman)» ; Codex colle «N.M(roman)».** ⟹ per-occurrence.
+
+## **CURSEUR → idx663 (p650).** ⚠⚠⚠ **NE PAS CROIRE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p650 : tail L15184 + Remarque 4.8 (ROMAINE, `\Pic` per-occurrence) + la suite ; comparer mot à mot ET formule par formule.**
+⚠ **ERRATA (en pause) : 2 coquilles SIC — «L^{⊗r}» (p647), «établit» (p649).**
+
+### #678 (2026-07-17) — idx661 (vol p648 = **Exposé XIII «- 33 -»**, footer «648» ⟹ **648−615=33, 34ᵉ confirmation** ; idx=648+13=661) — **13 rep-calls.** Compile **0-err / 377pp** ✓. ✅ **p648 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ✅ **CONTENU DE p648** : fin item (ii) Th 4.7 + **item (iii)** + **PREUVE Th 4.7** (ROMAINE, L15161/15163/15165 + enum (a),(b),(c)). ⚠ **La page S'ARRÊTE à l'item (c)** — «Soit f:X'→X une présentation de Chow:» (L15172) est sur **p649** (idx662), PAS ici.
+
+## ★★★ **ITEMS Th 4.7 — SUITE + item (iii)**
+✅ **L15157 terminal item (ii)** (scan b1) : «immersion fermée**;**» ⟹ «**.**» (POINT ; l'auteur finit ses items par «.»).
+✅ **L15158 item (iii) SOULIGNÉ ⟹ ITALIQUE** (`\emph`) ; ★ **`\Pic^τ_{X/S}` SOULIGNÉ = FONCTEUR** (sous-foncteur de type fini ; z661_A trait sous Pic) ⟹ **`\underline{\Pic}`** ; **PARAPHRASE : «c'est-à-dire QUE la famille» ⟹ scan «c'est-à-dire, la famille»** (z661_A : virgule SANS «que» ; Codex a ajouté «que» + retiré la virgule).
+
+## ★★★ **PREUVE Th 4.7 (ROMAINE) — PROSE FIDÈLE mais 6 `\Pic` FONCTEURS PERDUS + 2 paraphrases + ponctuation**
+★★★★★★ **Preuve ROMAINE ⟹ tout trait sous «Pic» = FONCTEUR sans ambiguïté (pas d'italique d'énoncé pour confondre).**
+✅ **L15161 (PROSE COMPARÉE MOT À MOT = FIDÈLE)** : 3 `\Pic` soulignés = foncteurs (**«morphisme T→Pic» = point du foncteur** ; **«image inverse de Pic^τ» = sous-foncteur** ; «morphisme T_α→Pic») ⟹ `\underline{\Pic}` ×3.
+✅ **L15163** : 3 `\Pic` foncteurs («T→Pic», «formation de Pic^τ», «section S→Pic») ⟹ `\underline{\Pic}` ×3 ; **PARAPHRASE «correspond à un morphisme f.p.p.f. R→T ET À un faisceau»** (z661b) ⟹ scan «**et un** faisceau» (Codex a ajouté «à») ; «base (4.1)**,** on est»⟹«base (4.1) on est» (virgule Codex).
+✅ **L15165** (z661_C) : «sous les conditions de (ii)**.** Comme S est noethérien» ⟹ «(ii)**\,;** comme S…» (Codex ;→. + capitale ; scan = spaced ; + minuscule) ; «trois choses**:**»⟹«choses**~:**» (spaced).
+✅ **enum (a),(b),(c) L15167-15169 (ROMAINE)** : (a)/(b) «reste dans S_0**;**» ⟹ «S_0**.**» (POINT ; scan b4 ; l'auteur finit par «.», Codex met «;»). (c) déjà «.».
+
+## ✅ **p648 — LES 5 BANDES, COCHÉES**
+**b1** : header «- 33 -»/«XIII» ✅ (34ᵉ conf.) · item (ii) «…immersion fermée.» ITAL ✅ · item (iii) «`\underline{\Pic}`^τ_{X/S} est de type fini sur S, c'est-à-dire, la famille des classes des faisceaux inversibles τ-équivalents à 0 sur les fibres de X/S est limitée.» ITAL ✅.
+**b2** : preuve «En effet, dans (i)(resp.(ii)), on doit traiter le cas d'un morphisme T→`\underline{\Pic}`_{X/S}, où T est un S-schéma quelconque… image inverse de `\underline{\Pic}`^τ_{X/S}… sous-schéma ouvert (resp. et fermé) de T. Il suffit de prendre T=Spec(B)… T_α=Spec(B_α), où B_α parcourt les sous-A-algèbres de type fini de B. En vertu de 3.1… T_α→`\underline{\Pic}`_{X/S}. On peut donc supposer T de type fini sur S.» ✅.
+**b3** : «Le morphisme T→`\underline{\Pic}`_{X/S} correspond à un morphisme f.p.p.f. R→T et un faisceau inversible L sur X_R. Par descente f.p.p.f., on peut remplacer T par R. Après le changement de base R→S… formation de `\underline{\Pic}`^τ_{X/S}… base (4.1) on est donc ramené… section S→`\underline{\Pic}`_{X/S}, définie par un faisceau inversible L sur X.» ✅.
+**b4** : «On doit prouver que l'ensemble S_0 des s∈S tels que L_s soit τ-équivalent à 0 est ouvert, et aussi fermé sous les conditions de (ii) ; comme S est noethérien, ceci veut dire trois choses : pour un s∈S_0, (a) toute générisation de s reste dans S_0. (b) toute spécialisation de s, voisine de s, reste dans S_0. (c) sous les conditions de (ii), toute spécialisation de s reste dans S_0.» ✅.
+**b5** : «reste dans S_0.» (fin (c)) + footer «648» ⟹ **34ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p649 (idx662)**
+1. ⚠⚠ **L15172 «Soit f:X'→X une présentation de Chow: X' est projectif sur S, et f est surjectif. Si l'on admet (a),(b),(c) et (iii) pour X'… en vertu de 4.3 et 3.5.»** ⟹ «Chow~:» probable + comparer prose (paraphrase probable).
+2. ⚠⚠ **L15174/15176/15178/15180/15182/15184 (preuve Th 4.7 suite, ROMAINE)** : `\Pic` per-occurrence, «EGA III 4.7.1», «4.7(iii)», parenthèse incise L15176 «(Pour (b) et (c), c'est clair; et pour (iii)…)», «\coprod S_i→S», descente, «X_{S'}», «7.9.4», renvois ⟹ comparer mot à mot, ponctuation, défabrications.
+3. ⚠ **Remarque 4.8 L15186 (ROMAINE)** : «\Pic^τ→\Pic est une immersion fermée… (FGA 236, 2.3)» ⟹ `\Pic` per-occurrence.
+
+## ★★★★ **CE QUE p648 CONFIRME**
+★★★★★★ **Dans une PREUVE (romaine), un trait sous «Pic» = FONCTEUR sans ambiguïté** ⟹ Codex a PERDU 6 traits-foncteur d'affilée (motif «perd les traits Pic»). ⟹ **ZOOMER CHAQUE `\Pic` de preuve.**
+★★ **Paraphrase de preuve plus légère ici (prose L15161 fidèle) mais persistante : «que» ajouté, «à» ajouté, virgules ajoutées, ;→. + capitale.** ⟹ **comparer chaque phrase.**
+★★ **L'auteur finit systématiquement ses items d'énumération (énoncé ET preuve) par «.» — Codex met «;».**
+
+## **CURSEUR → idx662 (p649).** ⚠⚠⚠ **NE PAS CROIRE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p649 : L15172 «Chow~:» + preuve Th 4.7 suite (ROMAINE, `\Pic` per-occurrence, paraphrase, ponctuation) + Rem 4.8 ; comparer mot à mot.**
+⚠ **ERRATA (en pause) : coquille SIC «L^{⊗r}» (p647).**
+
+### #677 (2026-07-17) — idx660 (vol p647 = **Exposé XIII «- 32 -»**, footer «647» ⟹ **647−615=32, 33ᵉ confirmation** ; idx=647+13=660) — **13 rep-calls.** Compile **0-err / 377pp** ✓. ✅ **p647 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ✅ **CONTENU DE p647** : **fin de la preuve du Théorème 4.6** (ROMAINE, L15146/15150/15152) + **Théorème 4.7** (énoncé SOULIGNÉ + items (i) complet, (ii) partiel ; item (iii) + terminal de (ii) + preuve Th 4.7 ⟹ **p648, DIFFÉRÉS**).
+
+## ★★★ **LA PREUVE Th 4.6 (ROMAINE) — PARAPHRASE + 1 COQUILLE SIC CALIBRÉE**
+✅ **L15146 RÉORDONNÉ** (z660_A) : Codex «alors l'implication pour X en résulte **en vertu de 4.5**.» ⟹ scan «alors **en vertu de 4.5,** l'implication pour X en résulte.» (Codex déplace l'incise).
+✅ **L15150 — 7 corrections :** «et**,** compte tenu»→«et compte tenu» (virgule Codex) ; «est **équivalente** à (vi)»→«**équivalent**» (accord masc. SIC, scan b2) ; «Il reste à voir»→«Il reste **donc** à voir» (donc perdu) ; «Mais alors (vi)»→«Mais alors**,** (vi)» (virgule perdue) ; «connexe de T**;** alors»→«T**,** alors» (Codex ;→,) ; «est **donc** algébriquement équivalent à 0**\,;** d'où» (donc perdu + Codex ;→, ; scan b3).
+✅ ★★★★★★ **COQUILLE SIC CALIBRÉE (z660c, 9600) : «L^{⊗p} et L^{⊗q}» ⟹ scan «L^{⊗r} et L^{⊗q}».** L'exposant₁ = **r** (hampe + drapeau haut-droit, SANS panse = «r» de «sur»), PAS «p» (panse, cf «type» même boîte). L'auteur a tapé **r** (coquille pour p : «Soient p,q…» puis «L^{⊗(p-q)}») ⟹ **SIC branche 1 : restauré «r» + ERRATA.** ⚠ **Codex avait «corrigé» r→p (motif «corrige les erreurs math de l'auteur»).**
+✅ **L15152 :** «tel que**,** pour tout entier m»→«tel que pour tout entier m» (virgule Codex) ; «ample**;** d'où»→«ample**\,;** d'où» (spaced, scan b4).
+
+## ★★★ **THÉORÈME 4.7 — ÉNONCÉ SOULIGNÉ + ITEMS FONCTEURS**
+✅ **L15154 énoncé SOULIGNÉ ⟹ ITALIQUE :** `\emph{Soient S un schéma noethérien, et X un S-schéma propre. Alors}` ; «Alors **:**» espacé ⟹ `~:` HORS emph (scan b4).
+✅ **item (i) L15156** (z660_C/D) : «**le**»→«**Le**» (capitale, style des items) ; «ouverte**;**»→«ouverte**.**» (POINT terminal, z660_D) ; ★ **`\Pic^τ_{X/S}→\Pic_{X/S}` = MORPHISME D'INCLUSION DE FONCTEURS** (les 2 Pic soulignés, trait sous chaque Pic, discontinu à la flèche ; «représentable par une immersion ouverte» = morphisme de foncteurs représentable) ⟹ **`\underline{\Pic}` ×2** ; corps ITALIQUE.
+✅ **item (ii) L15157** (z660_E) : «**si**»→«**Si**» (capitale) ; **`\Pic^τ→\Pic` FONCTEURS ⟹ `\underline{\Pic}` ×2** ; corps ITALIQUE (item entier emph, math immunisé). ⚠ **«est aussi représentable par une immersion fermée» + ponctuation terminale ⟹ p648 (DIFFÉRÉ).**
+
+## ✅ **p647 — LES 5 BANDES, COCHÉES**
+**b1** : header «- 32 -»/«XIII» ✅ (33ᵉ conf.) · L15146 reorder «en vertu de 4.5, l'implication pour X en résulte.» ✅ · L15148 «Soient X_i les composantes irréductibles… Appliquant 4.5 et EGA III 2.6.2 au morphisme fini et surjectif ∐X_i→X, on ramène la démonstration que (iii)…» COMPARÉ = fidèle ✅.
+**b2** : L15150 «Si X irréductible… (ii)⟹(v), (iii)⟹(vi), et compte tenu de 2.1, (v)⟹(vi), et (vi) pour X est équivalent à (vi) pour X_réd (X 4.4.1). Il reste donc à voir… Mais alors, (vi) (resp.(iv))…» ✅ (5 corrections).
+**b3** : L15150 «…3.13 (iii)(resp.(iv)), donc est limitée. Il existe donc un faisceau inversible L sur un X_T… tels que **L^{⊗r}** et L^{⊗q} correspondent… de T, alors L^{⊗(p-q)} est **donc** algébriquement équivalent à 0 **;** d'où (vi)(resp.(iv))⟹(i).» ✅ (SIC r + 2 corrections).
+**b4** : L15152 «Enfin… N tel que pour tout entier m, L^{⊗m}⊗H^{⊗N} soit ample. Alors pour tout m, (L^{⊗m}⊗H)^{⊗N} est ample **;** d'où que (vi)⟹(iv), ce qui achève la démonstration.» ✅ · **Th 4.7** énoncé ITAL + `~:` ✅ · item (i) ITAL + `\underline{\Pic}`×2 + «ouverte.» ✅.
+**b5** : item (ii) «Si X est projectif et intègre sur S, alors `\underline{\Pic}`^τ_{X/S}→`\underline{\Pic}`_{X/S}» (enjambe p648) ✅ · footer «647» ⟹ **33ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p648 (idx661)**
+1. ⚠⚠ **item (iii) Th 4.7 L15158** («\Pic^τ_{X/S} est de type fini sur S, c'est-à-dire…») ⟹ ITALIQUE + `\underline{\Pic}` à trancher (foncteur ? sous-foncteur de type fini ⟹ probable `\underline`) + comparer prose.
+2. ⚠⚠ **terminal item (ii)** («…immersion fermée» + «;» ou «.») ⟹ lire scan p648.
+3. ⚠⚠ **PREUVE Th 4.7 L15161→L15184** (ROMAINE) : LOURDE en `\Pic` (L15161/15163/15165…), `\Spec`, «f.p.p.f.», + **L15172 «présentation de Chow:»** (⟹ «Chow~:» probable + comparer «projectif sur S,») + **L15176 «4.7(iii)…c'est clair; et pour (iii)»** (spacing ;) ⟹ **comparer mot à mot, PARAPHRASE probable, `\Pic` per-occurrence (scheme vs functor : L15161 «morphisme T→\Pic_{X/S}» = point d'un foncteur ⟹ ZOOMER).**
+4. ⚠ **Remarque 4.8 L15186** (ROMAINE, `\Pic^τ→\Pic` = immersion fermée).
+
+## ★★★★ **CE QUE p647 CONFIRME**
+★★★★★★ **La paraphrase des preuves §4 continue (reorder d'incise + «donc» perdu ×2 + virgules ×3 + ;↔, ×2 sur un seul paragraphe L15150).** ⟹ **comparer CHAQUE phrase de preuve mot à mot.**
+★★★★★★ **Codex CORRIGE une coquille math de l'auteur (L^{⊗r}→L^{⊗p}) — motif confirmé (cf Φ #674).** ⟹ **ZOOMER/CALIBRER chaque exposant/indice ; restaurer la coquille SIC.**
+★★ **Th 4.7 : les Pic d'un «morphisme d'inclusion … représentable par une immersion» = FONCTEURS (`\underline{\Pic}`), les 2 côtés.**
+
+## **CURSEUR → idx661 (p648).** ⚠⚠⚠ **NE PAS CROIRE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p648 : item (iii) + terminal (ii) + PREUVE Th 4.7 (ROMAINE, `\Pic` per-occurrence scheme/functor, «Chow~:» L15172, paraphrase) ; comparer mot à mot.**
+⚠ **ERRATA (en pause) : ajouter la coquille SIC «L^{⊗r}» (p647, preuve Th 4.6, pour «L^{⊗p}»).**
+
+### #676 (2026-07-17) — idx659 (vol p646 = **Exposé XIII «- 31 -»**, footer «646» ⟹ **646−615=31, 32ᵉ confirmation** ; idx=646+13=659) — **10 rep-calls.** Compile **0-err / 377pp** ✓. ✅ **p646 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ✅ **CONTENU DE p646** : suite du **Théorème 4.6** (items (iii)-(vi), SOULIGNÉS) + sa PREUVE (LOURDEMENT PARAPHRASÉE), finit à «…pour X', alors» (suite p647).
+
+## ★★★ **Th 4.6 items (iv)/(v)/(vi) — PARAPHRASE «(Si X…). » PARENTHÉTIQUE APLATIE PAR CODEX**
+✅ **L'auteur écrit les conditions «resp.» avec une PARENTHÈSE + majuscule + point :** «(iv) …m **(positif ou négatif)**…ample**.**» ; «(v) **(Si X est irréductible). Pour** tout couple…» ; «(vi) **(Si X est irréductible de dimension r≥2). On a**». **Codex a APLATI :** «m, positif ou négatif,» / «si X est irréductible, pour» / «si X…dimension r≥2, on a» (parenthèses→virgules, minuscules). ⟹ **restauré au scan + `\emph{}` (items soulignés).** ⟹ **NOUVEAU motif de paraphrase : Codex intègre les incises parenthétiques «(Si…)» dans la phrase avec des virgules.**
+✅ **item (iii) italisé ; «Si X/k est projectif… aux suivantes~:» italisé.** ✅ **displays χ(F⊗L)=χ(F), χ(L^{⊗m}(n))=χ(O_X(n)), ⟨c_1⟩ TOUS CENTRÉS = VRAIS.**
+
+## ★★★ **LA PREUVE DU Th 4.6 — PARAPHRASE LOURDE (7 substitutions) + 1 display fabriqué (#124)**
+✅ **restauré au scan :** «**Appliquant**» (≠ «En appliquant») ; «**Alors on doit prouver**» (≠ «Il faut alors prouver») ; «**Pour ceci**» (≠ «Pour cela») ; «**Dans ce cas, si** L est déformé en **O**» (≠ «Si L…en O_X» — «Dans ce cas» supprimé + indice X ajouté ; 5600 `z659b` : O rond SANS indice X = structure sheaf ⟹ `\mathcal O`) ; «sur **un** X×_k T» («un» supprimé) ; «connexe**,** de type fini» (virgule) ; «7.9.5)**\,;**».
+✅ **#124 FABRIQUÉ : la formule «χ(L_Y)=⟨c_1(L)·Y⟩+χ(O_Y)» (le «théorème de Riemann») EN LIGNE au scan** ⟹ inline ; **+ «=0\,; d'où (ii) implique (iii)» (le scan dit «d'où», Codex avait mis «donc»).**
+✅ **«présentation de Chow~:»** (⚠ check-trap : 3 occurrences «Chow: X' est projectif» — L14993 déjà `~:`, L15150 fixée ici, **L15176 (~p647) à faire à sa page** — ANCRE ÉLARGIE pour l'unicité #664).
+
+## ✅ **p646 — LES 5 BANDES, COCHÉES**
+**b1** : header «- 31 -»/«XIII» ✅ (32ᵉ conf.) · display χ(F⊗L)=χ(F) CENTRÉ ✅ · «(iii) L est numériquement équivalent à 0.» ITAL ✅ · «Si X/k est projectif… aux suivantes~:» ITAL ✅ · «(iv) **Pour** tout entier m **(positif ou négatif)**…».
+**b2** : «…L^{⊗m}(1) est ample**.**» ITAL ✅ · «(v) **(Si X est irréductible). Pour** tout couple d'entiers m,n, on a» ITAL ✅ · display χ(L^{⊗m}(n))=χ(O_X(n)) CENTRÉ ✅ · «(vi) **(Si X est irréductible de dimension r≥2). On a**» ITAL ✅ · display ⟨c_1⟩ CENTRÉ ✅.
+**b3** : preuve «Démontrons que (i) implique (ii). **Appliquant** le lemme de dévissage (EGA III 3.1) et 4.5 (i)… F=O_X. **Alors on doit prouver**… **Pour ceci**… **Dans ce cas, si** L est déformé en **O**… sur **un** X×_k T où T est connexe**,** de type fini… (EGA III 7.9.5)**\,;**».
+**b4** : «d'où l'implication.» · «Soit Y une courbe intègre fermée dans X. Faisant F=O_Y dans (ii)… **χ(L_Y)=⟨c_1(L)·Y⟩+χ(O_Y) EN LIGNE ✅** (#124) donne ⟨c_1(L)·Y⟩=0\,; **d'où** (ii) implique (iii).» · «Soit f:X'→X une présentation de Chow~: X' est projectif et f est surjectif. Si l'on admet que (iii) implique (i) pour X', alors…».
+**b5** : «…pour X', alors» + footer «646» ⟹ **32ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p647**
+1. ⚠⚠ **p647 : suite de la preuve Th 4.6** («…l'implication pour X en résulte en vertu de 4.5. Supposons donc dorénavant X projectif, muni d'un faisceau ample H. …») ⟹ **ROMAINE, PARAPHRASE PROBABLE ; défabrications ; `\Pic` ; L15176 «Chow~:» + «projectif sur S,» à trancher ; «;»/«:».**
+2. ⚠ **VIGILANCE PARAPHRASE §4 (preuves ET items ET incises parenthétiques).**
+
+## ★★★★ **CE QUE p646 CONFIRME**
+★★★★★★ **LA PARAPHRASE EST MASSIVE DANS LES PREUVES DU §4 (7 substitutions sur un paragraphe) — pas seulement les énoncés.** ⟹ **comparer CHAQUE phrase de preuve mot à mot.**
+★★ **Nouveau motif : Codex aplatit les incises parenthétiques «(Si X…).» en propositions à virgules.**
+★★ **L'auteur omet l'indice «X» de O_X (écrit «O») — indice omis SIC, comme «X_s»→«X» mais dans l'autre sens (Codex l'AJOUTE ici).**
+
+## **CURSEUR → idx660 (p647).** ⚠⚠⚠ **NE PAS CROIRE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p647 : suite preuve Th 4.6 (ROMAINE, PARAPHRASE probable) ; comparer mot à mot ; `\Pic`/displays/«;»/«:» ; L15176 «Chow~:».**
+
+### #675 (2026-07-17) — idx658 (vol p645 = **Exposé XIII «- 30 -»**, footer «645» ⟹ **645−615=30, 31ᵉ confirmation** ; idx=645+13=658) — **11 rep-calls.** Compile **0-err / 377pp** ✓. ✅ **p645 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ✅ **CONTENU DE p645** : fin §4.4 (#674), **Proposition 4.5 (Comportement fonctoriel)** (énoncé + items (i)(ii) + preuve), **Théorème 4.6** (énoncé, ENJAMBE p646). ⟹ **la suite du Th 4.6 (item (ii) display χ(F⊗L)=χ(F), item (iii), la partie «Si X/k est projectif…» items (iv)…) est sur p646.**
+
+## ★★★ **DEUX ÉNONCÉS ITALISÉS (Prop 4.5 + Th 4.6) — dont l'intro FIDÈLE mais les ITEMS paraphrasés**
+✅ **Prop 4.5 : l'intro «Soit f:X'→X un morphisme entre deux k-schémas propres…» CORRESPOND (pas de paraphrase)** ⟹ `\emph{}` + «Alors~:». **Mais les ITEMS sont PARAPHRASÉS :**
+- item (i) : scan «**Si** L est τ-équivalent à 0 (resp…), **alors f^*L l'est.**» vs fichier «**si**…, **f^*L l'est aussi;**» ⟹ majuscule + «alors» ajouté + «aussi;»→«.».
+- item (ii) : scan «**Réciproquement**…, alors L **l'est.**» vs fichier «**réciproquement**…, L **l'est aussi.**» ⟹ majuscule + «aussi» retiré.
+⟹ **NOUVEAU : la paraphrase frappe les ITEMS d'un énoncé même quand l'INTRO est fidèle — comparer CHAQUE item séparément.**
+✅ **Th 4.6 : énoncé SOULIGNÉ ⟹ `\emph{}` + PARAPHRASE «**Alors** les conditions suivantes sont équivalentes~:» (Codex avait SUPPRIMÉ «Alors»)** ; item (i) «à 0**.**» (point, ≠ fichier «;») ; item (ii) «**Pour** tout faisceau cohérent F sur X, **on a**» (majuscule + «on a» ajouté, ≠ fichier «pour…,»).
+
+## ★ **UN ACCORD SIC + ESPACEMENTS (preuve Prop 4.5)**
+✅ **«lorsque f est surjective» (5600 + OCR `z658` ; fém.) dans la PREUVE** — alors que l'ÉNONCÉ item (ii) garde «surjectif» (masc.) ⟹ **ACCORD SIC** (f = morphisme masc. ; l'auteur a écrit «surjective», Codex a réparé) ⟹ reproduit «surjective». ⟹ **5ᵉ accord SIC ; ET nouveau : l'auteur alterne surjectif/surjective ENTRE énoncé et preuve — per-occurrence strict.**
+✅ **«Y=f(Y')~:» + 2 «=0\,;» + virgule retirée «f^{-1}(y) algébrique».**
+
+## ✅ **AUCUN DISPLAY FABRIQUÉ — les 2 displays sont VRAIS**
+✅ **«4.5.1. ⟨c_1(f^*L)·Y'⟩=[k(Y'):k(Y)]⟨c_1(L)·Y⟩» (formule de projection) CENTRÉ = VRAI** ; ⚠ **le tag «4.5.1.» est À GAUCHE au scan** (le fichier le rend à DROITE, `\tag{}` par défaut) ⟹ **report GLOBAL #5 (tags) — consigné, passage dédié.** ✅ **«χ(F⊗L)=χ(F)» (Th 4.6 item ii) = display, sur p646.**
+
+## ✅ **p645 — LES 5 BANDES, COCHÉES**
+**b1** : header «- 30 -»/«XIII» ✅ (31ᵉ conf.) · **Prop 4.5 : «Soit f:X'→X… Alors~:» ITALIQUE ✅** · «(i) **Si** L est τ-équivalent… alors f^*L **l'est.**» ITAL+paraphrase ✅.
+**b2** : «(ii) **Réciproquement**… alors L **l'est.**» ITAL+paraphrase ✅ · preuve «En effet, l'assertion (i)(resp. (ii))… de 4.1 (resp. 4.3). D'autre part, soient Y' une courbe intègre fermée dans X'… formule de projection (X 4.4.4)» · **display 4.5.1 CENTRÉ ✅ (tag gauche consigné)**.
+**b3** : «où k(Y') (resp. k(Y))… (f^*L)_{Y'}≃O_{Y'}. Par conséquent… =0 **;** d'où (i).» ✅ · «**Réciproquement**, lorsque f est **surjective** (SIC ✅)… telle que Y=f(Y') **:** soient y le point générique… fibre f^{-1}(y) algébrique (virgule retirée ✅)…».
+**b4** : «…Y' l'adhérence de y'. Alors 4.5.1 montre que… =0 **;** d'où (ii).» ✅ · **Théorème 4.6 «Soient k un corps alg. clos, X un k-schéma propre… **Alors** les conditions suivantes sont équivalentes~:» ITALIQUE+paraphrase ✅** · «(i) L est τ-équivalent à 0**.**» ✅.
+**b5** : «(ii) **Pour** tout faisceau cohérent F sur X, **on a**» ITAL+paraphrase ✅ + footer «645» ⟹ **31ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p646**
+1. ⚠⚠ **p646 : suite du Théorème 4.6** (item (ii) display «χ(F⊗L)=χ(F)» + item (iii) «L est numériquement équivalent à 0.» + «Si X/k est projectif et muni d'un module inversible ample H=O_X(1), les conditions précédentes sont aussi équivalentes aux suivantes~: (iv) pour tout entier m, positif ou négatif, L^{⊗m}(1) est ample…») ⟹ **CONTINUER L'ITALIQUE du Th 4.6 (enjambe), comparer paraphrase, trancher `\Pic`, vérifier displays/«;»/«:».**
+2. ⚠ **VIGILANCE PARAPHRASE §4 (items compris).**
+
+## ★★★★ **CE QUE p645 CONFIRME**
+★★★★★★ **LA PARAPHRASE FRAPPE LES ITEMS même quand l'intro est fidèle** (Prop 4.5) — comparer CHAQUE item, pas seulement l'intro d'un énoncé.
+★★ **L'auteur alterne surjectif/surjective entre énoncé (masc.) et preuve (fém.) — accord PER-OCCURRENCE strict, ne PAS uniformiser.**
+
+## **CURSEUR → idx659 (p646).** ⚠⚠⚠ **NE PAS CROIRE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p646 : suite Th 4.6 (italique enjambant, items iii/iv, PARAPHRASE probable) + sa preuve ; `\Pic` per-occurrence ; displays indentation ; «;»/«:».**
+
+### #674 (2026-07-17) — idx657 (vol p644 = **Exposé XIII «- 29 -»**, footer «644» ⟹ **644−615=29, 30ᵉ confirmation** ; idx=644+13=657) — **7 rep-calls.** Compile **0-err / 377pp** ✓. ✅ **p644 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ⚠⚠⚠ **LE §4 RESTE INFESTÉ DE PARAPHRASE (§4.4 comme §4.1) — la paraphrase persiste sur toute la section.**
+
+## ★★★ **§4.4 (numéroté, ROMAIN) — PARAPHRASE + defab #123 + définienda emph + Pic FONCTEURS**
+✅ **Restauré au scan :** «connexe **de type fini T**» (≠ «connexe T, de type fini»), «deux **k-points** t,t_0 **de T**» (≠ «deux points t,t_0**∈T(k)**»), **«L≃M_t et O_X≃M_{t_0}» EN LIGNE (#123 fabriqué, «,»→«et»)**.
+✅ **DÉFINIENDA soulignés ⟹ `\emph{}` : «algébriquement équivalent» + «équivalent» (τ-) + «numériquement équivalent»** (le 2ᵉ «algébriquement équivalent», dans le resp., NON souligné = usage, laissé romain).
+✅ **`\Pic` FONCTEURS : «Pic_{X/k}», «Pic^0_{X/k}(k)», «Pic^τ_{X/k}(k)» TOUS SOULIGNÉS (5600 `z657_C1`/`C2`) ⟹ `\underline{\Pic}`/`\underline{\Pic}^0`/`\underline{\Pic}^\tau`.** ⟹ ★★★★★★ **CONFIRME #671 : «sur k» ≠ nu ! Ici Pic^0/Pic^τ sont les SOUS-FONCTEURS définis en §4.1 (G^0/G^τ) ⟹ FONCTEURS, même avec «(k)».** ⟹ **le «Pic(k) = schéma» de #670 était SPÉCIFIQUE (théorème 90, Pic-schéma représentable) — PER-OCCURRENCE, ZOOMER.**
+
+## ★★★ **Lemme 4.3 (énoncé, SOULIGNÉ) — ITALIQUE + paraphrase + Pic^τ FONCTEURS**
+✅ **b2 : «Soient X, Y propres sur un schéma S **et** f:X→Y…» (scan) vs «S**, et soit** f:X→Y» (fichier)** ⟹ «et f» restauré + `\emph{}`. ✅ **display «(f^*)^{-1}Pic^τ_{X/S}=Pic^τ_{Y/S}» CENTRÉ = VRAI, les 2 `Pic^τ` SOULIGNÉS (5600 `z657_B`) = FONCTEURS ⟹ `\underline{\Pic}^\tau`** (morphisme (f^*)^{-1} entre foncteurs τ-Picard).
+
+## ★★ **UN SIC-MATH DANS LA PREUVE DU LEMME 4.2 — «Φ(G'^τ) ⊃ G^τ»**
+✅ **5600 `z657_A` : le scan écrit «l'inclusion Φ(G'^τ) ⊃ G^τ» (PRIME sur le 1er G, symbole ⊃).** Le fichier avait «Φ(G^τ) ⊂ G'^τ» (typographiquement correct : Φ:G→G'). ⟹ **la forme du scan NE TYPECHECK PAS (Φ appliqué à G'^τ) — SLIP de l'auteur ; Codex l'a corrigée** ⟹ **SIC ⟹ reproduit «Φ(G'^τ) ⊃ G^τ» + ERRATA.** ⟹ **17ᵉ défaut sémantique + nouveau : Codex CORRIGE aussi les erreurs MATH de l'auteur (pas seulement langue/notation).**
+✅ **2 «;» espacés (preuve 4.2) : «quasi-compacte ;», «propriété ;» ⟹ `\,;`.**
+
+## ✅ **p644 — LES 5 BANDES, COCHÉES**
+**b1** : header «- 29 -»/«XIII» ✅ (30ᵉ conf.) · preuve Lemme 4.2 «En effet, on a déjà noté l'inclusion **Φ(G'^τ) ⊃ G^τ** ✅. …g∈G(K) est dans G^τ(K) ssi la suite des ng(n∈ℕ) est quasi-compacte **;**… Φ(ng)=nΦ(g)… propriété **;** d'où l'assertion.».
+**b2** : «Lemme 4.3. Soient X, Y propres sur un schéma S **et** f:X→Y un morphisme surjectif (resp. … O_Y(1)). Alors» ITALIQUE ✅ · **display «(f^*)^{-1}\underline{\Pic}^τ_{X/S}=\underline{\Pic}^τ_{Y/S}» ✅ (foncteurs)** · «En effet, l'assertion est conséquence formelle de 4.2,(XII 1.2), 3.1, et 3.5 (resp. 3.8).» ⚠ «4.2,(XII» sans espace — consigné.
+**b3** : «4.4. Soient k un corps alg. clos, X un k-schéma propre… On dit que L est **_algébriquement équivalent_** à 0 (resp. τ-**_équivalent_** à 0) s'il existe un k-schéma connexe **de type fini T**… deux **k-points** t,t_0 **de T** tels que **L≃M_t et O_X≃M_{t_0}** (inline #123)…».
+**b4** : «…si le k-point λ de **\underline{\Pic}**_{X/k}… est dans **\underline{\Pic}^0**_{X/k}(k) (resp. **\underline{\Pic}^τ**_{X/k}(k)).» ✅ · «Rappelons aussi que L est dit **_numériquement équivalent_** à 0 si… ⟨c_1(L)·Y⟩ est 0 (voir 2.1 ou X 4.5).».
+**b5** : vide + footer «644» ⟹ **30ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p645**
+1. ⚠⚠ **p645 : Proposition 4.5 (Comportement fonctoriel)** (L15107, «Soit f:X'→X un morphisme entre deux k-schémas propres, et soit L un module inversible sur X. Alors: \begin{enumerate}(i) si L est τ-équivalent à 0 (resp. numériquement équivalent à 0), f^*L l'est aussi; (ii) réciproquement, lorsque f est surjectif, si f^*L est τ-équivalent à 0…, alors L l'est aussi.\end{enumerate}» ⟹ **ÉNONCÉ ⟹ ITALIQUE À VÉRIFIER + PARAPHRASE PROBABLE**) + preuve «En effet, l'assertion (i)… formule de projection (X 4.4.4) \[⟨c_1(f^*L)·Y'⟩=[k(Y'):k(Y)]⟨c_1(L)·Y⟩,\] (tag 4.5.1)…».
+2. ⚠ **VIGILANCE PARAPHRASE §4 — chaque énoncé/paragraphe du §4 est réécrit.**
+
+## ★★★★ **CE QUE p644 CONFIRME**
+★★★★★★ **«Pic(k) = schéma» N'EST PAS une loi — les Pic^0/Pic^τ (sous-foncteurs) restent FONCTEURS même avec «(k)».** ⟹ **6ᵉ «loi» réfutée. ZOOMER CHAQUE `\Pic`.**
+★★ **Codex corrige les ERREURS MATH de l'auteur (Φ(G'^τ)⊃G^τ → Φ(G^τ)⊂G'^τ) — au-delà de langue/notation.**
+
+## **CURSEUR → idx658 (p645).** ⚠⚠⚠ **NE PAS CROIRE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p645 : Prop 4.5 (ITALIQUE, PARAPHRASE probable) + sa preuve ; défabrications ; `\Pic` per-occurrence ; «;»/«:».**
+
+### #673 (2026-07-17) — idx656 (vol p643 = **Exposé XIII «- 28 -»**, footer «643» ⟹ **643−615=28, 29ᵉ confirmation** ; idx=643+13=656) — **4 rep-calls.** Compile **0-err / 377pp** ✓. ✅ **p643 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ⚠⚠⚠⚠⚠⚠ **LA PARAPHRASE RESSURGIT (axe #658, silencieux depuis p636 — 7 pages !)**
+✅ **§4 est une NOUVELLE section, et Codex a RÉÉCRIT §4.1 ET l'énoncé du Lemme 4.2.** ⟹ **l'axe «paraphrase» était en sommeil p637-p642 (prose fidèle), il se RÉVEILLE au §4.** ⟹ **CONFIRME #666 : les axes sont indépendants et intermittents — une longue zone propre NE garantit RIEN pour la suivante. COMPARER MOT À MOT CHAQUE PAGE, surtout aux DÉBUTS DE SECTION.**
+
+## ★★★ **§4.1 (paragraphe numéroté, ROMAIN) — PARAPHRASE LOURDE restaurée + 1 display fabriqué (#122)**
+✅ **Le scan (b1/b2) diffère du fichier en ~7 points sur la 1ʳᵉ phrase :**
+- «On **désigne par**» (scan) vs «On **note**» (fichier).
+- «le sous-foncteur **en groupes**» (scan) vs «le sous-foncteur **de G**» (fichier).
+- «dont les T-points **f:T→G sont ceux de G** tels que» (scan) vs «dont les T-points **sont les morphismes f:T→G** tels que,» (fichier).
+- «un **k**-schéma connexe Z» (scan, MINUSCULE, 5600 `z656b_B`) vs «un **K**-schéma» (fichier) ⟹ **SIC (incohérence de casse de l'auteur ; le champ est K) — Codex a réparé en K.**
+- «z,z_0 de Z **et** un morphisme g:Z→G tels que **g(z)=f(t) et g(z_0)=0** (EN LIGNE ⟹ #122 FABRIQUÉ) dans G(K)» (scan) vs «z,z_0 de Z**,** et… g:Z→G**,** tels que [DISPLAY «g(z)=f(t),\qquad g(z_0)=0»]» (fichier) ⟹ **defab #122 + virgules retirées + «,»→«et» entre les deux équations.**
+- «(resp. **il existe** un entier **non-nul** n **tel que n.f(t)**∈G^0(K))» (scan) vs «(resp. **tels qu'il existe** un entier **non nul** n **avec n f(t)**∈G^0(K))» (fichier).
+⟹ **tout restauré au scan.** ⚠ **la 2ᵉ phrase «Il est évident que…» était FIDÈLE** (seule «(SGA 3 VI_A 2.4)» sans virgules vs fichier «(SGA 3, VI_A, 2.4)» — commas retirées).
+
+## ★★★ **Lemme 4.2 (énoncé, SOULIGNÉ) — PARAPHRASE + ITALIQUE**
+✅ **Le scan (b3/b4) diffère :**
+- «un morphisme **entre deux** foncteurs… sur **un schéma** S» (scan) vs «un morphisme **de** foncteurs… sur S» (fichier).
+- «**On suppose que** pour tout corps» (scan) vs «**Supposons que,** pour tout corps» (fichier).
+- «**G_K (resp. G'_K) soit** représentable par **un** schéma en groupes» (scan) vs «**les foncteurs G_K et G'_K soient** représentables par **des** schémas» (fichier).
+- «et Φ_K soit représentable… de type fini**, (c-à-d**, quasi-compact)» (scan) vs «et **que** Φ_K… de type fini (c-à-d…» (fichier).
+⟹ **restauré + `\emph{}` (l'énoncé SOULIGNÉ, coupé avant le display CENTRÉ `Φ^{-1}(G'^τ)=G^τ` qui reste).** ⚠ **«c-à-d» était présent au fichier ✓ (per-occurrence, cette fois épelé PAR l'auteur).**
+
+## ★★ **UNE RÉFÉRENCE ALTÉRÉE PAR CODEX — «(iii) implique (ii)»**
+✅ **5600 `z656b_A` : «(iii) implique (ii)» (DEUX i) au scan** ; le fichier avait «(iii) implique (i)». **Les DEUX sont mathématiquement valides** (cycle iii→ii→i→iii vs iii→i directement), **mais le scan dit (ii)** ⟹ Codex a altéré (ii)→(i) ⟹ reproduit «(ii)». ⟹ **16ᵉ défaut sémantique : Codex ré-attribue les renvois inter-conditions (cf #659 re-attribution).**
+
+## ✅ **p643 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 28 -»/«XIII» ✅ (29ᵉ conf.) · «(i). D'autre part, (iii) implique **(ii)** grâce à 2.3 et 2.8.» ✅ (fin preuve Th 3.13) · **§4 header «Théorèmes de finitude pour Pic^τ_{X/S}»** (souligné, titre) · «4.1. Soient S un schéma… On **désigne par** G^0 (resp. G^τ) le sous-foncteur **en groupes**…» ✅.
+**b2** : «…les T-points **f:T→G sont ceux de G** tels que… il existe un **k**-schéma connexe Z, deux K-points z,z_0 de Z **et** un morphisme g:Z→G tels que **g(z)=f(t) et g(z_0)=0** (inline #122) dans G(K) (resp. il existe un entier **non-nul** n tel que **n.f(t)**∈G^0(K)).» ✅.
+**b3** : «Il est évident que la formation de G^0 (resp. G^τ) commute… induit un morphisme G^0→G'^0 (resp. G^τ→G'^τ)… géométriquement irréductible (**SGA 3 VI_A 2.4**).» ✅ (fidèle sauf virgules) · **«Lemme 4.2. Soit Φ:G→G' un morphisme entre deux foncteurs en groupes» ITALIQUE ✅.**
+**b4** : «…commutatifs sur un schéma S. On suppose que pour tout corps… G_K (resp. G'_K) soit représentable par un schéma… et Φ_K soit représentable… de type fini, (c-à-d, quasi-compact). Alors» ITALIQUE ✅ · **display «Φ^{-1}(G'^τ)=G^τ» CENTRÉ = VRAI ✅.**
+**b5** : vide + footer «643» ⟹ **29ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p644**
+1. ⚠⚠ **p644 : preuve du Lemme 4.2** («En effet, on a déjà noté l'inclusion Φ(G^τ)⊂G'^τ. … la suite des ng (n∈ℕ) est quasi-compacte; comme Φ_K est quasi-compact… d'où l'assertion.») ⟹ **ROMAINE ; vérifier ; «;» espacés** ; **Lemme 4.3** (énoncé ⟹ ITALIQUE ; **display `(f^*)^{-1}\Pic^τ_{X/S}=\Pic^τ_{Y/S}` — `\Pic^τ` À TRANCHER : morphisme (f^*)^{-1} de foncteurs ⟹ FONCTEUR probable, ZOOMER**) + sa preuve ; **§4.4** (numéroté ROMAIN, «Soient k un corps alg. clos, X un k-schéma propre… le k-point λ de \Pic_{X/k}… dans \Pic^0_{X/k}(k) (resp. \Pic^τ_{X/k}(k))» ⟹ **«k-point de Pic» + «Pic(k)» = SCHÉMA nu probable, ZOOMER ; display «L≃M_t, O_X≃M_{t_0}» indentation**) ; **Prop 4.5** (énoncé ⟹ ITALIQUE) éventuellement.
+2. ⚠ **AUX DÉBUTS DE SECTION/PARAGRAPHE : SUSPECTER LA PARAPHRASE (le §4 en est infesté).**
+
+## ★★★★ **CE QUE p643 CONFIRME**
+★★★★★★ **LA PARAPHRASE EST INTERMITTENTE ET SE RÉVEILLE AUX NOUVELLES SECTIONS (§4)** — 7 pages propres (p637-p642) ne garantissent rien. ⟹ **VIGILANCE MAXIMALE AUX DÉBUTS DE §.**
+★★ **Codex ré-attribue les renvois inter-conditions ((iii)⟹(ii) → (iii)⟹(i)) — piège sémantique invisible (les deux compilent, les deux sont «justes»).**
+
+## **CURSEUR → idx657 (p644).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p644 : COMPARER MOT À MOT (paraphrase probable !) la preuve Lemme 4.2 + Lemme 4.3 (énoncé ITALIQUE, `\Pic^τ` à trancher) + §4.4 (Pic(k) nu ?) ; défabrications potentielles (displays inline) ; «;»/«:» ; «c-à-d».**
+
+### #672 (2026-07-17) — idx655 (vol p642 = **Exposé XIII «- 27 -»**, footer «642» ⟹ **642−615=27, 28ᵉ confirmation** ; idx=642+13=655) — **7 rep-calls.** Compile **0-err** ✓. ⚠ **PAGINATION : 378 ⟹ 377pp** (les 4 défabrications ont comprimé le texte d'une page — **la pagination n'est PAS le gate**, 0-err DUR conservé). ✅ **p642 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ✅ **CONTENU DE p642** : la PREUVE du **Théorème 3.13** (ROMAINE), en 3 temps : «(i)⟹(ii),(iii),(iv)» (L15071), «Notons ensuite…» (L15073), «(iv)⟹(iii)» (L15075-15088, 3 formules ⟨…⟩), «(ii)/(iii)⟹(i)» (L15090-15096). ⟹ **la fin («…(iii) implique (i) grâce à 2.3 et 2.8.») + le §4 «Théorèmes de finitude pour Pic^τ_{X/S}» sont sur p643.**
+
+## ★★★★★ **QUATRE DISPLAYS FABRIQUÉS DE PLUS (#118-#121) — COMPTEUR = 121**
+✅ **b2/b3/b4 : au scan, EN LIGNE (fer à gauche / milieu de phrase) :**
+- **#118** «⟨[N c_1(H_K)+c_1(L_K)]·c_1(H_K)^{r-1}⟩>0» · **#119** «⟨[…]^2·c_1(H_K)^{r-2}⟩>0» · **#120** «⟨c_1(L_K)^2·c_1(H_K)^{r-2}⟩>−2Nd(L_K)−N^2d(H_K)» (partie «(iv)⟹(iii)»).
+- **#121** «Σ^2_{i=0}a_i(^{n+i}_i)» (partie «(ii)/(iii)⟹(i)»).
+⟹ tous DÉFABRIQUÉS → inline. ⟹ **DEUXIÈME grosse page de défabrication d'affilée (p641=5, p642=4) — une PREUVE entière écrite avec formules inline, converties en displays par Codex.**
+
+## ★ **UNE PAIRE DE PARENTHÈSES SUPPRIMÉE + SIX «;» ESPACÉS**
+✅ **b3/b4 : le scan PARENTHÈSE «(compte tenu de 1.7 (resp. la formule de projection), qui implique que la condition (ii)… sur Y,ℒ|Y)»** — le fichier n'avait pas la paire ⟹ **Codex l'avait supprimée** ⟹ «(» avant «compte tenu» + «)» après «sur Y,ℒ|Y» restaurés. ⟹ **2ᵉ paire de parenthèses entière supprimée (après #668 «(par exemple…Abhyankhar)»).**
+✅ **SIX «;» ESPACÉS** (5600 `z655_SC_morc` : «multiple ;» + «morceaux ;» ; b4/b5 : «Y) ;», «2.10 ;», «2.7 ;», «2.11 ;») ⟹ tous `\,;`. ⟹ **bloc UNIFORME (même paragraphe = même dactylo) — ici tous espacés, contrairement à p641 où «Z/nZ;» était collé. PER-OCCURRENCE mais aussi PER-STRETCH.**
+⚠ **«N c_1(H_K)» (espace, pas de point) gardé** — le scan est ambigu (point vs espace, incohérent entre #118 et #119) ; math = multiplication implicite ; fichier cohérent ⟹ consigné.
+
+## ✅ **p642 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 27 -»/«XIII» ✅ (28ᵉ conf.) · «Démontrons que (i) implique (ii), (iii), et (iv). Supposons donc que ℒ soit limitée… X_T. Alors ℒ satisfait à (iv) par EGA II 4.6.12. Supposons L plat sur T. Alors le polynôme en m et n, χ(L_t^{⊗m}(n))…» ✅.
+**b2** : «…(EGA III 7.9.4). Par suite ℒ satisfait à (ii), et compte tenu de 2.1, à (iii).» · «Notons ensuite que la famille des classes des H_K (resp. O_{X_K}) est limitée, donc satisfait à (iii) (resp. à (ii)).» · «Supposons que ℒ satisfasse à (iv). Alors **⟨…⟩>0 EN LIGNE ✅** (#118), d'où d(L_K)>−Nd(H_K)… De plus, **⟨…⟩>0 (#119)**, d'où…».
+**b3** : «**⟨c_1(L_K)^2·…⟩>−2Nd(L_K)−N^2d(H_K) (#120)**. Donc ℒ satisfait à (iii).» · «Démontrons enfin que (ii) (resp. (iii)) implique (i). Grâce à 2.10 et 2.3… multiple **;** … morceaux **;** … section linéaire Y de X… En vertu de 3.8, on peut remplacer X,ℒ par Y,ℒ|Y, **(compte tenu de 1.7** (resp. la formule de projection)…».
+**b4** : «…qui implique que la condition (ii) (resp. (iii)) sur X,ℒ est équivalente à (ii) (resp. à (iii)) sur Y,ℒ|Y**)** **;** supposons donc r=2. Si δ=sup{d(L_K)} est >0… grâce à 2.3 et 2.10 **;** supposons donc δ≤0.» · «Si dans les polynômes de Hilbert **Σ^2_{i=0}a_i(^{n+i}_i) EN LIGNE ✅** (#121), a_1 reste borné et a_0 reste minoré, alors les trois coefficients restent bornés grâce à 2.3 et 2.7 **;** …».
+**b5** : «…en vertu de 2.11 **;** ainsi (ii) implique» + footer «642» ⟹ **28ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p643**
+1. ⚠⚠ **p643 : fin preuve Th 3.13** («…ainsi (ii) implique (i). D'autre part, (iii) implique (i) grâce à 2.3 et 2.8.») + **début du §4 «Théorèmes de finitude pour Pic^τ_{X/S}»** : **4.1** (L15100, paragraphe numéroté ROMAIN, «Soient S un schéma et G un foncteur en groupes commutatifs… G^0/G^τ… \[g(z)=f(t), g(z_0)=0\]…») ; **Lemme 4.2** (L15106, «Soit Φ:G→G' un morphisme de foncteurs… c-à-d, quasi-compact. Alors \[Φ^{-1}(G'^τ)=G^τ.\]») ⟹ **ÉNONCÉ ⟹ ITALIQUE À VÉRIFIER + «c-à-d» + `\Pic`/`\Pic^τ` per-occurrence** ; **Lemme 4.3** (L15113, «Soient X, Y propres sur un schéma S… \[(f^*)^{-1}\Pic^τ_{X/S}=\Pic^τ_{Y/S}.\]») ⟹ **`\Pic^τ` À TRANCHER (foncteur/schéma) + indentation des displays.**
+2. ⚠ **le `\operatorname{supp}` (report ancien) — chercher à sa page.**
+
+## ★★★★ **CE QUE p642 CONFIRME**
+★★★★★ **DEUX PAGES CONSÉCUTIVES DE GROSSE DÉFABRICATION (p641=5, p642=4) — un ÉNONCÉ (p641) puis une PREUVE (p642) écrits avec formules inline, tous convertis en displays par Codex.** ⟹ **l'axe «fabrication» peut dominer une page entière.**
+★★ **PER-STRETCH : les «;» d'un même paragraphe partagent le comportement du dactylo (p642 tous espacés) — mais varie d'un paragraphe/page à l'autre (p641 «Z/nZ;» collé).**
+
+## **CURSEUR → idx656 (p643).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p643 : fin preuve Th 3.13 + §4 (4.1 numéroté ROMAIN, Lemme 4.2 + Lemme 4.3 énoncés ⟹ ITALIQUE) ; trancher `\Pic^τ` (per-occurrence) ; vérifier l'indentation des displays g(z)=f(t) / Φ^{-1}=G^τ / (f^*)^{-1}Pic^τ ; «c-à-d».**
+
+### #671 (2026-07-17) — idx654 (vol p641 = **Exposé XIII «- 26 -»**, footer «641» ⟹ **641−615=26, 27ᵉ confirmation** ; idx=641+13=654) — **7 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p641 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.** *(GROSSE page : 5 défabrications + italique d'un théorème à 4 items.)*
+
+# ✅ **CONTENU DE p641** : fin Rem 3.12 item (i) (iso de Grothendieck, 2 formules), item (ii) (L15063, ROMAIN), **Théorème 3.13** (L15066-15087 : énoncé + `enumerate` (i)-(iv)). ⟹ **la preuve «Démontrons que (i) implique (ii),(iii),(iv)…» (L15090+) est sur p642.**
+
+## ★★★★★★ **LE «Pic» N'EST PAS «sur k = nu» — CONTRE-EXEMPLE DÉCISIF (#671)**
+✅ **«Hom_{gr}(μ_n, Pic_{X/k}) ≃ H^1(X,Z/nZ)» (5600 `z654_ZH`) : «Hom» NON souligné (plain, `\Hom` ✓), «H^1» non souligné, mais «Pic» SOULIGNÉ = FONCTEUR ⟹ `\underline{\Pic}`.** ⟹ **CONTRE-EXEMPLE FRONTAL à la règle «sur k alg. clos = schéma nu» (#669/#670) !**
+⟹ ★★★★★★ **LA DISTINCTION N'EST PAS «sur S vs sur k» — C'EST «Pic FONCTEUR-OBJET vs Pic SCHÉMA-GÉOMÉTRIQUE» :**
+- **Pic OBJET d'un Hom / d'un morphisme de foncteurs ⟹ FONCTEUR (souligné)** — ici `Hom_{gr}(μ_n, \underline{\Pic})`, et sur S «morphisme \underline{\Pic}→\underline{\Pic}».
+- **Pic évalué en points «Pic(k)» / propriété géométrique «Pic propre»/«contenu dans Pic» ⟹ SCHÉMA (nu)** (#669/#670).
+⟹ **la «loi sur 2 pages» (#669/#670) était une COÏNCIDENCE de contexte — RÉFUTÉE en 1 page. NE JAMAIS SWEEPER, ZOOMER CHAQUE `\Pic`.** (5ᵉ «loi» réfutée : énoncés/preuves, long/court, zone contiguë, comportement unifié, sur-S/sur-k.)
+
+## ★★★★★ **CINQ DISPLAYS FABRIQUÉS DE PLUS (#113-#117) — COMPTEUR = 117**
+✅ **b1/b3/b4 : au scan, EN LIGNE (fer à gauche / milieu de phrase, partagent leur ligne) :**
+- **#113, #114** : les 2 iso de Grothendieck «Hom_{gr}(μ_n,Pic)≃H^1(X,Z/nZ)» (Rem 3.12 item i).
+- **#115** : «χ(L_K(n))=Σ^r_{i=0}a_i(^{n+i}_i)» (Th 3.13 item ii).
+- **#116** : «d(L_K)=⟨c_1(L_K)·c_1(H_K)^{r-1}⟩» (item iii).
+- **#117** : «⟨c_1(L_K)^2·c_1(H_K)^{r-2}⟩» (item iii).
+⟹ tous DÉFABRIQUÉS → inline. ⟹ **un ÉNONCÉ entier écrit avec formules inline, TOUTES converties en displays par Codex — le plus gros lot d'une page depuis p636.**
+✅ **#118 «H^{-N}<ℒ<H^N» (item iv) est CENTRÉ = VRAI display ⟹ GARDÉ.** ⟹ **sur la MÊME page, 5 fabriqués inline + 1 vrai centré — le test d'indentation tranche à chaque formule (#670 re-confirmé).**
+
+## ★★★ **LE THÉORÈME 3.13 — ÉNONCÉ ITALISÉ (régime 1), COUPÉ EN 6 MORCEAUX**
+✅ **b2/b3/b4 : tout l'énoncé (intro + 4 items) SOULIGNÉ ⟹ ITALIQUE.** `\emph{}` coupé : intro (hors `enumerate`, «:» d'annonce dehors `~:`) + item (i) + item (ii) [défab] + item (iii) [défab ×2] + item (iv) en 2 (autour du VRAI display #118). ⟹ **défabriquer a SIMPLIFIÉ l'italique (#661) : items (ii)/(iii) redeviennent d'un seul `\emph{}` sans display à contourner.**
+
+## ★★ **UN ACCORD + DEUX ESPACEMENTS**
+✅ **«sont ample.» (5600 `z654_ZA`) SINGULIER au scan** (math veut «amples» — 2 sujets) ⟹ **ACCORD OMIS ⟹ SIC ⟹ reproduit «ample».** ⟹ **4ᵉ accord réparé par Codex** (après quasi-compact #663, limité #664, régulier #668).
+✅ **«dernière page)~:» + «équivalentes~:» + «amplitude\,;» (5600 `z654_ZS`).** ⚠ **«Z/nZ); par conséquent» (5600 `z654_ZS2`) COLLÉ au scan ⟹ fichier ✓ (per-occurrence : ce «;» collé, «amplitude ;» espacé).**
+⚠ **«unipotent» de l'item (ii) NON souligné (fichier ✓) — ≠ item (i) émphasé (#670) — per-occurrence.**
+
+## ✅ **p641 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 26 -»/«XIII» ✅ (27ᵉ conf.) · «…dû à Grothendieck (SGA 1 XI, à la dernière page)~: si X est un schéma propre… il existe un isomorphisme… **Hom_{gr}(μ_n,\underline{\Pic}_{X/k})≃H^1(X,Z/nZ) EN LIGNE ✅** (#113, Pic souligné ✅); par conséquent…».
+**b2** : «…on a **Hom_{gr}(μ_n,\underline{\Pic}_{X/k})≃H^1 EN LIGNE ✅** (#114).» · «(ii) Si k est de caractéristique nulle… unipotent (non souligné ✅)… Vanishing theorem de Kodaira… Mumford [2].» · **Théorème 3.13 : «Soient S… X un S-schéma projectif…» ITALIQUE ✅.**
+**b3** : «…dimension r. Alors pour une famille ℒ… les conditions suivantes sont équivalentes~:» ITALIQUE ✅ · «(i) ℒ est une famille limitée.» ITAL ✅ · «(ii) Dans les polynômes de Hilbert **χ(L_K(n))=Σa_i(^{n+i}_i) EN LIGNE ✅** (#115) des L_K∈ℒ, le coefficient a_{r-1} reste borné et a_{r-2} reste minoré.» ITAL ✅.
+**b4** : «(iii) Lorsque L_K parcourt ℒ, le degré **d(L_K)=⟨…⟩ (#116)** reste borné et le nombre d'intersection **⟨c_1(L_K)^2·…⟩ (#117)** reste minoré.» ITAL ✅ · «(iv) Il existe un entier N tel que l'on ait **[H^{-N}<ℒ<H^N CENTRÉ = VRAI ✅]** au sens de la relation d'ordre… d'amplitude\,; c'est-à-dire, pour tout L_K∈ℒ, H_K^{⊗N}⊗L_K et H_K^{⊗N}⊗L_K^{-1} sont **ample** (singulier ✅).» ITAL ✅.
+**b5** : vide + footer «641» ⟹ **27ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p642**
+1. ⚠⚠ **p642 : la PREUVE du Théorème 3.13** (L15090 «Démontrons que (i) implique (ii),(iii),(iv). Supposons donc que ℒ soit limitée… EGA II 4.6.12… EGA III 7.9.4…» ; L15092 «Notons ensuite que la famille des classes des H_K (resp. O_{X_K})…» ; L15094 «Supposons que ℒ satisfasse à (iv). Alors \[⟨[N c_1(H_K)+c_1(L_K)]·c_1(H_K)^{r-1}⟩>0,…\]») ⟹ **PROSE ROMAINE ; vérifier l'indentation des displays (⟨…⟩>0 etc. — VRAIS ou fabriqués ?) + les renvois + 1/i.**
+2. ⚠ **`\operatorname{supp}` L15133 (Lemme 4.2, ~p643 maintenant) — vérifier «supp»/«c-à-d» à sa page.**
+
+## ★★★★ **CE QUE p641 CONFIRME**
+★★★★★★ **LA DISTINCTION Pic FONCTEUR/SCHÉMA EST SÉMANTIQUE (objet-de-Hom vs géométrique), PAS «sur S / sur k»** — la 5ᵉ «loi» réfutée. ⟹ **le seul invariant : ZOOMER CHAQUE `\Pic` À SA PAGE.**
+★★★★ **Codex peut fabriquer 5 displays sur une page (tout un énoncé) OU aucun (p637) — axe «fabrication» très volatil ; toujours vérifier l'indentation.**
+★★★ **Défabriquer simplifie l'italique (#661) — 3ᵉ confirmation.**
+
+## **CURSEUR → idx655 (p642).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p642 : la preuve du Th 3.13 (ROMAINE) ; vérifier l'indentation des displays ⟨…⟩>0 ; comparer la prose ; trancher tout `\Pic` (per-occurrence, objet-de-Hom=foncteur / géométrique=schéma).**
+
+### #670 (2026-07-17) — idx653 (vol p640 = **Exposé XIII «- 25 -»**, footer «640» ⟹ **640−615=25, 26ᵉ confirmation** ; idx=640+13=653) — **5 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p640 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ✅ **CONTENU DE p640** : fin preuve du Lemme 3.11 (L15035, «…Pic^T_{Y/k} est propre…μ_ℓ(=Z/ℓZ) où (ℓ,car(k))=1»), **théorie de Kummer** (L15037-15048 : suite exacte + tikzcd), «théorème 90» + «Pic_{Y/k}(k)» (L15049), «Il suffit donc de voir que…» (L15051-15055), **Remarque 3.12** (L15057, ROMAINE), item (i) partiel (L15059, finit à «…utilisant au»). ⟹ **le reste de l'item (i) (le «fait dû à Grothendieck», l'isomorphisme Hom_gr(μ_n,Pic_{X/k})≃H^1(X,Z/nZ)) est sur p641+.**
+
+## ★★★★★ **UN DISPLAY FABRIQUÉ DE PLUS (#112) — COMPTEUR = 112**
+✅ **b3 : «H^1(Y,Z/ℓZ)→H^1(X,Z/ℓZ)» est EN LIGNE au scan** («Il suffit donc de voir que … est injectif» — la formule partage sa ligne avec «voir que» et «est»). Le fichier l'avait en `\[…\]` ⟹ **DÉFABRIQUÉ → inline.** ⟹ **l'axe «fabrication» reste vif : p638=2, p639=1, p640=1.**
+
+## ★★★★★★ **LES VRAIS DISPLAYS SONT FIDÈLES — Codex ne fabrique PAS tout (#654 re-confirmé)**
+✅ **Le display Kummer «0→μ_ℓ→G_m --[x↦x^ℓ]--> G_m→0» (L15038-15041) et le tikzcd (L15043-15048) sont CENTRÉS = VRAIS, et FIDÈLEMENT transcrits** : flèches, labels «ℓ», objets H^i(·,·), flèches verticales ↓ — **tout concorde avec le scan (b2).** ⟹ **le test d'indentation tranche dans les DEUX sens : la formule inline «Il suffit…» était fabriquée, les 2 diagrammes centrés sont authentiques.** ⟹ **NE PAS toucher les displays centrés.**
+
+## ★ **UNE VIRGULE + UNE EMPHASE + DEUX ESPACEMENTS**
+1. ✅ **«c'est-à-dire, le diagramme» (z653_Z1)** : VIRGULE après «c'est-à-dire» que le fichier n'avait pas ⟹ ajoutée. ⚠⚠ **ICI «c'est-à-dire» est ÉPELÉ** — alors que p638 (#668) l'avait ABRÉGÉ «c-à-d» ⟹ **l'auteur emploie LES DEUX formes ⟹ per-occurrence : le fix #668 (abrégé) ET celui-ci (épelé) sont justes.** ⟹ **CONFIRME qu'il ne faut PAS uniformiser les abréviations.**
+2. ✅ **«unipotent» SOULIGNÉ (z653_Z6)** — le trait ne couvre QUE le mot (pas «fini» ni «(SGA») ⟹ EMPHASE (régime 3, 1ʳᵉ introduction du terme pour N) ⟹ `\emph{unipotent}`.
+3. ✅ **«sur X) :» (z653_Z5) ⟹ `~:`** ; **«k^* ;» (z653_Z4) ⟹ `\,;`.** ⚠ **«Alors :» (L15057, Remarque 3.12) avait DÉJÀ l'espace au fichier — match scan — non modifié.**
+
+## ★★★★★ **LES DEUX `\Pic` DE p640 = SCHÉMAS (nus) — fichier DÉJÀ correct (#669 re-confirmé)**
+✅ **«Pic^T_{Y/k} est propre» (z653_Z2, preuve) — NU.** ✅ **«Pic_{Y/k}(k)», «Pic_{X/k}(k)» (z653_Z3, K-points) — NUS.** ⟹ **sur k algébriquement clos, Pic REPRÉSENTABLE ⟹ schéma. RÈGLE #669 tient (2ᵉ page).** ⟹ **Codex avait bien laissé ces Pic-sur-k nus — per-occurrence, il ne confond pas systématiquement (≠ #662).**
+
+## ✅ **p640 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 25 -»/«XIII» ✅ (26ᵉ conf.) · «Comme Pic^T_{Y/k} est propre (nu ✅), Y étant normal (FGA 236-2.13)… μ_ℓ(=Z/ℓZ) où (ℓ,car(k))=1.» ✅ · «Considérons la théorie de Kummer, **c'est-à-dire,** le diagramme» (virgule ✅).
+**b2** : «commutatif suivant, provenant de la suite exacte» · **display Kummer «0→μ_ℓ→G_m→G_m→0» CENTRÉ ✅ VRAI** · «de faisceaux étales sur Y (resp. sur X) **:**» (~: ✅) · **tikzcd (2 lignes, ↓, labels ℓ) FIDÈLE ✅.**
+**b3** : «Par le ``théorème 90'' de Hilbert, on a H^1(Y,G_m)=Pic_{Y/k}(k) (nu ✅) (resp. …Pic_{X/k}(k)). Comme X est propre et intègre, on a H^0(X,G_m)=k^* **;** (\,; ✅) donc H^1(X,μ_ℓ)→H^1(X,G_m) est injective.» · «Il suffit donc de voir que **H^1(Y,Z/ℓZ)→H^1(X,Z/ℓZ) EN LIGNE ✅** (#112) est injectif… π_1(X,ξ)→π_1(Y,ξ) surjectif…».
+**b4** : «…Ỹ de Y de groupe Z/ℓZ a une restriction X̃=X×_Y Ỹ… théorème de Bertini… Zariski (SGA 1 X 2.10).» · **Remarque 3.12** «Conservons les conditions de 3.11. Alors :» (ROMAINE ✅) · «(i) Le noyau N est un groupe fini **unipotent** (emph ✅) (SGA 3 XVII 1.1), … μ_n pour aucun n (SGA 3 XVII 4.6.1 vi), ce qu'on prouve de même, utilisant au…».
+**b5** : vide + footer «640» ⟹ **26ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p641**
+1. ⚠⚠ **p641 : suite de la Remarque 3.12 item (i)** («…au lieu de la théorie de Kummer le fait suivant, dû à Grothendieck (SGA 1 XI, à la dernière page): si X est un schéma propre sur un corps k, avec H^0(X,O_X)=k, alors il existe un isomorphisme de k-schémas en groupes \[Hom_{gr}(μ_n,\Pic_{X/k})≃H^1(X,Z/nZ);\] par conséquent, si k est algébriquement clos, on a \[…\]») ⟹ **`\Pic_{X/k}` dans Hom_gr(μ_n,Pic) — SCHÉMA probable (nu, k alg. clos) mais VÉRIFIER** ; **vérifier l'indentation du display L15060-15062 + le «;» final + le «:» de «dernière page):»** ; item (ii)+ de la Remarque 3.12.
+2. ⚠ **`\operatorname{supp}` L15133 (Lemme 4.2, ~p642) — vérifier «supp»/«c-à-d» à sa page.**
+
+## ★★★★ **CE QUE p640 CONFIRME**
+★★★★★★ **LE TEST D'INDENTATION TRANCHE DANS LES DEUX SENS SUR LA MÊME PAGE** : la formule inline «Il suffit…» était fabriquée (#112) ; les 2 diagrammes centrés (Kummer + tikzcd) sont authentiques et fidèles. ⟹ **ne jamais présumer — regarder l'indentation de CHAQUE formule.**
+★★★★ **L'AUTEUR EMPLOIE «c-à-d» ET «c'est-à-dire» — per-occurrence, ne pas uniformiser** (comme régulier/régulière #668/#669).
+★★★ **Le «Pic»-sur-k reste nu (schéma) sur 2 pages (#669/#670) — règle très solide, mais TOUJOURS zoomer.**
+
+## **CURSEUR → idx654 (p641).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p641 : fin Remarque 3.12 item (i) (Grothendieck, iso Hom_gr(μ_n,Pic)) + items suivants ; trancher `\Pic_{X/k}` (nu probable) ; vérifier l'indentation des displays + les «;»/«:».**
+
+### #669 (2026-07-17) — idx652 (vol p639 = **Exposé XIII «- 24 -»**, footer «639» ⟹ **639−615=24, 25ᵉ confirmation** ; idx=639+13=652) — **7 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p639 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.** *(Cycle interrompu puis repris sur «rearm loop» — Workflow «ultracode» REFUSÉ, contrainte du loop prioritaire.)*
+
+# ✅ **CONTENU DE p639** : fin du bloc Hilbert (L15023, «…grâce à 1.13» — confirme #668), «Soit H=O_Y(m)…» (L15025-15029), «Quant à la deuxième partie de 3.8…» (L15031), **Lemme 3.11** (L15033-15037), sa preuve (L15039, partiel — la page finit à «…contenu dans Pic^T_{Y/k}, donc est le même»). ⟹ **le reste (L15039 fin, théorie de Kummer L15041-15053, «Pic(k)» L15053) est sur p640+.**
+
+## ★★★★★★ **LE «Pic» FONCTEUR/SCHÉMA TRANCHÉ PAR LA MATH — SUR S vs SUR k, SUR LA MÊME PAGE**
+✅ **UN SEUL `\Pic` FONCTEUR sur p639 : L15031** «le morphisme Pic_{Y/S}→Pic_{X/S} soit quasi-affine» (2ᵉ partie du Th 3.8, **sur S**) — **les 2 Pic SOULIGNÉS au scan (5600 `z652_P1`)** ⟹ FONCTEURS ⟹ `\underline{\Pic}`. ⟹ **cohérent : «le morphisme entre les foncteurs de Picard» (énoncé Th 3.8).**
+✅ **TOUS LES AUTRES `\Pic` de p639 sont des SCHÉMAS (nus) — le fichier était DÉJÀ correct :**
+- **Lemme 3.11 (sur k alg. clos) : `Pic_{Y/k}→Pic_{X/k}` (`z652_P2`) et `Pic^T_{Y/k}→Pic^T_{X/k}` (`z652_P3`) — le trait de l'italique SAUTE le «Pic» (nu).** ⟹ **application du discriminant structurel #665 : dans un corps d'énoncé souligné, le schéma-Pic est SAUTÉ par le trait.**
+- **preuve : «contenu dans Pic^T_{Y/k}» (`z652_P4`, romain) — NU.**
+⟹ ★★★★★★ **RÈGLE MATH CONFIRMÉE : sur k algébriquement clos, Pic est REPRÉSENTABLE ⟹ SCHÉMA (nu) ; sur la base S, Pic est le FONCTEUR (souligné).** ⟹ **le discriminant «foncteur/schéma» n'est PAS lexical — il suit la géométrie. Deux régimes sur la même page, correctement distingués par le scan.**
+
+## ★★★★★ **UN DISPLAY FABRIQUÉ DE PLUS (#111) — COMPTEUR = 111**
+✅ **b1 : «χ(M_K(mn))=Σ^r_{i=0}a_i^{(m)}(^{n+i}_i)» est EN LIGNE au scan** (au milieu de «les polynômes de Hilbert … relativement à H des M_K»). Le fichier l'avait en `\[…\]` ⟹ **DÉFABRIQUÉ → inline.** ⟹ **3ᵉ display fabriqué en 2 pages (p638=2, p639=1) après p637=0** — l'axe «fabrication» reste vivant et indépendant.
+
+## ★★★ **LE LEMME 3.11 — ÉNONCÉ ITALISÉ (régime 1), COUPÉ AUTOUR DU DISPLAY**
+✅ **b3/b4 : le corps du Lemme 3.11 est SOULIGNÉ** («Soient k un corps algébriquement clos… (non-réduit en général).») ⟹ ITALIQUE. Le fichier était romain ⟹ `\emph{}` en **2 morceaux** autour du display `\[\Pic_{Y/k}→\Pic_{X/k}\]` (#657). Les `\Pic` du display restent **nus** (schémas + mode math immunisé #648).
+
+## ★ **TROIS ESPACEMENTS «;»/«:» (5600 dpi)**
+✅ **«en vertu de 2.11 ;» (`z652_S1`, L15029)** ; **«φ≠0 ;» (`z652_S2`, L15039)** ; **«du lemme suivant :» (`z652_S3`, L15031)** — tous ESPACÉS au scan ⟹ `\,;` / `~:`. ⟹ **`;` en `\,;` : 24 ; report GLOBAL #4 toujours ouvert (passage dédié).**
+⚠ **«φ est régulière» (L15039, preuve Lemme 3.11) = FÉMININ ici** (φ régulière, Y intègre) — fichier ✓. **PER-OCCURRENCE : différent du «régulier» MASCULIN de #668** (φ_s sur la fibre s). ⟹ **l'auteur alterne régulier/régulière selon le contexte — ne PAS uniformiser.**
+
+## ✅ **p639 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 24 -»/«XIII» ✅ (25ᵉ conf.) · «classe de f*M_K est dans ℒ, les trois coefficients a_r,a_{r-1},a_{r-2} restent bornés grâce à 1.13.» ✅ (#668 confirmé) · **«χ(M_K(mn))=…» EN LIGNE ✅** (#111).
+**b2** : «…grâce à 2.10. Par conséquent ℒ est limitée en vertu de 2.11 **;**» ✅ · «Quant à la deuxième partie de 3.8, la représentabilité ``générique'' des foncteurs de Picard… XII 1.2… on se ramène au cas Y normal sur S.» · **«le morphisme Pic_{Y/S}→Pic_{X/S}» SOULIGNÉS ✅** (foncteurs).
+**b3** : «soit (séparé et) quasi-fini (EGA IV 8.12.8)… du lemme suivant **:**» ✅ · **Lemme 3.11 énoncé ITALIQUE ✅** · «Pic_{Y/k}→Pic_{X/k}» **nus** ✅.
+**b4** : «(resp. Pic^T_{Y/k}→Pic^T_{X/k} (voir 4.1)) est de type fini et a un noyau N…(non-réduit en général).» ITALIQUE ✅ · preuve «En effet… supposer φ≠0 **;** donc φ est régulière…» ✅ · «grâce à 4.7 (iii)» · «contenu dans Pic^T_{Y/k}» **nu** ✅.
+**b5** : vide + footer «639» ⟹ **25ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — REPORTÉ p640**
+1. ⚠⚠ **p640 : suite de la preuve Lemme 3.11** («…dans les deux cas envisagés. Comme Pic^T_{Y/k} est propre, Y étant normal (FGA 236-2.13)… μ_ℓ(=Z/ℓZ) où (ℓ,car(k))=1.») + **la théorie de Kummer** (L15041 : «Considérons la théorie de Kummer… suite exacte 0→μ_ℓ→G_m→G_m→0… tikzcd») + **L15053 «H^1(Y,G_m)=Pic_{Y/k}(k) (resp. H^1(X,G_m)=Pic_{X/k}(k))»** ⟹ **«Pic(k)» = K-POINTS ⟹ SCHÉMA nu (règle) — mais VÉRIFIER au scan à sa page.** ⚠ **le tikzcd L15048-15051 : vérifier le diagramme de Kummer au scan.**
+2. ⚠ **`\operatorname{supp}` L15133 (Lemme 4.2, ~p641) — vérifier «supp»/«c-à-d» à sa page.**
+
+## ★★★★ **CE QUE p639 CONFIRME**
+★★★★★★ **LE «Pic» FONCTEUR/SCHÉMA SUIT LA GÉOMÉTRIE, PAS LE LEXIQUE : sur S = foncteur (souligné), sur k alg. clos = schéma (nu) — DEUX RÉGIMES SUR UNE PAGE, tranchés correctement.** ⟹ **le fichier avait DÉJÀ les Pic-sur-k nus ⟹ Codex ne confond PAS toujours (≠ #662) — per-occurrence, toujours.**
+★★★ **Le discriminant structurel #665 (le trait saute le schéma-Pic dans un énoncé) TIENT** — appliqué 4× sur p639.
+
+## **CURSEUR → idx653 (p640).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p640 : fin preuve Lemme 3.11 + théorie de Kummer (tikzcd) + «Pic_{Y/k}(k)» (K-points ⟹ nu, vérifier) ; comparer la prose ; l'indentation des displays (Kummer 0→μ_ℓ→…).**
+
+### #668 (2026-07-17) — idx651 (vol p638 = **Exposé XIII «- 23 -»**, footer «638» ⟹ **638−615=23, 24ᵉ confirmation** ; idx=638+13=651) — **5 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p638 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ✅ **CONTENU DE p638** : preuve du **Lemme 3.9** (L15017), **Remarque 3.10** (L15019, ROMAINE), «Dans la démonstration de la première partie de 3.8…» (L15021), les **2 formules de Hilbert** (L15023-15031, partiel — la page finit à «c-à-d la»). ⟹ **le reste (L15033+ : 2ᵉ partie du Th 3.8, Lemme 3.11, les `\Pic` NUS L15039/L15043/L15045) est sur p639+ — pas cette page.**
+
+## ★★★★★★ **DEUX DISPLAYS FABRIQUÉS DE PLUS (#109, #110) — COMPTEUR = 110**
+✅ **b4 : «χ(M_K(n))=Σ^r_{i=0}a_i(^{n+i}_i)» et «Σ^{r-1}_{i=0}a_{i+1}(^{n+i}_i)» sont EN LIGNE au scan** (fer à gauche x≈0.06 ET partagent leur ligne avec «, alors le polynôme…» et «. Lorsque la classe…»). Le fichier les avait en `\[…\]`. ⟹ **DÉFABRIQUÉS → inline.**
+★★★ **CONSÉQUENCE DE LA FABRICATION** : en faisant un display, Codex avait **terminé le 1er par un POINT et CAPITALISÉ «Alors»** ⟹ scan «…(^{n+i}_i), **alors**» (minuscule) ⟹ restauré «, alors». ⟹ **10ᵉ confirmation : fabriquer un display mange la prose de liaison / altère la ponctuation.**
+⟹ ★★★★★★ **p636 = 3 fabriqués + prose propre ; p637 = 0 fabriqué ; p638 = 2 fabriqués + prose AVEC 5 autres défauts** ⟹ **les axes «paraphrase», «display fabriqué», «SIC» varient TOUS indépendamment (#666/#667 tiennent).**
+
+## ★★★ **LA REMARQUE 3.10 — TROIS DÉFAUTS, DONT UN PRIME AJOUTÉ PAR CODEX**
+1. ★★ **«X''_K» (fichier, DOUBLE prime) vs scan «X'_K» (SIMPLE prime, 5600 `z651_A`).** ⟹ **Codex a AJOUTÉ un prime** — sans doute pour «désambiguïser» du X' (normalisé) de 3.9 ; **mais c'est INCOHÉRENT avec le «X'» (simple) que la Remarque elle-même utilise plus loin** («un schéma X' lisse… X'→X_{S'}»). ⟹ restauré «X'_K». ⟹ **nouveau : Codex n'ajoute pas que des accords — il ajoute des PRIMES (comportement «intelligent» qui altère la source).**
+2. ✅ **Le scan PARENTHÈSE «(par exemple si dim(X_K)≤2, d'après Abhyankhar)»** ; le fichier n'avait pas les parenthèses ⟹ **Codex les avait supprimées** ⟹ restaurées. ⟹ **classe 7 «parenthèses déséquilibrées» — mais ici c'est une PAIRE ENTIÈRE supprimée, pas une seule.**
+3. ★★ **«Abhyankar» (fichier) vs «Abhyankhar» (scan, 5600 `z651_B` : «...ankhar», un «h» après le «k»).** Le mathématicien est **Abhyankar** ⟹ le dactylo a fait une COQUILLE «Abhyankhar», **Codex l'a corrigée** ⟹ SIC ⟹ reproduit «Abhyankhar». ⟹ **16ᵉ «Codex répare».**
+
+## ★★ **DEUX AUTRES SIC — ACCORD + VIRGULE**
+4. ★★ **«régulière» (fichier, fém.) vs «régulier» (scan, 5600 `z651_C` : pas de «e» final).** «φ_s est O_{Y_s}-régulier» ⟹ **ACCORD OMIS (classe 9c)** ; Codex avait mis le féminin ⟹ SIC ⟹ reproduit «régulier». ⟹ **3ᵉ site d'accord réparé (après «quasi-compact» #663, «limité» #664).**
+5. ★ **«U_α, où» (fichier, virgule) vs «U_α où» (scan, 5600 `z651_E` : PAS de virgule).** ⟹ **Codex a AJOUTÉ une virgule** ⟹ retirée.
+6. ✅ **«c'est-à-dire lorsque la» (fichier) vs «c-à-d la» (scan, 5600 `z651_D`).** ⟹ **Codex a DÉVELOPPÉ l'abréviation «c-à-d» ET ajouté «lorsque»** ⟹ restauré «c-à-d la». ⟹ **2ᵉ site «développe une abréviation» (comportement #11).** ⚠ **la suite «la classe de f^*M_K est dans ℒ, les trois coefficients…grâce à 1.13» est SUR p639 — non modifiée, à vérifier p639.**
+
+## ✅ **p638 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 23 -»/«XIII» ✅ (24ᵉ conf.) · **preuve Lemme 3.9 «En effet, soient η le point générique de S et K la clôture algébrique de k(η)…»** prose JUSTE · «Spec(K)», «(S_α)», «S_α→U_α **où**» (virgule retirée) ✅.
+**b2** : suite preuve 3.9 : «S_α-schéma X'», «X'_K→X_K», **«S'_α-morphisme»** (prime ✓), «X'→X_{S_α}», «X'_{S'}» ✅ · **Remarque 3.10** début.
+**b3** : Remarque 3.10 : **«X'_K»** ✅ (prime simple) · **«(par exemple…Abhyankhar)»** ✅ (parenthèses + coquille) · «S'→U», «X'→X_{S'}» ✅ · «Dans la démonstration…3.8» prose JUSTE.
+**b4** : «S est intègre et Y normal…», «Si φ=0, alors X=Y…», **«φ_s est O_{Y_s}-régulier»** ✅ (accord) · **les 2 formules Hilbert EN LIGNE** ✅ (#109, #110) + «, alors» ✅.
+**b5** : «…(f*)^{-1}(ℒ), **c-à-d la**» ✅ + footer «638» ⟹ **24ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — CONSIGNÉ / REPORTÉ p639**
+1. ⚠ **La suite de L15031 «la classe de f^*M_K est dans ℒ, les trois coefficients a_r,a_{r-1},a_{r-2} restent bornés grâce à 1.13.» est SUR p639** ⟹ **à comparer p639** (le «lorsque» supprimé est bien absent du scan p638, mais vérifier le reste de la phrase).
+2. ⚠⚠ **p639 : la 2ᵉ partie du Th 3.8 (L15033-15039), le 2ᵉ display Hilbert L15035 «χ(M_K(mn))=Σ a_i^{(m)}…» (VÉRIFIER indentation), le Lemme 3.11 (L15041) et surtout les `\Pic` NUS : L15039 «le morphisme \Pic_{Y/S}→\Pic_{X/S} soit quasi-affine» + L15043 «\Pic_{Y/k}→\Pic_{X/k}» (display) + L15045 «\Pic^T_{Y/k}→\Pic^T_{X/k}» ⟹ TRANCHER foncteur/schéma À LEUR PAGE (contexte «morphisme Pic→Pic» ⟹ FONCTEUR probable, mais ZOOMER).**
+3. ⚠ **`\operatorname{supp}` L15133 — beaucoup plus bas (~p640) — vérifier «supp» à sa page (PAS p638).**
+
+## ★★★★ **CE QUE p638 CONFIRME**
+★★★★★ **CODEX AJOUTE AUSSI (pas seulement il perd/répare) : un PRIME (X'→X''), une VIRGULE (U_α,), une PARENTHÈSE développée, un mot («lorsque»), un accord («régulière»), une capitale («Alors»), une orthographe («Abhyankar»).** ⟹ **le comportement «Codex normalise/complète tout ce qui dévie» s'étend aux PRIMES et à la PONCTUATION — MÉCANIQUE, dans les DEUX SENS (il perd les indices #667, il ajoute les primes #668).**
+★★★ **Une page «propre» n'existe pas tant qu'on n'a pas comparé mot à mot : p638 lisait bien, compilait, math correcte — et cachait 6 défauts dont 2 displays fabriqués et un prime faux.**
+
+## **CURSEUR → idx652 (p639).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p639 : comparer la fin de L15031 + 2ᵉ partie Th 3.8 + Lemme 3.11 ; TRANCHER les `\Pic` nus (foncteur/schéma) ; vérifier l'indentation du display L15035.**
+
+### #667 (2026-07-16) — idx650 (vol p637 = **Exposé XIII «- 22 -»**, footer «637» ⟹ **637−615=22, 23ᵉ confirmation** ; idx=637+13=650) — **7 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p637 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ✅ **UNE PAGE PROPRE — NI PARAPHRASE, NI DISPLAY FABRIQUÉ**
+**La prose de p637 (Th 3.8 énoncé+preuve, Lemme 3.9 énoncé) est ENTIÈREMENT JUSTE.** Aucune paraphrase, aucun display fabriqué. ⟹ **cohérent avec «axes indépendants» (#666) : après le pic de displays fabriqués de p636, p637 n'en a aucun.** Les seuls défauts : l'italique de 2 énoncés, les 4 «Pic» foncteurs, un indice perdu, une virgule perdue, un «;» espacé.
+
+## ★★★★★ **LE FRÈRE `f^*:\Pic` DE CHK11 (#664) EST ENFIN TRANCHÉ — FONCTEUR**
+**En #664, le piège de check CHK11 avait révélé `f^*:\Pic_{Y/S}→\Pic_{X/S}` à L15017 (alors non vérifié).** ✅ **p637 est SA page** : le display «f* : Pic_{Y/S} → Pic_{X/S}» est **SOULIGNÉ au scan (b2)** ⟹ **FONCTEUR ⟹ `\underline{\Pic}`.** ⟹ **le check trop générique de #664 avait bien pointé un site réel, tranché 3 cycles plus tard à sa page.** ⟹ **CONFIRME la leçon #664 : un check trop générique EST un outil de découverte — le frère attend sa page, on ne le devine pas.**
+✅ **LES 4 `\Pic` DU Th 3.8 (2 displays) — TOUS SOULIGNÉS = FONCTEURS** («entre les foncteurs de Picard», «les foncteurs de Picard restreints») ⟹ `\underline{\Pic}`. ⟹ **6ᵉ page où le trait suit la sémantique.**
+
+## ★★★ **UN INDICE PERDU — CODEX A LAISSÉ TOMBER LE «_s» DE «X_s»**
+✅ **«X_s ∩ Y_s^i» — 5600 (`z650g_A_Xsub`) : le X porte un INDICE «s» NET.** ★ **CALIBRATION : «Y_s^i» et «Y_s» portent l'indice s sur la même ligne.** **Le fichier a «X∩» (SANS indice) ⟹ CODEX A PERDU LE «_s» ⟹ restauré «X_s».**
+⚠ **Mathématiquement X∩Y_s^i = X_s∩Y_s^i (même ensemble, car Y_s^i ⊂ Y_s) — donc pas une erreur de math ; mais le scan écrit X_s ⟹ SOURCE-FIDÈLE ⟹ reproduit.** ⟹ **relève de «CE QUE FAIT CODEX : il PERD les INDICES» (comportement de perte, pas de réparation).**
+
+## ★ **UNE VIRGULE PERDUE — LE TIC «VIRGULE AVANT PARENTHÈSE»**
+✅ **«dimension ≥2, (ce qui» — 5600 (`z650f_B_comma`) : virgule NETTE avant «(ce qui».** Le fichier n'en a pas ⟹ ajoutée. ⟹ **3ᵉ instance du tic de l'auteur «virgule avant parenthèse»** (après «projectif, (localisé» et «surjectif, (plat)») ⟹ **classe 6 «ponctuation idiosyncratique» confirmée.**
+
+## ✅ **CE QUI EST FIXÉ (7 rep-calls, `fix650a`)**
+1. ✅ **Th 3.8 : l'ITALIQUE de la suite du corps** (le report #666), coupée en 3 morceaux autour des 2 displays ; **+ les 4 `\underline{\Pic}`** ; **+ «X_s» (indice restauré)** ; **+ la virgule «≥2,».**
+2. ✅ **La preuve du Th 3.8 : «Y'\,;» (le «;» espacé).**
+3. ✅ **Le Lemme 3.9 : l'ITALIQUE (régime 1), fully sur p637 ⟹ pas de report.**
+
+## ✅ **p637 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 22 -»/«XIII» ✅ (23ᵉ conf.) · **Th 3.8 énoncé (suite) : ITALIQUE ✅ + «X_s» ✅ + virgule «≥2,» ✅** · «V(φ|Y_s^i)», «≥3» ✅.
+**b2** : **display 1 «f* : Pic→Pic» : 2 `\underline{\Pic}` ✅** · «est de type fini. De plus…» ITALIQUE ✅ · **display 2 «Pic|U→Pic|U» : 2 `\underline{\Pic}` ✅.**
+**b3** : «soit quasi-affine (de type fini).» ITALIQUE ✅ · **preuve Th 3.8 : «Démontrons d'abord…» prose JUSTE + «Y'\,;» ✅** · «X×_Y Y'» ✅.
+**b4** : fin preuve Th 3.8 · **Lemme 3.9 énoncé : ITALIQUE ✅** («Soient S un schéma noethérien intègre… X' → X_{S'}.») · ⚠ «schema» accent consigné · «S ,» espace avant virgule consigné.
+**b5** : vide (fin du Lemme 3.9) + footer «637» ⟹ **23ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — CONSIGNÉ, PAS FIXÉ**
+1. ⚠ **«un schema noethérien» (Lemme 3.9) — l'accent de «schéma» semble faible/absent au scan**, mais le fichier a «schéma» (accent) et c'est «schéma» partout ailleurs ⟹ **artefact de scan probable ⟹ gardé, consigné (sans calibration certaine, ne pas trancher #666).** ⚠ **À re-examiner si un 2ᵉ «schema» sans accent apparaît net.**
+2. ⚠ **«normal sur S , en utilisant» — ESPACE avant virgule au scan** = accident de frappe (comme «ici,comme») ⟹ le fichier a «S,» ⟹ **ne pas reproduire l'espace, consigné.**
+3. ⚠ **«X par X×_Y Y', lorsqu'on» — le fichier a une virgule après Y'** ; le scan n'en a peut-être pas (ambigu 1500) ⟹ **gardé, consigné.**
+4. ⚠ **Le Lemme 3.9 : sa preuve «En effet, soient η le point générique…» + la Remarque 3.10 + la suite de la preuve du Th 3.8 («Dans la démonstration de la première partie de 3.8…») sont SUR p638** ⟹ **à comparer p638** (`\Pic`, italique de la Remarque = ROMAIN, etc.).
+5. ⚠ **`\operatorname{supp}` L15133 — proche (dans le bloc à venir) ⟹ vérifier «supp» au scan p638.**
+
+## ★★★★ **CE QUE p637 CONFIRME**
+★★★★★ **DEUX PAGES CONSÉCUTIVES SANS PARAPHRASE (p636 prose propre, p637 propre) — mais p636 avait 3 displays fabriqués, p637 zéro.** ⟹ **les axes «paraphrase» et «display fabriqué» varient INDÉPENDAMMENT page à page ⟹ #666 tient.**
+★★★★ **LE «Pic» foncteur/schéma est tranché sur 6 pages, dans les 3 contextes** ⟹ **règle très solide, mais TOUJOURS per-occurrence (L14485 reste non vérifié).**
+
+## **CURSEUR → idx651 (p638).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p638 : COMPARER la preuve du Lemme 3.9 + la Remarque 3.10 (ROMAINE, pas d'italique) + la suite de la preuve du Th 3.8 ; trancher les `\Pic` ; vérifier `\operatorname{supp}` L15133.**
+
+### #666 (2026-07-16) — idx649 (vol p636 = **Exposé XIII «- 21 -»**, footer «636» ⟹ **636−615=21, 22ᵉ confirmation** ; idx=636+13=649) — **8 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p636 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ⚠⚠⚠⚠⚠⚠ **4ᵉ HYPOTHÈSE ÉCARTÉE — «FABRICATION DE DISPLAY» ET «PARAPHRASE» SONT DEUX AXES INDÉPENDANTS**
+**#665 proposait : «la paraphrase est LOCALISÉE à une zone-source contiguë (p629-p631).»** ⚠⚠⚠ **p636 la casse.**
+**La preuve du Lemme 3.7 a TROIS DISPLAYS FABRIQUÉS (106ᵉ-108ᵉ) — un comportement de RÉÉCRITURE — MAIS une prose ENTIÈREMENT PROPRE (aucune paraphrase).**
+⟹ ★★★★★★ **DONC : «fabrication de display» et «paraphrase de prose» sont DEUX AXES INDÉPENDANTS.** • **p629-p630 = LES DEUX** (paraphrase + displays fabriqués). • **p636 = fabrication SEULE** (displays fabriqués, prose propre). • **p633-p635 = NI l'un NI l'autre** (tout propre).
+⟹ **QUATRE HYPOTHÈSES SUCCESSIVES ÉCARTÉES : (1) «énoncés vs preuves» #660 ; (2) «long vs court» #665 ; (3) «zone-source contiguë» #666 ; et implicitement (4) «un seul comportement unifié».** ⟹ ★★★★ **LA LEÇON : SUIVRE CHAQUE AXE SÉPARÉMENT (paraphrase / displays fabriqués / Pic / SIC / italique), NE PAS chercher UNE loi qui les unifie.** ⟹ **#653 encore : chaque régularité globale que je propose est réfutée en 1-2 pages. COMPTER, ne pas conclure.**
+
+## ⚠⚠ **TROIS DISPLAYS FABRIQUÉS DANS LA PREUVE DU LEMME 3.7 — 106ᵉ-108ᵉ**
+| **LE SCAN (EN LIGNE, fer à gauche)** | **LE FICHIER (\[…\])** |
+|---|---|
+| «Alors le polynôme en q et m, P(q,m)=χ(L_t^{⊗q}(m)) ne dépend pas de t∈T» | display «P(q,m)=χ(L_t^{⊗q}(m))**,**» ⟹ **+ virgule** |
+| «Soit χ(M_K^{⊗p}(m))=Σ^r_{i=0}a_i(p)(^{m+i}_i), où a_i(p) est…» | display (virgule «, où» genuine) |
+| «Pour q,m variables, on a χ(M_K^{⊗qn}(m))=P(q,m) et chaque a_i(qn)…» | display «=P(q,m)**,**» ⟹ **+ virgule** |
+✅ **CONFIRMÉ 5600 (`z649c_C_disp`)** : la formule χ(M_K^{⊗p}) est **FER À GAUCHE**, «, où a_i(p)…» sur la MÊME ligne ⟹ **INLINE.** ⟹ **remises en ligne, les 2 virgules ajoutées retirées.**
+★ **le 1/i des formules («a_i», «^{m+i}_i», «i=0») calibré par «i=0» (KNOWN i) sur la ligne ⟹ «i» ⟹ le fichier a raison ⟹ pas touché.**
+
+## ⚠ **UN SYMBOLE AMBIGU NON TRANCHÉ — LE «F» DU LEMME 3.7**
+✅ **5600 (`z649c_A_famsym`)** : le symbole de famille est une **lettre cursive À DESCENDANTE, AMBIGUË script-F / script-J.**
+★ **LA MATH FAVORISE «F»** : c'est une famille de **FAISCEAUX COHÉRENTS** ⟹ «ℱ» est le standard ; «𝒥» serait très inhabituel. ★ **Le fichier a `\mathcal F`.**
+⟹ ⚠ **SANS certitude que c'est un «J», et avec «F» bien motivé (math + fichier), JE NE CHANGE PAS — CONSIGNÉ** (règle : «sans calibration, ne pas trancher»). ⚠ **le glyphe A une descendante au scan (forme cursive) ; `\mathcal F` rend sans descendante — c'est un choix de fonte, pas de lettre ⟹ pas un défaut.** ⚠ **À RE-EXAMINER si un 2ᵉ site du même symbole apparaît ailleurs avec plus de netteté.**
+
+## ✅ **CE QUI EST FIXÉ (8 rep-calls, `fix649a`)**
+1. ✅ **FIX A — le Lemme 3.7 : l'ITALIQUE POSÉE** (le «lemme facile suivant» annoncé en #665). ✅ **«il faut et il suffit» SANS parenthèses ici (contraste avec le Lemme 2.11 #661) ⟹ le fichier avait raison, non touché.**
+2. ✅ **FIX B — la preuve du Lemme 3.7 : les 3 displays fabriqués remis EN LIGNE + 2 «\,;» + 1 «~:».**
+3. ✅ **FIX C — le Théorème 3.8 : l'ITALIQUE de la partie p636** (jusqu'à «le morphisme d'inclusion.»).
+
+## ✅ **REPRISE DE p635 — LA FIN DE LA PREUVE DU Th 3.6 EST PROPRE**
+✅ **b1 : «…lemme facile suivant, donc pour X_{S'}/S' en vertu de 3.5 et 3.4 (ii), enfin pour X/S grâce à 3.4 (i).» — mot-pour-mot juste, rien à fixer.** ⟹ **le report #665 «fin preuve Th 3.6» FERMÉ.**
+
+## ✅ **p636 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 21 -»/«XIII» ✅ (22ᵉ conf.) · **fin preuve Th 3.6 ✅ juste** · **Lemme 3.7 énoncé : ITALIQUE ✅ + «F» consigné + «il faut et il suffit» sans parenthèses juste.**
+**b2** : fin énoncé Lemme 3.7 ✅ · **preuve : «S\,;» ✅** · «munissons X/S d'un faisceau très ample O_X(1)» ✅ · **106ᵉ display fabriqué ✅ inline.**
+**b3** : **«(ℒ)~: ℒ_n» ✅** · **107ᵉ display fabriqué ✅ inline** · «M_K», «a_i», «1/i» ✅ justes.
+**b4** : **108ᵉ display fabriqué ✅ inline** · **«choisi\,;» ✅** · «donc est limitée en vertu de 2.11.» ✅ · **Théorème 3.8 énoncé : «S-schéma», «O_Y(1)», «φ» ✅ + ITALIQUE p636 ✅.**
+**b5** : fin début Th 3.8 «…le morphisme d'inclusion. On» + footer «636» ⟹ **22ᵉ confirmation de CONSTANTE_XIII=615.** ⚠ le Th 3.8 ENJAMBE p637.
+
+## ⚠⚠ **CE QUI RESTE — CONSIGNÉ, PAS FIXÉ**
+1. ⚠⚠ **L'ITALIQUE DU THÉORÈME 3.8 — «On suppose que…» ENJAMBE sur p637** ⟹ **À FERMER SUR p637.** ★ **5ᵉ corps qui enjambe (Lemme 3.1, Def 3.3, Th 3.5, Th 3.6-non, Th 3.8) — motif stable.**
+2. ⚠⚠⚠ **LES «Pic» DU Th 3.8 (L15017 `f^*:\Pic_{Y/S}→\Pic_{X/S}`, L15021 `\Pic_{Y/S}|U→\Pic_{X/S}|U`) SONT SUR p637** ⟹ **NON TOUCHÉS ⟹ trancher foncteur/schéma À p637.** ✅ **L15017 est LE `f^*:\Pic` frère découvert par CHK11 (#664) — il sera enfin tranché à p637** (probablement foncteur : «entre les foncteurs de Picard»).
+3. ⚠ **Le symbole «F/J» du Lemme 3.7 — CONSIGNÉ, non tranché** (voir ci-dessus).
+4. ⚠ **«sur un X_T avec T» — marque possible après X_T (virgule faible ?), le fichier a «X_T,» ⟹ AMBIGU ⟹ gardé, consigné.**
+5. ⚠ **`\operatorname{supp}` L15133 — non atteint sur p636** ⟹ **encore à venir.**
+
+## ★★★★ **LE COMPTEUR DES DISPLAYS FABRIQUÉS — REPRIS À 108**
+**#665 notait «p631-p635 : 0 display fabriqué».** ⟹ **p636 en a 3 (106ᵉ-108ᵉ).** ⟹ **le compteur reprend — cohérent avec «axes indépendants» : la fabrication de display peut revenir sans paraphrase.** ⚠ **NE PAS présumer que les pages suivantes en auront ou pas — VÉRIFIER L'INDENTATION de CHAQUE formule.**
+
+## **CURSEUR → idx650 (p637).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p637 : FERMER l'italique du Th 3.8 («On suppose que…») + trancher les 4 `\Pic` du Th 3.8 (L15017, L15021) — foncteurs probables, ZOOMER.**
+
+### #665 (2026-07-16) — idx648 (vol p635 = **Exposé XIII «- 20 -»**, footer «635» ⟹ **635−615=20, 21ᵉ confirmation** ; idx=635+13=648) — **7 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p635 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ⚠⚠⚠⚠⚠⚠ **LA PISTE «PROSE LONGUE = PARAPHRASE» (#664) S'AFFAIBLIT — UNE LONGUE PREUVE PROPRE**
+**#664 proposait : «Codex paraphrase à proportion de la longueur de prose continue.»** ⚠⚠⚠ **p635 l'affaiblit.**
+**La preuve du Théorème 3.6 est LONGUE (b3→b5, enjambe sur p636) ET ENTIÈREMENT PROPRE** — mot-pour-mot juste, seuls défauts : le «:» de «Chow~:» et un SIC de prime. **La preuve du Théorème 3.5 (b1-b2) est aussi propre.**
+⟹ ★★★★★★ **TROISIÈME HYPOTHÈSE ÉCARTÉE EN AUTANT DE FORMES :** (1) «énoncés vs preuves» RÉFUTÉE #660 ; (2) «long vs court» AFFAIBLIE #665. ⟹ **CE QUI RESTE, ET QUE JE NE BÂTIS PAS (#653) : la paraphrase est LOCALISÉE à une MATIÈRE-SOURCE précise (Lemmes 2.3-2.9 / Remarque 2.10, p629-p632), et la SECTION 3 (Théorèmes de finitude, p631-p635) est PROPRE.** ⚠⚠ **hypothèse «par section source» — 5 pages propres d'affilée (p633-p635 statements+preuves) ⟹ le motif est FORT, mais COMPTER : le début de la section 3 (p631, Lemme 2.11 dans la même veine que p629-630) ÉTAIT paraphrasé. Donc pas «section 3» net — plutôt «la fin de la section 2 / le début de la 3 = paraphrasé ; la suite de la 3 = propre».** ⟹ **NE PAS CONCLURE. p636+ continuera de trancher.**
+
+## ★★★★★★ **«Pic» FONCTEUR DANS UN CORPS D'ÉNONCÉ — LE 1ᵉʳ CAS, ET LA RÈGLE #662 TIENT**
+✅ **«Pic_{X/S} le foncteur de Picard» (Th 3.6, énoncé) — 5600 (`z648c_A_pic36`) : LE TRAIT COUVRE «Pic» DISTINCTEMENT** (un GAP le sépare du soulignement du reste du corps). ⟹ **FONCTEUR ⟹ `\underline{\Pic}`.**
+⟹ ★★★★ **JUSQU'ICI, tous les «Pic» FONCTEURS étaient dans une PREUVE/FOOTNOTE/DISPLAY (romains) ; c'est le PREMIER dans un CORPS D'ÉNONCÉ (déjà souligné, régime 1).** **Et le trait du foncteur se distingue quand même du soulignement du corps** ⟹ **la règle #662 (souligné=foncteur, nu=schéma) tient MÊME à l'intérieur d'un énoncé** ⟹ **le contraste avec le schéma-Pic de la Prop 3.2 (#662, nu, sauté par le trait) est net : dans un énoncé, le foncteur-Pic est souligné, le schéma-Pic est sauté.**
+✅ **p635 : 7 `\underline{\Pic}` posés** — preuve Th 3.5 (2 + display 2), Th 3.6 énoncé (1 + display 2). **Tous FONCTEURS** (représentables, homomorphisme Φ_n). ⟹ **4ᵉ page consécutive où le trait suit la sémantique.**
+
+## ★★★★★ **UN SIC NEUF — LA CLASSE «PRIME OMIS» S'ÉTEND DE «L» À «X»**
+✅ **«tous les X_i/S'» et «⨿X_i/S'» — 5600 (`z648c_B_prime`) : SANS PRIME sur X.**
+★★★ **CALIBRATION (calibration A)** : le scan écrit «composante irréductible **X'_i** de X_{S'}» (b4, `z648d_A_Xprime`) — **PRIME NET**. **Les X_i de b5 SONT ces composantes X'_i** (mathématiquement identiques) ⟹ la math veut «X'_i» ⟹ **BRANCHE 1 ⟹ SIC (prime omis sur X) ⟹ REPRODUIT ✅** (2 spots).
+⟹ ★★★ **LA CLASSE 4 «PRIME OMIS» S'ÉTEND** : «L'_K» (#650) + «L_α» (#662) sur **L** ; «X_i» ×2 (#665) sur **X**. ⟹ **l'auteur laisse tomber le prime sur PLUSIEURS symboles quand il renvoie à un objet primé — pas seulement sur L.**
+⟹ ★★★ **ET LE FICHIER A REMIS LES PRIMES ⟹ 15ᵉ conf. de «il répare».**
+
+## ✅ **CE QUI EST FIXÉ (7 rep-calls, `fix648a`)**
+1. ✅ **FIX A — fin du Théorème 3.5 : l'ITALIQUE POSÉE** (le report différé de #664 FERMÉ).
+2. ✅ **FIX B — la preuve du Th 3.5 : 2 `\underline{\Pic}` (représentables) + display 2 `\underline{\Pic}` + «\,;» (le «;» espacé).**
+3. ✅ **FIX C — le Théorème 3.6 : l'ITALIQUE (coupée autour du display Φ_n) + 3 `\underline{\Pic}` (le foncteur + display 2).**
+4. ✅ **FIX D — la preuve du Th 3.6 : «Chow~:» (le «:» espacé) + le SIC prime omis «X_i» ×2.**
+
+## ✅ **p635 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 20 -»/«XIII» ✅ (21ᵉ conf.) · **«est de type fini.» (fin Th 3.5) ✅ ITALIQUE** · **preuve Th 3.5 : 2 `\underline{\Pic}` ✅ + prose juste.**
+**b2** : **display Th 3.5 preuve 2 `\underline{\Pic}` ✅ + «\,;» ✅** · «grâce à 3.4 (i) appliqué à U⨿T → S.» ✅ juste · **Th 3.6 énoncé : «Pic_{X/S} le foncteur» ✅ `\underline{\Pic}`.**
+**b3** : **Th 3.6 : display Φ_n 2 `\underline{\Pic}` ✅ + «est un morphisme de type fini.» ✅ ITALIQUE** · **preuve Th 3.6 : «Chow~:» ✅ + prose juste** («En effet, soit f : X' → X … alors en vertu de 3.5 et 3.4 (ii) … On peut donc supposer X/S projective.»).
+**b4** : preuve Th 3.6 (suite, romaine) juste · **«X'_i» composante ✅ PRIME INTACT (calibration).**
+**b5** : **«tous les X_i/S' … ⨿X_i/S'» ✅ SIC PRIME OMIS REPRODUIT** · footer «635» ⟹ **21ᵉ confirmation de CONSTANTE_XIII=615.** ⚠ la preuve du Th 3.6 ENJAMBE p636 («par le»).
+
+## ⚠⚠ **CE QUI RESTE — CONSIGNÉ, PAS FIXÉ**
+1. ⚠⚠ **La preuve du Théorème 3.6 ENJAMBE sur p636** («…par le lemme facile suivant, donc pour X_{S'}/S' en vertu de 3.5 et 3.4 (ii), enfin pour X/S grâce à 3.4 (i)») ⟹ **le reste EST sur p636 ⟹ à comparer p636.** ⚠ **ELLE EST ROMAINE (preuve) ⟹ pas d'italique à différer, juste à comparer.**
+2. ⚠⚠ **Le «lemme facile suivant» annoncé** ⟹ un énoncé arrive sur p636 ⟹ **prévoir son italique/ses Pic.**
+3. ⚠ **`\operatorname{supp}` L15133 — non atteint sur p635** (la preuve du Th 3.6 y renvoie ? non — L15133 est plus loin) ⟹ **laissé.**
+4. ⚠ **Le `f^*:\Pic_{Y/S}→\Pic_{X/S}` de L14485 (page antérieure, ~p627) et L15017** — L15017 était la preuve du Th 3.5, MAIS je viens de constater que la preuve du Th 3.5 n'a PAS ce token (elle a `\Pic_{Y/S}` et `\Pic_{X/S}` séparés, pas `f^*:\Pic...`) ⟹ **L15017 est AILLEURS (p636+) ⟹ trancher à sa page.** ⚠ **L14485 reste un `\Pic` NON VÉRIFIÉ d'une page antérieure ⟹ report.**
+
+## ★★★★ **CE QUE p635 CONFIRME**
+★★★★★ **CINQ PAGES CONSÉCUTIVES (p631 section 3 partie, p632-p635) OÙ LA PROSE EST PROPRE** (à part la fin du Lemme 2.11 en p631). ⟹ **la restauration lourde (p629-p630) semble derrière moi — mais LA DETTE p616-p628 RESTE (jamais comparée mot-à-mot).**
+★★★★ **LE «Pic» foncteur/schéma est maintenant tranché sur 4 pages, dans les 3 contextes** (preuve, énoncé, display) ⟹ **règle solide, mais TOUJOURS per-occurrence : L14485 et les `\Pic` d'avant p631 restent à vérifier.**
+
+## **CURSEUR → idx649 (p636).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p636 : COMPARER la fin de la preuve du Th 3.6 + le «lemme facile suivant» (italique/Pic).**
+
+### #664 (2026-07-16) — idx647 (vol p634 = **Exposé XIII «- 19 -»**, footer «634» ⟹ **634−615=19, 20ᵉ confirmation** ; idx=634+13=647) — **4 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p634 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
+
+# ★★★★★★ **DEUXIÈME PAGE QUASI-PROPRE D'AFFILÉE — LA PROSE DE p634 EST ENTIÈREMENT JUSTE**
+**Après p633 (items (ii)/(iii) et Prop 3.2 mot-pour-mot justes), p634 confirme** : ✅ **la fin de la Définition 3.3, l'énoncé du Lemme 3.4, l'énoncé du Théorème 3.5 — TOUS mot-pour-mot justes** (comparés en sortant le fichier, pas seulement lus). **Les seuls défauts : (1) l'italique des 3 énoncés manquait ; (2) les «Pic» foncteurs non soulignés ; (3) UN SIC d'accord.** **AUCUNE paraphrase.**
+⟹ ★★★★ **PISTE (à étayer, NE PAS BÂTIR — #653) : p633 et p634 sont surtout des ÉNONCÉS + diagrammes, et Codex n'y a quasi rien paraphrasé ; les longues DÉMONSTRATIONS de p629-p632 étaient massivement réécrites.** ⟹ **hypothèse : Codex paraphrase à proportion de la LONGUEUR de prose continue — beaucoup dans une preuve fluide, peu dans un énoncé court haché de displays.** ⚠⚠ **C'est une reformulation de l'hypothèse «énoncés vs preuves» RÉFUTÉE en #660 (la Remarque 2.10, un énoncé, était réécrite) — DONC PRUDENCE : ce n'est PAS «énoncé vs preuve», c'est peut-être «prose courte vs prose longue». COMPTER, ne pas conclure.**
+
+## ⚠⚠ **UN SIC D'ACCORD — 2ᵉ INSTANCE DE LA SOUS-CLASSE (#663 «quasi-compact» → #664 «limité»)**
+✅ **«Si Φ_T^{-1}(L_T) est limité par un M» — 5600 (`z647d_A_limite2`) : LE SCAN N'A PAS DE «e».**
+★★★ **CALIBRATION DANS LA PAGE (calibration A)** : le scan écrit «limit**ée** par un L» et «limit**ée** par l'image inverse» — **deux «e» sur la même page**. **Le DERNIER, sans «e», DÉVIE.**
+★ **La langue tranche** : Φ_T^{-1}(L_T) est l'image inverse d'une **famille** (féminin) ⟹ «limitée» ⟹ **BRANCHE 1 ⟹ SIC (accord omis) ⟹ REPRODUIT ✅.**
+⟹ ★★★ **ET LE FICHIER L'AVAIT CORRIGÉ ⟹ 14ᵉ conf. de «il répare».**
+⟹ **LA SOUS-CLASSE «ACCORD OMIS» A MAINTENANT 2 SITES** («quasi-compact» #663 ; «limité» #664) — **exactement comme la sous-classe «prime omis sur L» (2 sites, #650/#662).** ⟹ **DEUX sous-classes de la classe 9 «LA LANGUE», chacune sur 2 sites indépendants.** ⚠ **NE PAS FERMER — mais le motif se solidifie : l'auteur laisse tomber les accords ET les primes.**
+
+## ★★★★★ **«Pic» SOULIGNÉ/NU — 3ᵉ PAGE, ET ICI TOUT EST FONCTEUR**
+✅ **p634 est pleine de morphismes ENTRE foncteurs** : «Φ : Pic_{Y/S} → Pic_{X/S}» ; «Φ_T : Pic_{Y_T/T} → Pic_{X_T/T}» ; le diagramme commutatif (4 Pic) ; «f* : Pic_{Y/S} → Pic_{X/S}». **TOUS soulignés au scan** (le texte dit explicitement «un morphisme entre les FONCTEURS de Picard»). ⟹ **10 `\Pic` ⟹ `\underline{\Pic}`.**
+⟹ ★★★★ **CONTRASTE AVEC p633** : là, presque tous les «Pic» étaient des SCHÉMAS (nus) ; ici, presque tous sont des FONCTEURS (soulignés). ⟹ **le trait n'est PAS aléatoire : il suit la SÉMANTIQUE (morphisme entre foncteurs vs partie/point d'un schéma), page après page.** ⟹ **la règle #662 est robuste.**
+⚠⚠⚠ **NE PAS SWEEPER : `f^*:\Pic_{Y/S}→\Pic_{X/S}` existe AUSSI à L14485 (page antérieure, NON VÉRIFIÉE) et L15017 (p635, la PREUVE de Th 3.5, NON VÉRIFIÉE)** ⟹ **découverts par le piège de check CHK11 (trop générique)** ⟹ **REPORT : à trancher À LEUR PAGE.**
+
+## ✅ **CE QUI EST FIXÉ (4 rep-calls, `fix647a`)**
+1. ✅ **FIX A — fin de la Définition 3.3 : l'ITALIQUE POSÉE** (la SUITE du corps, dont le début fut italisé en #663 avant le display — le report différé de #663 FERMÉ).
+2. ✅ **FIX B — le Lemme 3.4 : l'ITALIQUE (2 items, coupée autour du tikzcd) + «Alors~:» + les 8 `\underline{\Pic}`.**
+3. ✅ **FIX C — le SIC d'accord «limité»** (la preuve du Lemme 3.4).
+4. ✅ **FIX D — le Théorème 3.5 : l'ITALIQUE (partie p634, coupée autour du display) + les 2 `\underline{\Pic}`** ; ⚠ **«est de type fini.» ENJAMBE sur p635 ⟹ italique DIFFÉRÉE.**
+
+## ✅ **p634 — LES 5 BANDES, COCHÉES ÉLÉMENT PAR ÉLÉMENT**
+**b1** : header «- 19 -»/«XIII» ✅ (20ᵉ conf.) · **fin Def 3.3 ✅ ITALIQUE POSÉE + prose juste** · début Lemme 3.4.
+**b2** : **Lemme 3.4 énoncé ✅ ITALIQUE + «Alors~:» + item (i) 4 `\underline{\Pic}`** · le display du diagramme (item ii) 4 `\underline{\Pic}` ✅.
+**b3** : fin item (ii) ✅ · **preuve «En effet» : le SIC «limité» ✅ REPRODUIT** · reste de la preuve juste (Φ, L, M, aucun Pic).
+**b4** : «La réciproque…de façon analogue» ✅ (fin preuve, juste) · **Théorème 3.5 énoncé ✅ ITALIQUE (p634) + display 2 `\underline{\Pic}`** · ⚠ «est de type fini.» ENJAMBE p635.
+**b5** : le display «f* : Pic → Pic» (dernière ligne Th 3.5) ✅ + footer «634» ⟹ **20ᵉ confirmation de CONSTANTE_XIII=615.**
+
+## ⚠⚠ **CE QUI RESTE — CONSIGNÉ, PAS FIXÉ**
+1. ⚠⚠ **L'ITALIQUE DU THÉORÈME 3.5 — «est de type fini.» ENJAMBE sur p635** ⟹ **À FERMER SUR p635.** ★ **4ᵉ corps qui enjambe (Lemme 3.1, Def 3.3, Th 3.5) — motif STABLE, italiser la page courante, différer la suite.**
+2. ⚠⚠⚠ **`f^*:\Pic_{Y/S}→\Pic_{X/S}` à L14485 ET L15017 — 2 `\Pic` NON VÉRIFIÉS** ⟹ **découverts par CHK11** ⟹ **REPORT : trancher foncteur/schéma À LEUR PAGE.** ⚠ **L15017 est dans la PREUVE de Th 3.5 (p635) ⟹ probablement FONCTEUR (f* entre foncteurs) — mais NE PAS PRÉSUMER, ZOOMER p635.**
+3. ⚠⚠ **LE THÉORÈME 3.6 (L14987, p635) : «\(\Pic_{X/S}\) le foncteur de Picard»** — le texte dit «le foncteur» ⟹ probablement `\underline{\Pic}` — **mais p635 NON LUE ⟹ NE PAS TOUCHER (laissé INTACT, vérifié par CHK12).**
+4. ⚠ **`\operatorname{supp}` L15133, le point parasite «L'_α.» p632 b3** — non atteints ⟹ laissés.
+
+## ⚠⚠ **PIÈGE DE CHECK — LE 19ᵉ, ET IL A ENCORE RAPPORTÉ**
+**`CHK11` (`f^*:\Pic_{Y/S}→\Pic_{X/S}` not in t) a échoué APRÈS 4 rep() réussis + 0-err.** ⟹ **la règle a joué : GREPER AVANT de conclure.**
+⟹ ✅ **Le check était TROP GÉNÉRIQUE (variante 1) — et il a découvert DEUX sites non touchés (L14485, L15017)** ⟹ **exactement comme `CHK9` en #661 (qui avait trouvé L15133).** ⟹ ★★★ **UN CHECK TROP GÉNÉRIQUE EST UN OUTIL DE DÉCOUVERTE, pas seulement un piège : il révèle les sites frères que je n'ai pas encore vus.** ⟹ **le garder, mais NE PAS conclure au bug — grep, puis reporter les frères.**
+
+## **CURSEUR → idx648 (p635).** ⚠⚠⚠ **NE PAS CROIRE CETTE ANNONCE — LIRE LE SCAN.** ⚠ **1ʳᵉ tâche p635 : FERMER l'italique du Théorème 3.5 («est de type fini.») + trancher les `\Pic` de L15017/L14987 (preuve Th 3.5, Th 3.6).**
+
 ### #663 (2026-07-16) — idx646 (vol p633 = **Exposé XIII «- 18 -»**, footer «633» ⟹ **633−615=18, 19ᵉ confirmation** ; idx=633+13=646) — **4 rep-calls.** Compile **0-err / 378pp** ✓. ✅ **p633 FINIE page-localement — LES 5 BANDES LUES ET COCHÉES.**
 
 # ★★★★★★ **LA RÈGLE «Pic» SOULIGNÉ/NU (#662) TIENT SUR UNE 2ᵉ PAGE — ET LE FICHIER AVAIT RAISON PARTOUT**

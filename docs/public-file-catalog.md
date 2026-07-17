@@ -376,22 +376,22 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 | artifact/source ZIP | 14.0192 | [Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip](https://zenodo.org/records/20617845/files/Cayley_Vol01_Paper082_printed_p481_p484_source_checked_CODEX_20260608.zip) |
 | artifact/source ZIP | 227.8307 | [Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip](https://zenodo.org/records/20617845/files/Cayley_Vol01_source_checked_pages_p285_p393_aggregate_CODEX_20260608.zip) |
 
-## SGA: Working Translation, Source-Repair, and Audit Drafts (SGA6 idx646 Source-Rescribe Checkpoint)
+## SGA: Working Translation, Source-Repair, and Audit Drafts (SGA6 idx662 Source-Rescribe Checkpoint)
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Current SGA public surface is record 21416482. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #663 / scan idx646 / volume p633 / Expose XIII p18, and the inherited unsynchronized SGA6 English working draft. The grouped SGA6 ZIP adds a separately labeled English Expose X source-checked restart for indexes 532-537; this six-page tranche is not a synchronized whole-volume English edition. Editable TeX, ledgers, the high-resolution idx646 source witness, boundary images, render checks, PDF-text readback evidence, and clean build logs are grouped in two ZIPs. The one-page direct-source delta continues Expose XIII through p18. Content after idx646 remains inherited scaffold, and output page 339 crosses the frontier without certifying idx647. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.
+Current SGA public surface is record 21419947. It fronts the SGA5 French not-certified workpass, the SGA6 French source-rescribe checkpoint through ledger entry #679 / scan idx662 / volume p649 / Expose XIII p34, and the inherited unsynchronized SGA6 English working draft. The grouped SGA6 ZIP retains a separately labeled English Expose X source-checked restart for indexes 532-537; this six-page tranche is not a synchronized whole-volume English edition. Editable TeX, ledgers, the high-resolution sixteen-page idx647-662 source delta, boundary images, render checks, PDF-text readback evidence, and clean build logs are grouped in two ZIPs. The direct-source delta continues Expose XIII from p19 through p34. Content after idx662 remains inherited scaffold, and output page 346 crosses the frontier without certifying idx663. This is serious source-aware work, but not completed SGA5/SGA6, not synchronized English, not whole-volume source-faithfulness certification, not diagram-by-diagram certification, and not a critical edition. Local or inherited words such as certified, clean, complete, strict, or source-checked remain scoped packet labels only.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.9223 | [00_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21416482/files/00_SGA5_French_Workpass_NotCertified_20260706.pdf) |
-| reader/reference PDF | 2.7335 | [01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx646_20260717.pdf](https://zenodo.org/records/21416482/files/01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx646_20260717.pdf) |
-| reader/reference PDF | 2.3394 | [02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf](https://zenodo.org/records/21416482/files/02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf) |
-| artifact/source ZIP | 704.9033 | [03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip](https://zenodo.org/records/21416482/files/03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip) |
-| manifest/status | 0.0006 | [04_SGA6_idx646_public_manifest_20260717.csv](https://zenodo.org/records/21416482/files/04_SGA6_idx646_public_manifest_20260717.csv) |
-| manifest/status | 0.0006 | [04_SGA6_idx646_public_sha256_20260717.csv](https://zenodo.org/records/21416482/files/04_SGA6_idx646_public_sha256_20260717.csv) |
-| artifact/source ZIP | 9.7845 | [04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx646_20260717.zip](https://zenodo.org/records/21416482/files/04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx646_20260717.zip) |
-| manifest/status | 0.0019 | [99_SGA_Public_Status_NotCritical_idx646_20260717.md](https://zenodo.org/records/21416482/files/99_SGA_Public_Status_NotCritical_idx646_20260717.md) |
+| reader/reference PDF | 1.9223 | [00_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21419947/files/00_SGA5_French_Workpass_NotCertified_20260706.pdf) |
+| reader/reference PDF | 2.7352 | [01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx662_20260717.pdf](https://zenodo.org/records/21419947/files/01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx662_20260717.pdf) |
+| reader/reference PDF | 2.3394 | [02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf](https://zenodo.org/records/21419947/files/02_SGA6_English_Unsynced_WorkingDraft_repair108_20260622.pdf) |
+| artifact/source ZIP | 704.9033 | [03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip](https://zenodo.org/records/21419947/files/03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip) |
+| manifest/status | 0.0006 | [04_SGA6_idx662_public_manifest_20260717.csv](https://zenodo.org/records/21419947/files/04_SGA6_idx662_public_manifest_20260717.csv) |
+| manifest/status | 0.0005 | [04_SGA6_idx662_public_sha256_20260717.csv](https://zenodo.org/records/21419947/files/04_SGA6_idx662_public_sha256_20260717.csv) |
+| artifact/source ZIP | 18.2983 | [04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx662_20260717.zip](https://zenodo.org/records/21419947/files/04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx662_20260717.zip) |
+| manifest/status | 0.0019 | [99_SGA_Public_Status_NotCritical_idx662_20260717.md](https://zenodo.org/records/21419947/files/99_SGA_Public_Status_NotCritical_idx662_20260717.md) |
 
 ## Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
 
