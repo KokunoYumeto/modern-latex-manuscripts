@@ -12,14 +12,14 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |
 | Split-Zero Geometry and Common Deformation Registers | 11 | 3 | 3 | 5.4 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |
-| Emmy Noether | 15 | 2 | 8 | 1363.8 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
+| Emmy Noether | 16 | 2 | 9 | 1378.6 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
 | Heinrich Weber | 47 | 6 | 39 | 1507.2 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
 | Ferdinand Georg Frobenius | 8 | 2 | 2 | 333.6 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
 | Adolf Kneser | 8 | 3 | 1 | 116.7 | [kneser.md](kneser.md) | [Zenodo](https://doi.org/10.5281/zenodo.20836971) |
 | James Joseph Sylvester | 3 | 1 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |
-| SGA (serious active work; not complete) | 8 | 3 | 2 | 721.7 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/21416482) |
+| SGA (serious active work; not complete) | 8 | 3 | 2 | 721.7 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
 | Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
