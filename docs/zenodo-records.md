@@ -81,6 +81,16 @@
 - GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r12_packages636_637_and_verbatim_goals_20260705/`.
 - Status: coordination, goal-dispatch, methodology, and rolling-delta evidence only. Contains 12 exact pursued-goal files for sibling sessions. Contains no new TeX/PDF source bodies beyond package metadata, and is not native review, accepted terminology, translation completion, reader output, or source-fidelity certification.
 
+## 2026-07-18 split-zero residual-Niemeier integration published
+
+- Concept DOI: [10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444).
+- Published version: [10.5281/zenodo.21425117](https://doi.org/10.5281/zenodo.21425117).
+- Front PDF: `00_PROJECT_ATLAS_20260717.pdf`, 11 pages and visually checked after public download.
+- Results: `02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf`, 199 pages.
+- New scope: a public Part 8-C2B residual-Niemeier facade and complete atomic six-file bundle containing the TeX, source-free checker, 19-row replay ledger, status row, and boundary ledger.
+- Integrity: the public manifest reports the reference-closure gate passed; the formal archive has 435 members and the two other archives retain 76 visual and 260 working-text members.
+- Status: exploratory working research and exact artifact checks, not peer review, not a proof of a famous open problem, and not independent formalization of the cited classification, theta-modularity, or gauge-theory theorems.
+
 ## 2026-07-18 split-zero Project Atlas reference-closure correction published
 
 - Concept DOI: [10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444).
