@@ -1,6 +1,6 @@
 # Interlanguage Methodology
 
-Zenodo record: [21423647](https://zenodo.org/records/21423647)
+Zenodo record: [21423647](https://zenodo.org/records/21423647); concept DOI: [https://doi.org/10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403)
 
 Public title: Interlanguage and Constructed-Language Mathematical Translation Methodology
 
