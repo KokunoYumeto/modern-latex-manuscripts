@@ -4,7 +4,7 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 
 **GitHub:** https://github.com/KokunoYumeto/modern-latex-manuscripts
 
-**Initial dump, raw/provenance backstop, and main landing:** https://doi.org/10.5281/zenodo.20393488 (latest: 20458953)
+**Initial dump, raw/provenance backstop, and main landing:** https://doi.org/10.5281/zenodo.20393488 (latest: 20459634)
 
 **Workflow and replication packet:** https://doi.org/10.5281/zenodo.20461174 (latest: 20538617)
 
@@ -51,7 +51,6 @@ Copy-paste public status block using Zenodo concept DOI links. Parenthetical lat
 **Classical algebra/arithmetic umbrella shelf:** https://doi.org/10.5281/zenodo.20414787 (latest: 20503771)
 
 **Older author-cluster shelf:** https://doi.org/10.5281/zenodo.20411006 (latest: 20411006)
-
 
 
 
