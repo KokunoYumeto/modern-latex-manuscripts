@@ -1,3 +1,15 @@
+## 2026-07-18: Noether Paper 30 source-control publication queue closed
+
+- Noether current version: [10.5281/zenodo.21426158](https://doi.org/10.5281/zenodo.21426158)
+
+Publication receipt: [`20260718_noether_p30_hardmath_record_21426158.json`](../manifests/published-zenodo/20260718_noether_p30_hardmath_record_21426158.json). The 37-file, 1692.24 MB reader-first surface fronts a 466-page German R823 cumulative with a bounded direct-source audit of Paper 30 source pages 37--61. File `15` groups corrected TeX, the exact R823 diff, source pages, enlarged witnesses, build evidence, hashes, and audit status. Existing Spanish, French, Interslavic, CJK/Korean, Slavic, Arabic/Persian, Indonesian, and English surfaces remain available but are not silently represented as synchronized to this German patch. The release is live, not staged, and is not complete Paper 30 or whole-corpus certification, native-language certification, proof checking, peer review, or a critical edition.
+
+## 2026-07-18: Split-zero predatum/K4/Hopf supplement publication queue closed
+
+- Split-zero current version: [10.5281/zenodo.21426216](https://doi.org/10.5281/zenodo.21426216)
+
+Publication receipt: [`20260718_split_zero_predatum_hopf_record_21426216.json`](../manifests/published-zenodo/20260718_split_zero_predatum_hopf_record_21426216.json). File `07` preserves the N16--N18 working-note sequence, cumulative ledger, scripts, recorded outputs, fresh UTF-8 reruns, manifest, and hashes. The Project Atlas remains the default preview. Script groups passed 12/12, 17/17, 10/10, and 12/12 encoded checks; those checks do not certify the external topos, bundle-classification, cited-topology, or referee-recorded numerical Gauss-linking steps. The release is live, not staged.
+
 ## 2026-07-18: Workflow/methodology publication queue closed
 
 - Workflow current version: [10.5281/zenodo.21424987](https://doi.org/10.5281/zenodo.21424987)
@@ -19,9 +31,9 @@ Publication receipt: [`20260718_sga6_english_correction_record_21422245.json`](.
 ## 2026-07-18: SGA6 Spanish and Noether multilingual component queues closed
 
 - SGA historical Spanish-introduction version: [10.5281/zenodo.21421508](https://doi.org/10.5281/zenodo.21421508); retained on current version [10.5281/zenodo.21425498](https://doi.org/10.5281/zenodo.21425498)
-- Noether current version: [10.5281/zenodo.21423112](https://doi.org/10.5281/zenodo.21423112)
+- Noether historical multilingual-component version: [10.5281/zenodo.21423112](https://doi.org/10.5281/zenodo.21423112); retained on current version [10.5281/zenodo.21426158](https://doi.org/10.5281/zenodo.21426158)
 
-Publication receipts: [`20260718_sga6_spanish_record_21421508.json`](../manifests/published-zenodo/20260718_sga6_spanish_record_21421508.json), [`20260718_sga5_spanish_exposeX_record_21425498.json`](../manifests/published-zenodo/20260718_sga5_spanish_exposeX_record_21425498.json), [`20260718_noether_cjk_direct_readers_record_21422620.json`](../manifests/published-zenodo/20260718_noether_cjk_direct_readers_record_21422620.json), and [`20260718_noether_french_r823_record_21423112.json`](../manifests/published-zenodo/20260718_noether_french_r823_record_21423112.json). The current SGA record exposes both the bounded four-page Spanish SGA6 tranche and the 268-page Spanish SGA5 checkpoint through complete Exposé X. The current Noether record retains the Indonesian and partial Arabic/Persian components, directly exposes eight CJK PDFs for complete Papers 26/36, and exposes the 494-page French R823 reader with exact TeX/evidence in file `14`. These are live publications, not staged uploads.
+Publication receipts: [`20260718_sga6_spanish_record_21421508.json`](../manifests/published-zenodo/20260718_sga6_spanish_record_21421508.json), [`20260718_sga5_spanish_exposeX_record_21425498.json`](../manifests/published-zenodo/20260718_sga5_spanish_exposeX_record_21425498.json), [`20260718_noether_cjk_direct_readers_record_21422620.json`](../manifests/published-zenodo/20260718_noether_cjk_direct_readers_record_21422620.json), and [`20260718_noether_french_r823_record_21423112.json`](../manifests/published-zenodo/20260718_noether_french_r823_record_21423112.json). The current SGA record exposes both the bounded four-page Spanish SGA6 tranche and the 268-page Spanish SGA5 checkpoint through complete Exposé X. Current Noether version `21426158` retains the Indonesian and partial Arabic/Persian components, eight CJK PDFs for complete Papers 26/36, and the 494-page French R823 reader with exact TeX/evidence in file `14`. These are live publications, not staged uploads.
 
 ## 2026-07-17: SGA5 English synchronization publication queue closed
 
