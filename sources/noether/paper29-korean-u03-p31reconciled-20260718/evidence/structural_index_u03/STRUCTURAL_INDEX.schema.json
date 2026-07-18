@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/noether-p29-ko-u03-structural-index-1.0.0.json",
+  "title": "Korean Noether Paper 29 U03 structural record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "structural_id", "work_id", "unit_id", "structure_type",
+    "parent_id", "order", "source_language", "target_language", "authority",
+    "source_locator", "target_locator", "source_fragment_sha256",
+    "target_fragment_sha256", "relations", "completion_state", "review_state",
+    "publication_state", "decision_ids", "continuation_cursor", "notes"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "structural_id": {"type": "string", "pattern": "^NOE-P29-KO-U03-[A-Z]+-[0-9]{3}$"},
+    "work_id": {"const": "noether.paper29.ko"},
+    "unit_id": {"const": "P29-KO-U03"},
+    "structure_type": {
+      "enum": ["work_unit", "item", "proof", "paragraph", "closed_prose_unit", "equation", "note"]
+    },
+    "parent_id": {"type": ["string", "null"]},
+    "order": {"type": "integer", "minimum": 1},
+    "source_language": {"const": "de"},
+    "target_language": {"const": "ko-KR"},
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sealed_path", "sealed_sha256", "unit_path", "unit_sha256"],
+      "properties": {
+        "sealed_path": {"type": "string"},
+        "sealed_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "unit_path": {"type": "string"},
+        "unit_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+      }
+    },
+    "source_locator": {"type": "string"},
+    "target_locator": {"type": "string"},
+    "source_fragment_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "target_fragment_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["relation_type", "target_id"],
+        "properties": {
+          "relation_type": {"type": "string"},
+          "target_id": {"type": "string"}
+        }
+      }
+    },
+    "completion_state": {"enum": ["translated", "source_only", "held"]},
+    "review_state": {"enum": ["internally_source_checked", "internally_fidelity_checked", "held_source_discrepancy"]},
+    "publication_state": {"const": "internal_checkpoint_not_published"},
+    "decision_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "continuation_cursor": {"type": "string"},
+    "notes": {"type": "string"}
+  }
+}
