@@ -1,18 +1,24 @@
+## 2026-07-18: Noether Paper 4 English Introduction through Section 2 queue closed
+
+- Noether current version: [10.5281/zenodo.21431982](https://doi.org/10.5281/zenodo.21431982)
+
+Publication receipts: [`20260718_noether_p04_intro_s1_s2_record_21431982.json`](../manifests/published-zenodo/20260718_noether_p04_intro_s1_s2_record_21431982.json), [`20260718_noether_p04_intro_s1_s2_record_21431982_result.json`](../manifests/published-zenodo/20260718_noether_p04_intro_s1_s2_record_21431982_result.json), and [`20260718_noether_p04_intro_s1_s2_record_21431982_readback.json`](../manifests/published-zenodo/20260718_noether_p04_intro_s1_s2_record_21431982_readback.json). The live 53-file record adds three direct bounded English Paper 4 readers covering the Introduction/Postscript and Sections 1-2 plus file `19`, a deterministic exact TeX/evidence package. All six new files were streamed back and matched SHA-256. Section 3 / R823 line 3730 is next. The release is live, not staged, and is not complete Paper 4, a critical edition, peer review, rights clearance, or independent human certification.
+
 ## 2026-07-18: Noether Papers 03 and 27--29 plus visual-evidence queue closed
 
-- Noether current version: [10.5281/zenodo.21431458](https://doi.org/10.5281/zenodo.21431458)
+- Noether historical addition version: [10.5281/zenodo.21431458](https://doi.org/10.5281/zenodo.21431458); files retained on current version [10.5281/zenodo.21431982](https://doi.org/10.5281/zenodo.21431982)
 
 Publication receipts: [`20260718_noether_p03_p27_p29_visuals_record_21431458.json`](../manifests/published-zenodo/20260718_noether_p03_p27_p29_visuals_record_21431458.json) and [`20260718_noether_p03_p27_p29_visuals_record_21431458_result.json`](../manifests/published-zenodo/20260718_noether_p03_p27_p29_visuals_record_21431458_result.json). The live 48-file record adds a bounded source-audited English Paper 3 reader, Korean Paper 27, four CJK Paper 28 readers, two Chinese Paper 29 readers, and their exact editable-source/evidence package. File `17` preserves 3,024 unique French, Spanish, and Interslavic render/review images not already represented by exact hash in the retained evidence ZIPs. All twelve new files were streamed back from Zenodo and matched their sealed SHA-256 values. These are bounded working translations and artifact/review witnesses, not whole-corpus certification, native/community certification, proof checking, or a critical edition.
 
 ## 2026-07-18: Noether Interslavic Tranche 007 publication queue closed
 
-- Noether current version: [10.5281/zenodo.21431458](https://doi.org/10.5281/zenodo.21431458)
+- Noether current version: [10.5281/zenodo.21431982](https://doi.org/10.5281/zenodo.21431982)
 
 Publication receipt: [`20260718_noether_interslavic_007_record_21429723.json`](../manifests/published-zenodo/20260718_noether_interslavic_007_record_21429723.json). File `11` replaces the old 002A-002B package with the complete current 002A-007 corpus: 221 Latin and 221 Cyrillic editable units, all 442 unit PDFs, 527/551-page readers, tranche evidence, and the final audit. All four replaced files were downloaded back and matched SHA-256. The release is live, not staged. The internally resolvable normalization queue is closed; 353 `važi*|važe*` probes remain an explicit external-authority blocker. This is not native/community certification, whole-corpus source certification, or a critical edition.
 
 ## 2026-07-18: Noether Paper 30 source-control publication queue closed (predecessor)
 
-- Noether historical Paper 30 version: [10.5281/zenodo.21426158](https://doi.org/10.5281/zenodo.21426158); files retained on current version [10.5281/zenodo.21431458](https://doi.org/10.5281/zenodo.21431458)
+- Noether historical Paper 30 version: [10.5281/zenodo.21426158](https://doi.org/10.5281/zenodo.21426158); files retained on current version [10.5281/zenodo.21431982](https://doi.org/10.5281/zenodo.21431982)
 
 Publication receipt: [`20260718_noether_p30_hardmath_record_21426158.json`](../manifests/published-zenodo/20260718_noether_p30_hardmath_record_21426158.json). The 37-file, 1692.24 MB reader-first surface fronts a 466-page German R823 cumulative with a bounded direct-source audit of Paper 30 source pages 37--61. File `15` groups corrected TeX, the exact R823 diff, source pages, enlarged witnesses, build evidence, hashes, and audit status. Existing Spanish, French, Interslavic, CJK/Korean, Slavic, Arabic/Persian, Indonesian, and English surfaces remain available but are not silently represented as synchronized to this German patch. The release is live, not staged, and is not complete Paper 30 or whole-corpus certification, native-language certification, proof checking, peer review, or a critical edition.
 
@@ -43,9 +49,9 @@ Publication receipt: [`20260718_sga6_english_correction_record_21422245.json`](.
 ## 2026-07-18: SGA6 Spanish and Noether multilingual component queues closed
 
 - SGA historical Spanish-introduction version: [10.5281/zenodo.21421508](https://doi.org/10.5281/zenodo.21421508); retained on current version [10.5281/zenodo.21431745](https://doi.org/10.5281/zenodo.21431745)
-- Noether historical multilingual-component version: [10.5281/zenodo.21423112](https://doi.org/10.5281/zenodo.21423112); retained on current version [10.5281/zenodo.21431458](https://doi.org/10.5281/zenodo.21431458)
+- Noether historical multilingual-component version: [10.5281/zenodo.21423112](https://doi.org/10.5281/zenodo.21423112); retained on current version [10.5281/zenodo.21431982](https://doi.org/10.5281/zenodo.21431982)
 
-Publication receipts: [`20260718_sga6_spanish_record_21421508.json`](../manifests/published-zenodo/20260718_sga6_spanish_record_21421508.json), [`20260718_sga5_spanish_withdrawn_record_21429328.json`](../manifests/published-zenodo/20260718_sga5_spanish_withdrawn_record_21429328.json), [`20260718_noether_cjk_direct_readers_record_21422620.json`](../manifests/published-zenodo/20260718_noether_cjk_direct_readers_record_21422620.json), and [`20260718_noether_french_r823_record_21423112.json`](../manifests/published-zenodo/20260718_noether_french_r823_record_21423112.json). The current SGA record exposes the bounded four-page Spanish SGA6 tranche but no Spanish SGA5 body. Current Noether version `21431458` retains the Indonesian and partial Arabic/Persian components, eight CJK PDFs for complete Papers 26/36, and the 494-page French R823 reader with exact TeX/evidence in file `14`. These are live publications, not staged uploads.
+Publication receipts: [`20260718_sga6_spanish_record_21421508.json`](../manifests/published-zenodo/20260718_sga6_spanish_record_21421508.json), [`20260718_sga5_spanish_withdrawn_record_21429328.json`](../manifests/published-zenodo/20260718_sga5_spanish_withdrawn_record_21429328.json), [`20260718_noether_cjk_direct_readers_record_21422620.json`](../manifests/published-zenodo/20260718_noether_cjk_direct_readers_record_21422620.json), and [`20260718_noether_french_r823_record_21423112.json`](../manifests/published-zenodo/20260718_noether_french_r823_record_21423112.json). The current SGA record exposes the bounded four-page Spanish SGA6 tranche but no Spanish SGA5 body. Current Noether version `21431982` retains the Indonesian and partial Arabic/Persian components, eight CJK PDFs for complete Papers 26/36, and the 494-page French R823 reader with exact TeX/evidence in file `14`. These are live publications, not staged uploads.
 
 ## 2026-07-17: SGA5 English synchronization publication queue closed
 
