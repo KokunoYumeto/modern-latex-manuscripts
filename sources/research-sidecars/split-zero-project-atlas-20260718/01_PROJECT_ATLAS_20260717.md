@@ -473,6 +473,66 @@ eight fields with a separate eight-dimensional ghost kernel.
 exact coordinate $K_4$ and local-index calculation; classical topology cited;
 cross-program ghost/predatum/modular identifications open.
 
+# Residual Niemeier lattice certificate
+
+The public Part 8-C2B audit starts with the displayed marked glue subgroup of
+order 72 in the discriminant module of the root lattice $A_5^4D_4$. A
+source-free exact checker reconstructs an explicit index-72 extension basis
+and verifies that its $24\times24$ Gram matrix is integral, even, positive
+definite, and of determinant one. It then enumerates every glue class. The
+complete minimum distribution is one class at norm 0, 46 classes at norm 4,
+and 25 classes at norm 6. In particular, no nonzero class contributes a
+norm-2 vector.
+
+It follows that the extension is an even unimodular rank-24 lattice whose root
+system is exactly $A_5^4D_4$. The final statement is
+
+$$
+N_{\mathrm{ES}}\cong N(A_5^4D_4),
+$$
+
+where $\cong$ means lattice isometry. The passage from the checked root system
+to the named Niemeier lattice uses the standard classification and uniqueness
+of rootful Niemeier lattices; it is not a literal equality of independently
+defined constructions. The public reference is Cheng, Duncan, and Harvey,
+[*Umbral Moonshine and the Niemeier Lattices*](https://arxiv.org/abs/1307.5793v2),
+arXiv:1307.5793v2.
+
+With the convention
+$\Theta_L(\tau)=\sum_{x\in L}q^{(x,x)/2}$, the independently checked initial
+coefficients and the standard weight-12 theta-modularity theorem give
+
+$$
+\Theta_{N_{\mathrm{ES}}}=E_4^3-576\Delta,
+\qquad
+\frac{\Theta_{N_{\mathrm{ES}}}}{\Delta}=J+168.
+$$
+
+The finite coefficient arithmetic is replayed in the checker; identifying it
+as the full lattice theta series retains the standard even-unimodular
+theta-modularity theorem. The source's alternate $q^{(x,x)}$ convention is
+recorded as a rescaling, not a discrepancy.
+
+Finally, Scaduto's definition and theorem specialize arithmetically to
+$\delta(N_{\mathrm{ES}})=3$ and $g_4(N_{\mathrm{ES}})\ge5$. This is a
+literature-dependent statement about Scaduto's geometric 4-genus, not an
+independently formalized gauge-theory theorem or an unrestricted topological
+non-realizability result. The primary citation is C. Scaduto,
+[*Niemeier lattices, smooth 4-manifolds and instantons*](https://doi.org/10.1007/s00208-020-02060-y),
+Math. Ann. 379 (2021), 549--568.
+
+The level-six eta-quotient/$R=107$ compatibility sentence is not rechecked in
+this audit, and “instanton-sensitive datum” remains interpretive context rather
+than a theorem. The facade, TeX, 19-check source-free checker, replay ledger,
+status row, and boundary ledger travel together in
+`audits/branch32a_part8c2b/repository/`, with their original relative paths
+preserved for unchanged replay. No raw Branch32-A source, copied literature,
+private run material, direct JT witness, or JT theorem entry is included.
+
+**Status:** exact finite lattice and no-new-roots certificate; Niemeier
+classification, theta modularity, and geometric 4-genus theorem explicitly
+literature-dependent; level-six and interpretive cross-program claims bounded.
+
 # Descartes and split-zero geometry
 
 Circle and Descartes geometry is secondary to the arithmetic and moonshine
@@ -545,6 +605,12 @@ The present record does not assert any of the following:
   nonvanishing tangent field;
 - that Adams's maximum of eight fields is identified with the ghost-kernel
   dimension without a typed map;
+- that the residual-lattice construction is literally equal to a separately
+  defined Niemeier lattice rather than isometric to it by classification;
+- that the Part 8-C2B audit proves level-six/$R=107$ compatibility or promotes
+  “instanton-sensitive datum” beyond interpretive context;
+- that the arithmetic specialization $g_4\ge5$ replaces Scaduto's cited
+  geometric theorem and definition;
 - that a bounded Descartes dataset proves an all-depth theorem;
 - that conversational similarities are conjectures;
 - that JT-authored source material is owned by, or relicensed through, this

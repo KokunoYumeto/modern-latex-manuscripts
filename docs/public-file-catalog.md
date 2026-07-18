@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 986
+Total files indexed: 890
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -23,110 +23,105 @@ Record: <https://doi.org/10.5281/zenodo.20393488>
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.1547 | [10 Reader PDF - Al-Kashi - Miftah al-Hisab.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Al-Kashi%20-%20Miftah%20al-Hisab.pdf) |
-| reader/reference PDF | 0.1602 | [10 Reader PDF - Al-Khwarizmi - Al-Jabr wa-l-Muqabala.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Al-Khwarizmi%20-%20Al-Jabr%20wa-l-Muqabala.pdf) |
-| reader/reference PDF | 0.0425 | [10 Reader PDF - Al-Tusi - Shakl al-Qatta.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Al-Tusi%20-%20Shakl%20al-Qatta.pdf) |
-| reader/reference PDF | 0.0834 | [10 Reader PDF - Aryabhata - Aryabhatiya.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Aryabhata%20-%20Aryabhatiya.pdf) |
-| reader/reference PDF | 0.2750 | [10 Reader PDF - Bhaskara II - Bijaganita.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Bhaskara%20II%20-%20Bijaganita.pdf) |
-| reader/reference PDF | 0.0658 | [10 Reader PDF - Bhaskara II - Lilavati.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Bhaskara%20II%20-%20Lilavati.pdf) |
-| reader/reference PDF | 23.9525 | [10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Complete Draft.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta%20Complete%20Draft.pdf) |
-| reader/reference PDF | 0.4780 | [10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part I.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta%20Part%20I.pdf) |
-| reader/reference PDF | 23.1783 | [10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part II.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta%20Part%20II.pdf) |
-| reader/reference PDF | 0.2970 | [10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part III.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta%20Part%20III.pdf) |
-| reader/reference PDF | 14.7059 | [10 Reader PDF - Cayley - Collected Papers Partial Draft.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Cayley%20-%20Collected%20Papers%20Partial%20Draft.pdf) |
-| reader/reference PDF | 1.1573 | [10 Reader PDF - Chinese Mathematics - Ceyuan Haijing Detail.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Chinese%20Mathematics%20-%20Ceyuan%20Haijing%20Detail.pdf) |
-| reader/reference PDF | 2.0883 | [10 Reader PDF - Darboux - Lessons on the General Theory of Surfaces.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Darboux%20-%20Lessons%20on%20the%20General%20Theory%20of%20Surfaces.pdf) |
-| reader/reference PDF | 0.5886 | [10 Reader PDF - Dedekind - Was sind und was sollen die Zahlen.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Dedekind%20-%20Was%20sind%20und%20was%20sollen%20die%20Zahlen.pdf) |
-| reader/reference PDF | 1.2779 | [10 Reader PDF - Dirichlet - Mathematische Werke.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Dirichlet%20-%20Mathematische%20Werke.pdf) |
-| reader/reference PDF | 0.1785 | [10 Reader PDF - Fricke and Klein - Automorphic Functions Volume II.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Fricke%20and%20Klein%20-%20Automorphic%20Functions%20Volume%20II.pdf) |
-| reader/reference PDF | 3.7264 | [10 Reader PDF - Hausdorff - Set Theory.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Hausdorff%20-%20Set%20Theory.pdf) |
-| reader/reference PDF | 1.4192 | [10 Reader PDF - Hecke - Lectures on Algebraic Number Theory.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Hecke%20-%20Lectures%20on%20Algebraic%20Number%20Theory.pdf) |
-| reader/reference PDF | 0.1091 | [10 Reader PDF - Killing - Transformation Groups.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Killing%20-%20Transformation%20Groups.pdf) |
-| reader/reference PDF | 1.3914 | [10 Reader PDF - Kummer - Selected Papers.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Kummer%20-%20Selected%20Papers.pdf) |
-| reader/reference PDF | 1.3968 | [10 Reader PDF - Landau - Algebraic Numbers and Ideals.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Landau%20-%20Algebraic%20Numbers%20and%20Ideals.pdf) |
-| reader/reference PDF | 1.0439 | [10 Reader PDF - Landau - Analytic and Geometric Number Theory.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Landau%20-%20Analytic%20and%20Geometric%20Number%20Theory.pdf) |
-| reader/reference PDF | 1.6267 | [10 Reader PDF - Landau - Distribution of Prime Numbers Volume I.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20I.pdf) |
-| reader/reference PDF | 0.1813 | [10 Reader PDF - Landau - Distribution of Prime Numbers Volume II Chapter 5.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II%20Chapter%205.pdf) |
-| reader/reference PDF | 0.1766 | [10 Reader PDF - Landau - Distribution of Prime Numbers Volume II Part 7.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II%20Part%207.pdf) |
-| reader/reference PDF | 0.9197 | [10 Reader PDF - Landau - Distribution of Prime Numbers Volume II.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II.pdf) |
-| reader/reference PDF | 1.3517 | [10 Reader PDF - Landau - Lectures on Number Theory Volume I.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20I.pdf) |
-| reader/reference PDF | 0.6231 | [10 Reader PDF - Landau - Lectures on Number Theory Volume II.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20II.pdf) |
-| reader/reference PDF | 0.5644 | [10 Reader PDF - Landau - Lectures on Number Theory Volume III.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20III.pdf) |
-| reader/reference PDF | 0.4878 | [10 Reader PDF - Li Ye - Ceyuan Haijing and Fenlei Shishu.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20and%20Fenlei%20Shishu.pdf) |
-| reader/reference PDF | 0.5136 | [10 Reader PDF - Li Ye - Ceyuan Haijing.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Li%20Ye%20-%20Ceyuan%20Haijing.pdf) |
-| reader/reference PDF | 0.3831 | [10 Reader PDF - Lie - Theory of Transformation Groups Volume I.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Lie%20-%20Theory%20of%20Transformation%20Groups%20Volume%20I.pdf) |
-| reader/reference PDF | 0.2771 | [10 Reader PDF - Macaulay - Algebraic Theory of Modular Systems.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Macaulay%20-%20Algebraic%20Theory%20of%20Modular%20Systems.pdf) |
-| reader/reference PDF | 1.5396 | [10 Reader PDF - Minkowski - Diophantine Approximations.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Minkowski%20-%20Diophantine%20Approximations.pdf) |
-| reader/reference PDF | 1.8564 | [10 Reader PDF - Minkowski - Geometry of Numbers.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Minkowski%20-%20Geometry%20of%20Numbers.pdf) |
-| reader/reference PDF | 0.5500 | [10 Reader PDF - Nine Chapters on the Mathematical Art.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Nine%20Chapters%20on%20the%20Mathematical%20Art.pdf) |
-| reader/reference PDF | 0.2259 | [10 Reader PDF - Omar Khayyam - Sinaat al-Jabr.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Omar%20Khayyam%20-%20Sinaat%20al-Jabr.pdf) |
-| reader/reference PDF | 2.0248 | [10 Reader PDF - Picard - Traite d analyse.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Picard%20-%20Traite%20d%20analyse.pdf) |
-| reader/reference PDF | 0.7195 | [10 Reader PDF - Qin Jiushao - Shushu Jiuzhang.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Qin%20Jiushao%20-%20Shushu%20Jiuzhang.pdf) |
-| reader/reference PDF | 2.7934 | [10 Reader PDF - Riemann - Gesammelte Werke Complete Draft.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Riemann%20-%20Gesammelte%20Werke%20Complete%20Draft.pdf) |
-| reader/reference PDF | 1.3248 | [10 Reader PDF - Riemann - Selected Papers.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Riemann%20-%20Selected%20Papers.pdf) |
-| reader/reference PDF | 0.0622 | [10 Reader PDF - Rosen - Algebra of Mohammed ben Musa 1831.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Rosen%20-%20Algebra%20of%20Mohammed%20ben%20Musa%201831.pdf) |
-| reader/reference PDF | 0.1088 | [10 Reader PDF - Ruska - Zur aeltesten arabischen Algebra 1917.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Ruska%20-%20Zur%20aeltesten%20arabischen%20Algebra%201917.pdf) |
-| reader/reference PDF | 2.4478 | [10 Reader PDF - SGA 1 - Revetements etales et groupe fondamental Modern French.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20SGA%201%20-%20Revetements%20etales%20et%20groupe%20fondamental%20Modern%20French.pdf) |
-| reader/reference PDF | 1.5039 | [10 Reader PDF - SGA 2 - Cohomologie locale Modern French.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20SGA%202%20-%20Cohomologie%20locale%20Modern%20French.pdf) |
-| reader/reference PDF | 13.5060 | [10 Reader PDF - SGA 3 - Schemas en groupes Modern French.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20SGA%203%20-%20Schemas%20en%20groupes%20Modern%20French.pdf) |
-| reader/reference PDF | 4.6265 | [10 Reader PDF - SGA 4 - Theorie des topos et cohomologie etale Modern French.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20SGA%204%20-%20Theorie%20des%20topos%20et%20cohomologie%20etale%20Modern%20French.pdf) |
-| reader/reference PDF | 1.5562 | [10 Reader PDF - SGA 4 Expose I - English Translation Draft Through 8.8.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20SGA%204%20Expose%20I%20-%20English%20Translation%20Draft%20Through%208.8.pdf) |
-| reader/reference PDF | 1.5697 | [10 Reader PDF - SGA 5 - Working LaTeX Compilation.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20SGA%205%20-%20Working%20LaTeX%20Compilation.pdf) |
-| reader/reference PDF | 2.6887 | [10 Reader PDF - SGA 6 - Working LaTeX Compilation.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20SGA%206%20-%20Working%20LaTeX%20Compilation.pdf) |
-| reader/reference PDF | 1.7909 | [10 Reader PDF - SGA 7 I - Working LaTeX Compilation.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20SGA%207%20I%20-%20Working%20LaTeX%20Compilation.pdf) |
-| reader/reference PDF | 1.3193 | [10 Reader PDF - SGA 7 II - Working LaTeX Compilation.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20SGA%207%20II%20-%20Working%20LaTeX%20Compilation.pdf) |
-| reader/reference PDF | 0.1240 | [10 Reader PDF - Sunzi - Suanjing.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Sunzi%20-%20Suanjing.pdf) |
-| reader/reference PDF | 1.3630 | [10 Reader PDF - Weber - Lehrbuch der Algebra Page-Range Draft.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Weber%20-%20Lehrbuch%20der%20Algebra%20Page-Range%20Draft.pdf) |
-| reader/reference PDF | 2.4164 | [10 Reader PDF - Weber - Lehrbuch der Algebra Volume I Complete Draft.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Weber%20-%20Lehrbuch%20der%20Algebra%20Volume%20I%20Complete%20Draft.pdf) |
-| reader/reference PDF | 0.3148 | [10 Reader PDF - Weber - Lehrbuch der Algebra Volume I.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Weber%20-%20Lehrbuch%20der%20Algebra%20Volume%20I.pdf) |
-| reader/reference PDF | 0.5411 | [10 Reader PDF - Yang Hui - Xiangjie Jiuzhang.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Yang%20Hui%20-%20Xiangjie%20Jiuzhang.pdf) |
-| reader/reference PDF | 2.0191 | [10 Reader PDF - Zhu Shijie - Suanxue Qimeng.pdf](https://zenodo.org/records/20415117/files/10%20Reader%20PDF%20-%20Zhu%20Shijie%20-%20Suanxue%20Qimeng.pdf) |
-| artifact/source ZIP | 135.0809 | [90 Artifacts - Additional Non-Scan TeX Source Artifacts.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Additional%20Non-Scan%20TeX%20Source%20Artifacts.zip) |
-| artifact/source ZIP | 15.8462 | [90 Artifacts - Darboux - Lessons on Geometry.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Darboux%20-%20Lessons%20on%20Geometry.zip) |
-| artifact/source ZIP | 6.5980 | [90 Artifacts - Darboux - Lessons on the General Theory of Surfaces.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Darboux%20-%20Lessons%20on%20the%20General%20Theory%20of%20Surfaces.zip) |
-| artifact/source ZIP | 19.8681 | [90 Artifacts - Dedekind - Was sind und was sollen die Zahlen.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Dedekind%20-%20Was%20sind%20und%20was%20sollen%20die%20Zahlen.zip) |
-| artifact/source ZIP | 58.4320 | [90 Artifacts - Dirichlet - Mathematische Werke.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Dirichlet%20-%20Mathematische%20Werke.zip) |
-| artifact/source ZIP | 330.6166 | [90 Artifacts - Fricke and Klein - Automorphic Functions Volume II.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Fricke%20and%20Klein%20-%20Automorphic%20Functions%20Volume%20II.zip) |
-| artifact/source ZIP | 42.2123 | [90 Artifacts - Gauss - Werke Sources and Audits.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Gauss%20-%20Werke%20Sources%20and%20Audits.zip) |
-| artifact/source ZIP | 11.7776 | [90 Artifacts - Hausdorff - Set Theory.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Hausdorff%20-%20Set%20Theory.zip) |
-| artifact/source ZIP | 3.8764 | [90 Artifacts - Hecke - Lectures on Algebraic Number Theory.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Hecke%20-%20Lectures%20on%20Algebraic%20Number%20Theory.zip) |
-| artifact/source ZIP | 10.8548 | [90 Artifacts - Hermite - Oeuvres.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Hermite%20-%20Oeuvres.zip) |
-| artifact/source ZIP | 0.3492 | [90 Artifacts - Killing - Transformation Groups.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Killing%20-%20Transformation%20Groups.zip) |
-| artifact/source ZIP | 6.7636 | [90 Artifacts - Kummer - Selected Papers.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Kummer%20-%20Selected%20Papers.zip) |
-| artifact/source ZIP | 2.6246 | [90 Artifacts - Landau - Algebraic Numbers and Ideals.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Landau%20-%20Algebraic%20Numbers%20and%20Ideals.zip) |
-| artifact/source ZIP | 13.3460 | [90 Artifacts - Landau - Analytic and Geometric Number Theory.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Landau%20-%20Analytic%20and%20Geometric%20Number%20Theory.zip) |
-| artifact/source ZIP | 3.2038 | [90 Artifacts - Landau - Distribution of Prime Numbers Volume I.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20I.zip) |
-| artifact/source ZIP | 0.4509 | [90 Artifacts - Landau - Distribution of Prime Numbers Volume II Chapter 5.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II%20Chapter%205.zip) |
-| artifact/source ZIP | 9.5131 | [90 Artifacts - Landau - Distribution of Prime Numbers Volume II Part 7.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II%20Part%207.zip) |
-| artifact/source ZIP | 8.1318 | [90 Artifacts - Landau - Distribution of Prime Numbers Volume II.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II.zip) |
-| artifact/source ZIP | 3.0296 | [90 Artifacts - Landau - Lectures on Number Theory Volume I.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20I.zip) |
-| artifact/source ZIP | 133.7728 | [90 Artifacts - Landau - Lectures on Number Theory Volume II.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20II.zip) |
-| artifact/source ZIP | 1.2362 | [90 Artifacts - Landau - Lectures on Number Theory Volume III.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20III.zip) |
-| artifact/source ZIP | 225.2362 | [90 Artifacts - Lie - Theory of Transformation Groups Volume I.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Lie%20-%20Theory%20of%20Transformation%20Groups%20Volume%20I.zip) |
-| artifact/source ZIP | 0.9590 | [90 Artifacts - Macaulay - Algebraic Theory of Modular Systems.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Macaulay%20-%20Algebraic%20Theory%20of%20Modular%20Systems.zip) |
-| artifact/source ZIP | 3.1303 | [90 Artifacts - Minkowski - Diophantine Approximations.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Minkowski%20-%20Diophantine%20Approximations.zip) |
-| artifact/source ZIP | 4.0372 | [90 Artifacts - Minkowski - Geometry of Numbers.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Minkowski%20-%20Geometry%20of%20Numbers.zip) |
-| artifact/source ZIP | 109.0389 | [90 Artifacts - Non-European Mathematics - Sources TeX and Audits.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Non-European%20Mathematics%20-%20Sources%20TeX%20and%20Audits.zip) |
-| artifact/source ZIP | 6.0796 | [90 Artifacts - Picard - Traite d analyse.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Picard%20-%20Traite%20d%20analyse.zip) |
-| artifact/source ZIP | 9.1885 | [90 Artifacts - Poincare - Oeuvres.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Poincare%20-%20Oeuvres.zip) |
-| artifact/source ZIP | 164.4996 | [90 Artifacts - Refined Non-Scan TeX Source Artifacts.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Refined%20Non-Scan%20TeX%20Source%20Artifacts.zip) |
-| artifact/source ZIP | 3.3523 | [90 Artifacts - Riemann - Gesammelte Werke Complete Draft.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Riemann%20-%20Gesammelte%20Werke%20Complete%20Draft.zip) |
-| artifact/source ZIP | 44.8768 | [90 Artifacts - Riemann - Selected Papers.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Riemann%20-%20Selected%20Papers.zip) |
-| artifact/source ZIP | 705.1455 | [90 Artifacts - SGA - Translation Sources and Working TeX 1-7.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20SGA%20-%20Translation%20Sources%20and%20Working%20TeX%201-7.zip) |
-| artifact/source ZIP | 2.8240 | [90 Artifacts - Weber - Lehrbuch der Algebra Page-Range Draft.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Weber%20-%20Lehrbuch%20der%20Algebra%20Page-Range%20Draft.zip) |
-| artifact/source ZIP | 4.8486 | [90 Artifacts - Weber - Lehrbuch der Algebra Volume I Complete Draft.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Weber%20-%20Lehrbuch%20der%20Algebra%20Volume%20I%20Complete%20Draft.zip) |
-| artifact/source ZIP | 17.3632 | [90 Artifacts - Weber - Lehrbuch der Algebra Volume I.zip](https://zenodo.org/records/20415117/files/90%20Artifacts%20-%20Weber%20-%20Lehrbuch%20der%20Algebra%20Volume%20I.zip) |
-| artifact/source ZIP | 0.5407 | [98 Audit - Reader Surface QC and Demotions.zip](https://zenodo.org/records/20415117/files/98%20Audit%20-%20Reader%20Surface%20QC%20and%20Demotions.zip) |
-| manifest/status | 0.0095 | [98 Manifest - Added Source Artifacts.csv](https://zenodo.org/records/20415117/files/98%20Manifest%20-%20Added%20Source%20Artifacts.csv) |
-| manifest/status | 0.0032 | [98 Metadata - Public Project Map Summary.json](https://zenodo.org/records/20415117/files/98%20Metadata%20-%20Public%20Project%20Map%20Summary.json) |
-| artifact/source ZIP | 3.9386 | [98 Metadata - Release History and Audits.zip](https://zenodo.org/records/20415117/files/98%20Metadata%20-%20Release%20History%20and%20Audits.zip) |
-| manifest/status | 0.0038 | [98 Metadata - SGA Reader QC Summary.json](https://zenodo.org/records/20415117/files/98%20Metadata%20-%20SGA%20Reader%20QC%20Summary.json) |
-| manifest/status | 0.0011 | [98 README - SGA Reader QC.txt](https://zenodo.org/records/20415117/files/98%20README%20-%20SGA%20Reader%20QC.txt) |
-| artifact/source ZIP | 2256.5455 | [99 Complete Bulk Archive - Modern LaTeX Corpus.zip](https://zenodo.org/records/20415117/files/99%20Complete%20Bulk%20Archive%20-%20Modern%20LaTeX%20Corpus.zip) |
+| reader/reference PDF | 0.1547 | [10 Reader PDF - Al-Kashi - Miftah al-Hisab.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Al-Kashi%20-%20Miftah%20al-Hisab.pdf) |
+| reader/reference PDF | 0.1602 | [10 Reader PDF - Al-Khwarizmi - Al-Jabr wa-l-Muqabala.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Al-Khwarizmi%20-%20Al-Jabr%20wa-l-Muqabala.pdf) |
+| reader/reference PDF | 0.0425 | [10 Reader PDF - Al-Tusi - Shakl al-Qatta.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Al-Tusi%20-%20Shakl%20al-Qatta.pdf) |
+| reader/reference PDF | 0.0834 | [10 Reader PDF - Aryabhata - Aryabhatiya.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Aryabhata%20-%20Aryabhatiya.pdf) |
+| reader/reference PDF | 0.2750 | [10 Reader PDF - Bhaskara II - Bijaganita.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Bhaskara%20II%20-%20Bijaganita.pdf) |
+| reader/reference PDF | 0.0658 | [10 Reader PDF - Bhaskara II - Lilavati.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Bhaskara%20II%20-%20Lilavati.pdf) |
+| reader/reference PDF | 23.9525 | [10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Complete Draft.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta%20Complete%20Draft.pdf) |
+| reader/reference PDF | 0.4780 | [10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part I.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta%20Part%20I.pdf) |
+| reader/reference PDF | 23.1783 | [10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part II.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta%20Part%20II.pdf) |
+| reader/reference PDF | 0.2970 | [10 Reader PDF - Brahmagupta - Brahmasphutasiddhanta Part III.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta%20Part%20III.pdf) |
+| reader/reference PDF | 1.1573 | [10 Reader PDF - Chinese Mathematics - Ceyuan Haijing Detail.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Chinese%20Mathematics%20-%20Ceyuan%20Haijing%20Detail.pdf) |
+| reader/reference PDF | 2.0883 | [10 Reader PDF - Darboux - Lessons on the General Theory of Surfaces.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Darboux%20-%20Lessons%20on%20the%20General%20Theory%20of%20Surfaces.pdf) |
+| reader/reference PDF | 0.5886 | [10 Reader PDF - Dedekind - Was sind und was sollen die Zahlen.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Dedekind%20-%20Was%20sind%20und%20was%20sollen%20die%20Zahlen.pdf) |
+| reader/reference PDF | 1.2779 | [10 Reader PDF - Dirichlet - Mathematische Werke.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Dirichlet%20-%20Mathematische%20Werke.pdf) |
+| reader/reference PDF | 0.1785 | [10 Reader PDF - Fricke and Klein - Automorphic Functions Volume II.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Fricke%20and%20Klein%20-%20Automorphic%20Functions%20Volume%20II.pdf) |
+| reader/reference PDF | 3.7264 | [10 Reader PDF - Hausdorff - Set Theory.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Hausdorff%20-%20Set%20Theory.pdf) |
+| reader/reference PDF | 1.4192 | [10 Reader PDF - Hecke - Lectures on Algebraic Number Theory.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Hecke%20-%20Lectures%20on%20Algebraic%20Number%20Theory.pdf) |
+| reader/reference PDF | 0.1091 | [10 Reader PDF - Killing - Transformation Groups.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Killing%20-%20Transformation%20Groups.pdf) |
+| reader/reference PDF | 1.3914 | [10 Reader PDF - Kummer - Selected Papers.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Kummer%20-%20Selected%20Papers.pdf) |
+| reader/reference PDF | 1.3968 | [10 Reader PDF - Landau - Algebraic Numbers and Ideals.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Landau%20-%20Algebraic%20Numbers%20and%20Ideals.pdf) |
+| reader/reference PDF | 1.0439 | [10 Reader PDF - Landau - Analytic and Geometric Number Theory.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Landau%20-%20Analytic%20and%20Geometric%20Number%20Theory.pdf) |
+| reader/reference PDF | 1.6267 | [10 Reader PDF - Landau - Distribution of Prime Numbers Volume I.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20I.pdf) |
+| reader/reference PDF | 0.1813 | [10 Reader PDF - Landau - Distribution of Prime Numbers Volume II Chapter 5.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II%20Chapter%205.pdf) |
+| reader/reference PDF | 0.1766 | [10 Reader PDF - Landau - Distribution of Prime Numbers Volume II Part 7.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II%20Part%207.pdf) |
+| reader/reference PDF | 0.9197 | [10 Reader PDF - Landau - Distribution of Prime Numbers Volume II.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II.pdf) |
+| reader/reference PDF | 1.3517 | [10 Reader PDF - Landau - Lectures on Number Theory Volume I.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20I.pdf) |
+| reader/reference PDF | 0.6231 | [10 Reader PDF - Landau - Lectures on Number Theory Volume II.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20II.pdf) |
+| reader/reference PDF | 0.5644 | [10 Reader PDF - Landau - Lectures on Number Theory Volume III.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20III.pdf) |
+| reader/reference PDF | 0.4878 | [10 Reader PDF - Li Ye - Ceyuan Haijing and Fenlei Shishu.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20and%20Fenlei%20Shishu.pdf) |
+| reader/reference PDF | 0.5136 | [10 Reader PDF - Li Ye - Ceyuan Haijing.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Li%20Ye%20-%20Ceyuan%20Haijing.pdf) |
+| reader/reference PDF | 0.3831 | [10 Reader PDF - Lie - Theory of Transformation Groups Volume I.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Lie%20-%20Theory%20of%20Transformation%20Groups%20Volume%20I.pdf) |
+| reader/reference PDF | 0.2771 | [10 Reader PDF - Macaulay - Algebraic Theory of Modular Systems.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Macaulay%20-%20Algebraic%20Theory%20of%20Modular%20Systems.pdf) |
+| reader/reference PDF | 1.5396 | [10 Reader PDF - Minkowski - Diophantine Approximations.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Minkowski%20-%20Diophantine%20Approximations.pdf) |
+| reader/reference PDF | 1.8564 | [10 Reader PDF - Minkowski - Geometry of Numbers.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Minkowski%20-%20Geometry%20of%20Numbers.pdf) |
+| reader/reference PDF | 0.5500 | [10 Reader PDF - Nine Chapters on the Mathematical Art.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Nine%20Chapters%20on%20the%20Mathematical%20Art.pdf) |
+| reader/reference PDF | 0.2259 | [10 Reader PDF - Omar Khayyam - Sinaat al-Jabr.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Omar%20Khayyam%20-%20Sinaat%20al-Jabr.pdf) |
+| reader/reference PDF | 2.0248 | [10 Reader PDF - Picard - Traite d analyse.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Picard%20-%20Traite%20d%20analyse.pdf) |
+| reader/reference PDF | 0.7195 | [10 Reader PDF - Qin Jiushao - Shushu Jiuzhang.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Qin%20Jiushao%20-%20Shushu%20Jiuzhang.pdf) |
+| reader/reference PDF | 2.7934 | [10 Reader PDF - Riemann - Gesammelte Werke Complete Draft.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Riemann%20-%20Gesammelte%20Werke%20Complete%20Draft.pdf) |
+| reader/reference PDF | 1.3248 | [10 Reader PDF - Riemann - Selected Papers.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Riemann%20-%20Selected%20Papers.pdf) |
+| reader/reference PDF | 0.0622 | [10 Reader PDF - Rosen - Algebra of Mohammed ben Musa 1831.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Rosen%20-%20Algebra%20of%20Mohammed%20ben%20Musa%201831.pdf) |
+| reader/reference PDF | 0.1088 | [10 Reader PDF - Ruska - Zur aeltesten arabischen Algebra 1917.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Ruska%20-%20Zur%20aeltesten%20arabischen%20Algebra%201917.pdf) |
+| reader/reference PDF | 2.4478 | [10 Reader PDF - SGA 1 - Revetements etales et groupe fondamental Modern French.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20SGA%201%20-%20Revetements%20etales%20et%20groupe%20fondamental%20Modern%20French.pdf) |
+| reader/reference PDF | 1.5039 | [10 Reader PDF - SGA 2 - Cohomologie locale Modern French.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20SGA%202%20-%20Cohomologie%20locale%20Modern%20French.pdf) |
+| reader/reference PDF | 13.5060 | [10 Reader PDF - SGA 3 - Schemas en groupes Modern French.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20SGA%203%20-%20Schemas%20en%20groupes%20Modern%20French.pdf) |
+| reader/reference PDF | 4.6265 | [10 Reader PDF - SGA 4 - Theorie des topos et cohomologie etale Modern French.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20SGA%204%20-%20Theorie%20des%20topos%20et%20cohomologie%20etale%20Modern%20French.pdf) |
+| reader/reference PDF | 0.1240 | [10 Reader PDF - Sunzi - Suanjing.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Sunzi%20-%20Suanjing.pdf) |
+| reader/reference PDF | 0.5411 | [10 Reader PDF - Yang Hui - Xiangjie Jiuzhang.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Yang%20Hui%20-%20Xiangjie%20Jiuzhang.pdf) |
+| reader/reference PDF | 2.0191 | [10 Reader PDF - Zhu Shijie - Suanxue Qimeng.pdf](https://zenodo.org/records/20458953/files/10%20Reader%20PDF%20-%20Zhu%20Shijie%20-%20Suanxue%20Qimeng.pdf) |
+| artifact/source ZIP | 135.0809 | [90 Artifacts - Additional Non-Scan TeX Source Artifacts.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Additional%20Non-Scan%20TeX%20Source%20Artifacts.zip) |
+| artifact/source ZIP | 15.8462 | [90 Artifacts - Darboux - Lessons on Geometry.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Darboux%20-%20Lessons%20on%20Geometry.zip) |
+| artifact/source ZIP | 6.5980 | [90 Artifacts - Darboux - Lessons on the General Theory of Surfaces.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Darboux%20-%20Lessons%20on%20the%20General%20Theory%20of%20Surfaces.zip) |
+| artifact/source ZIP | 19.8681 | [90 Artifacts - Dedekind - Was sind und was sollen die Zahlen.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Dedekind%20-%20Was%20sind%20und%20was%20sollen%20die%20Zahlen.zip) |
+| artifact/source ZIP | 58.4320 | [90 Artifacts - Dirichlet - Mathematische Werke.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Dirichlet%20-%20Mathematische%20Werke.zip) |
+| artifact/source ZIP | 330.6166 | [90 Artifacts - Fricke and Klein - Automorphic Functions Volume II.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Fricke%20and%20Klein%20-%20Automorphic%20Functions%20Volume%20II.zip) |
+| artifact/source ZIP | 42.2123 | [90 Artifacts - Gauss - Werke Sources and Audits.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Gauss%20-%20Werke%20Sources%20and%20Audits.zip) |
+| artifact/source ZIP | 11.7776 | [90 Artifacts - Hausdorff - Set Theory.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Hausdorff%20-%20Set%20Theory.zip) |
+| artifact/source ZIP | 3.8764 | [90 Artifacts - Hecke - Lectures on Algebraic Number Theory.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Hecke%20-%20Lectures%20on%20Algebraic%20Number%20Theory.zip) |
+| artifact/source ZIP | 10.8548 | [90 Artifacts - Hermite - Oeuvres.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Hermite%20-%20Oeuvres.zip) |
+| artifact/source ZIP | 0.3492 | [90 Artifacts - Killing - Transformation Groups.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Killing%20-%20Transformation%20Groups.zip) |
+| artifact/source ZIP | 6.7636 | [90 Artifacts - Kummer - Selected Papers.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Kummer%20-%20Selected%20Papers.zip) |
+| artifact/source ZIP | 2.6246 | [90 Artifacts - Landau - Algebraic Numbers and Ideals.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Landau%20-%20Algebraic%20Numbers%20and%20Ideals.zip) |
+| artifact/source ZIP | 13.3460 | [90 Artifacts - Landau - Analytic and Geometric Number Theory.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Landau%20-%20Analytic%20and%20Geometric%20Number%20Theory.zip) |
+| artifact/source ZIP | 3.2038 | [90 Artifacts - Landau - Distribution of Prime Numbers Volume I.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20I.zip) |
+| artifact/source ZIP | 0.4509 | [90 Artifacts - Landau - Distribution of Prime Numbers Volume II Chapter 5.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II%20Chapter%205.zip) |
+| artifact/source ZIP | 9.5131 | [90 Artifacts - Landau - Distribution of Prime Numbers Volume II Part 7.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II%20Part%207.zip) |
+| artifact/source ZIP | 8.1318 | [90 Artifacts - Landau - Distribution of Prime Numbers Volume II.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Landau%20-%20Distribution%20of%20Prime%20Numbers%20Volume%20II.zip) |
+| artifact/source ZIP | 3.0296 | [90 Artifacts - Landau - Lectures on Number Theory Volume I.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20I.zip) |
+| artifact/source ZIP | 133.7728 | [90 Artifacts - Landau - Lectures on Number Theory Volume II.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20II.zip) |
+| artifact/source ZIP | 1.2362 | [90 Artifacts - Landau - Lectures on Number Theory Volume III.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Landau%20-%20Lectures%20on%20Number%20Theory%20Volume%20III.zip) |
+| artifact/source ZIP | 225.2362 | [90 Artifacts - Lie - Theory of Transformation Groups Volume I.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Lie%20-%20Theory%20of%20Transformation%20Groups%20Volume%20I.zip) |
+| artifact/source ZIP | 0.9590 | [90 Artifacts - Macaulay - Algebraic Theory of Modular Systems.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Macaulay%20-%20Algebraic%20Theory%20of%20Modular%20Systems.zip) |
+| artifact/source ZIP | 3.1303 | [90 Artifacts - Minkowski - Diophantine Approximations.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Minkowski%20-%20Diophantine%20Approximations.zip) |
+| artifact/source ZIP | 4.0372 | [90 Artifacts - Minkowski - Geometry of Numbers.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Minkowski%20-%20Geometry%20of%20Numbers.zip) |
+| artifact/source ZIP | 109.0389 | [90 Artifacts - Non-European Mathematics - Sources TeX and Audits.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Non-European%20Mathematics%20-%20Sources%20TeX%20and%20Audits.zip) |
+| artifact/source ZIP | 6.0796 | [90 Artifacts - Picard - Traite d analyse.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Picard%20-%20Traite%20d%20analyse.zip) |
+| artifact/source ZIP | 9.1885 | [90 Artifacts - Poincare - Oeuvres.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Poincare%20-%20Oeuvres.zip) |
+| artifact/source ZIP | 164.4996 | [90 Artifacts - Refined Non-Scan TeX Source Artifacts.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Refined%20Non-Scan%20TeX%20Source%20Artifacts.zip) |
+| artifact/source ZIP | 3.3523 | [90 Artifacts - Riemann - Gesammelte Werke Complete Draft.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Riemann%20-%20Gesammelte%20Werke%20Complete%20Draft.zip) |
+| artifact/source ZIP | 44.8768 | [90 Artifacts - Riemann - Selected Papers.zip](https://zenodo.org/records/20458953/files/90%20Artifacts%20-%20Riemann%20-%20Selected%20Papers.zip) |
+| artifact/source ZIP | 2256.5455 | [99 Complete Bulk Archive - Modern LaTeX Corpus.zip](https://zenodo.org/records/20458953/files/99%20Complete%20Bulk%20Archive%20-%20Modern%20LaTeX%20Corpus.zip) |
+| artifact/source ZIP | 1843.8614 | [99 Full Repository Preservation - Current Working Inputs - Part 01 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2001%20of%2010.zip) |
+| artifact/source ZIP | 748.2051 | [99 Full Repository Preservation - Current Working Inputs - Part 02 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2002%20of%2010.zip) |
+| artifact/source ZIP | 1843.6024 | [99 Full Repository Preservation - Current Working Inputs - Part 03 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2003%20of%2010.zip) |
+| artifact/source ZIP | 1843.4427 | [99 Full Repository Preservation - Current Working Inputs - Part 04 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2004%20of%2010.zip) |
+| artifact/source ZIP | 1843.1034 | [99 Full Repository Preservation - Current Working Inputs - Part 05 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2005%20of%2010.zip) |
+| artifact/source ZIP | 1841.9671 | [99 Full Repository Preservation - Current Working Inputs - Part 06 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2006%20of%2010.zip) |
+| artifact/source ZIP | 1842.7115 | [99 Full Repository Preservation - Current Working Inputs - Part 07 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2007%20of%2010.zip) |
+| artifact/source ZIP | 1816.8782 | [99 Full Repository Preservation - Current Working Inputs - Part 08 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2008%20of%2010.zip) |
+| artifact/source ZIP | 1787.0213 | [99 Full Repository Preservation - Current Working Inputs - Part 09 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2009%20of%2010.zip) |
+| artifact/source ZIP | 1486.7126 | [99 Full Repository Preservation - Current Working Inputs - Part 10 of 10.zip](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Current%20Working%20Inputs%20-%20Part%2010%20of%2010.zip) |
+| manifest/status | 6.6308 | [99 Full Repository Preservation - Manifest.csv](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20Manifest.csv) |
+| manifest/status | 0.0013 | [99 Full Repository Preservation - README.txt](https://zenodo.org/records/20458953/files/99%20Full%20Repository%20Preservation%20-%20README.txt) |
+| reader/reference PDF | 0.0295 | [Project Workflow and Replication Notes.pdf](https://zenodo.org/records/20458953/files/Project%20Workflow%20and%20Replication%20Notes.pdf) |
+| artifact/source ZIP | 0.1045 | [Workflow Replication Packet - Scripts, Tooling Notes, and Manifests.zip](https://zenodo.org/records/20458953/files/Workflow%20Replication%20Packet%20-%20Scripts%2C%20Tooling%20Notes%2C%20and%20Manifests.zip) |
 
 ## AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
-Record: <https://zenodo.org/records/21424987>
+Record: <https://doi.org/10.5281/zenodo.20461174>
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -140,7 +135,7 @@ Record: <https://zenodo.org/records/21424987>
 
 ## Interlanguage and Constructed-Language Mathematical Translation Methodology
 
-Record: <https://zenodo.org/records/21423647>
+Record: <https://doi.org/10.5281/zenodo.21124403>
 
 Methodology, source-body, provenance, and bounded-output sidecar for interlanguage and constructed-language mathematical translation. Current version 21423647 fronts the v0.12 six-page fleet map, retains Romance v10, Interslavic v0.6, source-body, automata, provenance, and Noether R823 gate layers, and adds stable controls for all eight language-management lanes. Its compact 192-file snapshot includes bounded working outputs for Somali/Oromo, Arabic/Iranian Persian, Indonesian, Kyrgyz, Uyghur, and Uzbek while excluding moving SGA workpasses. These artifacts retain explicit native-review, source-reconciliation, and critical-edition caveats.
 
@@ -199,22 +194,22 @@ Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-can
 
 Record: <https://doi.org/10.5281/zenodo.20822444>
 
-Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21421058 replaces the earlier paper-first surface with a readable Project Atlas, a 195-page bookmarked results compendium, exact Lean/Python checks and ledgers, editable working texts, and replayable visualization/data packages. Its reference-closure gate includes every publicly cited packet dependency through Packets 198-202 and the restored Packet 076 evidence. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.
+Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21425117 fronts an 11-page Project Atlas and a 199-page bookmarked results compendium, with exact Lean/Python checks and ledgers, editable working texts, and replayable visualization/data packages. It adds the Part 8-C2B residual-Niemeier audit as an atomic six-file proof/check bundle while preserving the external-theorem and open-interface boundaries. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.0879 | [00_PROJECT_ATLAS_20260717.pdf](https://zenodo.org/records/21421058/files/00_PROJECT_ATLAS_20260717.pdf) |
-| manifest/status | 0.0255 | [01_PROJECT_ATLAS_20260717.md](https://zenodo.org/records/21421058/files/01_PROJECT_ATLAS_20260717.md) |
-| reader/reference PDF | 16.4132 | [02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf](https://zenodo.org/records/21421058/files/02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf) |
-| artifact/source ZIP | 1.1537 | [03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip](https://zenodo.org/records/21421058/files/03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip) |
-| reader/reference PDF | 27.9045 | [04_VISUAL_ATLAS_20260717.pdf](https://zenodo.org/records/21421058/files/04_VISUAL_ATLAS_20260717.pdf) |
-| artifact/source ZIP | 62.7597 | [05_VISUALIZATIONS_AND_DATA_20260717.zip](https://zenodo.org/records/21421058/files/05_VISUALIZATIONS_AND_DATA_20260717.zip) |
-| artifact/source ZIP | 0.6134 | [06_CURRENT_WORKING_TEXTS_20260717.zip](https://zenodo.org/records/21421058/files/06_CURRENT_WORKING_TEXTS_20260717.zip) |
-| manifest/status | 0.0065 | [CHANGELOG.md](https://zenodo.org/records/21421058/files/CHANGELOG.md) |
-| manifest/status | 0.0167 | [MANIFEST.json](https://zenodo.org/records/21421058/files/MANIFEST.json) |
-| manifest/status | 0.0045 | [PROVENANCE_AND_RIGHTS.md](https://zenodo.org/records/21421058/files/PROVENANCE_AND_RIGHTS.md) |
-| manifest/status | 0.0038 | [README.md](https://zenodo.org/records/21421058/files/README.md) |
-| manifest/status | 0.0010 | [SHA256SUMS.txt](https://zenodo.org/records/21421058/files/SHA256SUMS.txt) |
+| reader/reference PDF | 0.0947 | [00_PROJECT_ATLAS_20260717.pdf](https://zenodo.org/records/21425117/files/00_PROJECT_ATLAS_20260717.pdf) |
+| manifest/status | 0.0286 | [01_PROJECT_ATLAS_20260717.md](https://zenodo.org/records/21425117/files/01_PROJECT_ATLAS_20260717.md) |
+| reader/reference PDF | 16.6693 | [02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf](https://zenodo.org/records/21425117/files/02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf) |
+| artifact/source ZIP | 1.4081 | [03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip](https://zenodo.org/records/21425117/files/03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip) |
+| reader/reference PDF | 27.9045 | [04_VISUAL_ATLAS_20260717.pdf](https://zenodo.org/records/21425117/files/04_VISUAL_ATLAS_20260717.pdf) |
+| artifact/source ZIP | 62.7597 | [05_VISUALIZATIONS_AND_DATA_20260717.zip](https://zenodo.org/records/21425117/files/05_VISUALIZATIONS_AND_DATA_20260717.zip) |
+| artifact/source ZIP | 0.6134 | [06_CURRENT_WORKING_TEXTS_20260717.zip](https://zenodo.org/records/21425117/files/06_CURRENT_WORKING_TEXTS_20260717.zip) |
+| manifest/status | 0.0078 | [CHANGELOG.md](https://zenodo.org/records/21425117/files/CHANGELOG.md) |
+| manifest/status | 0.0171 | [MANIFEST.json](https://zenodo.org/records/21425117/files/MANIFEST.json) |
+| manifest/status | 0.0054 | [PROVENANCE_AND_RIGHTS.md](https://zenodo.org/records/21425117/files/PROVENANCE_AND_RIGHTS.md) |
+| manifest/status | 0.0049 | [README.md](https://zenodo.org/records/21425117/files/README.md) |
+| manifest/status | 0.0010 | [SHA256SUMS.txt](https://zenodo.org/records/21425117/files/SHA256SUMS.txt) |
 
 ## Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Readers
 
@@ -411,7 +406,7 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 ## SGA 5 and SGA 6: Modern LaTeX Working Editions, English Translations, Source Repair, and Audit Materials
 
-Record: <https://zenodo.org/records/21424602>
+Record: <https://doi.org/10.5281/zenodo.20410947>
 
 Current SGA public surface is record 21424602. It fronts the 309-page source-aware English SGA5 working translation, directly exposes the corrected 381-page SGA6 full-range layered English reader, and updates the French SGA6 source-rescribe working reader to a 374-page idx684 checkpoint. The French linear pass has processed through source idx684 / volume p.671 / Expose XIV p.5, with idx685 next; material after the cursor remains inherited scaffold, and the ledger retains explicit deferred systematic and page-spanning issues. The idx684 package adds editable release/upstream TeX, the complete pagewise ledger, errata, an idx663-684 high-resolution source delta, boundary witnesses, render checks, build evidence, and hashes. The SGA6 English authority boundary remains explicit: source-PDF 001-525 is inherited and only partially synchronized; idx532-662 is synchronized against the directly checked French layer available when that reader was built; and idx663-702 plus terminal back matter is a scan-checked English draft pending later French reconciliation. The bounded Spanish Expose X idx532-537 tranche remains public. These are substantive source-aware working editions and translations, not independently human-certified critical editions, uniform whole-volume source certification, diagram-by-diagram certification, whole-SGA completion, or guarantees that every source ambiguity has been resolved.
 
@@ -433,112 +428,20 @@ Current SGA public surface is record 21424602. It fronts the 309-page source-awa
 | artifact/source ZIP | 139.3061 | [06_SGA6_English_FullRange_TeX_Ledgers_and_RenderQA_CORRECTED_20260718.zip](https://zenodo.org/records/21424602/files/06_SGA6_English_FullRange_TeX_Ledgers_and_RenderQA_CORRECTED_20260718.zip) |
 | manifest/status | 0.0031 | [99_SGA_Public_Status_NotCritical_EnglishFullRange_SpanishT001_20260718.md](https://zenodo.org/records/21424602/files/99_SGA_Public_Status_NotCritical_EnglishFullRange_SpanishT001_20260718.md) |
 
-## Pierre Deligne Papers: Modern LaTeX Drafts and English Translation Drafts
+## Pierre Deligne Papers and Letters: Working Translation Drafts and Source/QA Packets
 
 Record: <https://doi.org/10.5281/zenodo.20410853>
 
+Current reader-first surface is version 21212608. It directly exposes the sequential English and French working readers through Papers 001-016p080 and groups individual paper/letter PDFs and the TeX/source/QA material into four archives. These are uneven working drafts and repair material, not a critical edition or blanket source-faithfulness claim; diagram-heavy and equation-dense pieces still require direct source comparison.
+
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 5.6274 | [00-000 Deligne - Sequential Cumulative Papers 001-016p080 - English Translation.pdf](https://zenodo.org/records/20617786/files/00-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-016p080%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2635 | [00-001 Deligne - Congruences for the Number of Subgroups - English Translation.pdf](https://zenodo.org/records/20617786/files/00-001%20Deligne%20-%20Congruences%20for%20the%20Number%20of%20Subgroups%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3278 | [00-002 Deligne - Cohomology with Proper Support - English Translation.pdf](https://zenodo.org/records/20617786/files/00-002%20Deligne%20-%20Cohomology%20with%20Proper%20Support%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2728 | [00-003 Deligne - Lefschetz Theorem - English Translation.pdf](https://zenodo.org/records/20617786/files/00-003%20Deligne%20-%20Lefschetz%20Theorem%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1706 | [00-004 Deligne - Ordinary Abelian Varieties - English Translation.pdf](https://zenodo.org/records/20617786/files/00-004%20Deligne%20-%20Ordinary%20Abelian%20Varieties%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.8845 | [00-005 Deligne and Mumford - Irreducibility of the Space of Curves - English Translation.pdf](https://zenodo.org/records/20617786/files/00-005%20Deligne%20and%20Mumford%20-%20Irreducibility%20of%20the%20Space%20of%20Curves%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3404 | [00-006 Deligne - l-adic Modular Forms - English Translation.pdf](https://zenodo.org/records/20617786/files/00-006%20Deligne%20-%20l-adic%20Modular%20Forms%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2802 | [00-007 Deligne - Griffiths Work - English Translation.pdf](https://zenodo.org/records/20617786/files/00-007%20Deligne%20-%20Griffiths%20Work%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3711 | [00-008 Deligne - Works of Shimura - English Translation.pdf](https://zenodo.org/records/20617786/files/00-008%20Deligne%20-%20Works%20of%20Shimura%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2593 | [00-009 Deligne - Hodge Theory I - English Translation.pdf](https://zenodo.org/records/20617786/files/00-009%20Deligne%20-%20Hodge%20Theory%20I%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4910 | [00-010 Deligne - Hodge Theory II - English Translation.pdf](https://zenodo.org/records/20617786/files/00-010%20Deligne%20-%20Hodge%20Theory%20II%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2618 | [00-011 Deligne - Congruence Between Multinomial Coefficients - English Translation.pdf](https://zenodo.org/records/20617786/files/00-011%20Deligne%20-%20Congruence%20Between%20Multinomial%20Coefficients%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3652 | [00-012 Deligne - The Weil Conjecture for K3 Surfaces - English Translation.pdf](https://zenodo.org/records/20617786/files/00-012%20Deligne%20-%20The%20Weil%20Conjecture%20for%20K3%20Surfaces%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2475 | [00-013 Deligne - Complete Intersections of Hodge Level One - English Translation.pdf](https://zenodo.org/records/20617786/files/00-013%20Deligne%20-%20Complete%20Intersections%20of%20Hodge%20Level%20One%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3316 | [00-014 Deligne - Buildings of Generalized Braid Groups, Pages 1-30 - English Translation.pdf](https://zenodo.org/records/20617786/files/00-014%20Deligne%20-%20Buildings%20of%20Generalized%20Braid%20Groups%2C%20Pages%201-30%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2403 | [00-015 Deligne - Unirational Non-Rational Varieties - English Translation.pdf](https://zenodo.org/records/20617786/files/00-015%20Deligne%20-%20Unirational%20Non-Rational%20Varieties%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.6407 | [00-032 Deligne - The Weil Conjecture II - English Translation.pdf](https://zenodo.org/records/20617786/files/00-032%20Deligne%20-%20The%20Weil%20Conjecture%20II%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1373 | [00-042 Deligne - Integration over a Vanishing Cycle - English Translation.pdf](https://zenodo.org/records/20617786/files/00-042%20Deligne%20-%20Integration%20over%20a%20Vanishing%20Cycle%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2853 | [00-045 Deligne - Gabber&#x27;s Lemma - English Translation.pdf](https://zenodo.org/records/20617786/files/00-045%20Deligne%20-%20Gabber%27s%20Lemma%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2226 | [00-056 Deligne - The Heisenberg Group and Reality - English Translation.pdf](https://zenodo.org/records/20617786/files/00-056%20Deligne%20-%20The%20Heisenberg%20Group%20and%20Reality%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.0726 | [00-057 Deligne - The Tame Symbol - English Translation.pdf](https://zenodo.org/records/20617786/files/00-057%20Deligne%20-%20The%20Tame%20Symbol%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2014 | [00-058 Deligne - Real Mixed Hodge Structures - English Translation.pdf](https://zenodo.org/records/20617786/files/00-058%20Deligne%20-%20Real%20Mixed%20Hodge%20Structures%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2996 | [00-069 Deligne - Action of the Braid Group on a Category - English Translation.pdf](https://zenodo.org/records/20617786/files/00-069%20Deligne%20-%20Action%20of%20the%20Braid%20Group%20on%20a%20Category%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2418 | [00-070 Deligne - Some Master Ideas in the Work of A. Grothendieck - English Translation.pdf](https://zenodo.org/records/20617786/files/00-070%20Deligne%20-%20Some%20Master%20Ideas%20in%20the%20Work%20of%20A.%20Grothendieck%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1162 | [00-071 Deligne - The Cohomology Algebra of the Complement of a Finite Family of Affine Subspaces - English Translation.pdf](https://zenodo.org/records/20617786/files/00-071%20Deligne%20-%20The%20Cohomology%20Algebra%20of%20the%20Complement%20of%20a%20Finite%20Family%20of%20Affine%20Subspaces%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4898 | [00-078 Deligne - Paper 078 Pages 1-56 - English Translation.pdf](https://zenodo.org/records/20617786/files/00-078%20Deligne%20-%20Paper%20078%20Pages%201-56%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4593 | [00-079 Deligne - Voevodsky Lectures on Motivic Cohomology 2000-2001 - English Translation.pdf](https://zenodo.org/records/20617786/files/00-079%20Deligne%20-%20Voevodsky%20Lectures%20on%20Motivic%20Cohomology%202000-2001%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3079 | [00-080 Deligne - Numerical Equivalence, Cohomological Equivalence, and Lefschetz Theory - English Translation.pdf](https://zenodo.org/records/20617786/files/00-080%20Deligne%20-%20Numerical%20Equivalence%2C%20Cohomological%20Equivalence%2C%20and%20Lefschetz%20Theory%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2049 | [00-081 Deligne - Extended Euler Congruence - English Translation.pdf](https://zenodo.org/records/20617786/files/00-081%20Deligne%20-%20Extended%20Euler%20Congruence%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4244 | [00-082 Deligne - The Fundamental Group of Gm minus muN - English Translation.pdf](https://zenodo.org/records/20617786/files/00-082%20Deligne%20-%20The%20Fundamental%20Group%20of%20Gm%20minus%20muN%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2498 | [00-083 Deligne - The Nagata Embedding Theorem - English Translation.pdf](https://zenodo.org/records/20617786/files/00-083%20Deligne%20-%20The%20Nagata%20Embedding%20Theorem%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2769 | [00-084 Deligne - Finiteness of the Extension Generated by Frobenius Traces - English Translation.pdf](https://zenodo.org/records/20617786/files/00-084%20Deligne%20-%20Finiteness%20of%20the%20Extension%20Generated%20by%20Frobenius%20Traces%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3545 | [00-085 Deligne - Multizetas, after Francis Brown - English Translation.pdf](https://zenodo.org/records/20617786/files/00-085%20Deligne%20-%20Multizetas%2C%20after%20Francis%20Brown%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.5444 | [00-086 Deligne - Counting Local Systems with Principal Unipotent Local Monodromy - English Translation.pdf](https://zenodo.org/records/20617786/files/00-086%20Deligne%20-%20Counting%20Local%20Systems%20with%20Principal%20Unipotent%20Local%20Monodromy%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3486 | [00-087 Deligne - Semisimplicity of Tensor Products in Characteristic p - English Translation.pdf](https://zenodo.org/records/20617786/files/00-087%20Deligne%20-%20Semisimplicity%20of%20Tensor%20Products%20in%20Characteristic%20p%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2967 | [00-088 Deligne - Counting l-adic Sheaves - English Translation.pdf](https://zenodo.org/records/20617786/files/00-088%20Deligne%20-%20Counting%20l-adic%20Sheaves%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4064 | [00-089 Deligne - The First Fundamental Theorem of Invariant Theory - English Translation.pdf](https://zenodo.org/records/20617786/files/00-089%20Deligne%20-%20The%20First%20Fundamental%20Theorem%20of%20Invariant%20Theory%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.4885 | [00-090 Deligne - Complete Reducibility in Characteristic p - English Translation.pdf](https://zenodo.org/records/20617786/files/00-090%20Deligne%20-%20Complete%20Reducibility%20in%20Characteristic%20p%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1603 | [00-Letter Deligne to Illusie I (1973) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Illusie%20I%20%281973%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1095 | [00-Letter Deligne to Illusie II (1976) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Illusie%20II%20%281976%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1414 | [00-Letter Deligne to Illusie III (1976) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Illusie%20III%20%281976%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2006 | [00-Letter Deligne to Illusie IV (1976) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Illusie%20IV%20%281976%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2083 | [00-Letter Deligne to Looijenga (1974) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Looijenga%20%281974%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.3486 | [00-Letter Deligne to Manin (1987), Sections 1 through 5 - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Manin%20%281987%29%2C%20Sections%201%20through%205%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1529 | [00-Letter Deligne to Millson (1987) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Millson%20%281987%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.2344 | [00-Letter Deligne to Piatetskii-Shapiro (1973) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Piatetskii-Shapiro%20%281973%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1725 | [00-Letter Deligne to Serre (2007) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Serre%20%282007%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1777 | [00-Letter Deligne to Vasiu (2011) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Vasiu%20%282011%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1730 | [00-Letter Deligne to Weil (1967) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Weil%20%281967%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 0.1342 | [00-Letter Deligne to Weil (1969) - English Translation.pdf](https://zenodo.org/records/20617786/files/00-Letter%20Deligne%20to%20Weil%20%281969%29%20-%20English%20Translation.pdf) |
-| reader/reference PDF | 5.7085 | [01-000 Deligne - Sequential Cumulative Papers 001-016p080 - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-016p080%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2713 | [01-001 Deligne - Congruences sur le nombre de sous-groupes - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-001%20Deligne%20-%20Congruences%20sur%20le%20nombre%20de%20sous-groupes%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3277 | [01-002 Deligne - Cohomologie a support propre - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-002%20Deligne%20-%20Cohomologie%20a%20support%20propre%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3046 | [01-003 Deligne - Theoreme de Lefschetz - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-003%20Deligne%20-%20Theoreme%20de%20Lefschetz%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.1719 | [01-004 Deligne - Varietes abeliennes ordinaires - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-004%20Deligne%20-%20Varietes%20abeliennes%20ordinaires%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.8505 | [01-005 Deligne and Mumford - Irreductibilite de l&#x27;espace des courbes - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-005%20Deligne%20and%20Mumford%20-%20Irreductibilite%20de%20l%27espace%20des%20courbes%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3439 | [01-006 Deligne - Formes modulaires l-adiques - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-006%20Deligne%20-%20Formes%20modulaires%20l-adiques%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2825 | [01-007 Deligne - Travaux de Griffiths - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-007%20Deligne%20-%20Travaux%20de%20Griffiths%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3747 | [01-008 Deligne - Travaux de Shimura - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-008%20Deligne%20-%20Travaux%20de%20Shimura%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2606 | [01-009 Deligne - Theorie de Hodge I - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-009%20Deligne%20-%20Theorie%20de%20Hodge%20I%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.4963 | [01-010 Deligne - Theorie de Hodge II - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-010%20Deligne%20-%20Theorie%20de%20Hodge%20II%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2607 | [01-011 Deligne - Congruence entre coefficients multinomiaux - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-011%20Deligne%20-%20Congruence%20entre%20coefficients%20multinomiaux%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3690 | [01-012 Deligne - La conjecture de Weil pour les surfaces K3 - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-012%20Deligne%20-%20La%20conjecture%20de%20Weil%20pour%20les%20surfaces%20K3%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2513 | [01-013 Deligne - Intersections completes de niveau de Hodge un - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-013%20Deligne%20-%20Intersections%20completes%20de%20niveau%20de%20Hodge%20un%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3350 | [01-014 Deligne - Immeubles des groupes de tresses generalises, Pages 1-30 - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-014%20Deligne%20-%20Immeubles%20des%20groupes%20de%20tresses%20generalises%2C%20Pages%201-30%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2438 | [01-015 Deligne - Varietes unirationnelles non rationnelles - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-015%20Deligne%20-%20Varietes%20unirationnelles%20non%20rationnelles%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 2.3794 | [01-032 Deligne - La conjecture de Weil II - French Source Reference.pdf](https://zenodo.org/records/20617786/files/01-032%20Deligne%20-%20La%20conjecture%20de%20Weil%20II%20-%20French%20Source%20Reference.pdf) |
-| reader/reference PDF | 0.1372 | [01-042 Deligne - Integration sur un cycle evanescent - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-042%20Deligne%20-%20Integration%20sur%20un%20cycle%20evanescent%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.0890 | [01-056 Deligne - Groupe de Heisenberg et realite - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-056%20Deligne%20-%20Groupe%20de%20Heisenberg%20et%20realite%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2036 | [01-058 Deligne - Structures de Hodge mixtes reelles - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-058%20Deligne%20-%20Structures%20de%20Hodge%20mixtes%20reelles%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2443 | [01-070 Deligne - Quelques idees maitresses de l oeuvre de Grothendieck - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-070%20Deligne%20-%20Quelques%20idees%20maitresses%20de%20l%20oeuvre%20de%20Grothendieck%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.4968 | [01-078 Deligne - Paper 078 Pages 1-56 - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-078%20Deligne%20-%20Paper%20078%20Pages%201-56%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.4685 | [01-079 Deligne - Exposes de Voevodsky sur la cohomologie motivique 2000-2001 - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-079%20Deligne%20-%20Exposes%20de%20Voevodsky%20sur%20la%20cohomologie%20motivique%202000-2001%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3097 | [01-080 Deligne - Equivalence numerique, equivalence cohomologique, et theorie de Lefschetz - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-080%20Deligne%20-%20Equivalence%20numerique%2C%20equivalence%20cohomologique%2C%20et%20theorie%20de%20Lefschetz%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2051 | [01-081 Deligne - Congruence d Euler etendue - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-081%20Deligne%20-%20Congruence%20d%20Euler%20etendue%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.4286 | [01-082 Deligne - Le groupe fondamental de Gm moins muN - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-082%20Deligne%20-%20Le%20groupe%20fondamental%20de%20Gm%20moins%20muN%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2502 | [01-083 Deligne - Le theoreme de plongement de Nagata - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-083%20Deligne%20-%20Le%20theoreme%20de%20plongement%20de%20Nagata%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3500 | [01-084 Deligne - Finitude de l extension engendree par les traces de Frobenius - French Source Working PDF.pdf](https://zenodo.org/records/20617786/files/01-084%20Deligne%20-%20Finitude%20de%20l%20extension%20engendree%20par%20les%20traces%20de%20Frobenius%20-%20French%20Source%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3561 | [01-085 Deligne - Multizetas, d apres Francis Brown - French Source Working PDF.pdf](https://zenodo.org/records/20617786/files/01-085%20Deligne%20-%20Multizetas%2C%20d%20apres%20Francis%20Brown%20-%20French%20Source%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.5536 | [01-086 Deligne - Comptage de systemes locaux a monodromie locale unipotente - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-086%20Deligne%20-%20Comptage%20de%20systemes%20locaux%20a%20monodromie%20locale%20unipotente%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3498 | [01-087 Deligne - Semi-simplicite de produits tensoriels en caracteristique p - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-087%20Deligne%20-%20Semi-simplicite%20de%20produits%20tensoriels%20en%20caracteristique%20p%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2997 | [01-088 Deligne - Comptage de faisceaux l-adiques - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-088%20Deligne%20-%20Comptage%20de%20faisceaux%20l-adiques%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.4118 | [01-089 Deligne - Le premier theoreme fondamental de la theorie des invariants - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-089%20Deligne%20-%20Le%20premier%20theoreme%20fondamental%20de%20la%20theorie%20des%20invariants%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.4886 | [01-090 Deligne - Complete reductibilite en caracteristique p - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-090%20Deligne%20-%20Complete%20reductibilite%20en%20caracteristique%20p%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.1606 | [01-Letter Deligne to Illusie I (1973) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Illusie%20I%20%281973%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.1096 | [01-Letter Deligne to Illusie II (1976) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Illusie%20II%20%281976%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.1413 | [01-Letter Deligne to Illusie III (1976) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Illusie%20III%20%281976%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2020 | [01-Letter Deligne to Illusie IV (1976) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Illusie%20IV%20%281976%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2091 | [01-Letter Deligne to Looijenga (1974) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Looijenga%20%281974%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.3398 | [01-Letter Deligne to Manin (1987), Sections 1 through 5 - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Manin%20%281987%29%2C%20Sections%201%20through%205%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.1545 | [01-Letter Deligne to Millson (1987) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Millson%20%281987%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.2368 | [01-Letter Deligne to Piatetskii-Shapiro (1973) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Piatetskii-Shapiro%20%281973%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.1732 | [01-Letter Deligne to Serre (2007) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Serre%20%282007%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.1778 | [01-Letter Deligne to Vasiu (2011) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Vasiu%20%282011%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.1774 | [01-Letter Deligne to Weil (1967) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Weil%20%281967%29%20-%20French%20Working%20PDF.pdf) |
-| reader/reference PDF | 0.1351 | [01-Letter Deligne to Weil (1969) - French Working PDF.pdf](https://zenodo.org/records/20617786/files/01-Letter%20Deligne%20to%20Weil%20%281969%29%20-%20French%20Working%20PDF.pdf) |
-| artifact/source ZIP | 139.7854 | [90 Deligne - Paper-Level Translation TeX and PDFs.zip](https://zenodo.org/records/20617786/files/90%20Deligne%20-%20Paper-Level%20Translation%20TeX%20and%20PDFs.zip) |
-| artifact/source ZIP | 21.1950 | [95 Deligne - Source-Checked Papers 001-016p080 TeX Scans and QA.zip](https://zenodo.org/records/20617786/files/95%20Deligne%20-%20Source-Checked%20Papers%20001-016p080%20TeX%20Scans%20and%20QA.zip) |
-| artifact/source ZIP | 246.1374 | [95 Pierre Deligne - Update Packets 2026-06-09 v3.zip](https://zenodo.org/records/20617786/files/95%20Pierre%20Deligne%20-%20Update%20Packets%202026-06-09%20v3.zip) |
-| manifest/status | 0.0013 | [99 Deligne - Public Summary.json](https://zenodo.org/records/20617786/files/99%20Deligne%20-%20Public%20Summary.json) |
+| reader/reference PDF | 5.6274 | [00_Deligne_Sequential_Cumulative_Papers_001_016p080_English_WorkingDraft.pdf](https://zenodo.org/records/21212608/files/00_Deligne_Sequential_Cumulative_Papers_001_016p080_English_WorkingDraft.pdf) |
+| reader/reference PDF | 5.7085 | [01_Deligne_Sequential_Cumulative_Papers_001_016p080_French_WorkingDraft.pdf](https://zenodo.org/records/21212608/files/01_Deligne_Sequential_Cumulative_Papers_001_016p080_French_WorkingDraft.pdf) |
+| artifact/source ZIP | 14.0866 | [02_Deligne_English_Paper_and_Letter_PDFs_20260706.zip](https://zenodo.org/records/21212608/files/02_Deligne_English_Paper_and_Letter_PDFs_20260706.zip) |
+| artifact/source ZIP | 15.0161 | [03_Deligne_French_Paper_and_Letter_PDFs_20260706.zip](https://zenodo.org/records/21212608/files/03_Deligne_French_Paper_and_Letter_PDFs_20260706.zip) |
+| artifact/source ZIP | 407.1281 | [04_Deligne_TeX_Source_QA_and_Update_Packets_20260706.zip](https://zenodo.org/records/21212608/files/04_Deligne_TeX_Source_QA_and_Update_Packets_20260706.zip) |
+| manifest/status | 0.0007 | [99_Deligne_Public_Status_NotCritical_20260706.md](https://zenodo.org/records/21212608/files/99_Deligne_Public_Status_NotCritical_20260706.md) |
 
 ## Elements de Geometrie Algebrique (EGA): French Originals, OCR/Support, and Partial English Drafts
 
@@ -774,106 +677,117 @@ Legacy filename warning: inherited al-Battani files in this consolidated shelf c
 
 Record: <https://doi.org/10.5281/zenodo.20415751>
 
+Current version 20543246 provides direct English, modern-Chinese, Chinese-original, and Arabic working-reader surfaces plus filtered TeX/source archives. The Arabic files are working translation drafts whose local checks establish build/openability, not native-language or source-accuracy certification.
+
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.0387 | [00 Index - Chinese Mathematical Classics.pdf](https://zenodo.org/records/20415752/files/00%20Index%20-%20Chinese%20Mathematical%20Classics.pdf) |
-| reader/reference PDF | 4.9111 | [01 Chinese Classics - Combined English Translation Drafts.pdf](https://zenodo.org/records/20415752/files/01%20Chinese%20Classics%20-%20Combined%20English%20Translation%20Drafts.pdf) |
-| reader/reference PDF | 2.7665 | [02 Chinese Classics - Combined Modern Chinese Renderings.pdf](https://zenodo.org/records/20415752/files/02%20Chinese%20Classics%20-%20Combined%20Modern%20Chinese%20Renderings.pdf) |
-| reader/reference PDF | 0.1905 | [03 Chinese Classics - Sunzi Suanjing Arabic Translation.pdf](https://zenodo.org/records/20415752/files/03%20Chinese%20Classics%20-%20Sunzi%20Suanjing%20Arabic%20Translation.pdf) |
-| reader/reference PDF | 6.6655 | [04 Chinese Classics - Combined Original-Language Drafts.pdf](https://zenodo.org/records/20415752/files/04%20Chinese%20Classics%20-%20Combined%20Original-Language%20Drafts.pdf) |
-| reader/reference PDF | 0.7798 | [10-01 English Translation - Nine Chapters, vols. 1-9.pdf](https://zenodo.org/records/20415752/files/10-01%20English%20Translation%20-%20Nine%20Chapters%2C%20vols.%201-9.pdf) |
-| reader/reference PDF | 0.9958 | [10-02 English Translation - Li Ye - Ceyuan Haijing, vols. 1-12.pdf](https://zenodo.org/records/20415752/files/10-02%20English%20Translation%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%2C%20vols.%201-12.pdf) |
-| reader/reference PDF | 1.0495 | [10-03 English Translation - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf](https://zenodo.org/records/20415752/files/10-03%20English%20Translation%20-%20Qin%20-%20Shuxue%20Jiuzhang%2C%20fasc.%201-9.pdf) |
-| reader/reference PDF | 0.3153 | [10-04 English Translation - Sunzi Suanjing.pdf](https://zenodo.org/records/20415752/files/10-04%20English%20Translation%20-%20Sunzi%20Suanjing.pdf) |
-| reader/reference PDF | 1.0766 | [10-05 English Translation - Yang Hui - Xiangjie, parts 1-3.pdf](https://zenodo.org/records/20415752/files/10-05%20English%20Translation%20-%20Yang%20Hui%20-%20Xiangjie%2C%20parts%201-3.pdf) |
-| reader/reference PDF | 0.6890 | [10-06 English Translation - Zhu Shijie - Suanxue Qimeng, parts 1-2.pdf](https://zenodo.org/records/20415752/files/10-06%20English%20Translation%20-%20Zhu%20Shijie%20-%20Suanxue%20Qimeng%2C%20parts%201-2.pdf) |
-| reader/reference PDF | 0.2743 | [20-01 Modern Chinese - Nine Chapters, vols. 1-3.pdf](https://zenodo.org/records/20415752/files/20-01%20Modern%20Chinese%20-%20Nine%20Chapters%2C%20vols.%201-3.pdf) |
-| reader/reference PDF | 0.3496 | [20-02 Modern Chinese - Li Ye - Ceyuan Haijing, vols. 1-3.pdf](https://zenodo.org/records/20415752/files/20-02%20Modern%20Chinese%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%2C%20vols.%201-3.pdf) |
-| reader/reference PDF | 0.3424 | [20-03 Modern Chinese - Li Ye - Ceyuan Haijing Fenlei, vols. 1-3.pdf](https://zenodo.org/records/20415752/files/20-03%20Modern%20Chinese%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20Fenlei%2C%20vols.%201-3.pdf) |
-| reader/reference PDF | 0.3093 | [20-04 Modern Chinese - Qin - Shuxue Jiuzhang, fasc. 1.pdf](https://zenodo.org/records/20415752/files/20-04%20Modern%20Chinese%20-%20Qin%20-%20Shuxue%20Jiuzhang%2C%20fasc.%201.pdf) |
-| reader/reference PDF | 0.3105 | [20-05 Modern Chinese - Qin - Shuxue Jiuzhang, fasc. 5-6.pdf](https://zenodo.org/records/20415752/files/20-05%20Modern%20Chinese%20-%20Qin%20-%20Shuxue%20Jiuzhang%2C%20fasc.%205-6.pdf) |
-| reader/reference PDF | 0.3048 | [20-06 Modern Chinese - Sunzi Suanjing.pdf](https://zenodo.org/records/20415752/files/20-06%20Modern%20Chinese%20-%20Sunzi%20Suanjing.pdf) |
-| reader/reference PDF | 0.4960 | [20-07 Modern Chinese - Yang Hui - Xiangjie, part 1.pdf](https://zenodo.org/records/20415752/files/20-07%20Modern%20Chinese%20-%20Yang%20Hui%20-%20Xiangjie%2C%20part%201.pdf) |
-| reader/reference PDF | 0.3783 | [20-08 Modern Chinese - Zhu Shijie - Suanxue Qimeng, part 1.pdf](https://zenodo.org/records/20415752/files/20-08%20Modern%20Chinese%20-%20Zhu%20Shijie%20-%20Suanxue%20Qimeng%2C%20part%201.pdf) |
-| reader/reference PDF | 0.1905 | [30-01 Arabic Translation - Sunzi Suanjing.pdf](https://zenodo.org/records/20415752/files/30-01%20Arabic%20Translation%20-%20Sunzi%20Suanjing.pdf) |
-| reader/reference PDF | 0.5846 | [40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf](https://zenodo.org/records/20415752/files/40-01%20Chinese%20Original%20-%20Nine%20Chapters%2C%20vols.%201-9.pdf) |
-| reader/reference PDF | 0.5989 | [40-02 Chinese Original - Li Ye - Ceyuan Haijing, vols. 1-12.pdf](https://zenodo.org/records/20415752/files/40-02%20Chinese%20Original%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%2C%20vols.%201-12.pdf) |
-| reader/reference PDF | 0.5300 | [40-03 Chinese Original - Li Ye - Ceyuan Haijing Fenlei Shishu.pdf](https://zenodo.org/records/20415752/files/40-03%20Chinese%20Original%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20Fenlei%20Shishu.pdf) |
-| reader/reference PDF | 1.2885 | [40-04 Chinese Original - Li Ye - Ceyuan Haijing geometry.pdf](https://zenodo.org/records/20415752/files/40-04%20Chinese%20Original%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20geometry.pdf) |
-| reader/reference PDF | 0.8204 | [40-05 Chinese Original - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf](https://zenodo.org/records/20415752/files/40-05%20Chinese%20Original%20-%20Qin%20-%20Shuxue%20Jiuzhang%2C%20fasc.%201-9.pdf) |
-| reader/reference PDF | 0.1676 | [40-06 Chinese Original - Sunzi Suanjing.pdf](https://zenodo.org/records/20415752/files/40-06%20Chinese%20Original%20-%20Sunzi%20Suanjing.pdf) |
-| reader/reference PDF | 0.5811 | [40-07 Chinese Original - Yang Hui - Xiangjie, parts 1-3.pdf](https://zenodo.org/records/20415752/files/40-07%20Chinese%20Original%20-%20Yang%20Hui%20-%20Xiangjie%2C%20parts%201-3.pdf) |
-| reader/reference PDF | 2.0889 | [40-08 Chinese Original - Zhu Shijie - Suanxue Qimeng, parts 1-2.pdf](https://zenodo.org/records/20415752/files/40-08%20Chinese%20Original%20-%20Zhu%20Shijie%20-%20Suanxue%20Qimeng%2C%20parts%201-2.pdf) |
-| artifact/source ZIP | 69.6260 | [80 Chinese Mathematical Classics - TeX Sources and Artifacts.zip](https://zenodo.org/records/20415752/files/80%20Chinese%20Mathematical%20Classics%20-%20TeX%20Sources%20and%20Artifacts.zip) |
-| manifest/status | 0.0123 | [90 Chinese Mathematical Classics - Public Summary.json](https://zenodo.org/records/20415752/files/90%20Chinese%20Mathematical%20Classics%20-%20Public%20Summary.json) |
+| manifest/status | 0.0007 | [00 Chinese Mathematical Classics - Arabic Translation Completion Note.md](https://zenodo.org/records/20543246/files/00%20Chinese%20Mathematical%20Classics%20-%20Arabic%20Translation%20Completion%20Note.md) |
+| reader/reference PDF | 0.0377 | [00 Index - Chinese Mathematical Classics.pdf](https://zenodo.org/records/20543246/files/00%20Index%20-%20Chinese%20Mathematical%20Classics.pdf) |
+| reader/reference PDF | 4.7524 | [01 Chinese Classics - Combined English Translation Drafts.pdf](https://zenodo.org/records/20543246/files/01%20Chinese%20Classics%20-%20Combined%20English%20Translation%20Drafts.pdf) |
+| reader/reference PDF | 4.6254 | [02 Chinese Classics - Combined Modern Chinese Renderings.pdf](https://zenodo.org/records/20543246/files/02%20Chinese%20Classics%20-%20Combined%20Modern%20Chinese%20Renderings.pdf) |
+| reader/reference PDF | 8.6917 | [04 Chinese Classics - Combined Original-Language Drafts.pdf](https://zenodo.org/records/20543246/files/04%20Chinese%20Classics%20-%20Combined%20Original-Language%20Drafts.pdf) |
+| reader/reference PDF | 0.6418 | [10-01 English Translation - Nine Chapters, vols. 1-9.pdf](https://zenodo.org/records/20543246/files/10-01%20English%20Translation%20-%20Nine%20Chapters%2C%20vols.%201-9.pdf) |
+| reader/reference PDF | 1.2159 | [10-02 English Translation - Li Ye - Ceyuan Haijing, vols. 1-12.pdf](https://zenodo.org/records/20543246/files/10-02%20English%20Translation%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%2C%20vols.%201-12.pdf) |
+| reader/reference PDF | 1.0303 | [10-03 English Translation - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf](https://zenodo.org/records/20543246/files/10-03%20English%20Translation%20-%20Qin%20-%20Shuxue%20Jiuzhang%2C%20fasc.%201-9.pdf) |
+| reader/reference PDF | 0.2822 | [10-04 English Translation - Sunzi Suanjing.pdf](https://zenodo.org/records/20543246/files/10-04%20English%20Translation%20-%20Sunzi%20Suanjing.pdf) |
+| reader/reference PDF | 0.8255 | [10-05 English Translation - Yang Hui - Xiangjie, parts 1-3.pdf](https://zenodo.org/records/20543246/files/10-05%20English%20Translation%20-%20Yang%20Hui%20-%20Xiangjie%2C%20parts%201-3.pdf) |
+| reader/reference PDF | 0.6094 | [10-06 English Translation - Zhu Shijie - Suanxue Qimeng, parts 1-2.pdf](https://zenodo.org/records/20543246/files/10-06%20English%20Translation%20-%20Zhu%20Shijie%20-%20Suanxue%20Qimeng%2C%20parts%201-2.pdf) |
+| reader/reference PDF | 0.5832 | [20-01 Modern Chinese - Nine Chapters, vols. 1-9.pdf](https://zenodo.org/records/20543246/files/20-01%20Modern%20Chinese%20-%20Nine%20Chapters%2C%20vols.%201-9.pdf) |
+| reader/reference PDF | 0.9737 | [20-02 Modern Chinese - Li Ye - Ceyuan Haijing, vols. 1-12.pdf](https://zenodo.org/records/20543246/files/20-02%20Modern%20Chinese%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%2C%20vols.%201-12.pdf) |
+| reader/reference PDF | 0.6894 | [20-03 Modern Chinese - Li Ye - Ceyuan Haijing Fenlei Shishu.pdf](https://zenodo.org/records/20543246/files/20-03%20Modern%20Chinese%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20Fenlei%20Shishu.pdf) |
+| reader/reference PDF | 0.7975 | [20-04 Modern Chinese - Qin - Shuxue Jiuzhang, fasc. 1 and 5-9.pdf](https://zenodo.org/records/20543246/files/20-04%20Modern%20Chinese%20-%20Qin%20-%20Shuxue%20Jiuzhang%2C%20fasc.%201%20and%205-9.pdf) |
+| reader/reference PDF | 0.2066 | [20-05 Modern Chinese - Sunzi Suanjing.pdf](https://zenodo.org/records/20543246/files/20-05%20Modern%20Chinese%20-%20Sunzi%20Suanjing.pdf) |
+| reader/reference PDF | 0.8490 | [20-06 Modern Chinese - Yang Hui - Xiangjie, parts 1-3.pdf](https://zenodo.org/records/20543246/files/20-06%20Modern%20Chinese%20-%20Yang%20Hui%20-%20Xiangjie%2C%20parts%201-3.pdf) |
+| reader/reference PDF | 0.5114 | [20-07 Modern Chinese - Zhu Shijie - Suanxue Qimeng, parts 1-2.pdf](https://zenodo.org/records/20543246/files/20-07%20Modern%20Chinese%20-%20Zhu%20Shijie%20-%20Suanxue%20Qimeng%2C%20parts%201-2.pdf) |
+| reader/reference PDF | 0.9695 | [30-01 Arabic Translation - Nine Chapters, vols. 1-9.pdf](https://zenodo.org/records/20543246/files/30-01%20Arabic%20Translation%20-%20Nine%20Chapters%2C%20vols.%201-9.pdf) |
+| reader/reference PDF | 1.0906 | [30-02 Arabic Translation - Li Ye - Ceyuan Haijing, vols. 1-12.pdf](https://zenodo.org/records/20543246/files/30-02%20Arabic%20Translation%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%2C%20vols.%201-12.pdf) |
+| reader/reference PDF | 1.6865 | [30-03 Arabic Translation - Qin Jiushao - Shuxue Jiuzhang, fasc. 1-9.pdf](https://zenodo.org/records/20543246/files/30-03%20Arabic%20Translation%20-%20Qin%20Jiushao%20-%20Shuxue%20Jiuzhang%2C%20fasc.%201-9.pdf) |
+| reader/reference PDF | 0.1761 | [30-04 Arabic Translation - Sunzi Suanjing.pdf](https://zenodo.org/records/20543246/files/30-04%20Arabic%20Translation%20-%20Sunzi%20Suanjing.pdf) |
+| reader/reference PDF | 1.2130 | [30-05 Arabic Translation - Yang Hui - Xiangjie Jiuzhang, parts 1-3.pdf](https://zenodo.org/records/20543246/files/30-05%20Arabic%20Translation%20-%20Yang%20Hui%20-%20Xiangjie%20Jiuzhang%2C%20parts%201-3.pdf) |
+| reader/reference PDF | 0.8066 | [40-01 Chinese Original - Nine Chapters, vols. 1-9.pdf](https://zenodo.org/records/20543246/files/40-01%20Chinese%20Original%20-%20Nine%20Chapters%2C%20vols.%201-9.pdf) |
+| reader/reference PDF | 0.7768 | [40-02 Chinese Original - Li Ye - Ceyuan Haijing, vols. 1-12.pdf](https://zenodo.org/records/20543246/files/40-02%20Chinese%20Original%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%2C%20vols.%201-12.pdf) |
+| reader/reference PDF | 0.6228 | [40-03 Chinese Original - Li Ye - Ceyuan Haijing Fenlei Shishu.pdf](https://zenodo.org/records/20543246/files/40-03%20Chinese%20Original%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20Fenlei%20Shishu.pdf) |
+| reader/reference PDF | 1.2539 | [40-04 Chinese Original - Li Ye - Ceyuan Haijing geometry.pdf](https://zenodo.org/records/20543246/files/40-04%20Chinese%20Original%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20geometry.pdf) |
+| reader/reference PDF | 1.0926 | [40-05 Chinese Original - Qin - Shuxue Jiuzhang, fasc. 1-9.pdf](https://zenodo.org/records/20543246/files/40-05%20Chinese%20Original%20-%20Qin%20-%20Shuxue%20Jiuzhang%2C%20fasc.%201-9.pdf) |
+| reader/reference PDF | 0.2506 | [40-06 Chinese Original - Sunzi Suanjing.pdf](https://zenodo.org/records/20543246/files/40-06%20Chinese%20Original%20-%20Sunzi%20Suanjing.pdf) |
+| reader/reference PDF | 0.7911 | [40-07 Chinese Original - Yang Hui - Xiangjie, parts 1-3.pdf](https://zenodo.org/records/20543246/files/40-07%20Chinese%20Original%20-%20Yang%20Hui%20-%20Xiangjie%2C%20parts%201-3.pdf) |
+| reader/reference PDF | 3.0599 | [40-08 Chinese Original - Zhu Shijie - Suanxue Qimeng, parts 1-2.pdf](https://zenodo.org/records/20543246/files/40-08%20Chinese%20Original%20-%20Zhu%20Shijie%20-%20Suanxue%20Qimeng%2C%20parts%201-2.pdf) |
+| artifact/source ZIP | 84.3957 | [80 Chinese Mathematical Classics - TeX Sources and Artifacts.zip](https://zenodo.org/records/20543246/files/80%20Chinese%20Mathematical%20Classics%20-%20TeX%20Sources%20and%20Artifacts.zip) |
+| artifact/source ZIP | 5.2956 | [80-01 Chinese Mathematical Classics - Arabic Translation TeX and PDF Completion Package.zip](https://zenodo.org/records/20543246/files/80-01%20Chinese%20Mathematical%20Classics%20-%20Arabic%20Translation%20TeX%20and%20PDF%20Completion%20Package.zip) |
+| manifest/status | 0.0056 | [90 Chinese Mathematical Classics - Public Summary.json](https://zenodo.org/records/20543246/files/90%20Chinese%20Mathematical%20Classics%20-%20Public%20Summary.json) |
 
 ## Indian and Sanskrit Mathematical Classics: Original LaTeX and English Translation Drafts
 
 Record: <https://doi.org/10.5281/zenodo.20415754>
 
+Current version 20435677 provides reader/index PDFs and a filtered TeX/source archive for the represented Indian and Sanskrit works. These are working original-language and English translation drafts, not proofed critical editions.
+
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.0370 | [00 Index - Indian and Sanskrit Mathematical Classics.pdf](https://zenodo.org/records/20415755/files/00%20Index%20-%20Indian%20and%20Sanskrit%20Mathematical%20Classics.pdf) |
-| reader/reference PDF | 0.8259 | [01 Indian Classics - Combined English Translation Drafts.pdf](https://zenodo.org/records/20415755/files/01%20Indian%20Classics%20-%20Combined%20English%20Translation%20Drafts.pdf) |
-| reader/reference PDF | 1.9949 | [02 Indian Classics - Combined Original-Language Drafts.pdf](https://zenodo.org/records/20415755/files/02%20Indian%20Classics%20-%20Combined%20Original-Language%20Drafts.pdf) |
-| reader/reference PDF | 0.1068 | [10-07 English Translation - Aryabhata - Aryabhatiya.pdf](https://zenodo.org/records/20415755/files/10-07%20English%20Translation%20-%20Aryabhata%20-%20Aryabhatiya.pdf) |
-| reader/reference PDF | 0.3138 | [10-08 English Translation - Bhaskara II - Bijaganita, parts 1-3.pdf](https://zenodo.org/records/20415755/files/10-08%20English%20Translation%20-%20Bhaskara%20II%20-%20Bijaganita%2C%20parts%201-3.pdf) |
-| reader/reference PDF | 0.1310 | [10-09 English Translation - Bhaskara II - Lilavati.pdf](https://zenodo.org/records/20415755/files/10-09%20English%20Translation%20-%20Bhaskara%20II%20-%20Lilavati.pdf) |
-| reader/reference PDF | 0.2734 | [10-10 English Translation - Brahmagupta - Brahmasphutasiddhanta.pdf](https://zenodo.org/records/20415755/files/10-10%20English%20Translation%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta.pdf) |
-| reader/reference PDF | 0.1249 | [50-01 Indian Original - Aryabhata - Aryabhatiya.pdf](https://zenodo.org/records/20415755/files/50-01%20Indian%20Original%20-%20Aryabhata%20-%20Aryabhatiya.pdf) |
-| reader/reference PDF | 0.3210 | [50-02 Indian Original - Bhaskara II - Bijaganita, parts 1-3.pdf](https://zenodo.org/records/20415755/files/50-02%20Indian%20Original%20-%20Bhaskara%20II%20-%20Bijaganita%2C%20parts%201-3.pdf) |
-| reader/reference PDF | 0.1160 | [50-03 Indian Original - Bhaskara II - Lilavati.pdf](https://zenodo.org/records/20415755/files/50-03%20Indian%20Original%20-%20Bhaskara%20II%20-%20Lilavati.pdf) |
-| reader/reference PDF | 1.4315 | [50-04 Indian Original - Brahmagupta - Brahmasphutasiddhanta.pdf](https://zenodo.org/records/20415755/files/50-04%20Indian%20Original%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta.pdf) |
-| artifact/source ZIP | 542.9307 | [80 Indian and Sanskrit Mathematical Classics - TeX Sources and Artifacts.zip](https://zenodo.org/records/20415755/files/80%20Indian%20and%20Sanskrit%20Mathematical%20Classics%20-%20TeX%20Sources%20and%20Artifacts.zip) |
-| manifest/status | 0.0051 | [90 Indian and Sanskrit Mathematical Classics - Public Summary.json](https://zenodo.org/records/20415755/files/90%20Indian%20and%20Sanskrit%20Mathematical%20Classics%20-%20Public%20Summary.json) |
+| reader/reference PDF | 0.0362 | [00 Index - Indian and Sanskrit Mathematical Classics.pdf](https://zenodo.org/records/20435677/files/00%20Index%20-%20Indian%20and%20Sanskrit%20Mathematical%20Classics.pdf) |
+| reader/reference PDF | 2.4843 | [01 Indian Classics - Combined English Translation Drafts.pdf](https://zenodo.org/records/20435677/files/01%20Indian%20Classics%20-%20Combined%20English%20Translation%20Drafts.pdf) |
+| reader/reference PDF | 2.2679 | [02 Indian Classics - Combined Original-Language Drafts.pdf](https://zenodo.org/records/20435677/files/02%20Indian%20Classics%20-%20Combined%20Original-Language%20Drafts.pdf) |
+| reader/reference PDF | 0.1271 | [10-07 English Translation - Aryabhata - Aryabhatiya.pdf](https://zenodo.org/records/20435677/files/10-07%20English%20Translation%20-%20Aryabhata%20-%20Aryabhatiya.pdf) |
+| reader/reference PDF | 0.3544 | [10-08 English Translation - Bhaskara II - Bijaganita, parts 1-3.pdf](https://zenodo.org/records/20435677/files/10-08%20English%20Translation%20-%20Bhaskara%20II%20-%20Bijaganita%2C%20parts%201-3.pdf) |
+| reader/reference PDF | 0.1457 | [10-09 English Translation - Bhaskara II - Lilavati.pdf](https://zenodo.org/records/20435677/files/10-09%20English%20Translation%20-%20Bhaskara%20II%20-%20Lilavati.pdf) |
+| reader/reference PDF | 1.8472 | [10-10 English Translation - Brahmagupta - Brahmasphutasiddhanta.pdf](https://zenodo.org/records/20435677/files/10-10%20English%20Translation%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta.pdf) |
+| reader/reference PDF | 0.1453 | [50-01 Indian Original - Aryabhata - Aryabhatiya.pdf](https://zenodo.org/records/20435677/files/50-01%20Indian%20Original%20-%20Aryabhata%20-%20Aryabhatiya.pdf) |
+| reader/reference PDF | 0.4241 | [50-02 Indian Original - Bhaskara II - Bijaganita, parts 1-3.pdf](https://zenodo.org/records/20435677/files/50-02%20Indian%20Original%20-%20Bhaskara%20II%20-%20Bijaganita%2C%20parts%201-3.pdf) |
+| reader/reference PDF | 0.1373 | [50-03 Indian Original - Bhaskara II - Lilavati.pdf](https://zenodo.org/records/20435677/files/50-03%20Indian%20Original%20-%20Bhaskara%20II%20-%20Lilavati.pdf) |
+| reader/reference PDF | 1.5494 | [50-04 Indian Original - Brahmagupta - Brahmasphutasiddhanta.pdf](https://zenodo.org/records/20435677/files/50-04%20Indian%20Original%20-%20Brahmagupta%20-%20Brahmasphutasiddhanta.pdf) |
+| artifact/source ZIP | 689.7518 | [80 Indian and Sanskrit Mathematical Classics - TeX Sources and Artifacts.zip](https://zenodo.org/records/20435677/files/80%20Indian%20and%20Sanskrit%20Mathematical%20Classics%20-%20TeX%20Sources%20and%20Artifacts.zip) |
+| manifest/status | 0.0051 | [90 Indian and Sanskrit Mathematical Classics - Public Summary.json](https://zenodo.org/records/20435677/files/90%20Indian%20and%20Sanskrit%20Mathematical%20Classics%20-%20Public%20Summary.json) |
 
 ## Islamic and Arabic Mathematical Texts: Original LaTeX and English Translation Drafts
 
 Record: <https://doi.org/10.5281/zenodo.20415769>
 
+Current version 20435687 provides reader/index PDFs, original/reference surfaces, English working translations, and a filtered TeX/source archive. These are working drafts and reference witnesses, not proofed critical editions.
+
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.0389 | [00 Index - Islamic and Arabic Mathematical Texts.pdf](https://zenodo.org/records/20415770/files/00%20Index%20-%20Islamic%20and%20Arabic%20Mathematical%20Texts.pdf) |
-| reader/reference PDF | 1.3224 | [01 Islamic and Arabic Texts - Combined English Translation Drafts.pdf](https://zenodo.org/records/20415770/files/01%20Islamic%20and%20Arabic%20Texts%20-%20Combined%20English%20Translation%20Drafts.pdf) |
-| reader/reference PDF | 1.4518 | [02 Islamic and Arabic Texts - Combined Original and Witness Drafts.pdf](https://zenodo.org/records/20415770/files/02%20Islamic%20and%20Arabic%20Texts%20-%20Combined%20Original%20and%20Witness%20Drafts.pdf) |
-| reader/reference PDF | 0.2092 | [10-11 English Translation - al-Kashi - Miftah al-Hisab.pdf](https://zenodo.org/records/20415770/files/10-11%20English%20Translation%20-%20al-Kashi%20-%20Miftah%20al-Hisab.pdf) |
-| reader/reference PDF | 0.2233 | [10-12 English Translation - al-Khwarizmi - Algebra.pdf](https://zenodo.org/records/20415770/files/10-12%20English%20Translation%20-%20al-Khwarizmi%20-%20Algebra.pdf) |
-| reader/reference PDF | 0.2095 | [10-13 English Translation - al-Tusi - Shakl al-Qatta.pdf](https://zenodo.org/records/20415770/files/10-13%20English%20Translation%20-%20al-Tusi%20-%20Shakl%20al-Qatta.pdf) |
-| reader/reference PDF | 0.1287 | [10-14 English Translation - Robert of Chester and Karpinski.pdf](https://zenodo.org/records/20415770/files/10-14%20English%20Translation%20-%20Robert%20of%20Chester%20and%20Karpinski.pdf) |
-| reader/reference PDF | 0.1671 | [10-15 English Translation - Omar Khayyam - Treatise on Algebra.pdf](https://zenodo.org/records/20415770/files/10-15%20English%20Translation%20-%20Omar%20Khayyam%20-%20Treatise%20on%20Algebra.pdf) |
-| reader/reference PDF | 0.1378 | [10-16 English Translation - Rosen - Algebra of Mohammed Ben Musa.pdf](https://zenodo.org/records/20415770/files/10-16%20English%20Translation%20-%20Rosen%20-%20Algebra%20of%20Mohammed%20Ben%20Musa.pdf) |
-| reader/reference PDF | 0.2451 | [10-17 English Translation - Ruska - Oldest Arabic Algebra.pdf](https://zenodo.org/records/20415770/files/10-17%20English%20Translation%20-%20Ruska%20-%20Oldest%20Arabic%20Algebra.pdf) |
-| reader/reference PDF | 0.2162 | [60-01 Islamic Original - al-Kashi - Miftah al-Hisab.pdf](https://zenodo.org/records/20415770/files/60-01%20Islamic%20Original%20-%20al-Kashi%20-%20Miftah%20al-Hisab.pdf) |
-| reader/reference PDF | 0.2260 | [60-02 Islamic Original - al-Khwarizmi - Algebra.pdf](https://zenodo.org/records/20415770/files/60-02%20Islamic%20Original%20-%20al-Khwarizmi%20-%20Algebra.pdf) |
-| reader/reference PDF | 0.1596 | [60-03 Islamic Original - al-Tusi - Shakl al-Qatta.pdf](https://zenodo.org/records/20415770/files/60-03%20Islamic%20Original%20-%20al-Tusi%20-%20Shakl%20al-Qatta.pdf) |
-| reader/reference PDF | 0.2602 | [60-04 Islamic Original - Omar Khayyam - Treatise on Algebra.pdf](https://zenodo.org/records/20415770/files/60-04%20Islamic%20Original%20-%20Omar%20Khayyam%20-%20Treatise%20on%20Algebra.pdf) |
-| reader/reference PDF | 0.3587 | [60-05 Islamic Original - Ruska - Oldest Arabic Algebra (1917).pdf](https://zenodo.org/records/20415770/files/60-05%20Islamic%20Original%20-%20Ruska%20-%20Oldest%20Arabic%20Algebra%20%281917%29.pdf) |
-| reader/reference PDF | 0.1116 | [60-06 Islamic Original - Rosen - Algebra of Mohammed Ben Musa.pdf](https://zenodo.org/records/20415770/files/60-06%20Islamic%20Original%20-%20Rosen%20-%20Algebra%20of%20Mohammed%20Ben%20Musa.pdf) |
-| reader/reference PDF | 0.1175 | [60-07 Islamic Original - Robert of Chester and Karpinski.pdf](https://zenodo.org/records/20415770/files/60-07%20Islamic%20Original%20-%20Robert%20of%20Chester%20and%20Karpinski.pdf) |
-| artifact/source ZIP | 40.2956 | [80 Islamic and Arabic Mathematical Texts - TeX Sources and Artifacts.zip](https://zenodo.org/records/20415770/files/80%20Islamic%20and%20Arabic%20Mathematical%20Texts%20-%20TeX%20Sources%20and%20Artifacts.zip) |
-| manifest/status | 0.0078 | [90 Islamic and Arabic Mathematical Texts - Public Summary.json](https://zenodo.org/records/20415770/files/90%20Islamic%20and%20Arabic%20Mathematical%20Texts%20-%20Public%20Summary.json) |
+| reader/reference PDF | 0.0386 | [00 Index - Islamic and Arabic Mathematical Texts.pdf](https://zenodo.org/records/20435687/files/00%20Index%20-%20Islamic%20and%20Arabic%20Mathematical%20Texts.pdf) |
+| reader/reference PDF | 1.5416 | [01 Islamic and Arabic Texts - Combined English Translation Drafts.pdf](https://zenodo.org/records/20435687/files/01%20Islamic%20and%20Arabic%20Texts%20-%20Combined%20English%20Translation%20Drafts.pdf) |
+| reader/reference PDF | 27.2190 | [02 Islamic and Arabic Texts - Combined Original and Reference Drafts.pdf](https://zenodo.org/records/20435687/files/02%20Islamic%20and%20Arabic%20Texts%20-%20Combined%20Original%20and%20Reference%20Drafts.pdf) |
+| reader/reference PDF | 0.1704 | [10-11 English Translation - al-Kashi - Miftah al-Hisab.pdf](https://zenodo.org/records/20435687/files/10-11%20English%20Translation%20-%20al-Kashi%20-%20Miftah%20al-Hisab.pdf) |
+| reader/reference PDF | 0.1606 | [10-12 English Translation - al-Khwarizmi - Algebra.pdf](https://zenodo.org/records/20435687/files/10-12%20English%20Translation%20-%20al-Khwarizmi%20-%20Algebra.pdf) |
+| reader/reference PDF | 0.1658 | [10-13 English Translation - al-Tusi - Shakl al-Qatta.pdf](https://zenodo.org/records/20435687/files/10-13%20English%20Translation%20-%20al-Tusi%20-%20Shakl%20al-Qatta.pdf) |
+| reader/reference PDF | 0.1644 | [10-14 English Translation - Robert of Chester and Karpinski.pdf](https://zenodo.org/records/20435687/files/10-14%20English%20Translation%20-%20Robert%20of%20Chester%20and%20Karpinski.pdf) |
+| reader/reference PDF | 0.1267 | [10-15 English Translation - Omar Khayyam - Treatise on Algebra.pdf](https://zenodo.org/records/20435687/files/10-15%20English%20Translation%20-%20Omar%20Khayyam%20-%20Treatise%20on%20Algebra.pdf) |
+| reader/reference PDF | 0.3140 | [10-16 English Translation - Rosen - Algebra of Mohammed Ben Musa.pdf](https://zenodo.org/records/20435687/files/10-16%20English%20Translation%20-%20Rosen%20-%20Algebra%20of%20Mohammed%20Ben%20Musa.pdf) |
+| reader/reference PDF | 0.4185 | [10-17 English Translation - Ruska - Oldest Arabic Algebra.pdf](https://zenodo.org/records/20435687/files/10-17%20English%20Translation%20-%20Ruska%20-%20Oldest%20Arabic%20Algebra.pdf) |
+| reader/reference PDF | 0.1537 | [60-01 Islamic Original - al-Kashi - Miftah al-Hisab.pdf](https://zenodo.org/records/20435687/files/60-01%20Islamic%20Original%20-%20al-Kashi%20-%20Miftah%20al-Hisab.pdf) |
+| reader/reference PDF | 0.1939 | [60-02 Islamic Original - al-Khwarizmi - Algebra.pdf](https://zenodo.org/records/20435687/files/60-02%20Islamic%20Original%20-%20al-Khwarizmi%20-%20Algebra.pdf) |
+| reader/reference PDF | 0.1252 | [60-03 Islamic Original - al-Tusi - Shakl al-Qatta.pdf](https://zenodo.org/records/20435687/files/60-03%20Islamic%20Original%20-%20al-Tusi%20-%20Shakl%20al-Qatta.pdf) |
+| reader/reference PDF | 0.1148 | [60-04 Islamic Original - Omar Khayyam - Treatise on Algebra.pdf](https://zenodo.org/records/20435687/files/60-04%20Islamic%20Original%20-%20Omar%20Khayyam%20-%20Treatise%20on%20Algebra.pdf) |
+| reader/reference PDF | 0.3207 | [60-05 Islamic Original - Ruska - Oldest Arabic Algebra (1917).pdf](https://zenodo.org/records/20435687/files/60-05%20Islamic%20Original%20-%20Ruska%20-%20Oldest%20Arabic%20Algebra%20%281917%29.pdf) |
+| reader/reference PDF | 18.0157 | [60-06 Reference Scan - Rosen - Algebra of Mohammed Ben Musa (1831).pdf](https://zenodo.org/records/20435687/files/60-06%20Reference%20Scan%20-%20Rosen%20-%20Algebra%20of%20Mohammed%20Ben%20Musa%20%281831%29.pdf) |
+| reader/reference PDF | 8.2935 | [60-07 Reference Scan - Robert of Chester and Karpinski (1915).pdf](https://zenodo.org/records/20435687/files/60-07%20Reference%20Scan%20-%20Robert%20of%20Chester%20and%20Karpinski%20%281915%29.pdf) |
+| artifact/source ZIP | 40.9154 | [80 Islamic and Arabic Mathematical Texts - TeX Sources and Artifacts.zip](https://zenodo.org/records/20435687/files/80%20Islamic%20and%20Arabic%20Mathematical%20Texts%20-%20TeX%20Sources%20and%20Artifacts.zip) |
+| manifest/status | 0.0079 | [90 Islamic and Arabic Mathematical Texts - Public Summary.json](https://zenodo.org/records/20435687/files/90%20Islamic%20and%20Arabic%20Mathematical%20Texts%20-%20Public%20Summary.json) |
 
-## Historical Reference Witnesses for Non-European Mathematics: LaTeX and Translation Drafts
+## Historical Reference Texts for Non-European Mathematics: LaTeX and Translation Drafts
 
 Record: <https://doi.org/10.5281/zenodo.20415776>
 
+Current version 20435690 is a focused historical-reference shelf with reader PDFs and filtered TeX/source material. It supports terminology and historical comparison; it is not a blanket source-certified or critical-edition corpus.
+
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.0391 | [00 Index - Historical Reference Witnesses.pdf](https://zenodo.org/records/20415777/files/00%20Index%20-%20Historical%20Reference%20Witnesses.pdf) |
-| reader/reference PDF | 0.9318 | [01 Reference Witnesses - Combined English Translation Drafts.pdf](https://zenodo.org/records/20415777/files/01%20Reference%20Witnesses%20-%20Combined%20English%20Translation%20Drafts.pdf) |
-| reader/reference PDF | 0.7274 | [02 Reference Witnesses - Combined Original and Witness Drafts.pdf](https://zenodo.org/records/20415777/files/02%20Reference%20Witnesses%20-%20Combined%20Original%20and%20Witness%20Drafts.pdf) |
-| reader/reference PDF | 0.0983 | [10-18 English Translation - al-Muqaddasi - Ahsan al-Taqasim.pdf](https://zenodo.org/records/20415777/files/10-18%20English%20Translation%20-%20al-Muqaddasi%20-%20Ahsan%20al-Taqasim.pdf) |
-| reader/reference PDF | 0.1722 | [10-19 English Translation - Ibn al-Nadim - Kitab al-Fihrist.pdf](https://zenodo.org/records/20415777/files/10-19%20English%20Translation%20-%20Ibn%20al-Nadim%20-%20Kitab%20al-Fihrist.pdf) |
-| reader/reference PDF | 0.1825 | [10-20 English Translation - Ibn al-Qifti - Tarikh al-Hukama.pdf](https://zenodo.org/records/20415777/files/10-20%20English%20Translation%20-%20Ibn%20al-Qifti%20-%20Tarikh%20al-Hukama.pdf) |
-| reader/reference PDF | 0.1669 | [10-21 English Translation - Said al-Andalusi - Tabaqat al-Umam.pdf](https://zenodo.org/records/20415777/files/10-21%20English%20Translation%20-%20Said%20al-Andalusi%20-%20Tabaqat%20al-Umam.pdf) |
-| reader/reference PDF | 0.3116 | [10-22 English Translation - Smith-Karpinski - Numerals.pdf](https://zenodo.org/records/20415777/files/10-22%20English%20Translation%20-%20Smith-Karpinski%20-%20Numerals.pdf) |
-| reader/reference PDF | 0.1669 | [70-01 Reference Text - Said al-Andalusi - Tabaqat al-Umam.pdf](https://zenodo.org/records/20415777/files/70-01%20Reference%20Text%20-%20Said%20al-Andalusi%20-%20Tabaqat%20al-Umam.pdf) |
-| reader/reference PDF | 0.0988 | [70-02 Reference Text - al-Muqaddasi - Ahsan al-Taqasim.pdf](https://zenodo.org/records/20415777/files/70-02%20Reference%20Text%20-%20al-Muqaddasi%20-%20Ahsan%20al-Taqasim.pdf) |
-| reader/reference PDF | 0.1371 | [70-03 Reference Text - Ibn al-Nadim - Kitab al-Fihrist.pdf](https://zenodo.org/records/20415777/files/70-03%20Reference%20Text%20-%20Ibn%20al-Nadim%20-%20Kitab%20al-Fihrist.pdf) |
-| reader/reference PDF | 0.1427 | [70-04 Reference Text - Ibn al-Qifti - Tarikh al-Hukama.pdf](https://zenodo.org/records/20415777/files/70-04%20Reference%20Text%20-%20Ibn%20al-Qifti%20-%20Tarikh%20al-Hukama.pdf) |
-| reader/reference PDF | 0.1825 | [70-05 Reference Text - Smith-Karpinski - Numerals.pdf](https://zenodo.org/records/20415777/files/70-05%20Reference%20Text%20-%20Smith-Karpinski%20-%20Numerals.pdf) |
-| artifact/source ZIP | 55.2274 | [80 Historical Reference Witnesses - TeX Sources and Artifacts.zip](https://zenodo.org/records/20415777/files/80%20Historical%20Reference%20Witnesses%20-%20TeX%20Sources%20and%20Artifacts.zip) |
-| manifest/status | 0.0060 | [90 Historical Reference Witnesses - Public Summary.json](https://zenodo.org/records/20415777/files/90%20Historical%20Reference%20Witnesses%20-%20Public%20Summary.json) |
+| reader/reference PDF | 0.0386 | [00 Index - Historical Reference Texts.pdf](https://zenodo.org/records/20435690/files/00%20Index%20-%20Historical%20Reference%20Texts.pdf) |
+| reader/reference PDF | 0.4332 | [01 Historical Reference Texts - Combined English Translation Drafts.pdf](https://zenodo.org/records/20435690/files/01%20Historical%20Reference%20Texts%20-%20Combined%20English%20Translation%20Drafts.pdf) |
+| reader/reference PDF | 0.5194 | [02 Historical Reference Texts - Combined Source Drafts.pdf](https://zenodo.org/records/20435690/files/02%20Historical%20Reference%20Texts%20-%20Combined%20Source%20Drafts.pdf) |
+| reader/reference PDF | 0.0541 | [10-18 English Translation - al-Muqaddasi - Ahsan al-Taqasim.pdf](https://zenodo.org/records/20435690/files/10-18%20English%20Translation%20-%20al-Muqaddasi%20-%20Ahsan%20al-Taqasim.pdf) |
+| reader/reference PDF | 0.1359 | [10-19 English Translation - Ibn al-Nadim - Kitab al-Fihrist.pdf](https://zenodo.org/records/20435690/files/10-19%20English%20Translation%20-%20Ibn%20al-Nadim%20-%20Kitab%20al-Fihrist.pdf) |
+| reader/reference PDF | 0.1175 | [10-20 English Translation - Said al-Andalusi - Tabaqat al-Umam.pdf](https://zenodo.org/records/20435690/files/10-20%20English%20Translation%20-%20Said%20al-Andalusi%20-%20Tabaqat%20al-Umam.pdf) |
+| reader/reference PDF | 0.1250 | [10-21 English Translation - Smith-Karpinski - Numerals.pdf](https://zenodo.org/records/20435690/files/10-21%20English%20Translation%20-%20Smith-Karpinski%20-%20Numerals.pdf) |
+| reader/reference PDF | 0.1313 | [70-01 Reference Text - Said al-Andalusi - Tabaqat al-Umam.pdf](https://zenodo.org/records/20435690/files/70-01%20Reference%20Text%20-%20Said%20al-Andalusi%20-%20Tabaqat%20al-Umam.pdf) |
+| reader/reference PDF | 0.0540 | [70-02 Reference Text - al-Muqaddasi - Ahsan al-Taqasim.pdf](https://zenodo.org/records/20435690/files/70-02%20Reference%20Text%20-%20al-Muqaddasi%20-%20Ahsan%20al-Taqasim.pdf) |
+| reader/reference PDF | 0.0924 | [70-03 Reference Text - Ibn al-Nadim - Kitab al-Fihrist.pdf](https://zenodo.org/records/20435690/files/70-03%20Reference%20Text%20-%20Ibn%20al-Nadim%20-%20Kitab%20al-Fihrist.pdf) |
+| reader/reference PDF | 0.0972 | [70-04 Reference Text - Ibn al-Qifti - Tarikh al-Hukama.pdf](https://zenodo.org/records/20435690/files/70-04%20Reference%20Text%20-%20Ibn%20al-Qifti%20-%20Tarikh%20al-Hukama.pdf) |
+| reader/reference PDF | 0.1437 | [70-05 Reference Text - Smith-Karpinski - Numerals.pdf](https://zenodo.org/records/20435690/files/70-05%20Reference%20Text%20-%20Smith-Karpinski%20-%20Numerals.pdf) |
+| artifact/source ZIP | 55.2522 | [80 Historical Reference Texts - TeX Sources and Artifacts.zip](https://zenodo.org/records/20435690/files/80%20Historical%20Reference%20Texts%20-%20TeX%20Sources%20and%20Artifacts.zip) |
+| manifest/status | 0.0055 | [90 Historical Reference Texts - Public Summary.json](https://zenodo.org/records/20435690/files/90%20Historical%20Reference%20Texts%20-%20Public%20Summary.json) |
 
 ## Cayley, Dedekind, and Dirichlet: Classical Algebra and Arithmetic LaTeX Drafts
 

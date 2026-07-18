@@ -24,26 +24,26 @@ from typing import Any
 
 
 RECORDS: list[tuple[str, str]] = [
-    ("main", "20415117"),
+    ("main", "20458953"),
     ("workflow", "21424987"),
     ("interlanguage_reflections", "21423647"),
     ("lean_formalization_sidecars", "21129946"),
-    ("split_zero_research_sidecar", "21421058"),
+    ("split_zero_research_sidecar", "21425117"),
     ("noether", "21423112"),
     ("weber", "21402223"),
     ("cayley", "20617845"),
     ("sga", "21424602"),
-    ("deligne", "20617786"),
+    ("deligne", "21212608"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
     ("gauss", "20674086"),
     ("riemann", "20434317"),
     ("albattani_opus_astronomicum", "20584850"),
     ("non_european_consolidated", "20586401"),
-    ("chinese", "20415752"),
-    ("indian_sanskrit", "20415755"),
-    ("islamic_arabic", "20415770"),
-    ("historical_references", "20415777"),
+    ("chinese", "20543246"),
+    ("indian_sanskrit", "20435677"),
+    ("islamic_arabic", "20435687"),
+    ("historical_references", "20435690"),
     ("classical_algebra_arithmetic", "20583048"),
     ("sylvester", "20649689"),
     ("maxwell", "20821947"),
@@ -91,7 +91,22 @@ RECORD_NOTES = {
         "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
     ],
     "split_zero_research_sidecar": [
-        "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21421058 replaces the earlier paper-first surface with a readable Project Atlas, a 195-page bookmarked results compendium, exact Lean/Python checks and ledgers, editable working texts, and replayable visualization/data packages. Its reference-closure gate includes every publicly cited packet dependency through Packets 198-202 and the restored Packet 076 evidence. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
+        "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21425117 fronts an 11-page Project Atlas and a 199-page bookmarked results compendium, with exact Lean/Python checks and ledgers, editable working texts, and replayable visualization/data packages. It adds the Part 8-C2B residual-Niemeier audit as an atomic six-file proof/check bundle while preserving the external-theorem and open-interface boundaries. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
+    ],
+    "deligne": [
+        "Current reader-first surface is version 21212608. It directly exposes the sequential English and French working readers through Papers 001-016p080 and groups individual paper/letter PDFs and the TeX/source/QA material into four archives. These are uneven working drafts and repair material, not a critical edition or blanket source-faithfulness claim; diagram-heavy and equation-dense pieces still require direct source comparison.",
+    ],
+    "chinese": [
+        "Current version 20543246 provides direct English, modern-Chinese, Chinese-original, and Arabic working-reader surfaces plus filtered TeX/source archives. The Arabic files are working translation drafts whose local checks establish build/openability, not native-language or source-accuracy certification.",
+    ],
+    "indian_sanskrit": [
+        "Current version 20435677 provides reader/index PDFs and a filtered TeX/source archive for the represented Indian and Sanskrit works. These are working original-language and English translation drafts, not proofed critical editions.",
+    ],
+    "islamic_arabic": [
+        "Current version 20435687 provides reader/index PDFs, original/reference surfaces, English working translations, and a filtered TeX/source archive. These are working drafts and reference witnesses, not proofed critical editions.",
+    ],
+    "historical_references": [
+        "Current version 20435690 is a focused historical-reference shelf with reader PDFs and filtered TeX/source material. It supports terminology and historical comparison; it is not a blanket source-certified or critical-edition corpus.",
     ],
     "interlanguage_reflections": [
         "Methodology, source-body, provenance, and bounded-output sidecar for interlanguage and constructed-language mathematical translation. Current version 21423647 fronts the v0.12 six-page fleet map, retains Romance v10, Interslavic v0.6, source-body, automata, provenance, and Noether R823 gate layers, and adds stable controls for all eight language-management lanes. Its compact 192-file snapshot includes bounded working outputs for Somali/Oromo, Arabic/Iranian Persian, Indonesian, Kyrgyz, Uyghur, and Uzbek while excluding moving SGA workpasses. These artifacts retain explicit native-review, source-reconciliation, and critical-edition caveats.",

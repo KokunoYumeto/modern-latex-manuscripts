@@ -8,6 +8,8 @@ This release contains:
 - generated formalizations, calculations, visualizations, and explanatory
   project prose;
 - exact Lean and Python checks;
+- the source-free Part 8-C2B residual-Niemeier facade, checker, and finite
+  replay/status/boundary ledgers;
 - rights-screened derivatives and finite data;
 - citations and short factual descriptions of external literature.
 
@@ -31,6 +33,12 @@ The release excludes:
 Where a mixed transcript informed a check, the public file contains only the
 generated mathematical reconstruction, exact finite data, or independently
 stated theorem. The private provenance ledger retains the source distinction.
+
+The Part 8-C2B bundle is a curated generated audit with no direct JT witness
+and no JT theorem entry. It excludes the raw Branch32-A compendium, master
+inventories, model-reasoning spans, private run material, and local copies of
+the cited literature. Its public facade corrects the source's literal-equality
+wording to lattice isometry.
 
 Packet 201 also preserves a bounded Claude N16b note, checker, and output as
 hash-pinned adjacent model inputs. They are included so a reader can audit the
@@ -78,6 +86,11 @@ In particular:
   dimension;
 - the coordinate half-turns form a Klein four-group; they are not promoted to
   canonical zeta flows or to a global uniqueness theorem.
+- the residual Part 8-C2B construction exactly verifies an even unimodular
+  rank-24 extension with no new roots among its 72 glue classes; Niemeier
+  identification, theta modularity, and the geometric `g4` theorem retain
+  their stated literature dependencies, while level-six/`R=107` compatibility
+  and “instanton-sensitive datum” remain non-theorem boundaries.
 
 ## Public proof closure
 
@@ -92,6 +105,10 @@ handoff, or the public C6/Sigma atlas. The public charter integration preserves 
 definitions and provenance without publishing its mixed source note or any
 JT-authored corpus dump. External mathematical theorems remain normal
 literature citations and are not republished.
+
+The same gate requires all six Part 8-C2B files under one formal-archive
+directory and the human facade in the results compendium. A partial facade-only
+publication is rejected.
 
 ## Reuse
 

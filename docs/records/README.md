@@ -5,12 +5,12 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Record | Files | PDFs | ZIPs | MB | Page | Zenodo |
 |---|---:|---:|---:|---:|---|---|
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |
-| Main Project Landing | 100 | 58 | 38 | 4513.1 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
-| Workflow / Replication Packet | 7 | 1 | 2 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/21424987) |
-| Interlanguage Methodology | 38 | 2 | 15 | 4603.7 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://zenodo.org/records/21423647) |
+| Main Project Landing | 95 | 50 | 43 | 20654.9 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
+| Workflow / Replication Packet | 7 | 1 | 2 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
+| Interlanguage Methodology | 38 | 2 | 15 | 4603.7 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |
-| Split-Zero Geometry and Common Deformation Registers | 12 | 3 | 3 | 109.0 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
+| Split-Zero Geometry and Common Deformation Registers | 12 | 3 | 3 | 109.5 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |
 | Emmy Noether | 35 | 15 | 14 | 1610.1 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
 | Heinrich Weber | 47 | 6 | 39 | 1507.2 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
@@ -19,8 +19,8 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 3 | 1 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
 | al-Battani Opus Astronomicum | 19 | 7 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |
-| SGA (serious active work; not complete) | 15 | 5 | 5 | 1011.2 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/21424602) |
-| Pierre Deligne | 100 | 96 | 3 | 448.2 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
+| SGA (serious active work; not complete) | 15 | 5 | 5 | 1011.2 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
+| Pierre Deligne | 6 | 2 | 3 | 447.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
 | Ernst Steinitz | 7 | 0 | 6 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616988) |
@@ -28,10 +28,10 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | J. Willard Gibbs / Old Physics | 14 | 4 | 4 | 29.0 | [gibbs-old-physics.md](gibbs-old-physics.md) | [Zenodo](https://doi.org/10.5281/zenodo.20649835) |
 | Ukrainian Applied Mathematics | 19 | 18 | 1 | 13.3 | [ukrainian-applied-math.md](ukrainian-applied-math.md) | [Zenodo](https://doi.org/10.5281/zenodo.20490906) |
 | Non-European Mathematics, Consolidated | 100 | 71 | 24 | 3176.9 | [non-european-consolidated.md](non-european-consolidated.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410957) |
-| Chinese Mathematical Classics | 30 | 28 | 1 | 98.7 | [chinese.md](chinese.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415751) |
-| Indian and Sanskrit Mathematical Classics | 13 | 11 | 1 | 548.6 | [indian-sanskrit.md](indian-sanskrit.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415754) |
-| Islamic and Arabic Mathematical Texts | 19 | 17 | 1 | 45.9 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415769) |
-| Historical Reference Witnesses | 15 | 13 | 1 | 58.6 | [historical-references.md](historical-references.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415776) |
+| Chinese Mathematical Classics | 34 | 30 | 2 | 130.8 | [chinese.md](chinese.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415751) |
+| Indian and Sanskrit Mathematical Classics | 13 | 11 | 1 | 699.3 | [indian-sanskrit.md](indian-sanskrit.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415754) |
+| Islamic and Arabic Mathematical Texts | 19 | 17 | 1 | 98.5 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415769) |
+| Historical Reference Witnesses | 14 | 12 | 1 | 57.2 | [historical-references.md](historical-references.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415776) |
 | **Partial or non-continuous author workstreams** |  |  |  |  |  |  |
 | Richard Dedekind | 18 | 14 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520669) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520679) |

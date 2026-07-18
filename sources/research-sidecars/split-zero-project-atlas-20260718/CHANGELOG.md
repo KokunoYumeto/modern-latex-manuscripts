@@ -1,5 +1,27 @@
 # Changelog
 
+## Project Atlas residual-Niemeier integration - 2026-07-18
+
+- Added the public Part 8-C2B residual-Niemeier facade and its complete atomic
+  proof bundle: TeX, source-free checker, 19-row exact replay ledger, concise
+  status row, and eight-row boundary ledger.
+- Reconstructed an explicit even unimodular rank-24 index-72 extension of
+  `A5^4D4`, exhaustively checked all 72 glue classes, and verified that no new
+  roots occur. The classification conclusion is normalized to lattice
+  isometry with the corresponding Niemeier lattice.
+- Added the checked theta coefficients and identities
+  `Theta=E4^3-576*Delta` and `Theta/Delta=J+168`, while retaining the standard
+  even-unimodular theta-modularity theorem as an external dependency.
+- Recorded `g4>=5` only as the exact rank-24 specialization of Scaduto's cited
+  theorem. Level-six/`R=107` compatibility and “instanton-sensitive datum”
+  remain explicit non-theorem boundaries.
+- Corrected the handoff bibliography against the primary records: Scaduto is
+  Math. Ann. 379 (2021), 549--568, DOI
+  `10.1007/s00208-020-02060-y`; the cited Niemeier-list source is
+  Cheng--Duncan--Harvey, arXiv `1307.5793v2`.
+- Kept the raw Branch32-A compendium, copied literature, master inventories,
+  private run material, and all JT-source material outside the public payload.
+
 ## Project Atlas reference-closure correction - 2026-07-18
 
 - Audited the exact live Zenodo payload against its recorded checksums and all

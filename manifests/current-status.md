@@ -108,6 +108,10 @@ Noether version [10.5281/zenodo.21320035](https://doi.org/10.5281/zenodo.2132003
 
 This revision changes only Paper 20. R818 contributes 17 direct source-backed corrections across printed pp.26-32; R819 contributes eight additional source-backed emphasis and punctuation corrections across pp.31-33. No OCR text was promoted. The integration check proves that all text outside Paper 20 is byte-preserved from v26 and that the integrated Paper 20 exactly matches the sealed R819 text. XeLaTeX passes twice to 466 pages with no fatal, overfull, or underfull diagnostics; output pages 218-223 were rendered and visually checked. The 989-row grouped-package manifest and ZIP CRC check pass. Classification remains high-value working/source-control evidence, not corpus closure, paper certification, multilingual synchronization, or a critical edition. The compact mirror is `sources/noether/current-german-source-control-v26-r819-20260712/`.
 
+## 2026-07-18 Split-zero residual-Niemeier integration published
+
+The split-zero concept DOI now resolves to version [10.5281/zenodo.21425117](https://doi.org/10.5281/zenodo.21425117). Its visually checked 11-page Project Atlas remains the human front door, and its bookmarked result compendium now has 199 pages. The release adds the Part 8-C2B residual-Niemeier facade and an atomic six-file proof/check bundle: TeX, a source-free checker, a 19-row replay ledger, a status row, and an eight-row boundary ledger. The public manifest reports a passed reference-closure gate, 51 result packets plus one supplemental public audit, 435 formal-archive members, 76 visual-archive members, and 260 editable working-text members. The explicit boundaries remain important: the Niemeier classification, even-unimodular theta-modularity, and Scaduto gauge-theory theorem are cited external results rather than independently formalized project theorems; level-six / R=107 compatibility remains open. This is scoped working research and artifact checking, not peer review or certification of every broader claim.
+
 ## 2026-07-18 Split-zero Project Atlas reference-closure correction published
 
 The existing split-zero concept DOI now has version [10.5281/zenodo.21421058](https://doi.org/10.5281/zenodo.21421058). It replaces the prior paper-first release with a human Project Atlas, a 195-page bookmarked compendium containing 51 current result packets, a formal archive with 427 members, a visual archive with 76 members, and a 260-member editable working-text archive. The reference-closure correction restores Packet 076 and its source-crosswalk evidence because Packet 077 cites it, and the release gate now scans every public packet-number dependency. The release also includes the Packet 201 finite-algebra Lean implementation and axiom audit and the Packet 202 exact noncancellation replay. These are scoped working-research and artifact checks, not peer review, a proof of a famous open problem, or certification of every broader claim.
@@ -1330,23 +1334,26 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 
 | Record key | Current record ID | Concept DOI |
 |---|---:|---|
-| Main landing | 20415117 | <https://doi.org/10.5281/zenodo.20393488> |
+| Main landing | 20458953 | <https://doi.org/10.5281/zenodo.20393488> |
 | Workflow / replication packet | 21424987 | <https://doi.org/10.5281/zenodo.20461174> |
+| Interlanguage methodology | 21423647 | <https://doi.org/10.5281/zenodo.21124403> |
+| Lean formalization sidecars | 21129946 | <https://doi.org/10.5281/zenodo.21129945> |
+| Split-zero research sidecar | 21425117 | <https://doi.org/10.5281/zenodo.20822444> |
 | Noether | 21423112 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21402223 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21422245 | <https://doi.org/10.5281/zenodo.20410947> |
-| Deligne | 20617786 | <https://doi.org/10.5281/zenodo.20410853> |
+| SGA | 21424602 | <https://doi.org/10.5281/zenodo.20410947> |
+| Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
 | EGA | 20454552 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
 | Gauss | 20674086 | <https://doi.org/10.5281/zenodo.20410934> |
 | Riemann | 20434317 | <https://doi.org/10.5281/zenodo.20429778> |
 | al-Battani Opus Astronomicum | 20584850 | <https://doi.org/10.5281/zenodo.20539593> |
 | Non-European mathematics, consolidated | 20586401 | <https://doi.org/10.5281/zenodo.20410957> |
-| Chinese mathematical classics | 20415752 | <https://doi.org/10.5281/zenodo.20415751> |
-| Indian and Sanskrit mathematical classics | 20415755 | <https://doi.org/10.5281/zenodo.20415754> |
-| Islamic and Arabic mathematical texts | 20415770 | <https://doi.org/10.5281/zenodo.20415769> |
-| Historical reference witnesses | 20415777 | <https://doi.org/10.5281/zenodo.20415776> |
+| Chinese mathematical classics | 20543246 | <https://doi.org/10.5281/zenodo.20415751> |
+| Indian and Sanskrit mathematical classics | 20435677 | <https://doi.org/10.5281/zenodo.20415754> |
+| Islamic and Arabic mathematical texts | 20435687 | <https://doi.org/10.5281/zenodo.20415769> |
+| Historical reference witnesses | 20435690 | <https://doi.org/10.5281/zenodo.20415776> |
 | Classical algebra and arithmetic | 20583048 | <https://doi.org/10.5281/zenodo.20414787> |
 | Sylvester | 20649689 | <https://doi.org/10.5281/zenodo.20520692> |
 | Maxwell | 20821947 | <https://doi.org/10.5281/zenodo.20653107> |
@@ -1355,7 +1362,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Dirichlet | 20586064 | <https://doi.org/10.5281/zenodo.20520679> |
 | Bianchi | 20673932 | <https://doi.org/10.5281/zenodo.20615814> |
 | Gordan / Clebsch-Gordan | 20822196 | https://doi.org/10.5281/zenodo.20616260 |
-| Steinitz | 20617915 | <https://doi.org/10.5281/zenodo.20616988> |
+| Steinitz | 20822189 | <https://doi.org/10.5281/zenodo.20616988> |
 | Frobenius | 20821858 | <https://doi.org/10.5281/zenodo.20673444> |
 | Poincare | 20673462 | <https://doi.org/10.5281/zenodo.20673461> |
 | Kneser | 20836972 | <https://doi.org/10.5281/zenodo.20836971> |

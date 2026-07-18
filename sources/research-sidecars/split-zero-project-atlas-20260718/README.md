@@ -1,6 +1,6 @@
 # Split-Zero Geometry and Common Deformation Registers
 
-This is the navigation file for the 18 July 2026 reference-closure correction
+This is the navigation file for the 18 July 2026 residual-Niemeier integration
 to the project-atlas release under the cite-all-versions DOI
 [10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444).
 
@@ -20,13 +20,24 @@ negative: its exact coefficient at `q^(1/120) qbar^(1/24)` is
 `2*exp(2*pi*i/12)`, so the aggregate does not cancel. All-sector and
 full-shadow questions remain open.
 
+This version also adds the public Part 8-C2B residual-Niemeier audit. Its
+source-free 19-check certificate constructs an even unimodular rank-24
+extension, exhausts all 72 glue classes, proves that no new roots occur, and
+therefore identifies the root system as `A5^4D4`. Identification with the
+corresponding Niemeier lattice is an isometry statement using the standard
+classification. The theta identity `Theta=E4^3-576*Delta`, equivalently
+`Theta/Delta=J+168`, uses the standard even-unimodular theta-modularity
+theorem. The bound `g4>=5` is an exact specialization of Scaduto's cited
+theorem, not an independently formalized gauge-theory result. Level-six/
+`R=107` compatibility and “instanton-sensitive datum” remain boundaries.
+
 ## Main files
 
 - `00_PROJECT_ATLAS_20260717.pdf`: human front door.
 - `01_PROJECT_ATLAS_20260717.md`: searchable atlas source.
 - `02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf`: complete result packets.
 - `03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip`: Lean, Python, ledgers,
-  builds, and axiom audits.
+  builds, axiom audits, and the atomic six-file Part 8-C2B public bundle.
 - `04_VISUAL_ATLAS_20260717.pdf`: selected explanatory visual work.
 - `05_VISUALIZATIONS_AND_DATA_20260717.zip`: editable and replayable visual
   assets.
@@ -42,6 +53,12 @@ present in the public compendium. Its TeX, Markdown, and plain text are in the
 working-text ZIP; named generated checkers, outputs, ledgers, summaries, and
 Lean files are in the formal ZIP; and referenced visual families are in the
 visual ZIP. External theorems are identified by primary citations.
+
+The Part 8-C2B facade, TeX, source-free checker, 19-row replay ledger, status
+row, and eight-row boundary ledger are kept together under
+`audits/branch32a_part8c2b/repository/` in the formal archive, preserving their
+original relative paths for unchanged replay. The facade also appears in the
+complete results compendium. The release gate rejects any partial C2B bundle.
 
 The release builder scans all packet-number references, including references
 inside the packet TeX and public machine-readable extracts. A 2026-07-18 audit
