@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 969
+Total files indexed: 978
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -142,7 +142,7 @@ Record: <https://doi.org/10.5281/zenodo.20461174>
 
 Record: <https://doi.org/10.5281/zenodo.21124403>
 
-Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21422432 fronts the two-page Romance v10 report, retains the v0.6 Interslavic normalization evidence and earlier source-body/automata payloads, and adds file `14` with 307 hash-bound Romance targets, source/routing ledgers, Spanish/French terminology crosswalks, six bounded production tranches, builders, and QA. The Romance program remains active and incomplete: 53 routes have no source body, 33 senses lack accepted support, the access grid has zero human observations, and T001-T006 are not native-language validated. The actual Noether translation readers remain on record 21421559. This is reproducible research infrastructure, not native-speaker approval, empirical intelligibility evidence, mathematical source certification, or a critical edition.
+Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21422432 fronts the two-page Romance v10 report, retains the v0.6 Interslavic normalization evidence and earlier source-body/automata payloads, and adds file `14` with 307 hash-bound Romance targets, source/routing ledgers, Spanish/French terminology crosswalks, six bounded production tranches, builders, and QA. The Romance program remains active and incomplete: 53 routes have no source body, 33 senses lack accepted support, the access grid has zero human observations, and T001-T006 are not native-language validated. The actual Noether translation readers remain on record 21422620. This is reproducible research infrastructure, not native-speaker approval, empirical intelligibility evidence, mathematical source certification, or a critical edition.
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -214,34 +214,43 @@ Separate exploratory mathematics sidecar, outside the manuscript-translation com
 
 Record: <https://doi.org/10.5281/zenodo.20412587>
 
-Current Noether update 2026-07-18: latest public surface is record 21421559. It retains the 466-page v26/R823 German source-control reader as the default preview; directly exposes the 473-page Spanish R823 working translation and the 529-page Latin / 552-page Cyrillic Interslavic readers; and now adds a directly viewable complete-work Indonesian Paper 36 working translation plus bounded Arabic and Iranian-Persian Paper 06 opening components. File `12` groups the new editable TeX, source coordinates, decision/terminology ledgers, builds, hashes, and render evidence. File `11` retains all 442 Interslavic TeX bodies and individual PDFs; file `10` retains Spanish TeX/evidence; file `09` carries twelve bounded R823-synchronized English components plus CJK/Korean and Slavic components. Paper 06 remains partial in Arabic/Persian and all three new targets lack native/community certification. This remains a high-value working corpus, not complete multilingual synchronization, publication-grade proofreading, source-faithfulness certification for every symbol, or a critical edition.
+Current Noether update 2026-07-18: latest public surface is record 21422620. It retains the 466-page v26/R823 German source-control reader as the default preview; directly exposes the 473-page Spanish R823 working translation and the 529-page Latin / 552-page Cyrillic Interslavic readers; fronts a complete-work Indonesian Paper 36 working translation; and directly exposes complete R823-bounded Papers 26 and 36 in Simplified Chinese, generic Traditional Chinese, Japanese, and Korean. File `12` groups the Arabic/Persian/Indonesian editable TeX and evidence. File `11` retains all 442 Interslavic TeX bodies and individual PDFs; file `10` retains Spanish TeX/evidence; file `09` carries twelve bounded R823-synchronized English components plus the exact CJK TeX/audit evidence and Slavic components. Paper 06 remains partial in Arabic/Persian; the eight CJK PDFs passed build/render/hash checks but lack external native review. This remains a high-value working corpus, not complete multilingual synchronization, publication-grade proofreading, source-faithfulness certification for every symbol, or a critical edition.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 2.5339 | [00_Noether_German_Cumulative_Working_SourceControl_v26_R823_20260717.pdf](https://zenodo.org/records/21421559/files/00_Noether_German_Cumulative_Working_SourceControl_v26_R823_20260717.pdf) |
-| reader/reference PDF | 2.4925 | [01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf](https://zenodo.org/records/21421559/files/01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf) |
-| artifact/source ZIP | 10.2346 | [02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip](https://zenodo.org/records/21421559/files/02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip) |
-| reader/reference PDF | 2.2146 | [02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21421559/files/02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.pdf) |
-| reader/reference PDF | 19.8558 | [02b_Noether_Interslavic_Latin_WorkingReader_20260718.pdf](https://zenodo.org/records/21421559/files/02b_Noether_Interslavic_Latin_WorkingReader_20260718.pdf) |
-| reader/reference PDF | 20.1818 | [02c_Noether_Interslavic_Cyrillic_WorkingReader_20260718.pdf](https://zenodo.org/records/21421559/files/02c_Noether_Interslavic_Cyrillic_WorkingReader_20260718.pdf) |
-| reader/reference PDF | 0.0289 | [03a_Noether_Paper36_Indonesian_CompleteWorkingTranslation_20260718.pdf](https://zenodo.org/records/21421559/files/03a_Noether_Paper36_Indonesian_CompleteWorkingTranslation_20260718.pdf) |
-| artifact/source ZIP | 345.3624 | [04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip](https://zenodo.org/records/21421559/files/04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip) |
-| artifact/source ZIP | 25.0978 | [05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip](https://zenodo.org/records/21421559/files/05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip) |
-| manifest/status | 0.0008 | [06_Noether_R787_R804_public_upload_sha256_20260707.csv](https://zenodo.org/records/21421559/files/06_Noether_R787_R804_public_upload_sha256_20260707.csv) |
-| manifest/status | 0.0032 | [06_Noether_R787_R804_rollup_manifest_20260707.csv](https://zenodo.org/records/21421559/files/06_Noether_R787_R804_rollup_manifest_20260707.csv) |
-| artifact/source ZIP | 350.7858 | [06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip](https://zenodo.org/records/21421559/files/06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip) |
-| artifact/source ZIP | 320.9525 | [06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip](https://zenodo.org/records/21421559/files/06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip) |
-| artifact/source ZIP | 251.7752 | [06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip](https://zenodo.org/records/21421559/files/06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip) |
-| artifact/source ZIP | 12.3384 | [06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip](https://zenodo.org/records/21421559/files/06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip) |
-| artifact/source ZIP | 23.9386 | [07_Noether_Current_German_SourceControl_v26_R823_20260717.zip](https://zenodo.org/records/21421559/files/07_Noether_Current_German_SourceControl_v26_R823_20260717.zip) |
-| manifest/status | 0.0010 | [07_Noether_v26_R823_public_manifest_20260717.csv](https://zenodo.org/records/21421559/files/07_Noether_v26_R823_public_manifest_20260717.csv) |
-| manifest/status | 0.0007 | [07_Noether_v26_R823_public_sha256_20260717.csv](https://zenodo.org/records/21421559/files/07_Noether_v26_R823_public_sha256_20260717.csv) |
-| artifact/source ZIP | 14.8036 | [08_Noether_Paper06_Slavic_WorkingTranslation_Tranche001_20260716.zip](https://zenodo.org/records/21421559/files/08_Noether_Paper06_Slavic_WorkingTranslation_Tranche001_20260716.zip) |
-| artifact/source ZIP | 18.9997 | [09_Noether_R823_SourceSynchronized_Multilingual_Components_20260718.zip](https://zenodo.org/records/21421559/files/09_Noether_R823_SourceSynchronized_Multilingual_Components_20260718.zip) |
-| artifact/source ZIP | 21.5818 | [10_Noether_Spanish_R823_WorkingTranslation_TeX_Evidence_20260718.zip](https://zenodo.org/records/21421559/files/10_Noether_Spanish_R823_WorkingTranslation_TeX_Evidence_20260718.zip) |
-| artifact/source ZIP | 157.0899 | [11_Noether_Interslavic_WorkingCorpus_Normalization_002A_002B_20260718.zip](https://zenodo.org/records/21421559/files/11_Noether_Interslavic_WorkingCorpus_Normalization_002A_002B_20260718.zip) |
-| artifact/source ZIP | 0.2407 | [12_Noether_Arabic_Persian_Indonesian_WorkingComponents_20260718.zip](https://zenodo.org/records/21421559/files/12_Noether_Arabic_Persian_Indonesian_WorkingComponents_20260718.zip) |
-| manifest/status | 0.0033 | [99_Noether_Public_Status_NotCritical_v26_R823_Multilingual_20260718.md](https://zenodo.org/records/21421559/files/99_Noether_Public_Status_NotCritical_v26_R823_Multilingual_20260718.md) |
+| reader/reference PDF | 2.5339 | [00_Noether_German_Cumulative_Working_SourceControl_v26_R823_20260717.pdf](https://zenodo.org/records/21422620/files/00_Noether_German_Cumulative_Working_SourceControl_v26_R823_20260717.pdf) |
+| reader/reference PDF | 2.4925 | [01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf](https://zenodo.org/records/21422620/files/01_Noether_English_Cumulative_Working_Reader_RA10_20260612.pdf) |
+| artifact/source ZIP | 10.2346 | [02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip](https://zenodo.org/records/21422620/files/02_Noether_Standalone_English_Papers_01_43_WorkingDrafts_20260706.zip) |
+| reader/reference PDF | 2.2146 | [02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.pdf) |
+| reader/reference PDF | 19.8558 | [02b_Noether_Interslavic_Latin_WorkingReader_20260718.pdf](https://zenodo.org/records/21422620/files/02b_Noether_Interslavic_Latin_WorkingReader_20260718.pdf) |
+| reader/reference PDF | 20.1818 | [02c_Noether_Interslavic_Cyrillic_WorkingReader_20260718.pdf](https://zenodo.org/records/21422620/files/02c_Noether_Interslavic_Cyrillic_WorkingReader_20260718.pdf) |
+| reader/reference PDF | 0.0289 | [03a_Noether_Paper36_Indonesian_CompleteWorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/03a_Noether_Paper36_Indonesian_CompleteWorkingTranslation_20260718.pdf) |
+| reader/reference PDF | 0.0525 | [03b_Noether_Paper26_SimplifiedChinese_R823_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/03b_Noether_Paper26_SimplifiedChinese_R823_WorkingTranslation_20260718.pdf) |
+| reader/reference PDF | 0.0767 | [03c_Noether_Paper26_TraditionalChinese_R823_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/03c_Noether_Paper26_TraditionalChinese_R823_WorkingTranslation_20260718.pdf) |
+| reader/reference PDF | 0.0721 | [03d_Noether_Paper26_Japanese_R823_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/03d_Noether_Paper26_Japanese_R823_WorkingTranslation_20260718.pdf) |
+| reader/reference PDF | 0.0455 | [03e_Noether_Paper26_Korean_R823_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/03e_Noether_Paper26_Korean_R823_WorkingTranslation_20260718.pdf) |
+| reader/reference PDF | 0.0338 | [03f_Noether_Paper36_SimplifiedChinese_R823_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/03f_Noether_Paper36_SimplifiedChinese_R823_WorkingTranslation_20260718.pdf) |
+| reader/reference PDF | 0.0557 | [03g_Noether_Paper36_TraditionalChinese_R823_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/03g_Noether_Paper36_TraditionalChinese_R823_WorkingTranslation_20260718.pdf) |
+| reader/reference PDF | 0.0588 | [03h_Noether_Paper36_Japanese_R823_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/03h_Noether_Paper36_Japanese_R823_WorkingTranslation_20260718.pdf) |
+| reader/reference PDF | 0.0318 | [03i_Noether_Paper36_Korean_R823_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21422620/files/03i_Noether_Paper36_Korean_R823_WorkingTranslation_20260718.pdf) |
+| artifact/source ZIP | 345.3624 | [04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip](https://zenodo.org/records/21422620/files/04_Noether_SourceRepair_Audit_Provenance_R781_R796_20260706.zip) |
+| artifact/source ZIP | 25.0978 | [05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip](https://zenodo.org/records/21422620/files/05_Noether_Multilingual_Current_Readers_and_TeX_Checkpoints_20260706.zip) |
+| manifest/status | 0.0008 | [06_Noether_R787_R804_public_upload_sha256_20260707.csv](https://zenodo.org/records/21422620/files/06_Noether_R787_R804_public_upload_sha256_20260707.csv) |
+| manifest/status | 0.0032 | [06_Noether_R787_R804_rollup_manifest_20260707.csv](https://zenodo.org/records/21422620/files/06_Noether_R787_R804_rollup_manifest_20260707.csv) |
+| artifact/source ZIP | 350.7858 | [06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip](https://zenodo.org/records/21422620/files/06a_Noether_SourceRepair_Audit_R787_R789_P30_20260707.zip) |
+| artifact/source ZIP | 320.9525 | [06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip](https://zenodo.org/records/21422620/files/06b_Noether_SourceRepair_Audit_R791_R798_P30_20260707.zip) |
+| artifact/source ZIP | 251.7752 | [06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip](https://zenodo.org/records/21422620/files/06c_Noether_SourceRepair_Audit_R792_R804_P24_P34_P40_P14_P19_20260707.zip) |
+| artifact/source ZIP | 12.3384 | [06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip](https://zenodo.org/records/21422620/files/06d_Noether_Source_Aux_OCR_Locator_Companion_Part2_20260707.zip) |
+| artifact/source ZIP | 23.9386 | [07_Noether_Current_German_SourceControl_v26_R823_20260717.zip](https://zenodo.org/records/21422620/files/07_Noether_Current_German_SourceControl_v26_R823_20260717.zip) |
+| manifest/status | 0.0010 | [07_Noether_v26_R823_public_manifest_20260717.csv](https://zenodo.org/records/21422620/files/07_Noether_v26_R823_public_manifest_20260717.csv) |
+| manifest/status | 0.0007 | [07_Noether_v26_R823_public_sha256_20260717.csv](https://zenodo.org/records/21422620/files/07_Noether_v26_R823_public_sha256_20260717.csv) |
+| artifact/source ZIP | 14.8036 | [08_Noether_Paper06_Slavic_WorkingTranslation_Tranche001_20260716.zip](https://zenodo.org/records/21422620/files/08_Noether_Paper06_Slavic_WorkingTranslation_Tranche001_20260716.zip) |
+| artifact/source ZIP | 18.9997 | [09_Noether_R823_SourceSynchronized_Multilingual_Components_20260718.zip](https://zenodo.org/records/21422620/files/09_Noether_R823_SourceSynchronized_Multilingual_Components_20260718.zip) |
+| artifact/source ZIP | 21.5818 | [10_Noether_Spanish_R823_WorkingTranslation_TeX_Evidence_20260718.zip](https://zenodo.org/records/21422620/files/10_Noether_Spanish_R823_WorkingTranslation_TeX_Evidence_20260718.zip) |
+| artifact/source ZIP | 157.0899 | [11_Noether_Interslavic_WorkingCorpus_Normalization_002A_002B_20260718.zip](https://zenodo.org/records/21422620/files/11_Noether_Interslavic_WorkingCorpus_Normalization_002A_002B_20260718.zip) |
+| artifact/source ZIP | 0.2407 | [12_Noether_Arabic_Persian_Indonesian_WorkingComponents_20260718.zip](https://zenodo.org/records/21422620/files/12_Noether_Arabic_Persian_Indonesian_WorkingComponents_20260718.zip) |
+| manifest/status | 0.0019 | [13_Noether_CJK_Papers26_36_DirectPDF_SHA256_20260718.csv](https://zenodo.org/records/21422620/files/13_Noether_CJK_Papers26_36_DirectPDF_SHA256_20260718.csv) |
+| manifest/status | 0.0038 | [99_Noether_Public_Status_NotCritical_v26_R823_Multilingual_20260718.md](https://zenodo.org/records/21422620/files/99_Noether_Public_Status_NotCritical_v26_R823_Multilingual_20260718.md) |
 
 ## Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 
