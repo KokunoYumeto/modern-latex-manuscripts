@@ -26,7 +26,7 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "21300795"),
-    ("interlanguage_reflections", "21422432"),
+    ("interlanguage_reflections", "21422899"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21421058"),
     ("noether", "21422620"),
@@ -94,7 +94,7 @@ RECORD_NOTES = {
         "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21421058 replaces the earlier paper-first surface with a readable Project Atlas, a 195-page bookmarked results compendium, exact Lean/Python checks and ledgers, editable working texts, and replayable visualization/data packages. Its reference-closure gate includes every publicly cited packet dependency through Packets 198-202 and the restored Packet 076 evidence. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
     ],
     "interlanguage_reflections": [
-        "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21422432 fronts the two-page Romance v10 report, retains the v0.6 Interslavic normalization evidence and earlier source-body/automata payloads, and adds file `14` with 307 hash-bound Romance targets, source/routing ledgers, Spanish/French terminology crosswalks, six bounded production tranches, builders, and QA. The Romance program remains active and incomplete: 53 routes have no source body, 33 senses lack accepted support, the access grid has zero human observations, and T001-T006 are not native-language validated. The actual Noether translation readers remain on record 21422620. This is reproducible research infrastructure, not native-speaker approval, empirical intelligibility evidence, mathematical source certification, or a critical edition.",
+        "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21422899 fronts the v0.11 methodology map, retains the Romance v10, Interslavic v0.6, source-body, automata, and provenance layers, and adds the Noether R823 completion gate v4. The Spanish replay passes all 35 declared checks against the exact 473-page candidate, with 81 source-reconciled units, 68 independent hash-pinned native Spanish TeX witnesses, a readable final audit, and a candidate-derived pixel-bound render baseline. This gate certifies the declared artifact/evidence/build/render bindings; it is not native-language approval, semantic perfection, mathematical proof checking, peer review, or a critical edition. French remains an active moving lane. The actual Noether reader remains on record 21422620.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
