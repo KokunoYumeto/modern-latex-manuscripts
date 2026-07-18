@@ -26,7 +26,7 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20415117"),
     ("workflow", "21300795"),
-    ("interlanguage_reflections", "21422899"),
+    ("interlanguage_reflections", "21423647"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21421058"),
     ("noether", "21423112"),
@@ -94,7 +94,7 @@ RECORD_NOTES = {
         "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21421058 replaces the earlier paper-first surface with a readable Project Atlas, a 195-page bookmarked results compendium, exact Lean/Python checks and ledgers, editable working texts, and replayable visualization/data packages. Its reference-closure gate includes every publicly cited packet dependency through Packets 198-202 and the restored Packet 076 evidence. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
     ],
     "interlanguage_reflections": [
-        "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21422899 fronts the v0.11 methodology map, retains the Romance v10, Interslavic v0.6, source-body, automata, and provenance layers, and adds the Noether R823 completion gate v4. The Spanish replay passes all 35 declared checks against the exact 473-page candidate, with 81 source-reconciled units, 68 independent hash-pinned native Spanish TeX witnesses, a readable final audit, and a candidate-derived pixel-bound render baseline. The same hardened gate was subsequently replayed successfully against the frozen 494-page French branch, which is public on Noether record 21423112. These gates certify declared artifact/evidence/build/render bindings; they are not native-language approval, semantic perfection, mathematical proof checking, peer review, or critical editions.",
+        "Methodology, source-body, provenance, and bounded-output sidecar for interlanguage and constructed-language mathematical translation. Current version 21423647 fronts the v0.12 six-page fleet map, retains Romance v10, Interslavic v0.6, source-body, automata, provenance, and Noether R823 gate layers, and adds stable controls for all eight language-management lanes. Its compact 192-file snapshot includes bounded working outputs for Somali/Oromo, Arabic/Iranian Persian, Indonesian, Kyrgyz, Uyghur, and Uzbek while excluding moving SGA workpasses. These artifacts retain explicit native-review, source-reconciliation, and critical-edition caveats.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
