@@ -1,0 +1,145 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.interlanguage.invalid/schemas/noether-paper29-korean-u01-structural-index-1.0.0.json",
+  "title": "Noether Paper 29 Korean U01 source-target structural record",
+  "description": "One canonical JSONL record for each touched structural unit in P29-KO-U01. Line and character coordinates are one-based and inclusive. Null character coordinates select the complete newline-joined line range. Fragment SHA-256 is computed from the selected Unicode text encoded as UTF-8 without a terminal newline.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "structural_id",
+    "work_id",
+    "unit_type",
+    "parent_id",
+    "order_index",
+    "source",
+    "target",
+    "relations",
+    "completion_state",
+    "review_state",
+    "publication_state",
+    "boundary_confidence",
+    "boundary_note",
+    "continuation_cursor",
+    "supersedes"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "structural_id": {
+      "type": "string",
+      "pattern": "^NOE-P29-KO-U01-(ROOT|SEC|CIT|AUTH|PARA|THM|NOTE)-[0-9]{3}$"
+    },
+    "work_id": {"const": "noether.paper29.ko.u01"},
+    "unit_type": {
+      "enum": [
+        "work",
+        "section",
+        "subsection",
+        "paragraph",
+        "closed_prose_unit",
+        "theorem",
+        "proposition",
+        "lemma",
+        "corollary",
+        "definition",
+        "remark",
+        "example",
+        "proof",
+        "proof_step",
+        "equation",
+        "display",
+        "diagram",
+        "table",
+        "note",
+        "bibliography_item",
+        "apparatus",
+        "other"
+      ]
+    },
+    "parent_id": {"type": ["string", "null"]},
+    "order_index": {"type": "integer", "minimum": 0},
+    "source": {"$ref": "#/$defs/side"},
+    "target": {"$ref": "#/$defs/side"},
+    "relations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cross_references", "dependencies"],
+      "properties": {
+        "cross_references": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {"type": "string"},
+          "uniqueItems": true
+        }
+      }
+    },
+    "completion_state": {
+      "enum": ["not_started", "in_progress", "complete", "held", "not_applicable"]
+    },
+    "review_state": {
+      "enum": [
+        "unreviewed",
+        "context_checked",
+        "internally_source_checked",
+        "externally_reviewed",
+        "held_for_review"
+      ]
+    },
+    "publication_state": {
+      "enum": ["private_working", "handoff_ready_unpublished", "published", "superseded"]
+    },
+    "boundary_confidence": {"enum": ["high", "medium", "low", "ambiguous"]},
+    "boundary_note": {"type": "string", "minLength": 1},
+    "continuation_cursor": {"type": "string", "minLength": 1},
+    "supersedes": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    }
+  },
+  "$defs": {
+    "side": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_path",
+        "artifact_sha256",
+        "authority_id",
+        "language",
+        "locator",
+        "fragment_sha256"
+      ],
+      "properties": {
+        "artifact_path": {"type": "string", "minLength": 1},
+        "artifact_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"},
+        "authority_id": {"type": "string", "minLength": 1},
+        "language": {"type": "string", "minLength": 1},
+        "locator": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "line_start",
+            "line_end",
+            "char_start",
+            "char_end",
+            "printed_page",
+            "pdf_page"
+          ],
+          "properties": {
+            "line_start": {"type": "integer", "minimum": 1},
+            "line_end": {"type": "integer", "minimum": 1},
+            "char_start": {"type": ["integer", "null"], "minimum": 1},
+            "char_end": {"type": ["integer", "null"], "minimum": 1},
+            "printed_page": {"type": ["string", "null"]},
+            "pdf_page": {"type": ["integer", "null"], "minimum": 1}
+          }
+        },
+        "fragment_sha256": {"type": "string", "pattern": "^[0-9A-F]{64}$"}
+      }
+    }
+  }
+}

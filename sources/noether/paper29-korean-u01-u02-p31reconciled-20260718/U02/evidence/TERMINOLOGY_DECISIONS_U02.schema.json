@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:interlanguage:noether:p29:ko:u02:terminology-decisions:1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "work_unit",
+    "authority",
+    "review_boundary",
+    "evidence_catalog",
+    "decisions"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "work_unit": {
+      "const": "P29-KO-U02"
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sealed_sha256",
+        "source_sha256",
+        "target_sha256",
+        "source_cursor",
+        "next_cursor"
+      ],
+      "properties": {
+        "sealed_sha256": {
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "source_sha256": {
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "target_sha256": {
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "source_cursor": {
+          "type": "string",
+          "minLength": 1
+        },
+        "next_cursor": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "review_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "internal",
+        "external_human",
+        "dprk"
+      ],
+      "properties": {
+        "internal": {
+          "type": "string"
+        },
+        "external_human": {
+          "const": "absent_do_not_claim"
+        },
+        "dprk": {
+          "const": "unverified_do_not_claim"
+        }
+      }
+    },
+    "evidence_catalog": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "evidence_id",
+          "language",
+          "source_title",
+          "source_url",
+          "scope_limit"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "decisions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "decision_id",
+          "term_id",
+          "source_form",
+          "target_form",
+          "hanja_record",
+          "source_probe",
+          "target_probe",
+          "sense_window",
+          "excluded_senses",
+          "choice",
+          "alternatives",
+          "evidence_ids",
+          "confidence",
+          "decision_state",
+          "ko_kr_state",
+          "ko_kp_state",
+          "source_locator",
+          "target_locator",
+          "structural_id",
+          "motivation",
+          "claim_type",
+          "uncertainty",
+          "revisit_condition"
+        ],
+        "properties": {
+          "decision_id": {
+            "pattern": "^KO-P29-U02-D[0-9]{3}$"
+          },
+          "term_id": {
+            "pattern": "^KO-P29-U02-T[0-9]{3}$"
+          },
+          "source_form": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_form": {
+            "type": "string",
+            "minLength": 1
+          },
+          "hanja_record": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_probe": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_probe": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sense_window": {
+            "type": "string",
+            "minLength": 1
+          },
+          "excluded_senses": {
+            "type": "string",
+            "minLength": 1
+          },
+          "choice": {
+            "type": "string",
+            "minLength": 1
+          },
+          "alternatives": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "pattern": "^KO-P29-U02-E[0-9]{3}$"
+            }
+          },
+          "confidence": {
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "decision_state": {
+            "enum": [
+              "accepted_internal",
+              "accepted_contextual",
+              "accepted_with_sense_window",
+              "provisional_context_checked",
+              "held_for_human_review"
+            ]
+          },
+          "ko_kr_state": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ko_kp_state": {
+            "const": "unverified_do_not_claim"
+          },
+          "source_locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target_locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "structural_id": {
+            "pattern": "^NOE-P29-KO-U02-"
+          },
+          "motivation": {
+            "type": "string",
+            "minLength": 1
+          },
+          "claim_type": {
+            "enum": [
+              "editorial_inference",
+              "model_preference"
+            ]
+          },
+          "uncertainty": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revisit_condition": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}
