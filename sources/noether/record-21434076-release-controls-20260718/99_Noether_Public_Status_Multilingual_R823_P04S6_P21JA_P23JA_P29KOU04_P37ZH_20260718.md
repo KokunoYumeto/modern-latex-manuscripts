@@ -1,0 +1,9 @@
+# Noether multilingual working record - bounded update 2026-07-18
+
+This same-concept update adds complete bounded Japanese Paper 21 and Korean Paper 29 U04. Japanese Paper 21 is a three-page source-reconciled working translation of sealed German lines 12583-12674. Korean U04 covers only Paper 29 lines 47-51; the proof remains incomplete and continues at line 53. An append-only correction records that line 53 begins `In \mathfrak T gilt der Teilerkettensatz für das System aller Ideale...`; the earlier transported quote was wrong, while the cursor and all U04 artifact hashes were unchanged.
+
+Both editable TeX files and PDFs are exposed directly. Their public-safe evidence ZIPs preserve machine-readable structural indices, terminology and adverse-evidence controls, difficulty/failure records, source/use decisions, validation receipts, and original internal hash bindings. Host paths and internal routing labels are projected to logical identifiers; path-bearing raw logs and host-bound scripts are represented by hashes and concise public records.
+
+The Japanese visual package contains all three exact 200-ppi target pages. The Korean visual package contains three open project-generated renders. Two Korean source-page images remain rights-blocked and are represented only by metadata, hashes, coordinates, and dispositions; no source raster is redistributed.
+
+These are internally source/build/render-reviewed machine-assisted working checkpoints. They are not a complete Korean Paper 29, a complete Japanese or Korean corpus, critical editions, mathematical certification, peer review, independent human or native-reader review, regional-language certification, accessibility certification, or rights determinations. Earlier bounded objects remain preserved. Existing concept DOI: `10.5281/zenodo.20412587`.

@@ -1,0 +1,23 @@
+# P29-KO-U04 status
+
+- State: closed internally as a source-checked, build-checked, render-inspected, structurally indexed, terminology/evidence-controlled, rights-separated, and package-validated bounded checkpoint; archive routing remains pending.
+- Scope: exact full-P29 lines 47–51 only.
+- Proof state: incomplete; line 52 is blank and the next stage begins at line 53.
+- Source authority: sealed P31 `A48CB5CD1716974B686AC1CBA681CA4B17BC72F9043B78AD2528ACA41FCF814F`; stale R821 pointer prohibited.
+- Exact source: `4C1CE8C08942FBC5EC617F4B8B559092715236471D53183611E83A5748A04578`.
+- Korean TeX/PDF/render: `A967222517ABF3392BA10B2CF166EDCDF455F13E5D5C29A00A9A49E609ECE9A4` / `5AD0B7D710C82B686EA2F67820F2CA29400205E31CD7D7EA1169A530E46CC5DE` / `E221443C62B0FDC7025A753884AAC3E10075F9173D069EDA518024824CCE46FD`.
+- Build: two successful XeLaTeX passes; one page; zero warning/error/overfull/underfull/missing-character pattern hits.
+- Extraction: 324 Hangul syllables; zero replacement/black-square glyphs.
+- Visual QA: accepted Korean render, preserved Korean draft, German control, and both source pages inspected at original available resolution; accepted-final visible defects zero.
+- Independent review: two read-only model reviews; no remaining substantive mathematical or quantifier error after three terminology sense disambiguations. This is not human validation.
+- Structure: 14 records through `NOE-P29-KO-U04-STEP-009`; zero validator errors.
+- Difficulty: 6 append-only hash-chained resolved records through `CJK-KO-P29-U04-HARD-006`; zero validator errors; terminology reviewer debt remains held separately.
+- Terminology/evidence: 9 Korean evidence, 13 terms (9 translated/4 held), 14 adverse, 13 crosswalk, 13 typed decisions through `D013`; graph 63 nodes/99 edges, DAG; 14/14 structural parity; zero validator errors.
+- Visual evidence: 5 records through `VE-NOE-P29-KO-U04-005`; 2 manifest-only rights-blocked source pages and 3 open project renders; no loss/reconstruction event; zero validator errors.
+- Package: 84-row deterministic manifest; authority, structure, difficulty, terminology/graph/parity, and visual validators all exit zero; package report errors `[]`; sealed U01/U02/U03 manifest and report authorities remain byte-identical. Exact final package hashes are recorded in `MANIFEST_U04.csv`, `SHA256SUMS_U04.txt`, and `qa/U04_PACKAGE_VALIDATION.json` after the required post-wording replay.
+- Rights: source JPEG redistribution unresolved and metadata/hash/coordinate-only publicly; no permission invented.
+- South-/North-Korean state: ko-KR working target; ko-KP `unverified_do_not_claim`.
+- External Korean/DPRK/source-owner/archive/community review: absent.
+- Publication: not published; no DOI or archive incorporation claimed.
+- Next substantive cursor after archive handoff: full-P29 line 53.
+- Scope hold: complete Noether corpus only; no SGA.
