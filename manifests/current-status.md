@@ -1342,7 +1342,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 
 | Record key | Current record ID | Concept DOI |
 |---|---:|---|
-| Main landing | 20458953 | <https://doi.org/10.5281/zenodo.20393488> |
+| Main landing | 20459634 | <https://doi.org/10.5281/zenodo.20393488> |
 | Workflow / replication packet | 21424987 | <https://doi.org/10.5281/zenodo.20461174> |
 | Interlanguage methodology | 21423647 | <https://doi.org/10.5281/zenodo.21124403> |
 | Lean formalization sidecars | 21129946 | <https://doi.org/10.5281/zenodo.21129945> |

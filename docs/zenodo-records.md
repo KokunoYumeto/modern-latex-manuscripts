@@ -1,3 +1,12 @@
+## 2026-07-18 bounded SGA 2 English checkpoints published on the main landing record
+
+- Current main-landing version: [10.5281/zenodo.20459634](https://doi.org/10.5281/zenodo.20459634), concept DOI [10.5281/zenodo.20393488](https://doi.org/10.5281/zenodo.20393488).
+- Reader surface: the existing workflow/replication PDF remains the default preview. Two new directly readable PDFs expose source-aligned English working checkpoints for SGA 2, Exposé I, sections 1 and 2; one grouped ZIP carries the exact editable TeX, target renders, clean public ledgers, attribution/provenance notes, cursors, and checksums.
+- Section 1: French envelope lines 87-279, substantive section lines 90-279, printed pp. 5-12, six English output pages. Section 2: French lines 280-503, substantive section lines 280-489 plus corrected bibliography lines 490-503, printed pp. 13-18, five English output pages. The next cursor is Exposé II at French line 505.
+- Integrity: PDF SHA-256 values are `68B924EE8DFE1FFE4709D459D49A4DDCB1B19E94B9909D73CC83BF5D267A1500` and `7FB6C5346BEE69949C6A61E6BCB4FD52BBF0CCDBF9629C5D57BB7739C68AE513`; grouped ZIP SHA-256 is `A0767B9568CA64BA2817CE2794C7528C1A2D4DCAD18F1FF6D940E2DB0F87477B`. All three published files were downloaded back and matched.
+- Publication hygiene: the grouped package deliberately excludes producer handoffs, raw build logs, absolute-path source ledgers, internal task identifiers, and superseded producer manifests. The Reinhold LLM-generated CC BY 4.0 English text is identified only as a comparison witness and is not redistributed as source authority.
+- Status: bounded machine-assisted source-aligned working checkpoints, not a complete SGA 2 translation, critical edition, peer review, independent scholarly certification, or full-volume source-faithfulness claim.
+
 ## 2026-07-18 Noether Interslavic normalization through Tranche 007 published
 
 - Current version: [10.5281/zenodo.21429723](https://doi.org/10.5281/zenodo.21429723), concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587).

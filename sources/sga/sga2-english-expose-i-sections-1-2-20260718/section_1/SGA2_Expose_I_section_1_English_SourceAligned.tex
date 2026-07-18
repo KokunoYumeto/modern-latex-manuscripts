@@ -1,0 +1,460 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=30mm,marginparwidth=21mm,marginparsep=4mm]{geometry}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage[hidelinks,pdfencoding=auto,hypertexnames=false]{hyperref}
+
+\definecolor{statusgray}{RGB}{242,244,247}
+\definecolor{rulegray}{RGB}{120,128,140}
+
+\newcommand{\uGamma}{\mathop{\underline{\Gamma}}\nolimits}
+\newcommand{\uHom}{\mathop{\underline{\mathrm{Hom}}}\nolimits}
+\newcommand{\uC}{\underline{\mathrm{C}}}
+\newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\restr}[2]{#1\vert_{#2}}
+\newcommand{\srcpage}[1]{%
+  \marginpar{\raggedright\scriptsize\color{rulegray}French printed p.~#1}}
+
+\newenvironment{sgastatement}[1]
+  {\par\addvspace{0.8\baselineskip}\noindent\textbf{#1.}\ \itshape}
+  {\par\addvspace{0.4\baselineskip}}
+\newenvironment{sgaremark}[1]
+  {\par\addvspace{0.8\baselineskip}\noindent\textbf{#1.}\ }
+  {\par\addvspace{0.4\baselineskip}}
+\newenvironment{sgaproof}
+  {\par\addvspace{0.4\baselineskip}\noindent\textit{Proof.}\ }
+  {\hfill$\square$\par\addvspace{0.4\baselineskip}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small SGA 2 --- English source-alignment workpass}
+\fancyhead[R]{\small Expos\'e I, \S1}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\title{\textbf{SGA 2: Local Cohomology and Lefschetz Theorems}\\[0.5em]
+  \large Expos\'e I, \S1 --- The functors $\Gamma_Z$ and $\uGamma_Z$}
+\author{English/Germanic language-management lane}
+\date{Production tranche 001 --- 18 July 2026}
+
+\begin{document}
+\maketitle
+
+\noindent\colorbox{statusgray}{%
+  \parbox{\dimexpr\linewidth-2\fboxsep\relax}{\small
+  \textbf{Status and authority.} This is a bounded source-aligned English
+  production tranche, not a full-volume release.  It translates the corrected,
+  annotated French branch in \texttt{arXiv:math/0511279v1}, main source
+  \texttt{smf\_doc-math\_4\_01.tex}, lines 87--279; the section itself is lines
+  90--279 and corresponds to original printed pages 6--12.  The recovered
+  jcreinhold English files were consulted only as an adverse/comparison witness.
+  Numbering, functor underlines, arrows, superscript stars, and mathematical
+  symbols have been checked against the French TeX and the rendered French
+  source PDF.}}
+
+\vspace{1.5em}
+
+\begin{center}
+  \Large\bfseries Expos\'e I\\[0.6em]
+  \large Global and Local Cohomological Invariants\\
+  Relative to a Closed Subspace
+\end{center}
+
+\section*{1. The functors $\Gamma_Z$ and $\uGamma_Z$}
+\addcontentsline{toc}{section}{1. The functors Gamma Z and underlined Gamma Z}
+
+\srcpage{6}
+Let $X$ be a topological space, and let $\uC_X$ be the category of
+sheaves of abelian groups on $X$.  Let $\Phi$ be a family of supports in
+the sense of Cartan.  The functor $\Gamma_\Phi$ on $\uC_X$ is defined by
+\begin{equation}
+  \Gamma_\Phi(F)
+  =\{f\in\Gamma(F)\mid \operatorname{supp}(f)\in\Phi\}.
+  \tag{1}\label{eq:I.1}
+\end{equation}
+If $Z$ is a closed subset of $X$, by an abuse of notation we denote by
+$\Gamma_Z$ the functor $\Gamma_\Phi$, where $\Phi$ is the family of
+closed subsets of $X$ contained in $Z$.\footnote{At this single occurrence
+the French printed and TeX sources underline $\Gamma_Z$.  The defining
+equation~\eqref{eq:I.2} and the systematic distinction used thereafter
+identify the intended functor here as the global, non-underlined $\Gamma_Z$.
+The source anomaly and this explicit resolution are recorded in the tranche
+comparison ledger.}
+Thus
+\begin{equation}
+  \Gamma_Z(F)
+  =\{f\in\Gamma(F)\mid \operatorname{supp}(f)\subset Z\}.
+  \tag{2}\label{eq:I.2}
+\end{equation}
+
+We wish to extend this definition to the case in which $Z$ is a
+\emph{locally closed} subset of $X$, hence closed in a suitable open subset
+$V$ of $X$.  In that case we set
+\begin{equation}
+  \Gamma_Z(F)=\Gamma_Z(\restr{F}{V}).
+  \tag{3}\label{eq:I.3}
+\end{equation}
+We must verify that $\Gamma_Z(F)$ ``does not depend'' on the chosen open
+set.  It is enough to show that, if $V'$ is open and
+$V\supset V'\supset Z$, then the map
+$\rho^V_{V'}:F(V)\to F(V')$ maps
+$\Gamma_Z(\restr{F}{V})$ isomorphically onto
+$\Gamma_Z(\restr{F}{V'})$.  But
+\begin{equation}
+  \Gamma_Z(\restr{F}{V})=\ker\rho^V_{V-Z}.
+  \tag{4}\label{eq:I.4}
+\end{equation}
+Consequently, if $f\in\Gamma_Z(\restr{F}{V})$ and
+$\rho^V_{V'}(f)=\rho^V_{V-Z}(f)=0$, then $f=0$, since
+$(V',V-Z)$ is a covering of $V$.  Likewise, if
+$f'\in\Gamma_Z(\restr{F}{V'})$, then $f'\in F(V')$ and
+\srcpage{7}$0\in F(V-Z)$ define an element $f\in F(V)$ such that
+$\rho^V_{V'}(f)=f'$ and $f\in\Gamma_Z(\restr{F}{V})$.
+Thus $\rho^V_{V'}$ induces an isomorphism
+\[
+  \Gamma_Z(\restr{F}{V})\longrightarrow
+  \Gamma_Z(\restr{F}{V'}).
+\]
+
+Note that every open subset $W$ of $Z$ is induced by an open subset $U$
+of $X$ in which $W$ is closed.  It follows that
+$W\mapsto\Gamma_W(F)$ defines a presheaf on $Z$; one verifies that it is
+a sheaf, denoted by $i^!(F)$, where $i:Z\to X$ is the canonical
+immersion.  We obtain
+\begin{equation}
+  \Gamma_Z(F)=\Gamma(i^!(F)).
+  \tag{5}\label{eq:I.5}
+\end{equation}
+The sheaf $i^!(F)$ is a subsheaf of $i^*(F)$.  Indeed, the canonical
+homomorphism
+\[
+  \Gamma(\restr{F}{U})=\Gamma(U,F)\longrightarrow
+  \Gamma(U\cap Z,i^*(F))
+\]
+is injective on
+$\Gamma_{U\cap Z}(\restr{F}{U})\subset\Gamma(\restr{F}{U})$.
+In summary, we have the following result.
+
+\begin{sgastatement}{Proposition 1.1}\label{I.1.1}
+There exists a unique subsheaf $i^!(F)$ of $i^*(F)$ such that, for every
+open subset $U$ of $X$ for which $U\cap Z$ is closed in $U$, the map
+\[
+  \Gamma(\restr{F}{U})=\Gamma(U,F)\longrightarrow
+  \Gamma(U\cap Z,i^*(F))
+\]
+induces an isomorphism
+\[
+  \Gamma_{U\cap Z}(\restr{F}{U})\longrightarrow
+  \Gamma(U\cap Z,i^!(F)).
+\]
+\end{sgastatement}
+
+If $Z$ is open, then simply
+\begin{equation}
+  i^!(F)=i^*(F)=\restr{F}{Z},
+  \qquad \Gamma_Z(F)=\Gamma(Z,F).
+  \tag{6}\label{eq:I.6}
+\end{equation}
+
+Suppose again that $Z$ is arbitrary.  As $U$ ranges through the open
+subsets of $X$, the assignment
+\[
+  U\longmapsto \Gamma_{U\cap Z}(\restr{F}{U})
+  =\Gamma(U\cap Z,i^!(F))
+\]
+is a sheaf on $X$, which we denote by $\uGamma_Z(F)$.  More precisely,
+the preceding formula, which expresses the fact that $i^!$ commutes with
+restriction to open subsets, gives an isomorphism
+\begin{equation}
+  \uGamma_Z(F)=i_*(i^!(F)).
+  \tag{7}\label{eq:I.7}
+\end{equation}
+By definition,\srcpage{8} for every open subset $U$ of $X$,
+\begin{equation}
+  \Gamma(U,\uGamma_Z(F))
+  =\Gamma_{U\cap Z}(\restr{F}{U}).
+  \tag{8}\label{eq:I.8}
+\end{equation}
+
+Here there is a characteristic difference between the case in which
+$Z$ is closed and the case in which $Z$ is open.  In the first case,
+formula~\eqref{eq:I.8} shows that $\uGamma_Z(F)$ may be regarded as a
+subsheaf of $F$; hence there is a \emph{canonical immersion}
+\begin{equation}
+  \uGamma_Z(F)\lhook\joinrel\longrightarrow F.
+  \tag{$8'$}\label{eq:I.8prime}
+\end{equation}
+When $Z$ is open, on the other hand, equation~\eqref{eq:I.6} shows that
+the right-hand side of equation~\eqref{eq:I.8} is
+$\Gamma(U\cap Z,F)$ and therefore receives a homomorphism from
+$\Gamma(U,F)$.  Thus there is a \emph{canonical homomorphism} in the
+opposite direction:\footnote{The original reference was (8).}
+\begin{equation}
+  F\longrightarrow\uGamma_Z(F).
+  \tag{$8''$}\label{eq:I.8doubleprime}
+\end{equation}
+This is none other than the canonical homomorphism
+\[
+  F\longrightarrow i_*i^*(F),
+\]
+in view of the isomorphism
+\begin{equation}
+  \uGamma_Z(F)\simeq i_*i^*(F)
+  \tag{6 bis}\label{eq:I.6bis}
+\end{equation}
+deduced from equations~\eqref{eq:I.6} and~\eqref{eq:I.7}.
+
+For variable $F$, the objects $\Gamma_Z(F)$, $\uGamma_Z(F)$, and
+$i^!(F)$ may of course be regarded as functors in $F$, with values,
+respectively, in the category of abelian groups, the category of sheaves
+of abelian groups on $X$, and the category of sheaves of abelian groups
+on $Z$.  It is sometimes convenient to interpret the functor
+\[
+  i^!: \uC_X\longrightarrow\uC_Z
+\]
+as the right adjoint of the familiar functor
+\[
+  i_!: \uC_Z\longrightarrow\uC_X
+\]
+defined by the following proposition.
+
+\srcpage{9}
+\begin{sgastatement}{Proposition 1.2}\label{I.1.2}
+Let $G$ be a sheaf of abelian groups on $Z$.  There exists a unique
+subsheaf of $i_*(G)$, denoted $i_!(G)$, such that for every open subset
+$U$ of $X$ the (identity) isomorphism
+\[
+  \Gamma(U\cap Z,G)=\Gamma(U,i_*(G))
+\]
+induces an isomorphism
+\[
+  \Gamma_{\Phi_{U\cap Z,U}}(U\cap Z,G)=\Gamma(U,i_!(G)),
+\]
+where $\Phi_{U\cap Z,U}$ denotes the family of subsets of $U\cap Z$
+that are closed in $U$.
+\end{sgastatement}
+
+The verification reduces to observing that the left-hand side is a
+sheaf as $U$ varies: namely, for a section of $i_*(G)$ on $U$, viewed
+as a section of $G$ on $U\cap Z$, the property of having support closed
+\emph{in $U$} is \emph{local on $U$}.  The sheaf $i_!(G)$ just defined
+is also known as the \emph{sheaf obtained from $G$ by extension by zero}
+outside $Z$; see Godement~\cite{Godement}.  In particular, if $Z$ is
+closed, then
+\begin{equation}
+  i_!(G)=i_*(G).
+  \tag{9}\label{eq:I.9}
+\end{equation}
+In general, however, the canonical injection
+$i_!(G)\to i_*(G)$ is not an isomorphism, as is already well known when
+$Z$ is open.  Evidently $i_!(G)$ depends functorially on $G$ (and is in
+fact an exact functor of $G$).  We therefore have:
+
+\begin{sgastatement}{Proposition 1.3}\label{I.1.3}
+There is an isomorphism of bifunctors in $G$ and $F$, where $G$ is a
+sheaf of abelian groups on $Z$ and $F$ is a sheaf of abelian groups on
+$X$:
+\begin{equation}
+  \operatorname{Hom}(i_!(G),F)
+  =\operatorname{Hom}(G,i^!(F)).
+  \tag{10}\label{eq:I.10}
+\end{equation}
+\end{sgastatement}
+
+To define such an isomorphism is equivalent to defining functorial
+homomorphisms
+\[
+  i_!i^!(F)\longrightarrow F,
+  \qquad
+  G\longrightarrow i^!i_!(G),
+\]
+satisfying the familiar compatibility conditions (see, for example,
+Shih's expos\'e in the Cartan seminar on cohomological operations).
+
+Recalling\srcpage{10} that $i_!$ is exact, and hence takes
+monomorphisms to monomorphisms, we conclude:
+
+\begin{sgastatement}{Corollary 1.4}\label{I.1.4}
+If $F$ is injective, then $i^!(F)$ is injective; consequently
+$\uGamma_Z(F)=i_*i^!(F)$ is also injective.
+\end{sgastatement}
+
+Replacing $X$ by a variable open subset $U$ of $X$, Proposition~1.3
+also gives:
+
+\begin{sgastatement}{Corollary 1.5}\label{I.1.5}
+There is an isomorphism, functorial in $F$ and $G$,
+\begin{equation}
+  \uHom(i_!(G),F)=i_*\bigl(\uHom(G,i^!(F))\bigr).
+  \tag{11}\label{eq:I.11}
+\end{equation}
+\end{sgastatement}
+
+Taking $G$ to be the constant sheaf on $Z$ defined by $\ZZ$, denoted
+$\ZZ_Z$, Proposition~1.3 and Corollary~1.5 specialize as follows.
+
+\begin{sgastatement}{Corollary 1.6}\label{I.1.6}
+There are isomorphisms, functorial in $F$,
+\begin{equation}
+  \begin{aligned}
+    \Gamma_Z(F)&=\operatorname{Hom}(\ZZ_{Z,X},F),\\
+    \uGamma_Z(F)&=\uHom(\ZZ_{Z,X},F),
+  \end{aligned}
+  \tag{12}\label{eq:I.12}
+\end{equation}
+where $\ZZ_{Z,X}=i_!(\ZZ_Z)$ is the sheaf of abelian groups on $X$
+obtained from the constant sheaf $\ZZ_Z$ on $Z$ by extension by zero
+outside $Z$.
+\end{sgastatement}
+
+\begin{sgaremark}{Remark 1.7}\label{I.1.7}
+Suppose that $X$ is a ringed space, equip $Z$ with the sheaf of rings
+$\mathcal O_Z=i^{-1}(\mathcal O_X)$, and now let $\uC_X$ and $\uC_Z$
+denote the categories of modules on $X$ and $Z$, respectively.  The
+preceding considerations extend word for word, with $F$ a module on $X$
+and $G$ a module on $Z$, and with statements 1.3--1.6 interpreted
+accordingly.
+\end{sgaremark}
+
+To conclude these generalities, let us examine what happens when the
+locally closed subset $Z$ is changed.  Let $Z'\subset Z$ be another
+locally closed subset, and let
+\[
+  j:Z'\longrightarrow Z,
+  \qquad i':Z'\longrightarrow X,
+  \qquad i'=ij
+\]
+be the canonical inclusions.\srcpage{11}  There are functorial
+isomorphisms
+\begin{equation}
+  (ij)^!=j^!i^!,
+  \qquad
+  (ij)_!=i_!j_!.
+  \tag{13}\label{eq:I.13}
+\end{equation}
+The first isomorphism in~\eqref{eq:I.13} defines a functorial
+isomorphism
+\begin{equation}
+  \Gamma_{Z'}(F)
+  =\Gamma(Z',(ij)^!(F))
+  \simeq\Gamma(Z',j^!(i^!(F)))
+  =\Gamma_{Z'}(i^!(F)).
+  \tag{14}\label{eq:I.14}
+\end{equation}
+
+Suppose now that $Z'$ is \emph{closed} in $Z$, and let
+\[
+  Z''=Z-Z'
+\]
+be its complement in $Z$.  This is open in $Z$ and hence locally closed
+in $X$.  Applying the canonical injection~\eqref{eq:I.8prime} to
+$i^!(F)$ on $Z$ with the subset $Z'$, and using~\eqref{eq:I.14}, gives
+an injective functorial canonical homomorphism
+\begin{equation}
+  \Gamma_{Z'}(F)\longrightarrow\Gamma_Z(F).
+  \tag{15}\label{eq:I.15}
+\end{equation}
+If $Z'$ is replaced by $Z''$ in~\eqref{eq:I.14} and
+equation~\eqref{eq:I.8doubleprime} is used, one obtains a functorial
+canonical homomorphism
+\begin{equation}
+  \Gamma_Z(F)\longrightarrow\Gamma_{Z''}(F).
+  \tag{$15'$}\label{eq:I.15prime}
+\end{equation}
+
+\begin{sgastatement}{Proposition 1.8}\label{I.1.8}
+Under the preceding hypotheses, the sequence of functorial
+homomorphisms
+\begin{equation}
+  0\longrightarrow\Gamma_{Z'}(F)
+  \longrightarrow\Gamma_Z(F)
+  \longrightarrow\Gamma_{Z''}(F)
+  \tag{16}\label{eq:I.16}
+\end{equation}
+is exact.  If $F$ is flasque, the sequence remains exact after a zero is
+added on the right.
+\end{sgastatement}
+
+\begin{sgaproof}
+Replace $X$ by an open subset $V$ in which $Z$ is closed.  This reduces
+the assertion to the case in which $Z$, and hence $Z'$, is closed.
+Then $Z''$ is closed in the open subset $X-Z'$, and there is a canonical
+injection
+\[
+  \Gamma_{Z''}(F)\longrightarrow\Gamma(X-Z',F).
+\]
+The exactness of~\eqref{eq:I.16} then says simply that the sections of
+$F$ with support in $Z'$ are precisely those whose restriction to
+$X-Z'$ is zero.
+
+\srcpage{12}If $F$ is flasque, every element of $\Gamma_{Z''}(F)$, regarded as a
+section of $F$ on $X-Z'$, extends to a section of $F$ on $X$.  The
+latter section plainly has support in $Z$, proving that the last
+homomorphism in~\eqref{eq:I.16} is then surjective.
+\end{sgaproof}
+
+\begin{sgastatement}{Corollary 1.9}\label{I.1.9}
+There is a functorial exact sequence
+\begin{equation}
+  0\longrightarrow\uGamma_{Z'}(F)
+  \longrightarrow\uGamma_Z(F)
+  \longrightarrow\uGamma_{Z''}(F),
+  \tag{16 bis}\label{eq:I.16bis}
+\end{equation}
+and, if $F$ is flasque, the sequence remains exact after a zero is added
+on the right.
+\end{sgastatement}
+
+Proposition~1.8 may be interpreted, by means of Corollary~1.6, as a
+statement about the functors $\operatorname{Hom}$ and $\uHom$, as
+follows.  First note that if $G$ is a sheaf of abelian groups on $Z$,
+inducing the sheaves $j^*(G)$ and $k^*(G)$ on $Z'$ and $Z''$,
+respectively, where $j:Z'\to Z$ and $k:Z''\to Z$ are the canonical
+injections, then there is a canonical exact sequence of sheaves on $X$:
+\begin{equation}
+  0\longrightarrow k^*(G)_X
+  \longrightarrow G_X
+  \longrightarrow j^*(G)_X
+  \longrightarrow 0.
+  \tag{17}\label{eq:I.17}
+\end{equation}
+Here, to simplify notation, the subscript $X$ denotes the sheaf on $X$
+obtained by extension by zero outside the space on which the sheaf in
+question is defined.  Sequence~\eqref{eq:I.17} generalizes a familiar
+exact sequence for $Z=X$ (see Godement~\cite{Godement}); it follows from
+that sequence by writing it on $Z$ and applying the functor $i_!$.
+Taking $G=\ZZ_Z$, we obtain in particular:
+
+\begin{sgastatement}{Proposition 1.10}\label{I.1.10}
+Under the preceding hypotheses, there is an exact sequence of sheaves of
+abelian groups on $X$:
+\begin{equation}
+  0\longrightarrow\ZZ_{Z'',X}
+  \longrightarrow\ZZ_{Z,X}
+  \longrightarrow\ZZ_{Z',X}
+  \longrightarrow 0.
+  \tag{18}\label{eq:I.18}
+\end{equation}
+The two exact sequences in Proposition~1.8 and Corollary~1.9 are exactly
+the sequences obtained from~\eqref{eq:I.18} by applying, respectively,
+the functors $\operatorname{Hom}(-,F)$ and $\uHom(-,F)$.
+\end{sgastatement}
+
+This also gives an immediate proof that sequences~\eqref{eq:I.16} and
+\eqref{eq:I.16bis} remain exact after a zero is added on the right,
+provided that $F$ is \emph{injective}.
+
+\begin{thebibliography}{Godement}
+\bibitem[Godement]{Godement}
+R.~Godement, \emph{Topologie alg\'ebrique et th\'eorie des faisceaux},
+Act. Scient. et Ind., vol.~1252, Hermann, Paris.
+\end{thebibliography}
+
+\end{document}
