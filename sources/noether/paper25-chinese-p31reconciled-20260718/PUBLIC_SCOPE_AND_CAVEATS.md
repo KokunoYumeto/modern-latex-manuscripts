@@ -1,0 +1,8 @@
+
+# Noether Paper 25 Chinese public checkpoint
+
+This package contains complete bounded working translations of Emmy Noether's Paper 25, *Eliminationstheorie und Idealtheorie*, in PRC-oriented Simplified Chinese (`zh-Hans-CN`) and a controlled generic Traditional Chinese script/register adaptation (`zh-Hant`). It includes both editable target TeX files, both two-page target PDFs, all seven project-generated German/Hans/Hant render-QA pages, 14 typed terminology decisions, structural and terminology controls, a typed evidence graph, and machine validation reports.
+
+The sealed P31 German authority has SHA-256 `A48CB5CD1716974B686AC1CBA681CA4B17BC72F9043B78AD2528ACA41FCF814F`. The target TeX/PDF files and render images are exact producer bytes. 23 text evidence files were projected to logical public URIs in place of host-local paths. `SANITIZATION_AND_EXCLUSION_LEDGER.csv` records the omitted raw logs, host-configured authoring scripts, source/comparison bodies, and quotation-bearing search dumps by their exact producer hashes. The exact original 74-artifact manifest and checksum list are retained under `provenance/` as pre-sanitization receipts.
+
+No external Chinese, community, Singapore, Taiwan, Hong Kong, or Macao review is claimed. The Hant target is a controlled generic adaptation, not regional localization. The inherited cumulative Chinese text is comparison evidence only. The unresolved 1924/1925 package-metadata conflict is recorded without a ruling; no German body-text or formula defect was found. This is not a critical edition, human certification, whole-reader synchronization claim, or rights determination.
