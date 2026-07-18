@@ -126,17 +126,17 @@ Record: <https://doi.org/10.5281/zenodo.20393488>
 
 ## AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
-Record: <https://doi.org/10.5281/zenodo.20461174>
+Record: <https://zenodo.org/records/21424987>
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0061 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260710.md](https://zenodo.org/records/21300795/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260710.md) |
-| reader/reference PDF | 0.0483 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260710.pdf](https://zenodo.org/records/21300795/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260710.pdf) |
-| artifact/source ZIP | 0.2000 | [01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip](https://zenodo.org/records/21300795/files/01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip) |
-| artifact/source ZIP | 0.0251 | [02_Workflow_Current_Method_and_SGA6_Lessons_20260710.zip](https://zenodo.org/records/21300795/files/02_Workflow_Current_Method_and_SGA6_Lessons_20260710.zip) |
-| manifest/status | 0.0006 | [02_Workflow_Method_Refresh_public_manifest_20260710.csv](https://zenodo.org/records/21300795/files/02_Workflow_Method_Refresh_public_manifest_20260710.csv) |
-| manifest/status | 0.0007 | [02_Workflow_Method_Refresh_public_sha256_20260710.csv](https://zenodo.org/records/21300795/files/02_Workflow_Method_Refresh_public_sha256_20260710.csv) |
-| manifest/status | 0.0004 | [99_Workflow_Public_Status_20260710.md](https://zenodo.org/records/21300795/files/99_Workflow_Public_Status_20260710.md) |
+| manifest/status | 0.0134 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260718.md](https://zenodo.org/records/21424987/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260718.md) |
+| reader/reference PDF | 0.1993 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260718.pdf](https://zenodo.org/records/21424987/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260718.pdf) |
+| artifact/source ZIP | 0.2000 | [01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip](https://zenodo.org/records/21424987/files/01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip) |
+| artifact/source ZIP | 0.0627 | [02_Workflow_Current_Method_Gates_and_Publication_20260718.zip](https://zenodo.org/records/21424987/files/02_Workflow_Current_Method_Gates_and_Publication_20260718.zip) |
+| manifest/status | 0.0007 | [02_Workflow_Method_Refresh_public_manifest_20260718.csv](https://zenodo.org/records/21424987/files/02_Workflow_Method_Refresh_public_manifest_20260718.csv) |
+| manifest/status | 0.0007 | [02_Workflow_Method_Refresh_public_sha256_20260718.csv](https://zenodo.org/records/21424987/files/02_Workflow_Method_Refresh_public_sha256_20260718.csv) |
+| manifest/status | 0.0007 | [99_Workflow_Public_Status_20260718.md](https://zenodo.org/records/21424987/files/99_Workflow_Public_Status_20260718.md) |
 
 ## Interlanguage and Constructed-Language Mathematical Translation Methodology
 
