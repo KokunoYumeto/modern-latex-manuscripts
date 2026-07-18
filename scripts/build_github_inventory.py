@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build an exact SHA256 inventory from Git's tracked and untracked file lists."""
+"""Build an exact SHA256 inventory of files included in the Git index."""
 
 from __future__ import annotations
 
@@ -28,8 +28,9 @@ def sha256(path: Path) -> str:
 
 def main() -> int:
     root = Path.cwd()
+    # Run after staging a release. Untracked work-in-progress files must not be
+    # advertised by the public inventory before they are selected for commit.
     paths = set(git_paths("ls-files"))
-    paths.update(git_paths("ls-files", "--others", "--exclude-standard"))
     paths.discard(OUTPUT.as_posix())
 
     rows: list[tuple[str, int, str]] = []

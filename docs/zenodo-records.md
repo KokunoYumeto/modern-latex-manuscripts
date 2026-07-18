@@ -57,14 +57,15 @@
 - GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r12_packages636_637_and_verbatim_goals_20260705/`.
 - Status: coordination, goal-dispatch, methodology, and rolling-delta evidence only. Contains 12 exact pursued-goal files for sibling sessions. Contains no new TeX/PDF source bodies beyond package metadata, and is not native review, accepted terminology, translation completion, reader output, or source-fidelity certification.
 
-## 2026-07-12 split-zero research-sidecar update published
+## 2026-07-18 split-zero Project Atlas reference-closure correction published
 
 - Concept DOI: [10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444).
-- Published version: [10.5281/zenodo.21316072](https://doi.org/10.5281/zenodo.21316072).
-- Front PDF: `00_Common_Deformation_Register_Research_Note_20260712.pdf`, 12 pages.
-- Retained broader draft: `03_Split_Support_Geometry_Version_11_20260712.pdf`, 91 pages, plus unchanged Version 10 history.
-- Support: editable sources, scoped Lean/Python/formal checks, release notes, manifest, and checksums are grouped behind the reader PDFs.
-- Status: exploratory side research, not peer review or certification of every broader claim; third-party reference papers were excluded.
+- Published version: [10.5281/zenodo.21421058](https://doi.org/10.5281/zenodo.21421058).
+- Front PDF: `00_PROJECT_ATLAS_20260717.pdf`, a concise human navigation surface.
+- Results: `02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf`, 195 pages with 51 result packets.
+- Support: exact Lean/Python checks and ledgers, editable working texts, a visual atlas, scene data, replay/QA packages, provenance, manifest, and checksums.
+- Closure correction: Packet 076 and its source-crosswalk evidence were restored because Packet 077 cites them; the gate now scans all public packet references and requires the corresponding artifacts in the same payload.
+- Status: exploratory working research, not peer review, not a completed universal framework, and not certification of every broader claim.
 
 ## 2026-07-12 SGA6 source-rescribe idx442 published
 
