@@ -3,14 +3,17 @@
 Date: 2026-07-18
 Purpose: durable source-control handoff only; this file does **not** modify or supersede the French workpass.
 
-**Publication update:** the historical `HOLD_DO_NOT_UPLOAD` state recorded below
-was cleared after the common TeX/PDF/status/ledger/hash endpoint froze. The
-reader was published as a deliberately layered working reader, not a uniform
-certification claim, on Zenodo version DOI `10.5281/zenodo.21421931` under
-concept DOI `10.5281/zenodo.20410947`. The public PDF SHA-256 is
-`29CEEA7CE5ECBA9A8C36D34E170D19AAC8C014D64836FEAA77D723CB0F361939`;
-the full TeX/ledger/build/render package SHA-256 is
-`ED9CEC2D320041B626D5DDE424D651834C8961FE541C8253631FF5622AF8A2AC`.
+**Publication correction resolved:** Zenodo version DOI `10.5281/zenodo.21421931`
+was published concurrently before final English QA froze. It belongs to the
+correct concept DOI `10.5281/zenodo.20410947`, but its reader SHA-256
+`29CEEA7CE5ECBA9A8C36D34E170D19AAC8C014D64836FEAA77D723CB0F361939`
+omits Lemma 5.8.2 footnote 14 on physical page 81. Its support ZIP SHA-256
+`ED9CEC2D320041B626D5DDE424D651834C8961FE541C8253631FF5622AF8A2AC`
+contains the failed inline-display footnote code. Corrective Zenodo version
+`10.5281/zenodo.21422245` now publishes the later endpoint with matching marker
+and footnote 14. Treat 21421931 only as the published historical predecessor;
+21422245 is the corrected public endpoint under the same concept. See
+`HI_CLAUDE_CODEX_SGA6_PUBLIC_RECORD_21421931_CORRECTION_REQUIRED_20260718.md`.
 
 ## What now exists
 
@@ -31,7 +34,9 @@ This is deliberately a **layered working edition**, not a claim of uniform sourc
 - idx663--702 / source-PDF 657--692: scan-checked English draft after the current French frontier;
 - source-PDF 693--702: scan-checked, unindexed terminal back matter; no indices were invented.
 
-The complete reader and all publication metadata remain `HOLD_DO_NOT_UPLOAD` pending Claude certification after idx662, rights/license, attribution/disclosure, and parent-manager release approval.
+The corrective hold is closed by version `10.5281/zenodo.21422245`. Claude
+certification after idx662, rights/license, attribution/disclosure, and future
+parent-manager release decisions remain separate limitations.
 
 ## Current French boundary
 
@@ -62,6 +67,7 @@ At source-PDF 14 / printed page 7, the scan and French workpass print a map invo
 - `HI_CLAUDE_CODEX_SGA6_NOTES_IDX647_665_20260718.md`
 - `HI_CLAUDE_CODEX_SGA6_NOTES_IDX666_684_20260718.md`
 - `HI_CLAUDE_CODEX_SGA6_NOTES_IDX685_702_AND_BACKMATTER_20260718.md`
+- `HI_CLAUDE_CODEX_SGA6_PUBLIC_RECORD_21421931_CORRECTION_REQUIRED_20260718.md`
 
 The normalized English mirror is:
 
