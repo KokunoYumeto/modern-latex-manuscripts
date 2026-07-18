@@ -1,3 +1,10 @@
+## 2026-07-18: SGA6 Spanish and Noether multilingual component queues closed
+
+- SGA current version: [10.5281/zenodo.21421508](https://doi.org/10.5281/zenodo.21421508)
+- Noether current version: [10.5281/zenodo.21421559](https://doi.org/10.5281/zenodo.21421559)
+
+Publication receipts: [`20260718_sga6_spanish_record_21421508.json`](../manifests/published-zenodo/20260718_sga6_spanish_record_21421508.json) and [`20260718_noether_multilingual_record_21421559.json`](../manifests/published-zenodo/20260718_noether_multilingual_record_21421559.json). The SGA record now directly exposes the four-page Spanish Exposé X idx532-537 tranche and groups its editable TeX, direct source witnesses, ledgers, hashes, build evidence, and render checks. The Noether record now fronts the complete-work Indonesian Paper 36 working translation and groups it with partial Arabic and Iranian Persian Paper 06 opening components plus evidence. These are live publications, not staged uploads. SGA6 English, SGA5 Spanish beyond its last coherent cumulative, and Noether French remain outside the queue until each lane freezes one internally consistent endpoint.
+
 ## 2026-07-17: SGA5 English synchronization publication queue closed
 
 - SGA5 English synchronization: [10.5281/zenodo.21420146](https://doi.org/10.5281/zenodo.21420146)
