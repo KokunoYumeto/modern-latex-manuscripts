@@ -1,0 +1,9 @@
+# XeLaTeX public build record
+
+- Engine: XeLaTeX
+- Successful passes: 2
+- Output: 1 A4 page
+- Selected fatal/warning/overfull/underfull/missing-character diagnostics: 0
+- Internal Korean raw-log SHA-256: `F4DE1B5C8FAB4D93F3AD649219ADE7F6728B489A4F57F0B616B69CC43B43E8AB`
+- Korean target PDF SHA-256: `5AD0B7D710C82B686EA2F67820F2CA29400205E31CD7D7EA1169A530E46CC5DE`
+- German control PDF SHA-256: `2EC1E72D761D61A6E09E35395570DBA5BCAFB5C8F495B235DEF05F87960EA64D`
