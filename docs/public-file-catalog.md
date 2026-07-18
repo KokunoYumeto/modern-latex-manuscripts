@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 958
+Total files indexed: 959
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -184,25 +184,26 @@ Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-can
 |---|---:|---|
 | artifact/source ZIP | 0.0094 | [ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip](https://zenodo.org/records/21129946/files/ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip) |
 
-## Split-Zero Geometry and Common Deformation Registers: Exploratory Research Sidecar
+## Split-Zero Geometry and Common Deformation Registers: Project Atlas, Exact Results, Formalization, and Visualizations
 
 Record: <https://doi.org/10.5281/zenodo.20822444>
 
-Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21316072 fronts a concise 12-page common-deformation-register research note, retains the broader 91-page split-support geometry draft and prior Version 10 files, and groups editable sources, Lean/Python/formal checks, manifests, and supplementary working material. The scoped checks passed, including the included Lean file, but this does not constitute peer review, a proof of the Riemann hypothesis or Schanuel's conjecture, or certification of every broader claim.
+Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21421058 replaces the earlier paper-first surface with a readable Project Atlas, a 195-page bookmarked results compendium, exact Lean/Python checks and ledgers, editable working texts, and replayable visualization/data packages. Its reference-closure gate includes every publicly cited packet dependency through Packets 198-202 and the restored Packet 076 evidence. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.3545 | [00_Common_Deformation_Register_Research_Note_20260712.pdf](https://zenodo.org/records/21316072/files/00_Common_Deformation_Register_Research_Note_20260712.pdf) |
-| reader/reference PDF | 0.9372 | [00_SplitSupport_GeometryArithmeticCurve_v10_20260626.pdf](https://zenodo.org/records/21316072/files/00_SplitSupport_GeometryArithmeticCurve_v10_20260626.pdf) |
-| artifact/source ZIP | 0.3500 | [01_Common_Deformation_Register_Source_and_Verification_20260712.zip](https://zenodo.org/records/21316072/files/01_Common_Deformation_Register_Source_and_Verification_20260712.zip) |
-| editable TeX | 0.2709 | [01_SplitSupport_GeometryArithmeticCurve_v10_20260626.tex](https://zenodo.org/records/21316072/files/01_SplitSupport_GeometryArithmeticCurve_v10_20260626.tex) |
-| artifact/source ZIP | 1.2998 | [02_SplitZero_Research_Program_Supplements_Formalization_and_Checks_20260712.zip](https://zenodo.org/records/21316072/files/02_SplitZero_Research_Program_Supplements_Formalization_and_Checks_20260712.zip) |
-| manifest/status | 0.0028 | [02_VERSION_NOTES_v2_to_v10_20260626.md](https://zenodo.org/records/21316072/files/02_VERSION_NOTES_v2_to_v10_20260626.md) |
-| reader/reference PDF | 1.1460 | [03_Split_Support_Geometry_Version_11_20260712.pdf](https://zenodo.org/records/21316072/files/03_Split_Support_Geometry_Version_11_20260712.pdf) |
-| artifact/source ZIP | 1.0141 | [04_Split_Support_Geometry_V11_Source_20260712.zip](https://zenodo.org/records/21316072/files/04_Split_Support_Geometry_V11_Source_20260712.zip) |
-| manifest/status | 0.0026 | [90_RELEASE_NOTES_AND_STATUS_20260712.md](https://zenodo.org/records/21316072/files/90_RELEASE_NOTES_AND_STATUS_20260712.md) |
-| manifest/status | 0.0030 | [91_RELEASE_MANIFEST_20260712.json](https://zenodo.org/records/21316072/files/91_RELEASE_MANIFEST_20260712.json) |
-| manifest/status | 0.0011 | [92_SHA256SUMS_20260712.txt](https://zenodo.org/records/21316072/files/92_SHA256SUMS_20260712.txt) |
+| reader/reference PDF | 0.0879 | [00_PROJECT_ATLAS_20260717.pdf](https://zenodo.org/records/21421058/files/00_PROJECT_ATLAS_20260717.pdf) |
+| manifest/status | 0.0255 | [01_PROJECT_ATLAS_20260717.md](https://zenodo.org/records/21421058/files/01_PROJECT_ATLAS_20260717.md) |
+| reader/reference PDF | 16.4132 | [02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf](https://zenodo.org/records/21421058/files/02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf) |
+| artifact/source ZIP | 1.1537 | [03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip](https://zenodo.org/records/21421058/files/03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip) |
+| reader/reference PDF | 27.9045 | [04_VISUAL_ATLAS_20260717.pdf](https://zenodo.org/records/21421058/files/04_VISUAL_ATLAS_20260717.pdf) |
+| artifact/source ZIP | 62.7597 | [05_VISUALIZATIONS_AND_DATA_20260717.zip](https://zenodo.org/records/21421058/files/05_VISUALIZATIONS_AND_DATA_20260717.zip) |
+| artifact/source ZIP | 0.6134 | [06_CURRENT_WORKING_TEXTS_20260717.zip](https://zenodo.org/records/21421058/files/06_CURRENT_WORKING_TEXTS_20260717.zip) |
+| manifest/status | 0.0065 | [CHANGELOG.md](https://zenodo.org/records/21421058/files/CHANGELOG.md) |
+| manifest/status | 0.0167 | [MANIFEST.json](https://zenodo.org/records/21421058/files/MANIFEST.json) |
+| manifest/status | 0.0045 | [PROVENANCE_AND_RIGHTS.md](https://zenodo.org/records/21421058/files/PROVENANCE_AND_RIGHTS.md) |
+| manifest/status | 0.0038 | [README.md](https://zenodo.org/records/21421058/files/README.md) |
+| manifest/status | 0.0010 | [SHA256SUMS.txt](https://zenodo.org/records/21421058/files/SHA256SUMS.txt) |
 
 ## Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Readers
 

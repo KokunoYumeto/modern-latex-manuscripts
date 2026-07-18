@@ -28,7 +28,7 @@ RECORDS: list[tuple[str, str]] = [
     ("workflow", "21300795"),
     ("interlanguage_reflections", "21421135"),
     ("lean_formalization_sidecars", "21129946"),
-    ("split_zero_research_sidecar", "21316072"),
+    ("split_zero_research_sidecar", "21421058"),
     ("noether", "21421049"),
     ("weber", "21402223"),
     ("cayley", "20617845"),
@@ -91,7 +91,7 @@ RECORD_NOTES = {
         "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
     ],
     "split_zero_research_sidecar": [
-        "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21316072 fronts a concise 12-page common-deformation-register research note, retains the broader 91-page split-support geometry draft and prior Version 10 files, and groups editable sources, Lean/Python/formal checks, manifests, and supplementary working material. The scoped checks passed, including the included Lean file, but this does not constitute peer review, a proof of the Riemann hypothesis or Schanuel's conjecture, or certification of every broader claim.",
+        "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21421058 replaces the earlier paper-first surface with a readable Project Atlas, a 195-page bookmarked results compendium, exact Lean/Python checks and ledgers, editable working texts, and replayable visualization/data packages. Its reference-closure gate includes every publicly cited packet dependency through Packets 198-202 and the restored Packet 076 evidence. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
     ],
     "interlanguage_reflections": [
         "Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21421135 fronts the four-page v0.6 controlled-normalization report, retains the v0.5 research department and automata audit plus earlier source-body/provenance payloads, and adds file `13` with the exact Noether Interslavic 002A/002B evidence. The new package records 221 Latin and 221 Cyrillic canonical units; 146 files changed under reviewed orthographic rules and 92 under exact lexical rules; both passes were idempotent, every changed unit compiled, and all resulting pages passed machine and manual artifact-layout QA. The actual 442 translation bodies and readers live on Noether record 21421049. This is reproducible internal normalization and corpus infrastructure, not native-speaker approval, community acceptance, mathematical source-fidelity certification, or a critical edition.",
@@ -113,7 +113,7 @@ TITLE_OVERRIDES = {
     "kneser": "Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts",
     "lean_formalization_sidecars": "Classical Mathematics Lean 4 Formalization Sidecars",
     "interlanguage_reflections": "Interlanguage and Constructed-Language Mathematical Translation Methodology",
-    "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers: Exploratory Research Sidecar",
+    "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers: Project Atlas, Exact Results, Formalization, and Visualizations",
 }
 
 
