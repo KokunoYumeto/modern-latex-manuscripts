@@ -1,3 +1,11 @@
+## 2026-07-18 Romance v10 methodology and evidence published
+
+Interlanguage version [10.5281/zenodo.21422432](https://doi.org/10.5281/zenodo.21422432), under concept DOI [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403), fronts a two-page Romance v10 status/method report and groups the exact 307-target validation tree in file `14`. The public surface retains the Interslavic v0.6 normalization report/evidence and earlier source-body, provenance, weighted-automata, and research-department packages. The v10 replay was byte-stable and the public PDF/ZIP downloads matched the sealed hashes.
+
+The program is active and incomplete: 53 of 61 routes have no source body, 33 of 106 senses lack accepted support, the 954-row access grid has zero human observations, and T001-T006 have technical reproducibility but no native-language validation. This is public methodology and reproducibility infrastructure, not a completed Romance translation, empirical intelligibility evidence, native/community certification, mathematical source certification, or a critical edition. Exact public receipt: `manifests/published-zenodo/20260718_interlanguage_romance_v10_record_21422432.json`.
+
+Noether French R823 is not part of this release. A 490-page candidate and 81-unit apparatus exist, but five TeX inputs changed during an independent gate replay on 18 July, invalidating the earlier target manifest, parity, build-currentness, render, and snapshot-stability claims. Keep French classified as active/in review until one frozen endpoint is rebuilt and re-gated.
+
 ## 2026-07-18 SGA6 English full-range layered reader corrected
 
 SGA version [10.5281/zenodo.21422245](https://doi.org/10.5281/zenodo.21422245), under concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947), keeps the 309-page SGA5 English working translation as the default preview and directly exposes the corrected 381-page SGA6 full-range layered English working reader. It restores Lemma 5.8.2 footnote 14 omitted from historical version 21421931. Corrected file `06` contains its editable TeX, exact authority/formula/terminology/page ledgers, two-pass build evidence, all 381 individual page renders, twenty contact sheets, localized prefix-repair and correction evidence, hashes, and validation. The current Zenodo surface has 15 files totaling 1,066,455,602 bytes.

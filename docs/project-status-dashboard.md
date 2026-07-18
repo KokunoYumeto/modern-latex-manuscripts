@@ -22,12 +22,12 @@ These counts describe the public file surface. They are useful for release hygie
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 33 |
-| Public files indexed | 948 |
-| Top-level PDFs | 438 |
-| Artifact/source ZIPs | 412 |
-| Manifest/status files | 89 |
-| Editable TeX files | 9 |
-| Total public file surface | 40.12 GB |
+| Public files indexed | 969 |
+| Top-level PDFs | 443 |
+| Artifact/source ZIPs | 424 |
+| Manifest/status files | 94 |
+| Editable TeX files | 8 |
+| Total public file surface | 40.77 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -88,7 +88,7 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | **Project-level orientation and preservation** |  |  |  |  |  |
 | [Main project landing](https://doi.org/10.5281/zenodo.20393488) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. Open this for raw provenance, not as the first reader surface. |
 | [Workflow / replication packet](https://doi.org/10.5281/zenodo.20461174) | 7 | 1 | 2 | 0.3 MB | Current version [10.5281/zenodo.21300795](https://doi.org/10.5281/zenodo.21300795) fronts the current AI-run workflow summary and adds the SGA6 failure catalogue: compile-clean scaffolds may contain whole-page compression, invented statements, wrong identities, and unsupported tags; nearby tags may still be genuine, so object-local source verification is mandatory. These are workflow lessons, not edition certification. |
-| [Interlanguage methodology](https://doi.org/10.5281/zenodo.21124403) | 27 | 1 | 12 | 4464.98 MB | Current version [10.5281/zenodo.21421135](https://doi.org/10.5281/zenodo.21421135) fronts the v0.6 controlled-normalization report, preserves grouped source-body/provenance and v0.5 automata-audit payloads, and adds exact Noether Interslavic 002A/002B ledgers, diffs, build/render QA, continuation state, and scripts as file `13`. Methodology, reproducibility, and corpus infrastructure only; not native approval, community acceptance, mathematical source certification, or a critical edition. |
+| [Interlanguage methodology](https://doi.org/10.5281/zenodo.21124403) | 32 | 2 | 13 | 4474.04 MB | Current version [10.5281/zenodo.21422432](https://doi.org/10.5281/zenodo.21422432) fronts the Romance v10 status/method report, retains Interslavic v0.6 and the prior source-body/automata packages, and adds the exact 307-target Romance evidence tree as file `14`. The Romance program remains active and incomplete: zero human observations, 53 zero-body routes, 33 unsupported senses, and no native validation of T001-T006. Methodology and reproducibility infrastructure only; not language completion, empirical intelligibility evidence, mathematical source certification, or a critical edition. |
 | **Source-intake-only, OCR/support/provenance, or currently unsafe draft lanes** |  |  |  |  |  |
 | [EGA](https://doi.org/10.5281/zenodo.20414353) | 16 | 10 | 4 | 472 MB | French originals plus partial English/OCR/draft continuation support. The cleaner local EGA support package contains NUMDAM scan PDFs, NUMDAM OAI metadata, and upstream/community `ryankeleti/ega` TeX; NUMDAM OAI is metadata only, and the community TeX is real but incomplete, especially EGA III/IV and parts of EGA 0_IV. Useful preservation and continuation material, not a source-audited working edition comparable to the active SGA lane. |
 | [Cayley](https://doi.org/10.5281/zenodo.20520749) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material. A 2026-06-28 exact-name follow-up triages 308 local Cayley names as quarantine/source-intake evidence, including page micro-ZIPs, unitized indexes, suspect Vol. I chunks, Pro salvage extracts, and source scans. No Cayley range is presently promoted as source-faithful, including the v2/restart Vol. I packets, until a future page-by-page glyph/source audit explicitly re-promotes exact ranges. |
