@@ -24,19 +24,19 @@ Publication receipt: [`20260718_workflow_method_refresh_record_21424987.json`](.
 
 ## 2026-07-18: SGA current surface corrected; Spanish SGA5 checkpoints withdrawn
 
-- SGA current version: [10.5281/zenodo.21429328](https://doi.org/10.5281/zenodo.21429328)
+- SGA current version: [10.5281/zenodo.21430393](https://doi.org/10.5281/zenodo.21430393)
 
-Current publication receipt: [`20260718_sga5_spanish_withdrawn_record_21429328.json`](../manifests/published-zenodo/20260718_sga5_spanish_withdrawn_record_21429328.json). The current 14-file record retains the SGA5 English/French, SGA6 English/French, and bounded Spanish SGA6 surfaces while removing both historical Spanish SGA5 checkpoint payloads after a terminology-ledger regression was identified. The release is live, not staged. No current Spanish SGA5 body is public pending a new canonical payload and hashes. Historical receipt [`20260718_sga6_idx684_record_21424602.json`](../manifests/published-zenodo/20260718_sga6_idx684_record_21424602.json) documents the retained French idx684 predecessor.
+Current publication receipt: [`20260718_sga6_support_privacy_withdrawal_record_21430393.json`](../manifests/published-zenodo/20260718_sga6_support_privacy_withdrawal_record_21430393.json). The current 17-file record retains the bounded four-page SGA1 Exposé I opening/§I.1 checkpoint and every reader PDF while removing the SGA6 English support ZIP after a wrap-aware local-path audit. The SGA6 reader is byte-identical; a privacy-clean support replacement is pending. The release is live, not staged. Historical receipt [`20260718_sga1_english_exposeI_sectionI1_record_21430251.json`](../manifests/published-zenodo/20260718_sga1_english_exposeI_sectionI1_record_21430251.json) documents the predecessor SGA1 addition.
 
 ## 2026-07-18: SGA6 English corrective publication queue closed (predecessor)
 
-- SGA English-correction version: [10.5281/zenodo.21422245](https://doi.org/10.5281/zenodo.21422245); retained on current version [10.5281/zenodo.21429328](https://doi.org/10.5281/zenodo.21429328)
+- SGA English-correction version: [10.5281/zenodo.21422245](https://doi.org/10.5281/zenodo.21422245); reader retained on current version [10.5281/zenodo.21430393](https://doi.org/10.5281/zenodo.21430393), support ZIP withheld pending privacy-clean rebuild
 
 Publication receipt: [`20260718_sga6_english_correction_record_21422245.json`](../manifests/published-zenodo/20260718_sga6_english_correction_record_21422245.json). The record directly exposes the corrected 381-page SGA6 full-range layered English reader and groups its editable TeX, authority/formula/terminology/page ledgers, build evidence, all-page renders, contact sheets, prefix-repair and correction evidence, hashes, and validation in file `06`. The release is live, not staged. It restores Lemma 5.8.2 footnote 14 omitted from historical version 21421931. Full-range coverage does not mean uniform source certification: source-PDF 001-525 is inherited/partially synchronized, idx532-662 is French-synchronized, and idx663-702 plus terminal back matter is scan-checked draft material pending later French reconciliation.
 
 ## 2026-07-18: SGA6 Spanish and Noether multilingual component queues closed
 
-- SGA historical Spanish-introduction version: [10.5281/zenodo.21421508](https://doi.org/10.5281/zenodo.21421508); retained on current version [10.5281/zenodo.21429328](https://doi.org/10.5281/zenodo.21429328)
+- SGA historical Spanish-introduction version: [10.5281/zenodo.21421508](https://doi.org/10.5281/zenodo.21421508); retained on current version [10.5281/zenodo.21430393](https://doi.org/10.5281/zenodo.21430393)
 - Noether historical multilingual-component version: [10.5281/zenodo.21423112](https://doi.org/10.5281/zenodo.21423112); retained on current version [10.5281/zenodo.21429723](https://doi.org/10.5281/zenodo.21429723)
 
 Publication receipts: [`20260718_sga6_spanish_record_21421508.json`](../manifests/published-zenodo/20260718_sga6_spanish_record_21421508.json), [`20260718_sga5_spanish_withdrawn_record_21429328.json`](../manifests/published-zenodo/20260718_sga5_spanish_withdrawn_record_21429328.json), [`20260718_noether_cjk_direct_readers_record_21422620.json`](../manifests/published-zenodo/20260718_noether_cjk_direct_readers_record_21422620.json), and [`20260718_noether_french_r823_record_21423112.json`](../manifests/published-zenodo/20260718_noether_french_r823_record_21423112.json). The current SGA record exposes the bounded four-page Spanish SGA6 tranche but no Spanish SGA5 body. Current Noether version `21429723` retains the Indonesian and partial Arabic/Persian components, eight CJK PDFs for complete Papers 26/36, and the 494-page French R823 reader with exact TeX/evidence in file `14`. These are live publications, not staged uploads.
@@ -45,7 +45,7 @@ Publication receipts: [`20260718_sga6_spanish_record_21421508.json`](../manifest
 
 - SGA5 English synchronization: [10.5281/zenodo.21420146](https://doi.org/10.5281/zenodo.21420146)
 
-Publication receipts: [`20260717_sga5_english_publish_summary.json`](../manifests/published-zenodo/20260717_sga5_english_publish_summary.json), [`20260717_sga5_english_record_21420146_revision4.json`](../manifests/published-zenodo/20260717_sga5_english_record_21420146_revision4.json), and [`20260717_sga5_english_retitle_summary.json`](../manifests/published-zenodo/20260717_sga5_english_retitle_summary.json). The grouped ZIP contains editable TeX, the full LNM589 scan, current French and inherited-English controls, correction/formula/structural/terminology ledgers, manifests, build logs, and rendered QA. This closed the queue for that coherent SGA5 English release. The SGA6 English lane was later published on version `21422245` and remains on current version `21429328` with explicit layered authority.
+Publication receipts: [`20260717_sga5_english_publish_summary.json`](../manifests/published-zenodo/20260717_sga5_english_publish_summary.json), [`20260717_sga5_english_record_21420146_revision4.json`](../manifests/published-zenodo/20260717_sga5_english_record_21420146_revision4.json), and [`20260717_sga5_english_retitle_summary.json`](../manifests/published-zenodo/20260717_sga5_english_retitle_summary.json). SGA5 readiness has since been reopened for documented editorial/source issues. The SGA6 English reader remains on current version `21430393` with explicit layered authority; its support ZIP is temporarily withheld.
 
 ## 2026-07-17: SGA6 idx662 predecessor publication queue closed
 
