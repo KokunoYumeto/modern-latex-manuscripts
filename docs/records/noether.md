@@ -1,6 +1,6 @@
 # Emmy Noether
 
-Zenodo record: [21421559](https://zenodo.org/records/21421559)
+Zenodo record: [21421559](https://zenodo.org/records/21421559); concept DOI: [https://doi.org/10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587)
 
 Public title: Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Readers
 

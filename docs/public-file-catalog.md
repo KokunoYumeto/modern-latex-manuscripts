@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 964
+Total files indexed: 969
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -142,37 +142,42 @@ Record: <https://doi.org/10.5281/zenodo.20461174>
 
 Record: <https://doi.org/10.5281/zenodo.21124403>
 
-Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21421135 fronts the four-page v0.6 controlled-normalization report, retains the v0.5 research department and automata audit plus earlier source-body/provenance payloads, and adds file `13` with the exact Noether Interslavic 002A/002B evidence. The new package records 221 Latin and 221 Cyrillic canonical units; 146 files changed under reviewed orthographic rules and 92 under exact lexical rules; both passes were idempotent, every changed unit compiled, and all resulting pages passed machine and manual artifact-layout QA. The actual 442 translation bodies and readers live on Noether record 21421559. This is reproducible internal normalization and corpus infrastructure, not native-speaker approval, community acceptance, mathematical source-fidelity certification, or a critical edition.
+Methodology, source-body, and provenance sidecar for interlanguage and constructed-language mathematical translation. Current version 21422432 fronts the two-page Romance v10 report, retains the v0.6 Interslavic normalization evidence and earlier source-body/automata payloads, and adds file `14` with 307 hash-bound Romance targets, source/routing ledgers, Spanish/French terminology crosswalks, six bounded production tranches, builders, and QA. The Romance program remains active and incomplete: 53 routes have no source body, 33 senses lack accepted support, the access grid has zero human observations, and T001-T006 are not native-language validated. The actual Noether translation readers remain on record 21421559. This is reproducible research infrastructure, not native-speaker approval, empirical intelligibility evidence, mathematical source certification, or a critical edition.
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0066 | [00_Interlanguage_Research_Method_Current_v06_20260718.md](https://zenodo.org/records/21421135/files/00_Interlanguage_Research_Method_Current_v06_20260718.md) |
-| reader/reference PDF | 0.0868 | [00_Interlanguage_Research_Method_Current_v06_20260718.pdf](https://zenodo.org/records/21421135/files/00_Interlanguage_Research_Method_Current_v06_20260718.pdf) |
-| artifact/source ZIP | 139.2897 | [01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip](https://zenodo.org/records/21421135/files/01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip) |
-| artifact/source ZIP | 4.2149 | [02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip](https://zenodo.org/records/21421135/files/02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip) |
-| artifact/source ZIP | 232.3934 | [03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip](https://zenodo.org/records/21421135/files/03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip) |
-| artifact/source ZIP | 243.7605 | [04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip](https://zenodo.org/records/21421135/files/04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip) |
-| artifact/source ZIP | 1132.7524 | [05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip](https://zenodo.org/records/21421135/files/05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip) |
-| artifact/source ZIP | 843.7354 | [06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip](https://zenodo.org/records/21421135/files/06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip) |
-| artifact/source ZIP | 448.0475 | [07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip](https://zenodo.org/records/21421135/files/07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip) |
-| artifact/source ZIP | 1236.5100 | [08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip](https://zenodo.org/records/21421135/files/08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip) |
-| manifest/status | 0.0769 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv](https://zenodo.org/records/21421135/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv) |
-| manifest/status | 0.0142 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md](https://zenodo.org/records/21421135/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md) |
-| manifest/status | 0.0022 | [09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv](https://zenodo.org/records/21421135/files/09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv) |
-| manifest/status | 0.0021 | [09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv](https://zenodo.org/records/21421135/files/09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv) |
-| artifact/source ZIP | 0.4956 | [10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip](https://zenodo.org/records/21421135/files/10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip) |
-| manifest/status | 0.0002 | [10_Interlanguage_Post2DE_RouteContext_Returns_sha256_20260707.csv](https://zenodo.org/records/21421135/files/10_Interlanguage_Post2DE_RouteContext_Returns_sha256_20260707.csv) |
-| artifact/source ZIP | 149.0738 | [11_Interlanguage_Claude_Fable_v04_Consolidated_Methodology_20260710.zip](https://zenodo.org/records/21421135/files/11_Interlanguage_Claude_Fable_v04_Consolidated_Methodology_20260710.zip) |
-| manifest/status | 0.0006 | [11_Interlanguage_v04_public_manifest_20260710.csv](https://zenodo.org/records/21421135/files/11_Interlanguage_v04_public_manifest_20260710.csv) |
-| manifest/status | 0.0007 | [11_Interlanguage_v04_public_sha256_20260710.csv](https://zenodo.org/records/21421135/files/11_Interlanguage_v04_public_sha256_20260710.csv) |
-| artifact/source ZIP | 0.9145 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717.zip](https://zenodo.org/records/21421135/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717.zip) |
-| manifest/status | 0.0075 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717_manifest.csv](https://zenodo.org/records/21421135/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717_manifest.csv) |
-| manifest/status | 0.0068 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717_sha256.csv](https://zenodo.org/records/21421135/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717_sha256.csv) |
-| artifact/source ZIP | 33.5824 | [13_Interlanguage_Interslavic_Normalization_Method_Evidence_v06_20260718.zip](https://zenodo.org/records/21421135/files/13_Interlanguage_Interslavic_Normalization_Method_Evidence_v06_20260718.zip) |
-| manifest/status | 0.0006 | [13_Interlanguage_v06_public_manifest_20260718.csv](https://zenodo.org/records/21421135/files/13_Interlanguage_v06_public_manifest_20260718.csv) |
-| manifest/status | 0.0005 | [13_Interlanguage_v06_public_sha256_20260718.txt](https://zenodo.org/records/21421135/files/13_Interlanguage_v06_public_sha256_20260718.txt) |
-| manifest/status | 0.0011 | [99_Interlanguage_Public_Status_v06_20260718.md](https://zenodo.org/records/21421135/files/99_Interlanguage_Public_Status_v06_20260718.md) |
-| manifest/status | 0.0021 | [99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md](https://zenodo.org/records/21421135/files/99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md) |
+| manifest/status | 0.0013 | [00_Interlanguage_Romance_Methodology_v10_Status_20260718.md](https://zenodo.org/records/21422432/files/00_Interlanguage_Romance_Methodology_v10_Status_20260718.md) |
+| reader/reference PDF | 0.1949 | [00_Interlanguage_Romance_Methodology_v10_Status_20260718.pdf](https://zenodo.org/records/21422432/files/00_Interlanguage_Romance_Methodology_v10_Status_20260718.pdf) |
+| artifact/source ZIP | 139.2897 | [01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip](https://zenodo.org/records/21422432/files/01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip) |
+| manifest/status | 0.0066 | [01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.md](https://zenodo.org/records/21422432/files/01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.md) |
+| reader/reference PDF | 0.0868 | [01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.pdf](https://zenodo.org/records/21422432/files/01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.pdf) |
+| artifact/source ZIP | 4.2149 | [02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip](https://zenodo.org/records/21422432/files/02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip) |
+| artifact/source ZIP | 232.3934 | [03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip](https://zenodo.org/records/21422432/files/03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip) |
+| artifact/source ZIP | 243.7605 | [04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip](https://zenodo.org/records/21422432/files/04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip) |
+| artifact/source ZIP | 1132.7524 | [05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip](https://zenodo.org/records/21422432/files/05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip) |
+| artifact/source ZIP | 843.7354 | [06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip](https://zenodo.org/records/21422432/files/06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip) |
+| artifact/source ZIP | 448.0475 | [07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip](https://zenodo.org/records/21422432/files/07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip) |
+| artifact/source ZIP | 1236.5100 | [08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip](https://zenodo.org/records/21422432/files/08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip) |
+| manifest/status | 0.0769 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv](https://zenodo.org/records/21422432/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv) |
+| manifest/status | 0.0142 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md](https://zenodo.org/records/21422432/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md) |
+| manifest/status | 0.0022 | [09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv](https://zenodo.org/records/21422432/files/09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv) |
+| manifest/status | 0.0021 | [09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv](https://zenodo.org/records/21422432/files/09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv) |
+| artifact/source ZIP | 0.4956 | [10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip](https://zenodo.org/records/21422432/files/10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip) |
+| manifest/status | 0.0002 | [10_Interlanguage_Post2DE_RouteContext_Returns_sha256_20260707.csv](https://zenodo.org/records/21422432/files/10_Interlanguage_Post2DE_RouteContext_Returns_sha256_20260707.csv) |
+| artifact/source ZIP | 149.0738 | [11_Interlanguage_Claude_Fable_v04_Consolidated_Methodology_20260710.zip](https://zenodo.org/records/21422432/files/11_Interlanguage_Claude_Fable_v04_Consolidated_Methodology_20260710.zip) |
+| manifest/status | 0.0006 | [11_Interlanguage_v04_public_manifest_20260710.csv](https://zenodo.org/records/21422432/files/11_Interlanguage_v04_public_manifest_20260710.csv) |
+| manifest/status | 0.0007 | [11_Interlanguage_v04_public_sha256_20260710.csv](https://zenodo.org/records/21422432/files/11_Interlanguage_v04_public_sha256_20260710.csv) |
+| artifact/source ZIP | 0.9145 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717.zip](https://zenodo.org/records/21422432/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717.zip) |
+| manifest/status | 0.0075 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717_manifest.csv](https://zenodo.org/records/21422432/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717_manifest.csv) |
+| manifest/status | 0.0068 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717_sha256.csv](https://zenodo.org/records/21422432/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717_sha256.csv) |
+| artifact/source ZIP | 33.5824 | [13_Interlanguage_Interslavic_Normalization_Method_Evidence_v06_20260718.zip](https://zenodo.org/records/21422432/files/13_Interlanguage_Interslavic_Normalization_Method_Evidence_v06_20260718.zip) |
+| manifest/status | 0.0006 | [13_Interlanguage_v06_public_manifest_20260718.csv](https://zenodo.org/records/21422432/files/13_Interlanguage_v06_public_manifest_20260718.csv) |
+| manifest/status | 0.0005 | [13_Interlanguage_v06_public_sha256_20260718.txt](https://zenodo.org/records/21422432/files/13_Interlanguage_v06_public_sha256_20260718.txt) |
+| artifact/source ZIP | 8.8597 | [14_Interlanguage_Romance_Methodology_v10_Evidence_20260718.zip](https://zenodo.org/records/21422432/files/14_Interlanguage_Romance_Methodology_v10_Evidence_20260718.zip) |
+| manifest/status | 0.0005 | [14_Interlanguage_Romance_v10_public_manifest_20260718.csv](https://zenodo.org/records/21422432/files/14_Interlanguage_Romance_v10_public_manifest_20260718.csv) |
+| manifest/status | 0.0005 | [14_Interlanguage_Romance_v10_public_sha256_20260718.txt](https://zenodo.org/records/21422432/files/14_Interlanguage_Romance_v10_public_sha256_20260718.txt) |
+| manifest/status | 0.0011 | [99_Interlanguage_Public_Status_v10_20260718.md](https://zenodo.org/records/21422432/files/99_Interlanguage_Public_Status_v10_20260718.md) |
+| manifest/status | 0.0021 | [99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md](https://zenodo.org/records/21422432/files/99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md) |
 
 ## Classical Mathematics Lean 4 Formalization Sidecars
 
@@ -207,7 +212,7 @@ Separate exploratory mathematics sidecar, outside the manuscript-translation com
 
 ## Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Readers
 
-Record: <https://zenodo.org/records/21421559>
+Record: <https://doi.org/10.5281/zenodo.20412587>
 
 Current Noether update 2026-07-18: latest public surface is record 21421559. It retains the 466-page v26/R823 German source-control reader as the default preview; directly exposes the 473-page Spanish R823 working translation and the 529-page Latin / 552-page Cyrillic Interslavic readers; and now adds a directly viewable complete-work Indonesian Paper 36 working translation plus bounded Arabic and Iranian-Persian Paper 06 opening components. File `12` groups the new editable TeX, source coordinates, decision/terminology ledgers, builds, hashes, and render evidence. File `11` retains all 442 Interslavic TeX bodies and individual PDFs; file `10` retains Spanish TeX/evidence; file `09` carries twelve bounded R823-synchronized English components plus CJK/Korean and Slavic components. Paper 06 remains partial in Arabic/Persian and all three new targets lack native/community certification. This remains a high-value working corpus, not complete multilingual synchronization, publication-grade proofreading, source-faithfulness certification for every symbol, or a critical edition.
 
