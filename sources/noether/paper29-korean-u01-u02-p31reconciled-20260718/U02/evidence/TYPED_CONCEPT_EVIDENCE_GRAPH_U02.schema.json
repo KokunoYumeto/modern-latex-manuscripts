@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:interlanguage:noether:p29:ko:u02:typed-graph:1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "work_unit",
+    "dag",
+    "nodes",
+    "edges",
+    "human_validation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "work_unit": {
+      "const": "P29-KO-U02"
+    },
+    "dag": {
+      "const": true
+    },
+    "human_validation": {
+      "const": "absent_do_not_claim"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "label",
+          "value",
+          "claim_class"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "enum": [
+              "source_unit",
+              "target_unit",
+              "korean_external_evidence",
+              "adverse_evidence",
+              "structural_unit",
+              "concept",
+              "terminology_decision"
+            ]
+          },
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "claim_class": {
+            "enum": [
+              "source_fact",
+              "computation",
+              "editorial_inference",
+              "external_source_evidence"
+            ]
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "source",
+          "target",
+          "predicate",
+          "evidence_class"
+        ],
+        "properties": {
+          "id": {
+            "pattern": "^EDGE-P29-U02-[0-9]{3}$"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "predicate": {
+            "enum": [
+              "contains_concept",
+              "interpreted_as",
+              "realized_in",
+              "anchored_in",
+              "supports_or_bounds",
+              "qualifies"
+            ]
+          },
+          "evidence_class": {
+            "enum": [
+              "source_fact",
+              "computation",
+              "editorial_inference",
+              "external_source_evidence"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

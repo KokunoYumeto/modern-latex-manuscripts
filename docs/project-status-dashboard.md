@@ -22,18 +22,18 @@ These counts describe the public file surface. They are useful for release hygie
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 33 |
-| Public files indexed | 922 |
-| Top-level PDFs | 366 |
-| Artifact/source ZIPs | 443 |
-| Manifest/status files | 105 |
+| Public files indexed | 941 |
+| Top-level PDFs | 374 |
+| Artifact/source ZIPs | 453 |
+| Manifest/status files | 106 |
 | Editable TeX files | 8 |
-| Total public file surface | 57.19 GB |
+| Total public file surface | 56.53 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
 Quality rule: the dashboard counts public files and working coverage, not critical-edition status. No record here is a certified critical edition unless a future release explicitly says so. Filename terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy labels or scoped working labels; record caveats and source witnesses govern reliability.
 
-Latest Noether public hygiene: current version [10.5281/zenodo.21432525](https://doi.org/10.5281/zenodo.21432525) has 61 files: 30 reader PDFs, 22 coherent ZIPs, and 9 manifest/status files. It fronts the English cumulative reader and retains the German R823, Spanish, French, Interslavic, and earlier bounded multilingual surfaces. It adds bounded source-audited English Paper 4 Section 3, Simplified and controlled Traditional Chinese Paper 25, and Japanese Paper 24/Korean Paper 27 visual-evidence packages. Paper 4 continues at Section 4 / R823 line 3839, and the 353 `važi*|važe*` probes remain an external-authority blocker. These surfaces passed their declared technical gates but lack native/community certification. The record does not claim complete Paper 4, whole-corpus certification, universal mathematical source certification, or critical-edition status.
+Latest Noether public hygiene: current version [10.5281/zenodo.21433152](https://doi.org/10.5281/zenodo.21433152) has 74 files: 35 reader PDFs, 29 coherent ZIPs, and 10 manifest/status files. It fronts the English cumulative reader and retains the German R823, Spanish, French, Interslavic, and earlier bounded multilingual surfaces. It extends bounded source-audited English Paper 4 through Section 5 and adds complete bounded Japanese Paper 23 and Korean Paper 29 U01-U02 with exact editable/evidence packages. Three visual archives preserve eleven open project-generated renders; rights-blocked source pixels are represented by metadata, hashes, and coordinates only. Paper 4 continues at Section 6 / R823 line 4045, and the 353 `važi*|važe*` probes remain an external-authority blocker. These surfaces passed their declared technical gates but lack native/community certification. The record does not claim complete Paper 4, whole-corpus certification, universal mathematical source certification, rights clearance, or critical-edition status.
 
 Latest Noether source-support hygiene: the current public-facing rule is reader PDFs and compact current source-control packages first; micro-ZIPs, support witnesses, OCR, and no-patch survival packets stay behind those as evidence. Noether remains a high-value working corpus with active German/source reconciliation, not whole-corpus closure, page-by-page certification, multilingual synchronization, or a critical edition.
 
@@ -57,7 +57,7 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | Record | Files | PDFs | ZIPs | Size | State |
 |---|---:|---:|---:|---:|---|
 | **Best current reader/translation surfaces** |  |  |  |  |  |
-| [Noether](https://doi.org/10.5281/zenodo.20412587) | 61 | 30 | 22 | 2184.79 MB | Current version [10.5281/zenodo.21432525](https://doi.org/10.5281/zenodo.21432525) fronts the English cumulative reader, retains the German R823/Spanish/French/Interslavic surfaces, and adds bounded Paper 4 Section 3, Chinese Paper 25, and Japanese Paper 24/Korean Paper 27 visual evidence. Paper 4 continues at Section 4 / R823 line 3839. Partial Arabic/Persian Paper 06 remains grouped. Working corpus/source-control/translation lane only, not complete Paper 4, whole-corpus certification, universal synchronization, native/community certification, or a critical edition. |
+| [Noether](https://doi.org/10.5281/zenodo.20412587) | 74 | 35 | 29 | 2195.25 MB | Current version [10.5281/zenodo.21433152](https://doi.org/10.5281/zenodo.21433152) fronts the English cumulative reader, retains the German R823/Spanish/French/Interslavic surfaces, extends bounded Paper 4 English through Section 5, and adds Japanese Paper 23 plus Korean Paper 29 U01-U02 with rights-aware visual evidence. Paper 4 continues at Section 6 / R823 line 4045. Partial Arabic/Persian Paper 06 remains grouped. Working corpus/source-control/translation lane only, not complete Paper 4, whole-corpus certification, universal synchronization, native/community certification, rights clearance, or a critical edition. |
 | [Weber](https://doi.org/10.5281/zenodo.20412153) | 47 | 6 | 39 | 1507.17 MB | Latest version [10.5281/zenodo.21402223](https://doi.org/10.5281/zenodo.21402223) publishes the Volume I direct German p1-p99 source gap-pass through printed p88, next p89, with roughly 133 landed fixes and p77-p88 source evidence. The current German PDF is 419 pages and builds without fatal, overfull, underfull, missing-character, or unresolved-reference diagnostics. The English Volume I reader predates these repairs. Volume II readers run through §176; Volume III remains available. Not whole-volume certification or a critical edition. |
 | [Frobenius](https://doi.org/10.5281/zenodo.20673444) | 8 | 2 | 2 | 333.59 MB | Dedicated selected group-character German/English working package. Latest public record 20821858 adds RA05, top-level German/English cumulative PDF/TeX readers, English item 070 formula-punctuation fixes, directly compilable cumulative TeX/PDF, verified extraction, and zero reported post-fix structural/formula/build flags. |
 | [Adolf Kneser](https://doi.org/10.5281/zenodo.20836971) | 8 | 3 | 1 | 116.74 MB | Dedicated `Lehrbuch der Variationsrechnung` German-source and English working-translation record through p0011-p0248, with HQ source witness through p0001-p0248 and the p0234 lower-p0248 slice/audit package. Worklist reports 248/336 source pages done (73.8%), latest slice §§53-55 completing the Sixth Section, next p0249 / Seventh Section / §56. Not a certified critical edition. |
