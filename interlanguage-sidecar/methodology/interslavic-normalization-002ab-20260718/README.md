@@ -1,6 +1,6 @@
 ---
 title: "Interlanguage Research Method"
-subtitle: "Controlled Interslavic Corpus Normalization, Tranches 002A and 002B"
+subtitle: "Controlled Interslavic Corpus Normalization, Tranches 002A through 007"
 author: "Manuscript Typesetting Project"
 date: "18 July 2026"
 lang: en
@@ -17,9 +17,9 @@ The associated Noether release is the publication surface for the actual
 translation bodies and readers:
 
 - Noether concept DOI: `10.5281/zenodo.20412587`
-- Current 18 July 2026 record: `10.5281/zenodo.21421049`
-- 221 canonical Latin-script TeX units and a 529-page reader
-- 221 canonical Cyrillic-script TeX units and a 552-page reader
+- Current version: see the public Noether record index for concept DOI `10.5281/zenodo.20412587`
+- 221 canonical Latin-script TeX units and a 527-page reader
+- 221 canonical Cyrillic-script TeX units and a 551-page reader
 
 This sidecar contains the method, evidence, diffs, scripts, and quality-control
 record. It does not duplicate the complete 442-body corpus.
@@ -105,6 +105,32 @@ TeX/package errors, missing characters, overfull boxes, and underfull boxes are
 all zero. All 376 pages rendered serially with no machine page flags; all-page
 and stratified manual layout checks passed.
 
+# Tranches 003-007: reviewed contextual families
+
+Tranche 003 normalized the reviewed historic correspondence family across 179
+units: 833 replacements, zero post-run family residue, 179 successful PDF
+builds, and 556 reviewed pages. Tranche 004 adopted `jednočasno` as the corpus
+default for simultaneity: 148 replacements across 71 units and 187 reviewed
+pages. This is a corpus policy; both `jednočasno` and `jednovrěmenno` remain
+dictionary-sanctioned forms.
+
+Tranche 005 resolved four tokenized context queues: `vprašanj*`, genuine
+standalone `slijedi`/Cyrillic `следи`, `slućaj*`, and the connective aliases
+`namreč|naime|totiž`. It made 125 replacements across 49 units and retained six
+embedded false positives such as `posledice`. Tranche 006 made four bounded
+Paper 25 replacements from `prsten`/`прстен` to the corpus-primary algebraic
+ring family `kolco`/`колцо` across two units.
+
+Tranche 007 corrected the sole genuine residual `sledimo` token to
+dictionary-canonical `slědimo` in Paper 17 section 11 and rebuilt its already
+correct Cyrillic pair. The remaining five generic `sledi` probe hits are all
+embedded `posledica` false positives and were not edited.
+
+Each tranche retains preflight and post-run reports, exact change ledgers and
+diffs, preimages, build and render reports, and human QA adjudication. All
+reviewed source-family residual searches are zero and the rollout checks are
+idempotent at their declared surfaces.
+
 # Idempotence and evidence retention
 
 Both passes were rerun as idempotence checks. A second run produced no further
@@ -121,31 +147,25 @@ authorized changes. For each tranche the public evidence package retains:
 This makes the change boundary inspectable without treating generated output as
 independent linguistic authority.
 
-# Correction preserved by the method
+# Policy correction preserved by the method
 
 An earlier draft overclaimed that `jednočasno` was the single standard form.
-The checked community dictionary instead records both `jednočasno` and
-`jednovrěmenno` with complementary branch profiles. Therefore 61 occurrences
-of the sanctioned `jednovrěmenno` family were retained, together with 14 nearby
-unreviewed forms. The method records this as unresolved corpus policy rather
-than silently flattening the distinction.
+The checked community dictionary records both `jednočasno` and
+`jednovrěmenno` with complementary branch profiles. Tranche 004 subsequently
+selected `jednočasno` as a declared corpus default for family/cohort breadth,
+without declaring the alternative invalid. The evidence preserves that
+distinction rather than rewriting editorial policy as linguistic fact.
 
 This correction illustrates why an evidence graph, held queue, and exact
 surface boundary are preferable to a scalar score or global search-and-replace.
 
 # Open work
 
-The next substantial tranche is the correspondence family. The inventory
-contains 398 occurrences, 58 distinct surfaces, and 89 affected files. These
-surfaces mix verbs, adjectives, adverbs, nouns, spelling variants, and likely
-malformed derivatives. Before execution, each surface needs a reviewed table
-covering part of speech, mathematical sense, target form, paired script,
-adverse or homograph risk, example contexts, and review status.
-
-Additional context-review queues include simultaneity doublet policy,
-`vprašanj*`, `slijedi/sledi`, `slućaj`, and `namreč/naime/totiž`. Held families
-such as `ręd`, `jednako`, `važi/važe`, `slučaj`, and ring terminology remain
-outside the authorized change surface.
+Tranches 003-007 and the final 221-unit streaming audit are closed. Retained
+`ręd*`, `jednako*`, `slučaj*`, and `kolc*` are reviewed decisions. The sole
+explicit external-authority blocker is 353 `važi*|važe*` mathematical
+sense-extension probes in 101 files; changing them corpus-wide would be a new
+semantic policy and is therefore not guessed away.
 
 # Public status
 
@@ -158,4 +178,3 @@ German source control and source scans before scholarly reuse.
 Corrections and additional evidence can be proposed through the project GitHub:
 
 `https://github.com/KokunoYumeto/modern-latex-manuscripts`
-
