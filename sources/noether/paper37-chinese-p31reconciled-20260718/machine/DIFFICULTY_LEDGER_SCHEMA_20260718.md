@@ -1,0 +1,3 @@
+# CJK difficulty/failure-ledger schema — version 1.0.0
+
+`CJK_DIFFICULTY_FAILURE_LEDGER_20260718.jsonl` is append-only. Each line requires: `issue_id`, honest `recorded_at` and `time_precision`, exact `work_unit`, `source_locator`, `target_locators`, `difficulty_class`, `symptom`, `severity`, `discovery_channel`, separated `cause_evidence` and `cause_inference`, `attempts` (including rejected/failed paths), `evidence`, `resolution_state`, `resolution`, `residual_risk`, `recurrence_cues`, `transferable_lesson`, `future_check`, `decision_ids`, `structural_ids`, `changed_artifacts`, and `supersession_state`. Corrections append a new issue or supersession record; resolved failures are never deleted.

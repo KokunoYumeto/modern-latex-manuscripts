@@ -1,0 +1,22 @@
+# P29-KO-U03 status
+
+- State: closed internally source-checked/build-checked/render-checked and package-validated bounded checkpoint; archive routing remains pending.
+- Scope: exact full-P29 lines 41–45 only.
+- Proof state: incomplete; continues at line 47.
+- Source authority: sealed P31 A48CB5CD1716974B686AC1CBA681CA4B17BC72F9043B78AD2528ACA41FCF814F.
+- Exact source: 1CD2F142F472BE2A590EC8AACA45CEB49966A09FE803CC410D138B3F7BDE7458.
+- Korean TeX/PDF/render: 0DFEE79E2DF3A81005BDAF8488E108D9E324703133D0B9548F5A54933975CC60 / 4E6DEC776EE572EFCC97138F21D0AE98ABA5A8F3DD4E3362E1BD2808A23D7A19 / 42E78806891372C91FDB089A5374103B8BD8E4E7BECFC14D1C94C719F7911579.
+- Build: two successful XeLaTeX passes; one page; zero warning-pattern hits.
+- Extraction: 379 Hangul syllables; zero replacement/square glyphs.
+- Visual QA: accepted Korean and German renders inspected at original resolution; no clipping, overlap, missing glyph, damaged math, or pagination defect.
+- Independent review: two read-only model reviews; no remaining substantive mathematical or quantifier error. This is not human validation.
+- Structure: 16 records through NOE-P29-KO-U03-STEP-007; zero validator errors.
+- Difficulty: 8 append-only records through CJK-KO-P29-U03-HARD-008; 6 resolved, 1 held, 1 workaround; zero validator errors.
+- Terminology: 14 decisions through KO-P29-U03-D014; graph 62 nodes/65 edges; 16 parity rows; zero validator errors.
+- Visual evidence: 7 records; 3 rights-blocked source images, 3 open project renders, 1 metadata-only loss event; zero validator errors.
+- Package: 82-row deterministic manifest; all five validator families pass; sealed U01/U02 manifests and package reports remain byte-identical.
+- Rights: source JPEG redistribution unresolved and manifest-only; no permission invented.
+- External Korean/DPRK/source-owner/archive/community review: absent.
+- Publication: not published; no DOI or archive incorporation claimed.
+- Next substantive cursor: full-P29 line 47.
+- Scope hold: Noether only; no SGA.

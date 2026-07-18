@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/noether-p29-ko-u03-visual-evidence-1.0.0.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "visual_id", "work_id", "unit_id", "language",
+    "structural_ids", "decision_ids", "evidence_role", "authority_class",
+    "asset", "source_coordinates", "geometry", "linked_artifacts",
+    "review", "rights", "publication_disposition", "supersession",
+    "reconstruction", "continuation_cursor"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "visual_id": {"type": "string", "pattern": "^VE-(NOE|LOSS)-P29-KO-U03-[0-9]{3}$"},
+    "work_id": {"const": "noether.paper29.ko.u03"},
+    "unit_id": {"const": "P29-KO-U03"},
+    "language": {"enum": ["de", "ko-KR", "none"]},
+    "structural_ids": {"type": "array", "items": {"type": "string"}},
+    "decision_ids": {"type": "array", "items": {"type": "string"}},
+    "evidence_role": {"enum": ["source_page", "continuation_page", "target_render", "before_after_render", "loss_event"]},
+    "authority_class": {"type": "string"},
+    "asset": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["path", "name", "sha256", "byte_count", "mime_type"],
+          "properties": {
+            "path": {"type": ["string", "null"]},
+            "name": {"type": "string"},
+            "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+            "byte_count": {"type": "integer", "minimum": 0},
+            "mime_type": {"type": "string"}
+          }
+        },
+        {"type": "null"}
+      ]
+    },
+    "source_coordinates": {"type": ["object", "null"]},
+    "geometry": {"type": ["object", "null"]},
+    "linked_artifacts": {"type": "object"},
+    "review": {"type": "object"},
+    "rights": {"type": "object"},
+    "publication_disposition": {"enum": ["manifest_only_rights_blocked", "open_payload", "metadata_only_loss_event"]},
+    "supersession": {"type": "object"},
+    "reconstruction": {"type": ["object", "null"]},
+    "continuation_cursor": {"type": "string"}
+  }
+}
