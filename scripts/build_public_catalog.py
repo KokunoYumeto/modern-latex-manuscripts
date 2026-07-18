@@ -32,7 +32,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "21429723"),
     ("weber", "21402223"),
     ("cayley", "20617845"),
-    ("sga", "21430393"),
+    ("sga", "21431041"),
     ("deligne", "21212608"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -79,7 +79,7 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current SGA public surface is record 21430393. It retains the SGA1, SGA5, and SGA6 working readers while withdrawing the SGA6 English support ZIP after a wrap-aware audit found reconstructable host-local paths in public text/control files. The corrected 381-page SGA6 reader PDF is byte-identical and remains public; a privacy-clean support archive is pending regenerated manifests and independent audit. The record also retains the four-page source-audited English SGA1 Expose I opening/section I.1 checkpoint, the 309-page English SGA5 working translation as default preview, the 374-page French SGA6 idx684 checkpoint, and the bounded Spanish SGA6 Expose X idx532-537 tranche. SGA5 readiness remains under open audit and historical Spanish SGA5 checkpoints remain withdrawn. SGA6 authority remains explicitly layered. These are substantive working editions, translations, and source-audit checkpoints, not complete translations, independently human-certified critical editions, uniform whole-volume source certification, diagram-by-diagram certification, or whole-SGA completion.",
+        "Current SGA public surface is record 21431041. It fronts the replacement 309-page SGA5 English source-synchronized working reader and compact 54-file scan-free support package; the exact scope is ten curated exposes through printed p.480 plus the index through p.484. Printed p.14 carries an editorial defect note and the p.43 ambiguity remains explicitly unresolved. The record retains the four-page English SGA1 Expose I opening/section I.1 checkpoint, corrected 381-page layered SGA6 English reader, 374-page French SGA6 idx684 checkpoint, and bounded Spanish SGA6 Expose X idx532-537 tranche. The privacy-defective historical SGA6 support ZIP remains withdrawn, and historical Spanish SGA5 checkpoints remain non-current. These are substantive working editions, translations, and source-audit checkpoints, not complete translations, independently human-certified critical editions, rights determinations, uniform whole-volume source certification, diagram-by-diagram certification, or whole-SGA completion.",
     ],
     "weber": [
         "Current Weber public surface is record 21402223. The active Volume I German p1-p99 direct content-fidelity pass reaches printed p88, with p89 next. Its p77-p88 evidence package contains the current TeX/PDF, exact diff, ledgers, twelve source pages, high-resolution crops, render checks, and checksums; it rebuilds the damaged section 23 and restores omitted displays, rows, proof text, labels, and notation. The Volume I English reader predates these German repairs and is explicitly unsynchronized. Volume II retains current German/English cumulative material through section 176 plus repair packets; Volume III remains the current repaired cumulative. This is source-witnessed working material, not whole-volume symbol-by-symbol certification, synchronized English, publication-grade proofreading, or a critical edition.",
