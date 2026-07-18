@@ -1,7 +1,7 @@
 # Noether R823 CJK short-work readers
 
 This folder mirrors the eight PDFs directly exposed on Zenodo record
-[21422620](https://doi.org/10.5281/zenodo.21422620): complete Noether Papers 26
+[21423112](https://doi.org/10.5281/zenodo.21423112): complete Noether Papers 26
 and 36 in Simplified Chinese, generic Traditional Chinese, Japanese, and Korean.
 
 The exact editable TeX, German R823 controls, decision records, manifests, build
