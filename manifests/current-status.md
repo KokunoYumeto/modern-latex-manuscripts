@@ -1,3 +1,9 @@
+## 2026-07-18 Interlanguage v0.13 corpus, WordWeb, governance, and normalization checkpoints published
+
+Interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885), under concept DOI [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403), is public with `00_Interlanguage_Methodology_Current_v13_20260718.pdf` as the default preview. Its 43-file surface retains the complete numbered source-body, provenance, weighted-automata, terminology, research-department, Interslavic, Romance v10, Noether R823-gate, and eight-lane fleet archive. New files `17a`-`17c` add a 71-file Romance corpus/WordWeb/governance/T008 projection, a 93-file Interslavic normalization package through Tranche 007, and the exact 14-file WordWeb/access public checkpoint.
+
+The Romance checkpoint records 60 concepts, 106 senses, 811 metadata-only evidence rows, 954 sense-by-cohort rows, 28 explicit gaps, eight controlled units, and 19 aggregate PDF pages; it continues at German R823 line 21309. The WordWeb ZIP remains byte-identical while its GitHub mirror records the governing append-only decision ledger citations `RDL-0020` and `RDL-0023`. The paired Interslavic audit covers all 221 Latin units and retains 353 `važi*|važe*` probes as an external-authority blocker. All eight newly uploaded files passed Zenodo download/readback SHA-256 verification. These are model-built methodology, corpus, normalization, and bounded working-translation artifacts, not native-language validation, human intelligibility evidence, rights clearance, community certification, peer review, proof checking, or critical editions. Exact receipt: `manifests/published-zenodo/20260718_interlanguage_v13_record_21430885.json`.
+
 ## 2026-07-18 SGA1 checkpoint retained and SGA6 support archive withdrawn
 
 Current SGA version [10.5281/zenodo.21430393](https://doi.org/10.5281/zenodo.21430393), under concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947), retains every reader and the bounded four-page SGA1 Exposé I opening/§I.1 English checkpoint. It removes only `06_SGA6_English_FullRange_TeX_Ledgers_and_RenderQA_CORRECTED_20260718.zip` after a wrap-aware audit found reconstructable host-local paths in fifteen public text/control files. The corrected 381-page SGA6 reader remains byte-identical at SHA-256 `F8B1E15754BEB5C83CF2A47B261D6F9F907DE5B7E8A6ED4DF311C624E38C7B8E`. A privacy-clean support package requires path-neutral records plus regenerated manifests/checksums and independent review. Exact receipt: `manifests/published-zenodo/20260718_sga6_support_privacy_withdrawal_record_21430393.json`.
@@ -1350,7 +1356,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 |---|---:|---|
 | Main landing | 20459634 | <https://doi.org/10.5281/zenodo.20393488> |
 | Workflow / replication packet | 21424987 | <https://doi.org/10.5281/zenodo.20461174> |
-| Interlanguage methodology | 21423647 | <https://doi.org/10.5281/zenodo.21124403> |
+| Interlanguage methodology | 21430885 | <https://doi.org/10.5281/zenodo.21124403> |
 | Lean formalization sidecars | 21129946 | <https://doi.org/10.5281/zenodo.21129945> |
 | Split-zero research sidecar | 21426216 | <https://doi.org/10.5281/zenodo.20822444> |
 | Noether | 21429723 | <https://doi.org/10.5281/zenodo.20412587> |

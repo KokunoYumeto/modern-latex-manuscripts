@@ -26,7 +26,7 @@ from typing import Any
 RECORDS: list[tuple[str, str]] = [
     ("main", "20459634"),
     ("workflow", "21424987"),
-    ("interlanguage_reflections", "21423647"),
+    ("interlanguage_reflections", "21430885"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21426216"),
     ("noether", "21429723"),
@@ -112,7 +112,7 @@ RECORD_NOTES = {
         "Current version 20435690 is a focused historical-reference shelf with reader PDFs and filtered TeX/source material. It supports terminology and historical comparison; it is not a blanket source-certified or critical-edition corpus.",
     ],
     "interlanguage_reflections": [
-        "Methodology, source-body, provenance, and bounded-output sidecar for interlanguage and constructed-language mathematical translation. Current version 21423647 fronts the v0.12 six-page fleet map, retains Romance v10, Interslavic v0.6, source-body, automata, provenance, and Noether R823 gate layers, and adds stable controls for all eight language-management lanes. Its compact 192-file snapshot includes bounded working outputs for Somali/Oromo, Arabic/Iranian Persian, Indonesian, Kyrgyz, Uyghur, and Uzbek while excluding moving SGA workpasses. These artifacts retain explicit native-review, source-reconciliation, and critical-edition caveats.",
+        "Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21430885 fronts the v0.13 five-page archive map, retains the full numbered source-body, weighted-automata, terminology, manager-fleet, Romance v10, Interslavic, and Noether R823-gate layers, and adds organized Romance corpus/WordWeb/governance/T008 and Interslavic-through-Tranche-007 checkpoints. WordWeb records 60 concepts, 106 senses, 954 access rows, and 28 explicit gaps; controlled Romance continues at German R823 line 21309. These are model-built methodology, normalization, corpus, and bounded working-translation artifacts, not native validation, human intelligibility evidence, rights clearance, community certification, peer review, or critical editions.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
@@ -130,7 +130,7 @@ TITLE_OVERRIDES = {
     "poincare": "Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts",
     "kneser": "Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts",
     "lean_formalization_sidecars": "Classical Mathematics Lean 4 Formalization Sidecars",
-    "interlanguage_reflections": "Interlanguage and Constructed-Language Mathematical Translation Methodology",
+    "interlanguage_reflections": "Interlanguage and Mathematical Translation Methodology Sidecar",
     "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers: Project Atlas, Exact Results, Formalization, and Visualizations",
 }
 
