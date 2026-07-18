@@ -1,3 +1,9 @@
+## 2026-07-18: Workflow/methodology publication queue closed
+
+- Workflow current version: [10.5281/zenodo.21424987](https://doi.org/10.5281/zenodo.21424987)
+
+Publication receipt: [`20260718_workflow_method_refresh_record_21424987.json`](../manifests/published-zenodo/20260718_workflow_method_refresh_record_21424987.json). The seven-file surface fronts the six-page July 18 workflow reader and retains one editable Markdown source, one historical-addenda ZIP, one current gates/templates/scripts/examples ZIP, a public status note, and two manifests. The record now explicitly binds source-rescribe, translation-fleet, frozen-gate, publication-readback, exact-ref GitHub, and continuity practices. All seven public files were downloaded back with exact SHA-256 matches and the PDF is the explicit Zenodo default preview. The release is live, not staged, and certifies no manuscript or translation.
+
 ## 2026-07-18: SGA6 French idx684 publication queue closed
 
 - SGA current version: [10.5281/zenodo.21424602](https://doi.org/10.5281/zenodo.21424602)
