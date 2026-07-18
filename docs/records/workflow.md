@@ -1,6 +1,6 @@
 # Workflow / Replication Packet
 
-Zenodo record: [21424987](https://zenodo.org/records/21424987)
+Zenodo record: [21424987](https://zenodo.org/records/21424987); concept DOI: [https://doi.org/10.5281/zenodo.20461174](https://doi.org/10.5281/zenodo.20461174)
 
 Public title: AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 

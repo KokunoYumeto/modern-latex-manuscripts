@@ -1,6 +1,8 @@
-## 2026-07-18 Post-publication SGA translation sweep
+## 2026-07-18 SGA5 Spanish complete-Exposé-X checkpoint published
 
-The current public SGA record remains [10.5281/zenodo.21424602](https://doi.org/10.5281/zenodo.21424602). Its French SGA6 source-rescribe reader is the sealed idx684 checkpoint. The live workpass has advanced to CERT entry #720 / idx688 / volume p675 / Exposé XIV p9 and still carries deferred checks; it is public status evidence, not yet a replacement Zenodo artifact. SGA5 Spanish has a last internally hash-bound 281-unit, 261-page checkpoint through the complete proof of Exposé X Proposition 5.1, with zero forbidden build diagnostics and targeted Poppler QA. The master then moved into §6 after those evidence hashes, so the active tree is not yet a frozen publishable package. Noether Spanish R823 and the bounded SGA6 Spanish Exposé X tranche are already live; the incomplete SGA5 Spanish cumulative remains in review until its TeX, PDF, unit ledger, hashes, and QA freeze together.
+The current public SGA record is [10.5281/zenodo.21425498](https://doi.org/10.5281/zenodo.21425498). It adds a 268-page Spanish SGA5 source-reconciled working reader and a compact TeX/evidence ZIP with 297 editable units. The released branch covers complete Exposés I, III A, III B, V, VI, VII, VIII, and X; the next ordered cursor is French authority line 13241, opening Exposé XII. A frozen rebuild reproduced all 268 pages with zero forbidden diagnostics, and pages 264-268 passed original-resolution Poppler inspection. The public PDF, ZIP, and status file were downloaded back without SHA-256 mismatch. Exact receipt: `manifests/published-zenodo/20260718_sga5_spanish_exposeX_record_21425498.json`.
+
+The record retains the 309-page English SGA5 reader, corrected 381-page layered SGA6 English reader, French SGA6 idx684 checkpoint, and bounded Spanish SGA6 Exposé X tranche. The latest inspected French SGA6 live workpass had advanced beyond idx684 but remained unsealed with deferred checks, so it was not promoted. These are source-aware working translations and repairs, not complete translations, independently human-certified editions, or critical editions.
 
 ## 2026-07-18 Workflow/methodology refresh published
 
@@ -36,7 +38,7 @@ Coverage is full-range but authority is non-uniform: source-PDF 001-525 is inher
 
 Noether version [10.5281/zenodo.21423112](https://doi.org/10.5281/zenodo.21423112), under concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587), retains the German R823, Spanish, Interslavic, and Indonesian reader surfaces, adds the 494-page French R823 working reader, and directly exposes complete Papers 26/36 in Simplified Chinese, generic Traditional Chinese, Japanese, and Korean. File `09` carries exact CJK TeX/audit evidence; file `12` groups Arabic and Iranian Persian Paper 06 openings plus Indonesian Paper 36; file `14` contains the French TeX/evidence closure. Arabic and Persian Paper 06 remain partial; none of the new languages has native/community certification.
 
-SGA historical version [10.5281/zenodo.21421508](https://doi.org/10.5281/zenodo.21421508), under concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947), introduced the bounded four-page SGA6 Spanish Exposé X tranche for idx532-537 / pp519-524. File `05` contains its TeX, six direct source witnesses, ledgers, hashes, build evidence, and render checks. This is not a complete exposé or volume and is not native-reviewed. The tranche remains retained on current SGA version `21422245`.
+SGA historical version [10.5281/zenodo.21421508](https://doi.org/10.5281/zenodo.21421508), under concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947), introduced the bounded four-page SGA6 Spanish Exposé X tranche for idx532-537 / pp519-524. File `05` contains its TeX, six direct source witnesses, ledgers, hashes, build evidence, and render checks. This is not a complete exposé or volume and is not native-reviewed. The tranche remains retained on current SGA version `21425498`.
 
 ## 2026-07-18 Noether Spanish R823 reader and expanded components published
 
@@ -1342,7 +1344,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Noether | 21423112 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21402223 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21424602 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21425498 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
 | EGA | 20454552 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
