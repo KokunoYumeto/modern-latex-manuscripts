@@ -22,12 +22,12 @@ These counts describe the public file surface. They are useful for release hygie
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 33 |
-| Public files indexed | 969 |
-| Top-level PDFs | 443 |
-| Artifact/source ZIPs | 424 |
-| Manifest/status files | 94 |
+| Public files indexed | 917 |
+| Top-level PDFs | 363 |
+| Artifact/source ZIPs | 442 |
+| Manifest/status files | 104 |
 | Editable TeX files | 8 |
-| Total public file surface | 40.77 GB |
+| Total public file surface | 57.18 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -64,7 +64,7 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | [Sylvester](https://doi.org/10.5281/zenodo.20520692) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-witnessed working draft through book page 608; Papers 59-60 are represented in the latest tranche, next continuation p.609. |
 | [al-Battani](https://doi.org/10.5281/zenodo.20539593) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition with complete trilingual text over 100 segments, complete fixed-star catalogue data (485 stars), complete geography gazetteer (269 localities), chronology framework/canon partial, and zodiac auxiliary tables documented as not cleanly present in Nallino's Latin table source. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
 | **Serious source-aware work, but caveat-heavy** |  |  |  |  |  |
-| [SGA](https://doi.org/10.5281/zenodo.20410947) | 19 | 6 | 5 | 741.84 MB | Version [10.5281/zenodo.21431041](https://doi.org/10.5281/zenodo.21431041) fronts the replacement 309-page SGA5 English source-synchronized working reader and compact 54-file scan-free support package; p.14 carries an editorial note and p.43 remains explicitly ambiguous. It retains the four-page SGA1 checkpoint, corrected 381-page layered SGA6 English reader, and French/Spanish SGA6 checkpoints. The SGA6 support ZIP remains withdrawn. None is a complete volume or critical edition. |
+| [SGA](https://doi.org/10.5281/zenodo.20410947) | 20 | 6 | 6 | 751.35 MB | Version [10.5281/zenodo.21431745](https://doi.org/10.5281/zenodo.21431745) retains the 309-page SGA5 English source-synchronized reader as default preview, extends the bounded SGA1 English checkpoint through Expose I section I.2, and publishes a 377-page layered SGA6 reader reconciled through idx684 with a compact privacy-clean support package. French/Spanish SGA6 checkpoints remain available. None is a complete volume or critical edition. |
 | [Deligne](https://doi.org/10.5281/zenodo.20410853) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
 | [Luigi Bianchi](https://doi.org/10.5281/zenodo.20615814) | 22 | 5 | 12 | 1.92 GB | `Lezioni di geometria differenziale` Vol. I represented through source pdfpages 001-543; A2 latest public compact/core package `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` extends working coverage through source p0135 while earlier large scan-heavy p0105 packages remain provenance/backstop. Loose p0135 Italian/English reader PDFs/TeX and the p0121-p0135 source witness are queued as reader-convenience/fronting files, not new content. |
 | [Paul Gordan and Clebsch-Gordan](https://doi.org/10.5281/zenodo.20616260) | 45 | 0 | 39 | 1.83 GB | Dedicated package set now includes Abel27, Abelsche FinalAuditFix02, `De linea geodetica` p001-p047, theta fix06, and `Vorlesungen ueber Invariantentheorie` Bd. 1 p001-p028 on the latest 2026-06-24 version DOI `10.5281/zenodo.20822196`, which also adds the compact project-control/status update. Working/source-audit drafts only, not a certified critical edition. |
