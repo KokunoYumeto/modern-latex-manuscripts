@@ -1,0 +1,224 @@
+{
+  "$schema": "httpprivate-source/schema",
+  "$id": "slavic-interslavic-structural-index-v1",
+  "title": "Slavic/Interslavic structural index record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "structural_id",
+    "unit_id",
+    "structure_type",
+    "language",
+    "script",
+    "source_role",
+    "authority_locator",
+    "target_locator",
+    "parent_id",
+    "order_index",
+    "relations",
+    "completion_state",
+    "review_state",
+    "publication_state",
+    "boundary_confidence",
+    "boundary_basis",
+    "continuation_cursor"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "slavic-interslavic-structural-index-v1"
+    },
+    "structural_id": {
+      "type": "string",
+      "pattern": "^SLISV-STR-[A-F0-9]{12}-[A-Z_]+-[0-9]{4}$"
+    },
+    "unit_id": {
+      "type": "string",
+      "pattern": "^SLISV-UNIT-[A-F0-9]{12}$"
+    },
+    "structure_type": {
+      "type": "string"
+    },
+    "language": {
+      "enum": [
+        "isv-Latn",
+        "isv-Cyrl"
+      ]
+    },
+    "script": {
+      "enum": [
+        "Latin",
+        "Cyrillic"
+      ]
+    },
+    "source_role": {
+      "enum": [
+        "editable_authority",
+        "deterministic_reader"
+      ]
+    },
+    "authority_locator": {
+      "$ref": "#/$defs/locator"
+    },
+    "target_locator": {
+      "$ref": "#/$defs/locator"
+    },
+    "parent_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "order_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "type_ordinal": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "relations": {
+      "type": "object",
+      "required": [
+        "paired_script_id",
+        "pairing_state",
+        "labels",
+        "references",
+        "resolved_reference_ids",
+        "unresolved_references",
+        "dependencies"
+      ],
+      "properties": {
+        "paired_script_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "pairing_state": {
+          "enum": [
+            "paired_by_logical_type_ordinal",
+            "unmatched"
+          ]
+        },
+        "labels": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "resolved_reference_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unresolved_references": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "completion_state": {
+      "enum": [
+        "source_present",
+        "structurally_indexed"
+      ]
+    },
+    "review_state": {
+      "enum": [
+        "machine_boundary_only",
+        "machine_plus_prior_tranche_review",
+        "normalization_reopened"
+      ]
+    },
+    "publication_state": {
+      "enum": [
+        "withheld_pending_corrected_audit",
+        "historical_checkpoint_only",
+        "publication_ready"
+      ]
+    },
+    "boundary_confidence": {
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "boundary_basis": {
+      "type": "string"
+    },
+    "continuation_cursor": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "text_preview": {
+      "type": "string",
+      "maxLength": 240
+    }
+  },
+  "$defs": {
+    "locator": {
+      "type": "object",
+      "required": [
+        "path",
+        "start_line",
+        "end_line",
+        "file_sha256",
+        "span_sha256"
+      ],
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "start_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "end_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "file_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "span_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-F0-9]{64}$"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

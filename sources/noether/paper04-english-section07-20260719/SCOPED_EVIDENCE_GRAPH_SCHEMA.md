@@ -1,0 +1,3 @@
+# Scoped evidence graph schema
+
+Each nonblank line of `SCOPED_EVIDENCE_GRAPH.jsonl` is a UTF-8 JSON object with stable `record_id`, positive append-only `revision`, `status`, `kind`, `parent_id`, `children`, `references`, `referenced_by`, `artifact`, `finding`, and `disposition`. Latest parent-child and reference edges must be reciprocal. Included artifact receipts use exact relative paths, byte counts, and SHA-256 values. Excluded controls use public-safe hash-only descriptions. The four dotted-symbol occurrences form one declared group; the inclusive endpoint defect forms a second group.

@@ -1,0 +1,3 @@
+# Difficulty and failure ledger schema
+
+Each nonblank line of `DIFFICULTY_AND_FAILURE_LEDGER.jsonl` is a UTF-8 JSON object with stable `record_id`, positive append-only `revision`, `status`, `class`, `locator`, `evidence`, `decision`, `closure_state`, `supersedes_record_revision`, and `references`. Later revisions append rather than replace earlier records. A defect can be resolved in the English target while the German routing source remains uncorrected; that distinction remains explicit.

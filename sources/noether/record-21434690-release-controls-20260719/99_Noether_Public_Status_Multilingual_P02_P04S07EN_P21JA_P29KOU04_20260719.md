@@ -1,0 +1,15 @@
+# Noether multilingual working record - bounded source-control update 2026-07-19
+
+This same-concept update promotes the current 466-page German cumulative working source control after two bounded source-audit advances.
+
+**Paper 2:** assigned printed pp. 58-90 plus table leaves 91-92 are closed at the best-available source-critical current-head level. Leaves 93-96 are boundary controls. Printed pp. 23-57 remain open, so this is not whole-Paper-2 completion. The repair preserves a 576-item Greek-`nu` family while retaining 30 genuine Latin-`v` contexts and closes dense matrix/table geometry against the staged original witness.
+
+**Paper 4 sections 6-7:** six print-confirmed transcription defects are repaired in the German head: one §6 compound-word boundary, one §7 inclusive `rho <= n` endpoint, and four §7 dotted complementary symbols. The five mathematical §7 corrections survive in active Latin Interslavic, Cyrillic Interslavic, Russian, and Ukrainian sources/PDFs. The §6 targets already conveyed the correct sense and were rebuilt without unnecessary body edits.
+
+**Paper 4 §7 English:** a separate bounded machine-assisted source-audited English checkpoint covers R823 lines 4112-4268, original printed pp. 141-146, in one editable TeX file and a three-page A4 PDF. It restores and immediately discloses the five print-adjudicated source-defect occurrences. Formula (46)'s minimum, formula (48)'s multiplication continuation, the post-(56) dummy index, and specialist interpretation of dotted complementary notation remain explicit editorial or external-review debt. The next cursor is R823 line 4270, §8.
+
+The Paper 2 and multilingual Paper 4 evidence archives expose editable TeX, generated PDFs, exact diffs, source/formula/table/build/decision/difficulty controls, a machine-readable Paper 2 structural index, the 12,970-record Slavic/Interslavic structural index, public build records, and original private-package receipts. The English §7 evidence archive preserves the independently verified producer tree except for one audience-neutral wording projection in `PUBLICATION_READINESS.md`, documented by its added projection receipt. Host paths and internal routing labels are projected to logical identifiers where the raw producer packages required projection.
+
+The combined visual package publishes every project-generated QA render and inventories every original-print-derived page/crop. Source rasters whose redistribution rights are unresolved remain metadata-only with hashes, pages, dimensions, DPI, parent-source receipts, available coordinates, linked units, and QA dispositions; they are not silently omitted.
+
+These are substantial machine-assisted source-control working checkpoints, not complete Paper 2 or Paper 4 editions, whole-corpus source closure, a critical edition, mathematical certification, peer review, independent human review, multilingual synchronization certification, accessibility certification, or rights clearance. Existing concept DOI: `10.5281/zenodo.20412587`.

@@ -1,0 +1,3 @@
+# Structural index schema
+
+Each nonblank line of `STRUCTURAL_INDEX.jsonl` is one UTF-8 JSON object. Required fields are `record_id`, `revision`, `status`, `kind`, `r823_lines`, `printed_pages`, `physical_pages`, `parent_id`, `children`, `formula_labels`, `target_markers`, and `disposition`. IDs are stable and revisions are append-only. The latest child revisions partition R823 lines 4112--4268 exactly once. Formula labels (46)--(61), nine unnumbered displays, four original footnotes, two defining properties, five source-defect occurrences, and Theorem VII are routed.
