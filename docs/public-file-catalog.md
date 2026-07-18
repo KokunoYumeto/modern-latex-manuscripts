@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 930
+Total files indexed: 928
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -445,30 +445,28 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Current SGA public surface is record 21432199. The 309-page SGA5 English source-synchronized working reader remains the default preview, with its compact 54-file scan-free support package and explicit printed-p.14 defect note and p.43 ambiguity. The bounded six-page SGA1 English checkpoint now covers the Expose I opening through section I.3, French authority lines 556-799, and continues at section I.4 / line 800. The 377-page layered SGA6 English reader promotes reconciliation for idx663-684 and is accompanied by a compact privacy-clean TeX/ledger/render-QA package; earlier layers remain explicitly non-uniform, while idx685-702 and terminal matter remain scan-checked working text pending French reconciliation. The French SGA6 idx684 and bounded Spanish SGA6 Expose X idx532-537 checkpoints remain available. Historical path-bearing SGA6 support and Spanish SGA5 checkpoints remain non-current. These are substantive working editions, translations, and source-audit checkpoints, not complete translations, independently human-certified critical editions, rights determinations, uniform whole-volume source certification, diagram-by-diagram certification, or whole-SGA completion.
+Current SGA public surface is record 21432714. The 309-page SGA5 English source-synchronized working reader remains the default preview, with its compact 54-file scan-free support package and explicit printed-p.14 defect note and p.43 ambiguity. The bounded six-page SGA1 English checkpoint covers the Expose I opening through section I.3, French authority lines 556-799, and continues at section I.4 / line 800. The 377-page layered SGA6 English reader promotes reconciliation for idx663-684 and is accompanied by a compact privacy-clean TeX/ledger/render-QA package; earlier layers remain explicitly non-uniform, while idx685-702 and terminal matter remain scan-checked working text pending French reconciliation. This successor removes one obsolete path-bearing SGA5 support archive and two stale 20260717 controls from the latest surface while retaining the current SGA1/5/6 objects byte-identically. Historical published versions remain immutable. These are substantive working editions, translations, and source-audit checkpoints, not complete translations, independently human-certified critical editions, rights determinations, uniform whole-volume source certification, diagram-by-diagram certification, or whole-SGA completion.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 1.9223 | [00_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21432199/files/00_SGA5_French_Workpass_NotCertified_20260706.pdf) |
-| reader/reference PDF | 0.3772 | [00a_SGA1_English_ExposeI_Opening_Through_SectionI3_SourceAudited_WorkingCheckpoint_20260718.pdf](https://zenodo.org/records/21432199/files/00a_SGA1_English_ExposeI_Opening_Through_SectionI3_SourceAudited_WorkingCheckpoint_20260718.pdf) |
-| reader/reference PDF | 2.7371 | [01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.pdf](https://zenodo.org/records/21432199/files/01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.pdf) |
-| reader/reference PDF | 2.4666 | [02_SGA6_English_Layered_WorkingReader_ReconciledThrough_idx684_20260718.pdf](https://zenodo.org/records/21432199/files/02_SGA6_English_Layered_WorkingReader_ReconciledThrough_idx684_20260718.pdf) |
-| reader/reference PDF | 0.2098 | [02a_SGA6_ExposeX_Spanish_idx532_537_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21432199/files/02a_SGA6_ExposeX_Spanish_idx532_537_WorkingTranslation_20260718.pdf) |
-| manifest/status | 0.0005 | [03_SGA5_English_public_manifest_20260717.csv](https://zenodo.org/records/21432199/files/03_SGA5_English_public_manifest_20260717.csv) |
-| manifest/status | 0.0004 | [03_SGA5_English_public_sha256_20260717.csv](https://zenodo.org/records/21432199/files/03_SGA5_English_public_sha256_20260717.csv) |
-| artifact/source ZIP | 704.9033 | [03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip](https://zenodo.org/records/21432199/files/03_SGA5_TeX_Audit_Ledgers_and_SourceSupport_NotCertified_20260706.zip) |
-| manifest/status | 0.0008 | [04_SGA6_idx684_public_manifest_20260718.csv](https://zenodo.org/records/21432199/files/04_SGA6_idx684_public_manifest_20260718.csv) |
-| manifest/status | 0.0006 | [04_SGA6_idx684_public_sha256_20260718.csv](https://zenodo.org/records/21432199/files/04_SGA6_idx684_public_sha256_20260718.csv) |
-| artifact/source ZIP | 12.4482 | [04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx684_20260718.zip](https://zenodo.org/records/21432199/files/04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx684_20260718.zip) |
-| artifact/source ZIP | 2.4995 | [05_SGA6_ExposeX_Spanish_idx532_537_TeX_Evidence_20260718.zip](https://zenodo.org/records/21432199/files/05_SGA6_ExposeX_Spanish_idx532_537_TeX_Evidence_20260718.zip) |
-| artifact/source ZIP | 9.1814 | [06_SGA6_English_Layered_TeX_Ledgers_RenderQA_ReconciledThrough_idx684_20260718.zip](https://zenodo.org/records/21432199/files/06_SGA6_English_Layered_TeX_Ledgers_RenderQA_ReconciledThrough_idx684_20260718.zip) |
-| artifact/source ZIP | 1.6000 | [07_SGA1_English_ExposeI_Opening_Through_SectionI3_TeX_Evidence_20260718.zip](https://zenodo.org/records/21432199/files/07_SGA1_English_ExposeI_Opening_Through_SectionI3_TeX_Evidence_20260718.zip) |
-| manifest/status | 0.0009 | [08_SGA1_I3_English_Public_SHA256_20260718.csv](https://zenodo.org/records/21432199/files/08_SGA1_I3_English_Public_SHA256_20260718.csv) |
-| manifest/status | 0.0027 | [99_SGA_Public_Status_SGA1_5_6_NotCritical_20260718.md](https://zenodo.org/records/21432199/files/99_SGA_Public_Status_SGA1_5_6_NotCritical_20260718.md) |
-| manifest/status | 0.0028 | [SGA5_English_Public_Status_20260718.md](https://zenodo.org/records/21432199/files/SGA5_English_Public_Status_20260718.md) |
-| artifact/source ZIP | 11.7139 | [SGA5_English_TeX_Ledgers_and_RenderQA_NotCritical_20260718.zip](https://zenodo.org/records/21432199/files/SGA5_English_TeX_Ledgers_and_RenderQA_NotCritical_20260718.zip) |
-| reader/reference PDF | 1.9646 | [SGA5_English_WorkingEdition_NotCritical_20260718.pdf](https://zenodo.org/records/21432199/files/SGA5_English_WorkingEdition_NotCritical_20260718.pdf) |
-| manifest/status | 0.0087 | [ZENODO_PAYLOAD_MANIFEST.csv](https://zenodo.org/records/21432199/files/ZENODO_PAYLOAD_MANIFEST.csv) |
+| reader/reference PDF | 1.9223 | [00_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21432714/files/00_SGA5_French_Workpass_NotCertified_20260706.pdf) |
+| reader/reference PDF | 0.3772 | [00a_SGA1_English_ExposeI_Opening_Through_SectionI3_SourceAudited_WorkingCheckpoint_20260718.pdf](https://zenodo.org/records/21432714/files/00a_SGA1_English_ExposeI_Opening_Through_SectionI3_SourceAudited_WorkingCheckpoint_20260718.pdf) |
+| reader/reference PDF | 2.7371 | [01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.pdf](https://zenodo.org/records/21432714/files/01_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.pdf) |
+| reader/reference PDF | 2.4666 | [02_SGA6_English_Layered_WorkingReader_ReconciledThrough_idx684_20260718.pdf](https://zenodo.org/records/21432714/files/02_SGA6_English_Layered_WorkingReader_ReconciledThrough_idx684_20260718.pdf) |
+| reader/reference PDF | 0.2098 | [02a_SGA6_ExposeX_Spanish_idx532_537_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21432714/files/02a_SGA6_ExposeX_Spanish_idx532_537_WorkingTranslation_20260718.pdf) |
+| manifest/status | 0.0008 | [04_SGA6_idx684_public_manifest_20260718.csv](https://zenodo.org/records/21432714/files/04_SGA6_idx684_public_manifest_20260718.csv) |
+| manifest/status | 0.0006 | [04_SGA6_idx684_public_sha256_20260718.csv](https://zenodo.org/records/21432714/files/04_SGA6_idx684_public_sha256_20260718.csv) |
+| artifact/source ZIP | 12.4482 | [04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx684_20260718.zip](https://zenodo.org/records/21432714/files/04_SGA6_TeX_SourceRescribe_Audit_NotCertified_idx684_20260718.zip) |
+| artifact/source ZIP | 2.4995 | [05_SGA6_ExposeX_Spanish_idx532_537_TeX_Evidence_20260718.zip](https://zenodo.org/records/21432714/files/05_SGA6_ExposeX_Spanish_idx532_537_TeX_Evidence_20260718.zip) |
+| artifact/source ZIP | 9.1814 | [06_SGA6_English_Layered_TeX_Ledgers_RenderQA_ReconciledThrough_idx684_20260718.zip](https://zenodo.org/records/21432714/files/06_SGA6_English_Layered_TeX_Ledgers_RenderQA_ReconciledThrough_idx684_20260718.zip) |
+| artifact/source ZIP | 1.6000 | [07_SGA1_English_ExposeI_Opening_Through_SectionI3_TeX_Evidence_20260718.zip](https://zenodo.org/records/21432714/files/07_SGA1_English_ExposeI_Opening_Through_SectionI3_TeX_Evidence_20260718.zip) |
+| manifest/status | 0.0009 | [08_SGA1_I3_English_Public_SHA256_20260718.csv](https://zenodo.org/records/21432714/files/08_SGA1_I3_English_Public_SHA256_20260718.csv) |
+| manifest/status | 0.0020 | [98_SGA_LegacySupport_PrivacyRemediation_20260718.md](https://zenodo.org/records/21432714/files/98_SGA_LegacySupport_PrivacyRemediation_20260718.md) |
+| manifest/status | 0.0027 | [99_SGA_Public_Status_SGA1_5_6_NotCritical_20260718.md](https://zenodo.org/records/21432714/files/99_SGA_Public_Status_SGA1_5_6_NotCritical_20260718.md) |
+| manifest/status | 0.0028 | [SGA5_English_Public_Status_20260718.md](https://zenodo.org/records/21432714/files/SGA5_English_Public_Status_20260718.md) |
+| artifact/source ZIP | 11.7139 | [SGA5_English_TeX_Ledgers_and_RenderQA_NotCritical_20260718.zip](https://zenodo.org/records/21432714/files/SGA5_English_TeX_Ledgers_and_RenderQA_NotCritical_20260718.zip) |
+| reader/reference PDF | 1.9646 | [SGA5_English_WorkingEdition_NotCritical_20260718.pdf](https://zenodo.org/records/21432714/files/SGA5_English_WorkingEdition_NotCritical_20260718.pdf) |
+| manifest/status | 0.0087 | [ZENODO_PAYLOAD_MANIFEST.csv](https://zenodo.org/records/21432714/files/ZENODO_PAYLOAD_MANIFEST.csv) |
 
 ## Pierre Deligne Papers and Letters: Working Translation Drafts and Source/QA Packets
 

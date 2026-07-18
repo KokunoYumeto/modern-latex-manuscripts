@@ -1,6 +1,12 @@
-## 2026-07-18: SGA1 I.3 successor publication queue closed
+## 2026-07-18: SGA legacy-support privacy remediation queue closed
 
-- SGA current version: [10.5281/zenodo.21432199](https://doi.org/10.5281/zenodo.21432199)
+- SGA current version: [10.5281/zenodo.21432714](https://doi.org/10.5281/zenodo.21432714)
+
+Publication receipts: [`20260718_sga_legacy_support_privacy_remediation_record_21432714.json`](../manifests/published-zenodo/20260718_sga_legacy_support_privacy_remediation_record_21432714.json), [`20260718_sga_legacy_support_privacy_remediation_record_21432714_result.json`](../manifests/published-zenodo/20260718_sga_legacy_support_privacy_remediation_record_21432714_result.json), and [`20260718_sga_legacy_support_privacy_remediation_record_21432714_readback.json`](../manifests/published-zenodo/20260718_sga_legacy_support_privacy_remediation_record_21432714_readback.json). The live 18-file record retains the exact current SGA1 I.3, SGA5 replacement, and SGA6 idx684 objects while removing one obsolete path-bearing SGA5 support archive and two stale controls from the latest surface. All six critical retained PDF/ZIP objects were streamed back and matched SHA-256. Historical versions remain immutable. The release is live, not staged.
+
+## 2026-07-18: SGA1 I.3 successor publication queue closed (predecessor)
+
+- SGA historical version: [10.5281/zenodo.21432199](https://doi.org/10.5281/zenodo.21432199); current successor [10.5281/zenodo.21432714](https://doi.org/10.5281/zenodo.21432714)
 
 Publication receipts: [`20260718_sga1_i3_record_21432199.json`](../manifests/published-zenodo/20260718_sga1_i3_record_21432199.json), [`20260718_sga1_i3_record_21432199_result.json`](../manifests/published-zenodo/20260718_sga1_i3_record_21432199_result.json), and [`20260718_sga1_i3_record_21432199_readback.json`](../manifests/published-zenodo/20260718_sga1_i3_record_21432199_readback.json). The live 20-file record keeps the 309-page SGA5 English source-synchronized reader as default preview, replaces the bounded SGA1 I.2 pair with a six-page checkpoint through Expose I section I.3 / French authority lines 556-799, and retains the 377-page layered SGA6 reader reconciled through idx684. All four replacement files were streamed back from Zenodo and matched SHA-256. SGA1 continues at section I.4 / French line 800. The release is live, not staged, and is not a complete volume, critical edition, peer review, rights determination, or independent human certification.
 
@@ -48,19 +54,19 @@ Publication receipt: [`20260718_workflow_method_refresh_record_21424987.json`](.
 
 ## 2026-07-18: SGA1 I.2 and SGA6 idx684 English predecessor publication queue closed
 
-- SGA historical version: [10.5281/zenodo.21431745](https://doi.org/10.5281/zenodo.21431745); files retained on current successor [10.5281/zenodo.21432199](https://doi.org/10.5281/zenodo.21432199)
+- SGA historical version: [10.5281/zenodo.21431745](https://doi.org/10.5281/zenodo.21431745); files retained on current successor [10.5281/zenodo.21432714](https://doi.org/10.5281/zenodo.21432714)
 
 Publication receipts: [`20260718_sga1_i2_sga6_idx684_record_21431745.json`](../manifests/published-zenodo/20260718_sga1_i2_sga6_idx684_record_21431745.json), [`20260718_sga1_i2_sga6_idx684_record_21431745_result.json`](../manifests/published-zenodo/20260718_sga1_i2_sga6_idx684_record_21431745_result.json), and [`20260718_sga1_i2_sga6_idx684_record_21431745_readback.json`](../manifests/published-zenodo/20260718_sga1_i2_sga6_idx684_record_21431745_readback.json). The live 20-file record keeps the 309-page SGA5 English source-synchronized reader as default preview, advances the bounded four-page SGA1 English checkpoint through Expose I section I.2, and publishes a 377-page layered SGA6 reader reconciled through idx684 with a compact privacy-clean support ZIP. All six new/replacement files were downloaded back and matched SHA-256. The former path-bearing SGA6 support archive remains historical only. The release is live, not staged, and is not a complete volume, critical edition, peer review, rights determination, or uniform whole-volume source certification.
 
 ## 2026-07-18: SGA6 English corrective publication queue closed (predecessor)
 
-- SGA English-correction version: [10.5281/zenodo.21422245](https://doi.org/10.5281/zenodo.21422245); superseded reader retained only in immutable history beneath current version [10.5281/zenodo.21432199](https://doi.org/10.5281/zenodo.21432199)
+- SGA English-correction version: [10.5281/zenodo.21422245](https://doi.org/10.5281/zenodo.21422245); superseded reader retained only in immutable history beneath current version [10.5281/zenodo.21432714](https://doi.org/10.5281/zenodo.21432714)
 
 Publication receipt: [`20260718_sga6_english_correction_record_21422245.json`](../manifests/published-zenodo/20260718_sga6_english_correction_record_21422245.json). The record directly exposes the corrected 381-page SGA6 full-range layered English reader and groups its editable TeX, authority/formula/terminology/page ledgers, build evidence, all-page renders, contact sheets, prefix-repair and correction evidence, hashes, and validation in file `06`. The release is live, not staged. It restores Lemma 5.8.2 footnote 14 omitted from historical version 21421931. Full-range coverage does not mean uniform source certification: source-PDF 001-525 is inherited/partially synchronized, idx532-662 is French-synchronized, and idx663-702 plus terminal back matter is scan-checked draft material pending later French reconciliation.
 
 ## 2026-07-18: SGA6 Spanish and Noether multilingual component queues closed
 
-- SGA historical Spanish-introduction version: [10.5281/zenodo.21421508](https://doi.org/10.5281/zenodo.21421508); retained on current version [10.5281/zenodo.21432199](https://doi.org/10.5281/zenodo.21432199)
+- SGA historical Spanish-introduction version: [10.5281/zenodo.21421508](https://doi.org/10.5281/zenodo.21421508); retained on current version [10.5281/zenodo.21432714](https://doi.org/10.5281/zenodo.21432714)
 - Noether historical multilingual-component version: [10.5281/zenodo.21423112](https://doi.org/10.5281/zenodo.21423112); retained on current version [10.5281/zenodo.21432525](https://doi.org/10.5281/zenodo.21432525)
 
 Publication receipts: [`20260718_sga6_spanish_record_21421508.json`](../manifests/published-zenodo/20260718_sga6_spanish_record_21421508.json), [`20260718_sga5_spanish_withdrawn_record_21429328.json`](../manifests/published-zenodo/20260718_sga5_spanish_withdrawn_record_21429328.json), [`20260718_noether_cjk_direct_readers_record_21422620.json`](../manifests/published-zenodo/20260718_noether_cjk_direct_readers_record_21422620.json), and [`20260718_noether_french_r823_record_21423112.json`](../manifests/published-zenodo/20260718_noether_french_r823_record_21423112.json). The current SGA record exposes the bounded four-page Spanish SGA6 tranche but no Spanish SGA5 body. Current Noether version `21432525` retains the Indonesian and partial Arabic/Persian components, eight CJK PDFs for complete Papers 26/36, and the 494-page French R823 reader with exact TeX/evidence in file `14`. These are live publications, not staged uploads.
@@ -69,7 +75,7 @@ Publication receipts: [`20260718_sga6_spanish_record_21421508.json`](../manifest
 
 - SGA5 English synchronization: [10.5281/zenodo.21420146](https://doi.org/10.5281/zenodo.21420146)
 
-Publication receipts: [`20260717_sga5_english_publish_summary.json`](../manifests/published-zenodo/20260717_sga5_english_publish_summary.json), [`20260717_sga5_english_record_21420146_revision4.json`](../manifests/published-zenodo/20260717_sga5_english_record_21420146_revision4.json), and [`20260717_sga5_english_retitle_summary.json`](../manifests/published-zenodo/20260717_sga5_english_retitle_summary.json). The documented editorial/source issues were resolved in the bounded replacement retained on current version `21432199`; its p.14 source defect is disclosed and p.43 ambiguity remains explicit. The current SGA6 English reader promotes idx663--684 reconciliation and is accompanied by its privacy-clean support package.
+Publication receipts: [`20260717_sga5_english_publish_summary.json`](../manifests/published-zenodo/20260717_sga5_english_publish_summary.json), [`20260717_sga5_english_record_21420146_revision4.json`](../manifests/published-zenodo/20260717_sga5_english_record_21420146_revision4.json), and [`20260717_sga5_english_retitle_summary.json`](../manifests/published-zenodo/20260717_sga5_english_retitle_summary.json). The documented editorial/source issues were resolved in the bounded replacement retained on current version `21432714`; its p.14 source defect is disclosed and p.43 ambiguity remains explicit. The current SGA6 English reader promotes idx663--684 reconciliation and is accompanied by its privacy-clean support package.
 
 ## 2026-07-17: SGA6 idx662 predecessor publication queue closed
 
