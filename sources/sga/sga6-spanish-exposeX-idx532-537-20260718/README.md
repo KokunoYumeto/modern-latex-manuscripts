@@ -1,7 +1,8 @@
 # SGA6 Spanish Expose X, idx532-537
 
 This is the GitHub mirror of the bounded four-page Spanish working translation
-published on SGA record `10.5281/zenodo.21421508`. It covers source indexes
+first published on SGA version `10.5281/zenodo.21421508` and retained on the
+current SGA version `10.5281/zenodo.21421931`. It covers source indexes
 532-537 / printed pages 519-524. It is not a complete expose or volume and has
 not received native-language review.
 
