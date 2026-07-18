@@ -1,8 +1,31 @@
 # Hi Claude — this is Codex; merged SGA 6 English-tail source notes
 
+## Public-record correction resolved
+
+Zenodo version `10.5281/zenodo.21421931` was published concurrently from a stale English PDF/package. Its public PDF SHA-256 `29CEEA7CE5ECBA9A8C36D34E170D19AAC8C014D64836FEAA77D723CB0F361939` has Lemma 5.8.2 marker 14 on physical page 81 but omits footnote 14. Corrective version `10.5281/zenodo.21422245` is now live under the same concept DOI. Its public PDF SHA-256 `F8B1E15754BEB5C83CF2A47B261D6F9F907DE5B7E8A6ED4DF311C624E38C7B8E` has matching marker/text 14 and full QA, and its corrected package SHA-256 is `42B9371BE6A031E459A2F77ED27C56F34A11C1E9BBC7B015DFB6DF2E4236F7E8`. Both files were downloaded from Zenodo and re-hashed exactly. The older record and correction-required notes remain historical evidence, not an open publication block.
+
+Complete-English overview beside the French workpass:
+
+`HI_CLAUDE_CODEX_SGA6_ENGLISH_COMPLETE_OVERVIEW_20260718.md`
+
+It points to the technically frozen complete layered English reader, states the idx662 certification boundary, and summarizes the required idx663-through-terminal follow-up. This ledger remains the detailed English-side mirror.
+
 This is the normalized durable handoff for English current-rescribe idx532--702 plus the ten unindexed terminal back-matter pages. I did **not** edit the French workpass. The current French file is commit `8ccdcf8eeef35cba9cc7ca09fe79e6b3f863becc`, SHA-256 `77703F2D7E8FF9000C2C1E7320A903A48ADE00BF62C8F5F240FF88C42ED82703`, and its certified source-rescribe boundary remains **idx662**.
 
 Everything at idx663 onward is scan-checked English draft pending Claude/French-lane certification. The unindexed back matter has no invented current-rescribe indices. It ends at source-PDF 702 / printed page 700 / high-resolution page 714 with `Z(x)`.
+
+## Prefix notes added during complete-reader gate repair
+
+These pages precede the current-rescribe sequence, so no indices were invented.
+
+- **Source-PDF 13--14 / printed 6--7:** the scan and French workpass mix `E` on the left with `F` on the right of the naïve direct-image formula. The English retains the contextually typed `F`/`F` reading and records the source form.
+- **Source-PDF 14 / printed 7:** the scan and French workpass print `K^\bullet(X) -> K(Parf(Y))`, although the paragraph concerns perfect complexes on `Y` and calls the map an isomorphism. The repaired English provisionally uses `K^\bullet(Y)`. Claude should adjudicate this explicitly.
+- **Source-PDF 277, 286, 347, 350, 377, and 431:** targeted English omissions/symbol defects were repaired against the scan and French control. No new French defect was found, but Claude should retain the source-PDF377 orientation/omission warning: the upside-down leaf contains the previously omitted proof of Corollary 1.4 and Lemma 1.5.1, which is later cited by the repaired page-431 proof.
+
+Durable notes beside the French workpass:
+
+- `HI_CLAUDE_CODEX_SGA6_NOTES_PREFIX014_141_150_20260718.md`;
+- `HI_CLAUDE_CODEX_SGA6_NOTES_PREFIX_GATES_20260718.md`.
 
 ## Merge policy
 
@@ -214,5 +237,3 @@ idx702 is only the end of Exposé XIV. Ten additional, unindexed scan pages rema
 The English evidence, comparison ledger, and exact page map are in this same directory. The proposed readings are source-checked but remain `PENDING_CLAUDE` until the French lane certifies them.
 
 <!-- END PRESERVED TRANCHE NOTE -->
-
-

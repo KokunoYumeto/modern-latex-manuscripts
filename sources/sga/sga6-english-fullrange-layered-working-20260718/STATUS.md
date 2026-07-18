@@ -1,16 +1,20 @@
 # Public Status
 
-- Published: 2026-07-18 on version DOI `10.5281/zenodo.21421931` under concept
+- Corrected publication: 2026-07-18 on version DOI `10.5281/zenodo.21422245`
+  under concept
   DOI `10.5281/zenodo.20410947`.
-- Zenodo package SHA-256:
-  `ED9CEC2D320041B626D5DDE424D651834C8961FE541C8253631FF5622AF8A2AC`.
-- Reader PDF SHA-256:
-  `29CEEA7CE5ECBA9A8C36D34E170D19AAC8C014D64836FEAA77D723CB0F361939`.
+- Corrected Zenodo package SHA-256:
+  `42B9371BE6A031E459A2F77ED27C56F34A11C1E9BBC7B015DFB6DF2E4236F7E8`.
+- Corrected reader PDF SHA-256:
+  `F8B1E15754BEB5C83CF2A47B261D6F9F907DE5B7E8A6ED4DF311C624E38C7B8E`.
+- Historical version `21421931` is retained but is not the current endpoint; it
+  omitted Lemma 5.8.2 footnote 14 on physical PDF page 81.
 
 - Scope: full extant SGA 6 source scan, source-PDF pages 001-702.
 - Reader: 381 A4 pages after the publication-title correction.
 - Technical state: two clean pdfLaTeX passes, all fonts embedded, all 381 pages
-  rendered, full contact-sheet coverage, and explicit layer ledgers.
+  rendered, full contact-sheet coverage, explicit layer ledgers, and an
+  independent final integration review.
 - Strongest source layer: idx532-662, synchronized against the directly checked
   French workpass for that range.
 - Weaker layers: inherited/partially synchronized prefix through source-PDF 525;
