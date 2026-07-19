@@ -478,3 +478,18 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
   critical edition, rights clearance, human certification, or a standalone
   Zenodo unit release.
+
+## 2026-07-19 - SGA2 IV-II-N0 GitHub transport correction
+
+- Remote readback of PR #15 found that the repository-wide `*.log` ignore rule
+  had omitted the two manifested sanitized build logs. The initial merged tree
+  therefore held 32 of the required 34 files and was not accepted as complete
+  custody.
+- Added both exact log members with hashes
+  `CE7A1E30177F56DF1437A8FA642315574334203FAA596A8557036BB08C583D9E`
+  and
+  `50966820F100F398CF5DE5C289C812FA002672F486E22DCA6A779E72C24CE13F`.
+- Added a narrow ignore exception for manifested public SGA2 build logs. No
+  raw or local-only log is admitted by this exception.
+- Complete custody requires a fresh 34-file remote count, name-set comparison,
+  and downloadable SHA-256 readback after this correction lands.
