@@ -280,3 +280,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and comparison bodies. This remains one bounded unit, not cumulative Expose
   VIII, complete SGA2, a critical edition, rights clearance, or a standalone
   Zenodo unit release.
+
+## 2026-07-19 - Noether page-QC coverage reconciliation
+
+- Opened and streamed the 1,046,227-byte producer ZIP, SHA-256
+  `DE513046F4DDD9006990F2B76F2FD4E5E693ABCFB286C44C3F5A0D1F62B1D5F6`.
+  Its 38 file entries total 7,403,613 decompressed bytes, with no duplicate or
+  unsafe paths.
+- Replayed the enclosed 33-row archive manifest against the extracted files.
+  The durable handoff called it a 28-entry manifest; that count discrepancy is
+  disclosed rather than silently normalized.
+- Published a privacy-clean 20-file / 2,736,474-byte projection containing
+  1,270 detailed page-QC rows, 758 canonical page keys, 466 unique
+  correction-origin actions, and 51 historical P10/P14/P15 witness rows.
+- The canonical index grows from 724 to 758 page keys, closing 34 prior
+  bookkeeping gaps. These are historical audit imports and exact later-head
+  survival links, not 51 fresh visual inspections.
+- Excluded the original path-bearing ZIP, source-span TeX bodies and diffs,
+  build scripts, full private logbook, and source-page pixels. The 51 image
+  witnesses are metadata-only with an explicit non-redistribution disposition.
+- The public projection passes checksum, CSV/JSON, uniqueness, formula-safety,
+  UTF-8, and privacy gates. No German TeX or PDF body changed.
