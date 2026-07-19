@@ -700,3 +700,33 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and no Zenodo draft or mutation was made. Revisit only when a sanitized exact
   public package and explicit archive handoff are issued with rights-sensitive
   visual evidence classified rather than silently omitted.
+
+## 2026-07-19 - SGA2 Expose VIII APP31 bounded-unit custody
+
+- Accepted the independently sealed APP31 public projection covering corrected
+  French lines 2874-2886, Section 3 `Applications`, Theorem 3.1, and its
+  complete proof. Blank line 2887 is excluded and the exact cursor is
+  Proposition 3.2 at line 2888.
+- The formal 9,155-byte producer handoff has SHA-256
+  `F289E6BE02E8E3BA9DD3824223672888E3DF8CCBBEB19870F7B5C862D49575CC`;
+  its complete 39-row table replayed against the isolated public payload with
+  zero error.
+- The exact projection is 39 files / 1,288,096 bytes: 38 descriptor members
+  plus self-excluding `ZENODO_PAYLOAD_MANIFEST.csv`. The descriptor SHA-256 is
+  `793D74AD00252DD26C23DF70D04D26B23D1F91162A9708B32417578222B7184C`;
+  the sorted member-identity digest is
+  `B02CCC454FC5B01E6A4A0B16DE7376DF87EEEC6AE5AA35783167497D5ADEB126`.
+- The editable TeX and one-page PDF retain SHA-256
+  `1CBB3EF71309ED5C5AABEDA6DB5ED840E2C007B70DE112667A78A4AE5F9B207D`
+  and `B2973258EE71F71D55CA4F167B74D41AE43388CB498A81B92E3E920F1ED6933D`.
+  Independent source, formula, build, render, font, machine-ledger, Artifact
+  Tool, exact-set, and privacy gates pass.
+- Closed F/G Option A remains current. Target blackboard-bold Z and italic R/E
+  are separately provisional and visibly disclosed. The same-edition French
+  PDF is not independent corroboration, and underlying French rights are not
+  conveyed.
+- French source-page pixels and local-only build material remain excluded;
+  target-language render QA is included. This is bounded GitHub custody only,
+  not a complete Expose VIII, complete SGA2, critical edition, rights clearance,
+  or standalone Zenodo unit release. Remote GitHub readback remains to be
+  completed after merge.
