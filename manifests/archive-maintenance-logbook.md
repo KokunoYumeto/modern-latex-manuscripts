@@ -390,3 +390,23 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Excluded seven path- or task-bearing producer controls, raw logs, auxiliaries,
   source scans, mixed source composites, and nested archives. Their custody
   and exclusion states remain hash-addressed.
+
+## 2026-07-19 - SGA2 Expose VIII second proof step custody
+
+- Added the exact independently sealed 34-file / 809,416-byte D2B boundary
+  for corrected French lines 2796-2805. Blank line 2806 is excluded; the exact
+  continuation cursor is French line 2807.
+- Replayed all 33 `UNIT_HASHES.csv` members plus the manifest itself with zero
+  path, byte, SHA-256, privacy, JSON/JSONL/NDJSON, formula-safety, or selection
+  failures.
+- Rebuilt the TeX twice with zero actionable diagnostics. Frozen and rebuilt
+  extracted text and 300-dpi target pixels are byte-identical; the stored
+  target render passed original-detail inspection.
+- Preserved the visible `[S]` note around the literal finite-pairs sentence.
+  The French authority is unchanged. The same-edition French source page,
+  raw logs, auxiliaries, and local-only extraction remain excluded.
+- The durable 8,396-byte handoff has SHA-256
+  `FB223614B01AF29FE13DCEBD8D7A3DEAD4638F856FE349C3EC5CE160B3486AC3`.
+  This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
+  critical edition, rights clearance, human certification, or a standalone
+  Zenodo unit release.
