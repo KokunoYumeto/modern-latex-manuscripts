@@ -730,3 +730,18 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   not a complete Expose VIII, complete SGA2, critical edition, rights clearance,
   or standalone Zenodo unit release. Remote GitHub readback remains to be
   completed after merge.
+
+## 2026-07-19 - SGA2 Expose VIII APP31 remote readback
+
+- Published the bounded APP31 projection on public `main` as commit
+  `26eb83e996ba2e920310839d495b7f203330288e`.
+- Downloaded all 39 files from the public raw-content endpoint at that exact
+  commit. The directory contains exactly 39 files / 1,288,096 bytes, with no
+  missing or extra object and zero byte-count or SHA-256 mismatch.
+- The public descriptor, TeX, and PDF retain SHA-256
+  `793D74AD00252DD26C23DF70D04D26B23D1F91162A9708B32417578222B7184C`,
+  `1CBB3EF71309ED5C5AABEDA6DB5ED840E2C007B70DE112667A78A4AE5F9B207D`,
+  and `B2973258EE71F71D55CA4F167B74D41AE43388CB498A81B92E3E920F1ED6933D`.
+- GitHub custody and downloadable readback are complete for this bounded unit.
+  The same rights, notation, and noncompletion caveats remain in force, and no
+  standalone Zenodo unit release is claimed.
