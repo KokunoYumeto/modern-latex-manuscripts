@@ -834,3 +834,17 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   opening. It should join the existing SGA concept only through a future
   cumulative independently audited Expose VIII version; no standalone Zenodo
   unit release or duplicate concept is warranted.
+
+## 2026-07-19 - SGA public overview reconciliation through P32P1
+
+- Reconciled all five root-README SGA summary surfaces after exact GitHub
+  readback of APP31, P32S, and P32P1.
+- GitHub custody now reports 27 separately classified Expose VIII states through
+  the Proposition 3.2 proof opening and condition (c), corrected French line
+  2907. Blank line 2908 is excluded and the next cursor is implication
+  `(a) => (b)` at line 2909.
+- The current Zenodo description remains unchanged at SGA1 through I.6 and
+  bounded SGA2 Exposes V-VI. The newly reconciled GitHub states are not recast
+  as a cumulative Expose VIII or a complete SGA2 release.
+- SGA1 I.9.2 r2 was already present with exact 139-file remote readback, so no
+  duplicate package or status mutation was made during this reconciliation.
