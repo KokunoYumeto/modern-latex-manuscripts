@@ -129,3 +129,17 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - `PUBLIC_BACKUP_SHA256.csv` contains 38 self-excluding rows and has SHA-256
   `E269281BDA90B8472AF579F36F22A503F8979BEF752DE99EE769A11EFCCD7F8B`.
   No cumulative Expose VIII or standalone Zenodo-unit release is claimed.
+
+## 2026-07-19 - SGA2 Expose VIII Lemma 2.4 custody
+
+- Added independently sealed reductions-and-statement unit L24 for French
+  lines 2715-2721. The raw TeX cursor is line 2723; substantive prose resumes
+  at line 2725 after blank line 2724.
+- Replayed all 33 producer rows plus `UNIT_HASHES.csv` and
+  `MACHINE_READABLE_VALIDATION.json`: 35 files / 1,915,462 bytes, with zero
+  path, byte, SHA-256, privacy, archive, executable, or source-raster failures.
+- Preserved both 300- and 600-dpi target renders after original-detail visual
+  inspection. Same-edition French source renders remain local rights-sensitive
+  evidence and are excluded from the public projection.
+- No proof, cumulative Expose VIII, whole-SGA2, critical-edition, rights
+  clearance, or standalone Zenodo-unit release is claimed.
