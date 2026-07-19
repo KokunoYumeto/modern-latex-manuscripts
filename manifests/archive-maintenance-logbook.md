@@ -647,3 +647,19 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - No translation byte, license conclusion, scope, or completion claim changed.
   The separate line-2865 printed `F` versus preceding `F''` ambiguity remains
   open and un-emended. This bounded unit is not a standalone Zenodo release.
+
+## 2026-07-19 - SGA2 IV-II-NGT1 producer policy successor remote readback
+
+- Merged PR #21 as commit
+  `6f9bae6189d7a9e7fa184d9ad5b0e62b5862cea3` and fetched the resulting
+  remote `main` tree.
+- Downloaded all eight successor files from the public raw-content endpoint
+  at that exact commit. The package is 32,569 bytes and every path, byte count,
+  and SHA-256 matches the producer descriptor; there are zero extra files.
+- Re-downloaded and replayed all 33 original sealed files at the same commit.
+  The seal remains exactly 2,315,626 bytes with zero mismatch, including the
+  unchanged descriptor, TeX, and PDF identities.
+- The merged bounded-unit directory is 47 files / 2,367,919 bytes: 33 sealed
+  files, the preserved six-file archive bridge, and the eight-file preferred
+  producer successor. GitHub custody and downloadable readback are complete.
+  No standalone Zenodo unit release is claimed.
