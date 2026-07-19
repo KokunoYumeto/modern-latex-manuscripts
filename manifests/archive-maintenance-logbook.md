@@ -159,3 +159,19 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The live record remains `10.5281/zenodo.21435547` at 33 files. This task has
   no authenticated Zenodo credential, so no competing draft or unverified
   mutation was attempted.
+
+## 2026-07-19 - Noether Paper 4 English Section 9 custody
+
+- Added the exact additive Section 9 r1 package for R823 lines 4477-4498,
+  printed pp.152-154, with a two-page reader, editable TeX, five current CSV
+  ledgers, four current JSONL ledgers, and open project-render evidence.
+- Replayed all 38 custody rows: 2,017,731 bytes with zero missing, extra,
+  path, byte, SHA-256, privacy, or source-image failures. The packaged Python
+  validator reports `PASS` with zero failures.
+- Inspected both 200-dpi target pages at original detail; no clipping,
+  collision, missing glyph, or formula defect was found.
+- Preserved every Section 7 and Section 8 object. Section 9 is additive and
+  advances the machine cursor to the Paper 5 wrapper at R823 line 4501.
+- Official API readback still resolves Noether version `21434690` at the
+  100-file ceiling. No authenticated Zenodo credential is available, so the
+  same-concept update requires later file curation and authenticated readback.
