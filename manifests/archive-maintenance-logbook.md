@@ -115,3 +115,17 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - `PUBLIC_BACKUP_SHA256.csv` contains 34 self-excluding rows and has SHA-256
   `07EB882B48932FB9E4F81D0ABF08E2612F312F9AA58D97559C4691F02058B760`.
   No cumulative Expose VIII or standalone Zenodo-unit release is claimed.
+
+## 2026-07-19 - SGA2 Expose VIII Corollary 2.3 proof custody
+
+- Added independently sealed proof/open-cover comparison unit C23-POC for
+  French lines 2683-2713. Blank line 2714 is excluded; the next cursor is the
+  next reduction at French line 2715.
+- Replayed all 41 producer rows. The public GitHub projection retains 33
+  exact non-source members plus the producer manifest and machine validation.
+- Represented eight duplicate French source-render rows for physical pages
+  79-80 in a rights-blocked ledger rather than publishing source pixels. Both
+  open target renders passed original-detail inspection.
+- `PUBLIC_BACKUP_SHA256.csv` contains 38 self-excluding rows and has SHA-256
+  `E269281BDA90B8472AF579F36F22A503F8979BEF752DE99EE769A11EFCCD7F8B`.
+  No cumulative Expose VIII or standalone Zenodo-unit release is claimed.
