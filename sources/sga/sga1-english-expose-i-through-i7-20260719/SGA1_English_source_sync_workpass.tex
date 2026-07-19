@@ -1,0 +1,470 @@
+\documentclass[11pt,oneside]{amsbook}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[
+  a4paper,
+  inner=31mm,
+  outer=31mm,
+  top=28mm,
+  bottom=30mm,
+  marginparwidth=22mm,
+  marginparsep=5mm
+]{geometry}
+\usepackage[hidelinks,pdfencoding=auto]{hyperref}
+\usepackage{bookmark}
+
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{theorem}[proposition]{Theorem}
+\newtheorem{corollary}[proposition]{Corollary}
+\newtheorem{lemma}[proposition]{Lemma}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{corollaries}[proposition]{Corollaries}
+
+\hypersetup{
+  pdftitle={SGA 1 English source-synchronization workpass: Exposé I opening through I.7},
+  pdfauthor={Working translation from the French arXiv authority},
+  pdfsubject={Bounded source-synchronization English working translation},
+  pdfkeywords={SGA 1, étale morphisms, source synchronization, working translation}
+}
+
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\thechapter.\arabic{section}}
+\setcounter{secnumdepth}{1}
+\setcounter{tocdepth}{1}
+
+\begin{document}
+
+\frontmatter
+\begin{titlepage}
+  \centering
+  \vspace*{35mm}
+  {\Huge\bfseries \textit{Étale Coverings and the Fundamental Group}\par}
+  \vspace{3mm}
+  {\LARGE (SGA~1)\par}
+  \vspace{20mm}
+  {\Large English source-synchronization workpass\par}
+  \vspace{3mm}
+  {\Large Exposé~I opening through \S\,I.7\par}
+  \vfill
+  {\large Task-owned working translation\par}
+  \vspace{5mm}
+  {\large 19 July 2026\par}
+\end{titlepage}
+
+\chapter*{Source and status note}
+
+This bounded workpass translates the opening of Exposé~I through \S\,I.7 directly
+from the French \TeX{} source in arXiv \texttt{math/0206203v2}, with archive
+SHA-256:
+\begin{center}
+  \small\ttfamily
+  0A33C9C06908705A2525690FAAE02F6F\\
+  07980A4AA069A8B6CFF9B1D9BC39ACD3
+\end{center}
+The current translated source boundary is
+\texttt{smf\_doc-math\_3\_01.tex}, lines 556--1492; line 1493 begins \S\,I.8
+and is outside the current workpass.  The opening through \S\,I.6 is preserved
+in the immutable, independently audited r4 checkpoint; its exact custody
+payload has been handed to the English/Germanic manager and archive
+maintenance, with manager custody acknowledged.  Archive acceptance,
+publication, and remote readback are not claimed here.  The \S\,I.7 addition
+is the current source-, formula-, structure-, terminology-, build-, and
+render-review unit.
+
+Recovered English materials associated with jcreinhold, jmoellermath, and
+Tim Hosgood were consulted only as target-language comparison controls.
+They are not source authority, and no agreement among them was treated as
+proof of source alignment.  The two Hosgood-related repositories belong to
+one derivative lineage, not two independent witnesses.
+
+This is a source-audited working translation in bounded units.  It is not
+a complete SGA~1 translation, a critical edition, or a certification of the
+mathematics.  Rights and attribution for any public redistribution remain
+subject to archive-maintainer review; the French source header asks modified
+versions to identify themselves, which this workpass does explicitly.
+
+\tableofcontents
+
+\mainmatter
+\setcounter{chapter}{0}
+\chapter{Étale morphisms}
+\label{I}
+\marginpar{\raggedright\footnotesize French source p.~1}
+
+To simplify the exposition, we assume that all preschemes under
+consideration are locally noetherian, at least after no.~I.2.
+
+\section{Notions of differential calculus}
+\label{I.1}
+
+Let \(X\) be a prescheme over \(Y\), and let \(\Delta_{X/Y}\), or simply
+\(\Delta\),\label{indnot:ab} be the diagonal morphism
+\(X\to X\times_Y X\).  It is an
+immersion, hence a closed immersion of \(X\) into an open subset \(V\) of
+\(X\times_Y X\).  Let \(\mathcal I_X\) be the ideal of the closed
+subprescheme corresponding to the diagonal in \(V\) (N.B. if one wishes to
+proceed intrinsically, without assuming that \(X\) is separated over
+\(Y\)---a hypothesis that would be farcical---one should consider the
+set-theoretic inverse image of \(\mathcal O_{X\times X}\) in \(X\), and
+denote by \(\mathcal I_X\) the augmentation ideal in the latter\ldots).
+The sheaf \(\mathcal I_X/\mathcal I_X^2\) may be regarded as a
+quasi-coherent sheaf on \(X\); we denote it by \(\Omega^1_{X/Y}\).  It is
+\label{indnot:ac}
+of finite type if \(X\to Y\) is of finite type.  It behaves well under base
+change \(Y'\to Y\).  We also introduce the sheaves
+\(\mathcal O_{X\times_Y X}/\mathcal I_X^{n+1}=\mathcal P^n_{X/Y}\);\label{indnot:ad} these
+are sheaves of \emph{rings} on \(X\), making \(X\) into a prescheme that
+may be denoted by \(\Delta^n_{X/Y}\)\label{indnot:ae} and called the \emph{\(n\)-th
+infinitesimal neighborhood of \(X/Y\)}.  The resulting sorites is entirely
+trivial, although rather long\footnote{Cf.\ EGA IV~16.3.}; it would be
+prudent to speak of it only when there is something useful to say about it,
+in connection with smooth morphisms.
+
+\section{Quasi-finite morphisms}
+\label{I.2}
+
+\begin{proposition}
+\label{I.2.1}
+Let \(A\to B\) be a local homomorphism (N.B. the rings are now
+noetherian), and let \(\mathfrak m\) be the maximal ideal of~\(A\).  The
+following conditions are equivalent:
+\begin{enumerate}
+\item[(i)] \(B/\mathfrak mB\) is finite-dimensional over
+  \(k=A/\mathfrak m\).
+\item[(ii)] \(\mathfrak mB\) is an ideal of definition, and
+  \(B/\mathfrak r(B)=\kappa(B)\) is an extension of
+  \(k=\kappa(A)\).
+\item[(iii)] The completion \(\widehat B\) is finite over the completion
+  \(\widehat A\) of~\(A\).
+\end{enumerate}
+\end{proposition}
+
+One then says\marginpar{\raggedright\footnotesize French source p.~2} that
+\(B\) \emph{is quasi-finite} over~\(A\).  A morphism
+\(f\colon X\to Y\) is said to be quasi-finite at~\(x\) (or the
+\(Y\)-prescheme \(f\) is said to be quasi-finite at~\(x\)) if
+\(\mathcal O_x\) is quasi-finite over \(\mathcal O_{f(x)}\).  This is also
+equivalent to saying that \(x\) is \emph{isolated in its fiber}
+\(f^{-1}(f(x))\).\footnote{The original printing (Exposé~I, p.~2) and both
+French arXiv renderings print \(f^{-1}(x)\).  Since \(x\in X\) for
+\(f\colon X\to Y\), the type-correct fiber through \(x\) is
+\(f^{-1}(f(x))\), which is used here with the source defect explicitly
+disclosed.} A morphism is said to be quasi-finite if it is so at
+every point.\footnote{In EGA~II~6.2.3 one assumes in addition that \(f\) is
+of finite type.}
+
+\begin{corollary}
+\label{I.2.2}
+If \(A\) is complete, quasi-finite is equivalent to finite.
+\end{corollary}
+
+One could give the usual chain of implications \textup{(i), (ii), (iii),
+(iv), (v)} for quasi-finite morphisms, but this does not seem indispensable
+here.
+
+% SGA 1, Expose I, section I.3.
+% French authority lines 653--799; source-audited bounded unit.
+
+\section{Unramified or net morphisms}
+\label{I.3}
+
+\begin{proposition}
+\label{I.3.1}
+Let \(f\colon X\to Y\) be a morphism of finite type, let \(x\in X\), and
+put \(y=f(x)\).  The following conditions are equivalent:
+\begin{enumerate}
+\item[(i)] 
+  \(\mathcal O_x/\mathfrak m_y\mathcal O_x\) is a finite separable
+  extension of~\(\kappa(y)\).
+\item[(ii)] \(\Omega^1_{X/Y}\) vanishes at~\(x\).
+\item[(iii)] The diagonal morphism \(\Delta_{X/Y}\) is an open immersion
+  in a neighborhood of~\(x\).
+\end{enumerate}
+\end{proposition}
+
+For the implication \textup{(i)}\(\Rightarrow\)\textup{(ii)}, Nakayama's
+lemma immediately reduces us to the case
+\(Y=\operatorname{Spec}(k)\), \(X=\operatorname{Spec}(k')\), where the
+assertion is well known and, moreover, immediate from the definition of
+separability.  The implication \textup{(ii)}\(\Rightarrow\)\textup{(iii)}
+follows from a pleasant and easy characterization of open immersions using
+Krull.  For \textup{(iii)}\(\Rightarrow\)\textup{(i)}, one is
+again reduced to the case \(Y=\operatorname{Spec}(k)\), with the diagonal
+morphism an open immersion everywhere.  One must then prove that \(X\) is
+finite, with a separable coordinate ring over~\(k\); for this one reduces to
+the case where \(k\) is algebraically closed.  But then every closed point of
+\(X\) is isolated (it is precisely the inverse image of the diagonal under
+the morphism \(X\to X\times_k X\) defined by~\(x\)), and hence \(X\) is
+finite.  One may therefore suppose that \(X\) consists of a single point,
+with ring~\(A\).  Thus \(A\otimes_kA\to A\) is an isomorphism, whence
+\(A=k\), as required.
+
+\begin{definition}
+\label{I.3.2}
+\begin{enumerate}
+\item[(a)] One then says that \(f\) is \emph{net}, or equivalently
+  \emph{unramified}, at~\(x\), or that \(X\) is net, or unramified, at
+  \(x\) over~\(Y\).
+\item[(b)] Let \(A\to B\) be a local homomorphism.  It is said to be
+  \emph{net}, or \emph{unramified}, and \(B\) is said to be a net, or
+  unramified, local algebra over~\(A\), if
+  \(B/\mathfrak r(A)B\) is a finite separable extension of
+  \(A/\mathfrak r(A)\); that is, if
+  \(\mathfrak r(A)B=\mathfrak r(B)\) and \(\kappa(B)\) is a separable
+  extension of~\(\kappa(A)\).\footnote{Cf.\ the regrets in
+  Expos\'e~III, no.~1.2.}
+\end{enumerate}
+\end{definition}
+
+\paragraph{Remarks.}
+The fact\marginpar{\raggedright\footnotesize French source p.~3} that
+\(B\) is unramified over~\(A\) can already be checked on the completions of
+\(A\) and~\(B\).  Unramified implies quasi-finite.
+
+\begin{corollary}
+\label{I.3.3}
+The set of points at which \(f\) is unramified is open.
+\end{corollary}
+
+\begin{corollary}
+\label{I.3.4}
+Let \(X'\) and \(X\) be two preschemes of finite type over~\(Y\), and let
+\(g\colon X'\to X\) be a \(Y\)-morphism.  If \(X\) is unramified over
+\(Y\), the graph morphism
+
+\[
+  \Gamma_g\colon X'\longrightarrow X'\times_Y X
+\]
+
+is an open immersion.\footnote{The original printing (Expos\'e~I, p.~3) and
+the French TeX give \(X\times_Y X\) as the graph target and later write
+\(\operatorname{id}_{X'}\) in the pullback map.  The typed fiber products
+force \(X'\times_Y X\) and \(\operatorname{id}_X\), respectively; those
+type-correct readings are used here with both source defects disclosed.}
+\end{corollary}
+
+Indeed, it is the inverse image of the diagonal morphism
+\(X\to X\times_Y X\) under
+\[
+g\times_Y\operatorname{id}_{X}\colon
+X'\times_Y X\longrightarrow X\times_Y X.
+\]
+
+One may also introduce the annihilator ideal
+\(\mathfrak d_{X/Y}\)\label{indnot:af} of \(\Omega^1_{X/Y}\), called the
+\emph{different ideal} of~\(X/Y\).  It defines a closed subprescheme of
+\(X\) whose underlying set is the set of points at which \(X/Y\) is
+ramified, that is, not unramified.
+
+\begin{proposition}
+\label{I.3.5}
+\begin{enumerate}
+\item[(i)] An immersion is unramified.
+\item[(ii)] The composite of two unramified morphisms is unramified.
+\item[(iii)] A base change of an unramified morphism is unramified.
+\end{enumerate}
+\end{proposition}
+
+This may be seen equally well from criterion \textup{(ii)} or criterion
+\textup{(iii)} (the latter seems more amusing to me).  One can of course
+also be more precise by giving pointwise statements; this is more general
+only in appearance (except in the setting of Definition~\ref{I.3.2}(b)), and
+tedious.  As usual, one obtains the following corollaries.
+
+\begin{corollaries}
+\label{I.3.6}
+\begin{enumerate}
+\item[(iv)] The Cartesian product of two unramified morphisms is unramified.
+\item[(v)] If \(gf\) is unramified, then \(f\) is unramified.
+\item[(vi)] If \(f\) is unramified, then \(f_{\mathrm{red}}\) is
+  unramified.
+\end{enumerate}
+\end{corollaries}
+
+\begin{proposition}
+\label{I.3.7}
+Let \(A\to B\) be a local homomorphism.  Suppose that the residue-field
+extension \(\kappa(B)/\kappa(A)\) is trivial, or that \(\kappa(A)\) is
+algebraically closed.  Then \(B/A\) is unramified if and only if
+\(\widehat B\), as an \(\widehat A\)-algebra, is a quotient of
+\(\widehat A\).
+\end{proposition}
+
+\paragraph{Remarks.}
+\begin{itemize}
+\item When the residue-field extension is not assumed to be trivial, one may
+  reduce to that case by making a suitable finite flat extension over~\(A\)
+  that kills the extension in question.
+\item Take the example in which \(A\) is the local ring of an ordinary
+  double point of a curve and \(B\) is the local ring at a point of the
+  normalization.  Then \(A\subset B\), and \(B\) is unramified
+  over\marginpar{\raggedright\footnotesize French source p.~4} \(A\) with
+  trivial residue-field extension; the map
+  \(\widehat A\to\widehat B\) is surjective but \emph{not injective}.
+  We shall therefore strengthen the notion of unramifiedness.
+\end{itemize}
+
+\section{Étale morphisms. Étale coverings}
+\label{I.4}
+
+We shall take for granted whatever is needed concerning flat morphisms; these
+facts will be proved later, if necessary\footnote{Cf.\ Expos\'e~IV.}.
+
+\begin{definition}
+\label{I.4.1}
+\begin{enumerate}
+\item[(a)] Let \(f\colon X\to Y\) be a morphism of finite type.  One says
+  that \(f\) is \emph{étale} at~\(x\) if \(f\) is flat at~\(x\) and net
+  (equivalently, unramified) at~\(x\).  One says that \(f\) is étale if it
+  is so at every point.  One says that \(X\) is étale at~\(x\) over~\(Y\),
+  or that it is a \(Y\)-prescheme étale at~\(x\), and so on.
+\item[(b)] Let \(f\colon A\to B\) be a local homomorphism.  One says that
+  \(f\) is étale, or that \(B\) is étale over~\(A\), if \(B\) is flat and
+  unramified over~\(A\).\footnote{Cf.\ the regrets in Expos\'e~III,
+  no.~1.2.}
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}
+\label{I.4.2}
+For \(B/A\) to be étale, it is necessary and sufficient that
+\(\widehat B/\widehat A\) be étale.
+\end{proposition}
+
+Indeed, this holds separately for ``unramified'' and for ``flat.''
+
+\begin{corollary}
+\label{I.4.3}
+Let \(f\colon X\to Y\) be of finite type, and let \(x\in X\).  Whether
+\(f\) is étale at~\(x\) depends only on the local homomorphism
+\(\mathcal O_{f(x)}\to\mathcal O_x\), and even only on the corresponding
+homomorphism between the completions.
+\end{corollary}
+
+\begin{corollary}
+\label{I.4.4}
+Suppose that the residue-field extension
+\(\kappa(A)\to\kappa(B)\) is trivial, or that \(\kappa(A)\) is
+algebraically closed.  Then \(B/A\) is étale if and only if
+\(\widehat A\to\widehat B\) is an isomorphism.
+\end{corollary}
+
+This follows by combining flatness with Proposition~\ref{I.3.7}.
+
+\begin{proposition}
+\label{I.4.5}
+Let \(f\colon X\to Y\) be a morphism of finite type.  Then the set of
+points at which it is étale is open.
+\end{proposition}
+
+Indeed, this holds separately for ``unramified'' and for ``flat.''
+
+This proposition shows that one may dispense with ``pointwise'' statements
+when studying morphisms of finite type that are étale at some point.
+
+\begin{proposition}
+\label{I.4.6}
+\begin{enumerate}
+\item[(i)] An open immersion is étale.
+\item[(ii)] The composite of two étale morphisms is étale.
+\item[(iii)] A base change of an étale morphism is étale.
+\end{enumerate}
+\end{proposition}
+
+\marginpar{\raggedright\footnotesize French source p.~5}%
+Indeed, \textup{(i)} is trivial, and for \textup{(ii)} and \textup{(iii)}
+it is enough to note that the assertions hold for ``unramified'' and for
+``flat.''  To tell the truth, there are also corresponding statements for
+local homomorphisms (without a finiteness condition); in any event, they will
+have to appear in the \emph{multiplodoque}, beginning with the unramified
+case.
+
+\begin{corollary}
+\label{I.4.7}
+The Cartesian product of two étale morphisms is likewise étale.
+\end{corollary}
+
+\begin{corollary}
+\label{I.4.8}
+Let \(X\) and \(X'\) be of finite type over~\(Y\), and let
+\(g\colon X\to X'\) be a \(Y\)-morphism.  If \(X'\) is unramified over
+\(Y\) and \(X\) is étale over~\(Y\), then \(g\) is étale.
+\end{corollary}
+
+Indeed, \(g\) is the composite of the graph morphism
+\[
+  \Gamma_g\colon X\longrightarrow X\times_Y X',
+\]
+which is an open immersion by Corollary~\ref{I.3.4}, and the projection
+\(X\times_Y X'\to X'\), which is étale because it is obtained from the
+étale morphism \(X\to Y\) by the base change \(X'\to Y\).
+
+\begin{definition}
+\label{I.4.9}
+An \emph{étale covering} (respectively, a \emph{net covering}, also called
+an unramified covering) of~\(Y\) is a \(Y\)-scheme \(X\) that is finite
+over~\(Y\) and étale (respectively, unramified) over~\(Y\).
+\end{definition}
+
+The first condition means that \(X\) is defined by a coherent sheaf of
+algebras \(\mathcal B\) on~\(Y\).  The second then means that \(\mathcal B\)
+is locally free over~\(Y\) (with no corresponding local-freeness requirement
+in the net case), and, moreover, that for every \(y\in Y\) the fiber
+\[
+  \mathcal B(y)=\mathcal B_y\otimes_{\mathcal O_y}\kappa(y)
+\]
+is a separable algebra over~\(\kappa(y)\), that is, a finite product of
+finite separable field extensions of~\(\kappa(y)\).
+
+\begin{proposition}
+\label{I.4.10}
+Let \(X\) be a flat covering of~\(Y\) of degree~\(n\) (the definition of
+this term deserved to appear in Definition~\ref{I.4.9}), defined by a
+coherent locally free sheaf of algebras \(\mathcal B\).  In the usual way one
+defines the trace homomorphism \(\mathcal B\to\mathcal A\), which is a
+homomorphism of \(\mathcal A\)-modules, where
+\(\mathcal A=\mathcal O_Y\).  For \(X\) to be étale, it is necessary and
+sufficient that the corresponding trace pairing
+\((x,y)\longmapsto\operatorname{Tr}_{\mathcal B/\mathcal A}(xy)\) induce an
+isomorphism \(\mathcal B\xrightarrow{\sim}\mathcal B^\vee\),\footnote{The French TeX and the
+original printing instead give \(\mathcal B\) as the target.  An
+\(\mathcal A\)-bilinear form induces a map
+\(\mathcal B\to\mathcal B^\vee\); the dual is therefore the type-correct
+target, used here with the source-original defect disclosed.} or,
+equivalently,
+that the \emph{discriminant section}
+\[
+  d_{X/Y}=d_{\mathcal B/\mathcal A}
+  \in
+  \Gamma\!\left(
+    Y,
+    \bigwedge\nolimits^n\mathcal B^\vee
+    \otimes_{\mathcal A}
+    \bigwedge\nolimits^n\mathcal B^\vee
+  \right)
+\]
+be invertible, or, finally, that the discriminant ideal defined by this
+section be the unit ideal.
+\end{proposition}
+
+Indeed, one reduces to the case \(Y=\operatorname{Spec}(k)\); the assertion
+is then the well-known separability criterion, and becomes immediate after
+passing to an algebraic closure of~\(k\).
+
+\marginpar{\raggedright\footnotesize French source p.~6}%
+\paragraph{Remark.}
+There will be a less trivial statement below, when one does not assume a
+priori that \(X\) is flat over~\(Y\), but instead imposes a normality
+hypothesis.
+
+\input{drafts/SGA1_I_5_English_source_draft.texfrag}
+
+\input{drafts/SGA1_I_6_English_source_draft.texfrag}
+
+\input{drafts/SGA1_I_7_English_source_draft.texfrag}
+
+\end{document}

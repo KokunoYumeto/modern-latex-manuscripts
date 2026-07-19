@@ -1,0 +1,9 @@
+# SGA 1 English checkpoint - Exposé I opening through section I.7
+
+This payload contains a bounded working English translation of SGA 1 Exposé I from the opening through section I.7. It contains a 13-page PDF and four editable TeX files: the cumulative driver and the section I.5, I.6, and I.7 fragments.
+
+The sole textual authority is the corrected French TeX distributed as arXiv `math/0206203v2`. External English translations are comparison controls only. The original-print scan was used for bounded adjudication, but neither the scan nor any derivative image is included.
+
+The section I.7 source boundary is French lines 1217--1492. The first excluded line and continuation cursor is line 1493, section I.8, “Infinitesimal lifting of étale schemes. Application to formal schemes.” This checkpoint is not complete SGA 1, a critical edition, peer review, mathematical certification, independent human review, or a rights decision.
+
+The initially reserved r1 name held only a PDF and was rejected as an incomplete pre-freeze surface. Revisions r2--r7 each failed closed at a distinct packaging gate and remain local evidence. Revision r8 passed its technical freeze but was withheld after independent audit found one incorrect prose description of the excluded I.8 heading. Revision r9 corrected that phrase but failed closed before promotion because its public machine projection omitted a referenced historical locator record. The controlled successor is revision r10; its translation body, PDF, and renders remain unchanged, and its cursor and reference-closure history is disclosed in `CURSOR_METADATA_CORRECTION_I_7_R10.md`. Start with `PUBLICATION_READINESS.md`, `BUILD_SOURCE_RENDER_REVIEW_SUMMARY.md`, `MACHINE_LEDGER_SUMMARY.md`, and `ZENODO_PAYLOAD_MANIFEST.csv` before any archive action.
