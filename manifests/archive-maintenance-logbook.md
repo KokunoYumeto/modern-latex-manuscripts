@@ -431,3 +431,27 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
   critical edition, rights clearance, human certification, or a standalone
   Zenodo unit release.
+
+## 2026-07-19 - SGA1 opening through Proposition I.9.1 r2 custody
+
+- Added the exact 110-file / 7,682,572-byte public r2 successor covering the
+  SGA1 Expose I opening through Proposition I.9.1, corrected French lines
+  556-1703. The exact excluded continuation cursor is line 1704, beginning the
+  following corollary.
+- Replayed the external 110-row custody ledger and the package's 109-row
+  self-excluding checksum inventory with zero path, byte, SHA-256, exact-set,
+  or privacy failures. The external custody table remains a separate control.
+- Ran the frozen payload verifier and both current/cumulative machine-evidence
+  validators under PowerShell 7: 40 CSVs / 782 rows and 12 JSONLs / 163 unique
+  records passed formula-safety, schema, target-hash, revision, and reference
+  closure.
+- Rebuilt the cumulative TeX in three isolated passes. Passes 2 and 3 have zero
+  actionable diagnostics; fresh and frozen extracted text are byte-identical,
+  and all sixteen fresh 180-dpi renders match the stored pages byte-for-byte.
+  The 16-page contact sheet and Proposition I.9.1 page passed original-detail
+  visual inspection.
+- The I.8 r4 package remains immutable predecessor evidence. Rejected I.8
+  r1-r3 and internal I.9.1 attempts are not substituted. This remains a bounded
+  source-audited working translation, not complete SGA1, a critical edition,
+  mathematical certification, independent human peer review, rights clearance,
+  or a Zenodo publication claim.
