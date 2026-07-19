@@ -6,13 +6,13 @@ Public title: Elements de Geometrie Algebrique (EGA): French Originals, OCR/Supp
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 16 | 10 | 4 | 471.7 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 16 | 10 | 0 | 4 | 471.7 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

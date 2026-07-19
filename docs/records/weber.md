@@ -6,15 +6,15 @@ Public title: Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Tra
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 47 | 6 | 39 | 1507.2 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 47 | 6 | 0 | 39 | 1507.2 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
-Current Weber public surface: latest public version is record 21402223 / DOI 10.5281/zenodo.21402223 under the permanent concept DOI 10.5281/zenodo.20412153. The active Volume I German p1-p99 direct content-fidelity pass reaches printed p88, with p89 next; the p77-p88 package includes the current TeX/PDF, exact diff, ledgers, twelve source pages, high-resolution crops, render checks, and checksums. It rebuilds the damaged section 23 and restores omitted displays, rows, proof text, labels, and notation. The Volume I English reader predates these German repairs and is explicitly unsynchronized. Volume II retains current German/English cumulative material through section 176 plus localized recursive repairs/ledgers; Volume III remains the current repaired cumulative. Historical Batch137/B138/B139 packets remain provenance and repair evidence. These are working/source-witnessed drafts and repair-ledger packages, not whole-volume symbol-by-symbol certification or critical editions; OCR and display ledgers are omission guards and locator layers, not independent authority.
+Current Weber public surface: latest public version is record 21402223 / DOI 10.5281/zenodo.21402223 under the permanent concept DOI 10.5281/zenodo.20412153. It is a readable modernized and summarized working presentation, but it is absolutely not source-critical. All three volumes remain incomplete. Volume I's direct German content-fidelity pass reaches printed p88 with p89 next, while its English reader predates those repairs and is unsynchronized. Volume II reaches section 176 with localized repair packets but is incomplete. Volume III is an incomplete repaired cumulative, not a finished v3 edition. Historical Batch137/B138/B139 packets remain provenance and repair evidence. The material can be useful and enjoyable to read, but modernization and summarization prevent treating it as source-faithful transcription, whole-volume symbol-by-symbol certification, synchronized English, or a critical edition. For source proximity, the bounded SGA source-audit work is substantially closer.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 

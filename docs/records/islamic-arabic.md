@@ -6,13 +6,13 @@ Public title: Islamic and Arabic Mathematical Texts: Original LaTeX and English 
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 19 | 17 | 1 | 98.5 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 19 | 17 | 0 | 1 | 98.5 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Current public surface is record 20435687. It exposes reader/index PDFs, original/reference surfaces, English working translations, and a filtered TeX/source archive. These are working drafts and reference witnesses, not proofed critical editions.
 

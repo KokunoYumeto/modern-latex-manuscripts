@@ -6,13 +6,13 @@ Public title: AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 7 | 1 | 2 | 0.5 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 7 | 1 | 0 | 2 | 0.5 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Current workflow version 21424987 documents the actual AI-run pipeline through July 18: six distinct authority layers, page-unit source rescribing, object-level formula/diagram/table handling, source-frozen translation units, language-manager gates, immutable completion tests with adversarial self-tests, live-versus-public state separation, reader-first Zenodo publication with changed-file readback and default-preview checks, exact-ref GitHub verification, and continuity logging. OCR, VLM, inherited TeX, agent output, build logs, and validators retain different authority; none alone certifies an edition or translation.
 

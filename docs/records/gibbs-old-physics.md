@@ -6,13 +6,13 @@ Public title: J. Willard Gibbs: Scientific Papers Volume I, Old-Physics Modern L
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 14 | 4 | 4 | 29.0 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 14 | 4 | 4 | 4 | 29.0 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Dedicated Gibbs / old-physics working-edition split. Current coverage is The Scientific Papers of J. Willard Gibbs, Volume I, printed pp.001-134: Graphical Methods in the Thermodynamics of Fluids, A Method of Geometrical Representation by Surfaces, and the opening continuation of On the Equilibrium of Heterogeneous Substances. Top-level PDF/TeX files are reader-facing cumulative surfaces, including the updated Paper 3 pp.055-134 reader; ZIP packets preserve source-scan slices, TeX, and method/audit notes. This is a source-scan-backed working tranche, not a complete Gibbs corpus or final critical edition. Continue after p.134.
 
@@ -26,6 +26,15 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.3788 | [Gibbs - Vol I - Graphical Methods in the Thermodynamics of Fluids - pp001-032.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Graphical%20Methods%20in%20the%20Thermodynamics%20of%20Fluids%20-%20pp001-032.pdf) |
 | 0.4873 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-124.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-124.pdf) |
 | 0.5190 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-134.pdf](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-134.pdf) |
+
+## Editable TeX
+
+| Size MB | File |
+|---:|---|
+| 0.0648 | [Gibbs - Vol I - Geometrical Representation by Surfaces - pp033-054.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Geometrical%20Representation%20by%20Surfaces%20-%20pp033-054.tex) |
+| 0.0920 | [Gibbs - Vol I - Graphical Methods in the Thermodynamics of Fluids - pp001-032.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20Graphical%20Methods%20in%20the%20Thermodynamics%20of%20Fluids%20-%20pp001-032.tex) |
+| 0.1882 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-124.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-124.tex) |
+| 0.2191 | [Gibbs - Vol I - On the Equilibrium of Heterogeneous Substances - pp055-134.tex](https://zenodo.org/records/20821820/files/Gibbs%20-%20Vol%20I%20-%20On%20the%20Equilibrium%20of%20Heterogeneous%20Substances%20-%20pp055-134.tex) |
 
 ## Artifact ZIPs
 

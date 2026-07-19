@@ -6,13 +6,13 @@ Public title: Split-Zero Geometry and Common Deformation Registers: Project Atla
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 13 | 3 | 4 | 109.6 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 13 | 3 | 0 | 4 | 109.6 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Separate exploratory mathematics record, not part of the manuscript-translation completion ranking. Version 21426216 retains the Project Atlas as the default preview and adds a bounded N16-N18 predatum/K4/Hopf working-note and executable-check supplement beside the existing results compendium, formalization, visualization, and residual-Niemeier material. The encoded script groups reran successfully, but external topos, bundle-classification, cited-topology, and referee-recorded numeric steps are not machine-certified by that rerun. The record is not peer review, not a proof of a famous open problem, and not certification of every broader claim.
 

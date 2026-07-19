@@ -187,7 +187,7 @@ RECORD_NOTES = {
         "Dedicated Gibbs / old-physics working-edition split. Current coverage is The Scientific Papers of J. Willard Gibbs, Volume I, printed pp.001-134: Graphical Methods in the Thermodynamics of Fluids, A Method of Geometrical Representation by Surfaces, and the opening continuation of On the Equilibrium of Heterogeneous Substances. Top-level PDF/TeX files are reader-facing cumulative surfaces, including the updated Paper 3 pp.055-134 reader; ZIP packets preserve source-scan slices, TeX, and method/audit notes. This is a source-scan-backed working tranche, not a complete Gibbs corpus or final critical edition. Continue after p.134.",
     ],
     "sga": [
-        "Current public SGA surface is record 21432714. The 309-page SGA5 English source-synchronized working reader remains the default preview, with its compact 54-file scan-free support package and explicit printed-p.14 defect note and p.43 ambiguity. The bounded six-page SGA1 English checkpoint covers the Expose I opening through section I.3, French authority lines 556-799, and continues at section I.4 / line 800. The 377-page layered SGA6 English reader promotes reconciliation for idx663-684 and is accompanied by a compact privacy-clean TeX/ledger/render-QA package; earlier layers remain explicitly non-uniform, while idx685-702 and terminal matter remain scan-checked working text pending French reconciliation. This successor removes one obsolete path-bearing SGA5 support archive and two stale 20260717 controls from the latest surface while retaining the current SGA1/5/6 objects byte-identically. Historical published versions remain immutable. These are substantive working editions, translations, and repairs, not complete translations, independently human-certified critical editions, rights determinations, uniform whole-volume source certification, or whole-SGA completion.",
+        "Current public SGA surface is record 21435547. Its eight reader PDFs all have direct TeX companions; modular ledgers and render evidence remain grouped in support archives. The 309-page SGA5 English source-synchronized working reader remains the default preview. A bounded ten-page SGA1 English checkpoint covers Expose I opening through section I.6, French authority lines 556-1216, and continues at section I.7 / line 1217. Separate bounded SGA2 English checkpoints contain complete Exposes V and VI, corrected French lines 1770-2272, and continue at Expose VII / line 2274. The 377-page layered SGA6 English reader promotes reconciliation for idx663-684 while retaining explicit non-uniform prefix and tail authority; its direct TeX is a flattened dependency-complete projection of the exact modular public source. The rights-aware visual archives contain 37 indexed project-generated output images and no French-source pixels. SGA5 is a selected ten-expose edition, not complete SGA5. Historical versions remain immutable. These are substantive bounded working editions, translations, and repairs, not complete volumes, independently human-certified critical editions, rights determinations, uniform whole-volume source certification, or whole-SGA completion. Record rights metadata is License Not Specified.",
     ],
     "deligne": [
         "Current reader-first public surface is record 21212608. It exposes the sequential English and French working readers through Papers 001-016p080, groups individual paper and letter PDFs by language, and groups TeX/source-check/QA/update material separately. These are useful but uneven working drafts and source/QA packets, not a critical edition or blanket source-faithfulness claim; commutative diagrams, dense formulas, references, and theorem statements still require source comparison.",
@@ -205,7 +205,7 @@ RECORD_NOTES = {
         "Current public surface is record 20435690. It is a focused historical-reference shelf with reader PDFs and filtered TeX/source material for terminology and historical comparison, not a blanket source-certified or critical-edition corpus.",
     ],
     "weber": [
-        "Current Weber public surface: latest public version is record 21402223 / DOI 10.5281/zenodo.21402223 under the permanent concept DOI 10.5281/zenodo.20412153. The active Volume I German p1-p99 direct content-fidelity pass reaches printed p88, with p89 next; the p77-p88 package includes the current TeX/PDF, exact diff, ledgers, twelve source pages, high-resolution crops, render checks, and checksums. It rebuilds the damaged section 23 and restores omitted displays, rows, proof text, labels, and notation. The Volume I English reader predates these German repairs and is explicitly unsynchronized. Volume II retains current German/English cumulative material through section 176 plus localized recursive repairs/ledgers; Volume III remains the current repaired cumulative. Historical Batch137/B138/B139 packets remain provenance and repair evidence. These are working/source-witnessed drafts and repair-ledger packages, not whole-volume symbol-by-symbol certification or critical editions; OCR and display ledgers are omission guards and locator layers, not independent authority.",
+        "Current Weber public surface: latest public version is record 21402223 / DOI 10.5281/zenodo.21402223 under the permanent concept DOI 10.5281/zenodo.20412153. It is a readable modernized and summarized working presentation, but it is absolutely not source-critical. All three volumes remain incomplete. Volume I's direct German content-fidelity pass reaches printed p88 with p89 next, while its English reader predates those repairs and is unsynchronized. Volume II reaches section 176 with localized repair packets but is incomplete. Volume III is an incomplete repaired cumulative, not a finished v3 edition. Historical Batch137/B138/B139 packets remain provenance and repair evidence. The material can be useful and enjoyable to read, but modernization and summarization prevent treating it as source-faithful transcription, whole-volume symbol-by-symbol certification, synchronized English, or a critical edition. For source proximity, the bounded SGA source-audit work is substantially closer.",
     ],
     "noether": [
         "Current Noether public surface: latest published Zenodo version is record 21434690 / DOI 10.5281/zenodo.21434690 under concept DOI 10.5281/zenodo.20412587. It retains the multilingual working readers and exact earlier bounded checkpoints, and fronts the inherited English cumulative working reader. The current German source-control reader has 466 pages. Paper 2 now has a direct-source closure for printed pages 58-92 while pages 23-57 remain open. Paper 4 German control includes the bounded Section 6-7 source repairs, and bounded source-audited English now runs through Section 7 / R823 line 4268, continuing at Section 8 / line 4270. Complete bounded Japanese Papers 21 and 23 and Chinese Paper 37 remain directly readable; Korean Paper 29 has U01-U04 and remains incomplete at line 53. File `49` adds a machine-indexed visual-evidence package with 53 open project-generated renders. Seventy-nine source-derived rasters are represented by parent hashes, pages, coordinates, geometry, review links, and rights-blocked dispositions rather than redistributed pixels. These are bounded working translations, source controls, repairs, and render witnesses, not peer review, proof checking, complete multilingual synchronization, native-language certification, whole-corpus source certification, rights clearance, or a critical edition.",
@@ -289,10 +289,11 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
     zips = [row for row in rows if row["filename"].lower().endswith(".zip")]
     manifests = role_rows(rows, "manifest/status")
     reader_pdfs = role_rows(rows, "reader/reference PDF")
+    editable_tex = role_rows(rows, "editable TeX")
     other_pdfs = [row for row in pdfs if row not in reader_pdfs]
 
     if reader_pdfs:
-        how_to_read = "Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material."
+        how_to_read = "Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material."
     else:
         how_to_read = "This record has no top-level reader PDFs in the current file surface. Open the artifact ZIPs for TeX, component PDFs, source witnesses, OCR, page images, render checks, and provenance material."
 
@@ -309,9 +310,9 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
         "",
         "**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.",
         "",
-        "| Files | PDFs | ZIPs | Total MB |",
-        "|---:|---:|---:|---:|",
-        f"| {len(rows)} | {len(pdfs)} | {len(zips)} | {size_sum(rows):.1f} |",
+        "| Files | PDFs | TeX | ZIPs | Total MB |",
+        "|---:|---:|---:|---:|---:|",
+        f"| {len(rows)} | {len(pdfs)} | {len(editable_tex)} | {len(zips)} | {size_sum(rows):.1f} |",
         "",
         "## How To Read This Record",
         "",
@@ -336,6 +337,10 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
     )
     lines.extend(table_for(reader_pdfs))
 
+    if editable_tex:
+        lines.extend(["## Editable TeX", ""])
+        lines.extend(table_for(editable_tex))
+
     if other_pdfs:
         lines.extend(["## Additional PDFs", ""])
         lines.extend(table_for(other_pdfs))
@@ -356,24 +361,25 @@ def write_index(grouped: dict[str, list[dict[str, str]]], out_dir: Path, concept
         "",
         "These pages are generated from `manifests/public-file-catalog.csv` and group each public Zenodo record into reader PDFs, artifact ZIPs, and manifest/status files. This index is ordered by current reader usefulness and source-audit confidence, not by file count, storage size, or aspirational project importance. Each linked record page gives the full public Zenodo title and current quality/status notes.",
         "",
-        "| Record | Files | PDFs | ZIPs | MB | Page | Zenodo |",
-        "|---|---:|---:|---:|---:|---|---|",
+        "| Record | Files | PDFs | TeX | ZIPs | MB | Page | Zenodo |",
+        "|---|---:|---:|---:|---:|---:|---|---|",
     ]
     for tier, labels in RECORD_TIERS:
         present = [label for label in labels if grouped.get(label)]
         if not present:
             continue
-        lines.append(f"| **{tier}** |  |  |  |  |  |  |")
+        lines.append(f"| **{tier}** |  |  |  |  |  |  |  |")
         for label in present:
             rows = grouped[label]
             display = INDEX_DISPLAY_NAMES.get(label, DISPLAY_NAMES.get(label, label.replace("_", " ").title()))
             record_id = rows[0]["record_id"]
             pdfs = [row for row in rows if row["filename"].lower().endswith(".pdf")]
+            tex = [row for row in rows if row["filename"].lower().endswith(".tex")]
             zips = [row for row in rows if row["filename"].lower().endswith(".zip")]
             page = f"{slug(label)}.md"
             url = concept_urls.get(record_id, f"https://zenodo.org/records/{record_id}")
             lines.append(
-                f"| {display} | {len(rows)} | {len(pdfs)} | {len(zips)} | {size_sum(rows):.1f} | [{page}]({page}) | [Zenodo]({url}) |"
+                f"| {display} | {len(rows)} | {len(pdfs)} | {len(tex)} | {len(zips)} | {size_sum(rows):.1f} | [{page}]({page}) | [Zenodo]({url}) |"
             )
     lines.append("")
     out_dir.mkdir(parents=True, exist_ok=True)
