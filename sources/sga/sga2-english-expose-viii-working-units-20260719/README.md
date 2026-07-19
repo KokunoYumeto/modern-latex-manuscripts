@@ -95,11 +95,14 @@ into a single completion claim.
   case of the fourth proof step `(iv) => (ii)`, French lines 2856-2872. Blank
   line 2873 is excluded; the exact continuation cursor is line 2874, beginning
   Section 3, `Applications`. It preserves and flags the source's line-2865
-  `F` versus `F''` ambiguity. A separate append-only Option A overlay records
-  calligraphic English `F/G` as deliberate target normalization from upright
-  French `F/G`, not source-glyph preservation. It follows but does not
-  supersede IV-II-N1 and is not a cumulative Expose VIII or standalone Zenodo
-  release.
+  `F` versus `F''` ambiguity. The six-file `policy-option-a-20260719`
+  directory preserves the archive's initial closed-Option-A bridge. The
+  producer-issued eight-file `policy-option-a-successor-20260719` directory is
+  the preferred current append-only policy surface: calligraphic English
+  `F/G` is a deliberate normalization from upright French `F/G`, not
+  source-glyph preservation, and the sealed TeX/PDF remain unchanged. This
+  unit follows but does not supersede IV-II-N1 and is not a cumulative Expose
+  VIII or standalone Zenodo release.
 
 French source-page pixels are excluded because redistribution rights are not
 established. Their hashes, byte counts, roles, and source coordinates remain
