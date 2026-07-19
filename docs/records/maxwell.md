@@ -6,9 +6,9 @@ Public title: James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volu
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 9 | 0 | 7 | 700.6 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 9 | 0 | 0 | 7 | 700.6 |
 
 ## How To Read This Record
 

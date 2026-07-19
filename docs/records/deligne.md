@@ -6,13 +6,13 @@ Public title: Pierre Deligne Papers and Letters: Working Translation Drafts and 
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 6 | 2 | 3 | 447.6 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 6 | 2 | 0 | 3 | 447.6 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Current reader-first public surface is record 21212608. It exposes the sequential English and French working readers through Papers 001-016p080, groups individual paper and letter PDFs by language, and groups TeX/source-check/QA/update material separately. These are useful but uneven working drafts and source/QA packets, not a critical edition or blanket source-faithfulness claim; commutative diagrams, dense formulas, references, and theorem statements still require source comparison.
 

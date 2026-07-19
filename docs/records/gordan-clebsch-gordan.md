@@ -6,9 +6,9 @@ Public title: Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Transla
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 45 | 0 | 39 | 1870.7 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 45 | 0 | 0 | 39 | 1870.7 |
 
 ## How To Read This Record
 
