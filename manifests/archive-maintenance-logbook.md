@@ -677,3 +677,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   It is useful provenance for the interlanguage lane, but it is not language
   body, native-speaker certification, a current translation completion claim,
   or a standalone Zenodo release. No duplicate merge was made.
+
+## 2026-07-19 - SGA4half INTRO-0003 internal-seal publication hold
+
+- Rechecked the fresh independent final audit for the bounded INTRO-0003
+  working unit. It passes an internal seal only and explicitly does not
+  authorize public packaging, archive handoff, upload, publication, or rights
+  clearance.
+- The controlled unit is 50 files / 1,746,323 bytes with ordered digest
+  `49EDE0EEDA169645F2CA8070E7B0364857A04BA9265523EA65209FFC8E08B635`.
+  Its TeX and one-page PDF retain SHA-256
+  `AB4C1596B555EDC43C7E9FF11F67408EA849AC0E7653F91D2979B051A43DD1A9`
+  and `8172C40452F7FBAC98F82735FD6F21D035941BE80DE133C2B01C8C300FA6015D`.
+  The 10,849-byte independent audit has SHA-256
+  `85ADFE4E35507560854402DA1696D4D8902B3DC338AB9B72453D06DB0B56F854`.
+- The audit classifies the package `internal_not_for_release`: its internal
+  validator contains private paths, the French reader is same-lineage evidence
+  rather than independent corroboration, and source-image redistribution and
+  translation rights remain unresolved. The package also retains a
+  nonblocking stale failure-count sentence for later append-only correction.
+- No unit member, source raster, or private-path control was copied to GitHub,
+  and no Zenodo draft or mutation was made. Revisit only when a sanitized exact
+  public package and explicit archive handoff are issued with rights-sensitive
+  visual evidence classified rather than silently omitted.
