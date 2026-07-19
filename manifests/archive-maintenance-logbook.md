@@ -344,3 +344,22 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   Singapore usage; controlled Hant is not Taiwan, Hong Kong, or Macao
   localization. No human/native-reader/community, rights, critical-edition,
   or whole-corpus claim is made.
+
+## 2026-07-19 - SGA2 Expose VIII first equivalence and Lemma 2.5 custody
+
+- Added the exact independently sealed 34-file / 1,104,787-byte EQ1-L25
+  boundary for corrected French lines 2751-2794. Blank line 2795 is excluded;
+  the second step begins at the exact continuation cursor, French line 2796.
+- Replayed all 33 `UNIT_HASHES.csv` members plus the manifest itself with zero
+  path, byte, SHA-256, privacy, JSON/JSONL/NDJSON, formula-safety, or selection
+  failures.
+- Preserved the English TeX/PDF pair, searchable-text evidence, sanitized
+  build receipts, five target-ledger previews, and the inspected target render.
+  The independent review repaired editor-note marker (6) without changing the
+  French authority or mathematical body.
+- Excluded same-edition French source-page renders, raw local logs,
+  auxiliaries, and local-only extraction. The durable 7,988-byte handoff has
+  SHA-256 `62B81A84268467173810D3F721216E5A730D140CC183ECF384F7A84209B258FB`.
+- This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
+  critical edition, rights clearance, human certification, or a standalone
+  Zenodo unit release.
