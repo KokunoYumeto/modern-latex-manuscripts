@@ -48,3 +48,56 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Kept ledgers, render QA, and other support evidence grouped. All seven new or
   replacement files passed streamed SHA-256 readback, and all 26 inherited
   files retained exact size and MD5.
+
+## 2026-07-19 - GitHub custody after the current Zenodo heads
+
+- Mirrored independently audited SGA2 Expose VII and Noether Paper 4 English
+  Section 8 with direct PDF/TeX, exact producer evidence, and open target-render
+  visual indexes.
+- Preserved twelve separate SGA2 Expose VIII evidence states through
+  independently sealed Theorem 2.1 / French line 2659. Self-gated,
+  independently sealed, superseded, and quarantined states remain distinct;
+  no cumulative Expose VIII release is claimed.
+- Projected French source-page images as metadata-only rights-blocked records.
+  Target-language pages remain open project output.
+- Same-concept Zenodo updates are pending because this desktop task has no
+  authenticated Zenodo session or deposit token. No duplicate concept or
+  unauthenticated workaround was created.
+
+## 2026-07-19 - Noether German Paper 8 and collected-tail intake
+
+- Unpacked and read the P04/P08 and p. 765-777 predecessor ZIPs before
+  classification. Their cumulative heads are superseded, but bounded audit
+  evidence remains valid.
+- Added a compact complete Paper 8 printed pp. 93-102 evidence package with a
+  six-page target slice, six page renders, and one contact sheet. Forty-two
+  source-derived images and the source PDF are metadata-only rights-blocked.
+- Added the later 466-page German cumulative closing collected pp. 747-777 as
+  the preferred GitHub German head. It carries twelve fresh final-PDF renders
+  and one contact sheet; 39 source images and three source PDFs are recorded as
+  rights-blocked rather than silently omitted.
+- The remaining collected-tail cursor is pp. 711-746. This is bounded working
+  source control, not whole-author completion or a critical edition.
+
+## 2026-07-19 - Sweep exclusions and predecessor handling
+
+- Rejected SGA1 I.7 partial/prefreeze material remains local and unpublished.
+- SGA5 and SGA6 ZIPs found in Downloads were exact duplicates of already
+  preserved public objects, so no duplicate upload was made.
+- The older Noether P04/P08 and p. 765-777 cumulatives are retained as
+  predecessor evidence beneath the p. 747-777 German current head.
+- No new other-PC branch displaced the curated branch during the sweep.
+
+## 2026-07-19 - SGA2 Expose VIII Corollary 2.2 custody
+
+- Added independently sealed bounded unit C22 for French lines 2661-2668,
+  including Corollary 2.2 and editor note (3). The next cursor is Corollary
+  2.3 at French line 2670 after excluded blank line 2669.
+- Replayed all 33 producer rows. The public GitHub projection retains 29
+  exact non-source members plus the producer manifest and machine validation.
+- Represented four duplicate French source-render rows in a rights-blocked
+  ledger rather than publishing source pixels. Both open target renders passed
+  original-detail inspection.
+- `PUBLIC_BACKUP_SHA256.csv` contains 34 self-excluding rows and has SHA-256
+  `92421A2D28BAAAA6461FF21FB35838887825A3506E36ABD5FC3E91E12BCD1DBC`.
+  No cumulative Expose VIII or standalone Zenodo-unit release is claimed.
