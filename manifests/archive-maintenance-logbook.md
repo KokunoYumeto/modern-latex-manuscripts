@@ -626,3 +626,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - GitHub custody and readback are complete for this bounded unit and overlay.
   It is not a standalone Zenodo unit release. The separate line-2865 printed
   `F` versus preceding `F''` ambiguity remains open and un-emended.
+
+## 2026-07-19 - SGA2 IV-II-NGT1 producer policy successor intake
+
+- Added the exact independently audited eight-file / 32,569-byte producer
+  metadata successor beside the immutable 33-file NGT1 seal. The seven
+  descriptor members and self-excluding `PAYLOAD_MANIFEST.csv` replay with
+  zero path, byte, SHA-256, parse, formula-safety, or privacy failures.
+- The final 4,973-byte producer handoff control has SHA-256
+  `5EA8F24478BA713EC5CC0E9A1A957BEB311AE836E2A6AD1C3557E20E227953C5`;
+  its isolated `PUBLIC_PAYLOAD` matches the GitHub projection byte-for-byte.
+- The successor binds the unchanged descriptor, TeX, and PDF identities
+  `2BEEFCAAA57D6A198686ABA59BA64420E520BAFF08023ED36082075BED0EF590`,
+  `67DD636D18534E5AB372C7D38E13D98036DC821DF5C3D52FAB5D912395026252`,
+  and `C85E8FA13F035E68FFE98507E8E556952CFFFACEEE9F6F58C45853356C6F3BD8`.
+- Revision `@1` preserves the former provisional wording as superseded
+  history; revision `@2` records closed Option A as current policy. The
+  earlier six-file overlay remains as the archive's historical bridge, while
+  the producer successor is the preferred policy surface.
+- No translation byte, license conclusion, scope, or completion claim changed.
+  The separate line-2865 printed `F` versus preceding `F''` ambiguity remains
+  open and un-emended. This bounded unit is not a standalone Zenodo release.
