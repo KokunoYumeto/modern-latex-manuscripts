@@ -6,13 +6,13 @@ Public title: Emmy Noether: Modern LaTeX Working Corpus and Multilingual Transla
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 100 | 42 | 43 | 2253.5 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 100 | 42 | 7 | 43 | 2253.5 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Current Noether public surface: latest published Zenodo version is record 21434690 / DOI 10.5281/zenodo.21434690 under concept DOI 10.5281/zenodo.20412587. It retains the multilingual working readers and exact earlier bounded checkpoints, and fronts the inherited English cumulative working reader. The current German source-control reader has 466 pages. Paper 2 now has a direct-source closure for printed pages 58-92 while pages 23-57 remain open. Paper 4 German control includes the bounded Section 6-7 source repairs, and bounded source-audited English now runs through Section 7 / R823 line 4268, continuing at Section 8 / line 4270. Complete bounded Japanese Papers 21 and 23 and Chinese Paper 37 remain directly readable; Korean Paper 29 has U01-U04 and remains incomplete at line 53. File `49` adds a machine-indexed visual-evidence package with 53 open project-generated renders. Seventy-nine source-derived rasters are represented by parent hashes, pages, coordinates, geometry, review links, and rights-blocked dispositions rather than redistributed pixels. These are bounded working translations, source controls, repairs, and render witnesses, not peer review, proof checking, complete multilingual synchronization, native-language certification, whole-corpus source certification, rights clearance, or a critical edition.
 
@@ -64,6 +64,18 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0503 | [03x_Noether_Paper29_Korean_U03_P31Reconciled_20260718.pdf](https://zenodo.org/records/21434690/files/03x_Noether_Paper29_Korean_U03_P31Reconciled_20260718.pdf) |
 | 0.1674 | [03y_Noether_Paper21_Japanese_P31Reconciled_20260718.pdf](https://zenodo.org/records/21434690/files/03y_Noether_Paper21_Japanese_P31Reconciled_20260718.pdf) |
 | 0.0464 | [03z_Noether_Paper29_Korean_U04_P31Reconciled_20260718.pdf](https://zenodo.org/records/21434690/files/03z_Noether_Paper29_Korean_U04_P31Reconciled_20260718.pdf) |
+
+## Editable TeX
+
+| Size MB | File |
+|---:|---|
+| 2.0527 | [00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.tex](https://zenodo.org/records/21434690/files/00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.tex) |
+| 0.0136 | [01i_Noether_Paper04_Section07_English_SourceAudited_WorkingCheckpoint_20260719.tex](https://zenodo.org/records/21434690/files/01i_Noether_Paper04_Section07_English_SourceAudited_WorkingCheckpoint_20260719.tex) |
+| 0.0193 | [03v_Noether_Paper37_Chinese_zh-Hans-CN_P31Reconciled_20260718.tex](https://zenodo.org/records/21434690/files/03v_Noether_Paper37_Chinese_zh-Hans-CN_P31Reconciled_20260718.tex) |
+| 0.0194 | [03w_Noether_Paper37_Chinese_zh-Hant-controlled_P31Reconciled_20260718.tex](https://zenodo.org/records/21434690/files/03w_Noether_Paper37_Chinese_zh-Hant-controlled_P31Reconciled_20260718.tex) |
+| 0.0020 | [03x_Noether_Paper29_Korean_U03_P31Reconciled_20260718.tex](https://zenodo.org/records/21434690/files/03x_Noether_Paper29_Korean_U03_P31Reconciled_20260718.tex) |
+| 0.0110 | [03y_Noether_Paper21_Japanese_P31Reconciled_20260718.tex](https://zenodo.org/records/21434690/files/03y_Noether_Paper21_Japanese_P31Reconciled_20260718.tex) |
+| 0.0020 | [03z_Noether_Paper29_Korean_U04_P31Reconciled_20260718.tex](https://zenodo.org/records/21434690/files/03z_Noether_Paper29_Korean_U04_P31Reconciled_20260718.tex) |
 
 ## Artifact ZIPs
 
