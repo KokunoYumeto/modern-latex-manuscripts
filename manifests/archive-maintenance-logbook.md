@@ -455,3 +455,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   source-audited working translation, not complete SGA1, a critical edition,
   mathematical certification, independent human peer review, rights clearance,
   or a Zenodo publication claim.
+
+## 2026-07-19 - SGA2 Expose VIII fourth proof-step base-case custody
+
+- Added the exact independently sealed 34-file / 672,034-byte IV-II-N0
+  boundary for corrected French lines 2820-2826. Blank line 2827 is excluded;
+  the exact substantive continuation cursor is French line 2828, beginning the
+  `n = 1` case.
+- Replayed all 33 `UNIT_HASHES.csv` members plus the manifest itself with zero
+  path, byte, SHA-256, exact-set, CSV, JSON/JSONL/NDJSON, or selection
+  failures. The two sanitized logs contain only the explicit `[LOCAL_USER]`
+  placeholder, not an actual user path.
+- Rebuilt the TeX twice with zero actionable diagnostics. Frozen and rebuilt
+  layout-preserving extracted text and 300-dpi target pixels are byte-identical;
+  the stored target render passed original-detail inspection.
+- Preserved the target TeX/PDF, searchable text, sanitized logs, machine
+  ledgers, five target-ledger previews, and target render. The same-edition
+  French source page, raw logs, auxiliaries, and duplicate extraction remain
+  excluded.
+- The durable 10,098-byte handoff has SHA-256
+  `D90C0B9283704C7F91DF2412F3C13317F54338CC07C34FDEFE81DD9E40416AC6`.
+  This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
+  critical edition, rights clearance, human certification, or a standalone
+  Zenodo unit release.
