@@ -6,13 +6,13 @@ Public title: Interlanguage and Mathematical Translation Methodology Sidecar
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 43 | 2 | 18 | 4605.8 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 43 | 2 | 0 | 18 | 4605.8 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21430885 fronts the v0.13 five-page archive map, retains the full numbered source-body, weighted-automata, terminology, manager-fleet, Romance v10, Interslavic, and Noether R823-gate layers, and adds organized Romance corpus/WordWeb/governance/T008 and Interslavic-through-Tranche-007 checkpoints. WordWeb records 60 concepts, 106 senses, 954 access rows, and 28 explicit gaps; controlled Romance continues at German R823 line 21309. These are model-built methodology, normalization, corpus, and bounded working-translation artifacts, not native validation, human intelligibility evidence, rights clearance, community certification, peer review, or critical editions.
 

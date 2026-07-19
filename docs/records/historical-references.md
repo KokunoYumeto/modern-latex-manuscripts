@@ -6,13 +6,13 @@ Public title: Historical Reference Texts for Non-European Mathematics: LaTeX and
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 14 | 12 | 1 | 57.2 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 14 | 12 | 0 | 1 | 57.2 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Current public surface is record 20435690. It is a focused historical-reference shelf with reader PDFs and filtered TeX/source material for terminology and historical comparison, not a blanket source-certified or critical-edition corpus.
 

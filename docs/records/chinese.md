@@ -6,13 +6,13 @@ Public title: Chinese Mathematical Classics: Original LaTeX and Multilingual Tra
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
-| Files | PDFs | ZIPs | Total MB |
-|---:|---:|---:|---:|
-| 34 | 30 | 2 | 130.8 |
+| Files | PDFs | TeX | ZIPs | Total MB |
+|---:|---:|---:|---:|---:|
+| 34 | 30 | 0 | 2 | 130.8 |
 
 ## How To Read This Record
 
-Open the reader/reference PDFs first. Use artifact ZIPs when you need TeX, source witnesses, OCR, page images, render checks, or provenance material.
+Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
 Current public surface is record 20543246. English, modern-Chinese, Chinese-original, and Arabic working readers are directly available, with TeX/source artifacts grouped in ZIPs. The Arabic readers passed build/openability checks but remain working translation drafts without native-language or source-accuracy certification.
 
