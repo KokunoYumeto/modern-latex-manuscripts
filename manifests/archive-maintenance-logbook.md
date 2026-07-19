@@ -235,3 +235,14 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   complete bounded proof of Lemma 2.4 only, not cumulative Expose VIII,
   complete SGA2, a critical edition, rights clearance, or a standalone Zenodo
   unit release.
+
+## 2026-07-19 - Frozen-root custody control separation
+
+- Moved the archive-generated custody receipt and GitHub mirror checksum index
+  for Noether Paper 4 Section 8 out of its producer root. The source payload is
+  again the exact 38-file tree, and its packaged validator passes unchanged.
+- Applied the same separation to SGA2 Expose VII. Its producer root is again
+  the exact 39-file independently audited payload.
+- The four moved controls remain byte-identical under
+  `manifests/github-custody/`; no producer file, public claim, cursor, or
+  rights disposition changed.
