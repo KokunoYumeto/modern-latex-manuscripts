@@ -246,3 +246,21 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The four moved controls remain byte-identical under
   `manifests/github-custody/`; no producer file, public claim, cursor, or
   rights disposition changed.
+
+## 2026-07-19 - Deligne and Griffiths IAS force-OCR intake
+
+- Recorded Claude's completed reruns of the locally enumerated born-digital
+  `[text]` subsets: Deligne 24 works / 656 pages / 46 batches and Griffiths
+  23 works / 913 pages / 56 batches.
+- Recomputed 403 relative paths, byte counts, and SHA-256 values covering
+  10,613,779 bytes. The inventory has zero absolute-path or spreadsheet-formula
+  hazards.
+- Classified the output as OCR witness, locator, and local subset-completeness
+  material only. It is not textual authority, source audit, formula
+  certification, author-corpus completion, or a critical edition.
+- Published metadata and hashes only. Full modern-work OCR bodies, raw OCR
+  JSON/Markdown, and 152 OCR-derived/source-linked JPEGs remain rights-blocked
+  and are not mirrored.
+- Sent the Deligne location to its manager as a receipt-only locator note
+  without restarting production. No Zenodo object or competing concept was
+  created from this intake.
