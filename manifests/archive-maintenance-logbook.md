@@ -323,3 +323,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   evidence surface. This is a bounded working translation, not complete SGA1,
   a critical edition, peer review, independent human review, or rights
   clearance.
+
+## 2026-07-19 - Chinese Noether Paper 27 custody
+
+- Added the exact four producer-approved Paper 27 target files: PRC-oriented
+  Hans and controlled-generic Hant TeX/PDF pairs, totaling two one-page
+  readers. No exact Chinese Paper 27 target was present on current Zenodo
+  version 21434690.
+- Replayed the producer's 80-row manifest and 81-line checksum list with zero
+  path, byte, or SHA-256 errors. Private paths, source/comparison bodies,
+  native-evidence PDFs, scripts, raw logs, auxiliaries, and rejected manifest
+  attempts remain excluded.
+- Published the two project-generated Chinese page renders with PDF hash,
+  page, full-page box, dimensions, 180-dpi density, rotation, render hash,
+  structural root, review receipts, and QA disposition. Both passed fresh
+  original-detail inspection.
+- Represented the German source-control render by metadata only; its pixels
+  remain rights-blocked. No source scan or crop is included.
+- The checkpoint has internal review only. Hans-CN does not validate
+  Singapore usage; controlled Hant is not Taiwan, Hong Kong, or Macao
+  localization. No human/native-reader/community, rights, critical-edition,
+  or whole-corpus claim is made.
