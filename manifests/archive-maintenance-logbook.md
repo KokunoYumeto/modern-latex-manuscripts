@@ -663,3 +663,17 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   files, the preserved six-file archive bridge, and the eight-file preferred
   producer successor. GitHub custody and downloadable readback are complete.
   No standalone Zenodo unit release is claimed.
+
+## 2026-07-19 - Fable Tranche 001 branch reconciliation
+
+- Rechecked `origin/fable/coordination-20260710` against current `main`.
+  `git cherry` marks its sole commit `55bb0061d` patch-equivalent rather than
+  unmerged; main commit `a5c3bc78f` carries the same file blob.
+- Downloaded `coordination/FABLE_TRANCHE_001_EXECUTABLE_SPEC_20260710.md`
+  from public `main`. It is 3,872 bytes with SHA-256
+  `5B77121D632CB326E223FC77D09AD675CAB75DD79B1628F84A3417B01CD2674E`,
+  exactly matching the Fable branch identity.
+- Classified the file as workflow and Interslavic-normalization methodology.
+  It is useful provenance for the interlanguage lane, but it is not language
+  body, native-speaker certification, a current translation completion claim,
+  or a standalone Zenodo release. No duplicate merge was made.
