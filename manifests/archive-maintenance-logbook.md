@@ -363,3 +363,30 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
   critical edition, rights clearance, human certification, or a standalone
   Zenodo unit release.
+
+## 2026-07-19 - Noether Paper 2 / Paper 4 preferred German head
+
+- Opened the 158,527,445-byte outer ZIP and its 31,412,048-byte nested Web
+  Paper 4 ZIP before classification. Both had zero unsafe paths; the outer
+  116-row manifest replayed with zero missing, byte, or SHA-256 mismatches.
+- Advanced the preferred 466-page German head to TeX SHA-256
+  4B4A8DDBE3809548BE2882E489861A9BE18F8029724318A17210F66FECE9294C
+  and PDF SHA-256
+  572CF1EAA7F4895D0DA3644AE872D228AE40F6BCD81EC87DC3DEE1ADC9183C92.
+- Direct predecessor comparison found 90 insertions and 67 deletions, confined
+  to Paper 2 pp.28-34, Paper 4 pp.118-143, and a later recorded Paper 5
+  emphasis repair. Collected pp.711-777 and Paper 4 pp.144-154 are unchanged.
+- The completion matrix now reports 730/753 keys closed (96.95%) and 42/43
+  numbered papers closed. Paper 2 pp.35-57 is the sole open body band; no
+  complete-author claim is made.
+- Two independent XeLaTeX passes succeeded. Producer/rebuild extracted text
+  is byte-identical, and all 16 freshly rendered changed-page pairs are
+  byte-identical. The 16 producer target renders and one contact sheet passed
+  original-detail visual review.
+- Published 17 target visuals. Recorded 193 source images and four source PDFs
+  as rights-blocked metadata, with parent hashes, page loci, dimensions,
+  density basis, rotation, crop-coordinate status, linked scope, and QA
+  disposition. No source pixels were redistributed.
+- Excluded seven path- or task-bearing producer controls, raw logs, auxiliaries,
+  source scans, mixed source composites, and nested archives. Their custody
+  and exclusion states remain hash-addressed.
