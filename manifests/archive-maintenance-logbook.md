@@ -143,3 +143,19 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   evidence and are excluded from the public projection.
 - No proof, cumulative Expose VIII, whole-SGA2, critical-edition, rights
   clearance, or standalone Zenodo-unit release is claimed.
+
+## 2026-07-19 - SGA1 opening through I.7 r10 custody
+
+- Mirrored the exact 79-file / 6,141,154-byte r10 package and its external
+  79-row custody ledger. All paths, byte counts, SHA-256 values, manifests,
+  machine ledgers, and the package verifier pass.
+- The cumulative source covers French lines 556-1492 and continues at the
+  excluded I.8 heading on line 1493. Rejected r9 and withheld r8 were not used.
+- Inspected rendered pages 1, 7, and 13 at original detail; no clipping,
+  collision, malformed formula, missing glyph, or footer defect was found.
+- Retained the I.6 GitHub package and mixed I.6/SGA2-V visual evidence as
+  immutable history. Its SGA2-V portion remains current and must survive any
+  future same-concept Zenodo replacement.
+- The live record remains `10.5281/zenodo.21435547` at 33 files. This task has
+  no authenticated Zenodo credential, so no competing draft or unverified
+  mutation was attempted.
