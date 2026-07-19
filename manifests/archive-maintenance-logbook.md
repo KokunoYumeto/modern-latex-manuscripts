@@ -865,3 +865,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Zenodo remains unchanged at existing concept DOI
   `10.5281/zenodo.20410947`, latest published version
   `10.5281/zenodo.21435547`; no duplicate or bounded-unit deposit was created.
+
+## 2026-07-19 - SGA successor hold and branch-reconciliation sweep
+
+- No manager-issued SGA handoff newer than P32P1 was present at the 16:28
+  Europe/Berlin sweep. The public cursor therefore remains French line 2909
+  after exact GitHub custody through line 2907.
+- P32P2 (`(a) => (b)`, French line 2909) has an independent technical seal,
+  but its own validation still records manager acceptance, archive handoff,
+  and publication as false. It remains local hold evidence. Frozen TeX and PDF
+  SHA-256 values are `311CBAFC...C67F05` and `69E1C3E4...ED520`.
+- P32P3 (French lines 2911-2914, cursor 2915) and P32P4 (French lines
+  2915-2917, cursor 2918) remain production-self-reviewed holds pending
+  independent review. Neither sealed-manifest successor exists yet.
+- The visible SGA1 I.9.3 directory is explicitly an `.__staging_attempt1__`
+  surface. It has no final package identity or archive handoff and was not
+  copied.
+- Seven older remote branch tips that are not graph ancestors of `main` were
+  checked with `git cherry`; all seven are patch-equivalent (`-`) to content
+  already integrated on `main`. No stranded branch payload was found.
+- The official SGA Zenodo latest endpoint still resolves to published version
+  `10.5281/zenodo.21435547`, concept `10.5281/zenodo.20410947`, 33 files /
+  73,450,481 bytes, License Not Specified. No authenticated Zenodo token is
+  available and no draft or duplicate was created.
