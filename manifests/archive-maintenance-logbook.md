@@ -888,3 +888,15 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `10.5281/zenodo.21435547`, concept `10.5281/zenodo.20410947`, 33 files /
   73,450,481 bytes, License Not Specified. No authenticated Zenodo token is
   available and no draft or duplicate was created.
+
+## 2026-07-19 - SGA successor-hold log remote readback
+
+- Public `main` commit `d7b52a70a39453510e190d7a8a32f811ad7a6472`
+  carries decision `AML-20260719-SGA-040` without changing any translation
+  payload or Zenodo state.
+- The immutable raw JSONL logbook is 127,309 bytes with SHA-256
+  `96D1A1E61FE0716117687BD6D07FDE7BBE7FBB6BED9C6928FFF08E9D0F9E7AB7`:
+  52 records, 52 unique decision IDs, latest `AML-20260719-SGA-040`, and zero
+  private-path hits.
+- The immutable raw Markdown logbook is 52,135 bytes with SHA-256
+  `2EFD3D75D2AAC9F0BFA44B817455118F2EABE42B9CBBF507D96D64DC889FCB00`.
