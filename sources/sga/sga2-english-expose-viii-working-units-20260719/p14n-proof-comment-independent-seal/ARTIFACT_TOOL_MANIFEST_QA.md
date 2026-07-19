@@ -1,0 +1,15 @@
+# Artifact Tool manifest QA
+
+The four substantive CSV ledgers and final exact manifest are imported as CSV
+workbooks, inspected over their full used ranges, and rendered to PNG using the
+required Artifact Tool workflow. Row and column counts reconcile to strict
+UTF-8 CSV parsing and the validation record. No spreadsheet formula is
+authored; every cell is evidence data.
+
+Final independent-seal receipt: all five tables were imported and inspected
+over their complete used ranges. Data rows / columns are 10/20, 14/21, 12/17,
+3/12, and 26/6 for the alignment, comparison, terminology, authority, and
+manifest tables. Strict validation agrees; no import, rectangularity,
+primary-ID, or formula error.
+
+Status: pass for the independently reviewed bounded seal.
