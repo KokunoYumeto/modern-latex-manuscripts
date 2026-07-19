@@ -745,3 +745,31 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - GitHub custody and downloadable readback are complete for this bounded unit.
   The same rights, notation, and noncompletion caveats remain in force, and no
   standalone Zenodo unit release is claimed.
+
+## 2026-07-19 - SGA2 Expose VIII P32S bounded-unit custody
+
+- Accepted the independently sealed Proposition 3.2 statement projection
+  covering corrected French lines 2888-2899. Blank line 2900 and the proof are
+  excluded; the exact continuation cursor is French line 2901.
+- The formal 8,505-byte producer handoff has SHA-256
+  `30308B2A88ED2F474BBB5EAC5F09F002AC12A108623F1933FE7DBDADC8057B07`;
+  its complete 35-row table replayed against the isolated public payload with
+  zero error.
+- The exact projection is 35 files / 1,327,506 bytes: 34 descriptor members
+  plus self-excluding `ZENODO_PAYLOAD_MANIFEST.csv`. The descriptor SHA-256 is
+  `8C6D6984C748C17D8DFFA9F8EF65799910BAC3424AA427BF097892754EB4EADE`;
+  the sorted member-identity digest is
+  `8AE9B428238491BECEA79599B4421D6487235E37BF1373AAAE5B6E016D23882A`.
+- The editable TeX and one-page PDF retain SHA-256
+  `0CA96E488EEA989BD02230DC1047705A0A85F3F6DFE826EE0F0F2F94F6DFFFE3`
+  and `2F2C1049289DC9400DEAAA7F29B9D2AF2A9376859B5D6F269A17B66A3C4C8E85`.
+  Independent source, formula, build, render, font, machine-ledger, Artifact
+  Tool, exact-set, and privacy gates pass.
+- Closed F Option A remains current. Target Z, R, and set-difference choices
+  remain separately disclosed; the same-edition French PDF is not independent
+  corroboration, and underlying French rights are not conveyed.
+- French source-page pixels and local-only build material remain excluded;
+  target-language render QA is included. This is bounded GitHub custody only,
+  not the proof, a complete Expose VIII, complete SGA2, critical edition,
+  rights clearance, or standalone Zenodo unit release. Remote GitHub readback
+  remains to be completed after publication.
