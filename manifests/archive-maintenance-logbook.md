@@ -301,3 +301,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   witnesses are metadata-only with an explicit non-redistribution disposition.
 - The public projection passes checksum, CSV/JSON, uniqueness, formula-safety,
   UTF-8, and privacy gates. No German TeX or PDF body changed.
+
+## 2026-07-19 - SGA1 opening through I.8 r4 custody
+
+- Added the exact 96-file / 7,650,559-byte producer checkpoint for Expose I
+  opening through section I.8, covering French lines 556-1653. The excluded
+  continuation cursor is line 1654, section I.9.
+- Replayed the complete external custody table and the package's 95-row
+  checksum inventory: zero path, byte, SHA-256, privacy, or exact-set failures.
+  The packaged verifier also exits zero with `failures=0`.
+- Preserved the current 15-page PDF, cumulative TeX, four section fragments,
+  machine evidence, sanitized build receipts, and all 15 project-generated
+  page renders. Pages 1, 8, and 15 additionally passed original-detail visual
+  inspection.
+- Retained the I.7 package as immutable predecessor history and excluded every
+  rejected I.8 r1-r3 surface. No French source raster or comparison body is
+  included.
+- The current Zenodo version remains 21435547 / SGA1 through I.6 pending
+  authenticated same-concept replacement. Future Zenodo curation should keep
+  the current cumulative PDF and TeX as direct downloads and group the larger
+  evidence surface. This is a bounded working translation, not complete SGA1,
+  a critical edition, peer review, independent human review, or rights
+  clearance.
