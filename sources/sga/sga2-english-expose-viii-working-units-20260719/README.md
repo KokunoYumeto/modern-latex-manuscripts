@@ -1,6 +1,6 @@
 # SGA2 Expose VIII bounded working-unit backups
 
-This directory separates twenty-three evidence states instead of flattening them
+This directory separates twenty-four evidence states instead of flattening them
 into a single completion claim.
 
 - `p11s-opening-proposition-independent-seal`: independently sealed opening,
@@ -91,6 +91,15 @@ into a single completion claim.
   2855 is excluded; the exact continuation cursor is line 2856, beginning the
   `n > 1` case. It follows but does not supersede IV-II-N0 and is not a
   cumulative Expose VIII or standalone Zenodo release.
+- `iv-ii-ngt1-fourth-step-independent-seal`: independently sealed `n > 1`
+  case of the fourth proof step `(iv) => (ii)`, French lines 2856-2872. Blank
+  line 2873 is excluded; the exact continuation cursor is line 2874, beginning
+  Section 3, `Applications`. It preserves and flags the source's line-2865
+  `F` versus `F''` ambiguity. A separate append-only Option A overlay records
+  calligraphic English `F/G` as deliberate target normalization from upright
+  French `F/G`, not source-glyph preservation. It follows but does not
+  supersede IV-II-N1 and is not a cumulative Expose VIII or standalone Zenodo
+  release.
 
 French source-page pixels are excluded because redistribution rights are not
 established. Their hashes, byte counts, roles, and source coordinates remain
