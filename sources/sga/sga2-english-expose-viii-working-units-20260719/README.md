@@ -1,6 +1,6 @@
 # SGA2 Expose VIII bounded working-unit backups
 
-This directory separates fourteen evidence states instead of flattening them
+This directory separates fifteen evidence states instead of flattening them
 into a single completion claim.
 
 - `p11s-opening-proposition-independent-seal`: independently sealed opening,
@@ -45,6 +45,11 @@ into a single completion claim.
   2.3 statement and editor note (4), French lines 2670-2681. It advances the
   bounded cursor to the proof at line 2683 after excluded blank line 2682 and
   is not a cumulative Expose VIII or standalone Zenodo release.
+- `c23-proof-open-cover-comparison-independent-seal`: independently sealed
+  proof/open-cover comparison following Corollary 2.3, French lines 2683-2713.
+  It advances the bounded cursor to the next reduction at line 2715 after
+  excluded blank line 2714 and is not a cumulative Expose VIII or standalone
+  Zenodo release.
 
 French source-page pixels are excluded because redistribution rights are not
 established. Their hashes, byte counts, roles, and source coordinates remain
