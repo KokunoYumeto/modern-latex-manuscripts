@@ -848,3 +848,20 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   as a cumulative Expose VIII or a complete SGA2 release.
 - SGA1 I.9.2 r2 was already present with exact 139-file remote readback, so no
   duplicate package or status mutation was made during this reconciliation.
+
+## 2026-07-19 - SGA public overview remote readback
+
+- Public `main` commit `574167836277be9a2212e82b0524de4288c79bee`
+  carries the reconciled SGA overview and decision
+  `AML-20260719-SGA-038`.
+- The immutable raw `README.md` is 56,340 bytes with SHA-256
+  `AADD647F80C956F30EAB30D2C772FC5D54C32E6602636A35EE630B5F9DEE6E55`.
+  It reports 27 Expose VIII states through French line 2907, cursor line 2909,
+  and contains none of the superseded 24-state / line-2872 summary wording.
+- The immutable raw JSONL logbook is 121,442 bytes with SHA-256
+  `CAF5822B576DAB455F9DACC1A92EB2563DB85A5CE4CF2265E01E840D30B2B6B4`:
+  50 records, 50 unique decision IDs, latest
+  `AML-20260719-SGA-038`, and zero private-path hits.
+- Zenodo remains unchanged at existing concept DOI
+  `10.5281/zenodo.20410947`, latest published version
+  `10.5281/zenodo.21435547`; no duplicate or bounded-unit deposit was created.
