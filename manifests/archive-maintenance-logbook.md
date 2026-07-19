@@ -175,3 +175,63 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Official API readback still resolves Noether version `21434690` at the
   100-file ceiling. No authenticated Zenodo credential is available, so the
   same-concept update requires later file curation and authenticated readback.
+
+## 2026-07-19 - Noether German collected pp.711-777 successor
+
+- Unpacked the 399,245,496-byte producer ZIP and replayed all 327 provenance
+  rows against its 328-file private extraction. The final 466-page TeX/PDF
+  remain exactly `B2E975...18557` / `7029E3...2079C`.
+- Promoted the pp.711-777 cumulative only as the preferred GitHub German head;
+  the pp.747-777 projection remains immutable predecessor evidence. The new
+  pass records 43 source-backed repair groups across 32 pages on pp.711-746,
+  carries the earlier pp.747-777 dispositions, and integrates the verified
+  Paper 4 pp.144-154 follow-up.
+- Published 58 final-PDF page renders and three contact sheets. Recorded 124
+  source-derived images, five source PDFs, and three locator/concordance
+  controls as metadata-only; recorded 66 superseded/intermediate renders as
+  excluded rather than silently dropping them.
+- Replayed 48 page renders byte-for-byte at 220 dpi and two at their producer
+  250-dpi setting; eight pages are fresh final-PDF gap fills. The JSONL schema,
+  source/provenance hashes, privacy projection, and package checks pass.
+- Collected pp.711-777 are closed. Paper 4 printed pp.118-143 is the next
+  non-overlapping German assignment. The Noether Zenodo record remains at its
+  100-file ceiling pending authenticated same-concept curation.
+
+## 2026-07-19 - Noether P29/P39 authority deduplication
+
+- Classified the P29 printed-p.31 shared-footnote route as already incorporated
+  under `P29-20260718-SHAREDFN-001`; no further TeX change is required.
+- Classified P39's printed `Transac, 134 (1932)` as a confirmed original-print
+  bibliographic error already represented by `SE-20260718-P39-PRINT-001`.
+  The diplomatic German body preserves `134`; a reader may use `34` only with
+  explicit disclosure.
+- The current German authority remains SHA-256 `B2E975...18557`. These notices
+  add no competing repair, payload, or Zenodo object.
+
+## 2026-07-19 - SGA 4.5 source preflight classification
+
+- Accepted the NomiL `d5266b2` receipt as internal source-control preflight
+  only. It does not start or freeze an English translation.
+- All 85 represented artifacts are marked `internal_not_for_release`; nineteen
+  text files contain private paths. The same-lineage 189-page PDF is a locator,
+  not independent original-print authority.
+- No GitHub or Zenodo payload was created. A future audited translation worker
+  may begin at the separately declared introduction boundary without
+  interrupting the active SGA2 lane.
+
+## 2026-07-19 - SGA2 Expose VIII Lemma 2.4 proof custody
+
+- Added the exact independently sealed 34-file / 2,712,764-byte L24P boundary
+  for French lines 2723-2731. Blank line 2732 is excluded and the next cursor
+  is line 2733.
+- Replayed all 32 manifest members plus `UNIT_HASHES.csv` and
+  `MACHINE_READABLE_VALIDATION.json`: zero path, byte, SHA-256, privacy, or
+  formula-safety failures.
+- Preserved one English TeX/PDF pair, machine evidence, sanitized independent
+  build receipts, and byte-identical 300/600-dpi target renders. The target
+  visibly discloses the two accepted editorial emendations; the French
+  authority remains unchanged.
+- Source-page PNGs and path-bearing local logs remain excluded. This is the
+  complete bounded proof of Lemma 2.4 only, not cumulative Expose VIII,
+  complete SGA2, a critical edition, rights clearance, or a standalone Zenodo
+  unit release.

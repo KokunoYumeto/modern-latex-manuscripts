@@ -1,6 +1,6 @@
 # SGA2 Expose VIII bounded working-unit backups
 
-This directory separates sixteen evidence states instead of flattening them
+This directory separates seventeen evidence states instead of flattening them
 into a single completion claim.
 
 - `p11s-opening-proposition-independent-seal`: independently sealed opening,
@@ -55,6 +55,11 @@ into a single completion claim.
   cursor is the equation-counter reset at line 2723; substantive prose resumes
   at line 2725 after blank line 2724. It is not the proof, a cumulative Expose
   VIII, or a standalone Zenodo release.
+- `l24p-proof-upper-semicontinuity-independent-seal`: independently sealed
+  complete proof of Lemma 2.4, French lines 2723-2731. It transparently
+  discloses two editorial emendations, excludes blank line 2732, and advances
+  the exact cursor to line 2733. It is not a cumulative Expose VIII or a
+  standalone Zenodo release.
 
 French source-page pixels are excluded because redistribution rights are not
 established. Their hashes, byte counts, roles, and source coordinates remain
