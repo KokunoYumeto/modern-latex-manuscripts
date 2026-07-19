@@ -410,3 +410,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
   critical edition, rights clearance, human certification, or a standalone
   Zenodo unit release.
+
+## 2026-07-19 - SGA2 Expose VIII third proof step custody
+
+- Added the exact independently sealed 34-file / 720,772-byte III-IV boundary
+  for corrected French lines 2807-2819. The printed-page-94 transition occurs
+  at line 2813; the exact continuation cursor is French line 2820, with no
+  blank separator at the boundary.
+- Replayed all 33 `UNIT_HASHES.csv` members plus the manifest itself with zero
+  path, byte, SHA-256, privacy, CSV, JSON/JSONL/NDJSON, or selection failures.
+- Rebuilt the TeX twice with zero actionable diagnostics. Frozen and rebuilt
+  extracted text and 300-dpi target pixels are byte-identical; the stored
+  target render passed original-detail inspection.
+- Preserved the target TeX/PDF, searchable text, sanitized logs, machine
+  ledgers, five target-ledger previews, and target render. The same-edition
+  French source page, raw logs, auxiliaries, and duplicate extraction remain
+  excluded.
+- The durable 9,941-byte handoff has SHA-256
+  `07B768109A67A59F06FCDB63E79703042781751F0BC21C8A49302DABA4524A86`.
+  This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
+  critical edition, rights clearance, human certification, or a standalone
+  Zenodo unit release.
