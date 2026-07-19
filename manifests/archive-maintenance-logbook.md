@@ -264,3 +264,19 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Sent the Deligne location to its manager as a receipt-only locator note
   without restarting production. No Zenodo object or competing concept was
   created from this intake.
+
+## 2026-07-19 - SGA2 Expose VIII main-proof setup custody
+
+- Added the exact independently resealed 34-file / 747,948-byte P2-SETUP
+  boundary for corrected French lines 2733-2750. The next equivalence argument
+  begins at the exact continuation cursor, French line 2751.
+- Replayed all 33 `UNIT_HASHES.csv` members plus the manifest itself with zero
+  path, byte, SHA-256, privacy, JSON, formula-safety, or selection failures.
+- The final producer handoff is 8,750 bytes with SHA-256
+  `419638DAA1EE5820EE0A9DACD348FFB1FDE59670E82315952FC39214DF189D76`.
+- Preserved the English TeX/PDF pair, searchable-text evidence, sanitized
+  build receipts, five target-ledger previews, and the inspected target render.
+- Excluded same-edition French source-page renders, local logs, auxiliaries,
+  and comparison bodies. This remains one bounded unit, not cumulative Expose
+  VIII, complete SGA2, a critical edition, rights clearance, or a standalone
+  Zenodo unit release.
