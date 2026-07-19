@@ -364,6 +364,50 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   critical edition, rights clearance, human certification, or a standalone
   Zenodo unit release.
 
+## 2026-07-19 - SGA1 through duplicate-numbered I.9.2 r2 custody
+
+- Accepted only the corrected hardened r2 handoff. The earlier 137-file r1
+  remains revoked local adverse evidence and was not copied, mirrored, or
+  published; the failed r2 attempt1 likewise remains unclosed and excluded.
+- Added the exact 139-file / 8,113,736-byte r2 package plus the external
+  139-row producer custody table. All paths, byte counts, SHA-256 values, and
+  the canonical ordered inventory digest
+  `DCE106B14E6671391712A277760CB078C7540A4964AF3B2CBBCC5C7D7392824D`
+  replay exactly.
+- The cumulative bounded source-audited scope is 11 units through corrected
+  French line 1721: Corollary I.9.2 and the duplicate-numbered Proposition
+  I.9.2 statement are complete; its proof starts at excluded line 1722.
+- The packaged exact-set, current-machine, and cumulative-machine validators
+  pass under PowerShell 7. A fresh three-pass build has zero selected pass-2
+  or pass-3 diagnostics; extracted text and all 16 fresh 180-dpi renders match
+  the package byte-for-byte. The two distinct I.9.2 PDF destinations remain
+  present.
+- Earlier SGA1 packages remain immutable history. This GitHub projection is a
+  bounded working checkpoint, not complete SGA1, critical-edition status,
+  human peer review, rights clearance, Zenodo publication, or remote readback.
+
+## 2026-07-19 - SGA2 IV-II-NGT1 custody with Option A overlay
+
+- Preserved the independently sealed 33-file / 2,315,626-byte NGT1 descriptor
+  boundary for corrected French lines 2856-2872. Blank line 2873 is excluded;
+  the exact next cursor is Section 3, `Applications`, at line 2874.
+- All 32 descriptor rows plus the self-excluded descriptor match exact paths,
+  bytes, and SHA-256. A fresh two-pass build has zero selected diagnostics;
+  extracted text and the 300-dpi target render match the sealed files
+  byte-for-byte. The one-page target passed original-detail inspection.
+- A late append-only manager correction closed `F/G` policy under Option A.
+  The sealed target remains unchanged, but its manager-pending prose is
+  historical rather than current. Added a separate six-file / 19,724-byte
+  overlay with the exact CSV, JSONL, validation, and manager adjudication,
+  plus path-safe public projections recording both path-bearing source hashes.
+- Current policy is upright French `F/G` to calligraphic English `F/G` as
+  deliberate target normalization, not source-glyph preservation. The
+  separate line-2865 `F` versus preceding `F''` ambiguity remains open and
+  visibly un-emended.
+- The combined GitHub directory has 39 files / 2,335,350 bytes. It is one
+  bounded unit plus an append-only policy overlay, not cumulative Expose VIII,
+  complete SGA2, a standalone Zenodo unit release, or a rights determination.
+
 ## 2026-07-19 - Noether Paper 2 / Paper 4 preferred German head
 
 - Opened the 158,527,445-byte outer ZIP and its 31,412,048-byte nested Web
