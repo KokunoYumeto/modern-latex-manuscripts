@@ -773,3 +773,19 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   not the proof, a complete Expose VIII, complete SGA2, critical edition,
   rights clearance, or standalone Zenodo unit release. Remote GitHub readback
   remains to be completed after publication.
+
+## 2026-07-19 - SGA2 Expose VIII P32S remote readback
+
+- Published the bounded P32S projection on public `main` as commit
+  `972a6b809e5dd9b7ce97ffa245c8966d55804404`.
+- Downloaded all 35 files from the public raw-content endpoint at that exact
+  commit. The directory contains exactly 35 files / 1,327,506 bytes, with no
+  missing or extra object and zero byte-count or SHA-256 mismatch.
+- The public descriptor, TeX, and PDF retain SHA-256
+  `8C6D6984C748C17D8DFFA9F8EF65799910BAC3424AA427BF097892754EB4EADE`,
+  `0CA96E488EEA989BD02230DC1047705A0A85F3F6DFE826EE0F0F2F94F6DFFFE3`,
+  and `2F2C1049289DC9400DEAAA7F29B9D2AF2A9376859B5D6F269A17B66A3C4C8E85`.
+- GitHub custody and downloadable readback are complete for this bounded
+  statement. It should join the existing SGA concept only through a future
+  cumulative independently audited Expose VIII version; no standalone Zenodo
+  unit release or duplicate concept is warranted.
