@@ -515,3 +515,37 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   source-audited working corpus, not a complete-author release, critical
   edition, mathematical certification, human review, rights clearance, or
   accessibility certification.
+
+## 2026-07-19 - SGA2 IV-II-N0 transport correction readback
+
+- Merged the narrow log-file correction in PR #16 after PR #15's incomplete
+  32-file transport was detected and retained in the append-only record.
+- Fetched the corrected `main` tree at commit
+  `c33376f2df683b94bdc6d1ede81d647896fb33ae` and replayed all 33
+  `UNIT_HASHES.csv` members plus the manifest itself.
+- Remote readback is exact at 34 files / 672,034 bytes with zero name, byte,
+  or SHA-256 mismatch. This closes the transport defect only; it changes no
+  source scope, review state, rights disposition, or Zenodo publication state.
+
+## 2026-07-19 - SGA2 Expose VIII fourth proof-step n=1 custody
+
+- Added the exact independently sealed 34-file / 1,087,678-byte IV-II-N1
+  boundary for corrected French lines 2828-2854. Blank line 2855 is excluded;
+  the exact continuation cursor is French line 2856, beginning the `n > 1`
+  case.
+- Replayed all 33 `UNIT_HASHES.csv` members plus the manifest itself with zero
+  path, byte, SHA-256, strict-UTF-8, privacy, CSV formula-safety,
+  JSON/JSONL/NDJSON, or selection failures.
+- Rebuilt the TeX twice with zero actionable diagnostics. Frozen and rebuilt
+  layout-preserving text and 300-dpi target pixels are byte-identical; all
+  16 fonts are embedded, subset, and Unicode-mapped. The target page and five
+  ledger-ID previews passed original-detail inspection.
+- Preserved the target TeX/PDF, searchable text, sanitized logs, machine
+  ledgers, five target-ledger previews, and target render. The same-edition
+  French source page, raw logs, auxiliaries, and duplicate extraction remain
+  excluded.
+- The durable 9,182-byte handoff has SHA-256
+  `2A5E5886223E7C054E0F7EE0F91624E53F274D3E498FFB753224B2FDF5FFDA70`.
+  This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
+  critical edition, rights clearance, human certification, or a standalone
+  Zenodo unit release.
