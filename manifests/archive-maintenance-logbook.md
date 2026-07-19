@@ -493,3 +493,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   raw or local-only log is admitted by this exception.
 - Complete custody requires a fresh 34-file remote count, name-set comparison,
   and downloadable SHA-256 readback after this correction lands.
+
+## 2026-07-19 - Noether German Paper 2 through p.49 preferred head
+
+- Added a privacy-clean 56-file / 8,365,976-byte projection of the preferred
+  466-page German cumulative after complete-page source audit of Paper 2
+  printed pp.42-49. The author controls now report 745/753 keys closed and
+  pp.50-57 solely open.
+- Replayed the producer's 108-row manifest with zero path, byte, or SHA-256
+  failures. A separate independent two-pass XeLaTeX build has zero selected
+  pass-2 diagnostics; direct and layout text extractions match byte-for-byte.
+- Preserved five current changed-page renders and five predecessor renders.
+  All five current pages byte-match fresh independent 180-dpi rebuild renders
+  and passed original-detail inspection.
+- Recorded all 33 source-derived images and both source PDF witnesses as
+  rights-blocked metadata. No scan pixel or source PDF is redistributed; crop
+  coordinates not retained by the producer are explicitly marked unknown.
+- One equals-leading mathematical CSV cell received the documented leading-
+  apostrophe spreadsheet-safety encoding. No mathematical reading changed.
+- The received rights-mixed ZIP remains private. This is a machine-assisted
+  source-audited working corpus, not a complete-author release, critical
+  edition, mathematical certification, human review, rights clearance, or
+  accessibility certification.
