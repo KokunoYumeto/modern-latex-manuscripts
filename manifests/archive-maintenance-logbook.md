@@ -593,3 +593,36 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   This is one bounded unit, not cumulative Expose VIII, complete SGA2, a
   critical edition, rights clearance, human certification, or a standalone
   Zenodo unit release.
+
+## 2026-07-19 - SGA1 duplicate-I.9.2 r2 GitHub remote readback
+
+- Merged PR #19 and fetched the resulting `main` commit
+  `bc3024c681332f540fdd9d8713ace851122bac78`.
+- Exported the SGA1 package and producer custody control directly from that
+  remote-tracking tree. All 139 custody rows matched path, byte count, and
+  SHA-256; the tree has exactly 139 files / 8,113,736 bytes with no extra
+  member.
+- The remote PDF and TeX hashes are respectively
+  `91D5B5F502239FC77DF6773D858AFF81525380240E1286DAC19520E5DE43C550`
+  and
+  `7C7FD36084FF4891F943508620D20A91BCDE669114C3C149FADF99E1B95F23B2`.
+  The 139-row custody control itself retains SHA-256
+  `8DDC589D389F0CAC12883539B1955D523B86E17174F529788D0CF27C8DB6DB15`.
+- This closes GitHub transport and readback for r2 only. Revoked r1 was never
+  copied. Authenticated same-concept Zenodo replacement remains separate and
+  pending.
+
+## 2026-07-19 - SGA2 IV-II-NGT1 seal and Option A overlay remote readback
+
+- Exported the NGT1 directory directly from merged `main` commit
+  `bc3024c681332f540fdd9d8713ace851122bac78` after PR #19.
+- Replayed all 32 descriptor members plus the descriptor itself with zero
+  path, byte, or SHA-256 mismatch. The sealed boundary remains exactly 33
+  files / 2,315,626 bytes; its descriptor SHA-256 is
+  `2BEEFCAAA57D6A198686ABA59BA64420E520BAFF08023ED36082075BED0EF590`.
+- The six-file closed-Option-A overlay also matched every expected identity.
+  The complete GitHub directory is 39 files / 2,335,350 bytes while the
+  sealed target boundary remains unchanged.
+- GitHub custody and readback are complete for this bounded unit and overlay.
+  It is not a standalone Zenodo unit release. The separate line-2865 printed
+  `F` versus preceding `F''` ambiguity remains open and un-emended.
