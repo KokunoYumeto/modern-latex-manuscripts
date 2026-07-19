@@ -1,6 +1,6 @@
 # SGA2 Expose VIII bounded working-unit backups
 
-This directory separates twenty-six evidence states instead of flattening them
+This directory separates twenty-seven evidence states instead of flattening them
 into a single completion claim.
 
 - `p11s-opening-proposition-independent-seal`: independently sealed opening,
@@ -116,6 +116,13 @@ into a single completion claim.
   Closed F Option A is current, while target Z, R, and set-difference choices
   remain separately disclosed. This unit follows but does not supersede APP31
   and is not a cumulative Expose VIII or standalone Zenodo release.
+- `p32p1-proof-opening-condition-c-independent-seal`: independently sealed
+  opening of the Proposition 3.2 proof and condition (c), French lines
+  2901-2907. Blank line 2908 is excluded; the exact continuation cursor is the
+  implication `(a) => (b)` at French line 2909. It retains authority `x in S`,
+  rejects the comparison-only `x in closure(S)`, and discloses inherited `Y`.
+  This unit follows but does not supersede P32S and is not a cumulative Expose
+  VIII or standalone Zenodo release.
 
 French source-page pixels are excluded because redistribution rights are not
 established. Their hashes, byte counts, roles, and source coordinates remain

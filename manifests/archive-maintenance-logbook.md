@@ -789,3 +789,32 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   statement. It should join the existing SGA concept only through a future
   cumulative independently audited Expose VIII version; no standalone Zenodo
   unit release or duplicate concept is warranted.
+
+## 2026-07-19 - SGA2 Expose VIII P32P1 bounded-unit custody
+
+- Accepted the independently sealed Proposition 3.2 proof-opening projection
+  covering corrected French lines 2901-2907. Blank line 2908 and the implication
+  `(a) => (b)` are excluded; the exact continuation cursor is French line 2909.
+- The formal 8,957-byte producer handoff has SHA-256
+  `AAA1B81C39A2245A1FCDF38720701E139B6DBA803AF9E890B098D69120C204A2`;
+  its complete 38-row table replayed against the isolated public payload with
+  zero error.
+- The exact projection is 38 files / 805,094 bytes: 37 descriptor members plus
+  self-excluding `ZENODO_PAYLOAD_MANIFEST_SEALED.csv`. The descriptor SHA-256 is
+  `925C293ABB5C4073FCD981D7D184BFF6ED5CBD005D8D4706CF7E26205CAD0B4F`;
+  the sorted member-identity digest is
+  `CA991696452EEFDFEDF2ECD66BA14FAEB71D4FA848BE9F6A893325AA724DEAAF`.
+- The editable TeX and one-page PDF retain SHA-256
+  `E90C54618D3778DDB0809F21A58BB89F439177672765D4221AE995735310FF2D`
+  and `393FA644253A6C4CA2EBA700939A02C09B1E4B191934A6BEE92507EB808B7518`.
+  Independent source, formula, build, render, font, machine-ledger, Artifact
+  Tool, exact-set, and privacy gates pass.
+- Authority `x in S` is retained and the comparison-only `x in closure(S)` is
+  rejected. Closed F/G Option A and the inherited-`Y` context disclosure remain
+  visible. The same-edition French PDF is not independent corroboration, and
+  underlying French rights are not conveyed.
+- French source-page pixels and local-only build material remain excluded;
+  target-language render QA is included. This is bounded GitHub custody only,
+  not the rest of the proof, a complete Expose VIII, complete SGA2, critical
+  edition, rights clearance, or standalone Zenodo unit release. Remote GitHub
+  readback remains to be completed after publication.
