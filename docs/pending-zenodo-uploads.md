@@ -1,3 +1,31 @@
+## 2026-07-22: SGA2 Expose X Lemma 3.9 statement GitHub custody; Zenodo deferred
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest verified version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+- GitHub package: [`sga2-english-expose-x-l39-20260722`](../sources/sga/sga2-english-expose-x-l39-20260722/)
+
+The no-overwrite rights-curated candidate contains 74 files / 5,634,234
+bytes for the complete Lemma 3.9 statement at corrected French lines
+3544-3553. Its 72-row manifest has SHA-256
+`FB68B68B58C22C645A812E7C4D80A139889C002834A81ADB5D96DFD04D67D5C3`;
+validation is `PASS_ARCHIVE_HANDOFF_READY` at SHA-256
+`58244DDA33CA99E60DB53D75B7083C5C14901D3A0630E77994D1380F5F5621B3`.
+The complete package identity is
+`52D697E2BDFD040D97B2F0A2D919D32E27834D9DE57DF0285805DF0079FDB3A9`.
+
+The target PDF and all three independent rebuilds are byte-identical. The
+package visibly discloses that French line 3551 omits the finite copula and
+that the English supplies the unambiguous intended word while leaving the
+authority unchanged. It is additive after the line-3542 checkpoint and does
+not claim continuous coverage across the fail-closed Lemma 3.6 proof. The
+same-edition page-104 raster, source bodies, and comparison body are excluded;
+exact rights-blocked witness metadata is public.
+
+Public GitHub merge and independent remote readback remain to be completed.
+No authenticated Zenodo token is available. The standalone Lemma 3.9 package
+is deferred to authorized same-concept cumulative Expose X curation; no draft,
+duplicate record, or mutation was created.
+
 ## 2026-07-22: SGA2 Expose X line 3542 additive GitHub custody; Zenodo deferred
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
