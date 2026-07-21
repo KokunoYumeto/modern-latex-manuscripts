@@ -114,16 +114,17 @@ Zenodo remains at existing version `10.5281/zenodo.21435547` under concept
 `10.5281/zenodo.20410947`. The standalone unit is deferred to authorized
 same-concept cumulative curation; no duplicate or draft exists.
 
-## 2026-07-22 SGA2 Expose X Lemma 3.9 statement GitHub custody candidate
+## 2026-07-22 SGA2 Expose X Lemma 3.9 statement GitHub custody
 
 The no-overwrite rights-curated package contains 74 files / 5,634,234 bytes
 for corrected French lines 3544-3553. It includes the complete Lemma 3.9
 statement, both numbered items, and editor's note (5). Blank line 3554 is
 excluded; the raw cursor is line 3554 and the next substantive cursor is proof
 line 3555. One editable target and one one-page A4 reader are retained with
-three byte-identical independent rebuilds, paired render and extracted-text
-evidence, 36/36 total embedded/subset/Unicode font rows, machine ledgers,
-Artifact Tool panels, and privacy controls.
+one byte-identical independent PDF, evidence for all three independent builds,
+paired render and extracted-text evidence, 36/36 total
+embedded/subset/Unicode font rows, machine ledgers, Artifact Tool panels, and
+privacy controls.
 
 The target TeX has SHA-256
 `670B61898309661847F5EA53FA20399958DD5E627F9873ED9C29AB4B9551ACA9`.
@@ -143,10 +144,17 @@ unambiguous intended word; the French authority remains unchanged. The
 same-edition page-104 raster, French source bodies, and comparison body remain
 excluded with exact public rights-blocked metadata.
 
+Pull request `33` merged the package to public `main` commit
+`fa41ea92b84fc56eefb09a08da56c5083cf71b8c`. A fresh sparse clone resolved
+to that commit and revalidated 74 files / 5,634,234 bytes, all 72 manifest
+rows, both canonical identities, the target TeX, the byte-identical PDF pair,
+both one-page A4 structures, 36/36 font rows, the render and text pairs, and
+all JSON and privacy gates with zero mismatch. The exact result is retained in
+`sources/sga/sga2-english-expose-x-l39-controls-20260722/GITHUB_PUBLICATION_READBACK.md`.
+
 This package is additive after, and does not rewrite, the separately
 readback-verified line-3542 checkpoint. The Lemma 3.6 proof and all intervening
-coverage remain unclaimed. Public GitHub merge and downloaded-byte readback
-remain required. Zenodo remains at existing version
+coverage remain unclaimed. Zenodo remains at existing version
 `10.5281/zenodo.21435547` under concept `10.5281/zenodo.20410947`; standalone
 mutation is deferred to authorized same-concept cumulative curation.
 
