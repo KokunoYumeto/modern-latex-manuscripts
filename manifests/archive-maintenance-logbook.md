@@ -944,3 +944,23 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This closes GitHub custody and downloadable readback. Zenodo remains
   unchanged pending authenticated same-concept curation; no duplicate record
   or competing draft was created.
+
+## 2026-07-22 - SGA2 Expose X lines 3414-3456 rights-curated custody
+
+- Accepted the exact 306-file / 19,594,918-byte rights-curated checkpoint for
+  Proposition 2.3 through editor note 3. It spans eight independently reviewed
+  units, with raw cursor 3457 and substantive cursor 3458.
+- Replayed the 305 manifest rows and all 306 ZIP members against the directory:
+  zero path, byte, hash, duplicate, traversal, or privacy errors. The ZIP is
+  17,365,139 bytes with SHA-256
+  `31037DA7A3819D0DE5F7702B23523B6711A8B439D931D409F46BD5C2439EB0BD`.
+- All 84 public PNGs are valid and manifested. Eight producer target renders
+  are byte-identical to their eight independent-review renders; all target
+  pages and representative machine-ledger panels passed visual inspection.
+- The three same-edition source-page rasters remain excluded. Their public
+  ledgers retain parent hash, physical/printed/running pages, dimensions, DPI,
+  rotation, boxes, crop hashes, linked units, QA result, and explicit
+  `rights_blocked_not_public` status.
+- The existing Zenodo concept still resolves to version `21435547`, 33 files /
+  73,450,481 bytes, license `notspecified`. No token is available, so no draft,
+  duplicate record, or Zenodo mutation was created.

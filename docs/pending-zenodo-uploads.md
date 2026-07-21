@@ -1,3 +1,16 @@
+## 2026-07-22: SGA2 Expose X bounded GitHub checkpoint; Zenodo deferred
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest verified version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+
+The rights-curated 306-file checkpoint for French lines 3414-3456 is preserved
+as exact GitHub custody. It is a standalone eight-unit checkpoint, not a
+continuous Expose IX-X reader. Three same-edition source-page rasters remain
+rights-blocked and are represented by public hash/geometry/linkage ledgers.
+No authenticated Zenodo token is available, and a loose micro-unit mutation is
+deferred to authorized same-concept cumulative Expose X curation. No duplicate
+record or competing draft was created.
+
 ## 2026-07-19: SGA direct PDF/TeX companion queue closed
 
 - SGA current version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)

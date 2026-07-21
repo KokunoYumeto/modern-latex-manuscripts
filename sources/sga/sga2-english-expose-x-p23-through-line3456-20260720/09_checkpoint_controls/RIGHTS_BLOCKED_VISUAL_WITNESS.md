@@ -1,0 +1,3 @@
+# Rights-blocked visual witness binding
+
+The three source-page rasters used for bounded manifestation, formula, and layout checking are not in this public projection because redistribution rights for the page images are unresolved. The machine ledgers retain the exact parent-reader identity, physical/printed/running-page systems, render geometry, DPI, rotation, full-page box, raster bytes/hash, linked units, and completed visual-QA disposition. These hashes identify preserved private evidence; they do not authorize redistribution. The corrected French arXiv TeX remains the translation authority.
