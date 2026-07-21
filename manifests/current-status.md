@@ -24,6 +24,12 @@ eight exact French slices, eight one-page target PDFs, eight independent rebuild
 PDFs, sixteen paired target/review renders, and the complete machine and visual-QA
 surface. The raw cursor is line 3457 and the substantive cursor is line 3458.
 
+Pull request `27` merged the package to public `main` commit
+`fcd341390017e522e9794e86364796c8e897772b`. A separate sparse clone of public
+`main` revalidated all 306 files and 19,594,918 bytes, all 305 manifest rows,
+the manifest's own SHA-256, and all eight producer/review render pairs with zero
+missing, extra, byte, hash, or render-identity mismatch.
+
 The 305-row manifest replays every other file exactly. The source-page rasters
 for same-edition physical pages 100-102 are not redistributed; public ledgers
 retain their parent-reader hash, page coordinates, dimensions, DPI, rotation,
