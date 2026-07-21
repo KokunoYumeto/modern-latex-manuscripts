@@ -900,3 +900,31 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   private-path hits.
 - The immutable raw Markdown logbook is 52,135 bytes with SHA-256
   `2EFD3D75D2AAC9F0BFA44B817455118F2EABE42B9CBBF507D96D64DC889FCB00`.
+
+## 2026-07-19 - SGA1 through Corollary I.9.3 proof r1 custody
+
+- Accepted the distinct final no-overwrite I.9.3 r1 package that arrived after
+  the earlier hold sweep. The rejected staging attempt1 remains excluded; the
+  previously published I.9.2 r2 package remains immutable predecessor history.
+- Added the exact 166-file / 8,583,974-byte package plus the external 166-row
+  producer custody table. Every path, byte count, and SHA-256 replayed with
+  zero mismatch. The ordered package digest is
+  `2B0F8B6AC642D2D022A01B9AEB7D388F7524398E6310BFD83816899536005360`;
+  the external custody table retains SHA-256
+  `7DA24598DC7570D6FC71C8AAC7B6828595596E6FFD8200B33D00347D8D61239A`.
+- The cumulative bounded source-audited scope is 12 units through corrected
+  French line 1760: the equivalence bridge and Corollary I.9.3 with its proof
+  are complete. Corollary I.9.4 starts at excluded line 1761.
+- The PowerShell 7 verifier passes at 166 files, eight editable sources, and a
+  17-page reader. All JSON-family files parse, 81 CSV files import cleanly,
+  privacy and excluded-source checks have zero hits, and the title, transition,
+  and final proof pages pass original-resolution inspection.
+- The reader and cumulative TeX retain SHA-256
+  `1DC6C5793BF15A898A0458907F9B6C00FB6965E0D609BA22486580D2DA75E7CA`
+  and `2D0C09EC8C415CA0DB6DDF355EB775A1BC492E7374F95FA43B6162F1E164A59D`.
+  The formal 3,578-byte handoff retains SHA-256
+  `3A51A855B261375E760F78B4FED8B92E0043B29D5A0475402E42BD57B7DD1826`.
+- This is bounded GitHub custody only, not complete SGA1, a critical edition,
+  mathematical certification, independent human peer review, rights clearance,
+  or Zenodo publication. The existing SGA concept remains unchanged pending an
+  authenticated same-concept successor action.
