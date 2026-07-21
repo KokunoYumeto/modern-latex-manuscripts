@@ -58,6 +58,14 @@ Validation is `PASS_ARCHIVE_HANDOFF_READY`, with SHA-256
 The complete sorted 94-file identity digest is
 `3FAEB7D614ED067E6B9158D2317490A9B094CBB9E216E648C7ABDD0F99AC9F97`.
 
+Pull request `29` merged the package to public `main` commit
+`c51cf8f25f475dd3d4c487d72289979e039b8484`. A fresh sparse clone resolved
+to that commit and revalidated 94 files / 5,688,752 bytes, all 92 manifest
+rows, the manifest and validation hashes, the complete package identity, all
+four target TeX/PDF identities, and both producer/rebuild text and render
+pairs with zero mismatch. The exact result is retained in
+`sources/sga/sga2-english-expose-x-r37-c38-controls-20260722/GITHUB_PUBLICATION_READBACK.md`.
+
 This does not establish continuous coverage: the earlier public standalone
 checkpoint ends at line 3456, and no intervening range is claimed. The
 candidate Lemma 3.6 proof at lines 3522-3530 is fail-closed for a three-system
