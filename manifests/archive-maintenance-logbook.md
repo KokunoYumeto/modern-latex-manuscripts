@@ -1029,3 +1029,30 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   bounded units only. The Lemma 3.6 proof and all intervening coverage remain
   unclaimed. Zenodo is unchanged pending authenticated same-concept cumulative
   curation; no duplicate record or competing draft was created.
+
+## 2026-07-22 - SGA2 Expose X line 3542 rights-curated additive custody
+
+- Accepted a 75-file / 4,120,540-byte no-overwrite rights-curated projection
+  for corrected French line 3542 only. The raw cursor is blank line 3543 and
+  the substantive cursor is line 3544, Lemma 3.9.
+- The target TeX is SHA-256
+  `5B188F1951434DCCF7809CCFFEF0CCD0728231D1B8FD2B145F35471627771A89`.
+  The target and independent PDF are byte-identical at SHA-256
+  `DD4610237E4FE8D0CA8AD026BD24DD2228FCB87317AA4C7716779712BD0C664A`;
+  both are one-page A4, unencrypted, JavaScript-free, with 10/10 total
+  embedded, subset, Unicode font rows.
+- The 73-row manifest replays every other covered file exactly and has
+  SHA-256
+  `A5BFD26DB8E2B8217F7E2E385F942491F8E801CE945751B1EAA4F68A932EE8D6`.
+  Validation is `PASS_ARCHIVE_HANDOFF_READY` at SHA-256
+  `CE03923702647CE1EAFB5D35CE804F93016D6AADD6C24525F75B0040457BC445`.
+- Seven path-bearing evidence files replay exactly to privacy-clean public
+  successors. All CSV, JSON-family, PNG, formula-safety, manifest, and privacy
+  checks pass. Producer/review render and extraction pairs are byte-identical.
+- The same-edition page-104 raster is withheld with exact parent, page,
+  geometry, hash, linkage, and QA metadata. Source/candidate bodies, scripts,
+  intermediates, raw logs, and redundant rebuilds are excluded.
+- This is additive after the immutable Remark 3.7 / Corollary 3.8 package and
+  supersedes no public file. The Lemma 3.6 gap remains fail-closed, and no
+  continuous Expose X claim is made. Zenodo remains unchanged pending
+  authenticated same-concept cumulative curation.

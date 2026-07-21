@@ -1,3 +1,28 @@
+## 2026-07-22: SGA2 Expose X line 3542 additive GitHub custody; Zenodo deferred
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest verified version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+- GitHub package: [`sga2-english-expose-x-l3542-20260722`](../sources/sga/sga2-english-expose-x-l3542-20260722/)
+
+The no-overwrite rights-curated candidate contains 75 files / 4,120,540
+bytes for corrected French line 3542 only. Its 73-row manifest has SHA-256
+`A5BFD26DB8E2B8217F7E2E385F942491F8E801CE945751B1EAA4F68A932EE8D6`;
+validation is `PASS_ARCHIVE_HANDOFF_READY` at SHA-256
+`CE03923702647CE1EAFB5D35CE804F93016D6AADD6C24525F75B0040457BC445`.
+The complete package identity is
+`4145823D21E04E411839409524293D7B1270734B1878003853374A98521E3A00`.
+
+The package is additive after the separately preserved Remark 3.7 /
+Corollary 3.8 checkpoint. It does not rewrite those 94 files and does not
+claim continuous coverage across the omitted range or the fail-closed Lemma
+3.6 proof. The same-edition page-104 raster, source bodies, and comparison
+body are excluded; exact rights-blocked witness metadata is public.
+
+No authenticated Zenodo token is available. The standalone line-3542 package
+is deferred to authorized same-concept cumulative Expose X curation; no
+draft, duplicate record, or mutation was created. Public-main readback remains
+to be recorded after merge.
+
 ## 2026-07-22: SGA2 Expose X Remark 3.7 / Corollary 3.8 GitHub custody; Zenodo deferred
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
