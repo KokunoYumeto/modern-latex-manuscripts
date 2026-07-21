@@ -42,6 +42,33 @@ The official latest endpoint still reports version DOI
 73,450,481 bytes, with license metadata `notspecified`. No authenticated Zenodo
 token is available, so no draft, duplicate record, or mutation was created.
 
+## 2026-07-22 SGA2 Expose X Remark 3.7 and Corollary 3.8 GitHub custody
+
+The rights-curated package contains 94 files / 5,688,752 bytes for two
+standalone independently reviewed units: Remark 3.7 at corrected French lines
+3532-3534 and Corollary 3.8 with its proof at lines 3536-3540. Each unit retains
+its editable target, one-page A4 reader, independent rebuild, byte-identical
+producer/review render pair, extraction/font evidence, machine ledgers, and
+privacy-sanitized build evidence.
+
+The 92-row manifest replays every other public file exactly and has SHA-256
+`1B3222BDD3A5A4CC7545BFAEB20B40110CA9F31FCB45D797C296195FFB2A3DA8`.
+Validation is `PASS_ARCHIVE_HANDOFF_READY`, with SHA-256
+`9ED083931CCB4BD841390838CF179BE7F1A47F8FBCBCE198394DFEC68431666D`.
+The complete sorted 94-file identity digest is
+`3FAEB7D614ED067E6B9158D2317490A9B094CBB9E216E648C7ABDD0F99AC9F97`.
+
+This does not establish continuous coverage: the earlier public standalone
+checkpoint ends at line 3456, and no intervening range is claimed. The
+candidate Lemma 3.6 proof at lines 3522-3530 is fail-closed for a three-system
+page-locator defect. The shared same-edition physical-page-104 raster is
+rights-blocked and replaced by hash, geometry, locator, linkage, and QA
+metadata. No public file is superseded.
+
+Zenodo remains at existing version `10.5281/zenodo.21435547` under concept
+`10.5281/zenodo.20410947`. This loose bounded checkpoint is deferred to
+authorized same-concept cumulative curation; no duplicate or draft exists.
+
 ## 2026-07-19 SGA1 through I.6 and SGA2 Exposés V-VI published (predecessor)
 
 Historical SGA version [10.5281/zenodo.21435334](https://doi.org/10.5281/zenodo.21435334) published the current bounded SGA1 I.6 and SGA2 V-VI content before the remaining direct TeX companions were added. Its 27 files / 69,323,217 bytes passed publication readback. It is superseded by current version [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547). Exact receipts: `manifests/published-zenodo/20260719_sga1_i6_record_21435334.json`, `_result.json`, `_readback.json`, and `_preserved.json`.
