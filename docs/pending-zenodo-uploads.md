@@ -18,10 +18,17 @@ claim continuous coverage across the omitted range or the fail-closed Lemma
 3.6 proof. The same-edition page-104 raster, source bodies, and comparison
 body are excluded; exact rights-blocked witness metadata is public.
 
+Pull request [#31](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/31)
+merged the package to public `main` commit
+`01f6a8dc023891b1b4a71abd00e3521cfb7c8b83`. A fresh sparse clone of that
+commit revalidated 75/75 files, 4,120,540 bytes, all 73 manifest rows, both
+canonical aggregates, the target identities, both PDFs, and the paired text
+and render identities. The [public readback receipt](../sources/sga/sga2-english-expose-x-l3542-controls-20260722/GITHUB_PUBLICATION_READBACK.md)
+records the exact results.
+
 No authenticated Zenodo token is available. The standalone line-3542 package
 is deferred to authorized same-concept cumulative Expose X curation; no
-draft, duplicate record, or mutation was created. Public-main readback remains
-to be recorded after merge.
+draft, duplicate record, or mutation was created.
 
 ## 2026-07-22: SGA2 Expose X Remark 3.7 / Corollary 3.8 GitHub custody; Zenodo deferred
 

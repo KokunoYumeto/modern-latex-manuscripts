@@ -95,6 +95,15 @@ The manifest-row and complete-package identities are
 `DE2B1C6E04C8FDC09C4AB8FA0686D3D26D480EF0CD185668F47E4069F6C6204A`
 and `4145823D21E04E411839409524293D7B1270734B1878003853374A98521E3A00`.
 
+Pull request `31` merged the package to public `main` commit
+`01f6a8dc023891b1b4a71abd00e3521cfb7c8b83`. A fresh sparse clone resolved
+to that commit and revalidated 75 files / 4,120,540 bytes, all 73 manifest
+rows, both canonical identities, the target TeX hash, the byte-identical PDF
+pair, both one-page A4 structures, 10/10 font rows, the render and text pairs,
+and all parse, formula, and privacy gates with zero mismatch. The exact result
+is retained in
+`sources/sga/sga2-english-expose-x-l3542-controls-20260722/GITHUB_PUBLICATION_READBACK.md`.
+
 This package is additive after, and does not rewrite, the separately
 readback-verified Remark 3.7 / Corollary 3.8 checkpoint. The Lemma 3.6 proof
 and all intervening coverage remain unclaimed. The same-edition page-104
