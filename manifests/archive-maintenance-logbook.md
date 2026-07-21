@@ -983,3 +983,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   bounded checkpoint. Zenodo remains unchanged pending authenticated
   same-concept cumulative curation; no duplicate record or competing draft was
   created.
+
+## 2026-07-22 - SGA2 Expose X Remark 3.7 and Corollary 3.8 rights-curated custody
+
+- Accepted a 94-file / 5,688,752-byte rights-curated projection for two
+  independently reviewed standalone units: French lines 3532-3534 and
+  3536-3540.
+- The 92-row manifest replays every other package file exactly. Its SHA-256 is
+  `1B3222BDD3A5A4CC7545BFAEB20B40110CA9F31FCB45D797C296195FFB2A3DA8`;
+  validation is `PASS_ARCHIVE_HANDOFF_READY` at SHA-256
+  `9ED083931CCB4BD841390838CF179BE7F1A47F8FBCBCE198394DFEC68431666D`.
+- Both target TeX/PDF identities match the formal handoff. Four included PDFs
+  are one-page A4, unencrypted, JavaScript-free, and have 48/48 embedded,
+  subset, Unicode font rows. Both producer/rebuild text and render pairs are
+  byte-identical.
+- Seventeen path-bearing evidence files were transformed reproducibly to
+  public placeholders; whole-payload and extracted-PDF privacy scans have zero
+  hits. The shared same-edition page-104 raster is withheld with exact public
+  rights-blocked metadata.
+- Continuous coverage is not claimed. The earlier public checkpoint ends at
+  French line 3456, and the candidate Lemma 3.6 proof at lines 3522-3530 is
+  fail-closed for a machine page-locator defect.
+- The existing SGA Zenodo concept remains unchanged. No authenticated token is
+  available, and no draft or duplicate record was created.

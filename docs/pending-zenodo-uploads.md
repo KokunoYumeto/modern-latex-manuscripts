@@ -1,3 +1,24 @@
+## 2026-07-22: SGA2 Expose X Remark 3.7 / Corollary 3.8 GitHub custody; Zenodo deferred
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest verified version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+- GitHub package: [`sga2-english-expose-x-r37-c38-20260722`](../sources/sga/sga2-english-expose-x-r37-c38-20260722/)
+
+The rights-curated candidate has 94 files / 5,688,752 bytes. Its 92-row
+manifest has SHA-256
+`1B3222BDD3A5A4CC7545BFAEB20B40110CA9F31FCB45D797C296195FFB2A3DA8`,
+and package validation has SHA-256
+`9ED083931CCB4BD841390838CF179BE7F1A47F8FBCBCE198394DFEC68431666D`.
+The two standalone independently reviewed units cover French lines 3532-3534
+and 3536-3540 only. They do not close the gap after line 3456; the candidate
+Lemma 3.6 proof at lines 3522-3530 remains fail-closed. The shared source-page
+raster is withheld and represented by exact rights-blocked metadata.
+
+No authenticated Zenodo token is available. This loose two-unit checkpoint is
+deferred to authorized same-concept cumulative Expose X curation; no draft,
+duplicate record, or mutation was created. Public-main readback remains to be
+recorded after merge.
+
 ## 2026-07-22: SGA2 Expose X bounded GitHub checkpoint; Zenodo deferred
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
