@@ -14,10 +14,17 @@ and 3536-3540 only. They do not close the gap after line 3456; the candidate
 Lemma 3.6 proof at lines 3522-3530 remains fail-closed. The shared source-page
 raster is withheld and represented by exact rights-blocked metadata.
 
+Pull request [#29](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/29)
+merged the package to public `main` commit
+`c51cf8f25f475dd3d4c487d72289979e039b8484`. A fresh sparse clone of that
+commit revalidated 94/94 files, 5,688,752 bytes, all 92 manifest rows, both
+canonical aggregates, all four target identities, and both producer/rebuild
+text and render pairs. The [public readback receipt](../sources/sga/sga2-english-expose-x-r37-c38-controls-20260722/GITHUB_PUBLICATION_READBACK.md)
+records the exact results.
+
 No authenticated Zenodo token is available. This loose two-unit checkpoint is
 deferred to authorized same-concept cumulative Expose X curation; no draft,
-duplicate record, or mutation was created. Public-main readback remains to be
-recorded after merge.
+duplicate record, or mutation was created.
 
 ## 2026-07-22: SGA2 Expose X bounded GitHub checkpoint; Zenodo deferred
 

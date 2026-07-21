@@ -1006,3 +1006,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   fail-closed for a machine page-locator defect.
 - The existing SGA Zenodo concept remains unchanged. No authenticated token is
   available, and no draft or duplicate record was created.
+
+## 2026-07-22 - SGA2 Expose X Remark 3.7 / Corollary 3.8 public GitHub readback
+
+- Pull request `29` merged the exact package to public `main` commit
+  `c51cf8f25f475dd3d4c487d72289979e039b8484`.
+- A separate sparse clone of public `main` resolved to that merge commit and
+  revalidated 94 files / 5,688,752 bytes. All 92 manifest rows matched by
+  path, byte count, and SHA-256 with zero missing, extra, size, or hash
+  difference.
+- The downloaded manifest retained SHA-256
+  `1B3222BDD3A5A4CC7545BFAEB20B40110CA9F31FCB45D797C296195FFB2A3DA8`;
+  validation retained SHA-256
+  `9ED083931CCB4BD841390838CF179BE7F1A47F8FBCBCE198394DFEC68431666D`.
+  The manifest-row aggregate and complete-package identity remained
+  `05AAC7A40081A4F059EDCC9D635CF7E3B0F4B98B89783DB4D091ADAA60F677DB`
+  and `3FAEB7D614ED067E6B9158D2317490A9B094CBB9E216E648C7ABDD0F99AC9F97`.
+- Both target TeX files and both target PDFs retained their dispatched hashes.
+  Both producer/rebuild render pairs and both extracted-text pairs remained
+  byte-identical.
+- This closes GitHub custody and downloadable readback for the two standalone
+  bounded units only. The Lemma 3.6 proof and all intervening coverage remain
+  unclaimed. Zenodo is unchanged pending authenticated same-concept cumulative
+  curation; no duplicate record or competing draft was created.
