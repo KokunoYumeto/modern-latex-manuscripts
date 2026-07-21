@@ -1080,3 +1080,32 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   passed on the downloaded bytes. This closes GitHub custody and public
   readback for line 3542 only. Zenodo remains unchanged pending authenticated
   same-concept cumulative curation; no duplicate record or draft was created.
+
+## 2026-07-22 - SGA2 Expose X Lemma 3.9 statement rights-curated additive custody
+
+- Accepted a 74-file / 5,634,234-byte no-overwrite rights-curated projection
+  for the complete Lemma 3.9 statement at corrected French lines 3544-3553.
+  Blank line 3554 is excluded; the raw cursor is 3554 and the substantive
+  cursor is proof line 3555.
+- The target TeX is SHA-256
+  `670B61898309661847F5EA53FA20399958DD5E627F9873ED9C29AB4B9551ACA9`.
+  The producer and all three independent PDFs are byte-identical at SHA-256
+  `DDE0C24DBE66647300B18804CD726D209FA56C7A498895B90481459281CE1625`;
+  each is one-page A4, unencrypted, JavaScript-free, with all 18 font rows
+  embedded, subset, and Unicode.
+- The 72-row manifest replays every other covered file exactly and has
+  SHA-256
+  `FB68B68B58C22C645A812E7C4D80A139889C002834A81ADB5D96DFD04D67D5C3`.
+  Validation is `PASS_ARCHIVE_HANDOFF_READY` at SHA-256
+  `58244DDA33CA99E60DB53D75B7083C5C14901D3A0630E77994D1380F5F5621B3`.
+- Seven path-bearing evidence files replay exactly to privacy-clean public
+  successors. All CSV, JSON-family, PNG, formula-safety, manifest, and privacy
+  checks pass. Producer/review render and extraction pairs are byte-identical.
+- Source-defect record `SGA2-X-L3551-MISSING-EST-SRCDEF-001` visibly records
+  the omitted French copula and the supplied English word; the authority is
+  unchanged. The same-edition page-104 raster is withheld with exact parent,
+  page, geometry, hash, linkage, and QA metadata.
+- This is additive after the immutable line-3542 package and supersedes no
+  public file. The Lemma 3.6 gap remains fail-closed, and no continuous Expose
+  X claim is made. Zenodo remains unchanged pending authenticated same-concept
+  cumulative curation.
