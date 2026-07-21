@@ -114,6 +114,42 @@ Zenodo remains at existing version `10.5281/zenodo.21435547` under concept
 `10.5281/zenodo.20410947`. The standalone unit is deferred to authorized
 same-concept cumulative curation; no duplicate or draft exists.
 
+## 2026-07-22 SGA2 Expose X Lemma 3.9 statement GitHub custody candidate
+
+The no-overwrite rights-curated package contains 74 files / 5,634,234 bytes
+for corrected French lines 3544-3553. It includes the complete Lemma 3.9
+statement, both numbered items, and editor's note (5). Blank line 3554 is
+excluded; the raw cursor is line 3554 and the next substantive cursor is proof
+line 3555. One editable target and one one-page A4 reader are retained with
+three byte-identical independent rebuilds, paired render and extracted-text
+evidence, 36/36 total embedded/subset/Unicode font rows, machine ledgers,
+Artifact Tool panels, and privacy controls.
+
+The target TeX has SHA-256
+`670B61898309661847F5EA53FA20399958DD5E627F9873ED9C29AB4B9551ACA9`.
+The target and independent PDFs are byte-identical at SHA-256
+`DDE0C24DBE66647300B18804CD726D209FA56C7A498895B90481459281CE1625`.
+The 72-row manifest has SHA-256
+`FB68B68B58C22C645A812E7C4D80A139889C002834A81ADB5D96DFD04D67D5C3`;
+validation is `PASS_ARCHIVE_HANDOFF_READY` at SHA-256
+`58244DDA33CA99E60DB53D75B7083C5C14901D3A0630E77994D1380F5F5621B3`.
+The manifest-row and complete-package identities are
+`5BCAA6421F086975EFCF21B9FDE73B9E83ABDC71F220E02E8AFDB6ECB6576505`
+and `52D697E2BDFD040D97B2F0A2D919D32E27834D9DE57DF0285805DF0079FDB3A9`.
+
+Stable source-defect record `SGA2-X-L3551-MISSING-EST-SRCDEF-001` discloses
+that the French omits the finite copula and that the English supplies the
+unambiguous intended word; the French authority remains unchanged. The
+same-edition page-104 raster, French source bodies, and comparison body remain
+excluded with exact public rights-blocked metadata.
+
+This package is additive after, and does not rewrite, the separately
+readback-verified line-3542 checkpoint. The Lemma 3.6 proof and all intervening
+coverage remain unclaimed. Public GitHub merge and downloaded-byte readback
+remain required. Zenodo remains at existing version
+`10.5281/zenodo.21435547` under concept `10.5281/zenodo.20410947`; standalone
+mutation is deferred to authorized same-concept cumulative curation.
+
 ## 2026-07-19 SGA1 through I.6 and SGA2 Exposés V-VI published (predecessor)
 
 Historical SGA version [10.5281/zenodo.21435334](https://doi.org/10.5281/zenodo.21435334) published the current bounded SGA1 I.6 and SGA2 V-VI content before the remaining direct TeX companions were added. Its 27 files / 69,323,217 bytes passed publication readback. It is superseded by current version [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547). Exact receipts: `manifests/published-zenodo/20260719_sga1_i6_record_21435334.json`, `_result.json`, `_readback.json`, and `_preserved.json`.
