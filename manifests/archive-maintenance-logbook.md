@@ -964,3 +964,22 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The existing Zenodo concept still resolves to version `21435547`, 33 files /
   73,450,481 bytes, license `notspecified`. No token is available, so no draft,
   duplicate record, or Zenodo mutation was created.
+
+## 2026-07-22 - SGA2 Expose X lines 3414-3456 public GitHub readback
+
+- Pull request `27` merged the exact package to public `main` commit
+  `fcd341390017e522e9794e86364796c8e897772b`.
+- A separate sparse clone of public `main` resolved to that merge commit and
+  revalidated 306 files / 19,594,918 bytes. The 305-row manifest matched every
+  other file by path, byte count, and SHA-256; its own SHA-256 remained
+  `9054888A355213ED1C14820ABE37ADCFCB6794DDDB3C1338E764D5592126DD13`.
+- The downloaded set had no missing or extra paths. All eight producer target
+  renders remained byte-identical to their eight independent-review renders.
+- The package retains eight editable English targets, eight exact French
+  slices, eight target PDFs, eight independent rebuild PDFs, and its machine
+  and visual-QA evidence without redistributing the three rights-blocked
+  source-page rasters.
+- This closes GitHub custody and downloadable readback for the standalone
+  bounded checkpoint. Zenodo remains unchanged pending authenticated
+  same-concept cumulative curation; no duplicate record or competing draft was
+  created.

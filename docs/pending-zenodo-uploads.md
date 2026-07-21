@@ -2,11 +2,16 @@
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
 - Latest verified version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+- GitHub pull request: [#27](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/27)
+- Package merge commit: `fcd341390017e522e9794e86364796c8e897772b`
+- [Public readback receipt](../sources/sga/sga2-english-expose-x-p23-through-line3456-controls-20260720/GITHUB_PUBLICATION_READBACK.md)
 
 The rights-curated 306-file checkpoint for French lines 3414-3456 is preserved
-as exact GitHub custody. It is a standalone eight-unit checkpoint, not a
-continuous Expose IX-X reader. Three same-edition source-page rasters remain
-rights-blocked and are represented by public hash/geometry/linkage ledgers.
+as exact GitHub custody. A fresh public-`main` clone passed 306/306 file
+readback and all eight paired render comparisons. It is a standalone eight-unit
+checkpoint, not a continuous Expose IX-X reader. Three same-edition source-page
+rasters remain rights-blocked and are represented by public
+hash/geometry/linkage ledgers.
 No authenticated Zenodo token is available, and a loose micro-unit mutation is
 deferred to authorized same-concept cumulative Expose X curation. No duplicate
 record or competing draft was created.
