@@ -13,15 +13,23 @@ validation is `PASS_ARCHIVE_HANDOFF_READY` at SHA-256
 The complete package identity is
 `52D697E2BDFD040D97B2F0A2D919D32E27834D9DE57DF0285805DF0079FDB3A9`.
 
-The target PDF and all three independent rebuilds are byte-identical. The
-package visibly discloses that French line 3551 omits the finite copula and
-that the English supplies the unambiguous intended word while leaving the
-authority unchanged. It is additive after the line-3542 checkpoint and does
-not claim continuous coverage across the fail-closed Lemma 3.6 proof. The
-same-edition page-104 raster, source bodies, and comparison body are excluded;
-exact rights-blocked witness metadata is public.
+The target PDF and all three audited independent build outputs are
+byte-identical; one independent PDF and the full three-build evidence are
+retained publicly. The package visibly discloses that French line 3551 omits
+the finite copula and that the English supplies the unambiguous intended word
+while leaving the authority unchanged. It is additive after the line-3542
+checkpoint and does not claim continuous coverage across the fail-closed Lemma
+3.6 proof. The same-edition page-104 raster, source bodies, and comparison body
+are excluded; exact rights-blocked witness metadata is public.
 
-Public GitHub merge and independent remote readback remain to be completed.
+Pull request [#33](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/33)
+merged the package to public `main` commit
+`fa41ea92b84fc56eefb09a08da56c5083cf71b8c`. A fresh sparse clone of that
+commit revalidated 74/74 files, 5,634,234 bytes, all 72 manifest rows, both
+canonical aggregates, the target identities, both PDFs, and the paired text
+and render identities. The [public readback receipt](../sources/sga/sga2-english-expose-x-l39-controls-20260722/GITHUB_PUBLICATION_READBACK.md)
+records the exact results.
+
 No authenticated Zenodo token is available. The standalone Lemma 3.9 package
 is deferred to authorized same-concept cumulative Expose X curation; no draft,
 duplicate record, or mutation was created.
