@@ -16,6 +16,26 @@ The five added TeX companions and replacement status/checksum controls streamed 
 
 These are bounded machine-assisted source-audited/source-aligned working checkpoints, not complete SGA volumes, critical editions, peer review, proof verification, independent human certification, accessibility certification, or rights determinations.
 
+## 2026-07-22 SGA2 Expose X Proposition 2.3 through editor note 3 GitHub custody
+
+GitHub preserves the exact rights-curated 306-file / 19,594,918-byte checkpoint
+for corrected French lines 3414-3456. It contains eight editable English targets,
+eight exact French slices, eight one-page target PDFs, eight independent rebuild
+PDFs, sixteen paired target/review renders, and the complete machine and visual-QA
+surface. The raw cursor is line 3457 and the substantive cursor is line 3458.
+
+The 305-row manifest replays every other file exactly. The source-page rasters
+for same-edition physical pages 100-102 are not redistributed; public ledgers
+retain their parent-reader hash, page coordinates, dimensions, DPI, rotation,
+full-page boxes, raster hashes, linked units, and completed QA dispositions.
+This is a standalone bounded checkpoint, not continuous Expose IX-X coverage,
+a complete Expose X, a complete SGA2 volume, or a critical edition.
+
+The official latest endpoint still reports version DOI
+`10.5281/zenodo.21435547` under concept DOI `10.5281/zenodo.20410947`, 33 files /
+73,450,481 bytes, with license metadata `notspecified`. No authenticated Zenodo
+token is available, so no draft, duplicate record, or mutation was created.
+
 ## 2026-07-19 SGA1 through I.6 and SGA2 Exposés V-VI published (predecessor)
 
 Historical SGA version [10.5281/zenodo.21435334](https://doi.org/10.5281/zenodo.21435334) published the current bounded SGA1 I.6 and SGA2 V-VI content before the remaining direct TeX companions were added. Its 27 files / 69,323,217 bytes passed publication readback. It is superseded by current version [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547). Exact receipts: `manifests/published-zenodo/20260719_sga1_i6_record_21435334.json`, `_result.json`, `_readback.json`, and `_preserved.json`.
