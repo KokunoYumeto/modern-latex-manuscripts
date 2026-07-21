@@ -1109,3 +1109,27 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   public file. The Lemma 3.6 gap remains fail-closed, and no continuous Expose
   X claim is made. Zenodo remains unchanged pending authenticated same-concept
   cumulative curation.
+
+## 2026-07-22 - SGA2 Expose X Lemma 3.9 statement public GitHub readback
+
+- Pull request `33` merged the exact package to public `main` commit
+  `fa41ea92b84fc56eefb09a08da56c5083cf71b8c`.
+- A separate sparse clone of public `main` resolved to that merge commit and
+  revalidated 74 files / 5,634,234 bytes. All 72 manifest rows matched by
+  path, byte count, and SHA-256 with zero missing, extra, size, or hash
+  difference.
+- The downloaded manifest retained SHA-256
+  `FB68B68B58C22C645A812E7C4D80A139889C002834A81ADB5D96DFD04D67D5C3`;
+  validation retained SHA-256
+  `58244DDA33CA99E60DB53D75B7083C5C14901D3A0630E77994D1380F5F5621B3`.
+  The manifest-row aggregate and complete-package identity remained
+  `5BCAA6421F086975EFCF21B9FDE73B9E83ABDC71F220E02E8AFDB6ECB6576505`
+  and `52D697E2BDFD040D97B2F0A2D919D32E27834D9DE57DF0285805DF0079FDB3A9`.
+- The target TeX retained its handoff hash. The target and retained independent
+  PDFs remained byte-identical; both remained one-page A4, unencrypted,
+  JavaScript-free, with all 36 total font rows embedded, subset, and Unicode.
+  The render and extracted-text pairs remained byte-identical.
+- JSON-family parsing and whole-payload privacy checks passed on the downloaded
+  bytes. This closes GitHub custody and public readback for the Lemma 3.9
+  statement only. Zenodo remains unchanged pending authenticated same-concept
+  cumulative curation; no duplicate record or draft was created.
