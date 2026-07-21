@@ -928,3 +928,19 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   mathematical certification, independent human peer review, rights clearance,
   or Zenodo publication. The existing SGA concept remains unchanged pending an
   authenticated same-concept successor action.
+
+## 2026-07-22 - SGA1 I.9.3 public GitHub readback
+
+- Pull request `25` merged the exact package to public `main` commit
+  `2d47f053ef5a61ee867c31548235ed5c8ff778b8`.
+- A separate sparse clone of public `main` resolved to that merge commit. The
+  downloaded frozen verifier passed at 166 files / 8,583,974 bytes, eight
+  editable source files, 21 current CSV files / 447 rows, 16 package JSONL
+  files / 195 records, and a 17-page reader.
+- The downloaded external custody table is 41,832 bytes with SHA-256
+  `7DA24598DC7570D6FC71C8AAC7B6828595596E6FFD8200B33D00347D8D61239A`.
+  The reader remains 548,916 bytes with SHA-256
+  `1DC6C5793BF15A898A0458907F9B6C00FB6965E0D609BA22486580D2DA75E7CA`.
+- This closes GitHub custody and downloadable readback. Zenodo remains
+  unchanged pending authenticated same-concept curation; no duplicate record
+  or competing draft was created.
