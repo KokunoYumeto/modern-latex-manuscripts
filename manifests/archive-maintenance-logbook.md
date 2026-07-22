@@ -1657,3 +1657,31 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   official Zenodo API still resolves concept `10.5281/zenodo.20410947` to
   version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft,
   mutation, or duplicate was created.
+
+## 2026-07-22 - SGA2 Expose XI line 3609 notation adjudicated
+
+- Manager decision
+  `EG-SGA2-XI-L3609-PIC-YN-VS-XN-SOURCE-NOTATION-ADJUDICATION-20260722-0001`
+  closes the former forward watch as source defect
+  `SGA2-XI-L3609-PIC-YN-VS-XN-SRCDEF-001`.
+- The corrected French authority remains byte-identical. Its line 3609 has
+  141 Latin-1 bytes without EOL at SHA-256
+  `A4A97EB590DB6B9B06BDC45B08D7B351B68E22774A346F2DE81306AAFF3F1051`.
+  The manager requires future English `Pic(X_n)` plus an immediate visible
+  note explaining the French `Pic(Y_n)` manifestation and the earlier Expose
+  X alias.
+- Dependent lines 3642 and 3646 bind to the same master defect through
+  `SGA2-XI-BIND-L3642-PIC-XN-001` and
+  `SGA2-XI-BIND-L3646-PIC-XN-001`.
+- The 37-file producer preflight remains internal. Its manifest and final
+  validation have SHA-256 values
+  `0C2210820A42B8FF780544F8975B0C30499B3B76615CB22B1D6181FA5B6D86BC`
+  and `26F67005C49ECCDA910FA1B5B47D4D9AEB35671473D829DBA2F11E431C481896`.
+- Same-edition physical page 108 visibly manifests the source reading. The
+  1,700x2,200, 200-dpi full-page raster has SHA-256
+  `B4C32C8D1EE9455FFE5F911FCE30D214EEA7A1186AC9181C06A98D9FB2E159A0`
+  and remains rights-blocked; four machine panels remain nonpublic.
+- No English target, machine-evidence body, or pixel is published. The
+  proposition remains held pending a no-overwrite successor and fresh
+  independent PASS. Public source-bearing coverage remains through line
+  3574; Zenodo is unchanged and no duplicate was created.
