@@ -1,0 +1,3 @@
+# Audit-logic predecessor chronology
+
+The first R2 review execution produced a false-negative FAIL because three satisfied evidentiary conditions (`manager_control_adopted`, `xref_type_and_semantics`, and `locator_consistency`) used overly literal, line-wrap-sensitive predicates. A correction message crossed an already-running rerun, so the first root's control files now reflect that rerun rather than the transient false-FAIL bytes. This successor freezes and hash-binds the first root as it exists, records the chronology without rewriting it, and reruns every gate from the unchanged producer bytes.
