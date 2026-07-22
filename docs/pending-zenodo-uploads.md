@@ -1,3 +1,14 @@
+## 2026-07-22: terminal-state follow-up read back; no upload
+
+- GitHub PR: [#64](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/64)
+- Public merge: `98050583b004b665bfcc081fd6cdcc964a1d8503`
+- Readback: [`20260722_english_germanic_terminal_state_followup_github_readback.md`](../manifests/source-intake/20260722_english_germanic_terminal_state_followup_github_readback.md)
+
+All seven metadata blobs and independent raw GitHub responses match exactly.
+This closes GitHub readback only. No body, workbook, evidence package, image,
+or source-bearing frontier was added, so there is no standalone Zenodo object
+to upload. SGA remains record `21435547`; Noether remains record `21434690`.
+
 ## 2026-07-22: terminal-state follow-up is not a Zenodo queue item
 
 - Metadata receipt: [`20260722_english_germanic_terminal_state_followup_0658.md`](../manifests/source-intake/20260722_english_germanic_terminal_state_followup_0658.md)

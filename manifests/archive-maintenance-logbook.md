@@ -1957,3 +1957,23 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   Independent final review, freeze, and handoff remain open.
 - This is metadata only. No body, workbook, evidence tree, source or target
   pixel, source-bearing frontier, or Zenodo object was added.
+
+## 2026-07-22 - English/Germanic terminal-state follow-up GitHub readback
+
+- PR [#64](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/64)
+  merged source commit `a6bc2bc41dfba2d7a2ce317ec97c3d6444f347a5` at
+  public `main` commit `98050583b004b665bfcc081fd6cdcc964a1d8503`.
+- A fresh shallow sparse clone resolved exactly to the merge with a clean
+  worktree. All seven source and merge Git blobs match.
+- Independent raw GitHub responses matched all seven merge blobs byte-for-byte.
+  The raw public JSONL logbook parses as 97 records / 97 unique IDs through
+  `AML-20260722-EG-085`.
+- The JSONL checkout copy underwent local CRLF conversion and was explicitly
+  excluded from the raw-byte claim; its raw Git blob and raw GitHub response
+  match at SHA-256
+  `A6A8CE5F79F43DAFF7A7049C8F03D10BD7A0F51D96F92F29AB62B8DCA5B30DCA`.
+- The seven-path server diff has zero private-path or thread-ID hits and the
+  public tree contains no target, workbook, evidence, or visual path.
+- SGA remains record 21435547 at 33 files / 73,450,481 bytes; Noether remains
+  record 21434690 at 100 files / 2,362,920,800 bytes. No draft, mutation,
+  deposition, or duplicate was created.
