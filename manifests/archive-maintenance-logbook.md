@@ -1380,3 +1380,30 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `10.5281/zenodo.20410947`. No Zenodo mutation or duplicate was attempted.
 - Exact readback controls are in
   [`sga2-english-expose-x-purity-theorem-controls-20260722`](../sources/sga/sga2-english-expose-x-purity-theorem-controls-20260722/).
+
+## 2026-07-22 - SGA2 Expose X Theorem 3.10 producer state held closed
+
+- The newest local SGA2 unit covers corrected French lines 3576-3586,
+  printed page 123, physical pages 105-106, and running pages 97-98. Its raw
+  cursor is blank line 3587 and its substantive cursor is line 3588.
+- The producer reports PASS with one 2,085-byte TeX at SHA-256
+  `16DCAF01A6F23A995B595FCF40E6FE3245664A5E3F2D8D75B6905DB8A498BB96`
+  and one 209,194-byte PDF at SHA-256
+  `6A2DE544ABAA7AB60DAC3042F43FF0C37972244789CC87D17CB29B1EE6ADFD5E`.
+  Three builds are clean, 12/12 fonts pass, 37 CSV and 37 JSONL records close,
+  five machine panels were inspected, and 55 text files pass four-mode
+  privacy scanning with zero hits.
+- The controlling return says `PRODUCER_PASS_PENDING_FRESH_INDEPENDENT_REVIEW`
+  and explicitly records independent review false, seal false, archive
+  handoff false, and proposed public body files zero. The body therefore
+  remains local.
+- The source-page 105-106 rasters and target-page render are not silently
+  omitted. Their parent, page, dimensions, DPI, rotation, full-page bounding
+  box, exact SHA-256, linkage, QA disposition, and rights state are published
+  in the metadata-only hold receipt; all pixels remain withheld.
+- Public source-bearing coverage remains through corrected French line 3574.
+  The concurrent SGA1 I.10.3 build remained actively mutable and had no sealed
+  handoff during this sweep, so it was not classified as a release.
+- The official Zenodo API still resolved concept
+  `10.5281/zenodo.20410947` to version `10.5281/zenodo.21435547`, 33 files /
+  73,450,481 bytes. No draft, duplicate, or mutation was created.
