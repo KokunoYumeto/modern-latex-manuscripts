@@ -1685,3 +1685,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   proposition remains held pending a no-overwrite successor and fresh
   independent PASS. Public source-bearing coverage remains through line
   3574; Zenodo is unchanged and no duplicate was created.
+
+## 2026-07-22 - SGA2 Expose XI line 3609 adjudication public readback
+
+- Pull request [#54](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/54)
+  merged the metadata-only adjudication at public `main` commit
+  `e6509c047caa02aabeb82b1ab9ef4a7a1f926895`.
+- A fresh filtered sparse clone resolved exactly to the merge commit with a
+  clean worktree. All seven changed Git blobs matched source commit
+  `1a6227abe6501ee78bae50e7be9c7fb3785c6d1e` byte for byte.
+- The public archive JSONL has SHA-256
+  `7EEA7087ED6A4DFC60CAF25321D0B1F5ED1D0BE87D3B9CDC503012FEF71AB793`
+  and parses as 85 records with 85 unique decision IDs, ending at
+  `AML-20260722-SGA-073`.
+- The complete public tree contains exactly the two line-3609 metadata
+  receipts and no new target TeX/PDF, authority slice, machine evidence, ZIP,
+  target render, source raster, machine panel, or other body/pixel file.
+- Added lines have zero private-path or thread-ID hits. Public source-bearing
+  coverage remains through line 3574. The official Zenodo API still resolves
+  concept `10.5281/zenodo.20410947` to version
+  `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft, mutation,
+  or duplicate was created.

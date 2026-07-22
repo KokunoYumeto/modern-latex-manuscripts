@@ -172,6 +172,23 @@ matched all nine changed Git blobs exactly, parsed 83 unique archive
 decisions, and confirmed from the complete repository tree that no Section 1
 body, evidence, or pixels entered public custody.
 
+## 2026-07-22 SGA2 Expose XI line 3609 notation adjudication
+
+Manager decision
+`EG-SGA2-XI-L3609-PIC-YN-VS-XN-SOURCE-NOTATION-ADJUDICATION-20260722-0001`
+now closes the former `Pic(Y_n)` / `Pic(X_n)` forward watch under stable
+source-defect ID `SGA2-XI-L3609-PIC-YN-VS-XN-SRCDEF-001`. Future English
+must use `Pic(X_n)` with an immediate visible note; French remains unchanged.
+No proposition target or evidence is released.
+
+Pull request [#54](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/54)
+merged the sanitized metadata at public `main` commit
+`e6509c047caa02aabeb82b1ab9ef4a7a1f926895`. A
+[fresh-clone readback](source-intake/20260722_sga2_xi_line3609_pic_yn_xn_adjudication_github_readback.md)
+matched all seven Git blobs and confirmed that the complete public tree adds
+only two metadata receipts, with no target, machine body, or pixel. Public
+source-bearing coverage remains through line 3574; Zenodo is unchanged.
+
 ## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
 Two separate rights-curated packages preserve the complete proof of Theorem
