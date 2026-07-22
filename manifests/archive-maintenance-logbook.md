@@ -1902,3 +1902,21 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   73,450,481 bytes and Noether record 21434690 at 100 files /
   2,362,920,800 bytes. No draft, mutation, deposition, or duplicate was
   created.
+
+## 2026-07-22 - English/Germanic active-lane follow-up at 06:37
+
+- Recorded Noether Paper 6 tranche 039's R3 reciprocal-graph FAIL, R4
+  graph-only producer repair, and corrected R4 independent 29/29 PASS.
+- The Noether target remains byte-stable, but its 86-file producer tree is
+  internal and path-bearing. No local seal, privacy-clean projection, or
+  archive handoff exists, so no body or target render is published.
+- Recorded SGA2 Expose XI lines 3618-3622 reviewer generation 005 as
+  `FAIL_CLOSED`: three rebuilds reproduce the producer PDF, but native PDF
+  metadata/render tools did not close and pixel, machine, and visual gates
+  remain missing. Generation 006 is required.
+- Recorded SGA1 I.10.5 as a mutable preflight and published only the hashes,
+  parent-reader identities, page mappings, dimensions, approximate DPI,
+  rotation, and full-page bounds for two source witnesses.
+- Both SGA1 source-page pixels remain `rights_blocked_not_public`. No body,
+  target, evidence package, image, source-bearing frontier, or Zenodo object
+  was added.

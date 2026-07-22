@@ -1,3 +1,20 @@
+## 2026-07-22: active-lane follow-up is not a Zenodo queue item
+
+- Metadata receipt: [`20260722_english_germanic_active_lane_followup_0637.md`](../manifests/source-intake/20260722_english_germanic_active_lane_followup_0637.md)
+
+Noether Paper 6 tranche 039 now has a corrected independent R4 PASS, but the
+tree remains internal and path-bearing and has no local seal, privacy-clean
+release projection, or archive handoff. SGA2 Expose XI lines 3618-3622 still
+lacks a terminal independent PASS after reviewer generation 005 failed
+closed. SGA1 Proposition I.10.5 remains a mutable preflight; its two source
+page images are rights-blocked and only their identities and locator metadata
+are public.
+
+These states are not pending standalone uploads. Revisit an individual lane
+only after terminal review, a frozen privacy-clean handoff, and explicit
+release authority. The SGA and Noether Zenodo concepts remain unchanged, and
+no duplicate deposition is authorized.
+
 ## 2026-07-22: SGA5 topology and active-lane metadata read back; no upload
 
 - GitHub PR: [#60](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/60)
