@@ -17,6 +17,12 @@ Current public interpretation:
   and pp. 571-680.
 - SGA 7-I material is working-draft material unless a specific later packet
   declares source-checked coverage for a named range.
+- The SGA 1 and SGA 2 full-volume convenience readers in
+  `sga1-sga2-full-volume-convenience-readers-reinhold-e7a259f-20260722` render
+  Jacob Reinhold's LLM-generated English translation at pinned snapshot
+  `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e`. They are not French-source
+  authority or source-audited translations; separately named audited/aligned
+  checkpoints take precedence for the ranges they cover.
 - Witness-aid ZIPs, OCR, crops, and worklists are locator/check layers; they are
   not replacement text or source authority by themselves.
 
