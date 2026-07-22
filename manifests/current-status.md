@@ -1,3 +1,16 @@
+## 2026-07-22 English/Germanic terminal-state follow-up GitHub readback
+
+GitHub PR [#64](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/64)
+merged source commit `a6bc2bc41dfba2d7a2ce317ec97c3d6444f347a5` at public
+`main` commit `98050583b004b665bfcc081fd6cdcc964a1d8503`. A fresh
+sparse public-main clone, source/merge blob comparison, and independent raw
+byte fetch matched all seven metadata paths. See the
+[readback receipt](source-intake/20260722_english_germanic_terminal_state_followup_github_readback.md).
+
+This closes metadata-only GitHub publication/readback. No Noether, SGA2, or
+SGA1 body, workbook, evidence tree, or pixel entered the merge; public
+source-bearing coverage and both existing Zenodo concepts remain unchanged.
+
 ## 2026-07-22 English/Germanic terminal-state follow-up at 06:58
 
 A [metadata-only terminal-state receipt](source-intake/20260722_english_germanic_terminal_state_followup_0658.md)

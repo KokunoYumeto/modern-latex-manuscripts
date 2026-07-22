@@ -23,6 +23,7 @@ generation-007 independent PASS but no seal or handoff; and SGA1 I.10.5 has
 deterministic reader, workbook, and visual QA but remains pre-seal. The receipt
 adds metadata only. Every body, workbook, evidence tree, and pixel remains
 held, public source-bearing coverage is unchanged, and Zenodo is unchanged.
+GitHub PR #64 and fresh raw-byte readback now close that metadata-only leg.
 
 ## Reader Priority And Quality
 
