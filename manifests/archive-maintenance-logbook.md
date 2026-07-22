@@ -1538,3 +1538,23 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   The official Zenodo API still resolves concept
   `10.5281/zenodo.20410947` to version `10.5281/zenodo.21435547`, 33 files /
   73,450,481 bytes. No draft, mutation, or duplicate was created.
+
+## 2026-07-22 - SGA2 Expose X line 3588 reviewed handoff hold public readback
+
+- Pull request [#49](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/49)
+  merged the metadata-only successor at public `main` commit
+  `7f3a057efa83eeea8cf5e3549e2696ec1de1ce0b`.
+- A fresh sparse clone of the public repository resolved exactly to the merge
+  commit with a clean worktree. All seven changed Git blobs matched the
+  custody commit byte for byte.
+- The public archive JSONL has SHA-256
+  `C4343DF26E6AD16F317B0AD9776B76B509D1DEAA4AB5B8BC6A5C7ACB4B5253D1`
+  and parses as 78 records with 78 unique decision IDs, ending at
+  `AML-20260722-SGA-066`.
+- The public tree contains six line-3588 metadata receipts and no
+  closing-comment TeX, PDF, authority slice, CSV/JSONL evidence, ZIP, target
+  render, source raster, machine panel, comparison text, raw log, or
+  privacy-failure artifact.
+- The merged diff introduced zero private paths, thread IDs, or body/pixel
+  files. Public source-bearing coverage remains through line 3574. Zenodo
+  remains unchanged and no duplicate was created.
