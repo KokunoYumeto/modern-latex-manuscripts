@@ -1177,3 +1177,44 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   through 3566 when read with the neighboring packages. Lines 3457-3521 remain
   unclaimed. Zenodo remains unchanged pending authenticated same-concept
   cumulative curation; no duplicate deposition is authorized.
+
+## 2026-07-22 - SGA2 Expose X Lemma 3.6 R3 and Lemma 3.9 proof public readback
+
+- Pull request [#35](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/35)
+  merged both packages to public `main` commit
+  `f17a2a316343650c5ea465a72e216d640de3825e`.
+- A fresh sparse clone of public `main` resolved exactly to that merge. The
+  Lemma 3.6 R3 package revalidated 31 files / 539,264 bytes, all 29 manifest
+  rows, manifest SHA-256
+  `020ABAEDD1730F130ACBBB5DFC986B3496F2712E92C0864D486A5207987CCF11`,
+  validation SHA-256
+  `B00CCA23E6206EAD02C7E43A4EB66FC481089C223F267903A97CB8B70498E773`,
+  and complete identity
+  `F1E03CA393ADA7D2196792395C221D1E663544EE6CD6F9FD9A9FB17E0E83F35D`.
+- The Lemma 3.9 proof package revalidated 33 files / 386,197 bytes, all 31
+  manifest rows, manifest SHA-256
+  `3593DDEE9681A44C320B921C13A365756A17E22341944D40D98CE285C340B77E`,
+  validation SHA-256
+  `50B6A0D1A8480A4CD2AEE9D89945D3C8D04CA8C72D9599F272ADD3AEB50181A9`,
+  and complete identity
+  `AEBC30F853655771CF359F3B28E4FA102609B3DB9BE4857FCBA1A023F171BEAD`.
+- The public target TeX/PDF pairs retained their exact hashes. Both PDFs remain
+  one-page A4 and unencrypted; all 17/17 and 16/16 font rows remain embedded,
+  subset, and Unicode. All JSON-family files parsed, and downloaded text plus
+  extracted PDF text had zero private-path or thread-ID hits.
+- The append-only Lemma 3.9 correction remains metadata-only: producer privacy
+  coverage is 55 durable text files with zero hits; the independent scan is 43
+  files with zero hits. No sealed payload byte changed.
+- Exact receipts are retained in
+  `sources/sga/sga2-english-expose-x-l36-proof-r3-controls-20260722/GITHUB_PUBLICATION_READBACK.md`
+  and
+  `sources/sga/sga2-english-expose-x-l39-proof-controls-20260722/GITHUB_PUBLICATION_READBACK.md`.
+  Zenodo remains unchanged at version `10.5281/zenodo.21435547` under concept
+  `10.5281/zenodo.20410947`; no duplicate record, draft, or mutation exists.
+- The English/Germanic shared log received the closure through its locked
+  append helper as decision
+  `EG-SGA2-X-L36P-R3-L39P-GITHUB-CUSTODY-20260722-0001`. The 6,659-byte
+  record has SHA-256
+  `70702D5DBE035508123484F1FC36B5255786596A8AC5D01AD8F615F160A432C8`;
+  the validated 267-record log now has SHA-256
+  `547FC6BC022A7C6F3D9E00EB8E3AAB9AC0E90DF94CE185A0AE1361C2DF7E75DB`.
