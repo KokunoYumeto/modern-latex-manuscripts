@@ -1507,3 +1507,34 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The merged diff introduced zero private paths, thread IDs, or body/pixel
   files. Public source-bearing coverage remains through line 3574. Zenodo
   remains unchanged and no duplicate was created.
+
+## 2026-07-22 - SGA2 Expose X line 3588 reviewed handoff received, release held
+
+- A distinct exact handoff now supplies the fresh independent review missing
+  from the earlier producer-state receipt. Its main 8,597-byte control has
+  SHA-256
+  `084C9FA625408F3671E6746CC603A334BC24C2ACEDAD312EDE7406B3663F385B`;
+  the seven-file base package is 25,502 bytes and the later dispatch receipt
+  brings its directory to eight files / 27,086 bytes.
+- The independent package contains 13 files / 501,458 bytes. Its 17/17 checks
+  pass, the exact PDF/text/render identities reproduce, all 8 font rows are
+  embedded/subset/Unicode, and all 42 handoff-bound evidence identities
+  replay. Validation SHA-256 is
+  `417C04A505D730C4FA3EF63E6EE3F0DF273466D1D76A2BAD61B7FD7FE18D0411`.
+- The candidate projection has six files / 214,489 bytes and zero privacy
+  hits. Its descriptor SHA-256 is
+  `5E531B88119B3C2931F70B0E9353EA42515A02D2285708C69F3FCA4F55C4633B`.
+  Every row nevertheless remains `not_authorized_not_dispatched`, and the
+  controlling readiness file remains `NOT_READY_FOR_PUBLICATION`.
+- Archive maintenance therefore records a metadata successor rather than
+  copying the TeX, PDF, machine ledgers, source audit, or visual-QA body.
+  Rights and attribution, an English license decision, short source readings,
+  and the untagged PDF's accessibility disposition remain unresolved.
+- The project target render has an independent visual PASS but remains held;
+  the same-edition physical-page-106 raster remains
+  `rights_blocked_not_public`; the five machine panels remain nonpublic. No
+  body or image pixel is silently promoted.
+- Public source-bearing coverage remains through corrected French line 3574.
+  The official Zenodo API still resolves concept
+  `10.5281/zenodo.20410947` to version `10.5281/zenodo.21435547`, 33 files /
+  73,450,481 bytes. No draft, mutation, or duplicate was created.
