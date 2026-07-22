@@ -99,6 +99,13 @@ panels remain nonpublic. Public source-bearing coverage therefore remains
 through corrected French line 3574. Zenodo remains unchanged under the
 existing SGA concept.
 
+Pull request [#49](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/49)
+merged this metadata-only successor at public `main` commit
+`7f3a057efa83eeea8cf5e3549e2696ec1de1ce0b`. A
+[fresh-clone readback](source-intake/20260722_sga2_x_line3588_reviewed_handoff_hold_github_readback.md)
+matched all seven Git blobs exactly and parsed the public logbook as 78 unique
+records. The public tree still contains no closing-comment body or pixels.
+
 ## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
 Two separate rights-curated packages preserve the complete proof of Theorem
