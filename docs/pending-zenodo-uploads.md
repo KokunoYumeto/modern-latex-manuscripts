@@ -1,10 +1,11 @@
-## 2026-07-22: SGA2 Theorem 3.10 R2 and Expose XI opening held from release
+## 2026-07-22: SGA2 Theorem 3.10 R2 and Expose XI units held from release
 
 Archive maintenance received independently reviewed exact handoffs for
 Theorem 3.10 / French lines 3576-3586 and the Expose XI opening/global
-notation / lines 3590-3596. Both handoff validations pass and both candidate
-sets replay exactly, but every row remains `proposed_public=false` and
-`not_authorized_not_dispatched`.
+notation / lines 3590-3596. It subsequently received Expose XI Section 1 exact
+sequences / lines 3598-3606. All three handoff validations pass and all three
+candidate sets replay exactly, but every row remains
+`proposed_public=false` and `not_authorized_not_dispatched`.
 
 GitHub therefore records only sanitized metadata receipts:
 
@@ -13,12 +14,16 @@ GitHub therefore records only sanitized metadata receipts:
   privacy failure preserved as nonpublic adverse history;
 - [`Expose XI opening`](../manifests/source-intake/20260722_sga2_xi_opening_global_notation_reviewed_handoff_hold.md):
   24 held candidates / 305,051 bytes; 88 custody identities; independent
-  rebuild/text/render exact.
+  rebuild/text/render exact;
+- [`Expose XI Section 1`](../manifests/source-intake/20260722_sga2_xi_section1_exact_sequences_reviewed_handoff_hold.md):
+  38 held candidates / 459,387 bytes; 91 custody identities; three independent
+  rebuilds and text/render identity exact.
 
-Neither body extends public source-bearing coverage past French line 3574.
-Both target PDFs are untagged, both immutable target pages retain stale
-producer-time pending/internal wording, and rights/license/accessibility gates
-remain open. All source rasters, target renders, and machine-panel images are
+None of the bodies extends public source-bearing coverage past French line
+3574. All three target PDFs are untagged, and the Theorem 3.10 and both Expose
+XI immutable target pages retain stale producer-time pending/internal wording.
+Rights/license/accessibility gates remain open. All source rasters, target
+renders, and machine-panel images are
 explicitly held. The existing SGA concept remains
 `10.5281/zenodo.20410947`, latest observed version
 `10.5281/zenodo.21435547`; no draft, mutation, or duplicate was created.
