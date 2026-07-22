@@ -1443,3 +1443,22 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   visual-evidence object was admitted. The official Zenodo API still returns
   version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes, under concept
   `10.5281/zenodo.20410947`; no draft, mutation, or duplicate was created.
+
+## 2026-07-22 - SGA6 no-change watch public readback
+
+- Pull request [#45](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/45)
+  merged at public `main` commit
+  `8a67801d83e46b0d5dc8ce072a1516a347491a24`.
+- A fresh filtered sparse clone resolved exactly to that commit with a clean
+  worktree. Five ordinary files matched byte for byte.
+- The archive JSONL has identical Git blob
+  `1e5483fef0a45cb356341584e5d696e086d74dc7` in both repositories and both
+  copies normalize to SHA-256
+  `45AC23717235511D6302A51EDA14BD5C6D3D1BCD22FCA821B39704FD1C5149BE`.
+  All 74 records parse with 74 unique IDs.
+- The merge introduced no private absolute path, thread ID, SGA6 body, PDF,
+  source image, target render, crop, diagram, or other visual file. The
+  source-control IDs retain their expected non-personal `CODEX` provenance
+  tag.
+- The admitted boundary remains `idx684` / English cursor `idx685`. Zenodo
+  remains unchanged and no duplicate was created.
