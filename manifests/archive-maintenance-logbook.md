@@ -2113,3 +2113,22 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   10.5281/zenodo.21497913 on existing SGA concept
   10.5281/zenodo.20410947; no duplicate or competing deposition is
   authorized.
+
+## 2026-07-22 - SGA6 idx693-idx702 terminal public readback closed
+
+- GitHub PR #73 published source commit
+  `3586caa5de9a9fde2242dc12e06ab3f8739864e7` at merge
+  `dd57bcd15c38ccd8847d2664b051e527bc07875c`.
+- A fresh credential-free sparse clone matched all 20 files / 2,961,918 bytes,
+  all 19 checksum rows, and canonical identity
+  `C86C09B542EADBD15773F663384CBD4E7603D50E0C04E5650A1CB6BFBEE67E9C`.
+- Published same-concept Zenodo version `10.5281/zenodo.21498303`: all 39
+  inherited files retain exact server identities and all six additions pass
+  unauthenticated byte/SHA-256 readback.
+- The downloaded 2,789,975-byte ZIP replays all 20 members exactly. The
+  record has 45 files / 80,575,842 bytes and preserves the existing SGA5
+  default preview. No active draft or duplicate concept remains.
+- This closes transport, publication, and readback for the terminal bounded
+  checkpoint. It closes the available SGA6 source but does not recertify the
+  historical prefix, complete a critical edition, or settle underlying
+  rights.
