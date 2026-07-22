@@ -1,3 +1,20 @@
+## 2026-07-22 English/Germanic terminal-state follow-up at 06:58
+
+A [metadata-only terminal-state receipt](source-intake/20260722_english_germanic_terminal_state_followup_0658.md)
+supersedes the lane observations in the 06:37 snapshot. Noether Paper 6
+tranche 039 now has an internal local seal, but its path-bearing 86-file tree
+is explicitly `internal_not_for_release` and no privacy-clean archive handoff
+exists. SGA2 Expose XI lines 3618-3622 now have a terminal generation-007
+independent PASS with exact rebuild, text, font, pixel, machine, manifest, and
+privacy closure, but still no manager seal or archive handoff.
+
+SGA1 Corollary I.10.5 now has a reproducible 21-page reader and a six-sheet
+workbook with six visually checked project-generated previews. It remains an
+active pre-seal state pending independent final review, machine-ledger
+closure, freeze, and handoff. All bodies, workbooks, evidence trees, source
+witnesses, and preview pixels remain local; public source-bearing coverage
+and both existing Zenodo concepts are unchanged.
+
 ## 2026-07-22 English/Germanic follow-up GitHub readback
 
 GitHub PR [#62](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/62)
