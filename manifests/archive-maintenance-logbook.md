@@ -2092,3 +2092,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   default preview. No active draft or duplicate concept remains.
 - This closes transport, publication, and readback for the bounded checkpoint,
   not SGA6 completion, whole-volume certification, or a critical edition.
+
+## 2026-07-22 - SGA6 idx693-idx702 terminal public successor admitted
+
+- Rehashed all fourteen declared producer identities; all match the handoff.
+- Withheld three copies of the path-bearing raw build log plus all build
+  intermediates, while preserving their identities in the public custody
+  ledger.
+- Repaired two U+0001 extraction bytes with explicit ToUnicode mappings for
+  Latin Modern's large parentheses. The English body is unchanged and all
+  seven 160-dpi renders remain byte-identical.
+- Admitted the exact 20-file / 2,961,918-byte GitHub package. Three builds,
+  26/26 embedded subset Unicode fonts, zero forbidden extraction controls,
+  7/7 visual inspection, exact manifest replay, privacy scan, and ZIP
+  extraction readback pass.
+- No French scan or source-page pixel is public. This closes the available
+  SGA6 source but does not recertify earlier layers or create a critical
+  edition.
+- The prepared ZIP is routed only from published predecessor
+  10.5281/zenodo.21497913 on existing SGA concept
+  10.5281/zenodo.20410947; no duplicate or competing deposition is
+  authorized.
