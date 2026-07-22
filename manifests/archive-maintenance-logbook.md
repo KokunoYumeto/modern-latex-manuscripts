@@ -1964,6 +1964,23 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The live SGA concept remains record 21435547, 33 files / 73,450,481 bytes.
   No draft, mutation, deposition, or duplicate was created.
 
+## 2026-07-22 - SGA2 Expose XI lines 3618-3622 hold GitHub readback
+
+- PR [#66](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/66)
+  merged source commit `5c63cb73d82e2d1c86f4437b19c2e1a864b0633e` at public
+  `main` commit `392aafc225c2aabc20fdce827f179288d6813ea2`.
+- A fresh shallow sparse clone resolved exactly to the merge with a clean
+  worktree. All seven source, merge, and independent raw GitHub blobs match.
+- The raw public logbook has 296,130 bytes, SHA-256
+  `2A6E4BBAD2638DE424B6184638F29918C473D003EDD338CC725AE22B10A975A6`,
+  and parses as 99 records / 99 unique decision IDs through
+  `AML-20260722-SGA-081`.
+- The seven changed paths contain metadata only. No target, source slice,
+  machine-evidence body, image, workbook, ZIP, or source-bearing frontier was
+  added.
+- SGA remains record 21435547 at 33 files / 73,450,481 bytes. No draft,
+  mutation, deposition, or duplicate was created.
+
 ## 2026-07-22 - English/Germanic terminal-state follow-up at 06:58
 
 - Recorded Noether Paper 6 tranche 039's 6,261-byte manager local seal at
