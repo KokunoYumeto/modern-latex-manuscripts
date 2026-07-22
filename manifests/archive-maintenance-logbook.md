@@ -1249,3 +1249,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   concept `10.5281/zenodo.20410947` to version `10.5281/zenodo.21435547`,
   33 files / 73,450,481 bytes. No GitHub package, Zenodo draft, duplicate
   record, or shared-log mutation was created for either held state.
+
+## 2026-07-22 - SGA2 Expose X post-3566 hold receipt public readback
+
+- Pull request [#37](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/37)
+  merged the status correction and fail-closed sweep receipt to public `main`
+  commit `5fc5e7952b6ca64e3975a35d898a24938d4c2b02`.
+- A fresh sparse clone resolved exactly to that commit. The downloaded
+  dashboard, current-status page, and Markdown logbook matched their local
+  SHA-256 values exactly at
+  `31DE0F44BE0A426933E909829AD46D841B5918F4E9DE61903181C4C65CC7F59A`,
+  `872BD83036821992303B10EB45CEA76AFB6291F960C47F937C58FF0A65DB3749`,
+  and `4D8B5F4D34AA420F3D3678DFCD914935AFFB4D14DF5CF60860259F93AC049D69`.
+- The JSONL has identical Git blob identity
+  `a71bb946c7629a22108d1555de2fb8985dc844e0` in both repositories. Windows
+  checkout converted its canonical LF bytes to CRLF; both checkouts normalize
+  to SHA-256
+  `A88DBECB7C84C3A93AE37B92F0EF592DD63779E7838C2B840E243BFBD728C535`,
+  and all 66 records parse.
+- The new diff has zero private absolute paths and zero thread IDs. No
+  translation body, source raster, Zenodo object, or shared production-log
+  record was added. The public source-bearing endpoint remains line 3566.
