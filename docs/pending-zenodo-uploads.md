@@ -1,3 +1,22 @@
+## 2026-07-22: SGA6 idx693-idx702 terminal queue on existing concept
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Live predecessor: [10.5281/zenodo.21497913](https://doi.org/10.5281/zenodo.21497913)
+- GitHub package: [sga6-english-idx693-702-terminal-source-checked-20260722](../sources/sga/sga6-english-idx693-702-terminal-source-checked-20260722/)
+- Custody receipt: [20260722_sga6_idx693_702_terminal_public_custody.md](../manifests/source-intake/20260722_sga6_idx693_702_terminal_public_custody.md)
+
+The exact prepared ZIP has 20 members / 2,789,975 bytes and SHA-256
+01D10C1FFC19721C796EDCC714857A3E2AB34618F41983C9917D35CB34CD55EC.
+It packages one editable TeX, one seven-page reader, seven reviewed target
+renders, exact producer/review controls, and archive manifests. It contains no
+French scan, source-page pixel, private path, raw compiler log, or build
+intermediate.
+
+GitHub merge and fresh-clone byte readback must close before a single new
+version is made from record 21497913. Zenodo must inherit every predecessor
+file and use concept 10.5281/zenodo.20410947; no duplicate concept or competing
+deposition is permitted.
+
 ## 2026-07-22: SGA6 idx685-idx692 queue closed on existing concept
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
