@@ -1,3 +1,14 @@
+## 2026-07-22: SGA5 topology and active-lane metadata read back; no upload
+
+- GitHub PR: [#60](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/60)
+- Public merge: `512f20fad4b0cdb7880a2ad107978d60b6c28c13`
+- Readback: [`20260722_sga5_active_lanes_github_readback.md`](../manifests/source-intake/20260722_sga5_active_lanes_github_readback.md)
+
+A fresh clone matched all nine changed blobs exactly and confirmed that the
+merge contains metadata only. There is no standalone Zenodo upload for these
+receipts. SGA remains record `21435547` with 33 files / 73,450,481 bytes;
+Noether remains record `21434690` with 100 files / 2,362,920,800 bytes.
+
 ## 2026-07-22: SGA5 topology and active-lane receipts need no standalone upload
 
 - SGA5 topology receipt: [`20260722_sga5_numbered_print_coverage_topology_reconciliation.md`](../manifests/source-intake/20260722_sga5_numbered_print_coverage_topology_reconciliation.md)

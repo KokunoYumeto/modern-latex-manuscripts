@@ -1,3 +1,16 @@
+## 2026-07-22 SGA5 topology and active-lane metadata readback
+
+GitHub PR [#60](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/60)
+merged source commit `3fa0e24654da06fb3cccae7c7c2707085671b201` at public
+`main` commit `512f20fad4b0cdb7880a2ad107978d60b6c28c13`. A fresh filtered
+clone matched all nine source/merge blobs exactly and found no body or pixel
+path in the merge. See the combined
+[readback receipt](source-intake/20260722_sga5_active_lanes_github_readback.md).
+
+The SGA and Noether Zenodo records remain unchanged. This closes GitHub
+publication/readback for metadata only; the SGA5 source pixels and all active
+lane bodies/renders remain held.
+
 ## 2026-07-22 SGA5 numbered-print topology reconciliation
 
 Archive maintenance independently replayed the append-only SGA5 coverage
