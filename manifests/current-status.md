@@ -16,6 +16,25 @@ The five added TeX companions and replacement status/checksum controls streamed 
 
 These are bounded machine-assisted source-audited/source-aligned working checkpoints, not complete SGA volumes, critical editions, peer review, proof verification, independent human certification, accessibility certification, or rights determinations.
 
+## 2026-07-22 SGA2 Expose X Theorem 3.10 producer hold
+
+The statement at corrected French lines 3576-3586 has a producer PASS but is
+not independently reviewed, sealed, or handed to archive maintenance. Its TeX
+and one-page PDF identities are preserved in a
+[metadata-only hold receipt](source-intake/20260722_sga2_x_theorem3_10_producer_hold.md),
+while the translation body, target render, source slice, source-page pixels,
+comparison excerpt, and raw evidence remain withheld. Producer checks report
+three clean builds, 12/12 embedded/subset/Unicode fonts, closed 37-row CSV and
+37-record JSONL controls, inspected source/target renders, and zero privacy
+hits. These controls do not substitute for the required fresh independent
+review.
+
+The raw cursor is blank line 3587 and the next substantive cursor is line
+3588. Public source-bearing coverage remains through line 3574; this hold does
+not extend it. Source physical pages 105-106 and the target page are recorded
+with exact dimensions, DPI, bounding boxes, hashes, linkage, and QA
+disposition, but no pixels were copied. Zenodo remains unchanged.
+
 ## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
 Two separate rights-curated packages preserve the complete proof of Theorem
