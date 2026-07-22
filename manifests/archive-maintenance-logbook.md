@@ -1920,3 +1920,21 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Both SGA1 source-page pixels remain `rights_blocked_not_public`. No body,
   target, evidence package, image, source-bearing frontier, or Zenodo object
   was added.
+
+## 2026-07-22 - English/Germanic active-lane follow-up GitHub readback
+
+- PR [#62](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/62)
+  merged source commit `69b0c5d9e49f71afa27eb6544cef91eed66cdccc` at public
+  `main` commit `89b3f7ff2d781fd880a7f9b23b9c73ef60dd7ffe`.
+- A fresh shallow sparse clone resolved exactly to the merge with a clean
+  materialized worktree. All seven source and merge Git blobs match.
+- Independent raw GitHub fetches matched all seven source/merge responses
+  byte-for-byte. The pre-closure logbook parses as 95 records / 95 unique IDs
+  through `AML-20260722-EG-083`.
+- The seven-path, 316-line server diff has zero private-path, thread-ID, or
+  agent-name hits and contains no body or visual path.
+- A separate full-tree checkout timed out and was excluded from the evidence
+  claim. No conclusion relies on it.
+- SGA remains record 21435547 at 33 files / 73,450,481 bytes; Noether remains
+  record 21434690 at 100 files / 2,362,920,800 bytes. No draft, mutation,
+  deposition, or duplicate was created.
