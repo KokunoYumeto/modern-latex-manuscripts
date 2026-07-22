@@ -1270,3 +1270,40 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The new diff has zero private absolute paths and zero thread IDs. No
   translation body, source raster, Zenodo object, or shared production-log
   record was added. The public source-bearing endpoint remains line 3566.
+
+## 2026-07-22 - SGA2 Expose X post-3566 review-state correction
+
+- The lines-3568-3571 R2 privacy successor has completed its producer-side
+  recursive freeze at 68 files / 4,858,993 bytes. Its 65-row checksum manifest
+  has SHA-256
+  `9EC87ACE427DD7B44E9CC133DB7126EFF634FBCC95AC0AE66CA1601C7B901FFD`,
+  and its validation passes at SHA-256
+  `4737E26E677D47BB2BB3EEA3932815657AC668DA9F455021DB3F279663AF62F5`.
+  The producer return still requires a fresh independent review and explicitly
+  denies both public-release and archive-handoff authorization.
+- The lines-3573-3574 R2 successor now has a fresh independent review. It passes
+  47/47 checks, scans all 23 producer files with zero private-home hits, rebuilds
+  the one-page A4 PDF in three passes with 14/14 fonts embedded, subset, and
+  Unicode, and matches the preserved target at 200 dpi. The PASS report has
+  SHA-256
+  `526D046ABF3EBE2F1199AC00A718A360550AE026F62A69AF66D6455C2924E2E9`;
+  validation has SHA-256
+  `B0F71F9CA18E0534AE40B5696E1E8A0070A1F79973CC6ED91990F72DAE97FB07`.
+- This independent PASS is intentionally fail-closed. It records `seal: false`,
+  `archive_handoff: false`, and no manager, GitHub, or Zenodo action. The
+  producer rights ledger still leaves every artifact internal, restricted, or
+  rights-gated. No exact producer archive handoff followed the review window.
+- The visual-evidence audit found only held material for these states. For
+  lines 3568-3571, the target render is SHA-256
+  `768DE68E40F4A34141836841EBF93E3ED18803D1476B44AD279680CCF6774BA5`
+  and the same-edition source-page 105 raster is SHA-256
+  `F02CECCC0744EF15A848483CB9F64333536ED81F1B31190A777CB51372B42D51`;
+  the latter remains rights-gated. For lines 3573-3574, the producer target
+  render is SHA-256
+  `BD5809F281B9EDE4E7A67C2A69D649B5EFF759D445386B118FBDA891C4EB5CA7`.
+  No source raster or unsealed target render was copied to the public archive.
+- GitHub source-bearing coverage remains through corrected French line 3566.
+  The official Zenodo API still resolves concept
+  `10.5281/zenodo.20410947` to published version
+  `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft, duplicate,
+  or mutation was created.
