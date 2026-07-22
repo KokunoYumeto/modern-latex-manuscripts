@@ -14,9 +14,17 @@ extraction controls, and seven-page visual review pass. Raw path-bearing logs,
 French scan pixels, and build intermediates remain hash-bound but withheld.
 
 This closes the available SGA6 source, not a new certification of earlier
-layers, complete critical edition, or rights determination. GitHub merge and
-fresh-clone readback are pending; same-concept Zenodo routing starts only after
-that gate.
+layers, complete critical edition, or rights determination. GitHub PR
+[#73](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/73)
+merged source commit `3586caa5de9a9fde2242dc12e06ab3f8739864e7` at public
+`main` commit `dd57bcd15c38ccd8847d2664b051e527bc07875c`; a fresh
+credential-free clone matched all 20 files, 2,961,918 bytes, and the canonical
+package identity. Zenodo version
+[`10.5281/zenodo.21498303`](https://doi.org/10.5281/zenodo.21498303) was
+published only on existing concept `10.5281/zenodo.20410947`; all 39 inherited
+files, all six additions, and all 20 downloaded ZIP members passed exact
+identity/readback checks. See the
+[publication receipt](published-zenodo/20260722_sga6_idx693_702_record_21498303.md).
 
 ## 2026-07-22 SGA6 idx685-idx692 bounded public custody
 
