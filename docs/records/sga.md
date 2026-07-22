@@ -1,6 +1,6 @@
 # SGA
 
-Zenodo record: [21435547](https://zenodo.org/records/21435547); concept DOI: [https://doi.org/10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+Zenodo record: [21499345](https://zenodo.org/records/21499345); concept DOI: [https://doi.org/10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
 
 Public title: SGA 1, SGA 2, SGA 5, and SGA 6: Modern LaTeX Working Editions, Bounded Translations, and Audit Materials
 
@@ -8,17 +8,26 @@ Public title: SGA 1, SGA 2, SGA 5, and SGA 6: Modern LaTeX Working Editions, Bou
 
 | Files | PDFs | TeX | ZIPs | Total MB |
 |---:|---:|---:|---:|---:|
-| 33 | 8 | 8 | 9 | 70.0 |
+| 65 | 13 | 13 | 13 | 96.5 |
 
 ## How To Read This Record
 
 Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
-Current public SGA surface is record 21435547. Its eight reader PDFs all have direct TeX companions; modular ledgers and render evidence remain grouped in support archives. The 309-page SGA5 English source-synchronized working reader remains the default preview. A bounded ten-page SGA1 English checkpoint covers Expose I opening through section I.6, French authority lines 556-1216, and continues at section I.7 / line 1217. Separate bounded SGA2 English checkpoints contain complete Exposes V and VI, corrected French lines 1770-2272, and continue at Expose VII / line 2274. The 377-page layered SGA6 English reader promotes reconciliation for idx663-684 while retaining explicit non-uniform prefix and tail authority; its direct TeX is a flattened dependency-complete projection of the exact modular public source. The rights-aware visual archives contain 37 indexed project-generated output images and no French-source pixels. SGA5 is a selected ten-expose edition, not complete SGA5. Historical versions remain immutable. These are substantive bounded working editions, translations, and repairs, not complete volumes, independently human-certified critical editions, rights determinations, uniform whole-volume source certification, or whole-SGA completion. Record rights metadata is License Not Specified.
+Current public SGA surface is record 21499345. It now places conspicuous 286-page SGA1 and 200-page SGA2 full-volume convenience-reader PDFs, plus their editable generated TeX, at the top of the file list. These two readers render Jacob Reinhold's LLM-generated English Markdown at pinned commit `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e`; his CC BY 4.0 translation contribution is explicitly credited. They are navigation and reading conveniences, not the French authority or independently source-audited translations. Separately named bounded SGA1/SGA2 source-audited or source-aligned checkpoints remain the higher-evidence objects where they overlap. The record also contains the 309-page selected SGA5 English working reader and the 378-page layered SGA6 English reader through idx702. Historical versions remain immutable. None of these objects is an independently human-certified critical edition, mathematical certification, rights determination, uniform whole-volume source certification, or whole-SGA completion. Record rights metadata remains License Not Specified.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
-## Reader And Reference PDFs
+## Full-Volume SGA1 And SGA2 Convenience Readers
+
+| Pages | Size MB | File |
+|---:|---:|---|
+| 286 | 1.3114 | [00_SGA1_English_FullVolume_ConvenienceReader_Reinhold_e7a259f_20260722.pdf](https://zenodo.org/records/21499345/files/00_SGA1_English_FullVolume_ConvenienceReader_Reinhold_e7a259f_20260722.pdf) |
+| 200 | 0.8645 | [00_SGA2_English_FullVolume_ConvenienceReader_Reinhold_e7a259f_20260722.pdf](https://zenodo.org/records/21499345/files/00_SGA2_English_FullVolume_ConvenienceReader_Reinhold_e7a259f_20260722.pdf) |
+
+Editable TeX: [SGA1](https://zenodo.org/records/21499345/files/00l_SGA1_English_FullVolume_ConvenienceReader_Reinhold_e7a259f_20260722.tex) and [SGA2](https://zenodo.org/records/21499345/files/00m_SGA2_English_FullVolume_ConvenienceReader_Reinhold_e7a259f_20260722.tex). See the [exact publication and readback receipt](../../manifests/published-zenodo/20260722_sga1_sga2_fullvolume_readers_record_21499345.md).
+
+## Earlier Reader And Reference PDFs
 
 | Size MB | File |
 |---:|---|

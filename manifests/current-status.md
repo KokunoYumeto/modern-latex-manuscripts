@@ -1,3 +1,25 @@
+## 2026-07-22 SGA1 and SGA2 full-volume convenience-reader publication
+
+GitHub PR [#77](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/77)
+merged the exact 14-file reader package at
+`1d98cf529c0c54b4ef2134235329a4d79ab2866e`. A fresh credential-free
+post-merge clone matched all 14 files / 10,660,347 bytes and all 13 checksum
+rows.
+
+SGA version [`10.5281/zenodo.21499345`](https://doi.org/10.5281/zenodo.21499345)
+inherits all 50 predecessor files and adds 15 objects, including conspicuous
+286-page SGA1 and 200-page SGA2 full-volume convenience-reader PDFs and their
+editable generated TeX. All 15 additions and all 111 members of the pinned
+source snapshot passed anonymous public readback. The same existing concept
+`10.5281/zenodo.20410947` remains in use and no active draft remains.
+
+The readers derive from Jacob Reinhold's LLM-generated English Markdown at
+`jcreinhold/sga` commit `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e`, with
+his CC BY 4.0 translation contribution explicitly credited. They are
+convenience renderings, not French authority, independently source-audited
+translations, critical editions, mathematical certifications, or rights
+determinations. See the [publication receipt](published-zenodo/20260722_sga1_sga2_fullvolume_readers_record_21499345.md).
+
 ## 2026-07-22 SGA3 Loop-1 attribution rule; no upload
 
 Archive maintenance records Jacob Reinhold's public
