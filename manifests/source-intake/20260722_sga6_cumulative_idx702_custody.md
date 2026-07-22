@@ -49,12 +49,17 @@ cumulative package incorporates the terminal body required by its recursive
 closure; it does not replace or republish the already public standalone
 idx693-702 checkpoint as a new standalone object.
 
-## Remote routing
+## Remote publication
 
-Immediately before GitHub admission, the official Zenodo API still resolved
-concept `10.5281/zenodo.20410947` to version
-`10.5281/zenodo.21498303`, whose 45-file surface already includes the
-standalone idx693-702 tranche. Any update must be one cumulative successor on
-that existing concept, inherit the 45 files unchanged, and add no duplicate
-standalone terminal object. No duplicate concept or competing draft is
-authorized.
+GitHub PR [#75](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/75)
+merged at `cc8bc1c5d8f3bff8611e58ee7b87fd783fad21a0`; a fresh
+credential-free clone replayed all 19 files exactly. Archive maintenance then
+published version
+[`10.5281/zenodo.21498777`](https://doi.org/10.5281/zenodo.21498777)
+on the existing SGA concept only.
+
+All 45 predecessor files remain exact. The five cumulative-facing additions
+passed unauthenticated byte and SHA-256 readback, and the downloaded ZIP
+replayed 19/19 members. The already public standalone idx693-702 terminal
+objects were inherited and were not uploaded again. See the
+[publication receipt](../published-zenodo/20260722_sga6_cumulative_idx702_record_21498777.md).

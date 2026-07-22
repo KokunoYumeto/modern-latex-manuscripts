@@ -1,3 +1,41 @@
+## 2026-07-22 SGA3 Loop-1 attribution rule; no upload
+
+Archive maintenance records Jacob Reinhold's public
+[`jcreinhold/sga`](https://github.com/jcreinhold/sga) SGA3 Markdown at snapshot
+`e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` as CC BY 4.0 English prose
+comparison/draft lineage only. Any future package reusing that wording must
+credit Reinhold, link and pin the upstream snapshot, preserve CC BY 4.0
+attribution, and distinguish the prose lineage from this project's
+PDF-controlled equation, TeX, numbering, footnote, and diagram reconstruction.
+
+No SGA3 body, TeX, PDF, image, or Zenodo object is authorized by this rule.
+See the [durable attribution receipt](source-intake/20260722_sga3_loop1_reinhold_attribution_rule.md).
+
+## 2026-07-22 cumulative Noether and SGA6 publication closure
+
+GitHub PR [#75](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/75)
+merged the exact Noether 52-file Papers 1-43 closure and the exact SGA6
+19-file layered reader through idx702 at
+`cc8bc1c5d8f3bff8611e58ee7b87fd783fad21a0`. A fresh credential-free
+sparse clone matched both package surfaces with zero byte or SHA-256 errors.
+
+Noether version
+[`10.5281/zenodo.21498737`](https://doi.org/10.5281/zenodo.21498737)
+replaces the old cumulative English reader and standalone-English ZIP on the
+100-file current surface; those two objects remain preserved in predecessor
+21434690. The new 407-page reader and exact 52-member ZIP passed public
+readback. SGA version
+[`10.5281/zenodo.21498777`](https://doi.org/10.5281/zenodo.21498777)
+inherits all 45 predecessor files and adds five cumulative SGA6 objects; all
+five and all 19 ZIP members passed public readback. The standalone idx693-702
+objects were inherited, not duplicated. Both publications use their existing
+concepts and leave no active draft.
+
+These are working cumulative readers, not critical editions, whole-corpus
+source certification, independent human review, mathematical certification,
+or rights determinations. See the [Noether receipt](published-zenodo/20260722_noether_r823_cumulative_english_record_21498737.md)
+and [SGA6 receipt](published-zenodo/20260722_sga6_cumulative_idx702_record_21498777.md).
+
 ## 2026-07-22 SGA6 idx693-idx702 terminal public custody
 
 Archive maintenance admitted a 20-file / 2,961,918-byte no-overwrite public

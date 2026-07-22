@@ -1,3 +1,42 @@
+## 2026-07-22: SGA3 Loop-1 attribution rule is not an upload item
+
+- Rule: [20260722_sga3_loop1_reinhold_attribution_rule.md](../manifests/source-intake/20260722_sga3_loop1_reinhold_attribution_rule.md)
+- Upstream: [jcreinhold/sga](https://github.com/jcreinhold/sga)
+- Pinned snapshot: `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e`
+
+Future reused prose must retain Jacob Reinhold attribution and CC BY 4.0 while
+remaining distinct from the project's PDF-controlled reconstruction. This is
+a provenance rule only: no SGA3 body or Zenodo mutation is queued.
+
+## 2026-07-22: Noether R823 cumulative English queue closed on existing concept
+
+- Existing Noether concept: [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587)
+- Published version: [10.5281/zenodo.21498737](https://doi.org/10.5281/zenodo.21498737)
+- GitHub package: [noether-r823-cumulative-english-43-papers-20260722](../sources/noether/noether-r823-cumulative-english-43-papers-20260722/)
+- Publication/readback receipt: [20260722_noether_r823_cumulative_english_record_21498737.md](../manifests/published-zenodo/20260722_noether_r823_cumulative_english_record_21498737.md)
+
+GitHub PR #75 and a fresh credential-free clone replay all 52 files and
+5,539,858 bytes exactly. Zenodo's predecessor already occupied the 100-file
+ceiling, so the successor replaces the old cumulative English reader and old
+standalone-English ZIP on the current surface; both remain preserved in
+version 21434690. The new 407-page reader and exact 52-file ZIP passed fresh
+unauthenticated SHA-256 readback. No duplicate concept or active draft remains.
+The queue is closed.
+
+## 2026-07-22: SGA6 cumulative idx702 queue closed on existing concept
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version: [10.5281/zenodo.21498777](https://doi.org/10.5281/zenodo.21498777)
+- GitHub package: [sga6-english-cumulative-through-idx702-20260722](../sources/sga/sga6-english-cumulative-through-idx702-20260722/)
+- Publication/readback receipt: [20260722_sga6_cumulative_idx702_record_21498777.md](../manifests/published-zenodo/20260722_sga6_cumulative_idx702_record_21498777.md)
+
+GitHub PR #75 and a fresh credential-free clone replay all 19 files and
+3,813,685 bytes exactly. Zenodo inherits all 45 predecessor files and adds
+five cumulative-facing objects; each addition passed unauthenticated SHA-256
+readback and the downloaded ZIP replayed 19/19 members. The standalone
+idx693-702 tranche remains inherited unchanged and was not uploaded again.
+No duplicate concept or active draft remains. The queue is closed.
+
 ## 2026-07-22: SGA6 idx693-idx702 terminal queue closed on existing concept
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
