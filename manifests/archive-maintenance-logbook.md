@@ -1407,3 +1407,20 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The official Zenodo API still resolved concept
   `10.5281/zenodo.20410947` to version `10.5281/zenodo.21435547`, 33 files /
   73,450,481 bytes. No draft, duplicate, or mutation was created.
+
+## 2026-07-22 - SGA2 Expose X Theorem 3.10 hold public readback
+
+- Pull request [#43](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/43)
+  merged the metadata-only hold at public `main` commit
+  `a03cf1a5cefe42285261725ed57130d9c5818f33`.
+- A fresh sparse clone resolved exactly to that commit with a clean worktree.
+  Five changed files matched byte for byte. The JSONL has Git blob
+  `9d4dd11812019bc6fb82e93e7d14e1ae3fa49f60` in both views and normalizes to
+  SHA-256
+  `BF1B169453EBDCA42CEF2A2513FFCD73B14675C0C9F3AB8AD83FE2E9FC8F9303`.
+  Both copies parse as 72 records with 72 unique decision IDs.
+- The merged tree contains the metadata and status controls but no Theorem
+  3.10 TeX, PDF, target render, source slice, or source-page raster. Public
+  source-bearing coverage remains through corrected French line 3574.
+- The merged diff introduced zero private paths, thread IDs, or agent names.
+  Zenodo remains unchanged and no duplicate was created.

@@ -35,6 +35,14 @@ not extend it. Source physical pages 105-106 and the target page are recorded
 with exact dimensions, DPI, bounding boxes, hashes, linkage, and QA
 disposition, but no pixels were copied. Zenodo remains unchanged.
 
+Pull request [#43](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/43)
+merged the receipt at public `main` commit
+`a03cf1a5cefe42285261725ed57130d9c5818f33`. A
+[fresh-clone readback](source-intake/20260722_sga2_x_theorem3_10_hold_github_readback.md)
+matched all five ordinary files exactly and the JSONL by Git blob and
+line-ending-normalized bytes. The public tree contains no Theorem 3.10 body or
+pixels.
+
 ## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
 Two separate rights-curated packages preserve the complete proof of Theorem
