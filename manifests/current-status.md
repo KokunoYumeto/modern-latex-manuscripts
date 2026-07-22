@@ -1,3 +1,19 @@
+## 2026-07-22 English/Germanic active-lane follow-up at 06:37
+
+A [metadata-only follow-up](source-intake/20260722_english_germanic_active_lane_followup_0637.md)
+records the post-snapshot lane state. Noether Paper 6 tranche 039 now has a
+corrected 29/29 independent R4 PASS for its graph-only evidence successor,
+but the producer tree is path-bearing and there is still no local seal,
+privacy-clean release projection, or archive handoff. SGA2 Expose XI lines
+3618-3622 remain held after independent generation 005 failed closed on PDF
+tool resolution before render, pixel, machine-package, and visual closure.
+
+SGA1 Proposition I.10.5 remains an active, mutable preflight rather than a
+freeze. The hashes, page mappings, dimensions, DPI, rotation, and full-page
+bounds of its original-print and corrected-v2 source witnesses are recorded;
+both image files remain rights-blocked. No body, target, evidence tree, pixel,
+source-bearing frontier, or Zenodo object is added by this follow-up.
+
 ## 2026-07-22 SGA5 topology and active-lane metadata readback
 
 GitHub PR [#60](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/60)

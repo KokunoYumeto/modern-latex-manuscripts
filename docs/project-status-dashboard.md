@@ -10,6 +10,12 @@ SGA1 Proposition I.10.4, Noether Paper 6 tranche 039, and SGA2 Expose XI
 lines 3618-3622 as local-only or fail-closed work. No body, source pixel, or
 Zenodo object is added by either receipt.
 
+A 06:37 follow-up records Noether tranche 039's corrected 29/29 independent
+R4 PASS without a seal or handoff, a fifth fail-closed SGA2 reviewer
+generation, and two rights-blocked SGA1 I.10.5 source-page witnesses. SGA1
+I.10.5 is still mutable. The follow-up is metadata only and creates no release
+or Zenodo queue item.
+
 ## Reader Priority And Quality
 
 Open the records in this order if the goal is to find useful mathematics quickly. This is intentionally not ordered by file count, local package count, or the age of the record.
