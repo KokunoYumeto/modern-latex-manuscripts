@@ -1755,3 +1755,78 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft, mutation,
   deposition, or duplicate was created; R5 remains queued for authenticated
   same-concept curation and remote file-by-file readback.
+
+## 2026-07-22 - SGA2 Expose XI line 3607 R3 metadata-only custody hold
+
+- The frozen original handoff has 16 files / 107,817 bytes. Its 13-row
+  self-excluding manifest replays 13/13 at SHA-256
+  `4632548E91C8C8BC4040208A07DD85AD839E9B438063716ED96B53933B97695F`;
+  final handoff validation passes with errors `[]` at SHA-256
+  `1686E5A946EE9B310CD03F0577CB4ED3760983E9938A2C5A698D1B27BBF69DCA`.
+- Append-only transport controls expanded the local root to 20 files /
+  115,511 bytes. The 18-row post-dispatch manifest replays 18/18 and claims
+  message transport only, not archive acknowledgment or publication.
+- Archive replay matched 96/96 producer/review custody identities
+  (2,067,223 bytes), 45/45 custody candidates (456,296 bytes), and 28/28
+  stable CSV/JSONL IDs. Independent candidate privacy scan found zero hits.
+- Every candidate remains `proposed_public=false` and
+  `not_authorized_not_dispatched`. GitHub therefore receives only the
+  sanitized Markdown/JSON metadata hold; no TeX, PDF, extracted text, machine
+  evidence, source slice, or pixel is released.
+- The withheld TeX and one-page PDF have SHA-256 values
+  `9CC4C39BA32A0C98B1150BB9035EDDEAE0266F670118456BF147D2EF6A313619`
+  and
+  `B12C84829AC6535C5ECFCE490AA9594ACE7297DC02A56E6D15E696AA77863A6D`.
+  R3 closes the R2 stale-manifest failure without changing target or authority.
+- The 1,654x2,339 target render is pixel-identical to the independent rebuild
+  at SHA-256
+  `4D60865ACED1C29617FE655D621EA64116CF7AB74AE50508EE23EB7D885AE30C`.
+  Direct inspection found a clean page but stale producer-time
+  review/adjudication wording, so it remains held.
+- Same-edition physical-page-107 remains rights-blocked at 1,700x2,200,
+  200 dpi, SHA-256
+  `E727E093E0327C28EEFFA0BD384E003E57E7D44B818F0D3A821A57422767FBF1`.
+- Public source-bearing coverage remains through line 3574. Line 3609 is a
+  separate manager-adjudicated unit and no Proposition XI.1.1 target is
+  released.
+- Zenodo was rechecked at 2026-07-22T05:40:19.7027887+02:00 and remains
+  published version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes.
+  No draft, mutation, deposition, or duplicate was created.
+
+## 2026-07-22 - SGA2 Expose XI Proposition 1.1 metadata-only custody hold
+
+- The frozen handoff has 15 files / 115,873 bytes. Its 12-row self-excluding
+  manifest replays 12/12 at SHA-256
+  `A4C8B3D509C5FF311B2C1D95E38E7304772B2598131846CFD6DC6389D8A16F5E`;
+  validation passes with errors `[]` at SHA-256
+  `B7E1C093ADC537F514217B2E8ED17F2BFDBAB350A4362DBA68FC6389E9496404`.
+- A later append-only 1,815-byte transport receipt expands the local root to
+  16 files / 117,688 bytes. It claims message transport only and remains
+  internal at SHA-256
+  `9B47E38FFAA5849C34D065FBD7D90C8EE1506B30C1904A079F16926B7143E5EC`.
+- Archive replay matched 130/130 custody identities / 4,109,453 bytes and
+  39/39 custody candidates / 408,685 bytes. The candidate exactly equals the
+  full-inventory `proposed_custody=true` projection, has zero privacy hits,
+  and all 29 stable CSV/JSONL IDs are unique.
+- Every candidate remains `proposed_public=false` and
+  `not_authorized_not_dispatched`. GitHub receives only sanitized
+  Markdown/JSON metadata; no target, evidence body, source slice, or pixel is
+  released.
+- The withheld TeX and one-page PDF have SHA-256 values
+  `E4CC843CCE3BF08CF5ABC22681C496DE2D87C0DE9EA8E1F4D01FE1A7FA3C8343`
+  and
+  `2D66D576DA572646296CE337A22A7BFDA96F3FD854D7ABFDDA6F4C5124949CE0`.
+  The final `Pic(X_n)` target policy and visible stable-ID note are applied.
+- R1 quarantine, R1 diagnostic, and R2 long-path failure remain append-only
+  adverse history. R3 is the sole final independent PASS. Its PDF differs
+  from the producer PDF only in timestamp/metadata; extracted text, fonts, and
+  decoded target pixels match exactly.
+- The 1,654x2,339 target render passes visual review at SHA-256
+  `A284206802DDD9F6E9FD94CEB4589813ABE1610ABFE36DC444778FE060B3A3C5`,
+  but retains stale pending-review wording and remains held.
+- Same-edition physical-page-108 remains rights-blocked at 1,700x2,200,
+  200 dpi, SHA-256
+  `B4C32C8D1EE9455FFE5F911FCE30D214EEA7A1186AC9181C06A98D9FB2E159A0`.
+- Public source-bearing coverage remains through line 3574. Zenodo remains
+  published version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes;
+  no draft, mutation, deposition, or duplicate was created.
