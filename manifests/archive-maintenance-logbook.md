@@ -1331,3 +1331,31 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - No translation body, source raster, unsealed target render, Zenodo object,
   or shared production-log record was added. Public source-bearing coverage
   remains through corrected French line 3566.
+
+## 2026-07-22 - SGA2 Expose X purity theorem parts (i)-(ii) custody
+
+- Accepted two adjacent exact handoff subsets in source order: 49 files /
+  1,380,792 bytes for part (i), French lines 3568-3571, and 33 files / 858,452
+  bytes for part (ii), French lines 3573-3574.
+- Preserved each producer and controlling-review surface in a separate bounded
+  package. Part (i) contains 61 files / 1,432,478 bytes with manifest
+  `BA440820C8A9EEE245D36931263DD0E6261DC6528AB25293DAA948A2D07E1F4C`
+  and validation
+  `64447CA3C1490C381EB81DDAECBFE7BF7C9FB4FBF2BE61816F9E253F866DEEDE`.
+  Part (ii) contains 45 files / 899,493 bytes with manifest
+  `5CA003190FF37FDCED5B2591C56125006BCE53120B3A088E584289D7D78572D0`
+  and validation
+  `0F1D01667FF58CE045C4118010DE6DC2368F3F4FD404AEED3DC37DB936DD8460`.
+- Replayed all 82 handoff identities, inspected the target pages at original
+  resolution, checked both A4 PDFs and 15/15 plus 14/14 font controls, parsed
+  all CSV and JSON-family files, and found zero formula, forbidden-file, or
+  dewrapped privacy errors.
+- Withheld the same-edition source-page 105 raster. Both packages publish
+  exact parent, page, geometry, DPI, rotation, raster hash, linkage, and QA
+  records instead of pixels.
+- With the existing proof through line 3566 and excluded blank lines 3567 and
+  3572, the two packages extend source-bearing coverage through line 3574.
+  Lines 3457-3521 remain unclaimed, so no continuous Expose IX-X release is
+  asserted.
+- Queued Zenodo only for authenticated cumulative curation on concept
+  `10.5281/zenodo.20410947`; no draft, duplicate, or mutation was created.
