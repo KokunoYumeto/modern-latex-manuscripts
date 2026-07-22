@@ -1,3 +1,43 @@
+## 2026-07-22 SGA2 Expose XI Proposition 1.1 metadata-only hold
+
+Archive maintenance independently replayed the exact Proposition XI.1.1
+handoff for corrected French lines 3609-3616. All 130 custody identities and
+all 39 candidate files match, final R3 review passes, and the manager-closed
+`Pic(Y_n)` to `Pic(X_n)` source-defect note is visibly applied.
+
+The producer authorizes zero public files. GitHub therefore carries only the
+[sanitized hold receipt](source-intake/20260722_sga2_xi_proposition1_1_reviewed_handoff_hold.md);
+the TeX, PDF, source slice, machine evidence, and every image pixel remain
+withheld. Direct visual inspection found a clean proposition page but stale
+producer-time `pending fresh independent review` wording. Rights,
+attribution, an English license, publication-facing regeneration, and PDF
+accessibility remain open. Public source-bearing coverage remains through
+corrected French line 3574.
+
+Zenodo concept `10.5281/zenodo.20410947` remains unchanged at published
+version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft,
+mutation, deposition, or duplicate was created.
+
+## 2026-07-22 SGA2 Expose XI line 3607 R3 metadata-only hold
+
+Archive maintenance independently replayed the exact R3 handoff for corrected
+French line 3607. All 96 producer/review identities and all 45 custody
+candidates match, the independent review passes, and privacy replay is clean.
+The handoff authorizes zero public files, however, so GitHub carries only the
+[sanitized hold receipt](source-intake/20260722_sga2_xi_line3607_r3_reviewed_handoff_hold.md).
+The TeX, one-page PDF, machine evidence, and every image pixel remain withheld.
+
+Direct visual inspection confirms the target page is clean but retains stale
+producer-time text saying that review and line-3609 adjudication are pending.
+Rights/attribution, an English license, publication-facing regeneration, and
+PDF accessibility also remain open. The same-edition physical-page-107 raster
+is metadata-only and rights-blocked. Public source-bearing coverage remains
+through corrected French line 3574.
+
+Zenodo concept `10.5281/zenodo.20410947` remains unchanged at published
+version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft,
+mutation, deposition, or duplicate was created.
+
 ## 2026-07-22 SGA2 Expose VIII cumulative R5 GitHub custody
 
 GitHub now carries the exact 82-file / 9,428,689-byte independently passed
