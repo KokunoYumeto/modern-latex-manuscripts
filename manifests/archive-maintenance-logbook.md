@@ -1359,3 +1359,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   asserted.
 - Queued Zenodo only for authenticated cumulative curation on concept
   `10.5281/zenodo.20410947`; no draft, duplicate, or mutation was created.
+
+## 2026-07-22 - SGA2 Expose X purity theorem public readback
+
+- Pull request
+  [#41](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/41)
+  merged at public `main` commit
+  `b89f9d8e998c5b901dc3f11fc6f9bb97f484397a`.
+- A fresh sparse clone resolved exactly to that commit with a clean worktree.
+  It matched the local custody worktree for all 61 part-(i) files and all 45
+  part-(ii) files, including the manifest-sensitive CRLF evidence, with zero
+  missing, extra, byte, or SHA-256 differences.
+- Complete all-file inventory hashes are
+  `2FF3B63590F0BA47B6AE1C699446DCD3EB1A907FAB83A15D9068D21E12FD90A9`
+  for part (i) and
+  `4ABA038668A70668C01B0C8AF00D893AE11079BBEB4A0313E00FD44C709BAC4D`
+  for part (ii).
+- The official Zenodo API still returned version
+  `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes, for concept
+  `10.5281/zenodo.20410947`. No Zenodo mutation or duplicate was attempted.
+- Exact readback controls are in
+  [`sga2-english-expose-x-purity-theorem-controls-20260722`](../sources/sga/sga2-english-expose-x-purity-theorem-controls-20260722/).

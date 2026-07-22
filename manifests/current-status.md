@@ -51,9 +51,14 @@ covers lines 3568-3571, blank line 3572 is excluded, and part (ii) covers lines
 3573-3574. Source-bearing coverage is therefore continuous through line 3574;
 the raw cursor is blank line 3575 and the next substantive cursor is line 3576,
 Theorem 3.10. Lines 3457-3521 remain separately unclaimed, so this is not a
-continuous Expose IX-X release. Remote GitHub readback is a separate pending
-state, and Zenodo remains unchanged pending authenticated same-concept
-cumulative curation.
+continuous Expose IX-X release. Pull request
+[#41](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/41)
+merged at public `main` commit
+`b89f9d8e998c5b901dc3f11fc6f9bb97f484397a`; a fresh public clone matched all
+106 package files with zero differences. The combined
+[readback receipt](../sources/sga/sga2-english-expose-x-purity-theorem-controls-20260722/GITHUB_PUBLICATION_READBACK.md)
+closes GitHub custody. Zenodo remains unchanged pending authenticated
+same-concept cumulative curation.
 
 ## 2026-07-22 SGA2 Expose X Proposition 2.3 through editor note 3 GitHub custody
 
