@@ -773,6 +773,16 @@ The 12,282,952-byte replacement support ZIP contains one editable TeX, source/fo
 
 That version retained the bounded SGA1 Expose I opening/section I.1 checkpoint, corrected 381-page layered SGA6 English reader, French SGA6 idx684 checkpoint, and bounded Spanish SGA6 Expose X tranche while withdrawing the privacy-defective SGA6 support ZIP. Current successor 21432714 advances SGA1 through I.3 and retains the privacy-clean SGA6 idx684 successor package. Historical receipt: `manifests/published-zenodo/20260718_sga5_english_replacement_record_21431041.json`.
 
+## 2026-07-22 Interlanguage v0.14 CJK visual-evidence checkpoint published
+
+Interlanguage version [10.5281/zenodo.21485338](https://doi.org/10.5281/zenodo.21485338), under the existing concept DOI [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403), is public with 51 files / 4,976,082,491 bytes. It inherits the 43-file v0.13 archive and adds the exact 296-member CJK visual-evidence ZIP plus seven inspectable release controls.
+
+The ZIP contains 290 project-generated or project-recovered images and six public-safe metadata/schema/scope files. SHA-256 is `96919DFA424A467C44AF277708024154B04384C3C35CDB3E3C8DBCC4D839F2F8`; fresh unauthenticated download readback matched exactly and the ZIP retested at 296 members / 160,900,941 uncompressed bytes with no bad member. The extracted GitHub projection rehashes all 290 open images against the public-safe index.
+
+Fourteen rights-blocked images are represented by metadata only and their pixels are not redistributed. The index also records 1,716 excluded non-project images, 49 metadata-incomplete records including one inherited undecodable PNG, 1,142 parent candidates, and 498 structural-link candidates. Candidate links are not human-confirmed. This is provenance and visual-QA evidence, not translation, source-fidelity, mathematical, native-language, rights, or corpus-completion certification.
+
+Exact receipts: `manifests/source-intake/20260722_cjk_visual_evidence_open_payload_publication.md` and `manifests/published-zenodo/20260722_interlanguage_cjk_visual_v14_record_21485338.json`.
+
 ## 2026-07-18 Interlanguage v0.13 corpus, WordWeb, governance, and normalization checkpoints published
 
 Interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885), under concept DOI [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403), is public with `00_Interlanguage_Methodology_Current_v13_20260718.pdf` as the default preview. Its 43-file surface retains the complete numbered source-body, provenance, weighted-automata, terminology, research-department, Interslavic, Romance v10, Noether R823-gate, and eight-lane fleet archive. New files `17a`-`17c` add a 71-file Romance corpus/WordWeb/governance/T008 projection, a 93-file Interslavic normalization package through Tranche 007, and the exact 14-file WordWeb/access public checkpoint.
@@ -2131,7 +2141,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 |---|---:|---|
 | Main landing | 20459634 | <https://doi.org/10.5281/zenodo.20393488> |
 | Workflow / replication packet | 21424987 | <https://doi.org/10.5281/zenodo.20461174> |
-| Interlanguage methodology | 21430885 | <https://doi.org/10.5281/zenodo.21124403> |
+| Interlanguage methodology | 21485338 | <https://doi.org/10.5281/zenodo.21124403> |
 | Lean formalization sidecars | 21129946 | <https://doi.org/10.5281/zenodo.21129945> |
 | Split-zero research sidecar | 21426216 | <https://doi.org/10.5281/zenodo.20822444> |
 | Noether | 21434690 | <https://doi.org/10.5281/zenodo.20412587> |
