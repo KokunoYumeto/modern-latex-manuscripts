@@ -1,4 +1,4 @@
-## 2026-07-22: SGA2 Expose X Lemma 3.6 R3 and Lemma 3.9 proof GitHub custody candidates; Zenodo deferred
+## 2026-07-22: SGA2 Expose X Lemma 3.6 R3 and Lemma 3.9 proof GitHub custody; Zenodo deferred
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
 - Latest verified version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
@@ -32,6 +32,15 @@ boundaries exclude source and target render pixels. Public visual-disposition
 ledgers retain parent hashes, page systems, dimensions, DPI, bounding boxes,
 raster hashes, linkage, and QA outcomes. The public PDFs remain the durable
 inspectable target surfaces.
+
+Pull request [#35](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/35)
+merged both packages to public `main` commit
+`f17a2a316343650c5ea465a72e216d640de3825e`. A fresh sparse clone of that
+commit revalidated 31/31 and 33/33 files, every manifest row, both complete
+package identities, the target TeX/PDF hashes, 17/17 and 16/16 font rows, all
+JSON-family files, and the downloaded text/PDF privacy surface with zero
+mismatch. Exact receipts: [Lemma 3.6 R3](../sources/sga/sga2-english-expose-x-l36-proof-r3-controls-20260722/GITHUB_PUBLICATION_READBACK.md)
+and [Lemma 3.9 proof](../sources/sga/sga2-english-expose-x-l39-proof-controls-20260722/GITHUB_PUBLICATION_READBACK.md).
 
 Together with the neighboring readback-closed packages, these units form a
 bounded source-bearing sequence from corrected French line 3522 through 3566.
