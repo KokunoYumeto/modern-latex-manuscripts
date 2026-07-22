@@ -1,3 +1,33 @@
+## 2026-07-22 SGA2 Expose VIII cumulative R5 GitHub custody
+
+GitHub now carries the exact 82-file / 9,428,689-byte independently passed
+SGA2 Expose VIII cumulative R5 package at
+`sources/sga/sga2-english-expose-viii-cumulative-r5-20260719/`. It covers
+corrected French lines 2501-2928 with 30 source-bearing bodies, 32 bounded
+states, and 25 verified blank seams. Line 2930 is the continuation control;
+Expose IX begins at line 2931.
+
+The public target is one 40,052-byte editable TeX source and an eight-page A4
+PDF. The package also carries an exact ten-sheet workbook, all eight directly
+inspected reader-page renders, all 34 directly inspected workbook panels,
+sanitized build evidence, machine ledgers, and the bounded independent review.
+The 80-row descriptor and final validation replay exactly; validation is
+`PASS_ARCHIVE_HANDOFF_READY` with errors `[]`.
+
+French authority bytes and source-page pixels are excluded. The same-edition
+reader is locator/formula/layout evidence only and not independent
+corroboration. French line 2859's underlined/plain `x` and line 2865's `F`
+after `F''` remain open and disclosed. The PDF is untagged. R5 supersedes only
+the failed R4 cumulative evidence surface; all bounded predecessor units remain
+preserved.
+
+The same-concept Zenodo update is queued under concept
+`10.5281/zenodo.20410947`. The live record remains version
+`10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft, mutation, or
+duplicate was created during GitHub intake. This is bounded source-aligned
+working material, not complete SGA2, a critical edition, rights clearance,
+peer review, whole-volume source certification, or accessibility certification.
+
 ## 2026-07-19 Noether Paper 2 / Paper 4 Sections 6-7 published
 
 Noether version [10.5281/zenodo.21434690](https://doi.org/10.5281/zenodo.21434690), under concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587), adds the bounded Paper 2 pp.58-92 direct-source closure, Paper 4 German Sections 6-7 repairs, and bounded English Paper 4 Section 7. Paper 2 pp.23-57 remain open; English continues at Section 8 / R823 line 4270.

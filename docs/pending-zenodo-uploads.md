@@ -1,3 +1,31 @@
+## 2026-07-22: SGA2 Expose VIII cumulative R5 in GitHub custody; same-concept Zenodo update queued
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest live version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+- GitHub package: [`sga2-english-expose-viii-cumulative-r5-20260719`](../sources/sga/sga2-english-expose-viii-cumulative-r5-20260719/)
+- Custody receipt: [`20260722_sga2_viii_cumulative_r5_public_custody.md`](../manifests/source-intake/20260722_sga2_viii_cumulative_r5_public_custody.md)
+
+The exact package contains 82 files / 9,428,689 bytes and covers corrected
+French lines 2501-2928 with 30 source-bearing bodies, 32 bounded states, and
+25 blank seams. Its 80-row descriptor has SHA-256
+`C1F9AD4E15C0DA6BF18F5837DCFE1DB8A36F0A5E83629A009039D53CE72DBA50`;
+validation is `PASS_ARCHIVE_HANDOFF_READY` with errors `[]` at SHA-256
+`5E8566B366123B7038541A23ACB833CEB6975658E037590AFD8D77FCD296FFA2`.
+
+This is the first independently passed cumulative Expose VIII reader suited to
+same-concept Zenodo curation. It contains no French authority file or source
+pixel. The same-edition reader is identified only as nonindependent locator,
+formula, and layout control. The untagged PDF and the open French2859 and
+French2865 readings remain disclosed. R5 supersedes only the failed R4
+cumulative evidence surface; all bounded unit checkpoints remain history.
+
+A live API check on 2026-07-22 still returned published record 21435547,
+33 files / 73,450,481 bytes, last updated
+2026-07-19T02:40:42.287682+02:00. No draft, mutation, deposition, or duplicate
+was created during GitHub intake. Update only the existing concept through the
+authenticated cumulative-release workflow, then stream every remote file back
+and record exact hashes before calling Zenodo publication complete.
+
 ## 2026-07-22: SGA2 Expose XI line 3609 notation policy closed; no body upload
 
 Manager decision
