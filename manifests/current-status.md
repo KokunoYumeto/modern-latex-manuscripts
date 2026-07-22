@@ -64,6 +64,30 @@ matched all five ordinary files exactly and the JSONL by Git blob and
 line-ending-normalized bytes. The public tree contains no Theorem 3.10 body or
 pixels.
 
+## 2026-07-22 SGA2 Expose X line 3588 producer hold
+
+The closing comment at corrected French line 3588 has a producer PASS but no
+fresh independent review, seal, or archive handoff. Its 1,794-byte TeX and
+one-page PDF identities are preserved in a
+[metadata-only hold receipt](source-intake/20260722_sga2_x_line3588_producer_hold.md),
+while the translation body, authority slice, target render, same-edition
+source page, five machine-panel images, comparison excerpt, raw logs, and
+preserved privacy-failure evidence remain withheld.
+
+Producer checks report three deterministic builds, 8/8
+embedded/subset/Unicode fonts, closed 31-row x 26-column CSV and 31-record
+JSONL controls, all seven visual objects inspected, and zero privacy hits on
+the curated 60-file surface. A separate 19-file raw quarantine records 4,022
+transformed hits and remains private. The raw cursor is blank line 3589, the
+structural cursor is line 3590, and Expose XI at line 3592 is the next
+substantive cursor.
+
+All seven visual objects have exact geometry, byte, hash, linkage, QA, and
+disposition metadata in the JSON receipt. The same-edition page-106 raster is
+rights-blocked; the project target and machine panels are held because the
+unit is unsealed. Public source-bearing coverage remains through corrected
+French line 3574. Zenodo remains unchanged under the existing SGA concept.
+
 ## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
 Two separate rights-curated packages preserve the complete proof of Theorem
