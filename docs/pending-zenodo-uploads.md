@@ -1,3 +1,22 @@
+## 2026-07-22: SGA2 Expose XI lines 3618-3622 held; no upload authorized
+
+- Metadata hold: [`20260722_sga2_xi_lines3618_3622_reviewed_handoff_hold.md`](../manifests/source-intake/20260722_sga2_xi_lines3618_3622_reviewed_handoff_hold.md)
+- Existing concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest live version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+
+The exact 23-file append-only handoff, all 169 producer/review custody
+identities, and all 60 privacy-clean candidates replay. Every candidate is
+`proposed_public=false` and `not_authorized_not_dispatched`; the target also
+retains stale internal pending-review wording. GitHub therefore records
+metadata only. The target body, evidence, workbook-free machine controls,
+target render, and rights-blocked same-edition source raster remain withheld.
+
+This is not a standalone Zenodo queue item and does not extend public
+source-bearing coverage past corrected French line 3574. Rights, license,
+attribution, neutral regeneration, and PDF accessibility remain open. The
+existing SGA record remains 21435547 with 33 files / 73,450,481 bytes; no
+draft, mutation, deposition, or duplicate was created.
+
 ## 2026-07-22: terminal-state follow-up read back; no upload
 
 - GitHub PR: [#64](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/64)

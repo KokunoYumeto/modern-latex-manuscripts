@@ -1939,6 +1939,31 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   record 21434690 at 100 files / 2,362,920,800 bytes. No draft, mutation,
   deposition, or duplicate was created.
 
+## 2026-07-22 - SGA2 Expose XI lines 3618-3622 handoff held metadata-only
+
+- Independently replayed all 169 custody identities / 3,167,805 bytes and all
+  60 privacy-clean candidates / 966,425 bytes. The replay found zero missing,
+  byte, hash, candidate-binding, or privacy errors.
+- The pre-dispatch validation passes at SHA-256
+  `A3208F0CE6A1BD6CA1772989810EA49EC4B61CEBEA1714505E25EE0DBE0B8DA1`.
+  The append-only transport state is now 23 files / 149,203 bytes; its 21-row
+  manifest and validation pass at SHA-256
+  `5AFE7C98E8BBDB0795FEA8506B9D29321E2AE716821E536ED149E7D7FF7AEB68`
+  and
+  `D7FEAE9587F8EBD1388554A66D4638B698668E16815E67CDB8A3229E4EE30DD7`.
+- Generation 007 controls as independent PASS. Three builds reproduce the
+  withheld 239,936-byte PDF exactly; normalized text, fonts, and target pixels
+  match. Failed generations 001-006 remain preserved, with private/path-bearing
+  generations 005-006 excluded from candidate surfaces.
+- Direct visual inspection found the withheld target render clean but
+  confirmed stale `pending fresh independent review` wording. The
+  same-edition physical-page-108 raster remains rights-blocked and nonpublic.
+- Every candidate row says `proposed_public=false`. Published only the
+  sanitized metadata hold; no target, source slice, evidence body, render,
+  raster, source-bearing frontier, or Zenodo object was added.
+- The live SGA concept remains record 21435547, 33 files / 73,450,481 bytes.
+  No draft, mutation, deposition, or duplicate was created.
+
 ## 2026-07-22 - English/Germanic terminal-state follow-up at 06:58
 
 - Recorded Noether Paper 6 tranche 039's 6,261-byte manager local seal at

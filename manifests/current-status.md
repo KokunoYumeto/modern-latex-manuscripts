@@ -1,3 +1,23 @@
+## 2026-07-22 SGA2 Expose XI lines 3618-3622 metadata-only hold
+
+Archive maintenance independently replayed the exact handoff for corrected
+French lines 3618-3622. All 169 custody identities and all 60 privacy-clean
+candidate files match; generation 007 and post-visual validation pass, and
+three independent builds reproduce the target PDF byte-for-byte.
+
+The producer authorizes zero public files. GitHub therefore carries only the
+[sanitized hold receipt](source-intake/20260722_sga2_xi_lines3618_3622_reviewed_handoff_hold.md);
+the TeX, PDF, source slice, machine evidence, and every image pixel remain
+withheld. Direct visual inspection found the page clean but confirmed stale
+producer-time `pending fresh independent review` wording. Rights,
+attribution, an English license, neutral regeneration, and PDF accessibility
+remain open. Public source-bearing coverage remains through corrected French
+line 3574.
+
+Zenodo concept `10.5281/zenodo.20410947` remains unchanged at published
+version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft,
+mutation, deposition, or duplicate was created.
+
 ## 2026-07-22 English/Germanic terminal-state follow-up GitHub readback
 
 GitHub PR [#64](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/64)
