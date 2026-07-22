@@ -16,28 +16,44 @@ The five added TeX companions and replacement status/checksum controls streamed 
 
 These are bounded machine-assisted source-audited/source-aligned working checkpoints, not complete SGA volumes, critical editions, peer review, proof verification, independent human certification, accessibility certification, or rights determinations.
 
-## 2026-07-22 SGA2 Expose X post-3566 local hold
+## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
-The next two local production states are not public checkpoints. The no-overwrite
-privacy successor for French lines 3568-3571 now contains 68 files / 4,858,993
-bytes and preserves the 4,263-byte target TeX and 238,640-byte PDF. Its recursive
-65-row checksum manifest replays cleanly, but its own producer return remains
-`PRODUCER_R2_PASS_PENDING_FRESH_INDEPENDENT_REVIEW`. The available independent
-review applies to the predecessor and fails on twelve line-dewrapped private-path
-occurrences across three build logs. No archive handoff or independently sealed
-public projection exists for this successor.
+Two separate rights-curated packages preserve the complete proof of Theorem
+3.4 in source order:
 
-The adjudicated line-3573 predecessor remains fail-closed after an independent
-review found 316 line-dewrapped private-path occurrences across four files and
-13 review artifacts accidentally created below the producer root. Its separate
-23-file R2 privacy successor now has a fresh independent review that passes all
-47 checks, all 23 privacy-scanned files, the three-pass build, 14-font report,
-and pixel-identical 200 dpi render. That review nevertheless declares itself
-`PASS (fail-closed)`, with `seal: false`, `archive_handoff: false`, and every
-rights row internal, restricted, or rights-gated. No producer seal or exact
-archive handoff exists. Neither successor has been copied to GitHub or Zenodo.
-Public bounded source-bearing coverage therefore still ends at French line
-3566, and lines 3457-3521 remain separately unclaimed.
+- [`part (i), lines 3568-3571`](../sources/sga/sga2-english-expose-x-l3568-3571-purity-i-r2-20260722/):
+  61 files / 1,432,478 bytes; 59-row manifest SHA-256
+  `BA440820C8A9EEE245D36931263DD0E6261DC6528AB25293DAA948A2D07E1F4C`;
+  validation SHA-256
+  `64447CA3C1490C381EB81DDAECBFE7BF7C9FB4FBF2BE61816F9E253F866DEEDE`;
+- [`part (ii), lines 3573-3574`](../sources/sga/sga2-english-expose-x-l3573-purity-ii-r2-20260722/):
+  45 files / 899,493 bytes; 43-row manifest SHA-256
+  `5CA003190FF37FDCED5B2591C56125006BCE53120B3A088E584289D7D78572D0`;
+  validation SHA-256
+  `0F1D01667FF58CE045C4118010DE6DC2368F3F4FD404AEED3DC37DB936DD8460`.
+
+The combined custody action contains 106 files / 2,331,971 bytes. All 82
+handoff-listed files / 2,239,244 bytes replay exactly. Part (i) passes its
+31/31 controlling review, byte-identical PDF/text/render checks, 15/15 font
+controls, 18 CSVs / 468 rows, and zero privacy/formula/forbidden-file checks.
+Part (ii) passes its 49/49 controlling review, 14/14 font controls, 15 CSVs /
+273 rows, JSON-family, visual, exact-set, and dewrapped privacy checks.
+
+Both packages withhold the same-edition physical-page-105 raster and publish
+exact rights-blocked parent, page, geometry, DPI, rotation, raster hash,
+linkage, and QA metadata instead. Their immutable targets retain historical
+pre-review status wording; the adjacent controlling reviews and archive
+chronology supersede that wording without changing target bytes. French
+authority bytes remain unchanged.
+
+The prior public unit ends at line 3566, followed by blank line 3567. Part (i)
+covers lines 3568-3571, blank line 3572 is excluded, and part (ii) covers lines
+3573-3574. Source-bearing coverage is therefore continuous through line 3574;
+the raw cursor is blank line 3575 and the next substantive cursor is line 3576,
+Theorem 3.10. Lines 3457-3521 remain separately unclaimed, so this is not a
+continuous Expose IX-X release. Remote GitHub readback is a separate pending
+state, and Zenodo remains unchanged pending authenticated same-concept
+cumulative curation.
 
 ## 2026-07-22 SGA2 Expose X Proposition 2.3 through editor note 3 GitHub custody
 

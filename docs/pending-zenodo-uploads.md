@@ -1,3 +1,41 @@
+## 2026-07-22: SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody; Zenodo deferred
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest verified version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+- Part (i) package: [`sga2-english-expose-x-l3568-3571-purity-i-r2-20260722`](../sources/sga/sga2-english-expose-x-l3568-3571-purity-i-r2-20260722/)
+- Part (ii) package: [`sga2-english-expose-x-l3573-purity-ii-r2-20260722`](../sources/sga/sga2-english-expose-x-l3573-purity-ii-r2-20260722/)
+
+The part (i) projection contains 61 files / 1,432,478 bytes. Its 59-row
+self-excluding manifest has SHA-256
+`BA440820C8A9EEE245D36931263DD0E6261DC6528AB25293DAA948A2D07E1F4C`,
+and validation is `PASS_ARCHIVE_HANDOFF_READY` at
+`64447CA3C1490C381EB81DDAECBFE7BF7C9FB4FBF2BE61816F9E253F866DEEDE`.
+It preserves all 49 exact handoff files / 1,380,792 bytes for corrected French
+lines 3568-3571.
+
+The part (ii) projection contains 45 files / 899,493 bytes. Its 43-row
+self-excluding manifest has SHA-256
+`5CA003190FF37FDCED5B2591C56125006BCE53120B3A088E584289D7D78572D0`,
+and validation is `PASS_ARCHIVE_HANDOFF_READY` at
+`0F1D01667FF58CE045C4118010DE6DC2368F3F4FD404AEED3DC37DB936DD8460`.
+It preserves all 33 exact handoff files / 858,452 bytes for corrected French
+lines 3573-3574.
+
+Together the two bounded packages contain 106 files / 2,331,971 bytes, of
+which 82 files / 2,239,244 bytes are exact handoff members. With the preceding
+public proof ending at line 3566 and authority blank lines 3567 and 3572
+excluded, they extend source-bearing coverage through line 3574. Lines
+3457-3521 remain unclaimed, so this is not continuous Expose IX-X coverage,
+complete Expose X, complete SGA2, certification, or a critical edition.
+
+The same-edition physical-page-105 raster remains rights-blocked and is not
+published. Both packages retain its parent-reader hash, page coordinates,
+dimensions, DPI, rotation, raster hash, linked target units, and QA disposition
+as public machine-readable metadata.
+
+Standalone Zenodo mutation is deferred to authenticated cumulative curation
+under the existing concept. Do not mint a duplicate deposition.
+
 ## 2026-07-22: SGA2 Expose X Lemma 3.6 R3 and Lemma 3.9 proof GitHub custody; Zenodo deferred
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
