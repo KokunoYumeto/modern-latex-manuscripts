@@ -14,7 +14,8 @@ A 06:37 follow-up records Noether tranche 039's corrected 29/29 independent
 R4 PASS without a seal or handoff, a fifth fail-closed SGA2 reviewer
 generation, and two rights-blocked SGA1 I.10.5 source-page witnesses. SGA1
 I.10.5 is still mutable. The follow-up is metadata only and creates no release
-or Zenodo queue item.
+or Zenodo queue item. GitHub PR #62 and fresh raw-byte readback now close the
+metadata-only publication leg.
 
 ## Reader Priority And Quality
 
