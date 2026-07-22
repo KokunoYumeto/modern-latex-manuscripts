@@ -1462,3 +1462,30 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   tag.
 - The admitted boundary remains `idx684` / English cursor `idx685`. Zenodo
   remains unchanged and no duplicate was created.
+
+## 2026-07-22 - SGA2 Expose X line 3588 producer state held closed
+
+- The new local unit covers corrected French line 3588, printed page 123,
+  physical page 106, and running page 98. Blank line 3589 is the raw cursor,
+  line 3590 is the structural cursor, and line 3592 is the next substantive
+  cursor.
+- The producer reports PASS with one 1,794-byte TeX at SHA-256
+  `48A1F62A9C7EF7781DC8CECEFCA8E84C9B10B0D9BD3BD63C4EA5458713DF3763`
+  and one 152,975-byte PDF at SHA-256
+  `7B8CEFBB6952A365C0C480DF911396EE55A1F07AFA4827EF99CBD663A29A63F5`.
+  Three builds are deterministic, 8/8 fonts pass, and 31 CSV plus 31 JSONL
+  records close.
+- The controlling return says `PRODUCER_PASS_PENDING_FRESH_INDEPENDENT_REVIEW`
+  and explicitly records independent review false, seal false, archive
+  handoff false, and proposed public body files zero. The body remains local.
+- All seven visual objects are accounted for in the metadata receipt. The
+  same-edition page-106 raster remains rights-blocked, while the target render
+  and five machine panels remain producer-internal until an independent seal
+  and handoff exist. No pixels were copied.
+- The curated 60-file / 201,298-byte surface has zero transformed privacy
+  hits. The separate 19-file / 1,054,222-byte quarantine has 4,022 hits and
+  remains private internal, including the preserved predecessor failure.
+- Public source-bearing coverage remains through corrected French line 3574.
+  The official Zenodo API still resolved concept `10.5281/zenodo.20410947`
+  to version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No
+  draft, duplicate, or mutation was created.
