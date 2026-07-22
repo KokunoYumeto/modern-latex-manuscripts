@@ -1732,3 +1732,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The existing Zenodo concept still resolves to published version
   `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. Its authenticated
   cumulative update is queued; no draft, mutation, or duplicate was created.
+
+## 2026-07-22 - SGA2 Expose VIII cumulative R5 public readback
+
+- Pull request [#56](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/56)
+  merged source commit `2ca5a005de64f080533c778a83273b9f4ddfb9ed` at
+  public `main` commit `7b5b3f4542887a9dfd09a527aff06b5a3a4cc505`.
+- A fresh clone resolved exactly to the merge commit with a clean worktree.
+  All 90 changed Git blobs matched the source commit byte for byte.
+- The downloaded package contains the expected 82 files / 9,428,689 bytes.
+  Every file matches the sealed local source, and all 80 descriptor rows
+  replay exact paths, byte counts, and SHA-256 values.
+- All eight reader-page renders and all 34 workbook panels are present. No
+  French authority TeX, same-edition reader, source-page raster, or
+  jcreinhold body was introduced.
+- At the merge state, the archive JSONL had SHA-256
+  `AED9C388C9CE835DCE699829E11FF05787CADB7ED7A567994624B22EB596BA27`,
+  87 records, 87 unique decision IDs, and terminal ID
+  `AML-20260722-SGA-075`.
+- Zenodo was rechecked at 2026-07-22T05:28:28.1222479+02:00. Concept
+  `10.5281/zenodo.20410947` still resolves to version
+  `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft, mutation,
+  deposition, or duplicate was created; R5 remains queued for authenticated
+  same-concept curation and remote file-by-file readback.
