@@ -16,6 +16,20 @@ The five added TeX companions and replacement status/checksum controls streamed 
 
 These are bounded machine-assisted source-audited/source-aligned working checkpoints, not complete SGA volumes, critical editions, peer review, proof verification, independent human certification, accessibility certification, or rights determinations.
 
+## 2026-07-22 SGA6 read-only watch: no material change
+
+A [privacy-clean watch receipt](source-intake/20260722_sga6_watch_no_change_0331.md)
+records that the admitted French SGA6 authority remains through `idx684`,
+with English continuation cursor `idx685`. The observed mutable workspace,
+whose operational paths remain private, had no new inbox notice, changed
+successor, or changed source directory. Its internal direct-cert frontier does
+not supersede the admitted public boundary.
+
+The watch validation passes with errors `[]`. No TeX, PDF, source image,
+render, crop, diagram, or other visual-evidence file was newly admitted.
+Zenodo remains version `10.5281/zenodo.21435547` under the existing concept;
+no draft, mutation, or duplicate was created.
+
 ## 2026-07-22 SGA2 Expose X Theorem 3.10 producer hold
 
 The statement at corrected French lines 3576-3586 has a producer PASS but is

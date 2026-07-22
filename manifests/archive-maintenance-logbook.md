@@ -1424,3 +1424,22 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   source-bearing coverage remains through corrected French line 3574.
 - The merged diff introduced zero private paths, thread IDs, or agent names.
   Zenodo remains unchanged and no duplicate was created.
+
+## 2026-07-22 - SGA6 read-only frontier watch: no material change
+
+- A locked read-only control at `2026-07-22T03:31:16+02:00` found no new
+  SGA6 inbox notice, changed working successor, or changed source directory.
+- The admitted public authority remains the 1,319,443-byte French
+  source-rescribe through `idx684`, SHA-256
+  `7F32C2080A78A2746CBE52DCC1EC43A8505269F25518FA7B9A86E4E89AF858AC`,
+  with English continuation cursor `idx685`.
+- The internal mutable workspace still reports `CERT884_idx133` with next
+  cursor `idx134`. That internal frontier does not supersede the admitted
+  public authority.
+- The source watch validates one CSV row and one JSONL record with errors
+  `[]`. Its path-bearing files remain private; a privacy-clean Markdown/JSON
+  receipt preserves their hashes and substantive result.
+- No new body, PDF, source image, target render, crop, diagram, or other
+  visual-evidence object was admitted. The official Zenodo API still returns
+  version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes, under concept
+  `10.5281/zenodo.20410947`; no draft, mutation, or duplicate was created.
