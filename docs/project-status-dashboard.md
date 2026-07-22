@@ -2,6 +2,14 @@
 
 Generated from the current public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
 
+July 22 metadata update: a read-only SGA5 replay accounts topologically for
+numbered print pages 1-484 through 480 certification rows and 108 index
+entries. This is coverage topology, not renewed page-by-page scholarly
+certification or completion. A separate 06:10 active-lane snapshot records
+SGA1 Proposition I.10.4, Noether Paper 6 tranche 039, and SGA2 Expose XI
+lines 3618-3622 as local-only or fail-closed work. No body, source pixel, or
+Zenodo object is added by either receipt.
+
 ## Reader Priority And Quality
 
 Open the records in this order if the goal is to find useful mathematics quickly. This is intentionally not ordered by file count, local package count, or the age of the record.
