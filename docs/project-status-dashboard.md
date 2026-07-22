@@ -27,6 +27,9 @@ evidence tree, and pixel remains held, public source-bearing coverage is
 unchanged, and Zenodo is unchanged. GitHub PR #64 and fresh raw-byte readback
 close the earlier terminal-state metadata leg.
 
+GitHub PR #66 and fresh raw-byte readback now close the lines 3618-3622
+metadata-hold leg. The target, evidence, and visual files remain withheld.
+
 ## Reader Priority And Quality
 
 Open the records in this order if the goal is to find useful mathematics quickly. This is intentionally not ordered by file count, local package count, or the age of the record.
