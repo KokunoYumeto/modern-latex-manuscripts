@@ -160,7 +160,7 @@ remains at existing version `10.5281/zenodo.21435547` under concept
 `10.5281/zenodo.20410947`; standalone mutation is deferred to authorized
 same-concept cumulative curation.
 
-## 2026-07-22 SGA2 Expose X Lemma 3.6 proof locator R3 GitHub custody candidate
+## 2026-07-22 SGA2 Expose X Lemma 3.6 proof locator R3 GitHub custody and readback
 
 The rights-curated projection contains 31 files / 539,264 bytes for the
 independently sealed Lemma 3.6 proof at corrected French lines 3522-3530.
@@ -190,7 +190,15 @@ the exact handoff boundary. Public metadata records parent-reader hashes,
 physical and printed page systems, dimensions, DPI, full-page boxes, raster
 hashes, unit linkage, and QA dispositions. No source pixels are redistributed.
 
-## 2026-07-22 SGA2 Expose X Lemma 3.9 proof GitHub custody candidate
+Pull request `35` merged the package to public `main` commit
+`f17a2a316343650c5ea465a72e216d640de3825e`. A fresh sparse clone resolved
+to that commit and revalidated 31 files / 539,264 bytes, all 29 manifest rows,
+both canonical identities, the target TeX/PDF hashes, the one-page A4 PDF,
+17/17 font rows, 99 JSONL/NDJSON records, and all JSON and privacy gates with
+zero mismatch. The exact result is retained in
+`sources/sga/sga2-english-expose-x-l36-proof-r3-controls-20260722/GITHUB_PUBLICATION_READBACK.md`.
+
+## 2026-07-22 SGA2 Expose X Lemma 3.9 proof GitHub custody and readback
 
 The rights-curated projection contains 33 files / 386,197 bytes for the
 independently sealed complete Lemma 3.9 proof at corrected French lines
@@ -212,6 +220,13 @@ The manifest-row aggregate and complete-package identities are
 and `AEBC30F853655771CF359F3B28E4FA102609B3DB9BE4857FCBA1A023F171BEAD`.
 The one-page A4 PDF passes fresh visual review; all 16 font rows are embedded,
 subset, and Unicode-mapped.
+
+The same pull request and merge commit published this package. The fresh
+sparse clone revalidated 33 files / 386,197 bytes, all 31 manifest rows, both
+canonical identities, the target TeX/PDF hashes, the one-page A4 PDF, 16/16
+font rows, 63 JSONL/NDJSON records, and all JSON and privacy gates with zero
+mismatch. The exact result is retained in
+`sources/sga/sga2-english-expose-x-l39-proof-controls-20260722/GITHUB_PUBLICATION_READBACK.md`.
 
 Together with the separately preserved Remark 3.7, Corollary 3.8, line 3542,
 and Lemma 3.9 statement packages, these two additions form bounded
