@@ -14,6 +14,12 @@ sanitized build evidence, machine ledgers, and the bounded independent review.
 The 80-row descriptor and final validation replay exactly; validation is
 `PASS_ARCHIVE_HANDOFF_READY` with errors `[]`.
 
+Pull request [#56](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/56)
+merged at public `main` commit
+`7b5b3f4542887a9dfd09a527aff06b5a3a4cc505`. A fresh-clone readback matched
+all 90 changed Git blobs, all 82 package files, and all 80 descriptor rows
+exactly. See the [public readback receipt](source-intake/20260722_sga2_viii_cumulative_r5_github_readback.md).
+
 French authority bytes and source-page pixels are excluded. The same-edition
 reader is locator/formula/layout evidence only and not independent
 corroboration. French line 2859's underlined/plain `x` and line 2865's `F`
