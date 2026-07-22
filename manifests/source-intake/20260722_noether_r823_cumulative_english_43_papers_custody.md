@@ -46,10 +46,19 @@ The package contains no scan, build log, local continuation cursor, or private
 absolute path. The German lecture at line 20968 is not imported by the master
 or any recursive fragment.
 
-## Remote routing
+## Remote publication
 
-Immediately before GitHub admission, the official Zenodo API still resolved
-concept `10.5281/zenodo.20412587` to version
-`10.5281/zenodo.21434690`. Any archive update must be one successor on that
-existing concept and must wait for an exact public GitHub clone readback.
-No duplicate concept or competing draft is authorized.
+GitHub PR [#75](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/75)
+merged at `cc8bc1c5d8f3bff8611e58ee7b87fd783fad21a0`; a fresh
+credential-free clone replayed all 52 files exactly. Archive maintenance then
+published version
+[`10.5281/zenodo.21498737`](https://doi.org/10.5281/zenodo.21498737)
+on the existing concept only.
+
+Because the predecessor already had 100 files, the successor replaces the old
+RA10 cumulative reader and old standalone-English ZIP on the current surface.
+Both remain immutable on predecessor
+[`10.5281/zenodo.21434690`](https://doi.org/10.5281/zenodo.21434690).
+The new PDF and exact 52-member ZIP passed unauthenticated byte and SHA-256
+readback; 98 other inherited files are unchanged. See the
+[publication receipt](../published-zenodo/20260722_noether_r823_cumulative_english_record_21498737.md).
