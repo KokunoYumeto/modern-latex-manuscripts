@@ -1,3 +1,31 @@
+## 2026-07-22 SGA5 numbered-print topology reconciliation
+
+Archive maintenance independently replayed the append-only SGA5 coverage
+control and found 480 distinct certification rows for numbered print pages
+1-480, followed by 56 terminological-index and 52 notation-index entries.
+Together these account topologically for numbered print pages 1-484 with no
+missing or duplicate page key. See the sanitized
+[metadata receipt](source-intake/20260722_sga5_numbered_print_coverage_topology_reconciliation.md).
+
+This closes a numbering/topology question only. It is not a second
+symbol-by-symbol body audit, English semantic recertification, rights
+clearance, publication readiness, a critical edition, or whole-SGA
+completion. The four privately inspected index-page renders remain
+rights-blocked and no SGA5 body or pixel was added.
+
+## 2026-07-22 English/Germanic active-lane snapshot at 06:10
+
+A timestamped [metadata-only sweep receipt](source-intake/20260722_english_germanic_active_lane_sweep_0610.md)
+records three useful but undispatched states: SGA1 Proposition I.10.4 has a
+local independent gate-set PASS but no frozen handoff; Noether Paper 6 tranche
+039 has an R3 font-evidence repair while fresh independent review remains
+unterminated; and SGA2 Expose XI lines 3618-3622 have producer PASS while the
+declared independent successor has no terminal verdict.
+
+All body files and project renders remain local. The Noether and SGA2 source
+rasters remain rights-blocked. This snapshot extends no public source-bearing
+frontier and creates no GitHub body package or Zenodo upload.
+
 ## 2026-07-22 SGA2 Expose XI line 3607 and Proposition 1.1 hold readback
 
 GitHub PR [#58](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/58)
