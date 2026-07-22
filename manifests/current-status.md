@@ -156,8 +156,13 @@ publication-facing regeneration, and accessibility remain unresolved.
 The target/rebuild render is pixel-exact but held. Same-edition physical page
 107 remains rights-blocked, and four machine-panel images remain nonpublic.
 Line 3607 is the excluded cursor; the prospective line-3609 `Y_n`/`X_n`
-oddity is outside scope and remains unadjudicated. This metadata receipt does
-not extend source-bearing coverage past line 3574; Zenodo remains unchanged.
+oddity is outside this handoff's scope. A later
+[metadata-only adjudication](source-intake/20260722_sga2_xi_line3609_pic_yn_xn_adjudication_metadata.md)
+now classifies it as source defect
+`SGA2-XI-L3609-PIC-YN-VS-XN-SRCDEF-001`: future English must use `Pic(X_n)`
+with an immediate visible note, while French remains unchanged. No
+Proposition XI.1.1 target or evidence is released. Public source-bearing
+coverage remains through line 3574; Zenodo remains unchanged.
 
 Pull request [#52](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/52)
 merged this metadata-only hold at public `main` commit
