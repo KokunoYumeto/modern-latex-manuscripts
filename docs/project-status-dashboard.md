@@ -2,6 +2,16 @@
 
 Generated from the current public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
 
+July 22 terminal SGA6 update: GitHub custody now adds the bounded
+source-checked idx693-idx702 tranche, printed pages 680-689, through section 8,
+the bibliography, and terminal notes. There is no idx703. The no-overwrite
+publication successor removes two forbidden extraction controls without
+changing the English body or any of seven reviewed render hashes. The source
+scan, source-page pixels, and raw path-bearing logs remain excluded. This
+closes the available SGA6 source only; it does not newly certify the earlier
+volume, create a critical edition, or settle underlying rights. Same-concept
+Zenodo action is queued after exact GitHub readback.
+
 July 22 SGA6 update: GitHub custody now adds a bounded source-checked English
 checkpoint for idx685-idx692 / printed pages 672-679, continuing at idx693.
 Its publication successor changes no visible body text: it adds ToUnicode

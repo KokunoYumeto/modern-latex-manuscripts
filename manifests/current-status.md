@@ -1,3 +1,23 @@
+## 2026-07-22 SGA6 idx693-idx702 terminal public custody
+
+Archive maintenance admitted a 20-file / 2,961,918-byte no-overwrite public
+successor for terminal SGA6 Expose XIV idx693-idx702. It covers printed pages
+680-689 and source-PDF pages 683-692, from section 4.7 after "if and" through
+section 8, bibliography, and terminal notes. There is no idx703. See the
+[custody receipt](source-intake/20260722_sga6_idx693_702_terminal_public_custody.md)
+and [public package](../sources/sga/sga6-english-idx693-702-terminal-source-checked-20260722/).
+
+The public TeX adds only explicit ToUnicode mappings for Latin Modern's large
+parentheses. The English body and all seven 160-dpi page renders are unchanged.
+Three builds, 26/26 embedded subset Unicode font rows, zero forbidden
+extraction controls, and seven-page visual review pass. Raw path-bearing logs,
+French scan pixels, and build intermediates remain hash-bound but withheld.
+
+This closes the available SGA6 source, not a new certification of earlier
+layers, complete critical edition, or rights determination. GitHub merge and
+fresh-clone readback are pending; same-concept Zenodo routing starts only after
+that gate.
+
 ## 2026-07-22 SGA6 idx685-idx692 bounded public custody
 
 Archive maintenance admitted a 17-file / 3,685,265-byte no-overwrite public
