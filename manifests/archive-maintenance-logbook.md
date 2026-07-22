@@ -1706,3 +1706,29 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   concept `10.5281/zenodo.20410947` to version
   `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft, mutation,
   or duplicate was created.
+
+## 2026-07-22 - SGA2 Expose VIII cumulative R5 admitted to GitHub custody
+
+- The exact package contains 82 files / 9,428,689 bytes under
+  `sources/sga/sga2-english-expose-viii-cumulative-r5-20260719/`.
+- Its 80-row descriptor has SHA-256
+  `C1F9AD4E15C0DA6BF18F5837DCFE1DB8A36F0A5E83629A009039D53CE72DBA50`;
+  its canonical row aggregate is
+  `58447A435A46F33D10C2D3417C8290DF672309B916DC6C5661BCF15AB1DA9730`;
+  and its validation passes with errors `[]` at SHA-256
+  `5E8566B366123B7038541A23ACB833CEB6975658E037590AFD8D77FCD296FFA2`.
+- Archive replay matched all 80 descriptor rows exactly and found no
+  unmanifested nonself file. Scope is corrected French lines 2501-2928 with
+  30 source-bearing bodies, 32 bounded states, and 25 blank seams.
+- The public reader has one editable TeX source and eight A4 PDF pages. All
+  31 font rows pass; 8/8 reader-page renders and 34/34 workbook panels were
+  directly inspected at original resolution.
+- The ten-sheet workbook has 229 data rows, 125 used column instances, and
+  3,056 exact source-cell comparisons. Machine controls close 15 CSV files /
+  658 data rows, two JSONL files / 38 records, and 267/267 references.
+- No French authority file or source pixel is bundled. French2859 and
+  French2865 remain open and disclosed; the PDF is untagged. R5 supersedes
+  only the failed R4 cumulative evidence surface.
+- The existing Zenodo concept still resolves to published version
+  `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. Its authenticated
+  cumulative update is queued; no draft, mutation, or duplicate was created.
