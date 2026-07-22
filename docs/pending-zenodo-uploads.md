@@ -1,9 +1,10 @@
-## 2026-07-22: SGA6 idx685-idx692 public successor queued on existing concept
+## 2026-07-22: SGA6 idx685-idx692 queue closed on existing concept
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
-- Last pre-action version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+- Published version: [10.5281/zenodo.21497913](https://doi.org/10.5281/zenodo.21497913)
 - GitHub package: [`sga6-english-idx685-692-source-checked-20260722`](../sources/sga/sga6-english-idx685-692-source-checked-20260722/)
 - Custody receipt: [`20260722_sga6_idx685_692_public_custody.md`](../manifests/source-intake/20260722_sga6_idx685_692_public_custody.md)
+- Publication/readback receipt: [`20260722_sga6_idx685_692_record_21497913.md`](../manifests/published-zenodo/20260722_sga6_idx685_692_record_21497913.md)
 
 The exact prepared ZIP has 17 members / 3,471,367 bytes and SHA-256
 `3ED34ABC7B91F0F6C12FAE1172532273480152A9F32422D9CA24F2DA758532CE`.
@@ -11,11 +12,12 @@ It packages one editable TeX, one seven-page reader, seven reviewed target
 renders, the exact independent review, and archive controls. It contains no
 French scan, source-page pixel, private path, or raw compiler log.
 
-Use only an authenticated new version of the existing SGA concept. Preserve
-all 33 predecessor files unless a separately reviewed same-name successor is
-intentional. Never mint a duplicate concept or competing deposition. Until
-publication and unauthenticated remote SHA-256 readback complete, Zenodo
-publication remains unclaimed.
+GitHub PRs #70 and #71 published the exact package and its byte-preservation
+rule. A fresh public clone matches 17/17 files and the canonical package
+identity. Zenodo inherited all 33 predecessor files and added six checkpoint
+objects; every addition passed unauthenticated SHA-256 readback and the
+downloaded ZIP replayed 17/17 members. No duplicate concept or competing
+deposition was created. The queue is closed.
 
 ## 2026-07-22: CJK visual-evidence queue closed on existing Interlanguage concept
 
