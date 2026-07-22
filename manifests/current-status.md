@@ -781,7 +781,9 @@ The ZIP contains 290 project-generated or project-recovered images and six publi
 
 Fourteen rights-blocked images are represented by metadata only and their pixels are not redistributed. The index also records 1,716 excluded non-project images, 49 metadata-incomplete records including one inherited undecodable PNG, 1,142 parent candidates, and 498 structural-link candidates. Candidate links are not human-confirmed. This is provenance and visual-QA evidence, not translation, source-fidelity, mathematical, native-language, rights, or corpus-completion certification.
 
-Exact receipts: `manifests/source-intake/20260722_cjk_visual_evidence_open_payload_publication.md` and `manifests/published-zenodo/20260722_interlanguage_cjk_visual_v14_record_21485338.json`.
+GitHub PR [#68](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/68) merged at `3b3ffca11ba2e247eb6efa1df17dff31499379d4`. A fresh credential-free sparse clone matched all 303 Git package files and all 296 exact handoff members with zero SHA-256 errors.
+
+Exact receipts: `manifests/source-intake/20260722_cjk_visual_evidence_open_payload_publication.md`, `manifests/source-intake/20260722_cjk_visual_evidence_open_payload_github_readback.md`, and `manifests/published-zenodo/20260722_interlanguage_cjk_visual_v14_record_21485338.json`.
 
 ## 2026-07-18 Interlanguage v0.13 corpus, WordWeb, governance, and normalization checkpoints published
 
