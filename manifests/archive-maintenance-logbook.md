@@ -1830,3 +1830,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Public source-bearing coverage remains through line 3574. Zenodo remains
   published version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes;
   no draft, mutation, deposition, or duplicate was created.
+
+## 2026-07-22 - SGA2 Expose XI line 3607 and Proposition 1.1 GitHub readback
+
+- PR [#58](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/58)
+  merged source commit `b8586a5e8213088c16a9c5d9e086639801593e5e` at public
+  `main` commit `93355464e84c8b1a37ce651fbbbe2475c53da6c8`.
+- A fresh sparse clone resolved to the merge commit with a clean worktree.
+  All nine changed source/merge Git blobs matched exactly.
+- The pre-closure public logbook blob has SHA-256
+  `23E70786A4E6DF7864505B9CF29C83E307A31124E104FD9815630FE792DEFA23`
+  and parses as 90 records / 90 unique IDs through
+  `AML-20260722-SGA-078`.
+- The merged diff has four sanitized hold-receipt paths and five status/log
+  paths. It has no target TeX/PDF, authority slice, evidence body, extracted
+  text, build log, ZIP, render, source raster, or machine panel.
+- All 693 added lines have zero private-path, thread-ID, or agent-name hits.
+  Public source-bearing coverage remains through corrected French line 3574.
+- The official Zenodo API recheck at
+  `2026-07-22T05:52:51.2429914+02:00` still returned published version
+  `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes, for concept
+  `10.5281/zenodo.20410947`. No draft, mutation, deposition, or duplicate was
+  created.

@@ -33,6 +33,18 @@ was created during GitHub intake. Update only the existing concept through the
 authenticated cumulative-release workflow, then stream every remote file back
 and record exact hashes before calling Zenodo publication complete.
 
+## 2026-07-22: SGA2 Expose XI line 3607 and Proposition 1.1 holds read back
+
+- GitHub PR: [#58](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/58)
+- Public merge: `93355464e84c8b1a37ce651fbbbe2475c53da6c8`
+- Readback: [`20260722_sga2_xi_line3607_p11_metadata_holds_github_readback.md`](../manifests/source-intake/20260722_sga2_xi_line3607_p11_metadata_holds_github_readback.md)
+
+A fresh public-main clone matched all nine changed Git blobs and confirmed
+that the merge contains metadata only. No standalone Zenodo upload is pending
+for either unit. Their target and evidence bodies remain held until the
+release gates recorded below are closed or a separately audited cumulative
+successor is admitted.
+
 ## 2026-07-22: SGA2 Expose XI line 3607 R3 reviewed; no upload authorized
 
 - Metadata hold: [`20260722_sga2_xi_line3607_r3_reviewed_handoff_hold.md`](../manifests/source-intake/20260722_sga2_xi_line3607_r3_reviewed_handoff_hold.md)

@@ -1,3 +1,18 @@
+## 2026-07-22 SGA2 Expose XI line 3607 and Proposition 1.1 hold readback
+
+GitHub PR [#58](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/58)
+merged the two metadata-only custody holds at
+`93355464e84c8b1a37ce651fbbbe2475c53da6c8`. A fresh public-main clone
+matched all nine source/merge Git blobs exactly and contained no target,
+evidence body, or visual file for either unit. The combined
+[readback receipt](source-intake/20260722_sga2_xi_line3607_p11_metadata_holds_github_readback.md)
+closes GitHub publication and readback for metadata only. Public
+source-bearing coverage remains through corrected French line 3574.
+
+Zenodo remains unchanged at published version
+`10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft, mutation,
+deposition, or duplicate was created.
+
 ## 2026-07-22 SGA2 Expose XI Proposition 1.1 metadata-only hold
 
 Archive maintenance independently replayed the exact Proposition XI.1.1
