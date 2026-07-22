@@ -30,6 +30,13 @@ render, crop, diagram, or other visual-evidence file was newly admitted.
 Zenodo remains version `10.5281/zenodo.21435547` under the existing concept;
 no draft, mutation, or duplicate was created.
 
+Pull request [#45](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/45)
+merged the receipt at public `main` commit
+`8a67801d83e46b0d5dc8ce072a1516a347491a24`. A
+[fresh-clone readback](source-intake/20260722_sga6_watch_no_change_github_readback.md)
+matched all five ordinary files exactly and the archive JSONL by Git blob and
+line-ending-normalized SHA-256.
+
 ## 2026-07-22 SGA2 Expose X Theorem 3.10 producer hold
 
 The statement at corrected French lines 3576-3586 has a producer PASS but is
