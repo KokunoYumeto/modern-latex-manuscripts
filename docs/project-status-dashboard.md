@@ -9,8 +9,13 @@ publication successor removes two forbidden extraction controls without
 changing the English body or any of seven reviewed render hashes. The source
 scan, source-page pixels, and raw path-bearing logs remain excluded. This
 closes the available SGA6 source only; it does not newly certify the earlier
-volume, create a critical edition, or settle underlying rights. Same-concept
-Zenodo action is queued after exact GitHub readback.
+volume, create a critical edition, or settle underlying rights. GitHub PR
+[#73](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/73)
+merged at `dd57bcd15c38ccd8847d2664b051e527bc07875c`; a fresh credential-free
+clone matched all 20 package files. Same-concept Zenodo version
+[10.5281/zenodo.21498303](https://doi.org/10.5281/zenodo.21498303) preserves
+all 39 inherited files, passes exact readback for all six additions, and
+replays all 20 downloaded ZIP members.
 
 July 22 SGA6 update: GitHub custody now adds a bounded source-checked English
 checkpoint for idx685-idx692 / printed pages 672-679, continuing at idx693.
