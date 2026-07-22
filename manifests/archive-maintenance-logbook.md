@@ -1852,3 +1852,35 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes, for concept
   `10.5281/zenodo.20410947`. No draft, mutation, deposition, or duplicate was
   created.
+
+## 2026-07-22 - SGA5 numbered-print topology metadata receipt
+
+- Replayed the 11,161-byte append-only coverage control at SHA-256
+  `9FA595236A3FF82F433E1DC46540B275E6B79FB3D377144A59E21E73A798F671`.
+- Confirmed 480 distinct certification rows with keys 1-480 and no missing or
+  duplicate page key. The terminal French index contributes 56
+  terminological and 52 notation entries, accounting topologically for
+  numbered print pages 1-484.
+- Privately inspected printed index pages 481-484 at 160 dpi. Their hashes,
+  dimensions, DPI, rotation, and full-page bounds are recorded in the public
+  metadata receipt; all four pixel files remain rights-blocked.
+- Published metadata only. No French or English body, source reader, image,
+  or Zenodo object was added. This does not claim a second page-by-page audit,
+  semantic recertification, rights clearance, publication readiness, a
+  critical edition, or whole-SGA completion.
+
+## 2026-07-22 - English/Germanic active-lane snapshot at 06:10
+
+- Recorded SGA1 Proposition I.10.4 as a local r3 gate-set PASS with no frozen
+  publication candidate or archive handoff.
+- Recorded Noether Paper 6 tranche 039 as an R3 font-evidence successor with
+  producer validation closed but fresh independent review still lacking a
+  terminal verdict.
+- Recorded SGA2 Expose XI lines 3618-3622 as producer PASS pending fresh
+  independent review; attempts 001-003 are tooling-only failures and attempt
+  004 had not issued a verdict at the snapshot.
+- Withheld every body, target render, workbook preview, and source raster.
+  The Noether and SGA2 source rasters are explicitly rights-blocked.
+- Published a timestamped metadata snapshot only. Public source-bearing
+  coverage is unchanged and neither the SGA nor Noether Zenodo concept was
+  mutated.

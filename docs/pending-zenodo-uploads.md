@@ -1,3 +1,21 @@
+## 2026-07-22: SGA5 topology and active-lane receipts need no standalone upload
+
+- SGA5 topology receipt: [`20260722_sga5_numbered_print_coverage_topology_reconciliation.md`](../manifests/source-intake/20260722_sga5_numbered_print_coverage_topology_reconciliation.md)
+- Active-lane snapshot: [`20260722_english_germanic_active_lane_sweep_0610.md`](../manifests/source-intake/20260722_english_germanic_active_lane_sweep_0610.md)
+
+Both are sanitized GitHub metadata only. The SGA5 receipt records numbered
+print pages 1-484 as topologically accounted but does not recertify the body
+or authorize source pixels. The active-lane receipt records SGA1 I.10.4,
+Noether Paper 6 tranche 039, and SGA2 XI lines 3618-3622 before any exact
+archive handoff or terminal successor review. There is no standalone Zenodo
+object to upload for either receipt.
+
+The SGA concept remains version `10.5281/zenodo.21435547`, 33 files /
+73,450,481 bytes. The Noether concept remains version
+`10.5281/zenodo.21434690`, 100 files / 2,362,920,800 bytes. Revisit an active
+lane only after its own terminal independent review and exact privacy-clean
+handoff; never create a duplicate concept or deposition.
+
 ## 2026-07-22: SGA2 Expose VIII cumulative R5 in GitHub custody; same-concept Zenodo update queued
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
