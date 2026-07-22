@@ -180,3 +180,10 @@ The project is best read as a live corpus rather than a finished edition. The nu
 The latest record-map consistency checks on 2026-06-24 verify that the generated record pages, public file catalog, Zenodo record map, and machine-readable record manifest agree on 30 current public records.
 
 The older local public PDF surface audit checked 356 public PDFs at 2026-05-28 00:09:01 and reported zero configured defect flags. SGA 5, SGA 6, SGA 7-I, and SGA 7-II French reference PDFs are intentionally image-based scans, so low embedded text extraction is expected for those files.
+
+On 2026-07-22 archive maintenance admitted two cumulative English source
+closures to GitHub custody: Noether R823 Papers 1-43 (407 pages) and the SGA6
+layered reader through source-PDF page 702 / idx702 (378 pages). Both rebuild
+with byte-identical extracted text and passed sampled visual review. These are
+working readers with explicit inherited or layered authority, not critical
+editions or uniform whole-corpus source certifications.

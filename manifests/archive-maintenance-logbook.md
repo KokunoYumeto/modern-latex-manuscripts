@@ -2132,3 +2132,33 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   checkpoint. It closes the available SGA6 source but does not recertify the
   historical prefix, complete a critical edition, or settle underlying
   rights.
+
+## 2026-07-22 - Noether R823 cumulative English custody admitted
+
+- Replayed the 51-row self-excluding checksum manifest and the manifest's own
+  identity against the exact 52-file / 5,539,858-byte payload.
+- Confirmed one master plus all 48 recursive fragments and exclusion of the
+  appended German lecture beginning at R823 line 20968.
+- Two isolated builds produce 407 A4 pages and byte-identical extracted text;
+  38/38 font rows pass and thirteen sampled pages pass direct visual review.
+- The package contains no scan, build log, local cursor, or private absolute
+  path. It is inherited working English, not a full source audit, native
+  review, rights determination, or critical edition.
+- Zenodo routing is only to existing Noether concept
+  `10.5281/zenodo.20412587` after exact public GitHub clone readback.
+
+## 2026-07-22 - SGA6 cumulative idx702 custody admitted
+
+- Replayed the 18-row self-excluding checksum manifest and the manifest's own
+  identity against the exact 19-file / 3,813,685-byte payload and canonical
+  identity `837B6612B43614A3AE54CA922B1306E9F749D15305C5C513763416EEB8BCD5FA`.
+- Confirmed one master plus all 15 recursive TeX dependencies, source-PDF
+  pages 001-702, idx702, and no idx703.
+- Two isolated builds produce 378 A4 pages and byte-identical extracted text;
+  44/44 font rows pass and twelve sampled pages pass direct visual review.
+- Authority remains layered and no scan or French source is redistributed.
+  This is not uniform whole-volume source certification or a critical edition.
+- Zenodo routing is only to existing SGA concept
+  `10.5281/zenodo.20410947` after exact public GitHub clone readback. The
+  already published standalone idx693-702 objects must remain inherited and
+  must not be uploaded again.
