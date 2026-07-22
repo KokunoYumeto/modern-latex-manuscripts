@@ -2019,3 +2019,21 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - SGA remains record 21435547 at 33 files / 73,450,481 bytes; Noether remains
   record 21434690 at 100 files / 2,362,920,800 bytes. No draft, mutation,
   deposition, or duplicate was created.
+
+## 2026-07-22 - CJK visual-evidence open payload published
+
+- Replayed the 296-member package and all 290 open image identities against
+  the public-safe index; no package, parse, privacy, or rights-boundary error
+  remained.
+- Published Zenodo version `10.5281/zenodo.21485338` on the existing
+  Interlanguage concept, inheriting 43 files and adding the exact ZIP plus
+  seven release controls. All eight additions passed unauthenticated
+  SHA-256 readback and the downloaded ZIP passed its 296-member test.
+- GitHub exposes the extracted image and metadata surface rather than the
+  oversized ZIP container.
+- Fourteen rights-blocked images remain metadata-only; 1,716 non-project
+  images remain excluded. Forty-nine records remain metadata-incomplete,
+  including one inherited undecodable PNG, and candidate parent/structural
+  links are not treated as human-confirmed.
+- This is visual provenance and QA evidence, not translation, source-fidelity,
+  mathematical, native-language, rights, or corpus-completion certification.
