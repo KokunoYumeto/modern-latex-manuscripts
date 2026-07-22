@@ -1,3 +1,24 @@
+## 2026-07-22 SGA6 idx685-idx692 bounded public custody
+
+Archive maintenance admitted a 17-file / 3,685,265-byte no-overwrite public
+successor for SGA6 Expose XIV idx685-idx692. It covers printed pages 672-679
+and source-PDF pages 675-682, continuing at idx693 / printed 680 / source-PDF
+683 after `if and`. See the [custody receipt](source-intake/20260722_sga6_idx685_692_public_custody.md)
+and [public package](../sources/sga/sga6-english-idx685-692-source-checked-20260722/).
+
+The public TeX adds only explicit ToUnicode mappings for Latin Modern's large
+parentheses. The English body and all seven page renders are unchanged; the
+seven successor renders match the producer renders byte-for-byte. Three builds,
+27/27 embedded subset Unicode font rows, zero forbidden extraction controls,
+and direct seven-page visual review pass. Path-bearing producer status, raw
+log, and coordination material remain hash-bound but withheld. No French scan
+or source-page pixel is public.
+
+This is bounded source-checked working material, not complete SGA6 or a
+critical edition. Zenodo action is routed only to existing concept
+`10.5281/zenodo.20410947`; the last pre-action query still resolved version
+`10.5281/zenodo.21435547`. No duplicate or competing draft is authorized.
+
 ## 2026-07-22 SGA2 Expose XI lines 3618-3622 hold readback
 
 GitHub PR [#66](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/66)

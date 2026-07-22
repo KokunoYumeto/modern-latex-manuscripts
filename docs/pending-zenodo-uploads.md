@@ -1,3 +1,22 @@
+## 2026-07-22: SGA6 idx685-idx692 public successor queued on existing concept
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Last pre-action version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+- GitHub package: [`sga6-english-idx685-692-source-checked-20260722`](../sources/sga/sga6-english-idx685-692-source-checked-20260722/)
+- Custody receipt: [`20260722_sga6_idx685_692_public_custody.md`](../manifests/source-intake/20260722_sga6_idx685_692_public_custody.md)
+
+The exact prepared ZIP has 17 members / 3,471,367 bytes and SHA-256
+`3ED34ABC7B91F0F6C12FAE1172532273480152A9F32422D9CA24F2DA758532CE`.
+It packages one editable TeX, one seven-page reader, seven reviewed target
+renders, the exact independent review, and archive controls. It contains no
+French scan, source-page pixel, private path, or raw compiler log.
+
+Use only an authenticated new version of the existing SGA concept. Preserve
+all 33 predecessor files unless a separately reviewed same-name successor is
+intentional. Never mint a duplicate concept or competing deposition. Until
+publication and unauthenticated remote SHA-256 readback complete, Zenodo
+publication remains unclaimed.
+
 ## 2026-07-22: CJK visual-evidence queue closed on existing Interlanguage concept
 
 - Published version: [10.5281/zenodo.21485338](https://doi.org/10.5281/zenodo.21485338)
