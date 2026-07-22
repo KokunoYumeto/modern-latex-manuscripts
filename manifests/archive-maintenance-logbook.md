@@ -1218,3 +1218,34 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `70702D5DBE035508123484F1FC36B5255786596A8AC5D01AD8F615F160A432C8`;
   the validated 267-record log now has SHA-256
   `547FC6BC022A7C6F3D9E00EB8E3AAB9AC0E90DF94CE185A0AE1361C2DF7E75DB`.
+
+## 2026-07-22 - SGA2 Expose X post-3566 sweep held closed
+
+- The lines-3568-3571 R2 privacy successor contains 63 files / 4,834,768
+  bytes. Its audit is 2,853 bytes with SHA-256
+  `8F92CC20EC0F957B853780BBC10A22C0C81FB19B8EAA315C906EA9E8B7B56F87`
+  and explicitly remains pending fresh independent review. Its privacy
+  regression validation passes at SHA-256
+  `506C301FC4FB9C8D8189E3290E0AA9BA12F29FAA1366CB94B39D7268A9D06379`,
+  but the available review is the predecessor FAIL that found twelve
+  line-dewrapped private-path occurrences across three build logs.
+- The successor preserves target TeX SHA-256
+  `BC57F45DB805F1E82371F1AE856455930549656C178935A946AF111C753E911B`
+  and PDF SHA-256
+  `70FE943717063093C9D0A8F7CB56838694268CA64487AA4257011FAD3F2D802B`.
+  Those identities are not publication authorization.
+- The line-3573 independent review remains explicit FAIL. Its 2,523-byte
+  receipt has SHA-256
+  `935D4ED517DFD560073DFD7302B67098557EA8DA06E5AF95AC993E3CACA7293C`
+  and records 316 line-dewrapped path occurrences in four files plus 13
+  review artifacts accidentally created beneath the producer root.
+- A separate 23-file / 549,673-byte line-3573 R2 privacy successor now exists,
+  preserving target TeX/PDF SHA-256
+  `385556B1AE857E855163EF2A7F26A9BA69010BD054616C01AFD48BD54BAB5499`
+  and `4A4200DE92635B265CDCA1BE28DFBAA7D318E09217EC481149B1E5B358B288CA`,
+  but it has no fresh independent seal or archive handoff.
+- No new handoff ZIP or public package passed the sweep. GitHub `main` remains
+  `168337e38d1674c85a1210deaeeb0d802c248943`; the Zenodo API still resolves
+  concept `10.5281/zenodo.20410947` to version `10.5281/zenodo.21435547`,
+  33 files / 73,450,481 bytes. No GitHub package, Zenodo draft, duplicate
+  record, or shared-log mutation was created for either held state.

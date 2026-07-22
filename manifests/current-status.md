@@ -16,6 +16,24 @@ The five added TeX companions and replacement status/checksum controls streamed 
 
 These are bounded machine-assisted source-audited/source-aligned working checkpoints, not complete SGA volumes, critical editions, peer review, proof verification, independent human certification, accessibility certification, or rights determinations.
 
+## 2026-07-22 SGA2 Expose X post-3566 local hold
+
+The next two local production states are not public checkpoints. The no-overwrite
+privacy successor for French lines 3568-3571 preserves the 4,263-byte target TeX
+and 238,640-byte PDF, and its strengthened privacy-regression test passes, but its
+own audit explicitly remains `PRODUCER_R2_PASS_PENDING_FRESH_INDEPENDENT_REVIEW`.
+The available independent review applies to the predecessor and fails on twelve
+line-dewrapped private-path occurrences across three build logs. No archive
+handoff or independently sealed public projection exists for the successor.
+
+The adjudicated line-3573 predecessor also remains fail-closed. Independent
+review found 316 line-dewrapped private-path occurrences across four files and
+13 review artifacts accidentally created below the producer root. A separate
+23-file R2 privacy successor exists locally, but it has no fresh independent
+seal or archive handoff. Neither state has been copied to GitHub or Zenodo.
+Public bounded source-bearing coverage therefore still ends at French line
+3566, and lines 3457-3521 remain separately unclaimed.
+
 ## 2026-07-22 SGA2 Expose X Proposition 2.3 through editor note 3 GitHub custody
 
 GitHub preserves the exact rights-curated 306-file / 19,594,918-byte checkpoint
