@@ -88,6 +88,14 @@ rights-blocked; the project target and machine panels are held because the
 unit is unsealed. Public source-bearing coverage remains through corrected
 French line 3574. Zenodo remains unchanged under the existing SGA concept.
 
+Pull request [#47](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/47)
+merged the receipt at public `main` commit
+`c1994efc86b8bbf39824d9acb1b8078e0abd8974`. A
+[fresh-clone readback](source-intake/20260722_sga2_x_line3588_hold_github_readback.md)
+matched five ordinary files byte for byte and the JSONL by Git blob and
+line-ending-normalized bytes. The public tree contains no line-3588 body or
+pixels.
+
 ## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
 Two separate rights-curated packages preserve the complete proof of Theorem
