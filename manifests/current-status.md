@@ -63,6 +63,13 @@ images remain nonpublic. The raw cursor is blank line 3587 and the substantive
 cursor is line 3588. Public source-bearing coverage remains through line 3574;
 Zenodo remains unchanged.
 
+Pull request [#51](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/51)
+merged the combined metadata-only custody update at public `main` commit
+`a9bc4fcb05a3134737bfb22b841e867d15dd48b5`. A
+[fresh-clone readback](source-intake/20260722_sga2_x_theorem3_10_r2_and_xi_opening_holds_github_readback.md)
+matched all nine changed Git blobs exactly and confirmed that neither unit's
+body, evidence, nor pixels entered the public tree.
+
 ## 2026-07-22 SGA2 Expose X line 3588 reviewed handoff hold
 
 The closing comment at corrected French line 3588 now has a fresh independent
@@ -124,6 +131,33 @@ The target/rebuild render is pixel-exact but held. Same-edition physical page
 The raw cursor is blank line 3597 and the substantive cursor is line 3598.
 This metadata receipt does not extend source-bearing coverage past line 3574;
 Zenodo remains unchanged.
+
+Pull request [#51](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/51)
+merged the combined metadata-only custody update at public `main` commit
+`a9bc4fcb05a3134737bfb22b841e867d15dd48b5`. The same
+[fresh-clone readback](source-intake/20260722_sga2_x_theorem3_10_r2_and_xi_opening_holds_github_readback.md)
+matched all nine changed Git blobs exactly and confirmed that no Expose XI
+opening body, evidence, or pixels entered the public tree.
+
+## 2026-07-22 SGA2 Expose XI Section 1 exact sequences reviewed handoff hold
+
+Corrected French lines 3598-3606 now have an independently reviewed exact
+handoff, recorded in a
+[metadata-only hold receipt](source-intake/20260722_sga2_xi_section1_exact_sequences_reviewed_handoff_hold.md).
+All 38 candidate identities / 459,387 bytes replay exactly, all six handoff
+checksum rows match, and privacy occurrences are zero.
+
+The handoff authorizes zero public files. Every candidate row remains
+`proposed_public=false` and `not_authorized_not_dispatched`, the PDF is
+untagged, and direct visual review found stale target-box wording that still
+says fresh independent review is pending. Rights/license,
+publication-facing regeneration, and accessibility remain unresolved.
+
+The target/rebuild render is pixel-exact but held. Same-edition physical page
+107 remains rights-blocked, and four machine-panel images remain nonpublic.
+Line 3607 is the excluded cursor; the prospective line-3609 `Y_n`/`X_n`
+oddity is outside scope and remains unadjudicated. This metadata receipt does
+not extend source-bearing coverage past line 3574; Zenodo remains unchanged.
 
 ## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
