@@ -4,6 +4,8 @@
 - Latest live version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
 - GitHub package: [`sga2-english-expose-viii-cumulative-r5-20260719`](../sources/sga/sga2-english-expose-viii-cumulative-r5-20260719/)
 - Custody receipt: [`20260722_sga2_viii_cumulative_r5_public_custody.md`](../manifests/source-intake/20260722_sga2_viii_cumulative_r5_public_custody.md)
+- GitHub publication: [pull request #56](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/56), merge `7b5b3f4542887a9dfd09a527aff06b5a3a4cc505`
+- Fresh-clone receipt: [`20260722_sga2_viii_cumulative_r5_github_readback.md`](../manifests/source-intake/20260722_sga2_viii_cumulative_r5_github_readback.md)
 
 The exact package contains 82 files / 9,428,689 bytes and covers corrected
 French lines 2501-2928 with 30 source-bearing bodies, 32 bounded states, and
@@ -11,6 +13,11 @@ French lines 2501-2928 with 30 source-bearing bodies, 32 bounded states, and
 `C1F9AD4E15C0DA6BF18F5837DCFE1DB8A36F0A5E83629A009039D53CE72DBA50`;
 validation is `PASS_ARCHIVE_HANDOFF_READY` with errors `[]` at SHA-256
 `5E8566B366123B7038541A23ACB833CEB6975658E037590AFD8D77FCD296FFA2`.
+
+GitHub custody is closed: fresh public-main readback matched all 90 changed
+blobs, all 82 package files, and 80/80 descriptor rows. This closes only the
+GitHub leg; the same-concept Zenodo update and file-by-file remote readback
+remain queued.
 
 This is the first independently passed cumulative Expose VIII reader suited to
 same-concept Zenodo curation. It contains no French authority file or source
