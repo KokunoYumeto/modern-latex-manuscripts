@@ -1884,3 +1884,21 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Published a timestamped metadata snapshot only. Public source-bearing
   coverage is unchanged and neither the SGA nor Noether Zenodo concept was
   mutated.
+
+## 2026-07-22 - SGA5 topology and active-lane GitHub readback
+
+- PR [#60](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/60)
+  merged source commit `3fa0e24654da06fb3cccae7c7c2707085671b201` at public
+  `main` commit `512f20fad4b0cdb7880a2ad107978d60b6c28c13`.
+- A fresh filtered clone resolved exactly to the merge commit with a clean
+  worktree. All nine source and merge Git blobs match.
+- Both new JSON receipts parse. The pre-closure public logbook has SHA-256
+  `96B664B753AEE1D638E347E1BC8D5F5E3BE6953634588CB29A8B499D69156E14`
+  and contains 93 records / 93 unique IDs through `AML-20260722-EG-081`.
+- All 542 added lines have zero private-path, thread-ID, or agent-name hits.
+  No body, authority, target render, source pixel, workbook, ZIP, or other
+  release object entered the merge.
+- The official API still returns SGA record 21435547 at 33 files /
+  73,450,481 bytes and Noether record 21434690 at 100 files /
+  2,362,920,800 bytes. No draft, mutation, deposition, or duplicate was
+  created.
