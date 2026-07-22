@@ -2037,3 +2037,19 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   links are not treated as human-confirmed.
 - This is visual provenance and QA evidence, not translation, source-fidelity,
   mathematical, native-language, rights, or corpus-completion certification.
+
+## 2026-07-22 - CJK visual-evidence GitHub readback closed
+
+- PR [#68](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/68)
+  merged source commit `22233dd39a4413bbb11b81e561eba656763f9fcd` at
+  public `main` commit `3b3ffca11ba2e247eb6efa1df17dff31499379d4`.
+- A fresh credential-free sparse clone resolved exactly to the merge with a
+  clean worktree. All 303 package files and all 296 exact handoff members
+  matched by size and SHA-256.
+- Source and merge expose the same package Git tree
+  `be48aa65b682c91219d02382d0cfe66c3b2d53ac`.
+- The 296-member canonical readback digest is
+  `CB69F34A09DD8A2CF68AC835461EC2CF1517712E4DD6D410334AE142F598558A`.
+- Zenodo remains version `10.5281/zenodo.21485338` on concept
+  `10.5281/zenodo.21124403`; no duplicate concept or deposition was created.
+- Manual provenance, coordinate, and structural-link review remains open.

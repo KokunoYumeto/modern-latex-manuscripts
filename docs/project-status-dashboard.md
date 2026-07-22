@@ -2,7 +2,7 @@
 
 Generated from the current public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
 
-July 22 CJK visual-evidence update: Interlanguage v0.14 preserves an exact 296-member open package containing 290 project-generated or project-recovered images and six public-safe controls. Fourteen rights-blocked images are metadata-only; 1,716 non-project images remain excluded; 49 records still need provenance completion, including one inherited undecodable PNG. This is visual provenance/QA evidence rather than translation, source-fidelity, mathematical, native-language, or rights certification.
+July 22 CJK visual-evidence update: Interlanguage v0.14 preserves an exact 296-member open package containing 290 project-generated or project-recovered images and six public-safe controls. GitHub PR [#68](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/68) merged at `3b3ffca11ba2e247eb6efa1df17dff31499379d4`; a fresh credential-free clone matched all 303 Git package files and all 296 exact handoff members. Fourteen rights-blocked images are metadata-only; 1,716 non-project images remain excluded; 49 records still need provenance completion, including one inherited undecodable PNG. This is visual provenance/QA evidence rather than translation, source-fidelity, mathematical, native-language, or rights certification.
 
 July 22 metadata update: a read-only SGA5 replay accounts topologically for
 numbered print pages 1-484 through 480 certification rows and 108 index

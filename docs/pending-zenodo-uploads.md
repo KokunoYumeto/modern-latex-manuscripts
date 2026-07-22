@@ -3,11 +3,18 @@
 - Published version: [10.5281/zenodo.21485338](https://doi.org/10.5281/zenodo.21485338)
 - Existing concept: [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403)
 - Receipt: [`20260722_cjk_visual_evidence_open_payload_publication.md`](../manifests/source-intake/20260722_cjk_visual_evidence_open_payload_publication.md)
+- GitHub PR: [#68](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/68)
+- Public merge: `3b3ffca11ba2e247eb6efa1df17dff31499379d4`
+- GitHub readback: [`20260722_cjk_visual_evidence_open_payload_github_readback.md`](../manifests/source-intake/20260722_cjk_visual_evidence_open_payload_github_readback.md)
 
 The exact 142,908,011-byte ZIP and seven release controls were added as one
 successor version, preserving all 43 predecessor files. Fresh unauthenticated
 downloads matched every new SHA-256 and the ZIP retested at 296 members with
 no bad member. No duplicate concept or competing deposition was created.
+
+A fresh credential-free GitHub clone matched all 303 package files and all
+296 exact handoff members with zero SHA-256 errors. GitHub and Zenodo
+transport/readback are therefore closed independently.
 
 The package exposes 290 project-generated/recovered images and six public-safe
 controls. Fourteen rights-blocked images remain metadata-only, 1,716
