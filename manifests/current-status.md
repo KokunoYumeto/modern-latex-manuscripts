@@ -159,6 +159,14 @@ Line 3607 is the excluded cursor; the prospective line-3609 `Y_n`/`X_n`
 oddity is outside scope and remains unadjudicated. This metadata receipt does
 not extend source-bearing coverage past line 3574; Zenodo remains unchanged.
 
+Pull request [#52](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/52)
+merged this metadata-only hold at public `main` commit
+`02fcba790f3e20d5708f38f4e016d2280d712d59`. A
+[fresh-clone readback](source-intake/20260722_sga2_xi_section1_exact_sequences_reviewed_handoff_hold_github_readback.md)
+matched all nine changed Git blobs exactly, parsed 83 unique archive
+decisions, and confirmed from the complete repository tree that no Section 1
+body, evidence, or pixels entered public custody.
+
 ## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
 Two separate rights-curated packages preserve the complete proof of Theorem

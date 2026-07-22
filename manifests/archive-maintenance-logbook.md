@@ -1636,3 +1636,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   excluded cursor; the line-3609 `Y_n`/`X_n` watch is outside scope.
 - This metadata-only state does not extend source-bearing coverage past line
   3574. Zenodo is unchanged and no duplicate was created.
+
+## 2026-07-22 - SGA2 Expose XI Section 1 hold public readback
+
+- Pull request [#52](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/52)
+  merged the metadata-only hold at public `main` commit
+  `02fcba790f3e20d5708f38f4e016d2280d712d59`.
+- A fresh sparse clone resolved exactly to that merge commit with a clean
+  worktree. All nine changed Git blobs matched the custody commit byte for
+  byte.
+- The public archive JSONL has SHA-256
+  `77BDC9E3B7B64844A1E79E8DD9731A4011F06FB8A5CCB44689FA2AD9CB71E537`
+  and parses as 83 records with 83 unique decision IDs, ending at
+  `AML-20260722-SGA-071`.
+- A complete public tree listing contains the Section 1 hold in Markdown and
+  JSON only. It contains no Section 1 TeX, PDF, authority slice, CSV/JSONL
+  evidence, ZIP, target render, source raster, or machine panel.
+- The merged diff introduced zero private paths, thread IDs, or body/pixel
+  files. Public source-bearing coverage remains through line 3574. The
+  official Zenodo API still resolves concept `10.5281/zenodo.20410947` to
+  version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft,
+  mutation, or duplicate was created.
