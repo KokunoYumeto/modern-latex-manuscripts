@@ -1,3 +1,16 @@
+## 2026-07-22 English/Germanic follow-up GitHub readback
+
+GitHub PR [#62](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/62)
+merged source commit `69b0c5d9e49f71afa27eb6544cef91eed66cdccc` at public
+`main` commit `89b3f7ff2d781fd880a7f9b23b9c73ef60dd7ffe`. A fresh
+sparse public-main clone and independent raw-byte fetch matched all seven
+changed source/merge files exactly. See the
+[readback receipt](source-intake/20260722_english_germanic_active_lane_followup_github_readback.md).
+
+This closes GitHub publication/readback for metadata only. Noether and SGA2
+bodies remain held, SGA1 I.10.5 remains mutable, its source pixels remain
+rights-blocked, and both Zenodo concepts remain unchanged.
+
 ## 2026-07-22 English/Germanic active-lane follow-up at 06:37
 
 A [metadata-only follow-up](source-intake/20260722_english_germanic_active_lane_followup_0637.md)

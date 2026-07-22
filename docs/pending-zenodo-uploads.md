@@ -1,3 +1,15 @@
+## 2026-07-22: active-lane follow-up read back; no upload
+
+- GitHub PR: [#62](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/62)
+- Public merge: `89b3f7ff2d781fd880a7f9b23b9c73ef60dd7ffe`
+- Readback: [`20260722_english_germanic_active_lane_followup_github_readback.md`](../manifests/source-intake/20260722_english_germanic_active_lane_followup_github_readback.md)
+
+All seven metadata files match source to public merge exactly. This closes
+GitHub publication and readback only. There is still no standalone Zenodo
+queue item: Noether lacks a seal and privacy-clean handoff, SGA2 lacks a
+terminal independent PASS, and SGA1 I.10.5 remains mutable with rights-blocked
+source pixels. Both existing concepts remain unchanged.
+
 ## 2026-07-22: active-lane follow-up is not a Zenodo queue item
 
 - Metadata receipt: [`20260722_english_germanic_active_lane_followup_0637.md`](../manifests/source-intake/20260722_english_germanic_active_lane_followup_0637.md)
