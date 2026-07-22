@@ -2162,3 +2162,48 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `10.5281/zenodo.20410947` after exact public GitHub clone readback. The
   already published standalone idx693-702 objects must remain inherited and
   must not be uploaded again.
+
+## 2026-07-22 - Noether R823 cumulative English published and read back
+
+- GitHub PR #75 merged the exact 52-file payload at
+  `cc8bc1c5d8f3bff8611e58ee7b87fd783fad21a0`; a fresh credential-free
+  clone replayed every byte and checksum row.
+- Zenodo's predecessor already occupied the 100-file ceiling. Current version
+  `10.5281/zenodo.21498737` therefore replaces the old RA10 reader and old
+  standalone-English ZIP with the new 407-page reader and exact 52-member ZIP.
+  Both replaced objects remain immutable on predecessor `21434690`.
+- All 98 retained current-surface files preserve their server identities. Both
+  new objects and all 52 ZIP members passed unauthenticated readback. No draft
+  or duplicate concept remains.
+- This closes transport and archive custody for inherited English Papers 1-43
+  through R823 line 20967; it is not a new whole-corpus source audit, native
+  review, mathematical certification, rights decision, or critical edition.
+
+## 2026-07-22 - SGA6 cumulative idx702 published and read back
+
+- GitHub PR #75 merged the exact 19-file payload at
+  `cc8bc1c5d8f3bff8611e58ee7b87fd783fad21a0`; a fresh credential-free
+  clone replayed every byte and checksum row.
+- Same-concept Zenodo version `10.5281/zenodo.21498777` inherits all 45
+  predecessor files and adds five cumulative-facing objects. The standalone
+  idx693-702 files were inherited unchanged and were not uploaded again.
+- Every addition and all 19 downloaded ZIP members passed unauthenticated
+  readback. The SGA5 default preview remains unchanged; no draft or duplicate
+  concept remains.
+- This closes transport and archive custody for the layered reader through
+  source-PDF page 702 and idx702, not uniform whole-volume source
+  certification, independent human review, rights clearance, or a critical
+  edition.
+
+## 2026-07-22 - SGA3 Loop-1 Reinhold attribution rule
+
+- Jacob Reinhold's public `jcreinhold/sga` SGA3 Markdown at snapshot
+  `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` is classified as CC BY 4.0
+  English prose comparison/draft lineage only.
+- Any future package reusing that wording must credit Reinhold, link and pin
+  the upstream repository, preserve CC BY 4.0 attribution, and distinguish
+  his prose from this project's PDF-controlled equation, TeX, numbering,
+  footnote, and diagram reconstruction.
+- Reinhold's work must not be presented as this project's original work or as
+  French source authority.
+- This decision publishes no SGA3 body and performs no Zenodo mutation.
