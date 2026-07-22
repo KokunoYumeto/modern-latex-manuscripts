@@ -1,3 +1,20 @@
+## 2026-07-22: CJK visual-evidence queue closed on existing Interlanguage concept
+
+- Published version: [10.5281/zenodo.21485338](https://doi.org/10.5281/zenodo.21485338)
+- Existing concept: [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403)
+- Receipt: [`20260722_cjk_visual_evidence_open_payload_publication.md`](../manifests/source-intake/20260722_cjk_visual_evidence_open_payload_publication.md)
+
+The exact 142,908,011-byte ZIP and seven release controls were added as one
+successor version, preserving all 43 predecessor files. Fresh unauthenticated
+downloads matched every new SHA-256 and the ZIP retested at 296 members with
+no bad member. No duplicate concept or competing deposition was created.
+
+The package exposes 290 project-generated/recovered images and six public-safe
+controls. Fourteen rights-blocked images remain metadata-only, 1,716
+non-project images remain excluded, and 49 metadata-incomplete records remain
+visible. This closes the archive queue, not the manual provenance/coordinate/
+structural-link review cursor.
+
 ## 2026-07-22: SGA2 XI lines 3618-3622 hold read back; no upload
 
 - GitHub PR: [#66](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/66)

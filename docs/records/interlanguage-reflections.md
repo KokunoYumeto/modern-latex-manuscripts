@@ -1,6 +1,6 @@
 # Interlanguage Methodology
 
-Zenodo record: [21430885](https://zenodo.org/records/21430885); concept DOI: [https://doi.org/10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403)
+Zenodo record: [21485338](https://zenodo.org/records/21485338); concept DOI: [https://doi.org/10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403)
 
 Public title: Interlanguage and Mathematical Translation Methodology Sidecar
 
@@ -8,13 +8,15 @@ Public title: Interlanguage and Mathematical Translation Methodology Sidecar
 
 | Files | PDFs | TeX | ZIPs | Total MB |
 |---:|---:|---:|---:|---:|
-| 43 | 2 | 0 | 18 | 4605.8 |
+| 51 | 2 | 0 | 19 | 4745.6 |
 
 ## How To Read This Record
 
 Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
-Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21430885 fronts the v0.13 five-page archive map, retains the full numbered source-body, weighted-automata, terminology, manager-fleet, Romance v10, Interslavic, and Noether R823-gate layers, and adds organized Romance corpus/WordWeb/governance/T008 and Interslavic-through-Tranche-007 checkpoints. WordWeb records 60 concepts, 106 senses, 954 access rows, and 28 explicit gaps; controlled Romance continues at German R823 line 21309. These are model-built methodology, normalization, corpus, and bounded working-translation artifacts, not native validation, human intelligibility evidence, rights clearance, community certification, peer review, or critical editions.
+Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21485338 retains the full numbered v0.13 archive and adds the CJK visual-evidence checkpoint: 290 open project-generated or project-recovered images, six public-safe controls, and metadata-only representation of 14 rights-blocked images. The index also records 1,716 excluded non-project images, 49 metadata-incomplete records, and one inherited undecodable PNG. Parent and structural links remain candidates unless explicitly confirmed. These are model-built methodology, normalization, corpus, bounded working-translation, provenance, and visual-QA artifacts, not native validation, translation or source-fidelity certification, rights clearance, community certification, peer review, or critical editions.
+
+The retained v0.13 file links below remain stable on predecessor record 21430885. Version 21485338 inherits those files unchanged and adds the v0.14 files linked explicitly below.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
@@ -47,6 +49,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.6655 | [17a_Romance_Corpus_WordWeb_Governance_and_T008_v13_20260718.zip](https://zenodo.org/records/21430885/files/17a_Romance_Corpus_WordWeb_Governance_and_T008_v13_20260718.zip) |
 | 1.1239 | [17b_Interslavic_Normalization_Through_Tranche007_v13_20260718.zip](https://zenodo.org/records/21430885/files/17b_Interslavic_Normalization_Through_Tranche007_v13_20260718.zip) |
 | 0.2692 | [17c_Romance_WordWeb_Access_PublicCheckpoint_v11_20260718.zip](https://zenodo.org/records/21430885/files/17c_Romance_WordWeb_Access_PublicCheckpoint_v11_20260718.zip) |
+| 136.2877 | [CJK_VISUAL_EVIDENCE_OPEN_PAYLOAD_20260718.zip](https://zenodo.org/records/21485338/files/CJK_VISUAL_EVIDENCE_OPEN_PAYLOAD_20260718.zip) |
 
 ## Manifest And Status Files
 
@@ -75,3 +78,10 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.0008 | [17_Interlanguage_v13_public_sha256_20260718.txt](https://zenodo.org/records/21430885/files/17_Interlanguage_v13_public_sha256_20260718.txt) |
 | 0.0014 | [99_Interlanguage_Public_Status_v13_20260718.md](https://zenodo.org/records/21430885/files/99_Interlanguage_Public_Status_v13_20260718.md) |
 | 0.0021 | [99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md](https://zenodo.org/records/21430885/files/99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md) |
+| 3.4573 | [18_CJK_Visual_Evidence_Public_Safe_Index_20260722.jsonl](https://zenodo.org/records/21485338/files/18_CJK_Visual_Evidence_Public_Safe_Index_20260722.jsonl) |
+| 0.0249 | [18_CJK_Visual_Evidence_Rights_Blocked_Metadata_20260722.jsonl](https://zenodo.org/records/21485338/files/18_CJK_Visual_Evidence_Rights_Blocked_Metadata_20260722.jsonl) |
+| 0.0020 | [18_CJK_Visual_Evidence_Schema_20260722.md](https://zenodo.org/records/21485338/files/18_CJK_Visual_Evidence_Schema_20260722.md) |
+| 0.0014 | [18_CJK_Visual_Evidence_Scope_Caveats_20260722.md](https://zenodo.org/records/21485338/files/18_CJK_Visual_Evidence_Scope_Caveats_20260722.md) |
+| 0.0010 | [18_CJK_Visual_Evidence_v14_public_manifest_20260722.csv](https://zenodo.org/records/21485338/files/18_CJK_Visual_Evidence_v14_public_manifest_20260722.csv) |
+| 0.0008 | [18_CJK_Visual_Evidence_v14_public_sha256_20260722.txt](https://zenodo.org/records/21485338/files/18_CJK_Visual_Evidence_v14_public_sha256_20260722.txt) |
+| 0.0015 | [99_Interlanguage_Public_Status_v14_20260722.md](https://zenodo.org/records/21485338/files/99_Interlanguage_Public_Status_v14_20260722.md) |
