@@ -2053,3 +2053,22 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Zenodo remains version `10.5281/zenodo.21485338` on concept
   `10.5281/zenodo.21124403`; no duplicate concept or deposition was created.
 - Manual provenance, coordinate, and structural-link review remains open.
+
+## 2026-07-22 - SGA6 idx685-idx692 public successor admitted
+
+- Rehashed all twelve requested checkpoint identities and the separate
+  coordination receipt; all match the producer handoff.
+- Withheld the path-bearing producer status, raw log, and coordination note,
+  while preserving their identities in the public custody ledger.
+- Repaired two U+0001 extraction bytes with explicit ToUnicode mappings for
+  Latin Modern's large parentheses. The English body is unchanged and all
+  seven 200-dpi renders remain byte-identical.
+- Admitted the exact 17-file / 3,685,265-byte GitHub package. Three builds,
+  27/27 embedded subset Unicode fonts, zero forbidden extraction controls,
+  7/7 visual inspection, exact manifest replay, privacy scan, and ZIP
+  extraction readback pass.
+- No French scan or source-page pixel is public. This is bounded source-checked
+  working material, not complete SGA6 or a critical edition.
+- The prepared ZIP is routed only to existing SGA concept
+  `10.5281/zenodo.20410947`; no duplicate or competing deposition is
+  authorized.
