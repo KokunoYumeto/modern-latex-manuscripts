@@ -1595,3 +1595,44 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   rights-blocked, and four machine panels remain nonpublic. This metadata-only
   state does not extend source-bearing coverage past line 3574. Zenodo is
   unchanged and no duplicate was created.
+
+## 2026-07-22 - SGA2 Theorem 3.10 R2 and Expose XI opening holds public readback
+
+- Pull request [#51](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/51)
+  merged both metadata-only holds at public `main` commit
+  `a9bc4fcb05a3134737bfb22b841e867d15dd48b5`.
+- A fresh sparse clone resolved exactly to that merge commit with a clean
+  worktree. All nine changed Git blobs matched byte for byte.
+- The public archive JSONL has SHA-256
+  `CB9A2CDA1F13C5C7B3554C54045C11FDE2892C6BABB05EF61FD3448236D88912`
+  and parses as 81 records with 81 unique decision IDs, ending at
+  `AML-20260722-SGA-069`.
+- The public tree contains six Theorem 3.10 metadata receipts and two Expose
+  XI opening metadata receipts. It contains neither unit's TeX, PDF,
+  authority slice, CSV/JSONL evidence, ZIP, target render, source raster, or
+  machine panel, and it contains no excluded R1 privacy log.
+- The merged diff introduced zero private paths, thread IDs, or body/pixel
+  files. Public source-bearing coverage remains through line 3574. The
+  official Zenodo API still resolves concept `10.5281/zenodo.20410947` to
+  version `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft,
+  mutation, or duplicate was created.
+
+## 2026-07-22 - SGA2 Expose XI Section 1 exact sequences handoff held
+
+- The 8,190-byte handoff has SHA-256
+  `FF1A5D6C59E2FC899D0B6448D474B215277E521A4358346338F058519BCD4E48`;
+  its 1,440-byte validation passes with `errors: []` at SHA-256
+  `ADE24A19E7098034CB731CA70265AAC66EC02778B94DCB002567DF5487B067EB`.
+- The complete custody ledger binds 91 producer/review identities. All 38
+  candidate files / 459,387 bytes replay exactly with zero privacy
+  occurrences and zero public-authorized rows. The six handoff checksum rows
+  also match.
+- Three independent builds reproduce the exact target PDF; producer/review
+  text and 200-dpi renders are exact, and 21/21 font rows pass. Direct visual
+  review nevertheless finds stale target-box text saying fresh independent
+  review remains pending.
+- The target/rebuild render remains held, same-edition page 107 remains
+  rights-blocked, and four machine panels remain nonpublic. Line 3607 is the
+  excluded cursor; the line-3609 `Y_n`/`X_n` watch is outside scope.
+- This metadata-only state does not extend source-bearing coverage past line
+  3574. Zenodo is unchanged and no duplicate was created.
