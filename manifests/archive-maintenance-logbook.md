@@ -1558,3 +1558,40 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The merged diff introduced zero private paths, thread IDs, or body/pixel
   files. Public source-bearing coverage remains through line 3574. Zenodo
   remains unchanged and no duplicate was created.
+
+## 2026-07-22 - SGA2 Expose X Theorem 3.10 R2 reviewed handoff held
+
+- The R2 handoff control has 4,588 bytes and SHA-256
+  `9165B693A34313721474AE0666B9DC198D67F3F3DD0DD009FBC4AB0A2C55678C`;
+  validation passes with `errors: []` at SHA-256
+  `46B3164C1E2EE190397EF3B6A35EA93E4E58C2DA748B7E421E8211C5304BB481`.
+- Fresh independent review passes 25/25 checks. All eight candidate identities
+  / 315,098 bytes replay with zero privacy hits, but every row remains
+  `proposed_public=false` and `not_authorized_not_dispatched`.
+- R2 preserves the R1 finding of 44 reconstructable private-home occurrences
+  across four excluded logs and supersedes only that privacy evidence. Target
+  TeX/PDF and French authority bytes are unchanged.
+- Direct visual review confirms the technically clean target still displays
+  stale producer-time text saying review/handoff have not occurred and the
+  package is internal/not for release. Publication-facing regeneration is
+  required before any body release.
+- The independently reproduced target render remains held; same-edition pages
+  105-106 remain rights-blocked; five machine panels remain nonpublic. Public
+  source-bearing coverage remains through line 3574. Zenodo is unchanged.
+
+## 2026-07-22 - SGA2 Expose XI opening/global notation reviewed handoff held
+
+- The main 8,438-byte handoff has SHA-256
+  `9076331E8830094BB197F76FB58F272D66708B33E4E5323C4D8CEE8D84CE07C6`;
+  its 1,212-byte validation passes with `errors: []` at SHA-256
+  `6FF8ED121CE645BBB6DBAA475BADAD601A676325BA1383B50B5AAB8C70F14039`.
+- The complete custody ledger binds 88 identities. All 24 candidate files /
+  305,051 bytes replay exactly with zero privacy occurrences and zero
+  public-authorized rows.
+- Producer and review PDF/text/render identities are exact; 15/15 font rows
+  pass. Direct visual review nevertheless finds stale target-box text saying
+  independent review remains pending.
+- The target/rebuild render remains held, same-edition page 107 remains
+  rights-blocked, and four machine panels remain nonpublic. This metadata-only
+  state does not extend source-bearing coverage past line 3574. Zenodo is
+  unchanged and no duplicate was created.
