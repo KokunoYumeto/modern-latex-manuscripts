@@ -19,18 +19,23 @@ These are bounded machine-assisted source-audited/source-aligned working checkpo
 ## 2026-07-22 SGA2 Expose X post-3566 local hold
 
 The next two local production states are not public checkpoints. The no-overwrite
-privacy successor for French lines 3568-3571 preserves the 4,263-byte target TeX
-and 238,640-byte PDF, and its strengthened privacy-regression test passes, but its
-own audit explicitly remains `PRODUCER_R2_PASS_PENDING_FRESH_INDEPENDENT_REVIEW`.
-The available independent review applies to the predecessor and fails on twelve
-line-dewrapped private-path occurrences across three build logs. No archive
-handoff or independently sealed public projection exists for the successor.
+privacy successor for French lines 3568-3571 now contains 68 files / 4,858,993
+bytes and preserves the 4,263-byte target TeX and 238,640-byte PDF. Its recursive
+65-row checksum manifest replays cleanly, but its own producer return remains
+`PRODUCER_R2_PASS_PENDING_FRESH_INDEPENDENT_REVIEW`. The available independent
+review applies to the predecessor and fails on twelve line-dewrapped private-path
+occurrences across three build logs. No archive handoff or independently sealed
+public projection exists for this successor.
 
-The adjudicated line-3573 predecessor also remains fail-closed. Independent
+The adjudicated line-3573 predecessor remains fail-closed after an independent
 review found 316 line-dewrapped private-path occurrences across four files and
-13 review artifacts accidentally created below the producer root. A separate
-23-file R2 privacy successor exists locally, but it has no fresh independent
-seal or archive handoff. Neither state has been copied to GitHub or Zenodo.
+13 review artifacts accidentally created below the producer root. Its separate
+23-file R2 privacy successor now has a fresh independent review that passes all
+47 checks, all 23 privacy-scanned files, the three-pass build, 14-font report,
+and pixel-identical 200 dpi render. That review nevertheless declares itself
+`PASS (fail-closed)`, with `seal: false`, `archive_handoff: false`, and every
+rights row internal, restricted, or rights-gated. No producer seal or exact
+archive handoff exists. Neither successor has been copied to GitHub or Zenodo.
 Public bounded source-bearing coverage therefore still ends at French line
 3566, and lines 3457-3521 remain separately unclaimed.
 
