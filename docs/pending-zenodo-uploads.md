@@ -1,3 +1,20 @@
+## 2026-07-22: SGA2 Expose X line 3588 reviewed handoff held from release
+
+Archive maintenance received the exact independently reviewed line-3588
+handoff. Its controlling review passes 17/17 checks and its handoff validation
+passes with `errors: []`, but `PUBLICATION_READINESS.md` remains
+`NOT_READY_FOR_PUBLICATION`. All six candidate files / 214,489 bytes are marked
+`not_authorized_not_dispatched` pending rights and attribution adjudication, an
+English license decision, review of short source readings, and accessibility
+resolution for the untagged PDF.
+
+GitHub therefore records only the sanitized reviewed-handoff state at
+[`20260722_sga2_x_line3588_reviewed_handoff_hold.md`](../manifests/source-intake/20260722_sga2_x_line3588_reviewed_handoff_hold.md).
+The TeX, PDF, machine files, audit, target render, source raster, and machine
+panels remain withheld. This state is not queued as a Zenodo body upload. The
+existing SGA concept remains `10.5281/zenodo.20410947`, latest observed version
+`10.5281/zenodo.21435547`; no draft, mutation, or duplicate was created.
+
 ## 2026-07-22: SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody; Zenodo deferred
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
