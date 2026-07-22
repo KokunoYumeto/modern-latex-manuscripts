@@ -33,6 +33,36 @@ was created during GitHub intake. Update only the existing concept through the
 authenticated cumulative-release workflow, then stream every remote file back
 and record exact hashes before calling Zenodo publication complete.
 
+## 2026-07-22: SGA2 Expose XI line 3607 R3 reviewed; no upload authorized
+
+- Metadata hold: [`20260722_sga2_xi_line3607_r3_reviewed_handoff_hold.md`](../manifests/source-intake/20260722_sga2_xi_line3607_r3_reviewed_handoff_hold.md)
+- Existing concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest live version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+
+The exact 16-file handoff and all 96 producer/review identities replay, but all
+45 custody candidates are `proposed_public=false` and
+`not_authorized_not_dispatched`. The target also retains stale internal
+review/adjudication wording. GitHub therefore records metadata only; no target,
+machine evidence, source slice, or pixel is uploaded. There is no pending
+standalone Zenodo object for this unit. Revisit only after explicit rights,
+license, publication-facing regeneration, and accessibility clearance, or
+inside a separately audited cumulative successor.
+
+## 2026-07-22: SGA2 Expose XI Proposition 1.1 reviewed; no upload authorized
+
+- Metadata hold: [`20260722_sga2_xi_proposition1_1_reviewed_handoff_hold.md`](../manifests/source-intake/20260722_sga2_xi_proposition1_1_reviewed_handoff_hold.md)
+- Existing concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest live version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+
+The exact 15-file handoff, all 130 custody identities, and all 39 candidate
+files replay. The final `Pic(X_n)` policy is correctly applied, but every
+candidate remains `proposed_public=false` and
+`not_authorized_not_dispatched`, and the target retains stale
+pending-review wording. GitHub records metadata only. There is no pending
+standalone Zenodo object for this unit; reconsider only after explicit rights,
+license, publication-facing regeneration, and accessibility clearance, or in
+a separately audited cumulative successor.
+
 ## 2026-07-22: SGA2 Expose XI line 3609 notation policy closed; no body upload
 
 Manager decision
