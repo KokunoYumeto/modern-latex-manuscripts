@@ -33,6 +33,14 @@ published. Both packages retain its parent-reader hash, page coordinates,
 dimensions, DPI, rotation, raster hash, linked target units, and QA disposition
 as public machine-readable metadata.
 
+Pull request [#41](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/41)
+merged both packages to public `main` commit
+`b89f9d8e998c5b901dc3f11fc6f9bb97f484397a`. A fresh sparse clone of that
+commit revalidated 61/61 and 45/45 files, every manifest row, both target
+TeX/PDF pairs, JSON-family parsing, decision-ID uniqueness, privacy, and the
+rights-blocked raster exclusion with zero mismatch. The exact combined receipt
+is [here](../sources/sga/sga2-english-expose-x-purity-theorem-controls-20260722/GITHUB_PUBLICATION_READBACK.md).
+
 Standalone Zenodo mutation is deferred to authenticated cumulative curation
 under the existing concept. Do not mint a duplicate deposition.
 
