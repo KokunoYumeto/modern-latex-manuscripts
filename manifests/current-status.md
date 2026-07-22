@@ -66,12 +66,12 @@ four target TeX/PDF identities, and both producer/rebuild text and render
 pairs with zero mismatch. The exact result is retained in
 `sources/sga/sga2-english-expose-x-r37-c38-controls-20260722/GITHUB_PUBLICATION_READBACK.md`.
 
-This does not establish continuous coverage: the earlier public standalone
-checkpoint ends at line 3456, and no intervening range is claimed. The
-candidate Lemma 3.6 proof at lines 3522-3530 is fail-closed for a three-system
-page-locator defect. The shared same-edition physical-page-104 raster is
-rights-blocked and replaced by hash, geometry, locator, linkage, and QA
-metadata. No public file is superseded.
+This package did not establish continuous coverage when published: the earlier
+standalone checkpoint ended at line 3456. Its then-current Lemma 3.6
+fail-closed locator status is preserved as historical provenance and is
+superseded only by the later R3 locator disposition below. The shared
+same-edition physical-page-104 raster is rights-blocked and replaced by hash,
+geometry, locator, linkage, and QA metadata. No public file is superseded.
 
 Zenodo remains at existing version `10.5281/zenodo.21435547` under concept
 `10.5281/zenodo.20410947`. This loose bounded checkpoint is deferred to
@@ -105,10 +105,11 @@ is retained in
 `sources/sga/sga2-english-expose-x-l3542-controls-20260722/GITHUB_PUBLICATION_READBACK.md`.
 
 This package is additive after, and does not rewrite, the separately
-readback-verified Remark 3.7 / Corollary 3.8 checkpoint. The Lemma 3.6 proof
-and all intervening coverage remain unclaimed. The same-edition page-104
-raster, French source bodies, and comparison body remain excluded with exact
-public rights-blocked metadata. No public file is superseded.
+readback-verified Remark 3.7 / Corollary 3.8 checkpoint. Its original
+Lemma 3.6 fail-closed status is historical beneath the later R3 locator
+correction below. The same-edition page-104 raster, French source bodies, and
+comparison body remain excluded with exact public rights-blocked metadata. No
+public file is superseded.
 
 Zenodo remains at existing version `10.5281/zenodo.21435547` under concept
 `10.5281/zenodo.20410947`. The standalone unit is deferred to authorized
@@ -153,10 +154,72 @@ all JSON and privacy gates with zero mismatch. The exact result is retained in
 `sources/sga/sga2-english-expose-x-l39-controls-20260722/GITHUB_PUBLICATION_READBACK.md`.
 
 This package is additive after, and does not rewrite, the separately
-readback-verified line-3542 checkpoint. The Lemma 3.6 proof and all intervening
-coverage remain unclaimed. Zenodo remains at existing version
-`10.5281/zenodo.21435547` under concept `10.5281/zenodo.20410947`; standalone
-mutation is deferred to authorized same-concept cumulative curation.
+readback-verified line-3542 checkpoint. Its original Lemma 3.6 fail-closed
+status is historical beneath the later R3 locator correction below. Zenodo
+remains at existing version `10.5281/zenodo.21435547` under concept
+`10.5281/zenodo.20410947`; standalone mutation is deferred to authorized
+same-concept cumulative curation.
+
+## 2026-07-22 SGA2 Expose X Lemma 3.6 proof locator R3 GitHub custody candidate
+
+The rights-curated projection contains 31 files / 539,264 bytes for the
+independently sealed Lemma 3.6 proof at corrected French lines 3522-3530.
+It preserves exactly the 22 privacy-clean producer/review files enumerated by
+the durable handoff, plus archive-owned scope, rights, manifest, and validation
+controls. Blank line 3531 is excluded; the substantive cursor is Remark 3.7 at
+line 3532.
+
+R3 corrects the earlier locator evidence: the bounded unit remains printed
+pages 119-120, physical pages 103-104, and running pages 95-96, while the full
+physical-page-104 envelope continues from printed page 120 to 121. The target
+TeX and PDF are unchanged. Historical original/R2 FAIL packages remain adverse
+evidence and are not published as current.
+
+The 29-row manifest has SHA-256
+`020ABAEDD1730F130ACBBB5DFC986B3496F2712E92C0864D486A5207987CCF11`;
+validation is `PASS_ARCHIVE_HANDOFF_READY` at SHA-256
+`B00CCA23E6206EAD02C7E43A4EB66FC481089C223F267903A97CB8B70498E773`.
+The manifest-row aggregate and complete-package identities are
+`0A213829F498FDE2E5ECB2A9117ADC92ED13BB8351FC25171593719731EA6C04`
+and `F1E03CA393ADA7D2196792395C221D1E663544EE6CD6F9FD9A9FB17E0E83F35D`.
+The one-page A4 PDF passes fresh visual review; all 17 font rows are embedded,
+subset, and Unicode-mapped.
+
+Six source-raster identities and two target-render identities remain outside
+the exact handoff boundary. Public metadata records parent-reader hashes,
+physical and printed page systems, dimensions, DPI, full-page boxes, raster
+hashes, unit linkage, and QA dispositions. No source pixels are redistributed.
+
+## 2026-07-22 SGA2 Expose X Lemma 3.9 proof GitHub custody candidate
+
+The rights-curated projection contains 33 files / 386,197 bytes for the
+independently sealed complete Lemma 3.9 proof at corrected French lines
+3555-3566. It preserves exactly the 24 privacy-clean producer/review files
+enumerated by the handoff, plus archive controls. The append-only correction
+at SHA-256
+`17BC1A7AE8A9D68A7D8301545D637E1EA9DB637B7F9129DF160A209D4A7ED498`
+changes only the producer privacy-scan count from 50 to 55; all 24 file hashes,
+the 43-file independent privacy count, and both zero-hit results remain intact.
+
+The unit occupies printed pages 120-121, physical pages 104-105, and running
+pages 96-97. Blank line 3567 is excluded and the substantive cursor is 3568.
+The 31-row manifest has SHA-256
+`3593DDEE9681A44C320B921C13A365756A17E22341944D40D98CE285C340B77E`;
+validation is `PASS_ARCHIVE_HANDOFF_READY` at SHA-256
+`50B6A0D1A8480A4CD2AEE9D89945D3C8D04CA8C72D9599F272ADD3AEB50181A9`.
+The manifest-row aggregate and complete-package identities are
+`C26681D3FEA44232A1C5767FBFB1E65D9E80BBC6664F6C815A0283B6EF2CCBD5`
+and `AEBC30F853655771CF359F3B28E4FA102609B3DB9BE4857FCBA1A023F171BEAD`.
+The one-page A4 PDF passes fresh visual review; all 16 font rows are embedded,
+subset, and Unicode-mapped.
+
+Together with the separately preserved Remark 3.7, Corollary 3.8, line 3542,
+and Lemma 3.9 statement packages, these two additions form bounded
+source-bearing coverage from line 3522 through 3566, excluding authority blank
+separators. Lines 3457-3521 remain unclaimed. Zenodo remains at existing
+version `10.5281/zenodo.21435547` under concept
+`10.5281/zenodo.20410947`; standalone mutation is deferred to authenticated
+same-concept cumulative curation, with no duplicate draft or record.
 
 ## 2026-07-19 SGA1 through I.6 and SGA2 Exposés V-VI published (predecessor)
 
