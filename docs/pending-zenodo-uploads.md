@@ -1,3 +1,28 @@
+## 2026-07-22: SGA2 Theorem 3.10 R2 and Expose XI opening held from release
+
+Archive maintenance received independently reviewed exact handoffs for
+Theorem 3.10 / French lines 3576-3586 and the Expose XI opening/global
+notation / lines 3590-3596. Both handoff validations pass and both candidate
+sets replay exactly, but every row remains `proposed_public=false` and
+`not_authorized_not_dispatched`.
+
+GitHub therefore records only sanitized metadata receipts:
+
+- [`Theorem 3.10 R2`](../manifests/source-intake/20260722_sga2_x_theorem3_10_r2_reviewed_handoff_hold.md):
+  eight held candidates / 315,098 bytes; 25/25 independent PASS; R1's 44-hit
+  privacy failure preserved as nonpublic adverse history;
+- [`Expose XI opening`](../manifests/source-intake/20260722_sga2_xi_opening_global_notation_reviewed_handoff_hold.md):
+  24 held candidates / 305,051 bytes; 88 custody identities; independent
+  rebuild/text/render exact.
+
+Neither body extends public source-bearing coverage past French line 3574.
+Both target PDFs are untagged, both immutable target pages retain stale
+producer-time pending/internal wording, and rights/license/accessibility gates
+remain open. All source rasters, target renders, and machine-panel images are
+explicitly held. The existing SGA concept remains
+`10.5281/zenodo.20410947`, latest observed version
+`10.5281/zenodo.21435547`; no draft, mutation, or duplicate was created.
+
 ## 2026-07-22: SGA2 Expose X line 3588 reviewed handoff held from release
 
 Archive maintenance received the exact independently reviewed line-3588
