@@ -1133,3 +1133,47 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   bytes. This closes GitHub custody and public readback for the Lemma 3.9
   statement only. Zenodo remains unchanged pending authenticated same-concept
   cumulative curation; no duplicate record or draft was created.
+
+## 2026-07-22 - SGA2 Expose X Lemma 3.6 R3 and Lemma 3.9 proof custody candidates
+
+- The Lemma 3.6 locator-R3 handoff is 8,663 bytes with SHA-256
+  `2B439CAF575544241A82DF9DE0D9D73134382637444AF3276DCD11B80C97D216`.
+  All 22 enumerated producer/review files rehash exactly. The rights-curated
+  public projection contains 31 files / 539,264 bytes.
+- Its 29-row manifest has SHA-256
+  `020ABAEDD1730F130ACBBB5DFC986B3496F2712E92C0864D486A5207987CCF11`;
+  validation has SHA-256
+  `B00CCA23E6206EAD02C7E43A4EB66FC481089C223F267903A97CB8B70498E773`.
+  The manifest-row aggregate and complete-package identity are
+  `0A213829F498FDE2E5ECB2A9117ADC92ED13BB8351FC25171593719731EA6C04`
+  and `F1E03CA393ADA7D2196792395C221D1E663544EE6CD6F9FD9A9FB17E0E83F35D`.
+- R3 preserves the exact target TeX/PDF while correcting the full
+  physical-page-104 printed envelope to 120-121. The bounded proof remains
+  printed 119-120, physical 103-104, running 95-96. The earlier original/R2
+  FAIL packages remain adverse history.
+- The Lemma 3.9 proof handoff is 8,282 bytes with SHA-256
+  `D2641F5D45C19D65C15A9F93E729FB927478BA189ECB0073A1D11CE7DE7791FE`.
+  Its append-only correction is 2,298 bytes with SHA-256
+  `17BC1A7AE8A9D68A7D8301545D637E1EA9DB637B7F9129DF160A209D4A7ED498`
+  and changes only the producer privacy scan count from 50 to 55. All 24
+  proposed file hashes remain exact. The public projection contains 33 files /
+  386,197 bytes.
+- Its 31-row manifest has SHA-256
+  `3593DDEE9681A44C320B921C13A365756A17E22341944D40D98CE285C340B77E`;
+  validation has SHA-256
+  `50B6A0D1A8480A4CD2AEE9D89945D3C8D04CA8C72D9599F272ADD3AEB50181A9`.
+  The manifest-row aggregate and complete-package identity are
+  `C26681D3FEA44232A1C5767FBFB1E65D9E80BBC6664F6C815A0283B6EF2CCBD5`
+  and `AEBC30F853655771CF359F3B28E4FA102609B3DB9BE4857FCBA1A023F171BEAD`.
+- Direct archive rendering found both pages clean. The PDFs are one-page A4,
+  unencrypted, and all 17/17 and 16/16 font rows are embedded, subset, and
+  Unicode. CSV formula safety, JSON-family parsing, machine/reference closure,
+  and whole-package plus PDF privacy scans pass with zero errors.
+- Source rasters and target render pixels remain outside the exact handoff
+  boundaries. Public metadata records parent hashes, page systems, dimensions,
+  DPI, full-page boxes, raster hashes, unit linkage, QA outcomes, and the exact
+  exclusion reason. No source pixels are redistributed.
+- These candidates extend bounded source-bearing coverage from line 3522
+  through 3566 when read with the neighboring packages. Lines 3457-3521 remain
+  unclaimed. Zenodo remains unchanged pending authenticated same-concept
+  cumulative curation; no duplicate deposition is authorized.

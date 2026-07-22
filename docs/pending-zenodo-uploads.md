@@ -1,3 +1,47 @@
+## 2026-07-22: SGA2 Expose X Lemma 3.6 R3 and Lemma 3.9 proof GitHub custody candidates; Zenodo deferred
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Latest verified version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547)
+- Lemma 3.6 R3 package: [`sga2-english-expose-x-l36-proof-r3-20260722`](../sources/sga/sga2-english-expose-x-l36-proof-r3-20260722/)
+- Lemma 3.9 proof package: [`sga2-english-expose-x-l39-proof-20260722`](../sources/sga/sga2-english-expose-x-l39-proof-20260722/)
+
+The Lemma 3.6 projection contains 31 files / 539,264 bytes. Its 29-row
+manifest has SHA-256
+`020ABAEDD1730F130ACBBB5DFC986B3496F2712E92C0864D486A5207987CCF11`;
+validation is `PASS_ARCHIVE_HANDOFF_READY` at
+`B00CCA23E6206EAD02C7E43A4EB66FC481089C223F267903A97CB8B70498E773`.
+The complete package identity is
+`F1E03CA393ADA7D2196792395C221D1E663544EE6CD6F9FD9A9FB17E0E83F35D`.
+R3 fixes only the full physical-page-104 locator envelope; the target bytes are
+unchanged and the earlier FAIL packages remain adverse history.
+
+The Lemma 3.9 proof projection contains 33 files / 386,197 bytes. Its 31-row
+manifest has SHA-256
+`3593DDEE9681A44C320B921C13A365756A17E22341944D40D98CE285C340B77E`;
+validation is `PASS_ARCHIVE_HANDOFF_READY` at
+`50B6A0D1A8480A4CD2AEE9D89945D3C8D04CA8C72D9599F272ADD3AEB50181A9`.
+The complete package identity is
+`AEBC30F853655771CF359F3B28E4FA102609B3DB9BE4857FCBA1A023F171BEAD`.
+The append-only handoff correction changes only the producer privacy scan from
+50 to 55 durable text files; all file identities and both zero-hit privacy
+results remain unchanged.
+
+Both one-page PDFs passed direct archive render review and their 17/17 and
+16/16 font rows are embedded, subset, and Unicode-mapped. The exact handoff
+boundaries exclude source and target render pixels. Public visual-disposition
+ledgers retain parent hashes, page systems, dimensions, DPI, bounding boxes,
+raster hashes, linkage, and QA outcomes. The public PDFs remain the durable
+inspectable target surfaces.
+
+Together with the neighboring readback-closed packages, these units form a
+bounded source-bearing sequence from corrected French line 3522 through 3566.
+Lines 3457-3521 remain unclaimed. This is not complete Expose X, continuous
+Expose IX-X coverage, complete SGA2, a critical edition, certification, peer
+review, or a rights determination.
+
+Standalone Zenodo mutation is deferred to authenticated cumulative curation
+under the existing concept. Do not mint a duplicate deposition.
+
 ## 2026-07-22: SGA2 Expose X Lemma 3.9 statement GitHub custody; Zenodo deferred
 
 - Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
