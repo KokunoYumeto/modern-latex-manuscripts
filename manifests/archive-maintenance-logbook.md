@@ -1307,3 +1307,27 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `10.5281/zenodo.20410947` to published version
   `10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes. No draft, duplicate,
   or mutation was created.
+
+## 2026-07-22 - SGA2 Expose X post-3566 review-state public readback
+
+- Pull request [#39](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/39)
+  merged the status-only correction to public `main` commit
+  `35a6d69506953397d76b1faea0b19a642a3c78ef`.
+- A fresh sparse clone resolved exactly to that commit with a clean worktree.
+  The downloaded dashboard, current-status page, and Markdown logbook matched
+  local SHA-256 values exactly at
+  `A6E58D085976425789F780920BE2E584EA8E4610D4D19EAE62946FBF1EBA6B38`,
+  `05762FFF210AECBB01AE216132949C0E3EBD372C03C30E574DE120414C70B858`,
+  and `0D2DBB25E68C7650B20E79843B4D890FBA04234110AC76D8D3318C9BA4AB8948`.
+- The JSONL has identical Git blob
+  `b5a1aba13c58c264da052cd41a4363261f322752` in the source and readback
+  clones. Their checkout bytes differ only by Windows line endings; both
+  normalize to SHA-256
+  `B26620E912841262EDBFD8F71E41C2A2BCD20E2EC1C56FE7E21E4B1485691677`,
+  and all 68 records parse with unique decision IDs.
+- The merged diff has zero private absolute paths and zero thread IDs. A full
+  scan of the historical status file still sees one pre-existing July 5 local
+  Downloads locator; PR #39 neither introduced nor changed that line.
+- No translation body, source raster, unsealed target render, Zenodo object,
+  or shared production-log record was added. Public source-bearing coverage
+  remains through corrected French line 3566.
