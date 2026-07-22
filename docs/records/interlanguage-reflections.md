@@ -2,6 +2,8 @@
 
 Zenodo record: [21485338](https://zenodo.org/records/21485338); concept DOI: [https://doi.org/10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403)
 
+GitHub visual-evidence package: [cjk-visual-evidence-open-payload-20260718](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/3b3ffca11ba2e247eb6efa1df17dff31499379d4/sources/interlanguage/cjk-visual-evidence-open-payload-20260718); exact readback receipt: [20260722_cjk_visual_evidence_open_payload_github_readback.md](../../manifests/source-intake/20260722_cjk_visual_evidence_open_payload_github_readback.md)
+
 Public title: Interlanguage and Mathematical Translation Methodology Sidecar
 
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
