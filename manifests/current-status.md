@@ -15,9 +15,13 @@ log, and coordination material remain hash-bound but withheld. No French scan
 or source-page pixel is public.
 
 This is bounded source-checked working material, not complete SGA6 or a
-critical edition. Zenodo action is routed only to existing concept
-`10.5281/zenodo.20410947`; the last pre-action query still resolved version
-`10.5281/zenodo.21435547`. No duplicate or competing draft is authorized.
+critical edition. GitHub PRs [#70](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/70)
+and [#71](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/71)
+now have exact 17/17 public-clone readback. Zenodo version
+[`10.5281/zenodo.21497913`](https://doi.org/10.5281/zenodo.21497913) was
+published only on existing concept `10.5281/zenodo.20410947`; all 33 inherited
+files and six additions passed identity/readback checks. See the
+[publication receipt](published-zenodo/20260722_sga6_idx685_692_record_21497913.md).
 
 ## 2026-07-22 SGA2 Expose XI lines 3618-3622 hold readback
 

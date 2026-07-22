@@ -2072,3 +2072,23 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The prepared ZIP is routed only to existing SGA concept
   `10.5281/zenodo.20410947`; no duplicate or competing deposition is
   authorized.
+
+## 2026-07-22 - SGA6 idx685-idx692 public readback closed
+
+- GitHub PR #70 published source commit
+  `137255a5c591a3306f8a16d7b2a25350b97ba465` at merge
+  `824c51667634ec1dfd42d05798c18aaf995661b5`.
+- The first fresh clone exposed 73 bytes of Git line-ending normalization in
+  three hash-bound controls. PR #71 added the established package-byte rule
+  and merged at `fabbfc9899cfbd2b4e4054bdb6dab5aa85e3b56a`.
+- A second fresh credential-free clone matched all 17 files / 3,685,265 bytes
+  and canonical identity
+  `7E09C9CA028DA891BA854A6A344C92B97931E7B6A85CFAC3E61B98291CD3AE1C`.
+- Published same-concept Zenodo version `10.5281/zenodo.21497913`: all 33
+  inherited files retain exact server identities and all six additions pass
+  unauthenticated byte/SHA-256 readback.
+- The downloaded 3,471,367-byte ZIP replays all 17 members exactly. The
+  record has 39 files / 77,356,539 bytes and preserves the existing SGA5
+  default preview. No active draft or duplicate concept remains.
+- This closes transport, publication, and readback for the bounded checkpoint,
+  not SGA6 completion, whole-volume certification, or a critical edition.
