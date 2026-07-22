@@ -1,3 +1,23 @@
+## 2026-07-22: SGA2 Expose XI line 3609 notation policy closed; no body upload
+
+Manager decision
+`EG-SGA2-XI-L3609-PIC-YN-VS-XN-SOURCE-NOTATION-ADJUDICATION-20260722-0001`
+classifies the French line-3609 `Pic(Y_n)` switch as local source defect
+`SGA2-XI-L3609-PIC-YN-VS-XN-SRCDEF-001`. The French authority remains
+unchanged. Any future English target must use `Pic(X_n)` with an immediate
+visible stable-ID note; dependent lines 3642 and 3646 bind to the same master
+defect.
+
+GitHub records only the sanitized
+[adjudication metadata](../manifests/source-intake/20260722_sga2_xi_line3609_pic_yn_xn_adjudication_metadata.md).
+The producer preflight, authority text, source-page raster, machine panels,
+and any proposition target remain nonpublic. The unit still requires a
+no-overwrite target/evidence successor and fresh independent PASS. This is
+not a Zenodo body-upload candidate and does not extend source-bearing coverage
+past line 3574. Concept `10.5281/zenodo.20410947` still resolves to version
+`10.5281/zenodo.21435547`, 33 files / 73,450,481 bytes; no draft, mutation, or
+duplicate was created.
+
 ## 2026-07-22: SGA2 Theorem 3.10 R2 and Expose XI units held from release
 
 Archive maintenance received independently reviewed exact handoffs for
