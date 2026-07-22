@@ -1,3 +1,14 @@
+## 2026-07-22: SGA2 XI lines 3618-3622 hold read back; no upload
+
+- GitHub PR: [#66](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/66)
+- Public merge: `392aafc225c2aabc20fdce827f179288d6813ea2`
+- Readback: [`20260722_sga2_xi_lines3618_3622_metadata_hold_github_readback.md`](../manifests/source-intake/20260722_sga2_xi_lines3618_3622_metadata_hold_github_readback.md)
+
+All seven metadata blobs and independent raw GitHub responses match exactly.
+This closes GitHub readback only. No body, evidence package, image, or
+source-bearing frontier was added, so there is no standalone Zenodo object to
+upload. SGA remains record 21435547, 33 files / 73,450,481 bytes.
+
 ## 2026-07-22: SGA2 Expose XI lines 3618-3622 held; no upload authorized
 
 - Metadata hold: [`20260722_sga2_xi_lines3618_3622_reviewed_handoff_hold.md`](../manifests/source-intake/20260722_sga2_xi_lines3618_3622_reviewed_handoff_hold.md)

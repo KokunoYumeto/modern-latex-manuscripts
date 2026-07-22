@@ -1,3 +1,16 @@
+## 2026-07-22 SGA2 Expose XI lines 3618-3622 hold readback
+
+GitHub PR [#66](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/66)
+merged source commit `5c63cb73d82e2d1c86f4437b19c2e1a864b0633e` at public
+`main` commit `392aafc225c2aabc20fdce827f179288d6813ea2`. A fresh
+sparse clone and independent raw-byte fetch matched all seven source, merge,
+and public GitHub blobs. See the
+[readback receipt](source-intake/20260722_sga2_xi_lines3618_3622_metadata_hold_github_readback.md).
+
+This closes GitHub metadata custody/readback only. The target, source slice,
+machine evidence, and every image pixel remain withheld; public
+source-bearing coverage and the SGA Zenodo record remain unchanged.
+
 ## 2026-07-22 SGA2 Expose XI lines 3618-3622 metadata-only hold
 
 Archive maintenance independently replayed the exact handoff for corrected
