@@ -64,37 +64,40 @@ matched all five ordinary files exactly and the JSONL by Git blob and
 line-ending-normalized bytes. The public tree contains no Theorem 3.10 body or
 pixels.
 
-## 2026-07-22 SGA2 Expose X line 3588 producer hold
+## 2026-07-22 SGA2 Expose X line 3588 reviewed handoff hold
 
-The closing comment at corrected French line 3588 has a producer PASS but no
-fresh independent review, seal, or archive handoff. Its 1,794-byte TeX and
-one-page PDF identities are preserved in a
-[metadata-only hold receipt](source-intake/20260722_sga2_x_line3588_producer_hold.md),
-while the translation body, authority slice, target render, same-edition
-source page, five machine-panel images, comparison excerpt, raw logs, and
-preserved privacy-failure evidence remain withheld.
+The closing comment at corrected French line 3588 now has a fresh independent
+review and an exact archive-maintenance handoff. The review passes 17/17
+checks, its 13-file package is 501,458 bytes, and all 42 bound evidence
+identities replay. The 8,597-byte main handoff has SHA-256
+`084C9FA625408F3671E6746CC603A334BC24C2ACEDAD312EDE7406B3663F385B`;
+its validation passes with `errors: []`.
 
-Producer checks report three deterministic builds, 8/8
-embedded/subset/Unicode fonts, closed 31-row x 26-column CSV and 31-record
-JSONL controls, all seven visual objects inspected, and zero privacy hits on
-the curated 60-file surface. A separate 19-file raw quarantine records 4,022
-transformed hits and remains private. The raw cursor is blank line 3589, the
-structural cursor is line 3590, and Expose XI at line 3592 is the next
-substantive cursor.
+This new state is recorded in a
+[reviewed-handoff hold receipt](source-intake/20260722_sga2_x_line3588_reviewed_handoff_hold.md).
+It supersedes only the earlier description of the unit as awaiting review and
+handoff; the original
+[producer-state receipt](source-intake/20260722_sga2_x_line3588_producer_hold.md)
+and its
+[public readback](source-intake/20260722_sga2_x_line3588_hold_github_readback.md)
+remain immutable chronology.
 
-All seven visual objects have exact geometry, byte, hash, linkage, QA, and
-disposition metadata in the JSON receipt. The same-edition page-106 raster is
-rights-blocked; the project target and machine panels are held because the
-unit is unsealed. Public source-bearing coverage remains through corrected
-French line 3574. Zenodo remains unchanged under the existing SGA concept.
+The controlling `PUBLICATION_READINESS.md` still says
+`NOT_READY_FOR_PUBLICATION`, and every row in the six-file / 214,489-byte
+candidate projection remains `not_authorized_not_dispatched`. Underlying
+French rights and attribution, a license decision for the English target and
+evidence, short source readings in machine/audit files, and the untagged PDF's
+accessibility disposition remain open. No candidate body file was copied.
 
-Pull request [#47](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/47)
-merged the receipt at public `main` commit
-`c1994efc86b8bbf39824d9acb1b8078e0abd8974`. A
-[fresh-clone readback](source-intake/20260722_sga2_x_line3588_hold_github_readback.md)
-matched five ordinary files byte for byte and the JSONL by Git blob and
-line-ending-normalized bytes. The public tree contains no line-3588 body or
-pixels.
+The withheld identities remain the 1,794-byte TeX at SHA-256
+`48A1F62A9C7EF7781DC8CECEFCA8E84C9B10B0D9BD3BD63C4EA5458713DF3763`
+and the 152,975-byte one-page PDF at SHA-256
+`7B8CEFBB6952A365C0C480DF911396EE55A1F07AFA4827EF99CBD663A29A63F5`.
+The independently checked target render remains held; the same-edition
+page-106 raster remains `rights_blocked_not_public`; and all five machine
+panels remain nonpublic. Public source-bearing coverage therefore remains
+through corrected French line 3574. Zenodo remains unchanged under the
+existing SGA concept.
 
 ## 2026-07-22 SGA2 Expose X purity theorem parts (i)-(ii) GitHub custody
 
