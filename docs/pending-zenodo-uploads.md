@@ -1,3 +1,19 @@
+## 2026-07-22: terminal-state follow-up is not a Zenodo queue item
+
+- Metadata receipt: [`20260722_english_germanic_terminal_state_followup_0658.md`](../manifests/source-intake/20260722_english_germanic_terminal_state_followup_0658.md)
+
+Noether Paper 6 tranche 039 now has an internal local seal, but the raw tree
+is path-bearing and expressly `internal_not_for_release`; no privacy-clean
+release projection or archive handoff exists. SGA2 Expose XI lines 3618-3622
+now have a terminal generation-007 independent PASS, but no manager seal,
+authorized handoff, or public projection. SGA1 I.10.5 has deterministic
+reader/workbook/visual QA only and remains pre-seal.
+
+These are not standalone Zenodo upload objects. No body, target, workbook,
+evidence tree, or image pixel is admitted by this receipt. Revisit only after
+each lane produces its own privacy-clean, authorized, exact handoff. The SGA
+and Noether concepts remain unchanged; never create a duplicate deposition.
+
 ## 2026-07-22: active-lane follow-up read back; no upload
 
 - GitHub PR: [#62](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/62)

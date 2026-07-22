@@ -17,6 +17,13 @@ I.10.5 is still mutable. The follow-up is metadata only and creates no release
 or Zenodo queue item. GitHub PR #62 and fresh raw-byte readback now close the
 metadata-only publication leg.
 
+A 06:58 terminal-state follow-up records the later state: Noether tranche 039
+has an internal nonrelease seal; SGA2 XI lines 3618-3622 has a terminal
+generation-007 independent PASS but no seal or handoff; and SGA1 I.10.5 has
+deterministic reader, workbook, and visual QA but remains pre-seal. The receipt
+adds metadata only. Every body, workbook, evidence tree, and pixel remains
+held, public source-bearing coverage is unchanged, and Zenodo is unchanged.
+
 ## Reader Priority And Quality
 
 Open the records in this order if the goal is to find useful mathematics quickly. This is intentionally not ordered by file count, local package count, or the age of the record.
