@@ -1,3 +1,37 @@
+## 2026-07-23 SGA6 high-detail source-audit crop successor through idx330
+
+Current SGA version
+[`10.5281/zenodo.21519758`](https://doi.org/10.5281/zenodo.21519758)
+adds the idx327-330 crop/provenance pair and corrects the preceding idx322-326
+archives' stale cold-review audit-number links. The correction changes no crop
+pixels, parent identities, rights dispositions, or review conclusions.
+
+Anonymous Zenodo readback matched all 48 files / 285,810,235 bytes, all 41
+retained predecessor files, and all 23 ZIP archives. The archives contain
+3,165 substantive file members plus six inherited directory placeholders /
+315,098,030 uncompressed bytes, with zero unsafe names, duplicate names, or CRC
+failures. The cumulative crop surface preserves 466 explicit targeted
+zoom/recheck images plus 1,470 recovered named high-detail images, for 1,936
+public high-detail crops, and metadata for 1,778 rights-blocked routine
+derivatives.
+
+The latest explicit crop is a 9,000-DPI `zoom329_ou.png`, source index 329 /
+PDF page 330 / printed page 316, SHA-256
+`8E9E634E3567A00B27C6D48E818454E2D151E04410E072948DA23F066322EAB2`.
+Twenty routine idx327-330 derivatives remain metadata-only.
+
+SGA1 remains the authoritative default preview. The public page renders all
+262 SGA1 pages, although Zenodo API thumbnail links retain an older cached SGA3
+image. Zenodo also retained inherited idx326 rich-text description/notes prose;
+the published version line and `09_README_CURRENT_RELEASE.md` explicitly
+supersede it. The latest-version endpoint resolves to `21519758`; the
+unauthenticated draft endpoint returns `403`.
+
+See the
+[publication receipt](published-zenodo/20260723_sga6_high_detail_source_audit_crops_idx327_330_record_21519758.md)
+and
+[machine-readable public readback](published-zenodo/20260723_sga6_high_detail_source_audit_crops_idx327_330_record_21519758_public_readback.json).
+
 ## 2026-07-23 SGA6 high-detail source-audit crop increment through idx326
 
 Current SGA version
