@@ -721,6 +721,12 @@ Publication receipt: [`20260718_noether_r823_spanish_record_21420665.json`](../m
 
 Publication receipt: [`20260717_noether_p06_slavic_t001_record_21418246.json`](../manifests/published-zenodo/20260717_noether_p06_slavic_t001_record_21418246.json). File `08` adds the checksum-verified 15.5 MB working package: 16 units each in Interslavic Latin, Interslavic Cyrillic, Russian, and Ukrainian; 17 reviewed orthographic replacements were applied to the two Interslavic branches, while Russian and Ukrainian were retained as controls. All 64 standalone TeX files compile. Zenodo revision 5 explicitly selects the German R822 PDF as default preview. The package still needs line-by-line Paper 06 source reconciliation and linguistic review; it is not source closure, native-speaker certification, publication finality, or a critical edition.
 
+## 2026-07-23: Weber Volume I high-detail audit-crop queue closed
+
+- Current Weber version: [10.5281/zenodo.21513712](https://doi.org/10.5281/zenodo.21513712)
+
+Publication receipt: [`20260723_weber_high_detail_crops_record_21513712.md`](../manifests/published-zenodo/20260723_weber_high_detail_crops_record_21513712.md). The same-concept successor retains all 47 predecessor files byte-identically and adds two deterministic image archives plus seven controls. The archives preserve 248 page-mapped tight crops and 846 recovered formula/glyph/detail images with unresolved page locators; 1,972 routine page-render derivatives were intentionally excluded. All nine new files passed anonymous SHA-256 readback, and the two exact ZIP identities close 1,100 members. Visual/provenance evidence only, not transcription, translation, mathematical, completeness, or critical-edition certification.
+
 ## 2026-07-16: Weber Volume I p88 publication queue closed
 
 The direct German Volume I p1-p99 source gap-pass checkpoint is published, not staged:
