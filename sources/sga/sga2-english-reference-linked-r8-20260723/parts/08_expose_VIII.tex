@@ -1,0 +1,995 @@
+% BEGIN COMPONENT SGA2-VIII-CUM-C01
+\makeatletter
+\providecommand{\sgareaderlabel}[2]{%
+  \begingroup
+  \def\@currentlabel{#2}%
+  \phantomsection\label{#1}%
+  \endgroup}
+\makeatother
+
+\chapter{The Finiteness Theorem}
+\label{VIII}
+
+\section*{1. A Biduality Spectral Sequence\footnote{A reader familiar with
+Verdier's language of derived categories will recognize the spectral sequence
+associated with a \emph{biduality isomorphism}. Cf. SGA~6, I.}}
+\sgareaderlabel{VIII.1}{1}
+
+Let us state the result we wish to establish:
+
+\begin{sgastatement}{Proposition 1.1}\sgareaderlabel{VIII.1.1}{1.1}
+Let $A$ be a Noetherian ring and let $I$ be an ideal of $A$. Put
+$X=\operatorname{Spec}(A)$ and $Y=V(I)$. Let $M$ be a finitely generated
+$A$-module of finite projective dimension. Let
+$\mathcal F=\widetilde M$ be the $\OX$-module associated with $M$.
+\begin{enumerate}
+\item[\textup{1)}] There is a spectral sequence
+\[
+  \Hloc_Y(X,\mathcal F)\Longleftarrow
+  \Ext_Y^p(\Ext^{-q}(M,A),A).
+\]
+\item[\textup{2)}] There is a spectral sequence
+\[
+  \SheafH_Y(X,\mathcal F)\Longleftarrow
+  \SheafExt_Y^p(\SheafExt^{-q}(\mathcal F,\OX),\OX).
+\]
+\end{enumerate}
+\end{sgastatement}
+% END COMPONENT SGA2-VIII-CUM-C01
+
+% VERIFIED SOURCE SEAM: French line 2526 is blank and excluded.
+
+% INTEGRATION CONTROL BEFORE SGA2-VIII-CUM-C02
+\let\cF\uF
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C02
+Of course, 2) follows from 1) by observing that, if $M$ and $N$ are two
+finitely generated $A$-modules and if we put $\mathcal F=\widetilde M$ and
+$\mathcal G=\widetilde N$, then there are isomorphisms
+\begin{align*}
+  \SheafH_Y(\mathcal F)
+    &\simeq \widetilde{\Hloc_Y(X,\mathcal F)}, \\
+  \SheafExt_Y(\mathcal F,\mathcal G)
+    &\simeq \widetilde{\Ext_Y(\mathcal F,\mathcal G)}, \\
+  \SheafExt_{\OX}(\mathcal F,\mathcal G)
+    &\simeq \widetilde{\Ext_A(M,N)}.
+\end{align*}
+
+Let $\CatC$ be the category of $A$-modules, and let $\Ab$ be the category of
+abelian groups. Let $\cF$ be the functor
+\[
+  \begin{aligned}
+    \cF\colon \CatC &\longrightarrow \Ab, \\
+    M &\longmapsto \Gamma_Y(\widetilde M).
+  \end{aligned}
+\]
+We know from Expos\'e~II that there is an isomorphism of $\partial$-functors
+\[
+  \Hloc_Y^*(X,\widetilde M)\simeq \R^*\cF(M).
+\]
+
+Furthermore, let $\Ext_Y^*$ denote the right derived functors, in the second
+argument, of
+\[
+  \cF\circ\operatorname{Hom}\colon \CatC^{\circ}\times\CatC\longrightarrow\Ab.
+\]
+We know from Expos\'e~VI that there is an isomorphism of $\partial$-functors
+\[
+  \Ext_Y^*(M,N)\simeq \Ext_Y^*(\widetilde M,\widetilde N).
+\]
+
+Finally, let us record the following result from Expos\'e~VI: if $C$ is an
+injective $A$-module and $N$ is a finitely generated $A$-module, the sheaf
+\[
+  \SheafHom(\widetilde N,\widetilde C)
+    \simeq \widetilde{\operatorname{Hom}(N,C)}
+\]
+is flasque; hence
+\[
+  \R^1\cF(\operatorname{Hom}(N,C))=0.
+\]
+% END COMPONENT SGA2-VIII-CUM-C02
+
+% VERIFIED SOURCE SEAM: French line 2552 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C03
+It remains for us to prove the following result.
+
+\medskip
+\sgareaderlabel{VIII.1.2}{1.2}\noindent\textbf{Lemma 1.2.} --- Let $A$ be a Noetherian ring and let $\CatC$
+be the category of $A$-modules. Let
+$\cF\colon\CatC\longrightarrow\Ab$ be a left exact additive functor such that,
+for every finitely generated $A$-module $N$ and every injective $A$-module
+$C$, one has
+\[
+  \R^1\cF(\operatorname{Hom}(N,C))=0.
+\]
+Let $M$ be a finitely generated $A$-module of finite projective dimension.
+There is a spectral sequence
+\[
+  \R^\ast\cF(M)
+    \Longleftarrow
+  \Ext_{\cF}^{p}(\Ext^{-q}(M,A),A),
+\]
+where $\Ext_{\cF}^{p}$ denotes the $p$-th right derived functor of
+$\cF\circ\operatorname{Hom}$.
+% END COMPONENT SGA2-VIII-CUM-C03
+
+% VERIFIED SOURCE SEAM: French line 2560 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C04
+\emph{We shall consider only complexes whose differential has degree $+1$.}
+By the hypothesis on $M$, there exists a projective resolution of $M$ of
+finite length,
+\[
+  u\colon L^\bullet\longrightarrow M,
+\]
+where, moreover, the $L^p$ are finitely generated modules and $L^p=0$ if
+$p\notin[-n,0]$. On the other hand, let
+$v\colon M\longrightarrow I^\bullet$ be an injective resolution of $M$. I
+claim that
+\begin{equation}
+  v\circ u\colon L^\bullet\longrightarrow I^\bullet
+  \tag{1.1}\label{eq:VIII.1.1}
+\end{equation}
+is an injective resolution of $L^\bullet$. We must specify what this means.
+
+\medskip
+\sgareaderlabel{VIII.1.3}{1.3}\noindent\textbf{Definition 1.3.} --- Let $X^\bullet$ be a complex of
+$A$-modules. An \emph{injective resolution} of $X^\bullet$ is a homomorphism
+of complexes
+\[
+  x\colon X^\bullet\longrightarrow CX^\bullet
+\]
+such that $CX^p$ is injective for every $p\in\mathbb Z$, and $x$ induces an
+isomorphism in homology.
+% END COMPONENT SGA2-VIII-CUM-C04
+
+% VERIFIED SOURCE SEAM: French line 2572 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C05
+\sgareaderlabel{VIII.1.4}{1.4}\noindent\textbf{Proposition 1.4.} --- Every left-bounded complex, i.e., every
+complex for which there exists $q\in\ZZ$ such that $X^p=0$ for $p<q$, admits
+an injective resolution. Moreover, suppose that
+$u\colon X^\bullet\longrightarrow Y^\bullet$ is a homomorphism of complexes
+(both left-bounded), and that
+$x\colon X^\bullet\longrightarrow CX^\bullet$ and
+$y\colon Y^\bullet\longrightarrow CY^\bullet$ are injective resolutions of
+$X^\bullet$ and $Y^\bullet$. Then there exists a homomorphism of complexes
+\[
+  Cu\colon CX^\bullet\longrightarrow CY^\bullet,
+\]
+unique up to homotopy, such that the diagram
+\[
+\begin{CD}
+X^\bullet @>{x}>> CX^\bullet \\
+@V{u}VV @VV{Cu}V \\
+Y^\bullet @>{y}>> CY^\bullet
+\end{CD}
+\]
+commutes up to homotopy.
+% END COMPONENT SGA2-VIII-CUM-C05
+
+% VERIFIED SOURCE SEAM: French line 2582 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C06
+The proof is left to the reader.\footnote{See also H.~Cartan and
+S.~Eilenberg, \emph{Homological Algebra}, Princeton Mathematical Series,
+vol.~19, Princeton University Press, 1956.}
+
+Let us recall a notation introduced in Expos\'e V.
+
+\medskip
+\noindent\textbf{Notation.} --- Let $X^\bullet$ and $Y^\bullet$ be two
+complexes. We denote by $\operatorname{Hom}^\bullet(X^\bullet,Y^\bullet)$ the
+\emph{simple complex} whose component of degree $n$ is
+\[
+  (\operatorname{Hom}^\bullet(X^\bullet,Y^\bullet))^n
+  =\prod_{-p+q=n}\operatorname{Hom}(X^p,Y^q),
+\]
+also denoted by $\operatorname{Hom}^n(X^\bullet,Y^\bullet)$, and whose
+differential is given by
+\begin{gather*}
+  \partial_n\colon
+  \operatorname{Hom}^n(X^\bullet,Y^\bullet)
+  \longrightarrow
+  \operatorname{Hom}^{n+1}(X^\bullet,Y^\bullet),\\
+  \partial_n=d'+(-1)^{n+1}d'',
+\end{gather*}
+where $d'$ and $d''$ are the differentials (of degree $+1$) induced by those
+of $X^\bullet$ and $Y^\bullet$.
+% END COMPONENT SGA2-VIII-CUM-C06
+
+% VERIFIED SOURCE SEAM: French line 2596 is blank and excluded.
+
+% INTEGRATION CONTROL BEFORE SGA2-VIII-CUM-C07
+\renewcommand{\theequation}{1.\arabic{equation}}\setcounter{equation}{1}
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C07
+Let $A^\bullet$ then be the complex defined by $A^p=0$ if $p\ne 0$ and
+$A^0=A$. Let
+\[
+  a\colon A^\bullet\longrightarrow CA^\bullet
+\]
+be an injective resolution of $A^\bullet$. Consider the double complex
+\begin{equation}\label{eq:VIII.1.2}
+  Q^{p,q}=\operatorname{Hom}(\operatorname{Hom}(L^{-q},A),CA^p).
+\end{equation}
+The first spectral sequence of the bicomplex $\cF Q^{\bullet\bullet}$ will
+give the conclusion of \hyperref[VIII.1.2]{Lemma~1.2}.
+
+Set
+\begin{equation}\label{eq:VIII.1.3}
+  {L'}^\bullet=\operatorname{Hom}^\bullet(L^\bullet,A^\bullet),
+\end{equation}
+and
+\begin{equation}\label{eq:VIII.1.4}
+  P^\bullet=\operatorname{Hom}^\bullet({L'}^\bullet,CA^\bullet).
+\end{equation}
+% END COMPONENT SGA2-VIII-CUM-C07
+
+% VERIFIED SOURCE SEAM: French line 2610 is blank and excluded.
+
+% INTEGRATION CONTROL BEFORE SGA2-VIII-CUM-C08
+\renewcommand{\theequation}{1.\arabic{equation}}\setcounter{equation}{4}
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C08
+One sees easily that $P^\bullet$ is the simple complex associated with
+$Q^{\bullet\bullet}$. Let us compute the abutment of the spectral sequence,
+that is, the homology of $\uF P^\bullet$. To this end, using the fact that
+$L^\bullet$ is projective of finite type in every degree, one proves that
+\[
+  L^\bullet \cong \operatorname{Hom}^\bullet({L'}^\bullet,A^\bullet).
+\]
+From the homomorphism $a\colon A^\bullet\to CA^\bullet$, one obtains a
+homomorphism
+\[
+  b\colon \operatorname{Hom}^\bullet({L'}^\bullet,A^\bullet)
+  \longrightarrow \operatorname{Hom}^\bullet({L'}^\bullet,CA^\bullet),
+\]
+or equivalently a homomorphism
+\begin{equation}\label{eq:VIII.1.5}
+  c\colon L^\bullet\longrightarrow P^\bullet.
+\end{equation}
+
+This being said, it is easy to see, using the fact that ${L'}^\bullet$ is
+projective of finite type in every degree and bounded on the left, that
+\hyperref[eq:VIII.1.5]{(1.5)} is an injective resolution of $L^\bullet$. Using \hyperref[VIII.1.4]{Proposition~1.4}, one
+concludes that $P^\bullet$ is homotopy equivalent to $I^\bullet$, where
+$I^\bullet$ is the injective resolution of $M$ introduced above in \hyperref[eq:VIII.1.1]{(1.1)}.
+It follows that the \emph{abutment} of the first spectral sequence of the
+double complex $\uF Q^{\bullet\bullet}$, which is
+$H^*(\uF P^\bullet)$, \emph{is isomorphic} to $R^*\uF(M)$.
+% END COMPONENT SGA2-VIII-CUM-C08
+
+% VERIFIED SOURCE SEAM: French line 2617 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C09
+The initial term of the first spectral sequence of the bicomplex
+$\cF Q^{\bullet\bullet}$ is
+\[
+  E_2^{p,q}
+  ={}'\!H^p({}''\!H^q(\cF Q^{\bullet\bullet})).
+\]
+
+For every $p\in\ZZ$, $CA^p$ is injective. By the hypothesis on $\cF$, the
+functor (restricted to the category of finitely generated modules)
+\[
+  N\longmapsto \cF\operatorname{Hom}(N,CA^p)
+\]
+is exact. Hence one obtains isomorphisms
+\[
+  {}''\!H^q(\cF\operatorname{Hom}({L'}^\bullet,CA^p))
+  \cong
+  \cF\operatorname{Hom}(H^{-q}({L'}^\bullet),CA^p).
+\]
+By the definition of $\operatorname{Ext}^{\ast}_{\cF}$ as the right-derived functor
+of $\cF\circ\operatorname{Hom}$, one therefore obtains isomorphisms
+\[
+  E_2^{p,q}
+  \cong
+  \operatorname{Ext}^{p}_{\cF}(H^{-q}({L'}^\bullet),A).
+\]
+
+\noindent\emph{Source note.} The French TeX and printed display have
+$H^q({L'}^\bullet)$ in the last formula. The preceding displayed
+isomorphism, the statement of \hyperref[VIII.1.2]{Lemma~1.2}, and the identity below require
+$H^{-q}({L'}^\bullet)$. This target therefore uses $H^{-q}$ as a transparent
+editorial emendation. It is not a restoration from an independent original
+scan; the French authority remains unchanged pending editorial action.
+
+Now
+\[
+  {L'}^\bullet=\operatorname{Hom}^\bullet(L^\bullet,A^\bullet),
+\]
+where $L^\bullet$ is a projective resolution of $M$; hence there are
+isomorphisms
+\[
+  \operatorname{Ext}^{q}(M,A)\cong H^q({L'}^\bullet).
+\]
+Substituting $-q$ in this last identity gives the conclusion.\hfill$\square$
+% END COMPONENT SGA2-VIII-CUM-C09
+
+% VERIFIED SOURCE SEAM: French line 2639 is blank and excluded.
+
+% INTEGRATION CONTROL BEFORE SGA2-VIII-CUM-C10
+\let\cF\calF\renewcommand{\theequation}{\thesection.\arabic{equation}}
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C10
+\setcounter{section}{1}
+\section{The Finiteness Theorem}\label{VIII.2}
+
+\begin{theorem}\label{VIII.2.1}
+\markedfootnote{(1)}{\textit{Editor's note.} For an analogous statement, but
+in a somewhat more general situation, see Mme Raynaud (Raynaud M., ``Th\'eor\`emes de
+Lefschetz en cohomologie des faisceaux coh\'erents et en cohomologie
+\'etale. Application au groupe fondamental,'' \emph{Ann. Sci. \'Ec. Norm.
+Sup.} (4) \textbf{7} (1974), pp.~29--52, Proposition~II.2.1).}%
+\kern-.18em\textbf{.}\enspace Let $X$ be a locally Noetherian prescheme, let $Y$ be a closed subset of $X$,
+and let $\cF$ be a coherent $\OX$-module. Suppose that $X$ is locally
+embeddable in a regular prescheme\markedfootnote{*}{This condition may be
+generalized to the hypothesis that a ``dualizing complex,'' in the sense
+defined in R.~Hartshorne, \emph{Residues and Duality} (cited in the note to
+Expos\'e~IV, p.~46), exists locally on $X$.}. Let $i\in\ZZ$. Suppose that:
+\begin{enumerate}[label=\textup{\alph*)},leftmargin=2.2em,itemsep=0.5\baselineskip]
+\item for every $x\in U=X-Y$, one has
+\begin{equation*}
+  H^{i-c(x)}(\cF_x)=0,
+\end{equation*}
+where we have set\markedfootnote{(2)}{\textit{Editor's note.} As in
+Expos\'e~V, $H^{\ast}(\cF_x)$ denotes the local cohomology
+$H^{\ast}_{\mathfrak m_x}(\cF_x)$.}:
+\begin{equation}\label{eq:VIII.2.1}
+  c(x)=\operatorname{codim}
+  (\overline{\{x\}}\cap Y,\overline{\{x\}}).
+\end{equation}
+Then:
+\item $\mathcal H^i_Y(\cF)$ is coherent.
+\end{enumerate}
+\end{theorem}
+% END COMPONENT SGA2-VIII-CUM-C10
+
+% VERIFIED SOURCE SEAM: French line 2660 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C11
+\setcounter{section}{2}
+\setcounter{sourcecorollary}{1}
+\begin{sourcecorollary}{\textit{Editor's note.} Strictly speaking, this is a
+corollary of the proof that follows, not of the statement. The implication
+\textup{c)}$\Rightarrow$\textup{a)} is tautological. The converse is not, but
+follows from the proof. More precisely, as below, one covers $X$ by open
+subsets embeddable in regular schemes; as explained below, this permits one to
+reduce to the case where $X=\operatorname{Spec}(A)$ is affine and regular and
+$\cF=\widetilde M$, where $M$ is an $A$-module of finite projective dimension.
+In this case it is shown that conditions \textup{a)} and \textup{c)} are
+equivalent to the dual conditions \textup{a$'$)} and \textup{c$'$)}. One then
+shows that \textup{c$'$)} implies condition \textup{d)} (see below), which in
+turn implies \textup{a$'$)}. See the discussion following~\hyperref[VIII.2.4]{2.4}.}\label{VIII.2.2}
+Under the hypotheses of the preceding theorem, condition \textup{a)} is
+equivalent to:
+\begin{enumerate}[label=\textup{\alph*)},start=3,leftmargin=2.2em]
+\item for every $x\in U$ such that $c(x)=1$, one has
+  $H^{i-1}(\cF_x)=0$.
+\end{enumerate}
+\end{sourcecorollary}
+% END COMPONENT SGA2-VIII-CUM-C11
+
+% VERIFIED SOURCE SEAM: French line 2669 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C12
+\setcounter{section}{2}
+\setcounter{sourcecorollary}{2}
+\begin{sourcecorollary}\label{VIII.2.3}
+Let $X$ be a locally Noetherian prescheme that is locally embeddable in a
+regular prescheme, let $Y$ be a closed subset of $X$, let $\cF$ be a coherent
+$\mathcal O_X$-module, and let $n$ be an integer. The following conditions are
+equivalent:
+\begin{enumerate}[label=\textup{(\roman*)},leftmargin=2.8em]
+\item for every $x\in U$, one has
+  $\prof \cF_x>n-c(x)$;
+\item for every $x\in U$ such that $c(x)=1$, one has
+  $\prof \cF_x\geq n$;
+\item for every $i\in\mathbb Z$, $\mathcal H^i_Y(\cF)$ is coherent if
+  $i\leq n$;
+\item $R^i i_*(\cF|_U)$ is coherent for $i<n$%
+  \markedfootnote{(4)}{\textit{Editor's note.} This condition appeared only
+  in the body of the proof, but not in the statement of the corollary; since
+  it is used in \hyperref[VIII.3]{Section~3}, it has been added.}.
+\end{enumerate}
+\end{sourcecorollary}
+% END COMPONENT SGA2-VIII-CUM-C12
+
+% VERIFIED SOURCE SEAM: French line 2682 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C13
+\medskip
+Assume these results established when $X$ is the spectrum of a regular
+Noetherian ring $A$ and when $\cF$ is the sheaf associated with an $A$-module
+of finite projective dimension.
+
+First observe that, if $(X_j)_{j\in J}$ is an open covering of $X$ by open
+subsets embeddable in a regular scheme, each of the conditions above is
+equivalent to the conjunction of the analogous conditions obtained by
+replacing $X$ by $X_j$, $Y$ by $Y_j=Y\cap X_j$, and $\cF$ by
+$\cF|_{X_j}$. Indeed, only the conditions involving $c(x)$ can present a
+difficulty. Let $x\in U$. If $x\in X_j$, set
+\[
+  c_j(x)=\codim(X_j\cap\overline{\{x\}}\cap Y,
+                X_j\cap\overline{\{x\}}).
+\]
+Necessarily $c_j(x)\geq c(x)$. Let $y\in\overline{\{x\}}\cap Y$ be a point
+that ``realizes the codimension,'' that is, such that
+$c(x)=\dim\mathcal O_{\overline{\{x\}},y}$, and let $X_j$ be a member of
+the covering such that $y\in X_j$. Then $x\in X_j$, and hence
+$c_j(x)=c(x)$. It follows that condition~(a) for the $X_j$ implies
+condition~(a) for $X$. At this point we have only a partial converse: condition
+(a) for $X$ implies condition~(a) for those $X_j$ such that
+$c(x)=c_j(x)$, which suffices for our purposes.%
+\markedfootnote{(5)}{\textit{Editor's note.} In fact, condition~(a) for $X$
+implies condition~(a) for every $X_j$, as asserted in the original text, but
+establishing this requires reading the proof below in detail. At this point
+the implication does not appear formal. For a property (a), (b), or (c),
+append a subscript $J$ to denote its conjunction over the $X_j$. The proof
+\textit{below} establishes $(c_J)\Rightarrow(a_J)$ (this is the chain of implications
+$(c')\Rightarrow(d)\Rightarrow(a')$). But tautologically
+$(a)\Rightarrow(c)$, and $(c)\Longleftrightarrow(c_J)$; hence
+$(a)\Rightarrow(a_J)$.}
+% END COMPONENT SGA2-VIII-CUM-C13
+
+% VERIFIED SOURCE SEAM: French line 2714 is blank and excluded.
+
+% INTEGRATION CONTROL BEFORE SGA2-VIII-CUM-C14
+\setcounter{section}{2}\setcounter{lemma}{3}
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C14
+\medskip
+Choose a covering of $X$ by open subsets embeddable in a regular prescheme.
+Applying the preceding observation, we see that we may assume that $X$ is
+closed in a regular $X'$. The reduction to $X'$ is then immediate.
+
+We may therefore assume that $X$ is regular, and even affine, by covering
+$X$ with affine open subsets. That we may assume that $\cF=\widetilde M$, where
+$M$ has finite projective dimension, will follow from the next lemma.
+
+\begin{lemma}\label{VIII.2.4}
+Let $X$ be a regular Noetherian prescheme. Let $\cF$ be a coherent
+$\mathcal O_X$-module. The function that assigns to each $x\in X$ the
+projective dimension of $\cF_x$ is bounded above.
+\end{lemma}
+% END COMPONENT SGA2-VIII-CUM-C14
+
+% VERIFIED SOURCE SEAM: French line 2722 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C15
+\setcounter{equation}{1}
+\medskip
+Indeed, let $x\in X$, and let $U$ be an affine open neighborhood of $x$.
+Let $L^\bullet$ be a projective resolution of the module $\cF(U)$, where the
+$L^i$ are finitely generated. By hypothesis, the ring $\cO_{X,x}$ is regular,
+so the projective dimension of $\cF_x$ is finite; denote this integer by $d$.
+Set
+\[
+  K=\ker(L^{-d}\longrightarrow L^{-d+1}).
+\]
+The module $K_x$ is free, since $d$ is the projective dimension of $\cF_x$
+([M], Ch.~VI, Prop.~2.1). By (EGA $0_{\mathrm I}$, 5.4.1 Errata), it follows
+that the $\cO_U$-module $\widetilde K$ is free on a neighborhood $U'$ of $x$,
+with $U'\subset U$. Choose $f\in\cO_X(U)$ such that
+$x\in D(f)\subset U'$. We then have a projective resolution of $M_f$, where
+$M=\cF(U)$:
+\[
+  0\longrightarrow K_f\longrightarrow (L^{-d})_f\longrightarrow
+  \cdots\longrightarrow M_f\longrightarrow 0.
+\]
+
+\noindent\emph{Source note.} After choosing only $f$, French line 2729 and
+the compiled page print $M_{f'}$, whereas the displayed resolution ends in
+$M_f$. Moreover, the corrected kernel is a submodule of $L^{-d}$, but French
+line 2730 prints $(L^{d-1})_f$. The target uses $M_f$ and $(L^{-d})_f$ as
+transparent editorial emendations forced by the chosen localization, the
+kernel definition, and the displayed resolution. These are not restorations
+from an independent original scan; the French authority remains unchanged
+pending editorial review.
+
+This proves that the function under consideration is upper semicontinuous.
+Since $X$ is quasi-compact, the conclusion follows.
+% END COMPONENT SGA2-VIII-CUM-C15
+
+% VERIFIED SOURCE SEAM: French line 2732 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C16
+\medskip
+We henceforth assume that $X$ is affine, Noetherian, and regular, and that
+$\cF=\widetilde M$, where $M$ is a finitely generated $A$-module, necessarily
+of finite projective dimension. We shall proceed in several steps. First, we
+find a condition~(d), equivalent to~(a), and prove that it is also equivalent
+to~(c). Then, using the spectral sequence of the preceding subsection, we
+prove $(d)\Rightarrow(b)$. It remains to prove
+$(\mathrm{iii})\Rightarrow(\mathrm{ii})$; indeed,
+$(\mathrm{i})\Leftrightarrow(\mathrm{ii})\Rightarrow(\mathrm{iii})$ follows
+immediately from $(a)\Leftrightarrow(c)\Rightarrow(b)$.
+
+Let $x\in U$. By hypothesis, $\cO_{X,x}$ is a regular local ring. If $D$
+denotes the dualizing functor for $\cO_{X,x}$, it follows from (\hyperref[V.2.1]{V, 2.1)} that
+\[
+  D\,H^{i-c(x)}(\cF_x)\simeq
+  \operatorname{Ext}^{d(x)-i}_{\cO_{X,x}}(\cF_x,\cO_{X,x}),
+\]
+where
+\begin{equation}\label{eq:VIII.2.2}
+  d(x)=\dim\cO_{X,x}+c(x)
+      =\dim\cO_{X,x}
+       +\codim(\overline{\{x\}}\cap Y,\overline{\{x\}}).
+  \tag{2.2}
+\end{equation}
+Since $X$ is Noetherian and $\cF$ is coherent,
+\begin{equation}\label{eq:VIII.2.3}
+  D\,H^{i-c(x)}(\cF_x)\simeq
+  (\sExt^{d(x)-i}_{\cO_X}(\cF,\cO_X))_x.
+  \tag{2.3}
+\end{equation}
+Moreover, a module vanishes if and only if its dual vanishes (cf. the
+editor's note~(4) on p.~54). For every $q\in\mathbb Z$, set
+\begin{equation}\label{eq:VIII.2.4}
+  \begin{cases}
+    S_q=\Supp\sExt^q_{\cO_X}(\cF,\cO_X),\\
+    S'_q=S_q\cap U,\quad (U=X-Y),\\
+    Z_q=\overline{S'_q}\cap Y.
+  \end{cases}
+  \tag{2.4}
+\end{equation}
+% END COMPONENT SGA2-VIII-CUM-C16
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C17
+\medskip
+It follows from \hyperref[eq:VIII.2.3]{formula~(2.3)} that conditions~(a) and~(c) are respectively
+equivalent to:
+
+\medskip
+\noindent\textup{(a$'$)} for every $q\in\mathbb Z$ and every $x\in S'_q$,
+one has $q+i\ne d(x)$;
+
+\smallskip
+\noindent\textup{(c$'$)} for every $q\in\mathbb Z$ and every $x\in S'_q$,
+if $c(x)=1$, then $q+i\ne d(x)$.
+
+\medskip
+\noindent Here is condition~(d), promised above:
+
+\medskip
+\noindent\textup{(d)} for every $q\in\mathbb Z$ and every $y\in Z_q$,
+one has $q+i\ne\dim\cO_{X,y}$.
+
+\medskip
+\noindent These conditions are equivalent.
+
+\smallskip
+\noindent\textup{(a$'$)} $\Rightarrow$ \textup{(c$'$)} is recorded for
+completeness.
+
+\smallskip
+\noindent\textup{(d)} $\Rightarrow$ \textup{(a$'$)}. Indeed, let
+$q\in\mathbb Z$ and $x\in S'_q$. Choose a point
+$y\in\overline{\{x\}}\cap Y$ that realizes the
+codimension,\markedfootnote{(6)}{\textit{Editor's note.} Throughout what
+follows, closures of points are endowed with the reduced structure.} that is,
+such that
+\begin{equation}\label{eq:VIII.2.5}
+  \dim\cO_{\overline{\{x\}},y}
+  =\codim(\overline{\{x\}}\cap Y,\overline{\{x\}})=c(x).
+  \tag{2.5}
+\end{equation}
+Since $X$ is regular at $y$, it follows that
+\begin{equation}\label{eq:VIII.2.6}
+  \dim\cO_{X,y}=d(x)\qquad\text{(cf.~\hyperref[eq:VIII.2.2]{(2.2)}).}
+  \tag{2.6}
+\end{equation}
+But $y\in\overline{\{x\}}$, and hence $y\in Z_q$; the conclusion follows.
+
+\smallskip
+\noindent\textup{(c$'$)} $\Rightarrow$ \textup{(d)}. Let $q\in\mathbb Z$
+and $y\in Z_q$. Assume provisionally that there exists $x\in S'_q$ such
+that
+\[
+  y\in\overline{\{x\}}\qquad\text{and}\qquad
+  \dim\cO_{\overline{\{x\}},y}=1.
+\]
+(One also says that $y$ is an immediate specialization of $x$.) It follows
+that $c(x)=1$, since $y$ realizes the codimension of
+$\overline{\{x\}}\cap Y$ in $\overline{\{x\}}$, while $x\notin Y$.
+Condition~\textup{(c$'$)} therefore gives
+\[
+  q+i\ne d(x).
+\]
+Whence the conclusion, upon observing that $d(x)=\dim\cO_{X,y}$ by~\hyperref[eq:VIII.2.6]{(2.6)}.
+The assertion provisionally assumed above is the content of the following
+lemma.
+
+\medskip
+\sgareaderlabel{VIII.2.5}{2.5}\noindent\textbf{Lemma 2.5.} Let $X$ be a locally Noetherian prescheme and
+$Y$ a closed subset of $X$. Set $U=X-Y$, and suppose that $U$ is dense in
+$X$. For every $y\in Y$, there exists $x\in U$ such that $y$ is an immediate
+specialization of $x$, that is,
+\[
+  y\in\overline{\{x\}}\qquad\text{and}\qquad
+  \dim\cO_{\overline{\{x\}},y}=1.
+\]
+
+We have applied the lemma with $X$ equal to the prescheme
+$\overline{S'_q}$ and $Y$ equal to the subset
+$Y\cap\overline{S'_q}$.
+
+\medskip
+\noindent\textit{Proof of \hyperref[VIII.2.5]{Lemma 2.5}.} There exists $x\in U$ such that
+$y\in\overline{\{x\}}$. Choose such an $x$ for which
+$r=\dim\cO_{\overline{\{x\}},y}$ is minimal. We must prove that $r=1$.
+By the choice of $x$, every
+$z\in\Spec(\cO_{\overline{\{x\}},y})$ with $z\ne x$ lies in $Y$.
+Consequently, $\{x\}$ is open in
+$\Spec(\cO_{\overline{\{x\}},y})$, and the conclusion follows.\hfill$\square$
+% END COMPONENT SGA2-VIII-CUM-C17
+
+% VERIFIED SOURCE SEAM: French line 2795 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C18
+\medskip
+\noindent\textit{The second step is to deduce \textup{(b)} from
+\textup{(d)}.}
+
+\medskip
+Set
+\[
+  D(Z_q)=\{\dim\cO_{X,y}\mid y\in Z_q\}.
+\]
+By~\textup{(d)}, for every $q\in\mathbb Z$ one has
+$q+i\notin D(Z_q)$. Applying Proposition~\hyperref[VII.2.3]{VII.2.3}, we see that
+\[
+  \sExt_Y^{q+i}(\sExt^q(\cF,\cO_X),\cO_X)
+  \quad\text{is coherent.}
+\]
+The initial term of the spectral sequence of the preceding subsection is
+\[
+  E_2^{p,q}
+  =\sExt_Y^p(\sExt^{-q}(\cF,\cO_X),\cO_X).
+\]
+It follows that $E_2^{p,q}$ is coherent for every $p,q\in\mathbb Z$ such
+that $p+q=i$. Now there are only finitely many pairs $(p,q)$ such that
+$p+q=i$,\markedfootnote{[S]}{\textit{Source note.} Taken literally for
+arbitrary integers, this sentence is false. In context it must be read as
+concerning the terms that can contribute, in view of the finite-projective-dimension
+setup above. The French authority is unchanged.} and this spectral
+sequence converges to $\sH_Y^\ast(\cF)$; whence the conclusion.
+% END COMPONENT SGA2-VIII-CUM-C18
+
+% VERIFIED SOURCE SEAM: French line 2806 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C19
+\medskip
+\noindent\textit{It remains to prove that \textup{(iii)} implies
+\textup{(ii)}.} Let
+\[
+  i\colon U\longrightarrow X
+\]
+denote the canonical immersion of $U$ into $X$. In view of the exact homology
+sequence associated with the closed subset $Y$ (\hyperref[I.2.11]{I, 2.11)}, one sees that
+\textup{(iii)} is \textit{equivalent to}:
+
+\medskip
+\noindent\textup{(iv)} $R^i i_*(\cF|_U)$ is coherent for $i<n$.
+\refstepcounter{sourcecondition}\label{condition}
+
+\medskip
+\noindent{\scriptsize\color{gray}French printed p.~94}\quad Indeed, there is
+an exact sequence
+\[
+  0\longrightarrow \sH_Y^0(\cF)\longrightarrow \cF
+  \longrightarrow i_*(\cF|_U)\longrightarrow \sH_Y^1(\cF)
+  \longrightarrow 0.
+\]
+Now $\sH_Y^0(\cF)$ is a quasi-coherent subsheaf of the coherent sheaf $\cF$,
+and is therefore coherent. Hence $\sH_Y^1(\cF)$ is coherent if and only if
+$i_*(\cF|_U)$ is coherent. Moreover, for $p>0$, the exact cohomology sequence
+associated with the closed subset $Y$ reduces to isomorphisms
+\[
+  R^p i_*(\cF|_U)\overset{\approx}{\longrightarrow}\sH_Y^{p+1}(\cF).
+\]
+% END COMPONENT SGA2-VIII-CUM-C19
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C20
+\medskip
+\noindent\textit{We shall prove that \textup{(iv)} implies
+\textup{(ii)}.} To this end, recall \textup{(ii)}:
+
+\medskip
+\noindent\textup{(ii)} For every $x\in U$ such that $c(x)=1$, one has
+\[
+  \operatorname{prof}\cF_x\geq n.
+\]
+
+\noindent We argue by induction on $n$.
+
+\medskip
+\noindent If $n=0$, both conditions are vacuous.
+% END COMPONENT SGA2-VIII-CUM-C20
+
+% VERIFIED SOURCE SEAM: French line 2827 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C21
+\medskip
+\noindent If $n=1$, assume that $i_*(\cF|_U)$ is coherent. We argue by
+contradiction and suppose that there exists $x\in U$ such that $c(x)=1$ and
+\[
+  \prof\cF_x=0,
+\]
+i.e. $x\in\Ass\cF_x$. Let $y\in\overline{\{x\}}\cap Y$ be such that
+\[
+  \dim\cO_{\overline{\{x\}},y}=1.
+\]
+Set
+\[
+  A=\cO_{X,y}\qquad\text{and}\qquad X'=\Spec(A).
+\]
+
+\setcounter{equation}{6}
+\noindent Perform the base change $v\colon X'\longrightarrow X$, which is
+flat:
+\begin{equation}
+\begin{CD}
+U'=X'\times_X U @>{v'}>> U\\
+@V{i'}VV @VV{i}V\\
+X' @>{v}>> X .
+\end{CD}
+\tag{2.7}\label{eq:VIII.2.7}
+\end{equation}
+The morphism $i$ is separated, since it is an immersion, and is of finite
+type, since it is an open immersion and $X$ is locally Noetherian. Since the
+base change is flat, EGA~III, 1.4.15 gives an isomorphism
+\begin{equation}
+  v^*(i_*(\cF|_U))
+  \approx
+  i'_*(v'^*(\cF|_U)).
+\tag{2.8}\label{eq:VIII.2.8}
+\end{equation}
+
+\noindent{\scriptsize\color{gray}French printed p.~95}\quad Denote by
+$\underline{x}$ (respectively, $\underline{y}$) the ideal of $A$
+corresponding to $x$ (respectively, $y$).
+
+\medskip
+\noindent Set $\cG=v'^*(\cF|_U)$. Then $\cG$ is coherent and
+$\underline{x}\in\Ass\cG$, so there exists a monomorphism
+\[
+  \cO_{\overline{\{x\}}}\longrightarrow\cG;
+\]
+consequently, $i'_*(\cO_{\overline{\{x\}}}|_{U'})$ is coherent. By the choice
+of $y$, $\dim(A/\underline{x})=1$, and therefore the support of
+$\cO_{\overline{\{x\}}}$ is precisely
+\[
+  \overline{\{\underline{x}\}}
+  =\{\underline{x}\}\cup\{\underline{y}\},
+\]
+since $\overline{\{\underline{x}\}}=\Spec(A/\underline{x})$ as a scheme. It
+follows that
+\[
+  (\cO_{\overline{\{x\}}}|_{U'})(U')
+  =\Frac(A/\underline{x}),
+\]
+the field of fractions of $A/\underline{x}$, and
+\[
+  i'_*(\cO_{\overline{\{x\}}}|_{U'})(X')
+  =\Frac(A/\underline{x}).
+\]
+But $\Frac(A/\underline{x})$ is not a finitely generated $A$-module, because
+$\underline{x}$ is different from the maximal ideal of $A$. This is a
+contradiction.
+% END COMPONENT SGA2-VIII-CUM-C21
+
+% VERIFIED SOURCE SEAM: French line 2855 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C22
+\medskip
+\noindent Suppose that $n>1$, and assume the result established for every
+$n'<n$. By the induction hypothesis, for every $x\in U$ such that $c(x)=1$,
+one has $x\notin\Ass\cF_x$. Let $x$ be such a point, and let
+$y\in\overline{\{x\}}\cap Y$ be an immediate specialization of $x$, i.e.
+\[
+  \dim\cO_{\overline{\{x\}},y}=1.
+\]
+Perform the base change
+\[
+  v\colon\Spec(\cO_{X,y})\longrightarrow X,
+\]
+retaining the notation of diagram~\textup{\hyperref[eq:VIII.2.7]{(2.7)}}. Applying EGA~III, 1.4.15,
+one obtains isomorphisms
+\[
+  v^*(R^p i_*(\cF|_U))
+  \simeq
+  R^p i'_*(v'^*(\cF|_U)),
+  \qquad p\in\mathbb Z.
+\]
+
+\noindent\emph{Thus we are reduced to the case in which $X$ is the spectrum
+of a local ring $A$ in which $\underline{x}$ is a prime ideal of dimension
+$1$}, i.e. $\dim(A/x)=1$. Set
+\[
+  \cF'=\SheafGamma_Y(\cF)
+  \qquad\text{and}\qquad
+  \cF''=\cF/\cF'.
+\]
+We have $\cF_x\simeq\cF''_x$ and $y\notin\Ass\cF''$. Moreover,
+$\cF'|_U=0$; hence the long exact sequence of the $R^p i_*$ gives
+isomorphisms
+\[
+  R^p i_*(\cF|_U)
+  \simeq
+  R^p i_*(\cF''|_U),
+  \qquad p\in\mathbb Z.
+\]
+
+\noindent{\scriptsize\color{gray}French printed p.~96}\quad Since $n>1$,
+neither $x$ nor $y$ belongs to $\Ass\cF''$. Now $\underline{x}$ and
+$\underline{y}$ are the only prime ideals of $A$ containing $\underline{x}$.
+It follows from Expos\'e~\hyperref[III.2.1]{III, 2.1} that there exists an element
+$g\in\underline{x}$ that is $M$-regular, where we have set
+\[
+  \cF=\widetilde M,
+  \qquad M=\cF(X).
+\]
+Thus there is an exact sequence
+\[
+  0\longrightarrow M\xrightarrow{g'}M\longrightarrow N\longrightarrow0,
+\]
+in which $g'$ denotes multiplication by $g$ on $M$. From the resulting long
+exact sequence one sees that
+\[
+  R^p i_*(\widetilde N|_U)
+  \quad\text{is coherent for }p<n-1.
+\]
+Therefore, by the induction hypothesis,
+\[
+  \prof(\widetilde N)_x\geq n-1,
+  \qquad\text{and hence}\qquad
+  \prof\cF_x\geq n.
+\]
+\hfill$\square$
+% END COMPONENT SGA2-VIII-CUM-C22
+
+% VERIFIED SOURCE SEAM: French line 2873 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C23
+\section*{3. Applications}
+\sgareaderlabel{VIII.3}{3}
+
+\noindent From these results one deduces a coherence condition for the higher
+direct images of a coherent sheaf under a \emph{morphism that is not proper}.
+
+\medskip
+\sgareaderlabel{VIII.3.1}{3.1}\noindent\textbf{Theorem 3.1.}---Let $f\colon X\to Y$ be a morphism of
+preschemes. Suppose that $Y$ is \emph{locally Noetherian} and that $f$ is
+\emph{proper}. Suppose that $X$ is \emph{locally embeddable in a regular
+prescheme}. Let $n\in\mathbb Z$. Let $U$ be an open subset of $X$, and let
+$\cF$ be a \emph{coherent} $\cO_U$-module. Suppose that, for every $x\in U$
+such that
+\[
+  \codimn(\overline{\{x\}}\cap(X\setminus U),
+  \overline{\{x\}})=1,
+\]
+one has $\prof\cF_x\geq n$. \emph{Then} the $\cO_Y$-modules
+\[
+  R^p(f\circ g)_*(\cF)
+\]
+are coherent for $p<n$, where $g$ is the canonical immersion of $U$ into
+$X$.
+
+\medskip
+\noindent Indeed, there is a Leray spectral sequence whose abutment is
+$R^*(f\circ g)_*(\cF)$ and whose initial term is given by
+\[
+  E_2^{p,q}=R^p f_*(R^q g_*(\cF)).
+\]
+Moreover, there exists a \emph{coherent} $\cO_X$-module $\cG$ such that
+$\cG|_U\simeq\cF$ (EGA~I, 9.4.3). It then follows from the preceding section
+that condition~\textup{(iv)} on p.~74 is satisfied
+{\scriptsize\color{gray}[French printed p.~97]}, i.e. that
+$R^q g_*(\cG|_U)$ is coherent for $q<n$. Applying the finiteness theorem of
+EGA~III, 3.2.1 to $f$ and the sheaves $R^q g_*(\cF)$, one finds that
+$E_2^{p,q}$ is coherent for $q<n$, whence the conclusion.
+% END COMPONENT SGA2-VIII-CUM-C23
+
+% VERIFIED SOURCE SEAM: French line 2887 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C24
+\medskip
+\sgareaderlabel{VIII.3.2}{3.2}\noindent\textbf{Proposition 3.2.}---Let $X$ be a locally Noetherian
+prescheme, locally embeddable in a regular prescheme. Let $U$ be an open
+subset of $X$, and let $i\colon U\to X$ be the canonical immersion. Let
+$n\in\mathbb Z$. Finally, let $\cF$ be a coherent Cohen--Macaulay
+$\cO_U$-module (on $U$!). The following conditions are equivalent:
+\begin{enumerate}
+\item[(a)] $R^p i_*(\cF)$ is coherent for $p<n$;
+\item[(b)] for every irreducible component $S'$ of the closure $\overline S$
+of the support $S$ of $\cF$, one has
+\[
+  \codimn(S'\cap(X\setminus U),S')>n.
+\]
+\end{enumerate}
+% END COMPONENT SGA2-VIII-CUM-C24
+
+% VERIFIED SOURCE SEAM: French line 2900 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C25
+\medskip
+\noindent\textit{Proof, opening.}---Let $\cG$ be a coherent $\cO_X$-module
+such that $\cG|_U\simeq\cF$ (EGA~I, 9.4.3). Applying \hyperref[VIII.2.3]{Corollary~2.3} to
+$\cG$, we find that condition \textup{(a)} is equivalent to \textup{(c)}:
+\begin{enumerate}
+\item[(c)] for every $x\in S$, one has
+\[
+  \prof\cF_x>n-c(x),
+  \qquad
+  c(x)=\codimn(\overline{\{x\}}\cap Y,\overline{\{x\}}).
+\]
+\end{enumerate}
+% END COMPONENT SGA2-VIII-CUM-C25
+
+% VERIFIED SOURCE SEAM: French line 2908 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C26
+\medskip
+\noindent\textit{Proof, \textup{(a)}$\Rightarrow$\textup{(b)}.}---Indeed,
+let $S'$ be an irreducible component of $\overline S$, and let $s$ be its
+generic point. Since $\cF$ is Cohen--Macaulay, one has
+$\prof \cF_s=\dim\cO_{S,s}=0$. Moreover, $\overline{\{s\}}=S'$, and the
+conclusion follows.
+% END COMPONENT SGA2-VIII-CUM-C26
+
+% VERIFIED SOURCE SEAM: French line 2910 is blank and excluded.
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C27
+\medskip
+\noindent\textit{Proof, \textup{(b)}$\Rightarrow$\textup{(a)}, opening.}---Let
+$x\in S$, and let $S'$ be an irreducible component of $\overline S$ such that
+$x\in S'$. Let $s$ be the generic point of $S'$. Since $\cF$ is
+Cohen--Macaulay, we know that
+\[
+  \prof \cF_x=\dim\cO_{\overline{\{s\}},x}.
+\]
+% END COMPONENT SGA2-VIII-CUM-C27
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C28
+\medskip
+\noindent\textit{Proof, \textup{(b)}$\Rightarrow$\textup{(a)}, case
+split.}---If $c(x)=+\infty$, there is nothing to prove. Otherwise, there exists
+$y\in Y\cap\overline{\{x\}}$ such that
+\[
+  c(x)=\dim\cO_{\overline{\{x\}},y}.
+\]
+% END COMPONENT SGA2-VIII-CUM-C28
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C29
+\medskip
+\noindent\textit{Proof, \textup{(b)}$\Rightarrow$\textup{(a)},
+conclusion.}---Now $\cO_{X,y}$ is a quotient of a regular local ring by
+hypothesis; hence
+\[
+  \dim\cO_{\overline{\{s\}},y}
+  =\dim\cO_{\overline{\{s\}},x}
+   +\dim\cO_{\overline{\{x\}},y}>n.
+\]
+\hfill$\square$
+% END COMPONENT SGA2-VIII-CUM-C29
+
+% VERIFIED SOURCE SEAM: French line 2923 is blank and excluded.
+
+% INTEGRATION CONTROL BEFORE SGA2-VIII-CUM-C30
+\begingroup
+
+% BEGIN COMPONENT SGA2-VIII-CUM-C30
+\renewcommand{\refname}{Bibliography}
+\begin{thebibliography}{M}
+\bibitem[M]{M}
+\textsc{H.~Cartan \& S.~Eilenberg} -- \emph{Homological Algebra},
+Princeton Math. Series vol.~19, Princeton University Press, 1956.
+\end{thebibliography}
+\endgroup
+% END COMPONENT SGA2-VIII-CUM-C30

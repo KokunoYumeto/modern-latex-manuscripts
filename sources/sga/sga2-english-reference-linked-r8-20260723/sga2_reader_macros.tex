@@ -1,0 +1,325 @@
+% Modern compatibility layer for the source-aligned English SGA 2 bodies.
+% This deliberately replaces, rather than loads, the legacy sga2-smf.sty.
+
+\makeatletter
+\@ifundefined{c@pageoriginal}{\newcounter{pageoriginal}}{}
+\@ifundefined{c@toto}{\newcounter{toto}}{}
+\@ifundefined{c@yequation}{\newcounter{yequation}}{}
+\@ifundefined{c@sourcecorollary}{\newcounter{sourcecorollary}[section]}{}
+\@ifundefined{c@sourcecondition}{\newcounter{sourcecondition}}{}
+\@ifundefined{c@footnoteAG}{\newcounter{footnoteAG}}{}
+\@ifundefined{c@footnoteNDE}{\newcounter{footnoteNDE}}{}
+\@ifundefined{c@aconjecture}{\newcounter{aconjecture}[section]}{}
+\makeatother
+\renewcommand{\theaconjecture}{\Alph{aconjecture}}
+
+% The corrected/annotated branch is always selected.
+\providecommand{\sisi}[2]{#2}
+\providecommand{\pageoriginale}{%
+  \refstepcounter{pageoriginal}%
+  \marginpar{\raggedright\footnotesize\bfseries\thepageoriginal}%
+  \xspace}
+\providecommand{\srcpage}[1]{%
+  \marginpar{\raggedright\scriptsize\color{gray}Original French p.~#1}}
+\providecommand{\srcpdfpage}[1]{%
+  \marginpar{\raggedright\scriptsize\color{gray}French source PDF p.~#1}}
+\providecommand{\chapterspace}[1]{}
+
+% Original and editorial notes.
+\providecommand{\nde}[1]{\footnote{\textit{Editor's note.} #1}}
+\providecommand{\de}[1]{\footnote{\textit{Editor's note.} #1}}
+\providecommand{\ndemark}{\footnotemark}
+\providecommand{\ndetext}[1]{\footnotetext{\textit{Editor's note.} #1}}
+\providecommand{\sfootnote}[1]{\footnote{#1}}
+\providecommand{\sfootnotemark}{\footnotemark}
+\providecommand{\sfootnotetext}[1]{\footnotetext{#1}}
+\providecommand{\markedfootnote}[2]{%
+  \begingroup\renewcommand{\thefootnote}{#1}\footnote{#2}\endgroup}
+
+% Common prose abbreviations and quotations retained from the source macros.
+\providecommand{\og}{``}
+\providecommand{\fg}{''}
+\providecommand{\cf}{cf.\kern.3em}
+\providecommand{\Cf}{Cf.\kern.3em}
+\providecommand{\ie}{i.e.\kern.3em}
+\providecommand{\resp}{resp.\kern.3em}
+\providecommand{\loccit}{\textit{loc. cit.}\xspace}
+\providecommand{\EGA}{\textup{EGA}\kern.2em}
+\providecommand{\SGA}{\textup{SGA}\kern.3em}
+\providecommand{\Exp}{Exp.\kern.3em}
+\providecommand{\ptbl}{.\kern.2em}
+\providecommand{\numero}{no.\kern.3em}
+\providecommand{\no}{no.\kern.3em}
+\providecommand{\No}{no.\kern.3em}
+\providecommand{\afortiori}{\textit{a fortiori}\xspace}
+\providecommand{\quoi}{}
+\providecommand{\refname}{Bibliography}
+
+% Calligraphic, bold, and ideal alphabets.
+\providecommand{\Aa}{\mathcal A}
+\providecommand{\Bb}{\mathcal B}
+\providecommand{\Cc}{\mathcal C}
+\providecommand{\Dd}{\mathcal D}
+\providecommand{\Ee}{\mathcal E}
+\providecommand{\Ff}{\mathcal F}
+\providecommand{\Gg}{\mathcal G}
+\providecommand{\Hh}{\mathcal H}
+\providecommand{\Ii}{\mathcal I}
+\providecommand{\Jj}{\mathcal J}
+\providecommand{\Kk}{\mathcal K}
+\providecommand{\Ll}{\mathcal L}
+\providecommand{\Mm}{\mathcal M}
+\providecommand{\Nn}{\mathcal N}
+\providecommand{\Oo}{\mathcal O}
+\providecommand{\Pp}{\mathcal P}
+\providecommand{\Qq}{\mathcal Q}
+\providecommand{\Rr}{\mathcal R}
+\providecommand{\Ss}{\mathcal S}
+\providecommand{\Tt}{\mathcal T}
+\providecommand{\Uu}{\mathcal U}
+\providecommand{\Vv}{\mathcal V}
+\providecommand{\Ww}{\mathcal W}
+\providecommand{\Xx}{\mathcal X}
+\providecommand{\Yy}{\mathcal Y}
+\providecommand{\Zz}{\mathcal Z}
+\providecommand{\CJ}{\underline{C}_J}
+\providecommand{\DDJ}{\underline{D}_J}
+\providecommand{\bbmu}{\boldsymbol{\mu}}
+\providecommand{\CC}{\mathbf C}
+\providecommand{\GG}{\mathbf G}
+\providecommand{\KK}{\mathbf K}
+\providecommand{\LL}{\mathbf L}
+\providecommand{\NN}{\mathbf N}
+\providecommand{\PP}{\mathbf P}
+\providecommand{\QQ}{\mathbf Q}
+\providecommand{\ZZ}{\mathbf Z}
+\providecommand{\Ab}{\mathbf{Ab}}
+\providecommand{\ideal}[1]{\mathfrak{#1}}
+\providecommand{\aaa}{\ideal a}
+\providecommand{\pp}{\ideal p}
+\providecommand{\qq}{\ideal q}
+\providecommand{\rr}{\ideal r}
+\providecommand{\mm}{\ideal m}
+\providecommand{\m}{\ideal m}
+\providecommand{\mideal}{\mathfrak m}
+\providecommand{\formelF}{\mathfrak F}
+\providecommand{\formelG}{\mathfrak G}
+
+% Sheaves, standard objects, and local aliases used by the English units.
+\let\oldS\S
+\providecommand{\sheaf}[1]{\underline{#1}}
+\providecommand{\ffam}{\mathbf f}
+\providecommand{\gfam}{\mathbf g}
+\providecommand{\hfam}{\mathbf h}
+\providecommand{\RR}{\mathrm R}
+\providecommand{\uC}{\underline{\mathrm C}}
+\providecommand{\Ccat}{\mathcal C}
+\providecommand{\Cbar}{\overline{\mathcal C}}
+\providecommand{\Ctors}{\mathcal C_{\mideal}}
+\providecommand{\CatC}{\mathcal C}
+\providecommand{\catSch}{\mathbf{Sch}}
+\providecommand{\uGamma}{\mathop{\underline{\Gamma}}\nolimits}
+\providecommand{\uHom}{\mathop{\underline{\mathrm{Hom}}}\nolimits}
+\providecommand{\uExt}{\mathop{\underline{\mathrm{Ext}}}\nolimits}
+\providecommand{\uH}{\mathop{\underline{\mathrm H}}\nolimits}
+\providecommand{\UH}{\mathop{\underline{\mathrm H}}\nolimits}
+\providecommand{\SheafGamma}{\underline{\Gamma}}
+\providecommand{\SheafH}{\mathcal H}
+\providecommand{\SheafHom}{\mathcal H\!om}
+\providecommand{\SheafExt}{\mathcal E\!xt}
+\providecommand{\SheafI}{\mathcal I}
+\providecommand{\Sheafphi}{\underline{\varphi}}
+\providecommand{\SheafPic}{\mathbf{Pic}}
+\providecommand{\cH}{\mathcal H}
+\providecommand{\cExt}{\mathcal E\!xt}
+\providecommand{\cHom}{\mathcal H\!om}
+\providecommand{\sH}{\mathcal H}
+\providecommand{\sExt}{\mathcal E\!xt}
+\providecommand{\cF}{\mathcal F}
+\providecommand{\calF}{\mathcal F}
+\providecommand{\Lcal}{\mathcal L}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\SheafProj}{\mathbf{Proj}}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\E}{E}
+\DeclareMathOperator{\degtr}{deg\,tr}
+\DeclareMathOperator{\Br}{Br}
+\DeclareMathOperator{\cd}{cd}
+\DeclareMathOperator{\D}{D}
+\DeclareMathOperator{\geom}{g\acute{e}om}
+\DeclareMathOperator{\hop}{hop}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\profet}{prof\;\acute{e}t}
+\DeclareMathOperator{\profgeom}{prof\;g\acute{e}om}
+\DeclareMathOperator{\rg}{rg}
+\providecommand{\h}{\mathop{\underline{H}}\nolimits}
+\providecommand{\cG}{\mathcal G}
+\providecommand{\cO}{\mathcal O}
+\providecommand{\uF}{\underline{\mathrm F}}
+\providecommand{\uT}{\underline{\mathrm T}}
+\providecommand{\OX}{\mathcal O_X}
+\providecommand{\OXx}{\mathcal O_{X,x}}
+\providecommand{\OXY}{\mathcal O_{X,Y}}
+\providecommand{\OXZ}[1]{\mathcal O_{X,#1}}
+\providecommand{\OoXZ}{\mathcal O_{X,Z}}
+\providecommand{\OY}[1]{\mathcal O_{Y_{#1}}}
+\providecommand{\omx}{\Omega_{X/k}}
+\providecommand{\Et}{\mathbf{Et}}
+\providecommand{\Etc}{\mathbf{Et}}
+\providecommand{\LLcat}{\mathbf L}
+\providecommand{\Ib}{\mathcal I'}
+\providecommand{\Jb}{\mathcal J}
+\providecommand{\restr}[2]{#1\vert_{#2}}
+\providecommand{\rest}[1]{_{|#1}}
+
+% Operators.
+\providecommand{\Ann}{\operatorname{Ann}}
+\providecommand{\Annop}{\operatorname{Ann}}
+\providecommand{\Ass}{\operatorname{Ass}}
+\providecommand{\Assop}{\operatorname{Ass}}
+\providecommand{\Supp}{\operatorname{Supp}}
+\providecommand{\Suppop}{\operatorname{Supp}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Specop}{\operatorname{Spec}}
+\providecommand{\Frac}{\operatorname{Frac}}
+\providecommand{\Homop}{\operatorname{Hom}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ob}{\operatorname{Ob}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Extop}{\operatorname{Ext}}
+\providecommand{\Pic}{\operatorname{Pic}}
+\providecommand{\Cl}{\operatorname{Cl}}
+\providecommand{\prof}{\operatorname{prof}}
+\providecommand{\codh}{\operatorname{codh}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\codimn}{\operatorname{codim}}
+\providecommand{\codimop}{\operatorname{codim}}
+\providecommand{\depthop}{\operatorname{depth}}
+\providecommand{\lengthop}{\operatorname{length}}
+\providecommand{\pdop}{\operatorname{pd}}
+\providecommand{\Hloc}{\operatorname H}
+\providecommand{\HH}{\mathrm H}
+\renewcommand{\H}{\mathrm H}
+\providecommand{\R}{\mathrm R}
+\providecommand{\DD}{\mathrm D}
+\providecommand{\DA}{\mathrm D A}
+\providecommand{\DhatA}{\mathrm D\widehat A}
+\providecommand{\CA}{\mathrm C A}
+\providecommand{\ChatA}{\mathrm C\widehat A}
+\providecommand{\ellA}{\operatorname{length}_A}
+\providecommand{\mA}{\mathfrak m_A}
+\providecommand{\mB}{\mathfrak m_B}
+\providecommand{\Lef}{\operatorname{Lef}}
+\providecommand{\Leff}{\operatorname{Leff}}
+\providecommand{\Lefc}{\operatorname{Lef}}
+\providecommand{\Leffc}{\operatorname{Leff}}
+
+% Arrows, equation controls, and display conveniences.
+\providecommand{\from}{\longleftarrow}
+\providecommand{\mto}{\longmapsto}
+\providecommand{\To}{\Longrightarrow}
+\providecommand{\lto}[1]{\xrightarrow{#1}}
+\providecommand{\isomto}{\overset{\sim}{\longrightarrow}}
+\providecommand{\isomfrom}{\overset{\sim}{\longleftarrow}}
+\providecommand{\SSI}{\unskip~$\Longleftrightarrow$~\ignorespaces}
+\providecommand{\ALORS}{\unskip~$\Longrightarrow$~\ignorespaces}
+\providecommand{\tbigoplus}{\mathop{\textstyle\bigoplus}\limits}
+\providecommand{\tbigotimes}{\mathop{\textstyle\bigotimes}\limits}
+\providecommand{\boule}{\raisebox{0.2ex}{$\scriptscriptstyle\bullet$}}
+\providecommand{\steco}{%
+  \setcounter{equation}{\value{yequation}}\refstepcounter{yequation}}
+\providecommand{\skipqed}{\renewcommand{\qedsymbol}{}}
+\providecommand{\sourceoddity}[2]{%
+  \par\smallskip\noindent
+  \fcolorbox{gray}{gray!6}{\parbox{0.94\linewidth}{\footnotesize
+  \textbf{Source note [#1].} #2}}\par\smallskip}
+\providecommand{\danger}{\marginpar{\Large$\triangle$}}
+\let\pageoriginaled\pageoriginale
+% SMF's \skpt suppresses punctuation in a statement heading; with the
+% standard-class compatibility environments the heading punctuation is fixed.
+\providecommand{\skpt}{}
+\providecommand{\noo}{\hbox{${}^\circ$}}
+\providecommand{\et}{\textup{\'et}}
+\providecommand{\Isom}{\textup{Isom}}
+\providecommand{\llbracket}{[\![}
+\providecommand{\rrbracket}{]\!]}
+\definecolor{softgray}{gray}{0.94}
+\definecolor{notegray}{gray}{0.25}
+\definecolor{noteblue}{RGB}{232,241,250}
+\definecolor{notebluetext}{RGB}{20,65,110}
+
+% Human-readable statement environments used by the bounded English units.
+\newenvironment{sgastatement}[1]
+  {\par\addvspace{0.8\baselineskip}\noindent\textbf{#1.}\ \itshape}
+  {\par\addvspace{0.35\baselineskip}}
+\newenvironment{sgaremark}[1]
+  {\par\addvspace{0.8\baselineskip}\noindent\textbf{#1.}\ }
+  {\par\addvspace{0.35\baselineskip}}
+\newenvironment{sgatheorem}[1]
+  {\par\addvspace{0.8\baselineskip}\noindent\textbf{#1.}\ \itshape}
+  {\par\addvspace{0.35\baselineskip}}
+\newenvironment{sgalemma}[1]
+  {\par\addvspace{0.8\baselineskip}\noindent\textbf{#1.}\ \itshape}
+  {\par\addvspace{0.35\baselineskip}}
+\newenvironment{sgaexample}[1]
+  {\par\addvspace{0.8\baselineskip}\noindent\textbf{#1.}\ \itshape}
+  {\par\addvspace{0.35\baselineskip}}
+\newenvironment{sgaproof}
+  {\par\addvspace{0.4\baselineskip}\noindent\textit{Proof.}\ }
+  {\hfill$\square$\par\addvspace{0.4\baselineskip}}
+\newenvironment{proofbridge}
+  {\par\noindent\textit{Proof (reduction).}\ }
+  {\par}
+\newenvironment{enumeratea}
+  {\begin{enumerate}[label=\alph*)]}
+  {\end{enumerate}}
+\newenvironment{enumeratei}
+  {\begin{enumerate}[label=(\roman*)]}
+  {\end{enumerate}}
+
+% Source-like theorem names retained in the translated later exposés.
+\theoremstyle{plain}
+\newtheorem{theoreme}[subsection]{Theorem}
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{corollaire}[subsection]{Corollary}
+\newtheorem{lemme}[subsection]{Lemma}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{proposition}[subsection]{Proposition}
+\newtheorem{propositionblah}[subsection]{Proposition}
+\newtheorem{sublemme}[subsubsection]{Lemma}
+\newtheorem{subsublemme}[subsubsection]{Lemma}
+\newtheorem{conjecture}[subsection]{Conjecture}
+\newtheorem{probleme}[subsection]{Problem}
+\theoremstyle{definition}
+\newtheorem{definition}[subsection]{Definition}
+\newtheorem{exemple}[subsection]{Example}
+\newtheorem{supdefinition}[subsection]{Definition}
+\theoremstyle{remark}
+\newtheorem{remarque}[subsection]{Remark}
+\newtheorem{remarques}[subsection]{Remarks}
+\newtheorem{subremarque}[subsubsection]{Remark}
+\newtheorem*{remarquestar}{Remark}
+\newtheorem*{theoremIXoneone}{Theorem 1.1}
+\newtheorem*{sgaproposition}{Proposition}
+\newtheorem*{sgacorollary}{Corollary}
+
+\NewDocumentEnvironment{enonce*}{m o}
+  {\par\addvspace{0.8\baselineskip}\noindent\textbf{#1%
+   \IfValueT{#2}{ (#2)}.}\ \itshape}
+  {\par\addvspace{0.35\baselineskip}}
+\renewcommand{\thesourcecorollary}{\thesection.\arabic{sourcecorollary}}
+\NewDocumentEnvironment{sourcecorollary}{o}
+  {\refstepcounter{sourcecorollary}\par\medskip\noindent
+   \textbf{Corollary~\thesourcecorollary%
+   \IfValueT{#1}{\markedfootnote{(3)}{#1}}.}\ \itshape}
+  {\par\medskip}
+
+% LaTeX kernels now define uppercase \Ref.  It must therefore be renewed,
+% after hyperref is loaded, rather than introduced with \newcommand.
+\renewcommand{\Ref}[1]{\textup{\ref{#1}}}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\chaptername}{Expos\'e}
+
+\setlength{\emergencystretch}{2em}
+\raggedbottom

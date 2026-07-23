@@ -1,0 +1,976 @@
+% SOURCE COMPONENT: 01_unit_IV_1_open\part.tex
+
+\makeatletter
+\providecommand{\sgareaderlabel}[2]{%
+  \begingroup
+  \def\@currentlabel{#2}%
+  \phantomsection\label{#1}%
+  \endgroup}
+\makeatother
+
+\chapter{Dualizing Modules and Functors}
+\label{IV}
+\section*{1. Generalities on Functors of Modules}
+\sgareaderlabel{IV.1}{1}
+
+Fix\srcpage{43}\sgareaderlabel{pIV.1}{1} a commutative noetherian ring $A$. Let $\Ccat$ be the
+category of finitely generated $A$-modules, $\Ccat'$ the category of all
+$A$-modules, and $\Ab$ the category of abelian groups. This section studies
+certain properties of additive functors
+\[
+  T:\Ccat^{\mathrm{op}}\longrightarrow\Ab.
+\]
+
+For $M\in\Ob\Ccat$, the group $T(M)$ has a canonical $A$-module structure.
+If $f_M:M\to M$ denotes multiplication by $f\in A$, then $f$ acts on $T(M)$
+as $T(f_M)$. In other words, $T$ factors as
+\[
+  \Ccat^{\mathrm{op}}\xrightarrow{T_0}\Ccat'
+  \longrightarrow\Ab,
+\]
+where the second arrow is the forgetful functor. We henceforth regard
+$T(M)$ as endowed with this $A$-module structure.
+
+Compose the isomorphism $M\xrightarrow{\sim}\Homop_A(A,M)$ with the map
+\[
+  \Homop_A(A,M)\longrightarrow\Homop_A\bigl(T(M),T(A)\bigr)
+\]
+induced by $T$. This gives the following mutually adjoint forms of the same
+pairing:
+\begin{align*}
+  M&\longrightarrow\Homop_A\bigl(T(M),T(A)\bigr),\\
+  M\times T(M)&\longrightarrow T(A),\\
+  T(M)&\longrightarrow\Homop_A\bigl(M,T(A)\bigr).
+\end{align*}
+They define a natural morphism of contravariant functors
+\[
+  \varphi_T:T\longrightarrow\Homop_A\bigl(-,T(A)\bigr).
+\]
+
+\begin{sgastatement}{Proposition 1.1}\sgareaderlabel{IV.1.1}{1.1}\srcpage{44}
+The following two properties are equivalent:
+\begin{enumerate}[label=\textup{\roman*)},leftmargin=2.7em]
+\item $\varphi_T$ is an isomorphism of functors.
+\item $T$ is left exact.
+\end{enumerate}
+\end{sgastatement}
+
+The implication (i)$\Rightarrow$(ii) is immediate. For the converse, use the
+following fact: if $u:F\to F'$ is a morphism between additive left-exact
+functors from $\Ccat^{\mathrm{op}}$ to $\Ab$ and $u(A)$ is an isomorphism,
+then $u$ is an isomorphism. Here one uses that $A$ is noetherian, so every
+finitely generated $A$-module is finitely presented.
+
+\begin{sgastatement}{Remark 1.2}\sgareaderlabel{IV.1.2}{1.2}
+In particular, the representable functors
+$T:{\Ccat'}^{\mathrm{op}}\to\Ab$ are precisely those which commute with
+arbitrary inverse limits in ${\Ccat'}^{\mathrm{op}}$ (indexed by a
+preordered set, not necessarily filtered).
+\end{sgastatement}
+
+Let $\operatorname{Fun}(\Ccat^{\mathrm{op}},\Ab)_{\mathrm{lex}}$ denote the
+full subcategory of additive functors that are left exact. We have proved an
+equivalence of categories
+\[
+  \Ccat'\xrightarrow{\sim}
+  \operatorname{Fun}(\Ccat^{\mathrm{op}},\Ab)_{\mathrm{lex}},
+\]
+with mutually quasi-inverse functors
+\[
+  H\longmapsto\Homop_A(-,H),
+  \qquad
+  T\longmapsto T(A).
+\]
+
+% SOURCE COMPONENT: 02_unit_IV_1_3\part.tex
+
+Let $J$ be an ideal of $A$, put $Y=V(J)\subset\Spec A$, and let
+$\Ccat_Y$ be the full subcategory of $\Ccat$ consisting of finitely generated
+$A$-modules $M$ with $\Supp M\subset Y$. Then
+\[
+  \Ccat_Y=\bigcup_n\Ccat^{(n)},
+\]
+where $\Ccat^{(n)}$ is the full subcategory of modules satisfying $J^nM=0$.
+
+\begin{sgastatement}{Proposition 1.3}\sgareaderlabel{IV.1.3}{1.3}\srcpage{45}
+With this notation, let
+$T:\Ccat_Y^{\mathrm{op}}\to\Ab$ be an additive functor, and put
+\[
+  H=\varinjlim_n T(A/J^n).
+\]
+There is a natural morphism
+\[
+  \varphi_T:T\longrightarrow\Homop_A(-,H),
+\]
+and the following conditions are equivalent:
+\begin{enumerate}[label=\textup{\roman*)},leftmargin=2.7em]
+\item $\varphi_T$ is an isomorphism.
+\item $T$ is left exact.
+\end{enumerate}
+\end{sgastatement}
+
+\noindent\textit{Source correction.} The proposition line prints
+$T:\Ccat_Y\to\Ab$, while its target, its restrictions, and the concluding
+category equivalence are contravariant. The target restores the required
+opposite category.
+
+\begin{proof}
+First define $\varphi_T$. For $M\in\Ob\Ccat_Y$, choose $n$ with $J^nM=0$.
+Then $M$ is an $A/J^n$-module. If $T_n$ is the restriction of $T$ to
+${\Ccat^{(n)}}^{\mathrm{op}}$ and $H_n=T(A/J^n)$, the construction of
+\hyperref[IV.1.1]{Proposition 1.1} gives
+\[
+  T_n\longrightarrow\Homop_A(-,H_n).
+\]
+Composing with $H_n\to H$ gives, for every such $M$,
+\[
+  T(M)=T_n(M)\longrightarrow\Homop_A(M,H),
+\]
+and these maps define $\varphi_T$.
+
+It is clear that (i) implies (ii). Conversely, suppose $T$ is left exact and
+let $M\in\Ob\Ccat^{(n)}$. \hyperref[IV.1.1]{Proposition 1.1} applied over $A/J^n$ gives
+\[
+  T_n(M)\xrightarrow{\sim}\Homop_A(M,H_n).
+\]
+For every $n'\ge n$, \hyperref[IV.1.1]{Proposition 1.1} applied over $A/J^{n'}$ gives a
+compatible isomorphism with $H_{n'}$. Hence
+\[
+  T(M)\simeq\varinjlim_{n'\ge n}\Homop_A(M,H_{n'}).
+\]
+Because this is a filtered direct limit and $M$ is finitely presented,
+\[
+  \varinjlim_{n'\ge n}\Homop_A(M,H_{n'})
+  \xrightarrow{\sim}
+  \Homop_A\!\left(M,\varinjlim_{n'\ge n}H_{n'}\right)
+  =\Homop_A(M,H).
+\]
+
+Consequently, if $\Ccat'_Y$ denotes the category of all $A$-modules supported
+in $Y$, without a finite-generation condition, there is a natural equivalence
+\[
+  \Ccat'_Y\xrightarrow{\sim}
+  \operatorname{Fun}(\Ccat_Y^{\mathrm{op}},\Ab)_{\mathrm{lex}}.
+\]
+\end{proof}
+
+% SOURCE COMPONENT: 03_unit_IV_1_4\part.tex
+\subsection*{Application}
+
+Retain the preceding notation, and let\srcpage{46}
+\[
+  T^*:\Ccat_Y^{\mathrm{op}}\longrightarrow\Ab
+\]
+be an exact $\partial$-functor. For every $i\in\mathbb Z$, put
+\[
+  H_n^i=T^i(A/J^n),\qquad H^i=\varinjlim_n H_n^i.
+\]
+
+\begin{sgastatement}{Theorem 1.4}\sgareaderlabel{IV.1.4}{1.4}
+Let $n\in\mathbb Z$. Suppose there is an $i_0\in\mathbb Z$ such that
+$T^i=0$ for every $i<i_0$. Then the following three conditions are equivalent:
+\begin{enumerate}[label=\textup{\roman*)},leftmargin=2.7em]
+\item $T^i=0$ for every $i<n$.
+\item $H^i=0$ for every $i<n$.
+\item There exists an $M_0\in\Ccat_Y$ such that $\Supp M_0=Y$ and
+$T^i(M_0)=0$ for every $i<n$.
+\end{enumerate}
+\end{sgastatement}
+
+\begin{proof}
+Clearly (i) implies (ii) and (iii), taking $M_0=A/J$. We prove
+(ii)$\Rightarrow$(i) by induction on $n$. It is true for $n=i_0$; suppose it
+has been proved through $n$. If $H^i=0$ for every $i<n+1$, the induction
+hypothesis gives $T^i=0$ for $i<n$. The vanishing of $T^{n-1}$ makes $T^n$
+left exact, so \hyperref[IV.1.3]{Proposition 1.3} gives
+\[
+  T^n\xrightarrow{\sim}\Homop_A(-,H^n)=0.
+\]
+
+It remains to prove (iii)$\Rightarrow$(ii), again by induction. The assertion
+is true for $n=i_0$. Suppose it has been proved through $n$, and let
+$M_0\in\Ccat_Y$ satisfy $\Supp M_0=Y$ and $T^i(M_0)=0$ for every $i<n+1$.
+The induction hypothesis gives $H^i=0$ for $i<n$; it remains to show
+$H^n=0$. The preceding implication gives $T^{n-1}=0$, and therefore
+\[
+  T^n\xrightarrow{\sim}\Homop_A(-,H^n).
+\]
+Moreover,
+\[
+  \Ass\Homop_A(M_0,H^n)
+  =\Supp M_0\cap\Ass H^n
+  =\Ass H^n,
+\]
+because
+\[
+  \Ass H^n\subset\Supp H^n\subset Y=\Supp M_0.
+\]
+Thus
+\[
+  T^n(M_0)=0
+  \quad\Longleftrightarrow\quad
+  \Ass H^n=\varnothing
+  \quad\Longleftrightarrow\quad
+  H^n=0,
+\]
+which completes the proof.
+\end{proof}
+
+% SOURCE COMPONENT: 04_unit_IV_2_1\part.tex
+
+\section*{2. Characterization of Exact Functors}
+\sgareaderlabel{IV.2}{2}
+
+The ring $A$ remains commutative and noetherian. Retain the notation of
+\hyperref[IV.1.3]{Proposition 1.3}:\srcpage{47}
+\[
+  Y=V(J),\qquad
+  T:\Ccat_Y^{\mathrm{op}}\longrightarrow\Ab,\qquad
+  H=\varinjlim_n T(A/J^n).
+\]
+Assume that $T$ is left exact, so that
+\[
+  T(M)\xrightarrow{\sim}\Homop_A(M,H).
+\]
+
+\begin{sgastatement}{Proposition 2.1}\sgareaderlabel{IV.2.1}{2.1}
+The following properties are equivalent:
+\begin{enumerate}[label=\textup{\roman*)},leftmargin=2.7em]
+\item $T$ is exact.
+\item $H$ is injective in $\Ccat'$, the category of all $A$-modules.
+\end{enumerate}
+\end{sgastatement}
+
+\begin{proof}
+Only (i)$\Rightarrow$(ii) needs proof. Suppose the restriction of
+$\Homop_A(-,H)$ to $\Ccat_Y^{\mathrm{op}}$ is exact. Since $A$ is
+noetherian, it is enough to prove the following extension property: whenever
+$N\subset M$ are finitely generated $A$-modules, every homomorphism
+$f:N\to H$ extends to a homomorphism $\bar f:M\to H$.
+
+By the definition of $H$ and finite generation of $N$, there is an integer
+$n$ such that $J^n f(N)=0$. Give $M$ and $N$ their $J$-adic topologies. By
+Krull's theorem, the $J$-adic topology on $N$ is equivalent to the topology
+induced from the $J$-adic topology on $M$. Hence there is a
+$V=J^kM$ such that
+\[
+  U=V\cap N\subset J^nN.
+\]
+Thus $U\subset\ker f$, and $f$ factors as
+\[
+\begin{tikzcd}[column sep=large]
+N \arrow[r,two heads] \arrow[dr,"f"'] & N/U \arrow[d,"u"]\\
+& H.
+\end{tikzcd}
+\]
+Both $N/U$ and $M/V$ belong to $\Ccat_Y$. Exactness therefore extends $u$
+to a map $\bar u:M/V\to H$:
+\[
+\begin{tikzcd}[column sep=large]
+N/U \arrow[r,hook] \arrow[dr,"u"'] & M/V \arrow[d,"\bar u"]\\
+& H.
+\end{tikzcd}
+\]
+The composite $M\to M/V\xrightarrow{\bar u}H$ is the required extension
+$\bar f$.\srcpage{48}
+\end{proof}
+
+% SOURCE COMPONENT: 05_unit_IV_2_2\part.tex
+
+Retain the notation $Y=V(J)$ and let $\Ccat_Y$ denote the category of
+finitely generated $A$-modules whose support is contained in $Y$.
+
+\begin{sgastatement}{Corollary 2.2}\sgareaderlabel{IV.2.2}{2.2}\srcpage{48}
+Let $K$ be an injective $A$-module. Then the submodule
+\[
+  H^0_J(K)=\{x\in K: J^n x=0\text{ for some }n\geq 0\}
+\]
+of elements annihilated by a suitable power of $J$ is injective.
+\end{sgastatement}
+
+\begin{proof}
+By \hyperref[IV.2.1]{Proposition 2.1}, it is enough to verify that the restriction to
+$\Ccat_Y^{\mathrm{op}}$ of
+$\Homop_A(-,H^0_J(K))$ is exact. Let $M\in\Ccat_Y$. There is an integer
+$k$ such that $J^kM=0$, and the inclusion
+\[
+  \Homop_A(M,H^0_J(K))\longrightarrow \Homop_A(M,K)
+\]
+is an isomorphism: every map $M\to K$ has image annihilated by $J^k$ and
+therefore lands in $H^0_J(K)$. The assertion follows because
+$\Homop_A(-,K)$ is exact.
+\end{proof}
+
+% SOURCE COMPONENT: 06_unit_IV_3_1\part.tex
+
+\section*{3. The Case Where $T$ Is Left Exact and Every $T(M)$ Is Finitely Generated}
+\sgareaderlabel{IV.3}{3}
+
+As above, let\srcpage{48}
+\[
+  T:\Ccat_Y^{\mathrm{op}}\longrightarrow\Ab.
+\]
+From now on, assume that $T$ is left exact and factors through
+$\Ccat_Y$:
+\[
+\begin{tikzcd}[column sep=large,row sep=small]
+\Ccat_Y^{\mathrm{op}} \arrow[rr,"T"] \arrow[dr,swap,"\widetilde T"]
+  && \Ab \\
+& \Ccat_Y \arrow[ur,swap,"\text{forget}"] &
+\end{tikzcd}
+\]
+Thus $T(T(M))=(T\circ T)(M)$ is defined. Under the representation
+$T(M)\simeq\Homop_A(M,H)$, the canonical evaluation map
+\[
+  M\longrightarrow
+  \Homop_A\bigl(\Homop_A(M,H),H\bigr)
+\]
+defines a natural morphism\srcpage{49}
+\[
+  \eta_M:M\longrightarrow (T\circ T)(M).
+\]
+
+\begin{sgastatement}{Proposition 3.1}\sgareaderlabel{IV.3.1}{3.1}
+Assume, as before, that $A$ is noetherian, and assume in addition that
+$A/J$ is artinian. The following conditions are equivalent:
+\begin{enumerate}[label=\textup{\roman*)},leftmargin=2.7em]
+\item $T$ is left exact and, for every $M\in\Ccat_Y$, the module $T(M)$
+is finitely generated and $\eta_M:M\to(T\circ T)(M)$ is an isomorphism.
+
+\item $T$ is exact and, for every residue field $k=A/\mathfrak m$ of a
+maximal ideal $\mathfrak m\supset J$, one has $T(k)\simeq k$.
+
+\item There is an isomorphism
+$T\simeq\Homop_A(-,H)$ with $H$ injective and, for every $k$ as in
+\emph{(ii)}, one has $\Homop_A(k,H)\simeq k$.
+
+\item $T$ is exact and $\ellA T(M)=\ellA M$ for every $M\in\Ccat_Y$.
+\end{enumerate}
+\end{sgastatement}
+
+\begin{proof}
+The equivalence of \emph{(ii)} and \emph{(iii)} follows from
+\hyperref[IV.2.1]{Proposition 2.1}.
+
+\smallskip\noindent
+\emph{(ii)$\Rightarrow$(iv).}
+If $M\in\Ccat_Y$, then $M$ is an $A/J^n$-module for some $n$; since
+$A/J^n$ is artinian, $M$ has finite length. We argue by induction on
+$\ellA M$. When $\ellA M=1$, the module $M$ is one of the residue fields
+occurring in \emph{(ii)}, so the assertion holds. If $\ellA M>1$, choose
+a nonzero proper submodule $M'\subset M$ and put $M''=M/M'$. Exactness
+of $T$ turns
+\[
+  0\longrightarrow M'\longrightarrow M\longrightarrow M''\longrightarrow0
+\]
+into
+\[
+  0\longrightarrow T(M'')\longrightarrow T(M)
+   \longrightarrow T(M')\longrightarrow0.
+\]
+Both end terms have smaller length, and therefore
+\[
+\begin{aligned}
+  \ellA T(M)
+    &=\ellA T(M')+\ellA T(M'')\\
+    &=\ellA M'+\ellA M''=\ellA M.
+\end{aligned}
+\]
+
+\smallskip\noindent
+\emph{(ii)$\Rightarrow$(i).}
+By \emph{(iv)}, $T(M)$ has finite length and hence is finitely generated.
+It remains to prove that every $\eta_M$ is an isomorphism. Again use
+induction on $\ellA M$. For a residue field, $T(k)$ and $(T\circ T)(k)$
+both have length one; evaluation at $1\in k$ shows that $\eta_k$ is
+nonzero, hence it is an isomorphism. For an exact sequence as above,
+naturality gives the
+commutative diagram with exact rows\srcpage{50}
+\[
+\begin{tikzcd}[column sep=small]
+0 \arrow[r] & M' \arrow[r] \arrow[d,"\eta_{M'}"']
+  & M \arrow[r] \arrow[d,"\eta_M"']
+  & M'' \arrow[r] \arrow[d,"\eta_{M''}"'] & 0\\
+0 \arrow[r] & (T\!\circ T)(M') \arrow[r]
+  & (T\!\circ T)(M) \arrow[r]
+  & (T\!\circ T)(M'') \arrow[r] & 0.
+\end{tikzcd}
+\]
+The outer vertical arrows are isomorphisms by induction, hence so is
+$\eta_M$.
+
+\smallskip\noindent
+\emph{(i)$\Rightarrow$(ii).}
+Let
+\[
+  0\longrightarrow M'\longrightarrow M\longrightarrow M''\longrightarrow0
+\]
+be exact in $\Ccat_Y$, and let $Q$ be the cokernel of
+$T(M)\to T(M')$. Left exactness gives the exact sequence
+\[
+  0\longrightarrow T(M'')\longrightarrow T(M)
+   \longrightarrow T(M')\longrightarrow Q\longrightarrow0.
+\]
+Applying $T$ at the left end and using naturality of evaluation yields
+\[
+\begin{tikzcd}[column sep=small]
+0 \arrow[r] & T(Q) \arrow[r] & (T\!\circ T)(M') \arrow[r]
+  & (T\!\circ T)(M)\\
+&& M' \arrow[u,"\eta_{M'}","\sim"'] \arrow[r,hook]
+  & M \arrow[u,"\eta_M"',"\sim"] .
+\end{tikzcd}
+\]
+Thus $T(Q)=0$, and condition \emph{(i)} gives
+$Q\simeq(T\circ T)(Q)=0$. Therefore $T(M)\to T(M')$ is surjective and
+$T$ is exact.
+
+Now let $k=A/\mathfrak m$ with $\mathfrak m\supset J$. The $A$-module
+$T(k)$ is a finite-dimensional $k$-vector space. It is nonzero because
+$k\simeq(T\circ T)(k)$. Choose a decomposition $T(k)\simeq k\oplus V$.
+Additivity and biduality give
+\[
+\begin{aligned}
+  (T\circ T)(k)
+    &\simeq T(k)\oplus T(V)\\
+    &\simeq k\oplus V\oplus T(V)\simeq k,
+\end{aligned}
+\]
+so comparison of finite lengths forces $V=0$. Hence $T(k)\simeq k$.
+
+\smallskip\noindent
+\emph{(iv)$\Rightarrow$(iii).}
+\hyperref[IV.2.1]{Proposition 2.1} supplies an injective module $H$ and an isomorphism
+\[
+  T\simeq\Homop_A(-,H).
+\]
+It remains only to check the residue fields.
+For $k=A/\mathfrak m$ as above, $T(k)$ has length one, hence is isomorphic
+to a residue field $k'=A/\mathfrak m'$. Moreover
+\[
+  \Supp k'=\Supp\Homop_A(k,H)\subseteq\Supp k=\{\mathfrak m\}.
+\]
+Thus $\mathfrak m'=\mathfrak m$ and $k'\simeq k$, as required.
+\end{proof}
+
+% SOURCE COMPONENT: 07_unit_IV_3_2_4_2\part.tex
+
+\begin{sgastatement}{Remark 3.2}\sgareaderlabel{IV.3.2}{3.2}
+One can\srcpage{51} show that condition \emph{(iv)} is equivalent to the condition
+\begin{quote}
+\emph{(iv)$'$} For every $M\in\operatorname{Ob}\Ccat_Y$, one has
+\[
+  \lengthop T(M)=\lengthop M.
+\]
+\end{quote}
+\end{sgastatement}
+
+\section*{4. Dualizing Module. Dualizing Functor}
+\sgareaderlabel{IV.4}{4}
+
+\begin{sgastatement}{Definition 4.1}\sgareaderlabel{IV.4.1}{4.1}
+Let $A$ be a noetherian local ring and let $\mathfrak m$ be its maximal
+ideal. A \emph{dualizing functor} for $A$ is a functor
+\[
+  T:\Ccat_{\mathfrak m}^{\mathrm{op}}\longrightarrow\Ab,
+\]
+where $\Ccat_{\mathfrak m}$ denotes $\Ccat_Y$ when
+$Y=V(\mathfrak m)$, that satisfies the equivalent conditions of
+\hyperref[IV.3.1]{Proposition 3.1}. An $A$-module $I$ is said to be \emph{dualizing for
+$A$} if the functor
+\[
+  M\longmapsto\Homop_A(M,I)
+\]
+is dualizing.
+\end{sgastatement}
+
+\hyperref[IV.4.1]{Definition 4.1} can be generalized without assuming that $A$ is local.
+
+\begin{sgastatement}{Definition 4.2}\sgareaderlabel{IV.4.2}{4.2}
+Let $A$ be a noetherian ring, and let $\Cbar$ be the full subcategory of
+$\Ccat$ consisting of the $A$-modules of finite length. A
+\emph{dualizing functor} is an exact $A$-linear functor
+\[
+  T:\Cbar^{\mathrm{op}}\longrightarrow\Cbar
+\]
+such that the morphism of functors
+\[
+  \mathrm{id}\longrightarrow T\circ T
+\]
+is an isomorphism.
+\end{sgastatement}
+
+We shall prove an existence theorem and also prove that the module $I$
+representing such a functor is locally artinian. We shall further show
+that, for every maximal ideal $\mathfrak m$ of $A$, the
+$\mathfrak m$-primary component of the socle of $I$ has length one.
+
+% SOURCE COMPONENT: 08_unit_IV_4_3_5\part.tex
+
+\begin{sgastatement}{Proposition 4.3}\sgareaderlabel{IV.4.3}{4.3}
+Let\srcpage{51} $A$ and $B$ be noetherian local rings with maximal ideals
+$\mA$ and $\mB$, and suppose that $B$ is a finite $A$-algebra. If $I$
+is a dualizing module for $A$, then $\Homop_A(B,I)$ is a dualizing
+module for $B$.
+\end{sgastatement}
+
+\begin{proof}
+Let\srcpage{52}
+\[
+  R:\Ccat_{\mB}\longrightarrow\Ccat_{\mA}
+\]
+be the restriction-of-scalars functor; it is exact. Let $T$ be a
+dualizing functor for $A$,
+\[
+  T:\Ccat_{\mA}^{\mathrm{op}}\longrightarrow\Ab.
+\]
+It is exact, and for every $M\in\operatorname{Ob}\Ccat_{\mA}$ the
+natural morphism
+\[
+  M\longrightarrow (T\circ T)(M)
+\]
+is an isomorphism. Consequently, the contravariant composite $T\circ R$
+is a dualizing functor for $B$. If $I$ represents $T$, the classical
+formula
+\[
+  \Homop_A(M,I)\simeq
+  \Homop_B\bigl(M,\Homop_A(B,I)\bigr),
+\]
+valid for every $B$-module $M$, shows that $\Homop_A(B,I)$ is a
+dualizing module for $B$.
+\end{proof}
+
+\begin{sgastatement}{Corollary 4.4}\sgareaderlabel{IV.4.4}{4.4}
+Let $A$ be a noetherian local ring, let $\mathfrak a$ be an ideal of
+$A$, and put $B=A/\mathfrak a$. If $I$ is a dualizing module for $A$,
+then the annihilator of $\mathfrak a$ in $I$ is a dualizing module for
+$B$.
+\end{sgastatement}
+
+\begin{sgastatement}{Lemma 4.5}\sgareaderlabel{IV.4.5}{4.5}
+Let $A$ be a noetherian local ring and let $I$ be a locally artinian
+$A$-module. There is a canonical isomorphism
+\[
+  I\xrightarrow{\sim}\widehat I=I\otimes_A\widehat A.
+\]
+\end{sgastatement}
+
+\begin{proof}
+Let $I_n$ be the annihilator of $\mathfrak m^n$ in $I$, where
+$\mathfrak m$ is the maximal ideal of $A$. To say that $I$ is locally
+artinian means that $I$ is the direct limit of the $I_n$ and that each
+$I_n$ has finite length. Since tensor product commutes with direct
+limits, we are reduced to the case in which $I$ is artinian. In that
+case some power $\mathfrak m^k$ of the maximal ideal annihilates $I$.
+Thus, for $p\geq k$,
+\[
+  I\xrightarrow{\sim}I\otimes_A A/\mathfrak m^p,
+\]
+and hence
+\[
+  I\xrightarrow{\sim}I\otimes_A\widehat A,
+\]
+because $A$ is noetherian and $I$ is finitely generated.
+
+It follows that\srcpage{53} restriction of scalars from $\widehat A$ to
+$A$ and extension of scalars induce mutually quasi-inverse
+\emph{equivalences} between the category of locally artinian
+$\widehat A$-modules and the category of locally artinian $A$-modules.
+\end{proof}
+
+% SOURCE COMPONENT: 09_unit_IV_4_6_9\part.tex
+
+\begin{sgastatement}{Proposition 4.6}\sgareaderlabel{IV.4.6}{4.6}
+Let\srcpage{53} $A$ be a noetherian local ring, let $\widehat A$ be its completion,
+let $I$ be a dualizing module for $A$ (respectively, for $\widehat A$), and
+let $J$ be the completed module\footnote{Here ``the completed module'' means
+$\widehat I=I\otimes_A\widehat A$ (cf. \hyperref[IV.4.5]{Lemma 4.5}): this is $I$ endowed with
+its canonical $\widehat A$-module structure, not its $\mideal$-adic
+completion. For example, if $p$ is prime and
+$A=\widehat A=\mathbb Z_p$ is the ring of $p$-adic integers, then the injective envelope of
+$k=\mathbb Z/p\mathbb Z$ is the discrete $\mathbb Z_p$-module
+$\mathbb Q_p/\mathbb Z_p$, whose $p$-adic completion is zero.}
+of $I$ (respectively, the $A$-module obtained by restriction of scalars).
+Then $J$ is a dualizing module for $\widehat A$ (respectively, for $A$).
+Moreover, the underlying abelian groups of $I$ and $J$ are isomorphic.
+\end{sgastatement}
+
+\begin{proof}
+One merely observes that the equivalence between the category of locally
+artinian $A$-modules and the category of locally artinian
+$\widehat A$-modules induces an isomorphism between the bifunctors
+$\Homop_A(-,-)$ and $\Homop_{\widehat A}(-,-)$, and that the
+characterization of a dualizing functor or a dualizing module involves only
+these bifunctors.
+\end{proof}
+
+\begin{sgastatement}{Theorem 4.7}\sgareaderlabel{IV.4.7}{4.7}
+Let $A$ be a noetherian local ring.
+\begin{enumerate}[label=\textup{\alph*)},leftmargin=2.5em]
+\item A dualizing module $I$ always exists.
+\item Any two dualizing modules are isomorphic (by a noncanonical
+isomorphism).
+\item An $A$-module $I$ is dualizing if and only if it is an injective
+envelope of the residue field $k$ of $A$.
+\end{enumerate}
+\end{sgastatement}
+
+\begin{sgastatement}{Remark 4.8}\sgareaderlabel{IV.4.8}{4.8}
+\hyperref[IV.4.6]{Proposition 4.6} reduces the question to the case of a complete noetherian
+local ring. By a structure theorem of Cohen,\footnote{See I.~S. Cohen,
+``On the structure and ideal theory of complete local rings,''
+\emph{Trans. Amer. Math. Soc.} \textbf{59} (1946), 54--106.}
+such a ring is a quotient of a regular ring. \hyperref[IV.4.3]{Proposition 4.3} then permits us
+to assume that $A$ is regular. As we shall see later, this observation gives
+an explicit calculation of the dualizing module.\footnote{This was the
+method followed by Grothendieck in 1957. The method by injective envelopes
+used below appears to be due to K.~Morita, ``Duality for modules and its
+applications to the theory of rings with minimum conditions,''
+  \emph{Sc. Rep. Tokyo Kyoiku Daigaku} \textbf{6} (1958/59), 83--142.
+Morita's work is independent of Grothendieck's, considerably predates this
+seminar, and is not restricted to commutative base rings.}
+We shall nevertheless prove \hyperref[IV.4.7]{Theorem 4.7} by other means.
+\end{sgastatement}
+
+\subsection*{Recollections}
+
+Before\srcpage{54} proving the theorem, we recall several facts about injective
+envelopes; see Gabriel, \emph{Des Cat\'egories Ab\'eliennes}, thesis,
+Paris, 1961, Chapter II, \S5.
+
+Let $\Ccat$ be an abelian category in which direct limits exist and are
+exact\footnote{More precisely, small filtered direct limits are assumed
+exact; one should also assume the existence of a generator. See
+  [T\^ohoku]. For the category of modules, which suffices here, one may
+instead consult Chapter 10 of Bourbaki's \emph{Alg\`ebre}.}
+(for example, the category of modules). Every object $M$ embeds in an
+injective object, and an \emph{injective envelope} of $M$ means an injective
+object containing $M$ that is minimal among such objects. The following
+properties hold:
+\begin{enumerate}[label=\textup{\roman*)},leftmargin=2.7em]
+\item Every object $M$ has an injective envelope $I$.
+\item If $I$ and $J$ are two injective envelopes of $M$, there is an
+isomorphism $I\simeq J$ (generally not unique) that induces the identity on
+$M$.
+\item The object $I$ is an \emph{essential extension}\sgareaderlabel{pIV.13}{13} of $M$: if
+$P\subset I$ and $P\cap M=\{0\}$, then $P=\{0\}$. Conversely, if $I$ is
+injective and is an essential extension of $M$, then $I$ is an injective
+envelope of $M$.
+\end{enumerate}
+
+Granting these facts, it plainly suffices to prove part~\emph{c)} of
+\hyperref[IV.4.7]{Theorem 4.7}.
+
+\begin{proof}
+Suppose first that $I$ is a dualizing module for $A$. Then $I$ is injective
+and $\Homop_A(k,I)\simeq k$. Composing this isomorphism with the inclusion
+\[
+  \Homop_A(k,I)\hookrightarrow\Homop_A(A,I)\simeq I
+\]
+gives an inclusion
+\[
+  k\hookrightarrow I.
+\]
+We show that $I$ is an injective envelope of $k$. Let $J$ be an injective
+module such that
+\[
+  k\subset J\subset I.
+\]
+Since $J$ is injective, there is an injective $A$-submodule $J'$ of $I$ such
+that $I=J\oplus J'$. We claim that $\Homop_A(k,J')=0$. Indeed,
+\[
+  \Homop_A(k,I)\simeq\Homop_A(k,J)\oplus\Homop_A(k,J').
+\]
+The first summand is\srcpage{55} a nonzero vector subspace of
+$\Homop_A(k,I)\simeq k$ (it contains the inclusion $k\subset J$).
+Consequently $\Homop_A(k,J)\simeq k$ and $\Homop_A(k,J')=0$.
+
+Induction on length now gives $\Homop_A(M,J')=0$ for every finite-length
+$A$-module $M$. The module $I$ is the direct limit of the modules
+$\Homop_A(A/\mideal^n,I)$ (cf. \hyperref[IV.1.3]{Proposition 1.3}), which have finite length by
+hypothesis. Hence the projection $I\to J'$ vanishes, and therefore $J'=0$.
+
+Conversely, let $I$ be an injective envelope of $k$. By \hyperref[IV.2.1]{Propositions 2.1}
+and \hyperref[IV.3.1]{3.1\emph{(ii)}}, to prove that $I$ is dualizing it suffices to show that
+$V=\Homop_A(k,I)$ is isomorphic to $k$. There are inclusions
+\[
+  k\subset V\subset I.
+\]
+As a $k$-vector space, $V$ decomposes as $k\oplus V'$, where $V'$ is a
+vector subspace of $I$ with $V'\cap k=0$. Since $I$ is an essential
+extension of $k$, we have $V'=0$, and thus $V=k$.
+\end{proof}
+
+\begin{sgastatement}{Corollary 4.9}\sgareaderlabel{IV.4.9}{4.9}
+Let $A$ be a noetherian local ring. Every dualizing module for $A$ is
+locally artinian.
+\end{sgastatement}
+
+\begin{proof}
+Let $I$ be a dualizing module; it is an injective envelope of $k$. Using the
+notation and result of \hyperref[IV.2.2]{Corollary 2.2}, we have
+\[
+  k\subset H^0_{\mideal}(I)\subset I,
+\]
+and $H^0_{\mideal}(I)$ is injective. It follows that
+$I=H^0_{\mideal}(I)$, and hence that $I$ is locally artinian.\footnote{As
+already observed, one may alternatively note directly that $I$ is the
+direct limit of the modules $\Homop_A(A/\mideal^n,I)$.}
+\end{proof}
+
+% SOURCE COMPONENT: 10_unit_IV_5_1\part.tex
+
+\section*{5. Consequences of the theory of dualizing modules}\sgareaderlabel{IV.5}{5}\srcpage{56}
+
+The functor
+\[
+  T=\Homop_A(-,I)\colon \Ctors\longrightarrow\Ctors
+\]
+is an anti-equivalence. Indeed, $T\circ T$ is isomorphic to the identity
+functor, and the argument is formal from that point on.
+
+\emph{One deduces the usual properties of the notion of orthogonality:}
+
+Let $M^*=\Homop_A(M,I)=T(M)$, and let $N\subset M$ be a submodule. The
+\emph{orthogonal of} $N$ is the submodule $N'$ of $M^*$ consisting of those
+elements of $M^*$ that vanish on $N$. In this way one obtains a bijection
+between the set of submodules of $M$ and the set of submodules of $M^*$,
+reversing the order relation.
+
+In particular:
+\begin{itemize}[leftmargin=2.3em]
+\item $\operatorname{length}_{M}N=
+  \operatorname{colength}_{M^*}N'$.
+\item Cyclic modules, that is, those for which $M/\mideal M$ has dimension
+  $0$ or $1$, correspond under the duality to modules whose socle has length
+  $0$ or $1$.
+\item If $A$ is artinian, the ideals of $A$ correspond to the submodules of
+  $I$.
+\end{itemize}
+And so on.
+
+Let $A$ be a noetherian local ring. Write $\DA$ for the category of
+$A$-modules $M$ such that, for every $n\in\mathbb N$,
+\[
+  M^{(n)}=M/\mideal^{n+1}M
+\]
+has finite length and such that
+\[
+  M=\varprojlim_n M^{(n)},
+\]
+and let $\widehat A$ be the completion of $A$. Restriction of scalars and
+completion are quasi-inverse equivalences between $\DA$ and $\DhatA$; up to
+isomorphism, they are compatible with taking the underlying abelian groups of
+the modules in question. Write $\CA$ for the category of locally artinian
+$A$-modules with finite-dimensional socle.
+
+\begin{sgastatement}{Proposition 5.1}\sgareaderlabel{IV.5.1}{5.1}\srcpage{57}
+Let $A$ be a noetherian local ring, and let $I$ be a dualizing module for
+$A$. The functors
+\[
+  \Homop_A(-,I)\colon (\CA)^{\mathrm{op}}\longrightarrow\DA
+\]
+and
+\[
+  \Homop_{\widehat A}(-,I)\colon \DA\longrightarrow(\CA)^{\mathrm{op}}
+\]
+are equivalences of categories, quasi-inverse to one another.
+
+Moreover, transporting these functors by the equivalences of categories
+between $\DA$ and $\DhatA$ on the one hand, and between $\CA$ and $\ChatA$ on
+the other, yields the functor $\Homop_{\widehat A}(-,I)$.
+\end{sgastatement}
+
+\begin{proof}
+Let $X\in\operatorname{Ob}(\CA)$. By definition,
+\[
+  X=\varinjlim_{k\in\mathbb N}X_k,
+  \qquad
+  X_k=\Homop_A(A/\mideal^{k+1},X),
+\]
+and therefore
+\[
+  \Homop_A(X,I)=\varprojlim_k\Homop_A(X_k,I).
+\]
+Thus
+\[
+  Y=\Homop_A(X,I)=\varprojlim_k\Homop_A(X_k,I)
+\]
+is a finitely generated $\widehat A$-module, as follows from
+\emph{EGA}~$0_{\mathrm I}$, 7.2.9. In this connection, observe that $\DhatA$
+is also the category of finitely generated $\widehat A$-modules, or,
+equivalently, that $\DA$ is the category of $A$-modules that are complete and
+finitely generated over $\widehat A$.\footnote{The printed French and the
+corrected TeX write $Y=\varprojlim_k X_k$.  But the $X_k$ were introduced as
+an increasing direct system, whereas the immediately preceding display gives
+$\Homop_A(X,I)=\varprojlim_k\Homop_A(X_k,I)$.  The target therefore restores
+this latter module as $Y$, which is also the object required by the remainder
+of the proof.}
+
+Now let $Y$ be such a module, and let $f\colon Y\to I$ be a
+$\widehat A$-homomorphism. The image of $f$ is a finitely generated
+submodule, hence is annihilated by $\mideal^k$ for some $k$: indeed, every
+$x\in I$ is annihilated by some power of $\mideal$. Consequently $f$ factors
+through $Y/\mideal^kY$, and it follows that
+\begin{align*}
+  \Homop_{\widehat A}(Y,I)
+    &=\varinjlim_k\Homop_{\widehat A}(Y^{(k)},I),
+      &\text{where }Y^{(k)}&=Y/\mideal^{k+1}Y,\\
+    &=\varinjlim_k (Y^{(k)})^*.
+\end{align*}
+This object belongs to $\operatorname{Ob}(\CA)$. It follows immediately that
+the two functors in the statement are quasi-inverse to one another.
+\end{proof}
+
+% SOURCE COMPONENT: 11_unit_IV_5_2_4\part.tex
+
+It follows from the preceding discussion that replacing $A$ by $\widehat A$
+changes neither the categories or functors under consideration nor the
+underlying abelian groups of the modules involved. \hyperref[IV.5.1]{Proposition 5.1} may
+therefore be restated as follows.\srcpage{58}
+
+The restriction of $\Homop_{\widehat A}(-,I)$ to the category of finitely
+generated $\widehat A$-modules takes its values in the category of locally
+artinian $\widehat A$-modules having finite-dimensional socle. It admits a
+quasi-inverse, namely the restriction of $\Homop_{\widehat A}(-,I)$ in the
+opposite direction. On the intersection of these two categories the two
+functors coincide (of course) and define an autoduality of the category of
+finite-length $\widehat A$-modules.
+
+\begin{sgastatement}{Example 5.2 (Macaulay)}\sgareaderlabel{IV.5.2}{5.2}
+Let $A$ be a local ring with residue field $k$. Let $k_0$ be a subfield of
+$A$ such that $k$ is finite over $k_0$, and put $[k:k_0]=d$. Every
+finite-length $A$-module may be regarded as a finite-dimensional
+$k_0$-vector space of dimension
+\[
+  d\,\operatorname{length}(M).
+\]
+The functor
+\[
+  T(M)=\Homop_{k_0}(M,k_0)
+\]
+is exact and preserves length, hence is dualizing for $A$. Its associated
+dualizing module is
+\[
+  A'=\varinjlim_n\Homop_{k_0}(A/\mideal^n,k_0),
+\]
+the topological dual of $A$ endowed with the $\mideal$-adic topology.
+\end{sgastatement}
+
+\begin{sgastatement}{Example 5.3}\sgareaderlabel{IV.5.3}{5.3}
+Let $A$ be a regular noetherian local ring of dimension $n$, let
+$\mideal$ be its maximal ideal, and let $k$ be its residue field. There is a
+regular system of parameters $(x_1,x_2,\ldots,x_n)$ that generates
+$\mideal$ and is an $A$-regular sequence. The Koszul complex therefore gives
+\[
+\begin{aligned}
+  \Extop_A^i(k,A)&=0 &&\text{if }i\ne n,\\
+  \Extop_A^n(k,A)&\simeq k.
+\end{aligned}
+\]
+Since the depth\srcpage{59} of $A$ is $n$, one has
+$\Extop_A^i(M,A)=0$ for $i<n$ whenever
+$M$ is annihilated by a power of $\mideal$. One also has
+$\Extop_A^i(M,A)=0$ for $i>n$, because the global cohomological dimension
+of $A$ equals $n$. Thus $\Extop_A^n(-,A)$ is exact, and
+$\Extop_A^n(k,A)\simeq k$. It follows that:
+\end{sgastatement}
+
+\begin{sgastatement}{Proposition 5.4}\sgareaderlabel{IV.5.4}{5.4}
+If $A$ is a regular noetherian local ring of dimension $n$, the functor
+\[
+  M\longmapsto\Extop_A^n(M,A)
+\]
+is dualizing. The associated dualizing module is
+\[
+  I=\varinjlim_r\Extop_A^n(A/\mideal^r,A).
+\]
+It is isomorphic to $H_{\mideal}^n(A)$ (Expos\'e II, \hyperref[II.6]{Theorem 6}).\footnote{For
+a ring $A$, an ideal $J\subset A$, an $A$-module $M$, and
+$i\in\mathbb Z$, set $H_J^i(M)=H_Y^i(X,\widetilde M)$, where
+$X=\Spec(A)$ and $Y=V(J)$.}
+\end{sgastatement}
+
+% SOURCE COMPONENT: 12_unit_IV_5_5\part.tex
+
+\begin{sgastatement}{Remark 5.5}\sgareaderlabel{IV.5.5}{5.5}\srcpage{59}
+If $A$ satisfies the hypotheses of both preceding examples, the two resulting
+dualizing modules are isomorphic. Suppose, for example, that $A$ is regular
+of dimension $n$, complete, and of equal characteristic. There is then a
+coefficient field, say $K$. After choosing a system of parameters
+$(x_1,\ldots,x_n)$ of $A$, one can construct an isomorphism
+\[
+  A\simeq K[[T_1,\ldots,T_n]],
+\]
+and hence, as we shall see, an explicit isomorphism between the two dualizing
+modules
+\[
+  v:H_{\mideal}^n(A)\longrightarrow A'.
+\]
+
+This isomorphism has an intrinsic interpretation in terms of the module
+\[
+  \Omega^n=\Omega^n(A/K)
+\]
+of completed relative differentials of top degree. Indeed, $\Omega^n$ has a
+basis consisting of
+\[
+  dx_1\wedge dx_2\wedge\cdots\wedge dx_n.
+\]
+There is therefore an isomorphism
+\[
+  u:H_{\mideal}^n(\Omega^n)\longrightarrow H_{\mideal}^n(A).
+\]
+A remarkable fact is that the composite
+\[
+  vu=w:H_{\mideal}^n(\Omega^n)\longrightarrow A'
+\]
+is\srcpage{60} independent of the chosen system of parameters and commutes
+with change of the base field.
+
+To construct $v$, compute $H_{\mideal}^n(A)$ from the Koszul complex
+associated with the $x_i$. One obtains
+\[
+  H_{\mideal}^n(A)=
+  \varinjlim_r A/(x_1^r,\ldots,x_n^r).
+\]
+The transition morphisms are as follows. Put
+\[
+  I_r=A/(x_1^r,\ldots,x_n^r),
+\]
+and let $e_{a_1,\ldots,a_n}^r$ be the image of
+$x_1^{a_1}x_2^{a_2}\cdots x_n^{a_n}$ in $I_r$. The elements
+$e_{a_1,\ldots,a_n}^r$, for $0\le a_i<r$, form a basis of $I_r$.
+
+For an integer $s$, the transition morphism
+\[
+  t_{r,r+s}:I_r\longrightarrow I_{r+s}
+\]
+is multiplication by $x_1^s x_2^s\cdots x_n^s$; consequently,
+\[
+  t_{r,r+s}\bigl(e_{a_1,\ldots,a_n}^r\bigr)
+    =e_{a_1+s,\ldots,a_n+s}^{r+s}.\footnote{The printed French and the
+  corrected TeX write $u_{r,r+s}$ in this display, immediately after defining
+  the transition map as $t_{r,r+s}$. The target emends the isolated $u$ to
+  $t$; the domain, codomain, and multiplication rule make the reference
+  unambiguous.}
+\]
+
+Giving an $A$-homomorphism $w:M\to A'$ is equivalent to giving a
+$K$-linear form $w':M\to K$ that is continuous on every finitely generated
+submodule. For $M=H_{\mideal}^n(\Omega^n)$, defining $w$ is therefore
+equivalent to defining a linear form
+\[
+  \rho:H_{\mideal}^n(\Omega^n)\longrightarrow K,
+\]
+called the \emph{residue form}\sgareaderlabel{pagecithar}{46}.\footnote{\sgareaderlabel{cithar}{*}For a fuller treatment of residues,
+see R.~Hartshorne, \emph{Residues and Duality}, Lecture Notes in Mathematics
+20, Springer, 1966.} To construct $\rho$, it is enough to define compatible
+forms $\rho_r:I_r\to K$ by
+\[
+  \rho_r\bigl(e_{a_1,\ldots,a_n}^r\bigr)=
+  \begin{cases}
+    1,&\text{if }a_i=r-1\text{ for }1\le i\le n,\\
+    0,&\text{otherwise.}
+  \end{cases}
+\]
+\end{sgastatement}
