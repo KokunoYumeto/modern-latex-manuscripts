@@ -2302,3 +2302,43 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Current rights-curated record `10.5281/zenodo.21511144` remains public and
   current with native diagrams, metadata for all withheld witnesses, and zero
   public source-witness pixels.
+
+## 2026-07-23 - SGA3 cumulative I-IV first publication and readback
+
+- GitHub commit `5a71e3520d0e4f32f135ce0912d3097661d05d42` publishes
+  the six-file cumulative I-IV package at
+  `sources/sga/sga3-english-through-expose-iv-loop2-reference-v2-r2-20260723`.
+- Existing-concept Zenodo version `10.5281/zenodo.21512082` replaces the
+  separate SGA3 I-III and Expose IV readers with one 266-page cumulative
+  reader, editable master, and 200-member archive.
+- Anonymous readback passed for 36/36 Zenodo files, 13/13 ZIPs, and
+  1,124/1,124 actual file members. GitHub readback passed for 6/6 outer files
+  and all 200 archive members.
+- Thirty unrelated predecessor files, including the standalone Expose V
+  Loop2 package, were retained byte-identically. Every one of the 130
+  inherited PNG hashes already appeared in the predecessor public archives,
+  so the publication introduced no new source-pixel class.
+- Zenodo selects SGA1 as the initial preview and SGA2 as the second reader.
+  The live metadata records that order explicitly. SGA3 remains incomplete
+  after Expose V.
+
+## 2026-07-23 - SGA3 I-IV sealed public checkpoint r1 published and read back
+
+- GitHub commit `eb32f49d00b32099548685f53b8c6e5eda49b7a1` replaces
+  the cumulative package with the exact independently sealed r1 checkpoint;
+  anonymous readback passed for 6/6 outer files and 199/199 ZIP members.
+- Existing-concept Zenodo version `10.5281/zenodo.21512567` replaces exactly
+  the I-IV reader, editable master, grouped archive, and three release
+  controls. Predecessor `21512082` remains immutable.
+- Anonymous readback passed for 36/36 Zenodo files / 126,252,577 bytes,
+  13/13 ZIPs, and 1,123/1,123 actual file members / 156,162,900 uncompressed
+  bytes. Thirty retained predecessor files are byte-identical.
+- The current reader is 266 pages, SHA-256
+  `B717DC08C2C77546638274C7F05266F5F24C1562999117ACF4D1874AFD79EA1D`;
+  the editable master is SHA-256
+  `BD31E621C52AA7228BCD82A2AF827E68BB374DCF4473CBC4CF3E7E7D34E0CCE5`;
+  the 199-member archive is SHA-256
+  `A13FDC092D786319EABCA698EA641F6C79F27AEC267383B0B8735AFDCB7D2CF0`.
+- All 128 required PNG hashes already occurred in the predecessor archive.
+  The standalone Expose V reader, TeX, archive, and witness ledgers remain
+  exact. No duplicate concept or active draft remains.

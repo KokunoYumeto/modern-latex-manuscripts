@@ -2,12 +2,13 @@
 
 Generated from the current public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
 
-July 23 SGA3 Loop2 update: current compact SGA version
-[10.5281/zenodo.21511144](https://doi.org/10.5281/zenodo.21511144)
-has 39 files and fourteen grouped archives. The direct Expose V reader uses 66
-native diagram TeX sources and has zero PDF image XObjects. Exact public
-metadata represents 66 withheld source-PDF witness crops. Anonymous readback
-matched all 39 files and all 1,124 ZIP file members. SGA4 proper r7 remains
+July 23 SGA3 I-IV sealed-checkpoint update: current compact SGA version
+[10.5281/zenodo.21512567](https://doi.org/10.5281/zenodo.21512567)
+has 36 files and thirteen grouped archives. The exact 266-page cumulative
+I-IV reader is paired with a 199-member archive; all 128 required PNG hashes
+already occurred in the predecessor archive. The standalone Expose V Loop2
+reader and rights-curated package remain byte-identical. Anonymous readback
+matched all 36 files and all 1,123 ZIP file members. SGA4 proper r7 remains
 the certified reference-v2 reader for Exposes I-XIX including V bis;
 SGA4half remains excluded. Rights remain with their respective holders, and
 no critical-edition, independent-human-review, or blanket-license claim is
@@ -159,7 +160,7 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | [Sylvester](https://doi.org/10.5281/zenodo.20520692) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-witnessed working draft through book page 608; Papers 59-60 are represented in the latest tranche, next continuation p.609. |
 | [al-Battani](https://doi.org/10.5281/zenodo.20539593) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition with complete trilingual text over 100 segments, complete fixed-star catalogue data (485 stars), complete geography gazetteer (269 localities), chronology framework/canon partial, and zodiac auxiliary tables documented as not cleanly present in Nallino's Latin table source. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
 | **Serious source-aware work, but caveat-heavy** |  |  |  |  |  |
-| [SGA](https://doi.org/10.5281/zenodo.20410947) | 39 | 10 | 14 | 121.38 MB | Version [10.5281/zenodo.21511144](https://doi.org/10.5281/zenodo.21511144) directly exposes eight English readers in SGA order: complete-volume working SGA1, complete SGA2 R8, SGA3 through III plus standalone IV and native-diagram V, certified reference-v2 SGA4 proper r7, SGA5 R9, and complete terminal SGA6. Two French workpasses and ten primary TeX files remain direct; fourteen ZIPs group source, diagram, QA, and predecessor evidence. All 39 files and all 1,124 ZIP file members passed anonymous exact readback. SGA2 R8 is the default preview. Expose V has 66 native diagram TeX sources and withholds 66 source-PDF witness crops under public metadata. SGA1 is substantially linked but not exhaustively convention-v2 certified; SGA3 remains incomplete after V; SGA4half is rights-held. None is a critical edition, independent human review, blanket rights determination, or whole-SGA certification. |
+| [SGA](https://doi.org/10.5281/zenodo.20410947) | 36 | 9 | 13 | 120.40 MB | Version [10.5281/zenodo.21512567](https://doi.org/10.5281/zenodo.21512567) directly exposes seven sequential English readers: complete-volume working SGA1, complete SGA2 R8, sealed cumulative SGA3 I-IV plus standalone native-diagram V, certified reference-v2 SGA4 proper r7, SGA5 R9, and complete terminal SGA6. Two French workpasses and nine primary TeX files remain direct; thirteen ZIPs group source, diagram, QA, and predecessor evidence. All 36 files and all 1,123 ZIP file members passed anonymous exact readback. SGA1 is the initial preview and SGA2 is second. The I-IV archive has 199 exact members and introduces no new source-pixel class; Expose V remains byte-identical. SGA1 is not exhaustively convention-v2 certified; SGA3 remains incomplete after V; SGA4half is rights-held. |
 | [Deligne](https://doi.org/10.5281/zenodo.20410853) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
 | [Luigi Bianchi](https://doi.org/10.5281/zenodo.20615814) | 22 | 5 | 12 | 1.92 GB | `Lezioni di geometria differenziale` Vol. I represented through source pdfpages 001-543; A2 latest public compact/core package `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` extends working coverage through source p0135 while earlier large scan-heavy p0105 packages remain provenance/backstop. Loose p0135 Italian/English reader PDFs/TeX and the p0121-p0135 source witness are queued as reader-convenience/fronting files, not new content. |
 | [Paul Gordan and Clebsch-Gordan](https://doi.org/10.5281/zenodo.20616260) | 45 | 0 | 39 | 1.83 GB | Dedicated package set now includes Abel27, Abelsche FinalAuditFix02, `De linea geodetica` p001-p047, theta fix06, and `Vorlesungen ueber Invariantentheorie` Bd. 1 p001-p028 on the latest 2026-06-24 version DOI `10.5281/zenodo.20822196`, which also adds the compact project-control/status update. Working/source-audit drafts only, not a certified critical edition. |

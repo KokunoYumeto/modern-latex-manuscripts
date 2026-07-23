@@ -5,6 +5,7 @@ param(
   [string]$ExpectedValidationPath = (Join-Path (Split-Path -Parent $PSScriptRoot) "tmp\zenodo-sga3-loop2-21511144\successor_upload\09b_RELEASE_VALIDATION.json"),
   [string]$PredecessorZipReadbackPath = (Join-Path (Split-Path -Parent $PSScriptRoot) "manifests\published-zenodo\20260723_sga4_reference_v2_r7_record_21510120_zip_member_readback.json"),
   [string]$NewZipPath = (Join-Path (Split-Path -Parent $PSScriptRoot) "sources\sga\sga3-english-expose-v-loop2-native-r2-freeze2-20260723\SGA3_English_Expose_V_Loop2_Native_Source_Evidence_R2_20260723.zip"),
+  [string]$NewZipName = "10c3_SGA3_English_Expose_V_Loop2_Native_Source_Evidence_R2_20260723.zip",
   [string]$OutputPrefix = (Join-Path (Split-Path -Parent $PSScriptRoot) "manifests\published-zenodo\20260723_sga3_expose_v_loop2_record_21511144")
 )
 
@@ -12,7 +13,6 @@ $ErrorActionPreference = "Stop"
 Set-StrictMode -Version Latest
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 
-$newZipName = "10c3_SGA3_English_Expose_V_Loop2_Native_Source_Evidence_R2_20260723.zip"
 $manifestName = "09a_RELEASE_FILE_MANIFEST.csv"
 $validationName = "09b_RELEASE_VALIDATION.json"
 $apiUrl = "https://zenodo.org/api/records/$RecordId"
@@ -318,7 +318,7 @@ try {
       $actualBytes = [int64](Get-Item -LiteralPath $tempZip).Length
       $actualSha256 = Get-Sha256 -Path $tempZip
       $actualZip = Get-ZipInventory -Path $tempZip
-      if ($filename -eq $newZipName) {
+      if ($filename -eq $NewZipName) {
         $expectedZip = $expectedNewZip
       }
       else {
