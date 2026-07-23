@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the incremental SGA6 idx322-326 high-detail source-audit crop release.
+"""Build the incremental SGA6 idx327-330 high-detail source-audit crop release.
 
 The source scratch directory is live and large. This builder reads it in
 place, selects only files that can be associated with a generator script for
@@ -30,40 +30,39 @@ from PIL import Image
 
 
 EXPLICIT_ZIP = (
-    "10m_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_"
-    "ColdReverify_idx322_326_20260723.zip"
+    "10o_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_"
+    "ColdReverify_idx327_330_20260723.zip"
 )
 RECOVERED_ZIP = (
-    "10o_SGA6_SourceAudit_Recovered_Named_HighDetail_Crops_"
-    "ColdReverify_idx322_326_20260723.zip"
+    "10q_SGA6_SourceAudit_Recovered_Named_HighDetail_Crops_"
+    "ColdReverify_idx327_330_20260723.zip"
 )
 METADATA_ZIP = (
-    "10n_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_"
-    "ColdReverify_idx322_326_20260723.zip"
+    "10p_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_"
+    "ColdReverify_idx327_330_20260723.zip"
 )
-README_NAME = "SGA6_HighDetail_SourceAudit_Crops_idx322_326_README_20260723.md"
+README_NAME = "SGA6_HighDetail_SourceAudit_Crops_idx327_330_README_20260723.md"
 PARENT_NAME = (
-    "SGA6_HighDetail_SourceAudit_Crops_idx322_326_PARENT_SOURCE_20260723.json"
+    "SGA6_HighDetail_SourceAudit_Crops_idx327_330_PARENT_SOURCE_20260723.json"
 )
 EXPLICIT_MANIFEST_NAME = (
-    "SGA6_Explicit_Targeted_HighDetail_Crops_idx322_326_Manifest_20260723.csv"
+    "SGA6_Explicit_Targeted_HighDetail_Crops_idx327_330_Manifest_20260723.csv"
 )
 RECOVERED_MANIFEST_NAME = (
-    "SGA6_Recovered_Named_HighDetail_Crops_idx322_326_Manifest_20260723.csv"
+    "SGA6_Recovered_Named_HighDetail_Crops_idx327_330_Manifest_20260723.csv"
 )
 BLOCKED_MANIFEST_NAME = (
-    "SGA6_Routine_PageBands_idx322_326_RightsBlocked_Manifest_20260723.csv"
+    "SGA6_Routine_PageBands_idx327_330_RightsBlocked_Manifest_20260723.csv"
 )
-AUDIT_CONTEXT_NAME = "SGA6_HighDetail_Crops_idx322_326_Audit_Context_20260723.csv"
+AUDIT_CONTEXT_NAME = "SGA6_HighDetail_Crops_idx327_330_Audit_Context_20260723.csv"
 VALIDATION_NAME = (
-    "SGA6_HighDetail_SourceAudit_Crops_idx322_326_VALIDATION_20260723.json"
+    "SGA6_HighDetail_SourceAudit_Crops_idx327_330_VALIDATION_20260723.json"
 )
 UPLOAD_MANIFEST_NAME = (
-    "SGA6_HighDetail_SourceAudit_Crops_idx322_326_"
+    "SGA6_HighDetail_SourceAudit_Crops_idx327_330_"
     "ZENODO_UPLOAD_MANIFEST_20260723.csv"
 )
-SHA_NAME = "SGA6_HighDetail_SourceAudit_Crops_idx322_326_SHA256SUMS_20260723.txt"
-CORRECTION_NAME = "PROVENANCE_CORRECTION_20260723.md"
+SHA_NAME = "SGA6_HighDetail_SourceAudit_Crops_idx327_330_SHA256SUMS_20260723.txt"
 
 PRIVATE_MARKERS = (
     "c:\\users\\",
@@ -838,9 +837,6 @@ optical detail beyond the parent scan.
 """
     readme_path = output_dir / README_NAME
     write_text_lf(readme_path, readme)
-    correction_path = output_dir / CORRECTION_NAME
-    if not correction_path.is_file():
-        raise RuntimeError(f"missing provenance correction note: {correction_path}")
 
     metadata_paths = [
         readme_path,
@@ -849,7 +845,6 @@ optical detail beyond the parent scan.
         recovered_manifest,
         blocked_manifest,
         audit_context,
-        correction_path,
     ]
     metadata_privacy: dict[str, list[str]] = {}
     for path in metadata_paths:
@@ -866,13 +861,7 @@ optical detail beyond the parent scan.
         explicit_zip_path,
         explicit_rows,
         scratch_dir,
-        [
-            readme_path,
-            parent_path,
-            explicit_manifest,
-            audit_context,
-            correction_path,
-        ],
+        [readme_path, parent_path, explicit_manifest, audit_context],
     )
     recovered_zip_result = None
     if recovered_rows:
@@ -880,13 +869,7 @@ optical detail beyond the parent scan.
             recovered_zip_path,
             recovered_rows,
             scratch_dir,
-            [
-                readme_path,
-                parent_path,
-                recovered_manifest,
-                audit_context,
-                correction_path,
-            ],
+            [readme_path, parent_path, recovered_manifest, audit_context],
         )
     metadata_zip_result = zip_payload(
         metadata_zip_path,

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Independently replay the SGA6 idx322-326 crop release boundary."""
+"""Independently replay the SGA6 idx327-330 crop release boundary."""
 
 from __future__ import annotations
 
@@ -119,7 +119,7 @@ def main() -> int:
 
     validation_path = (
         package_dir
-        / "SGA6_HighDetail_SourceAudit_Crops_idx322_326_VALIDATION_20260723.json"
+        / "SGA6_HighDetail_SourceAudit_Crops_idx327_330_VALIDATION_20260723.json"
     )
     validation = json.loads(validation_path.read_text(encoding="utf-8"))
     if validation.get("status") != "PASS" or validation.get("errors") != []:
@@ -127,24 +127,24 @@ def main() -> int:
 
     explicit_path = (
         package_dir
-        / "SGA6_Explicit_Targeted_HighDetail_Crops_idx322_326_Manifest_20260723.csv"
+        / "SGA6_Explicit_Targeted_HighDetail_Crops_idx327_330_Manifest_20260723.csv"
     )
     recovered_path = (
         package_dir
-        / "SGA6_Recovered_Named_HighDetail_Crops_idx322_326_Manifest_20260723.csv"
+        / "SGA6_Recovered_Named_HighDetail_Crops_idx327_330_Manifest_20260723.csv"
     )
     blocked_path = (
         package_dir
-        / "SGA6_Routine_PageBands_idx322_326_RightsBlocked_Manifest_20260723.csv"
+        / "SGA6_Routine_PageBands_idx327_330_RightsBlocked_Manifest_20260723.csv"
     )
     upload_path = (
         package_dir
-        / "SGA6_HighDetail_SourceAudit_Crops_idx322_326_"
+        / "SGA6_HighDetail_SourceAudit_Crops_idx327_330_"
         "ZENODO_UPLOAD_MANIFEST_20260723.csv"
     )
     audit_path = (
         package_dir
-        / "SGA6_HighDetail_Crops_idx322_326_Audit_Context_20260723.csv"
+        / "SGA6_HighDetail_Crops_idx327_330_Audit_Context_20260723.csv"
     )
     explicit_fields, explicit_rows = read_csv(explicit_path)
     recovered_fields, recovered_rows = read_csv(recovered_path)
@@ -156,15 +156,15 @@ def main() -> int:
         errors.append(f"explicit crop count is {len(explicit_rows)}, expected 1")
     if recovered_rows:
         errors.append(f"recovered crop count is {len(recovered_rows)}, expected 0")
-    if len(blocked_rows) != 25:
-        errors.append(f"blocked band count is {len(blocked_rows)}, expected 25")
+    if len(blocked_rows) != 20:
+        errors.append(f"blocked band count is {len(blocked_rows)}, expected 20")
     if len(upload_rows) != 2:
         errors.append(f"upload count is {len(upload_rows)}, expected 2")
 
     all_rows = explicit_rows + recovered_rows + blocked_rows
     indices = {int(row["parent_pdf_index_0based"]) for row in all_rows}
-    if indices != set(range(322, 327)):
-        errors.append(f"parent index set is {sorted(indices)}, expected 322-326")
+    if indices != set(range(327, 331)):
+        errors.append(f"parent index set is {sorted(indices)}, expected 327-330")
     if any(row["category"] != "routine_page_derivative" for row in blocked_rows):
         errors.append("blocked manifest contains a non-routine row")
     if any(
@@ -242,13 +242,12 @@ def main() -> int:
         )
 
     metadata_names = [
-        "SGA6_HighDetail_SourceAudit_Crops_idx322_326_README_20260723.md",
-        "SGA6_HighDetail_SourceAudit_Crops_idx322_326_PARENT_SOURCE_20260723.json",
-        "SGA6_Explicit_Targeted_HighDetail_Crops_idx322_326_Manifest_20260723.csv",
-        "SGA6_Recovered_Named_HighDetail_Crops_idx322_326_Manifest_20260723.csv",
-        "SGA6_Routine_PageBands_idx322_326_RightsBlocked_Manifest_20260723.csv",
-        "SGA6_HighDetail_Crops_idx322_326_Audit_Context_20260723.csv",
-        "PROVENANCE_CORRECTION_20260723.md",
+        "SGA6_HighDetail_SourceAudit_Crops_idx327_330_README_20260723.md",
+        "SGA6_HighDetail_SourceAudit_Crops_idx327_330_PARENT_SOURCE_20260723.json",
+        "SGA6_Explicit_Targeted_HighDetail_Crops_idx327_330_Manifest_20260723.csv",
+        "SGA6_Recovered_Named_HighDetail_Crops_idx327_330_Manifest_20260723.csv",
+        "SGA6_Routine_PageBands_idx327_330_RightsBlocked_Manifest_20260723.csv",
+        "SGA6_HighDetail_Crops_idx327_330_Audit_Context_20260723.csv",
     ]
     common_metadata = {
         f"metadata/{name}": (
@@ -267,7 +266,6 @@ def main() -> int:
                 metadata_names[1],
                 metadata_names[2],
                 metadata_names[5],
-                metadata_names[6],
             }
         },
         **{
@@ -287,7 +285,7 @@ def main() -> int:
             errors.append(f"outer archive identity mismatch: {row['filename']}")
         expected = (
             explicit_expected
-            if row["filename"].startswith("10m_")
+            if row["filename"].startswith("10o_")
             else metadata_expected
         )
         result = zip_replay(archive_path, expected)
@@ -336,7 +334,7 @@ def main() -> int:
         errors.append(f"public metadata privacy hits: {privacy_hits}")
 
     report = {
-        "schema": "sga6_idx322_326_crop_release_independent_replay_v1",
+        "schema": "sga6_idx327_330_crop_release_independent_replay_v1",
         "status": "PASS" if not errors else "FAIL",
         "errors": errors,
         "outer_archives": zip_results,
