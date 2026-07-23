@@ -1,26 +1,26 @@
-## 2026-07-23 SGA6 high-detail source-audit crop snapshot
+## 2026-07-23 SGA6 high-detail source-audit crop increment through idx321
 
 Current SGA version
-[`10.5281/zenodo.21515326`](https://doi.org/10.5281/zenodo.21515326)
-adds three grouped SGA6 visual-evidence archives to predecessor `21514656`.
-The archives preserve 460 explicit targeted zoom/recheck crops, 1,470
-recovered named formula/glyph/punctuation/diagram/prose crops, and metadata
-for 1,698 routine page derivatives whose pixels are not republished.
+[`10.5281/zenodo.21515795`](https://doi.org/10.5281/zenodo.21515795)
+adds two grouped SGA6 visual-evidence archives to predecessor `21515326`.
+The increment covers audit indices 315-321 and contains four explicit
+symbol-level crops as pixels plus provenance and rights-blocked metadata for
+35 routine page or page-band derivatives.
 
-Anonymous Zenodo readback matched all 42 files / 284,933,659 bytes, all
-1,944 new archive members / 157,724,703 uncompressed bytes, and all 36
-retained predecessor files byte-for-byte. The complete grouped surface now
-contains 17 ZIPs and 3,127 members. SGA1 remains the authoritative default
-preview; the empty explicit order produces alphanumeric reader order. The
-latest-version endpoint resolves to `21515326`, and the unauthenticated draft
-endpoint returns 404.
+Anonymous Zenodo readback matched all 44 files / 285,398,864 bytes, all 14
+new archive members / 461,131 uncompressed bytes, and all 39 retained
+predecessor non-control files byte-for-byte. The complete grouped surface now
+contains 19 ZIPs and 3,141 members / 314,695,050 uncompressed bytes. It
+cumulatively preserves 1,934 high-detail checking crops as pixels and metadata
+for 1,733 routine derivatives. SGA1 remains the authoritative default preview;
+the empty explicit order produces alphanumeric reader order. The latest-version
+endpoint resolves to `21515795`, and the unauthenticated draft endpoint
+returns 404.
 
-The snapshot is a temporal cold re-verification through the cutoff after
-`idx314`, not a continuous SGA6 audit or scan republication. The 1,930
-published image pixels are high-detail checking evidence actually associated
-with the transcription audit; routine page/page-band derivatives remain
-rights-blocked metadata. See the
-[publication receipt](published-zenodo/20260723_sga6_high_detail_source_audit_crops_record_21515326.md).
+The increment closes at `2026-07-23T18:33:00Z`, after index 321 and before
+index 322. The overall surface remains temporal rather than a continuous SGA6
+audit or scan republication. See the
+[publication receipt](published-zenodo/20260723_sga6_high_detail_source_audit_crops_idx315_321_record_21515795.md).
 
 ## 2026-07-23 SGA3 I-IV sealed public checkpoint r1 successor
 
