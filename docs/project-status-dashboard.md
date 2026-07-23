@@ -2,6 +2,16 @@
 
 Generated from the current public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
 
+July 23 SGA4 proper r7 update: current compact SGA version
+[10.5281/zenodo.21510120](https://doi.org/10.5281/zenodo.21510120)
+has 37 files and fourteen grouped archives. The direct 864-page SGA4 proper
+reader covers Exposes I-XIX including V bis, excludes SGA4half, and carries a
+certified reference-v2 graph. Anonymous readback matched all 37 files and all
+1,163 ZIP members. The title page retains translation-edition label r2; r7
+identifies the independently audited reference/release package revision.
+Rights remain with their respective holders, and no critical-edition,
+independent-human-review, or blanket-license claim is made.
+
 July 22 compact Noether update: current version
 [10.5281/zenodo.21499660](https://doi.org/10.5281/zenodo.21499660)
 has 20 reader-first files. It directly exposes the 459-page full cumulative
@@ -148,7 +158,7 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | [Sylvester](https://doi.org/10.5281/zenodo.20520692) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-witnessed working draft through book page 608; Papers 59-60 are represented in the latest tranche, next continuation p.609. |
 | [al-Battani](https://doi.org/10.5281/zenodo.20539593) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition with complete trilingual text over 100 segments, complete fixed-star catalogue data (485 stars), complete geography gazetteer (269 localities), chronology framework/canon partial, and zodiac auxiliary tables documented as not cleanly present in Nallino's Latin table source. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
 | **Serious source-aware work, but caveat-heavy** |  |  |  |  |  |
-| [SGA](https://doi.org/10.5281/zenodo.20410947) | 50 | 11 | 12 | 85.80 MB | Version [10.5281/zenodo.21498777](https://doi.org/10.5281/zenodo.21498777) publishes SGA1 through I.6, bounded SGA2 Exposes V-VI, retained SGA5/6 readers, bounded SGA6 idx685-692 and terminal idx693-702 checkpoints, and the 378-page layered cumulative SGA6 reader through idx702/no idx703. GitHub additionally preserves SGA1 through Corollary I.9.3, audited SGA2 Expose VII, the exact Expose VIII cumulative R5 package, and rights-curated Expose X surfaces through line 3574; later independent PASS handoffs remain metadata-only where release authorization is false. Lines 3457-3521 remain unclaimed. Rights are `License Not Specified`; SGA1 and SGA2 remain active but incomplete, no continuous Expose IX-X release is claimed, SGA5 is selected, SGA6 has mixed authority, and none is a critical edition. |
+| [SGA](https://doi.org/10.5281/zenodo.20410947) | 37 | 10 | 14 | 127.35 MB | Version [10.5281/zenodo.21510120](https://doi.org/10.5281/zenodo.21510120) directly exposes eight English readers in SGA order: complete-volume working SGA1, complete SGA2 R8, SGA3 through III plus standalone IV and V, certified reference-v2 SGA4 proper r7, SGA5 R9, and complete terminal SGA6. Two French workpasses and ten primary TeX files remain direct; fourteen ZIPs group source, diagram, QA, and predecessor evidence. All 37 files and all 1,163 ZIP members passed anonymous exact readback. SGA2 R8 is the default preview. SGA1 is substantially linked but not exhaustively convention-v2 certified; SGA3 remains incomplete after V; SGA4half is rights-held. None is a critical edition, independent human review, blanket rights determination, or whole-SGA certification. |
 | [Deligne](https://doi.org/10.5281/zenodo.20410853) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
 | [Luigi Bianchi](https://doi.org/10.5281/zenodo.20615814) | 22 | 5 | 12 | 1.92 GB | `Lezioni di geometria differenziale` Vol. I represented through source pdfpages 001-543; A2 latest public compact/core package `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` extends working coverage through source p0135 while earlier large scan-heavy p0105 packages remain provenance/backstop. Loose p0135 Italian/English reader PDFs/TeX and the p0121-p0135 source witness are queued as reader-convenience/fronting files, not new content. |
 | [Paul Gordan and Clebsch-Gordan](https://doi.org/10.5281/zenodo.20616260) | 45 | 0 | 39 | 1.83 GB | Dedicated package set now includes Abel27, Abelsche FinalAuditFix02, `De linea geodetica` p001-p047, theta fix06, and `Vorlesungen ueber Invariantentheorie` Bd. 1 p001-p028 on the latest 2026-06-24 version DOI `10.5281/zenodo.20822196`, which also adds the compact project-control/status update. Working/source-audit drafts only, not a certified critical edition. |

@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 905
+Total files indexed: 906
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -404,46 +404,47 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Current SGA public surface is compact record 21509314. It directly exposes the complete-volume SGA1 working reader, complete reference-linked SGA2 R8 reader, bounded SGA3 through Expose III, standalone complete SGA3 Exposes IV and V, complete-scope SGA4 proper R2 working reader, SGA5 R9, SGA6, and their primary editable TeX. SGA2 R8 remains the default preview. Recursive source, diagrams, ledgers, QA, bounded checkpoints, and predecessor maps are grouped into thirteen coherent ZIPs. All 36 files and all 1,109 ZIP members passed anonymous byte-for-byte readback. SGA1 and SGA4 proper are complete in translation scope but are not exhaustively convention-v2 certified. SGA3 remains incomplete after Expose V; Exposes VI-XXVI remain untranslated, and Expose V retains 66 temporary diagram PNG obligations for Loop 2. SGA4half remains rights-held. Historical versions remain immutable. These are working editions and translations, not independently human-certified critical editions, rights determinations, mathematical certifications, uniform whole-series source certification, or whole-SGA completion. Record rights metadata remains License Not Specified.
+Current SGA public surface is compact record 21510120. It directly exposes the complete-volume SGA1 working reader, complete reference-linked SGA2 R8 reader, bounded SGA3 through Expose III, standalone complete SGA3 Exposes IV and V, certified reference-v2 SGA4 proper r7, SGA5 R9, SGA6, and their primary editable TeX. SGA2 R8 remains the default preview. Recursive source, diagrams, ledgers, QA, bounded checkpoints, and predecessor maps are grouped into fourteen coherent ZIPs. All 37 files and all 1,163 ZIP members passed anonymous byte-for-byte readback. SGA4 proper r7 covers Exposes I-XIX including V bis and excludes SGA4half; its title page retains the translation-edition label r2 while r7 identifies the certified reference/release package revision. SGA1 remains substantially linked but not exhaustively convention-v2 certified. SGA3 remains incomplete after Expose V; Exposes VI-XXVI remain untranslated, and Expose V retains 66 temporary diagram PNG obligations for Loop 2. SGA4half remains rights-held. Historical versions remain immutable. These are working editions and translations, not independently human-certified critical editions, rights determinations, mathematical certifications, uniform whole-series source certification, or whole-SGA completion. Record rights metadata remains License Not Specified.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 2.4491 | [00a_SGA1_English_CompleteVolume_Working_NoExhaustiveCertification_20260722.pdf](https://zenodo.org/records/21509314/files/00a_SGA1_English_CompleteVolume_Working_NoExhaustiveCertification_20260722.pdf) |
-| reader/reference PDF | 2.0359 | [00b_SGA2_English_Complete_ReferenceLinked_R8_20260723.pdf](https://zenodo.org/records/21509314/files/00b_SGA2_English_Complete_ReferenceLinked_R8_20260723.pdf) |
-| reader/reference PDF | 2.7863 | [00c1_SGA3_English_Through_Expose_III_Working_20260723.pdf](https://zenodo.org/records/21509314/files/00c1_SGA3_English_Through_Expose_III_Working_20260723.pdf) |
-| reader/reference PDF | 0.7541 | [00c2_SGA3_English_Expose_IV_Working_20260723.pdf](https://zenodo.org/records/21509314/files/00c2_SGA3_English_Expose_IV_Working_20260723.pdf) |
-| reader/reference PDF | 0.9991 | [00c3_SGA3_English_Expose_V_Working_R3_Freeze3_20260723.pdf](https://zenodo.org/records/21509314/files/00c3_SGA3_English_Expose_V_Working_R3_Freeze3_20260723.pdf) |
-| reader/reference PDF | 4.2159 | [00d_SGA4_English_Proper_Exposes_I_XIX_including_Vbis_Working_R2_20260723.pdf](https://zenodo.org/records/21509314/files/00d_SGA4_English_Proper_Exposes_I_XIX_including_Vbis_Working_R2_20260723.pdf) |
-| reader/reference PDF | 2.3233 | [00e_SGA5_English_ReferenceLinked_R9_20260723.pdf](https://zenodo.org/records/21509314/files/00e_SGA5_English_ReferenceLinked_R9_20260723.pdf) |
-| reader/reference PDF | 3.1371 | [00f_SGA6_English_Complete_ReferenceLinked_20260723.pdf](https://zenodo.org/records/21509314/files/00f_SGA6_English_Complete_ReferenceLinked_20260723.pdf) |
-| reader/reference PDF | 1.9223 | [01e_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21509314/files/01e_SGA5_French_Workpass_NotCertified_20260706.pdf) |
-| reader/reference PDF | 2.7371 | [01f_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.pdf](https://zenodo.org/records/21509314/files/01f_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.pdf) |
-| editable TeX | 0.0280 | [02a_SGA1_English_CompleteVolume_Working_Master_20260722.tex](https://zenodo.org/records/21509314/files/02a_SGA1_English_CompleteVolume_Working_Master_20260722.tex) |
-| editable TeX | 0.0053 | [02b_SGA2_English_Complete_ReferenceLinked_R8_Master_20260723.tex](https://zenodo.org/records/21509314/files/02b_SGA2_English_Complete_ReferenceLinked_R8_Master_20260723.tex) |
-| editable TeX | 0.0083 | [02c1_SGA3_English_Through_Expose_III_Master_20260723.tex](https://zenodo.org/records/21509314/files/02c1_SGA3_English_Through_Expose_III_Master_20260723.tex) |
-| editable TeX | 0.0029 | [02c2_SGA3_English_Expose_IV_Master_20260723.tex](https://zenodo.org/records/21509314/files/02c2_SGA3_English_Expose_IV_Master_20260723.tex) |
-| editable TeX | 0.0064 | [02c3_SGA3_English_Expose_V_Master_R3_Freeze3_20260723.tex](https://zenodo.org/records/21509314/files/02c3_SGA3_English_Expose_V_Master_R3_Freeze3_20260723.tex) |
-| editable TeX | 0.0036 | [02d_SGA4_English_Proper_Master_R2_20260723.tex](https://zenodo.org/records/21509314/files/02d_SGA4_English_Proper_Master_R2_20260723.tex) |
-| editable TeX | 0.8553 | [02e_SGA5_English_ReferenceLinked_R9_Master_20260723.tex](https://zenodo.org/records/21509314/files/02e_SGA5_English_ReferenceLinked_R9_Master_20260723.tex) |
-| editable TeX | 0.0051 | [02f_SGA6_English_Complete_ReferenceLinked_Master_20260723.tex](https://zenodo.org/records/21509314/files/02f_SGA6_English_Complete_ReferenceLinked_Master_20260723.tex) |
-| editable TeX | 0.7942 | [03e_SGA5_French_Workpass_NotCertified_20260706.tex](https://zenodo.org/records/21509314/files/03e_SGA5_French_Workpass_NotCertified_20260706.tex) |
-| editable TeX | 1.2583 | [03f_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.tex](https://zenodo.org/records/21509314/files/03f_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.tex) |
-| manifest/status | 0.0041 | [09_README_CURRENT_RELEASE.md](https://zenodo.org/records/21509314/files/09_README_CURRENT_RELEASE.md) |
-| manifest/status | 0.0097 | [09a_RELEASE_FILE_MANIFEST.csv](https://zenodo.org/records/21509314/files/09a_RELEASE_FILE_MANIFEST.csv) |
-| manifest/status | 0.0035 | [09b_RELEASE_VALIDATION.json](https://zenodo.org/records/21509314/files/09b_RELEASE_VALIDATION.json) |
-| artifact/source ZIP | 0.3811 | [10a_SGA1_English_CompleteVolume_Working_Source_20260722.zip](https://zenodo.org/records/21509314/files/10a_SGA1_English_CompleteVolume_Working_Source_20260722.zip) |
-| artifact/source ZIP | 3.8269 | [10b_SGA2_English_Complete_ReferenceLinked_R8_TeX_Ledgers_20260723.zip](https://zenodo.org/records/21509314/files/10b_SGA2_English_Complete_ReferenceLinked_R8_TeX_Ledgers_20260723.zip) |
-| artifact/source ZIP | 4.1681 | [10c1_SGA3_English_Through_Expose_III_Source_and_QA_20260723.zip](https://zenodo.org/records/21509314/files/10c1_SGA3_English_Through_Expose_III_Source_and_QA_20260723.zip) |
-| artifact/source ZIP | 0.0739 | [10c2_SGA3_English_Expose_IV_Source_20260723.zip](https://zenodo.org/records/21509314/files/10c2_SGA3_English_Expose_IV_Source_20260723.zip) |
-| artifact/source ZIP | 18.9263 | [10c3_SGA3_English_Expose_V_R3_Freeze3_Source_Evidence_20260723.zip](https://zenodo.org/records/21509314/files/10c3_SGA3_English_Expose_V_R3_Freeze3_Source_Evidence_20260723.zip) |
-| artifact/source ZIP | 1.1465 | [10d_SGA4_English_Proper_Source_R2_20260723.zip](https://zenodo.org/records/21509314/files/10d_SGA4_English_Proper_Source_R2_20260723.zip) |
-| artifact/source ZIP | 2.1628 | [10e_SGA5_English_ReferenceLinked_R9_TeX_Ledgers_20260723.zip](https://zenodo.org/records/21509314/files/10e_SGA5_English_ReferenceLinked_R9_TeX_Ledgers_20260723.zip) |
-| artifact/source ZIP | 12.4482 | [10f_SGA6_French_SourceRescribe_Audit_NotCertified_idx684_20260718.zip](https://zenodo.org/records/21509314/files/10f_SGA6_French_SourceRescribe_Audit_NotCertified_idx684_20260718.zip) |
-| artifact/source ZIP | 3.1589 | [10g_SGA6_English_Complete_ReferenceLinked_TeX_Ledgers_20260723.zip](https://zenodo.org/records/21509314/files/10g_SGA6_English_Complete_ReferenceLinked_TeX_Ledgers_20260723.zip) |
-| artifact/source ZIP | 7.4252 | [11a_SGA1_SGA2_FullVolume_Convenience_Lineage_and_QA_20260722.zip](https://zenodo.org/records/21509314/files/11a_SGA1_SGA2_FullVolume_Convenience_Lineage_and_QA_20260722.zip) |
-| artifact/source ZIP | 20.9090 | [11b_SGA1_SGA2_Bounded_Checkpoints_and_Evidence_20260722.zip](https://zenodo.org/records/21509314/files/11b_SGA1_SGA2_Bounded_Checkpoints_and_Evidence_20260722.zip) |
-| artifact/source ZIP | 21.4133 | [11f_SGA6_Bounded_Predecessor_and_Spanish_Checkpoints_20260722.zip](https://zenodo.org/records/21509314/files/11f_SGA6_Bounded_Predecessor_and_Spanish_Checkpoints_20260722.zip) |
-| artifact/source ZIP | 0.0144 | [12_SGA_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip](https://zenodo.org/records/21509314/files/12_SGA_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip) |
+| reader/reference PDF | 2.4491 | [00a_SGA1_English_CompleteVolume_Working_NoExhaustiveCertification_20260722.pdf](https://zenodo.org/records/21510120/files/00a_SGA1_English_CompleteVolume_Working_NoExhaustiveCertification_20260722.pdf) |
+| reader/reference PDF | 2.0359 | [00b_SGA2_English_Complete_ReferenceLinked_R8_20260723.pdf](https://zenodo.org/records/21510120/files/00b_SGA2_English_Complete_ReferenceLinked_R8_20260723.pdf) |
+| reader/reference PDF | 2.7863 | [00c1_SGA3_English_Through_Expose_III_Working_20260723.pdf](https://zenodo.org/records/21510120/files/00c1_SGA3_English_Through_Expose_III_Working_20260723.pdf) |
+| reader/reference PDF | 0.7541 | [00c2_SGA3_English_Expose_IV_Working_20260723.pdf](https://zenodo.org/records/21510120/files/00c2_SGA3_English_Expose_IV_Working_20260723.pdf) |
+| reader/reference PDF | 0.9991 | [00c3_SGA3_English_Expose_V_Working_R3_Freeze3_20260723.pdf](https://zenodo.org/records/21510120/files/00c3_SGA3_English_Expose_V_Working_R3_Freeze3_20260723.pdf) |
+| reader/reference PDF | 4.2164 | [00d_SGA4_English_Proper_Exposes_I_XIX_including_Vbis_ReferenceV2_R7_20260723.pdf](https://zenodo.org/records/21510120/files/00d_SGA4_English_Proper_Exposes_I_XIX_including_Vbis_ReferenceV2_R7_20260723.pdf) |
+| reader/reference PDF | 2.3233 | [00e_SGA5_English_ReferenceLinked_R9_20260723.pdf](https://zenodo.org/records/21510120/files/00e_SGA5_English_ReferenceLinked_R9_20260723.pdf) |
+| reader/reference PDF | 3.1371 | [00f_SGA6_English_Complete_ReferenceLinked_20260723.pdf](https://zenodo.org/records/21510120/files/00f_SGA6_English_Complete_ReferenceLinked_20260723.pdf) |
+| reader/reference PDF | 1.9223 | [01e_SGA5_French_Workpass_NotCertified_20260706.pdf](https://zenodo.org/records/21510120/files/01e_SGA5_French_Workpass_NotCertified_20260706.pdf) |
+| reader/reference PDF | 2.7371 | [01f_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.pdf](https://zenodo.org/records/21510120/files/01f_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.pdf) |
+| editable TeX | 0.0280 | [02a_SGA1_English_CompleteVolume_Working_Master_20260722.tex](https://zenodo.org/records/21510120/files/02a_SGA1_English_CompleteVolume_Working_Master_20260722.tex) |
+| editable TeX | 0.0053 | [02b_SGA2_English_Complete_ReferenceLinked_R8_Master_20260723.tex](https://zenodo.org/records/21510120/files/02b_SGA2_English_Complete_ReferenceLinked_R8_Master_20260723.tex) |
+| editable TeX | 0.0083 | [02c1_SGA3_English_Through_Expose_III_Master_20260723.tex](https://zenodo.org/records/21510120/files/02c1_SGA3_English_Through_Expose_III_Master_20260723.tex) |
+| editable TeX | 0.0029 | [02c2_SGA3_English_Expose_IV_Master_20260723.tex](https://zenodo.org/records/21510120/files/02c2_SGA3_English_Expose_IV_Master_20260723.tex) |
+| editable TeX | 0.0064 | [02c3_SGA3_English_Expose_V_Master_R3_Freeze3_20260723.tex](https://zenodo.org/records/21510120/files/02c3_SGA3_English_Expose_V_Master_R3_Freeze3_20260723.tex) |
+| editable TeX | 0.0036 | [02d_SGA4_English_Proper_Master_ReferenceV2_R7_20260723.tex](https://zenodo.org/records/21510120/files/02d_SGA4_English_Proper_Master_ReferenceV2_R7_20260723.tex) |
+| editable TeX | 0.8553 | [02e_SGA5_English_ReferenceLinked_R9_Master_20260723.tex](https://zenodo.org/records/21510120/files/02e_SGA5_English_ReferenceLinked_R9_Master_20260723.tex) |
+| editable TeX | 0.0051 | [02f_SGA6_English_Complete_ReferenceLinked_Master_20260723.tex](https://zenodo.org/records/21510120/files/02f_SGA6_English_Complete_ReferenceLinked_Master_20260723.tex) |
+| editable TeX | 0.7942 | [03e_SGA5_French_Workpass_NotCertified_20260706.tex](https://zenodo.org/records/21510120/files/03e_SGA5_French_Workpass_NotCertified_20260706.tex) |
+| editable TeX | 1.2583 | [03f_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.tex](https://zenodo.org/records/21510120/files/03f_SGA6_French_SourceRescribe_Workpass_NotCertified_idx684_20260718.tex) |
+| manifest/status | 0.0028 | [09_README_CURRENT_RELEASE.md](https://zenodo.org/records/21510120/files/09_README_CURRENT_RELEASE.md) |
+| manifest/status | 0.0099 | [09a_RELEASE_FILE_MANIFEST.csv](https://zenodo.org/records/21510120/files/09a_RELEASE_FILE_MANIFEST.csv) |
+| manifest/status | 0.0047 | [09b_RELEASE_VALIDATION.json](https://zenodo.org/records/21510120/files/09b_RELEASE_VALIDATION.json) |
+| artifact/source ZIP | 0.3811 | [10a_SGA1_English_CompleteVolume_Working_Source_20260722.zip](https://zenodo.org/records/21510120/files/10a_SGA1_English_CompleteVolume_Working_Source_20260722.zip) |
+| artifact/source ZIP | 3.8269 | [10b_SGA2_English_Complete_ReferenceLinked_R8_TeX_Ledgers_20260723.zip](https://zenodo.org/records/21510120/files/10b_SGA2_English_Complete_ReferenceLinked_R8_TeX_Ledgers_20260723.zip) |
+| artifact/source ZIP | 4.1681 | [10c1_SGA3_English_Through_Expose_III_Source_and_QA_20260723.zip](https://zenodo.org/records/21510120/files/10c1_SGA3_English_Through_Expose_III_Source_and_QA_20260723.zip) |
+| artifact/source ZIP | 0.0739 | [10c2_SGA3_English_Expose_IV_Source_20260723.zip](https://zenodo.org/records/21510120/files/10c2_SGA3_English_Expose_IV_Source_20260723.zip) |
+| artifact/source ZIP | 18.9263 | [10c3_SGA3_English_Expose_V_R3_Freeze3_Source_Evidence_20260723.zip](https://zenodo.org/records/21510120/files/10c3_SGA3_English_Expose_V_R3_Freeze3_Source_Evidence_20260723.zip) |
+| artifact/source ZIP | 4.9538 | [10d2_SGA4_English_Proper_ReferenceV2_R7_QA_Evidence_20260723.zip](https://zenodo.org/records/21510120/files/10d2_SGA4_English_Proper_ReferenceV2_R7_QA_Evidence_20260723.zip) |
+| artifact/source ZIP | 1.1406 | [10d_SGA4_English_Proper_ReferenceV2_R7_Source_20260723.zip](https://zenodo.org/records/21510120/files/10d_SGA4_English_Proper_ReferenceV2_R7_Source_20260723.zip) |
+| artifact/source ZIP | 2.1628 | [10e_SGA5_English_ReferenceLinked_R9_TeX_Ledgers_20260723.zip](https://zenodo.org/records/21510120/files/10e_SGA5_English_ReferenceLinked_R9_TeX_Ledgers_20260723.zip) |
+| artifact/source ZIP | 12.4482 | [10f_SGA6_French_SourceRescribe_Audit_NotCertified_idx684_20260718.zip](https://zenodo.org/records/21510120/files/10f_SGA6_French_SourceRescribe_Audit_NotCertified_idx684_20260718.zip) |
+| artifact/source ZIP | 3.1589 | [10g_SGA6_English_Complete_ReferenceLinked_TeX_Ledgers_20260723.zip](https://zenodo.org/records/21510120/files/10g_SGA6_English_Complete_ReferenceLinked_TeX_Ledgers_20260723.zip) |
+| artifact/source ZIP | 7.4252 | [11a_SGA1_SGA2_FullVolume_Convenience_Lineage_and_QA_20260722.zip](https://zenodo.org/records/21510120/files/11a_SGA1_SGA2_FullVolume_Convenience_Lineage_and_QA_20260722.zip) |
+| artifact/source ZIP | 20.9090 | [11b_SGA1_SGA2_Bounded_Checkpoints_and_Evidence_20260722.zip](https://zenodo.org/records/21510120/files/11b_SGA1_SGA2_Bounded_Checkpoints_and_Evidence_20260722.zip) |
+| artifact/source ZIP | 21.4133 | [11f_SGA6_Bounded_Predecessor_and_Spanish_Checkpoints_20260722.zip](https://zenodo.org/records/21510120/files/11f_SGA6_Bounded_Predecessor_and_Spanish_Checkpoints_20260722.zip) |
+| artifact/source ZIP | 0.0144 | [12_SGA_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip](https://zenodo.org/records/21510120/files/12_SGA_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip) |
 
 ## Pierre Deligne Papers and Letters: Working Translation Drafts and Source/QA Packets
 

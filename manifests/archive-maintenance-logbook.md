@@ -2250,3 +2250,21 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Freeze1 and freeze2 remain historical HOLD states. Expose V still has 66
   temporary PNG diagram obligations, and Exposes VI-XXVI remain untranslated;
   this does not complete SGA3.
+
+## 2026-07-23 - SGA4 proper reference-v2 r7 published and read back
+
+- GitHub commit `b0bd7d696c7aa0f0d2c3a9f724530bfd19084abc` publishes the
+  exact 13-file package at
+  `sources/sga/sga4-english-proper-reference-v2-r7-20260723`.
+- Existing-concept Zenodo version `10.5281/zenodo.21510120` replaces the
+  current SGA4 proper r2 reader, direct master, and source archive with r7 and
+  adds its QA archive. Predecessor `21509314` remains immutable.
+- Anonymous readback passed for 37/37 Zenodo files, 14/14 ZIPs, and
+  1,163/1,163 ZIP members. GitHub readback passed for 13/13 outer files and
+  359/359 packaged members.
+- R7 covers Exposes I-XIX including V bis and excludes SGA4half. Its
+  reference-v2 graph is certified; the title page retains translation-edition
+  label r2 while r7 identifies the audited reference/release package revision.
+- R4, r5, r6, and the legacy path-leaking SGA5 ZIP were excluded. No duplicate
+  concept or active draft remains. Rights and critical-edition caveats remain
+  explicit.
