@@ -21,6 +21,29 @@ diagrams still require native or faithful Loop-2 replacement. Exposes VI--XXVI
 remain untranslated. SGA4half remains rights-held. See the
 [publication receipt](published-zenodo/20260723_sga_public_progress_record_21509314.md).
 
+## 2026-07-22 compact Noether full-English publication
+
+Noether version
+[`10.5281/zenodo.21499660`](https://doi.org/10.5281/zenodo.21499660)
+replaces the 100-file landing surface with 20 reader-first files. The
+459-page full cumulative English working reader and editable master TeX are
+direct downloads and cover the inherited 43-paper corpus plus the translated
+German tail through R823 line 24123. The English PDF is the default preview.
+German, Spanish, French, and paired Interslavic readers remain direct; nine
+coherent ZIPs group current source control, bounded languages, repair evidence,
+visual evidence, and predecessor maps.
+
+Anonymous readback matched all 20 files / 580,769,810 bytes and all 3,979 ZIP
+members byte-for-byte. Safe-path and CRC checks passed, the same Noether
+concept `10.5281/zenodo.20412587` remains in use, no active draft remains, and
+immutable predecessor `21499492` retains its former 100-file surface.
+
+This is a complete represented English working corpus, not a uniform
+source-critical audit, proof verification, peer review, native/community
+certification, rights determination, accessibility certification, or critical
+edition. See the
+[publication receipt](published-zenodo/20260722_noether_compact_full_english_record_21499660.md).
+
 ## 2026-07-22 SGA1 and SGA2 full-volume convenience-reader publication
 
 GitHub PR [#77](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/77)
