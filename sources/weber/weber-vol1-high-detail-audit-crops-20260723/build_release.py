@@ -113,6 +113,10 @@ def write_csv(path: Path, rows: list[dict[str, object]], fields: list[str]) -> N
         writer.writerows(rows)
 
 
+def write_text_lf(path: Path, text: str) -> None:
+    path.write_bytes(text.encode("utf-8"))
+
+
 def make_row(
     path: Path,
     source_dir: Path,
@@ -342,9 +346,9 @@ def main() -> int:
         "parent_scan_not_duplicated_in_this_release": True,
     }
     parent_path = output_dir / PARENT_NAME
-    parent_path.write_text(
+    write_text_lf(
+        parent_path,
         json.dumps(parent_identity, indent=2, ensure_ascii=True) + "\n",
-        encoding="utf-8",
     )
 
     duplicate_groups = {
@@ -404,7 +408,7 @@ The 1895 source work is public domain. This release asserts no new copyright in
 the historical source text or mechanically derived crop pixels.
 """
     readme_path = output_dir / README_NAME
-    readme_path.write_text(readme, encoding="utf-8")
+    write_text_lf(readme_path, readme)
 
     mapped_zip_path = zip_dir / MAPPED_ZIP
     unmapped_zip_path = zip_dir / UNMAPPED_ZIP
@@ -482,9 +486,9 @@ the historical source text or mechanically derived crop pixels.
         },
     }
     validation_path = output_dir / VALIDATION_NAME
-    validation_path.write_text(
+    write_text_lf(
+        validation_path,
         json.dumps(validation, indent=2, ensure_ascii=True) + "\n",
-        encoding="utf-8",
     )
 
     upload_paths = [
@@ -523,7 +527,7 @@ the historical source text or mechanically derived crop pixels.
         f"{sha256(path)}  {path.name}" for path in sorted(checksum_paths, key=lambda p: p.name)
     ]
     checksum_path = output_dir / SHA_NAME
-    checksum_path.write_text("\n".join(checksum_lines) + "\n", encoding="utf-8")
+    write_text_lf(checksum_path, "\n".join(checksum_lines) + "\n")
 
     summary = {
         "status": validation["status"],
