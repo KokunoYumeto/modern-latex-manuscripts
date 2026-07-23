@@ -2495,3 +2495,57 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This remains temporal visual/provenance evidence, not continuous SGA6
   coverage, scan republication, critical-edition certification, or a rights
   determination.
+
+## 2026-07-24 - SGA3 I-IV custody base clarified without new transport
+
+- The earlier 199-file privacy-clean, rights-aware I-IV payload remains the
+  sole archive transport and sole publication lineage.
+- Durable clarification
+  `I_IV_CUMULATIVE_INPUT_AND_PUBLIC_PROJECTION_DISPOSITION_20260724.md` is
+  2,965 bytes, SHA-256
+  `9E9FE6EE98E8D155E9474BA2465BD14EF87372CB4984C0A1E15EA54AB7999893`.
+- The immutable I-IV r2 source is the controlling input for later cumulative
+  I-VI integration. That production-base statement creates no new I-IV
+  package, dispatch, Zenodo version, or supersession.
+- The later lean I-IV PASS remains non-dispatched and superseded for
+  transport under the existing duplicate guard.
+
+## 2026-07-24 - SGA3 full Expose VI Loop-1 R1 failed closed
+
+- Independent review of the active full-Expose-VI Loop-1 R1 candidate found a
+  real footnote-link defect in an `amsmath` display.
+- Repeated expansion increments the footnote mark: the visible mark is `2`,
+  its text becomes `5`, following notes become `6`-`8` instead of `3`-`5`,
+  and one action targets absent destination `Hfootnote.11`.
+- The full Expose VI candidate is therefore not published. Existing bounded
+  VI-A remains the current public progress surface.
+- This fail-closed disposition does not alter the sole I-IV transport,
+  standalone native-diagram Expose V, or active no-overwrite repair work.
+
+## 2026-07-24 - SGA6 crop successor through idx348 published
+
+- GitHub commit `96b3052dbf2a0009392232baeb470e3be1131bb3`
+  publishes the exact 14-file package at
+  `sources/sga/sga6-high-detail-source-audit-crops-coldreverify-idx331-348-20260724`.
+- Existing-concept Zenodo version `10.5281/zenodo.21520805` succeeds
+  immutable predecessor `21519758`; no duplicate concept or second version
+  was created.
+- Anonymous streaming readback passed for all 50 files / 286,436,338 bytes,
+  all 45 retained predecessor files, all 25 ZIP archives, and all 3,184 ZIP
+  entries. The archives contain 3,178 substantive members plus six inherited
+  directory placeholders / 315,721,490 uncompressed bytes, with zero unsafe
+  paths or CRC failures.
+- New archive `10q` has 7/7 members and preserves three explicit symbol-level
+  crops: idx333 `i.j`, idx335 `{Xt}` rather than `{1+Xt}`, and idx339 prose
+  `v` beside formula `\nabla`.
+- New archive `10r` has 6/6 metadata members and records 90 routine 2400-DPI
+  page-band derivatives as `rights_blocked_not_public`; those pixels are not
+  redistributed.
+- The cumulative visual surface now preserves 1,939 public high-detail crops
+  and metadata for 1,868 rights-blocked routine derivatives.
+- Anonymous page metadata names the 262-page SGA1 working reader as
+  `default_preview`; the latest endpoint resolves to `21520805`, and the
+  unauthenticated draft endpoint returns `404`.
+- This remains temporal visual/provenance evidence, not continuous SGA6
+  coverage, scan republication, critical-edition certification, or a rights
+  determination.
