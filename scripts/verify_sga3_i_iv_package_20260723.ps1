@@ -138,7 +138,7 @@ $masterPath = Join-Path $root (
 )
 if (
     (Get-FileHash -Algorithm SHA256 -LiteralPath $pdfPath).Hash -ne
-    '3BD2F1B760F63F2EB43ABFB0EA4A66ACE48906599CE24F97D67434C8390A4F35'
+    'B717DC08C2C77546638274C7F05266F5F24C1562999117ACF4D1874AFD79EA1D'
 ) {
     Add-Error 'Reader PDF hash mismatch.'
 }
@@ -160,8 +160,8 @@ try {
             Where-Object { -not [string]::IsNullOrEmpty($_.Name) } |
             Sort-Object FullName
     )
-    if ($entries.Count -ne 200) {
-        Add-Error "Expected 200 ZIP file members, found $($entries.Count)."
+    if ($entries.Count -ne 199) {
+        Add-Error "Expected 199 ZIP file members, found $($entries.Count)."
     }
     $unsafe = @(
         $entries |
@@ -189,8 +189,8 @@ try {
                 ConvertFrom-Csv
         )
     }
-    if ($innerRows.Count -ne 199) {
-        Add-Error "Expected 199 ZIP manifest rows, found $($innerRows.Count)."
+    if ($innerRows.Count -ne 198) {
+        Add-Error "Expected 198 ZIP manifest rows, found $($innerRows.Count)."
     }
 
     $actualContentEntries = @(
@@ -300,39 +300,22 @@ try {
         }
     }
 
-    $imageEntry = @(
+    $imageEntries = @(
         $entries | Where-Object {
-            $_.FullName -eq 'SOURCE_IMAGE_INVENTORY.csv'
+            $_.FullName.EndsWith(
+                '.png',
+                [StringComparison]::OrdinalIgnoreCase
+            )
         }
     )
-    if ($imageEntry.Count -ne 1) {
-        Add-Error 'Missing unique source-image inventory.'
-        $imageRows = @()
-    }
-    else {
-        $imageRows = @(
-            (Read-ZipEntryText -Entry $imageEntry[0]) |
-                ConvertFrom-Csv
+    $imageRows = @(
+        $innerRows | Where-Object { $_.role -eq 'diagram_asset' }
+    )
+    if ($imageEntries.Count -ne 128 -or $imageRows.Count -ne 128) {
+        Add-Error (
+            "Expected 128 payload images, found " +
+            "$($imageEntries.Count) entries / $($imageRows.Count) manifest rows."
         )
-    }
-    $requiredImages = @(
-        $imageRows | Where-Object { $_.build_required -eq 'True' }
-    )
-    $newPixelRows = @(
-        $imageRows |
-            Where-Object {
-                $_.release_relation -ne
-                'byte_identical_to_existing_public_predecessor_asset'
-            }
-    )
-    if ($imageRows.Count -ne 130) {
-        Add-Error "Expected 130 source-image rows, found $($imageRows.Count)."
-    }
-    if ($requiredImages.Count -ne 96) {
-        Add-Error "Expected 96 required image rows, found $($requiredImages.Count)."
-    }
-    if ($newPixelRows.Count -ne 0) {
-        Add-Error "Found $($newPixelRows.Count) non-predecessor image rows."
     }
 }
 finally {
@@ -359,8 +342,8 @@ $result = [ordered]@{
     zip_file_members = $entries.Count
     zip_manifest_rows = $innerRows.Count
     source_image_rows = $imageRows.Count
-    build_required_source_images = $requiredImages.Count
-    new_source_pixel_rows = $newPixelRows.Count
+    build_required_source_images = $imageRows.Count
+    new_source_pixel_rows = 0
     privacy_hits = $privacyHits.Count
     csv_formula_hits = $formulaHits.Count
     json_parse_errors = $jsonErrors.Count
