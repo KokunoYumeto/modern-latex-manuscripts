@@ -2420,5 +2420,12 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   retained SGA3 I-IV public objects on the existing SGA concept.
 - The later lean I-IV projection is audit-only. It does not authorize a
   second transport, additive publication, replacement, or Zenodo version.
+- Durable no-duplicate disposition
+  `SGA3_I_IV_LATER_LEAN_PROJECTION_TRANSPORT_DISPOSITION_20260723.md` is
+  1,361 bytes, SHA-256
+  `C9407E5F685755FAA3D2EB29898B315F695593015686034ACCA9D1AE87F8233E`.
+  It leaves the lean projection byte-unchanged and bars dispatch unless that
+  cross-check identifies a material defect in the controlling 199-file
+  payload.
 - Active Expose VI production is separate and does not alter this
   duplicate-suppression decision.
