@@ -2268,3 +2268,37 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - R4, r5, r6, and the legacy path-leaking SGA5 ZIP were excluded. No duplicate
   concept or active draft remains. Rights and critical-edition caveats remain
   explicit.
+
+## 2026-07-23 - SGA3 Expose V Loop2 native successor published
+
+- GitHub commit `8af7a27f3ffbdf32f34fd9f6e4134c2477eb80fb` publishes the
+  eight-file rights-curated package at
+  `sources/sga/sga3-english-expose-v-loop2-native-r2-freeze2-20260723`.
+- Existing-concept Zenodo version `10.5281/zenodo.21511144` replaces the
+  current Expose V Loop1 reader, master, and archive with the 51-page Loop2
+  native-diagram reader, editable master, and 229-member source/evidence ZIP.
+- Anonymous readback passed for 39/39 Zenodo files, 14/14 ZIPs, and
+  1,124/1,124 actual file members. GitHub readback passed for 8/8 outer files
+  and all 229 packaged file members.
+- The 66 source-PDF witness crops remain withheld. Public CSV and JSONL
+  controls preserve their hashes, coordinates, dimensions, linked units, and
+  QA disposition. The public reader contains native diagrams and zero PDF
+  image XObjects.
+- SGA3 remains incomplete after Expose V; Exposes VI--XXVI remain
+  untranslated. No duplicate concept or active draft remains.
+
+## 2026-07-23 - SGA3 Expose V Loop2 r4 freeze4 held for rights
+
+- Freeze4 passed exact tree, manifest, machine-ledger, privacy, build, render,
+  and visual checks for 298 files / 27,920,910 bytes.
+- Its reader PDF and editable master match the current public Loop2 reader,
+  and freeze3 to freeze4 changes only four declared controls.
+- The exact package nevertheless contains 66 cropped source-PDF witnesses /
+  344,264 bytes. No affirmative redistribution grant was found; package text
+  says the witnesses inherit the underlying French-rights caveat.
+- Freeze4 is accepted into exact local custody but is not published. No
+  GitHub mutation, Zenodo draft, Zenodo version, duplicate concept, or public
+  supersession was created.
+- Current rights-curated record `10.5281/zenodo.21511144` remains public and
+  current with native diagrams, metadata for all withheld witnesses, and zero
+  public source-witness pixels.
