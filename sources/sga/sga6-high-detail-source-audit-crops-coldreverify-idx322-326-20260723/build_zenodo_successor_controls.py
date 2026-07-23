@@ -118,7 +118,7 @@ def main() -> int:
     readme = f"""# Current compact SGA release
 
 This same-concept successor preserves the existing reader-first SGA surface and
-adds the next compact SGA6 source-audit crop increment. All 39 non-control files
+adds the next compact SGA6 source-audit crop increment. All 41 non-control files
 from predecessor record {args.predecessor_record} remain byte-identical.
 
 ## Reader-first order
@@ -140,16 +140,16 @@ SGA1 remains the default preview.
 
 ## SGA6 high-detail source-audit visual evidence
 
-Three image archives now preserve 1,934 targeted formula, glyph, punctuation,
+Four image archives now preserve 1,935 targeted formula, glyph, punctuation,
 diagram, and prose-detail crops actually used during the active SGA6 source
-audit. Two metadata archives preserve parent identity, page/crop provenance,
-exact manifests, and 1,733 routine whole-page or page-band derivatives as
+audit. Three metadata archives preserve parent identity, page/crop provenance,
+exact manifests, and 1,758 routine whole-page or page-band derivatives as
 `rights_blocked_not_public`; those routine pixels are not redistributed.
 
-This incremental release adds four explicit symbol-level crops from parent PDF
-indices 317 and 321 and provenance for all associated audit images from indices
-315 through 321. The temporal snapshot closes after cold reverification reached
-index 321 and before index 322 began. Earlier targeted archives also contain
+This incremental release adds one explicit symbol-level crop from parent PDF
+index 326 and provenance for all 26 associated audit images from indices 322
+through 326. The temporal snapshot closes after cold reverification reached
+index 326 and before index 327 began. Earlier targeted archives also contain
 crops from prior same-parent audit phases, so no continuous index-coverage claim
 is made.
 
@@ -259,10 +259,10 @@ Existing concept DOI: {CONCEPT_DOI}.
             "commit": args.github_commit,
             "package": (
                 "sources/sga/sga6-high-detail-source-audit-crops-"
-                "coldreverify-idx315-321-20260723"
+                "coldreverify-idx322-326-20260723"
             ),
-            "metadata_files": 13,
-            "readback_files": 13,
+            "metadata_files": 14,
+            "readback_files": 14,
             "readback_errors": [],
         },
         "sga6_source_audit_crops": {
@@ -284,17 +284,17 @@ Existing concept DOI: {CONCEPT_DOI}.
             "rights_blocked_routine_page_derivatives": crop_validation[
                 "source_selection"
             ]["routine_page_derivatives_rights_blocked"]["files"],
-            "cumulative_targeted_images": 1934,
-            "cumulative_rights_blocked_routine_page_derivatives": 1733,
+            "cumulative_targeted_images": 1935,
+            "cumulative_rights_blocked_routine_page_derivatives": 1758,
             "new_zip_count": len(new_zip_results),
             "new_zip_members": new_zip_members,
             "new_zip_uncompressed_bytes": new_zip_uncompressed,
             "producer_validation_sha256": sha256(args.crop_validation),
             "freeze_race_errors": crop_validation["freeze_race_recheck"]["errors"],
         },
-        "zip_archive_count": 19,
-        "zip_member_count": 3127 + new_zip_members,
-        "zip_uncompressed_bytes": 314233919 + new_zip_uncompressed,
+        "zip_archive_count": 21,
+        "zip_member_count": 3141 + new_zip_members,
+        "zip_uncompressed_bytes": 314695050 + new_zip_uncompressed,
         "rights": {
             "new_license_grant": False,
             "rights_clearance_claimed": False,
