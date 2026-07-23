@@ -2422,10 +2422,16 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   second transport, additive publication, replacement, or Zenodo version.
 - Durable no-duplicate disposition
   `SGA3_I_IV_LATER_LEAN_PROJECTION_TRANSPORT_DISPOSITION_20260723.md` is
-  1,361 bytes, SHA-256
-  `C9407E5F685755FAA3D2EB29898B315F695593015686034ACCA9D1AE87F8233E`.
+  1,719 bytes, SHA-256
+  `FF6D054D4E407241E7CD0DD269AF931FAC9450ED9F8E176CE47BDFFEE30891A9`.
   It leaves the lean projection byte-unchanged and bars dispatch unless that
   cross-check identifies a material defect in the controlling 199-file
   payload.
+- The redundant cross-check is technically PASS but non-dispatched and
+  superseded for transport. Its 6,527-byte independent report has SHA-256
+  `B3345A475CAAFA9BC2F46B9E3C91D5564830D56E9B1A185AC58E00F43C2DD656`;
+  it replayed 189 files / 5,075,807 bytes, 56 TeX files, 128 PNGs, a
+  three-pass build, all 266 content streams, links, fonts, privacy zero, and
+  17 render pairs without finding a material defect.
 - Active Expose VI production is separate and does not alter this
   duplicate-suppression decision.
