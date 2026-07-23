@@ -2458,3 +2458,40 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This is temporal visual/provenance evidence, not continuous SGA6 coverage,
   scan republication, critical-edition certification, or a rights
   determination.
+
+## 2026-07-23 - SGA6 crop successor through idx330 published
+
+- GitHub commit `b0962bd7ba8125562a8c2641f055b756c495ab71` publishes the
+  corrected idx322-326 package and the new exact idx327-330 package at
+  `sources/sga/sga6-high-detail-source-audit-crops-coldreverify-idx322-326-20260723`
+  and
+  `sources/sga/sga6-high-detail-source-audit-crops-coldreverify-idx327-330-20260723`.
+- Existing-concept Zenodo version `10.5281/zenodo.21519758` succeeds
+  immutable predecessor `21516193`; no duplicate concept or second version
+  was created.
+- Anonymous streaming readback passed for 48/48 files / 285,810,235 bytes,
+  all 41 retained predecessor files, and all 23 ZIPs. The ZIP replay found
+  3,165 substantive file members plus six inherited directory placeholders /
+  315,098,030 uncompressed bytes, with zero unsafe names, duplicate names, or
+  CRC failures.
+- Corrected archives `10m` and `10n` replace five stale audit-number links
+  with controlling cold-review identities. Crop pixels, parent identities,
+  rights dispositions, and review conclusions are unchanged.
+- New archives `10o` and `10p` cover indices 327-330. One explicit
+  9,000-DPI crop at source index 329 / PDF page 330 / printed page 316 is
+  public as pixels; 20 routine page or page-band derivatives remain
+  `rights_blocked_not_public` metadata.
+- The cumulative crop surface now preserves 466 explicit targeted crops and
+  1,470 recovered named high-detail crops, for 1,936 public high-detail
+  images, plus metadata for 1,778 routine derivatives.
+- The public browser preview renders the 262-page SGA1 working reader, while
+  Zenodo API thumbnail URLs retain an older cached SGA3 image.
+- Zenodo's rich-text fields retained inherited idx326 prose. The published
+  version line and `09_README_CURRENT_RELEASE.md`, SHA-256
+  `780744B3E4EDB96BF544DB9250854B0F79E4631E9F4EFDE280FC4553C577DB1C`,
+  explicitly supersede it and control the release statement.
+- The latest-version endpoint resolves to `21519758`; the unauthenticated
+  draft endpoint returns `403`.
+- This remains temporal visual/provenance evidence, not continuous SGA6
+  coverage, scan republication, critical-edition certification, or a rights
+  determination.
