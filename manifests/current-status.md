@@ -1,3 +1,24 @@
+## 2026-07-23 compact reference-linked SGA publication
+
+SGA version
+[`10.5281/zenodo.21507977`](https://doi.org/10.5281/zenodo.21507977)
+replaces the crowded current landing surface with 23 deliberately ordered
+files: direct SGA1, SGA2 R8, SGA5 R9, and SGA6 English readers; direct primary
+editable TeX; the retained SGA5/6 French workpass PDFs and TeX; and eight
+coherent evidence/source ZIPs. SGA2 R8 is the default preview.
+
+Anonymous public readback matched all 23 files / 93,014,696 bytes and all 195
+ZIP file members byte-for-byte. Safe-path and CRC checks passed, the same
+existing concept `10.5281/zenodo.20410947` remains in use, no active draft
+remains, and immutable predecessor `21499857` was rechecked unchanged.
+
+SGA5 R9 and SGA6 are the current supplied exhaustive internal-reference
+retrofits. SGA1 remains an explicitly labeled convenience reader whose
+translation is in progress and which has not received that exhaustive
+retrofit. SGA3 is absent and incomplete; SGA4 proper remains fail-closed; and
+SGA4half remains rights-held. See the
+[publication receipt](published-zenodo/20260723_sga_compact_reference_linked_record_21507977.md).
+
 ## 2026-07-22 SGA1 and SGA2 full-volume convenience-reader publication
 
 GitHub PR [#77](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/77)
