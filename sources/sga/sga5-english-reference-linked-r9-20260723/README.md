@@ -1,42 +1,44 @@
-# SGA 5 English reader with exhaustive internal links
+# SGA 5 English reader - exhaustive clickable-reference successor R9
 
-This no-overwrite package provides the final R9 machine-readable internal-
-reference retrofit for the 309-page SGA 5 English working edition. It is the
-preferred linked successor to the previously public non-exhaustive reader.
+This package is a privacy-clean public projection of the independently audited
+R9 reference retrofit for the complete 309-page English synchronized SGA 5
+reader. It preserves the final TeX and PDF byte-for-byte and supplies a
+machine-readable reference graph.
 
-The visible source and mathematical prose are not re-certified by this
-retrofit. The package remains a modern working translation, not a critical
-edition, mathematical certification, independent human peer review or new
-rights determination. Existing French-source, attribution and translation-
-status caveats continue to apply.
+## Reader and graph
 
-## Final reader identities
+- `SGA5_English_sync_workpass.tex`: exact editable reader source.
+- `SGA5_English_sync_workpass.pdf`: exact 309-page compiled reader.
+- `machine_readable_references/REFERENCE_TARGETS.csv`: 1,101 stable semantic
+  destinations.
+- `machine_readable_references/REFERENCE_EDGES.csv`: 1,578 accepted internal
+  reference edges.
+- `machine_readable_references/REFERENCE_CANDIDATES.csv`: 1,460 candidate
+  dispositions.
+- The exhaustive prelink and postlink ledgers prove that no internally
+  resolvable source-visible locator remains unwrapped or unadjudicated.
 
-- PDF: `output/SGA5_English_ReferenceLinked_R9_20260723.pdf`, 309 A4 pages,
-  SHA-256
-  `EF93294085E06FFCF1F95DD8D2DEBB14DAD22FED44D967E09D3BAB24F5C78F6E`.
-- Editable TeX: `working/SGA5_English_ReferenceLinked_R9_20260723.tex`,
-  SHA-256
-  `765067892F2F208015235BF548F2F8FA03E56DA63D4ED470CF5B67F08CA1CE2F`.
+The final PDF contains 2,343 named destinations and 1,614 valid internal GoTo
+annotations. Visible reference tokens remain unchanged; the new links use the
+reader's existing blue-link style.
 
-The compiled reader contains 1,101 stable targets, 1,578 resolved reference
-edges and 1,614 internal GoTo annotations. The 1,460 candidate dispositions
-leave zero unresolved, unwrapped or unadjudicated internal-reference
-candidates. Reverse reconstruction, three-pass convergence, font checks,
-visual QA and the independent root audit all pass.
+## Verification
 
-## Curated package boundary
+`PUBLIC_COMPILED_REFERENCE_VALIDATION.json` is the public, path-neutral replay
+receipt. The original independent read-only audit and visual-QA receipt are
+included unchanged. `PUBLIC_PAYLOAD_MANIFEST.csv` and `SHA256SUMS.csv` are
+self-excluding exact manifests; `PUBLIC_PAYLOAD_VALIDATION.json` validates the
+entire projected set and the two manifests.
 
-The frozen producer delivery is bound by
-`controls/SOURCE_R9_DELIVERY_MANIFEST.csv` and its validation receipt. This
-public package includes the final reader, editable source, machine-readable
-ledgers, validation receipts, audit reports and reproducibility scripts.
+## Limits
 
-Five contact-sheet PNGs from the 27-row producer delivery are deliberately
-not mirrored. They are reproducible whole-reader page renders rather than
-source-image crops and add no unique transcription evidence. Raw `.aux`,
-`.log` and `.out` build products are also excluded. No source scans are
-redistributed.
+This is a working English edition and reference retrofit, not a new critical
+edition or a claim of rights in the underlying SGA material. External-work
+citations and six unavailable same-work targets remain intentionally unlinked
+and are positively classified in the ledgers. Source scans, raw build logs,
+temporary files, and private filesystem paths are excluded.
 
-Publication must use the existing SGA Zenodo concept
-`10.5281/zenodo.20410947`; no duplicate concept is authorized.
+This package is intended to supersede the older non-exhaustive convenience
+reader after archive-maintenance validation. It does not create a second
+Zenodo concept, and its presence on disk is not a claim of publication or
+remote readback.
