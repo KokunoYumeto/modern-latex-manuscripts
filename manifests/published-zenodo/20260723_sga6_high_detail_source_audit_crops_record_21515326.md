@@ -60,11 +60,13 @@ anonymous public replay.
 Durable machine readbacks:
 
 - `20260723_sga6_high_detail_source_audit_crops_record_21515326_public_readback.json`,
-  15,338 bytes, SHA-256
-  `C902A468474B58AF0BC15B61ABEE1837A6802593C45091E1808C4EF216F0936F`.
+  15,066 public GitHub bytes after repository line-ending normalization,
+  SHA-256
+  `4A65768C7604BA910BB811A45A88F66DADC6EED6341F20E2C39885CA8EE3135E`.
 - `20260723_sga6_high_detail_source_audit_crops_record_21515326_zip_member_readback.json`,
-  448,347 bytes, SHA-256
-  `0CF6D85723B27BF51B9A0D85AF3F05FCD4D0BF76BA43F7D7BC9AA5C630A65CE7`.
+  436,651 public GitHub bytes after repository line-ending normalization,
+  SHA-256
+  `624CBCB1B6490F540031F7147CA031D1F291C4BC242AEE47CE0A1C83834CC8EB`.
 
 ## Claim Limits
 
