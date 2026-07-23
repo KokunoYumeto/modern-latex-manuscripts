@@ -1,6 +1,61 @@
-## 2026-07-23 SGA3 Expose V Loop2 native-diagram publication
+## 2026-07-23 SGA3 I-IV sealed public checkpoint r1 successor
 
 Current SGA version
+[`10.5281/zenodo.21512567`](https://doi.org/10.5281/zenodo.21512567)
+replaces the cumulative SGA3 I-IV reader, editable master, grouped archive,
+and three release controls with the independently sealed r1 checkpoint.
+GitHub commit `eb32f49d00b32099548685f53b8c6e5eda49b7a1` passed anonymous
+readback for all six package files and all 199 archive members.
+
+Anonymous Zenodo readback matched all 36 files / 126,252,577 bytes, all
+thirteen ZIPs, and all 1,123 actual file members / 156,162,900 uncompressed
+bytes. Thirty unrelated predecessor files were retained byte-identically.
+The direct reader order begins with SGA1, which Zenodo selects as the initial
+preview; SGA2 R8 remains second.
+
+The 266-page cumulative reader covers the Editorial Notice, Introduction, and
+complete Exposes I--IV. Its archive contains 56 editable TeX files and 128
+required PNGs. Every PNG hash already occurred in the predecessor public
+archive, so this successor introduces no new source-pixel class. Exposes I--III
+still use Loop-1 source-derived diagrams; Expose IV uses native TeX diagrams.
+
+The standalone Expose V Loop2 reader, TeX, 229-member rights-curated archive,
+and witness ledgers remain byte-identical. SGA3 remains incomplete after
+Expose V; Exposes VI--XXVI remain untranslated. No duplicate concept was
+created. See the
+[publication receipt](published-zenodo/20260723_sga3_i_iv_public_checkpoint_r1_record_21512567.md).
+
+## 2026-07-23 SGA3 cumulative through Expose IV Loop2 publication (predecessor)
+
+Predecessor SGA version
+[`10.5281/zenodo.21512082`](https://doi.org/10.5281/zenodo.21512082)
+consolidates the Editorial Notice, Introduction, and complete SGA3 Exposes
+I--IV into one 266-page cumulative Loop2/reference-v2 reader, one primary
+editable master, and one 200-member source/reference/QA archive. GitHub commit
+`5a71e3520d0e4f32f135ce0912d3097661d05d42` passed anonymous exact readback
+for all six package files and all 200 ZIP members.
+
+Anonymous Zenodo readback matched all 36 files / 124,653,791 bytes and all
+1,124 actual file members in thirteen ZIPs. Thirty unrelated predecessor
+files were retained byte-identically. The direct reader order begins with
+SGA1, which Zenodo selects as the initial preview; SGA2 R8 remains second.
+The immutable release validation retained the predecessor SGA2-preview
+expectation, and the live metadata now records that mismatch explicitly.
+
+The standalone Expose V Loop2 native-diagram reader remains unchanged and
+exactly read back. Its PDF and TeX match the later technically valid r4
+freeze4 package. The exact freeze4 tree is not claimed 298/298 public because
+its 66 Polo-Gille source-PDF crops remain rights-held; the public
+rights-curated archive has 229 members and publishes complete provenance
+metadata for every withheld witness.
+
+SGA3 remains incomplete after Expose V; Exposes VI--XXVI remain untranslated.
+No duplicate concept was created. See the
+[publication receipt](published-zenodo/20260723_sga3_i_iv_loop2_record_21512082.md).
+
+## 2026-07-23 SGA3 Expose V Loop2 native-diagram publication
+
+Predecessor SGA version
 [`10.5281/zenodo.21511144`](https://doi.org/10.5281/zenodo.21511144)
 presents 39 compact files and fourteen grouped archives. SGA2 R8 remains the
 default preview. Anonymous public readback matched all 39 files /
