@@ -2435,3 +2435,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   17 render pairs without finding a material defect.
 - Active Expose VI production is separate and does not alter this
   duplicate-suppression decision.
+
+## 2026-07-23 - SGA6 crop increment through idx326 published
+
+- GitHub commit `31449147368e7be008ec01c2569f6a9daadcf5bb` publishes the
+  exact 14-file package at
+  `sources/sga/sga6-high-detail-source-audit-crops-coldreverify-idx322-326-20260723`.
+- Existing-concept Zenodo version `10.5281/zenodo.21516193` adds two
+  grouped crop/provenance archives to immutable predecessor `21515795`; no
+  duplicate concept or active draft remains.
+- Anonymous readback passed for 46/46 Zenodo files / 285,607,992 bytes,
+  all 41 retained predecessor non-control files, 14/14 GitHub package files,
+  and 11/11 new ZIP members / 205,768 uncompressed bytes.
+- The increment covers indices 322-326. One targeted high-detail crop is public
+  as pixels; 25 routine page or page-band derivatives are represented only by
+  provenance and `rights_blocked_not_public` metadata.
+- The cumulative crop surface now preserves 1,935 high-detail crops as pixels
+  and metadata for 1,758 routine derivatives. The compact SGA surface has
+  21 ZIPs / 3,152 members / 314,900,818 uncompressed bytes.
+- SGA1 remains the default preview; the explicit Zenodo order remains empty
+  and therefore alphanumeric.
+- This is temporal visual/provenance evidence, not continuous SGA6 coverage,
+  scan republication, critical-edition certification, or a rights
+  determination.

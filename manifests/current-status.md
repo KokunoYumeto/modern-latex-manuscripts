@@ -1,26 +1,26 @@
-## 2026-07-23 SGA6 high-detail source-audit crop increment through idx321
+## 2026-07-23 SGA6 high-detail source-audit crop increment through idx326
 
 Current SGA version
-[`10.5281/zenodo.21515795`](https://doi.org/10.5281/zenodo.21515795)
-adds two grouped SGA6 visual-evidence archives to predecessor `21515326`.
-The increment covers audit indices 315-321 and contains four explicit
-symbol-level crops as pixels plus provenance and rights-blocked metadata for
-35 routine page or page-band derivatives.
+[`10.5281/zenodo.21516193`](https://doi.org/10.5281/zenodo.21516193)
+adds two grouped SGA6 visual-evidence archives to predecessor `21515795`.
+The increment covers audit indices 322-326 and contains one explicit targeted
+high-detail crop as pixels plus provenance and rights-blocked metadata for
+25 routine page or page-band derivatives.
 
-Anonymous Zenodo readback matched all 44 files / 285,398,864 bytes, all 14
-new archive members / 461,131 uncompressed bytes, and all 39 retained
+Anonymous Zenodo readback matched all 46 files / 285,607,992 bytes, all 11
+new archive members / 205,768 uncompressed bytes, and all 41 retained
 predecessor non-control files byte-for-byte. The complete grouped surface now
-contains 19 ZIPs and 3,141 members / 314,695,050 uncompressed bytes. It
-cumulatively preserves 1,934 high-detail checking crops as pixels and metadata
-for 1,733 routine derivatives. SGA1 remains the authoritative default preview;
+contains 21 ZIPs and 3,152 members / 314,900,818 uncompressed bytes. It
+cumulatively preserves 1,935 high-detail checking crops as pixels and metadata
+for 1,758 routine derivatives. SGA1 remains the authoritative default preview;
 the empty explicit order produces alphanumeric reader order. The latest-version
-endpoint resolves to `21515795`, and the unauthenticated draft endpoint
+endpoint resolves to `21516193`, and the unauthenticated draft endpoint
 returns 404.
 
-The increment closes at `2026-07-23T18:33:00Z`, after index 321 and before
-index 322. The overall surface remains temporal rather than a continuous SGA6
+The increment closes at `2026-07-23T19:26:00Z`, after index 326. The overall
+surface remains temporal rather than a continuous SGA6
 audit or scan republication. See the
-[publication receipt](published-zenodo/20260723_sga6_high_detail_source_audit_crops_idx315_321_record_21515795.md).
+[publication receipt](published-zenodo/20260723_sga6_high_detail_source_audit_crops_idx322_326_record_21516193.md).
 
 ## 2026-07-23 SGA3 I-IV sealed public checkpoint r1 successor
 
