@@ -18,9 +18,11 @@ import html
 import json
 import re
 import sys
+import time
 import urllib.request
 from pathlib import Path
 from typing import Any
+from urllib.error import HTTPError, URLError
 
 
 RECORDS: list[tuple[str, str]] = [
@@ -32,7 +34,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "21434690"),
     ("weber", "21402223"),
     ("cayley", "20617845"),
-    ("sga", "21507977"),
+    ("sga", "21509314"),
     ("deligne", "21212608"),
     ("ega", "20454552"),
     ("ukrainian_applied_math", "20520721"),
@@ -79,7 +81,7 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current SGA public surface is compact record 21507977. It directly exposes the SGA1 convenience reader, complete reference-linked SGA2 R8 reader, reference-linked SGA5 R9 reader, complete reference-linked SGA6 reader, and their primary editable TeX. SGA2 R8 is the default preview. French SGA5 and SGA6 workpass PDF/TeX files remain directly accessible; ancillary source closure, ledgers, QA, bounded checkpoints, and predecessor maps are grouped into eight coherent ZIPs. All 23 files and all 195 ZIP members passed anonymous byte-for-byte readback. SGA1 remains an in-progress convenience reader and has not received the exhaustive internal-reference retrofit. SGA3 is incomplete and absent, SGA4 proper is fail-closed, and SGA4half remains rights-held. Historical versions remain immutable. These are working editions and translations, not independently human-certified critical editions, rights determinations, mathematical certifications, uniform whole-series source certification, or whole-SGA completion. Record rights metadata remains License Not Specified.",
+        "Current SGA public surface is compact record 21509314. It directly exposes the complete-volume SGA1 working reader, complete reference-linked SGA2 R8 reader, bounded SGA3 through Expose III, standalone complete SGA3 Exposes IV and V, complete-scope SGA4 proper R2 working reader, SGA5 R9, SGA6, and their primary editable TeX. SGA2 R8 remains the default preview. Recursive source, diagrams, ledgers, QA, bounded checkpoints, and predecessor maps are grouped into thirteen coherent ZIPs. All 36 files and all 1,109 ZIP members passed anonymous byte-for-byte readback. SGA1 and SGA4 proper are complete in translation scope but are not exhaustively convention-v2 certified. SGA3 remains incomplete after Expose V; Exposes VI-XXVI remain untranslated, and Expose V retains 66 temporary diagram PNG obligations for Loop 2. SGA4half remains rights-held. Historical versions remain immutable. These are working editions and translations, not independently human-certified critical editions, rights determinations, mathematical certifications, uniform whole-series source certification, or whole-SGA completion. Record rights metadata remains License Not Specified.",
     ],
     "weber": [
         "Current Weber public surface is record 21402223. It is a readable modernized and summarized working presentation, but it is absolutely not source-critical. All three volumes remain incomplete: Volume I's direct German content-fidelity pass reaches printed p88 with p89 next; its English reader predates those repairs and is unsynchronized. Volume II reaches section 176 with repair packets but is incomplete. Volume III is also an incomplete repaired cumulative, not a finished v3 edition. The material can be useful and enjoyable to read, but modernization and summarization prevent treating it as source-faithful transcription, whole-volume symbol-by-symbol certification, synchronized English, publication-grade proofreading, or a critical edition. For source proximity, the bounded SGA source-audit work is substantially closer.",
@@ -137,8 +139,24 @@ TITLE_OVERRIDES = {
 
 def fetch_record(record_id: str) -> dict[str, Any]:
     url = f"https://zenodo.org/api/records/{record_id}"
-    with urllib.request.urlopen(url, timeout=60) as response:
-        return json.loads(response.read().decode("utf-8"))
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "modern-latex-manuscripts-catalog/1.0"},
+    )
+    for attempt in range(8):
+        try:
+            with urllib.request.urlopen(request, timeout=120) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except (HTTPError, URLError, TimeoutError):
+            if attempt == 7:
+                raise
+            print(
+                f"Retrying Zenodo record {record_id} after API failure "
+                f"({attempt + 1}/8)",
+                file=sys.stderr,
+            )
+            time.sleep(2 ** attempt)
+    raise AssertionError("unreachable")
 
 
 def file_role(filename: str) -> str:
