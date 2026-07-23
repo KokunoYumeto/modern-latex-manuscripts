@@ -63,6 +63,7 @@ UPLOAD_MANIFEST_NAME = (
     "ZENODO_UPLOAD_MANIFEST_20260723.csv"
 )
 SHA_NAME = "SGA6_HighDetail_SourceAudit_Crops_idx322_326_SHA256SUMS_20260723.txt"
+CORRECTION_NAME = "PROVENANCE_CORRECTION_20260723.md"
 
 PRIVATE_MARKERS = (
     "c:\\users\\",
@@ -381,7 +382,11 @@ def parse_audit_context(cert_bytes: bytes) -> tuple[list[dict[str, object]], dic
             "audit_heading": normalized,
         }
         rows.append(row)
-        by_index[index] = row
+        current = by_index.get(index)
+        if current is None or int(row["audit_entry_number"]) > int(
+            current["audit_entry_number"]
+        ):
+            by_index[index] = row
     rows.sort(key=lambda row: (int(row["parent_pdf_index_0based"]), int(row["audit_entry_number"])))
     return rows, by_index
 
@@ -833,6 +838,9 @@ optical detail beyond the parent scan.
 """
     readme_path = output_dir / README_NAME
     write_text_lf(readme_path, readme)
+    correction_path = output_dir / CORRECTION_NAME
+    if not correction_path.is_file():
+        raise RuntimeError(f"missing provenance correction note: {correction_path}")
 
     metadata_paths = [
         readme_path,
@@ -841,6 +849,7 @@ optical detail beyond the parent scan.
         recovered_manifest,
         blocked_manifest,
         audit_context,
+        correction_path,
     ]
     metadata_privacy: dict[str, list[str]] = {}
     for path in metadata_paths:
@@ -857,7 +866,13 @@ optical detail beyond the parent scan.
         explicit_zip_path,
         explicit_rows,
         scratch_dir,
-        [readme_path, parent_path, explicit_manifest, audit_context],
+        [
+            readme_path,
+            parent_path,
+            explicit_manifest,
+            audit_context,
+            correction_path,
+        ],
     )
     recovered_zip_result = None
     if recovered_rows:
@@ -865,7 +880,13 @@ optical detail beyond the parent scan.
             recovered_zip_path,
             recovered_rows,
             scratch_dir,
-            [readme_path, parent_path, recovered_manifest, audit_context],
+            [
+                readme_path,
+                parent_path,
+                recovered_manifest,
+                audit_context,
+                correction_path,
+            ],
         )
     metadata_zip_result = zip_payload(
         metadata_zip_path,

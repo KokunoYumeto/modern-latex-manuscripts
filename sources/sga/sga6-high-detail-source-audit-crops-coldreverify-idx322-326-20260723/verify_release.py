@@ -7,6 +7,7 @@ import argparse
 import csv
 import hashlib
 import json
+import re
 import sys
 import zipfile
 from pathlib import Path
@@ -141,10 +142,15 @@ def main() -> int:
         / "SGA6_HighDetail_SourceAudit_Crops_idx322_326_"
         "ZENODO_UPLOAD_MANIFEST_20260723.csv"
     )
+    audit_path = (
+        package_dir
+        / "SGA6_HighDetail_Crops_idx322_326_Audit_Context_20260723.csv"
+    )
     explicit_fields, explicit_rows = read_csv(explicit_path)
     recovered_fields, recovered_rows = read_csv(recovered_path)
     blocked_fields, blocked_rows = read_csv(blocked_path)
     upload_fields, upload_rows = read_csv(upload_path)
+    audit_fields, audit_rows = read_csv(audit_path)
 
     if len(explicit_rows) != 1:
         errors.append(f"explicit crop count is {len(explicit_rows)}, expected 1")
@@ -166,6 +172,34 @@ def main() -> int:
         for row in blocked_rows
     ):
         errors.append("blocked manifest contains a public pixel disposition")
+    latest_audit_by_index: dict[str, dict[str, str]] = {}
+    for row in audit_rows:
+        index = row["parent_pdf_index_0based"]
+        current = latest_audit_by_index.get(index)
+        if current is None or int(row["audit_entry_number"]) > int(
+            current["audit_entry_number"]
+        ):
+            latest_audit_by_index[index] = row
+    for row in all_rows:
+        latest = latest_audit_by_index.get(row["parent_pdf_index_0based"])
+        if latest is None:
+            errors.append(
+                "missing audit context for parent index "
+                f"{row['parent_pdf_index_0based']}"
+            )
+            continue
+        if row["linked_audit_entry"] != latest["audit_entry_number"]:
+            errors.append(
+                f"{row['source_basename']} links audit "
+                f"{row['linked_audit_entry']}, expected latest "
+                f"{latest['audit_entry_number']}"
+            )
+        if row["printed_page_from_audit"] != latest["printed_page_from_audit"]:
+            errors.append(
+                f"{row['source_basename']} printed-page link "
+                f"{row['printed_page_from_audit']!r}, expected "
+                f"{latest['printed_page_from_audit']!r}"
+            )
 
     source_errors: list[str] = []
     for row in explicit_rows + blocked_rows:
@@ -177,8 +211,35 @@ def main() -> int:
             source_errors.append(f"source identity mismatch: {row['source_basename']}")
     errors.extend(source_errors)
 
-    if sha256(cert_log) != validation["parent_source"]["cert_log_sha256_at_packaging_snapshot"]:
-        errors.append("certification-log snapshot identity changed before replay")
+    cert_snapshot_sha = validation["parent_source"][
+        "cert_log_sha256_at_packaging_snapshot"
+    ]
+    cert_snapshot_bytes = int(
+        validation["parent_source"]["cert_log_bytes_at_packaging_snapshot"]
+    )
+    cert_current_sha = sha256(cert_log)
+    cert_current_bytes = cert_log.stat().st_size
+    cert_snapshot_exact = cert_current_sha == cert_snapshot_sha
+    cert_text = cert_log.read_text(encoding="utf-8", errors="replace")
+    missing_audit_entries: list[str] = []
+    for row in audit_rows:
+        pattern = re.compile(
+            rf"^###\s+#{re.escape(row['audit_entry_number'])}\b.*?"
+            rf"\bidx{re.escape(row['parent_pdf_index_0based'])}\b",
+            re.MULTILINE,
+        )
+        if not pattern.search(cert_text):
+            missing_audit_entries.append(
+                f"{row['audit_entry_number']}@idx"
+                f"{row['parent_pdf_index_0based']}"
+            )
+    if cert_current_bytes < cert_snapshot_bytes:
+        errors.append("live certification log is smaller than packaged snapshot")
+    if missing_audit_entries:
+        errors.append(
+            "packaged audit entries missing from live certification log: "
+            f"{missing_audit_entries}"
+        )
 
     metadata_names = [
         "SGA6_HighDetail_SourceAudit_Crops_idx322_326_README_20260723.md",
@@ -187,6 +248,7 @@ def main() -> int:
         "SGA6_Recovered_Named_HighDetail_Crops_idx322_326_Manifest_20260723.csv",
         "SGA6_Routine_PageBands_idx322_326_RightsBlocked_Manifest_20260723.csv",
         "SGA6_HighDetail_Crops_idx322_326_Audit_Context_20260723.csv",
+        "PROVENANCE_CORRECTION_20260723.md",
     ]
     common_metadata = {
         f"metadata/{name}": (
@@ -205,6 +267,7 @@ def main() -> int:
                 metadata_names[1],
                 metadata_names[2],
                 metadata_names[5],
+                metadata_names[6],
             }
         },
         **{
@@ -292,7 +355,14 @@ def main() -> int:
             "files_scanned": len(public_text_paths),
             "hits": privacy_hits,
         },
-        "cert_log_sha256": sha256(cert_log),
+        "cert_log_snapshot": {
+            "packaged_bytes": cert_snapshot_bytes,
+            "packaged_sha256": cert_snapshot_sha,
+            "live_bytes": cert_current_bytes,
+            "live_sha256": cert_current_sha,
+            "exact_snapshot_match": cert_snapshot_exact,
+            "packaged_audit_entries_still_present": not missing_audit_entries,
+        },
     }
     report_path.write_text(
         json.dumps(report, indent=2, ensure_ascii=True) + "\n",
