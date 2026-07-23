@@ -1,6 +1,44 @@
-## 2026-07-23 SGA6 high-detail source-audit crop successor through idx330
+## 2026-07-24 SGA6 high-detail source-audit crop successor through idx348
 
 Current SGA version
+[`10.5281/zenodo.21520805`](https://doi.org/10.5281/zenodo.21520805)
+retains 45 files from predecessor `21519758` byte-identically, refreshes three
+release controls, and adds the idx331-348 explicit-crop and provenance pair.
+No duplicate concept or second version was created.
+
+Anonymous readback matched all 50 files / 286,436,338 bytes and all 25 ZIP
+archives. The archives contain 3,178 substantive file members plus six
+inherited directory placeholders / 315,721,490 uncompressed bytes, with zero
+unsafe paths or CRC failures. The latest pair passed exact 7/7 and 6/6 member
+replay.
+
+Three source-checking crops are public as pixels: an 11,000-DPI `i.j`
+punctuation crop at idx333, a 10,000-DPI `{Xt}` crop at idx335, and a
+9,000-DPI prose-`v` / formula-`\nabla` crop at idx339. Ninety routine
+2400-DPI page-band derivatives remain metadata-only and explicitly
+`rights_blocked_not_public`.
+
+The cumulative visual surface now preserves 1,939 public targeted or named
+high-detail crops and metadata for 1,868 rights-blocked routine derivatives.
+It remains temporal visual/provenance evidence, not continuous source
+certification, scan republication, or a rights decision.
+
+SGA1 is the anonymous public `default_preview` and renders all 262 pages.
+SGA3 remains incomplete: a later full Expose VI Loop-1 candidate failed an
+independent footnote-link audit and is not included, so bounded VI-A remains
+current. The sole SGA3 I-IV transport remains the previously dispatched
+199-file payload; later lean and cumulative-base notes are non-dispatched
+custody context only.
+
+The latest-version endpoint resolves to `21520805`; the unauthenticated draft
+endpoint returns `404`. See the
+[publication receipt](published-zenodo/20260724_sga6_high_detail_source_audit_crops_idx331_348_record_21520805.md)
+and
+[machine-readable public readback](published-zenodo/20260724_sga6_high_detail_source_audit_crops_idx331_348_record_21520805_public_readback.json).
+
+## 2026-07-23 SGA6 high-detail source-audit crop successor through idx330
+
+Predecessor SGA version
 [`10.5281/zenodo.21519758`](https://doi.org/10.5281/zenodo.21519758)
 adds the idx327-330 crop/provenance pair and corrects the preceding idx322-326
 archives' stale cold-review audit-number links. The correction changes no crop
