@@ -1,0 +1,752 @@
+\makeatletter
+\providecommand{\sgareaderlabel}[2]{%
+  \begingroup
+  \def\@currentlabel{#2}%
+  \phantomsection\label{#1}%
+  \endgroup}
+\makeatother
+
+\chapterspace{-1}
+\chapter{Algebraic Geometry and Formal Geometry}
+\label{IX}
+
+\medskip
+The purpose of this expos\'e is to generalize Theorems 3.4.2 and 4.1.5 of
+\emph{EGA III} to the case of a morphism that is not proper.
+
+\section*{1. The Comparison Theorem}
+\sgareaderlabel{IX.1}{1}
+
+Let $f\colon X\to X'$ be a morphism of preschemes that is
+\emph{separated} and of \emph{finite type}. Suppose that $X'$ is locally
+noetherian. Let $Y'$ be a closed subset of $X'$, and let
+$Y=f^{-1}(Y')$. Let $\widehat X$ and $\widehat{X'}$ be the formal
+completions of $X$ and $X'$ along $Y$ and $Y'$, respectively. Let
+$\widehat f$ be the morphism induced by $f$ upon passing to the completions.
+
+\begin{equation}
+\tag{1.1}\label{eq:IX.1.1}
+\begin{tikzcd}[column sep=3.1em,row sep=2.6em]
+X \arrow[d,"f"'] & Y \arrow[l] \arrow[d] &&
+\widehat{X} \arrow[d,"\widehat f"'] \arrow[r,"j"] & X \arrow[d,"f"] \\
+X' & Y' \arrow[l] & {,} &
+\widehat{X'} \arrow[r,"i"] & X'.
+\end{tikzcd}
+\end{equation}
+
+We denote by $j$ (resp. $i$) the morphism from $\widehat X$ to $X$
+(resp. from $\widehat{X'}$ to $X'$). It is known that $i$ and $j$ are
+\emph{flat}.
+
+Let $\mathcal I'$ be an ideal of definition of $Y'$, and let
+$\mathcal J=f^*(\mathcal I')\cdot\mathcal O_X$; this is an ideal of
+definition of $Y$. Hence
+\begin{equation}
+\tag{1.2}\label{eq:IX.1.2}
+\widehat{X'}=
+\left(Y',\varprojlim_{k\in\mathbb N}
+\mathcal O_{X'}/{\mathcal I'}^{k+1}\right),
+\qquad
+\widehat X=
+\left(Y,\varprojlim_{k\in\mathbb N}
+\mathcal O_X/\mathcal J^{k+1}\right).
+\end{equation}
+
+For every $k\in\mathbb N$, set
+\begin{equation}
+\tag{1.3}\label{eq:IX.1.3}
+Y'_k=\left(Y',\mathcal O_{X'}/(\mathcal I')^{k+1}\right),
+\qquad
+Y_k=\left(Y,\mathcal O_X/\mathcal J^{k+1}\right).
+\end{equation}
+
+Let $F$ be a coherent $\mathcal O_X$-module. For every $k\in\mathbb N$, set
+\begin{equation}
+\tag{1.4}\label{eq:IX.1.4}
+F_k=F/\mathcal J^{k+1}F,
+\qquad
+\widehat F=j^*(F)\simeq\varprojlim F_k.
+\end{equation}
+
+If we set
+\begin{equation}
+\tag{1.5}\label{eq:IX.1.5}
+R^i f_*(F)^{\wedge}
+=\varprojlim_{k\in\mathbb N}
+\left(R^i f_*(F)\otimes_{\mathcal O_{X'}}\mathcal O_{Y'_k}\right),
+\qquad i\in\mathbb Z,
+\end{equation}
+there is a natural homomorphism
+\begin{equation}
+\tag{1.6}\label{eq:IX.1.6}
+r_i:i^*(R^i f_*(F))\longrightarrow R^i f_*(F)^{\wedge},
+\end{equation}
+which is an \emph{isomorphism} when $R^i f_*(F)$ is \emph{coherent}.
+
+As explained in \emph{EGA III}, 4.1.1, there is a commutative diagram
+\begin{equation}
+\tag{1.7}\label{eq:IX.1.7}
+\begin{tikzcd}[column sep=5.2em,row sep=3.2em]
+i^*(R^i f_*(F))
+  \arrow[r,"\rho_i"]
+  \arrow[d,"r_i"]
+& R^i\widehat f_*(\widehat F)
+  \arrow[d,"\psi_i"] \\
+R^i f_*(F)^{\wedge}
+  \arrow[r,"\varphi_i"]
+& \displaystyle\varprojlim_{k\in\mathbb N} R^i f_*(F_k).
+\end{tikzcd}
+\end{equation}
+
+In the cited passage one obtains a commutative diagram because
+$R^i f_*(F)$ is known to be coherent, and the source and target of~\hyperref[eq:IX.1.6]{(1.6)}
+are identified. In our case, $R^i f_*(F)$ will be coherent only for certain
+values of $i$, for which we shall study~\hyperref[eq:IX.1.7]{(1.7)}.
+
+Consider the graded ring
+\begin{equation}
+\tag{1.8}\label{eq:IX.1.8}
+\mathcal S=\bigoplus_{k\in\mathbb N}{\mathcal I'}^k,
+\end{equation}
+and the graded $\mathcal S$-module
+\begin{equation}
+\tag{1.9}\label{eq:IX.1.9}
+\mathcal H^i=\bigoplus_{k\in\mathbb N}R^i f_*(\mathcal J^kF),
+\qquad i\in\mathbb Z,
+\end{equation}
+whose $\mathcal S$-module structure is defined as follows.
+
+The sheaf $R^i f_*(\mathcal J^kF)$ is associated with the presheaf that
+assigns to each affine open subset $U'$ of $X'$
+\begin{equation}
+\tag{1.10}\label{eq:IX.1.10}
+H^i\!\left(f^{-1}(U'),
+  \left.\mathcal J^kF\right|_{f^{-1}(U')}\right).
+\end{equation}
+Thus let $U'$ be an affine open subset of $X'$, set
+\[
+U=f^{-1}(U'),
+\]
+and let $x'\in{\mathcal I'}^m(U')$. Let $x$ be the image of $x'$ in
+$\mathcal J^m(U)$. Multiplication by $x$ on $F|_U$ maps
+$\mathcal J^kF|_U$ into $\mathcal J^{k+m}F|_U$ and hence, by
+functoriality, gives a morphism
+\begin{equation}
+\tag{1.11}\label{eq:IX.1.11}
+\mu^i_{x',k}(U'):
+H^i(U,\mathcal J^kF|_U)
+\longrightarrow
+H^i(U,\mathcal J^{k+m}F|_U),
+\end{equation}
+defined for every $i\in\mathbb Z$ and every $k\in\mathbb N$. Upon passage
+to the associated sheaf, these morphisms give $\mathcal H^i$ its graded
+$\mathcal S$-module structure.
+
+\begin{theoremIXoneone}\sgareaderlabel{IX.1.1}{1.1}
+Let $n$ be an integer. Suppose that the graded $\mathcal S$-module
+$\mathcal H^i$ is finitely generated for $i=n-1$ and $i=n$. Then:
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\setcounter{enumi}{-1}
+\item
+$r_n$ and $r_{n-1}$ are isomorphisms, and
+$R^i\widehat f_*(\widehat F)$ is coherent for $i=n-1$;
+
+\item
+for $i=n-1$, the maps $\rho_i$, $\varphi_i$, and $\psi_i$ are topological
+isomorphisms. In particular, the filtration on $R^{n-1}f_*(F)$ defined by
+the kernels of the homomorphisms
+\begin{equation}
+\tag{1.12}\label{eq:IX.1.12}
+R^{n-1}f_*(F)\longrightarrow R^{n-1}f_*(F_k)
+\end{equation}
+is $\mathcal I'$-good;
+
+\item
+for $i=n$, the maps $\rho_i$, $\varphi_i$, and $\psi_i$ are monomorphisms;
+moreover, the filtration on $R^n f_*(F)$ is $\mathcal I'$-good, and $\psi_n$
+is an isomorphism;
+
+\item
+for $i=n-2,n-1$, the projective system $R^i f_*(F_k)$ satisfies the uniform
+Mittag--Leffler condition; that is, there is a \emph{fixed} integer $k\geq0$
+such that, for every $p\geq0$ and every $p'\geq p+k$,
+\[
+\operatorname{Im}\!\left[R^i f_*(F_{p'})\longrightarrow R^i f_*(F_p)\right]
+=
+\operatorname{Im}\!\left[R^i f_*(F_{p+k})\longrightarrow R^i f_*(F_p)\right].
+\]
+\end{enumerate}
+\end{theoremIXoneone}
+
+Proceeding as in \emph{EGA III}, 4.1.8, it is easy to \emph{reduce to the case
+where $X'$ is the spectrum of a noetherian ring} $A$. In this case, it is
+known that
+\begin{equation}
+\tag{1.13}\label{eq:IX.1.13}
+R^i f_*(F)=\widetilde{H^i(X,F)}
+\qquad\text{(cf.~\hyperref[eq:IX.1.10]{(1.10)}).}
+\end{equation}
+Let $I$ be the ideal of $A$ such that $\widetilde I=\mathcal I'$, and set
+\begin{equation}
+\tag{1.14}\label{eq:IX.1.14}
+S=\bigoplus_{k\in\mathbb N}I^k,
+\end{equation}
+\begin{equation}
+\tag{1.15}\label{eq:IX.1.15}
+H^i=\bigoplus_{k\in\mathbb N}H^i(X,\mathcal J^kF),
+\qquad i\in\mathbb Z,
+\end{equation}
+where $H^i$ carries the graded $S$-module structure defined by~\hyperref[eq:IX.1.11]{(1.11)}, with
+$U'=X'$.
+\footnote{The corrected French TeX and same-edition PDF print $U=X'$ here.
+In the construction preceding~\hyperref[eq:IX.1.11]{(1.11)}, however, $U=f^{-1}(U')$; specializing
+the affine open to the whole base therefore requires $U'=X'$. The French
+authority is left unchanged.}
+
+The proof is modeled on that of \emph{EGA III}, 4.1.5; let us give a summary.
+
+We now work with $\varphi_i$ and $\psi_i$, to which the following module
+homomorphisms correspond:
+\begin{equation}
+\tag{1.16}\label{eq:IX.1.16}
+\begin{tikzcd}[column sep=5.2em,row sep=3.0em]
+& H^i(\widehat X,\widehat F)
+    \arrow[d,"\psi_i"] \\
+H^i(X,F)^{\wedge}
+    \arrow[r,"\varphi_i"]
+& \displaystyle\varprojlim_{k\in\mathbb N}H^i(X,F_k).
+\end{tikzcd}
+\end{equation}
+
+\noindent\textup{(a)} Suppose only that $H^i$ is a graded $S$-module of finite
+type. It follows that \emph{the filtration on $H^i(X,F)$ defined by the
+modules}
+\begin{equation}
+\tag{1.17}\label{eq:IX.1.17}
+R_k^i=\ker\bigl(H^i(X,F)\longrightarrow H^i(X,F_k)\bigr)
+\end{equation}
+\emph{is $I$-good}. Indeed, the exact cohomology sequence
+\begin{equation}
+\tag{1.18}\label{eq:IX.1.18}
+H^i(X,\mathcal J^{k+1}F)\longrightarrow H^i(X,F)
+  \longrightarrow H^i(X,F_k)
+\end{equation}
+shows that the \emph{graded $S$-module}
+$\bigoplus_{k\in\mathbb N}R_k^i$ \emph{is a quotient} of the graded
+$S$-submodule
+\[
+\bigoplus_{k\in\mathbb N}H^i(X,\mathcal J^{k+1}F)
+\]
+of $H^i$, and hence \emph{is of finite type}, since $S$ is noetherian. This
+proves the first assertion.
+
+Set
+\begin{equation}
+\tag{1.19}\label{eq:IX.1.19}
+M^i=H^i(X,F),\qquad H_k^i=H^i(X,F_k).
+\end{equation}
+There is a commutative diagram
+\begin{equation}
+\tag{1.20}\label{eq:IX.1.20}
+\begin{tikzcd}[column sep=5.5em,row sep=3.2em]
+H^i(X,F)^{\wedge}
+  \arrow[r,"s_i"]
+  \arrow[dr,"\varphi_i"']
+& \displaystyle\varprojlim_k(M^i/R_k^i)
+  \arrow[d,"t_i"] \\
+& \displaystyle\varprojlim_k H_k^i,
+\end{tikzcd}
+\end{equation}
+in which $s_i$ is an \emph{isomorphism}, since the filtration of $H^i(X,F)$
+is $I$-good. Moreover, $t_i$ is a \emph{monomorphism}: the functor
+$\varprojlim$ is left exact and, for every $k\geq 0$, the natural morphism
+$M^i/R_k^i\longrightarrow H_k^i$ is a monomorphism by the definition of
+$R_k^i$.
+
+To study the surjectivity of $t_i$, introduce
+\begin{equation}
+\tag{1.21}\label{eq:IX.1.21}
+Q_k^i=\operatorname{coker}\bigl(H^i(X,F)\longrightarrow H^i(X,F_k)\bigr),
+\end{equation}
+which gives a projective system of exact sequences
+\begin{equation}
+\tag{1.22}\label{eq:IX.1.22}
+0\longrightarrow R_k^i\longrightarrow M^i\longrightarrow H_k^i
+ \longrightarrow Q_k^i\longrightarrow 0.
+\end{equation}
+Using the exact cohomology sequence
+\begin{equation}
+\tag{1.23}\label{eq:IX.1.23}
+H^i(X,F)\longrightarrow H^i(X,F_k)
+ \longrightarrow H^{i+1}(X,\mathcal J^{k+1}F),
+\end{equation}
+we see that the \emph{graded $S$-module}
+\begin{equation}
+\tag{1.24}\label{eq:IX.1.24}
+Q^i=\bigoplus_{k\in\mathbb N}Q_k^i
+\end{equation}
+\emph{is a graded $S$-submodule of $H^{i+1}$}. Moreover, for every
+$k\geq0$,
+\begin{equation}
+\tag{1.25}\label{eq:IX.1.25}
+I^{k+1}Q_k^i=0,
+\end{equation}
+because $Q_k^i$ is the image of $H_k^i$.
+
+\sgareaderlabel{stepb}{b}\noindent\textup{(b)} Suppose only that $H^{i+1}$ is of finite type, and
+consider $t_i$ alone, disregarding $s_i$. Since $S$ is noetherian, $Q^i$ is of
+finite type; as $I^{k+1}Q_k^i=0$, there exist integers $r\geq0$ and $k_0\geq0$
+such that
+\begin{equation}
+\tag{1.26}\label{eq:IX.1.26}
+I^rQ_k^i=0\qquad\text{for }k\geq k_0.
+\end{equation}
+It follows that the \emph{projective system $(Q_k^i)_{k\in\mathbb N}$ is
+essentially zero}, and hence that the \emph{projective system
+$(H_k^i)_{k\in\mathbb N}$ satisfies the uniform Mittag--Leffler condition}.
+From the exact sequence~\hyperref[eq:IX.1.22]{(1.22)} we obtain the exact sequence
+\begin{equation}
+\tag{1.27}\label{eq:IX.1.27}
+0\longrightarrow M^i/R_k^i\longrightarrow H_k^i
+ \longrightarrow Q_k^i\longrightarrow0,
+\end{equation}
+and therefore the exact sequence
+\begin{equation}
+\tag{1.28}\label{eq:IX.1.28}
+0\longrightarrow\varprojlim_k M^i/R_k^i
+ \xrightarrow{t_i}\varprojlim_k H_k^i
+ \longrightarrow\varprojlim_k Q_k^i.
+\end{equation}
+But the projective system $(Q_k^i)_{k\in\mathbb N}$ is essentially zero, so
+$t_i$ is an \emph{isomorphism}.
+
+\noindent\textup{(c)} Let us prove that if $H^i$ is of finite type, then
+$\psi_i$ is an isomorphism. It suffices to apply \emph{EGA}~$0_{\mathrm{III}}$,
+13.3.1, taking the affine open subsets as a basis of open subsets of $X$.
+This is legitimate: by~(b), the projective system
+$(H_k^{i-1})_{k\in\mathbb N}$ satisfies the Mittag--Leffler condition.
+
+The theorem follows formally from~(a), (b), and~(c). Observe that, in fact, at
+each step the proof uses finite generation of $H^i$ for only one value of $i$.
+
+Let us give some examples in which the hypothesis of \hyperref[IX.1.1]{Theorem~1.1} is satisfied.
+
+\medskip
+\sgareaderlabel{IX.1.2}{1.2}\noindent\textbf{Corollary 1.2.}\quad
+\emph{Suppose that $\mathcal I'$ is generated by a section $t'$ of
+$\mathcal O_{X'}$, and denote by $t$ the corresponding section of
+$\mathcal O_X$. Let $F$ be a coherent $\mathcal O_X$-module, and let $n$ be
+an integer. Assume that:}
+\begin{enumerate}
+\item[(i)] \emph{$t$ is $F$-regular (that is, multiplication by $t$ on $F$
+is a monomorphism);}
+\item[(ii)] \emph{$R^i f_*(F)$ is coherent for $i=n-1$ and $i=n$.}
+\end{enumerate}
+\emph{Then the hypothesis of \hyperref[IX.1.1]{Theorem~1.1} is satisfied.}
+
+Indeed, multiplication by $t^k$ defines an isomorphism
+$F\xrightarrow{\sim}\mathcal J^kF$, from which it follows that
+\begin{equation}
+\tag{1.29}\label{eq:IX.1.29}
+H^i\simeq R^i f_*(F)\otimes_{\mathcal O_{X'}}\mathcal O_{X'}[T],
+\end{equation}
+where $T$ is an indeterminate. This proves the result.
+
+\sgareaderlabel{IX.1.3}{1.3}\noindent\textbf{Corollary 1.3.}\quad
+\emph{Suppose that $X'=\operatorname{Spec}(A)$, where $A$ is a noetherian ring
+that is separated and complete for the $I$-adic topology. Suppose that the
+graded $S$-module $H^i$ is of finite type for $i=n-1$ and $i=n$
+(cf.~\hyperref[eq:IX.1.14]{(1.14)} and~\hyperref[eq:IX.1.15]{(1.15)}). Then the hypotheses of \hyperref[IX.1.1]{Theorem~1.1} are satisfied, and
+there is a commutative diagram of isomorphisms}
+\begin{equation}
+\tag{1.30}\label{eq:IX.1.30}
+\begin{tikzcd}[column sep=4.6em,row sep=3.0em]
+H^i(X,F)
+  \arrow[rr,"\rho_i'"]
+  \arrow[dr,"\varphi_i'"']
+&& H^i(\widehat X,\widehat F)
+  \arrow[dl,"\psi_i"] \\
+& \displaystyle\varprojlim_k H^i(X,F_k)
+&& \text{for }i=n-1.
+\end{tikzcd}
+\end{equation}
+\noindent{\footnotesize\emph{Source-numbering note
+(SGA2-IX-EQ130-RENDERDEF-001).} The corrected French TeX
+labels this diagram \texttt{eq:\hyperref[eq:IX.1.30]{IX.1.30}}, the following proof cites \hyperref[eq:IX.1.30]{(1.30)}, and
+the next numbered formula is \hyperref[eq:IX.1.31]{(1.31)}. The same-edition rendered PDF nevertheless
+prints \hyperref[eq:IX.1.30]{(1.1)}, apparently because its subsection step resets the equation
+counter. The French files are left unchanged; the intended tag \hyperref[eq:IX.1.30]{(1.30)} is used
+here.}
+
+\section*{Editor's note (1)}
+In the same vein, see the article by W.-L. Chow, ``Formal functions on
+homogeneous spaces,'' \emph{Invent. Math.} \textbf{86} (1986), no.~1,
+pp.~115--130. The author proves the following result. Let $X$ be an algebraic
+variety over a field, homogeneous under an algebraic group $G$, and let $Z$ be
+a complete subvariety of $X$ of dimension $>0$. Suppose that $Z$ generates $X$
+in the following sense: given $p\in Z$, let $\Gamma_p$ be the set of elements
+of $G$ that send $p$ into $Z$. One says that $Z$ generates $X$ if the group
+generated by the identity component of $\Gamma_p$ is all of $G$. In that case,
+every formal rational function on $X$ along $Z$ is algebraic; compare the
+results of Hironaka and Matsumura cited in editor's note~(3), p.~138.
+
+Along the lines of the techniques introduced by those authors, we also mention
+the elegant algebraization result due to D.~Gieseker, ``On two theorems of
+Griffiths about embeddings with ample normal bundle,'' \emph{Amer. J. Math.}
+\textbf{99} (1977), no.~6, pp.~1137--1150, Theorems~4.1 and~4.2. Let $X$ be a
+connected projective variety of dimension $>0$, locally a complete intersection
+over an algebraically closed field. Suppose there are two embeddings of $X$
+into smooth projective varieties $Y$ and $W$. If the formal completions of $X$
+in $Y$ and $W$ are equivalent, then there exists a scheme $U$ containing $X$
+as a closed subscheme which embeds into both $Y$ and $W$ as an étale
+neighborhood of $X$. In other words, formal equivalence implies étale
+equivalence.
+
+See also G.~Faltings, ``Formale Geometrie und homogene Räume,''
+\emph{Invent. Math.} \textbf{64} (1981), pp.~123--165.
+
+\medskip
+\noindent{\footnotesize\emph{Source-defect note
+(SGA2-IX-L3156-PUNCT-SRCDEF-001;
+SGA2-IX-L3157-FALTINGS-TITLE-SRCDEF-001).} The French TeX and its
+same-edition PDF omit the sentence stop before ``Autrement dit.'' They also
+print the Faltings title in the mixed and misspelled form ``Formale Geometrie
+and homogene Raüme.'' The target restores the sentence boundary and the
+published German title; the French authority remains unchanged.}
+
+\noindent\emph{Proof.}\quad
+We simply note that $H^i(X,F)$ is of finite type and hence isomorphic to its
+completion. One obtains~\hyperref[eq:IX.1.30]{(1.30)} by transcribing the diagram of modules~\hyperref[eq:IX.1.7]{(1.7)}
+into the category of $A$-modules and replacing the left-hand vertical by
+$H^i(X,F)$.
+
+\medskip
+\noindent{\footnotesize\emph{Source-numbering note
+(SGA2-IX-EQ130-RENDERDEF-001).} The corrected French
+TeX cites its label \texttt{eq:\hyperref[eq:IX.1.30]{IX.1.30}}; the next numbered formula is \hyperref[eq:IX.1.31]{(1.31)}.
+The same-edition rendered PDF prints the referenced diagram as \hyperref[eq:IX.1.30]{(1.1)} because
+of an apparent counter reset. The French authority remains unchanged; the
+intended reference \hyperref[eq:IX.1.30]{(1.30)} is retained here.}
+
+\sgareaderlabel{IX.1.4}{1.4}\noindent\textbf{Proposition 1.4.}\quad
+{\itshape Let $A$ be a noetherian ring. Let $t\in A$, and suppose that $A$ is
+separated and complete for the $(tA)$-adic topology. Set
+\begin{equation}
+\tag{1.31}\label{eq:IX.1.31}
+X'=\operatorname{Spec}(A),\qquad Y'=V(t),\qquad I=(tA).
+\end{equation}
+Let $T$ be a closed subset of $X'$, and set
+\begin{equation}
+\tag{1.32}\label{eq:IX.1.32}
+X=X'\setminus T,\qquad
+Y=Y'\cap X=Y'\setminus(Y'\cap T).
+\end{equation}
+Let $F$ be a coherent $\mathcal O_X$-module. Finally, set
+\begin{equation}
+\tag{1.33}\label{eq:IX.1.33}
+T'=\bigl\{x\in X'\mid
+\codimop\bigl(\overline{\{x\}}\cap T,\overline{\{x\}}\bigr)=1\bigr\}.
+\end{equation}
+Suppose that
+\begin{enumerate}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\item $t$ is $F$-regular;
+\item $\prof_{T'}(F)\ge n+1$;
+\item $A$ is a quotient of a regular noetherian ring.
+\end{enumerate}
+Then, in diagram~\hyperref[eq:IX.1.30]{(1.30)}, the morphisms $\rho'_i$, $\varphi'_i$, and $\psi_i$
+are isomorphisms for $i<n$ and monomorphisms for $i=n$. Moreover, $\psi_n$
+is an isomorphism.}
+
+\medskip
+\noindent{\footnotesize\emph{Source-notation and numbering note
+(SGA2-IX-L3177-CLOSURE-BRACING-SRCDEF-001;
+SGA2-IX-EQ130-RENDERDEF-001).} In \hyperref[eq:IX.1.33]{(1.33)}
+the French TeX and its same-edition PDF put braces around $\overline{x}$,
+whereas the defining codimension formula in Expos\'e VIII, \hyperref[IX.2.1]{Theorem~2.1}, uses
+$\overline{\{x\}}$. The target makes that intended closure-of-the-point
+notation explicit; French remains unchanged. French line 3189 cites
+\texttt{eq:\hyperref[eq:IX.1.30]{IX.1.30}}; the target retains \hyperref[eq:IX.1.30]{(1.30)}, rather than the same-edition
+PDF's accidental counter-reset display \hyperref[eq:IX.1.30]{(1.1)}.}
+
+\noindent\emph{Proof.}\quad
+By~\hyperref[eq:IX.1.3]{(1.3)} and~\hyperref[eq:IX.1.2]{(1.2)}, it suffices to prove that $R^i f_*(F)$ is coherent for
+$i\le n$; this follows from the finiteness theorem, Expos\'e~VIII,
+\hyperref[IX.2.1]{Theorem~2.1}.
+
+\medskip
+\noindent In particular:
+
+\sgareaderlabel{IX.1.5}{1.5}\noindent\textbf{Example 1.5.}\quad
+\hyperref[IX.1.4]{Proposition~1.4} applies when $A$ is a local ring and $t$ belongs to the
+radical $\mathfrak r(A)$ of $A$. We then take
+$T=\{\mathfrak r(A)\}$. In this case, for $n=1$, we obtain the following
+statement:
+
+\medskip
+{\itshape If $A$ is noetherian, separated and complete for the $t$-adic
+topology, and is a quotient of a regular ring (for example, if $A$ is
+complete), if moreover $t$ is $F$-regular and $\prof F_x\ge2$ for every
+$x\in\operatorname{Spec}(A)$ such that $\dim(A/x)=1$, then the natural
+homomorphism
+\[
+  \Gamma(X,F)\longrightarrow\Gamma(\widehat X,\widehat F)
+\]
+is an isomorphism.}
+
+\medskip
+Indeed, retaining the notation of \hyperref[IX.1.4]{Proposition~1.4}, we have
+$T=\{\mathfrak r(A)\}$, and \hyperref[eq:IX.1.33]{formula~(1.33)} says that
+\[
+  T'=\{x\in\operatorname{Spec}(A)\mid\dim(A/x)=1\}.
+\]
+
+\medskip
+\noindent{\footnotesize\emph{Source-cross-reference note
+(SGA2-IX-EXAMPLE15-SRCDEF-001).} French lines 3196
+and 3202 use the key \texttt{eq:\hyperref[eq:IX.1.4]{IX.1.4}}, which formally names \hyperref[eq:IX.1.4]{equation~(1.4)},
+although the grammar and the retained hypotheses/notation unambiguously refer
+to \hyperref[IX.1.4]{Proposition~1.4}. The same-edition PDF displays only the number `\hyperref[IX.1.4]{1.4}' and
+does not resolve the key. The target makes the semantic reference explicit;
+the French authority remains unchanged.}
+
+\setcounter{section}{1}
+\section{The Existence Theorem}\label{IX.2}
+
+Let us first state EGA~III, 3.4.2 in a slightly more general form.
+
+Let $f:\mathfrak X\to\mathfrak X'$ be an adic
+morphism\markedfootnote{(*)}{This hypothesis is not essential; cf.
+Expos\'e~XII, p.~118.} of formal preschemes, with $\mathfrak X'$ noetherian.
+Let $\mathcal I'$ be an ideal of definition of $\mathfrak X'$; since $f$ is
+adic,
+$f^*\mathcal I'=\mathcal J$ is\markedfootnote{(2)}{\textit{Editor's note.}
+By the very definition; cf. EGA~I, 10.12.1.} an ideal of definition of
+$\mathfrak X$.
+
+For every $n\in\mathbb N$, set
+\begin{equation}\label{eq:IX.2.1}
+  \mathfrak X_n=
+  \bigl(\mathfrak X,\mathcal O_{\mathfrak X}/\mathcal J^{n+1}\bigr);
+\end{equation}
+this is an ordinary prescheme with the same underlying topological space as
+$\mathfrak X$.
+
+Let $\mathfrak F$ be a coherent $\mathcal O_{\mathfrak X}$-module. For every
+$k\in\mathbb N$, the $\mathcal O_{\mathfrak X_k}$-modules
+\begin{equation}
+\tag{2.2}\label{eq:IX.2.2}
+F_k=\mathfrak F/\mathcal J^{k+1}\mathfrak F
+\end{equation}
+are coherent. For every $i$, there is a homomorphism
+\begin{equation}
+\tag{2.3}\label{eq:IX.2.3}
+\psi_i:R^i f_*(\mathfrak F)
+  \longrightarrow\varprojlim_k R^i f_*(F_k),
+\end{equation}
+induced by functoriality from the natural homomorphism
+\begin{equation}
+\tag{2.4}\label{eq:IX.2.4}
+\mathfrak F\longrightarrow F_k.
+\end{equation}
+
+Set
+\begin{equation}
+\tag{2.5}\label{eq:IX.2.5}
+\mathbf S
+  =\operatorname{gr}_{\mathcal I'}\mathcal O_{\mathfrak X'}
+  =\bigoplus_{k\in\mathbb N}\mathcal I'^{k}/\mathcal I'^{k+1},
+\end{equation}
+\begin{equation}
+\tag{2.6}\label{eq:IX.2.6}
+\operatorname{gr}_{\mathcal J}(\mathfrak F)
+  =\bigoplus_{k\in\mathbb N}
+    \mathcal J^{k}\mathfrak F/\mathcal J^{k+1}\mathfrak F,
+\end{equation}
+\begin{equation}
+\tag{2.7}\label{eq:IX.2.7}
+\mathbf K^{i}
+  =R^{i}f_*\bigl(\operatorname{gr}_{\mathcal J}(\mathfrak F)\bigr)
+  =\bigoplus_{k\in\mathbb N}
+    R^{i}f_*\bigl(\mathcal J^{k}\mathfrak F/
+      \mathcal J^{k+1}\mathfrak F\bigr).
+\end{equation}
+It is clear that $\mathbf K^{i}$ is endowed with the structure of a graded
+$\mathbf S$-module.
+
+\medskip
+\noindent\textbf{Theorem 2.1.}\sgareaderlabel{IX.2.1}{2.1}\quad
+{\itshape Suppose that $\mathbf K^i$ is a graded $\mathbf S$-module of finite
+type for $i=n-1$, $i=n$, and $i=n+1$. Then:
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\roman{enumi})}
+\setlength{\itemsep}{0.35em}
+\item $R^n f_*(\mathfrak F)$ is coherent.
+\item The homomorphism $\psi_n$ in~\hyperref[eq:IX.2.3]{(2.3)} is a topological isomorphism. The
+natural filtration on the right-hand side of~\hyperref[eq:IX.2.3]{(2.3)} is $\mathcal I'$-good.
+\item The projective system of the $R^n f_*(F_k)$ satisfies the uniform
+Mittag-Leffler condition.
+\end{enumerate}}
+
+\medskip
+\noindent\textit{Proof.}\quad
+The proof follows very easily from EGA~$0_{\mathrm{III}}$, 13.7.7
+(cf. EGA~III, 3.4.2), provided that the text on page~78 is corrected as
+indicated\sgareaderlabel{pagerectif}{11} in (EGA~III~2, $\mathrm{Err}_{\mathrm{III}}\,24$).
+
+\medskip
+\sgareaderlabel{IX.2.2}{2.2}\noindent\textbf{Theorem 2.2}\textsuperscript{(3)}.\quad
+{\itshape Let $A$ be a noetherian adic ring, and let $I$ be an ideal of
+definition of $A$. Let $T$ be a closed subset of
+$X'=\operatorname{Spec}(A)$. Suppose that $I$ is generated by an element
+$t\in A$. Retain the notation of~\hyperref[eq:IX.1.31]{(1.31)}, \hyperref[eq:IX.1.32]{(1.32)}, and~\hyperref[eq:IX.1.33]{(1.33)}. Let
+$\mathfrak F$ be a coherent $\mathcal O_{\widehat X}$-module. Set
+\begin{equation}
+\tag{2.8}\label{eq:IX.2.8}
+F_0=\mathfrak F/\mathcal J\mathfrak F,
+\end{equation}
+\par\smallskip
+\noindent{\normalfont\footnotesize\color{notegray}
+\textbf{Source-render note
+[SGA2-IX-T22-EQ28-COUNTER-SRCDEF-001].}
+The admitted French counter order renders this display as~\hyperref[eq:IX.2.8]{(2.1)}, although
+its label and the surrounding sequence require~\hyperref[eq:IX.2.8]{(2.8)}. The English target
+uses~\hyperref[eq:IX.2.8]{(2.8)}; the French authority remains unchanged.}
+\par\smallskip
+where $\mathcal J=t\mathcal O_{\widehat X}$ is an ideal of definition of
+$\widehat X$. \emph{Suppose that} $A$ is a quotient of a regular
+noetherian ring and that:
+\begin{enumerate}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\setlength{\itemsep}{0.35em}
+\item $t$ is $\mathfrak F$-regular;
+\item $\operatorname{prof}_{T'}F_0\geq 2$.
+\end{enumerate}
+Then there exists a coherent $\mathcal O_X$-module $F$ such that
+$\widehat F\simeq\mathfrak F$.}
+
+\medskip
+\noindent\colorbox{softgray}{\parbox{0.95\linewidth}{\small
+\color{notegray}\textbf{Editor's note (3).}
+Numerous algebraization statements have been obtained since, without
+mentioning those cited below; see the articles by Faltings or by Mme Raynaud
+cited, respectively, in editor's note~(22) on p.~155 and editor's note~(7)
+on p.~203.
+
+\smallskip
+{\footnotesize\textbf{Source-defect note
+[SGA2-IX-L3265-ONT-GRAMMAR-SRCDEF-001].}
+The admitted French reads \emph{on \'et\'e obtenus}; the plural subject
+requires \emph{ont \'et\'e obtenus}. The English phrase ``have been
+obtained'' gives the intended plural sense; the French authority remains
+unchanged.}
+
+\smallskip
+One has in mind in particular Artin's results (see especially
+Artin M., ``Algebraization of formal moduli. I,'' in \emph{Global Analysis
+(Papers in Honor of K.~Kodaira)}, Univ. Tokyo Press, Tokyo, 1969,
+pp.~21--71), but also recent results on the algebraicity of leaves of
+foliations; see especially Bost J.-B., ``Algebraic leaves of algebraic
+foliations over number fields,'' \emph{Publ. Math. Inst. Hautes
+\'Etudes Sci.} \textbf{93} (2001), pp.~161--221, and Chambert-Loir A.,
+``Th\'eor\`emes d'alg\'ebricit\'e en g\'eom\'etrie diophantienne (d'apr\`es
+J.-B. Bost, Y.~Andr\'e, D.~\& G.~Chudnovsky),'' in \emph{S\'eminaire
+Bourbaki, Vol. 2000/2001}, \emph{Ast\'erisque}, vol.~282, Soci\'et\'e
+math\'ematique de France, Paris, 2002, Exp.~886, pp.~175--209, and the
+references cited there. In particular, the latter two articles contain
+discussions of the connection between algebraization questions and the
+theory of Diophantine approximation.}}
+
+\medskip
+\noindent\textit{Proof.}\quad
+It suffices to prove that $\widehat f_*(\mathfrak F)$ is a coherent
+$\mathcal O_{\widehat{X'}}$-module, where
+$\widehat f\colon\widehat X\to\widehat{X'}$ is the morphism of formal
+preschemes obtained from the inclusion of $X$ into $X'$ by completion with
+respect to $t$. Indeed, $A$ is separated and complete for the $t$-adic
+topology, so there exists an $A$-module $F'$ whose completion is isomorphic
+to $\widehat f_*(\mathfrak F)$. Since $X$ is open in $X'$, we may take
+\[
+F=\widetilde{F'}\big|_X.
+\]
+
+\noindent\colorbox{softgray}{\parbox{0.95\linewidth}{\footnotesize
+\color{notegray}\textbf{Source-defect note
+[SGA2-IX-L3280-PUSHFORWARD-BASE-SRCDEF-001].}
+The French TeX and the same-edition reader print
+$\mathcal O_{\widehat X}$ in the first sentence. Since the pushforward along
+$\widehat f\colon\widehat X\to\widehat{X'}$ is a sheaf on the target, the
+English target uses the type-correct $\mathcal O_{\widehat{X'}}$. The French
+authority remains unchanged under manager decision
+EG-SGA2-IX-T22-SOURCE-DEFECT-ADJUDICATION-20260719-0001.}}
+
+\medskip
+It remains to show that \hyperref[IX.2.1]{Theorem~2.1} applies to the morphism of formal
+preschemes $\widehat f$ and to $\mathfrak F$. By hypothesis~\hyperref[IX.2.2]{(1)}, for every
+$k\in\mathbb N$ there is an isomorphism
+\[
+\mathcal J^k\mathfrak F/\mathcal J^{k+1}\mathfrak F
+  \to \mathfrak F/\mathcal J\mathfrak F,
+\]
+and hence the hypothesis of \hyperref[IX.2.1]{Theorem~2.1} is satisfied provided that
+\[
+R^i f_*(F_0)\text{ is coherent for }i\leq 1.
+\]
+This follows from~\hyperref[IX.2.2]{(2)} and the finiteness theorem of Expos\'e~VIII,
+\hyperref[IX.2.1]{Theorem~2.1}. This proves the result.
+
+\medskip
+\noindent\colorbox{softgray}{\parbox{0.95\linewidth}{\footnotesize
+\color{notegray}\textbf{Source-notation observation
+[SGA2-IX-L3283-PLAIN-ARROW-OBS-001].}
+The corrected TeX and its same-edition reader use a plain $\to$ in the
+display while the preceding prose explicitly calls the map an isomorphism.
+This is an observation, not a confirmed defect. The target retains both
+features; no $\sim$ has been added over the arrow.}}
+
+\medskip
+It remains to specialize this statement under the assumption that $A$ is a
+local ring.
+
+\medskip
+\sgareaderlabel{IX.2.3}{2.3}\noindent\textbf{Corollary 2.3.}\quad
+\emph{Let $A$ be a noetherian local ring, and let
+$t\in\mathfrak r(A)$ be an element of the radical of $A$. Suppose that $A$
+is separated and complete for the $t$-adic topology and, moreover, is a
+quotient of a regular ring (for example, suppose that $A$ is a complete
+noetherian local ring). Set}
+\begin{equation}
+\tag{2.9}\label{eq:IX.2.9}
+X'=\operatorname{Spec}A,\qquad T=\{\mathfrak r(A)\},
+\end{equation}
+\emph{and retain the notation of \hyperref[eq:IX.1.31]{(1.31)}, \hyperref[eq:IX.1.32]{(1.32)}, and \hyperref[eq:IX.1.33]{(1.33)}. Let
+$\mathfrak F$ be an $\mathcal O_{\widehat X}$-module. Suppose that}
+\begin{enumerate}
+\item $t$ is $\mathfrak F$-regular;
+\item $\prof_{T'}F_0\geq 2$, where
+$F_0=\mathfrak F/\mathcal J\mathfrak F$ and
+$\mathcal J=t\mathcal O_{\widehat X}$.
+\end{enumerate}
+\emph{Then there exists a coherent $\mathcal O_X$-module $F$ such that
+$\widehat F\simeq\mathfrak F$.}
+
+\medskip
+\noindent\colorbox{softgray}{\parbox{0.95\linewidth}{\footnotesize
+\color{notegray}\textbf{Source-structure note
+(SGA2-IX-L3304-ENUM-STRUCTURE-SRCDEF-001).}
+The French TeX closes its \texttt{enumerate} environment only after the
+conclusion, syntactically nesting ``Alors il existe'' inside item~\hyperref[IX.2.3]{(2)}. The
+same-edition PDF preserves the source order but visually masks this nesting:
+the conclusion begins at the corollary margin, not at the item-text margin.
+The conclusion is consequent on both hypotheses, not part of hypothesis~\hyperref[IX.2.3]{(2)};
+the English therefore closes the list before ``Then.'' The French authority
+remains byte-identical; this disclosed repair follows the manager's final
+adjudication.}}
+
+\medskip
+\noindent Note that here $T'$ is the set of prime ideals $\mathfrak p$ of
+$A$ such that
+\[
+  \dim(A/\mathfrak p)=1.
+\]
