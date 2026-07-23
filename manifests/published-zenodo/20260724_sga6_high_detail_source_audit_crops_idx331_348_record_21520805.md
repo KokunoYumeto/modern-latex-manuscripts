@@ -82,8 +82,8 @@ custody context and do not create another I-IV version.
 The full machine-readable public readback, including all 50 file hashes and
 all 3,184 member hashes, is
 `20260724_sga6_high_detail_source_audit_crops_idx331_348_record_21520805_public_readback.json`,
-1,341,463 bytes, SHA-256
-`49856D08DF8695481BA02D2F9F8530372976E1DC626495885706A802FE7CAC6E`.
+1,308,805 bytes, SHA-256
+`FD1A0273B451BB79D8C000086D829744B4BFEBEF652E55CDA7A22B13E1F33F0A`.
 
 OpenAI Codex / ChatGPT and Anthropic Claude remain credited as contributors.
 Historical versions remain immutable.
