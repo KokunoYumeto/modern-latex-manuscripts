@@ -2382,3 +2382,43 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The snapshot is temporal through the cutoff after `idx314`, not continuous
   SGA6 coverage, scan republication, critical-edition certification, or a
   rights determination.
+
+## 2026-07-23 - SGA6 crop increment through idx321 published
+
+- GitHub commit `592f7491abca39ee533fdd028f3c4dcdd0a8e760` publishes the
+  exact 14-file package at
+  `sources/sga/sga6-high-detail-source-audit-crops-coldreverify-idx315-321-20260723`.
+- Existing-concept Zenodo version `10.5281/zenodo.21515795` adds two
+  grouped crop/provenance archives to immutable predecessor `21515326`; no
+  duplicate concept or active draft remains.
+- Anonymous readback passed for 44/44 Zenodo files / 285,398,864 bytes,
+  all 39 retained predecessor non-control files, 14/14 GitHub package files,
+  and 14/14 new ZIP members / 461,131 uncompressed bytes.
+- The increment covers indices 315-321. Four explicit symbol-level crops are
+  public as pixels; 35 routine page or page-band derivatives are represented
+  only by provenance and `rights_blocked_not_public` metadata.
+- The cumulative crop surface now preserves 1,934 high-detail crops as pixels
+  and metadata for 1,733 routine derivatives. The compact SGA surface has
+  19 ZIPs / 3,141 members / 314,695,050 uncompressed bytes.
+- SGA1 remains the default preview; the explicit Zenodo order remains empty
+  and therefore alphanumeric.
+- This is temporal visual/provenance evidence, not continuous SGA6 coverage,
+  scan republication, critical-edition certification, or a rights
+  determination.
+
+## 2026-07-23 - SGA3 I-IV duplicate transport suppressed
+
+- The sole controlling I-IV transport remains the 199-file / 6,911,184-byte
+  checkpoint rooted at
+  `sga3_english_i_iv_public_checkpoint_projection_20260723_r1/public_payload`,
+  with 198-row manifest SHA-256
+  `2F78F112B9F5A368725E56AD432B13EAE9B8EE08052AC3B699C0A22452EE6DC8`.
+- Its `ARCHIVE_DISPATCH_RECEIPT_20260723.md` is 1,659 bytes, SHA-256
+  `A7D78BAD5B596F6034C3110B1442FF45C0A5E41FC080297E8958EDC7E83B916B`.
+- Its 266-page reader, 56 TeX files, 128 PNG assets, convention-v2 data,
+  Reinhold attribution, and rights caveats are already represented by the
+  retained SGA3 I-IV public objects on the existing SGA concept.
+- The later lean I-IV projection is audit-only. It does not authorize a
+  second transport, additive publication, replacement, or Zenodo version.
+- Active Expose VI production is separate and does not alter this
+  duplicate-suppression decision.
