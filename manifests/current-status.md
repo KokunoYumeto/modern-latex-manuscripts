@@ -1,23 +1,25 @@
-## 2026-07-23 compact reference-linked SGA publication
+## 2026-07-23 SGA public-progress publication
 
 SGA version
-[`10.5281/zenodo.21507977`](https://doi.org/10.5281/zenodo.21507977)
-replaces the crowded current landing surface with 23 deliberately ordered
-files: direct SGA1, SGA2 R8, SGA5 R9, and SGA6 English readers; direct primary
-editable TeX; the retained SGA5/6 French workpass PDFs and TeX; and eight
-coherent evidence/source ZIPs. SGA2 R8 is the default preview.
+[`10.5281/zenodo.21509314`](https://doi.org/10.5281/zenodo.21509314)
+presents 36 compact files: eight sequential English readers for SGA1-6, two
+French workpasses, ten direct TeX files, three controls, and thirteen grouped
+archives. SGA2 R8 remains the default preview.
 
-Anonymous public readback matched all 23 files / 93,014,696 bytes and all 195
+Anonymous public readback matched all 36 files / 128,344,908 bytes and all 1,109
 ZIP file members byte-for-byte. Safe-path and CRC checks passed, the same
-existing concept `10.5281/zenodo.20410947` remains in use, no active draft
-remains, and immutable predecessor `21499857` was rechecked unchanged.
+existing concept `10.5281/zenodo.20410947` remains in use, and no active draft
+remains. The Expose V GitHub package at commit
+`38c8db67df45af82ffbe2d394125d13be2cbb6fc` passed anonymous raw readback for
+all five files and all 268 ZIP members.
 
-SGA5 R9 and SGA6 are the current supplied exhaustive internal-reference
-retrofits. SGA1 remains an explicitly labeled convenience reader whose
-translation is in progress and which has not received that exhaustive
-retrofit. SGA3 is absent and incomplete; SGA4 proper remains fail-closed; and
-SGA4half remains rights-held. See the
-[publication receipt](published-zenodo/20260723_sga_compact_reference_linked_record_21507977.md).
+SGA1 and SGA4 proper are complete in translation scope as working readers but
+are not exhaustively convention-v2 certified. SGA3 is public through complete
+Expose III plus standalone complete Exposes IV and V and remains incomplete.
+Expose V freeze3 passed three fresh independent reviews; its 66 temporary PNG
+diagrams still require native or faithful Loop-2 replacement. Exposes VI--XXVI
+remain untranslated. SGA4half remains rights-held. See the
+[publication receipt](published-zenodo/20260723_sga_public_progress_record_21509314.md).
 
 ## 2026-07-22 SGA1 and SGA2 full-volume convenience-reader publication
 
@@ -41,7 +43,7 @@ convenience renderings, not French authority, independently source-audited
 translations, critical editions, mathematical certifications, or rights
 determinations. See the [publication receipt](published-zenodo/20260722_sga1_sga2_fullvolume_readers_record_21499345.md).
 
-## 2026-07-22 SGA3 Loop-1 attribution rule; no upload
+## 2026-07-22 SGA3 Loop-1 attribution rule (historical control)
 
 Archive maintenance records Jacob Reinhold's public
 [`jcreinhold/sga`](https://github.com/jcreinhold/sga) SGA3 Markdown at snapshot
@@ -51,8 +53,10 @@ credit Reinhold, link and pin the upstream snapshot, preserve CC BY 4.0
 attribution, and distinguish the prose lineage from this project's
 PDF-controlled equation, TeX, numbering, footnote, and diagram reconstruction.
 
-No SGA3 body, TeX, PDF, image, or Zenodo object is authorized by this rule.
-See the [durable attribution receipt](source-intake/20260722_sga3_loop1_reinhold_attribution_rule.md).
+This rule alone authorized no SGA3 body, TeX, PDF, image, or Zenodo object.
+Later independently reviewed public-progress readers through Expose V are now
+on record `21509314`; the attribution distinction remains controlling. See the
+[durable attribution receipt](source-intake/20260722_sga3_loop1_reinhold_attribution_rule.md).
 
 ## 2026-07-22 cumulative Noether and SGA6 publication closure
 
