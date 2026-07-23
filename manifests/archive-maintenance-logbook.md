@@ -2360,3 +2360,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   absent; native Loop-2 diagram reconstruction, exhaustive reference
   certification, and source-pixel rights clearance remain open.
 - No duplicate concept or active draft remains.
+
+## 2026-07-23 - SGA6 high-detail source-audit crop snapshot published
+
+- GitHub commit `9e28f08915ebc3ff03d921e51840a1fe582afcf4` publishes the
+  exact 12-file package at
+  `sources/sga/sga6-high-detail-source-audit-crops-snapshot-coldreverify-idx314-20260723`.
+- Existing-concept Zenodo version `10.5281/zenodo.21515326` adds three
+  grouped crop/provenance archives to predecessor `21514656`; no duplicate
+  concept was created.
+- Anonymous readback passed for 42/42 Zenodo files / 284,933,659 bytes,
+  all 36 retained predecessor files, 12/12 GitHub package files, and
+  1,944/1,944 new ZIP members / 157,724,703 uncompressed bytes.
+- The public pixels comprise 460 explicit targeted zoom/recheck crops and
+  1,470 recovered named high-detail crops. Another 1,698 routine page or
+  page-band derivatives are represented only by provenance and rights-blocked
+  metadata.
+- The full compact SGA surface now has 17 ZIPs / 3,127 members. SGA1 remains
+  the default preview; the explicit Zenodo order remains empty and therefore
+  alphanumeric.
+- The snapshot is temporal through the cutoff after `idx314`, not continuous
+  SGA6 coverage, scan republication, critical-edition certification, or a
+  rights determination.
