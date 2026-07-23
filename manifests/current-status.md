@@ -1,3 +1,23 @@
+## 2026-07-23 SGA3 Expose VI-A bounded working successor
+
+Current SGA version
+[`10.5281/zenodo.21514656`](https://doi.org/10.5281/zenodo.21514656)
+adds the bounded 45-page SGA3 Expose VI-A Loop-1 working reader, editable
+master, 60-member source/evidence archive, and refreshed release controls.
+GitHub commit `85288dbe082dbd6938bb16ffb2930b5a29c50e21` passed exact
+readback for all six package files and all 60 archive members.
+
+Anonymous Zenodo readback matched all 39 files. Thirty-three predecessor files
+remain byte-identical, and the VI-A archive replays 60/60 members. SGA1 is the
+authoritative default preview; the empty explicit order produces alphanumeric
+reader order. No active draft or duplicate concept remains.
+
+VI-A is complete through its bibliography but remains bounded working
+material: Expose VI-B and Exposes VII--XXVI are absent, its 23 source-derived
+diagram assets await native Loop-2 reconstruction, and exhaustive
+convention-v2 reference certification is open. See the
+[publication receipt](published-zenodo/20260723_sga3_via_loop1_working_record_21514656.md).
+
 ## 2026-07-23 SGA3 I-IV sealed public checkpoint r1 successor
 
 Current SGA version

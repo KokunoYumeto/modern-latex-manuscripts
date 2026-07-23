@@ -2342,3 +2342,21 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - All 128 required PNG hashes already occurred in the predecessor archive.
   The standalone Expose V reader, TeX, archive, and witness ledgers remain
   exact. No duplicate concept or active draft remains.
+
+## 2026-07-23 - SGA3 Expose VI-A Loop-1 working successor published
+
+- GitHub commit `85288dbe082dbd6938bb16ffb2930b5a29c50e21` publishes the
+  six-file package at
+  `sources/sga/sga3-english-expose-via-loop1-working-20260723`.
+- Existing-concept Zenodo version `10.5281/zenodo.21514656` adds the
+  45-page VI-A reader, direct editable master, and exact 60-member
+  source/evidence ZIP while preserving predecessor `21512567`.
+- Anonymous readback passed for 39/39 Zenodo files, all 60 VI-A ZIP members,
+  6/6 GitHub package files, and all 33 retained predecessor files.
+- The RDM default preview is SGA1 and the empty explicit order uses
+  alphanumeric reader order. A legacy IIIF thumbnail remained cached to
+  Expose V; this is recorded as a presentation-cache discrepancy.
+- VI-A is bounded working material. Expose VI-B and Exposes VII--XXVI remain
+  absent; native Loop-2 diagram reconstruction, exhaustive reference
+  certification, and source-pixel rights clearance remain open.
+- No duplicate concept or active draft remains.
