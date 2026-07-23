@@ -6,10 +6,10 @@ reader-page renders into a second copy of the parent PDF.
 
 ## Image archives
 
-- `SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_Snapshot_ColdReverify_idx314_20260723.zip` contains 460 explicit `zoom`, `zoomp`,
+- `10h_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_Snapshot_ColdReverify_idx314_20260723.zip` contains 460 explicit `zoom`, `zoomp`,
   `peek`, or `recheck` crops / 41,930,961
   image bytes.
-- `SGA6_SourceAudit_Recovered_Named_HighDetail_Crops_Snapshot_ColdReverify_idx314_20260723.zip` contains 1470 additional named formula,
+- `10i_SGA6_SourceAudit_Recovered_Named_HighDetail_Crops_Snapshot_ColdReverify_idx314_20260723.zip` contains 1470 additional named formula,
   glyph, punctuation, diagram, and prose-detail crops /
   111,046,911 image bytes.
 
@@ -18,6 +18,11 @@ identity, and the audit-context table. The manifests record image hashes,
 dimensions, parent PDF index where recoverable, printed-page evidence from the
 audit log where available, generator-script identity, recovered crop
 coordinates, render DPI, processing profile, and QA disposition.
+
+`10j_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_Snapshot_ColdReverify_idx314_20260723.zip` groups the complete public provenance surface, including both
+targeted-image manifests and the rights-blocked routine-page manifest. Detailed
+files remain individually browsable in the public GitHub package; Zenodo keeps
+them compact.
 
 ## Deliberate non-image surface
 
