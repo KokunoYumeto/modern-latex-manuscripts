@@ -28,11 +28,15 @@ from PIL import Image
 
 
 EXPLICIT_ZIP = (
-    "SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_"
+    "10h_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_"
     "Snapshot_ColdReverify_idx314_20260723.zip"
 )
 RECOVERED_ZIP = (
-    "SGA6_SourceAudit_Recovered_Named_HighDetail_Crops_"
+    "10i_SGA6_SourceAudit_Recovered_Named_HighDetail_Crops_"
+    "Snapshot_ColdReverify_idx314_20260723.zip"
+)
+METADATA_ZIP = (
+    "10j_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_"
     "Snapshot_ColdReverify_idx314_20260723.zip"
 )
 README_NAME = "SGA6_HighDetail_SourceAudit_Crops_README_20260723.md"
@@ -750,6 +754,11 @@ dimensions, parent PDF index where recoverable, printed-page evidence from the
 audit log where available, generator-script identity, recovered crop
 coordinates, render DPI, processing profile, and QA disposition.
 
+`{METADATA_ZIP}` groups the complete public provenance surface, including both
+targeted-image manifests and the rights-blocked routine-page manifest. Detailed
+files remain individually browsable in the public GitHub package; Zenodo keeps
+them compact.
+
 ## Deliberate non-image surface
 
 `{BLOCKED_MANIFEST_NAME}` records {len(blocked_rows)} routine whole-page or
@@ -806,6 +815,7 @@ optical detail beyond the parent scan.
 
     explicit_zip_path = zip_dir / EXPLICIT_ZIP
     recovered_zip_path = zip_dir / RECOVERED_ZIP
+    metadata_zip_path = zip_dir / METADATA_ZIP
     explicit_zip_result = zip_payload(
         explicit_zip_path,
         explicit_rows,
@@ -818,8 +828,15 @@ optical detail beyond the parent scan.
         scratch_dir,
         [readme_path, parent_path, recovered_manifest, audit_context],
     )
+    metadata_zip_result = zip_payload(
+        metadata_zip_path,
+        [],
+        scratch_dir,
+        metadata_paths,
+    )
     errors.extend(str(error) for error in explicit_zip_result["errors"])
     errors.extend(str(error) for error in recovered_zip_result["errors"])
+    errors.extend(str(error) for error in metadata_zip_result["errors"])
 
     race_errors: list[str] = []
     manifest_by_source = {
@@ -901,6 +918,7 @@ optical detail beyond the parent scan.
         "zip_validation": {
             EXPLICIT_ZIP: explicit_zip_result,
             RECOVERED_ZIP: recovered_zip_result,
+            METADATA_ZIP: metadata_zip_result,
         },
     }
     validation_path = output_dir / VALIDATION_NAME
@@ -912,13 +930,7 @@ optical detail beyond the parent scan.
     upload_paths = [
         explicit_zip_path,
         recovered_zip_path,
-        readme_path,
-        parent_path,
-        explicit_manifest,
-        recovered_manifest,
-        blocked_manifest,
-        audit_context,
-        validation_path,
+        metadata_zip_path,
     ]
     upload_rows = []
     for path in upload_paths:
@@ -960,6 +972,7 @@ optical detail beyond the parent scan.
         "rights_blocked_page_derivatives": len(blocked_rows),
         "explicit_zip": explicit_zip_result,
         "recovered_zip": recovered_zip_result,
+        "metadata_zip": metadata_zip_result,
         "upload_manifest_sha256": sha256(upload_manifest),
         "sha256sums_sha256": sha256(checksum_path),
         "validation_sha256": sha256(validation_path),
