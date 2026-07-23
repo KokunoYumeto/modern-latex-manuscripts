@@ -8,7 +8,20 @@ Future reused prose must retain Jacob Reinhold attribution and CC BY 4.0 while
 remaining distinct from the project's PDF-controlled reconstruction. This is
 a provenance rule only: no SGA3 body or Zenodo mutation is queued.
 
-## 2026-07-22: Noether R823 cumulative English queue closed on existing concept
+## 2026-07-22: Compact Noether full-English queue closed on existing concept
+
+- Existing Noether concept: [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587)
+- Published version: [10.5281/zenodo.21499660](https://doi.org/10.5281/zenodo.21499660)
+- GitHub package: [noether-r823-full-cumulative-english-20260722](../sources/noether/noether-r823-full-cumulative-english-20260722/)
+- Publication/readback receipt: [20260722_noether_compact_full_english_record_21499660.md](../manifests/published-zenodo/20260722_noether_compact_full_english_record_21499660.md)
+
+The compact record has 20 files / 580,769,810 bytes. Its default preview is
+the 459-page full cumulative English working reader; the editable master TeX
+is a direct download. Nine ZIPs replay 3,979/3,979 safe members with no CRC
+errors. The same concept remains in use, immutable predecessor 21499492 retains
+the former 100-file surface, and no active draft remains. The queue is closed.
+
+## 2026-07-22: Noether Papers 1-43 predecessor queue closed
 
 - Existing Noether concept: [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587)
 - Published version: [10.5281/zenodo.21498737](https://doi.org/10.5281/zenodo.21498737)

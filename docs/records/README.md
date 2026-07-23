@@ -12,7 +12,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |  |
 | Split-Zero Geometry and Common Deformation Registers | 13 | 3 | 0 | 4 | 109.6 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |  |
-| Emmy Noether | 100 | 42 | 7 | 43 | 2253.5 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
+| Emmy Noether | 20 | 6 | 4 | 9 | 553.9 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
 | Heinrich Weber | 47 | 6 | 0 | 39 | 1507.2 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
 | Ferdinand Georg Frobenius | 8 | 2 | 2 | 2 | 333.6 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
 | Adolf Kneser | 8 | 3 | 2 | 1 | 116.7 | [kneser.md](kneser.md) | [Zenodo](https://doi.org/10.5281/zenodo.20836971) |

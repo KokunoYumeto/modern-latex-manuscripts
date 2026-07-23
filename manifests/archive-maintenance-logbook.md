@@ -2207,3 +2207,46 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Reinhold's work must not be presented as this project's original work or as
   French source authority.
 - This decision publishes no SGA3 body and performs no Zenodo mutation.
+
+## 2026-07-22 - Compact Noether full-English successor published and read back
+
+- Existing-concept version `10.5281/zenodo.21499660` replaces the 100-file
+  landing surface with 20 reader-first files while preserving predecessor
+  `21499492` immutably.
+- The direct 459-page full cumulative English working reader, editable master
+  TeX, and 55-member English package cover the inherited 43-paper corpus plus
+  the translated German tail through R823 line 24123.
+- All 20 public files and all 3,979 members in nine ZIPs passed anonymous
+  byte-for-byte readback; the English reader is the default preview.
+- No duplicate concept or active draft remains. This is a working
+  translation/source-control corpus, not uniform source certification, native
+  review, rights clearance, accessibility certification, or a critical
+  edition.
+
+## 2026-07-23 - SGA reader-first public-progress successor published
+
+- GitHub commit `2eb8058e730d3b93f03bdf1641bc5988b59809da` and same-concept
+  Zenodo version `10.5281/zenodo.21508620` publish the compact current-progress
+  surface for English SGA1 through SGA6, available French workpasses, direct
+  TeX, and grouped evidence.
+- All 33 Zenodo files and all 841 members in twelve ZIPs passed anonymous
+  exact readback.
+- SGA1 and SGA4 proper are complete in translation scope as working readers,
+  but neither is represented as exhaustively convention-v2 certified.
+  SGA3 remains incomplete after Expose IV at this version.
+- No duplicate concept or active draft remains; all predecessors are
+  preserved.
+
+## 2026-07-23 - SGA3 Expose V freeze3 published and read back
+
+- GitHub commit `38c8db67df45af82ffbe2d394125d13be2cbb6fc` publishes the exact
+  five-file package at
+  `sources/sga/sga3-english-expose-v-working-r3-freeze3-20260723`.
+- Existing-concept Zenodo version `10.5281/zenodo.21509314` adds the 54-page
+  Expose V working reader, editable master, and exact 268-member source and
+  evidence ZIP to predecessor `21508620`.
+- Anonymous readback passed for 36/36 Zenodo files, 13/13 ZIPs, and
+  1,109/1,109 ZIP members; the Expose V package is 268/268 exact.
+- Freeze1 and freeze2 remain historical HOLD states. Expose V still has 66
+  temporary PNG diagram obligations, and Exposes VI-XXVI remain untranslated;
+  this does not complete SGA3.
