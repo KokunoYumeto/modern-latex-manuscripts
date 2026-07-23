@@ -1,4 +1,29 @@
-## 2026-07-23 SGA4 proper reference-v2 r7 publication
+## 2026-07-23 SGA3 Expose V Loop2 native-diagram publication
+
+Current SGA version
+[`10.5281/zenodo.21511144`](https://doi.org/10.5281/zenodo.21511144)
+presents 39 compact files and fourteen grouped archives. SGA2 R8 remains the
+default preview. Anonymous public readback matched all 39 files /
+127,274,625 bytes and all 1,124 actual ZIP file members byte-for-byte.
+
+The 51-page SGA3 Expose V reader uses 66 native diagram TeX sources, has 350
+named destinations, 411 valid internal actions, and contains zero PDF image
+XObjects. Sixty-six source-PDF witness crops remain withheld. Public CSV and
+JSONL controls preserve their parent, page, bounding box, dimensions, DPI,
+rotation, crop hash, linked unit, and QA disposition. GitHub commit
+`8af7a27f3ffbdf32f34fd9f6e4134c2477eb80fb` passed anonymous readback for
+8/8 outer files and all 229 archive file members.
+
+SGA3 remains incomplete after Expose V; Exposes VI--XXVI remain untranslated.
+No duplicate concept or active draft remains. See the
+[publication receipt](published-zenodo/20260723_sga3_expose_v_loop2_record_21511144.md).
+
+Freeze4 later passed all technical gates but contains the same 66
+source-derived crops and no affirmative redistribution grant. It is exact
+local custody only and created no public mutation. See the
+[rights-hold receipt](source-intake/20260723_sga3_expose_v_loop2_freeze4_rights_hold.md).
+
+## 2026-07-23 SGA4 proper reference-v2 r7 publication (predecessor)
 
 SGA version
 [`10.5281/zenodo.21510120`](https://doi.org/10.5281/zenodo.21510120)
@@ -79,7 +104,7 @@ PDF-controlled equation, TeX, numbering, footnote, and diagram reconstruction.
 
 This rule alone authorized no SGA3 body, TeX, PDF, image, or Zenodo object.
 Later independently reviewed public-progress readers through Expose V are now
-on record `21510120`; the attribution distinction remains controlling. See the
+on record `21511144`; the attribution distinction remains controlling. See the
 [durable attribution receipt](source-intake/20260722_sga3_loop1_reinhold_attribution_rule.md).
 
 ## 2026-07-22 cumulative Noether and SGA6 publication closure
