@@ -1,25 +1,26 @@
-## 2026-07-23 SGA public-progress publication
+## 2026-07-23 SGA4 proper reference-v2 r7 publication
 
 SGA version
-[`10.5281/zenodo.21509314`](https://doi.org/10.5281/zenodo.21509314)
-presents 36 compact files: eight sequential English readers for SGA1-6, two
-French workpasses, ten direct TeX files, three controls, and thirteen grouped
+[`10.5281/zenodo.21510120`](https://doi.org/10.5281/zenodo.21510120)
+presents 37 compact files: eight sequential English readers for SGA1-6, two
+French workpasses, ten direct TeX files, three controls, and fourteen grouped
 archives. SGA2 R8 remains the default preview.
 
-Anonymous public readback matched all 36 files / 128,344,908 bytes and all 1,109
+Anonymous public readback matched all 37 files / 133,533,760 bytes and all 1,163
 ZIP file members byte-for-byte. Safe-path and CRC checks passed, the same
 existing concept `10.5281/zenodo.20410947` remains in use, and no active draft
-remains. The Expose V GitHub package at commit
-`38c8db67df45af82ffbe2d394125d13be2cbb6fc` passed anonymous raw readback for
-all five files and all 268 ZIP members.
+remains. The SGA4 r7 GitHub package at commit
+`b0bd7d696c7aa0f0d2c3a9f724530bfd19084abc` passed anonymous raw readback for
+all 13 outer files and all 359 ZIP members.
 
-SGA1 and SGA4 proper are complete in translation scope as working readers but
-are not exhaustively convention-v2 certified. SGA3 is public through complete
-Expose III plus standalone complete Exposes IV and V and remains incomplete.
-Expose V freeze3 passed three fresh independent reviews; its 66 temporary PNG
-diagrams still require native or faithful Loop-2 replacement. Exposes VI--XXVI
-remain untranslated. SGA4half remains rights-held. See the
-[publication receipt](published-zenodo/20260723_sga_public_progress_record_21509314.md).
+SGA4 proper r7 covers Exposes I--XIX including V bis, excludes SGA4half, and
+has a certified exhaustive reference-v2 graph. Its title page retains the
+translation-edition label r2; r7 names the certified reference/release package
+revision. SGA1 remains substantially linked but not exhaustively convention-v2
+certified. SGA3 remains incomplete after Expose V, whose 66 temporary PNG
+diagrams still require native or faithful Loop-2 replacement. SGA4half remains
+rights-held. See the
+[publication receipt](published-zenodo/20260723_sga4_reference_v2_r7_record_21510120.md).
 
 ## 2026-07-22 compact Noether full-English publication
 
@@ -78,7 +79,7 @@ PDF-controlled equation, TeX, numbering, footnote, and diagram reconstruction.
 
 This rule alone authorized no SGA3 body, TeX, PDF, image, or Zenodo object.
 Later independently reviewed public-progress readers through Expose V are now
-on record `21509314`; the attribution distinction remains controlling. See the
+on record `21510120`; the attribution distinction remains controlling. See the
 [durable attribution receipt](source-intake/20260722_sga3_loop1_reinhold_attribution_rule.md).
 
 ## 2026-07-22 cumulative Noether and SGA6 publication closure
