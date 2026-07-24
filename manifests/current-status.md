@@ -1,3 +1,28 @@
+## 2026-07-24 SGA3 VIIA checkpoint and VIII/SGA6 live-state snapshot
+
+A fresh disk-truth sweep separates three materially different states:
+
+- SGA3 VIIA has a coherent 73-page Loop-1 checkpoint, PDF SHA-256
+  `32C8D81F790FB66AEF7E0828FCDD31CCDEDF98A0BB4C244EDAB878D9FF177641`.
+  Its 2,505-byte checkpoint wrapper was exactly replayed from the now-mutable
+  VIIB master, but VIIB is already active, 78 source-derived diagrams still
+  require native reconstruction, and no release projection or seal exists.
+- SGA3 VIII has a complete 31-page pre-reference body and a graph-only PASS
+  for 154 targets / 520 candidates / 181 edges / 339 residuals. The 87
+  planned mutations have not been applied, and no compiled or visual release
+  gate is certified.
+- The SGA6 cold source audit has advanced through entry `#1139` / `idx387`,
+  with `idx388` next. Its workpass tree is live; a zero-byte `.out` auxiliary
+  is recorded as a transient, not a payload.
+
+No body or visual package was dispatched, no Zenodo mutation occurred, and
+current SGA version
+[`10.5281/zenodo.21523096`](https://doi.org/10.5281/zenodo.21523096)
+remains unchanged. See the
+[privacy-clean custody snapshot](source-intake/20260724_sga3_vii_viii_sga6_live_production_snapshot.md)
+and its
+[machine record](source-intake/20260724_sga3_vii_viii_sga6_live_production_snapshot.json).
+
 ## 2026-07-24 SGA6 ultra-detail source-audit crops through idx378
 
 Current SGA version
