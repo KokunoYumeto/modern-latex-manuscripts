@@ -2591,3 +2591,40 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This remains temporal visual/provenance evidence, not continuous SGA6
   coverage, scan republication, critical-edition certification, or a rights
   determination.
+
+## 2026-07-24 - SGA6 targeted crop backfill through idx361 published
+
+- GitHub commit `61bafbad32b5bfc9f8f68d98b676585f8d15fda6`
+  publishes the exact 13-file metadata/control package at
+  `sources/sga/sga6-high-detail-source-audit-targeted-backfill-idx354-361-20260724`.
+  The validated commit was fast-forwarded to `main`, and all 13 public Git
+  blobs were re-read exactly.
+- Existing-concept Zenodo version `10.5281/zenodo.21522077` succeeds immutable
+  predecessor `21521176`; no duplicate concept or competing draft was
+  created.
+- Anonymous streaming readback passed for all 54 files / 291,691,506 bytes
+  and all 49 retained predecessor files. The 27 inherited ZIPs retain their
+  prior exact 3,197-entry readback; both new ZIPs were freshly reopened with
+  34/34 members exact. The cumulative surface has 29 ZIPs / 3,231 entries /
+  321,126,679 uncompressed bytes, with zero unsafe paths or CRC failures.
+- New archive `10t` has 29/29 members and preserves 25 tight crops from the
+  original source-repair work for indices 354 and 356-361.
+- New archive `10u` has 5/5 metadata members and records 80 historical
+  500-DPI and current 2,400-DPI page-band derivatives as
+  `rights_blocked_not_public`; those pixels are not redistributed.
+- Independent replay reproduced 105/105 source identities, 40/40
+  parent-to-band pixel paths, 25/25 band-to-crop pixel paths, 16/16 audit
+  rows, CSV shape/formula safety, and privacy zero.
+- The cumulative visual surface now preserves 1,967 public high-detail crops
+  and metadata for 1,973 rights-blocked routine derivatives.
+- Anonymous metadata names the SGA1 working reader as `default_preview`; the
+  latest endpoint resolves to `21522077`, and the unauthenticated draft
+  endpoint returns `404`.
+- The 2,965-byte SGA3 I-IV r2 clarification, SHA-256
+  `9E9FE6EE98E8D155E9474BA2465BD14EF87372CB4984C0A1E15EA54AB7999893`,
+  remains custody metadata only. The prior 199-file I-IV dispatch is still
+  the sole transport and immutable I-IV r2 is only the future I-VI
+  integration base.
+- This remains temporal visual/provenance evidence, not continuous SGA6
+  coverage, scan republication, critical-edition certification, or a rights
+  determination.
