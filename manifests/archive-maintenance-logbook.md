@@ -2690,3 +2690,41 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   1,709 bytes, SHA-256
   `4F412013C8BD3EE6A489BC250BFB3D3DDDB8EBE6A6F6AF048AF533CF9B9BF4C1`.
   This is a GitHub metadata reconciliation only; Zenodo remains unchanged.
+
+## 2026-07-24 - SGA6 ultra-detail crop successor through idx378 published
+
+- GitHub commit `58c3273d74d894ad3b53b3427416e6b7300d8584`
+  publishes the exact 14-file metadata/control package at
+  `sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx362-378-20260724`.
+  Anonymous commit-pinned raw-file readback passed for all 14 files.
+- Existing-concept Zenodo version `10.5281/zenodo.21523096` succeeds immutable
+  predecessor `21522591`; no duplicate concept, second version, or competing
+  draft was created.
+- Anonymous streaming readback passed for all 56 files / 302,097,686 bytes
+  and all 51 retained predecessor files. The 29 inherited ZIPs retain their
+  complete 3,304-entry predecessor readback; both new ZIPs were freshly
+  reopened with 24/24 members exact.
+- New archive `10v` has 19/19 members and preserves 15 tight symbol-, formula-,
+  prime-mark-, overline-, inequality-, and emphasis-level crops actually used
+  in the cold source audit for idx362-378.
+- New archive `10w` has 5/5 metadata members and records 85 full-width
+  2,400-DPI page-band derivatives as `rights_blocked_not_public`; those
+  pixels are not redistributed.
+- Independent replay reproduced 100/100 selected source identities, 85/85
+  parent-to-band pixel paths, 15/15 band-to-target pixel paths, 15/15 target
+  PNG bytes, entries #1114-#1130, CSV shape/formula safety, privacy zero, and
+  visual QA for all 15 targets.
+- The cumulative surface now has 31 ZIPs / 3,328 entries / 348,536,063
+  uncompressed bytes. It preserves 1,982 public targeted or named
+  high-detail crops and metadata for 2,058 rights-blocked routine
+  derivatives.
+- The selected boundary closes Expose V at idx377 and includes idx378 as the
+  first page of Expose VI. Idx379 is excluded. This is temporal
+  visual/provenance evidence, not continuous source certification, scan
+  republication, critical-edition certification, or a rights determination.
+- Anonymous metadata names the SGA1 working reader as `default_preview`; the
+  latest endpoint resolves to `21523096`.
+- The same-handoff SGA3 Expose VI `STATUS.md`, 46,659 bytes, SHA-256
+  `FA238FBE86620B6128537B261800D16F0C02138ABA70AB365A334BE00903AC24`,
+  remains documentary custody only and creates no second transport. Exposes
+  VII and VIII remain active, mutable, and unsealed; neither was published.
