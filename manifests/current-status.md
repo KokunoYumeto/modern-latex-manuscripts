@@ -1,3 +1,42 @@
+## 2026-07-24 SGA6 targeted high-detail source-audit backfill through idx361
+
+Current SGA version
+[`10.5281/zenodo.21522077`](https://doi.org/10.5281/zenodo.21522077)
+retains 49 files from predecessor `21521176` byte-identically, refreshes three
+release controls, and adds the idx354-361 targeted-crop and provenance pair.
+No duplicate concept or competing draft was created.
+
+Anonymous readback matched all 54 files / 291,691,506 bytes. The 27 inherited
+ZIPs remain byte-identical to the predecessor's complete 3,197-entry readback;
+the two new ZIPs passed fresh 29/29 and 5/5 member replay. The complete surface
+therefore has 29 ZIPs / 3,231 entries, including 3,225 substantive files and
+six inherited directory placeholders / 321,126,679 uncompressed bytes, with
+zero unsafe paths or CRC failures.
+
+Twenty-five tight symbol-, formula-, punctuation-, and prose-level crops from
+the original July 10 source-repair work are public as pixels. Eighty
+full-width historical 500-DPI and current 2,400-DPI page-band derivatives
+remain metadata-only and explicitly `rights_blocked_not_public`.
+
+The cumulative visual surface now preserves 1,967 public targeted or named
+high-detail crops and metadata for 1,973 rights-blocked routine derivatives.
+It remains temporal visual/provenance evidence, not continuous source
+certification, scan republication, or a rights decision.
+
+GitHub commit `61bafbad32b5bfc9f8f68d98b676585f8d15fda6` is current on
+`main`; anonymous raw-file replay matched all 13 package files. SGA1 remains
+the anonymous public `default_preview`. The sole SGA3 I-IV transport remains
+the previously dispatched 199-file payload; the 2026-07-24 I-IV r2
+clarification is integration-base metadata only and creates no new transport.
+
+The latest-version endpoint resolves to `21522077`; the unauthenticated draft
+endpoint returns `404`. See the
+[publication receipt](published-zenodo/20260724_sga6_high_detail_source_audit_crops_idx354_361_record_21522077.md),
+the
+[outer-file public readback](published-zenodo/20260724_sga6_high_detail_source_audit_crops_idx354_361_record_21522077_public_readback.json),
+and the
+[fresh member replay](published-zenodo/20260724_sga6_high_detail_source_audit_crops_idx354_361_record_21522077_new_zip_member_readback.json).
+
 ## 2026-07-24 SGA6 high-detail source-audit crop successor through idx353
 
 Current SGA version
