@@ -167,7 +167,7 @@ def write_csv(
         writer = csv.DictWriter(
             handle,
             fieldnames=fieldnames,
-            lineterminator="\r\n",
+            lineterminator="\n",
         )
         writer.writeheader()
         for row in rows:
