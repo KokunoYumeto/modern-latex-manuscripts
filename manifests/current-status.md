@@ -18,10 +18,15 @@ A fresh disk-truth sweep separates three materially different states:
 No body or visual package was dispatched, no Zenodo mutation occurred, and
 current SGA version
 [`10.5281/zenodo.21523096`](https://doi.org/10.5281/zenodo.21523096)
-remains unchanged. See the
+remains unchanged. GitHub commit
+`a40a9fd4bd61e4eaf2a35eff483e6e308a55dbec` published the four-file
+metadata update; anonymous commit-pinned readback matched 4/4 files and
+2,071,580 bytes exactly. See the
 [privacy-clean custody snapshot](source-intake/20260724_sga3_vii_viii_sga6_live_production_snapshot.md)
 and its
-[machine record](source-intake/20260724_sga3_vii_viii_sga6_live_production_snapshot.json).
+[machine record](source-intake/20260724_sga3_vii_viii_sga6_live_production_snapshot.json),
+plus the
+[GitHub readback receipt](source-intake/20260724_sga3_vii_viii_sga6_live_production_snapshot_github_readback.md).
 
 ## 2026-07-24 SGA6 ultra-detail source-audit crops through idx378
 

@@ -2728,3 +2728,36 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `FA238FBE86620B6128537B261800D16F0C02138ABA70AB365A334BE00903AC24`,
   remains documentary custody only and creates no second transport. Exposes
   VII and VIII remain active, mutable, and unsealed; neither was published.
+
+## 2026-07-24 - SGA3 VIIA checkpoint and VIII/SGA6 live states pinned
+
+- SGA3 VIIA has a coherent 73-page Loop-1 checkpoint, PDF SHA-256
+  `32C8D81F790FB66AEF7E0828FCDD31CCDEDF98A0BB4C244EDAB878D9FF177641`.
+  Its overwritten 2,505-byte checkpoint wrapper was exactly replayed from the
+  current VIIB master by removing only the two complete VIIB input lines.
+- The 15 VIIA components total 216,335 bytes with aggregate
+  `F54E73ED8CE5EE32E20490694B1C0A6A70F0A3161DFB347F7F32032B4608E7A3`;
+  78 uniquely resolved Loop-1 PNG dependencies total 459,606 bytes with
+  aggregate
+  `A664D2837009F99F88BD9037208C7E14A16702B573D3A9FFA2FA0D1AA0CE0991`.
+  VIIB is already active, native reconstruction and convention-v2 remain
+  open, and no release handoff exists.
+- SGA3 VIII has a complete 31-page pre-reference body, PDF SHA-256
+  `490B466416C3194DF8F43DF533BB0870FBDE3B2618B6397946A52EDAE7BE8006`,
+  and a graph-only PASS for 154 targets / 520 candidates / 181 edges / 339
+  residuals. Its 87 planned actions remain unapplied and compiled release
+  gates remain open.
+- The SGA6 cold audit had reached entry `#1139` / `idx387`, with `idx388`
+  next. The 373-page live PDF was stable during hash read; a zero-byte
+  `.out` file was classified as a transient rather than a payload.
+- No newer remote project branch or relevant standard-Downloads package was
+  found. No body transport or Zenodo mutation was performed.
+- The privacy-clean snapshot is 6,243 bytes, SHA-256
+  `077B8305FD7932F9595B0724B1959C6D38CE8B351C0501C8C297BB70F830AD55`;
+  its machine record is 4,969 bytes, SHA-256
+  `3724F98F0C253BA19DA4B69A2E2353B4889A654CDBC9F7175B9689E9BD386EBD`.
+- GitHub commit `a40a9fd4bd61e4eaf2a35eff483e6e308a55dbec`
+  reached public `main`. Anonymous commit-pinned readback matched 4/4 files /
+  2,071,580 bytes; the receipt is 1,699 bytes, SHA-256
+  `693FBC2E13FF19CC4932FC15A807D3148842C5CE30C6B6504011869BB123C254`.
+- Existing SGA version `10.5281/zenodo.21523096` remains current.
