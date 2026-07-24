@@ -2682,4 +2682,11 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/source-intake/20260724_sga3_post_vi_active_lane_sweep.md`,
   4,814 bytes, SHA-256
   `1A484C533175163655441E04FB60C59ACFC18B011BA3DD427F4564436EFB9A11`.
+- GitHub metadata commit
+  `fe95b5c1f2776acaca461e24803b0d0f904c14fd` reached `main`; anonymous
+  commit-pinned readback matched all four changed files to their Git blobs.
+  The durable readback is
+  `manifests/source-intake/20260724_sga3_post_vi_active_lane_sweep_github_readback.md`,
+  1,709 bytes, SHA-256
+  `4F412013C8BD3EE6A489BC250BFB3D3DDDB8EBE6A6F6AF048AF533CF9B9BF4C1`.
   This is a GitHub metadata reconciliation only; Zenodo remains unchanged.
