@@ -1,3 +1,39 @@
+## 2026-07-24 SGA6 ultra-detail source-audit crops through idx378
+
+Current SGA version
+[`10.5281/zenodo.21523096`](https://doi.org/10.5281/zenodo.21523096)
+retains 51 files from predecessor `21522591` byte-identically, refreshes three
+release controls, and adds the idx362-378 targeted-crop and rights-blocked
+provenance pair. No duplicate concept, second version, or competing draft was
+created.
+
+Anonymous readback matched all 56 files / 302,097,686 bytes. Both new
+archives reopened with 24/24 members exact; the 29 inherited ZIPs retain their
+complete 3,304-entry predecessor readback. The cumulative surface now has 31
+ZIPs / 3,328 entries / 348,536,063 uncompressed bytes. It preserves 1,982
+targeted or named high-detail crops and metadata for 2,058 routine
+derivatives.
+
+The increment covers audit entries #1114-#1130, mapping idx362-idx378.
+Idx377 closes Expose V and idx378 begins Expose VI; idx379 is excluded.
+Fifteen tight images are public, while 85 routine 2,400-DPI page bands are
+represented as `rights_blocked_not_public` metadata. This is temporal
+visual/provenance evidence, not continuous source certification, scan
+republication, or a rights decision.
+
+GitHub `main` is commit
+`58c3273d74d894ad3b53b3427416e6b7300d8584`; anonymous commit-pinned
+readback passed all 14 package files. SGA1 remains the default preview. SGA3
+Expose VI's append-only `STATUS.md` identity is 46,659 bytes, SHA-256
+`FA238FBE86620B6128537B261800D16F0C02138ABA70AB365A334BE00903AC24`;
+it creates no second transport. Exposes VII and VIII remain active unsealed
+production and were not published.
+
+See the
+[publication receipt](published-zenodo/20260724_sga6_ultradetail_source_audit_crops_idx362_378_record_21523096.md)
+and
+[anonymous machine readback](published-zenodo/20260724_sga6_ultradetail_source_audit_crops_idx362_378_record_21523096_public_readback.json).
+
 ## 2026-07-24 SGA3 Expose VI closed; cumulative I-VI and VII/VIII remain local
 
 Current SGA version

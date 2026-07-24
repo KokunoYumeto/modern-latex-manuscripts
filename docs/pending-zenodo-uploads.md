@@ -1,3 +1,21 @@
+## 2026-07-24: SGA6 idx362-378 ultra-detail crop queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21523096](https://doi.org/10.5281/zenodo.21523096)
+- GitHub package:
+  [sga6-ultradetail-source-audit-crops-coldreverify-idx362-378-20260724](../sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx362-378-20260724/)
+- Publication/readback receipt:
+  [20260724_sga6_ultradetail_source_audit_crops_idx362_378_record_21523096.md](../manifests/published-zenodo/20260724_sga6_ultradetail_source_audit_crops_idx362_378_record_21523096.md)
+
+The single same-concept successor is published. Anonymous readback passed for
+56/56 outer files, all 51 retained predecessor files, and 24/24 members of
+the two new archives. Fifteen tight source-audit crops are public; metadata
+records 85 routine page-band derivatives whose pixels remain rights-blocked.
+The latest endpoint resolves to `21523096`, SGA1 remains the default preview,
+and no competing draft or duplicate concept remains. This queue is closed.
+
 ## 2026-07-24: SGA3 Expose VI queue closed; later SGA3 states are not queued
 
 - Existing concept:
