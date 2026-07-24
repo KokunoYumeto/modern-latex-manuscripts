@@ -2661,3 +2661,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The complete publication receipt is 5,472 bytes, SHA-256
   `A1A122C2B1388163F8856F000828089988C483AF49CC45723FBA7615057EAD63`.
   SGA3 remains incomplete because Exposes VII-XXVI are absent.
+
+## 2026-07-24 - SGA3 post-VI active lanes reconciled
+
+- The sweep began from public GitHub commit
+  `6f7f7f1f316596768d6b800bce270a3b3bed8cbc`; the same-concept Zenodo
+  version remains `10.5281/zenodo.21522591`.
+- The Expose VI queue is closed. No duplicate transport, draft, version, or
+  publication action is authorized.
+- Cumulative I-VI is an internal 497-page integration PASS under explicit
+  `RELEASE HOLD`; its controlling status sets publication/archive
+  authorization to `false`.
+- Expose VII remains active through VII-A local page 14. Expose VIII remains
+  active and not frozen. Neither root contains an archive handoff, public
+  projection, dispatch receipt, or publication-readiness file.
+- A fetch of all remote branches found no project branch newer than `main`.
+  Standard Downloads roots contained no relevant package modified on or
+  after 2026-07-23.
+- The exact snapshot is
+  `manifests/source-intake/20260724_sga3_post_vi_active_lane_sweep.md`,
+  4,814 bytes, SHA-256
+  `1A484C533175163655441E04FB60C59ACFC18B011BA3DD427F4564436EFB9A11`.
+  This is a GitHub metadata reconciliation only; Zenodo remains unchanged.
