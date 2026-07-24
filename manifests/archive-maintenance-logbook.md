@@ -2549,3 +2549,45 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This remains temporal visual/provenance evidence, not continuous SGA6
   coverage, scan republication, critical-edition certification, or a rights
   determination.
+
+## 2026-07-24 - SGA6 crop successor through idx353 published
+
+- GitHub commit `a6a2a31bf6517cbcfe94770fae0c63fc96371f65`
+  publishes the exact 14-file package at
+  `sources/sga/sga6-high-detail-source-audit-crops-coldreverify-idx349-353-20260724`.
+  Pull-request creation was blocked by the current PAT's GraphQL scope; because
+  `origin/main` still matched the validated parent, the exact commit was
+  fast-forwarded directly and all 14 public Git blobs were re-read exactly.
+- Existing-concept Zenodo version `10.5281/zenodo.21521176` succeeds
+  immutable predecessor `21520805`; no duplicate concept or competing draft
+  was created.
+- Anonymous streaming readback passed for all 52 files / 286,725,691 bytes
+  and all 47 retained predecessor files. The 25 inherited ZIPs retain their
+  prior exact 3,184-entry readback; both new ZIPs were freshly reopened with
+  13/13 members exact. The cumulative surface has 27 ZIPs / 3,197 entries /
+  316,007,114 uncompressed bytes, with zero unsafe paths or CRC failures.
+- New archive `10q` has 7/7 members and preserves three explicit crops:
+  idx352 printed `on encore`, idx353 `rematque`, and idx353 `désuit`.
+- New archive `10r` has 6/6 metadata members and records 25 routine page-band
+  derivatives as `rights_blocked_not_public`; those pixels are not
+  redistributed.
+- The cumulative visual surface now preserves 1,942 public high-detail crops
+  and metadata for 1,893 rights-blocked routine derivatives.
+- A first pre-dispatch freeze was rejected because a generic parser chose a
+  stale idx351 helper in the idx352 audit script. The published freeze uses
+  the concrete rendered `d[352]` selection and explicit filename-to-index
+  assertions. No rejected-freeze byte was dispatched.
+- Anonymous metadata names the SGA1 working reader as `default_preview`; the
+  latest endpoint resolves to `21521176`, and the unauthenticated draft
+  endpoint returns `404`.
+- A post-publication metadata-only edit restored the exact accent in `désuit`
+  and was republished in place. Record ID, DOI, version, 52-file set, file
+  bytes, and default preview remained unchanged.
+- The 2,965-byte SGA3 I-IV r2 clarification, SHA-256
+  `9E9FE6EE98E8D155E9474BA2465BD14EF87372CB4984C0A1E15EA54AB7999893`,
+  remains custody metadata only. The prior 199-file I-IV dispatch is still the
+  sole transport and immutable I-IV r2 is only the future I-VI integration
+  base.
+- This remains temporal visual/provenance evidence, not continuous SGA6
+  coverage, scan republication, critical-edition certification, or a rights
+  determination.
