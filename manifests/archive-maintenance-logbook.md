@@ -2628,3 +2628,36 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This remains temporal visual/provenance evidence, not continuous SGA6
   coverage, scan republication, critical-edition certification, or a rights
   determination.
+
+## 2026-07-24 - SGA3 Expose VI native freeze4 published
+
+- GitHub commit `c7b3ff769f23ad1e342c769c92493d7788d43c72`
+  publishes the exact six-file package at
+  `sources/sga/sga3-english-expose-vi-native-reference-v2-r4-freeze4-20260724`.
+  Anonymous raw-file readback passed for all six files and all 133 grouped
+  archive members.
+- Existing-concept Zenodo version `10.5281/zenodo.21522591` succeeds
+  immutable predecessor `21522077`; no duplicate concept, second version, or
+  competing draft was created.
+- The successor replaces only the bounded VI-A Loop-1 PDF, TeX, grouped
+  archive, and three release controls with complete assigned Expose VI A+B
+  freeze4 objects. All 48 unrelated predecessor files remained
+  byte-identical.
+- Anonymous streaming readback passed for all 54 files / 300,170,693 bytes
+  and the new archive's 133/133 members / 25,834,446 uncompressed bytes.
+  The final record has 29 ZIPs / 3,304 entries / 346,614,809 uncompressed
+  bytes, with zero unsafe paths or CRC failures.
+- The 185-page reader has 58 native diagrams, 987 targets, 672 linked edges,
+  7,629 candidates, 6,957 positive residuals, 1,224 destinations, and 948
+  valid internal GoTo actions. Authority PDFs and OCR witnesses remain
+  excluded.
+- The latest endpoint resolves to `21522591`, the unauthenticated draft
+  endpoint returns `404`, and the default preview remains the SGA1
+  complete-volume working reader.
+- Corrected same-handoff identities are bound append-only, including
+  `STATUS.md`, 46,659 bytes, SHA-256
+  `FA238FBE86620B6128537B261800D16F0C02138ABA70AB365A334BE00903AC24`.
+  This documentary addendum created no additional transport or mutation.
+- The complete publication receipt is 5,472 bytes, SHA-256
+  `EB06215F25562B931489E203DB84924B5FF06FF0D9EC6AC7F066D63D5A1316CB`.
+  SGA3 remains incomplete because Exposes VII-XXVI are absent.
