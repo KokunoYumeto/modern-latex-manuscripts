@@ -1,3 +1,47 @@
+## 2026-07-24 SGA6 high-detail source-audit crop successor through idx353
+
+Current SGA version
+[`10.5281/zenodo.21521176`](https://doi.org/10.5281/zenodo.21521176)
+retains 47 files from predecessor `21520805` byte-identically, refreshes three
+release controls, and adds the idx349-353 explicit-crop and provenance pair.
+No duplicate concept or competing draft was created.
+
+Anonymous readback matched all 52 files / 286,725,691 bytes. The 25 inherited
+ZIPs remain byte-identical to the predecessor's complete 3,184-entry readback;
+the two new ZIPs passed fresh 7/7 and 6/6 member replay. The complete surface
+therefore has 27 ZIPs / 3,197 entries, including 3,191 substantive files and
+six inherited directory placeholders / 316,007,114 uncompressed bytes, with
+zero unsafe paths or CRC failures.
+
+Three new source-checking crops are public as pixels: a 9,000-DPI idx352 crop
+confirming printed `on encore`, and two 8,000-DPI idx353 crops confirming the
+source typos `rematque` and `désuit`. Twenty-five associated routine page-band
+derivatives remain metadata-only and explicitly `rights_blocked_not_public`.
+
+The cumulative visual surface now preserves 1,942 public targeted or named
+high-detail crops and metadata for 1,893 rights-blocked routine derivatives.
+It remains temporal visual/provenance evidence, not continuous source
+certification, scan republication, or a rights decision.
+
+SGA1 remains the anonymous public `default_preview`. SGA3 remains incomplete:
+the later full Expose VI Loop-1 candidate is still excluded after its
+footnote-link audit failure. The sole SGA3 I-IV transport remains the
+previously dispatched 199-file payload; the 2026-07-24 I-IV r2 clarification
+is integration-base metadata only and creates no new I-IV transport.
+
+A first local pre-dispatch freeze was rejected after its parser selected a
+stale idx351 helper in the idx352 script. The controlling freeze uses the
+concrete rendered page selection and independently asserts all three crop
+bindings. No rejected-freeze byte reached GitHub or Zenodo.
+
+The latest-version endpoint resolves to `21521176`; the unauthenticated draft
+endpoint returns `404`. See the
+[publication receipt](published-zenodo/20260724_sga6_high_detail_source_audit_crops_idx349_353_record_21521176.md),
+the
+[outer-file public readback](published-zenodo/20260724_sga6_high_detail_source_audit_crops_idx349_353_record_21521176_public_readback.json),
+and the
+[fresh member replay](published-zenodo/20260724_sga6_high_detail_source_audit_crops_idx349_353_record_21521176_new_zip_member_readback.json).
+
 ## 2026-07-24 SGA6 high-detail source-audit crop successor through idx348
 
 Current SGA version
