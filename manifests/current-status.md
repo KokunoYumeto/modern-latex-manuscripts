@@ -1,3 +1,35 @@
+## 2026-07-24 SGA3 Expose VI closed; cumulative I-VI and VII/VIII remain local
+
+Current SGA version
+[`10.5281/zenodo.21522591`](https://doi.org/10.5281/zenodo.21522591)
+replaces the bounded Expose VI-A Loop-1 trio with the complete assigned
+Expose VI A+B native-diagram/reference-v2 freeze4 PDF, TeX, and 133-member
+source/evidence archive. Anonymous readback matched all 54 public files and
+all 133 new archive members; 48 unrelated predecessor files remain
+byte-identical. GitHub package commit
+`c7b3ff769f23ad1e342c769c92493d7788d43c72` and final receipt commit
+`6f7f7f1f316596768d6b800bce270a3b3bed8cbc` are public on `main`.
+
+The 185-page reader has 58 native diagrams, 1,224 named destinations, and
+948 valid internal GoTo actions. The latest-version endpoint resolves to
+`21522591`, the unauthenticated draft endpoint returns `404`, and SGA1
+remains the default preview. SGA3 remains incomplete because Exposes VII-XXVI
+are absent.
+
+The next local states are not upload items:
+
+- cumulative I-VI is a 497-page internal integration PASS under explicit
+  `RELEASE HOLD`, with publication/archive authorization `false`;
+- Expose VII is active through VII-A local page 14, with local page 15 next;
+- Expose VIII is active and not frozen; scratch full builds do not override
+  its controlling non-release status.
+
+No newer project branch or recent relevant Downloads package was found. No
+Zenodo mutation follows from this sweep. See
+[the exact active-lane receipt](source-intake/20260724_sga3_post_vi_active_lane_sweep.md)
+and the
+[Expose VI publication receipt](published-zenodo/20260724_sga3_expose_vi_native_freeze4_record_21522591.md).
+
 ## 2026-07-24 SGA6 targeted high-detail source-audit backfill through idx361
 
 Current SGA version

@@ -1,3 +1,34 @@
+## 2026-07-24: SGA3 Expose VI queue closed; later SGA3 states are not queued
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Current version:
+  [10.5281/zenodo.21522591](https://doi.org/10.5281/zenodo.21522591)
+- GitHub package commit:
+  `c7b3ff769f23ad1e342c769c92493d7788d43c72`
+- Publication receipt:
+  [20260724_sga3_expose_vi_native_freeze4_record_21522591.md](../manifests/published-zenodo/20260724_sga3_expose_vi_native_freeze4_record_21522591.md)
+- Post-publication active-lane sweep:
+  [20260724_sga3_post_vi_active_lane_sweep.md](../manifests/source-intake/20260724_sga3_post_vi_active_lane_sweep.md)
+
+Complete assigned Expose VI freeze4 is already published exactly once.
+Anonymous readback passed for 54/54 Zenodo files, all 48 unrelated retained
+predecessor files, and all 133 members of the new grouped archive. No
+duplicate concept, second version, or active draft remains.
+
+The following are explicitly **not** pending Zenodo uploads:
+
+- the 497-page cumulative I-VI internal integration, whose controlling status
+  is `INTERNAL INTEGRATION PASS; RELEASE HOLD` and whose archive/publication
+  authorization is `false`;
+- active Expose VII production through VII-A local page 14;
+- active, non-frozen Expose VIII production and its scratch builds.
+
+Each later state lacks a privacy-clean immutable public projection, terminal
+independent release audit, exact archive handoff, and release authority.
+Zenodo therefore remains unchanged until a distinct successor satisfies all
+four gates.
+
 ## 2026-07-22: SGA3 Loop-1 attribution rule is not an upload item
 
 - Rule: [20260722_sga3_loop1_reinhold_attribution_rule.md](../manifests/source-intake/20260722_sga3_loop1_reinhold_attribution_rule.md)
