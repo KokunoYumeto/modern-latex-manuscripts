@@ -1,3 +1,22 @@
+## 2026-07-24: SGA3 VIIA/VIII and live SGA6 audit are not queued
+
+- Disk-truth snapshot:
+  [20260724_sga3_vii_viii_sga6_live_production_snapshot.md](../manifests/source-intake/20260724_sga3_vii_viii_sga6_live_production_snapshot.md)
+- Machine record:
+  [20260724_sga3_vii_viii_sga6_live_production_snapshot.json](../manifests/source-intake/20260724_sga3_vii_viii_sga6_live_production_snapshot.json)
+
+The complete 73-page SGA3 VIIA Loop-1 checkpoint is preserved by exact
+identity, but VIIB is active, 78 source-derived PNGs remain native-Loop2 and
+rights-caveated obligations, and no public projection or release seal exists.
+SGA3 VIII has a complete 31-page body and a graph-only PASS, but its 87
+planned reference mutations are not applied and compiled/visual release
+gates remain open. The SGA6 cold audit is live through `idx387`; its mutable
+workpass and zero-byte transient auxiliary are not upload objects.
+
+No GitHub body transport or Zenodo mutation follows from these states. Revisit
+only after a distinct immutable privacy-clean projection, rights disposition,
+independent terminal PASS, exact handoff, and explicit release authority.
+
 ## 2026-07-24: SGA6 idx362-378 ultra-detail crop queue closed
 
 - Existing concept:
