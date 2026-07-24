@@ -2659,5 +2659,5 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `FA238FBE86620B6128537B261800D16F0C02138ABA70AB365A334BE00903AC24`.
   This documentary addendum created no additional transport or mutation.
 - The complete publication receipt is 5,472 bytes, SHA-256
-  `EB06215F25562B931489E203DB84924B5FF06FF0D9EC6AC7F066D63D5A1316CB`.
+  `A1A122C2B1388163F8856F000828089988C483AF49CC45723FBA7615057EAD63`.
   SGA3 remains incomplete because Exposes VII-XXVI are absent.
