@@ -47,17 +47,15 @@ can change.
 
 The following known unpublished diagram-bearing scopes are controlled:
 
-- Expose VII: strict hold, with the diagram-repair gate now passed. All 32
-  source-backed repairs passed fresh nonauthor review, the other 103 diagrams
-  remain byte-identical, ambiguity is zero, and the evidence binds 300-dpi
-  changed/seam pages, 600- and 1,200-dpi whole diagrams, and 128 targeted
-  1,200-dpi details. The full 760-target source-context kind audit also passed;
-  its two differences are manager-adjudicated as `diagram` and `theorem`.
-  The hold remains because the final 135-target anchor resolution and
-  exhaustive graph have not yet been bound to a new rebuilt package and exact
-  terminal release audit. The earlier graph freeze is adverse history: it
-  flattened inherited target kinds and falsely linked six TikZ coordinate
-  literals (`2.1`, `3.3`, and `3.2`) as section references.
+- Expose VII: strict hold. The 32 source-backed diagram repairs passed their
+  scoped high-zoom review, but a later cold page replay found a delivered-page
+  layout collision: footnote 41 overlaps DIAG033 inside footnote 40 on
+  physical page 26 / printed page 22. Stable finding
+  `IR-SGA3-VII-DIAGRAM32-PAGE026-FOOTNOTE-OVERLAP-001` controls. All current
+  VII COW r1/r2 generations are adverse pre-layout-fix history. The earlier
+  graph freeze is independently adverse: it flattened inherited target kinds
+  and falsely linked six TikZ coordinate literals (`2.1`, `3.3`, and `3.2`)
+  as section references.
   The controlling local hold is
   `SGA3_EXPOSE_VII_HIGH_ZOOM_DIAGRAM_32_REPAIR_HOLD_20260727.md`, 3,179
   bytes, SHA-256
@@ -75,9 +73,18 @@ The following known unpublished diagram-bearing scopes are controlled:
   `SGA3_EXPOSE_VII_TARGET_KIND_TWO_ROW_ADJUDICATION_20260727.md`, 3,066 bytes,
   SHA-256
   `FA22E7149B4CB6F71A534CB9472650D51725C9F66DB3078650C20D735AAF217C`.
+  The current controlling page-layout hold is
+  `SGA3_EXPOSE_VII_PAGE26_DIAG033_FOOTNOTE_OVERLAP_FAIL_20260727.md`, 5,837
+  bytes, SHA-256
+  `7FDB876D090F7C8ED228BBC2DAB1BEE52206E33B35C37DE1F9127431F2F624D5`.
+  Its independent FAIL report has SHA-256
+  `2AE8B40411F7C389BBDFAFD8C9FB0C918C5CE23ACC683028C001EDEF415D8FAF`;
+  the corresponding FAIL validation has SHA-256
+  `2796F2342D21994EB405F832DC5876F4F4E98A7F8D8CD639591FE2EA4A046F71`.
   No existing VII candidate may receive final publication/readback
-  certification. A distinct post-reference rebuilt freeze and exact release
-  handoff are required.
+  certification. A no-overwrite layout repair, full 300/600/900-1,200-dpi
+  replay, fresh source freeze, rebuilt graph/package, privacy and rights
+  closure, and independent terminal release PASS are required.
 - Expose XI: the diagram gate passed and the exact bounded checkpoint is now
   public on same-concept record
   [21630748](https://zenodo.org/records/21630748). The public-package receipt

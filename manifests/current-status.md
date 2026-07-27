@@ -1,3 +1,56 @@
+## 2026-07-27 SGA6 ultra-detail audit crops through idx631 published
+
+Current SGA version
+[`10.5281/zenodo.21631485`](https://doi.org/10.5281/zenodo.21631485)
+adds the closed SGA6 idx627-631 source-audit visual-evidence tranche on the
+existing concept `10.5281/zenodo.20410947`. It preserves 73 predecessor files
+byte-identically and refreshes only the three release controls.
+
+The targeted archive is 399,835 bytes, SHA-256
+`5C78DC96E4308AB98A3792F2E1DF9B169A85A03525FED607314015929A1C8B21`.
+It contains two tight crops actually opened during stable audit entries
+`#1379-#1383`; both reproduced with exact dimensions, pixels, and PNG bytes.
+The paired metadata archive is 38,289 bytes, SHA-256
+`BE2D4B9679A62ACFAE75CD82F3081C02F8BEFA33ADFA6043540DCBD07F52451F`.
+It records 25 routine page bands as rights-blocked metadata without
+redistributing those pixels. There are no generated-but-unread tight
+alternatives in this tranche.
+
+Anonymous readback passed all 78 outer files, all 73 retained predecessor
+identities, all 48 ZIP archives, and all 3,870 non-directory ZIP members.
+The latest endpoint resolves to `21631485`, and SGA1 remains the default
+preview. A metadata edit draft remains open because the public description
+and notes still carry predecessor idx618-626 prose; the file payload itself is
+complete and exact.
+
+GitHub package commit
+`dc4b75dfb9719b2aad807e8e32ed76d4075ce2bb` is public at
+`sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx627-631-20260727`.
+See the
+[publication receipt](published-zenodo/20260727_sga6_idx627_631_record_21631485.md),
+[outer-file readback](published-zenodo/20260727_sga6_idx627_631_record_21631485_public_readback.json),
+and
+[full ZIP-member readback](published-zenodo/20260727_sga6_idx627_631_record_21631485_zip_member_readback.json).
+
+## 2026-07-27 SGA3 Expose VII page-layout HOLD
+
+Every current Expose VII reader, repair tree, source freeze, and reference-COW
+generation remains excluded from publication. Fresh cold replay found
+`IR-SGA3-VII-DIAGRAM32-PAGE026-FOOTNOTE-OVERLAP-001`: footnote 41 overlaps
+DIAG033 inside footnote 40 on physical page 26 / printed page 22.
+
+The controlling local hold is 5,837 bytes, SHA-256
+`7FDB876D090F7C8ED228BBC2DAB1BEE52206E33B35C37DE1F9127431F2F624D5`.
+The independent FAIL report has SHA-256
+`2AE8B40411F7C389BBDFAFD8C9FB0C918C5CE23ACC683028C001EDEF415D8FAF`;
+its FAIL validation has SHA-256
+`2796F2342D21994EB405F832DC5876F4F4E98A7F8D8CD639591FE2EA4A046F71`.
+
+Publication requires a no-overwrite layout repair, complete
+300/600/900-1,200-dpi replay, fresh source freeze, rebuilt graph/package,
+privacy and rights closure, and independent terminal PASS. This hold does not
+alter any already-published bounded checkpoint.
+
 ## 2026-07-27 SGA6 ultra-detail audit crops through idx626 published
 
 Current SGA version
