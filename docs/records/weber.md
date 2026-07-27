@@ -33,8 +33,6 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 130.0444 | [Weber_VolumeI_PageMapped_HighDetail_Audit_Crops_20260723.zip](https://zenodo.org/records/21513712/files/Weber_VolumeI_PageMapped_HighDetail_Audit_Crops_20260723.zip) |
-| 124.9834 | [Weber_VolumeI_Recovered_Unmapped_Audit_Images_20260723.zip](https://zenodo.org/records/21513712/files/Weber_VolumeI_Recovered_Unmapped_Audit_Images_20260723.zip) |
 | 16.5682 | [80 Weber - TeX Sources, Component PDFs, Scans, and Provenance - Through Volume II Section 143.zip](https://zenodo.org/records/21513712/files/80%20Weber%20-%20TeX%20Sources%2C%20Component%20PDFs%2C%20Scans%2C%20and%20Provenance%20-%20Through%20Volume%20II%20Section%20143.zip) |
 | 27.3901 | [95 Heinrich Weber - Update Packets 2026-06-07.zip](https://zenodo.org/records/21513712/files/95%20Heinrich%20Weber%20-%20Update%20Packets%202026-06-07.zip) |
 | 20.3410 | [96 Heinrich Weber - Batch102 Canonical Vol II Sections 163-165 and Cumulative Through Section 165.zip](https://zenodo.org/records/21513712/files/96%20Heinrich%20Weber%20-%20Batch102%20Canonical%20Vol%20II%20Sections%20163-165%20and%20Cumulative%20Through%20Section%20165.zip) |
@@ -74,17 +72,19 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 13.1773 | [Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip](https://zenodo.org/records/21513712/files/Weber_Cumulative_ThreeVolumes_Batch96_Vol1_RecursiveAudit_Sections55_61_MR_20260607.zip) |
 | 12.2837 | [Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip](https://zenodo.org/records/21513712/files/Weber_LocalGapScan_IntegratedLedger_Batch107_20260610.zip) |
 | 22.0772 | [Weber_VolumeI_German_GapPass_p001_p088_SourceEvidence_20260716.zip](https://zenodo.org/records/21513712/files/Weber_VolumeI_German_GapPass_p001_p088_SourceEvidence_20260716.zip) |
+| 130.0444 | [Weber_VolumeI_PageMapped_HighDetail_Audit_Crops_20260723.zip](https://zenodo.org/records/21513712/files/Weber_VolumeI_PageMapped_HighDetail_Audit_Crops_20260723.zip) |
+| 124.9834 | [Weber_VolumeI_Recovered_Unmapped_Audit_Images_20260723.zip](https://zenodo.org/records/21513712/files/Weber_VolumeI_Recovered_Unmapped_Audit_Images_20260723.zip) |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0024 | [Weber_VolumeI_HighDetail_Audit_Crops_README_20260723.md](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_README_20260723.md) |
-| 0.0010 | [Weber_VolumeI_HighDetail_Audit_Crops_PARENT_SOURCE_20260723.json](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_PARENT_SOURCE_20260723.json) |
-| 0.1323 | [Weber_VolumeI_PageMapped_HighDetail_Audit_Crops_Manifest_20260723.csv](https://zenodo.org/records/21513712/files/Weber_VolumeI_PageMapped_HighDetail_Audit_Crops_Manifest_20260723.csv) |
-| 0.3440 | [Weber_VolumeI_Recovered_Unmapped_Audit_Images_Manifest_20260723.csv](https://zenodo.org/records/21513712/files/Weber_VolumeI_Recovered_Unmapped_Audit_Images_Manifest_20260723.csv) |
-| 0.0026 | [Weber_VolumeI_HighDetail_Audit_Crops_VALIDATION_20260723.json](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_VALIDATION_20260723.json) |
-| 0.0011 | [Weber_VolumeI_HighDetail_Audit_Crops_ZENODO_UPLOAD_MANIFEST_20260723.csv](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_ZENODO_UPLOAD_MANIFEST_20260723.csv) |
-| 0.0010 | [Weber_VolumeI_HighDetail_Audit_Crops_SHA256SUMS_20260723.txt](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_SHA256SUMS_20260723.txt) |
 | 0.0012 | [99_Weber_Public_Status_20260716.json](https://zenodo.org/records/21513712/files/99_Weber_Public_Status_20260716.json) |
 | 0.0009 | [99_Weber_VolumeI_p088_GapPass_Status_20260716.md](https://zenodo.org/records/21513712/files/99_Weber_VolumeI_p088_GapPass_Status_20260716.md) |
+| 0.0010 | [Weber_VolumeI_HighDetail_Audit_Crops_PARENT_SOURCE_20260723.json](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_PARENT_SOURCE_20260723.json) |
+| 0.0024 | [Weber_VolumeI_HighDetail_Audit_Crops_README_20260723.md](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_README_20260723.md) |
+| 0.0010 | [Weber_VolumeI_HighDetail_Audit_Crops_SHA256SUMS_20260723.txt](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_SHA256SUMS_20260723.txt) |
+| 0.0026 | [Weber_VolumeI_HighDetail_Audit_Crops_VALIDATION_20260723.json](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_VALIDATION_20260723.json) |
+| 0.0011 | [Weber_VolumeI_HighDetail_Audit_Crops_ZENODO_UPLOAD_MANIFEST_20260723.csv](https://zenodo.org/records/21513712/files/Weber_VolumeI_HighDetail_Audit_Crops_ZENODO_UPLOAD_MANIFEST_20260723.csv) |
+| 0.1323 | [Weber_VolumeI_PageMapped_HighDetail_Audit_Crops_Manifest_20260723.csv](https://zenodo.org/records/21513712/files/Weber_VolumeI_PageMapped_HighDetail_Audit_Crops_Manifest_20260723.csv) |
+| 0.3440 | [Weber_VolumeI_Recovered_Unmapped_Audit_Images_Manifest_20260723.csv](https://zenodo.org/records/21513712/files/Weber_VolumeI_Recovered_Unmapped_Audit_Images_Manifest_20260723.csv) |
