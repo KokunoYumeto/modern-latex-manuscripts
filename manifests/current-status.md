@@ -32,19 +32,28 @@ and
 
 ## 2026-07-27 SGA3 Expose VII strict repair hold
 
-No existing Expose VII candidate is publishable. The completed cold reverify
-covered all 135 diagrams and identified 32 that require repair. The current
-pre-repair reference graph is separately fail-held for 37 semantic
-target-kind regressions. A later detector audit found six TikZ coordinate
-literals falsely linked as section references. The controlling local hold is
+No existing Expose VII candidate is publishable, but its diagram-repair gate
+has advanced. All 32 source-backed repairs passed fresh nonauthor
+300/600/1200-dpi review, the other 103 diagrams remain byte-identical, and
+ambiguity is zero. The complete 760-target source-context kind audit also
+passes, with two differences now manager-adjudicated. The controlling local
+hold is
 3,179 bytes, SHA-256
 `AA121D61219000E22A3AB46113F180A8A001FAE5B65FEE6566AC352725C5A7F6`.
-The additive detector-failure control is 3,973 bytes, SHA-256
+The earlier graph freeze remains adverse history because inherited target
+kinds were flattened and six TikZ coordinate literals were falsely linked as
+section references. The detector-failure control is 3,973 bytes, SHA-256
 `D984FEF9257BBC978DBB55127E1379A8F69328A50AF43CA9ABBF2A4BDBAB7705`.
+Its `diagram_049.tex` identity is corrected by a 2,364-byte addendum, SHA-256
+`569CC7AD3821B858314FA84E698D2D397E645E2D5CBF32AE1FD48989BE402508`;
+the two target-kind decisions are bound by a 3,066-byte adjudication,
+SHA-256
+`FA22E7149B4CB6F71A534CB9472650D51725C9F66DB3078650C20D735AAF217C`.
 
-VII requires a distinct immutable post-repair, post-reference package and
-fresh independent release PASS. This hold does not alter the published
-Expose XI closure or create a Zenodo upload item.
+VII still requires final 135-target anchor resolution, a regenerated
+exhaustive graph, a rebuilt immutable package, and a fresh independent
+terminal release PASS. This hold does not alter the published Expose XI
+closure or create a Zenodo upload item.
 
 ## 2026-07-27 SGA3 Expose XI Loop2/reference-v2 checkpoint published
 
