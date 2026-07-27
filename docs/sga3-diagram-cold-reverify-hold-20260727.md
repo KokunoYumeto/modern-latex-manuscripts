@@ -45,12 +45,20 @@ can change.
 
 ## Affected pending SGA3 work
 
-The following known unpublished diagram-bearing scopes are held:
+The following known unpublished diagram-bearing scopes are controlled:
 
-- Expose VII: already held; it cannot receive final publication/readback
-  certification without a complying additive release receipt.
-- Expose XI: not release-ready; any later publication projection must satisfy
-  this control.
+- Expose VII: held. Its current independent R4 package audit also reproduces
+  stale or normalized `raw_exact.line_text` in 230 of 1,395 rows across 36
+  files. It cannot receive final publication/readback certification until both
+  that machine-evidence defect and this diagram gate are closed.
+- Expose XI: the diagram gate now passes. Receipt
+  `DIAGRAM_COLD_REVERIFY_RECEIPT.json`, SHA-256
+  `08C4C1D4314CAECD813761BF0EAA5FEB42268F387C58193FFD1098DAC8D6F619`,
+  binds a fresh nonauthor review, four source and five target full pages at
+  300 dpi, eight source and eight target whole-diagram views at 600 dpi,
+  thirty source and thirty target detail crops at 1,200 dpi, and eight
+  forensic plates. XI still lacks a sealed privacy-clean exact public
+  projection and full release audit, so no publication is authorized yet.
 - Any future Expose X or Exposes XII-XXVI diagram-bearing payload: held at
   release time until the same evidence is bound.
 - Any cumulative SGA3 reader: every Codex-created or Codex-reconstructed
