@@ -2996,3 +2996,39 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260728_sga3_cumulative_record_21632790.md`,
   the adjacent `public_readback.json`, and the adjacent
   `zip_member_readback.json`.
+
+## 2026-07-28 - SGA3 cumulative reader refreshed with Expose X
+
+- GitHub package commit
+  `6ee7a55dd3ae2b2133b75eebd7a3e28e83703b29` publishes the X-inclusive
+  package at
+  `sources/sga/sga3-english-current-progress-cumulative-through-xiii-20260728`.
+  Commit-pinned raw readback passed all 9 files.
+- Existing-concept Zenodo version `10.5281/zenodo.21633283` succeeds immutable
+  predecessor `21632790`; no duplicate concept, parallel successor, or second
+  draft was created.
+- The 877-page preferred current-progress reader covers the Editorial Notice,
+  Introduction, Exposes I-XI except XII, and Expose XIII. It has an explicit
+  XII gap and stops before XIV.
+- The reader is 5,378,609 bytes, SHA-256
+  `79A9C3908CDD2FF39F86DD52F92C6F002CCC943B20414E385167752C1DD8F174`.
+  It has 5,525 named destinations, 3,748 valid internal GoTo actions, and zero
+  broken actions.
+- Expose X is included as a complete Loop-1 English text-and-equation body.
+  Four raster diagram placeholders remain for Loop 2, so this is not a native
+  diagram or final certification claim.
+- The current 939-member integration-source ZIP has SHA-256
+  `1E91E5E11A402FF13B134E9DDA0C7784D4060453DBD97E9455C05FCEC5358BD0`.
+  The 21-member component-history ZIP is retained byte-identically at SHA-256
+  `AA6A51D0F4AC892C797FAECD0D9B060F2E5F4457E0B8A4D01379A319F1BA41FC`.
+- The final surface has 63 files / 371,522,343 bytes. Anonymous SHA-256
+  readback passed 63/63; 57 predecessor files remain byte-identical.
+- All 44 public ZIPs reopened. Exact replay found 4,012 non-directory members,
+  six directory records, and 387,990,088 uncompressed bytes.
+- SGA1 remains the default preview. The reader remains honestly labelled
+  incomplete SGA3, with XII and XIV-XXVI absent and VII/XIII closeout caveats
+  retained.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21633283.md`,
+  the adjacent `public_readback.json`, and the adjacent
+  `zip_member_readback.json`.
