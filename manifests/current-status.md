@@ -1,3 +1,37 @@
+## 2026-07-27 SGA3 Expose XI Loop2/reference-v2 checkpoint published
+
+Current SGA version
+[`10.5281/zenodo.21630748`](https://doi.org/10.5281/zenodo.21630748)
+adds the complete bounded SGA3 Expose XI reader, direct editable master, and
+124-member source/QA archive on the existing concept
+`10.5281/zenodo.20410947`. It preserves 68 predecessor files
+byte-identically and refreshes only the three release controls.
+
+The reader is 38 A4 pages, SHA-256
+`E849010ADA0D36B3A06CA6DC5D082888E64A918C53A721526CFA2A52411FF553`.
+The direct master TeX has SHA-256
+`DBFA66FC0782430159DC01FF6849E58796B425DBC236E8BD7512490F699A1DCE`,
+and the grouped source/QA ZIP has SHA-256
+`7D19A638EDF341D5E098D7041F980491E1FB528C5D4330C9479A026E9BE23CF4`.
+The ZIP replays all 124 members / 18,356,104 uncompressed bytes exactly.
+
+Anonymous readback passed all 74 outer files, all 68 retained predecessor
+identities, all 44 ZIP archives, and all 3,835 non-directory ZIP members.
+The latest endpoint resolves to `21630748`, SGA1 remains the default preview,
+and no active draft or duplicate concept remains.
+
+GitHub package commit
+`82ebc03147b141c9db2d32906173b418238d7e3f` is public at
+`sources/sga/sga3-english-expose-xi-loop2-reference-v2-r2-20260727`.
+The package covers combined-reader pp.723-756, stops before Expose XII, and
+binds the Claude-style 300/600/1200-dpi diagram cold-reverify receipt. See the
+[publication receipt](published-zenodo/20260727_sga3_expose_xi_record_21630748.md),
+[outer-file readback](published-zenodo/20260727_sga3_expose_xi_record_21630748_public_readback.json),
+and
+[full ZIP-member readback](published-zenodo/20260727_sga3_expose_xi_record_21630748_zip_member_readback.json).
+
+SGA3 remains incomplete because Exposes VII, X, and XII-XXVI are absent.
+
 ## 2026-07-27 SGA3 Expose IX Loop2/reference-v2 checkpoint published
 
 Current SGA version

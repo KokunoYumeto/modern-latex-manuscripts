@@ -1,3 +1,34 @@
+## 2026-07-27: SGA3 Exposé XI queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21630748](https://doi.org/10.5281/zenodo.21630748)
+- GitHub package:
+  [sga3-english-expose-xi-loop2-reference-v2-r2-20260727](../sources/sga/sga3-english-expose-xi-loop2-reference-v2-r2-20260727/)
+- GitHub package commit:
+  [`82ebc03147b141c9db2d32906173b418238d7e3f`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/82ebc03147b141c9db2d32906173b418238d7e3f)
+
+The single same-concept successor is published. Anonymous readback passed all
+74 outer files, all 68 retained predecessor files, all 44 ZIP archives, and
+all 3,835 non-directory ZIP members. The new Exposé XI archive has exactly
+124 safe members / 18,356,104 uncompressed bytes and matches the immutable
+candidate byte-for-byte.
+
+The direct XI reader is 38 A4 pages, SHA-256
+`E849010ADA0D36B3A06CA6DC5D082888E64A918C53A721526CFA2A52411FF553`.
+The direct master TeX is SHA-256
+`DBFA66FC0782430159DC01FF6849E58796B425DBC236E8BD7512490F699A1DCE`,
+and the grouped source/QA ZIP is SHA-256
+`7D19A638EDF341D5E098D7041F980491E1FB528C5D4330C9479A026E9BE23CF4`.
+XI covers combined-reader pages 723-756 and stops before Exposé XII. It binds
+the Claude-style 300/600/1200-dpi cold-reverify receipt while excluding
+authority-derived source pixels.
+
+The latest endpoint resolves to `21630748`, SGA1 remains the default preview,
+and no active draft or duplicate concept remains. SGA3 is still incomplete:
+Exposés VII, X, and XII-XXVI are absent. This queue is closed.
+
 ## 2026-07-27: SGA6 idx612-617 ultra-detail crop queue closed
 
 - Existing concept:
@@ -37,11 +68,12 @@ projection.
 Pending unpublished SGA3 diagram payloads now require full-page review at
 at least 300 dpi, full-diagram review at at least 600 dpi, 900-1200 dpi
 targeted ambiguity crops, exact arrow-label/punctuation inventories, and a
-fresh nonauthor cold reverify. Expose VII and Expose XI are the known pending
-affected scopes. Future diagram-bearing X, XII-XXVI, and cumulative packages
-are held at release time under the same rule. Existing published I-VI, VIII,
-and IX checkpoints remain immutable history; later compliance is additive,
-not a destructive rollback. The rule also carries forward to EGA.
+fresh nonauthor cold reverify. Exposé XI has now passed this gate and is
+published on record 21630748. Exposé VII remains pending. Future
+diagram-bearing X, XII-XXVI, and cumulative packages are held at release time
+under the same rule. Existing published I-VI, VIII, IX, and XI checkpoints
+remain immutable history; later compliance is additive, not a destructive
+rollback. The rule also carries forward to EGA.
 
 ## 2026-07-27: SGA6 idx607-611 ultra-detail crop queue closed
 
