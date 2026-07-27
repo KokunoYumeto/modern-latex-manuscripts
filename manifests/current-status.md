@@ -1,3 +1,22 @@
+## 2026-07-27 SGA3 VII and Claude SGA6 post-token-cutoff recovery
+
+The archive queue now preserves the exact work boundaries that continued
+after the maintenance task lost its weekly-token context. SGA3 Expose VII has
+reached a clean 211-page complete-body build, SHA-256
+`FA8FC1FDC19130E69763BD4BEE7D8A42710BC41DD0A571E4B61703B789202225`,
+with 1,164 named destinations and 311/311 resolving internal GoTo actions.
+Final release controls and an independent seal are still pending, so no VII
+body or Zenodo mutation is claimed.
+
+Claude's SGA6 cold audit has advanced to entry `#1334` / `idx582`, with
+`idx583` next. Entry `#1333` / `idx581` made one genuine source-backed
+diagram-punctuation correction; `idx582` passed cleanly. The current
+373-page workpass PDF is SHA-256
+`EA3E57440D05182D32DC290FFBC6BC80BBBB04D17C8DAC4443472519D4A14035`.
+The tree remains live, so the body waits for a sealed privacy-clean successor.
+See
+[`manifests/source-intake/20260727_sga3_vii_sga6_post_token_cutoff_snapshot.md`](source-intake/20260727_sga3_vii_sga6_post_token_cutoff_snapshot.md).
+
 ## 2026-07-27 SGA3 Expose VIII published and read back
 
 Current SGA version
