@@ -41,7 +41,7 @@ The source ZIP contains 124 safe non-directory members totaling 18,356,104
 uncompressed bytes. Its self-excluding `SHA256SUMS.csv` lists the other 123
 members and replays exactly. Fresh archive-maintenance extracted-package
 validation is included directly and has SHA-256
-`1F926A1725AEF843970AA2483ED8D8BFA5B1C079F76B424D15490F4A26DE294C`.
+`178639736D32B1F66C3848FCDFD512A0360D96908A73C7A1E7770858FD872960`.
 The package-bound independent prepackage audit has SHA-256
 `3AC91C2D254B0DFE0669274C17ED440A1DFD385110F0AF92A5E920DF0389DDFE`.
 
