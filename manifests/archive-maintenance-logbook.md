@@ -2958,3 +2958,41 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260727_sga3_expose_ix_record_21628601.md`,
   the adjacent `public_readback.json`, and the adjacent
   `zip_member_readback.json`.
+
+## 2026-07-28 - SGA3 current-progress cumulative reader fronted
+
+- GitHub package commit
+  `a5f0f25cb1ff8413f9328039bfd4622f8ef979ba` publishes the compact
+  cumulative package at
+  `sources/sga/sga3-english-current-progress-cumulative-i-ix-xi-xiii-20260728`.
+  Commit-pinned raw readback passed 9/9 files / 80,602,451 bytes.
+- Existing-concept Zenodo version `10.5281/zenodo.21632790` succeeds
+  immutable predecessor `21631485`; no duplicate concept, parallel successor,
+  or competing draft was created.
+- The 836-page preferred current-progress SGA3 reader covers the Editorial
+  Notice, Introduction, and Exposes I-IX, XI, and XIII. It has explicit gap
+  leaves for X and XII and stops before XIV. Exposes XIV-XXVI remain absent.
+- The reader is 5,158,699 bytes, SHA-256
+  `B41D1168A27C9214EC288B45139B2118C05610C9281F9D1467DA10EED0A21228`.
+  It has 5,332 named destinations, 3,647 valid internal GoTo actions, and zero
+  broken internal GoTo actions.
+- Expose VII is included as the latest readable repaired r5 body with its
+  unfinished final detector/reference package disclosed. Expose XIII is a
+  complete Loop-1 body with source/formula/high-zoom review but unfinished
+  exhaustive reference/package closeout. The public label is working and
+  incomplete, not certified or complete SGA3.
+- Nineteen formerly loose public SGA3 objects are preserved byte-exactly in
+  one 21-member history ZIP, SHA-256
+  `AA6A51D0F4AC892C797FAECD0D9B060F2E5F4457E0B8A4D01379A319F1BA41FC`.
+  The current 932-member integration-source ZIP has SHA-256
+  `6F94443597F6B833D34659F191768FC9B0446239DA1DCEFAE6E6CD22E82C83B9`.
+- The final surface has 63 files / 371,590,556 bytes. Anonymous SHA-256
+  readback passed 63/63, including all 56 retained predecessor files.
+- All 44 public ZIPs reopened. Exact replay found 4,005 non-directory members,
+  six directory records, and 387,806,305 uncompressed bytes.
+- SGA1 remains the default preview. Numeric file order puts the cumulative
+  SGA3 reader immediately after SGA2 and ahead of SGA4.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_sga3_cumulative_record_21632790.md`,
+  the adjacent `public_readback.json`, and the adjacent
+  `zip_member_readback.json`.
