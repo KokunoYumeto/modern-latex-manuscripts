@@ -1,16 +1,41 @@
+## 2026-07-27: SGA6 idx618-626 ultra-detail crop queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21631125](https://doi.org/10.5281/zenodo.21631125)
+- GitHub package:
+  [sga6-ultradetail-source-audit-crops-coldreverify-idx618-626-20260727](../sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx618-626-20260727/)
+- Publication/readback receipt:
+  [20260727_sga6_idx618_626_record_21631125.md](../manifests/published-zenodo/20260727_sga6_idx618_626_record_21631125.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+76 outer files, all 71 retained predecessor files, all 46 ZIP archives, and
+all 3,857 non-directory ZIP members. The release preserves eleven tight crops
+actually opened in stable SGA6 audit entries `#1370-#1378` / idx618-626. It
+publishes metadata, not pixels, for 45 routine page bands and one
+generated-but-unread alternative tight crop.
+
+The latest endpoint resolves to `21631125`, SGA1 remains the default preview,
+and no active draft or duplicate concept remains. This queue is closed.
+
 ## 2026-07-27: SGA3 Exposé VII remains strict HOLD
 
 - Controlling local hold: 3,179 bytes, SHA-256
   `AA121D61219000E22A3AB46113F180A8A001FAE5B65FEE6566AC352725C5A7F6`
-- Current public SGA version remains:
-  [10.5281/zenodo.21630748](https://doi.org/10.5281/zenodo.21630748)
+- Current public SGA version:
+  [10.5281/zenodo.21631125](https://doi.org/10.5281/zenodo.21631125)
 
 All 135 Exposé VII diagrams have now received the required cold reverify, and
 32 require repair. The current pre-repair full reference graph is separately
-fail-held for 37 semantic target-kind regressions. Therefore no existing VII
-candidate is queued for GitHub or Zenodo publication. Publication requires a
-new immutable post-repair, post-reference package, exact privacy-clean
-manifest, independent terminal PASS, and single archive handoff.
+fail-held for 37 semantic target-kind regressions. A later detector audit also
+found six TikZ coordinate literals (`2.1`, `3.3`, and `3.2`) falsely linked as
+section references. Its durable control is 3,973 bytes, SHA-256
+`D984FEF9257BBC978DBB55127E1379A8F69328A50AF43CA9ABBF2A4BDBAB7705`.
+Therefore no existing VII candidate is queued for GitHub or Zenodo
+publication. Publication requires a new immutable post-repair, post-reference
+package, exact privacy-clean manifest, independent terminal PASS, and single
+archive handoff.
 
 This hold does not alter the already-published Exposé XI checkpoint and does
 not authorize a duplicate concept or draft.
@@ -42,8 +67,9 @@ XI covers combined-reader pages 723-756 and stops before Exposé XII. It binds
 the Claude-style 300/600/1200-dpi cold-reverify receipt while excluding
 authority-derived source pixels.
 
-The latest endpoint resolves to `21630748`, SGA1 remains the default preview,
-and no active draft or duplicate concept remains. SGA3 is still incomplete:
+That publication-step readback resolved to `21630748`; SGA1 remained the
+default preview, and no active draft or duplicate concept remained. SGA3 is
+still incomplete:
 Exposés VII, X, and XII-XXVI are absent. This queue is closed.
 
 ## 2026-07-27: SGA6 idx612-617 ultra-detail crop queue closed
