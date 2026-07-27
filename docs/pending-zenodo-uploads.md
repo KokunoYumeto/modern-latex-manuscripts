@@ -1,3 +1,31 @@
+## 2026-07-27: SGA6 idx379-584 ultra-detail crop queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21627252](https://doi.org/10.5281/zenodo.21627252)
+- GitHub package:
+  [sga6-ultradetail-source-audit-crops-coldreverify-idx379-584-20260727](../sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx379-584-20260727/)
+- Publication/readback receipt:
+  [20260727_sga6_idx379_584_record_21627252.md](../manifests/published-zenodo/20260727_sga6_idx379_584_record_21627252.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+60 outer files, all 55 retained predecessor files, and all 166 members of the
+two new archives. The release publishes 155 tight crops actually opened in
+Claude's stable SGA6 audit span `#1131-#1336` / idx379-584. It publishes
+metadata, not pixels, for 1,030 routine page bands and eight
+generated-but-unread alternatives.
+
+The latest endpoint resolves to `21627252`, SGA1 remains the default preview,
+and no active draft or duplicate concept remains. Literal replay across all
+34 ZIPs found 3,553 non-directory members plus seven directory records /
+371,166,464 uncompressed bytes. This queue is closed.
+
+Later mutable audit entries `#1337-#1340` / idx585-588 and unfinished idx589
+are not silently promoted. They require a later sealed successor. SGA3
+Expose VII likewise remains held pending an immutable privacy-clean release
+projection and independent seal.
+
 ## 2026-07-27: SGA3 Expose VIII queue closed
 
 - Existing concept:

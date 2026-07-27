@@ -1,3 +1,45 @@
+## 2026-07-27 SGA6 ultra-detail audit crops through idx584 published
+
+Current SGA version
+[`10.5281/zenodo.21627252`](https://doi.org/10.5281/zenodo.21627252)
+adds two bounded SGA6 source-audit visual-evidence archives on the existing
+concept `10.5281/zenodo.20410947`. It preserves 55 predecessor files
+byte-identically, refreshes the three compact-release controls, and creates
+no duplicate concept, second successor, or competing draft.
+
+The public pixel archive is 12,530,655 bytes, SHA-256
+`90271DD95B6426EA555CB2BEAB2570BD1C947FE8FECBD9938002CD23764C9AC6`.
+It contains 155 tight formula-, glyph-, prose-, locator-, and
+diagram-junction crops actually opened during Claude's cold source
+re-verification. The paired provenance archive is 1,294,722 bytes, SHA-256
+`DB49DBFBD4CECAD0AE9E4DFA0F5DB8C3D2BFE914EC74A13877409C3C1FB52AC0`;
+it records 1,030 routine page bands and eight generated-but-unread tight
+alternatives as metadata-only, with their pixels rights-blocked.
+
+The stable boundary is audit entries `#1131-#1336` / parent idx379-584,
+spanning Exposes VI-X and the Expose X appendix. Later mutable entries
+`#1337-#1340` / idx585-588 and unfinished idx589 were observed but excluded.
+The parent 720-page scan, SHA-256
+`73FBBAD41340C12ECCDCFCF6C3A1656953FE3D712AA8E391678458CCD17B4BAA`,
+is not redistributed.
+
+Anonymous readback passed all 60 outer files / 324,255,907 bytes and all 55
+retained predecessor files. All 34 ZIPs reopened. Literal replay found 3,553
+non-directory members plus seven directory records / 371,166,464
+uncompressed bytes; all 3,387 inherited members and all 166 new members match
+their controlling identities. The release-control compatibility counter
+remains separately recorded as `3,559`.
+
+GitHub package commit
+`37db29ed31a2b6a6cf732c329c130a2bf69815be` is public at
+`sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx379-584-20260727`.
+SGA1 remains the default preview and the reader surface is otherwise
+unchanged. See the
+[publication receipt](published-zenodo/20260727_sga6_idx379_584_record_21627252.md),
+[outer-file readback](published-zenodo/20260727_sga6_idx379_584_record_21627252_public_readback.json),
+and
+[full ZIP-member readback](published-zenodo/20260727_sga6_idx379_584_record_21627252_zip_member_readback.json).
+
 ## 2026-07-27 SGA3 VII and Claude SGA6 post-token-cutoff recovery
 
 The archive queue now preserves the exact work boundaries that continued

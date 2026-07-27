@@ -2837,3 +2837,41 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This closes metadata custody only. SGA3 VII and Claude's SGA6 workpass still
   await sealed privacy-clean body handoffs, and Zenodo remains unchanged at
   `10.5281/zenodo.21623401`.
+
+## 2026-07-27 - SGA6 idx379-584 ultra-detail source-audit crops published
+
+- GitHub package commit
+  `37db29ed31a2b6a6cf732c329c130a2bf69815be` publishes the exact 16-file
+  provenance, manifest, validation, replay, and build-script surface at
+  `sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx379-584-20260727`.
+  Commit-pinned Git blob replay passed 16/16.
+- Existing-concept Zenodo version `10.5281/zenodo.21627252` succeeds
+  immutable predecessor `21623401`; no duplicate concept, second successor,
+  or competing draft was created.
+- The final surface has 60 files / 324,255,907 bytes. Anonymous SHA-256
+  readback passed all 60 files, and all 55 retained predecessor files remain
+  byte-identical.
+- Archive
+  `10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx379_584_20260727.zip`
+  is 12,530,655 bytes, SHA-256
+  `90271DD95B6426EA555CB2BEAB2570BD1C947FE8FECBD9938002CD23764C9AC6`.
+  It contains 155 tight crops actually opened during Claude's stable cold
+  source-audit span `#1131-#1336` / idx379-584.
+- Archive
+  `10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx379_584_20260727.zip`
+  is 1,294,722 bytes, SHA-256
+  `DB49DBFBD4CECAD0AE9E4DFA0F5DB8C3D2BFE914EC74A13877409C3C1FB52AC0`.
+  It records 1,030 routine page bands and eight generated-but-unread tight
+  alternatives as metadata-only, with their pixels withheld.
+- All 34 public ZIPs reopened. Literal replay found 3,553 non-directory
+  files plus seven directory records / 371,166,464 uncompressed bytes.
+  Every 3,387 inherited file member and all 166 new members match. The
+  release-control compatibility counter remains separately documented as
+  `3,559`.
+- SGA1 remains the default preview. The reader surface and SGA3 completeness
+  state are unchanged. Later mutable SGA6 entries idx585-589 and the unsealed
+  SGA3 Expose VII body remain excluded pending distinct sealed handoffs.
+- Exact receipts are
+  `manifests/published-zenodo/20260727_sga6_idx379_584_record_21627252.md`,
+  the adjacent `public_readback.json`, and the adjacent
+  `zip_member_readback.json`.
