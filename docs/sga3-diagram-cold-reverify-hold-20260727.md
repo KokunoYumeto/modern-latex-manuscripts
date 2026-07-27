@@ -50,10 +50,18 @@ The following known unpublished diagram-bearing scopes are controlled:
 - Expose VII: strict hold. A completed cold reverify covers all 135 diagrams
   and identifies 32 that require repair. The current pre-repair reference
   graph is independently fail-held for 37 semantic target-kind regressions.
+  A later detector audit also found six TikZ coordinate literals (`2.1`,
+  `3.3`, and `3.2`) falsely linked as section references in provisional
+  freeze1. A full post-repair candidate re-extraction and semantic target-kind
+  audit are therefore mandatory.
   The controlling local hold is
   `SGA3_EXPOSE_VII_HIGH_ZOOM_DIAGRAM_32_REPAIR_HOLD_20260727.md`, 3,179
   bytes, SHA-256
   `AA121D61219000E22A3AB46113F180A8A001FAE5B65FEE6566AC352725C5A7F6`.
+  The additive detector hold is
+  `SGA3_EXPOSE_VII_NATIVE_DIAGRAM_REFERENCE_DETECTOR_FAIL_20260727.md`,
+  3,973 bytes, SHA-256
+  `D984FEF9257BBC978DBB55127E1379A8F69328A50AF43CA9ABBF2A4BDBAB7705`.
   No existing VII candidate may receive final publication/readback
   certification. A distinct post-repair, post-reference freeze and exact
   release handoff are required.
