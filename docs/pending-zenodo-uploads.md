@@ -1,3 +1,46 @@
+## 2026-07-27: SGA3 diagram-bearing release hold
+
+- Controlling repository note:
+  [SGA3 diagram cold-reverify hold](sga3-diagram-cold-reverify-hold-20260727.md)
+- External control: 4,268 bytes, SHA-256
+  `8682D7E64EADF2E92F8015EF79BA337D3ADB062B232F296DEB6C4009360D10CB`
+
+Pending unpublished SGA3 diagram payloads now require full-page review at
+at least 300 dpi, full-diagram review at at least 600 dpi, 900-1200 dpi
+targeted ambiguity crops, exact arrow-label/punctuation inventories, and a
+fresh nonauthor cold reverify. Expose VII and Expose XI are the known pending
+affected scopes. Future diagram-bearing X, XII-XXVI, and cumulative packages
+are held at release time under the same rule. Existing published I-VI, VIII,
+and IX checkpoints remain immutable history; later compliance is additive,
+not a destructive rollback. The rule also carries forward to EGA.
+
+## 2026-07-27: SGA6 idx607-611 ultra-detail crop queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21629823](https://doi.org/10.5281/zenodo.21629823)
+- GitHub package:
+  [sga6-ultradetail-source-audit-crops-coldreverify-idx607-611-20260727](../sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx607-611-20260727/)
+- Publication/readback receipt:
+  [20260727_sga6_idx607_611_record_21629823.md](../manifests/published-zenodo/20260727_sga6_idx607_611_record_21629823.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+69 outer files, all 64 retained predecessor files, and all 17 members of the
+two new archives. The release publishes six tight crops actually opened in
+the stable SGA6 audit span `#1359-#1363` / idx607-611. It publishes metadata,
+not pixels, for 25 routine page bands; no generated-but-unread current-pass
+crop is promoted.
+
+The latest endpoint resolves to `21629823`, SGA1 remains the default preview,
+and no active draft or duplicate concept remains. Literal replay across all
+41 ZIPs found 3,696 non-directory members plus seven directory records /
+384,530,053 uncompressed bytes. This queue is closed.
+
+Live work beginning at idx612 is not silently promoted. The new SGA3 diagram
+hold above is separate and does not retroactively alter this SGA6 evidence
+release.
+
 ## 2026-07-27: SGA6 idx597-606 ultra-detail crop queue closed
 
 - Existing concept:
