@@ -2800,3 +2800,27 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260727_sga3_expose_viii_record_21623401.md`;
   machine readbacks are the adjacent `public_readback.json` and
   `zip_member_readback.json` files.
+
+## 2026-07-27 - SGA3 VII and Claude SGA6 post-token-cutoff recovery
+
+- Recovered the exact live state after the archive-maintenance task lost its
+  weekly-token context. This prevents later publication from silently skipping
+  work completed by the SGA tasks or Claude after that boundary.
+- SGA3 Expose VII now has a complete 211-page build, SHA-256
+  `FA8FC1FDC19130E69763BD4BEE7D8A42710BC41DD0A571E4B61703B789202225`.
+  Replay found zero broken internal links: all 311 GoTo actions resolve among
+  1,164 named destinations. The earlier editor-note `0` defect is repaired.
+- VII still lacks an immutable privacy-clean release projection, final
+  manifest, independent seal, and archive handoff. Its live source and reader
+  are therefore not mirrored as a release.
+- Claude's SGA6 cold audit has reached entry `#1334` / `idx582`, with `idx583`
+  next. Entry `#1333` / `idx581` records one real source-backed punctuation
+  correction in the Section 7.10 prism; `idx582` passed cleanly after
+  high-detail diagram review.
+- The live SGA6 TeX/PDF identities are
+  `7330A42E74AD3AAA53A69CE142FE34B5589ED6DB903586BA58D0450F1109D42C` /
+  `EA3E57440D05182D32DC290FFBC6BC80BBBB04D17C8DAC4443472519D4A14035`.
+  No current handoff or sealed crop selection exists.
+- Published a privacy-clean metadata snapshot only. The current SGA version
+  remains `10.5281/zenodo.21623401`; no duplicate concept, new version, or
+  competing draft was created.
