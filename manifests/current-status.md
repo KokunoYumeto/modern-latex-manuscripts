@@ -1,3 +1,40 @@
+## 2026-07-27 SGA3 Expose VIII published and read back
+
+Current SGA version
+[`10.5281/zenodo.21623401`](https://doi.org/10.5281/zenodo.21623401)
+adds the complete bounded SGA3 Expose VIII Loop2/reference-v2 reader and its
+65-member editable-source/QA archive on the existing concept
+`10.5281/zenodo.20410947`. It preserves 53 predecessor files
+byte-identically, refreshes the three compact-release controls, and creates
+no duplicate concept or competing draft.
+
+The direct reader is 31 A4 pages / 697,649 bytes, SHA-256
+`255A62C74E5A9900AC92DFCD5379A730C12B86DF7727336AF2E04282BF14D230`.
+It has four native diagrams, 270 named destinations, 248 valid internal
+GoTo actions, 28 embedded fonts, and no raster-image inclusions. The grouped
+source/QA ZIP is 7,632,871 bytes, SHA-256
+`2D3DFB6A8A167F0BA23993B1A814199A40D2E3DBD26D120C2AA22D0D5E63442B`;
+all 65 non-directory members / 8,833,128 uncompressed bytes replayed exactly
+against the internal 64-row manifest.
+
+Anonymous readback passed for all 58 outer files / 310,428,261 bytes and all
+53 retained predecessor files. All 32 ZIPs reopened without CRC or path
+errors. Literal replay found 3,387 file members plus seven directory entries,
+or 3,394 stored ZIP records, totaling 357,369,191 uncompressed bytes. This
+separates the exact physical count from the inherited mixed lineage counter
+`3,393`.
+
+GitHub package commit
+`c53b27a9da508cde755a3bbb176ab04dd8fb744a` is public at
+`sources/sga/sga3-english-expose-viii-loop2-reference-v2-r1-20260724`.
+SGA1 remains the default preview. SGA3 remains incomplete: the current
+surface has cumulative I-IV plus standalone complete V, VI, and VIII;
+Expose VII and Exposes IX-XXVI are absent. See the
+[publication receipt](published-zenodo/20260727_sga3_expose_viii_record_21623401.md),
+[outer-file readback](published-zenodo/20260727_sga3_expose_viii_record_21623401_public_readback.json),
+and
+[full ZIP-member readback](published-zenodo/20260727_sga3_expose_viii_record_21623401_zip_member_readback.json).
+
 ## 2026-07-24 SGA3 VIIA checkpoint and VIII/SGA6 live-state snapshot
 
 A fresh disk-truth sweep separates three materially different states:
