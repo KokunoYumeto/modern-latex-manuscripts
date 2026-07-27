@@ -1,3 +1,30 @@
+## 2026-07-27: SGA6 idx597-606 ultra-detail crop queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21629283](https://doi.org/10.5281/zenodo.21629283)
+- GitHub package:
+  [sga6-ultradetail-source-audit-crops-coldreverify-idx597-606-20260727](../sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx597-606-20260727/)
+- Publication/readback receipt:
+  [20260727_sga6_idx597_606_record_21629283.md](../manifests/published-zenodo/20260727_sga6_idx597_606_record_21629283.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+67 outer files, all 62 retained predecessor files, and all 31 members of the
+two new archives. The release publishes 20 tight crops actually opened in
+Claude's stable SGA6 audit span `#1349-#1358` / idx597-606. It publishes
+metadata, not pixels, for 50 routine page bands; no generated-but-unread
+current-pass crop is promoted.
+
+The latest endpoint resolves to `21629283`, SGA1 remains the default preview,
+and no active draft or duplicate concept remains. Literal replay across all
+39 ZIPs found 3,679 non-directory members plus seven directory records /
+383,993,186 uncompressed bytes. This queue is closed.
+
+Live Claude work beginning at idx607 is not silently promoted. SGA3 Expose VII
+and Exposes X-XXVI likewise remain held pending immutable, privacy-clean,
+independently sealed handoffs.
+
 ## 2026-07-27: SGA3 Expose IX queue closed
 
 - Existing concept:
@@ -20,8 +47,8 @@ seven directory records / 382,076,318 uncompressed bytes. This queue is
 closed. The manager-side exact replay is an audit addendum to the same
 transaction, not a second handoff or upload.
 
-SGA3 remains incomplete. Expose VII and Exposes X-XXVI remain absent. Live
-SGA6 work beginning at idx597 remains excluded.
+SGA3 remains incomplete. Expose VII and Exposes X-XXVI remain absent. The
+later SGA6 idx597-606 successor is recorded above.
 
 ## 2026-07-27: SGA6 idx585-596 ultra-detail crop queue closed
 
