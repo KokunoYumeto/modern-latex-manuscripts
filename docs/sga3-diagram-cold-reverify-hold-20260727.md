@@ -51,14 +51,15 @@ The following known unpublished diagram-bearing scopes are controlled:
   stale or normalized `raw_exact.line_text` in 230 of 1,395 rows across 36
   files. It cannot receive final publication/readback certification until both
   that machine-evidence defect and this diagram gate are closed.
-- Expose XI: the diagram gate now passes. Receipt
+- Expose XI: the diagram gate passed and the exact bounded checkpoint is now
+  public on same-concept record
+  [21630748](https://zenodo.org/records/21630748). The public-package receipt
   `DIAGRAM_COLD_REVERIFY_RECEIPT.json`, SHA-256
-  `08C4C1D4314CAECD813761BF0EAA5FEB42268F387C58193FFD1098DAC8D6F619`,
-  binds a fresh nonauthor review, four source and five target full pages at
-  300 dpi, eight source and eight target whole-diagram views at 600 dpi,
-  thirty source and thirty target detail crops at 1,200 dpi, and eight
-  forensic plates. XI still lacks a sealed privacy-clean exact public
-  projection and full release audit, so no publication is authorized yet.
+  `D852EECC167479848EA85831389A54CC1607B937EBCB3CF9130AE43EF8964F22`,
+  binds the target-only public 300-dpi full pages, 600-dpi whole diagrams,
+  and 1,200-dpi detail crops. Authority-derived source pixels and forensic
+  side-by-side plates remain excluded. The exact 124-member source/QA archive
+  and all 74 record files passed anonymous readback.
 - Any future Expose X or Exposes XII-XXVI diagram-bearing payload: held at
   release time until the same evidence is bound.
 - Any cumulative SGA3 reader: every Codex-created or Codex-reconstructed
@@ -69,7 +70,7 @@ The rule also carries forward to EGA diagram reconstruction.
 
 ## Published history
 
-Already published bounded SGA3 checkpoints for I-IV, V, VI, VIII, and IX are
+Already published bounded SGA3 checkpoints for I-IV, V, VI, VIII, IX, and XI are
 not deleted, rolled back, or silently relabeled as failures. They remain
 immutable working-history objects. Their existence is not a final cumulative
 SGA3 quality claim. Where their diagram evidence does not meet this newer
