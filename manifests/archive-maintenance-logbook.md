@@ -3032,3 +3032,40 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21633283.md`,
   the adjacent `public_readback.json`, and the adjacent
   `zip_member_readback.json`.
+
+## 2026-07-28 - Workflow methodology and accountability update published
+
+- GitHub commit `fb66709a0762df6f091bc145fea99704ec315e4b`
+  publishes the compact nine-file package at
+  `sources/workflow/ai-run-modern-latex-workflow-20260728`.
+  Commit-pinned raw readback passed 9/9 files / 379,720 bytes.
+- Existing-concept Zenodo version `10.5281/zenodo.21633426` succeeds immutable
+  predecessor `21424987`; no duplicate concept, parallel successor, or second
+  draft was created.
+- The six-page A4 methodology PDF is the default preview. It is 57,365 bytes,
+  SHA-256
+  `75E175B73D641AFFC828B06E38ACB6AC61999EDFA61A3B5893EB346AB79A535F`.
+  All six pages were rendered and visually reviewed.
+- The exact Claude cold-reverify method is directly public at SHA-256
+  `4B12DB3F632CB5F9E69393DCA33DA40256B5A9387C6522ADA831CA7F0367063D`.
+  The exact SGA resource-efficiency incident note is directly public at
+  SHA-256
+  `11D05DC19EA55F568FDB1C2BBD3AD6DB5AA799002EFFD3604A5244BE325C7ACA`.
+- The incident note's multi-ton coal-equivalent range remains conditional
+  scenario analysis under its stated high-overhead assumptions, not metered
+  OpenAI telemetry. Unquantified lifecycle, labor, infrastructure, and
+  opportunity costs remain disclosed.
+- The method explicitly forbids regenerating, rerunning, re-extracting, or
+  delegating the existing user-supplied OCR. It separates disjoint top-level
+  sessions from subagents, source-image adjudication from locator witnesses,
+  and Loop-1 coverage from Loop-2 diagram/reference work.
+- The current six-member source packet has SHA-256
+  `DB6047BB8507AEC2EC880293651CE223F14D68EF68566C4791195111543D7F50`.
+  The July 6 addenda/scripts ZIP remains byte-identical at SHA-256
+  `07F46DAC99916117A3499BEA1D651CCE4144B313B423ADB5E59DDC858C602288`.
+- Zenodo anonymous readback passed all 9 files. Both ZIP archives reopened
+  with all 27 members / 829,112 uncompressed bytes exact.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_workflow_methodology_record_21633426.md`,
+  the adjacent `public_readback.json`, and the adjacent
+  `zip_member_readback.json`.
