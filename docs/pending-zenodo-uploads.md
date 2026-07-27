@@ -1,3 +1,32 @@
+## 2026-07-27: SGA6 idx612-617 ultra-detail crop queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21630394](https://doi.org/10.5281/zenodo.21630394)
+- GitHub package:
+  [sga6-ultradetail-source-audit-crops-coldreverify-idx612-617-20260727](../sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx612-617-20260727/)
+- Publication/readback receipt:
+  [20260727_sga6_idx612_617_record_21630394.md](../manifests/published-zenodo/20260727_sga6_idx612_617_record_21630394.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+71 outer files, all 66 retained predecessor files, and all 15 members of the
+two new archives. The release publishes four tight crops actually opened in
+the stable SGA6 audit span `#1364-#1369` / idx612-617. It publishes metadata,
+not pixels, for 30 routine page bands and two generated-but-unread alternative
+tight crops.
+
+The latest endpoint resolves to `21630394`, SGA1 remains the default preview,
+and no active draft or duplicate concept remains. Literal replay across all
+43 ZIPs found 3,711 non-directory members plus seven directory records /
+384,983,055 uncompressed bytes. This queue is closed.
+
+Live work beginning at idx618 is not silently promoted. The current SGA3
+reader surface is directly visible on this record through I-IV plus standalone
+V, VI, VIII, and IX. Expose VII remains held for its machine-evidence repair;
+Expose XI has passed the high-zoom diagram gate but still needs a sealed public
+projection.
+
 ## 2026-07-27: SGA3 diagram-bearing release hold
 
 - Controlling repository note:
