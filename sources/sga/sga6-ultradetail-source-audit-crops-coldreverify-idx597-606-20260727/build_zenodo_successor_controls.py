@@ -335,6 +335,27 @@ Existing concept DOI: {CONCEPT_DOI}.
     new_zip_uncompressed = sum(
         int(item["member_bytes"]) for item in zip_results.values()
     )
+    prior_zip_file_members = int(
+        prior_validation.get(
+            "zip_file_member_count",
+            prior_validation.get("zip_member_count", 0),
+        )
+    )
+    prior_zip_directory_entries = int(
+        prior_validation.get("zip_directory_entry_count", 0)
+    )
+    prior_zip_all_entries = int(
+        prior_validation.get(
+            "zip_all_entry_count",
+            prior_zip_file_members + prior_zip_directory_entries,
+        )
+    )
+    prior_compatibility_counter = int(
+        prior_validation.get(
+            "release_control_compatibility_counter",
+            prior_zip_all_entries,
+        )
+    )
     validation_path = output_dir / "09b_RELEASE_VALIDATION.json"
     validation = {
         "status": "PASS",
@@ -365,6 +386,7 @@ Existing concept DOI: {CONCEPT_DOI}.
             "readback_files": args.github_metadata_files,
             "readback_errors": [],
         },
+        "sga3_expose_ix": prior_validation.get("sga3_expose_ix"),
         "sga3_expose_viii": prior_validation.get("sga3_expose_viii"),
         "sga6_source_audit_crops": {
             "scope": "parent indices 597-606; audit entries 1349-1358",
@@ -416,8 +438,12 @@ Existing concept DOI: {CONCEPT_DOI}.
         "zip_archive_count": (
             int(prior_validation["zip_archive_count"]) + len(zip_results)
         ),
-        "zip_member_count": (
-            int(prior_validation["zip_member_count"]) + new_zip_members
+        "zip_member_count": prior_zip_file_members + new_zip_members,
+        "zip_file_member_count": prior_zip_file_members + new_zip_members,
+        "zip_directory_entry_count": prior_zip_directory_entries,
+        "zip_all_entry_count": prior_zip_all_entries + new_zip_members,
+        "release_control_compatibility_counter": (
+            prior_compatibility_counter + new_zip_members
         ),
         "zip_uncompressed_bytes": (
             int(prior_validation["zip_uncompressed_bytes"])
