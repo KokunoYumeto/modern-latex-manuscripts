@@ -1,3 +1,38 @@
+## 2026-07-27 SGA3 Expose IX Loop2/reference-v2 checkpoint published
+
+Current SGA version
+[`10.5281/zenodo.21628601`](https://doi.org/10.5281/zenodo.21628601)
+adds the complete bounded SGA3 Expose IX reader, direct editable master, and
+68-member source/QA archive on the existing concept
+`10.5281/zenodo.20410947`. It preserves 59 predecessor files
+byte-identically, refreshes the three compact-release controls, and creates
+no duplicate concept, second successor, or competing draft.
+
+The 36-page A4 reader is 267,685 bytes, SHA-256
+`3AE231B4608B12CF1E19CBD6194CCAA03AB410F7C26DDBCEA8843951AD9ED6D3`.
+It covers all of Expose IX and stops before combined-reader page 679 /
+Expose X. The source/QA archive is 8,357,707 bytes, SHA-256
+`5CC33C3B35ED4BDF1CBFA64177070E5C3E47913E80CDEF5AA0158998EE3D337A`,
+and all 68 members replayed exactly.
+
+Anonymous readback passed all 65 outer files / 333,851,535 bytes and all 59
+retained predecessor files. All 37 ZIPs reopened. Literal replay found 3,648
+non-directory members plus seven directory records / 382,076,318
+uncompressed bytes. SGA1 remains the default preview.
+
+GitHub package commit
+`e2de33aade87606712a35ca7c5857d0c08b319cd` is public at
+`sources/sga/sga3-english-expose-ix-loop2-reference-v2-r1-20260727`.
+The later manager exact audit is bound as an addendum to this same
+publication. See the
+[publication receipt](published-zenodo/20260727_sga3_expose_ix_record_21628601.md),
+[outer-file readback](published-zenodo/20260727_sga3_expose_ix_record_21628601_public_readback.json),
+and
+[full ZIP-member readback](published-zenodo/20260727_sga3_expose_ix_record_21628601_zip_member_readback.json).
+
+SGA3 remains incomplete because Expose VII and Exposes X-XXVI are absent.
+Live SGA6 work beginning at idx597 remains excluded.
+
 ## 2026-07-27 SGA6 ultra-detail audit crops through idx596 published
 
 Current SGA version

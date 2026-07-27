@@ -1,3 +1,28 @@
+## 2026-07-27: SGA3 Expose IX queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21628601](https://doi.org/10.5281/zenodo.21628601)
+- GitHub package:
+  [sga3-english-expose-ix-loop2-reference-v2-r1-20260727](../sources/sga/sga3-english-expose-ix-loop2-reference-v2-r1-20260727/)
+- Publication/readback receipt:
+  [20260727_sga3_expose_ix_record_21628601.md](../manifests/published-zenodo/20260727_sga3_expose_ix_record_21628601.md)
+
+The exact 68-file bounded Expose IX checkpoint was published once under the
+existing SGA concept. Anonymous readback passed all 65 outer files, all 59
+retained predecessor files, and all 68 members of the new source/QA archive.
+The latest endpoint resolves to `21628601`, SGA1 remains the default preview,
+and no active draft, duplicate concept, or second successor remains.
+
+Literal replay across all 37 ZIPs found 3,648 non-directory members plus
+seven directory records / 382,076,318 uncompressed bytes. This queue is
+closed. The manager-side exact replay is an audit addendum to the same
+transaction, not a second handoff or upload.
+
+SGA3 remains incomplete. Expose VII and Exposes X-XXVI remain absent. Live
+SGA6 work beginning at idx597 remains excluded.
+
 ## 2026-07-27: SGA6 idx585-596 ultra-detail crop queue closed
 
 - Existing concept:
