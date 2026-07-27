@@ -1,3 +1,46 @@
+## 2026-07-27 SGA6 ultra-detail audit crops through idx596 published
+
+Current SGA version
+[`10.5281/zenodo.21628220`](https://doi.org/10.5281/zenodo.21628220)
+adds the closed Claude SGA6 idx585-596 source-audit visual-evidence tranche
+on the existing concept `10.5281/zenodo.20410947`. It preserves 57
+predecessor files byte-identically, refreshes the three compact-release
+controls, and creates no duplicate concept, second successor, or competing
+draft.
+
+The public pixel archive is 869,547 bytes, SHA-256
+`86D1F9DFDCF92EB8FB59D89F22E5B2465BAD29AF7F2EF8B82C682DEF644909D4`.
+It contains 16 tight formula-, glyph-, prose-, locator-, punctuation-, and
+diagram-junction crops actually opened during Claude's cold source
+re-verification. All 16 exact source PNGs correlate to their current Claude
+viewer attachments. Fresh replay reproduced all dimensions; 6/16 also
+reproduced exact pixels and PNG bytes, while ten carry quantified
+renderer-version drift.
+
+The paired provenance archive is 95,201 bytes, SHA-256
+`D5320BF393E778C71EEA4C3C4266D2B69208CC8A38E5F210E6BBAE857C1550A9`.
+It records 60 routine page bands and one generated-but-unread tight
+alternative as metadata-only, with their pixels rights-blocked. The stable
+boundary is audit entries `#1337-#1348` / parent idx585-596. Live work
+beginning at idx597 is excluded.
+
+Anonymous readback passed all 62 outer files / 325,221,792 bytes and all 57
+retained predecessor files. All 36 ZIPs reopened. Literal replay found 3,580
+non-directory members plus seven directory records / 372,126,140
+uncompressed bytes; all 3,553 inherited members and all 27 new members match
+their controlling identities. The release-control compatibility counter is
+separately recorded as `3,586`.
+
+GitHub package commit
+`0d251645db59dd508e4cb64b1eea30e80b13d82e` is public at
+`sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx585-596-20260727`.
+SGA1 remains the default preview and the reader surface is otherwise
+unchanged. See the
+[publication receipt](published-zenodo/20260727_sga6_idx585_596_record_21628220.md),
+[outer-file readback](published-zenodo/20260727_sga6_idx585_596_record_21628220_public_readback.json),
+and
+[full ZIP-member readback](published-zenodo/20260727_sga6_idx585_596_record_21628220_zip_member_readback.json).
+
 ## 2026-07-27 SGA6 ultra-detail audit crops through idx584 published
 
 Current SGA version
