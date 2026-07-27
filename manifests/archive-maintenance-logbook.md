@@ -2761,3 +2761,42 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   2,071,580 bytes; the receipt is 1,699 bytes, SHA-256
   `693FBC2E13FF19CC4932FC15A807D3148842C5CE30C6B6504011869BB123C254`.
 - Existing SGA version `10.5281/zenodo.21523096` remains current.
+
+## 2026-07-27 - SGA3 Expose VIII Loop2/reference-v2 checkpoint published
+
+- GitHub commit `c53b27a9da508cde755a3bbb176ab04dd8fb744a`
+  publishes the exact five-file package at
+  `sources/sga/sga3-english-expose-viii-loop2-reference-v2-r1-20260724`.
+  Anonymous commit-pinned readback passed 5/5 outer files and all 65
+  non-directory ZIP members.
+- Existing-concept Zenodo version `10.5281/zenodo.21623401` succeeds
+  immutable predecessor `21523096`; no duplicate concept, second successor,
+  or competing draft was created.
+- The final surface has 58 files / 310,428,261 bytes. Anonymous SHA-256
+  readback passed all 58 files, and all 53 retained predecessor files remain
+  byte-identical.
+- Reader
+  `00c5_SGA3_English_Expose_VIII_Loop2_ReferenceV2_R1_20260724.pdf`
+  is 31 A4 pages / 697,649 bytes, SHA-256
+  `255A62C74E5A9900AC92DFCD5379A730C12B86DF7727336AF2E04282BF14D230`.
+  It has four native diagrams, 270 named destinations, 248 valid internal
+  GoTo actions, 28 embedded fonts, and no raster-image inclusions.
+- Archive
+  `10c5_SGA3_English_Expose_VIII_Loop2_ReferenceV2_R1_Source_QA_20260724.zip`
+  is 7,632,871 bytes, SHA-256
+  `2D3DFB6A8A167F0BA23993B1A814199A40D2E3DBD26D120C2AA22D0D5E63442B`.
+  Its 65 files / 8,833,128 uncompressed bytes replayed against the internal
+  64-row manifest with no path, hash, CRC, or closure errors.
+- All 32 public ZIPs reopened. Literal replay found 3,387 non-directory
+  files plus seven directory entries, or 3,394 stored ZIP records, totaling
+  357,369,191 uncompressed bytes. The release-control lineage counter
+  `3,393` mixes the predecessor's stored-entry count with the new ZIP's
+  non-directory-file count; the durable receipt states both literal
+  dimensions rather than concealing the one-entry convention mismatch.
+- SGA1 remains the default preview. SGA3 now has cumulative I-IV plus
+  standalone complete working readers for V, VI, and VIII. Expose VII and
+  Exposes IX-XXVI remain absent, so this is not complete SGA3.
+- The exact publication receipt is
+  `manifests/published-zenodo/20260727_sga3_expose_viii_record_21623401.md`;
+  machine readbacks are the adjacent `public_readback.json` and
+  `zip_member_readback.json` files.

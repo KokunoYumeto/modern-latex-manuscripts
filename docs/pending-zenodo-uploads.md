@@ -1,4 +1,25 @@
-## 2026-07-24: SGA3 VIIA/VIII and live SGA6 audit are not queued
+## 2026-07-27: SGA3 Expose VIII queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21623401](https://doi.org/10.5281/zenodo.21623401)
+- GitHub package:
+  [sga3-english-expose-viii-loop2-reference-v2-r1-20260724](../sources/sga/sga3-english-expose-viii-loop2-reference-v2-r1-20260724/)
+- Publication/readback receipt:
+  [20260727_sga3_expose_viii_record_21623401.md](../manifests/published-zenodo/20260727_sga3_expose_viii_record_21623401.md)
+
+The exact bounded Expose VIII checkpoint is published once under the existing
+SGA concept. Anonymous readback passed for all 58 outer files, all 53
+retained predecessor files, the new 65-member source/QA archive, and every
+public ZIP. SGA1 remains the default preview, the latest endpoint resolves
+to `21623401`, and no active draft or duplicate concept remains. The queue is
+closed.
+
+This closes Expose VIII only. SGA3 is not complete: Expose VII and Exposes
+IX-XXVI remain absent from the current public reader surface.
+
+## 2026-07-24: SGA3 VIIA and live SGA6 audit are not queued
 
 - Disk-truth snapshot:
   [20260724_sga3_vii_viii_sga6_live_production_snapshot.md](../manifests/source-intake/20260724_sga3_vii_viii_sga6_live_production_snapshot.md)
@@ -10,16 +31,16 @@
 The complete 73-page SGA3 VIIA Loop-1 checkpoint is preserved by exact
 identity, but VIIB is active, 78 source-derived PNGs remain native-Loop2 and
 rights-caveated obligations, and no public projection or release seal exists.
-SGA3 VIII has a complete 31-page body and a graph-only PASS, but its 87
-planned reference mutations are not applied and compiled/visual release
-gates remain open. The SGA6 cold audit is live through `idx387`; its mutable
-workpass and zero-byte transient auxiliary are not upload objects.
+The later independently sealed SGA3 VIII successor is now published and is
+tracked in the closed queue above. The SGA6 cold audit state recorded by this
+older snapshot was live through `idx387`; its mutable workpass and zero-byte
+transient auxiliary were not upload objects.
 
 GitHub metadata commit `a40a9fd4bd61e4eaf2a35eff483e6e308a55dbec`
-passed anonymous 4/4 file readback. No GitHub body transport or Zenodo
-mutation follows from these states. Revisit only after a distinct immutable
-privacy-clean projection, rights disposition, independent terminal PASS,
-exact handoff, and explicit release authority.
+passed anonymous 4/4 file readback. No VIIA or SGA6 body transport or Zenodo
+mutation follows from those states. Revisit them only after distinct
+immutable privacy-clean projections, rights dispositions, independent
+terminal PASSes, exact handoffs, and explicit release authority.
 
 ## 2026-07-24: SGA6 idx362-378 ultra-detail crop queue closed
 
