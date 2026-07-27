@@ -6,9 +6,9 @@ Build engine: XeLaTeX. Four consecutive passes exited successfully.
 
 Final reader:
 
-- 836 A4 pages
-- 5,158,699 bytes
-- SHA-256 `B41D1168A27C9214EC288B45139B2118C05610C9281F9D1467DA10EED0A21228`
+- 877 A4 pages
+- 5,378,609 bytes
+- SHA-256 `79A9C3908CDD2FF39F86DD52F92C6F002CCC943B20414E385167752C1DD8F174`
 
 Diagnostics:
 
@@ -25,15 +25,16 @@ Diagnostics:
 
 PDF replay:
 
-- named destinations: 5,332
-- internal GoTo actions: 3,647
+- named destinations: 5,525
+- internal GoTo actions: 3,748
 - invalid actions: 0
-- outline items: 173
+- outline items: 191
 - embedded font resources: 62
 - unembedded fonts: 0
 - Type 3 fonts: 0
 - page geometry: A4 throughout
 
 Visual review covered the VI/VII, VII/VIII, VIII/IX, IX/X, X/XI, XI/XII,
-XII/XIII, and XIII/end seams at 300 dpi, plus the repaired Expose-VII
-page containing the formerly colliding footnotes and diagram.
+XII/XIII, and XIII/end seams, the four Expose-X raster-diagram placements,
+and the repaired Expose-VII page containing the formerly colliding footnotes
+and diagram.
