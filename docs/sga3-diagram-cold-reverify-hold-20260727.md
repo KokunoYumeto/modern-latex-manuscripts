@@ -47,13 +47,17 @@ can change.
 
 The following known unpublished diagram-bearing scopes are controlled:
 
-- Expose VII: strict hold. A completed cold reverify covers all 135 diagrams
-  and identifies 32 that require repair. The current pre-repair reference
-  graph is independently fail-held for 37 semantic target-kind regressions.
-  A later detector audit also found six TikZ coordinate literals (`2.1`,
-  `3.3`, and `3.2`) falsely linked as section references in provisional
-  freeze1. A full post-repair candidate re-extraction and semantic target-kind
-  audit are therefore mandatory.
+- Expose VII: strict hold, with the diagram-repair gate now passed. All 32
+  source-backed repairs passed fresh nonauthor review, the other 103 diagrams
+  remain byte-identical, ambiguity is zero, and the evidence binds 300-dpi
+  changed/seam pages, 600- and 1,200-dpi whole diagrams, and 128 targeted
+  1,200-dpi details. The full 760-target source-context kind audit also passed;
+  its two differences are manager-adjudicated as `diagram` and `theorem`.
+  The hold remains because the final 135-target anchor resolution and
+  exhaustive graph have not yet been bound to a new rebuilt package and exact
+  terminal release audit. The earlier graph freeze is adverse history: it
+  flattened inherited target kinds and falsely linked six TikZ coordinate
+  literals (`2.1`, `3.3`, and `3.2`) as section references.
   The controlling local hold is
   `SGA3_EXPOSE_VII_HIGH_ZOOM_DIAGRAM_32_REPAIR_HOLD_20260727.md`, 3,179
   bytes, SHA-256
@@ -62,9 +66,18 @@ The following known unpublished diagram-bearing scopes are controlled:
   `SGA3_EXPOSE_VII_NATIVE_DIAGRAM_REFERENCE_DETECTOR_FAIL_20260727.md`,
   3,973 bytes, SHA-256
   `D984FEF9257BBC978DBB55127E1379A8F69328A50AF43CA9ABBF2A4BDBAB7705`.
+  Its statement that repaired `diagram_049.tex` remained byte-identical is
+  append-only corrected by
+  `SGA3_EXPOSE_VII_NATIVE_DIAGRAM_REFERENCE_DETECTOR_IDENTITY_CORRECTION_20260727.md`,
+  2,364 bytes, SHA-256
+  `569CC7AD3821B858314FA84E698D2D397E645E2D5CBF32AE1FD48989BE402508`.
+  The two target-kind decisions are bound by
+  `SGA3_EXPOSE_VII_TARGET_KIND_TWO_ROW_ADJUDICATION_20260727.md`, 3,066 bytes,
+  SHA-256
+  `FA22E7149B4CB6F71A534CB9472650D51725C9F66DB3078650C20D735AAF217C`.
   No existing VII candidate may receive final publication/readback
-  certification. A distinct post-repair, post-reference freeze and exact
-  release handoff are required.
+  certification. A distinct post-reference rebuilt freeze and exact release
+  handoff are required.
 - Expose XI: the diagram gate passed and the exact bounded checkpoint is now
   public on same-concept record
   [21630748](https://zenodo.org/records/21630748). The public-package receipt

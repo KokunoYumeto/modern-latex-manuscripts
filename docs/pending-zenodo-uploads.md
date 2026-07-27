@@ -26,16 +26,23 @@ and no active draft or duplicate concept remains. This queue is closed.
 - Current public SGA version:
   [10.5281/zenodo.21631125](https://doi.org/10.5281/zenodo.21631125)
 
-All 135 Exposé VII diagrams have now received the required cold reverify, and
-32 require repair. The current pre-repair full reference graph is separately
-fail-held for 37 semantic target-kind regressions. A later detector audit also
-found six TikZ coordinate literals (`2.1`, `3.3`, and `3.2`) falsely linked as
-section references. Its durable control is 3,973 bytes, SHA-256
-`D984FEF9257BBC978DBB55127E1379A8F69328A50AF43CA9ABBF2A4BDBAB7705`.
+All 32 source-backed Exposé VII diagram repairs now pass fresh nonauthor
+300/600/1200-dpi review; the other 103 diagrams remain byte-identical and
+ambiguity is zero. The complete 760-target source-context kind audit also
+passes, and its two differences are manager-adjudicated. The current graph
+freeze remains adverse history because inherited target kinds were flattened
+and six TikZ coordinate literals (`2.1`, `3.3`, and `3.2`) were falsely linked
+as section references. The detector control is 3,973 bytes, SHA-256
+`D984FEF9257BBC978DBB55127E1379A8F69328A50AF43CA9ABBF2A4BDBAB7705`;
+its `diagram_049.tex` identity is corrected by a 2,364-byte addendum, SHA-256
+`569CC7AD3821B858314FA84E698D2D397E645E2D5CBF32AE1FD48989BE402508`.
+The two target-kind decisions are bound by a 3,066-byte adjudication, SHA-256
+`FA22E7149B4CB6F71A534CB9472650D51725C9F66DB3078650C20D735AAF217C`.
+
 Therefore no existing VII candidate is queued for GitHub or Zenodo
-publication. Publication requires a new immutable post-repair, post-reference
-package, exact privacy-clean manifest, independent terminal PASS, and single
-archive handoff.
+publication. Publication requires the final 135-target anchor resolution,
+regenerated exhaustive graph, rebuilt immutable package, exact privacy/rights
+manifest, independent terminal PASS, and one archive handoff.
 
 This hold does not alter the already-published Exposé XI checkpoint and does
 not authorize a duplicate concept or draft.
