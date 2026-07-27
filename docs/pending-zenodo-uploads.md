@@ -1,3 +1,45 @@
+## 2026-07-27: SGA6 idx627-631 files published; metadata closeout pending
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21631485](https://doi.org/10.5281/zenodo.21631485)
+- GitHub package:
+  [sga6-ultradetail-source-audit-crops-coldreverify-idx627-631-20260727](../sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx627-631-20260727/)
+- Publication/readback receipt:
+  [20260727_sga6_idx627_631_record_21631485.md](../manifests/published-zenodo/20260727_sga6_idx627_631_record_21631485.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+78 outer files, all 73 retained predecessor files, all 48 ZIP archives, and
+all 3,870 non-directory ZIP members. The release preserves two tight crops
+actually opened in stable SGA6 audit entries `#1379-#1383` / idx627-631. It
+publishes metadata, not pixels, for 25 routine page bands and has zero
+generated-but-unread tight alternatives.
+
+The latest endpoint resolves to `21631485`, and SGA1 remains the default
+preview. One in-place metadata edit remains open: the landing-page description
+and notes still show the predecessor idx618-626 prose. This queue closes only
+after that edit is published and the anonymous draft probe returns `404`.
+
+## 2026-07-27: SGA3 Exposé VII remains strict page-layout HOLD
+
+- Controlling local hold: 5,837 bytes, SHA-256
+  `7FDB876D090F7C8ED228BBC2DAB1BEE52206E33B35C37DE1F9127431F2F624D5`
+- Independent FAIL report SHA-256:
+  `2AE8B40411F7C389BBDFAFD8C9FB0C918C5CE23ACC683028C001EDEF415D8FAF`
+- FAIL validation SHA-256:
+  `2796F2342D21994EB405F832DC5876F4F4E98A7F8D8CD639591FE2EA4A046F71`
+
+Fresh cold replay found footnote 41 overlapping DIAG033 inside footnote 40 on
+physical page 26 / printed page 22. All current VII COW r1/r2 generations are
+adverse pre-layout-fix history. No existing VII candidate is queued for
+GitHub or Zenodo publication.
+
+A no-overwrite layout repair, complete 300/600/900-1,200-dpi replay, fresh
+source freeze, rebuilt graph/package, privacy and rights closure, and
+independent terminal release PASS are mandatory. The hold does not alter
+already-published SGA3 checkpoints.
+
 ## 2026-07-27: SGA6 idx618-626 ultra-detail crop queue closed
 
 - Existing concept:
