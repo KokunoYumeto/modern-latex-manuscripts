@@ -2917,3 +2917,44 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260727_sga6_idx585_596_record_21628220.md`,
   the adjacent `public_readback.json`, and the adjacent
   `zip_member_readback.json`.
+
+## 2026-07-27 - SGA3 Expose IX Loop2/reference-v2 checkpoint published
+
+- GitHub package commit
+  `e2de33aade87606712a35ca7c5857d0c08b319cd` publishes the exact bounded
+  package at
+  `sources/sga/sga3-english-expose-ix-loop2-reference-v2-r1-20260727`.
+  Commit-pinned Git blob replay passed all seven changed paths.
+- Existing-concept Zenodo version `10.5281/zenodo.21628601` succeeds
+  immutable predecessor `21628220`; no duplicate concept, second successor,
+  or competing draft was created.
+- The final surface has 65 files / 333,851,535 bytes. Anonymous SHA-256
+  readback passed all 65 files, and all 59 retained predecessor files remain
+  byte-identical.
+- The new 36-page reader,
+  `00c6_SGA3_English_Expose_IX_Loop2_ReferenceV2_R1_20260727.pdf`, is
+  267,685 bytes, SHA-256
+  `3AE231B4608B12CF1E19CBD6194CCAA03AB410F7C26DDBCEA8843951AD9ED6D3`.
+  It covers all of Expose IX and stops before combined-reader page 679 /
+  Expose X.
+- The direct master TeX is 1,316 bytes, SHA-256
+  `FA3CDED0E5D0086AF5633C14375668BDBA9B26D301D20E92E7C0B8438B9D1B46`.
+- The source/QA archive is 8,357,707 bytes, SHA-256
+  `5CC33C3B35ED4BDF1CBFA64177070E5C3E47913E80CDEF5AA0158998EE3D337A`.
+  All 68 members / 9,950,178 uncompressed bytes replayed exactly against
+  the sealed package.
+- All 37 public ZIPs reopened. Literal replay found 3,648 non-directory
+  files plus seven directory records / 382,076,318 uncompressed bytes.
+  Every 3,580 inherited file member and all 68 new members match. The
+  release-control compatibility counter is separately documented as
+  `3,654`.
+- Strict extracted-package validation, context-light replay, and the later
+  manager exact audit all passed. The manager addendum is bound to this same
+  transaction and did not create a second handoff, upload, or version.
+- SGA1 remains the default preview. SGA3 remains incomplete because Expose
+  VII and Exposes X-XXVI are absent. Live SGA6 work beginning at idx597
+  remains excluded.
+- Exact receipts are
+  `manifests/published-zenodo/20260727_sga3_expose_ix_record_21628601.md`,
+  the adjacent `public_readback.json`, and the adjacent
+  `zip_member_readback.json`.
