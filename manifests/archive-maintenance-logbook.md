@@ -2875,3 +2875,45 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260727_sga6_idx379_584_record_21627252.md`,
   the adjacent `public_readback.json`, and the adjacent
   `zip_member_readback.json`.
+
+## 2026-07-27 - SGA6 idx585-596 ultra-detail source-audit crops published
+
+- GitHub package commit
+  `0d251645db59dd508e4cb64b1eea30e80b13d82e` publishes the exact 16-file
+  provenance, manifest, validation, replay, visual-QA, and build-script
+  surface at
+  `sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx585-596-20260727`.
+  Commit-pinned Git blob replay passed 16/16.
+- Existing-concept Zenodo version `10.5281/zenodo.21628220` succeeds
+  immutable predecessor `21627252`; no duplicate concept, second successor,
+  or competing draft was created.
+- The final surface has 62 files / 325,221,792 bytes. Anonymous SHA-256
+  readback passed all 62 files, and all 57 retained predecessor files remain
+  byte-identical.
+- Archive
+  `10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx585_596_20260727.zip`
+  is 869,547 bytes, SHA-256
+  `86D1F9DFDCF92EB8FB59D89F22E5B2465BAD29AF7F2EF8B82C682DEF644909D4`.
+  It contains 16 tight crops actually opened during Claude's stable cold
+  source-audit span `#1337-#1348` / idx585-596.
+- Archive
+  `10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx585_596_20260727.zip`
+  is 95,201 bytes, SHA-256
+  `D5320BF393E778C71EEA4C3C4266D2B69208CC8A38E5F210E6BBAE857C1550A9`.
+  It records 60 routine page bands and one generated-but-unread tight
+  alternative as metadata-only, with their pixels withheld.
+- All 16 selected source PNG identities and current Claude viewer-attachment
+  correlations pass. Fresh replay reproduced 16/16 dimensions and 6/16 exact
+  pixels/PNG bytes; quantified renderer-version drift is disclosed for the
+  other ten instead of being hidden.
+- All 36 public ZIPs reopened. Literal replay found 3,580 non-directory
+  files plus seven directory records / 372,126,140 uncompressed bytes.
+  Every 3,553 inherited file member and all 27 new members match. The
+  release-control compatibility counter is separately documented as `3,586`.
+- SGA1 remains the default preview. The reader surface and SGA3 completeness
+  state are unchanged. Live SGA6 work beginning at idx597 and the unsealed
+  SGA3 Exposes VII and IX remain excluded pending distinct sealed handoffs.
+- Exact receipts are
+  `manifests/published-zenodo/20260727_sga6_idx585_596_record_21628220.md`,
+  the adjacent `public_readback.json`, and the adjacent
+  `zip_member_readback.json`.
