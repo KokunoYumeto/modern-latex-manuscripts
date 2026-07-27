@@ -16,6 +16,10 @@ diagram-punctuation correction; `idx582` passed cleanly. The current
 The tree remains live, so the body waits for a sealed privacy-clean successor.
 See
 [`manifests/source-intake/20260727_sga3_vii_sga6_post_token_cutoff_snapshot.md`](source-intake/20260727_sga3_vii_sga6_post_token_cutoff_snapshot.md).
+Commit `8bc4f9ff7209021aa559344c25ac42affb1efc66` passed exact
+anonymous 5/5 file readback; the
+[readback receipt](source-intake/20260727_sga3_vii_sga6_post_token_cutoff_snapshot_github_readback.md)
+records every public byte count and SHA-256.
 
 ## 2026-07-27 SGA3 Expose VIII published and read back
 

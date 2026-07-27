@@ -2824,3 +2824,16 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Published a privacy-clean metadata snapshot only. The current SGA version
   remains `10.5281/zenodo.21623401`; no duplicate concept, new version, or
   competing draft was created.
+
+## 2026-07-27 - Post-token-cutoff metadata readback
+
+- Public GitHub commit
+  `8bc4f9ff7209021aa559344c25ac42affb1efc66` contains the exact recovery
+  snapshot and append-only archive decision.
+- Anonymous commit-pinned readback returned HTTP 200 and exact Git blob bytes
+  for all five changed files.
+- The downloaded JSONL parsed as 123 records with 123 unique decision IDs;
+  `AML-20260727-SGA-103` occurs exactly once.
+- This closes metadata custody only. SGA3 VII and Claude's SGA6 workpass still
+  await sealed privacy-clean body handoffs, and Zenodo remains unchanged at
+  `10.5281/zenodo.21623401`.
