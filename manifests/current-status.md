@@ -1,10 +1,46 @@
+## 2026-07-27 SGA6 ultra-detail audit crops through idx626 published
+
+Current SGA version
+[`10.5281/zenodo.21631125`](https://doi.org/10.5281/zenodo.21631125)
+adds the closed SGA6 idx618-626 source-audit visual-evidence tranche on the
+existing concept `10.5281/zenodo.20410947`. It preserves 71 predecessor files
+byte-identically and refreshes only the three release controls.
+
+The targeted archive is 1,605,625 bytes, SHA-256
+`4352E2DF6716365DFF093BECB019D2E6DE4F1E7EA8731362B801D8B94607F941`.
+It contains eleven tight crops actually opened during stable audit entries
+`#1370-#1378`; all eleven reproduced with exact dimensions, pixels, PNG bytes,
+and viewer-attachment correlations. The paired metadata archive is 69,077
+bytes, SHA-256
+`C8B3655B2B267816C260DB8BAC8D57137B89EFA975BAB31317025467E3593F2E`.
+It records 45 routine page bands and one generated-but-unread alternative as
+rights-blocked metadata without redistributing those pixels.
+
+Anonymous readback passed all 76 outer files, all 71 retained predecessor
+identities, all 46 ZIP archives, and all 3,857 non-directory ZIP members.
+The latest endpoint resolves to `21631125`, SGA1 remains the default preview,
+and no active draft or duplicate concept remains.
+
+GitHub package commit
+`06d37efbb3f7350f35c690835d647b52992395e6` is public at
+`sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx618-626-20260727`.
+See the
+[publication receipt](published-zenodo/20260727_sga6_idx618_626_record_21631125.md),
+[outer-file readback](published-zenodo/20260727_sga6_idx618_626_record_21631125_public_readback.json),
+and
+[full ZIP-member readback](published-zenodo/20260727_sga6_idx618_626_record_21631125_zip_member_readback.json).
+
 ## 2026-07-27 SGA3 Expose VII strict repair hold
 
 No existing Expose VII candidate is publishable. The completed cold reverify
 covered all 135 diagrams and identified 32 that require repair. The current
 pre-repair reference graph is separately fail-held for 37 semantic
-target-kind regressions. The controlling local hold is 3,179 bytes, SHA-256
+target-kind regressions. A later detector audit found six TikZ coordinate
+literals falsely linked as section references. The controlling local hold is
+3,179 bytes, SHA-256
 `AA121D61219000E22A3AB46113F180A8A001FAE5B65FEE6566AC352725C5A7F6`.
+The additive detector-failure control is 3,973 bytes, SHA-256
+`D984FEF9257BBC978DBB55127E1379A8F69328A50AF43CA9ABBF2A4BDBAB7705`.
 
 VII requires a distinct immutable post-repair, post-reference package and
 fresh independent release PASS. This hold does not alter the published
@@ -29,8 +65,8 @@ The ZIP replays all 124 members / 18,356,104 uncompressed bytes exactly.
 
 Anonymous readback passed all 74 outer files, all 68 retained predecessor
 identities, all 44 ZIP archives, and all 3,835 non-directory ZIP members.
-The latest endpoint resolves to `21630748`, SGA1 remains the default preview,
-and no active draft or duplicate concept remains.
+That publication-step latest endpoint resolved to `21630748`; SGA1 remained
+the default preview, and no active draft or duplicate concept remained.
 
 GitHub package commit
 `82ebc03147b141c9db2d32906173b418238d7e3f` is public at
