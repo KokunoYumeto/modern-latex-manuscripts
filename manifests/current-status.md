@@ -1,3 +1,15 @@
+## 2026-07-27 SGA3 Expose VII strict repair hold
+
+No existing Expose VII candidate is publishable. The completed cold reverify
+covered all 135 diagrams and identified 32 that require repair. The current
+pre-repair reference graph is separately fail-held for 37 semantic
+target-kind regressions. The controlling local hold is 3,179 bytes, SHA-256
+`AA121D61219000E22A3AB46113F180A8A001FAE5B65FEE6566AC352725C5A7F6`.
+
+VII requires a distinct immutable post-repair, post-reference package and
+fresh independent release PASS. This hold does not alter the published
+Expose XI closure or create a Zenodo upload item.
+
 ## 2026-07-27 SGA3 Expose XI Loop2/reference-v2 checkpoint published
 
 Current SGA version

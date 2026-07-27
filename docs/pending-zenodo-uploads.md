@@ -1,3 +1,20 @@
+## 2026-07-27: SGA3 Exposé VII remains strict HOLD
+
+- Controlling local hold: 3,179 bytes, SHA-256
+  `AA121D61219000E22A3AB46113F180A8A001FAE5B65FEE6566AC352725C5A7F6`
+- Current public SGA version remains:
+  [10.5281/zenodo.21630748](https://doi.org/10.5281/zenodo.21630748)
+
+All 135 Exposé VII diagrams have now received the required cold reverify, and
+32 require repair. The current pre-repair full reference graph is separately
+fail-held for 37 semantic target-kind regressions. Therefore no existing VII
+candidate is queued for GitHub or Zenodo publication. Publication requires a
+new immutable post-repair, post-reference package, exact privacy-clean
+manifest, independent terminal PASS, and single archive handoff.
+
+This hold does not alter the already-published Exposé XI checkpoint and does
+not authorize a duplicate concept or draft.
+
 ## 2026-07-27: SGA3 Exposé XI queue closed
 
 - Existing concept:

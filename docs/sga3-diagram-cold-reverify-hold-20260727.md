@@ -47,10 +47,16 @@ can change.
 
 The following known unpublished diagram-bearing scopes are controlled:
 
-- Expose VII: held. Its current independent R4 package audit also reproduces
-  stale or normalized `raw_exact.line_text` in 230 of 1,395 rows across 36
-  files. It cannot receive final publication/readback certification until both
-  that machine-evidence defect and this diagram gate are closed.
+- Expose VII: strict hold. A completed cold reverify covers all 135 diagrams
+  and identifies 32 that require repair. The current pre-repair reference
+  graph is independently fail-held for 37 semantic target-kind regressions.
+  The controlling local hold is
+  `SGA3_EXPOSE_VII_HIGH_ZOOM_DIAGRAM_32_REPAIR_HOLD_20260727.md`, 3,179
+  bytes, SHA-256
+  `AA121D61219000E22A3AB46113F180A8A001FAE5B65FEE6566AC352725C5A7F6`.
+  No existing VII candidate may receive final publication/readback
+  certification. A distinct post-repair, post-reference freeze and exact
+  release handoff are required.
 - Expose XI: the diagram gate passed and the exact bounded checkpoint is now
   public on same-concept record
   [21630748](https://zenodo.org/records/21630748). The public-package receipt
