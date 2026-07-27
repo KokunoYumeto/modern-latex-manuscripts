@@ -6,13 +6,12 @@ English translation work available to the archive on 2026-07-28.
 ## Included
 
 - Editorial Notice and Introduction
-- Exposes I-IX
-- Expose XI
+- Exposes I-XI, except XII
 - Expose XIII
 
-The 836-page PDF places explicit gap pages where Exposes X and XII would occur.
-It ends with a visible boundary notice before Expose XIV. Exposes XIV-XXVI are
-not included.
+The 877-page PDF places an explicit gap page where Expose XII would occur. It
+ends with a visible boundary notice before Expose XIV. Exposes XIV-XXVI are not
+included.
 
 ## Working-state limits
 
@@ -25,13 +24,17 @@ certified under the project's reference convention.
   diagram/footnote collision is repaired in this reader, but the final
   detector-neutral reference package and independent release audits were still
   in progress when this reader was assembled.
+- Expose X is complete as a Loop-1 English text-and-equation body. All 44
+  authority pages were reviewed by its producing top-level session; four
+  raster diagram placeholders remain for Loop 2.
 - Expose XIII is complete as a Loop-1 English body and has passed source,
   formula, and high-zoom diagram review. Its exhaustive reference/package
   closeout remains unfinished.
-- Exposes X, XII, and XIV-XXVI are absent.
+- Expose XII and Exposes XIV-XXVI are absent.
 
 The Polo-Gille PDFs control the French text, formulas, numbering, notes, and
-diagram appearance. OCR was locator and drafting assistance only. Jacob
+diagram appearance. The pre-existing user-supplied OCR was consulted read-only
+as locator and drafting assistance only; it was not rerun. Jacob
 Reinhold's `jcreinhold/sga` English Markdown at commit
 `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` is credited comparison and drafting
 lineage, not source authority. Its stated CC BY 4.0 license applies to that
@@ -40,17 +43,17 @@ or this package as a whole.
 
 ## Reader checks
 
-- 836 A4 pages
-- 5,332 named destinations
-- 3,647 internal GoTo links
+- 877 A4 pages
+- 5,525 named destinations
+- 3,748 internal GoTo links
 - zero broken or malformed link actions
 - 62 embedded font resources
 - zero Type 3 fonts
 - zero overfull boxes, undefined references, duplicate destinations, missing
   glyph diagnostics, or hard TeX errors
 - four successful XeLaTeX passes
-- direct 300 dpi review of all integration seams and the repaired Expose-VII
-  page
+- direct review of all integration seams, all four Expose-X raster-diagram
+  placements, and the repaired Expose-VII page
 
 The old individually public SGA 3 readers, master files, witness ledgers, and
 source/QA archives are preserved byte-for-byte in
