@@ -1,3 +1,32 @@
+## 2026-07-28: expanded SGA3 current-progress cumulative queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21636902](https://doi.org/10.5281/zenodo.21636902)
+- GitHub package:
+  [sga3-english-current-progress-cumulative-latest-20260728](../sources/sga/sga3-english-current-progress-cumulative-latest-20260728/)
+- Publication/readback receipt:
+  [20260728_sga3_cumulative_latest_record_21636902.md](../manifests/published-zenodo/20260728_sga3_cumulative_latest_record_21636902.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+67 outer files, all 61 retained predecessor files, all 48 ZIP archives, and
+all 4,378 non-directory ZIP members. The new source/history ZIP passed exact
+1,059/1,059-member replay.
+
+The preferred 1,166-page SGA3 reader now contains complete current working
+bodies for the Editorial Notice, Introduction, Exposes I-XVI, XVIII, and XX;
+partial XVII through Section 5.9, partial XXI through Application 2.1.2, and
+the frozen partial XXII body through Proposition 4.1.2; and explicit gaps for
+XIX and XXIII-XXVI. It remains honestly labelled working and incomplete.
+A post-freeze high-zoom review found five Expose-V layout defects in figures
+007-011 involving bottom arrow-label side or placement; mathematical content
+was intact. This release is therefore not final diagram-fidelity closure.
+
+The latest endpoint resolves to `21636902`, SGA1 remains the default preview,
+and authenticated probes found no active parallel draft or duplicate concept.
+This queue is closed.
+
 ## 2026-07-28: SGA6 idx653-665 crop queue closed
 
 - Existing concept:
