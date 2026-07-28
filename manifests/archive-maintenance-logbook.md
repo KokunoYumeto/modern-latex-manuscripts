@@ -3455,3 +3455,56 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `ae137f013114674cacf0e77a3bc1473d78b202f5`; anonymous commit-pinned
   readback passed all 19 added or modified files. The machine receipt is
   `manifests/published-github/20260728_workflow_methodology_closeout_commit_ae137f013_public_readback.json`.
+
+## 2026-07-28 - SGA3 Expose XXIII native-diagram checkpoint published
+
+- GitHub package commit
+  `3242bff82e6d71eac8c06416e49dfadc5b6f5e18` preserves the bounded
+  package under
+  `sources/sga/sga3-expose-xxiii-native-loop1-working-20260728`.
+  Anonymous commit-pinned readback passed 13/13 outer files and all 23
+  source-ZIP members.
+- One successor was published under the existing SGA concept
+  `10.5281/zenodo.20410947`: record/version DOI
+  `10.5281/zenodo.21639117`, succeeding `21637870`. No duplicate concept,
+  parallel successor, or second draft was created.
+- The direct 37-page Expose XXIII reader is 220,261 bytes, SHA-256
+  `22EB1CD2B5133D2E7567CAE086AFE920EA90AEA4FF17E4C07BC5BA5E42DBF7D5`.
+  It covers authority local pages 1-37 / combined pages 1209-1245 and
+  stops before Expose XXIV local page 1 / combined page 1246.
+- The direct master is 1,790 bytes, SHA-256
+  `3DC28C22DE4DC972C3D10B363BC9B9CA674EC5CB1353F68DF8FCFE7D2B022274`.
+  The complete closure has 14 TeX files, one native `tikz-cd`, and zero
+  raster inclusions.
+- Direct 5000-dpi comparison found four label-side placement errors in
+  the first native square. All four were repaired before publication.
+  The lead-signed receipt and the later Session-C control
+  `B51AAC261486261C1DD3BEC217EFB0DE981A12DDA675F7005FA166871EC43E97`
+  both classify the delivered XXIII square as native/lead-5000dpi PASS.
+  Existing 600/1200-dpi evidence remains valid history and context.
+- The compact source/QA ZIP is 42,081 bytes, SHA-256
+  `CEEFAECFA5E9E4F0444DDF2F461E8101ECAD638370CA05777DADD82A4794B479`.
+  Its 23 safe members / 113,738 uncompressed bytes contain no authority
+  PDF, source crop, raster image, or delivered raster diagram.
+- The final Zenodo surface has 70 files / 403,099,782 bytes. Anonymous
+  SHA-256 readback passed 70/70. All 49 ZIPs reopened with 4,422 file
+  members, six directory entries, and 418,688,420 uncompressed bytes.
+- The existing 1,182-page cumulative SGA3 reader remains readable
+  history but was not reissued because older raster-bearing components
+  do not satisfy the current native-diagram delivery rule. This bounded
+  publication fills one reading gap; it is not complete SGA3 or final
+  certification of other components.
+- Shared decision
+  `EG-SGA3-XXIII-NATIVE-LOOP1-PUBLICATION-20260728-0001` was appended
+  through the locked helper. The resulting log has 298 records /
+  1,853,893 bytes, SHA-256
+  `9585AFC267E6791B85DA906CEE4895955C1234D35E8B4FF0A6ED83C6707B3961`,
+  with `errors[]`.
+- The separate decision record is 6,386 bytes, SHA-256
+  `729D49AD574F7CE20F9310152CED5F95B2E9D7F8EDB16A212B4E936152461113`.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_sga3_expose_xxiii_native_record_21639117.md`,
+  the adjacent `public_readback.json` and `zip_member_readback.json`, and
+  the two
+  `manifests/published-github/20260728_sga3_expose_xxiii_package_commit_3242bff82_*readback.json`
+  receipts.

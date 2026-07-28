@@ -1,3 +1,60 @@
+## 2026-07-28 SGA3 Expose XXIII native-diagram checkpoint published
+
+Current SGA version
+[`10.5281/zenodo.21639117`](https://doi.org/10.5281/zenodo.21639117)
+is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+It retains 64 files from predecessor `21637870` byte-identically, refreshes
+the three release controls, and adds a bounded SGA3 Expose XXIII working
+checkpoint as a direct reader, direct master TeX, and compact source/QA ZIP.
+
+The direct reader is 37 A4 pages / 220,261 bytes, SHA-256
+`22EB1CD2B5133D2E7567CAE086AFE920EA90AEA4FF17E4C07BC5BA5E42DBF7D5`.
+It covers complete Expose XXIII on Polo--Gille authority local pages 1-37 /
+combined-reader pages 1209-1245 and stops before Expose XXIV local page 1 /
+combined page 1246. It has 227 named destinations, 58 valid internal GoTo
+actions, zero invalid or external actions, 36 font resources, no Type3
+fonts, and no raster XObjects.
+
+The direct master TeX is 1,790 bytes, SHA-256
+`3DC28C22DE4DC972C3D10B363BC9B9CA674EC5CB1353F68DF8FCFE7D2B022274`.
+The complete closure has 14 TeX files, one native `tikz-cd` diagram, and
+zero `\includegraphics` calls. A direct 5000-dpi authority comparison found
+four label-side placement errors in the first native square; the session
+lead corrected all four and signed the public receipt. Existing 600-dpi
+context evidence remains legitimate history and was not invalidated.
+
+The compact source/QA ZIP is 42,081 bytes, SHA-256
+`CEEFAECFA5E9E4F0444DDF2F461E8101ECAD638370CA05777DADD82A4794B479`.
+Its 23 safe members / 113,738 uncompressed bytes passed CRC, exact-set,
+recursive checksum, privacy, and anonymous public readback. It contains no
+authority PDF, source crop, raster image, or delivered raster diagram.
+
+The existing 1,182-page cumulative SGA3 reader remains directly available
+as readable history. It was not rebuilt or reissued because older
+raster-bearing components do not satisfy the current native-diagram
+delivery rule. The standalone XXIII reader fills one reading gap without
+claiming complete SGA3, exhaustive reference-v2 certification, critical
+edition status, rights clearance, mathematical certification, peer review,
+or accessibility remediation.
+
+The final Zenodo surface has 70 files / 403,099,782 bytes. Anonymous
+SHA-256 readback passed 70/70. All 49 public ZIPs reopened with 4,422 file
+members, six directory entries, and 418,688,420 uncompressed bytes. The
+latest endpoint resolves to `21639117`; SGA1 remains the default preview;
+no duplicate concept, parallel successor, or second draft was created.
+
+GitHub package commit
+`3242bff82e6d71eac8c06416e49dfadc5b6f5e18` is public at
+`sources/sga/sga3-expose-xxiii-native-loop1-working-20260728`.
+Commit-pinned raw readback passed all 13 outer files and all 23 source-ZIP
+members. See the
+[publication receipt](published-zenodo/20260728_sga3_expose_xxiii_native_record_21639117.md),
+[Zenodo outer-file readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21639117_public_readback.json),
+[full ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21639117_zip_member_readback.json),
+[GitHub outer-file readback](published-github/20260728_sga3_expose_xxiii_package_commit_3242bff82_public_readback.json),
+and
+[GitHub package/member readback](published-github/20260728_sga3_expose_xxiii_package_commit_3242bff82_zip_member_readback.json).
+
 ## 2026-07-28 SGA3 cumulative with complete Expose XVII published
 
 Current SGA version
@@ -3101,7 +3158,7 @@ Latest local Noether source-audit staging 2026-06-14: `Noether_P03_RA57_SourceCr
 | Deligne | Current latest record: <https://doi.org/10.5281/zenodo.20410853> (concept DOI <https://doi.org/10.5281/zenodo.20410853>). The 2026-06-09 update-bundle slot is now `95 Pierre Deligne - Update Packets 2026-06-09 v3.zip`, containing `D001_D017_witness_pass_complete_seqcum.zip`, `D001_D017_equation_dense_math_audit_seqcum.zip`, `D074_090dn_actualtriage4.zip`, and `D074_090dn_mathaudit_repairpass1.zip`. The forward packets include cumulative FR/EN readers, TeX, source scans, diagram inventories, D001-D017 witness/audit material, equation-dense formula/diagram/source-certification ledgers, and the promoted D017 source-page-16 level-congruence square repair. The reverse packet carries D074-D090 cumulative working material, D074 completion, targeted D076 witness repairs/checks, and a D077-D090 candidate geometry layer. Known weak point: commutative diagrams and geometry displays still require source-crop comparison before promotion; D077-D090 geometry aids are locator/check layers and may contain false positives. Treat the repair/witness/math-audit bundles as working aids and audit material, not proofed critical-edition status. |
 | Ukrainian applied mathematics | Current record published as <https://doi.org/10.5281/zenodo.20490906>. |
 | EGA | Current EGA record published as <https://doi.org/10.5281/zenodo.20414353>; partial EGA 0_IV / EGA IV working translation material is included as draft/proof-of-concept material. |
-| SGA | Current compact version <https://doi.org/10.5281/zenodo.21637870> under concept DOI <https://doi.org/10.5281/zenodo.20410947> has 67 files. It exposes six English readers in SGA1-6 order, primary editable TeX where available, and two French workpasses. The 1,182-page SGA3 current-progress reader contains complete working bodies I-XVIII and XX, partial XXI and XXII, and explicit gaps XIX and XXIII-XXVI. All 67 outer files and all 48 ZIPs / 4,399 file members passed anonymous exact readback. Existing 600/1200-dpi SGA3 evidence remains valid; 300-only approvals and independently identified material defects are reopened. New diagram-bearing successors require native TeX and the current 300/5000/9000-dpi evidence rule. Treat every surface as working/source-audit material, not a critical edition, rights determination, uniform source certification, native-language certification, or whole-SGA completion. |
+| SGA | Current compact version <https://doi.org/10.5281/zenodo.21639117> under concept DOI <https://doi.org/10.5281/zenodo.20410947> has 70 files. It exposes six English readers in SGA1-6 order, primary editable TeX where available, two French workpasses, and the direct 37-page SGA3 Expose XXIII native-diagram Loop1 reader/master/source package. The existing 1,182-page cumulative SGA3 reader remains readable history with complete working bodies I-XVIII and XX, partial XXI and XXII, and explicit cumulative-file gaps XIX and XXIII-XXVI; the standalone XXIII reader fills one reading gap without reissuing raster-bearing cumulative components. All 70 outer files and all 49 ZIPs / 4,422 file members passed anonymous exact readback. XXIII has one native diagram, zero raster inclusions, and lead-signed 5000-dpi comparison. Existing 600/1200-dpi SGA3 evidence remains valid; 300-only approvals and independently identified material defects are reopened. New diagram-bearing successors require native TeX and the current 300/5000/9000-dpi evidence rule. Treat every surface as working/source-audit material, not a critical edition, rights determination, uniform source certification, native-language certification, or whole-SGA completion. |
 | Gauss | Current Gauss record latest version published as <https://doi.org/10.5281/zenodo.20410934> under concept DOI <https://doi.org/10.5281/zenodo.20410934>. The latest R38 package continues the Band II source-witnessed working sequence through printed p.312, covering `Geometrische Seite der ternÃ¤ren Formen` and Schering's remarks, with printed p.313 included only as a preview/handoff scan. A 2026-06-14 local source-quality audit found that the old reader PDFs are unsafe as blanket completed editions: only Band I had been marked a clean candidate in the strict local audit, while other broad reader PDFs were hold-for-repair/review. Future Gauss work should use the coherent GDZ Werke source PDFs plus IIIF manifests across Bands I-XII as the baseline; older IA/Rich/Google PDFs are fallback/provenance. Local 2026-06-29 v3 web-continuation packet exists in eight under-500MB data ZIPs plus a control ZIP, registered at `manifests/source-intake/20260629_gauss_dirichlet_pro_continuation_packets.md`; use it as continuation scaffolding, not as a new public completion claim. These are source-witnessed working drafts and repair packets, not certified critical editions; citation-critical formulas, diagrams, theorem statements, and notation should be checked against the included source witnesses. |
 | Riemann | Current dedicated Riemann record published as <https://doi.org/10.5281/zenodo.20429778>. The public surface has two reader PDFs, a selected-papers reader and a broader Gesammelte Werke complete-draft reader, plus matching artifact ZIPs with TeX/source/provenance material. These are machine-assisted working drafts for checking and continuation, not proofread critical editions. |
 | al-Battani | Current work-level Opus Astronomicum / Kitab al-Zij record published as <https://doi.org/10.5281/zenodo.20539593>. The public record includes the recovered work-level package with a 251-page trilingual reader, catalogue TeX/PDF, authoritative fixed-star catalogue CSV, geography gazetteer PDF+CSV, chronology PDF/data, completeness statement, source witnesses, and workflow lessons. Public status: structurally complete trilingual working text across 100 segments; complete fixed-star catalogue data layer (485 stars) and geography gazetteer data layer (269 localities); chronology framework/canon partial; zodiac auxiliary tables documented as not cleanly present in Nallino's Latin table source. Legacy filenames saying `Complete Critical Edition` should be read as data/workflow labels, not as a certified critical edition claim. |
@@ -3140,7 +3197,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Noether | 21434690 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21402223 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21637870 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21639117 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
 | EGA | 20454552 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
