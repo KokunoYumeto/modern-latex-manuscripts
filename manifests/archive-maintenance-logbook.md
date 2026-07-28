@@ -3451,3 +3451,7 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   the adjacent `public_readback.json`, the adjacent
   `zip_member_readback.json`, and
   `manifests/published-github/20260728_workflow_methodology_commit_fb697af58_public_readback.json`.
+- Publication catalogs and receipts were closed at GitHub commit
+  `ae137f013114674cacf0e77a3bc1473d78b202f5`; anonymous commit-pinned
+  readback passed all 19 added or modified files. The machine receipt is
+  `manifests/published-github/20260728_workflow_methodology_closeout_commit_ae137f013_public_readback.json`.
