@@ -3298,3 +3298,53 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260728_sga6_idx653_665_record_21636270.md`;
   adjacent outer-file and ZIP-member JSON receipts bind the complete public
   readback.
+
+## 2026-07-28 - SGA3 expanded current-progress cumulative published
+
+- GitHub package commit
+  `5b20b60912594003716be77974157f9ce1f9336e` publishes the exact package
+  at
+  `sources/sga/sga3-english-current-progress-cumulative-latest-20260728`.
+  Commit-pinned anonymous raw readback passed all 12 package files and all
+  1,059 source/history ZIP members.
+- Existing-concept Zenodo version `10.5281/zenodo.21636902` succeeds
+  immutable predecessor `21636270`; no duplicate concept, parallel
+  successor, or second draft was created.
+- The 1,166-page preferred SGA3 current-progress reader contains complete
+  current working bodies for the Editorial Notice, Introduction, Exposes
+  I-XVI, XVIII, and XX; partial XVII through Section 5.9, XXI through
+  Application 2.1.2, and XXII through Proposition 4.1.2; and explicit gaps
+  for XIX and XXIII-XXVI.
+- The reader is 7,359,704 bytes, SHA-256
+  `93168452B4BBF0FE9835E2D9E4614BAD046A366D9C704D2646934D77C8FB9120`.
+  It has 7,340 named destinations, 4,004 valid internal GoTo actions, zero
+  invalid or external actions, 63 font resources, and zero Type3 fonts.
+- The direct master TeX is 28,921 bytes, SHA-256
+  `9AE3AB7772BD9690322A86F71DAC4C792DD6063801052514C90C36531E03A695`.
+  The 1,059-member source/history ZIP is 15,469,558 bytes, SHA-256
+  `43F8B1F2C43C317BA43A7A0E70C133093B4D6E83F361D9599FC410AA3EEC271F`.
+- A post-freeze Claude-style high-zoom audit found five Expose-V layout
+  defects in figures 007-011 involving bottom arrow-label side or placement.
+  Mathematical content was intact. This publication is working preservation,
+  not final diagram-fidelity closure; later no-overwrite corrected components
+  remain pending.
+- The final Zenodo surface has 67 files / 394,315,032 bytes. Anonymous
+  SHA-256 readback passed 67/67, including all 61 retained predecessor files.
+- All 48 public ZIPs reopened. Exact replay found 4,378 file members, six
+  directory entries, and 409,414,408 uncompressed bytes.
+- SGA1 remains the default preview. The latest endpoint resolves to
+  `21636902`; authenticated predecessor and successor draft probes returned
+  404, and no active parallel draft remains.
+- Shared decision
+  `EG-SGA3-CUMULATIVE-LATEST-PUBLICATION-20260728-0001` was appended through
+  the locked helper. The resulting log has 295 records / 1,835,524 bytes,
+  SHA-256
+  `735DEFF092A3368F44B6348D11E91A941BEB0E1A56BB6C33981B019E7E7D82FE`,
+  with `errors[]`.
+- The separate decision record is 6,615 bytes, SHA-256
+  `E2C7464EA84DC3B8CCC06E3E2487484DD7AAB283D5B58312F14E8FFA4FF3D8A3`.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_sga3_cumulative_latest_record_21636902.md`,
+  the adjacent `public_readback.json`, the adjacent
+  `zip_member_readback.json`, and
+  `manifests/published-github/20260728_sga3_cumulative_latest_commit_5b20b6091_public_readback.json`.
