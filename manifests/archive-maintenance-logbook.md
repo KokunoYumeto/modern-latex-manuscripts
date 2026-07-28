@@ -3508,3 +3508,7 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   the two
   `manifests/published-github/20260728_sga3_expose_xxiii_package_commit_3242bff82_*readback.json`
   receipts.
+- Publication catalogs, logbook, and receipts were closed at GitHub commit
+  `1243d30c486f493bdfb5518f0188d2a9d1db98b5`; anonymous commit-pinned
+  readback passed all 16 added or modified files. The machine receipt is
+  `manifests/published-github/20260728_sga3_expose_xxiii_release_closeout_commit_1243d30c4_public_readback.json`.
