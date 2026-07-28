@@ -3120,3 +3120,35 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   the adjacent `public_readback.json`, the adjacent
   `zip_member_readback.json`, and
   `manifests/published-github/20260728_sga3_through_xvi_sga6_idx652_commit_1f2ceba15_public_readback.json`.
+
+## 2026-07-28 - Reader-facing archive heads synchronized
+
+- GitHub commit `d68df4a1f83d2d3cf8c20961ebf9a4b1db13ef7c`
+  updates the root README, browse index, author/work index, download guide,
+  live fleet map, and Zenodo record ledger.
+- The six documents now identify SGA version `10.5281/zenodo.21634000`,
+  workflow version `10.5281/zenodo.21633426`, and interlanguage version
+  `10.5281/zenodo.21485338` as the current public heads.
+- The SGA descriptions now front six direct English readers in SGA1-6 order
+  and describe the 950-page SGA3 current-progress reader accurately: Editorial
+  Notice, Introduction, Exposes I-XIII, and XVI, with explicit gaps at
+  XIV-XV and XVII-XXVI.
+- The workflow descriptions bind the professional methodology, exact Claude
+  high-zoom method, and resource-efficiency incident note. They explicitly
+  treat the existing user-supplied OCR as read-only locator/drafting evidence
+  and retain the incident note's scenario-analysis caveat.
+- Historical DOI references remain in explicitly historical sections. Stale
+  current-head and continuation claims were removed.
+- Commit-pinned anonymous raw readback matched all six files, totaling 288,907
+  bytes, against both local SHA-256 and Git blob identity.
+- No Zenodo mutation was needed: this corrects the GitHub navigation layer
+  for already published, exactly read-back records.
+- Shared decision `EG-PUBLIC-CATALOG-HEADS-REFRESH-20260728-0001` was
+  appended through the locked helper. The resulting shared log has 291
+  records / 1,811,338 bytes, SHA-256
+  `EAB5F8746ACEF334224A7085B78EDD6EF2806FE4462364BB83661C625A38D80E`,
+  with `errors[]`.
+- The separate decision record is 5,572 bytes, SHA-256
+  `5F78AEEF8814A80D329E8E4633A147B6ABF49CD60E99A4D39C67616B40C0E9D9`.
+- Exact receipt:
+  `manifests/published-github/20260728_reader_facing_archive_heads_commit_d68df4a1f_public_readback.json`.
