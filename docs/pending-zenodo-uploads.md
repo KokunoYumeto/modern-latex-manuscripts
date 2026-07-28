@@ -1,4 +1,26 @@
-## 2026-07-28: SGA3 Expose XIII queue closed
+## 2026-07-28: SGA3 cumulative-reader ordering queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21648705](https://doi.org/10.5281/zenodo.21648705)
+- GitHub package:
+  [sga3-english-current-progress-full-volume-integration-20260728-r1](../sources/sga/sga3-english-current-progress-full-volume-integration-20260728-r1/)
+- Publication/readback receipt:
+  [20260728_sga3_reader_order_record_21648705.md](../manifests/published-zenodo/20260728_sga3_reader_order_record_21648705.md)
+
+The single same-concept successor is published. The byte-identical cumulative
+PDF/TeX now use `00c00`/`02c00`, placing the 1,434-page cumulative reader
+before all smaller bounded SGA3 PDFs. Anonymous readback passed all 92 outer
+files, all 87 retained predecessor files, all 57 ZIP archives, and all 5,563
+non-directory ZIP members.
+
+The latest endpoint resolves to `21648705`, SGA1 remains the default preview,
+and no competing concept or second successor was created. The separate
+1,492-page Loop-1 integration remains held and was not uploaded. This queue is
+closed.
+
+## 2026-07-28: SGA3 Expose XIII queue closed (predecessor)
 
 - Existing concept:
   [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
@@ -19,9 +41,10 @@ with lead 5000-dpi review, and stops before Expose XIV. The preferred
 1,434-page cumulative reader remains unchanged. The separate 1,492-page
 Loop-1 integration remains held and was not uploaded.
 
-The latest endpoint resolves to `21647537`, SGA1 remains the default preview,
-and no competing concept or second successor was created. This queue is
-closed.
+At publication time the latest endpoint resolved to `21647537`, SGA1
+remained the default preview, and no competing concept or second successor
+was created. The ordering successor `21648705` now carries this state
+forward. This predecessor queue remains closed.
 
 ## 2026-07-28: SGA3 complete-Expose-XVII cumulative queue closed
 
