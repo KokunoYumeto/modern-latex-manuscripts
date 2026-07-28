@@ -25,6 +25,7 @@ workflow = importlib.util.module_from_spec(SPEC)
 sys.modules[SPEC.name] = workflow
 SPEC.loader.exec_module(workflow)
 base = workflow.base
+ORIGINAL_CREATE_OR_RESUME_DRAFT = base.create_or_resume_draft
 
 
 PREDECESSOR_RECORD = 21650398
@@ -360,6 +361,39 @@ def fetch_predecessor_manifest(
     return rows
 
 
+def create_or_resume_draft(
+    session, token: str, predecessor: dict
+) -> int:
+    if not DRAFT_STATE.is_file():
+        return ORIGINAL_CREATE_OR_RESUME_DRAFT(
+            session,
+            token,
+            predecessor,
+        )
+
+    state = json.loads(DRAFT_STATE.read_text(encoding="utf-8"))
+    if state.get("published"):
+        raise RuntimeError(
+            "Tracked successor is already published; use readback recovery"
+        )
+    if int(state["predecessor_record"]) != PREDECESSOR_RECORD:
+        raise RuntimeError("Tracked draft predecessor mismatch")
+
+    draft_id = int(state["draft_id"])
+    response = session.get(
+        f"{base.API}/records/{draft_id}/draft",
+        headers={
+            "Authorization": f"Bearer {token}",
+            "Accept": "application/vnd.inveniordm.v1+json",
+        },
+        timeout=(30, 180),
+    )
+    draft = base.check(response, {200}).json()
+    if int(draft["id"]) != draft_id or base.concept_doi(draft) != CONCEPT_DOI:
+        raise RuntimeError("Tracked modern draft escaped the SGA concept")
+    return draft_id
+
+
 def readme_text(draft_id: int) -> str:
     return f"""# Current compact SGA release
 
@@ -595,6 +629,7 @@ for module in (workflow, base):
 
 base.verify_primary_local_files = verify_primary_local_files
 base.fetch_predecessor_manifest = fetch_predecessor_manifest
+base.create_or_resume_draft = create_or_resume_draft
 base.readme_text = readme_text
 base.generate_controls = generate_controls
 
