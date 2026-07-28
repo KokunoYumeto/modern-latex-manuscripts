@@ -3289,6 +3289,11 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   with `errors[]`.
 - The separate decision record is 6,694 bytes, SHA-256
   `E23A3CF0BA44D45F0ADABCF7FB9F98C055740C6F7EBD5ED1F33C4BE7D0A46599`.
+- Publication-receipt and reader-facing catalog commit
+  `0a4ca27876e33f153ebc7641f9b6ee484bd96a1f` is public on `main`.
+  Commit-pinned anonymous readback matched all 16 changed files / 3,190,370
+  bytes. Its 6,773-byte receipt has SHA-256
+  `8C05D2D05F9FE5AEC74204D5E93CC9E9AFB7DE99F04B06E295AD962B080A3F86`.
 - Exact receipt:
   `manifests/published-zenodo/20260728_sga6_idx653_665_record_21636270.md`;
   adjacent outer-file and ZIP-member JSON receipts bind the complete public
