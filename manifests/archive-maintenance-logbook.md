@@ -3781,3 +3781,90 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260728_sga3_expose_xiii_record_21647537.md`,
   the adjacent Zenodo readbacks, and
   `manifests/published-github/20260728_sga3_expose_xiii_package_commit_9ba95cb8_public_readback.json`.
+
+## 2026-07-28 - SGA3 cumulative reader moved ahead of bounded readers
+
+- GitHub package commit
+  `bafbfe8a9f64b70b7cb8a561cb87ccf36594a9bb` renames the byte-identical
+  cumulative SGA3 PDF/TeX to `00c00`/`02c00`; workflow commit
+  `55f4c28ea0b296deefbd5eb0c2dec148aa10b919` records the exact same-concept
+  publication procedure.
+- One successor was published under existing SGA concept
+  `10.5281/zenodo.20410947`: record/version DOI
+  `10.5281/zenodo.21648705`, succeeding `21647537`. No duplicate concept,
+  parallel successor, or second draft was created.
+- The 1,434-page cumulative reader is now the first SGA3 PDF in lexical
+  order, ahead of `00c12`, `00c13`, `00c14`, `00c19`, `00c20`, `00c21`,
+  `00c23`, and `00c25`.
+- Reader identity remains 8,650,355 bytes / SHA-256
+  `481EEDECAA8635AEAC5CCA91492797AF651D426A80B6A2F2510BDF05EB3DD36D`.
+  Direct master TeX remains 27,421 bytes / SHA-256
+  `89214AC97C29A65FF2DE0BF08A2B1037D39112F091EA746EC80B5EC376702087`.
+- Anonymous readback passed 92/92 outer files / 424,100,664 bytes. All
+  57 ZIPs reopened with 5,563 file members, six directory entries, and
+  444,810,625 uncompressed bytes. Eighty-seven predecessor files remained
+  byte-identical. SGA1 remains the default preview.
+- The separate 1,492-page Loop-1 integration remains held and was not
+  uploaded.
+- Shared decision
+  `EG-SGA3-CUMULATIVE-READER-ORDER-PUBLICATION-20260728-0001` was appended
+  through the locked helper. Append-only path correction
+  `EG-SGA3-CUMULATIVE-READER-ORDER-PUBLICATION-PATH-CORRECTION-20260728-0001`
+  binds the exact full-volume-integration GitHub package. The resulting log
+  has 305 records / 1,896,663
+  bytes, SHA-256
+  `CD8B571EF17D72B62DFFF9C53059421B12E86B49DE5E47999D09F650217553DA`,
+  with `errors[]`. The separate decision record is 5,875 bytes, SHA-256
+  `D0F692938B924E58716726AEF675FB18B77C355044BC7F6A020D5B482DD53711`;
+  the correction record is 4,404 bytes, SHA-256
+  `B25D8715C4FDC77667ECB0EBC6F82D08CDA1C9D8C5285B7724DF09D32BE51B68`.
+- Exact receipt:
+  `manifests/published-zenodo/20260728_sga3_reader_order_record_21648705.md`
+  and the adjacent public and ZIP-member readbacks.
+
+## 2026-07-28 - SGA3 reader-clean complete working reader published
+
+- GitHub package commit
+  `f31134e68a2f24e6a1d960bf5e649cd94ed2c69b` preserves the direct
+  reader, direct master TeX, grouped source/history ZIP, and public
+  validation controls. Workflow commit
+  `f261e87308b1633cf9106721b0aa67f8e879ab75` records the exact
+  same-concept publication procedure.
+- One successor was published under existing SGA concept
+  `10.5281/zenodo.20410947`: record/version DOI
+  `10.5281/zenodo.21650398`, succeeding `21648705`. No duplicate concept,
+  parallel successor, or second draft was created.
+- The preferred direct reader now continuously contains the Editorial
+  Notice, Introduction, Exposes I-XXVI, Tome III mathematical guide, and
+  terminal index. Reader-facing AI/process prefaces, working-state boxes,
+  production-boundary pages, and diagram-process captions were removed.
+  Substantive source-reading notes remain; provenance is external.
+- Reader identity: 1,469 A4 pages / 11,931,836 bytes / SHA-256
+  `27F308094C6147ED20EBDFB48813C2D71D7C957ADDFD0656E3F1E11938E0B328`.
+  Direct master TeX: 21,434 bytes / SHA-256
+  `95A11E5F082F2F91F328876D020031A8D3ED2FDD5486364BE82A1EA35CA983DC`.
+- The grouped source/history ZIP is 12,810,270 bytes / SHA-256
+  `6226D36DB6D1A0D6BCD370E319012B7D7B27654CECF99C56F2C0C8A692B189D9`;
+  901 safe members / 16,782,234 uncompressed bytes. It preserves the
+  exact recorder-derived source closure and the superseded 1,434-page
+  cumulative PDF and TeX.
+- The PDF has 9,483 named destinations, 4,590 valid internal GoTo actions,
+  zero invalid or external actions, 61 embedded font resources, zero
+  Type 3 fonts, and 153 raster image XObjects. It is a complete current
+  working translation surface, not a critical edition, final
+  diagram-fidelity certification, rights clearance, peer review, or
+  accessibility-remediated PDF.
+- Anonymous readback passed 92/92 outer files / 436,065,728 bytes. All
+  57 ZIPs reopened with 5,597 file members, six directory entries, and
+  453,999,152 uncompressed bytes. Eighty-six predecessor files remained
+  byte-identical. SGA1 remains the default preview.
+- Shared decision
+  `EG-SGA3-READER-CLEAN-COMPLETE-WORKING-PUBLICATION-20260728-0001` was
+  appended through the locked helper. The resulting log has 306 records /
+  1,902,895 bytes, SHA-256
+  `3B1F715C660F4CE2940ADC92D4AAC021BD0D6B52288877FF777E1D546B8641A8`,
+  with `errors[]`. The separate decision record has SHA-256
+  `3F825FBBAC7686B544692390A62A5A4F0E10E4E5B845FBB140E777E5C1268FA8`.
+- Exact receipt:
+  `manifests/published-zenodo/20260728_sga3_reader_clean_complete_working_record_21650398.md`
+  and the adjacent public and ZIP-member readbacks.
