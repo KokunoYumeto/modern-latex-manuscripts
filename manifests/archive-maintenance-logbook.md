@@ -3622,3 +3622,59 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   the adjacent Zenodo readbacks, and the two
   `manifests/published-github/20260728_sga3_native_batch_xii_xix_xxv_package_commit_e852c3529_*readback.json`
   receipts.
+
+## 2026-07-28 - SGA3 Exposes XX and XXI native readers published
+
+- GitHub package commit
+  `9fc59e75e0bcaa4a0998aa14d397a843a4eaf15f` preserves two bounded
+  packages under `sources/sga`. Anonymous commit-pinned readback passed
+  all 26 package files and all 80 source-ZIP members.
+- One successor was published under the existing SGA concept
+  `10.5281/zenodo.20410947`: record/version DOI
+  `10.5281/zenodo.21642747`, succeeding `21639977`. No duplicate concept,
+  parallel successor, or second draft was created.
+- Expose XX: 41-page reader / 236,958 bytes / SHA-256
+  `0AFA79FC6140B72814EB0BA03191709C1CFC718F5CE0485AD8151E103FD1AB15`;
+  19 editable TeX files and ten native atomic diagram panels. Lead
+  comparison passed at about 5000 dpi; two copy-on-write repairs corrected
+  one label side and one two-row page split.
+- Expose XXI: 56-page reader / 295,397 bytes / SHA-256
+  `A1C58F35B3AA2D29C02A9953B569295ACB0574786728432DD3D726E9F143F0D0`;
+  41 editable TeX files and eleven native atomic diagram panels. Lead
+  comparison passed at about 5000 dpi; two copy-on-write repairs restored
+  an endpoint and corrected an arrow-label/isomorphism-mark placement.
+- The submitted Expose-XXI r6 PDF had a stale table-of-contents page. The
+  archive rebuilt the exact source closure through four passes. The public
+  reader is the converged build; only the contents page changed, while the
+  other 55 pages remain pixel-identical.
+- Four fresh archive builds completed for each reader. Converged passes
+  match in extracted text, decoded page content, geometry, destinations,
+  links, fonts, and 150-dpi raster output. XX has 327 destinations and 46
+  valid GoTo actions; XXI has 378 destinations and 240 valid GoTo actions.
+- The two compact source/QA ZIPs have 80 safe members / 296,300
+  uncompressed bytes and contain no authority PDF, source crop, raster
+  image, delivered raster diagram, raw private log, or private path.
+- The final Zenodo surface has 88 files / 405,660,724 bytes. Anonymous
+  SHA-256 readback passed 88/88. All 55 ZIPs reopened with 4,611 file
+  members, six directory entries, and 419,454,154 uncompressed bytes.
+  Seventy-nine predecessor files remained byte-identical.
+- The existing 1,182-page cumulative SGA3 reader remains readable history
+  and was not represented as native-diagram-final. These bounded releases
+  do not claim complete SGA3 or final certification of unfinished units.
+- Existing 600/1200-dpi evidence remains valid append-only history and
+  context. Only 300-dpi-only approvals and independently identified
+  defects are reopened. The Session-C XII/XIV/XX/XXI/XXIII inventory is
+  now 28/28 native PASS.
+- Shared decision
+  `EG-SGA3-XX-XXI-NATIVE-LOOP1-PUBLICATION-20260728-0001` was appended
+  through the locked helper. The resulting log has 301 records /
+  1,873,250 bytes, SHA-256
+  `D79B5390877E4F3C917EDF4B9949D8280B72ED09C0CF57C99620D1D188B3E7F8`,
+  with `errors[]`.
+- The separate decision record is 7,345 bytes, SHA-256
+  `D2F3731054130CF6B889463DC573B2A2145CAFDB6BD5F2C6E60664F4B0248FC2`.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_sga3_native_batch_xx_xxi_record_21642747.md`,
+  the adjacent Zenodo readbacks, and the two
+  `manifests/published-github/20260728_sga3_native_batch_xx_xxi_package_commit_9fc59e75e_*readback.json`
+  receipts.

@@ -1,3 +1,68 @@
+## 2026-07-28 SGA3 Exposes XX and XXI native readers published
+
+Current SGA version
+[`10.5281/zenodo.21642747`](https://doi.org/10.5281/zenodo.21642747)
+is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+It retains 79 files from predecessor `21639977` byte-identically, refreshes
+three release controls, and adds complete bounded SGA3 Exposes XX and XXI
+as direct readers, direct master TeX files, and compact source/QA ZIPs.
+
+Expose XX is 41 A4 pages / 236,958 bytes / SHA-256
+`0AFA79FC6140B72814EB0BA03191709C1CFC718F5CE0485AD8151E103FD1AB15`.
+Its closure has 19 editable TeX files and ten native atomic diagram panels.
+Expose XXI is 56 pages / 295,397 bytes / SHA-256
+`A1C58F35B3AA2D29C02A9953B569295ACB0574786728432DD3D726E9F143F0D0`.
+Its closure has 41 editable TeX files and eleven native atomic panels.
+
+The top-level Session-C lead compared all 21 panels to authority at about
+5000 dpi. Seventeen passed directly; four copy-on-write repairs corrected
+a label side, a two-row page split, an endpoint, and an
+arrow-label/isomorphism-mark placement. No unresolved ambiguity required
+9000-dpi escalation. Existing 600/1200-dpi evidence remains valid
+append-only history and context; only 300-dpi-only approvals and
+independently identified material defects are reopened.
+
+Four fresh archive XeLaTeX passes completed for each reader. Passes three
+and four match in extracted text, decoded page content, geometry,
+destinations, links, fonts, and 150-dpi raster output. Expose XX has 327
+named destinations and 46 valid internal GoTo actions. Expose XXI has 378
+named destinations and 240 valid internal GoTo actions. Both have zero
+invalid or external actions, no Type3 fonts, and no raster XObjects.
+
+The submitted Expose-XXI r6 PDF had a stale table-of-contents page. The
+archive rebuilt the exact TeX closure through four passes. The public PDF
+uses that converged build; only the contents page changed from r6, while
+the other 55 pages remain pixel-identical.
+
+The two compact source/QA ZIPs have 80 safe members / 296,300 uncompressed
+bytes and contain no authority PDF, source crop, raster image, delivered
+raster diagram, raw private log, or private path. The controlling
+Session-C inventory now closes its disjoint XII/XIV/XX/XXI/XXIII set
+28/28 native PASS. Separate unfinished SGA3 production remains outside
+this publication.
+
+The existing 1,182-page cumulative SGA3 reader remains directly available
+as readable history and was not represented as native-diagram-final. These
+bounded publications do not claim complete SGA3, critical-edition status,
+rights clearance, mathematical certification, peer review, or
+accessibility remediation.
+
+The final Zenodo surface has 88 files / 405,660,724 bytes. Anonymous
+SHA-256 readback passed 88/88. All 55 ZIPs reopened with 4,611 file
+members, six directory entries, and 419,454,154 uncompressed bytes. The
+latest endpoint resolves to `21642747`; SGA1 remains the default preview;
+no duplicate concept, parallel successor, or second draft was created.
+
+GitHub package commit
+`9fc59e75e0bcaa4a0998aa14d397a843a4eaf15f` is public. Commit-pinned raw
+readback passed all 26 package files and all 80 source-ZIP members. See the
+[publication receipt](published-zenodo/20260728_sga3_native_batch_xx_xxi_record_21642747.md),
+[Zenodo outer-file readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21642747_public_readback.json),
+[full ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21642747_zip_member_readback.json),
+[GitHub outer-file readback](published-github/20260728_sga3_native_batch_xx_xxi_package_commit_9fc59e75e_public_readback.json),
+and
+[GitHub package/member readback](published-github/20260728_sga3_native_batch_xx_xxi_package_commit_9fc59e75e_zip_member_readback.json).
+
 ## 2026-07-28 SGA3 Exposes XII, XIX, and XXV native readers published
 
 Current SGA version
