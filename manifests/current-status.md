@@ -1,3 +1,60 @@
+## 2026-07-28 SGA3 Expose XIV native-diagram checkpoint published
+
+Current SGA version
+[`10.5281/zenodo.21639459`](https://doi.org/10.5281/zenodo.21639459)
+is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+It retains 67 files from predecessor `21639117` byte-identically, refreshes
+the three release controls, and adds a bounded SGA3 Expose XIV working
+checkpoint as a direct reader, direct master TeX, and compact source/QA ZIP.
+
+The direct reader is 37 A4 pages / 240,676 bytes, SHA-256
+`6CD0B985FE2F4D0C69A52ACCD0E766F3029B3E8E6A40AEB31B9E511C40E72EA0`.
+It covers complete Expose XIV on Polo--Gille authority local pages 1-36 /
+combined-reader pages 835-870 and stops before Expose XV local page 1 /
+combined page 871. It has 236 named destinations, 24 valid internal GoTo
+actions, zero invalid or external actions, 32 font resources, no Type3
+fonts, and no raster XObjects.
+
+The direct master TeX is 3,301 bytes, SHA-256
+`59D9FDB32AA981891BD807EF419D201C74A941E75A1FBAFA21F09C4C874CC9C1`.
+The complete closure has 33 TeX files and zero `\includegraphics` calls.
+The four Dynkin-automorphism rows formerly delivered as one raster block
+are native TikZ. The top-level Session-C lead compared all four authority
+and delivered rows at 5000 dpi and signed the public receipt. Existing
+600/1200-dpi evidence remains legitimate history and was not invalidated.
+
+The compact source/QA ZIP is 70,074 bytes, SHA-256
+`6739C9F69E09EF6BDE0995F38859DB745EEC1FA61158720057DA81B677C5C38B`.
+Its 42 safe members / 149,081 uncompressed bytes passed CRC, exact-set,
+recursive checksum, privacy, and anonymous public readback. It contains no
+authority PDF, source crop, raster image, or delivered raster diagram.
+
+The existing 1,182-page cumulative SGA3 reader remains directly available
+as readable history. It was not rebuilt or reissued because older
+raster-bearing components do not satisfy the current native-diagram
+delivery rule. The standalone XIV reader preserves the corrected bounded
+component without claiming complete SGA3, exhaustive reference-v2
+certification, critical-edition status, rights clearance, mathematical
+certification, peer review, or accessibility remediation.
+
+The final Zenodo surface has 73 files / 403,414,907 bytes. Anonymous
+SHA-256 readback passed 73/73. All 50 public ZIPs reopened with 4,464 file
+members, six directory entries, and 418,837,501 uncompressed bytes. The
+latest endpoint resolves to `21639459`; SGA1 remains the default preview;
+no duplicate concept, parallel successor, or second draft was created.
+
+GitHub package commit
+`5539787a3186d9fea5285061704603b96d726568` is public at
+`sources/sga/sga3-expose-xiv-native-loop1-working-20260728`.
+Commit-pinned raw readback passed all 13 outer files and all 42 source-ZIP
+members. See the
+[publication receipt](published-zenodo/20260728_sga3_expose_xiv_native_record_21639459.md),
+[Zenodo outer-file readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21639459_public_readback.json),
+[full ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21639459_zip_member_readback.json),
+[GitHub outer-file readback](published-github/20260728_sga3_expose_xiv_package_commit_5539787a3_public_readback.json),
+and
+[GitHub package/member readback](published-github/20260728_sga3_expose_xiv_package_commit_5539787a3_zip_member_readback.json).
+
 ## 2026-07-28 SGA3 Expose XXIII native-diagram checkpoint published
 
 Current SGA version
