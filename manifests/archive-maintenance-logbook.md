@@ -3512,3 +3512,60 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `1243d30c486f493bdfb5518f0188d2a9d1db98b5`; anonymous commit-pinned
   readback passed all 16 added or modified files. The machine receipt is
   `manifests/published-github/20260728_sga3_expose_xxiii_release_closeout_commit_1243d30c4_public_readback.json`.
+
+## 2026-07-28 - SGA3 Expose XIV native-diagram checkpoint published
+
+- GitHub package commit
+  `5539787a3186d9fea5285061704603b96d726568` preserves the bounded
+  package under
+  `sources/sga/sga3-expose-xiv-native-loop1-working-20260728`.
+  Anonymous commit-pinned readback passed 13/13 outer files and all 42
+  source-ZIP members.
+- One successor was published under the existing SGA concept
+  `10.5281/zenodo.20410947`: record/version DOI
+  `10.5281/zenodo.21639459`, succeeding `21639117`. No duplicate concept,
+  parallel successor, or second draft was created.
+- The direct 37-page Expose XIV reader is 240,676 bytes, SHA-256
+  `6CD0B985FE2F4D0C69A52ACCD0E766F3029B3E8E6A40AEB31B9E511C40E72EA0`.
+  It covers authority local pages 1-36 / combined pages 835-870 and stops
+  before Expose XV local page 1 / combined page 871.
+- The direct master is 3,301 bytes, SHA-256
+  `59D9FDB32AA981891BD807EF419D201C74A941E75A1FBAFA21F09C4C874CC9C1`.
+  The complete closure has 33 TeX files and zero raster inclusions.
+- The four Dynkin-automorphism rows previously delivered as one raster
+  block were rebuilt as one native TikZ picture. The top-level Session-C
+  lead compared all four authority and delivered rows at 5000 dpi and
+  signed the public receipt. The controlling Session-C inventory
+  `B51AAC261486261C1DD3BEC217EFB0DE981A12DDA675F7005FA166871EC43E97`
+  independently classifies all four rows as native/lead-5000dpi PASS.
+  Existing 600/1200-dpi evidence remains valid history and context.
+- The compact source/QA ZIP is 70,074 bytes, SHA-256
+  `6739C9F69E09EF6BDE0995F38859DB745EEC1FA61158720057DA81B677C5C38B`.
+  Its 42 safe members / 149,081 uncompressed bytes contain no authority
+  PDF, source crop, raster image, or delivered raster diagram.
+- Three producer and three independent archive XeLaTeX passes completed.
+  Producer and rebuild outputs match on all 37 extracted-text pages,
+  decoded content streams, page geometry, 236 destinations, 24 valid
+  internal GoTo actions, 32 font resources, and 180-dpi renders.
+- The final Zenodo surface has 73 files / 403,414,907 bytes. Anonymous
+  SHA-256 readback passed 73/73. All 50 ZIPs reopened with 4,464 file
+  members, six directory entries, and 418,837,501 uncompressed bytes.
+- The existing 1,182-page cumulative SGA3 reader remains readable
+  history but was not reissued because older raster-bearing components
+  do not satisfy the current native-diagram delivery rule. This bounded
+  publication is not complete SGA3 or final certification of other
+  components.
+- Shared decision
+  `EG-SGA3-XIV-NATIVE-LOOP1-PUBLICATION-20260728-0001` was appended
+  through the locked helper. The resulting log has 299 records /
+  1,859,921 bytes, SHA-256
+  `D9C539F8B91BFE7AACAA1CB29862E579414F14BFA66C21517B530E07B70F73ED`,
+  with `errors[]`.
+- The separate decision record is 6,549 bytes, SHA-256
+  `C1B2628A14B866C8CB603144DB693C7653BC655C2E8753F35024DBBA0548B849`.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_sga3_expose_xiv_native_record_21639459.md`,
+  the adjacent `public_readback.json` and `zip_member_readback.json`, and
+  the two
+  `manifests/published-github/20260728_sga3_expose_xiv_package_commit_5539787a3_*readback.json`
+  receipts.
