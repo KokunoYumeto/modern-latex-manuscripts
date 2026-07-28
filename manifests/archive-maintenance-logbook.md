@@ -3781,3 +3781,43 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260728_sga3_expose_xiii_record_21647537.md`,
   the adjacent Zenodo readbacks, and
   `manifests/published-github/20260728_sga3_expose_xiii_package_commit_9ba95cb8_public_readback.json`.
+
+## 2026-07-28 - SGA3 cumulative reader moved ahead of bounded readers
+
+- GitHub package commit
+  `bafbfe8a9f64b70b7cb8a561cb87ccf36594a9bb` renames the byte-identical
+  cumulative SGA3 PDF/TeX to `00c00`/`02c00`; workflow commit
+  `55f4c28ea0b296deefbd5eb0c2dec148aa10b919` records the exact same-concept
+  publication procedure.
+- One successor was published under existing SGA concept
+  `10.5281/zenodo.20410947`: record/version DOI
+  `10.5281/zenodo.21648705`, succeeding `21647537`. No duplicate concept,
+  parallel successor, or second draft was created.
+- The 1,434-page cumulative reader is now the first SGA3 PDF in lexical
+  order, ahead of `00c12`, `00c13`, `00c14`, `00c19`, `00c20`, `00c21`,
+  `00c23`, and `00c25`.
+- Reader identity remains 8,650,355 bytes / SHA-256
+  `481EEDECAA8635AEAC5CCA91492797AF651D426A80B6A2F2510BDF05EB3DD36D`.
+  Direct master TeX remains 27,421 bytes / SHA-256
+  `89214AC97C29A65FF2DE0BF08A2B1037D39112F091EA746EC80B5EC376702087`.
+- Anonymous readback passed 92/92 outer files / 424,100,664 bytes. All
+  57 ZIPs reopened with 5,563 file members, six directory entries, and
+  444,810,625 uncompressed bytes. Eighty-seven predecessor files remained
+  byte-identical. SGA1 remains the default preview.
+- The separate 1,492-page Loop-1 integration remains held and was not
+  uploaded.
+- Shared decision
+  `EG-SGA3-CUMULATIVE-READER-ORDER-PUBLICATION-20260728-0001` was appended
+  through the locked helper. Append-only path correction
+  `EG-SGA3-CUMULATIVE-READER-ORDER-PUBLICATION-PATH-CORRECTION-20260728-0001`
+  binds the exact full-volume-integration GitHub package. The resulting log
+  has 305 records / 1,896,663
+  bytes, SHA-256
+  `CD8B571EF17D72B62DFFF9C53059421B12E86B49DE5E47999D09F650217553DA`,
+  with `errors[]`. The separate decision record is 5,875 bytes, SHA-256
+  `D0F692938B924E58716726AEF675FB18B77C355044BC7F6A020D5B482DD53711`;
+  the correction record is 4,404 bytes, SHA-256
+  `B25D8715C4FDC77667ECB0EBC6F82D08CDA1C9D8C5285B7724DF09D32BE51B68`.
+- Exact receipt:
+  `manifests/published-zenodo/20260728_sga3_reader_order_record_21648705.md`
+  and the adjacent public and ZIP-member readbacks.
