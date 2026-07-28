@@ -6,7 +6,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---:|---|---|
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |  |
 | Main Project Landing | 98 | 52 | 0 | 44 | 20664.9 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
-| Workflow / Replication Packet | 7 | 1 | 0 | 2 | 0.5 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
+| Workflow / Replication Packet | 10 | 1 | 0 | 2 | 0.4 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/21638660) |
 | Interlanguage Methodology | 51 | 2 | 0 | 19 | 4745.6 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |  |
@@ -19,7 +19,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 3 | 1 | 0 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
 | al-Battani Opus Astronomicum | 19 | 7 | 0 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |  |
-| SGA (serious active work; not complete) | 76 | 13 | 12 | 46 | 337.9 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
+| SGA (serious active work; not complete) | 67 | 8 | 8 | 48 | 384.2 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/21637870) |
 | Pierre Deligne | 6 | 2 | 0 | 3 | 447.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 0 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
