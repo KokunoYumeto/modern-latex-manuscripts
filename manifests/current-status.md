@@ -1,3 +1,60 @@
+## 2026-07-28 SGA3 Exposes XII, XIX, and XXV native readers published
+
+Current SGA version
+[`10.5281/zenodo.21639977`](https://doi.org/10.5281/zenodo.21639977)
+is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+It retains 70 files from predecessor `21639459` byte-identically, refreshes
+three release controls, and adds complete bounded SGA3 Exposes XII, XIX, and
+XXV as three direct readers, three direct master TeX files, and three compact
+source/QA ZIPs.
+
+The new readers total 92 A4 pages. XII is 51 pages / 282,869 bytes / SHA-256
+`17D3646EF85FB1C1D7831B646755C199C862E912935EC4B01DAA0DF0BF48ADDC`;
+XIX is 27 pages / 659,293 bytes / SHA-256
+`6C57558E58C3D27BF453C094121495F4EC66CF7CEC66E8790D783317BDD1DE39`;
+XXV is 14 pages / 498,082 bytes / SHA-256
+`8F2FC8434D352354F1AA16A8A36913988768F2261F74072A5F7CF4D796BE04D9`.
+They jointly have 546 named destinations, 112 valid internal GoTo actions,
+zero invalid or external actions, no Type3 fonts, and no raster XObjects.
+
+Their source closures contain 40 editable TeX files and five native diagram
+blocks. XII's two diagrams passed top-level lead comparison at 5000 dpi,
+with a 9000-dpi escalation and one repaired label-side placement. XIX's one
+diagram passed a fresh archive 5000-dpi replay. XXV's two diagrams passed
+top-level lead 5000-dpi review. Existing 600/1200-dpi evidence remains valid
+append-only history and context.
+
+Three producer and three independent archive build passes completed for each
+reader. All 92 producer/rebuild pages match in extracted text, decoded page
+content, geometry, and 150-dpi raster output. The three source ZIPs have
+67 safe members / 320,353 uncompressed bytes and contain no authority PDF,
+source crop, raster image, delivered raster diagram, raw private log, or
+private path.
+
+The existing 1,182-page cumulative SGA3 reader remains directly available
+as readable history and was not represented as native-diagram-final. Exposes
+XX and XXI remain open under the Session-C native control; Expose XXVI
+remains active. These bounded publications do not claim complete SGA3,
+critical-edition status, rights clearance, mathematical certification,
+peer review, or accessibility remediation.
+
+The final Zenodo surface has 82 files / 404,994,213 bytes. Anonymous SHA-256
+readback passed 82/82. All 53 ZIPs reopened with 4,531 file members, six
+directory entries, and 419,157,854 uncompressed bytes. The latest endpoint
+resolves to `21639977`; SGA1 remains the default preview; no duplicate
+concept, parallel successor, or second draft was created.
+
+GitHub package commit
+`e852c35299397f3b1476437a9da3b8ce4b0c2bd5` is public. Commit-pinned raw
+readback passed all 37 committed files and all 67 source-ZIP members. See
+the
+[publication receipt](published-zenodo/20260728_sga3_native_batch_xii_xix_xxv_record_21639977.md),
+[Zenodo outer-file readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21639977_public_readback.json),
+[full ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21639977_zip_member_readback.json),
+[GitHub outer-file readback](published-github/20260728_sga3_native_batch_xii_xix_xxv_package_commit_e852c3529_public_readback.json),
+and
+[GitHub package/member readback](published-github/20260728_sga3_native_batch_xii_xix_xxv_package_commit_e852c3529_zip_member_readback.json).
+
 ## 2026-07-28 SGA3 Expose XIV native-diagram checkpoint published
 
 Current SGA version
