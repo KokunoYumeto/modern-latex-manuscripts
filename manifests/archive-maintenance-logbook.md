@@ -3400,3 +3400,54 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   the adjacent `public_readback.json`, the adjacent
   `zip_member_readback.json`, and
   `manifests/published-github/20260728_sga3_cumulative_complete_xvii_commit_5fee121b3_public_readback.json`.
+
+## 2026-07-28 - SGA3 native-diagram methodology correction published
+
+- GitHub package commit
+  `fb697af58c15d95f3c3dd7d5f7c7e05e463fe39b` preserves the corrected
+  workflow package under
+  `sources/workflow/ai-run-modern-latex-workflow-20260728`.
+- A single successor was published under the existing workflow concept
+  `10.5281/zenodo.20461174`: record and version DOI
+  `10.5281/zenodo.21638660`, succeeding `21633426`. No duplicate concept,
+  parallel successor, or second draft was created.
+- The corrected methodology PDF is 59,389 bytes, SHA-256
+  `D2611C635AC883CB14CBE6D9E51EC30B61C412E622D921F29366AD3907682C6F`.
+  It is seven actual A4 pages; all seven pages were rendered and visually
+  reviewed, and the package validator now verifies page dimensions rather
+  than trusting declared metadata.
+- The append-only diagram-evidence correction is 2,653 bytes, SHA-256
+  `D41B84EA82379F23693D5F9944B66D67AAAA2FB99F0A4AA430C40F61BE6FD8BE`.
+  Existing 600-dpi and 1200-dpi evidence remains valid history and context.
+  Only approvals based solely on 300-dpi evidence and independently
+  identified material defects are reopened.
+- New diagram-final successors require native editable TeX, 300-dpi page
+  context, approximately 5000-dpi default close comparison, and 9000-dpi
+  ambiguity review, with disjoint ownership and a lead-signed review.
+  Raster crops remain private authority witnesses and are not delivered as
+  reader content.
+- The exact Claude method is 8,535 bytes, SHA-256
+  `4B12DB3F632CB5F9E69393DCA33DA40256B5A9387C6522ADA831CA7F0367063D`.
+  The resource-efficiency incident note is 5,015 bytes, SHA-256
+  `11D05DC19EA55F568FDB1C2BBD3AD6DB5AA799002EFFD3604A5244BE325C7ACA`.
+- The public package has 10 files / 392,882 bytes. Anonymous readback
+  passed 10/10. Its two ZIPs reopened as 28 exact members / 836,257
+  uncompressed bytes.
+- A local 93-file / 4,527,539-byte cumulative derivative was held rather
+  than published because its diagram-bearing scopes still include raster
+  reader content. Its canonical aggregate is
+  `C832A12533C41217826B98EA454BF26BD6BE7D8E8D2764CD6728935603D65849`.
+  Producer roots remain untouched.
+- Shared decision
+  `EG-SGA3-DIAGRAM-METHODOLOGY-CORRECTION-PUBLICATION-20260728-0001`
+  was appended through the locked helper. The resulting log has 297
+  records / 1,848,028 bytes, SHA-256
+  `EE773605C0A21EF937398C608E2DA2DC554CB055DBE5D65C91C3B7D4C4C4926C`,
+  with `errors[]`.
+- The separate decision record is 6,654 bytes, SHA-256
+  `A2122C8E36ABA71D2EDE3B8FE95B6828940EB7BF081DC50BB454272394C21EC7`.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_workflow_methodology_high_zoom_record_21638660.md`,
+  the adjacent `public_readback.json`, the adjacent
+  `zip_member_readback.json`, and
+  `manifests/published-github/20260728_workflow_methodology_commit_fb697af58_public_readback.json`.
