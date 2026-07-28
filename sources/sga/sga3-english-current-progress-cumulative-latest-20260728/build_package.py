@@ -29,11 +29,11 @@ MASTER_NAME = (
     "SGA3_English_Current_Progress_Cumulative_Latest_20260728.tex"
 )
 EXPECTED_PDF_SHA256 = (
-    "93168452B4BBF0FE9835E2D9E4614BAD046A366D9C704D2646934D77C8FB9120"
+    "970CDB20FBFCADEBACDE8AD4C69D89E38AFF278F067B1998B809411538B43660"
 )
-EXPECTED_PAGES = 1166
-EXPECTED_DESTINATIONS = 7340
-EXPECTED_GOTO_ACTIONS = 4004
+EXPECTED_PAGES = 1182
+EXPECTED_DESTINATIONS = 7481
+EXPECTED_GOTO_ACTIONS = 4031
 FIXED_ZIP_TIME = (2026, 7, 28, 0, 0, 0)
 PUBLIC_DOCS = (
     "README.md",
@@ -325,28 +325,6 @@ def main() -> int:
             continue
         add_member(members, relative, source.read_bytes(), errors)
 
-    predecessor_files = {
-        "predecessor/cumulative-through-xxii-snapshot/"
-        "00c_SGA3_English_CurrentProgress_Cumulative_Through_XXII_"
-        "Snapshot_20260728.pdf":
-            predecessor
-            / "00c_SGA3_English_CurrentProgress_Cumulative_Through_XXII_"
-            "Snapshot_20260728.pdf",
-        "predecessor/cumulative-through-xxii-snapshot/"
-        "02c_SGA3_English_CurrentProgress_Cumulative_Through_XXII_"
-        "Snapshot_20260728.tex":
-            predecessor
-            / "02c_SGA3_English_CurrentProgress_Cumulative_Through_XXII_"
-            "Snapshot_20260728.tex",
-        "predecessor/cumulative-through-xxii-snapshot/README.md":
-            predecessor / "README.md",
-    }
-    for name, source in predecessor_files.items():
-        if not source.is_file():
-            errors.append(f"missing predecessor file: {source.name}")
-            continue
-        add_member(members, name, source.read_bytes(), errors)
-
     privacy_hits: list[dict[str, str]] = []
     for name, data in members.items():
         suffix = PurePosixPath(name).suffix.lower()
@@ -373,10 +351,10 @@ def main() -> int:
         "errors": errors,
         "scope": {
             "complete": (
-                "Editorial Notice, Introduction, Exposes I-XVI, "
-                "Expose XVIII, and Expose XX"
+                "Editorial Notice, Introduction, Exposes I-XVIII, "
+                "and Expose XX"
             ),
-            "partial": "Exposes XVII, XXI, and XXII",
+            "partial": "Exposes XXI and XXII",
             "gaps": "Expose XIX and Exposes XXIII-XXVI",
             "claim": "working current-progress reader, not complete SGA3",
         },
@@ -391,7 +369,7 @@ def main() -> int:
             "pdf_page_render_qa_included": 0,
             "authority_pdf_pages_included": 0,
             "required_diagram_and_source_crop_assets_retained": True,
-            "predecessor_cumulative_pdf_tex_readme_retained": True,
+            "predecessor_cumulative_readers_retained": True,
         },
         "privacy": {"hits": privacy_hits},
     }
@@ -474,25 +452,22 @@ def main() -> int:
         },
         "privacy": {"hits": privacy_hits},
         "visual_qa_pages": [
-            1049,
-            1050,
-            1075,
-            1076,
-            1109,
-            1110,
-            1129,
-            1135,
-            1136,
-            1138,
-            1142,
-            1143,
-            1147,
-            1148,
-            1153,
+            *range(1083, 1105),
+            1125,
+            1126,
+            1145,
+            1151,
+            1152,
             1154,
+            1158,
+            1159,
+            1163,
             1164,
-            1165,
-            1166,
+            1169,
+            1170,
+            1180,
+            1181,
+            1182,
         ],
         "independent_source_archive_rebuild_receipt_included": bool(
             args.independent_receipt

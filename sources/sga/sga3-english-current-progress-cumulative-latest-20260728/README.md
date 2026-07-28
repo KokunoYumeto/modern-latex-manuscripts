@@ -8,9 +8,10 @@ usable mathematics.
 ## Included scope
 
 - Complete current working bodies: Editorial Notice, Introduction, and
-  Exposes I-XVI, XVIII, and XX.
-- Expose XVII: authority local pages 1-34 through the end of Section 5.9.
-  The next cursor is Section 6 on local page 35 / combined page 997.
+  Exposes I-XVIII and XX.
+- Expose XVII now runs through the end of Appendix III on authority local
+  page 49 / combined page 1011 / printed page 631. Authority local page 50
+  is blank.
 - Expose XXI: authority local pages 1-5 through Application 2.1.2. The next
   cursor is Definition 2.1.3 on local page 6 / combined page 1100.
 - Expose XXII: the previously frozen authority local pages 1-10 through
@@ -28,9 +29,9 @@ its standalone 41-page reader has SHA-256
 
 `00c_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.pdf`
 
-- 1,166 A4 pages
-- 7,340 named destinations
-- 4,004 internal link annotations
+- 1,182 A4 pages
+- 7,481 named destinations
+- 4,031 internal link annotations
 - zero invalid link actions
 - 63 font resources and zero Type 3 fonts
 
@@ -61,11 +62,18 @@ partial Expose XXII snapshot. These are readable preservation witnesses
 pending later native reconstruction; this cumulative release does not turn
 them into a new diagram-certification claim.
 
+Expose XVII is now textually complete, but its separately owned whole-expose
+high-zoom diagram pass remains open. A later high-zoom comparison also found
+strict bottom-label placement defects in Expose V figures 007-011. Their
+mathematical content remains intact. Those five diagrams and all other
+uncleared diagram scopes are explicitly provisional pending corrected
+no-overwrite successors.
+
 ## Package shape
 
 The cumulative PDF and its master TeX are direct files for readers. Editable
 dependencies, frozen producer controls, current standalone checkpoints,
-machine manifests, and the immediately preceding cumulative reader are
+machine manifests, and the immediately preceding cumulative readers are
 grouped in one source/history ZIP so the public landing page remains compact.
 
 Earlier cumulative readers remain immutable public history. This object

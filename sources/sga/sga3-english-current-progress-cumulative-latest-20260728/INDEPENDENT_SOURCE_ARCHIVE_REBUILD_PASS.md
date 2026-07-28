@@ -1,68 +1,69 @@
-# Independent source-archive rebuild: PASS
+# SGA 3 cumulative reader with complete Expose XVII: independent source-archive rebuild
+
+Result: `PASS`
 
 Date: 2026-07-28
 
-## Object
-
-This receipt covers the compact source/history archive paired with
-`00c_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.pdf`.
-The reader is a current-progress working reader, not a complete SGA 3
-translation, critical edition, rights clearance, or final diagram/reference
-certification.
-
-## Source archive replay
+## Sealed source archive
 
 - ZIP: `10c8_SGA3_CurrentProgress_Source_History_Latest_20260728.zip`
-- ZIP bytes: 15,469,558
-- ZIP SHA-256:
-  `43F8B1F2C43C317BA43A7A0E70C133093B4D6E83F361D9599FC410AA3EEC271F`
-- Safe readable members: 1,059
-- Uncompressed bytes: 20,232,583
-- Self-excluding member manifest: 1,058 rows / 162,502 B
-- Member-manifest SHA-256:
-  `95F44A3C86C4A475A702506C89F1122E3B442B404430D6EF6F32024028BB13AA`
-- CRC, path-safety, exact-set, byte-count, and SHA-256 errors: 0
-- Public-text privacy hits: 0
+- Bytes: 23,920,541
+- SHA-256:
+  `DEE96050EC1D0A2E071CB873E7750338CE39A0F1839B0794797B3DBF296023FF`
+- Members: 1,080
+- Uncompressed bytes: 29,392,857
+- Bad, absolute, traversal, or duplicate member names: 0
+- CRC failures: 0
+- Self-excluding manifest rows: 1,079
+- Manifest SHA-256:
+  `6062AE8D8A8F0FDA71E37750BF8854B684F510AFA5B4DADE76A98236C9C4CF3C`
+- Manifest identity errors: 0
+- Source-bundle validation SHA-256:
+  `135ABD0716430AE2A71EDAA540C749C396D7D51DE09C008153E049BB2AF62CB7`
 
-The archive was extracted into a fresh directory. Three independent XeLaTeX
-passes exited 0 using only the extracted archive. The final log has zero fatal
-errors, undefined controls or references, duplicate destinations, missing
-inputs, missing characters, or rerun requests. Candidate and rebuild each have
-52 inherited 4.92744 pt table-of-contents line-width diagnostics and nine
-underfull diagnostics; no overfull vertical boxes were reported.
+## Fresh build
 
-## Reader equivalence
+The archive was extracted to a new directory and its top-level master was
+compiled with three fresh XeLaTeX passes. All passes exited 0.
 
-- Sealed reader: 7,359,704 B
-- Sealed reader SHA-256:
-  `93168452B4BBF0FE9835E2D9E4614BAD046A366D9C704D2646934D77C8FB9120`
-- Fresh rebuild: 7,359,707 B
-- Fresh rebuild SHA-256:
-  `B245C6E1FB9BF1C540E6335806C1DD1F6CDB620C7469D35B1BD149A6AAAFEF08`
-- A4 pages: 1,166 / 1,166
-- Named destinations: 7,340 / 7,340
-- Internal link annotations/actions: exact on all pages
-- Page geometry: exact on all pages
-- Extracted text: exact on all pages
-- Decoded content streams: exact on all pages
-- Font resources: exact after normalizing nondeterministic six-letter subset
-  prefixes
+- Fatal errors: 0
+- Undefined controls or references: 0
+- Duplicate destinations: 0
+- Missing characters: 0
+- Rebuilt pages: 1,182 A4
+- Rebuilt PDF bytes: 7,427,200
+- Rebuilt PDF SHA-256:
+  `4B417951EC6A15AD86649BCA21F527A44EE7C81DDEB0778AF12D9435EA51C5FD`
 
-The three-byte whole-PDF difference is confined to nondeterministic build
-metadata/font-subset naming; no decoded page content, text, geometry,
-destination, or link behavior differs.
+The publication candidate is 7,427,202 bytes with SHA-256
+`970CDB20FBFCADEBACDE8AD4C69D89E38AFF278F067B1998B809411538B43660`.
+The whole-file PDFs are not byte-identical, but their substantive and
+structural surfaces replay exactly:
 
-At 200 dpi, pages 1049, 1050, 1075, 1076, 1109, 1110, 1129, 1135, 1136,
-1138, 1142, 1143, 1147, 1148, 1153, 1154, 1164, 1165, and 1166 are
-pixel-exact between the sealed reader and fresh rebuild.
+- 1,182/1,182 decoded page-content streams exact
+- 1,182/1,182 extracted text pages exact
+- 1,182/1,182 page geometries and rotations exact
+- 7,481 named destinations, with exact destination-name set
+- 4,031 valid internal GoTo actions
+- 874 linked pages
+- 0 invalid or URI actions
+- 64 font resources
+- 0 Type 3 fonts
+- 37/37 selected candidate/rebuild PNG renders byte-identical
 
-## Mechanical evidence identities
+The selected render set covers every newly admitted Expose XVII page from
+PDF pages 1083-1104 and the shifted downstream gap, Expose XX, Expose XXI,
+Expose XXII, and terminal boundaries.
 
-- Source-bundle replay JSON: 403 B, SHA-256
-  `40E55A4F93C960D7A2170A6F5BF01F0FA74D61E551714F08016BF0FB1E8F68D8`
-- Full-PDF structural comparison JSON: 590 B, SHA-256
-  `BA73E298C694BB5C07A41FD067C6890F9820DC0501E523CA009064EE95B66986`
-- Render comparison JSON: 3,455 B, SHA-256
-  `2B4344B7CCE7948F3AE16E75743452BA1E89900A116680415759978E9F93306F`
+## Scope conclusion
 
-Result: **PASS**.
+The source archive is sufficient to reconstruct the public reader without
+the producer's live working tree. The added Expose XVII body is complete
+through Appendix III; Expose XXI and Expose XXII remain partial, and Expose
+XIX plus Exposes XXIII-XXVI remain absent.
+
+This receipt supports a readable current-progress preservation release. It
+does not certify final whole-volume diagram fidelity. Expose V figures
+007-011 retain a disclosed label-placement defect pending a corrected
+successor, and Expose XVII's separately owned whole-expose high-zoom diagram
+pass remains open.
