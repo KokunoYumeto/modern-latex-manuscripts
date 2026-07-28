@@ -19,9 +19,10 @@ diagram/reference/accessibility certification.
 
 ## Reader-facing files
 
-- `00c_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.pdf` is the
-  preferred current reader.
-- `02c_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.tex` is its
+- `00c00_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.pdf` is the
+  preferred current reader. The explicit `00c00` slot keeps it ahead of the
+  smaller bounded SGA3 readers on filename-sorted archive pages.
+- `02c00_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.tex` is its
   directly accessible master TeX.
 - `10c9_SGA3_CurrentProgress_FullVolume_Integration_Source_20260728.zip`
   contains the exact recorder-derived build closure: 723 TeX files and 142

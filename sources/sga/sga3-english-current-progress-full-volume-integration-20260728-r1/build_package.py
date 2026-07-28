@@ -16,8 +16,8 @@ from pathlib import Path, PurePosixPath
 from pypdf import PdfReader
 
 
-PDF_NAME = "00c_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.pdf"
-TEX_NAME = "02c_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.tex"
+PDF_NAME = "00c00_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.pdf"
+TEX_NAME = "02c00_SGA3_English_CurrentProgress_Cumulative_Latest_20260728.tex"
 SOURCE_ZIP_NAME = (
     "10c9_SGA3_CurrentProgress_FullVolume_Integration_Source_20260728.zip"
 )
