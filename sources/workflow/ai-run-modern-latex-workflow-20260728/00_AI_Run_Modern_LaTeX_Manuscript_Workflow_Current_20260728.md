@@ -133,15 +133,18 @@ For each page or stable source unit:
    2400 dpi;
 4. treat contact sheets and whole-page thumbnails as navigation only, never
    PASS evidence;
-5. render a fresh source crop at 6500-9000 dpi for every ambiguous glyph,
-   terminal punctuation mark, diagram label, or diagram edge;
-6. compare every paragraph, formula, citation, note, heading, and object
+5. inspect the complete delivered page at 300 dpi for context and layout;
+6. compare each diagram or relevant diagram detail to the authority at about
+   5000 dpi by default, escalating to a targeted 9000-dpi crop only when
+   a glyph, terminal punctuation mark, label, arrowhead, decoration, crossing,
+   or placement remains ambiguous;
+7. compare every paragraph, formula, citation, note, heading, and object
    against the source image;
-7. apply exact, reviewable TeX changes only when the transcription or
+8. apply exact, reviewable TeX changes only when the transcription or
    translation deviated;
-8. compile only after a real edit; a zero-fix page does not trigger another
+9. compile only after a real edit; a zero-fix page does not trigger another
    build;
-9. record the decision, source defects, remaining issues, and exact next
+10. record the decision, source defects, remaining issues, and exact next
    cursor.
 
 Compile success proves syntax and build closure. It does not prove fidelity.
@@ -172,6 +175,18 @@ and edge by edge:
 Arrow direction, object placement, subscripts, primes, equation tags, and
 notation families must be checked individually. A run of fabricated equation
 tags does not prove that the next tag is fabricated.
+
+For final SGA3 diagram-fidelity closure, 300-dpi page context is paired with
+about 5000-dpi diagram/detail comparison and targeted 9000-dpi crops for
+remaining ambiguity. Every delivered diagram is native editable TeX; raster
+crops remain private authority witnesses and do not enter a new public reader
+or payload. The responsible top-level session lead signs the exact range and
+confirms that it does not overlap another active owner. Earlier
+600-dpi and 1200-dpi checks remain legitimate evidence and review context.
+Only 300-dpi-only approvals, or packages with independently identified
+material defects, are reopened. New final successors use the higher review
+scale above. Material defects are repaired in no-overwrite successors; prior
+packages remain immutable history.
 
 Distinguish two kinds of discrepancy. If the project text deviates from a
 source that can be reproduced faithfully, fix it. If the authority itself
@@ -343,6 +358,14 @@ unquantified lifecycle, labor, infrastructure, and opportunity costs.
 The exact source procedure is preserved as
 `01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md`, SHA-256
 `4B12DB3F632CB5F9E69393DCA33DA40256B5A9387C6522ADA831CA7F0367063D`.
+Its controlling SGA3 final-fidelity correction is co-published as
+the separate diagram-fidelity correction note. The correction requires
+300-dpi page context, about 5000-dpi default
+diagram/detail comparison, 9000-dpi ambiguity crops, native editable diagram
+content, disjoint ownership, and a lead-signed exact evidence binding. Raster
+authority crops remain private and excluded from public readers and payloads.
+It leaves the exact Claude artifact and earlier working receipts
+byte-preserved.
 It is a production method, not a new certification layer. Documentation and
 exact release identities support the work; they must never replace actual
 translation, transcription, diagram reconstruction, or public preservation.
