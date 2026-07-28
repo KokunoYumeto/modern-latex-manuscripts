@@ -3678,3 +3678,56 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   the adjacent Zenodo readbacks, and the two
   `manifests/published-github/20260728_sga3_native_batch_xx_xxi_package_commit_9fc59e75e_*readback.json`
   receipts.
+
+## 2026-07-28 - SGA3 1,434-page current-progress reader published
+
+- GitHub package commit
+  `ed1448ccf4bc5b1e8ecf4ef4532d9b37eb0e9a0a` preserves the preferred
+  cumulative reader, direct master TeX, and compact recorder-derived source
+  ZIP. Anonymous commit-pinned readback passed all 11 package files and all
+  867 source-ZIP members.
+- One successor was published under the existing SGA concept
+  `10.5281/zenodo.20410947`: record/version DOI
+  `10.5281/zenodo.21645478`, succeeding `21642747`. No duplicate concept,
+  parallel successor, or second draft was created.
+- The preferred SGA3 reader now has 1,434 A4 pages and includes Editorial
+  Notice, Introduction, Exposes I-XXIII and XXV-XXVI, terminal bibliography,
+  and the Tome III index. The four-page Tome III guide and Expose XXIV are
+  explicit gaps. This is current progress, not complete SGA3.
+- Reader identity: 8,650,355 bytes / SHA-256
+  `481EEDECAA8635AEAC5CCA91492797AF651D426A80B6A2F2510BDF05EB3DD36D`.
+  It has 9,246 destinations, 4,541 valid internal GoTo actions, zero invalid
+  or external actions, 64 font resources, zero Type3 fonts, and 142 raster
+  image XObjects.
+- Direct master TeX: 27,421 bytes / SHA-256
+  `89214AC97C29A65FF2DE0BF08A2B1037D39112F091EA746EC80B5EC376702087`.
+- Source ZIP: 4,121,323 bytes / SHA-256
+  `E77667080D1C64C84CAB192255600BCAAAB9144E9507C9FB0C4085F98C6FA8CC`;
+  867 safe members / 7,593,707 uncompressed bytes, comprising 723 TeX,
+  142 PNG, and two machine-control files.
+- Independent four-pass rebuild matched all 1,434 text pages, decoded page
+  streams, geometry, destination names, link actions, normalized fonts, and
+  decoded image objects. Thirty-eight assembly/boundary pages passed direct
+  visual review. Privacy hits were zero.
+- The PNG assets are disclosed provisional Loop-1 witnesses, not final
+  diagram-fidelity closure. Existing 600/1200-dpi evidence remains valid
+  history; only 300-dpi-only approvals or identified defects reopen. Future
+  diagram-final successors require native TeX and direct lead authority
+  comparison near 5000 dpi, escalating to 9000 dpi for ambiguity.
+- The final Zenodo surface has 89 files / 411,002,482 bytes. Anonymous
+  SHA-256 readback passed 89/89. All 56 ZIPs reopened with 5,478 file
+  members, six directory entries, and 427,047,861 uncompressed bytes.
+  Eighty-three predecessor files remained byte-identical. SGA1 remains the
+  default preview.
+- Shared decision
+  `EG-SGA3-FULL-VOLUME-WORKING-READER-PUBLICATION-20260728-0001` was
+  appended through the locked helper. The resulting log has 302 records /
+  1,880,891 bytes, SHA-256
+  `43CF0F0D9778ACFB17F96B5765AAB3F7161DA827B34850D92B4064D657E2C613`,
+  with `errors[]`. The separate decision record is 8,246 bytes, SHA-256
+  `AF833DF007484D3772ED16A715AA0B192FBFCE17E14CBD050279062D90F0AACC`.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_sga3_full_volume_working_reader_record_21645478.md`,
+  the adjacent Zenodo readbacks, and the two
+  `manifests/published-github/20260728_sga3_full_volume_working_reader_package_commit_ed1448ccf_*readback.json`
+  receipts.

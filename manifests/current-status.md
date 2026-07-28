@@ -1,3 +1,56 @@
+## 2026-07-28 SGA3 1,434-page current-progress reader published
+
+Current SGA version
+[`10.5281/zenodo.21645478`](https://doi.org/10.5281/zenodo.21645478)
+is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+It retains 83 files from predecessor `21642747` byte-identically, replaces
+the preferred SGA3 cumulative PDF and direct master TeX, adds one compact
+buildable source ZIP, and refreshes three release controls.
+
+The preferred SGA3 reader now has 1,434 A4 pages and integrates the Editorial
+Notice, Introduction, Exposes I-XXIII and XXV-XXVI, terminal bibliography,
+and the Tome III index. The four-page Tome III guide and Expose XXIV are
+explicit in-reader gaps. It has 9,246 named destinations, 4,541 valid
+internal GoTo actions, zero invalid or external actions, 64 font resources,
+zero Type3 fonts, and 142 raster image XObjects.
+
+The exact recorder-derived source closure has 867 safe members / 7,593,707
+uncompressed bytes: 723 TeX files, 142 PNG assets, and two machine controls.
+An independent four-pass extraction rebuild matches all 1,434 text pages,
+decoded page streams, geometry, destination names, links, normalized fonts,
+and decoded image objects. Thirty-eight assembly and boundary pages passed
+direct visual review. Privacy hits are zero.
+
+The PNG assets are disclosed provisional Loop-1 diagram witnesses, not final
+diagram-fidelity closure. Existing 600/1200-dpi evidence remains valid
+history and context; only 300-dpi-only approvals or identified defects
+reopen. Later diagram-final successors require native TeX and direct lead
+authority comparison near 5000 dpi, escalating to 9000 dpi for ambiguity.
+
+The final Zenodo surface has 89 files / 411,002,482 bytes. Anonymous SHA-256
+readback passed 89/89. All 56 ZIPs reopened with 5,478 file members, six
+directory entries, and 427,047,861 uncompressed bytes. The latest endpoint
+resolves to `21645478`; SGA1 remains the default preview; no duplicate
+concept, parallel successor, or second draft was created.
+
+GitHub package commit
+`ed1448ccf4bc5b1e8ecf4ef4532d9b37eb0e9a0a` is public. Commit-pinned raw
+readback passed all 11 package files and all 867 source-ZIP members. See the
+[publication receipt](published-zenodo/20260728_sga3_full_volume_working_reader_record_21645478.md),
+[Zenodo outer-file readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21645478_public_readback.json),
+[full ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21645478_zip_member_readback.json),
+[GitHub outer-file readback](published-github/20260728_sga3_full_volume_working_reader_package_commit_ed1448ccf_public_readback.json),
+and
+[GitHub ZIP-member readback](published-github/20260728_sga3_full_volume_working_reader_package_commit_ed1448ccf_zip_member_readback.json).
+
+Shared decision
+`EG-SGA3-FULL-VOLUME-WORKING-READER-PUBLICATION-20260728-0001` was
+appended through the locked helper. The resulting log has 302 records /
+1,880,891 bytes, SHA-256
+`43CF0F0D9778ACFB17F96B5765AAB3F7161DA827B34850D92B4064D657E2C613`,
+with `errors[]`. The separate decision record is 8,246 bytes, SHA-256
+`AF833DF007484D3772ED16A715AA0B192FBFCE17E14CBD050279062D90F0AACC`.
+
 ## 2026-07-28 SGA3 Exposes XX and XXI native readers published
 
 Current SGA version
