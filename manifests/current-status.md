@@ -1,3 +1,53 @@
+## 2026-07-28 SGA3 cumulative with complete Expose XVII published
+
+Current SGA version
+[`10.5281/zenodo.21637870`](https://doi.org/10.5281/zenodo.21637870)
+is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+It fronts a 1,182-page SGA3 current-progress reader containing complete
+current working bodies for the Editorial Notice, Introduction, Exposes
+I-XVIII, and XX; partial Expose XXI through local page 5 / Application
+2.1.2; and the frozen partial Expose XXII body through Proposition 4.1.2.
+Expose XVII now closes through Appendix III on authority local page 49.
+Expose XIX and Exposes XXIII-XXVI are explicit gaps.
+
+The reader is 7,427,202 bytes, SHA-256
+`970CDB20FBFCADEBACDE8AD4C69D89E38AFF278F067B1998B809411538B43660`.
+It has 7,481 named destinations, 4,031 valid internal link actions, zero
+invalid or external actions, 64 font resources, and zero Type3 fonts. Its
+direct master TeX is 30,096 bytes, SHA-256
+`5AA580989A66EFCAAA464257D05F72699A1DA1C82E8C90C2FCA9B93C21778E60`.
+
+The source/history ZIP is 23,920,541 bytes, SHA-256
+`DEE96050EC1D0A2E071CB873E7750338CE39A0F1839B0794797B3DBF296023FF`.
+Its 1,080 safe members / 29,392,857 uncompressed bytes passed exact public
+readback and include the immediately preceding cumulative PDF, TeX, README,
+and controls as immutable history.
+
+Expose XVII is textually complete, but its whole-expose high-zoom diagram
+pass remains open. A post-freeze high-zoom audit also found five Expose-V
+diagram-layout defects in figures 007-011 involving bottom arrow-label side
+or placement; mathematical content was intact. The reader is useful
+preservation and current progress, but it is not complete SGA3, a critical
+edition, rights clearance, accessibility remediation, uniform component
+certification, or final diagram/reference-fidelity closure.
+
+The final Zenodo surface has 67 files / 402,834,616 bytes. Anonymous SHA-256
+readback passed 67/67, including all 61 retained predecessor files. All 48
+public ZIPs reopened with 4,399 file members, six directory entries, and
+418,574,682 uncompressed bytes. The latest endpoint resolves to `21637870`
+and SGA1 remains the default preview.
+
+GitHub package commit
+`5fee121b33874eb994ed0e5456c1256bf735fd4b` is public at
+`sources/sga/sga3-english-current-progress-cumulative-latest-20260728`.
+Commit-pinned raw readback passed all 12 files and all 1,079 manifest-covered
+ZIP members across 1,080 total members. See the
+[publication receipt](published-zenodo/20260728_sga3_cumulative_complete_xvii_record_21637870.md),
+[Zenodo outer-file readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21637870_public_readback.json),
+[full ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21637870_zip_member_readback.json),
+and
+[GitHub package readback](published-github/20260728_sga3_cumulative_complete_xvii_commit_5fee121b3_public_readback.json).
+
 ## 2026-07-28 SGA3 expanded current-progress cumulative published
 
 Current SGA version

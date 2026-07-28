@@ -3348,3 +3348,55 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   the adjacent `public_readback.json`, the adjacent
   `zip_member_readback.json`, and
   `manifests/published-github/20260728_sga3_cumulative_latest_commit_5b20b6091_public_readback.json`.
+
+## 2026-07-28 - SGA3 cumulative with complete Expose XVII published
+
+- GitHub package commit
+  `5fee121b33874eb994ed0e5456c1256bf735fd4b` updates the exact compact
+  package at
+  `sources/sga/sga3-english-current-progress-cumulative-latest-20260728`.
+  Commit-pinned anonymous raw readback passed all 12 package files and all
+  1,079 manifest-covered source/history ZIP members across 1,080 total
+  members.
+- Existing-concept Zenodo version `10.5281/zenodo.21637870` succeeds
+  immutable predecessor `21636902`; no duplicate concept, parallel
+  successor, or second draft was created.
+- The 1,182-page preferred SGA3 current-progress reader contains complete
+  current working bodies for the Editorial Notice, Introduction, Exposes
+  I-XVIII, and XX; partial XXI through Application 2.1.2 and XXII through
+  Proposition 4.1.2; and explicit gaps for XIX and XXIII-XXVI. Expose XVII
+  closes through Appendix III on authority local page 49.
+- The reader is 7,427,202 bytes, SHA-256
+  `970CDB20FBFCADEBACDE8AD4C69D89E38AFF278F067B1998B809411538B43660`.
+  It has 7,481 named destinations, 4,031 valid internal GoTo actions, zero
+  invalid or external actions, 64 font resources, and zero Type3 fonts.
+- The direct master TeX is 30,096 bytes, SHA-256
+  `5AA580989A66EFCAAA464257D05F72699A1DA1C82E8C90C2FCA9B93C21778E60`.
+  The 1,080-member source/history ZIP is 23,920,541 bytes, SHA-256
+  `DEE96050EC1D0A2E071CB873E7750338CE39A0F1839B0794797B3DBF296023FF`.
+- Expose XVII is textually complete, but its whole-expose high-zoom diagram
+  pass remains open. Expose-V figures007-011 retain the disclosed bottom
+  arrow-label side or placement defects; mathematical content was intact.
+  This publication is working preservation, not final diagram-fidelity
+  closure. Final diagram claims require later disjoint no-overwrite
+  successors with lead-signed 300-dpi page, 5000-dpi default detail, and
+  6500-9000-dpi ambiguity evidence.
+- The final Zenodo surface has 67 files / 402,834,616 bytes. Anonymous
+  SHA-256 readback passed 67/67, including all 61 retained predecessor files.
+- All 48 public ZIPs reopened. Exact replay found 4,399 file members, six
+  directory entries, and 418,574,682 uncompressed bytes.
+- SGA1 remains the default preview. The latest endpoint resolves to
+  `21637870`, and no competing concept or second successor was created.
+- Shared decision
+  `EG-SGA3-CUMULATIVE-COMPLETE-XVII-PUBLICATION-20260728-0001` was appended
+  through the locked helper. The resulting log has 296 records / 1,841,890
+  bytes, SHA-256
+  `8F29468E67382CBDB8FD3B248D4440E879DB56B421BFBD18BDFB4A3082C71058`,
+  with `errors[]`.
+- The separate decision record is 6,887 bytes, SHA-256
+  `2C0586BE7F76E6FF4A9EE9DC1A930661B7A60EF0C3C373A7DB0FAC5327B400FC`.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_sga3_cumulative_complete_xvii_record_21637870.md`,
+  the adjacent `public_readback.json`, the adjacent
+  `zip_member_readback.json`, and
+  `manifests/published-github/20260728_sga3_cumulative_complete_xvii_commit_5fee121b3_public_readback.json`.
