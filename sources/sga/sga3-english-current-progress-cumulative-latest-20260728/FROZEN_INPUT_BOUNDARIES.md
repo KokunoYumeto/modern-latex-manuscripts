@@ -6,18 +6,23 @@ existed in an active working directory.
 
 ## Expose XVII
 
-- Included authority scope: local pages 1-34 through Section 5.9.
-- Next cursor: local page 35 / combined page 997 / printed page 602.
+- Included authority scope: complete local pages 1-49 through Appendix III.
+- Local page 50 / combined page 1012 is blank; Expose XVIII is excluded from
+  the XVII source tree.
 - Producer status SHA-256:
-  `5B55676333F4D8A8A8B1870CE473AB8C385A96E4F2734CF6526B427BFE753E57`.
-- Frozen standalone master SHA-256:
-  `CF0C606C399EB076B89EABD7AF787188CA578187017BD4A71E2F016D2859DD97`.
-- Frozen standalone reader SHA-256:
-  `C0CF34D838C6D78980B8AF7865B3BC28FBB4199DC8C1AE533BD2C5AE26916015`.
+  `50D0DB2574DC0A4C25FABA40243927A367758FC02AD1101AF663B86FBBA8D81B`.
+- Producer standalone master SHA-256:
+  `6167501EAD3A9E447BE7CE0B3C4075B232969ADC1D81EDB269AAEE4B761A20A8`.
+- Producer standalone reader SHA-256:
+  `85448B0830DE96823C5C22B9C82B415DB4323EB8A761115EC160E4678B34210D`.
+- Integration-corrected standalone reader SHA-256:
+  `C055C608BBBA962BD8CF7E2B4FBFD1B1C6C2795F5B6BD902E0AAF7C0BC9CEC5E`.
 
-The working master had already acquired a later Section 6 input by the time
-of archive integration. Removing that one input reproduced the status-bound
-master byte-for-byte; the later component was not admitted.
+The producer files contained three U+2019 apostrophes in editor-note text
+that the selected T1 Latin Modern font omitted. The cumulative integration
+changed only those three characters to ASCII apostrophes. The original two
+source files and producer PDF remain preserved under
+`predecessor/expose-xvii-complete-producer-original/`.
 
 ## Expose XX
 
