@@ -1,3 +1,26 @@
+## 2026-07-28: SGA3 through-XXII snapshot queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21635827](https://doi.org/10.5281/zenodo.21635827)
+- GitHub package:
+  [sga3-english-current-progress-cumulative-through-xxii-snapshot-20260728](../sources/sga/sga3-english-current-progress-cumulative-through-xxii-snapshot-20260728/)
+- Publication/readback receipt:
+  [20260728_sga3_through_xxii_snapshot_record_21635827.md](../manifests/published-zenodo/20260728_sga3_through_xxii_snapshot_record_21635827.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+65 outer files, all 59 retained predecessor files, all 46 ZIP archives, and
+all 4,240 non-directory ZIP members. The preferred 1,100-page SGA3 reader now
+contains complete current working bodies for the Editorial Notice,
+Introduction, Exposes I-XVI, and XVIII; partial XVII, XX, and XXII; and
+explicit gaps for XIX, XXI, and XXIII-XXVI. It remains honestly labelled
+working and incomplete.
+
+The latest endpoint resolves to `21635827`, SGA1 remains the default preview,
+and no active parallel draft or duplicate concept remains. This queue is
+closed.
+
 ## 2026-07-28: SGA3 through-XVIII queue closed
 
 - Existing concept:
