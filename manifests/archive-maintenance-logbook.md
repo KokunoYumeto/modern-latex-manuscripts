@@ -3868,3 +3868,33 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Exact receipt:
   `manifests/published-zenodo/20260728_sga3_reader_clean_complete_working_record_21650398.md`
   and the adjacent public and ZIP-member readbacks.
+
+## 2026-07-28 - EGA 0 III section 11 source-first successor published
+
+- GitHub package commit
+  `e0ee2228cbce038758fe7f64d480bca21e9d6c55` preserves a compact
+  nine-file source-first checkpoint at
+  `sources/ega/checkpoints/ega0-iii-source-first-through-11-10-working-20260728`.
+- One successor was published under the established EGA concept
+  `10.5281/zenodo.20414353`: record/version DOI
+  `10.5281/zenodo.21652720`, succeeding `20454552`. EGA remains separate
+  from the SGA concept. No duplicate concept or second draft was created.
+- The new default-preview PDF is a 93-page layered working reader. Its
+  container spans inherited material through sections 1.0-14.3.6, while
+  this checkpoint newly source-first verifies only sections
+  11.5.1-11.10.3. The next source-first unit is section 12.1.1.
+- Reader identity: 991,284 bytes / SHA-256
+  `DD5D2923561FD15302630869828AC549FCC370E84524F29E88A6BAEBA074D0BD`.
+  Direct section-11 TeX identity: 107,199 bytes / SHA-256
+  `1311E0EECB318C6F3D5525D9846874B42151B8B49903E89E99BC89F4E56B54E7`.
+  Source ZIP identity: 1,324,599 bytes / SHA-256
+  `C8E2CA96398CC0D7989A84F36FFCFB039ACAF00E1FB611C7A96DB6185560C76A`.
+- Anonymous readback passed 21/21 outer files / 497,005,957 bytes. All
+  five ZIPs reopened with 257 safe file members and 271,814,368
+  uncompressed bytes. All 16 predecessor files remained byte-identical.
+- The PDF has 288 named destinations and 637 valid internal GoTo actions.
+  Six inherited unresolved references remain disclosed. No OCR was
+  regenerated and no authority source was redistributed.
+- Exact receipt:
+  `manifests/published-zenodo/20260728_ega0_iii_section11_record_21652720.md`
+  and the adjacent public and ZIP-member readbacks.

@@ -20,6 +20,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | al-Battani Opus Astronomicum | 19 | 7 | 0 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |  |
 | SGA (serious active work; not complete) | 92 | 16 | 16 | 57 | 415.9 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/21650398) |
+| EGA (source-first work underway; layered working reader) | 21 | 11 | 1 | 5 | 474.0 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/21652720) |
 | Pierre Deligne | 6 | 2 | 0 | 3 | 447.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 0 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
@@ -41,5 +42,4 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Classical Algebra and Arithmetic | 25 | 21 | 0 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414787) |
 | Additional Author Cluster | 100 | 10 | 0 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://doi.org/10.5281/zenodo.20411006) |
 | **OCR/support/provenance or currently unsafe draft lanes** |  |  |  |  |  |  |  |
-| EGA (French originals + OCR/support + partial translation draft) | 16 | 10 | 0 | 4 | 471.7 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
 | Arthur Cayley (suspect draft/provenance; not accuracy-certified) | 84 | 13 | 0 | 69 | 1203.0 | [cayley.md](cayley.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520749) |
