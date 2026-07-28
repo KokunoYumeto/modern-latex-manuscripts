@@ -124,9 +124,18 @@ def zip_info(name: str) -> zipfile.ZipInfo:
     return info
 
 
-def csv_bytes(rows: list[dict[str, object]], fieldnames: list[str]) -> bytes:
+def csv_bytes(
+    rows: list[dict[str, object]],
+    fieldnames: list[str],
+    *,
+    lineterminator: str = "\r\n",
+) -> bytes:
     stream = io.StringIO(newline="")
-    writer = csv.DictWriter(stream, fieldnames=fieldnames, lineterminator="\r\n")
+    writer = csv.DictWriter(
+        stream,
+        fieldnames=fieldnames,
+        lineterminator=lineterminator,
+    )
     writer.writeheader()
     writer.writerows(rows)
     return stream.getvalue().encode("utf-8")
@@ -585,7 +594,11 @@ hyperrefs remain unresolved and are disclosed in the public build summary.
                 "sha256": sha256_path(path),
             }
         )
-    manifest = csv_bytes(manifest_rows, ["filename", "bytes", "sha256"])
+    manifest = csv_bytes(
+        manifest_rows,
+        ["filename", "bytes", "sha256"],
+        lineterminator="\n",
+    )
     (PACKAGE_ROOT / "SHA256SUMS.csv").write_bytes(manifest)
 
     zip_check = validate_zip(source_zip)
