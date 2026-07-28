@@ -47,6 +47,17 @@ EXPECTED_ZIP_FILE_MEMBERS = 4_531
 EXPECTED_ZIP_DIRECTORY_ENTRIES = 6
 EXPECTED_ZIP_ALL_ENTRIES = 4_537
 EXPECTED_ZIP_UNCOMPRESSED_BYTES = 419_157_854
+EXPECTED_GITHUB_READBACK_FILES = 37
+EXPECTED_NEW_ZIP_MEMBERS = 67
+SESSION_C_RULE = {
+    "existing_600_1200_evidence_invalidated": False,
+    "reopen_300_only_approvals": True,
+    "native_tex_required_for_new_delivery": True,
+    "default_review_dpi": 5000,
+    "ambiguity_review_dpi": 9000,
+    "xii_closed": True,
+    "xx_xxi_open": True,
+}
 
 REPO_ROOT = SCRIPT_DIR.parent
 RECEIPT_ROOT = REPO_ROOT / "manifests" / "published-zenodo"
@@ -363,7 +374,10 @@ def verify_primary_local_files() -> dict[str, dict]:
             for path in root.iterdir()
             if path.is_file() and path.name != outer_manifest.name
         }
-        if len(rows) != 11 or {row["filename"] for row in rows} != expected_outer:
+        if (
+            len(rows) != unit.get("outer_manifest_rows", 11)
+            or {row["filename"] for row in rows} != expected_outer
+        ):
             raise RuntimeError(
                 f"Outer manifest exact-set mismatch: Expose {unit['roman']}"
             )
@@ -681,8 +695,8 @@ def generate_controls(
         "github": {
             "commit": GITHUB_COMMIT,
             "package_root": GITHUB_PACKAGE,
-            "anonymous_readback_files": 37,
-            "source_zip_members_read_back": 67,
+            "anonymous_readback_files": EXPECTED_GITHUB_READBACK_FILES,
+            "source_zip_members_read_back": EXPECTED_NEW_ZIP_MEMBERS,
             "status": "PASS",
         },
         "units": [
@@ -725,15 +739,7 @@ def generate_controls(
             "all_entries": EXPECTED_ZIP_ALL_ENTRIES,
             "uncompressed_bytes": EXPECTED_ZIP_UNCOMPRESSED_BYTES,
         },
-        "session_c_rule": {
-            "existing_600_1200_evidence_invalidated": False,
-            "reopen_300_only_approvals": True,
-            "native_tex_required_for_new_delivery": True,
-            "default_review_dpi": 5000,
-            "ambiguity_review_dpi": 9000,
-            "xii_closed": True,
-            "xx_xxi_open": True,
-        },
+        "session_c_rule": SESSION_C_RULE,
         "privacy_hits": [],
         "new_license_grant": False,
     }
@@ -776,6 +782,9 @@ for name, value in {
     "EXPECTED_ZIP_DIRECTORY_ENTRIES": EXPECTED_ZIP_DIRECTORY_ENTRIES,
     "EXPECTED_ZIP_ALL_ENTRIES": EXPECTED_ZIP_ALL_ENTRIES,
     "EXPECTED_ZIP_UNCOMPRESSED_BYTES": EXPECTED_ZIP_UNCOMPRESSED_BYTES,
+    "EXPECTED_GITHUB_READBACK_FILES": EXPECTED_GITHUB_READBACK_FILES,
+    "EXPECTED_NEW_ZIP_MEMBERS": EXPECTED_NEW_ZIP_MEMBERS,
+    "SESSION_C_RULE": SESSION_C_RULE,
     "RECEIPT_ROOT": RECEIPT_ROOT,
     "PREDECESSOR_RECEIPT": PREDECESSOR_RECEIPT,
     "CONTROLS_ROOT": CONTROLS_ROOT,
