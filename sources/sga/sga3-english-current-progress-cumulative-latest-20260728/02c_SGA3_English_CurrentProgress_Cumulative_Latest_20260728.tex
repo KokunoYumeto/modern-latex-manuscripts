@@ -1,0 +1,708 @@
+\documentclass[11pt,a4paper,oneside]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[a4paper,inner=30mm,outer=27mm,top=28mm,bottom=30mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,mathtools,stmaryrd}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,calc,decorations.pathmorphing,matrix,positioning}
+\usepackage{graphicx,float}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage[hidelinks,hypertexnames=false,pdfstartview={},linktoc=page,
+  pdftitle={SGA 3 - Current-Progress Cumulative English Reader, latest stable scopes},
+  pdfauthor={SGA 3 English reconstruction project},
+  pdfsubject={Cumulative English reader containing complete working scopes I-XVI, XVIII, and XX, with current partial scopes XVII, XXI, and XXII},
+  pdfkeywords={SGA 3, group schemes, English translation}]{hyperref}
+
+\graphicspath{{figures/}{figures/exp7/}{assets/diagrams/}}
+\setlength{\emergencystretch}{3em}
+\raggedbottom
+
+\input{tex/sga3_loop1_macros}
+\let\SGAThreeRasterDiagram\SGAThreeDiagram
+\providecommand{\Ga}{\mathbb G_a}
+\providecommand{\Gm}{\mathbb G_m}
+\providecommand{\Norm}{\operatorname{Norm}}
+\providecommand{\Centr}{\operatorname{Centr}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Dom}{\operatorname{Dom}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Lie}{\operatorname{Lie}}
+\providecommand{\intaut}{\operatorname{int}}
+\providecommand{\SGASection}[2]{%
+  \section*{#1.\ #2}%
+  \addcontentsline{toc}{section}{#1.\ #2}%
+}
+\providecommand{\SGASubsection}[2]{%
+  \subsection*{#1.\ #2}%
+  \addcontentsline{toc}{subsection}{#1.\ #2}%
+}
+\providecommand{\SGAStatement}[2]{%
+  \par\medskip\noindent\textbf{#1.}---\ {\itshape #2\par}\medskip
+}
+\providecommand{\SGAProof}[1]{%
+  \par\smallskip\noindent\textit{#1.}\quad
+}
+\DeclareMathOperator{\Nil}{Nil}
+\makeatletter
+\@ifundefined{scholium}{\newtheorem{scholium}[theorem]{Scholium}}{}
+\@ifundefined{application}{\newtheorem{application}[theorem]{Application}}{}
+\@ifundefined{complements}{\newtheorem{complements}[theorem]{Complements}}{}
+\makeatother
+\providecommand{\Qp}{\mathbb{Q}_{+}}
+\providecommand{\cR}{\mathcal{R}}
+\providecommand{\VR}{\mathcal{V}}
+\providecommand{\rgred}{\operatorname{rgred}}
+\providecommand{\rgss}{\operatorname{rgss}}
+\providecommand{\GL}{\operatorname{GL}}
+
+\makeatletter
+\renewcommand{\SGARefLink}[2]{%
+  \@ifundefined{r@#1}{#2}{\hyperref[#1]{#2}}%
+}
+\newcommand{\SGAThreeNativeInput}[1]{%
+  \filename@parse{#1}%
+  \edef\SGAThreeNativeFile{%
+    native_diagrams/exp5/\filename@base.\filename@ext.tex%
+  }%
+  \input{\SGAThreeNativeFile}%
+}
+\makeatother
+
+\newcommand{\SGAThreeNativeDiagram}[5][0.92\textwidth]{%
+  \begin{figure}[H]
+    \centering
+    \resizebox{#1}{!}{\SGAThreeNativeInput{#2}}%
+    \caption{#3}
+    \label{#4}
+    \par\smallskip
+    {\footnotesize\itshape Native \LaTeX{} reconstruction from the
+      corrected Polo--Gille diagram; source locator: #5.}
+  \end{figure}%
+}
+
+\title{Seminar on Algebraic Geometry 3\\
+  \large Group Schemes\\[0.75em]
+  \normalsize Current-Progress Cumulative English Translation and
+  \TeX{} Reconstruction\\
+  \small Complete working scopes I--XVI, XVIII, and XX;\\
+  current partial scopes XVII, XXI, and XXII}
+\author{SGA 3 English reconstruction project}
+\date{28 July 2026}
+
+\newcommand{\PendingSGAThreeComponent}[1]{%
+  \chapter*{#1}
+  \addcontentsline{toc}{chapter}{#1}
+  \begin{center}
+    \fbox{\parbox{0.82\textwidth}{\centering
+      This component has not yet been added to the Loop-1 master.}}
+  \end{center}
+}
+
+\newcommand{\SGAThreeGapChapter}[2]{%
+  \clearpage
+  \chapter*{#1}
+  \addcontentsline{toc}{chapter}{#1 (not included)}
+  \begin{center}
+    \fbox{\parbox{0.82\textwidth}{%
+      \textbf{This expos\'e is not included in this current-progress reader.}
+      \par\medskip
+      #2}}
+  \end{center}
+}
+
+\newcommand{\SGAThreePartialBoundary}[1]{%
+  \par\medskip
+  \begin{center}
+    \fbox{\parbox{0.82\textwidth}{%
+      \textbf{Current Loop-1 boundary.}\quad #1}}
+  \end{center}
+  \par\medskip
+}
+
+\newcommand{\SGAThreeWorkingNotice}[1]{%
+  \par\medskip
+  \begin{center}
+    \fbox{\parbox{0.82\textwidth}{%
+      \textbf{Working-state notice.}\quad #1}}
+  \end{center}
+  \par\medskip
+}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\chapter*{Reconstruction and attribution status}
+\addcontentsline{toc}{chapter}{Reconstruction status}
+This is a cumulative current-progress English reconstruction containing
+complete current working scopes for Expos\'es~I--XVI, XVIII, and XX,
+plus frozen partial scopes for Expos\'es~XVII, XXI, and XXII.
+Expos\'es~XIX and XXIII--XXVI are not included. Expos\'e~X is the complete
+44-authority-page Loop-1 body supplied on 28 July 2026, not a gap or an
+older fragment. The published Polo--Gille PDFs control the French text,
+mathematics, numbering, notes, and diagram appearance. The pre-existing
+user-supplied OCR was used only as a read-only locator and drafting
+witness. Expos\'es~IV--IX and XI--XIII use native \LaTeX{} diagrams.
+Source-page image witnesses still present in Expos\'es~I--III, the four
+raster diagram placeholders in Expos\'e~X, the appendix raster in
+Expos\'e~XIV, the three raster diagram placeholders in Expos\'e~XVI,
+the one raster diagram in Expos\'e~XVIII, nine source-derived diagram
+placeholders in Expos\'e~XX, and three direct diagram crops in the
+partial Expos\'e~XXII snapshot remain explicitly provisional until their
+own native-diagram passes are complete.
+
+Jacob Reinhold's CC~BY~4.0 English Markdown is credited and was used as
+a comparison and drafting lineage. It is not the source authority; the
+Polo--Gille PDFs control every admitted passage, formula, and diagram.
+The CC~BY~4.0 statement belongs to that comparison lineage and does not
+by itself license the underlying French edition or this reconstruction.
+
+No editable Polo--Gille source was publicly available when this
+reconstruction began. Formulas and document structure were therefore
+reconstructed in \LaTeX{}. This checkpoint does not claim completion of
+SGA~3 as a whole. It binds the latest archive-admitted English scopes into
+one reading surface while preserving every omission and partial cursor
+visibly. The frozen partial boundaries are: Expos\'e~XVII through
+Section~5.9 on authority local page~34; Expos\'e~XXI through
+Application~2.1.2 on authority local page~5; and Expos\'e~XXII through
+Proposition~4.1.2 on authority local page~10.
+
+\tableofcontents
+
+\mainmatter
+
+\IfFileExists{tex/components/00_introduction.tex}{%
+  \input{tex/components/00_introduction}%
+}{%
+  \PendingSGAThreeComponent{Introduction (pending)}%
+}
+
+\IfFileExists{tex/components/01_expose_I_opening_pp001_005.tex}{%
+  \input{tex/components/01_expose_I_opening_pp001_005}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e I, opening pages 1--5 (pending)}%
+}
+
+\IfFileExists{tex/components/02_expose_I_s16_next_pp005_010.tex}{%
+  \input{tex/components/02_expose_I_s16_next_pp005_010}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e I, section 1.6 onward (pending)}%
+}
+
+\IfFileExists{tex/components/03_expose_I_s18_s22_pp010_015.tex}{%
+  \input{tex/components/03_expose_I_s18_s22_pp010_015}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e I, sections 1.8--2.2 (pending)}%
+}
+
+\IfFileExists{tex/components/04_expose_I_s23_operator_groups.tex}{%
+  \input{tex/components/04_expose_I_s23_operator_groups}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e I, section 2.3 (pending)}%
+}
+
+\IfFileExists{tex/components/05_expose_I_s3_modules.tex}{%
+  \input{tex/components/05_expose_I_s3_modules}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e I, section 3 (pending)}%
+}
+
+\IfFileExists{tex/components/06_expose_I_s41_s43_basic_scheme_groups.tex}{%
+  \input{tex/components/06_expose_I_s41_s43_basic_scheme_groups}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e I, sections 4.1--4.3.3.1 (pending)}%
+}
+
+\IfFileExists{tex/components/07_expose_I_s44_s47_scheme_groups.tex}{%
+  \input{tex/components/07_expose_I_s44_s47_scheme_groups}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e I, sections 4.4--4.7 (pending)}%
+}
+
+\IfFileExists{tex/components/08_expose_I_s5_group_cohomology.tex}{%
+  \input{tex/components/08_expose_I_s5_group_cohomology}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e I, section 5 (pending)}%
+}
+
+\IfFileExists{tex/components/09_expose_I_s6_equivariant_objects.tex}{%
+  \input{tex/components/09_expose_I_s6_equivariant_objects}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e I, section 6 (pending)}%
+}
+
+\IfFileExists{tex/components/10_expose_II_s1_s2_hom_dual_numbers.tex}{%
+  \input{tex/components/10_expose_II_s1_s2_hom_dual_numbers}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e II, sections 1--2 (pending)}%
+}
+
+\IfFileExists{tex/components/11_expose_II_s3_tangent_bundle_condition_E.tex}{%
+  \input{tex/components/11_expose_II_s3_tangent_bundle_condition_E}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e II, section 3 (pending)}%
+}
+
+\IfFileExists{tex/components/12_expose_II_s41_s44_lie_algebras.tex}{%
+  \input{tex/components/12_expose_II_s41_s44_lie_algebras}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e II, sections 4.1--4.4.2 (pending)}%
+}
+
+\IfFileExists{tex/components/13_expose_II_s45_s411_lie_structure.tex}{%
+  \input{tex/components/13_expose_II_s45_s411_lie_structure}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e II, sections 4.5--4.11.8 (pending)}%
+}
+
+\IfFileExists{tex/components/14_expose_II_s5_s6_examples_misc.tex}{%
+  \input{tex/components/14_expose_II_s5_s6_examples_misc}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e II, sections 5--6 and bibliography (pending)}%
+}
+
+\IfFileExists{tex/components/15_expose_III_opening_s016.tex}{%
+  \input{tex/components/15_expose_III_opening_s016}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, opening through Remark 0.1.6 (pending)}%
+}
+
+\IfFileExists{tex/components/16_expose_III_s017_s0110_functorial_liftings.tex}{%
+  \input{tex/components/16_expose_III_s017_s0110_functorial_liftings}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, Reminders 0.1.7 through Corollary 0.1.10 (pending)}%
+}
+
+\IfFileExists{tex/components/17_expose_III_s0111_s02_products_action.tex}{%
+  \input{tex/components/17_expose_III_s0111_s02_products_action}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, Lemma 0.1.11 through Proposition 0.2 (pending)}%
+}
+
+\IfFileExists{tex/components/18_expose_III_s03_s07_flat_liftings.tex}{%
+  \input{tex/components/18_expose_III_s03_s07_flat_liftings}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, Remark 0.3 through Corollary 0.7 (pending)}%
+}
+
+\IfFileExists{tex/components/19_expose_III_s07bis_s010_group_actions.tex}{%
+  \input{tex/components/19_expose_III_s07bis_s010_group_actions}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, Corollary 0.7 bis through Corollary 0.10 (pending)}%
+}
+
+\IfFileExists{tex/components/20_expose_III_s011_end_s0_automorphisms.tex}{%
+  \input{tex/components/20_expose_III_s011_end_s0_automorphisms}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, Proposition 0.11 through the end of section 0 (pending)}%
+}
+
+\IfFileExists{tex/components/21_expose_III_s11_s12_extensions_cohomology.tex}{%
+  \input{tex/components/21_expose_III_s11_s12_extensions_cohomology}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, sections 1.1--1.2 (pending)}%
+}
+
+\IfFileExists{tex/components/22_expose_III_s13_group_law_extensions.tex}{%
+  \input{tex/components/22_expose_III_s13_group_law_extensions}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, section 1.3 (pending)}%
+}
+
+\IfFileExists{tex/components/23_expose_III_s2_infinitesimal_group_morphisms.tex}{%
+  \input{tex/components/23_expose_III_s2_infinitesimal_group_morphisms}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, section 2 (pending)}%
+}
+
+\IfFileExists{tex/components/24_expose_III_s3_infinitesimal_group_structures.tex}{%
+  \input{tex/components/24_expose_III_s3_infinitesimal_group_structures}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, section 3 (pending)}%
+}
+
+\IfFileExists{tex/components/25_expose_III_s41_s44_closed_subgroups.tex}{%
+  \input{tex/components/25_expose_III_s41_s44_closed_subgroups}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, sections 4.1--4.4.1 (pending)}%
+}
+
+\IfFileExists{tex/components/26_expose_III_s450_s47_lci_koszul.tex}{%
+  \input{tex/components/26_expose_III_s450_s47_lci_koszul}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, sections 4.5.0--4.7 (pending)}%
+}
+
+\IfFileExists{tex/components/27_expose_III_s480_s410_obstruction_factorization.tex}{%
+  \input{tex/components/27_expose_III_s480_s410_obstruction_factorization}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, sections 4.8.0--4.10 (pending)}%
+}
+
+\IfFileExists{tex/components/28_expose_III_s411_s4161_functorial_obstructions.tex}{%
+  \input{tex/components/28_expose_III_s411_s4161_functorial_obstructions}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, sections 4.11--4.16.1 (pending)}%
+}
+
+\IfFileExists{tex/components/29_expose_III_s417_s422_subgroup_obstruction.tex}{%
+  \input{tex/components/29_expose_III_s417_s422_subgroup_obstruction}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, sections 4.17--4.22 (pending)}%
+}
+
+\IfFileExists{tex/components/30_expose_III_s423_s430_conjugacy_coboundaries.tex}{%
+  \input{tex/components/30_expose_III_s423_s430_conjugacy_coboundaries}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, sections 4.23--4.30 (pending)}%
+}
+
+\IfFileExists{tex/components/31_expose_III_s431_s4351_conjugacy_smooth.tex}{%
+  \input{tex/components/31_expose_III_s431_s4351_conjugacy_smooth}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, Corollary 4.31 through Proposition 4.35.1 (pending)}%
+}
+
+\IfFileExists{tex/components/32_expose_III_s436_s438_bibliography.tex}{%
+  \input{tex/components/32_expose_III_s436_s438_bibliography}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e III, Proposition 4.36 through section 4.38 and bibliography (pending)}%
+}
+
+\IfFileExists{tex/components/33_expose_IV_complete.tex}{%
+  \input{tex/components/33_expose_IV_complete}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e IV, complete (pending)}%
+}
+
+\clearpage
+\setcounter{figure}{0}
+\let\SGAThreeDiagram\SGAThreeNativeDiagram
+\IfFileExists{tex/components/34_expose_V_complete.tex}{%
+  \input{tex/components/34_expose_V_complete}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e V, complete (pending)}%
+}
+
+\clearpage
+\let\SGAThreeDiagram\SGAThreeRasterDiagram
+\IfFileExists{tex/components/35_expose_VI_complete.tex}{%
+  \input{tex/components/35_expose_VI_complete}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e VI, complete (pending)}%
+}
+
+\clearpage
+\let\SGAThreeDiagram\SGAThreeRasterDiagram
+\chapter*{Working-state notice for Expos\'e VII}
+\addcontentsline{toc}{chapter}{Working-state notice for Expos\'e VII}
+The complete local Expos\'e~VII translation is included below because this
+reader is intended to preserve and expose all currently readable work.
+It is \emph{not} a certified release state. The included r5 source repairs
+the known page-26 diagram/footnote collision, but its detector-neutral
+reference package and final independent release audits were still in progress
+when this reader was assembled. This caveat concerns release verification,
+not the existence of the translated body.
+\input{vii/vii_complete_r5}
+
+\clearpage
+\newgeometry{margin=30mm}
+\makeatletter
+% Integration-only alias for the one Expose V target whose historical label
+% differs from the stable convention-v2 name used in Expose VIII.
+\@ifundefined{r@prop:sga3-V-9.1}{}{%
+  \csletcs{r@sga3:v:proposition:9:1}{r@prop:sga3-V-9.1}%
+}
+% The standalone VIII reader was audited with left equation tags.  amsmath
+% fixes \veqno at package load, so both switches are required at runtime.
+\tagsleft@true
+\let\veqno\@@leqno
+\let\SGARefLinkBeforeExposeVIII\SGARefLink
+\renewcommand{\SGARefLink}[2]{%
+  \@ifundefined{r@#1}{#2}{\hyperref[#1]{#2}}%
+}
+\makeatother
+\IfFileExists{tex/components/37_expose_VIII_complete.tex}{%
+  \input{tex/components/37_expose_VIII_complete}%
+}{%
+  \PendingSGAThreeComponent{Expos\'e VIII, complete (pending)}%
+}
+\makeatletter
+\tagsleft@false
+\let\veqno\@@eqno
+\let\SGARefLink\SGARefLinkBeforeExposeVIII
+\makeatother
+\restoregeometry
+
+\clearpage
+\newgeometry{margin=30mm}
+\makeatletter
+\tagsleft@true
+\let\veqno\@@leqno
+\makeatother
+\input{ix/components/01_expose_IX_opening_and_section_1}
+\input{ix/components/02_expose_IX_sections_2_3}
+\input{ix/components/03_expose_IX_sections_4_5}
+\input{ix/components/04_expose_IX_sections_6_7}
+\input{ix/components/05_expose_IX_section_8_and_bibliography}
+\makeatletter
+\tagsleft@false
+\let\veqno\@@eqno
+\makeatother
+\restoregeometry
+
+\clearpage
+\chapter*{Working-state notice for Expos\'e X}
+\addcontentsline{toc}{chapter}{Working-state notice for Expos\'e X}
+The complete Expos\'e~X Loop-1 English text and equations are included below.
+All 44 authority pages were reviewed by the producing top-level session and
+the standalone reader completed three clean build passes. Four raster
+diagram placeholders remain and are explicitly deferred to Loop~2. This is
+readable current-progress text, not a claim of native-diagram or exhaustive
+release certification.
+\input{x/components/01_expose_X_sections1_3}
+\input{x/components/02_expose_X_sections4_6}
+\input{x/components/03_expose_X_sections7_9_bibliography}
+
+\clearpage
+\newgeometry{margin=30mm}
+\makeatletter
+\tagsleft@true
+\let\veqno\@@leqno
+\makeatother
+\input{xi/components/01_expose_XI_opening_through_remark_1_5}
+\input{xi/components/02_expose_XI_remark_1_6}
+\input{xi/components/03_expose_XI_remarks_1_7_1_8}
+\input{xi/components/04_expose_XI_proposition_1_9_through_corollary_1_11}
+\input{xi/components/05_expose_XI_section_2}
+\input{xi/components/06_expose_XI_section_3_opening_through_remark_3_6}
+\input{xi/components/07_expose_XI_proposition_3_7_through_corollary_3_11}
+\input{xi/components/08_expose_XI_proposition_3_12_and_remark_3_13}
+\input{xi/components/09_expose_XI_section_4}
+\input{xi/components/10_expose_XI_section_5}
+\input{xi/components/11_expose_XI_section_6_through_end}
+\makeatletter
+\tagsleft@false
+\let\veqno\@@eqno
+\makeatother
+\restoregeometry
+
+\clearpage
+\newgeometry{margin=30mm}
+\makeatletter
+\tagsleft@true
+\let\veqno\@@leqno
+\makeatother
+\setcounter{section}{0}
+\chapter*{Expos\'e XII\\
+  Maximal Tori, the Weyl Group, Cartan Subgroups, and the Reductive Center}
+\addcontentsline{toc}{chapter}{Expos\'e XII. Maximal Tori, the Weyl Group,
+  Cartan Subgroups, and the Reductive Center}
+\markboth{Expos\'e XII. Maximal Tori and the Weyl Group}
+  {Expos\'e XII. Maximal Tori and the Weyl Group}
+\begin{center}
+  \textit{by A. Grothendieck}
+\end{center}
+\input{xii/tex/components/00_expose_XII_sections1_3_en}
+\input{xii/tex/components/01_expose_XII_sections4_6_en}
+\input{xii/tex/components/02_expose_XII_sections7_9_bibliography_en}
+\makeatletter
+\tagsleft@false
+\let\veqno\@@eqno
+\makeatother
+\restoregeometry
+
+\clearpage
+\newgeometry{margin=30mm}
+\makeatletter
+\tagsleft@true
+\let\veqno\@@leqno
+\makeatother
+\markboth{Expos\'e XIII. Regular Elements}{Expos\'e XIII. Regular Elements}
+\input{xiii/components/01_expose_XIII_opening}
+\input{xiii/components/02_expose_XIII_section1_remainder_and_section2}
+\input{xiii/components/03_expose_XIII_sections3_4}
+\input{xiii/components/04_expose_XIII_sections5_6}
+\makeatletter
+\tagsleft@false
+\let\veqno\@@eqno
+\makeatother
+\restoregeometry
+
+\clearpage
+\chapter*{Working-state notice for Expos\'e XIV}
+\addcontentsline{toc}{chapter}{Working-state notice for Expos\'e XIV}
+The complete Expos\'e~XIV Loop-1 English text and equations are included
+below. All substantive authority pages were reviewed by the producing
+top-level session and the standalone reader completed four clean build
+passes. The appendix's four Dynkin-automorphism figures remain grouped in
+one faithful raster witness and are explicitly deferred to Loop~2.
+\graphicspath{{xiv/}{figures/}{figures/exp7/}{assets/diagrams/}}
+\input{xiv/tex/SGA3_Expose_XIV_body}
+
+\clearpage
+\markboth{Expos\'e XV. Complements on Sub-tori}
+  {Expos\'e XV. Complements on Sub-tori}
+\input{xv/tex/components/00_expose_XV_title_and_introduction}
+\SGAThreeWorkingNotice{%
+  This is the complete Expos\'e~XV Loop-1 English text. It covers all
+  68 authority pages through the terminal proof of Corollary~8.18.
+  The producer's final standalone reader completed two successful build
+  passes and a focused rendered check of the tail and terminal page.}
+\input{xv/tex/components/01_expose_XV_section1_opening}
+\input{xv/tex/components/02_expose_XV_section1_remainder_and_section2}
+\input{xv/tex/components/03_expose_XV_section3}
+\input{xv/tex/components/04_expose_XV_section4}
+\input{xv/tex/components/05_expose_XV_section5}
+\input{xv/tex/components/06_expose_XV_section6}
+\input{xv/tex/components/07_expose_XV_section7}
+\input{xv/tex/components/08_expose_XV_section8_through_theorem8_9}
+\input{xv/tex/components/09_expose_XV_section8_remainder_and_end}
+
+\clearpage
+\chapter*{Working-state notice for Expos\'e XVI}
+\addcontentsline{toc}{chapter}{Working-state notice for Expos\'e XVI}
+The complete Expos\'e~XVI Loop-1 English text and equations are included
+below. All 23 nonblank authority pages were reviewed by the producing
+top-level session and the standalone reader completed three clean build
+passes. Three raster diagram placeholders remain and are explicitly
+deferred to Loop~2. This is readable current-progress text, not a claim
+of native-diagram or exhaustive release certification.
+\graphicspath{{xvi/}{figures/}{figures/exp7/}{assets/diagrams/}}
+\input{xvi/tex/components/01_expose_XVI_section1_immersion_criterion}
+\input{xvi/tex/components/02_expose_XVI_section2_quotient_representability}
+\input{xvi/tex/components/03_expose_XVI_section3_flat_center}
+\input{xvi/tex/components/04_expose_XVI_section4_affine_fibers}
+\input{xvi/tex/components/05_expose_XVI_section5_reductive_semisimple}
+\input{xvi/tex/components/06_expose_XVI_section6_rigidity}
+
+\clearpage
+\markboth{Expos\'e XVII. Unipotent Algebraic Groups}
+  {Expos\'e XVII. Unipotent Algebraic Groups}
+\input{xvii/tex/components/00_expose_XVII_title_and_section0}
+\SGAThreeWorkingNotice{%
+  This Expos\'e~XVII body is a frozen partial Loop-1 snapshot. It is
+  continuous across authority local pages~1--34 through the end of
+  Section~5.9.}
+\input{xvii/tex/components/01_expose_XVII_section1_opening}
+\input{xvii/tex/components/02_expose_XVII_section1_remainder_and_section2_opening}
+\input{xvii/tex/components/03_expose_XVII_section2_continued_page005}
+\input{xvii/tex/components/04_expose_XVII_cartier_duality_and_section3_opening_page006}
+\input{xvii/tex/components/05_expose_XVII_proposition3_2_proof_and_lemma3_3_page007}
+\input{xvii/tex/components/06_expose_XVII_corollary3_4_theorem3_5_definition3_6_page008}
+\input{xvii/tex/components/07_expose_XVII_corollaries3_7_3_8_and_lemma3_9_page009}
+\input{xvii/tex/components/08_expose_XVII_lemma3_9_proof_page010}
+\input{xvii/tex/components/09_expose_XVII_lemma3_9_iii_and_3_9_ter_page011}
+\input{xvii/tex/components/10_expose_XVII_proposition3_10_through_section4_opening_page012}
+\input{xvii/tex/components/11_expose_XVII_proposition4_1_1_and_lemma4_1_2_page013}
+\input{xvii/tex/components/12_expose_XVII_corollary4_1_3_through_lemma4_1_5_page014}
+\input{xvii/tex/components/13_expose_XVII_lemma4_1_5_proof_page015}
+\input{xvii/tex/components/14_expose_XVII_lemma4_1_5_completion_pages015_016}
+\input{xvii/tex/components/15_expose_XVII_subsection4_2_through_height1_case_pages016_017}
+\input{xvii/tex/components/16_expose_XVII_proposition4_2_1_general_case_page017}
+\input{xvii/tex/components/17_expose_XVII_proposition4_3_1_and_lemma4_3_2_pages017_018}
+\input{xvii/tex/components/18_expose_XVII_proposition4_3_1_proof_page018}
+\input{xvii/tex/components/19_expose_XVII_proposition4_3_1_completion_through_section4_5_opening_page019}
+\input{xvii/tex/components/20_expose_XVII_section4_5_proof_through_theorem5_1_1_pages019_021}
+\input{xvii/tex/components/21_expose_XVII_subsection5_2_through_lemma5_2_4_pages022_023}
+\input{xvii/tex/components/22_expose_XVII_corollary5_2_4_bis_through_proposition5_3_1_opening_page024}
+\input{xvii/tex/components/23_expose_XVII_proposition5_3_1_completion_and_proposition5_4_1_opening_page025}
+\input{xvii/tex/components/24_expose_XVII_proposition5_4_1_completion_through_proposition5_6_1_statement_pages026_028}
+\input{xvii/tex/components/25_expose_XVII_proposition5_6_1_proof_and_section5_7_pages028_031}
+\input{xvii/tex/components/26_expose_XVII_section5_8_pages031_032}
+\input{xvii/tex/components/27_expose_XVII_section5_9_counterexamples_pages032_034}
+\SGAThreePartialBoundary{%
+  Expos\'e~XVII resumes on authority local page~35 / combined page~997 /
+  printed page~602 at Section~6. The remainder of Expos\'e~XVII is not
+  present in this snapshot.}
+
+\clearpage
+\chapter*{Working-state notice for Expos\'e XVIII}
+\addcontentsline{toc}{chapter}{Working-state notice for Expos\'e XVIII}
+The complete Expos\'e~XVIII Loop-1 English text and equations are included
+below. Every nonblank authority page was reviewed by the producing
+top-level session and the standalone reader completed three clean build
+passes. One source-derived compatibility diagram remains as a raster
+witness and is explicitly deferred to Loop~2.
+\graphicspath{{xviii/}{xiv/}{figures/}{figures/exp7/}{assets/diagrams/}}
+\input{xviii/tex/SGA3_Expose_XVIII_body}
+
+\SGAThreeGapChapter{Expos\'e XIX}{%
+  No Expos\'e~XIX English body was available at the snapshot boundary.
+  The next included scope is the complete Loop-1 Expos\'e~XX translation.}
+
+\clearpage
+\chapter*{Expos\'e XX\\Reductive Groups of Semisimple Rank 1}
+\addcontentsline{toc}{chapter}{Expos\'e XX. Reductive Groups of Semisimple Rank 1}
+\markboth{Expos\'e XX. Reductive Groups of Semisimple Rank 1}
+  {Expos\'e XX. Reductive Groups of Semisimple Rank 1}
+\begin{center}
+  \textit{by M. Demazure}
+\end{center}
+\setcounter{section}{0}
+\renewcommand{\thesection}{\arabic{section}}
+The complete Expos\'e~XX Loop-1 English text and equations are included
+below, covering all authority local pages~1--35. Nine source-derived
+diagram placeholders remain explicitly pending native Loop~2 replacement.
+\input{xx/tex/components/00_expose_XX_recollection11_through_14_en}
+\input{xx/tex/components/01_expose_XX_theorem15_through_lemma18_en}
+\input{xx/tex/components/02_expose_XX_proof17_through_proof110_en}
+\input{xx/tex/components/03_expose_XX_par112_through_cor121_en}
+\input{xx/tex/components/04_expose_XX_theorem21_prop22_partA_en}
+\input{xx/tex/components/05_expose_XX_prop22_partsBC_lemma23_en}
+\input{xx/tex/components/06_expose_XX_prop22_partsD_through_G_en}
+\input{xx/tex/components/07_expose_XX_cor24_through_lemma213_en}
+\input{xx/tex/components/08_expose_XX_lemma214_through_theorem31_statement_en}
+\input{xx/tex/components/09_expose_XX_theorem31_proof_through_remark34_en}
+\input{xx/tex/components/10_expose_XX_par35_through_cor38_en}
+\input{xx/tex/components/11_expose_XX_remark39_through_prop311_en}
+\input{xx/tex/components/12_expose_XX_prop312_through_cor44_en}
+\input{xx/tex/components/13_expose_XX_section5_par51_through_par56_en}
+\input{xx/tex/components/14_expose_XX_par57_through_theorem511_en}
+\input{xx/tex/components/15_expose_XX_section6_through_lemma621_en}
+\input{xx/tex/components/16_expose_XX_lemma622_through_end_en}
+
+\clearpage
+\setcounter{section}{0}
+\markboth{Expos\'e XXI. Root Data}{Expos\'e XXI. Root Data}
+\counterwithin{theorem}{subsection}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\input{xxi/tex/components/00_expose_XXI_opening_through_scholium1113_en}
+\input{xxi/tex/components/01_expose_XXI_section12_through_application212_en}
+\counterwithin{theorem}{section}
+\SGAThreePartialBoundary{%
+  Expos\'e~XXI resumes at Definition~2.1.3 on authority local page~6 /
+  combined page~1100. The remainder of Expos\'e~XXI is not present in
+  this snapshot.}
+
+\clearpage
+\graphicspath{{xxii/}{xxii/figures/}{xviii/}{xiv/}{figures/}{figures/exp7/}{assets/diagrams/}}
+\input{xxii/tex/components/01_expose_XXII_title_section1}
+\SGAThreePartialBoundary{%
+  Expos\'e~XXII resumes on authority local page~11 / combined page~1151
+  at Remark~4.1.3. The remainder of Expos\'e~XXII is not present in this
+  snapshot. Three direct authority-diagram crops remain provisional
+  Loop-1 witnesses pending native reconstruction.}
+
+\SGAThreeGapChapter{Expos\'es XXIII--XXVI}{%
+  No English bodies for Expos\'es~XXIII--XXVI were available at this
+  snapshot boundary. They remain explicit future work.}
+
+\clearpage
+\chapter*{Current translation boundary}
+\addcontentsline{toc}{chapter}{Current translation boundary}
+This reader ends after the partial current Expos\'e~XXII Loop-1 working
+translation through Proposition~4.1.2. It includes complete working
+scopes for Expos\'es~I--XVI, XVIII, and XX, partial scopes for
+Expos\'es~XVII, XXI, and XXII, and explicit gap notices for
+Expos\'es~XIX and XXIII--XXVI. Later additive successors may
+replace this reader as further pages become readable; exhaustive
+reference, diagram, privacy, rights, and release certification remains
+tracked separately from this preservation-oriented reading surface.
+
+\end{document}
