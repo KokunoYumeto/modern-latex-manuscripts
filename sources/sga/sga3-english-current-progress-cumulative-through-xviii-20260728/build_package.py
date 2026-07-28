@@ -401,9 +401,10 @@ def main() -> int:
         }
     )
     validation_path = output / "PACKAGE_VALIDATION.json"
-    validation_path.write_text(
-        json.dumps(validation, indent=2, ensure_ascii=True) + "\n",
-        encoding="utf-8",
+    validation_path.write_bytes(
+        (json.dumps(validation, indent=2, ensure_ascii=True) + "\n").encode(
+            "utf-8"
+        )
     )
 
     outer_paths = sorted(
