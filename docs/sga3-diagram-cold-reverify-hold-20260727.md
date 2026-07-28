@@ -15,29 +15,34 @@ The external manager control is the local lane-control file
 This repository note records the rule and its release effect. It does not
 claim that the external control file itself is part of a Zenodo payload.
 
-## Required release evidence
+## Controlling final-fidelity evidence
 
-Every pending unpublished SGA3 payload containing reconstructed mathematical
-diagrams must bind all of the following before final publication/readback
-certification:
+The July 28 correction supersedes the earlier scale as the requirement for
+future final diagram-fidelity claims. Every SGA3 payload containing
+reconstructed mathematical diagrams must bind all of the following before a
+final diagram-fidelity closure:
 
-- a source-context full-page render at 300 dpi or higher;
-- every full diagram at 600 dpi or higher;
-- ambiguous labels, decorations, or punctuation at 900-1200 dpi, or clearer
-  original-source detail;
-- at least four targeted detail crops for each nontrivial diagram and at
-  least two for each simple diagram, with more whenever ambiguity remains;
+- a complete delivered-page render at 300 dpi for context and layout;
+- about 5000-dpi authority comparison for every complete diagram or relevant
+  detail by default;
+- targeted 9000-dpi crops wherever ambiguity remains;
+- complete native editable TeX for every delivered diagram, with raster
+  authority crops retained privately and excluded from the public reader and
+  payload;
 - an exact node, arrow-direction, arrow-label, decoration, and terminal-
   punctuation inventory;
 - source page, delivered page, coordinates, source-image hash, target-PDF
   hash, crop paths and hashes, reviewer disposition, and repair identity;
 - comparison of source crop, diagram TeX, and delivered PDF, including the
   prose immediately before and after the diagram;
-- a fresh final cold reverify by a reviewer who did not author the diagram.
+- a top-level session-lead signature covering an exact disjoint ownership
+  range and confirming non-overlap with other active sessions.
 
 Build success, source-code inspection, OCR, extracted text, contact sheets,
-native-diagram status, and pixel similarity are supporting evidence only.
-Contact sheets can navigate the review but cannot carry the PASS.
+native-diagram status, pixel similarity, and 300-dpi-only approval cannot
+carry a final PASS. Existing 600-dpi and 1200-dpi evidence remains legitimate
+history and review context and is not invalidated by this correction. Contact
+sheets can navigate the review but cannot carry the final PASS.
 
 Any repair requires a fresh build, changed-page render, complete high-zoom
 diagram reinspection, and adjacent-page seam check when pagination or flow
@@ -81,19 +86,24 @@ The following known unpublished diagram-bearing scopes are controlled:
   `2AE8B40411F7C389BBDFAFD8C9FB0C918C5CE23ACC683028C001EDEF415D8FAF`;
   the corresponding FAIL validation has SHA-256
   `2796F2342D21994EB405F832DC5876F4F4E98A7F8D8CD639591FE2EA4A046F71`.
-  No existing VII candidate may receive final publication/readback
-  certification. A no-overwrite layout repair, full 300/600/900-1,200-dpi
-  replay, fresh source freeze, rebuilt graph/package, privacy and rights
-  closure, and independent terminal release PASS are required.
-- Expose XI: the diagram gate passed and the exact bounded checkpoint is now
+  No existing VII candidate may receive final diagram-fidelity
+  certification. A no-overwrite layout repair, full
+  300/5000/9000-dpi replay, complete native-TeX diagram closure, fresh source
+  freeze, rebuilt graph/package, privacy and rights closure, and lead-signed
+  terminal release PASS are required.
+- Expose XI: the earlier diagram gate passed and the exact bounded checkpoint
+  is now
   public on same-concept record
   [21630748](https://zenodo.org/records/21630748). The public-package receipt
   `DIAGRAM_COLD_REVERIFY_RECEIPT.json`, SHA-256
   `D852EECC167479848EA85831389A54CC1607B937EBCB3CF9130AE43EF8964F22`,
   binds the target-only public 300-dpi full pages, 600-dpi whole diagrams,
-  and 1,200-dpi detail crops. Authority-derived source pixels and forensic
-  side-by-side plates remain excluded. The exact 124-member source/QA archive
-  and all 74 record files passed anonymous readback.
+  and 1,200-dpi detail crops. This remains valid review evidence and is not
+  reopened solely because the later 300/5000/9000-dpi standard is higher.
+  Reopening requires an independently identified material defect.
+  Authority-derived source pixels and forensic side-by-side plates remain
+  excluded. The exact 124-member source/QA archive and all 74 record files
+  passed anonymous readback.
 - Any future Expose X or Exposes XII-XXVI diagram-bearing payload: held at
   release time until the same evidence is bound.
 - Any cumulative SGA3 reader: every Codex-created or Codex-reconstructed

@@ -10,6 +10,8 @@ import re
 import zipfile
 from pathlib import Path
 
+from pypdf import PdfReader
+
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 ROOT = (
@@ -27,6 +29,7 @@ DIRECT_FILES = [
     "00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.pdf",
     "01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md",
     "02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md",
+    "04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md",
     "99_WORKFLOW_PUBLIC_STATUS_20260728.md",
 ]
 RETAINED_ADDENDA = (
@@ -37,6 +40,9 @@ EXPECTED_CLAUDE_SHA = (
 )
 EXPECTED_INCIDENT_SHA = (
     "11D05DC19EA55F568FDB1C2BBD3AD6DB5AA799002EFFD3604A5244BE325C7ACA"
+)
+EXPECTED_DIAGRAM_CORRECTION_SHA = (
+    "D41B84EA82379F23693D5F9944B66D67AAAA2FB99F0A4AA430C40F61BE6FD8BE"
 )
 EXPECTED_ADDENDA_SHA = (
     "07F46DAC99916117A3499BEA1D651CCE4144B313B423ADB5E59DDC858C602288"
@@ -96,6 +102,34 @@ def scan_public_text() -> list[dict]:
                     }
                 )
     return hits
+
+
+def inspect_pdf(path: Path) -> dict:
+    reader = PdfReader(str(path), strict=True)
+    if len(reader.pages) != 7:
+        raise RuntimeError("Workflow PDF must contain exactly seven pages")
+    dimensions = []
+    for index, page in enumerate(reader.pages, start=1):
+        width = float(page.mediabox.width)
+        height = float(page.mediabox.height)
+        dimensions.append(
+            {"page": index, "width_points": width, "height_points": height}
+        )
+        if abs(width - 595.28) > 0.1 or abs(height - 841.89) > 0.1:
+            raise RuntimeError(
+                f"Workflow PDF page {index} is not A4: {width} x {height}"
+            )
+    root = reader.trailer["/Root"]
+    tagged = bool(root.get("/MarkInfo", {}).get("/Marked", False))
+    xmp = root.get("/Metadata") is not None
+    return {
+        **identity(path),
+        "pages": len(reader.pages),
+        "page_size": "A4",
+        "page_dimensions_points": dimensions,
+        "tagged": tagged,
+        "xmp_metadata_stream": xmp,
+    }
 
 
 def build_source_zip() -> dict:
@@ -208,7 +242,7 @@ def build_manifest(source_zip: dict) -> dict:
         ),
         DIRECT_FILES[1]: (
             "default_preview_pdf",
-            "six-page A4 rendering of the current methodology",
+            "seven-page A4 rendering of the current methodology",
             "current_visual_qa_pass",
         ),
         DIRECT_FILES[2]: (
@@ -222,6 +256,11 @@ def build_manifest(source_zip: dict) -> dict:
             "current_exact_source_artifact",
         ),
         DIRECT_FILES[4]: (
+            "controlling_diagram_fidelity_correction",
+            "additive SGA3 native-TeX 300/5000/9000-dpi final-fidelity control",
+            "current_controlling_correction",
+        ),
+        DIRECT_FILES[5]: (
             "public_status",
             "scope, claim boundary, and artifact-shape notice",
             "current",
@@ -282,11 +321,16 @@ def main() -> None:
         raise RuntimeError("Claude method identity changed")
     if sha256_file(ROOT / DIRECT_FILES[3]) != EXPECTED_INCIDENT_SHA:
         raise RuntimeError("Incident-note identity changed")
+    if sha256_file(ROOT / DIRECT_FILES[4]) != EXPECTED_DIAGRAM_CORRECTION_SHA:
+        raise RuntimeError("Diagram-correction identity changed")
     if sha256_file(ROOT / RETAINED_ADDENDA) != EXPECTED_ADDENDA_SHA:
         raise RuntimeError("Retained addenda identity changed")
     privacy_hits = scan_public_text()
     if privacy_hits:
         raise RuntimeError(f"Public-text hygiene hits: {privacy_hits}")
+    pdf = inspect_pdf(ROOT / DIRECT_FILES[1])
+    if pdf["tagged"] or pdf["xmp_metadata_stream"]:
+        raise RuntimeError("Workflow PDF metadata/accessibility state changed")
 
     source_zip = build_source_zip()
     manifest = build_manifest(source_zip)
@@ -295,19 +339,15 @@ def main() -> None:
         "errors": [],
         "date": "2026-07-28",
         "concept_doi": "10.5281/zenodo.20461174",
-        "predecessor_record": 21424987,
+        "predecessor_record": 21633426,
         "release_policy": "same-concept successor; no duplicate concept",
-        "outer_files": 9,
+        "outer_files": 10,
         "manifest": manifest,
         "default_preview": DIRECT_FILES[1],
         "pdf": {
-            **identity(ROOT / DIRECT_FILES[1]),
-            "pages": 6,
-            "page_size": "A4",
-            "rendered_pages_reviewed": 6,
+            **pdf,
+            "rendered_pages_reviewed": 7,
             "visual_qa": "PASS",
-            "tagged": False,
-            "xmp_metadata_stream": False,
         },
         "claude_method": {
             **identity(ROOT / DIRECT_FILES[2]),
@@ -318,6 +358,23 @@ def main() -> None:
             "expected_sha256": EXPECTED_INCIDENT_SHA,
             "claim_boundary": (
                 "scenario analysis, not metered OpenAI emissions telemetry"
+            ),
+        },
+        "diagram_final_fidelity_correction": {
+            **identity(ROOT / DIRECT_FILES[4]),
+            "expected_sha256": EXPECTED_DIAGRAM_CORRECTION_SHA,
+            "required_scale": (
+                "300-dpi page context; about 5000-dpi default diagram/detail "
+                "comparison; 9000-dpi targeted ambiguity crops"
+            ),
+            "ownership": "disjoint top-level-session range with lead signature",
+            "prior_resolution_evidence": (
+                "600/1200-dpi evidence remains valid history and context; "
+                "reopen 300-only approvals or independently found defects"
+            ),
+            "public_diagram_format": "native editable TeX only",
+            "raster_authority_witnesses": (
+                "private; excluded from new public readers and payloads"
             ),
         },
         "retained_addenda": {
