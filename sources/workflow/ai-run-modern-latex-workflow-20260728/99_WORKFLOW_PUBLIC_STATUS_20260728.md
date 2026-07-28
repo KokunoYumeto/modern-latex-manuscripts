@@ -22,10 +22,18 @@ The July 28 workflow update makes these controls explicit:
 - SGA1 and SGA2 are not subjected to another blanket image retranscription
   when their completed mathematical TeX transcription is already controlling;
 - page work uses printed page, running header, and folio coordinates;
-- source-controlled pages use five overlapping 2400-dpi bands and targeted
-  6500-9000-dpi crops for actual ambiguities;
+- source-controlled pages use five overlapping 2400-dpi text bands, 300-dpi
+  delivered-page context, about 5000-dpi default diagram/detail comparison,
+  and targeted 9000-dpi crops where ambiguity remains;
 - contact sheets are navigation aids, not PASS evidence;
 - diagrams are checked node-by-node and edge-by-edge;
+- final SGA3 diagram-fidelity receipts bind disjoint ownership and a
+  lead-signed exact high-zoom review; existing 600/1200-dpi evidence remains
+  valid history and context, while 300-dpi-only approvals and independently
+  identified material defects are reopened;
+- every newly delivered SGA3 diagram is native editable TeX; raster crops are
+  private authority witnesses and are excluded from new public readers and
+  payloads;
 - source typos are preserved and catalogued while project deviations are fixed;
 - a zero-fix inspection does not trigger another build;
 - Loop 1 advances canonical text and equations while Loop 2 handles native
@@ -37,6 +45,12 @@ The July 28 workflow update makes these controls explicit:
 
 `01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md` is the exact production
 method requested for high-resolution source and diagram adjudication.
+
+`04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md` is the
+controlling additive SGA3 correction. It preserves the exact Claude artifact
+and valid 600/1200-dpi evidence while requiring 300/5000/9000-dpi evidence,
+native editable diagram delivery, disjoint ownership, and a lead-signed
+review for new final diagram successors.
 
 `02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md` records the
 avoidable SGA workflow failures and corrective controls. Its emissions figures
@@ -60,4 +74,3 @@ addenda/scripts ZIP is retained byte-identically.
 Use the outer release manifest and validation JSON for exact public identities.
 The workflow remains versioned only under concept DOI
 `10.5281/zenodo.20461174`.
-
