@@ -1,3 +1,29 @@
+## 2026-07-28: SGA6 idx653-665 crop queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21636270](https://doi.org/10.5281/zenodo.21636270)
+- GitHub package:
+  [sga6-ultradetail-source-audit-crops-coldreverify-idx653-665-20260728](../sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx653-665-20260728/)
+- Publication/readback receipt:
+  [20260728_sga6_idx653_665_record_21636270.md](../manifests/published-zenodo/20260728_sga6_idx653_665_record_21636270.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+67 outer files, all 62 retained predecessor files, all 48 ZIP archives, and
+all 4,319 non-directory ZIP members.
+
+The new crop tranche preserves 68 high-detail SGA6 source crops actually
+opened during stable audit entries `#1405-#1417` / idx653-665. Thirteen
+generated-but-unread alternatives and 65 routine page bands are represented
+as rights-blocked metadata without their pixels. All 68 viewer attachments
+were correlated to the retained files, and 30 dynamically generated outputs
+were reproduced byte-for-byte by constrained replay.
+
+The latest endpoint resolves to `21636270`, SGA1 remains the default preview,
+and no active parallel draft or duplicate concept remains. This queue is
+closed.
+
 ## 2026-07-28: SGA3 through-XXII snapshot queue closed
 
 - Existing concept:

@@ -3252,3 +3252,44 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-github/20260728_sga3_through_xxii_snapshot_commit_bd1e8c8ea_public_readback.json`,
   and
   `manifests/published-github/20260728_sga3_through_xxii_publication_commit_f4614da20b_public_readback.json`.
+
+## 2026-07-28 - SGA6 idx653-665 ultra-detail source-audit crops published
+
+- GitHub package commit
+  `24dac3eb60a10052f843014aab0bf934df24e79e` publishes the exact
+  provenance, rights, and replay package at
+  `sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx653-665-20260728`.
+  Commit-pinned anonymous raw readback passed all 14 files.
+- Existing-concept Zenodo version `10.5281/zenodo.21636270` succeeds
+  immutable predecessor `21635827`; no duplicate concept, parallel successor,
+  or second draft was created.
+- The target-crop ZIP is 3,274,639 bytes, SHA-256
+  `4387449B9612FBB7FF670B3BF01C05A7626D70A662E06098A813F744A5983C34`.
+  It contains 73 exact file members / 3,262,409 uncompressed bytes, including
+  68 high-detail PNG crops actually opened during stable SGA6 audit entries
+  `#1405-#1417` / idx653-665.
+- The metadata ZIP is 163,153 bytes, SHA-256
+  `A3A21B442991B3FD8822A2B76DF5A6D10EEED354E0C58FC253F65FDA81D231E7`.
+  It records 13 generated-but-unread tight alternatives and 65 routine page
+  bands without redistributing those redundant scan-derived pixels.
+- All 68 viewer attachments correlate to the retained crop files. Constrained
+  replay of retained generator scripts reproduced 30/30 outputs byte-for-byte;
+  the independent release replay passed with `errors[]` and privacy hits zero.
+- The final Zenodo surface has 67 files / 391,897,029 bytes. Anonymous
+  SHA-256 readback passed 67/67, including all 62 retained predecessor files.
+- All 48 public ZIPs reopened. Exact replay found 4,319 file members, six
+  directory entries, and 407,126,465 uncompressed bytes.
+- SGA1 remains the default preview. The crop evidence is sparse provenance and
+  QA support, not certification of the French transcription, English
+  translation, mathematics, completeness, critical-edition status, or rights.
+- Shared decision `EG-SGA6-IDX653-665-CROP-PUBLICATION-20260728-0001` was
+  appended through the locked helper. The resulting shared log has 294
+  records / 1,829,425 bytes, SHA-256
+  `0F6219230233EF78BD92656A65F32F72226946E4D153622E183E6283FEED2456`,
+  with `errors[]`.
+- The separate decision record is 6,694 bytes, SHA-256
+  `E23A3CF0BA44D45F0ADABCF7FB9F98C055740C6F7EBD5ED1F33C4BE7D0A46599`.
+- Exact receipt:
+  `manifests/published-zenodo/20260728_sga6_idx653_665_record_21636270.md`;
+  adjacent outer-file and ZIP-member JSON receipts bind the complete public
+  readback.
