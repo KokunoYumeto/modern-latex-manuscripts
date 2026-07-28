@@ -1,3 +1,48 @@
+## 2026-07-28 SGA3 Expose XIII bounded checkpoint published
+
+Current SGA version
+[`10.5281/zenodo.21647537`](https://doi.org/10.5281/zenodo.21647537)
+is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+It retains 86 unrelated files from predecessor `21645478` byte-identically,
+adds the direct Expose XIII reader, direct master TeX, and exact source/QA
+ZIP, and refreshes three release controls.
+
+The bounded reader covers Expose XIII only and stops before Expose XIV. It
+has 32 A4 pages / 245,982 bytes / SHA-256
+`69810FAAF7FF1A502E26B2488D57F95421F4786409D03DD1842E7DFD9ED92BD9`.
+The source/QA ZIP has 85 safe members / 17,762,764 uncompressed bytes and
+includes six editable TeX files, seven native diagrams, closed source/formula
+and reference-v2 evidence, all-page review, and lead 5000-dpi diagram review.
+An independent extracted rebuild matched all 32 pages in text, decoded
+streams, destinations, links, and pixels.
+
+The final Zenodo surface has 92 files / 424,102,005 bytes. Anonymous SHA-256
+readback passed 92/92. All 57 ZIPs reopened with 5,563 file members, six
+directory entries, and 444,810,625 uncompressed bytes. The latest endpoint
+resolves to `21647537`; SGA1 remains the default preview; no duplicate
+concept, parallel successor, or second draft was created.
+
+GitHub package commit
+`9ba95cb8839258f409a06a646c87066a7c226291` is public. Commit-pinned raw
+readback passed all 11 package files and all 85 source/QA ZIP members. See the
+[publication receipt](published-zenodo/20260728_sga3_expose_xiii_record_21647537.md),
+[Zenodo outer-file readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21647537_public_readback.json),
+[full ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21647537_zip_member_readback.json),
+and
+[GitHub package readback](published-github/20260728_sga3_expose_xiii_package_commit_9ba95cb8_public_readback.json).
+
+The independently replayed 1,434-page cumulative reader remains preferred
+and byte-identical. A separate 1,492-page Loop-1 text/equation integration
+remains held and was not uploaded while its remaining release gates are open.
+
+Shared decision
+`EG-SGA3-XIII-NATIVE-REFERENCE-V2-PUBLICATION-20260728-0001` was appended
+through the locked helper. The resulting log has 303 records / 1,887,249
+bytes, SHA-256
+`A07A936FE7FD6D4D3D3915978D9BFCE829F644D7B3784E108A64404649B9A46B`,
+with `errors[]`. The separate decision record is 6,906 bytes, SHA-256
+`0552D602DFEF73F17EBB19F07690115686BA0BE9E179629BA08862D11DC7F4F9`.
+
 ## 2026-07-28 SGA3 1,434-page current-progress reader published
 
 Current SGA version

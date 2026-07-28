@@ -1,3 +1,28 @@
+## 2026-07-28: SGA3 Expose XIII queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21647537](https://doi.org/10.5281/zenodo.21647537)
+- GitHub package:
+  [sga3-expose-xiii-native-reference-v2-working-20260728](../sources/sga/sga3-expose-xiii-native-reference-v2-working-20260728/)
+- Publication/readback receipt:
+  [20260728_sga3_expose_xiii_record_21647537.md](../manifests/published-zenodo/20260728_sga3_expose_xiii_record_21647537.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+92 outer files, all 86 retained unrelated predecessor files, all 57 ZIP
+archives, and all 5,563 non-directory ZIP members. The new source/QA ZIP
+passed exact 85/85-member replay.
+
+The direct bounded reader covers Expose XIII only, has seven native diagrams
+with lead 5000-dpi review, and stops before Expose XIV. The preferred
+1,434-page cumulative reader remains unchanged. The separate 1,492-page
+Loop-1 integration remains held and was not uploaded.
+
+The latest endpoint resolves to `21647537`, SGA1 remains the default preview,
+and no competing concept or second successor was created. This queue is
+closed.
+
 ## 2026-07-28: SGA3 complete-Expose-XVII cumulative queue closed
 
 - Existing concept:
