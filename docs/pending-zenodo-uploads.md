@@ -1,3 +1,31 @@
+## 2026-07-28: SGA3 through-XVI and SGA6 idx632-652 queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published version:
+  [10.5281/zenodo.21634000](https://doi.org/10.5281/zenodo.21634000)
+- SGA3 GitHub package:
+  [sga3-english-current-progress-cumulative-through-xvi-20260728](../sources/sga/sga3-english-current-progress-cumulative-through-xvi-20260728/)
+- SGA6 crop GitHub package:
+  [sga6-ultradetail-source-audit-crops-coldreverify-idx632-652-20260728](../sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx632-652-20260728/)
+- Publication/readback receipt:
+  [20260728_sga3_through_xvi_sga6_idx652_record_21634000.md](../manifests/published-zenodo/20260728_sga3_through_xvi_sga6_idx652_record_21634000.md)
+
+The single same-concept successor is published. Anonymous readback passed all
+65 outer files, all 57 retained predecessor files, all 46 ZIP archives, and
+all 4,191 non-directory ZIP members. The preferred SGA3 reader now includes
+the Editorial Notice, Introduction, Exposes I-XIII, and Expose XVI, with
+explicit gaps for XIV-XV and XVII-XXVI. It remains honestly labelled working
+and incomplete.
+
+The same successor preserves 156 high-detail SGA6 source crops actually opened
+during stable idx632-652 audit work. Eleven generated-but-unread alternatives
+and 105 routine page bands are represented as rights-blocked metadata without
+their pixels.
+
+The latest endpoint resolves to `21634000`, SGA1 remains the default preview,
+and no active draft or duplicate concept remains. This queue is closed.
+
 ## 2026-07-27: SGA6 idx627-631 files published; metadata closeout pending
 
 - Existing concept:

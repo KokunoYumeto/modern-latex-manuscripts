@@ -1,3 +1,44 @@
+## 2026-07-28 SGA3 cumulative through XVI and SGA6 crops through idx652 published
+
+Current SGA version
+[`10.5281/zenodo.21634000`](https://doi.org/10.5281/zenodo.21634000)
+is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+It fronts a 950-page SGA3 current-progress reader covering the Editorial
+Notice, Introduction, Exposes I-XIII, and Expose XVI, with explicit gaps for
+XIV-XV and XVII-XXVI.
+
+The reader is 5,760,459 bytes, SHA-256
+`8D1DC78CDE64F22B76AD89150BEE73C48A1934EAECE0738B50AA413670CDDEAA`.
+Its direct master TeX is 18,526 bytes, SHA-256
+`150F5D72C0F64CCB8DCCA32F24991CBDAF49F1867287BF5306934DB96C9300CA`;
+its 951-member source archive is 12,112,999 bytes, SHA-256
+`1C3F32FD6A6C9EB8D9EA5197B8D0FB08B35408DCCDF5291248012823B736741C`.
+This is an honestly labelled working and incomplete SGA3 reader. It is not a
+critical edition, rights clearance, accessibility remediation, mathematical
+certification, or whole-SGA3 completion claim.
+
+The same successor adds the SGA6 idx632-652 ultra-detail source-audit crop
+archive, 13,542,194 bytes, SHA-256
+`CBEB82308CD2AABE4AF64D4716C78A4709574EA9A1E7079D924FBCE6400B681A`,
+and its rights-blocked provenance archive, 290,013 bytes, SHA-256
+`C564791EC3B9104CA5D7D02065605B5D0968DB6F9857971B22F06C8E4924EE38`.
+The first contains 156 source crops actually opened during stable audit; the
+second records eleven unread alternatives and 105 routine bands without
+redistributing those pixels.
+
+Anonymous readback passed all 65 outer files and all 46 ZIP archives /
+4,191 file members. The latest endpoint resolves to `21634000`, SGA1 remains
+the default preview, and no duplicate concept or second draft exists.
+
+GitHub commit `1f2ceba15eb92859a968bb58741c19b45f37df2c` publishes both exact
+packages; commit-pinned raw readback passed 24/24 files / 18,428,302 bytes.
+See the
+[publication receipt](published-zenodo/20260728_sga3_through_xvi_sga6_idx652_record_21634000.md),
+[Zenodo outer-file readback](published-zenodo/20260728_sga3_through_xvi_sga6_idx652_record_21634000_public_readback.json),
+[full ZIP-member readback](published-zenodo/20260728_sga3_through_xvi_sga6_idx652_record_21634000_zip_member_readback.json),
+and
+[GitHub readback](published-github/20260728_sga3_through_xvi_sga6_idx652_commit_1f2ceba15_public_readback.json).
+
 ## 2026-07-27 SGA6 ultra-detail audit crops through idx631 published
 
 Current SGA version

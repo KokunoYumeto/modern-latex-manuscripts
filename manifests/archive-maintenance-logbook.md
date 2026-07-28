@@ -3069,3 +3069,54 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260728_workflow_methodology_record_21633426.md`,
   the adjacent `public_readback.json`, and the adjacent
   `zip_member_readback.json`.
+
+## 2026-07-28 - SGA3 cumulative through XVI and SGA6 idx632-652 crops published
+
+- GitHub package commit
+  `1f2ceba15eb92859a968bb58741c19b45f37df2c` publishes the exact
+  SGA3 cumulative package at
+  `sources/sga/sga3-english-current-progress-cumulative-through-xvi-20260728`
+  and the SGA6 crop package at
+  `sources/sga/sga6-ultradetail-source-audit-crops-coldreverify-idx632-652-20260728`.
+  Commit-pinned anonymous raw readback passed all 24 files / 18,428,302
+  bytes.
+- Existing-concept Zenodo version `10.5281/zenodo.21634000` succeeds
+  immutable predecessor `21633283`; no duplicate concept, parallel successor,
+  or second draft was created.
+- The 950-page preferred current-progress SGA3 reader covers the Editorial
+  Notice, Introduction, Exposes I-XIII, and Expose XVI. It has explicit gaps
+  for Exposes XIV-XV and XVII-XXVI and remains labelled working and
+  incomplete.
+- The reader is 5,760,459 bytes, SHA-256
+  `8D1DC78CDE64F22B76AD89150BEE73C48A1934EAECE0738B50AA413670CDDEAA`.
+  It has 5,923 named destinations, 3,792 valid internal GoTo actions, and zero
+  broken internal GoTo actions.
+- The direct master TeX is 18,526 bytes, SHA-256
+  `150F5D72C0F64CCB8DCCA32F24991CBDAF49F1867287BF5306934DB96C9300CA`.
+  The 951-member integration-source ZIP is 12,112,999 bytes, SHA-256
+  `1C3F32FD6A6C9EB8D9EA5197B8D0FB08B35408DCCDF5291248012823B736741C`.
+- The new SGA6 targeted crop archive is 13,542,194 bytes, SHA-256
+  `CBEB82308CD2AABE4AF64D4716C78A4709574EA9A1E7079D924FBCE6400B681A`.
+  It contains 156 source PNGs actually opened during stable audit entries
+  `#1384-#1404` / idx632-652.
+- The paired rights-blocked metadata archive is 290,013 bytes, SHA-256
+  `C564791EC3B9104CA5D7D02065605B5D0968DB6F9857971B22F06C8E4924EE38`.
+  It records eleven generated-but-unread alternatives and 105 routine page
+  bands without redistributing those pixels.
+- The final surface has 65 files / 385,911,945 bytes. Anonymous SHA-256
+  readback passed 65/65, including all 57 retained predecessor files.
+- All 46 public ZIPs reopened. Exact replay found 4,191 file members, six
+  directory entries, and 402,137,942 uncompressed bytes.
+- Shared decision
+  `EG-SGA3-XVI-SGA6-IDX652-PUBLICATION-20260728-0001` was appended through
+  the locked helper. The resulting log has 290 records / 1,806,275 bytes,
+  SHA-256
+  `2D67603C8B079CA05755BF59E44A39D02A04BE714CBC4CF7840FF75CBD8D1627`,
+  with `errors[]`.
+- SGA1 remains the default preview. Numeric file order keeps the new SGA3
+  reader as the third direct English reader after SGA1 and SGA2.
+- Exact receipts are
+  `manifests/published-zenodo/20260728_sga3_through_xvi_sga6_idx652_record_21634000.md`,
+  the adjacent `public_readback.json`, the adjacent
+  `zip_member_readback.json`, and
+  `manifests/published-github/20260728_sga3_through_xvi_sga6_idx652_commit_1f2ceba15_public_readback.json`.
