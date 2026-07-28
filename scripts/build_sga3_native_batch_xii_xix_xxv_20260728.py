@@ -67,6 +67,8 @@ class Unit:
     authority_bytes: int
     authority_sha256: str
     visual_pages: tuple[int, ...]
+    expected_tikzpicture: int = 0
+    expected_atomic_panels: int | None = None
 
 
 UNITS = (
@@ -524,8 +526,18 @@ def build_unit(
     )
     if tex_content.count(r"\begin{tikzcd}") != unit.expected_tikzcd:
         errors.append("native tikz-cd count mismatch")
+    if (
+        tex_content.count(r"\begin{tikzpicture}")
+        != unit.expected_tikzpicture
+    ):
+        errors.append("native tikzpicture count mismatch")
     if r"\includegraphics" in tex_content:
         errors.append("raster include found in TeX closure")
+    native_atomic_panels = (
+        unit.expected_atomic_panels
+        if unit.expected_atomic_panels is not None
+        else unit.expected_tikzcd + unit.expected_tikzpicture
+    )
 
     comparison = compare_pdfs(producer_pdf, rebuild_pdf)
     if comparison["producer_metrics"] != unit.expected_metrics:
@@ -593,7 +605,9 @@ def build_unit(
             "included": False,
         },
         "editable_tex_files": len(rows),
-        "native_tikzcd_diagrams": unit.expected_tikzcd,
+        "native_tikzcd_environments": unit.expected_tikzcd,
+        "native_tikzpicture_environments": unit.expected_tikzpicture,
+        "native_atomic_panels": native_atomic_panels,
         "raster_includes": 0,
         "authority_images_included": 0,
         "source_manifest_rows": len(source_rows),
@@ -685,7 +699,7 @@ def build_unit(
         "render_equivalence": render_comparison,
         "visual_review": {
             "archive_pages_reviewed": unit.visual_pages,
-            "native_diagrams": unit.expected_tikzcd,
+            "native_atomic_panels": native_atomic_panels,
             "observed_defects": 0,
         },
         "privacy": {"hits": privacy_hits},
