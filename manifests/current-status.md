@@ -1,8 +1,49 @@
-## 2026-07-28 SGA3 Expose XIII bounded checkpoint published
+## 2026-07-28 SGA3 cumulative reader ordering corrected
 
 Current SGA version
-[`10.5281/zenodo.21647537`](https://doi.org/10.5281/zenodo.21647537)
+[`10.5281/zenodo.21648705`](https://doi.org/10.5281/zenodo.21648705)
 is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+It retains 87 predecessor files byte-identically, renames the cumulative SGA3
+PDF/TeX to `00c00`/`02c00`, and refreshes three release controls.
+
+The 1,434-page cumulative reader is now the first SGA3 PDF in lexical order,
+ahead of all eight smaller bounded SGA3 readers. Its bytes remain unchanged:
+8,650,355 bytes / SHA-256
+`481EEDECAA8635AEAC5CCA91492797AF651D426A80B6A2F2510BDF05EB3DD36D`.
+The direct master TeX also remains byte-identical: 27,421 bytes / SHA-256
+`89214AC97C29A65FF2DE0BF08A2B1037D39112F091EA746EC80B5EC376702087`.
+
+Anonymous readback passed all 92 outer files / 424,100,664 bytes. All 57 ZIPs
+reopened with 5,563 file members, six directory entries, and 444,810,625
+uncompressed bytes. SGA1 remains the default preview; no duplicate concept,
+parallel successor, or second draft was created.
+
+GitHub package-ordering commit
+`bafbfe8a9f64b70b7cb8a561cb87ccf36594a9bb` and workflow commit
+`55f4c28ea0b296deefbd5eb0c2dec148aa10b919` are public. See the
+[publication receipt](published-zenodo/20260728_sga3_reader_order_record_21648705.md),
+[Zenodo outer-file readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21648705_public_readback.json),
+and
+[full ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21648705_zip_member_readback.json).
+
+The separate 1,492-page Loop-1 text/equation integration remains held and was
+not uploaded while its remaining release gates are open.
+
+Shared decision
+`EG-SGA3-CUMULATIVE-READER-ORDER-PUBLICATION-20260728-0001` was appended
+through the locked helper. An append-only correction binds the exact
+full-volume-integration GitHub package path. The resulting log has 305 records
+/ 1,896,663
+bytes, SHA-256
+`CD8B571EF17D72B62DFFF9C53059421B12E86B49DE5E47999D09F650217553DA`,
+with `errors[]`.
+
+## 2026-07-28 SGA3 Expose XIII bounded checkpoint published (predecessor)
+
+Published predecessor
+[`10.5281/zenodo.21647537`](https://doi.org/10.5281/zenodo.21647537)
+was the sole latest version of existing concept `10.5281/zenodo.20410947`
+when the Expose XIII checkpoint was published.
 It retains 86 unrelated files from predecessor `21645478` byte-identically,
 adds the direct Expose XIII reader, direct master TeX, and exact source/QA
 ZIP, and refreshes three release controls.
@@ -16,11 +57,11 @@ and reference-v2 evidence, all-page review, and lead 5000-dpi diagram review.
 An independent extracted rebuild matched all 32 pages in text, decoded
 streams, destinations, links, and pixels.
 
-The final Zenodo surface has 92 files / 424,102,005 bytes. Anonymous SHA-256
+That Zenodo surface has 92 files / 424,102,005 bytes. Anonymous SHA-256
 readback passed 92/92. All 57 ZIPs reopened with 5,563 file members, six
-directory entries, and 444,810,625 uncompressed bytes. The latest endpoint
-resolves to `21647537`; SGA1 remains the default preview; no duplicate
-concept, parallel successor, or second draft was created.
+directory entries, and 444,810,625 uncompressed bytes. At publication time
+the latest endpoint resolved to `21647537`; SGA1 remained the default preview
+and no duplicate concept, parallel successor, or second draft was created.
 
 GitHub package commit
 `9ba95cb8839258f409a06a646c87066a7c226291` is public. Commit-pinned raw
