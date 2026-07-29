@@ -1,3 +1,32 @@
+## 2026-07-29 SGA3 reader-facing project apparatus removed
+
+Current SGA version
+[`10.5281/zenodo.21688473`](https://doi.org/10.5281/zenodo.21688473)
+is the sole latest version of existing concept `10.5281/zenodo.20410947`.
+The direct 1,459-page SGA3 reader is 6,808,676 bytes with SHA-256
+`62BB18E8646A57147F83D20DE6DEEF18B1E421D9EE821E16DDF10A6591128744`.
+
+Eight project-facing annotations were removed from its reading flow: one
+diagram-locator caption, one inline source-adjudication aside, and six
+project source-reading footnotes. Genuine historical editorial apparatus,
+including the original SGA3 Editorial Notice and source-edition editor
+notes, remains. The other seven direct SGA readers had no reader-facing
+AI/workflow/source-status text and remain byte-identical.
+
+Anonymous readback passed all 66 outer files / 426,535,330 bytes and all 50
+ZIPs with 4,234 file members, six directory entries, and 441,061,146
+uncompressed bytes. All 63 unrelated predecessor files remained
+byte-identical. Public contributor badges and the Notes field are absent.
+
+GitHub PR
+[#134](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/134)
+merged the exact reader/source packages at
+`efc17fed71b0869fa60f11afd866084f4ab5a9d8`. See the
+[publication receipt](published-zenodo/20260729_sga3_reader_clean_r21_record_21688473.md),
+[outer-file readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21688473_public_readback.json),
+and
+[ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21688473_zip_member_readback.json).
+
 ## 2026-07-29 SGA reader-clean and bounded-history compaction published
 
 Current SGA version

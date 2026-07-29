@@ -3967,3 +3967,31 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   Sampled pages 1, 59, 60, and 151 render cleanly.
 - The French NUMDAM authority, generated `$out` subtree, raw logs, page-render
   PNGs, private paths, and transient build files remain excluded.
+
+## 2026-07-29 - SGA3 reader-facing project apparatus removed
+
+- Replaced only the direct SGA3 reader, its grouped source/history ZIP, and
+  the compact release-control ZIP on the existing SGA concept. All 63
+  unrelated files remain byte-identical.
+- Published record/version DOI: `10.5281/zenodo.21688473`; concept DOI:
+  `10.5281/zenodo.20410947`. No duplicate concept, parallel successor, or
+  residual draft exists.
+- Reader identity: 1,459 pages / 6,808,676 bytes / SHA-256
+  `62BB18E8646A57147F83D20DE6DEEF18B1E421D9EE821E16DDF10A6591128744`.
+  It has 9,345 named destinations and 4,461 valid internal GoTo actions.
+- Removed exactly eight project-facing annotations: one diagram-locator
+  caption, one inline source-adjudication aside, and six source-reading
+  footnotes. Genuine historical editorial apparatus remains.
+- The other seven direct SGA readers were retained because their extracted
+  text already had zero AI, workflow, and source-status hits.
+- The new R21 source/history ZIP is 9,102,765 bytes / SHA-256
+  `8DCF0B135F06DE88EF91929508D4B77F5F0A8377BB98CE918911B272940EC18A`
+  with 902 exact members.
+- Anonymous readback passed 66/66 outer files / 426,535,330 bytes and all 50
+  ZIPs: 4,234 file members, six directory entries, and 441,061,146
+  uncompressed bytes. Contributor badges and the Notes field are absent.
+- GitHub PR 134 merged the reader/source packages at
+  `efc17fed71b0869fa60f11afd866084f4ab5a9d8`.
+- Exact receipt:
+  `manifests/published-zenodo/20260729_sga3_reader_clean_r21_record_21688473.md`
+  and the adjacent outer-file and ZIP-member readbacks.
