@@ -235,6 +235,12 @@ def is_project_note(volume: str, body: str) -> bool:
                 "polo–gille re-edition prints",
                 "type-correct reading",
             )
+        ) or any(
+            marker in plain[:220]
+            for marker in (
+                "the french source prints",
+                "displayed french source prints",
+            )
         )
         if explicitly_editor_authored and not project_editor_exceptions:
             return False
@@ -399,6 +405,8 @@ def remove_commands(
             end, args = parse_command_arguments(text, match.end(), arg_count)
         except ValueError:
             continue
+        while end > match.end() and text[end - 1].isspace():
+            end -= 1
         remove = name == "sourceoddity" or is_project_note(
             volume, args[body_index]
         )
@@ -707,6 +715,47 @@ def remove_project_source_note_anchors(text: str) -> str:
     return text
 
 
+def remove_sga3_reader_status_text(
+    text: str,
+    relative_path: str,
+    removals: list[Removal],
+) -> str:
+    patterns = (
+        (
+            "project_diagram_locator",
+            re.compile(
+                r"(?m)^[ \t]*\{\\footnotesize\\itshape[ \t]+"
+                r"Native Loop-2 reconstructions; source locator:"
+                r"[\s\S]*?\.\}[ \t]*\n?"
+            ),
+        ),
+        (
+            "inline_source_adjudication",
+            re.compile(
+                r"The French source prints "
+                r"\\\(F\\times_S T\\\) here;\s*"
+                r"the fiber product over \\\(G\\\) is the one dictated "
+                r"by the preceding\s*morphism \\\(T\\to G\\\)\.\s*"
+            ),
+        ),
+    )
+    for kind, pattern in patterns:
+        matches = list(pattern.finditer(text))
+        for match in matches:
+            record_removal(
+                removals,
+                "sga3",
+                relative_path,
+                kind,
+                text,
+                match.start(),
+                match.end(),
+            )
+        for match in reversed(matches):
+            text = text[: match.start()] + text[match.end() :]
+    return text
+
+
 def remove_sga2_project_boxes(
     text: str, relative_path: str, removals: list[Removal]
 ) -> str:
@@ -805,6 +854,9 @@ def clean_tex(
         text, volume, relative_path, removals
     )
     if volume == "sga3":
+        text = remove_sga3_reader_status_text(
+            text, relative_path, removals
+        )
         text = remove_project_source_note_anchors(text)
     if volume == "sga2":
         text = remove_sga2_project_boxes(
@@ -972,6 +1024,8 @@ TEXT_BLOCKLIST = {
         "The source has",
         "The French source refers",
         "The French source introduces",
+        "The French source prints",
+        "The displayed French source prints",
         "The printed source",
         "The French re-edition prints",
         "The French re-edition says",
@@ -980,6 +1034,8 @@ TEXT_BLOCKLIST = {
         "The French PDF labels",
         "The Polo–Gille PDF prints",
         "source defect disclosed",
+        "source locator",
+        "Native Loop-2 reconstruction",
         "source-status",
     ),
     "sga6": (
