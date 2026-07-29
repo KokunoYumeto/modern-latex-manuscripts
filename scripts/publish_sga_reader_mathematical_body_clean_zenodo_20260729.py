@@ -270,8 +270,10 @@ def verify_primary_local_files() -> dict[str, dict]:
         raise RuntimeError("GitHub package manifest mismatch")
     rows = list(
         csv.DictReader(
-            io.StringIO(manifest.read_text(encoding="utf-8-sig")),
-            newline="",
+            io.StringIO(
+                manifest.read_text(encoding="utf-8-sig"),
+                newline="",
+            ),
         )
     )
     if len(rows) != 17:
