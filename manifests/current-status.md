@@ -1,3 +1,39 @@
+## 2026-07-29 SGA canonical reader front door corrected
+
+The sole latest SGA version is
+[`10.5281/zenodo.21691353`](https://doi.org/10.5281/zenodo.21691353)
+under existing concept `10.5281/zenodo.20410947`. It exposes six
+neutral-named English readers in SGA1-6 order:
+
+- `00a_SGA1_English_Reader.pdf`:
+  `D424E4A3E98E8C80C642BE5E5B8AAD813FF3F12D946BF53E237F6508387AC53B`
+- `00b_SGA2_English_Reader.pdf`:
+  `09FCCBF53CE1AA45F80C7B3E63169D28740935F095F3E4A4350C70A41D2623A8`
+- `00c_SGA3_English_Reader.pdf`:
+  `911B4AC6DB00D2F9CC58BF769F84F6811CD4A15B5FB4846ABB822B154407E8F2`
+- `00d_SGA4_English_Reader.pdf`:
+  `982DB88559FE4239CF3381D664792C2262658D511FA0A8A06FE99A1A68512BA5`
+- `00e_SGA5_English_Reader.pdf`:
+  `9BB41B09624BFEB566503EAADD3276B709F9E1AC03E2F71188E0CE7E80A00A38`
+- `00f_SGA6_English_Reader.pdf`:
+  `E14FF6F4F2AD65BBCAA8410B9DF7DBD480D193A6CA97AF5F4428E7AB6B60B2FE`
+
+Anonymous readback passed all 66 outer files / 425,679,913 bytes and all
+50 ZIPs / 4,282 non-directory members. Page-by-page text extraction confirms
+that all eight direct PDFs contain only the mathematical editions and genuine
+source-era editorial apparatus. Project-production material belongs only in
+grouped archives and release metadata.
+
+The repository's preferred-reader links and generated public catalog now
+target these current neutral filenames instead of obsolete working-package
+paths. The
+[reader scan](published-zenodo/20260729_sga_direct_reader_project_apparatus_scan_record_21691353.json),
+[outer readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21691353_public_readback.json),
+and
+[ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21691353_zip_member_readback.json)
+are controlling. Dated SGA version blocks below are immutable predecessor
+history, not current links.
+
 ## 2026-07-29 SGA3 reader-facing project apparatus removed
 
 Current SGA version
