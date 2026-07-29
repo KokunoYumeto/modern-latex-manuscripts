@@ -1,36 +1,33 @@
-## 2026-07-29: clean SGA reader replacement pending on Zenodo transfer
+## 2026-07-29: clean SGA reader replacement published and read back
 
 - Existing concept:
   [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
-- Current public head:
+- Published successor:
+  [10.5281/zenodo.21662699](https://doi.org/10.5281/zenodo.21662699)
+- Predecessor:
   [10.5281/zenodo.21650398](https://doi.org/10.5281/zenodo.21650398)
-- Tracked same-concept draft: `21662699`
 - Preferred GitHub SGA3 reader:
   [reader-clean R17 native update](../sources/sga/sga3-english-complete-working-reader-clean-r17-native-xxii-xxiv-20260729/)
 
-The current GitHub surface fronts clean SGA1/2/4/5/6 readers and the clean
+The same-concept successor now fronts clean SGA1/2/4/5/6 readers and the clean
 1,472-page SGA3 R17 cumulative. R17 adds the sealed native-TeX diagram
 successors for Exposes XXII and XXIV to the earlier X/XVI/XVIII integration.
-It has 9,487 named destinations and 4,591 internal links. Zenodo is not yet
-updated because legacy bucket PUT,
-legacy multipart POST, and modern draft-file transfer all return the
-server-side error `File upload transfer failed`. Modern content upload also
-reports a completed zero-byte object and then removes the failed entry. The
-failure reproduces on a 4,745-byte TeX file as well as on reader PDFs, so it is
-not a large-file gate.
+It has 9,487 named destinations and 4,591 internal links.
 
-Draft `21662699` remains unpublished at the exact safe post-delete boundary:
-76 retained predecessor files are byte-identical to record `21650398`, and the
-16 obsolete reader, master-TeX, release-control, and SGA3-history slots are
-absent. There are no extra, pending, failed, or zero-byte draft entries.
-Transfer retries must preserve those 76 files and use the GitHub-current R17
-package rather than the superseded R16 reader. No duplicate concept, parallel
-draft, or public version was created. The exact draft-state receipt is
-[`20260729_sga_reader_clean_draft_21662699_post_delete_transfer_hold.json`](../manifests/pending-zenodo-uploads/20260729_sga_reader_clean_draft_21662699_post_delete_transfer_hold.json).
+The publisher retained 76 unrelated predecessor files byte-identically,
+uploaded 16 exact replacement/control files, and published the one tracked
+draft as record `21662699`. Anonymous readback passed all 92 outer files,
+434,072,771 bytes, and all 57 ZIP archives: 5,603 file members, six directory
+entries, and 455,787,707 uncompressed bytes. SGA1 is the default preview.
+No duplicate concept, parallel draft, or second successor was created.
 
-The exact successor publisher is
-[`publish_sga_reader_clean_complete_r17_native_zenodo_20260729.py`](../scripts/publish_sga_reader_clean_complete_r17_native_zenodo_20260729.py).
-Its local primary-set preflight targets the R17 package.
+Exact receipts:
+
+- [GitHub outer/archive readback](../manifests/published-github/20260729_sga3_r17_native_cumulative_commit_d0fb29e12_public_readback.json)
+- [outer-file readback](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21662699_public_readback.json)
+- [ZIP-member readback](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21662699_zip_member_readback.json)
+- [draft file actions](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21662699_draft_files.json)
+- [publish response](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21662699_publish_response.json)
 
 ## 2026-07-29: SGA3 XXII/XXIV native integration closed locally
 
@@ -66,11 +63,12 @@ one 44-member ZIP. The assigned source-first scope is EGA 0_III Sections
 8-13 and EGA III Sections 1-7; surrounding inherited material remains
 explicitly non-uniform.
 
-Any Zenodo successor must remain on the separate EGA concept. It is queued
-behind the same server-side transfer outage affecting SGA; no EGA draft or
+Any Zenodo successor must remain on the separate EGA concept. The transfer
+service recovered during the SGA publication, but this EGA package still needs
+its own exact same-concept publisher and live-head replay. No EGA draft or
 duplicate concept has been created.
 
-## 2026-07-29: SGA3 X/XVI/XVIII native integration closed on GitHub
+## 2026-07-29: SGA3 X/XVI/XVIII native integration predecessor
 
 - GitHub package:
   [grouped integration inputs](../sources/sga/sga3-native-diagram-integration-inputs-x-xvi-xviii-20260729/)
@@ -81,12 +79,12 @@ The grouped 46-member archive preserves the exact post-cumulative native
 successors for Exposes X, XVI, and XVIII. All nine bounded diagrams are
 native TeX and lead-reviewed at 5000 dpi; active raster calls are zero.
 
-The R16 cumulative now integrates all nine inputs. Its three final deterministic
+The R16 cumulative integrated all nine inputs. Its three final deterministic
 builds are byte-identical; the reader remains 1,473 pages with 9,488 named
 destinations and 4,591 internal GoTo actions, while raster objects fall from
 153 to 145. The grouped inputs remain provenance, not a separate Zenodo reader.
-R16 is the controlling same-concept replacement once server-side transfer
-recovers.
+R16 is now preserved inside the published R17 source/history ZIP rather than
+occupying another direct reader slot.
 
 ## 2026-07-28: SGA3 cumulative-reader ordering queue closed
 
