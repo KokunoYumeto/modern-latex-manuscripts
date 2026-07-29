@@ -29,19 +29,21 @@ Exact receipts:
 - [draft file actions](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21662699_draft_files.json)
 - [publish response](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21662699_publish_response.json)
 
-## 2026-07-29: SGA3 loose bounded-reader compaction queued
+## 2026-07-29: SGA3 loose bounded-reader compaction published and read back
 
 - GitHub package:
   [compact bounded history](../sources/sga/sga3-compact-bounded-history-20260729/)
-- Current same-concept base:
+- Published same-concept successor:
+  [10.5281/zenodo.21672742](https://doi.org/10.5281/zenodo.21672742)
+- Predecessor:
   [10.5281/zenodo.21662699](https://doi.org/10.5281/zenodo.21662699)
 
-The current record still has eight loose bounded SGA3 reader/master/source
-trios for Exposes XII, XIII, XIV, XIX, XX, XXI, XXIII, and XXV, plus two older
-history archives. Exact PDF text replay found no ChatGPT, Claude, Codex, or LLM
-terms, but the XIX, XXIII, and XXV title pages retain the workflow label
-`Loop-1`. Those historical PDFs should remain available without occupying the
-reader-facing shelf.
+The predecessor had eight loose bounded SGA3 reader/master/source trios for
+Exposes XII, XIII, XIV, XIX, XX, XXI, XXIII, and XXV, plus two older history
+archives. Exact PDF text replay found no ChatGPT, Claude, Codex, or LLM terms,
+but the XIX, XXIII, and XXV title pages retained the workflow label `Loop-1`.
+The successor keeps those exact historical bytes available without leaving the
+old PDFs on the reader-facing shelf.
 
 The compact successor removes those 26 loose files and adds two exact grouped
 archives:
@@ -56,10 +58,21 @@ archives:
   26 members.
 
 Every removed byte is represented exactly in one of the two archives. The
-expected compact surface has 68 outer files; the clean 1,472-page R17 PDF and
+published compact surface has 68 outer files; the clean 1,472-page R17 PDF and
 master remain direct, while the bounded checkpoint PDFs, TeX, and source ZIPs
-become historical members. No duplicate concept or parallel draft is
-authorized.
+are historical members. Anonymous readback passed all 68 outer files and all
+49 ZIP archives: 4,235 file members, six directory entries, and 447,063,821
+uncompressed bytes. SGA1 remains the default preview. No duplicate concept or
+parallel draft was created.
+
+Exact receipts:
+
+- [GitHub group-one readback](../manifests/published-github/20260729_sga3_compact_history_commit_0301cd50_group1_readback.json)
+- [GitHub group-two readback](../manifests/published-github/20260729_sga3_compact_history_commit_0301cd50_group2_readback.json)
+- [Zenodo outer-file readback](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21672742_public_readback.json)
+- [Zenodo ZIP-member readback](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21672742_zip_member_readback.json)
+- [Zenodo draft actions](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21672742_draft_files.json)
+- [Zenodo publish response](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21672742_publish_response.json)
 
 ## 2026-07-29: SGA3 XXII/XXIV native integration closed locally
 
