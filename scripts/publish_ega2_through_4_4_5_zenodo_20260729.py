@@ -59,6 +59,7 @@ READBACK_ROOT = TEMP_ROOT / "ega2_through_4_4_5_zenodo_readback"
 DRAFT_STATE = (
     RECEIPT_ROOT / "20260729_ega2_through_4_4_5_zenodo_draft_state.json"
 )
+RECEIPT_PREFIX = "20260729_ega2_through_4_4_5"
 PREDECESSOR_RECEIPT = (
     RECEIPT_ROOT
     / "20260729_ega_assigned_source_first_record_21677876_public_readback.json"
@@ -653,7 +654,7 @@ def stage_draft(
     }
     base.save_json(
         RECEIPT_ROOT
-        / f"20260729_ega2_through_4_4_5_record_{draft_id}_draft_files.json",
+        / f"{RECEIPT_PREFIX}_record_{draft_id}_draft_files.json",
         receipt,
     )
     return receipt
@@ -822,7 +823,7 @@ def publish_draft(
     }
     base.save_json(
         RECEIPT_ROOT
-        / f"20260729_ega2_through_4_4_5_record_{draft_id}_publish_response.json",
+        / f"{RECEIPT_PREFIX}_record_{draft_id}_publish_response.json",
         receipt,
     )
     return receipt
@@ -990,12 +991,12 @@ def anonymous_readback(
     }
     base.save_json(
         RECEIPT_ROOT
-        / f"20260729_ega2_through_4_4_5_record_{record_id}_public_readback.json",
+        / f"{RECEIPT_PREFIX}_record_{record_id}_public_readback.json",
         public,
     )
     base.save_json(
         RECEIPT_ROOT
-        / f"20260729_ega2_through_4_4_5_record_{record_id}_zip_member_readback.json",
+        / f"{RECEIPT_PREFIX}_record_{record_id}_zip_member_readback.json",
         zipped,
     )
     return public, zipped

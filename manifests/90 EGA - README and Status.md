@@ -27,6 +27,13 @@ The three current bounded readers have directly visible master TeX files.
 Their recursive source trees and exact identity controls are grouped into
 compact ZIP files.
 
+The EGA IV Sections 1-2 custody ZIP preserves the current source-aligned
+integration inputs without placing fragment readers ahead of the cumulative
+readers. It contains 90 exact members for Sections 1.1-1.10 and 2.1-2.8.
+Section 3 is the continuation. This custody package does not replace or certify
+the older EGA IV working reader; a later cumulative reader must consume these
+inputs and pass its own build and public readback.
+
 ## French sources and provenance
 
 The record retains the eight NUMDAM/PMIHES French reference volumes for EGA I,
