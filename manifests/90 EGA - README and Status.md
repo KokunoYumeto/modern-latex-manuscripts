@@ -40,6 +40,14 @@ single diagram is native TeX and was reviewed directly against the authority
 at 5000 dpi. It likewise does not replace or certify the older EGA IV working
 reader.
 
+The EGA IV Sections 4.1-4.4 custody ZIP continues the same source-aligned
+integration surface, with Section 4.5 as the exact continuation. It contains
+four editable components, a reproducible build harness, a bounded ten-page
+reader, and sanitized machine controls. Its one diagram is native TeX. The
+authority and target-render image identities are recorded in a visual-evidence
+ledger, but no source-image pixels or redundant target renders are included.
+This compact custody ZIP is not a new cumulative EGA IV reader.
+
 ## French sources and provenance
 
 The record retains the eight NUMDAM/PMIHES French reference volumes for EGA I,
