@@ -235,7 +235,7 @@ READER_METRICS = {
     },
     "SGA6": {
         "filename": "00f_SGA6_English_Reader.pdf",
-        "pages": 377,
+        "pages": 376,
     },
 }
 
