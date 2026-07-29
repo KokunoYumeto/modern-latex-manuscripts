@@ -34,6 +34,12 @@ Section 3 is the continuation. This custody package does not replace or certify
 the older EGA IV working reader; a later cumulative reader must consume these
 inputs and pass its own build and public readback.
 
+The EGA IV Section 3 custody ZIP continues that source-aligned integration
+surface through subsections 3.1-3.4, with Section 4 as the continuation. Its
+single diagram is native TeX and was reviewed directly against the authority
+at 5000 dpi. It likewise does not replace or certify the older EGA IV working
+reader.
+
 ## French sources and provenance
 
 The record retains the eight NUMDAM/PMIHES French reference volumes for EGA I,
