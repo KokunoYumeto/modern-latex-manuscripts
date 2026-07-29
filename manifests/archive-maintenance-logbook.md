@@ -3918,3 +3918,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260729_sga_canonical_reader_metadata_cleanup_record_21683140.json`
   and
   `manifests/published-zenodo/20260729_sga_canonical_reader_metadata_cleanup_record_21683140.md`.
+
+## 2026-07-29 - SGA3 Expose VII native source admitted to GitHub custody
+
+- Preserved the exact 245-file / 1,827,296-byte Expose VII high-zoom
+  native-diagram package as one deterministic integration ZIP. It contains
+  the English master, 97 components, 135 native diagram sources, the
+  208-page reader, and exact validation/checksum controls.
+- ZIP identity:
+  `10c_SGA3_Expose_VII_HighZoom_Native_Integration_Input_20260729.zip`,
+  1,338,803 bytes, SHA-256
+  `2B23401B1FD29482F4EF9EE8497FD799FB1E22B3B4E14BAF6FDAA989CC34B8F8`.
+  All 245 safe members / 1,827,296 uncompressed bytes replay exactly.
+- All 135 native diagrams have direct authority/native lead review at
+  5,000 dpi. Ten strict defects were repaired: 019, 028, 040, 046, 049,
+  107, 108, 126, 127, and 128. The active source and PDF contain no raster
+  diagram calls or image objects.
+- Authority PDFs, OCR, authority crops, temporary renders, raw logs, private
+  paths, superseded builds, and the accidental `$out` subtree remain
+  excluded.
+- This is compact GitHub custody and a cumulative-reader integration input,
+  not another direct Zenodo fragment. Record `21683140` remains unchanged;
+  its next visible SGA3 PDF should be the cumulative successor that absorbs
+  this package and the remaining native inputs.
