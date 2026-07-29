@@ -11,16 +11,21 @@
 The current GitHub surface fronts clean SGA1/2/4/5/6 readers and the clean
 1,473-page SGA3 R16 cumulative. R16 integrates nine native-TeX diagram inputs
 for Exposes X, XVI, and XVIII while preserving all 9,488 destinations and
-4,591 internal links. Zenodo is not yet updated because both legacy
-bucket PUT and modern draft-file transfer return the server-side error
-`File upload transfer failed`, including for a 21,853-byte TeX probe in a
-fresh same-concept bucket.
+4,591 internal links. Zenodo is not yet updated because legacy bucket PUT,
+legacy multipart POST, and modern draft-file transfer all return the
+server-side error `File upload transfer failed`. Modern content upload also
+reports a completed zero-byte object and then removes the failed entry. The
+failure reproduces on a 4,745-byte TeX file as well as on reader PDFs, so it is
+not a large-file gate.
 
-Draft `21662699` remains unpublished with all 92 inherited predecessor files
-intact and no failed-probe residue. Transfer retries must use the GitHub-current
-R16 package rather than the superseded R15 reader. No inherited file is deleted
-until transfer succeeds and exact replacement/readback can complete. No
-duplicate concept, parallel draft, or public version was created.
+Draft `21662699` remains unpublished at the exact safe post-delete boundary:
+76 retained predecessor files are byte-identical to record `21650398`, and the
+16 obsolete reader, master-TeX, release-control, and SGA3-history slots are
+absent. There are no extra, pending, failed, or zero-byte draft entries.
+Transfer retries must preserve those 76 files and use the GitHub-current R16
+package rather than the superseded R15 reader. No duplicate concept, parallel
+draft, or public version was created. The exact draft-state receipt is
+[`20260729_sga_reader_clean_draft_21662699_post_delete_transfer_hold.json`](../manifests/pending-zenodo-uploads/20260729_sga_reader_clean_draft_21662699_post_delete_transfer_hold.json).
 
 The exact successor publisher is
 [`publish_sga_reader_clean_complete_r16_native_zenodo_20260729.py`](../scripts/publish_sga_reader_clean_complete_r16_native_zenodo_20260729.py).
