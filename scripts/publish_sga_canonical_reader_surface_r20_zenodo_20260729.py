@@ -268,27 +268,21 @@ NEW_MANIFEST_ROWS[README_NAME] = {
 
 DESCRIPTION_HTML = "\n".join(
     (
-        "<p>This edition presents the English SGA 1-6 readers first, in "
-        "numerical order, followed by the available French texts and direct "
-        "editable TeX masters. Supporting source, provenance, quality-control, "
-        "and historical material is grouped in ZIP archives.</p>",
-        "<p>The SGA3 reader has 1,459 A4 pages and covers the Editorial Notice, "
-        "Introduction, Exposes I-XXVI, the Tome-I index, the Tome-III "
-        "mathematical guide, and the terminal index. This revision integrates "
-        "native-diagram replacements for Exposes V and VI.</p>",
-        "<p>The direct PDFs are reading editions containing the mathematical "
-        "text, diagrams, labels, links, and ordinary editorial apparatus. "
-        "Detailed provenance and technical records remain available in the "
-        "archives.</p>",
-        "<p>These scholarly editions do not transfer rights in the underlying "
-        "French works and are not presented as new critical editions. "
-        "Historical Zenodo versions remain immutable.</p>",
+        "<p>English readers for SGA 1 through SGA 6 are listed first in "
+        "numerical order. Available French texts and editable TeX masters "
+        "follow; supplementary source and historical files are grouped in "
+        "ZIP archives.</p>",
+        "<p>The SGA3 reader has 1,459 A4 pages and contains the Editorial "
+        "Notice, Introduction, Exposes I-XXVI, the Tome-I index, the Tome-III "
+        "mathematical guide, and the terminal index. Exposes V and VI use "
+        "native TeX diagrams.</p>",
+        "<p>The direct PDFs contain the mathematical text, diagrams, "
+        "references, and original editorial apparatus.</p>",
+        "<p>These editions do not transfer rights in the underlying French "
+        "works. Historical Zenodo versions remain immutable.</p>",
     )
 )
-NOTES_HTML = (
-    "<p>Canonical direct filenames are used for the SGA 1-6 readers and TeX "
-    "masters. SGA1 is the default preview.</p>"
-)
+NOTES_HTML = ""
 
 
 def sha256_bytes(data: bytes) -> str:
@@ -753,11 +747,13 @@ def assert_metadata(metadata: dict) -> None:
         raise RuntimeError("Publication-date metadata mismatch")
     if metadata.get("description") != DESCRIPTION_HTML:
         raise RuntimeError("Description metadata mismatch")
-    if not any(
-        row.get("description") == NOTES_HTML
+    if metadata.get("contributors"):
+        raise RuntimeError("Reader-facing contributor badges are forbidden")
+    if any(
+        row.get("type", {}).get("id") == "notes"
         for row in metadata.get("additional_descriptions", [])
     ):
-        raise RuntimeError("Release-notes metadata mismatch")
+        raise RuntimeError("Reader-facing release notes are forbidden")
 
 
 def publish_draft(
@@ -775,7 +771,12 @@ def publish_draft(
     metadata["version"] = VERSION
     metadata["publication_date"] = PUBLICATION_DATE
     metadata["description"] = DESCRIPTION_HTML
-    base.patch_notes(metadata)
+    metadata["contributors"] = []
+    metadata["additional_descriptions"] = [
+        row
+        for row in metadata.get("additional_descriptions", [])
+        if row.get("type", {}).get("id") != "notes"
+    ]
     payload = {
         "access": draft["access"],
         "files": {

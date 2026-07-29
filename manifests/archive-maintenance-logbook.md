@@ -3904,10 +3904,11 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Published record `21683140` under existing SGA concept
   `10.5281/zenodo.20410947` was edited in place. Its DOI remains
   `10.5281/zenodo.21683140`; no new version or duplicate concept was created.
-- Visible Zenodo description, notes, and keywords now use only reader
-  navigation, mathematical scope, bibliographic subjects, and the rights
-  boundary. AI, workflow, workpass, source-status, and certification-state
-  terminology was removed from those fields.
+- Visible Zenodo metadata now uses only mathematical scope, bibliographic
+  subjects, and the rights boundary. The reader-facing Notes field and the
+  AI contributor badges were removed. AI, workflow, workpass,
+  source-status, and certification-state terminology is absent from the
+  landing surface.
 - All 68 public files / 426,592,948 bytes remained byte-identical. Their
   canonical file-identity aggregate is
   `009C301ABAA9E64D5F98511D563B6E16590CB6D6231E4C49848184B66F82E635`.
