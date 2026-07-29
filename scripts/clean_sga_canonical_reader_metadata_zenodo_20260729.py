@@ -46,10 +46,6 @@ DESCRIPTION_HTML = "\n".join(
         "works. Historical Zenodo versions remain immutable.</p>",
     )
 )
-NOTES_HTML = (
-    "<p>Open files 00a through 00f for the English SGA 1-6 readers. "
-    "SGA1 is the default preview.</p>"
-)
 KEYWORDS = [
     "SGA",
     "Seminaire de Geometrie Algebrique",
@@ -148,6 +144,14 @@ def visible_metadata_text(metadata: dict) -> str:
         metadata.get("version", ""),
     ]
     fields.extend(metadata.get("keywords", []))
+    fields.extend(
+        contributor.get("name", "")
+        for contributor in metadata.get("contributors", [])
+    )
+    fields.extend(
+        row.get("description", "")
+        for row in metadata.get("additional_descriptions", [])
+    )
     return "\n".join(str(value) for value in fields).casefold()
 
 
@@ -156,29 +160,25 @@ def assert_clean_metadata(metadata: dict) -> None:
         raise RuntimeError("Unexpected SGA record title")
     if metadata.get("description") != DESCRIPTION_HTML:
         raise RuntimeError("Description did not update exactly")
-    if metadata.get("notes") != NOTES_HTML:
-        raise RuntimeError("Notes did not update exactly")
+    if metadata.get("notes") not in (None, ""):
+        raise RuntimeError("Reader-facing notes were not removed")
     if metadata.get("keywords") != KEYWORDS:
         raise RuntimeError("Keywords did not update exactly")
+    if metadata.get("contributors"):
+        raise RuntimeError("Reader-facing contributor badges were not removed")
     visible = visible_metadata_text(metadata)
     hits = [term for term in BLOCKED_VISIBLE_TERMS if term in visible]
     if hits:
         raise RuntimeError(f"Visible metadata still contains blocked terms: {hits}")
 
 
-def patch_modern_notes(metadata: dict) -> None:
-    additional = [
+def clear_modern_reader_frontmatter(metadata: dict) -> None:
+    metadata["contributors"] = []
+    metadata["additional_descriptions"] = [
         row
         for row in metadata.get("additional_descriptions", [])
         if row.get("type", {}).get("id") != "notes"
     ]
-    additional.append(
-        {
-            "description": NOTES_HTML,
-            "type": {"id": "notes", "title": {"en": "Notes"}},
-        }
-    )
-    metadata["additional_descriptions"] = additional
 
 
 def assert_clean_modern_metadata(metadata: dict) -> None:
@@ -191,8 +191,12 @@ def assert_clean_modern_metadata(metadata: dict) -> None:
         for row in metadata.get("additional_descriptions", [])
         if row.get("type", {}).get("id") == "notes"
     ]
-    if notes != [NOTES_HTML]:
-        raise RuntimeError("Modern notes did not update exactly")
+    if notes:
+        raise RuntimeError("Modern reader-facing notes were not removed")
+    if metadata.get("contributors"):
+        raise RuntimeError(
+            "Modern reader-facing contributor badges were not removed"
+        )
     subjects = [row.get("subject") for row in metadata.get("subjects", [])]
     if subjects != KEYWORDS:
         raise RuntimeError("Modern subjects did not update exactly")
@@ -325,7 +329,7 @@ def main() -> None:
         metadata = copy.deepcopy(draft["metadata"])
         metadata["description"] = DESCRIPTION_HTML
         metadata["subjects"] = [{"subject": keyword} for keyword in KEYWORDS]
-        patch_modern_notes(metadata)
+        clear_modern_reader_frontmatter(metadata)
         payload = {
             "access": draft["access"],
             "files": {
@@ -378,7 +382,12 @@ def main() -> None:
             ),
             {200},
         ).json()
-        if candidate["metadata"].get("keywords") == KEYWORDS:
+        candidate_metadata = candidate["metadata"]
+        if (
+            candidate_metadata.get("keywords") == KEYWORDS
+            and not candidate_metadata.get("contributors")
+            and candidate_metadata.get("notes") in (None, "")
+        ):
             public_after = candidate
             break
         time.sleep(2)
@@ -439,8 +448,11 @@ def main() -> None:
         "metadata": {
             "title": public_after["metadata"]["title"],
             "description": public_after["metadata"]["description"],
-            "notes": public_after["metadata"]["notes"],
+            "notes": public_after["metadata"].get("notes"),
             "keywords": public_after["metadata"]["keywords"],
+            "contributors": public_after["metadata"].get(
+                "contributors", []
+            ),
             "blocked_visible_term_hits": [],
         },
         "reader_text_audit": {
@@ -466,6 +478,8 @@ def main() -> None:
                 "- New Zenodo version: no",
                 "- Duplicate concept: no",
                 f"- Default preview: `{DEFAULT_PREVIEW}`",
+                "- Reader-facing contributor badges: removed",
+                "- Reader-facing Notes field: removed",
                 (
                     f"- Public files retained exactly: {len(after_rows)} / "
                     f"{sum(int(row['size']) for row in after_rows):,} B"
