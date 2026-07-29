@@ -22,6 +22,10 @@ R16 package rather than the superseded R15 reader. No inherited file is deleted
 until transfer succeeds and exact replacement/readback can complete. No
 duplicate concept, parallel draft, or public version was created.
 
+The exact successor publisher is
+[`publish_sga_reader_clean_complete_r16_native_zenodo_20260729.py`](../scripts/publish_sga_reader_clean_complete_r16_native_zenodo_20260729.py).
+Its local 13-file primary-set preflight passes against the merged R16 package.
+
 ## 2026-07-29: EGA assigned source-first lane GitHub-first queue
 
 - Existing EGA concept:
