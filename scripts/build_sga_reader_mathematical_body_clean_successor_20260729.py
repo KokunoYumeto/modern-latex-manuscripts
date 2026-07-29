@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build reader-only SGA successors without project-facing apparatus."""
+"""Build the second reader-only SGA cleanup successor."""
 
 from __future__ import annotations
 
@@ -21,13 +21,13 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 TEMP_ROOT = (
     Path(os.environ["LOCALAPPDATA"])
     / "Temp"
-    / "sga_reader_mathematical_body_clean_build_20260729"
+    / "sga_reader_mathematical_body_clean_build_v2_20260729"
 )
 PACKAGE_ROOT = (
     REPO_ROOT
     / "sources"
     / "sga"
-    / "sga1-6-reader-mathematical-body-clean-successor-20260729"
+    / "sga1-6-reader-mathematical-body-clean-successor-v2-20260729"
 )
 
 PRESENTATION_ROOT = (
@@ -43,13 +43,6 @@ SGA3_PRESENTATION_ROOT = (
     / "sga3-english-complete-working-reader-clean-r18-native-expose-i-20260729"
 )
 
-SGA1_ARCHIVE = (
-    REPO_ROOT
-    / "sources"
-    / "sga"
-    / "sga1-english-complete-volume-working-20260722"
-    / "SGA1_English_CompleteVolume_Working_Source_20260722.zip"
-)
 SGA2_SOURCE = (
     REPO_ROOT / "sources" / "sga" / "sga2-english-reference-linked-r8-20260723"
 )
@@ -57,33 +50,33 @@ SGA3_ARCHIVE = (
     SGA3_PRESENTATION_ROOT
     / "10c9_SGA3_English_Complete_Reader_Source_and_History_R18_20260729.zip"
 )
-SGA5_SOURCE = (
-    REPO_ROOT / "sources" / "sga" / "sga5-english-reference-linked-r9-20260723"
+SGA6_SOURCE = (
+    REPO_ROOT
+    / "sources"
+    / "sga"
+    / "sga6-english-cumulative-through-idx702-reference-linked-20260723"
+    / "working"
 )
 
 PDF_OUTPUTS = {
-    "sga1": "00a_SGA1_English_CompleteVolume_Working_NoExhaustiveCertification_20260722.pdf",
     "sga2": "00b_SGA2_English_Complete_ReferenceLinked_R8_20260723.pdf",
     "sga3": "00c00_SGA3_English_Complete_Reader_Native_Update_R18_20260729.pdf",
-    "sga5": "00e_SGA5_English_ReferenceLinked_R9_20260723.pdf",
+    "sga6": "00f_SGA6_English_Complete_ReferenceLinked_20260723.pdf",
 }
 TEX_OUTPUTS = {
-    "sga1": "02a_SGA1_English_CompleteVolume_Working_Master_20260722.tex",
     "sga2": "02b_SGA2_English_Complete_ReferenceLinked_R8_Master_20260723.tex",
     "sga3": "02c00_SGA3_English_Complete_Reader_Native_Update_R18_20260729.tex",
-    "sga5": "02e_SGA5_English_ReferenceLinked_R9_Master_20260723.tex",
+    "sga6": "02f_SGA6_English_Complete_ReferenceLinked_Master_20260723.tex",
 }
 MASTER_NAMES = {
-    "sga1": "SGA1_English_source_sync_workpass.tex",
     "sga2": "SGA2_English_Full_Reader.tex",
     "sga3": "SGA3_English_Complete_Reader_Native_Update_R18_20260729.tex",
-    "sga5": "SGA5_English_sync_workpass.tex",
+    "sga6": "SGA6_English_Complete_ReferenceLinked_Master_20260723.tex",
 }
 MASTER_OVERLAYS = {
-    "sga1": PRESENTATION_ROOT / TEX_OUTPUTS["sga1"],
     "sga2": PRESENTATION_ROOT / TEX_OUTPUTS["sga2"],
     "sga3": SGA3_PRESENTATION_ROOT / TEX_OUTPUTS["sga3"],
-    "sga5": PRESENTATION_ROOT / TEX_OUTPUTS["sga5"],
+    "sga6": PRESENTATION_ROOT / TEX_OUTPUTS["sga6"],
 }
 
 APPARATUS_LEDGER = "READER_APPARATUS_REMOVAL_LEDGER.csv"
@@ -117,7 +110,7 @@ def sha256_file(path: Path) -> str:
 
 def normalize_preview(text: str, limit: int = 180) -> str:
     text = re.sub(r"\s+", " ", text).strip()
-    return text[:limit]
+    return text[:limit].rstrip()
 
 
 def line_number(text: str, offset: int) -> int:
@@ -200,32 +193,73 @@ def is_project_note(volume: str, body: str) -> bool:
             "source correction",
             "source-normalization note",
             "source-numbering",
+            "source-structure note",
             "source defect",
             "source-defect",
             "source oddity",
             "manager decision",
+            "manager's final adjudication",
+            "manager s final adjudication",
+            "french authority is left unchanged",
             "french authority remains unchanged",
+            "corrected french tex and same-edition",
+            "french printed and tex sources",
+            "printed french and the corrected tex",
+            "french tex and printed",
             "corrected french source adds",
             "sga2-x-l",
+            "sga2-ix-l",
             "sga2-xi-l",
+            "tranche comparison ledger",
         )
         return any(phrase in plain for phrase in phrases)
     if volume == "sga3":
-        if "editor's note in the french source" in plain:
-            return False
-        if "editors' note in the french source" in plain:
+        explicitly_editor_authored = any(
+            marker in plain[:160]
+            for marker in (
+                "editor's note",
+                "editors' note",
+                "editor’s note",
+                "editors’ note",
+            )
+        )
+        project_editor_exceptions = any(
+            marker in plain
+            for marker in (
+                "english editor's note",
+                "english editor’s note",
+                "source pdf prints",
+                "source marks this final reference",
+                "french edition prints",
+                "polo--gille re-edition prints",
+                "polo–gille re-edition prints",
+                "type-correct reading",
+            )
+        )
+        if explicitly_editor_authored and not project_editor_exceptions:
             return False
         phrases = (
             "translator's note",
             "translator s note",
             "source note:",
             "source note.",
+            "source notation note",
             "source-reading note",
             "source correction",
             "source defect",
             "source oddity",
             "source pdf",
+            "source appends",
+            "source display prints",
+            "source marks this final reference",
+            "source reverses this composition",
+            "source cites the final assertion",
+            "source also prints",
             "printed source",
+            "printed diagram directs",
+            "printed french text has",
+            "printed formula writes",
+            "final sentence of the printed french",
             "source prints",
             "source reads",
             "source says",
@@ -234,13 +268,19 @@ def is_project_note(volume: str, body: str) -> bool:
             "source has",
             "french source refers",
             "french source introduces",
+            "french authority prints",
+            "french edition prints",
             "french re-edition prints",
             "french re-edition says",
             "french re-edition labels",
+            "the re-edition replaces",
             "french pdf prints",
             "french pdf labels",
             "polo--gille pdf prints",
             "polo–gille pdf prints",
+            "polo--gille re-edition prints",
+            "polo–gille re-edition prints",
+            "there is no item numbered",
         )
         if any(phrase in plain for phrase in phrases):
             return True
@@ -253,8 +293,16 @@ def is_project_note(volume: str, body: str) -> bool:
             "at this point both the french",
         )
         return plain.startswith(starts)
-    if volume == "sga5":
-        return "editorial note" in plain or "source note" in plain
+    if volume == "sga6":
+        phrases = (
+            "source note",
+            "source correction",
+            "source defect",
+            "source-defect",
+            "source oddity",
+            "sga6-xiv-idx702-xref96-vs-xref46-srcdef-001",
+        )
+        return any(phrase in plain for phrase in phrases)
     return False
 
 
@@ -340,42 +388,47 @@ def remove_commands(
         "markedfootnote": (2, 1, "project_marked_footnote"),
         "sourceoddity": (2, 1, "source_oddity_box"),
     }
-    cursor = 0
-    pieces: list[str] = []
     command_re = re.compile(
         r"\\(?P<name>footnote|footnotetext|markedfootnote|sourceoddity)\b"
     )
-    while True:
-        match = command_re.search(text, cursor)
-        if match is None:
-            pieces.append(text[cursor:])
-            break
-        pieces.append(text[cursor : match.start()])
+    candidates: list[tuple[int, int, str]] = []
+    for match in command_re.finditer(text):
         name = match.group("name")
         arg_count, body_index, kind = commands[name]
         try:
             end, args = parse_command_arguments(text, match.end(), arg_count)
         except ValueError:
-            pieces.append(text[match.start() : match.end()])
-            cursor = match.end()
             continue
         remove = name == "sourceoddity" or is_project_note(
             volume, args[body_index]
         )
         if remove:
-            record_removal(
-                removals,
-                volume,
-                relative_path,
-                kind,
-                text,
-                match.start(),
-                end,
-            )
-        else:
-            pieces.append(text[match.start() : end])
-        cursor = end
-    return "".join(pieces)
+            candidates.append((match.start(), end, kind))
+
+    # Regex iteration sees nested footnotes independently. Keep the outermost
+    # removal when both levels are project apparatus, but retain a nested
+    # project note when its enclosing historical editor note is preserved.
+    spans: list[tuple[int, int, str]] = []
+    for start, end, kind in sorted(
+        candidates, key=lambda row: (row[0], -row[1])
+    ):
+        if any(start >= kept_start and end <= kept_end for kept_start, kept_end, _ in spans):
+            continue
+        spans.append((start, end, kind))
+
+    for start, end, kind in spans:
+        record_removal(
+            removals,
+            volume,
+            relative_path,
+            kind,
+            text,
+            start,
+            end,
+        )
+    for start, end, _ in sorted(spans, reverse=True):
+        text = text[:start] + text[end:]
+    return text
 
 
 def remove_setup_commands(body: str) -> str:
@@ -498,7 +551,7 @@ def remove_standalone_project_paragraphs(
         "sga3": re.compile(
             r"(?m)^[ \t]*(?:\\noindent\s*)?"
             r"(?:\{\\footnotesize\s*)?"
-            r"(?:\\emph|\\textit)\{Source note\.\}"
+            r"(?:\\emph|\\textit)\{Source (?:notation )?note\.\}"
             r"(?:\\enspace)?"
         ),
     }
@@ -710,6 +763,29 @@ def clean_tex(
 ) -> None:
     raw = path.read_text(encoding="utf-8-sig")
     relative_path = path.relative_to(root).as_posix()
+    if (
+        volume == "sga6"
+        and relative_path.casefold()
+        == (
+            "fragments/"
+            "sga6_xiv_idx685_702_editorial_source_notes.tex"
+        ).casefold()
+    ):
+        record_removal(
+            removals,
+            volume,
+            relative_path,
+            "project_source_notes_file",
+            raw,
+            0,
+            len(raw),
+        )
+        path.write_text(
+            "% Project source notes omitted from the reader-facing build.\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        return
     text = raw
     text = remove_commands(text, volume, relative_path, removals)
     text = remove_empty_footnote_groups(
@@ -749,13 +825,11 @@ def prepare_sources() -> dict[str, Path]:
         shutil.rmtree(TEMP_ROOT)
     TEMP_ROOT.mkdir(parents=True)
 
-    roots = {key: TEMP_ROOT / key for key in ("sga1", "sga2", "sga3", "sga5")}
-    with zipfile.ZipFile(SGA1_ARCHIVE) as archive:
-        archive.extractall(roots["sga1"])
+    roots = {key: TEMP_ROOT / key for key in ("sga2", "sga3", "sga6")}
     shutil.copytree(SGA2_SOURCE, roots["sga2"])
     with zipfile.ZipFile(SGA3_ARCHIVE) as archive:
         archive.extractall(roots["sga3"])
-    shutil.copytree(SGA5_SOURCE, roots["sga5"])
+    shutil.copytree(SGA6_SOURCE, roots["sga6"])
 
     for volume, overlay in MASTER_OVERLAYS.items():
         if not overlay.is_file():
@@ -850,29 +924,45 @@ def pdf_page_count(path: Path) -> int:
 
 
 TEXT_BLOCKLIST = {
-    "sga1": (
-        "French source p.",
-        "Editorial note.",
-        "Source and status note",
-        "source defect disclosed",
-        "attested readings",
-    ),
     "sga2": (
         "Source note.",
         "Source correction.",
+        "Source-structure note",
         "source-normalization note",
         "The corrected French source adds",
+        "The corrected French TeX and same-edition PDF",
+        "French printed and TeX sources",
+        "The printed French and the corrected TeX",
+        "The French TeX and printed",
         "French source PDF p.",
         "manager decision",
+        "manager's final adjudication",
+        "French authority is left unchanged",
         "SGA2-X-L",
+        "SGA2-IX-L",
         "SGA2-XI-L",
+        "tranche comparison ledger",
     ),
     "sga3": (
         "Translator's note",
         "Translator’s note",
         "Source note:",
         "Source note.",
+        "Source notation note.",
         "Source-reading note",
+        "The source appends",
+        "The source display prints",
+        "the source marks this final reference",
+        "The printed diagram directs",
+        "The source reverses this composition",
+        "The source cites the final assertion",
+        "The French authority prints",
+        "The printed French text has",
+        "The printed formula writes",
+        "The French edition prints",
+        "The final sentence of the printed French",
+        "The re-edition replaces",
+        "There is no item numbered 4.7",
         "The source PDF",
         "The source prints",
         "The source reads",
@@ -892,10 +982,10 @@ TEXT_BLOCKLIST = {
         "source defect disclosed",
         "source-status",
     ),
-    "sga5": (
-        "Editorial note.",
-        "machine-assisted",
-        "source-status",
+    "sga6": (
+        "Source note",
+        "SGA6-XIV-IDX702-XREF96-VS-XREF46-SRCDEF-001",
+        "The printed French note reads",
     ),
 }
 GLOBAL_BLOCKLIST = (
@@ -956,7 +1046,7 @@ def write_readme(results: dict[str, dict[str, object]]) -> None:
         "",
         "Affected direct readers:",
     ]
-    for volume in ("sga1", "sga2", "sga3", "sga5"):
+    for volume in ("sga2", "sga3", "sga6"):
         result = results[volume]
         lines.append(
             f"- {volume.upper()}: {result['pages']} pages, "
@@ -965,8 +1055,8 @@ def write_readme(results: dict[str, dict[str, object]]) -> None:
     lines.extend(
         [
             "",
-            "SGA 4 and SGA 6 required no mathematical-body replacement and are",
-            "retained byte-identically from the predecessor Zenodo version.",
+            "SGA 1, SGA 4, and SGA 5 required no second-pass replacement and",
+            "remain byte-identical on the successor Zenodo surface.",
             "",
             "These remain scholarly working translations, not critical editions,",
             "rights clearances, peer review, mathematical certification, final",
@@ -999,7 +1089,42 @@ def write_manifest() -> None:
             )
 
 
-def build() -> None:
+def reused_result(volume: str) -> dict[str, object]:
+    output_pdf = PACKAGE_ROOT / PDF_OUTPUTS[volume]
+    build_log = PACKAGE_ROOT / f"{volume.upper()}_BUILD_PUBLIC.log"
+    if not output_pdf.is_file() or not build_log.is_file():
+        raise FileNotFoundError(
+            f"Cannot reuse incomplete {volume} package output"
+        )
+    return {
+        "command": ["reused_previous_clean_build"],
+        "returncode": 0,
+        "pdf": output_pdf,
+        "pages": pdf_page_count(output_pdf),
+        "bytes": output_pdf.stat().st_size,
+        "sha256": sha256_file(output_pdf),
+        "hard_diagnostic_counts": {
+            "undefined_references": 0,
+            "undefined_citations": 0,
+            "missing_file": 0,
+            "fatal_error": 0,
+        },
+    }
+
+
+def build(rebuild_volumes: set[str] | None = None) -> None:
+    volumes = ("sga2", "sga3", "sga6")
+    selected = set(volumes) if rebuild_volumes is None else rebuild_volumes
+    if not selected or not selected.issubset(volumes):
+        raise ValueError(f"Invalid rebuild volume set: {sorted(selected)}")
+    if rebuild_volumes is None and PACKAGE_ROOT.exists():
+        resolved = PACKAGE_ROOT.resolve()
+        package_parent = PACKAGE_ROOT.parent.resolve()
+        if resolved.parent != package_parent:
+            raise RuntimeError(
+                f"Refusing to clear unexpected package path: {resolved}"
+            )
+        shutil.rmtree(PACKAGE_ROOT)
     PACKAGE_ROOT.mkdir(parents=True, exist_ok=True)
     roots = prepare_sources()
     removals: list[Removal] = []
@@ -1010,13 +1135,16 @@ def build() -> None:
                 clean_tex(path, root, volume, removals)
 
     results: dict[str, dict[str, object]] = {}
-    for volume in ("sga1", "sga2", "sga3", "sga5"):
+    for volume in volumes:
         root = roots[volume]
         master = root / MASTER_NAMES[volume]
-        result = run_build(volume, root, master)
         output_pdf = PACKAGE_ROOT / PDF_OUTPUTS[volume]
         output_tex = PACKAGE_ROOT / TEX_OUTPUTS[volume]
-        shutil.copy2(result["pdf"], output_pdf)
+        if volume in selected:
+            result = run_build(volume, root, master)
+            shutil.copy2(result["pdf"], output_pdf)
+        else:
+            result = reused_result(volume)
         shutil.copy2(master, output_tex)
         result["output_pdf"] = output_pdf.name
         result["output_tex"] = output_tex.name
@@ -1043,13 +1171,19 @@ def build() -> None:
     write_removal_ledger(removals)
     write_readme(results)
     summary = {
-        "status": "PASS_READER_MATHEMATICAL_BODY_CLEAN",
-        "volumes_rebuilt": ["SGA1", "SGA2", "SGA3", "SGA5"],
-        "volumes_retained": ["SGA4", "SGA6"],
+        "status": "PASS_READER_MATHEMATICAL_BODY_CLEAN_V2",
+        "volumes_rebuilt_this_run": [
+            volume.upper() for volume in volumes if volume in selected
+        ],
+        "volumes_reused_this_run": [
+            volume.upper() for volume in volumes if volume not in selected
+        ],
+        "affected_volumes": ["SGA2", "SGA3", "SGA6"],
+        "volumes_retained": ["SGA1", "SGA4", "SGA5"],
         "removals": len(removals),
         "removals_by_volume": {
             volume: sum(1 for row in removals if row.volume == volume)
-            for volume in ("sga1", "sga2", "sga3", "sga5")
+            for volume in ("sga2", "sga3", "sga6")
         },
         "results": {
             volume: {
@@ -1078,9 +1212,18 @@ def main() -> int:
         action="store_true",
         help="Keep temporary build sources after a successful build.",
     )
+    parser.add_argument(
+        "--only",
+        action="append",
+        choices=("sga2", "sga3", "sga6"),
+        help=(
+            "Rebuild only the named volume and reuse the other already "
+            "passing package outputs. May be repeated."
+        ),
+    )
     args = parser.parse_args()
     try:
-        build()
+        build(set(args.only) if args.only else None)
     except Exception as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 1

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish the project-apparatus-free SGA reader-only successor."""
+"""Publish the second project-apparatus-free SGA reader successor."""
 
 from __future__ import annotations
 
@@ -29,45 +29,45 @@ SPEC.loader.exec_module(previous)
 base = previous.base
 
 
-PREDECESSOR_RECORD = 21674998
-PREDECESSOR_DOI = "10.5281/zenodo.21674998"
+PREDECESSOR_RECORD = 21677179
+PREDECESSOR_DOI = "10.5281/zenodo.21677179"
 CONCEPT_DOI = "10.5281/zenodo.20410947"
 PUBLICATION_DATE = "2026-07-29"
-VERSION = "2026-07-29 clean mathematical-body SGA1-6 readers"
-GITHUB_COMMIT = os.environ.get("SGA_BODY_CLEAN_GITHUB_COMMIT", "")
+VERSION = "2026-07-29 mathematical-body SGA reader cleanup v2"
+GITHUB_COMMIT = os.environ.get("SGA_BODY_CLEAN_V2_GITHUB_COMMIT", "")
 if not re.fullmatch(r"[0-9a-f]{40}", GITHUB_COMMIT):
     raise RuntimeError(
-        "Set SGA_BODY_CLEAN_GITHUB_COMMIT to the merged 40-character "
+        "Set SGA_BODY_CLEAN_V2_GITHUB_COMMIT to the merged 40-character "
         "GitHub commit."
     )
 GITHUB_PACKAGE = (
     "sources/sga/"
-    "sga1-6-reader-mathematical-body-clean-successor-20260729"
+    "sga1-6-reader-mathematical-body-clean-successor-v2-20260729"
 )
 
-SGA1_PDF = (
-    "00a_SGA1_English_CompleteVolume_"
-    "Working_NoExhaustiveCertification_20260722.pdf"
-)
 SGA2_PDF = "00b_SGA2_English_Complete_ReferenceLinked_R8_20260723.pdf"
 SGA3_PDF = (
     "00c00_SGA3_English_Complete_Reader_"
     "Native_Update_R18_20260729.pdf"
 )
-SGA5_PDF = "00e_SGA5_English_ReferenceLinked_R9_20260723.pdf"
-SGA1_TEX = "02a_SGA1_English_CompleteVolume_Working_Master_20260722.tex"
-SGA5_TEX = "02e_SGA5_English_ReferenceLinked_R9_Master_20260723.tex"
+SGA6_PDF = "00f_SGA6_English_Complete_ReferenceLinked_20260723.pdf"
+SGA2_TEX = "02b_SGA2_English_Complete_ReferenceLinked_R8_Master_20260723.tex"
+SGA3_TEX = (
+    "02c00_SGA3_English_Complete_Reader_"
+    "Native_Update_R18_20260729.tex"
+)
+SGA6_TEX = "02f_SGA6_English_Complete_ReferenceLinked_Master_20260723.tex"
 
 README_NAME = previous.README_NAME
 MANIFEST_NAME = previous.MANIFEST_NAME
 VALIDATION_NAME = previous.VALIDATION_NAME
 PRIMARY_NAMES = {
-    SGA1_PDF,
     SGA2_PDF,
     SGA3_PDF,
-    SGA5_PDF,
-    SGA1_TEX,
-    SGA5_TEX,
+    SGA6_PDF,
+    SGA2_TEX,
+    SGA3_TEX,
+    SGA6_TEX,
 }
 REPLACED_NAMES = PRIMARY_NAMES | {
     README_NAME,
@@ -85,77 +85,74 @@ EXPECTED_ZIP_FILE_MEMBERS = 4_235
 EXPECTED_ZIP_DIRECTORY_ENTRIES = 6
 EXPECTED_ZIP_ALL_ENTRIES = 4_241
 EXPECTED_ZIP_UNCOMPRESSED_BYTES = 445_624_376
-EXPECTED_GITHUB_READBACK_FILES = 18
+EXPECTED_GITHUB_READBACK_FILES = 15
 
 REPO_ROOT = SCRIPT_DIR.parent
 PACKAGE_ROOT = REPO_ROOT / GITHUB_PACKAGE
 RECEIPT_ROOT = REPO_ROOT / "manifests" / "published-zenodo"
 PREDECESSOR_RECEIPT = (
     RECEIPT_ROOT
-    / "20260728_sga3_cumulative_with_x_record_21674998_public_readback.json"
+    / "20260728_sga3_cumulative_with_x_record_21677179_public_readback.json"
 )
 CONTROLS_ROOT = (
     Path(os.environ["LOCALAPPDATA"])
     / "Temp"
-    / "sga_reader_mathematical_body_clean_zenodo_controls"
+    / "sga_reader_mathematical_body_clean_v2_zenodo_controls"
 )
 READBACK_ROOT = (
     Path(os.environ["LOCALAPPDATA"])
     / "Temp"
-    / "sga_reader_mathematical_body_clean_zenodo_public_readback"
+    / "sga_reader_mathematical_body_clean_v2_zenodo_public_readback"
 )
 DRAFT_STATE = (
     RECEIPT_ROOT
-    / "20260729_sga_reader_mathematical_body_clean_zenodo_draft_state.json"
+    / "20260729_sga_reader_mathematical_body_clean_v2_zenodo_draft_state.json"
 )
 
 PRIMARY_LOCAL_PATHS = {
     name: PACKAGE_ROOT / name for name in PRIMARY_NAMES
 }
 PRIMARY_EXPECTED = {
-    SGA1_PDF: (
-        2_490_530,
-        "D424E4A3E98E8C80C642BE5E5B8AAD813FF3F12D946BF53E237F6508387AC53B",
-    ),
     SGA2_PDF: (
-        2_045_362,
-        "0DD88EBC009E7CD7A5D3D709EBF95F6F3A0BFDC540C6144D299B3991619D879D",
+        2_001_862,
+        "AA8663D393CAE37D0D917E16E911F12D64AD90B90829CFCE601557AD759DEDFA",
     ),
     SGA3_PDF: (
-        7_466_067,
-        "75C4D962D2A49C2A9B20636400353FEDFB7213DE979318859C7BBE3D924FD8F2",
+        7_466_667,
+        "4FA2DC35A71AFE9841BEE3112FCBD985A5FC029BA3D991B408D1064F3AA864D2",
     ),
-    SGA5_PDF: (
-        2_431_050,
-        "9BB41B09624BFEB566503EAADD3276B709F9E1AC03E2F71188E0CE7E80A00A38",
+    SGA6_PDF: (
+        3_189_902,
+        "E14FF6F4F2AD65BBCAA8410B9DF7DBD480D193A6CA97AF5F4428E7AB6B60B2FE",
     ),
-    SGA1_TEX: (
-        27_322,
-        "0E9B39EEF40BEDECB6CA61F5F5B2E7A7C277330BDC9E8AC7B93882B2920AA77C",
+    SGA2_TEX: (
+        4_745,
+        "33645D4A8481F6ADAE8CD9F17AE156D21A76C6BF9427E1AF348C28CAC23B0382",
     ),
-    SGA5_TEX: (
-        895_768,
-        "6D3CA0C9B4050C200D875011E2B4D611EC67CD80B3C88011650E272D29DCFF48",
+    SGA3_TEX: (
+        21_853,
+        "9D5BA11B11E895156AB4D708A169E1BD51C19052B3A03A11A4E3BD30E0354396",
+    ),
+    SGA6_TEX: (
+        3_348,
+        "6CBD2794D46CB233AB9336C4C57AB7FCBEBDCE828B062FBE794EB7DE3E868ABD",
     ),
 }
 
 PAGES = {
-    SGA1_PDF: 259,
-    SGA2_PDF: 179,
-    SGA3_PDF: 1_460,
-    SGA5_PDF: 309,
+    SGA2_PDF: 178,
+    SGA3_PDF: 1_462,
+    SGA6_PDF: 376,
 }
 DESTINATIONS = {
-    SGA1_PDF: 1_185,
-    SGA2_PDF: 1_525,
-    SGA3_PDF: 9_357,
-    SGA5_PDF: 2_341,
+    SGA2_PDF: 1_515,
+    SGA3_PDF: 9_351,
+    SGA6_PDF: 3_424,
 }
 GOTO_ACTIONS = {
-    SGA1_PDF: 1_544,
-    SGA2_PDF: 1_342,
-    SGA3_PDF: 4_475,
-    SGA5_PDF: 1_610,
+    SGA2_PDF: 1_318,
+    SGA3_PDF: 4_467,
+    SGA6_PDF: 2_300,
 }
 
 
@@ -182,16 +179,15 @@ NEW_MANIFEST_ROWS = {name: manifest_row(name) for name in PRIMARY_NAMES}
 DESCRIPTION_PARAGRAPHS = [
     (
         "This same-concept successor preserves 59 files from version "
-        "10.5281/zenodo.21674998 byte-identically. It replaces four "
-        "direct English reader PDFs, the changed SGA1 and SGA5 direct "
-        "TeX sources, and three release controls. SGA1 remains the "
-        "default preview."
+        "10.5281/zenodo.21677179 byte-identically. It replaces the direct "
+        "SGA2, SGA3, and SGA6 English reader PDFs and master TeX files, "
+        "plus three release controls. SGA1 remains the default preview."
     ),
     (
-        "The direct SGA1, SGA2, SGA3, and SGA5 readers now present the "
-        "mathematical body without project-facing translation-process, "
-        "source-adjudication, production-status, or model commentary. "
-        "SGA4 and SGA6 were already clean and remain byte-identical."
+        "This second pass removes 34 additional reader-facing project "
+        "source-adjudication, production-status, and model/process notes "
+        "missed by the first cleanup. The all-six direct English-reader "
+        "text scan is clean. SGA1, SGA4, and SGA5 remain byte-identical."
     ),
     (
         "Historical editor-authored notes belonging to the source editions "
@@ -212,8 +208,8 @@ DESCRIPTION_HTML = "\n".join(
 )
 NOTES_HTML = (
     "<p>Reader-first SGA1-6 surface. Direct readers contain mathematics "
-    "and source-edition material, while project apparatus remains only in "
-    "grouped evidence and immutable history.</p>"
+    "and genuine source-edition material. Project apparatus remains only "
+    "in grouped evidence and immutable history.</p>"
 )
 
 
@@ -265,7 +261,7 @@ def verify_primary_local_files() -> dict[str, dict]:
     manifest = PACKAGE_ROOT / "SHA256SUMS.csv"
     if (
         base.sha256_file(manifest)
-        != "003F0F889D9D2652AE947E5739433856AED7A08B4F654BD528B85C278AE074B1"
+        != "CDA8D2182ECC393A4ADF85CE21EA55436658EA905871FFAD344C13B19A6F4729"
     ):
         raise RuntimeError("GitHub package manifest mismatch")
     rows = list(
@@ -276,7 +272,7 @@ def verify_primary_local_files() -> dict[str, dict]:
             ),
         )
     )
-    if len(rows) != 17:
+    if len(rows) != 14:
         raise RuntimeError("GitHub package manifest row mismatch")
     for row in rows:
         path = PACKAGE_ROOT / row["filename"]
@@ -299,21 +295,20 @@ def verify_primary_local_files() -> dict[str, dict]:
         )
     )
     if (
-        build.get("status") != "PASS_READER_MATHEMATICAL_BODY_CLEAN"
+        build.get("status") != "PASS_READER_MATHEMATICAL_BODY_CLEAN_V2"
         or build.get("errors") != []
-        or build.get("removals") != 351
+        or build.get("removals") != 234
         or structure.get("status") != "PASS"
         or structure.get("errors") != []
         or structure.get("package_scan_hits") != {}
     ):
         raise RuntimeError("Package validation mismatch")
     for volume, filename in (
-        ("SGA1", SGA1_PDF),
         ("SGA2", SGA2_PDF),
         ("SGA3", SGA3_PDF),
-        ("SGA5", SGA5_PDF),
+        ("SGA6", SGA6_PDF),
     ):
-        current = structure["comparisons"][volume]["reader_only_successor"]
+        current = structure["comparisons"][volume]["reader_facing_current"]
         if (
             current["pages"] != PAGES[filename]
             or current["named_destinations"] != DESTINATIONS[filename]
@@ -323,6 +318,9 @@ def verify_primary_local_files() -> dict[str, dict]:
             or current["metadata_blocked_hits"] != []
         ):
             raise RuntimeError(f"PDF structure mismatch: {volume}")
+    for volume in ("SGA1", "SGA2", "SGA3", "SGA4", "SGA5", "SGA6"):
+        if structure["reader_text_scan"][volume]["blocked_hits"] != []:
+            raise RuntimeError(f"Reader text scan mismatch: {volume}")
     verify_github_readback()
     return result
 
@@ -364,15 +362,15 @@ def readme_text(draft_id: int) -> str:
     return f"""# Current reader-first SGA release
 
 This is one same-concept successor to Zenodo record {PREDECESSOR_RECORD}.
-It preserves 59 predecessor files byte-identically and replaces only four
-direct reader PDFs, the two changed direct TeX sources, and three release
-controls. The reserved successor is {draft_id}. SGA1 remains the default
-preview.
+It preserves 59 predecessor files byte-identically and replaces only the
+direct SGA2, SGA3, and SGA6 reader PDFs and master TeX files, plus three
+release controls. The reserved successor is {draft_id}. SGA1 remains the
+default preview.
 
-The direct SGA1, SGA2, SGA3, and SGA5 readers now present the mathematical
-body without project-facing translation-process, source-adjudication,
-production-status, or model commentary. SGA4 and SGA6 were already clean and
-remain byte-identical.
+This second cleanup removes 34 additional project-authored source-
+adjudication, production-status, and model/process notes missed by the first
+pass. The direct English-reader text scan is clean across SGA1 through SGA6.
+SGA1, SGA4, and SGA5 remain byte-identical.
 
 Historical editor-authored notes belonging to the source editions remain in
 the scholarly text. Annotated source/evidence archives and immutable
@@ -464,7 +462,7 @@ def generate_controls(
     }
 
     validation = {
-        "schema": "sga_reader_mathematical_body_clean_zenodo_v1",
+        "schema": "sga_reader_mathematical_body_clean_zenodo_v2",
         "status": "PASS",
         "errors": [],
         "predecessor_record": PREDECESSOR_RECORD,
@@ -489,9 +487,11 @@ def generate_controls(
                 "named_destinations": DESTINATIONS[name],
                 "internal_goto_actions": GOTO_ACTIONS[name],
             }
-            for name in (SGA1_PDF, SGA2_PDF, SGA3_PDF, SGA5_PDF)
+            for name in (SGA2_PDF, SGA3_PDF, SGA6_PDF)
         },
-        "apparatus_removals": 351,
+        "additional_apparatus_removals": 34,
+        "cumulative_apparatus_removals": 385,
+        "cleaner_source_units_this_build": 234,
         "reader_facing_project_or_model_hits": [],
         "historical_source_editor_notes_preserved": True,
         "annotated_archives_preserved": True,
