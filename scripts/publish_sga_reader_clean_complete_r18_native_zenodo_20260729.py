@@ -321,6 +321,34 @@ def verify_primary_local_files() -> dict[str, dict]:
     return result
 
 
+def fetch_predecessor_manifest(
+    session, predecessor: dict, receipt: dict
+) -> list[dict[str, str]]:
+    entry = base.entries_map(predecessor)[MANIFEST_NAME]
+    response = base.check(
+        session.get(entry["links"]["content"], timeout=(30, 180)),
+        {200},
+    )
+    content = response.content
+    wanted = receipt["files"][MANIFEST_NAME]
+    if (
+        len(content),
+        sha256_bytes(content),
+    ) != (
+        int(wanted["bytes"]),
+        wanted["sha256"].upper(),
+    ):
+        raise RuntimeError("R18 predecessor release-manifest mismatch")
+    rows = list(
+        csv.DictReader(
+            io.StringIO(content.decode("utf-8-sig"), newline="")
+        )
+    )
+    if len(rows) != 66:
+        raise RuntimeError("R18 predecessor release-manifest row mismatch")
+    return rows
+
+
 def create_or_resume_draft(session, token: str, predecessor: dict) -> int:
     return previous.create_or_resume_draft(
         session,
@@ -541,9 +569,7 @@ for module in (previous, previous.previous, previous.previous.previous, base):
         setattr(module, name, value)
 
 base.verify_primary_local_files = verify_primary_local_files
-base.fetch_predecessor_manifest = (
-    previous.previous.previous.fetch_predecessor_manifest
-)
+base.fetch_predecessor_manifest = fetch_predecessor_manifest
 base.create_or_resume_draft = create_or_resume_draft
 base.readme_text = readme_text
 base.generate_controls = generate_controls
