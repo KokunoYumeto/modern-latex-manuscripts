@@ -1,3 +1,42 @@
+## 2026-07-30 SGA3 R23 reader-clean successor published
+
+The sole latest SGA version is
+[`10.5281/zenodo.21694014`](https://doi.org/10.5281/zenodo.21694014)
+under existing concept `10.5281/zenodo.20410947`. The direct SGA3 reader is
+now the 1,474-page reader-clean R23 cumulative:
+
+- `00c_SGA3_English_Reader.pdf`: 6,412,499 bytes, SHA-256
+  `3E3B6414A861D6C196A33347189013A955D67E805E9865908E44A6917EF3C105`
+- `02c_SGA3_English_Master.tex`: 8,236 bytes, SHA-256
+  `FFE8F8360D87E84EE7FBBE0DF5EDCDA6993000D8131725271BDD75070BEDCC86`
+- `10c_SGA3_English_Source_R23_20260730.zip`: 1,986,688 bytes, SHA-256
+  `8ED8A47A63038BF1A6F7E9B1342419438E200ADB76B1C6CCB2E8832AD8065DCE`
+
+The reader covers the Introduction, Exposes I-XXVI, Tome-I subject index,
+Tome-III mathematical guide, and terminal index. It has 9,472 named
+destinations, 5,038 valid internal GoTo actions, zero broken or external
+actions, and zero raster images. Source-added workflow notes are preserved in
+editable TeX but excluded from the reading flow; genuine source-era editorial
+apparatus remains.
+
+Anonymous readback passed all 66 outer files / 417,402,219 bytes and all
+50 ZIPs / 4,253 non-directory members plus 48 directory entries /
+431,914,554 uncompressed file bytes. The 62 unrelated predecessor files were
+retained byte-identically. A page-by-page scan of all six direct English
+readers found zero project/model/workflow/source-status commentary.
+
+GitHub PRs
+[#146](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/146)
+and
+[#147](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/147)
+merged the package and checksum correction at
+`b4f3268c0478a980251c853c2e11725459ba6462`. See the
+[publication receipt](published-zenodo/20260730_sga3_reader_clean_r23_record_21694014.md),
+[reader scan](published-zenodo/20260730_sga_direct_reader_project_apparatus_scan_record_21694014.json),
+[outer readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21694014_public_readback.json),
+and
+[ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21694014_zip_member_readback.json).
+
 ## 2026-07-29 SGA canonical reader front door corrected
 
 The sole latest SGA version is
