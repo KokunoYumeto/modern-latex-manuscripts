@@ -93,12 +93,12 @@ controls, and superseded R16 PDF/TeX are grouped in one 907-member ZIP. R17 is
 the controlling same-concept replacement once GitHub readback completes and
 Zenodo server-side transfer recovers.
 
-## 2026-07-29: EGA assigned source-first lane GitHub-first queue
+## 2026-07-29: EGA assigned source-first lane publication closure
 
 - Existing EGA concept:
   [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
-- Current published predecessor:
-  [10.5281/zenodo.21652720](https://doi.org/10.5281/zenodo.21652720)
+- Current published version:
+  [10.5281/zenodo.21677876](https://doi.org/10.5281/zenodo.21677876)
 - GitHub package:
   [EGA 0/III and EGA III assigned lane](../sources/ega/checkpoints/ega0-iii-and-ega3-source-first-assigned-lane-complete-20260729/)
 
@@ -108,10 +108,11 @@ one 44-member ZIP. The assigned source-first scope is EGA 0_III Sections
 8-13 and EGA III Sections 1-7; surrounding inherited material remains
 explicitly non-uniform.
 
-Any Zenodo successor must remain on the separate EGA concept. The transfer
-service recovered during the SGA publication, but this EGA package still needs
-its own exact same-concept publisher and live-head replay. No EGA draft or
-duplicate concept has been created.
+The same-concept successor passed anonymous readback for all 22 outer files
+and all six ZIPs / 211 file members. Sixteen unrelated predecessor files remain
+byte-identical; five bounded section-11 live-surface objects remain available
+in immutable version history. The EGA 0/III reader is the default preview.
+No duplicate concept, parallel draft, or second successor was created.
 
 ## 2026-07-29: SGA3 X/XVI/XVIII native integration predecessor
 
