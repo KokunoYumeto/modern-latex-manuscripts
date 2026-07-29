@@ -1,43 +1,42 @@
-# Elements de Geometrie Algebrique (EGA): French originals and English translation working draft
+# Elements de geometrie algebrique (EGA)
 
-This record is a public working package for EGA in the Modern LaTeX Editions of
-Public-Domain Mathematics Manuscripts project.
+This record preserves the EGA source volumes and current English working
+readers. It belongs to the same archive framework as the SGA materials, but
+uses a separate EGA concept DOI so that the two publication histories remain
+clear.
 
-## What is here
+## Direct readers
 
-- One top-level English translation working-draft PDF.
-- Eight top-level French original/reference PDFs from NUMDAM/PMIHES: EGA I,
-  EGA II, EGA III parts 1-2, and EGA IV parts 1-4.
-- A ZIP containing the EGA 0_IV sections 15 through 23 translation TeX supplement.
-- A ZIP containing the current EGA IV main-text translation TeX supplement:
-  sections 1 through 21 as substantive working translations.
-- A full artifact ZIP containing the current TeX tree, the compiled English
-  PDF, the French originals, and source/provenance notes.
+The current bounded readers are ordered by volume:
 
-## Status at a glance
+1. EGA 0/III, assigned source-first Sections 8-13: 120 pages.
+2. EGA II, layered reader source-aligned through Corollary 4.4.5: 151 pages.
+3. EGA III, assigned source-first Sections 1-7: 150 pages.
 
-- French originals from NUMDAM: 8/8 EGA PMIHES volumes present as reference/source PDFs.
-- English translation reader: useful partial working draft; EGA I and
-  EGA II are present from the community translation base, with additional EGA
-  0_IV and EGA IV material added locally.
-- EGA 0_IV local continuation: sections 15 through 23 are represented
-  as substantive working translations.
-- EGA IV local continuation: sections 1 through 21 are represented
-  as substantive working translations.
-- Current quality note: this release refreshes the compiled reader after the
-  latest EGA IV continuation edits, including newer section 12 and 13 material.
-- Whole EGA completion against the long-term goal: the project is
-  still far from a complete translated/proofread edition, especially for EGA
-  III and later preliminaries. This is an OCR/support and partial-translation
-  lane, not comparable to the stronger SGA5 workpass/source-audit lane.
-- Proofreading/final edition status: working draft for checking and continuation,
-  not a certified critical edition.
+The EGA II reader retains inherited English after Corollary 4.4.5 so that the
+volume remains readable and buildable. Only the opening through Corollary
+4.4.5 is admitted as source-aligned by this checkpoint; the exact continuation
+is Proposition 4.4.6.
 
-## Provenance
+Older whole-project and EGA IV working readers remain available as historical
+and continuation surfaces.
 
-The French source/reference PDFs are from NUMDAM PMIHES. The English TeX tree is
-based on the public `ryankeleti/ega` community translation project, with local
-continuation work added for EGA 0_IV and EGA IV from the French source PDFs. The broader
-workflow uses review sessions to choose and check work, local archive tooling to
-download, index, package, and publish, and machine-assisted
-transcription/translation passes to produce TeX for human and model review.
+## Editable source
+
+The three current bounded readers have directly visible master TeX files.
+Their recursive source trees and exact identity controls are grouped into
+compact ZIP files.
+
+## French sources and provenance
+
+The record retains the eight NUMDAM/PMIHES French reference volumes for EGA I,
+II, III parts 1-2, and IV parts 1-4.
+
+The English source lineage includes the public
+[`ryankeleti/ega`](https://github.com/ryankeleti/ega) project and later
+source-aligned continuation work. Each bounded package records its admitted
+scope and source basis. These are scholarly working readers, not critical
+editions, peer-review certifications, rights determinations, or claims that all
+of EGA has been translated and checked.
+
+No new blanket license or transfer of underlying rights is asserted.
