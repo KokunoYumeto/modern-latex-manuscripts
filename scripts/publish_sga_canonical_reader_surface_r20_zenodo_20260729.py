@@ -562,8 +562,8 @@ def create_or_resume_draft(session, token: str, predecessor: dict) -> int:
     return draft_id
 
 
-def readme_text(draft_id: int) -> str:
-    return f"""# SGA 1-6
+def readme_text(_draft_id: int) -> str:
+    return """# SGA 1-6
 
 ## English readers
 
@@ -593,8 +593,6 @@ The editions preserve their mathematical text, diagrams, links, and ordinary
 editorial apparatus. Rights in the underlying works remain with their
 respective holders. Historical versions remain available through Zenodo. The
 corresponding source package is mirrored in the project's GitHub repository.
-
-Zenodo successor reserved from record {PREDECESSOR_RECORD}: {draft_id}.
 """
 
 
