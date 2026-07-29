@@ -3898,3 +3898,23 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Exact receipt:
   `manifests/published-zenodo/20260728_ega0_iii_section11_record_21652720.md`
   and the adjacent public and ZIP-member readbacks.
+
+## 2026-07-29 - SGA canonical reader metadata cleaned in place
+
+- Published record `21683140` under existing SGA concept
+  `10.5281/zenodo.20410947` was edited in place. Its DOI remains
+  `10.5281/zenodo.21683140`; no new version or duplicate concept was created.
+- Visible Zenodo description, notes, and keywords now use only reader
+  navigation, mathematical scope, bibliographic subjects, and the rights
+  boundary. AI, workflow, workpass, source-status, and certification-state
+  terminology was removed from those fields.
+- All 68 public files / 426,592,948 bytes remained byte-identical. Their
+  canonical file-identity aggregate is
+  `009C301ABAA9E64D5F98511D563B6E16590CB6D6231E4C49848184B66F82E635`.
+- Fresh text replay of the six English readers (3,445 pages) and the two
+  French readers found zero AI/workflow/status terms. Ordinary editorial
+  prefaces and notes belonging to the mathematical editions were preserved.
+- Exact receipts:
+  `manifests/published-zenodo/20260729_sga_canonical_reader_metadata_cleanup_record_21683140.json`
+  and
+  `manifests/published-zenodo/20260729_sga_canonical_reader_metadata_cleanup_record_21683140.md`.
