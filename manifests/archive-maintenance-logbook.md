@@ -3941,3 +3941,28 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   not another direct Zenodo fragment. Record `21683140` remains unchanged;
   its next visible SGA3 PDF should be the cumulative successor that absorbs
   this package and the remaining native inputs.
+
+## 2026-07-29 - EGA II source alignment paused and packaged through 4.4.5
+
+- The EGA II lane paused at a clean source-aligned boundary before returning
+  to the manager-routed SGA3 cumulative work. Admitted scope is the opening
+  through Corollary 4.4.5, inclusive; the exact continuation is Proposition
+  4.4.6 at NUMDAM physical page 77 / printed page 80 and
+  `source/ega2/ega2-4.tex` line 529.
+- Preserved a direct 151-page layered reader, direct master TeX, and one
+  complete 17-member source ZIP. Later inherited English remains readable and
+  buildable but is explicitly not admitted as source-aligned by this
+  checkpoint.
+- Reader identity: 1,011,761 bytes / SHA-256
+  `C34EE831E694422ADA8824CA738B1DB7F71A3EBE07620D406853F826BC7B418C`.
+  Direct master identity: 1,744 bytes / SHA-256
+  `DCE888E004721F39C63C37A239441A7E3143CEEFB437C438E24D6ABC39EB4FAB`.
+- Source ZIP identity: 1,188,929 bytes / SHA-256
+  `37E25CA7B3553FCE483E84137D683A1AB04002C4D538A7FF00271CDE6DAAC37A`;
+  17 safe members / 1,756,631 uncompressed bytes with 16/16 manifest rows
+  exact.
+- The reader has 528 named destinations, 1,753 valid internal actions, zero
+  invalid actions, and zero reader-facing AI or production-status text.
+  Sampled pages 1, 59, 60, and 151 render cleanly.
+- The French NUMDAM authority, generated `$out` subtree, raw logs, page-render
+  PNGs, private paths, and transient build files remain excluded.
