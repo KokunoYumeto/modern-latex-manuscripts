@@ -7,6 +7,7 @@ import csv
 import hashlib
 import json
 import re
+import subprocess
 from collections import Counter
 from pathlib import Path
 
@@ -18,43 +19,57 @@ PACKAGE_ROOT = (
     REPO_ROOT
     / "sources"
     / "sga"
+    / "sga1-6-reader-mathematical-body-clean-successor-v2-20260729"
+)
+FIRST_CLEAN_ROOT = (
+    REPO_ROOT
+    / "sources"
+    / "sga"
     / "sga1-6-reader-mathematical-body-clean-successor-20260729"
 )
-PREDECESSOR_ROOT = (
+PRESENTATION_ROOT = (
     REPO_ROOT
     / "sources"
     / "sga"
     / "sga1-6-reader-clean-presentation-successor-20260728"
 )
-SGA3_PREDECESSOR_ROOT = (
-    REPO_ROOT
-    / "sources"
-    / "sga"
-    / "sga3-english-complete-working-reader-clean-r18-native-expose-i-20260729"
-)
 
-PDFS = {
+READERS = {
     "SGA1": (
         "00a_SGA1_English_CompleteVolume_Working_NoExhaustiveCertification_20260722.pdf",
-        PREDECESSOR_ROOT,
+        FIRST_CLEAN_ROOT,
+        FIRST_CLEAN_ROOT,
     ),
     "SGA2": (
         "00b_SGA2_English_Complete_ReferenceLinked_R8_20260723.pdf",
-        PREDECESSOR_ROOT,
+        PACKAGE_ROOT,
+        FIRST_CLEAN_ROOT,
     ),
     "SGA3": (
         "00c00_SGA3_English_Complete_Reader_Native_Update_R18_20260729.pdf",
-        SGA3_PREDECESSOR_ROOT,
+        PACKAGE_ROOT,
+        FIRST_CLEAN_ROOT,
+    ),
+    "SGA4": (
+        "00d_SGA4_English_Proper_Exposes_I_XIX_including_Vbis_ReferenceV2_R7_20260723.pdf",
+        PRESENTATION_ROOT,
+        PRESENTATION_ROOT,
     ),
     "SGA5": (
         "00e_SGA5_English_ReferenceLinked_R9_20260723.pdf",
-        PREDECESSOR_ROOT,
+        FIRST_CLEAN_ROOT,
+        FIRST_CLEAN_ROOT,
+    ),
+    "SGA6": (
+        "00f_SGA6_English_Complete_ReferenceLinked_20260723.pdf",
+        PACKAGE_ROOT,
+        PRESENTATION_ROOT,
     ),
 }
 
 PRIVATE_OR_PROCESS_PATTERNS = (
     re.compile(rb"C:[\\/]+Users[\\/]+Floris", re.IGNORECASE),
-    re.compile(rb"C:[\\/]+w[\\/]+s613", re.IGNORECASE),
+    re.compile(rb"C:[\\/]+w[\\/]+s\d+", re.IGNORECASE),
     re.compile(rb"\.codex", re.IGNORECASE),
     re.compile(rb"\bChatGPT\b", re.IGNORECASE),
     re.compile(rb"\bOpenAI\b", re.IGNORECASE),
@@ -62,6 +77,20 @@ PRIVATE_OR_PROCESS_PATTERNS = (
     re.compile(rb"\bCodex\b", re.IGNORECASE),
     re.compile(rb"\bAI[- ](?:generated|assisted)\b", re.IGNORECASE),
     re.compile(rb"\bLLM[- ]generated\b", re.IGNORECASE),
+)
+READER_TEXT_PATTERNS = (
+    re.compile(r"\bChatGPT\b", re.IGNORECASE),
+    re.compile(r"\bOpenAI\b", re.IGNORECASE),
+    re.compile(r"\bClaude\b", re.IGNORECASE),
+    re.compile(r"\bCodex\b", re.IGNORECASE),
+    re.compile(r"\bAI[- ](?:generated|assisted)\b", re.IGNORECASE),
+    re.compile(r"\bLLM[- ]generated\b", re.IGNORECASE),
+    re.compile(r"\bpending (?:fresh )?(?:independent )?review\b", re.IGNORECASE),
+    re.compile(r"\bmanager(?:'s)? (?:decision|adjudication)\b", re.IGNORECASE),
+    re.compile(r"\bsource[- ]status\b", re.IGNORECASE),
+    re.compile(r"\bsource[- ]defect\b", re.IGNORECASE),
+    re.compile(r"\bSRCDEF-\d+\b", re.IGNORECASE),
+    re.compile(r"\bworkpass\b", re.IGNORECASE),
 )
 
 
@@ -144,6 +173,16 @@ def inspect_pdf(path: Path) -> dict[str, object]:
     }
 
 
+def extract_pdf_text(path: Path) -> str:
+    result = subprocess.run(
+        ["pdftotext", "-layout", str(path), "-"],
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=True,
+    )
+    return result.stdout.decode("utf-8", errors="replace")
+
+
 def write_manifest() -> None:
     files = sorted(
         (
@@ -165,8 +204,10 @@ def write_manifest() -> None:
 def main() -> int:
     errors: list[str] = []
     comparisons: dict[str, object] = {}
-    for volume, (filename, predecessor_root) in PDFS.items():
-        current = inspect_pdf(PACKAGE_ROOT / filename)
+    reader_text_scan: dict[str, object] = {}
+    for volume, (filename, current_root, predecessor_root) in READERS.items():
+        current_path = current_root / filename
+        current = inspect_pdf(current_path)
         predecessor = inspect_pdf(predecessor_root / filename)
         if current["invalid_named_destinations"]:
             errors.append(f"{volume}: invalid named destinations")
@@ -174,9 +215,25 @@ def main() -> int:
             errors.append(f"{volume}: invalid GoTo destinations")
         if current["metadata_blocked_hits"]:
             errors.append(f"{volume}: process/model metadata")
+        text = extract_pdf_text(current_path)
+        text_hits = sorted(
+            {
+                match.group(0)
+                for pattern in READER_TEXT_PATTERNS
+                for match in pattern.finditer(text)
+            },
+            key=str.casefold,
+        )
+        reader_text_scan[volume] = {
+            "path": current_path.relative_to(REPO_ROOT).as_posix(),
+            "characters": len(text),
+            "blocked_hits": text_hits,
+        }
+        if text_hits:
+            errors.append(f"{volume}: reader process/status text {text_hits}")
         comparisons[volume] = {
             "predecessor": predecessor,
-            "reader_only_successor": current,
+            "reader_facing_current": current,
             "page_delta": current["pages"] - predecessor["pages"],
             "named_destination_delta": (
                 current["named_destinations"]
@@ -206,10 +263,12 @@ def main() -> int:
     payload = {
         "status": "PASS" if not errors else "FAIL",
         "purpose": (
-            "Reader-only successor PDF structure, internal-link, metadata, "
-            "and package privacy/process-name validation."
+            "Second-pass reader-only successor PDF structure, internal-link, "
+            "metadata, all-six-reader text, and package privacy/process-name "
+            "validation."
         ),
         "comparisons": comparisons,
+        "reader_text_scan": reader_text_scan,
         "package_scan_hits": file_scan,
         "errors": errors,
     }
