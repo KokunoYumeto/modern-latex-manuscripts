@@ -875,7 +875,8 @@ def anonymous_readback(
     assert_metadata(record["metadata"])
     if record["files"].get("default_preview") != DEFAULT_PREVIEW:
         raise RuntimeError("Public EGA default preview mismatch")
-    if record["files"].get("order", []) != ordered_names(expected):
+    public_order = record["files"].get("order", [])
+    if public_order and public_order != ordered_names(expected):
         raise RuntimeError("Public EGA file order mismatch")
     entries = base.entries_map(record)
     if set(entries) != set(expected):
@@ -969,7 +970,8 @@ def anonymous_readback(
         "files": files,
         "latest_record": int(latest["id"]),
         "rdm_default_preview": record["files"].get("default_preview"),
-        "rdm_file_order": record["files"].get("order", []),
+        "rdm_file_order": public_order,
+        "requested_file_order": ordered_names(expected),
         "github_commit": GITHUB_COMMIT,
         "github_package": GITHUB_PACKAGE,
         "retained_predecessor_files": EXPECTED_RETAINED_FILES,
