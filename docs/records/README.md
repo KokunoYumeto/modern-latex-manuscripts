@@ -19,7 +19,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 3 | 1 | 0 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
 | al-Battani Opus Astronomicum | 19 | 7 | 0 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |  |
-| SGA (serious active work; not complete) | 66 | 8 | 8 | 50 | 395.4 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/21696318) |
+| SGA (serious active work; not complete) | 66 | 8 | 8 | 50 | 395.4 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/21698501) |
 | EGA (source-first work underway; layered working reader) | 28 | 14 | 4 | 8 | 479.5 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/21697218) |
 | Pierre Deligne | 6 | 2 | 0 | 3 | 447.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 0 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |

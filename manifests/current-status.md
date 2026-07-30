@@ -1,3 +1,48 @@
+## 2026-07-30 SGA1-3 clean reading-surface successor published
+
+The sole latest SGA version is
+[`10.5281/zenodo.21698501`](https://doi.org/10.5281/zenodo.21698501)
+under existing concept `10.5281/zenodo.20410947`. It replaces the direct SGA1,
+SGA2, and SGA3 reading copies, their primary TeX, and their grouped current
+source/history archives:
+
+- `00a_SGA1_English_Reader.pdf`: 2,508,801 bytes / 259 pages,
+  SHA-256
+  `6D490A8CC73FDEDC312AE0C0F7293794CBC4996A36CF5FE5DF98C571FC5F38CE`
+- `00b_SGA2_English_Reader.pdf`: 1,996,972 bytes / 178 pages,
+  SHA-256
+  `C2E1C33CAEDF2866DA6FFC2D3E87DB243EF7CF098D8A1F25E2589245B1B7094D`
+- `00c_SGA3_English_Reader.pdf`: 6,363,273 bytes / 1,470 pages,
+  SHA-256
+  `7352749F0F2CAEC0C4759A417CF7D4C5E332F5C89E81E3D43F812F788519DE59`
+- `10a_SGA1_English_Source_and_History_R2_20260730.zip`: 141 members,
+  SHA-256
+  `36178A9A0BAD2F92E6843D414B815EEB51053CE1720677702CB11D2E0E50AFB1`
+- `10b_SGA2_English_Source_and_History_R10_20260730.zip`: 47 members,
+  SHA-256
+  `5C22DBE82521C2036E15915DD50CC80758CA1C3F5E023F4401B63CFEC1BDB046`
+- `10c_SGA3_English_Source_R27_20260730.zip`: 923 members,
+  SHA-256
+  `2F1CFD9D413D56299A91E6B7FA97494E83236858B22AD877F88EB720FE8CA6EF`
+
+The direct readers contain the mathematical editions and genuine source-era
+editorial apparatus without project-production, workflow, source-status,
+correction-history, comparison-lineage, or project-written source-reading
+narration. SGA4-6 were checked and retained byte-identically.
+
+Anonymous readback passed all 66 outer files / 414,576,949 bytes and all 50
+ZIPs / 4,242 file members / 425,435,770 uncompressed bytes. Fifty-six unrelated
+predecessor files remained exact by size and MD5. SGA1 is the default preview.
+No duplicate concept or parallel draft was created.
+
+GitHub PR [#170](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/170)
+merged source commit
+`e27745eac4d52c714c90780ace5004370368305b` as
+`f5b8e7f24e5a723419f3cc60d06dba6c0b7f2276`. See the
+[publication receipt](published-zenodo/20260730_sga_reader_presentation_cleanup_record_21698501.md)
+and
+[machine readback](published-zenodo/20260730_sga_reader_presentation_cleanup_record_21698501_public_readback.json).
+
 ## 2026-07-30 EGA IV Sections 1-10 successor published
 
 The sole latest EGA version is
