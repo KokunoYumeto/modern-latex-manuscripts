@@ -104,11 +104,11 @@ Open the records in this order if the goal is to find useful mathematics quickly
 | Priority | Records | Reader Surface | Source-Audit / Caveat |
 |---|---|---|---|
 | 1. Coherent reader/translation surfaces | Noether, Weber, Frobenius, Kneser, Sylvester, al-Battani | Top-level PDFs or declared work-level readers exist for a named scope. | Still working scholarly drafts; Noether/Weber remain active source-reconciliation lanes rather than critical editions. |
-| 2. Serious source-aware work, caveat-heavy | Bianchi, Gordan, Steinitz, Gibbs, Maxwell, SGA, EGA, Deligne, Ukrainian applied mathematics, non-European/Chinese/Indian/Islamic records | Real reader, translation, data/table, or source-audit surfaces exist. | Range quality varies; diagrams, tables, page-local source closure, and language synchronization must be checked. EGA is partial and non-uniform but now has two assigned source-first working readers. |
+| 2. Serious source-aware work, caveat-heavy | Bianchi, Gordan, Steinitz, Gibbs, Maxwell, SGA, EGA, Deligne, Ukrainian applied mathematics, non-European/Chinese/Indian/Islamic records | Real reader, translation, data/table, or source-audit surfaces exist. | Range quality varies; diagrams, tables, page-local source closure, and language synchronization must be checked. EGA now has a complete source-aligned EGA II working reader beside partial EGA 0/III and EGA III lanes. |
 | 3. Partial author records and non-continuous streams | Dedekind, Dirichlet, Gauss, Riemann, Poincare, mixed classical shelves | Useful packages exist. | Read package-by-package; do not treat these as seamless author-complete editions. |
 | 4. Source-intake/OCR/support/provenance or unsafe draft lanes | Cayley, Galois/Eisenstein/Steiner source staging, raw landing material | Preservation, OCR, salvage, source intake, or future continuation support. | Cayley is de-promoted until exact page ranges are re-audited and re-promoted. Galois, Eisenstein, and Steiner have source masters, handoff packets, and locator/comparator witnesses only, not reader releases. |
 
-The SGA/EGA distinction still matters. SGA has six current English reader surfaces with deep source/reference/diagram work. EGA is earlier and non-uniform, but it is no longer only a stub: the current EGA record fronts assigned source-first working readers for EGA 0/III Sections 8-13 and EGA III Sections 1-7, with direct masters and grouped recursive source. Neither corpus is a critical edition or blanket source certification.
+The SGA/EGA distinction still matters. SGA has six current English reader surfaces with deep source/reference/diagram work. EGA is non-uniform but no longer merely a support lane: current record 21696776 fronts complete source-aligned EGA II through authority EOF, plus assigned partial EGA 0/III Sections 8-13 and EGA III Sections 1-7 readers, with direct masters and grouped recursive source. Neither corpus is a critical edition or blanket whole-series source certification.
 
 ## Archive Surface
 
@@ -117,12 +117,12 @@ These counts describe the public file surface. They are useful for release hygie
 | Metric | Current Count |
 |---|---:|
 | Public records tracked here | 33 |
-| Public files indexed | 963 |
-| Top-level PDFs | 349 |
-| Artifact/source ZIPs | 482 |
-| Manifest/status files | 108 |
-| Editable TeX files | 22 |
-| Total public file surface | 55.67 GB |
+| Public files indexed | 967 |
+| Top-level PDFs | 350 |
+| Artifact/source ZIPs | 487 |
+| Manifest/status files | 105 |
+| Editable TeX files | 23 |
+| Total public file surface | 55.66 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -145,7 +145,7 @@ Do not read file counts, upload size, or a local page percentage as a simple pro
 | Partial or non-continuous stream | Useful packages exist, but the record is not a seamless author edition. | Dedekind, Dirichlet, Gauss, Riemann, Poincare, mixed shelves. |
 | Support, OCR, salvage, source intake, or provenance | Material is retained because it helps future work, not because it is a promoted reading edition. | Cayley, Galois/Eisenstein/Steiner source staging, raw landing/provenance bundles. |
 
-When these tiers conflict with an older filename such as `complete`, `strict`, `source-checked`, or `critical`, the tier and the current caveat win. Cayley is currently de-promoted repair/provenance material. EGA has promoted bounded source-first lanes but remains partial and non-uniform. SGA is substantially broader, but still not complete or globally source-faithful.
+When these tiers conflict with an older filename such as `complete`, `strict`, `source-checked`, or `critical`, the tier and the current caveat win. Cayley is currently de-promoted repair/provenance material. EGA II is complete for its source-aligned working scope, while the wider EGA corpus remains partial and non-uniform. SGA is substantially broader, but still not uniformly source-certified.
 
 ## Current Records
 
@@ -162,7 +162,7 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | [al-Battani](https://doi.org/10.5281/zenodo.20539593) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition with complete trilingual text over 100 segments, complete fixed-star catalogue data (485 stars), complete geography gazetteer (269 localities), chronology framework/canon partial, and zodiac auxiliary tables documented as not cleanly present in Nallino's Latin table source. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
 | **Serious source-aware work, but caveat-heavy** |  |  |  |  |  |
 | [SGA](https://doi.org/10.5281/zenodo.20410947) | 66 | 8 | 50 | 395.37 MB | Version [10.5281/zenodo.21696318](https://doi.org/10.5281/zenodo.21696318) directly exposes six neutral-named English readers in SGA1-6 order, primary editable TeX, and two French readers. The preferred 1,470-page SGA3 R26 and 376-page SGA6 R10 successors are reader-pure; the 864-page SGA4 R8 successor remains reader-clean. Fifty ZIPs / 4,245 file members group source, QA, predecessor, and visual-provenance evidence. All 66 outer files passed anonymous exact readback. Direct readers contain no AI/project/model/workflow/source-status or project-written source-reading commentary; genuine source-era editorial apparatus remains. SGA1 is the default preview and is not exhaustively convention-v2 certified; SGA3 is not final diagram-fidelity closure; SGA4half is rights-held; SGA6 remains layered. |
-| [EGA](https://doi.org/10.5281/zenodo.20414353) | 22 | 12 | 6 | 474.48 MB | Version [10.5281/zenodo.21677876](https://doi.org/10.5281/zenodo.21677876) preserves the French originals and fronts a 120-page assigned source-first EGA 0/III Sections 8-13 reader and a 150-page EGA III Sections 1-7 reader. Both editable masters are direct; recursive source and concise controls are grouped into ZIPs. All 22 outer files and all six ZIPs / 211 members passed anonymous exact readback. This is partial and non-uniform working translation material, not complete EGA, a critical edition, or blanket source certification. |
+| [EGA](https://doi.org/10.5281/zenodo.20414353) | 28 | 13 | 10 | 477.57 MB | Version [10.5281/zenodo.21696776](https://doi.org/10.5281/zenodo.21696776) preserves the French originals and fronts the complete 165-page source-aligned EGA II working reader, direct master TeX, and exact 20-member source ZIP. Partial 120-page EGA 0/III Sections 8-13 and 150-page EGA III Sections 1-7 readers remain direct. All 28 outer files and all ten ZIPs / 358 members passed anonymous exact readback. EGA II is complete for its stated scope; the wider EGA corpus remains partial and non-uniform. |
 | [Deligne](https://doi.org/10.5281/zenodo.20410853) | 100 | 96 | 3 | 448 MB | Mixed Deligne papers/letters drafts plus the refreshed `2026-06-09 v3` repair/math-audit packet containing D001-D017 witness material, D001-D017 equation-dense audit material, D074-D090 descending triage, and D074-D090 math-audit repairpass1; diagram-heavy material remains uneven and source-crop sensitive. |
 | [Luigi Bianchi](https://doi.org/10.5281/zenodo.20615814) | 22 | 5 | 12 | 1.92 GB | `Lezioni di geometria differenziale` Vol. I represented through source pdfpages 001-543; A2 latest public compact/core package `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` extends working coverage through source p0135 while earlier large scan-heavy p0105 packages remain provenance/backstop. Loose p0135 Italian/English reader PDFs/TeX and the p0121-p0135 source witness are queued as reader-convenience/fronting files, not new content. |
 | [Paul Gordan and Clebsch-Gordan](https://doi.org/10.5281/zenodo.20616260) | 45 | 0 | 39 | 1.83 GB | Dedicated package set now includes Abel27, Abelsche FinalAuditFix02, `De linea geodetica` p001-p047, theta fix06, and `Vorlesungen ueber Invariantentheorie` Bd. 1 p001-p028 on the latest 2026-06-24 version DOI `10.5281/zenodo.20822196`, which also adds the compact project-control/status update. Working/source-audit drafts only, not a certified critical edition. |
@@ -202,7 +202,7 @@ The project is best read as a live corpus rather than a finished edition. The nu
 | Source/provenance availability | Broad but uneven | Most records include artifact ZIPs with TeX, sources, or checking material; quality and usefulness vary by author lane. |
 | Human browseability | Improved, still noisy | The dashboard, browse index, download guide, author/work index, record landing pages, and file catalog make the archive navigable; some older shelves remain provenance-heavy and need continued pruning/fronting. |
 | Mathematical/source proofreading | Early and uneven | Many drafts still need page-by-page checking against source witnesses; no record is currently treated as critically certified by default. |
-| Reader/translation coverage | Substantial but uneven | Several corpora have substantial reader or translation surfaces, but status differs sharply: Noether/Weber/SGA/al-Battani and several author records have real working editions, while EGA, Cayley, and mixed shelves are mostly partial, OCR/support, or repair-provenance lanes. |
+| Reader/translation coverage | Substantial but uneven | Several corpora have substantial reader or translation surfaces, but status differs sharply: Noether/Weber/SGA/al-Battani and several author records have real working editions. EGA now includes complete source-aligned EGA II amid partial wider coverage; Cayley and mixed shelves remain mostly OCR/support or repair-provenance lanes. |
 
 ## Most Useful Next Work
 

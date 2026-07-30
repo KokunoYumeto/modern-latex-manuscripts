@@ -1,3 +1,27 @@
+## 2026-07-30: complete source-aligned EGA II published and read back
+
+- Existing concept:
+  [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
+- Published successor:
+  [10.5281/zenodo.21696776](https://doi.org/10.5281/zenodo.21696776)
+- GitHub package:
+  [complete EGA II working reader](../sources/ega/checkpoints/ega2-complete-source-aligned-working-20260730/)
+
+The same-concept successor replaces the partial EGA II reader, master, and
+source ZIP with a 165-page source-aligned working reader through authority EOF,
+direct editable master TeX, and exact 20-member source archive. Twenty-three
+unrelated predecessor files remain byte-identical. Anonymous readback passed all
+28 outer files and all ten ZIPs / 358 members. EGA 0/III remains the default
+preview. No duplicate concept, parallel draft, or second successor was created.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260730_ega2_complete_source_aligned_record_21696776.md)
+- [outer-file readback](../manifests/published-zenodo/20260730_ega2_complete_source_aligned_record_21696776_public_readback.json)
+- [ZIP-member readback](../manifests/published-zenodo/20260730_ega2_complete_source_aligned_record_21696776_zip_member_readback.json)
+- [draft file actions](../manifests/published-zenodo/20260730_ega2_complete_source_aligned_record_21696776_draft_files.json)
+- [publish response](../manifests/published-zenodo/20260730_ega2_complete_source_aligned_record_21696776_publish_response.json)
+
 ## 2026-07-29: clean SGA reader replacement published and read back
 
 - Existing concept:
