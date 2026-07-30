@@ -2,9 +2,15 @@
 
 Date: 2026-07-30
 
-GitHub status: **ready for publication commit**
+GitHub status: **published and anonymously read back**
+
+GitHub release commit:
+
+`f68b8c571f65b05ae33bb9c5fc986727da2abb59`
 
 Zenodo concept: `10.5281/zenodo.20414353`
+
+Current Zenodo version: [`10.5281/zenodo.21708950`](https://doi.org/10.5281/zenodo.21708950)
 
 Release directory:
 
@@ -22,6 +28,10 @@ The release starts with one 125-member ZIP containing all five cumulative
 readers and their buildable TeX. Five direct reader PDFs, five direct master
 TeX files, four coherent source/QA ZIPs, and compact status/checksum controls
 follow it. Previous GitHub checkpoints and Zenodo versions remain history.
+
+Anonymous readback passed all 18 current-release files, both 105-file frozen
+GitHub checkpoint trees, all 30 Zenodo files, and every member of the nine
+Zenodo ZIP archives. The EGA 0 PDF is the selected Zenodo preview.
 
 No whole-EGA completion, critical-edition, mathematical-certification,
 accessibility, or rights-clearance claim is made.
