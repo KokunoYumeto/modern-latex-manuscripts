@@ -22,17 +22,18 @@ and
 
 GitHub now preserves two updated, privacy-clean source-survival snapshots:
 
-- `sources/ega/ega1-source-aligned-through-section3-3-working-custody-20260730/`
-  contains 14 source files / 555,687 bytes. The reviewed range reaches
-  Section 3.3.15; the next cursor is Section 3.4.1, printed page 111 /
-  authority physical page 110. Its 17-row self-excluding manifest has
+- `sources/ega/ega1-source-aligned-through-section3-6-working-custody-20260730/`
+  contains 14 source files / 555,820 bytes. The reviewed range reaches
+  Section 3.6.5; the next cursor is Section 3.7.1, printed page 118 /
+  authority physical page 117. Its 17-row self-excluding manifest has
   SHA-256
-  `D7EB4942A72C9C2327D972C17FF13A277CE46F104D86354DB2B63522D282C5FD`.
+  `D8FE2680FAA66A8B622B586F8EBA0F0EEB49A346B9F3DD5B89CB765B3B8479F4`.
 - `sources/ega/ega4-sections11-21-source-aligned-working-custody-20260730/`
-  contains the 14-file / 1,822,102-byte source and build-harness closure.
-  The latest documented review gate reaches Theorem 11.3.8 and Proposition
-  11.3.9 on printed page 137. Its 17-row self-excluding manifest has SHA-256
-  `EA1E9A3BFB05B79E2C44F81CC21D36E0D9736C5E33D497F13ACDC62F2AE2E52B`.
+  contains the 14-file / 1,822,111-byte source and build-harness closure.
+  The latest documented review gate reaches Theorem 11.3.10 and Lemma
+  11.3.10.2 on printed page 138. Its 17-row self-excluding manifest has
+  SHA-256
+  `FEDC060F8CBEBB75636D58784DE4131B016967A3F52C5BCCBB2D0CB7168FC41D`.
 
 Both copies are byte-identical to their active roots, compile successfully
 from disposable clean copies, and have zero privacy/model/task-marker hits.
