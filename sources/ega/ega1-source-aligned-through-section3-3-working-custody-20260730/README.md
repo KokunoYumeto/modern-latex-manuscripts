@@ -2,18 +2,17 @@
 
 This directory preserves an exact, privacy-clean snapshot of the active
 no-overwrite EGA I English source-alignment successor as it stood at
-2026-07-30T08:49:05+02:00.
+2026-07-30T09:51:26+02:00.
 
 ## Scope
 
-The last recorded reviewed cursor before this snapshot was through Section
-2.1.8, with Definition 2.2.1 next. The active source changed after that status
-record was written, so this package makes no source-review claim beyond the
-recorded cursor. Those later bytes are preserved as working custody only.
+The source-aligned pass is reviewed continuously through Section 3.3.15.
+The exact next cursor is Section 3.4.1, printed page 111 / authority physical
+page 110.
 
 The source tree contains the complete inherited EGA I TeX closure because the
-working reader compiles as a volume. Only the bounded source-aligned range
-described above is claimed reviewed in this snapshot.
+working reader compiles as a volume. Material beyond the declared cursor is
+preserved as inherited working source and is not promoted by this snapshot.
 
 ## Authority
 
@@ -28,15 +27,23 @@ readings; embedded text and pre-existing OCR are locator material only.
 
 ## Contents and status
 
-`source/` contains 14 files and 555,611 bytes captured byte-exactly from the
+`source/` contains 14 files and 555,687 bytes captured byte-exactly from the
 active source tree. `SHA256SUMS.csv` gives the identity of every other file in
 this directory.
 
-No PDF is included. The active TeX had advanced beyond the most recent
-converged PDF when this snapshot was taken, and this custody package does not
-pair a stale reader with newer source.
+The current active source has a coherent three-pass XeLaTeX build:
+
+- 109 letter pages / 732,306 bytes
+- SHA-256
+  `5DEBA2E39976DC4064D4B7573F64229526165942452A5F4D5BD11562717BD426`
+- final log SHA-256
+  `4C74241B0808CA4D6EA7373B11986BF01FDBB5F4F5A8C2F1744513F7E29DC0F0`
+- 272 named destinations / 1,241 internal GoTo actions / 0 broken targets
+
+That PDF and its build logs are not included here. This is a lightweight
+source-survival update, not a new public reader release. An isolated one-pass
+build from the copied GitHub source also exited 0 and produced 108 pages.
 
 This is a public GitHub survival snapshot, not a reader release, completed EGA
 I translation, critical edition, rights clearance, or convention-v2 reference
 certification. The existing EGA Zenodo record is unchanged.
-

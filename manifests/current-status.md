@@ -1,3 +1,26 @@
+## 2026-07-30 active EGA source-custody advancement
+
+GitHub now preserves two updated, privacy-clean source-survival snapshots:
+
+- `sources/ega/ega1-source-aligned-through-section3-3-working-custody-20260730/`
+  contains 14 source files / 555,687 bytes. The reviewed range reaches
+  Section 3.3.15; the next cursor is Section 3.4.1, printed page 111 /
+  authority physical page 110. Its 17-row self-excluding manifest has
+  SHA-256
+  `D7EB4942A72C9C2327D972C17FF13A277CE46F104D86354DB2B63522D282C5FD`.
+- `sources/ega/ega4-sections11-21-source-aligned-working-custody-20260730/`
+  contains the 14-file / 1,822,102-byte source and build-harness closure.
+  The latest documented review gate reaches Theorem 11.3.8 and Proposition
+  11.3.9 on printed page 137. Its 17-row self-excluding manifest has SHA-256
+  `EA1E9A3BFB05B79E2C44F81CC21D36E0D9736C5E33D497F13ACDC62F2AE2E52B`.
+
+Both copies are byte-identical to their active roots, compile successfully
+from disposable clean copies, and have zero privacy/model/task-marker hits.
+The active roots retain coherent three-pass 109-page and 317-page builds, but
+the GitHub snapshots intentionally remain source-only. They do not create new
+reader, completion, rights, or convention-v2 claims. The EGA Zenodo head
+remains `10.5281/zenodo.21697218`; no duplicate concept or draft was created.
+
 ## 2026-07-30 Noether Slavic source-repair survivor successor published
 
 The sole latest Noether version is

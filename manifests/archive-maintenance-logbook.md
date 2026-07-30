@@ -4127,3 +4127,22 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Anonymous Zenodo readback passed 20/20 outer files and 132/132 archive
   members. The 459-page full cumulative English reader remains the default
   preview.
+
+## 2026-07-30 - Active EGA source-custody advancement
+
+- Replaced the earlier EGA I Section 2.1 source snapshot with an exact current
+  source closure reviewed through Section 3.3.15; next cursor Section 3.4.1 /
+  printed p111.
+- Advanced the EGA IV Sections 11-21 custody source to the latest documented
+  repair gate through Theorem 11.3.8 and Proposition 11.3.9 / printed p137.
+- Both 18-file GitHub packages replay their 17-row self-excluding manifests
+  exactly and have zero privacy/model/task-marker hits.
+- Disposable isolated one-pass XeLaTeX builds exited 0 at 108 and 314 pages.
+  The active roots retain coherent three-pass 109-page and 317-page builds
+  with PDF SHA-256 values
+  `5DEBA2E39976DC4064D4B7573F64229526165942452A5F4D5BD11562717BD426`
+  and
+  `F6F63B4FE4348527F94F8BF4CCF6D8210F97DA30CF773AC8419490F045023044`.
+- This was source-survival custody only. EGA remains on its separate concept
+  DOI `10.5281/zenodo.20414353`, current version `10.5281/zenodo.21697218`;
+  no Zenodo mutation, duplicate concept, or parallel draft was created.
