@@ -15,8 +15,10 @@ The current source-first and source-aligned readers are ordered by volume:
 4. EGA IV, cumulative source-aligned Sections 1-10: 268 pages.
 
 The EGA II reader is continuous through its terminal backmatter and has no
-remaining EGA II translation cursor. The EGA IV reader is continuous through
-Section 10 and continues at Section 11.
+remaining EGA II translation cursor. Its reference-v2 successor has 1,028
+stable targets, 2,078 valid internal GoTo actions, and 2,538 named
+destinations. The EGA IV reader is continuous through Section 10 and continues
+at Section 11.
 
 The older EGA IV Sections 1-21 PDF remains available because it has broader
 working coverage, but it predates the current source-aligned cumulative lane.
@@ -28,6 +30,11 @@ The four current readers have directly visible master TeX files. Their
 recursive source trees and exact identity controls are grouped into compact
 ZIP files.
 
+The EGA II source ZIP contains the exact 51-file independently replayed
+reference-v2 package: the complete 14-file editable closure, 165-page reader,
+reference graph, build evidence, visual QA, rights/provenance notice, and exact
+identity controls.
+
 The EGA IV source ZIP contains 50 exact members: the sealed 40-file source
 closure, one reader-clean wrapper, concise public build and scope notes,
 reference-limit evidence, and a 49-row self-excluding checksum manifest. It
@@ -35,10 +42,15 @@ replaces the three bounded Sections 1-2, Section 3, and Sections 4.1-4.4
 custody ZIPs on the current landing surface. Those bounded packages remain
 available in immutable predecessor versions.
 
-Generated build files, raw logs, rendered QA images, private paths, and
-transient intermediates are excluded from the compact current package.
+Private paths, authority scans, OCR, external comparison bodies, and transient
+intermediates are excluded from the compact current packages. EGA II's grouped
+archive deliberately retains its privacy-clean build and rendered-QA evidence.
 
 ## Reference status
+
+The EGA II reader has 1,028 stable targets, 2,078/2,078 resolved internal
+GoTo actions, 2,538 named destinations, and an exact reviewed partition of 921
+candidates into 264 applications and 657 residuals.
 
 The EGA IV Sections 1-10 reader has 1,438 named destinations and 2,708 valid
 internal GoTo actions. Exhaustive cross-volume linking remains open: 1,041
