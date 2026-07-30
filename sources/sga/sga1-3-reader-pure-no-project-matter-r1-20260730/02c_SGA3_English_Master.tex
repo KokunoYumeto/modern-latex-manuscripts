@@ -1,0 +1,326 @@
+\documentclass[11pt,a4paper,oneside]{book}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage[a4paper,inner=30mm,outer=27mm,top=28mm,bottom=30mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,mathtools,stmaryrd}
+\usepackage{tikz,tikz-cd}
+\usetikzlibrary{
+  arrows,
+  arrows.meta,
+  calc,
+  decorations.pathmorphing,
+  matrix,
+  positioning,
+  shapes,
+  shapes.geometric
+}
+\usepackage{graphicx,float,adjustbox,enumitem,multicol}
+\usepackage{etoolbox}
+\usepackage{xcolor}
+\usepackage[hidelinks,hypertexnames=false,pdfstartview={},linktoc=page,
+  pdftitle={SGA 3 - Group Schemes - English Reader},
+  pdfauthor={M. Demazure and A. Grothendieck, editors},
+  pdfsubject={English translation and TeX edition of SGA 3},
+  pdfkeywords={SGA 3, group schemes, English translation, algebraic geometry}]{hyperref}
+
+\setlength{\emergencystretch}{3em}
+\raggedbottom
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{scholium}[theorem]{Scholium}
+\newtheorem{application}[theorem]{Application}
+\newtheorem{complements}[theorem]{Complements}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\providecommand{\Ga}{\mathbb G_a}
+\providecommand{\Gm}{\mathbb G_m}
+\providecommand{\Norm}{\operatorname{Norm}}
+\providecommand{\Centr}{\operatorname{Centr}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Dom}{\operatorname{Dom}}
+\providecommand{\rank}{\operatorname{rank}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Lie}{\operatorname{Lie}}
+\providecommand{\intaut}{\operatorname{int}}
+\providecommand{\Fib}{\operatorname{Fib}}
+\providecommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Autext}{\operatorname{Autext}}
+\providecommand{\rgred}{\operatorname{rgred}}
+\providecommand{\rgss}{\operatorname{rgss}}
+\providecommand{\GL}{\operatorname{GL}}
+\providecommand{\Qp}{\mathbb{Q}_{+}}
+\providecommand{\cR}{\mathcal{R}}
+\providecommand{\VR}{\mathcal{V}}
+\providecommand{\Nil}{\operatorname{Nil}}
+
+\providecommand{\SGAParagraph}[1]{%
+  \par\medskip\noindent\textbf{#1.}---\quad
+}
+\providecommand{\NDE}[1]{%
+  \footnote{\textit{Editors' note.} #1}%
+}
+\newenvironment{sgastatement}[1]
+  {\par\medskip\noindent\textbf{#1.}---\ \itshape}
+  {\par\medskip}
+\providecommand{\SGAQED}{\hfill\(\square\)\par\smallskip}
+\providecommand{\Idx}[2]{%
+  \par\noindent\hangindent=1.2em\hangafter=1
+  #1\if\relax\detokenize{#2}\relax\else,\ #2\fi\par
+}
+\providecommand{\SGASection}[2]{%
+  \section*{#1.\ #2}%
+  \addcontentsline{toc}{section}{#1.\ #2}%
+}
+\providecommand{\SGASubsection}[2]{%
+  \subsection*{#1.\ #2}%
+  \addcontentsline{toc}{subsection}{#1.\ #2}%
+}
+\providecommand{\SGAStatement}[2]{%
+  \par\medskip\noindent\textbf{#1.}---\ {\itshape #2\par}\medskip
+}
+\providecommand{\SGAProof}[1]{%
+  \par\smallskip\noindent\textit{#1.}\quad
+}
+\long\def\SGAArchiveOnly#1{}
+
+\makeatletter
+\providecommand{\SGARefTarget}[1]{\phantomsection\label{#1}}
+\providecommand{\SGARefLink}[2]{%
+  \@ifundefined{r@#1}{#2}{\hyperref[#1]{#2}}%
+}
+\providecommand{\GuideChapter}[2]{%
+  \@dottedtocline{0}{0em}{0em}{#1}{#2}}
+\providecommand{\GuideChapterSplit}[3]{%
+  \par\noindent\textbf{#1}\par\nobreak
+  \@dottedtocline{0}{2em}{0em}{#2}{#3}}
+\providecommand{\GuideSection}[2]{%
+  \@dottedtocline{1}{1.45em}{2.25em}{#1}{#2}}
+\newcommand{\SGAInputRoot}[1]{%
+  \def\input@path{{inputs/#1/}}%
+}
+\newcommand{\SGATagsLeft}{%
+  \tagsleft@true
+  \let\veqno\@@leqno
+}
+\newcommand{\SGATagsRight}{%
+  \tagsleft@false
+  \let\veqno\@@eqno
+}
+\makeatother
+
+\newcommand{\SGAStartExpose}[1]{%
+  \clearpage
+  \setcounter{section}{0}%
+  \setcounter{subsection}{0}%
+  \setcounter{theorem}{0}%
+  \setcounter{footnote}{0}%
+  \setcounter{figure}{0}%
+  \SGAInputRoot{#1}%
+}
+
+\title{Seminar on Algebraic Geometry 3\\
+  \large Group Schemes\\[0.75em]
+  \normalsize English Translation}
+\author{M. Demazure and A. Grothendieck, editors}
+\date{}
+
+\begin{document}
+
+\frontmatter
+\maketitle
+
+\tableofcontents
+
+\mainmatter
+
+\SGAInputRoot{INTRO}
+\input{body}
+
+\SGAStartExpose{I}
+\input{body}
+
+\makeatletter
+\providecommand{\SGAThreeNativeInput}[2][0.92\textwidth]{%
+  \begin{adjustbox}{max width=#1,center,varwidth=\maxdimen}%
+    \input{#2}%
+  \end{adjustbox}%
+}
+\providecommand{\SGAThreeNativeDiagram}[5][0.92\textwidth]{%
+  \begin{figure}[H]
+    \centering
+    \SGAThreeNativeInput[#1]{#2}%
+    \caption{#3}
+    \label{#4}
+  \end{figure}%
+}
+\makeatother
+
+\SGAStartExpose{II}
+\input{body}
+
+\SGAStartExpose{III}
+\input{body}
+
+\SGAStartExpose{IV}
+\input{body}
+
+\SGAStartExpose{V}
+\makeatletter
+\renewcommand{\SGAThreeNativeInput}[1]{%
+  \filename@parse{#1}%
+  \edef\SGAThreeNativeFile{%
+    native_diagrams/exp5/\filename@base.\filename@ext.tex%
+  }%
+  \input{\SGAThreeNativeFile}%
+}
+\makeatother
+\providecommand{\SGAThreeDiagram}[5][0.92\textwidth]{}
+\renewcommand{\SGAThreeDiagram}[5][0.92\textwidth]{%
+  \begin{figure}[H]
+    \centering
+    \resizebox{#1}{!}{\SGAThreeNativeInput{#2}}%
+    \caption{#3}
+    \label{#4}
+  \end{figure}%
+}
+\input{body}
+
+\SGAStartExpose{VI}
+\input{body}
+
+\SGAStartExpose{VII}
+\input{body}
+
+\clearpage
+\chapter*{Index --- Tome I}
+\addcontentsline{toc}{chapter}{Index --- Tome I}
+\markboth{Index --- Tome I}{Index --- Tome I}
+\begin{multicols}{2}
+\small
+\setlength{\parskip}{1.2pt}
+\interlinepenalty=10000
+\SGAInputRoot{TOMEI_INDEX}
+\input{body}
+\end{multicols}
+
+\newgeometry{margin=30mm}
+\SGATagsLeft
+
+\SGAStartExpose{VIII}
+\input{body}
+
+\SGAStartExpose{IX}
+\input{body}
+
+\SGAStartExpose{X}
+\input{body}
+
+\SGAStartExpose{XI}
+\input{body}
+
+\SGAStartExpose{XII}
+\chapter*{Expos\'e XII\\
+  Maximal Tori, the Weyl Group, Cartan Subgroups, and the Reductive Center}
+\addcontentsline{toc}{chapter}{Expos\'e XII. Maximal Tori, the Weyl Group,
+  Cartan Subgroups, and the Reductive Center}
+\begin{center}
+  \textit{by A. Grothendieck}
+\end{center}
+\input{body}
+
+\SGAStartExpose{XIII}
+\input{body}
+
+\SGAStartExpose{XIV}
+\chapter*{Expos\'e XIV\\Regular Elements: Continuation\\
+Applications to Algebraic Groups}
+\addcontentsline{toc}{chapter}{Expos\'e XIV. Regular Elements: Continuation}
+\begin{center}
+  \textit{by A. Grothendieck, with an appendix by J.-P. Serre}
+\end{center}
+\input{body}
+
+\SGAStartExpose{XV}
+\input{body}
+
+\SGAStartExpose{XVI}
+\input{body}
+
+\SGAStartExpose{XVII}
+\input{body}
+
+\SGAStartExpose{XVIII}
+\input{body}
+
+\clearpage
+\SGAInputRoot{GUIDE}
+\input{body}
+
+\SGAStartExpose{XIX}
+\input{body}
+
+\SGAStartExpose{XX}
+\chapter*{Expos\'e XX\\Reductive Groups of Semisimple Rank 1}
+\addcontentsline{toc}{chapter}{Expos\'e XX. Reductive Groups of Semisimple Rank 1}
+\begin{center}
+  \textit{by M. Demazure}
+\end{center}
+\input{body}
+
+\SGAStartExpose{XXI}
+\counterwithin{theorem}{subsection}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+\input{body}
+\counterwithin{theorem}{section}
+
+\SGAStartExpose{XXII}
+\input{body}
+
+\SGAStartExpose{XXIII}
+\renewcommand{\SGAProof}{%
+  \par\smallskip\noindent\textit{Proof.}\quad
+}
+\input{body}
+
+\SGAStartExpose{XXIV}
+\input{body}
+
+\SGAStartExpose{XXV}
+\input{body}
+
+\SGAStartExpose{XXVI}
+\providecommand{\rad}{\operatorname{rad}}
+\providecommand{\Transt}{\underline{\operatorname{Transt}}}
+\providecommand{\Tor}{\underline{\operatorname{Tor}}}
+\providecommand{\Lev}{\underline{\operatorname{Lev}}}
+\providecommand{\Par}{\underline{\operatorname{Par}}}
+\providecommand{\Crit}{\underline{\operatorname{Crit}}}
+\providecommand{\Bor}{\underline{\operatorname{Bor}}}
+\providecommand{\Gen}{\underline{\operatorname{Gen}}}
+\providecommand{\Opp}{\underline{\operatorname{Opp}}}
+\providecommand{\Stand}{\underline{\operatorname{Stand}}}
+\providecommand{\TypeStand}{\underline{\operatorname{TypeStand}}}
+\providecommand{\Of}{\operatorname{Of}}
+\providecommand{\Int}{\operatorname{int}}
+\renewcommand{\Centr}{\underline{\operatorname{Centr}}}
+\renewcommand{\Norm}{\underline{\operatorname{Norm}}}
+\input{body}
+
+\clearpage
+\SGAInputRoot{TERMINAL_INDEX}
+\input{body}
+
+\end{document}
