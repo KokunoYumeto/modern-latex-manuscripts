@@ -4494,3 +4494,29 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   Interslavic-normalization methodology, not language-body output or a loose
   standalone Zenodo file. Exact public custody already exists on both
   surfaces, so no merge, Zenodo mutation, draft, or duplicate upload was made.
+
+## 2026-07-31 - Complete SGA7 I source-transcription successor sealed
+
+- Reconciled the producer's frozen Expose IX body with complete Exposes I, II,
+  VI, VII, and VIII. The six written exposes now provide 528 unique continuous
+  source-folio markers / scan indices 12-539 and close at the end of SGA7 I.
+- Built a reader-clean public wrapper with no project preface, status page, or
+  production commentary. The fixed-epoch three-pass build is byte-identical on
+  every pass: 267 A4 pages / 2,002,517 bytes / SHA-256
+  `45E4C2980260C8172AA3762BE0CDBF84FE1DCFC2FA23B724C64508A96F4D2E96`.
+- All 267 decoded page streams, extracted page text, and page geometries match
+  the frozen producer gate. There are no text-empty pages or raster image
+  objects. The source has 162 native `tikzcd` diagrams and no
+  `includegraphics` inputs.
+- Direct visual review covered all exposé boundaries, all pages associated
+  with overfull diagnostics, representative formulas and diagrams, and the
+  terminal publisher matter. No clipping, overlap, blank render, or malformed
+  mathematical content was found.
+- The public projection has 16 files / 5,531,313 bytes. Its 14-row manifest
+  replays exactly, and the deterministic 12-member reader/source ZIP rebuilds
+  the exact public PDF on three fresh passes.
+- The package preserves the source language as printed. It is a complete
+  working source transcription of SGA7 I, not a complete English translation,
+  critical edition, rights clearance, accessibility certification, or
+  mathematical certification. The authority scan and source pixels remain
+  excluded.

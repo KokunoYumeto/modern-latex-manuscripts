@@ -1,3 +1,32 @@
+## 2026-07-31: complete SGA7 I source-transcription successor ready
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Live predecessor to verify before mutation:
+  [10.5281/zenodo.21709733](https://doi.org/10.5281/zenodo.21709733)
+- GitHub source package:
+  [complete SGA7 I source transcription](../sources/sga/sga7i-fresh-transcription-exposes-i-ii-vi-vii-viii-ix-working-20260731/)
+
+The privacy-clean projection contains 16 files / 5,531,313 bytes. Its 14-row
+self-excluding manifest has SHA-256
+`0E0C2E7E1920C2F57995E4FD5B74782FD104C6C736A11FBE035CD490C4FB6653`;
+package validation is `PASS_ARCHIVE_HANDOFF_READY`, SHA-256
+`F81AC5F7764AA8B41D75B0BB22F738092EA7C569AC6E42483FAF6E99F26F8DCF`.
+
+The deterministic reader is 267 A4 pages / 2,002,517 bytes / SHA-256
+`45E4C2980260C8172AA3762BE0CDBF84FE1DCFC2FA23B724C64508A96F4D2E96`.
+It contains complete Exposes I, II, VI, VII, VIII, and IX, covering all 528
+source folios and zero-based scan indices 12-539 with no gap or duplicate.
+The source language is preserved; Expose VI is English and the other five
+written exposes are French. This is a complete working source transcription
+of SGA7 I, not a complete English translation, critical edition, rights
+clearance, or mathematical certification.
+
+The intended same-concept mutation replaces only the current direct SGA7 PDF,
+editable master, source ZIP, and release controls. All unrelated SGA files and
+immutable predecessor versions remain preserved, and SGA1 remains the selected
+preview. No second concept or parallel draft is authorized.
+
 ## 2026-07-30: SGA7 high-detail source-audit visual evidence published and read back
 
 - Existing concept:
