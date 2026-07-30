@@ -4427,3 +4427,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   draft, concept, or file was mutated, and no duplicate SGA3 transport was
   created. Exact audit controls are under
   `manifests/source-intake/20260731_public_frontdoor_order_audit.*`.
+
+## 2026-07-31 - EGA IV Sections 16-18 source custody advances to printed page 18
+
+- Captured the producer's closed r9 gate at
+  `2026-07-31T00:20:14+02:00`. Printed pages 5-18 / authority physical pages
+  4-17 are source-aligned; the continuation is Proposition 16.4.5 at
+  `ega4-16.tex` line 737.
+- The no-overwrite successor has 13 files / 678,129 bytes. Its 12-row
+  self-excluding manifest has SHA-256
+  `FE0150ECCD68788E57874B02183B19E42F6D72D3FB2DE9CD672BD5507135CD50`
+  and replays exactly; two complete package builds are byte-identical.
+- The active source is 176,685 bytes, SHA-256
+  `88D983C556603FB3552BFCC2091EF5D4F270055A1B21A8D64EE39515E2F53E6C`.
+  Pages 15-18 restore an Erratum IV locator, correct the limit-map category,
+  repair the transitivity datum from `u'',v'',f,f''` to `u'',w'',f,f''`, and
+  retain direct diagram-by-diagram review evidence in the producer logbook.
+- The source package builds in an isolated one-pass XeLaTeX replay to 120
+  pages with exit 0 and zero hard TeX error lines. The producer's clean
+  121-page r9 PDF remains excluded and unpromoted, as do authority pixels and
+  raw logs.
+- This supersedes the printed-page-14 package only as the current active
+  source-survival snapshot. It is not a reader release or Zenodo mutation.
