@@ -1,3 +1,29 @@
+## 2026-07-30: SGA1-3 clean reading-surface successor published and read back
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published successor:
+  [10.5281/zenodo.21698501](https://doi.org/10.5281/zenodo.21698501)
+- GitHub package:
+  [SGA1-3 reader cleanup](../sources/sga/sga1-3-reader-pure-no-project-matter-r1-20260730/)
+
+The same-concept successor fronts clean SGA1, SGA2, and SGA3 reading copies
+while retaining SGA4-6 byte-identically. Project-production, workflow,
+source-status, correction-history, comparison-lineage, and project-written
+source-reading narration is confined to grouped source/history ZIPs. Genuine
+source-era editorial apparatus remains.
+
+The record has 66 files. Anonymous readback passed all 66 outer files and all
+50 ZIPs / 4,242 members. The ten replacement objects matched their exact
+SHA-256 identities; 56 unrelated predecessor files remained exact by size and
+MD5. SGA1 is the default preview. No duplicate concept or parallel draft was
+created.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260730_sga_reader_presentation_cleanup_record_21698501.md)
+- [machine readback](../manifests/published-zenodo/20260730_sga_reader_presentation_cleanup_record_21698501_public_readback.json)
+
 ## 2026-07-30: SGA reader-pure R26/R10 successor published and read back
 
 - Existing concept:
