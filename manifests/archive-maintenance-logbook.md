@@ -4222,3 +4222,28 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   concept DOI `10.5281/zenodo.20414353`, current version
   `10.5281/zenodo.21697218`; no Zenodo mutation, duplicate concept, or
   parallel draft was created.
+
+## 2026-07-30 - EGA IV source custody through printed page 149
+
+- Added an exact no-overwrite GitHub source snapshot through the fully
+  documented printed-page-149 gate, ending with Proposition 11.4.12; the next
+  authority page is printed p150 at `ega4-11.tex` line 2341.
+- The gate restores the displayed fiber identity and actual flatness base,
+  corrects the reversed local-ring factorization, reconstructs Reduction III,
+  and restores the authority's base-change notation. The French authority is
+  unchanged.
+- The package contains 18 files / 1,836,837 bytes. Its 17-row self-excluding
+  manifest has SHA-256
+  `05B80E6571B1B141D7E91051570EFF13225244EE0ED748F6951386D0B88B589A`
+  and replays exactly; privacy and forbidden-file hits are zero.
+- The 14 copied source/build-harness files total 1,830,715 bytes and remained
+  stable during capture. Only `source/source_aligned/ega4-11.tex` differs from
+  the preceding printed-page-146 snapshot.
+- The active four-pass checkpoint is 319 pages / 2,119,563 bytes with SHA-256
+  `3095714E4F363FD9923450F5E5409732F04A40DE3576201756F04E257F5B0C5E`.
+  A disposable isolated one-pass build from the copied source exited 0 at 317
+  pages with SHA-256
+  `C4E0DB70A15E20EB35107F3A2293A111EBA96D0ACD7E656676C6FC4C82B8974D`.
+- This is source-survival custody only. EGA remains on concept DOI
+  `10.5281/zenodo.20414353`, current version `10.5281/zenodo.21702700`; no
+  Zenodo mutation, duplicate concept, or draft was created.
