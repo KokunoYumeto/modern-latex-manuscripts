@@ -1,3 +1,32 @@
+## 2026-07-30: clean complete SGA3 R29 successor published and read back
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published successor:
+  [10.5281/zenodo.21704696](https://doi.org/10.5281/zenodo.21704696)
+- GitHub source package:
+  [SGA3 R29 clean complete reader](../sources/sga/sga3-english-reader-clean-r29-complete-native-reference-v2-20260730/)
+
+This queue item is closed. The successor fronts one clean 1,470-page SGA3
+cumulative reader and direct master TeX, refreshes the leading SGA1-6
+reader/buildable-TeX bundle, and keeps source and reference/QA material in
+separate coherent ZIPs. SGA1 remains the selected default preview.
+
+Anonymous readback passed all 68 outer files, all 1,394 leading-bundle
+members, all 918 SGA3 source-package members, all 32 SGA3 reference/QA
+members, and all nine release-control members. Sixty-two predecessor files
+remain byte-identical. No duplicate concept, parallel draft, EGA mutation, or
+second SGA3 transport was created.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260730_sga3_r29_record_21704696.md)
+- [outer-file readback](../manifests/published-zenodo/20260730_sga3_r29_record_21704696_public_readback.json)
+- [leading-bundle member readback](../manifests/published-zenodo/20260730_sga3_r29_record_21704696_bundle_member_readback.json)
+- [SGA3 source-package member readback](../manifests/published-zenodo/20260730_sga3_r29_record_21704696_source_zip_member_readback.json)
+- [SGA3 reference/QA member readback](../manifests/published-zenodo/20260730_sga3_r29_record_21704696_qa_zip_member_readback.json)
+- [release-control member readback](../manifests/published-zenodo/20260730_sga3_r29_record_21704696_controls_zip_member_readback.json)
+
 ## 2026-07-30: SGA1-3 clean reading-surface successor published and read back
 
 - Existing concept:
