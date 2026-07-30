@@ -4183,6 +4183,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `10.5281/zenodo.21697218`; no Zenodo mutation, duplicate concept, or
   parallel draft was created.
 
+## 2026-07-30 - EGA I source custody through Section 9
+
+- Added an exact no-overwrite GitHub source snapshot reviewed continuously
+  through Proposition 9.6.6, the end of Section 9. The next cursor is the
+  Section 10 heading / printed p181 / authority physical p180.
+- The package contains 18 files / 562,175 bytes. Its 17-row self-excluding
+  manifest has SHA-256
+  `7C4F4835D0DD7759264475995C605585B95D5AFCA92358E598EFA13579A66149`
+  and replays exactly; privacy hits are zero.
+- The 14 copied source files total 556,753 bytes and remained stable during
+  capture. An isolated one-pass XeLaTeX build exited 0 at 108 pages. The
+  active three-pass checkpoint is 109 pages / 732,055 bytes with SHA-256
+  `672492D78496793F0C6C00FF80263B81852F6DD6983DA04D723C112711761286`.
+- Existing EGA IV GitHub custody already closes printed p146, next p147.
+  EGA II reference-v2 work remains active and has no frozen release handoff.
+- This is source-survival custody only. The existing EGA concept DOI
+  `10.5281/zenodo.20414353`, current version `10.5281/zenodo.21702700`, was
+  not mutated and no duplicate concept or draft was created.
+
 ## 2026-07-30 - Third active EGA source-custody advancement
 
 - Replaced the EGA I Section 3.6 custody path with an exact source closure

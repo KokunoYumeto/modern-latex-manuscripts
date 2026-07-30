@@ -1,3 +1,27 @@
+## 2026-07-30 EGA I active source custody through Section 9
+
+GitHub source custody now preserves the active no-overwrite EGA I English
+source tree continuously reviewed through Proposition 9.6.6, the end of
+Section 9. The exact next cursor is the Section 10 heading at
+`source/ega1/ega1-10.tex` line 1, printed page 181 / authority physical page
+180.
+
+The privacy-clean package
+`sources/ega/ega1-source-aligned-through-section9-working-custody-20260730/`
+contains 18 files / 562,175 bytes. Its 17-row self-excluding manifest has
+SHA-256
+`7C4F4835D0DD7759264475995C605585B95D5AFCA92358E598EFA13579A66149`
+and replays exactly. The 14 copied source files total 556,753 bytes, remained
+stable during capture, and produced a 108-page isolated one-pass XeLaTeX
+build with exit zero. The active three-pass checkpoint is 109 pages / 732,055
+bytes, SHA-256
+`672492D78496793F0C6C00FF80263B81852F6DD6983DA04D723C112711761286`.
+
+This is lightweight source survival, not a new direct reader or Zenodo
+mutation. Material after Section 9 remains inherited or active working source
+and is not promoted by the snapshot. The current EGA public head remains
+[`10.5281/zenodo.21702700`](https://doi.org/10.5281/zenodo.21702700).
+
 ## 2026-07-30 clean complete SGA3 R29 successor published
 
 Current SGA version
