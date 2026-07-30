@@ -2,13 +2,13 @@
 
 This directory preserves an exact, privacy-clean snapshot of the active
 no-overwrite EGA I English source-alignment successor as it stood at
-2026-07-30T09:51:26+02:00.
+2026-07-30T10:11:00+02:00.
 
 ## Scope
 
-The source-aligned pass is reviewed continuously through Section 3.3.15.
-The exact next cursor is Section 3.4.1, printed page 111 / authority physical
-page 110.
+The source-aligned pass is reviewed continuously through Section 3.6.5.
+The exact next cursor is Section 3.7.1, printed page 118 / authority physical
+page 117.
 
 The source tree contains the complete inherited EGA I TeX closure because the
 working reader compiles as a volume. Material beyond the declared cursor is
@@ -27,18 +27,18 @@ readings; embedded text and pre-existing OCR are locator material only.
 
 ## Contents and status
 
-`source/` contains 14 files and 555,687 bytes captured byte-exactly from the
+`source/` contains 14 files and 555,820 bytes captured byte-exactly from the
 active source tree. `SHA256SUMS.csv` gives the identity of every other file in
 this directory.
 
 The current active source has a coherent three-pass XeLaTeX build:
 
-- 109 letter pages / 732,306 bytes
+- 109 letter pages / 732,479 bytes
 - SHA-256
-  `5DEBA2E39976DC4064D4B7573F64229526165942452A5F4D5BD11562717BD426`
+  `614CA63E4E5FF08532B609FEECB31F54633C65B8E14CC970CFE0195A2957BAF7`
 - final log SHA-256
-  `4C74241B0808CA4D6EA7373B11986BF01FDBB5F4F5A8C2F1744513F7E29DC0F0`
-- 272 named destinations / 1,241 internal GoTo actions / 0 broken targets
+  `CEE9F36B3D12E09A43BE7F315322609072B04837F0F8414B9AF2877F6C8A526D`
+- 273 named destinations / 1,242 internal GoTo actions / 0 broken targets
 
 That PDF and its build logs are not included here. This is a lightweight
 source-survival update, not a new public reader release. An isolated one-pass
