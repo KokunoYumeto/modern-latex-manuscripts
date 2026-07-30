@@ -7,6 +7,7 @@ import argparse
 import hashlib
 import json
 import tempfile
+import urllib.parse
 import urllib.request
 import zipfile
 from pathlib import Path
@@ -101,9 +102,14 @@ def main() -> int:
     with tempfile.TemporaryDirectory(prefix="github-package-readback-") as temp:
         temp_dir = Path(temp)
         for path in files:
+            encoded_package_path = "/".join(
+                urllib.parse.quote(part, safe="")
+                for part in args.package_path.split("/")
+            )
+            encoded_name = urllib.parse.quote(path.name, safe="")
             url = (
                 f"https://raw.githubusercontent.com/{args.repository}/"
-                f"{args.commit}/{args.package_path}/{path.name}"
+                f"{args.commit}/{encoded_package_path}/{encoded_name}"
             )
             destination = temp_dir / "remote.zip" if path.name == args.zip_name else None
             remote_bytes, remote_sha256 = stream_remote(url, destination)

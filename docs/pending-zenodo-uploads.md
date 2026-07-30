@@ -1,3 +1,29 @@
+## 2026-07-30: complete EGA II reference-v2 successor published and read back
+
+- Existing concept:
+  [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
+- Published successor:
+  [10.5281/zenodo.21706639](https://doi.org/10.5281/zenodo.21706639)
+- GitHub source package:
+  [complete EGA II reference-v2 checkpoint](../sources/ega/checkpoints/ega2-complete-reference-v2-r1-20260730/)
+
+This queue item is closed. The current 165-page EGA II reader is complete
+through authority EOF and has 1,028 stable targets, 2,078 valid internal GoTo
+actions, and 2,538 named destinations. The direct master TeX, exact 51-member
+source ZIP, and refreshed 99-member all-current-readers bundle are public.
+
+Anonymous readback downloaded and SHA-256 verified all 29 outer files /
+513,253,980 bytes. All nine ZIP archives / 411 file members replayed exactly;
+23 predecessor files remained byte-identical. EGA0 remains the preview. The
+record rights field is now License Not Specified, consistent with the
+package's explicit non-grant. No duplicate concept or parallel draft exists.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260730_ega2_reference_v2_record_21706639.md)
+- [outer-file readback](../manifests/published-zenodo/20260730_ega2_reference_v2_record_21706639_public_readback.json)
+- [all-ZIP member readback](../manifests/published-zenodo/20260730_ega2_reference_v2_record_21706639_zip_member_readback.json)
+
 ## 2026-07-30: partial SGA7 source transcription published and read back
 
 - Existing concept:

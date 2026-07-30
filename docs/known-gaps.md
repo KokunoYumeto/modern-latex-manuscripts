@@ -14,8 +14,8 @@ This page records the main incompleteness that a reader or contributor should kn
 
 Current record: <https://doi.org/10.5281/zenodo.20414353>
 
-- Current version [10.5281/zenodo.21697218](https://doi.org/10.5281/zenodo.21697218) fronts a complete 165-page source-aligned EGA II English working reader through authority EOF and a 268-page source-aligned EGA IV Sections 1-10 working reader.
-- EGA II completed four converged XeLaTeX passes, all-page visual QA, and exact public readback, but it remains a working translation rather than a critical edition, rights determination, or independent human certification.
+- Current version [10.5281/zenodo.21706639](https://doi.org/10.5281/zenodo.21706639) fronts a complete 165-page source-aligned EGA II English working reader through authority EOF and a 268-page source-aligned EGA IV Sections 1-10 working reader.
+- EGA II completed four converged XeLaTeX passes, all-page visual QA, exhaustive reference-v2 closure (1,028 targets / 2,078 GoTo actions), and exact public readback, but it remains a working translation rather than a critical edition, rights determination, or independent human certification.
 - EGA 0/III Sections 8-13 and EGA III Sections 1-7 have direct partial source-first readers; surrounding material remains non-uniform.
 - EGA IV has a direct source-aligned working reader through Section 10, with Section 11 as the continuation. Its 1,041 printed locator occurrences across 500 unique names remain explicit non-clickable reference debt.
 - EGA I, EGA III beyond the represented lanes, and much of EGA IV remain incomplete as source-aligned English working editions.
