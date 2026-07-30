@@ -266,20 +266,47 @@ def table_for(rows: list[dict[str, str]], include_role: bool = False) -> list[st
 def load_concept_urls(root: Path) -> dict[str, str]:
     map_path = root / "manifests" / "zenodo-record-concept-doi-map.json"
     if not map_path.exists():
-        return {}
+        raise FileNotFoundError(f"Missing concept DOI map: {map_path}")
 
     try:
         records = json.loads(map_path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return {}
+    except (OSError, json.JSONDecodeError) as error:
+        raise RuntimeError(f"Cannot read concept DOI map {map_path}: {error}") from error
 
     urls: dict[str, str] = {}
     for record in records:
         record_id = str(record.get("id", "")).strip()
         concept_url = str(record.get("concepturl", "")).strip()
         if record_id and concept_url:
+            if record_id in urls:
+                raise RuntimeError(f"Duplicate record ID in concept DOI map: {record_id}")
             urls[record_id] = concept_url
     return urls
+
+
+def validate_preserved_record_page(
+    label: str, rows: list[dict[str, str]], target: Path
+) -> None:
+    text = target.read_text(encoding="utf-8")
+    match = re.search(r"Zenodo record: \[([0-9]+)\]", text)
+    expected_record_id = rows[0]["record_id"]
+    actual_record_id = match.group(1) if match else None
+    if actual_record_id != expected_record_id:
+        raise RuntimeError(
+            f"Preserved record page for {label!r} is stale: "
+            f"{actual_record_id or 'missing'} -> {expected_record_id}. "
+            f"Rebuild with --overwrite-record-pages --record-label {label}."
+        )
+
+    missing_notes = [
+        note for note in RECORD_NOTES.get(label, []) if note not in text
+    ]
+    if missing_notes:
+        raise RuntimeError(
+            f"Preserved record page for {label!r} is missing "
+            f"{len(missing_notes)} current status note(s). Rebuild with "
+            f"--overwrite-record-pages --record-label {label}."
+        )
 
 
 def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, concept_urls: dict[str, str]) -> None:
@@ -405,6 +432,13 @@ def main() -> int:
     root = Path.cwd()
     rows = read_rows(root / "manifests" / "public-file-catalog.csv")
     concept_urls = load_concept_urls(root)
+    record_ids = {row["record_id"] for row in rows}
+    missing_concepts = sorted(record_ids - concept_urls.keys())
+    if missing_concepts:
+        raise RuntimeError(
+            "Current Zenodo records missing from concept DOI map: "
+            + ", ".join(missing_concepts)
+        )
     grouped: dict[str, list[dict[str, str]]] = defaultdict(list)
     for row in rows:
         grouped[row["record_label"]].append(row)
@@ -417,6 +451,8 @@ def main() -> int:
             target = out_dir / f"{slug(label)}.md"
             if args.overwrite_record_pages or not target.exists():
                 write_record_page(label, grouped[label], out_dir, concept_urls)
+            else:
+                validate_preserved_record_page(label, grouped[label], target)
     write_index(grouped, out_dir, concept_urls)
     print(f"Wrote {len(grouped)} record landing pages to {out_dir}.")
     return 0

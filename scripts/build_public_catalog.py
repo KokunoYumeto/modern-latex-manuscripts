@@ -267,18 +267,20 @@ def write_current_records(rows: list[dict[str, Any]], path: Path) -> None:
 def load_concept_urls(root: Path) -> dict[str, str]:
     map_path = root / "manifests" / "zenodo-record-concept-doi-map.json"
     if not map_path.exists():
-        return {}
+        raise FileNotFoundError(f"Missing concept DOI map: {map_path}")
 
     try:
         records = json.loads(map_path.read_text(encoding="utf-8"))
-    except (OSError, json.JSONDecodeError):
-        return {}
+    except (OSError, json.JSONDecodeError) as error:
+        raise RuntimeError(f"Cannot read concept DOI map {map_path}: {error}") from error
 
     urls: dict[str, str] = {}
     for record in records:
         record_id = str(record.get("id", "")).strip()
         concept_url = str(record.get("concepturl", "")).strip()
         if record_id and concept_url:
+            if record_id in urls:
+                raise RuntimeError(f"Duplicate record ID in concept DOI map: {record_id}")
             urls[record_id] = concept_url
     return urls
 
@@ -291,6 +293,13 @@ def write_markdown(rows: list[dict[str, str]], path: Path) -> None:
 
     root = path.parent.parent
     concept_urls = load_concept_urls(root)
+    record_ids = {row["record_id"] for row in rows}
+    missing_concepts = sorted(record_ids - concept_urls.keys())
+    if missing_concepts:
+        raise RuntimeError(
+            "Current Zenodo records missing from concept DOI map: "
+            + ", ".join(missing_concepts)
+        )
 
     lines: list[str] = [
         "# Public File Catalog",
