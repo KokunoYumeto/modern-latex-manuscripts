@@ -145,7 +145,7 @@ TITLE_OVERRIDES = {
 
 
 def fetch_record(record_id: str) -> dict[str, Any]:
-    url = f"https://zenodo.org/api/records/{record_id}"
+    url = f"https://zenodo.org/api/records/{record_id}/versions/latest"
     request = urllib.request.Request(
         url,
         headers={"User-Agent": "modern-latex-manuscripts-catalog/1.0"},
@@ -190,6 +190,12 @@ def build_rows() -> list[dict[str, Any]]:
     for label, record_id in RECORDS:
         record = fetch_record(record_id)
         actual_record_id = str(record.get("id", record_id))
+        if actual_record_id != record_id:
+            raise RuntimeError(
+                f"Configured Zenodo head for {label!r} is stale: "
+                f"{record_id} -> {actual_record_id}. Review the successor, then "
+                "update RECORDS and its public status notes before rebuilding."
+            )
         title = TITLE_OVERRIDES.get(label, record.get("metadata", {}).get("title", ""))
         for item in sorted(record.get("files", []), key=lambda value: value.get("key", "").lower()):
             filename = item.get("key", "")
