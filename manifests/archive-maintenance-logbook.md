@@ -4247,3 +4247,27 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This is source-survival custody only. EGA remains on concept DOI
   `10.5281/zenodo.20414353`, current version `10.5281/zenodo.21702700`; no
   Zenodo mutation, duplicate concept, or draft was created.
+
+## 2026-07-30 - Complete EGA II reference-v2 successor published
+
+- Published same-concept EGA version `10.5281/zenodo.21706639` from live
+  predecessor `10.5281/zenodo.21702700`; no duplicate concept or parallel
+  draft was created.
+- GitHub custody commit
+  `24f757158c6b10b7ef116b71434f59e0ab43d522` preserves the exact 51-file
+  producer payload and a compact direct reader/TeX/source-ZIP release.
+- Replaced exactly six record files: the leading cumulative bundle, EGA II
+  reader, EGA II master, EGA II source ZIP, README, and public summary. The
+  other 23 predecessor files remained byte-identical.
+- Current EGA II is complete through authority EOF: 165 pages, 1,028 stable
+  targets, 2,078 resolved internal GoTo actions, 2,538 named destinations,
+  and no broken or external actions.
+- Anonymous readback downloaded and SHA-256 verified all 29 files /
+  513,253,980 bytes and replayed all nine ZIPs / 411 file members. The EGA II
+  source ZIP has 51 members; the leading bundle has 99. EGA0 remains the
+  default PDF preview.
+- Corrected the inherited record-level CC0 assertion to License Not
+  Specified, matching the package's explicit non-grant. This remains a
+  scholarly working reader, not a critical edition, peer-review or
+  mathematical certification, rights clearance, accessibility certification,
+  or whole-EGA completion claim.
