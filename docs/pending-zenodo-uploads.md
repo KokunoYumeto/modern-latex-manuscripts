@@ -1,3 +1,28 @@
+## 2026-07-30: partial SGA7 source transcription published and read back
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published successor:
+  [10.5281/zenodo.21705961](https://doi.org/10.5281/zenodo.21705961)
+- GitHub source package:
+  [SGA7 partial source transcription](../sources/sga/sga7i-fresh-transcription-exposes-i-ii-vi-vii-working-20260730/)
+
+This queue item is closed. The successor adds a direct 115-page working PDF,
+editable master TeX, and 13-member reader/source ZIP for the fresh scan-based
+transcription of complete Exposés I, II, VI, and VII. The checkpoint covers
+217 of 529 known body pages and preserves the source language as printed. It
+is neither a complete SGA7 transcription nor a complete English translation.
+SGA1 remains the selected default preview.
+
+Anonymous readback passed all 71 outer files, all 13 SGA7 source-ZIP members,
+and all 12 release-control members. Sixty-seven predecessor files remain
+byte-identical. No duplicate concept or parallel draft was created.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260730_sga7i_partial_transcription_record_21705961.md)
+- [outer-file and packaged-member readback](../manifests/published-zenodo/20260730_sga7i_partial_transcription_record_21705961_public_readback.json)
+
 ## 2026-07-30: clean complete SGA3 R29 successor published and read back
 
 - Existing concept:
