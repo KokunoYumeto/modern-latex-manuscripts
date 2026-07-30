@@ -1,3 +1,30 @@
+## 2026-07-30: SGA7 high-detail source-audit visual evidence published and read back
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published successor:
+  [10.5281/zenodo.21709733](https://doi.org/10.5281/zenodo.21709733)
+- GitHub provenance package:
+  [SGA7 high-detail visual evidence](../sources/sga/sga7i-highdetail-source-audit-visual-evidence-20260730/)
+
+This queue item is closed. The successor adds two compact archives and refreshes
+only the release controls. One archive contains 12 deduplicated high-detail
+source crops actually opened during SGA7 transcription and diagram review. The
+other records provenance for 14,744 unique scratch images and explicitly marks
+14,732 image pixels as withheld. The parent scan, obsolete scan, whole-page
+renders, raw private logs, and working TeX bodies are excluded. No reader changed.
+
+Anonymous readback streamed and verified all 73 outer files / 484,248,680 bytes,
+all 17 crop-archive members, all 11 metadata-archive members, and all 17
+release-control members. Seventy predecessor files remained byte-identical.
+SGA1 remains the selected preview. No duplicate concept or parallel draft was
+created.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260730_sga7i_highdetail_visual_evidence_record_21709733.md)
+- [outer-file and packaged-member readback](../manifests/published-zenodo/20260730_sga7i_highdetail_visual_evidence_record_21709733_public_readback.json)
+
 ## 2026-07-30: SGA7 Exposé-VIII successor published and read back
 
 - Existing concept:
