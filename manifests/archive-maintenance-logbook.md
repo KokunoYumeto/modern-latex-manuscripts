@@ -4471,3 +4471,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - No authority PDF, crop PDF, or image pixel was copied. Every image remains
   `rights_blocked_not_public`; only privacy-clean provenance and geometry are
   public. No EGA reader or Zenodo record was changed.
+
+## 2026-07-31 - Fable Tranche 001 cross-surface custody reconciled
+
+- Replayed the surviving `github-write/fable/coordination-20260710` branch.
+  Its commit `55bb0061def2ad4ecb394a51776c63ef8090fe0f` is patch-equivalent
+  to main commit `a5c3bc78f8629daa16d8392ca30d70d8e95093cb`; both carry blob
+  `de5a3b7d67ff69165407fe23c6781d417372f7c7` for the exact Fable
+  Tranche 001 executable specification.
+- Fresh anonymous GitHub readback from public main
+  `51e0d3bb7b27ef9455e702e4530f534dbcb44956` returned 3,872 bytes with
+  SHA-256
+  `5B77121D632CB326E223FC77D09AD675CAB75DD79B1628F84A3417B01CD2674E`.
+- Confirmed the same 3,872-byte artifact is already inside immutable Noether
+  Zenodo record `10.5281/zenodo.21418246`, member
+  `Noether_Paper06_Interslavic_Tranche001_20260716/methodology/FABLE_TRANCHE_001_EXECUTABLE_SPEC_20260710.md`
+  of `08_Noether_Paper06_Slavic_WorkingTranslation_Tranche001_20260716.zip`.
+  The 184-member ZIP is 15,522,663 bytes with SHA-256
+  `21C82BC38265755340941D829A2E0372A7EA82AD5A313269850071E2AC3F1EF6`;
+  the member matches the GitHub SHA-256 exactly.
+- Corrected the older GitHub-only classification. The artifact is workflow and
+  Interslavic-normalization methodology, not language-body output or a loose
+  standalone Zenodo file. Exact public custody already exists on both
+  surfaces, so no merge, Zenodo mutation, draft, or duplicate upload was made.
