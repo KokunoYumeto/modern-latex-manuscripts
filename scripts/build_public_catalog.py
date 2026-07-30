@@ -62,6 +62,10 @@ RECORDS: list[tuple[str, str]] = [
     ("additional_author_cluster", "20672984"),
 ]
 
+EXPECTED_SELECTED_PREVIEWS = {
+    "split_zero_research_sidecar": "00_PROJECT_ATLAS_20260717.pdf",
+}
+
 RECORD_NOTES = {
     "main": [
         "Current main-landing version 20459634 retains the preservation/workflow surface and adds two bounded source-aligned English SGA 2 checkpoints for Expose I sections 1 and 2. The six-page and five-page PDFs are directly readable, while one privacy-clean grouped ZIP carries editable TeX, public ledgers, target renders, provenance/attribution notes, cursors, and hashes. Coverage continues at Expose II / French line 505. These are working checkpoints, not complete SGA 2, peer review, a critical edition, or full-volume certification.",
@@ -103,7 +107,7 @@ RECORD_NOTES = {
         "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
     ],
     "split_zero_research_sidecar": [
-        "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Current version 21443852 fronts the bookmarked results compendium and retains the Project Atlas, Lean/Python checks and ledgers, editable working texts, replayable visualization/data packages, and the bounded N16-N18 predatum/K4/Hopf supplement from predecessor 21426216. It adds the coherent Part 8-C2A through C2F2 finite-glue, shell, triality, and Fricke proof chain. The seven source-free Python replays pass 16/16, 19/19, 16/16, 18/18, 20/20, 11/11, and 19/19 checks; the stated marking, topology, classification, and Niemeier/Fricke boundaries remain explicit. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
+        "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Current version 21443852 fronts the concise Project Atlas and retains the bookmarked results compendium, Lean/Python checks and ledgers, editable working texts, replayable visualization/data packages, and the bounded N16-N18 predatum/K4/Hopf supplement from predecessor 21426216. It adds the coherent Part 8-C2A through C2F2 finite-glue, shell, triality, and Fricke proof chain. The seven source-free Python replays pass 16/16, 19/19, 16/16, 18/18, 20/20, 11/11, and 19/19 checks; the stated marking, topology, classification, and Niemeier/Fricke boundaries remain explicit. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
     ],
     "deligne": [
         "Current reader-first surface is version 21212608. It directly exposes the sequential English and French working readers through Papers 001-016p080 and groups individual paper/letter PDFs and the TeX/source/QA material into four archives. These are uneven working drafts and repair material, not a critical edition or blanket source-faithfulness claim; diagram-heavy and equation-dense pieces still require direct source comparison.",
@@ -166,6 +170,36 @@ def fetch_record(record_id: str) -> dict[str, Any]:
     raise AssertionError("unreachable")
 
 
+def fetch_selected_preview(record_id: str) -> str:
+    url = f"https://zenodo.org/records/{record_id}"
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "modern-latex-manuscripts-catalog/1.0"},
+    )
+    for attempt in range(8):
+        try:
+            with urllib.request.urlopen(request, timeout=120) as response:
+                page = response.read().decode("utf-8", errors="replace")
+            match = re.search(
+                r'id=["\']preview-file-title["\'][^>]*>([^<]+)', page
+            )
+            if not match:
+                raise RuntimeError(
+                    f"Cannot identify the selected preview for Zenodo record {record_id}"
+                )
+            return html.unescape(match.group(1)).strip()
+        except (HTTPError, URLError, TimeoutError):
+            if attempt == 7:
+                raise
+            print(
+                f"Retrying Zenodo preview {record_id} after request failure "
+                f"({attempt + 1}/8)",
+                file=sys.stderr,
+            )
+            time.sleep(2 ** attempt)
+    raise AssertionError("unreachable")
+
+
 def file_role(filename: str) -> str:
     lower = filename.lower()
     if lower.endswith(".zip"):
@@ -196,6 +230,15 @@ def build_rows() -> list[dict[str, Any]]:
                 f"{record_id} -> {actual_record_id}. Review the successor, then "
                 "update RECORDS and its public status notes before rebuilding."
             )
+        expected_preview = EXPECTED_SELECTED_PREVIEWS.get(label)
+        if expected_preview:
+            actual_preview = fetch_selected_preview(record_id)
+            if actual_preview != expected_preview:
+                raise RuntimeError(
+                    f"Selected preview for {label!r} changed: "
+                    f"{expected_preview!r} -> {actual_preview!r}. Review the "
+                    "live record and update its public status notes before rebuilding."
+                )
         title = TITLE_OVERRIDES.get(label, record.get("metadata", {}).get("title", ""))
         for item in sorted(record.get("files", []), key=lambda value: value.get("key", "").lower()):
             filename = item.get("key", "")

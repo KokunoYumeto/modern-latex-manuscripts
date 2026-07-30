@@ -1664,7 +1664,7 @@ Publication receipt: [`20260718_noether_p30_hardmath_record_21426158.json`](../m
 
 - Split-zero current version: [10.5281/zenodo.21443852](https://doi.org/10.5281/zenodo.21443852)
 
-Current readback receipt: [`20260730_split_zero_current_head_21443852_public_readback.json`](../manifests/published-zenodo/20260730_split_zero_current_head_21443852_public_readback.json). The current version fronts the results compendium, adds the complete Part 8-C2A through C2F2 proof chain, and retains file `07` byte-identically from predecessor 21426216. All 13 files and all 12 self-excluding SHA-256 rows passed public readback. The predecessor receipt remains [`20260718_split_zero_predatum_hopf_record_21426216.json`](../manifests/published-zenodo/20260718_split_zero_predatum_hopf_record_21426216.json). This is exploratory working research, not peer review or certification of the stated external and broader claims.
+Current readback receipt: [`20260730_split_zero_current_head_21443852_public_readback.json`](../manifests/published-zenodo/20260730_split_zero_current_head_21443852_public_readback.json). The current version fronts the concise Project Atlas, keeps the bookmarked results compendium direct, adds the complete Part 8-C2A through C2F2 proof chain, and retains file `07` byte-identically from predecessor 21426216. All 13 files and all 12 self-excluding SHA-256 rows passed public readback. The predecessor receipt remains [`20260718_split_zero_predatum_hopf_record_21426216.json`](../manifests/published-zenodo/20260718_split_zero_predatum_hopf_record_21426216.json). This is exploratory working research, not peer review or certification of the stated external and broader claims.
 
 ## 2026-07-18: Workflow/methodology publication queue closed
 
