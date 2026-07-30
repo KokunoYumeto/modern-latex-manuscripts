@@ -77,10 +77,8 @@ def csv_errors(path: Path) -> list[str]:
 
 
 def json_write(path: Path, value: object) -> None:
-    path.write_text(
-        json.dumps(value, indent=2, ensure_ascii=True) + "\n",
-        encoding="utf-8",
-    )
+    with path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(json.dumps(value, indent=2, ensure_ascii=True) + "\n")
 
 
 def main() -> None:
@@ -191,7 +189,8 @@ rights clearance. Expose IX remains incomplete and contains explicit
 non-transcription placeholders; this delta does not change the current public
 reader or authorize a Zenodo successor.
 """
-    readme_path.write_text(readme, encoding="utf-8")
+    with readme_path.open("w", encoding="utf-8", newline="\n") as handle:
+        handle.write(readme)
 
     errors = [
         *csv_errors(delta_path),
