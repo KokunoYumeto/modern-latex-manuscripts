@@ -1,9 +1,9 @@
-## 2026-07-30: EGA IV Sections 1-10 source-aligned working successor ready
+## 2026-07-30: EGA IV Sections 1-10 successor published and read back
 
 - Existing concept:
   [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
-- Current predecessor:
-  [10.5281/zenodo.21696776](https://doi.org/10.5281/zenodo.21696776)
+- Published successor:
+  [10.5281/zenodo.21697218](https://doi.org/10.5281/zenodo.21697218)
 - GitHub package:
   [EGA IV Sections 1-10 working reader](../sources/ega/checkpoints/ega4-sections1-10-source-aligned-working-20260730/)
 
@@ -18,12 +18,21 @@ compiled GoTo actions are valid. This is a working source-aligned successor,
 not complete EGA IV, complete EGA, a critical edition, rights clearance,
 peer review, or convention-v2 reference certification.
 
-Planned same-concept mutation: add the reader and master directly, replace the
+The same-concept mutation added the reader and master directly, replaced the
 three superseded bounded EGA IV custody ZIPs (`10d`, `10e`, and `10f`) with
-the cumulative `10g` source ZIP, retain every unrelated predecessor file
-byte-identically, and preserve the broader older Sections 1-21 draft as
-historical working coverage. No duplicate concept or parallel draft is
-authorized.
+the cumulative `10g` source ZIP, retained 23 unrelated predecessor files
+byte-identically, and preserved the broader older Sections 1-21 draft as
+historical working coverage. Anonymous readback passed all 28 outer files and
+all eight ZIPs / 281 members. No duplicate concept, parallel draft, or second
+successor was created.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260730_ega4_sections1_10_source_aligned_record_21697218.md)
+- [outer-file readback](../manifests/published-zenodo/20260730_ega4_sections1_10_source_aligned_record_21697218_public_readback.json)
+- [ZIP-member readback](../manifests/published-zenodo/20260730_ega4_sections1_10_source_aligned_record_21697218_zip_member_readback.json)
+- [draft file actions](../manifests/published-zenodo/20260730_ega4_sections1_10_source_aligned_record_21697218_draft_files.json)
+- [publish response](../manifests/published-zenodo/20260730_ega4_sections1_10_source_aligned_record_21697218_publish_response.json)
 
 ## 2026-07-30: complete source-aligned EGA II published and read back
 
