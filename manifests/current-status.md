@@ -1,3 +1,45 @@
+## 2026-07-30 SGA3 R26 and SGA6 R10 reader-pure successor published
+
+The sole latest SGA version is
+[`10.5281/zenodo.21696318`](https://doi.org/10.5281/zenodo.21696318)
+under existing concept `10.5281/zenodo.20410947`. It replaces the direct SGA3
+and SGA6 readers with reader-pure successors:
+
+- `00c_SGA3_English_Reader.pdf`: 6,363,561 bytes / 1,470 A4 pages,
+  SHA-256
+  `00A6EEBD15993BE4A438FF3D986D4C7DC35ED5FC1CEBD0F2D8DC172FD74E3E23`
+- `00f_SGA6_English_Reader.pdf`: 3,189,979 bytes / 376 A4 pages,
+  SHA-256
+  `08848062CF081E39E7F57E60CB31C1BFECFD1225DAF6DE99458A660B2A53600A`
+- `10c_SGA3_English_Source_R26_20260730.zip`: 1,977,460 bytes,
+  SHA-256
+  `4386142ACC744C0077F878EB3A5AED88EE9A7C4AA58673486A600CA8460E1800`
+- `10f_SGA6_English_Source_R10_20260730.zip`: 569,577 bytes,
+  SHA-256
+  `2DDC0BEF54A2CDB1E67FD573AE291BCA5A55B209BF64E6425E59CC06AE734B29`
+
+Direct reader PDFs now contain mathematics and genuine source-era scholarly
+apparatus only. Project/model/workflow/status narration, internal defect IDs,
+and project-written source-reading notes remain in the grouped
+editable-source/history archives. A page-by-page rendered-text gate across all
+six direct English readers covered 3,456 pages and found zero hits in the
+three project-facing pattern families.
+
+Anonymous readback passed all 66 outer files / 414,577,667 bytes and all 50
+ZIPs / 4,245 file members / 425,456,882 uncompressed bytes. The 60 unrelated
+predecessor files remained byte-identical. No duplicate concept or second
+draft was created.
+
+GitHub PR [#159](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/159)
+merged source commit
+`47c3165e2707987cd533e79665571016b6e246e3` as
+`939ee9fe1977ca5e605cdd2da02a9153ecc6d3c0`. See the
+[publication receipt](published-zenodo/20260730_sga_reader_pure_r26_r10_record_21696318.md),
+[outer readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21696318_public_readback.json),
+[ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21696318_zip_member_readback.json),
+and
+[six-reader hygiene gate](sga_direct_reader_hygiene_r26_r10_20260730.json).
+
 ## 2026-07-30 SGA3 R25 and SGA4 R8 reader-hygiene successor published
 
 The sole latest SGA version is
