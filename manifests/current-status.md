@@ -1,3 +1,41 @@
+## 2026-07-30 EGA IV Sections 1-10 successor published
+
+The sole latest EGA version is
+[`10.5281/zenodo.21697218`](https://doi.org/10.5281/zenodo.21697218)
+under existing concept `10.5281/zenodo.20414353`. It adds:
+
+- `00d_EGA4_English_Sections1_10_Reader.pdf`: 2,632,563 bytes /
+  268 letter-size pages, SHA-256
+  `773EFC15C9B815504D06A59F624C7EFC9A76B55BD5EC2F4FD17DAAEFEEB5AA6A`
+- `02d_EGA4_English_Sections1_10_Master.tex`: 765 bytes, SHA-256
+  `2209635F42A66B61001271D9791E03DD7988BF1FDBDE0DECF7A80CD47951B9FF`
+- `10g_EGA4_English_Sections1_10_Source_20260730.zip`: 365,786 bytes /
+  50 members, SHA-256
+  `08EDEA8FEF8B3233E8FA69072E981F26A60860C68A234363F580B8BB3E2C9677`
+
+The reader covers Sections 1-10 continuously and stops before Section 11.
+Four pdfTeX passes converged; the PDF has 1,438 named destinations and 2,708
+valid internal GoTo actions. Exhaustive cross-volume linking remains open:
+1,041 printed locator occurrences across 500 unique names are not clickable.
+Reader-purity scans found no project, model, workflow, or source-status notes.
+
+The successor replaces the three bounded EGA IV custody ZIPs on the current
+surface while preserving them in immutable predecessor versions. The broader
+older Sections 1-21 draft remains available as historical working coverage.
+Anonymous readback passed all 28 outer files / 502,837,433 bytes and all eight
+ZIPs / 281 members. Twenty-three unrelated predecessor files remained
+byte-identical. EGA 0/III remains the default preview. No duplicate concept,
+parallel draft, or second successor was created.
+
+GitHub PR [#163](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/163)
+merged source commit
+`24fed4509f3d357d8522a0d41859f379b0c73a25` as
+`f96d11509e0eca414021ebae76fdde3205bb965a`. See the
+[publication receipt](published-zenodo/20260730_ega4_sections1_10_source_aligned_record_21697218.md),
+[outer readback](published-zenodo/20260730_ega4_sections1_10_source_aligned_record_21697218_public_readback.json),
+and
+[ZIP-member readback](published-zenodo/20260730_ega4_sections1_10_source_aligned_record_21697218_zip_member_readback.json).
+
 ## 2026-07-30 complete source-aligned EGA II successor published
 
 The sole latest EGA version is
