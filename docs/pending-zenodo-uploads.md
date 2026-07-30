@@ -1,9 +1,9 @@
-## 2026-07-31: complete SGA7 I source-transcription successor ready
+## 2026-07-31: complete SGA7 I source-transcription successor published and read back
 
 - Existing concept:
   [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
-- Live predecessor to verify before mutation:
-  [10.5281/zenodo.21709733](https://doi.org/10.5281/zenodo.21709733)
+- Published successor:
+  [10.5281/zenodo.21711433](https://doi.org/10.5281/zenodo.21711433)
 - GitHub source package:
   [complete SGA7 I source transcription](../sources/sga/sga7i-fresh-transcription-exposes-i-ii-vi-vii-viii-ix-working-20260731/)
 
@@ -22,10 +22,17 @@ written exposes are French. This is a complete working source transcription
 of SGA7 I, not a complete English translation, critical edition, rights
 clearance, or mathematical certification.
 
-The intended same-concept mutation replaces only the current direct SGA7 PDF,
-editable master, source ZIP, and release controls. All unrelated SGA files and
-immutable predecessor versions remain preserved, and SGA1 remains the selected
-preview. No second concept or parallel draft is authorized.
+This queue item is closed. The same-concept successor replaces only the former
+partial SGA7 PDF, editable master, source ZIP, and release controls. Anonymous
+readback passed all 73 outer files / 485,548,033 bytes, all 12 source-ZIP
+members, and all 17 release-control members. Sixty-nine unrelated predecessor
+files remain byte-identical, SGA1 remains the selected preview, and no duplicate
+concept or parallel draft was created.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260731_sga7i_complete_transcription_record_21711433.md)
+- [outer-file and packaged-member readback](../manifests/published-zenodo/20260731_sga7i_complete_transcription_record_21711433_public_readback.json)
 
 ## 2026-07-30: SGA7 high-detail source-audit visual evidence published and read back
 
