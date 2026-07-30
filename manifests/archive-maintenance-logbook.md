@@ -3995,3 +3995,82 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Exact receipt:
   `manifests/published-zenodo/20260729_sga3_reader_clean_r21_record_21688473.md`
   and the adjacent outer-file and ZIP-member readbacks.
+
+## 2026-07-30 - SGA direct-reader purity successor
+
+- Published version `10.5281/zenodo.21696318` on existing SGA concept
+  `10.5281/zenodo.20410947`; no duplicate concept or parallel draft was
+  created.
+- Replaced the direct SGA3 and SGA6 readers with reader-pure R26 and R10
+  successors while retaining the other 60 predecessor files byte-identically.
+- SGA3 reader: 1,470 pages / 6,363,561 bytes / SHA-256
+  `00A6EEBD15993BE4A438FF3D986D4C7DC35ED5FC1CEBD0F2D8DC172FD74E3E23`.
+- SGA6 reader: 376 pages / 3,189,979 bytes / SHA-256
+  `08848062CF081E39E7F57E60CB31C1BFECFD1225DAF6DE99458A660B2A53600A`.
+- Page-by-page extracted-text replay across all six direct English readers
+  covered 3,456 pages and found zero project, model, workflow, source-status,
+  or project-written source-reading notes. Genuine source-era scholarly
+  apparatus remains.
+- Anonymous readback passed all 66 outer files and all 50 ZIP archives /
+  4,245 members. GitHub PR 159 merged at
+  `939ee9fe1977ca5e605cdd2da02a9153ecc6d3c0`; receipt PR 160 merged at
+  `85985dbad142bfed39208513715eb90272798855`.
+
+## 2026-07-30 - Complete EGA II source-aligned successor
+
+- Published version `10.5281/zenodo.21696776` on existing EGA concept
+  `10.5281/zenodo.20414353`; no duplicate concept or parallel draft was
+  created.
+- Replaced the partial EGA II objects with the complete 165-page
+  source-aligned working reader through authority EOF, direct editable master,
+  and exact 20-member source ZIP.
+- Reader identity: 1,060,715 bytes / SHA-256
+  `6CEB2FFBF3F364B8CCFE64698751C3DEAD7A8E3B3823680ECF4CBB5E8B5241BD`.
+- Four XeLaTeX passes converged; all 165 pages passed visual QA; the PDF has
+  571 named destinations and 1,809 valid internal GoTo actions.
+- Anonymous readback passed all 28 outer files and all ten ZIPs / 358 members.
+  GitHub PR 161 merged at
+  `c22f175492f0cbf51d05e3410e55ae168ca8f966`; receipt PR 162 merged at
+  `50284276ca09617262c194127190e6cc12e58e4a`.
+- This completes EGA II only, not the whole EGA series, a critical edition,
+  rights clearance, or independent human certification.
+
+## 2026-07-30 - EGA IV Sections 1-10 source-aligned successor
+
+- Published version `10.5281/zenodo.21697218` on existing EGA concept
+  `10.5281/zenodo.20414353`; no duplicate concept or parallel draft was
+  created.
+- Added the direct 268-page Sections 1-10 working reader, editable master,
+  and exact 50-member source ZIP. Three bounded current-surface custody ZIPs
+  moved into immutable predecessor history; the older Sections 1-21 draft
+  remains direct as broader historical working coverage.
+- Reader identity: 2,632,563 bytes / SHA-256
+  `773EFC15C9B815504D06A59F624C7EFC9A76B55BD5EC2F4FD17DAAEFEEB5AA6A`.
+  It has 1,438 named destinations and 2,708 valid internal GoTo actions.
+- Exhaustive cross-volume linking remains open: 1,041 printed locator
+  occurrences across 500 unique names are not clickable. Section 11 is next.
+- Anonymous readback passed all 28 outer files / 502,837,433 bytes and all
+  eight ZIPs / 281 members. GitHub PR 163 merged source commit
+  `24fed4509f3d357d8522a0d41859f379b0c73a25` as
+  `f96d11509e0eca414021ebae76fdde3205bb965a`; receipt PR 164 merged at
+  `9e2a8c655449de4760bb0f3efbf8239d10fdebf6`.
+
+## 2026-07-30 - EGA public catalog head reconciled
+
+- Corrected the repository front page, known-gaps page, and project dashboard
+  from predecessor EGA version `21696776` to current version `21697218`.
+- The summaries now expose the EGA IV Sections 1-10 reader, Section 11
+  continuation, exact readback counts, and 1,041-item non-clickable-reference
+  debt without overstating whole-EGA completion.
+- GitHub PR 165 merged source commit
+  `f599c5afe527d38bfa93eaa153d33ba1f3aa2fcd` as
+  `4ab590a6d15de7af9e5b818cd0319fb065f6936b`.
+- Commit-pinned anonymous raw readback matched all three changed files:
+  `README.md` SHA-256
+  `86D3C46576E0EE382FA425497D6338A4BFA2D36411AEB30CE0528CD085474F34`,
+  `docs/known-gaps.md` SHA-256
+  `D7070F0874EBE0F94F280AB8F822ABD31936812F6E5D6DBC0B1A3D343DA0F32A`,
+  and `docs/project-status-dashboard.md` SHA-256
+  `74A54F93B4F34AF3640B7E725A46F35A55EE1E6F6A05ACEA110B33C48F7DC707`.
+- This was a GitHub catalog repair only; Zenodo payload and version state
+  remained unchanged.
