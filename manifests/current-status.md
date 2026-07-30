@@ -1,3 +1,33 @@
+## 2026-07-30 clean complete SGA3 R29 successor published
+
+Current SGA version
+[`10.5281/zenodo.21704696`](https://doi.org/10.5281/zenodo.21704696),
+under the existing concept DOI
+[`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947),
+replaces the preferred cumulative SGA3 reader, direct master, source archive,
+all-SGA reader/source bundle, and release controls, and adds one optional SGA3
+reference/QA archive. Sixty-two predecessor files remain byte-identical; no
+duplicate concept or second draft was created.
+
+The clean SGA3 reader is 1,470 A4 pages / 11,859,958 bytes, SHA-256
+`FE7211BA4288E66430E64C574E808E9BAD596E99366777D2DDC2349CB9BD427C`.
+It covers the Introduction, Exposes I-XXVI, Tome-I subject index, Tome-III
+mathematical guide, and terminal index, with 13,119 named destinations and
+12,337 valid internal GoTo actions. Its one-click reader/buildable-source ZIP
+has 918 members; the optional reference/QA ZIP has 32. The refreshed leading
+SGA1-6 reader/buildable-TeX bundle has 1,394 members and SHA-256
+`511B9363B98F9A64BC81F0044CDD714C09D8B6A9D6087679E3C78FD3C091299C`.
+SGA1 remains the selected default preview.
+
+Anonymous readback passed all 68 outer files, all 1,394 leading-bundle
+members, all 918 SGA3 source-package members, all 32 QA members, and all nine
+release-control members. Public GitHub commit
+`e771e8c582465311cc399ba2db503cc3dd4fa9ab` preserves the source package and
+independent replay. This is a complete working translation/reference reader
+for the represented SGA3 structure, not a critical edition, peer review,
+accessibility certification, rights determination, or final uniform
+diagram-fidelity certification.
+
 ## 2026-07-30 complete SGA1 reference-v2 R2 successor published
 
 Current SGA version
