@@ -4520,3 +4520,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   critical edition, rights clearance, accessibility certification, or
   mathematical certification. The authority scan and source pixels remain
   excluded.
+
+## 2026-07-31 - Complete SGA7 I successor published and read back
+
+- Published one successor under the existing SGA concept DOI
+  `10.5281/zenodo.20410947`, preserving predecessor
+  `10.5281/zenodo.21709733` immutably. The new version is
+  `10.5281/zenodo.21711433` / record `21711433`; no duplicate concept or
+  parallel draft was created.
+- The 267-page direct reader is 2,002,517 bytes with SHA-256
+  `45E4C2980260C8172AA3762BE0CDBF84FE1DCFC2FA23B724C64508A96F4D2E96`.
+  The direct master is 2,880 bytes with SHA-256
+  `7B7394BEAF970AC724EFDE80C841B2DAACC28D64E3145538A39AA2FA915BF355`.
+  The 12-member reader/source ZIP is 2,196,251 bytes with SHA-256
+  `6846FB1229B52292292586E072D3878EC6CCD90B7FFD861F6CC1738081D24D40`.
+- Anonymous readback streamed all 73 outer files / 485,548,033 bytes, all 12
+  source-ZIP members / 3,313,473 uncompressed bytes, and all 17 release-control
+  members. All 69 unrelated predecessor files remained byte-identical. The
+  complete SGA1 reference-v2 R2 reader remains the default preview.
+- Exact machine receipt:
+  `manifests/published-zenodo/20260731_sga7i_complete_transcription_record_21711433_public_readback.json`.
+  Human receipt:
+  `manifests/published-zenodo/20260731_sga7i_complete_transcription_record_21711433.md`.
