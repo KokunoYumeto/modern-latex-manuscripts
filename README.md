@@ -61,6 +61,10 @@ available separately rather than interrupting the books.
 Reader hygiene is strict: direct PDFs contain mathematics and genuine
 source-era editorial apparatus only. Project-production material belongs in
 the grouped archives and release metadata, not in the books.
+This applies to every direct reader, not only the English cumulative set:
+AI/model names, project prefaces, task or source-status pages, workflow
+commentary, and internal correction narration are release defects and belong
+outside the reader.
 
 SGA and EGA remain separate established publication lines. SGA has substantial working readers and active source/reference/diagram repair across SGA1-6; SGA7 is only a stub and is not represented as a new completed reader. EGA has its own concept DOI, a complete source-aligned EGA II working reader, and partial source-first EGA 0/III and EGA III lanes; French originals and inherited OCR remain support rather than authority for new English work.
 
@@ -84,6 +88,7 @@ Detailed package-level staging changes are intentionally not expanded on the fro
 
 Recent archive notes:
 
+- **2026-07-30 active EGA source-custody advancement:** GitHub source custody now preserves EGA I continuously reviewed through Section 3.3.15 (next Section 3.4.1, printed p111) and the active EGA IV Sections 11-21 closure with the latest documented Section 11 repairs through Theorem 11.3.8 and Proposition 11.3.9 on printed p137. Both copied source trees compile from disposable clean copies and match their active roots byte-for-byte. These are source-survival snapshots, not new reader releases; the separate EGA Zenodo head remains [10.5281/zenodo.21697218](https://doi.org/10.5281/zenodo.21697218).
 - **2026-07-30 Noether Slavic source-repair survivor successor:** same-concept version [10.5281/zenodo.21699405](https://doi.org/10.5281/zenodo.21699405) retains 19/20 predecessor files byte-identically and replaces grouped archive `61` with a 132-member source-audit successor. It adds 24 post-repair TeX files, 24 matching PDFs, 24 immediate preimages, and exact controls for Paper 4 Introduction/Sections 2-5 and Paper 37 in Latin Interslavic, Cyrillic Interslavic, Russian, and Ukrainian. Source pixels remain rights-blocked metadata-only. Anonymous readback passed all 20 outer files and all 132 ZIP members; GitHub PR [#173](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/173) preserves the 110-file package.
 - **2026-07-30 EGA IV Sections 1-10 source-aligned successor:** same-concept version [10.5281/zenodo.21697218](https://doi.org/10.5281/zenodo.21697218) adds a direct 268-page working reader, editable master TeX, and exact 50-member source ZIP, replacing three bounded current-surface custody ZIPs while preserving them in immutable predecessors. The PDF has 1,438 named destinations and 2,708 valid internal GoTo actions. Anonymous readback passed all 28 outer files and all eight ZIPs / 281 members. Exhaustive cross-volume linking remains open: 1,041 printed locator occurrences across 500 unique names are not clickable. Section 11 is next.
 - **2026-07-30 complete source-aligned EGA II successor:** same-concept version [10.5281/zenodo.21696776](https://doi.org/10.5281/zenodo.21696776) replaces the partial EGA II reader, master, and source archive with a 165-page working reader through authority EOF, direct editable master TeX, and exact 20-member source ZIP. Four clean XeLaTeX passes converged; all 165 pages received visual QA; the PDF has 571 named destinations and 1,809 valid internal GoTo actions. Anonymous readback passed all 28 outer files and all ten ZIPs / 358 members. This completes EGA II only, not the whole EGA series.
