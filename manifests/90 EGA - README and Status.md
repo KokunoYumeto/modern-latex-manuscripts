@@ -10,12 +10,16 @@ clear.
 The current source-first and source-aligned readers are ordered by volume:
 
 1. EGA 0/III, assigned source-first Sections 8-13: 120 pages.
-2. EGA II, complete source-aligned reader through authority EOF: 165 pages.
-3. EGA III, assigned source-first Sections 1-7: 150 pages.
-4. EGA IV, cumulative source-aligned Sections 1-10: 268 pages.
+2. EGA I, complete source-aligned working reader through authority EOF: 113 pages.
+3. EGA II, complete source-aligned reader through authority EOF: 165 pages.
+4. EGA III, assigned source-first Sections 1-7: 150 pages.
+5. EGA IV, cumulative source-aligned Sections 1-10: 268 pages.
 
-The EGA II reader is continuous through its terminal backmatter and has no
-remaining EGA II translation cursor. Its reference-v2 successor has 1,028
+The EGA I and EGA II readers are continuous through their terminal backmatter
+and have no remaining volume-local translation cursor. The EGA I working
+reader has 299 named destinations and 1,253 valid internal GoTo actions; its
+separate exhaustive reference-v2 certification remains open. The EGA II
+reference-v2 successor has 1,028
 stable targets, 2,078 valid internal GoTo actions, and 2,538 named
 destinations. The EGA IV reader is continuous through Section 10 and continues
 at Section 11.
@@ -26,9 +30,13 @@ For Sections 1-10, use the `00d` reader first.
 
 ## Editable source
 
-The four current readers have directly visible master TeX files. Their
+The five current readers have directly visible master TeX files. Their
 recursive source trees and exact identity controls are grouped into compact
 ZIP files.
+
+The EGA I source ZIP contains the complete 16-file TeX/BibTeX closure, the
+113-page reader, concise public build/visual/rights controls, and exact
+identity data. It excludes raw logs and the 1.6 GB local render tree.
 
 The EGA II source ZIP contains the exact 51-file independently replayed
 reference-v2 package: the complete 14-file editable closure, 165-page reader,
@@ -47,6 +55,10 @@ intermediates are excluded from the compact current packages. EGA II's grouped
 archive deliberately retains its privacy-clean build and rendered-QA evidence.
 
 ## Reference status
+
+The EGA I working reader has 299 named destinations and 1,253 valid internal
+GoTo actions with zero broken or external actions. It is substantially linked,
+but this release does not claim the separate exhaustive reference-v2 closure.
 
 The EGA II reader has 1,028 stable targets, 2,078/2,078 resolved internal
 GoTo actions, 2,538 named destinations, and an exact reviewed partition of 921
