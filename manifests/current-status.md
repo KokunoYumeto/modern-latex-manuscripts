@@ -22,24 +22,24 @@ and
 
 GitHub now preserves two updated, privacy-clean source-survival snapshots:
 
-- `sources/ega/ega1-source-aligned-through-section3-6-working-custody-20260730/`
-  contains 14 source files / 555,820 bytes. The reviewed range reaches
-  Section 3.6.5; the next cursor is Section 3.7.1, printed page 118 /
-  authority physical page 117. Its 17-row self-excluding manifest has
+- `sources/ega/ega1-source-aligned-through-section5-3-working-custody-20260730/`
+  contains 14 source files / 556,075 bytes. The reviewed range reaches
+  Section 5.3; the next cursor is Section 5.4.1, printed page 135 /
+  authority physical page 134. Its 17-row self-excluding manifest has
   SHA-256
-  `D8FE2680FAA66A8B622B586F8EBA0F0EEB49A346B9F3DD5B89CB765B3B8479F4`.
-- `sources/ega/ega4-sections11-21-source-aligned-working-custody-20260730/`
-  contains the 14-file / 1,822,111-byte source and build-harness closure.
-  The latest documented review gate reaches Theorem 11.3.10 and Lemma
-  11.3.10.2 on printed page 138. Its 17-row self-excluding manifest has
+  `E7F260C6181C1EE31E637FF716D92D6F8D2BA93CB1901138999F368771C77BD3`.
+- `sources/ega/ega4-sections11-21-source-aligned-through-printed145-working-custody-20260730/`
+  contains the 14-file / 1,830,120-byte source and build-harness closure.
+  The latest documented review gate reaches Corollary 11.4.3 on printed
+  page 145. Its 17-row self-excluding manifest has
   SHA-256
-  `FEDC060F8CBEBB75636D58784DE4131B016967A3F52C5BCCBB2D0CB7168FC41D`.
+  `57DABC50307CF219EB4C0CDD91588AB3623DE1D6A2FE35A11B05E98A61F2A9A0`.
 
 Both copies are byte-identical to their active roots, compile successfully
 from disposable clean copies, and have zero privacy/model/task-marker hits.
-The active roots retain coherent three-pass 109-page and 317-page builds, but
-the GitHub snapshots intentionally remain source-only. They do not create new
-reader, completion, rights, or convention-v2 claims. The EGA Zenodo head
+The active roots retain coherent 109-page and 319-page checkpoint builds, but
+the GitHub snapshots intentionally remain source-only. They do not create
+new reader, completion, rights, or convention-v2 claims. The EGA Zenodo head
 remains `10.5281/zenodo.21697218`; no duplicate concept or draft was created.
 
 ## 2026-07-30 Noether Slavic source-repair survivor successor published

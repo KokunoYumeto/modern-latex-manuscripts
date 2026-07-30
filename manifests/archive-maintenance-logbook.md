@@ -4182,3 +4182,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   concept DOI `10.5281/zenodo.20414353`, current version
   `10.5281/zenodo.21697218`; no Zenodo mutation, duplicate concept, or
   parallel draft was created.
+
+## 2026-07-30 - Third active EGA source-custody advancement
+
+- Replaced the EGA I Section 3.6 custody path with an exact source closure
+  reviewed through Section 5.3; next cursor Section 5.4.1 / printed p135 /
+  authority physical p134.
+- Advanced the EGA IV Sections 11-21 custody source through Corollary 11.4.3
+  / printed p145. Direct page-146 inspection had begun, but no unclosed
+  page-146 source edit was promoted.
+- Both 18-file GitHub packages replay their 17-row self-excluding manifests
+  exactly and have zero privacy/model/task-marker hits.
+- Disposable isolated one-pass XeLaTeX builds exited 0 at 108 and 316 pages.
+  The closed active-root gates retain coherent 109-page and 319-page builds
+  with PDF SHA-256 values
+  `C38ECEE7BFF8842644045A3DFC14610BCBC27A88F2807510A296840725436C71`
+  and
+  `FDBFE91AF3F856FD50DB373896A7597A42F0460689B19616EBFE39E470E40FEA`.
+- This remains source-survival custody only. EGA stays on its separate
+  concept DOI `10.5281/zenodo.20414353`, current version
+  `10.5281/zenodo.21697218`; no Zenodo mutation, duplicate concept, or
+  parallel draft was created.
