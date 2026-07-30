@@ -1,3 +1,48 @@
+## 2026-07-30 SGA3 R25 and SGA4 R8 reader-hygiene successor published
+
+The sole latest SGA version is
+[`10.5281/zenodo.21695622`](https://doi.org/10.5281/zenodo.21695622)
+under existing concept `10.5281/zenodo.20410947`. It replaces the direct SGA3
+and SGA4 readers with clean reading editions:
+
+- `00c_SGA3_English_Reader.pdf`: 6,378,018 bytes / 1,471 A4 pages,
+  SHA-256
+  `6FF047254810E4E78B18E22EB28DB4B58C675FD3C72E6E7BBE6F94C583ADEC05`
+- `00d_SGA4_English_Reader.pdf`: 4,418,427 bytes / 864 A4 pages,
+  SHA-256
+  `2C40559DAFB8AB0A76ABE2B1447B7A226D80C88D14EB953806DEADDB7FF0FF7D`
+- `10c_SGA3_English_Source_R25_20260730.zip`: 1,975,887 bytes,
+  SHA-256
+  `2C074ACC29A682504A69755D8D2319D98A5C7DD4AD8A45430AFA95C0FB690077`
+- `10d_SGA4_English_Proper_ReaderClean_R8_Source_20260730.zip`: 1,171,525
+  bytes, SHA-256
+  `6490631E955B781240A11CEAA6CB6609DA04FA9F345B633AE4ED30D5DFDC69E3`
+
+Direct reader PDFs now contain mathematics and genuine source-era scholarly
+apparatus only. AI, project, workflow, source-status, correction-history, and
+comparison-lineage notes remain in the grouped editable-source/history
+archives. SGA1, SGA2, SGA5, and SGA6 required no replacement; SGA2's retained
+editor notes are genuine official-edition apparatus.
+
+Anonymous readback passed all 66 outer files / 417,334,380 bytes and all 50
+ZIPs / 4,259 file members plus six directory entries / 431,848,727
+uncompressed file bytes. The 60 unrelated predecessor files remained
+byte-identical. No duplicate concept or second draft was created.
+
+GitHub PR [#155](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/155)
+merged the reader packages at
+`08cafba2c197d77a56f73d66c9e3c2249ada09b9`; PR
+[#156](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/156)
+merged the guarded publisher at
+`06b9c6060d4ef30b4eec916ad6851aa422b1c09e`. See the
+[publication receipt](published-zenodo/20260730_sga_reader_hygiene_r25_r8_record_21695622.md),
+[outer readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21695622_public_readback.json),
+and
+[ZIP-member readback](published-zenodo/20260728_sga3_cumulative_with_x_record_21695622_zip_member_readback.json).
+A fresh anonymous page-by-page scan of all six English reader downloads is
+recorded in the
+[reader-hygiene receipt](published-zenodo/20260730_sga_direct_reader_hygiene_scan_record_21695622.json).
+
 ## 2026-07-30 SGA3 R23 reader-clean successor published
 
 The sole latest SGA version is
