@@ -30,12 +30,14 @@ Exact receipts:
 - [ZIP-member readback](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21696318_zip_member_readback.json)
 - [six-reader hygiene gate](../manifests/sga_direct_reader_hygiene_r26_r10_20260730.json)
 
-Later local SGA3 semantic-closure R42 is not a pending publication. Its current
-status is `PASS_PLANNING__BOUNDED_LEAD_HOLDS_REMAIN`: all 23,880 candidate
-coordinates now partition exactly, but no TeX source was mutated and 573
-occurrences remain reserved for lead semantic decisions. Await a later
-coherent source-mutating and release-packaged successor rather than uploading
-R42 planning evidence as a reader.
+Post-R26 local SGA3 semantic-closure planning generations are not pending
+publications. Latest observed R43 has status
+`PASS_PLANNING__BOUNDED_LEAD_HOLDS_REMAIN`: all 23,880 candidate coordinates
+partition exactly, but no TeX source was mutated, 291 occurrences remain
+reserved for lead semantic decisions, and 106 referenced declarations still
+require target insertion. These planning generations are transient evidence,
+not readers. Queue only a later coherent source-mutating, rebuilt, and
+release-packaged successor.
 
 ## 2026-07-30: EGA IV Sections 1-10 successor published and read back
 
