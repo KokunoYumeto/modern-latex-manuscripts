@@ -12,15 +12,15 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |  |
 | Split-Zero Geometry and Common Deformation Registers | 13 | 3 | 0 | 4 | 109.6 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |  |
-| Emmy Noether | 20 | 6 | 4 | 9 | 553.9 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
+| Emmy Noether | 20 | 6 | 4 | 9 | 556.1 | [noether.md](noether.md) | [Zenodo](https://zenodo.org/records/21699405) |
 | Heinrich Weber | 56 | 6 | 0 | 41 | 1762.7 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
 | Ferdinand Georg Frobenius | 8 | 2 | 2 | 2 | 333.6 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
 | Adolf Kneser | 8 | 3 | 2 | 1 | 116.7 | [kneser.md](kneser.md) | [Zenodo](https://doi.org/10.5281/zenodo.20836971) |
 | James Joseph Sylvester | 3 | 1 | 0 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
 | al-Battani Opus Astronomicum | 19 | 7 | 0 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |  |
-| SGA (serious active work; not complete) | 71 | 9 | 9 | 53 | 458.7 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/21707869) |
-| EGA (source-first work underway; layered working reader) | 29 | 14 | 4 | 9 | 489.5 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/21706639) |
+| SGA (current cumulative working readers; SGA7 partial) | 71 | 9 | 9 | 53 | 458.7 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/21707869) |
+| EGA (four complete represented scopes; EGA IV partial) | 30 | 13 | 5 | 9 | 483.4 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/21708950) |
 | Pierre Deligne | 6 | 2 | 0 | 3 | 447.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 0 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
