@@ -8,13 +8,14 @@ import csv
 import hashlib
 import io
 import json
+import re
 import shutil
 import zipfile
-from pathlib import Path, PurePosixPath
+from pathlib import Path, PurePosixPath, PureWindowsPath
 
 
 ROOT = "SGA_Current_English_Readers_and_TeX_20260730"
-SOURCE_ZIP_ROOT = "SGA1_English_Complete_ReferenceV2_R1_20260730"
+SOURCE_ZIP_ROOT = "SGA1_English_Complete_ReferenceV2_R2_Public_20260730"
 FIXED_ZIP_TIME = (2026, 7, 30, 12, 0, 0)
 EXCLUDED_FROM_PACKAGE_MANIFEST = {
     "PACKAGE_VALIDATION.json",
@@ -118,6 +119,212 @@ def validate_candidate(candidate: Path) -> dict:
         "package_validation_sha256": sha256_path(validation_path),
         "identities": identities,
     }
+
+
+def write_payload_manifest(
+    projection: Path,
+    source_rows: dict[str, dict[str, str]],
+) -> None:
+    files = sorted(
+        (
+            path
+            for path in projection.rglob("*")
+            if path.is_file()
+            and path.relative_to(projection).as_posix()
+            not in EXCLUDED_FROM_PACKAGE_MANIFEST
+        ),
+        key=lambda path: path.relative_to(projection).as_posix().casefold(),
+    )
+    rows = []
+    for path in files:
+        relative = path.relative_to(projection).as_posix()
+        source = source_rows[relative]
+        digest = sha256_path(path)
+        rows.append(
+            {
+                "manifest_id": f"sga1.public.sha256.{digest.lower()}",
+                "relative_path": relative,
+                "bytes": str(path.stat().st_size),
+                "sha256": digest,
+                "role": source["role"],
+                "status": source["status"],
+            }
+        )
+    manifest = projection / "ZENODO_PAYLOAD_MANIFEST.csv"
+    with manifest.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=[
+                "manifest_id",
+                "relative_path",
+                "bytes",
+                "sha256",
+                "role",
+                "status",
+            ],
+            lineterminator="\r\n",
+            quoting=csv.QUOTE_ALL,
+        )
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def sanitize_reproducibility_json(path: Path) -> None:
+    value = json.loads(path.read_text(encoding="utf-8-sig"))
+
+    def scrub(item: object) -> object:
+        if isinstance(item, dict):
+            return {
+                key: (
+                    PureWindowsPath(child).name
+                    if key == "path" and isinstance(child, str)
+                    else scrub(child)
+                )
+                for key, child in item.items()
+            }
+        if isinstance(item, list):
+            return [scrub(child) for child in item]
+        return item
+
+    path.write_text(
+        json.dumps(scrub(value), indent=2, ensure_ascii=True) + "\n",
+        encoding="utf-8",
+        newline="\n",
+    )
+
+
+def sanitize_build_log(path: Path) -> None:
+    text = path.read_text(encoding="utf-8", errors="strict")
+    text = re.sub(
+        r"C:/User\r?\ns/Floris",
+        "<USER_HOME>",
+        text,
+        flags=re.IGNORECASE,
+    )
+    for token in (
+        r"C:\\Users\\Floris",
+        r"C:\Users\Floris",
+        "C:/Users/Floris",
+        "/Users/Floris",
+    ):
+        text = text.replace(token, "<USER_HOME>")
+    text = text.replace("Floris", "<USER>")
+    path.write_text(text, encoding="utf-8", newline="")
+
+
+def build_public_projection(candidate: Path, projection: Path) -> dict:
+    candidate = candidate.resolve()
+    projection = projection.resolve()
+    if projection == candidate or candidate in projection.parents:
+        raise RuntimeError("public projection path overlaps the frozen candidate")
+    if projection.exists():
+        shutil.rmtree(projection)
+    projection.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(candidate, projection)
+
+    for name in (
+        "REPRODUCIBILITY_BUILD_A_VS_BUILD_B.json",
+        "REPRODUCIBILITY_FINAL_VS_BUILD_A.json",
+    ):
+        sanitize_reproducibility_json(projection / "build_evidence" / name)
+    for name in (
+        "final_tex_log_sanitized.txt",
+        "pass3_console_sanitized.txt",
+        "pass4_console_sanitized.txt",
+    ):
+        sanitize_build_log(projection / "build_evidence" / name)
+
+    status_path = projection / "STATUS.md"
+    status = status_path.read_text(encoding="utf-8")
+    status = status.split("## Coordination", 1)[0].rstrip()
+    status += """
+
+## Public release status
+
+This public projection contains the complete cumulative reader, its buildable
+TeX closure, and privacy-clean technical evidence. Internal task coordination
+and machine-local paths are deliberately omitted. Earlier bounded checkpoints
+remain available as immutable release history.
+"""
+    status_path.write_text(status, encoding="utf-8", newline="\n")
+
+    readiness_path = projection / "PUBLICATION_READINESS.md"
+    readiness = readiness_path.read_text(encoding="utf-8")
+    archive_start = readiness.index("Archive action:")
+    manifest_start = readiness.index(
+        "The manifest `ZENODO_PAYLOAD_MANIFEST.csv`", archive_start
+    )
+    readiness = (
+        readiness[:archive_start]
+        + """Public projection:
+
+- Machine-local paths and internal task-coordination notes are omitted.
+- The cumulative PDF, master, 138 components, reference graph, and mathematical
+  text are byte-identical to the frozen R2 custody package.
+- Publication must remain on the existing SGA concept; no duplicate concept is
+  authorized.
+
+"""
+        + readiness[manifest_start:]
+    )
+    readiness_path.write_text(readiness, encoding="utf-8", newline="\n")
+
+    source_rows = {
+        row["relative_path"]: row
+        for row in read_manifest(candidate / "ZENODO_PAYLOAD_MANIFEST.csv")
+    }
+    write_payload_manifest(projection, source_rows)
+    validation_path = projection / "PACKAGE_VALIDATION.json"
+    validation = json.loads(validation_path.read_text(encoding="utf-8-sig"))
+    validation["schema"] = "sga1-complete-reference-public-projection-1.0"
+    validation["package"]["manifest_sha256"] = sha256_path(
+        projection / "ZENODO_PAYLOAD_MANIFEST.csv"
+    )
+    validation["privacy_hits"] = []
+    validation["public_projection"] = {
+        "source_package": candidate.name,
+        "source_files": 180,
+        "reader_and_tex_changed": False,
+        "sanitized_build_evidence_files": 5,
+        "internal_coordination_removed": True,
+    }
+    save_json(validation_path, validation)
+
+    private_pattern = re.compile(
+        r"(?i)(C:(?:[/\\]|\\\\)+Users(?:[/\\]|\\\\)+|"
+        r"C:/User\s*s/|/Users/Floris|Floris|Papors|Chatnotes|"
+        r"\.codex|019f[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-"
+        r"[0-9a-f]{4}-[0-9a-f]{12})"
+    )
+    hits = []
+    text_suffixes = {
+        ".csv",
+        ".json",
+        ".jsonl",
+        ".log",
+        ".md",
+        ".py",
+        ".tex",
+        ".texfrag",
+        ".txt",
+    }
+    for path in projection.rglob("*"):
+        if path.is_file() and path.suffix.lower() in text_suffixes:
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            match = private_pattern.search(text)
+            if match:
+                hits.append(
+                    {
+                        "path": path.relative_to(projection).as_posix(),
+                        "token": match.group(0),
+                    }
+                )
+    if hits:
+        raise RuntimeError(f"public projection privacy scan failed: {hits[:5]}")
+    result = validate_candidate(projection)
+    result["sanitized_build_evidence_files"] = 5
+    result["privacy_hits"] = []
+    return result
 
 
 def build_source_zip(candidate: Path, output: Path) -> dict:
@@ -269,6 +476,7 @@ def save_json(path: Path, value: object) -> None:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--candidate", type=Path, required=True)
+    parser.add_argument("--projection-output", type=Path, required=True)
     parser.add_argument("--existing-bundle", type=Path, required=True)
     parser.add_argument("--bundle-output", type=Path, required=True)
     parser.add_argument("--source-zip-output", type=Path, required=True)
@@ -276,17 +484,21 @@ def main() -> int:
     args = parser.parse_args()
 
     candidate = args.candidate.resolve()
+    projection = args.projection_output.resolve()
     existing = args.existing_bundle.resolve()
     bundle_output = args.bundle_output.resolve()
     source_zip_output = args.source_zip_output.resolve()
+    source_candidate = validate_candidate(candidate)
+    public_projection = build_public_projection(candidate, projection)
     report = {
         "schema": "sga1-reference-v2-compact-release-build-1.0",
         "status": "PASS",
-        "candidate": validate_candidate(candidate),
-        "source_zip": build_source_zip(candidate, source_zip_output),
+        "source_candidate": source_candidate,
+        "public_projection": public_projection,
+        "source_zip": build_source_zip(projection, source_zip_output),
         "current_sga1_6_bundle": build_current_bundle(
             existing,
-            candidate,
+            projection,
             bundle_output,
         ),
     }

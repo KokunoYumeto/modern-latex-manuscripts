@@ -1,7 +1,7 @@
 # Publication readiness
 
-Status: **technical package assembled; independent exact-package replay
-pending before archive dispatch**.
+Status: **technical package PASS; independent exact-package replay PASS; ready
+for one custody handoff to archive maintenance**.
 
 Locally closed gates:
 
@@ -13,8 +13,12 @@ Locally closed gates:
   missing-character, fatal, or emergency-stop diagnostics in the final log;
 - all 46 font objects embedded, Type 3 fonts 0, raster image objects 0;
 - 262/262 rendered pages accepted, with no material layout mismatch;
-- active package privacy scan intended to be zero and rechecked by
-  `verify_package.py` after the final manifest is written.
+- active package privacy scan is zero under the final package verifier;
+- external read-only replay of the exact package, including a fresh four-pass
+  build and semantic PDF comparison, PASS.  Independent receipt SHA-256:
+  `218A18FAD327FCEBDBE273D5D9175CD8EA5D4CC803E373E54B7B5E008C0D3DF5`;
+  machine validation SHA-256:
+  `CFD5A1AC8777A4F7F7103C481803D5DA7F93BA6B329C5D1841B8F6E97DD6B988`.
 
 Claim limits:
 
@@ -26,17 +30,13 @@ Claim limits:
   every mathematical assertion in the historical work.
 - The PDF is not asserted to be tagged for accessibility.
 
-Archive action:
+Public projection:
 
-- No upload, Zenodo mutation, GitHub push, publication, or public readback is
-  claimed by this package assembly.
-- Archive maintenance task `1 zenodo/github`
-  (`019e6361-c661-7051-9916-a6b34cf893e3`) owns the eventual exact upload and
-  must verify the live same-concept state before mutation.  No duplicate record
-  may be created.
-- If accepted, this complete reader should supersede the earlier bounded SGA 1
-  opening-through-I.7 TeX/PDF checkpoints as the current cumulative SGA 1
-  English reader while preserving them as historical versions.
+- Machine-local paths and internal task-coordination notes are omitted.
+- The cumulative PDF, master, 138 components, reference graph, and mathematical
+  text are byte-identical to the frozen R2 custody package.
+- Publication must remain on the existing SGA concept; no duplicate concept is
+  authorized.
 
 The manifest `ZENODO_PAYLOAD_MANIFEST.csv` is self-excluding and covers every
 payload file except itself and `PACKAGE_VALIDATION.json`; those two control
