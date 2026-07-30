@@ -6,7 +6,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---:|---|---|
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |  |
 | Main Project Landing | 98 | 52 | 0 | 44 | 20664.9 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
-| Workflow / Replication Packet | 10 | 1 | 0 | 2 | 0.4 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/21638660) |
+| Workflow / Replication Packet | 11 | 1 | 0 | 2 | 1.0 | [workflow.md](workflow.md) | [Zenodo](https://zenodo.org/records/21707334) |
 | Interlanguage Methodology | 51 | 2 | 0 | 19 | 4745.6 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |  |

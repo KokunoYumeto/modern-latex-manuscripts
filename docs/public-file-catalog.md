@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 973
+Total files indexed: 974
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -126,22 +126,23 @@ Current main-landing version 20459634 retains the preservation/workflow surface 
 
 ## AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
-Record: <https://zenodo.org/records/21638660>
+Record: <https://zenodo.org/records/21707334>
 
-Current workflow version 21638660 publishes a compact ten-file methodology surface with the corrected seven-page A4 workflow PDF and Markdown, the exact Claude high-resolution source method, the resource-efficiency incident note, the controlling SGA3 diagram-fidelity correction, a seven-member source packet, exact controls, and the retained July 6 addenda. User-supplied OCR is read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are method and accountability materials, not edition or translation certification.
+Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0195 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.md](https://zenodo.org/records/21638660/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.md) |
-| reader/reference PDF | 0.0566 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.pdf](https://zenodo.org/records/21638660/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.pdf) |
-| manifest/status | 0.0081 | [01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md](https://zenodo.org/records/21638660/files/01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md) |
-| artifact/source ZIP | 0.2000 | [01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip](https://zenodo.org/records/21638660/files/01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip) |
-| manifest/status | 0.0048 | [02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md](https://zenodo.org/records/21638660/files/02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md) |
-| artifact/source ZIP | 0.0742 | [03_AI_Run_Modern_LaTeX_Workflow_20260728_Source_Packet.zip](https://zenodo.org/records/21638660/files/03_AI_Run_Modern_LaTeX_Workflow_20260728_Source_Packet.zip) |
-| manifest/status | 0.0025 | [04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md](https://zenodo.org/records/21638660/files/04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md) |
-| manifest/status | 0.0018 | [98_WORKFLOW_RELEASE_MANIFEST.csv](https://zenodo.org/records/21638660/files/98_WORKFLOW_RELEASE_MANIFEST.csv) |
-| manifest/status | 0.0037 | [99_WORKFLOW_PUBLIC_STATUS_20260728.md](https://zenodo.org/records/21638660/files/99_WORKFLOW_PUBLIC_STATUS_20260728.md) |
-| manifest/status | 0.0034 | [99_WORKFLOW_RELEASE_VALIDATION.json](https://zenodo.org/records/21638660/files/99_WORKFLOW_RELEASE_VALIDATION.json) |
+| manifest/status | 0.0195 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.md](https://zenodo.org/records/21707334/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.md) |
+| reader/reference PDF | 0.0566 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.pdf](https://zenodo.org/records/21707334/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.pdf) |
+| manifest/status | 0.0081 | [01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md](https://zenodo.org/records/21707334/files/01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md) |
+| artifact/source ZIP | 0.2000 | [01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip](https://zenodo.org/records/21707334/files/01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip) |
+| manifest/status | 0.0048 | [02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md](https://zenodo.org/records/21707334/files/02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md) |
+| artifact/source ZIP | 0.0742 | [03_AI_Run_Modern_LaTeX_Workflow_20260728_Source_Packet.zip](https://zenodo.org/records/21707334/files/03_AI_Run_Modern_LaTeX_Workflow_20260728_Source_Packet.zip) |
+| manifest/status | 0.0025 | [04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md](https://zenodo.org/records/21707334/files/04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md) |
+| manifest/status | 0.6387 | [05_ChatGPT_AI_Research_and_Methodology_Briefings_20260711_20260727.md](https://zenodo.org/records/21707334/files/05_ChatGPT_AI_Research_and_Methodology_Briefings_20260711_20260727.md) |
+| manifest/status | 0.0021 | [98_WORKFLOW_RELEASE_MANIFEST.csv](https://zenodo.org/records/21707334/files/98_WORKFLOW_RELEASE_MANIFEST.csv) |
+| manifest/status | 0.0048 | [99_WORKFLOW_PUBLIC_STATUS_20260730.md](https://zenodo.org/records/21707334/files/99_WORKFLOW_PUBLIC_STATUS_20260730.md) |
+| manifest/status | 0.0040 | [99_WORKFLOW_RELEASE_VALIDATION.json](https://zenodo.org/records/21707334/files/99_WORKFLOW_RELEASE_VALIDATION.json) |
 
 ## Interlanguage and Mathematical Translation Methodology Sidecar
 
