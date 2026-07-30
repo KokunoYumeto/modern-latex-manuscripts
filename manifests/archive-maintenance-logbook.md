@@ -4346,6 +4346,15 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Every new row is `rights_blocked_not_public`; no pixel was copied. This
   records the visual surface without silently omitting it or asserting source-
   image redistribution rights.
+- Anonymous pre-receipt readback of commit
+  `b9552a14d748a25019d8180809401bbfc97892ab` caught CRLF-to-LF normalization
+  in the generated README and validation file, which invalidated two internal
+  checksum rows. The generator now emits canonical LF bytes; the corrected
+  validation SHA-256 is
+  `F534FFB448345C819AC76E0184CD8D12F63D2AB550951C85E5BFAE747C3DB31C`
+  and corrected checksum-manifest SHA-256 is
+  `40881D4B294CDC1E69448717C4EFEDCABD546DA5FDE339A13C349A6CD4325E79`.
+  The 274 image identities are unchanged.
 - SGA7 Expose IX remains incomplete: page markers idx486, idx487, and idx540
   are absent, and idx378, idx379, idx504, and idx505 contain explicit non-
   transcription blocks. The existing SGA7 checkpoint therefore remains
