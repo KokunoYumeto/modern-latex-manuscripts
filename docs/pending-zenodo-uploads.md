@@ -1660,11 +1660,11 @@ Publication receipt: [`20260718_noether_interslavic_007_record_21429723.json`](.
 
 Publication receipt: [`20260718_noether_p30_hardmath_record_21426158.json`](../manifests/published-zenodo/20260718_noether_p30_hardmath_record_21426158.json). The 37-file, 1692.24 MB reader-first surface fronts a 466-page German R823 cumulative with a bounded direct-source audit of Paper 30 source pages 37--61. File `15` groups corrected TeX, the exact R823 diff, source pages, enlarged witnesses, build evidence, hashes, and audit status. Existing Spanish, French, Interslavic, CJK/Korean, Slavic, Arabic/Persian, Indonesian, and English surfaces remain available but are not silently represented as synchronized to this German patch. The release is live, not staged, and is not complete Paper 30 or whole-corpus certification, native-language certification, proof checking, peer review, or a critical edition.
 
-## 2026-07-18: Split-zero predatum/K4/Hopf supplement publication queue closed
+## 2026-07-19: Split-zero current publication queue closed
 
-- Split-zero current version: [10.5281/zenodo.21426216](https://doi.org/10.5281/zenodo.21426216)
+- Split-zero current version: [10.5281/zenodo.21443852](https://doi.org/10.5281/zenodo.21443852)
 
-Publication receipt: [`20260718_split_zero_predatum_hopf_record_21426216.json`](../manifests/published-zenodo/20260718_split_zero_predatum_hopf_record_21426216.json). File `07` preserves the N16--N18 working-note sequence, cumulative ledger, scripts, recorded outputs, fresh UTF-8 reruns, manifest, and hashes. The Project Atlas remains the default preview. Script groups passed 12/12, 17/17, 10/10, and 12/12 encoded checks; those checks do not certify the external topos, bundle-classification, cited-topology, or referee-recorded numerical Gauss-linking steps. The release is live, not staged.
+Current readback receipt: [`20260730_split_zero_current_head_21443852_public_readback.json`](../manifests/published-zenodo/20260730_split_zero_current_head_21443852_public_readback.json). The current version fronts the results compendium, adds the complete Part 8-C2A through C2F2 proof chain, and retains file `07` byte-identically from predecessor 21426216. All 13 files and all 12 self-excluding SHA-256 rows passed public readback. The predecessor receipt remains [`20260718_split_zero_predatum_hopf_record_21426216.json`](../manifests/published-zenodo/20260718_split_zero_predatum_hopf_record_21426216.json). This is exploratory working research, not peer review or certification of the stated external and broader claims.
 
 ## 2026-07-18: Workflow/methodology publication queue closed
 

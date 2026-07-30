@@ -243,6 +243,16 @@
 - GitHub mirror: `interlanguage-sidecar/20260705/other_pc_r12_packages636_637_and_verbatim_goals_20260705/`.
 - Status: coordination, goal-dispatch, methodology, and rolling-delta evidence only. Contains 12 exact pursued-goal files for sibling sessions. Contains no new TeX/PDF source bodies beyond package metadata, and is not native review, accepted terminology, translation completion, reader output, or source-fidelity certification.
 
+## 2026-07-19 split-zero finite-glue/shell/triality/Fricke closure published
+
+- Concept DOI: [10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444).
+- Current version: [10.5281/zenodo.21443852](https://doi.org/10.5281/zenodo.21443852).
+- Front PDF: `02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf`; the concise Project Atlas remains a direct companion.
+- New scope: the coherent Part 8-C2A through C2F2 public proof chain, with exact Python, Lean, ledger, axiom, provenance, and replay support. The seven source-free Python groups pass 16/16, 19/19, 16/16, 18/18, 20/20, 11/11, and 19/19 checks.
+- Retention: the bounded N16--N18 supplement from version 21426216 remains byte-identical.
+- Readback: all 13 public files and all 12 self-excluding SHA-256 rows passed; total public size is 127,524,123 bytes.
+- Status: exploratory working research, not peer review, a proof of a famous open problem, or certification of every broader claim. The stated marking, topology, classification, and Niemeier/Fricke boundaries remain explicit.
+
 ## 2026-07-18 split-zero predatum/K4/Hopf supplement published
 
 - Concept DOI: [10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444).
