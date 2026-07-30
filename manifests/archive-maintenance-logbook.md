@@ -4403,3 +4403,27 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   unpromoted. Authority pixels, raw logs, and private paths are absent.
 - This supersedes the printed-page-10 package only as the current active
   source-survival snapshot. It is not a reader release or Zenodo mutation.
+
+## 2026-07-31 - Public reader front doors verified; no duplicate successor
+
+- Rechecked the live human-facing Zenodo shelves, public record APIs, existing
+  anonymous byte-readback receipts, and GitHub main
+  `1aedb58a4a15caee55d31cf39b55f4e077ad3138`.
+- SGA record `21709733` has 73 files. Its leading file is the six-reader and
+  buildable-TeX bundle, followed by direct SGA1-SGA6 English readers in order;
+  SGA1 remains the default preview. SGA3 R29 is directly available as the
+  1,470-page `00c` reader with SHA-256
+  `FE7211BA4288E66430E64C574E808E9BAD596E99366777D2DDC2349CB9BD427C`.
+  The later 1,482-page technical predecessor remains excluded.
+- EGA record `21708950` has 30 files. Its leading file is the current-reader
+  and buildable-TeX bundle, followed by direct EGA 0, I, II, published EGA III,
+  and working EGA IV Sections 1-10 readers; EGA 0 remains the default preview.
+- Noether record `21699405` remains compact at 20 files, with direct cumulative
+  reader/TeX pairs, grouped evidence archives, and the 459-page full cumulative
+  English reader as default preview.
+- No newer producer handoff, stable working snapshot, Downloads intake,
+  attachment, or remote GitHub commit was present after the prior sweep.
+- The requested reader-first/compact policy is already live. No Zenodo record,
+  draft, concept, or file was mutated, and no duplicate SGA3 transport was
+  created. Exact audit controls are under
+  `manifests/source-intake/20260731_public_frontdoor_order_audit.*`.
