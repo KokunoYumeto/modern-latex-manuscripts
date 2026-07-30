@@ -4161,3 +4161,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   likewise historical source-era apparatus. They are retained.
 - No Zenodo mutation was needed. The direct-reader rule remains mathematics
   and genuine source-era apparatus only; production history stays grouped.
+
+## 2026-07-30 - Second active EGA source-custody advancement
+
+- Replaced the EGA I Section 3.3 custody path with an exact source closure
+  reviewed through Section 3.6.5; next cursor Section 3.7.1 / printed p118 /
+  authority physical p117.
+- Advanced the EGA IV Sections 11-21 custody source through Theorem 11.3.10
+  and Lemma 11.3.10.2 / printed p138. Page 139 image inspection had begun,
+  but no unclosed page-139 source edit was promoted.
+- Both 18-file GitHub packages replay their 17-row self-excluding manifests
+  exactly and have zero privacy/model/task-marker hits.
+- Disposable isolated one-pass XeLaTeX builds exited 0 at 108 and 314 pages.
+  The closed active-root gates retain coherent three-pass 109-page and
+  317-page builds with PDF SHA-256 values
+  `614CA63E4E5FF08532B609FEECB31F54633C65B8E14CC970CFE0195A2957BAF7`
+  and
+  `30D79ED03C3920DDF13F429A7B53F42201F977F05FC7BF51084DAF0A84311C52`.
+- This remains source-survival custody only. EGA stays on its separate
+  concept DOI `10.5281/zenodo.20414353`, current version
+  `10.5281/zenodo.21697218`; no Zenodo mutation, duplicate concept, or
+  parallel draft was created.
