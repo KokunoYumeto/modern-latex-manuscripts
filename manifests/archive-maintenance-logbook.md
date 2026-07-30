@@ -4383,3 +4383,23 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   absent. This is source-survival custody only, not a reader release,
   Sections 16-18 completion, rights clearance, critical edition, or
   reference-v2 certification. The EGA Zenodo record remains unchanged.
+
+## 2026-07-30 - EGA IV Sections 16-18 source custody advances to printed page 14
+
+- Captured the producer's closed r7 gate before page-15 source editing began.
+  Printed pages 5-14 / authority physical pages 4-13 are source-aligned; the
+  continuation is Proposition 16.3.4 at `ega4-16.tex` line 500.
+- The no-overwrite successor has 13 files / 672,972 bytes. Its 12-row
+  self-excluding manifest has SHA-256
+  `9399E26A447726B3AD56F491293949AB72C0C2DD6E8046E09F2D00C46D8E1031`
+  and replays exactly; two complete package builds are byte-identical.
+- The active source is 176,699 bytes, SHA-256
+  `0709ABA3B463E86C5CCB0CE8778BC684F4DBB55D27CBAF21713F4BB141214B35`.
+  The four-page advance restores an omitted equality and citation, corrects a
+  primed locus and principal-parts object, restores Erratum III, and preserves
+  the authority's invariant-versus-pointwise-fixed distinction.
+- The source package builds in an isolated one-pass XeLaTeX replay to 120
+  pages with exit 0. The clean 121-page r7 producer PDF remains excluded and
+  unpromoted. Authority pixels, raw logs, and private paths are absent.
+- This supersedes the printed-page-10 package only as the current active
+  source-survival snapshot. It is not a reader release or Zenodo mutation.
