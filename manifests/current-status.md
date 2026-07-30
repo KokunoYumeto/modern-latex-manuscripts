@@ -2853,6 +2853,10 @@ Noether version [10.5281/zenodo.21320035](https://doi.org/10.5281/zenodo.2132003
 
 This revision changes only Paper 20. R818 contributes 17 direct source-backed corrections across printed pp.26-32; R819 contributes eight additional source-backed emphasis and punctuation corrections across pp.31-33. No OCR text was promoted. The integration check proves that all text outside Paper 20 is byte-preserved from v26 and that the integrated Paper 20 exactly matches the sealed R819 text. XeLaTeX passes twice to 466 pages with no fatal, overfull, or underfull diagnostics; output pages 218-223 were rendered and visually checked. The 989-row grouped-package manifest and ZIP CRC check pass. Classification remains high-value working/source-control evidence, not corpus closure, paper certification, multilingual synchronization, or a critical edition. The compact mirror is `sources/noether/current-german-source-control-v26-r819-20260712/`.
 
+## 2026-07-19 Split-zero finite-glue/shell/triality/Fricke closure published
+
+The split-zero concept DOI now resolves to current version [10.5281/zenodo.21443852](https://doi.org/10.5281/zenodo.21443852). The bookmarked results compendium is the selected preview; the concise Project Atlas remains direct. The release adds the coherent Part 8-C2A through C2F2 public proof chain with exact Python, Lean, ledger, axiom, provenance, and replay support. Seven source-free Python groups pass 16/16, 19/19, 16/16, 18/18, 20/20, 11/11, and 19/19 checks. The bounded N16--N18 supplement from predecessor 21426216 remains byte-identical. Public readback passed all 13 files, all 12 self-excluding SHA-256 rows, and 127,524,123 total bytes. The stated marking, topology, classification, and Niemeier/Fricke boundaries remain explicit; this is exploratory working research, not peer review or certification of every broader claim.
+
 ## 2026-07-18 Split-zero residual-Niemeier integration published
 
 The split-zero concept DOI now resolves to version [10.5281/zenodo.21426216](https://doi.org/10.5281/zenodo.21426216). Its Project Atlas remains the human front door and default preview. The retained payload includes the result compendium, formalization and exact-check archive, visual material, working texts, and Part 8-C2B residual-Niemeier bundle. New file `07` is one bounded N16-N18 predatum/K4/Hopf working-note and executable-check ZIP. Its four script groups reran locally at 12/12, 17/17, 10/10, and 12/12 encoded checks. The rerun does not machine-certify the topos-level, bundle-classification, cited-topology, or referee-recorded numeric steps. This is scoped working research and artifact checking, not peer review, a proof of a famous open problem, or certification of every broader claim.
@@ -4083,13 +4087,13 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Workflow / replication packet | 21707334 | <https://doi.org/10.5281/zenodo.20461174> |
 | Interlanguage methodology | 21485338 | <https://doi.org/10.5281/zenodo.21124403> |
 | Lean formalization sidecars | 21129946 | <https://doi.org/10.5281/zenodo.21129945> |
-| Split-zero research sidecar | 21426216 | <https://doi.org/10.5281/zenodo.20822444> |
-| Noether | 21434690 | <https://doi.org/10.5281/zenodo.20412587> |
-| Weber | 21402223 | <https://doi.org/10.5281/zenodo.20412153> |
+| Split-zero research sidecar | 21443852 | <https://doi.org/10.5281/zenodo.20822444> |
+| Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
+| Weber | 21513712 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21672742 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21709733 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
-| EGA | 20454552 | <https://doi.org/10.5281/zenodo.20414353> |
+| EGA | 21708950 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
 | Gauss | 20674086 | <https://doi.org/10.5281/zenodo.20410934> |
 | Riemann | 20434317 | <https://doi.org/10.5281/zenodo.20429778> |

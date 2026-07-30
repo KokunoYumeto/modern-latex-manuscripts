@@ -126,7 +126,7 @@ Current main-landing version 20459634 retains the preservation/workflow surface 
 
 ## AI-Run Modern LaTeX Manuscript Workflow and Replication Packet
 
-Record: <https://zenodo.org/records/21707334>
+Record: <https://doi.org/10.5281/zenodo.20461174>
 
 Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.
 
@@ -218,27 +218,27 @@ Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-can
 
 Record: <https://doi.org/10.5281/zenodo.20822444>
 
-Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21426216 retains the Project Atlas as its default preview, the bookmarked results compendium, Lean/Python checks and ledgers, editable working texts, replayable visualization/data packages, and the Part 8-C2B residual-Niemeier audit. It adds one bounded N16-N18 predatum/K4/Hopf working-note and executable-check supplement. Its four script groups reran at 12/12, 17/17, 10/10, and 12/12 encoded checks; external topos, bundle-classification, cited-topology, and referee-recorded numeric steps remain explicitly outside that machine rerun. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.
+Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Current version 21443852 fronts the bookmarked results compendium and retains the Project Atlas, Lean/Python checks and ledgers, editable working texts, replayable visualization/data packages, and the bounded N16-N18 predatum/K4/Hopf supplement from predecessor 21426216. It adds the coherent Part 8-C2A through C2F2 finite-glue, shell, triality, and Fricke proof chain. The seven source-free Python replays pass 16/16, 19/19, 16/16, 18/18, 20/20, 11/11, and 19/19 checks; the stated marking, topology, classification, and Niemeier/Fricke boundaries remain explicit. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 0.0947 | [00_PROJECT_ATLAS_20260717.pdf](https://zenodo.org/records/21426216/files/00_PROJECT_ATLAS_20260717.pdf) |
-| manifest/status | 0.0286 | [01_PROJECT_ATLAS_20260717.md](https://zenodo.org/records/21426216/files/01_PROJECT_ATLAS_20260717.md) |
-| reader/reference PDF | 16.6693 | [02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf](https://zenodo.org/records/21426216/files/02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf) |
-| artifact/source ZIP | 1.4081 | [03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip](https://zenodo.org/records/21426216/files/03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip) |
-| reader/reference PDF | 27.9045 | [04_VISUAL_ATLAS_20260717.pdf](https://zenodo.org/records/21426216/files/04_VISUAL_ATLAS_20260717.pdf) |
-| artifact/source ZIP | 62.7597 | [05_VISUALIZATIONS_AND_DATA_20260717.zip](https://zenodo.org/records/21426216/files/05_VISUALIZATIONS_AND_DATA_20260717.zip) |
-| artifact/source ZIP | 0.6134 | [06_CURRENT_WORKING_TEXTS_20260717.zip](https://zenodo.org/records/21426216/files/06_CURRENT_WORKING_TEXTS_20260717.zip) |
-| artifact/source ZIP | 0.0430 | [07_Predatum_K4_Hopf_WorkingNotes_and_Checks_20260718.zip](https://zenodo.org/records/21426216/files/07_Predatum_K4_Hopf_WorkingNotes_and_Checks_20260718.zip) |
-| manifest/status | 0.0078 | [CHANGELOG.md](https://zenodo.org/records/21426216/files/CHANGELOG.md) |
-| manifest/status | 0.0171 | [MANIFEST.json](https://zenodo.org/records/21426216/files/MANIFEST.json) |
-| manifest/status | 0.0054 | [PROVENANCE_AND_RIGHTS.md](https://zenodo.org/records/21426216/files/PROVENANCE_AND_RIGHTS.md) |
-| manifest/status | 0.0049 | [README.md](https://zenodo.org/records/21426216/files/README.md) |
-| manifest/status | 0.0010 | [SHA256SUMS.txt](https://zenodo.org/records/21426216/files/SHA256SUMS.txt) |
+| reader/reference PDF | 0.1070 | [00_PROJECT_ATLAS_20260717.pdf](https://zenodo.org/records/21443852/files/00_PROJECT_ATLAS_20260717.pdf) |
+| manifest/status | 0.0353 | [01_PROJECT_ATLAS_20260717.md](https://zenodo.org/records/21443852/files/01_PROJECT_ATLAS_20260717.md) |
+| reader/reference PDF | 27.0903 | [02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf](https://zenodo.org/records/21443852/files/02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf) |
+| artifact/source ZIP | 3.0012 | [03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip](https://zenodo.org/records/21443852/files/03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip) |
+| reader/reference PDF | 27.9045 | [04_VISUAL_ATLAS_20260717.pdf](https://zenodo.org/records/21443852/files/04_VISUAL_ATLAS_20260717.pdf) |
+| artifact/source ZIP | 62.7597 | [05_VISUALIZATIONS_AND_DATA_20260717.zip](https://zenodo.org/records/21443852/files/05_VISUALIZATIONS_AND_DATA_20260717.zip) |
+| artifact/source ZIP | 0.6217 | [06_CURRENT_WORKING_TEXTS_20260717.zip](https://zenodo.org/records/21443852/files/06_CURRENT_WORKING_TEXTS_20260717.zip) |
+| artifact/source ZIP | 0.0430 | [07_Predatum_K4_Hopf_WorkingNotes_and_Checks_20260718.zip](https://zenodo.org/records/21443852/files/07_Predatum_K4_Hopf_WorkingNotes_and_Checks_20260718.zip) |
+| manifest/status | 0.0104 | [CHANGELOG.md](https://zenodo.org/records/21443852/files/CHANGELOG.md) |
+| manifest/status | 0.0286 | [MANIFEST.json](https://zenodo.org/records/21443852/files/MANIFEST.json) |
+| manifest/status | 0.0072 | [PROVENANCE_AND_RIGHTS.md](https://zenodo.org/records/21443852/files/PROVENANCE_AND_RIGHTS.md) |
+| manifest/status | 0.0065 | [README.md](https://zenodo.org/records/21443852/files/README.md) |
+| manifest/status | 0.0011 | [SHA256SUMS.txt](https://zenodo.org/records/21443852/files/SHA256SUMS.txt) |
 
 ## Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Readers
 
-Record: <https://zenodo.org/records/21699405>
+Record: <https://doi.org/10.5281/zenodo.20412587>
 
 Current Noether public surface is compact record 21699405. Its 20 files directly expose the 459-page full cumulative English working reader and editable master TeX, covering the inherited 43-paper corpus plus the translated German tail through R823 line 24123. The full English PDF is the default preview. German, Spanish, French, and paired Interslavic readers remain direct downloads; bounded CJK and other-language work, source audits, repair evidence, visual evidence, and predecessor maps are grouped into nine coherent ZIPs. The latest same-concept successor retains 19 predecessor files byte-identically and replaces grouped source-audit archive 61 with a 132-member survivor package for bounded Paper 4 and Paper 37 repairs across Latin and Cyrillic Interslavic, Russian, and Ukrainian. Anonymous readback passed all 20 outer files and all 132 replacement-ZIP members. Immutable predecessor 21499492 retains the prior 100-file surface. These are working translations, source controls, repairs, and render witnesses, not peer review, proof checking, complete multilingual synchronization, native-language certification, whole-corpus source certification, rights clearance, accessibility certification, or a critical edition.
 
@@ -425,7 +425,7 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 ## SGA 1-7: English Readers, French Texts, TeX Archives, and Partial SGA7 Source Transcription
 
-Record: <https://zenodo.org/records/21709733>
+Record: <https://doi.org/10.5281/zenodo.20410947>
 
 Current compact SGA record 21709733 starts with one 1,394-member ZIP containing all six cumulative English reader PDFs and complete buildable TeX closures. The same readers and masters remain direct in SGA1-6 order; SGA1 remains the default preview. The clean 1,470-page SGA3 R29 cumulative covers the Introduction, Exposes I-XXVI, Tome-I subject index, Tome-III mathematical guide, and terminal index, with 13,119 named destinations and 12,337 valid internal GoTo actions. A fresh scan-based SGA7 I source-transcription checkpoint is also direct as a 163-page PDF, editable master, and 10-member source ZIP. It covers complete Exposes I, II, VI, VII, and VIII, or 312 of 529 known body pages, and preserves the source language as printed; Expose IX remains active and excluded, and this is not a complete SGA7 transcription or English translation. Two compact SGA7 visual-evidence archives add 12 high-detail source crops actually opened during transcription and diagram review, plus provenance metadata for 14,744 unique scratch images; the parent scan, whole-page renders, and 14,732 rights-blocked pixels remain excluded. Anonymous readback passed all 73 outer files, every member of both new archives, and all 17 release-control members; 70 predecessor files remained byte-identical. SGA3 remains a useful heterogeneous integration rather than final whole-reader diagram-fidelity closure; SGA4half remains rights-held; SGA6 remains layered rather than uniformly source-certified. Historical versions remain immutable. These are working editions, translations, transcriptions, and visual/provenance evidence, not critical editions, rights determinations, mathematical certifications, uniform whole-series source certification, or final whole-SGA certification. Record rights metadata remains License Not Specified.
 
@@ -522,7 +522,7 @@ Current reader-first surface is version 21212608. It directly exposes the sequen
 
 ## Elements de geometrie algebrique (EGA): French Originals, English Working Readers, and Source Archives
 
-Record: <https://zenodo.org/records/21708950>
+Record: <https://doi.org/10.5281/zenodo.20414353>
 
 Current EGA surface is compact record 21708950 under the established EGA concept DOI 10.5281/zenodo.20414353. It starts with one 125-member ZIP containing all five current cumulative English reader PDFs and their complete buildable TeX closures; the same readers and masters remain direct downloads. EGA 0 through Section 13, EGA I through authority EOF, EGA II through authority EOF, and the complete published EGA III text through 7.9.14 are reference-v2 working readers. EGA IV remains source-aligned through Sections 1-10 and continues at Section 11. EGA 0 is the default preview. Anonymous readback passed all 30 outer files and every member of all nine ZIP archives; twelve NUMDAM and historical files were retained byte-identically. Superseded loose readers remain available in immutable predecessor versions. Record rights metadata is License Not Specified. EGA remains separate from SGA because it has its own established concept and authority history. These are working translations and source controls, not a complete whole-EGA translation, critical edition, rights clearance, peer review, accessibility certification, or whole-reader source certification.
 

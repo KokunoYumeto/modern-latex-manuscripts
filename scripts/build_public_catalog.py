@@ -8,6 +8,7 @@ Run it from the repository root:
 
 Outputs:
     manifests/public-file-catalog.csv
+    manifests/zenodo-records-current.json
     docs/public-file-catalog.md
 """
 
@@ -30,7 +31,7 @@ RECORDS: list[tuple[str, str]] = [
     ("workflow", "21707334"),
     ("interlanguage_reflections", "21485338"),
     ("lean_formalization_sidecars", "21129946"),
-    ("split_zero_research_sidecar", "21426216"),
+    ("split_zero_research_sidecar", "21443852"),
     ("noether", "21699405"),
     ("weber", "21513712"),
     ("cayley", "20617845"),
@@ -102,7 +103,7 @@ RECORD_NOTES = {
         "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
     ],
     "split_zero_research_sidecar": [
-        "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Version 21426216 retains the Project Atlas as its default preview, the bookmarked results compendium, Lean/Python checks and ledgers, editable working texts, replayable visualization/data packages, and the Part 8-C2B residual-Niemeier audit. It adds one bounded N16-N18 predatum/K4/Hopf working-note and executable-check supplement. Its four script groups reran at 12/12, 17/17, 10/10, and 12/12 encoded checks; external topos, bundle-classification, cited-topology, and referee-recorded numeric steps remain explicitly outside that machine rerun. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
+        "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Current version 21443852 fronts the bookmarked results compendium and retains the Project Atlas, Lean/Python checks and ledgers, editable working texts, replayable visualization/data packages, and the bounded N16-N18 predatum/K4/Hopf supplement from predecessor 21426216. It adds the coherent Part 8-C2A through C2F2 finite-glue, shell, triality, and Fricke proof chain. The seven source-free Python replays pass 16/16, 19/19, 16/16, 18/18, 20/20, 11/11, and 19/19 checks; the stated marking, topology, classification, and Niemeier/Fricke boundaries remain explicit. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
     ],
     "deligne": [
         "Current reader-first surface is version 21212608. It directly exposes the sequential English and French working readers through Papers 001-016p080 and groups individual paper/letter PDFs and the TeX/source/QA material into four archives. These are uneven working drafts and repair material, not a critical edition or blanket source-faithfulness claim; diagram-heavy and equation-dense pieces still require direct source comparison.",
@@ -184,15 +185,16 @@ def file_url(record_id: str, filename: str) -> str:
     return f"https://zenodo.org/records/{record_id}/files/{quote(filename)}"
 
 
-def build_rows() -> list[dict[str, str]]:
-    rows: list[dict[str, str]] = []
+def build_rows() -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
     for label, record_id in RECORDS:
         record = fetch_record(record_id)
         actual_record_id = str(record.get("id", record_id))
         title = TITLE_OVERRIDES.get(label, record.get("metadata", {}).get("title", ""))
         for item in sorted(record.get("files", []), key=lambda value: value.get("key", "").lower()):
             filename = item.get("key", "")
-            size_mb = float(item.get("size", 0)) / (1024 * 1024)
+            size_bytes = int(item.get("size", 0))
+            size_mb = size_bytes / (1024 * 1024)
             rows.append(
                 {
                     "record_label": label,
@@ -201,29 +203,59 @@ def build_rows() -> list[dict[str, str]]:
                     "file_role": file_role(filename),
                     "filename": filename,
                     "size_mb": f"{size_mb:.4f}",
+                    "_size_bytes": size_bytes,
                     "url": file_url(actual_record_id, filename),
                 }
             )
     return rows
 
 
-def write_csv(rows: list[dict[str, str]], path: Path) -> None:
+def write_csv(rows: list[dict[str, Any]], path: Path) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="", encoding="utf-8") as handle:
+        fieldnames = [
+            "record_label",
+            "record_id",
+            "record_title",
+            "file_role",
+            "filename",
+            "size_mb",
+            "url",
+        ]
         writer = csv.DictWriter(
             handle,
-            fieldnames=[
-                "record_label",
-                "record_id",
-                "record_title",
-                "file_role",
-                "filename",
-                "size_mb",
-                "url",
-            ],
+            fieldnames=fieldnames,
         )
         writer.writeheader()
-        writer.writerows(rows)
+        writer.writerows({field: row[field] for field in fieldnames} for row in rows)
+
+
+def write_current_records(rows: list[dict[str, Any]], path: Path) -> None:
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for row in rows:
+        grouped.setdefault(row["record_label"], []).append(row)
+
+    records: list[dict[str, Any]] = []
+    for label in sorted(grouped):
+        group = grouped[label]
+        role_counts: dict[str, int] = {}
+        for row in group:
+            role = row["file_role"]
+            role_counts[role] = role_counts.get(role, 0) + 1
+        records.append(
+            {
+                "label": label,
+                "record_id": group[0]["record_id"],
+                "title": group[0]["record_title"],
+                "url": f"https://zenodo.org/records/{group[0]['record_id']}",
+                "file_count": len(group),
+                "total_mb": round(sum(int(row["_size_bytes"]) for row in group) / (1024 * 1024), 4),
+                "role_counts": dict(sorted(role_counts.items())),
+            }
+        )
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
 
 
 def load_concept_urls(root: Path) -> dict[str, str]:
@@ -313,6 +345,7 @@ def main() -> int:
     root = Path.cwd()
     rows = build_rows()
     write_csv(rows, root / "manifests" / "public-file-catalog.csv")
+    write_current_records(rows, root / "manifests" / "zenodo-records-current.json")
     write_markdown(rows, root / "docs" / "public-file-catalog.md")
     print(f"Indexed {len(rows)} public files from {len(RECORDS)} records.")
     return 0
