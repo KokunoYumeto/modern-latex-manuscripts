@@ -1,3 +1,29 @@
+## 2026-07-30 EGA IV source custody through printed page 149
+
+GitHub source custody now preserves the active no-overwrite EGA IV Sections
+11-21 English source tree through the fully documented printed-page-149 gate.
+That gate restores the displayed fiber identity and correct flatness base in
+Reduction I, the printed direction of the local-ring factorization, the lost
+Reduction III argument, and Proposition 11.4.12's base-change notation. The
+next authority page is printed page 150, beginning at
+`source/source_aligned/ega4-11.tex` line 2341.
+
+The snapshot at
+`sources/ega/ega4-sections11-21-source-aligned-through-printed149-working-custody-20260730/`
+contains 18 files / 1,836,837 bytes. Its 17-row self-excluding manifest has
+SHA-256
+`05B80E6571B1B141D7E91051570EFF13225244EE0ED748F6951386D0B88B589A`
+and replays exactly with zero privacy or forbidden-file hits. The 14 copied
+source/build-harness files total 1,830,715 bytes; only `ega4-11.tex` differs
+from the preceding page-146 snapshot.
+
+The active four-pass checkpoint is 319 pages / 2,119,563 bytes with SHA-256
+`3095714E4F363FD9923450F5E5409732F04A40DE3576201756F04E257F5B0C5E`.
+A disposable isolated one-pass build from the copied source exited 0 at 317
+pages. Neither PDF, build logs, authority pages, nor authority crops are in the
+public package. This is source survival only; EGA Zenodo remains
+[`10.5281/zenodo.21702700`](https://doi.org/10.5281/zenodo.21702700).
+
 ## 2026-07-30 EGA I active source custody through Section 9
 
 GitHub source custody now preserves the active no-overwrite EGA I English
