@@ -4271,3 +4271,40 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   scholarly working reader, not a critical edition, peer-review or
   mathematical certification, rights clearance, accessibility certification,
   or whole-EGA completion claim.
+
+## 2026-07-30 - Workflow research briefings preserved and published
+
+- Preserved the exact 669,748-byte ChatGPT research-methodology export at
+  GitHub commit `877cbb899ec265e00994971a392b94db2ea81170`; SHA-256
+  `61F9E44334FAC7B6CA73C3CF9BEF21ADDB36A681CFF2DC44979C8EF47A588BC4`.
+- Published exactly one same-concept workflow successor from live predecessor
+  `10.5281/zenodo.21638660`: version `10.5281/zenodo.21707334` under concept
+  DOI `10.5281/zenodo.20461174`. No duplicate concept or parallel draft was
+  created.
+- The final surface has 11 files / 1,064,735 bytes. Seven substantive
+  predecessor files remain byte-identical, the briefing export is new, and
+  three release controls are current. The seven-page workflow PDF remains the
+  default preview.
+- The briefings are explicitly labeled generated and unverified. Claims,
+  citations, links, dates, and recommendations require primary-source
+  checking; the export is not manuscript authority, mathematical
+  certification, translation evidence, or a new rights grant.
+- Anonymous readback passed all 11 outer files and both retained ZIPs: 28/28
+  members, zero directory entries, and 836,257 uncompressed bytes.
+- The exact redundant 669,748-byte Downloads copy was deleted only after its
+  repository and Zenodo identities had both been verified.
+- Sweep classification also found
+  `SGA7I_partial_I-II-VI-VII.pdf` (919,165 bytes, SHA-256
+  `1EC725953A4F03FFAEA256E25E4C82602E9860171F040D21A0C281C869E51A8E`)
+  to be a 113-page predecessor of the public 115-page reader (SHA-256
+  `ED1E581C6858C219A99F1107A28C30B62BEEE7AD6DE2C009562335FC5A94B177`).
+  The obsolete Downloads copy was removed after the replacement's repository
+  and Zenodo identities were confirmed. Four unrelated Gemini sports/rehab
+  images were excluded from project handling. No post-July-22 CJK change was
+  found in this sweep.
+- Machine receipts and the human-readable record are under
+  `manifests/published-zenodo/20260730_workflow_research_briefings_*`.
+- The locked English/Germanic decision log appended
+  `EG-WORKFLOW-RESEARCH-BRIEFINGS-PUBLICATION-20260730-0001` and validates at
+  358 records / 2,270,274 bytes / SHA-256
+  `52622AC1B3268578CBE8DB50D316B538CAA44A54581D04864BF9EE52214BCA82`.
