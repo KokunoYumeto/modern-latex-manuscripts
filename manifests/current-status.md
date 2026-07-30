@@ -1,3 +1,46 @@
+## 2026-07-30 Noether Slavic source-repair survivor successor published
+
+The sole latest Noether version is
+[`10.5281/zenodo.21699405`](https://doi.org/10.5281/zenodo.21699405)
+under existing concept `10.5281/zenodo.20412587`. It retains 19 of the 20
+files from immutable predecessor `10.5281/zenodo.21499660` byte-identically
+and replaces only grouped archive 61 with:
+
+- `61_Noether_Current_Source_Audit_and_Slavic_Repair_Evidence_20260730.zip`
+- 120,620,070 bytes / 132 members
+- SHA-256
+  `12376982ED895F3B59AA532EE20436CBC9544D6C6671083A0EB657CF00F32FF2`
+- 131-row internal manifest, SHA-256
+  `6663B5EFCAB0486E87C63BC3D202F9BFF56D9BA33A310CB65C76F82E4632C1D3`
+
+The archive retains the 20 prior source-audit objects and adds the 110-file
+repair-survivor package for Noether Paper 4 Introduction/Sections 2-5 and
+Paper 37 in Latin Interslavic, Cyrillic Interslavic, Russian, and Ukrainian:
+24 post-repair TeX files, 24 matching PDFs, 24 immediate preimages, and exact
+privacy-clean controls. Source pixels remain rights-blocked metadata-only.
+
+Anonymous Zenodo readback passed all 20 outer files and all 132 archive
+members. The default preview remains the 459-page full cumulative English
+working reader. No duplicate concept, parallel draft, or second successor was
+created.
+
+GitHub PR [#173](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/173)
+merged source commit
+`9e9fac510e1cb7b8a5719e439d918e663aaa59ef` as
+`b32701da350e9f406a5bd5c1fb69d9c32fab0789`. Anonymous commit-pinned
+readback reproduced all 110 package files exactly, with canonical tree
+SHA-256
+`409304EB707663BF870831B810C4F5F741862DFDF7F4BF620B93EE483D51E10A`.
+See the
+[publication receipt](published-zenodo/20260730_noether_slavic_repair_survivors_record_21699405.md),
+[outer readback](published-zenodo/20260730_noether_record_21699405_public_readback.json),
+and
+[ZIP-member readback](published-zenodo/20260730_noether_record_21699405_zip_member_readback.json).
+
+This is bounded repair custody, not native/community certification,
+whole-paper certification, proof verification, rights clearance,
+accessibility certification, or a critical edition.
+
 ## 2026-07-30 SGA1-3 clean reading-surface successor published
 
 The sole latest SGA version is
