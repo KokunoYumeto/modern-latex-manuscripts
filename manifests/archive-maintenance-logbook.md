@@ -4146,3 +4146,18 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - This was source-survival custody only. EGA remains on its separate concept
   DOI `10.5281/zenodo.20414353`, current version `10.5281/zenodo.21697218`;
   no Zenodo mutation, duplicate concept, or parallel draft was created.
+
+## 2026-07-30 - All-direct SGA reader hygiene replay
+
+- Replayed every loose reader on current SGA record `21698501`: eight PDFs,
+  4,136 pages, and 25,794,199 bytes.
+- Replayed all eight loose TeX files as rebuild-facing controls.
+- Page text, PDF metadata, and TeX contain zero targeted model/AI,
+  personal/project, private-path/task-ID, workflow, project-production,
+  source/translation-status, publication-readiness, QA, comparison-lineage,
+  or internal-review hits.
+- SGA 2 page 3's `current status` wording belongs to the corrected edition's
+  genuine editor preface. The SGA 6 English and French opening prefaces are
+  likewise historical source-era apparatus. They are retained.
+- No Zenodo mutation was needed. The direct-reader rule remains mathematics
+  and genuine source-era apparatus only; production history stays grouped.
