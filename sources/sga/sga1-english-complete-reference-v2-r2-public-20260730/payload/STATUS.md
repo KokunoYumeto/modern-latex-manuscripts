@@ -1,6 +1,6 @@
 # SGA 1 complete English reader — stable reference-v2 successor
 
-Status: **LOCAL PASS; immutable checkpoint packaging and independent replay pending**  
+Status: **TECHNICAL PACKAGE PASS; independent exact-package replay PASS; archive handoff pending**  
 Date: 2026-07-30
 
 ## Scope
@@ -12,7 +12,7 @@ GoTo action a stable named target.
 
 ## Current reader
 
-- PDF: `build_stable_alias_overlay_r6_source_complete/SGA1_English_complete_reference_reader.pdf`
+- PDF: `SGA1_English_complete_reference_reader.pdf`
 - bytes: 2,763,471
 - SHA-256: `46406925C8EBBF4309A67CF4D84B493952EF99C067E1971F885F0F3AF326BA1E`
 - pages: 262
@@ -55,6 +55,12 @@ remain recorded as superseded adverse history.
   destination coordinate exactly.  Container hashes differ only because the
   TeX/PDF writers emit run-specific identifiers; byte identity is not the
   reproducibility contract.
+- a separate read-only package replay revalidated the exact 178-row payload
+  manifest, all CSV/JSON controls, privacy, fonts, PDF actions, and source
+  closure; its isolated four-pass build reproduced all decoded page streams,
+  text, link geometry, destination names, and destination coordinates.  The
+  final independent receipt has SHA-256
+  `218A18FAD327FCEBDBE273D5D9175CD8EA5D4CC803E373E54B7B5E008C0D3DF5`.
 
 Machine evidence is in `controls/REFERENCE_*.csv`,
 `controls/REFERENCE_GRAPH_VALIDATION.json`,
@@ -62,18 +68,9 @@ Machine evidence is in `controls/REFERENCE_*.csv`,
 `controls/REPRODUCIBILITY_*.json` files.  Manual visual evidence is recorded in
 `controls/MANUAL_VISUAL_QA_PASS.md`.
 
-## Coordination
+## Public release status
 
-- EGA I remains exclusively owned by task
-  `019f70c0-aa55-7723-b00a-1d95324af359`; latest reported cursor is
-  Proposition 6.5.1 after continuous alignment through §6.4.13.
-- EGA IV §§11–21 remain exclusively owned by task
-  `019f711e-e434-7af2-9a4d-0cd038cfe022`; latest admitted coverage is through
-  IV-3 printed page 148, with page 149 next.
-- EGA II is complete through EOF, EGA III is locally complete, and EGA IV
-  §§1–10 are a closed 270-page predecessor.  No numbered EGA I–IV reader gap is
-  known to be ownerless.
-- This task alone owns the SGA 1 reference successor.  No EGA root was entered.
-
-No archive/publication/readback claim is made in this working status.  The next
-step is a no-overwrite, privacy-clean exact checkpoint and independent replay.
+This public projection contains the complete cumulative reader, its buildable
+TeX closure, and privacy-clean technical evidence. Internal task coordination
+and machine-local paths are deliberately omitted. Earlier bounded checkpoints
+remain available as immutable release history.
