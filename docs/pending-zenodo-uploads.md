@@ -1,3 +1,30 @@
+## 2026-07-30: SGA7 Exposé-VIII successor published and read back
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published successor:
+  [10.5281/zenodo.21707869](https://doi.org/10.5281/zenodo.21707869)
+- GitHub source package:
+  [SGA7 five-exposé source transcription](../sources/sga/sga7i-fresh-transcription-exposes-i-ii-vi-vii-viii-working-20260730/)
+
+This queue item is closed. The successor replaces only the direct SGA7 PDF,
+editable master, reader/source ZIP, and release controls. The new 163-page
+working reader covers complete Exposés I, II, VI, VII, and VIII: 312 of 529
+known body pages, with 145 native diagrams and no raster diagram inputs.
+Exposé IX remains active and excluded. The checkpoint preserves the source
+language as printed and is neither a complete SGA7 transcription nor a
+complete English translation. SGA1 remains the selected default preview.
+
+Anonymous readback passed all 71 outer files / 480,981,780 bytes, all 10 SGA7
+source-ZIP members, and all 12 release-control members. Sixty-seven
+predecessor files remained byte-identical. No duplicate concept or parallel
+draft was created.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260730_sga7i_five_expose_record_21707869.md)
+- [outer-file and packaged-member readback](../manifests/published-zenodo/20260730_sga7i_five_expose_record_21707869_public_readback.json)
+
 ## 2026-07-30: complete EGA II reference-v2 successor published and read back
 
 - Existing concept:
@@ -24,7 +51,7 @@ Exact receipts:
 - [outer-file readback](../manifests/published-zenodo/20260730_ega2_reference_v2_record_21706639_public_readback.json)
 - [all-ZIP member readback](../manifests/published-zenodo/20260730_ega2_reference_v2_record_21706639_zip_member_readback.json)
 
-## 2026-07-30: partial SGA7 source transcription published and read back
+## 2026-07-30: four-exposé SGA7 source-transcription predecessor
 
 - Existing concept:
   [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
