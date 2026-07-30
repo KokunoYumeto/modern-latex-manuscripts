@@ -7,11 +7,11 @@
 - GitHub source package:
   [complete SGA7 I source transcription](../sources/sga/sga7i-fresh-transcription-exposes-i-ii-vi-vii-viii-ix-working-20260731/)
 
-The privacy-clean projection contains 16 files / 5,531,313 bytes. Its 14-row
+The privacy-clean projection contains 16 files / 5,516,101 bytes. Its 14-row
 self-excluding manifest has SHA-256
-`0E0C2E7E1920C2F57995E4FD5B74782FD104C6C736A11FBE035CD490C4FB6653`;
+`C84A109AE710F25D98C776612DA63F5508215C3A169A3720F70FC393208A03DE`;
 package validation is `PASS_ARCHIVE_HANDOFF_READY`, SHA-256
-`F81AC5F7764AA8B41D75B0BB22F738092EA7C569AC6E42483FAF6E99F26F8DCF`.
+`89793CAA923EDEA4C6AE716CE9E9BA33753545BD34211B797A89359BD63D888B`.
 
 The deterministic reader is 267 A4 pages / 2,002,517 bytes / SHA-256
 `45E4C2980260C8172AA3762BE0CDBF84FE1DCFC2FA23B724C64508A96F4D2E96`.

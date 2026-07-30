@@ -4512,7 +4512,7 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   with overfull diagnostics, representative formulas and diagrams, and the
   terminal publisher matter. No clipping, overlap, blank render, or malformed
   mathematical content was found.
-- The public projection has 16 files / 5,531,313 bytes. Its 14-row manifest
+- The public projection has 16 files / 5,516,101 bytes. Its 14-row manifest
   replays exactly, and the deterministic 12-member reader/source ZIP rebuilds
   the exact public PDF on three fresh passes.
 - The package preserves the source language as printed. It is a complete
