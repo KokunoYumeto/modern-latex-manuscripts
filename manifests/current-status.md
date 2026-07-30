@@ -1,3 +1,23 @@
+## 2026-07-30 all-direct SGA reader hygiene replay
+
+The SGA concept DOI still resolves to current record
+[`10.5281/zenodo.21698501`](https://doi.org/10.5281/zenodo.21698501).
+A fresh anonymous replay inspected all eight loose reader PDFs
+(4,136 pages / 25,794,199 bytes) and all eight loose TeX files. Page text,
+PDF metadata, and TeX were scanned for model/AI names, personal/project
+markers, private paths/task IDs, workflow/workpass/checkpoint language,
+project-production prose, source/translation status, publication readiness,
+QA, comparison lineage, and internal/pending review language.
+
+All 8/8 PDFs and 8/8 TeX files pass with zero targeted hits. SGA 2 page 3 does
+contain the corrected edition's genuine editor preface, including the phrase
+`current status`; the SGA 6 English and French readers retain the seminar's
+genuine historical preface. These are source-era apparatus, not AI/project
+notes. No Zenodo mutation was needed. See the
+[human receipt](published-zenodo/20260730_sga_record_21698501_all_direct_reader_hygiene_replay.md)
+and
+[machine replay](published-zenodo/20260730_sga_record_21698501_all_direct_reader_hygiene_replay.json).
+
 ## 2026-07-30 active EGA source-custody advancement
 
 GitHub now preserves two updated, privacy-clean source-survival snapshots:
