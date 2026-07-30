@@ -3,26 +3,23 @@
 Public file:
 
 - `00_Current_SGA1-6_English_Readers_and_Buildable_TeX_20260730.zip`
-- 23,636,706 bytes
-- SHA-256 `56C49D60DAAE7DA8C0F1236EC38A1876C3D3DD36A7D6C365438ABA7E9F9E2660`
+- 23,366,264 bytes
+- SHA-256 `511B9363B98F9A64BC81F0044CDD714C09D8B6A9D6087679E3C78FD3C091299C`
 
-The ZIP contains the current English reader PDFs and complete build-source
-closures for SGA 1 through SGA 6. It has 1,394 readable members: 1,393
-self-excluded manifest rows plus `SHA256SUMS.csv`.
+The ZIP contains the current cumulative English reader PDFs and complete
+build-source closures for SGA 1 through SGA 6. It has 1,394 readable
+members: 1,393 self-excluded manifest rows plus `SHA256SUMS.csv`.
 
-The SGA 1 subtree is the complete 262-page reference-v2 successor: PDF
-SHA-256 `46406925C8EBBF4309A67CF4D84B493952EF99C067E1971F885F0F3AF326BA1E`
-and a 139-file buildable source closure. The SGA 2-6 members are retained
-byte-identically from the preceding bundle.
+The SGA3 subtree is the clean complete R29 reader: 1,470 A4 pages, native TeX
+diagrams, 13,119 named destinations, 12,337 valid internal GoTo actions, and a
+914-file buildable TeX closure. Its reader SHA-256 is
+`FE7211BA4288E66430E64C574E808E9BAD596E99366777D2DDC2349CB9BD427C`. SGA1, SGA2, SGA4, SGA5, and SGA6 remain
+byte-identical to the preceding bundle.
 
-It deliberately excludes provenance archives, QA imagery, machine ledgers,
-build logs, historical releases, authority scans, and internal project
-notes. Those remain separately preserved in the archive.
+The archive deliberately excludes provenance archives, QA imagery, machine
+ledgers, build logs, historical releases, authority scans, and internal
+project notes. Those remain separately preserved in the archive.
 
-Each of the six source closures was rebuilt from a clean extracted copy with
-zero missing source files and zero fatal TeX errors. The ZIP was then replayed
-member by member with zero unsafe paths, byte mismatches, or SHA-256
-mismatches.
-
-On Zenodo this ZIP is intended to sort first in the file list while a direct
-reader PDF remains the record's default preview.
+The refreshed ZIP replayed member by member with zero unsafe paths, CRC
+failures, byte mismatches, or SHA-256 mismatches. On Zenodo this ZIP is
+intended to sort first while a direct reader PDF remains the default preview.
