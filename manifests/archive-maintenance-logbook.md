@@ -4449,3 +4449,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   raw logs.
 - This supersedes the printed-page-14 package only as the current active
   source-survival snapshot. It is not a reader release or Zenodo mutation.
+
+## 2026-07-31 - EGA IV printed-page-185 high-detail witnesses recorded
+
+- Audited the unopened EGA IV Sections 19-21 lane before claiming source
+  progress. Its three editable files remain byte-identical to baseline, so no
+  translation/source-custody package or reader was published.
+- Recorded metadata for ten grayscale 5000-dpi authority crops and two
+  600-dpi navigation renders under
+  `sources/ega/ega4-section19-printed185-highdetail-visual-metadata-20260731/`.
+  The parent is the 360-page EGA IV Part 4 PDF, SHA-256
+  `B4277FB99C6EDF8FEEC5B01F54368E4B8521BCD52871316C0EDF6FF4AE69389E`.
+- The ten crop PDFs preserve exact parent-coordinate boxes. They map to
+  zero-based PDF index 183 / physical page 184 / printed page 185, MediaBox
+  `[0,0,600,845]`, rotation 0. The resulting PNGs are 5000 dpi and each retain
+  exact bytes, SHA-256, dimensions, and linked-source metadata in the ledger.
+- Preserved an adverse locator event: the first 600-dpi file named
+  `printed185` visibly contains printed page 186 and matches the next physical
+  page's 610x852-point geometry. The corrected r2 navigation render is the
+  intended printed page 185 at 5000x7042 pixels.
+- No authority PDF, crop PDF, or image pixel was copied. Every image remains
+  `rights_blocked_not_public`; only privacy-clean provenance and geometry are
+  public. No EGA reader or Zenodo record was changed.
