@@ -1,3 +1,40 @@
+## 2026-07-30: SGA reader-pure R26/R10 successor published and read back
+
+- Existing concept:
+  [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published successor:
+  [10.5281/zenodo.21696318](https://doi.org/10.5281/zenodo.21696318)
+- GitHub packages:
+  [SGA3 reader-pure R26](../sources/sga/sga3-english-reader-pure-r26-no-project-notes-20260730/)
+  and
+  [SGA6 reader-pure R10](../sources/sga/sga6-english-reader-pure-r10-no-project-notes-20260730/)
+
+The same-concept successor replaces the direct SGA3 and SGA6 readers and
+their grouped source archives while retaining the other 60 predecessor files
+byte-identically. The direct SGA3 reader has 1,470 A4 pages and SHA-256
+`00A6EEBD15993BE4A438FF3D986D4C7DC35ED5FC1CEBD0F2D8DC172FD74E3E23`;
+the direct SGA6 reader has 376 A4 pages and SHA-256
+`08848062CF081E39E7F57E60CB31C1BFECFD1225DAF6DE99458A660B2A53600A`.
+
+All six direct English readers passed page-by-page extracted-text replay
+across 3,456 pages with zero project, model, workflow, source-status, or
+project-written source-reading notes. Genuine source-era scholarly apparatus
+remains. Anonymous readback passed all 66 outer files and all 50 ZIP archives /
+4,245 members. No duplicate concept, parallel draft, or second successor was
+created.
+
+Exact receipts:
+
+- [publication receipt](../manifests/published-zenodo/20260730_sga_reader_pure_r26_r10_record_21696318.md)
+- [outer-file readback](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21696318_public_readback.json)
+- [ZIP-member readback](../manifests/published-zenodo/20260728_sga3_cumulative_with_x_record_21696318_zip_member_readback.json)
+- [six-reader hygiene gate](../manifests/sga_direct_reader_hygiene_r26_r10_20260730.json)
+
+Later local SGA3 semantic-closure R42 is not a pending publication. It is an
+explicit non-mutating FAIL generation with duplicate candidate coordinates,
+180 internal-edge target-metadata gaps, and 573 lead holds. Await a later
+coherent successor rather than uploading R42.
+
 ## 2026-07-30: EGA IV Sections 1-10 successor published and read back
 
 - Existing concept:
