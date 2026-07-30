@@ -1,3 +1,30 @@
+## 2026-07-30 complete SGA1 reference-v2 R2 successor published
+
+Current SGA version
+[`10.5281/zenodo.21703611`](https://doi.org/10.5281/zenodo.21703611),
+under the existing concept DOI
+[`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947),
+replaces the direct SGA1 reader, master TeX, source/history ZIP, and release
+controls while retaining 65 unrelated predecessor files byte-identically.
+The complete 262-page reader is the default preview and has SHA-256
+`46406925C8EBBF4309A67CF4D84B493952EF99C067E1971F885F0F3AF326BA1E`;
+its direct master TeX has SHA-256
+`AF811E732138E82FE9C7A7D0B8C12D0C3A4D2A10C85A9C0757143E6FA2078D26`.
+The leading six-reader/buildable-TeX bundle is 23,636,706 bytes, has SHA-256
+`56C49D60DAAE7DA8C0F1236EC38A1876C3D3DD36A7D6C365438ABA7E9F9E2660`,
+and contains 1,394 members. The privacy-clean SGA1 source/history ZIP is
+5,186,998 bytes, has SHA-256
+`D3E3E401822557E538EF0443569666AE7B1939F16EBB2E21C2F30D8FB5FFC4BF`,
+and contains 180 members.
+
+Anonymous readback passed all 67 outer files, all 1,394 bundle members, all
+180 SGA1 source-ZIP members, and all seven release-control members. GitHub
+commit `02b1f4ffa7348ab09c49e17fb572193700fded1c` preserves the 180-file
+privacy-clean package. Immutable predecessor
+[`10.5281/zenodo.21703448`](https://doi.org/10.5281/zenodo.21703448)
+preserves the first R1 publication; no duplicate concept or parallel draft was
+created.
+
 ## 2026-07-30 one-click cumulative SGA and EGA reader bundles published
 
 The SGA and EGA concepts now each lead with one clean reader/source bundle,
@@ -26,8 +53,9 @@ QA, history, scans, and project notes remain outside these clean bundles.
 
 This replay was performed on then-current SGA record
 [`10.5281/zenodo.21698501`](https://doi.org/10.5281/zenodo.21698501).
-Its reader files remain byte-identical on current successor
-[`10.5281/zenodo.21702669`](https://doi.org/10.5281/zenodo.21702669).
+Seven of its eight reader files remain byte-identical on current successor
+[`10.5281/zenodo.21703611`](https://doi.org/10.5281/zenodo.21703611); SGA1 is
+superseded there by the complete 262-page reference-v2 R2 reader.
 A fresh anonymous replay inspected all eight loose reader PDFs
 (4,136 pages / 25,794,199 bytes) and all eight loose TeX files. Page text,
 PDF metadata, and TeX were scanned for model/AI names, personal/project
