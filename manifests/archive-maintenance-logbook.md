@@ -4332,3 +4332,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `EG-WORKFLOW-RESEARCH-BRIEFINGS-PUBLICATION-20260730-0001` and validates at
   358 records / 2,270,274 bytes / SHA-256
   `52622AC1B3268578CBE8DB50D316B538CAA44A54581D04864BF9EE52214BCA82`.
+
+## 2026-07-30 - Post-cutoff SGA7 visual evidence recorded without pixel copies
+
+- Replayed 276 post-cutoff scratch PNG instances / 30,826,483 bytes against
+  the 14,744-row public SGA7 I visual-evidence baseline. Two hashes were
+  already represented; 274 unique images / 29,612,877 bytes were new.
+- Added a privacy-clean metadata-only delta under
+  `sources/sga/sga7i-highdetail-source-audit-visual-evidence-20260730/`
+  with hashes, dimensions, page/folio mappings, linked TeX identities,
+  generator identities, and QA dispositions. The 274-row delta SHA-256 is
+  `2AB24A721B01AAB6661ED9F44AB511C2473E9EE265F5356F1FE178DAD73E466D`.
+- Every new row is `rights_blocked_not_public`; no pixel was copied. This
+  records the visual surface without silently omitting it or asserting source-
+  image redistribution rights.
+- SGA7 Expose IX remains incomplete: page markers idx486, idx487, and idx540
+  are absent, and idx378, idx379, idx504, and idx505 contain explicit non-
+  transcription blocks. The existing SGA7 checkpoint therefore remains
+  current and no reader or Zenodo record was changed.
+- SGA3 R29 remains the no-duplicate cumulative public truth at record
+  `21709733`. EGA IV sections 16-18 and 19-21 remain active source-alignment
+  lanes rather than release handoffs.
