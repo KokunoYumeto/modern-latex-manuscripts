@@ -20,7 +20,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | al-Battani Opus Astronomicum | 19 | 7 | 0 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |  |
 | SGA (serious active work; not complete) | 66 | 8 | 8 | 50 | 395.4 | [sga.md](sga.md) | [Zenodo](https://zenodo.org/records/21696318) |
-| EGA (source-first work underway; layered working reader) | 28 | 13 | 3 | 10 | 477.5 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/21694219) |
+| EGA (source-first work underway; layered working reader) | 28 | 13 | 3 | 10 | 477.6 | [ega.md](ega.md) | [Zenodo](https://zenodo.org/records/21696776) |
 | Pierre Deligne | 6 | 2 | 0 | 3 | 447.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 0 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |

@@ -14,23 +14,23 @@ This page records the main incompleteness that a reader or contributor should kn
 
 Current record: <https://doi.org/10.5281/zenodo.20414353>
 
-- EGA I and EGA II are largely inherited from the public community translation base.
-- EGA 0_IV sections 15 through 23 are present as substantive working translations in the current 578-page build.
-- EGA IV sections 1 through 3 are present as substantive working translations; EGA IV section 4 is included as the current partial/in-progress working file.
-- EGA 0_III sections 12 and 13 remain placeholder files rather than substantive translations.
-- EGA III and much of EGA IV remain far from complete as English translations beyond the currently represented material.
-- The current build is useful for continuation and checking, not a proofread final edition.
+- Current version [10.5281/zenodo.21696776](https://doi.org/10.5281/zenodo.21696776) fronts a complete 165-page source-aligned EGA II English working reader through authority EOF, including Section 8.14 and all terminal backmatter.
+- EGA II completed four converged XeLaTeX passes, all-page visual QA, and exact public readback, but it remains a working translation rather than a critical edition, rights determination, or independent human certification.
+- EGA 0/III Sections 8-13 and EGA III Sections 1-7 have direct partial source-first readers; surrounding material remains non-uniform.
+- EGA IV has source-aligned custody inputs through Sections 1.1-4.4, with Section 4.5 as the continuation, plus older inherited working-reader material.
+- EGA I, EGA III beyond the represented lanes, and much of EGA IV remain incomplete as source-aligned English working editions.
+- The public EGA surface is useful for reading, continuation, and checking, but complete EGA II must not be expanded into a whole-EGA completion claim.
 
 ## SGA
 
 Current record: <https://doi.org/10.5281/zenodo.20410947> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
 
-- Current compact version [10.5281/zenodo.21519758](https://doi.org/10.5281/zenodo.21519758) has 48 files. SGA1 is the authoritative default preview and SGA2 R8 is second. Eight sequential English readers and ten primary TeX files are direct; twenty-three ZIPs group source, diagrams, QA, bounded checkpoints, predecessor evidence, and SGA6 crop/provenance evidence.
-- The SGA6 crop surface publishes 1,936 targeted or named high-detail checking images and metadata for 1,778 routine page derivatives. The latest increment covers indices 327-330, while earlier associated images span earlier phases of the same-parent audit; do not infer continuous index coverage, complete scan redistribution, or source certification.
+- Current compact version [10.5281/zenodo.21696318](https://doi.org/10.5281/zenodo.21696318) has 66 files. Six neutral-named English readers appear directly in SGA1-6 order; primary TeX and two French readers remain direct, while source, QA, visual evidence, bounded checkpoints, and predecessor history are grouped in 50 ZIPs.
+- All eight direct reader PDFs passed page-by-page reader-purity scans: project, model, workflow, source-status, correction-history, comparison-lineage, and project-written source-reading notes are absent. Genuine source-era editorial apparatus remains.
 - SGA1's 262-page complete-volume working reader has 1,212 named destinations and 1,569 valid GoTo annotations across 233 pages, but it has not passed an exhaustive convention-v2 graph certification.
-- SGA3 is public through complete Expose V plus bounded complete Expose VI-A. Expose VI-B and Exposes VII-XXVI remain absent. The sealed cumulative I-IV archive has 199 members, including 56 editable TeX files and 128 required PNGs; all PNG hashes already occurred in the predecessor archive. Expose V has 66 native diagram TeX sources, zero PDF image XObjects, and public provenance/QA metadata for 66 rights-blocked source-PDF witness crops whose pixels remain withheld. VI-A is a 45-page Loop-1 working reader with 26 pinned component TeX files and 23 source-derived diagram assets; native Loop-2 reconstruction and exhaustive convention-v2 certification remain open.
-- SGA4 proper r7 is public and reference-v2 certified for Exposes I-XIX including V bis. SGA4half is excluded and remains technical custody only because the authority snapshot has no explicit license grant.
-- SGA5 R9, SGA6, and SGA2 R8 are current reference-linked readers with exact public readback. Their claim boundaries still do not establish critical editions, independent human peer review, or blanket rights clearance.
+- SGA3 is represented by the reader-pure 1,470-page R26 working cumulative through Exposes I-XXVI plus indexes/guides. It remains a heterogeneous integration, not final whole-reader diagram-fidelity closure or uniform source certification.
+- SGA4 proper is the 864-page reader-clean R8 successor. SGA4half is excluded and remains technical custody only because the authority snapshot has no explicit license grant.
+- SGA2, SGA5, and SGA6 are current reference-linked working readers with exact public readback. SGA6 remains layered rather than uniformly source-certified. SGA7 is only a stub and is not presented as a completed reader.
 - Repair032 is public as a bundled audit-support artifact on record 20822648, but it is not a completed or certified SGA5 edition. The latest local compact SGA5 delta is `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626.zip` under manifest `20260626_sga5_fullaudit_webdrop_p260_p265_delta.json`; it advances the page-local French workpass/source-audit boundary from p259 to p265 and sets p266 as the next cursor. The earlier `SGA5_FullAudit_WebDrop_p001_p254_certified_staged_p255_p484_20260626.zip` remains larger provenance/source-witness material, and the p255-p259 compact delta is superseded as current cursor but preserved as provenance. p260-p265 cover Expose VI Remarque after Proposition 1.2.5, Proposition 1.2.6 and proof, tensor products in 1.3.1, Proposition 1.3.2, cHom, invertible sheaves/Tate twist, A-faisceaux, D143 (the A-action square), and the opening of Q_l-faisceaux. p266 and later crops/cursor text remain active/pending scratch only and are not promoted by this delta. This is live French workpass/source-audit evidence only: not complete SGA5, not synchronized English, not global source-faithfulness certification, and not a critical edition. Local ledger words such as certified, clean, or complete mean page-local workpass status only. Compile-clean TeX can still be mathematically wrong.
 
 ## Non-European Mathematical Classics

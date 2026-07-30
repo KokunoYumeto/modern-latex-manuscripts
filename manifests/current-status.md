@@ -1,3 +1,37 @@
+## 2026-07-30 complete source-aligned EGA II successor published
+
+The sole latest EGA version is
+[`10.5281/zenodo.21696776`](https://doi.org/10.5281/zenodo.21696776)
+under existing concept `10.5281/zenodo.20414353`. It replaces the partial EGA
+II reader, editable master, and source archive with:
+
+- `00b_EGA2_English_Reader.pdf`: 1,060,715 bytes / 165 A4 pages,
+  SHA-256
+  `6CEB2FFBF3F364B8CCFE64698751C3DEAD7A8E3B3823680ECF4CBB5E8B5241BD`
+- `02b_EGA2_English_Master.tex`: 1,799 bytes, SHA-256
+  `F4624484EE2C0A855952DC0B3D917085AEBC10F8B71E7F373D2B2574AA8D69C1`
+- `10b_EGA2_English_Source_20260730.zip`: 1,246,946 bytes / 20 members,
+  SHA-256
+  `6BB198A629A73AAB21BC68A8959FCA4CB232A2A07FDF2BA0E9B0D460F93415A4`
+
+The reader covers EGA II through Section 8.14 and all terminal backmatter,
+with authority cursor EOF. Four XeLaTeX passes converged; all 165 pages passed
+visual QA; the PDF has 571 named destinations and 1,809 valid internal GoTo
+actions. Reader-purity scans found no project, model, workflow, or source-status
+notes.
+
+Anonymous readback passed all 28 outer files / 500,770,254 bytes and all ten
+ZIPs / 358 members. Twenty-three unrelated predecessor files remained
+byte-identical. EGA 0/III remains the default preview. No duplicate concept or
+parallel draft was created.
+
+GitHub PR [#161](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/161)
+merged at `c22f175492f0cbf51d05e3410e55ae168ca8f966`. See the
+[publication receipt](published-zenodo/20260730_ega2_complete_source_aligned_record_21696776.md),
+[outer readback](published-zenodo/20260730_ega2_complete_source_aligned_record_21696776_public_readback.json),
+and
+[ZIP-member readback](published-zenodo/20260730_ega2_complete_source_aligned_record_21696776_zip_member_readback.json).
+
 ## 2026-07-30 SGA3 R26 and SGA6 R10 reader-pure successor published
 
 The sole latest SGA version is
