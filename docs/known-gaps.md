@@ -14,12 +14,12 @@ This page records the main incompleteness that a reader or contributor should kn
 
 Current record: <https://doi.org/10.5281/zenodo.20414353>
 
-- Current version [10.5281/zenodo.21696776](https://doi.org/10.5281/zenodo.21696776) fronts a complete 165-page source-aligned EGA II English working reader through authority EOF, including Section 8.14 and all terminal backmatter.
+- Current version [10.5281/zenodo.21697218](https://doi.org/10.5281/zenodo.21697218) fronts a complete 165-page source-aligned EGA II English working reader through authority EOF and a 268-page source-aligned EGA IV Sections 1-10 working reader.
 - EGA II completed four converged XeLaTeX passes, all-page visual QA, and exact public readback, but it remains a working translation rather than a critical edition, rights determination, or independent human certification.
 - EGA 0/III Sections 8-13 and EGA III Sections 1-7 have direct partial source-first readers; surrounding material remains non-uniform.
-- EGA IV has source-aligned custody inputs through Sections 1.1-4.4, with Section 4.5 as the continuation, plus older inherited working-reader material.
+- EGA IV has a direct source-aligned working reader through Section 10, with Section 11 as the continuation. Its 1,041 printed locator occurrences across 500 unique names remain explicit non-clickable reference debt.
 - EGA I, EGA III beyond the represented lanes, and much of EGA IV remain incomplete as source-aligned English working editions.
-- The public EGA surface is useful for reading, continuation, and checking, but complete EGA II must not be expanded into a whole-EGA completion claim.
+- The public EGA surface is useful for reading, continuation, and checking, but complete EGA II and the EGA IV Sections 1-10 successor must not be expanded into a whole-EGA completion claim.
 
 ## SGA
 
