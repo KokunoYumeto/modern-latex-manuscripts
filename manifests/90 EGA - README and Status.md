@@ -10,22 +10,25 @@ clear.
 The current bounded readers are ordered by volume:
 
 1. EGA 0/III, assigned source-first Sections 8-13: 120 pages.
-2. EGA II, layered reader source-aligned through Corollary 4.4.5: 151 pages.
+2. EGA II, complete source-aligned reader through authority EOF: 165 pages.
 3. EGA III, assigned source-first Sections 1-7: 150 pages.
 
-The EGA II reader retains inherited English after Corollary 4.4.5 so that the
-volume remains readable and buildable. Only the opening through Corollary
-4.4.5 is admitted as source-aligned by this checkpoint; the exact continuation
-is Proposition 4.4.6.
+The EGA II reader is continuous from the chapter opening through Section 8.14,
+the bibliography, both indexes, the original table of contents, and Errata and
+Addenda (List 1). Its continuation cursor is authority EOF; no EGA II
+translation cursor remains.
 
 Older whole-project and EGA IV working readers remain available as historical
 and continuation surfaces.
 
 ## Editable source
 
-The three current bounded readers have directly visible master TeX files.
-Their recursive source trees and exact identity controls are grouped into
-compact ZIP files.
+The three current readers have directly visible master TeX files. Their
+recursive source trees and exact identity controls are grouped into compact
+ZIP files. The EGA II ZIP contains the complete fourteen-file editable closure,
+the same reader, concise build and visual-QA summaries, and exact member
+checksums. It excludes generated build files, raw logs, rendered QA images,
+private paths, and the French authority.
 
 The EGA IV Sections 1-2 custody ZIP preserves the current source-aligned
 integration inputs without placing fragment readers ahead of the cumulative
@@ -55,9 +58,10 @@ II, III parts 1-2, and IV parts 1-4.
 
 The English source lineage includes the public
 [`ryankeleti/ega`](https://github.com/ryankeleti/ega) project and later
-source-aligned continuation work. Each bounded package records its admitted
-scope and source basis. These are scholarly working readers, not critical
-editions, peer-review certifications, rights determinations, or claims that all
-of EGA has been translated and checked.
+source-aligned continuation work. Each package records its admitted scope and
+source basis. EGA II is complete as a source-aligned working reader; the other
+direct readers remain bounded. These are scholarly working readers, not
+critical editions, peer-review certifications, rights determinations, or
+claims that all of EGA has been translated and checked.
 
 No new blanket license or transfer of underlying rights is asserted.
