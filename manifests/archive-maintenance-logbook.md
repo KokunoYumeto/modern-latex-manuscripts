@@ -4074,3 +4074,30 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `74A54F93B4F34AF3640B7E725A46F35A55EE1E6F6A05ACEA110B33C48F7DC707`.
 - This was a GitHub catalog repair only; Zenodo payload and version state
   remained unchanged.
+
+## 2026-07-30 - SGA1-3 clean reading-surface successor
+
+- Published version `10.5281/zenodo.21698501` on existing SGA concept
+  `10.5281/zenodo.20410947`; no duplicate concept or parallel draft was
+  created.
+- Replaced the direct SGA1, SGA2, and SGA3 readers, primary TeX, and current
+  grouped source/history archives. SGA4-6 remained byte-identical.
+- Direct reader identities: SGA1 259 pages / SHA-256
+  `6D490A8CC73FDEDC312AE0C0F7293794CBC4996A36CF5FE5DF98C571FC5F38CE`;
+  SGA2 178 pages / SHA-256
+  `C2E1C33CAEDF2866DA6FFC2D3E87DB243EF7CF098D8A1F25E2589245B1B7094D`;
+  SGA3 1,470 pages / SHA-256
+  `7352749F0F2CAEC0C4759A417CF7D4C5E332F5C89E81E3D43F812F788519DE59`.
+- Project-production, workflow, source-status, correction-history,
+  comparison-lineage, and project-written source-reading narration is absent
+  from the direct readers. Genuine source-era editorial apparatus remains.
+- Anonymous readback passed 66/66 outer files and all 50 ZIPs / 4,242 members;
+  56 unrelated predecessor files remained exact by size and MD5. SGA1 is the
+  default preview.
+- GitHub PR 170 merged source commit
+  `e27745eac4d52c714c90780ace5004370368305b` as
+  `f5b8e7f24e5a723419f3cc60d06dba6c0b7f2276`.
+- Exact receipts:
+  `manifests/published-zenodo/20260730_sga_reader_presentation_cleanup_record_21698501.md`
+  and
+  `manifests/published-zenodo/20260730_sga_reader_presentation_cleanup_record_21698501_public_readback.json`.
