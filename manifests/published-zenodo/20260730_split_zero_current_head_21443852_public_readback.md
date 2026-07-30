@@ -6,7 +6,11 @@
 - Catalog predecessor: `21426216`
 - Public files: 13
 - Public bytes: 127,524,123
-- Selected preview: `02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf`
+- Selected preview: `00_PROJECT_ATLAS_20260717.pdf`
+
+The preview identity was rechecked from the credential-free public HTML
+`#preview-file-title` element. This corrects only the earlier preview claim;
+the Zenodo record and all file readback identities are unchanged.
 
 Credential-free readback downloaded each public file once to temporary storage,
 verified its API byte count, replayed all 12 rows in `SHA256SUMS.txt`, computed
