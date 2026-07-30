@@ -1,10 +1,17 @@
-# EGA IV main-text translation TeX supplement
+# EGA English readers and source
 
-This ZIP contains the local continuation files for the EGA IV main text.
+Open the current reader-facing release first:
 
-Status:
-- EGA IV sections 1 through 21 are present as substantive working translations
-  in the current TeX tree.
+- [`releases/ega-current-reference-v2-20260730-r2`](releases/ega-current-reference-v2-20260730-r2)
 
-These are machine-assisted working drafts for checking and continuation, not
-proofread critical editions.
+Its leading ZIP contains one cumulative English reader PDF and the complete
+buildable TeX closure for each current EGA scope. The same five reader PDFs
+and master TeX files remain directly accessible beside four grouped source and
+QA ZIPs.
+
+Current scopes are EGA 0 through Section 13, complete EGA I, complete EGA II,
+the complete published EGA III text through 7.9.14, and EGA IV Sections 1-10.
+Earlier checkpoint directories remain immutable history.
+
+These are scholarly working translations, not critical editions, mathematical
+certifications, accessibility remediation, or rights-clearance decisions.
