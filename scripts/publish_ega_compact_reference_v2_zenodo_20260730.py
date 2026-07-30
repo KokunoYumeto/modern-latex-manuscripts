@@ -628,6 +628,7 @@ def stage_and_publish(session, token: str, live: dict, draft_id: int, local: dic
     state = json.loads(DRAFT_STATE.read_text(encoding="utf-8"))
     state.update(
         {
+            "status": "PUBLISHED_TRACKED_SUCCESSOR",
             "published": True,
             "record_id": draft_id,
             "doi": published["pids"]["doi"]["identifier"],
