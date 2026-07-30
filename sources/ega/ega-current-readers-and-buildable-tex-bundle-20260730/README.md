@@ -2,7 +2,7 @@
 
 Public file:
 
-- `00_Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip`
+- `00 Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip`
 - 5,802,085 bytes
 - SHA-256 `2CB037322063DF459EFC55CFCC9424E6F9EF4A6D59329C65FCE6F25715DAABA1`
 

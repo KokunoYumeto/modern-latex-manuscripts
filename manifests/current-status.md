@@ -1,7 +1,33 @@
+## 2026-07-30 one-click cumulative SGA and EGA reader bundles published
+
+The SGA and EGA concepts now each lead with one clean reader/source bundle,
+while retaining a reader PDF as the explicit Zenodo preview.
+
+- SGA version [`10.5281/zenodo.21702669`](https://doi.org/10.5281/zenodo.21702669)
+  adds `00_Current_SGA1-6_English_Readers_and_Buildable_TeX_20260730.zip`:
+  23,619,688 bytes, SHA-256
+  `33224AE03185DFF9F7C5FAF79D3B80D25504EAF1BCF338791B4DBD8A44AFD999`.
+  It contains six cumulative reader PDFs and their complete buildable TeX
+  closures in 1,394 members. SGA1 remains the default preview. All 66
+  predecessor files were retained byte-identically.
+- EGA version [`10.5281/zenodo.21702700`](https://doi.org/10.5281/zenodo.21702700)
+  adds `00 Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip`:
+  5,802,085 bytes, SHA-256
+  `2CB037322063DF459EFC55CFCC9424E6F9EF4A6D59329C65FCE6F25715DAABA1`.
+  It contains one cumulative PDF and complete buildable TeX closure for each
+  of the four current EGA scopes in 99 members. EGA0 remains the default
+  preview. All 28 predecessor files were retained byte-identically.
+
+Both ZIPs were downloaded anonymously from their public records and replayed
+member by member against their self-excluded SHA-256 manifests. Provenance,
+QA, history, scans, and project notes remain outside these clean bundles.
+
 ## 2026-07-30 all-direct SGA reader hygiene replay
 
-The SGA concept DOI still resolves to current record
+This replay was performed on then-current SGA record
 [`10.5281/zenodo.21698501`](https://doi.org/10.5281/zenodo.21698501).
+Its reader files remain byte-identical on current successor
+[`10.5281/zenodo.21702669`](https://doi.org/10.5281/zenodo.21702669).
 A fresh anonymous replay inspected all eight loose reader PDFs
 (4,136 pages / 25,794,199 bytes) and all eight loose TeX files. Page text,
 PDF metadata, and TeX were scanned for model/AI names, personal/project
@@ -39,8 +65,9 @@ Both copies are byte-identical to their active roots, compile successfully
 from disposable clean copies, and have zero privacy/model/task-marker hits.
 The active roots retain coherent 109-page and 319-page checkpoint builds, but
 the GitHub snapshots intentionally remain source-only. They do not create
-new reader, completion, rights, or convention-v2 claims. The EGA Zenodo head
-remains `10.5281/zenodo.21697218`; no duplicate concept or draft was created.
+new reader, completion, rights, or convention-v2 claims. Those sources are
+not added as new reader scopes by current EGA successor
+`10.5281/zenodo.21702700`; no duplicate concept was created.
 
 ## 2026-07-30 Noether Slavic source-repair survivor successor published
 
