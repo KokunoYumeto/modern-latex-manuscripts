@@ -4272,6 +4272,30 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   mathematical certification, rights clearance, accessibility certification,
   or whole-EGA completion claim.
 
+## 2026-07-30 - Complete EGA I source-aligned successor published
+
+- Published same-concept EGA version `10.5281/zenodo.21708453` from live
+  predecessor `10.5281/zenodo.21706639`; no duplicate concept or parallel
+  draft was created.
+- GitHub artifact commit
+  `2afca6586e7b7ad9c74bb1b47a56d5aa4f501240` preserves the compact five-reader
+  bundle and current EGA catalog. The complete EGA I package is preserved at
+  commit `ee0bf4dcd9f7ee3aa05731d5022f676c4df3d34b`.
+- Added the complete 113-page EGA I source-aligned reader, direct master TeX,
+  and 23-member source ZIP. Replaced only the leading reader bundle, README,
+  and public summary; 26 predecessor files remained byte-identical.
+- The EGA I reader is continuous through authority EOF, bibliography, and
+  both indexes. It has 299 named destinations and 1,253 valid internal GoTo
+  actions; exhaustive reference-v2 certification remains explicitly open.
+- Anonymous readback downloaded and SHA-256 verified all 32 files /
+  515,811,940 bytes and replayed all ten ZIP archives. The refreshed leading
+  bundle has 116 members covering EGA0, EGA1, EGA2, EGA3, and EGA4 current
+  reader scopes and their complete buildable source closures. EGA0 remains the
+  default PDF preview.
+- The record retains License Not Specified and the package's rights non-grant.
+  This is not a critical edition, whole-EGA completion claim, mathematical or
+  accessibility certification, peer review, or rights clearance.
+
 ## 2026-07-30 - Workflow research briefings preserved and published
 
 - Preserved the exact 669,748-byte ChatGPT research-methodology export at

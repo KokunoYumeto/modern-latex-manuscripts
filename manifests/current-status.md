@@ -1,3 +1,20 @@
+## 2026-07-30 complete EGA I source-aligned successor published
+
+Current EGA version
+[`10.5281/zenodo.21708453`](https://doi.org/10.5281/zenodo.21708453),
+under existing concept DOI `10.5281/zenodo.20414353`, now exposes the complete
+113-page EGA I source-aligned English working reader, its direct master TeX,
+and an exact 23-member source ZIP. The reader is continuous through authority
+EOF, bibliography, and both indexes. It has 299 named destinations and 1,253
+valid internal GoTo actions; exhaustive reference-v2 certification remains
+open.
+
+The leading all-current-reader ZIP now has 116 members and contains the five
+current EGA reader scopes plus complete buildable source closures. EGA0 remains
+the default PDF preview. Anonymous readback passed all 32 files /
+515,811,940 bytes and all ten ZIP archives, including all 26 retained
+predecessor files. No duplicate concept or parallel draft was created.
+
 ## 2026-07-30 EGA IV source custody through printed page 149
 
 GitHub source custody now preserves the active no-overwrite EGA IV Sections
