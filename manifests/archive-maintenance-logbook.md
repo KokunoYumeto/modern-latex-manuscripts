@@ -4362,3 +4362,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - SGA3 R29 remains the no-duplicate cumulative public truth at record
   `21709733`. EGA IV sections 16-18 and 19-21 remain active source-alignment
   lanes rather than release handoffs.
+
+## 2026-07-30 - EGA IV Sections 16-18 active source survives through printed page 10
+
+- Captured the closed r5 gate while the producer continued independently at
+  printed page 11. Printed pages 5-10 / authority physical pages 4-9 are
+  source-aligned; the continuation is Proposition 16.2.2 proof at
+  `ega4-16.tex` line 278.
+- The privacy-clean GitHub package has 13 files / 667,089 bytes. Its 12-row
+  self-excluding manifest has SHA-256
+  `08030706D5F96909F111BBB8F3210DF5247CF7527915AE5A5EFA3AB8684DF44A`
+  and replays exactly. Two complete package builds are byte-identical.
+- The changed source is `ega4-16.tex`, 176,540 bytes, SHA-256
+  `A2E0227D52CBA9B108F1B6D3AF96E10B6DF1EE38A40703057A1B3E61A67C510C`.
+  Sections 17-18 are retained unchanged as build closure.
+- An isolated one-pass XeLaTeX replay exited 0 at 120 pages with zero TeX
+  error lines. The disposable PDF is excluded. The producer's clean 121-page
+  checkpoint remains unpromoted and is also excluded.
+- Authority PDFs, page/crop pixels, raw build logs, and private paths are
+  absent. This is source-survival custody only, not a reader release,
+  Sections 16-18 completion, rights clearance, critical edition, or
+  reference-v2 certification. The EGA Zenodo record remains unchanged.
