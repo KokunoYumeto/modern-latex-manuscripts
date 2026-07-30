@@ -1,3 +1,30 @@
+## 2026-07-30: EGA IV Sections 1-10 source-aligned working successor ready
+
+- Existing concept:
+  [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
+- Current predecessor:
+  [10.5281/zenodo.21696776](https://doi.org/10.5281/zenodo.21696776)
+- GitHub package:
+  [EGA IV Sections 1-10 working reader](../sources/ega/checkpoints/ega4-sections1-10-source-aligned-working-20260730/)
+
+The compact package fronts a reader-clean 268-page cumulative English working
+reader, its direct editable master, and one exact 50-member source/control ZIP.
+The reader covers Sections 1-10 continuously and stops before Section 11.
+Translation, source, build, layout, privacy, and package replay passed.
+
+The reader is not exhaustively reference-linked: 1,041 printed locator
+occurrences across 500 unique names remain non-clickable, while all 2,708
+compiled GoTo actions are valid. This is a working source-aligned successor,
+not complete EGA IV, complete EGA, a critical edition, rights clearance,
+peer review, or convention-v2 reference certification.
+
+Planned same-concept mutation: add the reader and master directly, replace the
+three superseded bounded EGA IV custody ZIPs (`10d`, `10e`, and `10f`) with
+the cumulative `10g` source ZIP, retain every unrelated predecessor file
+byte-identically, and preserve the broader older Sections 1-21 draft as
+historical working coverage. No duplicate concept or parallel draft is
+authorized.
+
 ## 2026-07-30: complete source-aligned EGA II published and read back
 
 - Existing concept:
