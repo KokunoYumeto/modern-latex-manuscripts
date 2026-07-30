@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 974
+Total files indexed: 975
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -238,32 +238,32 @@ Separate exploratory mathematics sidecar, outside the manuscript-translation com
 
 ## Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Readers
 
-Record: <https://doi.org/10.5281/zenodo.20412587>
+Record: <https://zenodo.org/records/21699405>
 
-Current Noether public surface is compact record 21499660. Its 20 files directly expose the 459-page full cumulative English working reader and editable master TeX, covering the inherited 43-paper corpus plus the translated German tail through R823 line 24123. The full English PDF is the default preview. German, Spanish, French, and paired Interslavic readers remain direct downloads; bounded CJK and other-language work, source audits, repair evidence, visual evidence, and predecessor maps are grouped into nine coherent ZIPs. All 20 files and all 3,979 ZIP members passed anonymous byte-for-byte readback. Immutable predecessor 21499492 retains the prior 100-file surface. These are working translations, source controls, repairs, and render witnesses, not peer review, proof checking, complete multilingual synchronization, native-language certification, whole-corpus source certification, rights clearance, accessibility certification, or a critical edition.
+Current Noether public surface is compact record 21699405. Its 20 files directly expose the 459-page full cumulative English working reader and editable master TeX, covering the inherited 43-paper corpus plus the translated German tail through R823 line 24123. The full English PDF is the default preview. German, Spanish, French, and paired Interslavic readers remain direct downloads; bounded CJK and other-language work, source audits, repair evidence, visual evidence, and predecessor maps are grouped into nine coherent ZIPs. The latest same-concept successor retains 19 predecessor files byte-identically and replaces grouped source-audit archive 61 with a 132-member survivor package for bounded Paper 4 and Paper 37 repairs across Latin and Cyrillic Interslavic, Russian, and Ukrainian. Anonymous readback passed all 20 outer files and all 132 replacement-ZIP members. Immutable predecessor 21499492 retains the prior 100-file surface. These are working translations, source controls, repairs, and render witnesses, not peer review, proof checking, complete multilingual synchronization, native-language certification, whole-corpus source certification, rights clearance, accessibility certification, or a critical edition.
 
 | Role | Size MB | File |
 |---|---:|---|
-| reader/reference PDF | 2.5272 | [00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.pdf](https://zenodo.org/records/21499660/files/00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.pdf) |
-| editable TeX | 2.0527 | [00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.tex](https://zenodo.org/records/21499660/files/00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.tex) |
-| reader/reference PDF | 3.0272 | [01j_Noether_R823_Full_Cumulative_English_20260722.pdf](https://zenodo.org/records/21499660/files/01j_Noether_R823_Full_Cumulative_English_20260722.pdf) |
-| editable TeX | 1.7524 | [01j_Noether_R823_Full_Cumulative_English_20260722.tex](https://zenodo.org/records/21499660/files/01j_Noether_R823_Full_Cumulative_English_20260722.tex) |
-| reader/reference PDF | 2.2146 | [02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21499660/files/02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.pdf) |
-| editable TeX | 1.7268 | [02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.tex](https://zenodo.org/records/21499660/files/02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.tex) |
-| reader/reference PDF | 19.8232 | [02b_Noether_Interslavic_Latin_WorkingReader_20260718.pdf](https://zenodo.org/records/21499660/files/02b_Noether_Interslavic_Latin_WorkingReader_20260718.pdf) |
-| reader/reference PDF | 20.1526 | [02c_Noether_Interslavic_Cyrillic_WorkingReader_20260718.pdf](https://zenodo.org/records/21499660/files/02c_Noether_Interslavic_Cyrillic_WorkingReader_20260718.pdf) |
-| reader/reference PDF | 3.5494 | [02d_Noether_French_R823_Cumulative_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21499660/files/02d_Noether_French_R823_Cumulative_WorkingTranslation_20260718.pdf) |
-| editable TeX | 0.3249 | [02d_Noether_French_R823_Cumulative_WorkingTranslation_20260718.tex](https://zenodo.org/records/21499660/files/02d_Noether_French_R823_Cumulative_WorkingTranslation_20260718.tex) |
-| artifact/source ZIP | 23.9386 | [07_Noether_Current_German_SourceControl_v26_R823_20260717.zip](https://zenodo.org/records/21499660/files/07_Noether_Current_German_SourceControl_v26_R823_20260717.zip) |
-| artifact/source ZIP | 21.5818 | [10_Noether_Spanish_R823_WorkingTranslation_TeX_Evidence_20260718.zip](https://zenodo.org/records/21499660/files/10_Noether_Spanish_R823_WorkingTranslation_TeX_Evidence_20260718.zip) |
-| artifact/source ZIP | 244.6276 | [11_Noether_Interslavic_WorkingCorpus_Normalization_002A_007_20260718.zip](https://zenodo.org/records/21499660/files/11_Noether_Interslavic_WorkingCorpus_Normalization_002A_007_20260718.zip) |
-| artifact/source ZIP | 5.6110 | [14_Noether_French_R823_WorkingTranslation_TeX_Evidence_20260718.zip](https://zenodo.org/records/21499660/files/14_Noether_French_R823_WorkingTranslation_TeX_Evidence_20260718.zip) |
-| artifact/source ZIP | 25.9681 | [49_Noether_P02_P04S06S07EN_VisualEvidence_20260719.zip](https://zenodo.org/records/21499660/files/49_Noether_P02_P04S06S07EN_VisualEvidence_20260719.zip) |
-| artifact/source ZIP | 3.5596 | [52_Noether_R823_Full_Cumulative_English_TeX_PDF_20260722.zip](https://zenodo.org/records/21499660/files/52_Noether_R823_Full_Cumulative_English_TeX_PDF_20260722.zip) |
-| artifact/source ZIP | 58.6460 | [60_Noether_Bounded_CJK_and_Other_Languages_20260722.zip](https://zenodo.org/records/21499660/files/60_Noether_Bounded_CJK_and_Other_Languages_20260722.zip) |
-| artifact/source ZIP | 112.7693 | [61_Noether_Current_Source_Audit_and_Repair_Evidence_20260722.zip](https://zenodo.org/records/21499660/files/61_Noether_Current_Source_Audit_and_Repair_Evidence_20260722.zip) |
-| artifact/source ZIP | 0.0102 | [90_Noether_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip](https://zenodo.org/records/21499660/files/90_Noether_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip) |
-| manifest/status | 0.0020 | [README_CURRENT_RELEASE.md](https://zenodo.org/records/21499660/files/README_CURRENT_RELEASE.md) |
+| reader/reference PDF | 2.5272 | [00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.pdf](https://zenodo.org/records/21699405/files/00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.pdf) |
+| editable TeX | 2.0527 | [00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.tex](https://zenodo.org/records/21699405/files/00_Noether_German_Cumulative_WorkingSourceControl_P02_P04S07_20260718.tex) |
+| reader/reference PDF | 3.0272 | [01j_Noether_R823_Full_Cumulative_English_20260722.pdf](https://zenodo.org/records/21699405/files/01j_Noether_R823_Full_Cumulative_English_20260722.pdf) |
+| editable TeX | 1.7524 | [01j_Noether_R823_Full_Cumulative_English_20260722.tex](https://zenodo.org/records/21699405/files/01j_Noether_R823_Full_Cumulative_English_20260722.tex) |
+| reader/reference PDF | 2.2146 | [02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21699405/files/02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.pdf) |
+| editable TeX | 1.7268 | [02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.tex](https://zenodo.org/records/21699405/files/02a_Noether_Spanish_R823_Cumulative_WorkingTranslation_20260718.tex) |
+| reader/reference PDF | 19.8232 | [02b_Noether_Interslavic_Latin_WorkingReader_20260718.pdf](https://zenodo.org/records/21699405/files/02b_Noether_Interslavic_Latin_WorkingReader_20260718.pdf) |
+| reader/reference PDF | 20.1526 | [02c_Noether_Interslavic_Cyrillic_WorkingReader_20260718.pdf](https://zenodo.org/records/21699405/files/02c_Noether_Interslavic_Cyrillic_WorkingReader_20260718.pdf) |
+| reader/reference PDF | 3.5494 | [02d_Noether_French_R823_Cumulative_WorkingTranslation_20260718.pdf](https://zenodo.org/records/21699405/files/02d_Noether_French_R823_Cumulative_WorkingTranslation_20260718.pdf) |
+| editable TeX | 0.3249 | [02d_Noether_French_R823_Cumulative_WorkingTranslation_20260718.tex](https://zenodo.org/records/21699405/files/02d_Noether_French_R823_Cumulative_WorkingTranslation_20260718.tex) |
+| artifact/source ZIP | 23.9386 | [07_Noether_Current_German_SourceControl_v26_R823_20260717.zip](https://zenodo.org/records/21699405/files/07_Noether_Current_German_SourceControl_v26_R823_20260717.zip) |
+| artifact/source ZIP | 21.5818 | [10_Noether_Spanish_R823_WorkingTranslation_TeX_Evidence_20260718.zip](https://zenodo.org/records/21699405/files/10_Noether_Spanish_R823_WorkingTranslation_TeX_Evidence_20260718.zip) |
+| artifact/source ZIP | 244.6276 | [11_Noether_Interslavic_WorkingCorpus_Normalization_002A_007_20260718.zip](https://zenodo.org/records/21699405/files/11_Noether_Interslavic_WorkingCorpus_Normalization_002A_007_20260718.zip) |
+| artifact/source ZIP | 5.6110 | [14_Noether_French_R823_WorkingTranslation_TeX_Evidence_20260718.zip](https://zenodo.org/records/21699405/files/14_Noether_French_R823_WorkingTranslation_TeX_Evidence_20260718.zip) |
+| artifact/source ZIP | 25.9681 | [49_Noether_P02_P04S06S07EN_VisualEvidence_20260719.zip](https://zenodo.org/records/21699405/files/49_Noether_P02_P04S06S07EN_VisualEvidence_20260719.zip) |
+| artifact/source ZIP | 3.5596 | [52_Noether_R823_Full_Cumulative_English_TeX_PDF_20260722.zip](https://zenodo.org/records/21699405/files/52_Noether_R823_Full_Cumulative_English_TeX_PDF_20260722.zip) |
+| artifact/source ZIP | 58.6460 | [60_Noether_Bounded_CJK_and_Other_Languages_20260722.zip](https://zenodo.org/records/21699405/files/60_Noether_Bounded_CJK_and_Other_Languages_20260722.zip) |
+| artifact/source ZIP | 115.0323 | [61_Noether_Current_Source_Audit_and_Slavic_Repair_Evidence_20260730.zip](https://zenodo.org/records/21699405/files/61_Noether_Current_Source_Audit_and_Slavic_Repair_Evidence_20260730.zip) |
+| artifact/source ZIP | 0.0102 | [90_Noether_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip](https://zenodo.org/records/21699405/files/90_Noether_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip) |
+| manifest/status | 0.0020 | [README_CURRENT_RELEASE.md](https://zenodo.org/records/21699405/files/README_CURRENT_RELEASE.md) |
 
 ## Heinrich Weber, Lehrbuch der Algebra: German LaTeX and English Translation Working Drafts
 
@@ -520,41 +520,42 @@ Current reader-first surface is version 21212608. It directly exposes the sequen
 
 ## Elements de geometrie algebrique (EGA): French Originals, English Working Readers, and Source Archives
 
-Record: <https://zenodo.org/records/21706639>
+Record: <https://zenodo.org/records/21708950>
 
-Current EGA surface is record 21706639 under the established EGA concept DOI 10.5281/zenodo.20414353. It starts with one 99-member ZIP containing the four current cumulative English reader PDFs and complete buildable TeX closures; the same readers and masters remain direct downloads. EGA II is complete through authority EOF and now has its exhaustive reference-v2 layer: 1,028 stable targets, 2,078 valid internal GoTo actions, and 2,538 named destinations. The other scopes remain EGA 0/III assigned Sections 8-13, EGA III assigned Sections 1-7, and cumulative source-aligned EGA IV Sections 1-10 with Section 11 next. EGA IV still has 1,041 printed locator occurrences across 500 unique names that are not clickable. The older EGA IV Sections 1-21 draft remains broader historical working coverage. EGA 0/III remains the default preview. All 29 outer files and all nine ZIPs / 411 file members passed anonymous exact readback; 23 predecessor files remained byte-identical. Record rights metadata is License Not Specified. EGA remains separate from SGA because it has its own established concept and authority history. These are working translations and source controls, not a complete whole-EGA translation, critical edition, rights clearance, peer review, or whole-reader source certification.
+Current EGA surface is compact record 21708950 under the established EGA concept DOI 10.5281/zenodo.20414353. It starts with one 125-member ZIP containing all five current cumulative English reader PDFs and their complete buildable TeX closures; the same readers and masters remain direct downloads. EGA 0 through Section 13, EGA I through authority EOF, EGA II through authority EOF, and the complete published EGA III text through 7.9.14 are reference-v2 working readers. EGA IV remains source-aligned through Sections 1-10 and continues at Section 11. EGA 0 is the default preview. Anonymous readback passed all 30 outer files and every member of all nine ZIP archives; twelve NUMDAM and historical files were retained byte-identically. Superseded loose readers remain available in immutable predecessor versions. Record rights metadata is License Not Specified. EGA remains separate from SGA because it has its own established concept and authority history. These are working translations and source controls, not a complete whole-EGA translation, critical edition, rights clearance, peer review, accessibility certification, or whole-reader source certification.
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 5.5950 | [00 Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip](https://zenodo.org/records/21706639/files/00%20Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip) |
-| reader/reference PDF | 7.1528 | [00 EGA - English Translation Working Draft.pdf](https://zenodo.org/records/21706639/files/00%20EGA%20-%20English%20Translation%20Working%20Draft.pdf) |
-| reader/reference PDF | 1.1350 | [00a_EGA0_English_Working_Reader_Assigned_SourceFirst_Sections8_13_20260729.pdf](https://zenodo.org/records/21706639/files/00a_EGA0_English_Working_Reader_Assigned_SourceFirst_Sections8_13_20260729.pdf) |
-| reader/reference PDF | 1.8169 | [00b_EGA2_English_Reader.pdf](https://zenodo.org/records/21706639/files/00b_EGA2_English_Reader.pdf) |
-| reader/reference PDF | 1.2248 | [00c_EGA3_English_Working_Reader_Assigned_SourceFirst_Sections1_7_20260729.pdf](https://zenodo.org/records/21706639/files/00c_EGA3_English_Working_Reader_Assigned_SourceFirst_Sections1_7_20260729.pdf) |
-| reader/reference PDF | 2.5106 | [00d_EGA4_English_Sections1_10_Reader.pdf](https://zenodo.org/records/21706639/files/00d_EGA4_English_Sections1_10_Reader.pdf) |
-| reader/reference PDF | 5.0524 | [01 EGA IV - English Translation Working Draft (Sections 1-21).pdf](https://zenodo.org/records/21706639/files/01%20EGA%20IV%20-%20English%20Translation%20Working%20Draft%20%28Sections%201-21%29.pdf) |
-| editable TeX | 0.0008 | [02a_EGA0_English_Working_Master_Assigned_SourceFirst_Sections8_13_20260729.tex](https://zenodo.org/records/21706639/files/02a_EGA0_English_Working_Master_Assigned_SourceFirst_Sections8_13_20260729.tex) |
-| editable TeX | 0.0021 | [02b_EGA2_English_Master.tex](https://zenodo.org/records/21706639/files/02b_EGA2_English_Master.tex) |
-| editable TeX | 0.0031 | [02c_EGA3_English_Working_Master_Assigned_SourceFirst_Sections1_7_20260729.tex](https://zenodo.org/records/21706639/files/02c_EGA3_English_Working_Master_Assigned_SourceFirst_Sections1_7_20260729.tex) |
-| editable TeX | 0.0007 | [02d_EGA4_English_Sections1_10_Master.tex](https://zenodo.org/records/21706639/files/02d_EGA4_English_Sections1_10_Master.tex) |
-| reader/reference PDF | 30.2131 | [10 EGA I - French Original (NUMDAM PMIHES 4, 1960).pdf](https://zenodo.org/records/21706639/files/10%20EGA%20I%20-%20French%20Original%20%28NUMDAM%20PMIHES%204%2C%201960%29.pdf) |
-| artifact/source ZIP | 0.4472 | [10a_EGA0_III_and_EGA3_Assigned_Lane_Source_20260729.zip](https://zenodo.org/records/21706639/files/10a_EGA0_III_and_EGA3_Assigned_Lane_Source_20260729.zip) |
-| artifact/source ZIP | 4.7214 | [10b_EGA2_English_Source_20260730.zip](https://zenodo.org/records/21706639/files/10b_EGA2_English_Source_20260730.zip) |
-| artifact/source ZIP | 0.3488 | [10g_EGA4_English_Sections1_10_Source_20260730.zip](https://zenodo.org/records/21706639/files/10g_EGA4_English_Sections1_10_Source_20260730.zip) |
-| reader/reference PDF | 26.1441 | [11 EGA II - French Original (NUMDAM PMIHES 8, 1961).pdf](https://zenodo.org/records/21706639/files/11%20EGA%20II%20-%20French%20Original%20%28NUMDAM%20PMIHES%208%2C%201961%29.pdf) |
-| reader/reference PDF | 19.0187 | [12 EGA III Part 1 - French Original (NUMDAM PMIHES 11, 1961).pdf](https://zenodo.org/records/21706639/files/12%20EGA%20III%20Part%201%20-%20French%20Original%20%28NUMDAM%20PMIHES%2011%2C%201961%29.pdf) |
-| reader/reference PDF | 10.3535 | [13 EGA III Part 2 - French Original (NUMDAM PMIHES 17, 1963).pdf](https://zenodo.org/records/21706639/files/13%20EGA%20III%20Part%202%20-%20French%20Original%20%28NUMDAM%20PMIHES%2017%2C%201963%29.pdf) |
-| reader/reference PDF | 30.5087 | [14 EGA IV Part 1 - French Original (NUMDAM PMIHES 20, 1964).pdf](https://zenodo.org/records/21706639/files/14%20EGA%20IV%20Part%201%20-%20French%20Original%20%28NUMDAM%20PMIHES%2020%2C%201964%29.pdf) |
-| reader/reference PDF | 30.3450 | [15 EGA IV Part 2 - French Original (NUMDAM PMIHES 24, 1965).pdf](https://zenodo.org/records/21706639/files/15%20EGA%20IV%20Part%202%20-%20French%20Original%20%28NUMDAM%20PMIHES%2024%2C%201965%29.pdf) |
-| reader/reference PDF | 32.8061 | [16 EGA IV Part 3 - French Original (NUMDAM PMIHES 28, 1966).pdf](https://zenodo.org/records/21706639/files/16%20EGA%20IV%20Part%203%20-%20French%20Original%20%28NUMDAM%20PMIHES%2028%2C%201966%29.pdf) |
-| reader/reference PDF | 47.5435 | [17 EGA IV Part 4 - French Original (NUMDAM PMIHES 32, 1967).pdf](https://zenodo.org/records/21706639/files/17%20EGA%20IV%20Part%204%20-%20French%20Original%20%28NUMDAM%20PMIHES%2032%2C%201967%29.pdf) |
-| artifact/source ZIP | 0.1591 | [80 EGA - EGA 0 IV Translation TeX Supplement.zip](https://zenodo.org/records/21706639/files/80%20EGA%20-%20EGA%200%20IV%20Translation%20TeX%20Supplement.zip) |
-| artifact/source ZIP | 227.9118 | [81 EGA - Full TeX Source, French Originals, and Build Artifacts.zip](https://zenodo.org/records/21706639/files/81%20EGA%20-%20Full%20TeX%20Source%2C%20French%20Originals%2C%20and%20Build%20Artifacts.zip) |
-| artifact/source ZIP | 0.6283 | [82 EGA - EGA IV Main Text Translation TeX Supplement.zip](https://zenodo.org/records/21706639/files/82%20EGA%20-%20EGA%20IV%20Main%20Text%20Translation%20TeX%20Supplement.zip) |
-| artifact/source ZIP | 3.8227 | [83 EGA IV - Standalone Sections 1-21 TeX and PDF.zip](https://zenodo.org/records/21706639/files/83%20EGA%20IV%20-%20Standalone%20Sections%201-21%20TeX%20and%20PDF.zip) |
-| manifest/status | 0.0034 | [90 EGA - README and Status.md](https://zenodo.org/records/21706639/files/90%20EGA%20-%20README%20and%20Status.md) |
-| artifact/source ZIP | 0.0030 | [90a_EGA0_III_and_EGA3_Assigned_SourceFirst_Controls_20260729.zip](https://zenodo.org/records/21706639/files/90a_EGA0_III_and_EGA3_Assigned_SourceFirst_Controls_20260729.zip) |
-| manifest/status | 0.0045 | [91 EGA - Public Summary.json](https://zenodo.org/records/21706639/files/91%20EGA%20-%20Public%20Summary.json) |
+| artifact/source ZIP | 6.5299 | [00 Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip](https://zenodo.org/records/21708950/files/00%20Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip) |
+| reader/reference PDF | 1.1449 | [00a_EGA0_English_Complete_Through_Section13_Reference_v2_20260730.pdf](https://zenodo.org/records/21708950/files/00a_EGA0_English_Complete_Through_Section13_Reference_v2_20260730.pdf) |
+| reader/reference PDF | 1.2936 | [00b_EGA1_English_Complete_Reference_v2_Reader_20260730.pdf](https://zenodo.org/records/21708950/files/00b_EGA1_English_Complete_Reference_v2_Reader_20260730.pdf) |
+| reader/reference PDF | 1.8169 | [00c_EGA2_English_Complete_Reference_v2_Reader_20260730.pdf](https://zenodo.org/records/21708950/files/00c_EGA2_English_Complete_Reference_v2_Reader_20260730.pdf) |
+| reader/reference PDF | 1.2390 | [00d_EGAIII_English_Published_Text_Complete_Reference_v2_20260730.pdf](https://zenodo.org/records/21708950/files/00d_EGAIII_English_Published_Text_Complete_Reference_v2_20260730.pdf) |
+| reader/reference PDF | 2.5106 | [00e_EGAIV_English_Working_Reader_Sections1_10_20260730.pdf](https://zenodo.org/records/21708950/files/00e_EGAIV_English_Working_Reader_Sections1_10_20260730.pdf) |
+| editable TeX | 0.0008 | [01a_EGA0_English_Master_20260730.tex](https://zenodo.org/records/21708950/files/01a_EGA0_English_Master_20260730.tex) |
+| editable TeX | 0.0030 | [01b_EGA1_English_Master_20260730.tex](https://zenodo.org/records/21708950/files/01b_EGA1_English_Master_20260730.tex) |
+| editable TeX | 0.0021 | [01c_EGA2_English_Master_20260730.tex](https://zenodo.org/records/21708950/files/01c_EGA2_English_Master_20260730.tex) |
+| editable TeX | 0.0033 | [01d_EGAIII_English_Master_20260730.tex](https://zenodo.org/records/21708950/files/01d_EGAIII_English_Master_20260730.tex) |
+| editable TeX | 0.0007 | [01e_EGAIV_English_Master_Sections1_10_20260730.tex](https://zenodo.org/records/21708950/files/01e_EGAIV_English_Master_Sections1_10_20260730.tex) |
+| artifact/source ZIP | 2.9342 | [02a_EGA0_EGAIII_English_Reference_v2_TeX_PDF_QA_20260730.zip](https://zenodo.org/records/21708950/files/02a_EGA0_EGAIII_English_Reference_v2_TeX_PDF_QA_20260730.zip) |
+| artifact/source ZIP | 1.3066 | [02b_EGA1_English_Reference_v2_TeX_PDF_QA_20260730.zip](https://zenodo.org/records/21708950/files/02b_EGA1_English_Reference_v2_TeX_PDF_QA_20260730.zip) |
+| artifact/source ZIP | 4.7214 | [02c_EGA2_English_Reference_v2_TeX_PDF_QA_20260730.zip](https://zenodo.org/records/21708950/files/02c_EGA2_English_Reference_v2_TeX_PDF_QA_20260730.zip) |
+| artifact/source ZIP | 0.3488 | [02d_EGAIV_English_Sections1_10_TeX_PDF_QA_20260730.zip](https://zenodo.org/records/21708950/files/02d_EGAIV_English_Sections1_10_TeX_PDF_QA_20260730.zip) |
+| reader/reference PDF | 30.2131 | [10 EGA I - French Original (NUMDAM PMIHES 4, 1960).pdf](https://zenodo.org/records/21708950/files/10%20EGA%20I%20-%20French%20Original%20%28NUMDAM%20PMIHES%204%2C%201960%29.pdf) |
+| reader/reference PDF | 26.1441 | [11 EGA II - French Original (NUMDAM PMIHES 8, 1961).pdf](https://zenodo.org/records/21708950/files/11%20EGA%20II%20-%20French%20Original%20%28NUMDAM%20PMIHES%208%2C%201961%29.pdf) |
+| reader/reference PDF | 19.0187 | [12 EGA III Part 1 - French Original (NUMDAM PMIHES 11, 1961).pdf](https://zenodo.org/records/21708950/files/12%20EGA%20III%20Part%201%20-%20French%20Original%20%28NUMDAM%20PMIHES%2011%2C%201961%29.pdf) |
+| reader/reference PDF | 10.3535 | [13 EGA III Part 2 - French Original (NUMDAM PMIHES 17, 1963).pdf](https://zenodo.org/records/21708950/files/13%20EGA%20III%20Part%202%20-%20French%20Original%20%28NUMDAM%20PMIHES%2017%2C%201963%29.pdf) |
+| reader/reference PDF | 30.5087 | [14 EGA IV Part 1 - French Original (NUMDAM PMIHES 20, 1964).pdf](https://zenodo.org/records/21708950/files/14%20EGA%20IV%20Part%201%20-%20French%20Original%20%28NUMDAM%20PMIHES%2020%2C%201964%29.pdf) |
+| reader/reference PDF | 30.3450 | [15 EGA IV Part 2 - French Original (NUMDAM PMIHES 24, 1965).pdf](https://zenodo.org/records/21708950/files/15%20EGA%20IV%20Part%202%20-%20French%20Original%20%28NUMDAM%20PMIHES%2024%2C%201965%29.pdf) |
+| reader/reference PDF | 32.8061 | [16 EGA IV Part 3 - French Original (NUMDAM PMIHES 28, 1966).pdf](https://zenodo.org/records/21708950/files/16%20EGA%20IV%20Part%203%20-%20French%20Original%20%28NUMDAM%20PMIHES%2028%2C%201966%29.pdf) |
+| reader/reference PDF | 47.5435 | [17 EGA IV Part 4 - French Original (NUMDAM PMIHES 32, 1967).pdf](https://zenodo.org/records/21708950/files/17%20EGA%20IV%20Part%204%20-%20French%20Original%20%28NUMDAM%20PMIHES%2032%2C%201967%29.pdf) |
+| artifact/source ZIP | 0.1591 | [80 EGA - EGA 0 IV Translation TeX Supplement.zip](https://zenodo.org/records/21708950/files/80%20EGA%20-%20EGA%200%20IV%20Translation%20TeX%20Supplement.zip) |
+| artifact/source ZIP | 227.9118 | [81 EGA - Full TeX Source, French Originals, and Build Artifacts.zip](https://zenodo.org/records/21708950/files/81%20EGA%20-%20Full%20TeX%20Source%2C%20French%20Originals%2C%20and%20Build%20Artifacts.zip) |
+| artifact/source ZIP | 0.6283 | [82 EGA - EGA IV Main Text Translation TeX Supplement.zip](https://zenodo.org/records/21708950/files/82%20EGA%20-%20EGA%20IV%20Main%20Text%20Translation%20TeX%20Supplement.zip) |
+| artifact/source ZIP | 3.8227 | [83 EGA IV - Standalone Sections 1-21 TeX and PDF.zip](https://zenodo.org/records/21708950/files/83%20EGA%20IV%20-%20Standalone%20Sections%201-21%20TeX%20and%20PDF.zip) |
+| manifest/status | 0.0010 | [90 EGA - README and Status.md](https://zenodo.org/records/21708950/files/90%20EGA%20-%20README%20and%20Status.md) |
+| manifest/status | 0.0488 | [91 EGA - Public Summary.json](https://zenodo.org/records/21708950/files/91%20EGA%20-%20Public%20Summary.json) |
+| manifest/status | 0.0020 | [92 EGA - Current File SHA256SUMS.csv](https://zenodo.org/records/21708950/files/92%20EGA%20-%20Current%20File%20SHA256SUMS.csv) |
 
 ## Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources
 
