@@ -4101,3 +4101,29 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260730_sga_reader_presentation_cleanup_record_21698501.md`
   and
   `manifests/published-zenodo/20260730_sga_reader_presentation_cleanup_record_21698501_public_readback.json`.
+
+## 2026-07-30 - Noether Slavic source-repair survivor successor
+
+- Published version `10.5281/zenodo.21699405` on existing Noether concept
+  `10.5281/zenodo.20412587`; no duplicate concept, parallel draft, or second
+  successor was created.
+- Retained 19/20 predecessor files byte-identically and replaced only grouped
+  archive 61 with
+  `61_Noether_Current_Source_Audit_and_Slavic_Repair_Evidence_20260730.zip`.
+- Replacement archive identity: 120,620,070 bytes / 132 members / SHA-256
+  `12376982ED895F3B59AA532EE20436CBC9544D6C6671083A0EB657CF00F32FF2`.
+  Its 131-row internal manifest has SHA-256
+  `6663B5EFCAB0486E87C63BC3D202F9BFF56D9BA33A310CB65C76F82E4632C1D3`.
+- Added the 110-file repair-survivor package for Paper 4
+  Introduction/Sections 2-5 and Paper 37 in Latin Interslavic, Cyrillic
+  Interslavic, Russian, and Ukrainian. Source pixels remain rights-blocked
+  metadata-only; redundant renders and private/path-bearing logs or scripts
+  remain excluded.
+- GitHub PR 173 merged source commit
+  `9e9fac510e1cb7b8a5719e439d918e663aaa59ef` as
+  `b32701da350e9f406a5bd5c1fb69d9c32fab0789`. Commit-pinned anonymous
+  readback reproduced all 110 files / 3,573,722 bytes, canonical tree SHA-256
+  `409304EB707663BF870831B810C4F5F741862DFDF7F4BF620B93EE483D51E10A`.
+- Anonymous Zenodo readback passed 20/20 outer files and 132/132 archive
+  members. The 459-page full cumulative English reader remains the default
+  preview.
