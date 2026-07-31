@@ -5372,3 +5372,8 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The published description is concise and reader-first. The exact public
   receipt is
   `manifests/published-zenodo/20260731_weber_volume1_complete_working_record_21728241_public_readback.json`.
+- The locked helper appended decision
+  `EG-ARCHIVE-WEBER-VOLUME1-COMPLETE-WORKING-PUBLICATION-20260731-0001`
+  and returned 412 records / 2,606,869 bytes / SHA-256
+  `F76BB1AFA6E12A75D549728B9BDE43DA4EA7B12B3E302DA901828B7149DFA6E0`,
+  `errors=[]`.
