@@ -29,6 +29,8 @@ EXPECTED_PREDECESSOR_FILES = 32
 EXPECTED_PREDECESSOR_BYTES = 1_413_291_979
 EXPECTED_FINAL_FILES = 33
 EXPECTED_FINAL_BYTES = 1_622_065_440
+EXPECTED_SOURCE_IMAGES = 76
+EXPECTED_ZIP_MEMBERS = 80
 DEFAULT_PREVIEW = (
     "00a_EGA0_English_Complete_Through_Section13_Reference_v2_20260730.pdf"
 )
@@ -47,12 +49,11 @@ READBACK_ROOT = Path(os.environ["LOCALAPPDATA"]) / "Temp" / (
     "ega4_source_image_witness_p087_105_readback_20260731"
 )
 RECEIPT_ROOT = REPO_ROOT / "manifests" / "published-zenodo"
+RECEIPT_TAG = "20260731_ega4_source_image_witness_p087_105"
 PREDECESSOR_RECEIPT = RECEIPT_ROOT / (
     "20260731_ega4_source_image_witnesses_record_21712025_public_readback.json"
 )
-DRAFT_STATE = RECEIPT_ROOT / (
-    "20260731_ega4_source_image_witness_p087_105_zenodo_draft_state.json"
-)
+DRAFT_STATE = RECEIPT_ROOT / f"{RECEIPT_TAG}_zenodo_draft_state.json"
 
 NEW_FILES = {
     "86 EGA IV - Source Image Witnesses Printed 087-105 (600-1800dpi) 20260731.zip": {
@@ -477,7 +478,7 @@ def stage_and_publish(
         raise RuntimeError("Patched EGA source-image draft controls changed")
     base.save_json(
         RECEIPT_ROOT
-        / f"20260731_ega4_source_image_witness_p087_105_record_{draft_id}_draft_files.json",
+        / f"{RECEIPT_TAG}_record_{draft_id}_draft_files.json",
         {
             "status": "PASS_STAGED",
             "errors": [],
@@ -517,7 +518,7 @@ def stage_and_publish(
     base.save_json(DRAFT_STATE, state)
     base.save_json(
         RECEIPT_ROOT
-        / f"20260731_ega4_source_image_witness_p087_105_record_{draft_id}_publish_response.json",
+        / f"{RECEIPT_TAG}_record_{draft_id}_publish_response.json",
         {
             "status": "PUBLISH_ACCEPTED",
             "errors": [],
@@ -630,7 +631,8 @@ def public_readback(
         len(files) != EXPECTED_FINAL_FILES
         or sum(int(row["bytes"]) for row in files.values()) != EXPECTED_FINAL_BYTES
         or len(archives) != len(NEW_FILES)
-        or sum(int(row["members"]) for row in archives.values()) != 80
+        or sum(int(row["members"]) for row in archives.values())
+        != EXPECTED_ZIP_MEMBERS
     ):
         raise RuntimeError("EGA source-image public readback did not close")
 
@@ -654,8 +656,8 @@ def public_readback(
         "github_path": GITHUB_PATH,
         "retained_predecessor_files": EXPECTED_PREDECESSOR_FILES,
         "added_source_image_archives": len(NEW_FILES),
-        "added_source_images": 76,
-        "added_zip_members": 80,
+        "added_source_images": EXPECTED_SOURCE_IMAGES,
+        "added_zip_members": EXPECTED_ZIP_MEMBERS,
         "duplicate_concept_created": False,
         "second_draft_created": False,
     }
@@ -670,12 +672,12 @@ def public_readback(
     }
     base.save_json(
         RECEIPT_ROOT
-        / f"20260731_ega4_source_image_witness_p087_105_record_{record_id}_public_readback.json",
+        / f"{RECEIPT_TAG}_record_{record_id}_public_readback.json",
         result,
     )
     base.save_json(
         RECEIPT_ROOT
-        / f"20260731_ega4_source_image_witness_p087_105_record_{record_id}_zip_member_readback.json",
+        / f"{RECEIPT_TAG}_record_{record_id}_zip_member_readback.json",
         zipped,
     )
     return result
@@ -694,8 +696,8 @@ def preflight() -> dict:
         "concept_doi": CONCEPT_DOI,
         "retained_files": EXPECTED_PREDECESSOR_FILES,
         "added_files": len(local),
-        "added_source_images": 76,
-        "added_zip_members": 80,
+        "added_source_images": EXPECTED_SOURCE_IMAGES,
+        "added_zip_members": EXPECTED_ZIP_MEMBERS,
         "final_files": EXPECTED_FINAL_FILES,
         "final_bytes": EXPECTED_FINAL_BYTES,
         "default_preview": DEFAULT_PREVIEW,
