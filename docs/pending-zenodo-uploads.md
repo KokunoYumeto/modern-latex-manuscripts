@@ -1,3 +1,19 @@
+## 2026-07-31: Weber Volume I complete working-reader queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20412153](https://doi.org/10.5281/zenodo.20412153)
+- Published successor:
+  [10.5281/zenodo.21728241](https://doi.org/10.5281/zenodo.21728241)
+- GitHub package:
+  [Weber Volume I complete working reader](../sources/weber/weber-volume1-german-complete-working-source-repair-20260731/)
+
+This queue item is closed. The current surface fronts the 420-page German Volume I
+working reader and exposes its editable TeX directly. One compact 26-member ZIP
+groups the reader, source, concise QA, exact controls, and current source-check
+support. Anonymous readback matched all three new outer files and all 26 ZIP
+members. Zenodo retained 52 predecessor objects by exact size/MD5 identity, the
+predecessor remains published, and no draft or duplicate concept remains.
+
 ## 2026-07-31: complete Serre FAC/GAGA working-custody queue closed
 
 - Dedicated concept:
