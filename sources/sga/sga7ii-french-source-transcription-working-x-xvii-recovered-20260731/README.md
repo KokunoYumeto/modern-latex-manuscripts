@@ -29,10 +29,11 @@ The complete buildable source closure is under `source/`: one master and eight
 Expose body files. The source was built with pdfLaTeX using a fixed source-date
 epoch. The final two passes produced the same PDF bytes.
 
-`work-in-progress/expose_XVIII_partial.tex` preserves 47 continuous later
-source pages, scan indices 262-308, but is not included in the reader. Expose
-XVIII remains incomplete because indices 309-334 are absent. Its exact
-boundary and compile-only disposition are stated in the adjacent WIP README.
+`work-in-progress/expose_XVIII_partial.tex` preserves 48 continuous later
+source pages, scan indices 261-308, including the Expose-XVIII title and
+contents page, but is not included in the reader. Expose XVIII remains
+incomplete because indices 309-334 are absent. Its exact boundary and
+compile-only disposition are stated in the adjacent WIP README.
 
 ## Recovered pages
 
@@ -42,10 +43,11 @@ preserved transcription result. This successor transcribes all four pages and
 checks them directly against the source images. The repaired source pages are
 book folios 190, 191, 204, and 205.
 
-The actual 600-dpi source-page renders and six labeled detail crops are under
-`visual-evidence/`. They are public evidence objects, not manifest-only
-stand-ins. `VISUAL_EVIDENCE_INDEX.csv` records the parent PDF identity, page,
-folio, dimensions, crop box, and SHA-256 for every image.
+The actual 600-dpi source-page renders, six recovered-page detail crops, and
+the 400-dpi Expose-XVIII boundary crop are under `visual-evidence/`. They are
+public evidence objects, not manifest-only stand-ins.
+`VISUAL_EVIDENCE_INDEX.csv` records the parent PDF identity, page, folio,
+dimensions, crop box, and SHA-256 for every image.
 
 ## Source basis and claim boundary
 
