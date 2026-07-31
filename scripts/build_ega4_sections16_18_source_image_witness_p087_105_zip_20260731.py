@@ -23,6 +23,9 @@ ZIP_TIMESTAMP = (2026, 7, 31, 0, 0, 0)
 PART = {
     "minimum": 87,
     "maximum": 105,
+    "aligned_through": 104,
+    "alignment_checkpoint": "checkpoint_printed105_r29",
+    "linked_tex_unit": "source/source_aligned/ega4-17.tex",
     "filename": (
         "86 EGA IV - Source Image Witnesses Printed 087-105 "
         "(600-1800dpi) 20260731.zip"
@@ -175,10 +178,11 @@ def build_rows(source_root: Path) -> list[dict[str, object]]:
                 "bytes": path.stat().st_size,
                 "sha256": sha256_path(path),
                 "parent_scan_sha256": PARENT_SHA256,
-                "linked_tex_unit": "source/source_aligned/ega4-17.tex",
+                "linked_tex_unit": str(PART["linked_tex_unit"]),
                 "qa_disposition": (
-                    "source_alignment_ledger_complete_checkpoint_printed105_r29"
-                    if printed <= 104
+                    "source_alignment_ledger_complete_"
+                    + str(PART["alignment_checkpoint"])
+                    if printed <= int(PART["aligned_through"])
                     else "prepared_source_witness_active_continuation_not_yet_ledger_closed"
                 ),
                 "public_disposition": "public_scan_derived_source_witness",
@@ -190,8 +194,13 @@ def build_rows(source_root: Path) -> list[dict[str, object]]:
             }
         )
     pages = {int(row["printed_page"]) for row in rows}
-    if len(rows) != 76 or pages != set(range(87, 106)):
-        raise RuntimeError("Expected 76 authority images spanning printed pages 87-105")
+    expected_pages = set(range(int(PART["minimum"]), int(PART["maximum"]) + 1))
+    expected_images = len(expected_pages) * 4
+    if len(rows) != expected_images or pages != expected_pages:
+        raise RuntimeError(
+            f"Expected {expected_images} authority images spanning printed pages "
+            f"{PART['minimum']}-{PART['maximum']}"
+        )
     if any(sum(int(row["printed_page"]) == page for row in rows) != 4 for page in pages):
         raise RuntimeError("Expected four source witnesses per printed page")
     return rows
@@ -202,9 +211,11 @@ def public_row(row: dict[str, object]) -> dict[str, object]:
 
 
 def readme(rows: list[dict[str, object]]) -> bytes:
-    aligned = sum(int(row["printed_page"]) <= 104 for row in rows)
+    aligned = sum(
+        int(row["printed_page"]) <= int(PART["aligned_through"]) for row in rows
+    )
     prepared = len(rows) - aligned
-    text = f"""# EGA IV source-image witnesses: printed pages 087-105
+    text = f"""# EGA IV source-image witnesses: printed pages {int(PART['minimum']):03d}-{int(PART['maximum']):03d}
 
 This ZIP preserves {len(rows)} PNG witnesses / {sum(int(row['bytes']) for row in rows):,} bytes
 derived from the publicly available 360-page NUMDAM EGA IV Part 4 scan.
@@ -217,12 +228,13 @@ symbolic crop role, output dimensions, resolution metadata, bytes/SHA-256,
 linked editable TeX, and QA disposition in `VISUAL_EVIDENCE_INDEX.csv` and
 `.jsonl`.
 
-{aligned} images for printed pages 87-104 are covered by the producer's
-source-alignment ledger and `checkpoint_printed105_r29`. The {prepared} images
-for printed page 105 are preserved as the active continuation and do not claim
-that the entire leaf is alignment-closed. Crop command pixel offsets were not
-retained; the index records honest symbolic regions and exact dimensions rather
-than inventing numeric bounding boxes.
+{aligned} images through printed page {PART['aligned_through']} are covered by
+the producer's source-alignment ledger and `{PART['alignment_checkpoint']}`.
+The remaining {prepared} images through printed page {PART['maximum']} are
+preserved as the active continuation and do not claim that those pages are
+alignment-closed. Crop command pixel offsets were not retained; the index
+records honest symbolic regions and exact dimensions rather than inventing
+numeric bounding boxes.
 
 This is source-image evidence, not screenshots of the English reader PDF. No
 OCR body, private path, raw build log, script, cache, or conversation is
@@ -288,9 +300,9 @@ def build_zip(output_root: Path, rows: list[dict[str, object]]) -> dict[str, obj
         "members": len(observed),
         "image_members": len(rows),
         "uncompressed_bytes": sum(size for size, _digest in observed.values()),
-        "printed_page_min": 87,
-        "printed_page_max": 105,
-        "aligned_through_printed_page": 104,
+        "printed_page_min": int(PART["minimum"]),
+        "printed_page_max": int(PART["maximum"]),
+        "aligned_through_printed_page": int(PART["aligned_through"]),
         "safe_paths": True,
         "crc_pass": True,
         "member_identities_exact": True,
@@ -305,11 +317,13 @@ def write_metadata(metadata_root: Path, rows: list[dict[str, object]], archive: 
     zip_fields = tuple(archive)
     (metadata_root / "ZIP_PAYLOAD_MANIFEST.csv").write_bytes(csv_bytes([archive], zip_fields))
     (metadata_root / "README.md").write_text(
-        "# EGA IV Sections 16-18 source-image witnesses, printed 087-105\n\n"
-        "This metadata binds the actual 76 source-derived PNGs in Zenodo archive 86. "
-        "Printed pages 87-104 are alignment-closed in checkpoint r29; printed page 105 "
-        "is the explicitly labeled active continuation. The English-reader render is not "
-        "included.\n",
+        "# EGA IV Sections 16-18 source-image witnesses, printed "
+        f"{int(PART['minimum']):03d}-{int(PART['maximum']):03d}\n\n"
+        f"This metadata binds the actual {len(rows)} source-derived PNGs in "
+        f"`{PART['filename']}`. Printed pages through {PART['aligned_through']} are "
+        f"alignment-closed in {PART['alignment_checkpoint']}; later pages through "
+        f"{PART['maximum']} are explicitly labeled active continuation. The "
+        "English-reader render is not included.\n",
         encoding="utf-8",
         newline="\n",
     )
@@ -317,9 +331,9 @@ def write_metadata(metadata_root: Path, rows: list[dict[str, object]], archive: 
         "status": "PASS_READY_FOR_SAME_CONCEPT_ZENODO_UPLOAD",
         "images": len(rows),
         "image_bytes": sum(int(row["bytes"]) for row in rows),
-        "printed_page_min": 87,
-        "printed_page_max": 105,
-        "aligned_through_printed_page": 104,
+        "printed_page_min": int(PART["minimum"]),
+        "printed_page_max": int(PART["maximum"]),
+        "aligned_through_printed_page": int(PART["aligned_through"]),
         "parent_scan_sha256": PARENT_SHA256,
         "zip_archive": archive,
         "privacy_hits": 0,
