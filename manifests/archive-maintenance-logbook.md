@@ -5051,3 +5051,34 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   returned 393 records / 2,494,582 bytes / SHA-256
   `F8742D92CC36D2585831E91A1893388957234D01656A8277BDC3F486FA08B903`,
   `errors=[]`.
+
+## 2026-07-31 - SGA7 II Expose XVIII continuous source work published
+
+- Coordinated Claude's live SGA7 II task with the clean public X-XVII base and
+  the exact continuation cursor; its stale placeholder workspace was not
+  mirrored into the archive.
+- Preserved the updated 32-file GitHub package at commit
+  `2b7410e51b63f18ca257aa4e292fa43ba5f31439`; anonymous commit-pinned
+  readback matched all 32 files / 4,409,172 bytes.
+- Published one successor under existing SGA concept DOI
+  `10.5281/zenodo.20410947`: version
+  [`10.5281/zenodo.21719186`](https://doi.org/10.5281/zenodo.21719186).
+- Replaced only the compact SGA7 II source/WIP ZIP and release controls. The
+  source archive is 1,098,631 bytes, SHA-256
+  `5EF76F57D8A60D00A8AAEB366864EAB986E9F2A3C73B202E6C0011E2F2262AC5`,
+  with 19 exact members.
+- The archive now contains 47 continuous Expose-XVIII source pages, scan
+  indices 262-308. Indices 309-334 remain absent, so Expose XVIII remains
+  explicitly incomplete and outside the unchanged direct X-XVII reader.
+- Anonymous readback matched all 79 outer files / 646,432,815 bytes and all 19
+  replacement-ZIP members. The other 77 files, including all public
+  scan-derived pixel archives, remained byte-identical; SGA1 remains the
+  default preview.
+- The publicly available scan-derived images remain public as actual pixels,
+  not as a metadata-only rights-blocked substitute. No duplicate concept or
+  active draft remains.
+- The locked shared-log helper appended decision
+  `EG-ARCHIVE-SGA7II-EXPOSE-XVIII-WIP-SOURCE-PUBLICATION-20260731-0001` and
+  returned 394 records / 2,501,036 bytes / SHA-256
+  `8EC97D4E2951EC95C7C86E54DC367168F6A3EA1AB930DEF37243412871CFB211`,
+  `errors=[]`.
