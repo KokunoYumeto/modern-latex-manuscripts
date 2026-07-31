@@ -5082,3 +5082,37 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   returned 394 records / 2,501,036 bytes / SHA-256
   `8EC97D4E2951EC95C7C86E54DC367168F6A3EA1AB930DEF37243412871CFB211`,
   `errors=[]`.
+
+## 2026-07-31 - SGA7 I post-cutoff source-crop pixels published
+
+- Preserved the privacy-clean controls at GitHub package commit
+  `5efed2287f702bc5710ef759298276885422aba7`; anonymous commit-pinned
+  readback matched all six package files / 225,706 bytes exactly.
+- Selected 260 actual nonduplicate source-scan-derived PNGs / 24,829,245
+  pixel bytes from the post-cutoff SGA7 I inspection surface: 249 targeted
+  crops, nine source-region strips, and two source-definition strips.
+- Deduplicated nine exact pixels already public in the earlier lead-opened
+  archive. Five redundant whole-page or stretched-page variants remain
+  catalogued but were not repacked as useful high-detail crops.
+- Published one successor under existing SGA concept DOI
+  `10.5281/zenodo.20410947`: version
+  [`10.5281/zenodo.21719787`](https://doi.org/10.5281/zenodo.21719787).
+- New archive `10h4_SGA7I_PostCutoff_HighDetail_Source_Crops_20260731.zip`
+  is 24,578,767 bytes, SHA-256
+  `2171B0711C2D3BFCB83D43A516B2298E0388A35C78A4F06408587ADCDA5657B2`,
+  with 266 exact members including all 260 PNGs.
+- Anonymous readback matched all 80 outer files / 671,043,852 bytes, all
+  266 archive members, and all 78 retained predecessor files. SGA1 remains
+  the default preview; no duplicate concept or active draft remains.
+- The actual useful source pixels are public rather than replaced by a
+  rights-blocked metadata ledger. The parent scan is identified by hash and
+  is not duplicated in this archive; no complete-transcription, translation,
+  mathematical-certification, critical-edition, or blanket-license claim is
+  made.
+- The task-specific upload ZIP and staging directory were removed after
+  exact public readback; producer and Claude source trees were not mutated.
+- The locked shared-log helper appended decision
+  `EG-ARCHIVE-SGA7I-POSTCUTOFF-SOURCE-CROPS-PUBLICATION-20260731-0001` and
+  returned 395 records / 2,507,721 bytes / SHA-256
+  `56A1FADA765EC19BBC4986B27E7B50B068B5F3D013EF8333C9FEA74F3E554710`,
+  `errors=[]`.
