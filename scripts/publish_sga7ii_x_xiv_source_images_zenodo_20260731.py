@@ -253,7 +253,11 @@ def validate_image_zip(path: Path, inventory: dict[str, object]) -> None:
         rows = list(
             csv.DictReader(io.StringIO(archive.read(index_name).decode("utf-8-sig")))
         )
-    if len(rows) != 5_033 or {row["archive_member"] for row in rows} != image_names:
+    if (
+        len(rows) != 5_083
+        or len({row["archive_member"] for row in rows}) != 5_033
+        or {row["archive_member"] for row in rows} != image_names
+    ):
         raise RuntimeError("Image ZIP index closure changed")
     for row in rows:
         observed = members[row["archive_member"]]
