@@ -4711,3 +4711,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   combined provenance index and reproducible streaming packager. The single
   temporary 906,449,930-byte ZIP directory was deleted after readback; the
   producer PNG tree was untouched.
+
+## 2026-07-31 - EGA IV source images through printed page 105 published
+
+- Published one additive successor under existing EGA concept DOI
+  `10.5281/zenodo.20414353`. The immutable predecessor is `21712025`; the new
+  current version is [`10.5281/zenodo.21712381`](https://doi.org/10.5281/zenodo.21712381).
+- Added `86 EGA IV - Source Image Witnesses Printed 087-105 (600-1800dpi)
+  20260731.zip`: 208,773,461 bytes, SHA-256
+  `E89C05E3254FE335146D6E7AB8C47C59039438AF49E29CD4951127067BEC106C`.
+- The ZIP has 76 actual scan-derived PNGs and four metadata/control files.
+  Printed pages 87-104 are bound to completed alignment review; the four
+  printed-page-105 images are explicitly the active continuation.
+- Anonymous readback matched all 33 outer files / 1,622,065,440 bytes, all 32
+  retained predecessor files, and all 80 ZIP members / 208,750,301
+  uncompressed bytes exactly. EGA0 remains the default preview.
+- GitHub metadata commit `22b9ba82a7570a3f3f6fc891772f45436555d862`
+  publishes the provenance index; publisher commit
+  `7a8e790ed17069b5a66260bef75d667264128c47` is also public.
+- No duplicate concept, parallel draft, or residual unpublished draft was
+  created. The 208,773,461-byte temporary upload ZIP was deleted after exact
+  readback; the producer image tree was untouched.
