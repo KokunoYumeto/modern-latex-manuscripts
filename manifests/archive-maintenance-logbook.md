@@ -4988,3 +4988,33 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   390 records / 2,477,088 bytes / SHA-256
   `512995001EE18ED7915E9EA5799C855DED1C2264C503472E73B80A4C5F2C7E54`,
   `errors=[]`.
+
+## 2026-07-31 - EGA IV Sections 19-21 and Part 4 backmatter corrected r6 published
+
+- Preserved the corrected r6 package at GitHub commit
+  `443693683ea1b07bbbf18eb27e6e00cb1820ec7a`; anonymous commit-pinned
+  readback matched all 20 package files exactly.
+- Published one same-concept successor under EGA concept DOI
+  `10.5281/zenodo.20414353`: version
+  [`10.5281/zenodo.21717450`](https://doi.org/10.5281/zenodo.21717450).
+- Replaced only the bounded reader and source ZIP. The PDF is 861,684 bytes,
+  133 pages, SHA-256
+  `835C97FCE8973F46E1395AC8331F43605AF05953C41851AC1C0292CBED21626F`.
+  The source ZIP is 1,031,410 bytes with 19 exact members, SHA-256
+  `17820D5EE29AB50A9E312E017C6C9AA0B6527D289A2570611C887DB92BB164D9`.
+- Anonymous readback matched all 44 outer files / 3,745,046,266 bytes and all
+  19 replacement-ZIP members. The other 42 predecessor files remained
+  byte-identical; EGA 0 remains the selected preview.
+- The eleven retained visual archives were streamed and hash-confirmed. They
+  preserve all 989 actual scan-derived PNG witnesses continuously over printed
+  pages 5-336. They were not replaced by a metadata-only ledger and were not
+  duplicated in this successor.
+- This is a corrected bounded Sections 19-21 plus Part 4 backmatter working
+  reader. Sections 11-15 remain the cumulative EGA IV integration gap; no
+  cumulative Sections 1-21, critical-edition, peer-review, accessibility, or
+  blanket-rights claim is made.
+- The locked shared-log helper appended decision
+  `EG-ARCHIVE-EGA4-SECTIONS19-21-R6-PUBLICATION-20260731-0001` and returned
+  392 records / 2,488,956 bytes / SHA-256
+  `0DDAA911F33F5F79551DB157C04BDB5065E368DEAE6B05E8AB3A61434E205E65`,
+  `errors=[]`.
