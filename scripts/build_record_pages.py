@@ -195,7 +195,7 @@ RECORD_NOTES = {
         "Current compact SGA record 21728674 leads with the cumulative English reader-and-TeX bundle, followed by direct SGA1-6 readers and masters; SGA1 remains the default preview. The clean 1,470-page SGA3 R29 cumulative covers the Introduction, Exposes I-XXVI, Tome-I subject index, Tome-III mathematical guide, and terminal index, with 13,119 named destinations and 12,337 valid internal GoTo actions. SGA7 I now has a 160-page English working reader covering complete Exposes I, II, VI, and VII plus Expose VIII through Proposition 3.7. Its compact 115-member archive contains that reader and the exact 108-component buildable TeX closure; the next continuation is Expose VIII Section 4, Lemma 4.1, authority line 1559, scan index 276, source folio 265. SGA7 II remains a partial 201-page French working transcription through Expose XXI. Supporting source and QA archives follow the reading files. Anonymous readback passed all 83 outer files, all 79 retained predecessor identities, and every member of both replacement SGA7 archives. SGA3 remains a useful heterogeneous integration rather than final whole-reader diagram-fidelity closure; SGA4half remains rights-held; SGA6 remains layered rather than uniformly source-certified. Historical versions remain immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, accessibility certifications, uniform whole-series source certification, or final whole-SGA certification. Record rights metadata remains License Not Specified.",
     ],
     "ega": [
-        "Current EGA surface is record 21717450 under concept DOI 10.5281/zenodo.20414353. It leads with the 125-member ZIP containing all five current cumulative English reader PDFs and their complete buildable TeX closures; the same readers and masters remain direct downloads, and EGA 0 is the default preview. Complete represented scopes are EGA 0 through Section 13, EGA I through authority EOF, EGA II through authority EOF, and published EGA III through 7.9.14. The direct EGA IV reader remains cumulative through Sections 1-10; bounded readers separately preserve Sections 16-18 and Sections 19-21 plus Part 4 backmatter, leaving Sections 11-15 as the integration gap. Supporting provenance and QA archives follow the reading files. EGA remains separate from SGA because it has its own concept and authority history. These are working translations, not a complete whole-EGA translation, critical edition, rights clearance, peer review, accessibility certification, or whole-reader source certification.",
+        "Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; the published EGA III text is complete through 7.9.14. EGA IV is cumulative through Sections 1-10, with separate bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. These are working translations, not a claim that all of EGA is complete or a critical edition.",
     ],
     "deligne": [
         "Current reader-first public surface is record 21212608. It exposes the sequential English and French working readers through Papers 001-016p080, groups individual paper and letter PDFs by language, and groups TeX/source-check/QA/update material separately. These are useful but uneven working drafts and source/QA packets, not a critical edition or blanket source-faithfulness claim; commutative diagrams, dense formulas, references, and theorem statements still require source comparison.",
@@ -327,12 +327,33 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
     editable_tex = role_rows(rows, "editable TeX")
     other_pdfs = [row for row in pdfs if row not in reader_pdfs]
 
+    if label == "ega":
+        reader_pdfs = [
+            row for row in rows if row["filename"].startswith("00") and row["filename"].lower().endswith(".pdf")
+        ]
+        editable_tex = [
+            row for row in rows if row["filename"].startswith("01") and row["filename"].lower().endswith(".tex")
+        ]
+        preferred_zip_names = {
+            "00 Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip",
+            "02e_EGAIV_English_Sections16_18_SourceAligned_TeX_PDF_20260731.zip",
+            "02f_EGAIV_English_Sections19_21_Part4_Backmatter_TeX_PDF_20260731.zip",
+        }
+        zips = [row for row in rows if row["filename"] in preferred_zip_names]
+        manifests = []
+        other_pdfs = []
+
     if label in {"ega", "sga"}:
         how_to_read = "Start with the leading current-reader bundle or open a direct cumulative reader PDF. Direct master TeX files follow; provenance and QA archives are secondary downloads."
     elif reader_pdfs:
         how_to_read = "Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material."
     else:
         how_to_read = "This record has no top-level reader PDFs in the current file surface. Open the artifact ZIPs for TeX, component PDFs, source witnesses, OCR, page images, render checks, and provenance material."
+
+    quality_warning = "**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details."
+    if label == "ega":
+        how_to_read = "Start with the current-reader bundle or open a direct English PDF. The direct master TeX files follow."
+        quality_warning = "**Status:** These are current working readers. The coverage paragraph below says exactly which scopes are complete and which EGA IV sections remain open."
 
     zenodo_line = f"Zenodo record: [{record_id}]({record_url})"
     if concept_url:
@@ -345,11 +366,11 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
         "",
         f"Public title: {html.escape(title)}",
         "",
-        "**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.",
+        quality_warning,
         "",
         "| Files | PDFs | TeX | ZIPs | Total MB |",
         "|---:|---:|---:|---:|---:|",
-        f"| {len(rows)} | {len(pdfs)} | {len(editable_tex)} | {len(zips)} | {size_sum(rows):.1f} |",
+        f"| {len(rows) if label != 'ega' else len(reader_pdfs) + len(editable_tex) + len(zips)} | {len(pdfs) if label != 'ega' else len(reader_pdfs)} | {len(editable_tex)} | {len(zips)} | {size_sum(rows) if label != 'ega' else size_sum(reader_pdfs + editable_tex + zips):.1f} |",
         "",
         "## How To Read This Record",
         "",
@@ -385,8 +406,20 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
     lines.extend(["## Artifact ZIPs", ""])
     lines.extend(table_for(zips))
 
-    lines.extend(["## Manifest And Status Files", ""])
-    lines.extend(table_for(manifests))
+    if label == "ega":
+        hidden_count = len(rows) - len(reader_pdfs) - len(editable_tex) - len(zips)
+        lines.extend(
+            [
+                "## Full Archive",
+                "",
+                f"The remaining {hidden_count} preserved support files are available in the [full Zenodo file list]({record_url}#files). They are deliberately not expanded on this reading page.",
+                "",
+            ]
+        )
+
+    if manifests:
+        lines.extend(["## Manifest And Status Files", ""])
+        lines.extend(table_for(manifests))
 
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / f"{slug(label)}.md").write_text("\n".join(lines), encoding="utf-8")

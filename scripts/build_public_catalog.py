@@ -92,7 +92,7 @@ RECORD_NOTES = {
         "Current compact SGA record 21728674 starts with one ZIP containing all six cumulative English reader PDFs and their complete buildable TeX closures. The same readers and masters remain direct in SGA1-6 order; SGA1 is the default preview. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a 160-page English working reader covering complete Exposes I, II, VI, and VII plus Expose VIII through Proposition 3.7; its compact 115-member ZIP contains the reader and exact 108-component TeX closure. The next continuation is Expose VIII Section 4, Lemma 4.1, authority line 1559, scan index 276, source folio 265. SGA7 II remains a partial French working transcription through Expose XXI. Historical versions remain immutable. These are working editions and translations, not critical editions, rights determinations, mathematical certifications, accessibility certifications, or final whole-SGA certification.",
     ],
     "ega": [
-        "Current EGA record 21717450 is reader-first. One 125-member ZIP contains the five current cumulative English reader PDFs and their complete buildable TeX closures; the readers and masters are also direct downloads, with EGA 0 as the default preview. Complete working readers cover EGA 0 through Section 13, EGA I through authority EOF, EGA II through authority EOF, and published EGA III through 7.9.14. EGA IV is cumulative through Sections 1-10, with separate bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. Supporting provenance and QA archives follow the reading files. These are working translations, not a complete whole-EGA translation, critical edition, rights clearance, peer review, accessibility certification, or whole-reader source certification.",
+        "Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14. EGA IV is cumulative through Sections 1-10, with bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. These are working translations, not a claim that all of EGA is complete or a critical edition.",
     ],
     "workflow": [
         "Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.",
@@ -274,6 +274,35 @@ def file_url(record_id: str, filename: str) -> str:
     return f"https://zenodo.org/records/{record_id}/files/{quote(filename)}"
 
 
+def reader_facing_rows(label: str, rows: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Keep the EGA catalog page focused on material a reader opens directly."""
+    if label != "ega":
+        return rows
+
+    direct_prefixes = (
+        "00a_",
+        "00b_",
+        "00c_",
+        "00d_",
+        "00e_",
+        "00f_",
+        "01a_",
+        "01b_",
+        "01c_",
+        "01d_",
+        "01e_",
+        "02e_",
+        "02f_",
+    )
+    bundle = "00 Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip"
+    return [
+        row
+        for row in rows
+        if row["filename"] == bundle
+        or row["filename"].startswith(direct_prefixes)
+    ]
+
+
 def build_rows() -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for label, record_id in RECORDS:
@@ -425,6 +454,7 @@ def write_markdown(rows: list[dict[str, str]], path: Path) -> None:
         group = grouped.get(label, [])
         if not group:
             continue
+        displayed_group = reader_facing_rows(label, group)
         title = group[0]["record_title"]
         record_id = group[0]["record_id"]
         record_url = concept_urls.get(record_id, f"https://zenodo.org/records/{record_id}")
@@ -444,10 +474,20 @@ def write_markdown(rows: list[dict[str, str]], path: Path) -> None:
                 "|---|---:|---|",
             ]
         )
-        for row in group:
+        for row in displayed_group:
             filename = row["filename"]
             lines.append(
                 f"| {row['file_role']} | {row['size_mb']} | [{html.escape(filename)}]({row['url']}) |"
+            )
+        if label == "ega":
+            hidden_count = len(group) - len(displayed_group)
+            lines.extend(
+                [
+                    "",
+                    f"The remaining {hidden_count} preserved support files stay available in the "
+                    f"[full Zenodo file list](https://zenodo.org/records/{record_id}#files); "
+                    "they are intentionally omitted from this reader-facing catalog.",
+                ]
             )
         lines.append("")
 
