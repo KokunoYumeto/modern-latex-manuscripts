@@ -4838,3 +4838,38 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `errors=[]`.
 - Zenodo remains unchanged; the direct EGA IV reader remains Sections 1-10 and
   the source-image surface remains printed pages 5-127 and 185-225.
+
+## 2026-07-31 - EGA IV current source and printed pages 128-155 / 226-281 images preserved
+
+- Published the refreshed Sections 16-21 source snapshot at GitHub commit
+  `37e81426edcfe46db309933b5848a9c696862c48`. Its exact 19 files /
+  2,944,144 bytes include current editable sources and fresh three-pass builds.
+- The 17-row source manifest has SHA-256
+  `89995D95934DEB8674BD45034AD16A143841286635B5D77BE9F479BAAE1CBD20`.
+  Conservative checkpoint-backed alignment reaches printed p149 for Sections
+  16-18 and p271 for Sections 19-21; later prepared witnesses are not promoted
+  as reader coverage.
+- Published one additive successor under existing EGA concept DOI
+  `10.5281/zenodo.20414353`. The immutable predecessor is `21712882`; the new
+  current version is [`10.5281/zenodo.21713359`](https://doi.org/10.5281/zenodo.21713359).
+- Added archive 89a for printed pages 128-155: 344,895,950 bytes, SHA-256
+  `646E08EA6AF6ED9B2DBFEAE45A2F7E3AEA04246C0E0B18E28C730CAEB4FB094C`,
+  with 112 actual PNGs and 116 exact members.
+- Added archive 89b for printed pages 226-281: 468,072,479 bytes, SHA-256
+  `257313297CDB9CEF30E07905DB6FFFA7585D3A84123C2661E19D6742C240809A`,
+  with 57 actual PNGs and 61 exact members.
+- Anonymous readback matched all 38 outer files / 2,946,206,542 bytes, all 36
+  retained predecessor files, and all 177 members of the two new archives.
+  EGA0 remains the default preview.
+- The eight-archive image surface now contains 818 actual source-derived images
+  for printed pages 5-155 and 185-281. Only pages 156-184 remain absent; these
+  images do not silently expand the direct EGA IV Sections 1-10 reader.
+- GitHub publisher commit `8411bed5fa9d544cdcf20ff639ed28f830e2bd23`
+  is public. No duplicate concept, second draft, or competing deposition was
+  created. Temporary upload and readback copies were removed after exact
+  readback; producer image trees remain unchanged.
+- The locked shared-log helper appended decision
+  `EG-ARCHIVE-EGA4-SOURCE-IMAGE-WITNESSES-P128-P155-P226-P281-PUBLICATION-20260731-0001`
+  and returned 385 records / 2,444,051 bytes / SHA-256
+  `F760D98BC96D6349A771D49A0A0D7D7FD59BED954911407D321B09D664F739E8`,
+  `errors=[]`.
