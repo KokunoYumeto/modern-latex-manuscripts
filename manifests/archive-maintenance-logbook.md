@@ -5319,3 +5319,10 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   references to predecessor `21720340` remain explicitly historical.
 - This was a GitHub catalog correction only. It did not mutate Zenodo, create
   a draft, change any reader byte, or make a stronger scholarly claim.
+- Public catalog commit `faee2da5b` passed exact commit-pinned raw readback for
+  all eight changed files.
+- The locked helper appended decision
+  `EG-ARCHIVE-SGA-CATALOG-LIVE-HEAD-RECONCILIATION-20260731-0001` and returned
+  410 records / 2,596,205 bytes / SHA-256
+  `10FA50C278FFF66BE927833350F201B2562CDFD9215EB71C7CAB99D5CCFC832A`,
+  `errors=[]`.
