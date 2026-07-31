@@ -4814,3 +4814,27 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and the matching `.md` file.
 - This closes public custody of the release records only; it does not add
   another Zenodo version or expand the direct EGA IV reader scope.
+
+## 2026-07-31 - Current EGA IV Sections 16-21 source snapshot read back from GitHub
+
+- Copied the current editable Sections 16-18 and 19-21 closures into one
+  public-safe, no-overwrite GitHub source snapshot. Producer workspaces remain
+  untouched.
+- Conservative checkpoint-backed alignment now reaches printed page 132 for
+  Sections 16-18 and printed page 251 for Sections 19-21. Later live bytes are
+  preserved without a stronger alignment claim.
+- The package has 19 files / 2,917,563 bytes. Its 17-row exact manifest has
+  SHA-256
+  `8DE2589A977841BA505AD688C526D4454BA827F4A1FDE75FB3ECEAF5B00C8386`.
+- Fresh three-pass builds have 132 and 103 pages, zero hard TeX diagnostics,
+  and zero reader-facing private, model, or process text.
+- GitHub commit `23853a724002b2e380dc2e3f91a1cf207a1439de`
+  passed anonymous commit-pinned readback for all 26 changed files /
+  3,904,264 bytes.
+- The locked shared-log helper appended decision
+  `EG-ARCHIVE-EGA4-SECTIONS16-21-LIVE-SOURCE-CUSTODY-20260731-0001` and
+  returned 384 records / 2,435,761 bytes / SHA-256
+  `985BBFBA9655BA44BC2DE1C5560A8A2890EF27EC78E27BD95340A70CDD90AB7E`,
+  `errors=[]`.
+- Zenodo remains unchanged; the direct EGA IV reader remains Sections 1-10 and
+  the source-image surface remains printed pages 5-127 and 185-225.
