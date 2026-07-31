@@ -1,0 +1,103 @@
+% =====================================================================
+%  SGA 7 II — Groupes de Monodromie en Géométrie Algébrique (LNM 340)
+%  P. Deligne et N. Katz, Springer 1973.  Working reader: Exposés X–XVII.
+%
+%  Source: OS\Number12.pdf — the Institute for Advanced Study scan,
+%          2010 x 3000 px/page (6.0 Mpx), text layer 446/446 (PageGenie).
+%  Book folio = PDF 0-based index - 7.
+%
+%  NOT a critical edition and NOT certified. Source defects are reproduced
+%  verbatim and logged in SOURCE_NOTES.md; uncertain readings likewise.
+%
+%  NOTHING IN THE TYPESET OUTPUT IS OURS. No title page of ours, no
+%  headings of ours: each exposé opens with its own transcribed title page.
+%  Running heads are page furniture and are excluded — our pagination
+%  differs from the book's, so printing them would be actively wrong.
+%  Commentary lives in the markdown files beside this one.
+% =====================================================================
+% leqno: the book prints display numbers in the LEFT margin.
+\documentclass[11pt,a4paper,leqno]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[french,english]{babel}
+
+\usepackage{amsmath,amssymb,amsfonts,mathrsfs}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{cd,arrows.meta}
+\usepackage{geometry}
+\geometry{margin=2.4cm}
+\usepackage{enumitem}
+
+% Breakable underlining: a long underlined statement inside an unbreakable
+% \underline box runs off the page. \uline breaks and hyphenates. Dispatch on
+% \ifmmode because \underline is also used inside math.
+\usepackage[normalem]{ulem}
+\let\mathunderline\underline
+\renewcommand{\underline}[1]{\ifmmode\mathunderline{#1}\else\uline{#1}\fi}
+
+% Long inline formulas give TeX no break point; let it loosen spacing rather
+% than push text past the margin.
+\emergencystretch=3em
+
+% Some of the book's diagrams are wider than an A4 text block — 2.4.6.1 in Exposé XIII is a
+% 6-column grid whose nodes are things like \mathbb{H}^{n-1}(X^{*}_{s(x)},K). Scale a diagram
+% down ONLY when it would otherwise run into the margin; anything that already fits is left
+% untouched at full size. Doing this in the preamble rather than by editing the bodies matters:
+% the bodies are regenerated from the journals on every assembly, so a body edit is wiped.
+\usepackage{etoolbox}
+\usepackage{adjustbox}
+\BeforeBeginEnvironment{tikzcd}{\begin{adjustbox}{max width=\linewidth}}
+\AfterEndEnvironment{tikzcd}{\end{adjustbox}}
+
+% --- literal Unicode the transcription may carry ----------------------
+\DeclareUnicodeCharacter{2192}{\ensuremath{\rightarrow}}
+\DeclareUnicodeCharacter{2297}{\ensuremath{\otimes}}
+\DeclareUnicodeCharacter{2295}{\ensuremath{\oplus}}
+\DeclareUnicodeCharacter{2228}{\ensuremath{\vee}}
+\DeclareUnicodeCharacter{223C}{\ensuremath{\sim}}
+\DeclareUnicodeCharacter{2248}{\ensuremath{\approx}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{03B1}{\ensuremath{\alpha}}
+\DeclareUnicodeCharacter{03B2}{\ensuremath{\beta}}
+\DeclareUnicodeCharacter{00A7}{\S}
+\DeclareUnicodeCharacter{010C}{\v{C}}
+
+% --- notation used by the transcription -------------------------------
+\providecommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Spec}{\operatorname{Spec}}
+\providecommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Ext}{\operatorname{Ext}}
+\providecommand{\Biext}{\operatorname{Biext}}
+\providecommand{\Ker}{\operatorname{Ker}}
+\providecommand{\Coker}{\operatorname{Coker}}
+\providecommand{\Im}{\operatorname{Im}}
+\providecommand{\Tor}{\operatorname{Tor}}
+\providecommand{\Proj}{\operatorname{Proj}}
+\providecommand{\codim}{\operatorname{codim}}
+\providecommand{\prof}{\operatorname{prof}}
+\providecommand{\pr}{\operatorname{pr}}
+\providecommand{\id}{\mathrm{id}}
+
+\begin{document}
+
+\input{expose_X_body}
+\clearpage
+\input{expose_XI_body}
+\clearpage
+\input{expose_XII_body}
+\clearpage
+\input{expose_XIII_body}
+\clearpage
+\input{expose_XIV_body}
+\clearpage
+\input{expose_XV_body}
+\clearpage
+\input{expose_XVI_body}
+\clearpage
+\input{expose_XVII_body}
+
+% Exposé XVIII and later are excluded from this bounded reader.
+
+\end{document}
