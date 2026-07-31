@@ -4936,3 +4936,23 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - No duplicate concept, second draft, or competing deposition was created.
   The temporary 401-MB upload ZIP was removed after exact public readback; the
   producer source-image tree remains unchanged.
+
+## 2026-07-31 - EGA IV Part 4 backmatter source preserved
+
+- Added five exact editable backmatter files to the existing Sections 19-21
+  GitHub custody package: bibliography, notation index, terminological index,
+  original contents, and Errata and Addenda List 3.
+- The added source covers printed pages 333-343 and 345-361. The package now
+  has 17 files / 1,464,759 bytes; its 16-row self-excluding manifest SHA-256 is
+  `81A4835040E3750BEDD169C8E2B51A5660CFB5234B47FC7921B0199E67BD3C54`.
+- GitHub commit `552618074f987fcf700e7d3812d4057321d88c7a` is public.
+  Anonymous commit-pinned raw retrieval matched all 12 changed files / 242,012
+  bytes exactly.
+- The retained 108-page reader still contains Sections 19-21 only. The
+  backmatter files postdate that build, so this is editable-source survival,
+  not an integrated reader, reference-v2, or Zenodo claim.
+- The locked shared-log helper appended decision
+  `EG-ARCHIVE-EGA4-PART4-BACKMATTER-SOURCE-CUSTODY-20260731-0001` and returned
+  389 records / 2,470,921 bytes / SHA-256
+  `75614CE8C0993FD2798B8024B7CCB42E00AB9694F42079019F1028AE59B17BBE`,
+  `errors=[]`.
