@@ -4579,3 +4579,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Machine readback receipt:
   `manifests/published-github/20260731_ega4_sections16_21_live_custody_commit_b73c6dce_public_readback.json`.
 - No reader or Zenodo surface changed; this closes GitHub custody only.
+
+## 2026-07-31 - SGA 7 II live transcription custody and coordination
+
+- Located the active SGA 7 II transcription workspace and read its archive
+  status through the established shared filesystem channel. Exposes X and XI
+  are complete source transcriptions; 24 subsequent pages are captured, for
+  85/438 body pages total.
+- Returned archive coordination in
+  `CODEX_TO_CLAUDE_SGA7_ARCHIVE_COORDINATION_20260731.md`, 3,893 bytes,
+  SHA-256
+  `597F19913AECD4C77597790308C4381ECF39067D144DFC741A3AE6D3B075BFC5`.
+  The note supplies the existing SGA concept/version identities, reader-facing
+  conventions, and a no-duplicate handoff shape. Filesystem delivery does not
+  claim recipient read acknowledgment.
+- Preserved a compact GitHub source snapshot with 9 files / 293,879 bytes.
+  Its 8-row manifest has SHA-256
+  `8D1AC54E1090A13360D4C60954AA36315FEDC0B8D14CD8FC7EBD421E5BA78864`
+  and replays exactly.
+- The authority scan, source pixels, OCR bodies, private status paths,
+  AI/process notes, scripts, caches, and build outputs are excluded. Privacy
+  hits and source-copy mismatches are zero.
+- This is source survival only. It does not alter the complete SGA 7 I Zenodo
+  record `21711433`, create a Tome II reader, or mutate Zenodo.
