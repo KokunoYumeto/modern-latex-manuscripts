@@ -5297,3 +5297,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - English continues at the Expose VIII opening, authority line 5, scan index
   229, source folio 218. This is a current-progress working reader, not a
   complete SGA7 I English volume or critical edition.
+
+## 2026-07-31 - Current SGA catalog and download guides reconciled
+
+- Replayed live record
+  [`10.5281/zenodo.21727380`](https://doi.org/10.5281/zenodo.21727380):
+  83 files / 677,206,472 bytes, comprising 11 PDFs, 11 direct TeX files, and
+  61 ZIPs. The SGA1 reader remains the selected preview.
+- Replaced the obsolete public-summary snapshot that still described the
+  ten-page SGA1 and thirteen-page SGA2 checkpoints as current. The concise
+  summary now identifies all seven current English readers, both direct SGA7
+  source-transcription readers, exact page counts, principal SHA-256 values,
+  and current incompleteness boundaries.
+- Updated the download guide, author/work index, live fleet map, and Zenodo
+  record guide from stale record `21720340` to current record `21727380`.
+  SGA7 I now reads as complete French source transcription plus 134-page
+  English through complete Expose VII; SGA7 II now reads as 201-page French
+  through complete Expose XX plus 37 of 39 source pages of XXI.
+- Validation against the live Zenodo API matched record ID, total bytes, all
+  extension counts, and all ten declared reader/bundle filenames. Historical
+  references to predecessor `21720340` remain explicitly historical.
+- This was a GitHub catalog correction only. It did not mutate Zenodo, create
+  a draft, change any reader byte, or make a stronger scholarly claim.
