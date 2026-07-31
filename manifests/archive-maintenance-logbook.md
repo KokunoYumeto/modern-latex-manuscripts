@@ -4687,3 +4687,27 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Machine receipt:
   `manifests/published-github/20260731_ega4_sections16_21_bounded_build_commit_9331fab2_public_readback.json`.
 - The EGA Zenodo concept remains unchanged.
+
+## 2026-07-31 - EGA IV high-detail source images published and read back
+
+- Published one successor under existing EGA concept DOI
+  `10.5281/zenodo.20414353`, preserving record `21708950` immutably. The new
+  version is `10.5281/zenodo.21712025`; no duplicate concept or parallel draft
+  was created.
+- Added two actual-image ZIPs containing 343 source-derived PNGs from the
+  publicly available NUMDAM EGA IV Part 4 scan. The first ZIP has 184 images,
+  188 total members, 473,721,649 bytes, and SHA-256
+  `FA43ED11F9008010300928C86CD8ECD91BFB84CBAB6BE4CB3D08E7D15E0E5C37`.
+  The second has 159 images, 163 total members, 432,728,281 bytes, and SHA-256
+  `D31314E89078BA352FD9DD4B983F58C319882F62CC8E9464BD686B9F45DA5243`.
+- The images cover printed pages 5-86 with 600/1800-dpi page and band renders
+  plus targeted 5000/9000-dpi ambiguity crops. Pages through 78 correspond to
+  completed source-alignment review; pages 79-86 remain prepared witnesses.
+  Two English-reader render PNGs were excluded.
+- Anonymous public readback matched all 32 outer files / 1,413,291,979 bytes,
+  all 351 new ZIP members, and all 30 retained predecessor files exactly.
+  EGA 0 remains the selected preview.
+- GitHub commit `0373041857e885c2e512df9bc14d2ca7417d46a6` publishes the
+  combined provenance index and reproducible streaming packager. The single
+  temporary 906,449,930-byte ZIP directory was deleted after readback; the
+  producer PNG tree was untouched.

@@ -14,7 +14,7 @@ This page records the main incompleteness that a reader or contributor should kn
 
 Current record: <https://doi.org/10.5281/zenodo.20414353>
 
-- Current version [10.5281/zenodo.21708950](https://doi.org/10.5281/zenodo.21708950) fronts five current English readers: EGA 0 through Section 13, complete EGA I, complete EGA II, the complete published EGA III text through 7.9.14, and source-aligned EGA IV Sections 1-10.
+- Current version [10.5281/zenodo.21712025](https://doi.org/10.5281/zenodo.21712025) fronts five current English readers: EGA 0 through Section 13, complete EGA I, complete EGA II, the complete published EGA III text through 7.9.14, and source-aligned EGA IV Sections 1-10. It also preserves 343 actual high-detail EGA IV source-image witnesses from printed pages 5-86 in two ZIPs; pages 79-86 are prepared witnesses rather than added translation coverage.
 - EGA 0, I, II, and published EGA III have reference-v2 working-reader layers and exact public readback, but they remain working translations rather than critical editions, rights determinations, or independent human certifications.
 - EGA IV has a direct source-aligned working reader through Section 10, with Section 11 as the continuation. Its 1,041 printed locator occurrences across 500 unique names remain explicit non-clickable reference debt.
 - EGA IV beyond Section 10 and the wider EGA corpus beyond the represented published works remain incomplete or non-uniform as source-aligned English working editions.
