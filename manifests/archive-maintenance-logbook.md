@@ -4602,3 +4602,18 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   hits and source-copy mismatches are zero.
 - This is source survival only. It does not alter the complete SGA 7 I Zenodo
   record `21711433`, create a Tome II reader, or mutate Zenodo.
+
+## 2026-07-31 - SGA 7 II live transcription source read back
+
+- Published the exact source-survival snapshot at GitHub commit
+  `0666176e1f1e87d748742855c5bf0c96ad7a36e3`.
+- Fresh anonymous raw-download replay returned HTTP 200 and exact byte/SHA-256
+  identity for all 12 changed files / 564,068 bytes, including all 9 package
+  files.
+- The package manifest remained 8 rows / 743 bytes / SHA-256
+  `8D1AC54E1090A13360D4C60954AA36315FEDC0B8D14CD8FC7EBD421E5BA78864`,
+  with every represented file exact.
+- Machine readback receipt:
+  `manifests/published-github/20260731_sga7ii_live_transcription_commit_0666176e_public_readback.json`.
+- SGA 7 I Zenodo record `21711433` remained unchanged; no Tome II reader or
+  Zenodo successor was claimed.
