@@ -5405,3 +5405,19 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   413 records / 2,612,957 bytes / SHA-256
   `35EF4DB1BCF8A78EB49C44E38A6E5BA23F29D24BCEA6FBD8C587834435535252`,
   `errors=[]`.
+
+## 2026-08-01 - EGA reader-shelf presentation correction
+
+- Revised existing Zenodo record [`21717450`](https://zenodo.org/records/21717450)
+  in place to foreground English working readers and buildable TeX. Metadata is
+  revision 7; all 44 files / 3,745,046,266 bytes remain unchanged and EGA0
+  remains the selected preview.
+- GitHub commit `407668499583735b2dd0c60738bb2265d7ef7017` makes the EGA record page
+  and catalog reader-first: 14 useful reader/source objects are listed directly,
+  while the other 30 support objects are available through one full-file-list link.
+  Commit-pinned anonymous readback matched all nine changed files exactly.
+- The locked helper appended decision
+  `EG-ARCHIVE-EGA-READER-SHELF-METADATA-20260801-0001` and returned 414 records /
+  2,618,001 bytes / SHA-256
+  `CE5A794D5C9015BD5182D67691F5F50799393CF802DAEFB213211D752A72C08C`,
+  `errors=[]`.
