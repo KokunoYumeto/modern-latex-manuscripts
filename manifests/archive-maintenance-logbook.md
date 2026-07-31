@@ -5116,3 +5116,37 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   returned 395 records / 2,507,721 bytes / SHA-256
   `56A1FADA765EC19BBC4986B27E7B50B068B5F3D013EF8333C9FEA74F3E554710`,
   `errors=[]`.
+
+## 2026-07-31 - SGA7 II Expose XVIII boundary source and actual crop published
+
+- Preserved the updated 33-file GitHub package at commit
+  `779cb87e9b452664cf61400fb4ff85a96ae09ecf`; anonymous commit-pinned
+  readback matched all 33 files / 4,647,061 bytes.
+- Added the previously omitted Expose-XVIII title/contents page at scan index
+  261 / PDF page 262 / folio 254. The partial source now has 48 continuous
+  markers through index 308; indices 309-334 remain absent.
+- Published one successor under existing SGA concept DOI
+  `10.5281/zenodo.20410947`: version
+  [`10.5281/zenodo.21720340`](https://doi.org/10.5281/zenodo.21720340).
+- Replaced only the compact SGA7 II source/WIP ZIP and release controls. The
+  source archive is 1,303,331 bytes, SHA-256
+  `4749DCB2C82DBB98F30BCF24AAACE7A86674E044092746CDB96222E1427F443C`,
+  with 22 exact members.
+- The replacement ZIP contains the exact 400-dpi crop opened during the
+  source check, 2,684 x 1,600 RGB pixels / 235,174 bytes / SHA-256
+  `3A6446FFB5E213E35B42A4EAD7934FCC542D6622D2E1B8E1C3B3B3D9F9CE77DD`.
+  Its provenance binds the public parent-scan hash, page/folio, bbox
+  `0,200,2684,1800`, linked source marker, and QA disposition.
+- Anonymous readback matched all 80 outer files / 671,216,941 bytes and all
+  22 replacement-ZIP members. The other 78 files, direct X-XVII reader, and
+  SGA1 default preview remained byte-identical; no duplicate concept or
+  active draft remains.
+- The actual source pixels are public rather than replaced by a rights-blocked
+  metadata-only ledger. Expose XVIII remains incomplete and outside the
+  direct reader; no complete-volume, translation, mathematical-certification,
+  accessibility, critical-edition, or blanket-license claim is made.
+- The locked shared-log helper appended decision
+  `EG-ARCHIVE-SGA7II-XVIII-BOUNDARY-CROP-PUBLICATION-20260731-0001` and
+  returned 396 records / 2,513,561 bytes / SHA-256
+  `6EE600F92BAF85FDA512D7B3BCA29AAAE171299B1CB8C6D3A3DE966561966D4E`,
+  `errors=[]`.
