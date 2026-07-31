@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 998
+Total files indexed: 1003
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -1178,6 +1178,20 @@ Dedicated Kneser working-edition split from the mixed additional-author shelf. C
 | artifact/source ZIP | 107.9520 | [06 Adolf Kneser - LVR p0234-p0248 Current Slice and Cumulative Audit Package 2026-06-13.zip](https://zenodo.org/records/20836972/files/06%20Adolf%20Kneser%20-%20LVR%20p0234-p0248%20Current%20Slice%20and%20Cumulative%20Audit%20Package%202026-06-13.zip) |
 | manifest/status | 0.0016 | [07 Adolf Kneser - Current Status and Caveats 2026-06-24.md](https://zenodo.org/records/20836972/files/07%20Adolf%20Kneser%20-%20Current%20Status%20and%20Caveats%202026-06-24.md) |
 | manifest/status | 0.0006 | [08 Adolf Kneser - Worklist Progress p0248 2026-06-13.json](https://zenodo.org/records/20836972/files/08%20Adolf%20Kneser%20-%20Worklist%20Progress%20p0248%202026-06-13.json) |
+
+## Jean-Pierre Serre: FAC Partial French Working Transcription and GAGA TeX Source Custody
+
+Record: <https://doi.org/10.5281/zenodo.21720996>
+
+Dedicated Serre working-transcription record. FAC is directly readable as a 54-page French working reader covering 70 of 82 printed source pages; the twelve exact gaps remain disclosed. The direct master and body TeX accompany one compact 14-member FAC source/evidence ZIP containing four actual scan-derived crops with exact page, rasterization, bounding-box, dimension, and hash provenance. A separate eight-member ZIP preserves the complete first-pass GAGA TeX source; its earlier PDF remains held because visible join sentinels are still present. License metadata is License Not Specified. This is partial/first-pass scholarly custody, not complete Serre works, a critical edition, mathematical certification, accessibility certification, or blanket rights clearance.
+
+| Role | Size MB | File |
+|---|---:|---|
+| reader/reference PDF | 0.5563 | [00_Serre_FAC_French_Partial_Working_Transcription_20260731.pdf](https://zenodo.org/records/21720997/files/00_Serre_FAC_French_Partial_Working_Transcription_20260731.pdf) |
+| editable TeX | 0.0040 | [01a_Serre_FAC_French_Partial_Working_Transcription_Master_20260731.tex](https://zenodo.org/records/21720997/files/01a_Serre_FAC_French_Partial_Working_Transcription_Master_20260731.tex) |
+| editable TeX | 0.2669 | [01b_Serre_FAC_French_Partial_Working_Transcription_Body_20260731.tex](https://zenodo.org/records/21720997/files/01b_Serre_FAC_French_Partial_Working_Transcription_Body_20260731.tex) |
+| artifact/source ZIP | 1.1386 | [02_Serre_FAC_French_Partial_Source_and_Visual_Evidence_20260731.zip](https://zenodo.org/records/21720997/files/02_Serre_FAC_French_Partial_Source_and_Visual_Evidence_20260731.zip) |
+| artifact/source ZIP | 0.0452 | [03_Serre_GAGA_French_FirstPass_TeX_Custody_20260731.zip](https://zenodo.org/records/21720997/files/03_Serre_GAGA_French_FirstPass_TeX_Custody_20260731.zip) |
 
 ## Minkowski, Hecke, Landau, Kneser, and Other Classical Mathematics Authors: Modern LaTeX Drafts
 
