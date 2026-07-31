@@ -21,6 +21,7 @@ import re
 import sys
 import time
 import urllib.request
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -35,7 +36,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "21699405"),
     ("weber", "21728241"),
     ("cayley", "20617845"),
-    ("sga", "21727380"),
+    ("sga", "21728674"),
     ("deligne", "21212608"),
     ("ega", "21717450"),
     ("ukrainian_applied_math", "20520721"),
@@ -88,10 +89,10 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current compact SGA record 21727380 starts with one 1,394-member ZIP containing all six cumulative English reader PDFs and complete buildable TeX closures. The same readers and masters remain direct in SGA1-6 order; SGA1 remains the default preview. The 1,470-page SGA3 R29 cumulative covers the Introduction, Exposes I-XXVI, Tome-I subject index, Tome-III mathematical guide, and terminal index. SGA7 I has a complete working French source transcription and a 134-page English reader containing complete Exposes I, II, VI, and VII; English continues at the Expose VIII opening, authority line 5, scan index 229, source folio 218. Its 98-member ZIP contains the reader and buildable TeX closure. SGA7 II remains a partial French working transcription through Expose XXI. Historical versions remain immutable. These are working editions and translations, not critical editions, rights determinations, mathematical certifications, accessibility certifications, or final whole-SGA certification.",
+        "Current compact SGA record 21728674 starts with one ZIP containing all six cumulative English reader PDFs and their complete buildable TeX closures. The same readers and masters remain direct in SGA1-6 order; SGA1 is the default preview. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a 160-page English working reader covering complete Exposes I, II, VI, and VII plus Expose VIII through Proposition 3.7; its compact 115-member ZIP contains the reader and exact 108-component TeX closure. The next continuation is Expose VIII Section 4, Lemma 4.1, authority line 1559, scan index 276, source folio 265. SGA7 II remains a partial French working transcription through Expose XXI. Historical versions remain immutable. These are working editions and translations, not critical editions, rights determinations, mathematical certifications, accessibility certifications, or final whole-SGA certification.",
     ],
     "ega": [
-        "Current EGA record 21717450 is reader-first. One 125-member ZIP contains the five current cumulative English reader PDFs and their complete buildable TeX closures; those readers and masters are also direct downloads, with EGA 0 as the default preview. Complete working readers cover EGA 0 through Section 13, EGA I through authority EOF, EGA II through authority EOF, and published EGA III through 7.9.14. EGA IV is cumulative through Sections 1-10, with separate bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. Evidence archives are secondary downloads. These are working translations, not a complete whole-EGA translation, critical edition, rights clearance, peer review, accessibility certification, or whole-reader source certification.",
+        "Current EGA record 21717450 is reader-first. One 125-member ZIP contains the five current cumulative English reader PDFs and their complete buildable TeX closures; the readers and masters are also direct downloads, with EGA 0 as the default preview. Complete working readers cover EGA 0 through Section 13, EGA I through authority EOF, EGA II through authority EOF, and published EGA III through 7.9.14. EGA IV is cumulative through Sections 1-10, with separate bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. Supporting provenance and QA archives follow the reading files. These are working translations, not a complete whole-EGA translation, critical edition, rights clearance, peer review, accessibility certification, or whole-reader source certification.",
     ],
     "workflow": [
         "Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.",
@@ -154,6 +155,41 @@ TITLE_OVERRIDES = {
 }
 
 
+class _RecordDataParser(HTMLParser):
+    def __init__(self) -> None:
+        super().__init__()
+        self.record_data: str | None = None
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = dict(attrs)
+        if values.get("id") == "recordVersions" and values.get("data-record"):
+            self.record_data = values["data-record"]
+
+
+def fetch_public_record_page(record_id: str) -> tuple[dict[str, Any], str]:
+    url = f"https://zenodo.org/records/{record_id}"
+    request = urllib.request.Request(
+        url,
+        headers={"User-Agent": "modern-latex-manuscripts-catalog/1.0"},
+    )
+    with urllib.request.urlopen(request, timeout=120) as response:
+        page = response.read().decode("utf-8", errors="replace")
+
+    parser = _RecordDataParser()
+    parser.feed(page)
+    if not parser.record_data:
+        raise RuntimeError(f"Cannot identify embedded data for Zenodo record {record_id}")
+    record = json.loads(parser.record_data)
+    file_data = record.get("files", {})
+    if isinstance(file_data, dict) and isinstance(file_data.get("entries"), dict):
+        record["files"] = [
+            {"key": key, **value}
+            for key, value in file_data["entries"].items()
+        ]
+        record["default_preview"] = file_data.get("default_preview", "")
+    return record, page
+
+
 def fetch_record(record_id: str) -> dict[str, Any]:
     url = f"https://zenodo.org/api/records/{record_id}/versions/latest"
     request = urllib.request.Request(
@@ -164,28 +200,41 @@ def fetch_record(record_id: str) -> dict[str, Any]:
         try:
             with urllib.request.urlopen(request, timeout=120) as response:
                 return json.loads(response.read().decode("utf-8"))
-        except (HTTPError, URLError, TimeoutError):
+        except HTTPError as error:
+            if error.code == 403:
+                break
             if attempt == 7:
-                raise
+                break
             print(
                 f"Retrying Zenodo record {record_id} after API failure "
                 f"({attempt + 1}/8)",
                 file=sys.stderr,
             )
             time.sleep(2 ** attempt)
-    raise AssertionError("unreachable")
+        except (URLError, TimeoutError):
+            if attempt == 7:
+                break
+            print(
+                f"Retrying Zenodo record {record_id} after API failure "
+                f"({attempt + 1}/8)",
+                file=sys.stderr,
+            )
+            time.sleep(2 ** attempt)
+    print(
+        f"Using Zenodo public HTML fallback for record {record_id}",
+        file=sys.stderr,
+    )
+    record, _ = fetch_public_record_page(record_id)
+    return record
 
 
 def fetch_selected_preview(record_id: str) -> str:
-    url = f"https://zenodo.org/records/{record_id}"
-    request = urllib.request.Request(
-        url,
-        headers={"User-Agent": "modern-latex-manuscripts-catalog/1.0"},
-    )
     for attempt in range(8):
         try:
-            with urllib.request.urlopen(request, timeout=120) as response:
-                page = response.read().decode("utf-8", errors="replace")
+            record, page = fetch_public_record_page(record_id)
+            embedded_preview = record.get("default_preview", "")
+            if embedded_preview:
+                return str(embedded_preview)
             match = re.search(
                 r'id=["\']preview-file-title["\'][^>]*>([^<]+)', page
             )

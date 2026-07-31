@@ -5377,3 +5377,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and returned 412 records / 2,606,869 bytes / SHA-256
   `F76BB1AFA6E12A75D549728B9BDE43DA4EA7B12B3E302DA901828B7149DFA6E0`,
   `errors=[]`.
+
+## 2026-08-01 - SGA7 I English advanced through Expose VIII Proposition 3.7
+
+- Published GitHub package commit
+  `6002d54971c2da538727632d2e810c0d24133ea8`; commit-pinned raw readback
+  matched all 118 files / 3,249,444 bytes.
+- Published same-concept SGA successor
+  [`10.5281/zenodo.21728674`](https://doi.org/10.5281/zenodo.21728674)
+  under concept DOI `10.5281/zenodo.20410947`; predecessor `21727380`
+  remains immutable and no duplicate concept or active draft remains.
+- The direct 160-page reader is 1,277,083 bytes, SHA-256
+  `52F65D358E1F4ADCDD947D8993E98AD395E986CBFE1AB6FB6C3711574B01D2FA`.
+  It covers complete Exposes I, II, VI, and VII plus Expose VIII through
+  Proposition 3.7.
+- Direct TeX SHA-256 is
+  `89F8F81E122829C86ADB9EB8C93895A7EC8FA6417B156081C425E0EE1A4D5EE3`.
+  The 115-member reader/source ZIP SHA-256 is
+  `ED46F3785330C4E644D294B026843724CC05999D26174267F8A14F6C4B8713D2`.
+- Anonymous readback matched all 83 outer files / 677,586,021 bytes, all 79
+  retained predecessor identities, all 115 reader/source members, and all
+  eight release-control members. SGA1 remains the default preview.
+- The next continuation is Expose VIII Section 4, Lemma 4.1, authority line
+  1559, scan index 276, source folio 265.
