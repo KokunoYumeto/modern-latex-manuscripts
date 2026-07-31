@@ -19,6 +19,7 @@ RECEIPT_STEM = (
     "20260731_ega4_source_image_witness_p087_105_"
     "closeout_commit_7ecccf0f_public_readback"
 )
+TITLE = "EGA IV printed pages 87-105 GitHub closeout readback"
 
 
 def git(*args: str) -> bytes:
@@ -118,7 +119,7 @@ def main() -> int:
     md_path.write_text(
         "\n".join(
             [
-                "# EGA IV printed pages 87-105 GitHub closeout readback",
+                f"# {TITLE}",
                 "",
                 f"- Status: `{receipt['status']}`",
                 f"- Commit: [`{COMMIT}`]({receipt['commit_url']})",
