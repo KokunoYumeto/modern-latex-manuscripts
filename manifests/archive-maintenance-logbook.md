@@ -5421,3 +5421,38 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   2,618,001 bytes / SHA-256
   `CE5A794D5C9015BD5182D67691F5F50799393CF802DAEFB213211D752A72C08C`,
   `errors=[]`.
+
+## 2026-08-01 - SGA7 I English through complete Expose VIII
+
+- Published the exact 137-file GitHub package in commits
+  `3dd209b21557dcac384ad430dc72ad3838f0eeeb` and
+  `f627b23010e44f75877152efc99388d3c82821fa`; the latter explicitly includes
+  the compact ZIP that the repository's generic ZIP ignore rule initially
+  omitted. Commit-pinned readback matched all 137 files.
+- Published same-concept SGA successor
+  [`10.5281/zenodo.21729478`](https://doi.org/10.5281/zenodo.21729478)
+  under concept DOI `10.5281/zenodo.20410947`; predecessor `21728674`
+  remains immutable and no duplicate concept or active draft remains.
+- The direct 181-page reader is 1,433,416 bytes, SHA-256
+  `21A9DC25B45F1D67450675F46E6374791483C88F6DBAA051C4B4BF133675361D`.
+  It covers complete Exposes I, II, VI, VII, and VIII.
+- Direct TeX is 9,639 bytes, SHA-256
+  `5F961FCF47C38663922F251502CB36165328A851769E675D63B037A152BBEE94`.
+  The 131-member reader/source ZIP is 1,560,609 bytes, SHA-256
+  `1DED9EEE1C69CFD54ABE2184F25AC24F594239EAC2ABC28E204597C5CF8518E2`.
+  Release controls ZIP SHA-256 is
+  `89EF082F6515CF7DA3F726B3747C5328D83EBDBE9E7C6A5330D1F6E22686E6BB`.
+- Anonymous Zenodo readback matched all 83 outer files / 677,940,470 bytes,
+  all 79 retained predecessor identities, all 131 reader/source members, and
+  all eight release-control members. SGA1 remains the selected preview.
+- Catalog/receipt commit `5c21fd38f6e98e25e77f3fb27547b0663ca4a802`
+  passed commit-pinned raw readback for all 23 changed blobs.
+- The public checkpoint continues at Expose IX, Introduction 0.1, authority
+  line 5, scan index 324, source folio 313. It remains an incomplete working
+  SGA7 I English translation, not a critical edition, mathematical or
+  accessibility certification, rights decision, or whole-SGA certification.
+- The locked helper appended decision
+  `EG-ARCHIVE-SGA7I-ENGLISH-EXPOSE-VIII-COMPLETE-PUBLICATION-20260801-0001`
+  and returned 415 records / 2,623,847 bytes / SHA-256
+  `E6562AF1DA428497295BE1474F431F3ACF2BD39DB65AB008735549FA634ACF06`,
+  `errors=[]`.
