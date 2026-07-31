@@ -5400,3 +5400,8 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   eight release-control members. SGA1 remains the default preview.
 - The next continuation is Expose VIII Section 4, Lemma 4.1, authority line
   1559, scan index 276, source folio 265.
+- The locked helper appended decision
+  `EG-ARCHIVE-SGA7I-ENGLISH-VIII-3-7-PUBLICATION-20260801-0001` and returned
+  413 records / 2,612,957 bytes / SHA-256
+  `35EF4DB1BCF8A78EB49C44E38A6E5BA23F29D24BCEA6FBD8C587834435535252`,
+  `errors=[]`.
