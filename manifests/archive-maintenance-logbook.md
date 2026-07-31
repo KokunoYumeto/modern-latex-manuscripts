@@ -5326,3 +5326,18 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   410 records / 2,596,205 bytes / SHA-256
   `10FA50C278FFF66BE927833350F201B2562CDFD9215EB71C7CAB99D5CCFC832A`,
   `errors=[]`.
+
+## 2026-07-31 - EGA landing metadata reduced to readers and coverage
+
+- Revised published EGA record
+  [`10.5281/zenodo.21717450`](https://doi.org/10.5281/zenodo.21717450)
+  in place under concept DOI `10.5281/zenodo.20414353`; no new version,
+  concept, or draft remains.
+- The landing description is now three short paragraphs: the one-click
+  current-reader/buildable-TeX bundle, direct-reader coverage, and scholarly
+  caveats. Image, crop, raster, DPI, witness, and QA-archive discussion is
+  absent, and the redundant additional Notes block was removed.
+- Anonymous API readback matched the 970-byte description with SHA-256
+  `777EE61397F3884BA0782B2B5617F44F9DDA3E1166C70CD24C0ADABE32B1B39E`.
+  All 44 files / 3,745,046,266 bytes remained unchanged; EGA 0 remains the
+  default preview.
