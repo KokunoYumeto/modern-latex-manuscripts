@@ -4801,3 +4801,16 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - GitHub metadata commit `8a2b16ab069225a3f1b0645c231a3a0ed534f5be`
   and publisher commit `4280e7bd1` are public. No duplicate concept, second
   draft, or competing deposition was created.
+
+## 2026-07-31 - EGA IV page 119-127 and 185-225 release records read back from GitHub
+
+- Published the catalog, current-head pointers, human receipt, machine Zenodo
+  receipts, and append-only log entry at GitHub commit
+  `7beecf53e4c20040bb04e614ee39768b14cc9403`.
+- Anonymous commit-pinned raw retrieval returned HTTP 200 and exact byte,
+  SHA-256, and Git-blob identity for all 27 changed files / 2,682,261 bytes.
+- Machine and human receipts:
+  `manifests/published-github/20260731_ega4_source_image_witness_p119_127_p185_225_closeout_commit_7beecf53_public_readback.json`
+  and the matching `.md` file.
+- This closes public custody of the release records only; it does not add
+  another Zenodo version or expand the direct EGA IV reader scope.
