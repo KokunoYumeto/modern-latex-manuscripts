@@ -110,7 +110,7 @@ def write_csv_bytes(rows: list[dict[str, object]]) -> bytes:
     writer = csv.DictWriter(
         output,
         fieldnames=["path", "bytes", "sha256"],
-        lineterminator="\r\n",
+        lineterminator="\n",
         quoting=csv.QUOTE_ALL,
     )
     writer.writeheader()
