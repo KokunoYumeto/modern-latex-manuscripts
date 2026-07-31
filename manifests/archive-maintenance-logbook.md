@@ -4675,3 +4675,15 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   pixels, OCR, raw logs, scripts, and intermediates remain excluded.
 - This is GitHub live-source survival plus bounded build custody, not complete
   EGA IV or a Zenodo mutation.
+
+## 2026-07-31 - EGA IV Sections 16-21 custody read back
+
+- Published the exact snapshot at GitHub commit
+  `9331fab204630210c1ff2e45fac8104683e50522`.
+- Fresh anonymous commit-pinned raw replay returned HTTP 200 and exact Git-blob
+  identity for all 23 changed files / 3,538,551 bytes.
+- Both bounded checkpoint PDFs, all six editable section sources, both build
+  harnesses, the manifest, validation, scope notes, and intake records matched.
+- Machine receipt:
+  `manifests/published-github/20260731_ega4_sections16_21_bounded_build_commit_9331fab2_public_readback.json`.
+- The EGA Zenodo concept remains unchanged.
