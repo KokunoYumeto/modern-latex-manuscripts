@@ -4642,3 +4642,17 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - The NUMDAM authority scan, pixels, OCR, caches, scripts, raw build files,
   and workflow status are excluded. This is GitHub source survival only; no
   reader or Zenodo surface changed.
+
+## 2026-07-31 - Serre GAGA first-pass source read back
+
+- Published the exact source-survival snapshot at GitHub commit
+  `09791c82772b404d9e2d6c17f6ebe12b06b43ff6`.
+- Fresh anonymous raw-download replay returned HTTP 200 and exact Git-object
+  identity for all 11 changed files / 431,580 bytes, including all 8 package
+  files / 159,866 bytes.
+- The package manifest remained 6 rows / 873 bytes / SHA-256
+  `4538C47BA81F891AD58F2D8034E3E75856A2A3FFB99842E382337309B3961168`,
+  with every represented file exact.
+- Machine readback receipt:
+  `manifests/published-github/20260731_serre_gaga_first_pass_commit_09791c82_public_readback.json`.
+- The unclean working PDF remained excluded and no Zenodo mutation occurred.
