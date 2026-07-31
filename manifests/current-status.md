@@ -1,3 +1,27 @@
+## 2026-07-31 EGA IV live source custody through printed pages 132 and 251
+
+GitHub source custody now preserves the exact current editable closures from
+both active EGA IV Part 4 lanes. Sections 16-18 are checkpoint-backed through
+printed page 132 (`checkpoint_printed132_r34`; next p133), while Sections
+19-21 are checkpoint-backed through printed page 251 (`build_p185_251_r13`;
+next p252). Later live source bytes are retained without a stronger alignment
+claim.
+
+The public-safe snapshot at
+`sources/ega/ega4-sections16-21-live-source-custody-20260731T0526/`
+contains 19 files / 2,917,563 bytes. Its 17-row exact manifest has SHA-256
+`8DE2589A977841BA505AD688C526D4454BA827F4A1FDE75FB3ECEAF5B00C8386`;
+validation reports `PASS_GITHUB_LIVE_SOURCE_AND_FRESH_BUILD_CUSTODY` with
+zero errors, copy mismatches, source changes during capture, or privacy/process
+hits. Fresh three-pass readers have 132 and 103 pages with SHA-256
+`F75E178F3EC3492C76F1E52DA7378A6E2861CA472F849C3B0A7F40E4F51C033F`
+and `7ED437714B7D2AE367CC348955799F5619501332A62CC91726DD461DB171C281`.
+Neither reader contains an AI/status preface.
+
+This is GitHub source survival only. The direct EGA IV reader remains Sections
+1-10, the high-detail image surface remains printed pages 5-127 and 185-225,
+and Zenodo remains unchanged.
+
 ## 2026-07-30 complete EGA I source-aligned successor published
 
 Current EGA version
