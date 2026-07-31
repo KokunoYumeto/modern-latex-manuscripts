@@ -5268,3 +5268,32 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   scan index 105, source folio 94. This is a bounded current-progress reader,
   not a complete SGA7 I volume or critical edition.
 - No duplicate concept or active Zenodo draft remains.
+
+## 2026-07-31 - SGA7 I English complete Exposé VII successor published
+
+- Published the complete-Exposé-VII package at GitHub commit
+  `0878c9f2227d50f6be6234ce7e56a6ddbe85e9a9`; a commit-pinned readback
+  exposed that the compact ZIP was ignored on the first commit, and follow-up
+  commit `7e225460b48b0099794a25e68e189164050f118d` added it before the Zenodo
+  mutation. Final anonymous GitHub readback matched 101/101 files /
+  2,768,981 bytes and all 98 ZIP members.
+- Published same-concept successor
+  [`10.5281/zenodo.21727380`](https://doi.org/10.5281/zenodo.21727380)
+  under SGA concept DOI `10.5281/zenodo.20410947`; predecessor `21726988`
+  remains immutable history.
+- The direct 134-page reader is
+  `00i_SGA7I_English_Working_I_II_VI_VII_Complete_20260731.pdf`,
+  1,095,582 bytes, SHA-256
+  `2D37D3F19500ECE58FEA2182E33D6695D7A742093D6EFE3F01C91415031D1CCC`.
+  It contains complete Exposes I, II, VI, and VII.
+- The direct master TeX is 7,472 bytes, SHA-256
+  `E94E79B826147FA6BDED82F45A1368275DAC7C3412F465FFA8E1E4D36659F53E`.
+  The compact 98-member reader/source ZIP is 1,170,971 bytes, SHA-256
+  `C3DF74891985C33E39E142013C9831C6B4566D12B36E320637C7E9B2E24C9B77`.
+- Anonymous Zenodo readback matched all 83 outer files / 677,206,472 bytes,
+  all 79 retained predecessor files, all 98 source-ZIP members, and all eight
+  controls-ZIP members. SGA1 remains the selected preview; no duplicate
+  concept or active draft remains.
+- English continues at the Expose VIII opening, authority line 5, scan index
+  229, source folio 218. This is a current-progress working reader, not a
+  complete SGA7 I English volume or critical edition.
