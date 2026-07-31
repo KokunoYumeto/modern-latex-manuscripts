@@ -4956,3 +4956,35 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   389 records / 2,470,921 bytes / SHA-256
   `75614CE8C0993FD2798B8024B7CCB42E00AB9694F42079019F1028AE59B17BBE`,
   `errors=[]`.
+
+## 2026-07-31 - EGA IV Sections 19-21, Part 4 backmatter, and pages 333-336 published
+
+- Published the bounded 134-page working reader, its compact editable-source
+  archive, and the actual 1800-dpi scan-derived PNGs for printed pages 333-336
+  at GitHub commit `bf2cb0663e30099a797ca4d2e82943cf5d874e56`.
+  Anonymous commit-pinned raw readback matched all 29 changed files.
+- Published one successor under existing EGA concept DOI
+  `10.5281/zenodo.20414353`: version
+  [`10.5281/zenodo.21715531`](https://doi.org/10.5281/zenodo.21715531).
+- Direct reader 00f is 861,609 bytes, 134 pages, SHA-256
+  `AC4031BDB6BA5C4AAC9FA569CD28FDDB477026FB744B04DBACC6F9DFB9F1C108`.
+  Source archive 02f is 1,030,828 bytes with 19 exact members, SHA-256
+  `751F59771BA5C20B1603ABB4F798873BB7A535CD8667C2C751BDAE997E9349D5`.
+  Image archive 89e is 13,458,703 bytes with four actual PNGs and eight exact
+  members, SHA-256
+  `CA2BB33A1FBAC6541C157B3C76F45FE217E7DD0FFF57940470A0628C1CF2CE0C`.
+- Anonymous readback matched all 44 outer files / 3,745,045,609 bytes, all 41
+  retained predecessor files, and all 27 members of the two new archives.
+  EGA0 remains the selected preview.
+- The eleven-archive image surface now contains 989 actual source images and
+  covers printed pages 5-336 continuously. These are the pixels themselves,
+  not a metadata-only rights-blocked ledger.
+- Sections 11-15 remain the cumulative EGA IV integration gap. This bounded
+  release is not represented as a cumulative Sections 1-21 reader, critical
+  edition, peer review, accessibility certification, or blanket rights
+  determination.
+- The locked shared-log helper appended decision
+  `EG-ARCHIVE-EGA4-SECTIONS19-21-PART4-PUBLICATION-20260731-0001` and returned
+  390 records / 2,477,088 bytes / SHA-256
+  `512995001EE18ED7915E9EA5799C855DED1C2264C503472E73B80A4C5F2C7E54`,
+  `errors=[]`.

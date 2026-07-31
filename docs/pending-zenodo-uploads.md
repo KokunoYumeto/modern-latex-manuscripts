@@ -11019,3 +11019,14 @@ Publication receipt: [`20260717_noether_v26_r822_record_21406056.json`](../manif
 
 - Noether R823 cumulative inherited English Papers 1-43: 52 files / 5,539,858 bytes at `sources/noether/noether-r823-cumulative-english-43-papers-20260722/`. Route only to existing concept `10.5281/zenodo.20412587` after exact public clone readback. This is inherited working English, not a complete source audit or critical edition.
 - SGA6 cumulative layered English through idx702: 19 files / 3,813,685 bytes at `sources/sga/sga6-english-cumulative-through-idx702-20260722/`. Route only to existing concept `10.5281/zenodo.20410947` after exact public clone readback. Inherit the already published standalone idx693-702 objects unchanged and do not upload a duplicate standalone tranche.
+
+## 2026-07-31: EGA IV Sections 19-21, Part 4 backmatter, and p333-336 images published
+
+The same-concept successor is published and fully read back:
+
+- EGA version: [10.5281/zenodo.21715531](https://doi.org/10.5281/zenodo.21715531)
+- Direct bounded reader `00f`: 134 pages / 861,609 bytes / SHA-256 `AC4031BDB6BA5C4AAC9FA569CD28FDDB477026FB744B04DBACC6F9DFB9F1C108`
+- Editable reader/source ZIP `02f`: 19 members / 1,030,828 bytes / SHA-256 `751F59771BA5C20B1603ABB4F798873BB7A535CD8667C2C751BDAE997E9349D5`
+- Actual scan-derived source-image ZIP `89e`: four 1800-dpi full pages for printed pp333-336 / 13,458,703 bytes / SHA-256 `CA2BB33A1FBAC6541C157B3C76F45FE217E7DD0FFF57940470A0628C1CF2CE0C`
+
+Anonymous readback passed all 44 outer files / 3,745,045,609 bytes and all 27 members of the two new ZIPs; all 41 predecessor files were retained byte-identically. EGA 0 remains the default preview. This promotes a bounded Sections 19-21 plus Part 4 backmatter working reader, not a cumulative Sections 1-21 EGA IV reader; Sections 11-15 remain the cumulative integration gap.
