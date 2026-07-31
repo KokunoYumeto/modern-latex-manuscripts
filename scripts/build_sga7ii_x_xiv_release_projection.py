@@ -44,6 +44,7 @@ EXPECTED_IMAGE_ZIP = (
 )
 
 SOURCE_MEMBERS = (
+    ".gitattributes",
     "README.md",
     "PUBLICATION_READINESS.md",
     "RIGHTS_AND_PROVENANCE.md",
