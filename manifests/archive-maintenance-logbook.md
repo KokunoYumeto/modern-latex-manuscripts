@@ -4913,3 +4913,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - No duplicate concept, second draft, or competing deposition was created.
   Temporary ZIP and render copies were removed after exact public readback;
   producer trees remain unchanged.
+
+## 2026-07-31 - EGA IV printed pages 282-332 source images published
+
+- Published the exact page/identity metadata and deterministic builder at
+  GitHub commit `b7aa17387596ecf5b99b7cf0ac13e95d246106f5`; anonymous raw
+  readback matched all eight changed files.
+- Published one additive successor under existing EGA concept DOI
+  `10.5281/zenodo.20414353`: version
+  [`10.5281/zenodo.21714901`](https://doi.org/10.5281/zenodo.21714901).
+- Archive 89d is 401,148,323 bytes, SHA-256
+  `EA60A76DD4D2B5C50588DCC395EC37E67E5FD387BA82C144D2817BA73B936CFD`,
+  with 51 actual 1800-dpi scan-derived PNGs and 55 exact members for printed
+  pages 282-332.
+- Anonymous readback matched all 41 outer files / 3,729,694,469 bytes, all 40
+  retained predecessor files, and all 55 members of archive 89d. EGA0 remains
+  the default preview.
+- The ten-archive source-image surface now contains 985 actual images and
+  covers printed pages 5-332 continuously. Image custody does not promote a
+  cumulative Sections 1-21 reader or alter the direct Sections 1-10 and bounded
+  Sections 16-18 reader claims.
+- No duplicate concept, second draft, or competing deposition was created.
+  The temporary 401-MB upload ZIP was removed after exact public readback; the
+  producer source-image tree remains unchanged.
