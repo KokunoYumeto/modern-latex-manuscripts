@@ -18,6 +18,6 @@ Rendered review covered the repaired XV and XVI pages and the terminal page of
 XVII. No clipping, overlap, blank output, or Expose-XVIII spill was found.
 
 The separately preserved Expose-XVIII WIP now contains continuous source
-indices 262-308. Its isolated three-pass compile produced 24 nonempty A4 pages
+indices 261-308. Its isolated three-pass compile produced 25 nonempty A4 pages
 with zero fatal errors, one overfull box, and eight underfull diagnostics. It
 is source custody only and is not included in the direct X-XVII reader.
