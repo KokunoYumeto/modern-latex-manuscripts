@@ -4886,3 +4886,30 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and the matching `.md` file.
 - This closes public custody of the release records only; it does not add
   another Zenodo version or expand the direct EGA IV reader scope.
+
+## 2026-07-31 - EGA IV Sections 16-18 and printed pages 156-184 published
+
+- Published the complete bounded EGA IV Sections 16-18 source-aligned working
+  reader and buildable TeX at GitHub commit
+  `0e6fc5ca7ad4f07a725f25aebdc2978e1beea50c`. Anonymous raw readback matched
+  all 22 changed package and metadata files.
+- Published one additive successor under existing EGA concept DOI
+  `10.5281/zenodo.20414353`: version
+  [`10.5281/zenodo.21714514`](https://doi.org/10.5281/zenodo.21714514).
+- Archive 02e is 1,076,881 bytes, SHA-256
+  `1542D004DE4F7A78D69ABE9046A580F2BC1DE67FAEB46AF05829E00E898DDD48`,
+  with 13 exact members and the 136-page reader plus editable TeX closure.
+- Archive 89c is 381,262,723 bytes, SHA-256
+  `7E41AB4239AD4489EE66883D07E25509E71D9126A1261B4E2F7B9F08042CBA48`,
+  with 116 actual scan-derived PNGs and 120 exact members for printed pages
+  156-184.
+- Anonymous readback matched all 40 outer files / 3,328,546,146 bytes, all 38
+  retained predecessor files, and all 133 members of the two new archives.
+  EGA0 remains the default preview.
+- The nine-archive source-image surface now contains 934 actual images and
+  covers printed pages 5-281 continuously. This does not imply cumulative
+  reader coverage: Sections 11-15 remain unintegrated and Sections 19-21 remain
+  active.
+- No duplicate concept, second draft, or competing deposition was created.
+  Temporary ZIP and render copies were removed after exact public readback;
+  producer trees remain unchanged.
