@@ -4542,3 +4542,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260731_sga7i_complete_transcription_record_21711433_public_readback.json`.
   Human receipt:
   `manifests/published-zenodo/20260731_sga7i_complete_transcription_record_21711433.md`.
+
+## 2026-07-31 - EGA IV Sections 16-21 live source survival snapshot
+
+- Captured one compact, privacy-clean GitHub source snapshot from both active
+  EGA IV Part 4 lanes at `2026-07-31T02:08+02:00`, without copying authority
+  files, authority pixels, OCR bodies, build outputs, or private operational
+  logs.
+- The package has 22 files / 1,300,270 bytes. Its 21-row self-excluding
+  manifest has SHA-256
+  `2ECFD77B747DC1E786F73D3997B435B3C0B6CA88E1C083E20BEE8F94DF66AAE0`
+  and replays exactly.
+- The captured `ega4-16.tex` is 177,054 bytes, SHA-256
+  `FC4DFDC9A88A97B1920662496D61A43D6B95413CAF0AC9B2DFD1C83403009883`;
+  the captured `ega4-19.tex` is 169,911 bytes, SHA-256
+  `BA36FA26C55DCE8F969F8C5E7DD9848E1ECC8A988EBC2CD6DF64EE5ECF6DDF8B`.
+- Both producer lanes remained active. Copied source can postdate its formal
+  status cursor, so the snapshot preserves exact bytes without inferring
+  additional aligned-page or review closure.
+- Isolated one-pass XeLaTeX replay produced 120 pages for Sections 16-18 and
+  100 pages for Sections 19-21, with zero hard TeX markers. Transient outputs
+  were deleted after validation.
+- Classification is GitHub source survival only. No EGA reader, Zenodo
+  record, concept, or public-current status was changed.
