@@ -4615,5 +4615,9 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   with every represented file exact.
 - Machine readback receipt:
   `manifests/published-github/20260731_sga7ii_live_transcription_commit_0666176e_public_readback.json`.
+- The receipt's public LF-normalized Git blob is 3,763 bytes / SHA-256
+  `897EDE2AF03261AF2921B7CEF4BAE8660AE53E6E37A3B4A4ED1861AA3B552E6B`;
+  the mathematical package remains byte-preserved under its local
+  `.gitattributes` control.
 - SGA 7 I Zenodo record `21711433` remained unchanged; no Tome II reader or
   Zenodo successor was claimed.
