@@ -4779,3 +4779,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and the matching `.md` file.
 - This closes public custody of the release records only; it does not add
   another Zenodo version or expand the direct EGA IV reader scope.
+
+## 2026-07-31 - EGA IV source images for printed pages 119-127 and 185-225 published
+
+- Published one additive successor under existing EGA concept DOI
+  `10.5281/zenodo.20414353`. The immutable predecessor is `21712610`; the new
+  current version is [`10.5281/zenodo.21712882`](https://doi.org/10.5281/zenodo.21712882).
+- Added archive 88 for printed pages 119-127: 115,118,349 bytes, SHA-256
+  `931F3A7154EBDA5FE77279D66EBB81942C74C9E7CEC2A4E4E28B6D1B116F1332`,
+  with 36 actual PNGs and 40 exact members.
+- Added archive 89 for printed pages 185-225: 235,088,436 bytes, SHA-256
+  `E27FBE24F2C6E85F46D9B8034E5AD96C175B33D5C2AE0EA58026C881D174FF16`,
+  with 142 actual PNGs and 146 exact members. It includes tiled 5000-dpi
+  source crops for printed pages 185-195.
+- Anonymous readback matched all 36 outer files / 2,133,238,113 bytes, all 34
+  retained predecessor files, and all 186 members of the two new archives.
+  EGA0 remains the default preview.
+- The six-archive image surface now contains 649 actual source-derived images
+  for printed pages 5-127 and 185-225. The printed-page 128-184 gap is explicit;
+  these images do not silently expand the direct EGA IV Sections 1-10 reader.
+- GitHub metadata commit `8a2b16ab069225a3f1b0645c231a3a0ed534f5be`
+  and publisher commit `4280e7bd1` are public. No duplicate concept, second
+  draft, or competing deposition was created.
