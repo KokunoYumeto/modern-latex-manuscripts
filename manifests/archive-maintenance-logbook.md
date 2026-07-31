@@ -4656,3 +4656,22 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - Machine readback receipt:
   `manifests/published-github/20260731_serre_gaga_first_pass_commit_09791c82_public_readback.json`.
 - The unclean working PDF remained excluded and no Zenodo mutation occurred.
+
+## 2026-07-31 - EGA IV Sections 16-21 live source and bounded builds
+
+- Advanced the earlier live-source snapshot with exact source closures from
+  the two active EGA IV Part 4 lanes.
+- Sections 16-18 is source-aligned through printed page 70. Its bounded
+  122-page checkpoint PDF has SHA-256
+  `CD9FE68D1DD28F092DAE15AD90DEBDB68396626A34C9316DBAAA6E7D84DD6A68`.
+- Sections 19-21 is source-aligned from printed page 185 through page 210. Its
+  bounded 101-page checkpoint PDF has SHA-256
+  `BBE9DAC3C7DB977E622BB7F6CA17C8744EC5E36091E1A6D17F60CE05423A511A`.
+- The compact package has 19 files / 2,804,750 bytes. Its 17-row manifest has
+  SHA-256
+  `F73EADA4A7EA1EF030E3BB6370A69356338C4A9C2A665404F8594B036C2EDF2C`
+  and replays exactly.
+- Privacy and reader-process-preface scans returned zero hits. Authority,
+  pixels, OCR, raw logs, scripts, and intermediates remain excluded.
+- This is GitHub live-source survival plus bounded build custody, not complete
+  EGA IV or a Zenodo mutation.
