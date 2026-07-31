@@ -29,9 +29,10 @@ The complete buildable source closure is under `source/`: one master and eight
 Expose body files. The source was built with pdfLaTeX using a fixed source-date
 epoch. The final two passes produced the same PDF bytes.
 
-`work-in-progress/expose_XVIII_partial.tex` preserves useful later work but is
-not included in the reader. Its gaps and boundary are stated in the adjacent
-WIP README.
+`work-in-progress/expose_XVIII_partial.tex` preserves 47 continuous later
+source pages, scan indices 262-308, but is not included in the reader. Expose
+XVIII remains incomplete because indices 309-334 are absent. Its exact
+boundary and compile-only disposition are stated in the adjacent WIP README.
 
 ## Recovered pages
 

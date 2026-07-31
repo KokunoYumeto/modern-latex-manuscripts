@@ -11,7 +11,9 @@ This successor repairs four source pages in the cumulative X-XVII reader:
 
 The reader boundary is exact: scan indices 8-260 inclusive. The Expose-XVIII
 title page at scan index 261 is not part of the reader. The partial Expose-XVIII
-source begins at index 262 and is preserved separately as work in progress.
+source is preserved separately as work in progress: 47 continuous markers,
+indices 262-308 inclusive. Indices 309-334 are absent, so Expose XVIII is not
+complete and is not part of the cumulative reader.
 
 No claim is made for Expose XVIII or later, nor for completeness of the full
 SGA 7 II volume.
