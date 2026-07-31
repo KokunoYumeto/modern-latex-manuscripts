@@ -529,11 +529,11 @@ Current reader-first surface is version 21212608. It directly exposes the sequen
 | artifact/source ZIP | 407.1281 | [04_Deligne_TeX_Source_QA_and_Update_Packets_20260706.zip](https://zenodo.org/records/21212608/files/04_Deligne_TeX_Source_QA_and_Update_Packets_20260706.zip) |
 | manifest/status | 0.0007 | [99_Deligne_Public_Status_NotCritical_20260706.md](https://zenodo.org/records/21212608/files/99_Deligne_Public_Status_NotCritical_20260706.md) |
 
-## Elements de geometrie algebrique (EGA): French Originals, English Working Readers, and Source Archives
+## Elements de geometrie algebrique (EGA): English Working Readers and Buildable TeX
 
 Record: <https://doi.org/10.5281/zenodo.20414353>
 
-Current EGA record 21717450 is reader-first. One 125-member ZIP contains the five current cumulative English reader PDFs and their complete buildable TeX closures; the readers and masters are also direct downloads, with EGA 0 as the default preview. Complete working readers cover EGA 0 through Section 13, EGA I through authority EOF, EGA II through authority EOF, and published EGA III through 7.9.14. EGA IV is cumulative through Sections 1-10, with separate bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. Supporting provenance and QA archives follow the reading files. These are working translations, not a complete whole-EGA translation, critical edition, rights clearance, peer review, accessibility certification, or whole-reader source certification.
+Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14. EGA IV is cumulative through Sections 1-10, with bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. These are working translations, not a claim that all of EGA is complete or a critical edition.
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -549,38 +549,10 @@ Current EGA record 21717450 is reader-first. One 125-member ZIP contains the fiv
 | editable TeX | 0.0021 | [01c_EGA2_English_Master_20260730.tex](https://zenodo.org/records/21717450/files/01c_EGA2_English_Master_20260730.tex) |
 | editable TeX | 0.0033 | [01d_EGAIII_English_Master_20260730.tex](https://zenodo.org/records/21717450/files/01d_EGAIII_English_Master_20260730.tex) |
 | editable TeX | 0.0007 | [01e_EGAIV_English_Master_Sections1_10_20260730.tex](https://zenodo.org/records/21717450/files/01e_EGAIV_English_Master_Sections1_10_20260730.tex) |
-| artifact/source ZIP | 2.9342 | [02a_EGA0_EGAIII_English_Reference_v2_TeX_PDF_QA_20260730.zip](https://zenodo.org/records/21717450/files/02a_EGA0_EGAIII_English_Reference_v2_TeX_PDF_QA_20260730.zip) |
-| artifact/source ZIP | 1.3066 | [02b_EGA1_English_Reference_v2_TeX_PDF_QA_20260730.zip](https://zenodo.org/records/21717450/files/02b_EGA1_English_Reference_v2_TeX_PDF_QA_20260730.zip) |
-| artifact/source ZIP | 4.7214 | [02c_EGA2_English_Reference_v2_TeX_PDF_QA_20260730.zip](https://zenodo.org/records/21717450/files/02c_EGA2_English_Reference_v2_TeX_PDF_QA_20260730.zip) |
-| artifact/source ZIP | 0.3488 | [02d_EGAIV_English_Sections1_10_TeX_PDF_QA_20260730.zip](https://zenodo.org/records/21717450/files/02d_EGAIV_English_Sections1_10_TeX_PDF_QA_20260730.zip) |
 | artifact/source ZIP | 1.0270 | [02e_EGAIV_English_Sections16_18_SourceAligned_TeX_PDF_20260731.zip](https://zenodo.org/records/21717450/files/02e_EGAIV_English_Sections16_18_SourceAligned_TeX_PDF_20260731.zip) |
 | artifact/source ZIP | 0.9836 | [02f_EGAIV_English_Sections19_21_Part4_Backmatter_TeX_PDF_20260731.zip](https://zenodo.org/records/21717450/files/02f_EGAIV_English_Sections19_21_Part4_Backmatter_TeX_PDF_20260731.zip) |
-| reader/reference PDF | 30.2131 | [10 EGA I - French Original (NUMDAM PMIHES 4, 1960).pdf](https://zenodo.org/records/21717450/files/10%20EGA%20I%20-%20French%20Original%20%28NUMDAM%20PMIHES%204%2C%201960%29.pdf) |
-| reader/reference PDF | 26.1441 | [11 EGA II - French Original (NUMDAM PMIHES 8, 1961).pdf](https://zenodo.org/records/21717450/files/11%20EGA%20II%20-%20French%20Original%20%28NUMDAM%20PMIHES%208%2C%201961%29.pdf) |
-| reader/reference PDF | 19.0187 | [12 EGA III Part 1 - French Original (NUMDAM PMIHES 11, 1961).pdf](https://zenodo.org/records/21717450/files/12%20EGA%20III%20Part%201%20-%20French%20Original%20%28NUMDAM%20PMIHES%2011%2C%201961%29.pdf) |
-| reader/reference PDF | 10.3535 | [13 EGA III Part 2 - French Original (NUMDAM PMIHES 17, 1963).pdf](https://zenodo.org/records/21717450/files/13%20EGA%20III%20Part%202%20-%20French%20Original%20%28NUMDAM%20PMIHES%2017%2C%201963%29.pdf) |
-| reader/reference PDF | 30.5087 | [14 EGA IV Part 1 - French Original (NUMDAM PMIHES 20, 1964).pdf](https://zenodo.org/records/21717450/files/14%20EGA%20IV%20Part%201%20-%20French%20Original%20%28NUMDAM%20PMIHES%2020%2C%201964%29.pdf) |
-| reader/reference PDF | 30.3450 | [15 EGA IV Part 2 - French Original (NUMDAM PMIHES 24, 1965).pdf](https://zenodo.org/records/21717450/files/15%20EGA%20IV%20Part%202%20-%20French%20Original%20%28NUMDAM%20PMIHES%2024%2C%201965%29.pdf) |
-| reader/reference PDF | 32.8061 | [16 EGA IV Part 3 - French Original (NUMDAM PMIHES 28, 1966).pdf](https://zenodo.org/records/21717450/files/16%20EGA%20IV%20Part%203%20-%20French%20Original%20%28NUMDAM%20PMIHES%2028%2C%201966%29.pdf) |
-| reader/reference PDF | 47.5435 | [17 EGA IV Part 4 - French Original (NUMDAM PMIHES 32, 1967).pdf](https://zenodo.org/records/21717450/files/17%20EGA%20IV%20Part%204%20-%20French%20Original%20%28NUMDAM%20PMIHES%2032%2C%201967%29.pdf) |
-| artifact/source ZIP | 0.1591 | [80 EGA - EGA 0 IV Translation TeX Supplement.zip](https://zenodo.org/records/21717450/files/80%20EGA%20-%20EGA%200%20IV%20Translation%20TeX%20Supplement.zip) |
-| artifact/source ZIP | 227.9118 | [81 EGA - Full TeX Source, French Originals, and Build Artifacts.zip](https://zenodo.org/records/21717450/files/81%20EGA%20-%20Full%20TeX%20Source%2C%20French%20Originals%2C%20and%20Build%20Artifacts.zip) |
-| artifact/source ZIP | 0.6283 | [82 EGA - EGA IV Main Text Translation TeX Supplement.zip](https://zenodo.org/records/21717450/files/82%20EGA%20-%20EGA%20IV%20Main%20Text%20Translation%20TeX%20Supplement.zip) |
-| artifact/source ZIP | 3.8227 | [83 EGA IV - Standalone Sections 1-21 TeX and PDF.zip](https://zenodo.org/records/21717450/files/83%20EGA%20IV%20-%20Standalone%20Sections%201-21%20TeX%20and%20PDF.zip) |
-| artifact/source ZIP | 451.7762 | [84 EGA IV - Source Image Witnesses Printed 005-045 (600-9000dpi) 20260731.zip](https://zenodo.org/records/21717450/files/84%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20005-045%20%28600-9000dpi%29%2020260731.zip) |
-| artifact/source ZIP | 412.6818 | [85 EGA IV - Source Image Witnesses Printed 046-086 (600-1800dpi) 20260731.zip](https://zenodo.org/records/21717450/files/85%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20046-086%20%28600-1800dpi%29%2020260731.zip) |
-| artifact/source ZIP | 199.1019 | [86 EGA IV - Source Image Witnesses Printed 087-105 (600-1800dpi) 20260731.zip](https://zenodo.org/records/21717450/files/86%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20087-105%20%28600-1800dpi%29%2020260731.zip) |
-| artifact/source ZIP | 153.5090 | [87 EGA IV - Source Image Witnesses Printed 106-118 (600-1800dpi) 20260731.zip](https://zenodo.org/records/21717450/files/87%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20106-118%20%28600-1800dpi%29%2020260731.zip) |
-| artifact/source ZIP | 109.7854 | [88 EGA IV - Source Image Witnesses Printed 119-127 (600-1800dpi) 20260731.zip](https://zenodo.org/records/21717450/files/88%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20119-127%20%28600-1800dpi%29%2020260731.zip) |
-| artifact/source ZIP | 224.1978 | [89 EGA IV - Source Image Witnesses Printed 185-225 (600-5000dpi) 20260731.zip](https://zenodo.org/records/21717450/files/89%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20185-225%20%28600-5000dpi%29%2020260731.zip) |
-| artifact/source ZIP | 328.9184 | [89a EGA IV - Source Image Witnesses Printed 128-155 (600-1800dpi) 20260731.zip](https://zenodo.org/records/21717450/files/89a%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20128-155%20%28600-1800dpi%29%2020260731.zip) |
-| artifact/source ZIP | 446.3887 | [89b EGA IV - Source Image Witnesses Printed 226-281 (1800dpi) 20260731.zip](https://zenodo.org/records/21717450/files/89b%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20226-281%20%281800dpi%29%2020260731.zip) |
-| artifact/source ZIP | 363.6005 | [89c EGA IV - Source Image Witnesses Printed 156-184 (600-1800dpi) 20260731.zip](https://zenodo.org/records/21717450/files/89c%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20156-184%20%28600-1800dpi%29%2020260731.zip) |
-| artifact/source ZIP | 382.5649 | [89d EGA IV - Source Image Witnesses Printed 282-332 (1800dpi) 20260731.zip](https://zenodo.org/records/21717450/files/89d%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20282-332%20%281800dpi%29%2020260731.zip) |
-| artifact/source ZIP | 12.8352 | [89e EGA IV - Source Image Witnesses Printed 333-336 (1800dpi) 20260731.zip](https://zenodo.org/records/21717450/files/89e%20EGA%20IV%20-%20Source%20Image%20Witnesses%20Printed%20333-336%20%281800dpi%29%2020260731.zip) |
-| manifest/status | 0.0010 | [90 EGA - README and Status.md](https://zenodo.org/records/21717450/files/90%20EGA%20-%20README%20and%20Status.md) |
-| manifest/status | 0.0488 | [91 EGA - Public Summary.json](https://zenodo.org/records/21717450/files/91%20EGA%20-%20Public%20Summary.json) |
-| manifest/status | 0.0020 | [92 EGA - Current File SHA256SUMS.csv](https://zenodo.org/records/21717450/files/92%20EGA%20-%20Current%20File%20SHA256SUMS.csv) |
+
+The remaining 30 preserved support files stay available in the [full Zenodo file list](https://zenodo.org/records/21717450#files); they are intentionally omitted from this reader-facing catalog.
 
 ## Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources
 
