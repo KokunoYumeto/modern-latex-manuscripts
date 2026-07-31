@@ -3,6 +3,10 @@
 
 from __future__ import annotations
 
+import argparse
+import json
+from pathlib import Path
+
 import build_ega4_sections16_18_source_image_witness_p087_105_zip_20260731 as base
 
 
@@ -20,5 +24,20 @@ base.PART = {
 }
 
 
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--source-root", type=Path, required=True)
+    parser.add_argument("--zip-output", type=Path, required=True)
+    parser.add_argument("--metadata-output", type=Path, required=True)
+    args = parser.parse_args()
+    args.zip_output.mkdir(parents=True, exist_ok=True)
+    args.metadata_output.mkdir(parents=True, exist_ok=True)
+    (args.metadata_output / ".gitattributes").write_bytes(b"* -text\n")
+    rows = base.build_rows(args.source_root)
+    archive = base.build_zip(args.zip_output, rows)
+    base.write_metadata(args.metadata_output, rows, archive)
+    print(json.dumps({"status": "PASS", "images": len(rows), "zip": archive}, indent=2))
+
+
 if __name__ == "__main__":
-    base.main()
+    main()
