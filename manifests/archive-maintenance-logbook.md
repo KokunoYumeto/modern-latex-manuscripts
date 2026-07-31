@@ -5247,3 +5247,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   records / 2,529,139 bytes / SHA-256
   `C28A1D2AAE167782BAD53A72092AFB51DC9D1A31CFA03D54EA6166CB66F3CAC5`,
   `errors=[]`.
+
+## 2026-07-31 - SGA7 I English Section 3 reader published
+
+- Published the compact SGA7 I English package at GitHub commit
+  `2b2bc85edcadaefcc1995f53926530e8cccf54d2`; the package contains the
+  direct reader, editable master, 37 component TeX files, and exact controls.
+- Published same-concept successor
+  [`10.5281/zenodo.21724413`](https://doi.org/10.5281/zenodo.21724413)
+  under SGA concept DOI `10.5281/zenodo.20410947`.
+- The 66-page working reader covers complete Exposes I-II and Expose VI
+  through Remark 3.16, completing Section 3. Its SHA-256 is
+  `41878EB1AACFBD62E21FE00031980EA3F738EB18AD516DCF2B081CDCB41DF2A7`.
+- The source/reader ZIP has 42 exact members and SHA-256
+  `06CB436365339A6DB572E456B9D47664DA730808B8F992807B056D1530CE0069`.
+- Anonymous readback matched all 83 outer files / 676,262,671 bytes and all
+  42 ZIP members. Seventy-nine unrelated predecessor files remained
+  byte-identical; SGA1 remains the browser preview.
+- The exact continuation is Expose VI Section 4, working-source line 2451,
+  scan index 105, source folio 94. This is a bounded current-progress reader,
+  not a complete SGA7 I volume or critical edition.
+- No duplicate concept or active Zenodo draft remains.
