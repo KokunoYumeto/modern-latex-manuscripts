@@ -4732,3 +4732,16 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - No duplicate concept, parallel draft, or residual unpublished draft was
   created. The 208,773,461-byte temporary upload ZIP was deleted after exact
   readback; the producer image tree was untouched.
+
+## 2026-07-31 - EGA IV page 87-105 release records read back from GitHub
+
+- Published the catalog, current-head pointers, human receipt, machine Zenodo
+  receipts, and append-only log entry at GitHub commit
+  `7ecccf0f529ee40e919444e3d9466107a943ca08`.
+- Anonymous commit-pinned raw retrieval returned HTTP 200 and exact byte,
+  SHA-256, and Git-blob identity for all 27 changed files / 2,632,591 bytes.
+- Machine and human receipts:
+  `manifests/published-github/20260731_ega4_source_image_witness_p087_105_closeout_commit_7ecccf0f_public_readback.json`
+  and the matching `.md` file.
+- This closes public custody of the release records only; it does not add
+  another Zenodo version or expand the direct EGA IV reader scope.
