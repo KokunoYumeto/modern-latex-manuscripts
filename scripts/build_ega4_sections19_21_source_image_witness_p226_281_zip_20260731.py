@@ -148,6 +148,7 @@ def write_metadata(
     metadata_root: Path, rows: list[dict[str, object]], archive: dict[str, object]
 ) -> None:
     metadata_root.mkdir(parents=True, exist_ok=True)
+    (metadata_root / ".gitattributes").write_bytes(b"* -text\n")
     public_rows = [prior.base.public_row(row) for row in rows]
     (metadata_root / "VISUAL_EVIDENCE_INDEX.csv").write_bytes(
         prior.base.csv_bytes(public_rows, prior.base.INDEX_FIELDS)

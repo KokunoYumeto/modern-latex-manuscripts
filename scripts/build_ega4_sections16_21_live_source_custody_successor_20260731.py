@@ -36,6 +36,7 @@ base.LANES = (
 
 
 def rewrite_controls(destination: Path) -> None:
+    (destination / ".gitattributes").write_bytes(b"* -text\n")
     readme = """# EGA IV Sections 16-21 live source custody successor
 
 Captured after exact pre/copy/post identity checks. This directory preserves
