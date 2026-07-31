@@ -5341,3 +5341,34 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `777EE61397F3884BA0782B2B5617F44F9DDA3E1166C70CD24C0ADABE32B1B39E`.
   All 44 files / 3,745,046,266 bytes remained unchanged; EGA 0 remains the
   default preview.
+
+## 2026-07-31 - Weber Volume I complete German working reader published
+
+- Published the 26-file GitHub package at custody commit
+  `162305bc3d1b490fa5706e3971ed8c5799c332ca`; commit-pinned raw readback
+  matched all 26 files / 11,500,208 bytes with aggregate SHA-256
+  `4BCD236D3783BE76BB1FE75347B336AEB7A9B4736C5670C757DC155463E455F5`.
+- Published same-concept Weber successor
+  [`10.5281/zenodo.21728241`](https://doi.org/10.5281/zenodo.21728241)
+  under concept DOI `10.5281/zenodo.20412153`; predecessor `21513712`
+  remains immutable history and no duplicate concept or active draft remains.
+- The default preview is the complete 420-page German Volume I working reader,
+  2,275,193 bytes, SHA-256
+  `11000F9FA3F65C7C40ADB859A6A89689805012B3DF5D5DC4547E483778E1791A`.
+  It covers Section 188 and the printed errata.
+- Direct cleaned TeX is 1,319,161 bytes, SHA-256
+  `003F967DD7316716D3B234D6DB4294C9765FD717093F968E4C0A0BD29129856A`.
+  The compact 26-member reader/source/QA ZIP is 10,291,232 bytes, SHA-256
+  `F625E45B77B1C6CF6E94262338A56EA326F95FC74F379B363BAE2EAD53EB03BF`.
+- Anonymous Zenodo readback matched all 55 outer files / 1,842,627,047 bytes
+  and all 26 ZIP members / 11,500,208 uncompressed bytes. Fifty-two
+  predecessor files were retained byte-identically and four stale current
+  Volume-I/status objects were removed.
+- Volume I is complete as a working reader, not as a full 648-page
+  symbol-by-symbol recertification or critical edition. Its stricter cold
+  page-by-page pass reaches printed p124 with p125 next. Volume II reaches
+  Section 176; Volume III remains incomplete; the older English Volume I
+  reader is unsynchronized.
+- The published description is concise and reader-first. The exact public
+  receipt is
+  `manifests/published-zenodo/20260731_weber_volume1_complete_working_record_21728241_public_readback.json`.
