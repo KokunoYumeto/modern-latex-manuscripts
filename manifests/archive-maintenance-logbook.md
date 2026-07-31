@@ -4621,3 +4621,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `.gitattributes` control.
 - SGA 7 I Zenodo record `21711433` remained unchanged; no Tome II reader or
   Zenodo successor was claimed.
+
+## 2026-07-31 - Serre GAGA first-pass transcription custody
+
+- Located a complete first-pass TeX transcription of Serre's 1956 GAGA paper,
+  covering printed pages 1-42, with a compilable wrapper and detailed source
+  observations.
+- Preserved a compact GitHub source snapshot with 8 files / 159,866 bytes.
+  Its 6-row manifest has SHA-256
+  `4538C47BA81F891AD58F2D8034E3E75856A2A3FFB99842E382337309B3961168`
+  and replays exactly.
+- The mathematical body is 125,800 bytes, SHA-256
+  `AD4AE8CAC24D353D4018E331ED6BF64721CB40C0BD3ACA146230BBE190D34DCF`.
+  The source-observation ledger records 21 source defects and 82 uncertain
+  readings.
+- Held the current 24-page working PDF out of the package because 32 literal
+  join-marker tokens forming 16 page joins are visibly typeset. Returned an
+  exact no-overwrite correction request through the established shared
+  filesystem channel.
+- The NUMDAM authority scan, pixels, OCR, caches, scripts, raw build files,
+  and workflow status are excluded. This is GitHub source survival only; no
+  reader or Zenodo surface changed.
