@@ -4873,3 +4873,16 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and returned 385 records / 2,444,051 bytes / SHA-256
   `F760D98BC96D6349A771D49A0A0D7D7FD59BED954911407D321B09D664F739E8`,
   `errors=[]`.
+
+## 2026-07-31 - EGA IV page 128-155 and 226-281 release records read back from GitHub
+
+- Published the catalog, current-head pointers, human receipt, machine Zenodo
+  receipts, and append-only log entry at GitHub commit
+  `b6228eee74c1c43f3c439fc44363d8f79b3feda3`.
+- Anonymous commit-pinned raw retrieval returned HTTP 200 and exact byte,
+  SHA-256, and Git-blob identity for all 25 changed files / 1,881,460 bytes.
+- Machine and human receipts:
+  `manifests/published-github/20260731_ega4_source_image_witness_p128_155_p226_281_closeout_commit_b6228eee_public_readback.json`
+  and the matching `.md` file.
+- This closes public custody of the release records only; it does not add
+  another Zenodo version or expand the direct EGA IV reader scope.
