@@ -1,3 +1,44 @@
+## 2026-07-31 Serre FAC partial reader and GAGA source custody published
+
+Dedicated Serre version
+[`10.5281/zenodo.21720997`](https://doi.org/10.5281/zenodo.21720997),
+under concept DOI `10.5281/zenodo.21720996`, now fronts the 54-page FAC
+French partial working reader and exposes its master and body TeX directly.
+The FAC archive contains 14 exact members, including four actual
+scan-derived source crops with parent hash, PDF page, printed folio,
+rasterization scale, pixel bbox, dimensions, crop hash, and linked scope.
+
+FAC represents 70/82 printed source pages. The twelve missing printed pages
+are 217, 218, 221, 222, 267-270, and 273-276; the source apparatus records
+61 defects and 242 uncertain readings. The separate eight-member GAGA archive
+preserves complete first-pass TeX for printed pp.1-42. Its existing PDF is not
+fronted because 32 visible join-marker tokens remain across 16 page joins.
+
+GitHub package commit `2b48a772294f5220cfb6957291f3dede982372b3`
+passed anonymous 18/18 readback. Zenodo passed 5/5 outer-file and 22/22
+packaged-member readback; FAC is the selected preview and no duplicate concept
+or active draft remains. The locked shared-log helper appended
+`EG-ARCHIVE-SERRE-FAC-GAGA-PUBLICATION-20260731-0001`; the controlling log
+now has 398 records / 2,523,388 bytes / SHA-256
+`6D1DB6B690A299E8E6BC992306653276C6F806D5B8F63777E793AF42860A5786`,
+`errors=[]`.
+
+## 2026-07-31 EGA I R2 live-byte handoff is an exact no-op
+
+The reader-clean R2 handoff was compared against current EGA version
+[`10.5281/zenodo.21717450`](https://doi.org/10.5281/zenodo.21717450) and
+GitHub publication commit `f68b8c571f65b05ae33bb9c5fc986727da2abb59`.
+The direct 113-page reader and direct master match exactly. Anonymous source
+ZIP replay matched all 46 candidate files / 4,048,250 bytes, and the leading
+current-reader bundle matched the EGA I reader plus all 16 editable source
+files, 17/17 members / 1,942,787 bytes.
+
+No GitHub mutation, Zenodo successor, draft, or duplicate concept was created.
+The exact no-op receipt is
+`manifests/published-zenodo/20260731_ega1_r2_live_byte_noop_record_21717450_readback.json`.
+The locked helper appended decision
+`EG-ARCHIVE-EGA1-R2-LIVE-BYTE-NOOP-20260731-0001` before the Serre decision.
+
 ## 2026-07-31 EGA IV live source custody through printed pages 132 and 251
 
 GitHub source custody now preserves the exact current editable closures from

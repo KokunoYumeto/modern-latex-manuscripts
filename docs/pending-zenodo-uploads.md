@@ -1,3 +1,36 @@
+## 2026-07-31: Serre FAC/GAGA working-custody queue closed
+
+- Dedicated concept:
+  [10.5281/zenodo.21720996](https://doi.org/10.5281/zenodo.21720996)
+- Published version:
+  [10.5281/zenodo.21720997](https://doi.org/10.5281/zenodo.21720997)
+- GitHub package:
+  [Serre FAC partial working transcription](../sources/serre/serre-fac-partial-working-transcription-20260731/)
+
+This queue item is closed. The record fronts the 54-page FAC French partial
+working reader, exposes its master/body TeX directly, and groups a 14-member
+FAC source/evidence closure plus an eight-member GAGA first-pass TeX closure.
+Four actual FAC source-scan crops are included with exact page, raster, bbox,
+dimension, and hash provenance. FAC covers 70/82 printed pages with twelve
+exact gaps; the GAGA PDF remains excluded for visible join sentinels.
+
+Anonymous readback passed all five outer files and all 22 packaged members.
+FAC is the default preview; no duplicate concept or active draft remains.
+
+## 2026-07-31: EGA I R2 duplicate-guard queue closed as a no-op
+
+- Existing concept:
+  [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
+- Unchanged current version:
+  [10.5281/zenodo.21717450](https://doi.org/10.5281/zenodo.21717450)
+- Existing GitHub publication commit:
+  `f68b8c571f65b05ae33bb9c5fc986727da2abb59`
+
+The exact reader-clean R2 handoff was already public. Fresh anonymous readback
+matched the direct reader and master, all 46 members of the EGA I source ZIP,
+and all 17 EGA I reader/source members inside the leading current-reader ZIP.
+No GitHub change, Zenodo successor, or draft was created.
+
 ## 2026-07-31: complete SGA7 I source-transcription successor published and read back
 
 - Existing concept:

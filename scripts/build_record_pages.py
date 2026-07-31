@@ -75,6 +75,7 @@ RECORD_TIERS = [
     (
         "Partial or non-continuous author workstreams",
         [
+            "serre",
             "dedekind",
             "dirichlet",
             "gauss",
@@ -128,6 +129,7 @@ DISPLAY_NAMES = {
     "frobenius": "Ferdinand Georg Frobenius",
     "poincare": "Henri Poincare",
     "kneser": "Adolf Kneser",
+    "serre": "Jean-Pierre Serre",
     "additional_author_cluster": "Additional Author Cluster",
 }
 
@@ -161,6 +163,9 @@ RECORD_NOTES = {
     ],
     "kneser": [
         "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
+    ],
+    "serre": [
+        "Dedicated Serre working-transcription record. FAC is directly readable as a 54-page French working reader covering 70 of 82 printed source pages; all twelve gaps remain explicit. Direct master/body TeX accompany a compact 14-member FAC source/evidence ZIP containing four actual scan-derived crops with exact page, rasterization, bounding-box, dimension, and hash provenance. A separate eight-member ZIP preserves complete first-pass GAGA TeX for printed pages 1-42; its earlier PDF remains held because visible page-join sentinels are unresolved. License metadata is License Not Specified. This is partial/first-pass scholarly custody, not complete Serre works, a critical edition, mathematical certification, accessibility certification, or blanket rights clearance.",
     ],
     "lean_formalization_sidecars": [
         "Small Lean 4 / Mathlib-style sidecar package for useful formal mathematics connected to Noether, Steinitz, Weber, and Jordan. This is library-candidate/formalization material with build logs and toolchain metadata. It is not proof that any scanned edition or translation is source-faithful, not source-fidelity evidence, not translation certification, and not critical-edition material.",

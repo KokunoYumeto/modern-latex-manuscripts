@@ -5150,3 +5150,67 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   returned 396 records / 2,513,561 bytes / SHA-256
   `6EE600F92BAF85FDA512D7B3BCA29AAAE171299B1CB8C6D3A3DE966561966D4E`,
   `errors=[]`.
+
+## 2026-07-31 - EGA I R2 live-byte duplicate guard closed as no-op
+
+- Replayed the exact 46-file / 4,048,250-byte reader-clean R2 handoff against
+  current EGA version
+  [`10.5281/zenodo.21717450`](https://doi.org/10.5281/zenodo.21717450).
+- Anonymous direct downloads matched the 113-page reader SHA-256
+  `0DC301F1998AA4E6A97ABD92197BB94A3F7FBEE1847261CC7BB69E0F8E6D8C58`
+  and master TeX SHA-256
+  `EEEEB19FF8D94B62ABFCB39A4B2A43E9F7EB701362027804654D8CCF818F0097`.
+- Opened and replayed the public EGA I source ZIP: all 46 members / 4,048,250
+  uncompressed bytes match the handoff exactly, with zero missing, extra, or
+  mismatched files.
+- Opened the leading current-reader ZIP: the EGA I reader plus all 16 editable
+  source files match 17/17, totaling 1,942,787 bytes.
+- Fresh public GitHub readback at current main retained the same reader,
+  master, source ZIP, bundle, and payload-manifest identities from publication
+  commit `f68b8c571f65b05ae33bb9c5fc986727da2abb59`.
+- No GitHub mutation, Zenodo successor, draft, or duplicate concept was
+  created. Receipt:
+  `manifests/published-zenodo/20260731_ega1_r2_live_byte_noop_record_21717450_readback.json`.
+- The locked helper appended decision
+  `EG-ARCHIVE-EGA1-R2-LIVE-BYTE-NOOP-20260731-0001` and returned 397 records /
+  2,517,785 bytes / SHA-256
+  `37B528099F8C813A3C8BE6E3E423400985A9487066E7E2B52D4E964CC891D5F9`,
+  `errors=[]`.
+
+## 2026-07-31 - Serre FAC/GAGA public working-custody line created
+
+- Published the 18-file GitHub package at commit
+  `2b48a772294f5220cfb6957291f3dede982372b3`; anonymous commit-pinned
+  readback matched all 18 files / 2,834,003 bytes.
+- Created the dedicated Serre concept DOI `10.5281/zenodo.21720996` after an
+  authenticated account-wide draft/deposition scan and public search found no
+  existing project Serre/FAC/GAGA record. Published version
+  [`10.5281/zenodo.21720997`](https://doi.org/10.5281/zenodo.21720997).
+- Fronted the 54-page FAC French partial working reader, 583,271 bytes,
+  SHA-256
+  `21D3923FAE6CAF108CA9EDF3429F8868C42D2F0DC71067444C2395643146B41B`,
+  and exposed master/body TeX directly.
+- FAC represents 70/82 printed source pages. The twelve exact gaps are printed
+  pp.217, 218, 221, 222, 267-270, and 273-276. The source apparatus records
+  61 source defects and 242 uncertain readings.
+- FAC archive
+  `02_Serre_FAC_French_Partial_Source_and_Visual_Evidence_20260731.zip` has
+  14 exact members and includes four actual source-scan crop PNGs used during
+  checking, each bound to parent hash, page/folio, raster scale, pixel bbox,
+  dimensions, crop hash, and linked source scope.
+- GAGA archive
+  `03_Serre_GAGA_French_FirstPass_TeX_Custody_20260731.zip` has eight exact
+  members and preserves complete first-pass TeX for printed pp.1-42. The
+  existing GAGA PDF remains excluded because it visibly typesets 32 join
+  sentinels over 16 page joins.
+- Anonymous Zenodo readback matched all five outer files / 2,108,648 bytes,
+  FAC ZIP 14/14, and GAGA ZIP 8/8. FAC is the default preview; no duplicate
+  concept or active draft remains.
+- Actual crop pixels were published rather than replaced by a metadata-only
+  withholding ledger. No complete-Serre, critical-edition, mathematical,
+  accessibility, or blanket-rights claim is made.
+- The locked helper appended decision
+  `EG-ARCHIVE-SERRE-FAC-GAGA-PUBLICATION-20260731-0001` and returned 398
+  records / 2,523,388 bytes / SHA-256
+  `6D1DB6B690A299E8E6BC992306653276C6F806D5B8F63777E793AF42860A5786`,
+  `errors=[]`.
