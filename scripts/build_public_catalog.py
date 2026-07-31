@@ -59,7 +59,7 @@ RECORDS: list[tuple[str, str]] = [
     ("frobenius", "20821858"),
     ("poincare", "20673462"),
     ("kneser", "20836972"),
-    ("serre", "21720997"),
+    ("serre", "21721854"),
     ("additional_author_cluster", "20672984"),
 ]
 
@@ -105,7 +105,7 @@ RECORD_NOTES = {
         "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
     ],
     "serre": [
-        "Dedicated Serre working-transcription record. FAC is directly readable as a 54-page French working reader covering 70 of 82 printed source pages; the twelve exact gaps remain disclosed. The direct master and body TeX accompany one compact 14-member FAC source/evidence ZIP containing four actual scan-derived crops with exact page, rasterization, bounding-box, dimension, and hash provenance. A separate eight-member ZIP preserves the complete first-pass GAGA TeX source; its earlier PDF remains held because visible join sentinels are still present. License metadata is License Not Specified. This is partial/first-pass scholarly custody, not complete Serre works, a critical edition, mathematical certification, accessibility certification, or blanket rights clearance.",
+        "Dedicated Serre working-transcription record. FAC is directly readable as a complete 63-page French working transcription covering all 82 source pages / printed pp.197-278. The direct master and body TeX accompany one compact 27-member FAC source/evidence ZIP containing the complete editable closure, exact ledgers, and four actual scan-derived crops with page, rasterization, bounding-box, dimension, and hash provenance. A separate eight-member ZIP preserves the complete first-pass GAGA TeX source for printed pp.1-42; its earlier PDF remains held because visible join sentinels are still present. License metadata is License Not Specified. This is working-transcription custody, not a complete Serre corpus, critical edition, mathematical certification, accessibility certification, or blanket rights clearance.",
     ],
     "lean_formalization_sidecars": [
         "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
@@ -146,7 +146,7 @@ TITLE_OVERRIDES = {
     "frobenius": "Ferdinand Georg Frobenius: Group Character Papers, German Source and English Translation Working Drafts",
     "poincare": "Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts",
     "kneser": "Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts",
-    "serre": "Jean-Pierre Serre: FAC Partial French Working Transcription and GAGA TeX Source Custody",
+    "serre": "Jean-Pierre Serre: FAC Complete French Working Transcription and GAGA TeX Source Custody",
     "lean_formalization_sidecars": "Classical Mathematics Lean 4 Formalization Sidecars",
     "interlanguage_reflections": "Interlanguage and Mathematical Translation Methodology Sidecar",
     "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers: Project Atlas, Exact Results, Formalization, and Visualizations",

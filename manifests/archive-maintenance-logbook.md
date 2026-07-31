@@ -5214,3 +5214,36 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   records / 2,523,388 bytes / SHA-256
   `6D1DB6B690A299E8E6BC992306653276C6F806D5B8F63777E793AF42860A5786`,
   `errors=[]`.
+
+## 2026-07-31 - Complete FAC successor published in the existing Serre concept
+
+- Published the 32-file complete FAC GitHub package at commit
+  `279633789e1daaac1e99752d6b11cfa5462312a1`; anonymous commit-pinned
+  readback matched all 32 files / 3,112,049 bytes.
+- Published same-concept successor
+  [`10.5281/zenodo.21721854`](https://doi.org/10.5281/zenodo.21721854)
+  under concept DOI `10.5281/zenodo.21720996`. Predecessor `21720997`
+  remains immutable history; no duplicate concept or residual draft exists.
+- Fronted the complete 63-page FAC French working transcription, 634,043
+  bytes, SHA-256
+  `794B982AB18FBAF734D836519C8DA34C407B77B4EEAB4ABC7A8BA495CD79B6F5`,
+  with cleaned direct master and body TeX.
+- FAC now covers source indices 1-82 / printed pp.197-278 exactly once. The
+  twelve formerly absent page units are included; 61 source-defect observations
+  and 242 uncertain readings remain visible for future scholarly review.
+- Replaced the partial FAC archive with
+  `02_Serre_FAC_French_Complete_Source_and_Visual_Evidence_20260731.zip`,
+  1,300,549 bytes, SHA-256
+  `DC3FAF4D0CCA300FC8A7B98007DBCEE51D61932B8564C322E6A681FF0712FBC9`,
+  containing 27 exact members and four actual scan-derived crop PNGs with
+  complete provenance.
+- Retained the eight-member GAGA first-pass TeX ZIP byte-identically at SHA-256
+  `B0D94F4B0DB91CEB3093BB4CAFF47F6F265D468709A703ACBD6EBE65B98B8B6E`.
+  Its unclean PDF remains excluded because visible join sentinels persist.
+- Fresh anonymous Zenodo readback matched all five outer files / 2,320,298
+  bytes, FAC ZIP 27/27, and GAGA ZIP 8/8. FAC is the selected preview.
+- The locked helper appended decision
+  `EG-ARCHIVE-SERRE-FAC-COMPLETE-PUBLICATION-20260731-0001` and returned 399
+  records / 2,529,139 bytes / SHA-256
+  `C28A1D2AAE167782BAD53A72092AFB51DC9D1A31CFA03D54EA6166CB66F3CAC5`,
+  `errors=[]`.
