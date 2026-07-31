@@ -5018,3 +5018,36 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   392 records / 2,488,956 bytes / SHA-256
   `0DDAA911F33F5F79551DB157C04BDB5065E368DEAE6B05E8AB3A61434E205E65`,
   `errors=[]`.
+
+## 2026-07-31 - SGA7 lead-opened source-crop pixels published
+
+- Preserved 29 actual source-scan-derived PNGs at GitHub package commit
+  `e727f3bf79201a5da7640da0b8c7e14b2a16c3f3`. Anonymous commit-pinned
+  readback matched all 37 package files / 6,489,877 bytes exactly.
+- The images comprise 23 SGA7 I and six SGA7 II source crops opened by the
+  lead during transcription checks. Their index records parent-scan hash,
+  page and folio, recovered crop box and DPI, dimensions, linked TeX unit,
+  read events, and exact SHA-256.
+- Compared 5,202 already-public image hashes. Four exact duplicate pixels
+  were excluded; two reconstructed-reader renders were excluded; four Serre
+  FAC source crops were routed to their own work rather than mixed into SGA.
+- Published one successor under existing SGA concept DOI
+  `10.5281/zenodo.20410947`: version
+  [`10.5281/zenodo.21718438`](https://doi.org/10.5281/zenodo.21718438).
+- New archive
+  `10h3_SGA7I_SGA7II_LeadOpened_Source_Crops_20260731.zip` is 6,197,740
+  bytes, SHA-256
+  `857AC1E01EAFF0EDA9C03C4887DE683FA8CA71DD715637AAD1061A1BEBD96058`,
+  with 37 exact members including all 29 PNGs.
+- Anonymous readback matched all 79 outer files / 646,432,413 bytes, every
+  member of the new archive, and all 77 retained predecessor files. SGA1
+  remains the default preview; no duplicate concept or active draft remains.
+- The actual source pixels are public rather than silently replaced with a
+  rights-blocked metadata ledger. The parent PDFs are not duplicated, and no
+  blanket ownership, critical-edition, mathematical-certification, or
+  complete-transcription claim is made.
+- The locked shared-log helper appended decision
+  `EG-ARCHIVE-SGA7-LEAD-OPENED-SOURCE-CROPS-PUBLICATION-20260731-0001` and
+  returned 393 records / 2,494,582 bytes / SHA-256
+  `F8742D92CC36D2585831E91A1893388957234D01656A8277BDC3F486FA08B903`,
+  `errors=[]`.
