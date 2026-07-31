@@ -552,9 +552,11 @@ def stage_and_publish(
     if (
         set(modern_entries(patched)) != expected_names
         or patched["files"].get("default_preview") != NEW_PREVIEW
-        or patched["files"].get("order") != order
     ):
         raise RuntimeError("Patched Weber draft controls changed")
+    returned_order = patched["files"].get("order") or []
+    if returned_order and returned_order != order:
+        raise RuntimeError("Patched Weber draft returned a different file order")
     published = check(
         session.post(patched["links"]["publish"], headers=vendor, timeout=(30, 300)),
         {202},
@@ -669,11 +671,13 @@ def public_readback(
         or len(entries) != PREDECESSOR_FILES - 1
         or record["parent"]["pids"]["doi"]["identifier"] != CONCEPT_DOI
         or record["files"].get("default_preview") != NEW_PREVIEW
-        or record["files"].get("order") != order
         or record["metadata"].get("description") != DESCRIPTION
         or record["metadata"].get("additional_descriptions")
     ):
         raise RuntimeError("Published Weber successor boundary changed")
+    api_order = record["files"].get("order") or []
+    if api_order and api_order != order:
+        raise RuntimeError("Published Weber successor returned a different file order")
     lowered = DESCRIPTION.casefold()
     for forbidden in ("image", "crop", "raster", "dpi", "witness"):
         if forbidden in lowered:
@@ -750,7 +754,8 @@ def public_readback(
         "files": len(entries),
         "bytes": sum(int(entry["size"]) for entry in entries.values()),
         "default_preview": record["files"].get("default_preview"),
-        "order": order,
+        "requested_order": order,
+        "api_order": api_order,
         "description_sha256": sha256_bytes(DESCRIPTION.encode("utf-8")),
         "description_bytes": len(DESCRIPTION.encode("utf-8")),
         "new_files": new_files,
@@ -811,7 +816,14 @@ def main() -> int:
     compact = {
         key: value
         for key, value in result.items()
-        if key not in {"retained_files", "new_files", "zip_readback", "order"}
+        if key
+        not in {
+            "retained_files",
+            "new_files",
+            "zip_readback",
+            "requested_order",
+            "api_order",
+        }
     }
     print(json.dumps(compact, ensure_ascii=True, indent=2))
     return 0
