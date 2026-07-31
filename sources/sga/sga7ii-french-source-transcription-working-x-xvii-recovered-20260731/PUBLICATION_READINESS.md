@@ -12,7 +12,9 @@ The direct public surface should contain:
 
 The source scan, raw build log, auxiliaries, private session journals,
 generator scripts, and scratch paths are excluded. The reader is working and
-incomplete: Expose XVIII and later are outside its boundary.
+incomplete: Expose XVIII and later are outside its boundary. The source/WIP
+ZIP separately preserves continuous Expose-XVIII source work for indices
+262-308 and labels the remaining 309-334 range as absent.
 
 Publication must update the existing SGA concept DOI
 `10.5281/zenodo.20410947`, preserve prior versions as history, and create no
