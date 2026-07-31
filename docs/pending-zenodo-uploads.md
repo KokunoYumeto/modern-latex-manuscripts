@@ -1,20 +1,20 @@
-## 2026-07-31: Serre FAC/GAGA working-custody queue closed
+## 2026-07-31: complete Serre FAC/GAGA working-custody queue closed
 
 - Dedicated concept:
   [10.5281/zenodo.21720996](https://doi.org/10.5281/zenodo.21720996)
 - Published version:
-  [10.5281/zenodo.21720997](https://doi.org/10.5281/zenodo.21720997)
+  [10.5281/zenodo.21721854](https://doi.org/10.5281/zenodo.21721854)
 - GitHub package:
-  [Serre FAC partial working transcription](../sources/serre/serre-fac-partial-working-transcription-20260731/)
+  [Serre FAC complete working transcription](../sources/serre/serre-fac-complete-working-transcription-20260731/)
 
-This queue item is closed. The record fronts the 54-page FAC French partial
-working reader, exposes its master/body TeX directly, and groups a 14-member
+This queue item is closed. The record fronts the complete 63-page FAC French
+working transcription, exposes its master/body TeX directly, and groups a 27-member
 FAC source/evidence closure plus an eight-member GAGA first-pass TeX closure.
 Four actual FAC source-scan crops are included with exact page, raster, bbox,
-dimension, and hash provenance. FAC covers 70/82 printed pages with twelve
-exact gaps; the GAGA PDF remains excluded for visible join sentinels.
+dimension, and hash provenance. FAC covers 82/82 source pages / printed
+pp.197-278; the GAGA PDF remains excluded for visible join sentinels.
 
-Anonymous readback passed all five outer files and all 22 packaged members.
+Anonymous readback passed all five outer files and all 35 packaged members.
 FAC is the default preview; no duplicate concept or active draft remains.
 
 ## 2026-07-31: EGA I R2 duplicate-guard queue closed as a no-op

@@ -1,26 +1,28 @@
-## 2026-07-31 Serre FAC partial reader and GAGA source custody published
+## 2026-07-31 complete Serre FAC reader and GAGA source custody published
 
 Dedicated Serre version
-[`10.5281/zenodo.21720997`](https://doi.org/10.5281/zenodo.21720997),
-under concept DOI `10.5281/zenodo.21720996`, now fronts the 54-page FAC
-French partial working reader and exposes its master and body TeX directly.
-The FAC archive contains 14 exact members, including four actual
+[`10.5281/zenodo.21721854`](https://doi.org/10.5281/zenodo.21721854),
+under concept DOI `10.5281/zenodo.21720996`, now fronts the complete 63-page
+FAC French working transcription and exposes its cleaned master and body TeX
+directly. The FAC archive contains 27 exact members, including four actual
 scan-derived source crops with parent hash, PDF page, printed folio,
 rasterization scale, pixel bbox, dimensions, crop hash, and linked scope.
 
-FAC represents 70/82 printed source pages. The twelve missing printed pages
-are 217, 218, 221, 222, 267-270, and 273-276; the source apparatus records
-61 defects and 242 uncertain readings. The separate eight-member GAGA archive
-preserves complete first-pass TeX for printed pp.1-42. Its existing PDF is not
-fronted because 32 visible join-marker tokens remain across 16 page joins.
+FAC represents all 82 source pages / printed pp.197-278. The twelve formerly
+missing source-page units are included; the source apparatus continues to
+record 61 defects and 242 uncertain readings. The separate eight-member GAGA
+archive remains byte-identical and preserves complete first-pass TeX for
+printed pp.1-42. Its existing PDF is not fronted because 32 visible join-marker
+tokens remain across 16 page joins.
 
-GitHub package commit `2b48a772294f5220cfb6957291f3dede982372b3`
-passed anonymous 18/18 readback. Zenodo passed 5/5 outer-file and 22/22
-packaged-member readback; FAC is the selected preview and no duplicate concept
-or active draft remains. The locked shared-log helper appended
-`EG-ARCHIVE-SERRE-FAC-GAGA-PUBLICATION-20260731-0001`; the controlling log
-now has 398 records / 2,523,388 bytes / SHA-256
-`6D1DB6B690A299E8E6BC992306653276C6F806D5B8F63777E793AF42860A5786`,
+GitHub package commit `279633789e1daaac1e99752d6b11cfa5462312a1`
+passed anonymous 32/32 readback. Zenodo passed 5/5 outer-file and 35/35
+packaged-member readback; FAC is the selected preview, predecessor `21720997`
+remains immutable, and no duplicate concept or active draft remains. The locked
+shared-log helper appended
+`EG-ARCHIVE-SERRE-FAC-COMPLETE-PUBLICATION-20260731-0001`; the controlling log
+now has 399 records / 2,529,139 bytes / SHA-256
+`C28A1D2AAE167782BAD53A72092AFB51DC9D1A31CFA03D54EA6166CB66F3CAC5`,
 `errors=[]`.
 
 ## 2026-07-31 EGA I R2 live-byte handoff is an exact no-op

@@ -34,7 +34,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Islamic and Arabic Mathematical Texts | 19 | 17 | 0 | 1 | 98.5 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415769) |
 | Historical Reference Witnesses | 14 | 12 | 0 | 1 | 57.2 | [historical-references.md](historical-references.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415776) |
 | **Partial or non-continuous author workstreams** |  |  |  |  |  |  |  |
-| Jean-Pierre Serre | 5 | 1 | 2 | 2 | 2.0 | [serre.md](serre.md) | [Zenodo](https://doi.org/10.5281/zenodo.21720996) |
+| Jean-Pierre Serre | 5 | 1 | 2 | 2 | 2.2 | [serre.md](serre.md) | [Zenodo](https://doi.org/10.5281/zenodo.21720996) |
 | Richard Dedekind | 18 | 14 | 0 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520669) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 0 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520679) |
 | Gauss | 26 | 14 | 0 | 10 | 1335.2 | [gauss.md](gauss.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410934) |
