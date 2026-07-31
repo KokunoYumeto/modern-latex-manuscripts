@@ -78,6 +78,7 @@ DESCRIPTION_ADDITION = (
     "screenshots are excluded. Every member has page, dimensions, resolution, "
     "SHA-256, linked TeX, and QA-disposition metadata.</p>"
 )
+DESCRIPTION_REPLACEMENTS: tuple[tuple[str, str], ...] = ()
 NOTES_ADDITION = (
     "<p>Archive 86 extends the actual EGA IV source-image witness set through "
     "printed page 105. It contains source-scan evidence, not redundant screenshots "
@@ -425,8 +426,13 @@ def stage_and_publish(
     metadata["version"] = VERSION
     metadata["publication_date"] = PUBLICATION_DATE
     description = metadata.get("description", "")
+    for old, new in DESCRIPTION_REPLACEMENTS:
+        if old not in description:
+            raise RuntimeError("Expected predecessor description text is absent")
+        description = description.replace(old, new, 1)
     if DESCRIPTION_ADDITION not in description:
-        metadata["description"] = description + "\n" + DESCRIPTION_ADDITION
+        description += "\n" + DESCRIPTION_ADDITION
+    metadata["description"] = description
     subjects = metadata.setdefault("subjects", [])
     existing_subjects = {row.get("subject") for row in subjects}
     for subject in (
