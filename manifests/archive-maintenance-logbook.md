@@ -4565,3 +4565,17 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   were deleted after validation.
 - Classification is GitHub source survival only. No EGA reader, Zenodo
   record, concept, or public-current status was changed.
+
+## 2026-07-31 - EGA IV Sections 16-21 live source read back
+
+- Published the exact source-survival snapshot at GitHub commit
+  `b73c6dcebc2fc5beffc8c2c7d5d73e5567a3bf85`.
+- Fresh anonymous raw-download replay returned HTTP 200 and exact byte/SHA-256
+  identity for all 25 changed files / 1,567,705 bytes, including all 22
+  package files.
+- The package manifest remained 21 rows / 2,538 bytes / SHA-256
+  `2ECFD77B747DC1E786F73D3997B435B3C0B6CA88E1C083E20BEE8F94DF66AAE0`,
+  with every represented file exact.
+- Machine readback receipt:
+  `manifests/published-github/20260731_ega4_sections16_21_live_custody_commit_b73c6dce_public_readback.json`.
+- No reader or Zenodo surface changed; this closes GitHub custody only.
