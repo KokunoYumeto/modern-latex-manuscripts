@@ -59,3 +59,8 @@ The mandatory locked shared-log append recorded decision
 returned 428 unique records, 2,696,108 bytes, SHA-256
 `D840AF5A60B6FB48D7A377529DFBB62048F4B70A06F42C44E9B85B17B1C1CBB8`,
 with `errors=[]`.
+
+GitHub PR [#210](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/210)
+merged these closeout records as
+`ca8f9842c438eda51f8eb6b5ecc798d111667f04`. Anonymous raw readback
+matched all nine changed files at both the source and merge commits.
