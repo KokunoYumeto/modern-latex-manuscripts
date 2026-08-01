@@ -5492,3 +5492,34 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   commit-pinned readback matched all 17 changed files / 1,786,637 bytes.
   Exact receipt:
   `manifests/published-github/20260801_sga7i_targeted_crop_dataset_closeout_commit_fc823f771_public_readback.json`.
+
+## 2026-08-01 - SGA7 I English through Expose IX section 3.4
+
+- GitHub PR [#186](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/186)
+  published the source-first working package; corrective PR
+  [#188](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/188)
+  explicitly added the compact ZIP omitted by the repository's generic ZIP
+  ignore rule. Final main commit
+  `a374b92e6002a32f076b3b6ac0d2a01897fbac7d` passed commit-pinned raw
+  readback for all 147 package files / 4,018,145 bytes.
+- Published same-concept SGA successor
+  [`10.5281/zenodo.21730414`](https://doi.org/10.5281/zenodo.21730414)
+  under concept DOI `10.5281/zenodo.20410947`; predecessor `21729478`
+  remains immutable and no duplicate concept or active draft remains.
+- The direct 198-page reader is 1,551,833 bytes, SHA-256
+  `BF474B377BBFF5BECB561A0FBDBF8E426842F70FDE3043572687D159F864395F`.
+  It covers complete Exposes I, II, VI, VII, and VIII plus Expose IX through
+  section 3.4.
+- Direct TeX is 10,181 bytes, SHA-256
+  `71F2D7A16CCEABEDC4E2E3E1F0612B2CA1895583751EB43C7361C6949CBEC2A4`.
+  The 141-member reader/source ZIP is 1,696,799 bytes, SHA-256
+  `8D8517565AECB2FD3CCF8244499FD64D257570A5C4842C0B807A97919EE49933`.
+  The eight-member release-controls ZIP has SHA-256
+  `E68AED0313348AE2C9E70385A60CFC3A7FA97C5FBF9886B632ADA19EF847196E`.
+- Anonymous Zenodo readback matched all 83 outer files / 678,196,913 bytes,
+  all 79 retained predecessor identities, all 141 reader/source members, and
+  all eight release-control members. SGA1 remains the selected preview.
+- The next English cursor is Expose IX Proposition 3.5, authority line 880,
+  scan index 361, source folio 350. This remains an incomplete working SGA7 I
+  English translation, not a critical edition, mathematical or accessibility
+  certification, rights decision, or whole-SGA certification.
