@@ -18,6 +18,9 @@ The locked helper appended the matching decision and returned 429 records /
 2,701,956 bytes / SHA-256
 `5F671F9C209E1F21995743E71F13680BACF1CAE3B6FB47ABC9DFEB374A9DB656`,
 `errors=[]`.
+GitHub PR [#212](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/212)
+merged the receipt as `1cef0c253f69619054a5ee814866742c1101f936`; anonymous
+readback matched all seven changed blobs at both source and merge commits.
 
 ## 2026-08-01 complete EGA IV and SGA7 I readers published
 
