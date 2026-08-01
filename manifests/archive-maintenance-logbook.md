@@ -5941,3 +5941,40 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `8DA66F51530DE4AAC4A11CA0A287D449C3BD4CC7A08791271ED7C45AFBA1E19B`.
 - Exact receipt:
   `manifests/published-github/20260801_ega_current_head_reader_guides_commit_19eaf729f_public_readback.json`.
+
+## 2026-08-01 - Persian Noether-topic editable-source anchor published
+
+- Found two commit-pinned Persian XeLaTeX problem sets in
+  [`HosseinMohammadi00427/SUT-Resources`](https://github.com/HosseinMohammadi00427/SUT-Resources)
+  at `b34c5758f87f98b326529fd0d8ac9ebb2cf308ce`; both contain explicit
+  Noether-charge/current material.
+- Preserved only the relevant source bytes and provenance in deterministic ZIP
+  `20_Persian_Noether_Topic_TeX_Source_Anchor_20260801.zip`, 17,767 bytes,
+  SHA-256
+  `8EB0D0B85C9ED4C64133C0E79145D0B5BB0F3884271D4B9A2AED0C4DAF0267AF`.
+  The ZIP has 6 safe unique members / 47,896 uncompressed bytes.
+- GitHub PR [#222](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/222)
+  merged source commit `b5bb6795a97030e12bb51830cd9ee6c388f8dd3a` as
+  `e731d17c181f0d1a4c539e2d529dd6f3c33f3102`; anonymous commit-pinned
+  readback matched 12/12 changed blobs at both commits. Canonical row SHA-256:
+  `FE23718AD15E80F40E3C7B7F469F818D0C2B90E7DD33D33694FBBED4687D5E16`.
+- Published one additive successor under the existing Interlanguage concept:
+  [`10.5281/zenodo.21743417`](https://doi.org/10.5281/zenodo.21743417).
+  It retains all 64 predecessor files from `21739451` and adds only the source
+  ZIP. Anonymous readback matched the outer ZIP and all 6 members; no active
+  draft or duplicate concept remains.
+- This closes Persian Noether-topic editable source only. Persian invariant
+  theory, Arabic invariant theory, Dari editable mathematics, and Tajik
+  abstract algebra/native TeX remain open. GitHub reported no repository
+  license; no new license, native review, terminology approval, translation
+  certification, mathematical certification, or critical-edition claim is
+  made.
+- The locked helper appended
+  `EG-ARCHIVE-PERSIAN-NOETHER-TOPIC-SOURCE-ANCHOR-CLOSEOUT-20260801-0001`
+  and returned 434 records / 2,726,603 bytes / SHA-256
+  `667F673AB5CEE737D152FE42977CE33B8BE6003557A3938CF56032E21E95E8E5`,
+  `errors=[]`.
+- Exact receipts:
+  `manifests/published-github/20260801_persian_noether_source_anchor_commit_e731d17c1_public_readback.json`
+  and
+  `manifests/published-zenodo/20260801_persian_noether_source_anchor_record_21743417_public_readback.json`.
