@@ -9,6 +9,8 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Workflow / Replication Packet | 11 | 1 | 0 | 2 | 1.0 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
 | Interlanguage Methodology | 51 | 2 | 0 | 19 | 4745.6 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
+| **Reusable source-audit image worksets** |  |  |  |  |  |  |  |
+| SGA / EGA Source-Audit Image Worksets | 3 | 0 | 0 | 3 | 248.1 | [visual-evidence.md](visual-evidence.md) | [Zenodo](https://doi.org/10.5281/zenodo.21730031) |
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |  |
 | Split-Zero Geometry and Common Deformation Registers | 13 | 3 | 0 | 4 | 121.6 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |  |
