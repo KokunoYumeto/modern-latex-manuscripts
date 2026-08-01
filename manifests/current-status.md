@@ -1,3 +1,20 @@
+## 2026-08-01 SGA7 II English through Exposé XVIII Corollary 5.8.7 published
+
+GitHub PRs [#232](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/232)
+and [#233](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/233)
+published the exact 138-file checkpoint at merge commit
+`11f381ae44977585e4e442032fda8889691332c0`. Anonymous raw GitHub replay
+matched all 138 files / 2,839,235 bytes.
+
+Same-concept Zenodo version
+[`10.5281/zenodo.21745704`](https://doi.org/10.5281/zenodo.21745704)
+adds the 186-page English reader and its 130-member reader/buildable-TeX ZIP.
+All 85 public files / 684,141,327 bytes, all 82 retained predecessor files,
+both new archives, and all packaged members passed anonymous exact SHA-256
+readback. SGA1 remains the default preview; no active draft or duplicate
+concept remains. Scope stops after Exposé XVIII Corollary 5.8.7; later English
+text is absent and no exhaustive-reference claim is made.
+
 ## 2026-08-01 Tajik algebra-source anchor found
 
 Two public Tajik university algebra sources from the Zarowadk mathematics
@@ -4269,7 +4286,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21728241 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21738682 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21745704 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
 | EGA | 21740145 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
