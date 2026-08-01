@@ -105,3 +105,36 @@ merged the seven-file receipt update as
 readback matched 7/7 committed blobs at both commits. The canonical
 path/bytes/SHA-256 aggregate is
 `5AC234D51CC3453775A31526F33682EB14279690D985E29366EC3BC529D6EC61`.
+
+## Later Web-Source Closeout: Persian Noether Topic (2026-08-01)
+
+The bounded public-archive recheck above remains exact for the source objects
+it inspected. A later authenticated GitHub code search found two additional
+commit-pinned Persian XeLaTeX problem sets in
+[`HosseinMohammadi00427/SUT-Resources`](https://github.com/HosseinMohammadi00427/SUT-Resources)
+at commit `b34c5758f87f98b326529fd0d8ac9ebb2cf308ce`:
+
+- `Group Theory - PSet 6.tex`, 8,395 bytes, SHA-256
+  `5DBE4248DFE067D1E7F36CF9964CC043C40F221F8B6BA651393DC1BD150E15BD`;
+- `Group Theory - Bonus PSet II.tex`, 30,814 bytes, SHA-256
+  `5FD24FA5950B067CD3B7AD6F2AB5C15C291BE55CEE0E25B949EAEC6792E3F219`.
+
+The first asks for the Noether charge associated with rotational invariance.
+The second contains explicit Noether-current and Noether-charge exercises for
+global, spatial-translation, and time-translation symmetries, plus
+invariant-subspace material. The exact source files, provenance, paths, blob
+identities, and Persian occurrence ledger are preserved in
+`interlanguage-sidecar/20260801/persian-noether-source-anchor/`.
+
+This closes only the Persian Noether-topic editable-source row. It does not
+close Persian invariant theory. The current exact open gaps are therefore:
+
+- Arabic invariant-theory TeX/arXiv source;
+- Persian invariant-theory editable source;
+- Dari editable mathematical source;
+- Tajik abstract-algebra or native TeX source.
+
+GitHub reported no repository license. The packet records exact public-source
+custody and attribution without asserting a new license, native review,
+terminology approval, translation or mathematical certification, or a
+critical edition.
