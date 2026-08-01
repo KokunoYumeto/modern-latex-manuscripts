@@ -5487,3 +5487,8 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and returned 416 records / 2,629,305 bytes / SHA-256
   `52A18E7A039676AE8D06BF5E13FAE6D5D4B426F44FAEDB7C760C06143548BDA1`,
   `errors=[]`.
+- Catalog and receipt PR [#184](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/184)
+  merged as `fc823f7717712dfe8ff7647f35e5f588895a9296`; anonymous
+  commit-pinned readback matched all 17 changed files / 1,786,637 bytes.
+  Exact receipt:
+  `manifests/published-github/20260801_sga7i_targeted_crop_dataset_closeout_commit_fc823f771_public_readback.json`.
