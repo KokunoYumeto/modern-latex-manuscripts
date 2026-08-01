@@ -4176,7 +4176,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 |---|---:|---|
 | Main landing | 20459634 | <https://doi.org/10.5281/zenodo.20393488> |
 | Workflow / replication packet | 21707334 | <https://doi.org/10.5281/zenodo.20461174> |
-| Interlanguage methodology | 21730669 | <https://doi.org/10.5281/zenodo.21124403> |
+| Interlanguage methodology | 21739167 | <https://doi.org/10.5281/zenodo.21124403> |
 | Lean formalization sidecars | 21129946 | <https://doi.org/10.5281/zenodo.21129945> |
 | Split-zero research sidecar | 21443852 | <https://doi.org/10.5281/zenodo.20822444> |
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
@@ -4555,3 +4555,30 @@ GitHub PR #191 merged the five-file source anchor at
 `27e82d3f314e719eec193e539dd1f9ee2ca67156`. GitHub readback matched 5/5;
 Zenodo readback matched all five new files and all four ZIP members; no active
 draft or duplicate concept remains.
+
+## 2026-08-01 Fable Tranche 001 requirements acknowledgement published
+
+Interlanguage record
+[`10.5281/zenodo.21739167`](https://doi.org/10.5281/zenodo.21739167), on the
+existing concept `10.5281/zenodo.21124403`, is public with 59 files /
+4,976,099,640 bytes. It retains all 56 predecessor objects byte-identically
+and adds three compact acknowledgement controls / 6,651 bytes.
+
+The acknowledgement names all eight required rule groups, records scoped
+done/not-done status, and points to the already-public Paper 06 package,
+407-member ChatGPT/Claude/Fable provenance archive, weighted-ledger archive,
+and grouped source-body corpus. It does not duplicate those large objects or
+claim that Paper 06 semantic reconciliation, linguistic review, or the global
+language and lexeme ledgers are complete.
+
+GitHub PR #201 merged the three-file package at
+`faa4f08ebd0006c635f4d7b9d08e35f7c1f8421d`. Commit-pinned GitHub readback
+matched 3/3; Zenodo anonymous readback matched 3/3 and retained 56/56
+predecessor objects. No active draft or duplicate concept remains.
+The locked helper appended
+`EG-ARCHIVE-FABLE-TRANCHE001-ACK-PUBLICATION-20260801-0001` and returned 422
+records / 2,663,026 bytes / SHA-256
+`B717E06C233A9A3477D11A9FE4D6E76B7B393F288E534A9D1E550984817E3530`,
+`errors=[]`.
+The standalone decision record is 6,774 bytes / SHA-256
+`B04C8856B1A697D2C25F0AE16AAE74020E45BEE10BF1B454FF60DC70E5FA89A9`.
