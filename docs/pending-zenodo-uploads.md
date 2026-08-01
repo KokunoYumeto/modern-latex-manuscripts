@@ -1,21 +1,21 @@
-## 2026-08-01: SGA7 II English through complete Exposé XVIII queue closed
+## 2026-08-01: SGA7 II English through complete Exposé XIX queue closed
 
 - Existing concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
-- Published successor: [10.5281/zenodo.21747165](https://doi.org/10.5281/zenodo.21747165)
-- GitHub package: [SGA7 II English current-progress reader](../sources/sga/sga7ii-english-through-expose-xviii-complete-20260801/)
+- Published successor: [10.5281/zenodo.21749057](https://doi.org/10.5281/zenodo.21749057)
+- GitHub package: [SGA7 II English current-progress reader](../sources/sga/sga7ii-english-through-expose-xix-complete-20260801/)
 
-This queue item is closed. The successor adds a direct 194-page English reader
-containing complete Exposes X-XVIII through Corollary 6.7 and the bibliography,
-plus one 137-member reader/buildable-TeX ZIP. Exposes XIX-XXII are absent; this
+This queue item is closed. The successor adds a direct 203-page English reader
+containing complete Exposes X-XIX through the Expose XIX bibliography,
+plus one 142-member reader/buildable-TeX ZIP. Exposes XX-XXII are absent; this
 is not complete SGA7 II or exhaustive-reference
 certification.
 
-Anonymous readback passed all 85 outer files / 684,224,664 bytes, all 82
-retained predecessor identities, all 137 new package members, and all 12
+Anonymous readback passed all 85 outer files / 684,305,261 bytes, all 82
+retained predecessor identities, all 142 new package members, and all 12
 release-control members. SGA1 remains the selected preview; no duplicate
 concept or active draft remains.
 
-Exact receipt: [publication and readback](../manifests/published-zenodo/20260801_sga7ii_english_through_xviii_complete_record_21747165.md).
+Exact receipt: [publication and readback](../manifests/published-zenodo/20260801_sga7ii_english_through_xix_complete_record_21749057.md).
 
 ## 2026-08-01: complete SGA7 I English working-reader queue closed
 
