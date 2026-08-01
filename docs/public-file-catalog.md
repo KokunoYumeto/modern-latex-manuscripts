@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1005
+Total files indexed: 1008
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -143,6 +143,18 @@ Current workflow version 21707334 publishes a compact eleven-file methodology su
 | manifest/status | 0.0021 | [98_WORKFLOW_RELEASE_MANIFEST.csv](https://zenodo.org/records/21707334/files/98_WORKFLOW_RELEASE_MANIFEST.csv) |
 | manifest/status | 0.0048 | [99_WORKFLOW_PUBLIC_STATUS_20260730.md](https://zenodo.org/records/21707334/files/99_WORKFLOW_PUBLIC_STATUS_20260730.md) |
 | manifest/status | 0.0040 | [99_WORKFLOW_RELEASE_VALIDATION.json](https://zenodo.org/records/21707334/files/99_WORKFLOW_RELEASE_VALIDATION.json) |
+
+## SGA and EGA High-Detail Source-Audit Image Worksets: Compute-Reuse Dataset
+
+Record: <https://doi.org/10.5281/zenodo.21730031>
+
+Dedicated compute-reuse dataset for provenance-bound high-detail source crops used during SGA and EGA transcription checks. The initial version contains 5,855 recovered SGA7 I targeted crops in two image archives plus one metadata archive. It is source-audit evidence, not a reader, translation, critical edition, mathematical certification, or blanket rights determination. Reader landing pages remain separate and reader-first.
+
+| Role | Size MB | File |
+|---|---:|---|
+| artifact/source ZIP | 127.5863 | [00_SGA7I_Targeted_HighDetail_Source_Crops_I_II_VI_20260801.zip](https://zenodo.org/records/21730032/files/00_SGA7I_Targeted_HighDetail_Source_Crops_I_II_VI_20260801.zip) |
+| artifact/source ZIP | 115.7419 | [01_SGA7I_Targeted_HighDetail_Source_Crops_VII_IX_20260801.zip](https://zenodo.org/records/21730032/files/01_SGA7I_Targeted_HighDetail_Source_Crops_VII_IX_20260801.zip) |
+| artifact/source ZIP | 4.8020 | [90_SGA7I_Targeted_Source_Crops_Metadata_20260801.zip](https://zenodo.org/records/21730032/files/90_SGA7I_Targeted_Source_Crops_Metadata_20260801.zip) |
 
 ## Interlanguage and Mathematical Translation Methodology Sidecar
 

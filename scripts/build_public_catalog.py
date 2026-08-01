@@ -30,6 +30,7 @@ from urllib.error import HTTPError, URLError
 RECORDS: list[tuple[str, str]] = [
     ("main", "20459634"),
     ("workflow", "21707334"),
+    ("visual_evidence", "21730032"),
     ("interlanguage_reflections", "21485338"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21443852"),
@@ -97,6 +98,9 @@ RECORD_NOTES = {
     "workflow": [
         "Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.",
     ],
+    "visual_evidence": [
+        "Dedicated compute-reuse dataset for provenance-bound high-detail source crops used during SGA and EGA transcription checks. The initial version contains 5,855 recovered SGA7 I targeted crops in two image archives plus one metadata archive. It is source-audit evidence, not a reader, translation, critical edition, mathematical certification, or blanket rights determination. Reader landing pages remain separate and reader-first.",
+    ],
     "weber": [
         "Current Weber public surface is record 21728241 under concept DOI 10.5281/zenodo.20412153. It fronts the complete 420-page German Volume I working reader, exposes its editable TeX directly, and groups the reader/source/QA closure in one compact ZIP. Volume I covers the body through Section 188 and the printed errata; the full content map, damaged-section retranscription, four global consistency sweeps, and broad visual spot checks are complete, while the stricter cold page-by-page pass reaches printed p124 with p125 next. The Volume I English reader predates the current German repairs and is unsynchronized. Volume II reaches Section 176; Volume III remains an incomplete repaired cumulative. These are working readers, not critical editions, synchronized translations, full symbol-by-symbol recertification, peer review, mathematical certification, rights determinations, or accessibility remediation.",
     ],
@@ -152,6 +156,7 @@ TITLE_OVERRIDES = {
     "lean_formalization_sidecars": "Classical Mathematics Lean 4 Formalization Sidecars",
     "interlanguage_reflections": "Interlanguage and Mathematical Translation Methodology Sidecar",
     "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers: Project Atlas, Exact Results, Formalization, and Visualizations",
+    "visual_evidence": "SGA and EGA High-Detail Source-Audit Image Worksets: Compute-Reuse Dataset",
 }
 
 
