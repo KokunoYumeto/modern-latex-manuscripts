@@ -6013,3 +6013,18 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260801_sga7ii_english_through_xviii_5_8_7_record_21745704_public_readback.json`
   and
   `manifests/published-zenodo/20260801_sga7ii_english_through_xviii_5_8_7_record_21745704_zip_member_readback.json`.
+
+## 2026-08-01 - SGA7 II publication closeout read back on GitHub
+
+- GitHub PR [#234](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/234)
+  merged source commit `55a639e397ecc20ff0a5ddd5aa57b63a416ec946` as
+  `1f7a418a44ad48f030733ba8647f190c068d2169`.
+- Anonymous commit-pinned raw readback matched all 26 changed files at both
+  commits: 4,326,736 bytes, zero mismatches, canonical path/byte/SHA-256 row
+  aggregate `995AB0422CF5550CF9ECDB12909B2A14A3254CE37D1F7F28143357C440A65D1F`.
+- This closes the GitHub documentation, catalog, publisher, receipt, and
+  archive-log publication loop. It does not mutate Zenodo or change any
+  reader byte, scope, preview, reference claim, rights boundary, or future
+  global-reader queue.
+- Exact receipt:
+  `manifests/published-github/20260801_sga7ii_english_xviii_5_8_7_closeout_commit_1f7a418a_public_readback.json`.
