@@ -22,28 +22,28 @@ duplicate concept or active draft remains.
 Exact receipt:
 [publication and readback](../manifests/published-zenodo/20260801_sga7i_complete_english_record_21738682.md).
 
-## 2026-08-01: complete EGA IV cumulative working-reader queue closed
+## 2026-08-01: complete EGA IV reference-v2 reader queue closed
 
 - Existing concept:
   [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
 - Published successor:
-  [10.5281/zenodo.21738394](https://doi.org/10.5281/zenodo.21738394)
+  [10.5281/zenodo.21740145](https://doi.org/10.5281/zenodo.21740145)
 - GitHub packages:
-  [complete EGA IV cumulative reader](../sources/ega/ega4-complete-cumulative-working-reader-20260801/),
-  [current EGA reader bundle](../sources/ega/ega-current-readers-and-buildable-tex-bundle-20260801/)
+  [complete EGA IV reference-v2 reader](../sources/ega/ega4-complete-reference-v2-r4-20260801/),
+  [current EGA reader bundle](../sources/ega/ega-current-readers-and-buildable-tex-bundle-reference-v2-20260801/)
 
-This queue item is closed. EGA IV now has one complete cumulative working reader
-through Parts 1-4, Sections 1-21, appendices, and backmatter. The landing page
-uses three short reader-facing paragraphs and does not foreground the image
-evidence archives.
+This queue item is closed. EGA IV now has one complete source-aligned
+reference-v2 working reader through Sections 1-21 and EOF. The landing page
+remains reader-first, and the leading bundle contains the five current
+standalone EGA readers plus their buildable TeX closures.
 
-Anonymous readback passed all 40 outer files / 3,746,855,816 bytes, all 36
-retained predecessor identities, all 133 leading-bundle members, and all 65 EGA
+Anonymous readback passed all 40 outer files / 3,752,670,964 bytes, all 36
+retained predecessor identities, all 135 leading-bundle members, and all 84 EGA
 IV package members. EGA0 remains the selected preview; no duplicate concept or
 active draft remains.
 
 Exact receipt:
-[publication and readback](../manifests/published-zenodo/20260801_ega4_complete_cumulative_record_21738394.md).
+[publication and readback](../manifests/published-zenodo/20260801_ega4_complete_reference_v2_record_21740145_public_readback.json).
 
 ## 2026-07-31: Weber Volume I complete working-reader queue closed
 

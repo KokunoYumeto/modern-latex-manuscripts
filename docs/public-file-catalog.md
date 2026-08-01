@@ -451,7 +451,7 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Current compact SGA record 21738682 starts with one ZIP containing the current cumulative English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 I. The same readers and masters remain direct in order; SGA1 is the default preview. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX, with a compact 191-member reader/source package. The complete SGA7 I French working transcription and partial SGA7 II French transcription remain available. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.
+Current compact SGA record 21738682 starts with one ZIP containing the current standalone English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 I. The same readers and masters remain direct in order; SGA1 is the default preview. This is not yet one cross-volume SGA 1-7.2 PDF. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX, with a compact 191-member reader/source package. The complete SGA7 I French working transcription and partial SGA7 II French transcription remain available. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.
 
 | Role | Size MB | File |
 |---|---:|---|
@@ -558,7 +558,7 @@ Current reader-first surface is version 21212608. It directly exposes the sequen
 
 Record: <https://doi.org/10.5281/zenodo.20414353>
 
-Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV is complete through Sections 1-21 and EOF with its reference-v2 reader and buildable TeX. These are working translations, not critical editions or a claim of uniform whole-corpus certification.
+Open the current-reader bundle or one of the five direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV is complete through Sections 1-21 and EOF with its reference-v2 reader and buildable TeX. The bundle contains standalone readers and buildable TeX, not yet one cross-volume EGA 0-IV PDF. These are working translations, not critical editions or a claim of uniform whole-corpus certification.
 
 | Role | Size MB | File |
 |---|---:|---|
