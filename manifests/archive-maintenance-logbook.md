@@ -5589,3 +5589,29 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `errors=[]`.
 - Exact receipt:
   `manifests/source-intake/20260801_ega_reader_shelf_concept_doi_correction.json`.
+
+## 2026-08-01 - SGA7 II frozen Claude tree reconciled as a public no-op
+
+- The frozen local Claude tree and the current public package both cover 399
+  consecutive source markers, `idx8` through `idx406`; the exact continuation
+  remains `idx407`.
+- Eight expose bodies are byte-identical. The four differing public bodies
+  (XV, XVI, XVIII, and XXI) are the cleaner reviewed successors: they remove
+  internal process comments and retain the corrected Expose-XVIII
+  bidirectional connector and Expose-XXI formula (1.4.6).
+- The local 1,282,857-byte PDF predates the final body writes, and its status
+  understates Expose-XXI coverage. Publishing it would therefore regress the
+  current reader/source package rather than preserve new work.
+- Zenodo record [`10.5281/zenodo.21730414`](https://doi.org/10.5281/zenodo.21730414)
+  read back the exact direct PDF and TeX plus the 25-member source/evidence
+  ZIP. The ZIP member aggregate
+  `626F088118130FF027E889C373D496E69EEC7908AC8BF878DAE175C8F43E64D0`
+  matches the GitHub package tree.
+- No GitHub or Zenodo payload mutation was made. The locked helper appended
+  decision
+  `EG-ARCHIVE-SGA7II-LOCAL-CLAUDE-NOOP-PUBLIC-SUPERIOR-20260801-0001`
+  and returned 420 records / 2,650,279 bytes / SHA-256
+  `C08A4B3BA5E3254E585BC1EE0C45C3C08DCD4E24CC13409BE350C99D422485B5`,
+  `errors=[]`.
+- Exact receipt:
+  `manifests/source-intake/20260801_sga7ii_local_claude_noop_public_superior.json`.
