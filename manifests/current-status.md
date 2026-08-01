@@ -1,23 +1,23 @@
-## 2026-08-01 SGA7 II English through complete Exposé XVIII published
+## 2026-08-01 SGA7 II English through complete Exposé XIX published
 
-GitHub PR [#236](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/236)
-merged the exact 145-file privacy-clean package at commit
-`46c222136acef06ce0f515028ee73cdfcbd2b1bf`; anonymous raw readback matched
-all 145 files / 2,949,541 bytes and all 137 reader/source ZIP members.
+GitHub PR [#241](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/241)
+merged the exact 150-file privacy-clean package at commit
+`acf581a622ff60f58c34cfb606ad63031fe56ae1`; anonymous raw readback matched
+all 150 files / 3,057,991 bytes and all 142 reader/source ZIP members.
 
 Same-concept Zenodo version
-[`10.5281/zenodo.21747165`](https://doi.org/10.5281/zenodo.21747165)
-replaces only the prior 186-page SGA7 II reader, its 130-member ZIP, and the
-r3 release controls. The current 194-page reader covers complete Exposés
-X-XVIII through Corollary 6.7 and the Exposé XVIII bibliography; Exposé XIX is
-the next cursor and Exposés XIX-XXII are absent. Anonymous readback passed all
-85 public files / 684,224,664 bytes, all 82 retained predecessor files, all
-137 new package members, and all 12 release-control members. SGA1 remains the
+[`10.5281/zenodo.21749057`](https://doi.org/10.5281/zenodo.21749057)
+replaces only the prior 194-page SGA7 II reader, its 137-member ZIP, and the
+r4 release controls. The current 203-page reader covers complete Exposés
+X-XIX through the Exposé XIX bibliography; Exposé XX is the next cursor and
+Exposés XX-XXII are absent. Anonymous readback passed all 85 public files /
+684,305,261 bytes, all 82 retained predecessor files, all 142 new package
+members, and all 12 release-control members. SGA1 remains the
 default preview; no active draft or duplicate concept remains. No complete-
 SGA7 II or exhaustive-reference claim is made.
 
-The initially duplicated notes paragraph was corrected in place on the same
-record and DOI, with all 85 file identities unchanged.
+The interrupted first upload resumed the same tracked draft; no duplicate
+draft, version, or concept was created.
 
 ## 2026-08-01 SGA7 II English through Exposé XVIII Corollary 5.8.7 published
 
@@ -4324,7 +4324,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21728241 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21747165 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21749057 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
 | EGA | 21744406 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
