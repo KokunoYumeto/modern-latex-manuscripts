@@ -558,24 +558,24 @@ Current reader-first surface is version 21212608. It directly exposes the sequen
 
 Record: <https://doi.org/10.5281/zenodo.20414353>
 
-Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV now has a complete cumulative working reader through Parts 1-4, Sections 1-21, appendices, and backmatter. These are working translations, not critical editions or a claim of uniform whole-corpus certification.
+Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV is complete through Sections 1-21 and EOF with its reference-v2 reader and buildable TeX. These are working translations, not critical editions or a claim of uniform whole-corpus certification.
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 9.0757 | [00 Current_EGA_English_Readers_and_Buildable_TeX_20260801.zip](https://zenodo.org/records/21738394/files/00%20Current_EGA_English_Readers_and_Buildable_TeX_20260801.zip) |
-| reader/reference PDF | 1.1449 | [00a_EGA0_English_Complete_Through_Section13_Reference_v2_20260730.pdf](https://zenodo.org/records/21738394/files/00a_EGA0_English_Complete_Through_Section13_Reference_v2_20260730.pdf) |
-| reader/reference PDF | 1.2936 | [00b_EGA1_English_Complete_Reference_v2_Reader_20260730.pdf](https://zenodo.org/records/21738394/files/00b_EGA1_English_Complete_Reference_v2_Reader_20260730.pdf) |
-| reader/reference PDF | 1.8169 | [00c_EGA2_English_Complete_Reference_v2_Reader_20260730.pdf](https://zenodo.org/records/21738394/files/00c_EGA2_English_Complete_Reference_v2_Reader_20260730.pdf) |
-| reader/reference PDF | 1.2390 | [00d_EGAIII_English_Published_Text_Complete_Reference_v2_20260730.pdf](https://zenodo.org/records/21738394/files/00d_EGAIII_English_Published_Text_Complete_Reference_v2_20260730.pdf) |
-| reader/reference PDF | 3.9649 | [00e_EGAIV_English_Complete_Cumulative_Working_Reader_20260801.pdf](https://zenodo.org/records/21738394/files/00e_EGAIV_English_Complete_Cumulative_Working_Reader_20260801.pdf) |
-| editable TeX | 0.0008 | [01a_EGA0_English_Master_20260730.tex](https://zenodo.org/records/21738394/files/01a_EGA0_English_Master_20260730.tex) |
-| editable TeX | 0.0030 | [01b_EGA1_English_Master_20260730.tex](https://zenodo.org/records/21738394/files/01b_EGA1_English_Master_20260730.tex) |
-| editable TeX | 0.0021 | [01c_EGA2_English_Master_20260730.tex](https://zenodo.org/records/21738394/files/01c_EGA2_English_Master_20260730.tex) |
-| editable TeX | 0.0033 | [01d_EGAIII_English_Master_20260730.tex](https://zenodo.org/records/21738394/files/01d_EGAIII_English_Master_20260730.tex) |
-| editable TeX | 0.0011 | [01e_EGAIV_English_Complete_Cumulative_Master_20260801.tex](https://zenodo.org/records/21738394/files/01e_EGAIV_English_Complete_Cumulative_Master_20260801.tex) |
-| artifact/source ZIP | 4.7292 | [02d_EGAIV_English_Complete_Cumulative_TeX_PDF_20260801.zip](https://zenodo.org/records/21738394/files/02d_EGAIV_English_Complete_Cumulative_TeX_PDF_20260801.zip) |
+| artifact/source ZIP | 9.1731 | [00 Current_EGA_English_Readers_and_Buildable_TeX_20260801.zip](https://zenodo.org/records/21740145/files/00%20Current_EGA_English_Readers_and_Buildable_TeX_20260801.zip) |
+| reader/reference PDF | 1.1449 | [00a_EGA0_English_Complete_Through_Section13_Reference_v2_20260730.pdf](https://zenodo.org/records/21740145/files/00a_EGA0_English_Complete_Through_Section13_Reference_v2_20260730.pdf) |
+| reader/reference PDF | 1.2936 | [00b_EGA1_English_Complete_Reference_v2_Reader_20260730.pdf](https://zenodo.org/records/21740145/files/00b_EGA1_English_Complete_Reference_v2_Reader_20260730.pdf) |
+| reader/reference PDF | 1.8169 | [00c_EGA2_English_Complete_Reference_v2_Reader_20260730.pdf](https://zenodo.org/records/21740145/files/00c_EGA2_English_Complete_Reference_v2_Reader_20260730.pdf) |
+| reader/reference PDF | 1.2390 | [00d_EGAIII_English_Published_Text_Complete_Reference_v2_20260730.pdf](https://zenodo.org/records/21740145/files/00d_EGAIII_English_Published_Text_Complete_Reference_v2_20260730.pdf) |
+| reader/reference PDF | 4.0553 | [00e_EGAIV_English_Complete_Reference_v2_Reader_20260801.pdf](https://zenodo.org/records/21740145/files/00e_EGAIV_English_Complete_Reference_v2_Reader_20260801.pdf) |
+| editable TeX | 0.0008 | [01a_EGA0_English_Master_20260730.tex](https://zenodo.org/records/21740145/files/01a_EGA0_English_Master_20260730.tex) |
+| editable TeX | 0.0030 | [01b_EGA1_English_Master_20260730.tex](https://zenodo.org/records/21740145/files/01b_EGA1_English_Master_20260730.tex) |
+| editable TeX | 0.0021 | [01c_EGA2_English_Master_20260730.tex](https://zenodo.org/records/21740145/files/01c_EGA2_English_Master_20260730.tex) |
+| editable TeX | 0.0033 | [01d_EGAIII_English_Master_20260730.tex](https://zenodo.org/records/21740145/files/01d_EGAIII_English_Master_20260730.tex) |
+| editable TeX | 0.0012 | [01e_EGAIV_English_Complete_Reference_v2_Master_20260801.tex](https://zenodo.org/records/21740145/files/01e_EGAIV_English_Complete_Reference_v2_Master_20260801.tex) |
+| artifact/source ZIP | 10.0871 | [02d_EGAIV_English_Complete_Reference_v2_TeX_PDF_QA_20260801.zip](https://zenodo.org/records/21740145/files/02d_EGAIV_English_Complete_Reference_v2_TeX_PDF_QA_20260801.zip) |
 
-The remaining 28 preserved support files stay available in the [full Zenodo file list](https://zenodo.org/records/21738394#files); they are intentionally omitted from this reader-facing catalog.
+The remaining 28 preserved support files stay available in the [full Zenodo file list](https://zenodo.org/records/21740145#files); they are intentionally omitted from this reader-facing catalog.
 
 ## Ukrainian Applied Mathematics: Translation Working Drafts and TeX Sources
 

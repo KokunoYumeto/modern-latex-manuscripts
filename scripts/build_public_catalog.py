@@ -39,7 +39,7 @@ RECORDS: list[tuple[str, str]] = [
     ("cayley", "20617845"),
     ("sga", "21738682"),
     ("deligne", "21212608"),
-    ("ega", "21738394"),
+    ("ega", "21740145"),
     ("ukrainian_applied_math", "20520721"),
     ("gauss", "20674086"),
     ("riemann", "20434317"),
@@ -93,7 +93,7 @@ RECORD_NOTES = {
         "Current compact SGA record 21738682 starts with one ZIP containing the current cumulative English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 I. The same readers and masters remain direct in order; SGA1 is the default preview. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX, with a compact 191-member reader/source package. The complete SGA7 I French working transcription and partial SGA7 II French transcription remain available. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.",
     ],
     "ega": [
-        "Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV now has a complete cumulative working reader through Parts 1-4, Sections 1-21, appendices, and backmatter. These are working translations, not critical editions or a claim of uniform whole-corpus certification.",
+        "Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV is complete through Sections 1-21 and EOF with its reference-v2 reader and buildable TeX. These are working translations, not critical editions or a claim of uniform whole-corpus certification.",
     ],
     "workflow": [
         "Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.",
