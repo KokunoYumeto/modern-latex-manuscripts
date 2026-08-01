@@ -4176,7 +4176,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 |---|---:|---|
 | Main landing | 20459634 | <https://doi.org/10.5281/zenodo.20393488> |
 | Workflow / replication packet | 21707334 | <https://doi.org/10.5281/zenodo.20461174> |
-| Interlanguage methodology | 21739167 | <https://doi.org/10.5281/zenodo.21124403> |
+| Interlanguage methodology | 21739451 | <https://doi.org/10.5281/zenodo.21124403> |
 | Lean formalization sidecars | 21129946 | <https://doi.org/10.5281/zenodo.21129945> |
 | Split-zero research sidecar | 21443852 | <https://doi.org/10.5281/zenodo.20822444> |
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
@@ -4582,3 +4582,30 @@ records / 2,663,026 bytes / SHA-256
 `errors=[]`.
 The standalone decision record is 6,774 bytes / SHA-256
 `B04C8856B1A697D2C25F0AE16AAE74020E45BEE10BF1B454FF60DC70E5FA89A9`.
+
+## 2026-08-01 Fable G15 invariant-ledger source anchor published
+
+Interlanguage record
+[`10.5281/zenodo.21739451`](https://doi.org/10.5281/zenodo.21739451), on the
+existing concept `10.5281/zenodo.21124403`, is public with 64 files /
+4,976,113,470 bytes. It retains all 59 predecessor objects byte-identically
+and adds five compact source-anchor controls / 13,830 bytes.
+
+The search opened 41 relevant ZIPs and scanned 10,165 text members /
+406,521,901 uncompressed bytes with zero archive errors. No standalone G15 or
+15G file was found. Twenty-four bounded references identify G15 as Gate 15 in
+`INTERSLAVIC_GATE_MAP.md`: the invariant-ledger gate for INV-* handoff rows.
+The anchor preserves that exact source; it does not implement or certify a
+complete global ledger.
+
+GitHub PR #203 merged the five-file source anchor at
+`9975e8bbc4e40327758ef4cad183e18d7ce75162`. Commit-pinned GitHub readback
+matched 5/5; Zenodo anonymous readback matched 5/5 and retained 59/59
+predecessor objects. No active draft or duplicate concept remains.
+The locked helper appended
+`EG-ARCHIVE-FABLE-G15-SOURCE-ANCHOR-PUBLICATION-20260801-0001` and returned
+423 records / 2,667,782 bytes / SHA-256
+`68FDFDF13F91ABFAD32A704A373EDAE39A6D57FCFB69CA227D6EB3FFD5EF1E44`,
+`errors=[]`.
+The standalone decision record is 5,265 bytes / SHA-256
+`B633735CA78999E89CA73D159E862981F229F1678F2BD01D298CC073B3627C4A`.
