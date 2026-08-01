@@ -5866,3 +5866,11 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `errors=[]`.
 - Exact receipt:
   `manifests/published-zenodo/20260801_ega_record_21740145_standalone_reader_metadata_revision.json`.
+- GitHub PR [#216](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/216)
+  merged the guarded editor, receipt, and logbooks as
+  `cfd83e2018ef8bee54da0a4454ed89e1a65ce91d` from source commit
+  `458f454ee4dfce3b83731a2115fbb92f7ea0517b`. Anonymous commit-pinned
+  readback matched all 4/4 blobs; canonical row SHA-256 is
+  `AB9C75328246A1B43E4595EAEDD23352EF4C6EA47B587E79E245D66E1B066BFF`.
+- GitHub readback receipt:
+  `manifests/published-github/20260801_ega_standalone_reader_metadata_commit_cfd83e201_public_readback.json`.
