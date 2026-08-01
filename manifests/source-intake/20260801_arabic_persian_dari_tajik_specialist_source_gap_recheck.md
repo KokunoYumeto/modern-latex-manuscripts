@@ -138,3 +138,28 @@ GitHub reported no repository license. The packet records exact public-source
 custody and attribution without asserting a new license, native review,
 terminology approval, translation or mathematical certification, or a
 critical edition.
+
+GitHub PR [#222](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/222)
+merged source commit `b5bb6795a97030e12bb51830cd9ee6c388f8dd3a` as
+`e731d17c181f0d1a4c539e2d529dd6f3c33f3102`. Anonymous raw readback
+matched 12/12 changed files at both commits; canonical path/bytes/SHA-256
+aggregate:
+`FE23718AD15E80F40E3C7B7F469F818D0C2B90E7DD33D33694FBBED4687D5E16`.
+
+Interlanguage version
+[`10.5281/zenodo.21743417`](https://doi.org/10.5281/zenodo.21743417), under
+the existing concept DOI
+[`10.5281/zenodo.21124403`](https://doi.org/10.5281/zenodo.21124403),
+retains all 64 predecessor files from `21739451` by exact Zenodo size/MD5
+identity and adds only
+`22_Persian_Noether_Topic_TeX_Source_Anchor_20260801.zip`. Anonymous
+readback reproduced its 17,767 bytes / SHA-256
+`8EB0D0B85C9ED4C64133C0E79145D0B5BB0F3884271D4B9A2AED0C4DAF0267AF`
+and all 6 members / 47,896 uncompressed bytes. The successor is the live head;
+no active draft or duplicate concept remains.
+
+The mandatory locked helper appended
+`EG-ARCHIVE-PERSIAN-NOETHER-TOPIC-SOURCE-ANCHOR-CLOSEOUT-20260801-0001`
+and returned 434 unique records / 2,726,603 bytes / SHA-256
+`667F673AB5CEE737D152FE42977CE33B8BE6003557A3938CF56032E21E95E8E5`,
+with `errors=[]`.
