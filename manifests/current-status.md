@@ -1,3 +1,27 @@
+## 2026-08-01 complete EGA IV and SGA7 I readers published
+
+The EGA concept now points to
+[`10.5281/zenodo.21738394`](https://doi.org/10.5281/zenodo.21738394).
+Its landing description is deliberately reader-first: direct EGA PDFs, one
+current-reader/buildable-TeX bundle, concise scope, and one working-edition
+caveat. The complete cumulative EGA IV reader covers Parts 1-4, Sections 1-21,
+appendices, and backmatter. The 40-file record retained all 36 predecessor
+objects byte-identically. The 133-member current bundle and 65-member EGA IV
+source package passed anonymous member-by-member readback.
+
+The SGA concept now points to
+[`10.5281/zenodo.21738682`](https://doi.org/10.5281/zenodo.21738682).
+It adds the complete 287-page SGA7 I English working reader for all written
+Exposes I, II, VI, VII, VIII, and IX, plus a refreshed SGA1-7 reader/buildable-
+TeX bundle. The 83-file record retained 79 unrelated predecessor objects
+byte-identically. Anonymous readback passed all 1,585 current-bundle members
+and all 191 SGA7 I reader/source members. No duplicate concept or active draft
+remains for either publication.
+
+GitHub package PRs #198 and #199 merged at
+`8ea30f6a6faa4c069aa4ecfae20351bb0b093854`; eight primary raw files and all
+packaged members passed commit-pinned readback.
+
 ## 2026-07-31 complete Serre FAC reader and GAGA source custody published
 
 Dedicated Serre version
@@ -27,7 +51,7 @@ now has 399 records / 2,529,139 bytes / SHA-256
 
 ## 2026-07-31 EGA I R2 live-byte handoff is an exact no-op
 
-The reader-clean R2 handoff was compared against current EGA version
+The reader-clean R2 handoff was compared against the then-current EGA version
 [`10.5281/zenodo.21717450`](https://doi.org/10.5281/zenodo.21717450) and
 GitHub publication commit `f68b8c571f65b05ae33bb9c5fc986727da2abb59`.
 The direct 113-page reader and direct master match exactly. Anonymous source
@@ -4158,9 +4182,9 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21728241 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21730414 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21738682 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
-| EGA | 21717450 | <https://doi.org/10.5281/zenodo.20414353> |
+| EGA | 21738394 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
 | Gauss | 20674086 | <https://doi.org/10.5281/zenodo.20410934> |
 | Riemann | 20434317 | <https://doi.org/10.5281/zenodo.20429778> |
@@ -4461,10 +4485,10 @@ Noether R565 local source-control update, 2026-07-02: `Noether_R565_LocalCodex_R
 
 - 2026-07-31: GitHub custody and same-concept Zenodo version `10.5281/zenodo.21711433` now include the complete SGA7 I fresh source transcription for all six written exposes I, II, VI, VII, VIII, and IX. Seven editable TeX files contain 528 continuous source-folio markers / scan indices 12-539, 162 native `tikzcd` diagrams, and zero raster diagram inputs. A fixed-epoch three-pass replay and a second replay from the compact 12-member ZIP reproduce the same 267-page PDF byte-for-byte, SHA-256 `45E4C2980260C8172AA3762BE0CDBF84FE1DCFC2FA23B724C64508A96F4D2E96`; all page streams and extracted text match the frozen producer gate reader. Anonymous readback passed all 73 outer files / 485,548,033 bytes, all 12 source-ZIP members, all 17 release-control members, and all 69 retained predecessor files byte-identically. SGA1 remains the default preview. The package preserves the printed language and is a complete working SGA7 I source transcription, not a complete English translation, critical edition, rights determination, accessibility certification, or mathematical certification.
 
-- 2026-07-31: Current same-concept SGA version `10.5281/zenodo.21720340` preserves the SGA7 II Expose-XVIII title/contents boundary at scan index 261 and the exact 400-dpi crop pixels used for it. The partial source is now continuous over indices 261-308, while 309-334 remain absent and the direct X-XVII reader remains byte-identical. Anonymous readback passed 80/80 outer files and 22/22 replacement source-ZIP members; SGA1 remains the default preview and no duplicate concept or active draft remains.
+- 2026-07-31: Then-current same-concept SGA version `10.5281/zenodo.21720340` preserved the SGA7 II Expose-XVIII title/contents boundary at scan index 261 and the exact 400-dpi crop pixels used for it. The partial source was continuous over indices 261-308, while 309-334 remained absent and the direct X-XVII reader remained byte-identical. Anonymous readback passed 80/80 outer files and 22/22 replacement source-ZIP members; SGA1 remained the default preview and no duplicate concept or active draft remained.
 ## 2026-08-01 SGA7 I English through Expose VIII Proposition 3.7 published
 
-Current same-concept SGA version
+Then-current same-concept SGA version
 [`10.5281/zenodo.21728674`](https://doi.org/10.5281/zenodo.21728674)
 now exposes the 160-page SGA7 I English working reader, direct master TeX,
 and a compact 115-member reader/source archive. The represented English scope
@@ -4481,7 +4505,7 @@ accessibility certification, rights decision, or whole-SGA certification.
 
 ## 2026-08-01 SGA7 I English through complete Expose VIII published
 
-Current same-concept SGA version
+Then-current same-concept SGA version
 [`10.5281/zenodo.21729478`](https://doi.org/10.5281/zenodo.21729478)
 now exposes the 181-page SGA7 I English working reader, direct master TeX,
 and a compact 131-member reader/source archive. The represented English scope
@@ -4497,7 +4521,7 @@ accessibility certification, rights decision, or whole-SGA certification.
 
 ## 2026-08-01 SGA7 I English through Expose IX section 3.4 published
 
-Current same-concept SGA version
+Then-current same-concept SGA version
 [`10.5281/zenodo.21730414`](https://doi.org/10.5281/zenodo.21730414)
 now exposes the 198-page SGA7 I English working reader, direct master TeX,
 and a compact 141-member reader/source archive. The represented English scope
