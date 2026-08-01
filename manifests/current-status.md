@@ -4494,3 +4494,21 @@ predecessor identities, all 131 reader/source members, and all eight release
 control members. SGA1 remains the default preview. This remains an incomplete
 SGA7 I English working translation, not a critical edition, mathematical or
 accessibility certification, rights decision, or whole-SGA certification.
+
+## 2026-08-01 SGA7 I English through Expose IX section 3.4 published
+
+Current same-concept SGA version
+[`10.5281/zenodo.21730414`](https://doi.org/10.5281/zenodo.21730414)
+now exposes the 198-page SGA7 I English working reader, direct master TeX,
+and a compact 141-member reader/source archive. The represented English scope
+is complete Exposes I, II, VI, VII, and VIII plus Expose IX through section
+3.4. The next continuation is Expose IX Proposition 3.5, authority line 880,
+scan index 361, source folio 350.
+
+GitHub PRs #186 and #188 produced final main commit
+`a374b92e6002a32f076b3b6ac0d2a01897fbac7d`; all 147 package files passed
+commit-pinned raw readback. Zenodo passed all 83 outer files, all 79 retained
+predecessor identities, all 141 reader/source members, and all eight release
+control members. SGA1 remains the default preview. This remains an incomplete
+SGA7 I English working translation, not a critical edition, mathematical or
+accessibility certification, rights decision, or whole-SGA certification.
