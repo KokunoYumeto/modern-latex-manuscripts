@@ -122,6 +122,23 @@ GitHub PR [#212](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/2
 merged the receipt as `1cef0c253f69619054a5ee814866742c1101f936`; anonymous
 readback matched all seven changed blobs at both source and merge commits.
 
+## 2026-08-01 complete linked EGA 0-IV reader published
+
+The EGA concept now points to
+[`10.5281/zenodo.21744406`](https://doi.org/10.5281/zenodo.21744406).
+The selected preview is the continuous 1,356-page linked EGA 0-IV English
+reader, with 15,383 named destinations, 17,808 valid GoTo actions, and zero
+broken actions. Five standalone volume readers and all six master TeX files
+remain direct. The leading 265-member bundle contains the global reader, all
+standalone readers, and their complete buildable TeX closures.
+
+The 42-file record retained all 36 unrelated predecessor objects
+byte-identically. Anonymous readback matched all 3,771,391,044 outer bytes and
+all 265 bundle members. No duplicate concept or second draft was created.
+GitHub package PR [#226](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/226)
+merged as `28d373916554bd26fa0661f9905eb2277b7eeca7`; the publication
+receipts merged through PR #227.
+
 ## 2026-08-01 complete EGA IV and SGA7 I readers published
 
 The EGA concept now points to
@@ -4309,7 +4326,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
 | SGA | 21747165 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
-| EGA | 21740145 | <https://doi.org/10.5281/zenodo.20414353> |
+| EGA | 21744406 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
 | Gauss | 20674086 | <https://doi.org/10.5281/zenodo.20410934> |
 | Riemann | 20434317 | <https://doi.org/10.5281/zenodo.20429778> |

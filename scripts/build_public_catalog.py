@@ -40,7 +40,7 @@ RECORDS: list[tuple[str, str]] = [
     ("cayley", "20617845"),
     ("sga", "21747165"),
     ("deligne", "21212608"),
-    ("ega", "21740145"),
+    ("ega", "21744406"),
     ("ukrainian_applied_math", "20520721"),
     ("gauss", "20674086"),
     ("riemann", "20434317"),
@@ -67,6 +67,7 @@ RECORDS: list[tuple[str, str]] = [
 ]
 
 EXPECTED_SELECTED_PREVIEWS = {
+    "ega": "00_GLOBAL_EGA_0_IV_English_Complete_Linked_Reader_20260801.pdf",
     "sga": "00a_SGA1_English_Reader.pdf",
     "split_zero_research_sidecar": "00_PROJECT_ATLAS_20260717.pdf",
 }
@@ -94,7 +95,7 @@ RECORD_NOTES = {
         "Current compact SGA record 21747165 starts with one ZIP containing the current standalone English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 I. The same readers and masters remain direct in order; SGA1 is the default preview. This is not yet one cross-volume SGA 1-7.2 PDF. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX. A direct 194-page SGA7 II English current-progress reader contains complete Exposes X-XVIII through Corollary 6.7 and the Expose XVIII bibliography, with its 137-member reader/TeX ZIP; Exposes XIX-XXII are absent. French working transcriptions remain separately available. Anonymous readback passed all 85 outer files, all 82 retained predecessor identities, all 137 members of the new SGA7 II package, and all 12 release-control members. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.",
     ],
     "ega": [
-        "Open the current-reader bundle or one of the five direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV is complete through Sections 1-21 and EOF with its reference-v2 reader and buildable TeX. The bundle contains standalone readers and buildable TeX, not yet one cross-volume EGA 0-IV PDF. These are working translations, not critical editions or a claim of uniform whole-corpus certification.",
+        "Open the fronted 1,356-page linked EGA 0-IV reader for one continuous reading surface, or use the five direct standalone English readers. The leading bundle contains the global reader, all five standalone readers, and their complete buildable TeX closures. EGA 0 is complete through Section 13; EGA I and II through their authority EOFs; the published EGA III text through 7.9.14; and EGA IV through Sections 1-21 and EOF. Anonymous readback passed all 42 outer files and all 265 leading-bundle members. These are working translations, not critical editions, rights clearance, mathematical certification, accessibility certification, or a claim of uniform whole-corpus source certification.",
     ],
     "workflow": [
         "Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.",
@@ -286,12 +287,14 @@ def reader_facing_rows(label: str, rows: list[dict[str, str]]) -> list[dict[str,
         return rows
 
     direct_prefixes = (
+        "00_GLOBAL_",
         "00a_",
         "00b_",
         "00c_",
         "00d_",
         "00e_",
         "00f_",
+        "01_GLOBAL_",
         "01a_",
         "01b_",
         "01c_",
