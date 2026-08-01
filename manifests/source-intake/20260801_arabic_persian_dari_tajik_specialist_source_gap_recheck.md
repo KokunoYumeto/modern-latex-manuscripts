@@ -97,3 +97,11 @@ The controlling shared log now has 429 unique records / 2,701,956 bytes /
 SHA-256 `5F671F9C209E1F21995743E71F13680BACF1CAE3B6FB47ABC9DFEB374A9DB656`,
 with `errors=[]`. The standalone record is 6,498 bytes / SHA-256
 `55AA7C626C6F4B769F9C040F32A1AE861FBB9C334737900C6AF513F013117AEE`.
+
+GitHub PR [#212](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/212)
+merged the seven-file receipt update as
+`1cef0c253f69619054a5ee814866742c1101f936` from source commit
+`f796c81f77f0a84119acd7de8ddee7d4d7159fa0`. Anonymous commit-pinned
+readback matched 7/7 committed blobs at both commits. The canonical
+path/bytes/SHA-256 aggregate is
+`5AC234D51CC3453775A31526F33682EB14279690D985E29366EC3BC529D6EC61`.
