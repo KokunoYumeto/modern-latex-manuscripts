@@ -37,7 +37,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "21699405"),
     ("weber", "21728241"),
     ("cayley", "20617845"),
-    ("sga", "21729478"),
+    ("sga", "21730414"),
     ("deligne", "21212608"),
     ("ega", "21717450"),
     ("ukrainian_applied_math", "20520721"),
@@ -90,7 +90,7 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current compact SGA record 21729478 starts with one ZIP containing all six cumulative English reader PDFs and their complete buildable TeX closures. The same readers and masters remain direct in SGA1-6 order; SGA1 is the default preview. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a 181-page English working reader covering complete Exposes I, II, VI, VII, and VIII; its compact 131-member ZIP contains the reader and exact 127-component TeX closure. The next continuation is Expose IX, Introduction 0.1, authority line 5, scan index 324, source folio 313. SGA7 II remains a partial French working transcription through Expose XXI. Historical versions remain immutable. These are working editions and translations, not critical editions, rights determinations, mathematical certifications, accessibility certifications, or final whole-SGA certification.",
+        "Current compact SGA record 21730414 starts with one ZIP containing all six cumulative English reader PDFs and their complete buildable TeX closures. The same readers and masters remain direct in SGA1-6 order; SGA1 is the default preview. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a 198-page English working reader covering complete Exposes I, II, VI, VII, and VIII plus Expose IX through section 3.4; its compact 141-member ZIP contains the reader and exact 137-component TeX closure. The next continuation is Expose IX Proposition 3.5, authority line 880, scan index 361, source folio 350. SGA7 II remains a partial French working transcription through Expose XXI. Historical versions remain immutable. These are working editions and translations, not critical editions, rights determinations, mathematical certifications, accessibility certifications, or final whole-SGA certification.",
     ],
     "ega": [
         "Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14. EGA IV is cumulative through Sections 1-10, with bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. These are working translations, not a claim that all of EGA is complete or a critical edition.",
