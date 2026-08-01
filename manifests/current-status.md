@@ -1,3 +1,24 @@
+## 2026-08-01 Arabic/Persian/Dari/Tajik specialist-source gaps reverified
+
+The current 884,720,731-byte RTL/Persianate source-body archive on
+[`10.5281/zenodo.21739451`](https://doi.org/10.5281/zenodo.21739451) was
+replayed by anonymous HTTP byte range. Eleven unique source objects /
+92,657,225 bytes were decompressed and searched in memory. All 78 lexical
+matches were contextual false positives; no Arabic or Persian
+invariant-theory/Noether source was found.
+
+The same 1,047-entry central directory contains no Dari TeX/source archive.
+Its six Tajik-shaped ZIP paths are duplicate placements of two Persian
+linear-algebra archives, not Tajik editable source. The Arabic
+invariant-theory, Persian invariant/Noether, Dari editable-source, and Tajik
+abstract-algebra/TeX gaps therefore remain explicitly open. No full 884 MB
+download, new upload, or duplicate Zenodo version was needed. Exact receipt:
+`manifests/source-intake/20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck.json`.
+The locked helper appended the matching decision and returned 429 records /
+2,701,956 bytes / SHA-256
+`5F671F9C209E1F21995743E71F13680BACF1CAE3B6FB47ABC9DFEB374A9DB656`,
+`errors=[]`.
+
 ## 2026-08-01 complete EGA IV and SGA7 I readers published
 
 The EGA concept now points to
