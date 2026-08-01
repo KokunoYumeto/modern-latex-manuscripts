@@ -31,7 +31,7 @@ RECORDS: list[tuple[str, str]] = [
     ("main", "20459634"),
     ("workflow", "21707334"),
     ("visual_evidence", "21730032"),
-    ("interlanguage_reflections", "21485338"),
+    ("interlanguage_reflections", "21730669"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21443852"),
     ("noether", "21699405"),
@@ -135,7 +135,7 @@ RECORD_NOTES = {
         "Current version 20435690 is a focused historical-reference shelf with reader PDFs and filtered TeX/source material. It supports terminology and historical comparison; it is not a blanket source-certified or critical-edition corpus.",
     ],
     "interlanguage_reflections": [
-        "Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21485338 retains the full numbered v0.13 archive and adds the CJK visual-evidence checkpoint: 290 open project-generated or project-recovered images, six public-safe controls, and metadata-only representation of 14 rights-blocked images. The index also records 1,716 excluded non-project images, 49 metadata-incomplete records, and one inherited undecodable PNG. Parent and structural links remain candidates unless explicitly confirmed. These are model-built methodology, normalization, corpus, bounded working-translation, provenance, and visual-QA artifacts, not native validation, translation or source-fidelity certification, rights clearance, community certification, peer review, or critical editions.",
+        "Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21730669 retains the complete numbered archive and adds a commit-pinned Interslavic dictionary anchor for the 353 held mathematical uses of `važiti` across 101 files. The checked dictionary row glosses `važiti` as 'weigh, balance'; it does not support an abstract 'hold/be valid' sense. No corpus-wide rewrite was made: each occurrence remains open for sentence-level or community adjudication. These are methodology, normalization, corpus, bounded working-translation, provenance, and QA artifacts, not native validation, translation or source-fidelity certification, rights clearance, community certification, peer review, or critical editions.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",

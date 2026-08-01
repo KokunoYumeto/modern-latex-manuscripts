@@ -5534,3 +5534,37 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   returned 417 records / 2,635,151 bytes / SHA-256
   `35186D8572D62D84806CD7561D77FAB3A4680497CA372B8A189F213D84512BA8`,
   `errors=[]`.
+
+## 2026-08-01 - Interslavic `važiti` source anchor published
+
+- GitHub PR [#191](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/191)
+  merged the exact five-file source-anchor packet as
+  `27e82d3f314e719eec193e539dd1f9ee2ca67156`; commit-pinned raw readback
+  matched 5/5 files and all four ZIP members.
+- Published same-concept Interlanguage successor
+  [`10.5281/zenodo.21730669`](https://doi.org/10.5281/zenodo.21730669)
+  under concept DOI `10.5281/zenodo.21124403`. The record has 56 files /
+  4,976,092,989 bytes and retains all 51 predecessor identities exactly.
+- The source anchor pins Interslavic Dictionary commit
+  `0fab0c5b4463118d46b1cdcd506926d8848052c9`, blob
+  `d630e808167ed1baceeca47e210197186eadb60c`, and source SHA-256
+  `738038CF6038B9CFD27C93CAA4BB5C7472917777049B49CE8EB9422DAA72A9A8`.
+- Row 6005 glosses `važiti` as “weigh, balance,” not abstract mathematical
+  “hold/be valid.” The 353 held occurrences across 101 files remain for
+  sentence-level or community adjudication; no mass rewrite was made.
+- New public identities: note
+  `0949CEDE44F8747B93D99FC7B31ABA6172E7FA08EBF5895C9C3834AA6C93FCEE`,
+  extract `5BC874206AAF20194A1CD0C92425E798CF0355D40D6E5779A215E3123714AB13`,
+  metadata `45A3937973E8F42FA482C93DE07ACA305CEA9C8C8785121AE7082C177B308592`,
+  and four-member ZIP
+  `3EC422C05783AA5A5894A9486C223C7896292970C63BD5B6C49621188C7EA14F`.
+- Exact Zenodo receipt:
+  `manifests/published-zenodo/20260801_interslavic_vaziti_source_anchor_record_21730669_public_readback.json`,
+  3,370 bytes, SHA-256
+  `52607BCB6802FB0820AFFA5C56FFA4042FD2662CCB72DF5328D61598E989C500`.
+- No duplicate concept or active draft remains. The locked helper appended
+  decision
+  `EG-ARCHIVE-INTERSLAVIC-VAZITI-SOURCE-ANCHOR-PUBLICATION-20260801-0001`
+  and returned 418 records / 2,640,661 bytes / SHA-256
+  `C3D3D1DA7A5B231AAF0D6C50508C5C75CE041BF4D02A51BB2F9D3A90609CF6E9`,
+  `errors=[]`.
