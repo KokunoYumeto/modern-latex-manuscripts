@@ -14,6 +14,17 @@ abstract-algebra/native-TeX source remain open. GitHub reported no repository
 license, and no new license, native review, terminology approval, translation
 certification, mathematical certification, or critical-edition claim is made.
 
+GitHub PR [#222](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/222)
+published the exact packet as merge commit
+`e731d17c181f0d1a4c539e2d529dd6f3c33f3102`; anonymous source- and
+merge-commit readback matched all 12/12 changed blobs. Interlanguage version
+[`10.5281/zenodo.21743417`](https://doi.org/10.5281/zenodo.21743417), under
+the existing concept DOI
+[`10.5281/zenodo.21124403`](https://doi.org/10.5281/zenodo.21124403), adds
+only the compact ZIP. All 64 predecessor files remain byte-identical by
+Zenodo size/MD5 identity; the new ZIP and all 6 members passed anonymous
+SHA-256 readback. No active draft or duplicate concept remains.
+
 ## 2026-08-01 Arabic/Persian/Dari/Tajik specialist-source gaps reverified
 
 The current 884,720,731-byte RTL/Persianate source-body archive on
@@ -4217,7 +4228,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 |---|---:|---|
 | Main landing | 20459634 | <https://doi.org/10.5281/zenodo.20393488> |
 | Workflow / replication packet | 21707334 | <https://doi.org/10.5281/zenodo.20461174> |
-| Interlanguage methodology | 21739451 | <https://doi.org/10.5281/zenodo.21124403> |
+| Interlanguage methodology | 21743417 | <https://doi.org/10.5281/zenodo.21124403> |
 | Lean formalization sidecars | 21129946 | <https://doi.org/10.5281/zenodo.21129945> |
 | Split-zero research sidecar | 21443852 | <https://doi.org/10.5281/zenodo.20822444> |
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
