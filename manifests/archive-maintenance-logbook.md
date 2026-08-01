@@ -5685,3 +5685,42 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-github/20260801_fable_g15_source_anchor_commit_9975e8bbc_public_readback.json`
   and
   `manifests/published-zenodo/20260801_fable_g15_source_anchor_record_21739451_public_readback.json`.
+
+## 2026-08-01 - Complete EGA IV reference-v2 reader published
+
+- Accepted exact handoff `EG-EGA4-R4-HANDOFF-20260801-0001`: 84 files /
+  38,155,078 bytes, manifest SHA-256
+  `A8823F48D3FAE63AA5CED4299821E13BA01EF14B850618374EDB8B088C15D514`,
+  and producer validation `PASS` with `errors=[]`.
+- A copied-package replay rebuilt all 651 pages and matched every decoded page
+  stream, extracted text page, 5,911 named destinations, and 7,374 internal
+  GoTo actions. The 651-page reader SHA-256 is
+  `6087FD9475DBDE908EA2025326BC7A49AF33583C7047A7D9332648D2B6387C7A`.
+- GitHub PR [#207](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/207)
+  merged the exact reader, master, 84-member source/QA ZIP, refreshed
+  135-member all-current-reader bundle, controls, and reproducible builder as
+  `61d8455209e7c7401fbf9af7ec25b340ea89f5dc`.
+- Published same-concept EGA successor
+  [`10.5281/zenodo.21740145`](https://doi.org/10.5281/zenodo.21740145)
+  under concept DOI `10.5281/zenodo.20414353`. The 40-file record has
+  3,752,670,964 bytes and retains all 36 unrelated predecessor objects by
+  exact size/MD5 identity.
+- Anonymous full-download readback matched all four replacements by SHA-256;
+  both replacement ZIPs matched all 219 members. EGA0 remains the default
+  preview. The landing description is a 646-byte reader/coverage summary with
+  zero additional description blocks.
+- No duplicate concept, second draft, or active draft remains. R1-R3 stay
+  rejected local history and were not uploaded.
+- The locked helper appended
+  `EG-ARCHIVE-EGA4-COMPLETE-REFERENCE-V2-PUBLICATION-20260801-0001` and
+  returned 426 records / 2,686,402 bytes / SHA-256
+  `01B62EBCCC632818624C085986C53FF8A7C2D1425DFE9069DFB10EA77350E875`,
+  `errors=[]`.
+- Standalone locked-append record:
+  `ARCHIVE_DECISION_RECORD_EGA4_COMPLETE_REFERENCE_V2_PUBLICATION_20260801.json`,
+  7,868 bytes, SHA-256
+  `9D4AF43C38CE3325E6CD97D6658047657C2905D927C03548D315ABCDB1EF49FC`.
+- Exact receipt:
+  `manifests/published-zenodo/20260801_ega4_complete_reference_v2_record_21740145_public_readback.json`,
+  71,033 bytes, SHA-256
+  `97118E66EDC51C2E431B314A1DC2DEAC2830E6DE1541D4F3CA395EF45B9FACA9`.
