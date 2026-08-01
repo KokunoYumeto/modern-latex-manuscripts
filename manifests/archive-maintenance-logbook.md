@@ -5814,3 +5814,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `5AC234D51CC3453775A31526F33682EB14279690D985E29366EC3BC529D6EC61`.
 - Commit readback receipt:
   `manifests/published-github/20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck_commit_f796c81f7_public_readback.json`.
+
+## 2026-08-01 - EGA global-reader scope and public wording corrected
+
+- The current EGA Zenodo ZIP contains the standalone EGA 0-IV readers and
+  buildable TeX; it is not yet one cross-volume cumulative PDF.
+- The active EGA 0 successor now assembles sections 0.1-0.23 and bibliography.
+  Its build/reference tree remains in production, so no moving bytes were
+  uploaded or represented as release-ready.
+- Corrected the public README to call the current object a standalone-reader
+  bundle and to reserve the cumulative-reader label and default-preview slot
+  for the later exact EGA 0-IV handoff.
+- Updated the durable EGA coordination note to 2,124 bytes / SHA-256
+  `0B9784F70F89AD62E2E998397B64AEFE4B12D06047FBD6683D306EE70A8FBE42`.
+- The locked helper appended
+  `EG-EGA-GLOBAL-READER-SCOPE-CORRECTION-20260801-0001` and returned
+  430 records / 2,706,110 bytes / SHA-256
+  `7B6BD684556D645E89BC0A34F5BFEBC3511FCC443E46D8A8F0EFD482F5ABF9A9`,
+  `errors=[]`. The standalone correction record is 4,560 bytes / SHA-256
+  `4CBA295F60C4624CE626B82558D84B498E0F9B0BFBD8EC356943626627E040B0`.
+- No Zenodo mutation or reader claim was made. The current record
+  `10.5281/zenodo.21740145` remains the immutable public baseline.
