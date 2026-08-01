@@ -4,10 +4,9 @@
 
 These ZIPs are uploadable Web/Pro source-reference bundles containing actual LaTeX/source-support file bodies, not only manifests, hashes, URLs, screenshots, or source-canon ledgers.
 
-They were built from local dump material under:
-
-- `C:\Users\Floris\Downloads\codex backup dump 7-4`
-- `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\noether-slavic-handoff\20260629\cross-session-coordination\20260704`
+They were built from a dated local backup dump and the project
+`noether-slavic-handoff/20260629/cross-session-coordination/20260704`
+coordination tree. Private machine paths are intentionally omitted.
 
 They are intended as source-language/register baselines for interlanguage and multilingual mathematical-translation work. They should be fed to Web/Pro sessions as reference corpora, not treated as proof that the project has native approval or completed language synchronization.
 
@@ -21,13 +20,13 @@ They are intended as source-language/register baselines for interlanguage and mu
 | `Interlanguage_LaTeX_SourceBodies_Slavic_Interslavic_Support_20260704.zip` | 1,194 | 6,406,302 | `1A7416747F1AD814734FE9EE1A096D2D0A43EEA94D64E2B6E6106854FE1EA73B` | Czech/Interslavic source archives plus generated Noether Slavic support TeX |
 | `Interlanguage_LaTeX_SourceBodies_Slavic_Linguistics_Arxiv_20260705.zip` | 54 | 14,439,157 | `613880CF5327B60657E2352BA7856D693A3E04F934EDC187E924E03AC54346F5` | Slavic/interlanguage computational-linguistics arXiv source addendum; methodology source-body evidence, not per-language native math attestation |
 
-## Local Paths
+## Archive-Relative Staging Labels
 
-- `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_latex_source_bodies\Interlanguage_LaTeX_SourceBodies_Romance_ES_FR_20260704.zip`
-- `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_latex_source_bodies\Interlanguage_LaTeX_SourceBodies_Persian_RTL_Arabic_20260704.zip`
-- `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_latex_source_bodies\Interlanguage_LaTeX_SourceBodies_CJK_ZH_JA_20260704.zip`
-- `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_latex_source_bodies\Interlanguage_LaTeX_SourceBodies_Slavic_Interslavic_Support_20260704.zip`
-- `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\interlanguage-sidecar\20260704\latex_source_body_bundles\Interlanguage_LaTeX_SourceBodies_Slavic_Linguistics_Arxiv_20260705.zip`
+- `publish_staging/interlanguage-methodology/20260704_latex_source_bodies/Interlanguage_LaTeX_SourceBodies_Romance_ES_FR_20260704.zip`
+- `publish_staging/interlanguage-methodology/20260704_latex_source_bodies/Interlanguage_LaTeX_SourceBodies_Persian_RTL_Arabic_20260704.zip`
+- `publish_staging/interlanguage-methodology/20260704_latex_source_bodies/Interlanguage_LaTeX_SourceBodies_CJK_ZH_JA_20260704.zip`
+- `publish_staging/interlanguage-methodology/20260704_latex_source_bodies/Interlanguage_LaTeX_SourceBodies_Slavic_Interslavic_Support_20260704.zip`
+- `interlanguage-sidecar/20260704/latex_source_body_bundles/Interlanguage_LaTeX_SourceBodies_Slavic_Linguistics_Arxiv_20260705.zip`
 
 ## Handling Caveats
 
@@ -40,3 +39,8 @@ They are intended as source-language/register baselines for interlanguage and mu
 ## Next Source-Collection Need
 
 The current local evidence is still thin for some non-Russian/non-Ukrainian Slavic languages and for many smaller language lanes. Other AI lanes should continue collecting actual source-body LaTeX files and should push ZIPs containing the files themselves, not only source-canon ledgers.
+
+The narrower SireJeff Persian `main.tex` and source-ZIP gap later recorded by
+packages 458-459 is now closed by exact GitHub and Zenodo custody. See
+`20260801_persian_sirejeff_source_anchor_closeout.md`. This does not close the
+broader smaller-language and Arabic/Farsi/Dari/Tajik source needs above.

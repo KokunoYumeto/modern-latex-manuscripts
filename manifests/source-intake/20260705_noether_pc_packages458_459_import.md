@@ -42,6 +42,24 @@ Important source-body gap:
 
 The packet still does not include actual TeX files or source ZIPs. It only names source rows and open gaps. The next source-capture action is to push the actual payloads for named rows such as `fa_github_sirejeff_persian_main_tex` and `fa_github_sirejeff_source_zip`, plus the Arabic/Farsi/Dari/Tajik TeX/arXiv source packages where they exist.
 
+## Later Exact Closeout: SireJeff Rows (2026-08-01)
+
+The two specifically named SireJeff pointers above were closed by a later
+source-body payload. They are public on GitHub and inside the current
+Interlanguage Zenodo source-body archive:
+
+- `fa_github_sirejeff_persian_main_tex`: 6,280 bytes, SHA-256
+  `AA4207AE05BA1804FFB3BBE8265954571BE276E75A8CB7A1656A72ED92417427`.
+- `fa_github_sirejeff_source_zip`: 2,007,400 bytes, SHA-256
+  `EEEE28E88CA465F0A125AFE056F6203B84C138EB44114867D8E49F3C3344252C`,
+  44 readable members.
+
+Fresh GitHub raw and Zenodo range-read replay both passed. See
+`20260801_persian_sirejeff_source_anchor_closeout.md`. This later closeout
+does not change the historical fact that packages 458-459 themselves contain
+no source bodies, and it does not close their other Arabic/Farsi/Dari/Tajik
+source gaps.
+
 Classification:
 
 Methodology/source-canon/cross-lane-sync/open-gap coordination only. This is not the requested bulk native mathematical LaTeX source-body corpus, not language completion, not native review, not term approval, not source-fidelity certification, not publication readiness, not reader output, and not critical-edition material. It records where source bodies should be collected, but does not include them.
