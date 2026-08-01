@@ -6028,3 +6028,42 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   global-reader queue.
 - Exact receipt:
   `manifests/published-github/20260801_sga7ii_english_xviii_5_8_7_closeout_commit_1f7a418a_public_readback.json`.
+
+## 2026-08-01 - SGA7 II English Exposes X-XVIII complete successor closed
+
+- Published the stronger 145-file privacy-clean working checkpoint containing
+  complete English Exposes X-XVIII through Corollary 6.7 and the Expose XVIII
+  bibliography. The reader has 194 A4 pages; Expose XIX is the next cursor and
+  Exposes XIX-XXII remain absent. This is not a complete-SGA7 II or
+  exhaustive-reference claim.
+- GitHub PR [#236](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/236)
+  merged the package as `46c222136acef06ce0f515028ee73cdfcbd2b1bf`.
+  Anonymous raw replay matched all 145 package files and all 137 compact-ZIP
+  members exactly.
+- Published one successor under the existing SGA concept DOI
+  [`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947):
+  [`10.5281/zenodo.21747165`](https://doi.org/10.5281/zenodo.21747165).
+  Anonymous readback matched all 85 files / 684,224,664 bytes, all 82 retained
+  predecessor identities, all 137 reader/source ZIP members, and all 12
+  release-control ZIP members. SGA1 remains the selected preview; no active
+  draft or duplicate concept remains.
+- The new reader PDF is 1,043,444 bytes / SHA-256
+  `29685C724D3EF9014EE6DE5084F1A3C741D3572C6E2E2A561F0F1520DCBC661F`.
+  The compact reader/buildable-TeX ZIP is 1,286,004 bytes / SHA-256
+  `CD99733F3293B20664C253DB29019ED5661FE1F91263D3C88481C8C2E7DB8D0C`.
+- GitHub PR [#237](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/237)
+  merged source commit `d4d21b710b3bfd90fb404f45c1a72e327e727069` as
+  `d91215d56fffecf6f83b3024b6ae89c43b8736c2`. Anonymous commit-pinned
+  readback matched all 27 changed files at both commits: 3,423,080 bytes,
+  canonical path/byte/SHA-256 row aggregate
+  `91FE807D45B54827F19A28A87DE05E5656B15299E0BE9E85DCC607DBF0B68FC4`.
+- The locked helper appended
+  `EG-ARCHIVE-SGA7II-ENGLISH-XVIII-COMPLETE-CLOSEOUT-20260801-0001` and returned
+  440 records / 2,764,708 bytes / SHA-256
+  `D69163CD90FAD66FB17B2E00BEB4A3B582C2715EDE87F8873EBC3DB74480D6AB`,
+  with `errors=[]`.
+- Exact receipts:
+  `manifests/published-github/20260801_sga7ii_english_xviii_complete_closeout_commit_d91215d56_public_readback.json`,
+  `manifests/published-zenodo/20260801_sga7ii_english_through_xviii_complete_record_21747165_public_readback.json`,
+  and
+  `manifests/published-zenodo/20260801_sga7ii_english_through_xviii_complete_record_21747165_zip_member_readback.json`.
