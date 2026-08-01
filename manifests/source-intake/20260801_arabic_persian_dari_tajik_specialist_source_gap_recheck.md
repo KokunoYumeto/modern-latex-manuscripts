@@ -163,3 +163,31 @@ The mandatory locked helper appended
 and returned 434 unique records / 2,726,603 bytes / SHA-256
 `667F673AB5CEE737D152FE42977CE33B8BE6003557A3938CF56032E21E95E8E5`,
 with `errors=[]`.
+
+## Later Web-Source Closeout: Tajik Algebra (2026-08-01)
+
+A later public-library search found two direct Tajik university algebra
+sources on
+[`zarowadk.ru`](https://zarowadk.ru/skachat-besplatno-2/kitobho-matematika.html):
+
+- Davlatov and Choriev, *Algebra and Number Theory, Part 1* (1976),
+  81 physical PDF pages / 5,283,895 bytes / SHA-256
+  `4862488CA3B492C10CC1893D921A110F0B39C2CD84FFCEC50FD612B631666181`;
+- Choriev and Olimov, *Algebra and Number Theory* course-methodology complex
+  (2017), 165 physical PDF pages / 1,487,129 bytes / SHA-256
+  `5A4B150F67B79009F0FDD207F46297A21F18913C83BACE38B1909A8712AFADAC`.
+
+Poppler/pypdf replay and direct rendered-page review confirmed Tajik source
+material on complex numbers, sets and relations, groups, rings, fields,
+homomorphisms, linear systems, exercises, and number theory. The exact files,
+URLs, reported-versus-physical page counts, and bounded scope ledger are in
+`interlanguage-sidecar/20260801/tajik-algebra-source-anchor/`.
+
+This closes the Tajik algebra-source row, but not native Tajik TeX. The exact
+open gaps are now Arabic invariant theory, Persian invariant theory, and Dari
+editable mathematical source. The source site reserves rights and describes
+third-party downloads as familiarization copies; no open license or new
+redistribution-right conclusion, native review, accepted terminology,
+translation or mathematical certification, accessibility remediation, or
+critical-edition status is inferred. GitHub and same-concept Zenodo
+publication/readback are pending.
