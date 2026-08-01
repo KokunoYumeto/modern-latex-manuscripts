@@ -5648,3 +5648,40 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-github/20260801_fable_tranche001_ack_commit_faa4f08eb_public_readback.json`
   and
   `manifests/published-zenodo/20260801_fable_tranche001_ack_record_21739167_public_readback.json`.
+
+## 2026-08-01 - Fable G15 invariant-ledger source anchor published
+
+- A bounded search opened 41 relevant ZIPs and scanned 10,165 text members /
+  406,521,901 uncompressed bytes with zero archive errors. No standalone G15
+  or 15G file was found.
+- Twenty-four bounded references identify G15 as Gate 15 in
+  `INTERSLAVIC_GATE_MAP.md`: the invariant-ledger gate. The exact 7,691-byte
+  member has SHA-256
+  `E714C7A1EEED2DC5B3DD5C2F2AD9184521E14225B82DE1F9E563D1F93987A6F7`.
+- GitHub PR [#203](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/203)
+  merged the five-file source-anchor package as
+  `9975e8bbc4e40327758ef4cad183e18d7ce75162`; commit-pinned raw readback
+  matched 5/5 files.
+- Published same-concept Interlanguage successor
+  [`10.5281/zenodo.21739451`](https://doi.org/10.5281/zenodo.21739451)
+  under concept DOI `10.5281/zenodo.21124403`. It has 64 files /
+  4,976,113,470 bytes, retains all 59 predecessor objects exactly, and adds
+  five compact controls / 13,830 bytes.
+- Anonymous Zenodo readback matched all five new SHA-256 identities; no active
+  draft or duplicate concept remains.
+- The source anchor identifies the gate; it does not implement a global
+  invariant ledger, establish global completeness, or provide native or
+  community certification.
+- The locked helper appended
+  `EG-ARCHIVE-FABLE-G15-SOURCE-ANCHOR-PUBLICATION-20260801-0001` and returned
+  423 records / 2,667,782 bytes / SHA-256
+  `68FDFDF13F91ABFAD32A704A373EDAE39A6D57FCFB69CA227D6EB3FFD5EF1E44`,
+  `errors=[]`.
+- Standalone locked-append record:
+  `ARCHIVE_DECISION_RECORD_FABLE_G15_SOURCE_ANCHOR_PUBLICATION_20260801.json`,
+  5,265 bytes, SHA-256
+  `B633735CA78999E89CA73D159E862981F229F1678F2BD01D298CC073B3627C4A`.
+- Exact receipts:
+  `manifests/published-github/20260801_fable_g15_source_anchor_commit_9975e8bbc_public_readback.json`
+  and
+  `manifests/published-zenodo/20260801_fable_g15_source_anchor_record_21739451_public_readback.json`.
