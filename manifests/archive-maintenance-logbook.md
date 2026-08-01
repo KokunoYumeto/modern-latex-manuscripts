@@ -5456,3 +5456,34 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and returned 415 records / 2,623,847 bytes / SHA-256
   `E6562AF1DA428497295BE1474F431F3ACF2BD39DB65AB008735549FA634ACF06`,
   `errors=[]`.
+
+## 2026-08-01 - Dedicated SGA/EGA source-audit crop dataset published
+
+- Published the dedicated Zenodo record
+  [`10.5281/zenodo.21730032`](https://doi.org/10.5281/zenodo.21730032)
+  under new visual-evidence concept DOI
+  [`10.5281/zenodo.21730031`](https://doi.org/10.5281/zenodo.21730031).
+  This is separate from the SGA and EGA reader records, whose landing pages
+  remain reader-first.
+- GitHub package
+  `sources/visual-evidence/sga7i-targeted-high-detail-source-crops-20260801`
+  is public at commit `7e9cd8affffd6bde1b648c73c15f1c94e0c285dd`.
+- The record contains exactly three ZIPs / 260,183,361 bytes. Anonymous
+  readback matched all three outer hashes, opened all 5,867 members, and
+  replayed all 5,864 checksum-listed non-manifest members.
+- Two image ZIPs preserve 5,855 exact high-detail SGA7 I targeted crops used
+  in source checking. The metadata ZIP preserves the exact included-image
+  manifest, nine already-public duplicate identities, and a ledger for 5,902
+  indexed targeted crops that were no longer locally recoverable.
+- Outer ZIP SHA-256 identities are
+  `C71F357C3FB3802A4F39AD9FFFA092E1523BF00831A1F67D8A9E026B626288E1`,
+  `43E6AFBA5536EA8D0578CAE39EC7EF98A43EAAC7186CD45B269AE22FC0A02C21`,
+  and `04720B735FF86F6B077818D229F647AA02A52244B962C0A0461014F57E4CCEB5`.
+- This is reusable source-audit evidence and compute preservation, not a
+  reader, translation, source-complete edition, mathematical certification,
+  or critical edition. No duplicate concept or competing active draft exists.
+- The locked helper appended decision
+  `EG-ARCHIVE-SGA7I-TARGETED-CROP-DATASET-PUBLICATION-20260801-0001`
+  and returned 416 records / 2,629,305 bytes / SHA-256
+  `52A18E7A039676AE8D06BF5E13FAE6D5D4B426F44FAEDB7C760C06143548BDA1`,
+  `errors=[]`.

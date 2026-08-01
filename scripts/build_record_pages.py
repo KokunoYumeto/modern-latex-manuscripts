@@ -37,6 +37,12 @@ RECORD_TIERS = [
         ],
     ),
     (
+        "Reusable source-audit image worksets",
+        [
+            "visual_evidence",
+        ],
+    ),
+    (
         "Separate mathematics research sidecar",
         [
             "split_zero_research_sidecar",
@@ -99,6 +105,7 @@ RECORD_ORDER = [label for _, labels in RECORD_TIERS for label in labels]
 DISPLAY_NAMES = {
     "main": "Main Project Landing",
     "workflow": "Workflow / Replication Packet",
+    "visual_evidence": "SGA / EGA Source-Audit Image Worksets",
     "interlanguage_reflections": "Interlanguage Methodology",
     "lean_formalization_sidecars": "Lean Formalization Sidecars",
     "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers",
@@ -142,6 +149,9 @@ INDEX_DISPLAY_NAMES = {
 RECORD_NOTES = {
     "workflow": [
         "Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.",
+    ],
+    "visual_evidence": [
+        "Dedicated compute-reuse dataset for provenance-bound high-detail source crops used during SGA and EGA transcription checks. The initial version contains 5,855 recovered SGA7 I targeted crops in two image archives plus one metadata archive. It is source-audit evidence, not a reader, translation, critical edition, mathematical certification, or blanket rights determination. Reader landing pages remain separate and reader-first.",
     ],
     "bianchi": [
         "Dedicated Bianchi working-edition record. Volume I of `Lezioni di geometria differenziale` is represented as a full source-pdfpage 001-543 Italian transcription and English translation working edition, with top-level reader PDFs, a source-scan witness PDF, and `95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip` carrying the TeX, ledgers, render checks, and the post-completion auditfix pass. The A2 branch is separate and now has compact/core Italian-English working coverage through source p0135, with the public `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` as the latest cataloged A2 package and earlier large scan-heavy p0105/repair packages retained as provenance/backstop. A smaller same-name Edge re-export has been routed locally under a disambiguated filename and is pending review/upload; it is not yet a public catalog replacement. These are working manuscript witnesses: TeX builds and renders, but matrix dots, prime marks, summation superscripts, and handwritten-symbol details still need continuing source/glyph audit. OCR/image-analysis material remains witness/locator evidence only.",
