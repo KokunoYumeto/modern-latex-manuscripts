@@ -38,7 +38,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "21699405"),
     ("weber", "21728241"),
     ("cayley", "20617845"),
-    ("sga", "21745704"),
+    ("sga", "21747165"),
     ("deligne", "21212608"),
     ("ega", "21740145"),
     ("ukrainian_applied_math", "20520721"),
@@ -91,7 +91,7 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current compact SGA record 21745704 starts with one ZIP containing the current standalone English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 I. The same readers and masters remain direct in order; SGA1 is the default preview. This is not yet one cross-volume SGA 1-7.2 PDF. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX. A direct 186-page SGA7 II English current-progress reader contains complete Exposes X-XVII and Expose XVIII through Corollary 5.8.7, with its 130-member reader/TeX ZIP; the continuation and Exposes XIX-XXI are absent. French working transcriptions remain separately available. Anonymous readback passed all 85 outer files, all 82 retained predecessor identities, and all 130 members of the new SGA7 II package. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.",
+        "Current compact SGA record 21747165 starts with one ZIP containing the current standalone English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 I. The same readers and masters remain direct in order; SGA1 is the default preview. This is not yet one cross-volume SGA 1-7.2 PDF. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX. A direct 194-page SGA7 II English current-progress reader contains complete Exposes X-XVIII through Corollary 6.7 and the Expose XVIII bibliography, with its 137-member reader/TeX ZIP; Exposes XIX-XXII are absent. French working transcriptions remain separately available. Anonymous readback passed all 85 outer files, all 82 retained predecessor identities, all 137 members of the new SGA7 II package, and all 12 release-control members. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.",
     ],
     "ega": [
         "Open the current-reader bundle or one of the five direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV is complete through Sections 1-21 and EOF with its reference-v2 reader and buildable TeX. The bundle contains standalone readers and buildable TeX, not yet one cross-volume EGA 0-IV PDF. These are working translations, not critical editions or a claim of uniform whole-corpus certification.",
