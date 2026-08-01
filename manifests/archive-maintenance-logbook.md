@@ -6101,3 +6101,44 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-github/20260801_ega_global_reader_public_surface_sync_commit_fb4f09600_public_readback.json`
   and
   `manifests/published-zenodo/20260801_ega_global_complete_linked_reader_record_21744406_public_readback.json`.
+
+## 2026-08-01 - SGA7 II English Exposes X-XIX successor closed
+
+- Published the stronger 150-file privacy-clean working checkpoint containing
+  complete English Exposes X-XIX. The reader has 203 A4 pages; Expose XX is
+  the next cursor and Exposes XX-XXII remain absent. This is not a complete
+  SGA7 II or exhaustive-reference claim.
+- GitHub PR [#241](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/241)
+  merged the package as `acf581a622ff60f58c34cfb606ad63031fe56ae1`.
+  Exact package replay covered all 150 files and all 142 compact-ZIP members.
+- Published one successor under the existing SGA concept DOI
+  [`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947):
+  [`10.5281/zenodo.21749057`](https://doi.org/10.5281/zenodo.21749057).
+  Anonymous readback matched all 85 files / 684,305,261 bytes, all 82 retained
+  predecessor identities, all 142 reader/source ZIP members, and all 12
+  release-control ZIP members. SGA1 remains the selected preview; no active
+  draft or duplicate concept remains.
+- The new reader PDF is 203 pages / SHA-256
+  `52E978B6DB2694B1B86CBA26592BF6F73B1C65EB5459A45802258DF2DA8BA596`.
+  The reader/buildable-TeX ZIP has 142 members / SHA-256
+  `76984EAD72105949B329C2F6486F9DD89E9C033DFC779C2AF662B52F2CDAB40B`.
+- GitHub PR [#242](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/242)
+  merged source commit `b13f585bbbeecc4468d7bc13739a93e0f43af8f7` as
+  `1c09e924aa3a981e874e75a0e1f8780f5ea0d1a2`. Anonymous commit-pinned
+  readback matched all 25 changed files at both commits: 3,417,022 bytes,
+  canonical path/byte/SHA-256 row aggregate
+  `FA894868A3FD5734A542BECCF0CC470B5ABE6CB1A83BAD0578C58922A089F0F1`.
+- The locked helper appended
+  `EG-ARCHIVE-SGA7II-ENGLISH-XIX-COMPLETE-CLOSEOUT-20260801-0001` and returned
+  442 records / 2,777,722 bytes / SHA-256
+  `7ADCB2679989A6E25E38AA03118AA8513AFA21E0CC22A7474A7D9C37C068C857`,
+  with `errors=[]`.
+- Expose XX remains the next bounded production cursor. After the standalone
+  SGA readers are internally linked, the queued reader-facing deliverable is
+  one clean cumulative SGA 1-7.2 PDF plus a compact reader/buildable-TeX ZIP;
+  the cumulative PDF is fronted only after exact handoff and replay.
+- Exact receipts:
+  `manifests/published-github/20260801_sga7ii_english_xix_complete_closeout_commit_1c09e924a_public_readback.json`,
+  `manifests/published-zenodo/20260801_sga7ii_english_through_xix_complete_record_21749057_public_readback.json`,
+  and
+  `manifests/published-zenodo/20260801_sga7ii_english_through_xix_complete_record_21749057_zip_member_readback.json`.
