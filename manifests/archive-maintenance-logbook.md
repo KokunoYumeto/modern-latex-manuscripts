@@ -6067,3 +6067,37 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260801_sga7ii_english_through_xviii_complete_record_21747165_public_readback.json`,
   and
   `manifests/published-zenodo/20260801_sga7ii_english_through_xviii_complete_record_21747165_zip_member_readback.json`.
+
+## 2026-08-01 - Complete linked EGA reader public surface reconciled
+
+- Verified live record
+  [`10.5281/zenodo.21744406`](https://doi.org/10.5281/zenodo.21744406)
+  as the sole current head under the existing EGA concept DOI
+  [`10.5281/zenodo.20414353`](https://doi.org/10.5281/zenodo.20414353).
+  No Zenodo mutation, duplicate concept, or second draft was needed.
+- The selected preview is the 1,356-page linked EGA 0-IV reader: 8,588,550
+  bytes / SHA-256
+  `3B9D399515AA074C22D3DF6C6F0F7349954444D7BCF980B87CCE5CAED671928A`,
+  with 15,383 named destinations, 17,808 valid GoTo actions, and zero broken
+  actions.
+- The leading 265-member bundle is 19,798,264 bytes / SHA-256
+  `F4FF53966222741FC5750DF140AA3691D2DA66393347AA8E03BBD9EE3D6E2F21`.
+  Fresh anonymous replay matched the reader, the bundle, and all 265 members.
+  The five standalone readers and all six masters remain direct downloads.
+- GitHub PR [#239](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/239)
+  replaced stale current-facing copy that still pointed to predecessor
+  `21740145` and called the global reader unfinished. Source commit
+  `96c7e407683745f443777a8303c848f948425fc8` merged as
+  `fb4f09600f0c30e28d3484a45e627daa9600804b`.
+- Anonymous commit-pinned raw readback matched all 21 changed files at both
+  commits: 3,281,059 bytes, zero mismatches, canonical path/byte/SHA-256 row
+  aggregate `D14B1F5A2AF7872B8D8BECE6AD980A67842DC15355BC2A69ECD14D965840AF92`.
+- The locked helper appended
+  `EG-ARCHIVE-EGA-GLOBAL-READER-PUBLIC-SURFACE-SYNC-20260801-0001` and returned
+  441 records / 2,771,104 bytes / SHA-256
+  `AF0F6463DF5D04C5A4B6682C0F0B8DB361D01CA58D1245DF0701BE1AE9C5E80B`,
+  with `errors=[]`.
+- Exact receipts:
+  `manifests/published-github/20260801_ega_global_reader_public_surface_sync_commit_fb4f09600_public_readback.json`
+  and
+  `manifests/published-zenodo/20260801_ega_global_complete_linked_reader_record_21744406_public_readback.json`.
