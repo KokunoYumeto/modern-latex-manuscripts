@@ -5806,3 +5806,11 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `55AA7C626C6F4B769F9C040F32A1AE861FBB9C334737900C6AF513F013117AEE`.
 - Exact receipt:
   `manifests/source-intake/20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck.json`.
+- GitHub PR [#212](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/212)
+  merged the seven-file update as
+  `1cef0c253f69619054a5ee814866742c1101f936` from source commit
+  `f796c81f77f0a84119acd7de8ddee7d4d7159fa0`. Anonymous readback matched
+  7/7 committed blobs at both commits; canonical aggregate SHA-256 is
+  `5AC234D51CC3453775A31526F33682EB14279690D985E29366EC3BC529D6EC61`.
+- Commit readback receipt:
+  `manifests/published-github/20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck_commit_f796c81f7_public_readback.json`.
