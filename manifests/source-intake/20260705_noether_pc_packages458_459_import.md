@@ -87,6 +87,23 @@ Arabic invariant theory, Dari editable mathematical source, and Tajik
 abstract-algebra/native-TeX source remain open. See the later-closeout section
 in `20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck.md`.
 
+## Later Exact Closeout: Tajik Algebra-Source Row (2026-08-01)
+
+A later public-library search found two direct Tajik algebra PDFs: Davlatov
+and Choriev (1976), 81 physical pages / SHA-256
+`4862488CA3B492C10CC1893D921A110F0B39C2CD84FFCEC50FD612B631666181`,
+and Choriev and Olimov (2017), 165 physical pages / SHA-256
+`5A4B150F67B79009F0FDD207F46297A21F18913C83BACE38B1909A8712AFADAC`.
+Direct rendered-page review confirmed groups, rings, fields, homomorphisms,
+sets and relations, complex numbers, linear systems, exercises, and number
+theory in Tajik. The exact packet is preserved at
+`interlanguage-sidecar/20260801/tajik-algebra-source-anchor/`.
+
+This closes the Tajik algebra-source row, not native Tajik TeX. Arabic
+invariant theory, Persian invariant theory, and Dari editable mathematical
+source remain open. See the later-closeout section in
+`20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck.md`.
+
 Classification:
 
 Methodology/source-canon/cross-lane-sync/open-gap coordination only. This is not the requested bulk native mathematical LaTeX source-body corpus, not language completion, not native review, not term approval, not source-fidelity certification, not publication readiness, not reader output, and not critical-edition material. It records where source bodies should be collected, but does not include them.

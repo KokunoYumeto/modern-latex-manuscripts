@@ -1,3 +1,23 @@
+## 2026-08-01 Tajik algebra-source anchor found
+
+Two public Tajik university algebra sources from the Zarowadk mathematics
+library now provide an exact source anchor for the formerly open Tajik
+abstract-algebra row. The 1976 Davlatov-Choriev Part 1 scan has 81 physical
+pages; the 2017 Choriev-Olimov course complex has 165. Direct page review
+confirmed Tajik material on complex numbers, sets and relations, groups,
+rings, fields, homomorphisms, linear systems, exercises, and number theory.
+
+The deterministic custody packet is
+`interlanguage-sidecar/20260801/tajik-algebra-source-anchor/23_Tajik_Algebra_Source_Anchor_20260801.zip`,
+6,605,467 bytes, SHA-256
+`2331C3AB1D9B8EC3A18C6822CC22EF394E5D516723A3CAC82D7DE328DA14F26F`,
+with 6 safe members / 6,780,600 uncompressed bytes. It closes the Tajik
+algebra-source row, not native TeX. The site reserves rights and describes
+third-party files as familiarization copies; no open license, native review,
+terminology approval, translation or mathematical certification,
+accessibility remediation, or critical-edition claim is made. GitHub and
+same-concept Interlanguage Zenodo publication/readback are pending.
+
 ## 2026-08-01 Persian Noether-topic editable-source anchor found
 
 Two public Persian XeLaTeX problem sets from
