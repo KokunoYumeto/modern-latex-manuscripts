@@ -5720,7 +5720,15 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `ARCHIVE_DECISION_RECORD_EGA4_COMPLETE_REFERENCE_V2_PUBLICATION_20260801.json`,
   7,868 bytes, SHA-256
   `9D4AF43C38CE3325E6CD97D6658047657C2905D927C03548D315ABCDB1EF49FC`.
+- GitHub PR [#208](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/208)
+  merged the publisher, Zenodo receipt, catalogs, status, README, and logbook as
+  `52ccb52e3e9ff7c069ff6aaf9b2302aaa08ac446`. Anonymous raw readback matched
+  all 12 changed blobs at both source and merge commits; canonical aggregate
+  SHA-256 is
+  `41E79189E4036F8F9373E52927588ECA580E8D4C65F8D32C2EF5469943DA11E1`.
 - Exact receipt:
   `manifests/published-zenodo/20260801_ega4_complete_reference_v2_record_21740145_public_readback.json`,
   71,033 bytes, SHA-256
   `97118E66EDC51C2E431B314A1DC2DEAC2830E6DE1541D4F3CA395EF45B9FACA9`.
+- GitHub readback receipt:
+  `manifests/published-github/20260801_ega4_reference_v2_publication_commit_7305d0a48_public_readback.json`.
