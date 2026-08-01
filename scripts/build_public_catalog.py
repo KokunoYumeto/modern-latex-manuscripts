@@ -31,7 +31,7 @@ RECORDS: list[tuple[str, str]] = [
     ("main", "20459634"),
     ("workflow", "21707334"),
     ("visual_evidence", "21730032"),
-    ("interlanguage_reflections", "21739167"),
+    ("interlanguage_reflections", "21739451"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21443852"),
     ("noether", "21699405"),
@@ -135,7 +135,7 @@ RECORD_NOTES = {
         "Current version 20435690 is a focused historical-reference shelf with reader PDFs and filtered TeX/source material. It supports terminology and historical comparison; it is not a blanket source-certified or critical-edition corpus.",
     ],
     "interlanguage_reflections": [
-        "Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21739167 retains the complete numbered archive and the commit-pinned Interslavic dictionary anchor, then adds the explicit Fable Tranche 001 requirements acknowledgement. That checklist records scoped done/not-done status for all eight rule groups and points to the existing Paper 06 package, 407-member provenance archive, weighted ledgers, and grouped source bodies without duplicating them. Paper 06 semantic reconciliation, linguistic review, and global-ledger completeness remain open. These are methodology, normalization, corpus, bounded working-translation, provenance, and QA artifacts, not native validation, translation or source-fidelity certification, rights clearance, community certification, peer review, or critical editions.",
+        "Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21739451 retains the complete numbered archive, the Interslavic dictionary anchor, and the Fable Tranche 001 requirements acknowledgement, then adds the direct exact source anchor for Gate 15 (G15). The preserved gate map identifies G15 as the invariant-ledger gate; it does not itself implement a global invariant ledger or certify completeness. Paper 06 semantic reconciliation, linguistic review, and global-ledger completeness remain open. These are methodology, normalization, corpus, bounded working-translation, provenance, and QA artifacts, not native validation, translation or source-fidelity certification, rights clearance, community certification, peer review, or critical editions.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
