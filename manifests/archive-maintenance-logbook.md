@@ -5615,3 +5615,36 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `errors=[]`.
 - Exact receipt:
   `manifests/source-intake/20260801_sga7ii_local_claude_noop_public_superior.json`.
+
+## 2026-08-01 - Fable Tranche 001 requirements acknowledgement published
+
+- GitHub PR [#201](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/201)
+  merged the three-file acknowledgement package as
+  `faa4f08ebd0006c635f4d7b9d08e35f7c1f8421d`; commit-pinned raw readback
+  matched 3/3 package files and the corrected checker.
+- Published same-concept Interlanguage successor
+  [`10.5281/zenodo.21739167`](https://doi.org/10.5281/zenodo.21739167)
+  under concept DOI `10.5281/zenodo.21124403`. It has 59 files /
+  4,976,099,640 bytes and retains all 56 predecessor objects exactly.
+- The acknowledgement names all eight required rule groups and points to the
+  existing Paper 06 package, 407-member ChatGPT/Claude/Fable provenance
+  archive, weighted-ledger archive, and grouped source-body corpus. Those
+  large objects were not duplicated.
+- Paper 06 semantic reconciliation, linguistic review, and global-ledger
+  completeness remain explicitly open; no native or community certification
+  is claimed.
+- Anonymous Zenodo readback matched all three new SHA-256 identities; no
+  active draft or duplicate concept remains.
+- The locked helper appended
+  `EG-ARCHIVE-FABLE-TRANCHE001-ACK-PUBLICATION-20260801-0001` and returned
+  422 records / 2,663,026 bytes / SHA-256
+  `B717E06C233A9A3477D11A9FE4D6E76B7B393F288E534A9D1E550984817E3530`,
+  `errors=[]`.
+- Standalone locked-append record:
+  `ARCHIVE_DECISION_RECORD_FABLE_TRANCHE001_ACK_PUBLICATION_20260801.json`,
+  6,774 bytes, SHA-256
+  `B04C8856B1A697D2C25F0AE16AAE74020E45BEE10BF1B454FF60DC70E5FA89A9`.
+- Exact receipts:
+  `manifests/published-github/20260801_fable_tranche001_ack_commit_faa4f08eb_public_readback.json`
+  and
+  `manifests/published-zenodo/20260801_fable_tranche001_ack_record_21739167_public_readback.json`.
