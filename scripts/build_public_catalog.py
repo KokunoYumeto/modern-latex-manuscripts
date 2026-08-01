@@ -37,9 +37,9 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "21699405"),
     ("weber", "21728241"),
     ("cayley", "20617845"),
-    ("sga", "21730414"),
+    ("sga", "21738682"),
     ("deligne", "21212608"),
-    ("ega", "21717450"),
+    ("ega", "21738394"),
     ("ukrainian_applied_math", "20520721"),
     ("gauss", "20674086"),
     ("riemann", "20434317"),
@@ -90,10 +90,10 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current compact SGA record 21730414 starts with one ZIP containing all six cumulative English reader PDFs and their complete buildable TeX closures. The same readers and masters remain direct in SGA1-6 order; SGA1 is the default preview. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a 198-page English working reader covering complete Exposes I, II, VI, VII, and VIII plus Expose IX through section 3.4; its compact 141-member ZIP contains the reader and exact 137-component TeX closure. The next continuation is Expose IX Proposition 3.5, authority line 880, scan index 361, source folio 350. SGA7 II remains a partial French working transcription through Expose XXI. Historical versions remain immutable. These are working editions and translations, not critical editions, rights determinations, mathematical certifications, accessibility certifications, or final whole-SGA certification.",
+        "Current compact SGA record 21738682 starts with one ZIP containing the current cumulative English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 I. The same readers and masters remain direct in order; SGA1 is the default preview. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX, with a compact 191-member reader/source package. The complete SGA7 I French working transcription and partial SGA7 II French transcription remain available. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.",
     ],
     "ega": [
-        "Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14. EGA IV is cumulative through Sections 1-10, with bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. These are working translations, not a claim that all of EGA is complete or a critical edition.",
+        "Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV now has a complete cumulative working reader through Parts 1-4, Sections 1-21, appendices, and backmatter. These are working translations, not critical editions or a claim of uniform whole-corpus certification.",
     ],
     "workflow": [
         "Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.",
@@ -296,10 +296,9 @@ def reader_facing_rows(label: str, rows: list[dict[str, str]]) -> list[dict[str,
         "01c_",
         "01d_",
         "01e_",
-        "02e_",
-        "02f_",
+        "02d_",
     )
-    bundle = "00 Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip"
+    bundle = "00 Current_EGA_English_Readers_and_Buildable_TeX_20260801.zip"
     return [
         row
         for row in rows

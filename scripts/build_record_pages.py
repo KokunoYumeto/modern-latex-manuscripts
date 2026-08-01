@@ -142,8 +142,8 @@ DISPLAY_NAMES = {
 
 INDEX_DISPLAY_NAMES = {
     "cayley": "Arthur Cayley (suspect draft/provenance; not accuracy-certified)",
-    "ega": "EGA (four complete represented scopes; EGA IV partial)",
-    "sga": "SGA (current cumulative working readers; SGA7 partial)",
+    "ega": "EGA (current complete-scope working readers)",
+    "sga": "SGA (current cumulative working readers; SGA7 II partial)",
 }
 
 RECORD_NOTES = {
@@ -202,10 +202,10 @@ RECORD_NOTES = {
         "Dedicated Gibbs / old-physics working-edition split. Current coverage is The Scientific Papers of J. Willard Gibbs, Volume I, printed pp.001-134: Graphical Methods in the Thermodynamics of Fluids, A Method of Geometrical Representation by Surfaces, and the opening continuation of On the Equilibrium of Heterogeneous Substances. Top-level PDF/TeX files are reader-facing cumulative surfaces, including the updated Paper 3 pp.055-134 reader; ZIP packets preserve source-scan slices, TeX, and method/audit notes. This is a source-scan-backed working tranche, not a complete Gibbs corpus or final critical edition. Continue after p.134.",
     ],
     "sga": [
-        "Current compact SGA record 21730414 leads with the cumulative English reader-and-TeX bundle, followed by direct SGA1-6 readers and masters; SGA1 remains the default preview. The clean 1,470-page SGA3 R29 cumulative covers the Introduction, Exposes I-XXVI, Tome-I subject index, Tome-III mathematical guide, and terminal index. SGA7 I now has a 198-page English working reader covering complete Exposes I, II, VI, VII, and VIII plus Expose IX through section 3.4. Its compact 141-member archive contains that reader and the exact 137-component buildable TeX closure; the next continuation is Expose IX Proposition 3.5, authority line 880, scan index 361, source folio 350. SGA7 II remains a partial 201-page French working transcription through Expose XXI. Supporting source and QA archives follow the reading files. Anonymous readback passed all 83 outer files, all 79 retained predecessor identities, and every member of both replacement SGA7 archives. Historical versions remain immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, accessibility certifications, uniform whole-series source certification, or final whole-SGA certification. Record rights metadata remains License Not Specified.",
+        "Current compact SGA record 21738682 leads with the SGA1-7 I cumulative English reader-and-TeX bundle, followed by direct readers and masters; SGA1 remains the default preview. The clean 1,470-page SGA3 R29 cumulative covers the Introduction, Exposes I-XXVI, Tome-I subject index, Tome-III mathematical guide, and terminal index. SGA7 I now has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX, with a compact 191-member reader/source package. SGA7 II remains a partial 201-page French working transcription through Expose XXI. Anonymous readback passed all 83 outer files, all 79 retained predecessor identities, all 1,585 members of the leading bundle, and all 191 members of the SGA7 I package. Historical versions remain immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, uniform whole-series source certification, or final whole-SGA certification. Record rights metadata remains License Not Specified.",
     ],
     "ega": [
-        "Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; the published EGA III text is complete through 7.9.14. EGA IV is cumulative through Sections 1-10, with separate bounded readers for Sections 16-18 and Sections 19-21 plus Part 4 backmatter; Sections 11-15 remain the integration gap. These are working translations, not a claim that all of EGA is complete or a critical edition.",
+        "Open the current-reader bundle or one of the direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; the published EGA III text is complete through 7.9.14; EGA IV now has a complete cumulative working reader through Parts 1-4, Sections 1-21, appendices, and backmatter. These are working translations, not critical editions or a claim of uniform whole-corpus certification.",
     ],
     "deligne": [
         "Current reader-first public surface is record 21212608. It exposes the sequential English and French working readers through Papers 001-016p080, groups individual paper and letter PDFs by language, and groups TeX/source-check/QA/update material separately. These are useful but uneven working drafts and source/QA packets, not a critical edition or blanket source-faithfulness claim; commutative diagrams, dense formulas, references, and theorem statements still require source comparison.",
@@ -345,9 +345,8 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
             row for row in rows if row["filename"].startswith("01") and row["filename"].lower().endswith(".tex")
         ]
         preferred_zip_names = {
-            "00 Current_EGA_English_Readers_and_Buildable_TeX_20260730.zip",
-            "02e_EGAIV_English_Sections16_18_SourceAligned_TeX_PDF_20260731.zip",
-            "02f_EGAIV_English_Sections19_21_Part4_Backmatter_TeX_PDF_20260731.zip",
+            "00 Current_EGA_English_Readers_and_Buildable_TeX_20260801.zip",
+            "02d_EGAIV_English_Complete_Cumulative_TeX_PDF_20260801.zip",
         }
         zips = [row for row in rows if row["filename"] in preferred_zip_names]
         manifests = []
@@ -362,8 +361,8 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
 
     quality_warning = "**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details."
     if label == "ega":
-        how_to_read = "Start with the current-reader bundle or open a direct English PDF. The direct master TeX files follow."
-        quality_warning = "**Status:** These are current working readers. The coverage paragraph below says exactly which scopes are complete and which EGA IV sections remain open."
+        how_to_read = "Open a direct reader PDF below, or use the current-reader bundle for all PDFs and buildable TeX."
+        quality_warning = "**Status:** These are current working readers for the stated scopes, not critical editions, rights clearance, mathematical certification, or uniform whole-corpus certification."
 
     zenodo_line = f"Zenodo record: [{record_id}]({record_url})"
     if concept_url:
