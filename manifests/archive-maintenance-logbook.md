@@ -5835,3 +5835,11 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `4CBA295F60C4624CE626B82558D84B498E0F9B0BFBD8EC356943626627E040B0`.
 - No Zenodo mutation or reader claim was made. The current record
   `10.5281/zenodo.21740145` remains the immutable public baseline.
+- GitHub PR [#214](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/214)
+  merged the correction as
+  `fbe825eb672bd957310f5259fcdfed0bd1095795` from source commit
+  `1f5896a6265e235a82874225459efe604ae731dd`. Anonymous commit-pinned
+  readback matched all 3/3 blobs; canonical row SHA-256 is
+  `5975B5A51C2F8FDA3DA0F38D1D9515A608AC7D1872D26AF9BDEE77569DBCB90D`.
+- Exact receipt:
+  `manifests/published-github/20260801_ega_global_reader_scope_correction_commit_fbe825eb6_public_readback.json`.
