@@ -5843,3 +5843,26 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `5975B5A51C2F8FDA3DA0F38D1D9515A608AC7D1872D26AF9BDEE77569DBCB90D`.
 - Exact receipt:
   `manifests/published-github/20260801_ega_global_reader_scope_correction_commit_fbe825eb6_public_readback.json`.
+
+## 2026-08-01 - EGA standalone-reader Zenodo wording corrected
+
+- Edited current EGA record
+  [`10.5281/zenodo.21740145`](https://doi.org/10.5281/zenodo.21740145)
+  in place: the leading ZIP now says “current standalone readers” rather than
+  “current cumulative readers.”
+- Anonymous public readback reports revision 4 and the 646-byte description at
+  SHA-256
+  `65C0B2E7BBB87180950FBE519C8F9C8FDBB16E25ED6D120F093A32106E04A001`.
+- All 40 files / 3,752,670,964 bytes retain file-surface SHA-256
+  `84DE079EF75742CEB2AE2A807E67B601194560FFBA6B8291A7B85DE9C9D0AE9F`;
+  EGA 0 remains the default preview.
+- No new version, record, concept, file, preview, or active draft was created.
+  The future global EGA 0-IV PDF remains a production task, not a current
+  public claim.
+- The locked helper appended
+  `EG-ARCHIVE-EGA-STANDALONE-READER-METADATA-CORRECTION-20260801-0001`
+  and returned 431 records / 2,710,839 bytes / SHA-256
+  `2816BEBB24ED1924C97AF3C20C53A0A48E610B4D9FAF500B6C3482D3BC1ADA74`,
+  `errors=[]`.
+- Exact receipt:
+  `manifests/published-zenodo/20260801_ega_record_21740145_standalone_reader_metadata_revision.json`.
