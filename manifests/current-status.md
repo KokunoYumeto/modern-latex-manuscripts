@@ -1,13 +1,14 @@
 ## 2026-08-01 complete EGA IV and SGA7 I readers published
 
 The EGA concept now points to
-[`10.5281/zenodo.21738394`](https://doi.org/10.5281/zenodo.21738394).
+[`10.5281/zenodo.21740145`](https://doi.org/10.5281/zenodo.21740145).
 Its landing description is deliberately reader-first: direct EGA PDFs, one
 current-reader/buildable-TeX bundle, concise scope, and one working-edition
-caveat. The complete cumulative EGA IV reader covers Parts 1-4, Sections 1-21,
-appendices, and backmatter. The 40-file record retained all 36 predecessor
-objects byte-identically. The 133-member current bundle and 65-member EGA IV
-source package passed anonymous member-by-member readback.
+caveat. The complete EGA IV reference-v2 reader covers Sections 1-21 and EOF,
+with 5,911 destinations and 7,374 resolved local links. The 40-file record
+retained all 36 predecessor objects byte-identically. The 135-member current
+bundle and 84-member EGA IV source/QA package passed anonymous member-by-member
+readback.
 
 The SGA concept now points to
 [`10.5281/zenodo.21738682`](https://doi.org/10.5281/zenodo.21738682).
@@ -4184,7 +4185,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
 | SGA | 21738682 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
-| EGA | 21738394 | <https://doi.org/10.5281/zenodo.20414353> |
+| EGA | 21740145 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
 | Gauss | 20674086 | <https://doi.org/10.5281/zenodo.20410934> |
 | Riemann | 20434317 | <https://doi.org/10.5281/zenodo.20429778> |
