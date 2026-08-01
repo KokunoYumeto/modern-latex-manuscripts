@@ -15,8 +15,23 @@ with 6 safe members / 6,780,600 uncompressed bytes. It closes the Tajik
 algebra-source row, not native TeX. The site reserves rights and describes
 third-party files as familiarization copies; no open license, native review,
 terminology approval, translation or mathematical certification,
-accessibility remediation, or critical-edition claim is made. GitHub and
-same-concept Interlanguage Zenodo publication/readback are pending.
+accessibility remediation, or critical-edition claim is made.
+
+GitHub PR [#228](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/228)
+published the packet as merge commit
+`5cefaa7772e69ace2b44b499d9819a6218049307`; all 12 changed blobs passed
+source- and merge-commit readback. Interlanguage version
+[`10.5281/zenodo.21744853`](https://doi.org/10.5281/zenodo.21744853), under
+the existing concept DOI
+[`10.5281/zenodo.21124403`](https://doi.org/10.5281/zenodo.21124403), adds
+only the compact ZIP. All 65 predecessor files remain exact; the new ZIP and
+all 6 members passed anonymous readback. The prior preview was preserved, and
+no active draft or duplicate concept remains.
+The locked helper appended
+`EG-ARCHIVE-TAJIK-ALGEBRA-SOURCE-ANCHOR-CLOSEOUT-20260801-0001` and returned
+437 records / 2,745,888 bytes / SHA-256
+`24B1985939CA6013E77A802B032F6BD472A4C6C795A24297CF591BA5448CF8FD`,
+`errors=[]`.
 
 ## 2026-08-01 Persian Noether-topic editable-source anchor found
 
