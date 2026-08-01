@@ -5523,3 +5523,14 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   scan index 361, source folio 350. This remains an incomplete working SGA7 I
   English translation, not a critical edition, mathematical or accessibility
   certification, rights decision, or whole-SGA certification.
+- Catalog and receipt PR
+  [#189](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/189)
+  merged as `991e8103e1420de9e19c365054e4d8a4c49a10b4`; anonymous
+  commit-pinned readback matched all 26 changed files / 2,883,470 bytes.
+  Exact receipt:
+  `manifests/published-github/20260801_sga7i_expose_ix_3_4_catalog_closeout_commit_991e8103e_public_readback.json`.
+- The locked helper appended decision
+  `EG-ARCHIVE-SGA7I-ENGLISH-EXPOSE-IX-3-4-PUBLICATION-20260801-0001` and
+  returned 417 records / 2,635,151 bytes / SHA-256
+  `35186D8572D62D84806CD7561D77FAB3A4680497CA372B8A189F213D84512BA8`,
+  `errors=[]`.
