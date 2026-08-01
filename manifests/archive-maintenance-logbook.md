@@ -5568,3 +5568,24 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   and returned 418 records / 2,640,661 bytes / SHA-256
   `C3D3D1DA7A5B231AAF0D6C50508C5C75CE041BF4D02A51BB2F9D3A90609CF6E9`,
   `errors=[]`.
+
+## 2026-08-01 - EGA reader-shelf concept DOI corrected append-only
+
+- Live Zenodo API readback of record
+  [`10.5281/zenodo.21717450`](https://doi.org/10.5281/zenodo.21717450),
+  revision 7, confirms the existing EGA concept DOI is
+  [`10.5281/zenodo.20414353`](https://doi.org/10.5281/zenodo.20414353).
+- Decision `EG-ARCHIVE-EGA-READER-SHELF-METADATA-20260801-0001` had one
+  transposed documentary value, `10.5281/zenodo.20415424`, in
+  `authority_and_cursor.archive_surface`. Its version DOI, GitHub commit,
+  file count, presentation result, and readback remain correct.
+- The public EGA page, repository concept map, and all 44 Zenodo file
+  identities were already correct, so no archive or metadata mutation was
+  made.
+- The locked helper appended correction
+  `EG-ARCHIVE-EGA-READER-SHELF-CONCEPT-DOI-CORRECTION-20260801-0001` and
+  returned 419 records / 2,644,532 bytes / SHA-256
+  `7C067AA939D0238C27F96CF05E8234920E259F91A9B745B7AD4CD34C1618B494`,
+  `errors=[]`.
+- Exact receipt:
+  `manifests/source-intake/20260801_ega_reader_shelf_concept_doi_correction.json`.
