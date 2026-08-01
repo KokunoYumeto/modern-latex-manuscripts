@@ -5732,3 +5732,38 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `97118E66EDC51C2E431B314A1DC2DEAC2830E6DE1541D4F3CA395EF45B9FACA9`.
 - GitHub readback receipt:
   `manifests/published-github/20260801_ega4_reference_v2_publication_commit_7305d0a48_public_readback.json`.
+
+## 2026-08-01 - Persian SireJeff source-anchor no-op closeout
+
+- Revisited the packages 458-459 source-canon gap for
+  `fa_github_sirejeff_persian_main_tex` and
+  `fa_github_sirejeff_source_zip`.
+- Confirmed the historical packet itself remains pointer-only, but a later
+  source-body payload already put both exact objects on GitHub and Zenodo.
+- Anonymous commit-pinned GitHub readback matched the 6,280-byte TeX at
+  SHA-256
+  `AA4207AE05BA1804FFB3BBE8265954571BE276E75A8CB7A1656A72ED92417427`
+  and the 2,007,400-byte source ZIP at SHA-256
+  `EEEE28E88CA465F0A125AFE056F6203B84C138EB44114867D8E49F3C3344252C`.
+  All 44 ZIP members read cleanly, and embedded/direct `main.tex` bytes match.
+- Current Interlanguage record
+  [`10.5281/zenodo.21739451`](https://doi.org/10.5281/zenodo.21739451)
+  retains the same objects in
+  `06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip`.
+  HTTP-range replay read its 1,047-member central directory and verified the
+  four SireJeff copies by CRC and SHA-256 without downloading the 884 MB file.
+- No new upload, Zenodo successor, duplicate concept, or persistent local copy
+  was needed. Unrelated Arabic/Farsi/Dari/Tajik source gaps remain open.
+- The locked helper appended
+  `EG-ARCHIVE-PERSIAN-SIREJEFF-SOURCE-ANCHOR-CLOSEOUT-20260801-0001` and
+  returned 428 records / 2,696,108 bytes / SHA-256
+  `D840AF5A60B6FB48D7A377529DFBB62048F4B70A06F42C44E9B85B17B1C1CBB8`,
+  `errors=[]`.
+- Standalone locked-append record:
+  `ARCHIVE_DECISION_RECORD_PERSIAN_SIREJEFF_SOURCE_ANCHOR_CLOSEOUT_20260801.json`,
+  5,757 bytes, SHA-256
+  `E598B48FB24C4F02BBA56A08A370D4B850F5DAB7F8AF240731CEE5AB11597A84`.
+- Exact receipts:
+  `manifests/published-github/20260801_persian_sirejeff_source_anchor_current_main_public_readback.json`
+  and
+  `manifests/published-zenodo/20260801_persian_sirejeff_source_anchor_record_21739451_public_readback.json`.

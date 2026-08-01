@@ -4610,3 +4610,22 @@ The locked helper appended
 `errors=[]`.
 The standalone decision record is 5,265 bytes / SHA-256
 `B633735CA78999E89CA73D159E862981F229F1678F2BD01D298CC073B3627C4A`.
+
+## 2026-08-01 Persian SireJeff source-anchor gap closed by exact public custody
+
+The two source objects named but absent from historical packages 458-459 were
+found in the later RTL/Persianate source-body payload and freshly read back
+from both public surfaces. GitHub main commit
+`6afa79b9d0b39624ffbec3d186599680f20ff57e` exposes the direct 6,280-byte
+Persian `main.tex` at SHA-256
+`AA4207AE05BA1804FFB3BBE8265954571BE276E75A8CB7A1656A72ED92417427`
+and the 2,007,400-byte, 44-member source ZIP at SHA-256
+`EEEE28E88CA465F0A125AFE056F6203B84C138EB44114867D8E49F3C3344252C`.
+
+The current Interlanguage record
+[`10.5281/zenodo.21739451`](https://doi.org/10.5281/zenodo.21739451)
+retains both objects in its 884,720,731-byte RTL/Persianate source-body ZIP.
+Anonymous range-read replay verified both full-source and witness-layer
+copies, both nested 44-member ZIPs, and embedded/direct `main.tex` identity.
+No duplicate GitHub package or Zenodo successor was created. Other
+Arabic/Farsi/Dari/Tajik source gaps from the old packet remain open.
