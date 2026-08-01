@@ -5711,6 +5711,15 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   zero additional description blocks.
 - No duplicate concept, second draft, or active draft remains. R1-R3 stay
   rejected local history and were not uploaded.
+- The locked helper appended
+  `EG-ARCHIVE-EGA4-COMPLETE-REFERENCE-V2-PUBLICATION-20260801-0001` and
+  returned 426 records / 2,686,402 bytes / SHA-256
+  `01B62EBCCC632818624C085986C53FF8A7C2D1425DFE9069DFB10EA77350E875`,
+  `errors=[]`.
+- Standalone locked-append record:
+  `ARCHIVE_DECISION_RECORD_EGA4_COMPLETE_REFERENCE_V2_PUBLICATION_20260801.json`,
+  7,868 bytes, SHA-256
+  `9D4AF43C38CE3325E6CD97D6658047657C2905D927C03548D315ABCDB1EF49FC`.
 - Exact receipt:
   `manifests/published-zenodo/20260801_ega4_complete_reference_v2_record_21740145_public_readback.json`,
   71,033 bytes, SHA-256
