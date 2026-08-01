@@ -14,10 +14,10 @@ This page records the main incompleteness that a reader or contributor should kn
 
 Current record: <https://doi.org/10.5281/zenodo.20414353>
 
-- Current version [10.5281/zenodo.21740145](https://doi.org/10.5281/zenodo.21740145) fronts five standalone English working readers: EGA 0 through Section 13, complete EGA I, complete EGA II, the published EGA III text through 7.9.14, and complete EGA IV through Sections 1-21 and EOF. The leading 135-member ZIP contains those readers and their buildable TeX closures; every reader and master also remains direct.
+- Current version [10.5281/zenodo.21744406](https://doi.org/10.5281/zenodo.21744406) fronts one continuous 1,356-page linked EGA 0-IV reader. Five standalone English readers and all six masters remain direct; the leading 265-member ZIP contains all six readers and their complete buildable TeX closures.
 - EGA 0, I, II, and published EGA III have reference-v2 working-reader layers and exact public readback, but they remain working translations rather than critical editions, rights determinations, or independent human certifications.
 - EGA IV now has a complete source-aligned reference-v2 working reader with exact package replay. That does not amount to independent mathematical review, accessibility certification, rights clearance, or a critical edition.
-- The public EGA 0 reader still ends at Section 13. A complete-through-Section-23 local successor and the single cross-volume EGA 0-IV PDF remain active production work and are not yet public release objects.
+- The public EGA 0 scope ends at Section 13, as represented in the current standalone and global readers. Cross-volume links are present where exact packaged targets exist; this does not imply independent mathematical review or uniform source certification across all five volumes.
 - Earlier bounded EGA IV checkpoints and disjoint GitHub source-survival snapshots remain immutable history beneath the cumulative reader; they are not competing current reading surfaces.
 - The public EGA surface is useful for reading, continuation, and checking, but represented reader completion must not be expanded into uniform source certification, rights clearance, or a critical-edition claim.
 
