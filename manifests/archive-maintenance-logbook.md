@@ -5874,3 +5874,27 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `AB9C75328246A1B43E4595EAEDD23352EF4C6EA47B587E79E245D66E1B066BFF`.
 - GitHub readback receipt:
   `manifests/published-github/20260801_ega_standalone_reader_metadata_commit_cfd83e201_public_readback.json`.
+
+## 2026-08-01 - SGA standalone-reader Zenodo wording corrected
+
+- Edited current SGA record
+  [`10.5281/zenodo.21738682`](https://doi.org/10.5281/zenodo.21738682)
+  in place: the leading ZIP now says it collects the current English readers
+  and buildable TeX, and explicitly says it is not yet one cross-volume
+  SGA 1-7.2 PDF.
+- Anonymous public readback reports revision 4 and the 928-byte description at
+  SHA-256
+  `F433A3953B066D8AAF30069C6E196C34612C7A93B3C482F5494D9F83E108EFFC`.
+- All 83 files / 681,903,307 bytes retain file-surface SHA-256
+  `8D6244E7BCCDC1877F805B611E41652B869DED1CAE462CE5799EFE492CCA6565`;
+  SGA 1 remains the default preview.
+- Removed one redundant additional-description note. No new version, record,
+  concept, file, preview, or active draft was created. The future global
+  SGA 1-7.2 PDF remains a production task, not a current public claim.
+- The locked helper appended
+  `EG-ARCHIVE-SGA-STANDALONE-READER-METADATA-CORRECTION-20260801-0001`
+  and returned 432 records / 2,715,668 bytes / SHA-256
+  `FE3CD0F25AE021FBF4E6B1E0AC4211740B29000FCE1697DDB3A140A9DC6BBC82`,
+  `errors=[]`.
+- Exact receipt:
+  `manifests/published-zenodo/20260801_sga_record_21738682_standalone_reader_metadata_revision.json`.
