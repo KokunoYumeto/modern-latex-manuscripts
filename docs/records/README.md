@@ -21,7 +21,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 3 | 1 | 0 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
 | al-Battani Opus Astronomicum | 19 | 7 | 0 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |  |
-| SGA (current cumulative working readers; SGA7 partial) | 83 | 11 | 11 | 61 | 646.5 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
+| SGA (current cumulative working readers; SGA7 partial) | 83 | 11 | 11 | 61 | 646.8 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
 | EGA (four complete represented scopes; EGA IV partial) | 44 | 14 | 5 | 22 | 3571.6 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
 | Pierre Deligne | 6 | 2 | 0 | 3 | 447.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 0 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
