@@ -5934,3 +5934,10 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `E0858D3BA1F1DEF652A8859847C0B0FFF0A6C82DCD30680403BC576EEAB9094B`,
   `errors=[]`. The standalone decision record is 6,242 bytes / SHA-256
   `83314A204186E6E2D88AC0CB1C69B8DE25C4855E3E8CBE3AC1BDC21FE64E8AD8`.
+- GitHub PR [#220](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/220)
+  merged source commit `517dc0dfac394e7e4600beaf4a2e261f4768b148` as
+  `19eaf729fcdaba7cadad53a862134ddc5ad5d115`. Anonymous commit-pinned
+  readback matched all 18/18 blobs at both commits; canonical row SHA-256 is
+  `8DA66F51530DE4AAC4A11CA0A287D449C3BD4CC7A08791271ED7C45AFBA1E19B`.
+- Exact receipt:
+  `manifests/published-github/20260801_ega_current_head_reader_guides_commit_19eaf729f_public_readback.json`.
