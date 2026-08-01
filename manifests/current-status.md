@@ -4152,15 +4152,15 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 |---|---:|---|
 | Main landing | 20459634 | <https://doi.org/10.5281/zenodo.20393488> |
 | Workflow / replication packet | 21707334 | <https://doi.org/10.5281/zenodo.20461174> |
-| Interlanguage methodology | 21485338 | <https://doi.org/10.5281/zenodo.21124403> |
+| Interlanguage methodology | 21730669 | <https://doi.org/10.5281/zenodo.21124403> |
 | Lean formalization sidecars | 21129946 | <https://doi.org/10.5281/zenodo.21129945> |
 | Split-zero research sidecar | 21443852 | <https://doi.org/10.5281/zenodo.20822444> |
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21728241 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21711433 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21730414 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
-| EGA | 21712882 | <https://doi.org/10.5281/zenodo.20414353> |
+| EGA | 21717450 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
 | Gauss | 20674086 | <https://doi.org/10.5281/zenodo.20410934> |
 | Riemann | 20434317 | <https://doi.org/10.5281/zenodo.20429778> |
@@ -4512,3 +4512,22 @@ predecessor identities, all 141 reader/source members, and all eight release
 control members. SGA1 remains the default preview. This remains an incomplete
 SGA7 I English working translation, not a critical edition, mathematical or
 accessibility certification, rights decision, or whole-SGA certification.
+
+## 2026-08-01 Interslavic `važiti` source anchor published
+
+Interlanguage record
+[`10.5281/zenodo.21730669`](https://doi.org/10.5281/zenodo.21730669), on the
+existing concept `10.5281/zenodo.21124403`, is public with 56 files /
+4,976,092,989 bytes. It retains all 51 predecessor objects byte-identically
+and adds five compact source-anchor objects / 10,498 bytes.
+
+The exact dictionary snapshot pins `sonic16x/interslavic` commit
+`0fab0c5b4463118d46b1cdcd506926d8848052c9`. Row 6005 glosses `važiti` as
+“weigh, balance,” not abstract mathematical “hold/be valid.” The 353 held
+occurrences across 101 files remain for sentence-level or community
+adjudication; no automatic corpus-wide rewrite was made.
+
+GitHub PR #191 merged the five-file source anchor at
+`27e82d3f314e719eec193e539dd1f9ee2ca67156`. GitHub readback matched 5/5;
+Zenodo readback matched all five new files and all four ZIP members; no active
+draft or duplicate concept remains.
