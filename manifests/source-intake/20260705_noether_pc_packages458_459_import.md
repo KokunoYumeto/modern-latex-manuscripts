@@ -60,6 +60,22 @@ does not change the historical fact that packages 458-459 themselves contain
 no source bodies, and it does not close their other Arabic/Farsi/Dari/Tajik
 source gaps.
 
+## Later Exact Recheck: Remaining Specialist Rows (2026-08-01)
+
+The remaining rows were tested against the current 1,047-entry public
+RTL/Persianate source-body archive rather than left open from packet history
+alone. Eleven unique source objects / 92,657,225 bytes were decompressed and
+searched. All 78 lexical matches were contextually false positives; no Arabic
+or Persian invariant-theory/Noether source was present. The central directory
+also contains no Dari TeX/source archive and no actual Tajik TeX/source
+archive; its six Tajik-shaped ZIP paths are duplicate placements of two
+Persian linear-algebra source archives.
+
+The Arabic invariant-theory, Persian invariant/Noether, Dari editable-source,
+and Tajik abstract-algebra/TeX gaps therefore remain open on current public
+evidence. See
+`20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck.md`.
+
 Classification:
 
 Methodology/source-canon/cross-lane-sync/open-gap coordination only. This is not the requested bulk native mathematical LaTeX source-body corpus, not language completion, not native review, not term approval, not source-fidelity certification, not publication readiness, not reader output, and not critical-edition material. It records where source bodies should be collected, but does not include them.
