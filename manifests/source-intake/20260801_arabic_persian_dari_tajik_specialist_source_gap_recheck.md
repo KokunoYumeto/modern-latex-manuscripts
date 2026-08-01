@@ -189,5 +189,19 @@ editable mathematical source. The source site reserves rights and describes
 third-party downloads as familiarization copies; no open license or new
 redistribution-right conclusion, native review, accepted terminology,
 translation or mathematical certification, accessibility remediation, or
-critical-edition status is inferred. GitHub and same-concept Zenodo
-publication/readback are pending.
+critical-edition status is inferred.
+
+GitHub PR [#228](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/228)
+merged the exact packet as
+`5cefaa7772e69ace2b44b499d9819a6218049307`; all 12 changed blobs passed
+source- and merge-commit anonymous readback. Same-concept Interlanguage
+version [`10.5281/zenodo.21744853`](https://doi.org/10.5281/zenodo.21744853)
+retains all 65 predecessor files exactly and adds only the deterministic ZIP.
+The ZIP and all 6 members passed anonymous readback, the prior preview was
+preserved, and no active draft or duplicate concept remains.
+
+The locked helper appended
+`EG-ARCHIVE-TAJIK-ALGEBRA-SOURCE-ANCHOR-CLOSEOUT-20260801-0001` and returned
+437 records / 2,745,888 bytes / SHA-256
+`24B1985939CA6013E77A802B032F6BD472A4C6C795A24297CF591BA5448CF8FD`,
+with `errors=[]`.

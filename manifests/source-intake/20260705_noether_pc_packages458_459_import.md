@@ -104,6 +104,13 @@ invariant theory, Persian invariant theory, and Dari editable mathematical
 source remain open. See the later-closeout section in
 `20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck.md`.
 
+GitHub PR #228 merged the exact packet as
+`5cefaa7772e69ace2b44b499d9819a6218049307`. Same-concept Interlanguage
+version `10.5281/zenodo.21744853` retains all 65 predecessor files and adds
+only the 6-member packet ZIP; source- and merge-commit GitHub readback and
+anonymous Zenodo ZIP/member readback passed. No duplicate concept or active
+draft remains.
+
 Classification:
 
 Methodology/source-canon/cross-lane-sync/open-gap coordination only. This is not the requested bulk native mathematical LaTeX source-body corpus, not language completion, not native review, not term approval, not source-fidelity certification, not publication readiness, not reader output, and not critical-edition material. It records where source bodies should be collected, but does not include them.
