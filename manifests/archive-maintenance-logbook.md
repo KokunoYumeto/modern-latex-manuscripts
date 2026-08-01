@@ -5906,3 +5906,31 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `BC580540DBD9CA335577C35AB205D5453AC82EEB2F5A03B286F060725DD9BA69`.
 - GitHub readback receipt:
   `manifests/published-github/20260801_sga_standalone_reader_metadata_commit_e8b305555_public_readback.json`.
+
+## 2026-08-01 - EGA current-head reader guides and generators synchronized
+
+- Synchronized the reader-facing GitHub documentation with current EGA record
+  [`10.5281/zenodo.21740145`](https://doi.org/10.5281/zenodo.21740145):
+  40 files / 3,752,670,964 bytes, file-surface SHA-256
+  `84DE079EF75742CEB2AE2A807E67B601194560FFBA6B8291A7B85DE9C9D0AE9F`.
+- The EGA pages now lead with the five standalone complete-scope English
+  readers and compact buildable-TeX bundle, identify the 651-page EGA IV
+  reference-v2 reader accurately, and say explicitly that the single
+  cross-volume EGA 0-IV PDF is still in production.
+- The SGA pages now describe the current bundle as standalone readers and
+  buildable TeX rather than one cross-volume PDF. The future SGA 1-7.2 reader
+  remains queued behind active production and is not fronted prematurely.
+- Repaired both deterministic page generators so regeneration preserves the
+  current reader terminology, current EGA IV package filename, and complete
+  63-page / 82-of-82 FAC status. Final replay indexed 1,017 public files from
+  35 records and regenerated all 35 record pages without unaccounted catalog
+  churn; both generator scripts compile and `git diff --check` is clean apart
+  from existing line-ending notices.
+- No Zenodo mutation occurred. The public EGA and SGA file surfaces and
+  previews remain unchanged.
+- The locked helper appended
+  `EG-ARCHIVE-EGA-CURRENT-HEAD-READER-GUIDE-SYNC-20260801-0001` and returned
+  433 records / 2,721,325 bytes / SHA-256
+  `E0858D3BA1F1DEF652A8859847C0B0FFF0A6C82DCD30680403BC576EEAB9094B`,
+  `errors=[]`. The standalone decision record is 6,242 bytes / SHA-256
+  `83314A204186E6E2D88AC0CB1C69B8DE25C4855E3E8CBE3AC1BDC21FE64E8AD8`.

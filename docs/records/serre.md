@@ -14,7 +14,7 @@ Public title: Jean-Pierre Serre: FAC Complete French Working Transcription and G
 
 Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material.
 
-Dedicated Serre working-transcription record. FAC is directly readable as a complete 63-page French working transcription covering all 82 source pages / printed pp.197-278. Direct master/body TeX accompany a compact 27-member FAC source/evidence ZIP containing the complete editable closure, exact ledgers, and four actual scan-derived crops with page, rasterization, bounding-box, dimension, and hash provenance. A separate eight-member ZIP preserves complete first-pass GAGA TeX for printed pages 1-42; its earlier PDF remains held because visible page-join sentinels are unresolved. License metadata is License Not Specified. This is working-transcription custody, not a complete Serre corpus, critical edition, mathematical certification, accessibility certification, or blanket rights clearance.
+Dedicated Serre working-transcription record. FAC is directly readable as a complete 63-page French working transcription covering all 82 source pages / printed pp.197-278. The direct master and body TeX accompany one compact 27-member FAC source/evidence ZIP containing the complete editable closure, exact ledgers, and four actual scan-derived crops with page, rasterization, bounding-box, dimension, and hash provenance. A separate eight-member ZIP preserves the complete first-pass GAGA TeX source for printed pp.1-42; its earlier PDF remains held because visible join sentinels are still present. License metadata is License Not Specified. This is working-transcription custody, not a complete Serre corpus, critical edition, mathematical certification, accessibility certification, or blanket rights clearance.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
@@ -37,7 +37,3 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 |---:|---|
 | 1.2403 | [02_Serre_FAC_French_Complete_Source_and_Visual_Evidence_20260731.zip](https://zenodo.org/records/21721854/files/02_Serre_FAC_French_Complete_Source_and_Visual_Evidence_20260731.zip) |
 | 0.0452 | [03_Serre_GAGA_French_FirstPass_TeX_Custody_20260731.zip](https://zenodo.org/records/21721854/files/03_Serre_GAGA_French_FirstPass_TeX_Custody_20260731.zip) |
-
-## Manifest And Status Files
-
-No files in this group.

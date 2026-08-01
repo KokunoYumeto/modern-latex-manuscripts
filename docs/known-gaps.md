@@ -14,9 +14,10 @@ This page records the main incompleteness that a reader or contributor should kn
 
 Current record: <https://doi.org/10.5281/zenodo.20414353>
 
-- Current version [10.5281/zenodo.21738394](https://doi.org/10.5281/zenodo.21738394) fronts current cumulative English readers for EGA 0 through Section 13, complete EGA I, complete EGA II, the published EGA III text through 7.9.14, and EGA IV through Parts 1-4, Sections 1-21, appendices, and backmatter. It also retains 989 high-detail EGA IV scan-derived witnesses across printed pages 5-336 in eleven ZIPs as secondary source-checking material.
+- Current version [10.5281/zenodo.21740145](https://doi.org/10.5281/zenodo.21740145) fronts five standalone English working readers: EGA 0 through Section 13, complete EGA I, complete EGA II, the published EGA III text through 7.9.14, and complete EGA IV through Sections 1-21 and EOF. The leading 135-member ZIP contains those readers and their buildable TeX closures; every reader and master also remains direct.
 - EGA 0, I, II, and published EGA III have reference-v2 working-reader layers and exact public readback, but they remain working translations rather than critical editions, rights determinations, or independent human certifications.
-- EGA IV now has a complete cumulative working reader, but it has not been promoted as an exhaustive reference-v2, independent mathematical-review, accessibility, or critical-edition certification.
+- EGA IV now has a complete source-aligned reference-v2 working reader with exact package replay. That does not amount to independent mathematical review, accessibility certification, rights clearance, or a critical edition.
+- The public EGA 0 reader still ends at Section 13. A complete-through-Section-23 local successor and the single cross-volume EGA 0-IV PDF remain active production work and are not yet public release objects.
 - Earlier bounded EGA IV checkpoints and disjoint GitHub source-survival snapshots remain immutable history beneath the cumulative reader; they are not competing current reading surfaces.
 - The public EGA surface is useful for reading, continuation, and checking, but represented reader completion must not be expanded into uniform source certification, rights clearance, or a critical-edition claim.
 
