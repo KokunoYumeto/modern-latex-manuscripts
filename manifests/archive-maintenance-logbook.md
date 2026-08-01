@@ -5776,3 +5776,33 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `C7B3BACB19EB926B203E9CDEB6B2A171FA2668C38EB7A9F4B1822F17CA169C2E`.
 - Closeout-publication receipt:
   `manifests/published-github/20260801_persian_sirejeff_source_anchor_closeout_commit_1cb171432_public_readback.json`.
+
+## 2026-08-01 - Arabic/Persian/Dari/Tajik specialist-source gaps reverified
+
+- Replayed the live 884,720,731-byte RTL/Persianate source-body ZIP on
+  [`10.5281/zenodo.21739451`](https://doi.org/10.5281/zenodo.21739451) by
+  anonymous HTTP byte ranges; its central directory has 1,047 entries and
+  212,128 bytes.
+- Decompressed, CRC-checked, and hashed 11 unique source objects / 92,657,225
+  bytes, including ArabicMath, Arabic MathJax/Babel, xepersian, two Persian
+  linear-algebra trees, direct Arabic/Persian TeX, and the explicitly retained
+  forensic-linguistics false positive.
+- Searched English, Arabic, Persian, and Cyrillic invariant/Noether forms.
+  All 78 lexical matches were contextual false positives; valid specialist
+  source hits were zero.
+- The 204 Tajik-shaped entries include six ZIP paths, all duplicate placements
+  of two Persian linear-algebra archives. The 49 Dari-shaped entries include
+  no TeX or source archive.
+- The Arabic invariant-theory, Persian invariant/Noether, Dari editable-source,
+  and Tajik abstract-algebra/TeX gaps remain open. Existing witness PDFs and
+  source bodies retain their narrower documented value.
+- No full outer download, duplicate GitHub payload, Zenodo successor, or
+  duplicate concept was created.
+- The locked helper appended
+  `EG-ARCHIVE-ARABIC-PERSIAN-DARI-TAJIK-SOURCE-GAP-RECHECK-20260801-0001`
+  and returned 429 records / 2,701,956 bytes / SHA-256
+  `5F671F9C209E1F21995743E71F13680BACF1CAE3B6FB47ABC9DFEB374A9DB656`,
+  `errors=[]`. The standalone record is 6,498 bytes / SHA-256
+  `55AA7C626C6F4B769F9C040F32A1AE861FBB9C334737900C6AF513F013117AEE`.
+- Exact receipt:
+  `manifests/source-intake/20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck.json`.
