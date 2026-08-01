@@ -27,6 +27,22 @@ FINAL_BYTES = 486_525_402
 PUBLICATION_DATE = "2026-08-01"
 VERSION = "2026-08-01 D001 bilingual source-aligned checkpoint"
 GITHUB_COMMIT = "de780b00c652e317b900b37d21a1f9bdbc0f387d"
+CHECKPOINT_LABEL = "D001"
+RECEIPT_STEM = "deligne_d001"
+ZIP_EXPECTED_MEMBERS = 29
+INNER_MANIFEST_ROWS = 27
+CROP_PATH_PREFIX = "visual_evidence/decisive_scan_crops/"
+CROP_COUNT = 14
+ZIP_ROOT = "Deligne_D001_Bilingual_SourceAligned_20260801"
+DESCRIPTION_PARAGRAPH = (
+    "<p><strong>D001 source-aligned checkpoint:</strong> direct bilingual, "
+    "English, and corrected-French readers are accompanied by one compact "
+    "editable-source and decisive-source-evidence ZIP. The ZIP contains 14 "
+    "tightly bounded 2400-9600 dpi crops used to adjudicate four disclosed "
+    "source repairs; it excludes redundant output-reader renders. This is a "
+    "complete working edition of D001 only, not a whole-corpus completion, "
+    "critical edition, peer review, certification, or new license grant.</p>"
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PACKAGE_REL = Path("sources/deligne/d001-bilingual-source-aligned-20260801")
@@ -94,17 +110,17 @@ def safe_member(name: str) -> bool:
 def replay_zip(data: bytes) -> dict[str, object]:
     wanted = EXPECTED_UPLOADS[NEW_ORDER[-1]]
     if (len(data), sha256_bytes(data)) != wanted:
-        raise RuntimeError("D001 ZIP outer identity changed")
+        raise RuntimeError(f"{CHECKPOINT_LABEL} ZIP outer identity changed")
     with zipfile.ZipFile(io.BytesIO(data)) as archive:
         infos = [row for row in archive.infolist() if not row.is_dir()]
         names = [row.filename for row in infos]
         if (
             archive.testzip() is not None
-            or len(infos) != 29
+            or len(infos) != ZIP_EXPECTED_MEMBERS
             or len(names) != len(set(names))
             or not all(safe_member(name) for name in names)
         ):
-            raise RuntimeError("D001 ZIP member boundary changed")
+            raise RuntimeError(f"{CHECKPOINT_LABEL} ZIP member boundary changed")
         manifest_name = (
             "Deligne_D001_Bilingual_SourceAligned_20260801/SHA256SUMS.csv"
         )
@@ -113,9 +129,9 @@ def replay_zip(data: bytes) -> dict[str, object]:
                 io.StringIO(archive.read(manifest_name).decode("utf-8-sig"))
             )
         )
-        if len(rows) != 27:
-            raise RuntimeError("D001 inner manifest row boundary changed")
-        prefix = "Deligne_D001_Bilingual_SourceAligned_20260801/"
+        if len(rows) != INNER_MANIFEST_ROWS:
+            raise RuntimeError(f"{CHECKPOINT_LABEL} inner manifest row boundary changed")
+        prefix = f"{ZIP_ROOT}/"
         identities = {}
         for row in rows:
             name = prefix + row["relative_path"]
@@ -123,7 +139,7 @@ def replay_zip(data: bytes) -> dict[str, object]:
             observed = (len(payload), sha256_bytes(payload))
             expected = (int(row["bytes"]), row["sha256"].upper())
             if observed != expected:
-                raise RuntimeError(f"D001 ZIP member changed: {name}")
+                raise RuntimeError(f"{CHECKPOINT_LABEL} ZIP member changed: {name}")
             identities[row["relative_path"]] = {
                 "bytes": observed[0],
                 "sha256": observed[1],
@@ -131,10 +147,10 @@ def replay_zip(data: bytes) -> dict[str, object]:
         crops = [
             name
             for name in identities
-            if name.startswith("visual_evidence/decisive_scan_crops/")
+            if name.startswith(CROP_PATH_PREFIX)
         ]
-        if len(crops) != 14:
-            raise RuntimeError("D001 decisive source-crop boundary changed")
+        if len(crops) != CROP_COUNT:
+            raise RuntimeError(f"{CHECKPOINT_LABEL} decisive source-crop boundary changed")
         return {
             "status": "PASS",
             "members": len(infos),
@@ -152,13 +168,13 @@ def local_uploads() -> dict[str, dict[str, object]]:
         )
     )
     if len(rows) != 4 or {row["filename"] for row in rows} != set(NEW_ORDER):
-        raise RuntimeError("D001 upload manifest boundary changed")
+        raise RuntimeError(f"{CHECKPOINT_LABEL} upload manifest boundary changed")
     uploads = {}
     for name in NEW_ORDER:
         path = PUBLIC_ROOT / name
         observed = (path.stat().st_size, base.sha256_path(path))
         if observed != EXPECTED_UPLOADS[name]:
-            raise RuntimeError(f"Local D001 upload changed: {name}")
+            raise RuntimeError(f"Local {CHECKPOINT_LABEL} upload changed: {name}")
         uploads[name] = {
             "path": path,
             "bytes": observed[0],
@@ -182,7 +198,7 @@ def github_readback(uploads: dict[str, dict[str, object]]) -> dict[str, object]:
         observed = (len(data), sha256_bytes(data))
         expected = (int(local["bytes"]), str(local["sha256"]))
         if observed != expected:
-            raise RuntimeError(f"GitHub D001 mismatch: {name}")
+            raise RuntimeError(f"GitHub {CHECKPOINT_LABEL} mismatch: {name}")
         readback[name] = {"bytes": observed[0], "sha256": observed[1]}
     return {
         "status": "PASS_GITHUB_PUBLIC_READBACK",
@@ -363,17 +379,8 @@ def stage_and_publish(
     metadata = draft["metadata"]
     metadata["publication_date"] = PUBLICATION_DATE
     metadata["version"] = VERSION
-    paragraph = (
-        "<p><strong>D001 source-aligned checkpoint:</strong> direct bilingual, "
-        "English, and corrected-French readers are accompanied by one compact "
-        "editable-source and decisive-source-evidence ZIP. The ZIP contains 14 "
-        "tightly bounded 2400-9600 dpi crops used to adjudicate four disclosed "
-        "source repairs; it excludes redundant output-reader renders. This is a "
-        "complete working edition of D001 only, not a whole-corpus completion, "
-        "critical edition, peer review, certification, or new license grant.</p>"
-    )
-    if paragraph not in metadata.get("description", ""):
-        metadata["description"] = metadata.get("description", "") + paragraph
+    if DESCRIPTION_PARAGRAPH not in metadata.get("description", ""):
+        metadata["description"] = metadata.get("description", "") + DESCRIPTION_PARAGRAPH
     payload = {
         "access": draft["access"],
         "files": {
@@ -533,7 +540,7 @@ def public_readback(
     }
     RECEIPT_ROOT.mkdir(parents=True, exist_ok=True)
     receipt = RECEIPT_ROOT / (
-        f"20260801_deligne_d001_record_{record_id}_public_readback.json"
+        f"20260801_{RECEIPT_STEM}_record_{record_id}_public_readback.json"
     )
     base.save_json(receipt, result)
     result["receipt_path"] = str(receipt)
