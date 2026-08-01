@@ -5767,3 +5767,12 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-github/20260801_persian_sirejeff_source_anchor_current_main_public_readback.json`
   and
   `manifests/published-zenodo/20260801_persian_sirejeff_source_anchor_record_21739451_public_readback.json`.
+- GitHub PR [#210](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/210)
+  merged the closeout records as
+  `ca8f9842c438eda51f8eb6b5ecc798d111667f04` from source commit
+  `1cb1714323ff90266cea7d217e1a57bfb06ae7ce`. Anonymous commit-pinned
+  readback matched all 9 changed blobs at both commits; canonical aggregate
+  SHA-256 is
+  `C7B3BACB19EB926B203E9CDEB6B2A171FA2668C38EB7A9F4B1822F17CA169C2E`.
+- Closeout-publication receipt:
+  `manifests/published-github/20260801_persian_sirejeff_source_anchor_closeout_commit_1cb171432_public_readback.json`.
