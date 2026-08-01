@@ -41,6 +41,28 @@ duplicate concept or active draft remains.
 Exact receipt:
 [publication and readback](../manifests/published-zenodo/20260801_sga7i_complete_english_record_21738682.md).
 
+## 2026-08-01: complete linked EGA 0-IV reader queue closed
+
+- Existing concept:
+  [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
+- Published successor:
+  [10.5281/zenodo.21744406](https://doi.org/10.5281/zenodo.21744406)
+- GitHub package:
+  [complete linked EGA 0-IV reader](../sources/ega/ega-global-complete-linked-reader-20260801/)
+
+This queue item is closed. The 1,356-page cross-volume reader is the selected
+preview and contains 15,383 named destinations, 17,808 valid GoTo actions, and
+zero broken actions. Five standalone readers and all six masters remain direct.
+The leading 265-member ZIP contains the global reader, all standalone readers,
+and their complete buildable TeX closures.
+
+Anonymous readback passed all 42 outer files / 3,771,391,044 bytes, all 36
+retained predecessor identities, and all 265 bundle members. No duplicate
+concept or second draft was created.
+
+Exact receipt:
+[publication and readback](../manifests/published-zenodo/20260801_ega_global_complete_linked_reader_record_21744406_public_readback.md).
+
 ## 2026-08-01: complete EGA IV reference-v2 reader queue closed
 
 - Existing concept:
