@@ -76,6 +76,17 @@ and Tajik abstract-algebra/TeX gaps therefore remain open on current public
 evidence. See
 `20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck.md`.
 
+## Later Exact Closeout: Persian Noether-Topic Row (2026-08-01)
+
+A later public GitHub source search found two commit-pinned Persian XeLaTeX
+problem sets with explicit Noether-charge/current exercises. Their exact
+source bodies and provenance are preserved at
+`interlanguage-sidecar/20260801/persian-noether-source-anchor/`. This closes
+the Persian Noether-topic editable-source row only. Persian invariant theory,
+Arabic invariant theory, Dari editable mathematical source, and Tajik
+abstract-algebra/native-TeX source remain open. See the later-closeout section
+in `20260801_arabic_persian_dari_tajik_specialist_source_gap_recheck.md`.
+
 Classification:
 
 Methodology/source-canon/cross-lane-sync/open-gap coordination only. This is not the requested bulk native mathematical LaTeX source-body corpus, not language completion, not native review, not term approval, not source-fidelity certification, not publication readiness, not reader output, and not critical-edition material. It records where source bodies should be collected, but does not include them.

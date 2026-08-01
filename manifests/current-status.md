@@ -1,3 +1,19 @@
+## 2026-08-01 Persian Noether-topic editable-source anchor found
+
+Two public Persian XeLaTeX problem sets from
+[`HosseinMohammadi00427/SUT-Resources`](https://github.com/HosseinMohammadi00427/SUT-Resources),
+commit `b34c5758f87f98b326529fd0d8ac9ebb2cf308ce`, now provide an exact
+editable-source anchor for Noether-current and Noether-charge exercises. The
+deterministic custody packet is
+`interlanguage-sidecar/20260801/persian-noether-source-anchor/20_Persian_Noether_Topic_TeX_Source_Anchor_20260801.zip`,
+17,767 bytes, SHA-256
+`8EB0D0B85C9ED4C64133C0E79145D0B5BB0F3884271D4B9A2AED0C4DAF0267AF`.
+This closes only the Persian Noether-topic row. Persian invariant theory,
+Arabic invariant theory, Dari editable mathematical source, and Tajik
+abstract-algebra/native-TeX source remain open. GitHub reported no repository
+license, and no new license, native review, terminology approval, translation
+certification, mathematical certification, or critical-edition claim is made.
+
 ## 2026-08-01 Arabic/Persian/Dari/Tajik specialist-source gaps reverified
 
 The current 884,720,731-byte RTL/Persianate source-body archive on
