@@ -1,3 +1,31 @@
+## 2026-08-02 SGA7 II English through Exposé XX §4.3 published
+
+GitHub PR [#244](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/244)
+merged the exact privacy-clean reader and source-image packages at source
+commit `d8d065f4c346c712943580ff75b2e60d87bb00c3` as
+`880358f6b7e5c93d5b76f8875af34234309fab8f`. Anonymous raw readback matched
+all 165 changed files / 46,897,447 bytes at both commits, with canonical
+path/byte/SHA-256 row aggregate
+`5991E65731F1EAF2701F72292C61A36F66AF609A6BCA9B5BFD8C2A6BFECB7174`.
+
+Same-concept Zenodo version
+[`10.5281/zenodo.21750586`](https://doi.org/10.5281/zenodo.21750586)
+replaces only the prior 203-page SGA7 II reader, its 142-member ZIP, and the
+r5 release controls. The current 212-page reader covers complete Exposés
+X-XIX and Exposé XX through §4.3; §4.4 is the next cursor and Exposés
+XXI-XXII are absent. Its reader/buildable-TeX ZIP has 148 members. Two compact
+source-image ZIPs preserve 26 translated-scope and 16 preparatory
+high-resolution images with page/folio, dimensions, DPI, parent-scan, and
+SHA-256 provenance; the preparatory set makes no translation claim.
+
+Anonymous readback passed all 87 public files / 728,065,594 bytes, all 82
+retained predecessor files, all 148 reader/source members, both image-ZIP
+inventories (27 and 17 members including their manifests), and all 18
+release-control members. SGA1 remains the selected preview until an exact
+internally linked cumulative SGA 1-7.2 reader is delivered and replayed. No
+active draft or duplicate concept remains. No complete-SGA7 II or
+exhaustive-reference claim is made.
+
 ## 2026-08-01 SGA7 II English through complete Exposé XIX published
 
 GitHub PR [#241](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/241)
@@ -4324,7 +4352,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21728241 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21749057 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21750586 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
 | EGA | 21744406 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
