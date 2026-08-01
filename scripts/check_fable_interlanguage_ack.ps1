@@ -1,6 +1,10 @@
 param(
-  [string]$Repo = "C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github"
+  [string]$Repo
 )
+
+if (-not $Repo) {
+  $Repo = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
+}
 
 $required = @(
   'weighted rooted-tree witness measure',
