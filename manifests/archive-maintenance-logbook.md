@@ -5978,3 +5978,38 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-github/20260801_persian_noether_source_anchor_commit_e731d17c1_public_readback.json`
   and
   `manifests/published-zenodo/20260801_persian_noether_source_anchor_record_21743417_public_readback.json`.
+
+## 2026-08-01 - SGA7 II English working reader through XVIII 5.8.7 published
+
+- Published the exact 138-file privacy-clean working checkpoint containing
+  complete English Exposes X-XVII and Expose XVIII through Corollary 5.8.7.
+  The reader has 186 A4 pages; the continuation and Exposes XIX-XXI are
+  absent. This is not a complete-SGA7 II or exhaustive-reference claim.
+- GitHub PRs [#232](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/232)
+  and [#233](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/233)
+  merged the package as `11f381ae44977585e4e442032fda8889691332c0`.
+  Anonymous raw replay matched all 138 files / 2,839,235 bytes.
+- Published one successor under the existing SGA concept DOI
+  [`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947):
+  [`10.5281/zenodo.21745704`](https://doi.org/10.5281/zenodo.21745704).
+  Anonymous readback matched all 85 files / 684,141,327 bytes, all 82 retained
+  predecessor identities, all 130 reader/source ZIP members, and all 12
+  release-control ZIP members. SGA1 remains the selected preview; no active
+  draft or duplicate concept remains.
+- The new reader PDF is 1,007,834 bytes / SHA-256
+  `65D8B29B948CA866F8688AB6E1604C945178EDEFB42A0006BB3E9AE7C10B0037`.
+  The compact reader/buildable-TeX ZIP is 1,238,778 bytes / SHA-256
+  `5D1DDA368C58A9F1454912A07BA874E479238773279170AF36A68F87264034DE`.
+- The locked helper appended
+  `EG-ARCHIVE-SGA7II-ENGLISH-XVIII-5-8-7-CLOSEOUT-20260801-0001` and returned
+  439 records / 2,758,329 bytes / SHA-256
+  `6C5D84C4724A5BEC93977374E2F00C63C86793612D9FC56DD6D96ED34B862407`,
+  with zero parse errors, zero duplicate IDs, and `errors=[]`.
+- Future release work remains queued: finish SGA7 II, complete internal links
+  in the standalone SGA readers, then build one clean cross-volume SGA 1-7.2
+  reader. The cumulative PDF will be fronted only after its exact handoff and
+  replay.
+- Exact Zenodo receipts:
+  `manifests/published-zenodo/20260801_sga7ii_english_through_xviii_5_8_7_record_21745704_public_readback.json`
+  and
+  `manifests/published-zenodo/20260801_sga7ii_english_through_xviii_5_8_7_record_21745704_zip_member_readback.json`.

@@ -14,6 +14,7 @@ Outputs:
 
 from __future__ import annotations
 
+import argparse
 import csv
 import html
 import json
@@ -37,7 +38,7 @@ RECORDS: list[tuple[str, str]] = [
     ("noether", "21699405"),
     ("weber", "21728241"),
     ("cayley", "20617845"),
-    ("sga", "21738682"),
+    ("sga", "21745704"),
     ("deligne", "21212608"),
     ("ega", "21740145"),
     ("ukrainian_applied_math", "20520721"),
@@ -90,7 +91,7 @@ RECORD_NOTES = {
         "Legacy filename warning: inherited al-Battani files in this consolidated shelf can contain `Complete Critical Edition`. The consolidated shelf is a working multilingual/source-intake record; work-level status notes override legacy filenames.",
     ],
     "sga": [
-        "Current compact SGA record 21738682 starts with one ZIP containing the current standalone English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 I. The same readers and masters remain direct in order; SGA1 is the default preview. This is not yet one cross-volume SGA 1-7.2 PDF. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I now has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX, with a compact 191-member reader/source package. The complete SGA7 I French working transcription and partial SGA7 II French transcription remain available. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.",
+        "Current compact SGA record 21745704 starts with one ZIP containing the current standalone English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 I. The same readers and masters remain direct in order; SGA1 is the default preview. This is not yet one cross-volume SGA 1-7.2 PDF. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX. A direct 186-page SGA7 II English current-progress reader contains complete Exposes X-XVII and Expose XVIII through Corollary 5.8.7, with its 130-member reader/TeX ZIP; the continuation and Exposes XIX-XXI are absent. French working transcriptions remain separately available. Anonymous readback passed all 85 outer files, all 82 retained predecessor identities, and all 130 members of the new SGA7 II package. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.",
     ],
     "ega": [
         "Open the current-reader bundle or one of the five direct English PDFs. EGA 0, I, and II are complete for their stated source scopes; published EGA III is complete through 7.9.14; EGA IV is complete through Sections 1-21 and EOF with its reference-v2 reader and buildable TeX. The bundle contains standalone readers and buildable TeX, not yet one cross-volume EGA 0-IV PDF. These are working translations, not critical editions or a claim of uniform whole-corpus certification.",
@@ -307,9 +308,11 @@ def reader_facing_rows(label: str, rows: list[dict[str, str]]) -> list[dict[str,
     ]
 
 
-def build_rows() -> list[dict[str, Any]]:
+def build_rows(selected_labels: set[str] | None = None) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     for label, record_id in RECORDS:
+        if selected_labels is not None and label not in selected_labels:
+            continue
         record = fetch_record(record_id)
         actual_record_id = str(record.get("id", record_id))
         if actual_record_id != record_id:
@@ -345,6 +348,45 @@ def build_rows() -> list[dict[str, Any]]:
                 }
             )
     return rows
+
+
+def read_existing_rows(path: Path) -> list[dict[str, Any]]:
+    with path.open(newline="", encoding="utf-8") as handle:
+        return list(csv.DictReader(handle))
+
+
+def update_current_record(
+    rows: list[dict[str, Any]], path: Path, selected_label: str
+) -> None:
+    records = json.loads(path.read_text(encoding="utf-8"))
+    group = [row for row in rows if row["record_label"] == selected_label]
+    if not group:
+        raise RuntimeError(f"No catalog rows generated for {selected_label!r}")
+    role_counts: dict[str, int] = {}
+    for row in group:
+        role = str(row["file_role"])
+        role_counts[role] = role_counts.get(role, 0) + 1
+    replacement = {
+        "label": selected_label,
+        "record_id": group[0]["record_id"],
+        "title": group[0]["record_title"],
+        "url": f"https://zenodo.org/records/{group[0]['record_id']}",
+        "file_count": len(group),
+        "total_mb": round(
+            sum(int(row["_size_bytes"]) for row in group) / (1024 * 1024), 4
+        ),
+        "role_counts": dict(sorted(role_counts.items())),
+    }
+    updated = False
+    for index, record in enumerate(records):
+        if record.get("label") == selected_label:
+            records[index] = replacement
+            updated = True
+            break
+    if not updated:
+        records.append(replacement)
+        records.sort(key=lambda row: str(row["label"]))
+    path.write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
 
 
 def write_csv(rows: list[dict[str, Any]], path: Path) -> None:
@@ -499,12 +541,40 @@ def write_markdown(rows: list[dict[str, str]], path: Path) -> None:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--record-label",
+        choices=[label for label, _record_id in RECORDS],
+        help="Refresh only one verified record while preserving other catalog rows.",
+    )
+    args = parser.parse_args()
     root = Path.cwd()
-    rows = build_rows()
-    write_csv(rows, root / "manifests" / "public-file-catalog.csv")
-    write_current_records(rows, root / "manifests" / "zenodo-records-current.json")
+    catalog_path = root / "manifests" / "public-file-catalog.csv"
+    current_path = root / "manifests" / "zenodo-records-current.json"
+    selected = {args.record_label} if args.record_label else None
+    fresh_rows = build_rows(selected)
+    if args.record_label:
+        existing = read_existing_rows(catalog_path)
+        rows = [
+            row for row in existing if row["record_label"] != args.record_label
+        ] + fresh_rows
+        order = {label: index for index, (label, _record_id) in enumerate(RECORDS)}
+        rows.sort(
+            key=lambda row: (
+                order.get(str(row["record_label"]), len(order)),
+                str(row["filename"]).casefold(),
+            )
+        )
+        update_current_record(fresh_rows, current_path, args.record_label)
+    else:
+        rows = fresh_rows
+        write_current_records(rows, current_path)
+    write_csv(rows, catalog_path)
     write_markdown(rows, root / "docs" / "public-file-catalog.md")
-    print(f"Indexed {len(rows)} public files from {len(RECORDS)} records.")
+    print(
+        f"Indexed {len(rows)} public files; refreshed "
+        f"{args.record_label or f'{len(RECORDS)} records'}."
+    )
     return 0
 
 
