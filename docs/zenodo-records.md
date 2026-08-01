@@ -643,7 +643,7 @@ Large artifact ZIPs are part of the public records for provenance. The file list
 
 ## Dedicated Methodology / Pending Standalone Records
 
-- Interlanguage and Mathematical Translation Methodology Sidecar: dedicated concept DOI <https://doi.org/10.5281/zenodo.21124403>, latest public version <https://doi.org/10.5281/zenodo.21485338>. The current version fronts the v0.13 five-page archive map, retains the complete numbered provenance/source-body/automata/terminology/Romance v10/Interslavic/R823-gate/fleet archive, adds organized Romance corpus/WordWeb/governance/T008 and Interslavic-through-Tranche-007 checkpoints, and adds a bounded CJK visual-evidence package with 290 open images, six public-safe controls, and metadata-only representation of 14 rights-blocked images. The exact WordWeb checkpoint records 60 concepts, 106 senses, 954 access rows, and 28 gaps. These are model-built methodology, corpus, normalization, bounded working-translation, provenance, and visual-QA artifacts, not native validation, human intelligibility evidence, rights clearance, proof checking, peer review, or critical-edition status. Actual Noether readers remain public on current record <https://doi.org/10.5281/zenodo.21699405>.
+- Interlanguage and Mathematical Translation Methodology Sidecar: dedicated concept DOI <https://doi.org/10.5281/zenodo.21124403>, latest public version <https://doi.org/10.5281/zenodo.21730669>. The current version retains the complete numbered provenance/source-body/automata/terminology/Romance/Interslavic/R823-gate/fleet archive and adds a commit-pinned source anchor for 353 held mathematical uses of Interslavic `važiti` across 101 files. The checked dictionary row glosses `važiti` as “weigh, balance,” not abstract “hold/be valid”; no mass rewrite was made. These are methodology, corpus, normalization, bounded working-translation, provenance, and QA artifacts, not native validation, human intelligibility evidence, rights clearance, proof checking, peer review, or critical-edition status. Actual Noether readers remain public on current record <https://doi.org/10.5281/zenodo.21699405>.
 
 - Latest interlanguage coordination addendum: packages 422-424 are staged as `Noether_PC_Interlanguage_Packages422_424_RollingDeltas_20260705.zip` (44,990 bytes, SHA256 `A85F18108EE37DD8E56510574DFBE8812EB8845EFC91A1A8124F91CA217D61D5`, 27 entries). They add Persianate/Tajik draft-artifact manifest/checksum material and package-400/402 plus package-417 visibility/frontier recheck material. They contain zero TeX-like files, zero PDFs, zero ZIP payloads, and zero omitted raw source-body rows, so classify them as methodology/source-canon/source-evidence coordination only.
 
@@ -667,3 +667,22 @@ Large artifact ZIPs are part of the public records for provenance. The file list
 - Scope: the complete earlier numbered archive remains present. Romance records 60 concepts, 106 senses, 811 metadata-only evidence rows, 954 access rows, 28 gaps, eight bounded controlled units, and a continuation at R823 line 21309. Interslavic records normalization through Tranche 007 plus a 221-unit Latin-corpus audit and retains 353 external-authority probes.
 - Classification: model-built methodology, corpus metadata, normalization, and explicitly bounded working translations. This is not native approval, human intelligibility evidence, rights clearance, whole-lane completion, peer review, proof checking, or a critical edition.
 - GitHub mirrors: `interlanguage-sidecar/methodology/romance-v13-20260718/` and retained `interlanguage-sidecar/methodology/language-manager-fleet-v12-20260718/`.
+
+## 2026-08-01 Interslavic `važiti` source anchor published
+
+- Current same-concept version DOI: <https://doi.org/10.5281/zenodo.21730669>;
+  concept DOI: <https://doi.org/10.5281/zenodo.21124403>. The 51-file
+  predecessor remains immutable and byte-identical.
+- The source anchor pins `sonic16x/interslavic` commit
+  `0fab0c5b4463118d46b1cdcd506926d8848052c9` and dictionary blob
+  `d630e808167ed1baceeca47e210197186eadb60c`.
+- Dictionary row 6005 glosses `važiti` as “weigh, balance”; the checked source
+  does not support an abstract mathematical “hold/be valid” sense. All 353
+  held occurrences across 101 files remain for sentence-level or community
+  adjudication. No corpus-wide replacement was made.
+- The five new public objects total 10,498 bytes. Anonymous readback matched
+  all five outer SHA-256 identities and all four ZIP members; no duplicate
+  concept or active draft remains.
+- GitHub PR [#191](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/191)
+  merged the source anchor as
+  `27e82d3f314e719eec193e539dd1f9ee2ca67156`.
