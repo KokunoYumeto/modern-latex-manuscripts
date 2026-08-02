@@ -328,6 +328,16 @@ def save_json_atomic(path: Path, value: Any) -> None:
     os.replace(temporary, path)
 
 
+def public_receipt_path(path: Path) -> str:
+    """Return a stable repository-relative path for public receipt fields."""
+
+    resolved = path.resolve()
+    try:
+        return resolved.relative_to(REPO_ROOT.resolve()).as_posix()
+    except ValueError as exc:
+        raise RuntimeError(f"Public receipt path escaped repository: {resolved}") from exc
+
+
 def safe_slug(value: str) -> str:
     slug = re.sub(r"[^A-Za-z0-9._-]+", "-", value).strip("-.")
     if not slug or slug != value:
@@ -1184,7 +1194,7 @@ def initial_state(spec: dict[str, Any]) -> dict[str, Any]:
     return {
         "schema": "zenodo-active-custody-state-v1",
         "release_id": spec["release_id"],
-        "release_spec_path": str(spec["_path"]),
+        "release_spec_path": public_receipt_path(spec["_path"]),
         "release_spec_bytes": spec["_bytes"],
         "release_spec_sha256": spec["_sha256"],
         "control_sha256": CONTROL_SHA256,
@@ -1904,7 +1914,7 @@ def readback_target(
         "errors": [],
         "checked_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "release_id": spec["release_id"],
-        "release_spec_path": str(spec["_path"]),
+        "release_spec_path": public_receipt_path(spec["_path"]),
         "release_spec_bytes": spec["_bytes"],
         "release_spec_sha256": spec["_sha256"],
         "target": target_key,
@@ -1929,7 +1939,7 @@ def readback_target(
         "non_certifying_description_appended": True,
         "cross_links_appended": True,
         "upload_manifest": {
-            "path": str(spec["_manifests"][target_key]["path"]),
+            "path": public_receipt_path(spec["_manifests"][target_key]["path"]),
             "bytes": spec["_manifests"][target_key]["bytes"],
             "sha256": spec["_manifests"][target_key]["sha256"],
             "file_count": len(spec["_manifests"][target_key]["files"]),
@@ -2043,7 +2053,7 @@ def run_preflight(spec: dict[str, Any]) -> dict[str, Any]:
         "status": "PASS_PREFLIGHT_READ_ONLY",
         "errors": [],
         "release_id": spec["release_id"],
-        "release_spec_path": str(spec["_path"]),
+        "release_spec_path": public_receipt_path(spec["_path"]),
         "release_spec_bytes": spec["_bytes"],
         "release_spec_sha256": spec["_sha256"],
         "mode": "preflight",
@@ -2131,8 +2141,8 @@ def close_readback(
             target_state.update(
                 {
                     "status": "CLOSED",
-                    "public_readback_receipt": str(public_path),
-                    "zip_member_readback_receipt": str(zip_path),
+                    "public_readback_receipt": public_receipt_path(public_path),
+                    "zip_member_readback_receipt": public_receipt_path(zip_path),
                     "readback_closed_at": receipt["checked_at"],
                 }
             )
@@ -2145,8 +2155,8 @@ def close_readback(
                 "outer_total_bytes": receipt["outer_total_bytes"],
                 "zip_archive_count": zipped["zip_archive_count"],
                 "zip_member_count": zipped["zip_member_count"],
-                "public_readback_receipt": str(public_path),
-                "zip_member_readback_receipt": str(zip_path),
+                "public_readback_receipt": public_receipt_path(public_path),
+                "zip_member_readback_receipt": public_receipt_path(zip_path),
             }
 
     closure_scan = account_active_drafts(authenticated, token)
@@ -2158,11 +2168,11 @@ def close_readback(
     tag = safe_slug(str(spec["release_id"])).replace("-", "_")
     summary_path = RECEIPT_ROOT / f"20260802_{tag}_six_concept_summary.json"
     summary = {
-        "status": "PASS_FOUR_CONCEPT_PUBLICATION_AND_READBACK",
+        "status": "PASS_SIX_CONCEPT_PUBLICATION_AND_READBACK",
         "errors": [],
         "checked_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "release_id": spec["release_id"],
-        "release_spec_path": str(spec["_path"]),
+        "release_spec_path": public_receipt_path(spec["_path"]),
         "release_spec_bytes": spec["_bytes"],
         "release_spec_sha256": spec["_sha256"],
         "control_sha256": CONTROL_SHA256,
