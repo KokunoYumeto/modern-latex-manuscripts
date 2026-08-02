@@ -30,10 +30,10 @@ from urllib.error import HTTPError, URLError
 
 RECORDS: list[tuple[str, str]] = [
     ("main", "20459634"),
-    ("workflow", "21762799"),
+    ("workflow", "21764484"),
     ("visual_evidence", "21730032"),
     ("noether_cjk_visual_evidence", "21499951"),
-    ("interlanguage_reflections", "21762751"),
+    ("interlanguage_reflections", "21764482"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21443852"),
     ("noether", "21699405"),
@@ -41,7 +41,7 @@ RECORDS: list[tuple[str, str]] = [
     ("cayley", "20617845"),
     ("sga", "21762813"),
     ("deligne", "21762812"),
-    ("ega", "21762807"),
+    ("ega", "21764491"),
     ("ukrainian_applied_math", "20520721"),
     ("gauss", "20674086"),
     ("riemann", "20434317"),
@@ -63,7 +63,7 @@ RECORDS: list[tuple[str, str]] = [
     ("frobenius", "20821858"),
     ("poincare", "20673462"),
     ("kneser", "20836972"),
-    ("serre", "21762806"),
+    ("serre", "21764488"),
     ("additional_author_cluster", "20672984"),
 ]
 
@@ -96,10 +96,10 @@ RECORD_NOTES = {
         "Current compact SGA record 21762813 retains all 88 files from complete-reader predecessor 21756931 and adds a complete 15-member SGA7 I/II privacy-clean provenance ZIP, its exact manifest, and the loose SGA7 I French-source correction and SGA7 II chronological logbooks. One leading ZIP still contains the current standalone English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 II; the same readers and masters remain direct and SGA1 remains the default preview. The separately available French SGA7 II working transcription remains partial. Anonymous readback passed all 92 outer files, every retained predecessor identity, and all 15 new provenance ZIP members. Historical versions remain immutable. These are working editions, translations, transcriptions, and audit records, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.",
     ],
     "ega": [
-        "Current EGA record 21762807 retains the fronted 1,356-page linked EGA 0-IV reader, five direct standalone English readers, masters, and the 265-member leading buildable-TeX bundle from predecessor 21744406. It adds a complete 241-member privacy-clean provenance ZIP and exact manifest for the active English-correction and French-canon lanes, plus loose English/French logbooks, status records, and the French continuation handoff. Anonymous readback passed all 49 outer files and every new provenance ZIP member. These are working translations and audit records, not critical editions, rights clearance, mathematical certification, accessibility certification, or uniform whole-corpus source certification.",
+        "Current EGA record 21764491 retains the fronted 1,356-page linked EGA 0-IV reader, five direct standalone English readers, masters, and the 265-member leading buildable-TeX bundle, while replacing the seven named provenance objects from predecessor 21762807 with the complete bounded v4 snapshot of the active English-correction and French-canon lanes. Its privacy-clean provenance ZIP contains 322 members, with an exact manifest and directly inspectable English/French logbooks, decisions, status, revision/error history, and continuation surfaces. The captured checkpoint reaches printed p.104 with English round R33 closed and p.105 next. Anonymous readback passed all 49 outer files and every ZIP member. These are working translations and audit records, not critical editions, rights clearance, mathematical certification, accessibility certification, or uniform whole-corpus source certification.",
     ],
     "workflow": [
-        "Current workflow/replication version 21762799 retains all eleven predecessor files and adds the same complete 34-object, 5,467,182-byte privacy-clean all-session provenance tranche deposited on the interlanguage methodology concept. Four complete corpus provenance ZIPs contain 326 members covering FAC, EGA English/French, Deligne D001-D007, and SGA7 I/II; loose logbooks, decision/error/reversal histories, continuation records, archive controls, and the shared append-only decision log remain directly inspectable. Anonymous whole-file and ZIP-member readback passed. The retained workflow and research-methodology materials remain model-built and partly unverified; this record is replication and accountability evidence, not edition, translation, source-fidelity, or mathematical certification.",
+        "Current workflow/replication version 21764484 retains the eleven workflow files and replaces the 34 named provenance objects from predecessor 21762799 with the identical 6,161,850-byte bounded v4 tranche deposited on the interlanguage methodology concept. Four complete corpus provenance ZIPs contain 408 members covering FAC, EGA English/French, Deligne D001-D007, and SGA7 I/II; loose logbooks, decision/error/reversal histories, continuation records, archive controls, and the shared append-only decision-log snapshot remain directly inspectable. Anonymous readback passed all 45 outer files and every ZIP member. The retained workflow and research-methodology materials remain model-built and partly unverified; this record is replication and accountability evidence, not edition, translation, source-fidelity, or mathematical certification.",
     ],
     "visual_evidence": [
         "Dedicated compute-reuse dataset for provenance-bound high-detail source crops used during SGA and EGA transcription checks. The initial version contains 5,855 recovered SGA7 I targeted crops in two image archives plus one metadata archive. It is source-audit evidence, not a reader, translation, critical edition, mathematical certification, or blanket rights determination. Reader landing pages remain separate and reader-first.",
@@ -117,7 +117,7 @@ RECORD_NOTES = {
         "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
     ],
     "serre": [
-        "Current Serre record 21762806 retains the complete 63-page FAC French working transcription, direct TeX, 27-member FAC source/evidence ZIP, and eight-member GAGA first-pass TeX custody ZIP from predecessor 21721854. It adds a complete 17-member privacy-clean FAC provenance ZIP and exact manifest plus loose status, chronological logbook, and editorial decision logbook. Anonymous readback passed all ten outer files and every new provenance member. The earlier GAGA PDF remains held because visible join sentinels are unresolved. License metadata is License Not Specified. This is working-transcription custody and audit evidence, not a complete Serre corpus, critical edition, mathematical certification, accessibility certification, or blanket rights clearance.",
+        "Current Serre record 21764488 retains the complete 63-page FAC French working transcription, direct TeX, 27-member FAC source/evidence ZIP, and eight-member GAGA first-pass TeX custody ZIP, while replacing the five named provenance objects from predecessor 21762806 with the bounded v4 FAC snapshot. Its privacy-clean provenance ZIP contains 18 members, with an exact manifest and directly inspectable status, chronological logbook, editorial decision logbook, revision/error history, and continuation state. The captured FAC checkpoint reaches printed p.268 / no.73 with no.74 next. Anonymous readback passed all ten outer files and every ZIP member. The earlier GAGA PDF remains held because visible join sentinels are unresolved. License metadata is License Not Specified. This is working-transcription custody and audit evidence, not a complete Serre corpus, critical edition, mathematical certification, accessibility certification, or blanket rights clearance.",
     ],
     "lean_formalization_sidecars": [
         "Small Lean 4 / Mathlib-style sidecar record for useful formalization/library-candidate material connected to the historical transcription and translation archive. These files are not source-fidelity evidence, not translation certification, not scanned-edition certification, and not critical-edition material.",
@@ -141,7 +141,7 @@ RECORD_NOTES = {
         "Current version 20435690 is a focused historical-reference shelf with reader PDFs and filtered TeX/source material. It supports terminology and historical comparison; it is not a blanket source-certified or critical-edition corpus.",
     ],
     "interlanguage_reflections": [
-        "Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21762751 retains all 66 files from predecessor 21744853 and adds the complete 34-object, 5,467,182-byte privacy-clean all-session provenance tranche, exactly mirrored on replication record 21762799. Four complete corpus provenance ZIPs contain 326 members covering FAC, EGA English/French, Deligne D001-D007, and SGA7 I/II; loose logbooks, decisions, errors, reversals, continuation records, archive controls, and the shared append-only decision log remain directly inspectable. Anonymous readback passed all 100 outer files and every new ZIP member. Earlier source-anchor scope limits and open linguistic/specialist-source gaps remain unchanged. These are methodology, normalization, corpus, source-custody, bounded working-output, provenance, and QA artifacts, not native validation, translation or source-fidelity certification, mathematical certification, rights clearance, community certification, peer review, or critical editions.",
+        "Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21764482 retains the 66 pre-provenance files and replaces the 34 named provenance objects from predecessor 21762751 with the complete 6,161,850-byte privacy-clean bounded v4 tranche, exactly mirrored on replication record 21764484. Four complete corpus provenance ZIPs contain 408 members covering FAC, EGA English/French, Deligne D001-D007, and SGA7 I/II; loose logbooks, decisions, errors, reversals, continuation records, archive controls, and the shared append-only decision-log snapshot remain directly inspectable. Anonymous readback passed all 100 outer files and every ZIP member. Earlier source-anchor scope limits and open linguistic/specialist-source gaps remain unchanged. These are methodology, normalization, corpus, source-custody, bounded working-output, provenance, and QA artifacts, not native validation, translation or source-fidelity certification, mathematical certification, rights clearance, community certification, peer review, or critical editions.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
