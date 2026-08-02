@@ -7205,7 +7205,7 @@ Next action: Upload if the author record needs source-witness completeness; othe
 
 Manifest: [20260624_steinitz_project_upload_source_witnesses.json](../manifests/pending-zenodo-uploads/20260624_steinitz_project_upload_source_witnesses.json)
 
-Zenodo record: [20822189](https://zenodo.org/records/20822189); concept DOI: [10.5281/zenodo.20547337](https://doi.org/10.5281/zenodo.20547337).
+Zenodo record: [20822189](https://zenodo.org/records/20822189); concept DOI: [10.5281/zenodo.20616988](https://doi.org/10.5281/zenodo.20616988).
 
 Local sweep found the consolidated Steinitz ChatGPT Project upload set: control ledgers plus split high-resolution page-image witnesses for the bounded Steinitz continuation lane. Treat as source-witness/project-handoff material for the existing Steinitz record, not a critical-edition certification.
 
