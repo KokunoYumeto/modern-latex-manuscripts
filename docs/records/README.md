@@ -7,7 +7,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |  |
 | Main Project Landing | 98 | 52 | 0 | 44 | 20664.9 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
 | Workflow / Replication Packet | 11 | 1 | 0 | 2 | 1.0 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
-| Interlanguage Methodology | 65 | 2 | 0 | 21 | 4745.6 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
+| Interlanguage Methodology | 66 | 2 | 0 | 22 | 4751.9 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Reusable source-audit image worksets** |  |  |  |  |  |  |  |
 | SGA / EGA Source-Audit Image Worksets | 3 | 0 | 0 | 3 | 248.1 | [visual-evidence.md](visual-evidence.md) | [Zenodo](https://doi.org/10.5281/zenodo.21730031) |
@@ -23,7 +23,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |  |
 | SGA (current working readers; SGA7 II partial) | 88 | 12 | 12 | 64 | 746.8 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
 | EGA (current complete-scope working readers) | 42 | 14 | 6 | 19 | 3596.7 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
-| Pierre Deligne | 6 | 2 | 0 | 3 | 447.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
+| Pierre Deligne | 14 | 8 | 0 | 5 | 465.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 0 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
 | Ernst Steinitz | 7 | 0 | 0 | 6 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616988) |
