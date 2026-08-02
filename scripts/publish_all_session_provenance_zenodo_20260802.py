@@ -887,7 +887,9 @@ def load_release_spec(path: Path) -> dict[str, Any]:
     if spec.get("publication_date") != PUBLICATION_DATE:
         raise RuntimeError(f"publication_date must be {PUBLICATION_DATE}")
     if set(spec.get("targets", {})) != set(TARGETS):
-        raise RuntimeError("Release specification must contain exactly six targets")
+        raise RuntimeError(
+            "Release specification must contain exactly the configured targets"
+        )
     if tuple(spec.get("safe_publish_order", SAFE_PUBLISH_ORDER)) != (
         SAFE_PUBLISH_ORDER
     ):
@@ -1995,11 +1997,14 @@ def write_target_receipts(
     zip_receipt: dict[str, Any],
 ) -> tuple[Path, Path]:
     tag = safe_slug(str(spec["release_id"])).replace("-", "_")
+    date_tag = str(spec["publication_date"]).replace("-", "")
+    if not re.fullmatch(r"[0-9]{8}", date_tag):
+        raise RuntimeError("Receipt publication date is not YYYY-MM-DD")
     public_path = RECEIPT_ROOT / (
-        f"20260802_{tag}_{target_key}_record_{record_id}_public_readback.json"
+        f"{date_tag}_{tag}_{target_key}_record_{record_id}_public_readback.json"
     )
     zip_path = RECEIPT_ROOT / (
-        f"20260802_{tag}_{target_key}_record_{record_id}_zip_member_readback.json"
+        f"{date_tag}_{tag}_{target_key}_record_{record_id}_zip_member_readback.json"
     )
     save_json_atomic(public_path, receipt)
     save_json_atomic(zip_path, zip_receipt)
@@ -2166,9 +2171,20 @@ def close_readback(
                 f"Active {target_key} draft remains after publication: {draft_ids}"
             )
     tag = safe_slug(str(spec["release_id"])).replace("-", "_")
-    summary_path = RECEIPT_ROOT / f"20260802_{tag}_six_concept_summary.json"
+    date_tag = str(spec["publication_date"]).replace("-", "")
+    if not re.fullmatch(r"[0-9]{8}", date_tag):
+        raise RuntimeError("Summary publication date is not YYYY-MM-DD")
+    concept_label = "six" if len(SAFE_PUBLISH_ORDER) == 6 else str(
+        len(SAFE_PUBLISH_ORDER)
+    )
+    status_label = "SIX" if len(SAFE_PUBLISH_ORDER) == 6 else str(
+        len(SAFE_PUBLISH_ORDER)
+    )
+    summary_path = RECEIPT_ROOT / (
+        f"{date_tag}_{tag}_{concept_label}_concept_summary.json"
+    )
     summary = {
-        "status": "PASS_SIX_CONCEPT_PUBLICATION_AND_READBACK",
+        "status": f"PASS_{status_label}_CONCEPT_PUBLICATION_AND_READBACK",
         "errors": [],
         "checked_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()),
         "release_id": spec["release_id"],
@@ -2306,9 +2322,8 @@ def clean_for_output(value: Any) -> Any:
 def main() -> int:
     parser = argparse.ArgumentParser(
         description=(
-            "Guarded add-first Zenodo successor publisher for methodology, "
-            "replication, FAC/GAGA, EGA, Deligne, and SGA7 concepts. Defaults "
-            "to read-only preflight."
+            "Guarded Zenodo successor publisher for the configured methodology, "
+            "replication, and corpus concepts. Defaults to read-only preflight."
         )
     )
     parser.add_argument(
@@ -2326,7 +2341,7 @@ def main() -> int:
     modes.add_argument(
         "--publish",
         action="store_true",
-        help="stage and publish all six tracked same-concept successors",
+        help="stage and publish all configured same-concept successors",
     )
     modes.add_argument(
         "--readback-only",
