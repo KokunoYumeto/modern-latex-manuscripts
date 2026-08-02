@@ -32,6 +32,7 @@ RECORDS: list[tuple[str, str]] = [
     ("main", "20459634"),
     ("workflow", "21707334"),
     ("visual_evidence", "21730032"),
+    ("noether_cjk_visual_evidence", "21499951"),
     ("interlanguage_reflections", "21744853"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21443852"),
@@ -103,6 +104,9 @@ RECORD_NOTES = {
     "visual_evidence": [
         "Dedicated compute-reuse dataset for provenance-bound high-detail source crops used during SGA and EGA transcription checks. The initial version contains 5,855 recovered SGA7 I targeted crops in two image archives plus one metadata archive. It is source-audit evidence, not a reader, translation, critical edition, mathematical certification, or blanket rights determination. Reader landing pages remain separate and reader-first.",
     ],
+    "noether_cjk_visual_evidence": [
+        "Dedicated compute-reuse supplement for 290 public-safe Noether/CJK visual-evidence and render-QA images, with a complete 2,020-row inventory and metadata-only accounting for 14 rights-blocked images. The archive retains one explicitly malformed inherited contact-sheet PNG as adverse evidence. It supplements the Noether and interlanguage-methodology concepts; it is not a reader, translation, source-fidelity or mathematical certification, native-language review, or blanket rights determination.",
+    ],
     "weber": [
         "Current Weber public surface is record 21728241 under concept DOI 10.5281/zenodo.20412153. It fronts the complete 420-page German Volume I working reader, exposes its editable TeX directly, and groups the reader/source/QA closure in one compact ZIP. Volume I covers the body through Section 188 and the printed errata; the full content map, damaged-section retranscription, four global consistency sweeps, and broad visual spot checks are complete, while the stricter cold page-by-page pass reaches printed p124 with p125 next. The Volume I English reader predates the current German repairs and is unsynchronized. Volume II reaches Section 176; Volume III remains an incomplete repaired cumulative. These are working readers, not critical editions, synchronized translations, full symbol-by-symbol recertification, peer review, mathematical certification, rights determinations, or accessibility remediation.",
     ],
@@ -159,6 +163,7 @@ TITLE_OVERRIDES = {
     "interlanguage_reflections": "Interlanguage and Mathematical Translation Methodology Sidecar",
     "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers: Project Atlas, Exact Results, Formalization, and Visualizations",
     "visual_evidence": "SGA and EGA High-Detail Source-Audit Image Worksets: Compute-Reuse Dataset",
+    "noether_cjk_visual_evidence": "Noether CJK Visual Evidence and Render-QA Images: Compute-Reuse Dataset",
 }
 
 
