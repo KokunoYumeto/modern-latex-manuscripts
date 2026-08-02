@@ -1349,9 +1349,9 @@ def create_or_resume_draft(
 
 
 def relation_type(link: dict[str, Any]) -> dict[str, str]:
-    value = link.get("relation_type", link.get("relation", "isrelatedto"))
+    value = link.get("relation_type", link.get("relation", "references"))
     if isinstance(value, dict):
-        value = value.get("id", "isrelatedto")
+        value = value.get("id", "references")
     return {"id": str(value).strip().lower()}
 
 
@@ -1375,7 +1375,7 @@ def merged_related_identifiers(
             {
                 "identifier": registry["concept_doi"],
                 "scheme": "doi",
-                "relation_type": "isrelatedto",
+                "relation_type": "references",
             }
         )
     seen = {
