@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1034
+Total files indexed: 1038
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -155,6 +155,19 @@ Dedicated compute-reuse dataset for provenance-bound high-detail source crops us
 | artifact/source ZIP | 127.5863 | [00_SGA7I_Targeted_HighDetail_Source_Crops_I_II_VI_20260801.zip](https://zenodo.org/records/21730032/files/00_SGA7I_Targeted_HighDetail_Source_Crops_I_II_VI_20260801.zip) |
 | artifact/source ZIP | 115.7419 | [01_SGA7I_Targeted_HighDetail_Source_Crops_VII_IX_20260801.zip](https://zenodo.org/records/21730032/files/01_SGA7I_Targeted_HighDetail_Source_Crops_VII_IX_20260801.zip) |
 | artifact/source ZIP | 4.8020 | [90_SGA7I_Targeted_Source_Crops_Metadata_20260801.zip](https://zenodo.org/records/21730032/files/90_SGA7I_Targeted_Source_Crops_Metadata_20260801.zip) |
+
+## Noether CJK Visual Evidence and Render-QA Images: Compute-Reuse Dataset
+
+Record: <https://doi.org/10.5281/zenodo.21499950>
+
+Dedicated compute-reuse supplement for 290 public-safe Noether/CJK visual-evidence and render-QA images, with a complete 2,020-row inventory and metadata-only accounting for 14 rights-blocked images. The archive retains one explicitly malformed inherited contact-sheet PNG as adverse evidence. It supplements the Noether and interlanguage-methodology concepts; it is not a reader, translation, source-fidelity or mathematical certification, native-language review, or blanket rights determination.
+
+| Role | Size MB | File |
+|---|---:|---|
+| manifest/status | 0.0004 | [DATASET_MANIFEST.csv](https://zenodo.org/records/21499951/files/DATASET_MANIFEST.csv) |
+| artifact/source ZIP | 148.1142 | [Noether_CJK_Visual_Evidence_Open_Images_20260722.zip](https://zenodo.org/records/21499951/files/Noether_CJK_Visual_Evidence_Open_Images_20260722.zip) |
+| manifest/status | 0.0022 | [README_DATASET.md](https://zenodo.org/records/21499951/files/README_DATASET.md) |
+| manifest/status | 0.0018 | [VALIDATION.json](https://zenodo.org/records/21499951/files/VALIDATION.json) |
 
 ## Interlanguage and Mathematical Translation Methodology Sidecar
 

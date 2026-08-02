@@ -1,3 +1,27 @@
+## 2026-08-02 Noether CJK visual-evidence dataset cataloged
+
+The pre-existing standalone supplement
+[10.5281/zenodo.21499951](https://doi.org/10.5281/zenodo.21499951), under
+concept DOI [10.5281/zenodo.21499950](https://doi.org/10.5281/zenodo.21499950),
+is now part of the GitHub public-record catalog. It supplements methodology
+concept `10.5281/zenodo.21124403` and Noether concept
+`10.5281/zenodo.20412587`; it does not replace either current head.
+
+Anonymous readback matched all four files / 155,313,589 bytes. The image ZIP
+opened with 299 members / 160,967,115 uncompressed bytes, no unsafe or
+duplicate paths, and no CRC failure. All 298 rows / 160,903,482 bytes in its
+self-excluding SHA-256 manifest replayed exactly. Public version, exact-title,
+and concept searches each return one record, so no duplicate public title or
+concept was found. No Zenodo object was changed.
+
+The dataset contains 290 public-safe visual-evidence and render-QA images;
+fourteen rights-blocked images remain metadata-only and 1,716 non-project
+dependency images remain excluded. One malformed inherited contact-sheet PNG
+is retained as explicit adverse evidence. This is compute-reuse and visual-QA
+evidence, not translation, transcription, source-fidelity, mathematical,
+native-language, or rights certification. Exact receipt:
+[public readback](published-zenodo/20260802_noether_cjk_visual_evidence_dataset_record_21499951_public_readback.md).
+
 ## 2026-08-02 complete SGA7 II English working reader published
 
 GitHub PRs [#250](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/250)
