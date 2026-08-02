@@ -1419,7 +1419,7 @@ def desired_metadata(
         part
         for part in (
             old_description,
-            f"<hr><p><strong>{PUBLICATION_DATE} active-custody update:</strong></p>",
+            f"<p><strong>{PUBLICATION_DATE} active-custody update:</strong></p>",
             addition,
             NON_CERTIFYING_NOTICE,
         )
@@ -1430,6 +1430,23 @@ def desired_metadata(
         metadata.get("related_identifiers", []), target_key, target
     )
     return metadata
+
+
+def metadata_compare_view(metadata: dict[str, Any]) -> dict[str, Any]:
+    """Remove only Zenodo's display-label enrichment before exact comparison.
+
+    The records API adds localized ``title`` labels to relation-type objects on
+    write.  Those labels are vocabulary display data, not submitted metadata.
+    Relation identifiers, schemes, relation IDs, list order, descriptions, and
+    every other metadata field remain under exact equality.
+    """
+
+    result = copy.deepcopy(metadata)
+    for row in result.get("related_identifiers", []):
+        relation = row.get("relation_type")
+        if isinstance(relation, dict):
+            row["relation_type"] = {"id": relation.get("id")}
+    return result
 
 
 def exact_api_file_check(
@@ -1585,7 +1602,9 @@ def stage_target(
             raise RuntimeError(f"Patched {target_key} changed metadata.{field}")
     if patched.get("access") != predecessor.get("access"):
         raise RuntimeError(f"Patched {target_key} changed access/license controls")
-    if patched["metadata"] != payload["metadata"]:
+    if metadata_compare_view(patched["metadata"]) != metadata_compare_view(
+        payload["metadata"]
+    ):
         raise RuntimeError(f"Patched {target_key} metadata did not round-trip exactly")
     target_state.update(
         {
@@ -1620,7 +1639,9 @@ def verify_staged_target(
     wanted_metadata = desired_metadata(
         target_key, spec["targets"][target_key], predecessor
     )
-    if draft["metadata"] != wanted_metadata:
+    if metadata_compare_view(draft["metadata"]) != metadata_compare_view(
+        wanted_metadata
+    ):
         raise RuntimeError(f"Staged {target_key} metadata changed before publish")
     for field in ("title", "rights", "license"):
         if draft["metadata"].get(field) != predecessor["metadata"].get(field):
@@ -1652,8 +1673,8 @@ def recover_uncertain_publish(
     exact_api_file_check(
         modern_entries(latest), final_file_rows(target_key, spec), f"Latest {target_key}"
     )
-    if latest["metadata"] != desired_metadata(
-        target_key, spec["targets"][target_key], predecessor
+    if metadata_compare_view(latest["metadata"]) != metadata_compare_view(
+        desired_metadata(target_key, spec["targets"][target_key], predecessor)
     ):
         raise RuntimeError(f"Latest {target_key} record is not this transaction")
     return latest
@@ -1778,7 +1799,9 @@ def readback_target(
     wanted_metadata = desired_metadata(
         target_key, spec["targets"][target_key], predecessor
     )
-    if record["metadata"] != wanted_metadata:
+    if metadata_compare_view(record["metadata"]) != metadata_compare_view(
+        wanted_metadata
+    ):
         raise RuntimeError(f"Public {target_key} metadata changed")
     for field in ("title", "rights", "license"):
         if record["metadata"].get(field) != predecessor["metadata"].get(field):
