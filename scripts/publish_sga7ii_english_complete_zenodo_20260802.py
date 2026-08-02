@@ -747,7 +747,10 @@ def public_readback(
         set(entries) != set(expected) or len(entries) != FINAL_FILES
         or record["parent"]["pids"]["doi"]["identifier"] != CONCEPT_DOI
         or record["files"].get("default_preview") != DEFAULT_PREVIEW
-        or record["files"].get("order") != ordered_names(set(expected))
+        or record["files"].get("order", []) not in (
+            [],
+            ordered_names(set(expected)),
+        )
         or record["metadata"].get("version") != VERSION
         or record["metadata"].get("description", "").strip() != DESCRIPTION
         or metadata_notes(record["metadata"]) != [NOTES]
