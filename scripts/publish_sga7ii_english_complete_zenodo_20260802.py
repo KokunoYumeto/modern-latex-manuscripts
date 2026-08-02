@@ -132,7 +132,7 @@ DESCRIPTION = (
     "has a complete 264-page English working reader containing Exposes X-XXII "
     "through volume EOF, with its master TeX direct and its exact 183-component "
     "buildable source in one compact ZIP. The separately available French SGA7 "
-    "II working transcription remains partial and is not represented as complete." 
+    "II working transcription remains partial and is not represented as complete."
     "</p>"
     "<p>These are working scholarly translations, editions, or transcriptions, "
     "not critical editions, peer review, exhaustive reference certification, "
