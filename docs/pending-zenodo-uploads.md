@@ -1,3 +1,25 @@
+## 2026-08-02: SGA7 II English through Exposé XXI §4 queue closed
+
+- Existing concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published successor: [10.5281/zenodo.21753102](https://doi.org/10.5281/zenodo.21753102)
+- GitHub reader package: [SGA7 II English through Exposé XXI §4](../sources/sga/sga7ii-english-through-expose-xxi-4-20260802/)
+- GitHub source-image sidecar: [Exposés XX-XXI high-resolution source-audit images](../sources/sga/sga7ii-expose-xx-xxi-source-audit-images-idx364-391-20260802/)
+
+This queue item is closed. The successor replaces the bounded §4.3 reader with
+a direct 226-page English reader containing complete Exposés X-XX and Exposé
+XXI through §4 and its bibliography, plus one 160-member
+reader/buildable-TeX ZIP. It retains the earlier 26-image source-audit ZIP and
+replaces the preparatory image set with 64 actual translated-scope source
+images covering idx364-391. The Exposé XXI §5 appendix is next and Exposé XXII
+is absent. This is not complete SGA7 II or exhaustive-reference certification.
+
+Anonymous readback passed all 87 outer files / 780,139,801 bytes, all 83
+retained predecessor identities, all 160 reader/source members, all 65 members
+of the new image ZIP, and all 17 release-control members. SGA1 remains the
+selected preview; no duplicate concept or active draft remains.
+
+Exact receipt: [publication and readback](../manifests/published-zenodo/20260802_sga7ii_english_through_expose_xxi_4_record_21753102.md).
+
 ## 2026-08-02: SGA7 II English through Exposé XX §4.3 queue closed
 
 - Existing concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
