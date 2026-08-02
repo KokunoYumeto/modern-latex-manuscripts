@@ -214,7 +214,7 @@ def main() -> None:
         "release_id": RELEASE_ID,
         "github_commit": args.github_commit,
         "release_spec": {
-            "path": str(spec_path),
+            "path": spec_path.name,
             "bytes": spec_path.stat().st_size,
             "sha256": base.sha256_path(spec_path),
         },
