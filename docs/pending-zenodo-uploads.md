@@ -1,3 +1,15 @@
+## 2026-08-02: Noether CJK visual-evidence catalog reconciliation closed
+
+- Existing standalone concept: [10.5281/zenodo.21499950](https://doi.org/10.5281/zenodo.21499950)
+- Existing public record: [10.5281/zenodo.21499951](https://doi.org/10.5281/zenodo.21499951)
+- Exact receipt: [public readback](../manifests/published-zenodo/20260802_noether_cjk_visual_evidence_dataset_record_21499951_public_readback.md)
+
+This was a GitHub catalog omission, not a Zenodo upload queue. Anonymous
+readback matched all four public files and all 298 checksum-manifest members.
+The standalone dataset supplements the Noether and methodology concepts and
+does not replace either current head. No Zenodo version, concept, deposition,
+draft, file, or metadata field was created or changed.
+
 ## 2026-08-02: complete SGA7 II English working reader queue closed
 
 - Existing concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)

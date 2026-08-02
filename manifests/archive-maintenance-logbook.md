@@ -6255,3 +6255,25 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260802_sga7ii_english_complete_record_21756931_public_readback.json`
   and
   `manifests/published-zenodo/20260802_sga7ii_english_complete_record_21756931_zip_member_readback.json`.
+
+## 2026-08-02 - Noether CJK visual-evidence dataset catalog reconciled
+
+- Added the already-public standalone dataset
+  [`10.5281/zenodo.21499951`](https://doi.org/10.5281/zenodo.21499951),
+  concept [`10.5281/zenodo.21499950`](https://doi.org/10.5281/zenodo.21499950),
+  to the GitHub public-record catalog. No Zenodo object was mutated.
+- The record has four files / 155,313,589 bytes. Anonymous full-byte readback
+  matched every Zenodo MD5 and independent SHA-256.
+- The image ZIP has 299 files / 160,967,115 uncompressed bytes, no unsafe or
+  duplicate paths, and no CRC failure. Its self-excluding SHA-256 manifest has
+  298 unique rows / 160,903,482 bytes; every row replayed exactly.
+- Public version, exact-title, and concept searches each return one record.
+  The record is an explicit supplement to the Noether and methodology
+  concepts, not a successor to either and not a duplicate public concept.
+- The public boundary is 290 public-safe render/QA images, fourteen
+  rights-blocked images retained as metadata only, 1,716 non-project images
+  excluded, and one malformed inherited PNG retained as adverse evidence.
+  Nothing here certifies translation, transcription, source fidelity,
+  mathematics, native-language review, or underlying-work rights.
+- Exact receipt:
+  `manifests/published-zenodo/20260802_noether_cjk_visual_evidence_dataset_record_21499951_public_readback.json`.

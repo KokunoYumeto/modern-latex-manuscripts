@@ -40,6 +40,7 @@ RECORD_TIERS = [
         "Reusable source-audit image worksets",
         [
             "visual_evidence",
+            "noether_cjk_visual_evidence",
         ],
     ),
     (
@@ -106,6 +107,7 @@ DISPLAY_NAMES = {
     "main": "Main Project Landing",
     "workflow": "Workflow / Replication Packet",
     "visual_evidence": "SGA / EGA Source-Audit Image Worksets",
+    "noether_cjk_visual_evidence": "Noether CJK Visual Evidence and Render-QA Dataset",
     "interlanguage_reflections": "Interlanguage Methodology",
     "lean_formalization_sidecars": "Lean Formalization Sidecars",
     "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers",
@@ -152,6 +154,9 @@ RECORD_NOTES = {
     ],
     "visual_evidence": [
         "Dedicated compute-reuse dataset for provenance-bound high-detail source crops used during SGA and EGA transcription checks. The initial version contains 5,855 recovered SGA7 I targeted crops in two image archives plus one metadata archive. It is source-audit evidence, not a reader, translation, critical edition, mathematical certification, or blanket rights determination. Reader landing pages remain separate and reader-first.",
+    ],
+    "noether_cjk_visual_evidence": [
+        "Dedicated compute-reuse supplement for 290 public-safe Noether/CJK visual-evidence and render-QA images, with a complete 2,020-row inventory and metadata-only accounting for 14 rights-blocked images. The archive retains one explicitly malformed inherited contact-sheet PNG as adverse evidence. It supplements the Noether and interlanguage-methodology concepts; it is not a reader, translation, source-fidelity or mathematical certification, native-language review, or blanket rights determination.",
     ],
     "bianchi": [
         "Dedicated Bianchi working-edition record. Volume I of `Lezioni di geometria differenziale` is represented as a full source-pdfpage 001-543 Italian transcription and English translation working edition, with top-level reader PDFs, a source-scan witness PDF, and `95 Luigi Bianchi - Volume I Complete TeX Source Witnesses and Auditfix Package.zip` carrying the TeX, ledgers, render checks, and the post-completion auditfix pass. The A2 branch is separate and now has compact/core Italian-English working coverage through source p0135, with the public `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` as the latest cataloged A2 package and earlier large scan-heavy p0105/repair packages retained as provenance/backstop. A smaller same-name Edge re-export has been routed locally under a disambiguated filename and is pending review/upload; it is not yet a public catalog replacement. These are working manuscript witnesses: TeX builds and renders, but matrix dots, prime marks, summation superscripts, and handwritten-symbol details still need continuing source/glyph audit. OCR/image-analysis material remains witness/locator evidence only.",
@@ -352,7 +357,11 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
         manifests = []
         other_pdfs = []
 
-    if label in {"ega", "sga"}:
+    if label == "visual_evidence":
+        how_to_read = "Download the image ZIPs for the reusable evidence bytes. Read the manifest, README, and validation files first for exact scope, rights exclusions, provenance limits, and known adverse evidence."
+    elif label == "noether_cjk_visual_evidence":
+        how_to_read = "Download the image ZIP for the reusable evidence bytes. Read the manifest, README, and validation files first for exact scope, rights exclusions, provenance limits, and known adverse evidence."
+    elif label in {"ega", "sga"}:
         how_to_read = "Start with the leading current-reader bundle or open a direct reader PDF. Direct master TeX files follow; provenance and QA archives are secondary downloads."
     elif reader_pdfs:
         how_to_read = "Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material."

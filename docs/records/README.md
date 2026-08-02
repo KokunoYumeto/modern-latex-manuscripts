@@ -11,6 +11,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Lean Formalization Sidecars | 1 | 0 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Reusable source-audit image worksets** |  |  |  |  |  |  |  |
 | SGA / EGA Source-Audit Image Worksets | 3 | 0 | 0 | 3 | 248.1 | [visual-evidence.md](visual-evidence.md) | [Zenodo](https://doi.org/10.5281/zenodo.21730031) |
+| Noether CJK Visual Evidence and Render-QA Dataset | 4 | 0 | 0 | 1 | 148.1 | [noether-cjk-visual-evidence.md](noether-cjk-visual-evidence.md) | [Zenodo](https://doi.org/10.5281/zenodo.21499950) |
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |  |
 | Split-Zero Geometry and Common Deformation Registers | 13 | 3 | 0 | 4 | 121.6 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |  |
