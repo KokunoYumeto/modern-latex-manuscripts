@@ -1,28 +1,26 @@
-## 2026-08-02 SGA7 II English through Exposé XXI §4 published
+## 2026-08-02 complete SGA7 II English working reader published
 
-GitHub PR [#247](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/247)
-merged the exact privacy-clean reader and source-image packages from source
-commit `508c171649722b2ec52459847344009b40fc7b29` as
-`b8eb3dcf25d48d43a9fca382ce8b850774f9ed19`. Anonymous raw readback matched
-all 176 files / 66,672,501 bytes at both commits, with canonical aggregate
-`F8B241E6BFB24A7CDDA5FBC0585250716CEA44DD2B4B3C61123E52B83A278C9D`.
+GitHub PRs [#250](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/250)
+and [#251](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/251)
+published the exact 195-file package and its source ZIP at final merge commit
+`22b8a4a26b65e69c141d08fe880cef688f6cc30e`. Anonymous raw readback matched
+all 195 files / 4,496,334 bytes. The package contains a 264-page reader for
+complete Exposés X-XXII through volume EOF, direct master TeX, 183 component
+files, and a 187-member deterministic reader/buildable-TeX ZIP.
 
 Same-concept Zenodo version
-[`10.5281/zenodo.21753102`](https://doi.org/10.5281/zenodo.21753102)
-replaces only the bounded §4.3 reader, its source ZIP, the preparatory image
-ZIP, and the prior release controls. The current 226-page reader covers
-complete Exposés X-XX and Exposé XXI through §4 and its bibliography; the
-Exposé XXI §5 appendix is next and Exposé XXII is absent. Its
-reader/buildable-TeX ZIP has 160 members. The new source-audit ZIP preserves
-64 actual translated-scope images for idx364-391 with page/folio, dimensions,
-DPI, parent-scan, and SHA-256 provenance.
+[`10.5281/zenodo.21756931`](https://doi.org/10.5281/zenodo.21756931)
+replaces only the partial SGA7 II reader, its source ZIP, the leading current
+reader bundle, and the release controls. The refreshed leading bundle contains
+the current SGA1-7 II English readers and buildable TeX in 1,770 members.
 
-Anonymous readback passed all 87 public files / 780,139,801 bytes, all 83
-retained predecessor files, all 160 reader/source members, all 65 source-image
-ZIP members, and all 17 release-control members. SGA1 remains the selected
-preview until an exact internally linked cumulative SGA 1-7.2 reader is
-delivered and replayed. No active draft or duplicate concept remains. No
-complete-SGA7 II or exhaustive-reference claim is made.
+Anonymous readback passed all 88 public files / 783,037,366 bytes, all 83
+retained predecessor files, all 1,770 leading-bundle members, all 187 SGA7 II
+reader/source members, and all 13 release-control members. SGA1 remains the
+selected preview until an exact internally linked cumulative SGA 1-7.2 reader
+is delivered and replayed. No active draft or duplicate concept remains. The
+SGA7 II English scope is complete through EOF but is not exhaustive-reference
+certified; the separate French working transcription remains partial.
 
 ## 2026-08-02 SGA7 II English through Exposé XX §4.3 published
 
@@ -4378,7 +4376,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21728241 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21753102 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21756931 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21212608 | <https://doi.org/10.5281/zenodo.20410853> |
 | EGA | 21744406 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
