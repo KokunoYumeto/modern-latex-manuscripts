@@ -32,14 +32,14 @@ RECORDS: list[tuple[str, str]] = [
     ("main", "20459634"),
     ("workflow", "21707334"),
     ("visual_evidence", "21730032"),
-    ("interlanguage_reflections", "21743417"),
+    ("interlanguage_reflections", "21744853"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21443852"),
     ("noether", "21699405"),
     ("weber", "21728241"),
     ("cayley", "20617845"),
     ("sga", "21756931"),
-    ("deligne", "21212608"),
+    ("deligne", "21745061"),
     ("ega", "21744406"),
     ("ukrainian_applied_math", "20520721"),
     ("gauss", "20674086"),
@@ -122,7 +122,7 @@ RECORD_NOTES = {
         "Separate exploratory mathematics sidecar, outside the manuscript-translation completion ranking. Current version 21443852 fronts the concise Project Atlas and retains the bookmarked results compendium, Lean/Python checks and ledgers, editable working texts, replayable visualization/data packages, and the bounded N16-N18 predatum/K4/Hopf supplement from predecessor 21426216. It adds the coherent Part 8-C2A through C2F2 finite-glue, shell, triality, and Fricke proof chain. The seven source-free Python replays pass 16/16, 19/19, 16/16, 18/18, 20/20, 11/11, and 19/19 checks; the stated marking, topology, classification, and Niemeier/Fricke boundaries remain explicit. This is a working research record, not peer review, a proof of a famous open problem, or certification of every broader claim.",
     ],
     "deligne": [
-        "Current reader-first surface is version 21212608. It directly exposes the sequential English and French working readers through Papers 001-016p080 and groups individual paper/letter PDFs and the TeX/source/QA material into four archives. These are uneven working drafts and repair material, not a critical edition or blanket source-faithfulness claim; diagram-heavy and equation-dense pieces still require direct source comparison.",
+        "Current reader-first surface is version 21745061. It retains the sequential English and French working readers through Papers 001-016p080, the grouped paper/letter PDF and TeX/source/QA archives, and the D001 source-aligned readers/source package, then adds direct bilingual, English, and French source-aligned working readers plus a 21-member TeX/source-crop package for D002. The cumulative English reader remains the default preview. D001 and D002 are complete source-aligned working editions for those papers only; the wider corpus remains uneven working-draft and repair material, not a critical edition, peer review, mathematical certification, or blanket source-faithfulness claim.",
     ],
     "chinese": [
         "Current version 20543246 provides direct English, modern-Chinese, Chinese-original, and Arabic working-reader surfaces plus filtered TeX/source archives. The Arabic files are working translation drafts whose local checks establish build/openability, not native-language or source-accuracy certification.",
@@ -137,7 +137,7 @@ RECORD_NOTES = {
         "Current version 20435690 is a focused historical-reference shelf with reader PDFs and filtered TeX/source material. It supports terminology and historical comparison; it is not a blanket source-certified or critical-edition corpus.",
     ],
     "interlanguage_reflections": [
-        "Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21743417 retains the complete numbered archive, the Interslavic dictionary anchor, the Fable Tranche 001 acknowledgement, and the direct Gate 15 source anchor, then adds one compact commit-pinned Persian Noether-topic XeLaTeX source ZIP. The Persian packet closes a Noether-topic editable-source row only, not Persian invariant theory; GitHub reported no repository license. Paper 06 semantic reconciliation, linguistic review, global-ledger completeness, Persian invariant theory, Arabic invariant theory, Dari editable mathematics, and Tajik abstract-algebra/native-TeX source remain open. These are methodology, normalization, corpus, source-custody, bounded working-translation, provenance, and QA artifacts, not native validation, translation or source-fidelity certification, rights clearance, community certification, peer review, or critical editions.",
+        "Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21744853 retains all 65 predecessor files from 21743417 and adds one compact six-member Tajik algebra source-anchor ZIP containing two public university mathematics PDFs plus exact scope, metadata, manifest, and checksum controls. This closes the Tajik abstract-algebra source row, not Tajik native TeX, native review, terminology approval, or rights clearance. The retained Persian packet closes a Noether-topic editable-source row only, not Persian invariant theory; GitHub reported no repository license. Paper 06 semantic reconciliation, linguistic review, global-ledger completeness, Persian invariant theory, Arabic invariant theory, Dari editable mathematics, and Tajik native-TeX source remain open. These are methodology, normalization, corpus, source-custody, bounded working-translation, provenance, and QA artifacts, not native validation, translation or source-fidelity certification, community certification, peer review, or critical editions.",
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
