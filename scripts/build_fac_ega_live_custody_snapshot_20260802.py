@@ -147,7 +147,11 @@ ENGLISH_SOURCE_FILE_FIELD_RE = re.compile(
     r'(?i)("english_source_file"[ \t]*:[ \t]*")[^"]*[\\/]source[\\/]([^"\r\n]+)(")'
 )
 TASK_ID_RE = re.compile(
-    r"(?i)\b[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b"
+    # Codex task/thread IDs are sometimes concatenated directly to prose labels
+    # such as ``thread019e...``.  Word boundaries therefore leave the exact ID
+    # behind.  Match the fixed-width identifier wherever it occurs; preserving
+    # an adjacent label is harmless, while exposing the identifier is not.
+    r"(?i)[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}"
 )
 CODEX_STATE_RE = re.compile(r"(?i)(?<![A-Za-z0-9_])\.codex(?![A-Za-z0-9_])")
 SOURCE_THREAD_FIELD_RE = re.compile(r"(?i)source_thread_id")
