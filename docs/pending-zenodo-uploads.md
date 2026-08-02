@@ -1,24 +1,23 @@
-## 2026-08-02: SGA7 II English through Exposé XXI §4 queue closed
+## 2026-08-02: complete SGA7 II English working reader queue closed
 
 - Existing concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
-- Published successor: [10.5281/zenodo.21753102](https://doi.org/10.5281/zenodo.21753102)
-- GitHub reader package: [SGA7 II English through Exposé XXI §4](../sources/sga/sga7ii-english-through-expose-xxi-4-20260802/)
-- GitHub source-image sidecar: [Exposés XX-XXI high-resolution source-audit images](../sources/sga/sga7ii-expose-xx-xxi-source-audit-images-idx364-391-20260802/)
+- Published successor: [10.5281/zenodo.21756931](https://doi.org/10.5281/zenodo.21756931)
+- GitHub reader package: [complete SGA7 II English working reader](../sources/sga/sga7ii-english-complete-through-expose-xxii-20260802/)
 
-This queue item is closed. The successor replaces the bounded §4.3 reader with
-a direct 226-page English reader containing complete Exposés X-XX and Exposé
-XXI through §4 and its bibliography, plus one 160-member
-reader/buildable-TeX ZIP. It retains the earlier 26-image source-audit ZIP and
-replaces the preparatory image set with 64 actual translated-scope source
-images covering idx364-391. The Exposé XXI §5 appendix is next and Exposé XXII
-is absent. This is not complete SGA7 II or exhaustive-reference certification.
+This queue item is closed. The successor replaces the partial Exposé-XXI
+reader with a direct 264-page English working reader containing complete
+Exposés X-XXII through volume EOF, direct master TeX, and one 187-member
+reader/buildable-TeX ZIP. The leading current-reader bundle now contains the
+SGA1-7 II English readers and buildable TeX in 1,770 members. This is complete
+for the represented SGA7 II English volume, but not exhaustive-reference
+certification; the separate French transcription remains partial.
 
-Anonymous readback passed all 87 outer files / 780,139,801 bytes, all 83
-retained predecessor identities, all 160 reader/source members, all 65 members
-of the new image ZIP, and all 17 release-control members. SGA1 remains the
+Anonymous readback passed all 88 outer files / 783,037,366 bytes, all 83
+retained predecessor identities, all 1,770 leading-bundle members, all 187
+reader/source members, and all 13 release-control members. SGA1 remains the
 selected preview; no duplicate concept or active draft remains.
 
-Exact receipt: [publication and readback](../manifests/published-zenodo/20260802_sga7ii_english_through_expose_xxi_4_record_21753102.md).
+Exact receipt: [publication and readback](../manifests/published-zenodo/20260802_sga7ii_english_complete_record_21756931.md).
 
 ## 2026-08-02: SGA7 II English through Exposé XX §4.3 queue closed
 
@@ -72,7 +71,7 @@ Exact receipt: [publication and readback](../manifests/published-zenodo/20260801
   [SGA7 I complete English working reader](../sources/sga/sga7i-english-complete-working-reader-20260801/),
   [SGA1-7 I current reader bundle](../sources/sga/sga1-7-current-readers-and-buildable-tex-bundle-20260801/)
 
-This queue item is closed. The current surface fronts one 1,585-member ZIP
+This historical queue item is closed. That predecessor fronted one 1,585-member ZIP
 containing the SGA1-7 I English readers and buildable TeX, while keeping the
 same readers and masters direct. SGA7 I is now complete as a 287-page English
 working reader for all written Exposes I, II, VI, VII, VIII, and IX. It is not
