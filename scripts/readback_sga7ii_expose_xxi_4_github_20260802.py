@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import os
 import subprocess
 import time
 import urllib.error
@@ -13,13 +14,26 @@ import urllib.request
 from pathlib import Path
 
 
-SOURCE_COMMIT = "508c171649722b2ec52459847344009b40fc7b29"
-MERGE_COMMIT = "b8eb3dcf25d48d43a9fca382ce8b850774f9ed19"
-PULL_REQUEST = 247
+SOURCE_COMMIT = os.environ.get(
+    "READBACK_SOURCE_COMMIT", "508c171649722b2ec52459847344009b40fc7b29"
+)
+MERGE_COMMIT = os.environ.get(
+    "READBACK_MERGE_COMMIT", "b8eb3dcf25d48d43a9fca382ce8b850774f9ed19"
+)
+PULL_REQUEST = int(os.environ.get("READBACK_PULL_REQUEST", "247"))
 REPOSITORY = "KokunoYumeto/modern-latex-manuscripts"
-RECEIPT_STEM = (
-    "20260802_sga7ii_english_expose_xxi_4_"
-    "commit_b8eb3dcf2_public_readback"
+RECEIPT_STEM = os.environ.get(
+    "READBACK_RECEIPT_STEM",
+    "20260802_sga7ii_english_expose_xxi_4_commit_b8eb3dcf2_public_readback",
+)
+RECEIPT_TITLE = os.environ.get(
+    "READBACK_RECEIPT_TITLE",
+    "SGA7 II through Expose XXI Section 4 GitHub readback",
+)
+RECEIPT_NOTE = os.environ.get(
+    "READBACK_RECEIPT_NOTE",
+    "The readback covers the cumulative reader, buildable source, compact "
+    "reader/source ZIP, source-audit image ZIP, controls, and builders.",
 )
 
 
@@ -151,7 +165,7 @@ def main() -> int:
     md_path.write_text(
         "\n".join(
             [
-                "# SGA7 II through Expose XXI Section 4 GitHub readback",
+                f"# {RECEIPT_TITLE}",
                 "",
                 f"- Status: `{receipt['status']}`",
                 f"- Pull request: [#{PULL_REQUEST}]({receipt['pull_request_url']})",
@@ -163,8 +177,7 @@ def main() -> int:
                 "- Method: anonymous commit-pinned raw retrieval with exact byte, "
                 "SHA-256, and Git-blob comparison at source and merge commits",
                 "",
-                "The readback covers the cumulative reader, buildable source, compact "
-                "reader/source ZIP, source-audit image ZIP, controls, and builders.",
+                RECEIPT_NOTE,
                 "",
             ]
         ),

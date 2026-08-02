@@ -6179,3 +6179,45 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
 - SGA1 remains the preview only until an exact internally linked cumulative
   SGA 1-7.2 reader is delivered and replayed. That global PDF will then be
   fronted while the standalone readers remain direct.
+
+## 2026-08-02 - SGA7 II English through Exposé XXI §4 closed
+
+- Published the stronger 168-file privacy-clean working checkpoint containing
+  complete English Exposés X-XX and Exposé XXI through §4 and its bibliography.
+  The reader has 226 A4 pages; the §5 appendix is next and Exposé XXII remains
+  absent.
+- GitHub PR [#247](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/247)
+  merged `508c171649722b2ec52459847344009b40fc7b29` as
+  `b8eb3dcf25d48d43a9fca382ce8b850774f9ed19`. Anonymous replay matched
+  176 files / 66,672,501 bytes at both commits; aggregate
+  `F8B241E6BFB24A7CDDA5FBC0585250716CEA44DD2B4B3C61123E52B83A278C9D`.
+- Published one successor under existing SGA concept
+  [`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947):
+  [`10.5281/zenodo.21753102`](https://doi.org/10.5281/zenodo.21753102).
+  Readback matched all 87 files / 780,139,801 bytes, all 83 retained
+  identities, 160 reader/source members, 65 translated-scope image members,
+  and all 17 release controls. No draft or duplicate concept remains.
+- Reader SHA-256:
+  `5C08B788FBBB197983115B6C197965D5C6F19E3A7C0A5755F095B73A6FDB7E33`.
+  Source ZIP SHA-256:
+  `EF5F94C96F056A789A312FA2A72845C9683B9B951C13564FA7769F130DAE8C71`.
+  Source-image ZIP SHA-256:
+  `3CD57C39D77DFCDD8C6C51B2B5803E348C90E8D62D01D254A5487A7C3F09D22C`.
+- PR [#248](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/248)
+  merged `bdc3f0755ccf1fbe6a96031dc4990a43aa0d1f5d` as
+  `5b1fafd7988f9ba6df33eda5f1677136355db277`; readback matched 28
+  closeout files / 3,643,475 bytes at both commits, aggregate
+  `95D89B9F2E27B963189DE84E3234D01A0C088A465EF8F2EEADE0BA965A86CDD4`.
+- The locked helper appended
+  `EG-ARCHIVE-SGA7II-ENGLISH-XXI-4-CLOSEOUT-20260802-0001`: 444 records /
+  2,794,206 bytes / SHA-256
+  `772700BCBCCD3CEAF87D199F766DBC8482F554ADE8AB879EC6CDB59DB2F9301B`,
+  with `errors=[]`.
+- SGA1 remains the preview only until an exact internally linked cumulative
+  SGA 1-7.2 reader is delivered and replayed. That global PDF will then be
+  fronted while the standalone readers remain direct.
+- Exact receipts:
+  `manifests/published-github/20260802_sga7ii_english_expose_xxi_4_closeout_commit_5b1fafd79_public_readback.json`,
+  `manifests/published-zenodo/20260802_sga7ii_english_through_expose_xxi_4_record_21753102_public_readback.json`,
+  and
+  `manifests/published-zenodo/20260802_sga7ii_english_through_expose_xxi_4_record_21753102_zip_member_readback.json`.
