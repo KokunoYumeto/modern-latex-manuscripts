@@ -25,7 +25,7 @@ Current record: <https://doi.org/10.5281/zenodo.20414353>
 
 Current record: <https://doi.org/10.5281/zenodo.20410947> (concept DOI: <https://doi.org/10.5281/zenodo.20410947>)
 
-- Current compact version [10.5281/zenodo.21753102](https://doi.org/10.5281/zenodo.21753102) has 87 files. One leading 1,585-member ZIP contains the current complete SGA1-7 I English readers and buildable TeX closures; the same readers remain direct. A separate 226-page SGA7 II English current-progress reader reaches Exposé XXI §4 and its bibliography and has a 160-member reader/TeX ZIP. Two compact high-resolution source-image ZIPs preserve 90 translated-scope images.
+- Current compact version [10.5281/zenodo.21756931](https://doi.org/10.5281/zenodo.21756931) has 88 files. One leading 1,770-member ZIP contains the current SGA1-7 II English readers and buildable TeX closures; the same readers remain direct. The complete 264-page SGA7 II English working reader reaches Exposé XXII and volume EOF and has a 187-member reader/TeX ZIP.
 - All eight direct reader PDFs passed page-by-page reader-purity scans: project, model, workflow, source-status, correction-history, comparison-lineage, and project-written source-reading notes are absent. Genuine source-era editorial apparatus remains.
 - SGA1's 262-page complete reference-v2 R2 reader has 2,151 named destinations and 1,600 valid internal GoTo actions. It is a complete represented working translation/reference reader, not a critical edition or mathematical certification.
 - SGA3 is represented by the clean 1,470-page R29 working cumulative through Exposes I-XXVI plus indexes/guides. It remains a heterogeneous integration, not final whole-reader diagram-fidelity closure or uniform source certification.

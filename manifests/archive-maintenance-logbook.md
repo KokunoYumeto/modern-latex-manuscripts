@@ -6221,3 +6221,37 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260802_sga7ii_english_through_expose_xxi_4_record_21753102_public_readback.json`,
   and
   `manifests/published-zenodo/20260802_sga7ii_english_through_expose_xxi_4_record_21753102_zip_member_readback.json`.
+
+## 2026-08-02 - complete SGA7 II English working reader closed
+
+- Published the complete 195-file GitHub package for SGA7 II Exposés X-XXII
+  through volume EOF. The direct reader has 264 A4 pages; the source closure
+  contains one master plus 183 components.
+- GitHub PR [#250](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/250)
+  merged source commit `d50abe6e3` as
+  `596cda5fe9ba374b7b6f4cd9a2675d65792a2f23`. PR
+  [#251](https://github.com/KokunoYumeto/modern-latex-manuscripts/pull/251)
+  merged `dbe6dda11` as
+  `22b8a4a26b65e69c141d08fe880cef688f6cc30e`, restoring the source ZIP
+  omitted by the repository's global ZIP ignore rule. Final anonymous GitHub
+  readback matched all 195 files / 4,496,334 bytes.
+- Published one successor under existing SGA concept
+  [`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947):
+  [`10.5281/zenodo.21756931`](https://doi.org/10.5281/zenodo.21756931).
+  Readback matched all 88 files / 783,037,366 bytes, all 83 retained
+  predecessor identities, all 1,770 all-current-reader bundle members, all
+  187 SGA7 II reader/source members, and all 13 release controls. No draft or
+  duplicate concept remains.
+- Reader SHA-256:
+  `930446AC789F5B67C7093C02D5604AFB5A4ED1E0554B1A25CC7EEF633C9F0960`.
+  Reader/source ZIP SHA-256:
+  `9366F847CDF99E74BB8619E46EA294363C92E2C5BC55718DCB695B549613CF83`.
+  Leading bundle SHA-256:
+  `07E1E3D1B9613D722988AFB424989D54F0FD9F2303E3228D4A95B0D9791BCAFC`.
+- SGA1 remains the preview only until an exact internally linked cumulative
+  SGA 1-7.2 reader is delivered and replayed. The separate SGA7 II French
+  transcription remains partial; the English translation cursor is EOF.
+- Exact receipts:
+  `manifests/published-zenodo/20260802_sga7ii_english_complete_record_21756931_public_readback.json`
+  and
+  `manifests/published-zenodo/20260802_sga7ii_english_complete_record_21756931_zip_member_readback.json`.
