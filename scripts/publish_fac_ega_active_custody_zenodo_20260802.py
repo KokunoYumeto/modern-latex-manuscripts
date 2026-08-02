@@ -29,10 +29,8 @@ The release specification has this shape (hashes are hexadecimal strings):
         "total_bytes": 123,
         "inventory_sha256": "...",
         "files": [{
-          "name": "existing.zip", "bytes": 123, "md5": "...",
-          "sha256": "...", "zip_member_count": 2,
-          "zip_uncompressed_bytes": 456,
-          "zip_inventory_sha256": "..."
+           "name": "existing.zip", "bytes": 123, "md5": "...",
+           "zenodo_file_id": "exact-inherited-object-uuid"
         }]
       },
       "manifest_path": "path/to/zenodo-upload-manifest.json",
@@ -67,9 +65,13 @@ the manifest.  Rows sent identically to the methodology and replication DOI
 ``zip_inventory_sha256``; the script calculates and checks these regardless.
 
 The predecessor inventory digest is SHA-256 over canonical JSON for the full
-sorted list of normalized file rows (name, bytes, md5, sha256, and ZIP summary
-where applicable).  The complete predecessor row list is mandatory: this is a
-byte guard, not merely a record-number check.
+sorted list of normalized Zenodo object rows (name, bytes, native MD5, and
+inherited file UUID).  The complete predecessor row list is mandatory.  This
+matches the established archive workflow: existing published bytes are retained
+by exact Zenodo object identity plus size/MD5, while every newly uploaded object
+receives anonymous whole-file SHA-256 readback and every new ZIP receives full
+member-level SHA-256 replay.  Already-published multi-gigabyte predecessors are
+not needlessly downloaded and decompressed again on every successor.
 
 Safety properties:
 
@@ -413,10 +415,40 @@ def normalized_file_row(row: dict[str, Any], *, require_zip: bool) -> dict[str, 
     return result
 
 
+def normalized_predecessor_row(row: dict[str, Any]) -> dict[str, Any]:
+    name = str(row.get("name") or row.get("filename") or "")
+    if (
+        not name
+        or Path(name).name != name
+        or "/" in name
+        or "\\" in name
+        or any(ord(character) < 32 for character in name)
+    ):
+        raise RuntimeError(f"Unsafe Zenodo predecessor filename: {name!r}")
+    file_id = str(row.get("zenodo_file_id") or "").strip()
+    if not re.fullmatch(r"[0-9A-Fa-f-]{36}", file_id):
+        raise RuntimeError(f"Invalid Zenodo predecessor file UUID: {name}")
+    result = {
+        "name": name,
+        "bytes": int(row["bytes"]),
+        "md5": normalized_md5(row["md5"]),
+        "zenodo_file_id": file_id.lower(),
+    }
+    if result["bytes"] < 0:
+        raise RuntimeError(f"Negative predecessor byte count for {name}")
+    return result
+
+
 def inventory_digest(rows: Iterable[dict[str, Any]]) -> str:
     normalized = [
         normalized_file_row(dict(row), require_zip=False) for row in rows
     ]
+    normalized.sort(key=lambda row: row["name"])
+    return sha256_bytes(canonical_bytes(normalized))
+
+
+def predecessor_inventory_digest(rows: Iterable[dict[str, Any]]) -> str:
+    normalized = [normalized_predecessor_row(dict(row)) for row in rows]
     normalized.sort(key=lambda row: row["name"])
     return sha256_bytes(canonical_bytes(normalized))
 
@@ -601,17 +633,14 @@ def validate_predecessor_guard(
         raise RuntimeError(f"{target_key} version DOI guard changed")
     if not str(guard.get("title", "")).strip():
         raise RuntimeError(f"{target_key} predecessor title guard is empty")
-    rows = [
-        normalized_file_row(dict(row), require_zip=True)
-        for row in guard.get("files", [])
-    ]
+    rows = [normalized_predecessor_row(dict(row)) for row in guard.get("files", [])]
     names = [row["name"] for row in rows]
     if not rows or len(names) != len(set(names)):
         raise RuntimeError(f"{target_key} predecessor file guard is not exact")
     observed_aggregate = (
         len(rows),
         sum(int(row["bytes"]) for row in rows),
-        inventory_digest(rows),
+        predecessor_inventory_digest(rows),
     )
     expected_aggregate = (
         int(guard.get("file_count", -1)),
@@ -996,64 +1025,32 @@ def verify_predecessor(
         raise RuntimeError(f"{target_key} predecessor file set changed")
 
     observed_rows: list[dict[str, Any]] = []
-    for ordinal, name in enumerate(sorted(entries), start=1):
+    for name in sorted(entries):
         api_row = entries[name]
         expected = guard["by_name"][name]
         api_identity = (
             int(api_row["size"]),
             normalized_md5(api_row["checksum"]),
+            str(api_row.get("id") or "").lower(),
         )
-        if api_identity != (expected["bytes"], expected["md5"]):
+        if api_identity != (
+            expected["bytes"],
+            expected["md5"],
+            expected["zenodo_file_id"],
+        ):
             raise RuntimeError(f"{target_key} predecessor API file changed: {name}")
-        zip_path = scratch / f"{target_key}-predecessor-{ordinal:04d}.zip"
-        identity = stream_public_file(
-            anonymous,
-            api_row["links"]["content"],
-            destination=zip_path if name.lower().endswith(".zip") else None,
-        )
-        if (
-            identity["bytes"],
-            identity["md5"],
-            identity["sha256"],
-        ) != (expected["bytes"], expected["md5"], expected["sha256"]):
-            raise RuntimeError(
-                f"{target_key} predecessor public bytes changed: {name}"
-            )
-        row = {
+        observed_rows.append(
+            {
             "name": name,
-            "bytes": identity["bytes"],
-            "md5": identity["md5"],
-            "sha256": identity["sha256"],
-        }
-        if name.lower().endswith(".zip"):
-            zipped = zip_inventory(zip_path, include_members=False)
-            zip_path.unlink()
-            zip_identity = (
-                zipped["member_count"],
-                zipped["uncompressed_bytes"],
-                zipped["inventory_sha256"],
-            )
-            expected_zip = (
-                expected["zip_member_count"],
-                expected["zip_uncompressed_bytes"],
-                expected["zip_inventory_sha256"],
-            )
-            if zip_identity != expected_zip:
-                raise RuntimeError(
-                    f"{target_key} predecessor ZIP members changed: {name}"
-                )
-            row.update(
-                {
-                    "zip_member_count": zipped["member_count"],
-                    "zip_uncompressed_bytes": zipped["uncompressed_bytes"],
-                    "zip_inventory_sha256": zipped["inventory_sha256"],
-                }
-            )
-        observed_rows.append(row)
+                "bytes": api_identity[0],
+                "md5": api_identity[1],
+                "zenodo_file_id": api_identity[2],
+            }
+        )
     observed_aggregate = (
         len(observed_rows),
         sum(int(row["bytes"]) for row in observed_rows),
-        inventory_digest(observed_rows),
+        predecessor_inventory_digest(observed_rows),
     )
     expected_aggregate = (
         guard["file_count"],
@@ -1424,6 +1421,11 @@ def exact_api_file_check(
             row["md5"],
         ):
             raise RuntimeError(f"{label} file identity changed: {name}")
+        expected_file_id = row.get("zenodo_file_id")
+        if expected_file_id and str(entry.get("id") or "").lower() != str(
+            expected_file_id
+        ).lower():
+            raise RuntimeError(f"{label} inherited Zenodo object changed: {name}")
 
 
 def stage_target(
@@ -1763,12 +1765,43 @@ def readback_target(
     entries = modern_entries(record)
     outer: dict[str, dict[str, Any]] = {}
     archives: dict[str, dict[str, Any]] = {}
+    new_payload = spec["_manifests"][target_key]["by_name"]
     for ordinal, name in enumerate(sorted(entries), start=1):
         row = expected[name]
+        entry = entries[name]
+        if name not in new_payload:
+            retained_identity = (
+                int(entry["size"]),
+                normalized_md5(entry["checksum"]),
+                str(entry.get("id") or "").lower(),
+            )
+            expected_retained = (
+                row["bytes"],
+                row["md5"],
+                row["zenodo_file_id"],
+            )
+            if retained_identity != expected_retained:
+                raise RuntimeError(
+                    f"Public {target_key} retained predecessor changed: {name}"
+                )
+            outer[name] = {
+                "bytes": retained_identity[0],
+                "md5": retained_identity[1],
+                "zenodo_file_id": retained_identity[2],
+                "url": entry["links"]["content"],
+                "readback_ordinal": ordinal,
+                "match": True,
+                "source": "retained_predecessor",
+                "readback_mode": (
+                    "zenodo_inherited_object_uuid_size_md5_no_redundant_download"
+                ),
+            }
+            continue
+
         zip_path = scratch / f"{target_key}-readback-{ordinal:04d}.zip"
         identity = stream_public_file(
             anonymous,
-            entries[name]["links"]["content"],
+            entry["links"]["content"],
             destination=zip_path if name.lower().endswith(".zip") else None,
         )
         if (
@@ -1777,18 +1810,14 @@ def readback_target(
             identity["sha256"],
         ) != (row["bytes"], row["md5"], row["sha256"]):
             raise RuntimeError(f"Public {target_key} bytes changed: {name}")
-        if identity["md5"] != normalized_md5(entries[name]["checksum"]):
+        if identity["md5"] != normalized_md5(entry["checksum"]):
             raise RuntimeError(f"Public {target_key} API checksum changed: {name}")
         outer[name] = {
             **identity,
-            "url": entries[name]["links"]["content"],
+            "url": entry["links"]["content"],
             "readback_ordinal": ordinal,
             "match": True,
-            "source": (
-                "new_manifest_payload"
-                if name in spec["_manifests"][target_key]["by_name"]
-                else "retained_predecessor"
-            ),
+            "source": "new_manifest_payload",
         }
         if name.lower().endswith(".zip"):
             zipped = zip_inventory(zip_path, include_members=True)
@@ -1844,6 +1873,7 @@ def readback_target(
             "inventory_sha256": spec["_guards"][target_key][
                 "inventory_sha256"
             ],
+            "identity_method": "zenodo_inherited_object_uuid_size_md5",
         },
         "predecessor_preserved_published": True,
         "title_retained_exact": True,
@@ -1865,7 +1895,7 @@ def readback_target(
             ),
         },
         "file_policy": policy,
-        "retained_predecessor_files_byte_exact": (
+        "retained_predecessor_files_exact_zenodo_object_size_md5": (
             len(spec["_guards"][target_key]["files"])
             - len(policy["replace_names"])
         ),
