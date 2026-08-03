@@ -4400,7 +4400,7 @@ Clickable public links above use permanent Zenodo concept DOI URLs. The latest-v
 | Noether | 21699405 | <https://doi.org/10.5281/zenodo.20412587> |
 | Weber | 21728241 | <https://doi.org/10.5281/zenodo.20412153> |
 | Cayley | 20617845 | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA | 21756931 | <https://doi.org/10.5281/zenodo.20410947> |
+| SGA | 21775746 | <https://doi.org/10.5281/zenodo.20410947> |
 | Deligne | 21745061 | <https://doi.org/10.5281/zenodo.20410853> |
 | EGA | 21744406 | <https://doi.org/10.5281/zenodo.20414353> |
 | Ukrainian applied mathematics | 20520721 | <https://doi.org/10.5281/zenodo.20490906> |
