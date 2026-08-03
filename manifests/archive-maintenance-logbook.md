@@ -6519,3 +6519,95 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   ZIP-member, and secret scans are rerun after this correction. The public
   charter remains the GitHub candidate; the exact private charter remains
   ignored and unchanged.
+
+## 2026-08-03 - GAGA exact custody and minimal privacy projection accepted
+
+- The immutable producer package contains 57 files / 993,127 bytes. Its
+  self-excluding 56-row manifest has 7,148 bytes and SHA-256
+  `F75E93BDAAAA09922FF142A311D1F4B6B348BACF69A5C760B26934622756A452`.
+  The producer source remains unchanged in private custody.
+- Bounded privacy replay found one 36-byte internal task identifier in the
+  project logbook. The archive projection replaces only that token with
+  `<INTERNAL_ARCHIVE_TASK_ID_REDACTED1>` and records the transformation. No
+  translation, French source, equation, reference, reader, decision, error,
+  reversal, or other substantive byte was edited or omitted.
+- The derived privacy-clean projection contains 62 files / 1,016,936 bytes.
+  Its self-excluding 61-row manifest has 7,743 bytes and SHA-256
+  `3C409DDA5609D47C3BF69A9E6F235EB18B40DC1D1BC2E751BEFC3D8E7CB09642`.
+  Privacy replay reports zero residual private absolute paths or internal task
+  identifiers.
+- The complete ZIP has 441,444 bytes, SHA-256
+  `CDD9F9EB5D1E9FF64FFBC28926FE871805D29256BDAAFA0FB84A753A2C7508F1`,
+  and 62 safe members replayed exact. Both byte-identical `gaga.tex` drivers
+  remain under their distinct diplomatic and corrected source paths inside the
+  ZIP; direct transport deduplicates only the identical bytes.
+- The clean English reader has 26 pages / 217,331 bytes / SHA-256
+  `AD345C96CAC02057A4EFC16518D0704305AF292A1CB007C6AF156ACE4DED9540`.
+  Reader-facing workflow, status, and AI prose are absent.
+
+## 2026-08-03 - dedicated pure-GAGA concept published and read back
+
+- Published record [`21781323`](https://zenodo.org/records/21781323), version
+  DOI [`10.5281/zenodo.21781323`](https://doi.org/10.5281/zenodo.21781323), on
+  new dedicated pure-GAGA concept DOI
+  [`10.5281/zenodo.21781322`](https://doi.org/10.5281/zenodo.21781322). The
+  bounded preflight found no pre-existing pure-GAGA concept or active draft;
+  the earlier concept `10.5281/zenodo.21720996` is a mixed FAC/GAGA custody
+  surface and remains unchanged.
+- The record title is *Jean-Pierre Serre's GAGA: source-aligned English reader
+  and auditable French TeX*. It has 62 files / 1,455,665 bytes. The complete
+  privacy-clean ZIP is lexically first and
+  `01_GAGA_English_reference_v2.pdf` is the default preview.
+- Anonymous raw-download byte/SHA-256 replay passed 62/62 files with zero
+  mismatches. ZIP replay passed 62/62 members / 1,016,936 uncompressed bytes.
+  No active draft or duplicate pure-GAGA concept remains.
+- The record sets no blanket record-level rights or copyright claim. The
+  included rights/provenance surface retains underlying French and third-party
+  rights and excludes the authority scan and source raster.
+- The dedicated FAC concept `10.5281/zenodo.21779392` remains unchanged and
+  separately discoverable. GAGA is not mixed into FAC.
+- Exact receipts:
+  `manifests/published-zenodo/20260803_gaga_pure_record_21781323_public_readback.json`
+  and
+  `manifests/published-zenodo/20260803_gaga_pure_record_21781323_public_readback.md`.
+
+## 2026-08-03 - GAGA provenance published on both mandated DOI lineages
+
+- Published methodology successor
+  [`10.5281/zenodo.21781388`](https://doi.org/10.5281/zenodo.21781388) on
+  existing concept `10.5281/zenodo.21124403`: 99 files / 4,993,297,296 bytes;
+  81 unrelated predecessor files retained exact; existing methodology PDF
+  remains the default preview.
+- Published replication successor
+  [`10.5281/zenodo.21781392`](https://doi.org/10.5281/zenodo.21781392) on
+  existing concept `10.5281/zenodo.20461174`: 76 files / 11,726,773 bytes; 58
+  unrelated predecessor files retained exact; existing workflow PDF remains
+  the default preview.
+- Both records add the same 16 directly readable GAGA provenance objects plus
+  the complete 50-member provenance ZIP and its manifest. Anonymous raw
+  byte/SHA-256 readback passed 18/18 newly added objects on each record with
+  zero mismatches. No active draft remains on either concept.
+- The direct surfaces include the project logbook, editorial decision logbook,
+  revision history, source-correction ledger and applications, transcription
+  repair ledger, English translation ledger, continuation record, archive
+  acceptance, privacy transformation ledger and validation, rights and
+  provenance records, and exact payload/provenance manifests. The complete
+  provenance ZIP has SHA-256
+  `5F807364FA206452BD705C06A2EE6AE86DA438497F400392AF22125CA42AE6E2`;
+  its manifest has SHA-256
+  `6CD6449079E070271ACD0FF49C2B257B7DFFA1748CB59FC9F55A12E6ACD27861`.
+- Eighteen obsolete direct files from the stale broad FAC projection are not
+  deleted or curated away: they are preserved in a 19-member adverse-history
+  ZIP, SHA-256
+  `6DA83615ED6E09A47BA078A41CEE434FAEEFF27B1CB1026D94451970F3BEE48A`,
+  while their direct forms remain public on predecessor records `21780933` and
+  `21780936`. The dedicated FAC concept remains controlling.
+- Both landing descriptions retain the prominent dedicated FAC concept/version
+  links and the actual accidental-comparator chronology, and now also front the
+  separate pure-GAGA concept. No FAC payload was absorbed into GAGA.
+- Exact receipts:
+  `manifests/published-zenodo/20260803_gaga_methodology_record_21781388_public_readback.json`,
+  `manifests/published-zenodo/20260803_gaga_replication_record_21781392_public_readback.json`,
+  `manifests/published-zenodo/20260803_gaga_dual_doi_publication_receipt.json`,
+  and
+  `manifests/published-zenodo/20260803_gaga_dual_doi_publication_receipt.md`.
