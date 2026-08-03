@@ -37,6 +37,12 @@ RECORD_TIERS = [
         ],
     ),
     (
+        "Translation quality-assessment evidence",
+        [
+            "fac_quality_assessment",
+        ],
+    ),
+    (
         "Reusable source-audit image worksets",
         [
             "visual_evidence",
@@ -109,6 +115,7 @@ DISPLAY_NAMES = {
     "visual_evidence": "SGA / EGA Source-Audit Image Worksets",
     "noether_cjk_visual_evidence": "Noether CJK Visual Evidence and Render-QA Dataset",
     "interlanguage_reflections": "Interlanguage Methodology",
+    "fac_quality_assessment": "FAC Translation Quality Assessment",
     "lean_formalization_sidecars": "Lean Formalization Sidecars",
     "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers",
     "noether": "Emmy Noether",
@@ -145,7 +152,8 @@ DISPLAY_NAMES = {
 INDEX_DISPLAY_NAMES = {
     "cayley": "Arthur Cayley (suspect draft/provenance; not accuracy-certified)",
     "ega": "EGA (current complete-scope working readers)",
-    "sga": "SGA (current working readers; SGA7 II partial)",
+    "sga": "SGA (current presentation-clean cumulative and standalone readers)",
+    "fac_quality_assessment": "FAC accidental blind-comparison quality evidence",
 }
 
 RECORD_NOTES = {
@@ -242,6 +250,50 @@ RECORD_NOTES = {
     ],
     "additional_author_cluster": [
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets here remain provenance/backstop where present. Bianchi, Gordan, Steinitz, Sylvester, Gibbs, Maxwell, Poincare, Frobenius, and Kneser now have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
+    ],
+}
+
+RECORD_NOTES.update(
+    {
+        "sga": [
+            "Current same-concept SGA record 21778810 fronts the complete 126-member privacy-clean reader/source ZIP, then selects the clean 4,177-page cumulative English reader as the default preview, followed by nine standalone English readers, nine master TeX files, nine buildable source ZIPs, and exact validation/privacy controls. The record has 34 files / 182,736,901 bytes. The cumulative graph has 39,690 named destinations and 30,649 internal GoTo actions with no broken or misrouted link; all 4,177 pages match the admitted standalone inputs, Type3 and unembedded fonts are zero, PDF image objects are zero, and reader scans found no archive workflow/source-status prose or AI explanatory footnotes. The archive-derived projection made 45 minimal privacy replacements across 16 non-reader files while leaving all ten reader PDFs byte-identical; predecessor 21778605 remains immutable adverse history. The exact SGA logbook, decision ledger, revision/reversal history, controlling dual-DOI requirement, and 480-record privacy-clean English/Germanic archive log are publicly hash-read back on methodology record 21780213 and replication record 21780218. These are working editions and translations, not critical editions, rights determinations, peer review, mathematical certification, accessibility certification, or uniform whole-series source certification. Record rights metadata remains License Not Specified."
+        ],
+        "interlanguage_reflections": [
+            "Current methodology head 21780213 preserves the broad interlanguage, source-body, corpus-control, normalization, and bounded-output sidecar and exposes the corrected v2 SGA/English-Germanic provenance closure. Its 100 files / 4,990,626,114 bytes front the complete 480-record privacy-clean decision log and its 2,425-event transformation ledger, then preserve the 735,972-byte deterministic provenance ZIP and 4,435-byte manifest. Anonymous raw readback matched all four direct objects and all 15 ZIP members; 96 unrelated predecessor files remain byte-identical. V1 predecessor 21779952 and raw-log predecessor 21778949 remain immutable adverse history. The SGA logbook, decision rationale, revision/reversal history, count correction, residual-ID correction, and controlling dual-DOI requirement are primary trust evidence, not reader certification. Existing corpus-specific caveats, rights boundaries, open language-review work, and immutable predecessors remain in force."
+        ],
+        "workflow": [
+            "Current replication head 21780218 preserves the workflow and replication packet and exposes the same corrected v2 SGA/English-Germanic provenance closure. Its 65 files / 9,027,091 bytes front the complete 480-record privacy-clean decision log and its 2,425-event transformation ledger, then preserve the 735,972-byte deterministic provenance ZIP and 4,435-byte manifest. Anonymous raw readback matched all four direct objects and all 15 ZIP members; 61 unrelated predecessor files remain byte-identical. V1 predecessor 21779957 and raw-log predecessor 21778962 remain immutable adverse history. These materials permit inspection of decisions, reversals, errors, count correction, residual-ID correction, continuation state, and archive custody; they do not certify the editions, translations, mathematics, rights, or accessibility."
+        ],
+        "fac_quality_assessment": [
+            "Dedicated producer-owned FAC quality-assessment record 21779393 documents an accidental held-out comparison: Codex translated and source-checked FAC nos. 1-79 from Serre's French authority before the project discovered the independent Achinger-Krupa English translation. The record fronts a human-readable chronology, a 74-page blind reader through no. 79, a 78-page complete project reader through no. 81, 79 unit reviews, 138 locator-bound findings, 95 frozen input identities, 219 self-correction rows, decision/project/process logbooks, exact validation, and a 111-entry English/French project TeX source ZIP. All 22 files / 2,077,104 bytes passed public UI MD5 replay and anonymous raw byte/SHA-256 readback. The comparator PDF/source and French authority scan are not redistributed; authorship, URLs, hashes, rights limits, and source authority are explicit. This is inspectable bounded quality evidence, not peer review, mathematical certification, canonicity, a scalar score, general model superiority, or blanket rights clearance. Nos. 80-81 postdate discovery and are excluded from blind claims. Concept DOI 10.5281/zenodo.21779392 is authoritative for this FAC evidence; do not duplicate it into GAGA or mint another FAC concept."
+        ],
+    }
+)
+
+FAC_BROAD_CROSSLINK_NOTE = (
+    "Open the dedicated producer-owned FAC quality-assessment concept "
+    "10.5281/zenodo.21779392 (current version 10.5281/zenodo.21779393) for the "
+    "controlling coherent accidental blind-comparison package. Earlier FAC "
+    "projections on this broad record remain immutable adverse history; the "
+    "dedicated FAC files are not duplicated here, and GAGA remains separate."
+)
+for broad_label in ("interlanguage_reflections", "workflow"):
+    RECORD_NOTES[broad_label].insert(0, FAC_BROAD_CROSSLINK_NOTE)
+
+PRIMARY_ENTRYPOINTS = {
+    "sga": [
+        "00_Current_SGA1-7II_English_Presentation_Clean_Readers_and_Buildable_Source_20260803.zip",
+        "00_SGA_1-7II_English_Global_Reader.pdf",
+    ],
+    "fac_quality_assessment": [
+        "00_READ_ME_FIRST.md",
+        "05_FAC_Quality_Assessment_Report.md",
+        "07_FAC_Editorial_Decision_Logbook.md",
+        "08_FAC_Self_Correction_Ledger.csv",
+        "09_FAC_Project_Logbook.md",
+        "01_FAC_Codex_Blind_English_Reader_through_no79.pdf",
+        "02_FAC_Codex_Complete_English_Reader.pdf",
+        "16_FAC_Project_English_and_French_TeX_Source_Layers.zip",
     ],
 }
 
@@ -361,8 +413,12 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
         how_to_read = "Download the image ZIPs for the reusable evidence bytes. Read the manifest, README, and validation files first for exact scope, rights exclusions, provenance limits, and known adverse evidence."
     elif label == "noether_cjk_visual_evidence":
         how_to_read = "Download the image ZIP for the reusable evidence bytes. Read the manifest, README, and validation files first for exact scope, rights exclusions, provenance limits, and known adverse evidence."
-    elif label in {"ega", "sga"}:
+    elif label == "sga":
+        how_to_read = "Open the complete reader/source ZIP first for exact custody. The clean 4,177-page cumulative PDF is the default visible reader and the second entry point. All nine standalone reader PDFs follow before direct master TeX and supporting source/provenance archives."
+    elif label == "ega":
         how_to_read = "Start with the leading current-reader bundle or open a direct reader PDF. Direct master TeX files follow; provenance and QA archives are secondary downloads."
+    elif label == "fac_quality_assessment":
+        how_to_read = "Start with the chronology and bounded quality-assessment report, then inspect the decision, reversal, and project logbooks as primary trust evidence. The blind and complete readers and the editable source archive follow; no scalar score or certification is implied."
     elif reader_pdfs:
         how_to_read = "Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material."
     else:
@@ -405,6 +461,17 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
                 "",
             ]
         )
+    primary_names = PRIMARY_ENTRYPOINTS.get(label, [])
+    if primary_names:
+        rows_by_name = {row["filename"]: row for row in rows}
+        missing_primary = [name for name in primary_names if name not in rows_by_name]
+        if missing_primary:
+            raise RuntimeError(
+                f"Missing primary entry point(s) for {label}: "
+                + ", ".join(missing_primary)
+            )
+        lines.extend(["## Primary Entry Points", ""])
+        lines.extend(table_for([rows_by_name[name] for name in primary_names]))
     lines.extend(
         [
             "## Reader And Reference PDFs",

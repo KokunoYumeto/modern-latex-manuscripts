@@ -30,16 +30,17 @@ from urllib.error import HTTPError, URLError
 
 RECORDS: list[tuple[str, str]] = [
     ("main", "20459634"),
-    ("workflow", "21707334"),
+    ("workflow", "21780218"),
     ("visual_evidence", "21730032"),
     ("noether_cjk_visual_evidence", "21499951"),
-    ("interlanguage_reflections", "21744853"),
+    ("interlanguage_reflections", "21780213"),
+    ("fac_quality_assessment", "21779393"),
     ("lean_formalization_sidecars", "21129946"),
     ("split_zero_research_sidecar", "21443852"),
     ("noether", "21699405"),
     ("weber", "21728241"),
     ("cayley", "20617845"),
-    ("sga", "21756931"),
+    ("sga", "21778810"),
     ("deligne", "21745061"),
     ("ega", "21744406"),
     ("ukrainian_applied_math", "20520721"),
@@ -69,7 +70,8 @@ RECORDS: list[tuple[str, str]] = [
 
 EXPECTED_SELECTED_PREVIEWS = {
     "ega": "00_GLOBAL_EGA_0_IV_English_Complete_Linked_Reader_20260801.pdf",
-    "sga": "00a_SGA1_English_Reader.pdf",
+    "fac_quality_assessment": "00_READ_ME_FIRST.md",
+    "sga": "00_SGA_1-7II_English_Global_Reader.pdf",
     "split_zero_research_sidecar": "00_PROJECT_ATLAS_20260717.pdf",
 }
 
@@ -147,6 +149,33 @@ RECORD_NOTES = {
         "Mixed selected-author shelf. This remains a backstop/provenance shelf for authors not yet split into full standalone records and for older routed packets. Kneser now has a preferred standalone record at concept DOI `10.5281/zenodo.20836971`; earlier Kneser packets in this shelf remain provenance/backstop. Poincare and Frobenius also have preferred standalone records. Treat this shelf package by package, not as a blanket certification of every included author.",
     ],
 }
+
+RECORD_NOTES.update(
+    {
+        "sga": [
+            "Current same-concept SGA record 21778810 fronts the complete 126-member privacy-clean reader/source ZIP, then selects the clean 4,177-page cumulative English reader as the default preview, followed by nine standalone English readers, nine master TeX files, nine buildable source ZIPs, and exact validation/privacy controls. The record has 34 files / 182,736,901 bytes. The cumulative graph has 39,690 named destinations and 30,649 internal GoTo actions with no broken or misrouted link; all 4,177 pages match the admitted standalone inputs, Type3 and unembedded fonts are zero, PDF image objects are zero, and reader scans found no archive workflow/source-status prose or AI explanatory footnotes. The archive-derived projection made 45 minimal privacy replacements across 16 non-reader files while leaving all ten reader PDFs byte-identical; predecessor 21778605 remains immutable adverse history. The exact SGA logbook, decision ledger, revision/reversal history, controlling dual-DOI requirement, and 480-record privacy-clean English/Germanic archive log are publicly hash-read back on methodology record 21780213 and replication record 21780218. These are working editions and translations, not critical editions, rights determinations, peer review, mathematical certification, accessibility certification, or uniform whole-series source certification. Record rights metadata remains License Not Specified."
+        ],
+        "interlanguage_reflections": [
+            "Current methodology head 21780213 preserves the broad interlanguage, source-body, corpus-control, normalization, and bounded-output sidecar and exposes the corrected v2 SGA/English-Germanic provenance closure. Its 100 files / 4,990,626,114 bytes front the complete 480-record privacy-clean decision log and its 2,425-event transformation ledger, then preserve the 735,972-byte deterministic provenance ZIP and 4,435-byte manifest. Anonymous raw readback matched all four direct objects and all 15 ZIP members; 96 unrelated predecessor files remain byte-identical. V1 predecessor 21779952 and raw-log predecessor 21778949 remain immutable adverse history. The SGA logbook, decision rationale, revision/reversal history, count correction, residual-ID correction, and controlling dual-DOI requirement are primary trust evidence, not reader certification. Existing corpus-specific caveats, rights boundaries, open language-review work, and immutable predecessors remain in force."
+        ],
+        "workflow": [
+            "Current replication head 21780218 preserves the workflow and replication packet and exposes the same corrected v2 SGA/English-Germanic provenance closure. Its 65 files / 9,027,091 bytes front the complete 480-record privacy-clean decision log and its 2,425-event transformation ledger, then preserve the 735,972-byte deterministic provenance ZIP and 4,435-byte manifest. Anonymous raw readback matched all four direct objects and all 15 ZIP members; 61 unrelated predecessor files remain byte-identical. V1 predecessor 21779957 and raw-log predecessor 21778962 remain immutable adverse history. These materials permit inspection of decisions, reversals, errors, count correction, residual-ID correction, continuation state, and archive custody; they do not certify the editions, translations, mathematics, rights, or accessibility."
+        ],
+        "fac_quality_assessment": [
+            "Dedicated producer-owned FAC quality-assessment record 21779393 documents an accidental held-out comparison: Codex translated and source-checked FAC nos. 1-79 from Serre's French authority before the project discovered the independent Achinger-Krupa English translation. The record fronts a human-readable chronology, a 74-page blind reader through no. 79, a 78-page complete project reader through no. 81, 79 unit reviews, 138 locator-bound findings, 95 frozen input identities, 219 self-correction rows, decision/project/process logbooks, exact validation, and a 111-entry English/French project TeX source ZIP. All 22 files / 2,077,104 bytes passed public UI MD5 replay and anonymous raw byte/SHA-256 readback. The comparator PDF/source and French authority scan are not redistributed; authorship, URLs, hashes, rights limits, and source authority are explicit. This is inspectable bounded quality evidence, not peer review, mathematical certification, canonicity, a scalar score, general model superiority, or blanket rights clearance. Nos. 80-81 postdate discovery and are excluded from blind claims. Concept DOI 10.5281/zenodo.21779392 is authoritative for this FAC evidence; do not duplicate it into GAGA or mint another FAC concept."
+        ],
+    }
+)
+
+FAC_BROAD_CROSSLINK_NOTE = (
+    "Open the dedicated producer-owned FAC quality-assessment concept "
+    "10.5281/zenodo.21779392 (current version 10.5281/zenodo.21779393) for the "
+    "controlling coherent accidental blind-comparison package. Earlier FAC "
+    "projections on this broad record remain immutable adverse history; the "
+    "dedicated FAC files are not duplicated here, and GAGA remains separate."
+)
+for broad_label in ("interlanguage_reflections", "workflow"):
+    RECORD_NOTES[broad_label].insert(0, FAC_BROAD_CROSSLINK_NOTE)
 
 TITLE_OVERRIDES = {
     "albattani_opus_astronomicum": "al-Battani: Opus Astronomicum / Kitab al-Zij, Text Working Edition and Audited Table Data",
