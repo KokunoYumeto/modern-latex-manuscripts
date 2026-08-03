@@ -1770,7 +1770,7 @@ def stage_target(
     exact_api_file_check(entries, expected, f"Staged {target_key}")
     predecessor_entries = spec["_guards"][target_key]["by_name"]
     for name, row in predecessor_entries.items():
-        if name in policy["replace_names"]:
+        if name in policy["replace_names"] or name in policy["remove_names"]:
             continue
         entry = entries[name]
         if (int(entry["size"]), normalized_md5(entry["checksum"])) != (
