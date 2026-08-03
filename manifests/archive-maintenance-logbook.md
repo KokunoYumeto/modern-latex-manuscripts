@@ -6611,3 +6611,29 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   `manifests/published-zenodo/20260803_gaga_dual_doi_publication_receipt.json`,
   and
   `manifests/published-zenodo/20260803_gaga_dual_doi_publication_receipt.md`.
+
+## 2026-08-04 - Redundant SGA PR 258 readback cancelled
+
+- The exact locked English/Germanic log is 3,248,494 bytes, SHA-256
+  `9E8EC0C277AB1918857DF107B8C0C39E202A759D65A383014210E3A4B6A5FEFA`,
+  with 484 validated append-only records.
+- Its existing decision
+  `EG-ARCHIVE-SGA-FAC-GITHUB-CLOSEOUT-20260803-0001` already records the
+  complete GitHub transaction: PR 258, source commit
+  `a4434ba43f7d9e392d13b40d985163b60ffb7b63`, merge commit
+  `9c977ae7fd6dc83cba8652d8857d477bde6d6dec`, and anonymous byte/SHA-256
+  readback of all 173 changed paths at both commits with zero mismatches.
+- The source and merge commits share exact tree
+  `27137e2be3f25dc7c84f1dac000a0d7b01c895db`. The missing bounded
+  `published-github` receipt did not mean the readback was missing.
+- A mistaken duplicate 173-path replay was started and externally aborted. It
+  produced no receipt and changed no archive, corpus, reader, or Zenodo bytes.
+  It must not be restarted.
+- Commit `a22a975559755cac61847660277a9e5f35693f29` adds a fail-closed guard:
+  readbacks above 25 paths now require an explicit chunk. The changed verifier
+  was anonymously read back as 5,504 bytes, SHA-256
+  `1453F96B69FD0682FF828DFE9C8C53A79D4F7F6670D1D5FCEB2DDA88BED669BA`,
+  with exact equality.
+- Decision: treat the original locked-log record as the controlling SGA PR 258
+  closeout, cancel the duplicate operation permanently, and inspect the exact
+  locked log before scheduling any future large network replay.
