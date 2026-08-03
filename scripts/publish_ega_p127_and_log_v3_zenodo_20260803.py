@@ -864,7 +864,11 @@ def stage_target(
     if (
         set(base.modern_entries(patched)) != desired
         or patched["files"].get("default_preview") != target.default_preview
-        or patched["files"].get("order") != order
+        # Zenodo currently accepts the submitted order but normalizes it to an
+        # empty list.  Lexical filename prefixes therefore carry the public
+        # ordering contract; accept only the submitted list or that exact
+        # documented normalization.
+        or (patched["files"].get("order") or []) not in (order, [])
         or patched["metadata"].get("description") != payload["metadata"]["description"]
     ):
         raise RuntimeError(f"{target.key} staged metadata/presentation changed")
