@@ -113,6 +113,7 @@ API = "https://zenodo.org/api"
 SCHEMA = "zenodo-active-custody-release-spec-v1"
 MANIFEST_SCHEMA = "zenodo-upload-manifest-v1"
 PUBLICATION_DATE = "2026-08-02"
+MAX_ZENODO_FILES = 100
 CONTROL_BYTES = 2_296
 CONTROL_SHA256 = (
     "BFA1E3A3EDA94E8C3425BAE50C842610A47D508FB260BF761BA3206883012679"
@@ -691,16 +692,174 @@ def validate_predecessor_guard(
 def file_policy(target_key: str, target: dict[str, Any]) -> dict[str, Any]:
     policy = copy.deepcopy(target.get("file_policy") or {"mode": "add-only"})
     mode = str(policy.get("mode", "add-only"))
-    if mode not in {"add-only", "add-or-replace-named"}:
+    if mode not in {
+        "add-only",
+        "add-or-replace-named",
+        "add-replace-remove-named",
+    }:
         raise RuntimeError(f"Unsupported {target_key} file policy: {mode}")
     replace_names = [str(name) for name in policy.get("replace_names", [])]
+    remove_names = [str(name) for name in policy.get("remove_names", [])]
     if mode == "add-only" and replace_names:
         raise RuntimeError(f"{target_key} add-only policy names replacements")
+    if mode == "add-only" and remove_names:
+        raise RuntimeError(f"{target_key} add-only policy names removals")
+    if mode == "add-or-replace-named" and remove_names:
+        raise RuntimeError(f"{target_key} replacement policy names removals")
     if mode == "add-or-replace-named" and not replace_names:
         raise RuntimeError(f"{target_key} replacement policy is not explicit")
+    if mode == "add-replace-remove-named" and not remove_names:
+        raise RuntimeError(f"{target_key} consolidation policy has no removals")
     if len(replace_names) != len(set(replace_names)):
         raise RuntimeError(f"{target_key} replacement names are duplicated")
-    return {"mode": mode, "replace_names": replace_names}
+    if len(remove_names) != len(set(remove_names)):
+        raise RuntimeError(f"{target_key} removal names are duplicated")
+    if set(replace_names) & set(remove_names):
+        raise RuntimeError(f"{target_key} replacement/removal names overlap")
+    preservation = copy.deepcopy(policy.get("preservation_transport") or {})
+    if mode == "add-replace-remove-named":
+        for field in ("archive_name", "manifest_name", "inner_manifest_name"):
+            value = str(preservation.get(field, ""))
+            if not value or Path(value).name != value:
+                raise RuntimeError(
+                    f"{target_key} preservation transport has invalid {field}"
+                )
+            preservation[field] = value
+    elif preservation:
+        raise RuntimeError(
+            f"{target_key} non-consolidation policy names a preservation transport"
+        )
+    return {
+        "mode": mode,
+        "replace_names": replace_names,
+        "remove_names": remove_names,
+        "preservation_transport": preservation,
+    }
+
+
+def validate_predecessor_preservation_transport(
+    target_key: str,
+    policy: dict[str, Any],
+    manifest: dict[str, Any],
+    guard: dict[str, Any],
+) -> dict[str, Any] | None:
+    if policy["mode"] != "add-replace-remove-named":
+        return None
+    transport = policy["preservation_transport"]
+    archive_name = transport["archive_name"]
+    manifest_name = transport["manifest_name"]
+    inner_manifest_name = transport["inner_manifest_name"]
+    by_name = manifest["by_name"]
+    if archive_name not in by_name or manifest_name not in by_name:
+        raise RuntimeError(
+            f"{target_key} preservation archive/manifest is absent from upload manifest"
+        )
+    archive_path = by_name[archive_name]["path"]
+    direct_manifest_path = by_name[manifest_name]["path"]
+    with direct_manifest_path.open(encoding="utf-8-sig", newline="") as handle:
+        rows = [dict(row) for row in csv.DictReader(handle)]
+    required = {
+        "predecessor_name",
+        "source_record_id",
+        "bytes",
+        "md5",
+        "sha256",
+        "zenodo_file_id",
+        "zip_member_path",
+        "preservation_status",
+    }
+    if not rows or not required.issubset(rows[0]):
+        raise RuntimeError(
+            f"{target_key} preservation manifest fields are incomplete"
+        )
+    removed = set(policy["remove_names"])
+    declared = {str(row["predecessor_name"]) for row in rows}
+    if len(rows) != len(declared) or declared != removed:
+        raise RuntimeError(
+            f"{target_key} preservation manifest does not exactly cover removals"
+        )
+    member_paths = [str(row["zip_member_path"]) for row in rows]
+    if len(member_paths) != len(set(member_paths)):
+        raise RuntimeError(f"{target_key} preservation ZIP members are duplicated")
+    observed_rows: list[dict[str, Any]] = []
+    direct_manifest_bytes = direct_manifest_path.read_bytes()
+    with zipfile.ZipFile(archive_path) as archive:
+        if archive.testzip() is not None:
+            raise RuntimeError(f"{target_key} preservation ZIP CRC replay failed")
+        archive_names = {
+            entry.filename for entry in archive.infolist() if not entry.is_dir()
+        }
+        expected_names = set(member_paths) | {inner_manifest_name}
+        if archive_names != expected_names:
+            raise RuntimeError(
+                f"{target_key} preservation ZIP member set is not exact"
+            )
+        if archive.read(inner_manifest_name) != direct_manifest_bytes:
+            raise RuntimeError(
+                f"{target_key} inner/direct preservation manifests differ"
+            )
+        for row in rows:
+            name = str(row["predecessor_name"])
+            member_name = str(row["zip_member_path"])
+            if member_name != f"retained_predecessor/{name}":
+                raise RuntimeError(
+                    f"{target_key} preservation member path changed: {name}"
+                )
+            predecessor = guard["by_name"].get(name)
+            if predecessor is None:
+                raise RuntimeError(
+                    f"{target_key} removal is not a guarded predecessor: {name}"
+                )
+            if int(row["source_record_id"]) != int(guard["record_id"]):
+                raise RuntimeError(
+                    f"{target_key} preservation source record changed: {name}"
+                )
+            digest_sha = hashlib.sha256()
+            digest_md5 = hashlib.md5(usedforsecurity=False)
+            total = 0
+            with archive.open(member_name) as handle:
+                for block in iter(lambda: handle.read(4 * 1024 * 1024), b""):
+                    total += len(block)
+                    digest_sha.update(block)
+                    digest_md5.update(block)
+            observed = (
+                total,
+                digest_md5.hexdigest().lower(),
+                digest_sha.hexdigest().upper(),
+                str(row["zenodo_file_id"]).lower(),
+                str(row["preservation_status"]),
+            )
+            expected = (
+                int(row["bytes"]),
+                normalized_md5(row["md5"]),
+                normalized_sha256(row["sha256"]),
+                predecessor["zenodo_file_id"],
+                "EXACT_PREDECESSOR_BYTES_RETAINED_IN_INDEXED_ARCHIVE",
+            )
+            if observed != expected:
+                raise RuntimeError(
+                    f"{target_key} preservation member identity changed: {name}"
+                )
+            if (observed[0], observed[1], observed[3]) != (
+                predecessor["bytes"],
+                predecessor["md5"],
+                predecessor["zenodo_file_id"],
+            ):
+                raise RuntimeError(
+                    f"{target_key} preservation member differs from predecessor: {name}"
+                )
+            observed_rows.append(
+                {"name": name, "bytes": observed[0], "sha256": observed[2]}
+            )
+    return {
+        "archive_name": archive_name,
+        "manifest_name": manifest_name,
+        "inner_manifest_name": inner_manifest_name,
+        "removed_file_count": len(rows),
+        "removed_total_bytes": sum(int(row["bytes"]) for row in rows),
+        "removed_inventory_sha256": sha256_bytes(canonical_bytes(observed_rows)),
+        "all_removed_predecessor_bytes_preserved": True,
+    }
 
 
 def normalized_dual_rows(manifest: dict[str, Any]) -> list[dict[str, Any]]:
@@ -907,18 +1066,41 @@ def load_release_spec(path: Path) -> dict[str, Any]:
         old_names = set(guards[target_key]["by_name"])
         new_names = set(manifests[target_key]["by_name"])
         replacements = set(policies[target_key]["replace_names"])
+        removals = set(policies[target_key]["remove_names"])
         collisions = old_names & new_names
         if policies[target_key]["mode"] == "add-only" and collisions:
             raise RuntimeError(
                 f"{target_key} add-only names collide with predecessor: "
                 f"{sorted(collisions)}"
             )
-        if policies[target_key]["mode"] == "add-or-replace-named":
+        if policies[target_key]["mode"] in {
+            "add-or-replace-named",
+            "add-replace-remove-named",
+        }:
             if replacements != collisions:
                 raise RuntimeError(
                     f"{target_key} explicit replacement set does not equal "
                     "the manifest/predecessor collisions"
                 )
+        if removals and not removals.issubset(old_names - new_names):
+            raise RuntimeError(
+                f"{target_key} removals are not predecessor-only names: "
+                f"{sorted(removals - (old_names - new_names))}"
+            )
+        policies[target_key]["preservation_validation"] = (
+            validate_predecessor_preservation_transport(
+                target_key,
+                policies[target_key],
+                manifests[target_key],
+                guards[target_key],
+            )
+        )
+        final_count = len(old_names - removals - replacements) + len(new_names)
+        if final_count > MAX_ZENODO_FILES:
+            raise RuntimeError(
+                f"{target_key} successor would exceed the {MAX_ZENODO_FILES}-file "
+                f"limit: {final_count}"
+            )
 
     dual = validate_dual_doi(manifests)
     spec["_path"] = path.resolve()
@@ -1250,7 +1432,7 @@ def final_file_rows(
 ) -> dict[str, dict[str, Any]]:
     predecessor = copy.deepcopy(spec["_guards"][target_key]["by_name"])
     policy = spec["_policies"][target_key]
-    for name in policy["replace_names"]:
+    for name in policy["replace_names"] + policy["remove_names"]:
         predecessor.pop(name)
     for name, row in spec["_manifests"][target_key]["by_name"].items():
         predecessor[name] = row
@@ -1512,6 +1694,25 @@ def stage_target(
     if not set(files).issubset(allowed):
         raise RuntimeError(f"Tracked {target_key} draft contains unexpected files")
 
+    for name in policy["remove_names"]:
+        existing = files.get(name)
+        if existing is None:
+            continue
+        check(
+            session.delete(existing["links"]["self"], headers=auth, timeout=(30, 300)),
+            {204},
+        )
+
+    deposition = check(
+        session.get(
+            f"{API}/deposit/depositions/{draft_id}",
+            headers=auth,
+            timeout=(30, 300),
+        ),
+        {200},
+    ).json()
+    files = legacy_entries(deposition)
+
     for name in policy["replace_names"]:
         existing = files.get(name)
         wanted = manifest["by_name"][name]
@@ -1629,6 +1830,8 @@ def stage_target(
             "staged_total_bytes": sum(int(row["bytes"]) for row in expected.values()),
             "add_only": policy["mode"] == "add-only",
             "replacements": policy["replace_names"],
+            "removals": policy["remove_names"],
+            "preservation_transport": policy["preservation_validation"],
         }
     )
     save_state(spec, state)
@@ -1957,7 +2160,14 @@ def readback_target(
         "retained_predecessor_files_exact_zenodo_object_size_md5": (
             len(spec["_guards"][target_key]["files"])
             - len(policy["replace_names"])
+            - len(policy["remove_names"])
         ),
+        "removed_predecessor_files_preserved_in_indexed_transport": len(
+            policy["remove_names"]
+        ),
+        "predecessor_preservation_transport": policy[
+            "preservation_validation"
+        ],
         "outer_file_count": len(outer),
         "outer_total_bytes": sum(int(row["bytes"]) for row in outer.values()),
         "outer_file_readback": outer,
