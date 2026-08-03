@@ -6277,3 +6277,245 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   mathematics, native-language review, or underlying-work rights.
 - Exact receipt:
   `manifests/published-zenodo/20260802_noether_cjk_visual_evidence_dataset_record_21499951_public_readback.json`.
+
+## 2026-08-03 - successor operating charter reconstructed before goal reset
+
+- Reconstructed the archive program from the retired task's bounded top-level
+  user-message extraction, the current Git/public-record state, and the
+  controlling EGA, SGA/FAC/GAGA, provenance, and successor controls. The retired
+  7.8-GB rollout remains idle and must not be replayed.
+- Recorded the controlling public-safe charter at
+  `workflow/ARCHIVE_MAINTENANCE_RECONSTRUCTED_OPERATING_CHARTER_20260803.md`:
+  27,076 bytes, SHA-256
+  `2CAABD79FCC55E36603442D4305307A9B6300CDBB5688247129699E614D3F93F`.
+- The charter restores the duties omitted by the rejected generic goal:
+  canonical diplomatic French EGA 0-IV completion, the EGA pre-Stacks scaffold,
+  the SGA/FAC/GAGA semantic/formalization scaffold, all manuscript and
+  interlanguage corpus families, exact non-curatorial preservation, archive-
+  owned privacy remediation, reader-first presentation, dual-DOI provenance,
+  GitHub/Zenodo exact readback, and compaction-safe continuation state.
+- The current closeout state is preserved: SGA record `21778810` under concept
+  `20410947`, methodology record `21778949`, replication record `21778962`,
+  and an uncommitted scoped GitHub closeout on
+  `codex/sga-presentation-clean-complete-20260803`. No existing `tmp/` content
+  is authorized for staging.
+- The latest FAC routing supersession arrived before any new FAC mutation. No
+  FAC draft, upload, record, or DOI was created in response to the revoked broad
+  dual-DOI request. Pre-existing broad-record history remains immutable and must
+  be reported rather than destructively rewritten.
+- Resource controls are now durable: no subagents, no recursive search of broad
+  user/document/drive roots, no retired-rollout replay, no bulk high-resolution
+  rendering/loading, and at most one bounded heavy operation at a time.
+- This is operating-control reconstruction only. It is not a completion,
+  certification, rights, publication, or new Zenodo claim. The pursued goal is
+  reset only after both append-only log representations validate.
+
+## 2026-08-03 - reconstructed pursued goal activated
+
+- The goal service returned no pre-existing goal, then accepted one active
+  4,000-character objective for the current archive-maintenance task.
+- The objective incorporates the complete 27,076-byte successor charter by
+  exact path and SHA-256. It explicitly retains canonical French EGA, both
+  semantic scaffolds, corpus-wide preservation, reader presentation, privacy,
+  provenance, exact GitHub/Zenodo reporting, resource safety, and restart state.
+- The immediate pursued action is the scoped SGA GitHub closeout. The already-
+  published SGA/methodology/replication Zenodo records are not republished.
+- Goal activation changes no corpus bytes, public record, DOI, or rights claim.
+
+## 2026-08-03 - dedicated FAC quality-assessment DOI accepted
+
+- Accepted the producer-owned dedicated FAC concept
+  [`10.5281/zenodo.21779392`](https://doi.org/10.5281/zenodo.21779392)
+  and version
+  [`10.5281/zenodo.21779393`](https://doi.org/10.5281/zenodo.21779393).
+  Archive maintenance did not mint or upload a duplicate FAC concept.
+- Anonymous readback matched all 22 files / 2,077,104 bytes. The canonical
+  filename/bytes/SHA-256 tree digest is
+  `5E272E76C689FD60B49716ACCEF993D068796BBC7C9389BF6A15EB623B08AE6E`;
+  it was independently replayed over filename-sorted, tab-separated rows joined
+  by LF without a final LF or BOM.
+- The source ZIP is 366,652 bytes, SHA-256
+  `63D3FE08F89528DC205F8FF4F315867344ED6FE6344C767F514F6163BDA2FA04`:
+  111 entries, 110 manifest rows, no unsafe path, replay error, or textual
+  private-token hit.
+- The record preserves the frozen blind English through no. 79, the complete
+  project English through no. 81, 79 unit reviews, 138 findings, 95 frozen input
+  identities, 219 self-correction rows, decision/project/process logs, rights
+  limits, adverse validations, and editable source layers. It is bounded
+  quality evidence, not certification or a general model-superiority claim.
+- The comparator PDF/source and French authority scan remain excluded under
+  their recorded rights limits. Earlier broad FAC projections remain immutable
+  adverse history. GAGA remains separate.
+- Exact receipt:
+  `manifests/published-zenodo/20260803_fac_quality_assessment_record_21779393_public_readback.md`.
+
+## 2026-08-03 - broad records linked to the dedicated FAC DOI
+
+- Added a prominent description-only link to FAC concept `21779392` and version
+  `21779393` on methodology record `21778949` and replication record `21778962`.
+- Methodology metadata revision advanced from 4 to 5; all 99 files /
+  4,990,185,641 bytes, their order, and default preview remained unchanged.
+- Replication metadata revision advanced from 3 to 4; all 64 files /
+  8,586,618 bytes, their order, and default preview remained unchanged.
+- No new record, version, concept, draft, or FAC payload copy was created. Both
+  anonymous metadata readbacks passed and neither lineage has an active edit
+  draft.
+- Exact receipts:
+  `manifests/published-zenodo/20260803_fac_dedicated_link_methodology_record_21778949_metadata_readback.json`
+  and
+  `manifests/published-zenodo/20260803_fac_dedicated_link_replication_record_21778962_metadata_readback.json`.
+
+## 2026-08-03 - English/Germanic decision-log privacy remediation published
+
+- A bounded inspection found that the verbatim 477-record English/Germanic
+  decision log on methodology predecessor `21778949` and replication
+  predecessor `21778962` contained historical private absolute paths and
+  internal task identifiers. Those records remain immutable adverse history.
+- Appended the remediation decision and a later count-correction decision only
+  through `append_english_germanic_decision_log.ps1`. The private source log now
+  has 479 records / 3,202,204 bytes / SHA-256
+  `18BA19CEB6F92F0B1D495219DA564B0CB891F04774BE9B2376A78FC441B586CB`;
+  it was not edited or published verbatim on the new heads.
+- Published one same-concept methodology successor
+  [`10.5281/zenodo.21779952`](https://doi.org/10.5281/zenodo.21779952),
+  retaining 96 unrelated predecessor files byte-identically. Its 100 files /
+  4,990,612,147 bytes have file-surface SHA-256
+  `C5A1B4D48C92A0868B7759DD2F1CA519A22340880A0E2456257CE0F729525CD8`.
+- Published one same-concept replication successor
+  [`10.5281/zenodo.21779957`](https://doi.org/10.5281/zenodo.21779957),
+  retaining 61 unrelated predecessor files byte-identically. Its 65 files /
+  9,013,124 bytes have file-surface SHA-256
+  `E9795A4B3CE5088BB12C6BB509D190431A62A9EA0B67E493C03A3EE18F11912F`.
+- Both current heads expose all 479 decision records in exact order through the
+  3,145,105-byte privacy-clean projection, SHA-256
+  `563B85467037D1C2B4E9C462D03408E7F3E3671B81946B0F4F727B82AE7DDD77`,
+  plus a 2,416-event / 440,054-byte transformation ledger, SHA-256
+  `8A8B30977EFFE160525B18A4812741A2772345BBE50BA7E7B9A02819B662417E`.
+  No distinct decision record was omitted or deduplicated.
+- The replacement ledger records 2,272 project-root events, 88 private-
+  Documents-root events, 16 archive-worktree-root events, five operator-home
+  events, four private Codex-state-segment events, and 31 internal-task-ID
+  events. Validation found zero residual private tokens.
+- Both heads also expose a 14-member, 731,030-byte deterministic provenance ZIP,
+  SHA-256
+  `EF5A6F18EB8A8666642725BED74B4E6457C5438D0FB6C80AB1FB0167DB3F4523`,
+  and its 4,089-byte manifest, SHA-256
+  `295016CACF1A7FFB8104A2D9A92EA977D9DECE9DDD2A612B0092068AD30250FD`.
+  The SGA logbook, decision ledger, revision/reversal history, mandated
+  `BFA1E3A3...` control, clean log, event ledger, validation, remediation note,
+  prior archive decisions, remediation decision, and count correction are all
+  directly inspectable within it.
+- Anonymous byte/SHA-256 readback matched all four direct objects and all 14 ZIP
+  members on both concepts. The raw predecessor log is absent from both current
+  heads; default previews are unchanged; no active draft or duplicate concept
+  remains; no reader, TeX, translation, FAC, or GAGA payload changed.
+- The first remediation record incorrectly described preliminary affected-line
+  counts as occurrence counts. The original record remains append-only history,
+  and the separate count-correction record supplies the exact 2,416-event class
+  totals. Zenodo's 100-file ceiling on the methodology record required keeping
+  validation and explanatory surfaces inside the provenance ZIP; no provenance
+  member or distinct content was dropped.
+- Exact receipts:
+  `manifests/published-zenodo/20260803_english_germanic_log_privacy_remediation_methodology_record_21779952_public_readback.json`
+  and
+  `manifests/published-zenodo/20260803_english_germanic_log_privacy_remediation_replication_record_21779957_public_readback.json`.
+
+## 2026-08-03 - residual task-ID privacy defect corrected by v2 successors
+
+- A bounded shape-based scan of the declared v1 public projection found nine
+  residual internal task UUIDs in six historical decision records. The v1
+  expression required a word boundary before the identifier and therefore
+  missed IDs concatenated immediately after prose such as `thread` or `task`.
+  No private path or email residual accompanied the defect. V1 methodology
+  record `21779952` and replication record `21779957` remain immutable adverse
+  predecessors; their validator's residual-privacy claim is superseded, not
+  erased.
+- The first locked-helper append attempt rejected invalid evidence-class labels
+  and rolled back safely without changing the private log. After correcting
+  only those labels, the established helper appended exact decision
+  `EG-ARCHIVE-ENGLISH-GERMANIC-LOG-PRIVACY-RESIDUAL-TASK-ID-REMEDIATION-20260803-0001`.
+  The raw private log now has 480 records / 3,209,113 bytes / SHA-256
+  `374271E653FEA9472ACA461FA6E759F0F9E785D232715E1A6811ABF12D0D327F`;
+  JSONL parse, unique-ID, and append-order validation passed with `errors[]`.
+- The corrected public projection has all 480 records in exact order, 3,151,969
+  bytes, SHA-256
+  `4D789AD4A9E588CFCDDA4CFD39EB7810BED7EC39E37BD03D22D8F49F7AF5B641`.
+  Its 2,425-event / 441,869-byte transformation ledger has SHA-256
+  `B4B34D51216E64EEF1ED9CEB2CAFCEA511DB78BC6503CB92A57DE5B54B3AF582`.
+  Event classes are `project_root` 2,272, `private_documents_root` 88,
+  `internal_task_id` 40, `archive_worktree_root` 16,
+  `private_operator_home` five, and `private_codex_state_segment` four.
+  Generic UUID, private-path, and email residual counts are zero. The only UUIDs
+  intentionally retained are the three exact identifiers inside the mandated
+  2,296-byte `BFA1E3A3...` dual-DOI control.
+- The v2 provenance ZIP has 15 members / 735,972 bytes / SHA-256
+  `2500A031D3E06905AF2112BD7C502BDB1E95C6E9EA04714665F42669DB80D6FF`.
+  Its 14-row self-excluding manifest has 4,435 bytes / SHA-256
+  `A7F28FCB72A20D18809F4262C3E749F681FB4115C8F86CA96A5EE21BC0C81247`.
+  It adds the residual-ID remediation decision without dropping any prior
+  logbook, rationale, reversal, correction, continuation, validation, or
+  controlling provenance member.
+- Published same-concept methodology successor
+  [`10.5281/zenodo.21780213`](https://doi.org/10.5281/zenodo.21780213): 100
+  files / 4,990,626,114 bytes; 96 unrelated predecessor files retained exact;
+  file-surface SHA-256
+  `00CA9AB075415B5C8530BAC2228E60581FFCF711F0E702E5F81AC7F45A89163F`.
+- Published same-concept replication successor
+  [`10.5281/zenodo.21780218`](https://doi.org/10.5281/zenodo.21780218): 65
+  files / 9,027,091 bytes; 61 unrelated predecessor files retained exact;
+  file-surface SHA-256
+  `7C2A7356A00E89F74FE865AF2993F671E903A92A397B3618A2539807D3762011`.
+- Anonymous raw byte/SHA-256 readback matched all four direct v2 objects and all
+  15 ZIP members on both records. V1 direct objects and the raw private log are
+  absent from both current heads. Default previews and the prominent dedicated
+  FAC concept cross-link remain intact. No active draft, duplicate concept,
+  reader, TeX, translation, mathematical, FAC payload, or GAGA payload changed.
+- Exact receipts:
+  `manifests/published-zenodo/20260803_english_germanic_log_privacy_remediation_v2_methodology_record_21780213_public_readback.json`
+  and
+  `manifests/published-zenodo/20260803_english_germanic_log_privacy_remediation_v2_replication_record_21780218_public_readback.json`.
+
+## 2026-08-03 - successor operating charter receives a separate public privacy projection
+
+- Pre-staging privacy replay found one retired internal task UUID in the exact
+  reconstructed operating charter. Earlier archive decisions `AML-20260803-CONTROL-185`
+  and `AML-20260803-CONTROL-186` had called that charter public-safe before the
+  later residual-task-ID rule was consistently applied. Those append-only
+  decisions remain visible as the error history; this record supersedes only
+  their privacy classification, not the charter's operating authority.
+- The exact private charter remains unchanged at
+  `workflow/ARCHIVE_MAINTENANCE_RECONSTRUCTED_OPERATING_CHARTER_20260803.md`:
+  27,076 bytes, SHA-256
+  `2CAABD79FCC55E36603442D4305307A9B6300CDBB5688247129699E614D3F93F`.
+  It is explicitly ignored by Git and remains the controlling private source
+  incorporated by the active goal.
+- The derived GitHub projection is
+  `workflow/ARCHIVE_MAINTENANCE_RECONSTRUCTED_OPERATING_CHARTER_PUBLIC_PRIVACY_CLEAN_20260803.md`:
+  27,073 bytes, SHA-256
+  `B1720CE2B569A094017B2B364A7B3B7EE8BACEE73F6ACEF6ACC41957A73240F6`.
+  Exactly one 36-byte `internal_task_id` token, source-token SHA-256
+  `454837B83F85872A1F99A9CCEB1D88983911A0BC436DFDD3751AF6ADB6833780`,
+  is replaced with `<RETIRED_OVERSIZED_ARCHIVE_TASK>`. No duty, scope,
+  transaction rule, corpus obligation, safety constraint, or other byte-level
+  content is intentionally changed.
+- The public projection has zero UUID-shaped tokens, absolute private paths, or
+  email addresses. The exact private source remains recoverable and hash-bound;
+  no source bytes or adverse classification history were deleted.
+
+## 2026-08-03 - public charter projection EOF correction before commit
+
+- Git's staged whitespace gate rejected the first 27,073-byte public charter
+  projection because it carried one new blank line at EOF. The rejected local
+  candidate and its SHA-256
+  `B1720CE2B569A094017B2B364A7B3B7EE8BACEE73F6ACEF6ACC41957A73240F6`
+  remain documented by `AML-20260803-PRIVACY-191`; it was never committed,
+  pushed, merged, or published.
+- The corrected public projection is 27,072 bytes, SHA-256
+  `9F2F2846A941DC4946E242DAC07CF534F9BCFF3ACEB2FA73C645856DF5009FF5`.
+  It ends with the same single LF as the 27,076-byte private source and differs
+  from that source only by replacing the one 36-byte internal-task-ID token
+  with the 32-byte `<RETIRED_OVERSIZED_ARCHIVE_TASK>` placeholder.
+- UUID, absolute-private-path, email, JSON/JSONL/CSV/Python, package-manifest,
+  ZIP-member, and secret scans are rerun after this correction. The public
+  charter remains the GitHub candidate; the exact private charter remains
+  ignored and unchanged.

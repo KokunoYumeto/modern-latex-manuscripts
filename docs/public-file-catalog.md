@@ -15,7 +15,7 @@ Generated from the public Zenodo records API.
 | `reader`, `working`, `cumulative`, `translation` in a filename | A compiled draft meant to be read or continued. | Still verify serious formulas, tables, diagrams, and theorem statements against source witnesses. |
 | `complete`, `strict`, `source_checked`, `critical`, `audit`, `repair` in a filename | A package's local or inherited scope label. | These terms do not override the current record notes; many are scoped, legacy, or repair labels rather than global certification. |
 
-Total files indexed: 1038
+Total files indexed: 1094
 
 ## Modern LaTeX Editions of Public-Domain Mathematics Manuscripts
 
@@ -128,21 +128,77 @@ Current main-landing version 20459634 retains the preservation/workflow surface 
 
 Record: <https://doi.org/10.5281/zenodo.20461174>
 
-Current workflow version 21707334 publishes a compact eleven-file methodology surface. The corrected seven-page A4 workflow PDF remains the default preview, with the exact Markdown, Claude high-resolution source method, resource-efficiency incident note, controlling SGA3 diagram-fidelity correction, seven-member source packet, and retained July 6 addenda. It adds one exact ChatGPT export of dated July 11-27 research-methodology briefings, explicitly labeled generated and unverified; claims and citations require primary-source checking. User-supplied OCR remains read-only locator/drafting evidence and must not be regenerated. Existing 600/1200-dpi evidence remains valid history and context; only 300-dpi-only approvals and independently found material defects are reopened. New final SGA3 diagram successors use native editable TeX, 300-dpi page context, about 5000-dpi default comparison, targeted 9000-dpi ambiguity crops, disjoint ownership, and lead-signed evidence. Raster authority witnesses remain private. The emissions discussion is scenario analysis, not metered OpenAI telemetry. These are methodology, accountability, and research-note materials, not edition or translation certification.
+Open the dedicated producer-owned FAC quality-assessment concept 10.5281/zenodo.21779392 (current version 10.5281/zenodo.21779393) for the controlling coherent accidental blind-comparison package. Earlier FAC projections on this broad record remain immutable adverse history; the dedicated FAC files are not duplicated here, and GAGA remains separate.
+
+Current replication head 21780218 preserves the workflow and replication packet and exposes the same corrected v2 SGA/English-Germanic provenance closure. Its 65 files / 9,027,091 bytes front the complete 480-record privacy-clean decision log and its 2,425-event transformation ledger, then preserve the 735,972-byte deterministic provenance ZIP and 4,435-byte manifest. Anonymous raw readback matched all four direct objects and all 15 ZIP members; 61 unrelated predecessor files remain byte-identical. V1 predecessor 21779957 and raw-log predecessor 21778962 remain immutable adverse history. These materials permit inspection of decisions, reversals, errors, count correction, residual-ID correction, continuation state, and archive custody; they do not certify the editions, translations, mathematics, rights, or accessibility.
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0195 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.md](https://zenodo.org/records/21707334/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.md) |
-| reader/reference PDF | 0.0566 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.pdf](https://zenodo.org/records/21707334/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.pdf) |
-| manifest/status | 0.0081 | [01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md](https://zenodo.org/records/21707334/files/01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md) |
-| artifact/source ZIP | 0.2000 | [01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip](https://zenodo.org/records/21707334/files/01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip) |
-| manifest/status | 0.0048 | [02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md](https://zenodo.org/records/21707334/files/02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md) |
-| artifact/source ZIP | 0.0742 | [03_AI_Run_Modern_LaTeX_Workflow_20260728_Source_Packet.zip](https://zenodo.org/records/21707334/files/03_AI_Run_Modern_LaTeX_Workflow_20260728_Source_Packet.zip) |
-| manifest/status | 0.0025 | [04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md](https://zenodo.org/records/21707334/files/04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md) |
-| manifest/status | 0.6387 | [05_ChatGPT_AI_Research_and_Methodology_Briefings_20260711_20260727.md](https://zenodo.org/records/21707334/files/05_ChatGPT_AI_Research_and_Methodology_Briefings_20260711_20260727.md) |
-| manifest/status | 0.0021 | [98_WORKFLOW_RELEASE_MANIFEST.csv](https://zenodo.org/records/21707334/files/98_WORKFLOW_RELEASE_MANIFEST.csv) |
-| manifest/status | 0.0048 | [99_WORKFLOW_PUBLIC_STATUS_20260730.md](https://zenodo.org/records/21707334/files/99_WORKFLOW_PUBLIC_STATUS_20260730.md) |
-| manifest/status | 0.0040 | [99_WORKFLOW_RELEASE_VALIDATION.json](https://zenodo.org/records/21707334/files/99_WORKFLOW_RELEASE_VALIDATION.json) |
+| manifest/status | 0.0195 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.md](https://zenodo.org/records/21780218/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.md) |
+| reader/reference PDF | 0.0566 | [00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.pdf](https://zenodo.org/records/21780218/files/00_AI_Run_Modern_LaTeX_Manuscript_Workflow_Current_20260728.pdf) |
+| other | 3.0060 | [00_ENGLISH_GERMANIC_DECISION_LOG_1_PUBLIC_PRIVACY_CLEAN_v2.jsonl](https://zenodo.org/records/21780218/files/00_ENGLISH_GERMANIC_DECISION_LOG_1_PUBLIC_PRIVACY_CLEAN_v2.jsonl) |
+| manifest/status | 0.4214 | [00_ENGLISH_GERMANIC_DECISION_LOG_2_PRIVACY_TRANSFORMATIONS_v2_20260803.csv](https://zenodo.org/records/21780218/files/00_ENGLISH_GERMANIC_DECISION_LOG_2_PRIVACY_TRANSFORMATIONS_v2_20260803.csv) |
+| manifest/status | 0.0081 | [01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md](https://zenodo.org/records/21780218/files/01_CLAUDE_DIAGRAM_COLD_REVERIFY_METHOD_20260728.md) |
+| artifact/source ZIP | 0.2000 | [01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip](https://zenodo.org/records/21780218/files/01_Workflow_Docs_Addenda_Scripts_and_Cleanup_Log_20260706.zip) |
+| manifest/status | 0.0048 | [02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md](https://zenodo.org/records/21780218/files/02_SGA_TRANSLATION_RESOURCE_EFFICIENCY_INCIDENT_NOTE_20260728.md) |
+| artifact/source ZIP | 0.0742 | [03_AI_Run_Modern_LaTeX_Workflow_20260728_Source_Packet.zip](https://zenodo.org/records/21780218/files/03_AI_Run_Modern_LaTeX_Workflow_20260728_Source_Packet.zip) |
+| manifest/status | 0.0025 | [04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md](https://zenodo.org/records/21780218/files/04_SGA3_DIAGRAM_HIGH_ZOOM_FINAL_FIDELITY_CORRECTION_20260728.md) |
+| manifest/status | 0.6387 | [05_ChatGPT_AI_Research_and_Methodology_Briefings_20260711_20260727.md](https://zenodo.org/records/21780218/files/05_ChatGPT_AI_Research_and_Methodology_Briefings_20260711_20260727.md) |
+| manifest/status | 0.0021 | [98_WORKFLOW_RELEASE_MANIFEST.csv](https://zenodo.org/records/21780218/files/98_WORKFLOW_RELEASE_MANIFEST.csv) |
+| manifest/status | 0.0048 | [99_WORKFLOW_PUBLIC_STATUS_20260730.md](https://zenodo.org/records/21780218/files/99_WORKFLOW_PUBLIC_STATUS_20260730.md) |
+| manifest/status | 0.0040 | [99_WORKFLOW_RELEASE_VALIDATION.json](https://zenodo.org/records/21780218/files/99_WORKFLOW_RELEASE_VALIDATION.json) |
+| manifest/status | 0.0373 | [ALL_SESSION_PROVENANCE_TRANCHE_INDEX.json](https://zenodo.org/records/21780218/files/ALL_SESSION_PROVENANCE_TRANCHE_INDEX.json) |
+| manifest/status | 0.0011 | [ALL_SESSION_PROVENANCE_TRANCHE_README.md](https://zenodo.org/records/21780218/files/ALL_SESSION_PROVENANCE_TRANCHE_README.md) |
+| manifest/status | 0.0032 | [ALL_SESSION_PROVENANCE_TRANCHE_SHA256SUMS.csv](https://zenodo.org/records/21780218/files/ALL_SESSION_PROVENANCE_TRANCHE_SHA256SUMS.csv) |
+| manifest/status | 0.0036 | [ARCHIVE_PROACTIVE_PRIVACY_AND_SUBSTANTIVE_UPDATE_REQUIREMENT_20260802.md](https://zenodo.org/records/21780218/files/ARCHIVE_PROACTIVE_PRIVACY_AND_SUBSTANTIVE_UPDATE_REQUIREMENT_20260802.md) |
+| manifest/status | 0.0018 | [ARTIFACT_TOOL_PACKAGE_CSV_VALIDATION.json](https://zenodo.org/records/21780218/files/ARTIFACT_TOOL_PACKAGE_CSV_VALIDATION.json) |
+| manifest/status | 0.0013 | [BLIND_COMPARATOR_GENERATION_VALIDATION.json](https://zenodo.org/records/21780218/files/BLIND_COMPARATOR_GENERATION_VALIDATION.json) |
+| manifest/status | 0.0148 | [BLIND_COMPARATOR_INPUT_IDENTITIES.csv](https://zenodo.org/records/21780218/files/BLIND_COMPARATOR_INPUT_IDENTITIES.csv) |
+| manifest/status | 0.0015 | [D001__LOGBOOK.md](https://zenodo.org/records/21780218/files/D001__LOGBOOK.md) |
+| manifest/status | 0.0012 | [D002__LOGBOOK.md](https://zenodo.org/records/21780218/files/D002__LOGBOOK.md) |
+| manifest/status | 0.0012 | [D003__LOGBOOK.md](https://zenodo.org/records/21780218/files/D003__LOGBOOK.md) |
+| manifest/status | 0.0010 | [D004__LOGBOOK.md](https://zenodo.org/records/21780218/files/D004__LOGBOOK.md) |
+| manifest/status | 0.0092 | [D005_R1__LOGBOOK.md](https://zenodo.org/records/21780218/files/D005_R1__LOGBOOK.md) |
+| manifest/status | 0.0065 | [D005_R2__LOGBOOK.md](https://zenodo.org/records/21780218/files/D005_R2__LOGBOOK.md) |
+| manifest/status | 0.0020 | [D006__controls__LOGBOOK_STATUS_NUL_CORRUPTION_AND_RECOVERY_20260802.md](https://zenodo.org/records/21780218/files/D006__controls__LOGBOOK_STATUS_NUL_CORRUPTION_AND_RECOVERY_20260802.md) |
+| manifest/status | 0.0316 | [D006__LOGBOOK.md](https://zenodo.org/records/21780218/files/D006__LOGBOOK.md) |
+| manifest/status | 0.0295 | [D006__LOGBOOK_RECOVERED_FROM_THREAD_HISTORY_20260802.md](https://zenodo.org/records/21780218/files/D006__LOGBOOK_RECOVERED_FROM_THREAD_HISTORY_20260802.md) |
+| manifest/status | 0.0057 | [D007__LOGBOOK.md](https://zenodo.org/records/21780218/files/D007__LOGBOOK.md) |
+| artifact/source ZIP | 0.1050 | [DELIGNE__COMPLETE_PROVENANCE.zip](https://zenodo.org/records/21780218/files/DELIGNE__COMPLETE_PROVENANCE.zip) |
+| manifest/status | 0.0192 | [DELIGNE__COMPLETE_PROVENANCE_MANIFEST.csv](https://zenodo.org/records/21780218/files/DELIGNE__COMPLETE_PROVENANCE_MANIFEST.csv) |
+| artifact/source ZIP | 1.0155 | [EGA__COMPLETE_PROVENANCE.zip](https://zenodo.org/records/21780218/files/EGA__COMPLETE_PROVENANCE.zip) |
+| manifest/status | 0.1365 | [EGA__COMPLETE_PROVENANCE_MANIFEST.csv](https://zenodo.org/records/21780218/files/EGA__COMPLETE_PROVENANCE_MANIFEST.csv) |
+| manifest/status | 0.0664 | [EGA_EN__LOGBOOK.md](https://zenodo.org/records/21780218/files/EGA_EN__LOGBOOK.md) |
+| manifest/status | 0.0427 | [EGA_EN__STATUS.md](https://zenodo.org/records/21780218/files/EGA_EN__STATUS.md) |
+| manifest/status | 0.0584 | [EGA_FR__CONTINUATION_HANDOFF.md](https://zenodo.org/records/21780218/files/EGA_FR__CONTINUATION_HANDOFF.md) |
+| manifest/status | 0.2284 | [EGA_FR__LOGBOOK.md](https://zenodo.org/records/21780218/files/EGA_FR__LOGBOOK.md) |
+| manifest/status | 0.1528 | [EGA_FR__STATUS.md](https://zenodo.org/records/21780218/files/EGA_FR__STATUS.md) |
+| artifact/source ZIP | 0.2796 | [FAC__COMPLETE_PROVENANCE.zip](https://zenodo.org/records/21780218/files/FAC__COMPLETE_PROVENANCE.zip) |
+| manifest/status | 0.0066 | [FAC__COMPLETE_PROVENANCE_MANIFEST.csv](https://zenodo.org/records/21780218/files/FAC__COMPLETE_PROVENANCE_MANIFEST.csv) |
+| manifest/status | 0.1161 | [FAC__EDITORIAL_DECISION_LOGBOOK.md](https://zenodo.org/records/21780218/files/FAC__EDITORIAL_DECISION_LOGBOOK.md) |
+| manifest/status | 0.1464 | [FAC__LOGBOOK.md](https://zenodo.org/records/21780218/files/FAC__LOGBOOK.md) |
+| manifest/status | 0.0648 | [FAC__STATUS.md](https://zenodo.org/records/21780218/files/FAC__STATUS.md) |
+| manifest/status | 0.0051 | [FAC_ACCIDENTAL_DUPLICATION_BLIND_COMPARATOR_METHODOLOGY_EVIDENCE.md](https://zenodo.org/records/21780218/files/FAC_ACCIDENTAL_DUPLICATION_BLIND_COMPARATOR_METHODOLOGY_EVIDENCE.md) |
+| manifest/status | 0.0652 | [FAC_BLIND_COMPARATOR_ALL_79_FINDINGS.csv](https://zenodo.org/records/21780218/files/FAC_BLIND_COMPARATOR_ALL_79_FINDINGS.csv) |
+| manifest/status | 0.0488 | [FAC_BLIND_COMPARATOR_ALL_79_UNIT_REVIEWS.csv](https://zenodo.org/records/21780218/files/FAC_BLIND_COMPARATOR_ALL_79_UNIT_REVIEWS.csv) |
+| manifest/status | 0.0024 | [FAC_BLIND_COMPARATOR_ALL_79_VALIDATION.json](https://zenodo.org/records/21780218/files/FAC_BLIND_COMPARATOR_ALL_79_VALIDATION.json) |
+| artifact/source ZIP | 0.0306 | [FAC_BLIND_COMPARATOR_ARCHIVE_MAPPING_20260803.zip](https://zenodo.org/records/21780218/files/FAC_BLIND_COMPARATOR_ARCHIVE_MAPPING_20260803.zip) |
+| manifest/status | 0.0051 | [FAC_BLIND_COMPARATOR_FINAL_METHODOLOGY_REPORT.md](https://zenodo.org/records/21780218/files/FAC_BLIND_COMPARATOR_FINAL_METHODOLOGY_REPORT.md) |
+| manifest/status | 0.0508 | [FAC_BLIND_COMPARATOR_INVENTORY.csv](https://zenodo.org/records/21780218/files/FAC_BLIND_COMPARATOR_INVENTORY.csv) |
+| manifest/status | 0.1350 | [FAC_EDITORIAL_DECISION_LOGBOOK_SNAPSHOT.md](https://zenodo.org/records/21780218/files/FAC_EDITORIAL_DECISION_LOGBOOK_SNAPSHOT.md) |
+| manifest/status | 0.1495 | [FAC_EDITORIAL_SELF_CORRECTION_LEDGER_PRIVACY_CLEAN.csv](https://zenodo.org/records/21780218/files/FAC_EDITORIAL_SELF_CORRECTION_LEDGER_PRIVACY_CLEAN.csv) |
+| manifest/status | 0.2058 | [FAC_PROJECT_LOGBOOK_SNAPSHOT.md](https://zenodo.org/records/21780218/files/FAC_PROJECT_LOGBOOK_SNAPSHOT.md) |
+| manifest/status | 0.0026 | [FAC_SOURCE_AND_COMPARATOR_IDENTITIES.csv](https://zenodo.org/records/21780218/files/FAC_SOURCE_AND_COMPARATOR_IDENTITIES.csv) |
+| manifest/status | 0.0018 | [METHODOLOGY_EVIDENCE_READINESS.md](https://zenodo.org/records/21780218/files/METHODOLOGY_EVIDENCE_READINESS.md) |
+| manifest/status | 0.0022 | [PACKAGE_VALIDATION.json](https://zenodo.org/records/21780218/files/PACKAGE_VALIDATION.json) |
+| manifest/status | 0.0022 | [PROJECT_LOGBOOK_METHODOLOGY_REPLICATION_DOI_REQUIREMENT_20260802.md](https://zenodo.org/records/21780218/files/PROJECT_LOGBOOK_METHODOLOGY_REPLICATION_DOI_REQUIREMENT_20260802.md) |
+| manifest/status | 0.0025 | [README.md](https://zenodo.org/records/21780218/files/README.md) |
+| manifest/status | 0.0020 | [RIGHTS_AND_PROVENANCE.md](https://zenodo.org/records/21780218/files/RIGHTS_AND_PROVENANCE.md) |
+| manifest/status | 0.0099 | [SGA7I__FRENCH_SOURCE_CORRECTION_LOGBOOK.md](https://zenodo.org/records/21780218/files/SGA7I__FRENCH_SOURCE_CORRECTION_LOGBOOK.md) |
+| manifest/status | 0.1457 | [SGA7II__LOGBOOK.md](https://zenodo.org/records/21780218/files/SGA7II__LOGBOOK.md) |
+| manifest/status | 0.0042 | [SGA_1-7II_PRESENTATION_CLEAN_PROVENANCE_MANIFEST_v2_20260803.csv](https://zenodo.org/records/21780218/files/SGA_1-7II_PRESENTATION_CLEAN_PROVENANCE_MANIFEST_v2_20260803.csv) |
+| artifact/source ZIP | 0.7019 | [SGA_1-7II_PRESENTATION_CLEAN_PROVENANCE_v2_20260803.zip](https://zenodo.org/records/21780218/files/SGA_1-7II_PRESENTATION_CLEAN_PROVENANCE_v2_20260803.zip) |
+| manifest/status | 0.0019 | [ZENODO_PAYLOAD_MANIFEST.csv](https://zenodo.org/records/21780218/files/ZENODO_PAYLOAD_MANIFEST.csv) |
 
 ## SGA and EGA High-Detail Source-Audit Image Worksets: Compute-Reuse Dataset
 
@@ -173,76 +229,143 @@ Dedicated compute-reuse supplement for 290 public-safe Noether/CJK visual-eviden
 
 Record: <https://doi.org/10.5281/zenodo.21124403>
 
-Methodology, source-body, provenance, corpus-control, and bounded-output sidecar for mathematical translation. Current version 21744853 retains all 65 predecessor files from 21743417 and adds one compact six-member Tajik algebra source-anchor ZIP containing two public university mathematics PDFs plus exact scope, metadata, manifest, and checksum controls. This closes the Tajik abstract-algebra source row, not Tajik native TeX, native review, terminology approval, or rights clearance. The retained Persian packet closes a Noether-topic editable-source row only, not Persian invariant theory; GitHub reported no repository license. Paper 06 semantic reconciliation, linguistic review, global-ledger completeness, Persian invariant theory, Arabic invariant theory, Dari editable mathematics, and Tajik native-TeX source remain open. These are methodology, normalization, corpus, source-custody, bounded working-translation, provenance, and QA artifacts, not native validation, translation or source-fidelity certification, community certification, peer review, or critical editions.
+Open the dedicated producer-owned FAC quality-assessment concept 10.5281/zenodo.21779392 (current version 10.5281/zenodo.21779393) for the controlling coherent accidental blind-comparison package. Earlier FAC projections on this broad record remain immutable adverse history; the dedicated FAC files are not duplicated here, and GAGA remains separate.
+
+Current methodology head 21780213 preserves the broad interlanguage, source-body, corpus-control, normalization, and bounded-output sidecar and exposes the corrected v2 SGA/English-Germanic provenance closure. Its 100 files / 4,990,626,114 bytes front the complete 480-record privacy-clean decision log and its 2,425-event transformation ledger, then preserve the 735,972-byte deterministic provenance ZIP and 4,435-byte manifest. Anonymous raw readback matched all four direct objects and all 15 ZIP members; 96 unrelated predecessor files remain byte-identical. V1 predecessor 21779952 and raw-log predecessor 21778949 remain immutable adverse history. The SGA logbook, decision rationale, revision/reversal history, count correction, residual-ID correction, and controlling dual-DOI requirement are primary trust evidence, not reader certification. Existing corpus-specific caveats, rights boundaries, open language-review work, and immutable predecessors remain in force.
 
 | Role | Size MB | File |
 |---|---:|---|
-| manifest/status | 0.0067 | [00_Interlanguage_Methodology_Current_v13_20260718.md](https://zenodo.org/records/21744853/files/00_Interlanguage_Methodology_Current_v13_20260718.md) |
-| reader/reference PDF | 0.0109 | [00_Interlanguage_Methodology_Current_v13_20260718.pdf](https://zenodo.org/records/21744853/files/00_Interlanguage_Methodology_Current_v13_20260718.pdf) |
-| artifact/source ZIP | 139.2897 | [01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip](https://zenodo.org/records/21744853/files/01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip) |
-| manifest/status | 0.0066 | [01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.md](https://zenodo.org/records/21744853/files/01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.md) |
-| reader/reference PDF | 0.0868 | [01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.pdf](https://zenodo.org/records/21744853/files/01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.pdf) |
-| artifact/source ZIP | 4.2149 | [02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip](https://zenodo.org/records/21744853/files/02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip) |
-| artifact/source ZIP | 232.3934 | [03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip](https://zenodo.org/records/21744853/files/03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip) |
-| artifact/source ZIP | 243.7605 | [04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip](https://zenodo.org/records/21744853/files/04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip) |
-| artifact/source ZIP | 1132.7524 | [05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip](https://zenodo.org/records/21744853/files/05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip) |
-| artifact/source ZIP | 843.7354 | [06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip](https://zenodo.org/records/21744853/files/06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip) |
-| artifact/source ZIP | 448.0475 | [07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip](https://zenodo.org/records/21744853/files/07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip) |
-| artifact/source ZIP | 1236.5100 | [08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip](https://zenodo.org/records/21744853/files/08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip) |
-| manifest/status | 0.0769 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv](https://zenodo.org/records/21744853/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.csv) |
-| manifest/status | 0.0142 | [09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md](https://zenodo.org/records/21744853/files/09_Interlanguage_SourceBody_SideBranch_Inventory_20260707.md) |
-| manifest/status | 0.0022 | [09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv](https://zenodo.org/records/21744853/files/09_Interlanguage_SourceBody_SideBranch_Public_Manifest_20260707.csv) |
-| manifest/status | 0.0021 | [09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv](https://zenodo.org/records/21744853/files/09_Interlanguage_SourceBody_SideBranch_Public_SHA256_20260707.csv) |
-| artifact/source ZIP | 0.4956 | [10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip](https://zenodo.org/records/21744853/files/10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip) |
-| manifest/status | 0.0002 | [10_Interlanguage_Post2DE_RouteContext_Returns_sha256_20260707.csv](https://zenodo.org/records/21744853/files/10_Interlanguage_Post2DE_RouteContext_Returns_sha256_20260707.csv) |
-| artifact/source ZIP | 149.0738 | [11_Interlanguage_Claude_Fable_v04_Consolidated_Methodology_20260710.zip](https://zenodo.org/records/21744853/files/11_Interlanguage_Claude_Fable_v04_Consolidated_Methodology_20260710.zip) |
-| manifest/status | 0.0006 | [11_Interlanguage_v04_public_manifest_20260710.csv](https://zenodo.org/records/21744853/files/11_Interlanguage_v04_public_manifest_20260710.csv) |
-| manifest/status | 0.0007 | [11_Interlanguage_v04_public_sha256_20260710.csv](https://zenodo.org/records/21744853/files/11_Interlanguage_v04_public_sha256_20260710.csv) |
-| artifact/source ZIP | 0.9145 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717.zip](https://zenodo.org/records/21744853/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717.zip) |
-| manifest/status | 0.0075 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717_manifest.csv](https://zenodo.org/records/21744853/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717_manifest.csv) |
-| manifest/status | 0.0068 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717_sha256.csv](https://zenodo.org/records/21744853/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717_sha256.csv) |
-| artifact/source ZIP | 33.5824 | [13_Interlanguage_Interslavic_Normalization_Method_Evidence_v06_20260718.zip](https://zenodo.org/records/21744853/files/13_Interlanguage_Interslavic_Normalization_Method_Evidence_v06_20260718.zip) |
-| manifest/status | 0.0006 | [13_Interlanguage_v06_public_manifest_20260718.csv](https://zenodo.org/records/21744853/files/13_Interlanguage_v06_public_manifest_20260718.csv) |
-| manifest/status | 0.0005 | [13_Interlanguage_v06_public_sha256_20260718.txt](https://zenodo.org/records/21744853/files/13_Interlanguage_v06_public_sha256_20260718.txt) |
-| artifact/source ZIP | 8.8597 | [14_Interlanguage_Romance_Methodology_v10_Evidence_20260718.zip](https://zenodo.org/records/21744853/files/14_Interlanguage_Romance_Methodology_v10_Evidence_20260718.zip) |
-| manifest/status | 0.0005 | [14_Interlanguage_Romance_v10_public_manifest_20260718.csv](https://zenodo.org/records/21744853/files/14_Interlanguage_Romance_v10_public_manifest_20260718.csv) |
-| manifest/status | 0.0005 | [14_Interlanguage_Romance_v10_public_sha256_20260718.txt](https://zenodo.org/records/21744853/files/14_Interlanguage_Romance_v10_public_sha256_20260718.txt) |
-| manifest/status | 0.0007 | [15_Interlanguage_v11_public_manifest_20260718.csv](https://zenodo.org/records/21744853/files/15_Interlanguage_v11_public_manifest_20260718.csv) |
-| manifest/status | 0.0006 | [15_Interlanguage_v11_public_sha256_20260718.txt](https://zenodo.org/records/21744853/files/15_Interlanguage_v11_public_sha256_20260718.txt) |
-| artifact/source ZIP | 128.9573 | [15_Noether_R823_Translation_Completion_Gate_v4_20260718.zip](https://zenodo.org/records/21744853/files/15_Noether_R823_Translation_Completion_Gate_v4_20260718.zip) |
-| artifact/source ZIP | 0.9078 | [16_Interlanguage_Language_Manager_Fleet_Snapshot_v12_20260718.zip](https://zenodo.org/records/21744853/files/16_Interlanguage_Language_Manager_Fleet_Snapshot_v12_20260718.zip) |
-| manifest/status | 0.0007 | [16_Interlanguage_v12_public_manifest_20260718.csv](https://zenodo.org/records/21744853/files/16_Interlanguage_v12_public_manifest_20260718.csv) |
-| manifest/status | 0.0006 | [16_Interlanguage_v12_public_sha256_20260718.txt](https://zenodo.org/records/21744853/files/16_Interlanguage_v12_public_sha256_20260718.txt) |
-| manifest/status | 0.0010 | [17_Interlanguage_v13_public_manifest_20260718.csv](https://zenodo.org/records/21744853/files/17_Interlanguage_v13_public_manifest_20260718.csv) |
-| manifest/status | 0.0008 | [17_Interlanguage_v13_public_sha256_20260718.txt](https://zenodo.org/records/21744853/files/17_Interlanguage_v13_public_sha256_20260718.txt) |
-| artifact/source ZIP | 0.6655 | [17a_Romance_Corpus_WordWeb_Governance_and_T008_v13_20260718.zip](https://zenodo.org/records/21744853/files/17a_Romance_Corpus_WordWeb_Governance_and_T008_v13_20260718.zip) |
-| artifact/source ZIP | 1.1239 | [17b_Interslavic_Normalization_Through_Tranche007_v13_20260718.zip](https://zenodo.org/records/21744853/files/17b_Interslavic_Normalization_Through_Tranche007_v13_20260718.zip) |
-| artifact/source ZIP | 0.2692 | [17c_Romance_WordWeb_Access_PublicCheckpoint_v11_20260718.zip](https://zenodo.org/records/21744853/files/17c_Romance_WordWeb_Access_PublicCheckpoint_v11_20260718.zip) |
-| other | 3.4573 | [18_CJK_Visual_Evidence_Public_Safe_Index_20260722.jsonl](https://zenodo.org/records/21744853/files/18_CJK_Visual_Evidence_Public_Safe_Index_20260722.jsonl) |
-| other | 0.0249 | [18_CJK_Visual_Evidence_Rights_Blocked_Metadata_20260722.jsonl](https://zenodo.org/records/21744853/files/18_CJK_Visual_Evidence_Rights_Blocked_Metadata_20260722.jsonl) |
-| manifest/status | 0.0020 | [18_CJK_Visual_Evidence_Schema_20260722.md](https://zenodo.org/records/21744853/files/18_CJK_Visual_Evidence_Schema_20260722.md) |
-| manifest/status | 0.0014 | [18_CJK_Visual_Evidence_Scope_Caveats_20260722.md](https://zenodo.org/records/21744853/files/18_CJK_Visual_Evidence_Scope_Caveats_20260722.md) |
-| manifest/status | 0.0010 | [18_CJK_Visual_Evidence_v14_public_manifest_20260722.csv](https://zenodo.org/records/21744853/files/18_CJK_Visual_Evidence_v14_public_manifest_20260722.csv) |
-| manifest/status | 0.0008 | [18_CJK_Visual_Evidence_v14_public_sha256_20260722.txt](https://zenodo.org/records/21744853/files/18_CJK_Visual_Evidence_v14_public_sha256_20260722.txt) |
-| manifest/status | 0.0026 | [19_Interslavic_Vaziti_Source_Anchor_20260801.md](https://zenodo.org/records/21744853/files/19_Interslavic_Vaziti_Source_Anchor_20260801.md) |
-| artifact/source ZIP | 0.0037 | [19_Interslavic_Vaziti_Source_Anchor_20260801.zip](https://zenodo.org/records/21744853/files/19_Interslavic_Vaziti_Source_Anchor_20260801.zip) |
-| manifest/status | 0.0011 | [19a_Interslavic_Vaziti_Relevant_Dictionary_Rows_20260801.csv](https://zenodo.org/records/21744853/files/19a_Interslavic_Vaziti_Relevant_Dictionary_Rows_20260801.csv) |
-| manifest/status | 0.0022 | [19b_Interslavic_Vaziti_Source_Snapshot_Metadata_20260801.json](https://zenodo.org/records/21744853/files/19b_Interslavic_Vaziti_Source_Snapshot_Metadata_20260801.json) |
-| manifest/status | 0.0004 | [19c_Interslavic_Vaziti_Source_Anchor_SHA256SUMS_20260801.csv](https://zenodo.org/records/21744853/files/19c_Interslavic_Vaziti_Source_Anchor_SHA256SUMS_20260801.csv) |
-| manifest/status | 0.0050 | [20_Fable_Tranche001_Requirements_Acknowledged_20260801.md](https://zenodo.org/records/21744853/files/20_Fable_Tranche001_Requirements_Acknowledged_20260801.md) |
-| manifest/status | 0.0012 | [20a_Fable_Tranche001_Requirements_Acknowledgement_Validation_20260801.json](https://zenodo.org/records/21744853/files/20a_Fable_Tranche001_Requirements_Acknowledgement_Validation_20260801.json) |
-| manifest/status | 0.0002 | [20b_Fable_Tranche001_Requirements_Acknowledgement_SHA256SUMS_20260801.csv](https://zenodo.org/records/21744853/files/20b_Fable_Tranche001_Requirements_Acknowledgement_SHA256SUMS_20260801.csv) |
-| manifest/status | 0.0073 | [21_Fable_G15_Invariant_Ledger_Gate_Map_20260801.md](https://zenodo.org/records/21744853/files/21_Fable_G15_Invariant_Ledger_Gate_Map_20260801.md) |
-| manifest/status | 0.0024 | [21a_Fable_G15_Source_Anchor_Readme_20260801.md](https://zenodo.org/records/21744853/files/21a_Fable_G15_Source_Anchor_Readme_20260801.md) |
-| manifest/status | 0.0019 | [21b_Fable_G15_Source_Anchor_Metadata_20260801.json](https://zenodo.org/records/21744853/files/21b_Fable_G15_Source_Anchor_Metadata_20260801.json) |
-| manifest/status | 0.0011 | [21c_Fable_G15_Source_Anchor_Validation_20260801.json](https://zenodo.org/records/21744853/files/21c_Fable_G15_Source_Anchor_Validation_20260801.json) |
-| manifest/status | 0.0005 | [21d_Fable_G15_Source_Anchor_SHA256SUMS_20260801.csv](https://zenodo.org/records/21744853/files/21d_Fable_G15_Source_Anchor_SHA256SUMS_20260801.csv) |
-| artifact/source ZIP | 0.0169 | [22_Persian_Noether_Topic_TeX_Source_Anchor_20260801.zip](https://zenodo.org/records/21744853/files/22_Persian_Noether_Topic_TeX_Source_Anchor_20260801.zip) |
-| artifact/source ZIP | 6.2995 | [23_Tajik_Algebra_Source_Anchor_20260801.zip](https://zenodo.org/records/21744853/files/23_Tajik_Algebra_Source_Anchor_20260801.zip) |
-| manifest/status | 0.0014 | [99_Interlanguage_Public_Status_v13_20260718.md](https://zenodo.org/records/21744853/files/99_Interlanguage_Public_Status_v13_20260718.md) |
-| manifest/status | 0.0015 | [99_Interlanguage_Public_Status_v14_20260722.md](https://zenodo.org/records/21744853/files/99_Interlanguage_Public_Status_v14_20260722.md) |
-| manifest/status | 0.0021 | [99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md](https://zenodo.org/records/21744853/files/99_Interlanguage_SourceBody_SideBranch_Public_Status_20260707.md) |
-| artifact/source ZIP | 136.2877 | [CJK_VISUAL_EVIDENCE_OPEN_PAYLOAD_20260718.zip](https://zenodo.org/records/21744853/files/CJK_VISUAL_EVIDENCE_OPEN_PAYLOAD_20260718.zip) |
+| other | 3.0060 | [00_ENGLISH_GERMANIC_DECISION_LOG_1_PUBLIC_PRIVACY_CLEAN_v2.jsonl](https://zenodo.org/records/21780213/files/00_ENGLISH_GERMANIC_DECISION_LOG_1_PUBLIC_PRIVACY_CLEAN_v2.jsonl) |
+| manifest/status | 0.4214 | [00_ENGLISH_GERMANIC_DECISION_LOG_2_PRIVACY_TRANSFORMATIONS_v2_20260803.csv](https://zenodo.org/records/21780213/files/00_ENGLISH_GERMANIC_DECISION_LOG_2_PRIVACY_TRANSFORMATIONS_v2_20260803.csv) |
+| manifest/status | 0.0067 | [00_Interlanguage_Methodology_Current_v13_20260718.md](https://zenodo.org/records/21780213/files/00_Interlanguage_Methodology_Current_v13_20260718.md) |
+| reader/reference PDF | 0.0109 | [00_Interlanguage_Methodology_Current_v13_20260718.pdf](https://zenodo.org/records/21780213/files/00_Interlanguage_Methodology_Current_v13_20260718.pdf) |
+| artifact/source ZIP | 139.2897 | [01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip](https://zenodo.org/records/21780213/files/01_Claude_ChatGPT_Interlingua_Program_Full_Provenance_20260706.zip) |
+| manifest/status | 0.0066 | [01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.md](https://zenodo.org/records/21780213/files/01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.md) |
+| reader/reference PDF | 0.0868 | [01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.pdf](https://zenodo.org/records/21780213/files/01_Interlanguage_Interslavic_Normalization_Method_v06_20260718.pdf) |
+| artifact/source ZIP | 4.2149 | [02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip](https://zenodo.org/records/21780213/files/02_Interslavic_Weighted_Automaton_and_Term_Ledgers_20260706.zip) |
+| artifact/source ZIP | 232.3934 | [03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip](https://zenodo.org/records/21780213/files/03_OtherPC_SourceBody_Baseline_Transfer_Packages_20260706.zip) |
+| artifact/source ZIP | 243.7605 | [04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip](https://zenodo.org/records/21780213/files/04_Interlanguage_OtherPC_SourceBodies_Slavic_NoetherSlavic_20260707.zip) |
+| artifact/source ZIP | 1132.7524 | [05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip](https://zenodo.org/records/21780213/files/05_Interlanguage_OtherPC_SourceBodies_Romance_CJK_20260707.zip) |
+| artifact/source ZIP | 843.7354 | [06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip](https://zenodo.org/records/21780213/files/06_Interlanguage_OtherPC_SourceBodies_RTL_Persianate_Arabic_20260707.zip) |
+| artifact/source ZIP | 448.0475 | [07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip](https://zenodo.org/records/21780213/files/07_Interlanguage_OtherPC_SourceBodies_Turkic_Indigenous_SEA_OLP_20260707.zip) |
+| artifact/source ZIP | 1236.5100 | [08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip](https://zenodo.org/records/21780213/files/08_Interlanguage_OtherPC_Fable_Method_Transfer_Audits_20260707.zip) |
+| artifact/source ZIP | 0.4956 | [10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip](https://zenodo.org/records/21780213/files/10_Interlanguage_OtherPC_Post2DE_RouteContext_Returns_20260707.zip) |
+| artifact/source ZIP | 149.0738 | [11_Interlanguage_Claude_Fable_v04_Consolidated_Methodology_20260710.zip](https://zenodo.org/records/21780213/files/11_Interlanguage_Claude_Fable_v04_Consolidated_Methodology_20260710.zip) |
+| artifact/source ZIP | 0.9145 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717.zip](https://zenodo.org/records/21780213/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717.zip) |
+| manifest/status | 0.0075 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717_manifest.csv](https://zenodo.org/records/21780213/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717_manifest.csv) |
+| manifest/status | 0.0068 | [12_Interlanguage_Research_Department_and_Automata_v05_20260717_sha256.csv](https://zenodo.org/records/21780213/files/12_Interlanguage_Research_Department_and_Automata_v05_20260717_sha256.csv) |
+| artifact/source ZIP | 33.5824 | [13_Interlanguage_Interslavic_Normalization_Method_Evidence_v06_20260718.zip](https://zenodo.org/records/21780213/files/13_Interlanguage_Interslavic_Normalization_Method_Evidence_v06_20260718.zip) |
+| artifact/source ZIP | 8.8597 | [14_Interlanguage_Romance_Methodology_v10_Evidence_20260718.zip](https://zenodo.org/records/21780213/files/14_Interlanguage_Romance_Methodology_v10_Evidence_20260718.zip) |
+| artifact/source ZIP | 128.9573 | [15_Noether_R823_Translation_Completion_Gate_v4_20260718.zip](https://zenodo.org/records/21780213/files/15_Noether_R823_Translation_Completion_Gate_v4_20260718.zip) |
+| artifact/source ZIP | 0.9078 | [16_Interlanguage_Language_Manager_Fleet_Snapshot_v12_20260718.zip](https://zenodo.org/records/21780213/files/16_Interlanguage_Language_Manager_Fleet_Snapshot_v12_20260718.zip) |
+| artifact/source ZIP | 0.6655 | [17a_Romance_Corpus_WordWeb_Governance_and_T008_v13_20260718.zip](https://zenodo.org/records/21780213/files/17a_Romance_Corpus_WordWeb_Governance_and_T008_v13_20260718.zip) |
+| artifact/source ZIP | 1.1239 | [17b_Interslavic_Normalization_Through_Tranche007_v13_20260718.zip](https://zenodo.org/records/21780213/files/17b_Interslavic_Normalization_Through_Tranche007_v13_20260718.zip) |
+| artifact/source ZIP | 0.2692 | [17c_Romance_WordWeb_Access_PublicCheckpoint_v11_20260718.zip](https://zenodo.org/records/21780213/files/17c_Romance_WordWeb_Access_PublicCheckpoint_v11_20260718.zip) |
+| other | 3.4573 | [18_CJK_Visual_Evidence_Public_Safe_Index_20260722.jsonl](https://zenodo.org/records/21780213/files/18_CJK_Visual_Evidence_Public_Safe_Index_20260722.jsonl) |
+| other | 0.0249 | [18_CJK_Visual_Evidence_Rights_Blocked_Metadata_20260722.jsonl](https://zenodo.org/records/21780213/files/18_CJK_Visual_Evidence_Rights_Blocked_Metadata_20260722.jsonl) |
+| manifest/status | 0.0020 | [18_CJK_Visual_Evidence_Schema_20260722.md](https://zenodo.org/records/21780213/files/18_CJK_Visual_Evidence_Schema_20260722.md) |
+| manifest/status | 0.0014 | [18_CJK_Visual_Evidence_Scope_Caveats_20260722.md](https://zenodo.org/records/21780213/files/18_CJK_Visual_Evidence_Scope_Caveats_20260722.md) |
+| manifest/status | 0.0026 | [19_Interslavic_Vaziti_Source_Anchor_20260801.md](https://zenodo.org/records/21780213/files/19_Interslavic_Vaziti_Source_Anchor_20260801.md) |
+| artifact/source ZIP | 0.0037 | [19_Interslavic_Vaziti_Source_Anchor_20260801.zip](https://zenodo.org/records/21780213/files/19_Interslavic_Vaziti_Source_Anchor_20260801.zip) |
+| manifest/status | 0.0011 | [19a_Interslavic_Vaziti_Relevant_Dictionary_Rows_20260801.csv](https://zenodo.org/records/21780213/files/19a_Interslavic_Vaziti_Relevant_Dictionary_Rows_20260801.csv) |
+| manifest/status | 0.0022 | [19b_Interslavic_Vaziti_Source_Snapshot_Metadata_20260801.json](https://zenodo.org/records/21780213/files/19b_Interslavic_Vaziti_Source_Snapshot_Metadata_20260801.json) |
+| manifest/status | 0.0004 | [19c_Interslavic_Vaziti_Source_Anchor_SHA256SUMS_20260801.csv](https://zenodo.org/records/21780213/files/19c_Interslavic_Vaziti_Source_Anchor_SHA256SUMS_20260801.csv) |
+| manifest/status | 0.0050 | [20_Fable_Tranche001_Requirements_Acknowledged_20260801.md](https://zenodo.org/records/21780213/files/20_Fable_Tranche001_Requirements_Acknowledged_20260801.md) |
+| manifest/status | 0.0012 | [20a_Fable_Tranche001_Requirements_Acknowledgement_Validation_20260801.json](https://zenodo.org/records/21780213/files/20a_Fable_Tranche001_Requirements_Acknowledgement_Validation_20260801.json) |
+| manifest/status | 0.0002 | [20b_Fable_Tranche001_Requirements_Acknowledgement_SHA256SUMS_20260801.csv](https://zenodo.org/records/21780213/files/20b_Fable_Tranche001_Requirements_Acknowledgement_SHA256SUMS_20260801.csv) |
+| manifest/status | 0.0073 | [21_Fable_G15_Invariant_Ledger_Gate_Map_20260801.md](https://zenodo.org/records/21780213/files/21_Fable_G15_Invariant_Ledger_Gate_Map_20260801.md) |
+| manifest/status | 0.0024 | [21a_Fable_G15_Source_Anchor_Readme_20260801.md](https://zenodo.org/records/21780213/files/21a_Fable_G15_Source_Anchor_Readme_20260801.md) |
+| manifest/status | 0.0019 | [21b_Fable_G15_Source_Anchor_Metadata_20260801.json](https://zenodo.org/records/21780213/files/21b_Fable_G15_Source_Anchor_Metadata_20260801.json) |
+| manifest/status | 0.0011 | [21c_Fable_G15_Source_Anchor_Validation_20260801.json](https://zenodo.org/records/21780213/files/21c_Fable_G15_Source_Anchor_Validation_20260801.json) |
+| manifest/status | 0.0005 | [21d_Fable_G15_Source_Anchor_SHA256SUMS_20260801.csv](https://zenodo.org/records/21780213/files/21d_Fable_G15_Source_Anchor_SHA256SUMS_20260801.csv) |
+| artifact/source ZIP | 0.0169 | [22_Persian_Noether_Topic_TeX_Source_Anchor_20260801.zip](https://zenodo.org/records/21780213/files/22_Persian_Noether_Topic_TeX_Source_Anchor_20260801.zip) |
+| artifact/source ZIP | 6.2995 | [23_Tajik_Algebra_Source_Anchor_20260801.zip](https://zenodo.org/records/21780213/files/23_Tajik_Algebra_Source_Anchor_20260801.zip) |
+| artifact/source ZIP | 0.0319 | [24_Retained_Interlanguage_Companion_Manifests_Statuses_20260803.zip](https://zenodo.org/records/21780213/files/24_Retained_Interlanguage_Companion_Manifests_Statuses_20260803.zip) |
+| manifest/status | 0.0086 | [24a_Retained_Interlanguage_Companion_Manifests_Statuses_20260803_MANIFEST.csv](https://zenodo.org/records/21780213/files/24a_Retained_Interlanguage_Companion_Manifests_Statuses_20260803_MANIFEST.csv) |
+| manifest/status | 0.0373 | [ALL_SESSION_PROVENANCE_TRANCHE_INDEX.json](https://zenodo.org/records/21780213/files/ALL_SESSION_PROVENANCE_TRANCHE_INDEX.json) |
+| manifest/status | 0.0011 | [ALL_SESSION_PROVENANCE_TRANCHE_README.md](https://zenodo.org/records/21780213/files/ALL_SESSION_PROVENANCE_TRANCHE_README.md) |
+| manifest/status | 0.0032 | [ALL_SESSION_PROVENANCE_TRANCHE_SHA256SUMS.csv](https://zenodo.org/records/21780213/files/ALL_SESSION_PROVENANCE_TRANCHE_SHA256SUMS.csv) |
+| manifest/status | 0.0036 | [ARCHIVE_PROACTIVE_PRIVACY_AND_SUBSTANTIVE_UPDATE_REQUIREMENT_20260802.md](https://zenodo.org/records/21780213/files/ARCHIVE_PROACTIVE_PRIVACY_AND_SUBSTANTIVE_UPDATE_REQUIREMENT_20260802.md) |
+| manifest/status | 0.0018 | [ARTIFACT_TOOL_PACKAGE_CSV_VALIDATION.json](https://zenodo.org/records/21780213/files/ARTIFACT_TOOL_PACKAGE_CSV_VALIDATION.json) |
+| manifest/status | 0.0013 | [BLIND_COMPARATOR_GENERATION_VALIDATION.json](https://zenodo.org/records/21780213/files/BLIND_COMPARATOR_GENERATION_VALIDATION.json) |
+| manifest/status | 0.0148 | [BLIND_COMPARATOR_INPUT_IDENTITIES.csv](https://zenodo.org/records/21780213/files/BLIND_COMPARATOR_INPUT_IDENTITIES.csv) |
+| artifact/source ZIP | 136.2877 | [CJK_VISUAL_EVIDENCE_OPEN_PAYLOAD_20260718.zip](https://zenodo.org/records/21780213/files/CJK_VISUAL_EVIDENCE_OPEN_PAYLOAD_20260718.zip) |
+| manifest/status | 0.0015 | [D001__LOGBOOK.md](https://zenodo.org/records/21780213/files/D001__LOGBOOK.md) |
+| manifest/status | 0.0012 | [D002__LOGBOOK.md](https://zenodo.org/records/21780213/files/D002__LOGBOOK.md) |
+| manifest/status | 0.0012 | [D003__LOGBOOK.md](https://zenodo.org/records/21780213/files/D003__LOGBOOK.md) |
+| manifest/status | 0.0010 | [D004__LOGBOOK.md](https://zenodo.org/records/21780213/files/D004__LOGBOOK.md) |
+| manifest/status | 0.0092 | [D005_R1__LOGBOOK.md](https://zenodo.org/records/21780213/files/D005_R1__LOGBOOK.md) |
+| manifest/status | 0.0065 | [D005_R2__LOGBOOK.md](https://zenodo.org/records/21780213/files/D005_R2__LOGBOOK.md) |
+| manifest/status | 0.0020 | [D006__controls__LOGBOOK_STATUS_NUL_CORRUPTION_AND_RECOVERY_20260802.md](https://zenodo.org/records/21780213/files/D006__controls__LOGBOOK_STATUS_NUL_CORRUPTION_AND_RECOVERY_20260802.md) |
+| manifest/status | 0.0316 | [D006__LOGBOOK.md](https://zenodo.org/records/21780213/files/D006__LOGBOOK.md) |
+| manifest/status | 0.0295 | [D006__LOGBOOK_RECOVERED_FROM_THREAD_HISTORY_20260802.md](https://zenodo.org/records/21780213/files/D006__LOGBOOK_RECOVERED_FROM_THREAD_HISTORY_20260802.md) |
+| manifest/status | 0.0057 | [D007__LOGBOOK.md](https://zenodo.org/records/21780213/files/D007__LOGBOOK.md) |
+| artifact/source ZIP | 0.1050 | [DELIGNE__COMPLETE_PROVENANCE.zip](https://zenodo.org/records/21780213/files/DELIGNE__COMPLETE_PROVENANCE.zip) |
+| manifest/status | 0.0192 | [DELIGNE__COMPLETE_PROVENANCE_MANIFEST.csv](https://zenodo.org/records/21780213/files/DELIGNE__COMPLETE_PROVENANCE_MANIFEST.csv) |
+| artifact/source ZIP | 1.0155 | [EGA__COMPLETE_PROVENANCE.zip](https://zenodo.org/records/21780213/files/EGA__COMPLETE_PROVENANCE.zip) |
+| manifest/status | 0.1365 | [EGA__COMPLETE_PROVENANCE_MANIFEST.csv](https://zenodo.org/records/21780213/files/EGA__COMPLETE_PROVENANCE_MANIFEST.csv) |
+| manifest/status | 0.0664 | [EGA_EN__LOGBOOK.md](https://zenodo.org/records/21780213/files/EGA_EN__LOGBOOK.md) |
+| manifest/status | 0.0427 | [EGA_EN__STATUS.md](https://zenodo.org/records/21780213/files/EGA_EN__STATUS.md) |
+| manifest/status | 0.0584 | [EGA_FR__CONTINUATION_HANDOFF.md](https://zenodo.org/records/21780213/files/EGA_FR__CONTINUATION_HANDOFF.md) |
+| manifest/status | 0.2284 | [EGA_FR__LOGBOOK.md](https://zenodo.org/records/21780213/files/EGA_FR__LOGBOOK.md) |
+| manifest/status | 0.1528 | [EGA_FR__STATUS.md](https://zenodo.org/records/21780213/files/EGA_FR__STATUS.md) |
+| artifact/source ZIP | 0.2796 | [FAC__COMPLETE_PROVENANCE.zip](https://zenodo.org/records/21780213/files/FAC__COMPLETE_PROVENANCE.zip) |
+| manifest/status | 0.0066 | [FAC__COMPLETE_PROVENANCE_MANIFEST.csv](https://zenodo.org/records/21780213/files/FAC__COMPLETE_PROVENANCE_MANIFEST.csv) |
+| manifest/status | 0.1161 | [FAC__EDITORIAL_DECISION_LOGBOOK.md](https://zenodo.org/records/21780213/files/FAC__EDITORIAL_DECISION_LOGBOOK.md) |
+| manifest/status | 0.1464 | [FAC__LOGBOOK.md](https://zenodo.org/records/21780213/files/FAC__LOGBOOK.md) |
+| manifest/status | 0.0648 | [FAC__STATUS.md](https://zenodo.org/records/21780213/files/FAC__STATUS.md) |
+| manifest/status | 0.0051 | [FAC_ACCIDENTAL_DUPLICATION_BLIND_COMPARATOR_METHODOLOGY_EVIDENCE.md](https://zenodo.org/records/21780213/files/FAC_ACCIDENTAL_DUPLICATION_BLIND_COMPARATOR_METHODOLOGY_EVIDENCE.md) |
+| manifest/status | 0.0652 | [FAC_BLIND_COMPARATOR_ALL_79_FINDINGS.csv](https://zenodo.org/records/21780213/files/FAC_BLIND_COMPARATOR_ALL_79_FINDINGS.csv) |
+| manifest/status | 0.0488 | [FAC_BLIND_COMPARATOR_ALL_79_UNIT_REVIEWS.csv](https://zenodo.org/records/21780213/files/FAC_BLIND_COMPARATOR_ALL_79_UNIT_REVIEWS.csv) |
+| manifest/status | 0.0024 | [FAC_BLIND_COMPARATOR_ALL_79_VALIDATION.json](https://zenodo.org/records/21780213/files/FAC_BLIND_COMPARATOR_ALL_79_VALIDATION.json) |
+| artifact/source ZIP | 0.0306 | [FAC_BLIND_COMPARATOR_ARCHIVE_MAPPING_20260803.zip](https://zenodo.org/records/21780213/files/FAC_BLIND_COMPARATOR_ARCHIVE_MAPPING_20260803.zip) |
+| manifest/status | 0.0051 | [FAC_BLIND_COMPARATOR_FINAL_METHODOLOGY_REPORT.md](https://zenodo.org/records/21780213/files/FAC_BLIND_COMPARATOR_FINAL_METHODOLOGY_REPORT.md) |
+| manifest/status | 0.0508 | [FAC_BLIND_COMPARATOR_INVENTORY.csv](https://zenodo.org/records/21780213/files/FAC_BLIND_COMPARATOR_INVENTORY.csv) |
+| manifest/status | 0.1350 | [FAC_EDITORIAL_DECISION_LOGBOOK_SNAPSHOT.md](https://zenodo.org/records/21780213/files/FAC_EDITORIAL_DECISION_LOGBOOK_SNAPSHOT.md) |
+| manifest/status | 0.1495 | [FAC_EDITORIAL_SELF_CORRECTION_LEDGER_PRIVACY_CLEAN.csv](https://zenodo.org/records/21780213/files/FAC_EDITORIAL_SELF_CORRECTION_LEDGER_PRIVACY_CLEAN.csv) |
+| manifest/status | 0.2058 | [FAC_PROJECT_LOGBOOK_SNAPSHOT.md](https://zenodo.org/records/21780213/files/FAC_PROJECT_LOGBOOK_SNAPSHOT.md) |
+| manifest/status | 0.0026 | [FAC_SOURCE_AND_COMPARATOR_IDENTITIES.csv](https://zenodo.org/records/21780213/files/FAC_SOURCE_AND_COMPARATOR_IDENTITIES.csv) |
+| manifest/status | 0.0018 | [METHODOLOGY_EVIDENCE_READINESS.md](https://zenodo.org/records/21780213/files/METHODOLOGY_EVIDENCE_READINESS.md) |
+| manifest/status | 0.0022 | [PACKAGE_VALIDATION.json](https://zenodo.org/records/21780213/files/PACKAGE_VALIDATION.json) |
+| manifest/status | 0.0022 | [PROJECT_LOGBOOK_METHODOLOGY_REPLICATION_DOI_REQUIREMENT_20260802.md](https://zenodo.org/records/21780213/files/PROJECT_LOGBOOK_METHODOLOGY_REPLICATION_DOI_REQUIREMENT_20260802.md) |
+| manifest/status | 0.0025 | [README.md](https://zenodo.org/records/21780213/files/README.md) |
+| manifest/status | 0.0020 | [RIGHTS_AND_PROVENANCE.md](https://zenodo.org/records/21780213/files/RIGHTS_AND_PROVENANCE.md) |
+| manifest/status | 0.0099 | [SGA7I__FRENCH_SOURCE_CORRECTION_LOGBOOK.md](https://zenodo.org/records/21780213/files/SGA7I__FRENCH_SOURCE_CORRECTION_LOGBOOK.md) |
+| manifest/status | 0.1457 | [SGA7II__LOGBOOK.md](https://zenodo.org/records/21780213/files/SGA7II__LOGBOOK.md) |
+| manifest/status | 0.0042 | [SGA_1-7II_PRESENTATION_CLEAN_PROVENANCE_MANIFEST_v2_20260803.csv](https://zenodo.org/records/21780213/files/SGA_1-7II_PRESENTATION_CLEAN_PROVENANCE_MANIFEST_v2_20260803.csv) |
+| artifact/source ZIP | 0.7019 | [SGA_1-7II_PRESENTATION_CLEAN_PROVENANCE_v2_20260803.zip](https://zenodo.org/records/21780213/files/SGA_1-7II_PRESENTATION_CLEAN_PROVENANCE_v2_20260803.zip) |
+| manifest/status | 0.0019 | [ZENODO_PAYLOAD_MANIFEST.csv](https://zenodo.org/records/21780213/files/ZENODO_PAYLOAD_MANIFEST.csv) |
+
+## FAC quality assessment: an accidentally independent AI translation and blind comparison
+
+Record: <https://doi.org/10.5281/zenodo.21779392>
+
+Dedicated producer-owned FAC quality-assessment record 21779393 documents an accidental held-out comparison: Codex translated and source-checked FAC nos. 1-79 from Serre's French authority before the project discovered the independent Achinger-Krupa English translation. The record fronts a human-readable chronology, a 74-page blind reader through no. 79, a 78-page complete project reader through no. 81, 79 unit reviews, 138 locator-bound findings, 95 frozen input identities, 219 self-correction rows, decision/project/process logbooks, exact validation, and a 111-entry English/French project TeX source ZIP. All 22 files / 2,077,104 bytes passed public UI MD5 replay and anonymous raw byte/SHA-256 readback. The comparator PDF/source and French authority scan are not redistributed; authorship, URLs, hashes, rights limits, and source authority are explicit. This is inspectable bounded quality evidence, not peer review, mathematical certification, canonicity, a scalar score, general model superiority, or blanket rights clearance. Nos. 80-81 postdate discovery and are excluded from blind claims. Concept DOI 10.5281/zenodo.21779392 is authoritative for this FAC evidence; do not duplicate it into GAGA or mint another FAC concept.
+
+| Role | Size MB | File |
+|---|---:|---|
+| manifest/status | 0.0050 | [00_READ_ME_FIRST.md](https://zenodo.org/records/21779393/files/00_READ_ME_FIRST.md) |
+| reader/reference PDF | 0.4432 | [01_FAC_Codex_Blind_English_Reader_through_no79.pdf](https://zenodo.org/records/21779393/files/01_FAC_Codex_Blind_English_Reader_through_no79.pdf) |
+| reader/reference PDF | 0.4620 | [02_FAC_Codex_Complete_English_Reader.pdf](https://zenodo.org/records/21779393/files/02_FAC_Codex_Complete_English_Reader.pdf) |
+| manifest/status | 0.0488 | [03_FAC_Blind_Comparator_Unit_Reviews.csv](https://zenodo.org/records/21779393/files/03_FAC_Blind_Comparator_Unit_Reviews.csv) |
+| manifest/status | 0.0652 | [04_FAC_Blind_Comparator_Findings.csv](https://zenodo.org/records/21779393/files/04_FAC_Blind_Comparator_Findings.csv) |
+| manifest/status | 0.0048 | [05_FAC_Quality_Assessment_Report.md](https://zenodo.org/records/21779393/files/05_FAC_Quality_Assessment_Report.md) |
+| manifest/status | 0.0031 | [06_FAC_Model_and_Process_Provenance.md](https://zenodo.org/records/21779393/files/06_FAC_Model_and_Process_Provenance.md) |
+| manifest/status | 0.1350 | [07_FAC_Editorial_Decision_Logbook.md](https://zenodo.org/records/21779393/files/07_FAC_Editorial_Decision_Logbook.md) |
+| manifest/status | 0.1494 | [08_FAC_Self_Correction_Ledger.csv](https://zenodo.org/records/21779393/files/08_FAC_Self_Correction_Ledger.csv) |
+| manifest/status | 0.2058 | [09_FAC_Project_Logbook.md](https://zenodo.org/records/21779393/files/09_FAC_Project_Logbook.md) |
+| manifest/status | 0.0016 | [10_RIGHTS_AND_LIMITS.md](https://zenodo.org/records/21779393/files/10_RIGHTS_AND_LIMITS.md) |
+| manifest/status | 0.0026 | [11_FAC_Source_and_Comparator_Identities.csv](https://zenodo.org/records/21779393/files/11_FAC_Source_and_Comparator_Identities.csv) |
+| manifest/status | 0.0073 | [12_DEDICATED_DOI_PROCESS_LOGBOOK.md](https://zenodo.org/records/21779393/files/12_DEDICATED_DOI_PROCESS_LOGBOOK.md) |
+| manifest/status | 0.0508 | [13_FAC_Blind_Comparator_Inventory.csv](https://zenodo.org/records/21779393/files/13_FAC_Blind_Comparator_Inventory.csv) |
+| manifest/status | 0.0148 | [14_FAC_Blind_Input_Identities.csv](https://zenodo.org/records/21779393/files/14_FAC_Blind_Input_Identities.csv) |
+| manifest/status | 0.0024 | [15_FAC_Blind_Comparator_Validation.json](https://zenodo.org/records/21779393/files/15_FAC_Blind_Comparator_Validation.json) |
+| artifact/source ZIP | 0.3497 | [16_FAC_Project_English_and_French_TeX_Source_Layers.zip](https://zenodo.org/records/21779393/files/16_FAC_Project_English_and_French_TeX_Source_Layers.zip) |
+| manifest/status | 0.0027 | [17_ZENODO_PAYLOAD_MANIFEST.csv](https://zenodo.org/records/21779393/files/17_ZENODO_PAYLOAD_MANIFEST.csv) |
+| manifest/status | 0.0038 | [18_PACKAGE_VALIDATION_SUPERSEDED_R1_FALSE_PASS.json](https://zenodo.org/records/21779393/files/18_PACKAGE_VALIDATION_SUPERSEDED_R1_FALSE_PASS.json) |
+| manifest/status | 0.0041 | [19_PACKAGE_VALIDATION.json](https://zenodo.org/records/21779393/files/19_PACKAGE_VALIDATION.json) |
+| manifest/status | 0.0041 | [19_PACKAGE_VALIDATION_SUPERSEDED_R2_BAD_ID_COLUMN.json](https://zenodo.org/records/21779393/files/19_PACKAGE_VALIDATION_SUPERSEDED_R2_BAD_ID_COLUMN.json) |
+| other | 0.0146 | [VALIDATE_FAC_DOI_PACKAGE.ps1](https://zenodo.org/records/21779393/files/VALIDATE_FAC_DOI_PACKAGE.ps1) |
 
 ## Classical Mathematics Lean 4 Formalization Sidecars
 
@@ -466,98 +589,44 @@ Accuracy warning 2026-06-09/12: Cayley files listed here are retained for proven
 
 Record: <https://doi.org/10.5281/zenodo.20410947>
 
-Current compact SGA record 21756931 starts with one ZIP containing the current standalone English reader PDFs and buildable TeX closures for SGA 1 through SGA 7 II. The same readers and masters remain direct; SGA1 is the default preview. This is not yet one cross-volume SGA 1-7.2 PDF. The clean 1,470-page SGA3 R29 cumulative is directly readable. SGA7 I has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX. SGA7 II now has a complete 264-page English working reader containing Exposes X-XXII through volume EOF, with its master TeX direct and its 183-component buildable source in a 187-member ZIP. The separately available French SGA7 II working transcription remains partial. Anonymous readback passed all 88 outer files, all 83 retained predecessor identities, all 187 reader/source ZIP members, all 1,770 all-current-reader bundle members, and all 13 release-control members. Historical versions are immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, or final whole-SGA certification.
+Current same-concept SGA record 21778810 fronts the complete 126-member privacy-clean reader/source ZIP, then selects the clean 4,177-page cumulative English reader as the default preview, followed by nine standalone English readers, nine master TeX files, nine buildable source ZIPs, and exact validation/privacy controls. The record has 34 files / 182,736,901 bytes. The cumulative graph has 39,690 named destinations and 30,649 internal GoTo actions with no broken or misrouted link; all 4,177 pages match the admitted standalone inputs, Type3 and unembedded fonts are zero, PDF image objects are zero, and reader scans found no archive workflow/source-status prose or AI explanatory footnotes. The archive-derived projection made 45 minimal privacy replacements across 16 non-reader files while leaving all ten reader PDFs byte-identical; predecessor 21778605 remains immutable adverse history. The exact SGA logbook, decision ledger, revision/reversal history, controlling dual-DOI requirement, and 480-record privacy-clean English/Germanic archive log are publicly hash-read back on methodology record 21780213 and replication record 21780218. These are working editions and translations, not critical editions, rights determinations, peer review, mathematical certification, accessibility certification, or uniform whole-series source certification. Record rights metadata remains License Not Specified.
 
 | Role | Size MB | File |
 |---|---:|---|
-| artifact/source ZIP | 26.3744 | [00_Current_SGA1-7II_English_Readers_and_Buildable_TeX_20260802.zip](https://zenodo.org/records/21756931/files/00_Current_SGA1-7II_English_Readers_and_Buildable_TeX_20260802.zip) |
-| reader/reference PDF | 2.6355 | [00a_SGA1_English_Reader.pdf](https://zenodo.org/records/21756931/files/00a_SGA1_English_Reader.pdf) |
-| reader/reference PDF | 1.9045 | [00b_SGA2_English_Reader.pdf](https://zenodo.org/records/21756931/files/00b_SGA2_English_Reader.pdf) |
-| reader/reference PDF | 11.3105 | [00c_SGA3_English_Reader.pdf](https://zenodo.org/records/21756931/files/00c_SGA3_English_Reader.pdf) |
-| reader/reference PDF | 4.2137 | [00d_SGA4_English_Reader.pdf](https://zenodo.org/records/21756931/files/00d_SGA4_English_Reader.pdf) |
-| reader/reference PDF | 2.3184 | [00e_SGA5_English_Reader.pdf](https://zenodo.org/records/21756931/files/00e_SGA5_English_Reader.pdf) |
-| reader/reference PDF | 3.0422 | [00f_SGA6_English_Reader.pdf](https://zenodo.org/records/21756931/files/00f_SGA6_English_Reader.pdf) |
-| reader/reference PDF | 1.9097 | [00g_SGA7I_Fresh_Source_Transcription_Complete_Working.pdf](https://zenodo.org/records/21756931/files/00g_SGA7I_Fresh_Source_Transcription_Complete_Working.pdf) |
-| reader/reference PDF | 1.3150 | [00h_SGA7II_French_Source_Transcription_Working_X-XXI_Partial_20260731.pdf](https://zenodo.org/records/21756931/files/00h_SGA7II_French_Source_Transcription_Working_X-XXI_Partial_20260731.pdf) |
-| reader/reference PDF | 2.0279 | [00i_SGA7I_English_Complete_Working_Reader_20260801.pdf](https://zenodo.org/records/21756931/files/00i_SGA7I_English_Complete_Working_Reader_20260801.pdf) |
-| reader/reference PDF | 1.7028 | [00j_SGA7II_English_Complete_Working_Reader_20260802.pdf](https://zenodo.org/records/21756931/files/00j_SGA7II_English_Complete_Working_Reader_20260802.pdf) |
-| reader/reference PDF | 1.9223 | [01e_SGA5_French_Reader.pdf](https://zenodo.org/records/21756931/files/01e_SGA5_French_Reader.pdf) |
-| reader/reference PDF | 2.7371 | [01f_SGA6_French_Reader.pdf](https://zenodo.org/records/21756931/files/01f_SGA6_French_Reader.pdf) |
-| editable TeX | 0.0281 | [02a_SGA1_English_Master.tex](https://zenodo.org/records/21756931/files/02a_SGA1_English_Master.tex) |
-| editable TeX | 0.0044 | [02b_SGA2_English_Master.tex](https://zenodo.org/records/21756931/files/02b_SGA2_English_Master.tex) |
-| editable TeX | 0.0087 | [02c_SGA3_English_Master.tex](https://zenodo.org/records/21756931/files/02c_SGA3_English_Master.tex) |
-| editable TeX | 0.0036 | [02d_SGA4_English_Master.tex](https://zenodo.org/records/21756931/files/02d_SGA4_English_Master.tex) |
-| editable TeX | 0.8543 | [02e_SGA5_English_Master.tex](https://zenodo.org/records/21756931/files/02e_SGA5_English_Master.tex) |
-| editable TeX | 0.0032 | [02f_SGA6_English_Master.tex](https://zenodo.org/records/21756931/files/02f_SGA6_English_Master.tex) |
-| editable TeX | 0.0027 | [02g_SGA7I_Fresh_Source_Transcription_Complete_Working.tex](https://zenodo.org/records/21756931/files/02g_SGA7I_Fresh_Source_Transcription_Complete_Working.tex) |
-| editable TeX | 0.0043 | [02h_SGA7II_French_Source_Transcription_Working_X-XXI_Partial_20260731.tex](https://zenodo.org/records/21756931/files/02h_SGA7II_French_Source_Transcription_Working_X-XXI_Partial_20260731.tex) |
-| editable TeX | 0.0123 | [02i_SGA7I_English_Complete_Working_Master_20260801.tex](https://zenodo.org/records/21756931/files/02i_SGA7I_English_Complete_Working_Master_20260801.tex) |
-| editable TeX | 0.0116 | [02j_SGA7II_English_Complete_Working_Master_20260802.tex](https://zenodo.org/records/21756931/files/02j_SGA7II_English_Complete_Working_Master_20260802.tex) |
-| editable TeX | 0.7942 | [03e_SGA5_French_Master.tex](https://zenodo.org/records/21756931/files/03e_SGA5_French_Master.tex) |
-| editable TeX | 1.2583 | [03f_SGA6_French_Master.tex](https://zenodo.org/records/21756931/files/03f_SGA6_French_Master.tex) |
-| artifact/source ZIP | 4.9467 | [10a_SGA1_English_Source_and_History_R4_20260730.zip](https://zenodo.org/records/21756931/files/10a_SGA1_English_Source_and_History_R4_20260730.zip) |
-| artifact/source ZIP | 2.2894 | [10b_SGA2_English_Source_and_History_R10_20260730.zip](https://zenodo.org/records/21756931/files/10b_SGA2_English_Source_and_History_R10_20260730.zip) |
-| artifact/source ZIP | 82.9450 | [10c1_SGA3_Previous_Public_History_Through_XI_20260729.zip](https://zenodo.org/records/21756931/files/10c1_SGA3_Previous_Public_History_Through_XI_20260729.zip) |
-| artifact/source ZIP | 14.9834 | [10c2_SGA3_Bounded_Checkpoints_XII_XXV_20260729.zip](https://zenodo.org/records/21756931/files/10c2_SGA3_Bounded_Checkpoints_XII_XXV_20260729.zip) |
-| artifact/source ZIP | 21.5181 | [10c3_SGA3_English_Reference_and_QA_Controls_R29_20260730.zip](https://zenodo.org/records/21756931/files/10c3_SGA3_English_Reference_and_QA_Controls_R29_20260730.zip) |
-| artifact/source ZIP | 8.5687 | [10c_SGA3_English_Reader_and_Buildable_TeX_R29_20260730.zip](https://zenodo.org/records/21756931/files/10c_SGA3_English_Reader_and_Buildable_TeX_R29_20260730.zip) |
-| artifact/source ZIP | 4.9538 | [10d2_SGA4_English_Proper_ReferenceV2_R7_QA_Evidence_20260723.zip](https://zenodo.org/records/21756931/files/10d2_SGA4_English_Proper_ReferenceV2_R7_QA_Evidence_20260723.zip) |
-| artifact/source ZIP | 1.1173 | [10d_SGA4_English_Proper_ReaderClean_R8_Source_20260730.zip](https://zenodo.org/records/21756931/files/10d_SGA4_English_Proper_ReaderClean_R8_Source_20260730.zip) |
-| artifact/source ZIP | 2.1628 | [10e_SGA5_English_ReferenceLinked_R9_TeX_Ledgers_20260723.zip](https://zenodo.org/records/21756931/files/10e_SGA5_English_ReferenceLinked_R9_TeX_Ledgers_20260723.zip) |
-| artifact/source ZIP | 0.5432 | [10f_SGA6_English_Source_R10_20260730.zip](https://zenodo.org/records/21756931/files/10f_SGA6_English_Source_R10_20260730.zip) |
-| artifact/source ZIP | 12.4482 | [10f_SGA6_French_SourceRescribe_Audit_NotCertified_idx684_20260718.zip](https://zenodo.org/records/21756931/files/10f_SGA6_French_SourceRescribe_Audit_NotCertified_idx684_20260718.zip) |
-| artifact/source ZIP | 4.4010 | [10g2_SGA7II_French_Source_Transcription_Working_X-XXI_Partial_Reader_Source_and_Evidence_20260731.zip](https://zenodo.org/records/21756931/files/10g2_SGA7II_French_Source_Transcription_Working_X-XXI_Partial_Reader_Source_and_Evidence_20260731.zip) |
-| artifact/source ZIP | 1.8059 | [10g3_SGA7II_English_Complete_Reader_and_Buildable_TeX_20260802.zip](https://zenodo.org/records/21756931/files/10g3_SGA7II_English_Complete_Reader_and_Buildable_TeX_20260802.zip) |
-| artifact/source ZIP | 2.0945 | [10g_SGA7I_Fresh_Source_Transcription_Complete_Reader_and_TeX_20260731.zip](https://zenodo.org/records/21756931/files/10g_SGA7I_Fresh_Source_Transcription_Complete_Reader_and_TeX_20260731.zip) |
-| artifact/source ZIP | 2.1978 | [10h2_SGA7II_Recovered_Pages_197_198_211_212_Source_Image_Evidence_20260731.zip](https://zenodo.org/records/21756931/files/10h2_SGA7II_Recovered_Pages_197_198_211_212_Source_Image_Evidence_20260731.zip) |
-| artifact/source ZIP | 5.9106 | [10h3_SGA7I_SGA7II_LeadOpened_Source_Crops_20260731.zip](https://zenodo.org/records/21756931/files/10h3_SGA7I_SGA7II_LeadOpened_Source_Crops_20260731.zip) |
-| artifact/source ZIP | 23.4401 | [10h4_SGA7I_PostCutoff_HighDetail_Source_Crops_20260731.zip](https://zenodo.org/records/21756931/files/10h4_SGA7I_PostCutoff_HighDetail_Source_Crops_20260731.zip) |
-| artifact/source ZIP | 30.8593 | [10h5_SGA7II_ExposeXX_SourceAudit_Images_idx348_363_Through_4_3_20260802.zip](https://zenodo.org/records/21756931/files/10h5_SGA7II_ExposeXX_SourceAudit_Images_idx348_363_Through_4_3_20260802.zip) |
-| artifact/source ZIP | 60.3443 | [10h6_SGA7II_ExposeXX_XXI_SourceAudit_Images_idx364_391_Through_XXI_4_20260802.zip](https://zenodo.org/records/21756931/files/10h6_SGA7II_ExposeXX_XXI_SourceAudit_Images_idx364_391_Through_XXI_4_20260802.zip) |
-| artifact/source ZIP | 40.7430 | [10h_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_Snapshot_ColdReverify_idx314_20260723.zip](https://zenodo.org/records/21756931/files/10h_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_Snapshot_ColdReverify_idx314_20260723.zip) |
-| artifact/source ZIP | 143.3494 | [10h_SGA7II_SourceAudit_Number12_HighDetail_Crops_20260731.zip](https://zenodo.org/records/21756931/files/10h_SGA7II_SourceAudit_Number12_HighDetail_Crops_20260731.zip) |
-| artifact/source ZIP | 107.3961 | [10i_SGA6_SourceAudit_Recovered_Named_HighDetail_Crops_Snapshot_ColdReverify_idx314_20260723.zip](https://zenodo.org/records/21756931/files/10i_SGA6_SourceAudit_Recovered_Named_HighDetail_Crops_Snapshot_ColdReverify_idx314_20260723.zip) |
-| artifact/source ZIP | 2.2409 | [10i_SGA7I_English_Complete_Working_Reader_and_TeX_20260801.zip](https://zenodo.org/records/21756931/files/10i_SGA7I_English_Complete_Working_Reader_and_TeX_20260801.zip) |
-| artifact/source ZIP | 2.5604 | [10j_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_Snapshot_ColdReverify_idx314_20260723.zip](https://zenodo.org/records/21756931/files/10j_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_Snapshot_ColdReverify_idx314_20260723.zip) |
-| artifact/source ZIP | 0.3992 | [10k_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx315_321_20260723.zip](https://zenodo.org/records/21756931/files/10k_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx315_321_20260723.zip) |
-| artifact/source ZIP | 0.0434 | [10l_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx315_321_20260723.zip](https://zenodo.org/records/21756931/files/10l_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx315_321_20260723.zip) |
-| artifact/source ZIP | 0.1677 | [10m_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx322_326_20260723.zip](https://zenodo.org/records/21756931/files/10m_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx322_326_20260723.zip) |
-| artifact/source ZIP | 0.0335 | [10n_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx322_326_20260723.zip](https://zenodo.org/records/21756931/files/10n_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx322_326_20260723.zip) |
-| artifact/source ZIP | 0.1603 | [10o_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx327_330_20260723.zip](https://zenodo.org/records/21756931/files/10o_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx327_330_20260723.zip) |
-| artifact/source ZIP | 0.0278 | [10p_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx327_330_20260723.zip](https://zenodo.org/records/21756931/files/10p_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx327_330_20260723.zip) |
-| artifact/source ZIP | 0.5006 | [10q_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx331_348_20260724.zip](https://zenodo.org/records/21756931/files/10q_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx331_348_20260724.zip) |
-| artifact/source ZIP | 0.2400 | [10q_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx349_353_20260724.zip](https://zenodo.org/records/21756931/files/10q_SGA6_SourceAudit_Explicit_Targeted_HighDetail_Crops_ColdReverify_idx349_353_20260724.zip) |
-| artifact/source ZIP | 0.0966 | [10r_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx331_348_20260724.zip](https://zenodo.org/records/21756931/files/10r_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx331_348_20260724.zip) |
-| artifact/source ZIP | 0.0351 | [10r_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx349_353_20260724.zip](https://zenodo.org/records/21756931/files/10r_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_ColdReverify_idx349_353_20260724.zip) |
-| artifact/source ZIP | 4.7146 | [10t_SGA6_SourceAudit_Targeted_HighDetail_Crops_Backfill_idx354_361_20260724.zip](https://zenodo.org/records/21756931/files/10t_SGA6_SourceAudit_Targeted_HighDetail_Crops_Backfill_idx354_361_20260724.zip) |
-| artifact/source ZIP | 0.0203 | [10u_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_Backfill_idx354_361_20260724.zip](https://zenodo.org/records/21756931/files/10u_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_Backfill_idx354_361_20260724.zip) |
-| artifact/source ZIP | 1.7465 | [10v_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx362_378_20260724.zip](https://zenodo.org/records/21756931/files/10v_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx362_378_20260724.zip) |
-| artifact/source ZIP | 0.0901 | [10w_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx362_378_20260724.zip](https://zenodo.org/records/21756931/files/10w_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx362_378_20260724.zip) |
-| artifact/source ZIP | 11.9502 | [10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx379_584_20260727.zip](https://zenodo.org/records/21756931/files/10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx379_584_20260727.zip) |
-| artifact/source ZIP | 0.8293 | [10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx585_596_20260727.zip](https://zenodo.org/records/21756931/files/10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx585_596_20260727.zip) |
-| artifact/source ZIP | 1.7518 | [10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx597_606_20260727.zip](https://zenodo.org/records/21756931/files/10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx597_606_20260727.zip) |
-| artifact/source ZIP | 0.4734 | [10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx607_611_20260727.zip](https://zenodo.org/records/21756931/files/10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx607_611_20260727.zip) |
-| artifact/source ZIP | 0.3901 | [10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx612_617_20260727.zip](https://zenodo.org/records/21756931/files/10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx612_617_20260727.zip) |
-| artifact/source ZIP | 1.5312 | [10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx618_626_20260727.zip](https://zenodo.org/records/21756931/files/10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx618_626_20260727.zip) |
-| artifact/source ZIP | 0.3813 | [10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx627_631_20260727.zip](https://zenodo.org/records/21756931/files/10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx627_631_20260727.zip) |
-| artifact/source ZIP | 12.9148 | [10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx632_652_20260728.zip](https://zenodo.org/records/21756931/files/10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx632_652_20260728.zip) |
-| artifact/source ZIP | 3.1229 | [10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx653_665_20260728.zip](https://zenodo.org/records/21756931/files/10x_SGA6_SourceAudit_Targeted_UltraDetail_Crops_idx653_665_20260728.zip) |
-| artifact/source ZIP | 1.2859 | [10x_SGA7I_SourceAudit_Opened_Targeted_Crops_20260730.zip](https://zenodo.org/records/21756931/files/10x_SGA7I_SourceAudit_Opened_Targeted_Crops_20260730.zip) |
-| artifact/source ZIP | 1.2347 | [10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx379_584_20260727.zip](https://zenodo.org/records/21756931/files/10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx379_584_20260727.zip) |
-| artifact/source ZIP | 0.0908 | [10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx585_596_20260727.zip](https://zenodo.org/records/21756931/files/10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx585_596_20260727.zip) |
-| artifact/source ZIP | 0.0816 | [10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx597_606_20260727.zip](https://zenodo.org/records/21756931/files/10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx597_606_20260727.zip) |
-| artifact/source ZIP | 0.0419 | [10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx607_611_20260727.zip](https://zenodo.org/records/21756931/files/10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx607_611_20260727.zip) |
-| artifact/source ZIP | 0.0449 | [10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx612_617_20260727.zip](https://zenodo.org/records/21756931/files/10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx612_617_20260727.zip) |
-| artifact/source ZIP | 0.0659 | [10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx618_626_20260727.zip](https://zenodo.org/records/21756931/files/10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx618_626_20260727.zip) |
-| artifact/source ZIP | 0.0365 | [10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx627_631_20260727.zip](https://zenodo.org/records/21756931/files/10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx627_631_20260727.zip) |
-| artifact/source ZIP | 0.2766 | [10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx632_652_20260728.zip](https://zenodo.org/records/21756931/files/10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx632_652_20260728.zip) |
-| artifact/source ZIP | 0.1556 | [10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx653_665_20260728.zip](https://zenodo.org/records/21756931/files/10y_SGA6_SourceAudit_Crop_Provenance_RightsBlocked_Metadata_idx653_665_20260728.zip) |
-| artifact/source ZIP | 1.8232 | [10y_SGA7I_SourceAudit_Visual_Provenance_RightsBlocked_Metadata_20260730.zip](https://zenodo.org/records/21756931/files/10y_SGA7I_SourceAudit_Visual_Provenance_RightsBlocked_Metadata_20260730.zip) |
-| artifact/source ZIP | 0.0225 | [10z_SGA_Current_Release_Controls_20260802_r8.zip](https://zenodo.org/records/21756931/files/10z_SGA_Current_Release_Controls_20260802_r8.zip) |
-| artifact/source ZIP | 7.4252 | [11a_SGA1_SGA2_FullVolume_Convenience_Lineage_and_QA_20260722.zip](https://zenodo.org/records/21756931/files/11a_SGA1_SGA2_FullVolume_Convenience_Lineage_and_QA_20260722.zip) |
-| artifact/source ZIP | 20.9090 | [11b_SGA1_SGA2_Bounded_Checkpoints_and_Evidence_20260722.zip](https://zenodo.org/records/21756931/files/11b_SGA1_SGA2_Bounded_Checkpoints_and_Evidence_20260722.zip) |
-| artifact/source ZIP | 21.4133 | [11f_SGA6_Bounded_Predecessor_and_Spanish_Checkpoints_20260722.zip](https://zenodo.org/records/21756931/files/11f_SGA6_Bounded_Predecessor_and_Spanish_Checkpoints_20260722.zip) |
-| artifact/source ZIP | 0.0144 | [12_SGA_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip](https://zenodo.org/records/21756931/files/12_SGA_Archive_Index_Manifests_and_Predecessor_Map_20260722.zip) |
+| artifact/source ZIP | 94.5515 | [00_Current_SGA1-7II_English_Presentation_Clean_Readers_and_Buildable_Source_20260803.zip](https://zenodo.org/records/21778810/files/00_Current_SGA1-7II_English_Presentation_Clean_Readers_and_Buildable_Source_20260803.zip) |
+| reader/reference PDF | 32.6309 | [00_SGA_1-7II_English_Global_Reader.pdf](https://zenodo.org/records/21778810/files/00_SGA_1-7II_English_Global_Reader.pdf) |
+| reader/reference PDF | 2.4209 | [00a_SGA1_English_Reader.pdf](https://zenodo.org/records/21778810/files/00a_SGA1_English_Reader.pdf) |
+| reader/reference PDF | 1.9045 | [00b_SGA2_English_Reader.pdf](https://zenodo.org/records/21778810/files/00b_SGA2_English_Reader.pdf) |
+| reader/reference PDF | 11.3105 | [00c_SGA3_English_Reader.pdf](https://zenodo.org/records/21778810/files/00c_SGA3_English_Reader.pdf) |
+| reader/reference PDF | 1.8625 | [00d5_SGA4half_English_Reader.pdf](https://zenodo.org/records/21778810/files/00d5_SGA4half_English_Reader.pdf) |
+| reader/reference PDF | 4.2137 | [00d_SGA4_English_Reader.pdf](https://zenodo.org/records/21778810/files/00d_SGA4_English_Reader.pdf) |
+| reader/reference PDF | 2.3183 | [00e_SGA5_English_Reader.pdf](https://zenodo.org/records/21778810/files/00e_SGA5_English_Reader.pdf) |
+| reader/reference PDF | 3.0422 | [00f_SGA6_English_Reader.pdf](https://zenodo.org/records/21778810/files/00f_SGA6_English_Reader.pdf) |
+| reader/reference PDF | 2.7306 | [00i_SGA7I_English_Reader.pdf](https://zenodo.org/records/21778810/files/00i_SGA7I_English_Reader.pdf) |
+| reader/reference PDF | 2.4848 | [00j_SGA7II_English_Reader.pdf](https://zenodo.org/records/21778810/files/00j_SGA7II_English_Reader.pdf) |
+| editable TeX | 0.0275 | [02a_SGA1_English_Master.tex](https://zenodo.org/records/21778810/files/02a_SGA1_English_Master.tex) |
+| editable TeX | 0.0044 | [02b_SGA2_English_Master.tex](https://zenodo.org/records/21778810/files/02b_SGA2_English_Master.tex) |
+| editable TeX | 0.0087 | [02c_SGA3_English_Master.tex](https://zenodo.org/records/21778810/files/02c_SGA3_English_Master.tex) |
+| editable TeX | 0.0013 | [02d5_SGA4half_English_Master.tex](https://zenodo.org/records/21778810/files/02d5_SGA4half_English_Master.tex) |
+| editable TeX | 0.0036 | [02d_SGA4_English_Master.tex](https://zenodo.org/records/21778810/files/02d_SGA4_English_Master.tex) |
+| editable TeX | 0.8542 | [02e_SGA5_English_Master.tex](https://zenodo.org/records/21778810/files/02e_SGA5_English_Master.tex) |
+| editable TeX | 0.0032 | [02f_SGA6_English_Master.tex](https://zenodo.org/records/21778810/files/02f_SGA6_English_Master.tex) |
+| editable TeX | 0.0125 | [02i_SGA7I_English_Master.tex](https://zenodo.org/records/21778810/files/02i_SGA7I_English_Master.tex) |
+| editable TeX | 0.0120 | [02j_SGA7II_English_Master.tex](https://zenodo.org/records/21778810/files/02j_SGA7II_English_Master.tex) |
+| artifact/source ZIP | 0.3922 | [10a_SGA1_English_Source_PresentationClean_R3_20260803.zip](https://zenodo.org/records/21778810/files/10a_SGA1_English_Source_PresentationClean_R3_20260803.zip) |
+| artifact/source ZIP | 2.2894 | [10b_SGA2_English_Source_and_History_R10_20260730.zip](https://zenodo.org/records/21778810/files/10b_SGA2_English_Source_and_History_R10_20260730.zip) |
+| artifact/source ZIP | 8.5688 | [10c_SGA3_English_Reader_and_Buildable_TeX_R29_20260730.zip](https://zenodo.org/records/21778810/files/10c_SGA3_English_Reader_and_Buildable_TeX_R29_20260730.zip) |
+| artifact/source ZIP | 0.1634 | [10d5_SGA4half_English_Source_CleanFont_R2_20260803.zip](https://zenodo.org/records/21778810/files/10d5_SGA4half_English_Source_CleanFont_R2_20260803.zip) |
+| artifact/source ZIP | 1.1072 | [10d_SGA4_English_Proper_ReaderClean_R8_Source_20260803.zip](https://zenodo.org/records/21778810/files/10d_SGA4_English_Proper_ReaderClean_R8_Source_20260803.zip) |
+| artifact/source ZIP | 0.2110 | [10e_SGA5_English_Source_PresentationClean_R10_20260803.zip](https://zenodo.org/records/21778810/files/10e_SGA5_English_Source_PresentationClean_R10_20260803.zip) |
+| artifact/source ZIP | 0.3236 | [10f_SGA6_English_Source_R10_20260803.zip](https://zenodo.org/records/21778810/files/10f_SGA6_English_Source_R10_20260803.zip) |
+| artifact/source ZIP | 0.4463 | [10i_SGA7I_English_Source_CleanFont_R2_20260803.zip](https://zenodo.org/records/21778810/files/10i_SGA7I_English_Source_CleanFont_R2_20260803.zip) |
+| artifact/source ZIP | 0.3357 | [10j_SGA7II_English_Source_CleanFont_R2_20260803.zip](https://zenodo.org/records/21778810/files/10j_SGA7II_English_Source_CleanFont_R2_20260803.zip) |
+| manifest/status | 0.0055 | [ARCHIVE_PRIVACY_TRANSFORMATIONS.csv](https://zenodo.org/records/21778810/files/ARCHIVE_PRIVACY_TRANSFORMATIONS.csv) |
+| manifest/status | 0.0005 | [PACKAGE_MANIFEST_VALIDATION.json](https://zenodo.org/records/21778810/files/PACKAGE_MANIFEST_VALIDATION.json) |
+| manifest/status | 0.0219 | [PACKAGE_PAYLOAD_MANIFEST.csv](https://zenodo.org/records/21778810/files/PACKAGE_PAYLOAD_MANIFEST.csv) |
+| manifest/status | 0.0072 | [PACKAGE_PREMANIFEST_VALIDATION.json](https://zenodo.org/records/21778810/files/PACKAGE_PREMANIFEST_VALIDATION.json) |
+| manifest/status | 0.0008 | [SGA_English_1_7II_presentation_clean_checkpoint_20260803_r2_COMPLETE_ZIP_VALIDATION.json](https://zenodo.org/records/21778810/files/SGA_English_1_7II_presentation_clean_checkpoint_20260803_r2_COMPLETE_ZIP_VALIDATION.json) |
 
 ## Pierre Deligne Papers and Letters: Working Translation Drafts and Source/QA Packets
 
