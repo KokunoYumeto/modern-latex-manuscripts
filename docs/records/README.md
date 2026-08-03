@@ -6,8 +6,8 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---:|---|---|
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |  |
 | Main Project Landing | 98 | 52 | 0 | 44 | 20664.9 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
-| Workflow / Replication Packet | 76 | 1 | 0 | 8 | 11.4 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
-| Interlanguage Methodology | 99 | 2 | 0 | 30 | 4762.2 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
+| Workflow / Replication Packet | 76 | 1 | 0 | 10 | 11.2 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
+| Interlanguage Methodology | 99 | 2 | 0 | 32 | 4762.0 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Translation quality-assessment evidence** |  |  |  |  |  |  |  |
 | FAC accidental blind-comparison quality evidence | 22 | 2 | 0 | 1 | 2.0 | [fac-quality-assessment.md](fac-quality-assessment.md) | [Zenodo](https://doi.org/10.5281/zenodo.21779392) |
@@ -17,6 +17,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |  |
 | Split-Zero Geometry and Common Deformation Registers | 13 | 3 | 0 | 4 | 121.6 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |  |
+| GAGA complete source-aligned English/French working edition | 62 | 1 | 11 | 1 | 1.4 | [gaga.md](gaga.md) | [Zenodo](https://doi.org/10.5281/zenodo.21781322) |
 | Emmy Noether | 20 | 6 | 4 | 9 | 556.1 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
 | Heinrich Weber | 55 | 6 | 1 | 41 | 1757.3 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
 | Ferdinand Georg Frobenius | 8 | 2 | 2 | 2 | 333.6 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
