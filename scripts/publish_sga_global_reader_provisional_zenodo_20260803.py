@@ -226,7 +226,13 @@ def fetch_predecessor(session, spec: dict) -> tuple[dict, dict[str, dict]]:
         ),
         {200},
     ).json()
-    if int(latest["id"]) != record_id:
+    tracked_state = load_state(spec)
+    allowed_latest_ids = {record_id}
+    if tracked_state:
+        for field in ("draft_id", "record_id"):
+            if tracked_state.get(field) is not None:
+                allowed_latest_ids.add(int(tracked_state[field]))
+    if int(latest["id"]) not in allowed_latest_ids:
         raise RuntimeError(
             f"SGA live head changed to {latest['id']}; rebuild the release guard"
         )
@@ -657,7 +663,7 @@ def stage_and_publish(
 
 def stream_readback(session, url: str, target: Path) -> tuple[int, str]:
     response = base.check(
-        session.get(url, headers=MODERN_HEADERS, stream=True, timeout=(30, 900)),
+        session.get(url, stream=True, timeout=(30, 900)),
         {200},
     )
     target.parent.mkdir(parents=True, exist_ok=True)
