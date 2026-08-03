@@ -1014,10 +1014,20 @@ def publish_and_readback(
         target, str(state["source_commit"])
     ):
         raise RuntimeError(f"{target.key} public landing description changed")
-    previous = base.check(
-        session.get(record["links"]["previous"], headers=MODERN, timeout=(30, 300)),
+    versions = base.check(
+        session.get(
+            record["links"]["versions"],
+            params={"size": 100},
+            headers=auth_modern(token),
+            timeout=(30, 300),
+        ),
         {200},
     ).json()
+    by_index = {
+        int(row["versions"]["index"]): int(row["id"])
+        for row in versions.get("hits", {}).get("hits", [])
+    }
+    predecessor_index = int(predecessor["versions"]["index"])
     latest = base.check(
         session.get(record["links"]["latest"], headers=MODERN, timeout=(30, 300)),
         {200},
@@ -1029,7 +1039,8 @@ def publish_and_readback(
     )
     assert_no_duplicate_concept(session, token, target)
     if (
-        int(previous["id"]) != target.predecessor
+        int(record["versions"]["index"]) != predecessor_index + 1
+        or by_index.get(predecessor_index) != target.predecessor
         or int(latest["id"]) != record_id
         or draft_probe.status_code != 404
     ):
