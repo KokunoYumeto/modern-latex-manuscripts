@@ -1,0 +1,5 @@
+# EGA I diplomatic French / paired-English / pre-Stacks checkpoint through printed p.127
+
+This is a coherent working checkpoint, not completion of EGA I or the eight-publication EGA corpus. It preserves the exact R50 diplomatic French generation through printed p.127, the matching R59 127-file English source tree, the page-bound decision and error ledgers, and the stable pre-Stacks semantic scaffold. The live producer had already entered p.128, so the three changed surfaces were reconstructed only in this immutable snapshot from the producer's exact inverse bindings and independently matched the p.127 hashes.
+
+The French source is diplomatic: printed wording and catalogued source errors remain visible rather than being silently corrected. English corrections are a separate, individually reasoned layer. The NUMDAM authority PDF and page rasters are not redistributed in this package. Existing complete EGA readers remain the front-facing readers; this package is source/provenance custody.

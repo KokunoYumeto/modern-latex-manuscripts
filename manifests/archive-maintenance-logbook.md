@@ -6519,3 +6519,280 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   ZIP-member, and secret scans are rerun after this correction. The public
   charter remains the GitHub candidate; the exact private charter remains
   ignored and unchanged.
+
+## 2026-08-03 - GAGA exact custody and minimal privacy projection accepted
+
+- The immutable producer package contains 57 files / 993,127 bytes. Its
+  self-excluding 56-row manifest has 7,148 bytes and SHA-256
+  `F75E93BDAAAA09922FF142A311D1F4B6B348BACF69A5C760B26934622756A452`.
+  The producer source remains unchanged in private custody.
+- Bounded privacy replay found one 36-byte internal task identifier in the
+  project logbook. The archive projection replaces only that token with
+  `<INTERNAL_ARCHIVE_TASK_ID_REDACTED1>` and records the transformation. No
+  translation, French source, equation, reference, reader, decision, error,
+  reversal, or other substantive byte was edited or omitted.
+- The derived privacy-clean projection contains 62 files / 1,016,936 bytes.
+  Its self-excluding 61-row manifest has 7,743 bytes and SHA-256
+  `3C409DDA5609D47C3BF69A9E6F235EB18B40DC1D1BC2E751BEFC3D8E7CB09642`.
+  Privacy replay reports zero residual private absolute paths or internal task
+  identifiers.
+- The complete ZIP has 441,444 bytes, SHA-256
+  `CDD9F9EB5D1E9FF64FFBC28926FE871805D29256BDAAFA0FB84A753A2C7508F1`,
+  and 62 safe members replayed exact. Both byte-identical `gaga.tex` drivers
+  remain under their distinct diplomatic and corrected source paths inside the
+  ZIP; direct transport deduplicates only the identical bytes.
+- The clean English reader has 26 pages / 217,331 bytes / SHA-256
+  `AD345C96CAC02057A4EFC16518D0704305AF292A1CB007C6AF156ACE4DED9540`.
+  Reader-facing workflow, status, and AI prose are absent.
+
+## 2026-08-03 - dedicated pure-GAGA concept published and read back
+
+- Published record [`21781323`](https://zenodo.org/records/21781323), version
+  DOI [`10.5281/zenodo.21781323`](https://doi.org/10.5281/zenodo.21781323), on
+  new dedicated pure-GAGA concept DOI
+  [`10.5281/zenodo.21781322`](https://doi.org/10.5281/zenodo.21781322). The
+  bounded preflight found no pre-existing pure-GAGA concept or active draft;
+  the earlier concept `10.5281/zenodo.21720996` is a mixed FAC/GAGA custody
+  surface and remains unchanged.
+- The record title is *Jean-Pierre Serre's GAGA: source-aligned English reader
+  and auditable French TeX*. It has 62 files / 1,455,665 bytes. The complete
+  privacy-clean ZIP is lexically first and
+  `01_GAGA_English_reference_v2.pdf` is the default preview.
+- Anonymous raw-download byte/SHA-256 replay passed 62/62 files with zero
+  mismatches. ZIP replay passed 62/62 members / 1,016,936 uncompressed bytes.
+  No active draft or duplicate pure-GAGA concept remains.
+- The record sets no blanket record-level rights or copyright claim. The
+  included rights/provenance surface retains underlying French and third-party
+  rights and excludes the authority scan and source raster.
+- The dedicated FAC concept `10.5281/zenodo.21779392` remains unchanged and
+  separately discoverable. GAGA is not mixed into FAC.
+- Exact receipts:
+  `manifests/published-zenodo/20260803_gaga_pure_record_21781323_public_readback.json`
+  and
+  `manifests/published-zenodo/20260803_gaga_pure_record_21781323_public_readback.md`.
+
+## 2026-08-03 - GAGA provenance published on both mandated DOI lineages
+
+- Published methodology successor
+  [`10.5281/zenodo.21781388`](https://doi.org/10.5281/zenodo.21781388) on
+  existing concept `10.5281/zenodo.21124403`: 99 files / 4,993,297,296 bytes;
+  81 unrelated predecessor files retained exact; existing methodology PDF
+  remains the default preview.
+- Published replication successor
+  [`10.5281/zenodo.21781392`](https://doi.org/10.5281/zenodo.21781392) on
+  existing concept `10.5281/zenodo.20461174`: 76 files / 11,726,773 bytes; 58
+  unrelated predecessor files retained exact; existing workflow PDF remains
+  the default preview.
+- Both records add the same 16 directly readable GAGA provenance objects plus
+  the complete 50-member provenance ZIP and its manifest. Anonymous raw
+  byte/SHA-256 readback passed 18/18 newly added objects on each record with
+  zero mismatches. No active draft remains on either concept.
+- The direct surfaces include the project logbook, editorial decision logbook,
+  revision history, source-correction ledger and applications, transcription
+  repair ledger, English translation ledger, continuation record, archive
+  acceptance, privacy transformation ledger and validation, rights and
+  provenance records, and exact payload/provenance manifests. The complete
+  provenance ZIP has SHA-256
+  `5F807364FA206452BD705C06A2EE6AE86DA438497F400392AF22125CA42AE6E2`;
+  its manifest has SHA-256
+  `6CD6449079E070271ACD0FF49C2B257B7DFFA1748CB59FC9F55A12E6ACD27861`.
+- Eighteen obsolete direct files from the stale broad FAC projection are not
+  deleted or curated away: they are preserved in a 19-member adverse-history
+  ZIP, SHA-256
+  `6DA83615ED6E09A47BA078A41CEE434FAEEFF27B1CB1026D94451970F3BEE48A`,
+  while their direct forms remain public on predecessor records `21780933` and
+  `21780936`. The dedicated FAC concept remains controlling.
+- Both landing descriptions retain the prominent dedicated FAC concept/version
+  links and the actual accidental-comparator chronology, and now also front the
+  separate pure-GAGA concept. No FAC payload was absorbed into GAGA.
+- Exact receipts:
+  `manifests/published-zenodo/20260803_gaga_methodology_record_21781388_public_readback.json`,
+  `manifests/published-zenodo/20260803_gaga_replication_record_21781392_public_readback.json`,
+  `manifests/published-zenodo/20260803_gaga_dual_doi_publication_receipt.json`,
+  and
+  `manifests/published-zenodo/20260803_gaga_dual_doi_publication_receipt.md`.
+
+## 2026-08-04 - Redundant SGA PR 258 readback cancelled
+
+- The exact locked English/Germanic log is 3,248,494 bytes, SHA-256
+  `9E8EC0C277AB1918857DF107B8C0C39E202A759D65A383014210E3A4B6A5FEFA`,
+  with 484 validated append-only records.
+- Its existing decision
+  `EG-ARCHIVE-SGA-FAC-GITHUB-CLOSEOUT-20260803-0001` already records the
+  complete GitHub transaction: PR 258, source commit
+  `a4434ba43f7d9e392d13b40d985163b60ffb7b63`, merge commit
+  `9c977ae7fd6dc83cba8652d8857d477bde6d6dec`, and anonymous byte/SHA-256
+  readback of all 173 changed paths at both commits with zero mismatches.
+- The source and merge commits share exact tree
+  `27137e2be3f25dc7c84f1dac000a0d7b01c895db`. The missing bounded
+  `published-github` receipt did not mean the readback was missing.
+- A mistaken duplicate 173-path replay was started and externally aborted. It
+  produced no receipt and changed no archive, corpus, reader, or Zenodo bytes.
+  It must not be restarted.
+- Commit `a22a975559755cac61847660277a9e5f35693f29` adds a fail-closed guard:
+  readbacks above 25 paths now require an explicit chunk. The changed verifier
+  was anonymously read back as 5,504 bytes, SHA-256
+  `1453F96B69FD0682FF828DFE9C8C53A79D4F7F6670D1D5FCEB2DDA88BED669BA`,
+  with exact equality.
+- Decision: treat the original locked-log record as the controlling SGA PR 258
+  closeout, cancel the duplicate operation permanently, and inspect the exact
+  locked log before scheduling any future large network replay.
+
+## 2026-08-04 - SGA global-reference R3 published and read back
+
+- The exact producer package was accepted from
+  `SGA_English_1_7II_global_cross_volume_reference_v2_clean_package_20260804_r1`:
+  156 files / 271,898,317 bytes. Its 154-row self-excluding manifest has
+  SHA-256
+  `8A62B5A6B1F35F99B254DF7D7D20B9EA395C6CD961CA7284A338406E28F2F9EE`,
+  represented tree SHA-256
+  `2C6969D39A35BBC4D21A53BCF0BA543C9E9540D404640689ABCD8497A958B1CD`,
+  and validation `PASS`, `errors=[]`.
+- Published same-concept SGA successor
+  [`10.5281/zenodo.21782424`](https://doi.org/10.5281/zenodo.21782424),
+  record 21782424, on existing concept `10.5281/zenodo.20410947`. The immutable
+  predecessor is record 21778810. The new surface has 57 direct files /
+  220,992,794 bytes; no active draft or duplicate concept remains.
+- The complete ZIP is first:
+  `00_Current_SGA1-7II_English_Readers_and_Buildable_TeX_20260804_R3.zip`,
+  135,952,927 bytes, SHA-256
+  `CC17EE1FEFBC890D1AFE1BD2C08F6F2ECBB9C2AC20BDD0BE828C9F57E9617218`.
+  The selected default preview is the clean 4,179-page global reader,
+  34,611,470 bytes, SHA-256
+  `4F5FF5D1535FFBD34F3EE2CF6350AA5DF8849D5BF9E91EA4F428A3ABF6299681`.
+- Anonymous readback passed 57/57 direct files and 152/152 complete-ZIP
+  members. The reader replay has 39,941 named destinations, 31,325 named
+  internal links, broken/misrouted links 0, Type3 fonts 0, images 0, private
+  paths 0, workflow/source-status prose 0, and AI explanatory footnotes 0.
+- Twenty-five predecessor objects were retained byte-identically. Same-name
+  changed reader/source objects were intentionally replaced, and seven
+  superseded direct surfaces remain recoverable on the immutable predecessor.
+  No prior version or distinct byte was erased.
+- Exact receipt:
+  `manifests/published-zenodo/20260804_sga_global_reference_r3_record_21782424_public_readback.json`
+  and its adjacent Markdown rendering.
+
+## 2026-08-04 - SGA R3 provenance published on both mandated DOI lineages
+
+- The shared deterministic controls ZIP,
+  `07_SGA_R3__00_COMPLETE_PROVENANCE_CONTROLS_20260804.zip`, is 11,118,234
+  bytes, SHA-256
+  `69E21D1ABB6C39282889E85ED6FF132594DB6A719F5DCEEB7763CCE0F0E50F76`,
+  with 113 members. Its internal 112-row manifest has SHA-256
+  `A1C38CE48670B7A45528C94E7A3E253D5E416793DB31A21B74896F25631F208B`.
+- Published methodology successor
+  [`10.5281/zenodo.21782511`](https://doi.org/10.5281/zenodo.21782511),
+  record 21782511, on existing concept `10.5281/zenodo.21124403`: 100 files /
+  5,004,414,281 bytes. Seven new direct SGA objects, all 113 ZIP members, and
+  all 93 unrelated retained predecessor objects passed exact anonymous
+  readback. Predecessor 21781388 and the existing methodology preview remain
+  intact.
+- Published replication successor
+  [`10.5281/zenodo.21782515`](https://doi.org/10.5281/zenodo.21782515),
+  record 21782515, on existing concept `10.5281/zenodo.20461174`: 77 files /
+  22,843,758 bytes. Seven new direct SGA objects, all 113 ZIP members, and all
+  70 unrelated retained predecessor objects passed exact anonymous readback.
+  Predecessor 21781392 and the existing workflow preview remain intact.
+- Both surfaces expose identical direct package/cross-volume logbooks,
+  continuation, supersession rationale, decision log, and revision/reversal
+  history. Six machine-only duplicate direct files were compacted from the new
+  broad heads only after exact retained-ZIP member proof; human provenance and
+  all distinct bytes remain available, and immutable predecessors retain old
+  direct forms. No active draft or duplicate concept remains.
+- Exact receipts:
+  `manifests/published-zenodo/20260804_sga_r3_dual_doi_publication_receipt.json`,
+  its Markdown rendering, and the two adjacent record-specific JSON proofs.
+
+## 2026-08-04 - stale FAC cross-links corrected on current landing surfaces
+
+- Zenodo tombstones the redundant FAC concept `10.5281/zenodo.21779392` /
+  record 21779393. The surviving unified FAC publication is concept
+  `10.5281/zenodo.21720996`, current record 21781714 / DOI
+  `10.5281/zenodo.21781714`.
+- Methodology 21782511, replication 21782515, and GAGA 21781323 received a
+  metadata-only description correction from the tombstoned FAC identifiers to
+  the surviving ones. Public metadata readback confirms the old identifiers
+  absent and the current identifiers present on all three surfaces.
+- Files changed 0; file ordering changed 0; default previews changed 0; titles
+  changed 0; new records 0; new versions 0; duplicate concepts 0; active edit
+  drafts 0. The tombstoned duplicate remains preserved as adverse history.
+- Exact receipt:
+  `manifests/published-zenodo/20260804_fac_crosslink_repair_combined_receipt.json`
+  and its adjacent Markdown rendering.
+
+## 2026-08-04 - locked English/Germanic archive decisions appended
+
+- The required helper appended and validated five separate decisions:
+  `EG-ARCHIVE-SGA-R3-SAME-CONCEPT-PUBLICATION-20260804-0001`,
+  `EG-ARCHIVE-SGA-R3-DUAL-DOI-PROVENANCE-20260804-0001`,
+  `EG-ARCHIVE-FAC-CURRENT-CROSSLINK-REPAIR-20260804-0001`,
+  `EG-ARCHIVE-DECISION-LOG-SCHEMA-ROLLBACK-20260804-0001`, and
+  `EG-ARCHIVE-FAC-MIXED-SERRE-CATALOG-DEDUP-20260804-0001`.
+- The exact append-only log now has 489 records / 3,277,443 bytes / SHA-256
+  `20FB3E0B54DE29D3A1BF6509BDDA5A7D82C99205ADC468011E102AEE6E3CCF1B`,
+  `errors=[]`.
+- The failed first attempt to append the dual-DOI record used unsupported
+  evidence class `control`; the helper failed closed and rolled the candidate
+  back before the standalone record was corrected to allowed class
+  `source_fact`. No invalid row entered the live log.
+- All five valid decisions postdate the public 482-record v3 projection. They
+  are explicitly pending for the next coherent privacy-clean decision-log
+  successor on both broad DOI concepts and are not claimed as bytes already
+  present in records 21782511 or 21782515.
+
+## 2026-08-04 - Deligne current head reconciled after catalog guard
+
+- A full bounded catalog replay stopped before output mutation because the
+  configured Deligne head 21745061 was stale. Public same-concept head
+  [`21762812`](https://zenodo.org/records/21762812), DOI
+  `10.5281/zenodo.21762812`, concept `10.5281/zenodo.20410853`, had already
+  been published on 2026-08-02. This task did not create or mutate that record.
+- The current surface has 26 files / 488,423,090 bytes. All 14 predecessor
+  files match record 21745061 by exact public API size/MD5 identity; the prior
+  21745061 readback receipt remains their raw-public proof.
+- The 12 added direct files were downloaded anonymously and matched their API
+  sizes and MD5s. Ten direct D001-D007 logbook objects also matched the public
+  52-row provenance manifest by bytes and SHA-256.
+- `DELIGNE__COMPLETE_PROVENANCE_MANIFEST.csv` is 20,148 bytes, SHA-256
+  `27A09AE69B08B599827F7E42B97763D55B3076181116840ABE87AF6134F137BB`.
+  `DELIGNE__COMPLETE_PROVENANCE.zip` is 110,104 bytes, SHA-256
+  `D1F9036FA703BBE800F5BF410D76FA751E25A8BAB1AA58F53F6EF92CFFA65864`.
+  Its 52 payload members all matched the manifest, its embedded manifest was
+  byte-identical, and missing/extra members were zero.
+- The cumulative English reader remains the default preview. D001 and D002 are
+  the bounded source-aligned working editions; D003-D007 additions in this
+  successor are provenance custody, not production completion or certification.
+- Exact receipt:
+  `manifests/published-zenodo/20260804_deligne_current_head_21762812_reconciliation_readback.json`
+  and its adjacent Markdown rendering.
+
+## 2026-08-04 - duplicate mixed-Serre current catalog route removed
+
+- The next full catalog guard reported historical mixed-Serre record 21721854
+  stale against live same-concept head 21781714. That live head is already the
+  unified FAC record under the `fac_quality_assessment` label.
+- Indexing 21781714 again as `serre` would duplicate one identical 33-file
+  container. The stale `serre` tuple was removed only from the current
+  `RECORDS` list; the historical mixed-Serre page, notes, concept lineage,
+  predecessor versions, and bytes remain preserved.
+- Pure GAGA remains separately represented under concept
+  `10.5281/zenodo.21781322`. No FAC or GAGA Zenodo byte, record, version,
+  concept, preview, or metadata changed in this catalog-only operation.
+- The full bounded catalog then completed successfully with 1,225 public files
+  across 37 current record labels. Unified FAC record 21781714 appears once.
+
+## 2026-08-04 - SGA R3 and current archive heads pushed and read back on GitHub
+
+- Commit `dc648660b92bc4513430718aaf0ee4a82a3769be` was pushed to branch
+  `codex/gaga-publication-closeout-20260803` from base
+  `9c977ae7fd6dc83cba8652d8857d477bde6d6dec`.
+- Anonymous commit-pinned raw GitHub readback matched all 47 changed files /
+  4,895,325 bytes. The guarded verifier used two path-sorted chunks: 25 files /
+  4,398,596 bytes and 22 files / 496,729 bytes.
+- The surface includes the SGA R3 and dual-DOI receipts, unified FAC and
+  cross-link correction receipts, Deligne current-head reconciliation, current
+  catalogs/record pages, locked-log receipt, and publisher/replay scripts.
+- No pull request or merge existed at this readback point. Those remain
+  separate later states rather than being inferred from a successful push.
+- Exact combined and per-chunk receipts are under
+  `manifests/published-github/20260804_sga_r3_current_archive_heads_commit_dc648660b_readback*`.

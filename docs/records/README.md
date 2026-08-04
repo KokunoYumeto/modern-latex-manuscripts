@@ -6,17 +6,18 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 |---|---:|---:|---:|---:|---:|---|---|
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |  |
 | Main Project Landing | 98 | 52 | 0 | 44 | 20664.9 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
-| Workflow / Replication Packet | 65 | 1 | 0 | 7 | 8.6 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
-| Interlanguage Methodology | 100 | 2 | 0 | 28 | 4759.4 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
+| Workflow / Replication Packet | 77 | 1 | 0 | 11 | 21.8 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
+| Interlanguage Methodology | 100 | 2 | 0 | 33 | 4772.6 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Translation quality-assessment evidence** |  |  |  |  |  |  |  |
-| FAC accidental blind-comparison quality evidence | 22 | 2 | 0 | 1 | 2.0 | [fac-quality-assessment.md](fac-quality-assessment.md) | [Zenodo](https://doi.org/10.5281/zenodo.21779392) |
+| FAC accidental blind-comparison quality evidence | 33 | 4 | 3 | 5 | 10.0 | [fac-quality-assessment.md](fac-quality-assessment.md) | [Zenodo](https://doi.org/10.5281/zenodo.21720996) |
 | **Reusable source-audit image worksets** |  |  |  |  |  |  |  |
 | SGA / EGA Source-Audit Image Worksets | 3 | 0 | 0 | 3 | 248.1 | [visual-evidence.md](visual-evidence.md) | [Zenodo](https://doi.org/10.5281/zenodo.21730031) |
 | Noether CJK Visual Evidence and Render-QA Dataset | 4 | 0 | 0 | 1 | 148.1 | [noether-cjk-visual-evidence.md](noether-cjk-visual-evidence.md) | [Zenodo](https://doi.org/10.5281/zenodo.21499950) |
 | **Separate mathematics research sidecar** |  |  |  |  |  |  |  |
 | Split-Zero Geometry and Common Deformation Registers | 13 | 3 | 0 | 4 | 121.6 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |  |
+| GAGA complete source-aligned English/French working edition | 62 | 1 | 11 | 1 | 1.4 | [gaga.md](gaga.md) | [Zenodo](https://doi.org/10.5281/zenodo.21781322) |
 | Emmy Noether | 20 | 6 | 4 | 9 | 556.1 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
 | Heinrich Weber | 55 | 6 | 1 | 41 | 1757.3 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
 | Ferdinand Georg Frobenius | 8 | 2 | 2 | 2 | 333.6 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
@@ -24,9 +25,9 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | James Joseph Sylvester | 3 | 1 | 0 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
 | al-Battani Opus Astronomicum | 19 | 7 | 0 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |  |
-| SGA (current presentation-clean cumulative and standalone readers) | 34 | 10 | 9 | 10 | 174.3 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
-| EGA (current complete-scope working readers) | 42 | 14 | 6 | 19 | 3596.7 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
-| Pierre Deligne | 14 | 8 | 0 | 5 | 465.6 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
+| SGA (current presentation-clean cumulative and standalone readers) | 57 | 10 | 9 | 10 | 210.8 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
+| EGA (current complete-scope working readers) | 58 | 14 | 6 | 21 | 3601.2 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
+| Pierre Deligne | 26 | 8 | 0 | 6 | 465.8 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 0 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
 | Ernst Steinitz | 7 | 0 | 0 | 6 | 439.6 | [steinitz.md](steinitz.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616988) |
@@ -39,7 +40,6 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Islamic and Arabic Mathematical Texts | 19 | 17 | 0 | 1 | 98.5 | [islamic-arabic.md](islamic-arabic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415769) |
 | Historical Reference Witnesses | 14 | 12 | 0 | 1 | 57.2 | [historical-references.md](historical-references.md) | [Zenodo](https://doi.org/10.5281/zenodo.20415776) |
 | **Partial or non-continuous author workstreams** |  |  |  |  |  |  |  |
-| Jean-Pierre Serre | 5 | 1 | 2 | 2 | 2.2 | [serre.md](serre.md) | [Zenodo](https://doi.org/10.5281/zenodo.21720996) |
 | Richard Dedekind | 18 | 14 | 0 | 3 | 25.1 | [dedekind.md](dedekind.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520669) |
 | P. G. Lejeune Dirichlet | 7 | 2 | 0 | 4 | 168.4 | [dirichlet.md](dirichlet.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520679) |
 | Gauss | 26 | 14 | 0 | 10 | 1335.2 | [gauss.md](gauss.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410934) |
