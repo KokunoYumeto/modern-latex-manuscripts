@@ -475,6 +475,13 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
     if concept_url:
         zenodo_line += f"; concept DOI: [{concept_url}]({concept_url})"
 
+    record_controls: list[str] = []
+    if label == "noether":
+        record_controls = [
+            "**Before translating:** open the [current Noether language/work coverage map](../noether-map.md). It identifies existing Korean, Chinese, Japanese, Arabic, Persian, Indonesian, Slavic, and corpus-wide translations; their exact scope; their current generation; and every known continuation cursor. Do not infer absence from a missing cumulative reader or an unchecked status.",
+            "",
+        ]
+
     lines = [
         f"# {display}",
         "",
@@ -482,6 +489,7 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
         "",
         f"Public title: {html.escape(title)}",
         "",
+        *record_controls,
         quality_warning,
         "",
         "| Files | PDFs | TeX | ZIPs | Total MB |",
