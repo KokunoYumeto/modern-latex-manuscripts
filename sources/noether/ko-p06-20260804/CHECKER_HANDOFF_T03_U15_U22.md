@@ -1,0 +1,21 @@
+# Independent-checker handoff — Noether Paper 6 T03 U15--U22
+
+Handoff state: eight translation-producer drafts, all `UNCHECKED`, uncompiled, and unrendered. Exact source and target identities, separator accounting, and pointer v007 binding are frozen in `SOURCE_CUSTODY_T03_SECTION2.md`.
+
+The independent Korean checker must:
+
+1. Compare every Korean clause against ED0001 lines 4692--4798 for omission, addition, implication direction, quantifier scope, exception scope, and dependency direction. Treat byte identity as custody only.
+2. In U15, check the §2 heading, the promised role of the lemma in §3, the claim that algebraic rank is an essentially characteristic number, the sequential specialization of indeterminates, preservation of algebraic independence, and the conclusion excluding identically zero or indeterminate values.
+3. In U16, check both systems, `$\rho<n$`, the dependence of `$h(x)$`, the rank of the functional/Jacobian matrix, equation (2), the determinant notation, `$\Gamma(x)/G(x)^{\rho+1}\ne0$`, and `gemeinsamer Nenner`. Decide whether `함수행렬` communicates the source sense or requires a more precise Korean term.
+4. In U17, check the emphasized choice of `$a$`, divisibility by `$(x_i-a)$`, the range `$i=\rho+1,\ldots,n$`, the nonvanishing denominator condition, the independence of system (3), and the distinction between specialization and substitution.
+5. In U18, check equation (4), irreducibility, the nonzero leading and constant coefficient conditions, equation (5), reduced presentation and coprimality, every term and exponent in equation (6), the homogeneous-form statement for `$B_k$`, and the condition that at least one nonnegative `$\sigma_k$` is zero.
+6. In U19, check each divisibility inference and contradiction, `$A_\tau=B_\tau:G^\lambda$`, the relation `$A_\tau=0$`, coprimality of `$H_1,H_2$`, and the conclusion about `$[h(x)]_{x_i=a}=k(x)$`. Check the complete `\srcfn{*)}{...}` footnote, its two simultaneous substitutions, displayed rational-function example, and `0/0` conclusion.
+7. In U20, check whether the repeated argument and eventual lemma are represented with the correct iteration scope; check the two systems, rank `$\rho$`, `$\rho<n$`, and the repeated determinant/nonvanishing hypothesis.
+8. Treat U21 and U22 as one linked TeX/prose structure. U21 opens `\srcfn{**)}{...`; U22 continues and closes it. Concatenate U21 immediately followed by U22 without inserted prose, then check the ordered substitutions, every superscript and subscript, reduced-presentation condition, nonzero numerator/denominator conclusion, `0/0` exclusion, and the footnote's example and two displayed specialized functions.
+9. Check all section, emphasis, display-math, array, aligned equation, footnote, macro, delimiter, exponent, index, colon quotient, bracketed specialization, inequality, and punctuation topology independently. No compile or render result exists to serve as evidence.
+10. Resolve the terminology and script holds in `TRANSLATION_CHOICES_T03_SECTION2.md` using Korean-language evidence. Chinese or Japanese forms may be contrastive adverse evidence but do not authorize Korean. Treat Mandarin-Simplified dominance only as qualitative retrieval risk, never as a readiness or confidence scalar.
+11. Review Hangul-first ko-KR register and the parenthetical Hanja disambiguator `階數`. No ko-KP claim is permitted without independent DPRK evidence; retain `unverified_do_not_claim` otherwise.
+12. If a German defect is independently suspected, do not patch the translation-lane authority. Return a complete finding packet to the sole German canon owner with stable finding ID, exact pointer/authority/span locators and hashes, observed/proposed readings, alternatives, evidence class, uncertainty, checker identity/result, dedup fields, and target impact.
+13. Return per-unit checked/held state, stable finding IDs, exact source and target locators, before/after hashes for any authorized target correction, terminology evidence, and unresolved uncertainty. Preserve the U21→U22 relation in every return.
+
+No source defect, Korean approval, build readiness, certification, publication readiness, or SGA conclusion is asserted by this handoff.
