@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/noether-p05-ko-visual-evidence-v1.json",
+  "title": "Noether Paper 5 Korean visual evidence record",
+  "description": "Schema retained even when the producer visual-evidence inventory is empty.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "visual_id",
+    "evidence_type",
+    "parent_source",
+    "bounding_box",
+    "dimensions",
+    "dpi",
+    "rotation_degrees",
+    "image_sha256",
+    "linked_structural_ids",
+    "linked_tex_units",
+    "qa_state",
+    "review_state",
+    "rights_basis",
+    "publication_disposition",
+    "supersedes_visual_id",
+    "record_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "visual_id": {"type": "string", "pattern": "^NOE-P05-KO-VIS-[0-9]{4}$"},
+    "evidence_type": {
+      "enum": [
+        "source_page",
+        "source_crop",
+        "equation_crop",
+        "diagram_crop",
+        "target_render",
+        "contact_sheet",
+        "before_after",
+        "segmentation_artifact",
+        "model_overlay"
+      ]
+    },
+    "parent_source": {
+      "type": "object",
+      "required": ["path", "file_sha256", "page_number", "coordinate_system"],
+      "properties": {
+        "path": {"type": ["string", "null"]},
+        "file_sha256": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"},
+        "page_number": {"type": ["integer", "null"], "minimum": 1},
+        "coordinate_system": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "bounding_box": {
+      "type": "object",
+      "required": ["x", "y", "width", "height", "units"],
+      "properties": {
+        "x": {"type": ["number", "null"]},
+        "y": {"type": ["number", "null"]},
+        "width": {"type": ["number", "null"]},
+        "height": {"type": ["number", "null"]},
+        "units": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "dimensions": {
+      "type": "object",
+      "required": ["width_px", "height_px"],
+      "properties": {
+        "width_px": {"type": ["integer", "null"], "minimum": 1},
+        "height_px": {"type": ["integer", "null"], "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "dpi": {"type": ["number", "null"], "exclusiveMinimum": 0},
+    "rotation_degrees": {"type": ["number", "null"]},
+    "image_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "linked_structural_ids": {"type": "array", "items": {"type": "string"}},
+    "linked_tex_units": {"type": "array", "items": {"type": "string", "pattern": "^U0[1-4]$"}},
+    "qa_state": {"enum": ["uninspected", "producer_inspected", "independently_reviewed"]},
+    "review_state": {"enum": ["unchecked", "checked", "held"]},
+    "rights_basis": {"type": "string", "minLength": 1},
+    "publication_disposition": {"enum": ["public_safe", "rights_blocked", "private_excluded", "pending"]},
+    "supersedes_visual_id": {"type": ["string", "null"]},
+    "record_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+  },
+  "additionalProperties": false
+}
