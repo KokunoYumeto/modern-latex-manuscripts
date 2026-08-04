@@ -18,6 +18,11 @@ Current Noether public surface is record 21785492 under concept DOI 10.5281/zeno
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
 
+## GitHub Source Checkpoints
+
+- [Korean Paper 2 corrected v003 recovery](../../sources/noether/ko-p02-v003/README.md): the complete 199-file mathematical target layer is preserved byte-for-byte with its producer manifest and corrected handoff. GitHub intake recovered 332 of 346 manifest payload files. Fourteen superseded evidence files were no longer present at their frozen hashes; their exact expected and later-observed identities are listed in `recovery.json`, and no later byte was substituted. State remains **UNCHECKED, uncompiled, unrendered, unassembled, unreviewed, and uncertified**.
+- [Controlling Noether archive workflow](../noether-workflow.md): the five user instructions are retained verbatim. The separate Noether task owns Zenodo; this repository owns the readable, complete GitHub mirror and its immutable source checkpoints.
+
 ## Reader And Reference PDFs
 
 | Size MB | File |

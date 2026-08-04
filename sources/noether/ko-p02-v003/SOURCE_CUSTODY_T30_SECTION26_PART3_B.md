@@ -1,0 +1,19 @@
+# Noether Paper 2 Korean producer source custody — T30 / Chapter IV §26 part 3 B
+
+State: translation-producer custody only; no source, scan, Korean, or formula audit was performed.
+
+- Pointer v005: `NOETH-DE-AUTH-v005-20260804`; 19,889 bytes; SHA-256 `42E6844BFCBFB2133E9AA323A823604351CF9C49550AFCF34ECAAF7887185660`.
+- Pointer snapshot: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v005_20260804.json`.
+- ED0001: 2,153,565 raw bytes; SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
+- Authority file: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
+- Complete §26 part 3 B interval: whole-source lines3369--3446; 3,331 LF-normalized UTF-8 bytes; SHA-256 `10AE2453E9C85F1B9F5AE086D41AB95959B6FFFE3DB2047E544765E97992778F`.
+- The blank line3447 is excluded: 1 LF byte; SHA-256 `01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B`. The §26 conclusion begins at line3448.
+
+| Unit | Whole lines | Source bytes | Source SHA-256 | Target bytes | Target SHA-256 |
+|---|---:|---:|---|---:|---|
+| T30-U219 | 3369--3386 | 675 | `FB9EEDCD037EAC8CF35EB499198EDD8BCBF5389522D562EF156EC9CB22BBF8F4` | 1,168 | `20CF7671D6F85071BDD81893260B028549915C48E34375DD2FA962984E30E52D` |
+| T30-U220 | 3387--3409 | 1,127 | `C7D8FCBF0CD004F0A781DBBC8513C6157D717D1218285E2F3077DED725C2D619` | 1,596 | `731A65C24FC10C164B15E21E7EC926D3CC43EB8BCC950B5D3D864B6EAC6386C6` |
+| T30-U221 | 3410--3424 | 803 | `89CEBB301CF350BB99AF3D7B0EECAFE5E4BA90B28CE2D92770F0F90867F5F8BC` | 1,264 | `A219A9DB8A450D0262B874C17D79A43C48922E53E84B522364A3D2E4218B4044` |
+| T30-U222 | 3425--3446 | 726 | `37A77C56345AAC7325945C64B9417D3C6597BE0E6D660966FA8C975F5C0B6F0F` | 1,180 | `6ACC6BEE9E52602AEF747470C12F3B665A588CEB9AA74D438B6B01DE147C0256` |
+
+The four source slices concatenate exactly to the complete 3,331-byte interval; there are no omitted separators inside T30. Every target is `UNCHECKED`; mechanical byte replay and source locators are custody evidence, not linguistic, mathematical, or formula review.
