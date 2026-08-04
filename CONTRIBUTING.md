@@ -21,7 +21,7 @@ Before starting, check:
 - [Known gaps](docs/known-gaps.md) to avoid duplicating already-known unfinished areas;
 - [Work queue](docs/work-queue.md) for concrete next tasks.
 
-For Noether, an unchecked target or a missing cumulative reader is still an existing translation. Review or correct a complete target; continue a partial target only at the cursor recorded in `docs/noether-map.md`. Any change that adds or advances a Noether translation checkpoint must update that map in the same commit with the language, work, exact coverage, current path, quality state, and next cursor. The map is navigation only: include the actual source and artifact bytes, never just an inventory or status claim.
+For Noether, an unchecked target or a missing cumulative reader is still an existing translation. Review or correct a complete target; continue a partial target only at the cursor recorded in `docs/noether-map.md`. Any change that adds or advances a Noether translation checkpoint must update that map and the `GitHub Source Checkpoints` section of `docs/records/noether.md` in the same commit with the language, work, exact coverage, current path, quality state, and next cursor. The catalog generator preserves that section on overwrite. Navigation is not custody: include the actual source and artifact bytes, never just an inventory or status claim.
 
 Please include:
 

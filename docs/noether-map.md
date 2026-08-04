@@ -66,7 +66,7 @@ A separate frozen Chinese Paper 23 tranche is explicitly referenced by the [Japa
 |---|---|---|
 | Paper 21 | Complete paper, units U00–U05 | [Source-reconciled edition](../sources/noether/paper21-japanese-p31reconciled-20260718/README.md); internal source/build/render gates passed |
 | Paper 23 | Complete paper, units U00–U07 | [Source-reconciled edition](../sources/noether/paper23-japanese-p31reconciled-20260718/README.md); internal source/build/render gates passed |
-| Paper 24 | A 16-page Japanese working PDF is documented and all pages have public visual evidence | [Visual-evidence checkpoint](../sources/noether/paper24-japanese-visual-evidence-20260718/README.md); the direct reader is not mirrored in this folder, so recover it before any new translation |
+| Paper 24 | Complete source-reconciled working edition: editable TeX, 16-page PDF, extracted text, decisions, build history, and every-page visual evidence | [Exact 68-file producer snapshot](../sources/noether/ja-p24-v1/README.md), [direct PDF](../sources/noether/ja-p24-v1/output/pdf/Noether_Paper24_Japanese_SourceReconciled_v001.pdf), and [visual-evidence projection](../sources/noether/paper24-japanese-visual-evidence-20260718/README.md); internal production QA passed, independent human certification absent |
 | Paper 26 | Complete paper-level working translation | [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
 | Paper 28 | Complete short notice | [Four-language CJK Paper 28](../sources/noether/papers03-27-29-english-cjk-20260718/paper28_cjk/README.md) |
 | Paper 36 | Complete paper-level working translation | [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
