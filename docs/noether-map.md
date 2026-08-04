@@ -15,6 +15,7 @@ This is the current human-readable coverage map for the Noether material already
 | Spanish | 473 pages; all 81 declared source units, Papers 1–43 plus book and end matter | [Spanish R823](../sources/noether/spanish-r823-working-translation-20260718/00_README_STATUS.md) | Source-reconciled working translation; not native-certified |
 | French | 494 pages; all 81 declared source units, Papers 1–43 plus book and end matter | [French R823](../sources/noether/french-r823-working-translation-20260718/00_README_STATUS.md) | Source-reconciled working translation; not native-certified |
 | Interslavic, Latin and Cyrillic | 221 canonical TeX units in each script; 527- and 551-page readers | [Interslavic corpus](../sources/noether/interslavic-working-corpus-20260718/README.md) | Complete represented working corpus; external language review remains open |
+| Korean | 65 pages; 19 complete numbered-paper bodies (1, 3, 5, 7, 8, 10, 11, 16, 18, 25–29, 32, 33, 36, 41, 42) plus partial Paper 9 through authority line 7328 | [Cumulative corpus](../sources/noether/ko-corpus-v1/README.md), [direct PDF](../sources/noether/ko-corpus-v1/reader.pdf), and [exact coverage table](../sources/noether/ko-corpus-v1/coverage.csv) | Producer assembly; Paper 9 continues at line 7330; independent source, Korean-language, render, and certification review pending |
 
 ## Korean
 
@@ -22,25 +23,29 @@ The current August producer snapshots below remain explicitly **UNCHECKED, uncom
 
 | Work | Exact existing coverage | Current path / continuation |
 |---|---|---|
-| Paper 1 | Three editable units covering handed-off source lines 1–80 | [Current snapshot](../sources/noether/ko-p01-20260804/README.md) |
+| Paper 1 | Complete body in the cumulative corpus; a separate three-unit August checkpoint covers handed-off source lines 1–80 | [Complete body](../sources/noether/ko-corpus-v1/p01.tex); [granular checkpoint](../sources/noether/ko-p01-20260804/README.md) |
 | Paper 2 | Complete 199-target producer-draft layer; 332/346 manifest payload files recovered exactly, with 14 unavailable superseded evidence identities recorded | [Corrected v003 recovery](../sources/noether/ko-p02-v003/README.md) |
-| Paper 3 | Three editable units covering authority lines 3573–3608 | [Current snapshot](../sources/noether/ko-p03-20260804/README.md) |
+| Paper 3 | Complete body in the cumulative corpus; a separate three-unit August checkpoint covers authority lines 3573–3608 | [Complete body](../sources/noether/ko-corpus-v1/p03.tex); [granular checkpoint](../sources/noether/ko-p03-20260804/README.md) |
 | Paper 4 | Complete producer-draft text for §§1–9: 50 units across T01–T09 | [Current complete snapshot](../sources/noether/ko-p04-20260804/README.md); structural evidence is T01–T03 only |
-| Paper 5 | Four editable units covering authority lines 4535–4573 | [Current snapshot](../sources/noether/ko-p05-20260804/README.md) |
+| Paper 5 | Complete body in the cumulative corpus; a separate four-unit August checkpoint covers authority lines 4535–4573 | [Complete body](../sources/noether/ko-corpus-v1/p05.tex); [granular checkpoint](../sources/noether/ko-p05-20260804/README.md) |
 | Paper 6 | Complete 228-target producer draft | [Current complete snapshot](../sources/noether/ko-p06-20260804/README.md) |
-| Paper 7 | Eight editable units covering authority lines 5842–5954 | [Current snapshot](../sources/noether/ko-p07-20260804/README.md) |
-| Paper 8 | Complete 36-target producer draft | [Current complete snapshot](../sources/noether/ko-p08-20260804/README.md) |
-| Paper 9 | 64 targets through T07, German lines 6348–7133 | [Current controlled T07](../sources/noether/ko-p09-t07/README.md); **incomplete, continue at line 7134** |
-| Paper 18 | One editable unit: conference-session heading and contribution title | [Exact four-file producer snapshot](../sources/noether/ko-p18-v1/CHECKER_HANDOFF_U01.md); **incomplete, continue at authority line 11** |
-| Paper 26 | Complete paper-level working translation | [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
-| Paper 27 | Complete short notice | [Korean Paper 27](../sources/noether/papers03-27-29-english-cjk-20260718/paper27_korean/README.md) |
-| Paper 28 | Complete short notice | [Four-language CJK Paper 28](../sources/noether/papers03-27-29-english-cjk-20260718/paper28_cjk/README.md) |
-| Paper 29 | U01–U04 through source line 51 | [U01–U02](../sources/noether/paper29-korean-u01-u02-p31reconciled-20260718/), [U03](../sources/noether/paper29-korean-u03-p31reconciled-20260718/README.md), [U04](../sources/noether/paper29-korean-u04-p31reconciled-20260718/README_U04.md); **incomplete, continue at line 53** |
-| Paper 32 | Complete routed producer-draft text in 19 editable units through the final substantive line 16171 | [Exact 88-file producer snapshot](../sources/noether/ko-p32-v1/CHECKER_HANDOFF_U19.md); unchecked, uncompiled, unrendered, and unassembled |
-| Paper 33 | Complete routed producer-draft text in eight editable units through the final substantive line 16224 | [Exact 32-file producer snapshot](../sources/noether/ko-p33-v1/CHECKER_HANDOFF_U08.md); unchecked, uncompiled, unrendered, and unassembled |
-| Paper 36 | Complete paper-level working translation | [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
-| Paper 41 | Twelve-unit producer checkpoint | [Current snapshot](../sources/noether/ko-p41-20260804/README.md) |
-| Paper 42 | Twelve-unit checkpoint covering all handed-off source lines 1–230 | [Current snapshot](../sources/noether/ko-p42-20260804/README.md) |
+| Paper 7 | Complete body in the cumulative corpus; a separate eight-unit August checkpoint covers authority lines 5842–5954 | [Complete body](../sources/noether/ko-corpus-v1/p07.tex); [granular checkpoint](../sources/noether/ko-p07-20260804/README.md) |
+| Paper 8 | Complete body in the cumulative corpus and a separate complete 36-target producer draft | [Cumulative body](../sources/noether/ko-corpus-v1/p08.tex); [36-target checkpoint](../sources/noether/ko-p08-20260804/README.md) |
+| Paper 9 | Partial cumulative body: 75 units through old-authority line 7328, byte-aligned to the current body apart from the documented positional shift | [Most advanced partial body](../sources/noether/ko-corpus-v1/p09_tail.tex); [controlled T07 history](../sources/noether/ko-p09-t07/README.md); **continue at current-authority line 7330** |
+| Paper 10 | Complete body translated from the current authority | [Cumulative body](../sources/noether/ko-corpus-v1/p10.tex) |
+| Paper 11 | Complete body translated from the current authority | [Cumulative body](../sources/noether/ko-corpus-v1/p11.tex) |
+| Paper 16 | Complete body translated from the current authority | [Cumulative body](../sources/noether/ko-corpus-v1/p16.tex) |
+| Paper 18 | Complete body in the cumulative corpus; the earlier four-file snapshot contains only the heading/title | [Complete body](../sources/noether/ko-corpus-v1/p18.tex); [heading-only history](../sources/noether/ko-p18-v1/CHECKER_HANDOFF_U01.md) |
+| Paper 25 | Complete body translated from the current authority | [Cumulative body](../sources/noether/ko-corpus-v1/p25.tex) |
+| Paper 26 | Complete body in the cumulative corpus and an earlier R823 working generation | [Cumulative body](../sources/noether/ko-corpus-v1/p26.tex); [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
+| Paper 27 | Complete body in the cumulative corpus and an earlier short-notice generation | [Cumulative body](../sources/noether/ko-corpus-v1/p27.tex); [earlier checkpoint](../sources/noether/papers03-27-29-english-cjk-20260718/paper27_korean/README.md) |
+| Paper 28 | Complete body in the cumulative corpus and an earlier four-language generation | [Cumulative body](../sources/noether/ko-corpus-v1/p28.tex); [earlier checkpoint](../sources/noether/papers03-27-29-english-cjk-20260718/paper28_cjk/README.md) |
+| Paper 29 | Complete body in the cumulative corpus; U01–U04 remain as earlier partial history | [Complete body](../sources/noether/ko-corpus-v1/p29.tex); [U01–U02](../sources/noether/paper29-korean-u01-u02-p31reconciled-20260718/), [U03](../sources/noether/paper29-korean-u03-p31reconciled-20260718/README.md), [U04](../sources/noether/paper29-korean-u04-p31reconciled-20260718/README_U04.md) |
+| Paper 32 | Complete cumulative body and complete routed producer-draft text in 19 units | [Cumulative body](../sources/noether/ko-corpus-v1/p32.tex); [exact 88-file routed snapshot](../sources/noether/ko-p32-v1/CHECKER_HANDOFF_U19.md) |
+| Paper 33 | Complete cumulative body and complete routed producer-draft text in eight units | [Cumulative body](../sources/noether/ko-corpus-v1/p33.tex); [exact 32-file routed snapshot](../sources/noether/ko-p33-v1/CHECKER_HANDOFF_U08.md) |
+| Paper 36 | Complete body in the cumulative corpus and an earlier R823 working generation | [Cumulative body](../sources/noether/ko-corpus-v1/p36.tex); [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
+| Paper 41 | Complete body in the cumulative corpus and a separate twelve-unit producer checkpoint | [Cumulative body](../sources/noether/ko-corpus-v1/p41.tex); [twelve-unit checkpoint](../sources/noether/ko-p41-20260804/README.md) |
+| Paper 42 | Complete body in the cumulative corpus and a separate twelve-unit checkpoint covering all handed-off lines | [Cumulative body](../sources/noether/ko-corpus-v1/p42.tex); [twelve-unit checkpoint](../sources/noether/ko-p42-20260804/README.md) |
 
 Paper 9 predecessor directories `ko-p09-t01` through `ko-p09-t07-pre` are immutable history; `ko-p09-t07` is the current controlled generation. The separate Paper 4 tranche directories are history beneath `ko-p04-20260804`.
 
@@ -96,6 +101,7 @@ Paper 9 predecessor directories `ko-p09-t01` through `ko-p09-t07-pre` are immuta
 | Indonesian | Complete five-segment Paper 36 notice; one-page reader | [Language components](../sources/noether/new-language-components-20260718/README.md) |
 | Russian | Sixteen Paper 6 working units, plus current repair survivors for bounded Paper 4 sections and Paper 37 | [Paper 6 tranche](../sources/noether/multilingual-paper06-slavic-tranche001-20260716/README.md), [repair survivors](../sources/noether/slavic-source-repair-survivors-20260730/) |
 | Ukrainian | Sixteen Paper 6 working units, plus current repair survivors for bounded Paper 4 sections and Paper 37 | [Paper 6 tranche](../sources/noether/multilingual-paper06-slavic-tranche001-20260716/README.md), [repair survivors](../sources/noether/slavic-source-repair-survivors-20260730/) |
+| Vietnamese | Complete Paper 1 producer translation; editable TeX and three-page PDF | [Producer handoff](../sources/noether/vi-p01-v1/handoff.md), [direct PDF](../sources/noether/vi-p01-v1/out/p01.pdf), and [editable TeX](../sources/noether/vi-p01-v1/p01.tex); mechanically built and producer-viewed, with all independent checking pending |
 
 ## How To Continue Without Duplicating Work
 
