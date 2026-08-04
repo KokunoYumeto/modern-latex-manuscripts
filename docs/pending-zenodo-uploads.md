@@ -1,3 +1,27 @@
+## 2026-08-04: SGA R3 and dual-DOI provenance queues closed
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published SGA R3 version: [10.5281/zenodo.21782424](https://doi.org/10.5281/zenodo.21782424)
+- Current methodology successor: [10.5281/zenodo.21782511](https://doi.org/10.5281/zenodo.21782511)
+- Current replication successor: [10.5281/zenodo.21782515](https://doi.org/10.5281/zenodo.21782515)
+
+The SGA handoff queue is closed. The 57-file SGA record fronts the exact
+152-member R3 reader/source ZIP and selects the clean 4,179-page cumulative
+English reader as default preview. Anonymous replay passed all 57 direct files
+and all 152 ZIP members. Both broad concepts expose the same seven direct SGA
+R3 provenance objects plus an identical 113-member controls ZIP; all new,
+nested, and retained bytes passed readback. No SGA duplicate concept, parallel
+draft, or active draft remains.
+
+The private append-only English/Germanic log now has 489 records. Records
+483-489 postdate the public 482-record projection and must enter a later
+coherent privacy-clean successor on both broad concepts before being described
+as public. The remaining closeout here is GitHub commit/push and commit-pinned
+raw readback, not an unfinished SGA Zenodo upload.
+
+Exact receipts: [SGA R3](../manifests/published-zenodo/20260804_sga_global_reference_r3_record_21782424_public_readback.md)
+and [dual DOI](../manifests/published-zenodo/20260804_sga_r3_dual_doi_publication_receipt.md).
+
 ## 2026-08-04: pure GAGA and dual-DOI provenance queues closed
 
 - Dedicated pure-GAGA concept: [10.5281/zenodo.21781322](https://doi.org/10.5281/zenodo.21781322)
