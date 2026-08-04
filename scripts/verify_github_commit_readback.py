@@ -63,6 +63,14 @@ def main() -> int:
         ),
     )
     parser.add_argument(
+        "--base",
+        help=(
+            "Optional base commit whose tree should be compared with --commit. "
+            "Use this for a merge commit when every path introduced relative "
+            "to its first parent must be verified."
+        ),
+    )
+    parser.add_argument(
         "--start-index",
         type=int,
         default=0,
@@ -80,17 +88,33 @@ def main() -> int:
     args = parser.parse_args()
 
     commit = git("rev-parse", args.commit).decode("ascii").strip()
+    if args.base and args.paths_from_commit:
+        raise RuntimeError("--base and --paths-from-commit are mutually exclusive")
+    base = (
+        git("rev-parse", args.base).decode("ascii").strip()
+        if args.base
+        else None
+    )
     paths_from_commit = git(
         "rev-parse", args.paths_from_commit or commit
     ).decode("ascii").strip()
-    changed = git(
-        "diff-tree",
-        "--no-commit-id",
-        "--name-only",
-        "--diff-filter=AM",
-        "-r",
-        paths_from_commit,
-    ).decode("utf-8")
+    if base:
+        changed = git(
+            "diff",
+            "--name-only",
+            "--diff-filter=AM",
+            base,
+            commit,
+        ).decode("utf-8")
+    else:
+        changed = git(
+            "diff-tree",
+            "--no-commit-id",
+            "--name-only",
+            "--diff-filter=AM",
+            "-r",
+            paths_from_commit,
+        ).decode("utf-8")
     all_paths = [line for line in changed.splitlines() if line]
     if not all_paths:
         raise RuntimeError(f"Commit {commit} has no added or modified files")
@@ -137,6 +161,7 @@ def main() -> int:
         "errors": errors,
         "repository": args.repository,
         "commit": commit,
+        "base": base,
         "paths_from_commit": paths_from_commit,
         "total_changed_file_count": len(all_paths),
         "path_start_index": args.start_index,
