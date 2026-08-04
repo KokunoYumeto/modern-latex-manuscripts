@@ -31,10 +31,13 @@ The current August producer snapshots below remain explicitly **UNCHECKED, uncom
 | Paper 7 | Eight editable units covering authority lines 5842–5954 | [Current snapshot](../sources/noether/ko-p07-20260804/README.md) |
 | Paper 8 | Complete 36-target producer draft | [Current complete snapshot](../sources/noether/ko-p08-20260804/README.md) |
 | Paper 9 | 64 targets through T07, German lines 6348–7133 | [Current controlled T07](../sources/noether/ko-p09-t07/README.md); **incomplete, continue at line 7134** |
+| Paper 18 | One editable unit: conference-session heading and contribution title | [Exact four-file producer snapshot](../sources/noether/ko-p18-v1/CHECKER_HANDOFF_U01.md); **incomplete, continue at authority line 11** |
 | Paper 26 | Complete paper-level working translation | [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
 | Paper 27 | Complete short notice | [Korean Paper 27](../sources/noether/papers03-27-29-english-cjk-20260718/paper27_korean/README.md) |
 | Paper 28 | Complete short notice | [Four-language CJK Paper 28](../sources/noether/papers03-27-29-english-cjk-20260718/paper28_cjk/README.md) |
 | Paper 29 | U01–U04 through source line 51 | [U01–U02](../sources/noether/paper29-korean-u01-u02-p31reconciled-20260718/), [U03](../sources/noether/paper29-korean-u03-p31reconciled-20260718/README.md), [U04](../sources/noether/paper29-korean-u04-p31reconciled-20260718/README_U04.md); **incomplete, continue at line 53** |
+| Paper 32 | Complete routed producer-draft text in 19 editable units through the final substantive line 16171 | [Exact 88-file producer snapshot](../sources/noether/ko-p32-v1/CHECKER_HANDOFF_U19.md); unchecked, uncompiled, unrendered, and unassembled |
+| Paper 33 | Complete routed producer-draft text in eight editable units through the final substantive line 16224 | [Exact 32-file producer snapshot](../sources/noether/ko-p33-v1/CHECKER_HANDOFF_U08.md); unchecked, uncompiled, unrendered, and unassembled |
 | Paper 36 | Complete paper-level working translation | [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
 | Paper 41 | Twelve-unit producer checkpoint | [Current snapshot](../sources/noether/ko-p41-20260804/README.md) |
 | Paper 42 | Twelve-unit checkpoint covering all handed-off source lines 1–230 | [Current snapshot](../sources/noether/ko-p42-20260804/README.md) |
