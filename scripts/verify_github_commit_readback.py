@@ -54,21 +54,66 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--repository", required=True)
     parser.add_argument("--commit", required=True)
+    parser.add_argument(
+        "--paths-from-commit",
+        help=(
+            "Optional commit whose added/modified path list should be read back "
+            "from --commit. This supports merge commits whose tree contains an "
+            "already-verified source commit but whose default diff is empty."
+        ),
+    )
+    parser.add_argument(
+        "--start-index",
+        type=int,
+        default=0,
+        help="Zero-based first path to verify after Git path ordering.",
+    )
+    parser.add_argument(
+        "--limit",
+        type=int,
+        help=(
+            "Maximum paths to verify in this run. Commits with more than 25 "
+            "paths require an explicit limit so large readbacks are chunked."
+        ),
+    )
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
 
     commit = git("rev-parse", args.commit).decode("ascii").strip()
+    paths_from_commit = git(
+        "rev-parse", args.paths_from_commit or commit
+    ).decode("ascii").strip()
     changed = git(
         "diff-tree",
         "--no-commit-id",
         "--name-only",
         "--diff-filter=AM",
         "-r",
-        commit,
+        paths_from_commit,
     ).decode("utf-8")
-    paths = [line for line in changed.splitlines() if line]
-    if not paths:
+    all_paths = [line for line in changed.splitlines() if line]
+    if not all_paths:
         raise RuntimeError(f"Commit {commit} has no added or modified files")
+    if args.start_index < 0:
+        raise RuntimeError("--start-index must be non-negative")
+    if args.limit is not None and args.limit <= 0:
+        raise RuntimeError("--limit must be positive")
+    if len(all_paths) > 25 and args.limit is None:
+        raise RuntimeError(
+            f"Refusing an unchunked {len(all_paths)}-path readback; "
+            "provide --start-index and --limit (25 or fewer recommended)"
+        )
+    stop_index = (
+        len(all_paths)
+        if args.limit is None
+        else min(len(all_paths), args.start_index + args.limit)
+    )
+    paths = all_paths[args.start_index:stop_index]
+    if not paths:
+        raise RuntimeError(
+            f"Selected path range starts at {args.start_index}, but the commit "
+            f"has only {len(all_paths)} added or modified paths"
+        )
 
     files: dict[str, dict[str, object]] = {}
     errors: list[str] = []
@@ -92,6 +137,11 @@ def main() -> int:
         "errors": errors,
         "repository": args.repository,
         "commit": commit,
+        "paths_from_commit": paths_from_commit,
+        "total_changed_file_count": len(all_paths),
+        "path_start_index": args.start_index,
+        "path_end_index_exclusive": stop_index,
+        "all_paths_covered": args.start_index == 0 and stop_index == len(all_paths),
         "changed_file_count": len(paths),
         "changed_file_bytes": sum(
             int(row["bytes"]) for row in files.values()

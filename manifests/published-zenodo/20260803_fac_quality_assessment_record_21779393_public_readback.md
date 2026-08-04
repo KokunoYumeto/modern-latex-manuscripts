@@ -1,5 +1,12 @@
 # FAC quality-assessment DOI: archive acceptance and public readback
 
+> **Superseded duplicate notice (2026-08-04):** Record `21779393` now returns
+> HTTP `410` with removal reason *Duplicate of another record*. The surviving
+> FAC concept is `10.5281/zenodo.21720996`; its current version is record
+> `21781714` / DOI `10.5281/zenodo.21781714`. This receipt is retained as
+> immutable adverse publication history and is no longer the current FAC
+> landing identity.
+
 ## Public identity
 
 - Status: **PUBLISHED; PUBLIC BYTE READBACK PASS**

@@ -58,6 +58,7 @@ RECORD_TIERS = [
     (
         "Best current reader/translation surfaces",
         [
+            "gaga",
             "noether",
             "weber",
             "frobenius",
@@ -116,6 +117,7 @@ DISPLAY_NAMES = {
     "noether_cjk_visual_evidence": "Noether CJK Visual Evidence and Render-QA Dataset",
     "interlanguage_reflections": "Interlanguage Methodology",
     "fac_quality_assessment": "FAC Translation Quality Assessment",
+    "gaga": "Jean-Pierre Serre's GAGA",
     "lean_formalization_sidecars": "Lean Formalization Sidecars",
     "split_zero_research_sidecar": "Split-Zero Geometry and Common Deformation Registers",
     "noether": "Emmy Noether",
@@ -154,6 +156,7 @@ INDEX_DISPLAY_NAMES = {
     "ega": "EGA (current complete-scope working readers)",
     "sga": "SGA (current presentation-clean cumulative and standalone readers)",
     "fac_quality_assessment": "FAC accidental blind-comparison quality evidence",
+    "gaga": "GAGA complete source-aligned English/French working edition",
 }
 
 RECORD_NOTES = {
@@ -188,7 +191,7 @@ RECORD_NOTES = {
         "Dedicated Kneser working-edition split from the mixed additional-author shelf. Current public coverage fronts German-source and English working-translation reader PDF/TeX surfaces through p0011-p0248, a high-quality source witness through p0001-p0248, and the p0234 lower-p0248 slice/audit package. The included worklist reports 248/336 source pages done (73.8 percent), latest slice sections 53-55 completing the Sixth Section, and next continuation at p0249 / Seventh Section / section 56. This is a source-witnessed working draft and audit/progress record, not a certified critical edition.",
     ],
     "serre": [
-        "Dedicated Serre working-transcription record. FAC is directly readable as a complete 63-page French working transcription covering all 82 source pages / printed pp.197-278. The direct master and body TeX accompany one compact 27-member FAC source/evidence ZIP containing the complete editable closure, exact ledgers, and four actual scan-derived crops with page, rasterization, bounding-box, dimension, and hash provenance. A separate eight-member ZIP preserves the complete first-pass GAGA TeX source for printed pp.1-42; its earlier PDF remains held because visible join sentinels are still present. License metadata is License Not Specified. This is working-transcription custody, not a complete Serre corpus, critical edition, mathematical certification, accessibility certification, or blanket rights clearance.",
+        "Earlier mixed Serre custody record. FAC remains directly readable as a complete 63-page French working transcription with its editable source/evidence closure. Its eight-member GAGA ZIP preserves the superseded first-pass TeX custody state only. For current GAGA, use dedicated concept DOI 10.5281/zenodo.21781322, whose clean linked English reader, separate diplomatic/corrected French TeX layers, and audit controls replace the earlier join-sentinel state without deleting it. For current FAC readers and quality evidence, use surviving unified FAC concept DOI 10.5281/zenodo.21720996. License metadata on this mixed predecessor remains License Not Specified; none of these records is a critical edition or mathematical, accessibility, or blanket-rights certification.",
     ],
     "lean_formalization_sidecars": [
         "Small Lean 4 / Mathlib-style sidecar package for useful formal mathematics connected to Noether, Steinitz, Weber, and Jordan. This is library-candidate/formalization material with build logs and toolchain metadata. It is not proof that any scanned edition or translation is source-faithful, not source-fidelity evidence, not translation certification, and not critical-edition material.",
@@ -218,10 +221,10 @@ RECORD_NOTES = {
         "Current compact SGA record 21756931 leads with the 1,770-member SGA1-7 II English reader-and-TeX bundle, followed by direct readers and masters; SGA1 remains the default preview. The bundle contains current standalone readers and buildable TeX, not yet one cross-volume SGA 1-7.2 PDF. The clean 1,470-page SGA3 R29 cumulative covers the Introduction, Exposes I-XXVI, Tome-I subject index, Tome-III mathematical guide, and terminal index. SGA7 I has a complete 287-page English working reader for all written Exposes I, II, VI, VII, VIII, and IX. SGA7 II has a complete 264-page English working reader containing Exposes X-XXII through volume EOF, with a 187-member reader/source ZIP. Its separately available French working transcription remains partial. Anonymous readback passed all 88 outer files, all 83 retained predecessor identities, all 1,770 leading-bundle members, all 187 SGA7 II reader/source members, and all 13 release-control members. Historical versions remain immutable. These are working editions, translations, and transcriptions, not critical editions, rights determinations, mathematical certifications, exhaustive reference certifications, accessibility certifications, uniform whole-series source certification, or final whole-SGA certification. Record rights metadata remains License Not Specified.",
     ],
     "ega": [
-        "Open the fronted 1,356-page linked EGA 0-IV reader for one continuous reading surface, or use the five direct standalone English readers. The leading bundle contains the global reader, all five standalone readers, and their complete buildable TeX closures. EGA 0 is complete through Section 13; EGA I and II through their authority EOFs; the published EGA III text through 7.9.14; and EGA IV through Sections 1-21 and EOF. Anonymous readback passed all 42 outer files and all 265 leading-bundle members. These are working translations, not critical editions, rights clearance, mathematical certification, accessibility certification, or a claim of uniform whole-corpus source certification.",
+        "Open the fronted 1,356-page linked EGA 0-IV English reader for one continuous reading surface, or use the five direct standalone readers. The leading bundle contains the global reader, all five standalone readers, and their complete buildable TeX closures. Current same-concept record 21780931 retains those reader-facing bytes and adds a coherent EGA I printed-p.127 custody checkpoint: diplomatic French through p.127, the paired English state, a French-rooted pre-Stacks indexing scaffold, exact manifests/validation, and privacy-clean project logbook, continuation, status, correction, and workflow-error histories. The record has 58 files / 3,776,100,143 bytes; all nine new files and all 49 retained predecessor files passed anonymous byte/SHA-256 readback. Canonical diplomatic French EGA 0-IV, French-authority rechecking, and the cumulative pre-Stacks graph remain active; production has continued beyond this bounded p.127 snapshot. These are working translations and audit materials, not critical editions, rights clearance, mathematical certification, accessibility certification, or a claim of uniform whole-corpus source certification.",
     ],
     "deligne": [
-        "Current reader-first public surface is record 21745061. It retains the sequential English and French working readers through Papers 001-016p080, the grouped paper/letter PDF and TeX/source/QA archives, and the D001 source-aligned readers/source package, then adds direct bilingual, English, and French source-aligned working readers plus a 21-member TeX/source-crop package for D002. The cumulative English reader remains the default preview. D001 and D002 are complete source-aligned working editions for those papers only; the wider corpus remains uneven working-draft and repair material, not a critical edition, peer review, mathematical certification, or blanket source-faithfulness claim.",
+        "Current same-concept Deligne head 21762812 retains the 14-file reader/source surface from predecessor 21745061 byte-identically: sequential English/French working readers through Papers 001-016p080, grouped paper/letter and TeX/source/QA archives, plus direct source-aligned D001 and D002 readers/source packages. It adds ten direct D001-D007 project logbooks, a 52-row complete provenance manifest, and a 53-member provenance ZIP containing that exact manifest plus all 52 payload members. The record has 26 files / 488,423,090 bytes. Bounded anonymous replay matched all 12 new direct objects by API size/MD5, all ten direct logbooks by manifest bytes/SHA-256, and all 52 ZIP payload members; the cumulative English reader remains the default preview. D001 and D002 are complete source-aligned working editions for those papers only, while D003-D007 additions here are provenance custody. The wider corpus remains uneven working-draft and repair material, not a critical edition, peer review, mathematical/editorial certification, publication-readiness claim, or blanket rights expansion.",
     ],
     "chinese": [
         "Current public surface is record 20543246. English, modern-Chinese, Chinese-original, and Arabic working readers are directly available, with TeX/source artifacts grouped in ZIPs. The Arabic readers passed build/openability checks but remain working translation drafts without native-language or source-accuracy certification.",
@@ -256,44 +259,64 @@ RECORD_NOTES = {
 RECORD_NOTES.update(
     {
         "sga": [
-            "Current same-concept SGA record 21778810 fronts the complete 126-member privacy-clean reader/source ZIP, then selects the clean 4,177-page cumulative English reader as the default preview, followed by nine standalone English readers, nine master TeX files, nine buildable source ZIPs, and exact validation/privacy controls. The record has 34 files / 182,736,901 bytes. The cumulative graph has 39,690 named destinations and 30,649 internal GoTo actions with no broken or misrouted link; all 4,177 pages match the admitted standalone inputs, Type3 and unembedded fonts are zero, PDF image objects are zero, and reader scans found no archive workflow/source-status prose or AI explanatory footnotes. The archive-derived projection made 45 minimal privacy replacements across 16 non-reader files while leaving all ten reader PDFs byte-identical; predecessor 21778605 remains immutable adverse history. The exact SGA logbook, decision ledger, revision/reversal history, controlling dual-DOI requirement, and 480-record privacy-clean English/Germanic archive log are publicly hash-read back on methodology record 21780213 and replication record 21780218. These are working editions and translations, not critical editions, rights determinations, peer review, mathematical certification, accessibility certification, or uniform whole-series source certification. Record rights metadata remains License Not Specified."
+            "Current same-concept SGA record 21782424 fronts the exact 152-member R3 reader/source ZIP and selects the clean 4,179-page SGA 1-7 II cumulative English reader as the default preview. Nine standalone readers, nine master TeX files, nine buildable source closures, current logbooks, cross-volume graph ledgers, manifests, and validation controls remain direct in the 57-file / 220,992,794-byte record. Anonymous raw readback passed 57/57 direct files and 152/152 downloaded ZIP members. The cumulative replay has 39,941 destinations and 31,325 named GoTo actions with zero broken or misrouted links, Type3 fonts, image objects, or private-path hits. The graph records 1,049 candidates as 658 applied edges and 391 residuals against 241 targets. Exact package/cross-volume logbooks, continuation, supersession rationale, and predecessor decision/revision histories are also directly public and hash-read back on methodology record 21782511 and replication record 21782515, each with an identical 113-member provenance ZIP. These are working editions and translations, not critical editions, rights determinations, peer review, mathematical certification, accessibility certification, or uniform whole-series source certification. Record rights metadata remains License Not Specified."
         ],
         "interlanguage_reflections": [
-            "Current methodology head 21780213 preserves the broad interlanguage, source-body, corpus-control, normalization, and bounded-output sidecar and exposes the corrected v2 SGA/English-Germanic provenance closure. Its 100 files / 4,990,626,114 bytes front the complete 480-record privacy-clean decision log and its 2,425-event transformation ledger, then preserve the 735,972-byte deterministic provenance ZIP and 4,435-byte manifest. Anonymous raw readback matched all four direct objects and all 15 ZIP members; 96 unrelated predecessor files remain byte-identical. V1 predecessor 21779952 and raw-log predecessor 21778949 remain immutable adverse history. The SGA logbook, decision rationale, revision/reversal history, count correction, residual-ID correction, and controlling dual-DOI requirement are primary trust evidence, not reader certification. Existing corpus-specific caveats, rights boundaries, open language-review work, and immutable predecessors remain in force."
+            "Current methodology head 21782511 preserves the broad interlanguage, source-body, corpus-control, normalization, bounded-output sidecar, complete 482-record v3 privacy-clean English/Germanic decision log, EGA I printed-p.127 trust surfaces, and directly readable GAGA human logbooks and ledgers. It adds seven exact SGA R3 provenance objects: package and cross-volume logbooks, continuation, supersession rationale, predecessor decision/revision histories, and a deterministic 113-member controls ZIP. All seven new objects and all 113 ZIP members passed anonymous byte/SHA-256 readback; 93 unrelated predecessor objects retained exact API identities. Six machine-only direct duplicates were compacted only after exact raw readback proved each byte already present in retained GAGA/FAC provenance ZIPs; their former direct forms remain on immutable predecessor 21781388. The record has 100 files / 5,004,414,281 bytes and no active draft."
         ],
         "workflow": [
-            "Current replication head 21780218 preserves the workflow and replication packet and exposes the same corrected v2 SGA/English-Germanic provenance closure. Its 65 files / 9,027,091 bytes front the complete 480-record privacy-clean decision log and its 2,425-event transformation ledger, then preserve the 735,972-byte deterministic provenance ZIP and 4,435-byte manifest. Anonymous raw readback matched all four direct objects and all 15 ZIP members; 61 unrelated predecessor files remain byte-identical. V1 predecessor 21779957 and raw-log predecessor 21778962 remain immutable adverse history. These materials permit inspection of decisions, reversals, errors, count correction, residual-ID correction, continuation state, and archive custody; they do not certify the editions, translations, mathematics, rights, or accessibility."
+            "Current replication head 21782515 preserves the workflow/replication packet, complete 482-record v3 privacy-clean English/Germanic decision log, EGA I printed-p.127 replication surfaces, and directly readable GAGA human logbooks and ledgers. It adds the same seven exact SGA R3 provenance objects as methodology: package and cross-volume logbooks, continuation, supersession rationale, predecessor decision/revision histories, and the deterministic 113-member controls ZIP. All seven new objects and all 113 ZIP members passed anonymous byte/SHA-256 readback; 70 unrelated predecessor objects retained exact API identities. Six machine-only direct duplicates remain exact inside retained GAGA/FAC provenance ZIPs and on immutable predecessor 21781392. The record has 77 files / 22,843,758 bytes and no active draft."
         ],
         "fac_quality_assessment": [
-            "Dedicated producer-owned FAC quality-assessment record 21779393 documents an accidental held-out comparison: Codex translated and source-checked FAC nos. 1-79 from Serre's French authority before the project discovered the independent Achinger-Krupa English translation. The record fronts a human-readable chronology, a 74-page blind reader through no. 79, a 78-page complete project reader through no. 81, 79 unit reviews, 138 locator-bound findings, 95 frozen input identities, 219 self-correction rows, decision/project/process logbooks, exact validation, and a 111-entry English/French project TeX source ZIP. All 22 files / 2,077,104 bytes passed public UI MD5 replay and anonymous raw byte/SHA-256 readback. The comparator PDF/source and French authority scan are not redistributed; authorship, URLs, hashes, rights limits, and source authority are explicit. This is inspectable bounded quality evidence, not peer review, mathematical certification, canonicity, a scalar score, general model superiority, or blanket rights clearance. Nos. 80-81 postdate discovery and are excluded from blind claims. Concept DOI 10.5281/zenodo.21779392 is authoritative for this FAC evidence; do not duplicate it into GAGA or mint another FAC concept."
+            "Current unified FAC record 21781714 on surviving concept 10.5281/zenodo.21720996 combines the complete 63-page French working transcription, 78-page English reader, 74-page pre-discovery reader through no. 79, 36-page readable comparison report, complete source/evidence projection, and the accidental held-out comparison. Codex translated and source-checked FAC nos. 1-79 from Serre's French authority before the project discovered the independent Achinger-Krupa English translation; 79 units, 138 locator-bound findings, 95 frozen input identities, and 219 self-correction rows remain auditable in direct ledgers and logbooks. All 33 files / 10,503,869 bytes passed anonymous raw byte/SHA-256 readback; the comparison report is the default preview and GAGA is absent. The comparator PDF/source and French authority scan are not redistributed. This is inspectable bounded quality evidence, not peer review, mathematical certification, canonicity, a scalar score, general model superiority, or blanket rights clearance. Nos. 80-81 postdate discovery and are excluded from blind claims. The redundant concept 10.5281/zenodo.21779392 is tombstoned; do not duplicate FAC or mix it into GAGA."
+        ],
+        "gaga": [
+            "Dedicated pure-GAGA record 21781323 publishes a complete source-aligned working edition of Jean-Pierre Serre's 1956 article through printed pp. 1-42, bibliography, and EOF. The complete privacy-clean package ZIP is first; the 26-page linked English reader is second and the default preview; buildable English TeX, separate diplomatic and corrected French TeX, logbooks, decision/correction/reversal ledgers, reference graph, validators, and reproduction tools follow. All 62 files / 1,455,665 bytes and all 62 complete-ZIP members passed anonymous byte/SHA-256 readback. The NUMDAM authority scan and external comparison are not redistributed, and no blanket package license is asserted. This is an auditable scholarly reconstruction, not mathematician review, a critical edition, certification, or a claim that no error remains. Concept DOI 10.5281/zenodo.21781322 is the dedicated GAGA lineage; FAC remains separate."
         ],
     }
 )
 
 FAC_BROAD_CROSSLINK_NOTE = (
-    "Open the dedicated producer-owned FAC quality-assessment concept "
-    "10.5281/zenodo.21779392 (current version 10.5281/zenodo.21779393) for the "
-    "controlling coherent accidental blind-comparison package. Earlier FAC "
+    "Open the surviving unified FAC concept "
+    "10.5281/zenodo.21720996 (current version 10.5281/zenodo.21781714) for the "
+    "controlling coherent accidental blind-comparison package. The orchestrator "
+    "did not know the Achinger-Krupa translation existed; Codex independently "
+    "translated and source-reviewed FAC nos. 1-79 from the French authority; the "
+    "published comparator was discovered afterward; all 79 blind-scope units were "
+    "then adjudicated against French; and nos. 80-81 are outside the blind claim. "
+    "Earlier FAC "
     "projections on this broad record remain immutable adverse history; the "
-    "dedicated FAC files are not duplicated here, and GAGA remains separate."
+    "dedicated FAC files are not duplicated here. GAGA's mathematical reader "
+    "and source package remain on their separate concept; only the mandatory "
+    "GAGA provenance controls are mirrored directly on these broad audit surfaces."
 )
 for broad_label in ("interlanguage_reflections", "workflow"):
     RECORD_NOTES[broad_label].insert(0, FAC_BROAD_CROSSLINK_NOTE)
 
 PRIMARY_ENTRYPOINTS = {
     "sga": [
-        "00_Current_SGA1-7II_English_Presentation_Clean_Readers_and_Buildable_Source_20260803.zip",
+        "00_Current_SGA1-7II_English_Readers_and_Buildable_TeX_20260804_R3.zip",
         "00_SGA_1-7II_English_Global_Reader.pdf",
     ],
     "fac_quality_assessment": [
-        "00_READ_ME_FIRST.md",
-        "05_FAC_Quality_Assessment_Report.md",
-        "07_FAC_Editorial_Decision_Logbook.md",
-        "08_FAC_Self_Correction_Ledger.csv",
-        "09_FAC_Project_Logbook.md",
-        "01_FAC_Codex_Blind_English_Reader_through_no79.pdf",
-        "02_FAC_Codex_Complete_English_Reader.pdf",
-        "16_FAC_Project_English_and_French_TeX_Source_Layers.zip",
+        "00_FAC_Blind_Comparison_Readable_Report.pdf",
+        "04_FAC_Complete_Readers_Source_and_Blind_Comparison_Evidence_20260804.zip",
+        "05_READ_ME_FIRST.md",
+        "00_Serre_FAC_French_Complete_Working_Transcription_20260731.pdf",
+        "01_FAC_English_Complete_Reader.pdf",
+        "02_FAC_English_Blind_Reader_through_no79.pdf",
+        "13_FAC_Editorial_Decision_Logbook.md",
+        "14_FAC_Self_Correction_Ledger.csv",
+        "15_FAC_Project_Logbook.md",
+        "19_FAC_Project_English_and_French_TeX_Source_Layers.zip",
+    ],
+    "gaga": [
+        "00_GAGA_Complete_Privacy_Clean_Package_20260803.zip",
+        "01_GAGA_English_reference_v2.pdf",
+        "02_READ_ME_FIRST.md",
+        "05_GAGA_PROJECT_LOGBOOK_PRIVACY_CLEAN.md",
+        "06_GAGA_EDITORIAL_DECISION_LOGBOOK.md",
+        "08_GAGA_REVISION_HISTORY.csv",
     ],
 }
 
@@ -419,6 +442,8 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
         how_to_read = "Start with the leading current-reader bundle or open a direct reader PDF. Direct master TeX files follow; provenance and QA archives are secondary downloads."
     elif label == "fac_quality_assessment":
         how_to_read = "Start with the chronology and bounded quality-assessment report, then inspect the decision, reversal, and project logbooks as primary trust evidence. The blind and complete readers and the editable source archive follow; no scalar score or certification is implied."
+    elif label == "gaga":
+        how_to_read = "Download the complete privacy-clean ZIP first for exact path-bound custody, then open the linked English PDF selected as the default preview. The reader contains only the mathematical work and source-era apparatus; audit rationale, corrections, reversals, privacy evidence, French/English TeX, and reproduction tools remain external files."
     elif reader_pdfs:
         how_to_read = "Open the reader/reference PDFs first. When editable TeX is listed below, it is a direct download; use artifact ZIPs for additional source witnesses, OCR, page images, render checks, or provenance material."
     else:

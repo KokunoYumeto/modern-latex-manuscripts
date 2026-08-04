@@ -1,3 +1,69 @@
+## 2026-08-04: SGA R3 and dual-DOI provenance queues closed
+
+- Existing SGA concept: [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947)
+- Published SGA R3 version: [10.5281/zenodo.21782424](https://doi.org/10.5281/zenodo.21782424)
+- Current methodology successor: [10.5281/zenodo.21782511](https://doi.org/10.5281/zenodo.21782511)
+- Current replication successor: [10.5281/zenodo.21782515](https://doi.org/10.5281/zenodo.21782515)
+
+The SGA handoff queue is closed. The 57-file SGA record fronts the exact
+152-member R3 reader/source ZIP and selects the clean 4,179-page cumulative
+English reader as default preview. Anonymous replay passed all 57 direct files
+and all 152 ZIP members. Both broad concepts expose the same seven direct SGA
+R3 provenance objects plus an identical 113-member controls ZIP; all new,
+nested, and retained bytes passed readback. No SGA duplicate concept, parallel
+draft, or active draft remains.
+
+The private append-only English/Germanic log now has 489 records. Records
+483-489 postdate the public 482-record projection and must enter a later
+coherent privacy-clean successor on both broad concepts before being described
+as public. The remaining closeout here is GitHub commit/push and commit-pinned
+raw readback, not an unfinished SGA Zenodo upload.
+
+Exact receipts: [SGA R3](../manifests/published-zenodo/20260804_sga_global_reference_r3_record_21782424_public_readback.md)
+and [dual DOI](../manifests/published-zenodo/20260804_sga_r3_dual_doi_publication_receipt.md).
+
+## 2026-08-04: pure GAGA and dual-DOI provenance queues closed
+
+- Dedicated pure-GAGA concept: [10.5281/zenodo.21781322](https://doi.org/10.5281/zenodo.21781322)
+- Published GAGA version: [10.5281/zenodo.21781323](https://doi.org/10.5281/zenodo.21781323)
+- Methodology successor: [10.5281/zenodo.21781388](https://doi.org/10.5281/zenodo.21781388)
+- Replication successor: [10.5281/zenodo.21781392](https://doi.org/10.5281/zenodo.21781392)
+
+These Zenodo queue items are closed. The pure-GAGA record has 62 files /
+1,455,665 bytes, fronts the complete privacy-clean ZIP, and selects the clean
+26-page English reader as default preview. Anonymous byte/SHA-256 replay passed
+62/62 direct objects and 62/62 ZIP members. No active draft or duplicate
+pure-GAGA concept remains.
+
+Both broad concepts now expose the same 16 direct GAGA logbook, decision,
+correction, reversal, continuation, privacy, rights, and manifest objects plus
+a complete 50-member provenance ZIP. All 18 new objects passed anonymous
+readback on each record. The stale broad FAC projection remains preserved as
+adverse history; the dedicated FAC concept stays separate and prominently
+cross-linked. No FAC payload was absorbed into GAGA.
+
+The only remaining closeout is GitHub catalog/receipt publication and
+commit-pinned raw readback; it is not a pending Zenodo upload.
+
+Exact receipts:
+[pure GAGA](../manifests/published-zenodo/20260803_gaga_pure_record_21781323_public_readback.md)
+and
+[dual DOI](../manifests/published-zenodo/20260803_gaga_dual_doi_publication_receipt.md).
+
+## 2026-08-03: EGA I printed-p.127 custody queue closed
+
+- Existing EGA concept: [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353)
+- Published successor: [10.5281/zenodo.21780931](https://doi.org/10.5281/zenodo.21780931)
+
+The current record retains the 1,356-page EGA 0-IV global reader as default
+preview and adds the coherent EGA I diplomatic-French/paired-English source
+checkpoint through printed p.127, its pre-Stacks scaffold, logbook,
+decision/error ledgers, source/provenance package, and validator. Anonymous
+readback passed all nine new objects and all 49 retained predecessor objects.
+Live p.128 work is outside this immutable boundary; whole EGA and the canonical
+French corpus remain incomplete. GitHub PR/merge closeout remains separate
+from the completed Zenodo queue.
+
 ## 2026-08-02: Noether CJK visual-evidence catalog reconciliation closed
 
 - Existing standalone concept: [10.5281/zenodo.21499950](https://doi.org/10.5281/zenodo.21499950)
