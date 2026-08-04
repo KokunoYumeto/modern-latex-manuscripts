@@ -1,0 +1,5915 @@
+\section{Local and global Tor functors; K\"unneth formula}
+\label{section:III.6}
+
+
+\subsection{Introduction}
+\label{subsection:III.6.1}
+
+\oldpage[III]{137}
+
+\begin{env}[6.1.1]
+\label{III.6.1.1}
+Let $f:X\to Y$ be a morphism of preschemes, and let $\sh{F}$ be
+a quasi-coherent $\sh{O}_X$-module.  In studying the higher direct
+images $\RR^n f_*(\sh{F})$, one is led to consider the following
+general problem.  Given a base-change morphism $g:Y'\to Y$, put
+\[
+  X'=X_{(Y')}=X\times_Y Y',\qquad
+  \sh{F}'=\sh{F}\otimes_{\sh{O}_Y}\sh{O}_{Y'},\qquad
+  f'=f_{(Y')}:X'\to Y'.
+\]
+We seek information about the higher direct images
+$\RR^n f'_*(\sh{F}')$, assuming that the
+$\RR^n f_*(\sh{F})$ are known.  One sees readily
+(cf.\ for example \sref{III.7.7.2}) that this reduces to studying
+the variation of
+\[
+  \RR^n f_*\bigl(\sh{F}\otimes_{\sh{O}_Y}\sh{G}\bigr)
+\]
+as $\sh{G}$ ranges over the quasi-coherent $\sh{O}_Y$-modules;
+in other words, to studying the functor
+\[
+  \sh{G}\longmapsto
+  \RR^n f_*\bigl(\sh{F}\otimes_{\sh{O}_Y}\sh{G}\bigr).
+\]
+If $\sh{F}$ is flat over $Y$, the functor
+$\sh{G}\mapsto\sh{F}\otimes_{\sh{O}_Y}\sh{G}$ is exact
+\sref[0]{0.6.7.4}, and consequently the composite functors
+\[
+  \sh{G}\longmapsto
+  \RR^i f_*\bigl(\sh{F}\otimes_{\sh{O}_Y}\sh{G}\bigr)
+\]
+again form a cohomological functor.  This is no longer true in
+general.  In order to apply cohomological methods, one is therefore
+led to replace
+$\sh{G}\mapsto
+\RR^n f_*(\sh{F}\otimes_{\sh{O}_Y}\sh{G})$
+by other functors which are always cohomological.
+
+These functors, which generalize the Tor functors of module theory,
+are defined in Sections~\hyperref[subsection:III.6.3]{6.3}--\hyperref[subsection:III.6.7]{6.7}.  There are in fact two such
+generalizations, one local and the other global, related by spectral
+sequences discussed in Section~\hyperref[subsection:III.6.7]{6.7}.  As an application of those
+spectral sequences one obtains, under suitable hypotheses, a
+K\"unneth formula expressing
+\[
+  \RR^n(f_1\times f_2)_*
+  \bigl(\sh{F}_1\otimes_Y\sh{F}_2\bigr)
+\]
+in terms of the higher direct images
+$\RR^p(f_1)_*(\sh{F}_1)$ and
+$\RR^q(f_2)_*(\sh{F}_2)$.  Other spectral sequences
+\sref{III.6.8} generalize the associativity spectral sequences for
+the Tor functor of modules; finally, the base-change problem also
+leads to spectral sequences \sref{III.6.9}.
+\end{env}
+
+\begin{env}[6.1.2]
+\label{III.6.1.2}
+Moreover, one observes in \sref{III.6.10} that the cohomological
+functors
+\[
+  \sh{G}\longmapsto\sh{T}_\bullet(\sh{G})
+\]
+so defined are locally on $Y$ of the form
+\[
+  \sh{G}\longmapsto
+  \sh{H}_\bullet\bigl(\sh{L}_\bullet\otimes_Y\sh{G}\bigr),
+\]
+where $\sh{L}_\bullet$ is a complex of locally free
+$\sh{O}_Y$-modules, defined up to homotopy, and
+$\sh{H}_\bullet$ denotes homology.  It is therefore useful to set
+aside the particular situation which produced
+$\sh{T}_\bullet$ and to study, in general,
+\oldpage[III]{138}
+functors of the preceding form, imposing when necessary appropriate
+finiteness hypotheses on the $\sh{L}_i$ or on the
+$\sh{H}_i(\sh{L}_\bullet)$.  This is the subject of \hyperref[section:III.7]{Section~7},
+which can for the most part be read independently of \hyperref[section:III.6]{Section~6}.
+
+The most important properties of these functors concern exactness
+of a component $\sh{T}_i$ of $\sh{T}_\bullet$.  We shall give
+various criteria for establishing such properties.  As an
+application, we shall obtain conditions under which, with the
+notation of \sref{III.6.1.1}, the functor
+\[
+  \sh{G}\longmapsto
+  \RR^n f_*\bigl(\sh{F}\otimes_{\sh{O}_Y}\sh{G}\bigr)
+\]
+is exact; we shall express this by saying that $\sh{F}$ is
+\emph{cohomologically flat over $Y$ in dimension $n$}.
+Another important property of the components $\sh{T}_i$ of
+\[
+  \sh{T}_\bullet(\sh{G})
+  =
+  \sh{H}_\bullet\bigl(\sh{L}_\bullet\otimes_Y\sh{G}\bigr)
+\]
+is semicontinuity of the function
+\[
+  y\longmapsto
+  \dim_{\kres(y)}\bigl(T_i(\kres(y))\bigr).
+\]
+When $\sh{T}_i$ is exact, semicontinuity is replaced by continuity;
+by a theorem of Grauert the converse also holds when $Y$ is reduced
+\sref{III.7.8.4}.
+\end{env}
+
+\begin{env}[6.1.3]
+\label{III.6.1.3}
+In \hyperref[section:III.6]{Sections~6} and \hyperref[section:III.7]{7} we systematically use hypercohomology, taking
+complexes of sheaves rather than sheaves as arguments throughout,
+although the necessity of this point of view will become apparent
+only in later chapters.  The cohomological formalism developed here
+will moreover become more transparent in the chapter of this
+Treatise devoted to an algebra of cohomological functors of coherent
+sheaves, including the formalism of duality.  This, however, will
+require developments beyond the scope of the present chapter.
+\end{env}
+
+\begin{env}[6.1.4]
+\label{III.6.1.4}
+For brevity, let $K^\bullet$ and $K'^\bullet$ be two complexes in
+an abelian category $\mathsf{C}$.  We shall call a morphism of
+complexes
+\[
+  f:K^\bullet\longrightarrow K'^\bullet
+\]
+a \emph{homotopism} if there is a morphism
+$g:K'^\bullet\to K^\bullet$ such that both composites
+$f\circ g$ and $g\circ f$ are homotopic to the identity.  By abuse
+of language, when such a homotopism exists we shall also say that
+$K^\bullet$ and $K'^\bullet$ are homotopic.
+
+Suppose that the hypercohomology of a covariant additive functor
+$T:\mathsf{C}\to\mathsf{C}'$, with values in an abelian category
+$\mathsf{C}'$, can be defined relative to a complex of
+$\mathsf{C}$ \sref[0]{0.11.4.3}.  It is then immediate that a
+homotopism $K^\bullet\to K'^\bullet$ canonically defines an
+isomorphism
+\[
+  \mathbf{R}^\bullet T(K^\bullet)
+  \xrightarrow{\ \sim\ }
+  \mathbf{R}^\bullet T(K'^\bullet)
+\]
+on hypercohomology \emph{(loc.\ cit.)}.
+\end{env}
+
+
+\subsection{Hypercohomology of complexes of modules on a prescheme}
+\label{subsection:III.6.2}
+
+\begin{env}[6.2.1]
+\label{III.6.2.1}
+Let $X$ be a prescheme, and let
+$\sh{K}^\bullet=(\sh{K}^i)_{i\in\bb{Z}}$ be a complex of
+$\sh{O}_X$-modules whose differential has degree $+1$.
+Recall that, for every morphism $f:X\to Y$ of preschemes, the
+$\sh{O}_Y$-modules of hypercohomology
+$\mathcal{H}^n(f,\sh{K}^\bullet)$, also denoted
+$\mathcal{H}_f^n(\sh{K}^\bullet)$ or
+$\RR^n f_*(\sh{K}^\bullet)$, have been defined for every
+$n\in\bb{Z}$ \sref[0]{0.12.4.1}.  The hypercohomology
+$\mathcal{H}^\bullet(f,\sh{K}^\bullet)$ is the common abutment of
+the two spectral functors
+$'\sh{E}(f,\sh{K}^\bullet)$ and
+$''\sh{E}(f,\sh{K}^\bullet)$ whose $E_2$-terms are
+\[
+  '\sh{E}_2^{pq}
+  =
+  \sh{H}^p\bigl(\sh{H}^q(f,\sh{K}^\bullet)\bigr),
+  \tag{6.2.1.1}\label{III.6.2.1.1}
+\]
+and
+\[
+  ''\sh{E}_2^{pq}
+  =
+  \sh{H}^p\bigl(f,\sh{H}^q(\sh{K}^\bullet)\bigr)
+  =
+  \RR^p f_*\bigl(\sh{H}^q(\sh{K}^\bullet)\bigr).
+  \tag{6.2.1.2}\label{III.6.2.1.2}
+\]
+\oldpage[III]{139}
+Here $\sh{H}^q(f,\sh{K}^\bullet)$ is the complex whose component
+of degree $i$ is
+\[
+  \sh{H}^q(f,\sh{K}^i)=\RR^q f_*(\sh{K}^i)
+\]
+\emph{(loc.\ cit.)}.  Recall also that, when $Y$ is reduced to a
+point, the corresponding hypercohomology is denoted
+$\mathbf{H}^\bullet(X,\sh{K}^\bullet)$; it consists of modules
+over $\Gamma(X,\sh{O}_X)$ and is independent of the one-point
+prescheme $Y$ chosen.  When $Y=X$ and $f=1_X$,
+\[
+  \mathcal{H}^n(f,\sh{K}^\bullet)
+  =
+  \sh{H}^n(\sh{K}^\bullet),
+\]
+the cohomology of the complex $\sh{K}^\bullet$.  When
+$\sh{K}^i=0$ except for $i=i_0$, one has
+\[
+  \mathcal{H}^n(f,\sh{K}^\bullet)
+  =
+  \RR^{n-i_0}f_*(\sh{K}^{i_0}).
+\]
+
+The spectral sequence $'\sh{E}(f,\sh{K}^\bullet)$ is always
+regular; both spectral sequences are biregular when
+$\sh{K}^\bullet$ is bounded below \sref[0]{0.12.4.1}.
+Every homotopism
+$h:\sh{K}^\bullet\to\sh{K}'^\bullet$ of complexes of
+$\sh{O}_X$-modules \sref{III.6.1.4} induces an isomorphism
+\[
+  \mathcal{H}^\bullet(f,\sh{K}^\bullet)
+  \xrightarrow{\ \sim\ }
+  \mathcal{H}^\bullet(f,\sh{K}'^\bullet)
+\]
+on hypercohomology.  The same conclusion holds if one assumes only
+that
+\[
+  \sh{H}^\bullet(h):
+  \sh{H}^\bullet(\sh{K}^\bullet)
+  \xrightarrow{\ \sim\ }
+  \sh{H}^\bullet(\sh{K}'^\bullet)
+\]
+is an isomorphism and that both complexes are bounded below.  This
+follows immediately from \sref[0]{0.11.1.5}, applied to the
+spectral sequence \sref{III.6.2.1.2} and its analogue for
+$\sh{K}'^\bullet$.
+
+Finally, for every open covering
+$\mathfrak{U}=(U_\alpha)$ of $X$, the hypercohomology
+$\mathbf{H}^\bullet(\mathfrak{U},\sh{K}^\bullet)$ has also been
+defined \sref[0]{0.12.4.5} as the cohomology of the bicomplex
+$\mathrm{C}^\bullet(\mathfrak{U},\sh{K}^\bullet)$, whose component
+of bidegree $(i,j)$ is by definition
+$\mathrm{C}^i(\mathfrak{U},\sh{K}^j)$.  The modules
+$\mathbf{H}^n(\mathfrak{U},\sh{K}^\bullet)$ are again modules over
+$\Gamma(X,\sh{O}_X)$.
+\end{env}
+
+\begin{proposition}[6.2.2]
+\label{III.6.2.2}
+Let $X$ be a scheme, and let $\mathfrak{U}=(U_\alpha)$ be a
+covering of $X$ by affine open subsets.  For every complex
+$\sh{K}^\bullet$ of quasi-coherent $\sh{O}_X$-modules, the
+hypercohomology modules
+\[
+  \mathbf{H}^\bullet(X,\sh{K}^\bullet)
+  \quad\text{and}\quad
+  \mathbf{H}^\bullet(\mathfrak{U},\sh{K}^\bullet)
+\]
+are canonically isomorphic.
+\end{proposition}
+
+\begin{proof}
+Every finite intersection $V$ of members of $\mathfrak{U}$ is
+affine \sref[I]{I.5.5.6}; hence
+$\HH^q(V,\sh{K}^i)=0$ for every $i$ and every $q>0$
+\sref{III.1.3.1}.  The proposition is therefore a special case of
+\sref[0]{0.12.4.7}.
+\end{proof}
+
+\begin{proposition}[6.2.3]
+\label{III.6.2.3}
+Let $f:X\to Y$ be a quasi-compact separated morphism of
+preschemes.  For every complex $\sh{K}^\bullet$ of quasi-coherent
+$\sh{O}_X$-modules, the $\sh{O}_Y$-modules
+$\mathcal{H}^n(f,\sh{K}^\bullet)$ are quasi-coherent.
+\end{proposition}
+
+\begin{proof}
+The modules
+\[
+  \sh{H}^q(f,\sh{K}^i)=\RR^qf_*(\sh{K}^i)
+\]
+are quasi-coherent $\sh{O}_Y$-modules \sref{III.1.4.10}.  Hence so
+is $'\sh{E}_2^{pq}$: by \sref{III.6.2.1.1}, it is the quotient of
+the kernel of a homomorphism of quasi-coherent modules by the image
+of such a homomorphism \sref[I]{I.4.1.1}.  For the same reason, all
+terms, cycles, and boundaries of the first spectral sequence are
+quasi-coherent.  Regularity implies that
+$\mathrm{Z}_\infty('\sh{E}_2^{pq})$ equals one of the
+$\mathrm{Z}_k('\sh{E}_2^{pq})$ and is therefore quasi-coherent.
+Likewise,
+\[
+  \mathrm{B}_\infty('\sh{E}_2^{pq})
+  =
+  \varinjlim_k\mathrm{B}_k('\sh{E}_2^{pq})
+\]
+is quasi-coherent \sref[0]{0.11.2.4}, \sref[I]{I.4.1.1}; thus the
+$'\sh{E}_\infty^{pq}$ are quasi-coherent as well.
+
+Since the spectral sequence is regular, the filtration
+$F^\bullet\mathcal{H}^n(f,\sh{K}^\bullet)$ is discrete and
+exhaustive.  Equivalently,
+$\mathcal{H}^n(f,\sh{K}^\bullet)$ is the union of an increasing
+sequence $(\sh{G}_k)_{k\geq0}$ of $\sh{O}_Y$-modules such that
+$\sh{G}_0=0$ and every quotient
+$\sh{G}_k/\sh{G}_{k-1}$ is one of the
+$'\sh{E}_\infty^{pq}$, and hence is quasi-coherent.  It follows
+inductively that the $\sh{G}_k$ are quasi-coherent
+\sref{III.1.4.17}.  Since
+\[
+  \mathcal{H}^n(f,\sh{K}^\bullet)
+  =
+  \varinjlim_k\sh{G}_k,
+\]
+the proposition follows from \sref[I]{I.4.1.1}.
+\end{proof}
+
+\begin{corollary}[6.2.4]
+\label{III.6.2.4}
+\oldpage[III]{140}
+Under the hypotheses of \sref{III.6.2.3}, for every affine open
+subset $V$ of $Y$, the canonical homomorphism
+\[
+  \mathbf{H}^n\bigl(f^{-1}(V),\sh{K}^\bullet\bigr)
+  \longrightarrow
+  \Gamma\bigl(V,\mathcal{H}^n(f,\sh{K}^\bullet)\bigr)
+  \tag{6.2.4.1}\label{III.6.2.4.1}
+\]
+is bijective for every $n\in\bb{Z}$.
+\end{corollary}
+
+\begin{proof}
+The proof is the same as that of \sref{III.1.4.11}, using
+\sref{III.6.2.2}: one replaces the sheaf there by
+$\sh{K}^\bullet$, uses the Cech bicomplex
+$f_*\mathrm{C}^\bullet(\mathfrak{U},\sh{K}^\bullet)$, and replaces
+ordinary cohomology by
+$\mathcal{H}^\bullet(f,\sh{K}^\bullet)$.  The latter is a
+quasi-coherent $\sh{O}_Y$-module by \sref{III.6.2.3}.
+\end{proof}
+
+\begin{proposition}[6.2.5]
+\label{III.6.2.5}
+Let $Y$ be a locally Noetherian prescheme, let $f:X\to Y$ be
+proper, and let $\sh{K}^\bullet$ be a complex of
+$\sh{O}_X$-modules such that the $\sh{O}_X$-modules
+$\sh{H}^q(\sh{K}^\bullet)$ are coherent.  Then the
+$\sh{O}_Y$-modules $\mathcal{H}^n(f,\sh{K}^\bullet)$ are
+coherent.
+\end{proposition}
+
+\begin{proof}
+The question is local on $Y$, so we may suppose that $Y$ is
+Noetherian and affine.  By \sref{III.6.2.4}, it is enough to prove
+that the $\mathbf{H}^n(X,\sh{K}^\bullet)$ are finite-type modules
+over $\Gamma(Y,\sh{O}_Y)$ \sref{III.3.2.1}.  By
+\sref{III.6.2.2},
+\[
+  \mathbf{H}^\bullet(X,\sh{K}^\bullet)
+  =
+  \mathbf{H}^\bullet(\mathfrak{U},\sh{K}^\bullet),
+\]
+where $\mathfrak{U}$ may be taken finite, since $X$ is
+quasi-compact.  The cochains in each complex
+$\mathrm{C}^\bullet(\mathfrak{U},\sh{K}^j)$ are alternating by
+definition.  Hence there is an integer $r>0$ such that
+\[
+  \mathrm{C}^i(\mathfrak{U},\sh{K}^j)=0
+  \qquad\text{for }i<0\text{ and }i>r.
+\]
+It follows from \sref[0]{0.11.3.3} that both spectral sequences of
+the bicomplex
+$\mathrm{C}^\bullet(\mathfrak{U},\sh{K}^\bullet)$ are biregular.
+
+Intersections of members of $\mathfrak{U}$ are affine open subsets
+\sref[I]{I.5.5.6}, so each functor
+\[
+  \sh{F}\longmapsto\mathrm{C}^i(\mathfrak{U},\sh{F})
+\]
+is exact in the category of quasi-coherent $\sh{O}_X$-modules.
+Consequently the $E_2$-terms of the second spectral sequence are
+\[
+  ''E_2^{pq}
+  =
+  \HH^p\bigl(
+    \mathrm{C}^\bullet(
+      \mathfrak{U},\sh{H}^q(\sh{K}^\bullet)
+    )
+  \bigr)
+  =
+  \mathbf{H}^p\bigl(
+    \mathfrak{U},\sh{H}^q(\sh{K}^\bullet)
+  \bigr)
+  =
+  \HH^p\bigl(X,\sh{H}^q(\sh{K}^\bullet)\bigr)
+\]
+\sref[0]{0.11.3.2}, \sref{III.1.4.1}.  Since $f$ is proper, these
+are finite-type $\Gamma(Y,\sh{O}_Y)$-modules
+\sref{III.3.2.1}.  Biregularity now implies that the
+$\mathbf{H}^n(X,\sh{K}^\bullet)$ are finite-type
+$\Gamma(Y,\sh{O}_Y)$-modules \sref[0]{0.11.1.8}.
+
+\emph{A fortiori}, if $\sh{K}^\bullet$ is a complex of coherent
+$\sh{O}_X$-modules, then the
+$\mathcal{H}^n(f,\sh{K}^\bullet)$ are coherent under the
+hypotheses on $Y$ and $f$ in \sref{III.6.2.5}
+\sref[0]{0.5.3.4}.
+\end{proof}
+
+\begin{env}[6.2.6]
+\label{III.6.2.6}
+The hypercohomology
+$\mathcal{H}^\bullet(f,\sh{K}^\bullet)$ is a cohomological functor
+on the category of bounded-below complexes of $\sh{O}_X$-modules
+\sref[0]{0.12.4.4}.  It is a cohomological functor on the category
+of all complexes of $\sh{O}_X$-modules when $f$ is quasi-compact
+and the underlying space of $X$ is locally Noetherian.  Indeed,
+$f_*$ then commutes with inductive limits
+\emph{(G, II, 3.10.1)}---the question being local on $Y$---and
+\sref[0]{0.11.5.2} applies.
+
+Finally, if $f$ is separated,
+$\mathcal{H}^\bullet(f,\sh{K}^\bullet)$ is a cohomological functor
+on the category of complexes of quasi-coherent
+$\sh{O}_X$-modules.  This is immediate when $Y$ is affine, for
+then $X$ is a scheme and the canonical isomorphism
+\sref{III.6.2.2} reduces the assertion to the fact that
+\[
+  \sh{K}^\bullet\longmapsto
+  \mathbf{H}^\bullet(\mathfrak{U},\sh{K}^\bullet)
+\]
+is cohomological.  This in turn is immediate because
+\[
+  \sh{K}^\bullet\longmapsto
+  \mathrm{C}^\bullet(\mathfrak{U},\sh{K}^\bullet)
+\]
+is exact in this category \sref[I]{I.1.3.7}.
+
+In general, for every affine open subset $V$ of $Y$,
+\oldpage[III]{141}
+$f^{-1}(V)$ is a scheme.  To apply the preceding argument, it is
+enough to verify that, for an exact sequence
+\[
+  0\longrightarrow\sh{K}'^\bullet
+  \longrightarrow\sh{K}^\bullet
+  \longrightarrow\sh{K}''^\bullet
+  \longrightarrow0
+\]
+of complexes of quasi-coherent $\sh{O}_X$-modules, the connecting
+homomorphism
+\[
+  \partial:
+  \mathcal{H}^n(f,\sh{K}''^\bullet)|V
+  \longrightarrow
+  \mathcal{H}^{n+1}(f,\sh{K}'^\bullet)|V
+\]
+does not depend on the affine open covering $\mathfrak{U}$ of
+$f^{-1}(V)$ used to define it.  If $\mathfrak{U}'$ is an affine
+open refinement of $\mathfrak{U}$, this follows from commutativity
+of the triangle of canonical isomorphisms
+\[
+  \xymatrix@C=34pt@R=22pt{
+    \mathbf{H}^\bullet(\mathfrak{U},\sh{K}^\bullet)
+      \ar[rr]^-{\sim}
+      \ar[dd]_{\iota}
+    &&
+    \mathbf{H}^\bullet(f^{-1}(V),\sh{K}^\bullet)
+    \\
+    \\
+    \mathbf{H}^\bullet(\mathfrak{U}',\sh{K}^\bullet)
+      \ar[uurr]_-{\sim}
+  }
+\]
+and of the diagram
+\[
+  \xymatrix@C=46pt@R=25pt{
+    \mathbf{H}^n(\mathfrak{U},\sh{K}''^\bullet)
+      \ar[r]^-{\partial}
+      \ar[d]_{\iota}
+    &
+    \mathbf{H}^{n+1}(\mathfrak{U},\sh{K}'^\bullet)
+      \ar[d]^{\iota}
+    \\
+    \mathbf{H}^n(\mathfrak{U}',\sh{K}''^\bullet)
+      \ar[r]_-{\partial}
+    &
+    \mathbf{H}^{n+1}(\mathfrak{U}',\sh{K}'^\bullet).
+  }
+\]
+
+Whenever one of the preceding conditions holds and
+$\sh{K}^\bullet\to\sh{K}'^\bullet$ is a homotopism
+\sref{III.6.1.4}, the resulting isomorphism
+\[
+  \mathcal{H}^\bullet(f,\sh{K}^\bullet)
+  \xrightarrow{\ \sim\ }
+  \mathcal{H}^\bullet(f,\sh{K}'^\bullet)
+\]
+is an isomorphism of $\partial$-functors
+\sref[0]{0.11.4.4}.
+\end{env}
+
+\begin{env}[6.2.7]
+\label{III.6.2.7}
+Everything above applies naturally, with only a change of notation,
+to a complex $\sh{K}_\bullet$ of quasi-coherent
+$\sh{O}_X$-modules whose differential has degree $-1$: it is
+enough to consider the complex
+$\sh{K}^\bullet=(\sh{K}^i)$ defined by
+\[
+  \sh{K}^i=\sh{K}_{-i}
+  \qquad(i\in\bb{Z}).
+\]
+\end{env}
+
+
+\subsection{Hypertor of two complexes of modules}
+\label{subsection:III.6.3}
+
+\begin{env}[6.3.1]
+\label{III.6.3.1}
+Let $A$ be a commutative ring, and let $P_\bullet$ and
+$Q_\bullet$ be two complexes of $A$-modules whose differentials
+have degree $-1$.  Let $L_{\bullet\bullet}$ and
+$M_{\bullet\bullet}$ be projective Cartan--Eilenberg resolutions
+of $P_\bullet$ and $Q_\bullet$, respectively
+\sref[0]{0.11.6.1}.  Taking the sum of the first degrees and the
+sum of the second degrees,
+\[
+  L_{\bullet\bullet}\otimes_A M_{\bullet\bullet}
+\]
+is a bicomplex whose differentials have degree $-1$.  Its homology
+\[
+  \HH_\bullet(
+    L_{\bullet\bullet}\otimes_A M_{\bullet\bullet}
+  )
+\]
+does not depend on the chosen Cartan--Eilenberg resolutions and is,
+by definition, the hyperhomology of the bifunctor
+$P_\bullet\otimes_AQ_\bullet$ in $P_\bullet$ and $Q_\bullet$
+\sref[0]{0.11.6.5}.  We put
+\[
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)
+  =
+  \HH_n(L_{\bullet\bullet}\otimes_A M_{\bullet\bullet})
+  \tag{6.3.1.1}\label{III.6.3.1.1}
+\]
+\oldpage[III]{142}
+and call this $A$-module the \emph{hypertor of index $n$} of the
+two complexes $P_\bullet$ and $Q_\bullet$.  In the category of
+bounded-below complexes of $A$-modules, the modules
+$\mathbf{Tor}_n^A(P_\bullet,Q_\bullet)$ form a homological
+bifunctor in $P_\bullet$ and $Q_\bullet$
+\sref[0]{0.11.6.5}.  Moreover:
+\end{env}
+
+\begin{proposition}[6.3.2]
+\label{III.6.3.2}
+The bifunctor $\mathbf{Tor}_\bullet^A(P_\bullet,Q_\bullet)$ is the
+common abutment of two bifunctorial spectral sequences
+$'E(P_\bullet,Q_\bullet)$ and $''E(P_\bullet,Q_\bullet)$ whose
+$E_2$-terms are
+\[
+  'E_{pq}^2
+  =
+  \HH_p\bigl(\Tor_q^A(P_\bullet,Q_\bullet)\bigr),
+  \tag{6.3.2.1}\label{III.6.3.2.1}
+\]
+and
+\[
+  ''E_{pq}^2
+  =
+  \bigoplus_{q'+q''=q}
+  \Tor_p^A\bigl(
+    \HH_{q'}(P_\bullet),\HH_{q''}(Q_\bullet)
+  \bigr).
+  \tag{6.3.2.2}\label{III.6.3.2.2}
+\]
+In \sref{III.6.3.2.1},
+$\Tor_q^A(P_\bullet,Q_\bullet)$ denotes the bicomplex formed by
+the $A$-modules $\Tor_q^A(P_i,Q_j)$.  The spectral sequence
+\sref{III.6.3.2.2} is always regular.  If $P_\bullet$ and
+$Q_\bullet$ are bounded below, or if $A$ has finite cohomological
+dimension, then both spectral sequences
+\sref{III.6.3.2.1} and \sref{III.6.3.2.2} are biregular.
+\end{proposition}
+
+\begin{proof}
+This follows from \sref[0]{0.11.6.5}.  Indeed, if $A$ has finite
+cohomological dimension $n$, every $A$-module has a projective
+resolution of length $n$ \emph{(M, VI, 2.1)}.
+\end{proof}
+
+\begin{corollary}[6.3.3]
+\label{III.6.3.3}
+Let $P'_\bullet$ and $Q'_\bullet$ be complexes of $A$-modules, and
+let
+\[
+  u:P_\bullet\to P'_\bullet,
+  \qquad
+  v:Q_\bullet\to Q'_\bullet
+\]
+be homomorphisms of complexes.  If the induced homomorphisms
+\[
+  \HH_\bullet(u):
+  \HH_\bullet(P_\bullet)\longrightarrow\HH_\bullet(P'_\bullet),
+  \qquad
+  \HH_\bullet(v):
+  \HH_\bullet(Q_\bullet)\longrightarrow\HH_\bullet(Q'_\bullet)
+\]
+are bijective, then the homomorphism
+\[
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)
+  \longrightarrow
+  \mathbf{Tor}_n^A(P'_\bullet,Q'_\bullet)
+\]
+induced by $u$ and $v$ is bijective.
+\end{corollary}
+
+\begin{proof}
+The induced homomorphism
+\[
+  ''E(P_\bullet,Q_\bullet)
+  \longrightarrow
+  ''E(P'_\bullet,Q'_\bullet)
+\]
+is an isomorphism on the $E_2$-terms.  The conclusion follows from
+regularity of these spectral sequences \sref{III.6.3.2} and
+\sref[0]{0.11.1.5}.
+\end{proof}
+
+\begin{proposition}[6.3.4]
+\label{III.6.3.4}
+Let $P_\bullet$ and $Q_\bullet$ be bounded-below complexes of
+$A$-modules.  Let $L_{\bullet\bullet}$ and
+$M_{\bullet\bullet}$ be bicomplexes of flat $A$-modules such that,
+for every $i$, $L_{i,\bullet}$ is a resolution of $P_i$ and
+$M_{i,\bullet}$ is a resolution of $Q_i$.  Then there are canonical
+isomorphisms
+\[
+  \begin{split}
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)
+  &\xrightarrow{\ \sim\ }
+  \HH_n(L_{\bullet\bullet}\otimes_AQ_\bullet)\\
+  &\xrightarrow{\ \sim\ }
+  \HH_n(P_\bullet\otimes_AM_{\bullet\bullet})\\
+  &\xrightarrow{\ \sim\ }
+  \HH_n(L_{\bullet\bullet}\otimes_AM_{\bullet\bullet}).
+  \end{split}
+  \tag{6.3.4.1}\label{III.6.3.4.1}
+\]
+\end{proposition}
+
+\begin{proof}
+This follows from \sref[0]{0.11.6.5}, parts (ii) and (iii), and
+from the definition of flat $A$-modules.
+\end{proof}
+
+\begin{remarks}[6.3.5]
+\label{III.6.3.5}
+\emph{(i)} With the notation of \sref{III.6.3.1}, the bicomplexes
+$L_{\bullet\bullet}\otimes_AM_{\bullet\bullet}$ and
+$M_{\bullet\bullet}\otimes_AL_{\bullet\bullet}$ are canonically
+isomorphic.  Hence there is a canonical isomorphism
+\[
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)
+  \xrightarrow{\ \sim\ }
+  \mathbf{Tor}_n^A(Q_\bullet,P_\bullet).
+\]
+
+\emph{(ii)} Let $F$ and $G$ be $A$-modules, and let $P_\bullet$
+and $Q_\bullet$ be the complexes concentrated in degree $0$ with
+values $F$ and $G$, respectively.  Projective resolutions
+$L_\bullet$ of $F$ and $M_\bullet$ of $G$ may be regarded, after
+adjoining zeros, as Cartan--Eilenberg resolutions of $P_\bullet$
+and $Q_\bullet$.  Thus in this case
+\[
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)=\Tor_n^A(F,G).
+\]
+\end{remarks}
+
+\begin{proposition}[6.3.6]
+\label{III.6.3.6}
+Let $(P_\bullet^\lambda)$ and $(Q_\bullet^\mu)$ be two filtered
+inductive systems of complexes of $A$-modules.  There is a
+canonical isomorphism
+\[
+  \varinjlim_{\lambda,\mu}
+  \mathbf{Tor}_n^A(P_\bullet^\lambda,Q_\bullet^\mu)
+  \xrightarrow{\ \sim\ }
+  \mathbf{Tor}_n^A\left(
+    \varinjlim_\lambda P_\bullet^\lambda,
+    \varinjlim_\mu Q_\bullet^\mu
+  \right).
+  \tag{6.3.6.1}\label{III.6.3.6.1}
+\]
+\end{proposition}
+
+\begin{proof}
+Put
+\[
+  P_\bullet=\varinjlim_\lambda P_\bullet^\lambda,
+  \qquad
+  Q_\bullet=\varinjlim_\mu Q_\bullet^\mu.
+\]
+By functoriality, the modules
+$\mathbf{Tor}_n^A(P_\bullet^\lambda,Q_\bullet^\mu)$ form an
+inductive system, and the canonical maps to
+$\mathbf{Tor}_n^A(P_\bullet,Q_\bullet)$ give the homomorphism
+\sref{III.6.3.6.1}.  More generally, they give a canonical
+homomorphism of spectral sequences
+\[
+  \varinjlim_{\lambda,\mu}
+  ''E(P_\bullet^\lambda,Q_\bullet^\mu)
+  \longrightarrow
+  ''E(P_\bullet,Q_\bullet),
+\]
+whose homomorphism on abutments is \sref{III.6.3.6.1}.
+
+The spectral sequence $''E(P_\bullet,Q_\bullet)$ is regular by
+\sref{III.6.3.2}.  So is
+$\varinjlim_{\lambda,\mu}''E(P_\bullet^\lambda,Q_\bullet^\mu)$,
+as follows from the definitions \sref[0]{0.11.1.7} and the proof
+of \sref[0]{0.11.3.3}.  By \sref[0]{0.11.1.5}, it is therefore
+enough to prove that
+\[
+  \varinjlim_{\lambda,\mu}
+  ''E(P_\bullet^\lambda,Q_\bullet^\mu)
+  \longrightarrow
+  ''E(P_\bullet,Q_\bullet)
+  \tag{6.3.6.2}\label{III.6.3.6.2}
+\]
+is bijective on the $E^2$-terms.
+
+Since homology commutes with inductive limits of complexes of
+modules, it remains only to prove that, for filtered inductive
+systems $(F^\lambda)$ and $(G^\mu)$ of $A$-modules, the canonical
+homomorphism
+\[
+  \varinjlim_{\lambda,\mu}\Tor_n^A(F^\lambda,G^\mu)
+  \longrightarrow
+  \Tor_n^A\left(
+    \varinjlim_\lambda F^\lambda,
+    \varinjlim_\mu G^\mu
+  \right)
+\]
+is bijective.
+
+For each $F^\lambda$, consider its canonical free resolution
+\[
+  L_\bullet^\lambda:\quad
+  \cdots\longrightarrow L_{i+1}^\lambda
+  \longrightarrow L_i^\lambda
+  \longrightarrow\cdots\longrightarrow
+  L_1^\lambda\longrightarrow L_0^\lambda\longrightarrow0,
+\]
+where $L_0^\lambda$ is the $A$-module of formal linear
+combinations of elements of $F^\lambda$, and
+$L_{i+1}^\lambda$ is the $A$-module of formal linear combinations
+of elements of
+$\Ker(L_i^\lambda\to L_{i-1}^\lambda)$.  The
+$L_\bullet^\lambda$ form an inductive system of complexes.  Put
+\[
+  F=\varinjlim_\lambda F^\lambda,
+  \qquad
+  L_i=\varinjlim_\lambda L_i^\lambda.
+\]
+Since filtered inductive limits are exact, the $L_i$ form a
+resolution $L_\bullet$ of $F$; moreover, each $L_i$ is flat, being
+an inductive limit of free $A$-modules \sref[0]{0.6.1.2}.
+
+Likewise, let $M_\bullet^\mu$ be the canonical free resolution of
+$G^\mu$, and put
+\[
+  M_\bullet=\varinjlim_\mu M_\bullet^\mu,
+  \qquad
+  G=\varinjlim_\mu G^\mu.
+\]
+Then $M_\bullet$ is a flat resolution of $G$.  By
+\sref{III.6.3.5} and \sref{III.6.3.4},
+\[
+  \Tor_n^A(F,G)=\HH_n(L_\bullet\otimes_AM_\bullet).
+\]
+Since homology commutes with inductive limits of complexes of
+modules,
+\[
+  \HH_n(L_\bullet\otimes_AM_\bullet)
+  =
+  \varinjlim_{\lambda,\mu}
+  \HH_n(L_\bullet^\lambda\otimes_AM_\bullet^\mu).
+\]
+The last modules are $\Tor_n^A(F^\lambda,G^\mu)$, which proves
+\sref{III.6.3.6.1}.
+
+If, in addition, there is an $i_0$ such that
+$P_i^\lambda=Q_i^\mu=0$ for $i<i_0$, for all $\lambda$ and
+$\mu$, the same argument proves that the canonical homomorphism
+\[
+  \varinjlim_{\lambda,\mu}
+  'E(P_\bullet^\lambda,Q_\bullet^\mu)
+  \longrightarrow
+  'E(P_\bullet,Q_\bullet)
+  \tag{6.3.6.3}\label{III.6.3.6.3}
+\]
+is bijective.
+\end{proof}
+
+\begin{proposition}[6.3.7]
+\label{III.6.3.7}
+Suppose that $P_\bullet$ and $Q_\bullet$ are bounded below.  If
+$P_\bullet$ consists of flat $A$-modules, there is a canonical
+$A$-linear isomorphism of $\partial$-functors in $Q_\bullet$
+\[
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)
+  \xrightarrow{\ \sim\ }
+  \HH_n(P_\bullet\otimes_AQ_\bullet).
+  \tag{6.3.7.1}\label{III.6.3.7.1}
+\]
+\end{proposition}
+
+\begin{proof}
+The spectral sequence \sref{III.6.3.2.1} is biregular and
+degenerate, so existence of \sref{III.6.3.7.1} follows from
+\sref[0]{0.11.1.6}.  Computing hypertor from a projective
+Cartan--Eilenberg resolution of $P_\bullet$ as in
+\sref{III.6.3.4} shows immediately that this isomorphism is an
+isomorphism of $\partial$-functors in $Q_\bullet$.
+\end{proof}
+
+\begin{env}[6.3.8]
+\label{III.6.3.8}
+\oldpage[III]{144}
+Let $\rho:A\longrightarrow A'$ be a homomorphism of rings.  We
+shall define a functorial $A$-linear homomorphism of degree zero,
+canonically associated with $\rho$,
+\[
+  \rho_{P_\bullet,Q_\bullet}:
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)
+  \longrightarrow
+  \mathbf{Tor}_n^{A'}
+  (P_\bullet\otimes_AA',Q_\bullet\otimes_AA').
+  \tag{6.3.8.1}\label{III.6.3.8.1}
+\]
+
+For this purpose, let $L_{\bullet\bullet}$ be a projective
+Cartan--Eilenberg resolution of $P_\bullet$, and let
+$L'_{\bullet\bullet}$ be a projective Cartan--Eilenberg resolution
+of $P_\bullet\otimes_AA'$.  We first show that there is an
+$A'$-linear homomorphism of complexes
+\[
+  L_{\bullet\bullet}\otimes_AA'
+  \longrightarrow L'_{\bullet\bullet},
+\]
+determined up to homotopy.  Indeed, the construction of
+$L_{\bullet\bullet}$ is completely determined once one chooses,
+arbitrarily for each $i$, a projective resolution
+$(X_{ij}^{\mathrm B})_{j\geq0}$ of $\mathrm B_i(P_\bullet)$ and a
+projective resolution $(X_{ij}^{\mathrm H})_{j\geq0}$ of
+$\HH_i(P_\bullet)$.  These are respectively
+$\mathrm B_i^{\mathrm I}(L_{\bullet\bullet})$ and
+$\HH_i^{\mathrm I}(L_{\bullet\bullet})$.  One then obtains
+successively
+\[
+  \mathrm Z_i^{\mathrm I}(L_{\bullet\bullet})
+  =
+  \HH_i^{\mathrm I}(L_{\bullet\bullet})
+  \oplus
+  \mathrm B_i^{\mathrm I}(L_{\bullet\bullet}),
+  \qquad
+  L_{i,\bullet}
+  =
+  \mathrm Z_i^{\mathrm I}(L_{\bullet\bullet})
+  \oplus
+  \mathrm B_{i-1}^{\mathrm I}(L_{\bullet\bullet}).
+\]
+Now $X_{i,\bullet}^{\mathrm B}\otimes_AA'$ is not in general a
+resolution of $\mathrm B_i(P_\bullet)\otimes_AA'$, but it is still
+a complex of projective $A'$-modules.  Hence there is an
+$A'$-linear homomorphism
+\[
+  X_{i,\bullet}^{\mathrm B}\otimes_AA'
+  \longrightarrow
+  \mathrm B_i^{\mathrm I}(L'_{\bullet\bullet})
+\]
+compatible with the augmentations and determined up to homotopy
+(\emph{M}, V, 1.1).  Likewise there is an $A'$-linear homomorphism
+\[
+  X_{i,\bullet}^{\mathrm H}\otimes_AA'
+  \longrightarrow
+  \HH_i^{\mathrm I}(L'_{\bullet\bullet})
+\]
+determined up to homotopy.  By the construction just recalled,
+these maps give, for every $i$, an $A'$-linear homomorphism
+\[
+  L_{i,\bullet}\otimes_AA'\longrightarrow L'_{i,\bullet}.
+\]
+For $i\in\mathbb Z$ these homomorphisms are compatible with the
+differentials $L_{i,\bullet}\longrightarrow L_{i-1,\bullet}$ and
+their analogues for $L'_{\bullet\bullet}$; together they therefore
+give the required homomorphism
+$L_{\bullet\bullet}\otimes_AA'\longrightarrow L'_{\bullet\bullet}$.
+
+To define \sref{III.6.3.8.1}, take in the same way projective
+Cartan--Eilenberg resolutions $M_{\bullet\bullet}$ and
+$M'_{\bullet\bullet}$ of $Q_\bullet$ and
+$Q_\bullet\otimes_AA'$, respectively, and an $A'$-linear
+homomorphism
+$M_{\bullet\bullet}\otimes_AA'\longrightarrow M'_{\bullet\bullet}$.
+The resulting homomorphism
+\[
+  (L_{\bullet\bullet}\otimes_AA')
+  \otimes_{A'}
+  (M_{\bullet\bullet}\otimes_AA')
+  \longrightarrow
+  L'_{\bullet\bullet}\otimes_{A'}M'_{\bullet\bullet}
+\]
+gives, by composition, an $A$-linear homomorphism of bicomplexes
+\[
+  L_{\bullet\bullet}\otimes_AM_{\bullet\bullet}
+  \longrightarrow
+  L'_{\bullet\bullet}\otimes_{A'}M'_{\bullet\bullet}.
+\]
+Passing to homology yields \sref{III.6.3.8.1}; it is well defined
+because it is induced by a homomorphism of complexes determined up
+to homotopy.
+
+If $\rho':A'\longrightarrow A''$ is a second homomorphism of rings
+and $\rho''=\rho'\circ\rho:A\longrightarrow A''$, then
+\[
+  \rho''_{P_\bullet,Q_\bullet}
+  =
+  \rho'_{P'_\bullet,Q'_\bullet}
+  \circ
+  \rho_{P_\bullet,Q_\bullet},
+  \qquad
+  P'_\bullet=P_\bullet\otimes_AA',
+  \quad
+  Q'_\bullet=Q_\bullet\otimes_AA'.
+\]
+The preceding homomorphism of bicomplexes also defines functorial
+homomorphisms of spectral sequences
+\[
+  'E_{pq}^r(P_\bullet,Q_\bullet)
+  \longrightarrow
+  'E_{pq}^r(P_\bullet\otimes_AA',Q_\bullet\otimes_AA')
+\]
+and
+\[
+  ''E_{pq}^r(P_\bullet,Q_\bullet)
+  \longrightarrow
+  ''E_{pq}^r(P_\bullet\otimes_AA',Q_\bullet\otimes_AA').
+\]
+They are independent of the Cartan--Eilenberg resolutions chosen
+and satisfy the same transitivity property.
+\end{env}
+
+\begin{proposition}[6.3.9]
+\label{III.6.3.9}
+Let $\rho:A\longrightarrow A'$ be a homomorphism of rings such that
+$A'$ is flat as an $A$-module.  There are canonical functorial
+isomorphisms
+\[
+  \mathbf{Tor}_n^{A'}
+  (P_\bullet\otimes_AA',Q_\bullet\otimes_AA')
+  \xrightarrow{\ \sim\ }
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)\otimes_AA',
+  \tag{6.3.9.1}\label{III.6.3.9.1}
+\]
+\[
+  'E(P_\bullet\otimes_AA',Q_\bullet\otimes_AA')
+  \xrightarrow{\ \sim\ }
+  'E(P_\bullet,Q_\bullet)\otimes_AA',
+  \tag{6.3.9.2}\label{III.6.3.9.2}
+\]
+and
+\[
+  ''E(P_\bullet\otimes_AA',Q_\bullet\otimes_AA')
+  \xrightarrow{\ \sim\ }
+  ''E(P_\bullet,Q_\bullet)\otimes_AA'.
+  \tag{6.3.9.3}\label{III.6.3.9.3}
+\]
+\end{proposition}
+
+\begin{proof}
+\oldpage[III]{145}
+Since the functor $M\longmapsto M\otimes_AA'$ is exact,
+$L_{\bullet\bullet}\otimes_AA'$ and
+$M_{\bullet\bullet}\otimes_AA'$ are projective
+Cartan--Eilenberg resolutions of $P_\bullet\otimes_AA'$ and
+$Q_\bullet\otimes_AA'$, respectively.  The assertion follows.
+\end{proof}
+
+\begin{env}[6.3.10]
+\label{III.6.3.10}
+Let $\rho:A\longrightarrow A'$ be a homomorphism of rings.  For
+every complex $P'_\bullet$ of $A'$-modules, let
+$P'_{\bullet[\rho]}$ denote the same complex regarded as a complex
+of $A$-modules.  The identity map
+$P'_{\bullet[\rho]}\longrightarrow P'_\bullet$ is the composite of
+the canonical maps
+\[
+  P'_{\bullet[\rho]}
+  \longrightarrow
+  P'_{\bullet[\rho]}\otimes_AA'
+  \xrightarrow{\ \mu\ }P'_\bullet,
+\]
+where $\mu$ is the $A'$-linear homomorphism
+$\mu(x\otimes a')=a'x$.  If $Q'_\bullet$ is a second complex of
+$A'$-modules, there are therefore canonical functorial
+homomorphisms of degree zero
+\[
+  \begin{split}
+  \mathbf{Tor}_n^A(P'_{\bullet[\rho]},Q'_{\bullet[\rho]})
+  &\longrightarrow
+  \mathbf{Tor}_n^{A'}
+  (P'_{\bullet[\rho]}\otimes_AA',
+   Q'_{\bullet[\rho]}\otimes_AA')\\
+  &\longrightarrow
+  \mathbf{Tor}_n^{A'}(P'_\bullet,Q'_\bullet).
+  \end{split}
+  \tag{6.3.10.1}\label{III.6.3.10.1}
+\]
+The first arrow is the $A$-linear homomorphism defined in
+\sref{III.6.3.8}; the second follows by functoriality from the
+$A'$-linear homomorphisms
+\[
+  P'_{\bullet[\rho]}\otimes_AA'\longrightarrow P'_\bullet,
+  \qquad
+  Q'_{\bullet[\rho]}\otimes_AA'\longrightarrow Q'_\bullet.
+\]
+There are analogous homomorphisms for the spectral sequences of
+\sref{III.6.3.2}, together with the evident transitivity
+properties, whose formulation is left to the reader.
+\end{env}
+
+\begin{proposition}[6.3.11]
+\label{III.6.3.11}
+Let $\rho:A\longrightarrow A'$ be a homomorphism of rings such that
+$A'$ is flat as an $A$-module.  For every complex $P'_\bullet$ of
+$A'$-modules and every bounded-below complex $Q_\bullet$ of
+$A$-modules, there is a canonical functorial isomorphism
+\[
+  \mathbf{Tor}_n^A(P'_{\bullet[\rho]},Q_\bullet)
+  \xrightarrow{\ \sim\ }
+  \mathbf{Tor}_n^{A'}(P'_\bullet,Q_\bullet\otimes_AA').
+  \tag{6.3.11.1}\label{III.6.3.11.1}
+\]
+\end{proposition}
+
+\begin{proof}
+If $M_{\bullet\bullet}$ is a projective Cartan--Eilenberg
+resolution of $Q_\bullet$, then
+$M_{\bullet\bullet}\otimes_AA'$ is a projective
+Cartan--Eilenberg resolution of $Q_\bullet\otimes_AA'$.  Moreover,
+up to canonical isomorphism,
+\[
+  P'_{\bullet[\rho]}\otimes_AM_{\bullet\bullet}
+  =
+  P'_\bullet\otimes_{A'}
+  (M_{\bullet\bullet}\otimes_AA').
+\]
+The assertion follows from \sref{III.6.3.4}.
+\end{proof}
+
+\begin{remark}[6.3.12]
+\label{III.6.3.12}
+Let $(A^\lambda)$ be a filtered inductive system of rings, and let
+$(P_\bullet^\lambda)$ and $(Q_\bullet^\lambda)$ be two inductive
+systems of complexes of $A^\lambda$-modules.  There is a canonical
+isomorphism generalizing \sref{III.6.3.6.1},
+\[
+  \varinjlim_\lambda
+  \mathbf{Tor}_n^{A^\lambda}
+  (P_\bullet^\lambda,Q_\bullet^\lambda)
+  \xrightarrow{\ \sim\ }
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet),
+  \tag{6.3.12.1}\label{III.6.3.12.1}
+\]
+where
+\[
+  A=\varinjlim_\lambda A^\lambda,
+  \qquad
+  P_\bullet=\varinjlim_\lambda P_\bullet^\lambda,
+  \qquad
+  Q_\bullet=\varinjlim_\lambda Q_\bullet^\lambda.
+\]
+Once the homomorphisms
+\[
+  \mathbf{Tor}_n^{A^\lambda}
+  (P_\bullet^\lambda,Q_\bullet^\lambda)
+  \longrightarrow
+  \mathbf{Tor}_n^{A^\mu}
+  (P_\bullet^\mu,Q_\bullet^\mu)
+  \qquad(\lambda\leq\mu)
+\]
+have been defined by \sref{III.6.3.10}, the proof is the same as
+that of \sref{III.6.3.6}.
+\end{remark}
+
+\begin{proposition}[6.3.13]
+\label{III.6.3.13}
+Let $S$ be a multiplicative subset of $A$, and let $P_\bullet$ and
+$Q_\bullet$ be complexes of $A$-modules on which multiplication by
+every element of $S$ is bijective.  Thus, if $A'=S^{-1}A$, both
+complexes consist of $A'$-modules.  Then there is a canonical
+isomorphism
+\[
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)
+  \xrightarrow{\ \sim\ }
+  \mathbf{Tor}_n^{A'}(P_\bullet,Q_\bullet).
+\]
+\end{proposition}
+
+\begin{proof}
+The hypothesis implies that the canonical homomorphisms
+\[
+  P_\bullet\longrightarrow P_\bullet\otimes_AA',
+  \qquad
+  Q_\bullet\longrightarrow Q_\bullet\otimes_AA'
+\]
+are bijective.  Functoriality of hypertor also shows that each
+$s\in S$ acts bijectively on
+$\mathbf{Tor}_n^A(P_\bullet,Q_\bullet)$; hence
+\[
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)
+  \longrightarrow
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)\otimes_AA'
+\]
+\oldpage[III]{146}
+is bijective.  Since $A'$ is flat over $A$, the assertion follows
+from \sref{III.6.3.9}.  The same argument gives canonical
+isomorphisms of the associated spectral sequences.
+\end{proof}
+
+
+\subsection{Local hypertor functors of complexes of quasi-coherent modules: the affine scheme case}
+\label{subsection:III.6.4}
+\label{III.6.4}
+
+\begin{env}[6.4.1]
+\label{III.6.4.1}
+Let $S$ be an affine scheme with ring $A$, and let $X$ and $Y$ be
+affine $S$-schemes with rings $B$ and $C$, respectively; thus $B$
+and $C$ are $A$-algebras.  Every complex $\sh P_\bullet$ of
+quasi-coherent $\sh O_X$-modules is of the form
+$\widetilde{P_\bullet}$ for a complex $P_\bullet$ of $B$-modules,
+and similarly every complex $\sh Q_\bullet$ of quasi-coherent
+$\sh O_Y$-modules is of the form $\widetilde{Q_\bullet}$ for a
+complex $Q_\bullet$ of $C$-modules
+(\sref[I]{I.1.3.7} and \sref[I]{I.1.3.8}).
+
+Regarded as complexes of $A$-modules, $P_\bullet$ and $Q_\bullet$
+have hypertor modules
+$\mathbf{Tor}_n^A(P_\bullet,Q_\bullet)$.  By bifunctoriality, the
+$A$-algebras $B$ and $C$ act on this $A$-module; these actions make
+it a $(B,C)$-bimodule, equivalently a module over
+\[
+  B\otimes_AC=A(X\times_SY).
+\]
+We have thus defined a quasi-coherent
+$\sh O_{X\times_SY}$-module
+\[
+  \shTor_n^{\sh O_S}(\sh P_\bullet,\sh Q_\bullet)
+  =
+  \bigl(\mathbf{Tor}_n^A(P_\bullet,Q_\bullet)\bigr)\supertilde.
+  \tag{6.4.1.1}\label{III.6.4.1.1}
+\]
+It is called the \emph{local hypertor of index $n$} of
+$\sh P_\bullet$ and $\sh Q_\bullet$, and is also denoted
+$\shTor_n^S(\sh P_\bullet,\sh Q_\bullet)$.
+\end{env}
+
+\begin{lemma}[6.4.2]
+\label{III.6.4.2}
+With the notation of \sref{III.6.4.1}, suppose that
+$A=R^{-1}A'$, where $A'$ is a ring and $R$ is a multiplicative
+subset of $A'$.  Let $S'=\Spec(A')$.  Then $X$ and $Y$ may be
+regarded as $S'$-schemes and
+$X\times_{S'}Y=X\times_SY$
+(\sref[I]{I.1.6.2} and \sref{III.3.2.4}); moreover,
+\[
+  \shTor_n^{S'}(\sh P_\bullet,\sh Q_\bullet)
+  =
+  \shTor_n^S(\sh P_\bullet,\sh Q_\bullet).
+\]
+\end{lemma}
+
+\begin{proof}
+This follows from \sref{III.6.4.1.1} and \sref{III.6.3.13}.
+\end{proof}
+
+\begin{env}[6.4.3]
+\label{III.6.4.3}
+With the notation and hypotheses of \sref{III.6.4.1}, let
+$\sh F=\widetilde F$ be a quasi-coherent $\sh O_X$-module and
+$\sh G=\widetilde G$ a quasi-coherent $\sh O_Y$-module.  Regarding
+$\sh F$ and $\sh G$ as complexes concentrated in degree zero, we
+write $\shTor_n^{\sh O_S}(\sh F,\sh G)$, or
+$\shTor_n^S(\sh F,\sh G)$, for their local hypertor of index $n$.
+By \sref{III.6.3.5}(ii),
+\[
+  \shTor_n^{\sh O_S}(\sh F,\sh G)
+  =
+  \bigl(\Tor_n^A(F,G)\bigr)\supertilde.
+  \tag{6.4.3.1}\label{III.6.4.3.1}
+\]
+
+Return now to two arbitrary complexes of quasi-coherent modules
+$\sh P_\bullet$ and $\sh Q_\bullet$.  Formulas
+\sref{III.6.4.1.1} and \sref{III.6.4.3.1}, together with
+\sref{III.6.3.2}, show that
+$\shTor_n^S(\sh P_\bullet,\sh Q_\bullet)$ is the common abutment
+of two spectral sequences
+$'\sh E(\sh P_\bullet,\sh Q_\bullet)$ and
+$''\sh E(\sh P_\bullet,\sh Q_\bullet)$ whose $E_2$-terms are
+\[
+  '\sh E_{pq}^2
+  =
+  \sh H_p\bigl(\shTor_q^S(\sh P_\bullet,\sh Q_\bullet)\bigr)
+  \tag{6.4.3.2}\label{III.6.4.3.2}
+\]
+and
+\[
+  ''\sh E_{pq}^2
+  =
+  \bigoplus_{q'+q''=q}
+  \shTor_p^S
+  \bigl(\sh H_{q'}(\sh P_\bullet),
+        \sh H_{q''}(\sh Q_\bullet)\bigr).
+  \tag{6.4.3.3}\label{III.6.4.3.3}
+\]
+Here $\shTor_q^S(\sh P_\bullet,\sh Q_\bullet)$ in
+\sref{III.6.4.3.2} denotes the bicomplex of quasi-coherent
+$\sh O_{X\times_SY}$-modules
+$\shTor_q^S(\sh P_i,\sh Q_j)$.
+\end{env}
+
+\begin{env}[6.4.4]
+\label{III.6.4.4}
+Let
+\[
+  X^{(1)}=\Spec(B^{(1)}),
+  \qquad
+  Y^{(1)}=\Spec(C^{(1)})
+\]
+be two further affine schemes, where $B^{(1)}$ and $C^{(1)}$ are
+$A$-algebras, and let
+\oldpage[III]{147}
+\[
+  u:X^{(1)}\longrightarrow X,
+  \qquad
+  v:Y^{(1)}\longrightarrow Y
+\]
+be $S$-morphisms corresponding to the $A$-homomorphisms
+$\vphi:B\longrightarrow B^{(1)}$ and
+$\psi:C\longrightarrow C^{(1)}$.  Consider the complexes
+\[
+  u^*(\sh P_\bullet)
+  =
+  (P_\bullet\otimes_BB^{(1)})\supertilde,
+  \qquad
+  v^*(\sh Q_\bullet)
+  =
+  (Q_\bullet\otimes_CC^{(1)})\supertilde.
+\]
+The canonical $A$-linear homomorphisms
+\[
+  P_\bullet\longrightarrow P_\bullet\otimes_BB^{(1)},
+  \qquad
+  Q_\bullet\longrightarrow Q_\bullet\otimes_CC^{(1)}
+\]
+give, by functoriality, an $A$-linear homomorphism
+\[
+  \mathbf{Tor}_n^A(P_\bullet,Q_\bullet)
+  \longrightarrow
+  \mathbf{Tor}_n^A
+  (P_\bullet\otimes_BB^{(1)},
+   Q_\bullet\otimes_CC^{(1)}).
+\]
+Again by functoriality, this is in fact a homomorphism of
+$(B\otimes_AC)$-modules.  It therefore defines a
+$(u\times_Sv)$-morphism
+\[
+  \theta:
+  \shTor_n^S(\sh P_\bullet,\sh Q_\bullet)
+  \longrightarrow
+  \shTor_n^S(u^*\sh P_\bullet,v^*\sh Q_\bullet),
+  \tag{6.4.4.1}\label{III.6.4.4.1}
+\]
+and hence a homomorphism of
+$\sh O_{X^{(1)}\times_SY^{(1)}}$-modules
+\[
+  \theta^\sharp:
+  (u\times_Sv)^*
+  \shTor_n^S(\sh P_\bullet,\sh Q_\bullet)
+  \longrightarrow
+  \shTor_n^S(u^*\sh P_\bullet,v^*\sh Q_\bullet).
+  \tag{6.4.4.2}\label{III.6.4.4.2}
+\]
+This is plainly a morphism of bi-$\partial$-functors on the
+categories of bounded-below quasi-coherent modules.  The
+homomorphism \sref{III.6.4.4.2} need not be bijective; nevertheless:
+\end{env}
+
+\begin{lemma}[6.4.5]
+\label{III.6.4.5}
+With the notation of \sref{III.6.4.4}, if $u$ and $v$ are open
+immersions, then \sref{III.6.4.4.2} is bijective.
+\end{lemma}
+
+\begin{proof}
+Identify $X^{(1)}$ and $Y^{(1)}$ with open subsets of $X$ and $Y$.
+They are unions of open subsets of the form $\mathrm D(f)$ and
+$\mathrm D(g)$, where $f\in B$ and $g\in C$; the schemes induced
+on $\mathrm D(\vphi(f))$ and $\mathrm D(f)$, and likewise on
+$\mathrm D(\psi(g))$ and $\mathrm D(g)$, are isomorphic.
+
+It is enough to prove the lemma when
+$X^{(1)}=\mathrm D(f)$ and $Y^{(1)}=\mathrm D(g)$.  Indeed, once
+this is known, in the general case it suffices to show that the
+restriction of $\theta^\sharp$ to every
+$\mathrm D(f)\times_S\mathrm D(g)$ is an isomorphism.  If
+\[
+  u_1:\mathrm D(f)\longrightarrow X^{(1)},
+  \qquad
+  v_1:\mathrm D(g)\longrightarrow Y^{(1)}
+\]
+are the canonical inclusions, this restriction is
+$(u_1\times_Sv_1)^*(\theta^\sharp)$.  From
+\sref{III.6.4.4} and \sref[0]{0.4.4.8}, it is immediate that
+composing it with the canonical homomorphism
+\[
+  (u_1\times_Sv_1)^*
+  \shTor_n^S(u^*\sh P_\bullet,v^*\sh Q_\bullet)
+  \longrightarrow
+  \shTor_n^S((u')^*\sh P_\bullet,(v')^*\sh Q_\bullet),
+  \tag{6.4.5.1}\label{III.6.4.5.1}
+\]
+where $u'=u\circ u_1$ and $v'=v\circ v_1$, gives the canonical
+homomorphism
+\[
+  (u'\times_Sv')^*
+  \shTor_n^S(\sh P_\bullet,\sh Q_\bullet)
+  \longrightarrow
+  \shTor_n^S((u')^*\sh P_\bullet,(v')^*\sh Q_\bullet).
+  \tag{6.4.5.2}\label{III.6.4.5.2}
+\]
+If \sref{III.6.4.5.1} and \sref{III.6.4.5.2} are isomorphisms,
+then so is $(u_1\times_Sv_1)^*(\theta^\sharp)$.
+
+Suppose therefore that $X^{(1)}=\mathrm D(f)$ and
+$Y^{(1)}=\mathrm D(g)$, so that $B^{(1)}=B_f$ and
+$C^{(1)}=C_g$.  Then $u^*(\sh P_\bullet)$ and
+$v^*(\sh Q_\bullet)$ identify with
+$((P_\bullet)_f)\supertilde$ and
+$((Q_\bullet)_g)\supertilde$, respectively.  Moreover,
+$X^{(1)}\times_SY^{(1)}$ identifies with the open subscheme
+$\mathrm D(f\otimes g)$ of
+\[
+  X\times_SY=\Spec(B\otimes_AC)
+\]
+(\sref[II]{II.4.3.2.4}).  It remains to prove that the
+homomorphism
+\[
+  \bigl(\mathbf{Tor}_n^A(P_\bullet,Q_\bullet)\bigr)_{f\otimes g}
+  \longrightarrow
+  \mathbf{Tor}_n^A((P_\bullet)_f,(Q_\bullet)_g),
+  \tag{6.4.5.3}\label{III.6.4.5.3}
+\]
+\oldpage[III]{148}
+induced by the canonical homomorphisms
+$P_\bullet\longrightarrow(P_\bullet)_f$ and
+$Q_\bullet\longrightarrow(Q_\bullet)_g$, is bijective.
+
+By \sref[0]{0.1.6.1},
+\[
+  (P_\bullet)_f=\varinjlim_m P_\bullet^{(m)},
+\]
+where every $P_\bullet^{(m)}$ is the same complex of $B$-modules
+as $P_\bullet$, and for $m\leq n$ the map
+$P_\bullet^{(m)}\longrightarrow P_\bullet^{(n)}$ is
+multiplication by $f^{\,n-m}$.  The analogous statement holds for
+$Q_\bullet$, with $g$ in place of $f$.  The homomorphism
+\[
+  \mathbf{Tor}_n^A(P_\bullet^{(m)},Q_\bullet^{(m)})
+  \longrightarrow
+  \mathbf{Tor}_n^A(P_\bullet^{(n)},Q_\bullet^{(n)})
+\]
+corresponding to these transition maps is, by definition,
+multiplication by $(f\otimes g)^{n-m}$.  The conclusion follows
+from \sref[0]{0.1.6.1}, applied to the left-hand side of
+\sref{III.6.4.5.3}, and from \sref{III.6.3.6}.
+\end{proof}
+
+\begin{env}[6.4.6]
+\label{III.6.4.6}
+With the notation of \sref{III.6.4.4}, one defines in the same way
+canonical homomorphisms of spectral functors
+\[
+  \begin{aligned}
+  (u\times_Sv)^*\,{}'\sh E(\sh P_\bullet,\sh Q_\bullet)
+  &\longrightarrow
+  {}'\sh E(u^*\sh P_\bullet,v^*\sh Q_\bullet),\\
+  (u\times_Sv)^*\,{}''\sh E(\sh P_\bullet,\sh Q_\bullet)
+  &\longrightarrow
+  {}''\sh E(u^*\sh P_\bullet,v^*\sh Q_\bullet).
+  \end{aligned}
+  \tag{6.4.6.1}\label{III.6.4.6.1}
+\]
+The argument of \sref{III.6.4.5} shows that when $u$ and $v$ are
+open immersions, these homomorphisms are bijective.  Taking
+\sref{III.6.3.6.2} and \sref{III.6.3.6.3} into account, the
+argument proves that they are isomorphisms on the $E^2$-terms,
+while \sref{III.6.4.5} proves that they are isomorphisms on the
+abutments.  The assertion therefore follows from
+\sref[0]{0.11.1.2} and \sref[0]{0.11.2.4}.
+\end{env}
+
+
+\subsection{Local hypertor functors of complexes of quasi-coherent modules: the general case}
+\label{subsection:III.6.5}
+
+\begin{env}[6.5.1]
+\label{III.6.5.1}
+Let $S$ now be an arbitrary scheme and let $X$ and $Y$ be two
+$S$-schemes.  Let $\sh P_\bullet$ be a complex of quasi-coherent
+$\sh O_X$-modules and $\sh Q_\bullet$ a complex of quasi-coherent
+$\sh O_Y$-modules.  Set $Z=X\times_SY$.  We shall define
+quasi-coherent $\sh O_Z$-modules
+\[
+  \shTor_n^S(\sh P_\bullet,\sh Q_\bullet),
+\]
+called the \emph{local hypertors} of $\sh P_\bullet$ and
+$\sh Q_\bullet$, which reduce to those of \sref{III.6.4} when
+$S$, $X$, and $Y$ are affine.
+
+When $\sh P_\bullet$ and $\sh Q_\bullet$ are concentrated in
+degree zero, with respective terms $\sh F$ and $\sh G$, we write
+$\shTor_n^S(\sh F,\sh G)$ instead of
+$\shTor_n^S(\sh P_\bullet,\sh Q_\bullet)$.
+\end{env}
+
+\begin{env}[6.5.2]
+\label{III.6.5.2}
+Suppose first that $S$ is affine, and let $(X_\lambda)$ and
+$(Y_\mu)$ be coverings of $X$ and $Y$ by affine open subsets.
+Then
+\[
+  Z_{\lambda\mu}=X_\lambda\times_SY_\mu
+\]
+form an affine open covering of $Z$.  Put
+\[
+  \sh P_{\lambda,\bullet}=\sh P_\bullet|X_\lambda,
+  \qquad
+  \sh Q_{\mu,\bullet}=\sh Q_\bullet|Y_\mu.
+\]
+For each pair $(\lambda,\mu)$ we thus have a quasi-coherent
+$\sh O_{Z_{\lambda\mu}}$-module
+\[
+  \sh F_{\lambda\mu}
+  =
+  \shTor_n^S(\sh P_{\lambda,\bullet},\sh Q_{\mu,\bullet}).
+\]
+We must show that the $\sh F_{\lambda\mu}$ satisfy the gluing
+condition \sref[0]{0.3.3.1}.  It is enough to verify that, for
+every affine open
+\[
+  U\subset X_\lambda\cap X_{\lambda'},
+  \qquad
+  V\subset Y_\mu\cap Y_{\mu'},
+\]
+the restrictions of $\sh F_{\lambda\mu}$ and
+$\sh F_{\lambda'\mu'}$ to $U\times_SV$ are canonically
+isomorphic.  This follows at once from their canonical
+isomorphisms with
+\[
+  \shTor_n^S(\sh P_\bullet|U,\sh Q_\bullet|V)
+\]
+given by \sref{III.6.4.5}.
+
+The definition and \sref{III.6.4.5} also show that the resulting
+$\sh O_Z$-module is independent, up to a unique isomorphism
+compatible with the local identifications, of the chosen open
+coverings.  We denote it by
+\oldpage[III]{149}
+\[
+  \shTor_n^S(\sh P_\bullet,\sh Q_\bullet).
+\]
+Finally, for every open subset $U$ of $X$ and every open subset
+$V$ of $Y$, its restriction to $U\times_SV$ is canonically
+isomorphic to
+\[
+  \shTor_n^S(\sh P_\bullet|U,\sh Q_\bullet|V).
+\]
+\end{env}
+
+\begin{env}[6.5.3]
+\label{III.6.5.3}
+Pass now to the general case, where $S$ is arbitrary.  Let
+$(S_\alpha)$ be a covering of $S$ by affine open subsets, and let
+$X_\alpha$ and $Y_\alpha$ be the inverse images of $S_\alpha$ in
+$X$ and $Y$.  We must show that the sheaves
+\[
+  \sh G_\alpha
+  =
+  \shTor_n^{S_\alpha}
+  (\sh P_\bullet|X_\alpha,\sh Q_\bullet|Y_\alpha)
+\]
+satisfy the gluing condition.
+
+For every affine open subset
+$T\subset S_\alpha\cap S_\beta$, let $U$ and $V$ be its inverse
+images in $X$ and $Y$.  It is enough to define canonical
+isomorphisms between the restrictions of $\sh G_\alpha$ and
+$\sh G_\beta$ to $U\times_SV$ and
+\[
+  \shTor_n^T(\sh P_\bullet|U,\sh Q_\bullet|V).
+\]
+We may further restrict to the case in which
+$T=\mathrm D(f_\alpha)=\mathrm D(f_\beta)$, where $f_\alpha$ and
+$f_\beta$ are sections of $\sh O_S$ over $S_\alpha$ and
+$S_\beta$, respectively.  By \sref{III.6.4.2},
+\[
+  \shTor_n^T(\sh P_\bullet|U,\sh Q_\bullet|V)
+\]
+is canonically isomorphic both to
+$\shTor_n^{S_\alpha}(\sh P_\bullet|U,\sh Q_\bullet|V)$ and to
+$\shTor_n^{S_\beta}(\sh P_\bullet|U,\sh Q_\bullet|V)$.
+Combining these isomorphisms with the local identifications of
+\sref{III.6.5.2} completes the definition of the
+$\sh O_Z$-module
+\[
+  \shTor_n^S(\sh P_\bullet,\sh Q_\bullet).
+\]
+For every open subset $U$ of $X$ and every open subset $V$ of
+$Y$, the restriction of this module to $U\times_SV$ is
+canonically isomorphic to
+\[
+  \shTor_n^S(\sh P_\bullet|U,\sh Q_\bullet|V).
+\]
+
+This construction plainly defines, on the categories of
+bounded-below complexes of quasi-coherent modules, a
+bi-$\partial$-functor
+\[
+  \shTor_\bullet^S(\sh P_\bullet,\sh Q_\bullet)
+\]
+with values in $\sh O_Z$-modules.  Indeed the assertion is local
+on $X$, $Y$, and $S$, by \sref{III.6.4.5} and by the fact that
+\sref{III.6.4.4.2} is a morphism of bi-$\partial$-functors.
+
+If $\sh P_\bullet$ and $\sh Q_\bullet$ are concentrated in degree
+zero, with respective terms $\sh F$ and $\sh G$, then
+\[
+  \shTor_0^S(\sh F,\sh G)
+  =
+  \sh F\otimes_S\sh G,
+\]
+the external tensor product defined in \sref[I]{I.9.1.2}; this
+follows from \sref{III.6.4.1.1} and \sref[I]{I.9.1.3}.
+\end{env}
+
+\begin{env}[6.5.4]
+\label{III.6.5.4}
+The preceding construction and \sref{III.6.4.6} show that
+$\shTor_n^S(\sh P_\bullet,\sh Q_\bullet)$ is the common abutment
+of two spectral functors
+$'\sh E(\sh P_\bullet,\sh Q_\bullet)$ and
+$''\sh E(\sh P_\bullet,\sh Q_\bullet)$, whose $E_2$-terms are
+\[
+  '\sh E_{pq}^2
+  =
+  \sh H_p\bigl(\shTor_q^S(\sh P_\bullet,\sh Q_\bullet)\bigr)
+  \tag{6.5.4.1}\label{III.6.5.4.1}
+\]
+and
+\[
+  ''\sh E_{pq}^2
+  =
+  \bigoplus_{q'+q''=q}
+  \shTor_p^S
+  \bigl(\sh H_{q'}(\sh P_\bullet),
+        \sh H_{q''}(\sh Q_\bullet)\bigr).
+  \tag{6.5.4.2}\label{III.6.5.4.2}
+\]
+The spectral sequence \sref{III.6.5.4.2} is always regular.  Both
+spectral sequences are biregular when $\sh P_\bullet$ and
+$\sh Q_\bullet$ are bounded below.  A further case in which they
+are biregular is described next.
+\end{env}
+
+\begin{env}[6.5.5]
+\label{III.6.5.5}
+Let $T$ be a topological space.  A sheaf of rings $\sh A$ on $T$
+is said to have \emph{cohomological dimension at most $n$} if the
+ring $\sh A_t$ has cohomological dimension at most $n$ for every
+$t\in T$.  In this case the ringed space $(T,\sh A)$ is also said
+to have cohomological dimension at most $n$.  A sheaf of rings, or
+a ringed space, has \emph{finite cohomological dimension} if this
+holds for some integer $n$.
+
+If the $\sh A_t$ are Noetherian commutative local rings, saying
+that they have cohomological dimension at most $n$ means that
+they are regular and have Krull dimension at most $n$
+\oldpage[III]{150}
+(\sref[0]{0.17.3.1}).  In the terminology of dimension theory to
+be introduced in Chapter IV, a locally Noetherian scheme $T$ has
+cohomological dimension at most $n$ exactly when it is regular
+(\sref[0]{0.4.1.4}) and has dimension at most $n$.  Equivalently,
+for every affine open subset $U$ of $T$, the ring
+$\Gamma(U,\sh O_T)$ has cohomological dimension at most $n$
+(\sref[0]{0.17.2.6}).
+
+Consequently, if $S$ is locally Noetherian and has finite
+cohomological dimension, then \sref{III.6.3.2} shows that both
+$'\sh E(\sh P_\bullet,\sh Q_\bullet)$ and
+$''\sh E(\sh P_\bullet,\sh Q_\bullet)$ are biregular.
+
+Finally, under the canonical isomorphism
+$X\times_SY\xrightarrow{\sim}Y\times_SX$,
+$\shTor_n^S(\sh P_\bullet,\sh Q_\bullet)$ corresponds
+canonically to
+$\shTor_n^S(\sh Q_\bullet,\sh P_\bullet)$.
+\end{env}
+
+\begin{proposition}[6.5.6]
+\label{III.6.5.6}
+Let $(\sh P_{\alpha\bullet})$ be a filtered direct system of
+complexes of quasi-coherent $\sh O_X$-modules.  There is a
+canonical isomorphism
+\[
+  \varinjlim_\alpha
+  \shTor_n^S(\sh P_{\alpha\bullet},\sh Q_\bullet)
+  \xrightarrow{\sim}
+  \shTor_n^S
+  \left(\varinjlim_\alpha\sh P_{\alpha\bullet},\sh Q_\bullet\right).
+  \tag{6.5.6.1}\label{III.6.5.6.1}
+\]
+\end{proposition}
+
+\begin{proof}
+The question is local on $S$, $X$, and $Y$.  We may therefore
+suppose that $S$, $X$, and $Y$ are affine, in which case the
+proposition reduces to \sref{III.6.3.6}.
+\end{proof}
+
+\begin{env}[6.5.7]
+\label{III.6.5.7}
+\emph{Remarks.}
+
+\textnormal{(i)} Consider in particular the case $S=X=Y$, with
+$\sh P_\bullet$ and $\sh Q_\bullet$ two complexes of
+quasi-coherent $\sh O_S$-modules.  Then the
+$\shTor_n^S(\sh P_\bullet,\sh Q_\bullet)$ are quasi-coherent
+$\sh O_S$-modules.  Moreover, for every point $z\in S$,
+\sref{III.6.5.6} gives a canonical isomorphism
+\[
+  \bigl(\shTor_n^S(\sh P_\bullet,\sh Q_\bullet)\bigr)_z
+  \xrightarrow{\sim}
+  \mathbf{Tor}_n^{\sh O_z}
+  \bigl((\sh P_\bullet)_z,(\sh Q_\bullet)_z\bigr),
+  \tag{6.5.7.1}\label{III.6.5.7.1}
+\]
+because the question is local and, by \sref{III.6.4.1.1},
+reduces to the case of modules.
+
+\textnormal{(ii)} The definition of hypertor can be generalized
+to two complexes $\sh P_\bullet,\sh Q_\bullet$ of
+$\sh O_X$-modules on the same ringed space $(X,\sh O_X)$.  For
+every open subset $U$ of $X$, put
+\[
+  A(U)=\Gamma(U,\sh O_X),\qquad
+  P_\bullet(U)=\Gamma(U,\sh P_\bullet),\qquad
+  Q_\bullet(U)=\Gamma(U,\sh Q_\bullet).
+\]
+The $A(U)$-modules
+\[
+  \mathbf{Tor}_n^{A(U)}\bigl(P_\bullet(U),Q_\bullet(U)\bigr)
+\]
+then form a presheaf on $X$; denote the associated
+$\sh O_X$-module by
+$\shTor_n^X(\sh P_\bullet,\sh Q_\bullet)$.  When $X$ is a
+prescheme, \sref{III.6.3.12} shows that this module is
+canonically isomorphic to the hypertor defined above.  We shall
+not pursue this generalization further.
+\end{env}
+
+\begin{proposition}[6.5.8]
+\label{III.6.5.8}
+Let $X$ and $Y$ be two $S$-preschemes, and let $\sh F$
+(respectively $\sh G$) be a quasi-coherent $\sh O_X$-module
+(respectively $\sh O_Y$-module).  If $\sh F$ or $\sh G$ is
+$S$-flat, then
+\[
+  \shTor_n^S(\sh F,\sh G)=0\qquad(n\ne0).
+\]
+\end{proposition}
+
+\begin{proof}
+The question is local on $X$ and $Y$, so we may suppose that
+$X$, $Y$, and $S$ are affine, with respective rings $B$, $C$,
+and $A$, and write $\sh F=\widetilde M$ and
+$\sh G=\widetilde N$, where $M$ is a $B$-module and $N$ a
+$C$-module.  Suppose, for example, that $\sh F$ is $S$-flat.
+This means that, for every $s\in S$, $M_s$ is a flat
+$A_s$-module (\sref[0]{0.6.7.1}); hence $M$ is a flat
+$A$-module (\sref[0]{0.6.3.3}).  Thus
+$\Tor_n^A(M,N)=0$ for $n>0$ and every $C$-module $N$
+(\sref[0]{0.6.1.1}), and the conclusion follows from
+\sref{III.6.4.1.1}.
+\end{proof}
+
+\begin{corollary}[6.5.9]
+\label{III.6.5.9}
+Let $X$ and $Y$ be two $S$-preschemes, and let
+$\sh P_\bullet$ (respectively $\sh Q_\bullet$) be a
+\oldpage[III]{151}
+bounded-below complex of quasi-coherent $\sh O_X$-modules
+(respectively $\sh O_Y$-modules).  Suppose that every
+$\sh P_i$ is $S$-flat.  Then there is a canonical isomorphism of
+$\partial$-functors in $\sh Q_\bullet$
+\[
+  \shTor_\bullet^S(\sh P_\bullet,\sh Q_\bullet)
+  \xrightarrow{\sim}
+  \sh H_\bullet(\sh P_\bullet\otimes_S\sh Q_\bullet).
+  \tag{6.5.9.1}\label{III.6.5.9.1}
+\]
+\end{corollary}
+
+\begin{proof}
+When $S$, $X$, and $Y$ are affine, this is precisely
+\sref{III.6.3.7}; the general case follows by the arguments of
+\sref{III.6.5.2} and \sref{III.6.5.3}.
+\end{proof}
+
+\begin{env}[6.5.10]
+\label{III.6.5.10}
+\emph{Corollary.}
+Suppose that $X$ is flat over $S$ (\sref[0]{0.6.7.1}), that
+$\sh P_\bullet$ and $\sh Q_\bullet$ are bounded below, and that
+every $\sh P_i$ is a locally free $\sh O_X$-module, not
+necessarily of finite type.  Then the homomorphism
+\sref{III.6.5.9.1} is bijective.
+
+Indeed, the hypothesis of \sref{III.6.5.9} is satisfied:
+flatness is, by definition, a pointwise property on $X$, and
+every direct sum of flat modules is flat (\sref[0]{0.6.1.2}).
+\end{env}
+
+\begin{proposition}[6.5.11]
+\label{III.6.5.11}
+Let $X'$ and $Y'$ be two $S$-preschemes, and let
+$f:X\to X'$ and $g:Y\to Y'$ be two affine $S$-morphisms.  For a
+complex $\sh P_\bullet$ of quasi-coherent $\sh O_X$-modules and
+a complex $\sh Q_\bullet$ of quasi-coherent $\sh O_Y$-modules,
+there is a canonical functorial isomorphism
+\[
+  (f\times_Sg)_*
+  \bigl(\shTor_n^S(\sh P_\bullet,\sh Q_\bullet)\bigr)
+  \xrightarrow{\sim}
+  \shTor_n^S(f_*\sh P_\bullet,g_*\sh Q_\bullet).
+  \tag{6.5.11.1}\label{III.6.5.11.1}
+\]
+\end{proposition}
+
+\begin{proof}
+Since $f$ and $g$ are affine, $f_*\sh P_\bullet$ and
+$g_*\sh Q_\bullet$ are complexes of quasi-coherent modules
+(\sref[II]{II.1.2.6}).  If $Z'=X'\times_SY'$, both sides of
+\sref{III.6.5.11.1} are quasi-coherent $\sh O_{Z'}$-modules by
+\sref{III.6.5.1}.  We readily reduce to the case in which $S$,
+$X'$, and $Y'$ are affine; then $X$ and $Y$ are affine as well,
+and the assertion follows immediately from
+\sref{III.6.4.1.1} and \sref[I]{I.1.6.3}.
+\end{proof}
+
+\begin{env}[6.5.12]
+\label{III.6.5.12}
+\emph{Remark.}
+Let $X'$ and $Y'$ be two $S$-preschemes, with $X'$ flat over
+$S$.  Let $X$ be a closed subprescheme of $X'$, and let
+$i:X\to X'$ be the canonical immersion.  Let $\sh P_\bullet$
+(respectively $\sh Q_\bullet$) be a bounded-below complex of
+quasi-coherent $\sh O_X$-modules (respectively
+$\sh O_{Y'}$-modules).  Finally, let $\sh L'_{\bullet\bullet}$
+be a resolution of $i_*\sh P_\bullet$ consisting of locally free
+$\sh O_{X'}$-modules, such that every point of $X'$ has an
+affine open neighborhood $U$ for which
+$\sh L'_{j\bullet}|U$ is a free resolution of
+$i_*\sh P_j|U$, for every $j$.  There is then a canonical
+isomorphism
+\[
+  (i\times_S1)_*
+  \bigl(\shTor_\bullet^S(\sh P_\bullet,\sh Q_\bullet)\bigr)
+  \xrightarrow{\sim}
+  \sh H_\bullet(\sh L'_{\bullet\bullet}\otimes_S\sh Q_\bullet).
+  \tag{6.5.12.1}\label{III.6.5.12.1}
+\]
+
+If $S$, $X'$, and $Y'$ are affine, and if
+$\sh L'_{j\bullet}$ is a free resolution of $i_*\sh P_j$ for
+every $j$, then \sref{III.6.5.11} reduces us to the case
+$X'=X$, with $X$ flat over $S$, and it is enough to apply
+\sref{III.6.3.4}.  In general, \sref{III.6.5.12.1} is defined
+locally, and it remains to verify that these local definitions
+give a global isomorphism.
+
+For this, recall the definition of the first isomorphism
+\sref{III.6.3.4.1}.  It comes from an isomorphism of spectral
+sequences (\sref[0]{0.11.6.5} and \sref[0]{0.11.5.3}), itself
+obtained from a morphism of bicomplexes
+\[
+  L_{\bullet\bullet}\longrightarrow L''_{\bullet\bullet},
+\]
+where $L_{\bullet\bullet}$ is the given resolution of
+$P_\bullet$, and
+\oldpage[III]{152}
+$L''_{\bullet\bullet}$ is a projective resolution of
+$P_\bullet$ in the category of bounded-below complexes of
+$A$-modules (\sref[0]{0.11.5.2.2}).  The assertion follows from
+the fact that \sref{III.6.3.4.1} is independent of the chosen
+projective resolution $L''_{\bullet\bullet}$, since any two such
+resolutions are connected by a homotopy (\emph{M}, V, 1.2).
+\end{env}
+
+\begin{proposition}[6.5.13]
+\label{III.6.5.13}
+Let $X$ and $Y$ be two $S$-preschemes, and suppose that one of
+the following conditions holds:
+\begin{enumerate}
+  \item[(i)] $X$ and $Z=X\times_SY$ are locally Noetherian, and
+    $X$ is flat over $S$;
+  \item[(ii)] $S$ and $X$ are locally Noetherian, and $Y$ is of
+    finite type over $S$.
+\end{enumerate}
+Let $\sh P_\bullet$ (respectively $\sh Q_\bullet$) be a
+bounded-below complex of quasi-coherent $\sh O_X$-modules
+(respectively $\sh O_Y$-modules).  Suppose in addition that, for
+every $n$, $\sh H_n(\sh P_\bullet)$ (respectively
+$\sh H_n(\sh Q_\bullet)$) is an $\sh O_X$-module
+(respectively $\sh O_Y$-module) of finite type.  Then
+\[
+  \shTor_n^S(\sh P_\bullet,\sh Q_\bullet)
+\]
+is a coherent $\sh O_Z$-module for every $n$.
+\end{proposition}
+
+\begin{proof}
+Since $\sh P_\bullet$ and $\sh Q_\bullet$ are bounded below, the
+spectral sequence
+$''\sh E(\sh P_\bullet,\sh Q_\bullet)$ is biregular by
+\sref{III.6.5.4}.  In either case (i) or (ii), $Z$ is locally
+Noetherian, so \sref[0]{0.11.1.8} reduces the assertion to the
+coherence of the terms $''\sh E_{pq}^2$.  The finite-type
+hypothesis on the homology modules and formula
+\sref{III.6.5.4.2} reduce the proposition to the special case in
+which $\sh P_\bullet$ and $\sh Q_\bullet$ are concentrated in
+degree zero, namely the following corollary.
+\end{proof}
+
+\begin{corollary}[6.5.14]
+\label{III.6.5.14}
+Suppose that one of conditions \emph{(i)} and \emph{(ii)} of
+\sref{III.6.5.13} holds, and let $\sh F$ (respectively $\sh G$)
+be a quasi-coherent $\sh O_X$-module (respectively
+$\sh O_Y$-module) of finite type.  Then
+$\shTor_n^S(\sh F,\sh G)$ is a coherent $\sh O_Z$-module for
+every $n$.
+\end{corollary}
+
+\begin{proof}
+The question is local on $X$ and $Y$, so we may suppose that
+$S$, $X$, and $Y$ are affine.
+
+\textnormal{(i)} Under the hypotheses of (i), $S$, $X$, and $Z$
+are Noetherian.  There is therefore a locally free resolution
+$\sh L_\bullet$ of $\sh F$ consisting of $\sh O_X$-modules of
+finite type (\sref[I]{I.1.3.7}).  Since $X$ is flat over $S$,
+\sref{III.6.3.4} gives
+\[
+  \shTor_n^S(\sh F,\sh G)
+  =
+  \sh H_n(\sh L_\bullet\otimes_S\sh G).
+\]
+The modules $\sh L_i\otimes_S\sh G$ are quasi-coherent
+$\sh O_Z$-modules of finite type (\sref[I]{I.9.1.1}), hence are
+coherent.  It follows that
+$\sh H_n(\sh L_\bullet\otimes_S\sh G)$ is coherent
+(\sref[0]{0.5.3.4}).
+
+\textnormal{(ii)} Now suppose that condition (ii) holds.  Since
+$A(Y)$ is a quotient of a polynomial $A(S)$-algebra in finitely
+many indeterminates (\sref[I]{I.6.3.3}), $Y$ is a closed
+subprescheme of an affine $S$-scheme $Y'$ that is flat and of
+finite type over $S$.  The scheme $Y'$ is Noetherian
+(\sref[I]{I.6.3.7}), so there exists a locally free resolution
+$\sh M_\bullet$ of $j_*\sh G$ by $\sh O_{Y'}$-modules of finite
+type, where $j:Y\to Y'$ is the canonical immersion.  By
+\sref{III.6.5.12}, $\shTor_n^S(\sh F,\sh G)$ is the inverse image
+under $1\times j$ of the $\sh O_{Z'}$-module
+\[
+  \sh H_n(\sh F\otimes_S\sh M_\bullet),
+  \qquad Z'=X\times_SY'.
+\]
+As in (i), the $\sh F\otimes_S\sh M_i$ are coherent
+$\sh O_{Z'}$-modules, and \sref[0]{0.5.3.4} again gives the
+conclusion.
+\end{proof}
+
+\begin{env}[6.5.15]
+\label{III.6.5.15}
+The theory developed above for two complexes
+$\sh P_\bullet,\sh Q_\bullet$ of quasi-coherent sheaves on two
+$S$-preschemes $X$ and $Y$ extends without difficulty to an
+arbitrary finite family of $S$-preschemes $X^{(i)}$
+$(1\leq i\leq m)$, each equipped with a complex
+$\sh P_\bullet^{(i)}$ of quasi-coherent
+$\sh O_{X^{(i)}}$-modules.  If
+\[
+  Z=X^{(1)}\times_SX^{(2)}\times_S\cdots\times_SX^{(m)},
+\]
+one thereby defines a quasi-coherent $\sh O_Z$-module
+\[
+  \shTor_n^S
+  \bigl(\sh P_\bullet^{(1)},\sh P_\bullet^{(2)},\ldots,
+        \sh P_\bullet^{(m)}\bigr).
+\]
+We leave the development of the theory in this general case to
+the reader, and record only, for later reference, the $E_2$-term
+of the second, regular spectral sequence whose abutment is this
+hypertor:
+\[
+  ''\sh E_{pq}^2
+  =
+  \bigoplus_{q_1+\cdots+q_m=q}
+  \shTor_p^S
+  \bigl(
+    \sh H_{q_1}(\sh P_\bullet^{(1)}),\ldots,
+    \sh H_{q_m}(\sh P_\bullet^{(m)})
+  \bigr).
+  \tag{6.5.15.1}\label{III.6.5.15.1}
+\]
+In \sref{III.6.8} we shall study the associativity spectral
+sequences to which these hypertor functors of an arbitrary
+finite number of complexes give rise.
+\end{env}
+
+\oldpage[III]{153}
+
+\subsection{Global hypertor functors of complexes of
+quasi-coherent modules and K\"unneth spectral sequences: the
+affine-base case}
+\label{subsection:III.6.6}
+
+\begin{env}[6.6.1]
+\label{III.6.6.1}
+Let $S=\Spec(A)$ be an affine scheme, and let $X^{(i)}$
+$(i=1,2)$ be two quasi-compact $S$-schemes.  For $i=1,2$, let
+$\sh P_\bullet^{(i)}$ be a bounded-below complex of
+quasi-coherent $\sh O_{X^{(i)}}$-modules whose differential has
+degree $-1$.  Choose a finite covering
+\[
+  \mathfrak U^{(i)}=(U_\alpha^{(i)})
+\]
+of $X^{(i)}$ by affine open subsets.  Put
+\[
+  X=X^{(1)}\times_SX^{(2)}.
+\]
+This is a quasi-compact $S$-scheme
+(\sref[I]{I.5.5.1} and \sref[I]{I.6.6.4}), and
+$\mathfrak U=\mathfrak U^{(1)}\times_S\mathfrak U^{(2)}$ is the
+covering of $X$ by the affine open subsets
+$U_\alpha^{(1)}\times_SU_\beta^{(2)}$.
+
+For $p\leq0$ and $q\in\bb Z$, the group of $(-p)$-alternating
+cochains
+\[
+  C^{-p}(\mathfrak U^{(i)},\sh P_q^{(i)})
+\]
+of the covering $\mathfrak U^{(i)}$ with coefficients in
+$\sh P_q^{(i)}$ (\emph{G}, II, 5.1) is an $A$-module.  For
+$p>0$, put
+$C^p(\mathfrak U^{(i)},\sh P_q^{(i)})=0$.  This defines a
+bicomplex of $A$-modules
+\[
+  C^\bullet(\mathfrak U^{(i)},\sh P_\bullet^{(i)})
+\]
+whose two differentials have degree $-1$.
+
+It follows from the definitions (\sref[0]{0.12.1.2}) that the
+homology module
+\[
+  H_n\bigl(C^\bullet
+    (\mathfrak U^{(i)},\sh P_\bullet^{(i)})\bigr)
+\]
+of this bicomplex, viewed in the usual way as a simple complex
+for the total degree, is the hypercohomology module
+\[
+  \HH^{-n}
+  \bigl(\mathfrak U^{(i)},\sh P^{(i)\bullet}\bigr),
+\]
+where $\sh P^{(i)\bullet}$ is the complex with differential of
+degree $+1$ whose component of degree $q$ is
+$\sh P_{-q}^{(i)}$.  By abuse of notation we write this as
+\[
+  \HH^{-n}
+  \bigl(\mathfrak U^{(i)},\sh P_\bullet^{(i)}\bigr).
+\]
+By \sref{III.6.2.2}, this module is canonically isomorphic to
+\[
+  \HH^{-n}\bigl(X^{(i)},\sh P^{(i)\bullet}\bigr),
+\]
+also written
+$\HH^{-n}(X^{(i)},\sh P_\bullet^{(i)})$.  It is therefore
+independent of the chosen finite covering
+$\mathfrak U^{(i)}$.
+\end{env}
+
+\begin{env}[6.6.2]
+\label{III.6.6.2}
+Apply the general theory of hyperhomology of functors with
+respect to bicomplexes (\sref[0]{0.11.7.4}) to the two
+bicomplexes of $A$-modules
+\[
+  L_{\bullet\bullet}^{(i)}
+  =
+  C^\bullet(\mathfrak U^{(i)},\sh P_\bullet^{(i)})
+  \qquad(i=1,2)
+\]
+and to the covariant bifunctor
+$L_{\bullet\bullet}^{(1)}\otimes_A
+ L_{\bullet\bullet}^{(2)}$.
+Because the cochains are alternating and the coverings
+$\mathfrak U^{(i)}$ are finite, the modules
+\[
+  C^{-p}(\mathfrak U^{(i)},\sh P_q^{(i)})
+\]
+are nonzero for only finitely many values of $p$, independently
+of $q$.  In particular, both degrees of each
+$L_{\bullet\bullet}^{(i)}$ are bounded below.
+
+Denote by
+\[
+  \mathbf{Tor}_n^A
+  (L_{\bullet\bullet}^{(1)},L_{\bullet\bullet}^{(2)})
+\]
+or by
+\[
+  \mathbf{Tor}_n^S
+  (\mathfrak U^{(1)},\mathfrak U^{(2)};
+   \sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+\]
+the $n$-th hyperhomology module of
+$L_{\bullet\bullet}^{(1)}\otimes_A
+ L_{\bullet\bullet}^{(2)}$.  We call it the hypertor of index
+$n$ of $\sh P_\bullet^{(1)}$ and $\sh P_\bullet^{(2)}$ relative
+to the coverings $\mathfrak U^{(1)}$ and
+$\mathfrak U^{(2)}$.  When these complexes are concentrated in
+degree zero, with terms $\sh F^{(1)}$ and $\sh F^{(2)}$, write
+\[
+  \mathbf{Tor}_n^S
+  (\mathfrak U^{(1)},\mathfrak U^{(2)};
+   \sh F^{(1)},\sh F^{(2)})
+\]
+for their hypertor.  Following the general conventions, the
+same notation
+\[
+  \mathbf{Tor}_n^S
+  (\mathfrak U^{(1)},\mathfrak U^{(2)};
+   \sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+\]
+also denotes the bicomplex whose component of bidegree $(j,k)$
+is
+\[
+  \mathbf{Tor}_n^S
+  (\mathfrak U^{(1)},\mathfrak U^{(2)};
+   \sh P_j^{(1)},\sh P_k^{(2)}).
+\]
+
+The construction $L_{\bullet\bullet}^{(i)}$ is exact in
+$\sh P_\bullet^{(i)}$, since all intersections of members of
+$\mathfrak U^{(i)}$ are affine
+(\sref[I]{I.5.5.6} and \sref[I]{I.1.3.11}).  Consequently
+\[
+  \mathbf{Tor}_\bullet^S
+  (\mathfrak U^{(1)},\mathfrak U^{(2)};
+   \sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+\]
+is a covariant bi-$\partial$-functor in
+$\sh P_\bullet^{(1)}$ and $\sh P_\bullet^{(2)}$, with values in
+the category of $A$-modules (\sref[0]{0.11.7.3}).  By
+\sref[0]{0.11.7.2}, it is the common abutment of six biregular
+spectral functors, denoted
+\[
+  {}^{(t)}E^S
+  (\mathfrak U^{(1)},\mathfrak U^{(2)};
+   \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}),
+\]
+or simply
+\[
+  {}^{(t)}E
+  (\mathfrak U^{(1)},\mathfrak U^{(2)};
+   \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}),
+\]
+where $t$ is one of $a,b,a',b',c,d$.  Their $E_2$-terms are
+\[
+\begin{aligned}
+  {}^{(a)}E_{pq}^2
+  &=
+  \bigoplus_{q_1+q_2=q}
+  \Tor_p^A
+  \bigl(H_{q_1}(L_{\bullet\bullet}^{(1)}),
+        H_{q_2}(L_{\bullet\bullet}^{(2)})\bigr),\\
+  {}^{(b)}E_{pq}^2
+  &=
+  H_p\bigl(
+    \mathbf{Tor}_q^{A,\mathrm{II}}
+    (L_{\bullet\bullet}^{(1)},L_{\bullet\bullet}^{(2)})
+  \bigr),\\
+  {}^{(a')}E_{pq}^2
+  &=
+  \bigoplus_{q_1+q_2=q}
+  \Tor_p^A
+  \bigl(H_{q_1}^{\mathrm I}(L_{\bullet\bullet}^{(1)}),
+        H_{q_2}^{\mathrm I}(L_{\bullet\bullet}^{(2)})\bigr),\\
+  {}^{(b')}E_{pq}^2
+  &=
+  H_p\bigl(
+    \mathbf{Tor}_q^A
+    (L_{\bullet\bullet}^{(1)},L_{\bullet\bullet}^{(2)})
+  \bigr),\\
+  {}^{(c)}E_{pq}^2
+  &=
+  \bigoplus_{q_1+q_2=q}
+  \Tor_p^A
+  \bigl(H_{q_1}^{\mathrm{II}}(L_{\bullet\bullet}^{(1)}),
+        H_{q_2}^{\mathrm{II}}(L_{\bullet\bullet}^{(2)})\bigr),\\
+  {}^{(d)}E_{pq}^2
+  &=
+  H_p\bigl(
+    \mathbf{Tor}_q^{A,\mathrm I}
+    (L_{\bullet\bullet}^{(1)},L_{\bullet\bullet}^{(2)})
+  \bigr).
+\end{aligned}
+\]
+These notations agree with those of the general theory of
+hyperhomology.  We now make the initial terms more explicit.
+\end{env}
+
+\begin{env}[6.6.3]
+\label{III.6.6.3}
+\emph{Spectral sequences \textnormal{(a)} and
+\textnormal{(a$'$)}.}
+By \sref{III.6.6.1},
+\[
+  H_n(L_{\bullet\bullet}^{(i)})
+  =
+  \HH^{-n}(X^{(i)},\sh P_\bullet^{(i)}),
+\]
+and hence
+\[
+  {}^{(a)}E_{pq}^2
+  =
+  \bigoplus_{q_1+q_2=q}
+  \Tor_p^A
+  \bigl(
+    \HH^{-q_1}(X^{(1)},\sh P_\bullet^{(1)}),
+    \HH^{-q_2}(X^{(2)},\sh P_\bullet^{(2)})
+  \bigr).
+\]
+
+By definition, the component of degree $k$ of the complex
+$H_n^{\mathrm I}(L_{\bullet\bullet}^{(i)})$ is
+\[
+  H_n\bigl(
+    C^\bullet(\mathfrak U^{(i)},\sh P_k^{(i)})
+  \bigr)
+  =
+  \HH^{-n}(\mathfrak U^{(i)},\sh P_k^{(i)}).
+\]
+By \sref{III.1.4.1}, this module is canonically isomorphic to
+$\HH^{-n}(X^{(i)},\sh P_k^{(i)})$.  Therefore
+\[
+  {}^{(a')}E_{pq}^2
+  =
+  \bigoplus_{q_1+q_2=q}
+  \Tor_p^A
+  \bigl(
+    \HH^{-q_1}(X^{(1)},\sh P_\bullet^{(1)}),
+    \HH^{-q_2}(X^{(2)},\sh P_\bullet^{(2)})
+  \bigr),
+\]
+where each $\HH^{-q_i}(X^{(i)},\sh P_\bullet^{(i)})$ in this
+last formula denotes the complex obtained by taking cohomology
+term by term.
+\end{env}
+
+\begin{env}[6.6.4]
+\label{III.6.6.4}
+\emph{Spectral sequences \textnormal{(b)} and
+\textnormal{(b$'$)}.}
+By definition,
+\[
+  \mathbf{Tor}_q^{A,\mathrm{II}}
+  (L_{\bullet\bullet}^{(1)},L_{\bullet\bullet}^{(2)})
+\]
+is a bicomplex whose component of bidegree $(h,k)$ is
+\[
+  \Tor_q^A
+  \bigl(
+    C^{-h}(\mathfrak U^{(1)},\sh P_\bullet^{(1)}),
+    C^{-k}(\mathfrak U^{(2)},\sh P_\bullet^{(2)})
+  \bigr).
+\]
+Let $\Phi^{(i)}$ be the index set of $\mathfrak U^{(i)}$.  For
+$r\geq0$, the complex
+$C^r(\mathfrak U^{(i)},\sh P_\bullet^{(i)})$ is the direct sum
+of the complexes
+\[
+  \Gamma(U_\rho^{(i)},\sh P_\bullet^{(i)}),
+\]
+where $U_\rho^{(i)}$ is the intersection of the
+$U_\xi^{(i)}$ for $\xi\in\rho$, and $\rho$ ranges over the
+appropriate elements of $\mathfrak P(\Phi^{(i)})$.
+Consequently
+\[
+  \Tor_q^A
+  \bigl(
+    C^{-h}(\mathfrak U^{(1)},\sh P_\bullet^{(1)}),
+    C^{-k}(\mathfrak U^{(2)},\sh P_\bullet^{(2)})
+  \bigr)
+\]
+is the direct sum of the $A$-modules
+\[
+  \Tor_q^A
+  \bigl(
+    \Gamma(U_\sigma^{(1)},\sh P_\bullet^{(1)}),
+    \Gamma(U_\tau^{(2)},\sh P_\bullet^{(2)})
+  \bigr),
+\]
+where $\sigma$ and $\tau$ range over
+$\mathfrak P(\Phi^{(1)})$ and $\mathfrak P(\Phi^{(2)})$ with
+\[
+  \operatorname{Card}(\sigma)=-(h+1),
+  \qquad
+  \operatorname{Card}(\tau)=-(k+1),
+\]
+respectively.  Since $X^{(1)}$ and $X^{(2)}$ are schemes, the
+$U_\rho^{(i)}$ are affine.  Thus \sref{III.6.4.1.1} gives
+\[
+  \Tor_q^A
+  \bigl(
+    \Gamma(U_\sigma^{(1)},\sh P_\bullet^{(1)}),
+    \Gamma(U_\tau^{(2)},\sh P_\bullet^{(2)})
+  \bigr)
+  =
+  \Gamma\bigl(
+    U_\sigma^{(1)}\times_SU_\tau^{(2)},
+    \shTor_q^S(\sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+  \bigr).
+\]
+
+It follows that ${}^{(b)}E_{pq}^2$ is the $(-p)$-th cohomology
+module of the complex
+\[
+  L^\bullet(\Phi^{(1)},\Phi^{(2)};\mathcal S)
+\]
+of bialternating cochains on $\Phi^{(1)}$ and $\Phi^{(2)}$ with
+values in the coefficient system
+\[
+  \mathcal S:(\sigma,\tau)\longmapsto
+  \Gamma\bigl(
+    U_\sigma^{(1)}\times_SU_\tau^{(2)},
+    \shTor_q^S(\sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+  \bigr)
+  \tag{6.6.4.1}\label{III.6.6.4.1}
+\]
+(\sref[0]{0.11.8.4}).  By \sref[0]{0.11.8.5} and
+\sref[0]{0.11.8.6}, this complex has the same cohomology as the
+complex of all cochains
+\[
+  C^\bullet(\Phi^{(1)},\Phi^{(2)};\mathcal S)
+\]
+and as the complex
+\[
+  P^\bullet(\Phi^{(1)},\Phi^{(2)};\mathcal S),
+\]
+whose elements are linear combinations of
+\[
+  \lambda(\sigma,\tau)\in
+  \Gamma\bigl(
+    U_\sigma^{(1)}\times_SU_\tau^{(2)},
+    \shTor_q^S(\sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+  \bigr),
+\]
+where
+\[
+  \sigma=(\alpha_0,\ldots,\alpha_h),
+  \qquad
+  \tau=(\beta_0,\ldots,\beta_h)
+\]
+are sequences with the same number of terms.  Now
+\[
+\begin{split}
+  U_\sigma^{(1)}\times_SU_\tau^{(2)}
+  &=
+  (U_{\alpha_0}^{(1)}\times_SU_{\beta_0}^{(2)})
+  \cap\cdots\cap
+  (U_{\alpha_h}^{(1)}\times_SU_{\beta_h}^{(2)})
+\end{split}
+\]
+by \sref[I]{I.3.2.7}.  Let $\mathfrak U$ be the covering of
+$Z=X^{(1)}\times_SX^{(2)}$ by the affine open subsets
+$U_\alpha^{(1)}\times_SU_\beta^{(2)}$.  Since $Z$ is a scheme,
+\sref{III.1.3.1} yields
+\[
+  {}^{(b)}E_{pq}^2
+  =
+  \HH^{-p}
+  \bigl(
+    Z,\shTor_q^S
+    (\sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+  \bigr).
+  \tag{6.6.4.2}\label{III.6.6.4.2}
+\]
+
+Next,
+\[
+  \mathbf{Tor}_q^A
+  (L_{\bullet\bullet}^{(1)},L_{\bullet\bullet}^{(2)})
+\]
+is a bicomplex whose component of bidegree $(h,k)$ is the direct
+sum of the $A$-modules
+\[
+  \Tor_q^A
+  \bigl(
+    C^{-h_1}(\mathfrak U^{(1)},\sh P_{k_1}^{(1)}),
+    C^{-h_2}(\mathfrak U^{(2)},\sh P_{k_2}^{(2)})
+  \bigr),
+\]
+where $h_1+h_2=h$ and $k_1+k_2=k$.  Expanding the cochain
+modules as above shows that this component is also the direct
+sum of
+\[
+  \Gamma\bigl(
+    U_\sigma^{(1)}\times_SU_\tau^{(2)},
+    \shTor_q^S(\sh P_{k_1}^{(1)},\sh P_{k_2}^{(2)})
+  \bigr),
+\]
+where $k_1+k_2=k$ and
+\[
+  \operatorname{Card}(\sigma)
+  +\operatorname{Card}(\tau)=-h-2.
+\]
+
+The term ${}^{(b')}E_{pq}^2$ is the $(-p)$-th cohomology module
+of a bicomplex $N^{\bullet\bullet}=(N^{hk})$.  For fixed $k$,
+the simple complex $N^{\bullet k}$ consists of bialternating
+cochains on $\Phi^{(1)}$ and $\Phi^{(2)}$ with values in the
+coefficient system
+\[
+  \mathcal S_k:(\sigma,\tau)\longmapsto
+  \Gamma\left(
+    U_\sigma^{(1)}\times_SU_\tau^{(2)},
+    \bigoplus_{k_1+k_2=k}
+    \shTor_q^S(\sh P_{k_1}^{(1)},\sh P_{k_2}^{(2)})
+  \right).
+\]
+These coefficient systems form a complex
+$\mathcal S^\bullet$, whose differential is induced by that of
+the simple complex associated to the bicomplex
+\[
+  \shTor_q^S
+  (\sh P^{(1)\bullet},\sh P^{(2)\bullet}).
+\]
+By \sref[0]{0.11.8.9}, $N^{\bullet\bullet}$ has the same
+cohomology as
+\[
+  C^\bullet
+  (\Phi^{(1)},\Phi^{(2)};\mathcal S^\bullet),
+\]
+and also the same cohomology as
+\[
+  P^\bullet
+  (\Phi^{(1)},\Phi^{(2)};\mathcal S^\bullet),
+\]
+whose elements of bidegree $(h,k)$ are linear combinations of
+\[
+  \lambda(\sigma,\tau)\in
+  \Gamma\left(
+    U_\sigma^{(1)}\times_SU_\tau^{(2)},
+    \bigoplus_{k_1+k_2=k}
+    \shTor_q^S(\sh P_{k_1}^{(1)},\sh P_{k_2}^{(2)})
+  \right),
+\]
+with $\sigma=(\alpha_0,\ldots,\alpha_h)$ and
+$\tau=(\beta_0,\ldots,\beta_h)$ having the same number of terms
+(\sref[0]{0.11.8.10}).  As above, ${}^{(b')}E_{pq}^2$ is
+therefore the $(-p)$-th cohomology module of
+\[
+  C^\bullet(\mathfrak U,\mathcal Q^\bullet),
+\]
+where $\mathcal Q^\bullet$ is the simple complex associated to
+the bicomplex
+\[
+  \shTor_q^S
+  (\sh P^{(1)\bullet},\sh P^{(2)\bullet})
+\]
+of $\sh O_Z$-modules.  With the conventions of
+\sref{III.6.6.1}, we obtain
+\[
+  {}^{(b')}E_{pq}^2
+  =
+  \HH^{-p}
+  \bigl(
+    Z,\shTor_q^S
+    (\sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+  \bigr).
+  \tag{6.6.4.3}\label{III.6.6.4.3}
+\]
+\end{env}
+
+\oldpage[III]{156}
+
+\begin{env}[6.6.5]
+\label{III.6.6.5}
+\emph{Spectral sequences \textnormal{(c)} and
+\textnormal{(d)}.}
+By definition, the component of degree $h$ of the complex
+$H_n^{\mathrm{II}}(L_{\bullet\bullet}^{(i)})$ is the
+$A$-module
+\[
+  C^{-h}
+  \bigl(
+    \mathfrak U^{(i)},
+    \sh H_n(\sh P_\bullet^{(i)})
+  \bigr),
+\]
+because the functor $C^{-h}$ is exact.  Hence, by the definition
+of the hypertor of two modules relative to two coverings
+(\sref{III.6.6.2}),
+\[
+  {}^{(c)}E_{pq}^2
+  =
+  \bigoplus_{q_1+q_2=q}
+  \mathbf{Tor}_p^S
+  \bigl(
+    \mathfrak U^{(1)},\mathfrak U^{(2)};
+    \sh H_{q_1}(\sh P_\bullet^{(1)}),
+    \sh H_{q_2}(\sh P_\bullet^{(2)})
+  \bigr).
+\]
+
+Finally, by definition,
+\[
+  \mathbf{Tor}_q^{A,\mathrm I}
+  (L_{\bullet\bullet}^{(1)},L_{\bullet\bullet}^{(2)})
+\]
+is a bicomplex whose component of bidegree $(h,k)$ is the
+$A$-module
+\[
+  \mathbf{Tor}_q^S
+  \bigl(
+    \mathfrak U^{(1)},\mathfrak U^{(2)};
+    \sh P_h^{(1)},\sh P_k^{(2)}
+  \bigr).
+\]
+Consequently
+\[
+  {}^{(d)}E_{pq}^2
+  =
+  H_p\left(
+    \mathbf{Tor}_q^S
+    \bigl(
+      \mathfrak U^{(1)},\mathfrak U^{(2)};
+      \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+    \bigr)
+  \right).
+\]
+\end{env}
+
+\begin{env}[6.6.6]
+\label{III.6.6.6}
+The theory of hyperhomology for functors of bicomplexes
+(\sref[0]{0.11.7.3}) shows, as in \sref{III.6.3.4}, that for
+every \emph{flat} Cartan--Eilenberg resolution
+$M_{\bullet\bullet}^{(i)}$ of $L_{\bullet\bullet}^{(i)}$ in the
+category of complexes of modules bounded below $(i=1,2)$, there
+are canonical isomorphisms of bi-$\partial$-functors
+\begin{env}[6.6.6.1]
+\label{III.6.6.6.1}
+\[
+\begin{split}
+  \mathbf{Tor}_\bullet^S
+  \bigl(
+    \mathfrak U^{(1)},\mathfrak U^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  &\xrightarrow{\sim}
+  H_\bullet
+  \bigl(
+    M_{\bullet\bullet}^{(1)}
+    \otimes_A M_{\bullet\bullet}^{(2)}
+  \bigr)\\
+  &\xrightarrow{\sim}
+  H_\bullet
+  \bigl(
+    M_{\bullet\bullet}^{(1)}
+    \otimes_A L_{\bullet\bullet}^{(2)}
+  \bigr)\\
+  &\xrightarrow{\sim}
+  H_\bullet
+  \bigl(
+    L_{\bullet\bullet}^{(1)}
+    \otimes_A M_{\bullet\bullet}^{(2)}
+  \bigr).
+\end{split}
+\tag{6.6.6.1}
+\]
+\end{env}
+\end{env}
+
+\begin{env}[6.6.7]
+\label{III.6.6.7}
+We shall now show that the global hypertor defined in
+\sref{III.6.6.2}, and the six corresponding spectral sequences,
+do not depend, up to canonical isomorphisms, on the finite affine
+open coverings $\mathfrak U^{(i)}$ used to define them.  It is
+enough to show that if $\mathfrak V^{(i)}$ are two other
+coverings of the same kind, with $\mathfrak V^{(i)}$ finer than
+$\mathfrak U^{(i)}$ for $i=1,2$, then there are canonical
+isomorphisms of spectral functors
+\begin{env}[6.6.7, $t$]
+\label{III.6.6.7.t}
+\[
+  {}^{(t)}E
+  \bigl(
+    \mathfrak U^{(1)},\mathfrak U^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  {}^{(t)}E
+  \bigl(
+    \mathfrak V^{(1)},\mathfrak V^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr),
+  \tag{6.6.7, $t$}\label{III.6.6.7.t.eq}
+\]
+\end{env}
+where $t$ is one of $a,b,a',b',c,d$.
+
+For $i=1,2$ there are homomorphisms of bicomplexes
+\[
+  C^\bullet
+  (\mathfrak U^{(i)},\sh P_\bullet^{(i)})
+  \longrightarrow
+  C^\bullet
+  (\mathfrak V^{(i)},\sh P_\bullet^{(i)})
+\]
+that are well defined up to homotopy
+(\sref[G]{G.II.5.7.1}).  It follows at once that the
+homomorphisms \eqref{III.6.6.7.t.eq} are canonically defined and
+compatible with the boundary operators in their abutments
+(\sref[0]{0.11.3.2}).  Moreover, the calculation of the
+$E_2$-terms of the spectral sequences
+\textnormal{(a)}, \textnormal{(b)}, \textnormal{(a$'$)}, and
+\textnormal{(b$'$)} shows that
+\eqref{III.6.6.7.t.eq} is an isomorphism on their $E_2$-terms.
+Since these spectral sequences are biregular, it follows that
+\eqref{III.6.6.7.t.eq} is an isomorphism for these spectral
+functors, and hence an isomorphism of bi-$\partial$-functors on
+their common abutment (\sref[0]{0.11.1.5}).
+
+In particular, if $\sh F^{(i)}$ is a quasi-coherent
+$\sh O_{X^{(i)}}$-module $(i=1,2)$, the canonical homomorphism
+\[
+  \mathbf{Tor}_n^S
+  \bigl(
+    \mathfrak U^{(1)},\mathfrak U^{(2)};
+    \sh F^{(1)},\sh F^{(2)}
+  \bigr)
+  \longrightarrow
+  \mathbf{Tor}_n^S
+  \bigl(
+    \mathfrak V^{(1)},\mathfrak V^{(2)};
+    \sh F^{(1)},\sh F^{(2)}
+  \bigr)
+\]
+is bijective.  In view of the calculation in
+\sref{III.6.6.5}, the homomorphism
+\eqref{III.6.6.7.t.eq} is therefore also an isomorphism on
+$E_2$-terms for $t=c$ and $t=d$.  As above, we conclude that it
+is an isomorphism of spectral sequences for these two values of
+$t$.
+
+\oldpage[III]{157}
+
+The isomorphisms \eqref{III.6.6.7.t.eq} may be regarded as
+defining inductive systems of spectral functors on the filtering
+set of pairs
+$(\mathfrak U^{(1)},\mathfrak U^{(2)})$ of finite affine open
+coverings of $X^{(1)}$ and $X^{(2)}$.  We denote the inductive
+limit by
+\[
+  {}^{(t)}E
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \quad\text{or}\quad
+  {}^{(t)}E^S
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr).
+\]
+Its abutment is denoted
+\[
+  \mathbf{Tor}_\bullet^S
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+and is called the \emph{global hypertor} of the two complexes
+$\sh P_\bullet^{(1)}$ and $\sh P_\bullet^{(2)}$.  If the two
+complexes are concentrated in degree zero, with terms
+$\sh F^{(1)}$ and $\sh F^{(2)}$, we write
+\[
+  \mathbf{Tor}_\bullet^S
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh F^{(1)},\sh F^{(2)}
+  \bigr).
+\]
+In accordance with the general conventions,
+\[
+  \mathbf{Tor}_q^S
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+will denote the bicomplex whose component of bidegree $(h,k)$ is
+\[
+  \mathbf{Tor}_q^S
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_h^{(1)},\sh P_k^{(2)}
+  \bigr).
+\]
+\end{env}
+
+\begin{env}[6.6.8]
+\label{III.6.6.8}
+Under the hypotheses of \sref{III.6.6.1}, consider two
+$S$-morphisms
+\[
+  f_i:X^{(i)}\longrightarrow Y^{(i)},
+\]
+where
+$Y^{(i)}=\Spec(B_i)$ is an affine $S$-scheme, so that $B_i$ is
+an $A$-algebra $(i=1,2)$.  This defines an $A$-homomorphism
+\[
+  B_i\longrightarrow
+  \Gamma(X^{(i)},\sh O_{X^{(i)}})
+\]
+(\sref[I]{I.2.2.4}), and consequently each
+$L_{\bullet\bullet}^{(i)}$ defined in \sref{III.6.6.2} is a
+bicomplex of $B_i$-modules.  Thus
+\[
+  L_{\bullet\bullet}^{(1)}
+  \otimes_A L_{\bullet\bullet}^{(2)}
+\]
+is a quadricomplex of $(B_1\otimes_AB_2)$-modules, and its six
+hyperhomology spectral functors may be regarded as taking values
+in the category of spectral sequences of
+$(B_1\otimes_AB_2)$-modules.
+
+Put
+\[
+  Y=Y^{(1)}\times_SY^{(2)}
+   =\Spec(B_1\otimes_AB_2).
+\]
+We may then consider the quasi-coherent $\sh O_Y$-modules
+associated with these modules (\sref[I]{I.1.3.4}).  For
+$t=a,b,a',b',c,d$, write
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+for the six spectral sequences of $\sh O_Y$-modules
+\[
+  \left(
+    {}^{(t)}E
+    \bigl(
+      X^{(1)},X^{(2)};
+      \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+    \bigr)
+  \right)\supertilde,
+\]
+and write
+\[
+  \shTor_\bullet^S
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+for their common abutment
+\[
+  \left(
+    \mathbf{Tor}_\bullet^S
+    \bigl(
+      X^{(1)},X^{(2)};
+      \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+    \bigr)
+  \right)\supertilde.
+\]
+When $\sh P_\bullet^{(i)}$ is concentrated in degree zero, with
+term $\sh F^{(i)}$ $(i=1,2)$, we write this abutment as
+\[
+  \shTor_\bullet^S
+  \bigl(
+    f_1,f_2;
+    \sh F^{(1)},\sh F^{(2)}
+  \bigr).
+\]
+\end{env}
+
+
+\subsection{Global hypertor functors of complexes of quasi-coherent modules and K\"unneth spectral sequences: the general case}
+\label{subsection:III.6.7}
+
+\begin{env}[6.7.1]
+\label{III.6.7.1}
+We now generalize the definitions of \sref{III.6.6.8} to the
+case where $S$ is an arbitrary prescheme, $X^{(i)}$ and
+$Y^{(i)}$ are $S$-preschemes, and
+\[
+  f_i:X^{(i)}\longrightarrow Y^{(i)}
+\]
+are separated and quasi-compact $S$-morphisms.  For every pair
+of bounded-below complexes $\sh P_\bullet^{(i)}$ of
+quasi-coherent $\sh O_{X^{(i)}}$-modules $(i=1,2)$, the aim is to
+define a quasi-coherent $\sh O_Y$-module
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+for every $n$, together with six spectral functors, in such a way
+that these definitions reduce to those of \sref{III.6.6.8} when
+$S$, $Y^{(1)}$, and $Y^{(2)}$ are affine; here
+$Y=Y^{(1)}\times_SY^{(2)}$.
+
+First suppose that $S=\Spec(A)$ is affine, while $Y^{(1)}$ and
+$Y^{(2)}$ are arbitrary.  Let $W^{(i)}$ be an affine open subset
+of $Y^{(i)}$.  Then $f_i^{-1}(W^{(i)})$ is a quasi-compact
+$S$-scheme, and
+\[
+  W=W^{(1)}\times_SW^{(2)}
+\]
+is an affine open subset of $Y$.  Let
+\[
+  f_i':f_i^{-1}(W^{(i)})\longrightarrow W^{(i)}
+\]
+be the restriction of $f_i$, and let
+\[
+  \sh P_\bullet^{\prime(i)}
+  =
+  \sh P_\bullet^{(i)}
+  \bigm|_{f_i^{-1}(W^{(i)})}
+  \qquad(i=1,2).
+\]
+By \sref{III.6.6.8} we then have the spectral sequences of
+quasi-coherent $(\sh O_Y|W)$-modules
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    f_1',f_2';
+    \sh P_\bullet^{\prime(1)},\sh P_\bullet^{\prime(2)}
+  \bigr),
+\]
+and it remains to verify that they satisfy the gluing conditions
+of \sref[0]{0.3.3.1}.
+
+We are immediately reduced to the case in which
+\[
+  Y^{(i)}=\Spec(B_i),
+  \qquad
+  W^{(i)}=D(g_i),
+  \qquad g_i\in B_i,
+\]
+so that
+\[
+  W=D(g_1\otimes g_2)
+\]
+in $Y=\Spec(B_1\otimes_AB_2)$
+(\sref[II]{II.4.3.2.1}).  Put
+$X^{\prime(i)}=f_i^{-1}(W^{(i)})$.  We must establish an
+isomorphism of spectral functors
+\begin{env}[6.7.1.1]
+\label{III.6.7.1.1}
+\[
+\begin{split}
+  {}^{(t)}E
+  \bigl(
+    X^{\prime(1)},X^{\prime(2)};
+    \sh P_\bullet^{\prime(1)},\sh P_\bullet^{\prime(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  {}^{(t)}E
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \otimes_BB_g ,
+\end{split}
+\tag{6.7.1.1}\label{III.6.7.1.1.eq}
+\]
+\end{env}
+where
+\[
+  B=B_1\otimes_AB_2,
+  \qquad
+  g=g_1\otimes g_2.
+\]
+
+\oldpage[III]{158}
+
+Choose finite affine open coverings $\mathfrak U^{(i)}$ of
+$X^{(i)}$, and let $\mathfrak U^{\prime(i)}$ be their traces on
+$X^{\prime(i)}$.  The latter are again coverings by affine open
+subsets (\sref[I]{I.5.5.10}), and more precisely
+\[
+  C^\bullet
+  \bigl(
+    \mathfrak U^{\prime(i)},\sh P_\bullet^{\prime(i)}
+  \bigr)
+  =
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(i)},\sh P_\bullet^{(i)}
+  \bigr)
+  \otimes_{B_i}(B_i)_{g_i}.
+\]
+Put
+\[
+  L_{\bullet\bullet}^{(i)}
+  =
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(i)},\sh P_\bullet^{(i)}
+  \bigr),
+  \qquad
+  L_{\bullet\bullet}^{\prime(i)}
+  =
+  C^\bullet
+  \bigl(
+    \mathfrak U^{\prime(i)},\sh P_\bullet^{\prime(i)}
+  \bigr).
+\]
+Then
+\[
+\begin{split}
+  L_{\bullet\bullet}^{\prime(1)}
+  \otimes_A L_{\bullet\bullet}^{\prime(2)}
+  &=
+  \bigl(
+    L_{\bullet\bullet}^{(1)}
+    \otimes_{B_1}(B_1)_{g_1}
+  \bigr)
+  \otimes_A
+  \bigl(
+    L_{\bullet\bullet}^{(2)}
+    \otimes_{B_2}(B_2)_{g_2}
+  \bigr).
+\end{split}
+\]
+Since
+\[
+  B_g=(B_1)_{g_1}\otimes_A(B_2)_{g_2}
+\]
+up to canonical isomorphism, we likewise have, up to canonical
+isomorphism,
+\[
+  L_{\bullet\bullet}^{\prime(1)}
+  \otimes_A L_{\bullet\bullet}^{\prime(2)}
+  =
+  \bigl(
+    L_{\bullet\bullet}^{(1)}
+    \otimes_A L_{\bullet\bullet}^{(2)}
+  \bigr)
+  \otimes_BB_g.
+\]
+
+Let $M_{\bullet\bullet}^{(i)}$ be a projective
+Cartan--Eilenberg resolution of $L_{\bullet\bullet}^{(i)}$,
+chosen to consist of $B_i$-modules.  Because $(B_i)_{g_i}$ is
+flat over $B_i$,
+\[
+  M_{\bullet\bullet}^{\prime(i)}
+  =
+  M_{\bullet\bullet}^{(i)}
+  \otimes_{B_i}(B_i)_{g_i}
+\]
+is a projective Cartan--Eilenberg resolution of
+$L_{\bullet\bullet}^{\prime(i)}$.  Moreover,
+\[
+  M_{\bullet\bullet}^{\prime(1)}
+  \otimes_A M_{\bullet\bullet}^{\prime(2)}
+  =
+  \bigl(
+    M_{\bullet\bullet}^{(1)}
+    \otimes_A M_{\bullet\bullet}^{(2)}
+  \bigr)
+  \otimes_BB_g.
+\]
+The desired isomorphism \eqref{III.6.7.1.1.eq} now follows
+immediately from the definitions of the hyperhomology of a
+bicomplex and from the exactness of
+$G\longmapsto G\otimes_BB_g$ on $B$-modules.
+\end{env}
+
+\begin{env}[6.7.2]
+\label{III.6.7.2}
+Now suppose that $S$ is arbitrary, and let
+\[
+  u_i:Y^{(i)}\longrightarrow S
+  \qquad(i=1,2)
+\]
+be the structural morphisms.  Choose an affine open covering
+$(S_\alpha)$ of $S$, put
+\[
+  Y_\alpha^{(i)}=u_i^{-1}(S_\alpha),
+  \qquad
+  X_\alpha^{(i)}=f_i^{-1}(Y_\alpha^{(i)}),
+\]
+and let
+\[
+  f_{i\alpha}:X_\alpha^{(i)}\longrightarrow Y_\alpha^{(i)}
+\]
+be the restriction of $f_i$, which is separated and
+quasi-compact.  The schemes
+\[
+  Y_\alpha
+  =
+  Y_\alpha^{(1)}
+  \times_{S_\alpha}Y_\alpha^{(2)}
+\]
+form an open covering of $Y$, and on every $Y_\alpha$,
+\sref{III.6.7.1} defines the spectral functors
+\[
+  {}^{(t)}\sh E^{S_\alpha}
+  \left(
+    f_{1\alpha},f_{2\alpha};
+    \sh P_\bullet^{(1)}|X_\alpha^{(1)},
+    \sh P_\bullet^{(2)}|X_\alpha^{(2)}
+  \right).
+\]
+It remains again to show that these functors satisfy the gluing
+conditions.
+
+We reduce immediately to the following situation:
+$S=\Spec(A)$ is affine,
+$S'=D(h)$ with $h\in A$, and
+$u_i(Y^{(i)})\subset S'$.  We may moreover assume that
+$Y^{(i)}=\Spec(B_i)$ is affine.  It is then enough to define
+canonical isomorphisms
+\begin{env}[6.7.2.1]
+\label{III.6.7.2.1}
+\[
+  {}^{(t)}E^S
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  {}^{(t)}E^{S'}
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr).
+  \tag{6.7.2.1}\label{III.6.7.2.1.eq}
+\]
+\end{env}
+With the notation of \sref{III.6.6.2}, the
+$L_{\bullet\bullet}^{(i)}$ consist of $A_h$-modules, and hence,
+up to canonical isomorphism,
+\[
+  L_{\bullet\bullet}^{(1)}
+  \otimes_{A_h}L_{\bullet\bullet}^{(2)}
+  =
+  L_{\bullet\bullet}^{(1)}
+  \otimes_A L_{\bullet\bullet}^{(2)}.
+\]
+Since a projective Cartan--Eilenberg resolution
+$M_{\bullet\bullet}^{(i)}$ of $L_{\bullet\bullet}^{(i)}$ may be
+chosen to consist of $A_h$-modules, the desired canonical
+isomorphism follows immediately.
+\end{env}
+
+\begin{theorem}[6.7.3]
+\label{III.6.7.3}
+Let $S$ be a prescheme, let
+$f_i:X^{(i)}\to Y^{(i)}$ be a separated and quasi-compact
+$S$-morphism of $S$-preschemes, and let
+$\sh P_\bullet^{(i)}$ be a bounded-below complex of
+quasi-coherent $\sh O_{X^{(i)}}$-modules $(i=1,2)$.  Put
+\[
+  Y=Y^{(1)}\times_SY^{(2)}.
+\]
+There exists a bi-$\partial$-functor
+\[
+  \mathfrak{Tor}_\bullet^S
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+with values in the category of quasi-coherent
+$\sh O_Y$-modules, such that if $V^{(i)}$ is an affine open
+subset of $Y^{(i)}$ $(i=1,2)$ and
+$V=V^{(1)}\times_SV^{(2)}$, then
+\[
+\begin{split}
+  &\mathfrak{Tor}_\bullet^S
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)\bigm|_V\\
+  &\quad=
+  \left(
+    \mathbf{Tor}_\bullet^S
+    \left(
+      f_1^{-1}(V^{(1)}),f_2^{-1}(V^{(2)});
+      \sh P_\bullet^{(1)}|f_1^{-1}(V^{(1)}),
+      \sh P_\bullet^{(2)}|f_2^{-1}(V^{(2)})
+    \right)
+  \right)\supertilde .
+\end{split}
+\]
+
+\oldpage[III]{159}
+
+This bifunctor is the common abutment of six biregular spectral
+functors
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \qquad(t=a,b,a',b',c,d),
+\]
+whose $E_2$-terms are
+\[
+\begin{aligned}
+  {}^{(a)}\sh E_{pq}^2
+  &=
+  \bigoplus_{q_1+q_2=q}
+  \shTor_p^S
+  \bigl(
+    \sh H^{-q_1}(f_1,\sh P_\bullet^{(1)}),
+    \sh H^{-q_2}(f_2,\sh P_\bullet^{(2)})
+  \bigr),\\
+  {}^{(b)}\sh E_{pq}^2
+  &=
+  \sh H^{-p}
+  \bigl(
+    f_1\times_Sf_2,
+    \mathfrak{Tor}_q^S
+    (\sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+  \bigr),\\
+  {}^{(a')}\sh E_{pq}^2
+  &=
+  \bigoplus_{q_1+q_2=q}
+  \mathfrak{Tor}_p^S
+  \bigl(
+    \sh H^{-q_1}(f_1,\sh P_\bullet^{(1)}),
+    \sh H^{-q_2}(f_2,\sh P_\bullet^{(2)})
+  \bigr),\\
+  {}^{(b')}\sh E_{pq}^2
+  &=
+  \sh H^{-p}
+  \bigl(
+    f_1\times_Sf_2,
+    \shTor_q^S
+    (\sh P_\bullet^{(1)},\sh P_\bullet^{(2)})
+  \bigr),\\
+  {}^{(c)}\sh E_{pq}^2
+  &=
+  \bigoplus_{q_1+q_2=q}
+  \mathfrak{Tor}_p^S
+  \bigl(
+    f_1,f_2;
+    \sh H_{q_1}(\sh P_\bullet^{(1)}),
+    \sh H_{q_2}(\sh P_\bullet^{(2)})
+  \bigr),\\
+  {}^{(d)}\sh E_{pq}^2
+  &=
+  \sh H_p
+  \left(
+    \mathfrak{Tor}_q^S
+    \bigl(
+      f_1,f_2;
+      \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+    \bigr)
+  \right).
+\end{aligned}
+\]
+The spectral sequences \textnormal{(a)} and \textnormal{(b)} are
+called the \emph{K\"unneth spectral sequences}.  Notice that
+\textnormal{(a)} and \textnormal{(a$'$)}, respectively
+\textnormal{(b)} and \textnormal{(b$'$)}, are identical when
+$\sh P_\bullet^{(1)}$ and $\sh P_\bullet^{(2)}$ are concentrated
+in degree zero.  In that case, \textnormal{(c)} and
+\textnormal{(d)} are degenerate and are therefore of no
+interest.
+\end{theorem}
+
+\begin{remark}[6.7.4]
+\label{III.6.7.4}
+The global hypertors just defined include as special cases both
+the hypercohomology modules defined in \sref{III.6.2.1} and the
+local hypertors defined in \sref{III.6.5.3}.  Indeed, for every
+quasi-compact and separated morphism $f:X\to Y$ and every
+bounded-below complex $\sh P_\bullet$ of quasi-coherent
+$\sh O_X$-modules, there is a canonical isomorphism of
+$\partial$-functors in $\sh P_\bullet$:
+\begin{env}[6.7.4.1]
+\label{III.6.7.4.1}
+\[
+  \mathfrak{Tor}_n^Y
+  \bigl(
+    f,1_Y;
+    \sh P_\bullet,\sh O_Y
+  \bigr)
+  \xrightarrow{\sim}
+  \sh H^{-n}(f,\sh P_\bullet)
+  \qquad(n\in\mathbf Z).
+  \tag{6.7.4.1}\label{III.6.7.4.1.eq}
+\]
+\end{env}
+The gluing methods of \sref{III.6.7.2} immediately reduce the
+proof to the case in which $Y$ is affine.  By
+\sref{III.6.2.2}, both sides of
+\eqref{III.6.7.4.1.eq} may then be computed using the same
+finite covering $\mathfrak U$ of $X$ by affine open subsets and,
+for the first side, the covering of $Y$ consisting of $Y$
+itself.  With the notation of \sref{III.6.6.2}, the bicomplex
+$L_{\bullet\bullet}^{(2)}$ is then concentrated in bidegree
+$(0,0)$, where it is equal to $A$, and the conclusion follows
+from \sref[0]{0.11.7.5}.
+
+For a generalization, see \sref{III.6.7.7}.  Notice, however,
+that if $\sh O_Y$ on the left side of
+\eqref{III.6.7.4.1.eq} is replaced by an arbitrary
+quasi-coherent $\sh O_Y$-module $\sh F$, there is in general no
+longer an isomorphism with
+\[
+  \sh H^{-n}
+  \bigl(
+    f,\sh P_\bullet\otimes_{\sh O_Y}\sh F
+  \bigr),
+\]
+although the bicomplex
+$L_{\bullet\bullet}^{(1)}\otimes_A
+ L_{\bullet\bullet}^{(2)}$ occurring in the preceding
+calculation still identifies with
+\[
+  C^\bullet
+  \bigl(
+    \mathfrak U,
+    \sh P_\bullet\otimes_Y\sh F
+  \bigr).
+\]
+
+On the other hand, there is a canonical isomorphism of
+bi-$\partial$-functors
+\begin{env}[6.7.4.2]
+\label{III.6.7.4.2}
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    1_{X^{(1)}},1_{X^{(2)}};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  \shTor_n^S
+  \bigl(
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr).
+  \tag{6.7.4.2}\label{III.6.7.4.2.eq}
+\]
+\end{env}
+Indeed, \sref{III.6.7.1} and \sref{III.6.7.2} reduce us again to
+the case in which $S$ and the $X^{(i)}$ are affine.  In
+computing the first side of \eqref{III.6.7.4.2.eq}, we may then
+take $\mathfrak U^{(i)}$ to consist of the single member
+$X^{(i)}$.
+
+\oldpage[III]{160}
+
+With the notation of \sref{III.6.6.2},
+$L_{\bullet\bullet}^{(i)}$ then reduces to
+\[
+  \Gamma(X^{(i)},\sh P_\bullet^{(i)}),
+\]
+regarded as a bicomplex whose components of first degree
+different from zero vanish.  The equality of the two sides of
+\eqref{III.6.7.4.2.eq} follows from \sref{III.6.4.1.1} and
+\sref{III.6.3.1}.
+\end{remark}
+
+\begin{proposition}[6.7.5]
+\label{III.6.7.5}
+Let
+\[
+  u:\sh P_\bullet^{(1)}
+  \longrightarrow
+  \sh Q_\bullet^{(1)}
+\]
+be a homomorphism of bounded-below complexes of quasi-coherent
+$\sh O_{X^{(1)}}$-modules such that the induced homomorphism
+\[
+  \sh H_\bullet(u):
+  \sh H_\bullet(\sh P_\bullet^{(1)})
+  \longrightarrow
+  \sh H_\bullet(\sh Q_\bullet^{(1)})
+\]
+is an isomorphism.  Then the homomorphisms
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \longrightarrow
+  {}^{(t)}\sh E
+  \bigl(
+    f_1,f_2;
+    \sh Q_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+induced by $u$ are isomorphisms for $t=a,b,c$.
+\end{proposition}
+
+\begin{proof}
+For the spectral sequence \textnormal{(c)}, the assertion follows
+from biregularity and from the fact that, by hypothesis, the
+homomorphism under consideration is an isomorphism on
+$E_2$-terms (\sref[0]{0.11.1.5}).  This already shows that
+\[
+\begin{split}
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \longrightarrow
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,f_2;
+    \sh Q_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\end{split}
+\]
+is an isomorphism.  Applying \eqref{III.6.7.4.1.eq} and
+\eqref{III.6.7.4.2.eq}, we first see that the homomorphisms
+\[
+  \sh H^{-n}(f_1,\sh P_\bullet^{(1)})
+  \longrightarrow
+  \sh H^{-n}(f_1,\sh Q_\bullet^{(1)})
+\]
+and
+\[
+  \shTor_n^S
+  \bigl(
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \longrightarrow
+  \shTor_n^S
+  \bigl(
+    \sh Q_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+induced by $u$ are isomorphisms.  The assertion for
+\textnormal{(a)} and \textnormal{(b)} now follows from the
+biregularity of these spectral sequences
+(\sref{III.6.7.3}) and the bijectivity of the induced
+homomorphisms on $E_2$-terms (\sref[0]{0.11.1.5}).
+
+Notice also that if
+$u:\sh P_\bullet^{(1)}\to\sh Q_\bullet^{(1)}$ is a homotopy
+equivalence, then it induces canonical isomorphisms
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  {}^{(t)}\sh E
+  \bigl(
+    f_1,f_2;
+    \sh Q_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+for all six spectral sequences.  Indeed, when $S$ and the
+$Y^{(i)}$ are affine, $u$ induces a homotopy equivalence of
+bicomplexes
+\[
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(1)},\sh P_\bullet^{(1)}
+  \bigr)
+  \longrightarrow
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(1)},\sh Q_\bullet^{(1)}
+  \bigr),
+\]
+and the assertion follows from the general theory of
+hyperhomology (\sref[0]{0.11.3.2}).  The passage to the general
+case is made by gluing, using the fact that a homotopy
+equivalence of complexes induces one between projective
+Cartan--Eilenberg resolutions of those complexes
+(\textnormal{M}, XVII, 1.2).
+\end{proof}
+
+\begin{proposition}[6.7.6]
+\label{III.6.7.6}
+Suppose that either $\sh P_\bullet^{(1)}$ or
+$\sh P_\bullet^{(2)}$ consists of $S$-flat modules, both
+complexes being bounded below.  There is then a canonical
+isomorphism of bi-$\partial$-functors
+\begin{env}[6.7.6.1]
+\label{III.6.7.6.1}
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  \sh H^{-n}
+  \bigl(
+    f_1\times_Sf_2,
+    \sh P_\bullet^{(1)}
+    \otimes_S\sh P_\bullet^{(2)}
+  \bigr).
+  \tag{6.7.6.1}\label{III.6.7.6.1.eq}
+\]
+\end{env}
+\end{proposition}
+
+\begin{proof}
+First suppose that $S$, $Y^{(1)}$, and $Y^{(2)}$ are affine, so
+that we are in the situation of \sref{III.6.6.2}, whose notation
+we retain.  Suppose, for example, that
+$\sh P_\bullet^{(1)}$ consists of $S$-flat modules.  Using
+\sref{III.6.6.6}, the hypertor is the homology of
+\[
+  L_{\bullet\bullet}^{(1)}
+  \otimes_A M_{\bullet\bullet\bullet}^{(2)},
+\]
+where $M_{\bullet\bullet\bullet}^{(2)}$ is a projective
+Cartan--Eilenberg resolution of $L_{\bullet\bullet}^{(2)}$ in
+the sense of \sref[0]{0.11.7.1}.  On the other hand, the modules
+$L_{ij}^{(1)}$ are flat over $A$ by the hypothesis
+(\sref[I]{I.1.4.15.1}).  It follows from
+\sref[0]{0.11.7.5} that there is a canonical isomorphism
+\begin{env}[6.7.6.2]
+\label{III.6.7.6.2}
+\[
+  \mathbf{Tor}_\bullet^S
+  \bigl(
+    \mathfrak U^{(1)},\mathfrak U^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  H_\bullet
+  \bigl(
+    L_{\bullet\bullet}^{(1)}
+    \otimes_A L_{\bullet\bullet}^{(2)}
+  \bigr).
+  \tag{6.7.6.2}\label{III.6.7.6.2.eq}
+\]
+\end{env}
+
+There is also a natural homomorphism of bicomplexes
+\[
+  L_{\bullet\bullet}^{(1)}
+  \otimes_A L_{\bullet\bullet}^{(2)}
+  \longrightarrow
+  C^\bullet(\mathfrak U,\sh Q_\bullet),
+\]
+where $\mathfrak U$ is the covering of
+\[
+  Z=X^{(1)}\times_SX^{(2)}
+\]
+by the affine open subsets
+$U_\alpha^{(1)}\times_SU_\beta^{(2)}$, and
+\[
+  \sh Q_\bullet
+  =
+  \sh P_\bullet^{(1)}
+  \otimes_S\sh P_\bullet^{(2)}
+\]
+is regarded as the simple complex for the total degree.
+
+\oldpage[III]{161}
+
+The substance of this homomorphism was already given in the
+calculation of spectral sequence \textnormal{(b$'$)} in
+\sref{III.6.6.4}, with $q=0$.  Retaining the notation used
+there, one need only observe that there is, first, a natural
+homomorphism from $N^{\bullet k}$ to
+\[
+  C^\bullet
+  \bigl(
+    \Phi^{(1)},\Phi^{(2)};\mathcal S_k
+  \bigr)
+\]
+(\sref[0]{0.11.8.5}); second, a natural homomorphism from the
+latter complex to
+\[
+  P^\bullet
+  \bigl(
+    \Phi^{(1)},\Phi^{(2)};\mathcal S_k
+  \bigr)
+\]
+(\sref[0]{0.11.8.6}); and finally, a natural homomorphism from
+this last cochain complex to its subcomplex of alternating
+cochains (\sref[0]{0.11.8.7}).  The resulting homomorphism of
+bicomplexes induces an isomorphism in homology, as was seen in
+\sref{III.6.6.4}.  Composing with
+\eqref{III.6.7.6.2.eq} therefore gives an isomorphism
+\begin{env}[6.7.6.3]
+\label{III.6.7.6.3}
+\[
+  \mathbf{Tor}_n^S
+  \bigl(
+    \mathfrak U^{(1)},\mathfrak U^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  \HH^{-n}
+  \bigl(
+    \mathfrak U,
+    \sh P_\bullet^{(1)}
+    \otimes_S\sh P_\bullet^{(2)}
+  \bigr).
+  \tag{6.7.6.3}\label{III.6.7.6.3.eq}
+\]
+\end{env}
+
+It remains to prove that the isomorphism just defined is
+independent of the chosen open coverings.  The right side of
+\eqref{III.6.7.6.3.eq} is canonically isomorphic, by
+\sref{III.6.2.2}, to
+\[
+  \HH^{-n}
+  \bigl(
+    X^{(1)}\times_SX^{(2)},
+    \sh P_\bullet^{(1)}
+    \otimes_S\sh P_\bullet^{(2)}
+  \bigr).
+\]
+For the left side, use \sref{III.6.6.7} and note, with the
+notation used there, that the following diagram commutes up to
+homotopy:
+\[
+\xymatrix@C=18pt@R=28pt{
+  C^\bullet(\mathfrak U^{(1)},\sh P_\bullet^{(1)})
+  \otimes_A
+  C^\bullet(\mathfrak U^{(2)},\sh P_\bullet^{(2)})
+  \ar[r]\ar[d]
+  &
+  C^\bullet(\mathfrak U,\sh Q_\bullet)
+  \ar[d]
+  \\
+  C^\bullet(\mathfrak V^{(1)},\sh P_\bullet^{(1)})
+  \otimes_A
+  C^\bullet(\mathfrak V^{(2)},\sh P_\bullet^{(2)})
+  \ar[r]
+  &
+  C^\bullet(\mathfrak V,\sh Q_\bullet).
+}
+\]
+The horizontal arrows are those defined above.  Finally, one
+passes to the general case by gluing, exactly as in
+\sref{III.6.7.1} and \sref{III.6.7.2}; the details are left to
+the reader.
+\end{proof}
+
+\begin{proposition}[6.7.7]
+\label{III.6.7.7}
+Suppose that $\sh P_\bullet^{(1)}$ and
+$\sh P_\bullet^{(2)}$ are bounded below, and that either all the
+modules
+\[
+  \sh H^{-n}(f_1,\sh P_\bullet^{(1)})
+\]
+or all the modules
+\[
+  \sh H^{-n}(f_2,\sh P_\bullet^{(2)})
+\]
+are $S$-flat.  There is then a canonical isomorphism of
+bi-$\partial$-functors, for $n\in\mathbf Z$,
+\begin{env}[6.7.7.1]
+\label{III.6.7.7.1}
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  \bigoplus_{q_1+q_2=n}
+  \sh H^{-q_1}(f_1,\sh P_\bullet^{(1)})
+  \otimes_S
+  \sh H^{-q_2}(f_2,\sh P_\bullet^{(2)}).
+  \tag{6.7.7.1}\label{III.6.7.7.1.eq}
+\]
+\end{env}
+\end{proposition}
+
+\begin{proof}
+By \sref{III.6.5.8}, spectral sequence \textnormal{(a)} of
+\sref{III.6.7.3} degenerates.  The assertion therefore follows
+immediately from \sref[0]{0.11.1.6}, since that spectral sequence
+is biregular (\sref{III.6.7.3}).
+\end{proof}
+
+\begin{theorem}[6.7.8]
+\label{III.6.7.8}
+Suppose that the following conditions hold:
+\begin{enumerate}
+  \item[{$1^\circ$}]
+    The complexes $\sh P_\bullet^{(1)}$ and
+    $\sh P_\bullet^{(2)}$ are bounded below.
+  \item[{$2^\circ$}]
+    Either $\sh P_\bullet^{(1)}$ or
+    $\sh P_\bullet^{(2)}$ consists of $S$-flat modules.
+
+    \oldpage[III]{162}
+
+  \item[{$3^\circ$}]
+    Either all the modules
+    $\sh H^{-n}(f_1,\sh P_\bullet^{(1)})$ or all the modules
+    $\sh H^{-n}(f_2,\sh P_\bullet^{(2)})$ are $S$-flat.
+\end{enumerate}
+There is then a canonical isomorphism of bi-$\partial$-functors,
+for $n\in\mathbf Z$,
+\begin{env}[6.7.8.1]
+\label{III.6.7.8.1}
+\[
+  \sh H^n
+  \bigl(
+    f_1\times_Sf_2,
+    \sh P_\bullet^{(1)}\otimes_S\sh P_\bullet^{(2)}
+  \bigr)
+  \xrightarrow{\sim}
+  \bigoplus_{n_1+n_2=n}
+  \sh H^{n_1}(f_1,\sh P_\bullet^{(1)})
+  \otimes_S
+  \sh H^{n_2}(f_2,\sh P_\bullet^{(2)}).
+  \tag{6.7.8.1}\label{III.6.7.8.1.eq}
+\]
+\end{env}
+This is the \emph{K\"unneth formula}.
+\end{theorem}
+
+\begin{proof}
+The formula follows from \sref{III.6.7.6} and
+\sref{III.6.7.7}.
+
+When $S$, $Y^{(1)}$, and $Y^{(2)}$ are affine, the inverse of
+\eqref{III.6.7.8.1.eq} is obtained, with the notation of
+\sref{III.6.7.6}, from the homomorphism of bicomplexes
+\[
+  C^\bullet(\mathfrak U^{(1)},\sh P_\bullet^{(1)})
+  \otimes_A
+  C^\bullet(\mathfrak U^{(2)},\sh P_\bullet^{(2)})
+  \longrightarrow
+  C^\bullet(\mathfrak U,\sh Q_\bullet)
+\]
+by the procedure defined in \textnormal{(G, I, 2.7)}, as follows
+from \textnormal{(G, I, 5.5)}.
+\end{proof}
+
+\begin{proposition}[6.7.9]
+\label{III.6.7.9}
+Suppose that the following three conditions hold:
+\begin{enumerate}
+  \item[{$1^\circ$}]
+    The schemes $S$, $Y^{(1)}$, and $Y^{(2)}$ are locally
+    noetherian; $f_1$ and $f_2$ are proper; and either
+    $Y^{(1)}$ or $Y^{(2)}$ is of finite type over $S$.
+  \item[{$2^\circ$}]
+    The complexes $\sh P_\bullet^{(1)}$ and
+    $\sh P_\bullet^{(2)}$ are bounded below.
+  \item[{$3^\circ$}]
+    For every $n\in\mathbf Z$, the module
+    $H_n(\sh P_\bullet^{(i)})$ is coherent, for $i=1,2$.
+\end{enumerate}
+Then
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+is a coherent $\sh O_Y$-module, where
+$Y=Y^{(1)}\times_SY^{(2)}$.
+\end{proposition}
+
+\begin{proof}
+It follows from \sref{III.6.5.13} that the local hypertor modules
+\[
+  \shTor_n^S
+  \bigl(
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+are coherent $\sh O_X$-modules, where
+$X=X^{(1)}\times_SX^{(2)}$.  Indeed, each $X^{(i)}$ is locally
+noetherian, and one of them is, by hypothesis, of finite type over
+$S$ (\sref[I]{I.6.3.4} and \sref{III.6.3.8}); hence $X$ is
+locally noetherian.
+
+Since $Y$ is locally noetherian and
+$f_1\times_Sf_2$ is proper (\sref[II]{II.5.4.2}), it follows from
+\sref{III.6.2.5} that the terms ${}^{(b)}\sh E_{pq}^2$ of
+\sref{III.6.7.3} are coherent $\sh O_Y$-modules.  All the spectral
+sequences of \sref{III.6.7.3} are biregular by hypothesis
+$2^\circ$, so the conclusion follows from
+\sref[0]{0.11.1.8}.
+\end{proof}
+
+\begin{env}[6.7.10]
+\label{III.6.7.10}
+Let $Y^{\prime(i)}$ be two $S$-preschemes and let
+\[
+  v_i:Y^{\prime(i)}\longrightarrow Y^{(i)}
+  \qquad (i=1,2)
+\]
+be two $S$-morphisms.  Write
+\[
+  v=v_1\times_Sv_2:Y'\longrightarrow Y,
+  \qquad
+  Y'=Y^{\prime(1)}\times_SY^{\prime(2)}.
+\]
+For $i=1,2$, let $X^{\prime(i)}$ be an $S$-prescheme, and let
+\[
+  u_i:X^{\prime(i)}\longrightarrow X^{(i)},
+  \qquad
+  f_i':X^{\prime(i)}\longrightarrow Y^{\prime(i)}
+\]
+be $S$-morphisms such that the diagrams
+\begin{env}[6.7.10.1]
+\label{III.6.7.10.1}
+\[
+\xymatrix@C=36pt@R=28pt{
+  X^{\prime(i)} \ar[r]^{u_i}\ar[d]_{f_i'}
+  & X^{(i)}\ar[d]^{f_i}
+  \\
+  Y^{\prime(i)} \ar[r]_{v_i}
+  & Y^{(i)}
+}
+\tag{6.7.10.1}\label{III.6.7.10.1.eq}
+\]
+\end{env}
+commute, the morphisms $f_i'$ being separated and quasi-compact.
+There are then canonical $\sh O_{Y'}$-linear homomorphisms of
+spectral functors
+\begin{env}[6.7.10.2]
+\label{III.6.7.10.2}
+\[
+  v^*
+  {}^{(t)}\sh E
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \longrightarrow
+  {}^{(t)}\sh E
+  \bigl(
+    f_1',f_2';
+    u_1^*(\sh P_\bullet^{(1)}),
+    u_2^*(\sh P_\bullet^{(2)})
+  \bigr)
+  \tag{6.7.10.2}\label{III.6.7.10.2.eq}
+\]
+\end{env}
+for $t=a,a',b,b',c,d$.
+
+To define them, first suppose that
+\[
+  S=\Spec(A),\qquad
+  Y^{(i)}=\Spec(B_i),\qquad
+  Y^{\prime(i)}=\Spec(B_i')
+\]
+are affine.  The schemes $X^{(i)}$ and $X^{\prime(i)}$ are then
+quasi-compact.  To compute
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr),
+\]
+choose, as in \sref{III.6.6.1}, finite affine open coverings
+$\mathfrak U^{(i)}$ of $X^{(i)}$.  To compute
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    f_1',f_2';
+    u_1^*(\sh P_\bullet^{(1)}),
+    u_2^*(\sh P_\bullet^{(2)})
+  \bigr),
+\]
+choose finite affine open coverings $\mathfrak U^{\prime(i)}$ of
+$X^{\prime(i)}$, respectively finer than the inverse-image
+coverings $u_i^{-1}(\mathfrak U^{(i)})$.
+
+\oldpage[III]{163}
+
+The bicomplex
+\[
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(i)},\sh P_\bullet^{(i)}
+  \bigr)
+  =
+  L_{\bullet\bullet}^{(i)}
+\]
+may canonically be regarded as a sub-bicomplex of
+\[
+  C^\bullet
+  \bigl(
+    u_i^{-1}(\mathfrak U^{(i)}),
+    u_i^*(\sh P_\bullet^{(i)})
+  \bigr)
+\]
+(\sref[0]{0.4.4.3.2}).  A simplicial map
+\textnormal{(G, II, 5.7)} from $\mathfrak U^{\prime(i)}$ to
+$u_i^{-1}(\mathfrak U^{(i)})$ defines a homomorphism of
+bicomplexes
+\[
+  C^\bullet
+  \bigl(
+    u_i^{-1}(\mathfrak U^{(i)}),
+    u_i^*(\sh P_\bullet^{(i)})
+  \bigr)
+  \longrightarrow
+  C^\bullet
+  \bigl(
+    \mathfrak U^{\prime(i)},
+    u_i^*(\sh P_\bullet^{(i)})
+  \bigr).
+\]
+By composition one obtains a homomorphism
+\[
+  L_{\bullet\bullet}^{(i)}
+  \longrightarrow
+  L_{\bullet\bullet}^{\prime(i)}
+  =
+  C^\bullet
+  \bigl(
+    \mathfrak U^{\prime(i)},
+    u_i^*(\sh P_\bullet^{(i)})
+  \bigr).
+\]
+Changing the simplicial map replaces this homomorphism by a
+homotopic one \textnormal{(G, II, 5.7.1)}.  Thus one obtains a
+well-defined homomorphism of spectral functors
+\begin{env}[6.7.10.3]
+\label{III.6.7.10.3}
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    \mathfrak U^{(1)},\mathfrak U^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \longrightarrow
+  {}^{(t)}\sh E
+  \bigl(
+    \mathfrak U^{\prime(1)},\mathfrak U^{\prime(2)};
+    u_1^*(\sh P_\bullet^{(1)}),
+    u_2^*(\sh P_\bullet^{(2)})
+  \bigr).
+  \tag{6.7.10.3}\label{III.6.7.10.3.eq}
+\]
+\end{env}
+
+Suppose that $\mathfrak V^{(i)}$ is a finite affine open covering
+of $X^{(i)}$ finer than $\mathfrak U^{(i)}$, and that
+$\mathfrak V^{\prime(i)}$ is a finite affine open covering of
+$X^{\prime(i)}$ finer than both $\mathfrak U^{\prime(i)}$ and
+$u_i^{-1}(\mathfrak V^{(i)})$.  One verifies immediately that the
+diagram
+\[
+\xymatrix@C=34pt@R=30pt{
+  C^\bullet(\mathfrak U^{(i)},\sh P_\bullet^{(i)})
+  \ar[r]\ar[d]
+  &
+  C^\bullet(\mathfrak V^{(i)},\sh P_\bullet^{(i)})
+  \ar[d]
+  \\
+  C^\bullet
+  \bigl(
+    \mathfrak U^{\prime(i)},u_i^*(\sh P_\bullet^{(i)})
+  \bigr)
+  \ar[r]
+  &
+  C^\bullet
+  \bigl(
+    \mathfrak V^{\prime(i)},u_i^*(\sh P_\bullet^{(i)})
+  \bigr)
+}
+\]
+commutes.  Consequently, \eqref{III.6.7.10.3.eq} is essentially
+independent of the coverings used.  We have therefore defined a
+homomorphism of $A$-modules
+\begin{env}[6.7.10.4]
+\label{III.6.7.10.4}
+\[
+  {}^{(t)}E
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \longrightarrow
+  {}^{(t)}E
+  \bigl(
+    X^{\prime(1)},X^{\prime(2)};
+    u_1^*(\sh P_\bullet^{(1)}),
+    u_2^*(\sh P_\bullet^{(2)})
+  \bigr).
+  \tag{6.7.10.4}\label{III.6.7.10.4.eq}
+\]
+\end{env}
+By the definition of the $u_i^*(\sh P_\bullet^{(i)})$ and the
+commutativity of \eqref{III.6.7.10.1.eq}, this is also a
+homomorphism of $(B_1\otimes_AB_2)$-modules.  Since the right-hand
+side of \eqref{III.6.7.10.4.eq} consists of
+$(B_1'\otimes_AB_2')$-modules, it canonically induces a
+homomorphism of $(B_1'\otimes_AB_2')$-modules
+\begin{env}[6.7.10.5]
+\label{III.6.7.10.5}
+\[
+\begin{split}
+  {}^{(t)}E
+  \bigl(
+    X^{(1)},X^{(2)};
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+  \otimes_{B_1\otimes_AB_2}
+  (B_1'\otimes_AB_2')
+  \quad\longrightarrow\quad{}&
+  {}^{(t)}E
+  \bigl(
+    X^{\prime(1)},X^{\prime(2)};
+\\[-2pt]
+    &u_1^*(\sh P_\bullet^{(1)}),
+    u_2^*(\sh P_\bullet^{(2)})
+  \bigr).
+\end{split}
+\tag{6.7.10.5}\label{III.6.7.10.5.eq}
+\]
+\end{env}
+In view of \sref[I]{I.1.6.5}, this is precisely
+\eqref{III.6.7.10.2.eq} in the affine case.
+
+It remains to pass to the general case by the gluing procedures of
+\sref{III.6.7.1} and \sref{III.6.7.2}.  The second passage is
+immediate.  For the first, take, as in \sref{III.6.7.1}, elements
+$g_i\in B_i$ and their images $g_i'\in B_i'$, and set
+\[
+  g=g_1\otimes g_2\in B=B_1\otimes_AB_2,
+  \qquad
+  g'=g_1'\otimes g_2'\in B'=B_1'\otimes_AB_2'.
+\]
+
+\oldpage[III]{164}
+
+Everything then reduces to the canonical isomorphism
+\[
+  (M\otimes_BB')_{g'}
+  \xrightarrow{\sim}
+  M_g\otimes_{B_g}B_{g'}'
+\]
+(\sref[0]{0.1.5.4}).  The details are left to the reader.
+\end{env}
+
+\begin{env}[6.7.11]
+\label{III.6.7.11}
+The theory of global hypertor developed above for two
+$S$-morphisms $X^{(i)}\to Y^{(i)}$ and two bounded-below
+complexes $\sh P_\bullet^{(i)}$ of quasi-coherent modules extends
+immediately to the following general situation.  Let $S$ be a
+prescheme, let $(Y^{(i)})_{i\in I}$ be a finite family of
+$S$-preschemes, let
+\[
+  f_i:X^{(i)}\longrightarrow Y^{(i)}
+  \qquad (i\in I)
+\]
+be a finite family of separated and quasi-compact
+$S$-morphisms, and for each $i$ let $\sh P_\bullet^{(i)}$ be a
+bounded-below complex of quasi-coherent
+$\sh O_{X^{(i)}}$-modules.  If $Y$ is the product of the
+$S$-preschemes $Y^{(i)}$, then for every $n\in\mathbf Z$ one
+defines a quasi-coherent $\sh O_Y$-module
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    (f_i)_{i\in I};
+    (\sh P_\bullet^{(i)})_{i\in I}
+  \bigr).
+\]
+These modules form a covariant $\partial$-functor in each complex
+$\sh P_\bullet^{(i)}$; moreover, this functor is the common
+abutment of six spectral functors
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    (f_i)_{i\in I};
+    (\sh P_\bullet^{(i)})_{i\in I}
+  \bigr).
+\]
+We leave to the reader the repetition, in this general case, of
+the definitions and arguments given above for $I=\{1,2\}$.
+
+When $I$ has a single element, this construction recovers the
+hypercohomology $\sh H^\bullet(f,\sh P_\bullet)$ defined in
+\sref{III.6.2.7}, as already noted in \sref{III.6.7.4}.  When
+$I$ is the interval $1\leq i\leq m$ in $\mathbf N$, we write
+\phantomsection\label{III.6.7.11.2}
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr)
+\]
+for
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    (f_i)_{i\in I};
+    (\sh P_\bullet^{(i)})_{i\in I}
+  \bigr).
+\]
+\end{env}
+
+\begin{proposition}[6.7.12]
+\label{III.6.7.12}
+With the notation of \sref{III.6.7.11}, let $J$ be a subset of
+$I$ such that, for $i\in I-J$,
+\[
+  X^{(i)}=Y^{(i)}=S,
+\]
+the morphism $f_i$ is the identity, and
+$\sh P_\bullet^{(i)}$ is the complex concentrated in degree $0$
+with value $\sh O_S$.  There is then a canonical isomorphism of
+$\partial$-functors
+\begin{env}[6.7.12.1]
+\label{III.6.7.12.1}
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    (f_i)_{i\in I};
+    (\sh P_\bullet^{(i)})_{i\in I}
+  \bigr)
+  \xrightarrow{\sim}
+  \mathfrak{Tor}_n^S
+  \bigl(
+    (f_i)_{i\in J};
+    (\sh P_\bullet^{(i)})_{i\in J}
+  \bigr).
+  \tag{6.7.12.1}\label{III.6.7.12.1.eq}
+\]
+\end{env}
+\end{proposition}
+
+\begin{proof}
+It is enough to define this isomorphism when $S$ and the
+$Y^{(i)}$ are affine, since the gluing is carried out as usual.
+For $i\in I-J$, take $\mathfrak U^{(i)}$ to be the covering
+consisting of the single set $S$.  Then
+\[
+  L_{\bullet\bullet}^{(i)}
+  =
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(i)},\sh P_\bullet^{(i)}
+  \bigr)
+\]
+has only one nonzero term, in bidegree $(0,0)$, equal to
+\[
+  \Gamma(S,\sh O_S)=A(S).
+\]
+The isomorphism \eqref{III.6.7.12.1.eq} is therefore immediate.
+\end{proof}
+
+\begin{remark}[6.7.13]
+\label{III.6.7.13}
+With the notation of \sref{III.6.7.3}, consider the canonical
+$S$-isomorphism
+\[
+  Y^{(1)}\times_SY^{(2)}
+  \longrightarrow
+  Y^{(2)}\times_SY^{(1)}
+\]
+of \sref[I]{I.3.3.5}.  Under this isomorphism, the image of
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,f_2;
+    \sh P_\bullet^{(1)},\sh P_\bullet^{(2)}
+  \bigr)
+\]
+is
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_2,f_1;
+    \sh P_\bullet^{(2)},\sh P_\bullet^{(1)}
+  \bigr).
+\]
+This is a local assertion, so it reduces to the case considered in
+\sref{III.6.6.2}.  If
+$M_{\bullet\bullet\bullet}^{(i)}$ is a projective
+Cartan--Eilenberg resolution of $L_{\bullet\bullet}^{(i)}$ for
+$i=1,2$, the isomorphism in question interchanges
+\[
+  M_{\bullet\bullet\bullet}^{(1)}
+  \otimes_A
+  M_{\bullet\bullet\bullet}^{(2)}
+  \qquad\hbox{and}\qquad
+  M_{\bullet\bullet\bullet}^{(2)}
+  \otimes_A
+  M_{\bullet\bullet\bullet}^{(1)}.
+\]
+The assertion follows by taking the homology of the simple
+complexes associated with these tricomplexes.
+\end{remark}
+
+\subsection{The associativity spectral sequences of global hypertor}
+\label{subsection:III.6.8}
+\label{III.6.8}
+
+\begin{env}[6.8.1]
+\label{III.6.8.1}
+Retain the hypotheses and notation of \sref{III.6.7.11}; in
+particular, the complexes $\sh P_\bullet^{(i)}$ are bounded
+below.  Let $(I_j)_{j\in J}$ be a partition of the index set $I$.
+We seek an ``associativity'' relation between
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    (f_i)_{i\in I};
+    (\sh P_\bullet^{(i)})_{i\in I}
+  \bigr)
+\]
+and the ``partial'' hypertors
+\[
+  \mathcal T_{\bullet j}
+  =
+  \mathfrak{Tor}_\bullet^S
+  \bigl(
+    (f_i)_{i\in I_j};
+    (\sh P_\bullet^{(i)})_{i\in I_j}
+  \bigr).
+\]
+To simplify the notation, we shall restrict attention to the case
+where $I$ is the interval $1\leq i\leq m$ and the partition
+consists of the two intervals
+\[
+  \{1,2,\ldots,r\}
+  \qquad\hbox{and}\qquad
+  \{r+1,\ldots,m\}.
+\]
+\end{env}
+
+\begin{proposition}[6.8.2]
+\label{III.6.8.2}
+There is a canonical biregular spectral functor, called the
+\emph{associativity spectral functor}, denoted
+\[
+  {}^{(e)}\sh E^S
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr),
+\]
+or simply ${}^{(e)}\sh E$ with the same arguments, whose abutment
+is
+\[
+  \mathfrak{Tor}_\bullet^S
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr)
+\]
+and whose $E_2$-term is
+\[
+\begin{split}
+  {}^{(e)}\sh E_{pq}^2
+  =
+  \bigoplus_{q_1+q_2=q}
+  \shTor_p^S
+  \Bigl(
+    &
+    \mathfrak{Tor}_{q_1}^S
+    \bigl(
+      f_1,\ldots,f_r;
+      \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(r)}
+    \bigr),
+    \\
+    &
+    \mathfrak{Tor}_{q_2}^S
+    \bigl(
+      f_{r+1},\ldots,f_m;
+      \sh P_\bullet^{(r+1)},\ldots,\sh P_\bullet^{(m)}
+    \bigr)
+  \Bigr).
+\end{split}
+\]
+\end{proposition}
+
+\begin{proof}
+Here $Y$ is canonically identified with
+$Z^{(1)}\times_SZ^{(2)}$, where
+\[
+  Z^{(1)}
+  =
+  Y^{(1)}\times_S\cdots\times_SY^{(r)}
+  \quad\hbox{and}\quad
+  Z^{(2)}
+  =
+  Y^{(r+1)}\times_S\cdots\times_SY^{(m)}.
+\]
+It is enough to treat the case in which $S$ and all the
+$Y^{(i)}$ are affine.  The passage from this case to the general
+one uses the methods of \sref{III.6.7.1} and
+\sref{III.6.7.2}; the details are left to the reader.  Thus it is
+enough to prove the following affine statement.
+\end{proof}
+
+\begin{corollary}[6.8.3]
+\label{III.6.8.3}
+Let $A$ be a ring, let $S=\Spec(A)$, and let $X^{(i)}$,
+$1\leq i\leq m$, be quasi-compact $S$-schemes.  For each $i$, let
+$\sh P_\bullet^{(i)}$ be a bounded-below complex of
+quasi-coherent $\sh O_{X^{(i)}}$-modules.  There is a canonical
+biregular spectral functor with abutment
+\[
+  \mathbf{Tor}_\bullet^S
+  \bigl(
+    X^{(1)},\ldots,X^{(m)};
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr)
+\]
+and $E_2$-term
+\[
+\begin{split}
+  {}^{(e)}E_{pq}^2
+  =
+  \bigoplus_{q_1+q_2=q}
+  \Tor_p^A
+  \Bigl(
+    &
+    \mathbf{Tor}_{q_1}^S
+    \bigl(
+      X^{(1)},\ldots,X^{(r)};
+      \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(r)}
+    \bigr),
+    \\
+    &
+    \mathbf{Tor}_{q_2}^S
+    \bigl(
+      X^{(r+1)},\ldots,X^{(m)};
+      \sh P_\bullet^{(r+1)},\ldots,\sh P_\bullet^{(m)}
+    \bigr)
+  \Bigr).
+\end{split}
+\]
+\end{corollary}
+
+\begin{proof}
+\oldpage[III]{165}
+
+Following the definition of \sref{III.6.6.2}, choose for each $i$
+a finite affine open covering $\mathfrak U^{(i)}$ of $X^{(i)}$,
+form the bicomplex
+\[
+  L_{\bullet\bullet}^{(i)}
+  =
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(i)},\sh P_\bullet^{(i)}
+  \bigr),
+\]
+and choose a projective Cartan--Eilenberg resolution
+$M_{\bullet\bullet\bullet}^{(i)}$ of this bicomplex in the sense
+of \sref[0]{0.11.7.1}.  The hypertor in question is the homology
+of the tensor product
+\[
+  M_{\bullet\bullet\bullet}
+  =
+  \bigotimes_{i=1}^{m}
+  M_{\bullet\bullet\bullet}^{(i)}.
+\]
+Regard $M_{\bullet\bullet\bullet}$ as a simple complex
+$N_\bullet$, the tensor product of the two simple complexes
+\[
+  N_\bullet'
+  =
+  \bigotimes_{i=1}^{r}
+  M_{\bullet\bullet\bullet}^{(i)},
+  \qquad
+  N_\bullet''
+  =
+  \bigotimes_{i=r+1}^{m}
+  M_{\bullet\bullet\bullet}^{(i)},
+\]
+where $N_\bullet'$ and $N_\bullet''$ are graded by the sums of the
+total degrees of the $M_{\bullet\bullet\bullet}^{(i)}$.
+
+The $A$-modules forming $N_\bullet'$ and $N_\bullet''$ are
+projective.  Hence \sref{III.6.5.9} gives
+\[
+  H_\bullet(M_{\bullet\bullet\bullet})
+  =
+  \Tor_\bullet^A(N_\bullet',N_\bullet'').
+\]
+The required spectral sequence is therefore precisely
+\sref{III.6.3.2.2} applied to $N_\bullet'$ and $N_\bullet''$,
+using the preceding interpretation of their homology modules for
+the two partial products
+\[
+  X^{(1)}\times_S\cdots\times_SX^{(r)}
+  \quad\hbox{and}\quad
+  X^{(r+1)}\times_S\cdots\times_SX^{(m)}.
+\]
+Finally, the regularity assertions follow from
+\sref{III.6.3.2}.  Indeed, since the
+$\sh P_\bullet^{(i)}$ are bounded below, so are the
+$M_{\bullet\bullet\bullet}^{(i)}$, and therefore so are
+$N_\bullet'$ and $N_\bullet''$.
+\end{proof}
+
+\subsection{The base change spectral sequences of global hypertor}
+\label{subsection:III.6.9}
+\label{III.6.9}
+
+\oldpage[III]{166}
+
+\begin{env}[6.9.1]
+\label{III.6.9.1}
+Retain the hypotheses and notation of \sref{III.6.7.11}; in
+particular, the complexes $\sh P_\bullet^{(i)}$ are bounded below.
+Let $g:S'\to S$ be a morphism of preschemes, and set
+\[
+  Y^{\prime(i)}=Y_{(S')}^{(i)},
+  \qquad
+  X^{\prime(i)}=X_{(S')}^{(i)},
+  \qquad
+  \sh P_\bullet^{\prime(i)}
+  =
+  \sh P_\bullet^{(i)}
+  \otimes_{\sh O_S}\sh O_{S'}.
+\]
+Thus $\sh P_\bullet^{\prime(i)}$ is a complex of quasi-coherent
+$\sh O_{X^{\prime(i)}}$-modules.  Let
+\[
+  f_i'=(f_i)_{(S')}:
+  X^{\prime(i)}\longrightarrow Y^{\prime(i)};
+\]
+this morphism is separated and quasi-compact
+(\sref[I]{I.5.5.1} and \sref{III.6.6.4}).
+
+We shall study the relation between the quasi-coherent
+$\sh O_{Y'}$-modules
+\[
+  \mathfrak{Tor}_n^{S'}
+  \bigl(
+    (f_i')_{i\in I};
+    (\sh P_\bullet^{\prime(i)})_{i\in I}
+  \bigr)
+\]
+and
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    (f_i)_{i\in I};
+    (\sh P_\bullet^{(i)})_{i\in I}
+  \bigr)
+  \otimes_{\sh O_S}\sh O_{S'},
+\]
+where
+\[
+  Y'=Y\times_SS'=Y_{(S')}.
+\]
+The following particularly simple case reduces to
+\sref[I]{I.1.4.15} when $I$ has a single element and
+$\sh P_\bullet$ consists of a single module.
+\end{env}
+
+\begin{proposition}[6.9.2]
+\label{III.6.9.2}
+If $g:S'\to S$ is flat, there is a canonical isomorphism of
+$\partial$-functors in the complexes $\sh P_\bullet^{(i)}$:
+\begin{env}[6.9.2.1]
+\label{III.6.9.2.1}
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    (f_i)_{i\in I};
+    (\sh P_\bullet^{(i)})_{i\in I}
+  \bigr)
+  \otimes_{\sh O_S}\sh O_{S'}
+  \xrightarrow{\sim}
+  \mathfrak{Tor}_n^{S'}
+  \bigl(
+    (f_i')_{i\in I};
+    (\sh P_\bullet^{\prime(i)})_{i\in I}
+  \bigr).
+  \tag{6.9.2.1}\label{III.6.9.2.1.eq}
+\]
+\end{env}
+\end{proposition}
+
+\begin{proof}
+It is enough to consider the case where $S$, $S'$, and all the
+$Y^{(i)}$ are affine; the gluing is carried out by the methods of
+\sref{III.6.7.1} and \sref{III.6.7.2}.  Write
+\[
+  S=\Spec(A),
+  \qquad
+  S'=\Spec(A'),
+\]
+and choose for each $i$ a finite affine open covering
+$\mathfrak U^{(i)}$ of $X^{(i)}$.  If
+$u_i:X^{\prime(i)}\to X^{(i)}$ is the canonical projection, then
+\[
+  \mathfrak U^{\prime(i)}
+  =
+  u_i^{-1}(\mathfrak U^{(i)})
+\]
+is a finite affine open covering of $X^{\prime(i)}$
+(\sref[II]{II.1.5.5}), and
+\[
+  C^\bullet
+  \bigl(
+    \mathfrak U^{\prime(i)},\sh P_\bullet^{\prime(i)}
+  \bigr)
+  =
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(i)},\sh P_\bullet^{(i)}
+  \bigr)
+  \otimes_AA'.
+\]
+
+Let $M_{\bullet\bullet\bullet}^{(i)}$ be a projective
+Cartan--Eilenberg resolution, in the sense of
+\sref[0]{0.11.7.1}, of
+\[
+  L_{\bullet\bullet}^{(i)}
+  =
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(i)},\sh P_\bullet^{(i)}
+  \bigr)
+\]
+by $A$-modules.  Since $A'$ is flat over $A$,
+\[
+  M_{\bullet\bullet\bullet}^{(i)}\otimes_AA'
+\]
+is a projective Cartan--Eilenberg resolution, over $A'$, of
+$L_{\bullet\bullet}^{(i)}\otimes_AA'$.  The same flatness gives
+\[
+\begin{split}
+  H_\bullet
+  \left(
+    \bigotimes_{i=1}^{m}
+    (M_{\bullet\bullet\bullet}^{(i)}\otimes_AA')
+  \right)
+  =
+  H_\bullet
+  \left(
+    \bigotimes_{i=1}^{m}
+    M_{\bullet\bullet\bullet}^{(i)}
+  \right)
+  \otimes_AA',
+\end{split}
+\]
+which proves \eqref{III.6.9.2.1.eq}.
+\end{proof}
+
+\begin{env}[6.9.2.2]
+\label{III.6.9.2.2}
+When $I$ consists of the single element $1$,
+\eqref{III.6.9.2.1.eq} also follows directly from
+\sref{III.6.7.7}.  Indeed, take
+\[
+  Y_2=X_2=S',
+  \qquad
+  f_2=1_{S'},
+\]
+and let $\sh P_\bullet^{(2)}$ be concentrated in degree $0$ with
+value $\sh O_{S'}$.  Then
+\[
+  \sh H^n(1_{S'},\sh O_{S'})
+\]
+vanishes for $n\neq0$ and equals $\sh O_{S'}$ for $n=0$
+(\sref{III.6.2.1}).
+\end{env}
+
+In the general case, replace $\sh O_{S'}$ by a bounded-below
+complex $\sh Q_\bullet'$ of quasi-coherent
+$\sh O_{S'}$-modules.  Taking, for simplicity,
+$I=\{1,2,\ldots,m\}$, one can then consider the
+$\partial$-functor
+\[
+  \mathfrak{Tor}_\bullet^S
+  \bigl(
+    f_1,\ldots,f_m,1_{S'};
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)},
+    \sh Q_\bullet'
+  \bigr).
+\]
+
+\begin{proposition}[6.9.3]
+\label{III.6.9.3}
+There are three canonical biregular spectral functors, denoted
+\[
+  {}^{(t)}\sh E
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)},
+    \sh Q_\bullet'
+  \bigr),
+  \qquad
+  t=e,f,f',
+\]
+with common abutment
+\[
+  \mathfrak{Tor}_\bullet^S
+  \bigl(
+    f_1,\ldots,f_m,1_{S'};
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)},
+    \sh Q_\bullet'
+  \bigr),
+\]
+and whose $E_2$-terms are respectively as follows.
+
+\begin{env}[6.9.3.1]
+\label{III.6.9.3.1}
+\[
+\begin{split}
+  {}^{(e)}\sh E_{pq}^2
+  =
+  \bigoplus_{q'+q''=q}
+  \shTor_p^S
+  \Bigl(
+    &
+    \mathfrak{Tor}_{q'}^S
+    \bigl(
+      f_1,\ldots,f_m;
+      \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+    \bigr),
+    \\
+    &
+    \sh H_{q''}(\sh Q_\bullet')
+  \Bigr).
+\end{split}
+  \tag{6.9.3.1}\label{III.6.9.3.1.eq}
+\]
+\end{env}
+
+\begin{env}[6.9.3.2]
+\label{III.6.9.3.2}
+\[
+\begin{split}
+  {}^{(f)}\sh E_{pq}^2
+  =
+  \bigoplus_{q_1+\cdots+q_{m+1}=q}
+  \shTor_p^{S'}
+  \Bigl(
+    &
+    \mathfrak{Tor}_{q_1}^S
+    \bigl(
+      f_1,1_{S'};
+      \sh P_\bullet^{(1)},\sh O_{S'}
+    \bigr),
+    \ldots,
+    \\
+    &
+    \mathfrak{Tor}_{q_m}^S
+    \bigl(
+      f_m,1_{S'};
+      \sh P_\bullet^{(m)},\sh O_{S'}
+    \bigr),
+    \sh H_{q_{m+1}}(\sh Q_\bullet')
+  \Bigr).
+\end{split}
+  \tag{6.9.3.2}\label{III.6.9.3.2.eq}
+\]
+\end{env}
+
+\begin{env}[6.9.3.3]
+\label{III.6.9.3.3}
+\[
+\begin{split}
+  {}^{(f')}\sh E_{pq}^2
+  =
+  \bigoplus_{q_1+\cdots+q_m=q}
+  \mathfrak{Tor}_p^{S'}
+  \Bigl(
+    &
+    f_1',\ldots,f_m',1_{S'};
+    \\
+    &
+    \shTor_{q_1}^S
+    \bigl(
+      \sh P_\bullet^{(1)},\sh O_{S'}
+    \bigr),
+    \ldots,
+    \shTor_{q_m}^S
+    \bigl(
+      \sh P_\bullet^{(m)},\sh O_{S'}
+    \bigr),
+    \sh Q_\bullet'
+  \Bigr).
+\end{split}
+  \tag{6.9.3.3}\label{III.6.9.3.3.eq}
+\]
+\end{env}
+\end{proposition}
+
+\oldpage[III]{167}
+
+\begin{proof}
+The sequence $(e)$ is precisely the associativity sequence of
+\sref{III.6.8.2}, with $r=m$.  To define the other two spectral
+sequences, it is again enough to treat the case in which $S$, $S'$,
+and the $Y^{(i)}$ are affine.  The passage to the general case uses
+the methods of \sref{III.6.7.1} and \sref{III.6.7.2} and is left to
+the reader.  Thus it remains to prove the following affine
+statement.
+\end{proof}
+
+\begin{corollary}[6.9.4]
+\label{III.6.9.4}
+Let $A$ be a ring, let $A'$ be an $A$-algebra, and put
+\[
+  S=\Spec(A),
+  \qquad
+  S'=\Spec(A').
+\]
+Let $X^{(i)}$, $1\leq i\leq m$, be quasi-compact $S$-schemes, and
+for each $i$ put
+\[
+  X^{\prime(i)}=X_{(S')}^{(i)};
+\]
+this is a quasi-compact $S'$-scheme.  For each $i$, let
+$\sh P_\bullet^{(i)}$ be a bounded-below complex of quasi-coherent
+$\sh O_{X^{(i)}}$-modules.  Finally, let $Q_\bullet'$ be a
+bounded-below complex of $A'$-modules, and let
+$\widetilde Q_\bullet'$ be the associated complex.
+
+There are three biregular spectral functors in the
+$\sh P_\bullet^{(i)}$ and in $Q_\bullet'$, with common abutment
+\[
+  \mathbf{Tor}_\bullet^S
+  \bigl(
+    X^{(1)},\ldots,X^{(m)},S';
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)},
+    \widetilde Q_\bullet'
+  \bigr),
+\]
+and whose $E_2$-terms are respectively
+\[
+\begin{split}
+  {}^{(e)}E_{pq}^2
+  =
+  \bigoplus_{q'+q''=q}
+  \Tor_p^A
+  \Bigl(
+    &
+    \mathbf{Tor}_{q'}^S
+    \bigl(
+      X^{(1)},\ldots,X^{(m)};
+      \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+    \bigr),
+    \\
+    &
+    H_{q''}(Q_\bullet')
+  \Bigr),
+\end{split}
+\]
+\[
+\begin{split}
+  {}^{(f)}E_{pq}^2
+  =
+  \bigoplus_{q_1+\cdots+q_{m+1}=q}
+  \Tor_p^{A'}
+  \Bigl(
+    &
+    \mathbf{Tor}_{q_1}^S
+    \bigl(
+      X^{(1)},S';
+      \sh P_\bullet^{(1)},\sh O_{S'}
+    \bigr),
+    \ldots,
+    \\
+    &
+    \mathbf{Tor}_{q_m}^S
+    \bigl(
+      X^{(m)},S';
+      \sh P_\bullet^{(m)},\sh O_{S'}
+    \bigr),
+    H_{q_{m+1}}(Q_\bullet')
+  \Bigr),
+\end{split}
+\]
+and
+\[
+\begin{split}
+  {}^{(f')}E_{pq}^2
+  =
+  \bigoplus_{q_1+\cdots+q_m=q}
+  \mathbf{Tor}_p^{S'}
+  \Bigl(
+    &
+    X^{\prime(1)},\ldots,X^{\prime(m)},S';
+    \\
+    &
+    \shTor_{q_1}^S
+    \bigl(
+      \sh P_\bullet^{(1)},\sh O_{S'}
+    \bigr),
+    \ldots,
+    \shTor_{q_m}^S
+    \bigl(
+      \sh P_\bullet^{(m)},\sh O_{S'}
+    \bigr),
+    \widetilde Q_\bullet'
+  \Bigr).
+\end{split}
+\]
+\end{corollary}
+
+\begin{proof}
+We do not return to the first of these spectral functors, which was
+treated in \sref{III.6.8.3} and is included here only for reference.
+To define the other two, choose for each $i$ a finite affine open
+covering $\mathfrak U^{(i)}$ of $X^{(i)}$.  If
+\[
+  u_i:X^{\prime(i)}\longrightarrow X^{(i)}
+\]
+is the canonical projection, put
+\[
+  \mathfrak U^{\prime(i)}
+  =
+  u_i^{-1}(\mathfrak U^{(i)}).
+\]
+
+By \sref{III.6.6.6}, the common abutment is obtained by choosing,
+for $1\leq i\leq m$, a projective Cartan--Eilenberg resolution
+$M_{\bullet\bullet\bullet}^{(i)}$ of
+\[
+  L_{\bullet\bullet}^{(i)}
+  =
+  C^\bullet
+  \bigl(
+    \mathfrak U^{(i)},\sh P_\bullet^{(i)}
+  \bigr)
+\]
+in the sense of \sref[0]{0.11.7.1}, and then taking the homology of
+the tricomplex
+\[
+  M_{\bullet\bullet\bullet}
+  =
+  M_{\bullet\bullet\bullet}^{(1)}
+  \otimes_A\cdots\otimes_A
+  M_{\bullet\bullet\bullet}^{(m)}
+  \otimes_A Q_\bullet',
+\]
+where $Q_\bullet'$ is regarded as a tricomplex whose last two
+degrees are zero.  Set
+\[
+  M_{\bullet\bullet\bullet}^{\prime(i)}
+  =
+  M_{\bullet\bullet\bullet}^{(i)}\otimes_AA'.
+\]
+Since $Q_\bullet'$ is a complex of $A'$-modules, we may rewrite
+\[
+  M_{\bullet\bullet\bullet}
+  =
+  M_{\bullet\bullet\bullet}^{\prime(1)}
+  \otimes_{A'}\cdots\otimes_{A'}
+  M_{\bullet\bullet\bullet}^{\prime(m)}
+  \otimes_{A'}Q_\bullet'.
+\]
+
+Regard each $M_{\bullet\bullet\bullet}^{\prime(i)}$ as a simple
+complex for its total degree.  Its terms are projective
+$A'$-modules; hence \sref{III.6.3.7}, extended to any finite number
+of complexes, identifies the homology of
+$M_{\bullet\bullet\bullet}$ with
+\[
+  \Tor_\bullet^{A'}
+  \bigl(
+    M_{\bullet\bullet\bullet}^{\prime(1)},\ldots,
+    M_{\bullet\bullet\bullet}^{\prime(m)},Q_\bullet'
+  \bigr).
+\]
+By \sref{III.6.5.15}, this is the abutment of a spectral sequence
+having the required regularity properties and $E_2$-term
+\[
+\begin{split}
+  E_{pq}^2
+  =
+  \bigoplus_{q_1+\cdots+q_{m+1}=q}
+  \Tor_p^{A'}
+  \Bigl(
+    &
+    H_{q_1}(M_{\bullet\bullet\bullet}^{\prime(1)}),\ldots,
+    H_{q_m}(M_{\bullet\bullet\bullet}^{\prime(m)}),
+    \\
+    &
+    H_{q_{m+1}}(Q_\bullet')
+  \Bigr).
+\end{split}
+\]
+By the definition of global hypertors,
+\[
+  H_{q_i}(M_{\bullet\bullet\bullet}^{\prime(i)})
+  =
+  \mathbf{Tor}_{q_i}^S
+  \bigl(
+    X^{(i)},S';
+    \sh P_\bullet^{(i)},\sh O_{S'}
+  \bigr),
+\]
+which gives the sequence $(f)$.
+
+\oldpage[III]{168}
+
+On the other hand, regard
+$M_{\bullet\bullet\bullet}^{\prime(i)}$ as a bicomplex whose first
+degree is the sum of the first two degrees of the tricomplex and
+whose second degree is its third degree.  Since its terms are
+projective $A'$-modules, the general theory of hyperhomology shows
+that the homology of
+\[
+  M_{\bullet\bullet\bullet}^{\prime(1)}
+  \otimes_{A'}\cdots\otimes_{A'}
+  M_{\bullet\bullet\bullet}^{\prime(m)}
+  \otimes_{A'}Q_\bullet'
+\]
+is canonically isomorphic to its hyperhomology
+(\sref[0]{0.11.6.5}).  It is therefore the abutment of a spectral
+sequence with $E_2$-term
+\[
+\begin{split}
+  E_{pq}^2
+  =
+  \bigoplus_{q_1+\cdots+q_{m+1}=q}
+  \Tor_p^{A'}
+  \Bigl(
+    &
+    H_{q_1}^{\mathrm{II}}
+    (M_{\bullet\bullet\bullet}^{\prime(1)}),\ldots,
+    H_{q_m}^{\mathrm{II}}
+    (M_{\bullet\bullet\bullet}^{\prime(m)}),
+    \\
+    &
+    H_{q_{m+1}}^{\mathrm{II}}(Q_\bullet')
+  \Bigr).
+\end{split}
+\]
+The second degree of $Q_\bullet'$ is zero, so
+\[
+  H_n^{\mathrm{II}}(Q_\bullet')=0
+  \quad(n\neq0),
+  \qquad
+  H_0^{\mathrm{II}}(Q_\bullet')=Q_\bullet',
+\]
+and the preceding formula becomes
+\[
+\begin{split}
+  E_{pq}^2
+  =
+  \bigoplus_{q_1+\cdots+q_m=q}
+  \Tor_p^{A'}
+  \Bigl(
+    &
+    H_{q_1}^{\mathrm{II}}
+    (M_{\bullet\bullet\bullet}^{\prime(1)}),\ldots,
+    \\
+    &
+    H_{q_m}^{\mathrm{II}}
+    (M_{\bullet\bullet\bullet}^{\prime(m)}),
+    Q_\bullet'
+  \Bigr).
+\end{split}
+\]
+
+Moreover, by \sref{III.6.3.4},
+\[
+\begin{split}
+  H_{q_i}^{\mathrm{II}}
+  (M_{\bullet\bullet\bullet}^{\prime(i)})
+  &=
+  H_{q_i}^{\mathrm{II}}
+  (M_{\bullet\bullet\bullet}^{(i)}\otimes_AA')
+  \\
+  &=
+  \Tor_{q_i}^A(L_{\bullet\bullet}^{(i)},A').
+\end{split}
+\]
+Now $L_{j,k}^{(i)}$ is the direct sum of the modules
+$\Gamma(V,\sh P_k^{(i)})$, where $V$ runs through the affine
+intersections of $j+1$ members of $\mathfrak U^{(i)}$.  If
+$V'=u_i^{-1}(V)$, then $V'$ is affine in $X^{\prime(i)}$, and
+\sref{III.6.4.1.1} gives
+\[
+  \Gamma
+  \bigl(
+    V',
+    \shTor_{q_i}^S
+    (\sh P_k^{(i)},\sh O_{S'})
+  \bigr)
+  =
+  \Tor_{q_i}^A
+  \bigl(
+    \Gamma(V,\sh P_k^{(i)}),A'
+  \bigr).
+\]
+Consequently, the bicomplex
+$H_{q_i}^{\mathrm{II}}
+(M_{\bullet\bullet\bullet}^{\prime(i)})$
+is
+\[
+  C^\bullet
+  \bigl(
+    \mathfrak U^{\prime(i)},
+    \shTor_{q_i}^S
+    (\sh P_\bullet^{(i)},\sh O_{S'})
+  \bigr).
+\]
+This gives the asserted $E_2$-term of the sequence $(f')$.  Its
+biregularity under the stated hypotheses follows in the usual way,
+since, when $\sh P_\bullet^{(i)}$ is bounded below, every degree of
+$M_{\bullet\bullet\bullet}^{\prime(i)}$ is bounded below.
+\end{proof}
+
+\begin{remark}[6.9.5]
+\label{III.6.9.5}
+As in \sref{III.6.7.6}, replacing the complexes
+$\sh P_\bullet^{(i)}$ and $\sh Q_\bullet'$ by respectively
+homotopic complexes does not change the spectral sequences $(e)$,
+$(f)$, and $(f')$, up to canonical isomorphism.
+
+Moreover, for the sequence $(f)$, homomorphisms of complexes
+\[
+  \sh P_\bullet^{(i)}\longrightarrow\sh R_\bullet^{(i)},
+  \qquad
+  \sh Q_\bullet'\longrightarrow\sh T_\bullet'
+\]
+which induce isomorphisms in homology
+\[
+  \sh H_\bullet(\sh P_\bullet^{(i)})
+  \xrightarrow{\sim}
+  \sh H_\bullet(\sh R_\bullet^{(i)}),
+  \qquad
+  \sh H_\bullet(\sh Q_\bullet')
+  \xrightarrow{\sim}
+  \sh H_\bullet(\sh T_\bullet')
+\]
+also induce an isomorphism of spectral sequences
+\[
+\begin{split}
+  {}^{(f)}\sh E
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)},
+    \sh Q_\bullet'
+  \bigr)
+  \xrightarrow{\sim}\;&
+  {}^{(f)}\sh E
+  \bigl(
+    f_1,\ldots,f_m;
+    \\
+    &
+    \sh R_\bullet^{(1)},\ldots,\sh R_\bullet^{(m)},
+    \sh T_\bullet'
+  \bigr).
+\end{split}
+\]
+The proof is the same as that of \sref{III.6.7.6}, taking into
+account the result of that section and the regularity of the
+sequence $(f)$.
+\end{remark}
+
+\begin{corollary}[6.9.6]
+\label{III.6.9.6}
+Under the hypotheses of \sref{III.6.9.1}, suppose that:
+\begin{enumerate}
+  \item[$1^\circ$] the complexes $\sh P_\bullet^{(i)}$ consist of
+  $S$-flat modules, and the $\sh O_Y$-modules
+  \[
+    \mathfrak{Tor}_n^S
+    \bigl(
+      f_1,\ldots,f_m;
+      \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+    \bigr)
+  \]
+  are $S$-flat;
+  \item[$2^\circ$] the complexes $\sh P_\bullet^{(i)}$ and
+  $\sh Q_\bullet'$ are bounded below.
+\end{enumerate}
+
+\oldpage[III]{169}
+
+Put
+\[
+  \sh P_\bullet^{\prime(i)}
+  =
+  \sh P_\bullet^{(i)}
+  \otimes_{\sh O_S}\sh O_{S'}.
+\]
+There are canonical functorial isomorphisms
+\begin{env}[6.9.6.1]
+\label{III.6.9.6.1}
+\[
+\begin{split}
+  &
+  \mathfrak{Tor}_n^{S'}
+  \bigl(
+    f_1',\ldots,f_m',1_{S'};
+    \sh P_\bullet^{\prime(1)},\ldots,
+    \sh P_\bullet^{\prime(m)},\sh Q_\bullet'
+  \bigr)
+  \xrightarrow{\sim}
+  \\
+  &\qquad
+  \bigoplus_{n'+n''=n}
+  \mathfrak{Tor}_{n'}^S
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr)
+  \otimes_{\sh O_S}
+  \sh H_{n''}(\sh Q_\bullet').
+\end{split}
+  \tag{6.9.6.1}\label{III.6.9.6.1.eq}
+\]
+\end{env}
+
+In particular, when $\sh Q_\bullet'$ consists of a single term
+$\sh F'$ in degree $0$, there are canonical functorial
+isomorphisms
+\begin{env}[6.9.6.2]
+\label{III.6.9.6.2}
+\[
+\begin{split}
+  &
+  \mathfrak{Tor}_n^{S'}
+  \bigl(
+    f_1',\ldots,f_m',1_{S'};
+    \sh P_\bullet^{\prime(1)},\ldots,
+    \sh P_\bullet^{\prime(m)},\sh F'
+  \bigr)
+  \xrightarrow{\sim}
+  \\
+  &\qquad
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr)
+  \otimes_{\sh O_S}\sh F'.
+\end{split}
+  \tag{6.9.6.2}\label{III.6.9.6.2.eq}
+\]
+\end{env}
+More particularly, for $\sh F'=\sh O_{S'}$,
+\begin{env}[6.9.6.3]
+\label{III.6.9.6.3}
+\[
+\begin{split}
+  &
+  \mathfrak{Tor}_n^{S'}
+  \bigl(
+    f_1',\ldots,f_m';
+    \sh P_\bullet^{\prime(1)},\ldots,
+    \sh P_\bullet^{\prime(m)}
+  \bigr)
+  \xrightarrow{\sim}
+  \\
+  &\qquad
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr)
+  \otimes_{\sh O_S}\sh O_{S'}.
+\end{split}
+  \tag{6.9.6.3}\label{III.6.9.6.3.eq}
+\]
+\end{env}
+\end{corollary}
+
+\begin{proof}
+The flatness of the terms of $\sh P_\bullet^{(i)}$ implies that
+\[
+  \shTor_{q_i}^S
+  \bigl(
+    \sh P_\bullet^{(i)},\sh O_{S'}
+  \bigr)
+  =
+  0
+  \qquad(q_i\neq0)
+\]
+by \sref{III.6.5.8}.  Thus the sequence $(f')$ degenerates.
+Hypothesis $2^\circ$ also makes it biregular
+(\sref{III.6.9.3}), so the edge homomorphism
+\[
+\begin{split}
+  &
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,\ldots,f_m,1_{S'};
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)},
+    \sh Q_\bullet'
+  \bigr)
+  \longrightarrow
+  {}^{(f')}\sh E_{n0}^2
+  \\
+  &\qquad =
+  \mathfrak{Tor}_n^{S'}
+  \bigl(
+    f_1',\ldots,f_m',1_{S'};
+    \sh P_\bullet^{\prime(1)},\ldots,
+    \sh P_\bullet^{\prime(m)},\sh Q_\bullet'
+  \bigr)
+\end{split}
+  \tag{6.9.6.4}\label{III.6.9.6.4.eq}
+\]
+is bijective by \sref[0]{0.11.1.6}.
+
+The flatness of the modules
+\[
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr)
+\]
+implies, by \sref{III.6.5.8}, that
+${}^{(e)}\sh E_{pq}^2=0$ for $p\neq0$.  Hence $(e)$ also
+degenerates, and its biregularity makes the edge homomorphism
+\[
+\begin{split}
+  &
+  \mathfrak{Tor}_n^S
+  \bigl(
+    f_1,\ldots,f_m,1_{S'};
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)},
+    \sh Q_\bullet'
+  \bigr)
+  \longrightarrow
+  {}^{(e)}\sh E_{0n}^2
+  \\
+  &\qquad =
+  \bigoplus_{n'+n''=n}
+  \mathfrak{Tor}_{n'}^S
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr)
+  \otimes_{\sh O_S}
+  \sh H_{n''}(\sh Q_\bullet')
+\end{split}
+  \tag{6.9.6.5}\label{III.6.9.6.5.eq}
+\]
+bijective.  Combining these two edge isomorphisms gives
+\sref{III.6.9.6.1}.  Formula \sref{III.6.9.6.2} follows because
+$\sh H_q(\sh Q_\bullet')=0$ for $q\neq0$ and
+$\sh H_0(\sh Q_\bullet')=\sh F'$.  Finally, taking
+$\sh F'=\sh O_{S'}$ in \sref{III.6.9.6.2} and using
+\sref{III.6.7.12} gives \sref{III.6.9.6.3}.
+\end{proof}
+
+\begin{corollary}[6.9.7]
+\label{III.6.9.7}
+Under the hypotheses of \sref{III.6.9.1}, suppose that $S$ and
+$S'$ are affine, and choose an integer $d_i$ for each
+$1\leq i\leq m$.  There is an integer $N$, depending only on $S$,
+the $X^{(i)}$, and the $d_i$, with the following property.  For
+every integer $n_0$, the canonical isomorphisms
+\sref{III.6.9.6.3} hold for $n\leq n_0$ and for every system of
+complexes $\sh P_\bullet^{(i)}$ satisfying:
+\begin{enumerate}
+  \item[$1^\circ$] $\sh P_k^{(i)}=0$ for $k<d_i$;
+  \item[$2^\circ$] $\sh P_k^{(i)}$ is $S$-flat for
+  $k<n_0+N$;
+  \item[$3^\circ$]
+  \[
+    \mathfrak{Tor}_q^S
+    \bigl(
+      f_1,\ldots,f_m;
+      \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+    \bigr)
+  \]
+  is $S$-flat for $q<n_0+N$.
+\end{enumerate}
+\end{corollary}
+
+\begin{proof}
+Suppose that $\sh P_k^{(i)}$ is $S$-flat for $k<r$.  Then
+\[
+  \shTor_{q_i}^S
+  \bigl(
+    \sh P_k^{(i)},\sh O_{S'}
+  \bigr)
+  =
+  0
+  \qquad
+  (k<r,\ q_i\neq0).
+\]
+Consider
+\[
+\begin{split}
+  \mathfrak{Tor}_p^{S'}
+  \Bigl(
+    &
+    f_1',\ldots,f_m';
+    \shTor_{q_1}^S
+    (\sh P_\bullet^{(1)},\sh O_{S'}),\ldots,
+    \\
+    &
+    \shTor_{q_m}^S
+    (\sh P_\bullet^{(m)},\sh O_{S'})
+  \Bigr).
+\end{split}
+  \tag{6.9.7.1}\label{III.6.9.7.1.eq}
+\]
+
+\oldpage[III]{170}
+
+Compute \eqref{III.6.9.7.1.eq} by the method of
+\sref{III.6.6.2}, using the inverse images of fixed finite affine
+open coverings $\mathfrak U^{(i)}$ of $X^{(i)}$.  These coverings
+are independent of $S'$ and of the complexes
+$\sh P_\bullet^{(i)}$.  The terms $L_{jk}^{(i)}$ vanish for
+$j<-N_i$, where $N_i$ depends only on $\mathfrak U^{(i)}$.
+
+If some $q_i$ is nonzero, the simple complex whose homology in
+degree $p$ is \eqref{III.6.9.7.1.eq} has zero terms in every degree
+\[
+  <
+  r+\sum_{j\neq i}d_j-\sum_{\ell=1}^mN_\ell.
+\]
+Consequently \eqref{III.6.9.7.1.eq} vanishes for $p<r-N$, where
+\[
+  N
+  =
+  \max_i
+  \left(
+    \sum_{\ell=1}^mN_\ell-\sum_{j\neq i}d_j
+  \right).
+\]
+It follows that
+${}^{(f')}\sh E_{pq}^2=0$ for $q\neq0$ and $p<r-N$.
+Since also ${}^{(f')}\sh E_{pq}^2=0$ for $q<0$, the edge
+homomorphism \eqref{III.6.9.6.4.eq} is bijective for $n<r-N$
+(M, XV, 5.6), when $\sh Q_\bullet'=\sh O_{S'}$.
+
+Secondly, if
+\[
+  \mathfrak{Tor}_q^S
+  \bigl(
+    f_1,\ldots,f_m;
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(m)}
+  \bigr)
+\]
+is $S$-flat for $q<r$, then
+${}^{(e)}\sh E_{pq}^2=0$ for $p\neq0$ and $q<r$; moreover,
+${}^{(e)}\sh E_{pq}^2=0$ for $p<0$.  Thus the edge homomorphism
+\eqref{III.6.9.6.5.eq} is bijective for $n<r$, which completes the
+proof.
+\end{proof}
+
+The case of \sref{III.6.9.3} most important in applications is
+$m=1$, with $\sh Q_\bullet'$ reduced to a single term $\sh F'$ in
+degree $0$.  We state it again for later reference.\footnote{The
+case treated in \sref{III.6.9.8}, and in particular the spectral
+sequences \sref{III.6.9.8.3} and \sref{III.6.9.8.4}, was pointed
+out to us by J.-P.~Serre in 1957.}
+
+\begin{proposition}[6.9.8]
+\label{III.6.9.8}
+Let $S$ be a prescheme, let $g:S'\to S$ be a morphism, and let
+$f:X\to Y$ be a separated and quasi-compact $S$-morphism of
+$S$-preschemes.  Let $\sh P_\bullet$ be a bounded-below complex of
+quasi-coherent $\sh O_X$-modules, and let $\sh F'$ be a
+quasi-coherent $\sh O_{S'}$-module.  There are two biregular
+spectral functors in $\sh P_\bullet$ and $\sh F'$, with values in
+the category of quasi-coherent $\sh O_{Y_{(S')}}$-modules, having
+the same abutment
+\[
+  \mathfrak{Tor}_\bullet^S
+  \bigl(
+    f,1_{S'};\sh P_\bullet,\sh F'
+  \bigr),
+\]
+and whose $E_2$-terms are
+\begin{env}[6.9.8.1]
+\label{III.6.9.8.1}
+\[
+  {}'\sh E_{pq}^2
+  =
+  \shTor_p^S
+  \bigl(
+    \sh H^{-q}(f,\sh P_\bullet),\sh F'
+  \bigr)
+  \tag{6.9.8.1}\label{III.6.9.8.1.eq}
+\]
+\end{env}
+and
+\begin{env}[6.9.8.2]
+\label{III.6.9.8.2}
+\[
+  {}''\sh E_{pq}^2
+  =
+  \sh H^{-p}
+  \bigl(
+    f',
+    \shTor_q^S(\sh P_\bullet,\sh F')
+  \bigr),
+  \tag{6.9.8.2}\label{III.6.9.8.2.eq}
+\]
+\end{env}
+where
+\[
+  f'=f_{(S')}:
+  X_{(S')}\longrightarrow Y_{(S')}.
+\]
+\end{proposition}
+
+\begin{proof}
+These spectral sequences may also be obtained, without starting
+from \sref{III.6.9.3}, from the sequences $(a)$ and $(b')$ of
+\sref{III.6.7.3}, by taking
+\[
+  X^{(1)}=X,\quad
+  Y^{(1)}=Y,\quad
+  X^{(2)}=Y^{(2)}=S',\quad
+  f_1=f,\quad
+  f_2=1_{S'}.
+\]
+When $S=S'=Y$ and $Y$ is affine, one obtains two spectral
+sequences with $E_2$-terms
+\[
+  {}'\sh E_{pq}^2
+  =
+  \shTor_p^Y
+  \bigl(
+    \sh H^{-q}(f,\sh P_\bullet),\sh F
+  \bigr)
+  \tag{6.9.8.3}\label{III.6.9.8.3}
+\]
+and
+\[
+  {}''\sh E_{pq}^2
+  =
+  \sh H^{-p}
+  \bigl(
+    f,\shTor_q^Y(\sh P_\bullet,\sh F)
+  \bigr).
+  \tag{6.9.8.4}\label{III.6.9.8.4}
+\]
+By \sref{III.6.7.6}, both abut to the hypercohomology
+\[
+  \sh H^\bullet
+  \bigl(
+    f,\sh P_\bullet\otimes_Y\sh F
+  \bigr)
+\]
+of $f_*$ with respect to the complex
+$\sh P_\bullet\otimes_Y\sh F$ of $\sh O_X$-modules, for every
+quasi-coherent $Y$-flat $\sh O_Y$-module $\sh F$; if the terms of
+$\sh P_\bullet$ are $Y$-flat, $\sh F$ may be any quasi-coherent
+$\sh O_Y$-module.  These spectral sequences are distinct from
+those of \sref{III.6.2.1}.
+\end{proof}
+
+\begin{corollary}[6.9.9]
+\label{III.6.9.9}
+Under the hypotheses of \sref{III.6.9.8}, suppose that
+$\sh P_\bullet$ is bounded below, consists of $S$-flat modules,
+and that the $\sh O_Y$-modules
+$\sh H^n(f,\sh P_\bullet)$ are $S$-flat.
+
+\oldpage[III]{171}
+
+Put
+\[
+  \sh P_\bullet'
+  =
+  \sh P_\bullet\otimes_{\sh O_S}\sh O_{S'}.
+\]
+There are canonical functorial isomorphisms
+\begin{env}[6.9.9.1]
+\label{III.6.9.9.1}
+\[
+\begin{split}
+  &
+  \mathfrak{Tor}_n^{S'}
+  \bigl(
+    f',1_{S'};\sh P_\bullet',\sh F'
+  \bigr)
+  \xrightarrow{\sim}
+  \\
+  &\qquad
+  \sh H^{-n}(f,\sh P_\bullet)
+  \otimes_{\sh O_S}\sh F'.
+\end{split}
+  \tag{6.9.9.1}\label{III.6.9.9.1.eq}
+\]
+\end{env}
+In particular, for $\sh F'=\sh O_{S'}$,
+\begin{env}[6.9.9.2]
+\label{III.6.9.9.2}
+\[
+  \sh H^n(f',\sh P_\bullet')
+  \xrightarrow{\sim}
+  \sh H^n(f,\sh P_\bullet)
+  \otimes_{\sh O_S}\sh O_{S'}.
+  \tag{6.9.9.2}\label{III.6.9.9.2.eq}
+\]
+\end{env}
+This is the case $m=1$ of \sref{III.6.9.6}.
+\end{corollary}
+
+\begin{corollary}[6.9.10]
+\label{III.6.9.10}
+Let $S$ be a prescheme, let $f:X\to Y$ be a separated and
+quasi-compact $S$-morphism of $S$-preschemes, and let
+$\sh P_\bullet$ be a bounded-below complex of quasi-coherent
+$\sh O_X$-modules that are flat over $S$.  Suppose further that
+the $\sh O_Y$-modules $\sh H^n(f,\sh P_\bullet)$ are flat over
+$S$.
+
+For $s\in S$, write $X_s$ and $Y_s$ for the fibres
+\[
+  X\times_S\Spec(\kres(s)),
+  \qquad
+  Y\times_S\Spec(\kres(s)),
+\]
+write
+\[
+  f_s:X_s\longrightarrow Y_s
+\]
+for the morphism $f\times_S1$, and put
+\[
+  \sh P_\bullet^s
+  =
+  \sh P_\bullet\otimes_{\sh O_S}\kres(s).
+\]
+Then there are canonical functorial isomorphisms
+\begin{env}[6.9.10.1]
+\label{III.6.9.10.1}
+\[
+  \sh H^n(f_s,\sh P_\bullet^s)
+  \xrightarrow{\sim}
+  \sh H^n(f,\sh P_\bullet)
+  \otimes_{\sh O_S}\kres(s).
+  \tag{6.9.10.1}\label{III.6.9.10.1.eq}
+\]
+\end{env}
+\end{corollary}
+
+Thus, under suitable flatness hypotheses, the formation of the
+derived functors $R^nf_*(\sh F)$ ``commutes with passage to the
+fibres.''  We shall obtain this result again by another method in
+\S\,7.
+
+\subsection{Local structure of certain cohomological functors}
+\label{subsection:III.6.10}
+\label{III.6.10}
+
+\oldpage[III]{171}
+
+\begin{proposition}[6.10.1]
+\label{III.6.10.1}
+Let $S=\Spec(A)$ be an affine scheme, and let
+$Y^{(i)}$ $(1\leq i\leq n)$ be a finite family of affine
+$S$-schemes, flat over $S$.  For each $i$, let
+\[
+  f_i:X^{(i)}\longrightarrow Y^{(i)}
+\]
+be a separated and quasi-compact $S$-morphism, and let
+$\sh P_\bullet^{(i)}$ be a bounded-below complex of
+quasi-coherent $\sh O_{X^{(i)}}$-modules.  Let $Y$ be the product
+over $S$ of the schemes $Y^{(i)}$.
+
+There exists a complex $\sh R_\bullet$ of quasi-coherent
+$\sh O_Y$-modules, flat over $S$, with the following property.
+For every affine $S$-scheme $S'$ and every bounded-below complex
+$\sh Q_\bullet'$ of quasi-coherent $\sh O_{S'}$-modules, there is
+an isomorphism
+\begin{env}[6.10.1.1]
+\label{III.6.10.1.1}
+\[
+  \mathbf{Tor}_\bullet^S
+  \bigl(
+    f_1,\ldots,f_n,1_{S'};
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(n)},
+    \sh Q_\bullet'
+  \bigr)
+  \xrightarrow{\sim}
+  \sh H_\bullet
+  \bigl(
+    \sh R_\bullet\otimes_{\sh O_S}\sh Q_\bullet'
+  \bigr),
+  \tag{6.10.1.1}\label{III.6.10.1.1.eq}
+\]
+\end{env}
+which is an isomorphism of $\partial$-functors in
+$\sh Q_\bullet'$.
+
+Moreover, for every $S$-morphism
+$u:S''\to S'$ of affine $S$-schemes, the diagram
+\begin{env}[6.10.1.2]
+\label{III.6.10.1.2}
+\[
+\xymatrix@C=12pt@R=30pt{
+  {\begin{gathered}
+    \mathbf{Tor}_\bullet^S
+    (f_1,\ldots,f_n,1_{S'};\\
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(n)},
+    \sh Q_\bullet')
+  \end{gathered}}
+  \ar[r]^-{\sim}\ar[d]
+  &
+  {\sh H_\bullet
+    (\sh R_\bullet\otimes_{\sh O_S}\sh Q_\bullet')}
+  \ar[d]
+  \\
+  {\begin{gathered}
+    \mathbf{Tor}_\bullet^S
+    (f_1,\ldots,f_n,1_{S''};\\
+    \sh P_\bullet^{(1)},\ldots,\sh P_\bullet^{(n)},
+    u^*(\sh Q_\bullet'))
+  \end{gathered}}
+  \ar[r]^-{\sim}
+  &
+  {\sh H_\bullet
+    (\sh R_\bullet\otimes_{\sh O_S}u^*(\sh Q_\bullet'))}
+}
+\tag{6.10.1.2}\label{III.6.10.1.2.eq}
+\]
+\end{env}
+commutes.  Here the vertical arrows are the canonical
+$(1_Y\times_Su)$-morphisms defined in \sref{III.6.7.10}.
+\end{proposition}
+
+\begin{proof}
+\oldpage[III]{172}
+Compute the hypertor by the method of \sref{III.6.6.2}, taking
+account of Remark \sref{III.6.6.6}.  With the notation used
+there, each $L_{\bullet\bullet}^{(i)}$ is a bicomplex of
+$A_i$-modules, where $A_i$ denotes the ring of $Y^{(i)}$.
+It therefore has a projective Cartan--Eilenberg resolution
+$M_{\bullet\bullet\bullet}^{(i)}$ (in the sense of
+\sref[0]{0.11.7.1}) by projective $A_i$-modules.  By
+\sref{III.6.6.6}, the left side of
+\eqref{III.6.10.1.1.eq} is canonically isomorphic to
+\[
+  \HH_\bullet
+  \bigl(
+    M_{\bullet\bullet\bullet}\otimes_AQ_\bullet'
+  \bigr),
+\]
+where
+\[
+  M_{\bullet\bullet\bullet}
+  =
+  M_{\bullet\bullet\bullet}^{(1)}
+  \otimes_A
+  M_{\bullet\bullet\bullet}^{(2)}
+  \otimes_A\cdots\otimes_A
+  M_{\bullet\bullet\bullet}^{(n)}
+\]
+and $\sh Q_\bullet'=\widetilde{Q_\bullet'}$.
+
+By hypothesis, the rings $A_i$ are flat $A$-modules.  Hence the
+$M_{\bullet\bullet\bullet}^{(i)}$ are tricomplexes of flat
+$A$-modules \sref[0]{0.6.2.1}, and so is
+$M_{\bullet\bullet\bullet}$.  Furthermore, if $B$ is the ring of
+$Y$, that is, the tensor product over $A$ of the $A_i$, then
+$M_{\bullet\bullet\bullet}$ is a tricomplex of $B$-modules.
+Consequently the complex
+\[
+  \sh R_\bullet
+  =
+  \widetilde{M_{\bullet\bullet\bullet}},
+\]
+where $M_{\bullet\bullet\bullet}$ is regarded as a simple
+complex, has the required properties, as follows immediately
+from \sref{III.6.7.10}.
+\end{proof}
+
+\begin{corollary}[6.10.2]
+\label{III.6.10.2}
+In Proposition \sref{III.6.10.1}, the complex
+$\sh R_\bullet$ may be taken to be bounded below.  If the
+$\sh P_\bullet^{(i)}$ are bounded above and the $Y^{(i)}$ have
+finite cohomological dimension, then $\sh R_\bullet$ may be
+taken to be bounded above.
+\end{corollary}
+
+\begin{proof}
+The first assertion follows because all three degrees of each
+$M_{\bullet\bullet\bullet}^{(i)}$ are bounded below.  On the
+other hand, if the rings $A_i$ have finite cohomological
+dimension, the third degree of each
+$M_{\bullet\bullet\bullet}^{(i)}$ assumes only finitely many
+values, and by its construction the same is true of its first
+degree \sref{III.6.6.2}.  Its second degree is bounded above
+precisely when the degree of $\sh P_\bullet^{(i)}$ is bounded
+above \sref{III.6.6.2}, which proves the second assertion.
+\end{proof}
+
+\begin{remarks}[6.10.3]
+\label{III.6.10.3}
+\textnormal{(i)}
+With the notation of \sref{III.6.10.1},
+\[
+  \sh H_\bullet
+  (\sh R_\bullet\otimes_S\sh Q_\bullet')
+  \simeq
+  \mathbf{Tor}_\bullet(\sh R_\bullet,\sh Q_\bullet'),
+\]
+because $\sh R_\bullet$ consists of $\sh O_Y$-modules that are
+flat over $S$ \sref{III.6.5.9}.  It is therefore
+\sref{III.6.5.4} the abutment of a regular spectral sequence
+whose $E^2$-term is
+\begin{env}[6.10.3.1]
+\label{III.6.10.3.1}
+\[
+  E^2_{pq}
+  =
+  \bigoplus_{q'+q''=q}
+  \shTor_p^S
+  \bigl(
+    \sh H_{q'}(\sh R_\bullet),
+    \sh H_{q''}(\sh Q_\bullet')
+  \bigr).
+  \tag{6.10.3.1}\label{III.6.10.3.1.eq}
+\]
+\end{env}
+This is precisely the spectral sequence (e) for base change in
+\sref{III.6.9.3}.
+
+\medskip
+\textnormal{(ii)}
+Let $\sh R_\bullet'$ be another complex of quasi-coherent
+$\sh O_Y$-modules, flat over $S$, and let
+\[
+  g:\sh R_\bullet'\longrightarrow\sh R_\bullet
+\]
+be a homomorphism of complexes for which
+\[
+  \sh H_\bullet(g):
+  \sh H_\bullet(\sh R_\bullet')
+  \longrightarrow
+  \sh H_\bullet(\sh R_\bullet)
+\]
+is an isomorphism.  By \sref{III.6.3.3} and
+\sref{III.6.5.9}, $g$ induces an isomorphism of
+$\partial$-functors in $\sh Q_\bullet'$,
+\[
+  \sh H_\bullet
+  (\sh R_\bullet'\otimes_S\sh Q_\bullet')
+  \xrightarrow{\sim}
+  \sh H_\bullet
+  (\sh R_\bullet\otimes_S\sh Q_\bullet'),
+\]
+such that the diagram
+\[
+\xymatrix@C=28pt@R=30pt{
+  \sh H_\bullet
+  (\sh R_\bullet'\otimes_S\sh Q_\bullet')
+  \ar[r]^-{\sim}\ar[d]
+  &
+  \sh H_\bullet
+  (\sh R_\bullet\otimes_S\sh Q_\bullet')
+  \ar[d]
+  \\
+  \sh H_\bullet
+  (\sh R_\bullet'\otimes_Su^*(\sh Q_\bullet'))
+  \ar[r]^-{\sim}
+  &
+  \sh H_\bullet
+  (\sh R_\bullet\otimes_Su^*(\sh Q_\bullet'))
+}
+\]
+commutes.  Thus the properties in \sref{III.6.10.1} do not
+determine the complex $\sh R_\bullet$ completely.
+
+\medskip
+\oldpage[III]{173}
+\textnormal{(iii)}
+In the proof of \sref{III.6.10.1}, the
+$M_{\bullet\bullet\bullet}^{(i)}$ may be chosen to consist of
+free $A_i$-modules, as follows immediately by dualising the
+proof of \sref[0]{0.11.5.2.1}.  The
+\[
+  M_{\bullet\bullet\bullet}^{(i)}\otimes_{A_i}B
+\]
+then consist of free $B$-modules; since
+$M_{\bullet\bullet\bullet}$ is their tensor product over $B$,
+one may in addition require in \sref{III.6.10.1} that
+$\sh R_\bullet$ be associated with a complex of free
+$B$-modules.
+
+Moreover, by (M, XVII, 1.2), the tricomplex
+$M_{\bullet\bullet\bullet}$ depends functorially on each of the
+bicomplexes $L_{\bullet\bullet}^{(i)}$, hence on each
+$\sh P_\bullet^{(i)}$ once a finite covering of each
+$X^{(i)}$ has been fixed.  Here ``morphisms'' of tricomplexes
+are understood as homomorphism classes modulo homotopy.
+Replacing a covering of $X^{(i)}$ by a finer one gives, for
+$L_{\bullet\bullet}^{(i)}$, homomorphisms defined up to homotopy
+by \sref{III.6.6.8}; thus, with the preceding convention on
+morphisms, $M_{\bullet\bullet\bullet}$ is a functor in each
+$\sh P_\bullet^{(i)}$.
+
+We shall make this functorial dependence more precise, in
+particular the behaviour of $\sh R_\bullet$ with respect to
+short exact sequences
+\[
+  0\longrightarrow\sh P_\bullet^{\prime(i)}
+  \longrightarrow\sh P_\bullet^{(i)}
+  \longrightarrow\sh P_\bullet^{\prime\prime(i)}
+  \longrightarrow0,
+\]
+in the chapter devoted to a general algebra of cohomological
+functors mentioned in \sref{III.6.1.3}.
+\end{remarks}
+
+\begin{env}[6.10.4]
+\label{III.6.10.4}
+\emph{Scholium \textbf{(6.10.4).}} ---
+The fact that $\sh R_\bullet$ consists of $\sh O_Y$-modules
+flat over $S$ immediately implies that
+\[
+  \sh H_\bullet
+  (\sh R_\bullet\otimes_S\sh Q_\bullet')
+\]
+is a homological functor in $\sh Q_\bullet'$; compare the
+argument of \sref{III.7.7.1}.  As noted in
+\sref{III.6.1.1}, this property motivates the introduction of
+hypertor.
+
+Put
+\[
+  X=X^{(1)}\times_SX^{(2)}\times_S\cdots\times_SX^{(n)},
+  \qquad
+  f=f_1\times_Sf_2\times_S\cdots\times_Sf_n,
+\]
+\[
+  \sh P_\bullet
+  =
+  \sh P_\bullet^{(1)}
+  \otimes_S\sh P_\bullet^{(2)}
+  \otimes_S\cdots\otimes_S\sh P_\bullet^{(n)},
+\]
+and
+\[
+  X'=X\times_SS',
+  \qquad
+  Y'=Y\times_SS',
+  \qquad
+  f'=f\times_S1_{S'}.
+\]
+Problems of base change lead one to study the hypercohomology
+\[
+  \sh H^*_{f'}
+  (\sh P_\bullet\otimes_S\sh N')
+\]
+as a functor of the quasi-coherent $\sh O_{S'}$-module
+$\sh N'$, or equivalently the hypercohomology
+\[
+  \sh H^*_f
+  (\sh P_\bullet\otimes_S\sh N)
+\]
+as a functor of the quasi-coherent $\sh O_S$-module $\sh N$.
+When the $\sh P_\bullet^{(i)}$, and therefore
+$\sh P_\bullet$, are flat over $S$, the preceding results and
+\sref{III.6.7.6} show that this is indeed a cohomological
+functor in $\sh N$.  This is no longer true when the flatness
+of the $\sh P_\bullet^{(i)}$ is not assumed, and the study of
+\[
+  \sh H^*_f(\sh P_\bullet\otimes_S\sh N)
+\]
+can then no longer be approached by the usual methods of
+homological algebra.
+
+We shall chiefly use the case $n=1$, $Y=S$, in which
+$\sh P_\bullet$ consists of $\sh O_X$-modules flat over $Y$.
+In this case we have the following theorem.
+\end{env}
+
+\begin{theorem}[6.10.5]
+\label{III.6.10.5}
+Let $Y=\Spec(A)$ be an affine Noetherian scheme, let
+$f:X\to Y$ be a proper morphism, and let $\sh P_\bullet$ be a
+bounded-below complex of coherent $\sh O_X$-modules flat over
+$Y$.  There exists a bounded-below complex $\sh L_\bullet$ of
+$\sh O_Y$-modules, whose terms have the form
+\[
+  \sh L_i=\sh O_Y^{m_i},
+\]
+and an isomorphism
+\begin{env}[6.10.5.1]
+\label{III.6.10.5.1}
+\[
+  \sh H^*
+  (f,\sh P_\bullet\otimes_Y\sh Q_\bullet)
+  \xrightarrow{\sim}
+  \sh H_\bullet
+  (\sh L_\bullet\otimes_Y\sh Q_\bullet)
+  \tag{6.10.5.1}\label{III.6.10.5.1.eq}
+\]
+\end{env}
+of $\partial$-functors in the bounded-below complex
+$\sh Q_\bullet$ of quasi-coherent $\sh O_Y$-modules.
+
+Moreover, for every morphism $u:Y'\to Y$, put
+\[
+  X'=X_{(Y')},
+  \qquad
+  f'=f_{(Y')},
+  \qquad
+  \sh P_\bullet'
+  =
+  \sh P_\bullet\otimes_Y\sh O_{Y'},
+  \qquad
+  \sh L_\bullet'=u^*(\sh L_\bullet).
+\]
+\oldpage[III]{174}
+Then $\sh L_\bullet'$ is a complex of locally free
+$\sh O_{Y'}$-modules of finite type, and there is an isomorphism
+\begin{env}[6.10.5.2]
+\label{III.6.10.5.2}
+\[
+  \sh H^*
+  (f',\sh P_\bullet'\otimes_{Y'}\sh Q_\bullet')
+  \xrightarrow{\sim}
+  \sh H_\bullet
+  (\sh L_\bullet'\otimes_{Y'}\sh Q_\bullet')
+  \tag{6.10.5.2}\label{III.6.10.5.2.eq}
+\]
+\end{env}
+of $\partial$-functors in the bounded-below complex
+$\sh Q_\bullet'$ of quasi-coherent $\sh O_{Y'}$-modules.  These
+isomorphisms may be chosen so that the diagram
+\begin{env}[6.10.5.3]
+\label{III.6.10.5.3}
+\[
+\xymatrix@C=24pt@R=30pt{
+  \sh H^*
+  (f,\sh P_\bullet\otimes_Y\sh Q_\bullet)
+  \ar[r]^-{\sim}\ar[d]
+  &
+  \sh H_\bullet
+  (\sh L_\bullet\otimes_Y\sh Q_\bullet)
+  \ar[d]
+  \\
+  \sh H^*
+  (f',\sh P_\bullet'\otimes_{Y'}u^*(\sh Q_\bullet))
+  \ar[r]^-{\sim}
+  &
+  \sh H_\bullet
+  (\sh L_\bullet'\otimes_{Y'}u^*(\sh Q_\bullet))
+}
+\tag{6.10.5.3}\label{III.6.10.5.3.eq}
+\]
+\end{env}
+commutes.
+\end{theorem}
+
+\begin{proof}
+Proposition \sref{III.6.10.1} first gives a bounded-below
+complex $\sh R_\bullet$ \sref{III.6.10.2} of quasi-coherent
+$\sh O_Y$-modules that are free over $Y$
+\sref{III.6.10.3}~(iii), together with an isomorphism
+\begin{env}[6.10.5.4]
+\label{III.6.10.5.4}
+\[
+  \sh H^*
+  (f,\sh P_\bullet\otimes_Y\sh Q_\bullet)
+  \xrightarrow{\sim}
+  \sh H_\bullet
+  (\sh R_\bullet\otimes_Y\sh Q_\bullet)
+  \tag{6.10.5.4}\label{III.6.10.5.4.eq}
+\]
+\end{env}
+of $\partial$-functors in $\sh Q_\bullet$.  The terms of
+$\sh R_\bullet$ need not, \emph{a priori}, be
+$\sh O_Y$-modules of finite type.
+
+Apply \eqref{III.6.10.5.4.eq} when $\sh Q_\bullet$ is the
+complex concentrated in one degree with sole term $\sh O_Y$.
+It follows that $\sh H_\bullet(\sh R_\bullet)$ is isomorphic to
+$\sh H^*(f,\sh P_\bullet)$ and hence consists of coherent
+$\sh O_Y$-modules \sref{III.6.2.5}.  By
+\sref[0]{0.11.9.2}, there is therefore a bounded-below complex
+$\sh L_\bullet$ whose terms are associated with free
+$A$-modules of finite type, and a homomorphism
+\[
+  \sh L_\bullet\longrightarrow\sh R_\bullet
+\]
+which induces an isomorphism
+\[
+  \sh H_\bullet(\sh L_\bullet)
+  \xrightarrow{\sim}
+  \sh H_\bullet(\sh R_\bullet).
+\]
+Formula \eqref{III.6.10.5.1.eq} now follows from
+\sref{III.6.10.3}~(ii).
+
+The remaining assertions of \sref{III.6.10.5} follow from
+\sref{III.6.10.1} and \sref{III.6.10.3}~(ii) when $Y'$ is
+affine.  In the general case, cover $Y'$ by affine open subsets
+$(V_\alpha)$.  If
+\eqref{III.6.10.5.2.eq} is formed over each $V_\alpha$, its
+restrictions from $V_\alpha$ and $V_\beta$ to an affine open
+subset
+\[
+  W\subset V_\alpha\cap V_\beta
+\]
+both coincide with the isomorphism formed over $W$.  This
+follows from the commutativity of
+\eqref{III.6.10.1.2.eq}, applied to the canonical inclusions
+$W\to V_\alpha$ and $W\to V_\beta$, and proves that the local
+isomorphisms glue.
+\end{proof}
+
+\begin{remark}[6.10.6]
+\label{III.6.10.6}
+In the following chapters we shall apply \sref{III.6.10.5}
+chiefly when $\sh P_\bullet$ is concentrated in one degree and
+its sole term is a coherent $\sh O_X$-module $\sh F$ flat over
+$Y$.  Since
+\[
+  \sh H_n(\sh L_\bullet)
+  =
+  \sh H^{-n}(f,\sh F)
+  =
+  R^{-n}f_*(\sh F)
+  \qquad\text{\sref{III.6.2.1}},
+\]
+the $\sh H_n(\sh L_\bullet)$ vanish for $n>0$.  We shall see
+later \sref{III.7.7.12}~(i) that $\sh L_\bullet$ may then be
+chosen to have terms only in degrees $\leq0$, and hence only
+finitely many terms, provided the requirement that its terms
+be associated with free $A$-modules of finite type is replaced
+by the requirement that they be locally free of finite type.
+\end{remark}
+
+The complex $\sh L_\bullet$ corresponding to such an
+$\sh O_X$-module $\sh F$ seems to have no special property
+\oldpage[III]{175}
+apart from the preceding restriction on its degrees.  One may
+therefore ask conversely whether, given a bounded-below complex
+$\sh L_\bullet$ whose terms are $\sh O_Y$-modules associated
+with projective $A$-modules of finite type and whose terms of
+degree $>0$ vanish, there exist a $Y$-scheme $X$, projective and
+flat over $Y$, and a locally free $\sh O_X$-module $\sh F$ such
+that there is an isomorphism
+\[
+  \sh H^*
+  (f,\sh F\otimes_Y\sh Q_\bullet)
+  \xrightarrow{\sim}
+  \sh H_\bullet
+  (\sh L_\bullet\otimes_Y\sh Q_\bullet)
+\]
+functorial in $\sh Q_\bullet$.  Such a result would reduce the
+cohomological theory of coherent modules flat over $Y$ on
+proper $Y$-schemes entirely to the theory, ``up to homotopy,''
+of complexes of projective $A$-modules of finite type over a
+Noetherian ring $A$.
