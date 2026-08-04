@@ -2,7 +2,7 @@
 
 This repository is the GitHub working front door for an open project to produce modern, inspectable LaTeX editions and translation drafts of older mathematics and physics manuscripts.
 
-The durable release files live on Zenodo. GitHub is for coordination: manifests, issue tracking, contribution notes, scripts, and lightweight source snapshots where practical. Large PDFs, raw scan archives, and full provenance packages should be downloaded from the linked Zenodo records.
+GitHub is the inspectable source archive and current index: catalogs, manifests, exact bounded source checkpoints, issue tracking, contribution notes, and scripts. Some large reader-first files and immutable version history are grouped in the linked external records. A file being grouped rather than loose does not mean that its translation is absent; check the coverage maps before starting work.
 
 For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
 
