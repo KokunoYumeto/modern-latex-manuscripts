@@ -1,0 +1,141 @@
+\documentclass[oneside]{amsart}
+
+\usepackage[all]{xy}
+\usepackage{tikz-cd}
+\usepackage[T1]{fontenc}
+\usepackage{xstring}
+\usepackage{xparse}
+\usepackage{xcolor}
+\definecolor{brightmaroon}{rgb}{0.76, 0.13, 0.28}
+\usepackage[linktocpage=true,colorlinks=true,hyperindex,hypertexnames=false,citecolor=blue,linkcolor=brightmaroon]{hyperref}
+\usepackage[left=1.25in,right=1.25in,top=0.75in,bottom=0.75in]{geometry}
+%\usepackage[charter,greekfamily=didot]{mathdesign}
+%\usepackage{Baskervaldx}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{mathpazo}
+\linespread{1.05}
+
+\usepackage[nobottomtitles]{titlesec}
+\usepackage{marginnote}
+\usepackage[shortlabels]{enumitem}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage{aurical}
+\usepackage{microtype}
+
+\newtheoremstyle{ega-env-style}%
+  {}{}{\rmfamily}{}{\bfseries}{.}{ }{\thmnote{(#3)}}%
+
+\newtheoremstyle{ega-thm-env-style}%
+  {}{}{\itshape}{}{\bfseries}{. --- }{ }{\thmname{#1}\thmnote{ (#3)}}%
+
+\newtheoremstyle{ega-defn-env-style}%
+  {}{}{\rmfamily}{}{\bfseries}{. --- }{ }{\thmname{#1}\thmnote{ (#3)}}%
+
+\theoremstyle{ega-env-style}
+\newtheorem*{env}{---}
+
+\theoremstyle{ega-thm-env-style}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{corollary}{Corollary}
+
+\theoremstyle{ega-defn-env-style}
+\newtheorem*{definition}{Definition}
+\newtheorem*{example}{Example}
+\newtheorem*{examples}{Examples}
+\newtheorem*{remark}{Remark}
+\newtheorem*{remarks}{Remarks}
+\newtheorem*{notation}{Notation}
+
+% indent subsections, see https://tex.stackexchange.com/questions/177290/.
+% also make section titles bigger.
+% also add § to \thesection, https://tex.stackexchange.com/questions/119667/ and https://tex.stackexchange.com/questions/308737/.
+\makeatletter
+\def\l@subsection{\@tocline{2}{0pt}{2.5pc}{2.2pc}{}}
+\def\section{\@startsection{section}{1}%
+  \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+  {\normalfont\bfseries\Large\scshape\centering}}
+\renewcommand{\@seccntformat}[1]{%
+  \ifnum\pdfstrcmp{#1}{section}=0\textsection\fi%
+  \csname the#1\endcsname.~}
+\makeatother
+
+%\allowdisplaybreaks[1]
+%\binoppenalty=9999
+%\relpenalty=9999
+
+% for Chapter 0, Chapter I, etc.
+% credit for ZeroRoman https://tex.stackexchange.com/questions/211414/
+% added into scripts/make_book.py
+%\newcommand{\ZeroRoman}[1]{\ifcase\value{#1}\relax 0\else\Roman{#1}\fi}
+%\renewcommand{\thechapter}{\ZeroRoman{chapter}}
+
+\def\mathcal{\mathscr}
+\input{preamble-base}
+
+\def\shHom{\sh{H}\textup{\kern-2.2pt{\Fontauri\slshape om}}}   % sheaf Hom
+\def\shProj{\sh{P}\textup{\kern-2.2pt{\Fontauri\slshape roj}}} % sheaf Proj
+\def\shExt{\sh{E}\textup{\kern-2.2pt{\Fontauri\slshape xt}}}   % sheaf Ext
+\def\shTor{\sh{T}\textup{\kern-2.2pt{\Fontauri\slshape or}}}   % sheaf Tor
+\def\shGr{\sh{G}\textup{\kern-2.2pt{\Fontauri\slshape r}}}     % sheaf Gr
+\def\shDer{\sh{D}\,\textup{\kern-2.2pt{\Fontauri\slshape er}}} % sheaf Der
+\def\shDiff{\sh{D}\,\textup{\kern-2.2pt{\Fontauri\slshape if{}f}}\,} % sheaf Diff
+\def\shHomcont{\sh{H}\textup{\kern-2.2pt{\Fontauri\slshape om.\,cont}}}   % sheaf Hom.cont
+\def\shAut{\sh{A}\textup{\kern-2.2pt{\Fontauri\slshape ut}}}   % sheaf Aut
+
+% if unsure of a translation
+%\newcommand{\unsure}[2][]{\hl{#2}\marginpar{#1}}
+%\newcommand{\completelyunsure}{\unsure{[\ldots]}}
+\def\unsure#1{#1 {\color{red}(?)}}
+\def\completelyunsure{{\color{red}(???)}}
+
+% use to mark where original page starts
+\newcommand{\oldpage}[2][]{{\marginnote{\normalfont{\textbf{#1}~|~#2}}}\ignorespaces}
+\def\sectionbreak{\begin{center}***\end{center}}
+
+% Give every source label its own zero-size PDF destination.  The inherited
+% unnumbered theorem environments otherwise leave many labels pointing to the
+% preceding subsection or display anchor rather than to their exact statement.
+\let\EGAOriginalLabel\label
+\renewcommand{\label}[1]{\phantomsection\EGAOriginalLabel{#1}}
+
+% for referencing environments.
+% use as \sref{chapter-number.x.y.z}, with optional args
+% for volume and indices, e.g. \sref[volume]{chapter-number.x.y.z}[i].
+\makeatletter
+\newcommand{\EGAUnavailableHyperref}[2]{%
+  \begingroup
+  \let\@latex@warning\@gobble
+  \let\@latex@warning@no@line\@gobble
+  \let\G@refundefinedtrue\relax
+  \hyperref[#1]{#2}%
+  \endgroup
+}
+\NewDocumentCommand{\sref}{o m o}{%
+  \@ifundefined{r@#2}%
+    {\IfNoValueTF{#1}%
+      {\IfNoValueTF{#3}%
+        {\EGAUnavailableHyperref{#2}{\normalfont{(\StrBehind{#2}{.})}}}%
+        {\EGAUnavailableHyperref{#2}{\normalfont{(\StrBehind{#2}{.},~{#3})}}}}%
+      {\IfNoValueTF{#3}%
+        {\EGAUnavailableHyperref{#2}{\normalfont{(\textbf{#1},~\StrBehind{#2}{.})}}}%
+        {\EGAUnavailableHyperref{#2}{\normalfont{(\textbf{#1},~\StrBehind{#2}{.},~{#3})}}}}}%
+    {\IfNoValueTF{#1}%
+      {\IfNoValueTF{#3}%
+        {\hyperref[#2]{\normalfont{(\StrBehind{#2}{.})}}}%
+        {\hyperref[#2]{\normalfont{(\StrBehind{#2}{.},~{#3})}}}}%
+      {\IfNoValueTF{#3}%
+        {\hyperref[#2]{\normalfont{(\textbf{#1},~\StrBehind{#2}{.})}}}%
+        {\hyperref[#2]{\normalfont{(\textbf{#1},~\StrBehind{#2}{.},~{#3})}}}}}%
+}
+\makeatother
+
+% for marking changes following errata
+% use as \erratum[volume]{correction} to say where the erratum is given
+\newcommand{\erratum}[2][]{{#2}\marginpar{\footnotesize\textbf{Err}\textsubscript{#1}}}
+
+% for referencing equations, use as \eref{eq:chapter-number.x.y.z}.
+\newcommand{\eref}[1]{\hyperref[#1]{\normalfont{(\StrBehind{#1}{.})}}}
