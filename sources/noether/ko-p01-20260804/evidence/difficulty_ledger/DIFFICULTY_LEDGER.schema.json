@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/noether-p01-ko-difficulty-ledger-v1.json",
+  "title": "Noether Paper 1 Korean append-only difficulty record",
+  "type": "object",
+  "required": [
+    "schema_version", "issue_id", "recorded_at", "time_precision", "work_id",
+    "unit_ids", "source_locators", "target_locators", "symptom", "cause_evidence",
+    "attempts_and_rejections", "state", "resolution_or_hold", "artifact_hashes",
+    "tests_renders_reviews", "residual_risk", "recurrence_cues",
+    "related_decision_ids", "related_structural_ids", "transferable_lesson",
+    "claim_typing", "previous_record_sha256", "record_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "issue_id": {"type": "string", "pattern": "^CJK-KO-P01-HARD-[0-9]{3}$"},
+    "recorded_at": {"type": "string", "minLength": 1},
+    "time_precision": {"type": "string", "minLength": 1},
+    "work_id": {"const": "NOE-P01"},
+    "unit_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "source_locators": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "target_locators": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "symptom": {"type": "string", "minLength": 1},
+    "cause_evidence": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "attempts_and_rejections": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "state": {"enum": ["held", "resolved", "active_control"]},
+    "resolution_or_hold": {"type": "string", "minLength": 1},
+    "artifact_hashes": {"type": "array", "items": {"type": "string", "pattern": "^[A-F0-9]{64}$"}, "minItems": 1},
+    "tests_renders_reviews": {"type": "object"},
+    "residual_risk": {"type": "string", "minLength": 1},
+    "recurrence_cues": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "related_decision_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "related_structural_ids": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "transferable_lesson": {"type": "string", "minLength": 1},
+    "claim_typing": {"type": "object"},
+    "previous_record_sha256": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"},
+    "record_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+  },
+  "additionalProperties": false
+}
