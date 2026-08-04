@@ -12,6 +12,7 @@ Useful contributions include:
 Before starting, check:
 
 - [Browse index](docs/browse-index.md) for the fastest route to the right corpus;
+- [Noether translation coverage](docs/noether-map.md) before starting or assigning any Noether translation;
 - [By author and work](docs/by-author-and-work.md) for a named-work overview;
 - [Archive guide](docs/archive-guide.md) for the right Zenodo record;
 - [Project status dashboard](docs/project-status-dashboard.md) for current public-surface counts;
@@ -19,6 +20,8 @@ Before starting, check:
 - [Public file catalog](docs/public-file-catalog.md) for the exact filename;
 - [Known gaps](docs/known-gaps.md) to avoid duplicating already-known unfinished areas;
 - [Work queue](docs/work-queue.md) for concrete next tasks.
+
+For Noether, an unchecked target or a missing cumulative reader is still an existing translation. Review or correct a complete target; continue a partial target only at the cursor recorded in `docs/noether-map.md`. Any change that adds or advances a Noether translation checkpoint must update that map in the same commit with the language, work, exact coverage, current path, quality state, and next cursor. The map is navigation only: include the actual source and artifact bytes, never just an inventory or status claim.
 
 Please include:
 

@@ -21,3 +21,7 @@ If a file is accessible to the other machine/session, it must be made accessible
 Current sweep finding: latest packages 620-626 on `origin/codex/noether-pc-20260629` again uploaded no `.tex`, `.pdf`, `.zip`, `.bib`, or source-body payloads. That is insufficient. Upload the whole corpus as-is.
 
 No further debate about size, inconvenience, or whether a manifest is enough. It is not enough. Upload the files.
+
+## NOETHER COVERAGE SYNCHRONIZATION
+
+Before starting or assigning any Noether translation, read `docs/noether-map.md`. If the language/work is already listed, inspect and correct that target or continue only at its recorded cursor; do not silently retranslate it. Every commit that adds or advances a Noether translation checkpoint must update the map in the same commit with exact coverage, current path, quality state, and next cursor. The map is navigation and never substitutes for uploading the actual corpus bytes required above.
