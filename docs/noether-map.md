@@ -48,6 +48,7 @@ Paper 9 predecessor directories `ko-p09-t01` through `ko-p09-t07-pre` are immuta
 | Work | Exact existing coverage | Current path / state |
 |---|---|---|
 | Paper 8 | Complete Hans and controlled-Hant editions; seven-page PDFs | [Current checkpoint](../sources/noether/zh-p08-20260804/README.md); independent checking pending |
+| Paper 23 | Complete Hans and controlled-Hant editions; editable TeX and four-page PDFs | [Exact 91-file producer snapshot](../sources/noether/zh-p23-v1/README.md), [Hans PDF](../sources/noether/zh-p23-v1/zh-Hans-CN/Noether_Paper23_Chinese_P31Reconciled_zh-Hans-CN_v001.pdf), and [controlled-Hant PDF](../sources/noether/zh-p23-v1/zh-Hant-controlled/Noether_Paper23_Chinese_P31Reconciled_zh-Hant-controlled_v001.pdf); internally frozen, with no external Chinese review or regional localization certification |
 | Paper 25 | Complete Hans and controlled-Hant paper | [P31-reconciled checkpoint](../sources/noether/paper25-chinese-p31reconciled-20260718/README.md); internal source/build/render gates passed |
 | Paper 26 | Complete Hans and controlled-Hant paper | [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
 | Paper 27 | Complete Hans and controlled-Hant short notice | [P31-reconciled checkpoint](../sources/noether/paper27-chinese-p31reconciled-20260719/README.md) |
@@ -57,8 +58,6 @@ Paper 9 predecessor directories `ko-p09-t01` through `ko-p09-t07-pre` are immuta
 | Paper 36 | Complete Hans and controlled-Hant paper | [R823 CJK components](../sources/noether/r823-synchronized-components-20260718/00_README.md) |
 | Paper 37 | Complete Hans and controlled-Hant paper | [P31-reconciled checkpoint](../sources/noether/paper37-chinese-p31reconciled-20260718/README.md) |
 | Paper 39 | Complete revision lineage | [Revision 3](../sources/noether/zh-p39-v003/README.md); Hans accepted, Hant v003 corrected and awaiting independent recheck |
-
-A separate frozen Chinese Paper 23 tranche is explicitly referenced by the [Japanese Paper 23 controls](../sources/noether/paper23-japanese-p31reconciled-20260718/README.md), but its target bytes are not directly indexed in the present GitHub tree. Treat that as a known existing translation requiring recovery/cataloging, not permission to retranslate Paper 23 blindly.
 
 ## Japanese
 
