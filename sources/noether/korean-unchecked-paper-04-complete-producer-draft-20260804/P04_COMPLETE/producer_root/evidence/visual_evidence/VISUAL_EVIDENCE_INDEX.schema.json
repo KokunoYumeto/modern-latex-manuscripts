@@ -1,0 +1,270 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:interlanguage:noether:p04:ko:visual-evidence:1.0.0",
+  "title": "Noether Paper 4 Korean T01--T03 visual-evidence record",
+  "description": "Schema for any crop, scan, page image, target render, contact sheet, before/after image, segmentation artifact, or overlay. The current JSONL is intentionally empty because no visual was used or created.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "visual_id",
+    "work_id",
+    "tranche_id",
+    "unit_id",
+    "visual_type",
+    "parent_path_workspace_relative",
+    "parent_sha256",
+    "source_page",
+    "coordinate_basis",
+    "dpi",
+    "rotation_degrees",
+    "image_path_workspace_relative",
+    "image_sha256",
+    "qa_state",
+    "review_state",
+    "rights_basis",
+    "publication_state",
+    "continuation_cursor",
+    "bounding_box",
+    "dimensions",
+    "linked_structural_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "description": "Visual schema version."
+    },
+    "visual_id": {
+      "type": "string",
+      "pattern": "^CJK-KO-P04-VIS-[0-9]{3}$",
+      "description": "Stable visual identifier."
+    },
+    "work_id": {
+      "const": "NOE-P04-KO",
+      "description": "Stable work identifier."
+    },
+    "tranche_id": {
+      "enum": [
+        "T01",
+        "T02",
+        "T03"
+      ],
+      "description": "Scoped tranche only."
+    },
+    "unit_id": {
+      "enum": [
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09",
+        "U10",
+        "U11",
+        "U12",
+        "U13",
+        "U14",
+        "U15",
+        "U16"
+      ],
+      "description": "Scoped unit only."
+    },
+    "visual_type": {
+      "enum": [
+        "source_crop",
+        "equation_crop",
+        "diagram_crop",
+        "page_image",
+        "target_render",
+        "contact_sheet",
+        "before_after",
+        "segmentation_artifact",
+        "model_overlay",
+        "other"
+      ],
+      "description": "Visual artifact class."
+    },
+    "parent_path_workspace_relative": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Optional parent scan/image path."
+    },
+    "parent_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[A-F0-9]{64}$",
+      "description": "Optional parent SHA-256."
+    },
+    "source_page": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 1,
+      "description": "Optional physical source page."
+    },
+    "bounding_box": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "x": {
+          "type": "integer"
+        },
+        "y": {
+          "type": "integer"
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "additionalProperties": false,
+      "description": "Optional pixel bounding box."
+    },
+    "coordinate_basis": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Bounding-box coordinate basis."
+    },
+    "dimensions": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "width",
+        "height"
+      ],
+      "additionalProperties": false,
+      "description": "Image dimensions in pixels."
+    },
+    "dpi": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "Optional image DPI."
+    },
+    "rotation_degrees": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "description": "Optional rotation."
+    },
+    "image_path_workspace_relative": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Image path when a visual exists."
+    },
+    "image_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[A-F0-9]{64}$",
+      "description": "Image SHA-256 when a visual exists."
+    },
+    "linked_structural_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "Linked structural records."
+    },
+    "qa_state": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Visual QA state."
+    },
+    "review_state": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Visual review state."
+    },
+    "rights_basis": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Rights basis, if any."
+    },
+    "publication_state": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Publication disposition."
+    },
+    "continuation_cursor": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Visual continuation cursor."
+    }
+  },
+  "additionalProperties": false,
+  "x-csv-projection": {
+    "headers": [
+      "schema_version",
+      "visual_id",
+      "work_id",
+      "tranche_id",
+      "unit_id",
+      "visual_type",
+      "parent_path_workspace_relative",
+      "parent_sha256",
+      "source_page",
+      "bounding_box_json",
+      "coordinate_basis",
+      "dimensions_json",
+      "dpi",
+      "rotation_degrees",
+      "image_path_workspace_relative",
+      "image_sha256",
+      "linked_structural_ids_json",
+      "qa_state",
+      "review_state",
+      "rights_basis",
+      "publication_state",
+      "continuation_cursor"
+    ],
+    "nested_json_columns": [
+      "bounding_box_json",
+      "dimensions_json",
+      "linked_structural_ids_json"
+    ],
+    "description": "Header-only CSV is the flat projection of the intentionally empty authoritative JSONL."
+  }
+}

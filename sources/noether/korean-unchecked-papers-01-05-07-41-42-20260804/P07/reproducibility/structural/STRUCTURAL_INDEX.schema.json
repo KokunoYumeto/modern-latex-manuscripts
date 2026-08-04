@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:interlanguage:noether:p07:ko:structural-index:v1",
+  "title": "Noether Paper 7 Korean structural index record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "structural_id",
+    "work_id",
+    "unit_id",
+    "kind",
+    "title",
+    "authority",
+    "source_locator",
+    "source_unit_sha256",
+    "source_slice_sha256",
+    "target",
+    "parent_id",
+    "order",
+    "cross_references",
+    "language",
+    "completion_state",
+    "review_state",
+    "publication_state",
+    "continuation_cursor"
+  ],
+  "properties": {
+    "structural_id": { "type": "string", "pattern": "^NOE-P07-KO-STR-[0-9]{3}$" },
+    "work_id": { "const": "NOETH-P07" },
+    "unit_id": { "type": "string", "pattern": "^U0[1-8]$" },
+    "kind": {
+      "enum": [
+        "section",
+        "publication_metadata",
+        "title",
+        "byline",
+        "prose",
+        "note",
+        "bibliography_item",
+        "display",
+        "definition",
+        "theorem",
+        "remark",
+        "proof",
+        "date"
+      ]
+    },
+    "title": { "type": "string", "minLength": 1 },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pointer_id", "pointer_sha256", "path", "file_sha256", "paper_interval_sha256"],
+      "properties": {
+        "pointer_id": { "const": "NOETH-DE-AUTH-v003-20260804" },
+        "pointer_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "path": { "type": "string", "minLength": 1 },
+        "file_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "paper_interval_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      }
+    },
+    "source_locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["local_start", "local_end", "whole_start", "whole_end"],
+      "properties": {
+        "local_start": { "type": "integer", "minimum": 1, "maximum": 113 },
+        "local_end": { "type": "integer", "minimum": 1, "maximum": 113 },
+        "whole_start": { "type": "integer", "minimum": 5842, "maximum": 5954 },
+        "whole_end": { "type": "integer", "minimum": 5842, "maximum": 5954 }
+      }
+    },
+    "source_unit_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+    "source_slice_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "file_sha256", "line_start", "line_end", "slice_sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "file_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "line_start": { "type": "integer", "minimum": 1 },
+        "line_end": { "type": "integer", "minimum": 1 },
+        "slice_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      }
+    },
+    "parent_id": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^NOE-P07-KO-STR-[0-9]{3}$" }
+      ]
+    },
+    "order": { "type": "integer", "minimum": 1 },
+    "cross_references": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^NOE-P07-KO-STR-[0-9]{3}$" },
+      "uniqueItems": true
+    },
+    "language": { "const": "ko" },
+    "completion_state": { "const": "draft_text_complete" },
+    "review_state": { "const": "unchecked" },
+    "publication_state": { "const": "not_ready" },
+    "continuation_cursor": { "const": "independent_korean_checker" }
+  }
+}

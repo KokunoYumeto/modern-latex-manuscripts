@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:interlanguage:cjk-ko:noether:p03:visual-evidence:1.0.0",
+  "title": "Noether Paper 3 Korean visual-evidence record",
+  "description": "Schema for source/equation/diagram crops, scans, page images, target renders, contact sheets, before/after images, segmentation artifacts, and overlays. The current JSONL is intentionally empty because none were used or created. Empty inventory makes no rights or QA claim.",
+  "type": "object",
+  "required": ["visual_id","work_id","visual_type","parent_scan_path","parent_scan_sha256","source_page","bounding_box_px","coordinate_basis","dimensions_px","dpi","rotation_degrees","image_path","image_sha256","linked_structural_ids","linked_tex_units","qa_state","review_state","rights_basis","publication_disposition","supersession_state","continuation_cursor"],
+  "properties": {
+    "visual_id": {"type": "string", "pattern": "^CJK-KO-P03-VIS-[0-9]{3}$"},
+    "work_id": {"const": "NOE-P03-KO"},
+    "visual_type": {"enum": ["source_crop","equation_crop","diagram_crop","page_image","target_render","contact_sheet","before_after","segmentation_artifact","model_overlay","other"]},
+    "parent_scan_path": {"type": ["string","null"]},
+    "parent_scan_sha256": {"type": ["string","null"], "pattern": "^[A-F0-9]{64}$"},
+    "source_page": {"type": ["integer","null"]},
+    "bounding_box_px": {"type": ["object","null"], "properties": {"x":{"type":"integer"},"y":{"type":"integer"},"width":{"type":"integer"},"height":{"type":"integer"}}, "required":["x","y","width","height"], "additionalProperties":false},
+    "coordinate_basis": {"type": ["string","null"]},
+    "dimensions_px": {"type": ["object","null"], "properties": {"width":{"type":"integer"},"height":{"type":"integer"}}, "required":["width","height"], "additionalProperties":false},
+    "dpi": {"type": ["number","null"]},
+    "rotation_degrees": {"type": ["number","null"]},
+    "image_path": {"type": ["string","null"]},
+    "image_sha256": {"type": ["string","null"], "pattern": "^[A-F0-9]{64}$"},
+    "linked_structural_ids": {"type": "array", "items": {"type":"string"}},
+    "linked_tex_units": {"type": "array", "items": {"type":"string"}},
+    "qa_state": {"type": "string"},
+    "review_state": {"type": "string"},
+    "rights_basis": {"type": "string"},
+    "publication_disposition": {"type": "string"},
+    "supersession_state": {"type": "string"},
+    "continuation_cursor": {"type": ["string","null"]}
+  },
+  "additionalProperties": false
+}
+
