@@ -1,0 +1,9 @@
+$ErrorActionPreference='Stop'
+$workspace='C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722'
+$inputs=@((Join-Path $workspace 'segments\P10_STANDALONE_PREAMBLE.tex'),(Join-Path $workspace 'segments\zh-Hans-CN\P10_A_zh-Hans-CN.tex'),(Join-Path $workspace 'segments\zh-Hans-CN\P10_B_zh-Hans-CN.tex'),(Join-Path $workspace 'segments\zh-Hans-CN\P10_C_zh-Hans-CN.tex'),(Join-Path $workspace 'segments\P10_STANDALONE_POSTAMBLE.tex'))
+$output=Join-Path $workspace 'zh-Hans-CN\Noether_Paper10_Chinese_CurrentAuthority_zh-Hans-CN_v001.tex';$utf8=[Text.UTF8Encoding]::new($false)
+foreach($path in $inputs){if(-not(Test-Path -LiteralPath $path)){throw "Missing assembly input: $path"}}
+[IO.File]::WriteAllText($output,(($inputs|ForEach-Object{[IO.File]::ReadAllText($_,$utf8)})-join''),$utf8)
+function Meta([string]$path){$f=Get-Item $path;[ordered]@{path=$path.Substring($workspace.Length+1).Replace('\','/');bytes=$f.Length;sha256=(Get-FileHash -Algorithm SHA256 $path).Hash}}
+$record=[ordered]@{record_type='producer_hans_assembly';work_unit='Noether Paper 10';recorded_local_time=(Get-Date -Format 'yyyy-MM-dd HH:mm:ss zzz');source_authority_sha256='4EDD9F5B95EE308344B11190088C6D864FB4456AC8AD20E152FA1254E5612234';inherited_hans_witness_sha256='D74C8B835ADF307AAF4908551BA7C21806DC9772C5A187DD84506F982FAC674C';inputs=@($inputs|ForEach-Object{Meta $_});output=Meta $output;source_check_performed=$false;semantic_or_formula_check_performed=$false;terminology_check_performed=$false;translation_quality_check_performed=$false;visual_check_performed=$false;independent_check='pending'}
+[IO.File]::WriteAllText((Join-Path $workspace 'qa\HANS_ASSEMBLY_RECORD.json'),($record|ConvertTo-Json -Depth 8),$utf8);$record.output|ConvertTo-Json -Compress
