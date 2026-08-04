@@ -25,6 +25,8 @@ import re
 from collections import defaultdict
 from pathlib import Path
 
+import build_public_catalog as catalog_source
+
 
 RECORD_TIERS = [
     (
@@ -278,7 +280,7 @@ RECORD_NOTES.update(
 
 FAC_BROAD_CROSSLINK_NOTE = (
     "Open the surviving unified FAC concept "
-    "10.5281/zenodo.21720996 (current version 10.5281/zenodo.21781714) for the "
+    "10.5281/zenodo.21720996 (current version 10.5281/zenodo.21783868) for the "
     "controlling coherent accidental blind-comparison package. The orchestrator "
     "did not know the Achinger-Krupa translation existed; Codex independently "
     "translated and source-reviewed FAC nos. 1-79 from the French authority; the "
@@ -293,6 +295,20 @@ FAC_BROAD_CROSSLINK_NOTE = (
 for broad_label in ("interlanguage_reflections", "workflow"):
     RECORD_NOTES[broad_label].insert(0, FAC_BROAD_CROSSLINK_NOTE)
 
+# The catalog builder is the current-head authority. Reuse its live notes for
+# records maintained by the archive sweep so per-record pages cannot silently
+# retain an older head after the catalog itself advances.
+for current_label in (
+    "sga",
+    "ega",
+    "noether",
+    "interlanguage_reflections",
+    "workflow",
+    "fac_quality_assessment",
+    "gaga",
+):
+    RECORD_NOTES[current_label] = list(catalog_source.RECORD_NOTES[current_label])
+
 PRIMARY_ENTRYPOINTS = {
     "sga": [
         "00_Current_SGA1-7II_English_Readers_and_Buildable_TeX_20260804_R3.zip",
@@ -302,7 +318,8 @@ PRIMARY_ENTRYPOINTS = {
         "00_FAC_Blind_Comparison_Readable_Report.pdf",
         "04_FAC_Complete_Readers_Source_and_Blind_Comparison_Evidence_20260804.zip",
         "05_READ_ME_FIRST.md",
-        "00_Serre_FAC_French_Complete_Working_Transcription_20260731.pdf",
+        "00b_FAC_French_Diplomatic_Reader.pdf",
+        "00c_FAC_French_Corrected_Reader.pdf",
         "01_FAC_English_Complete_Reader.pdf",
         "02_FAC_English_Blind_Reader_through_no79.pdf",
         "13_FAC_Editorial_Decision_Logbook.md",
@@ -437,7 +454,7 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
     elif label == "noether_cjk_visual_evidence":
         how_to_read = "Download the image ZIP for the reusable evidence bytes. Read the manifest, README, and validation files first for exact scope, rights exclusions, provenance limits, and known adverse evidence."
     elif label == "sga":
-        how_to_read = "Open the complete reader/source ZIP first for exact custody. The clean 4,177-page cumulative PDF is the default visible reader and the second entry point. All nine standalone reader PDFs follow before direct master TeX and supporting source/provenance archives."
+        how_to_read = "Open the complete reader/source ZIP first for exact custody. The clean 4,179-page cumulative PDF is the default visible reader and the second entry point. All nine standalone reader PDFs follow before direct master TeX, Spanish SGA5, and supporting source/provenance archives."
     elif label == "ega":
         how_to_read = "Start with the leading current-reader bundle or open a direct reader PDF. Direct master TeX files follow; provenance and QA archives are secondary downloads."
     elif label == "fac_quality_assessment":

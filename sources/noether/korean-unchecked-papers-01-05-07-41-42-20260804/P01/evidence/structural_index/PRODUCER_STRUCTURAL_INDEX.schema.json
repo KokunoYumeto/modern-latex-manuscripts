@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/noether-p01-ko-producer-structural-index-v1.json",
+  "title": "Noether Paper 1 Korean producer structural record",
+  "type": "object",
+  "required": [
+    "schema_version", "record_id", "work_id", "structure_type", "label",
+    "parent_id", "order", "source_language", "target_language",
+    "authority_state", "source_locator", "target_locator", "relations",
+    "completion_state", "review_state", "publication_state",
+    "continuation_cursor", "record_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "record_id": {"type": "string", "pattern": "^NOE-P01-KO-[A-Z0-9-]+$"},
+    "work_id": {"const": "NOE-P01"},
+    "structure_type": {
+      "enum": ["work", "unit", "title", "author", "publication_note", "paragraph", "footnote", "bibliography_item", "display", "definition", "theorem", "list", "list_item", "transition"]
+    },
+    "label": {"type": "string", "minLength": 1},
+    "parent_id": {"type": ["string", "null"]},
+    "order": {"type": "integer", "minimum": 1},
+    "source_language": {"const": "de"},
+    "target_language": {"const": "ko-KR"},
+    "authority_state": {"const": "preserved_interval_historical_binding_pointer_pending"},
+    "source_locator": {"$ref": "#/$defs/locator"},
+    "target_locator": {"$ref": "#/$defs/locator"},
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relation", "target_id"],
+        "properties": {
+          "relation": {"enum": ["contains", "embedded_in", "cites", "defines_for", "uses_definition", "continues", "cross_reference"]},
+          "target_id": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "completion_state": {"const": "producer_draft_text_covered"},
+    "review_state": {"const": "unchecked"},
+    "publication_state": {"const": "private_not_for_publication"},
+    "continuation_cursor": {"type": "string", "minLength": 1},
+    "record_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+  },
+  "$defs": {
+    "locator": {
+      "type": "object",
+      "required": ["path", "line_start", "line_end", "file_sha256", "slice_sha256_lf"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "line_start": {"type": ["integer", "null"], "minimum": 1},
+        "line_end": {"type": ["integer", "null"], "minimum": 1},
+        "file_sha256": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"},
+        "slice_sha256_lf": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
