@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/noether-p03-ko-producer-structural-index-v1.2.json",
+  "title": "Noether Paper 3 Korean producer structural record",
+  "description": "Source/target structural pairing produced for reproducibility. Structure labels and pairings are producer metadata, not source, Korean, formula, build, render, checker, certification, or publication validation.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_id",
+    "work_id",
+    "unit_id",
+    "structure_type",
+    "label",
+    "parent_id",
+    "order",
+    "record_basis",
+    "source_language",
+    "target_language",
+    "authority_pointer",
+    "authority_state",
+    "source_locator",
+    "target_locators",
+    "relations",
+    "completion_state",
+    "review_state",
+    "publication_state",
+    "continuation_cursor",
+    "record_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.2"},
+    "record_id": {"type": "string", "pattern": "^NOE-P03-KO-[A-Z0-9-]+$"},
+    "work_id": {"const": "NOE-P03"},
+    "unit_id": {"enum": ["ALL", "U01", "U02", "U03"]},
+    "structure_type": {
+      "enum": [
+        "work",
+        "unit",
+        "title",
+        "author",
+        "publication_note",
+        "section_heading",
+        "subsection_heading",
+        "division_heading",
+        "paragraph",
+        "closed_prose",
+        "theorem",
+        "proposition",
+        "lemma",
+        "corollary",
+        "definition",
+        "remark",
+        "example",
+        "proof",
+        "proof_step",
+        "display",
+        "formula",
+        "note",
+        "footnote",
+        "bibliography_item",
+        "cross_reference",
+        "other"
+      ]
+    },
+    "label": {"type": "string", "minLength": 1},
+    "parent_id": {"type": ["string", "null"]},
+    "order": {"type": "integer", "minimum": 1},
+    "record_basis": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"enum": ["source_fact", "computation", "producer_editorial_inference"]}
+    },
+    "source_language": {"const": "de"},
+    "target_language": {"const": "ko-KR"},
+    "authority_pointer": {
+      "type": "object",
+      "required": ["pointer_id", "pointer_sha256"],
+      "properties": {
+        "pointer_id": {"const": "NOETH-DE-AUTH-v003-20260804"},
+        "pointer_sha256": {"const": "932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197"}
+      },
+      "additionalProperties": false
+    },
+    "authority_state": {"const": "current_v003_translation_input_unchecked"},
+    "source_locator": {"$ref": "#/$defs/sourceLocator"},
+    "target_locators": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/targetLocator"}
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relation", "target_id"],
+        "properties": {
+          "relation": {
+            "enum": [
+              "contains",
+              "embedded_in",
+              "continues",
+              "cross_reference",
+              "cites",
+              "proves",
+              "statement_of",
+              "equation_for",
+              "formula_in",
+              "note_for",
+              "bibliography_for"
+            ]
+          },
+          "target_id": {"type": "string", "pattern": "^NOE-P03-KO-[A-Z0-9-]+$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "completion_state": {"const": "producer_draft_text_covered"},
+    "review_state": {"const": "unchecked"},
+    "publication_state": {"const": "private_not_for_publication"},
+    "continuation_cursor": {"type": "string", "minLength": 1},
+    "record_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+  },
+  "$defs": {
+    "sourceLocator": {
+      "type": "object",
+      "required": [
+        "path",
+        "line_start",
+        "line_end",
+        "file_sha256",
+        "slice_sha256_lf",
+        "fragment_kind",
+        "fragment_occurrence",
+        "fragment_text",
+        "fragment_sha256_utf8"
+      ],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "line_start": {"type": "integer", "minimum": 1},
+        "line_end": {"type": "integer", "minimum": 1},
+        "file_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "slice_sha256_lf": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "fragment_kind": {"enum": ["line_slice", "inline_math"]},
+        "fragment_occurrence": {"type": ["integer", "null"], "minimum": 1},
+        "fragment_text": {"type": ["string", "null"]},
+        "fragment_sha256_utf8": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "targetLocator": {
+      "type": "object",
+      "required": [
+        "unit_id",
+        "path",
+        "line_start",
+        "line_end",
+        "file_sha256",
+        "slice_sha256_lf",
+        "fragment_kind",
+        "fragment_occurrence",
+        "fragment_text",
+        "fragment_sha256_utf8"
+      ],
+      "properties": {
+        "unit_id": {"enum": ["U01", "U02", "U03"]},
+        "path": {"type": "string", "minLength": 1},
+        "line_start": {"type": "integer", "minimum": 1},
+        "line_end": {"type": "integer", "minimum": 1},
+        "file_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "slice_sha256_lf": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "fragment_kind": {"enum": ["line_slice", "inline_math"]},
+        "fragment_occurrence": {"type": ["integer", "null"], "minimum": 1},
+        "fragment_text": {"type": ["string", "null"]},
+        "fragment_sha256_utf8": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
