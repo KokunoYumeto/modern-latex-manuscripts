@@ -6780,3 +6780,19 @@ Required fields include alternatives, choice, motivation, evidence, uncertainty/
   concept, preview, or metadata changed in this catalog-only operation.
 - The full bounded catalog then completed successfully with 1,225 public files
   across 37 current record labels. Unified FAC record 21781714 appears once.
+
+## 2026-08-04 - SGA R3 and current archive heads pushed and read back on GitHub
+
+- Commit `dc648660b92bc4513430718aaf0ee4a82a3769be` was pushed to branch
+  `codex/gaga-publication-closeout-20260803` from base
+  `9c977ae7fd6dc83cba8652d8857d477bde6d6dec`.
+- Anonymous commit-pinned raw GitHub readback matched all 47 changed files /
+  4,895,325 bytes. The guarded verifier used two path-sorted chunks: 25 files /
+  4,398,596 bytes and 22 files / 496,729 bytes.
+- The surface includes the SGA R3 and dual-DOI receipts, unified FAC and
+  cross-link correction receipts, Deligne current-head reconciliation, current
+  catalogs/record pages, locked-log receipt, and publisher/replay scripts.
+- No pull request or merge existed at this readback point. Those remain
+  separate later states rather than being inferred from a successful push.
+- Exact combined and per-chunk receipts are under
+  `manifests/published-github/20260804_sga_r3_current_archive_heads_commit_dc648660b_readback*`.
