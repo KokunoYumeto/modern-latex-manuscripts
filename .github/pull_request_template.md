@@ -3,7 +3,7 @@
 What work/corpus does this change touch?
 
 - [ ] I checked the existing coverage before starting; for Noether, I checked `docs/noether-map.md`.
-- [ ] If this adds or advances a Noether translation, this same change updates its map row, exact scope, current path, state, and continuation cursor.
+- [ ] If this adds or advances a Noether translation, this same change updates its map row and the Noether GitHub source-checkpoint catalog with exact scope, current path, state, and continuation cursor.
 - [ ] The actual source/artifact bytes are included where applicable; a manifest or status note does not substitute for the corpus.
 
 ## What Changed

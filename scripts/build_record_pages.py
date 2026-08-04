@@ -421,6 +421,29 @@ def validate_preserved_record_page(
         )
 
 
+def preserved_section(target: Path, start_heading: str, end_heading: str) -> list[str]:
+    """Return one exact hand-maintained section from an existing record page."""
+    if not target.exists():
+        raise RuntimeError(
+            f"Required preserved record page is missing: {target}. "
+            "Refusing to regenerate without its GitHub custody section."
+        )
+
+    lines = target.read_text(encoding="utf-8").splitlines()
+    try:
+        start = lines.index(start_heading)
+        end = lines.index(end_heading, start + 1)
+    except ValueError as error:
+        raise RuntimeError(
+            f"Cannot preserve {start_heading!r} from {target}; "
+            f"the section boundary is missing."
+        ) from error
+    section = lines[start:end]
+    while section and not section[-1]:
+        section.pop()
+    return section
+
+
 def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, concept_urls: dict[str, str]) -> None:
     display = DISPLAY_NAMES.get(label, label.replace("_", " ").title())
     title = rows[0]["record_title"]
@@ -433,6 +456,13 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
     reader_pdfs = role_rows(rows, "reader/reference PDF")
     editable_tex = role_rows(rows, "editable TeX")
     other_pdfs = [row for row in pdfs if row not in reader_pdfs]
+    github_source_checkpoints: list[str] = []
+    if label == "noether":
+        github_source_checkpoints = preserved_section(
+            out_dir / "noether.md",
+            "## GitHub Source Checkpoints",
+            "## Reader And Reference PDFs",
+        )
 
     if label == "ega":
         reader_pdfs = [
@@ -511,6 +541,9 @@ def write_record_page(label: str, rows: list[dict[str, str]], out_dir: Path, con
                 "",
             ]
         )
+    if github_source_checkpoints:
+        lines.extend(github_source_checkpoints)
+        lines.append("")
     primary_names = PRIMARY_ENTRYPOINTS.get(label, [])
     if primary_names:
         rows_by_name = {row["filename"]: row for row in rows}
