@@ -6,6 +6,8 @@ The durable release files live on Zenodo. GitHub is for coordination: manifests,
 
 For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
 
+**Before starting any Emmy Noether translation, check the [current language/work coverage map](docs/noether-map.md).** It lists existing translations by language and paper, distinguishes complete scopes from exact continuation cursors, and identifies the current generation. An unchecked or non-cumulative artifact is still an existing translation; review it instead of silently retranslating it.
+
 ## How To Read The Status
 
 The archive is not one uniform pile of OCR. Files sit at different quality layers, and the filename or record description should make that clear.

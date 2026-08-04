@@ -4,6 +4,8 @@ Zenodo record: [21785492](https://zenodo.org/records/21785492); concept DOI: [ht
 
 Public title: Emmy Noether: Modern LaTeX Working Corpus and Multilingual Translation Readers
 
+**Before translating:** open the [current Noether language/work coverage map](../noether-map.md). It identifies existing Korean, Chinese, Japanese, Arabic, Persian, Indonesian, Slavic, and corpus-wide translations; their exact scope; their current generation; and every known continuation cursor. Do not infer absence from a missing cumulative reader or an unchecked status.
+
 **Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
 
 | Files | PDFs | TeX | ZIPs | Total MB |
