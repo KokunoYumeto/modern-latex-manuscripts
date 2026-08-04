@@ -14,14 +14,18 @@ reproduction tools remain inspectable. Anonymous byte/SHA-256 readback passed
 pure-GAGA concept remains.
 
 Current methodology version
-[10.5281/zenodo.21781388](https://doi.org/10.5281/zenodo.21781388) and
+[10.5281/zenodo.21782511](https://doi.org/10.5281/zenodo.21782511) and
 replication version
-[10.5281/zenodo.21781392](https://doi.org/10.5281/zenodo.21781392) expose the
-same 16 direct GAGA provenance objects plus a complete 50-member audit ZIP.
-All 18 new objects passed anonymous readback on both concepts. The dedicated
-FAC quality-assessment concept remains separately fronted with the actual
-pre-discovery chronology; obsolete broad-FAC bytes remain preserved as adverse
-history rather than silently discarded.
+[10.5281/zenodo.21782515](https://doi.org/10.5281/zenodo.21782515) retain the
+GAGA provenance surfaces and add the same seven direct SGA R3 provenance
+objects plus a complete 113-member audit ZIP. All seven new direct objects and
+all 113 ZIP members passed anonymous readback on both concepts; 93/93 retained
+methodology files and 70/70 retained replication files also replayed exactly.
+The surviving unified FAC concept [10.5281/zenodo.21720996](https://doi.org/10.5281/zenodo.21720996),
+current version [10.5281/zenodo.21781714](https://doi.org/10.5281/zenodo.21781714),
+is cross-linked with the actual pre-discovery chronology. The redundant FAC
+quality-assessment concept 10.5281/zenodo.21779392 remains tombstoned as a
+duplicate, and obsolete broad-FAC bytes remain preserved as adverse history.
 
 August 3 EGA custody update: current EGA version
 [10.5281/zenodo.21780931](https://doi.org/10.5281/zenodo.21780931) retains the
@@ -141,7 +145,7 @@ Open the records in this order if the goal is to find useful mathematics quickly
 | 3. Partial author records and non-continuous streams | Dedekind, Dirichlet, Gauss, Riemann, Poincare, mixed classical shelves | Useful packages exist. | Read package-by-package; do not treat these as seamless author-complete editions. |
 | 4. Source-intake/OCR/support/provenance or unsafe draft lanes | Cayley, Galois/Eisenstein/Steiner source staging, raw landing material | Preservation, OCR, salvage, source intake, or future continuation support. | Cayley is de-promoted until exact page ranges are re-audited and re-promoted. Galois, Eisenstein, and Steiner have source masters, handoff packets, and locator/comparator witnesses only, not reader releases. |
 
-The SGA/EGA distinction still matters. SGA current record 21778810 fronts one clean 4,177-page cumulative reader plus nine standalone books through SGA7 II. EGA current record 21780931 fronts one continuous 1,356-page linked EGA 0-IV reader while retaining five direct standalone readers and adding a bounded EGA I p.127 source/scaffold checkpoint. Neither corpus is a critical edition, rights determination, mathematical certification, accessibility certification, or blanket whole-series source certification.
+The SGA/EGA distinction still matters. SGA current record 21782424 fronts one clean 4,179-page cumulative reader plus nine standalone books through SGA7 II. EGA current record 21780931 fronts one continuous 1,356-page linked EGA 0-IV reader while retaining five direct standalone readers and adding a bounded EGA I p.127 source/scaffold checkpoint. Neither corpus is a critical edition, rights determination, mathematical certification, accessibility certification, or blanket whole-series source certification.
 
 ## Archive Surface
 
@@ -149,13 +153,13 @@ These counts describe the public file surface. They are useful for release hygie
 
 | Metric | Current Count |
 |---|---:|
-| Public records tracked here | 33 |
-| Public files indexed | 967 |
-| Top-level PDFs | 350 |
-| Artifact/source ZIPs | 487 |
-| Manifest/status files | 105 |
-| Editable TeX files | 23 |
-| Total public file surface | 55.66 GB |
+| Public records tracked here | 37 |
+| Public files indexed | 1,225 |
+| Top-level PDFs | 364 |
+| Artifact/source ZIPs | 494 |
+| Manifest/status files | 303 |
+| Editable TeX files | 42 |
+| Total public file surface | 59.01 GB |
 
 The top-level PDFs are the reading surface. ZIPs preserve TeX, source scans or references, provenance, audits, OCR, component files, and other material needed to continue the work.
 
@@ -194,10 +198,10 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | [Sylvester](https://doi.org/10.5281/zenodo.20520692) | 3 | 1 | 1 | 91 MB | Sylvester Volume I source-witnessed working draft through book page 608; Papers 59-60 are represented in the latest tranche, next continuation p.609. |
 | [al-Battani](https://doi.org/10.5281/zenodo.20539593) | 19 | 7 | 4 | 318 MB | Opus Astronomicum working edition with complete trilingual text over 100 segments, complete fixed-star catalogue data (485 stars), complete geography gazetteer (269 localities), chronology framework/canon partial, and zodiac auxiliary tables documented as not cleanly present in Nallino's Latin table source. Legacy `Complete Critical Edition` catalogue filename is not a certified critical-edition claim. |
 | **Serious source-aware work, but caveat-heavy** |  |  |  |  |  |
-| [SGA](https://doi.org/10.5281/zenodo.20410947) | 34 | 10 | 10 | 174.27 MB | Version [10.5281/zenodo.21778810](https://doi.org/10.5281/zenodo.21778810) leads with the 126-member presentation-clean reader/source ZIP and selects the clean 4,177-page SGA1-7 II cumulative English reader as default preview. Nine standalone readers, nine masters, nine source ZIPs, and exact controls remain direct. All 34 files and all 126 complete-ZIP members passed exact readback; reader PDFs contain no workflow/status prose or AI explanatory footnotes. |
+| [SGA](https://doi.org/10.5281/zenodo.20410947) | 57 | 10 | 10 | 210.76 MB | Version [10.5281/zenodo.21782424](https://doi.org/10.5281/zenodo.21782424) leads with the 152-member R3 reader/source ZIP and selects the clean 4,179-page SGA1-7 II cumulative English reader as default preview. Nine standalone readers, nine masters, nine source ZIPs, and exact controls remain direct. All 57 files and all 152 complete-ZIP members passed exact readback; reader PDFs contain no workflow/status prose or AI explanatory footnotes. |
 | [EGA](https://doi.org/10.5281/zenodo.20414353) | 58 | 14 | 21 | 3601.17 MB | Version [10.5281/zenodo.21780931](https://doi.org/10.5281/zenodo.21780931) retains the 1,356-page linked EGA 0-IV reader and five standalone readers, then adds exact EGA I source/scaffold custody through printed p.127. All nine new and all 49 retained objects passed anonymous readback. The wider EGA and canonical French corpora remain incomplete working surfaces rather than critical editions. |
 | [Serre's GAGA](https://doi.org/10.5281/zenodo.21781322) | 62 | 1 | 1 | 1.39 MB | Dedicated version [10.5281/zenodo.21781323](https://doi.org/10.5281/zenodo.21781323) fronts a complete 62-member privacy-clean package and selects the clean 26-page English reader as default preview. It covers printed pp.1-42 through bibliography/EOF with English and French TeX, full logs/ledgers, reference graph, validation, and reproduction tools. All 62 direct files and all 62 ZIP members passed readback. No blanket license or certification is asserted. |
-| [Deligne](https://doi.org/10.5281/zenodo.20410853) | 14 | 8 | 5 | 465.58 MB | Current version [10.5281/zenodo.21745061](https://doi.org/10.5281/zenodo.21745061) retains the sequential English/French readers and grouped paper/letter/source/QA archives, plus the D001 source-aligned readers and source package, then adds direct bilingual, English, and French D002 readers with a 21-member source package. D001 and D002 are complete source-aligned working editions for those papers only; the wider corpus remains uneven working-draft and repair material. |
+| [Deligne](https://doi.org/10.5281/zenodo.20410853) | 26 | 8 | 6 | 465.80 MB | Current version [10.5281/zenodo.21762812](https://doi.org/10.5281/zenodo.21762812) retains all 14 reader/source objects from 21745061 exactly and adds ten direct D001-D007 logbooks, a 52-row provenance manifest, and a 53-member complete provenance ZIP. Bounded replay passed all 12 new direct files and all 52 ZIP payload members. D001 and D002 are complete source-aligned working editions for those papers only; the D003-D007 additions are provenance custody, not completion. |
 | [Luigi Bianchi](https://doi.org/10.5281/zenodo.20615814) | 22 | 5 | 12 | 1.92 GB | `Lezioni di geometria differenziale` Vol. I represented through source pdfpages 001-543; A2 latest public compact/core package `Bianchi_A2_core_p0001_0135_IT_EN_20260613.zip` extends working coverage through source p0135 while earlier large scan-heavy p0105 packages remain provenance/backstop. Loose p0135 Italian/English reader PDFs/TeX and the p0121-p0135 source witness are queued as reader-convenience/fronting files, not new content. |
 | [Paul Gordan and Clebsch-Gordan](https://doi.org/10.5281/zenodo.20616260) | 45 | 0 | 39 | 1.83 GB | Dedicated package set now includes Abel27, Abelsche FinalAuditFix02, `De linea geodetica` p001-p047, theta fix06, and `Vorlesungen ueber Invariantentheorie` Bd. 1 p001-p028 on the latest 2026-06-24 version DOI `10.5281/zenodo.20822196`, which also adds the compact project-control/status update. Working/source-audit drafts only, not a certified critical edition. |
 | [Ernst Steinitz](https://doi.org/10.5281/zenodo.20616988) | 7 | 0 | 6 | 439.58 MB | Dedicated package-audited German/English working packets for 1910 fields sections 1-24, 1913 Bedingt I complete, strict 1894/1897/1906 early works, 1914 Bedingt II complete, and 1916 Bedingt III started through pp.1-13. A 2026-06-28 exact-name follow-up resolves recent local misses as source-backfill/support or superseded lineage, not loose uploads; continue Bedingt III from p14, and keep 1908 Analysis Situs as the major source-gap/provisional-witness caveat. |
@@ -219,8 +223,8 @@ Records are grouped by public usefulness and source-confidence, not by creation 
 | [Additional author cluster](https://doi.org/10.5281/zenodo.20411006) | 100 | 10 | 88 | 5.60 GB | Mixed backstop/provenance shelf for routed authors not yet split into full records. Kneser, Poincare, and Frobenius now have preferred standalone records; older Kneser packets here remain provenance/backstop. |
 | **Project-level orientation and preservation** |  |  |  |  |  |
 | [Main project landing](https://doi.org/10.5281/zenodo.20393488) | 100 | 58 | 38 | 4.41 GB | Current bulk preservation and project map. Open this for raw provenance, not as the first reader surface. |
-| [Workflow / replication packet](https://doi.org/10.5281/zenodo.20461174) | 76 | 1 | 10 | 11.18 MB | Current version [10.5281/zenodo.21781392](https://doi.org/10.5281/zenodo.21781392) retains the workflow/replication packet, public 482-record v3 English/Germanic decision log, EGA I p.127 replication surfaces, and 16 direct GAGA provenance objects plus a 50-member audit ZIP. All 18 new and all 58 unrelated retained objects passed readback. It prominently links the separate FAC and GAGA concepts. Audit material only, not edition, translation, mathematical, rights, or accessibility certification. |
-| [Interlanguage methodology](https://doi.org/10.5281/zenodo.21124403) | 99 | 2 | 32 | 4761.98 MB | Current version [10.5281/zenodo.21781388](https://doi.org/10.5281/zenodo.21781388) retains the broad methodology corpus, public 482-record v3 English/Germanic decision log, EGA I p.127 trust surfaces, and 16 direct GAGA logbook/decision/correction/reversal objects plus a 50-member audit ZIP. All 18 new and all 81 unrelated retained objects passed readback. FAC remains a dedicated cross-linked concept; stale broad-FAC bytes remain preserved as adverse history. |
+| [Workflow / replication packet](https://doi.org/10.5281/zenodo.20461174) | 77 | 1 | 11 | 21.79 MB | Current version [10.5281/zenodo.21782515](https://doi.org/10.5281/zenodo.21782515) retains the workflow/replication packet, public 482-record v3 English/Germanic decision log, EGA I p.127 replication surfaces, and GAGA provenance, then adds seven direct SGA R3 provenance objects plus a 113-member audit ZIP. All seven new direct files, all 113 ZIP members, and all 70 retained files passed readback. It prominently links the surviving FAC and separate GAGA concepts. Audit material only, not edition, translation, mathematical, rights, or accessibility certification. |
+| [Interlanguage methodology](https://doi.org/10.5281/zenodo.21124403) | 100 | 2 | 33 | 4772.58 MB | Current version [10.5281/zenodo.21782511](https://doi.org/10.5281/zenodo.21782511) retains the broad methodology corpus, public 482-record v3 English/Germanic decision log, EGA I p.127 and GAGA trust surfaces, then adds seven direct SGA R3 provenance objects plus a 113-member audit ZIP. All seven new direct files, all 113 ZIP members, and all 93 retained files passed readback. The surviving FAC concept is prominently cross-linked; stale broad-FAC bytes remain preserved as adverse history. |
 | **Source-intake-only, OCR/support/provenance, or currently unsafe draft lanes** |  |  |  |  |  |
 | [Cayley](https://doi.org/10.5281/zenodo.20520749) | 84 | 13 | 69 | 1.17 GB | Provenance/repair material. A 2026-06-28 exact-name follow-up triages 308 local Cayley names as quarantine/source-intake evidence, including page micro-ZIPs, unitized indexes, suspect Vol. I chunks, Pro salvage extracts, and source scans. No Cayley range is presently promoted as source-faithful, including the v2/restart Vol. I packets, until a future page-by-page glyph/source audit explicitly re-promotes exact ranges. |
 
