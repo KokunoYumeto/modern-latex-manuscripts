@@ -1,0 +1,421 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:interlanguage:noether:p04:ko:structural-index:1.0.0",
+  "title": "Noether Paper 4 Korean T01--T03 producer structural record",
+  "description": "Hierarchical, mechanically located source/target structure. Parallel links are occurrence/tag links only and do not perform source, Korean, formula, build, render, publication, certification, or approval review.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_id",
+    "work_id",
+    "tranche_id",
+    "unit_id",
+    "side",
+    "language",
+    "structure_type",
+    "label",
+    "parent_id",
+    "order",
+    "sibling_order",
+    "depth",
+    "coverage_role",
+    "record_basis",
+    "locators",
+    "crossrefs",
+    "completion_state",
+    "review_state",
+    "formula_review_state",
+    "publication_state",
+    "continuation_cursor",
+    "record_sha256"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "description": "Structural schema version."
+    },
+    "record_id": {
+      "type": "string",
+      "pattern": "^NOE-P04-KO-[A-Z0-9-]+$",
+      "description": "Stable hierarchy/type/occurrence identifier."
+    },
+    "work_id": {
+      "const": "NOE-P04-KO",
+      "description": "Stable work identifier."
+    },
+    "tranche_id": {
+      "enum": [
+        "ALL",
+        "T01",
+        "T02",
+        "T03"
+      ],
+      "description": "Frozen tranche scope; later tranches are prohibited."
+    },
+    "unit_id": {
+      "enum": [
+        "ALL",
+        "U01",
+        "U02",
+        "U03",
+        "U04",
+        "U05",
+        "U06",
+        "U07",
+        "U08",
+        "U09",
+        "U10",
+        "U11",
+        "U12",
+        "U13",
+        "U14",
+        "U15",
+        "U16"
+      ],
+      "description": "Scoped producer unit identifier."
+    },
+    "side": {
+      "enum": [
+        "aggregate",
+        "source",
+        "target"
+      ],
+      "description": "Aggregate container, German source, or Korean target side."
+    },
+    "language": {
+      "enum": [
+        "mul",
+        "de",
+        "ko-KR"
+      ],
+      "description": "BCP-47 language, with mul used only for aggregate containers."
+    },
+    "structure_type": {
+      "enum": [
+        "work",
+        "tranche",
+        "unit",
+        "source_document",
+        "target_document",
+        "metadata_header",
+        "title_block",
+        "author",
+        "publication_note",
+        "center_block",
+        "section_heading",
+        "paragraph",
+        "theorem_statement",
+        "proof",
+        "display_math",
+        "equation",
+        "note",
+        "footnote",
+        "footnote_marker",
+        "bibliographic_item",
+        "blank_separator",
+        "other"
+      ],
+      "description": "Mechanically classified structural role."
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Non-authoritative structural label."
+    },
+    "parent_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Immediate hierarchy parent; null only for the work root."
+    },
+    "order": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Global deterministic preorder."
+    },
+    "sibling_order": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "One-based order among records sharing a parent."
+    },
+    "depth": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Hierarchy depth from work root."
+    },
+    "coverage_role": {
+      "enum": [
+        "container",
+        "primary",
+        "annotation"
+      ],
+      "description": "Primary records partition physical lines; annotations may overlap; containers aggregate."
+    },
+    "record_basis": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "source_fact",
+          "target_fact",
+          "computation",
+          "producer_editorial_inference"
+        ]
+      },
+      "description": "Distinguishes explicit bytes, computation, and producer structural inference."
+    },
+    "locators": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/locator"
+      },
+      "description": "One or more hash-bound physical locators."
+    },
+    "crossrefs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/crossref"
+      },
+      "description": "Resolved or explicitly unresolved lexical/parallel cross-references."
+    },
+    "completion_state": {
+      "enum": [
+        "scope_frozen_t01_t03",
+        "authority_slice_indexed",
+        "producer_draft_text_indexed"
+      ],
+      "description": "Producer evidence completion state only."
+    },
+    "review_state": {
+      "const": "unchecked",
+      "description": "No source or Korean review was performed."
+    },
+    "formula_review_state": {
+      "const": "not_performed",
+      "description": "No formula review was performed."
+    },
+    "publication_state": {
+      "const": "private_not_for_publication",
+      "description": "No publication eligibility claim."
+    },
+    "continuation_cursor": {
+      "const": "NOE-P04-KO:SOURCE_LINE_3889:T04_OUT_OF_SCOPE",
+      "description": "First later source line; T04 remains out of this evidence freeze."
+    },
+    "record_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$",
+      "description": "SHA-256 of canonical record JSON excluding this field."
+    }
+  },
+  "$defs": {
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "side",
+        "language",
+        "path_workspace_relative",
+        "line_basis",
+        "line_start",
+        "line_end",
+        "file_bytes",
+        "file_sha256",
+        "slice_utf8_bytes_lf",
+        "slice_sha256_lf",
+        "fragment_kind",
+        "fragment_ordinal",
+        "fragment_text",
+        "fragment_sha256_utf8",
+        "authority_pointer_id",
+        "authority_pointer_sha256"
+      ],
+      "properties": {
+        "side": {
+          "enum": [
+            "source",
+            "target"
+          ],
+          "description": "Physical side."
+        },
+        "language": {
+          "enum": [
+            "de",
+            "ko-KR"
+          ],
+          "description": "Locator language."
+        },
+        "path_workspace_relative": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Forward-slash path relative to the workspace root."
+        },
+        "line_basis": {
+          "enum": [
+            "whole_authority",
+            "target_file"
+          ],
+          "description": "Line-number coordinate system."
+        },
+        "line_start": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Inclusive line start."
+        },
+        "line_end": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Inclusive line end."
+        },
+        "file_bytes": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Raw file byte count."
+        },
+        "file_sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$",
+          "description": "Raw file SHA-256."
+        },
+        "slice_utf8_bytes_lf": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "LF-normalized UTF-8 slice byte count."
+        },
+        "slice_sha256_lf": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$",
+          "description": "LF-normalized UTF-8 line-slice SHA-256."
+        },
+        "fragment_kind": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Optional macro/tag fragment selector."
+        },
+        "fragment_ordinal": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1,
+          "description": "One-based same-line fragment occurrence."
+        },
+        "fragment_text": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Exact optional fragment used for re-identification."
+        },
+        "fragment_sha256_utf8": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[A-F0-9]{64}$",
+          "description": "UTF-8 SHA-256 of fragment_text."
+        },
+        "authority_pointer_id": {
+          "enum": [
+            "NOETH-DE-AUTH-v003-20260804",
+            "NOETH-DE-AUTH-v004-20260804"
+          ],
+          "description": "Unit custody pointer."
+        },
+        "authority_pointer_sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$",
+          "description": "Custody pointer SHA-256."
+        }
+      }
+    },
+    "crossref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "label",
+        "target_record_id",
+        "resolution_state",
+        "basis"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "parallel_document",
+            "parallel_equation_tag",
+            "parallel_section_number",
+            "parallel_structure_occurrence",
+            "equation_reference",
+            "section_reference",
+            "contains_bibliographic_item"
+          ],
+          "description": "Cross-reference kind."
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Reference label."
+        },
+        "target_record_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "Resolved record ID, or null when outside scope/unresolved."
+        },
+        "resolution_state": {
+          "enum": [
+            "resolved",
+            "out_of_scope_or_unresolved"
+          ],
+          "description": "Mechanical resolution result."
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Explicit non-semantic link basis."
+        }
+      }
+    }
+  },
+  "additionalProperties": false,
+  "x-csv-projection": {
+    "headers": [
+      "schema_version",
+      "record_id",
+      "work_id",
+      "tranche_id",
+      "unit_id",
+      "side",
+      "language",
+      "structure_type",
+      "label",
+      "parent_id",
+      "order",
+      "sibling_order",
+      "depth",
+      "coverage_role",
+      "record_basis_json",
+      "locators_json",
+      "crossrefs_json",
+      "completion_state",
+      "review_state",
+      "formula_review_state",
+      "publication_state",
+      "continuation_cursor",
+      "record_sha256"
+    ],
+    "nested_json_columns": [
+      "record_basis_json",
+      "locators_json",
+      "crossrefs_json"
+    ],
+    "description": "CSV is a flat projection; arrays and objects are canonical compact JSON strings."
+  }
+}
