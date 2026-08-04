@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/noether/schemas/defect-evidence-v1.json",
+  "title": "Noether defect evidence-state supplement",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "evidence_state_id", "record_ids", "custody_class", "evidence_paths", "exact_identity_state", "independent_replay_state", "adjudication_scope", "limitation", "reopen_trigger"],
+  "properties": {
+    "schema": {"const": "noeth.defect-evidence.v1"},
+    "evidence_state_id": {"type": "string", "pattern": "^NOETH-DEFEV-[0-9]{3}$"},
+    "record_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "pattern": "^NOETH-DEFREC-[0-9]{4}$"}},
+    "custody_class": {"enum": ["legacy_import", "primary_local", "documented_external", "incomplete_historical", "target_only", "tooling_local"]},
+    "evidence_paths": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "exact_identity_state": {"type": "string", "minLength": 1},
+    "independent_replay_state": {"type": "string", "minLength": 1},
+    "adjudication_scope": {"type": "string", "minLength": 1},
+    "limitation": {"type": "string", "minLength": 1},
+    "reopen_trigger": {"type": "string", "minLength": 1}
+  }
+}

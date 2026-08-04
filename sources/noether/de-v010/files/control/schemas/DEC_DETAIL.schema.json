@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/noether/schemas/decision-detail-v1.json",
+  "title": "Append-only Noether decision-detail amendment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "amendment_id", "decision_id", "work_unit", "authority", "source_coordinates", "continuation_cursor", "choice", "alternatives", "evidence", "motivation", "uncertainty_adverse_blockers", "consequences", "changed_artifacts", "supersession", "review_status", "revisit_condition", "fact_partition"],
+  "properties": {
+    "schema": {"const": "noeth.decision-detail.v1"},
+    "amendment_id": {"type": "string", "pattern": "^NOETH-DECDET-[0-9]{3}$"},
+    "decision_id": {"type": "string", "pattern": "^NOETH-DEC-20260804-[0-9]{3}$"},
+    "work_unit": {"type": "string", "minLength": 1},
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pointer_id", "authority_id"],
+      "properties": {
+        "pointer_id": {"type": ["string", "null"]},
+        "authority_id": {"type": ["string", "null"]}
+      }
+    },
+    "source_coordinates": {"type": "string", "minLength": 1},
+    "continuation_cursor": {"type": "string", "minLength": 1},
+    "choice": {"type": "string", "minLength": 1},
+    "alternatives": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "evidence": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "motivation": {"type": "string", "minLength": 1},
+    "uncertainty_adverse_blockers": {"type": "string", "minLength": 1},
+    "consequences": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["terminology", "translation", "source_fidelity", "builds", "qa", "publication", "later_work"],
+      "properties": {
+        "terminology": {"type": "string", "minLength": 1},
+        "translation": {"type": "string", "minLength": 1},
+        "source_fidelity": {"type": "string", "minLength": 1},
+        "builds": {"type": "string", "minLength": 1},
+        "qa": {"type": "string", "minLength": 1},
+        "publication": {"type": "string", "minLength": 1},
+        "later_work": {"type": "string", "minLength": 1}
+      }
+    },
+    "changed_artifacts": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "supersession": {"type": "string", "minLength": 1},
+    "review_status": {"type": "string", "minLength": 1},
+    "revisit_condition": {"type": "string", "minLength": 1},
+    "fact_partition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_facts", "computations", "editorial_inference", "model_preference", "human_external_validation"],
+      "properties": {
+        "source_facts": {"type": "array", "items": {"type": "string"}},
+        "computations": {"type": "array", "items": {"type": "string"}},
+        "editorial_inference": {"type": "array", "items": {"type": "string"}},
+        "model_preference": {"type": "array", "items": {"type": "string"}},
+        "human_external_validation": {"type": "array", "items": {"type": "string"}}
+      }
+    }
+  }
+}

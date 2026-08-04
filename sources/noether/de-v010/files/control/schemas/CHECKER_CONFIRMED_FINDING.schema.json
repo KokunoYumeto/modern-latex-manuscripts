@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "noether/checker-confirmed-finding/1.0",
+  "title": "Noether German checker-confirmed finding packet",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "stable_finding_id",
+    "submitting_task_id",
+    "work_unit",
+    "logical_cursor",
+    "authority_pointer_id",
+    "authority_pointer_sha256",
+    "authority_file_bytes",
+    "authority_file_sha256",
+    "source_span_bytes",
+    "source_span_sha256",
+    "observed_reading",
+    "proposed_reading",
+    "classification_claim",
+    "source_defect_claim",
+    "evidence",
+    "alternatives_considered",
+    "uncertainty",
+    "independent_checker",
+    "dedup_keys",
+    "target_translation_impact"
+  ],
+  "properties": {
+    "stable_finding_id": {"type": "string", "minLength": 8},
+    "submitting_task_id": {"type": "string", "minLength": 8},
+    "work_unit": {"type": "string", "minLength": 1},
+    "logical_cursor": {"type": "string", "minLength": 1},
+    "authority_pointer_id": {"type": "string", "minLength": 1},
+    "authority_pointer_sha256": {"$ref": "#/$defs/sha256"},
+    "authority_file_bytes": {"type": "integer", "minimum": 1},
+    "authority_file_sha256": {"$ref": "#/$defs/sha256"},
+    "source_span_bytes": {"type": "integer", "minimum": 1},
+    "source_span_sha256": {"$ref": "#/$defs/sha256"},
+    "observed_reading": {"type": "string"},
+    "proposed_reading": {"type": "string"},
+    "classification_claim": {"enum": ["original_print", "later_transcription", "tooling", "target_translation", "unresolved"]},
+    "source_defect_claim": {"type": "boolean"},
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "coordinate", "bytes", "sha256", "what_it_shows"],
+        "properties": {
+          "kind": {"enum": ["primary_print", "later_transcription", "published_artifact", "tool_output", "target_text", "other"]},
+          "coordinate": {"type": "string"},
+          "bytes": {"type": "integer", "minimum": 1},
+          "sha256": {"$ref": "#/$defs/sha256"},
+          "what_it_shows": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "alternatives_considered": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "uncertainty": {"type": "string", "minLength": 1},
+    "independent_checker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["identity", "method", "result", "checked_at"],
+      "properties": {
+        "identity": {"type": "string", "minLength": 1},
+        "method": {"type": "string", "minLength": 1},
+        "result": {"enum": ["confirmed", "rejected", "unresolved"]},
+        "checked_at": {"type": "string", "format": "date-time"},
+        "human_validation": {"enum": ["none", "independent_human", "external_authority"]}
+      }
+    },
+    "dedup_keys": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+    "target_translation_impact": {"type": "string"},
+    "notes": {"type": "string"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+  }
+}

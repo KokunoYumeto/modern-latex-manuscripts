@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/noether/schemas/unit-index-v1.json",
+  "title": "Noether canon-control structural index record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "record_id",
+    "order",
+    "binder_id",
+    "parent_unit_id",
+    "object_type",
+    "lane",
+    "receipt",
+    "authority",
+    "origin_pointer",
+    "source_locator_ref",
+    "component_index",
+    "dependencies",
+    "variant_state",
+    "review_state",
+    "target_locator_state",
+    "indexing_limit"
+  ],
+  "properties": {
+    "schema": {"const": "noeth.unit-index.v1"},
+    "record_id": {"type": "string", "pattern": "^NOETH-UNIT-[0-9]{3}$"},
+    "order": {"type": "integer", "minimum": 1},
+    "binder_id": {"type": "string", "minLength": 1},
+    "parent_unit_id": {"type": "string", "pattern": "^NOETH-P[0-9]{2}$"},
+    "object_type": {"const": "authority_span_binder"},
+    "lane": {"enum": ["zh", "ja", "ko"]},
+    "scope_label": {"type": "string"},
+    "receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "bytes", "sha256"],
+      "properties": {
+        "path": {"type": "string", "pattern": "^receipts/"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+      }
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authority_id", "raw_sha256", "pointer_id", "pointer_sha256"],
+      "properties": {
+        "authority_id": {"const": "NOETH-DE-ED-0002"},
+        "raw_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "pointer_id": {"type": "string"},
+        "pointer_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+      }
+    },
+    "origin_pointer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "sha256", "immutable_path", "provenance_note"],
+      "properties": {
+        "id": {"type": ["string", "null"]},
+        "sha256": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"},
+        "immutable_path": {"type": ["string", "null"]},
+        "provenance_note": {"type": "string", "minLength": 1}
+      }
+    },
+    "source_locator_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["receipt_path", "json_pointer", "coordinate_rule"],
+      "properties": {
+        "receipt_path": {"type": "string", "pattern": "^receipts/"},
+        "json_pointer": {"type": "string", "pattern": "^/"},
+        "coordinate_rule": {"type": "string", "minLength": 1}
+      }
+    },
+    "component_index": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "container", "declared_count"],
+      "properties": {
+        "state": {"enum": ["enumerated_in_receipt", "range_declared_in_binder_id", "complete_span_only"]},
+        "container": {"type": ["string", "null"]},
+        "declared_count": {"type": "integer", "minimum": 1}
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {"type": "string"}
+    },
+    "variant_state": {"type": "string", "minLength": 1},
+    "review_state": {"type": "string", "minLength": 1},
+    "target_locator_state": {"const": "lane_owned_not_collected_by_german_source_owner"},
+    "indexing_limit": {"type": "string", "minLength": 1}
+  }
+}
