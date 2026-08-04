@@ -21,6 +21,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 ## GitHub Source Checkpoints
 
 - [Korean Paper 2 corrected v003 recovery](../../sources/noether/ko-p02-v003/README.md): the complete 199-file mathematical target layer is preserved byte-for-byte with its producer manifest and corrected handoff. GitHub intake recovered 332 of 346 manifest payload files. Fourteen superseded evidence files were no longer present at their frozen hashes; their exact expected and later-observed identities are listed in `recovery.json`, and no later byte was substituted. State remains **UNCHECKED, uncompiled, unrendered, unassembled, unreviewed, and uncertified**.
+- [Korean Paper 3 producer checkpoint](../../sources/noether/ko-p03-20260804/README.md): all 33 handed-off files and 848,460 bytes are preserved exactly, including three editable Korean TeX units and the complete supplied structural, difficulty, and zero-image visual evidence surface. State remains **UNCHECKED, uncompiled, unrendered, unassembled, unreviewed, and uncertified**.
 - [Controlling Noether archive workflow](../noether-workflow.md): the five user instructions are retained verbatim. The separate Noether task owns Zenodo; this repository owns the readable, complete GitHub mirror and its immutable source checkpoints.
 
 ## Reader And Reference PDFs
