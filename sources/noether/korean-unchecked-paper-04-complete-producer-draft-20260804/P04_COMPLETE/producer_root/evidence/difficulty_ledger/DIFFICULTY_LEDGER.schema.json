@@ -1,0 +1,299 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:interlanguage:noether:p04:ko:difficulty-ledger:1.0.0",
+  "title": "Noether Paper 4 Korean T01--T03 append-only producer difficulty record",
+  "description": "Hash-chained operational/metadata difficulty history. It records only observed events and makes no source, Korean, formula, build, render, publication, certification, or approval judgment.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_id",
+    "recorded_at",
+    "time_precision",
+    "timezone",
+    "append_sequence",
+    "previous_record_sha256",
+    "work_id",
+    "category",
+    "sense_window",
+    "symptom",
+    "resolution_state",
+    "resolution",
+    "artifact_effect",
+    "review_state",
+    "supersession_state",
+    "revisit_condition",
+    "record_sha256",
+    "tranche_ids",
+    "unit_ids",
+    "cause_evidence",
+    "attempted_approaches",
+    "related_paths",
+    "related_structural_ids"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0",
+      "description": "Difficulty schema version."
+    },
+    "record_id": {
+      "type": "string",
+      "pattern": "^CJK-KO-P04-HARD-[0-9]{3}$",
+      "description": "Stable append-only difficulty ID."
+    },
+    "recorded_at": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Observed time at stated precision."
+    },
+    "time_precision": {
+      "enum": [
+        "day",
+        "minute_approximate",
+        "second"
+      ],
+      "description": "No false precision is added."
+    },
+    "timezone": {
+      "const": "Europe/Berlin",
+      "description": "IANA timezone for recorded_at."
+    },
+    "append_sequence": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Contiguous append order."
+    },
+    "previous_record_sha256": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^[A-F0-9]{64}$",
+      "description": "Prior record hash, null only for sequence 1."
+    },
+    "work_id": {
+      "const": "NOE-P04-KO",
+      "description": "Stable work identifier."
+    },
+    "tranche_ids": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "T01",
+          "T02",
+          "T03"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Affected frozen tranches."
+    },
+    "unit_ids": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "U01",
+          "U02",
+          "U03",
+          "U04",
+          "U05",
+          "U06",
+          "U07",
+          "U08",
+          "U09",
+          "U10",
+          "U11",
+          "U12",
+          "U13",
+          "U14",
+          "U15",
+          "U16"
+        ]
+      },
+      "uniqueItems": true,
+      "description": "Affected frozen units."
+    },
+    "category": {
+      "enum": [
+        "metadata_wording_failure",
+        "routing_boundary_failure",
+        "tooling_failure"
+      ],
+      "description": "Observed event category."
+    },
+    "sense_window": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Exact ambiguity or operational window."
+    },
+    "symptom": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Observed symptom without invented interpretation."
+    },
+    "cause_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind",
+          "detail",
+          "path_workspace_relative",
+          "sha256"
+        ],
+        "properties": {
+          "kind": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Evidence kind."
+          },
+          "detail": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Observed fact or computation."
+          },
+          "path_workspace_relative": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Optional supporting path."
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[A-F0-9]{64}$",
+            "description": "Optional frozen supporting hash."
+          }
+        }
+      },
+      "description": "Evidence supporting the event record."
+    },
+    "attempted_approaches": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "approach",
+          "outcome",
+          "status"
+        ],
+        "properties": {
+          "approach": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Attempted syntax or wording."
+          },
+          "outcome": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Observed outcome."
+          },
+          "status": {
+            "enum": [
+              "failed",
+              "accepted",
+              "rejected",
+              "specified"
+            ],
+            "description": "Attempt status; specified does not claim execution."
+          }
+        }
+      },
+      "description": "Preserved failed and accepted approaches."
+    },
+    "resolution_state": {
+      "enum": [
+        "resolved",
+        "retry_specified"
+      ],
+      "description": "Resolved event or a failure whose exact corrective retry syntax is specified without claiming execution."
+    },
+    "resolution": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Observed resolution."
+    },
+    "artifact_effect": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Explicit file/output effect."
+    },
+    "related_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "Related workspace-relative paths."
+    },
+    "related_structural_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true,
+      "description": "Related structural IDs."
+    },
+    "review_state": {
+      "const": "producer_metadata_unchecked",
+      "description": "Operational producer record only."
+    },
+    "supersession_state": {
+      "const": "current",
+      "description": "Current append record."
+    },
+    "revisit_condition": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Trigger for future appended evidence."
+    },
+    "record_sha256": {
+      "type": "string",
+      "pattern": "^[A-F0-9]{64}$",
+      "description": "SHA-256 of canonical record JSON excluding this field."
+    }
+  },
+  "additionalProperties": false,
+  "x-csv-projection": {
+    "headers": [
+      "schema_version",
+      "record_id",
+      "recorded_at",
+      "time_precision",
+      "timezone",
+      "append_sequence",
+      "previous_record_sha256",
+      "work_id",
+      "tranche_ids_json",
+      "unit_ids_json",
+      "category",
+      "sense_window",
+      "symptom",
+      "cause_evidence_json",
+      "attempted_approaches_json",
+      "resolution_state",
+      "resolution",
+      "artifact_effect",
+      "related_paths_json",
+      "related_structural_ids_json",
+      "review_state",
+      "supersession_state",
+      "revisit_condition",
+      "record_sha256"
+    ],
+    "nested_json_columns": [
+      "tranche_ids_json",
+      "unit_ids_json",
+      "cause_evidence_json",
+      "attempted_approaches_json",
+      "related_paths_json",
+      "related_structural_ids_json"
+    ],
+    "description": "CSV is a flat projection of the authoritative chained JSONL."
+  }
+}

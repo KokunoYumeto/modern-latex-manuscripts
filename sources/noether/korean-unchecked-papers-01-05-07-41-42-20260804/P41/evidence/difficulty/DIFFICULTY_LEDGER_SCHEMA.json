@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:interlanguage:cjk-ko:noether:p41:difficulty-ledger:1.0.0",
+  "title": "Noether Paper 41 Korean append-only difficulty/failure record",
+  "description": "One compact JSON object per JSONL line. record_sha256 is SHA-256 of that exact UTF-8 line after replacing the final record_sha256 value with null. previous_record_sha256 links to the preceding record; the first value is null. Corrections append successor records and never rewrite earlier records.",
+  "type": "object",
+  "required": [
+    "schema_version", "record_id", "recorded_at", "time_precision", "append_sequence",
+    "previous_record_sha256", "work_id", "unit_ids", "authority", "targets", "category",
+    "sense_window", "fact_classes", "symptom", "cause_evidence", "attempted_approaches",
+    "rejected_approaches", "resolution_state", "resolution", "evidence", "residual_risk",
+    "recurrence_cues", "mandarin_simplified_dominance_risk", "lexical_attractor_basin",
+    "related_decision_ids", "related_structural_ids", "transferable_lesson", "review_state",
+    "supersession_state", "revisit_condition", "record_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "record_id": {"type": "string", "pattern": "^CJK-KO-P41-HARD-[0-9]{3}$"},
+    "recorded_at": {"type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$"},
+    "time_precision": {"enum": ["day", "minute", "second"]},
+    "append_sequence": {"type": "integer", "minimum": 1},
+    "previous_record_sha256": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"},
+    "work_id": {"const": "NOE-P41-KO"},
+    "unit_ids": {"type": "array", "items": {"type": "string"}},
+    "authority": {
+      "type": "object",
+      "required": ["path", "snapshot_sha256", "historical_whole_source_sha256", "locators", "unit_slice_sha256"],
+      "properties": {
+        "path": {"type": "string"},
+        "snapshot_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "historical_whole_source_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "locators": {"type": "array", "items": {"type": "string"}},
+        "unit_slice_sha256": {"type": "object", "additionalProperties": {"type": "string", "pattern": "^[A-F0-9]{64}$"}}
+      },
+      "additionalProperties": false
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["artifact_id", "path", "sha256"],
+        "properties": {
+          "artifact_id": {"type": "string"},
+          "path": {"type": "string"},
+          "sha256": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"},
+          "hash_state": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "category": {"type": "string"},
+    "sense_window": {"type": "string"},
+    "fact_classes": {"type": "array", "items": {"enum": ["source_fact", "computation", "editorial_inference", "model_preference", "external_or_human_validation"]}},
+    "symptom": {"type": "string"},
+    "cause_evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "detail"],
+        "properties": {
+          "kind": {"enum": ["source_fact", "computation", "editorial_inference", "model_preference", "external_or_human_validation"]},
+          "detail": {"type": "string"},
+          "path": {"type": ["string", "null"]},
+          "sha256": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "attempted_approaches": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["approach", "outcome", "status"],
+        "properties": {
+          "approach": {"type": "string"},
+          "outcome": {"type": "string"},
+          "status": {"enum": ["accepted", "rejected", "failed", "held"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "rejected_approaches": {"type": "array", "items": {"type": "string"}},
+    "resolution_state": {"enum": ["held", "active_control", "resolved"]},
+    "resolution": {"type": "string"},
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["kind", "detail", "path", "sha256"],
+        "properties": {
+          "kind": {"type": "string"},
+          "detail": {"type": "string"},
+          "path": {"type": ["string", "null"]},
+          "sha256": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "residual_risk": {"type": "string"},
+    "recurrence_cues": {"type": "array", "items": {"type": "string"}},
+    "mandarin_simplified_dominance_risk": {"enum": ["not_applicable", "active_qualitative_control", "evidence_debt"]},
+    "lexical_attractor_basin": {"enum": ["Sino-xenic inherited", "modern Sino-xenic coinage/calque", "global modern loan", "native coinage", "mixed/contested", "unresolved", "not_applicable"]},
+    "related_decision_ids": {"type": "array", "items": {"type": "string"}},
+    "related_structural_ids": {"type": "array", "items": {"type": "string"}},
+    "transferable_lesson": {"type": "string"},
+    "review_state": {"const": "producer_metadata_unchecked"},
+    "supersession_state": {"enum": ["current", "superseded_by_append"]},
+    "revisit_condition": {"type": "string"},
+    "record_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+  },
+  "additionalProperties": false
+}

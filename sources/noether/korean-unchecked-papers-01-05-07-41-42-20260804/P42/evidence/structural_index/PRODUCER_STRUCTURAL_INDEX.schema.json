@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/noether-p42-ko-producer-structural-index.schema.json",
+  "title": "Noether Paper 42 Korean producer structural-index record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "structural_id",
+    "structure_type",
+    "label",
+    "parent_id",
+    "order",
+    "cross_reference_ids",
+    "authority",
+    "source_locator",
+    "target_locator",
+    "language",
+    "completion_state",
+    "review_state",
+    "publication_state",
+    "alignment_state",
+    "continuation_cursor"
+  ],
+  "properties": {
+    "structural_id": { "type": "string", "pattern": "^NOE-P42-KO-[A-Z0-9-]+$" },
+    "structure_type": {
+      "type": "string",
+      "enum": ["work", "title", "publication_note", "section", "subsection", "paragraph", "theorem", "lemma", "corollary", "definition", "remark", "proof", "equation", "note", "bibliography_item", "example", "place_date"]
+    },
+    "label": { "type": "string", "minLength": 1 },
+    "parent_id": { "type": ["string", "null"] },
+    "order": { "type": "integer", "minimum": 1 },
+    "cross_reference_ids": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["snapshot_path", "snapshot_bytes", "snapshot_sha256", "historical_whole_sha256", "pointer_state"],
+      "properties": {
+        "snapshot_path": { "type": "string" },
+        "snapshot_bytes": { "type": "integer", "const": 23912 },
+        "snapshot_sha256": { "type": "string", "const": "B6BB3A6267BA8495FC19914A72768351E4923B13374634701AF3CBDE659883CC" },
+        "historical_whole_sha256": { "type": "string", "const": "443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27" },
+        "pointer_state": { "type": "string", "const": "replacement_pending_from_canon_owner" }
+      }
+    },
+    "source_locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["local_line_start", "local_line_end", "lf_bytes", "lf_sha256"],
+      "properties": {
+        "local_line_start": { "type": "integer", "minimum": 1, "maximum": 230 },
+        "local_line_end": { "type": "integer", "minimum": 1, "maximum": 230 },
+        "lf_bytes": { "type": "integer", "minimum": 1 },
+        "lf_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      }
+    },
+    "target_locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit_id", "path", "line_start", "line_end", "file_bytes", "file_sha256", "lf_bytes", "lf_sha256"],
+      "properties": {
+        "unit_id": { "type": "string", "pattern": "^U(0[1-9]|1[0-2])$" },
+        "path": { "type": "string" },
+        "line_start": { "type": "integer", "minimum": 1 },
+        "line_end": { "type": "integer", "minimum": 1 },
+        "file_bytes": { "type": "integer", "minimum": 1 },
+        "file_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "lf_bytes": { "type": "integer", "minimum": 1 },
+        "lf_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      }
+    },
+    "language": { "type": "string", "const": "ko-KR" },
+    "completion_state": { "type": "string", "const": "translated_producer_draft" },
+    "review_state": { "type": "string", "const": "independent_check_absent" },
+    "publication_state": { "type": "string", "const": "private_working" },
+    "alignment_state": { "type": "string", "const": "producer_structural_pair_unchecked" },
+    "continuation_cursor": { "type": "string", "minLength": 1 }
+  }
+}
