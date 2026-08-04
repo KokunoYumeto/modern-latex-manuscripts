@@ -4,6 +4,8 @@ This is a curated index of the main public reading surfaces. It is not a replace
 
 Quality rule: these are working reader surfaces and source/provenance records, not certified critical editions unless a later maintainer-certified release explicitly says otherwise. Structural coverage phrases such as "complete through" describe what is represented in a draft or package, not proofread mathematical finality.
 
+**Noether translation control:** before assigning or starting any language/work combination, consult the [current Noether coverage map](noether-map.md). Its exact scope and continuation cursors take precedence over assumptions drawn from older record summaries below; historical entries remain valid provenance.
+
 ## Reader Priority Tiers
 
 This index is ordered by current public usefulness. Substantial source-aware reader/translation work appears before OCR/support shelves and unsafe drafts.

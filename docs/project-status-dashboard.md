@@ -2,6 +2,8 @@
 
 Generated from the current public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
 
+For current GitHub Noether translation coverage, use the [language/work map](noether-map.md). It records current paths, exact scopes, review states, and continuation cursors; older dashboard snapshots remain historical evidence and must not be read as proof that an unmentioned translation is absent.
+
 August 3/4 GAGA and provenance update: dedicated pure-GAGA version
 [10.5281/zenodo.21781323](https://doi.org/10.5281/zenodo.21781323), concept
 [10.5281/zenodo.21781322](https://doi.org/10.5281/zenodo.21781322), publishes
