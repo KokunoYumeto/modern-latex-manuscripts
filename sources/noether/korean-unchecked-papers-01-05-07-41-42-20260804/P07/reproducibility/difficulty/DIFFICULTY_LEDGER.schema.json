@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:interlanguage:noether:p07:ko:difficulty-ledger:v1",
+  "title": "Noether Paper 7 Korean append-only difficulty record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "difficulty_id",
+    "recorded_at",
+    "time_precision",
+    "work_unit",
+    "authority_cursor",
+    "category",
+    "stable_symptom",
+    "choice_or_control",
+    "alternatives_considered",
+    "evidence_classes",
+    "evidence_and_hashes",
+    "motivation",
+    "uncertainty_adverse_evidence",
+    "attempted_approaches",
+    "rejected_approaches",
+    "resolution_state",
+    "resolution_or_hold",
+    "consequences",
+    "changed_artifacts",
+    "test_render_review_evidence",
+    "residual_risk",
+    "recurrence_cues",
+    "related_decision_ids",
+    "related_structural_ids",
+    "transferable_lesson",
+    "supersession_state",
+    "review_state",
+    "next_cursor",
+    "previous_record_sha256",
+    "record_sha256"
+  ],
+  "properties": {
+    "difficulty_id": { "type": "string", "pattern": "^NOE-P07-KO-HARD-[0-9]{3}$" },
+    "recorded_at": { "type": "string", "format": "date-time" },
+    "time_precision": { "type": "string", "minLength": 1 },
+    "work_unit": { "type": "string", "minLength": 1 },
+    "authority_cursor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pointer_id", "pointer_sha256", "authority_path", "authority_sha256", "paper_interval", "paper_interval_sha256"],
+      "properties": {
+        "pointer_id": { "const": "NOETH-DE-AUTH-v003-20260804" },
+        "pointer_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "authority_path": { "type": "string", "minLength": 1 },
+        "authority_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "paper_interval": { "const": "whole lines 5842--5954 / local lines 1--113" },
+        "paper_interval_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      }
+    },
+    "category": { "type": "string", "minLength": 1 },
+    "stable_symptom": { "type": "string", "minLength": 1 },
+    "choice_or_control": { "type": "string", "minLength": 1 },
+    "alternatives_considered": { "type": "array", "items": { "type": "string" } },
+    "evidence_classes": {
+      "type": "array",
+      "items": { "enum": ["source_fact", "computation", "editorial_inference", "model_preference", "external_validation", "human_validation"] },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "evidence_and_hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_facts", "authority_sha256", "paper_interval_sha256", "target_hashes", "validation_evidence"],
+      "properties": {
+        "source_facts": { "type": "array", "items": { "type": "string" } },
+        "authority_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "paper_interval_sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "target_hashes": { "type": "array", "items": { "type": "string", "pattern": "^[A-F0-9]{64}$" } },
+        "validation_evidence": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "motivation": { "type": "string", "minLength": 1 },
+    "uncertainty_adverse_evidence": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+    "attempted_approaches": { "type": "array", "items": { "type": "string" } },
+    "rejected_approaches": { "type": "array", "items": { "type": "string" } },
+    "resolution_state": { "enum": ["held", "active_control", "scope_resolved"] },
+    "resolution_or_hold": { "type": "string", "minLength": 1 },
+    "consequences": { "type": "array", "items": { "type": "string" } },
+    "changed_artifacts": { "type": "array", "items": { "type": "string" } },
+    "test_render_review_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mechanical_tests", "renders", "independent_review"],
+      "properties": {
+        "mechanical_tests": { "type": "array", "items": { "type": "string" } },
+        "renders": { "type": "array", "items": { "type": "string" } },
+        "independent_review": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "residual_risk": { "type": "string", "minLength": 1 },
+    "recurrence_cues": { "type": "array", "items": { "type": "string" } },
+    "related_decision_ids": { "type": "array", "items": { "type": "string" } },
+    "related_structural_ids": { "type": "array", "items": { "type": "string", "pattern": "^NOE-P07-KO-STR-[0-9]{3}$" } },
+    "transferable_lesson": { "type": "string", "minLength": 1 },
+    "supersession_state": { "type": "string", "minLength": 1 },
+    "review_state": { "const": "unchecked" },
+    "next_cursor": { "type": "string", "minLength": 1 },
+    "previous_record_sha256": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      ]
+    },
+    "record_sha256": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^[A-F0-9]{64}$" }
+      ]
+    }
+  }
+}

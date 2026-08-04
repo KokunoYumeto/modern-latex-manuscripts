@@ -1190,7 +1190,10 @@ def publish_and_readback(
     ):
         raise RuntimeError(f"{target.key} public metadata/preview changed")
     versions = base.check(
-        session.get(record["links"]["versions"], params={"size": 100}, headers=MODERN, timeout=(30, 300)),
+        # This is deliberately anonymous public-surface validation.  Zenodo
+        # caps anonymous version pages at 25; the new record and its immediate
+        # predecessor are both on the first page.
+        session.get(record["links"]["versions"], params={"size": 25}, headers=MODERN, timeout=(30, 300)),
         {200},
     ).json()
     by_index = {

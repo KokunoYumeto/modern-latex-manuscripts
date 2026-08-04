@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/noether-p42-ko-visual-evidence.schema.json",
+  "title": "Korean Noether P42 lane visual-evidence record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "visual_id",
+    "artifact_type",
+    "path",
+    "bytes",
+    "sha256",
+    "parent_image",
+    "page_coordinates",
+    "bounding_box_pixels",
+    "dimensions_pixels",
+    "dpi",
+    "rotation_degrees",
+    "orientation_metadata",
+    "linked_structural_ids",
+    "linked_tex_units",
+    "qa_status",
+    "review_status",
+    "rights_basis",
+    "publication_disposition",
+    "language",
+    "continuation_cursor",
+    "supersession_state"
+  ],
+  "properties": {
+    "visual_id": { "type": "string", "pattern": "^CJK-KO-VIS-[0-9]{8}-[0-9]{3}$" },
+    "artifact_type": { "type": "string", "enum": ["coordination_screenshot", "source_crop", "page_image", "target_render", "contact_sheet", "before_after", "segmentation_artifact", "model_overlay"] },
+    "path": { "type": "string" },
+    "bytes": { "type": "integer", "minimum": 1 },
+    "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+    "parent_image": {
+      "type": "object",
+      "required": ["original_path", "sha256", "page"],
+      "properties": {
+        "original_path": { "type": "string" },
+        "sha256": { "type": "string", "pattern": "^[A-F0-9]{64}$" },
+        "page": { "type": ["integer", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "page_coordinates": { "type": ["object", "null"] },
+    "bounding_box_pixels": {
+      "type": "object",
+      "required": ["x", "y", "width", "height"],
+      "properties": {
+        "x": { "type": "integer", "minimum": 0 },
+        "y": { "type": "integer", "minimum": 0 },
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "dimensions_pixels": {
+      "type": "object",
+      "required": ["width", "height"],
+      "properties": {
+        "width": { "type": "integer", "minimum": 1 },
+        "height": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "dpi": {
+      "type": "object",
+      "required": ["x", "y", "metadata_unit"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0 },
+        "y": { "type": "number", "minimum": 0 },
+        "metadata_unit": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "rotation_degrees": { "type": "number" },
+    "orientation_metadata": { "type": "string" },
+    "linked_structural_ids": { "type": "array", "items": { "type": "string" } },
+    "linked_tex_units": { "type": "array", "items": { "type": "string" } },
+    "qa_status": { "type": "string" },
+    "review_status": { "type": "string" },
+    "rights_basis": { "type": "string" },
+    "publication_disposition": { "type": "string" },
+    "language": { "type": "string" },
+    "continuation_cursor": { "type": "string" },
+    "supersession_state": { "type": "string" }
+  }
+}
