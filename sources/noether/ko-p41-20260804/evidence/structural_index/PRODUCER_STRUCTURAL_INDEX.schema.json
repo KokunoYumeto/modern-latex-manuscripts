@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/noether-p41-ko-producer-structural-index-v1.1.json",
+  "title": "Noether Paper 41 Korean producer structural record",
+  "description": "Producer-authored source/target structure pairing. Records are reproducibility metadata, not source, Korean, formula, build, render, or publication validation.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "record_id",
+    "work_id",
+    "structure_type",
+    "label",
+    "parent_id",
+    "order",
+    "source_language",
+    "target_language",
+    "authority_state",
+    "source_locator",
+    "target_locators",
+    "relations",
+    "completion_state",
+    "review_state",
+    "publication_state",
+    "continuation_cursor",
+    "record_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "record_id": {"type": "string", "pattern": "^NOE-P41-KO-[A-Z0-9-]+$"},
+    "work_id": {"const": "NOE-P41"},
+    "structure_type": {
+      "enum": [
+        "work",
+        "unit",
+        "title",
+        "author",
+        "publication_note",
+        "section_heading",
+        "subsection_heading",
+        "division_heading",
+        "paragraph",
+        "footnote",
+        "bibliography_item",
+        "display",
+        "definition",
+        "theorem",
+        "formulation",
+        "lemma",
+        "proof",
+        "proof_step",
+        "remark",
+        "transition",
+        "receipt"
+      ]
+    },
+    "label": {"type": "string", "minLength": 1},
+    "parent_id": {"type": ["string", "null"]},
+    "order": {"type": "integer", "minimum": 1},
+    "source_language": {"const": "de"},
+    "target_language": {"const": "ko-KR"},
+    "authority_state": {"const": "preserved_interval_historical_binding_pointer_pending"},
+    "source_locator": {"$ref": "#/$defs/sourceLocator"},
+    "target_locators": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/targetLocator"}
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["relation", "target_id"],
+        "properties": {
+          "relation": {
+            "enum": [
+              "contains",
+              "embedded_in",
+              "continues",
+              "cross_reference",
+              "cites",
+              "proves",
+              "statement_of",
+              "equation_for",
+              "note_for",
+              "bibliography_for"
+            ]
+          },
+          "target_id": {"type": "string", "pattern": "^NOE-P41-KO-[A-Z0-9-]+$"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "completion_state": {"const": "producer_draft_text_covered"},
+    "review_state": {"const": "unchecked"},
+    "publication_state": {"const": "private_not_for_publication"},
+    "continuation_cursor": {"type": "string", "minLength": 1},
+    "record_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+  },
+  "$defs": {
+    "sourceLocator": {
+      "type": "object",
+      "required": ["path", "line_start", "line_end", "file_sha256", "slice_sha256_lf"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "line_start": {"type": "integer", "minimum": 1},
+        "line_end": {"type": "integer", "minimum": 1},
+        "file_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "slice_sha256_lf": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "targetLocator": {
+      "type": "object",
+      "required": ["unit_id", "path", "line_start", "line_end", "file_sha256", "slice_sha256_lf"],
+      "properties": {
+        "unit_id": {"type": "string", "pattern": "^U(0[1-9]|1[0-2])$"},
+        "path": {"type": "string", "minLength": 1},
+        "line_start": {"type": "integer", "minimum": 1},
+        "line_end": {"type": "integer", "minimum": 1},
+        "file_sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "slice_sha256_lf": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
