@@ -6,6 +6,10 @@ GitHub is the inspectable source archive and current index: catalogs, manifests,
 
 For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
 
+For direct GitHub browsing, use the [source-shelf index](sources/README.md). It
+links the task-maintained author and corpus trees without requiring readers to
+reverse-engineer the external-record catalog.
+
 **Before starting any Emmy Noether translation, check the [current language/work coverage map](docs/noether-map.md).** It lists existing translations by language and paper, distinguishes complete scopes from exact continuation cursors, and identifies the current generation. An unchecked or non-cumulative artifact is still an existing translation; review it instead of silently retranslating it.
 
 Before duplicating current French/English work, check the dedicated [Luc

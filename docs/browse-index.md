@@ -6,6 +6,7 @@ This page is the human entry point for the archive. Use it when you want to find
 
 | Goal | Open First |
 |---|---|
+| Browse the GitHub source archive | [GitHub source-shelf index](../sources/README.md), then the linked corpus coverage map or shelf README before selecting a generation. |
 | Get the whole preservation surface | [Main project landing](https://doi.org/10.5281/zenodo.20393488) |
 | Reproduce the workflow | [Workflow / replication packet](https://doi.org/10.5281/zenodo.20461174) |
 | Study interlanguage / constructed-language translation methodology | [Interlanguage methodology record](https://doi.org/10.5281/zenodo.21124403), latest version [10.5281/zenodo.21782511](https://doi.org/10.5281/zenodo.21782511), plus the workflow and Noether records for context. The current head exposes GAGA and SGA R3 logbooks, decisions, corrections, reversals, and continuation evidence. |
