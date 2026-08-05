@@ -23,7 +23,7 @@ or newest-looking directory is the current continuation head.
 | Pierre Deligne | [Deligne source shelf](deligne/) | [Deligne coverage](../docs/deligne-map.md) |
 | Heinrich Weber | [Weber source shelf](weber/) | [Weber coverage](../docs/weber-map.md) |
 | Richard Dedekind | [Dedekind source shelf](dedekind/) | [Dedekind coverage](../docs/dedekind-map.md) |
-| P. G. Lejeune Dirichlet | [Dirichlet source shelf](dirichlet/) | [Author/work index](../docs/by-author-and-work.md) |
+| P. G. Lejeune Dirichlet | [Dirichlet source shelf](dirichlet/) | [Dirichlet coverage](../docs/dirichlet-map.md) |
 | Carl Friedrich Gauss | [Gauss source shelf](gauss/) | [Author/work index](../docs/by-author-and-work.md) |
 | Bernhard Riemann | [Riemann source shelf](riemann/) | [Author/work index](../docs/by-author-and-work.md) |
 | Ernst Steinitz | [Steinitz source shelf](steinitz/) | [Author/work index](../docs/by-author-and-work.md) |
