@@ -47,7 +47,32 @@ The current August producer snapshots below remain explicitly **UNCHECKED, uncom
 | Paper 41 | Complete body in the cumulative corpus and a separate twelve-unit producer checkpoint | [Cumulative body](../sources/noether/ko-corpus-v1/p41.tex); [twelve-unit checkpoint](../sources/noether/ko-p41-20260804/README.md) |
 | Paper 42 | Complete body in the cumulative corpus and a separate twelve-unit checkpoint covering all handed-off lines | [Cumulative body](../sources/noether/ko-corpus-v1/p42.tex); [twelve-unit checkpoint](../sources/noether/ko-p42-20260804/README.md) |
 
-Paper 9 predecessor directories `ko-p09-t01` through `ko-p09-t07-pre` are immutable history; `ko-p09-t07` is the current controlled generation. The separate Paper 4 tranche directories are history beneath `ko-p04-20260804`.
+### Korean Paper 9 generation history
+
+These nine roots preserve the cumulative producer sequence before the later
+75-unit body in `ko-corpus-v1`. They are correction and supersession history,
+not nine new translation assignments. There is no standalone `ko-p09-t03`
+root; its translated scope is included in the cumulative T04 checkpoint.
+
+| Generation | Exact preserved scope and state | GitHub root |
+|---|---|---|
+| T01 | Lines 6348–6491; next 6492; 35 files / 263,774 bytes | [T01](../sources/noether/ko-p09-t01/README.md) |
+| T02 | Lines 6348–6523; next 6524; 34 files / 256,446 bytes | [T02](../sources/noether/ko-p09-t02/README.md) |
+| T04 | Cumulative lines 6348–6725; next 6726; 53 files / 456,736 bytes | [T04](../sources/noether/ko-p09-t04/README.md) |
+| T04 revision 2 | Same cumulative scope; bounded `Modulbasis` terminology correction; 53 files / 464,690 bytes | [T04-r2](../sources/noether/ko-p09-t04-r2/README.md) |
+| T05 | Cumulative lines 6348–6913; next 6914; 69 files / 603,340 bytes | [T05](../sources/noether/ko-p09-t05/README.md) |
+| T06 | Cumulative lines 6348–7022; next 7023; 79 files / 695,797 bytes | [T06](../sources/noether/ko-p09-t06/README.md) |
+| T06 revision 2 | All 55 Korean targets byte-identical to T06; provenance/routing successor with T07 route only; 79 files / 703,006 bytes | [T06-r2](../sources/noether/ko-p09-t06-r2/README.md) |
+| T07 pre-control | Nine T07 targets add lines 7023–7133, while retained controls still describe T06; 88 files / 727,298 bytes | [T07 pre-control](../sources/noether/ko-p09-t07-pre/README.md) |
+| T07 controlled | Cumulative lines 6348–7133; next 7134; current controls for 64 targets; 88 files / 803,850 bytes | [T07 controlled](../sources/noether/ko-p09-t07/README.md) |
+
+Every row remains **UNCHECKED, source-unchecked, formula-unchecked,
+Korean-unreviewed, uncompiled, unrendered, visually uninspected, unassembled,
+unapproved, and uncertified** as stated in its own README. The cumulative
+`ko-corpus-v1` Paper 9 body advances beyond this chain through old-authority
+line 7328; the live continuation cursor remains current-authority line 7330.
+The separate Paper 4 tranche directories are history beneath
+`ko-p04-20260804`.
 
 ## Chinese
 
