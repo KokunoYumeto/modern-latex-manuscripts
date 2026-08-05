@@ -10,15 +10,17 @@ Public title: Elements de geometrie algebrique (EGA): English Working Readers an
 |---:|---:|---:|---:|---:|
 | 79 | 15 | 7 | 22 | 3603.9 |
 
-## How To Read This Record
+## How To Read This Corpus
 
-Open the fronted global EGA 0-IV PDF for one continuous linked reader. The five standalone readers and their master TeX files remain direct downloads; the leading ZIP contains all six readers and their complete buildable TeX closures.
+Open the [1,356-page linked EGA 0-IV English reader](../../sources/ega/global-r1/EGA_English_Global_0_IV_complete_linked_reader.pdf) for continuous reading. Its [complete source tree](../../sources/ega/global-r1/source/) is directly browseable; standalone EGA 0, I, II, III, and IV shelves are linked from the [coverage map](../ega-map.md).
 
-Open the fronted 1,356-page linked EGA 0-IV English reader for one continuous reading surface, or use the five direct standalone readers. The leading bundle contains the global reader, all five standalone readers, and their complete buildable TeX closures. The producer-supplied current receipt records same-concept version 21792798 with 79 files / 3,778,975,780 bytes. It retains the reader-facing corpus and predecessor p.142 custody, then adds the coherent EGA I printed-p.143 control bundle: paired authority recheck through Definition 6.2.1, exact English reader/TeX, R92/R93 controls, logbook/status snapshots, selection, and a 15-member source ZIP. The active p.144 generation is excluded. Canonical diplomatic French EGA 0-IV, French-authority rechecking, and the cumulative pre-Stacks graph remain active; this is not a claim that EGA I, the eight-publication French corpus, or the semantic graph is complete. These are working translations and audit materials, not critical editions, rights clearance, mathematical certification, accessibility certification, or uniform whole-corpus source certification.
+The exact global package contains 137 producer files / 15,907,978 bytes. The exact complete EGA IV package contains 84 / 38,155,078 bytes and exposes its 59-file TeX closure plus reference graph directly. The newer EGA I printed-p.143 control bundle is a separate bounded authority recheck through Definition 6.2.1; active p.144 generation is excluded. The producer-supplied external receipt records version 21792798, but GitHub maintenance did not query or mutate Zenodo. These are working translations and audit materials, not critical editions, mathematical certification, accessibility certification, or uniform whole-corpus source certification.
 
 ## Current GitHub Source Checkpoint
 
 - [EGA coverage and continuation map](../ega-map.md)
+- [Complete global reader and source](../../sources/ega/global-r1/README.md)
+- [Complete EGA IV reader, source, and reference graph](../../sources/ega/iv-r4/README.md)
 - [Printed-p.143 English reader](../../sources/ega/p143/p143-en.pdf)
 - [Printed-p.143 English TeX](../../sources/ega/p143/p143-en.tex)
 - [Exact 15-member source/control ZIP](../../sources/ega/p143/p143.zip)

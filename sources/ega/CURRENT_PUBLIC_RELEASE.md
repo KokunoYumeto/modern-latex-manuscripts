@@ -1,57 +1,29 @@
-# Current EGA reader release
+# Current EGA GitHub release
 
-Date: 2026-07-31
+Date: 2026-08-05
 
-GitHub status: **published and anonymously read back**
+GitHub status: **current browseable corpus mirrored from exact frozen bytes**
 
-GitHub release commit:
+## Start here
 
-`f68b8c571f65b05ae33bb9c5fc986727da2abb59`
+1. [Global EGA 0–IV English reader](global-r1/EGA_English_Global_0_IV_complete_linked_reader.pdf) — 1,356 pages, 8,588,550 bytes, SHA-256 `3B9D399515AA074C22D3DF6C6F0F7349954444D7BCF980B87CCE5CAED671928A`.
+2. [Global buildable source tree](global-r1/source/) — 127 active source files / 7,279,735 bytes.
+3. [Complete EGA IV reader and source tree](iv-r4/README.md) — 651 pages and 59 editable TeX files through Section 21 and EOF.
+4. [EGA coverage and continuation map](../../docs/ega-map.md) — standalone readers, exact custody, and the newer printed-page 143 boundary.
 
-GitHub source-image metadata commits:
+## Exact current packages
 
-`0373041857e885c2e512df9bc14d2ca7417d46a6` and
-`22b9ba82a7570a3f3f6fc891772f45436555d862`, with the printed 106-118
-extension at `5e85c6ba819e4509226d72167e26f675ff9b6d75` and the printed
-119-127 / 185-225 extensions at
-`8a2b16ab069225a3f1b0645c231a3a0ed534f5be`
+- `sources/ega/global-r1`: 137 producer files / 15,907,978 bytes; tree SHA-256 `BCBB02ABC50157BAD0CFD14F165DC5FCD91840A7A4F8754BE28C5DB1E213F7E1`.
+- `sources/ega/iv-r4`: 84 producer files / 38,155,078 bytes; tree SHA-256 `5A33DB326A97735B1D137A452DF1B55B90A4D611FB79C7AA16FA05199D67EC1D`.
+- [Global custody manifest](../../manifests/github-custody/20260805_ega_global.csv).
+- [EGA IV custody manifest](../../manifests/github-custody/20260805_ega_iv.csv).
+- [Commit-pinned GitHub readback receipt](../../manifests/published-github/20260805_ega_complete_readback.json).
 
-Zenodo concept: `10.5281/zenodo.20414353`
+The older `releases/ega-current-reference-v2-20260730-r2` shelf remains
+immutable history. Its EGA IV scope stops at Section 10 and it is not the
+current reading pointer.
 
-Current Zenodo version: [`10.5281/zenodo.21712882`](https://doi.org/10.5281/zenodo.21712882)
-
-Release directory:
-
-`sources/ega/releases/ega-current-reference-v2-20260730-r2`
-
-Reader order:
-
-1. EGA 0 complete through Section 13, reference-v2 working reader.
-2. EGA I complete through authority EOF, reader-clean reference-v2 successor.
-3. EGA II complete through authority EOF, reference-v2 working reader.
-4. EGA III complete published text through 7.9.14, reference-v2 working reader.
-5. EGA IV current source-aligned working reader through Sections 1-10.
-
-The release starts with one 125-member ZIP containing all five cumulative
-readers and their buildable TeX. Five direct reader PDFs, five direct master
-TeX files, four coherent source/QA ZIPs, and compact status/checksum controls
-follow it. Previous GitHub checkpoints and Zenodo versions remain history.
-
-The current same-concept successor retains archives 84-87 and adds archives 88
-and 89 after the reader/source shelf. The six archives hold 649 actual
-scan-derived PNGs. The first five cover printed pages 5-127 continuously;
-archive 89 covers pages 185-225, and the page 128-184 gap is explicit. Current
-checkpoints r33 and r12 bind the two newly added ranges. Archive 86 retains its
-contemporaneous page-105 continuation label, now covered by later checkpoints.
-The first archive includes targeted 5000/9000-dpi ambiguity crops, while archive
-89 includes tiled 5000-dpi pages 185-195. English-reader screenshots are
-excluded.
-
-Anonymous readback passed all 36 Zenodo files / 2,133,238,113 bytes, retained
-all 34 predecessor files byte-for-byte, and replayed all 186 members of archives
-88 and 89. The prior image-archive members remain immutable in predecessors and
-byte-identical as inherited outer files.
-The EGA 0 PDF is still the selected Zenodo preview.
-
-No whole-EGA completion, critical-edition, mathematical-certification,
-accessibility, or rights-clearance claim is made.
+The producer packages retain their contemporaneous QA, provenance, and rights
+statements byte-for-byte. GitHub custody does not rewrite those statements and
+does not claim a critical edition, mathematical certification, or a complete
+diplomatic French EGA 0–IV corpus.
