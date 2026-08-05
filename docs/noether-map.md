@@ -41,6 +41,41 @@ editions, author-wide source-faithfulness certification, mathematical peer
 review, or publication-grade proofreading. Later current authority does not
 erase the earlier correction and adverse-history evidence.
 
+## English Paper 4
+
+Eight bounded English checkpoints together cover the Introduction/Postscript
+and Sections 1–9. They are separate source-audited section readers, not one
+assembled Paper 4 reader. The 459-page corpus-wide English reader is a
+different working surface; do not infer that every correction below has been
+integrated into it without a later exact synchronization receipt.
+
+| Content checkpoint | Exact existing coverage and continuation | GitHub root |
+|---|---|---|
+| Introduction/Postscript + Sections 1–2 | R823 lines 3559–3728; original pp.118–128; next Section 3 at line 3730; 63 files / 7,806,409 bytes | [Introduction through Section 2](../sources/noether/paper04-english-introduction-through-section02-20260718/README.md) |
+| Section 3 | Lines 3730–3836; printed pp.128–132; next Section 4 at line 3839; 27 files / 2,097,744 bytes | [Section 3](../sources/noether/paper04-english-section03-20260718/README.md) |
+| Section 4 | Lines 3839–3951; printed pp.132–134; next Section 5 at line 3953; 29 files / 1,029,806 bytes | [Section 4](../sources/noether/paper04-english-section04-20260718/README.md) |
+| Section 5 | Lines 3953–4043; printed pp.134–137; next Section 6 at line 4045; 31 files / 2,034,949 bytes | [Section 5](../sources/noether/paper04-english-section05-20260718/README.md) |
+| Section 6 | Lines 4045–4110; printed pp.137–141; next Section 7 at line 4112; 35 files / 2,225,040 bytes | [Section 6](../sources/noether/paper04-english-section06-20260718/producer_checkpoint/README.md) |
+| Section 7 | Lines 4112–4268; printed pp.141–146; next Section 8 at line 4270; 38 files / 2,872,600 bytes | [Section 7](../sources/noether/paper04-english-section07-20260719/README.md) |
+| Section 8 | Lines 4270–4475; printed pp.146–152; next Section 9 at line 4477; 38 files / 3,747,340 bytes | [Section 8](../sources/noether/paper04-english-section08-20260719/README.md) |
+| Section 9 | Lines 4477–4498; printed pp.152–154; Paper 4 closes before the Paper 5 wrapper at line 4501; 38 files / 2,017,731 bytes | [Section 9](../sources/noether/paper04-english-section09-20260719/README.md) |
+
+Associated roots are evidence or history, not additional translation
+assignments:
+
+| Sidecar | Preserved role | GitHub root |
+|---|---|---|
+| Section 6 visual evidence | Two project-generated page renders and one contact sheet; 9 files / 1,864,026 bytes | [Section 6 visuals](../sources/noether/paper04-english-section06-visual-evidence-20260718/VISUAL_SCOPE_AND_CAVEATS.md) |
+| Section 8 visual evidence | Four project-generated page renders, one contact sheet, and their indexes; 11 files / 3,279,843 bytes | [Section 8 visuals](../sources/noether/paper04-section08-english-visual-evidence-20260719/README.md) |
+| Section 8 transport controls | Retained transport-planning/status history; not mathematical content or remote-publication proof; 4 files / 24,604 bytes | [Section 8 controls](../sources/noether/paper04-section08-publication-controls-20260719/README.md) |
+| Section 9 frozen hashes | One producer file-identity control; 1 file / 5,003 bytes | [Section 9 hashes](../sources/noether/paper04-english-section09-controls-20260719/PRODUCER_FROZEN_FILE_HASHES.csv) |
+| Sections 6–7 source repair | German source correction and cross-language survival evidence at the same loci; not a separate English checkpoint; 73 files / 40,605,846 bytes | [Sections 6–7 repair](../sources/noether/paper04-sections06-07-source-repair-20260719/README.md) |
+
+All eight English checkpoints remain bounded machine-assisted working
+translations. Section-level coverage does not establish a critical edition,
+proof verification, native/human certification, accessibility conformance, or
+whole-corpus synchronization.
+
 ## Korean
 
 The current August producer snapshots below remain explicitly **UNCHECKED, uncompiled, unrendered, unassembled, unreviewed, and uncertified** unless a linked README says otherwise. Those labels are reasons to review the existing translation, not reasons to regenerate it.
