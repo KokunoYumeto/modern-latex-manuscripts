@@ -4,6 +4,11 @@ Date: 2026-08-05
 
 GitHub status: **current browseable corpus mirrored from exact frozen bytes**
 
+Source commit: [`2f73f1e9b2afe8d0b3cb967334bcc1b1c4b444ae`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/2f73f1e9b2afe8d0b3cb967334bcc1b1c4b444ae)
+
+Anonymous raw source-commit readback: **235/235 paths, 54,280,113 bytes,
+zero mismatches**.
+
 ## Start here
 
 1. [Global EGA 0–IV English reader](global-r1/EGA_English_Global_0_IV_complete_linked_reader.pdf) — 1,356 pages, 8,588,550 bytes, SHA-256 `3B9D399515AA074C22D3DF6C6F0F7349954444D7BCF980B87CCE5CAED671928A`.
