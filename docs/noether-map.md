@@ -217,6 +217,20 @@ Directory names and inherited filenames are preserved as provenance. They do
 not override the explicit caveats above or promote a historical tree to the
 current German, English, or paper-level continuation surface.
 
+### Bounded source-audit and visual-evidence roots
+
+| Root | Preserved role and caveat | GitHub entry |
+|---|---|---|
+| Paper 2 / Paper 4 visual evidence | Indexes 132 visual witnesses: 53 retained project-generated renders and 79 source-page/crop identities represented by metadata. This is visual QA/provenance evidence, not source-critical certification or independent review; 59 files / 31,094,995 bytes | [Visual-evidence README](../sources/noether/paper02-paper04-s06-s07-visual-evidence-20260719/README.md) |
+| Paper 2 pp. 58–92 source-critical checkpoint | Closes printed pp. 58–90 and table leaves 91–92 on its dated German cumulative; leaves 93–96 are boundary controls. Printed pp. 23–57 and whole-Paper-2 certification remain explicitly open; 66 files / 9,571,644 bytes | [Paper 2 checkpoint](../sources/noether/paper02-pp058-092-source-critical-current-head-20260719/00_doc/README.md) |
+| Paper 4 pp. 144–154 source audit | Preserves a bounded audit and hybrid merge for printed pp. 144–154. A later collected-tail cumulative supersedes these continuation files as the preferred overall German head; 41 files / 10,789,962 bytes | [Paper 4 audit](../sources/noether/paper04-pp144-154-source-audited-german-current-head-20260719/README.md) |
+| Paper 8 pp. 93–102 source audit | Preserves the complete bounded page-band audit, including eighteen corrections and two overturned prior claims. It is evidence, not a competing cumulative head or whole-paper certification; 32 files / 6,085,923 bytes | [Paper 8 audit](../sources/noether/paper08-pp093-102-source-audited-german-20260719/README.md) |
+| Paper 30 pp. 37–61 hard-math source control | Retains the dated 466-page working reader, exact six-hunk patch, source witness, build records, and a rejected `dnrch` false positive. It does not certify all of Paper 30, the corpus, or synchronized translations; 17 files / 87,942,579 bytes | [Paper 30 supplement](../sources/noether/paper30-hardmath-source-control-20260718/Noether_Paper30_HardMath_SourceControl_Supplement_20260718/README.md) |
+
+Together these five roots preserve 215 files / 145,485,103 bytes. They are
+bounded evidence and historical working checkpoints. Their inherited names do
+not make them the current all-corpus German continuation surface.
+
 - **August Korean aggregate/projection history — 410 files / 9,432,459
   bytes:** [Papers 1/5/7/41/42 aggregate](../sources/noether/korean-unchecked-papers-01-05-07-41-42-20260804/),
   [Paper 3 aggregate](../sources/noether/korean-unchecked-paper-03-20260804/),
