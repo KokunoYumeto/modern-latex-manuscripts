@@ -15,3 +15,8 @@ physical page 23 / printed page 5.
 Continue at physical page 24 / printed page 6. LNM 283 has not started. The
 French and English editions remain independent; no bilingual or interleaved
 reader is admitted. Earlier `r13` is immutable history.
+
+GitHub source commit:
+[`ca3d313163bf7227248e2761767034b8bcc3dffd`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/ca3d313163bf7227248e2761767034b8bcc3dffd).
+Anonymous raw readback passed 186/186 changed paths / 2,377,184 bytes with
+zero mismatches; see the [aggregate receipt](../../manifests/published-github/20260805_illusie_r14_readback.json).
