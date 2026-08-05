@@ -107,7 +107,7 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 
 | Author | Works Or Volumes |
 |---|---|
-| Dedekind | Gesammelte Mathematische Werke, Bands I-III, as modern LaTeX drafts. |
+| Dedekind | [Exact GitHub map](dedekind-map.md): GMW I independent German/English readers through item IV / printed p.39; *Stetigkeit und irrationale Zahlen* preface and §§1–4; broad Bands I–III reader-only drafts; an embedded German/English Dedekind note; and recovery warnings for completion notes whose named artifacts are no longer tracked. |
 | Dirichlet | Selected works as a modern LaTeX draft. |
 | Gauss | Werke Bands I, II, III, VI, VII, XI Part I, and individual papers as modern LaTeX drafts. |
 | Riemann | Selected mathematical papers and broader Gesammelte Werke working-draft readers, with matching TeX/source/provenance ZIPs. Not a certified critical edition. |
