@@ -103,6 +103,39 @@ Paper 9 predecessor directories `ko-p09-t01` through `ko-p09-t07-pre` are immuta
 | Ukrainian | Sixteen Paper 6 working units, plus current repair survivors for bounded Paper 4 sections and Paper 37 | [Paper 6 tranche](../sources/noether/multilingual-paper06-slavic-tranche001-20260716/README.md), [repair survivors](../sources/noether/slavic-source-repair-survivors-20260730/) |
 | Vietnamese | Complete Paper 1 producer translation; editable TeX and three-page PDF | [Producer handoff](../sources/noether/vi-p01-v1/handoff.md), [direct PDF](../sources/noether/vi-p01-v1/out/p01.pdf), and [editable TeX](../sources/noether/vi-p01-v1/p01.tex); mechanically built and producer-viewed, with all independent checking pending |
 
+## Preserved Aggregate And Evidence History
+
+These shelves were already on GitHub but were not linked from this map. They
+are listed here so an unlinked historical package cannot be mistaken for
+missing work. They do not supersede the work-level current paths above.
+
+- **Early English and original-language collections — 106 files / 27,836,409
+  bytes:** [English batches 01–11](../sources/noether/noether_translation_batches_01_11_current/),
+  [earlier translation sources and renders](../sources/noether/translation_sources_and_renders/),
+  and [original-language source TeX/component PDFs](../sources/noether/original_language_source_tex_and_component_pdfs/).
+  The batches 01–11 shelf includes its 261-page cumulative English reader;
+  the later R823 English reader remains the current corpus-wide surface.
+- **August Korean aggregate/projection history — 410 files / 9,432,459
+  bytes:** [Papers 1/5/7/41/42 aggregate](../sources/noether/korean-unchecked-papers-01-05-07-41-42-20260804/),
+  [Paper 3 aggregate](../sources/noether/korean-unchecked-paper-03-20260804/),
+  [Paper 4 T04–T06](../sources/noether/korean-unchecked-paper-04-t04-t06-20260804/),
+  [Paper 4 T07](../sources/noether/korean-unchecked-paper-04-t07-20260804/),
+  [Paper 4 complete producer-draft projection](../sources/noether/korean-unchecked-paper-04-complete-producer-draft-20260804/),
+  and [nested-ZIP correction history](../sources/noether/korean-nested-zip-privacy-correction-20260804-r2/).
+  The per-paper roots in the Korean table are the continuation surfaces.
+- **CJK visual-evidence sidecars — 91 files / 16,251,085 bytes:** Japanese
+  [Paper 21](../sources/noether/paper21-japanese-visual-evidence-20260718/) and
+  [Paper 23](../sources/noether/paper23-japanese-visual-evidence-20260718/);
+  Chinese [Paper 27](../sources/noether/paper27-chinese-visual-evidence-20260719/)
+  and [Paper 37](../sources/noether/paper37-chinese-visual-evidence-20260718/);
+  Korean [Paper 27](../sources/noether/paper27-korean-visual-evidence-20260718/)
+  and Paper 29 [U01](../sources/noether/paper29-korean-u01-visual-evidence-20260718/),
+  [U02](../sources/noether/paper29-korean-u02-visual-evidence-20260718/),
+  [U03](../sources/noether/paper29-korean-u03-visual-evidence-20260718/), and
+  [U04](../sources/noether/paper29-korean-u04-visual-evidence-20260718/).
+  These are evidence for linked translations, not additional translation
+  assignments.
+
 ## How To Continue Without Duplicating Work
 
 1. If the row says **complete**, open the linked TeX and logs and submit corrections to that edition. Do not create a new translation unless the user explicitly asks for an independent retranslation.
