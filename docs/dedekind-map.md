@@ -103,5 +103,5 @@ for selection-level counts and hashes.
 1. GMW I: continue at item V / printed p.40; retain items I–IV as the current cumulative base.
 2. *Stetigkeit*: finish §§5–7, checking the two flagged proper-name readings against the included source slice.
 3. Recover the exact *Was sind und was sollen die Zahlen?* and LII–LIX artifacts named by the historical notes before assigning new translation work.
-4. Keep the Dedekind note discoverable from both Dedekind and Dirichlet maps; it is one cross-author work, not two distinct translations.
+4. Keep the Dedekind note discoverable from both the Dedekind and [Dirichlet](dirichlet-map.md) maps; it is one cross-author work, not two distinct translations.
 5. Do not infer source fidelity, synchronization, or completeness from a broad PDF filename alone.
