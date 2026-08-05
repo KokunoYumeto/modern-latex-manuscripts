@@ -199,6 +199,24 @@ missing work. They do not supersede the work-level current paths above.
   and [original-language source TeX/component PDFs](../sources/noether/original_language_source_tex_and_component_pdfs/).
   The batches 01–11 shelf includes its 261-page cumulative English reader;
   the later R823 English reader remains the current corpus-wide surface.
+
+### Corpus-level predecessor and audit roots
+
+| Root | Preserved role and caveat | GitHub entry |
+|---|---|---|
+| R823 numbered-paper English workpass | 407-page reader through Paper 43 / R823 line 20967; the later 459-page corpus-wide reader is broader; 52 files / 5,539,858 bytes | [R823 numbered papers](../sources/noether/noether-r823-cumulative-english-43-papers-20260722/PUBLIC_README.md) |
+| “Final numbered papers” audit | Restores the Paper 34 product table, but its own audit detects only 31 distinct numbered-paper headings out of 43 in each cumulative TeX. The inherited completion label is therefore not a completion proof; 61 files / 49,272,766 bytes | [Audit report](../sources/noether/final-numbered-papers-audit-with-table-restoration/audit/FINAL_AUDIT_REPORT.md) |
+| Paper-level edition tree | 28 named historical paper/cumulative subtrees and mixed generations; no root status control establishes one current edition; 280 files / 215,624,471 bytes | [Paper-level editions](../sources/noether/paper-level-edition/) |
+| Paper-level restart tree | Nine named restart, partial-cumulative, complete-paper, and source-scan subtrees; no root README establishes a single current edition; 79 files / 34,593,995 bytes | [Paper-level restarts](../sources/noether/paper-level-restart/) |
+| Recursive audit RA03 | Source audit for Papers 7–12 across German, English, Spanish, and Japanese; restores stated Paper 9 and Paper 10 footnotes; next audit target was Papers 13–18; 79 files / 25,677,060 bytes | [RA03 audit](../sources/noether/recursive-audit-ra03/N_RA03_20260604/00_doc/AUDIT_RA03.md) |
+| Page-QC reconciliation | Reconciles 51 historical audits and restores 34 missing page keys without altering a German TeX/PDF body; evidence/provenance only; 20 files / 2,736,474 bytes | [Page-QC reconciliation](../sources/noether/page-qc-coverage-reconciliation-20260719/README.md) |
+| Superseded Paper 4 readers | Two retained German/English PDFs through Paper 4 Section 3; explicitly superseded history, not a continuation head; 2 files / 1,438,566 bytes | [Superseded Paper 4 readers](../sources/noether/superseded-top-level-noether-paper04-readers/) |
+| Superseded Papers 1–15 readers | Two retained German/English Papers 1–15 PDFs; explicitly superseded history, not a continuation head; 2 files / 2,476,919 bytes | [Superseded Papers 1–15 readers](../sources/noether/superseded-top-level-noether-readers/) |
+
+Directory names and inherited filenames are preserved as provenance. They do
+not override the explicit caveats above or promote a historical tree to the
+current German, English, or paper-level continuation surface.
+
 - **August Korean aggregate/projection history — 410 files / 9,432,459
   bytes:** [Papers 1/5/7/41/42 aggregate](../sources/noether/korean-unchecked-papers-01-05-07-41-42-20260804/),
   [Paper 3 aggregate](../sources/noether/korean-unchecked-paper-03-20260804/),
