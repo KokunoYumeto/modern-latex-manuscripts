@@ -34,6 +34,28 @@ This index is ordered by current public usefulness. Substantial source-aware rea
 | Jean-Pierre Serre, GAGA | Dedicated version [10.5281/zenodo.21781323](https://doi.org/10.5281/zenodo.21781323) publishes the complete working scope through printed pp.1-42, bibliography, and EOF. The 62-member privacy-clean ZIP is first; a clean 26-page linked English reader is the default preview; English TeX, diplomatic/corrected French TeX, full logbooks and correction/reversal evidence, reference graph, validators, and reproduction tools remain available. | [GAGA](https://doi.org/10.5281/zenodo.21781322) |
 | Jean-Pierre Serre, FAC | The surviving unified concept [10.5281/zenodo.21720996](https://doi.org/10.5281/zenodo.21720996), current version [10.5281/zenodo.21781714](https://doi.org/10.5281/zenodo.21781714), preserves the complete French transcription, complete English reader, source evidence, and the accidentally independent translation comparison with its actual pre-discovery chronology, 79/79 blind-scope adjudications, 138 findings, and complete logbooks/reversals. Nos.80-81 remain outside the blind claim. The redundant quality-assessment concept is tombstoned as a duplicate. | [FAC](https://doi.org/10.5281/zenodo.21720996) |
 
+## Ukrainian Applied Mathematics
+
+The GitHub shelf preserves 86 tracked files / 5,009,407 bytes. Its directly
+readable surface consists of one [integrated Ukrainian
+reader](../sources/ukrainian-applied-math/public_integrated_reader_tex/main_public.pdf)
+and [eleven standalone module
+PDFs](../sources/ukrainian-applied-math/02_standalone_modules/). The editable
+surface contains 65 TeX files, led by the integrated [master
+TeX](../sources/ukrainian-applied-math/public_integrated_reader_tex/main.tex).
+
+Use the [start
+guide](../sources/ukrainian-applied-math/00_README/README_START_HERE.md) for
+topic orientation and the [source and translation
+status](../sources/ukrainian-applied-math/06_source_status/SOURCE_AND_TRANSLATION_STATUS.md)
+for the producer's module-level caveats. The shelf covers signals, estimation,
+ESKF, Lie theory, Kalman filtering, SDR/RF, sensor fusion, robotics, and
+wave-equation controllability. Solà ESKF and micro-Lie remain partial/core
+modules. Some retained notes describe an older package layout; the direct links
+above identify the paths actually present in this GitHub snapshot. Preservation
+does not imply native review, whole-library completeness, or mathematical
+certification.
+
 ## Chinese Mathematical Classics
 
 Record: [Chinese mathematical classics](https://doi.org/10.5281/zenodo.20415751)
