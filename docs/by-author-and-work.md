@@ -2,6 +2,8 @@
 
 This is a curated index of the main public reading surfaces. It is not a replacement for the full [public file catalog](public-file-catalog.md); it is the shorter human map for deciding what to open first.
 
+To browse preserved GitHub trees directly, use the [source-shelf index](../sources/README.md). A shelf is custody, not automatically the current or highest-quality edition; follow its linked status map before continuing work.
+
 Quality rule: these are working reader surfaces and source/provenance records, not certified critical editions unless a later maintainer-certified release explicitly says otherwise. Structural coverage phrases such as "complete through" describe what is represented in a draft or package, not proofread mathematical finality.
 
 **Noether translation control:** before assigning or starting any language/work combination, consult the [current Noether coverage map](noether-map.md). Its exact scope and continuation cursors take precedence over assumptions drawn from older record summaries below; historical entries remain valid provenance.
