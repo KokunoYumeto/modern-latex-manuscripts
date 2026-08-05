@@ -1,0 +1,117 @@
+% Native TeX layout for LNM 239 physical p.2.
+
+% LuaTeX's output-page primitives and LaTeX's layout lengths are distinct.
+% Set both before a source leaf whose PDF stock differs from the preceding leaf.
+\newcommand{\IllusieSetPhysicalPageSize}[2]{%
+  \pagewidth=#1\relax
+  \pageheight=#2\relax
+  \setlength{\paperwidth}{#1}%
+  \setlength{\paperheight}{#2}%
+  \setlength{\textwidth}{#1}%
+  \setlength{\textheight}{#2}%
+  \setlength{\hoffset}{0pt}%
+  \setlength{\voffset}{0pt}%
+  \setlength{\oddsidemargin}{-1in}%
+  \setlength{\evensidemargin}{-1in}%
+  \setlength{\topmargin}{-1in}%
+  \setlength{\headheight}{0pt}%
+  \setlength{\headsep}{0pt}%
+  \setlength{\footskip}{0pt}%
+}
+
+\newcommand{\IllusieVolumeOnePublisherMatterPage}[3]{%
+  \phantomsection\hypertarget{#1}{}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[illusiecover] (current page.south west) rectangle (current page.north east);
+    \node[
+      anchor=north west,
+      inner sep=0pt,
+      text width=425bp
+    ] at ($(current page.north west)+(10bp,-29bp)$)
+      {\begin{minipage}{\linewidth}
+        \fontspec[Scale=1.039]{TeX Gyre Termes}\fontsize{9.00}{11.40}\selectfont
+        \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
+        \spaceskip=4pt\relax\xspaceskip=4pt\relax
+        \renewcommand{\arraystretch}{1}
+        \raggedright
+        #2
+      \end{minipage}};
+    \draw[line width=0.45pt]
+      ($(current page.south west)+(10bp,250.6bp)$) --
+      ($(current page.south east)+(-10bp,250.6bp)$);
+    \node[
+      anchor=west,
+      inner sep=0pt,
+      font=\sffamily\fontsize{14.7}{16.5}\selectfont
+    ] at ($(current page.south west)+(10bp,241bp)$)
+      {Lecture Notes in Physics};
+    \draw[line width=0.45pt]
+      ($(current page.south west)+(10bp,224.6bp)$) --
+      ($(current page.south east)+(-10bp,224.6bp)$);
+    \node[
+      anchor=north west,
+      inner sep=0pt,
+      text width=210bp
+    ] at ($(current page.south west)+(10bp,216bp)$)
+      {\begin{minipage}{\linewidth}
+        \fontspec{TeX Gyre Heros Cn}\fontsize{6.25}{7.10}\selectfont
+        \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
+        \spaceskip=4pt\relax\xspaceskip=4pt\relax
+        \raggedright
+        #3
+      \end{minipage}};
+  \end{tikzpicture}%
+  \mbox{}\vfill\clearpage
+}
+
+\newcommand{\IllusieVolumeOnePublisherMatterBilingualPage}[3]{%
+  \phantomsection\hypertarget{#1}{}%
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[illusiecover] (current page.south west) rectangle (current page.north east);
+    \node[
+      anchor=north west,
+      inner sep=0pt,
+      font=\sffamily\fontsize{18}{20}\selectfont
+    ] at ($(current page.north west)+(0.045\paperwidth,-0.055\paperheight)$)
+      {Publisher matter — Lecture Notes series statement};
+    \node[
+      anchor=north west,
+      inner sep=0pt,
+      text width=0.91\paperwidth,
+      font=\sffamily\fontsize{7.5}{8.5}\selectfont
+    ] at ($(current page.north west)+(0.045\paperwidth,-0.105\paperheight)$)
+      {Source language: English. This page is common to the diplomatic,
+       corrected, and English readings.};
+    \draw[line width=0.45pt]
+      ($(current page.north west)+(0.045\paperwidth,-0.142\paperheight)$) --
+      ($(current page.north east)+(-0.045\paperwidth,-0.142\paperheight)$);
+    \node[
+      anchor=north west,
+      inner sep=0pt,
+      text width=0.485\paperwidth
+    ] at ($(current page.north west)+(0.045\paperwidth,-0.170\paperheight)$)
+      {\begin{minipage}{\linewidth}
+        \fontspec{TeX Gyre Termes}\fontsize{6.65}{7.45}\selectfont
+        \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
+        \emergencystretch=1.2em
+        #2
+      \end{minipage}};
+    \draw[line width=0.35pt]
+      ($(current page.north west)+(0.552\paperwidth,-0.170\paperheight)$) --
+      ($(current page.south west)+(0.552\paperwidth,0.055\paperheight)$);
+    \node[
+      anchor=north west,
+      inner sep=0pt,
+      text width=0.385\paperwidth
+    ] at ($(current page.north west)+(0.575\paperwidth,-0.170\paperheight)$)
+      {\begin{minipage}{\linewidth}
+        {\sffamily\fontsize{14}{16}\selectfont Lecture Notes in Physics}\par
+        \vspace{0.7em}
+        \sffamily\fontsize{6.25}{7.05}\selectfont
+        \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
+        \emergencystretch=1.2em
+        #3
+      \end{minipage}};
+  \end{tikzpicture}%
+  \mbox{}\vfill\clearpage
+}

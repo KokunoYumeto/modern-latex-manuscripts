@@ -1,0 +1,137 @@
+% Native TikZ reconstruction of the small Springer-Verlag cover device on
+% LNM 239 physical p.1.  Authority crop: PDF points [105,545]-[165,640],
+% rendered directly at 6000 dpi-equivalent.  The scan resolves the device as
+% a chess knight above an ornamental oval SPRINGER/VERLAG medallion with a
+% central S; scan noise and paper damage are not reproduced.
+
+\newcommand{\IllusieSpringerMark}{%
+  \begin{tikzpicture}[
+    baseline=(current bounding box.south),
+    x=1cm,
+    y=1cm,
+    scale=0.58,
+    every path/.style={line cap=round,line join=round}
+  ]
+    % Ornamental flanks and upper scrolls.
+    \foreach \mirror in {-1,1}{%
+      \begin{scope}[xscale=\mirror]
+        \path[fill=black]
+          (0.42,0.58)
+          .. controls (0.72,0.68) and (0.92,0.55) .. (0.88,0.31)
+          .. controls (0.85,0.15) and (0.72,0.15) .. (0.67,0.28)
+          .. controls (0.62,0.40) and (0.72,0.46) .. (0.78,0.38)
+          .. controls (0.86,0.26) and (0.78,0.08) .. (0.69,0.02)
+          .. controls (0.88,-0.20) and (0.89,-0.65) .. (0.75,-0.98)
+          .. controls (0.68,-1.13) and (0.58,-1.18) .. (0.52,-1.04)
+          .. controls (0.46,-0.88) and (0.52,-0.64) .. (0.57,-0.48)
+          .. controls (0.49,-0.55) and (0.43,-0.67) .. (0.39,-0.82)
+          -- (0.31,-0.73)
+          .. controls (0.38,-0.34) and (0.34,0.22) .. (0.42,0.58)
+          -- cycle;
+        \draw[illusiecover,line width=0.055cm]
+          (0.72,0.31) .. controls (0.61,0.19) and (0.64,0.05) .. (0.74,-0.02);
+        \draw[illusiecover,line width=0.045cm]
+          (0.69,-0.16) .. controls (0.78,-0.39) and (0.74,-0.72) .. (0.60,-0.93);
+        \draw[illusiecover,line width=0.035cm]
+          (0.55,-0.08) .. controls (0.48,-0.28) and (0.49,-0.49) .. (0.56,-0.67);
+        \path[fill=black]
+          (0.36,0.63) .. controls (0.51,0.79) and (0.68,0.87) .. (0.77,0.77)
+          .. controls (0.83,0.70) and (0.76,0.60) .. (0.66,0.63)
+          .. controls (0.59,0.65) and (0.61,0.73) .. (0.67,0.71)
+          .. controls (0.61,0.63) and (0.49,0.58) .. (0.36,0.63) -- cycle;
+      \end{scope}%
+    }
+
+    % Lower ribbon, knot, and small terminal flourish.
+    \path[fill=black]
+      (-0.64,-0.96)
+      .. controls (-0.76,-1.03) and (-0.79,-1.17) .. (-0.67,-1.25)
+      .. controls (-0.53,-1.34) and (-0.40,-1.27) .. (-0.31,-1.17)
+      .. controls (-0.20,-1.32) and (-0.09,-1.29) .. (0,-1.14)
+      .. controls (0.09,-1.29) and (0.20,-1.32) .. (0.31,-1.17)
+      .. controls (0.40,-1.27) and (0.53,-1.34) .. (0.67,-1.25)
+      .. controls (0.79,-1.17) and (0.76,-1.03) .. (0.64,-0.96)
+      .. controls (0.55,-0.91) and (0.50,-1.00) .. (0.58,-1.06)
+      .. controls (0.48,-1.04) and (0.41,-0.99) .. (0.35,-0.91)
+      .. controls (0.25,-1.07) and (0.13,-1.03) .. (0,-0.91)
+      .. controls (-0.13,-1.03) and (-0.25,-1.07) .. (-0.35,-0.91)
+      .. controls (-0.41,-0.99) and (-0.48,-1.04) .. (-0.58,-1.06)
+      .. controls (-0.50,-1.00) and (-0.55,-0.91) .. (-0.64,-0.96)
+      -- cycle;
+    \path[fill=black]
+      (-0.18,-1.18) -- (-0.12,-1.42) -- (-0.24,-1.50)
+      -- (0,-1.55) -- (0.24,-1.50) -- (0.12,-1.42) -- (0.18,-1.18)
+      -- cycle;
+    \draw[illusiecover,line width=0.04cm]
+      (-0.10,-1.31) -- (0,-1.37) -- (0.10,-1.31);
+    \draw[illusiecover,line width=0.04cm]
+      (-0.11,-1.42) -- (0,-1.47) -- (0.11,-1.42);
+
+    % Oval publisher medallion.
+    \path[fill=black] (0,-0.25) ellipse [x radius=0.69,y radius=0.88];
+    \draw[illusiecover,line width=0.045cm]
+      (0,-0.25) ellipse [x radius=0.62,y radius=0.80];
+    \draw[illusiecover,line width=0.045cm]
+      (0,-0.25) ellipse [x radius=0.45,y radius=0.62];
+
+    % Ring lettering.  Each glyph is native text placed on the scanned oval.
+    \foreach \a/\glyph in {151/S,132/P,113/R,94/I,75/N,56/G,37/E,18/R}{%
+      \node[
+        text=illusiecover,
+        font=\sffamily\bfseries\fontsize{2.7}{2.7}\selectfont,
+        rotate=\a-90,
+        inner sep=0pt
+      ] at ({0.535*cos(\a)},{-0.25+0.705*sin(\a)}) {\glyph};
+    }
+    \foreach \a/\glyph in {205/V,230/E,255/R,280/L,305/A,330/G}{%
+      \node[
+        text=illusiecover,
+        font=\sffamily\bfseries\fontsize{2.7}{2.7}\selectfont,
+        rotate=\a+90,
+        inner sep=0pt
+      ] at ({0.535*cos(\a)},{-0.25+0.705*sin(\a)}) {\glyph};
+    }
+    \fill[illusiecover] (-0.54,-0.25) circle (0.035);
+    \fill[illusiecover] (0.54,-0.25) circle (0.035);
+
+    % Central S, intentionally serifed as on the historical device.
+    \node[
+      text=illusiecover,
+      font=\rmfamily\fontsize{18}{18}\selectfont,
+      inner sep=0pt
+    ] at (0,-0.25) {S};
+
+    % Chess knight and its stepped base.
+    \path[fill=black]
+      (-0.31,0.54)
+      .. controls (-0.28,0.72) and (-0.22,0.86) .. (-0.13,0.96)
+      .. controls (-0.27,0.93) and (-0.42,0.91) .. (-0.51,1.01)
+      .. controls (-0.57,1.08) and (-0.53,1.18) .. (-0.43,1.23)
+      .. controls (-0.31,1.29) and (-0.25,1.38) .. (-0.28,1.51)
+      -- (-0.20,1.45)
+      -- (-0.12,1.62)
+      -- (-0.03,1.47)
+      .. controls (0.15,1.48) and (0.30,1.38) .. (0.34,1.19)
+      .. controls (0.37,1.02) and (0.31,0.80) .. (0.20,0.65)
+      -- (0.31,0.54)
+      -- cycle;
+    \path[fill=illusiecover]
+      (-0.10,1.38)
+      .. controls (-0.14,1.25) and (-0.23,1.14) .. (-0.37,1.07)
+      .. controls (-0.25,1.05) and (-0.13,1.08) .. (-0.02,1.16)
+      .. controls (-0.02,1.02) and (-0.11,0.89) .. (-0.22,0.75)
+      .. controls (-0.08,0.82) and (0.04,0.95) .. (0.11,1.10)
+      .. controls (0.16,1.21) and (0.14,1.33) .. (-0.10,1.38)
+      -- cycle;
+    \fill[illusiecover] (-0.21,1.29) circle (0.027);
+    \draw[illusiecover,line width=0.035cm]
+      (-0.42,1.10) .. controls (-0.34,1.08) and (-0.28,1.09) .. (-0.22,1.13);
+    \draw[black,line width=0.055cm] (-0.30,0.61) -- (0.28,0.61);
+    \draw[black,line width=0.055cm] (-0.24,0.55) -- (0.24,0.55);
+
+    % Small heraldic bars joining knight and medallion.
+    \path[fill=black]
+      (-0.35,0.53) -- (0.35,0.53) -- (0.30,0.43) -- (-0.30,0.43) -- cycle;
+    \draw[illusiecover,line width=0.035cm] (-0.22,0.49) -- (0.22,0.49);
+  \end{tikzpicture}%
+}

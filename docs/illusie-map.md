@@ -8,35 +8,41 @@ do not restart the translated scope or replace it with a bilingual reader.
 
 ## Read And Continue
 
-- [English reader](../sources/illusie/r13/english.pdf)
-- [French reader](../sources/illusie/r13/french.pdf)
-- [English master](../sources/illusie/r13/en.tex)
-- [French master](../sources/illusie/r13/fr.tex)
-- [Source and evidence ZIP](../sources/illusie/r13/source.zip)
-- [Human README](../sources/illusie/r13/README.md)
-- [Exact continuation handoff](../sources/illusie/r13/handoff.md)
-- [Status](../sources/illusie/r13/status.md)
-- [Decision log](../sources/illusie/r13/logbook.md)
-- [Validation](../sources/illusie/r13/validation.json)
-- [Exact GitHub custody manifest](../manifests/github-custody/20260805_illusie_r13_files.csv)
+- [English reader](../sources/illusie/r14/english.pdf)
+- [French reader](../sources/illusie/r14/french.pdf)
+- [English master](../sources/illusie/r14/en.tex)
+- [French master](../sources/illusie/r14/fr.tex)
+- [Browseable 153-file source tree](../sources/illusie/r14/anon/source/)
+- [Complete 153-member source ZIP](../sources/illusie/r14/source.zip)
+- [Human README](../sources/illusie/r14/README.md)
+- [Exact continuation handoff](../sources/illusie/r14/handoff.md)
+- [Status](../sources/illusie/r14/status.md)
+- [Decision log](../sources/illusie/r14/logbook.md)
+- [Validation](../sources/illusie/r14/validation.json)
+- [Exact GitHub custody manifest](../manifests/github-custody/20260805_illusie_r14.csv)
 
 ## Exact Scope
 
-The checkpoint admits LNM 239 physical pages 1–22. Front matter is complete;
-Chapter I §1.1 reaches printed page 4 and includes the opening of relative
-homotopy. Continue at physical page 23 / printed page 5, where the equivalence
-relation opened on page 22 continues. LNM 283 has not started, so the
-two-volume project is not complete.
+The checkpoint admits LNM 239 physical pages 1–23. Front matter is complete;
+Chapter I §1.1 reaches printed page 5 and includes relative homotopy, fibre
+categories, base change, and the open induced-`B`-functor statement. Continue
+at physical page 24 / printed page 6. LNM 283 has not started, so the two-volume
+project is not complete.
 
 The visible editions are independent: French and English have separate PDFs
-and masters. No combined, side-by-side, or interleaved reader is admitted.
+and masters. No combined, side-by-side, paired, or interleaved reader is
+present.
 
 ## Custody
 
-The frozen producer root contains 23 files / 1,176,613 bytes, tree SHA-256
-`778613A31E8C1491DBDED65E9880143B3BDF2A6C93678FB20CA6901B99E7A6AF`.
-The 21-file publication payload totals 1,170,311 bytes, and the supplied
-receipt reports 21/21 direct objects plus 148/148 source-ZIP members matched.
-GitHub custody independently replayed those local identities. The publication
-identity in the receipt is producer-supplied; this GitHub task did not query or
-mutate Zenodo.
+The GitHub selection contains 179 producer files / 2,325,377 bytes, tree
+SHA-256 `84D8B4FD8D8C8C39DF3E952CD78091998BD8C5145971C096A3C6959BAF1EA9E1`.
+It retains all 23 direct/control files, all 153 extracted source members, and
+three producer-supplied anonymous-readback metadata files. Exactly 21
+byte-identical anonymous copies of the direct public files were deduplicated;
+their canonical top-level copies and receipt bindings remain.
+
+Local replay matched 21/21 direct objects, 153/153 source-manifest rows,
+153/153 ZIP members, and every selected source byte. The publication identity
+in the receipt is producer-supplied; this GitHub task did not query or mutate
+Zenodo. The producer root was not edited.
