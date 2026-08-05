@@ -21,7 +21,7 @@ or newest-looking directory is the current continuation head.
 | Luc Illusie | [Illusie checkpoints](illusie/README.md) | [Illusie coverage](../docs/illusie-map.md) |
 | Emmy Noether | [Noether source archive](noether/README.md) | [Noether language/work coverage](../docs/noether-map.md) |
 | Pierre Deligne | [Deligne source shelf](deligne/) | [Deligne coverage](../docs/deligne-map.md) |
-| Heinrich Weber | [Weber source shelf](weber/) | [Author/work index](../docs/by-author-and-work.md) |
+| Heinrich Weber | [Weber source shelf](weber/) | [Weber coverage](../docs/weber-map.md) |
 | Richard Dedekind | [Dedekind source shelf](dedekind/) | [Author/work index](../docs/by-author-and-work.md) |
 | P. G. Lejeune Dirichlet | [Dirichlet source shelf](dirichlet/) | [Author/work index](../docs/by-author-and-work.md) |
 | Carl Friedrich Gauss | [Gauss source shelf](gauss/) | [Author/work index](../docs/by-author-and-work.md) |
