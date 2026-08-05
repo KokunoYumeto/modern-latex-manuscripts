@@ -17,6 +17,30 @@ This is the current human-readable coverage map for the Noether material already
 | Interslavic, Latin and Cyrillic | 221 canonical TeX units in each script; 527- and 551-page readers | [Interslavic corpus](../sources/noether/interslavic-working-corpus-20260718/README.md) | Complete represented working corpus; external language review remains open |
 | Korean | 65 pages; 19 complete numbered-paper bodies (1, 3, 5, 7, 8, 10, 11, 16, 18, 25–29, 32, 33, 36, 41, 42) plus partial Paper 9 through authority line 7328 | [Cumulative corpus](../sources/noether/ko-corpus-v1/README.md), [direct PDF](../sources/noether/ko-corpus-v1/reader.pdf), and [exact coverage table](../sources/noether/ko-corpus-v1/coverage.csv) | Producer assembly; Paper 9 continues at line 7330; independent source, Korean-language, render, and certification review pending |
 
+## German Authority And Head History
+
+Use [`de-v010`](../sources/noether/de-v010/README.md) as the current project
+German authority. The seven earlier roots below are immutable source-control
+and bounded page-audit heads, not independent German translations and not
+current continuation targets. Their evidence, corrections, exclusions, and
+supersession boundaries remain useful when checking later authority changes.
+
+| Generation | Exact preserved role | GitHub root |
+|---|---|---|
+| v26 + R819 | 466-page working head; bounded Paper 20 R819 integration; 41 files / 16,900,673 bytes | [R819](../sources/noether/current-german-source-control-v26-r819-20260712/README.md) |
+| v26 + R822 | 466-page working head; later bounded Paper 20 refinements with R819/R821 evidence retained; 83 files / 36,015,789 bytes | [R822](../sources/noether/current-german-source-control-v26-r822-20260717/README.md) |
+| R823 | 466-page working head; six bounded Paper 20 source-layout or punctuation repairs; 73 files / 27,466,115 bytes | [R823](../sources/noether/current-german-source-control-v26-r823-20260717/README.md) |
+| Collected pp.747–777 | 466-page head closing the stated collected-volume tail band; 42 files / 12,410,246 bytes | [pp.747–777](../sources/noether/german-current-head-tail-pp747-777-20260719/README.md) |
+| Collected pp.711–777 | Expands the closed tail and integrates the separately checked Paper 4 pp.144–154 follow-up; 124 files / 38,795,117 bytes | [pp.711–777](../sources/noether/german-current-head-tail-pp711-777-20260719/README.md) |
+| Paper 2 pp.28–34 + Paper 4 pp.118–143 | Preferred head at that point; completion controls reported 730/753 page keys, with Paper 2 pp.35–57 open; 67 files / 26,431,901 bytes | [P2/P4 head](../sources/noether/german-current-head-p02-pp28-34-p04-pp118-143-20260719/README.md) |
+| Paper 2 through p.49 | Later preferred head; controls reported 745/753 page keys, with Paper 2 pp.50–57 open; 56 files / 8,365,976 bytes | [through p.49](../sources/noether/german-current-head-p02-through-p49-20260719/README.md) |
+| Current authority v010 | Current 466-page project authority with exact TeX/PDF, pointer history, accepted corrections, and bounded controls; 205 files / 37,075,139 bytes | [v010](../sources/noether/de-v010/README.md) |
+
+All eight are machine-assisted working source-control surfaces, not critical
+editions, author-wide source-faithfulness certification, mathematical peer
+review, or publication-grade proofreading. Later current authority does not
+erase the earlier correction and adverse-history evidence.
+
 ## Korean
 
 The current August producer snapshots below remain explicitly **UNCHECKED, uncompiled, unrendered, unassembled, unreviewed, and uncertified** unless a linked README says otherwise. Those labels are reasons to review the existing translation, not reasons to regenerate it.
