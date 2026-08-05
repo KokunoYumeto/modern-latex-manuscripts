@@ -13,6 +13,11 @@ Illusie coverage map](docs/illusie-map.md) and [FGA coverage
 map](docs/fga-map.md). Both expose readable PDFs, editable masters, exact
 source packages, audit surfaces, and continuation or caveat boundaries.
 
+The same rule applies to Grothendieck's [Tôhoku paper](docs/tohoku-map.md),
+the [Verdier thesis](docs/verdier-map.md), and [EGA](docs/ega-map.md). Their
+maps state the exact admitted scope, current cursor, presentation disposition,
+and immutable GitHub checkpoint before anyone assigns overlapping work.
+
 ## How To Read The Status
 
 The archive is not one uniform pile of OCR. Files sit at different quality layers, and the filename or record description should make that clear.

@@ -4,7 +4,7 @@
 
 **Do not start a Noether translation from scratch until you have checked this page.** A missing cumulative reader, a pending review, or an old-looking directory name does not mean that the translation is absent. Review and correct the existing bytes first. Continue a partial translation at its stated cursor.
 
-This is the current human-readable coverage map for the Noether material already preserved in this GitHub repository as of 2026-08-04. “Complete” means complete only for the named paper or declared corpus scope. It does not mean native review, peer review, proof checking, or a critical edition.
+This is the current human-readable coverage map for the Noether material already preserved in this GitHub repository as of 2026-08-05. “Complete” means complete only for the named paper or declared corpus scope. It does not mean native review, peer review, proof checking, or a critical edition.
 
 ## Corpus-Wide Readers
 
@@ -24,7 +24,7 @@ The current August producer snapshots below remain explicitly **UNCHECKED, uncom
 | Work | Exact existing coverage | Current path / continuation |
 |---|---|---|
 | Paper 1 | Complete body in the cumulative corpus; a separate three-unit August checkpoint covers handed-off source lines 1–80 | [Complete body](../sources/noether/ko-corpus-v1/p01.tex); [granular checkpoint](../sources/noether/ko-p01-20260804/README.md) |
-| Paper 2 | Complete 199-target producer-draft layer; 332/346 manifest payload files recovered exactly, with 14 unavailable superseded evidence identities recorded | [Corrected v003 recovery](../sources/noether/ko-p02-v003/README.md) |
+| Paper 2 | Complete 199-target producer-draft text/table layer. The current compact v003 transport contains all 354 declared members; the earlier filesystem recovery retained 332/346 then-expected payload files and its 14 unavailable adverse identities without substitution. | [Current 354-member transport](../sources/noether/ko-p02-pub/ko-p02.zip); [receipt and controls](../sources/noether/ko-p02-pub/receipt.json); [earlier partial recovery](../sources/noether/ko-p02-v003/README.md) |
 | Paper 3 | Complete body in the cumulative corpus; a separate three-unit August checkpoint covers authority lines 3573–3608 | [Complete body](../sources/noether/ko-corpus-v1/p03.tex); [granular checkpoint](../sources/noether/ko-p03-20260804/README.md) |
 | Paper 4 | Complete producer-draft text for §§1–9: 50 units across T01–T09 | [Current complete snapshot](../sources/noether/ko-p04-20260804/README.md); structural evidence is T01–T03 only |
 | Paper 5 | Complete body in the cumulative corpus; a separate four-unit August checkpoint covers authority lines 4535–4573 | [Complete body](../sources/noether/ko-corpus-v1/p05.tex); [granular checkpoint](../sources/noether/ko-p05-20260804/README.md) |
