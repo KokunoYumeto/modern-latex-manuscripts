@@ -8,6 +8,11 @@ For a concise evidence-based view of what each live translation lane has actuall
 
 **Before starting any Emmy Noether translation, check the [current language/work coverage map](docs/noether-map.md).** It lists existing translations by language and paper, distinguishes complete scopes from exact continuation cursors, and identifies the current generation. An unchecked or non-cumulative artifact is still an existing translation; review it instead of silently retranslating it.
 
+Before duplicating current French/English work, check the dedicated [Luc
+Illusie coverage map](docs/illusie-map.md) and [FGA coverage
+map](docs/fga-map.md). Both expose readable PDFs, editable masters, exact
+source packages, audit surfaces, and continuation or caveat boundaries.
+
 ## How To Read The Status
 
 The archive is not one uniform pile of OCR. Files sit at different quality layers, and the filename or record description should make that clear.
