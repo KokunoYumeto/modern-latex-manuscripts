@@ -69,6 +69,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 - [Korean Paper 41 corrected producer checkpoint](../../sources/noether/ko-p41-20260804/README.md): all 43 handed-off files and 782,467 bytes are preserved exactly, including twelve editable Korean TeX units, canon-binding records, and retained adverse difficulty-ledger generations. State remains **UNCHECKED, uncompiled, unrendered, unassembled, unreviewed, and uncertified**.
 - [Korean Paper 42 producer checkpoint](../../sources/noether/ko-p42-20260804/README.md): all 33 checkpoint files and 356,550 bytes are preserved exactly, including twelve editable Korean TeX units and their supplied evidence. One coordination screenshot is retained as non-mathematical provenance and was not opened or processed by archive maintenance. State remains **UNCHECKED, uncompiled, unrendered, unassembled, unreviewed, and uncertified**.
 - [Controlling Noether archive workflow](../noether-workflow.md): the five user instructions are retained verbatim. The separate Noether task owns Zenodo; this repository owns the readable, complete GitHub mirror and its immutable source checkpoints.
+- [Preserved aggregate and evidence history](../noether-map.md#preserved-aggregate-and-evidence-history): links the earlier English/source collections, August Korean aggregate projections, and CJK visual-evidence sidecars that are already archived but are not current work-level heads. Their presence must not be inferred as a new translation assignment.
 
 ## Reader And Reference PDFs
 
