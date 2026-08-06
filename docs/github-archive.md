@@ -35,6 +35,16 @@ The eight source/receipt commits form one linear, fast-forward-only chain from
 was used for these four cycles. The exact file identities and chain are in
 [`20260806_archive.json`](../manifests/github-custody/20260806_archive.json).
 
+## Maintenance Decisions And Errors
+
+The append-only [maintenance log](../manifests/github-custody/log.jsonl)
+preserves controls, decisions, stopped attempts, and their corrections. Every
+record binds the previous record by SHA-256. The
+[log manifest](../manifests/github-custody/20260806_log.json) records the exact
+chain identity and supersession edges; [`add-log.ps1`](../scripts/add-log.ps1)
+replays the complete chain under an exclusive lock before appending one record.
+Corrections supersede failed methods without deleting their error history.
+
 ## Boundary
 
 The index names only the four exact GitHub-maintenance cycles above. It does not
