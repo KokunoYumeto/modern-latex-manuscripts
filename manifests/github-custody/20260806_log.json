@@ -1,0 +1,54 @@
+{
+  "schema": "github-maint-log-index/v1",
+  "observed_date": "2026-08-06",
+  "scope": "Append-only decisions, controls, errors, and corrections for this task's GitHub archive maintenance boundary.",
+  "log": {
+    "path": "manifests/github-custody/log.jsonl",
+    "records": 7,
+    "bytes": 4666,
+    "sha256": "3EC04F5368AB693D2A8AE373CCB5CA58BA9BC0617D1C90D52CDAC75CFF10EF88",
+    "first_record_sha256": "5E9F00C175C9E338B7A9A5CE6445F2DCD3E6F57AB6D51BDE0EF9BEBAA07AF725",
+    "chain_head_sha256": "068FD733D8A64DA1A768FEB2A4AD82D02897B4A595B5D76568E1B4D36A3BD00F"
+  },
+  "helper": {
+    "path": "scripts/add-log.ps1",
+    "bytes": 5300,
+    "sha256": "DEB2EEB3ABF6D38C227CB4A46A695201E259E597FE46C0BBBEEAD21CDE514C56"
+  },
+  "record_types": {
+    "control": 1,
+    "decision": 2,
+    "error": 2,
+    "correction": 2
+  },
+  "hash_contract": {
+    "encoding": "UTF-8 without BOM; one compact JSON object plus LF per record",
+    "record_sha256": "SHA-256 of the compact canonical JSON object in schema field order, excluding record_sha256 and excluding the terminal LF",
+    "chain": "Each record after the first binds the preceding record_sha256 in prev_record_sha256",
+    "append": "The helper takes an exclusive file lock, replays the entire chain, rejects duplicate IDs or unknown supersession IDs, then appends one record"
+  },
+  "supersession": [
+    {
+      "correction": "GH-20260806-005",
+      "error": "GH-20260806-004",
+      "effect": "Supersedes the broad receipt-listing method while preserving the timeout record"
+    },
+    {
+      "correction": "GH-20260806-007",
+      "error": "GH-20260806-006",
+      "effect": "Supersedes date-coercing replay while preserving the stopped append attempt"
+    }
+  ],
+  "checks": {
+    "records_replayed": "7/7",
+    "unique_ids": "7/7",
+    "previous_hash_links": "6/6",
+    "supersession_targets_present": "2/2",
+    "lf_only": true,
+    "utf8_bom": false,
+    "producer_files_mutated": false,
+    "zenodo_network_queried": false,
+    "global_filesystem_search": false,
+    "prohibited_or_revoked_roots_inspected": false
+  }
+}
