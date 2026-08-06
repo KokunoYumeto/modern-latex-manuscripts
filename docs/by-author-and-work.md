@@ -109,7 +109,7 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 |---|---|
 | Dedekind | [Exact GitHub map](dedekind-map.md): GMW I independent German/English readers through item IV / printed p.39; *Stetigkeit und irrationale Zahlen* preface and §§1–4; broad Bands I–III reader-only drafts; an embedded German/English Dedekind note; and recovery warnings for completion notes whose named artifacts are no longer tracked. |
 | Dirichlet | [Exact GitHub map](dirichlet-map.md): Band II I–XLI QA readers with XXV/XXVII repair flags; a separately source-checked Paper I; R22 tail TeX/PDF; an unsafe selected-works scaffold; and a registered 778 MB continuation packet whose ZIP payloads are not tracked here. |
-| Gauss | Werke Bands I, II, III, VI, VII, XI Part I, and individual papers as modern LaTeX drafts. |
+| Gauss | [Exact GitHub map](gauss-map.md): source-aligned Band II readers through printed p.303; two bounded source/English pilots awaiting scan verification; eight broad working readers; 118 TeX and 118 component PDFs with retained grade-C/D and pairing risks; and a registered 2.783 GB continuation packet whose nine ZIPs are not tracked here. |
 | Riemann | Selected mathematical papers and broader Gesammelte Werke working-draft readers, with matching TeX/source/provenance ZIPs. Not a certified critical edition. |
 | Weber | Lehrbuch der Algebra, Bands I and III, as modern LaTeX drafts. |
 | Noether | Selected mathematical papers as a modern LaTeX draft. |
