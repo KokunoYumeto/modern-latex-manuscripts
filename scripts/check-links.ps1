@@ -13,7 +13,7 @@ $documents = [string[]]@(
     '.github/ISSUE_TEMPLATE/rendering_problem.md',
     '.github/ISSUE_TEMPLATE/source-suggestion.yml',
     '.github/ISSUE_TEMPLATE/source_or_translation_correction.md',
-    '.github/PULL_REQUEST_TEMPLATE.md',
+    '.github/pull_request_template.md',
     'CONTRIBUTING.md',
     'docs/cayley-map.md',
     'docs/classical-map.md',
