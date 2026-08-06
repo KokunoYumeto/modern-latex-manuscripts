@@ -109,6 +109,8 @@ foreach ($line in $treeLines) {
 
 $fileCounts = [Collections.Generic.Dictionary[string, int]]::new([StringComparer]::Ordinal)
 $byteCounts = [Collections.Generic.Dictionary[string, long]]::new([StringComparer]::Ordinal)
+$rootFileCount = 0
+$rootFileBytes = [long]0
 foreach ($name in $trees.Keys) {
     $fileCounts[$name] = 0
     $byteCounts[$name] = 0
@@ -120,6 +122,11 @@ foreach ($line in $fileLines) {
         throw "Malformed file row: $line"
     }
     $relativePath = $matches[2]
+    if (-not $relativePath.Contains('/')) {
+        $rootFileCount++
+        $rootFileBytes += [long]$matches[1]
+        continue
+    }
     $name = ($relativePath -split '/', 2)[0]
     if (-not $trees.ContainsKey($name)) { throw "File outside a top-level tree: $relativePath" }
     $fileCounts[$name]++
@@ -207,6 +214,8 @@ $result = [ordered]@{
         bytes = [long](($rows | Measure-Object bytes -Sum).Sum)
         routed_trees = $rows.Count - $unrouted.Count
         unrouted_trees = $unrouted.Count
+        root_files_outside_tree_scope = $rootFileCount
+        root_file_bytes_outside_tree_scope = $rootFileBytes
         route_documents = $documents.Count
         canonical_stream_bytes = $canonicalBytes.Length
         tree_sha256 = Get-Sha256 -Bytes $canonicalBytes
