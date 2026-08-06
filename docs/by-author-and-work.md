@@ -36,25 +36,22 @@ This index is ordered by current public usefulness. Substantial source-aware rea
 
 ## Ukrainian Applied Mathematics
 
-The GitHub shelf preserves 86 tracked files / 5,009,407 bytes. Its directly
-readable surface consists of one [integrated Ukrainian
-reader](../sources/ukrainian-applied-math/public_integrated_reader_tex/main_public.pdf)
-and [eleven standalone module
-PDFs](../sources/ukrainian-applied-math/02_standalone_modules/). The editable
-surface contains 65 TeX files, led by the integrated [master
-TeX](../sources/ukrainian-applied-math/public_integrated_reader_tex/main.tex).
+Use the [exact GitHub map](ukrainian-map.md) before assigning or restarting
+work. The two tracked roots contain 99 files / 9,720,289 bytes. The direct
+surface is one guide plus twelve mathematical PDFs / 385 total pages; the
+source surface has the same twelve logical modules, 65 TeX files, status/audit
+controls, and a research-radar CSV/script.
 
-Use the [start
-guide](../sources/ukrainian-applied-math/00_README/README_START_HERE.md) for
-topic orientation and the [source and translation
-status](../sources/ukrainian-applied-math/06_source_status/SOURCE_AND_TRANSLATION_STATUS.md)
-for the producer's module-level caveats. The shelf covers signals, estimation,
-ESKF, Lie theory, Kalman filtering, SDR/RF, sensor fusion, robotics, and
-wave-equation controllability. Solà ESKF and micro-Lie remain partial/core
-modules. Some retained notes describe an older package layout; the direct links
-above identify the paths actually present in this GitHub snapshot. Preservation
-does not imply native review, whole-library completeness, or mathematical
-certification.
+Open the [124-page integrated Ukrainian
+reader](<../reader-pdfs/ukrainian-applied-math/01 Ukrainian Applied Mathematics - Applied Mathematics and Engineering Library.pdf>)
+and its closed [public TeX
+driver](../sources/ukrainian-applied-math/public_integrated_reader_tex/main_public.tex).
+All 49 public-driver inputs are present. The retained broader `main.tex` is
+historical and lacks six of its 68 declared inputs. Eight direct/source PDF
+pairs are byte-identical; four preserve distinct builds. Solà ESKF and
+micro-Lie remain partial/core modules, and both autonomous-robots builds retain
+twelve broken caption links. Preservation does not imply native review,
+whole-library completeness, source fidelity, or mathematical certification.
 
 ## Chinese Mathematical Classics
 
