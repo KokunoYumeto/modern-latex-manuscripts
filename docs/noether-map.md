@@ -19,6 +19,12 @@ This is the current human-readable coverage map for the Noether material already
 | Interslavic, Latin and Cyrillic | Complete v038 cumulative readers over the same scope; 566 Latin-script pages and 588 Cyrillic-script pages | [v038 release](../sources/noether/slavic-v038/README.md), [Latin reader](../reader-pdfs/noether/slavic-v038/noether-isv-v038.pdf), [Cyrillic reader](../reader-pdfs/noether/slavic-v038/noether-isv-cy-v038.pdf) | Latin Interslavic is model-authored; Cyrillic is a deterministic projection, not an independent translation witness; external language review remains open |
 | Korean | 65 pages; 19 complete numbered-paper bodies (1, 3, 5, 7, 8, 10, 11, 16, 18, 25–29, 32, 33, 36, 41, 42) plus partial Paper 9 through authority line 7328 | [Cumulative corpus](../sources/noether/ko-corpus-v1/README.md), [direct PDF](../sources/noether/ko-corpus-v1/reader.pdf), and [exact coverage table](../sources/noether/ko-corpus-v1/coverage.csv) | Producer assembly; Paper 9 continues at line 7330; independent source, Korean-language, render, and certification review pending |
 
+The exact v038 GitHub projection is bound by the
+[Slavic custody manifest](../manifests/github-custody/20260807_slavic.json) and
+[121-row path index](../manifests/github-custody/20260807_slavic.csv). The four
+direct readers duplicate source-release bytes intentionally for human access;
+they do not create new translation witnesses.
+
 ## German Authority And Head History
 
 Use [`de-v010`](../sources/noether/de-v010/README.md) as the current project

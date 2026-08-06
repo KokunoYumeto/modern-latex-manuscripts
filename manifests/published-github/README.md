@@ -13,6 +13,10 @@ the [human archive history](../../docs/github-archive.md), and the
 The current [navigation-link closure receipt](20260806_nav_rb.json) binds the
 root, browse, and site-map landings plus the 34-document committed-blob audit.
 
+The [Noether Slavic v038 source receipt](20260807_slavic_rb.json) binds every
+path changed by its source commit: 126 commit-pinned raw files / 73,170,246
+bytes, all matched exactly.
+
 Receipts are immutable evidence generations. A later receipt may bind a newer
 version of the same path without deleting or reinterpreting the earlier one.
 Do not add receipt totals together as unique-file totals unless the controlling
