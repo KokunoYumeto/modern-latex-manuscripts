@@ -7,7 +7,7 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- [Eight-cycle archive history](20260806_archive_r2.json)
+- [Twelve-cycle archive history](20260806_archive_r3.json)
 - [Coverage-map inventory](20260806_maps.json)
 - [Direct-reader inventory](20260806_readers.json)
 - [Tracked-source summary](20260806_sources.json) and
@@ -19,6 +19,10 @@ producer payloads.
 The [human archive history](../../docs/github-archive.md) explains the bounded
 cycles. Exact public-byte receipts have their own
 [landing page](../published-github/README.md).
+
+The [eight-cycle r2](20260806_archive_r2.json) and
+[four-cycle predecessor](20260806_archive.json) remain immutable historical
+generations; the current r3 index adds later cycles without rewriting them.
 
 These indexes do not silently promote a producer checkpoint, turn an unchecked
 draft into a reviewed edition, or erase a superseded generation. Read the
