@@ -10,7 +10,9 @@ assignees: ""
 
 Author/work or corpus:
 
-File:
+Coverage map checked:
+
+Exact GitHub path and commit/hash:
 
 Page/section/theorem:
 

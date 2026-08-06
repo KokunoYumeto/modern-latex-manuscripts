@@ -9,6 +9,12 @@ $utf8 = [Text.UTF8Encoding]::new($false)
 $repoRoot = [IO.Path]::GetFullPath((Get-Location).Path)
 
 $documents = [string[]]@(
+    '.github/ISSUE_TEMPLATE/correction.yml',
+    '.github/ISSUE_TEMPLATE/rendering_problem.md',
+    '.github/ISSUE_TEMPLATE/source-suggestion.yml',
+    '.github/ISSUE_TEMPLATE/source_or_translation_correction.md',
+    '.github/PULL_REQUEST_TEMPLATE.md',
+    'CONTRIBUTING.md',
     'docs/cayley-map.md',
     'docs/classical-map.md',
     'docs/cluster-map.md',
@@ -174,7 +180,7 @@ $result = [ordered]@{
     schema               = 'github-local-links/v1'
     observed_date        = $ObservedDate
     observed_base_commit = (& git rev-parse HEAD).Trim()
-    scope                = 'Inline local links in nineteen explicitly allowed coverage maps plus the GitHub-only map, archive, reader, and source landings. External URLs are counted but never requested.'
+    scope                = 'Inline local links in nineteen explicitly allowed coverage maps; the GitHub-only map, archive, reader, and source landings; and six contributor entry points. External URLs are counted but never requested.'
     canonical_stream     = 'Ordinal document path order; path<TAB>bytes<TAB>SHA256<LF>; UTF-8 without BOM.'
     aggregate            = [ordered]@{
         documents              = $rows.Count
