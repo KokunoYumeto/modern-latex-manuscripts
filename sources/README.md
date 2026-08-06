@@ -47,4 +47,26 @@ Separately owned or explicitly prohibited project surfaces are intentionally not
 enumerated here. Their absence from this task-maintained map is a custody
 boundary, not evidence that their files do not exist.
 
-Machine audit: [`20260805_source_shelves.json`](../manifests/github-custody/20260805_source_shelves.json).
+## Exact Git-Object Audit
+
+The nineteen allowed shelves contain 12,407 tracked files and
+2,546,045,982 committed bytes. Every path, byte count, Git blob SHA-1, and mode
+is in the [per-file index](../manifests/github-custody/20260806_sources.csv).
+The [compact summary](../manifests/github-custody/20260806_sources.json) binds
+each root's Git tree SHA-1 plus a SHA-256 digest over its ordinal canonical
+path/size/blob stream.
+
+There are 10,027 unique Git blob identities and 1,253 repeated-blob groups.
+Only one repeated identity crosses roots: the same 8-byte `.gitattributes`
+control appears at 57 paths across six roots. It is repository scaffolding,
+not 57 independent mathematical objects. Distinct paths and generations remain
+preserved; the audit does not deduplicate or delete them.
+
+The checkout has 112 paths whose filesystem lengths differ from committed blob
+lengths, totaling 79,484 extra checkout bytes, while Git reports zero tracked
+changes in every selected root. The committed-byte inventory is therefore kept
+separate from checkout representation. No source blob was opened, rehashed,
+compiled, rendered, OCRed, or rewritten to produce this index.
+
+The earlier landing-only audit remains as history:
+[`20260805_source_shelves.json`](../manifests/github-custody/20260805_source_shelves.json).
