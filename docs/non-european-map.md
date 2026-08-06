@@ -32,6 +32,26 @@ readers. They are preserved and linked honestly below, but they are not
 relabelled as independent English editions. Likewise, an “Original” filename
 does not prove that its bytes form a distinct source-language edition.
 
+## Existing Editable Layers Without A Matching Direct Reader
+
+The files below are already tracked mathematical translation work. Their lack
+of a matching PDF on the direct reader shelf is a presentation gap, not an
+empty translation slot. Open and check or assemble these exact sources before
+assigning a fresh translation.
+
+| Existing scope | Exact editable source already in GitHub |
+|---|---|
+| *Nine Chapters*, vols.1-3, Arabic | [Arabic TeX](../sources/non-european/sources/translations/arabic/chinese/jiuzhang-suanshu-vols1-3_arabic.tex) |
+| *Sunzi Suanjing*, Arabic | [Arabic TeX](../sources/non-european/sources/translations/arabic/chinese/sunzi-suanjing_arabic.tex) |
+| Li Ye / Gu Yingxiang, *Ceyuan Haijing Fenlei Shishu*, vols.1-3, English-bilingual | [English-bilingual TeX](../sources/non-european/sources/translations/english_bilingual/chinese/li-ye-ceyuan-haijing-fenlei-shishu-vols1-3_bilingual.tex) |
+| Li Ye, *Ceyuan Haijing*, vols.10-12, independent English source | [English TeX](../sources/non-european/sources/translations/english_bilingual/chinese/li-ye-ceyuan-haijing-vols10-12_english.tex) |
+| Qin Jiushao, *Shuxue Jiuzhang*, modern Chinese fasc.2-4 | [fasc.2](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle2_classical-modern_bilingual.tex), [fasc.3](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle3_classical-modern_bilingual.tex), and [fasc.4](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle4_classical-modern_bilingual.tex) |
+| Ibn al-Qifti, *Tarikh al-Hukama*, English-bilingual | [English-bilingual TeX](../sources/non-european/sources/translations/english_bilingual/references/ibn-al-qifti-tarikh-al-hukama_bilingual.tex) |
+
+The [machine custody manifest](../manifests/github-custody/20260806_non_european_map.json)
+binds these paths to exact bytes and hashes. The editable tree also retains the
+shared [master preamble](../sources/non-european/sources/master-preamble.tex).
+
 ## Chinese Works And Translation Layers
 
 | Author / work | English-labelled reader | Modern Chinese | Arabic | Chinese/source-facing reader | Editable TeX state |
