@@ -27,7 +27,7 @@ or newest-looking directory is the current continuation head.
 | Carl Friedrich Gauss | [Gauss source shelf](gauss/) | [Gauss coverage](../docs/gauss-map.md) |
 | Bernhard Riemann | [Riemann source shelf](riemann/) | [Riemann coverage](../docs/riemann-map.md) |
 | Ernst Steinitz | [Steinitz source shelf](steinitz/) | [Steinitz coverage](../docs/steinitz-map.md) |
-| James Joseph Sylvester | [Sylvester source shelf](sylvester/) | [Author/work index](../docs/by-author-and-work.md) |
+| James Joseph Sylvester | [Sylvester source shelf](sylvester/) | [Sylvester coverage](../docs/sylvester-map.md) |
 | Ukrainian applied mathematics | [Ukrainian source shelf](ukrainian-applied-math/) | [Live fleet map](../docs/live-fleet-map.md) |
 | Non-European mathematical texts | [Multilingual source shelf](non-european/README.md) | [Browse index](../docs/browse-index.md) |
 
