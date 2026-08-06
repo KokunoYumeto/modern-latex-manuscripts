@@ -35,6 +35,14 @@ The eight source/receipt commits form one linear, fast-forward-only chain from
 was used for these four cycles. The exact file identities and chain are in
 [`20260806_archive.json`](../manifests/github-custody/20260806_archive.json).
 
+## Link Integrity
+
+The bounded [local-link audit](../manifests/github-custody/20260806_links.json)
+covers the nineteen allowed maps and the GitHub-only map, archive, reader, and
+source landings. [`check-links.ps1`](../scripts/check-links.ps1) resolves local
+targets only; it counts external URLs without requesting them and stops before
+touching a prohibited local target.
+
 ## Maintenance Decisions And Errors
 
 The append-only [maintenance log](../manifests/github-custody/log.jsonl)
