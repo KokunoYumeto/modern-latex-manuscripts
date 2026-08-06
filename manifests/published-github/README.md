@@ -10,8 +10,9 @@ Start with the current [archive-history receipt](20260807_archive_r2_rb.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
-The current [navigation-link closure receipt](20260806_nav_rb.json) binds the
-root, browse, and site-map landings plus the 34-document committed-blob audit.
+The current [navigation-link closure receipt](20260807_links_rb.json) binds the
+nineteen-cycle archive navigation and its 34-document committed-blob audit:
+four paths / 29,954 bytes, all matched exactly.
 
 The [Noether Slavic v038 source receipt](20260807_slavic_rb.json) binds every
 path changed by its source commit: 126 commit-pinned raw files / 73,170,246
@@ -36,6 +37,9 @@ landing and audit chain; all thirteen recorded paths matched.
 The [nineteen-cycle archive receipt](20260807_archive_r2_rb.json) replays all
 three paths in the current archive-history successor: 25,735 bytes, all matched
 exactly.
+
+Its [receipt-publication closure](20260807_archive_r2_close.json) replays four
+paths / 95,433 bytes, all matched exactly.
 
 The [eighteen-cycle predecessor receipt](20260807_archive_rb.json) replays all
 seven paths in its archive-history publication commit: 106,469 bytes, all
