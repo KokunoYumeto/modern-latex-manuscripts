@@ -21,6 +21,10 @@ The [v038 catalog receipt](20260807_slavic_cat_rb.json) binds the twelve
 custody/index/log/landing paths added by the catalog commit: 2,426,184 bytes,
 all matched exactly.
 
+The [shelf-closure receipt](20260807_slavic_close_rb.json) binds seven paths /
+96,574 bytes, and the [map/audit receipt](20260807_slavic_audit_rb.json) binds
+five paths / 87,097 bytes. Both replays matched every byte.
+
 Receipts are immutable evidence generations. A later receipt may bind a newer
 version of the same path without deleting or reinterpreting the earlier one.
 Do not add receipt totals together as unique-file totals unless the controlling
