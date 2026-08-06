@@ -7,7 +7,7 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- [Twelve-cycle archive history](20260806_archive_r3.json)
+- [Fifteen-cycle archive history](20260806_archive_r4.json)
 - [Coverage-map inventory](20260806_maps_r2.json)
 - [Current reader/source shelf closure](20260806_shelves.json)
 - [Direct-reader inventory](20260806_readers.json)
@@ -23,9 +23,10 @@ cycles. Exact public-byte receipts have their own
 
 The [first coverage-map index](20260806_maps.json) remains the immutable
 predecessor to the current additive r2 index. The
-[eight-cycle archive r2](20260806_archive_r2.json) and
+[twelve-cycle archive r3](20260806_archive_r3.json),
+[eight-cycle archive r2](20260806_archive_r2.json), and
 [four-cycle predecessor](20260806_archive.json) remain immutable historical
-generations; the current r3 index adds later cycles without rewriting them.
+generations; the current r4 index adds later cycles without rewriting them.
 
 These indexes do not silently promote a producer checkpoint, turn an unchecked
 draft into a reviewed edition, or erase a superseded generation. Read the
