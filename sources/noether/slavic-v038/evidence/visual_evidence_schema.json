@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "noether-slavic-v038-visual-evidence/1.0",
+  "title": "Noether Slavic v038 visual evidence record",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "visual_id",
+    "visual_type",
+    "target",
+    "image",
+    "parent_pdf",
+    "parent_image_hashes",
+    "page_number",
+    "page_coordinates_points",
+    "bounding_box_pixels",
+    "dimensions",
+    "dpi",
+    "rotation_degrees",
+    "linked_work_units",
+    "linked_structural_ids",
+    "linked_tex_paths",
+    "qa_state",
+    "review_evidence",
+    "rights_basis",
+    "publication_disposition",
+    "continuation_cursor"
+  ],
+  "properties": {
+    "schema_version": {"const": "noether-slavic-v038-visual-evidence/1.0"},
+    "visual_id": {"type": "string", "pattern": "^SLISV-VIS-[A-F0-9]{12}$"},
+    "visual_type": {"enum": ["target_page_render", "contact_sheet", "source_page_render"]},
+    "target": {"enum": ["ru", "uk", "isv", "isv-cy", "de-source"]},
+    "image": {"$ref": "#/$defs/file"},
+    "parent_pdf": {"anyOf": [{"$ref": "#/$defs/pdf"}, {"type": "null"}]},
+    "parent_image_hashes": {"type": "array", "items": {"type": "string", "pattern": "^[A-F0-9]{64}$"}},
+    "page_number": {"type": ["integer", "null"], "minimum": 1},
+    "page_coordinates_points": {
+      "type": ["array", "null"],
+      "items": {"type": "number"},
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "bounding_box_pixels": {
+      "type": "array",
+      "items": {"type": "integer", "minimum": 0},
+      "minItems": 4,
+      "maxItems": 4
+    },
+    "dimensions": {
+      "type": "object",
+      "required": ["width_px", "height_px"],
+      "properties": {
+        "width_px": {"type": "integer", "minimum": 1},
+        "height_px": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    },
+    "dpi": {"type": "number", "exclusiveMinimum": 0},
+    "rotation_degrees": {"type": "number"},
+    "linked_work_units": {"type": "array", "items": {"type": "string"}},
+    "linked_structural_ids": {"type": "array", "items": {"type": "string"}},
+    "linked_tex_paths": {"type": "array", "items": {"type": "string"}},
+    "qa_state": {"enum": ["rendered_pending_visual_review", "visually_reopened_pass", "visually_reopened_issue"]},
+    "review_evidence": {"type": ["object", "null"]},
+    "rights_basis": {"type": "string"},
+    "publication_disposition": {"type": "string"},
+    "continuation_cursor": {"type": ["string", "null"]}
+  },
+  "$defs": {
+    "file": {
+      "type": "object",
+      "required": ["path", "bytes", "sha256"],
+      "properties": {
+        "path": {"type": "string"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}
+      },
+      "additionalProperties": false
+    },
+    "pdf": {
+      "type": "object",
+      "required": ["path", "bytes", "sha256", "pages"],
+      "properties": {
+        "path": {"type": "string"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "pages": {"type": "integer", "minimum": 1}
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

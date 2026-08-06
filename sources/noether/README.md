@@ -6,6 +6,7 @@ Start here:
 
 - [Current translation coverage](../../docs/noether-map.md)
 - [Current German authority](de-v010/README.md)
+- [Current Russian, Ukrainian, and Interslavic v038 release](slavic-v038/README.md)
 - [Reader and archive catalog](../../docs/records/noether.md)
 - [Immutable GitHub source checkpoints](../../docs/records/noether.md#github-source-checkpoints)
 - [Archive workflow](../../docs/noether-workflow.md)
