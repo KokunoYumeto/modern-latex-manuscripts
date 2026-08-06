@@ -7,6 +7,7 @@ This page lists the main coordination documents in this repository and what each
 | Page | Use It For |
 |---|---|
 | [Browse index](browse-index.md) | Fast route to the right corpus or record. |
+| [GitHub archive history](github-archive.md) | Exact task-owned catalog commit chain, manifests, and commit-pinned raw-readback receipts. |
 | [Download guide](download-guide.md) | Deciding whether to open a reader PDF, artifact ZIP, manifest, or bulk record. |
 | [By author and work](by-author-and-work.md) | Finding named authors and works without reading the full file catalog. |
 | [Record landing pages](records/README.md) | Browsing each Zenodo record grouped by reader PDFs, artifact ZIPs, and status files. |
