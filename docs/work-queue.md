@@ -162,6 +162,7 @@ Latest Noether structural note 2026-06-14: `Noether_RA87_P20_ClearpageBoundary_W
 
 | Area | Task | Start From |
 |---|---|---|
+| Ukrainian applied mathematics | Start from the exact module already present. Use the closed `main_public.tex` driver, not historical `main.tex`; verify the four distinct direct/source PDF pairs, repair the autonomous-robots caption targets in the producer lane, and continue the explicitly partial ESKF, micro-Lie, and Kalman scopes without retranslating completed modules. | [Exact GitHub map](ukrainian-map.md) |
 | Non-European mathematics | Start with the exact language/work map; check or assemble existing work-level/source-only layers before any new translation. Priorities include source binding for 66 current readers, independent-language successors for parallel files, missing historical containers, and al-Battani table/collation gaps. | [GitHub coverage map](non-european-map.md) |
 | Chinese classics | Check work-level English, modern Chinese, and original-language PDFs against each other for omissions and alignment. | [Chinese record](https://doi.org/10.5281/zenodo.20415751) |
 | Indian/Sanskrit classics | Check source fidelity for Aryabhata, Bhaskara II, and Brahmagupta; do not count the duplicated Bijaganita labels as independent editions. | [Exact GitHub map](non-european-map.md#indian-and-sanskrit-works) |

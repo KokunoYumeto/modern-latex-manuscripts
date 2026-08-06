@@ -18,6 +18,7 @@ This page lists the main coordination documents in this repository and what each
 | Page | Use It For |
 |---|---|
 | [GitHub source-shelf index](../sources/README.md) | Browsing task-maintained author and corpus trees directly, without using the external-record catalog as an intermediary. |
+| [Ukrainian applied-mathematics GitHub map](ukrainian-map.md) | Exact reader/source identities, module coverage, duplicate and distinct PDF relations, TeX entrypoint closure, stale guide claims, and structural gaps. |
 | [Non-European mathematics GitHub map](non-european-map.md) | Exact Chinese, Indian/Sanskrit, Islamic/Arabic, and reference-work language layers, current direct-reader identities, source-only translations, repair generations, and custody gaps. |
 | [Additional-author GitHub map](cluster-map.md) | Exact Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing readers; legacy relations, structural checks, stale reports, and missing source/package custody. |
 | [Public file catalog](public-file-catalog.md) | Full searchable list of every current public Zenodo file. |
