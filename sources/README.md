@@ -37,7 +37,7 @@ or newest-looking directory is the current continuation head.
 | Shelf | What it preserves |
 |---|---|
 | [Classical algebra and arithmetic](classical/) | Historical author packages, starts, repairs, and triage material. |
-| [Additional author cluster](author-cluster/) | Mixed-author reports and routing/triage notes. |
+| [Additional author cluster](author-cluster/) | Three tracked reports/triage files only; pair with the [exact ten-reader map](../docs/cluster-map.md). No TeX, source PDF, or routed package ZIP is present in this root. |
 | [Workflow](workflow/) | Preserved workflow and methodology briefings. |
 
 Separately owned or explicitly prohibited project surfaces are intentionally not
