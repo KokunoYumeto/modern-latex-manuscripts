@@ -5,9 +5,9 @@ GitHub-maintenance task is allowed to catalog. Open the linked coverage map
 before treating a filename as current, complete, source-faithful, independently
 reviewed, or an invitation to start a new translation.
 
-Observed 2026-08-07: fourteen allowed roots contain 399 tracked files /
-924,990,238 bytes. There are 396 PDFs and three small support files. The set has
-398 unique SHA-256 identities, one internal duplicate pair, and no cross-root
+Observed 2026-08-07: fourteen allowed roots contain 400 tracked files /
+927,479,300 bytes. There are 397 PDFs and three small support files. The set has
+399 unique SHA-256 identities, one internal duplicate pair, and no cross-root
 duplicate bytes.
 
 ## Exact Root Index
@@ -24,7 +24,7 @@ digest below uses repository-relative paths.
 | [Dirichlet](dirichlet/) | 2 | 0 | 20,990,879 | `D43DABDB4AEB21AACCD3641362746F6C538FE732ADBD9ED7AC9E2552A69F4736` | [Map](../docs/dirichlet-map.md) |
 | [EGA](ega/) | 10 | 0 | 250,754,356 | `0142D300645188929023C253BA649795EE3425FC2C546FD697D7EF000D519AD4` | [Map](../docs/ega-map.md) |
 | [Gauss](gauss/) | 14 | 0 | 115,264,723 | `9CC990DAF36F41CE2A91602BCA99E1527FAD91603DF53BD363CFCF30F0FD9686` | [Map](../docs/gauss-map.md) |
-| [Noether](noether/) | 126 | 3 | 64,644,671 | `8160337A05A3E84597436769E13185E3528F87A9E3C280E62D685BEDD0AC51BF` | [Map](../docs/noether-map.md) |
+| [Noether](noether/) | 127 | 3 | 67,133,733 | `70F9604825A212D01FC0F167709B120273AFCF23657B43053933CB9E3EA3C84B` | [Map](../docs/noether-map.md) |
 | [Non-European mathematics](non-european/) | 72 | 0 | 244,889,001 | `742D16670E2EFED507B7509B632B17519418374D9BBBAFC1F82AD95552724B84` | [Map](../docs/non-european-map.md) |
 | [Riemann](riemann/) | 2 | 0 | 4,372,317 | `9D8CB090D50B4789E8CF476E40DA4EEA7A07F6417F91242C75768E5F2E0B625D` | [Map](../docs/riemann-map.md) |
 | [Steinitz](steinitz/) | 21 | 0 | 70,809,375 | `9CEDCE699E75ACDA36DDEF55D6FB2EA00C36F1F77E2F2289E88EACD901D2308A` | [Map](../docs/steinitz-map.md) |
@@ -32,10 +32,10 @@ digest below uses repository-relative paths.
 | [Ukrainian applied mathematics](ukrainian-applied-math/) | 13 | 0 | 4,710,882 | `6F00C45BAECB33F9BA43848157071A9973EF3BDAD2EFB1DC6C729929B453EC56` | [Map](../docs/ukrainian-map.md) |
 | [Weber](weber/) | 6 | 0 | 8,426,953 | `0A570B6AB6DAD18478D9D0815D8B76C12BDE3E749EABCD74839312014F47F3D9` | [Map](../docs/weber-map.md) |
 
-The complete 399-row canonical stream is 67,739 bytes with tree SHA-256
-`C323001815871B3DAB540716E7F60C05E3FD660008762C37F9CAFCD5DD1559CB`.
+The complete 400-row canonical stream is 67,842 bytes with tree SHA-256
+`88A833D4DE0F677E58B9A213AB57E4F3FE1545B36E5E0FD84C2B4C07BD0FE718`.
 Exact machine evidence is in
-[`20260807_readers.json`](../manifests/github-custody/20260807_readers.json).
+[`20260807_readers_r2.json`](../manifests/github-custody/20260807_readers_r2.json).
 
 ## Duplicate And Support State
 
@@ -61,6 +61,13 @@ They are exact mirrors of the corresponding frozen source-release PDFs; their
 scope and language-review caveats are recorded in the
 [Noether map](../docs/noether-map.md) and the
 [Slavic custody manifest](../manifests/github-custody/20260807_slavic.json).
+
+The additional [413-page Simplified-Chinese R3
+reader](noether/zh-r3.pdf) is an exact mirror of the sealed source-release PDF.
+It covers all 43 numbered papers. Two later distinct-calendar-day certification
+checks remain pending, and no generic-Hant or regional localization claim is
+made; see the [Noether map](../docs/noether-map.md) and [Chinese custody
+manifest](../manifests/github-custody/20260807_zh.json).
 
 ## Reading Rule
 
