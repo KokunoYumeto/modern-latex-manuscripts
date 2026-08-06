@@ -10,6 +10,9 @@ link is an honest preserved landing: inspect its filenames and internal status
 files before choosing a generation. Do not infer that the alphabetically first
 or newest-looking directory is the current continuation head.
 
+All nineteen task-maintained author, work, series, and mixed-corpus maps are
+also collected in the [GitHub coverage-map index](../docs/github-maps.md).
+
 ## Current Mapped Corpora
 
 | Author or corpus | GitHub shelf | Best status map |

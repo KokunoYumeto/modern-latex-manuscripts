@@ -6,6 +6,7 @@ This page is the human entry point for the archive. Use it when you want to find
 
 | Goal | Open First |
 |---|---|
+| See every task-maintained GitHub coverage map | [GitHub map index](github-maps.md): nineteen allowed author, work, series, and mixed-corpus maps with exact identity and link-closure audit. |
 | Browse the GitHub source archive | [GitHub source-shelf index](../sources/README.md), then the linked corpus coverage map or shelf README before selecting a generation. |
 | Get the whole preservation surface | [Main project landing](https://doi.org/10.5281/zenodo.20393488) |
 | Reproduce the workflow | [Workflow / replication packet](https://doi.org/10.5281/zenodo.20461174) |
