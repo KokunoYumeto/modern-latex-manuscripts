@@ -6,7 +6,7 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [archive-history receipt](20260806_archive_r2_readback.json),
+Start with the current [archive-history receipt](20260806_archive_r3_rb.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
