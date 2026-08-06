@@ -36,7 +36,7 @@ or newest-looking directory is the current continuation head.
 
 | Shelf | What it preserves |
 |---|---|
-| [Classical algebra and arithmetic](classical/) | Historical author packages, starts, repairs, and triage material. |
+| [Classical algebra and arithmetic](classical/) | Exact mixed-root custody for Cayley, Dedekind, and Dirichlet only: 811 source/history files paired with 21 direct readers. Use the [classical shelf map](../docs/classical-map.md) before assigning or counting work. |
 | [Additional author cluster](author-cluster/) | Three tracked reports/triage files only; pair with the [exact ten-reader map](../docs/cluster-map.md). No TeX, source PDF, or routed package ZIP is present in this root. |
 | [Workflow](workflow/) | Preserved workflow and methodology briefings. |
 

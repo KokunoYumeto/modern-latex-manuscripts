@@ -118,14 +118,16 @@ The consolidated non-European record also includes combined Islamic/Arabic reade
 
 Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.20414787)
 
+Exact mixed-root GitHub custody: [classical shelf map](classical-map.md). The
+tracked `reader-pdfs/classical` and `sources/classical` roots contain only the
+three authors below: 832 files / 216,679,649 bytes. Gauss, Weber, Noether, and
+Riemann are separate GitHub shelves and maps; do not infer their bytes from this
+mixed-root heading or older broad catalog prose.
+
 | Author | Works Or Volumes |
 |---|---|
 | Dedekind | [Exact GitHub map](dedekind-map.md): GMW I independent German/English readers through item IV / printed p.39; *Stetigkeit und irrationale Zahlen* preface and §§1–4; broad Bands I–III reader-only drafts; an embedded German/English Dedekind note; and recovery warnings for completion notes whose named artifacts are no longer tracked. |
 | Dirichlet | [Exact GitHub map](dirichlet-map.md): Band II I–XLI QA readers with XXV/XXVII repair flags; a separately source-checked Paper I; R22 tail TeX/PDF; an unsafe selected-works scaffold; and a registered 778 MB continuation packet whose ZIP payloads are not tracked here. |
-| Gauss | [Exact GitHub map](gauss-map.md): source-aligned Band II readers through printed p.303; two bounded source/English pilots awaiting scan verification; eight broad working readers; 118 TeX and 118 component PDFs with retained grade-C/D and pairing risks; and a registered 2.783 GB continuation packet whose nine ZIPs are not tracked here. |
-| Riemann | [Exact GitHub map](riemann-map.md): two direct readers, their tracked TeX/history layers, stale PDF/TeX control identities, a broken-xref warning, and missing prior chunk/scans. The current readers and TeX are not proved synchronized build pairs. |
-| Weber | Lehrbuch der Algebra, Bands I and III, as modern LaTeX drafts. |
-| Noether | Selected mathematical papers as a modern LaTeX draft. |
 | Cayley | [Exact GitHub map](cayley-map.md): thirteen direct Volume I–XIII readers, two May source generations, a June Volume I assembly, exact reader/manifest identity conflicts, retained placeholders and omissions, and a stale Volume VIII scan locator. Inherited `Complete`, `source_checked`, and `critical` filenames remain de-promoted; no range is presently promoted as source-faithful. |
 
 ## Additional Author Cluster

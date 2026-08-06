@@ -97,9 +97,9 @@ Current translation coverage and continuation cursors: [Noether language/work ma
 Current record: <https://doi.org/10.5281/zenodo.20414787>
 
 - This is an organized shelf of selected working drafts, not a complete author-by-author collected corpus.
-- Gauss, Cayley, Dedekind, Dirichlet, Weber, and Noether material should be treated as staged working drafts unless a later author record marks a work as fully proofed.
+- Exact GitHub custody: [classical shelf map](classical-map.md). The two mixed roots contain only Cayley, Dedekind, and Dirichlet: 21 readers / 6,945 page slots and 811 source/history files, 832 files / 216,679,649 bytes total. Older six-author language is stale for these roots; Gauss, Weber, Noether, and Riemann are separately mapped.
 - Cayley is specifically de-promoted as of 2026-06-09 and the warning is strengthened as of 2026-06-25: current Cayley PDFs/TeX are retained as provenance and repair material, but source comparison found substantial symbol/text mismatches in Volume I material, including rendered ranges that looked superficially usable. Do not treat Cayley filenames containing `Complete`, `Source-Checked`, or `critical` as current quality claims. No Cayley range is presently promoted as source-faithful until a new per-page glyph/source audit re-promotes that exact range. Use the [exact GitHub custody map](cayley-map.md) for current reader identities, source generations, manifest failures, and visible omissions.
-- Gauss in particular still needs deeper repair and verification.
+- Dedekind's broad Bands I–III readers have no matching source tree in the mixed shelf. Dirichlet's 241-page selected-works scaffold is not source authority. Use the dedicated author maps before continuing or reusing either surface.
 
 ## Bianchi
 
