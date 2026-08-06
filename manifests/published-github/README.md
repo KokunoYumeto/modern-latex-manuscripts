@@ -6,7 +6,7 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [archive-history receipt](20260806_archive_r4_rb.json),
+Start with the current [archive-history receipt](20260807_archive_rb.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
@@ -28,6 +28,10 @@ five paths / 87,097 bytes. Both replays matched every byte.
 The [landing receipt](20260807_slavic_land_rb.json), [final-link receipt](20260807_slavic_link_rb.json),
 and [link-receipt closure](20260807_slavic_link_close.json) preserve the final
 landing and audit chain; all thirteen recorded paths matched.
+
+The [eighteen-cycle archive receipt](20260807_archive_rb.json) replays all seven
+paths in the current archive-history publication commit: 106,469 bytes, all
+matched exactly.
 
 Receipts are immutable evidence generations. A later receipt may bind a newer
 version of the same path without deleting or reinterpreting the earlier one.
