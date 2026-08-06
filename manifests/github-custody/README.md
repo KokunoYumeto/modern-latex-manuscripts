@@ -10,9 +10,11 @@ producer payloads.
 - [Fifteen-cycle archive history](20260806_archive_r4.json)
 - [Coverage-map inventory](20260806_maps_r2.json)
 - [Current reader/source shelf closure](20260806_shelves.json)
-- [Direct-reader inventory](20260806_readers.json)
-- [Tracked-source summary](20260806_sources.json) and
-  [path inventory](20260806_sources.csv)
+- [Direct-reader inventory](20260807_readers.json)
+- [Tracked-source summary](20260807_sources.json) and
+  [path inventory](20260807_sources.csv)
+- [Noether Slavic v038 custody](20260807_slavic.json) and
+  [exact path index](20260807_slavic.csv)
 - [Bounded local-link audit](20260806_links.json)
 - [Maintenance-log index](20260806_log.json) and
   [append-only log](log.jsonl)
@@ -27,6 +29,10 @@ predecessor to the current additive r2 index. The
 [eight-cycle archive r2](20260806_archive_r2.json), and
 [four-cycle predecessor](20260806_archive.json) remain immutable historical
 generations; the current r4 index adds later cycles without rewriting them.
+
+The 2026-08-07 reader and source inventories are additive successors to their
+2026-08-06 generations. They bind the exact Noether Slavic v038 projection and
+four direct-reader mirrors without rewriting the predecessor inventories.
 
 These indexes do not silently promote a producer checkpoint, turn an unchecked
 draft into a reviewed edition, or erase a superseded generation. Read the
