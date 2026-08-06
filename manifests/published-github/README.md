@@ -17,6 +17,10 @@ The [Noether Slavic v038 source receipt](20260807_slavic_rb.json) binds every
 path changed by its source commit: 126 commit-pinned raw files / 73,170,246
 bytes, all matched exactly.
 
+The [Noether Simplified-Chinese R3 cycle receipt](20260807_zh_rb.json) binds
+the source, custody, inventory, shelf, and map commits path by path: 465
+commit-pinned raw files / 269,957,244 bytes, all matched exactly.
+
 The [v038 catalog receipt](20260807_slavic_cat_rb.json) binds the twelve
 custody/index/log/landing paths added by the catalog commit: 2,426,184 bytes,
 all matched exactly.
