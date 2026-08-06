@@ -14,6 +14,11 @@ The current [navigation-link closure receipt](20260807_links_rb.json) binds the
 nineteen-cycle archive navigation and its 34-document committed-blob audit:
 four paths / 29,954 bytes, all matched exactly.
 
+The [live-main receipt](20260807_main_rb.json) independently replays the
+Simplified-Chinese Noether R3 reader/source seal, current catalogs, archive
+controls, locked log, and receipts from `main`: 28 paths / 9,759,875 bytes,
+all matched exactly.
+
 The [Noether Slavic v038 source receipt](20260807_slavic_rb.json) binds every
 path changed by its source commit: 126 commit-pinned raw files / 73,170,246
 bytes, all matched exactly.
