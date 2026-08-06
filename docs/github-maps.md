@@ -10,6 +10,9 @@ These are custody and continuation maps. Their words `complete`, `current`,
 the linked map; none is an automatic critical-edition, peer-review, native-
 language-review, or whole-author certification claim.
 
+For the exact root-level PDF and support-file counts behind these maps, use the
+[GitHub reader-shelf index](../reader-pdfs/README.md).
+
 ## Author, Work, And Series Maps
 
 | Author or series | What the map makes discoverable | Open first |

@@ -313,6 +313,7 @@ The completion/usefulness order above is the preferred quick map. The detailed r
 |---|---|
 | Find the right corpus | [Browse index](docs/browse-index.md) |
 | See every task-maintained GitHub coverage map | [GitHub map index](docs/github-maps.md) |
+| Browse the exact direct-reader roots | [GitHub reader shelves](reader-pdfs/README.md) |
 | Decide what to download | [Download guide](docs/download-guide.md) |
 | Browse by author or work | [By author and work](docs/by-author-and-work.md) |
 | Browse files record by record | [Record landing pages](docs/records/README.md) |

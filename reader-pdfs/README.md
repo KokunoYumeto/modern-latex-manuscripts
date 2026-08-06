@@ -1,0 +1,68 @@
+# GitHub Reader Shelves
+
+This is the direct landing for the reader-facing roots that this
+GitHub-maintenance task is allowed to catalog. Open the linked coverage map
+before treating a filename as current, complete, source-faithful, independently
+reviewed, or an invitation to start a new translation.
+
+Observed 2026-08-06: fourteen allowed roots contain 395 tracked files /
+911,980,954 bytes. There are 392 PDFs and three small support files. The set has
+394 unique SHA-256 identities, one internal duplicate pair, and no cross-root
+duplicate bytes.
+
+## Exact Root Index
+
+Per-root tree digests use ordinal paths relative to that root. The full-set
+digest below uses repository-relative paths.
+
+| Reader root | PDFs | Support | Bytes | Tree SHA-256 | Coverage map |
+|---|---:|---:|---:|---|---|
+| [Additional authors](author-cluster/) | 10 | 0 | 15,291,684 | `6834119ECAB949FD966ACC4E6390ACEBA93DC33127D4BADB749CBC7391863013` | [Map](../docs/cluster-map.md) |
+| [Classical](classical/) | 21 | 0 | 79,792,322 | `3CCB01C0470ADCECA8C30381F01E42CDB1542790D34282F1E8A85DE684B03ABA` | [Map](../docs/classical-map.md) |
+| [Dedekind](dedekind/) | 2 | 0 | 571,836 | `08867846489C83A29A62F3B0AEFFEBFDBC1E71FB4175770D5AB8188558437627` | [Map](../docs/dedekind-map.md) |
+| [Deligne](deligne/) | 96 | 0 | 42,412,442 | `CE8AE55F8E809775FF0F46DD950A8C652249685D2F96313AB0BF650D3283059A` | [Map](../docs/deligne-map.md) |
+| [Dirichlet](dirichlet/) | 2 | 0 | 20,990,879 | `D43DABDB4AEB21AACCD3641362746F6C538FE732ADBD9ED7AC9E2552A69F4736` | [Map](../docs/dirichlet-map.md) |
+| [EGA](ega/) | 10 | 0 | 250,754,356 | `0142D300645188929023C253BA649795EE3425FC2C546FD697D7EF000D519AD4` | [Map](../docs/ega-map.md) |
+| [Gauss](gauss/) | 14 | 0 | 115,264,723 | `9CC990DAF36F41CE2A91602BCA99E1527FAD91603DF53BD363CFCF30F0FD9686` | [Map](../docs/gauss-map.md) |
+| [Noether](noether/) | 122 | 3 | 51,635,387 | `C2299D36F8AFE1311B984099B5602F4FD29827EA2DF1D8AA052323BA9261B7F7` | [Map](../docs/noether-map.md) |
+| [Non-European mathematics](non-european/) | 72 | 0 | 244,889,001 | `742D16670E2EFED507B7509B632B17519418374D9BBBAFC1F82AD95552724B84` | [Map](../docs/non-european-map.md) |
+| [Riemann](riemann/) | 2 | 0 | 4,372,317 | `9D8CB090D50B4789E8CF476E40DA4EEA7A07F6417F91242C75768E5F2E0B625D` | [Map](../docs/riemann-map.md) |
+| [Steinitz](steinitz/) | 21 | 0 | 70,809,375 | `9CEDCE699E75ACDA36DDEF55D6FB2EA00C36F1F77E2F2289E88EACD901D2308A` | [Map](../docs/steinitz-map.md) |
+| [Sylvester](sylvester/) | 1 | 0 | 2,058,797 | `F42B91C2B356D8D10698E291892C97DD9FE27BFA95A254032A123CBFF73F53A6` | [Map](../docs/sylvester-map.md) |
+| [Ukrainian applied mathematics](ukrainian-applied-math/) | 13 | 0 | 4,710,882 | `6F00C45BAECB33F9BA43848157071A9973EF3BDAD2EFB1DC6C729929B453EC56` | [Map](../docs/ukrainian-map.md) |
+| [Weber](weber/) | 6 | 0 | 8,426,953 | `0A570B6AB6DAD18478D9D0815D8B76C12BDE3E749EABCD74839312014F47F3D9` | [Map](../docs/weber-map.md) |
+
+The complete 395-row canonical stream is 67,234 bytes with tree SHA-256
+`283D5F436ABCF8630502E468E372BAE09E0534A774697A7087549A339B354B32`.
+Exact machine evidence is in
+[`20260806_readers.json`](../manifests/github-custody/20260806_readers.json).
+
+## Duplicate And Support State
+
+Only one SHA-256 identity occurs twice. These two non-European paths are
+byte-identical (125,405 bytes; SHA-256
+`28DF2CBC08FDE1734EB7D1CACCB5A9F7766AA8E1F7BB334394BF8976C7DF8990`):
+
+- `10-15 English Translation - Omar Khayyam - Treatise on Algebra.pdf`
+- `60-04 Islamic Original - Omar Khayyam - Treatise on Algebra.pdf`
+
+They are one byte identity under two labels, not two independently established
+language editions. The [non-European map](../docs/non-european-map.md) preserves
+the work/language caveat.
+
+The three non-PDF support files are all under the Noether root: one exact CJK
+SHA-256 CSV and two small README files. Their full paths, bytes, and hashes are
+in the machine manifest. They are navigation/provenance support, not reader
+editions.
+
+## Reading Rule
+
+The directory name `reader-pdfs` describes repository placement, not quality.
+Some files are current readers; others are bounded checkpoints, broad drafts,
+containers, rejected bilingual history, or superseded generations. The linked
+map decides which role applies and records the continuation cursor, source
+binding, errors, reversals, and duplicate relations.
+
+Separately owned, revoked, or prohibited reader surfaces are intentionally
+absent and were not inspected. Their absence from this page is a task boundary,
+not evidence that their work does not exist.
