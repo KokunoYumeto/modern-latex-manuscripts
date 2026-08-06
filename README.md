@@ -8,7 +8,10 @@ For a concise evidence-based view of what each live translation lane has actuall
 
 For direct GitHub browsing, use the [source-shelf index](sources/README.md). It
 links the task-maintained author and corpus trees without requiring readers to
-reverse-engineer the external-record catalog.
+reverse-engineer the external-record catalog. Its exact Git-object inventory
+binds 12,407 tracked source paths / 2,546,045,982 committed bytes across the
+nineteen allowed shelves, so an old directory name is discoverable without
+being mistaken for the current generation.
 
 **Before starting any Emmy Noether translation, check the [current language/work coverage map](docs/noether-map.md).** It lists existing translations by language and paper, distinguishes complete scopes from exact continuation cursors, and identifies the current generation. An unchecked or non-cumulative artifact is still an existing translation; review it instead of silently retranslating it.
 

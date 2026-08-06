@@ -13,6 +13,11 @@ language-review, or whole-author certification claim.
 For the exact root-level PDF and support-file counts behind these maps, use the
 [GitHub reader-shelf index](../reader-pdfs/README.md).
 
+For every tracked source path behind the allowed shelves, use the
+[GitHub source-shelf index](../sources/README.md). Its compact summary and
+per-file CSV bind Git tree/blob identities without rereading the 2.5 GB source
+working tree.
+
 ## Author, Work, And Series Maps
 
 | Author or series | What the map makes discoverable | Open first |
