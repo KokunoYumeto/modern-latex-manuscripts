@@ -113,7 +113,7 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 | Riemann | [Exact GitHub map](riemann-map.md): two direct readers, their tracked TeX/history layers, stale PDF/TeX control identities, a broken-xref warning, and missing prior chunk/scans. The current readers and TeX are not proved synchronized build pairs. |
 | Weber | Lehrbuch der Algebra, Bands I and III, as modern LaTeX drafts. |
 | Noether | Selected mathematical papers as a modern LaTeX draft. |
-| Cayley | Collected Mathematical Papers draft/provenance material. Treat inherited `Complete`, `source_checked`, and `critical` filenames as obsolete quality labels; no Cayley range is presently promoted as source-faithful until a later page-by-page glyph/source audit re-promotes that exact range. |
+| Cayley | [Exact GitHub map](cayley-map.md): thirteen direct Volume I–XIII readers, two May source generations, a June Volume I assembly, exact reader/manifest identity conflicts, retained placeholders and omissions, and a stale Volume VIII scan locator. Inherited `Complete`, `source_checked`, and `critical` filenames remain de-promoted; no range is presently promoted as source-faithful. |
 
 ## Source-Intake Only Starts
 
