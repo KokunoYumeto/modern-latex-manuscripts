@@ -9,7 +9,7 @@ readback, and where to start browsing without replaying old task transcripts.
 
 | Need | Human landing | Exact machine evidence |
 |---|---|---|
-| Find an author, work, or corpus | [Coverage-map index](github-maps.md) | [`20260806_maps.json`](../manifests/github-custody/20260806_maps.json) |
+| Find an author, work, or corpus | [Coverage-map index](github-maps.md) | [`20260806_maps_r2.json`](../manifests/github-custody/20260806_maps_r2.json) |
 | Open a direct reader | [Reader-shelf index](../reader-pdfs/README.md) | [`20260806_readers.json`](../manifests/github-custody/20260806_readers.json) |
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260806_sources.csv`](../manifests/github-custody/20260806_sources.csv) and [summary](../manifests/github-custody/20260806_sources.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |

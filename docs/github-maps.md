@@ -49,17 +49,21 @@ working tree.
 
 ## Exact Navigation Audit
 
-The nineteen map documents total 187,123 bytes. Their ordinal canonical stream
+The nineteen map documents total 191,042 bytes. Their ordinal canonical stream
 (`path<TAB>bytes<TAB>SHA256<LF>`, UTF-8 without BOM) is 1,717 bytes with tree
 SHA-256
-`9C6D8CA75B45F398035C3CE8F2A0C1160BAF1CCC851ED220AEA3A72DFCCB6D7D`.
-All 601 local links resolve in the current Git tree.
+`720FA01ED25A07D64C8563CCB5C742DFF9BAE6E425154E2B7C840793F0386DAC`.
+All 619 local links resolve in the current Git tree.
 
-Eighteen maps explicitly link twenty custody manifests. Noether's coverage map
-instead spans distributed per-language and per-work manifests; the machine
-index names current German and Korean anchors without pretending that either is
-a whole-Noether manifest. Exact map and manifest identities are in
-[`20260806_maps.json`](../manifests/github-custody/20260806_maps.json).
+All nineteen maps now explicitly route to twenty-one custody manifests.
+Noether still spans distributed per-language and per-work evidence, but its map
+now links the exact top-level route closure without pretending that a German or
+Korean anchor is a whole-Noether manifest. The two changes since the first map
+index are the Noether route closure and ten new non-European source-only links;
+the other seventeen map blobs are unchanged. Current identities are in
+[`20260806_maps_r2.json`](../manifests/github-custody/20260806_maps_r2.json).
+The [first map index](../manifests/github-custody/20260806_maps.json) remains an
+immutable historical generation.
 
 ## Boundary
 
