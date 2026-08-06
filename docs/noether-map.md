@@ -26,6 +26,12 @@ The exact v038 GitHub projection is bound by the
 direct readers duplicate source-release bytes intentionally for human access;
 they do not create new translation witnesses.
 
+The exact Simplified-Chinese R3 projection is bound by the
+[Chinese custody manifest](../manifests/github-custody/20260807_zh.json) and
+[445-row path index](../manifests/github-custody/20260807_zh.csv). Its direct
+reader is an intentional exact duplicate of the sealed source reader, not a
+second translation witness.
+
 ## German Authority And Head History
 
 Use [`de-v010`](../sources/noether/de-v010/README.md) as the current project
