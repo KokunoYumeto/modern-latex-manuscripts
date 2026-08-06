@@ -30,7 +30,7 @@ or newest-looking directory is the current continuation head.
 | James Joseph Sylvester | [Sylvester source shelf](sylvester/) | [Sylvester coverage](../docs/sylvester-map.md) |
 | Arthur Cayley | [Cayley source generations](classical/) | [Cayley custody and gap map](../docs/cayley-map.md) |
 | Ukrainian applied mathematics | [Ukrainian source shelf](ukrainian-applied-math/) | [Live fleet map](../docs/live-fleet-map.md) |
-| Non-European mathematical texts | [Multilingual source shelf](non-european/README.md) | [Browse index](../docs/browse-index.md) |
+| Non-European mathematical texts | [Multilingual source shelf](non-european/README.md) | [Exact work/language coverage](../docs/non-european-map.md) |
 
 ## Mixed And Supporting Shelves
 

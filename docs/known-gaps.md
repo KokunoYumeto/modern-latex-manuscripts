@@ -37,9 +37,12 @@ Current record: <https://doi.org/10.5281/zenodo.20410947> (concept DOI: <https:/
 
 Current consolidated record: <https://doi.org/10.5281/zenodo.20410957>
 
-- The current release is much more readable than the early path-dump stage: it has combined readers, work-level PDFs, source bundles, OCR notes, and page-image artifacts.
-- It still needs source-faithfulness review, terminology checks, and mathematical proofreading work by work.
-- Some language layers are uneven: several works have English translation, modern Chinese rendering, and original-language drafts; others have only part of that stack.
+- Exact GitHub custody and work/language coverage: [non-European mathematics map](non-european-map.md). The current local surface is 72 direct PDFs / 8,025 page slots plus 549 source, repair, decision, and adverse-history files.
+- The two-page project guide is stale: it advertises 62 PDFs / 3,580 pages and older al-Battani names. Use the map and machine manifest instead.
+- Only 6 of 72 current direct readers match any retained historical control hash; 66 now receive a GitHub custody binding but still lack exact producer-source lineage replay. Fifty-nine names also have older, different identities in retained controls.
+- Existing but non-fronted source layers include Arabic *Nine Chapters* vols.1-3, Arabic *Sunzi*, English *Fenlei Shishu* vols.1-3, an independent-English Li Ye vols.10-12 source, Modern-Chinese Qin fasc.2-4, and English Ibn al-Qifti. These are assembly/checking gaps, not permission to retranslate from zero.
+- The old source manifest has 59 absent work-level combined bundles; all 148 old source-PDF-part paths and all five named archive ZIP containers are absent from GitHub. Do not infer those bytes from the retained declarations.
+- Source-faithfulness, terminology, mathematical proofreading, independent-language presentation, and al-Battani table/collation work remain open. Inherited “complete” and “critical” filenames are not certification.
 
 ## Weber and Noether
 

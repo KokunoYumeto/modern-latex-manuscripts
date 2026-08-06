@@ -60,15 +60,19 @@ certification.
 
 Record: [Chinese mathematical classics](https://doi.org/10.5281/zenodo.20415751)
 
-| Work | Current Public Layers |
+Exact local files, page counts, language scopes, source-only translations, and
+identity conflicts: [non-European GitHub coverage map](non-european-map.md).
+Use that map before assigning a new translation.
+
+| Work | Current GitHub Layers |
 |---|---|
-| Nine Chapters on the Mathematical Art | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
-| Li Ye, Ceyuan Haijing | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
-| Li Ye, Ceyuan Haijing Fenlei Shishu | Modern Chinese rendering and original-language modern LaTeX draft. |
-| Qin Jiushao, Shuxue Jiuzhang | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
-| Sunzi Suanjing | English translation draft, modern Chinese rendering, Arabic translation draft, original-language modern LaTeX draft. |
-| Yang Hui, Xiangjie Jiuzhang | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
-| Zhu Shijie, Suanxue Qimeng | English translation draft, modern Chinese rendering, original-language modern LaTeX draft. |
+| Nine Chapters on the Mathematical Art | Direct parallel readers: English/Chinese 100p, classical/modern Chinese 35p, Chinese/source-facing 75p. Arabic TeX exists for vols.1-3 but has no direct PDF. |
+| Li Ye, Ceyuan Haijing | Direct readers: English-bilingual 144p / vols.1-12, modern Chinese 84p / vols.1-12, Arabic 83p / vols.1-6 and 10-12, Chinese/source-facing 90p / vols.1-12. |
+| Li Ye, Ceyuan Haijing Fenlei Shishu | Direct modern-Chinese 104p and Chinese/source-facing 111p readers cover vols.1-10. English-bilingual TeX exists only for vols.1-3 and has no direct PDF. |
+| Qin Jiushao, Shuxue Jiuzhang | Direct English-bilingual 118p / fasc.1-9, modern-Chinese 105p / fasc.1 and 5-9, Arabic 26p / fasc.1 and 4, and Chinese/source-facing 102p / fasc.1-9. Modern-Chinese TeX for fasc.2-4 already exists. |
+| Sunzi Suanjing | Direct English-bilingual 23p, modern-Chinese 16p, and Chinese/source-facing 32p readers. Arabic TeX exists without a direct PDF. |
+| Yang Hui, Xiangjie Jiuzhang | Direct English-bilingual 64p / parts1-3, modern-Chinese 77p / parts1-3, Arabic 27p / part1, and Chinese/source-facing 85p / parts1-3. |
+| Zhu Shijie, Suanxue Qimeng | Direct English-bilingual 68p, modern-Chinese 38p, and Chinese/source-facing 49p readers; all tracked source components stop at parts1-2. |
 
 The consolidated non-European record also includes combined Chinese readers: [non-European consolidated](https://doi.org/10.5281/zenodo.20410957).
 
@@ -76,12 +80,15 @@ The consolidated non-European record also includes combined Chinese readers: [no
 
 Record: [Indian and Sanskrit mathematical classics](https://doi.org/10.5281/zenodo.20415754)
 
-| Work | Current Public Layers |
+Exact local files and duplicate-label findings: [non-European GitHub coverage
+map](non-european-map.md).
+
+| Work | Current GitHub Layers |
 |---|---|
-| Aryabhata, Aryabhatiya | English translation draft and original-language modern LaTeX draft. |
-| Bhaskara II, Bijaganita | English translation draft and original-language modern LaTeX draft. |
-| Bhaskara II, Lilavati | English translation draft and original-language modern LaTeX draft. |
-| Brahmagupta, Brahmasphutasiddhanta | English translation draft and original-language modern LaTeX draft. |
+| Aryabhata, Aryabhatiya | Distinct 18p English/Sanskrit-facing and 18p source-facing readers; both TeX layers exist. |
+| Bhaskara II, Bijaganita | The English- and original-labelled 56p PDFs have different container hashes but identical normalized text and page-content sequences; they are not two independent editions. |
+| Bhaskara II, Lilavati | Distinct 23p Sanskrit/English-bilingual and 16p source-facing readers. |
+| Brahmagupta, Brahmasphutasiddhanta | One 160p English-only reader, two 1,217p scan-backed source-facing parts, and retained original/English-bilingual TeX chunks including `_fixed` generations. |
 
 The consolidated non-European record also includes combined Indian/Sanskrit readers: [non-European consolidated](https://doi.org/10.5281/zenodo.20410957).
 
@@ -89,15 +96,24 @@ The consolidated non-European record also includes combined Indian/Sanskrit read
 
 Record: [Islamic and Arabic mathematical texts](https://doi.org/10.5281/zenodo.20415769)
 
-| Work | Current Public Layers |
+Exact local files, Arabic-script versus romanized state, and duplicated labels:
+[non-European GitHub coverage map](non-european-map.md).
+
+| Work | Current GitHub Layers |
 |---|---|
-| al-Kashi, Miftah al-Hisab | English translation draft and original-language modern LaTeX draft. |
-| al-Khwarizmi, Algebra | English translation draft and original-language modern LaTeX draft. |
-| al-Tusi, Shakl al-Qatta | English translation draft and original-language modern LaTeX draft. |
-| Omar Khayyam, Treatise on Algebra | English translation draft and original-language modern LaTeX draft. |
-| Rosen, Algebra of Mohammed Ben Musa | English translation/reference draft and source-witness draft. |
-| Ruska, Oldest Arabic Algebra | English translation/reference draft and source-witness draft. |
-| Robert of Chester and Karpinski | English translation/reference draft and source-witness draft. |
+| al-Kashi, Miftah al-Hisab | Distinct English-labelled 14p, Arabic 29p, and original-labelled 27p readers. |
+| al-Khwarizmi, Algebra | English Arabic/English 33p, Arabic-labelled 42p romanized reading draft, and original-labelled 31p readers. |
+| al-Tusi, Shakl al-Qatta | English Arabic/English 22p and original-labelled 16p readers; no separate direct Arabic translation. |
+| Omar Khayyam, Treatise on Algebra | English-labelled 15p, Arabic 14p, and original-labelled 15p readers; the two 15p files are byte-identical. |
+| Rosen, Algebra of Mohammed Ben Musa | English- and original-labelled 40p PDFs have identical normalized text and page-content sequences. |
+| Ruska, Oldest Arabic Algebra | Distinct 50p English-labelled and 60p source-facing readers. |
+| Robert of Chester and Karpinski | English- and original-labelled 27p PDFs have identical normalized text and page-content sequences. |
+| al-Battani, Opus Astronomicum and tables | Five direct PDFs: 222p trilingual text/table reader, 47p table concordance, 19p fixed stars, 6p geography, and 4p chronology. Tables/collation remain open; no matching editable/source path exists in this GitHub source shelf. |
+
+Historical-reference material also has direct al-Muqaddasi, Ibn al-Nadim,
+Sa'id al-Andalusi, Ibn al-Qifti, and Smith-Karpinski readers. Ibn al-Qifti has
+an English-bilingual TeX source but no matching direct English PDF; it is
+existing work, not an empty translation slot.
 
 The consolidated non-European record also includes combined Islamic/Arabic readers: [non-European consolidated](https://doi.org/10.5281/zenodo.20410957).
 
