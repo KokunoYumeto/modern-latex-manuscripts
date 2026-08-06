@@ -13,6 +13,9 @@ binds 12,407 tracked source paths / 2,546,045,982 committed bytes across the
 nineteen allowed shelves, so an old directory name is discoverable without
 being mistaken for the current generation.
 
+For the exact GitHub catalog commit chain and commit-pinned raw-readback
+receipts, use the [GitHub archive history](docs/github-archive.md).
+
 **Before starting any Emmy Noether translation, check the [current language/work coverage map](docs/noether-map.md).** It lists existing translations by language and paper, distinguishes complete scopes from exact continuation cursors, and identifies the current generation. An unchecked or non-cumulative artifact is still an existing translation; review it instead of silently retranslating it.
 
 Before duplicating current French/English work, check the dedicated [Luc
