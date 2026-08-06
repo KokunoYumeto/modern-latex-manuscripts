@@ -39,9 +39,10 @@ was used for these four cycles. The exact file identities and chain are in
 
 The bounded [local-link audit](../manifests/github-custody/20260806_links.json)
 covers the nineteen allowed maps and the GitHub-only map, archive, reader, and
-source landings. [`check-links.ps1`](../scripts/check-links.ps1) resolves local
-targets only; it counts external URLs without requesting them and stops before
-touching a prohibited local target.
+source landings, plus the six contributor/issue entry points.
+[`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it
+counts external URLs without requesting them and stops before touching a
+prohibited local target.
 
 ## Maintenance Decisions And Errors
 
