@@ -25,6 +25,10 @@ The [shelf-closure receipt](20260807_slavic_close_rb.json) binds seven paths /
 96,574 bytes, and the [map/audit receipt](20260807_slavic_audit_rb.json) binds
 five paths / 87,097 bytes. Both replays matched every byte.
 
+The [landing receipt](20260807_slavic_land_rb.json), [final-link receipt](20260807_slavic_link_rb.json),
+and [link-receipt closure](20260807_slavic_link_close.json) preserve the final
+landing and audit chain; all thirteen recorded paths matched.
+
 Receipts are immutable evidence generations. A later receipt may bind a newer
 version of the same path without deleting or reinterpreting the earlier one.
 Do not add receipt totals together as unique-file totals unless the controlling

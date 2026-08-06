@@ -7,7 +7,7 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- [Fifteen-cycle archive history](20260806_archive_r4.json)
+- [Eighteen-cycle archive history](20260807_archive.json)
 - [Coverage-map inventory](20260807_maps.json)
 - [Current reader/source shelf closure](20260807_shelves.json)
 - [Direct-reader inventory](20260807_readers.json)
