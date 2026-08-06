@@ -7,6 +7,8 @@ Start here:
 - [Current translation coverage](../../docs/noether-map.md)
 - [Current German authority](de-v010/README.md)
 - [Current Russian, Ukrainian, and Interslavic v038 release](slavic-v038/README.md)
+- [Current Simplified-Chinese cumulative R3 seal](zh-r3/return.json)
+- [Current Simplified-Chinese cumulative reader](../../reader-pdfs/noether/zh-r3.pdf)
 - [Reader and archive catalog](../../docs/records/noether.md)
 - [Immutable GitHub source checkpoints](../../docs/records/noether.md#github-source-checkpoints)
 - [Archive workflow](../../docs/noether-workflow.md)
