@@ -131,6 +131,27 @@ Record: [Classical algebra and arithmetic](https://doi.org/10.5281/zenodo.204147
 | Noether | Selected mathematical papers as a modern LaTeX draft. |
 | Cayley | [Exact GitHub map](cayley-map.md): thirteen direct Volume I–XIII readers, two May source generations, a June Volume I assembly, exact reader/manifest identity conflicts, retained placeholders and omissions, and a stale Volume VIII scan locator. Inherited `Complete`, `source_checked`, and `critical` filenames remain de-promoted; no range is presently promoted as source-faithful. |
 
+## Additional Author Cluster
+
+Exact GitHub paths, hashes, page counts, language state, and source-custody
+gaps: [additional-author map](cluster-map.md).
+
+| Author | Current GitHub reader surface |
+|---|---|
+| Hermann Minkowski | 333-page German Volume II selected-paper assembly; whole-volume completeness is unproved. |
+| Erich Hecke | 184-page German working assembly with internal numbering resets and publisher ads on PDF pages 181–184. |
+| Edmund Landau | 243-page English body-only *Elementary Number Theory* reader; title/translator front matter is absent. |
+| Ernst Steinitz | 73-page legacy German mixed-shelf reader; use the dedicated [Steinitz map](steinitz-map.md) for the current 87-page German sections 1–24 surface. |
+| Kurt Hensel | 251-page German *Zahlentheorie* reader ending with the printed errata surface. |
+| Kiyoshi Oka | 141-page English translation collection of Memoirs I–X. |
+| Felix Hausdorff | Distinct 413-page English *Set Theory* and 675-page German *Mengenlehre*/descriptive-set/topology readers. |
+| Hermann Grassmann | 613-page English translation anthology containing the 1844 work, *Geometric Analysis*, and selected papers. |
+| Wilhelm Killing | 12-page German `Zweiter Theil` only; not a complete transformation-groups corpus. |
+
+The matching `sources/author-cluster` root contains only three small
+report/triage files. No TeX, source PDF, package ZIP, or routed
+Mikami/Kronecker/Picard payload is tracked there.
+
 ## Source-Intake Only Starts
 
 These have useful source packets for future work, but they are not reader releases or promoted transcription/translation lanes yet.
