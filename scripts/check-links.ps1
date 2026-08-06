@@ -48,6 +48,87 @@ function Get-Sha256 {
     finally { $sha.Dispose() }
 }
 
+function Get-GitBlobBytes {
+    param([string]$Path)
+    $oid = (& git rev-parse "HEAD:$Path").Trim()
+    if ($LASTEXITCODE -ne 0) { throw "Cannot resolve committed document: $Path" }
+
+    $startInfo = [Diagnostics.ProcessStartInfo]::new()
+    $startInfo.FileName = 'git'
+    $startInfo.UseShellExecute = $false
+    $startInfo.RedirectStandardOutput = $true
+    $startInfo.RedirectStandardError = $true
+    $startInfo.CreateNoWindow = $true
+    [void]$startInfo.ArgumentList.Add('cat-file')
+    [void]$startInfo.ArgumentList.Add('blob')
+    [void]$startInfo.ArgumentList.Add($oid)
+
+    $process = [Diagnostics.Process]::new()
+    $process.StartInfo = $startInfo
+    [void]$process.Start()
+    $memory = [IO.MemoryStream]::new()
+    try {
+        $process.StandardOutput.BaseStream.CopyTo($memory)
+        $errorText = $process.StandardError.ReadToEnd()
+        $process.WaitForExit()
+        if ($process.ExitCode -ne 0) { throw $errorText }
+        return ,$memory.ToArray()
+    }
+    finally {
+        $memory.Dispose()
+        $process.Dispose()
+    }
+}
+
+function Get-MissingGitPaths {
+    param([string[]]$Paths)
+    if ($Paths.Count -eq 0) { return @() }
+
+    $startInfo = [Diagnostics.ProcessStartInfo]::new()
+    $startInfo.FileName = 'git'
+    $startInfo.UseShellExecute = $false
+    $startInfo.RedirectStandardInput = $true
+    $startInfo.RedirectStandardOutput = $true
+    $startInfo.RedirectStandardError = $true
+    $startInfo.CreateNoWindow = $true
+    $startInfo.StandardInputEncoding = $utf8
+    $startInfo.StandardOutputEncoding = $utf8
+    [void]$startInfo.ArgumentList.Add('cat-file')
+    [void]$startInfo.ArgumentList.Add('--batch-check')
+
+    $process = [Diagnostics.Process]::new()
+    $process.StartInfo = $startInfo
+    [void]$process.Start()
+    try {
+        $stdoutTask = $process.StandardOutput.ReadToEndAsync()
+        $stderrTask = $process.StandardError.ReadToEndAsync()
+        foreach ($path in $Paths) {
+            $process.StandardInput.WriteLine("HEAD:$path")
+        }
+        $process.StandardInput.Close()
+        $process.WaitForExit()
+        $output = $stdoutTask.GetAwaiter().GetResult()
+        $errorText = $stderrTask.GetAwaiter().GetResult()
+        if ($process.ExitCode -ne 0) { throw $errorText }
+
+        $lines = @($output -split "`r?`n" | Where-Object { $_.Length -gt 0 })
+        if ($lines.Count -ne $Paths.Count) {
+            throw "Git batch check returned $($lines.Count) rows for $($Paths.Count) paths."
+        }
+        $missingPaths = [Collections.Generic.List[string]]::new()
+        for ($i = 0; $i -lt $Paths.Count; $i++) {
+            $line = $lines[$i]
+            if ($line.EndsWith(' missing', [StringComparison]::Ordinal)) {
+                $missingPaths.Add($Paths[$i])
+            }
+        }
+        return @($missingPaths)
+    }
+    finally {
+        $process.Dispose()
+    }
+}
+
 function Get-MarkdownTargets {
     param([string]$Text)
     $targets = [Collections.Generic.List[string]]::new()
@@ -106,10 +187,7 @@ $totalFragments = 0
 $guardedTargets = 0
 
 foreach ($document in $documents) {
-    if (-not (Test-Path -LiteralPath $document -PathType Leaf)) {
-        throw "Missing scoped document: $document"
-    }
-    $bytes = [IO.File]::ReadAllBytes((Join-Path $repoRoot $document))
+    $bytes = Get-GitBlobBytes -Path $document
     $text = $utf8.GetString($bytes)
     $local = 0
     $external = 0
@@ -150,9 +228,6 @@ foreach ($document in $documents) {
         $local++
         $totalLocal++
         [void]$uniqueTargets.Add($repoTarget)
-        if (-not (Test-Path -LiteralPath $fullTarget)) {
-            $missing.Add("$document -> $repoTarget")
-        }
     }
 
     $rows.Add([pscustomobject]@{
@@ -163,6 +238,12 @@ foreach ($document in $documents) {
         external_links      = $external
         fragment_only_links = $fragments
     })
+}
+
+$targetPaths = [string[]]@($uniqueTargets)
+[Array]::Sort($targetPaths, [StringComparer]::Ordinal)
+foreach ($missingTarget in (Get-MissingGitPaths -Paths $targetPaths)) {
+    $missing.Add($missingTarget)
 }
 
 $canonical = [Text.StringBuilder]::new()
@@ -179,8 +260,8 @@ $canonicalBytes = $utf8.GetBytes($canonical.ToString())
 $result = [ordered]@{
     schema               = 'github-local-links/v1'
     observed_date        = $ObservedDate
-    observed_base_commit = (& git rev-parse HEAD).Trim()
-    scope                = 'Inline local links in nineteen explicitly allowed coverage maps; the GitHub-only map, archive, reader, and source landings; and six contributor entry points. External URLs are counted but never requested.'
+    observed_commit      = (& git rev-parse HEAD).Trim()
+    scope                = 'Committed Git-blob identities and inline local links in nineteen explicitly allowed coverage maps; the GitHub-only map, archive, reader, and source landings; and six contributor entry points. External URLs are counted but never requested.'
     canonical_stream     = 'Ordinal document path order; path<TAB>bytes<TAB>SHA256<LF>; UTF-8 without BOM.'
     aggregate            = [ordered]@{
         documents              = $rows.Count
@@ -199,6 +280,8 @@ $result = [ordered]@{
         documents_present                  = "$($rows.Count)/$($rows.Count)"
         local_links_resolved               = "$($totalLocal - $missing.Count)/$totalLocal"
         external_network_queried           = $false
+        identity_surface                   = 'HEAD Git blobs'
+        working_tree_content_read          = $false
         producer_files_mutated             = $false
         compile_render_or_ocr_run           = $false
         global_filesystem_search            = $false
