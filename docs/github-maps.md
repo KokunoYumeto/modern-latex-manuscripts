@@ -15,14 +15,14 @@ For the exact root-level PDF and support-file counts behind these maps, use the
 
 For every tracked source path behind the allowed shelves, use the
 [GitHub source-shelf index](../sources/README.md). Its compact summary and
-per-file CSV bind Git tree/blob identities without rereading the 2.5 GB source
+per-file CSV bind Git tree/blob identities without rereading the 2.87 GB source
 working tree.
 
 ## Author, Work, And Series Maps
 
 | Author or series | What the map makes discoverable | Open first |
 |---|---|---|
-| Emmy Noether | Corpus-wide German, English, Spanish, French, Interslavic, and Korean surfaces; paper-level Korean, Chinese, Japanese, Arabic, Persian, Indonesian, Russian, and Ukrainian coverage; German authority history; English Paper 4 checkpoints; adverse and visual-evidence generations. | [Noether language/work map](noether-map.md) |
+| Emmy Noether | Corpus-wide German, English, Spanish, French, Russian, Ukrainian, Interslavic, Korean, and Simplified-Chinese surfaces; paper-level multilingual coverage; German authority history; English Paper 4 checkpoints; adverse and visual-evidence generations. | [Noether language/work map](noether-map.md) |
 | Alexandre Grothendieck, EGA | Existing EGA 0–IV English reader/source surfaces, standalone editions, the 1,356-page linked global reader, and the newer bounded EGA I p.143 authority checkpoint. | [EGA map](ega-map.md) |
 | Pierre Deligne | D001/D002 source-aligned independent editions, the Papers 001–015 plus Paper 016 p.001–040 sequence, later numbered-paper generations, letters, and D078–D090 witnesses. | [Deligne map](deligne-map.md) |
 | Grothendieck and collaborators, FGA | Separate French and English editions for the declared Exposé/Commentaires/errata scope, editable sources, term index, graph, and residual ledger. | [FGA map](fga-map.md) |
@@ -49,21 +49,19 @@ working tree.
 
 ## Exact Navigation Audit
 
-The nineteen map documents total 191,042 bytes. Their ordinal canonical stream
+The nineteen map documents total 193,756 bytes. Their ordinal canonical stream
 (`path<TAB>bytes<TAB>SHA256<LF>`, UTF-8 without BOM) is 1,717 bytes with tree
 SHA-256
-`720FA01ED25A07D64C8563CCB5C742DFF9BAE6E425154E2B7C840793F0386DAC`.
-All 619 local links resolve in the current Git tree.
+`ECA9639F1CF3893062A9D34C8FBB05C0B811C0313AEFE1A04C93667D50851B1A`.
+All 633 local links resolve in the current Git tree.
 
-All nineteen maps now explicitly route to twenty-one custody manifests.
-Noether still spans distributed per-language and per-work evidence, but its map
-now links the exact top-level route closure without pretending that a German or
-Korean anchor is a whole-Noether manifest. The two changes since the first map
-index are the Noether route closure and ten new non-European source-only links;
-the other seventeen map blobs are unchanged. Current identities are in
-[`20260806_maps_r2.json`](../manifests/github-custody/20260806_maps_r2.json).
-The [first map index](../manifests/github-custody/20260806_maps.json) remains an
-immutable historical generation.
+All nineteen maps now explicitly route to twenty-five custody manifests. The
+current increment adds the exact Simplified-Chinese Noether R3 custody manifest
+and 445-row path index; the other eighteen map blobs are unchanged from the
+Slavic-generation predecessor. Current identities are in
+[`20260807_maps_r2.json`](../manifests/github-custody/20260807_maps_r2.json).
+The [Slavic-generation map index](../manifests/github-custody/20260807_maps.json)
+and earlier generations remain immutable history.
 
 ## Boundary
 
