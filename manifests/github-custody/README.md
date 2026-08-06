@@ -7,7 +7,7 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- [Eighteen-cycle archive history](20260807_archive.json)
+- [Nineteen-cycle archive history](20260807_archive_r2.json)
 - [Coverage-map inventory](20260807_maps_r2.json)
 - [Current reader/source shelf closure](20260807_shelves_r2.json)
 - [Direct-reader inventory](20260807_readers_r2.json)
@@ -30,7 +30,9 @@ predecessor to the current additive r2 index. The
 [twelve-cycle archive r3](20260806_archive_r3.json),
 [eight-cycle archive r2](20260806_archive_r2.json), and
 [four-cycle predecessor](20260806_archive.json) remain immutable historical
-generations; the current r4 index adds later cycles without rewriting them.
+generations. The [eighteen-cycle predecessor](20260807_archive.json) also
+remains unchanged; the current nineteen-cycle index adds the Simplified-Chinese
+R3 cycle without rewriting any predecessor.
 
 The 2026-08-07 r2 reader and source inventories are additive successors to the
 first 2026-08-07 generations. They retain the exact Noether Slavic v038

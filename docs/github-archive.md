@@ -9,12 +9,12 @@ readback, and where to start browsing without replaying old task transcripts.
 
 | Need | Human landing | Exact machine evidence |
 |---|---|---|
-| Find an author, work, or corpus | [Coverage-map index](github-maps.md) | [`20260807_maps.json`](../manifests/github-custody/20260807_maps.json) |
-| Open a direct reader | [Reader-shelf index](../reader-pdfs/README.md) | [`20260807_readers.json`](../manifests/github-custody/20260807_readers.json) |
-| Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources.csv`](../manifests/github-custody/20260807_sources.csv) and [summary](../manifests/github-custody/20260807_sources.json) |
-| Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260807_shelves.json`](../manifests/github-custody/20260807_shelves.json) |
+| Find an author, work, or corpus | [Coverage-map index](github-maps.md) | [`20260807_maps_r2.json`](../manifests/github-custody/20260807_maps_r2.json) |
+| Open a direct reader | [Reader-shelf index](../reader-pdfs/README.md) | [`20260807_readers_r2.json`](../manifests/github-custody/20260807_readers_r2.json) |
+| Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources_r2.csv`](../manifests/github-custody/20260807_sources_r2.csv) and [summary](../manifests/github-custody/20260807_sources_r2.json) |
+| Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260807_shelves_r2.json`](../manifests/github-custody/20260807_shelves_r2.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |
-| Audit the GitHub maintenance chain | This page | [`20260807_archive.json`](../manifests/github-custody/20260807_archive.json) |
+| Audit the GitHub maintenance chain | This page | [`20260807_archive_r2.json`](../manifests/github-custody/20260807_archive_r2.json) |
 | Interpret manifests and readback receipts | [Custody evidence](../manifests/github-custody/README.md) | [Raw-readback receipts](../manifests/published-github/README.md) |
 
 ## Published GitHub Cycles
@@ -37,22 +37,24 @@ readback, and where to start browsing without replaying old task transcripts.
 | Coverage maps r2 | 19 current maps / 191,042 bytes, 619 resolved map links, 21 exact custody manifests | [`790c1dbb`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/790c1dbbf3976e642214e6e920f4fe662c108570), [`2b2f287b`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/2b2f287b1b4e8359011739616466064bd04c8260) | [`506f8e2d`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/506f8e2df6593b9a01c2275ea94feea08183163e), [receipt](../manifests/published-github/20260806_maps_r2_rb.json) |
 | Reader/source shelf closure | 14/14 reader trees, 19/19 source trees, and 12,407/12,407 source metadata rows current | [`fafa41aa`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/fafa41aa6c29becb048aacc7cecf5f739f6dde86), [`938a1a75`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/938a1a7532808326cc582fbc7cf361649a1a8992) | [`ff5ab5d7`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/ff5ab5d73260439fb69065419e1465b10d6648c3), [receipt](../manifests/published-github/20260806_shelves_rb.json) |
 | Noether Slavic v038 | Exact 116-file producer release plus handoff, four direct-reader mirrors, 399-reader and 12,524-source successor inventories, current-tree closure, and map audit | [`4af9d720`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/4af9d72039ac8d16697ff01971b651f968a73e32) | [`c23f5d33`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/c23f5d33bc6c005edd167732c8a7015fcb08b6b3), [`601e97e4`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/601e97e430352cf12545178aa45aea88a98d9ce5), [`34aa4159`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/34aa4159d50f6c9124e22afc9b6685ee6977de50); [source](../manifests/published-github/20260807_slavic_rb.json), [catalog](../manifests/published-github/20260807_slavic_cat_rb.json), [shelf](../manifests/published-github/20260807_slavic_close_rb.json), and [audit](../manifests/published-github/20260807_slavic_audit_rb.json) receipts |
+| Noether Simplified Chinese R3 | Exact sealed 444-file, 43-paper source checkpoint plus direct 413-page reader; current 400-file reader inventory, 12,968-file source inventory, shelf closure, and map audit | [`bbe8a929`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/bbe8a929bb70dd36f968ee654743cbf0b36794ec) | [`e396ebdb`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/e396ebdbdff24f3238481ba662e8c7d193aee97b), [receipt](../manifests/published-github/20260807_zh_rb.json) |
 
 These scopes overlap and must not be treated as unique-file totals: the
 classical files are a deeply classified subset of the reader and source
 shelves, while later maintenance cycles repeatedly read back evolving catalog,
-log, and navigation paths. Across all eighteen cycles, the receipts preserve
-304 additive raw-readback observations / 82,530,145 bytes with zero mismatches.
+log, and navigation paths. Across all nineteen cycles, the receipts preserve
+776 additive raw-readback observations / 352,593,858 bytes with zero mismatches.
 
-The sixty-six source/correction/receipt commits form one direct-parent,
+The seventy-four source/correction/receipt commits form one direct-parent,
 fast-forward-only chain from
 `621f903e79f47117ac6dc2e6bca3a61ee5aa225b` through
-`dc30c7c1497642d6599d99b104e1f57fd2163270`. No pull request or merge commit
-was used for these eighteen cycles. The exact generation-specific file identities
+`e396ebdbdff24f3238481ba662e8c7d193aee97b`. No pull request or merge commit
+was used for these nineteen cycles. The exact generation-specific file identities
 and chain are in
-[`20260807_archive.json`](../manifests/github-custody/20260807_archive.json).
-The [fifteen-cycle r4 predecessor](../manifests/github-custody/20260806_archive_r4.json),
-The [twelve-cycle r3 predecessor](../manifests/github-custody/20260806_archive_r3.json),
+[`20260807_archive_r2.json`](../manifests/github-custody/20260807_archive_r2.json).
+The [eighteen-cycle predecessor](../manifests/github-custody/20260807_archive.json),
+the [fifteen-cycle r4 predecessor](../manifests/github-custody/20260806_archive_r4.json),
+the [twelve-cycle r3 predecessor](../manifests/github-custody/20260806_archive_r3.json),
 [eight-cycle r2 predecessor](../manifests/github-custody/20260806_archive_r2.json),
 and [four-cycle predecessor](../manifests/github-custody/20260806_archive.json)
 remain unchanged as historical evidence.
@@ -79,7 +81,7 @@ Corrections supersede failed methods without deleting their error history.
 
 ## Boundary
 
-The index names only the eighteen exact GitHub-maintenance cycles above. It does not
+The index names only the nineteen exact GitHub-maintenance cycles above. It does not
 enumerate unrelated receipt directories or separately owned, revoked, or
 prohibited corpus surfaces. Cataloging preserves distinct paths and generations;
 it does not silently deduplicate, rewrite, promote, or certify producer work.
