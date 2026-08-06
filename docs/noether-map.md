@@ -4,7 +4,7 @@
 
 **Do not start a Noether translation from scratch until you have checked this page.** A missing cumulative reader, a pending review, or an old-looking directory name does not mean that the translation is absent. Review and correct the existing bytes first. Continue a partial translation at its stated cursor.
 
-This is the current human-readable coverage map for the Noether material already preserved in this GitHub repository as of 2026-08-05. “Complete” means complete only for the named paper or declared corpus scope. It does not mean native review, peer review, proof checking, or a critical edition.
+This is the current human-readable coverage map for the Noether material already preserved in this GitHub repository as of 2026-08-07. “Complete” means complete only for the named paper or declared corpus scope. It does not mean native review, peer review, proof checking, or a critical edition.
 
 ## Corpus-Wide Readers
 
@@ -14,7 +14,9 @@ This is the current human-readable coverage map for the Noether material already
 | English | 459-page cumulative working reader for the full represented R823 corpus | [Full cumulative English](../sources/noether/noether-r823-full-cumulative-english-20260722/) | Readable working corpus; paper-level source depth varies |
 | Spanish | 473 pages; all 81 declared source units, Papers 1–43 plus book and end matter | [Spanish R823](../sources/noether/spanish-r823-working-translation-20260718/00_README_STATUS.md) | Source-reconciled working translation; not native-certified |
 | French | 494 pages; all 81 declared source units, Papers 1–43 plus book and end matter | [French R823](../sources/noether/french-r823-working-translation-20260718/00_README_STATUS.md) | Source-reconciled working translation; not native-certified |
-| Interslavic, Latin and Cyrillic | 221 canonical TeX units in each script; 527- and 551-page readers | [Interslavic corpus](../sources/noether/interslavic-working-corpus-20260718/README.md) | Complete represented working corpus; external language review remains open |
+| Russian | Complete v038 cumulative reader: numbered Papers 1–43 plus book title/introduction, 31 book sections, Post45, and PostBibliography; 609 pages | [v038 release](../sources/noether/slavic-v038/README.md), [reader](../reader-pdfs/noether/slavic-v038/noether-ru-v038.pdf) | Model-authored, source-reconciled working edition; no independent native-speaker certification |
+| Ukrainian | Complete v038 cumulative reader: numbered Papers 1–43 plus book title/introduction, 31 book sections, Post45, and PostBibliography; 588 pages | [v038 release](../sources/noether/slavic-v038/README.md), [reader](../reader-pdfs/noether/slavic-v038/noether-uk-v038.pdf) | Model-authored, source-reconciled working edition; no independent native-speaker certification |
+| Interslavic, Latin and Cyrillic | Complete v038 cumulative readers over the same scope; 566 Latin-script pages and 588 Cyrillic-script pages | [v038 release](../sources/noether/slavic-v038/README.md), [Latin reader](../reader-pdfs/noether/slavic-v038/noether-isv-v038.pdf), [Cyrillic reader](../reader-pdfs/noether/slavic-v038/noether-isv-cy-v038.pdf) | Latin Interslavic is model-authored; Cyrillic is a deterministic projection, not an independent translation witness; external language review remains open |
 | Korean | 65 pages; 19 complete numbered-paper bodies (1, 3, 5, 7, 8, 10, 11, 16, 18, 25–29, 32, 33, 36, 41, 42) plus partial Paper 9 through authority line 7328 | [Cumulative corpus](../sources/noether/ko-corpus-v1/README.md), [direct PDF](../sources/noether/ko-corpus-v1/reader.pdf), and [exact coverage table](../sources/noether/ko-corpus-v1/coverage.csv) | Producer assembly; Paper 9 continues at line 7330; independent source, Korean-language, render, and certification review pending |
 
 ## German Authority And Head History
@@ -183,8 +185,8 @@ The separate Paper 4 tranche directories are history beneath
 | Arabic | Paper 6 opening segments `P06-S0002`, `P06-S0004`, and `P06-S0005` | [Language components](../sources/noether/new-language-components-20260718/README.md); **partial, continue at `P06-S0006`** |
 | Iranian Persian | Paper 6 opening segments `P06-S0002`, `P06-S0004`, and `P06-S0005` | [Language components](../sources/noether/new-language-components-20260718/README.md); **partial, continue at `P06-S0006`** |
 | Indonesian | Complete five-segment Paper 36 notice; one-page reader | [Language components](../sources/noether/new-language-components-20260718/README.md) |
-| Russian | Sixteen Paper 6 working units, plus current repair survivors for bounded Paper 4 sections and Paper 37 | [Paper 6 tranche](../sources/noether/multilingual-paper06-slavic-tranche001-20260716/README.md), [repair survivors](../sources/noether/slavic-source-repair-survivors-20260730/) |
-| Ukrainian | Sixteen Paper 6 working units, plus current repair survivors for bounded Paper 4 sections and Paper 37 | [Paper 6 tranche](../sources/noether/multilingual-paper06-slavic-tranche001-20260716/README.md), [repair survivors](../sources/noether/slavic-source-repair-survivors-20260730/) |
+| Russian | The complete current v038 corpus is listed above; these earlier bounded Paper 6, Paper 4, and Paper 37 generations remain provenance | [Paper 6 tranche](../sources/noether/multilingual-paper06-slavic-tranche001-20260716/README.md), [repair survivors](../sources/noether/slavic-source-repair-survivors-20260730/) |
+| Ukrainian | The complete current v038 corpus is listed above; these earlier bounded Paper 6, Paper 4, and Paper 37 generations remain provenance | [Paper 6 tranche](../sources/noether/multilingual-paper06-slavic-tranche001-20260716/README.md), [repair survivors](../sources/noether/slavic-source-repair-survivors-20260730/) |
 | Vietnamese | Complete Paper 1 producer translation; editable TeX and three-page PDF | [Producer handoff](../sources/noether/vi-p01-v1/handoff.md), [direct PDF](../sources/noether/vi-p01-v1/out/p01.pdf), and [editable TeX](../sources/noether/vi-p01-v1/p01.tex); mechanically built and producer-viewed, with all independent checking pending |
 
 ## Preserved Aggregate And Evidence History
