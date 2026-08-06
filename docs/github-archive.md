@@ -13,7 +13,7 @@ readback, and where to start browsing without replaying old task transcripts.
 | Open a direct reader | [Reader-shelf index](../reader-pdfs/README.md) | [`20260806_readers.json`](../manifests/github-custody/20260806_readers.json) |
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260806_sources.csv`](../manifests/github-custody/20260806_sources.csv) and [summary](../manifests/github-custody/20260806_sources.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |
-| Audit the GitHub maintenance chain | This page | [`20260806_archive_r2.json`](../manifests/github-custody/20260806_archive_r2.json) |
+| Audit the GitHub maintenance chain | This page | [`20260806_archive_r3.json`](../manifests/github-custody/20260806_archive_r3.json) |
 | Interpret manifests and readback receipts | [Custody evidence](../manifests/github-custody/README.md) | [Raw-readback receipts](../manifests/published-github/README.md) |
 
 ## Published GitHub Cycles
@@ -28,22 +28,27 @@ readback, and where to start browsing without replaying old task transcripts.
 | Maintenance log | Seven-record initial locked log, deterministic replay helper, and preserved error/correction history | [`21f797ba`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/21f797ba43e0171978dd366d7e120711e477e2d0) | [`b184bc9a`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/b184bc9a14b30b8a2c5d58170d489b986ed99828), [receipt](../manifests/published-github/20260806_log_readback.json) |
 | Local-link audit | 23 bounded documents, 715 resolved links, 627 unique targets, external requests zero | [`1b8e16e2`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/1b8e16e28718eb6ab9da5b5c11827ed6d9b26070) | [`b435c7b2`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/b435c7b2519ad14c50f7f89c662a640d9387a452), [receipt](../manifests/published-github/20260806_links_readback.json) |
 | Contributor intake | GitHub-first issue/PR routing, canonical path correction, committed-blob audit, 29 documents and 725 resolved links | [`f4bcc505`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/f4bcc505077eb0dd8512a94f9f4b6a5af51ea181), [`3d3ae0c4`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/3d3ae0c439a13f335a18ed95e2d8fac62b1fd4b3), [`0e9a4c7b`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/0e9a4c7bdf2e949f3d58d05098d6d4d267847077) | [`8505d05c`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/8505d05c9aa43c35835338ace573c4b9b25f1e6e), [receipt](../manifests/published-github/20260806_contrib_readback.json) |
+| Archive r2 publication | Eight-cycle archive successor and refreshed committed-blob link audit | [`9b040b86`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/9b040b864e8c277ea33c1a24292bd8ddf3bfed98), [`6f03f245`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/6f03f245017a05dbdadc289e3c0119017cbd3bdd) | [`870ee9a9`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/870ee9a96eb8edf3baff00e1f6f58bc8d58fc35b), [receipt](../manifests/published-github/20260806_archive_r2_readback.json) |
+| Evidence landings | Human custody-manifest and raw-readback receipt landings plus their exact link audit | [`cbf3ec2f`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/cbf3ec2f2bf793318056d70d85683af812470704), [`7de0c19e`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/7de0c19e8fbfb38b7865340bf85263e298278ea4) | [`d36937ab`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/d36937ab53d3c65b218e73e3e9f01257073b4f87), [receipt](../manifests/published-github/20260806_evidence_readback.json) |
+| Noether route closure | 121/121 tracked child trees routed; six previously detached support/history trees exposed; no source mutation; [manifest](../manifests/github-custody/20260806_noether_routes.json) | [`93b2239d`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/93b2239d40db244d19465c17b2ac2626935c4282), [`0e509253`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/0e509253aef5711a9450848561a3acd8ecee79d7), [`ffc5886c`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/ffc5886ccc76ea15be7d12e96310cc5ce79437c0) | [`fe9eafbf`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/fe9eafbfa4b8365590408a3d4e8345602724d8a8), [receipt](../manifests/published-github/20260806_noether_routes_readback.json) |
+| Non-European source-only routes | All eight source-only translation files and the shared preamble directly linked; correction and live-main propagation history preserved; [manifest](../manifests/github-custody/20260806_non_european_map.json) | [`85466c47`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/85466c4761cdc306379441f5c62a05a8f6072f36), [`c11efa84`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/c11efa84e5ef975eb34f46647e46c1bcee1fe8ab), [`8be44498`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/8be444980cc212ca7223aaf78034e4ad1943509e), [`7edc3ae7`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/7edc3ae7bfff120e8834d00dbe1ac7b869ef9bbe), [`9fe96dde`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/9fe96dde25422f4ad631d90850170b16ac6150df) | [`70e84eb4`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/70e84eb498e6c520c1fc3b9fb36060d58e5a1cfb), [`72b413c2`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/72b413c2b55f3fc96416cb459de9a7aa271c4648), [`4660e0d7`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/4660e0d71f9785cc5cdb501e8907d3ae5a4a5199), [`6ccc2e52`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/6ccc2e527f0eb9258b3139ee59389b1f4572b872); [route](../manifests/published-github/20260806_non_euro_routes_rb.json), [closeout](../manifests/published-github/20260806_non_euro_close_rb.json), [audit](../manifests/published-github/20260806_non_euro_audit_rb.json), [live-main](../manifests/published-github/20260806_non_euro_live_rb.json) receipts |
 
 These scopes overlap and must not be treated as unique-file totals: the
 classical files are a deeply classified subset of the reader and source
 shelves, while later maintenance cycles repeatedly read back evolving catalog,
-log, and navigation paths. Across all eight cycles, the receipts preserve 54
-additive raw-readback observations / 3,263,525 bytes with zero mismatches.
+log, and navigation paths. Across all twelve cycles, the receipts preserve 87
+additive raw-readback observations / 3,656,800 bytes with zero mismatches.
 
-The eighteen source/correction/receipt commits form one direct-parent,
+The thirty-seven source/correction/receipt commits form one direct-parent,
 fast-forward-only chain from
 `621f903e79f47117ac6dc2e6bca3a61ee5aa225b` through
-`8505d05c9aa43c35835338ace573c4b9b25f1e6e`. No pull request or merge commit
-was used for these eight cycles. The exact generation-specific file identities
+`6ccc2e527f0eb9258b3139ee59389b1f4572b872`. No pull request or merge commit
+was used for these twelve cycles. The exact generation-specific file identities
 and chain are in
-[`20260806_archive_r2.json`](../manifests/github-custody/20260806_archive_r2.json).
-The [four-cycle predecessor](../manifests/github-custody/20260806_archive.json)
-remains unchanged as historical evidence.
+[`20260806_archive_r3.json`](../manifests/github-custody/20260806_archive_r3.json).
+The [eight-cycle r2 predecessor](../manifests/github-custody/20260806_archive_r2.json)
+and [four-cycle predecessor](../manifests/github-custody/20260806_archive.json)
+remain unchanged as historical evidence.
 
 ## Link Integrity
 
@@ -67,7 +72,7 @@ Corrections supersede failed methods without deleting their error history.
 
 ## Boundary
 
-The index names only the eight exact GitHub-maintenance cycles above. It does not
+The index names only the twelve exact GitHub-maintenance cycles above. It does not
 enumerate unrelated receipt directories or separately owned, revoked, or
 prohibited corpus surfaces. Cataloging preserves distinct paths and generations;
 it does not silently deduplicate, rewrite, promote, or certify producer work.
