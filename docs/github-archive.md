@@ -14,7 +14,7 @@ readback, and where to start browsing without replaying old task transcripts.
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources.csv`](../manifests/github-custody/20260807_sources.csv) and [summary](../manifests/github-custody/20260807_sources.json) |
 | Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260807_shelves.json`](../manifests/github-custody/20260807_shelves.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |
-| Audit the GitHub maintenance chain | This page | [`20260806_archive_r4.json`](../manifests/github-custody/20260806_archive_r4.json) |
+| Audit the GitHub maintenance chain | This page | [`20260807_archive.json`](../manifests/github-custody/20260807_archive.json) |
 | Interpret manifests and readback receipts | [Custody evidence](../manifests/github-custody/README.md) | [Raw-readback receipts](../manifests/published-github/README.md) |
 
 ## Published GitHub Cycles
@@ -41,16 +41,17 @@ readback, and where to start browsing without replaying old task transcripts.
 These scopes overlap and must not be treated as unique-file totals: the
 classical files are a deeply classified subset of the reader and source
 shelves, while later maintenance cycles repeatedly read back evolving catalog,
-log, and navigation paths. Across all fifteen cycles, the receipts preserve 118
-additive raw-readback observations / 6,137,247 bytes with zero mismatches.
+log, and navigation paths. Across all eighteen cycles, the receipts preserve
+304 additive raw-readback observations / 82,530,145 bytes with zero mismatches.
 
-The forty-eight source/correction/receipt commits form one direct-parent,
+The sixty-six source/correction/receipt commits form one direct-parent,
 fast-forward-only chain from
 `621f903e79f47117ac6dc2e6bca3a61ee5aa225b` through
-`ff5ab5d73260439fb69065419e1465b10d6648c3`. No pull request or merge commit
-was used for these fifteen cycles. The exact generation-specific file identities
+`dc30c7c1497642d6599d99b104e1f57fd2163270`. No pull request or merge commit
+was used for these eighteen cycles. The exact generation-specific file identities
 and chain are in
-[`20260806_archive_r4.json`](../manifests/github-custody/20260806_archive_r4.json).
+[`20260807_archive.json`](../manifests/github-custody/20260807_archive.json).
+The [fifteen-cycle r4 predecessor](../manifests/github-custody/20260806_archive_r4.json),
 The [twelve-cycle r3 predecessor](../manifests/github-custody/20260806_archive_r3.json),
 [eight-cycle r2 predecessor](../manifests/github-custody/20260806_archive_r2.json),
 and [four-cycle predecessor](../manifests/github-custody/20260806_archive.json)
@@ -78,7 +79,7 @@ Corrections supersede failed methods without deleting their error history.
 
 ## Boundary
 
-The index names only the fifteen exact GitHub-maintenance cycles above. It does not
+The index names only the eighteen exact GitHub-maintenance cycles above. It does not
 enumerate unrelated receipt directories or separately owned, revoked, or
 prohibited corpus surfaces. Cataloging preserves distinct paths and generations;
 it does not silently deduplicate, rewrite, promote, or certify producer work.
