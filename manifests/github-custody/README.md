@@ -17,7 +17,7 @@ producer payloads.
   [exact path index](20260807_slavic.csv)
 - [Noether Simplified-Chinese R3 custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
-- [Bounded local-link audit](20260806_links.json)
+- [Bounded local-link audit](20260807_links.json)
 - [Maintenance-log index](20260806_log.json) and
   [append-only log](log.jsonl)
 
