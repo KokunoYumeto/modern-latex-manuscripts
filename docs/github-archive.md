@@ -14,6 +14,7 @@ readback, and where to start browsing without replaying old task transcripts.
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260806_sources.csv`](../manifests/github-custody/20260806_sources.csv) and [summary](../manifests/github-custody/20260806_sources.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |
 | Audit the GitHub maintenance chain | This page | [`20260806_archive_r2.json`](../manifests/github-custody/20260806_archive_r2.json) |
+| Interpret manifests and readback receipts | [Custody evidence](../manifests/github-custody/README.md) | [Raw-readback receipts](../manifests/published-github/README.md) |
 
 ## Published GitHub Cycles
 
@@ -47,8 +48,9 @@ remains unchanged as historical evidence.
 ## Link Integrity
 
 The bounded [local-link audit](../manifests/github-custody/20260806_links.json)
-covers the nineteen allowed maps and the GitHub-only map, archive, reader, and
-source landings, plus the six contributor/issue entry points.
+covers the nineteen allowed maps and the GitHub-only map, archive, reader,
+source, custody, and receipt landings, plus the six contributor/issue entry
+points.
 [`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it
 counts external URLs without requesting them and stops before touching a
 prohibited local target.

@@ -36,6 +36,8 @@ $documents = [string[]]@(
     'docs/ukrainian-map.md',
     'docs/verdier-map.md',
     'docs/weber-map.md',
+    'manifests/github-custody/README.md',
+    'manifests/published-github/README.md',
     'reader-pdfs/README.md',
     'sources/README.md'
 )
@@ -261,7 +263,7 @@ $result = [ordered]@{
     schema               = 'github-local-links/v1'
     observed_date        = $ObservedDate
     observed_commit      = (& git rev-parse HEAD).Trim()
-    scope                = 'Committed Git-blob identities and inline local links in nineteen explicitly allowed coverage maps; the GitHub-only map, archive, reader, and source landings; and six contributor entry points. External URLs are counted but never requested.'
+    scope                = 'Committed Git-blob identities and inline local links in nineteen explicitly allowed coverage maps; the GitHub-only map, archive, reader, source, custody, and receipt landings; and six contributor entry points. External URLs are counted but never requested.'
     canonical_stream     = 'Ordinal document path order; path<TAB>bytes<TAB>SHA256<LF>; UTF-8 without BOM.'
     aggregate            = [ordered]@{
         documents              = $rows.Count
