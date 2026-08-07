@@ -18,7 +18,7 @@ This is the current human-readable coverage map for the Noether material already
 | Ukrainian | Complete v038 cumulative reader: numbered Papers 1–43 plus book title/introduction, 31 book sections, Post45, and PostBibliography; 588 pages | [v038 release](../sources/noether/slavic-v038/README.md), [reader](../reader-pdfs/noether/slavic-v038/noether-uk-v038.pdf) | Model-authored, source-reconciled working edition; no independent native-speaker certification |
 | Interslavic, Latin and Cyrillic | Complete v038 cumulative readers over the same scope; 566 Latin-script pages and 588 Cyrillic-script pages | [v038 release](../sources/noether/slavic-v038/README.md), [Latin reader](../reader-pdfs/noether/slavic-v038/noether-isv-v038.pdf), [Cyrillic reader](../reader-pdfs/noether/slavic-v038/noether-isv-cy-v038.pdf) | Latin Interslavic is model-authored; Cyrillic is a deterministic projection, not an independent translation witness; external language review remains open |
 | Korean | 65 pages; 19 complete numbered-paper bodies (1, 3, 5, 7, 8, 10, 11, 16, 18, 25–29, 32, 33, 36, 41, 42) plus partial Paper 9 through authority line 7328 | [Cumulative corpus](../sources/noether/ko-corpus-v1/README.md), [direct PDF](../sources/noether/ko-corpus-v1/reader.pdf), and [exact coverage table](../sources/noether/ko-corpus-v1/coverage.csv) | Producer assembly; Paper 9 continues at line 7330; independent source, Korean-language, render, and certification review pending |
-| Simplified Chinese | 424-page cumulative reader covering Papers 1–43, complete Post44, Post45, and post-bibliographic matter | [R4 source seal](../sources/noether/zh-r4/return.json), [direct reader](../reader-pdfs/noether/zh-r4.pdf), and [ED0008 compatibility evidence](../sources/noether/zh-r4-a4/return.json) | Accepted current-day successor after P10/P38 terminology repairs, complete Post44 recovery, and three primary-page-supported Post44 repairs; same-day A4 confirms ED0008 compatibility without changing Chinese bytes or earning later-day credit; two later distinct-calendar-day certification checks remain pending; PRC-oriented `zh-Hans-CN` only |
+| Simplified Chinese | 424-page cumulative reader covering Papers 1–43, complete Post44, Post45, and post-bibliographic matter | Accepted [R4 reader](../reader-pdfs/noether/zh-r4.pdf) and [seal](../sources/noether/zh-r4/return.json); frozen [R5 pending reader](../reader-pdfs/noether/zh-r5-pending.pdf) and [seal](../sources/noether/zh-r5/return.json) | R4 remains current. R5 realizes seven returned repairs, including the complete Paper 45 span, but is `FROZEN_PENDING_INDEPENDENT_REVIEW`: `accepted` absent, `publishable=false`, clean-day count 0, and two later distinct-day checks remain; PRC-oriented Simplified Chinese only |
 
 The exact v038 GitHub projection is bound by the
 [Slavic custody manifest](../manifests/github-custody/20260807_slavic.json) and
@@ -35,6 +35,10 @@ remains unchanged as the immediate predecessor.
 The separate [A4 custody manifest](../manifests/github-custody/20260807_zh_a4.json)
 and [four-row index](../manifests/github-custody/20260807_zh_a4.csv) bind the
 same-day ED0008 compatibility evidence; they do not supersede or modify R4.
+The [R5 custody manifest](../manifests/github-custody/20260807_zh_r5.json) and
+[498-row index](../manifests/github-custody/20260807_zh_r5.csv) bind the exact
+pending-review successor, its direct reader mirror, and its external replay.
+They preserve R5 for checking without promoting it over R4.
 
 ## German Authority And Head History
 
@@ -169,6 +173,13 @@ certification checks remain pending. It claims PRC-oriented `zh-Hans-CN`, not
 The [same-day A4 audit](../sources/noether/zh-r4-a4/audit.json) confirms that R4
 already realizes the accepted ED0008 Post44 readings. It required no Chinese
 edit, rebuild, or render and does not count as either later-day check.
+
+The frozen [R5 source](../sources/noether/zh-r5/return.json) and [pending
+reader](../reader-pdfs/noether/zh-r5-pending.pdf) preserve the next producer
+generation. R5 records seventeen bounded changes realizing all seven returned
+findings, including the complete Paper 45 span, but it earns no independent
+acceptance or clean-day credit. Check R5 rather than retranslating it; keep R4
+as the current reader until an independent accept-or-correct return exists.
 
 | Work | Exact existing coverage | Current path / state |
 |---|---|---|
