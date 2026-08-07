@@ -6,7 +6,7 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [archive-history receipt](20260807_archive_r3_rb.json),
+Start with the current [archive-history receipt](20260807_archive_r4_rb.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
@@ -63,12 +63,14 @@ The [landing receipt](20260807_slavic_land_rb.json), [final-link receipt](202608
 and [link-receipt closure](20260807_slavic_link_close.json) preserve the final
 landing and audit chain; all thirteen recorded paths matched.
 
-The [twenty-cycle archive receipt](20260807_archive_r3_rb.json) replays all
-seven paths in the current archive-history successor: 1,064,837 bytes, all
-matched exactly. The [nineteen-cycle predecessor receipt](20260807_archive_r2_rb.json)
-remains immutable: three paths / 25,735 bytes, all matched exactly.
+The [twenty-one-cycle archive receipt](20260807_archive_r4_rb.json) replays all
+nine paths in the current archive-history successor: 209,016 bytes, all matched
+exactly. The [twenty-cycle predecessor receipt](20260807_archive_r3_rb.json)
+remains immutable: seven paths / 1,064,837 bytes, all matched exactly. The
+[nineteen-cycle predecessor receipt](20260807_archive_r2_rb.json) also remains
+immutable: three paths / 25,735 bytes, all matched exactly.
 
-Its [receipt-publication closure](20260807_archive_r3_close.json) replays four
+The twenty-cycle predecessor's [receipt-publication closure](20260807_archive_r3_close.json) replays four
 paths / 139,662 bytes, all matched exactly.
 
 The nineteen-cycle predecessor's [receipt-publication closure](20260807_archive_r2_close.json) replays four
