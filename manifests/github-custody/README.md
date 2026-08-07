@@ -17,6 +17,8 @@ producer payloads.
   [exact path index](20260807_slavic.csv)
 - [Noether Simplified-Chinese R4 custody](20260807_zh_r4.json) and
   [exact path index](20260807_zh_r4.csv)
+- [R4 ED0008 compatibility custody](20260807_zh_a4.json) and
+  [four-row index](20260807_zh_a4.csv)
 - [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
 - [Bounded local-link audit](20260807_links_r2.json)
