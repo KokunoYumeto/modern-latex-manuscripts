@@ -27,6 +27,8 @@ The current [Noether Simplified-Chinese R4 source receipt](20260807_zh_r4_rb.jso
 binds all 1,435 paths changed by the exact source/reader publication commit:
 563,347,319 bytes, all matched exactly. Its three disjoint read-only agent
 partitions and their independently checked union are recorded in the receipt.
+The separate [R4 custody/index receipt](20260807_zh_r4_cat_rb.json) binds all
+11 paths changed by the catalog commit: 1,436,126 bytes, all matched exactly.
 
 The [Simplified-Chinese R3 cycle receipt](20260807_zh_rb.json) remains the
 immutable predecessor receipt: 465 commit-pinned raw files / 269,957,244
