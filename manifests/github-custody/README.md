@@ -10,7 +10,7 @@ producer payloads.
 - [Twenty-one-cycle archive history](20260807_archive_r4.json)
 - [Coverage-map inventory](20260807_maps_r4.json)
 - [Current reader/source shelf closure](20260807_shelves_r4.json)
-- [Direct-reader inventory](20260807_readers_r3.json)
+- [Direct-reader inventory](20260807_readers_r4.json)
 - [Tracked-source summary](20260807_sources_r4.json) and
   [path inventory](20260807_sources_r4.csv)
 - [Noether Slavic v038 custody](20260807_slavic.json) and
