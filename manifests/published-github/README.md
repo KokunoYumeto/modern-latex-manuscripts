@@ -10,9 +10,9 @@ Start with the current [archive-history receipt](20260807_archive_r3_rb.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
-The current [navigation-link closure receipt](20260807_links_rb.json) binds the
-nineteen-cycle archive navigation and its 34-document committed-blob audit:
-four paths / 29,954 bytes, all matched exactly.
+The current [navigation-link closure receipt](20260807_links_r2_rb.json) binds
+the twenty-cycle archive navigation and its 34-document, 987-local-link
+committed-blob audit: six paths / 164,939 bytes, all matched exactly.
 
 The [live-main receipt](20260807_main_rb.json) independently replays the
 Simplified-Chinese Noether R3 reader/source seal, current catalogs, archive
@@ -56,7 +56,10 @@ seven paths in the current archive-history successor: 1,064,837 bytes, all
 matched exactly. The [nineteen-cycle predecessor receipt](20260807_archive_r2_rb.json)
 remains immutable: three paths / 25,735 bytes, all matched exactly.
 
-Its [receipt-publication closure](20260807_archive_r2_close.json) replays four
+Its [receipt-publication closure](20260807_archive_r3_close.json) replays four
+paths / 139,662 bytes, all matched exactly.
+
+The nineteen-cycle predecessor's [receipt-publication closure](20260807_archive_r2_close.json) replays four
 paths / 95,433 bytes, all matched exactly.
 
 The [eighteen-cycle predecessor receipt](20260807_archive_rb.json) replays all
