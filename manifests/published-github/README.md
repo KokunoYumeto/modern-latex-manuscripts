@@ -39,6 +39,11 @@ navigation-receipt paths / 143,789 bytes, all matched exactly.
 The [R4 ED0008 compatibility receipt](20260807_zh_a4_rb.json) binds its four
 sealed evidence files / 7,012 bytes, all matched exactly. It records no Chinese
 byte change and no later-day certification credit.
+The [Simplified-Chinese R5 pending-review source receipt](20260807_zh_r5_rb.json)
+binds all 501 paths changed by its exact source/reader publication commit:
+252,904,542 bytes, all matched exactly. R5 remains
+`FROZEN_PENDING_INDEPENDENT_REVIEW`; this receipt proves transport, not
+acceptance, publication readiness, or clean-day credit.
 The separate [A4 custody/index receipt](20260807_zh_a4_cat_rb.json) binds all
 nine catalog, landing, log, and source-receipt paths / 202,313 bytes, all
 matched exactly.

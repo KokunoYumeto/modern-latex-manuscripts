@@ -10,6 +10,10 @@ Start here:
 - [Current Simplified-Chinese cumulative R4 seal](zh-r4/return.json)
 - [Current Simplified-Chinese cumulative reader](../../reader-pdfs/noether/zh-r4.pdf)
 - [Simplified-Chinese R4 custody manifest](../../manifests/github-custody/20260807_zh_r4.json)
+- [Frozen Simplified-Chinese R5 pending-review seal](zh-r5/return.json),
+  [pending reader](../../reader-pdfs/noether/zh-r5-pending.pdf), and
+  [custody manifest](../../manifests/github-custody/20260807_zh_r5.json). R5 is
+  preserved for checking; it is not yet the accepted/current reader.
 - [R4 ED0008 compatibility evidence](zh-r4-a4/return.json) and
   [custody manifest](../../manifests/github-custody/20260807_zh_a4.json)
 - [Immutable Simplified-Chinese R3 predecessor](zh-r3/return.json)

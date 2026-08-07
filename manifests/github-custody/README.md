@@ -17,6 +17,9 @@ producer payloads.
   [exact path index](20260807_slavic.csv)
 - [Noether Simplified-Chinese R4 custody](20260807_zh_r4.json) and
   [exact path index](20260807_zh_r4.csv)
+- [Frozen Simplified-Chinese R5 pending-review custody](20260807_zh_r5.json),
+  [498-row archive index](20260807_zh_r5.csv), and
+  [external replay](20260807_zh_r5_ext.json)
 - [R4 ED0008 compatibility custody](20260807_zh_a4.json) and
   [four-row index](20260807_zh_a4.csv)
 - [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
@@ -41,9 +44,10 @@ remains unchanged; the current twenty-one-cycle index adds the byte-neutral
 Simplified-Chinese R4 ED0008 compatibility cycle without rewriting R4, R3, or
 any earlier predecessor.
 
-The 2026-08-07 r4 source inventory adds the exact four-file ED0008
-compatibility evidence; the r3 reader inventory remains current because no
-reader byte changed. The r2 inventories
+The frozen R5 successor is preserved additively and remains pending independent
+review; it does not replace the accepted R4 reader. The 2026-08-07 r4 source
+inventory adds the exact four-file ED0008 compatibility evidence; the r3
+reader inventory predates the pending R5 mirror and remains immutable. The r2 inventories
 retain the exact Noether Slavic v038 and Simplified-Chinese R3 projections;
 every predecessor remains unchanged.
 
