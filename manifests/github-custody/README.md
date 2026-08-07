@@ -8,11 +8,11 @@ producer payloads.
 ## Current task-owned indexes
 
 - [Twenty-one-cycle archive history](20260807_archive_r4.json)
-- [Coverage-map inventory](20260807_maps_r4.json)
-- [Current reader/source shelf closure](20260807_shelves_r4.json)
+- [Coverage-map inventory](20260807_maps_r5.json)
+- [Current reader/source shelf closure](20260807_shelves_r5.json)
 - [Direct-reader inventory](20260807_readers_r4.json)
-- [Tracked-source summary](20260807_sources_r4.json) and
-  [path inventory](20260807_sources_r4.csv)
+- [Tracked-source summary](20260807_sources_r5.json) and
+  [path inventory](20260807_sources_r5.csv)
 - [Noether Slavic v038 custody](20260807_slavic.json) and
   [exact path index](20260807_slavic.csv)
 - [Noether Simplified-Chinese R4 custody](20260807_zh_r4.json) and
@@ -45,9 +45,10 @@ Simplified-Chinese R4 ED0008 compatibility cycle without rewriting R4, R3, or
 any earlier predecessor.
 
 The frozen R5 successor is preserved additively and remains pending independent
-review; it does not replace the accepted R4 reader. The 2026-08-07 r4 source
-inventory adds the exact four-file ED0008 compatibility evidence; the r3
-reader inventory predates the pending R5 mirror and remains immutable. The r2 inventories
+review; it does not replace the accepted R4 reader. The 2026-08-07 r5 source,
+map, reader, and shelf inventories add its exact 496-file source projection and
+one pending reader mirror. The r4 inventories preserve the four-file ED0008
+compatibility predecessor, and every earlier inventory remains immutable. The r2 inventories
 retain the exact Noether Slavic v038 and Simplified-Chinese R3 projections;
 every predecessor remains unchanged.
 

@@ -47,6 +47,9 @@ acceptance, publication readiness, or clean-day credit.
 The separate [R5 custody/catalog receipt](20260807_zh_r5_cat_rb.json) binds all
 ten custody, discoverability, locked-log, and source-receipt paths / 700,811
 bytes, all matched exactly.
+The [R5 reader-inventory receipt](20260807_zh_r5_reader_rb.json) binds all seven
+catalog-receipt, reader-index, reader-landing, and locked-log paths / 202,988
+bytes, all matched exactly.
 The separate [A4 custody/index receipt](20260807_zh_a4_cat_rb.json) binds all
 nine catalog, landing, log, and source-receipt paths / 202,313 bytes, all
 matched exactly.
