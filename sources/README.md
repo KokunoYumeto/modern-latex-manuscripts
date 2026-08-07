@@ -49,14 +49,14 @@ boundary, not evidence that their files do not exist.
 
 ## Exact Git-Object Audit
 
-The nineteen allowed shelves contain 14,401 tracked files and
-3,431,702,752 committed bytes. Every path, byte count, Git blob SHA-1, and mode
-is in the [per-file index](../manifests/github-custody/20260807_sources_r3.csv).
-The [compact summary](../manifests/github-custody/20260807_sources_r3.json) binds
+The nineteen allowed shelves contain 14,405 tracked files and
+3,431,709,900 committed bytes. Every path, byte count, Git blob SHA-1, and mode
+is in the [per-file index](../manifests/github-custody/20260807_sources_r4.csv).
+The [compact summary](../manifests/github-custody/20260807_sources_r4.json) binds
 each root's Git tree SHA-1 plus a SHA-256 digest over its ordinal canonical
 path/size/blob stream.
 
-There are 11,097 unique Git blob identities and 1,722 repeated-blob groups.
+There are 11,101 unique Git blob identities and 1,722 repeated-blob groups.
 Only one repeated identity crosses roots: the same 8-byte `.gitattributes`
 control appears at 57 paths across six roots. It is repository scaffolding,
 not 57 independent mathematical objects. Distinct paths and generations remain

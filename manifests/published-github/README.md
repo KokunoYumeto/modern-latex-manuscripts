@@ -37,6 +37,9 @@ matched exactly. Repeated evolving catalog paths remain separate observations.
 The [R4 ED0008 compatibility receipt](20260807_zh_a4_rb.json) binds its four
 sealed evidence files / 7,012 bytes, all matched exactly. It records no Chinese
 byte change and no later-day certification credit.
+The separate [A4 custody/index receipt](20260807_zh_a4_cat_rb.json) binds all
+nine catalog, landing, log, and source-receipt paths / 202,313 bytes, all
+matched exactly.
 
 The [Simplified-Chinese R3 cycle receipt](20260807_zh_rb.json) remains the
 immutable predecessor receipt: 465 commit-pinned raw files / 269,957,244
