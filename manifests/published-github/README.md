@@ -44,6 +44,9 @@ binds all 501 paths changed by its exact source/reader publication commit:
 252,904,542 bytes, all matched exactly. R5 remains
 `FROZEN_PENDING_INDEPENDENT_REVIEW`; this receipt proves transport, not
 acceptance, publication readiness, or clean-day credit.
+The separate [R5 custody/catalog receipt](20260807_zh_r5_cat_rb.json) binds all
+ten custody, discoverability, locked-log, and source-receipt paths / 700,811
+bytes, all matched exactly.
 The separate [A4 custody/index receipt](20260807_zh_a4_cat_rb.json) binds all
 nine catalog, landing, log, and source-receipt paths / 202,313 bytes, all
 matched exactly.
