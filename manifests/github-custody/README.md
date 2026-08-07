@@ -8,11 +8,11 @@ producer payloads.
 ## Current task-owned indexes
 
 - [Twenty-cycle archive history](20260807_archive_r3.json)
-- [Coverage-map inventory](20260807_maps_r3.json)
-- [Current reader/source shelf closure](20260807_shelves_r3.json)
+- [Coverage-map inventory](20260807_maps_r4.json)
+- [Current reader/source shelf closure](20260807_shelves_r4.json)
 - [Direct-reader inventory](20260807_readers_r3.json)
-- [Tracked-source summary](20260807_sources_r3.json) and
-  [path inventory](20260807_sources_r3.csv)
+- [Tracked-source summary](20260807_sources_r4.json) and
+  [path inventory](20260807_sources_r4.csv)
 - [Noether Slavic v038 custody](20260807_slavic.json) and
   [exact path index](20260807_slavic.csv)
 - [Noether Simplified-Chinese R4 custody](20260807_zh_r4.json) and
