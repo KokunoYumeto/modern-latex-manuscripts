@@ -62,12 +62,14 @@ scope and language-review caveats are recorded in the
 [Noether map](../docs/noether-map.md) and the
 [Slavic custody manifest](../manifests/github-custody/20260807_slavic.json).
 
-The additional [413-page Simplified-Chinese R3
-reader](noether/zh-r3.pdf) is an exact mirror of the sealed source-release PDF.
-It covers all 43 numbered papers. Two later distinct-calendar-day certification
-checks remain pending, and no generic-Hant or regional localization claim is
-made; see the [Noether map](../docs/noether-map.md) and [Chinese custody
-manifest](../manifests/github-custody/20260807_zh.json).
+The current [424-page Simplified-Chinese R4 reader](noether/zh-r4.pdf) is an
+exact mirror of the sealed source-release PDF. It covers Papers 1–43, complete
+Post44, Post45, and post-bibliographic matter. Two later distinct-calendar-day
+certification checks remain pending; its scope is PRC-oriented `zh-Hans-CN`,
+not `zh-Hans-SG`, generic Hant, or TW/HK/MO localization. The [413-page R3
+reader](noether/zh-r3.pdf) remains unchanged as its immediate predecessor; see
+the [Noether map](../docs/noether-map.md) and [R4 custody
+manifest](../manifests/github-custody/20260807_zh_r4.json).
 
 ## Reading Rule
 
