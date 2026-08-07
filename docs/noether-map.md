@@ -18,7 +18,7 @@ This is the current human-readable coverage map for the Noether material already
 | Ukrainian | Complete v038 cumulative reader: numbered Papers 1–43 plus book title/introduction, 31 book sections, Post45, and PostBibliography; 588 pages | [v038 release](../sources/noether/slavic-v038/README.md), [reader](../reader-pdfs/noether/slavic-v038/noether-uk-v038.pdf) | Model-authored, source-reconciled working edition; no independent native-speaker certification |
 | Interslavic, Latin and Cyrillic | Complete v038 cumulative readers over the same scope; 566 Latin-script pages and 588 Cyrillic-script pages | [v038 release](../sources/noether/slavic-v038/README.md), [Latin reader](../reader-pdfs/noether/slavic-v038/noether-isv-v038.pdf), [Cyrillic reader](../reader-pdfs/noether/slavic-v038/noether-isv-cy-v038.pdf) | Latin Interslavic is model-authored; Cyrillic is a deterministic projection, not an independent translation witness; external language review remains open |
 | Korean | 65 pages; 19 complete numbered-paper bodies (1, 3, 5, 7, 8, 10, 11, 16, 18, 25–29, 32, 33, 36, 41, 42) plus partial Paper 9 through authority line 7328 | [Cumulative corpus](../sources/noether/ko-corpus-v1/README.md), [direct PDF](../sources/noether/ko-corpus-v1/reader.pdf), and [exact coverage table](../sources/noether/ko-corpus-v1/coverage.csv) | Producer assembly; Paper 9 continues at line 7330; independent source, Korean-language, render, and certification review pending |
-| Simplified Chinese | 413-page cumulative reader covering all 43 numbered papers | [R3 source seal](../sources/noether/zh-r3/return.json) and [direct reader](../reader-pdfs/noether/zh-r3.pdf) | Accepted current-day successor after the exact Paper 9 corrections F001–F010; complete build/render/visual gates passed; two later distinct-calendar-day certification checks remain pending; no generic-Hant or regional localization claim |
+| Simplified Chinese | 424-page cumulative reader covering Papers 1–43, complete Post44, Post45, and post-bibliographic matter | [R4 source seal](../sources/noether/zh-r4/return.json) and [direct reader](../reader-pdfs/noether/zh-r4.pdf) | Accepted current-day successor after P10/P38 terminology repairs, complete Post44 recovery, and three primary-page-supported Post44 repairs; two later distinct-calendar-day certification checks remain pending; PRC-oriented `zh-Hans-CN` only |
 
 The exact v038 GitHub projection is bound by the
 [Slavic custody manifest](../manifests/github-custody/20260807_slavic.json) and
@@ -26,11 +26,12 @@ The exact v038 GitHub projection is bound by the
 direct readers duplicate source-release bytes intentionally for human access;
 they do not create new translation witnesses.
 
-The exact Simplified-Chinese R3 projection is bound by the
-[Chinese custody manifest](../manifests/github-custody/20260807_zh.json) and
-[445-row path index](../manifests/github-custody/20260807_zh.csv). Its direct
+The exact Simplified-Chinese R4 projection is bound by the
+[Chinese R4 custody manifest](../manifests/github-custody/20260807_zh_r4.json) and
+[1,434-row path index](../manifests/github-custody/20260807_zh_r4.csv). Its direct
 reader is an intentional exact duplicate of the sealed source reader, not a
-second translation witness.
+second translation witness. The [R3 seal](../sources/noether/zh-r3/return.json)
+remains unchanged as the immediate predecessor.
 
 ## German Authority And Head History
 
@@ -152,14 +153,16 @@ The separate Paper 4 tranche directories are history beneath
 
 `zh-Hans-CN` means PRC-oriented Simplified Chinese. `zh-Hant-controlled` is a controlled generic Traditional-script adaptation, not a Taiwan, Hong Kong, Macao, or other regional localization.
 
-The current corpus-wide Simplified-Chinese target is the [sealed R3 cumulative
-reader](../sources/noether/zh-r3/return.json), with a [direct 413-page
-PDF](../reader-pdfs/noether/zh-r3.pdf). It contains all 43 numbered papers. Review
+The current corpus-wide Simplified-Chinese target is the [sealed R4 cumulative
+reader](../sources/noether/zh-r4/return.json), with a [direct 424-page
+PDF](../reader-pdfs/noether/zh-r4.pdf). It contains Papers 1–43, complete Post44,
+Post45, and post-bibliographic matter. Review
 or correct that existing reader; do not infer missing translation assignments
-from the older paper-level checkpoint list below. R3 supersedes R2 only through
-the accepted Paper 9 corrections F001–F010. Its final two later-day
-certification checks remain pending, and it makes no generic-Hant or regional
-localization claim.
+from the older paper-level checkpoint list below. R4 supersedes R3 through the
+documented P10/P38 terminology repairs, complete Post44 recovery, and three
+primary-page-supported Post44 target repairs. Its final two later-day
+certification checks remain pending. It claims PRC-oriented `zh-Hans-CN`, not
+`zh-Hans-SG`, generic Hant, or regional TW/HK/MO localization.
 
 | Work | Exact existing coverage | Current path / state |
 |---|---|---|

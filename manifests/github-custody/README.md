@@ -15,7 +15,9 @@ producer payloads.
   [path inventory](20260807_sources_r2.csv)
 - [Noether Slavic v038 custody](20260807_slavic.json) and
   [exact path index](20260807_slavic.csv)
-- [Noether Simplified-Chinese R3 custody](20260807_zh.json) and
+- [Noether Simplified-Chinese R4 custody](20260807_zh_r4.json) and
+  [exact path index](20260807_zh_r4.csv)
+- [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
 - [Bounded local-link audit](20260807_links.json)
 - [Maintenance-log index](20260806_log.json) and
@@ -35,9 +37,10 @@ remains unchanged; the current nineteen-cycle index adds the Simplified-Chinese
 R3 cycle without rewriting any predecessor.
 
 The 2026-08-07 r2 reader and source inventories are additive successors to the
-first 2026-08-07 generations. They retain the exact Noether Slavic v038
-projection and add the exact Simplified-Chinese R3 seal and direct-reader
-mirror without rewriting either predecessor inventory.
+first 2026-08-07 generations. They retain the exact Noether Slavic v038 and
+Simplified-Chinese R3 projections. The R4 custody generation adds the next
+exact Chinese source seal and direct-reader mirror without rewriting R3;
+current whole-shelf successor inventories follow separately.
 
 These indexes do not silently promote a producer checkpoint, turn an unchecked
 draft into a reviewed edition, or erase a superseded generation. Read the
