@@ -14,7 +14,7 @@ readback, and where to start browsing without replaying old task transcripts.
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources_r4.csv`](../manifests/github-custody/20260807_sources_r4.csv) and [summary](../manifests/github-custody/20260807_sources_r4.json) |
 | Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260807_shelves_r4.json`](../manifests/github-custody/20260807_shelves_r4.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |
-| Audit the GitHub maintenance chain | This page | [`20260807_archive_r3.json`](../manifests/github-custody/20260807_archive_r3.json) |
+| Audit the GitHub maintenance chain | This page | [`20260807_archive_r4.json`](../manifests/github-custody/20260807_archive_r4.json) |
 | Interpret manifests and readback receipts | [Custody evidence](../manifests/github-custody/README.md) | [Raw-readback receipts](../manifests/published-github/README.md) |
 
 ## Published GitHub Cycles
@@ -39,21 +39,23 @@ readback, and where to start browsing without replaying old task transcripts.
 | Noether Slavic v038 | Exact 116-file producer release plus handoff, four direct-reader mirrors, 399-reader and 12,524-source successor inventories, current-tree closure, and map audit | [`4af9d720`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/4af9d72039ac8d16697ff01971b651f968a73e32) | [`c23f5d33`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/c23f5d33bc6c005edd167732c8a7015fcb08b6b3), [`601e97e4`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/601e97e430352cf12545178aa45aea88a98d9ce5), [`34aa4159`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/34aa4159d50f6c9124e22afc9b6685ee6977de50); [source](../manifests/published-github/20260807_slavic_rb.json), [catalog](../manifests/published-github/20260807_slavic_cat_rb.json), [shelf](../manifests/published-github/20260807_slavic_close_rb.json), and [audit](../manifests/published-github/20260807_slavic_audit_rb.json) receipts |
 | Noether Simplified Chinese R3 | Exact sealed 444-file, 43-paper source checkpoint plus direct 413-page reader; current 400-file reader inventory, 12,968-file source inventory, shelf closure, and map audit | [`bbe8a929`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/bbe8a929bb70dd36f968ee654743cbf0b36794ec) | [`e396ebdb`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/e396ebdbdff24f3238481ba662e8c7d193aee97b), [receipt](../manifests/published-github/20260807_zh_rb.json) |
 | Noether Simplified Chinese R4 | Exact sealed 1,433-file source checkpoint plus direct 424-page reader; current 401-file reader inventory, 14,401-file source inventory, 19-map audit, and current-tree shelf closure | [`997fca68`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/997fca686443ff742a65c360e7ab0438c90d562e) | [`fbc287c8`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/fbc287c86305dbef401f7682ed2bb7c8819e15f9), [five-commit receipt](../manifests/published-github/20260807_r4_rb.json) |
+| Noether Simplified Chinese R4 ED0008 compatibility | Four sealed evidence files proving the existing R4 reader already realizes accepted ED0008 Post44 readings; no Chinese or reader byte changed, no later-day credit earned; current source inventory 14,405 files | [`27cbaef5`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/27cbaef5bc5601ec95ee0ec648ed7e2d5bdce04a) | [`6563e5fc`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/6563e5fc18e3d0eb32c50fa3fc4a4e0c2e52586d), [three-commit receipt](../manifests/published-github/20260807_a4_rb.json) |
 
 These scopes overlap and must not be treated as unique-file totals: the
 classical files are a deeply classified subset of the reader and source
 shelves, while later maintenance cycles repeatedly read back evolving catalog,
-log, and navigation paths. Across all twenty cycles, the receipts preserve
-2,280 additive raw-readback observations / 930,114,636 bytes with zero mismatches.
+log, and navigation paths. Across all twenty-one cycles, the receipts preserve
+2,325 additive raw-readback observations / 934,443,628 bytes with zero mismatches.
 
-The eighty-six source/correction/receipt commits form one direct-parent,
+The ninety-three source/correction/receipt commits form one direct-parent,
 fast-forward-only chain from
 `621f903e79f47117ac6dc2e6bca3a61ee5aa225b` through
-`fbc287c86305dbef401f7682ed2bb7c8819e15f9`. No pull request or merge commit
-was used for these twenty cycles. The exact generation-specific file identities
+`6563e5fc18e3d0eb32c50fa3fc4a4e0c2e52586d`. No pull request or merge commit
+was used for these twenty-one cycles. The exact generation-specific file identities
 and chain are in
-[`20260807_archive_r3.json`](../manifests/github-custody/20260807_archive_r3.json).
-The [nineteen-cycle predecessor](../manifests/github-custody/20260807_archive_r2.json),
+[`20260807_archive_r4.json`](../manifests/github-custody/20260807_archive_r4.json).
+The [twenty-cycle predecessor](../manifests/github-custody/20260807_archive_r3.json),
+[nineteen-cycle predecessor](../manifests/github-custody/20260807_archive_r2.json),
 [eighteen-cycle predecessor](../manifests/github-custody/20260807_archive.json),
 the [fifteen-cycle r4 predecessor](../manifests/github-custody/20260806_archive_r4.json),
 the [twelve-cycle r3 predecessor](../manifests/github-custody/20260806_archive_r3.json),
@@ -83,7 +85,7 @@ Corrections supersede failed methods without deleting their error history.
 
 ## Boundary
 
-The index names only the twenty exact GitHub-maintenance cycles above. It does not
+The index names only the twenty-one exact GitHub-maintenance cycles above. It does not
 enumerate unrelated receipt directories or separately owned, revoked, or
 prohibited corpus surfaces. Cataloging preserves distinct paths and generations;
 it does not silently deduplicate, rewrite, promote, or certify producer work.

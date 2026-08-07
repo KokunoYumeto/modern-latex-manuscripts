@@ -34,12 +34,18 @@ reader/source/map catalog paths and 2,558,492 bytes, all matched exactly.
 The combined [R4 cycle receipt](20260807_r4_rb.json) binds all 1,465 additive
 commit-pinned observations across five commits and 567,609,781 bytes, all
 matched exactly. Repeated evolving catalog paths remain separate observations.
+The [final R4 closure receipt](20260807_r4_close_rb.json) binds its last four
+navigation-receipt paths / 143,789 bytes, all matched exactly.
 The [R4 ED0008 compatibility receipt](20260807_zh_a4_rb.json) binds its four
 sealed evidence files / 7,012 bytes, all matched exactly. It records no Chinese
 byte change and no later-day certification credit.
 The separate [A4 custody/index receipt](20260807_zh_a4_cat_rb.json) binds all
 nine catalog, landing, log, and source-receipt paths / 202,313 bytes, all
 matched exactly.
+The [A4 source/map/shelf receipt](20260807_zh_a4_idx_rb.json) binds all eleven
+index paths / 2,606,440 bytes, all matched exactly. The combined
+[three-commit A4 receipt](20260807_a4_rb.json) preserves 24 additive
+observations / 2,815,765 bytes with zero mismatches.
 
 The [Simplified-Chinese R3 cycle receipt](20260807_zh_rb.json) remains the
 immutable predecessor receipt: 465 commit-pinned raw files / 269,957,244
