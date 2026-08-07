@@ -8,11 +8,11 @@ producer payloads.
 ## Current task-owned indexes
 
 - [Nineteen-cycle archive history](20260807_archive_r2.json)
-- [Coverage-map inventory](20260807_maps_r2.json)
-- [Current reader/source shelf closure](20260807_shelves_r2.json)
-- [Direct-reader inventory](20260807_readers_r2.json)
-- [Tracked-source summary](20260807_sources_r2.json) and
-  [path inventory](20260807_sources_r2.csv)
+- [Coverage-map inventory](20260807_maps_r3.json)
+- [Current reader/source shelf closure](20260807_shelves_r3.json)
+- [Direct-reader inventory](20260807_readers_r3.json)
+- [Tracked-source summary](20260807_sources_r3.json) and
+  [path inventory](20260807_sources_r3.csv)
 - [Noether Slavic v038 custody](20260807_slavic.json) and
   [exact path index](20260807_slavic.csv)
 - [Noether Simplified-Chinese R4 custody](20260807_zh_r4.json) and
@@ -36,11 +36,10 @@ generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged; the current nineteen-cycle index adds the Simplified-Chinese
 R3 cycle without rewriting any predecessor.
 
-The 2026-08-07 r2 reader and source inventories are additive successors to the
-first 2026-08-07 generations. They retain the exact Noether Slavic v038 and
-Simplified-Chinese R3 projections. The R4 custody generation adds the next
-exact Chinese source seal and direct-reader mirror without rewriting R3;
-current whole-shelf successor inventories follow separately.
+The 2026-08-07 r3 reader and source inventories add the exact
+Simplified-Chinese R4 source seal and direct-reader mirror. The r2 inventories
+retain the exact Noether Slavic v038 and Simplified-Chinese R3 projections;
+every predecessor remains unchanged.
 
 These indexes do not silently promote a producer checkpoint, turn an unchecked
 draft into a reviewed edition, or erase a superseded generation. Read the
