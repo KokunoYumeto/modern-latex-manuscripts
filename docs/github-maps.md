@@ -15,8 +15,9 @@ For the exact root-level PDF and support-file counts behind these maps, use the
 
 For every tracked source path behind the allowed shelves, use the
 [GitHub source-shelf index](../sources/README.md). Its compact summary and
-per-file CSV bind Git tree/blob identities without rereading the 2.87 GB source
-working tree.
+per-file CSV bind Git tree/blob identities without rereading the source working
+tree. The current exact allowed-source projection is 3,431,702,752 committed
+bytes.
 
 ## Author, Work, And Series Maps
 
@@ -49,19 +50,19 @@ working tree.
 
 ## Exact Navigation Audit
 
-The nineteen map documents total 193,756 bytes. Their ordinal canonical stream
-(`path<TAB>bytes<TAB>SHA256<LF>`, UTF-8 without BOM) is 1,717 bytes with tree
+The nineteen map documents total 194,081 bytes. Their 1,717-byte ordinal
+canonical stream (`path<TAB>bytes<TAB>SHA256<LF>`, UTF-8 without BOM) has tree
 SHA-256
-`ECA9639F1CF3893062A9D34C8FBB05C0B811C0313AEFE1A04C93667D50851B1A`.
-All 633 local links resolve in the current Git tree.
+`87EDDA90B425F6CA915F578FDA54CB7F0386305DB837C68FD1210A86E459E6D5`.
+All 634 local links resolve in the current Git tree.
 
-All nineteen maps now explicitly route to twenty-five custody manifests. The
-current increment adds the exact Simplified-Chinese Noether R3 custody manifest
-and 445-row path index; the other eighteen map blobs are unchanged from the
-Slavic-generation predecessor. Current identities are in
-[`20260807_maps_r2.json`](../manifests/github-custody/20260807_maps_r2.json).
-The [Slavic-generation map index](../manifests/github-custody/20260807_maps.json)
-and earlier generations remain immutable history.
+The exact current identities and link closure are in
+[`20260807_maps_r3.json`](../manifests/github-custody/20260807_maps_r3.json).
+The current increment routes the Simplified-Chinese Noether R4 custody
+manifest and 1,434-row path index while retaining the exact R3 predecessor.
+The [R3-generation map index](../manifests/github-custody/20260807_maps_r2.json),
+[Slavic-generation index](../manifests/github-custody/20260807_maps.json), and
+earlier generations remain immutable history.
 
 ## Boundary
 
