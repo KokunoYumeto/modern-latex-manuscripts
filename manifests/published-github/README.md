@@ -50,6 +50,11 @@ bytes, all matched exactly.
 The [R5 reader-inventory receipt](20260807_zh_r5_reader_rb.json) binds all seven
 catalog-receipt, reader-index, reader-landing, and locked-log paths / 202,988
 bytes, all matched exactly.
+The [R5 global-index receipt](20260807_zh_r5_idx_rb.json) binds all nine source,
+map, reader, shelf, landing, log, and prior-receipt paths / 2,669,549 bytes,
+all matched exactly. The combined [four-commit R5 receipt](20260807_r5_rb.json)
+preserves 527 additive commit-pinned observations / 256,477,890 bytes with zero
+mismatches. These transport receipts do not change R5's pending-review state.
 The separate [A4 custody/index receipt](20260807_zh_a4_cat_rb.json) binds all
 nine catalog, landing, log, and source-receipt paths / 202,313 bytes, all
 matched exactly.

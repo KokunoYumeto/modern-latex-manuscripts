@@ -7,7 +7,7 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- [Twenty-one-cycle archive history](20260807_archive_r4.json)
+- [Twenty-two-cycle archive history](20260807_archive_r5.json)
 - [Coverage-map inventory](20260807_maps_r5.json)
 - [Current reader/source shelf closure](20260807_shelves_r5.json)
 - [Direct-reader inventory](20260807_readers_r4.json)
@@ -32,7 +32,8 @@ The [human archive history](../../docs/github-archive.md) explains the bounded
 cycles. Exact public-byte receipts have their own
 [landing page](../published-github/README.md).
 
-The [twenty-cycle archive predecessor](20260807_archive_r3.json),
+The [twenty-one-cycle archive predecessor](20260807_archive_r4.json),
+[twenty-cycle archive predecessor](20260807_archive_r3.json),
 [nineteen-cycle archive predecessor](20260807_archive_r2.json),
 [first coverage-map index](20260806_maps.json), and all earlier generations
 remain immutable. The
@@ -40,9 +41,9 @@ remain immutable. The
 [eight-cycle archive r2](20260806_archive_r2.json), and
 [four-cycle predecessor](20260806_archive.json) remain immutable historical
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
-remains unchanged; the current twenty-one-cycle index adds the byte-neutral
-Simplified-Chinese R4 ED0008 compatibility cycle without rewriting R4, R3, or
-any earlier predecessor.
+remains unchanged. The current twenty-two-cycle index adds the frozen R5
+pending-review custody cycle without promoting it over R4 or rewriting R5,
+R4, R3, or any earlier predecessor.
 
 The frozen R5 successor is preserved additively and remains pending independent
 review; it does not replace the accepted R4 reader. The 2026-08-07 r5 source,
