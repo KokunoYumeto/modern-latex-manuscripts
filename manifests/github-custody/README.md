@@ -7,7 +7,7 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- [Twenty-cycle archive history](20260807_archive_r3.json)
+- [Twenty-one-cycle archive history](20260807_archive_r4.json)
 - [Coverage-map inventory](20260807_maps_r4.json)
 - [Current reader/source shelf closure](20260807_shelves_r4.json)
 - [Direct-reader inventory](20260807_readers_r3.json)
@@ -29,18 +29,21 @@ The [human archive history](../../docs/github-archive.md) explains the bounded
 cycles. Exact public-byte receipts have their own
 [landing page](../published-github/README.md).
 
-The [nineteen-cycle archive predecessor](20260807_archive_r2.json),
+The [twenty-cycle archive predecessor](20260807_archive_r3.json),
+[nineteen-cycle archive predecessor](20260807_archive_r2.json),
 [first coverage-map index](20260806_maps.json), and all earlier generations
 remain immutable. The
 [twelve-cycle archive r3](20260806_archive_r3.json),
 [eight-cycle archive r2](20260806_archive_r2.json), and
 [four-cycle predecessor](20260806_archive.json) remain immutable historical
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
-remains unchanged; the current twenty-cycle index adds the Simplified-Chinese
-R4 cycle without rewriting R3 or any earlier predecessor.
+remains unchanged; the current twenty-one-cycle index adds the byte-neutral
+Simplified-Chinese R4 ED0008 compatibility cycle without rewriting R4, R3, or
+any earlier predecessor.
 
-The 2026-08-07 r3 reader and source inventories add the exact
-Simplified-Chinese R4 source seal and direct-reader mirror. The r2 inventories
+The 2026-08-07 r4 source inventory adds the exact four-file ED0008
+compatibility evidence; the r3 reader inventory remains current because no
+reader byte changed. The r2 inventories
 retain the exact Noether Slavic v038 and Simplified-Chinese R3 projections;
 every predecessor remains unchanged.
 
