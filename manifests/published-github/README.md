@@ -29,6 +29,8 @@ binds all 1,435 paths changed by the exact source/reader publication commit:
 partitions and their independently checked union are recorded in the receipt.
 The separate [R4 custody/index receipt](20260807_zh_r4_cat_rb.json) binds all
 11 paths changed by the catalog commit: 1,436,126 bytes, all matched exactly.
+The [R4 whole-shelf index receipt](20260807_r4_idx_rb.json) binds all nine
+reader/source/map catalog paths and 2,558,492 bytes, all matched exactly.
 
 The [Simplified-Chinese R3 cycle receipt](20260807_zh_rb.json) remains the
 immutable predecessor receipt: 465 commit-pinned raw files / 269,957,244
