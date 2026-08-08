@@ -17,10 +17,11 @@ The [R5 receipt-publication closure](20260807_r5_close_rb.json) then replays
 the four navigation-receipt publication paths / 193,908 bytes, all matched
 exactly.
 
-The [live-main receipt](20260807_main_rb.json) independently replays the
-Simplified-Chinese Noether R3 reader/source seal, current catalogs, archive
-controls, locked log, and receipts from `main`: 28 paths / 9,759,875 bytes,
-all matched exactly.
+The current [live-main receipt](20260807_main_r5_rb.json) independently replays
+the Simplified-Chinese Noether R5 pending reader/source seal, current catalogs,
+archive controls, locked log, and receipts from `main`: 33 paths / 8,771,204
+bytes, all matched exactly. The [R3 live-main receipt](20260807_main_rb.json)
+remains immutable predecessor evidence.
 
 The [Noether Slavic v038 source receipt](20260807_slavic_rb.json) binds every
 path changed by its source commit: 126 commit-pinned raw files / 73,170,246
