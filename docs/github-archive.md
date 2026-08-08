@@ -47,6 +47,8 @@ readback, and where to start browsing without replaying old task transcripts.
 
 The [current twenty-six-cycle archive-history receipt](../manifests/published-github/20260808_archive_r8_rb.json)
 replays all five files in its publication commit: 297,201 bytes, all matched.
+The [archive-r8 shelf-and-link closure](../manifests/published-github/20260808_archive_r8_close_rb.json)
+replays all eight paths in its remote commit: 328,925 bytes, all matched.
 The [twenty-five-cycle predecessor archive-history receipt](../manifests/published-github/20260808_archive_r7_rb.json)
 replays all five files in its publication commit: 278,384 bytes, all matched.
 The [twenty-three-cycle archive-history predecessor receipt](../manifests/published-github/20260808_archive_r6_rb.json)
@@ -86,10 +88,11 @@ remain unchanged as historical evidence.
 ## Link Integrity
 
 The current bounded link audit is recorded as
-`manifests/github-custody/20260808_links_r6.json`. It covers 34 committed
+`manifests/github-custody/20260808_links_r9.json`. It covers 34 committed
 documents: the nineteen allowed maps; the GitHub-only map, archive, reader,
 source, custody, and receipt landings; and six contributor/issue entry points.
-It resolves 1,044/1,044 local links to 764 distinct targets.
+It resolves the exact local-link set recorded in that generation with zero
+missing or prohibited targets.
 [`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it
 counts external URLs without requesting them and stops before touching a
 prohibited local target.
