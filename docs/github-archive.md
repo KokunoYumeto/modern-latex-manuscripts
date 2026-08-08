@@ -12,7 +12,7 @@ readback, and where to start browsing without replaying old task transcripts.
 | Find an author, work, or corpus | [Coverage-map index](github-maps.md) | [`20260807_maps_r5.json`](../manifests/github-custody/20260807_maps_r5.json) |
 | Open a direct reader | [Reader-shelf index](../reader-pdfs/README.md) | [`20260807_readers_r4.json`](../manifests/github-custody/20260807_readers_r4.json) |
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources_r5.csv`](../manifests/github-custody/20260807_sources_r5.csv) and [summary](../manifests/github-custody/20260807_sources_r5.json) |
-| Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260807_shelves_r5.json`](../manifests/github-custody/20260807_shelves_r5.json) |
+| Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260808_shelves_r6.json`](../manifests/github-custody/20260808_shelves_r6.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |
 | Audit the GitHub maintenance chain | This page | [`20260808_archive_r6.json`](../manifests/github-custody/20260808_archive_r6.json) |
 | Interpret manifests and readback receipts | [Custody evidence](../manifests/github-custody/README.md) | [Raw-readback receipts](../manifests/published-github/README.md) |
