@@ -24,7 +24,7 @@ producer payloads.
   [four-row index](20260807_zh_a4.csv)
 - [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
-- [Bounded local-link audit](20260808_links.json)
+- Current bounded local-link audit: `20260808_links_r2.json`
 - [Maintenance-log index](20260806_log.json) and
   [append-only log](log.jsonl)
 
