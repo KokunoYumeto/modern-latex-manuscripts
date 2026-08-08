@@ -61,6 +61,10 @@ map, reader, shelf, landing, log, and prior-receipt paths / 2,669,549 bytes,
 all matched exactly. The combined [four-commit R5 receipt](20260807_r5_rb.json)
 preserves 527 additive commit-pinned observations / 256,477,890 bytes with zero
 mismatches. These transport receipts do not change R5's pending-review state.
+The [R5 source-shelf catalog correction receipt](20260808_src_cat_rb.json)
+binds the three corrected catalog/log paths / 199,943 bytes at commit
+`94665b4105d18922f69b4dbdf60e0c6e44c8d2ef`, all matched exactly. It changes
+catalog facts and links only; no producer or source byte changed.
 The separate [A4 custody/index receipt](20260807_zh_a4_cat_rb.json) binds all
 nine catalog, landing, log, and source-receipt paths / 202,313 bytes, all
 matched exactly.
