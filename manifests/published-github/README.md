@@ -129,8 +129,12 @@ landing and audit chain; all thirteen recorded paths matched.
 The [current twenty-six-cycle archive receipt](20260808_archive_r9_rb.json)
 replays all five paths in the archive-r9 publication commit: 291,841 bytes,
 all matched exactly. The [archive-r8 predecessor receipt](20260808_archive_r8_rb.json)
-replays its five paths / 297,201 bytes, all matched exactly. The
-[twenty-five-cycle archive predecessor receipt](20260808_archive_r7_rb.json)
+replays its five paths / 297,201 bytes, all matched exactly.
+
+The [archive-r9 complete-cycle receipt](20260808_archive_r9_cycle_rb.json)
+replays the final versions of all ten unique paths changed from `7e56161f`
+through `4a71e535`: 343,102 bytes, all matched exactly.
+The [twenty-five-cycle archive predecessor receipt](20260808_archive_r7_rb.json)
 replays all five paths / 278,384 bytes, all matched exactly. The
 [twenty-three-cycle archive predecessor receipt](20260808_archive_r6_rb.json)
 replays all five paths / 252,007 bytes, all matched exactly. The
