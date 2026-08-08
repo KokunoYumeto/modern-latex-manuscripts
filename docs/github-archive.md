@@ -45,6 +45,8 @@ readback, and where to start browsing without replaying old task transcripts.
 | Current reader/source shelf closure | 14/14 reader-root and 19/19 source-root Git trees unchanged; 402 reader files / 932,575,366 bytes and 14,901 source files / 3,681,880,509 bytes preserved without blob reads | [`623a3b0b`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/623a3b0b34067a44b9d3a3358153a59c10364320) | [`8fb7bb25`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/8fb7bb25f0d3341714c6ceb67243419bf946117a), [receipt](../manifests/published-github/20260808_shelves_r6_rb.json) |
 | Direct-reader navigation | Unchanged 14-root, 402-file reader inventory; current two-file navigation binding; 1,038/1,038 bounded local links to 762 targets | [`fe01135c`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/fe01135c0c5bdaf6805efc030c4146e8fe9d6f54) | [`85772e34`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/85772e342e56a2844aac5c9bf17a771d0ad42d8c), [receipt](../manifests/published-github/20260808_readers_r5_rb.json) |
 
+The [current twenty-five-cycle archive-history receipt](../manifests/published-github/20260808_archive_r7_rb.json)
+replays all five files in its publication commit: 278,384 bytes, all matched.
 The [twenty-three-cycle archive-history predecessor receipt](../manifests/published-github/20260808_archive_r6_rb.json)
 replays all five files in its publication commit: 252,007 bytes, all matched.
 The [current shelf-closure receipt](../manifests/published-github/20260808_shelves_r6_rb.json)
