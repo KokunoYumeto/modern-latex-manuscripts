@@ -7,7 +7,7 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- [Twenty-five-cycle archive history](20260808_archive_r7.json)
+- [Twenty-six-cycle archive history](20260808_archive_r8.json)
 - [Coverage-map inventory](20260807_maps_r5.json)
 - [Current reader/source shelf closure](20260808_shelves_r8.json)
 - [Direct-reader inventory](20260808_readers_r5.json)
@@ -43,10 +43,10 @@ remain immutable. The
 [eight-cycle archive r2](20260806_archive_r2.json), and
 [four-cycle predecessor](20260806_archive.json) remain immutable historical
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
-remains unchanged. The current twenty-five-cycle index adds the bounded
-reader/source shelf and direct-reader navigation cycles. It binds the
-publication closure of the twenty-three-cycle predecessor without rewriting
-R5, R4, R3, or any earlier generation.
+remains unchanged. The current twenty-six-cycle index adds the bounded current
+shelf and local-link closure. It binds the publication closure of the
+twenty-five-cycle predecessor without rewriting R5, R4, R3, or any earlier
+generation.
 
 The frozen R5 successor is preserved additively and remains pending independent
 review; it does not replace the accepted R4 reader. The 2026-08-07 r5 source,
