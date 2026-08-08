@@ -43,6 +43,9 @@ readback, and where to start browsing without replaying old task transcripts.
 | Noether Simplified Chinese R5 pending review | Exact frozen 496-file source checkpoint plus direct 424-page pending reader; current 402-file reader inventory, 14,901-file source inventory, 19-map audit, and current-tree shelf closure; R4 remains accepted/current | [`60895012`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/608950122c7d13595a43f9347fd2aa72f77684db) | [`bdf2a563`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/bdf2a56395006f483c6b0f2fd1dd3f2756be3ca9), [four-commit receipt](../manifests/published-github/20260807_r5_rb.json) |
 | GitHub catalog, map, and link maintenance | Corrected current 14,901-file / 3,681,880,509-byte source totals; 19 maps / 195,453 bytes; 1,027/1,027 local links to 758 targets; producer bytes unchanged | [`57123827`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/57123827c0b4ee9c8a6f30788341a48915ad7473), [`94665b41`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/94665b4105d18922f69b4dbdf60e0c6e44c8d2ef), [`124b2b4d`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/124b2b4dd41ee9b5711e256f7118426d93131826), [`4d3a4f5a`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/4d3a4f5a7023f2b88a277e145bb04108c8e00dbc) | [`23c3f46a`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/23c3f46ab53be35bcdc8572f2e42b8dba38be6bf), [combined receipt](../manifests/published-github/20260808_maps_rb.json) |
 
+The [twenty-three-cycle archive-history receipt](../manifests/published-github/20260808_archive_r6_rb.json)
+replays all five files in its publication commit: 252,007 bytes, all matched.
+
 These scopes overlap and must not be treated as unique-file totals: the
 classical files are a deeply classified subset of the reader and source
 shelves, while later maintenance cycles repeatedly read back evolving catalog,

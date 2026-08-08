@@ -6,13 +6,18 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [archive-history receipt](20260807_archive_r5_rb.json),
+Start with the current [archive-history receipt](20260808_archive_r6_rb.json),
+the [twenty-three-cycle manifest](../github-custody/20260808_archive_r6.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
-The current [navigation-link closure receipt](20260808_links_rb.json) binds the
-post-closure 34-document, 1,024-local-link committed-blob audit: five paths /
-223,303 bytes, all matched exactly. The
+The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
+binds eight additive path observations across three commits / 456,987 bytes,
+all matched exactly. Its final link control records 34 documents, 1,027/1,027
+local links, and 758 targets. The predecessor
+[navigation-link closure receipt](20260808_links_rb.json) binds the
+34-document, 1,024-local-link committed-blob audit: five paths / 223,303
+bytes, all matched exactly. The
 [R5 archive-navigation receipt](20260807_links_r4_rb.json) remains immutable
 predecessor evidence: seven paths / 223,835 bytes, all matched exactly.
 The [R5 receipt-publication closure](20260807_r5_close_rb.json) then replays
@@ -93,7 +98,10 @@ The [landing receipt](20260807_slavic_land_rb.json), [final-link receipt](202608
 and [link-receipt closure](20260807_slavic_link_close.json) preserve the final
 landing and audit chain; all thirteen recorded paths matched.
 
-The [twenty-two-cycle archive receipt](20260807_archive_r5_rb.json) replays all
+The [twenty-three-cycle archive receipt](20260808_archive_r6_rb.json) replays
+all five paths in the current archive-history publication commit: 252,007
+bytes, all matched exactly. The
+[twenty-two-cycle archive receipt](20260807_archive_r5_rb.json) replays all
 eight paths in the current archive-history successor: 546,389 bytes, all
 matched exactly. The [twenty-one-cycle predecessor receipt](20260807_archive_r4_rb.json)
 remains immutable: nine paths / 209,016 bytes, all matched exactly. The
