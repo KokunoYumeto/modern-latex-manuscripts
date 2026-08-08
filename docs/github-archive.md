@@ -45,6 +45,9 @@ readback, and where to start browsing without replaying old task transcripts.
 
 The [twenty-three-cycle archive-history receipt](../manifests/published-github/20260808_archive_r6_rb.json)
 replays all five files in its publication commit: 252,007 bytes, all matched.
+The [current shelf-closure receipt](../manifests/published-github/20260808_shelves_r6_rb.json)
+replays its five publication files / 257,210 bytes, all matched, while proving
+14/14 reader-root and 19/19 source-root Git tree equality.
 
 These scopes overlap and must not be treated as unique-file totals: the
 classical files are a deeply classified subset of the reader and source
