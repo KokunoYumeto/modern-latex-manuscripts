@@ -42,6 +42,10 @@ The [r7 receipt-publication closure](20260808_shelves_r7_pub_rb.json) replays
 the five receipt and landing paths in the next remote commit: 283,335 bytes,
 all matched exactly.
 
+The [archive-r8 receipt-publication closure](20260808_archive_r8_pub_rb.json)
+replays the five receipt and landing paths in the next remote commit: 295,142
+bytes, all matched exactly.
+
 The current [direct-reader inventory receipt](20260808_readers_r5_rb.json)
 replays all six paths in the navigation-only reader successor publication:
 267,277 bytes, all matched exactly. It preserves the exact 402-file /

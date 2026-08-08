@@ -9,7 +9,7 @@ producer payloads.
 
 - [Twenty-six-cycle archive history](20260808_archive_r8.json)
 - [Coverage-map inventory](20260807_maps_r5.json)
-- [Current reader/source shelf closure](20260808_shelves_r8.json)
+- [Current reader/source shelf closure](20260808_shelves_r9.json)
 - [Direct-reader inventory](20260808_readers_r5.json)
 - [Tracked-source summary](20260807_sources_r5.json) and
   [path inventory](20260807_sources_r5.csv)
@@ -24,7 +24,7 @@ producer payloads.
   [four-row index](20260807_zh_a4.csv)
 - [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
-- Current bounded local-link audit: `20260808_links_r7.json`
+- Current bounded local-link audit: `20260808_links_r8.json`
 - [Maintenance-log index](20260806_log.json) and
   [append-only log](log.jsonl)
 
