@@ -65,6 +65,10 @@ The [R5 source-shelf catalog correction receipt](20260808_src_cat_rb.json)
 binds the three corrected catalog/log paths / 199,943 bytes at commit
 `94665b4105d18922f69b4dbdf60e0c6e44c8d2ef`, all matched exactly. It changes
 catalog facts and links only; no producer or source byte changed.
+The [front-door source-total correction receipt](20260808_front_rb.json) binds
+the three front-door/log paths / 317,002 bytes at commit
+`124b2b4dd41ee9b5711e256f7118426d93131826`, all matched exactly. It refreshes
+the current source-shelf totals without rewriting historical cycle entries.
 The separate [A4 custody/index receipt](20260807_zh_a4_cat_rb.json) binds all
 nine catalog, landing, log, and source-receipt paths / 202,313 bytes, all
 matched exactly.
