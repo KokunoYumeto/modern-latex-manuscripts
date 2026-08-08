@@ -30,11 +30,13 @@ archive controls, locked log, and receipts from `main`: 33 paths / 8,771,204
 bytes, all matched exactly. The [R3 live-main receipt](20260807_main_rb.json)
 remains immutable predecessor evidence.
 
-The current [reader/source shelf-closure receipt](20260808_shelves_r6_rb.json)
-replays all five paths in the metadata-only successor publication commit:
-257,210 bytes, all matched exactly. It proves 14/14 allowed reader-root and
-19/19 allowed source-root Git tree equality while updating two task-owned
-navigation identities; reader/source blob content was not read or changed.
+The current [reader/source shelf-closure receipt](20260808_shelves_r7_rb.json)
+replays all five paths in the metadata-only successor commit: 289,863 bytes,
+all matched exactly. It proves 14/14 allowed reader-root and 19/19 allowed
+source-root Git tree equality while binding the current direct-reader inventory
+and five task-owned navigation identities; reader/source blob content was not
+read or changed. The [r6 receipt](20260808_shelves_r6_rb.json) remains immutable
+predecessor evidence.
 
 The current [direct-reader inventory receipt](20260808_readers_r5_rb.json)
 replays all six paths in the navigation-only reader successor publication:
