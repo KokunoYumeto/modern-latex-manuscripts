@@ -9,7 +9,7 @@ producer payloads.
 
 - [Twenty-three-cycle archive history](20260808_archive_r6.json)
 - [Coverage-map inventory](20260807_maps_r5.json)
-- [Current reader/source shelf closure](20260807_shelves_r5.json)
+- [Current reader/source shelf closure](20260808_shelves_r6.json)
 - [Direct-reader inventory](20260807_readers_r4.json)
 - [Tracked-source summary](20260807_sources_r5.json) and
   [path inventory](20260807_sources_r5.csv)
