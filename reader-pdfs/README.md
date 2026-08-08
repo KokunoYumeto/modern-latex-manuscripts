@@ -35,7 +35,7 @@ digest below uses repository-relative paths.
 The complete 402-row canonical stream is 68,056 bytes with tree SHA-256
 `620DF4B8EC4982C3CAF6190166ADF2DAE369D8D099073DD5511B30675BB61F6F`.
 Exact machine evidence is in
-[`20260807_readers_r4.json`](../manifests/github-custody/20260807_readers_r4.json).
+[`20260808_readers_r5.json`](../manifests/github-custody/20260808_readers_r5.json).
 
 ## Duplicate And Support State
 
