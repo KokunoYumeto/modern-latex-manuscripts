@@ -9,7 +9,7 @@ For a concise evidence-based view of what each live translation lane has actuall
 For direct GitHub browsing, use the [source-shelf index](sources/README.md). It
 links the task-maintained author and corpus trees without requiring readers to
 reverse-engineer the external-record catalog. Its exact Git-object inventory
-binds 12,407 tracked source paths / 2,546,045,982 committed bytes across the
+  binds 14,901 tracked source paths / 3,681,880,509 committed bytes across the
 nineteen allowed shelves, so an old directory name is discoverable without
 being mistaken for the current generation.
 
