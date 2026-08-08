@@ -7,7 +7,7 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- [Twenty-three-cycle archive history](20260808_archive_r6.json)
+- [Twenty-five-cycle archive history](20260808_archive_r7.json)
 - [Coverage-map inventory](20260807_maps_r5.json)
 - [Current reader/source shelf closure](20260808_shelves_r6.json)
 - [Direct-reader inventory](20260808_readers_r5.json)
@@ -32,7 +32,8 @@ The [human archive history](../../docs/github-archive.md) explains the bounded
 cycles. Exact public-byte receipts have their own
 [landing page](../published-github/README.md).
 
-The [twenty-two-cycle archive predecessor](20260807_archive_r5.json),
+The [twenty-three-cycle archive predecessor](20260808_archive_r6.json),
+[twenty-two-cycle archive predecessor](20260807_archive_r5.json),
 [twenty-one-cycle archive predecessor](20260807_archive_r4.json),
 [twenty-cycle archive predecessor](20260807_archive_r3.json),
 [nineteen-cycle archive predecessor](20260807_archive_r2.json),
@@ -42,10 +43,10 @@ remain immutable. The
 [eight-cycle archive r2](20260806_archive_r2.json), and
 [four-cycle predecessor](20260806_archive.json) remain immutable historical
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
-remains unchanged. The current twenty-three-cycle index adds the bounded
-GitHub-only catalog, coverage-map, local-link, locked-log, and readback
-maintenance cycle. It binds the publication closure of the twenty-two-cycle
-R5 predecessor without rewriting R5, R4, R3, or any earlier generation.
+remains unchanged. The current twenty-five-cycle index adds the bounded
+reader/source shelf and direct-reader navigation cycles. It binds the
+publication closure of the twenty-three-cycle predecessor without rewriting
+R5, R4, R3, or any earlier generation.
 
 The frozen R5 successor is preserved additively and remains pending independent
 review; it does not replace the accepted R4 reader. The 2026-08-07 r5 source,
