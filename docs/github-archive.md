@@ -73,10 +73,10 @@ remain unchanged as historical evidence.
 ## Link Integrity
 
 The current bounded link audit is recorded as
-`manifests/github-custody/20260808_links_r2.json`. It covers 34 committed
+`manifests/github-custody/20260808_links_r3.json`. It covers 34 committed
 documents: the nineteen allowed maps; the GitHub-only map, archive, reader,
 source, custody, and receipt landings; and six contributor/issue entry points.
-It resolves 1,027/1,027 local links to 758 distinct targets.
+It resolves 1,034/1,034 local links to 761 distinct targets.
 [`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it
 counts external URLs without requesting them and stops before touching a
 prohibited local target.
