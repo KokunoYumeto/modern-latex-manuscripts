@@ -23,7 +23,7 @@ readback, and where to start browsing without replaying old task transcripts.
 |---|---|---|---|
 | Classical shelf | 832 files / 216,679,649 bytes; exactly Cayley, Dedekind, and Dirichlet | [`621f903e`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/621f903e79f47117ac6dc2e6bca3a61ee5aa225b) | [`cff2dca2`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/cff2dca2b6bbb628a1e403ced1f930bcad88f407), [receipt](../manifests/published-github/20260806_classical_readback.json) |
 | Coverage maps | 19 allowed map documents, 601 resolved map links, and 20 explicitly bound manifests | [`ca54370b`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/ca54370b0b348932facfed2e431ea178b3348be7) | [`bc86c1d2`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/bc86c1d2962b918c0abeb678993aa0e20860b13f), [receipt](../manifests/published-github/20260806_maps_readback.json) |
-| Reader shelves | 14 roots, 392 PDFs, three support files / 911,980,954 bytes | [`742a49b0`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/742a49b0eb1272471a9ee4a4c8245f69a5ec9fec) | [`0a7577e4`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/0a7577e4716d100113f2e7e0d9014e0d68041216), [receipt](../manifests/published-github/20260806_readers_readback.json) |
+| Reader shelves | 14 roots, 399 PDFs, three support files / 932,575,366 bytes | [`fe01135c`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/fe01135c0c5bdaf6805efc030c4146e8fe9d6f54) | [receipt](../manifests/published-github/20260808_readers_r5_rb.json) |
 | Source shelves | 19 roots, 12,407 tracked paths / 2,546,045,982 committed bytes | [`59d3463e`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/59d3463eb62312607f6faa37886d54a71e72f4b5) | [`ca518f55`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/ca518f554e7070addb2e5d3be2de660c4d6d87f7), [receipt](../manifests/published-github/20260806_sources_readback.json) |
 | Archive history | Four-cycle GitHub history, navigation, and exact manifest/receipt binding | [`a5365f6e`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/a5365f6e22f7a6440319dc3016629d07f44081ea) | [`eaecfc6b`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/eaecfc6b7fd7f7476df08e767c26eabf7f2ddcd2), [receipt](../manifests/published-github/20260806_archive_readback.json) |
 | Maintenance log | Seven-record initial locked log, deterministic replay helper, and preserved error/correction history | [`21f797ba`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/21f797ba43e0171978dd366d7e120711e477e2d0) | [`b184bc9a`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/b184bc9a14b30b8a2c5d58170d489b986ed99828), [receipt](../manifests/published-github/20260806_log_readback.json) |
@@ -48,6 +48,9 @@ replays all five files in its publication commit: 252,007 bytes, all matched.
 The [current shelf-closure receipt](../manifests/published-github/20260808_shelves_r6_rb.json)
 replays its five publication files / 257,210 bytes, all matched, while proving
 14/14 reader-root and 19/19 source-root Git tree equality.
+The [current direct-reader receipt](../manifests/published-github/20260808_readers_r5_rb.json)
+replays its six publication files / 267,277 bytes, all matched, while preserving
+the exact 402-file reader inventory under 14/14 root-tree equality.
 
 These scopes overlap and must not be treated as unique-file totals: the
 classical files are a deeply classified subset of the reader and source
