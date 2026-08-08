@@ -10,9 +10,11 @@ Start with the current [archive-history receipt](20260807_archive_r5_rb.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
-The current [navigation-link closure receipt](20260807_links_r4_rb.json) binds
-the twenty-two-cycle archive navigation and its 34-document, 1,021-local-link
-committed-blob audit: seven paths / 223,835 bytes, all matched exactly.
+The current [navigation-link closure receipt](20260808_links_rb.json) binds the
+post-closure 34-document, 1,024-local-link committed-blob audit: five paths /
+223,303 bytes, all matched exactly. The
+[R5 archive-navigation receipt](20260807_links_r4_rb.json) remains immutable
+predecessor evidence: seven paths / 223,835 bytes, all matched exactly.
 The [R5 receipt-publication closure](20260807_r5_close_rb.json) then replays
 the four navigation-receipt publication paths / 193,908 bytes, all matched
 exactly.
