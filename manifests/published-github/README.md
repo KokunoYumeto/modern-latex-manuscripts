@@ -13,6 +13,9 @@ the [human archive history](../../docs/github-archive.md), and the
 The current [navigation-link closure receipt](20260807_links_r4_rb.json) binds
 the twenty-two-cycle archive navigation and its 34-document, 1,021-local-link
 committed-blob audit: seven paths / 223,835 bytes, all matched exactly.
+The [R5 receipt-publication closure](20260807_r5_close_rb.json) then replays
+the four navigation-receipt publication paths / 193,908 bytes, all matched
+exactly.
 
 The [live-main receipt](20260807_main_rb.json) independently replays the
 Simplified-Chinese Noether R3 reader/source seal, current catalogs, archive
