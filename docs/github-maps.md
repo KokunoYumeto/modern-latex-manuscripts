@@ -16,8 +16,8 @@ For the exact root-level PDF and support-file counts behind these maps, use the
 For every tracked source path behind the allowed shelves, use the
 [GitHub source-shelf index](../sources/README.md). Its compact summary and
 per-file CSV bind Git tree/blob identities without rereading the source working
-tree. The current exact allowed-source projection is 3,431,702,752 committed
-bytes.
+tree. The current exact allowed-source projection is 14,901 files /
+3,681,880,509 committed bytes.
 
 ## Author, Work, And Series Maps
 
@@ -50,17 +50,19 @@ bytes.
 
 ## Exact Navigation Audit
 
-The nineteen map documents total 194,081 bytes. Their 1,717-byte ordinal
+The nineteen map documents total 195,453 bytes. Their 1,717-byte ordinal
 canonical stream (`path<TAB>bytes<TAB>SHA256<LF>`, UTF-8 without BOM) has tree
 SHA-256
-`87EDDA90B425F6CA915F578FDA54CB7F0386305DB837C68FD1210A86E459E6D5`.
-All 634 local links resolve in the current Git tree.
+`66AFCC9DB60F648B01E5DC766D78974E765AF915B157A2AECC062A491861A8B3`.
+All 643 local links resolve in the current Git tree.
 
 The exact current identities and link closure are in
-[`20260807_maps_r3.json`](../manifests/github-custody/20260807_maps_r3.json).
-The current increment routes the Simplified-Chinese Noether R4 custody
-manifest and 1,434-row path index while retaining the exact R3 predecessor.
-The [R3-generation map index](../manifests/github-custody/20260807_maps_r2.json),
+[`20260807_maps_r5.json`](../manifests/github-custody/20260807_maps_r5.json).
+The current increment routes the frozen Simplified-Chinese Noether R5 custody
+manifest and 498-row path index while retaining R4 as accepted/current. The
+[A4 predecessor map index](../manifests/github-custody/20260807_maps_r4.json),
+[R4-generation index](../manifests/github-custody/20260807_maps_r3.json),
+[R3-generation index](../manifests/github-custody/20260807_maps_r2.json),
 [Slavic-generation index](../manifests/github-custody/20260807_maps.json), and
 earlier generations remain immutable history.
 
