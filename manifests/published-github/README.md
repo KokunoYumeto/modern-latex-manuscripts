@@ -36,6 +36,13 @@ replays all five paths in the metadata-only successor publication commit:
 19/19 allowed source-root Git tree equality while updating two task-owned
 navigation identities; reader/source blob content was not read or changed.
 
+The current [direct-reader inventory receipt](20260808_readers_r5_rb.json)
+replays all six paths in the navigation-only reader successor publication:
+267,277 bytes, all matched exactly. It preserves the exact 402-file /
+932,575,366-byte reader inventory under 14/14 root-tree equality and binds the
+current two-file GitHub navigation surface without reading or changing reader
+blob content.
+
 The [Noether Slavic v038 source receipt](20260807_slavic_rb.json) binds every
 path changed by its source commit: 126 commit-pinned raw files / 73,170,246
 bytes, all matched exactly.
