@@ -10,9 +10,9 @@ Start with the current [archive-history receipt](20260807_archive_r5_rb.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
-The current [navigation-link closure receipt](20260807_links_r3_rb.json) binds
-the twenty-one-cycle archive navigation and its 34-document, 1,002-local-link
-committed-blob audit: seven paths / 190,108 bytes, all matched exactly.
+The current [navigation-link closure receipt](20260807_links_r4_rb.json) binds
+the twenty-two-cycle archive navigation and its 34-document, 1,021-local-link
+committed-blob audit: seven paths / 223,835 bytes, all matched exactly.
 
 The [live-main receipt](20260807_main_rb.json) independently replays the
 Simplified-Chinese Noether R3 reader/source seal, current catalogs, archive
