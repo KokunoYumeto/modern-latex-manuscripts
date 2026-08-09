@@ -6,10 +6,10 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [queue-and-scope receipt](20260809_queue_scope_rb.json)
-and [closure](20260809_queue_scope_close.json), the [twenty-six-cycle
-predecessor manifest](../github-custody/20260808_archive_r9.json), the [human
-archive history](../../docs/github-archive.md), and the [custody-index
+Start with the current [frontier receipt](frontier-r1.json) and
+[closure](frontier-r1-close.json), the [twenty-eight-cycle predecessor
+closure](20260809_queue_scope_close.json), the [human archive
+history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
 
 The compact [archive-and-Weber frontier receipt](frontier-r1.json) approves
@@ -22,6 +22,12 @@ row requires binding the snapshotted public Volume II German/English bytes
 through §176 to the GitHub custody surface through §143 before continuation,
 forbids redoing §§144–176, and sets the later cursor to source p.643. No
 producer or corpus artifact changed.
+
+The [frontier closure](frontier-r1-close.json) binds the receipt commit's 6/6
+anonymous raw readback, successful Actions run, exact four-file consumer,
+fail-closed missing-promisor regression, claim fixtures, and 39-document link
+audit. The additive archive aggregate through the receipt is now 30 cycles,
+3,057 observations, and 1,209,798,692 bytes with zero mismatches.
 
 The [sparse continuous-validation receipt](20260809_adopt_ci_rb.json) approves
 source commit `ae59d85d406d52448eacc0794916b34c8189a739`: all ten changed
