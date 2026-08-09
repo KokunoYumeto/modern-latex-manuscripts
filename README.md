@@ -28,12 +28,16 @@ fail-closed [`get-adopt.py`](scripts/get-adopt.py) consumer. Claims and returned
 results use separate GitHub forms, so a declared start cannot be mistaken for
 an inspectable handback. The same consumer supports raw GitHub and an offline
 local Git-object mode; both read the identical four-file contract at one exact
-approved commit and reject dirty working-tree substitution.
+approved commit and reject dirty working-tree substitution. Local mode also
+disables Git promisor lazy-fetches, so a missing contract blob fails closed
+instead of contacting a remote.
 The [live adoption queue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues?q=is%3Aissue+label%3Aadoption)
 shows declared claims and handbacks under the tracked
 [workflow-label contract](.github/labels.json). The read-only
 [`check-claims.py`](scripts/check-claims.py) auditor validates that queue
-against one human-approved board commit.
+against one human-approved board commit. It supports the live public queue and
+a fully offline local-Git-plus-JSON-fixture replay without changing the four-file
+board contract.
 The board also embeds exact start/input/step/evidence/stop/handback contracts
 for every workflow token. The concise
 [workflow guide](docs/adopt-flows.md) makes those protocols readable and

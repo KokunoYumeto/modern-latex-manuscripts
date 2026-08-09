@@ -23,7 +23,9 @@
     "snapshot_policy",
     "consumer_helper",
     "consumer_modes",
+    "consumer_regression",
     "claim_auditor",
+    "claim_auditor_modes",
     "claim_interface",
     "handback_interface",
     "human_workflows",
@@ -199,8 +201,41 @@
       "minItems": 2,
       "maxItems": 2
     },
+    "consumer_regression": {
+      "const": "scripts/test-adopt-offline.py"
+    },
     "claim_auditor": {
       "const": "scripts/check-claims.py"
+    },
+    "claim_auditor_modes": {
+      "type": "object",
+      "required": [
+        "board",
+        "issues"
+      ],
+      "properties": {
+        "board": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "raw_github" },
+            { "const": "local_git_object_database" }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "issues": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "public_github_api" },
+            { "const": "json_fixture" }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "additionalProperties": false
     },
     "claim_interface": {
       "const": "https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml"

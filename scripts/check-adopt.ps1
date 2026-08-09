@@ -566,7 +566,7 @@ if (($consumerModes -join "`n") -cne ($expectedConsumerModes -join "`n")) {
 $consumerHelperFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $expectedConsumerHelper))
 if ([IO.File]::Exists($consumerHelperFull)) {
     $consumerHelperText = $utf8.GetString([IO.File]::ReadAllBytes($consumerHelperFull))
-    foreach ($token in @('GitObjectSource', '--git', 'cat-file', 'local_git_object_database', 'raw_github')) {
+    foreach ($token in @('GitObjectSource', '--git', 'cat-file', 'GIT_NO_LAZY_FETCH', 'lazy_fetch_disabled', 'local_git_object_database', 'raw_github')) {
         if (-not $consumerHelperText.Contains($token, [StringComparison]::Ordinal)) {
             Add-Error "consumer_helper is missing required transport token: $token"
             $consumerHelperContractPass = $false
@@ -576,11 +576,60 @@ if ([IO.File]::Exists($consumerHelperFull)) {
 else {
     $consumerHelperContractPass = $false
 }
+$expectedConsumerRegression = 'scripts/test-adopt-offline.py'
+$consumerRegressionContractPass = $true
+if ([string]$board.consumer_regression -cne $expectedConsumerRegression) {
+    Add-Error 'consumer_regression does not match the exact promisor-clone regression path.'
+    $consumerRegressionContractPass = $false
+}
+Test-RepoPath -Path ([string]$board.consumer_regression) -Context 'consumer_regression' -Required $true
+$consumerRegressionFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $expectedConsumerRegression))
+if ([IO.File]::Exists($consumerRegressionFull)) {
+    $consumerRegressionText = $utf8.GetString([IO.File]::ReadAllBytes($consumerRegressionFull))
+    foreach ($token in @('remote.origin.promisor', 'extensions.partialClone', '127.0.0.1:9', 'missing_blob_remote_attempt', 'lazy_fetch_disabled')) {
+        if (-not $consumerRegressionText.Contains($token, [StringComparison]::Ordinal)) {
+            Add-Error "consumer_regression is missing required promisor-test token: $token"
+            $consumerRegressionContractPass = $false
+        }
+    }
+}
+else {
+    $consumerRegressionContractPass = $false
+}
 $expectedClaimAuditor = 'scripts/check-claims.py'
+$claimAuditorContractPass = $true
 if ([string]$board.claim_auditor -cne $expectedClaimAuditor) {
     Add-Error 'claim_auditor does not match the exact v1 auditor path.'
+    $claimAuditorContractPass = $false
 }
 Test-RepoPath -Path ([string]$board.claim_auditor) -Context 'claim_auditor' -Required $true
+$expectedClaimBoardModes = [string[]]@('raw_github', 'local_git_object_database')
+$expectedClaimIssueModes = [string[]]@('public_github_api', 'json_fixture')
+$claimBoardModes = [string[]]@($board.claim_auditor_modes.board)
+$claimIssueModes = [string[]]@($board.claim_auditor_modes.issues)
+Test-UniqueStrings -Values $claimBoardModes -Context 'claim_auditor_modes.board' -RequireNonEmpty $true
+Test-UniqueStrings -Values $claimIssueModes -Context 'claim_auditor_modes.issues' -RequireNonEmpty $true
+if (($claimBoardModes -join "`n") -cne ($expectedClaimBoardModes -join "`n")) {
+    Add-Error 'claim_auditor_modes.board does not match the exact transport contract.'
+    $claimAuditorContractPass = $false
+}
+if (($claimIssueModes -join "`n") -cne ($expectedClaimIssueModes -join "`n")) {
+    Add-Error 'claim_auditor_modes.issues does not match the exact transport contract.'
+    $claimAuditorContractPass = $false
+}
+$claimAuditorFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $expectedClaimAuditor))
+if ([IO.File]::Exists($claimAuditorFull)) {
+    $claimAuditorText = $utf8.GetString([IO.File]::ReadAllBytes($claimAuditorFull))
+    foreach ($token in @('--git', '--issues-file', 'board transport is not declared', 'issue transport is not declared')) {
+        if (-not $claimAuditorText.Contains($token, [StringComparison]::Ordinal)) {
+            Add-Error "claim_auditor is missing required transport token: $token"
+            $claimAuditorContractPass = $false
+        }
+    }
+}
+else {
+    $claimAuditorContractPass = $false
+}
 
 $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 $stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 }
@@ -825,7 +874,12 @@ $report = [ordered]@{
     }
     consumer_helper = [string]$board.consumer_helper
     consumer_modes = @($consumerModes)
+    consumer_regression = [string]$board.consumer_regression
     claim_auditor = [string]$board.claim_auditor
+    claim_auditor_modes = [ordered]@{
+        board = @($claimBoardModes)
+        issues = @($claimIssueModes)
+    }
     ownership_policy = [ordered]@{
         named_owner_required_for = @($board.ownership_policy.named_owner_required_for)
         null_owner_means = [string]$board.ownership_policy.null_owner_means
@@ -866,6 +920,8 @@ $report = [ordered]@{
         issue_labels = $expectedLabelRows.Count
         issue_label_templates = [int](($expectedLabelRows | ForEach-Object { @($_.templates).Count } | Measure-Object -Sum).Sum)
         consumer_modes = $consumerModes.Count
+        claim_auditor_board_modes = $claimBoardModes.Count
+        claim_auditor_issue_modes = $claimIssueModes.Count
         workflow_registry = $workflowRegistryIds.Count
         workflow_tokens_used = $workflowUsedIds.Count
         unreferenced_workflows = $unreferencedWorkflowIds.Count
@@ -903,7 +959,16 @@ $report = [ordered]@{
             [string]$board.consumer_helper -ceq $expectedConsumerHelper -and
             ($consumerModes -join "`n") -ceq ($expectedConsumerModes -join "`n")
         )
-        claim_auditor_contract = ([string]$board.claim_auditor -ceq $expectedClaimAuditor)
+        consumer_regression_contract = (
+            $consumerRegressionContractPass -and
+            [string]$board.consumer_regression -ceq $expectedConsumerRegression
+        )
+        claim_auditor_contract = (
+            $claimAuditorContractPass -and
+            [string]$board.claim_auditor -ceq $expectedClaimAuditor -and
+            ($claimBoardModes -join "`n") -ceq ($expectedClaimBoardModes -join "`n") -and
+            ($claimIssueModes -join "`n") -ceq ($expectedClaimIssueModes -join "`n")
+        )
         contributor_interface_contract = (
             [string]$board.claim_interface -ceq $expectedClaimInterface -and
             [string]$board.handback_interface -ceq $expectedHandbackInterface

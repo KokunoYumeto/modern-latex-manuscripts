@@ -7,6 +7,7 @@ import argparse
 from collections.abc import Callable
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -76,10 +77,13 @@ class GitObjectSource:
         self.commit = resolved
 
     def _run(self, *arguments: str) -> subprocess.CompletedProcess[bytes]:
+        environment = os.environ.copy()
+        environment["GIT_NO_LAZY_FETCH"] = "1"
         result = subprocess.run(
             ["git", "-C", self.repository_path, *arguments],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
+            env=environment,
             check=False,
         )
         if result.returncode != 0:
@@ -256,6 +260,7 @@ def main() -> int:
             source.fetch if source is not None else fetch,
         )
         summary["transport"] = "local_git_object_database" if source else "raw_github"
+        summary["lazy_fetch_disabled"] = source is not None
     except Exception as error:  # one concise fail-closed public interface
         print(f"ERROR: {error}", file=sys.stderr)
         return 1
