@@ -50,16 +50,19 @@ tree. The current exact allowed-source projection is 14,901 files /
 
 ## Exact Navigation Audit
 
-The nineteen map documents total 195,453 bytes. Their 1,717-byte ordinal
+The nineteen map documents total 195,954 bytes. Their 1,717-byte ordinal
 canonical stream (`path<TAB>bytes<TAB>SHA256<LF>`, UTF-8 without BOM) has tree
 SHA-256
-`66AFCC9DB60F648B01E5DC766D78974E765AF915B157A2AECC062A491861A8B3`.
+`F3EC19125E26037C8E91B67B85EE9853A6C8425D2E51EBA48AED5F4AA6F5D72F`.
 All 643 local links resolve in the current Git tree.
 
 The exact current identities and link closure are in
-[`20260807_maps_r5.json`](../manifests/github-custody/20260807_maps_r5.json).
-The current increment routes the frozen Simplified-Chinese Noether R5 custody
-manifest and 498-row path index while retaining R4 as accepted/current. The
+[`maps-r6.json`](../manifests/github-custody/maps-r6.json). The current
+increment reconciles the GitHub-absent Steinitz 1906 note with the
+snapshotted dedicated-record packet before any retranscription. The
+[R5 predecessor map index](../manifests/github-custody/20260807_maps_r5.json)
+retains the frozen Simplified-Chinese Noether R5 routing while R4 remains
+accepted/current. The
 [A4 predecessor map index](../manifests/github-custody/20260807_maps_r4.json),
 [R4-generation index](../manifests/github-custody/20260807_maps_r3.json),
 [R3-generation index](../manifests/github-custody/20260807_maps_r2.json),

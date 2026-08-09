@@ -10,7 +10,7 @@ readback, and where to start browsing without replaying old task transcripts.
 | Need | Human landing | Exact machine evidence |
 |---|---|---|
 | Adopt or independently mirror a bounded work | [Adoption board](adopt.md) | [`manifests/adopt.json`](../manifests/adopt.json) |
-| Find an author, work, or corpus | [Coverage-map index](github-maps.md) | [`20260807_maps_r5.json`](../manifests/github-custody/20260807_maps_r5.json) |
+| Find an author, work, or corpus | [Coverage-map index](github-maps.md) | [`maps-r6.json`](../manifests/github-custody/maps-r6.json) |
 | Open a direct reader | [Reader-shelf index](../reader-pdfs/README.md) | [`20260808_readers_r5.json`](../manifests/github-custody/20260808_readers_r5.json) |
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources_r5.csv`](../manifests/github-custody/20260807_sources_r5.csv) and [summary](../manifests/github-custody/20260807_sources_r5.json) |
 | Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260808_shelves_r9.json`](../manifests/github-custody/20260808_shelves_r9.json) |

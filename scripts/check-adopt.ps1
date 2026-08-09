@@ -737,6 +737,7 @@ $stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 
 $namedOwnerRows = 0
 $unclaimedOwnerRows = 0
 $weberFrontierContractPass = $false
+$steinitz1906FrontierContractPass = $false
 $requiredRowFields = $expectedFields
 foreach ($item in @($board.items)) {
     $id = [string]$item.id
@@ -793,6 +794,36 @@ foreach ($item in @($board.items)) {
             $cursorPass = $false
         }
         $weberFrontierContractPass = $cursorPass
+    }
+
+    if ($id -ceq 'steinitz-1906-euler') {
+        $cursor = [string]$item.next_cursor
+        $requiredCursorTokens = [string[]]@(
+            'bind and bibliographically compare',
+            'dedicated-record 1906 German/English packet',
+            'mapped Euler-polyhedron note',
+            'if identical',
+            'do not retranscribe',
+            'only if proved distinct'
+        )
+        $cursorPass = $true
+        foreach ($token in $requiredCursorTokens) {
+            if (-not $cursor.Contains($token, [StringComparison]::Ordinal)) {
+                Add-Error "item:steinitz-1906-euler next_cursor is missing required frontier token: $token"
+                $cursorPass = $false
+            }
+        }
+        $requiredPrerequisite = 'locate and bind the dedicated-record 1906 German/English packet'
+        if (-not (@($item.prerequisites) -ccontains $requiredPrerequisite)) {
+            Add-Error 'item:steinitz-1906-euler must require the public 1906 packet before transcription.'
+            $cursorPass = $false
+        }
+        $sourceBasis = [string]$item.source_basis
+        if (-not $sourceBasis.Contains('dedicated-record', [StringComparison]::Ordinal)) {
+            Add-Error 'item:steinitz-1906-euler source_basis must name the dedicated-record surface.'
+            $cursorPass = $false
+        }
+        $steinitz1906FrontierContractPass = $cursorPass
     }
 
     switch ([string]$item.lane_state) {
@@ -863,6 +894,9 @@ foreach ($state in $stateCounts.Keys) {
 }
 if (-not $weberFrontierContractPass) {
     Add-Error 'Weber frontier contract did not pass.'
+}
+if (-not $steinitz1906FrontierContractPass) {
+    Add-Error 'Steinitz 1906 frontier contract did not pass.'
 }
 
 $humanBoardIdSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
@@ -1096,6 +1130,7 @@ $report = [ordered]@{
             $queueSnapshotRows.Count -eq $queueSources.Count
         )
         weber_frontier_contract = $weberFrontierContractPass
+        steinitz_1906_frontier_contract = $steinitz1906FrontierContractPass
         human_board_complete = (
             $humanBoardRowIds.Count -eq $ids.Count -and
             $humanBoardIdSet.Count -eq $ids.Count -and
