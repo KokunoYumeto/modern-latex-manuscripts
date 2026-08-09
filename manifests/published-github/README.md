@@ -96,6 +96,13 @@ bytes. The existing partition is unchanged at three named current rows and 43
 deliberately unclaimed rows; null now means `unclaimed`, not unknown, and
 claims remain nonexclusive.
 
+The [complete adoption-index receipt](20260809_index_rb.json) approves source
+commit `36e41b5213719194ab43232979c20c82046770f0`: all eleven changed paths /
+679,826 bytes matched public raw GitHub. Its 46-row human projection covers 38
+authors, 46 works, 16 named series, 16 languages, and 21 corpora, with every
+displayed field and ordinal row order validated against `adopt.json`. The
+four-file consumer remains sufficient and passes 118,886 bytes.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
