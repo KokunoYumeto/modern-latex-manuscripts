@@ -24,11 +24,11 @@ evidence. Neither field certifies a translation or source edition.
 
 ## Current Work
 
-| Scope | Maintained as | Existing surface | Parallel contribution |
-|---|---|---|---|
-| Emmy Noether multilingual papers | Kokuno Yumeto project lanes | [Language/work map](noether-map.md) | Review an existing language/work target, propagate a verified German correction, or mirror a bounded paper with exact inputs. |
-| Grothendieck-school corpus: SGA, EGA, FGA, Verdier, Tôhoku, Illusie, and Deligne | Kokuno Yumeto project lanes; individual producer lanes retain their own publication custody | [EGA](ega-map.md), [FGA](fga-map.md), [Verdier](verdier-map.md), [Tôhoku](tohoku-map.md), [Illusie](illusie-map.md), [Deligne](deligne-map.md), and the preserved [SGA landing](records/sga.md) | Check a named page/range or build an explicitly independent mirror. Do not silently overwrite a producer generation. |
-| Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | Continue the exact Volume II frontier or independently check a bounded existing section. |
+| Board ID | Scope | Maintained as | Existing surface | Parallel contribution |
+|---|---|---|---|---|
+| `noether-multilingual` | Emmy Noether multilingual papers | Kokuno Yumeto project lanes | [Language/work map](noether-map.md) | Review an existing language/work target, propagate a verified German correction, or mirror a bounded paper with exact inputs. |
+| `grothendieck-school` | Grothendieck-school corpus: SGA, EGA, FGA, Verdier, Tôhoku, Illusie, and Deligne | Kokuno Yumeto project lanes; individual producer lanes retain their own publication custody | [EGA](ega-map.md), [FGA](fga-map.md), [Verdier](verdier-map.md), [Tôhoku](tohoku-map.md), [Illusie](illusie-map.md), [Deligne](deligne-map.md), and the preserved [SGA landing](records/sga.md) | Check a named page/range or build an explicitly independent mirror. Do not silently overwrite a producer generation. |
+| `weber-algebra` | Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | Continue the exact Volume II frontier or independently check a bounded existing section. |
 
 The maintainer label describes current coordination, not ownership of the
 underlying mathematics and not an exclusive reservation. Declared overlap is
@@ -37,31 +37,31 @@ replacement.
 
 ## Ready for Adoption
 
-| Priority | Author/work | Readiness | Bounded start |
-|---|---|---|---|
-| High | Carl Friedrich Gauss, *Werke* II | Exact cursor | Recover the registered continuation packet and continue after printed p.303, with p.305 next. Start at the [Gauss map](gauss-map.md). |
-| High | James Joseph Sylvester, collected papers Volume I | Exact cursor | Continue at book p.494 from the [Sylvester map](sylvester-map.md). |
-| High | Paul Gordan, *Vorlesungen über Invariantentheorie* I | Exact cursor | Continue after source p.28; retain the article-corpus register. See [known gaps](known-gaps.md#gordan--clebsch-gordan). |
-| High | James Clerk Maxwell, *Treatise on Electricity and Magnetism* I | Exact cursor | Continue at printed p.80 from the existing p.1–79 sequence. See the [work queue](work-queue.md#highest-value-typesetting-and-source-check-work). |
-| High | J. Willard Gibbs, *Scientific Papers* I, Paper 3 | Exact cursor | Continue after printed p.134 from the current source-witnessed sequence. See the [work queue](work-queue.md#highest-value-typesetting-and-source-check-work). |
-| High | Richard Dedekind, *Gesammelte Mathematische Werke* I | Exact cursor | Continue with item V at printed p.40; items I–IV through p.39 are already bound as the cumulative base. Start at the [Dedekind map](dedekind-map.md). |
-| High | Richard Dedekind, *Stetigkeit und irrationale Zahlen* | Exact cursor | Continue §5 after printed p.328 and finish §§5–7 through p.334/335, retaining the source-checked preface and §§1–4. Start at the [Dedekind map](dedekind-map.md). |
-| High | P. G. Lejeune Dirichlet, Werke II item XXV | Repair-ready | Repair the formula and line-level defects over printed pp.263–302 using the retained source witness and explicit repair queue. Start at the [Dirichlet map](dirichlet-map.md). |
-| High | P. G. Lejeune Dirichlet, Werke II item XXVII | Repair-ready | Produce the missing typed German source track for printed pp.309–356 and reconcile it with the existing English surface. Start at the [Dirichlet map](dirichlet-map.md). |
-| High | Bernhard Riemann, broader *Gesammelte mathematische Werke* draft | Repair-ready | Recover or produce an exact post-trim source/control package for the current 511-page reader without conflating it with stale 512-page controls. Start at the [Riemann map](riemann-map.md). |
-| High | Arthur Cayley, collected papers | Repair-ready | Choose a small range, recover its source witness, and perform a page-level glyph/source audit before re-promotion. Start at the [Cayley map](cayley-map.md). |
-| High | Erich Hecke, *Vorlesungen über die Theorie der algebraischen Zahlen* | Review-ready | Audit completeness, chapter/page resets, and publisher matter in the 184-page assembly. Start at the [additional-author map](cluster-map.md). |
-| High | Wilhelm Killing, transformation groups | Expansion-ready | The current reader is only the twelve-page second part; bind the missing parts before building an author-level reader. Start at the [additional-author map](cluster-map.md). |
-| High | Albert Einstein, *Annalen der Physik* contributions | Intake-ready | Bind the observed source-intake files to a work register, then choose one bounded paper. See the [source-intake note](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json). |
-| Medium | Hermann Minkowski, collected works II | Review-ready | Check whether the selected-paper assembly represents the intended volume, then recover source/package closure. Start at the [additional-author map](cluster-map.md). |
-| Medium | Felix Klein, collected works | Intake-ready | Turn the observed collected-works source intake into an exact volume/work register before transcription. See the [source-intake note](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json). |
-| Medium | Adolf Hurwitz, mathematical works | Intake-ready | Bind the observed source material to an exact work register and select a bounded first paper. See the [source-intake note](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json). |
-| Medium | Bernhard Riemann, selected papers | Repair-ready | Repair the selected-papers TeX ending, recover the missing source witnesses, and prove which exact reader it builds. Start at the [Riemann map](riemann-map.md). |
-| Medium | Ernst Steinitz, 1906 Euler-polyhedron note | Intake-ready | Bind the exact work and source witness as a distinct generation before transcription. Start at the [Steinitz map](steinitz-map.md). |
-| Medium | Ernst Steinitz, 1908 *Beiträge zur Analysis Situs* | Intake-ready | Bind the exact work and source witness as a distinct generation, separate from the existing 1911/1912 work. Start at the [Steinitz map](steinitz-map.md). |
-| Medium | Ernst Steinitz, existing nine-work witness recovery | Review-ready | Recover the ledgered scans, QA images, and missing 1897 source PDF by exact recorded hash; do not synthesize absent bytes. Start at the [Steinitz map](steinitz-map.md). |
-| Medium | Non-European mathematical texts | Review-ready | Check or assemble an existing direct/source-only language layer before starting any new translation. Start at the [exact map](non-european-map.md). |
-| Medium | Ukrainian applied mathematics modules | Continuation-ready | Use the closed public driver and continue only the mapped partial modules. Start at the [exact map](ukrainian-map.md). |
+| Board ID | Priority | Author/work | Readiness | Bounded start |
+|---|---|---|---|---|
+| `gauss-werke-ii` | High | Carl Friedrich Gauss, *Werke* II | Exact cursor | Recover the registered continuation packet and continue after printed p.303, with p.305 next. Start at the [Gauss map](gauss-map.md). |
+| `sylvester-v1` | High | James Joseph Sylvester, collected papers Volume I | Exact cursor | Continue at book p.494 from the [Sylvester map](sylvester-map.md). |
+| `gordan-invariantentheorie-v1` | High | Paul Gordan, *Vorlesungen über Invariantentheorie* I | Exact cursor | Continue after source p.28; retain the article-corpus register. See [known gaps](known-gaps.md#gordan--clebsch-gordan). |
+| `maxwell-treatise-v1` | High | James Clerk Maxwell, *Treatise on Electricity and Magnetism* I | Exact cursor | Continue at printed p.80 from the existing p.1–79 sequence. See the [work queue](work-queue.md#highest-value-typesetting-and-source-check-work). |
+| `gibbs-papers-v1-p3` | High | J. Willard Gibbs, *Scientific Papers* I, Paper 3 | Exact cursor | Continue after printed p.134 from the current source-witnessed sequence. See the [work queue](work-queue.md#highest-value-typesetting-and-source-check-work). |
+| `dedekind-gmw-i` | High | Richard Dedekind, *Gesammelte Mathematische Werke* I | Exact cursor | Continue with item V at printed p.40; items I–IV through p.39 are already bound as the cumulative base. Start at the [Dedekind map](dedekind-map.md). |
+| `dedekind-stetigkeit` | High | Richard Dedekind, *Stetigkeit und irrationale Zahlen* | Exact cursor | Continue §5 after printed p.328 and finish §§5–7 through p.334/335, retaining the source-checked preface and §§1–4. Start at the [Dedekind map](dedekind-map.md). |
+| `dirichlet-werke-ii-xxv` | High | P. G. Lejeune Dirichlet, Werke II item XXV | Repair-ready | Repair the formula and line-level defects over printed pp.263–302 using the retained source witness and explicit repair queue. Start at the [Dirichlet map](dirichlet-map.md). |
+| `dirichlet-werke-ii-xxvii` | High | P. G. Lejeune Dirichlet, Werke II item XXVII | Repair-ready | Produce the missing typed German source track for printed pp.309–356 and reconcile it with the existing English surface. Start at the [Dirichlet map](dirichlet-map.md). |
+| `riemann-werke-sync` | High | Bernhard Riemann, broader *Gesammelte mathematische Werke* draft | Repair-ready | Recover or produce an exact post-trim source/control package for the current 511-page reader without conflating it with stale 512-page controls. Start at the [Riemann map](riemann-map.md). |
+| `cayley-repair` | High | Arthur Cayley, collected papers | Repair-ready | Choose a small range, recover its source witness, and perform a page-level glyph/source audit before re-promotion. Start at the [Cayley map](cayley-map.md). |
+| `hecke-zahlentheorie` | High | Erich Hecke, *Vorlesungen über die Theorie der algebraischen Zahlen* | Review-ready | Audit completeness, chapter/page resets, and publisher matter in the 184-page assembly. Start at the [additional-author map](cluster-map.md). |
+| `killing-transformationsgruppen` | High | Wilhelm Killing, transformation groups | Expansion-ready | The current reader is only the twelve-page second part; bind the missing parts before building an author-level reader. Start at the [additional-author map](cluster-map.md). |
+| `einstein-annalen` | High | Albert Einstein, *Annalen der Physik* contributions | Intake-ready | Bind the observed source-intake files to a work register, then choose one bounded paper. See the [source-intake note](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json). |
+| `minkowski-werke-ii` | Medium | Hermann Minkowski, collected works II | Review-ready | Check whether the selected-paper assembly represents the intended volume, then recover source/package closure. Start at the [additional-author map](cluster-map.md). |
+| `klein-collected` | Medium | Felix Klein, collected works | Intake-ready | Turn the observed collected-works source intake into an exact volume/work register before transcription. See the [source-intake note](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json). |
+| `hurwitz-works` | Medium | Adolf Hurwitz, mathematical works | Intake-ready | Bind the observed source material to an exact work register and select a bounded first paper. See the [source-intake note](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json). |
+| `riemann-selected-repair` | Medium | Bernhard Riemann, selected papers | Repair-ready | Repair the selected-papers TeX ending, recover the missing source witnesses, and prove which exact reader it builds. Start at the [Riemann map](riemann-map.md). |
+| `steinitz-1906-euler` | Medium | Ernst Steinitz, 1906 Euler-polyhedron note | Intake-ready | Bind the exact work and source witness as a distinct generation before transcription. Start at the [Steinitz map](steinitz-map.md). |
+| `steinitz-1908-analysis-situs` | Medium | Ernst Steinitz, 1908 *Beiträge zur Analysis Situs* | Intake-ready | Bind the exact work and source witness as a distinct generation, separate from the existing 1911/1912 work. Start at the [Steinitz map](steinitz-map.md). |
+| `steinitz-witness-recovery` | Medium | Ernst Steinitz, existing nine-work witness recovery | Review-ready | Recover the ledgered scans, QA images, and missing 1897 source PDF by exact recorded hash; do not synthesize absent bytes. Start at the [Steinitz map](steinitz-map.md). |
+| `non-european-review` | Medium | Non-European mathematical texts | Review-ready | Check or assemble an existing direct/source-only language layer before starting any new translation. Start at the [exact map](non-european-map.md). |
+| `ukrainian-modules` | Medium | Ukrainian applied mathematics modules | Continuation-ready | Use the closed public driver and continue only the mapped partial modules. Start at the [exact map](ukrainian-map.md). |
 
 ### Existing work that must not be retranslated
 
@@ -69,38 +69,38 @@ These tracked editable layers do not yet have matching direct readers. Their
 missing PDF is an assembly or checking gap, not evidence that the translation
 does not exist.
 
-| Priority | Existing author/work layer | Exact start | Next result |
-|---|---|---|---|
-| High | *Nine Chapters*, Arabic volumes 1–3 | [Arabic TeX](../sources/non-european/sources/translations/arabic/chinese/jiuzhang-suanshu-vols1-3_arabic.tex) | Check and assemble the existing source against the mapped Chinese/English layers. |
-| High | *Sunzi Suanjing*, Arabic | [Arabic TeX](../sources/non-european/sources/translations/arabic/chinese/sunzi-suanjing_arabic.tex) | Check and assemble the existing source-facing layer. |
-| High | Li Ye / Gu Yingxiang, *Fenlei Shishu*, English volumes 1–3 | [English-bilingual TeX](../sources/non-european/sources/translations/english_bilingual/chinese/li-ye-ceyuan-haijing-fenlei-shishu-vols1-3_bilingual.tex) | Assemble volumes 1–3, then declare any continuation from volume 4. |
-| High | Li Ye, *Ceyuan Haijing*, independent English volumes 10–12 | [Independent-English TeX](../sources/non-european/sources/translations/english_bilingual/chinese/li-ye-ceyuan-haijing-vols10-12_english.tex) | Assemble and compare this independent layer with the existing reader. |
-| High | Qin Jiushao, *Shuxue Jiuzhang*, modern-Chinese fascicles 2–4 | [fascicle 2](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle2_classical-modern_bilingual.tex), [3](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle3_classical-modern_bilingual.tex), and [4](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle4_classical-modern_bilingual.tex) | Check and restore the omitted fascicles to a successor modern-Chinese reader. |
-| Medium | Ibn al-Qifti, *Tarikh al-Hukama*, English | [English-bilingual TeX](../sources/non-european/sources/translations/english_bilingual/references/ibn-al-qifti-tarikh-al-hukama_bilingual.tex) | Assemble and check it against the mapped reference selection. |
-| High | al-Battani, *Opus Astronomicum* and related tables | [Exact current surface](non-european-map.md#al-battani-current-github-surface) | Continue the named Arabic-description, table-cell, region, and chronology collation residuals. |
+| Board ID | Priority | Existing author/work layer | Exact start | Next result |
+|---|---|---|---|---|
+| `nine-chapters-arabic-assembly` | High | *Nine Chapters*, Arabic volumes 1–3 | [Arabic TeX](../sources/non-european/sources/translations/arabic/chinese/jiuzhang-suanshu-vols1-3_arabic.tex) | Check and assemble the existing source against the mapped Chinese/English layers. |
+| `sunzi-arabic-assembly` | High | *Sunzi Suanjing*, Arabic | [Arabic TeX](../sources/non-european/sources/translations/arabic/chinese/sunzi-suanjing_arabic.tex) | Check and assemble the existing source-facing layer. |
+| `liye-fenlei-english-v1-3` | High | Li Ye / Gu Yingxiang, *Fenlei Shishu*, English volumes 1–3 | [English-bilingual TeX](../sources/non-european/sources/translations/english_bilingual/chinese/li-ye-ceyuan-haijing-fenlei-shishu-vols1-3_bilingual.tex) | Assemble volumes 1–3, then declare any continuation from volume 4. |
+| `liye-english-v10-12` | High | Li Ye, *Ceyuan Haijing*, independent English volumes 10–12 | [Independent-English TeX](../sources/non-european/sources/translations/english_bilingual/chinese/li-ye-ceyuan-haijing-vols10-12_english.tex) | Assemble and compare this independent layer with the existing reader. |
+| `qin-modern-zh-f2-4` | High | Qin Jiushao, *Shuxue Jiuzhang*, modern-Chinese fascicles 2–4 | [fascicle 2](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle2_classical-modern_bilingual.tex), [3](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle3_classical-modern_bilingual.tex), and [4](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle4_classical-modern_bilingual.tex) | Check and restore the omitted fascicles to a successor modern-Chinese reader. |
+| `ibn-al-qifti-english-assembly` | Medium | Ibn al-Qifti, *Tarikh al-Hukama*, English | [English-bilingual TeX](../sources/non-european/sources/translations/english_bilingual/references/ibn-al-qifti-tarikh-al-hukama_bilingual.tex) | Assemble and check it against the mapped reference selection. |
+| `al-battani-collation` | High | al-Battani, *Opus Astronomicum* and related tables | [Exact current surface](non-european-map.md#al-battani-current-github-surface) | Continue the named Arabic-description, table-cell, region, and chronology collation residuals. |
 
 ### Current readers needing source or provenance closure
 
-| Priority | Author/work | Current GitHub surface | Bounded start |
-|---|---|---|---|
-| Medium | Edmund Landau, *Elementary Number Theory* | [243-page English body](<../reader-pdfs/author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf>) | Recover title/translator/publisher and exact source closure without recreating the reader. |
-| Medium | Kurt Hensel, *Zahlentheorie* | [251-page German reader](<../reader-pdfs/author-cluster/04 Reader PDF - Hensel - Zahlentheorie.pdf>) | Recover exact source/editable closure and compare one bounded range. |
-| Medium | Kiyoshi Oka, Memoirs I–X | [141-page English collection](<../reader-pdfs/author-cluster/05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf>) | Bind memoir-level source and translation provenance. |
-| Medium | Felix Hausdorff, *Set Theory* | [413-page English edition](<../reader-pdfs/author-cluster/06 Reader PDF - Hausdorff - Set Theory.pdf>) | Recover the source/translation closure while keeping it distinct from the German composite. |
-| Medium | Hermann Grassmann, *Ausdehnungslehre* anthology | [613-page English anthology](<../reader-pdfs/author-cluster/07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf>) | Register every component work and bind its source/provenance. |
-| Medium | Felix Hausdorff, *Mengenlehre* and later writings | [675-page German composite](<../reader-pdfs/author-cluster/08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf>) | Register components and recover source closure without collapsing the English edition. |
-| Medium | Luigi Bianchi, Volume I / A2 through p.0135 | [Exact work-queue description](work-queue.md#highest-value-typesetting-and-source-check-work) | Audit formulas, references, terminology, index entries, and difficult glyphs against the current compact baseline. |
-| Medium | Ferdinand Georg Frobenius, RA05 baseline | [Exact work-queue description](work-queue.md#highest-value-typesetting-and-source-check-work) | Declare one work/range and perform a targeted source/formula/table/notation comparison. |
+| Board ID | Priority | Author/work | Current GitHub surface | Bounded start |
+|---|---|---|---|---|
+| `landau-elementary-review` | Medium | Edmund Landau, *Elementary Number Theory* | [243-page English body](<../reader-pdfs/author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf>) | Recover title/translator/publisher and exact source closure without recreating the reader. |
+| `hensel-zahlentheorie-review` | Medium | Kurt Hensel, *Zahlentheorie* | [251-page German reader](<../reader-pdfs/author-cluster/04 Reader PDF - Hensel - Zahlentheorie.pdf>) | Recover exact source/editable closure and compare one bounded range. |
+| `oka-memoirs-review` | Medium | Kiyoshi Oka, Memoirs I–X | [141-page English collection](<../reader-pdfs/author-cluster/05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf>) | Bind memoir-level source and translation provenance. |
+| `hausdorff-set-theory-review` | Medium | Felix Hausdorff, *Set Theory* | [413-page English edition](<../reader-pdfs/author-cluster/06 Reader PDF - Hausdorff - Set Theory.pdf>) | Recover the source/translation closure while keeping it distinct from the German composite. |
+| `grassmann-anthology-review` | Medium | Hermann Grassmann, *Ausdehnungslehre* anthology | [613-page English anthology](<../reader-pdfs/author-cluster/07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf>) | Register every component work and bind its source/provenance. |
+| `hausdorff-mengenlehre-review` | Medium | Felix Hausdorff, *Mengenlehre* and later writings | [675-page German composite](<../reader-pdfs/author-cluster/08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf>) | Register components and recover source closure without collapsing the English edition. |
+| `bianchi-vol1-a2` | Medium | Luigi Bianchi, Volume I / A2 through p.0135 | [Exact work-queue description](work-queue.md#highest-value-typesetting-and-source-check-work) | Audit formulas, references, terminology, index entries, and difficult glyphs against the current compact baseline. |
+| `frobenius-ra05-audit` | Medium | Ferdinand Georg Frobenius, RA05 baseline | [Exact work-queue description](work-queue.md#highest-value-typesetting-and-source-check-work) | Declare one work/range and perform a targeted source/formula/table/notation comparison. |
 
 ## Future / Source Discovery First
 
-| Priority | Author/work | Why it is not yet adoption-ready | First useful result |
-|---|---|---|---|
-| High | Sophus Lie, selected foundational works | No verified author/work source shelf or continuation cursor is currently bound by this board. | A bibliographic work register plus exact public source identities and one bounded pilot proposal. |
-| Medium | Évariste Galois, *Oeuvres* and manuscripts | Source-intake packets are noted, but no promoted transcription or translation is bound as current. | Reconcile the printed and manuscript witnesses into a small, exact first-work intake. |
-| Medium | Gotthold Eisenstein, *Mathematische Abhandlungen* | Source-intake packets exist without a promoted reader. | Select one work, bind the best source witness, and produce a reproducible page map. |
-| Medium | Jakob Steiner, *Gesammelte Werke* | Volume-source intake exists without a promoted transcription or translation. | Bind Volume I/II witnesses and select one bounded paper or range. |
-| Medium | Teiji Takagi, Journal of the College of Science volumes 19, 41, and 44 | A source-hunt ledger exists, but current routes are low-resolution aids or explicitly provisional. | Locate and bind exact BHL/Internet Archive JP2 source identities before choosing a bounded work. |
+| Board ID | Priority | Author/work | Why it is not yet adoption-ready | First useful result |
+|---|---|---|---|---|
+| `lie-foundations` | High | Sophus Lie, selected foundational works | No verified author/work source shelf or continuation cursor is currently bound by this board. | A bibliographic work register plus exact public source identities and one bounded pilot proposal. |
+| `galois-oeuvres` | Medium | Évariste Galois, *Oeuvres* and manuscripts | Source-intake packets are noted, but no promoted transcription or translation is bound as current. | Reconcile the printed and manuscript witnesses into a small, exact first-work intake. |
+| `eisenstein-abhandlungen` | Medium | Gotthold Eisenstein, *Mathematische Abhandlungen* | Source-intake packets exist without a promoted reader. | Select one work, bind the best source witness, and produce a reproducible page map. |
+| `steiner-werke` | Medium | Jakob Steiner, *Gesammelte Werke* | Volume-source intake exists without a promoted transcription or translation. | Bind Volume I/II witnesses and select one bounded paper or range. |
+| `takagi-source-intake` | Medium | Teiji Takagi, Journal of the College of Science volumes 19, 41, and 44 | A source-hunt ledger exists, but current routes are low-resolution aids or explicitly provisional. | Locate and bind exact BHL/Internet Archive JP2 source identities before choosing a bounded work. |
 
 Future rows are invitations to prepare evidence, not claims that the corpus is
 absent everywhere or that production should begin from an arbitrary web PDF.
@@ -160,6 +160,11 @@ The top-level `queue_sources` similarly binds `docs/known-gaps.md` and
 consumption boundary: a human-approved exact commit, four files fetched from
 that same commit, declared byte/SHA-256 replay, empty validation errors, and
 formal schema validation. Mixed revisions are forbidden.
+
+Every human-facing work row starts with its exact `Board ID`. Validation fails
+if a JSON item is missing from this page, appears more than once, or if the page
+introduces an unknown ID. The issue template accepts that ID verbatim, so a
+contributor never has to infer it from an author name or scrape the JSON.
 
 The stable raw `main` endpoint is a discovery locator only. It is not an
 immutable snapshot:

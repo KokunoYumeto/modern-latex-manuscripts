@@ -10,7 +10,9 @@ for adoption, and future/source-discovery scopes; links every actionable row
 back to the authoritative archive layer; and exposes a stable
 [machine-readable board](manifests/adopt.json) for Mathematics Commons tools.
 The board now exposes source-only translation layers separately so a missing
-reader cannot trigger an unnecessary retranslation. Automation must treat
+reader cannot trigger an unnecessary retranslation. Every human row shows its
+exact claimable Board ID, and validation requires one row for every machine
+item with no duplicate or unknown IDs. Automation must treat
 `main` as a locator only: resolve and human-approve one exact commit, fetch the
 board, schema, validation, and referenced map manifest from that same commit,
 replay declared identities, and reject mixed revisions. The full procedure is
