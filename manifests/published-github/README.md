@@ -89,6 +89,13 @@ start/input/step/evidence/stop/handback definitions, all fourteen are used,
 and the 14-heading human guide remains guidance rather than a fifth machine
 identity.
 
+The [ownership-semantics receipt](20260809_owners_rb.json) approves source
+commit `3b3880f35467d813dc6f83c55c4ed09a48a3dcaa`: all eight changed paths /
+645,231 bytes matched public raw GitHub. The four-file consumer passes 118,267
+bytes. The existing partition is unchanged at three named current rows and 43
+deliberately unclaimed rows; null now means `unclaimed`, not unknown, and
+claims remain nonexclusive.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
