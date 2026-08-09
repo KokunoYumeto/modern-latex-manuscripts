@@ -22,7 +22,9 @@ results use separate GitHub forms, so a declared start cannot be mistaken for
 an inspectable handback.
 The [live adoption queue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues?q=is%3Aissue+label%3Aadoption)
 shows declared claims and handbacks under the tracked
-[workflow-label contract](.github/labels.json).
+[workflow-label contract](.github/labels.json). The read-only
+[`check-claims.py`](scripts/check-claims.py) auditor validates that queue
+against one human-approved board commit.
 
 For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
 
