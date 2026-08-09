@@ -271,6 +271,11 @@ if ($board.snapshot_policy.mixed_revisions_forbidden -cne $true) {
 foreach ($path in $snapshotPaths) {
     Test-RepoPath -Path $path -Context 'snapshot_policy.same_commit_paths' -Required $true
 }
+$expectedConsumerHelper = 'scripts/get-adopt.py'
+if ([string]$board.consumer_helper -cne $expectedConsumerHelper) {
+    Add-Error 'consumer_helper does not match the exact v1 helper path.'
+}
+Test-RepoPath -Path ([string]$board.consumer_helper) -Context 'consumer_helper' -Required $true
 
 $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 $stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 }
@@ -432,6 +437,7 @@ $report = [ordered]@{
         required_checks = $snapshotChecks.Count
         mixed_revisions_forbidden = [bool]$board.snapshot_policy.mixed_revisions_forbidden
     }
+    consumer_helper = [string]$board.consumer_helper
     aggregate = [ordered]@{
         items = @($board.items).Count
         mirrors = @($board.mirrors).Count
@@ -472,6 +478,7 @@ $report = [ordered]@{
             $unknownHumanBoardIds.Count -eq 0 -and
             $duplicateHumanBoardIds.Count -eq 0
         )
+        consumer_helper_contract = ([string]$board.consumer_helper -ceq $expectedConsumerHelper)
         snapshot_policy_contract = (
             [string]$board.snapshot_policy.stable_locator_ref -ceq 'main' -and
             [string]$board.snapshot_policy.immutable_unit -ceq 'human_approved_exact_commit' -and

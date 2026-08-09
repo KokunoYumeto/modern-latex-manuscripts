@@ -161,6 +161,22 @@ consumption boundary: a human-approved exact commit, four files fetched from
 that same commit, declared byte/SHA-256 replay, empty validation errors, and
 formal schema validation. Mixed revisions are forbidden.
 
+The top-level `consumer_helper` points to
+[`scripts/get-adopt.py`](../scripts/get-adopt.py). Run the helper from the same
+human-approved checkout whose board is being considered. It requires the exact
+40-hex commit twice, fetches only the four contract files at that commit,
+replays their declared identities, validates the board with Draft 2020-12, and
+emits the original validated board bytes to standard output. It never resolves
+or accepts `main` as input:
+
+```console
+git switch --detach <COMMIT>
+python scripts/get-adopt.py --commit <COMMIT> --approve <COMMIT> > board.json
+```
+
+The helper requires the Python `jsonschema` package. A nonzero exit means the
+output must not be ingested.
+
 Every human-facing work row starts with its exact `Board ID`. Validation fails
 if a JSON item is missing from this page, appears more than once, or if the page
 introduces an unknown ID. The issue template accepts that ID verbatim, so a

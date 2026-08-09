@@ -56,7 +56,7 @@ This page lists the main coordination documents in this repository and what each
 | File | Use It For |
 |---|---|
 | [Adoption board JSON](../manifests/adopt.json) | Stable operational feed for Mathematics Commons consumers; rows are keyed by `id`, expose current/adoptable/future state, and link back to authoritative archive maps. |
-| [Adoption board schema](../manifests/adopt.schema.json) and [validation](../manifests/adopt.check.json) | Formal item/mirror and same-commit snapshot contract; bounded replay of IDs, states, queues, tracked paths, and all 19 authoritative coverage maps. Floating `main` is a locator, not an immutable ingestion snapshot. |
+| [Adoption schema](../manifests/adopt.schema.json), [validation](../manifests/adopt.check.json), and [consumer](../scripts/get-adopt.py) | Formal item/mirror and same-commit snapshot contract; a fail-closed exact-commit consumer; and bounded replay of IDs, states, queues, tracked paths, and all 19 maps. Floating `main` is only a locator. |
 | [Public file catalog CSV](../manifests/public-file-catalog.csv) | Structured current public file inventory. |
 | [Zenodo records JSON](../manifests/zenodo-records-current.json) | Structured record map. |
 | [Current status](../manifests/current-status.md) | Compact generated current-state summary. |

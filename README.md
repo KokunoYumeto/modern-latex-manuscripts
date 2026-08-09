@@ -16,7 +16,8 @@ item with no duplicate or unknown IDs. Automation must treat
 `main` as a locator only: resolve and human-approve one exact commit, fetch the
 board, schema, validation, and referenced map manifest from that same commit,
 replay declared identities, and reject mixed revisions. The full procedure is
-in the board's [Machine Interface](docs/adopt.md#machine-interface).
+in the board's [Machine Interface](docs/adopt.md#machine-interface), with a
+fail-closed [`get-adopt.py`](scripts/get-adopt.py) consumer.
 
 For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
 
