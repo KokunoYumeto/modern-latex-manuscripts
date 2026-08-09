@@ -6,11 +6,24 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [frontier receipt](frontier-r1.json) and
-[closure](frontier-r1-close.json), the [twenty-eight-cycle predecessor
-closure](20260809_queue_scope_close.json), the [human archive
+Start with the current [Steinitz frontier receipt](stein-r1.json), the
+[thirty-cycle frontier predecessor](frontier-r1-close.json), the
+[twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The compact [Steinitz frontier receipt](stein-r1.json) binds source commit
+`5fb9d4a08956103d0cd294f7ed4337f813e9f22b` and correction commit
+`cd03e36de247ab7066d821a8b9dd55834b252861`. The 14 source paths / 849,407
+bytes and four correction paths / 510,024 bytes all matched commit-pinned raw
+GitHub bytes. The source run's sparse-checkout failure is preserved as adverse
+history; correction Actions run
+[`31331582898`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31331582898)
+passed. The Steinitz 1906 row now requires reconciling the existing public
+German/English packet before transcription, preventing duplicate work without
+claiming that the bounded GitHub shelf already contains it. The additive
+aggregate through the correction is 32 cycles, 3,075 observations, and
+1,211,158,123 bytes with zero mismatches.
 
 The compact [archive-and-Weber frontier receipt](frontier-r1.json) approves
 source commit `b525560c8881a3611b9c9b224de672eaf93631e1`: all ten changed

@@ -7,7 +7,8 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- Current [thirty-cycle frontier closure](../published-github/frontier-r1-close.json)
+- Current [Steinitz frontier source-and-correction receipt](../published-github/stein-r1.json)
+- [Thirty-cycle frontier predecessor closure](../published-github/frontier-r1-close.json)
   and [source receipt](../published-github/frontier-r1.json)
 - [Twenty-eight-cycle queue-and-scope predecessor](../published-github/20260809_queue_scope_close.json)
 - [Twenty-six-cycle predecessor archive history](20260808_archive_r9.json)
@@ -86,10 +87,11 @@ remain immutable. The
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
-The current frontier closure extends the additive evidence aggregate to thirty
-cycles, 3,057 commit-pinned observations, and 1,209,798,692 bytes with zero
-mismatches. It preserves the twenty-eight-cycle queue-and-scope predecessor;
-neither generation rewrites R5, R4, R3, or any earlier generation.
+The current Steinitz frontier receipt extends the additive evidence aggregate
+through its source and sparse-CI correction to 32 cycles, 3,075 commit-pinned
+observations, and 1,211,158,123 bytes with zero mismatches. It preserves the
+thirty-cycle frontier closure and twenty-eight-cycle queue-and-scope
+predecessors; no generation rewrites R5, R4, R3, or any earlier generation.
 
 The frozen R5 successor is preserved additively and remains pending independent
 review; it does not replace the accepted R4 reader. The 2026-08-07 r5 source,
