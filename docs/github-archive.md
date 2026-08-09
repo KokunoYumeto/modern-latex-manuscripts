@@ -48,7 +48,7 @@ readback, and where to start browsing without replaying old task transcripts.
 | Mathematics Commons adoption layer | 66 exact rows: 8 current, 53 ready for adoption, and 5 future; the former Noether and Grothendieck-school umbrella IDs are retired as claim scopes and replaced by 22 map-backed language/work rows with explicit priority, readiness, coverage, cursor, and ownership; all 19 authoritative maps and both operational queues remain represented; exact-commit ingestion, no-lazy-fetch local reads, parallel mirrors, claims, and handbacks remain machine-contracted | [`5e3d60bd`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/5e3d60bdcef9678edea6a046ecd46765c00b8e3b), [`cb816b56`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/cb816b568e97734b8c27f086f0cf9beebdd602de), [`09cf5f7b`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/09cf5f7b4043985d03fccce0a4efcf87a4a2df47), [`511a78f8`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/511a78f8d008f044466a3dc041e3c6330d442f71), [`ce8dc207`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/ce8dc207e732530ec8fccc6d1d012ec415ef8ec4), [`0e12042d`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/0e12042dd211c4bde69b99707e99881c43b68d68), [`be322ec9`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/be322ec97455e18c87b6f73fd2028433bba3b9c9), [`2695dbfe`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/2695dbfe84726329267c71ba7a0af3486435f4c8), [`10d2df08`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/10d2df083bf0b47b758d5f094b6fcaeed9167011) | [board receipt](../manifests/published-github/20260809_adopt_rb.json), [contract receipt](../manifests/published-github/20260809_adopt_contract_rb.json), [map-synchronization receipt](../manifests/published-github/20260809_adopt_maps_rb.json), [work/snapshot receipt](../manifests/published-github/20260809_adopt_work_rb.json), [human-ID receipt](../manifests/published-github/20260809_adopt_ids_rb.json), [consumer receipt](../manifests/published-github/20260809_adopt_get_rb.json), [audit-output receipt](../manifests/published-github/20260809_adopt_audit_rb.json), [handback receipt](../manifests/published-github/20260809_handback_rb.json), [exact-scope receipt](../manifests/published-github/20260809_scope_rb.json) |
 | Sparse adoption CI | Blobless metadata checkout; 135 tracked-path checks; exact four-file consumer; no-lazy-fetch promisor regression; valid and invalid claim lifecycle fixtures; no corpus build | [`ae59d85d`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/ae59d85d406d52448eacc0794916b34c8189a739) | [Actions run `31321920964`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31321920964), [receipt](../manifests/published-github/20260809_adopt_ci_rb.json) |
 | GitHub-only boundary and adoption certification default | External DOI links are discovery/provenance only; producer trees remain immutable; SGA/FAC/GAGA publication custody and Erdős projects remain outside scope; all 66 adoption rows inherit `no_certification_asserted` without changing the 22-field row contract | [`c97dd635`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/c97dd635325c50be69dd1695d8bd369ec68bbfa4) | [Actions run `31326362266`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31326362266), [source receipt](../manifests/published-github/20260809_scope_cert_rb.json), [closure](../manifests/published-github/20260809_scope_cert_close.json) |
-| Queue cursor and operational-scope synchronization | Replaces the obsolete EGA IV section-4 continuation with EGA I printed p.144 after sealed p.143; preserves independent named-range review of complete-as-represented EGA IV; makes the adoption board the operational queue and external publication language producer context only; all 66 item rows unchanged | [`66fabe75`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/66fabe75eec1114bf1d468f71cbbebb7321ee675) | [Actions run `31327925415`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31327925415), [receipt](../manifests/published-github/20260809_queue_scope_rb.json) |
+| Queue cursor and operational-scope synchronization | Replaces the obsolete EGA IV section-4 continuation with EGA I printed p.144 after sealed p.143; preserves independent named-range review of complete-as-represented EGA IV; makes the adoption board the operational queue and external publication language producer context only; all 66 item rows unchanged | [`66fabe75`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/66fabe75eec1114bf1d468f71cbbebb7321ee675) | [Actions run `31327925415`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31327925415), [source receipt](../manifests/published-github/20260809_queue_scope_rb.json), [closure](../manifests/published-github/20260809_queue_scope_close.json) |
 
 The [twenty-six-cycle predecessor archive-history receipt](../manifests/published-github/20260808_archive_r9_rb.json)
 replays all five files in its publication commit: 291,841 bytes, all matched.
@@ -209,6 +209,16 @@ now binds 94,063 bytes, and the live adoption issue audit finds zero claims or
 handbacks. The controlled 39-document link audit resolves 1,225 local links to
 806 targets with zero missing or prohibited targets. No producer or corpus
 artifact changed.
+The [queue-and-scope closure](../manifests/published-github/20260809_queue_scope_close.json)
+then verifies the public receipt commit
+[`19352e28`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/19352e285ca86431898772c121d28cc53ec4a703):
+all six changed paths / 524,243 bytes match commit-pinned raw GitHub bytes,
+both maintained refs point to the commit, Actions run
+[`31328203806`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31328203806)
+passes, and the four-file contract replays 156,610 bytes with lazy fetching
+disabled. The 28-cycle aggregate through that receipt is 3,041 observations /
+1,208,486,039 bytes with zero mismatches. No producer or corpus artifact
+changed.
 The [complete archive-r9 cycle receipt](../manifests/published-github/20260808_archive_r9_cycle_rb.json)
 replays the final versions of all ten paths changed after `7e56161f`:
 343,102 bytes, all matched.
@@ -230,9 +240,9 @@ the exact 402-file reader inventory under 14/14 root-tree equality.
 These scopes overlap and must not be treated as unique-file totals: the
 classical files are a deeply classified subset of the reader and source
 shelves, while later maintenance cycles repeatedly read back evolving catalog,
-log, and navigation paths. Across all twenty-seven cycles through the public
-scope-and-certification receipt commit, the receipts preserve 3,024 additive
-raw-readback observations / 1,207,098,142 bytes with zero mismatches.
+log, and navigation paths. Across all twenty-eight cycles through the public
+queue-and-scope receipt commit, the receipts preserve 3,041 additive
+raw-readback observations / 1,208,486,039 bytes with zero mismatches.
 
 The 151 source/correction/receipt commits form one direct-parent,
 fast-forward-only chain from
@@ -284,7 +294,7 @@ Corrections supersede failed methods without deleting their error history.
 
 ## Boundary
 
-The index names only the twenty-seven exact GitHub-maintenance cycles above. It does not
+The index names only the twenty-eight exact GitHub-maintenance cycles above. It does not
 enumerate unrelated receipt directories or separately owned, revoked, or
 prohibited corpus surfaces. Cataloging preserves distinct paths and generations;
 it does not silently deduplicate, rewrite, promote, or certify producer work.
