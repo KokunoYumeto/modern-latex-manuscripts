@@ -73,6 +73,13 @@ equality for the four labels required by six issue templates. The validator
 passes 46 items, 129 tracked paths, labels4/templates6, and errors0; no issue or
 producer byte changed.
 
+The [claim-auditor receipt](20260809_claims_rb.json) retains invalid source
+snapshot `9516fc9137fba927f5b23812704665faca5a1688`, then replays all nine
+corrected paths in `b79d5f12036f31438b385c7b8307c88e2195fe57`:
+611,875 bytes, all matched exactly. The four-file consumer passes 95,914 bytes;
+the anonymous live issue audit has issues0/errors0; a linked claim/handback
+fixture passes 2/2; and an unknown-ID fixture fails closed with exit1.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027

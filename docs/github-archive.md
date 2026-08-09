@@ -90,6 +90,13 @@ replays all six files in source commit
 516,329 bytes, all matched. Its anonymous GitHub API replay confirms all four
 tracked labels and all six issue-template bindings; no issue was created or
 edited.
+The [claim-auditor receipt](../manifests/published-github/20260809_claims_rb.json)
+preserves rejected source snapshot `9516fc91`, then replays all nine corrected
+paths in
+[`b79d5f12`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/b79d5f12036f31438b385c7b8307c88e2195fe57):
+611,875 bytes, all matched. The exact-commit consumer, anonymous live issue
+audit, valid linked handback fixture, and malformed fail-closed fixture all
+behave as declared without changing any issue.
 The [complete archive-r9 cycle receipt](../manifests/published-github/20260808_archive_r9_cycle_rb.json)
 replays the final versions of all ten paths changed after `7e56161f`:
 343,102 bytes, all matched.
@@ -136,11 +143,11 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The workflow-label source commit's bounded link audit is recorded as
-`manifests/github-custody/20260809_links_r20.json`. It covers 37 committed
+The corrected claim-auditor commit's bounded link audit is recorded as
+`manifests/github-custody/20260809_links_r21.json`. It covers 37 committed
 documents: the nineteen allowed maps; the GitHub-only map, archive, reader,
 source, custody, and receipt landings; the human adoption board; and seven
-contributor/issue entry points. It resolves 1,166 local links to 788 unique
+contributor/issue entry points. It resolves 1,171 local links to 790 unique
 targets with zero missing or prohibited targets.
 [`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it
 counts external URLs without requesting them and stops before touching a
