@@ -66,6 +66,15 @@ points to EGA I printed p.144 after sealed p.143, keeps EGA IV independent
 named-range review available without asserting certification, and treats
 external-publication instructions only as preserved producer context.
 
+The [queue-and-scope closure](20260809_queue_scope_close.json) binds the public
+receipt commit `19352e285ca86431898772c121d28cc53ec4a703`: all six changed
+paths / 524,243 bytes matched commit-pinned raw GitHub bytes, both maintained
+refs matched, and Actions run
+[`31328203806`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31328203806)
+passed. The four-file contract replayed 156,610 bytes with lazy fetching
+disabled; the 28-cycle aggregate through that receipt is 3,041 observations /
+1,208,486,039 bytes with zero mismatches.
+
 The [Mathematics Commons adoption-layer receipt](20260809_adopt_rb.json)
 replays all nine files in source commit `5e3d60bdcef9678edea6a046ecd46765c00b8e3b`:
 257,262 bytes, all matched exactly. The corresponding JSON board is an
