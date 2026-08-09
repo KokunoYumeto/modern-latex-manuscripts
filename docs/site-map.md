@@ -19,9 +19,9 @@ This page lists the main coordination documents in this repository and what each
 
 | Page | Use It For |
 |---|---|
-| [GitHub source-shelf index](../sources/README.md) | Browsing nineteen task-maintained author/corpus trees and replaying the exact 12,407-path Git-object inventory without using the external-record catalog as an intermediary. |
-| [GitHub coverage-map index](github-maps.md) | One human route to all nineteen allowed author, work, series, and mixed-corpus maps, with exact document identities and 619-link closure. |
-| [GitHub reader-shelf index](../reader-pdfs/README.md) | Exact root-level inventory of 392 PDFs and three support files, with bytes, tree hashes, duplicate state, and coverage-map routing. |
+| [GitHub source-shelf index](../sources/README.md) | Browsing nineteen task-maintained author/corpus trees and replaying the exact 14,901-path / 3,681,880,509-byte Git-object inventory without using the external-record catalog as an intermediary. |
+| [GitHub coverage-map index](github-maps.md) | One human route to all nineteen allowed author, work, series, and mixed-corpus maps: 195,453 bytes with 643/643 local links resolved. |
+| [GitHub reader-shelf index](../reader-pdfs/README.md) | Exact root-level inventory of 399 PDFs and three support files / 932,575,366 bytes, with tree hashes, duplicate state, and coverage-map routing. |
 | [Ukrainian applied-mathematics GitHub map](ukrainian-map.md) | Exact reader/source identities, module coverage, duplicate and distinct PDF relations, TeX entrypoint closure, stale guide claims, and structural gaps. |
 | [Non-European mathematics GitHub map](non-european-map.md) | Exact Chinese, Indian/Sanskrit, Islamic/Arabic, and reference-work language layers, current direct-reader identities, source-only translations, repair generations, and custody gaps. |
 | [Classical mixed-shelf GitHub map](classical-map.md) | Exact Cayley, Dedekind, and Dirichlet partition; 21 reader identities, source/history generations, duplicate relations, stale author claims, and quality routing. |

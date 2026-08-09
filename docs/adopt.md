@@ -27,6 +27,14 @@ to return a result, partial checkpoint, paused scope, or withdrawal.
 `Readiness` measures how directly a contributor can begin from current GitHub
 evidence. Neither field certifies a translation or source edition.
 
+The machine board makes this non-certification rule explicit with
+`item_certification_default: no_certification_asserted`. All 66 rows inherit
+that value, regardless of words such as `complete`, `current`, `public`,
+`source_checked`, or `source_witnessed` in coverage prose. Version 1 permits no
+row-level certification override: the exact 22-field item contract rejects an
+extra certification field until a later evidence-backed schema version defines
+one.
+
 ## Current Work
 
 | Board ID | Scope | Maintained as | Existing surface | Parallel contribution |

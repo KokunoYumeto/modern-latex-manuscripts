@@ -1,6 +1,6 @@
-# Live Translation Fleet Map
+# GitHub Translation Fleet Map
 
-Last evidence refresh: 2026-08-05 Europe/Berlin.
+Last full producer-receipt snapshot: 2026-08-05 Europe/Berlin.
 
 This page records concrete output, not task activity. A task title, branch name,
 commit subject, or folder called `COMPLETE` is not enough. A row advances only
@@ -8,13 +8,18 @@ when the underlying TeX/PDF, scope statement, build or audit evidence, and
 publication state agree.
 
 Where a row quotes an external record identity from a producer-supplied local
-receipt, it says so explicitly. GitHub archive maintenance verifies the local
-receipt and archived bytes but does not independently query or mutate Zenodo.
+receipt, it says so explicitly. Those identities are retained for discovery and
+historical provenance only. This maintenance lane owns GitHub: it verifies the
+local receipt and archived bytes, never edits producer trees, and does not query
+or mutate Zenodo. SGA, FAC, and GAGA publication custody remains with their
+producer lanes; Erdős–Strauss and Erdős–Rado work is outside this task.
 
 ## Status Key
 
-- **Public:** present on the cited Zenodo concept record and mirrored on GitHub
-  where practical.
+- **Producer-reported public:** an exact local producer receipt cites an external
+  public record; this GitHub lane does not independently refresh that claim.
+- **GitHub checkpoint:** exact bytes, scope, and state are present in this
+  repository and verified through commit-pinned public readback.
 - **Sealed local:** a bounded artifact has a coherent manifest, build, and QA
   state, but has not yet been published.
 - **In review:** substantive text exists, but its current endpoint, build, or
@@ -24,7 +29,7 @@ receipt and archived bytes but does not independently query or mutate Zenodo.
 
 ## Current Work
 
-| Lane | Work and verified scope | Public state | Next gate |
+| Lane | Work and verified scope | GitHub / producer-reported state | Next GitHub or producer-lane gate |
 |---|---|---|---|
 | Archive / publication | GitHub is the inspectable working front and exact source-custody mirror. Producer-supplied local receipts identify current EGA `21792798`, Noether `21792832`, Tôhoku `21792221`, Verdier `21792164`, Illusie `21808131`, and FGA `21802810` records; SGA, FAC, and GAGA remain outside this task's custody. | **Exact GitHub custody plus producer receipts.** Archive maintenance independently replays local outer files and nested package members, then verifies commit-pinned and live-main GitHub bytes. It does not independently query or mutate Zenodo. | Preserve every predecessor and adverse version; update coverage maps in the same GitHub commit as each intake. Quality, review, completeness, and rights caveats are metadata, not suppression gates. |
 | French/English - Luc Illusie | Separate cumulative French and English editions admit LNM 239 physical pages 1–23: complete front matter and Chapter I §1.1 through printed p.5, ending in the open induced-`B`-functor statement. LNM 283 has not started. | **Exact GitHub checkpoint:** [`sources/illusie/r14`](../sources/illusie/r14/README.md), 179 selected producer files / 2,325,377 bytes, with [coverage map](illusie-map.md). Local replay passed 21/21 direct files and 153/153 manifest/ZIP members. The producer-supplied receipt records version `21808131`; this task did not query Zenodo. | Continue only at LNM 239 physical p.24 / printed p.6. Keep French and English independent; do not create a combined reader or claim either volume complete. |
@@ -63,7 +68,13 @@ receipt and archived bytes but does not independently query or mutate Zenodo.
 | Turkic | One manager inventories a nine-language canonical corpus plus Chuvash candidates and 568 curated files. Kyrgyz, Uyghur, and Uzbek one-page Hefferon review microdrafts compile and render, but no translation satisfies the lane publication gate. | **Public witness/support and review drafts** retained inside interlanguage v0.13 file `16`; still no publication-candidate translation. | Reconcile one stable source unit completely and obtain the declared language, mathematics, adverse, external, and comprehension reviews. |
 | Interlanguage current public checkpoint | The broad methodology sidecar retains the fleet, Romance corpus/WordWeb/governance/T008, Interslavic, CJK evidence, dictionary anchors, Fable/G15 controls, Persian and Tajik source packets, the public English/Germanic log, GAGA and SGA R3 provenance, all earlier cross-corpus trust surfaces, and exact EGA I p.142 custody. | **Public methodology and provenance** on current record `10.5281/zenodo.21788322`: 100 files / 5,008,713,163 bytes; 21/21 new direct files, 181/181 p.142 source-ZIP members, 14/14 retained-container compaction members, and 79/79 retained objects passed readback. Replication record `10.5281/zenodo.21788325` has 100 files / 31,637,727 bytes and passed 20/20 new direct files, 181/181 ZIP members, and 80/80 retained objects. | Continue open language/source work under its own gates. Publish later log deltas through privacy-clean successors on both broad concepts; preserve every adverse predecessor and do not curate away distinct content. |
 
-## Release Queue
+## Historical External-Release Notes — Not This Task's Queue
+
+The six notes below preserve the prior archive-control context. They do not
+authorize this GitHub lane to create, update, inspect, or publish an external
+record. Current operational work is the [adoption board](adopt.md), the
+[GitHub map index](github-maps.md), and the
+[GitHub archive history](github-archive.md).
 
 1. Preserve exact public/GitHub readback for SGA record 21783548, its complete 152-member R3 English ZIP, ten English reader PDFs, complete Spanish SGA 5 reader/TeX/408-member transport, source closures, and dual-DOI provenance; accept later replacements through exact append-only snapshots.
 2. Maintain the SGA/FAC/GAGA semantic-indexing/formalization scaffold independently of reader transport; preserve SGA3's non-final diagram-fidelity and non-uniform source-certification caveats.
@@ -74,9 +85,10 @@ receipt and archived bytes but does not independently query or mutate Zenodo.
    review gates; refresh the interlanguage record only for sealed output or a
    material workflow change.
 
-## Refresh Rule
+## GitHub Refresh Rule
 
-Every archive sweep should check the live lane status files, artifact hashes,
-Git branches, and public Zenodo API. This page should be changed only for a
-real scope, gate, or publication transition. Unchanged task chatter does not
+Refresh this page only from an exact GitHub intake, a verified Git commit, or an
+immutable producer-supplied receipt. Do not query or mutate Zenodo from this
+lane. A producer-reported external transition may be recorded as provenance but
+does not become GitHub-maintenance custody. Unchanged task chatter does not
 create a map update.
