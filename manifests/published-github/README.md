@@ -23,6 +23,13 @@ eight files in source commit `cb816b568e97734b8c27f086f0cf9beebdd602de`:
 validator, post-push validation, explicit mirror-row contract, navigation, and
 locked maintenance history.
 
+The [adoption map-synchronization receipt](20260809_adopt_maps_rb.json)
+replays all eight files in source commit
+`09cf5f7b4043985d03fccce0a4efcf87a4a2df47`: 385,658 bytes, all matched
+exactly. The operational feed now has 30 rows (3 current, 23 adoption-ready,
+4 future), represents all 19 authoritative coverage maps, and retains zero
+integrated mirror claims until an inspectable mirror is actually returned.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
