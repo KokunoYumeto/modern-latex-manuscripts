@@ -51,6 +51,13 @@ contract files / 95,021 bytes from that same approved commit and returned the
 exact 62,835-byte board with schema errors0, validation errors0, and mixed
 revisions0. It rejects floating `main` and mismatched approval hashes.
 
+The [non-mutating adoption-audit receipt](20260809_adopt_audit_rb.json)
+replays all five files in source commit
+`be322ec97455e18c87b6f73fd2028433bba3b9c9`: 376,836 bytes, all matched
+exactly. A validator report can now be written to an absolute temporary path
+without weakening or replacing the canonical validation identity; the
+temporary replay passes 46 items and 120 tracked paths with errors0.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
