@@ -20,6 +20,7 @@ $documents = [string[]]@(
     'CONTRIBUTING.md',
     'docs/adopt.md',
     'docs/adopt-flows.md',
+    'docs/adopt-index.md',
     'docs/cayley-map.md',
     'docs/classical-map.md',
     'docs/cluster-map.md',

@@ -13,6 +13,8 @@ Before starting, check:
 
 - [Adoption and mirror board](docs/adopt.md) for current work,
   ready-for-adoption work, future scopes, exact cursors, and declared mirrors;
+- [Complete adoption index](docs/adopt-index.md) for all board rows by author,
+  work, series, language, corpus, lane, and ownership;
 - [Reusable workflow protocols](docs/adopt-flows.md) for the exact start,
   inputs, evidence, stop, and handback contract behind each board token;
 - [GitHub coverage maps](docs/github-maps.md) for the author, work, series, or corpus;

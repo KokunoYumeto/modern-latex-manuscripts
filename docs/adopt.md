@@ -7,6 +7,8 @@ record of what bytes and claims already exist. This page does not replace them.
 
 Use the [machine-readable board](../manifests/adopt.json) for automation or a
 Mathematics Commons mirror. Use the
+[complete author/work/series/language/corpus index](adopt-index.md) for a
+single human-readable view of all 46 rows. Use the
 [adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml)
 to announce a scope or mirror. Use the dedicated
 [handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml)
@@ -153,6 +155,12 @@ The stable interface is
 - `archive_path`, `related_paths`, and `source_basis`;
 - `next_cursor`, `prerequisites`, `workflow`, and `claim_url`;
 - `updated` and `notes`.
+
+The top-level `human_index` points to the exact 46-row human projection of
+author, work, series, language, corpus, lane, ownership, and Board ID. The
+validator compares every projected field and row order against `items`.
+Like the workflow guide, it is presentation guidance rather than a fifth
+machine-ingestion identity.
 
 The top-level `ownership_policy` makes `owner` machine-unambiguous. Current
 work requires a named coordinator and maintained status. Ready and future rows
