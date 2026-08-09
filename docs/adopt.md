@@ -159,6 +159,14 @@ generation. Handbacks return an inspectable result or an explicit
 paused/withdrawn state with manifest identities, checks, cursor, and reusable
 method findings.
 
+Both lifecycle forms carry the `adoption` label, so the
+[live adoption queue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues?q=is%3Aissue+label%3Aadoption)
+can be queried without scraping titles. The exact four-label workflow
+vocabulary and its six template bindings are tracked in
+[`.github/labels.json`](../.github/labels.json). A tracked declaration is not
+proof of live GitHub state; maintainers must apply changed labels and read them
+back through the repository API.
+
 The top-level `map_manifest` points to the authoritative 19-map custody
 manifest, and `required_maps` repeats its exact ordered path set. Validation
 fails unless every required map is represented by at least one item's
