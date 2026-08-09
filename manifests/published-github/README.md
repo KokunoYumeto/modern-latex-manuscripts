@@ -111,6 +111,13 @@ records the exact `af0918` -> `0e12042` interface history and current commit
 roles, states the consumer helper's limits, and confirms that `docs/adopt.md`
 is human guidance rather than a fifth machine-contract identity.
 
+The [offline-consumer receipt](20260809_offline_rb.json) approves source
+commit `86db3448b3315c48542f02cddba279ba9c60c5f1`: all nine changed paths /
+691,738 bytes matched public raw GitHub. Raw-GitHub and local Git-object modes
+return byte-identical four-file contracts / 120,622 bytes; offline mode ignores
+dirty working-tree bytes and performs no network request, while unknown commits
+and linked-worktree `.git` indirection files fail closed.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
