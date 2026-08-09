@@ -119,6 +119,15 @@ eleven changed paths / 679,826 bytes all match and the four-file consumer
 passes 118,886 bytes. Its exact 46-row human projection exposes 38 authors, 46
 works, 16 named series, 16 languages, and 21 corpora while remaining derived
 presentation guidance rather than a separate archive or machine contract.
+The [queue-synchronization receipt](../manifests/published-github/20260809_queue_rb.json)
+then approves
+[`3893682f`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/3893682f02342fe2a19f4913fcf5bebdb91327fb):
+all eight changed paths / 664,933 bytes match, and the four-file consumer passes
+120,188 bytes. The board now binds the exact 93,584-byte known-gaps/work-queue
+snapshot, so either source advancing without board review is a validation
+failure. The receipt also records the exact `af0918` -> `0e12042` interface
+history, commit roles, helper limits, and why `docs/adopt.md` remains human
+guidance rather than a fifth machine-contract identity.
 The [complete archive-r9 cycle receipt](../manifests/published-github/20260808_archive_r9_cycle_rb.json)
 replays the final versions of all ten paths changed after `7e56161f`:
 343,102 bytes, all matched.
@@ -165,15 +174,16 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The complete adoption-index source commit's bounded link audit is recorded as
-`manifests/github-custody/20260809_links_r24.json`. It covers 39 committed
+The queue-synchronization source commit's bounded link audit is recorded as
+`manifests/github-custody/20260809_links_r25.json`. It covers 39 committed
 documents: the nineteen allowed maps; the GitHub-only map, archive, reader,
 source, custody, and receipt landings; the human adoption board and workflow
 guide; the complete dimension index; and seven contributor/issue entry points.
-It resolves 1,189 local links to 795 unique targets with zero missing or
-prohibited targets. The ownership, reusable-workflow, and claim-auditor audits
-remain immutable predecessors `20260809_links_r23.json`,
-`20260809_links_r22.json`, and `20260809_links_r21.json`.
+It resolves 1,192 local links to 796 unique targets with zero missing or
+prohibited targets. The complete-index, ownership, reusable-workflow, and
+claim-auditor audits remain immutable predecessors `20260809_links_r24.json`,
+`20260809_links_r23.json`, `20260809_links_r22.json`, and
+`20260809_links_r21.json`.
 [`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it
 counts external URLs without requesting them and stops before touching a
 prohibited local target.
