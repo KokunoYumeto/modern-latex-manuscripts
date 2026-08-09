@@ -7,7 +7,9 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- [Twenty-six-cycle archive history](20260808_archive_r9.json)
+- Current [twenty-eight-cycle queue-and-scope closure](../published-github/20260809_queue_scope_close.json)
+  and [source receipt](../published-github/20260809_queue_scope_rb.json)
+- [Twenty-six-cycle predecessor archive history](20260808_archive_r9.json)
 - [Coverage-map inventory](20260807_maps_r5.json)
 - [Current reader/source shelf closure](20260808_shelves_r9.json)
 - [Direct-reader inventory](20260808_readers_r5.json)
@@ -81,10 +83,12 @@ remain immutable. The
 [eight-cycle archive r2](20260806_archive_r2.json), and
 [four-cycle predecessor](20260806_archive.json) remain immutable historical
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
-remains unchanged. The current twenty-six-cycle index binds the complete
+remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
-That predecessor already binds the bounded current shelf and local-link cycle;
-neither generation rewrites R5, R4, R3, or any earlier generation.
+The current queue-and-scope closure extends the additive evidence aggregate to
+twenty-eight cycles, 3,041 commit-pinned observations, and 1,208,486,039 bytes
+with zero mismatches. Neither generation rewrites R5, R4, R3, or any earlier
+generation.
 
 The frozen R5 successor is preserved additively and remains pending independent
 review; it does not replace the accepted R4 reader. The 2026-08-07 r5 source,

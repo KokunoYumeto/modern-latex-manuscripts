@@ -736,6 +736,7 @@ $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 $stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 }
 $namedOwnerRows = 0
 $unclaimedOwnerRows = 0
+$weberFrontierContractPass = $false
 $requiredRowFields = $expectedFields
 foreach ($item in @($board.items)) {
     $id = [string]$item.id
@@ -769,6 +770,30 @@ foreach ($item in @($board.items)) {
     if ([string]$item.claim_url -cne [string]$board.claim_interface) { Add-Error "$context claim_url differs from claim_interface." }
 
     if ($null -eq $item.owner) { $unclaimedOwnerRows++ } else { $namedOwnerRows++ }
+
+    if ($id -ceq 'weber-algebra') {
+        $cursor = [string]$item.next_cursor
+        $requiredCursorTokens = [string[]]@(
+            'bind and reconcile',
+            '§176',
+            '§143 custody',
+            'do not redo §§144–176',
+            'source p643'
+        )
+        $cursorPass = $true
+        foreach ($token in $requiredCursorTokens) {
+            if (-not $cursor.Contains($token, [StringComparison]::Ordinal)) {
+                Add-Error "item:weber-algebra next_cursor is missing required frontier token: $token"
+                $cursorPass = $false
+            }
+        }
+        $requiredPrerequisite = 'locate and bind immutable CURRENT Volume II §176 German/English bytes'
+        if (-not (@($item.prerequisites) -ccontains $requiredPrerequisite)) {
+            Add-Error 'item:weber-algebra must require the immutable public Section 176 bytes before continuation.'
+            $cursorPass = $false
+        }
+        $weberFrontierContractPass = $cursorPass
+    }
 
     switch ([string]$item.lane_state) {
         'current_work' {
@@ -835,6 +860,9 @@ foreach ($workflowId in $workflowRowIds) {
 
 foreach ($state in $stateCounts.Keys) {
     if ($stateCounts[$state] -eq 0) { Add-Error "Board has no rows for lane_state $state." }
+}
+if (-not $weberFrontierContractPass) {
+    Add-Error 'Weber frontier contract did not pass.'
 }
 
 $humanBoardIdSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
@@ -1067,6 +1095,7 @@ $report = [ordered]@{
             $queueSnapshotContractPass -and
             $queueSnapshotRows.Count -eq $queueSources.Count
         )
+        weber_frontier_contract = $weberFrontierContractPass
         human_board_complete = (
             $humanBoardRowIds.Count -eq $ids.Count -and
             $humanBoardIdSet.Count -eq $ids.Count -and
