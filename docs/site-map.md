@@ -6,7 +6,7 @@ This page lists the main coordination documents in this repository and what each
 
 | Page | Use It For |
 |---|---|
-| [Adoption and mirror board](adopt.md) | Current, ready-for-adoption, and future author/work scopes; exact start cursors; ownership labels; reusable mirror workflow; and the machine-readable Mathematics Commons interface. |
+| [Adoption and mirror board](adopt.md) | Exact claimable Board IDs; current, ready-for-adoption, and future author/work scopes; start cursors; ownership labels; reusable mirror workflow; and the machine-readable Mathematics Commons interface. |
 | [Browse index](browse-index.md) | Fast route to the right corpus or record. |
 | [GitHub archive history](github-archive.md) | Exact task-owned catalog commit chain, manifests, and commit-pinned raw-readback receipts. |
 | [Download guide](download-guide.md) | Deciding whether to open a reader PDF, artifact ZIP, manifest, or bulk record. |

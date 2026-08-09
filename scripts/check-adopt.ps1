@@ -169,6 +169,23 @@ foreach ($name in $expectedEnums.Keys) {
 }
 
 Test-RepoPath -Path $board.human_board -Context 'human_board' -Required $true
+$humanBoardPath = [string]$board.human_board
+$humanBoardFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $humanBoardPath))
+$humanBoardBytes = if ([IO.File]::Exists($humanBoardFull)) { [IO.File]::ReadAllBytes($humanBoardFull) } else { [byte[]]@() }
+if ($humanBoardBytes.Length -ge 3 -and
+    $humanBoardBytes[0] -eq 0xEF -and
+    $humanBoardBytes[1] -eq 0xBB -and
+    $humanBoardBytes[2] -eq 0xBF) {
+    Add-Error 'human_board contains a UTF-8 BOM.'
+}
+$humanBoardText = $utf8.GetString($humanBoardBytes)
+if ($humanBoardText.Contains("`r")) {
+    Add-Error 'human_board must use LF line endings.'
+}
+$humanBoardRowIds = [Collections.Generic.List[string]]::new()
+foreach ($match in [regex]::Matches($humanBoardText, '(?m)^\| `(?<id>[a-z0-9]+(?:-[a-z0-9]+)*)` \|')) {
+    $humanBoardRowIds.Add($match.Groups['id'].Value)
+}
 foreach ($name in @('coverage_maps', 'reader_shelf', 'source_shelf', 'archive_history')) {
     Test-RepoPath -Path $board.archive_authority.$name -Context "archive_authority.$name" -Required $true
 }
@@ -304,6 +321,27 @@ foreach ($state in $stateCounts.Keys) {
     if ($stateCounts[$state] -eq 0) { Add-Error "Board has no rows for lane_state $state." }
 }
 
+$humanBoardIdSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$duplicateHumanBoardIds = [Collections.Generic.List[string]]::new()
+$unknownHumanBoardIds = [Collections.Generic.List[string]]::new()
+foreach ($id in $humanBoardRowIds) {
+    if (-not $humanBoardIdSet.Add($id)) {
+        $duplicateHumanBoardIds.Add($id)
+        Add-Error "human_board contains duplicate Board ID row: $id"
+    }
+    if (-not $ids.Contains($id)) {
+        $unknownHumanBoardIds.Add($id)
+        Add-Error "human_board contains unknown Board ID row: $id"
+    }
+}
+$missingHumanBoardIds = [Collections.Generic.List[string]]::new()
+foreach ($id in $ids) {
+    if (-not $humanBoardIdSet.Contains($id)) {
+        $missingHumanBoardIds.Add($id)
+        Add-Error "human_board has no row for Board ID: $id"
+    }
+}
+
 $requiredMapSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 foreach ($path in $requiredMaps) { [void]$requiredMapSet.Add($path) }
 $representedMapSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
@@ -381,6 +419,12 @@ $report = [ordered]@{
         sha256 = if ($mapManifestBytes.Length -gt 0) { Get-Sha256 -Bytes $mapManifestBytes } else { $null }
         required_maps = $requiredMaps.Count
     }
+    human_board = [ordered]@{
+        path = $humanBoardPath.Replace('\', '/')
+        bytes = $humanBoardBytes.Length
+        sha256 = if ($humanBoardBytes.Length -gt 0) { Get-Sha256 -Bytes $humanBoardBytes } else { $null }
+        rows = $humanBoardRowIds.Count
+    }
     snapshot_policy = [ordered]@{
         stable_locator_ref = [string]$board.snapshot_policy.stable_locator_ref
         immutable_unit = [string]$board.snapshot_policy.immutable_unit
@@ -402,6 +446,11 @@ $report = [ordered]@{
         queue_sources = $queueSources.Count
         represented_queue_sources = $representedQueueSourceSet.Count
         missing_queue_sources = $missingQueueSources.Count
+        human_board_rows = $humanBoardRowIds.Count
+        represented_human_board_items = $humanBoardIdSet.Count
+        missing_human_board_items = $missingHumanBoardIds.Count
+        unknown_human_board_ids = $unknownHumanBoardIds.Count
+        duplicate_human_board_ids = $duplicateHumanBoardIds.Count
         repository_path_checks = $pathChecks
         tracked_repository_paths = $trackedPathChecks
     }
@@ -416,6 +465,13 @@ $report = [ordered]@{
         required_maps_represented = ($missingRequiredMaps.Count -eq 0 -and $representedMapSet.Count -eq $requiredMaps.Count)
         queue_source_contract = (($queueSources -join "`n") -ceq ($expectedQueueSources -join "`n"))
         queue_sources_represented = ($missingQueueSources.Count -eq 0 -and $representedQueueSourceSet.Count -eq $queueSources.Count)
+        human_board_complete = (
+            $humanBoardRowIds.Count -eq $ids.Count -and
+            $humanBoardIdSet.Count -eq $ids.Count -and
+            $missingHumanBoardIds.Count -eq 0 -and
+            $unknownHumanBoardIds.Count -eq 0 -and
+            $duplicateHumanBoardIds.Count -eq 0
+        )
         snapshot_policy_contract = (
             [string]$board.snapshot_policy.stable_locator_ref -ceq 'main' -and
             [string]$board.snapshot_policy.immutable_unit -ceq 'human_approved_exact_commit' -and
