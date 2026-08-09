@@ -6,6 +6,7 @@ This page is the human entry point for the archive. Use it when you want to find
 
 | Goal | Open First |
 |---|---|
+| Adopt, mirror, or independently check a work | [Adoption and mirror board](adopt.md): current work, ready-for-adoption work, and future/source-discovery scopes kept explicitly separate, with a stable [JSON interface](../manifests/adopt.json). |
 | See every task-maintained GitHub coverage map | [GitHub map index](github-maps.md): nineteen allowed author, work, series, and mixed-corpus maps with exact identity and link-closure audit. |
 | Browse direct GitHub reading surfaces by root | [GitHub reader shelves](../reader-pdfs/README.md): 392 PDFs plus three support files across fourteen allowed roots, with exact bytes, tree hashes, duplicate state, and coverage-map routing. |
 | Browse the GitHub source archive | [GitHub source-shelf index](../sources/README.md), including the exact 12,407-path Git-object inventory, then the linked corpus coverage map or shelf README before selecting a generation. |
@@ -90,6 +91,10 @@ Artifact ZIPs are the working material. They usually contain TeX, source witness
 Manifest and summary files explain the state of the record. They are useful when deciding whether a PDF is a finished reading draft, a translation fragment, or a source reference.
 
 ## Contribution Entry Points
+
+For a declared mirror or bounded adoption, start with the
+[adoption board](adopt.md) and open the linked adoption issue. A claim records
+coordination and overlap; it is not an exclusive reservation.
 
 | If You Want To Help With | Useful First Action |
 |---|---|

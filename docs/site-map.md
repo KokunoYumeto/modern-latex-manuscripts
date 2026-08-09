@@ -6,6 +6,7 @@ This page lists the main coordination documents in this repository and what each
 
 | Page | Use It For |
 |---|---|
+| [Adoption and mirror board](adopt.md) | Current, ready-for-adoption, and future author/work scopes; exact start cursors; ownership labels; reusable mirror workflow; and the machine-readable Mathematics Commons interface. |
 | [Browse index](browse-index.md) | Fast route to the right corpus or record. |
 | [GitHub archive history](github-archive.md) | Exact task-owned catalog commit chain, manifests, and commit-pinned raw-readback receipts. |
 | [Download guide](download-guide.md) | Deciding whether to open a reader PDF, artifact ZIP, manifest, or bulk record. |
@@ -45,6 +46,7 @@ This page lists the main coordination documents in this repository and what each
 
 | Page | Use It For |
 |---|---|
+| [Adoption and mirror board](adopt.md) | Announcing a bounded adoption, independent mirror, source intake, or returned result without claiming exclusive ownership. |
 | [Contributing guide](../CONTRIBUTING.md) | How to report corrections or make narrow pull requests. |
 | [Issue templates](../.github/ISSUE_TEMPLATE) | Structured correction and source-suggestion reports. |
 | [Pull request template](../.github/pull_request_template.md) | Checklist for changes. |
@@ -53,6 +55,7 @@ This page lists the main coordination documents in this repository and what each
 
 | File | Use It For |
 |---|---|
+| [Adoption board JSON](../manifests/adopt.json) | Stable operational feed for Mathematics Commons consumers; rows are keyed by `id` and link back to authoritative archive maps. |
 | [Public file catalog CSV](../manifests/public-file-catalog.csv) | Structured current public file inventory. |
 | [Zenodo records JSON](../manifests/zenodo-records-current.json) | Structured record map. |
 | [Current status](../manifests/current-status.md) | Compact generated current-state summary. |

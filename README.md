@@ -4,6 +4,12 @@ This repository is the GitHub working front door for an open project to produce 
 
 GitHub is the inspectable source archive and current index: catalogs, manifests, exact bounded source checkpoints, issue tracking, contribution notes, and scripts. Some large reader-first files and immutable version history are grouped in the linked external records. A file being grouped rather than loose does not mean that its translation is absent; check the coverage maps before starting work.
 
+GitHub is also the operational adoption front door. The
+[adoption and mirror board](docs/adopt.md) separates current work, work ready
+for adoption, and future/source-discovery scopes; links every actionable row
+back to the authoritative archive layer; and exposes a stable
+[machine-readable board](manifests/adopt.json) for Mathematics Commons tools.
+
 For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
 
 For direct GitHub browsing, use the [source-shelf index](sources/README.md). It
@@ -317,6 +323,7 @@ The completion/usefulness order above is the preferred quick map. The detailed r
 
 | Need | Page |
 |---|---|
+| Adopt, mirror, or independently check a bounded work | [Adoption and mirror board](docs/adopt.md) |
 | Find the right corpus | [Browse index](docs/browse-index.md) |
 | See every task-maintained GitHub coverage map | [GitHub map index](docs/github-maps.md) |
 | Browse the exact direct-reader roots | [GitHub reader shelves](reader-pdfs/README.md) |
@@ -347,6 +354,10 @@ These are working scholarly drafts, not final critical editions. PDF checks veri
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for correction workflow and [release checklist](docs/release-checklist.md) for publication hygiene. Issues and pull requests should be specific: name the work, page/section, current file, source witness, and proposed correction.
+See the [adoption and mirror board](docs/adopt.md) to claim or mirror a bounded
+scope, [CONTRIBUTING.md](CONTRIBUTING.md) for correction workflow, and the
+[release checklist](docs/release-checklist.md) for publication hygiene. Issues
+and pull requests should be specific: name the work, page/section, current
+file, source witness, and proposed correction.
 
 Readers can suggest source comparisons, LaTeX fixes, translation corrections, and reader-facing issue reports through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
