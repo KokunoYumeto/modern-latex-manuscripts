@@ -6,6 +6,7 @@ What work/corpus does this change touch?
 - [ ] If this adds or advances a translation, this same change updates its map row with exact language, work, coverage, current path, state, and continuation cursor.
 - [ ] For Noether specifically, I also updated the Noether GitHub source-checkpoint catalog.
 - [ ] The actual source/artifact bytes are included where applicable; a manifest or status note does not substitute for the corpus.
+- [ ] If this returns adopted or mirrored work, I linked the original adoption issue and supplied exact output identities, checks/failures, continuation cursor, and reusable workflow findings.
 
 ## What Changed
 
