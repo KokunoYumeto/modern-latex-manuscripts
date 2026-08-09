@@ -8,7 +8,8 @@ record of what bytes and claims already exist. This page does not replace them.
 Use the [machine-readable board](../manifests/adopt.json) for automation or a
 Mathematics Commons mirror. Use the
 [complete author/work/series/language/corpus index](adopt-index.md) for a
-single human-readable view of all 46 rows. Use the
+single human-readable view of all 66 rows, including priority, readiness,
+coverage, and next cursor. Use the
 [adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml)
 to announce a scope or mirror. Use the dedicated
 [handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml)
@@ -30,14 +31,26 @@ evidence. Neither field certifies a translation or source edition.
 
 | Board ID | Scope | Maintained as | Existing surface | Parallel contribution |
 |---|---|---|---|---|
-| `noether-multilingual` | Emmy Noether multilingual papers | Kokuno Yumeto project lanes | [Language/work map](noether-map.md) | Review an existing language/work target, propagate a verified German correction, or mirror a bounded paper with exact inputs. |
-| `grothendieck-school` | Grothendieck-school corpus: SGA, EGA, FGA, Verdier, Tôhoku, Illusie, and Deligne | Kokuno Yumeto project lanes; individual producer lanes retain their own publication custody | [EGA](ega-map.md), [FGA](fga-map.md), [Verdier](verdier-map.md), [Tôhoku](tohoku-map.md), [Illusie](illusie-map.md), [Deligne](deligne-map.md), and the preserved [SGA landing](records/sga.md) | Check a named page/range or build an explicitly independent mirror. Do not silently overwrite a producer generation. |
+| `noether-de-auth` | Emmy Noether canonical German project authority | Kokuno Yumeto project authority lane | [Noether map](noether-map.md) | Return an exact authority correction or accepted cross-language finding; do not fork away from the correction history. |
+| `ega-0-iv` | EGA 0-IV and the active EGA I page frontier | Kokuno Yumeto coordination; producer publication custody remains separate | [EGA map](ega-map.md) | Continue from the exact current EGA I generation or independently check a named existing range. |
+| `fga-foundements` | FGA separate French and English editions | Kokuno Yumeto coordination; producer publication custody remains separate | [FGA map](fga-map.md) | Check one Exposé, Commentaires range, erratum, or graph residual without creating a bilingual front reader. |
+| `verdier-thesis` | Verdier thesis front matter, physical pages 2-9 | Kokuno Yumeto coordination; producer publication custody remains separate | [Verdier map](verdier-map.md) | Continue at physical page 10 or independently check the admitted range. |
+| `tohoku-paper` | Grothendieck's Tôhoku paper checkpoint | Kokuno Yumeto coordination; producer publication custody remains separate | [Tôhoku map](tohoku-map.md) | Reconcile the historical p.119 versus p.119-121 cursor controls before any continuation. |
+| `illusie-cotangent-i-ii` | Illusie, *Complexe cotangent et déformations* I-II | Kokuno Yumeto coordination; producer publication custody remains separate | [Illusie map](illusie-map.md) | Continue LNM 239 at physical p.24 / printed p.6; LNM 283 is unstarted. |
+| `deligne-papers-letters` | Deligne numbered papers and correspondence | Kokuno Yumeto coordination; producer publication custody remains separate | [Deligne map](deligne-map.md) | Select one exact mapped paper, letter, correction generation, or source-review target. |
 | `weber-algebra` | Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | Continue the exact Volume II frontier or independently check a bounded existing section. |
 
 The maintainer label describes current coordination, not ownership of the
 underlying mathematics and not an exclusive reservation. Declared overlap is
 useful when it creates an independent comparison rather than an untraceable
 replacement.
+
+“Noether” and “Grothendieck school” remain useful human grouping labels, but
+the retired `noether-multilingual` and `grothendieck-school` umbrella IDs are
+not claimable scopes. Claims use the concrete rows above or the unclaimed
+language/work rows below. SGA, FAC, and GAGA are intentionally absent from
+this operational split because their producer publication custody is outside
+this GitHub-maintenance task.
 
 ## Ready for Adoption
 
@@ -48,6 +61,21 @@ overlap and do not convert the archive bytes into a claimant's property.
 
 | Board ID | Priority | Author/work | Readiness | Bounded start |
 |---|---|---|---|---|
+| `noether-en` | High | Emmy Noether, full represented R823 English corpus | Review-ready | Reconcile the eight Paper 4 checkpoints through authority line 4498 against the 459-page reader; return exact integrated/no-change/discrepancy evidence. Start at the [Noether map](noether-map.md). |
+| `noether-es` | High | Emmy Noether, complete represented Spanish R823 corpus | Review-ready | Review the existing 473-page, 81-unit working corpus against source, or propagate a later accepted German correction. Do not retranslate it. |
+| `noether-fr` | High | Emmy Noether, complete represented French R823 corpus | Review-ready | Review the existing 494-page, 81-unit working corpus against source, or propagate a later accepted German correction. Do not retranslate it. |
+| `noether-ru` | High | Emmy Noether, complete Russian v038 corpus | Review-ready | Review the terminal 609-page Russian surface or propagate the next verified German correction. |
+| `noether-uk` | High | Emmy Noether, complete Ukrainian v038 corpus | Review-ready | Review the terminal 588-page Ukrainian surface or propagate the next verified German correction. |
+| `noether-isv` | High | Emmy Noether, complete Interslavic v038 corpus | Review-ready | Review the terminal Latin target and deterministic Cyrillic projection; do not treat the scripts as independent translation witnesses. |
+| `noether-ko-review` | High | Emmy Noether, 22 complete Korean paper bodies | Review-ready | Review the existing heterogeneous UNCHECKED paper generations; Paper 9 continuation is a separate row. |
+| `noether-ko-p09` | High | Emmy Noether, Korean Paper 9 | Exact cursor | Continue at current-authority line 7330, preserving T01-T07 and the documented authority-coordinate shift. |
+| `noether-zh-r5` | High | Emmy Noether, full Simplified-Chinese R5 successor | Review-ready | Replay and inspect the frozen 424-page R5, including seven returned repairs and Paper 45; accepted R4 remains current until an exact acceptance receipt. |
+| `noether-zh-hant` | High | Emmy Noether, Controlled-Hant paper editions | Review-ready | Review the mapped paper-level editions, starting with corrected P35 and P39 v3; no regional localization or cumulative reader is asserted. |
+| `noether-ja` | High | Emmy Noether, Japanese Papers 21, 23, 24, 26, 28, and 36 | Review-ready | Review the six existing complete paper editions; do not infer missing-paper assignments from absence. |
+| `noether-ar-p06` | High | Emmy Noether, Arabic Paper 6 opening | Exact cursor | Preserve S0002/S0004/S0005 and continue at `P06-S0006`. |
+| `noether-fa-p06` | High | Emmy Noether, Iranian Persian Paper 6 opening | Exact cursor | Preserve S0002/S0004/S0005 and continue independently at `P06-S0006`; do not derive Persian mechanically from Arabic. |
+| `noether-id-p36` | High | Emmy Noether, complete Indonesian Paper 36 notice | Review-ready | Review the existing five-segment, one-page notice against source; do not retranslate it. |
+| `noether-vi-p01` | High | Emmy Noether, complete Vietnamese Paper 1 | Review-ready | Review the existing producer-complete TeX/PDF for source, language, formula, and visual correctness. |
 | `gauss-werke-ii` | High | Carl Friedrich Gauss, *Werke* II | Exact cursor | Recover the registered continuation packet and continue after printed p.303, with p.305 next. Start at the [Gauss map](gauss-map.md). |
 | `sylvester-v1` | High | James Joseph Sylvester, collected papers Volume I | Exact cursor | Continue at book p.494 from the [Sylvester map](sylvester-map.md). |
 | `gordan-invariantentheorie-v1` | High | Paul Gordan, *Vorlesungen über Invariantentheorie* I | Exact cursor | Continue after source p.28; retain the article-corpus register. See [known gaps](known-gaps.md#gordan--clebsch-gordan). |
@@ -156,9 +184,10 @@ The stable interface is
 - `next_cursor`, `prerequisites`, `workflow`, and `claim_url`;
 - `updated` and `notes`.
 
-The top-level `human_index` points to the exact 46-row human projection of
-author, work, series, language, corpus, lane, ownership, and Board ID. The
-validator compares every projected field and row order against `items`.
+The top-level `human_index` points to the exact 66-row human projection of
+author, work, series, language, corpus, lane, priority, readiness, coverage,
+next cursor, ownership, and Board ID. The validator compares every projected
+field and row order against `items`.
 Like the workflow guide, it is presentation guidance rather than a fifth
 machine-ingestion identity.
 

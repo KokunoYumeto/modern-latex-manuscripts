@@ -272,7 +272,7 @@ foreach ($item in @($board.items)) {
     $languageDisplay = (@($item.languages) | ForEach-Object { "``$([string]$_)``" }) -join ', '
     $ownerDisplay = if ($null -eq $item.owner) { 'Unclaimed' } else { [string]$item.owner }
     $key = "$( [string]$item.corpus )`t$( [string]$item.author )`t$seriesKey`t$( [string]$item.work )`t$( [string]$item.id )"
-    $row = "| ``$([string]$item.corpus)`` | $([string]$item.author) | $([string]$item.work) | $series | $languageDisplay | ``$([string]$item.lane_state)`` | $ownerDisplay | ``$([string]$item.id)`` |"
+    $row = "| ``$([string]$item.corpus)`` | $([string]$item.author) | $([string]$item.work) | $series | $languageDisplay | ``$([string]$item.lane_state)`` | ``$([string]$item.priority)`` | ``$([string]$item.readiness)`` | ``$([string]$item.coverage_state)`` | $([string]$item.next_cursor) | $ownerDisplay | ``$([string]$item.id)`` |"
     $indexKeys.Add($key)
     $indexRowsByKey.Add($key, $row)
     [void]$indexAuthors.Add([string]$item.author)
