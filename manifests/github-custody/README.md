@@ -9,6 +9,7 @@ producer payloads.
 
 - Current [twenty-eight-cycle queue-and-scope closure](../published-github/20260809_queue_scope_close.json)
   and [source receipt](../published-github/20260809_queue_scope_rb.json)
+- Current [archive-pointer and Weber-frontier source receipt](../published-github/frontier-r1.json)
 - [Twenty-six-cycle predecessor archive history](20260808_archive_r9.json)
 - [Coverage-map inventory](20260807_maps_r5.json)
 - [Current reader/source shelf closure](20260808_shelves_r9.json)

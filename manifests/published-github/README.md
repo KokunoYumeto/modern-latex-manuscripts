@@ -12,6 +12,17 @@ predecessor manifest](../github-custody/20260808_archive_r9.json), the [human
 archive history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
 
+The compact [archive-and-Weber frontier receipt](frontier-r1.json) approves
+source commit `b525560c8881a3611b9c9b224de672eaf93631e1`: all ten changed
+paths / 766,369 public bytes matched commit-pinned raw GitHub bytes, both
+maintained refs matched, and Actions run
+[`31329353277`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31329353277)
+passed. The archive landing now fronts the exact 28-cycle evidence. The Weber
+row requires binding the snapshotted public Volume II German/English bytes
+through §176 to the GitHub custody surface through §143 before continuation,
+forbids redoing §§144–176, and sets the later cursor to source p.643. No
+producer or corpus artifact changed.
+
 The [sparse continuous-validation receipt](20260809_adopt_ci_rb.json) approves
 source commit `ae59d85d406d52448eacc0794916b34c8189a739`: all ten changed
 paths / 734,367 public bytes matched exactly, both public refs resolved to the
