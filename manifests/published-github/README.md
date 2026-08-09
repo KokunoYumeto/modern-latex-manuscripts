@@ -17,6 +17,12 @@ replays all nine files in source commit `5e3d60bdcef9678edea6a046ecd46765c00b8e3
 operational coordination layer; the coverage maps and source/reader manifests
 remain the authoritative archive layer.
 
+The [adoption-contract receipt](20260809_adopt_contract_rb.json) replays all
+eight files in source commit `cb816b568e97734b8c27f086f0cf9beebdd602de`:
+359,729 bytes, all matched exactly. It binds the Draft 2020-12 schema, bounded
+validator, post-push validation, explicit mirror-row contract, navigation, and
+locked maintenance history.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
