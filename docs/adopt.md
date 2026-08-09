@@ -205,7 +205,10 @@ and synchronized with, the archival catalog instead of letting it become a
 second incomplete inventory.
 
 The top-level `queue_sources` similarly binds `docs/known-gaps.md` and
-`docs/work-queue.md`. The top-level `snapshot_policy` defines the immutable
+`docs/work-queue.md`. `queue_snapshot` binds their exact paths, byte lengths,
+and SHA-256 values; validation fails if either operational source advances
+without a corresponding board review. These are synchronization evidence,
+not extra machine-ingestion files. The top-level `snapshot_policy` defines the immutable
 consumption boundary: a human-approved exact commit, four files fetched from
 that same commit, declared byte/SHA-256 replay, empty validation errors, and
 formal schema validation. Mixed revisions are forbidden.

@@ -19,6 +19,7 @@
     "map_manifest",
     "required_maps",
     "queue_sources",
+    "queue_snapshot",
     "snapshot_policy",
     "consumer_helper",
     "claim_auditor",
@@ -135,6 +136,14 @@
       "items": false,
       "minItems": 2,
       "maxItems": 2
+    },
+    "queue_snapshot": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "$ref": "#/$defs/sourceIdentity"
+      }
     },
     "snapshot_policy": {
       "type": "object",
@@ -338,6 +347,16 @@
   },
   "additionalProperties": true,
   "$defs": {
+    "sourceIdentity": {
+      "type": "object",
+      "required": ["path", "bytes", "sha256"],
+      "properties": {
+        "path": { "type": "string", "minLength": 1 },
+        "bytes": { "type": "integer", "minimum": 0 },
+        "sha256": { "type": "string", "pattern": "^[0-9A-F]{64}$" }
+      },
+      "additionalProperties": false
+    },
     "pathOrNull": {
       "type": ["string", "null"],
       "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).*$"
