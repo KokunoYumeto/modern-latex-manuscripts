@@ -196,6 +196,24 @@ python scripts/get-adopt.py --commit <COMMIT> --approve <COMMIT> > board.json
 The helper requires the Python `jsonschema` package. A nonzero exit means the
 output must not be ingested.
 
+The top-level `claim_auditor` points to
+[`scripts/check-claims.py`](../scripts/check-claims.py). It first runs the same
+exact-commit consumer, then reads only public `adoption`-labelled issues. It
+checks required form sections, exact or proposed Board IDs, handback-to-claim
+links, and handback state while explicitly allowing declared parallel claims.
+Run it from the same approved checkout; the raw `main` script is a locator, not
+an immutable executable identity:
+
+```console
+python scripts/check-claims.py --commit <COMMIT> --approve <COMMIT> > claims.check.json
+```
+
+The auditor is read-only. `GITHUB_TOKEN` is optional and used only to raise the
+public API rate limit; its value is never emitted. `--issues-file -` accepts a
+GitHub-API-style JSON fixture on standard input for deterministic offline
+tests. A nonzero exit means the issue set must not be ingested as synchronized
+board state.
+
 Maintainers and independent auditors can replay the local board contract
 without replacing the tracked validation file. `ValidationPath` remains the
 canonical same-commit contract identity; `OutputPath` is only where this audit

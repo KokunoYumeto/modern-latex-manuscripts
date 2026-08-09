@@ -393,6 +393,11 @@ if ([string]$board.consumer_helper -cne $expectedConsumerHelper) {
     Add-Error 'consumer_helper does not match the exact v1 helper path.'
 }
 Test-RepoPath -Path ([string]$board.consumer_helper) -Context 'consumer_helper' -Required $true
+$expectedClaimAuditor = 'scripts/check-claims.py'
+if ([string]$board.claim_auditor -cne $expectedClaimAuditor) {
+    Add-Error 'claim_auditor does not match the exact v1 auditor path.'
+}
+Test-RepoPath -Path ([string]$board.claim_auditor) -Context 'claim_auditor' -Required $true
 
 $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 $stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 }
@@ -562,6 +567,7 @@ $report = [ordered]@{
         mixed_revisions_forbidden = [bool]$board.snapshot_policy.mixed_revisions_forbidden
     }
     consumer_helper = [string]$board.consumer_helper
+    claim_auditor = [string]$board.claim_auditor
     aggregate = [ordered]@{
         items = @($board.items).Count
         mirrors = @($board.mirrors).Count
@@ -605,6 +611,7 @@ $report = [ordered]@{
             $duplicateHumanBoardIds.Count -eq 0
         )
         consumer_helper_contract = ([string]$board.consumer_helper -ceq $expectedConsumerHelper)
+        claim_auditor_contract = ([string]$board.claim_auditor -ceq $expectedClaimAuditor)
         contributor_interface_contract = (
             [string]$board.claim_interface -ceq $expectedClaimInterface -and
             [string]$board.handback_interface -ceq $expectedHandbackInterface
