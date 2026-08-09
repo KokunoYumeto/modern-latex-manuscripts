@@ -11,6 +11,7 @@ $repoRoot = [IO.Path]::GetFullPath((Get-Location).Path)
 $documents = [string[]]@(
     'README.md',
     '.github/ISSUE_TEMPLATE/adopt.yml',
+    '.github/ISSUE_TEMPLATE/handback.yml',
     '.github/ISSUE_TEMPLATE/correction.yml',
     '.github/ISSUE_TEMPLATE/rendering_problem.md',
     '.github/ISSUE_TEMPLATE/source-suggestion.yml',
@@ -268,7 +269,7 @@ $result = [ordered]@{
     schema               = 'github-local-links/v1'
     observed_date        = $ObservedDate
     observed_commit      = (& git rev-parse HEAD).Trim()
-    scope                = 'Committed Git-blob identities and inline local links in nineteen explicitly allowed coverage maps; the repository root, browse, site-map, GitHub-only map, archive, reader, source, custody, and receipt landings; and six contributor entry points. External URLs are counted but never requested.'
+    scope                = 'Committed Git-blob identities and inline local links in nineteen explicitly allowed coverage maps; the repository root, browse, site-map, GitHub-only map, archive, reader, source, custody, and receipt landings; and seven contributor entry points. External URLs are counted but never requested.'
     canonical_stream     = 'Ordinal document path order; path<TAB>bytes<TAB>SHA256<LF>; UTF-8 without BOM.'
     aggregate            = [ordered]@{
         documents              = $rows.Count

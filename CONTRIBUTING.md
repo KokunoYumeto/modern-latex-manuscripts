@@ -55,6 +55,13 @@ does not reserve the work or prevent an independent check. Return an inspectable
 repository/branch/result identity and the exact checks performed when the work
 is ready.
 
+Return a completed or partial result, paused scope, or withdrawal through the
+[handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml).
+Bind it to the original adoption issue and include the achieved scope, exact
+commit and output identities, manifest hashes, checks/failures/reversals, next
+cursor, and reusable workflow findings. A handback is evidence, not an
+automatic completion or certification claim.
+
 For translation corrections, preserve the mathematical assertion first. Prefer a literal but readable translation over stylistic rewriting that changes scope, hypotheses, numbering, or dependency structure.
 
 For TeX corrections, keep changes narrow: fix the broken environment, cross-reference, display, diagram, table, or page break without reformatting unrelated sections.

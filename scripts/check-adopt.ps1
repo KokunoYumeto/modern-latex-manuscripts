@@ -191,9 +191,12 @@ foreach ($name in @('coverage_maps', 'reader_shelf', 'source_shelf', 'archive_hi
     Test-RepoPath -Path $board.archive_authority.$name -Context "archive_authority.$name" -Required $true
 }
 Test-RepoPath -Path $board.map_manifest -Context 'map_manifest' -Required $true
-if (-not ([string]$board.claim_interface).StartsWith('https://github.com/', [StringComparison]::Ordinal)) {
-    Add-Error 'claim_interface must be a GitHub HTTPS URL.'
-}
+$expectedClaimInterface = 'https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml'
+$expectedHandbackInterface = 'https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml'
+if ([string]$board.claim_interface -cne $expectedClaimInterface) { Add-Error 'claim_interface does not match the exact adoption form.' }
+if ([string]$board.handback_interface -cne $expectedHandbackInterface) { Add-Error 'handback_interface does not match the exact handback form.' }
+Test-RepoPath -Path '.github/ISSUE_TEMPLATE/adopt.yml' -Context 'claim_interface template' -Required $true
+Test-RepoPath -Path '.github/ISSUE_TEMPLATE/handback.yml' -Context 'handback_interface template' -Required $true
 
 $mapManifestPath = [string]$board.map_manifest
 $mapManifestFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $mapManifestPath))
@@ -480,6 +483,10 @@ $report = [ordered]@{
             $duplicateHumanBoardIds.Count -eq 0
         )
         consumer_helper_contract = ([string]$board.consumer_helper -ceq $expectedConsumerHelper)
+        contributor_interface_contract = (
+            [string]$board.claim_interface -ceq $expectedClaimInterface -and
+            [string]$board.handback_interface -ceq $expectedHandbackInterface
+        )
         snapshot_policy_contract = (
             [string]$board.snapshot_policy.stable_locator_ref -ceq 'main' -and
             [string]$board.snapshot_policy.immutable_unit -ceq 'human_approved_exact_commit' -and

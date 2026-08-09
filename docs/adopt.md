@@ -8,7 +8,9 @@ record of what bytes and claims already exist. This page does not replace them.
 Use the [machine-readable board](../manifests/adopt.json) for automation or a
 Mathematics Commons mirror. Use the
 [adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml)
-to announce a scope, mirror, or result.
+to announce a scope or mirror. Use the dedicated
+[handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml)
+to return a result, partial checkpoint, paused scope, or withdrawal.
 
 ## Three Different States
 
@@ -123,9 +125,12 @@ absent everywhere or that production should begin from an arbitrary web PDF.
    inspection. Record failures and reversals as well as passes.
 7. Compare with an independent mirror when one exists. Return exact corrections
    and reusable workflow findings; do not reduce disagreement to a winner label.
-8. Submit a focused pull request or result issue. The archive map and this board
-   are updated only when the corresponding bytes or exact external identity are
-   inspectable.
+8. Submit a focused pull request or
+   [handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml)
+   with the achieved scope, exact result/manifest identities, checks and
+   failures, continuation cursor, and reusable workflow findings. The archive
+   map and this board are updated only when the corresponding bytes or exact
+   external identity are inspectable.
 
 ## Machine Interface
 
@@ -147,6 +152,12 @@ single exclusive owner. Each mirror row has `id`, `item_id`, `owner`, `scope`,
 `url`, `status`, and `updated`. An empty array means no inspectable mirror has
 yet been integrated into the board; it does not mean no one is working
 elsewhere.
+
+The top-level `claim_interface` and `handback_interface` bind the two GitHub
+forms for the mirror lifecycle. Claims declare overlap and a starting
+generation. Handbacks return an inspectable result or an explicit
+paused/withdrawn state with manifest identities, checks, cursor, and reusable
+method findings.
 
 The top-level `map_manifest` points to the authoritative 19-map custody
 manifest, and `required_maps` repeats its exact ordered path set. Validation
