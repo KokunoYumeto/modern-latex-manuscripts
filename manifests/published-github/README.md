@@ -44,6 +44,13 @@ files in source commit `ce8dc207e732530ec8fccc6d1d012ec415ef8ec4`:
 once in the human board, and the bounded validator rejects missing, unknown,
 or duplicate human rows.
 
+The [exact-commit consumer receipt](20260809_adopt_get_rb.json) replays all
+ten files in source commit `0e12042dd211c4bde69b99707e99881c43b68d68`:
+576,112 bytes, all matched exactly. The fail-closed helper then fetched four
+contract files / 95,021 bytes from that same approved commit and returned the
+exact 62,835-byte board with schema errors0, validation errors0, and mixed
+revisions0. It rejects floating `main` and mismatched approval hashes.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027

@@ -24,7 +24,8 @@ producer payloads.
   [four-row index](20260807_zh_a4.csv)
 - [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
-- Current human Board-ID link audit: `20260809_links_r16.json`
+- Current exact-commit consumer link audit: `20260809_links_r17.json`
+- Human Board-ID predecessor link audit: `20260809_links_r16.json`
 - Adoption work/snapshot predecessor link audit: `20260809_links_r15.json`
 - Adoption-map synchronization predecessor link audit: `20260809_links_r14.json`
 - Adoption-contract predecessor link audit: `20260809_links_r13.json`
@@ -33,6 +34,8 @@ producer payloads.
 - Adoption map-synchronization [raw readback](../published-github/20260809_adopt_maps_rb.json)
 - Work-level adoption and snapshot-policy [raw readback](../published-github/20260809_adopt_work_rb.json)
 - Human Board-ID [raw readback](../published-github/20260809_adopt_ids_rb.json)
+- Exact-commit consumer [raw readback](../published-github/20260809_adopt_get_rb.json)
+- Fail-closed consumer helper: [`../../scripts/get-adopt.py`](../../scripts/get-adopt.py)
 - [Maintenance-log index](20260806_log.json) and
   [append-only log](log.jsonl)
 
