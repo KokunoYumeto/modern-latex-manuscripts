@@ -80,6 +80,15 @@ corrected paths in `b79d5f12036f31438b385c7b8307c88e2195fe57`:
 the anonymous live issue audit has issues0/errors0; a linked claim/handback
 fixture passes 2/2; and an unknown-ID fixture fails closed with exit1.
 
+The [reusable-workflow receipt](20260809_flows_rb.json) approves source commit
+`0fff8d0fc06af508536aad623cc5e8b513512624`: all eleven changed paths /
+658,277 bytes matched public raw GitHub. The exact-commit consumer fetched the
+four-file contract / 116,120 bytes with schema errors0, validation errors0,
+and mixed revisions0. All fourteen workflow tokens have complete embedded
+start/input/step/evidence/stop/handback definitions, all fourteen are used,
+and the 14-heading human guide remains guidance rather than a fifth machine
+identity.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027

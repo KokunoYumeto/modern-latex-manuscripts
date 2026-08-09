@@ -97,6 +97,14 @@ paths in
 611,875 bytes, all matched. The exact-commit consumer, anonymous live issue
 audit, valid linked handback fixture, and malformed fail-closed fixture all
 behave as declared without changing any issue.
+The [reusable-workflow receipt](../manifests/published-github/20260809_flows_rb.json)
+then approves
+[`0fff8d0f`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/0fff8d0fc06af508536aad623cc5e8b513512624):
+eleven changed paths / 658,277 public bytes all match, and the exact-commit
+consumer passes four files / 116,120 bytes. The board embeds all fourteen
+workflow definitions, every token is used, and `docs/adopt.md` plus the
+14-heading workflow guide remain human guidance rather than additional
+machine-ingestion identities.
 The [complete archive-r9 cycle receipt](../manifests/published-github/20260808_archive_r9_cycle_rb.json)
 replays the final versions of all ten paths changed after `7e56161f`:
 343,102 bytes, all matched.
@@ -143,12 +151,13 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The corrected claim-auditor commit's bounded link audit is recorded as
-`manifests/github-custody/20260809_links_r21.json`. It covers 37 committed
+The reusable-workflow source commit's bounded link audit is recorded as
+`manifests/github-custody/20260809_links_r22.json`. It covers 38 committed
 documents: the nineteen allowed maps; the GitHub-only map, archive, reader,
-source, custody, and receipt landings; the human adoption board; and seven
-contributor/issue entry points. It resolves 1,171 local links to 790 unique
-targets with zero missing or prohibited targets.
+source, custody, and receipt landings; the human adoption board and workflow
+guide; and seven contributor/issue entry points. It resolves 1,179 local links
+to 792 unique targets with zero missing or prohibited targets. The corrected
+claim-auditor audit remains immutable predecessor `20260809_links_r21.json`.
 [`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it
 counts external URLs without requesting them and stops before touching a
 prohibited local target.
