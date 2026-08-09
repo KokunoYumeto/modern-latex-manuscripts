@@ -25,6 +25,17 @@ The no-lazy-fetch correction first shipped in
 and has an [11/11 raw correction receipt](20260809_claims_offline_rb.json); the
 current workflow keeps that promisor-missing-blob regression active.
 
+The [exact-scope receipt](20260809_scope_rb.json) approves source commit
+`10d2df083bf0b47b758d5f094b6fcaeed9167011`: all seven changed paths /
+661,932 public bytes matched exactly, and Actions run
+[`31324190709`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31324190709)
+passed every sparse metadata gate. The board now has 66 rows: 8 named current,
+53 unclaimed ready, and 5 future. The former `noether-multilingual` and
+`grothendieck-school` umbrella IDs are retired as claim scopes and replaced by
+sixteen Noether language/work rows plus six Grothendieck-school work rows. The
+human index exposes priority, readiness, coverage, cursor, ownership, and exact
+Board ID for every row; no producer or corpus artifact changed.
+
 The [Mathematics Commons adoption-layer receipt](20260809_adopt_rb.json)
 replays all nine files in source commit `5e3d60bdcef9678edea6a046ecd46765c00b8e3b`:
 257,262 bytes, all matched exactly. The corresponding JSON board is an
