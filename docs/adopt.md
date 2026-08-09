@@ -63,6 +63,35 @@ replacement.
 | Medium | Non-European mathematical texts | Review-ready | Check or assemble an existing direct/source-only language layer before starting any new translation. Start at the [exact map](non-european-map.md). |
 | Medium | Ukrainian applied mathematics modules | Continuation-ready | Use the closed public driver and continue only the mapped partial modules. Start at the [exact map](ukrainian-map.md). |
 
+### Existing work that must not be retranslated
+
+These tracked editable layers do not yet have matching direct readers. Their
+missing PDF is an assembly or checking gap, not evidence that the translation
+does not exist.
+
+| Priority | Existing author/work layer | Exact start | Next result |
+|---|---|---|---|
+| High | *Nine Chapters*, Arabic volumes 1–3 | [Arabic TeX](../sources/non-european/sources/translations/arabic/chinese/jiuzhang-suanshu-vols1-3_arabic.tex) | Check and assemble the existing source against the mapped Chinese/English layers. |
+| High | *Sunzi Suanjing*, Arabic | [Arabic TeX](../sources/non-european/sources/translations/arabic/chinese/sunzi-suanjing_arabic.tex) | Check and assemble the existing source-facing layer. |
+| High | Li Ye / Gu Yingxiang, *Fenlei Shishu*, English volumes 1–3 | [English-bilingual TeX](../sources/non-european/sources/translations/english_bilingual/chinese/li-ye-ceyuan-haijing-fenlei-shishu-vols1-3_bilingual.tex) | Assemble volumes 1–3, then declare any continuation from volume 4. |
+| High | Li Ye, *Ceyuan Haijing*, independent English volumes 10–12 | [Independent-English TeX](../sources/non-european/sources/translations/english_bilingual/chinese/li-ye-ceyuan-haijing-vols10-12_english.tex) | Assemble and compare this independent layer with the existing reader. |
+| High | Qin Jiushao, *Shuxue Jiuzhang*, modern-Chinese fascicles 2–4 | [fascicle 2](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle2_classical-modern_bilingual.tex), [3](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle3_classical-modern_bilingual.tex), and [4](../sources/non-european/sources/translations/classical_modern_chinese/chinese/qin-jiushao-shuxue-jiuzhang-fascicle4_classical-modern_bilingual.tex) | Check and restore the omitted fascicles to a successor modern-Chinese reader. |
+| Medium | Ibn al-Qifti, *Tarikh al-Hukama*, English | [English-bilingual TeX](../sources/non-european/sources/translations/english_bilingual/references/ibn-al-qifti-tarikh-al-hukama_bilingual.tex) | Assemble and check it against the mapped reference selection. |
+| High | al-Battani, *Opus Astronomicum* and related tables | [Exact current surface](non-european-map.md#al-battani-current-github-surface) | Continue the named Arabic-description, table-cell, region, and chronology collation residuals. |
+
+### Current readers needing source or provenance closure
+
+| Priority | Author/work | Current GitHub surface | Bounded start |
+|---|---|---|---|
+| Medium | Edmund Landau, *Elementary Number Theory* | [243-page English body](<../reader-pdfs/author-cluster/02 Reader PDF - Landau - Elementary Number Theory.pdf>) | Recover title/translator/publisher and exact source closure without recreating the reader. |
+| Medium | Kurt Hensel, *Zahlentheorie* | [251-page German reader](<../reader-pdfs/author-cluster/04 Reader PDF - Hensel - Zahlentheorie.pdf>) | Recover exact source/editable closure and compare one bounded range. |
+| Medium | Kiyoshi Oka, Memoirs I–X | [141-page English collection](<../reader-pdfs/author-cluster/05 Reader PDF - Oka - Analytic Functions of Several Variables I-X.pdf>) | Bind memoir-level source and translation provenance. |
+| Medium | Felix Hausdorff, *Set Theory* | [413-page English edition](<../reader-pdfs/author-cluster/06 Reader PDF - Hausdorff - Set Theory.pdf>) | Recover the source/translation closure while keeping it distinct from the German composite. |
+| Medium | Hermann Grassmann, *Ausdehnungslehre* anthology | [613-page English anthology](<../reader-pdfs/author-cluster/07 Reader PDF - Grassmann - Ausdehnungslehre and Related Works.pdf>) | Register every component work and bind its source/provenance. |
+| Medium | Felix Hausdorff, *Mengenlehre* and later writings | [675-page German composite](<../reader-pdfs/author-cluster/08 Reader PDF - Hausdorff - Mengenlehre and Descriptive Set Theory Writings.pdf>) | Register components and recover source closure without collapsing the English edition. |
+| Medium | Luigi Bianchi, Volume I / A2 through p.0135 | [Exact work-queue description](work-queue.md#highest-value-typesetting-and-source-check-work) | Audit formulas, references, terminology, index entries, and difficult glyphs against the current compact baseline. |
+| Medium | Ferdinand Georg Frobenius, RA05 baseline | [Exact work-queue description](work-queue.md#highest-value-typesetting-and-source-check-work) | Declare one work/range and perform a targeted source/formula/table/notation comparison. |
+
 ## Future / Source Discovery First
 
 | Priority | Author/work | Why it is not yet adoption-ready | First useful result |
@@ -71,6 +100,7 @@ replacement.
 | Medium | Évariste Galois, *Oeuvres* and manuscripts | Source-intake packets are noted, but no promoted transcription or translation is bound as current. | Reconcile the printed and manuscript witnesses into a small, exact first-work intake. |
 | Medium | Gotthold Eisenstein, *Mathematische Abhandlungen* | Source-intake packets exist without a promoted reader. | Select one work, bind the best source witness, and produce a reproducible page map. |
 | Medium | Jakob Steiner, *Gesammelte Werke* | Volume-source intake exists without a promoted transcription or translation. | Bind Volume I/II witnesses and select one bounded paper or range. |
+| Medium | Teiji Takagi, Journal of the College of Science volumes 19, 41, and 44 | A source-hunt ledger exists, but current routes are low-resolution aids or explicitly provisional. | Locate and bind exact BHL/Internet Archive JP2 source identities before choosing a bounded work. |
 
 Future rows are invitations to prepare evidence, not claims that the corpus is
 absent everywhere or that production should begin from an arbitrary web PDF.
@@ -125,14 +155,40 @@ fails unless every required map is represented by at least one item's
 and synchronized with, the archival catalog instead of letting it become a
 second incomplete inventory.
 
-The stable raw endpoint for a Mathematics Commons consumer is:
+The top-level `queue_sources` similarly binds `docs/known-gaps.md` and
+`docs/work-queue.md`. The top-level `snapshot_policy` defines the immutable
+consumption boundary: a human-approved exact commit, four files fetched from
+that same commit, declared byte/SHA-256 replay, empty validation errors, and
+formal schema validation. Mixed revisions are forbidden.
+
+The stable raw `main` endpoint is a discovery locator only. It is not an
+immutable snapshot:
 
 <https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.json>
 
-Schema and current validation endpoints:
+Schema and current validation locators:
 
 - <https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.schema.json>
 - <https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.check.json>
+
+Do not ingest directly from those three floating URLs. A safe consumer must:
+
+1. Resolve `main` to one exact 40-character commit and require a human to
+   approve that commit for ingestion.
+2. Fetch `manifests/adopt.json`, `manifests/adopt.schema.json`,
+   `manifests/adopt.check.json`, and the board's referenced `map_manifest` from
+   that same exact commit, using commit-pinned raw URLs.
+3. Require validation `status == "PASS"` and `errors == []`. Then replay the
+   declared byte lengths and SHA-256 identities for the board, schema, and map
+   manifest against the same-commit responses. The validation file itself is
+   bound by the human-approved commit.
+4. Validate the board against the fetched schema before exposing any row.
+5. Reject mixed-revision inputs even when every individual URL returns 200 or
+   one floating validation file says `PASS`.
+
+`adopt.check.json.status == "PASS"` alone is never sufficient authorization
+for automated ingestion. The commit is the snapshot boundary; `main` merely
+helps a person discover a candidate commit.
 
 Consumers should treat `lane_state` as the top-level partition and use
 `priority` only within a partition. Preserve unknown fields, accept additional

@@ -213,6 +213,47 @@ if ($null -ne $mapManifest) {
 foreach ($path in $requiredMaps) {
     Test-RepoPath -Path $path -Context 'required_maps' -Required $true
 }
+$expectedQueueSources = [string[]]@('docs/known-gaps.md', 'docs/work-queue.md')
+$queueSources = [string[]]@($board.queue_sources)
+Test-UniqueStrings -Values $queueSources -Context 'queue_sources' -RequireNonEmpty $true
+if (($queueSources -join "`n") -cne ($expectedQueueSources -join "`n")) {
+    Add-Error 'queue_sources does not match the exact known-gaps/work-queue contract.'
+}
+foreach ($path in $queueSources) {
+    Test-RepoPath -Path $path -Context 'queue_sources' -Required $true
+}
+$expectedSnapshotPaths = [string[]]@(
+    $InputPath.Replace('\', '/'),
+    $SchemaPath.Replace('\', '/'),
+    $OutputPath.Replace('\', '/'),
+    $mapManifestPath.Replace('\', '/')
+)
+$expectedSnapshotChecks = [string[]]@(
+    'validation_status_pass',
+    'validation_errors_empty',
+    'declared_bytes_sha256_match',
+    'schema_validation_pass'
+)
+$snapshotPaths = [string[]]@($board.snapshot_policy.same_commit_paths)
+$snapshotChecks = [string[]]@($board.snapshot_policy.required_checks)
+if ([string]$board.snapshot_policy.stable_locator_ref -cne 'main') {
+    Add-Error 'snapshot_policy stable_locator_ref must remain main.'
+}
+if ([string]$board.snapshot_policy.immutable_unit -cne 'human_approved_exact_commit') {
+    Add-Error 'snapshot_policy immutable_unit must require a human-approved exact commit.'
+}
+if (($snapshotPaths -join "`n") -cne ($expectedSnapshotPaths -join "`n")) {
+    Add-Error 'snapshot_policy same_commit_paths does not match the exact four-file contract.'
+}
+if (($snapshotChecks -join "`n") -cne ($expectedSnapshotChecks -join "`n")) {
+    Add-Error 'snapshot_policy required_checks does not match the exact verification contract.'
+}
+if ($board.snapshot_policy.mixed_revisions_forbidden -cne $true) {
+    Add-Error 'snapshot_policy must forbid mixed revisions.'
+}
+foreach ($path in $snapshotPaths) {
+    Test-RepoPath -Path $path -Context 'snapshot_policy.same_commit_paths' -Required $true
+}
 
 $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 $stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 }
@@ -281,6 +322,24 @@ foreach ($path in $requiredMaps) {
         Add-Error "Required coverage map has no adoption-board item reference: $path"
     }
 }
+$queueSourceSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($path in $queueSources) { [void]$queueSourceSet.Add($path) }
+$representedQueueSourceSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($item in @($board.items)) {
+    $candidatePaths = @([string]$item.archive_path) + [string[]]@($item.related_paths)
+    foreach ($path in $candidatePaths) {
+        if ([string]::IsNullOrWhiteSpace($path)) { continue }
+        $relative = $path.Split('#')[0]
+        if ($queueSourceSet.Contains($relative)) { [void]$representedQueueSourceSet.Add($relative) }
+    }
+}
+$missingQueueSources = [Collections.Generic.List[string]]::new()
+foreach ($path in $queueSources) {
+    if (-not $representedQueueSourceSet.Contains($path)) {
+        $missingQueueSources.Add($path)
+        Add-Error "Operational queue source has no adoption-board item reference: $path"
+    }
+}
 
 $mirrorIds = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 foreach ($mirror in @($board.mirrors)) {
@@ -322,6 +381,13 @@ $report = [ordered]@{
         sha256 = if ($mapManifestBytes.Length -gt 0) { Get-Sha256 -Bytes $mapManifestBytes } else { $null }
         required_maps = $requiredMaps.Count
     }
+    snapshot_policy = [ordered]@{
+        stable_locator_ref = [string]$board.snapshot_policy.stable_locator_ref
+        immutable_unit = [string]$board.snapshot_policy.immutable_unit
+        same_commit_paths = $snapshotPaths.Count
+        required_checks = $snapshotChecks.Count
+        mixed_revisions_forbidden = [bool]$board.snapshot_policy.mixed_revisions_forbidden
+    }
     aggregate = [ordered]@{
         items = @($board.items).Count
         mirrors = @($board.mirrors).Count
@@ -333,6 +399,9 @@ $report = [ordered]@{
         required_maps = $requiredMaps.Count
         represented_required_maps = $representedMapSet.Count
         missing_required_maps = $missingRequiredMaps.Count
+        queue_sources = $queueSources.Count
+        represented_queue_sources = $representedQueueSourceSet.Count
+        missing_queue_sources = $missingQueueSources.Count
         repository_path_checks = $pathChecks
         tracked_repository_paths = $trackedPathChecks
     }
@@ -345,6 +414,15 @@ $report = [ordered]@{
         archive_layer_preserved = ([string]$board.board_role -ceq 'operational_layer')
         required_map_contract = ($requiredMaps.Count -gt 0 -and ($requiredMaps -join "`n") -ceq ($manifestMaps -join "`n"))
         required_maps_represented = ($missingRequiredMaps.Count -eq 0 -and $representedMapSet.Count -eq $requiredMaps.Count)
+        queue_source_contract = (($queueSources -join "`n") -ceq ($expectedQueueSources -join "`n"))
+        queue_sources_represented = ($missingQueueSources.Count -eq 0 -and $representedQueueSourceSet.Count -eq $queueSources.Count)
+        snapshot_policy_contract = (
+            [string]$board.snapshot_policy.stable_locator_ref -ceq 'main' -and
+            [string]$board.snapshot_policy.immutable_unit -ceq 'human_approved_exact_commit' -and
+            ($snapshotPaths -join "`n") -ceq ($expectedSnapshotPaths -join "`n") -and
+            ($snapshotChecks -join "`n") -ceq ($expectedSnapshotChecks -join "`n") -and
+            $board.snapshot_policy.mixed_revisions_forbidden -ceq $true
+        )
         external_network_queried = $false
         producer_files_mutated = $false
         compile_render_or_ocr_run = $false
