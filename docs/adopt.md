@@ -181,6 +181,18 @@ generation. Handbacks return an inspectable result or an explicit
 paused/withdrawn state with manifest identities, checks, cursor, and reusable
 method findings.
 
+The top-level `claim_regression` and `continuous_validation` fields bind a
+sparse [GitHub Actions gate](../.github/workflows/adopt.yml). On relevant pull
+requests and `main` pushes it regenerates the board/schema/map check in a
+temporary path, replays the exact local four-file consumer, proves that a
+missing promisor blob cannot trigger a lazy fetch, and tests both a valid
+claim/handback pair and an invalid Board ID. The workflow uses SHA-pinned
+actions, read-only repository permissions, a blobless sparse metadata
+checkout, and no corpus builds. Referenced corpus paths are checked against
+the sparse checkout's tracked-path index without materializing their blobs. CI does not
+choose or approve a consumer snapshot: `main` remains a locator, and a human
+must still approve one exact commit before ingestion.
+
 The top-level `workflows` registry defines every token used by an item's
 `workflow` array. Each definition has the exact ordered fields `id`, `purpose`,
 `start_when`, `inputs`, `steps`, `evidence`, `stop_conditions`, and `handback`.
@@ -219,7 +231,11 @@ is embedded in the board and governed by the schema and validation result.
 This page and `docs/adopt-flows.md` are human guidance at the same approved
 commit, not fifth or sixth machine-contract identities. Consumers may pin them
 for presentation or review, but must not substitute either document for any of
-the four contract files.
+the four contract files. The containing approved commit is always the immutable
+snapshot identity. The validation report's `worktree_base_commit` only records
+the validator's checkout base; `input_mode` and `worktree_dirty` state whether
+its named input bytes came from a modified worktree. It is deliberately not an
+`observed_commit` snapshot claim and must never override the containing commit.
 
 The top-level `consumer_helper` points to
 [`scripts/get-adopt.py`](../scripts/get-adopt.py). Run the helper from the same

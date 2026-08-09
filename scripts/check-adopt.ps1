@@ -5,7 +5,8 @@ param(
     [string]$ValidationPath = 'manifests/adopt.check.json',
     [string]$LabelPath = '.github/labels.json',
     [string]$OutputPath = 'manifests/adopt.check.json',
-    [string]$ObservedDate = (Get-Date -Format 'yyyy-MM-dd')
+    [string]$ObservedDate = (Get-Date -Format 'yyyy-MM-dd'),
+    [switch]$SparseCheckout
 )
 
 $ErrorActionPreference = 'Stop'
@@ -75,13 +76,13 @@ function Test-RepoPath {
         Add-Error "$Context path resolves outside the repository: $Path"
         return
     }
-    if (-not [IO.File]::Exists($full)) {
-        Add-Error "$Context path does not exist: $Path"
-        return
-    }
     & git ls-files --error-unmatch -- $relative 2>$null | Out-Null
     if ($LASTEXITCODE -ne 0) {
         Add-Error "$Context path is not tracked by Git: $Path"
+        return
+    }
+    if (-not [IO.File]::Exists($full) -and -not $SparseCheckout) {
+        Add-Error "$Context path does not exist: $Path"
         return
     }
     $script:trackedPathChecks++
@@ -630,6 +631,92 @@ if ([IO.File]::Exists($claimAuditorFull)) {
 else {
     $claimAuditorContractPass = $false
 }
+$expectedClaimRegression = 'scripts/test-claims.py'
+$claimRegressionContractPass = $true
+if ([string]$board.claim_regression -cne $expectedClaimRegression) {
+    Add-Error 'claim_regression does not match the exact offline fixture-regression path.'
+    $claimRegressionContractPass = $false
+}
+Test-RepoPath -Path ([string]$board.claim_regression) -Context 'claim_regression' -Required $true
+$claimRegressionFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $expectedClaimRegression))
+if ([IO.File]::Exists($claimRegressionFull)) {
+    $claimRegressionText = $utf8.GetString([IO.File]::ReadAllBytes($claimRegressionFull))
+    foreach ($token in @('valid_fixture', 'invalid_fixture', 'not-a-board-row', 'local_git_object_database', 'json_fixture', 'external_network_queried')) {
+        if (-not $claimRegressionText.Contains($token, [StringComparison]::Ordinal)) {
+            Add-Error "claim_regression is missing required lifecycle token: $token"
+            $claimRegressionContractPass = $false
+        }
+    }
+}
+else {
+    $claimRegressionContractPass = $false
+}
+$expectedCiWorkflow = '.github/workflows/adopt.yml'
+$expectedCiEvents = [string[]]@('pull_request', 'push_main', 'workflow_dispatch')
+$expectedCiChecks = [string[]]@(
+    'board_schema_maps',
+    'exact_local_consumer',
+    'promisor_no_lazy_fetch',
+    'claim_lifecycle_fixtures'
+)
+$continuousValidationContractPass = $true
+$expectedContinuousValidationFields = [string[]]@('workflow', 'checkout', 'events', 'checks', 'pinned_actions', 'corpus_builds')
+Test-ExactFields -Value $board.continuous_validation -Expected $expectedContinuousValidationFields -Context 'continuous_validation'
+if ([string]$board.continuous_validation.workflow -cne $expectedCiWorkflow) {
+    Add-Error 'continuous_validation workflow does not match the exact adoption workflow path.'
+    $continuousValidationContractPass = $false
+}
+if ([string]$board.continuous_validation.checkout -cne 'blobless_sparse_metadata') {
+    Add-Error 'continuous_validation checkout must remain blobless_sparse_metadata.'
+    $continuousValidationContractPass = $false
+}
+$ciEvents = [string[]]@($board.continuous_validation.events)
+$ciChecks = [string[]]@($board.continuous_validation.checks)
+if (($ciEvents -join "`n") -cne ($expectedCiEvents -join "`n")) {
+    Add-Error 'continuous_validation events do not match the exact pull-request/main/manual contract.'
+    $continuousValidationContractPass = $false
+}
+if (($ciChecks -join "`n") -cne ($expectedCiChecks -join "`n")) {
+    Add-Error 'continuous_validation checks do not match the exact sparse gate contract.'
+    $continuousValidationContractPass = $false
+}
+if ($board.continuous_validation.pinned_actions -cne $true) {
+    Add-Error 'continuous_validation must require SHA-pinned actions.'
+    $continuousValidationContractPass = $false
+}
+if ($board.continuous_validation.corpus_builds -cne $false) {
+    Add-Error 'continuous_validation must exclude corpus builds.'
+    $continuousValidationContractPass = $false
+}
+Test-RepoPath -Path ([string]$board.continuous_validation.workflow) -Context 'continuous_validation.workflow' -Required $true
+$ciWorkflowFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $expectedCiWorkflow))
+if ([IO.File]::Exists($ciWorkflowFull)) {
+    $ciWorkflowText = $utf8.GetString([IO.File]::ReadAllBytes($ciWorkflowFull))
+    foreach ($token in @(
+        'pull_request:',
+        'push:',
+        'workflow_dispatch:',
+        'permissions:',
+        'contents: read',
+        'filter: blob:none',
+        'sparse-checkout-cone-mode: false',
+        '-SparseCheckout',
+        'fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09',
+        'ece7cb06caefa5fff74198d8649806c4678c61a1',
+        'check-adopt.ps1',
+        'get-adopt.py',
+        'test-adopt-offline.py',
+        'test-claims.py'
+    )) {
+        if (-not $ciWorkflowText.Contains($token, [StringComparison]::Ordinal)) {
+            Add-Error "continuous_validation workflow is missing required sparse-gate token: $token"
+            $continuousValidationContractPass = $false
+        }
+    }
+}
+else {
+    $continuousValidationContractPass = $false
+}
 
 $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 $stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 }
@@ -808,14 +895,21 @@ foreach ($mirror in @($board.mirrors)) {
     }
 }
 
-$observedCommit = (& git rev-parse HEAD).Trim()
+$worktreeBaseCommit = (& git rev-parse HEAD).Trim()
 if ($LASTEXITCODE -ne 0) { throw 'Could not resolve HEAD.' }
+& git diff --quiet --no-ext-diff
+$unstagedChanges = $LASTEXITCODE -ne 0
+& git diff --cached --quiet --no-ext-diff
+$stagedChanges = $LASTEXITCODE -ne 0
+$worktreeDirty = $unstagedChanges -or $stagedChanges
 $report = [ordered]@{
     schema = 'math-commons-adoption-check-v1'
     status = if ($errors.Count -eq 0) { 'PASS' } else { 'FAIL' }
     errors = @($errors)
     observed_date = $ObservedDate
-    observed_commit = $observedCommit
+    input_mode = if ($SparseCheckout) { 'named_worktree_files_with_sparse_tracked_path_checks' } else { 'named_worktree_files' }
+    worktree_base_commit = $worktreeBaseCommit
+    worktree_dirty = $worktreeDirty
     board = [ordered]@{
         path = $InputPath.Replace('\', '/')
         bytes = $inputBytes.Length
@@ -880,6 +974,15 @@ $report = [ordered]@{
         board = @($claimBoardModes)
         issues = @($claimIssueModes)
     }
+    claim_regression = [string]$board.claim_regression
+    continuous_validation = [ordered]@{
+        workflow = [string]$board.continuous_validation.workflow
+        checkout = [string]$board.continuous_validation.checkout
+        events = @($ciEvents)
+        checks = @($ciChecks)
+        pinned_actions = [bool]$board.continuous_validation.pinned_actions
+        corpus_builds = [bool]$board.continuous_validation.corpus_builds
+    }
     ownership_policy = [ordered]@{
         named_owner_required_for = @($board.ownership_policy.named_owner_required_for)
         null_owner_means = [string]$board.ownership_policy.null_owner_means
@@ -922,6 +1025,7 @@ $report = [ordered]@{
         consumer_modes = $consumerModes.Count
         claim_auditor_board_modes = $claimBoardModes.Count
         claim_auditor_issue_modes = $claimIssueModes.Count
+        continuous_validation_checks = $ciChecks.Count
         workflow_registry = $workflowRegistryIds.Count
         workflow_tokens_used = $workflowUsedIds.Count
         unreferenced_workflows = $unreferencedWorkflowIds.Count
@@ -968,6 +1072,19 @@ $report = [ordered]@{
             [string]$board.claim_auditor -ceq $expectedClaimAuditor -and
             ($claimBoardModes -join "`n") -ceq ($expectedClaimBoardModes -join "`n") -and
             ($claimIssueModes -join "`n") -ceq ($expectedClaimIssueModes -join "`n")
+        )
+        claim_regression_contract = (
+            $claimRegressionContractPass -and
+            [string]$board.claim_regression -ceq $expectedClaimRegression
+        )
+        continuous_validation_contract = (
+            $continuousValidationContractPass -and
+            [string]$board.continuous_validation.workflow -ceq $expectedCiWorkflow -and
+            [string]$board.continuous_validation.checkout -ceq 'blobless_sparse_metadata' -and
+            ($ciEvents -join "`n") -ceq ($expectedCiEvents -join "`n") -and
+            ($ciChecks -join "`n") -ceq ($expectedCiChecks -join "`n") -and
+            $board.continuous_validation.pinned_actions -ceq $true -and
+            $board.continuous_validation.corpus_builds -ceq $false
         )
         contributor_interface_contract = (
             [string]$board.claim_interface -ceq $expectedClaimInterface -and

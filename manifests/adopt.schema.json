@@ -26,6 +26,8 @@
     "consumer_regression",
     "claim_auditor",
     "claim_auditor_modes",
+    "claim_regression",
+    "continuous_validation",
     "claim_interface",
     "handback_interface",
     "human_workflows",
@@ -234,6 +236,50 @@
           "minItems": 2,
           "maxItems": 2
         }
+      },
+      "additionalProperties": false
+    },
+    "claim_regression": {
+      "const": "scripts/test-claims.py"
+    },
+    "continuous_validation": {
+      "type": "object",
+      "required": [
+        "workflow",
+        "checkout",
+        "events",
+        "checks",
+        "pinned_actions",
+        "corpus_builds"
+      ],
+      "properties": {
+        "workflow": { "const": ".github/workflows/adopt.yml" },
+        "checkout": { "const": "blobless_sparse_metadata" },
+        "events": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "pull_request" },
+            { "const": "push_main" },
+            { "const": "workflow_dispatch" }
+          ],
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "checks": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "board_schema_maps" },
+            { "const": "exact_local_consumer" },
+            { "const": "promisor_no_lazy_fetch" },
+            { "const": "claim_lifecycle_fixtures" }
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "pinned_actions": { "const": true },
+        "corpus_builds": { "const": false }
       },
       "additionalProperties": false
     },

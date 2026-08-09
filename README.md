@@ -1,5 +1,7 @@
 # Modern LaTeX Editions of Mathematics Manuscripts
 
+[![Adoption contract](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/workflows/adopt.yml/badge.svg?branch=main)](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/workflows/adopt.yml)
+
 This repository is the GitHub working front door for an open project to produce modern, inspectable LaTeX editions and translation drafts of older mathematics and physics manuscripts.
 
 GitHub is the inspectable source archive and current index: catalogs, manifests, exact bounded source checkpoints, issue tracking, contribution notes, and scripts. Some large reader-first files and immutable version history are grouped in the linked external records. A file being grouped rather than loose does not mean that its translation is absent; check the coverage maps before starting work.
@@ -38,6 +40,14 @@ shows declared claims and handbacks under the tracked
 against one human-approved board commit. It supports the live public queue and
 a fully offline local-Git-plus-JSON-fixture replay without changing the four-file
 board contract.
+The blobless sparse [Adoption contract workflow](.github/workflows/adopt.yml) runs the
+board/schema/map validator, exact local consumer, no-lazy-fetch regression,
+and valid/invalid claim lifecycle fixtures on relevant pull requests and
+`main` pushes. Its checkout materializes only the operational metadata and
+uses Git's tracked-path index for referenced corpus paths; it reads no corpus
+payload and performs no compile, render,
+OCR, or publication action. A green workflow is a regression signal, not a
+replacement for human approval of one exact consumer commit.
 The board also embeds exact start/input/step/evidence/stop/handback contracts
 for every workflow token. The concise
 [workflow guide](docs/adopt-flows.md) makes those protocols readable and
