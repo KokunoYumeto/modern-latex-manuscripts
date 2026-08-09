@@ -51,19 +51,27 @@ def sha256(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest().upper()
 
 
-def load_approved_board(repository: str, commit: str, approve: str) -> tuple[dict, dict]:
+def load_approved_board(
+    repository: str,
+    commit: str,
+    approve: str,
+    git_repository: str | None = None,
+) -> tuple[dict, dict]:
     helper = pathlib.Path(__file__).with_name("get-adopt.py")
+    command = [
+        sys.executable,
+        str(helper),
+        "--repository",
+        repository,
+        "--commit",
+        commit,
+        "--approve",
+        approve,
+    ]
+    if git_repository is not None:
+        command.extend(["--git", git_repository])
     result = subprocess.run(
-        [
-            sys.executable,
-            str(helper),
-            "--repository",
-            repository,
-            "--commit",
-            commit,
-            "--approve",
-            approve,
-        ],
+        command,
         check=False,
         capture_output=True,
     )
@@ -240,6 +248,14 @@ def main() -> int:
     parser.add_argument("--commit", required=True)
     parser.add_argument("--approve", required=True)
     parser.add_argument("--repository", default=DEFAULT_REPOSITORY)
+    parser.add_argument(
+        "--git",
+        metavar="PATH",
+        help=(
+            "Read the approved board from exact Git objects in this checkout or "
+            "bare repository; combine with --issues-file for a no-network audit"
+        ),
+    )
     parser.add_argument("--issues-file", help="Read a GitHub-API-style JSON array; use - for stdin")
     args = parser.parse_args()
     if not COMMIT_RE.fullmatch(args.commit) or not COMMIT_RE.fullmatch(args.approve):
@@ -249,16 +265,26 @@ def main() -> int:
 
     try:
         board, board_summary = load_approved_board(
-            args.repository, args.commit.lower(), args.approve.lower()
+            args.repository,
+            args.commit.lower(),
+            args.approve.lower(),
+            args.git,
         )
         if args.issues_file:
             issues = load_fixture(args.issues_file)
             pages = 0
             authenticated = False
-            issue_source = "fixture"
+            issue_source = "json_fixture"
         else:
             issues, pages, authenticated = fetch_issues(args.repository)
             issue_source = "public_github_api"
+        auditor_modes = board.get("claim_auditor_modes")
+        if not isinstance(auditor_modes, dict):
+            raise RuntimeError("board claim_auditor_modes is not an object")
+        if board_summary.get("transport") not in auditor_modes.get("board", []):
+            raise RuntimeError("board transport is not declared by claim_auditor_modes")
+        if issue_source not in auditor_modes.get("issues", []):
+            raise RuntimeError("issue transport is not declared by claim_auditor_modes")
         rows, errors, warnings = audit_issues(args.repository, board, issues)
     except Exception as error:
         print(f"ERROR: {error}", file=sys.stderr)
@@ -284,6 +310,7 @@ def main() -> int:
             "items": board_summary["items"],
             "mirrors": board_summary["mirrors"],
             "exact_commit_consumer": board_summary["status"],
+            "transport": board_summary["transport"],
         },
         "issue_source": {
             "kind": issue_source,
@@ -307,6 +334,11 @@ def main() -> int:
             "board_ids_valid": not any("Board ID" in error for error in errors),
             "handbacks_linked": not any("handback" in error for error in errors),
             "parallel_claims_allowed": True,
+            "declared_auditor_modes": True,
+            "external_network_queried": (
+                board_summary["transport"] == "raw_github"
+                or issue_source == "public_github_api"
+            ),
             "issues_mutated": False,
             "producer_files_mutated": False,
             "zenodo_network_queried": False,

@@ -244,9 +244,16 @@ python scripts/get-adopt.py --commit <COMMIT> --approve <COMMIT> --git <LOCAL-RE
 ```
 
 Offline mode reads `commit:path` Git blobs directly. It ignores dirty or
-untracked working-tree bytes and performs no network request. Pass the checkout
-or bare-repository root, not a linked worktree's `.git` indirection file. The
-extra transport does not add a fifth machine-contract identity.
+untracked working-tree bytes and sets `GIT_NO_LAZY_FETCH=1` for every Git
+subprocess. A partial/promisor repository with a missing contract blob therefore
+fails closed instead of contacting its promisor remote; all four blobs must be
+materialized locally. Pass the checkout or bare-repository root, not a linked
+worktree's `.git` indirection file. The tracked
+[`test-adopt-offline.py`](../scripts/test-adopt-offline.py) regression constructs
+an unreachable promisor repository, proves the missing-blob case makes no remote
+attempt, then proves the same repository passes after all four contract blobs
+are materialized. The extra transport and its regression do not add a fifth
+machine-contract identity.
 
 The helper requires the Python `jsonschema` package. A nonzero exit means the
 output must not be ingested.
@@ -256,6 +263,10 @@ The top-level `claim_auditor` points to
 exact-commit consumer, then reads only public `adoption`-labelled issues. It
 checks required form sections, exact or proposed Board IDs, handback-to-claim
 links, and handback state while explicitly allowing declared parallel claims.
+`claim_auditor_modes` declares the board transports (`raw_github` and
+`local_git_object_database`) separately from the issue transports
+(`public_github_api` and `json_fixture`). The report records the actual mode in
+each dimension and rejects a mode the approved board does not declare.
 Run it from the same approved checkout; the raw `main` script is a locator, not
 an immutable executable identity:
 
@@ -264,10 +275,20 @@ python scripts/check-claims.py --commit <COMMIT> --approve <COMMIT> > claims.che
 ```
 
 The auditor is read-only. `GITHUB_TOKEN` is optional and used only to raise the
-public API rate limit; its value is never emitted. `--issues-file -` accepts a
-GitHub-API-style JSON fixture on standard input for deterministic offline
-tests. A nonzero exit means the issue set must not be ingested as synchronized
-board state.
+public API rate limit; its value is never emitted. For a fully offline audit,
+read the board from exact local Git objects and supply a GitHub-API-style issue
+fixture:
+
+```console
+python scripts/check-claims.py --commit <COMMIT> --approve <COMMIT> --git <LOCAL-REPOSITORY-ROOT> --issues-file issues.json > claims.check.json
+```
+
+`--issues-file -` reads that fixture from standard input. `--git` alone still
+uses the public issue API, while `--issues-file` alone still reads the board
+through raw GitHub; both options are required for a no-network run. Local-Git
+mode reads exact `commit:path` blobs and ignores dirty working-tree bytes. A
+nonzero exit means the issue set must not be ingested as synchronized board
+state.
 
 Maintainers and independent auditors can replay the local board contract
 without replacing the tracked validation file. `ValidationPath` remains the
