@@ -35,6 +35,9 @@ passed every sparse metadata gate. The board now has 66 rows: 8 named current,
 sixteen Noether language/work rows plus six Grothendieck-school work rows. The
 human index exposes priority, readiness, coverage, cursor, ownership, and exact
 Board ID for every row; no producer or corpus artifact changed.
+The compact [closure receipt](20260809_scope_close.json) separately preserves
+the six-path receipt/landing commit, its 6/6 raw readback, clean validator, and
+exact-head Actions result.
 
 The [Mathematics Commons adoption-layer receipt](20260809_adopt_rb.json)
 replays all nine files in source commit `5e3d60bdcef9678edea6a046ecd46765c00b8e3b`:
