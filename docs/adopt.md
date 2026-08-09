@@ -177,6 +177,19 @@ python scripts/get-adopt.py --commit <COMMIT> --approve <COMMIT> > board.json
 The helper requires the Python `jsonschema` package. A nonzero exit means the
 output must not be ingested.
 
+Maintainers and independent auditors can replay the local board contract
+without replacing the tracked validation file. `ValidationPath` remains the
+canonical same-commit contract identity; `OutputPath` is only where this audit
+run writes its report:
+
+```powershell
+./scripts/check-adopt.ps1 -OutputPath "$env:TEMP/adopt-check.json"
+```
+
+The temporary report must still return `status == "PASS"` and `errors == []`.
+Changing `ValidationPath` changes the asserted contract and therefore fails
+unless the board and snapshot policy declare that exact path.
+
 Every human-facing work row starts with its exact `Board ID`. Validation fails
 if a JSON item is missing from this page, appears more than once, or if the page
 introduces an unknown ID. The issue template accepts that ID verbatim, so a
