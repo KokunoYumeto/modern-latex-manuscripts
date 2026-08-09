@@ -3,6 +3,7 @@ param(
     [string]$InputPath = 'manifests/adopt.json',
     [string]$SchemaPath = 'manifests/adopt.schema.json',
     [string]$ValidationPath = 'manifests/adopt.check.json',
+    [string]$LabelPath = '.github/labels.json',
     [string]$OutputPath = 'manifests/adopt.check.json',
     [string]$ObservedDate = (Get-Date -Format 'yyyy-MM-dd')
 )
@@ -108,6 +109,29 @@ function Test-UniqueStrings {
     }
 }
 
+function Get-IssueTemplateLabels {
+    param([string]$Text)
+    $values = [Collections.Generic.List[string]]::new()
+    $lines = $Text.Split("`n")
+    for ($index = 0; $index -lt $lines.Count; $index++) {
+        if ($lines[$index] -cnotmatch '^labels:\s*(?<inline>.*)$') { continue }
+        $inline = $Matches.inline.Trim()
+        if ($inline.Length -gt 0) {
+            foreach ($match in [regex]::Matches($inline, '[A-Za-z0-9][A-Za-z0-9_-]*')) {
+                $values.Add($match.Value)
+            }
+        }
+        else {
+            for ($next = $index + 1; $next -lt $lines.Count; $next++) {
+                if ($lines[$next] -cnotmatch '^\s+-\s+(?<value>[A-Za-z0-9][A-Za-z0-9_-]*)\s*$') { break }
+                $values.Add($Matches.value)
+            }
+        }
+        break
+    }
+    return [string[]]$values.ToArray()
+}
+
 $inputFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $InputPath))
 $schemaFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $SchemaPath))
 if (-not [IO.File]::Exists($inputFull)) { throw "Board does not exist: $InputPath" }
@@ -197,6 +221,95 @@ if ([string]$board.claim_interface -cne $expectedClaimInterface) { Add-Error 'cl
 if ([string]$board.handback_interface -cne $expectedHandbackInterface) { Add-Error 'handback_interface does not match the exact handback form.' }
 Test-RepoPath -Path '.github/ISSUE_TEMPLATE/adopt.yml' -Context 'claim_interface template' -Required $true
 Test-RepoPath -Path '.github/ISSUE_TEMPLATE/handback.yml' -Context 'handback_interface template' -Required $true
+
+$expectedLabelRows = @(
+    [pscustomobject]@{
+        name = 'adoption'
+        color = '0E8A16'
+        description = 'Bounded adoption, independent mirror, or result handback'
+        templates = [string[]]@('.github/ISSUE_TEMPLATE/adopt.yml', '.github/ISSUE_TEMPLATE/handback.yml')
+    },
+    [pscustomobject]@{
+        name = 'correction'
+        color = 'B60205'
+        description = 'Source, transcription, translation, or reader correction'
+        templates = [string[]]@('.github/ISSUE_TEMPLATE/correction.yml', '.github/ISSUE_TEMPLATE/source_or_translation_correction.md')
+    },
+    [pscustomobject]@{
+        name = 'rendering'
+        color = '5319E7'
+        description = 'PDF or LaTeX rendering problem'
+        templates = [string[]]@('.github/ISSUE_TEMPLATE/rendering_problem.md')
+    },
+    [pscustomobject]@{
+        name = 'source'
+        color = '1D76DB'
+        description = 'Source scan, missing work, or source improvement'
+        templates = [string[]]@('.github/ISSUE_TEMPLATE/source-suggestion.yml')
+    }
+)
+$issueLabelContractPass = $true
+$labelContract = $null
+$labelBytes = [byte[]]@()
+Test-RepoPath -Path $LabelPath -Context 'issue label contract' -Required $true
+$labelFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $LabelPath))
+if ([IO.File]::Exists($labelFull)) {
+    $labelBytes = [IO.File]::ReadAllBytes($labelFull)
+    if ($labelBytes.Length -ge 3 -and $labelBytes[0] -eq 0xEF -and $labelBytes[1] -eq 0xBB -and $labelBytes[2] -eq 0xBF) {
+        Add-Error 'issue label contract contains a UTF-8 BOM.'
+        $issueLabelContractPass = $false
+    }
+    $labelText = $utf8.GetString($labelBytes)
+    if ($labelText.Contains("`r")) {
+        Add-Error 'issue label contract must use LF line endings.'
+        $issueLabelContractPass = $false
+    }
+    try {
+        $labelContract = $labelText | ConvertFrom-Json -Depth 20 -DateKind String
+    }
+    catch {
+        Add-Error "issue label contract is not valid JSON: $($_.Exception.Message)"
+        $issueLabelContractPass = $false
+    }
+}
+if ($null -ne $labelContract) {
+    Test-ExactFields -Value $labelContract -Expected @('schema', 'repository', 'labels') -Context 'issue label contract'
+    if ([string]$labelContract.schema -cne 'github-issue-label-contract-v1') {
+        Add-Error 'issue label contract has an unexpected schema.'
+        $issueLabelContractPass = $false
+    }
+    if ([string]$labelContract.repository -cne 'KokunoYumeto/modern-latex-manuscripts') {
+        Add-Error 'issue label contract has an unexpected repository.'
+        $issueLabelContractPass = $false
+    }
+    $actualLabelRows = @($labelContract.labels)
+    if ($actualLabelRows.Count -ne $expectedLabelRows.Count) {
+        Add-Error 'issue label contract does not contain the exact four workflow labels.'
+        $issueLabelContractPass = $false
+    }
+    for ($index = 0; $index -lt [Math]::Min($actualLabelRows.Count, $expectedLabelRows.Count); $index++) {
+        $actual = $actualLabelRows[$index]
+        $expected = $expectedLabelRows[$index]
+        Test-ExactFields -Value $actual -Expected @('name', 'color', 'description', 'templates') -Context "issue label:$($expected.name)"
+        if ([string]$actual.name -cne $expected.name -or
+            [string]$actual.color -cne $expected.color -or
+            [string]$actual.description -cne $expected.description -or
+            ([string[]]@($actual.templates) -join "`n") -cne ($expected.templates -join "`n")) {
+            Add-Error "issue label contract row differs from the exact $($expected.name) contract."
+            $issueLabelContractPass = $false
+        }
+        foreach ($template in $expected.templates) {
+            Test-RepoPath -Path $template -Context "issue label:$($expected.name) template" -Required $true
+            $templateFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $template))
+            if (-not [IO.File]::Exists($templateFull)) { continue }
+            $declared = [string[]]@(Get-IssueTemplateLabels -Text ([IO.File]::ReadAllText($templateFull, $utf8)))
+            if (($declared -join "`n") -cne $expected.name) {
+                Add-Error "$template does not declare exactly the $($expected.name) label."
+                $issueLabelContractPass = $false
+            }
+        }
+    }
+}
 
 $mapManifestPath = [string]$board.map_manifest
 $mapManifestFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $mapManifestPath))
@@ -434,6 +547,13 @@ $report = [ordered]@{
         sha256 = if ($humanBoardBytes.Length -gt 0) { Get-Sha256 -Bytes $humanBoardBytes } else { $null }
         rows = $humanBoardRowIds.Count
     }
+    issue_labels = [ordered]@{
+        path = $LabelPath.Replace('\', '/')
+        bytes = $labelBytes.Length
+        sha256 = if ($labelBytes.Length -gt 0) { Get-Sha256 -Bytes $labelBytes } else { $null }
+        labels = if ($null -ne $labelContract) { @($labelContract.labels).Count } else { 0 }
+        templates = [int](($expectedLabelRows | ForEach-Object { @($_.templates).Count } | Measure-Object -Sum).Sum)
+    }
     snapshot_policy = [ordered]@{
         stable_locator_ref = [string]$board.snapshot_policy.stable_locator_ref
         immutable_unit = [string]$board.snapshot_policy.immutable_unit
@@ -463,6 +583,8 @@ $report = [ordered]@{
         duplicate_human_board_ids = $duplicateHumanBoardIds.Count
         repository_path_checks = $pathChecks
         tracked_repository_paths = $trackedPathChecks
+        issue_labels = $expectedLabelRows.Count
+        issue_label_templates = [int](($expectedLabelRows | ForEach-Object { @($_.templates).Count } | Measure-Object -Sum).Sum)
     }
     checks = [ordered]@{
         exact_item_field_contract = -not (@($errors | Where-Object { $_ -like '*field*' }).Count)
@@ -487,6 +609,7 @@ $report = [ordered]@{
             [string]$board.claim_interface -ceq $expectedClaimInterface -and
             [string]$board.handback_interface -ceq $expectedHandbackInterface
         )
+        issue_label_contract = $issueLabelContractPass
         snapshot_policy_contract = (
             [string]$board.snapshot_policy.stable_locator_ref -ceq 'main' -and
             [string]$board.snapshot_policy.immutable_unit -ceq 'human_approved_exact_commit' -and

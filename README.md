@@ -20,6 +20,9 @@ in the board's [Machine Interface](docs/adopt.md#machine-interface), with a
 fail-closed [`get-adopt.py`](scripts/get-adopt.py) consumer. Claims and returned
 results use separate GitHub forms, so a declared start cannot be mistaken for
 an inspectable handback.
+The [live adoption queue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues?q=is%3Aissue+label%3Aadoption)
+shows declared claims and handbacks under the tracked
+[workflow-label contract](.github/labels.json).
 
 For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
 
