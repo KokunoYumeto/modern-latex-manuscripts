@@ -24,7 +24,8 @@ producer payloads.
   [four-row index](20260807_zh_a4.csv)
 - [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
-- Current reusable-workflow link audit: `20260809_links_r22.json`
+- Current ownership-semantics link audit: `20260809_links_r23.json`
+- Reusable-workflow predecessor link audit: `20260809_links_r22.json`
 - Claim-auditor predecessor link audit: `20260809_links_r21.json`
 - Workflow-label predecessor link audit: `20260809_links_r20.json`
 - Handback-interface predecessor link audit: `20260809_links_r19.json`
@@ -45,6 +46,7 @@ producer payloads.
 - Workflow-label source/API [raw readback](../published-github/20260809_labels_rb.json)
 - Exact-commit claim-auditor [raw readback](../published-github/20260809_claims_rb.json)
 - Reusable-workflow registry [raw readback](../published-github/20260809_flows_rb.json)
+- Ownership-semantics [raw readback](../published-github/20260809_owners_rb.json)
 - Human workflow guide: [`../../docs/adopt-flows.md`](../../docs/adopt-flows.md)
 - Fail-closed consumer helper: [`../../scripts/get-adopt.py`](../../scripts/get-adopt.py)
 - Read-only claim auditor: [`../../scripts/check-claims.py`](../../scripts/check-claims.py)
