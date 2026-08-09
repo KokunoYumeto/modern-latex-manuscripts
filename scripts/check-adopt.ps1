@@ -199,6 +199,33 @@ foreach ($name in $expectedEnums.Keys) {
     }
 }
 
+$expectedOwnershipFields = [string[]]@(
+    'named_owner_required_for', 'null_owner_means', 'null_owner_allowed_for',
+    'unclaimed_scope_prefix', 'claims_are_nonexclusive'
+)
+$ownershipContractPass = $true
+Test-ExactFields -Value $board.ownership_policy -Expected $expectedOwnershipFields -Context 'ownership_policy'
+if ((@($board.ownership_policy.named_owner_required_for) -join "`n") -cne 'current_work') {
+    Add-Error 'ownership_policy named_owner_required_for must be exactly current_work.'
+    $ownershipContractPass = $false
+}
+if ([string]$board.ownership_policy.null_owner_means -cne 'unclaimed') {
+    Add-Error 'ownership_policy null_owner_means must be unclaimed.'
+    $ownershipContractPass = $false
+}
+if ((@($board.ownership_policy.null_owner_allowed_for) -join "`n") -cne "ready_for_adoption`nfuture") {
+    Add-Error 'ownership_policy null_owner_allowed_for must be ready_for_adoption then future.'
+    $ownershipContractPass = $false
+}
+if ([string]$board.ownership_policy.unclaimed_scope_prefix -cne 'unclaimed') {
+    Add-Error 'ownership_policy unclaimed_scope_prefix must be unclaimed.'
+    $ownershipContractPass = $false
+}
+if ([bool]$board.ownership_policy.claims_are_nonexclusive -ne $true) {
+    Add-Error 'ownership_policy claims_are_nonexclusive must be true.'
+    $ownershipContractPass = $false
+}
+
 Test-RepoPath -Path $board.human_board -Context 'human_board' -Required $true
 $humanBoardPath = [string]$board.human_board
 $humanBoardFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $humanBoardPath))
@@ -451,6 +478,8 @@ Test-RepoPath -Path ([string]$board.claim_auditor) -Context 'claim_auditor' -Req
 
 $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 $stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 }
+$namedOwnerRows = 0
+$unclaimedOwnerRows = 0
 $requiredRowFields = $expectedFields
 foreach ($item in @($board.items)) {
     $id = [string]$item.id
@@ -483,19 +512,54 @@ foreach ($item in @($board.items)) {
     }
     if ([string]$item.claim_url -cne [string]$board.claim_interface) { Add-Error "$context claim_url differs from claim_interface." }
 
+    if ($null -eq $item.owner) { $unclaimedOwnerRows++ } else { $namedOwnerRows++ }
+
     switch ([string]$item.lane_state) {
         'current_work' {
-            if ([string]::IsNullOrWhiteSpace([string]$item.owner)) { Add-Error "$context current work requires an owner." }
+            if ([string]::IsNullOrWhiteSpace([string]$item.owner)) {
+                Add-Error "$context current work requires a named owner."
+                $ownershipContractPass = $false
+            }
             if ([string]$item.readiness -cne 'active') { Add-Error "$context current work must have active readiness." }
+            if ([string]$item.adoption_status -cne 'maintained_parallel_review_welcome') {
+                Add-Error "$context current work has incompatible adoption_status."
+                $ownershipContractPass = $false
+            }
+            if ([string]$item.owner_scope -cmatch '^unclaimed(?: |$)') {
+                Add-Error "$context named-owner scope cannot be unclaimed."
+                $ownershipContractPass = $false
+            }
         }
         'ready_for_adoption' {
             if ([string]::IsNullOrWhiteSpace([string]$item.archive_path)) { Add-Error "$context adoption-ready work requires archive_path." }
             if ([string]$item.readiness -cin @('active', 'source_discovery_first')) { Add-Error "$context adoption-ready work has incompatible readiness." }
+            if ($null -ne $item.owner) {
+                Add-Error "$context adoption-ready work must have null owner meaning unclaimed."
+                $ownershipContractPass = $false
+            }
+            if ([string]$item.adoption_status -cne 'open_parallel_mirrors_welcome') {
+                Add-Error "$context adoption-ready work has incompatible adoption_status."
+                $ownershipContractPass = $false
+            }
+            if ([string]$item.owner_scope -cnotmatch '^unclaimed(?: |$)') {
+                Add-Error "$context adoption-ready owner_scope must begin with unclaimed."
+                $ownershipContractPass = $false
+            }
         }
         'future' {
-            if ($null -ne $item.owner) { Add-Error "$context future work must have null owner." }
+            if ($null -ne $item.owner) {
+                Add-Error "$context future work must have null owner meaning unclaimed."
+                $ownershipContractPass = $false
+            }
             if ([string]$item.readiness -cne 'source_discovery_first') { Add-Error "$context future work must require source discovery." }
-            if ([string]$item.adoption_status -cne 'future_evidence_needed') { Add-Error "$context future work has incompatible adoption_status." }
+            if ([string]$item.adoption_status -cne 'future_evidence_needed') {
+                Add-Error "$context future work has incompatible adoption_status."
+                $ownershipContractPass = $false
+            }
+            if ([string]$item.owner_scope -cnotmatch '^unclaimed(?: |$)') {
+                Add-Error "$context future owner_scope must begin with unclaimed."
+                $ownershipContractPass = $false
+            }
         }
     }
     Test-RepoPath -Path $item.archive_path -Context "$context archive_path" -Required ([string]$item.lane_state -cne 'future')
@@ -644,6 +708,13 @@ $report = [ordered]@{
     }
     consumer_helper = [string]$board.consumer_helper
     claim_auditor = [string]$board.claim_auditor
+    ownership_policy = [ordered]@{
+        named_owner_required_for = @($board.ownership_policy.named_owner_required_for)
+        null_owner_means = [string]$board.ownership_policy.null_owner_means
+        null_owner_allowed_for = @($board.ownership_policy.null_owner_allowed_for)
+        unclaimed_scope_prefix = [string]$board.ownership_policy.unclaimed_scope_prefix
+        claims_are_nonexclusive = [bool]$board.ownership_policy.claims_are_nonexclusive
+    }
     aggregate = [ordered]@{
         items = @($board.items).Count
         mirrors = @($board.mirrors).Count
@@ -670,6 +741,8 @@ $report = [ordered]@{
         workflow_registry = $workflowRegistryIds.Count
         workflow_tokens_used = $workflowUsedIds.Count
         unreferenced_workflows = $unreferencedWorkflowIds.Count
+        named_owner_rows = $namedOwnerRows
+        unclaimed_owner_rows = $unclaimedOwnerRows
     }
     checks = [ordered]@{
         exact_item_field_contract = -not (@($errors | Where-Object { $_ -like '*field*' }).Count)
@@ -701,6 +774,11 @@ $report = [ordered]@{
             $workflowRegistryIds.Count -eq $workflowUsedIds.Count -and
             $workflowRowIds.Count -eq $humanWorkflowIds.Count -and
             $unreferencedWorkflowIds.Count -eq 0
+        )
+        ownership_semantics = (
+            $ownershipContractPass -and
+            $namedOwnerRows -eq $stateCounts.current_work -and
+            $unclaimedOwnerRows -eq ($stateCounts.ready_for_adoption + $stateCounts.future)
         )
         snapshot_policy_contract = (
             [string]$board.snapshot_policy.stable_locator_ref -ceq 'main' -and
