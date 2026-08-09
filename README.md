@@ -11,6 +11,8 @@ back to the authoritative archive layer; and exposes a stable
 [machine-readable board](manifests/adopt.json) for Mathematics Commons tools.
 The [complete adoption index](docs/adopt-index.md) gives one sortable human
 table across author, work, series, language, corpus, lane, and ownership.
+The board also binds the exact current `known-gaps.md` and `work-queue.md`
+bytes, preventing either operational queue from drifting silently.
 The board now exposes source-only translation layers separately so a missing
 reader cannot trigger an unnecessary retranslation. Every human row shows its
 exact claimable Board ID, and validation requires one row for every machine

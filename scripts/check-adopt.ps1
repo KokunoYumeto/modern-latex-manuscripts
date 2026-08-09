@@ -481,6 +481,42 @@ if (($queueSources -join "`n") -cne ($expectedQueueSources -join "`n")) {
 foreach ($path in $queueSources) {
     Test-RepoPath -Path $path -Context 'queue_sources' -Required $true
 }
+$queueSnapshotContractPass = $true
+$queueSnapshotRows = [Collections.Generic.List[object]]::new()
+$queueSnapshotBytes = [long]0
+$queueSnapshot = @($board.queue_snapshot)
+if ($queueSnapshot.Count -ne $queueSources.Count) {
+    Add-Error 'queue_snapshot row count does not match queue_sources.'
+    $queueSnapshotContractPass = $false
+}
+for ($index = 0; $index -lt $queueSources.Count; $index++) {
+    if ($index -ge $queueSnapshot.Count) { break }
+    $row = $queueSnapshot[$index]
+    $context = "queue_snapshot[$index]"
+    Test-ExactFields -Value $row -Expected ([string[]]@('path', 'bytes', 'sha256')) -Context $context
+    $path = [string]$row.path
+    if ($path -cne $queueSources[$index]) {
+        Add-Error "$context path does not match queue_sources order."
+        $queueSnapshotContractPass = $false
+    }
+    $full = [IO.Path]::GetFullPath((Join-Path $repoRoot $path))
+    $bytes = if ([IO.File]::Exists($full)) { [IO.File]::ReadAllBytes($full) } else { [byte[]]@() }
+    $sha256 = if ($bytes.Length -gt 0) { Get-Sha256 -Bytes $bytes } else { Get-Sha256 -Bytes ([byte[]]@()) }
+    if ([long]$row.bytes -ne $bytes.Length) {
+        Add-Error "$context byte length does not match the tracked queue source."
+        $queueSnapshotContractPass = $false
+    }
+    if ([string]$row.sha256 -cne $sha256) {
+        Add-Error "$context SHA-256 does not match the tracked queue source."
+        $queueSnapshotContractPass = $false
+    }
+    $queueSnapshotBytes += $bytes.Length
+    $queueSnapshotRows.Add([ordered]@{
+        path = $path.Replace('\', '/')
+        bytes = $bytes.Length
+        sha256 = $sha256
+    })
+}
 $expectedSnapshotPaths = [string[]]@(
     $InputPath.Replace('\', '/'),
     $SchemaPath.Replace('\', '/'),
@@ -774,6 +810,7 @@ $report = [ordered]@{
         unclaimed_scope_prefix = [string]$board.ownership_policy.unclaimed_scope_prefix
         claims_are_nonexclusive = [bool]$board.ownership_policy.claims_are_nonexclusive
     }
+    queue_snapshot = @($queueSnapshotRows)
     aggregate = [ordered]@{
         items = @($board.items).Count
         mirrors = @($board.mirrors).Count
@@ -788,6 +825,8 @@ $report = [ordered]@{
         queue_sources = $queueSources.Count
         represented_queue_sources = $representedQueueSourceSet.Count
         missing_queue_sources = $missingQueueSources.Count
+        queue_snapshot_sources = $queueSnapshotRows.Count
+        queue_snapshot_bytes = $queueSnapshotBytes
         human_board_rows = $humanBoardRowIds.Count
         represented_human_board_items = $humanBoardIdSet.Count
         missing_human_board_items = $missingHumanBoardIds.Count
@@ -820,6 +859,10 @@ $report = [ordered]@{
         required_maps_represented = ($missingRequiredMaps.Count -eq 0 -and $representedMapSet.Count -eq $requiredMaps.Count)
         queue_source_contract = (($queueSources -join "`n") -ceq ($expectedQueueSources -join "`n"))
         queue_sources_represented = ($missingQueueSources.Count -eq 0 -and $representedQueueSourceSet.Count -eq $queueSources.Count)
+        queue_snapshot_contract = (
+            $queueSnapshotContractPass -and
+            $queueSnapshotRows.Count -eq $queueSources.Count
+        )
         human_board_complete = (
             $humanBoardRowIds.Count -eq $ids.Count -and
             $humanBoardIdSet.Count -eq $ids.Count -and
