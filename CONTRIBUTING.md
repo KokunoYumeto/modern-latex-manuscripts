@@ -11,6 +11,8 @@ Useful contributions include:
 
 Before starting, check:
 
+- [Adoption and mirror board](docs/adopt.md) for current work,
+  ready-for-adoption work, future scopes, exact cursors, and declared mirrors;
 - [GitHub coverage maps](docs/github-maps.md) for the author, work, series, or corpus;
 - [GitHub reader shelves](reader-pdfs/README.md) for direct PDFs already present;
 - [GitHub source shelves](sources/README.md) for exact tracked source generations;
@@ -44,6 +46,14 @@ not a substitute for identifying the GitHub path that needs cataloging or
 correction.
 
 GitHub issue templates are provided for correction reports and source/work suggestions. Pull requests should use the template checklist and keep changes focused on the named work or file.
+
+For a new continuation, repair lane, independent mirror, or source-intake
+effort, open one
+[adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml).
+Name the exact board ID and bounded scope. The issue makes overlap visible; it
+does not reserve the work or prevent an independent check. Return an inspectable
+repository/branch/result identity and the exact checks performed when the work
+is ready.
 
 For translation corrections, preserve the mathematical assertion first. Prefer a literal but readable translation over stylistic rewriting that changes scope, hypotheses, numbering, or dependency structure.
 

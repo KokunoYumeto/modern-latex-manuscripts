@@ -10,12 +10,14 @@ $repoRoot = [IO.Path]::GetFullPath((Get-Location).Path)
 
 $documents = [string[]]@(
     'README.md',
+    '.github/ISSUE_TEMPLATE/adopt.yml',
     '.github/ISSUE_TEMPLATE/correction.yml',
     '.github/ISSUE_TEMPLATE/rendering_problem.md',
     '.github/ISSUE_TEMPLATE/source-suggestion.yml',
     '.github/ISSUE_TEMPLATE/source_or_translation_correction.md',
     '.github/pull_request_template.md',
     'CONTRIBUTING.md',
+    'docs/adopt.md',
     'docs/cayley-map.md',
     'docs/classical-map.md',
     'docs/cluster-map.md',

@@ -60,6 +60,13 @@ Latest Noether combined-localfix note 2026-06-23: `Noether_R121_Combined_Localfi
 
 # Work Queue
 
+The concise operational view is now the [adoption and mirror board](adopt.md),
+with a stable [machine-readable feed](../manifests/adopt.json). It explicitly
+separates current work, ready-for-adoption work, and future/source-discovery
+scope. This longer page remains the detailed historical and corpus-specific
+queue; where the two differ, use the archive map for custody facts and the
+adoption board for current coordination state.
+
 Latest Noether continuation note 2026-06-25: the post-P11/source-audit queue now includes a second Paper 42 failed-web salvage package and a new Paper 24 p234 best-available-400ppi formula correction candidate, but this has since been partly superseded by R125. Use the merged P25/P27 candidate plus the P24 p233 and p234 candidates as reversible below-floor continuation evidence only; do not upload the individual ZIPs one by one while Noether is at the Zenodo 100-file ceiling. P42 is no longer just failed-web salvage: `Noether_R125_20260625.zip` rebuilds Paper 42 from all eleven source pages and removes P42 from the active queue under a best-available full visual audit label. Caveat: the P42 witness is about 360ppi, below the preferred 650+ppi floor, so this is a working source-checked reconstruction rather than final critical-edition certification. Manifests: [`20260625_noether_post_p11_salvage_queue.json`](../manifests/pending-zenodo-uploads/20260625_noether_post_p11_salvage_queue.json), [`20260625_noether_r125_source_audit_p42_rebuild.json`](../manifests/pending-zenodo-uploads/20260625_noether_r125_source_audit_p42_rebuild.json).
 
 Latest Noether P16P13 source-audit note 2026-06-24: `Noether_R122_P16P13_SourceAudit_WebDrop_20260624.zip` is staged as a targeted German candidate based on the P16 sourcefix branch. It preserves the P16 alpha-coefficient fix and adds two source-certain Paper 13 corrections on pp.237-238: the suppressed-index example should use `u_\alpha/(x_\beta,x_\gamma)`, and `von Herrn sogenannten` should be source `von Heun sogenannten`. Manifest: [`20260624_noether_r122_p16p13_sourceaudit_webdrop.json`](../manifests/pending-zenodo-uploads/20260624_noether_r122_p16p13_sourceaudit_webdrop.json). Candidate/source-audit only: P13 pp.239-257 remain unchecked in this drop; no Paper 13 certification, no multilingual propagation, no critical-edition claim.
