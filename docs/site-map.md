@@ -27,10 +27,10 @@ This page lists the main coordination documents in this repository and what each
 | [Classical mixed-shelf GitHub map](classical-map.md) | Exact Cayley, Dedekind, and Dirichlet partition; 21 reader identities, source/history generations, duplicate relations, stale author claims, and quality routing. |
 | [Additional-author GitHub map](cluster-map.md) | Exact Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing readers; legacy relations, structural checks, stale reports, and missing source/package custody. |
 | [Public file catalog](public-file-catalog.md) | Full searchable list of every current public Zenodo file. |
-| [Current Zenodo records](zenodo-records.md) | Compact record map. |
-| [Pending Zenodo uploads](pending-zenodo-uploads.md) | Extracted/checksummed local packages waiting for token-backed Zenodo upload and catalog regeneration. |
+| [Producer-reported external records](zenodo-records.md) | Compact discovery/provenance map; not this GitHub task's publication queue. |
+| [Pending Zenodo uploads](pending-zenodo-uploads.md) | Historical extracted/checksummed package ledger; not this GitHub task's action queue. |
 | [Known gaps](known-gaps.md) | Current incompleteness and caveats by corpus. |
-| [Work queue](work-queue.md) | Concrete translation, typesetting, source-check, and metadata tasks. |
+| [Work queue](work-queue.md) | Historical producer/evidence context plus GitHub-scoped task leads; use the adoption board for current assignments. |
 | [Author page candidates](author-page-candidates.md) | Human-readable triage for deciding when a mixed shelf should become a dedicated Zenodo author/topic record. |
 | [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Current map of the raw other-PC source-body/provenance branch; grouped payloads are retained in current interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885). |
 

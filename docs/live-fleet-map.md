@@ -27,9 +27,14 @@ producer lanes; Erdős–Strauss and Erdős–Rado work is outside this task.
 - **Witness/support:** useful corpus, OCR, terminology, or review material, not
   a promoted translation.
 
-## Current Work
+## Custody Snapshot And Producer Context
 
-| Lane | Work and verified scope | GitHub / producer-reported state | Next GitHub or producer-lane gate |
+This table is descriptive. Its final column records the continuation context
+carried by the cited GitHub bytes or producer receipt; instruction-like wording
+there does not assign external publication or excluded-lane work to this task.
+The current operational GitHub queue is the [adoption board](adopt.md).
+
+| Lane | Work and verified scope | GitHub / producer-reported state | Recorded continuation context |
 |---|---|---|---|
 | Archive / publication | GitHub is the inspectable working front and exact source-custody mirror. Producer-supplied local receipts identify current EGA `21792798`, Noether `21792832`, Tôhoku `21792221`, Verdier `21792164`, Illusie `21808131`, and FGA `21802810` records; SGA, FAC, and GAGA remain outside this task's custody. | **Exact GitHub custody plus producer receipts.** Archive maintenance independently replays local outer files and nested package members, then verifies commit-pinned and live-main GitHub bytes. It does not independently query or mutate Zenodo. | Preserve every predecessor and adverse version; update coverage maps in the same GitHub commit as each intake. Quality, review, completeness, and rights caveats are metadata, not suppression gates. |
 | French/English - Luc Illusie | Separate cumulative French and English editions admit LNM 239 physical pages 1–23: complete front matter and Chapter I §1.1 through printed p.5, ending in the open induced-`B`-functor statement. LNM 283 has not started. | **Exact GitHub checkpoint:** [`sources/illusie/r14`](../sources/illusie/r14/README.md), 179 selected producer files / 2,325,377 bytes, with [coverage map](illusie-map.md). Local replay passed 21/21 direct files and 153/153 manifest/ZIP members. The producer-supplied receipt records version `21808131`; this task did not query Zenodo. | Continue only at LNM 239 physical p.24 / printed p.6. Keep French and English independent; do not create a combined reader or claim either volume complete. |
