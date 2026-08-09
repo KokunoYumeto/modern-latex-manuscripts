@@ -39,6 +39,11 @@ replacement.
 
 ## Ready for Adoption
 
+Every row in this section is deliberately unclaimed. In the machine board,
+`owner: null` means **unclaimed**, not “owner unknown”; `owner_scope` states
+the bounded kind of work being offered. Claims declare visible, nonexclusive
+overlap and do not convert the archive bytes into a claimant's property.
+
 | Board ID | Priority | Author/work | Readiness | Bounded start |
 |---|---|---|---|---|
 | `gauss-werke-ii` | High | Carl Friedrich Gauss, *Werke* II | Exact cursor | Recover the registered continuation packet and continue after printed p.303, with p.305 next. Start at the [Gauss map](gauss-map.md). |
@@ -106,6 +111,8 @@ does not exist.
 
 Future rows are invitations to prepare evidence, not claims that the corpus is
 absent everywhere or that production should begin from an arbitrary web PDF.
+They are also deliberately unclaimed, but are not production-ready: their
+first admissible handback is source discovery or intake evidence.
 
 ## Mirror Workflow
 
@@ -146,6 +153,13 @@ The stable interface is
 - `archive_path`, `related_paths`, and `source_basis`;
 - `next_cursor`, `prerequisites`, `workflow`, and `claim_url`;
 - `updated` and `notes`.
+
+The top-level `ownership_policy` makes `owner` machine-unambiguous. Current
+work requires a named coordinator and maintained status. Ready and future rows
+require a null owner, an `owner_scope` beginning with `unclaimed`, and the
+lane-appropriate open or evidence-needed status. Null therefore never means
+“unknown” in this contract. A claim remains nonexclusive and is recorded in
+the separate `mirrors` array rather than replacing the board owner.
 
 The top-level `mirrors` array records declared parallel work without forcing a
 single exclusive owner. Each mirror row has `id`, `item_id`, `owner`, `scope`,

@@ -14,6 +14,7 @@
     "repository",
     "human_board",
     "archive_authority",
+    "ownership_policy",
     "map_manifest",
     "required_maps",
     "queue_sources",
@@ -71,6 +72,41 @@
         "reader_shelf": { "type": "string" },
         "source_shelf": { "type": "string" },
         "archive_history": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "ownership_policy": {
+      "type": "object",
+      "required": [
+        "named_owner_required_for",
+        "null_owner_means",
+        "null_owner_allowed_for",
+        "unclaimed_scope_prefix",
+        "claims_are_nonexclusive"
+      ],
+      "properties": {
+        "named_owner_required_for": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "current_work" }
+          ],
+          "items": false,
+          "minItems": 1,
+          "maxItems": 1
+        },
+        "null_owner_means": { "const": "unclaimed" },
+        "null_owner_allowed_for": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "ready_for_adoption" },
+            { "const": "future" }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "unclaimed_scope_prefix": { "const": "unclaimed" },
+        "claims_are_nonexclusive": { "const": true }
       },
       "additionalProperties": false
     },
@@ -450,7 +486,9 @@
           "then": {
             "properties": {
               "owner": { "type": "string", "minLength": 1 },
-              "readiness": { "const": "active" }
+              "readiness": { "const": "active" },
+              "adoption_status": { "const": "maintained_parallel_review_welcome" },
+              "owner_scope": { "type": "string", "not": { "pattern": "^unclaimed(?: |$)" } }
             }
           }
         },
@@ -458,7 +496,10 @@
           "if": { "properties": { "lane_state": { "const": "ready_for_adoption" } } },
           "then": {
             "properties": {
-              "archive_path": { "type": "string", "minLength": 1 }
+              "archive_path": { "type": "string", "minLength": 1 },
+              "owner": { "type": "null" },
+              "adoption_status": { "const": "open_parallel_mirrors_welcome" },
+              "owner_scope": { "type": "string", "pattern": "^unclaimed(?: |$)" }
             }
           }
         },
@@ -468,7 +509,8 @@
             "properties": {
               "owner": { "type": "null" },
               "adoption_status": { "const": "future_evidence_needed" },
-              "readiness": { "const": "source_discovery_first" }
+              "readiness": { "const": "source_discovery_first" },
+              "owner_scope": { "type": "string", "pattern": "^unclaimed(?: |$)" }
             }
           }
         }
