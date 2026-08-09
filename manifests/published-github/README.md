@@ -57,6 +57,15 @@ passed, and the promisor regression again failed closed without attempting its
 configured remote when a required blob was absent. The materialized four-file
 contract passed with lazy fetching disabled.
 
+The [queue-and-scope receipt](20260809_queue_scope_rb.json) approves source
+commit `66fabe75eec1114bf1d468f71cbbebb7321ee675`: all eleven changed paths /
+863,654 bytes matched commit-pinned raw GitHub bytes, Actions run
+[`31327925415`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31327925415)
+passed, and the exact 66 item rows remained unchanged. The current queue now
+points to EGA I printed p.144 after sealed p.143, keeps EGA IV independent
+named-range review available without asserting certification, and treats
+external-publication instructions only as preserved producer context.
+
 The [Mathematics Commons adoption-layer receipt](20260809_adopt_rb.json)
 replays all nine files in source commit `5e3d60bdcef9678edea6a046ecd46765c00b8e3b`:
 257,262 bytes, all matched exactly. The corresponding JSON board is an
