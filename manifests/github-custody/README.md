@@ -24,7 +24,8 @@ producer payloads.
   [four-row index](20260807_zh_a4.csv)
 - [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
-- Current offline-consumer link audit: `20260809_links_r26.json`
+- Current offline-claim-auditor link audit: `20260809_links_r27.json`
+- Offline-consumer predecessor link audit: `20260809_links_r26.json`
 - Queue-synchronization predecessor link audit: `20260809_links_r25.json`
 - Complete adoption-dimension predecessor link audit: `20260809_links_r24.json`
 - Ownership-semantics predecessor link audit: `20260809_links_r23.json`
@@ -53,8 +54,10 @@ producer payloads.
 - Complete adoption-dimension index [raw readback](../published-github/20260809_index_rb.json)
 - Queue-source synchronization and interface-closure [raw readback](../published-github/20260809_queue_rb.json)
 - Offline Git-object consumer [raw readback](../published-github/20260809_offline_rb.json)
+- Offline claim-auditor and no-lazy-fetch [raw readback](../published-github/20260809_claims_offline_rb.json)
 - Human workflow guide: [`../../docs/adopt-flows.md`](../../docs/adopt-flows.md)
 - Fail-closed consumer helper: [`../../scripts/get-adopt.py`](../../scripts/get-adopt.py)
+- Promisor/no-lazy-fetch regression: [`../../scripts/test-adopt-offline.py`](../../scripts/test-adopt-offline.py)
 - Read-only claim auditor: [`../../scripts/check-claims.py`](../../scripts/check-claims.py)
 - [Maintenance-log index](20260806_log.json) and
   [append-only log](log.jsonl)

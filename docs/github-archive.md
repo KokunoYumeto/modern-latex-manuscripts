@@ -136,6 +136,16 @@ checkout-root object database return byte-identical four-file contracts /
 120,622 bytes; unknown commits and linked-worktree `.git` indirection files
 fail closed. Offline mode reads committed blobs and ignores dirty working-tree
 bytes without creating a fifth contract identity.
+The [offline-claim-auditor receipt](../manifests/published-github/20260809_claims_offline_rb.json)
+then approves
+[`24fe25af`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/24fe25af7e593dee03280c46cf941ec6d83a4f84):
+all eleven changed paths / 732,365 public bytes match. The claim auditor now
+combines raw-GitHub or exact local-Git board transport with public-API or JSON
+fixture issue transport. A paired claim/handback fixture passes with dead
+network proxies, while unknown Board IDs and commits fail closed. The consumer
+sets `GIT_NO_LAZY_FETCH=1`; an unreachable-promisor regression proves a missing
+blob causes no remote attempt and a fully materialized four-file contract /
+122,057 bytes passes.
 The [complete archive-r9 cycle receipt](../manifests/published-github/20260808_archive_r9_cycle_rb.json)
 replays the final versions of all ten paths changed after `7e56161f`:
 343,102 bytes, all matched.
@@ -182,15 +192,15 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The offline-consumer source commit's bounded link audit is recorded as
-`manifests/github-custody/20260809_links_r26.json`. It covers 39 committed
+The offline-claim-auditor source commit's bounded link audit is recorded as
+`manifests/github-custody/20260809_links_r27.json`. It covers 39 committed
 documents: the nineteen allowed maps; the GitHub-only map, archive, reader,
 source, custody, and receipt landings; the human adoption board and workflow
 guide; the complete dimension index; and seven contributor/issue entry points.
-It resolves 1,195 local links to 797 unique targets with zero missing or
-prohibited targets. The queue-synchronization, complete-index, ownership,
-reusable-workflow, and claim-auditor audits remain immutable predecessors
-`20260809_links_r25.json`, `20260809_links_r24.json`,
+It resolves 1,199 local links to 799 unique targets with zero missing or
+prohibited targets. The offline-consumer, queue-synchronization, complete-index,
+ownership, reusable-workflow, and claim-auditor audits remain immutable
+predecessors `20260809_links_r26.json`, `20260809_links_r25.json`, `20260809_links_r24.json`,
 `20260809_links_r23.json`, `20260809_links_r22.json`, and
 `20260809_links_r21.json`.
 [`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it

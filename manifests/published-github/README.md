@@ -114,9 +114,19 @@ is human guidance rather than a fifth machine-contract identity.
 The [offline-consumer receipt](20260809_offline_rb.json) approves source
 commit `86db3448b3315c48542f02cddba279ba9c60c5f1`: all nine changed paths /
 691,738 bytes matched public raw GitHub. Raw-GitHub and local Git-object modes
-return byte-identical four-file contracts / 120,622 bytes; offline mode ignores
-dirty working-tree bytes and performs no network request, while unknown commits
-and linked-worktree `.git` indirection files fail closed.
+return byte-identical four-file contracts / 120,622 bytes; a fully materialized
+offline repository ignores dirty working-tree bytes, while unknown commits and
+linked-worktree `.git` indirection files fail closed. The later claim-auditor
+successor closes the partial/promisor lazy-fetch caveat.
+
+The [offline-claim-auditor receipt](20260809_claims_offline_rb.json) approves
+source commit `24fe25af7e593dee03280c46cf941ec6d83a4f84`: all eleven changed paths /
+732,365 bytes matched public raw GitHub. Its live raw/API audit passes with zero
+current adoption issues. Its local-Git/JSON-fixture mode passes a linked claim
+and handback with dead network proxies and rejects unknown Board IDs and
+commits. `GIT_NO_LAZY_FETCH=1` plus the tracked promisor regression proves a
+missing contract blob exits without a remote attempt; the materialized
+four-file contract passes 122,057 bytes.
 
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
