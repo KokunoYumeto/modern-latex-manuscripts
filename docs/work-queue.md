@@ -1,3 +1,11 @@
+# Work And Evidence Queue
+
+Use the [adoption and mirror board](adopt.md) as the current operational queue.
+This longer page preserves historical producer, repair, and external-publication
+context. Instructions that name Zenodo or the separately owned SGA, FAC, or
+GAGA lanes are producer-lane history, not assignments to this GitHub
+maintenance task. Current GitHub work must stay within the board's named scope.
+
 **Noether translation assignment control:** consult the [current language/work coverage map](noether-map.md) before using this historical queue. A listed complete or unchecked target must be reviewed/corrected rather than regenerated; a partial target continues only at its recorded cursor. The dated source-audit notes below remain provenance and repair leads, not evidence that a translation is absent.
 
 Latest Noether R122 P39 source-fidelity note 2026-06-24: `Noether_R122_WebFix_P39_SourceFidelity_189_194_20260624.zip` is staged as the preferred R122-based German Paper 39 pp.189-194 candidate and supersedes/contextualizes earlier R121 P39 page drops. [`20260624_noether_r122_p39_sourcefidelity_current.json`](../manifests/pending-zenodo-uploads/20260624_noether_r122_p39_sourcefidelity_current.json). Candidate only; no multilingual synchronization; not critical-edition or corpus closure.
@@ -158,7 +166,7 @@ Latest Noether structural note 2026-06-14: `Noether_RA87_P20_ClearpageBoundary_W
 | Area | Task | Start From |
 |---|---|---|
 | EGA | Translate and integrate EGA 0_III sections 12 and 13, which remain placeholder-level in the current preliminaries file. | [EGA record](https://doi.org/10.5281/zenodo.20414353) |
-| EGA | Continue EGA III and EGA IV English translation beyond the current EGA IV section 4 partial working file. | [EGA record](https://doi.org/10.5281/zenodo.20414353) |
+| EGA | Continue EGA I at printed p.144 after the sealed p.143 checkpoint, or independently source-review a named range of the complete-as-represented EGA IV working reader; no certification is asserted. | [EGA GitHub map](ega-map.md) |
 | SGA | Continue SGA and keep reader/source/audit packets synchronized with the current caveats. | [SGA record](https://doi.org/10.5281/zenodo.20410947) |
 | SGA | Continue SGA5/SGA6 repair after the locally staged SGA5 repair032 branch and the older compact repair031 branch: use repair031 as the next compact cumulative French-output branch once uploaded, keep repair025 as the prior source-indexed audit/page-map provenance, synchronize English to the latest French repairs, continue SGA5 diagram disposition after source p181, then attack open diagram microgeometry, exact-symbol inventory, underlined-operator typography, SGA6 dense worklist rows, and SGA7 compression/source-check lanes. repair032 is the newer local SGA5 French repair/audit branch; repair031 remains the older compact SGA5/SGA6 French-output refresh and supersedes repair030 unless upload policy deliberately keeps both. Neither branch should be described as global SGA certification. | [SGA record](https://doi.org/10.5281/zenodo.20410947) |
 | SGA | Repair the SGA6 nuclear-audit gaps and continue SGA 7-I/II from French reference PDFs only with explicit source-check caveats. | [SGA record](https://doi.org/10.5281/zenodo.20410947) |

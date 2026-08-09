@@ -202,7 +202,7 @@ Use this table before interpreting any DOI as "done." It is intentionally blunt.
 
 ## Current Archive Snapshot
 
-Detailed package-level staging changes are intentionally not expanded on the front page. The running source-audit queue, exact package names, and supersession notes live in [Current Status](manifests/current-status.md) and [Pending Zenodo Uploads](docs/pending-zenodo-uploads.md).
+Detailed package-level staging changes are intentionally not expanded on the front page. Current GitHub adoption work lives on the [adoption board](docs/adopt.md). Exact historical package names and supersession notes remain in [Current Status](manifests/current-status.md) and the [extracted-package ledger](docs/pending-zenodo-uploads.md); that ledger is not this task's action queue.
 
 Recent archive notes:
 
@@ -328,7 +328,7 @@ Historical Noether source-control note: the earlier R574/R573/R572/R571/R570/R56
 
 Historical Noether source-support note: R685/R686/R687/R688 were the July 3 source-control/support head and are now predecessor evidence beneath the July 4 R794 head. R685/R686 are no-patch source-routing/direct-audit layers for P40/P41/P42/P30; R687 is the narrow P40 p537 `Z_\Omega` repair; R688 is the narrow P24 p234 norm-separator repair. Older R485/R483/R456/R457/R372-R455 packets are historical provenance/current-control material for future compact Noether rebalancing, not current heads. None of these packets is a critical edition, Noether closure, page-by-page certification, or multilingual synchronization. Noether remains a high-value working corpus with active German/source reconciliation, reader-facing German/English/multilingual surfaces, and many targeted source-fix/survival packets; public upload hygiene should keep coherent readers and compact current candidates fronted rather than scattering every intermediate micro-ZIP above the useful PDFs.
 
-## Current Zenodo Records
+## Producer-Reported External Records — Discovery/Provenance Only
 
 This section is reader-facing: open the strongest, most coherent working editions first. File counts, upload size, and local package percentages are not progress bars and do not imply source certification.
 

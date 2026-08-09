@@ -289,7 +289,7 @@ The [landing receipt](20260807_slavic_land_rb.json), [final-link receipt](202608
 and [link-receipt closure](20260807_slavic_link_close.json) preserve the final
 landing and audit chain; all thirteen recorded paths matched.
 
-The [current twenty-six-cycle archive receipt](20260808_archive_r9_rb.json)
+The [twenty-six-cycle predecessor archive receipt](20260808_archive_r9_rb.json)
 replays all five paths in the archive-r9 publication commit: 291,841 bytes,
 all matched exactly. The [archive-r8 predecessor receipt](20260808_archive_r8_rb.json)
 replays its five paths / 297,201 bytes, all matched exactly.
