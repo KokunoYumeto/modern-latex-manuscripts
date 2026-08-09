@@ -173,6 +173,8 @@ def main() -> int:
             raise RuntimeError("materialized replay did not report local Git transport")
         if summary.get("lazy_fetch_disabled") is not True:
             raise RuntimeError("materialized replay did not report lazy-fetch prevention")
+        if summary.get("item_certification_default") != "no_certification_asserted":
+            raise RuntimeError("materialized replay did not expose the certification default")
 
     print(
         json.dumps(

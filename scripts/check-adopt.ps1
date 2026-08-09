@@ -162,6 +162,20 @@ if ($board.schema -cne 'math-commons-adoption-v1') { Add-Error 'Unexpected board
 if ($board.schema_url -cne $SchemaPath.Replace('\', '/')) { Add-Error 'Board schema_url does not match SchemaPath.' }
 if ($board.validation -cne $ValidationPath.Replace('\', '/')) { Add-Error 'Board validation path does not match ValidationPath.' }
 if ($board.board_role -cne 'operational_layer') { Add-Error 'Board role must remain operational_layer.' }
+$expectedCertificationDefault = 'no_certification_asserted'
+$certificationDefaultPass = $true
+if ([string]$board.item_certification_default -cne $expectedCertificationDefault) {
+    Add-Error 'Board item_certification_default must be no_certification_asserted.'
+    $certificationDefaultPass = $false
+}
+if (-not (@($schema.required) -ccontains 'item_certification_default')) {
+    Add-Error 'Schema must require item_certification_default.'
+    $certificationDefaultPass = $false
+}
+if ([string]$schema.properties.item_certification_default.const -cne $expectedCertificationDefault) {
+    Add-Error 'Schema item_certification_default const is not no_certification_asserted.'
+    $certificationDefaultPass = $false
+}
 if ($schema.'$schema' -cne 'https://json-schema.org/draft/2020-12/schema') { Add-Error 'Schema draft identity is not 2020-12.' }
 if ($schema.'$id' -cne 'https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.schema.json') {
     Add-Error 'Schema $id is not the stable raw-main interface.'
@@ -990,6 +1004,7 @@ $report = [ordered]@{
         unclaimed_scope_prefix = [string]$board.ownership_policy.unclaimed_scope_prefix
         claims_are_nonexclusive = [bool]$board.ownership_policy.claims_are_nonexclusive
     }
+    item_certification_default = [string]$board.item_certification_default
     queue_snapshot = @($queueSnapshotRows)
     aggregate = [ordered]@{
         items = @($board.items).Count
@@ -1031,6 +1046,7 @@ $report = [ordered]@{
         unreferenced_workflows = $unreferencedWorkflowIds.Count
         named_owner_rows = $namedOwnerRows
         unclaimed_owner_rows = $unclaimedOwnerRows
+        items_inheriting_certification_default = @($board.items).Count
     }
     checks = [ordered]@{
         exact_item_field_contract = -not (@($errors | Where-Object { $_ -like '*field*' }).Count)
@@ -1039,6 +1055,10 @@ $report = [ordered]@{
         state_partitions_present = ($stateCounts.current_work -gt 0 -and $stateCounts.ready_for_adoption -gt 0 -and $stateCounts.future -gt 0)
         repository_paths_tracked = ($pathChecks -eq $trackedPathChecks)
         archive_layer_preserved = ([string]$board.board_role -ceq 'operational_layer')
+        certification_default_contract = (
+            $certificationDefaultPass -and
+            [string]$board.item_certification_default -ceq $expectedCertificationDefault
+        )
         required_map_contract = ($requiredMaps.Count -gt 0 -and ($requiredMaps -join "`n") -ceq ($manifestMaps -join "`n"))
         required_maps_represented = ($missingRequiredMaps.Count -eq 0 -and $representedMapSet.Count -eq $requiredMaps.Count)
         queue_source_contract = (($queueSources -join "`n") -ceq ($expectedQueueSources -join "`n"))

@@ -211,6 +211,7 @@ def validate_snapshot(
         "map_manifest_sha256": sha256(map_bytes),
         "items": len(board.get("items", [])),
         "mirrors": len(board.get("mirrors", [])),
+        "item_certification_default": board.get("item_certification_default"),
         "schema_errors": 0,
         "validation_errors": 0,
         "mixed_revisions": 0,

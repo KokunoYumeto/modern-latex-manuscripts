@@ -6,6 +6,14 @@ This repository is the GitHub working front door for an open project to produce 
 
 GitHub is the inspectable source archive and current index: catalogs, manifests, exact bounded source checkpoints, issue tracking, contribution notes, and scripts. Some large reader-first files and immutable version history are grouped in the linked external records. A file being grouped rather than loose does not mean that its translation is absent; check the coverage maps before starting work.
 
+This maintenance lane owns GitHub only. External DOI and Zenodo identities below
+are producer-supplied discovery and provenance references, not publication
+instructions or mutation targets for this task. SGA, FAC, and GAGA publication
+custody remains with their producer lanes; Erdős–Strauss and Erdős–Rado work is
+outside this repository-maintenance scope. Producer trees remain immutable here:
+GitHub maintenance copies exact handed-off bytes, organizes them, records state,
+pushes GitHub, and verifies the pushed public result.
+
 GitHub is also the operational adoption front door. The
 [adoption and mirror board](docs/adopt.md) separates current work, work ready
 for adoption, and future/source-discovery scopes; links every actionable row
@@ -15,6 +23,9 @@ The [complete adoption index](docs/adopt-index.md) gives one sortable human
 table across author, work, series, language, corpus, lane, and ownership.
 The board also binds the exact current `known-gaps.md` and `work-queue.md`
 bytes, preventing either operational queue from drifting silently.
+Its machine contract declares `item_certification_default:
+no_certification_asserted`, so coverage or readiness wording cannot be promoted
+into a scholarly certification claim.
 The board now exposes source-only translation layers separately so a missing
 reader cannot trigger an unnecessary retranslation. Every human row shows its
 exact claimable Board ID, and validation requires one row for every machine
@@ -53,7 +64,9 @@ for every workflow token. The concise
 [workflow guide](docs/adopt-flows.md) makes those protocols readable and
 mirrorable without expanding the four-file machine-ingestion boundary.
 
-For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
+For a concise evidence-based view of what each mapped translation lane has
+actually produced, what GitHub preserves, and what producer receipts reported at
+the last bounded snapshot, see the [GitHub translation fleet map](docs/live-fleet-map.md).
 
 For direct GitHub browsing, use the [source-shelf index](sources/README.md). It
 links the task-maintained author and corpus trees without requiring readers to
@@ -94,9 +107,14 @@ No public record in this project should be read as a critical edition, criticall
 
 Known weak points should be treated seriously. Some large working drafts show localized compression or omissions where generated text compressed the source instead of fully transcribing it. SGA5 now has a 309-page exhaustive-reference working reader with 1,101 stable targets, 1,578 resolved edges, and no unresolved internal-reference candidates. SGA6 now has a 376-page reader-pure terminal English reader through idx702 / end of available source, but its authority is deliberately non-uniform: the prefix is not uniformly page-audited, idx663-684 is promoted against the checked French control, and bounded source-checked English checkpoints cover idx685-692 and terminal idx693-702 against the ultimate scan control. Terminal coverage closes the available source, but it does not newly recertify the historical prefix or promote later French locator material. A June 2026 SGA6 audit found 127/524 sampled source prose windows, about 24%, missing from the then-current older TeX in late regions; that failure is why the release carries explicit layer ledgers instead of a blanket completion claim. SGA7 I now has both a complete working scan-based French source transcription and a complete 287-page English working reader for all six written exposés in that volume: I, II, VI, VII, VIII, and IX. SGA7 II now has a complete 264-page English working reader for Exposés X-XXII through volume EOF. Neither SGA7 English reader is exhaustive-reference certified. The separate 201-page SGA7 II French working reader still covers complete Exposés X-XX plus 37 of 39 source pages of Exposé XXI; the final two XXI pages and Exposé XXII remain absent there. Weber Volume I now has a complete 420-page German working reader through Section 188 and the printed errata; its stricter cold page-by-page re-verification reaches printed p124 with p125 next. Diagram-heavy Deligne papers sometimes need commutative diagrams rebuilt from source rather than accepted from flattened or OCR-derived displays. Deligne material is mixed: some early sequential papers and later descending/letters packets are useful working drafts or geometry-witness packages, while some papers remain rough-draft or OCR/source-witness level. Check important equations, tables, diagrams, theorem statements, and unusual notation against the source before serious use.
 
-## Open First: Completion And Usefulness Order
+## Open First: GitHub Coverage And Externally Reported Reading Surfaces
 
-The records below are ordered by what a reader can responsibly use today, not by creation date, upload size, file count, or how much raw material exists. "Complete" here never means a certified critical edition; it only means a coherent working reader or translation surface exists for the stated scope.
+The GitHub maps and externally linked records below are ordered by what a reader
+can responsibly use today, not by creation date, upload size, file count, or how
+much raw material exists. External publication facts are retained from exact
+producer receipts and are not independently refreshed by this GitHub lane.
+"Complete" here never means a certified critical edition; it only means a
+coherent working reader or translation surface exists for the stated scope.
 
 This order is deliberate. Reader-facing, source-aware author/work records come first; serious but caveat-heavy records come next; partial or non-continuous work follows; OCR/source-intake/support or known-unsafe draft lanes are deliberately at the bottom. Project infrastructure is listed separately because it is useful for orientation and provenance, not because it is a reader-completion tier. SGA, EGA, and Cayley are not equivalent: SGA has real page-local repair work but remains non-uniform; EGA now fronts complete working readers for EGA 0, I, II, the complete published EGA III text, and complete reference-v2 EGA IV; Cayley is currently retained as repair provenance and should not be treated as a faithful transcription.
 
@@ -121,12 +139,14 @@ This order is deliberate. Reader-facing, source-aware author/work records come f
 | infra | [Main raw landing](https://doi.org/10.5281/zenodo.20393488), [workflow packet](https://doi.org/10.5281/zenodo.20461174), [interlanguage methodology](https://doi.org/10.5281/zenodo.21124403), [Lean formalization sidecars](https://doi.org/10.5281/zenodo.21129946) | Public entry point, raw preservation/provenance, replication/methodology, language-methodology lane, and Lean/mathlib-style sidecar material. | Open these for orientation, method, or formalization side work, not as claims about reader-level completion or source certification. |
 | research sidecar | [Split-zero geometry and common deformation registers](https://doi.org/10.5281/zenodo.20822444) | Current version [10.5281/zenodo.21443852](https://doi.org/10.5281/zenodo.21443852) fronts the concise Project Atlas and retains the bookmarked results compendium, formalization, visualization/data, working-text, and N16-N18 supplement surfaces. It adds the complete public Part 8-C2A through C2F2 finite-glue, shell, triality, and Fricke proof chain. | Separate exploratory mathematics, outside the manuscript-edition ranking. The seven encoded replay groups pass, while the stated marking, topology, classification, and Niemeier/Fricke boundaries remain caveated. Not peer review, a proof of a famous open problem, or certification of every broader claim. |
 
-### SGA reader links — presentation-clean current shelf
+### External SGA reader links — producer-owned presentation-clean shelf
 
-The current record is ordered for readers: the complete source-bearing ZIP is
-first, the cumulative book is the browser preview, individual books follow, and
-editable TeX/source and audit controls come afterward. Production history,
-provenance, and QA remain outside the reader PDFs.
+These discovery links preserve the exact producer-reported public surface; they
+do not assign SGA publication custody to this GitHub task. The reported record
+is ordered for readers: the complete source-bearing ZIP is first, the cumulative
+book is the browser preview, individual books follow, and editable TeX/source
+and audit controls come afterward. Production history, provenance, and QA remain
+outside the reader PDFs.
 
 - [Complete SGA1-7 II R3 readers and buildable TeX/source ZIP](https://zenodo.org/records/21783548/files/00_Current_SGA1-7II_English_Readers_and_Buildable_TeX_20260804_R3.zip)
 - [SGA 1-7 II cumulative English reader — 4,179 pages and default preview](https://zenodo.org/records/21783548/files/00_SGA_1-7II_English_Global_Reader.pdf)
@@ -374,8 +394,8 @@ The completion/usefulness order above is the preferred quick map. The detailed r
 | Browse by author or work | [By author and work](docs/by-author-and-work.md) |
 | Browse files record by record | [Record landing pages](docs/records/README.md) |
 | Understand current public/staging status | [Current status manifest](manifests/current-status.md) |
-| See extracted packages queued for Zenodo upload | [Pending Zenodo uploads](docs/pending-zenodo-uploads.md) |
-| Understand current Zenodo file surface | [Project status dashboard](docs/project-status-dashboard.md) |
+| Inspect the historical extracted-package ledger (not this task's action queue) | [Pending Zenodo uploads](docs/pending-zenodo-uploads.md) |
+| Inspect producer-reported external publication state | [Project status dashboard](docs/project-status-dashboard.md) |
 | Inspect other-PC interlanguage/source-body payloads | [Interlanguage source-body side branch inventory](docs/interlanguage-source-body-sidebranch-20260707.md) |
 | Understand draft quality | [Quality rubric](docs/quality-rubric.md) |
 | Pick a concrete task | [Work queue](docs/work-queue.md) |
@@ -389,7 +409,10 @@ The detailed provenance and review workflow is in [workflow notes](docs/workflow
 2. Automated transcription systems produce initial TeX drafts.
 3. ChatGPT/Codex and other agents audit, compile, repair, organize, and translate.
 4. Reader PDFs stay front-facing; TeX, source scans, provenance, audits, and raw source packets are kept in artifact ZIPs.
-5. Clean releases are organized by author, work, or coherent corpus and published to Zenodo under CC0 where possible.
+5. Producer-owned publication lanes may publish their own clean releases. This
+   maintenance lane instead organizes exact handed-off bytes on GitHub, records
+   provenance and quality state, pushes every verified GitHub checkpoint, and
+   verifies the remote commit and public bytes.
 
 ## Quality Status
 
