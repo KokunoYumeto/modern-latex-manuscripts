@@ -46,7 +46,7 @@ one.
 | `tohoku-paper` | Grothendieck's Tôhoku paper checkpoint | Kokuno Yumeto coordination; producer publication custody remains separate | [Tôhoku map](tohoku-map.md) | Reconcile the historical p.119 versus p.119-121 cursor controls before any continuation. |
 | `illusie-cotangent-i-ii` | Illusie, *Complexe cotangent et déformations* I-II | Kokuno Yumeto coordination; producer publication custody remains separate | [Illusie map](illusie-map.md) | Continue LNM 239 at physical p.24 / printed p.6; LNM 283 is unstarted. |
 | `deligne-papers-letters` | Deligne numbered papers and correspondence | Kokuno Yumeto coordination; producer publication custody remains separate | [Deligne map](deligne-map.md) | Select one exact mapped paper, letter, correction generation, or source-review target. |
-| `weber-algebra` | Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | Continue the exact Volume II frontier or independently check a bounded existing section. |
+| `weber-algebra` | Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | First bind the public `CURRENT` Volume II §176 German/English bytes to GitHub's §143 custody surface; do not redo §§144–176. Then continue after §176 at source p643, or independently check a bounded existing section. |
 
 The maintainer label describes current coordination, not ownership of the
 underlying mathematics and not an exclusive reservation. Declared overlap is

@@ -6,10 +6,11 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [archive-history receipt](20260808_archive_r9_rb.json),
-the [twenty-six-cycle manifest](../github-custody/20260808_archive_r9.json),
-the [human archive history](../../docs/github-archive.md), and the
-[custody-index landing](../github-custody/README.md).
+Start with the current [queue-and-scope receipt](20260809_queue_scope_rb.json)
+and [closure](20260809_queue_scope_close.json), the [twenty-six-cycle
+predecessor manifest](../github-custody/20260808_archive_r9.json), the [human
+archive history](../../docs/github-archive.md), and the [custody-index
+landing](../github-custody/README.md).
 
 The [sparse continuous-validation receipt](20260809_adopt_ci_rb.json) approves
 source commit `ae59d85d406d52448eacc0794916b34c8189a739`: all ten changed
