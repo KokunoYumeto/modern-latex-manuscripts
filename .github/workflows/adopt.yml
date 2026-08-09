@@ -1,0 +1,107 @@
+name: Adoption contract
+
+on:
+  pull_request:
+    paths:
+      - ".github/ISSUE_TEMPLATE/**"
+      - ".github/labels.json"
+      - ".github/workflows/adopt.yml"
+      - "docs/**"
+      - "manifests/adopt.check.json"
+      - "manifests/adopt.json"
+      - "manifests/adopt.schema.json"
+      - "manifests/github-custody/**"
+      - "scripts/check-adopt.ps1"
+      - "scripts/check-claims.py"
+      - "scripts/get-adopt.py"
+      - "scripts/test-adopt-offline.py"
+      - "scripts/test-claims.py"
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/ISSUE_TEMPLATE/**"
+      - ".github/labels.json"
+      - ".github/workflows/adopt.yml"
+      - "docs/**"
+      - "manifests/adopt.check.json"
+      - "manifests/adopt.json"
+      - "manifests/adopt.schema.json"
+      - "manifests/github-custody/**"
+      - "scripts/check-adopt.ps1"
+      - "scripts/check-claims.py"
+      - "scripts/get-adopt.py"
+      - "scripts/test-adopt-offline.py"
+      - "scripts/test-claims.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: adoption-contract-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate exact-commit interface
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the exact event commit
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          fetch-depth: 0
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /.github/ISSUE_TEMPLATE/
+            /.github/labels.json
+            /.github/workflows/adopt.yml
+            /README.md
+            /docs/
+            /manifests/adopt.check.json
+            /manifests/adopt.json
+            /manifests/adopt.schema.json
+            /manifests/github-custody/20260807_maps_r5.json
+            /reader-pdfs/README.md
+            /sources/README.md
+            /scripts/check-adopt.ps1
+            /scripts/check-claims.py
+            /scripts/get-adopt.py
+            /scripts/test-adopt-offline.py
+            /scripts/test-claims.py
+
+      - name: Set up Python
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: "3.12"
+
+      - name: Install the schema validator
+        run: python -m pip install --disable-pip-version-check --no-input jsonschema==4.26.0
+
+      - name: Validate the board, schema, maps, queues, and interfaces
+        shell: pwsh
+        run: |
+          ./scripts/check-adopt.ps1 -SparseCheckout -OutputPath "$env:RUNNER_TEMP/adopt.check.json"
+          $report = Get-Content -Raw -LiteralPath "$env:RUNNER_TEMP/adopt.check.json" | ConvertFrom-Json -Depth 100
+          if ($report.status -cne 'PASS' -or @($report.errors).Count -ne 0) {
+            throw 'The regenerated adoption validation report is not PASS/errors[].'
+          }
+
+      - name: Replay the exact local four-file consumer
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/get-adopt.py \
+            --commit "$GITHUB_SHA" \
+            --approve "$GITHUB_SHA" \
+            --git . \
+            > "$RUNNER_TEMP/adopt.json"
+          cmp manifests/adopt.json "$RUNNER_TEMP/adopt.json"
+
+      - name: Prove missing promisor blobs fail without a lazy fetch
+        run: python scripts/test-adopt-offline.py --commit "$GITHUB_SHA" --git .
+
+      - name: Replay valid and invalid claim lifecycle fixtures
+        run: python scripts/test-claims.py --commit "$GITHUB_SHA" --git .
