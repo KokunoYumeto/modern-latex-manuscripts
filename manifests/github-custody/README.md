@@ -24,9 +24,11 @@ producer payloads.
   [four-row index](20260807_zh_a4.csv)
 - [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
-- Adoption-contract bounded local-link audit: `20260809_links_r13.json`
+- Adoption-map synchronization link audit: `20260809_links_r14.json`
+- Adoption-contract predecessor link audit: `20260809_links_r13.json`
 - Stable operational adoption feed: [`../adopt.json`](../adopt.json)
 - Adoption feed [schema](../adopt.schema.json) and [validation](../adopt.check.json)
+- Adoption map-synchronization [raw readback](../published-github/20260809_adopt_maps_rb.json)
 - [Maintenance-log index](20260806_log.json) and
   [append-only log](log.jsonl)
 
