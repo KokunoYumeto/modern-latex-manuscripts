@@ -1,0 +1,337 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.schema.json",
+  "title": "Mathematics Commons adoption board",
+  "description": "Operational adoption and mirror metadata layered on top of the authoritative archive maps.",
+  "type": "object",
+  "required": [
+    "schema",
+    "schema_url",
+    "validation",
+    "board_role",
+    "updated",
+    "evidence_base_commit",
+    "repository",
+    "human_board",
+    "archive_authority",
+    "claim_interface",
+    "enums",
+    "fields",
+    "mirror_fields",
+    "mirrors",
+    "items"
+  ],
+  "properties": {
+    "schema": {
+      "const": "math-commons-adoption-v1"
+    },
+    "schema_url": {
+      "const": "manifests/adopt.schema.json"
+    },
+    "validation": {
+      "const": "manifests/adopt.check.json"
+    },
+    "board_role": {
+      "const": "operational_layer"
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    },
+    "evidence_base_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "repository": {
+      "const": "https://github.com/KokunoYumeto/modern-latex-manuscripts"
+    },
+    "human_board": {
+      "const": "docs/adopt.md"
+    },
+    "archive_authority": {
+      "type": "object",
+      "required": [
+        "coverage_maps",
+        "reader_shelf",
+        "source_shelf",
+        "archive_history"
+      ],
+      "properties": {
+        "coverage_maps": { "type": "string" },
+        "reader_shelf": { "type": "string" },
+        "source_shelf": { "type": "string" },
+        "archive_history": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "claim_interface": {
+      "type": "string",
+      "format": "uri"
+    },
+    "enums": {
+      "type": "object",
+      "required": [
+        "lane_state",
+        "priority",
+        "readiness",
+        "adoption_status",
+        "mirror_status"
+      ],
+      "properties": {
+        "lane_state": {
+          "type": "array",
+          "items": {
+            "enum": ["current_work", "ready_for_adoption", "future"]
+          },
+          "uniqueItems": true
+        },
+        "priority": {
+          "type": "array",
+          "items": {
+            "enum": ["high", "medium", "exploratory"]
+          },
+          "uniqueItems": true
+        },
+        "readiness": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "active",
+              "exact_cursor",
+              "repair_ready",
+              "review_ready",
+              "expansion_ready",
+              "continuation_ready",
+              "intake_ready",
+              "source_discovery_first"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "adoption_status": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "maintained_parallel_review_welcome",
+              "open_parallel_mirrors_welcome",
+              "claimed_active_parallel_mirrors_welcome",
+              "paused_open_for_handoff",
+              "future_evidence_needed"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "mirror_status": {
+          "type": "array",
+          "items": {
+            "enum": ["declared", "active", "returned", "paused", "withdrawn"]
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "fields": {
+      "type": "array",
+      "prefixItems": [
+        { "const": "id" },
+        { "const": "author" },
+        { "const": "work" },
+        { "const": "series" },
+        { "const": "corpus" },
+        { "const": "lane_state" },
+        { "const": "coverage_state" },
+        { "const": "adoption_status" },
+        { "const": "priority" },
+        { "const": "readiness" },
+        { "const": "owner" },
+        { "const": "owner_scope" },
+        { "const": "languages" },
+        { "const": "archive_path" },
+        { "const": "related_paths" },
+        { "const": "source_basis" },
+        { "const": "next_cursor" },
+        { "const": "prerequisites" },
+        { "const": "workflow" },
+        { "const": "claim_url" },
+        { "const": "updated" },
+        { "const": "notes" }
+      ],
+      "items": false,
+      "minItems": 22,
+      "maxItems": 22
+    },
+    "mirror_fields": {
+      "type": "array",
+      "prefixItems": [
+        { "const": "id" },
+        { "const": "item_id" },
+        { "const": "owner" },
+        { "const": "scope" },
+        { "const": "url" },
+        { "const": "status" },
+        { "const": "updated" }
+      ],
+      "items": false,
+      "minItems": 7,
+      "maxItems": 7
+    },
+    "mirrors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/mirror"
+      }
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/item"
+      }
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "pathOrNull": {
+      "type": ["string", "null"],
+      "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).*$"
+    },
+    "pathArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+      },
+      "uniqueItems": true
+    },
+    "item": {
+      "type": "object",
+      "required": [
+        "id",
+        "author",
+        "work",
+        "series",
+        "corpus",
+        "lane_state",
+        "coverage_state",
+        "adoption_status",
+        "priority",
+        "readiness",
+        "owner",
+        "owner_scope",
+        "languages",
+        "archive_path",
+        "related_paths",
+        "source_basis",
+        "next_cursor",
+        "prerequisites",
+        "workflow",
+        "claim_url",
+        "updated",
+        "notes"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "author": { "type": "string", "minLength": 1 },
+        "work": { "type": "string", "minLength": 1 },
+        "series": { "type": ["string", "null"] },
+        "corpus": { "type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$" },
+        "lane_state": { "enum": ["current_work", "ready_for_adoption", "future"] },
+        "coverage_state": { "type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$" },
+        "adoption_status": {
+          "enum": [
+            "maintained_parallel_review_welcome",
+            "open_parallel_mirrors_welcome",
+            "claimed_active_parallel_mirrors_welcome",
+            "paused_open_for_handoff",
+            "future_evidence_needed"
+          ]
+        },
+        "priority": { "enum": ["high", "medium", "exploratory"] },
+        "readiness": {
+          "enum": [
+            "active",
+            "exact_cursor",
+            "repair_ready",
+            "review_ready",
+            "expansion_ready",
+            "continuation_ready",
+            "intake_ready",
+            "source_discovery_first"
+          ]
+        },
+        "owner": { "type": ["string", "null"] },
+        "owner_scope": { "type": "string", "minLength": 1 },
+        "languages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 2 }
+        },
+        "archive_path": { "$ref": "#/$defs/pathOrNull" },
+        "related_paths": { "$ref": "#/$defs/pathArray" },
+        "source_basis": { "type": "string", "minLength": 1 },
+        "next_cursor": { "type": "string", "minLength": 1 },
+        "prerequisites": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "workflow": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$" }
+        },
+        "claim_url": { "type": "string", "format": "uri" },
+        "updated": { "type": "string", "format": "date" },
+        "notes": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": { "properties": { "lane_state": { "const": "current_work" } } },
+          "then": {
+            "properties": {
+              "owner": { "type": "string", "minLength": 1 },
+              "readiness": { "const": "active" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "lane_state": { "const": "ready_for_adoption" } } },
+          "then": {
+            "properties": {
+              "archive_path": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "lane_state": { "const": "future" } } },
+          "then": {
+            "properties": {
+              "owner": { "type": "null" },
+              "adoption_status": { "const": "future_evidence_needed" },
+              "readiness": { "const": "source_discovery_first" }
+            }
+          }
+        }
+      ]
+    },
+    "mirror": {
+      "type": "object",
+      "required": ["id", "item_id", "owner", "scope", "url", "status", "updated"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "item_id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "owner": { "type": "string", "minLength": 1 },
+        "scope": { "type": "string", "minLength": 1 },
+        "url": { "type": "string", "format": "uri" },
+        "status": { "enum": ["declared", "active", "returned", "paused", "withdrawn"] },
+        "updated": { "type": "string", "format": "date" }
+      },
+      "additionalProperties": false
+    }
+  }
+}

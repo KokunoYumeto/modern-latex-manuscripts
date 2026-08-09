@@ -1,0 +1,302 @@
+[CmdletBinding()]
+param(
+    [string]$InputPath = 'manifests/adopt.json',
+    [string]$SchemaPath = 'manifests/adopt.schema.json',
+    [string]$OutputPath = 'manifests/adopt.check.json',
+    [string]$ObservedDate = (Get-Date -Format 'yyyy-MM-dd')
+)
+
+$ErrorActionPreference = 'Stop'
+$utf8 = [Text.UTF8Encoding]::new($false)
+$repoRoot = [IO.Path]::GetFullPath((Get-Location).Path)
+$errors = [Collections.Generic.List[string]]::new()
+$pathChecks = 0
+$trackedPathChecks = 0
+
+function Get-Sha256 {
+    param([byte[]]$Bytes)
+    return [Convert]::ToHexString([Security.Cryptography.SHA256]::HashData($Bytes))
+}
+
+function Add-Error {
+    param([string]$Message)
+    $errors.Add($Message)
+}
+
+function Test-ExactFields {
+    param(
+        [object]$Value,
+        [string[]]$Expected,
+        [string]$Context
+    )
+    $actual = @($Value.PSObject.Properties.Name)
+    foreach ($name in $Expected) {
+        if (-not ($actual -ccontains $name)) {
+            Add-Error "$Context missing field: $name"
+        }
+    }
+    foreach ($name in $actual) {
+        if (-not ($Expected -ccontains $name)) {
+            Add-Error "$Context has unexpected field: $name"
+        }
+    }
+}
+
+function Test-RepoPath {
+    param(
+        [AllowNull()][string]$Path,
+        [string]$Context,
+        [bool]$Required
+    )
+    if ([string]::IsNullOrWhiteSpace($Path)) {
+        if ($Required) { Add-Error "$Context requires a repository path." }
+        return
+    }
+    $script:pathChecks++
+    if ([IO.Path]::IsPathRooted($Path) -or $Path.Contains('\')) {
+        Add-Error "$Context path must be repository-relative with forward slashes: $Path"
+        return
+    }
+    $relative = $Path.Split('#')[0]
+    if ([string]::IsNullOrWhiteSpace($relative)) {
+        Add-Error "$Context path has no file component: $Path"
+        return
+    }
+    $segments = @($relative.Split('/'))
+    if ($segments -ccontains '..') {
+        Add-Error "$Context path escapes the repository: $Path"
+        return
+    }
+    $full = [IO.Path]::GetFullPath((Join-Path $repoRoot $relative))
+    $rootPrefix = $repoRoot.TrimEnd([IO.Path]::DirectorySeparatorChar) + [IO.Path]::DirectorySeparatorChar
+    if (-not $full.StartsWith($rootPrefix, [StringComparison]::OrdinalIgnoreCase)) {
+        Add-Error "$Context path resolves outside the repository: $Path"
+        return
+    }
+    if (-not [IO.File]::Exists($full)) {
+        Add-Error "$Context path does not exist: $Path"
+        return
+    }
+    & git ls-files --error-unmatch -- $relative 2>$null | Out-Null
+    if ($LASTEXITCODE -ne 0) {
+        Add-Error "$Context path is not tracked by Git: $Path"
+        return
+    }
+    $script:trackedPathChecks++
+}
+
+function Test-UniqueStrings {
+    param(
+        [object[]]$Values,
+        [string]$Context,
+        [bool]$RequireNonEmpty
+    )
+    $seen = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+    if ($RequireNonEmpty -and $Values.Count -eq 0) {
+        Add-Error "$Context must not be empty."
+    }
+    foreach ($value in $Values) {
+        $text = [string]$value
+        if ([string]::IsNullOrWhiteSpace($text)) {
+            Add-Error "$Context contains an empty value."
+            continue
+        }
+        if (-not $seen.Add($text)) {
+            Add-Error "$Context contains duplicate value: $text"
+        }
+    }
+}
+
+$inputFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $InputPath))
+$schemaFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $SchemaPath))
+if (-not [IO.File]::Exists($inputFull)) { throw "Board does not exist: $InputPath" }
+if (-not [IO.File]::Exists($schemaFull)) { throw "Schema does not exist: $SchemaPath" }
+
+$inputBytes = [IO.File]::ReadAllBytes($inputFull)
+$schemaBytes = [IO.File]::ReadAllBytes($schemaFull)
+foreach ($pair in @(
+    [pscustomobject]@{ Name = 'board'; Bytes = $inputBytes },
+    [pscustomobject]@{ Name = 'schema'; Bytes = $schemaBytes }
+)) {
+    if ($pair.Bytes.Length -ge 3 -and
+        $pair.Bytes[0] -eq 0xEF -and
+        $pair.Bytes[1] -eq 0xBB -and
+        $pair.Bytes[2] -eq 0xBF) {
+        Add-Error "$($pair.Name) contains a UTF-8 BOM."
+    }
+    if ($utf8.GetString($pair.Bytes).Contains("`r")) {
+        Add-Error "$($pair.Name) must use LF line endings."
+    }
+}
+
+$board = $utf8.GetString($inputBytes) | ConvertFrom-Json -Depth 100 -DateKind String
+$schema = $utf8.GetString($schemaBytes) | ConvertFrom-Json -Depth 100 -DateKind String
+
+if ($board.schema -cne 'math-commons-adoption-v1') { Add-Error 'Unexpected board schema.' }
+if ($board.schema_url -cne $SchemaPath.Replace('\', '/')) { Add-Error 'Board schema_url does not match SchemaPath.' }
+if ($board.validation -cne $OutputPath.Replace('\', '/')) { Add-Error 'Board validation path does not match OutputPath.' }
+if ($board.board_role -cne 'operational_layer') { Add-Error 'Board role must remain operational_layer.' }
+if ($schema.'$schema' -cne 'https://json-schema.org/draft/2020-12/schema') { Add-Error 'Schema draft identity is not 2020-12.' }
+if ($schema.'$id' -cne 'https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.schema.json') {
+    Add-Error 'Schema $id is not the stable raw-main interface.'
+}
+
+$expectedFields = [string[]]@(
+    'id', 'author', 'work', 'series', 'corpus', 'lane_state',
+    'coverage_state', 'adoption_status', 'priority', 'readiness', 'owner',
+    'owner_scope', 'languages', 'archive_path', 'related_paths',
+    'source_basis', 'next_cursor', 'prerequisites', 'workflow', 'claim_url',
+    'updated', 'notes'
+)
+$expectedMirrorFields = [string[]]@('id', 'item_id', 'owner', 'scope', 'url', 'status', 'updated')
+$boardFields = [string[]]@($board.fields)
+$mirrorFields = [string[]]@($board.mirror_fields)
+if (($boardFields -join "`n") -cne ($expectedFields -join "`n")) { Add-Error 'Item fields are not the exact v1 ordered field contract.' }
+if (($mirrorFields -join "`n") -cne ($expectedMirrorFields -join "`n")) { Add-Error 'Mirror fields are not the exact v1 ordered field contract.' }
+
+$expectedEnums = [ordered]@{
+    lane_state = [string[]]@('current_work', 'ready_for_adoption', 'future')
+    priority = [string[]]@('high', 'medium', 'exploratory')
+    readiness = [string[]]@('active', 'exact_cursor', 'repair_ready', 'review_ready', 'expansion_ready', 'continuation_ready', 'intake_ready', 'source_discovery_first')
+    adoption_status = [string[]]@('maintained_parallel_review_welcome', 'open_parallel_mirrors_welcome', 'claimed_active_parallel_mirrors_welcome', 'paused_open_for_handoff', 'future_evidence_needed')
+    mirror_status = [string[]]@('declared', 'active', 'returned', 'paused', 'withdrawn')
+}
+foreach ($name in $expectedEnums.Keys) {
+    $actual = [string[]]@($board.enums.$name)
+    if (($actual -join "`n") -cne ($expectedEnums[$name] -join "`n")) {
+        Add-Error "Enum contract mismatch: $name"
+    }
+}
+
+Test-RepoPath -Path $board.human_board -Context 'human_board' -Required $true
+foreach ($name in @('coverage_maps', 'reader_shelf', 'source_shelf', 'archive_history')) {
+    Test-RepoPath -Path $board.archive_authority.$name -Context "archive_authority.$name" -Required $true
+}
+if (-not ([string]$board.claim_interface).StartsWith('https://github.com/', [StringComparison]::Ordinal)) {
+    Add-Error 'claim_interface must be a GitHub HTTPS URL.'
+}
+
+$ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 }
+$requiredRowFields = $expectedFields
+foreach ($item in @($board.items)) {
+    $id = [string]$item.id
+    $context = if ([string]::IsNullOrWhiteSpace($id)) { 'item:<missing-id>' } else { "item:$id" }
+    Test-ExactFields -Value $item -Expected $requiredRowFields -Context $context
+    if ($id -cnotmatch '^[a-z0-9]+(?:-[a-z0-9]+)*$') { Add-Error "$context has an invalid ID." }
+    if (-not $ids.Add($id)) { Add-Error "Duplicate item ID: $id" }
+    foreach ($property in @('author', 'work', 'corpus', 'coverage_state', 'owner_scope', 'source_basis', 'next_cursor', 'claim_url', 'updated', 'notes')) {
+        if ([string]::IsNullOrWhiteSpace([string]$item.$property)) { Add-Error "$context has empty $property." }
+    }
+    foreach ($enumName in @('lane_state', 'priority', 'readiness', 'adoption_status')) {
+        if (-not ($expectedEnums[$enumName] -ccontains [string]$item.$enumName)) {
+            Add-Error "$context has invalid ${enumName}: $($item.$enumName)"
+        }
+    }
+    if ($stateCounts.Contains([string]$item.lane_state)) { $stateCounts[[string]$item.lane_state]++ }
+    Test-UniqueStrings -Values @($item.languages) -Context "$context languages" -RequireNonEmpty $true
+    Test-UniqueStrings -Values @($item.related_paths) -Context "$context related_paths" -RequireNonEmpty $false
+    Test-UniqueStrings -Values @($item.prerequisites) -Context "$context prerequisites" -RequireNonEmpty $true
+    Test-UniqueStrings -Values @($item.workflow) -Context "$context workflow" -RequireNonEmpty $true
+    if ([string]$item.claim_url -cne [string]$board.claim_interface) { Add-Error "$context claim_url differs from claim_interface." }
+
+    switch ([string]$item.lane_state) {
+        'current_work' {
+            if ([string]::IsNullOrWhiteSpace([string]$item.owner)) { Add-Error "$context current work requires an owner." }
+            if ([string]$item.readiness -cne 'active') { Add-Error "$context current work must have active readiness." }
+        }
+        'ready_for_adoption' {
+            if ([string]::IsNullOrWhiteSpace([string]$item.archive_path)) { Add-Error "$context adoption-ready work requires archive_path." }
+            if ([string]$item.readiness -cin @('active', 'source_discovery_first')) { Add-Error "$context adoption-ready work has incompatible readiness." }
+        }
+        'future' {
+            if ($null -ne $item.owner) { Add-Error "$context future work must have null owner." }
+            if ([string]$item.readiness -cne 'source_discovery_first') { Add-Error "$context future work must require source discovery." }
+            if ([string]$item.adoption_status -cne 'future_evidence_needed') { Add-Error "$context future work has incompatible adoption_status." }
+        }
+    }
+    Test-RepoPath -Path $item.archive_path -Context "$context archive_path" -Required ([string]$item.lane_state -cne 'future')
+    foreach ($path in @($item.related_paths)) {
+        Test-RepoPath -Path ([string]$path) -Context "$context related_paths" -Required $true
+    }
+}
+
+foreach ($state in $stateCounts.Keys) {
+    if ($stateCounts[$state] -eq 0) { Add-Error "Board has no rows for lane_state $state." }
+}
+
+$mirrorIds = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($mirror in @($board.mirrors)) {
+    $id = [string]$mirror.id
+    $context = if ([string]::IsNullOrWhiteSpace($id)) { 'mirror:<missing-id>' } else { "mirror:$id" }
+    Test-ExactFields -Value $mirror -Expected $expectedMirrorFields -Context $context
+    if ($id -cnotmatch '^[a-z0-9]+(?:-[a-z0-9]+)*$') { Add-Error "$context has an invalid ID." }
+    if (-not $mirrorIds.Add($id)) { Add-Error "Duplicate mirror ID: $id" }
+    if (-not $ids.Contains([string]$mirror.item_id)) { Add-Error "$context refers to unknown item_id: $($mirror.item_id)" }
+    if (-not ($expectedEnums.mirror_status -ccontains [string]$mirror.status)) { Add-Error "$context has invalid status: $($mirror.status)" }
+    foreach ($property in @('owner', 'scope', 'url', 'updated')) {
+        if ([string]::IsNullOrWhiteSpace([string]$mirror.$property)) { Add-Error "$context has empty $property." }
+    }
+}
+
+$observedCommit = (& git rev-parse HEAD).Trim()
+if ($LASTEXITCODE -ne 0) { throw 'Could not resolve HEAD.' }
+$report = [ordered]@{
+    schema = 'math-commons-adoption-check-v1'
+    status = if ($errors.Count -eq 0) { 'PASS' } else { 'FAIL' }
+    errors = @($errors)
+    observed_date = $ObservedDate
+    observed_commit = $observedCommit
+    board = [ordered]@{
+        path = $InputPath.Replace('\', '/')
+        bytes = $inputBytes.Length
+        sha256 = Get-Sha256 -Bytes $inputBytes
+        schema = [string]$board.schema
+    }
+    schema_file = [ordered]@{
+        path = $SchemaPath.Replace('\', '/')
+        bytes = $schemaBytes.Length
+        sha256 = Get-Sha256 -Bytes $schemaBytes
+        draft = [string]$schema.'$schema'
+    }
+    aggregate = [ordered]@{
+        items = @($board.items).Count
+        mirrors = @($board.mirrors).Count
+        current_work = $stateCounts.current_work
+        ready_for_adoption = $stateCounts.ready_for_adoption
+        future = $stateCounts.future
+        unique_item_ids = $ids.Count
+        unique_mirror_ids = $mirrorIds.Count
+        repository_path_checks = $pathChecks
+        tracked_repository_paths = $trackedPathChecks
+    }
+    checks = [ordered]@{
+        exact_item_field_contract = -not (@($errors | Where-Object { $_ -like '*field*' }).Count)
+        enum_contract = -not (@($errors | Where-Object { $_ -like '*Enum contract*' -or $_ -like '*invalid *' }).Count)
+        unique_ids = ($ids.Count -eq @($board.items).Count -and $mirrorIds.Count -eq @($board.mirrors).Count)
+        state_partitions_present = ($stateCounts.current_work -gt 0 -and $stateCounts.ready_for_adoption -gt 0 -and $stateCounts.future -gt 0)
+        repository_paths_tracked = ($pathChecks -eq $trackedPathChecks)
+        archive_layer_preserved = ([string]$board.board_role -ceq 'operational_layer')
+        external_network_queried = $false
+        producer_files_mutated = $false
+        compile_render_or_ocr_run = $false
+        global_filesystem_search = $false
+    }
+}
+
+$outputFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $OutputPath))
+$outputDirectory = [IO.Path]::GetDirectoryName($outputFull)
+if (-not [IO.Directory]::Exists($outputDirectory)) { throw "Output directory does not exist: $outputDirectory" }
+$json = (($report | ConvertTo-Json -Depth 20).Replace("`r`n", "`n")) + "`n"
+[IO.File]::WriteAllText($outputFull, $json, $utf8)
+
+[ordered]@{
+    status = $report.status
+    items = $report.aggregate.items
+    mirrors = $report.aggregate.mirrors
+    paths = $report.aggregate.repository_path_checks
+    errors = $errors.Count
+    output = $OutputPath.Replace('\', '/')
+} | ConvertTo-Json -Compress
+
+if ($errors.Count -gt 0) { exit 1 }
