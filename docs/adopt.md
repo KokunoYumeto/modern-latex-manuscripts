@@ -91,7 +91,10 @@ absent everywhere or that production should begin from an arbitrary web PDF.
 ## Machine Interface
 
 The stable interface is
-[`manifests/adopt.json`](../manifests/adopt.json). Its `items` array defines:
+[`manifests/adopt.json`](../manifests/adopt.json), governed by the formal
+[`adopt.schema.json`](../manifests/adopt.schema.json) contract and bounded
+[`adopt.check.json`](../manifests/adopt.check.json) validation result. Its
+`items` array defines:
 
 - `id`, `author`, `work`, `series`, and `corpus`;
 - `lane_state`, `coverage_state`, `adoption_status`, `priority`, and `readiness`;
@@ -100,9 +103,20 @@ The stable interface is
 - `next_cursor`, `prerequisites`, `workflow`, and `claim_url`;
 - `updated` and `notes`.
 
+The top-level `mirrors` array records declared parallel work without forcing a
+single exclusive owner. Each mirror row has `id`, `item_id`, `owner`, `scope`,
+`url`, `status`, and `updated`. An empty array means no inspectable mirror has
+yet been integrated into the board; it does not mean no one is working
+elsewhere.
+
 The stable raw endpoint for a Mathematics Commons consumer is:
 
 <https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.json>
+
+Schema and current validation endpoints:
+
+- <https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.schema.json>
+- <https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.check.json>
 
 Consumers should treat `lane_state` as the top-level partition and use
 `priority` only within a partition. Preserve unknown fields, accept additional
