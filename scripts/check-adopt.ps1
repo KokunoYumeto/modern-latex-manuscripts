@@ -2,6 +2,7 @@
 param(
     [string]$InputPath = 'manifests/adopt.json',
     [string]$SchemaPath = 'manifests/adopt.schema.json',
+    [string]$ValidationPath = 'manifests/adopt.check.json',
     [string]$OutputPath = 'manifests/adopt.check.json',
     [string]$ObservedDate = (Get-Date -Format 'yyyy-MM-dd')
 )
@@ -134,7 +135,7 @@ $schema = $utf8.GetString($schemaBytes) | ConvertFrom-Json -Depth 100 -DateKind 
 
 if ($board.schema -cne 'math-commons-adoption-v1') { Add-Error 'Unexpected board schema.' }
 if ($board.schema_url -cne $SchemaPath.Replace('\', '/')) { Add-Error 'Board schema_url does not match SchemaPath.' }
-if ($board.validation -cne $OutputPath.Replace('\', '/')) { Add-Error 'Board validation path does not match OutputPath.' }
+if ($board.validation -cne $ValidationPath.Replace('\', '/')) { Add-Error 'Board validation path does not match ValidationPath.' }
 if ($board.board_role -cne 'operational_layer') { Add-Error 'Board role must remain operational_layer.' }
 if ($schema.'$schema' -cne 'https://json-schema.org/draft/2020-12/schema') { Add-Error 'Schema draft identity is not 2020-12.' }
 if ($schema.'$id' -cne 'https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.schema.json') {
@@ -242,7 +243,7 @@ foreach ($path in $queueSources) {
 $expectedSnapshotPaths = [string[]]@(
     $InputPath.Replace('\', '/'),
     $SchemaPath.Replace('\', '/'),
-    $OutputPath.Replace('\', '/'),
+    $ValidationPath.Replace('\', '/'),
     $mapManifestPath.Replace('\', '/')
 )
 $expectedSnapshotChecks = [string[]]@(
@@ -493,7 +494,12 @@ $report = [ordered]@{
     }
 }
 
-$outputFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $OutputPath))
+$outputFull = if ([IO.Path]::IsPathRooted($OutputPath)) {
+    [IO.Path]::GetFullPath($OutputPath)
+}
+else {
+    [IO.Path]::GetFullPath((Join-Path $repoRoot $OutputPath))
+}
 $outputDirectory = [IO.Path]::GetDirectoryName($outputFull)
 if (-not [IO.Directory]::Exists($outputDirectory)) { throw "Output directory does not exist: $outputDirectory" }
 $json = (($report | ConvertTo-Json -Depth 20).Replace("`r`n", "`n")) + "`n"
