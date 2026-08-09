@@ -58,6 +58,14 @@ exactly. A validator report can now be written to an absolute temporary path
 without weakening or replacing the canonical validation identity; the
 temporary replay passes 46 items and 120 tracked paths with errors0.
 
+The [handback-interface receipt](20260809_handback_rb.json) replays all
+thirteen files in source commit
+`2695dbfe84726329267c71ba7a0af3486435f4c8`: 599,475 bytes, all matched
+exactly. The board and schema bind separate claim and handback forms; the
+validator passes 46 items, 122 tracked paths, both interfaces, and errors0.
+The handback captures state, achieved scope, output/manifest identities,
+checks and failures, continuation cursor, and reusable workflow findings.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
