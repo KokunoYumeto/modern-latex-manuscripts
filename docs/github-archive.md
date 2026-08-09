@@ -112,6 +112,13 @@ eight changed paths / 645,231 bytes all match and the four-file consumer passes
 118,267 bytes. The existing board facts remain three named current rows and 43
 deliberately unclaimed ready/future rows; null is now contractually unclaimed,
 not unknown, and parallel claims remain nonexclusive.
+The [complete adoption-index receipt](../manifests/published-github/20260809_index_rb.json)
+then approves
+[`36e41b52`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/36e41b5213719194ab43232979c20c82046770f0):
+eleven changed paths / 679,826 bytes all match and the four-file consumer
+passes 118,886 bytes. Its exact 46-row human projection exposes 38 authors, 46
+works, 16 named series, 16 languages, and 21 corpora while remaining derived
+presentation guidance rather than a separate archive or machine contract.
 The [complete archive-r9 cycle receipt](../manifests/published-github/20260808_archive_r9_cycle_rb.json)
 replays the final versions of all ten paths changed after `7e56161f`:
 343,102 bytes, all matched.
@@ -158,14 +165,15 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The ownership-semantics source commit's bounded link audit is recorded as
-`manifests/github-custody/20260809_links_r23.json`. It covers 38 committed
+The complete adoption-index source commit's bounded link audit is recorded as
+`manifests/github-custody/20260809_links_r24.json`. It covers 39 committed
 documents: the nineteen allowed maps; the GitHub-only map, archive, reader,
 source, custody, and receipt landings; the human adoption board and workflow
-guide; and seven contributor/issue entry points. It resolves 1,183 local links
-to 793 unique targets with zero missing or prohibited targets. The reusable
-workflow and claim-auditor audits remain immutable predecessors
-`20260809_links_r22.json` and `20260809_links_r21.json`.
+guide; the complete dimension index; and seven contributor/issue entry points.
+It resolves 1,189 local links to 795 unique targets with zero missing or
+prohibited targets. The ownership, reusable-workflow, and claim-auditor audits
+remain immutable predecessors `20260809_links_r23.json`,
+`20260809_links_r22.json`, and `20260809_links_r21.json`.
 [`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it
 counts external URLs without requesting them and stops before touching a
 prohibited local target.
