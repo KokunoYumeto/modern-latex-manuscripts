@@ -11,6 +11,12 @@ the [twenty-six-cycle manifest](../github-custody/20260808_archive_r9.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
+The [Mathematics Commons adoption-layer receipt](20260809_adopt_rb.json)
+replays all nine files in source commit `5e3d60bdcef9678edea6a046ecd46765c00b8e3b`:
+257,262 bytes, all matched exactly. The corresponding JSON board is an
+operational coordination layer; the coverage maps and source/reader manifests
+remain the authoritative archive layer.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027

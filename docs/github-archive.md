@@ -9,6 +9,7 @@ readback, and where to start browsing without replaying old task transcripts.
 
 | Need | Human landing | Exact machine evidence |
 |---|---|---|
+| Adopt or independently mirror a bounded work | [Adoption board](adopt.md) | [`manifests/adopt.json`](../manifests/adopt.json) |
 | Find an author, work, or corpus | [Coverage-map index](github-maps.md) | [`20260807_maps_r5.json`](../manifests/github-custody/20260807_maps_r5.json) |
 | Open a direct reader | [Reader-shelf index](../reader-pdfs/README.md) | [`20260808_readers_r5.json`](../manifests/github-custody/20260808_readers_r5.json) |
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources_r5.csv`](../manifests/github-custody/20260807_sources_r5.csv) and [summary](../manifests/github-custody/20260807_sources_r5.json) |
@@ -44,9 +45,13 @@ readback, and where to start browsing without replaying old task transcripts.
 | GitHub catalog, map, and link maintenance | Corrected current 14,901-file / 3,681,880,509-byte source totals; 19 maps / 195,453 bytes; 1,027/1,027 local links to 758 targets; producer bytes unchanged | [`57123827`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/57123827c0b4ee9c8a6f30788341a48915ad7473), [`94665b41`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/94665b4105d18922f69b4dbdf60e0c6e44c8d2ef), [`124b2b4d`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/124b2b4dd41ee9b5711e256f7118426d93131826), [`4d3a4f5a`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/4d3a4f5a7023f2b88a277e145bb04108c8e00dbc) | [`23c3f46a`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/23c3f46ab53be35bcdc8572f2e42b8dba38be6bf), [combined receipt](../manifests/published-github/20260808_maps_rb.json) |
 | Current reader/source shelf closure | 14/14 reader-root and 19/19 source-root Git trees unchanged; 402 reader files / 932,575,366 bytes and 14,901 source files / 3,681,880,509 bytes preserved without blob reads; stable four-file shelf navigation binding | [`65619865`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/6561986595bddc74b4988bbf494ffa56900459b9) | [source receipt](../manifests/published-github/20260808_shelves_r7_rb.json), [publication closure](../manifests/published-github/20260808_shelves_r7_pub_rb.json) |
 | Direct-reader navigation | Unchanged 14-root, 402-file reader inventory; current two-file navigation binding; 1,038/1,038 bounded local links to 762 targets | [`fe01135c`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/fe01135c0c5bdaf6805efc030c4146e8fe9d6f54) | [`85772e34`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/85772e342e56a2844aac5c9bf17a771d0ad42d8c), [receipt](../manifests/published-github/20260808_readers_r5_rb.json) |
+| Mathematics Commons adoption layer | 21 stable author/work rows: 3 current, 14 ready for adoption, and 4 future; archive maps remain authoritative; one human board, JSON feed, and issue interface | [`5e3d60bd`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/5e3d60bdcef9678edea6a046ecd46765c00b8e3b) | [receipt](../manifests/published-github/20260809_adopt_rb.json) |
 
 The [current twenty-six-cycle archive-history receipt](../manifests/published-github/20260808_archive_r9_rb.json)
 replays all five files in its publication commit: 291,841 bytes, all matched.
+The [adoption-layer receipt](../manifests/published-github/20260809_adopt_rb.json)
+replays all nine files in its source commit: 257,262 bytes, all matched. It is
+an operational supplement; it does not replace the archive manifests or maps.
 The [complete archive-r9 cycle receipt](../manifests/published-github/20260808_archive_r9_cycle_rb.json)
 replays the final versions of all ten paths changed after `7e56161f`:
 343,102 bytes, all matched.
@@ -93,12 +98,12 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The current bounded link audit is recorded as
-`manifests/github-custody/20260808_links_r11.json`. It covers 34 committed
+The adoption source commit's bounded link audit is recorded as
+`manifests/github-custody/20260809_links_r12.json`. It covers 36 committed
 documents: the nineteen allowed maps; the GitHub-only map, archive, reader,
-source, custody, and receipt landings; and six contributor/issue entry points.
-It resolves the exact local-link set recorded in that generation with zero
-missing or prohibited targets.
+source, custody, and receipt landings; the human adoption board; and seven
+contributor/issue entry points. It resolves 1,094 local links to 776 unique
+targets with zero missing or prohibited targets.
 [`check-links.ps1`](../scripts/check-links.ps1) resolves local targets only; it
 counts external URLs without requesting them and stops before touching a
 prohibited local target.
