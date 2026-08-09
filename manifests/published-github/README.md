@@ -38,6 +38,12 @@ future), binds both operational queue sources and all 19 maps, and requires a
 human-approved exact commit for ingestion. Floating `main` is only a locator;
 board, schema, validation, and map manifest must come from one revision.
 
+The [human Board-ID receipt](20260809_adopt_ids_rb.json) replays all eight
+files in source commit `ce8dc207e732530ec8fccc6d1d012ec415ef8ec4`:
+487,621 bytes, all matched exactly. All 46 JSON item IDs now appear exactly
+once in the human board, and the bounded validator rejects missing, unknown,
+or duplicate human rows.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
