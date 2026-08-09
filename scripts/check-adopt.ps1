@@ -172,8 +172,46 @@ Test-RepoPath -Path $board.human_board -Context 'human_board' -Required $true
 foreach ($name in @('coverage_maps', 'reader_shelf', 'source_shelf', 'archive_history')) {
     Test-RepoPath -Path $board.archive_authority.$name -Context "archive_authority.$name" -Required $true
 }
+Test-RepoPath -Path $board.map_manifest -Context 'map_manifest' -Required $true
 if (-not ([string]$board.claim_interface).StartsWith('https://github.com/', [StringComparison]::Ordinal)) {
     Add-Error 'claim_interface must be a GitHub HTTPS URL.'
+}
+
+$mapManifestPath = [string]$board.map_manifest
+$mapManifestFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $mapManifestPath))
+$mapManifestBytes = if ([IO.File]::Exists($mapManifestFull)) { [IO.File]::ReadAllBytes($mapManifestFull) } else { [byte[]]@() }
+$mapManifest = $null
+if ($mapManifestBytes.Length -gt 0) {
+    if ($mapManifestBytes.Length -ge 3 -and
+        $mapManifestBytes[0] -eq 0xEF -and
+        $mapManifestBytes[1] -eq 0xBB -and
+        $mapManifestBytes[2] -eq 0xBF) {
+        Add-Error 'map_manifest contains a UTF-8 BOM.'
+    }
+    if ($utf8.GetString($mapManifestBytes).Contains("`r")) {
+        Add-Error 'map_manifest must use LF line endings.'
+    }
+    try {
+        $mapManifest = $utf8.GetString($mapManifestBytes) | ConvertFrom-Json -Depth 100 -DateKind String
+    } catch {
+        Add-Error "map_manifest is not valid JSON: $($_.Exception.Message)"
+    }
+}
+
+$requiredMaps = [string[]]@($board.required_maps)
+Test-UniqueStrings -Values $requiredMaps -Context 'required_maps' -RequireNonEmpty $true
+$manifestMaps = [string[]]@()
+if ($null -ne $mapManifest) {
+    $manifestMaps = [string[]]@($mapManifest.current_map_set.files_exact | ForEach-Object { [string]$_.path })
+    if ([int]$mapManifest.current_map_set.files -ne $manifestMaps.Count) {
+        Add-Error 'map_manifest current_map_set.files does not match files_exact count.'
+    }
+    if (($requiredMaps -join "`n") -cne ($manifestMaps -join "`n")) {
+        Add-Error 'required_maps does not exactly match map_manifest current_map_set.files_exact in ordinal order.'
+    }
+}
+foreach ($path in $requiredMaps) {
+    Test-RepoPath -Path $path -Context 'required_maps' -Required $true
 }
 
 $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
@@ -225,6 +263,25 @@ foreach ($state in $stateCounts.Keys) {
     if ($stateCounts[$state] -eq 0) { Add-Error "Board has no rows for lane_state $state." }
 }
 
+$requiredMapSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($path in $requiredMaps) { [void]$requiredMapSet.Add($path) }
+$representedMapSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($item in @($board.items)) {
+    $candidatePaths = @([string]$item.archive_path) + [string[]]@($item.related_paths)
+    foreach ($path in $candidatePaths) {
+        if ([string]::IsNullOrWhiteSpace($path)) { continue }
+        $relative = $path.Split('#')[0]
+        if ($requiredMapSet.Contains($relative)) { [void]$representedMapSet.Add($relative) }
+    }
+}
+$missingRequiredMaps = [Collections.Generic.List[string]]::new()
+foreach ($path in $requiredMaps) {
+    if (-not $representedMapSet.Contains($path)) {
+        $missingRequiredMaps.Add($path)
+        Add-Error "Required coverage map has no adoption-board item reference: $path"
+    }
+}
+
 $mirrorIds = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 foreach ($mirror in @($board.mirrors)) {
     $id = [string]$mirror.id
@@ -259,6 +316,12 @@ $report = [ordered]@{
         sha256 = Get-Sha256 -Bytes $schemaBytes
         draft = [string]$schema.'$schema'
     }
+    map_manifest = [ordered]@{
+        path = $mapManifestPath.Replace('\', '/')
+        bytes = $mapManifestBytes.Length
+        sha256 = if ($mapManifestBytes.Length -gt 0) { Get-Sha256 -Bytes $mapManifestBytes } else { $null }
+        required_maps = $requiredMaps.Count
+    }
     aggregate = [ordered]@{
         items = @($board.items).Count
         mirrors = @($board.mirrors).Count
@@ -267,6 +330,9 @@ $report = [ordered]@{
         future = $stateCounts.future
         unique_item_ids = $ids.Count
         unique_mirror_ids = $mirrorIds.Count
+        required_maps = $requiredMaps.Count
+        represented_required_maps = $representedMapSet.Count
+        missing_required_maps = $missingRequiredMaps.Count
         repository_path_checks = $pathChecks
         tracked_repository_paths = $trackedPathChecks
     }
@@ -277,6 +343,8 @@ $report = [ordered]@{
         state_partitions_present = ($stateCounts.current_work -gt 0 -and $stateCounts.ready_for_adoption -gt 0 -and $stateCounts.future -gt 0)
         repository_paths_tracked = ($pathChecks -eq $trackedPathChecks)
         archive_layer_preserved = ([string]$board.board_role -ceq 'operational_layer')
+        required_map_contract = ($requiredMaps.Count -gt 0 -and ($requiredMaps -join "`n") -ceq ($manifestMaps -join "`n"))
+        required_maps_represented = ($missingRequiredMaps.Count -eq 0 -and $representedMapSet.Count -eq $requiredMaps.Count)
         external_network_queried = $false
         producer_files_mutated = $false
         compile_render_or_ocr_run = $false

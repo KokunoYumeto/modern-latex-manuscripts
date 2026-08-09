@@ -44,6 +44,11 @@ replacement.
 | High | Paul Gordan, *Vorlesungen über Invariantentheorie* I | Exact cursor | Continue after source p.28; retain the article-corpus register. See [known gaps](known-gaps.md#gordan--clebsch-gordan). |
 | High | James Clerk Maxwell, *Treatise on Electricity and Magnetism* I | Exact cursor | Continue at printed p.80 from the existing p.1–79 sequence. See the [work queue](work-queue.md#highest-value-typesetting-and-source-check-work). |
 | High | J. Willard Gibbs, *Scientific Papers* I, Paper 3 | Exact cursor | Continue after printed p.134 from the current source-witnessed sequence. See the [work queue](work-queue.md#highest-value-typesetting-and-source-check-work). |
+| High | Richard Dedekind, *Gesammelte Mathematische Werke* I | Exact cursor | Continue with item V at printed p.40; items I–IV through p.39 are already bound as the cumulative base. Start at the [Dedekind map](dedekind-map.md). |
+| High | Richard Dedekind, *Stetigkeit und irrationale Zahlen* | Exact cursor | Continue §5 after printed p.328 and finish §§5–7 through p.334/335, retaining the source-checked preface and §§1–4. Start at the [Dedekind map](dedekind-map.md). |
+| High | P. G. Lejeune Dirichlet, Werke II item XXV | Repair-ready | Repair the formula and line-level defects over printed pp.263–302 using the retained source witness and explicit repair queue. Start at the [Dirichlet map](dirichlet-map.md). |
+| High | P. G. Lejeune Dirichlet, Werke II item XXVII | Repair-ready | Produce the missing typed German source track for printed pp.309–356 and reconcile it with the existing English surface. Start at the [Dirichlet map](dirichlet-map.md). |
+| High | Bernhard Riemann, broader *Gesammelte mathematische Werke* draft | Repair-ready | Recover or produce an exact post-trim source/control package for the current 511-page reader without conflating it with stale 512-page controls. Start at the [Riemann map](riemann-map.md). |
 | High | Arthur Cayley, collected papers | Repair-ready | Choose a small range, recover its source witness, and perform a page-level glyph/source audit before re-promotion. Start at the [Cayley map](cayley-map.md). |
 | High | Erich Hecke, *Vorlesungen über die Theorie der algebraischen Zahlen* | Review-ready | Audit completeness, chapter/page resets, and publisher matter in the 184-page assembly. Start at the [additional-author map](cluster-map.md). |
 | High | Wilhelm Killing, transformation groups | Expansion-ready | The current reader is only the twelve-page second part; bind the missing parts before building an author-level reader. Start at the [additional-author map](cluster-map.md). |
@@ -51,6 +56,10 @@ replacement.
 | Medium | Hermann Minkowski, collected works II | Review-ready | Check whether the selected-paper assembly represents the intended volume, then recover source/package closure. Start at the [additional-author map](cluster-map.md). |
 | Medium | Felix Klein, collected works | Intake-ready | Turn the observed collected-works source intake into an exact volume/work register before transcription. See the [source-intake note](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json). |
 | Medium | Adolf Hurwitz, mathematical works | Intake-ready | Bind the observed source material to an exact work register and select a bounded first paper. See the [source-intake note](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json). |
+| Medium | Bernhard Riemann, selected papers | Repair-ready | Repair the selected-papers TeX ending, recover the missing source witnesses, and prove which exact reader it builds. Start at the [Riemann map](riemann-map.md). |
+| Medium | Ernst Steinitz, 1906 Euler-polyhedron note | Intake-ready | Bind the exact work and source witness as a distinct generation before transcription. Start at the [Steinitz map](steinitz-map.md). |
+| Medium | Ernst Steinitz, 1908 *Beiträge zur Analysis Situs* | Intake-ready | Bind the exact work and source witness as a distinct generation, separate from the existing 1911/1912 work. Start at the [Steinitz map](steinitz-map.md). |
+| Medium | Ernst Steinitz, existing nine-work witness recovery | Review-ready | Recover the ledgered scans, QA images, and missing 1897 source PDF by exact recorded hash; do not synthesize absent bytes. Start at the [Steinitz map](steinitz-map.md). |
 | Medium | Non-European mathematical texts | Review-ready | Check or assemble an existing direct/source-only language layer before starting any new translation. Start at the [exact map](non-european-map.md). |
 | Medium | Ukrainian applied mathematics modules | Continuation-ready | Use the closed public driver and continue only the mapped partial modules. Start at the [exact map](ukrainian-map.md). |
 
@@ -109,6 +118,13 @@ single exclusive owner. Each mirror row has `id`, `item_id`, `owner`, `scope`,
 yet been integrated into the board; it does not mean no one is working
 elsewhere.
 
+The top-level `map_manifest` points to the authoritative 19-map custody
+manifest, and `required_maps` repeats its exact ordered path set. Validation
+fails unless every required map is represented by at least one item's
+`archive_path` or `related_paths`. This keeps the operational board additive to,
+and synchronized with, the archival catalog instead of letting it become a
+second incomplete inventory.
+
 The stable raw endpoint for a Mathematics Commons consumer is:
 
 <https://raw.githubusercontent.com/KokunoYumeto/modern-latex-manuscripts/main/manifests/adopt.json>
@@ -121,4 +137,8 @@ Schema and current validation endpoints:
 Consumers should treat `lane_state` as the top-level partition and use
 `priority` only within a partition. Preserve unknown fields, accept additional
 enum values, key rows by `id`, and never reinterpret the board as the archive
-inventory. Follow `archive_path` for the authoritative coverage claim.
+inventory. Follow `archive_path` for the authoritative coverage claim. A mirror
+can ingest the raw JSON, validate it against the stable schema, reject a feed
+whose `adopt.check.json` status is not `PASS`, and materialize views by
+`lane_state`, `priority`, `readiness`, `owner`, `author`, `work`, `series`,
+`language`, or `corpus` without scraping this Markdown page.
