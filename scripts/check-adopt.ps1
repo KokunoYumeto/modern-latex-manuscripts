@@ -174,10 +174,16 @@ $expectedFields = [string[]]@(
     'updated', 'notes'
 )
 $expectedMirrorFields = [string[]]@('id', 'item_id', 'owner', 'scope', 'url', 'status', 'updated')
+$expectedWorkflowFields = [string[]]@(
+    'id', 'purpose', 'start_when', 'inputs', 'steps', 'evidence',
+    'stop_conditions', 'handback'
+)
 $boardFields = [string[]]@($board.fields)
 $mirrorFields = [string[]]@($board.mirror_fields)
+$workflowFields = [string[]]@($board.workflow_fields)
 if (($boardFields -join "`n") -cne ($expectedFields -join "`n")) { Add-Error 'Item fields are not the exact v1 ordered field contract.' }
 if (($mirrorFields -join "`n") -cne ($expectedMirrorFields -join "`n")) { Add-Error 'Mirror fields are not the exact v1 ordered field contract.' }
+if (($workflowFields -join "`n") -cne ($expectedWorkflowFields -join "`n")) { Add-Error 'Workflow fields are not the exact v1 ordered field contract.' }
 
 $expectedEnums = [ordered]@{
     lane_state = [string[]]@('current_work', 'ready_for_adoption', 'future')
@@ -211,6 +217,50 @@ $humanBoardRowIds = [Collections.Generic.List[string]]::new()
 foreach ($match in [regex]::Matches($humanBoardText, '(?m)^\| `(?<id>[a-z0-9]+(?:-[a-z0-9]+)*)` \|')) {
     $humanBoardRowIds.Add($match.Groups['id'].Value)
 }
+$workflowErrorStart = $errors.Count
+$workflowRegistryIds = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$workflowUsedIds = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$workflowRows = @($board.workflows)
+$workflowRowIds = [Collections.Generic.List[string]]::new()
+foreach ($flow in $workflowRows) {
+    $id = [string]$flow.id
+    $context = if ([string]::IsNullOrWhiteSpace($id)) { 'workflow:<missing-id>' } else { "workflow:$id" }
+    Test-ExactFields -Value $flow -Expected $expectedWorkflowFields -Context $context
+    if ($id -cnotmatch '^[a-z0-9]+(?:_[a-z0-9]+)*$') { Add-Error "$context has an invalid ID." }
+    if (-not $workflowRegistryIds.Add($id)) { Add-Error "Duplicate workflow ID: $id" }
+    $workflowRowIds.Add($id)
+    foreach ($property in @('purpose', 'start_when')) {
+        if ([string]::IsNullOrWhiteSpace([string]$flow.$property)) { Add-Error "$context has empty $property." }
+    }
+    foreach ($property in @('inputs', 'steps', 'evidence', 'stop_conditions', 'handback')) {
+        Test-UniqueStrings -Values @($flow.$property) -Context "$context $property" -RequireNonEmpty $true
+    }
+}
+$sortedWorkflowIds = [string[]]@($workflowRowIds)
+[Array]::Sort($sortedWorkflowIds, [StringComparer]::Ordinal)
+if (($workflowRowIds -join "`n") -cne ($sortedWorkflowIds -join "`n")) {
+    Add-Error 'Workflow registry IDs are not in ordinal order.'
+}
+Test-RepoPath -Path ([string]$board.human_workflows) -Context 'human_workflows' -Required $true
+$humanWorkflowsPath = [string]$board.human_workflows
+$humanWorkflowsFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $humanWorkflowsPath))
+$humanWorkflowsBytes = if ([IO.File]::Exists($humanWorkflowsFull)) { [IO.File]::ReadAllBytes($humanWorkflowsFull) } else { [byte[]]@() }
+if ($humanWorkflowsBytes.Length -ge 3 -and
+    $humanWorkflowsBytes[0] -eq 0xEF -and
+    $humanWorkflowsBytes[1] -eq 0xBB -and
+    $humanWorkflowsBytes[2] -eq 0xBF) {
+    Add-Error 'human_workflows contains a UTF-8 BOM.'
+}
+$humanWorkflowsText = $utf8.GetString($humanWorkflowsBytes)
+if ($humanWorkflowsText.Contains("`r")) { Add-Error 'human_workflows must use LF line endings.' }
+$humanWorkflowIds = [Collections.Generic.List[string]]::new()
+foreach ($match in [regex]::Matches($humanWorkflowsText, '(?m)^## `(?<id>[a-z0-9]+(?:_[a-z0-9]+)*)`$')) {
+    $humanWorkflowIds.Add($match.Groups['id'].Value)
+}
+if (($humanWorkflowIds -join "`n") -cne ($workflowRowIds -join "`n")) {
+    Add-Error 'human_workflows headings do not exactly match the workflow registry.'
+}
+$workflowContractPass = ($errors.Count -eq $workflowErrorStart)
 foreach ($name in @('coverage_maps', 'reader_shelf', 'source_shelf', 'archive_history')) {
     Test-RepoPath -Path $board.archive_authority.$name -Context "archive_authority.$name" -Required $true
 }
@@ -421,6 +471,16 @@ foreach ($item in @($board.items)) {
     Test-UniqueStrings -Values @($item.related_paths) -Context "$context related_paths" -RequireNonEmpty $false
     Test-UniqueStrings -Values @($item.prerequisites) -Context "$context prerequisites" -RequireNonEmpty $true
     Test-UniqueStrings -Values @($item.workflow) -Context "$context workflow" -RequireNonEmpty $true
+    foreach ($workflowId in @($item.workflow)) {
+        $token = [string]$workflowId
+        if (-not $workflowRegistryIds.Contains($token)) {
+            Add-Error "$context refers to unknown workflow: $token"
+            $workflowContractPass = $false
+        }
+        else {
+            [void]$workflowUsedIds.Add($token)
+        }
+    }
     if ([string]$item.claim_url -cne [string]$board.claim_interface) { Add-Error "$context claim_url differs from claim_interface." }
 
     switch ([string]$item.lane_state) {
@@ -441,6 +501,15 @@ foreach ($item in @($board.items)) {
     Test-RepoPath -Path $item.archive_path -Context "$context archive_path" -Required ([string]$item.lane_state -cne 'future')
     foreach ($path in @($item.related_paths)) {
         Test-RepoPath -Path ([string]$path) -Context "$context related_paths" -Required $true
+    }
+}
+
+$unreferencedWorkflowIds = [Collections.Generic.List[string]]::new()
+foreach ($workflowId in $workflowRowIds) {
+    if (-not $workflowUsedIds.Contains($workflowId)) {
+        $unreferencedWorkflowIds.Add($workflowId)
+        Add-Error "Workflow registry entry is not used by any board row: $workflowId"
+        $workflowContractPass = $false
     }
 }
 
@@ -552,6 +621,13 @@ $report = [ordered]@{
         sha256 = if ($humanBoardBytes.Length -gt 0) { Get-Sha256 -Bytes $humanBoardBytes } else { $null }
         rows = $humanBoardRowIds.Count
     }
+    human_workflows = [ordered]@{
+        path = $humanWorkflowsPath.Replace('\', '/')
+        bytes = $humanWorkflowsBytes.Length
+        sha256 = if ($humanWorkflowsBytes.Length -gt 0) { Get-Sha256 -Bytes $humanWorkflowsBytes } else { $null }
+        flows = $workflowRowIds.Count
+        headings = $humanWorkflowIds.Count
+    }
     issue_labels = [ordered]@{
         path = $LabelPath.Replace('\', '/')
         bytes = $labelBytes.Length
@@ -591,6 +667,9 @@ $report = [ordered]@{
         tracked_repository_paths = $trackedPathChecks
         issue_labels = $expectedLabelRows.Count
         issue_label_templates = [int](($expectedLabelRows | ForEach-Object { @($_.templates).Count } | Measure-Object -Sum).Sum)
+        workflow_registry = $workflowRegistryIds.Count
+        workflow_tokens_used = $workflowUsedIds.Count
+        unreferenced_workflows = $unreferencedWorkflowIds.Count
     }
     checks = [ordered]@{
         exact_item_field_contract = -not (@($errors | Where-Object { $_ -like '*field*' }).Count)
@@ -617,6 +696,12 @@ $report = [ordered]@{
             [string]$board.handback_interface -ceq $expectedHandbackInterface
         )
         issue_label_contract = $issueLabelContractPass
+        workflow_registry_contract = (
+            $workflowContractPass -and
+            $workflowRegistryIds.Count -eq $workflowUsedIds.Count -and
+            $workflowRowIds.Count -eq $humanWorkflowIds.Count -and
+            $unreferencedWorkflowIds.Count -eq 0
+        )
         snapshot_policy_contract = (
             [string]$board.snapshot_policy.stable_locator_ref -ceq 'main' -and
             [string]$board.snapshot_policy.immutable_unit -ceq 'human_approved_exact_commit' -and

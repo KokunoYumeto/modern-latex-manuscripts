@@ -19,6 +19,7 @@ $documents = [string[]]@(
     '.github/pull_request_template.md',
     'CONTRIBUTING.md',
     'docs/adopt.md',
+    'docs/adopt-flows.md',
     'docs/cayley-map.md',
     'docs/classical-map.md',
     'docs/cluster-map.md',

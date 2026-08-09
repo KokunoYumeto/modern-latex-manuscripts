@@ -22,6 +22,9 @@
     "claim_auditor",
     "claim_interface",
     "handback_interface",
+    "human_workflows",
+    "workflow_fields",
+    "workflows",
     "enums",
     "fields",
     "mirror_fields",
@@ -144,6 +147,32 @@
     },
     "handback_interface": {
       "const": "https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml"
+    },
+    "human_workflows": {
+      "const": "docs/adopt-flows.md"
+    },
+    "workflow_fields": {
+      "type": "array",
+      "prefixItems": [
+        { "const": "id" },
+        { "const": "purpose" },
+        { "const": "start_when" },
+        { "const": "inputs" },
+        { "const": "steps" },
+        { "const": "evidence" },
+        { "const": "stop_conditions" },
+        { "const": "handback" }
+      ],
+      "items": false,
+      "minItems": 8,
+      "maxItems": 8
+    },
+    "workflows": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/workflow"
+      }
     },
     "enums": {
       "type": "object",
@@ -280,6 +309,55 @@
         "pattern": "^(?![A-Za-z]:|/|\\\\)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
       },
       "uniqueItems": true
+    },
+    "workflow": {
+      "type": "object",
+      "required": [
+        "id",
+        "purpose",
+        "start_when",
+        "inputs",
+        "steps",
+        "evidence",
+        "stop_conditions",
+        "handback"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$" },
+        "purpose": { "type": "string", "minLength": 1 },
+        "start_when": { "type": "string", "minLength": 1 },
+        "inputs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "steps": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "stop_conditions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "handback": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "additionalProperties": false
     },
     "item": {
       "type": "object",

@@ -25,6 +25,10 @@ shows declared claims and handbacks under the tracked
 [workflow-label contract](.github/labels.json). The read-only
 [`check-claims.py`](scripts/check-claims.py) auditor validates that queue
 against one human-approved board commit.
+The board also embeds exact start/input/step/evidence/stop/handback contracts
+for every workflow token. The concise
+[workflow guide](docs/adopt-flows.md) makes those protocols readable and
+mirrorable without expanding the four-file machine-ingestion boundary.
 
 For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
 
