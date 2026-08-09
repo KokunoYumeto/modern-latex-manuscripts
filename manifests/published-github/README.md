@@ -11,6 +11,20 @@ the [twenty-six-cycle manifest](../github-custody/20260808_archive_r9.json),
 the [human archive history](../../docs/github-archive.md), and the
 [custody-index landing](../github-custody/README.md).
 
+The [sparse continuous-validation receipt](20260809_adopt_ci_rb.json) approves
+source commit `ae59d85d406d52448eacc0794916b34c8189a739`: all ten changed
+paths / 734,367 public bytes matched exactly, both public refs resolved to the
+source, and GitHub Actions run
+[`31321920964`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31321920964)
+passed every step. The SHA-pinned, read-only workflow checks the board/schema/
+map contract, exact local consumer, missing-promisor behavior, and valid plus
+invalid claim fixtures through a blobless sparse metadata checkout; it does
+not materialize or build the corpus.
+The no-lazy-fetch correction first shipped in
+[`24fe25af`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/24fe25af7e593dee03280c46cf941ec6d83a4f84)
+and has an [11/11 raw correction receipt](20260809_claims_offline_rb.json); the
+current workflow keeps that promisor-missing-blob regression active.
+
 The [Mathematics Commons adoption-layer receipt](20260809_adopt_rb.json)
 replays all nine files in source commit `5e3d60bdcef9678edea6a046ecd46765c00b8e3b`:
 257,262 bytes, all matched exactly. The corresponding JSON board is an
