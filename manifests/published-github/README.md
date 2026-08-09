@@ -66,6 +66,13 @@ validator passes 46 items, 122 tracked paths, both interfaces, and errors0.
 The handback captures state, achieved scope, output/manifest identities,
 checks and failures, continuation cursor, and reusable workflow findings.
 
+The [workflow-label receipt](20260809_labels_rb.json) replays all six files in
+source commit `075c38f2cf60b9d935469093b395623dd40f3ffa`:
+516,329 bytes, all matched exactly. It separately records anonymous public API
+equality for the four labels required by six issue templates. The validator
+passes 46 items, 129 tracked paths, labels4/templates6, and errors0; no issue or
+producer byte changed.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
