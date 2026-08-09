@@ -4,9 +4,12 @@
 from __future__ import annotations
 
 import argparse
+from collections.abc import Callable
 import hashlib
 import json
+from pathlib import Path
 import re
+import subprocess
 import sys
 import time
 import urllib.error
@@ -56,6 +59,42 @@ def fetch(repository: str, commit: str, path: str) -> bytes:
     raise RuntimeError(f"could not fetch {path}: {last_error}")
 
 
+class GitObjectSource:
+    """Read exact blobs from one commit in a local Git object database."""
+
+    def __init__(self, repository_path: str, commit: str) -> None:
+        resolved_path = Path(repository_path).resolve(strict=True)
+        if not resolved_path.is_dir():
+            raise RuntimeError(
+                "--git must name a checkout or bare-repository root directory"
+            )
+        self.repository_path = str(resolved_path)
+        result = self._run("rev-parse", "--verify", f"{commit}^{{commit}}")
+        resolved = result.stdout.decode("ascii", errors="strict").strip().lower()
+        if resolved != commit.lower():
+            raise RuntimeError("local Git repository did not resolve the approved commit exactly")
+        self.commit = resolved
+
+    def _run(self, *arguments: str) -> subprocess.CompletedProcess[bytes]:
+        result = subprocess.run(
+            ["git", "-C", self.repository_path, *arguments],
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            check=False,
+        )
+        if result.returncode != 0:
+            diagnostic = result.stderr.decode("utf-8", errors="replace").strip()
+            if len(diagnostic) > 240:
+                diagnostic = diagnostic[:237] + "..."
+            raise RuntimeError(f"local Git object read failed: {diagnostic or 'unknown error'}")
+        return result
+
+    def fetch(self, _repository: str, commit: str, path: str) -> bytes:
+        if commit.lower() != self.commit:
+            raise RuntimeError("local Git source commit changed during validation")
+        return self._run("cat-file", "blob", f"{self.commit}:{path}").stdout
+
+
 def parse_json(path: str, data: bytes) -> object:
     if data.startswith(b"\xef\xbb\xbf"):
         raise RuntimeError(f"{path} contains a UTF-8 BOM")
@@ -88,10 +127,17 @@ def require_relative_json_path(path: object) -> str:
     return path
 
 
-def validate_snapshot(repository: str, commit: str) -> tuple[bytes, dict[str, object]]:
-    board_bytes = fetch(repository, commit, BOARD_PATH)
-    schema_bytes = fetch(repository, commit, SCHEMA_PATH)
-    check_bytes = fetch(repository, commit, CHECK_PATH)
+FetchFunction = Callable[[str, str, str], bytes]
+
+
+def validate_snapshot(
+    repository: str,
+    commit: str,
+    fetcher: FetchFunction = fetch,
+) -> tuple[bytes, dict[str, object]]:
+    board_bytes = fetcher(repository, commit, BOARD_PATH)
+    schema_bytes = fetcher(repository, commit, SCHEMA_PATH)
+    check_bytes = fetcher(repository, commit, CHECK_PATH)
     board = parse_json(BOARD_PATH, board_bytes)
     schema = parse_json(SCHEMA_PATH, schema_bytes)
     check = parse_json(CHECK_PATH, check_bytes)
@@ -102,7 +148,7 @@ def validate_snapshot(repository: str, commit: str) -> tuple[bytes, dict[str, ob
         raise RuntimeError("validation must have status PASS and errors []")
 
     map_path = require_relative_json_path(board.get("map_manifest"))
-    map_bytes = fetch(repository, commit, map_path)
+    map_bytes = fetcher(repository, commit, map_path)
     parse_json(map_path, map_bytes)
 
     same_commit_paths = [BOARD_PATH, SCHEMA_PATH, CHECK_PATH, map_path]
@@ -182,6 +228,14 @@ def main() -> int:
         help="Repeat the exact approved commit; floating refs are rejected",
     )
     parser.add_argument("--repository", default=DEFAULT_REPOSITORY)
+    parser.add_argument(
+        "--git",
+        metavar="PATH",
+        help=(
+            "Read exact blobs from this local Git repository instead of the network; "
+            "dirty working-tree bytes are ignored"
+        ),
+    )
     args = parser.parse_args()
 
     if not COMMIT_RE.fullmatch(args.commit):
@@ -195,7 +249,13 @@ def main() -> int:
         parser.error("--repository must have the form owner/name")
 
     try:
-        board_bytes, summary = validate_snapshot(args.repository, commit)
+        source = GitObjectSource(args.git, commit) if args.git else None
+        board_bytes, summary = validate_snapshot(
+            args.repository,
+            commit,
+            source.fetch if source is not None else fetch,
+        )
+        summary["transport"] = "local_git_object_database" if source else "raw_github"
     except Exception as error:  # one concise fail-closed public interface
         print(f"ERROR: {error}", file=sys.stderr)
         return 1

@@ -223,16 +223,30 @@ the four contract files.
 
 The top-level `consumer_helper` points to
 [`scripts/get-adopt.py`](../scripts/get-adopt.py). Run the helper from the same
-human-approved checkout whose board is being considered. It requires the exact
-40-hex commit twice, fetches only the four contract files at that commit,
-replays their declared identities, validates the board with Draft 2020-12, and
-emits the original validated board bytes to standard output. It never resolves
-or accepts `main` as input:
+human-approved snapshot whose board is being considered. `consumer_modes`
+declares two fail-closed transports: `raw_github` and
+`local_git_object_database`. Both require the exact 40-hex commit twice, read
+only the same four contract files at that commit, replay their declared
+identities, validate the board with Draft 2020-12, and emit the original
+validated board bytes to standard output. Neither resolves or accepts `main`
+as input. Online use is:
 
 ```console
 git switch --detach <COMMIT>
 python scripts/get-adopt.py --commit <COMMIT> --approve <COMMIT> > board.json
 ```
+
+An offline Commons adapter can point the same helper at a local checkout or
+bare mirror whose object database already contains the approved commit:
+
+```console
+python scripts/get-adopt.py --commit <COMMIT> --approve <COMMIT> --git <LOCAL-REPOSITORY-ROOT> > board.json
+```
+
+Offline mode reads `commit:path` Git blobs directly. It ignores dirty or
+untracked working-tree bytes and performs no network request. Pass the checkout
+or bare-repository root, not a linked worktree's `.git` indirection file. The
+extra transport does not add a fifth machine-contract identity.
 
 The helper requires the Python `jsonschema` package. A nonzero exit means the
 output must not be ingested.
@@ -287,9 +301,10 @@ Do not ingest directly from those three floating URLs. A safe consumer must:
 
 1. Resolve `main` to one exact 40-character commit and require a human to
    approve that commit for ingestion.
-2. Fetch `manifests/adopt.json`, `manifests/adopt.schema.json`,
+2. Read `manifests/adopt.json`, `manifests/adopt.schema.json`,
    `manifests/adopt.check.json`, and the board's referenced `map_manifest` from
-   that same exact commit, using commit-pinned raw URLs.
+   that same exact commit, using either commit-pinned raw URLs or exact Git
+   blobs from a local object database that already contains the commit.
 3. Require validation `status == "PASS"` and `errors == []`. Then replay the
    declared byte lengths and SHA-256 identities for the board, schema, and map
    manifest against the same-commit responses. The validation file itself is

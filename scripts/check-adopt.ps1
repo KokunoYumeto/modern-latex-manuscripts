@@ -550,10 +550,32 @@ foreach ($path in $snapshotPaths) {
     Test-RepoPath -Path $path -Context 'snapshot_policy.same_commit_paths' -Required $true
 }
 $expectedConsumerHelper = 'scripts/get-adopt.py'
+$consumerHelperContractPass = $true
 if ([string]$board.consumer_helper -cne $expectedConsumerHelper) {
     Add-Error 'consumer_helper does not match the exact v1 helper path.'
+    $consumerHelperContractPass = $false
 }
 Test-RepoPath -Path ([string]$board.consumer_helper) -Context 'consumer_helper' -Required $true
+$expectedConsumerModes = [string[]]@('raw_github', 'local_git_object_database')
+$consumerModes = [string[]]@($board.consumer_modes)
+Test-UniqueStrings -Values $consumerModes -Context 'consumer_modes' -RequireNonEmpty $true
+if (($consumerModes -join "`n") -cne ($expectedConsumerModes -join "`n")) {
+    Add-Error 'consumer_modes does not match the exact online/offline transport contract.'
+    $consumerHelperContractPass = $false
+}
+$consumerHelperFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $expectedConsumerHelper))
+if ([IO.File]::Exists($consumerHelperFull)) {
+    $consumerHelperText = $utf8.GetString([IO.File]::ReadAllBytes($consumerHelperFull))
+    foreach ($token in @('GitObjectSource', '--git', 'cat-file', 'local_git_object_database', 'raw_github')) {
+        if (-not $consumerHelperText.Contains($token, [StringComparison]::Ordinal)) {
+            Add-Error "consumer_helper is missing required transport token: $token"
+            $consumerHelperContractPass = $false
+        }
+    }
+}
+else {
+    $consumerHelperContractPass = $false
+}
 $expectedClaimAuditor = 'scripts/check-claims.py'
 if ([string]$board.claim_auditor -cne $expectedClaimAuditor) {
     Add-Error 'claim_auditor does not match the exact v1 auditor path.'
@@ -802,6 +824,7 @@ $report = [ordered]@{
         mixed_revisions_forbidden = [bool]$board.snapshot_policy.mixed_revisions_forbidden
     }
     consumer_helper = [string]$board.consumer_helper
+    consumer_modes = @($consumerModes)
     claim_auditor = [string]$board.claim_auditor
     ownership_policy = [ordered]@{
         named_owner_required_for = @($board.ownership_policy.named_owner_required_for)
@@ -842,6 +865,7 @@ $report = [ordered]@{
         tracked_repository_paths = $trackedPathChecks
         issue_labels = $expectedLabelRows.Count
         issue_label_templates = [int](($expectedLabelRows | ForEach-Object { @($_.templates).Count } | Measure-Object -Sum).Sum)
+        consumer_modes = $consumerModes.Count
         workflow_registry = $workflowRegistryIds.Count
         workflow_tokens_used = $workflowUsedIds.Count
         unreferenced_workflows = $unreferencedWorkflowIds.Count
@@ -874,7 +898,11 @@ $report = [ordered]@{
             $humanIndexContractPass -and
             $actualIndexRows.Count -eq @($board.items).Count
         )
-        consumer_helper_contract = ([string]$board.consumer_helper -ceq $expectedConsumerHelper)
+        consumer_helper_contract = (
+            $consumerHelperContractPass -and
+            [string]$board.consumer_helper -ceq $expectedConsumerHelper -and
+            ($consumerModes -join "`n") -ceq ($expectedConsumerModes -join "`n")
+        )
         claim_auditor_contract = ([string]$board.claim_auditor -ceq $expectedClaimAuditor)
         contributor_interface_contract = (
             [string]$board.claim_interface -ceq $expectedClaimInterface -and
