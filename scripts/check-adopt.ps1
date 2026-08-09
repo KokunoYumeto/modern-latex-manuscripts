@@ -244,6 +244,54 @@ $humanBoardRowIds = [Collections.Generic.List[string]]::new()
 foreach ($match in [regex]::Matches($humanBoardText, '(?m)^\| `(?<id>[a-z0-9]+(?:-[a-z0-9]+)*)` \|')) {
     $humanBoardRowIds.Add($match.Groups['id'].Value)
 }
+$humanIndexErrorStart = $errors.Count
+Test-RepoPath -Path ([string]$board.human_index) -Context 'human_index' -Required $true
+$humanIndexPath = [string]$board.human_index
+$humanIndexFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $humanIndexPath))
+$humanIndexBytes = if ([IO.File]::Exists($humanIndexFull)) { [IO.File]::ReadAllBytes($humanIndexFull) } else { [byte[]]@() }
+if ($humanIndexBytes.Length -ge 3 -and
+    $humanIndexBytes[0] -eq 0xEF -and
+    $humanIndexBytes[1] -eq 0xBB -and
+    $humanIndexBytes[2] -eq 0xBF) {
+    Add-Error 'human_index contains a UTF-8 BOM.'
+}
+$humanIndexText = $utf8.GetString($humanIndexBytes)
+if ($humanIndexText.Contains("`r")) { Add-Error 'human_index must use LF line endings.' }
+$actualIndexRows = [string[]]@($humanIndexText.Split("`n") | Where-Object { $_ -cmatch '^\| `[^`]+` \|' })
+$indexKeys = [Collections.Generic.List[string]]::new()
+$indexRowsByKey = [Collections.Generic.Dictionary[string,string]]::new([StringComparer]::Ordinal)
+$indexAuthors = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$indexWorks = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$indexSeries = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$indexLanguages = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+$indexCorpora = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($item in @($board.items)) {
+    $series = if ($null -eq $item.series) { '—' } else { [string]$item.series }
+    $seriesKey = if ($null -eq $item.series) { '' } else { [string]$item.series }
+    $languageDisplay = (@($item.languages) | ForEach-Object { "``$([string]$_)``" }) -join ', '
+    $ownerDisplay = if ($null -eq $item.owner) { 'Unclaimed' } else { [string]$item.owner }
+    $key = "$( [string]$item.corpus )`t$( [string]$item.author )`t$seriesKey`t$( [string]$item.work )`t$( [string]$item.id )"
+    $row = "| ``$([string]$item.corpus)`` | $([string]$item.author) | $([string]$item.work) | $series | $languageDisplay | ``$([string]$item.lane_state)`` | $ownerDisplay | ``$([string]$item.id)`` |"
+    $indexKeys.Add($key)
+    $indexRowsByKey.Add($key, $row)
+    [void]$indexAuthors.Add([string]$item.author)
+    [void]$indexWorks.Add([string]$item.work)
+    if ($null -ne $item.series) { [void]$indexSeries.Add([string]$item.series) }
+    foreach ($language in @($item.languages)) { [void]$indexLanguages.Add([string]$language) }
+    [void]$indexCorpora.Add([string]$item.corpus)
+}
+$sortedIndexKeys = [string[]]@($indexKeys)
+[Array]::Sort($sortedIndexKeys, [StringComparer]::Ordinal)
+$expectedIndexRows = [Collections.Generic.List[string]]::new()
+foreach ($key in $sortedIndexKeys) { $expectedIndexRows.Add($indexRowsByKey[$key]) }
+if (($actualIndexRows -join "`n") -cne ($expectedIndexRows -join "`n")) {
+    Add-Error 'human_index rows do not exactly match the board dimensions and ordinal order.'
+}
+$expectedIndexFooter = "Rows: $(@($board.items).Count). Named current coordinators: $(@($board.items | Where-Object { $null -ne $_.owner }).Count). Deliberately unclaimed rows: $(@($board.items | Where-Object { $null -eq $_.owner }).Count). Claims and mirrors remain nonexclusive."
+if (-not $humanIndexText.Contains($expectedIndexFooter)) {
+    Add-Error 'human_index footer does not match board ownership totals.'
+}
+$humanIndexContractPass = ($errors.Count -eq $humanIndexErrorStart)
 $workflowErrorStart = $errors.Count
 $workflowRegistryIds = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 $workflowUsedIds = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
@@ -685,6 +733,17 @@ $report = [ordered]@{
         sha256 = if ($humanBoardBytes.Length -gt 0) { Get-Sha256 -Bytes $humanBoardBytes } else { $null }
         rows = $humanBoardRowIds.Count
     }
+    human_index = [ordered]@{
+        path = $humanIndexPath.Replace('\', '/')
+        bytes = $humanIndexBytes.Length
+        sha256 = if ($humanIndexBytes.Length -gt 0) { Get-Sha256 -Bytes $humanIndexBytes } else { $null }
+        rows = $actualIndexRows.Count
+        authors = $indexAuthors.Count
+        works = $indexWorks.Count
+        series = $indexSeries.Count
+        languages = $indexLanguages.Count
+        corpora = $indexCorpora.Count
+    }
     human_workflows = [ordered]@{
         path = $humanWorkflowsPath.Replace('\', '/')
         bytes = $humanWorkflowsBytes.Length
@@ -734,6 +793,12 @@ $report = [ordered]@{
         missing_human_board_items = $missingHumanBoardIds.Count
         unknown_human_board_ids = $unknownHumanBoardIds.Count
         duplicate_human_board_ids = $duplicateHumanBoardIds.Count
+        human_index_rows = $actualIndexRows.Count
+        human_index_authors = $indexAuthors.Count
+        human_index_works = $indexWorks.Count
+        human_index_series = $indexSeries.Count
+        human_index_languages = $indexLanguages.Count
+        human_index_corpora = $indexCorpora.Count
         repository_path_checks = $pathChecks
         tracked_repository_paths = $trackedPathChecks
         issue_labels = $expectedLabelRows.Count
@@ -761,6 +826,10 @@ $report = [ordered]@{
             $missingHumanBoardIds.Count -eq 0 -and
             $unknownHumanBoardIds.Count -eq 0 -and
             $duplicateHumanBoardIds.Count -eq 0
+        )
+        human_dimension_index_complete = (
+            $humanIndexContractPass -and
+            $actualIndexRows.Count -eq @($board.items).Count
         )
         consumer_helper_contract = ([string]$board.consumer_helper -ceq $expectedConsumerHelper)
         claim_auditor_contract = ([string]$board.claim_auditor -ceq $expectedClaimAuditor)
