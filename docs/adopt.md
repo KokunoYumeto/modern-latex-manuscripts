@@ -159,6 +159,14 @@ generation. Handbacks return an inspectable result or an explicit
 paused/withdrawn state with manifest identities, checks, cursor, and reusable
 method findings.
 
+The top-level `workflows` registry defines every token used by an item's
+`workflow` array. Each definition has the exact ordered fields `id`, `purpose`,
+`start_when`, `inputs`, `steps`, `evidence`, `stop_conditions`, and `handback`.
+Validation rejects unknown row tokens, duplicate or unused definitions,
+out-of-order definitions, empty protocol fields, and disagreement with the
+[human workflow guide](adopt-flows.md). This turns a token into a mirrorable
+protocol rather than an unexplained label.
+
 Both lifecycle forms carry the `adoption` label, so the
 [live adoption queue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues?q=is%3Aissue+label%3Aadoption)
 can be queried without scraping titles. The exact four-label workflow
@@ -179,6 +187,14 @@ The top-level `queue_sources` similarly binds `docs/known-gaps.md` and
 consumption boundary: a human-approved exact commit, four files fetched from
 that same commit, declared byte/SHA-256 replay, empty validation errors, and
 formal schema validation. Mixed revisions are forbidden.
+
+Those four files remain the complete machine-ingestion contract: the board,
+schema, validation result, and referenced map manifest. The workflow registry
+is embedded in the board and governed by the schema and validation result.
+This page and `docs/adopt-flows.md` are human guidance at the same approved
+commit, not fifth or sixth machine-contract identities. Consumers may pin them
+for presentation or review, but must not substitute either document for any of
+the four contract files.
 
 The top-level `consumer_helper` points to
 [`scripts/get-adopt.py`](../scripts/get-adopt.py). Run the helper from the same

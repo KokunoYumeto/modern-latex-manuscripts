@@ -13,6 +13,8 @@ Before starting, check:
 
 - [Adoption and mirror board](docs/adopt.md) for current work,
   ready-for-adoption work, future scopes, exact cursors, and declared mirrors;
+- [Reusable workflow protocols](docs/adopt-flows.md) for the exact start,
+  inputs, evidence, stop, and handback contract behind each board token;
 - [GitHub coverage maps](docs/github-maps.md) for the author, work, series, or corpus;
 - [GitHub reader shelves](reader-pdfs/README.md) for direct PDFs already present;
 - [GitHub source shelves](sources/README.md) for exact tracked source generations;

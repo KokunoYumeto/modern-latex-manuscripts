@@ -60,6 +60,453 @@
   "claim_auditor": "scripts/check-claims.py",
   "claim_interface": "https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml",
   "handback_interface": "https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml",
+  "human_workflows": "docs/adopt-flows.md",
+  "workflow_fields": [
+    "id",
+    "purpose",
+    "start_when",
+    "inputs",
+    "steps",
+    "evidence",
+    "stop_conditions",
+    "handback"
+  ],
+  "workflows": [
+    {
+      "id": "assembly_review",
+      "purpose": "Verify that existing units, readers, and source layers form the declared coherent assembly.",
+      "start_when": "Units or readers exist, but their order, inclusion, or build closure needs independent verification.",
+      "inputs": [
+        "one exact Git commit and bounded path set",
+        "the declared unit or member inventory",
+        "the claimed assembly scope and predecessor generation"
+      ],
+      "steps": [
+        "replay every input identity",
+        "compare included units and order with the declared scope",
+        "replay build evidence or state explicitly that no build was run",
+        "record missing, extra, duplicated, or contradictory members"
+      ],
+      "evidence": [
+        "exact inventory equality or a discrepancy ledger",
+        "build or no-build state",
+        "predecessor and resulting assembly identities"
+      ],
+      "stop_conditions": [
+        "input generation changes during the review",
+        "the claimed inventory cannot be reproduced",
+        "the scope crosses an undefined predecessor boundary"
+      ],
+      "handback": [
+        "assembly result and manifest identities",
+        "all discrepancies and reversals",
+        "exact next unresolved member or terminal statement"
+      ]
+    },
+    {
+      "id": "bounded_continuation",
+      "purpose": "Continue existing work from one exact published cursor without reopening completed scope.",
+      "start_when": "A current map names an exact next page, section, line, unit, or work boundary.",
+      "inputs": [
+        "approved predecessor commit and paths",
+        "exact starting cursor and authority identity",
+        "current decisions, terminology, and unresolved-error history"
+      ],
+      "steps": [
+        "replay the predecessor and cursor",
+        "advance one bounded coherent range",
+        "preserve numbering, structure, decisions, and contradictory evidence",
+        "stop and record the first unprocessed boundary"
+      ],
+      "evidence": [
+        "consumed and produced range identities",
+        "coverage closure for the bounded range",
+        "new decisions, failures, and corrections"
+      ],
+      "stop_conditions": [
+        "the cursor or authority cannot be reproduced",
+        "the source becomes illegible or structurally ambiguous",
+        "the bounded stopping point is reached"
+      ],
+      "handback": [
+        "exact achieved range and outputs",
+        "updated cursor and remaining gap",
+        "method findings reusable by the next continuation"
+      ]
+    },
+    {
+      "id": "bounded_pilot",
+      "purpose": "Test a workflow on a small representative range before any broad production claim.",
+      "start_when": "A corpus is valuable but source quality, method, layout, or language feasibility is not yet established.",
+      "inputs": [
+        "one exact representative source range",
+        "a stated hypothesis about the proposed method",
+        "explicit success and failure criteria"
+      ],
+      "steps": [
+        "freeze the pilot inputs",
+        "produce one small inspectable result",
+        "test source fidelity, structure, and reproducibility",
+        "separate method findings from corpus-wide claims"
+      ],
+      "evidence": [
+        "pilot input and output identities",
+        "criteria-by-criteria result",
+        "cost, failure, and method observations"
+      ],
+      "stop_conditions": [
+        "the representative source is not legally or technically accessible",
+        "the method loses mathematical structure",
+        "the pilot criteria are resolved"
+      ],
+      "handback": [
+        "pilot result and explicit disposition",
+        "recommended next bounded scope or rejection",
+        "workflow changes another mirror should reuse"
+      ]
+    },
+    {
+      "id": "bounded_repair",
+      "purpose": "Repair a named defect without silently rewriting unrelated or contradictory material.",
+      "start_when": "A map, issue, ledger, or source comparison identifies an exact defective locus.",
+      "inputs": [
+        "defective generation and exact locus",
+        "authority or reproducible defect witness",
+        "predecessor decision and correction history"
+      ],
+      "steps": [
+        "reproduce the defect",
+        "apply the smallest source-supported correction",
+        "check local dependencies and rendered or structural consequences",
+        "preserve the rejected preimage and rationale"
+      ],
+      "evidence": [
+        "before and after identities",
+        "authority-bound correction rationale",
+        "bounded regression results"
+      ],
+      "stop_conditions": [
+        "the defect cannot be reproduced",
+        "the proposed fix lacks source support",
+        "the change would require an unbounded rewrite"
+      ],
+      "handback": [
+        "corrected bytes and exact supersession",
+        "checks, residual defects, and reversals",
+        "next repair cursor or terminal statement"
+      ]
+    },
+    {
+      "id": "bounded_transcription",
+      "purpose": "Transcribe one exact source range while preserving mathematical and document structure.",
+      "start_when": "A stable page-image or text authority and an unambiguous bounded range are available.",
+      "inputs": [
+        "source identity and exact page or line range",
+        "current transcription conventions",
+        "numbering and structural context"
+      ],
+      "steps": [
+        "freeze the admitted source range",
+        "transcribe all substantive content in order",
+        "retain uncertain glyphs and structural ambiguities explicitly",
+        "verify range coverage against the source"
+      ],
+      "evidence": [
+        "source-to-target range binding",
+        "coverage and omission ledger",
+        "uncertainty and correction records"
+      ],
+      "stop_conditions": [
+        "source identity or range changes",
+        "a page or symbol cannot be responsibly resolved",
+        "the bounded terminal line is reached"
+      ],
+      "handback": [
+        "editable transcription and range manifest",
+        "unresolved glyphs, structures, and omissions",
+        "exact next source cursor"
+      ]
+    },
+    {
+      "id": "bounded_translation",
+      "purpose": "Translate one exact source-aligned range without changing mathematical scope or structure.",
+      "start_when": "A stable source transcription or authority and a bounded target-language scope exist.",
+      "inputs": [
+        "source text and authority identities",
+        "exact source and target range",
+        "terminology decisions and prior corrections"
+      ],
+      "steps": [
+        "preserve hypotheses, numbering, displays, references, and logical force",
+        "record difficult terminology and alternatives",
+        "compare the completed range against the source",
+        "keep workflow commentary outside the mathematical reader"
+      ],
+      "evidence": [
+        "source-target range alignment",
+        "terminology and reversal ledger",
+        "formula, structure, and completeness checks"
+      ],
+      "stop_conditions": [
+        "the source layer is unstable",
+        "a mathematical ambiguity cannot be resolved",
+        "the bounded stopping point is reached"
+      ],
+      "handback": [
+        "editable translation and exact source binding",
+        "difficulties, alternatives, and unresolved risks",
+        "next translation cursor or terminal statement"
+      ]
+    },
+    {
+      "id": "correction_propagation",
+      "purpose": "Propagate one verified authority correction through every affected maintained derivative.",
+      "start_when": "A correction is accepted in an authority or canonical source layer and dependent targets are known.",
+      "inputs": [
+        "accepted correction and authority evidence",
+        "dependency list of affected targets",
+        "current target generations"
+      ],
+      "steps": [
+        "freeze the correction and dependency set",
+        "update each affected target independently",
+        "preserve language-specific decisions and nonaffected bytes",
+        "record targets that cannot yet be rebased"
+      ],
+      "evidence": [
+        "per-target before and after identities",
+        "dependency closure and mismatch list",
+        "correction rationale and reversal history"
+      ],
+      "stop_conditions": [
+        "the authority correction is disputed",
+        "a target dependency cannot be proven",
+        "all declared dependent targets are disposed"
+      ],
+      "handback": [
+        "per-target propagation results",
+        "deferred or divergent targets",
+        "remaining dependency cursor"
+      ]
+    },
+    {
+      "id": "independent_mirror",
+      "purpose": "Reproduce or extend a scope independently so overlap yields comparable evidence rather than silent duplication.",
+      "start_when": "Existing work is inspectable and an independent implementation or translation would provide useful comparison.",
+      "inputs": [
+        "declared mirror scope and starting generation",
+        "independent source and method statement",
+        "overlap and non-overlap boundaries"
+      ],
+      "steps": [
+        "declare the mirror before broad production",
+        "preserve independence from the target where claimed",
+        "produce exact inspectable outputs",
+        "compare only after the independent result is frozen"
+      ],
+      "evidence": [
+        "chronology and input identities",
+        "independent output manifest",
+        "post-freeze comparison and disagreement ledger"
+      ],
+      "stop_conditions": [
+        "independence is broken before the claimed freeze",
+        "the source or scope cannot be bounded",
+        "the declared mirror range is completed or withdrawn"
+      ],
+      "handback": [
+        "mirror URL, commit, scope, and manifest",
+        "agreement, disagreement, and source adjudication",
+        "continuation, pause, return, or withdrawal state"
+      ]
+    },
+    {
+      "id": "independent_review",
+      "purpose": "Check an existing result without editing it and return reproducible findings to its owner.",
+      "start_when": "A frozen target and sufficient source or structural evidence exist for a bounded review.",
+      "inputs": [
+        "exact target commit, paths, bytes, and hashes",
+        "review scope and applicable authority",
+        "declared review criteria"
+      ],
+      "steps": [
+        "replay target identities",
+        "perform the declared source, structure, language, formula, or visual checks",
+        "separate observations from source-adjudicated findings",
+        "leave target bytes unchanged"
+      ],
+      "evidence": [
+        "reviewed target identities",
+        "criteria and per-finding locators",
+        "passes, failures, uncertainties, and reviewer limits"
+      ],
+      "stop_conditions": [
+        "target bytes differ from the declared generation",
+        "required authority is unavailable",
+        "the bounded review set is exhausted"
+      ],
+      "handback": [
+        "reproducible finding ledger",
+        "zero-change statement when no defect is found",
+        "recommended owner action without mutating the target"
+      ]
+    },
+    {
+      "id": "source_audit",
+      "purpose": "Compare a target directly against its stated ultimate or page-local authority.",
+      "start_when": "Target bytes, an authority witness, and an exact comparison range are available.",
+      "inputs": [
+        "target generation and range",
+        "source authority identity and locators",
+        "known corrections and source caveats"
+      ],
+      "steps": [
+        "bind target units to source locators",
+        "check text, formulas, numbering, tables, diagrams, and references as applicable",
+        "classify every discrepancy and nonfinding",
+        "preserve authority uncertainty separately from target error"
+      ],
+      "evidence": [
+        "locator-bound comparison rows",
+        "coverage equality and skipped-range ledger",
+        "source-supported correction candidates"
+      ],
+      "stop_conditions": [
+        "authority identity or locator mapping fails",
+        "the target generation changes",
+        "the bounded comparison range is exhausted"
+      ],
+      "handback": [
+        "audited range and authority binding",
+        "findings, nonfindings, and unresolved source questions",
+        "next source-audit cursor"
+      ]
+    },
+    {
+      "id": "source_discovery",
+      "purpose": "Locate candidate authorities for a future corpus without presenting intake as transcription or translation.",
+      "start_when": "A high-value author or work lacks a bound, inspectable source baseline.",
+      "inputs": [
+        "author and work identity",
+        "known editions, bibliographic leads, and gaps",
+        "source acceptance criteria"
+      ],
+      "steps": [
+        "search authoritative repositories and catalogs",
+        "record provenance, access, edition, completeness, and image or text quality",
+        "deduplicate candidate witnesses",
+        "recommend but do not silently promote a source"
+      ],
+      "evidence": [
+        "candidate URLs and bibliographic identities",
+        "bytes or hashes where lawfully and technically available",
+        "comparative quality and completeness notes"
+      ],
+      "stop_conditions": [
+        "no candidate meets the declared criteria",
+        "source identity or access cannot be established",
+        "a bounded intake candidate is selected"
+      ],
+      "handback": [
+        "candidate inventory and dispositions",
+        "selected intake recommendation or explicit no-source result",
+        "next discovery lead"
+      ]
+    },
+    {
+      "id": "source_intake",
+      "purpose": "Bind a discovered source into exact, reproducible custody without claiming downstream work.",
+      "start_when": "A candidate source has been selected and its provenance and scope can be recorded exactly.",
+      "inputs": [
+        "source URL or custody path and edition identity",
+        "exact bytes or remotely verifiable identity",
+        "intended author, work, and scope binding"
+      ],
+      "steps": [
+        "freeze and hash the admitted source",
+        "record page count, structure, completeness, rights notes, and defects",
+        "create deterministic locators or manifests where useful",
+        "keep OCR and derivatives distinct from authority"
+      ],
+      "evidence": [
+        "source identity and provenance receipt",
+        "scope and completeness inventory",
+        "derivative and authority separation"
+      ],
+      "stop_conditions": [
+        "source provenance is contradictory",
+        "the admitted bytes change",
+        "the bounded source custody record is complete"
+      ],
+      "handback": [
+        "source receipt and exact manifest",
+        "known defects and excluded derivatives",
+        "recommended transcription or audit cursor"
+      ]
+    },
+    {
+      "id": "source_recovery",
+      "purpose": "Recover missing or ambiguous source, build, or provenance links for preserved target bytes.",
+      "start_when": "A target exists but its authority, build inputs, member inventory, or generation lineage is incomplete.",
+      "inputs": [
+        "preserved target identity",
+        "known predecessor and candidate source evidence",
+        "the exact missing custody relation"
+      ],
+      "steps": [
+        "preserve the target unchanged",
+        "search only bounded candidate roots and public records",
+        "reconstruct candidate lineage through hashes, manifests, and build traces",
+        "distinguish proven, probable, conflicting, and missing links"
+      ],
+      "evidence": [
+        "candidate and target identity table",
+        "provenance or build-link proof",
+        "conflict and unresolved-link ledger"
+      ],
+      "stop_conditions": [
+        "the bounded candidate set is exhausted",
+        "evidence conflicts without adjudication",
+        "the missing relation is proven or explicitly remains unknown"
+      ],
+      "handback": [
+        "recovered links and proof level",
+        "unchanged target identity",
+        "remaining source or lineage cursor"
+      ]
+    },
+    {
+      "id": "table_audit",
+      "purpose": "Verify table content, ordering, headings, alignment, and source coverage independently of surrounding prose.",
+      "start_when": "A source or target contains mathematically material tables requiring dedicated structural review.",
+      "inputs": [
+        "exact table range and target generation",
+        "source pages or authoritative table data",
+        "declared row, column, heading, and continuation rules"
+      ],
+      "steps": [
+        "bind every target table to its source locator",
+        "check headings, cells, ordering, continuations, notes, and mathematical symbols",
+        "record blank, merged, repeated, or structurally ambiguous cells",
+        "separate presentation defects from content defects"
+      ],
+      "evidence": [
+        "row and column coverage ledger",
+        "cell-level discrepancy locators",
+        "table structure and continuation checks"
+      ],
+      "stop_conditions": [
+        "source table geometry cannot be resolved",
+        "the target table generation changes",
+        "all bounded table cells are disposed"
+      ],
+      "handback": [
+        "audited table set and coverage totals",
+        "cell-level findings and unresolved geometry",
+        "next table or terminal cursor"
+      ]
+    }
+  ],
   "enums": {
     "lane_state": [
       "current_work",
