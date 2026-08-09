@@ -30,6 +30,14 @@ exactly. The operational feed now has 30 rows (3 current, 23 adoption-ready,
 4 future), represents all 19 authoritative coverage maps, and retains zero
 integrated mirror claims until an inspectable mirror is actually returned.
 
+The [work-level adoption and snapshot-policy receipt](20260809_adopt_work_rb.json)
+replays all nine files in source commit
+`511a78f8d008f044466a3dc041e3c6330d442f71`: 546,693 bytes, all matched
+exactly. The successor exposes 46 rows (3 current, 38 adoption-ready, 5
+future), binds both operational queue sources and all 19 maps, and requires a
+human-approved exact commit for ingestion. Floating `main` is only a locator;
+board, schema, validation, and map manifest must come from one revision.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
