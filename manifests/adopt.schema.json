@@ -16,6 +16,8 @@
     "archive_authority",
     "map_manifest",
     "required_maps",
+    "queue_sources",
+    "snapshot_policy",
     "claim_interface",
     "enums",
     "fields",
@@ -77,6 +79,56 @@
         "type": "string",
         "pattern": "^docs/[a-z0-9]+(?:-[a-z0-9]+)*-map\\.md$"
       }
+    },
+    "queue_sources": {
+      "type": "array",
+      "prefixItems": [
+        { "const": "docs/known-gaps.md" },
+        { "const": "docs/work-queue.md" }
+      ],
+      "items": false,
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "snapshot_policy": {
+      "type": "object",
+      "required": [
+        "stable_locator_ref",
+        "immutable_unit",
+        "same_commit_paths",
+        "required_checks",
+        "mixed_revisions_forbidden"
+      ],
+      "properties": {
+        "stable_locator_ref": { "const": "main" },
+        "immutable_unit": { "const": "human_approved_exact_commit" },
+        "same_commit_paths": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "manifests/adopt.json" },
+            { "const": "manifests/adopt.schema.json" },
+            { "const": "manifests/adopt.check.json" },
+            { "const": "manifests/github-custody/20260807_maps_r5.json" }
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "required_checks": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "validation_status_pass" },
+            { "const": "validation_errors_empty" },
+            { "const": "declared_bytes_sha256_match" },
+            { "const": "schema_validation_pass" }
+          ],
+          "items": false,
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "mixed_revisions_forbidden": { "const": true }
+      },
+      "additionalProperties": false
     },
     "claim_interface": {
       "type": "string",

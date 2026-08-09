@@ -9,6 +9,12 @@ GitHub is also the operational adoption front door. The
 for adoption, and future/source-discovery scopes; links every actionable row
 back to the authoritative archive layer; and exposes a stable
 [machine-readable board](manifests/adopt.json) for Mathematics Commons tools.
+The board now exposes source-only translation layers separately so a missing
+reader cannot trigger an unnecessary retranslation. Automation must treat
+`main` as a locator only: resolve and human-approve one exact commit, fetch the
+board, schema, validation, and referenced map manifest from that same commit,
+replay declared identities, and reject mixed revisions. The full procedure is
+in the board's [Machine Interface](docs/adopt.md#machine-interface).
 
 For a concise evidence-based view of what each live translation lane has actually produced, what is public, and what remains blocked, see the [live translation fleet map](docs/live-fleet-map.md).
 
