@@ -48,6 +48,15 @@ links are explicitly discovery/provenance only, producer bytes are unchanged,
 and every one of the 66 adoption rows inherits
 `item_certification_default: no_certification_asserted`.
 
+The [scope-and-certification closure](20260809_scope_cert_close.json) binds the
+public receipt commit `01747f5ab281cf0070a8d35783a03ca743d17983`:
+all six changed paths / 511,647 bytes matched commit-pinned raw GitHub bytes,
+both maintained refs matched, Actions run
+[`31326852595`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31326852595)
+passed, and the promisor regression again failed closed without attempting its
+configured remote when a required blob was absent. The materialized four-file
+contract passed with lazy fetching disabled.
+
 The [Mathematics Commons adoption-layer receipt](20260809_adopt_rb.json)
 replays all nine files in source commit `5e3d60bdcef9678edea6a046ecd46765c00b8e3b`:
 257,262 bytes, all matched exactly. The corresponding JSON board is an
