@@ -103,6 +103,14 @@ authors, 46 works, 16 named series, 16 languages, and 21 corpora, with every
 displayed field and ordinal row order validated against `adopt.json`. The
 four-file consumer remains sufficient and passes 118,886 bytes.
 
+The [queue-synchronization receipt](20260809_queue_rb.json) approves source
+commit `3893682f02342fe2a19f4913fcf5bebdb91327fb`: all eight changed paths /
+664,933 bytes matched public raw GitHub, and the four-file consumer passes
+120,188 bytes. It binds the two operational queue sources / 93,584 bytes,
+records the exact `af0918` -> `0e12042` interface history and current commit
+roles, states the consumer helper's limits, and confirms that `docs/adopt.md`
+is human guidance rather than a fifth machine-contract identity.
+
 The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027

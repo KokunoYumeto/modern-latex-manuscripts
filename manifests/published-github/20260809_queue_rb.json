@@ -1,0 +1,145 @@
+{
+  "schema": "github-adoption-queue-readback/v1",
+  "observed_date": "2026-08-09",
+  "repository": "KokunoYumeto/modern-latex-manuscripts",
+  "approved_snapshot": {
+    "commit": "3893682f02342fe2a19f4913fcf5bebdb91327fb",
+    "tree": "dd2836bf147ca828a3d67033fc8ef9bd3d94f585",
+    "parent": "cb3b5191f3708e08f7594b3d6aaad9889e3a9f01",
+    "branch": "codex/github-maint-20260804",
+    "main_ref": "refs/heads/main"
+  },
+  "interface_history": {
+    "reviewed_predecessor": {
+      "commit": "af0918e8a8c674bec134c236e645c79a8663b5d1",
+      "tree": "8527ffac5d139f10ec5200e0b6981c71916af6a5",
+      "role": "initial reviewed adoption closure"
+    },
+    "exact_commit_consumer_source": {
+      "commit": "0e12042dd211c4bde69b99707e99881c43b68d68",
+      "tree": "290ffb4b0fd094a3d528b198389c80a7ddc6324d",
+      "role": "introduced scripts/get-adopt.py and superseded the af0918 interface content"
+    },
+    "exact_commit_consumer_evidence": {
+      "commit": "349fa1c49fb60cb6723bf8f5150bb683f89398a1",
+      "tree": "90e79125bc7bc273d5ef7d276f3ff5c805df7093",
+      "receipt": "manifests/published-github/20260809_adopt_get_rb.json",
+      "receipt_bytes": 3623,
+      "receipt_sha256": "F2B9F4268DB09936F7FB89CA7D21658C5183737BC3A7C45F7CC749B39A97E9D2"
+    },
+    "current_snapshot_supersedes_all_three": true
+  },
+  "commit_roles": {
+    "approved_content_commit": "3893682f02342fe2a19f4913fcf5bebdb91327fb",
+    "validation_run_context_commit": "cb3b5191f3708e08f7594b3d6aaad9889e3a9f01",
+    "validation_note": "adopt.check.json observed_commit records the pre-commit validation context; the approved immutable identity is the public source commit and its raw readback",
+    "map_audit_provenance_commit": "61b9d5cab6441b8fa02e34630d7145a916f0ea37",
+    "map_note": "the map manifest internal observed_commit records the map-set audit; the exact manifest bytes are fetched again from the approved adoption commit",
+    "closure_evidence": [
+      "manifests/github-custody/20260809_links_r25.json",
+      "manifests/published-github/20260809_queue_rb.json"
+    ]
+  },
+  "queue_snapshot": {
+    "files": 2,
+    "bytes": 93584,
+    "rows": [
+      { "path": "docs/known-gaps.md", "bytes": 37422, "sha256": "72125D27EDBD1C38BC1BCF70D887A976FC1AE1E39114EFBFEA00F62F3552BDC2" },
+      { "path": "docs/work-queue.md", "bytes": 56162, "sha256": "3A1431FB3DF8F18942BABAE4F411DBC156C4BC5A1742B81ECBFB74E8F087BA46" }
+    ],
+    "contract": "a change to either exact source identity requires board review and regeneration"
+  },
+  "four_file_consumer": {
+    "status": "PASS",
+    "files": 4,
+    "bytes": 120188,
+    "items": 46,
+    "mirrors": 0,
+    "schema_errors": 0,
+    "validation_errors": 0,
+    "mixed_revisions": 0,
+    "rows": [
+      { "path": "manifests/adopt.json", "bytes": 81505, "sha256": "238053B5D9EF6AE8B465BA04A3ECEFA5A885F41A9DEAB55A4DBC21AF606BBC61" },
+      { "path": "manifests/adopt.schema.json", "bytes": 16132, "sha256": "D942467911E2D037987679FBECD5A8115AAB15340B7C63D9253B167DF0115BC8" },
+      { "path": "manifests/adopt.check.json", "bytes": 4553, "sha256": "C3C974227A0C2A562AD4BB86F0AAFB75907A281826283F3B91751DAC1B81DA48" },
+      { "path": "manifests/github-custody/20260807_maps_r5.json", "bytes": 17998, "sha256": "EC0F2B625455EFA88FFC3C376C46FAD8024114F1F87819D776ACCF6837F1864D" }
+    ]
+  },
+  "human_board_invariants": {
+    "human_board": { "path": "docs/adopt.md", "bytes": 26899, "sha256": "122634A7ECA31C008C928910CAFB85F4BD8174EE47AB6850D03B4A478952D800" },
+    "workflow_registry": { "path": "docs/adopt-flows.md", "bytes": 6390, "sha256": "03A643656961C27B2AAFB8BD8E4C5DC52926B35F55E847F22B0C06AE2DECBDD2", "workflows": 14 },
+    "board_rows": 46,
+    "current_owned_rows": 3,
+    "unclaimed_rows": 43,
+    "claims_are_nonexclusive": true,
+    "current_ready_future_distinct": true,
+    "human_rows_equal_machine_items": true,
+    "machine_contract_identity": false
+  },
+  "consumer_helper": {
+    "path": "scripts/get-adopt.py",
+    "bytes": 8434,
+    "sha256": "3BD2D7CBE471D8C3F5036AD9FBB9980DBE0D44167B50DCCBF1450F6DE01A8A3C",
+    "invariants": [
+      "requires the same human-approved 40-hex commit in --commit and --approve",
+      "rejects floating refs including main",
+      "fetches all four contract files from that one commit",
+      "replays declared byte lengths and SHA-256 identities",
+      "requires validation status PASS and errors []",
+      "validates the board against Draft 2020-12",
+      "fails closed and emits the original validated board bytes only on success"
+    ],
+    "limitations": [
+      "requires Python jsonschema and anonymous access to raw.githubusercontent.com",
+      "the repeated commit argument records human approval but does not cryptographically attest who approved it",
+      "does not fetch or validate docs/adopt.md, docs/adopt-flows.md, queue-source files, issues, claims, producer artifacts, Git signatures, or repository history",
+      "parses the referenced map manifest and verifies its exact file identity but does not recrawl every map target",
+      "has bounded network retries but no cache, offline bundle mode, or alternate transport"
+    ]
+  },
+  "source_raw_readback": {
+    "files": 8,
+    "bytes": 664933,
+    "matches": 8,
+    "mismatches": 0,
+    "errors": 0,
+    "rows": [
+      { "path": "README.md", "bytes": 120357, "sha256": "1EE516C01B44DC52797028FBD038FCF44BF6B99651B842F5BE33CB0BDB6DDDB9" },
+      { "path": "docs/adopt.md", "bytes": 26899, "sha256": "122634A7ECA31C008C928910CAFB85F4BD8174EE47AB6850D03B4A478952D800" },
+      { "path": "manifests/adopt.check.json", "bytes": 4553, "sha256": "C3C974227A0C2A562AD4BB86F0AAFB75907A281826283F3B91751DAC1B81DA48" },
+      { "path": "manifests/adopt.json", "bytes": 81505, "sha256": "238053B5D9EF6AE8B465BA04A3ECEFA5A885F41A9DEAB55A4DBC21AF606BBC61" },
+      { "path": "manifests/adopt.schema.json", "bytes": 16132, "sha256": "D942467911E2D037987679FBECD5A8115AAB15340B7C63D9253B167DF0115BC8" },
+      { "path": "manifests/github-custody/20260806_log.json", "bytes": 24852, "sha256": "D72FEE65E5EAEA1E3A7A465BAE66D81588761AD1320A10F9296311A48E70A12A" },
+      { "path": "manifests/github-custody/log.jsonl", "bytes": 344315, "sha256": "DE03AE2FFA9C7F034DAE388161C28204CE2893EE9AD598A1CE293FF4E04FB885" },
+      { "path": "scripts/check-adopt.ps1", "bytes": 46320, "sha256": "493DC3ECC720D9CBA663AA3B7E86DB561A913A330E6F4485A6F4ED33543155AE" }
+    ]
+  },
+  "link_audit": {
+    "path": "manifests/github-custody/20260809_links_r25.json",
+    "bytes": 10767,
+    "sha256": "5C3D6EC75B323772DEC3AB3CFF6CFE29D13D25EEB09845B8E9100050FC1B4FD0",
+    "documents": 39,
+    "document_bytes": 470298,
+    "local_links": "1192/1192",
+    "unique_targets": 796,
+    "missing": 0,
+    "prohibited": 0
+  },
+  "contract_decision": {
+    "four_file_contract_remains_sufficient": true,
+    "docs_adopt_is_a_fifth_machine_identity": false,
+    "guidance": "pin docs/adopt.md at the same commit when a human or presentation layer needs it, but do not substitute it for or add it to the four-file ingestion contract"
+  },
+  "checks": {
+    "queue_snapshot_contract": true,
+    "human_board_complete": true,
+    "human_dimension_index_complete": true,
+    "consumer_helper_contract": true,
+    "archive_layer_preserved": true,
+    "board_row_values_changed": false,
+    "producer_files_mutated": false,
+    "zenodo_network_queried": false,
+    "compile_render_or_ocr_run": false,
+    "global_filesystem_search": false
+  }
+}
