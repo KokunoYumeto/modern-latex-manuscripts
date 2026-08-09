@@ -39,6 +39,15 @@ The compact [closure receipt](20260809_scope_close.json) separately preserves
 the six-path receipt/landing commit, its 6/6 raw readback, clean validator, and
 exact-head Actions result.
 
+The [GitHub-boundary and certification receipt](20260809_scope_cert_rb.json)
+approves source commit `c97dd635325c50be69dd1695d8bd369ec68bbfa4`:
+all thirteen changed paths / 872,154 public bytes matched exactly, Actions run
+[`31326362266`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31326362266)
+passed, and the clean successor validation remains PASS/errors[]. External DOI
+links are explicitly discovery/provenance only, producer bytes are unchanged,
+and every one of the 66 adoption rows inherits
+`item_certification_default: no_certification_asserted`.
+
 The [Mathematics Commons adoption-layer receipt](20260809_adopt_rb.json)
 replays all nine files in source commit `5e3d60bdcef9678edea6a046ecd46765c00b8e3b`:
 257,262 bytes, all matched exactly. The corresponding JSON board is an
