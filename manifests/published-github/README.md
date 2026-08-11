@@ -7,7 +7,8 @@ transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
 Start with the current Stacks-pin and Commons-handback
-[source receipt](stacks-pin-r1.json), then the predecessor adoption v3
+[closure](stacks-pin-r1-close.json) and [source receipt](stacks-pin-r1.json),
+then the predecessor adoption v3
 [closure](adopt-v3-close.json) and [source receipt](adopt-v3.json), then the
 predecessor adoption v2
 [closure](adopt-v2-close.json) and [source receipt](adopt-v2.json),
@@ -21,7 +22,15 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
 
-The current Stacks-pin and Commons-handback [source receipt](stacks-pin-r1.json)
+The current Stacks-pin and Commons-handback
+[closure](stacks-pin-r1-close.json) binds receipt commit
+`5f66d4d1c8f5b578276c5515237bea74b74eb45f`: all five changed paths /
+585,847 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
+[`31493429606`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31493429606)
+passed. Together with the source generation, the additive aggregate is 44
+cycles, 3,205 observations, and 1,220,317,828 bytes with zero mismatches.
+
+The Stacks-pin and Commons-handback [source receipt](stacks-pin-r1.json)
 binds source commit `eb82a8097e72eb766a8b4125028781767f07d61c`: all
 19 changed paths / 690,910 bytes matched anonymous commit-pinned raw GitHub
 bytes, and Actions run
@@ -47,7 +56,7 @@ additive aggregate through the source is 41 cycles, 3,175 observations, and
 1,218,417,596 bytes with zero mismatches; no producer, corpus, or Zenodo byte
 changed.
 
-The current adoption v3 [closure](adopt-v3-close.json) binds receipt commit
+The predecessor adoption v3 [closure](adopt-v3-close.json) binds receipt commit
 `fa1a8d224e2bc4325a6ebf3e56bb593fc6b6f6bc`: all six changed paths /
 623,475 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
 [`31488866912`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31488866912)
