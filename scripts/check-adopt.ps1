@@ -241,6 +241,38 @@ if ([bool]$board.ownership_policy.claims_are_nonexclusive -ne $true) {
     $ownershipContractPass = $false
 }
 
+$stacksReferenceLayerContractPass = $true
+$stacksErrorStart = $errors.Count
+$stacks = $board.stacks_reference_layer
+$expectedStacksFields = [string[]]@(
+    'status', 'human_spec', 'governance', 'upstream', 'layer_order',
+    'overlay_contents', 'modified_edition', 'compatibility_targets',
+    'public_evidence', 'write_boundary'
+)
+Test-ExactFields -Value $stacks -Expected $expectedStacksFields -Context 'stacks_reference_layer'
+$expectedStacksUpstreamFields = [string[]]@('role', 'repository_binding', 'pin_status', 'acceptance_dependency', 'endorsement_implied')
+$expectedStacksModifiedEditionFields = [string[]]@('optional', 'license', 'distinct_title_required', 'attribution_required', 'license_and_history_notices_required', 'upstream_endorsement_forbidden')
+$expectedStacksEvidenceFields = [string[]]@('repository_binding', 'pull_requests', 'state', 'same_timestamp', 'public_comments', 'public_reviews', 'motive_inference')
+Test-ExactFields -Value $stacks.upstream -Expected $expectedStacksUpstreamFields -Context 'stacks_reference_layer.upstream'
+Test-ExactFields -Value $stacks.modified_edition -Expected $expectedStacksModifiedEditionFields -Context 'stacks_reference_layer.modified_edition'
+Test-ExactFields -Value $stacks.public_evidence -Expected $expectedStacksEvidenceFields -Context 'stacks_reference_layer.public_evidence'
+if ([string]$stacks.status -cne 'architecture_adopted_no_overlay_bytes') { Add-Error 'Stacks layer status must remain architecture-only until exact implementation bytes are bound.'; $stacksReferenceLayerContractPass = $false }
+if ([string]$stacks.governance -cne 'mathematics_commons_independent') { Add-Error 'Stacks layer governance must remain independent under Mathematics Commons.'; $stacksReferenceLayerContractPass = $false }
+if ([string]$stacks.upstream.role -cne 'respected_pinned_read_only_source_and_sync_target') { Add-Error 'Stacks upstream role must remain pinned and read-only.'; $stacksReferenceLayerContractPass = $false }
+if ([string]$stacks.upstream.repository_binding -cne 'not_supplied_do_not_infer' -or [string]$stacks.upstream.pin_status -cne 'required_not_yet_bound') { Add-Error 'Stacks upstream repository and pin must remain explicitly unbound until exact intake.'; $stacksReferenceLayerContractPass = $false }
+if ($stacks.upstream.acceptance_dependency -cne $false -or $stacks.upstream.endorsement_implied -cne $false) { Add-Error 'Stacks upstream acceptance or endorsement cannot gate the Commons layer.'; $stacksReferenceLayerContractPass = $false }
+$expectedStacksLayers = [string[]]@('upstream_pin', 'commons_overlay', 'composed_build', 'optional_modified_edition', 'periodic_upstream_sync')
+if ((@($stacks.layer_order) -join "`n") -cne ($expectedStacksLayers -join "`n")) { Add-Error 'Stacks layer order differs from the five-layer architecture.'; $stacksReferenceLayerContractPass = $false }
+$expectedOverlayContents = [string[]]@('original additions', 'historical-source mappings', 'provenance', 'corrections', 'multilingual semantic links', 'stable Commons IDs', 'tests', 'review receipts')
+if ((@($stacks.overlay_contents) -join "`n") -cne ($expectedOverlayContents -join "`n")) { Add-Error 'Stacks overlay content contract is incomplete or reordered.'; $stacksReferenceLayerContractPass = $false }
+if ($stacks.modified_edition.optional -cne $true -or [string]$stacks.modified_edition.license -cne 'GFDL_compliant' -or $stacks.modified_edition.distinct_title_required -cne $true -or $stacks.modified_edition.attribution_required -cne $true -or $stacks.modified_edition.license_and_history_notices_required -cne $true -or $stacks.modified_edition.upstream_endorsement_forbidden -cne $true) { Add-Error 'Stacks optional modified-edition contract is incomplete.'; $stacksReferenceLayerContractPass = $false }
+$expectedCompatibility = [string[]]@('sTeX/MMT', 'Lean Blueprint', 'formal-proof exports')
+if ((@($stacks.compatibility_targets) -join "`n") -cne ($expectedCompatibility -join "`n")) { Add-Error 'Stacks compatibility targets differ from the architectural decision.'; $stacksReferenceLayerContractPass = $false }
+if ([string]$stacks.public_evidence.repository_binding -cne 'not_supplied_do_not_infer' -or (@($stacks.public_evidence.pull_requests) -join ',') -cne '196,197' -or [string]$stacks.public_evidence.state -cne 'closed_unmerged' -or $stacks.public_evidence.same_timestamp -cne $true -or [int]$stacks.public_evidence.public_comments -ne 0 -or [int]$stacks.public_evidence.public_reviews -ne 0 -or [string]$stacks.public_evidence.motive_inference -cne 'forbidden') { Add-Error 'Stacks public-evidence boundary differs from the controlling handoff.'; $stacksReferenceLayerContractPass = $false }
+if ([string]$stacks.write_boundary -cne 'commons_owned_namespaces_only') { Add-Error 'Stacks writes must remain inside Commons-owned namespaces.'; $stacksReferenceLayerContractPass = $false }
+Test-RepoPath -Path ([string]$stacks.human_spec) -Context 'stacks_reference_layer.human_spec' -Required $true
+if ($errors.Count -ne $stacksErrorStart) { $stacksReferenceLayerContractPass = $false }
+
 Test-RepoPath -Path $board.human_board -Context 'human_board' -Required $true
 $humanBoardPath = [string]$board.human_board
 $humanBoardFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $humanBoardPath))
@@ -738,6 +770,7 @@ $namedOwnerRows = 0
 $unclaimedOwnerRows = 0
 $weberFrontierContractPass = $false
 $steinitz1906FrontierContractPass = $false
+$stacksItemContractPass = $false
 $requiredRowFields = $expectedFields
 foreach ($item in @($board.items)) {
     $id = [string]$item.id
@@ -826,6 +859,22 @@ foreach ($item in @($board.items)) {
         $steinitz1906FrontierContractPass = $cursorPass
     }
 
+    if ($id -ceq 'stacks-commons-layer') {
+        $cursor = [string]$item.next_cursor
+        $requiredCursorTokens = [string[]]@('coordinate one Commons namespace writer', 'bind the exact upstream repository', 'applicable license', 'commit in a read-only mirror', 'first namespaced overlay manifest')
+        $cursorPass = $true
+        foreach ($token in $requiredCursorTokens) {
+            if (-not $cursor.Contains($token, [StringComparison]::Ordinal)) {
+                Add-Error "item:stacks-commons-layer next_cursor is missing required architecture token: $token"
+                $cursorPass = $false
+            }
+        }
+        if ([string]$item.coverage_state -cne 'architecture_adopted_no_upstream_pin_or_overlay_bytes') { Add-Error 'item:stacks-commons-layer must not claim implementation bytes.'; $cursorPass = $false }
+        if ([string]$item.owner -cne 'Mathematics Commons') { Add-Error 'item:stacks-commons-layer must name Mathematics Commons governance.'; $cursorPass = $false }
+        if (-not (@($item.workflow) -ccontains 'upstream_overlay_sync')) { Add-Error 'item:stacks-commons-layer must use upstream_overlay_sync.'; $cursorPass = $false }
+        $stacksItemContractPass = $cursorPass
+    }
+
     switch ([string]$item.lane_state) {
         'current_work' {
             if ([string]::IsNullOrWhiteSpace([string]$item.owner)) {
@@ -897,6 +946,9 @@ if (-not $weberFrontierContractPass) {
 }
 if (-not $steinitz1906FrontierContractPass) {
     Add-Error 'Steinitz 1906 frontier contract did not pass.'
+}
+if (-not $stacksReferenceLayerContractPass -or -not $stacksItemContractPass) {
+    Add-Error 'Commons Stacks reference-layer contract did not pass.'
 }
 
 $humanBoardIdSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
@@ -1066,6 +1118,20 @@ $report = [ordered]@{
         unclaimed_scope_prefix = [string]$board.ownership_policy.unclaimed_scope_prefix
         claims_are_nonexclusive = [bool]$board.ownership_policy.claims_are_nonexclusive
     }
+    stacks_reference_layer = [ordered]@{
+        status = [string]$stacks.status
+        human_spec = [string]$stacks.human_spec
+        governance = [string]$stacks.governance
+        upstream_repository_binding = [string]$stacks.upstream.repository_binding
+        upstream_pin_status = [string]$stacks.upstream.pin_status
+        upstream_acceptance_dependency = [bool]$stacks.upstream.acceptance_dependency
+        layers = @($stacks.layer_order).Count
+        overlay_contents = @($stacks.overlay_contents).Count
+        compatibility_targets = @($stacks.compatibility_targets).Count
+        public_evidence_prs = @($stacks.public_evidence.pull_requests).Count
+        motive_inference = [string]$stacks.public_evidence.motive_inference
+        write_boundary = [string]$stacks.write_boundary
+    }
     item_certification_default = [string]$board.item_certification_default
     queue_snapshot = @($queueSnapshotRows)
     aggregate = [ordered]@{
@@ -1109,6 +1175,7 @@ $report = [ordered]@{
         named_owner_rows = $namedOwnerRows
         unclaimed_owner_rows = $unclaimedOwnerRows
         items_inheriting_certification_default = @($board.items).Count
+        stacks_architecture_layers = @($stacks.layer_order).Count
     }
     checks = [ordered]@{
         exact_item_field_contract = -not (@($errors | Where-Object { $_ -like '*field*' }).Count)
@@ -1131,6 +1198,7 @@ $report = [ordered]@{
         )
         weber_frontier_contract = $weberFrontierContractPass
         steinitz_1906_frontier_contract = $steinitz1906FrontierContractPass
+        stacks_reference_layer_contract = ($stacksReferenceLayerContractPass -and $stacksItemContractPass)
         human_board_complete = (
             $humanBoardRowIds.Count -eq $ids.Count -and
             $humanBoardIdSet.Count -eq $ids.Count -and

@@ -132,3 +132,14 @@ Bind every material table to its source locator. Check headings, cells, order,
 continuations, notes, alignment, and symbols; distinguish presentation defects
 from content defects. Return row/column coverage, cell-level findings,
 unresolved geometry, and the next table or terminal cursor.
+
+## `upstream_overlay_sync`
+
+Start only after the upstream repository, applicable license, exact commit,
+Commons namespace owner, and overlay scope are explicit. Replay the upstream
+pin read-only, compose it with one exact Commons overlay commit, run the
+declared tests, and review upstream movement against the last pin. Preserve
+stable Commons IDs, provenance, corrections, multilingual links, conflicts,
+rejections, and review receipts. Return the new pin, overlay, deterministic
+build, tests, sync decisions, next cursor, and an explicit statement that
+upstream endorsement is not implied.

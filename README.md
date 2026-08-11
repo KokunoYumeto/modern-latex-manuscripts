@@ -63,6 +63,13 @@ The board also embeds exact start/input/step/evidence/stop/handback contracts
 for every workflow token. The concise
 [workflow guide](docs/adopt-flows.md) makes those protocols readable and
 mirrorable without expanding the four-file machine-ingestion boundary.
+The independently governed [Commons Stacks architecture](docs/stacks.md) is
+now part of the same board contract. It requires an exact pinned read-only
+upstream source and sync target, then routes additions, provenance,
+corrections, multilingual links, stable Commons IDs, tests, review receipts,
+and deterministic composition through Commons-owned namespaces; no pin,
+overlay, or build is claimed yet, and upstream acceptance is not an approval
+gate.
 
 For a concise evidence-based view of what each mapped translation lane has
 actually produced, what GitHub preserves, and what producer receipts reported at

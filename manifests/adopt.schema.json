@@ -17,6 +17,7 @@
     "human_index",
     "archive_authority",
     "ownership_policy",
+    "stacks_reference_layer",
     "map_manifest",
     "required_maps",
     "queue_sources",
@@ -121,6 +122,113 @@
         },
         "unclaimed_scope_prefix": { "const": "unclaimed" },
         "claims_are_nonexclusive": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "stacks_reference_layer": {
+      "type": "object",
+      "required": [
+        "status",
+        "human_spec",
+        "governance",
+        "upstream",
+        "layer_order",
+        "overlay_contents",
+        "modified_edition",
+        "compatibility_targets",
+        "public_evidence",
+        "write_boundary"
+      ],
+      "properties": {
+        "status": { "const": "architecture_adopted_no_overlay_bytes" },
+        "human_spec": { "const": "docs/stacks.md" },
+        "governance": { "const": "mathematics_commons_independent" },
+        "upstream": {
+          "type": "object",
+          "required": ["role", "repository_binding", "pin_status", "acceptance_dependency", "endorsement_implied"],
+          "properties": {
+            "role": { "const": "respected_pinned_read_only_source_and_sync_target" },
+            "repository_binding": { "const": "not_supplied_do_not_infer" },
+            "pin_status": { "const": "required_not_yet_bound" },
+            "acceptance_dependency": { "const": false },
+            "endorsement_implied": { "const": false }
+          },
+          "additionalProperties": false
+        },
+        "layer_order": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "upstream_pin" },
+            { "const": "commons_overlay" },
+            { "const": "composed_build" },
+            { "const": "optional_modified_edition" },
+            { "const": "periodic_upstream_sync" }
+          ],
+          "items": false,
+          "minItems": 5,
+          "maxItems": 5
+        },
+        "overlay_contents": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "original additions" },
+            { "const": "historical-source mappings" },
+            { "const": "provenance" },
+            { "const": "corrections" },
+            { "const": "multilingual semantic links" },
+            { "const": "stable Commons IDs" },
+            { "const": "tests" },
+            { "const": "review receipts" }
+          ],
+          "items": false,
+          "minItems": 8,
+          "maxItems": 8
+        },
+        "modified_edition": {
+          "type": "object",
+          "required": ["optional", "license", "distinct_title_required", "attribution_required", "license_and_history_notices_required", "upstream_endorsement_forbidden"],
+          "properties": {
+            "optional": { "const": true },
+            "license": { "const": "GFDL_compliant" },
+            "distinct_title_required": { "const": true },
+            "attribution_required": { "const": true },
+            "license_and_history_notices_required": { "const": true },
+            "upstream_endorsement_forbidden": { "const": true }
+          },
+          "additionalProperties": false
+        },
+        "compatibility_targets": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "sTeX/MMT" },
+            { "const": "Lean Blueprint" },
+            { "const": "formal-proof exports" }
+          ],
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "public_evidence": {
+          "type": "object",
+          "required": ["repository_binding", "pull_requests", "state", "same_timestamp", "public_comments", "public_reviews", "motive_inference"],
+          "properties": {
+            "repository_binding": { "const": "not_supplied_do_not_infer" },
+            "pull_requests": {
+              "type": "array",
+              "prefixItems": [{ "const": 196 }, { "const": 197 }],
+              "items": false,
+              "minItems": 2,
+              "maxItems": 2
+            },
+            "state": { "const": "closed_unmerged" },
+            "same_timestamp": { "const": true },
+            "public_comments": { "const": 0 },
+            "public_reviews": { "const": 0 },
+            "motive_inference": { "const": "forbidden" }
+          },
+          "additionalProperties": false
+        },
+        "write_boundary": { "const": "commons_owned_namespaces_only" }
       },
       "additionalProperties": false
     },
