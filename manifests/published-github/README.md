@@ -6,7 +6,8 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current public-interface cleanup [source receipt](ui-clean-r1.json),
+Start with the current public-interface cleanup
+[closure](ui-clean-r1-close.json) and [source receipt](ui-clean-r1.json),
 then the predecessor executable Stacks preflight
 [closure](stacks-pre-r1-close.json) and [source receipt](stacks-pre-r1.json),
 then the predecessor empty Stacks-overlay
@@ -26,6 +27,14 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The public-interface cleanup [closure](ui-clean-r1-close.json) binds receipt
+commit `ee24ed9f51a11592960352272e2d99c34a26f5a8`: all five changed
+paths / 648,215 bytes matched anonymous commit-pinned raw GitHub bytes, and
+Actions run
+[`31538355192`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31538355192)
+passed. Together with the source generation, the additive aggregate is 51
+cycles, 3,271 observations, and 1,225,891,416 bytes with zero mismatches.
 
 The public-interface cleanup [source receipt](ui-clean-r1.json) binds accepted
 source commit `efb1661725a541d34854fb5a9f3ab12af2e5bbad`: all 14 changed
