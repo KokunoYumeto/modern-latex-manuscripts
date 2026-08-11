@@ -142,13 +142,15 @@
         "upstream",
         "layer_order",
         "overlay_contents",
+        "overlay_registry",
+        "composition_contract",
         "modified_edition",
         "compatibility_targets",
         "public_evidence",
         "write_boundary"
       ],
       "properties": {
-        "status": { "const": "upstream_pin_bound_no_overlay_or_build_bytes" },
+        "status": { "const": "upstream_pin_bound_zero_entry_overlay_registry_and_composition_contract_no_composed_build" },
         "human_spec": { "const": "docs/stacks.md" },
         "intake_form": { "const": "https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml" },
         "governance": { "const": "mathematics_commons_independent" },
@@ -200,6 +202,30 @@
           "items": false,
           "minItems": 8,
           "maxItems": 8
+        },
+        "overlay_registry": {
+          "type": "object",
+          "required": ["path", "state", "entry_count", "mathematical_entries", "content_bearing_overlay_bound"],
+          "properties": {
+            "path": { "const": "manifests/stacks-overlay.json" },
+            "state": { "const": "initialized_empty" },
+            "entry_count": { "const": 0 },
+            "mathematical_entries": { "const": 0 },
+            "content_bearing_overlay_bound": { "const": false }
+          },
+          "additionalProperties": false
+        },
+        "composition_contract": {
+          "type": "object",
+          "required": ["path", "state", "composition_runs", "generated_members", "composed_build_bound"],
+          "properties": {
+            "path": { "const": "manifests/stacks-compose.json" },
+            "state": { "const": "preflight_blocked_empty_registry" },
+            "composition_runs": { "const": 0 },
+            "generated_members": { "const": 0 },
+            "composed_build_bound": { "const": false }
+          },
+          "additionalProperties": false
         },
         "modified_edition": {
           "type": "object",

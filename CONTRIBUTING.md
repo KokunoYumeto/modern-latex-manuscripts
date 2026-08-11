@@ -76,7 +76,11 @@ reader shelf, source tree, package, or external record. For Board ID
 [Commons Stacks form](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml);
 one writer may hold a Commons overlay namespace and its ancestor/descendant
 chain at a time, while declared parallel work in disjoint namespaces—neither
-equal nor ancestor/descendant—remains welcome.
+equal nor ancestor/descendant—remains welcome. The first writer must use the
+existing zero-entry [`stacks-overlay.json`](manifests/stacks-overlay.json)
+registry and blocked-preflight [`stacks-compose.json`](manifests/stacks-compose.json)
+contract; do not create a parallel registry, composition control plane, or
+untracked namespace.
 
 Return a completed or partial result, paused scope, or withdrawal through the
 [handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml).

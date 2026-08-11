@@ -26,6 +26,27 @@ function Add-Error {
     $errors.Add($Message)
 }
 
+function Test-JsonInteger {
+    param(
+        [AllowNull()][object]$Value,
+        [int64]$Expected
+    )
+    return ($null -ne $Value -and $Value.GetType() -eq [int64] -and [int64]$Value -eq $Expected)
+}
+
+function Test-JsonBoolean {
+    param(
+        [AllowNull()][object]$Value,
+        [bool]$Expected
+    )
+    return ($null -ne $Value -and $Value.GetType() -eq [bool] -and [bool]$Value -eq $Expected)
+}
+
+function Test-JsonArray {
+    param([AllowNull()][object]$Value)
+    return ($null -ne $Value -and $Value -is [Array])
+}
+
 function Test-ExactFields {
     param(
         [object]$Value,
@@ -233,6 +254,197 @@ function Test-StacksPinCriticalBindings {
     )
 }
 
+function Test-StacksOverlayCriticalBindings {
+    param(
+        [object]$Registry,
+        [object]$Upstream,
+        [int64]$PinBytes,
+        [string]$PinSha256
+    )
+    $requiredFields = [string[]]@(
+        'id', 'namespace', 'writer', 'overlay_commit', 'overlay_tree',
+        'manifest', 'mathematical_entries', 'content_counts', 'review_receipt'
+    )
+    $allowedKinds = [string[]]@(
+        'original_additions', 'historical_source_mappings', 'provenance',
+        'corrections', 'multilingual_semantic_links', 'stable_commons_ids',
+        'tests', 'review_receipts'
+    )
+    return (
+        [string]$Registry.schema -ceq 'stacks-overlay-registry/v1' -and
+        [string]$Registry.state -ceq 'initialized_empty' -and
+        [string]$Registry.role -ceq 'commons_layer2_overlay_registry_control_plane' -and
+        [string]$Registry.governance -ceq 'mathematics_commons_independent' -and
+        [string]$Registry.control_file_rights -ceq 'project_generated_control_metadata_no_new_license_grant_asserted' -and
+        [string]$Registry.upstream_license_scope -ceq 'upstream_license_identity_reference_only_not_applied_to_registry_control_bytes' -and
+        [string]$Registry.upstream_pin.receipt.path -ceq 'manifests/stacks-pin.json' -and
+        (Test-JsonInteger -Value $Registry.upstream_pin.receipt.bytes -Expected $PinBytes) -and
+        [string]$Registry.upstream_pin.receipt.sha256 -ceq $PinSha256 -and
+        [string]$Registry.upstream_pin.repository -ceq [string]$Upstream.repository_url -and
+        [string]$Registry.upstream_pin.commit -ceq [string]$Upstream.commit -and
+        [string]$Registry.upstream_pin.tree -ceq [string]$Upstream.tree -and
+        [string]$Registry.namespace_policy.root -ceq 'commons/stacks' -and
+        [string]$Registry.namespace_policy.entry_pattern -ceq '^commons/stacks/[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?(?:/[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?)*$' -and
+        (Test-JsonBoolean -Value $Registry.namespace_policy.one_writer_per_ancestor_chain -Expected $true) -and
+        (Test-JsonBoolean -Value $Registry.namespace_policy.registry_control_does_not_claim_overlay_namespace -Expected $true) -and
+        (Test-JsonBoolean -Value $Registry.namespace_policy.upstream_paths_writable -Expected $false) -and
+        (Test-JsonArray -Value $Registry.entry_contract.required_fields) -and
+        ((@($Registry.entry_contract.required_fields) -join "`n") -ceq ($requiredFields -join "`n")) -and
+        (Test-JsonArray -Value $Registry.entry_contract.allowed_content_kinds) -and
+        ((@($Registry.entry_contract.allowed_content_kinds) -join "`n") -ceq ($allowedKinds -join "`n")) -and
+        (Test-JsonBoolean -Value $Registry.entry_contract.v1_nonempty_entries_allowed -Expected $false) -and
+        (Test-JsonArray -Value $Registry.namespace_claims) -and @($Registry.namespace_claims).Count -eq 0 -and
+        (Test-JsonArray -Value $Registry.entries) -and @($Registry.entries).Count -eq 0 -and
+        (Test-JsonInteger -Value $Registry.aggregate.registry_entries -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.registered_namespaces -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.registered_mathematical_entries -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.registered_overlay_files -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.registered_overlay_bytes -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.historical_source_mappings -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.corrections -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.multilingual_semantic_links -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.commons_assertion_ids_allocated -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.tests -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.aggregate.review_receipts -Expected 0) -and
+        (Test-JsonBoolean -Value $Registry.boundaries.registry_bytes_are_control_plane_only -Expected $true) -and
+        (Test-JsonBoolean -Value $Registry.boundaries.empty_overlay_manifest_bound -Expected $true) -and
+        $null -eq $Registry.boundaries.overlay_content_commit -and
+        $null -eq $Registry.boundaries.overlay_content_tree -and
+        (Test-JsonBoolean -Value $Registry.boundaries.content_bearing_commons_overlay_bound -Expected $false) -and
+        (Test-JsonBoolean -Value $Registry.boundaries.upstream_tree_copied_into_commons -Expected $false) -and
+        (Test-JsonInteger -Value $Registry.boundaries.upstream_payload_files_added -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.boundaries.upstream_payload_bytes_added -Expected 0) -and
+        (Test-JsonInteger -Value $Registry.boundaries.archives_or_binary_payloads_added -Expected 0) -and
+        (Test-JsonBoolean -Value $Registry.boundaries.composed_build_bound -Expected $false) -and
+        (Test-JsonBoolean -Value $Registry.boundaries.modified_edition_bound -Expected $false) -and
+        (Test-JsonInteger -Value $Registry.boundaries.reader_or_edition_files_added -Expected 0) -and
+        (Test-JsonBoolean -Value $Registry.boundaries.mathematical_review_claimed -Expected $false) -and
+        (Test-JsonBoolean -Value $Registry.boundaries.upstream_acceptance_dependency -Expected $false) -and
+        (Test-JsonBoolean -Value $Registry.boundaries.upstream_endorsement_implied -Expected $false) -and
+        [string]$Registry.next_cursor -ceq 'approve one Commons namespace and exact provenance-complete overlay generation before adding the first registry entry'
+    )
+}
+
+function Test-StacksComposeCriticalBindings {
+    param(
+        [object]$Contract,
+        [object]$Upstream,
+        [int64]$RegistryBytes,
+        [string]$RegistrySha256
+    )
+    $inputOrder = [string[]]@('upstream_pin', 'commons_overlay')
+    return (
+        [string]$Contract.schema -ceq 'stacks-composition-contract/v1' -and
+        [string]$Contract.state -ceq 'preflight_blocked_empty_registry' -and
+        [string]$Contract.role -ceq 'commons_layer3_deterministic_composition_contract_fixture' -and
+        [string]$Contract.control_file_rights -ceq 'project_generated_control_metadata_no_new_license_grant_asserted' -and
+        [string]$Contract.inputs.upstream.repository -ceq [string]$Upstream.repository_url -and
+        [string]$Contract.inputs.upstream.commit -ceq [string]$Upstream.commit -and
+        [string]$Contract.inputs.upstream.tree -ceq [string]$Upstream.tree -and
+        (Test-JsonBoolean -Value $Contract.inputs.upstream.tree_replayed_into_commons -Expected $false) -and
+        [string]$Contract.inputs.overlay_registry.path -ceq 'manifests/stacks-overlay.json' -and
+        (Test-JsonInteger -Value $Contract.inputs.overlay_registry.bytes -Expected $RegistryBytes) -and
+        [string]$Contract.inputs.overlay_registry.sha256 -ceq $RegistrySha256 -and
+        (Test-JsonInteger -Value $Contract.inputs.overlay_registry.entries -Expected 0) -and
+        $null -eq $Contract.inputs.selected_overlay_id -and
+        $null -eq $Contract.inputs.selected_overlay_commit -and
+        $null -eq $Contract.inputs.selected_overlay_tree -and
+        (Test-JsonArray -Value $Contract.determinism.input_order) -and
+        ((@($Contract.determinism.input_order) -join "`n") -ceq ($inputOrder -join "`n")) -and
+        [string]$Contract.determinism.path_encoding -ceq 'UTF-8' -and
+        [string]$Contract.determinism.path_separator -ceq '/' -and
+        [string]$Contract.determinism.path_order -ceq 'ordinal_utf8_bytes' -and
+        [string]$Contract.determinism.absolute_or_parent_paths -ceq 'reject' -and
+        [string]$Contract.determinism.duplicate_paths -ceq 'reject' -and
+        [string]$Contract.determinism.symlinks -ceq 'reject' -and
+        [string]$Contract.determinism.timestamps -ceq 'exclude' -and
+        [string]$Contract.determinism.generated_members -ceq 'declared_manifest_only' -and
+        [string]$Contract.determinism.repeatability -ceq 'same_exact_inputs_and_tool_identity_require_identical_manifest_and_bytes' -and
+        [string]$Contract.tool.state -ceq 'not_bound' -and
+        $null -eq $Contract.tool.path -and $null -eq $Contract.tool.version -and $null -eq $Contract.tool.sha256 -and
+        (Test-JsonBoolean -Value $Contract.preconditions.upstream_pin_bound -Expected $true) -and
+        (Test-JsonBoolean -Value $Contract.preconditions.upstream_tree_replayed -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.preconditions.approved_overlay_selected -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.preconditions.overlay_identity_verified -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.preconditions.tool_identity_bound -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.preconditions.output_root_declared -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.preconditions.ready -Expected $false) -and
+        [string]$Contract.fixture.id -ceq 'empty-overlay-preflight' -and
+        [string]$Contract.fixture.expected_outcome -ceq 'BLOCKED_EMPTY_OVERLAY_REGISTRY' -and
+        [string]$Contract.fixture.observed_outcome -ceq 'BLOCKED_EMPTY_OVERLAY_REGISTRY' -and
+        (Test-JsonBoolean -Value $Contract.fixture.outcome_matches -Expected $true) -and
+        (Test-JsonBoolean -Value $Contract.fixture.composition_executed -Expected $false) -and
+        $null -eq $Contract.output.manifest -and $null -eq $Contract.output.tree -and
+        (Test-JsonArray -Value $Contract.output.members) -and @($Contract.output.members).Count -eq 0 -and
+        $null -eq $Contract.output.bytes -and $null -eq $Contract.output.sha256 -and
+        (Test-JsonInteger -Value $Contract.aggregate.preflight_checks -Expected 1) -and
+        (Test-JsonInteger -Value $Contract.aggregate.composition_runs -Expected 0) -and
+        (Test-JsonInteger -Value $Contract.aggregate.generated_members -Expected 0) -and
+        (Test-JsonInteger -Value $Contract.aggregate.builds -Expected 0) -and
+        (Test-JsonBoolean -Value $Contract.boundaries.contract_fixture_only -Expected $true) -and
+        (Test-JsonBoolean -Value $Contract.boundaries.overlay_content_bound -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.boundaries.composed_edition_bound -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.boundaries.composed_build_bound -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.boundaries.modified_edition_bound -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.boundaries.upstream_endorsement_implied -Expected $false) -and
+        (Test-JsonInteger -Value $Contract.boundaries.upstream_payload_files_added -Expected 0) -and
+        (Test-JsonInteger -Value $Contract.boundaries.upstream_payload_bytes_added -Expected 0) -and
+        (Test-JsonInteger -Value $Contract.boundaries.archives_or_binary_payloads_added -Expected 0) -and
+        (Test-JsonInteger -Value $Contract.boundaries.reader_or_edition_files_added -Expected 0) -and
+        (Test-JsonBoolean -Value $Contract.boundaries.mathematical_review_claimed -Expected $false) -and
+        [string]$Contract.next_cursor -ceq 'bind one approved overlay entry and an exact composition tool identity before changing preflight readiness'
+    )
+}
+
+$checkpointAllowedPaths = [string[]]@(
+    '.github/workflows/adopt.yml',
+    'CONTRIBUTING.md',
+    'README.md',
+    'docs/adopt-index.md',
+    'docs/adopt.md',
+    'docs/stacks.md',
+    'manifests/adopt.check.json',
+    'manifests/adopt.json',
+    'manifests/adopt.schema.json',
+    'manifests/github-custody/20260806_links.json',
+    'manifests/stacks-compose.json',
+    'manifests/stacks-overlay.json',
+    'scripts/check-adopt.ps1'
+)
+$changedPathSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
+foreach ($path in @(& git diff --cached --name-only --diff-filter=ACMRTUXB --)) {
+    if (-not [string]::IsNullOrWhiteSpace([string]$path)) { [void]$changedPathSet.Add(([string]$path).Replace('\', '/')) }
+}
+foreach ($path in @(& git diff --name-only --diff-filter=ACMRTUXB --)) {
+    if (-not [string]::IsNullOrWhiteSpace([string]$path)) { [void]$changedPathSet.Add(([string]$path).Replace('\', '/')) }
+}
+foreach ($path in @(& git ls-files --others --exclude-standard --)) {
+    if (-not [string]::IsNullOrWhiteSpace([string]$path)) { [void]$changedPathSet.Add(([string]$path).Replace('\', '/')) }
+}
+$worktreeChangePaths = [string[]]@($changedPathSet)
+[Array]::Sort($worktreeChangePaths, [StringComparer]::Ordinal)
+$checkpointAllowedSet = [Collections.Generic.HashSet[string]]::new($checkpointAllowedPaths, [StringComparer]::Ordinal)
+$stacksControlCheckpointActive = (
+    $changedPathSet.Contains('manifests/stacks-overlay.json') -or
+    $changedPathSet.Contains('manifests/stacks-compose.json')
+)
+$outOfScopeChangedPaths = [string[]]@($worktreeChangePaths | Where-Object { -not $checkpointAllowedSet.Contains([string]$_) })
+$producerOrCorpusChangedPaths = [string[]]@($worktreeChangePaths | Where-Object {
+    ([string]$_).StartsWith('sources/', [StringComparison]::Ordinal) -or
+    ([string]$_).StartsWith('reader-pdfs/', [StringComparison]::Ordinal)
+})
+$zenodoChangedPaths = [string[]]@($worktreeChangePaths | Where-Object { ([string]$_).Contains('zenodo', [StringComparison]::OrdinalIgnoreCase) })
+$excludedLaneChangedPaths = [string[]]@($worktreeChangePaths | Where-Object {
+    ([string]$_).Contains('erdos', [StringComparison]::OrdinalIgnoreCase) -or
+    ([string]$_).Contains('fable', [StringComparison]::OrdinalIgnoreCase) -or
+    ([string]$_).Contains('sga', [StringComparison]::OrdinalIgnoreCase) -or
+    ([string]$_).Contains('fac', [StringComparison]::OrdinalIgnoreCase) -or
+    ([string]$_).Contains('gaga', [StringComparison]::OrdinalIgnoreCase)
+})
+if ($stacksControlCheckpointActive -and $outOfScopeChangedPaths.Count -ne 0) {
+    Add-Error "Stacks control-plane checkpoint includes out-of-scope changed paths: $($outOfScopeChangedPaths -join ', ')"
+}
+
 $inputFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $InputPath))
 $schemaFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $SchemaPath))
 if (-not [IO.File]::Exists($inputFull)) { throw "Board does not exist: $InputPath" }
@@ -360,7 +572,8 @@ $stacksErrorStart = $errors.Count
 $stacks = $board.stacks_reference_layer
 $expectedStacksFields = [string[]]@(
     'status', 'human_spec', 'intake_form', 'governance', 'upstream', 'layer_order',
-    'overlay_contents', 'modified_edition', 'compatibility_targets',
+    'overlay_contents', 'overlay_registry', 'composition_contract',
+    'modified_edition', 'compatibility_targets',
     'public_evidence', 'write_boundary'
 )
 Test-ExactFields -Value $stacks -Expected $expectedStacksFields -Context 'stacks_reference_layer'
@@ -371,10 +584,14 @@ $expectedStacksUpstreamFields = [string[]]@(
 )
 $expectedStacksModifiedEditionFields = [string[]]@('optional', 'license', 'distinct_title_required', 'attribution_required', 'license_and_history_notices_required', 'upstream_endorsement_forbidden')
 $expectedStacksEvidenceFields = [string[]]@('repository_binding', 'pull_requests', 'state', 'same_timestamp', 'public_comments', 'public_reviews', 'motive_inference')
+$expectedStacksOverlaySummaryFields = [string[]]@('path', 'state', 'entry_count', 'mathematical_entries', 'content_bearing_overlay_bound')
+$expectedStacksComposeSummaryFields = [string[]]@('path', 'state', 'composition_runs', 'generated_members', 'composed_build_bound')
 Test-ExactFields -Value $stacks.upstream -Expected $expectedStacksUpstreamFields -Context 'stacks_reference_layer.upstream'
 Test-ExactFields -Value $stacks.modified_edition -Expected $expectedStacksModifiedEditionFields -Context 'stacks_reference_layer.modified_edition'
 Test-ExactFields -Value $stacks.public_evidence -Expected $expectedStacksEvidenceFields -Context 'stacks_reference_layer.public_evidence'
-if ([string]$stacks.status -cne 'upstream_pin_bound_no_overlay_or_build_bytes') { Add-Error 'Stacks layer must bind only the exact upstream reference pin until overlay and build bytes exist.'; $stacksReferenceLayerContractPass = $false }
+Test-ExactFields -Value $stacks.overlay_registry -Expected $expectedStacksOverlaySummaryFields -Context 'stacks_reference_layer.overlay_registry'
+Test-ExactFields -Value $stacks.composition_contract -Expected $expectedStacksComposeSummaryFields -Context 'stacks_reference_layer.composition_contract'
+if ([string]$stacks.status -cne 'upstream_pin_bound_zero_entry_overlay_registry_and_composition_contract_no_composed_build') { Add-Error 'Stacks layer must bind the pin plus zero-entry registry and blocked composition contract without claiming content or a build.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.intake_form -cne 'https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml') { Add-Error 'Stacks intake form differs from the dedicated exact-binding route.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.governance -cne 'mathematics_commons_independent') { Add-Error 'Stacks layer governance must remain independent under Mathematics Commons.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.upstream.role -cne 'respected_pinned_read_only_source_and_sync_target') { Add-Error 'Stacks upstream role must remain pinned and read-only.'; $stacksReferenceLayerContractPass = $false }
@@ -396,6 +613,22 @@ $expectedStacksLayers = [string[]]@('upstream_pin', 'commons_overlay', 'composed
 if ((@($stacks.layer_order) -join "`n") -cne ($expectedStacksLayers -join "`n")) { Add-Error 'Stacks layer order differs from the five-layer architecture.'; $stacksReferenceLayerContractPass = $false }
 $expectedOverlayContents = [string[]]@('original additions', 'historical-source mappings', 'provenance', 'corrections', 'multilingual semantic links', 'stable Commons IDs', 'tests', 'review receipts')
 if ((@($stacks.overlay_contents) -join "`n") -cne ($expectedOverlayContents -join "`n")) { Add-Error 'Stacks overlay content contract is incomplete or reordered.'; $stacksReferenceLayerContractPass = $false }
+if ([string]$stacks.overlay_registry.path -cne 'manifests/stacks-overlay.json' -or
+    [string]$stacks.overlay_registry.state -cne 'initialized_empty' -or
+    [int]$stacks.overlay_registry.entry_count -ne 0 -or
+    [int]$stacks.overlay_registry.mathematical_entries -ne 0 -or
+    $stacks.overlay_registry.content_bearing_overlay_bound -cne $false) {
+    Add-Error 'Stacks overlay-registry summary must remain the exact zero-entry control-plane state.'
+    $stacksReferenceLayerContractPass = $false
+}
+if ([string]$stacks.composition_contract.path -cne 'manifests/stacks-compose.json' -or
+    [string]$stacks.composition_contract.state -cne 'preflight_blocked_empty_registry' -or
+    [int]$stacks.composition_contract.composition_runs -ne 0 -or
+    [int]$stacks.composition_contract.generated_members -ne 0 -or
+    $stacks.composition_contract.composed_build_bound -cne $false) {
+    Add-Error 'Stacks composition-contract summary must remain blocked with zero runs, members, or builds.'
+    $stacksReferenceLayerContractPass = $false
+}
 if ($stacks.modified_edition.optional -cne $true -or [string]$stacks.modified_edition.license -cne 'GFDL_compliant' -or $stacks.modified_edition.distinct_title_required -cne $true -or $stacks.modified_edition.attribution_required -cne $true -or $stacks.modified_edition.license_and_history_notices_required -cne $true -or $stacks.modified_edition.upstream_endorsement_forbidden -cne $true) { Add-Error 'Stacks optional modified-edition contract is incomplete.'; $stacksReferenceLayerContractPass = $false }
 $expectedCompatibility = [string[]]@('sTeX/MMT', 'Lean Blueprint', 'formal-proof exports')
 if ((@($stacks.compatibility_targets) -join "`n") -cne ($expectedCompatibility -join "`n")) { Add-Error 'Stacks compatibility targets differ from the architectural decision.'; $stacksReferenceLayerContractPass = $false }
@@ -406,9 +639,12 @@ Test-RepoPath -Path '.github/ISSUE_TEMPLATE/stacks.yml' -Context 'stacks_referen
 $stacksPinPath = 'manifests/stacks-pin.json'
 Test-RepoPath -Path $stacksPinPath -Context 'stacks_reference_layer upstream pin receipt' -Required $true
 $stacksPinFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $stacksPinPath))
+$stacksPinBytes = [byte[]]@()
+$stacksPinSha256 = ''
 if ([IO.File]::Exists($stacksPinFull)) {
     try {
         $stacksPinBytes = [IO.File]::ReadAllBytes($stacksPinFull)
+        $stacksPinSha256 = Get-Sha256 -Bytes $stacksPinBytes
         if ($stacksPinBytes.Length -ge 3 -and $stacksPinBytes[0] -eq 0xEF -and $stacksPinBytes[1] -eq 0xBB -and $stacksPinBytes[2] -eq 0xBF) { throw 'contains a UTF-8 BOM' }
         $stacksPinText = $utf8.GetString($stacksPinBytes)
         if ($stacksPinText.Contains("`r")) { throw 'must use LF line endings' }
@@ -449,6 +685,125 @@ if ([IO.File]::Exists($stacksPinFull)) {
     }
 }
 else {
+    $stacksReferenceLayerContractPass = $false
+}
+
+$stacksOverlayRegistryContractPass = $true
+$stacksOverlayPath = 'manifests/stacks-overlay.json'
+Test-RepoPath -Path $stacksOverlayPath -Context 'stacks_reference_layer overlay registry' -Required $true
+$stacksOverlayFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $stacksOverlayPath))
+$stacksOverlayBytes = [byte[]]@()
+$stacksOverlaySha256 = ''
+$stacksOverlay = $null
+$overlayMutations = @()
+$overlayRejected = 0
+if ([IO.File]::Exists($stacksOverlayFull)) {
+    try {
+        $stacksOverlayBytes = [IO.File]::ReadAllBytes($stacksOverlayFull)
+        $stacksOverlaySha256 = Get-Sha256 -Bytes $stacksOverlayBytes
+        if ($stacksOverlayBytes.Length -ge 3 -and $stacksOverlayBytes[0] -eq 0xEF -and $stacksOverlayBytes[1] -eq 0xBB -and $stacksOverlayBytes[2] -eq 0xBF) { throw 'contains a UTF-8 BOM' }
+        $stacksOverlayText = $utf8.GetString($stacksOverlayBytes)
+        if ($stacksOverlayText.Contains("`r")) { throw 'must use LF line endings' }
+        $stacksOverlay = $stacksOverlayText | ConvertFrom-Json -Depth 100 -DateKind String
+        Test-ExactFields -Value $stacksOverlay -Expected @('schema', 'state', 'role', 'governance', 'control_file_rights', 'upstream_license_scope', 'upstream_pin', 'namespace_policy', 'entry_contract', 'namespace_claims', 'entries', 'aggregate', 'boundaries', 'next_cursor') -Context 'Stacks overlay registry'
+        Test-ExactFields -Value $stacksOverlay.upstream_pin -Expected @('receipt', 'repository', 'commit', 'tree') -Context 'Stacks overlay registry.upstream_pin'
+        Test-ExactFields -Value $stacksOverlay.upstream_pin.receipt -Expected @('path', 'bytes', 'sha256') -Context 'Stacks overlay registry.upstream_pin.receipt'
+        Test-ExactFields -Value $stacksOverlay.namespace_policy -Expected @('root', 'entry_pattern', 'one_writer_per_ancestor_chain', 'registry_control_does_not_claim_overlay_namespace', 'upstream_paths_writable') -Context 'Stacks overlay registry.namespace_policy'
+        Test-ExactFields -Value $stacksOverlay.entry_contract -Expected @('required_fields', 'allowed_content_kinds', 'v1_nonempty_entries_allowed') -Context 'Stacks overlay registry.entry_contract'
+        Test-ExactFields -Value $stacksOverlay.aggregate -Expected @('registry_entries', 'registered_namespaces', 'registered_mathematical_entries', 'registered_overlay_files', 'registered_overlay_bytes', 'historical_source_mappings', 'corrections', 'multilingual_semantic_links', 'commons_assertion_ids_allocated', 'tests', 'review_receipts') -Context 'Stacks overlay registry.aggregate'
+        Test-ExactFields -Value $stacksOverlay.boundaries -Expected @('registry_bytes_are_control_plane_only', 'empty_overlay_manifest_bound', 'overlay_content_commit', 'overlay_content_tree', 'content_bearing_commons_overlay_bound', 'upstream_tree_copied_into_commons', 'upstream_payload_files_added', 'upstream_payload_bytes_added', 'archives_or_binary_payloads_added', 'composed_build_bound', 'modified_edition_bound', 'reader_or_edition_files_added', 'mathematical_review_claimed', 'upstream_acceptance_dependency', 'upstream_endorsement_implied') -Context 'Stacks overlay registry.boundaries'
+        if (-not (Test-StacksOverlayCriticalBindings -Registry $stacksOverlay -Upstream $stacks.upstream -PinBytes $stacksPinBytes.Length -PinSha256 $stacksPinSha256)) { throw 'critical bindings differ from the exact empty-registry contract' }
+
+        $overlayMutations = @('entry', 'aggregate', 'content', 'namespace', 'write', 'pin', 'receipt', 'null_count', 'numeric_bool', 'null_entries')
+        foreach ($mutation in $overlayMutations) {
+            $probe = $stacksOverlayText | ConvertFrom-Json -Depth 100 -DateKind String
+            switch ($mutation) {
+                'entry' { $probe.entries = @([pscustomobject]@{}) }
+                'aggregate' { $probe.aggregate.registry_entries = 1 }
+                'content' { $probe.boundaries.overlay_content_commit = ('0' * 40); $probe.boundaries.content_bearing_commons_overlay_bound = $true }
+                'namespace' { $probe.namespace_policy.root = 'upstream/stacks' }
+                'write' { $probe.namespace_policy.upstream_paths_writable = $true }
+                'pin' { $probe.upstream_pin.commit = ('0' * 40) }
+                'receipt' { $probe.upstream_pin.receipt.sha256 = ('0' * 64) }
+                'null_count' { $probe.aggregate.registry_entries = $null }
+                'numeric_bool' { $probe.boundaries.modified_edition_bound = 0 }
+                'null_entries' { $probe.entries = $null }
+            }
+            if (-not (Test-StacksOverlayCriticalBindings -Registry $probe -Upstream $stacks.upstream -PinBytes $stacksPinBytes.Length -PinSha256 $stacksPinSha256)) { $overlayRejected++ }
+        }
+        if ($overlayRejected -ne $overlayMutations.Count) { throw 'empty-registry mutation regression failed' }
+    }
+    catch {
+        Add-Error "Stacks overlay-registry validation failed: $($_.Exception.Message)"
+        $stacksOverlayRegistryContractPass = $false
+        $stacksReferenceLayerContractPass = $false
+    }
+}
+else {
+    $stacksOverlayRegistryContractPass = $false
+    $stacksReferenceLayerContractPass = $false
+}
+
+$stacksCompositionContractPass = $true
+$stacksComposePath = 'manifests/stacks-compose.json'
+Test-RepoPath -Path $stacksComposePath -Context 'stacks_reference_layer composition contract' -Required $true
+$stacksComposeFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $stacksComposePath))
+$stacksComposeBytes = [byte[]]@()
+$stacksComposeSha256 = ''
+$stacksCompose = $null
+$composeMutations = @()
+$composeRejected = 0
+if ([IO.File]::Exists($stacksComposeFull)) {
+    try {
+        $stacksComposeBytes = [IO.File]::ReadAllBytes($stacksComposeFull)
+        $stacksComposeSha256 = Get-Sha256 -Bytes $stacksComposeBytes
+        if ($stacksComposeBytes.Length -ge 3 -and $stacksComposeBytes[0] -eq 0xEF -and $stacksComposeBytes[1] -eq 0xBB -and $stacksComposeBytes[2] -eq 0xBF) { throw 'contains a UTF-8 BOM' }
+        $stacksComposeText = $utf8.GetString($stacksComposeBytes)
+        if ($stacksComposeText.Contains("`r")) { throw 'must use LF line endings' }
+        $stacksCompose = $stacksComposeText | ConvertFrom-Json -Depth 100 -DateKind String
+        Test-ExactFields -Value $stacksCompose -Expected @('schema', 'state', 'role', 'control_file_rights', 'inputs', 'determinism', 'tool', 'preconditions', 'fixture', 'output', 'aggregate', 'boundaries', 'next_cursor') -Context 'Stacks composition contract'
+        Test-ExactFields -Value $stacksCompose.inputs -Expected @('upstream', 'overlay_registry', 'selected_overlay_id', 'selected_overlay_commit', 'selected_overlay_tree') -Context 'Stacks composition contract.inputs'
+        Test-ExactFields -Value $stacksCompose.inputs.upstream -Expected @('repository', 'commit', 'tree', 'tree_replayed_into_commons') -Context 'Stacks composition contract.inputs.upstream'
+        Test-ExactFields -Value $stacksCompose.inputs.overlay_registry -Expected @('path', 'bytes', 'sha256', 'entries') -Context 'Stacks composition contract.inputs.overlay_registry'
+        Test-ExactFields -Value $stacksCompose.determinism -Expected @('input_order', 'path_encoding', 'path_separator', 'path_order', 'absolute_or_parent_paths', 'duplicate_paths', 'symlinks', 'timestamps', 'generated_members', 'repeatability') -Context 'Stacks composition contract.determinism'
+        Test-ExactFields -Value $stacksCompose.tool -Expected @('state', 'path', 'version', 'sha256') -Context 'Stacks composition contract.tool'
+        Test-ExactFields -Value $stacksCompose.preconditions -Expected @('upstream_pin_bound', 'upstream_tree_replayed', 'approved_overlay_selected', 'overlay_identity_verified', 'tool_identity_bound', 'output_root_declared', 'ready') -Context 'Stacks composition contract.preconditions'
+        Test-ExactFields -Value $stacksCompose.fixture -Expected @('id', 'expected_outcome', 'observed_outcome', 'outcome_matches', 'composition_executed') -Context 'Stacks composition contract.fixture'
+        Test-ExactFields -Value $stacksCompose.output -Expected @('manifest', 'tree', 'members', 'bytes', 'sha256') -Context 'Stacks composition contract.output'
+        Test-ExactFields -Value $stacksCompose.aggregate -Expected @('preflight_checks', 'composition_runs', 'generated_members', 'builds') -Context 'Stacks composition contract.aggregate'
+        Test-ExactFields -Value $stacksCompose.boundaries -Expected @('contract_fixture_only', 'overlay_content_bound', 'composed_edition_bound', 'composed_build_bound', 'modified_edition_bound', 'upstream_endorsement_implied', 'upstream_payload_files_added', 'upstream_payload_bytes_added', 'archives_or_binary_payloads_added', 'reader_or_edition_files_added', 'mathematical_review_claimed') -Context 'Stacks composition contract.boundaries'
+        if (-not (Test-StacksComposeCriticalBindings -Contract $stacksCompose -Upstream $stacks.upstream -RegistryBytes $stacksOverlayBytes.Length -RegistrySha256 $stacksOverlaySha256)) { throw 'critical bindings differ from the exact blocked-preflight contract' }
+
+        $composeMutations = @('registry', 'selection', 'ready', 'outcome', 'tool', 'executed', 'output', 'bytes', 'build', 'policy', 'null_count', 'numeric_bool', 'null_members')
+        foreach ($mutation in $composeMutations) {
+            $probe = $stacksComposeText | ConvertFrom-Json -Depth 100 -DateKind String
+            switch ($mutation) {
+                'registry' { $probe.inputs.overlay_registry.sha256 = ('0' * 64) }
+                'selection' { $probe.inputs.selected_overlay_id = 'first-overlay' }
+                'ready' { $probe.preconditions.ready = $true }
+                'outcome' { $probe.fixture.observed_outcome = 'PASS' }
+                'tool' { $probe.tool.state = 'bound'; $probe.tool.path = 'scripts/compose.py'; $probe.tool.version = '1'; $probe.tool.sha256 = ('0' * 64) }
+                'executed' { $probe.fixture.composition_executed = $true }
+                'output' { $probe.output.members = @('output.tex'); $probe.output.manifest = 'manifest.json'; $probe.output.tree = ('0' * 40); $probe.output.sha256 = ('0' * 64) }
+                'bytes' { $probe.output.bytes = 0 }
+                'build' { $probe.boundaries.composed_build_bound = $true; $probe.aggregate.builds = 1 }
+                'policy' { $probe.determinism.duplicate_paths = 'allow' }
+                'null_count' { $probe.aggregate.builds = $null }
+                'numeric_bool' { $probe.boundaries.modified_edition_bound = 0 }
+                'null_members' { $probe.output.members = $null }
+            }
+            if (-not (Test-StacksComposeCriticalBindings -Contract $probe -Upstream $stacks.upstream -RegistryBytes $stacksOverlayBytes.Length -RegistrySha256 $stacksOverlaySha256)) { $composeRejected++ }
+        }
+        if ($composeRejected -ne $composeMutations.Count) { throw 'blocked-preflight mutation regression failed' }
+    }
+    catch {
+        Add-Error "Stacks composition-contract validation failed: $($_.Exception.Message)"
+        $stacksCompositionContractPass = $false
+        $stacksReferenceLayerContractPass = $false
+    }
+}
+else {
+    $stacksCompositionContractPass = $false
     $stacksReferenceLayerContractPass = $false
 }
 if ($errors.Count -ne $stacksErrorStart) { $stacksReferenceLayerContractPass = $false }
@@ -1525,7 +1880,15 @@ foreach ($item in @($board.items)) {
 
     if ($id -ceq 'stacks-commons-layer') {
         $cursor = [string]$item.next_cursor
-        $requiredCursorTokens = [string[]]@('coordinate one Commons namespace writer', 'independently replay the pinned upstream repository', 'license', 'commit', 'tree', 'first namespaced overlay manifest', 'deterministic composition fixture')
+        $requiredCursorTokens = [string[]]@(
+            'coordinate one Commons namespace writer',
+            'independently replay the pinned upstream identity',
+            'validate the zero-entry registry',
+            'first namespaced overlay entry',
+            'execute the composition contract',
+            'first deterministic composed-build fixture',
+            'exact input and output identities'
+        )
         $cursorPass = $true
         foreach ($token in $requiredCursorTokens) {
             if (-not $cursor.Contains($token, [StringComparison]::Ordinal)) {
@@ -1533,8 +1896,14 @@ foreach ($item in @($board.items)) {
                 $cursorPass = $false
             }
         }
-        if ([string]$item.coverage_state -cne 'architecture_upstream_pin_bound_no_overlay_or_build_bytes') { Add-Error 'item:stacks-commons-layer must bind the upstream pin without claiming overlay or build bytes.'; $cursorPass = $false }
-        if (-not ([string]$item.source_basis).Contains('manifests/stacks-pin.json', [StringComparison]::Ordinal)) { Add-Error 'item:stacks-commons-layer source_basis must cite the exact upstream pin receipt.'; $cursorPass = $false }
+        if ([string]$item.coverage_state -cne 'upstream_pin_bound_zero_entry_overlay_registry_and_composition_contract_no_composed_build') { Add-Error 'item:stacks-commons-layer must bind the pin, zero-entry registry, and blocked composition contract without claiming overlay content or a build.'; $cursorPass = $false }
+        if ([string]$item.coverage_class -cne 'unworked') { Add-Error 'item:stacks-commons-layer must remain unworked until mathematical overlay content is bound.'; $cursorPass = $false }
+        foreach ($path in @('manifests/stacks-pin.json', 'manifests/stacks-overlay.json', 'manifests/stacks-compose.json')) {
+            if (-not ([string]$item.source_basis).Contains($path, [StringComparison]::Ordinal)) { Add-Error "item:stacks-commons-layer source_basis must cite $path."; $cursorPass = $false }
+        }
+        foreach ($path in @('manifests/stacks-overlay.json', 'manifests/stacks-compose.json')) {
+            if (-not (@($item.related_paths) -ccontains $path)) { Add-Error "item:stacks-commons-layer related_paths must bind $path."; $cursorPass = $false }
+        }
         if ([string]$item.owner -cne 'Mathematics Commons') { Add-Error 'item:stacks-commons-layer must name Mathematics Commons governance.'; $cursorPass = $false }
         if (-not (@($item.workflow) -ccontains 'upstream_overlay_sync')) { Add-Error 'item:stacks-commons-layer must use upstream_overlay_sync.'; $cursorPass = $false }
         $stacksItemContractPass = $cursorPass
@@ -1712,6 +2081,17 @@ $report = [ordered]@{
     input_mode = if ($SparseCheckout) { 'named_worktree_files_with_sparse_tracked_path_checks' } else { 'named_worktree_files' }
     worktree_base_commit = $worktreeBaseCommit
     worktree_dirty = $worktreeDirty
+    checkpoint_scope = [ordered]@{
+        stacks_control_plane_checkpoint_active = $stacksControlCheckpointActive
+        changed_paths = @($worktreeChangePaths)
+        changed_path_count = $worktreeChangePaths.Count
+        allowed_paths = @($checkpointAllowedPaths)
+        task_owned_control_plane_only = ($outOfScopeChangedPaths.Count -eq 0)
+        out_of_scope_changed_paths = @($outOfScopeChangedPaths)
+        producer_or_corpus_changed_paths = @($producerOrCorpusChangedPaths)
+        zenodo_changed_paths = @($zenodoChangedPaths)
+        excluded_lane_changed_paths = @($excludedLaneChangedPaths)
+    }
     board = [ordered]@{
         path = $InputPath.Replace('\', '/')
         bytes = $inputBytes.Length
@@ -1816,6 +2196,80 @@ $report = [ordered]@{
         upstream_license_sha256 = [string]$stacks.upstream.license_sha256
         local_upstream_tree_copied = [bool]$stacks.upstream.local_upstream_tree_copied
         upstream_acceptance_dependency = [bool]$stacks.upstream.acceptance_dependency
+        overlay_registry = [ordered]@{
+            path = $stacksOverlayPath
+            bytes = $stacksOverlayBytes.Length
+            sha256 = $stacksOverlaySha256
+            schema = [string]$stacksOverlay.schema
+            state = [string]$stacksOverlay.state
+            namespace_claims = @($stacksOverlay.namespace_claims).Count
+            entries = @($stacksOverlay.entries).Count
+            registered_namespaces = [int]$stacksOverlay.aggregate.registered_namespaces
+            mathematical_entries = [int]$stacksOverlay.aggregate.registered_mathematical_entries
+            overlay_files = [int]$stacksOverlay.aggregate.registered_overlay_files
+            overlay_bytes = [int64]$stacksOverlay.aggregate.registered_overlay_bytes
+            historical_source_mappings = [int]$stacksOverlay.aggregate.historical_source_mappings
+            corrections = [int]$stacksOverlay.aggregate.corrections
+            multilingual_semantic_links = [int]$stacksOverlay.aggregate.multilingual_semantic_links
+            commons_assertion_ids_allocated = [int]$stacksOverlay.aggregate.commons_assertion_ids_allocated
+            tests = [int]$stacksOverlay.aggregate.tests
+            review_receipts = [int]$stacksOverlay.aggregate.review_receipts
+            mutation_probes = $overlayMutations.Count
+            mutation_rejections = $overlayRejected
+            boundaries = [ordered]@{
+                registry_bytes_are_control_plane_only = [bool]$stacksOverlay.boundaries.registry_bytes_are_control_plane_only
+                empty_overlay_manifest_bound = [bool]$stacksOverlay.boundaries.empty_overlay_manifest_bound
+                overlay_content_commit = $stacksOverlay.boundaries.overlay_content_commit
+                overlay_content_tree = $stacksOverlay.boundaries.overlay_content_tree
+                content_bearing_commons_overlay_bound = [bool]$stacksOverlay.boundaries.content_bearing_commons_overlay_bound
+                upstream_tree_copied_into_commons = [bool]$stacksOverlay.boundaries.upstream_tree_copied_into_commons
+                upstream_payload_files_added = [int]$stacksOverlay.boundaries.upstream_payload_files_added
+                upstream_payload_bytes_added = [int64]$stacksOverlay.boundaries.upstream_payload_bytes_added
+                archives_or_binary_payloads_added = [int]$stacksOverlay.boundaries.archives_or_binary_payloads_added
+                composed_build_bound = [bool]$stacksOverlay.boundaries.composed_build_bound
+                modified_edition_bound = [bool]$stacksOverlay.boundaries.modified_edition_bound
+                reader_or_edition_files_added = [int]$stacksOverlay.boundaries.reader_or_edition_files_added
+                mathematical_review_claimed = [bool]$stacksOverlay.boundaries.mathematical_review_claimed
+                upstream_acceptance_dependency = [bool]$stacksOverlay.boundaries.upstream_acceptance_dependency
+                upstream_endorsement_implied = [bool]$stacksOverlay.boundaries.upstream_endorsement_implied
+            }
+        }
+        composition_contract = [ordered]@{
+            path = $stacksComposePath
+            bytes = $stacksComposeBytes.Length
+            sha256 = $stacksComposeSha256
+            schema = [string]$stacksCompose.schema
+            state = [string]$stacksCompose.state
+            preflight_checks = [int]$stacksCompose.aggregate.preflight_checks
+            composition_runs = [int]$stacksCompose.aggregate.composition_runs
+            generated_members = [int]$stacksCompose.aggregate.generated_members
+            builds = [int]$stacksCompose.aggregate.builds
+            mutation_probes = $composeMutations.Count
+            mutation_rejections = $composeRejected
+            tool_state = [string]$stacksCompose.tool.state
+            preflight_ready = [bool]$stacksCompose.preconditions.ready
+            expected_outcome = [string]$stacksCompose.fixture.expected_outcome
+            observed_outcome = [string]$stacksCompose.fixture.observed_outcome
+            composition_executed = [bool]$stacksCompose.fixture.composition_executed
+            output_manifest = $stacksCompose.output.manifest
+            output_tree = $stacksCompose.output.tree
+            output_members = @($stacksCompose.output.members).Count
+            output_bytes = $stacksCompose.output.bytes
+            output_sha256 = $stacksCompose.output.sha256
+            boundaries = [ordered]@{
+                contract_fixture_only = [bool]$stacksCompose.boundaries.contract_fixture_only
+                overlay_content_bound = [bool]$stacksCompose.boundaries.overlay_content_bound
+                composed_edition_bound = [bool]$stacksCompose.boundaries.composed_edition_bound
+                composed_build_bound = [bool]$stacksCompose.boundaries.composed_build_bound
+                modified_edition_bound = [bool]$stacksCompose.boundaries.modified_edition_bound
+                upstream_endorsement_implied = [bool]$stacksCompose.boundaries.upstream_endorsement_implied
+                upstream_payload_files_added = [int]$stacksCompose.boundaries.upstream_payload_files_added
+                upstream_payload_bytes_added = [int64]$stacksCompose.boundaries.upstream_payload_bytes_added
+                archives_or_binary_payloads_added = [int]$stacksCompose.boundaries.archives_or_binary_payloads_added
+                reader_or_edition_files_added = [int]$stacksCompose.boundaries.reader_or_edition_files_added
+                mathematical_review_claimed = [bool]$stacksCompose.boundaries.mathematical_review_claimed
+            }
+        }
         layers = @($stacks.layer_order).Count
         overlay_contents = @($stacks.overlay_contents).Count
         compatibility_targets = @($stacks.compatibility_targets).Count
@@ -1871,6 +2325,16 @@ $report = [ordered]@{
         unclaimed_owner_rows = $unclaimedOwnerRows
         items_inheriting_certification_default = @($board.items).Count
         stacks_architecture_layers = @($stacks.layer_order).Count
+        stacks_overlay_registry_entries = [int]$stacksOverlay.aggregate.registry_entries
+        stacks_overlay_mathematical_entries = [int]$stacksOverlay.aggregate.registered_mathematical_entries
+        stacks_composition_preflight_checks = [int]$stacksCompose.aggregate.preflight_checks
+        stacks_composition_runs = [int]$stacksCompose.aggregate.composition_runs
+        stacks_generated_members = [int]$stacksCompose.aggregate.generated_members
+        stacks_builds = [int]$stacksCompose.aggregate.builds
+        stacks_overlay_mutation_probes = $overlayMutations.Count
+        stacks_overlay_mutation_rejections = $overlayRejected
+        stacks_composition_mutation_probes = $composeMutations.Count
+        stacks_composition_mutation_rejections = $composeRejected
         stacks_intake_fields = $expectedStacksTemplateIds.Count
         generic_claim_routes = $genericClaimRouteRows
         stacks_claim_routes = $stacksClaimRouteRows
@@ -1898,7 +2362,21 @@ $report = [ordered]@{
         weber_frontier_contract = $weberFrontierContractPass
         steinitz_1906_frontier_contract = $steinitz1906FrontierContractPass
         steinitz_1908_source_contract = $steinitz1908SourceContractPass
-        stacks_reference_layer_contract = ($stacksReferenceLayerContractPass -and $stacksItemContractPass -and $stacksIntakeContractPass)
+        stacks_reference_layer_contract = (
+            $stacksReferenceLayerContractPass -and
+            $stacksOverlayRegistryContractPass -and
+            $stacksCompositionContractPass -and
+            $stacksItemContractPass -and
+            $stacksIntakeContractPass
+        )
+        stacks_overlay_registry_contract = $stacksOverlayRegistryContractPass
+        stacks_composition_contract = $stacksCompositionContractPass
+        stacks_empty_preflight_mutation_contract = (
+            $overlayMutations.Count -gt 0 -and
+            $overlayRejected -eq $overlayMutations.Count -and
+            $composeMutations.Count -gt 0 -and
+            $composeRejected -eq $composeMutations.Count
+        )
         human_board_complete = (
             $humanBoardRowIds.Count -eq $ids.Count -and
             $humanBoardIdSet.Count -eq $ids.Count -and
@@ -1976,8 +2454,12 @@ $report = [ordered]@{
             ($snapshotChecks -join "`n") -ceq ($expectedSnapshotChecks -join "`n") -and
             $board.snapshot_policy.mixed_revisions_forbidden -ceq $true
         )
+        task_owned_control_plane_only = ($outOfScopeChangedPaths.Count -eq 0)
+        out_of_scope_changed_paths_empty = ($outOfScopeChangedPaths.Count -eq 0)
         external_network_queried = $false
-        producer_files_mutated = $false
+        producer_files_mutated = ($producerOrCorpusChangedPaths.Count -ne 0)
+        zenodo_paths_mutated = ($zenodoChangedPaths.Count -ne 0)
+        excluded_lanes_touched = ($excludedLaneChangedPaths.Count -ne 0)
         compile_render_or_ocr_run = $false
         global_filesystem_search = $false
     }

@@ -8,8 +8,12 @@ read-only at commit `a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
 `3feeb703b931a6e7259782c10e7d1575adc83e5e`; exact repository, license-file,
 and anonymous raw-readback evidence is bound in
 [`manifests/stacks-pin.json`](../manifests/stacks-pin.json). This checkpoint
-still does **not** claim that an upstream tree was copied into Commons or that a
-Commons overlay tree, composed build, or modified edition has been produced.
+also binds an initialized [Commons overlay registry](../manifests/stacks-overlay.json)
+with zero entries and a deterministic [composition contract](../manifests/stacks-compose.json)
+whose preflight is blocked because no overlay exists. Those files are
+control-plane infrastructure. This checkpoint still does **not** claim that an
+upstream tree was copied into Commons or that a content-bearing Commons overlay,
+composition run, composed build, or modified edition has been produced.
 
 Upstream Stacks remains a respected source and synchronization target. Its
 acceptance is not a dependency, approval gate, or veto over Commons editorial
@@ -23,11 +27,12 @@ merge state.
 1. **Pinned upstream mirror.** Keep one exact read-only upstream identity. The
    pin is the reproducible source baseline; floating upstream is only a sync
    locator.
-2. **Commons overlay.** Put original additions, historical-source mappings,
+2. **Commons overlay.** The registry exists with zero entries. Put original additions, historical-source mappings,
    provenance, corrections, multilingual semantic links, stable Commons IDs,
    tests, and review receipts in a clearly renamed Commons namespace. Never
    present overlay material as upstream-authored or upstream-approved.
-3. **Deterministic composition.** Build from one approved upstream pin plus one
+3. **Deterministic composition.** The current preflight contract refuses to
+   compose an empty registry. Build only from one approved upstream pin plus one
    approved overlay commit. Record both inputs, the composition tool, generated
    members, bytes, hashes, tests, failures, and the resulting cursor.
 4. **Optional modified edition.** A public modified edition is optional. If
@@ -90,10 +95,13 @@ detection, not the checker trust root.
 
 1. Coordinate a single writer for the Commons namespace through that form.
 2. Replay the bound upstream repository, applicable license, commit, and tree.
-3. Create the first namespaced overlay manifest without copying mutable working
-   state or changing upstream.
-4. Define a deterministic composition command and a minimal regression fixture.
-5. Return the exact pin, overlay, build, tests, review receipt, and next sync
+3. Validate the existing zero-entry registry and blocked-preflight composition
+   contract; do not create a parallel control plane.
+4. Register the first provenance-complete namespaced overlay entry without
+   copying mutable working state or changing upstream.
+5. Bind an exact composition tool, execute the contract, and validate a minimal
+   deterministic fixture.
+6. Return the exact pin, overlay, build, tests, review receipt, and next sync
    cursor through the existing Commons handback interface.
 
 The machine-readable form of this architecture is embedded in

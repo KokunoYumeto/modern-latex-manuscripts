@@ -76,8 +76,11 @@ reference is now pinned at commit
 `a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
 `3feeb703b931a6e7259782c10e7d1575adc83e5e`; the exact license and raw-readback
 evidence are in [`manifests/stacks-pin.json`](../manifests/stacks-pin.json).
-No upstream tree has been copied into Commons, and no overlay, composed build,
-or modified edition byte is yet claimed.
+The task-owned [`manifests/stacks-overlay.json`](../manifests/stacks-overlay.json)
+registry has zero entries, and [`manifests/stacks-compose.json`](../manifests/stacks-compose.json)
+records a blocked preflight with zero composition runs. These are control-plane
+bytes: no upstream tree has been copied into Commons, and no content-bearing
+overlay, composed build, or modified edition byte is claimed.
 
 ## Current Work
 
@@ -91,7 +94,7 @@ or modified edition byte is yet claimed.
 | `illusie-cotangent-i-ii` | Illusie, *Complexe cotangent et déformations* I-II | Kokuno Yumeto coordination; producer publication custody remains separate | [Illusie map](illusie-map.md) | Continue LNM 239 at physical p.24 / printed p.6; LNM 283 is unstarted. |
 | `deligne-papers-letters` | Deligne numbered papers and correspondence | Kokuno Yumeto coordination; producer publication custody remains separate | [Deligne map](deligne-map.md) | Select one exact mapped paper, letter, correction generation, or source-review target. |
 | `weber-algebra` | Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | Name the volume and language: German Volume I cold re-verification continues at p.125; English Volume I requires repair reconciliation; Volume II requires immutable binding of the reported public §176 bytes before continuing after §176 at source p.643; Volume III has no proved cursor. |
-| `stacks-commons-layer` | Independently governed Stacks-derived Commons reference layer | Mathematics Commons | [Commons Stacks architecture and intake](stacks.md) | Use the dedicated Stacks form to coordinate one Commons namespace writer, replay the exact upstream pin and license identity, then return the first namespaced overlay manifest and deterministic composition fixture. |
+| `stacks-commons-layer` | Independently governed Stacks-derived Commons reference layer | Mathematics Commons | [Commons Stacks architecture and intake](stacks.md) | Use the dedicated Stacks form to coordinate one Commons namespace writer, replay the exact upstream pin, validate the existing zero-entry registry and blocked-preflight contract, then bind and return the first provenance-complete overlay entry and deterministic composed-build fixture. |
 
 The maintainer label describes current coordination, not ownership of the
 underlying mathematics and not an exclusive reservation. Declared overlap is
