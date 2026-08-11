@@ -14,7 +14,8 @@ Before starting, check:
 - [Adoption and mirror board](docs/adopt.md) for current work,
   ready-for-adoption work, future scopes, exact cursors, and declared mirrors;
 - [Complete adoption index](docs/adopt-index.md) for all board rows by author,
-  work, series, language, corpus, lane, controlled coverage class, and ownership;
+  work, series, language, corpus, lane, controlled coverage class, ownership,
+  and exact allowed workflow tokens;
 - [Reusable workflow protocols](docs/adopt-flows.md) for the exact start,
   inputs, evidence, stop, and handback contract behind each board token;
 - [GitHub coverage maps](docs/github-maps.md) for the author, work, series, or corpus;
@@ -34,6 +35,13 @@ or because an older directory name sorts first. Open the coverage map, locate
 the exact generation, and continue only from its recorded cursor. If the map is
 wrong, correct the map and preserve the contradictory evidence rather than
 silently replacing either generation.
+
+Keep new filenames short and directory trees shallow. Put long authority,
+scope, state, and hash detail in manifests or logs; do not rename frozen or
+hash-pinned artifacts. Each producer root or Commons overlay namespace has one
+writer at a time. Coordinate by exact immutable handoff rather than editing
+another task's live files, and keep repository inspection bounded to named
+paths—never scan an entire multi-terabyte user tree to discover work.
 
 For Noether, review or correct a complete target; continue a partial target only at the cursor recorded in `docs/noether-map.md`. Any change that adds or advances a Noether translation checkpoint must update that map and the `GitHub Source Checkpoints` section of `docs/records/noether.md` in the same commit with the language, work, exact coverage, current path, quality state, and next cursor. The catalog generator preserves that section on overwrite. Navigation is not custody: include the actual source and artifact bytes, never just an inventory or status claim.
 
@@ -59,6 +67,16 @@ the bounded scope. The issue makes overlap visible; it
 does not reserve the work or prevent an independent check. Return an inspectable
 repository/branch/result identity and the exact checks performed when the work
 is ready.
+
+`ready_for_adoption` means the current project has not allocated compute to the
+bounded row; it does not mean that no work exists. `future` means an exact source
+or continuation cursor is not yet bound. Never infer absence from one directory,
+reader shelf, source tree, package, or external record. For Board ID
+`stacks-commons-layer`, use the dedicated
+[Commons Stacks form](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml);
+one writer may hold a Commons overlay namespace and its ancestor/descendant
+chain at a time, while declared parallel work in disjoint namespaces—neither
+equal nor ancestor/descendant—remains welcome.
 
 Return a completed or partial result, paused scope, or withdrawal through the
 [handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml).

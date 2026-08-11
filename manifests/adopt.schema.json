@@ -28,6 +28,7 @@
     "consumer_regression",
     "claim_auditor",
     "claim_auditor_modes",
+    "claim_execution",
     "claim_regression",
     "continuous_validation",
     "claim_interface",
@@ -97,7 +98,10 @@
         "null_owner_means",
         "null_owner_allowed_for",
         "unclaimed_scope_prefix",
-        "claims_are_nonexclusive"
+        "claims_are_nonexclusive",
+        "ready_for_adoption_reason",
+        "future_reason",
+        "absence_inference_forbidden"
       ],
       "properties": {
         "named_owner_required_for": {
@@ -121,7 +125,10 @@
           "maxItems": 2
         },
         "unclaimed_scope_prefix": { "const": "unclaimed" },
-        "claims_are_nonexclusive": { "const": true }
+        "claims_are_nonexclusive": { "const": true },
+        "ready_for_adoption_reason": { "const": "current_project_compute_not_allocated" },
+        "future_reason": { "const": "source_or_cursor_evidence_not_yet_bound" },
+        "absence_inference_forbidden": { "const": true }
       },
       "additionalProperties": false
     },
@@ -349,6 +356,39 @@
           "items": false,
           "minItems": 2,
           "maxItems": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "claim_execution": {
+      "type": "object",
+      "required": [
+        "ingestion_snapshot_files",
+        "executable_paths",
+        "same_commit_required",
+        "human_approved_checker_required",
+        "helper_materialization",
+        "local_script_comparison_role",
+        "offline_git_requirement"
+      ],
+      "properties": {
+        "ingestion_snapshot_files": { "const": 4 },
+        "executable_paths": {
+          "type": "array",
+          "prefixItems": [
+            { "const": "scripts/get-adopt.py" },
+            { "const": "scripts/check-claims.py" }
+          ],
+          "items": false,
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "same_commit_required": { "const": true },
+        "human_approved_checker_required": { "const": true },
+        "helper_materialization": { "const": "private_exact_commit_blob" },
+        "local_script_comparison_role": { "const": "drift_detection_not_trust_root" },
+        "offline_git_requirement": {
+          "const": "fully_materialized_objects_with_lazy_fetch_disabled_or_network_isolation"
         }
       },
       "additionalProperties": false
@@ -761,6 +801,26 @@
               "adoption_status": { "const": "future_evidence_needed" },
               "readiness": { "const": "source_discovery_first" },
               "owner_scope": { "type": "string", "pattern": "^unclaimed(?: |$)" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "id": { "const": "stacks-commons-layer" } },
+            "required": ["id"]
+          },
+          "then": {
+            "properties": {
+              "claim_url": {
+                "const": "https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "claim_url": {
+                "const": "https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml"
+              }
             }
           }
         }

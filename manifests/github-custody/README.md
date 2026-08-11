@@ -10,9 +10,9 @@ producer payloads.
 - Current adoption v2 [closure](../published-github/adopt-v2-close.json) and
   [source receipt](../published-github/adopt-v2.json), with explicit seven-class
   coverage and one row-allowed workflow per claim
-- Current [Commons Stacks intake closure](../published-github/stacks-intake-close.json)
+- Predecessor [Commons Stacks intake closure](../published-github/stacks-intake-close.json)
   and [source receipt](../published-github/stacks-intake.json),
-  with predecessor [architecture closure](../published-github/stacks-r1-close.json)
+  with earlier [architecture closure](../published-github/stacks-r1-close.json)
   and [architecture source receipt](../published-github/stacks-r1.json)
 - [Steinitz frontier predecessor closure](../published-github/stein-r1-close.json)
   and [source-and-correction receipt](../published-github/stein-r1.json)
@@ -95,11 +95,12 @@ remain immutable. The
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
-The current Commons Stacks intake closure extends the additive evidence
-aggregate through its receipt commit to 38 cycles, 3,132 commit-pinned
-observations, and 1,215,546,817 bytes with zero mismatches. It preserves the
-Steinitz and earlier closures; no generation rewrites R5, R4, R3, or any
-earlier generation.
+The current adoption v2 [closure](../published-github/adopt-v2-close.json)
+extends the additive evidence aggregate through its receipt commit to 40 cycles,
+3,156 commit-pinned observations, and 1,217,243,661 bytes with zero mismatches.
+The [38-cycle Commons Stacks intake closure](../published-github/stacks-intake-close.json)
+remains the immutable predecessor at 3,132 observations / 1,215,546,817 bytes;
+it preserves Steinitz and all earlier generations without rewriting them.
 
 The frozen R5 successor is preserved additively and remains pending independent
 review; it does not replace the accepted R4 reader. The 2026-08-07 r5 source,

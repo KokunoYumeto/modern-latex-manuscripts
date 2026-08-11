@@ -3,7 +3,7 @@
 ## Status and boundary
 
 Mathematics Commons has adopted an independently governed architecture for a
-Stacks-derived reference layer. This commit defines the interface and review
+Stacks-derived reference layer. The architecture checkpoint defines the interface and review
 boundary only. It does **not** claim that an upstream repository, exact commit,
 overlay tree, composed build, or modified edition has already been bound.
 
@@ -65,6 +65,24 @@ It keeps the ordinary adoption/handback lifecycle while requiring the exact
 writer, upstream repository, license, commit, overlay namespace, deterministic
 composition, tests, review plan, and synchronization cursor needed here.
 
+The form fixes the Board ID to `stacks-commons-layer`. Choose the workflow that
+matches the declared intent exactly:
+
+| Intent | Required workflow |
+|---|---|
+| Bind the first exact upstream pin and Commons overlay | `upstream_overlay_sync` |
+| Independently mirror or check an existing Commons overlay | `independent_review` |
+| Propose a deterministic composition and test fixture | `assembly_review` |
+| Return source or license evidence only | `source_intake` |
+
+Parallel work remains welcome, but each Commons overlay namespace and its
+ancestor/descendant chain has one writer identity at a time. Disjoint
+namespaces—neither equal nor ancestor/descendant—may proceed independently.
+The issue auditor requires each exact identity to occupy the whole submitted
+field, rejects mixed repository revisions, and reads both executable identities
+from the same human-approved commit as the board; local comparison is drift
+detection, not the checker trust root.
+
 1. Coordinate a single writer for the Commons namespace through that form.
 2. Bind the upstream repository, applicable license, and one exact commit.
 3. Create the first namespaced overlay manifest without copying mutable working
@@ -76,10 +94,12 @@ composition, tests, review plan, and synchronization cursor needed here.
 The machine-readable form of this architecture is embedded in
 [`manifests/adopt.json`](../manifests/adopt.json) under
 `stacks_reference_layer`; Board ID `stacks-commons-layer` carries the current
-operational cursor. The exact source-commit transport, contract identities,
-tests, and anonymous public readback are bound in the
-[dedicated intake closure](../manifests/published-github/stacks-intake-close.json)
-and [source receipt](../manifests/published-github/stacks-intake.json).
-The preceding architecture generation remains bound in the
+operational cursor. The current board transport, workflow contract, tests, and
+anonymous public readback are bound in the adoption-v2
+[closure](../manifests/published-github/adopt-v2-close.json) and
+[source receipt](../manifests/published-github/adopt-v2.json). The dedicated
+Stacks-intake [closure](../manifests/published-github/stacks-intake-close.json)
+and [source receipt](../manifests/published-github/stacks-intake.json) remain
+predecessor intake evidence. The preceding architecture generation remains bound in the
 [Commons Stacks architecture closure](../manifests/published-github/stacks-r1-close.json)
 and its [source receipt](../manifests/published-github/stacks-r1.json).
