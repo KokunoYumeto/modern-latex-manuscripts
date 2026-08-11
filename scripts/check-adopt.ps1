@@ -827,8 +827,8 @@ if ([string]$stacks.candidate_entry_contract.state -cne 'candidate_contract_boun
     [string]$stacks.candidate_entry_contract.validator.writes -cne 'stdout_only' -or
     [string]$stacks.candidate_entry_contract.regression.path -cne 'scripts/test-stacks-entry.py' -or
     [string]$stacks.candidate_entry_contract.regression.version -cne '1.0.0' -or
-    [int64]$stacks.candidate_entry_contract.regression.bytes -ne 33683 -or
-    [string]$stacks.candidate_entry_contract.regression.sha256 -cne '2D06864C1B3D2B6433D5A52CDDD20342FF8406FEE4C4005C99388CA16F271DBE' -or
+    [int64]$stacks.candidate_entry_contract.regression.bytes -ne 33847 -or
+    [string]$stacks.candidate_entry_contract.regression.sha256 -cne 'FA621C4A38E324B87A69FB75F8DA34B529E71F068838D557B06C45001C6B854B' -or
     [int]$stacks.candidate_entry_contract.regression.defined_cases -ne 54 -or
     [int]$stacks.candidate_entry_contract.regression.required_cases -ne 53 -or
     [int]$stacks.candidate_entry_contract.candidate_manifests_accepted -ne 0 -or
@@ -844,7 +844,7 @@ if ([string]$stacks.composition_contract.path -cne 'manifests/stacks-compose.jso
     [string]$stacks.composition_contract.preflight_tool.sha256 -cne '89B3ED1093ABDF097E7FE6EF8A99E3728B276C4F04733D5CFA14CA9404295CCA' -or
     [string]$stacks.composition_contract.preflight_result.path -cne 'manifests/stacks-preflight.json' -or
     [int64]$stacks.composition_contract.preflight_result.bytes -ne 3729 -or
-    [string]$stacks.composition_contract.preflight_result.sha256 -cne '6A780CA59B58D873A6A7F91EF388BF018378C77CD207A58A9CF13373D6DDCE93' -or
+    [string]$stacks.composition_contract.preflight_result.sha256 -cne '7AE74076674674C90B1956A448D6A0CBA9665099FA476AF51AEF679E534B5E34' -or
     [int]$stacks.composition_contract.executable_preflight_runs -ne 1 -or
     [string]$stacks.composition_contract.composition_tool_state -cne 'not_bound' -or
     [int]$stacks.composition_contract.composition_runs -ne 0 -or
