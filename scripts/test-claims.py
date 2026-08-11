@@ -37,6 +37,9 @@ def claim_body(board_id: str) -> str:
 ### Intent
 Independently mirror/check existing work
 
+### Workflow token
+bounded_continuation
+
 ### Exact scope
 Gauss, Werke II, one bounded page range from the declared cursor.
 
@@ -55,6 +58,9 @@ def stacks_claim_body() -> str:
 
 ### Intent
 Start one bounded Commons-owned Stacks reference-layer implementation.
+
+### Workflow token
+upstream_overlay_sync
 
 ### Exact scope
 Bind one exact upstream pin and one new Commons-owned overlay namespace; do not modify upstream or another task's files.
@@ -190,14 +196,38 @@ def main() -> int:
         issue(10, "[Adopt] bounded Gauss mirror", claim_body(BOARD_ID), "open"),
         issue(11, "[Handback] bounded Gauss mirror", handback_body(args.repository), "closed"),
         issue(12, "[Adopt] Stacks Commons layer — bounded fixture", stacks_claim_body(), "open"),
+        issue(
+            17,
+            "[Adopt] proposed workflow-contract fixture",
+            claim_body("new:workflow-contract-fixture").replace(
+                "### Workflow token\nbounded_continuation",
+                "### Workflow token\nsource_intake",
+            ),
+            "open",
+        ),
     ]
     invalid_stacks = stacks_claim_body().replace(
         "### Exact upstream commit\n0123456789abcdef0123456789abcdef01234567",
         "### Exact upstream commit\n_No response_",
     )
+    invalid_workflow = claim_body(BOARD_ID).replace(
+        "### Workflow token\nbounded_continuation",
+        "### Workflow token\ntable_audit",
+    )
+    unknown_workflow = claim_body(BOARD_ID).replace(
+        "### Workflow token\nbounded_continuation",
+        "### Workflow token\nnot_a_registered_workflow",
+    )
+    missing_workflow = claim_body(BOARD_ID).replace(
+        "### Workflow token\nbounded_continuation",
+        "### Workflow token\n_No response_",
+    )
     invalid_fixture = [
         issue(13, "[Adopt] unknown board row", claim_body("not-a-board-row"), "open"),
         issue(14, "[Adopt] Stacks Commons layer — invalid fixture", invalid_stacks, "open"),
+        issue(15, "[Adopt] row-incompatible workflow", invalid_workflow, "open"),
+        issue(16, "[Adopt] unknown workflow", unknown_workflow, "open"),
+        issue(18, "[Adopt] missing workflow", missing_workflow, "open"),
     ]
 
     with tempfile.TemporaryDirectory(prefix="adopt-claims-") as temporary:
@@ -222,7 +252,7 @@ def main() -> int:
         if valid_report.get("status") != "PASS" or valid_report.get("errors") != []:
             raise RuntimeError("valid claim/handback fixture did not return PASS/errors[]")
         aggregate = valid_report.get("aggregate", {})
-        expected = {"issues": 3, "claims": 2, "handbacks": 1, "valid": 3, "invalid": 0}
+        expected = {"issues": 4, "claims": 3, "handbacks": 1, "valid": 4, "invalid": 0}
         if any(aggregate.get(key) != value for key, value in expected.items()):
             raise RuntimeError(f"valid fixture aggregate mismatch: {aggregate}")
         if valid_report.get("board", {}).get("transport") != "local_git_object_database":
@@ -231,26 +261,36 @@ def main() -> int:
             raise RuntimeError("valid fixture did not report the JSON issue transport")
         if valid_report.get("checks", {}).get("external_network_queried") is not False:
             raise RuntimeError("valid fixture did not remain fully offline")
+        if valid_report.get("checks", {}).get("claim_workflows_valid") is not True:
+            raise RuntimeError("valid fixture did not prove registered row-compatible workflows")
 
         invalid = run_auditor(checker, args.repository, args.commit.lower(), git_root, invalid_path)
         invalid_report = parse_report(invalid, "invalid Board-ID fixture")
         if invalid.returncode != 1 or invalid_report.get("status") != "FAIL":
             raise RuntimeError("invalid Board-ID fixture did not fail closed with exit 1")
+        if invalid_report.get("checks", {}).get("claim_workflows_valid") is not False:
+            raise RuntimeError("invalid workflow fixtures did not fail the workflow contract")
         invalid_aggregate = invalid_report.get("aggregate", {})
-        if invalid_aggregate.get("issues") != 2 or invalid_aggregate.get("invalid") != 2:
+        if invalid_aggregate.get("issues") != 5 or invalid_aggregate.get("invalid") != 5:
             raise RuntimeError(f"invalid fixture aggregate mismatch: {invalid_aggregate}")
         if not any("unknown Board ID: not-a-board-row" in error for error in invalid_report.get("errors", [])):
             raise RuntimeError("invalid fixture did not preserve the unknown Board-ID error")
         if not any("missing required Stacks section: Exact upstream commit" in error for error in invalid_report.get("errors", [])):
             raise RuntimeError("invalid fixture did not fail closed on a missing Stacks commit")
+        if not any("Workflow token is not allowed for Board ID gauss-werke-ii: table_audit" in error for error in invalid_report.get("errors", [])):
+            raise RuntimeError("invalid fixture did not reject a row-incompatible workflow")
+        if not any("unknown Workflow token: not_a_registered_workflow" in error for error in invalid_report.get("errors", [])):
+            raise RuntimeError("invalid fixture did not reject an unknown workflow")
+        if not any("missing required section: Workflow token" in error for error in invalid_report.get("errors", [])):
+            raise RuntimeError("invalid fixture did not reject a missing workflow")
 
     print(
         json.dumps(
             {
                 "status": "PASS",
                 "commit": args.commit.lower(),
-                "valid_fixture": {"issues": 3, "valid": 3, "errors": 0},
-                "invalid_fixture": {"issues": 2, "invalid": 2, "exit": 1},
+                "valid_fixture": {"issues": 4, "valid": 4, "errors": 0},
+                "invalid_fixture": {"issues": 5, "invalid": 5, "exit": 1},
                 "board_transport": "local_git_object_database",
                 "issue_transport": "json_fixture",
                 "external_network_queried": False,

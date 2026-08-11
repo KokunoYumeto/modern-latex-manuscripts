@@ -278,7 +278,7 @@ commits. `GIT_NO_LAZY_FETCH=1` plus the tracked promisor regression proves a
 missing contract blob exits without a remote attempt; the materialized
 four-file contract passes 122,057 bytes.
 
-The current [catalog/map/link maintenance receipt](20260808_maps_rb.json)
+The predecessor [catalog/map/link maintenance receipt](20260808_maps_rb.json)
 binds eight additive path observations across three commits / 456,987 bytes,
 all matched exactly. Its final link control records 34 documents, 1,027/1,027
 local links, and 758 targets. The predecessor
@@ -406,7 +406,7 @@ replays all five paths / 278,384 bytes, all matched exactly. The
 [twenty-three-cycle archive predecessor receipt](20260808_archive_r6_rb.json)
 replays all five paths / 252,007 bytes, all matched exactly. The
 [twenty-two-cycle archive receipt](20260807_archive_r5_rb.json) replays all
-eight paths in the current archive-history successor: 546,389 bytes, all
+eight paths in that historical archive generation: 546,389 bytes, all
 matched exactly. The [twenty-one-cycle predecessor receipt](20260807_archive_r4_rb.json)
 remains immutable: nine paths / 209,016 bytes, all matched exactly. The
 [twenty-cycle predecessor receipt](20260807_archive_r3_rb.json)
