@@ -8,9 +8,10 @@ producer payloads.
 ## Current task-owned indexes
 
 - Current empty Stacks-overlay infrastructure
+  [closure](../published-github/stacks-infra-r1-close.json) and
   [source receipt](../published-github/stacks-infra-r1.json), with a zero-entry
-  overlay registry and a blocked deterministic-composition preflight; no
-  overlay content, composed build, or modified edition is bound
+  overlay registry and a blocked deterministic-composition preflight; no overlay
+  content, composed build, or modified edition is bound
 - Predecessor Stacks-pin and Commons-handback
   [closure](../published-github/stacks-pin-r1-close.json) and
   [source receipt](../published-github/stacks-pin-r1.json), with the exact
@@ -107,13 +108,13 @@ generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
 The current empty Stacks-overlay infrastructure
-[source receipt](../published-github/stacks-infra-r1.json) binds accepted source
-commit `15c5c63b`: 13/13 paths / 581,482 bytes matched anonymous commit-pinned
-raw GitHub bytes and Actions run `31502399396` passed. It binds zero registry
-entries, overlay files, mathematical entries, composition runs, generated
-members, builds, and modified editions. The additive evidence aggregate through
-this source is 45 cycles, 3,218 commit-pinned observations, and 1,220,899,310
-bytes with zero mismatches.
+[closure](../published-github/stacks-infra-r1-close.json) binds accepted source
+commit `15c5c63b` and receipt commit `86f7bafb`: source readback matched 13/13
+paths / 581,482 bytes, receipt readback matched 7/7 paths / 655,965 bytes, and
+both Actions runs passed. It binds zero registry entries, overlay files,
+mathematical entries, composition runs, generated members, builds, and modified
+editions. The additive evidence aggregate is 46 cycles, 3,225 commit-pinned
+observations, and 1,221,555,275 bytes with zero mismatches.
 The predecessor Stacks-pin and Commons-handback
 [closure](../published-github/stacks-pin-r1-close.json) binds source commit
 `eb82a809` and receipt commit `5f66d4d1`: source readback matched 19/19 paths /

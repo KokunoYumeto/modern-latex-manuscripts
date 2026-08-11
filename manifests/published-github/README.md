@@ -7,7 +7,8 @@ transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
 Start with the current empty Stacks-overlay infrastructure
-[source receipt](stacks-infra-r1.json), then the predecessor Stacks-pin and
+[closure](stacks-infra-r1-close.json) and [source receipt](stacks-infra-r1.json),
+then the predecessor Stacks-pin and
 Commons-handback [closure](stacks-pin-r1-close.json) and
 [source receipt](stacks-pin-r1.json), then the predecessor adoption v3
 [closure](adopt-v3-close.json) and [source receipt](adopt-v3.json), then the
@@ -24,7 +25,14 @@ history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
 
 The current empty Stacks-overlay infrastructure
-[source receipt](stacks-infra-r1.json) binds accepted source commit
+[closure](stacks-infra-r1-close.json) binds receipt commit
+`86f7bafb018c9fbfa77c3338371fc9be6f3c02e3`: all 7 changed paths /
+655,965 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
+[`31503132092`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31503132092)
+passed. Together with the source generation, the additive aggregate is 46
+cycles, 3,225 observations, and 1,221,555,275 bytes with zero mismatches.
+
+The infrastructure [source receipt](stacks-infra-r1.json) binds accepted source commit
 `15c5c63be72a4a18dd8e6d11d6f5f17930b34fb8`: all 13 changed paths /
 581,482 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
 [`31502399396`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31502399396)
