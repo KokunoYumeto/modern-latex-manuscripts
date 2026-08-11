@@ -84,10 +84,12 @@ a parallel registry, composition control plane, or untracked namespace.
 Replay the validator-only preflight with `python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY`.
 Exit 0 in that expected-outcome mode proves
 only the expected block; without `--expect`, the valid blocked run exits 20.
-Contract v1 rejects a nonempty registry. It is not the composition executor,
-which remains unbound. The next accepted generation must bind one approved,
-provenance-complete overlay entry and a separate exact executor before any
-composition run or output.
+Then validate one materialized candidate with `python scripts/check-stacks-entry.py --entry CANDIDATE.json --package MATERIALIZED_ROOT --schema manifests/stacks-entry.schema.json --pin manifests/stacks-pin.json --registry manifests/stacks-overlay.json`.
+`VALID_CANDIDATE_UNREGISTERED` proves exact candidate bytes and control
+relationships only; it is not registration, Git-identity proof, mathematical
+certification, or build readiness. Contract v1 still rejects a nonempty
+registry. A separate review must verify and approve the candidate before
+registration, and the composition executor remains unbound.
 
 Return a completed or partial result, paused scope, or withdrawal through the
 [handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml).

@@ -9,13 +9,15 @@ read-only at commit `a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
 and anonymous raw-readback evidence is bound in
 [`manifests/stacks-pin.json`](../manifests/stacks-pin.json). This checkpoint
 also binds an initialized [Commons overlay registry](../manifests/stacks-overlay.json)
-with zero entries and a deterministic [composition contract](../manifests/stacks-compose.json).
+with zero entries, a strict [candidate-entry schema](../manifests/stacks-entry.schema.json),
+an offline [candidate validator](../scripts/check-stacks-entry.py), its
+[regression suite](../scripts/test-stacks-entry.py), and a deterministic [composition contract](../manifests/stacks-compose.json).
 That contract now binds an exact validator-only
 [preflight executable](../scripts/stacks-preflight.py) and its
 [blocked-state result](../manifests/stacks-preflight.json). Those files are
 control-plane infrastructure. The separate composition executor remains
 unbound. This checkpoint still does **not** claim that an upstream tree was
-copied into Commons or that a content-bearing Commons overlay, composition run,
+copied into Commons or that a candidate was accepted, or that a content-bearing Commons overlay, composition run,
 output, composed build, or modified edition has been produced.
 
 Upstream Stacks remains a respected source and synchronization target. Its
@@ -49,6 +51,35 @@ namespace, or protected branch state.
    overlay tests, and preserve conflicts and rejected changes. Synchronization
    does not surrender Commons editorial control.
 
+## Candidate-entry contract
+
+The candidate contract validates a materialized package before any registration
+decision. Its self-excluding member manifest lists every other regular file by safe
+POSIX path, byte count, SHA-256, content kind, stable ID, language, source
+locators, provenance receipts, supersession, and rights notice. The validator
+rejects missing or extra files, unsafe or case-colliding paths, symlinks and
+reparse points, namespace collisions, mixed upstream pins, duplicate stable
+IDs, count/tree mismatches, and absent or misclassified provenance, test, and
+review receipts. The same published schema exposes the separate member-manifest,
+scope, review, and test document shapes under `$defs`; JSON object field order is
+not significant, while duplicate keys and mismatched receipt subjects are
+rejected. Retained validation output uses repository-logical roles and paths,
+not invocation-machine paths.
+
+Run it against one materialized candidate with:
+
+```text
+python scripts/check-stacks-entry.py --entry CANDIDATE.json --package MATERIALIZED_ROOT --schema manifests/stacks-entry.schema.json --pin manifests/stacks-pin.json --registry manifests/stacks-overlay.json
+```
+
+Success is exactly `VALID_CANDIDATE_UNREGISTERED`. It proves the declared
+materialized members and structural control relationships under the bound pin. It does
+not register the candidate, prove the candidate's declared Git commit or tree,
+certify mathematics, imply upstream approval, or make composition ready. The
+synthetic regression suite defines 54 cases: one valid, 52 invalid, and one
+platform-conditional symlink case; it registers no fixture and contains no
+mathematical payload.
+
 ## Executable blocked-state preflight
 
 From the repository root, replay the exact current state with:
@@ -64,19 +95,20 @@ state exits 20. The preflight is offline and validator-only: it performs no
 composition and writes no overlay or edition output. Contract v1 deliberately
 rejects a nonempty registry rather than treating unbound content as ready.
 
-The bound state is therefore exact: zero registry entries, zero overlay content,
+The bound state is therefore exact: zero accepted candidates, zero registry entries, zero overlay content,
 zero composition runs, zero generated members, zero output, zero builds, and no
-modified edition. The next implementation generation requires one approved,
-provenance-complete overlay entry and a separately bound exact composition
+modified edition. The next implementation generation requires one validated,
+separately approved manifest-complete, provenance-referenced overlay entry and a separately bound exact composition
 executor.
 
-## Evidence boundary
+## Predecessor-assertion boundary
 
-The architectural handoff supplies only this public evidence about the prior
-contribution route: PRs **#196** and **#197** were closed unmerged at the same
-timestamp, with zero public comments and zero public reviews. The handoff did
-not bind the repository containing those PR numbers. No motive, policy, or
-private communication may be inferred from that evidence.
+An unverified predecessor handoff asserts only this about a prior contribution
+route: PRs **#196** and **#197** were closed unmerged at the same timestamp,
+with zero public comments and zero public reviews. It did not bind a repository
+or resolvable URLs for those bare numbers, so this is not independently
+resolvable public evidence. No motive, policy, or private communication may be
+inferred from the assertion.
 
 ## Stable identities and review
 
@@ -98,18 +130,27 @@ exports prerequisites for ordinary editorial work.
 Start with the dedicated
 [Commons Stacks intake form](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml).
 It keeps the ordinary adoption/handback lifecycle while requiring the exact
-writer, upstream repository, license, commit, overlay namespace, deterministic
-composition, tests, review plan, and synchronization cursor needed here.
+writer, upstream repository, license, commit and tree, license hash, overlay
+namespace, manifest or source-only sentinel, composition state, tests, review
+plan, and synchronization cursor needed here.
 
 The form fixes the Board ID to `stacks-commons-layer`. Choose the workflow that
 matches the declared intent exactly:
 
 | Intent | Required workflow |
 |---|---|
-| Replay the exact upstream pin and bind the first Commons overlay | `upstream_overlay_sync` |
+| Prepare and validate an unregistered candidate against the exact upstream pin | `upstream_overlay_sync` |
 | Independently mirror or check an existing Commons overlay | `independent_review` |
 | Propose a deterministic composition and test fixture | `assembly_review` |
 | Return source or license evidence only | `source_intake` |
+
+Candidate preparation uses an exact manifest identity and the composition
+sentinel `not yet bound`. Source-only intake uses `not applicable — source or
+license evidence only` in both manifest and composition fields. Independent
+review supplies the reviewed manifest identity and uses `not applicable —
+independent overlay review` for composition. An assembly proposal must instead
+name its executor, ordered inputs, generated-member manifest, replay receipt,
+and before execution gate.
 
 Parallel work remains welcome, but each Commons overlay namespace and its
 ancestor/descendant chain has one writer identity at a time. Disjoint
@@ -124,11 +165,15 @@ detection, not the checker trust root.
 3. Validate the existing zero-entry registry and blocked-preflight composition
    contract with the exact executable command above; do not create a parallel
    control plane and do not treat expected-block exit 0 as readiness.
-4. Approve and register the first provenance-complete namespaced overlay entry
-   without copying mutable working state or changing upstream.
-5. Bind a separate exact composition executor, advance the contract beyond v1,
+4. Materialize and validate one exact manifest-complete, provenance-referenced candidate with the
+   candidate-entry command above. Preserve `VALID_CANDIDATE_UNREGISTERED` as a
+   pre-registration state, not an approval claim.
+5. Independently verify the candidate's declared Git commit/tree and review
+   scope, then separately approve and register its namespace without copying
+   mutable working state or changing upstream.
+6. Bind a separate exact composition executor, advance the contract beyond v1,
    and only then execute and validate a minimal deterministic fixture.
-6. Return the exact pin, overlay, build, tests, review receipt, and next sync
+7. Return the exact pin, overlay, build, tests, review receipt, and next sync
    cursor through the existing Commons handback interface.
 
 The machine-readable form of this architecture is embedded in

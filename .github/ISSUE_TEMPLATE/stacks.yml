@@ -7,7 +7,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        This starts or mirrors Board ID `stacks-commons-layer`. Upstream acceptance is not a Commons approval gate. Do not infer a repository, license, commit, motive, or endorsement: bind each exact identity below before producing a composed build.
+        This starts or mirrors Board ID `stacks-commons-layer`. The first route prepares and validates one exact unregistered candidate; it does not register an overlay or authorize a composed build. Upstream acceptance is not a Commons approval gate. Do not infer a repository, license, commit, tree, motive, or endorsement: bind each exact identity below.
   - type: dropdown
     id: board_id
     attributes:
@@ -21,7 +21,7 @@ body:
     attributes:
       label: Intent
       options:
-        - Replay the exact upstream pin and bind the first Commons overlay
+        - Prepare and validate an unregistered candidate against the exact upstream pin
         - Independently mirror or check an existing Commons overlay
         - Propose a deterministic composition and test fixture
         - Return source or license evidence only
@@ -88,6 +88,24 @@ body:
     validations:
       required: true
   - type: input
+    id: upstream_tree
+    attributes:
+      label: Exact upstream tree
+      description: Use the exact immutable tree from the current board pin; it must agree with the pinned commit.
+      placeholder: 3feeb703b931a6e7259782c10e7d1575adc83e5e
+      value: 3feeb703b931a6e7259782c10e7d1575adc83e5e
+    validations:
+      required: true
+  - type: input
+    id: upstream_license_sha256
+    attributes:
+      label: Upstream license SHA-256
+      description: Use the exact SHA-256 of the pinned upstream COPYING bytes from the current board pin.
+      placeholder: 4B2C8FC390F802CD92F0622DC00A708A588BEC54D0145D2EE135D6D7672BFE85
+      value: 4B2C8FC390F802CD92F0622DC00A708A588BEC54D0145D2EE135D6D7672BFE85
+    validations:
+      required: true
+  - type: input
     id: overlay_namespace
     attributes:
       label: Commons overlay namespace
@@ -96,10 +114,18 @@ body:
     validations:
       required: true
   - type: textarea
+    id: candidate_manifest
+    attributes:
+      label: Candidate manifest identity
+      description: Give one relative path, byte length, SHA-256, content-tree SHA-256, and positive member count using the exact one-line format shown. For “Return source or license evidence only,” enter exactly `not applicable — source or license evidence only` instead of inventing a candidate.
+      placeholder: commons/stacks/pilot/files.json | 1234 bytes | SHA-256 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF | content-tree SHA-256 FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210 | 7 members
+    validations:
+      required: true
+  - type: textarea
     id: composition
     attributes:
       label: Deterministic composition
-      description: Exact command/tool version, ordered inputs, generated members, and expected manifest.
+      description: For candidate preparation enter exactly `not yet bound`; for source-only evidence enter exactly `not applicable — source or license evidence only`; for independent review enter exactly `not applicable — independent overlay review`. A composition proposal must instead name its executor, ordered inputs, generated-member manifest, replay receipt, and before execution gate.
     validations:
       required: true
   - type: textarea

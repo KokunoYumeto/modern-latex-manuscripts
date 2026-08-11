@@ -77,8 +77,14 @@ reference is now pinned at commit
 `3feeb703b931a6e7259782c10e7d1575adc83e5e`; the exact license and raw-readback
 evidence are in [`manifests/stacks-pin.json`](../manifests/stacks-pin.json).
 The repository-owned [`manifests/stacks-overlay.json`](../manifests/stacks-overlay.json)
-registry has zero entries. [`manifests/stacks-compose.json`](../manifests/stacks-compose.json)
-now binds the exact validator-only
+registry has zero entries. It now binds a strict
+[`stacks-overlay-entry/v1` candidate schema](../manifests/stacks-entry.schema.json),
+the offline [`candidate validator`](../scripts/check-stacks-entry.py), and
+[synthetic valid/invalid regressions](../scripts/test-stacks-entry.py).
+A successful candidate replay is reported only as
+`VALID_CANDIDATE_UNREGISTERED`: it is not registration, proof of the declared
+Git commit/tree, mathematical certification, or build readiness.
+[`manifests/stacks-compose.json`](../manifests/stacks-compose.json) also binds the exact validator-only
 [`scripts/stacks-preflight.py`](../scripts/stacks-preflight.py) and its
 [`BLOCKED_EMPTY_OVERLAY_REGISTRY` result](../manifests/stacks-preflight.json).
 Replay it with `python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY`.
@@ -86,7 +92,7 @@ Exit 0 in expected-outcome mode proves only
 that exact block; a normal valid blocked run exits 20. Contract v1 rejects a
 nonempty registry, and the separate composition executor remains unbound.
 These are control-plane bytes: no upstream tree has been copied into Commons,
-and there are zero overlay entries or content bytes, zero composition runs or
+and there are zero accepted candidates, overlay entries, or content bytes, zero composition runs or
 outputs, and no composed build or modified edition.
 
 ## Current Work
@@ -94,14 +100,14 @@ outputs, and no composed build or modified edition.
 | Board ID | Scope | Maintained as | Existing surface | Parallel contribution |
 |---|---|---|---|---|
 | `noether-de-auth` | Emmy Noether canonical German project authority | Kokuno Yumeto project authority lane | [Noether map](noether-map.md) | Return an exact authority correction or accepted cross-language finding; do not fork away from the correction history. |
-| `ega-i-p143-control` | EGA I paired authority control through printed page 143 | Kokuno Yumeto coordination; producer publication custody remains separate | [EGA map](ega-map.md) | Replay the sealed p.143 checkpoint before continuing from the producer's current p.144 generation; independent bounded review is welcome. |
-| `fga-foundements` | FGA separate French and English editions | Kokuno Yumeto coordination; producer publication custody remains separate | [FGA map](fga-map.md) | Check one Exposé, Commentaires range, erratum, or graph residual without creating a bilingual front reader. |
-| `verdier-thesis` | Verdier thesis front matter, physical pages 2-9 | Kokuno Yumeto coordination; producer publication custody remains separate | [Verdier map](verdier-map.md) | Continue at physical page 10 or independently check the admitted range. |
-| `tohoku-paper` | Grothendieck's Tôhoku paper checkpoint | Kokuno Yumeto coordination; producer publication custody remains separate | [Tôhoku map](tohoku-map.md) | Reconcile the historical p.119 versus p.119-121 cursor controls before any continuation. |
-| `illusie-cotangent-i-ii` | Illusie, *Complexe cotangent et déformations* I-II | Kokuno Yumeto coordination; producer publication custody remains separate | [Illusie map](illusie-map.md) | Continue LNM 239 at physical p.24 / printed p.6; LNM 283 is unstarted. |
-| `deligne-papers-letters` | Deligne numbered papers and correspondence | Kokuno Yumeto coordination; producer publication custody remains separate | [Deligne map](deligne-map.md) | Select one exact mapped paper, letter, correction generation, or source-review target. |
+| `ega-i-p143-control` | EGA I paired authority control through printed page 143 | Kokuno Yumeto project coordination | [EGA map](ega-map.md) | Replay the sealed p.143 checkpoint before continuing from the current p.144 generation; independent bounded review is welcome. |
+| `fga-foundements` | FGA separate French and English editions | Kokuno Yumeto project coordination | [FGA map](fga-map.md) | Check one Exposé, Commentaires range, erratum, or graph residual without creating a bilingual front reader. |
+| `verdier-thesis` | Verdier thesis front matter, physical pages 2-9 | Kokuno Yumeto project coordination | [Verdier map](verdier-map.md) | Continue at physical page 10 or independently check the admitted range. |
+| `tohoku-paper` | Grothendieck's Tôhoku paper checkpoint | Kokuno Yumeto project coordination | [Tôhoku map](tohoku-map.md) | Reconcile the historical p.119 versus p.119-121 cursor controls before any continuation. |
+| `illusie-cotangent-i-ii` | Illusie, *Complexe cotangent et déformations* I-II | Kokuno Yumeto project coordination | [Illusie map](illusie-map.md) | Continue LNM 239 at physical p.24 / printed p.6; LNM 283 is unstarted. |
+| `deligne-papers-letters` | Deligne numbered papers and correspondence | Kokuno Yumeto project coordination | [Deligne map](deligne-map.md) | Select one exact mapped paper, letter, correction generation, or source-review target. |
 | `weber-algebra` | Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | Name the volume and language: German Volume I cold re-verification continues at p.125; English Volume I requires repair reconciliation; Volume II requires immutable binding of the reported public §176 bytes before continuing after §176 at source p.643; Volume III has no proved cursor. |
-| `stacks-commons-layer` | Independently governed Stacks-derived Commons reference layer | Mathematics Commons | [Commons Stacks architecture and intake](stacks.md) | Coordinate one Commons namespace writer, approve the first provenance-complete overlay entry, and bind a separate exact composition executor before changing readiness or producing any composed output. |
+| `stacks-commons-layer` | Independently governed Stacks-derived Commons reference layer | Mathematics Commons | [Commons Stacks architecture and intake](stacks.md) | Coordinate one Commons namespace writer; validate one exact unregistered candidate; independently verify its Git identity and review scope; then separately approve registration before binding any composition executor or output. |
 
 The maintainer label describes current coordination, not ownership of the
 underlying mathematics and not an exclusive reservation. Declared overlap is
@@ -270,10 +276,10 @@ machine-ingestion identity.
 The top-level `stacks_reference_layer` makes the five-layer architecture part
 of that same four-file machine contract. It records independent Commons
 governance, the exact upstream reference pin, fixed layer order, overlay contents,
-modified-edition notices, export targets, the exact limited PR evidence, the
-no-motive-inference rule, and the Commons-only write boundary. It also binds
-the zero-entry registry, validator-only executable preflight and exact blocked
-result while keeping the separate composition executor unbound and every
+modified-edition notices, export targets, the bounded unverified predecessor
+assertion, the no-motive-inference rule, and the Commons-only write boundary. It also binds
+the zero-entry registry, strict unregistered-candidate schema/validator/regression,
+validator-only executable preflight, and exact blocked result while keeping the separate composition executor unbound and every
 composition/output/build count at zero.
 
 The top-level `ownership_policy` makes `owner` machine-unambiguous. Current
@@ -310,9 +316,15 @@ ancestor/descendant chain permits one writer identity at a time. Parallel
 claims remain welcome only in disjoint namespaces: neither equal nor
 ancestor/descendant. Before a first overlay handback, replay `python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY`;
 its exit 0 confirms only the expected blocked
-state. Contract v1 rejects nonempty input, so the first approved overlay and
-the separately identified composition executor require the next contract
-generation.
+state. Then materialize the candidate package and run
+`python scripts/check-stacks-entry.py --entry CANDIDATE.json --package MATERIALIZED_ROOT --schema manifests/stacks-entry.schema.json --pin manifests/stacks-pin.json --registry manifests/stacks-overlay.json`.
+The current contract can validate but cannot register that candidate. A
+separate review must verify its declared Git commit/tree and approve its
+namespace before the registry changes; a separately identified composition
+executor remains a later contract generation.
+The form keeps source-only and independent-review routes honest with exact
+intent-specific sentinels rather than fabricated candidate or composition
+identities; the full field rules are in the [Stacks guide](stacks.md#first-implementation-cursor).
 
 The top-level `claim_regression` and `continuous_validation` fields bind a
 sparse [GitHub Actions gate](../.github/workflows/adopt.yml). On relevant pull
@@ -322,6 +334,9 @@ missing consumer-contract blob cannot trigger a lazy fetch, and separately
 proves that the claim audit fails closed when either same-commit executable
 blob is absent. It tests valid existing, proposed, and Stacks claims plus
 invalid Board ID, missing, unknown, and row-incompatible workflow cases. The
+gate also replays one valid and fifty-two invalid candidate-entry fixtures plus a
+platform-conditional symlink rejection, without registering a fixture or
+adding mathematical bytes. The
 workflow uses SHA-pinned
 actions, read-only repository permissions, a blobless sparse metadata
 checkout, and no corpus builds. Referenced corpus paths are checked against

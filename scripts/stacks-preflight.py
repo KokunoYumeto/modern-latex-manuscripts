@@ -17,8 +17,14 @@ PIN_PATH = "manifests/stacks-pin.json"
 REGISTRY_PATH = "manifests/stacks-overlay.json"
 CONTRACT_PATH = "manifests/stacks-compose.json"
 RESULT_PATH = "manifests/stacks-preflight.json"
+ENTRY_SCHEMA_PATH = "manifests/stacks-entry.schema.json"
+ENTRY_TOOL_PATH = "scripts/check-stacks-entry.py"
+ENTRY_REGRESSION_PATH = "scripts/test-stacks-entry.py"
 VERSION = "1.0.0"
 OUTCOME = "BLOCKED_EMPTY_OVERLAY_REGISTRY"
+ENTRY_VERSION = "1.0.0"
+ENTRY_DEFINED_CASES = 54
+ENTRY_REQUIRED_CASES = 53
 
 
 class ContractError(RuntimeError):
@@ -104,12 +110,25 @@ def validate(root: Path) -> dict[str, Any]:
     pin_path = safe_file(root, PIN_PATH)
     registry_path = safe_file(root, REGISTRY_PATH)
     contract_path = safe_file(root, CONTRACT_PATH)
+    entry_schema_path = safe_file(root, ENTRY_SCHEMA_PATH)
+    entry_tool_path = safe_file(root, ENTRY_TOOL_PATH)
+    entry_regression_path = safe_file(root, ENTRY_REGRESSION_PATH)
 
     tool_bytes = tool_path.read_bytes()
     regression_bytes = regression_path.read_bytes()
     pin_bytes, pin = strict_json(pin_path, "upstream pin")
     registry_bytes, registry = strict_json(registry_path, "overlay registry")
     contract_bytes, contract = strict_json(contract_path, "composition contract")
+    entry_schema_bytes, entry_schema = strict_json(entry_schema_path, "candidate entry schema")
+    entry_tool_bytes = entry_tool_path.read_bytes()
+    entry_regression_bytes = entry_regression_path.read_bytes()
+    for data, label in (
+        (entry_tool_bytes, "candidate entry validator"),
+        (entry_regression_bytes, "candidate entry regression"),
+    ):
+        require(not data.startswith(b"\xef\xbb\xbf"), f"{label} contains a UTF-8 BOM", 10)
+        require(b"\r" not in data, f"{label} must use LF line endings", 10)
+        data.decode("utf-8", errors="strict")
 
     exact_keys(
         registry,
@@ -138,7 +157,81 @@ def validate(root: Path) -> dict[str, Any]:
     exact_bool(pin["boundaries"]["commons_overlay_bound"], False, "upstream pin overlay boundary")
     exact_bool(pin["boundaries"]["composed_build_bound"], False, "upstream pin build boundary")
     exact_bool(pin["boundaries"]["modified_edition_bound"], False, "upstream pin modified-edition boundary")
-    exact_bool(registry["entry_contract"]["v1_nonempty_entries_allowed"], False, "nonempty-entry gate")
+    entry_contract = registry["entry_contract"]
+    exact_keys(
+        entry_contract,
+        (
+            "state", "schema", "validator", "regression", "required_fields",
+            "allowed_content_kinds", "v1_nonempty_entries_allowed",
+            "candidate_manifests_accepted", "registered_entries", "content_bound",
+        ),
+        "candidate entry contract",
+    )
+    require(entry_contract["state"] == "candidate_contract_bound_registry_empty", "candidate entry contract state differs")
+    exact_keys(entry_contract["schema"], ("path", "schema", "bytes", "sha256"), "candidate entry schema identity")
+    require(entry_contract["schema"]["path"] == ENTRY_SCHEMA_PATH, "candidate entry schema path differs", 11)
+    require(entry_contract["schema"]["schema"] == "stacks-overlay-entry/v1", "candidate entry schema name differs", 11)
+    require(entry_contract["schema"]["bytes"] == len(entry_schema_bytes), "candidate entry schema bytes differ", 11)
+    require(entry_contract["schema"]["sha256"] == sha256(entry_schema_bytes), "candidate entry schema SHA-256 differs", 11)
+    require(entry_schema.get("$schema") == "https://json-schema.org/draft/2020-12/schema", "candidate entry JSON Schema dialect differs", 11)
+    require(entry_schema.get("properties", {}).get("schema", {}).get("const") == "stacks-overlay-entry/v1", "candidate entry schema contract differs", 11)
+    exact_keys(
+        entry_contract["validator"],
+        ("path", "version", "runtime", "invocation", "bytes", "sha256", "network", "git", "writes", "success_outcome"),
+        "candidate entry validator identity",
+    )
+    validator = entry_contract["validator"]
+    require(validator["path"] == ENTRY_TOOL_PATH and validator["version"] == ENTRY_VERSION, "candidate entry validator path or version differs", 11)
+    require(validator["runtime"] == "python_3_11_plus_jsonschema_4_26_0", "candidate entry validator runtime differs", 11)
+    require(
+        validator["invocation"] == "python scripts/check-stacks-entry.py --entry CANDIDATE.json --package MATERIALIZED_ROOT --schema manifests/stacks-entry.schema.json --pin manifests/stacks-pin.json --registry manifests/stacks-overlay.json",
+        "candidate entry validator invocation differs",
+        11,
+    )
+    require(type(validator["bytes"]) is int and validator["bytes"] == len(entry_tool_bytes), "candidate entry validator bytes differ", 11)
+    require(validator["sha256"] == sha256(entry_tool_bytes), "candidate entry validator SHA-256 differs", 11)
+    exact_bool(validator["network"], False, "candidate entry validator network boundary")
+    exact_bool(validator["git"], False, "candidate entry validator Git boundary")
+    require(validator["writes"] == "stdout_only", "candidate entry validator write boundary differs", 11)
+    require(validator["success_outcome"] == "VALID_CANDIDATE_UNREGISTERED", "candidate entry validator outcome differs", 11)
+    validator_text = entry_tool_bytes.decode("utf-8")
+    for token in ("VALID_CANDIDATE_UNREGISTERED", "duplicate JSON key", "namespace_overlap", "content_tree_replayed"):
+        require(token in validator_text, f"candidate entry validator is missing required token: {token}", 11)
+    for token in ("import subprocess", "import socket", "urllib", "requests"):
+        require(token not in validator_text, f"candidate entry validator contains forbidden token: {token}", 11)
+    exact_keys(
+        entry_contract["regression"],
+        ("path", "version", "bytes", "sha256", "valid_cases", "invalid_cases", "platform_conditional_cases", "defined_cases", "required_cases"),
+        "candidate entry regression identity",
+    )
+    entry_regression = entry_contract["regression"]
+    require(entry_regression["path"] == ENTRY_REGRESSION_PATH and entry_regression["version"] == ENTRY_VERSION, "candidate entry regression path or version differs", 11)
+    require(type(entry_regression["bytes"]) is int and entry_regression["bytes"] == len(entry_regression_bytes), "candidate entry regression bytes differ", 11)
+    require(entry_regression["sha256"] == sha256(entry_regression_bytes), "candidate entry regression SHA-256 differs", 11)
+    exact_int(entry_regression["valid_cases"], 1, "candidate entry valid cases")
+    exact_int(entry_regression["invalid_cases"], 52, "candidate entry invalid cases")
+    exact_int(entry_regression["platform_conditional_cases"], 1, "candidate entry conditional cases")
+    exact_int(entry_regression["defined_cases"], ENTRY_DEFINED_CASES, "candidate entry defined cases")
+    exact_int(entry_regression["required_cases"], ENTRY_REQUIRED_CASES, "candidate entry required cases")
+    require(
+        entry_contract["required_fields"] == [
+            "schema", "state", "id", "namespace", "writer", "upstream_pin", "overlay",
+            "manifest", "mathematical_entries", "content_counts", "review_receipt", "tests",
+            "revision", "boundaries",
+        ],
+        "candidate entry required-field contract differs",
+    )
+    require(
+        entry_contract["allowed_content_kinds"] == [
+            "original_additions", "historical_source_mappings", "provenance", "corrections",
+            "multilingual_semantic_links", "stable_commons_ids", "tests", "review_receipts",
+        ],
+        "candidate entry content-kind contract differs",
+    )
+    exact_bool(entry_contract["v1_nonempty_entries_allowed"], False, "nonempty-entry gate")
+    exact_int(entry_contract["candidate_manifests_accepted"], 0, "accepted candidate count")
+    exact_int(entry_contract["registered_entries"], 0, "entry-contract registered count")
+    exact_bool(entry_contract["content_bound"], False, "entry-contract content boundary")
     exact_empty_list(registry["namespace_claims"], "namespace claims")
     exact_empty_list(registry["entries"], "registry entries")
     for field in (
@@ -172,7 +265,12 @@ def validate(root: Path) -> dict[str, Any]:
         "composition contract",
     )
     require(contract["schema"] == "stacks-composition-contract/v1", "composition schema differs")
-    require(contract["state"] == "executable_preflight_bound_empty_registry", "composition state differs")
+    require(contract["state"] == "executable_preflight_and_entry_contract_bound_empty_registry", "composition state differs")
+    exact_keys(
+        contract["inputs"],
+        ("upstream", "overlay_registry", "candidate_entry_contract", "selected_overlay_id", "selected_overlay_commit", "selected_overlay_tree"),
+        "composition inputs",
+    )
     upstream = contract["inputs"]["upstream"]
     exact_keys(upstream, ("repository", "commit", "tree", "tree_replayed_into_commons"), "composition upstream input")
     require(upstream["repository"] == pin["repository"]["url"], "composition repository differs from pin", 11)
@@ -184,6 +282,15 @@ def validate(root: Path) -> dict[str, Any]:
     require(type(overlay["bytes"]) is int and overlay["bytes"] == len(registry_bytes), "registry byte binding differs", 11)
     require(overlay["sha256"] == sha256(registry_bytes), "registry SHA-256 binding differs", 11)
     exact_int(overlay["entries"], 0, "registry entry binding")
+    candidate = contract["inputs"]["candidate_entry_contract"]
+    exact_keys(candidate, ("state", "schema", "validator", "regression", "candidate_manifests_accepted", "registered_entries", "content_bound"), "composition candidate entry contract")
+    require(candidate["state"] == entry_contract["state"], "composition candidate-entry state differs", 11)
+    require(candidate["schema"] == entry_contract["schema"], "composition candidate-entry schema identity differs", 11)
+    require(candidate["validator"] == entry_contract["validator"], "composition candidate-entry validator identity differs", 11)
+    require(candidate["regression"] == entry_contract["regression"], "composition candidate-entry regression identity differs", 11)
+    exact_int(candidate["candidate_manifests_accepted"], 0, "composition accepted candidate count")
+    exact_int(candidate["registered_entries"], 0, "composition registered entry count")
+    exact_bool(candidate["content_bound"], False, "composition candidate-content boundary")
     require(contract["inputs"]["selected_overlay_id"] is None, "overlay selection must remain null")
     require(contract["inputs"]["selected_overlay_commit"] is None, "overlay commit must remain null")
     require(contract["inputs"]["selected_overlay_tree"] is None, "overlay tree must remain null")
@@ -210,7 +317,7 @@ def validate(root: Path) -> dict[str, Any]:
     require(regression["path"] == REGRESSION_PATH and regression["version"] == VERSION, "regression path or version differs", 11)
     require(type(regression["bytes"]) is int and regression["bytes"] == len(regression_bytes), "regression byte binding differs", 11)
     require(regression["sha256"] == sha256(regression_bytes), "regression SHA-256 binding differs", 11)
-    exact_int(regression["cases"], 11, "regression case count")
+    exact_int(regression["cases"], 16, "regression case count")
 
     tool = contract["tool"]
     exact_keys(tool, ("state", "path", "version", "sha256"), "composition tool identity")
@@ -218,11 +325,22 @@ def validate(root: Path) -> dict[str, Any]:
     require(tool["path"] is None and tool["version"] is None and tool["sha256"] is None, "composition tool identity must remain null")
 
     pre = contract["preconditions"]
+    exact_keys(
+        pre,
+        (
+            "upstream_pin_bound", "upstream_tree_replayed", "approved_overlay_selected",
+            "overlay_identity_verified", "preflight_tool_bound", "candidate_entry_contract_bound",
+            "candidate_entry_validated", "tool_identity_bound", "output_root_declared", "ready",
+        ),
+        "composition preconditions",
+    )
     exact_bool(pre["upstream_pin_bound"], True, "upstream pin precondition")
     exact_bool(pre["upstream_tree_replayed"], False, "upstream replay precondition")
     exact_bool(pre["approved_overlay_selected"], False, "overlay selection precondition")
     exact_bool(pre["overlay_identity_verified"], False, "overlay identity precondition")
     exact_bool(pre["preflight_tool_bound"], True, "preflight tool precondition")
+    exact_bool(pre["candidate_entry_contract_bound"], True, "candidate entry contract precondition")
+    exact_bool(pre["candidate_entry_validated"], False, "candidate entry validation precondition")
     exact_bool(pre["tool_identity_bound"], False, "composition tool precondition")
     exact_bool(pre["output_root_declared"], False, "output-root precondition")
     exact_bool(pre["ready"], False, "composition readiness")
@@ -236,8 +354,20 @@ def validate(root: Path) -> dict[str, Any]:
     exact_empty_list(contract["output"]["members"], "output members")
     for field in ("manifest", "tree", "bytes", "sha256"):
         require(contract["output"][field] is None, f"output.{field} must remain null")
+    exact_keys(
+        contract["aggregate"],
+        (
+            "static_contract_checks", "executable_preflight_runs",
+            "candidate_entry_regression_defined_cases", "candidate_entry_regression_required_cases",
+            "candidate_manifests_accepted", "composition_runs", "generated_members", "builds",
+        ),
+        "composition aggregate",
+    )
     exact_int(contract["aggregate"]["static_contract_checks"], 1, "static contract check count")
     exact_int(contract["aggregate"]["executable_preflight_runs"], 1, "executable preflight run count")
+    exact_int(contract["aggregate"]["candidate_entry_regression_defined_cases"], ENTRY_DEFINED_CASES, "candidate entry defined-case aggregate")
+    exact_int(contract["aggregate"]["candidate_entry_regression_required_cases"], ENTRY_REQUIRED_CASES, "candidate entry required-case aggregate")
+    exact_int(contract["aggregate"]["candidate_manifests_accepted"], 0, "accepted candidate aggregate")
     for field in ("composition_runs", "generated_members", "builds"):
         exact_int(contract["aggregate"][field], 0, f"composition aggregate.{field}")
     for field in (
@@ -279,6 +409,15 @@ def validate(root: Path) -> dict[str, Any]:
                 "sha256": sha256(registry_bytes),
                 "entries": 0,
             },
+            "candidate_entry_contract": {
+                "state": entry_contract["state"],
+                "schema": entry_contract["schema"],
+                "validator": entry_contract["validator"],
+                "regression": entry_contract["regression"],
+                "candidate_manifests_accepted": 0,
+                "registered_entries": 0,
+                "content_bound": False,
+            },
             "composition_contract": {
                 "path": CONTRACT_PATH,
                 "bytes": len(contract_bytes),
@@ -290,12 +429,14 @@ def validate(root: Path) -> dict[str, Any]:
             "version": VERSION,
             "bytes": len(regression_bytes),
             "sha256": sha256(regression_bytes),
-            "cases": 11,
+            "cases": 16,
         },
         "preconditions": {
             "upstream_pin_bound": True,
             "empty_registry_verified": True,
             "preflight_tool_bound": True,
+            "candidate_entry_contract_bound": True,
+            "candidate_entry_validated": False,
             "composition_tool_bound": False,
             "composition_ready": False,
         },
@@ -316,6 +457,7 @@ def validate(root: Path) -> dict[str, Any]:
             "registry_identity_matches_contract": True,
             "tool_identity_matches_contract": True,
             "regression_identity_matches_contract": True,
+            "candidate_entry_contract_identity_matches_registry_and_contract": True,
             "empty_registry": True,
             "network_queried": False,
         },

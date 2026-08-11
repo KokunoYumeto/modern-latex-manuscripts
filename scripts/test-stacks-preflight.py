@@ -20,6 +20,9 @@ PIN = Path("manifests/stacks-pin.json")
 REGISTRY = Path("manifests/stacks-overlay.json")
 CONTRACT = Path("manifests/stacks-compose.json")
 RESULT = Path("manifests/stacks-preflight.json")
+ENTRY_SCHEMA = Path("manifests/stacks-entry.schema.json")
+ENTRY_TOOL = Path("scripts/check-stacks-entry.py")
+ENTRY_TEST = Path("scripts/test-stacks-entry.py")
 
 
 def sha256(data: bytes) -> str:
@@ -44,7 +47,7 @@ def write_json(path: Path, value: Any) -> None:
 
 
 def copy_fixture(source: Path, target: Path) -> None:
-    for relative in (TOOL, TEST, PIN, REGISTRY, CONTRACT):
+    for relative in (TOOL, TEST, PIN, REGISTRY, CONTRACT, ENTRY_SCHEMA, ENTRY_TOOL, ENTRY_TEST):
         destination = target / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(source / relative, destination)
@@ -56,6 +59,23 @@ def bind_registry(root: Path) -> None:
     contract["inputs"]["overlay_registry"]["bytes"] = len(data)
     contract["inputs"]["overlay_registry"]["sha256"] = sha256(data)
     write_json(root / CONTRACT, contract)
+
+
+def bind_entry_contract(root: Path) -> None:
+    registry = json.loads((root / REGISTRY).read_text(encoding="utf-8"))
+    contract = json.loads((root / CONTRACT).read_text(encoding="utf-8"))
+    entry = registry["entry_contract"]
+    contract["inputs"]["candidate_entry_contract"] = {
+        "state": entry["state"],
+        "schema": entry["schema"],
+        "validator": entry["validator"],
+        "regression": entry["regression"],
+        "candidate_manifests_accepted": entry["candidate_manifests_accepted"],
+        "registered_entries": entry["registered_entries"],
+        "content_bound": entry["content_bound"],
+    }
+    write_json(root / CONTRACT, contract)
+    bind_registry(root)
 
 
 def mutate_duplicate(root: Path) -> None:
@@ -115,6 +135,41 @@ def mutate_selection(root: Path) -> None:
     write_json(root / CONTRACT, contract)
 
 
+def mutate_entry_schema_identity(root: Path) -> None:
+    registry = json.loads((root / REGISTRY).read_text(encoding="utf-8"))
+    registry["entry_contract"]["schema"]["sha256"] = "0" * 64
+    write_json(root / REGISTRY, registry)
+    bind_entry_contract(root)
+
+
+def mutate_entry_validator_identity(root: Path) -> None:
+    registry = json.loads((root / REGISTRY).read_text(encoding="utf-8"))
+    registry["entry_contract"]["validator"]["sha256"] = "0" * 64
+    write_json(root / REGISTRY, registry)
+    bind_entry_contract(root)
+
+
+def mutate_entry_regression_identity(root: Path) -> None:
+    registry = json.loads((root / REGISTRY).read_text(encoding="utf-8"))
+    registry["entry_contract"]["regression"]["sha256"] = "0" * 64
+    write_json(root / REGISTRY, registry)
+    bind_entry_contract(root)
+
+
+def mutate_entry_case_count(root: Path) -> None:
+    registry = json.loads((root / REGISTRY).read_text(encoding="utf-8"))
+    registry["entry_contract"]["regression"]["defined_cases"] = 33
+    write_json(root / REGISTRY, registry)
+    bind_entry_contract(root)
+
+
+def mutate_entry_content_boundary(root: Path) -> None:
+    registry = json.loads((root / REGISTRY).read_text(encoding="utf-8"))
+    registry["entry_contract"]["content_bound"] = True
+    write_json(root / REGISTRY, registry)
+    bind_entry_contract(root)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", default=".")
@@ -142,6 +197,11 @@ def main() -> int:
         ("numeric_boolean", mutate_numeric_bool),
         ("null_entries", mutate_null_entries),
         ("unapproved_selection", mutate_selection),
+        ("entry_schema_identity", mutate_entry_schema_identity),
+        ("entry_validator_identity", mutate_entry_validator_identity),
+        ("entry_regression_identity", mutate_entry_regression_identity),
+        ("entry_case_count", mutate_entry_case_count),
+        ("entry_content_boundary", mutate_entry_content_boundary),
     )
     rejected: list[str] = []
     for name, mutation in mutations:
