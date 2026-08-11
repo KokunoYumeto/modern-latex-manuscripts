@@ -57,7 +57,7 @@ GENERIC_TRACEABILITY_REQUIRED = (
     "I understand that opening this issue does not reserve the scope exclusively.",
 )
 STACKS_INTENT_WORKFLOW = {
-    "Bind the first exact upstream pin and Commons overlay": "upstream_overlay_sync",
+    "Replay the exact upstream pin and bind the first Commons overlay": "upstream_overlay_sync",
     "Independently mirror or check an existing Commons overlay": "independent_review",
     "Propose a deterministic composition and test fixture": "assembly_review",
     "Return source or license evidence only": "source_intake",
@@ -85,6 +85,23 @@ HANDBACK_PRESERVATION_REQUIRED = (
     "I kept quality/review state explicit and made no unsupported completion or certification claim.",
     "I understand that archive maps change only after the returned bytes or exact external identity are inspectable.",
 )
+RESULT_URI_RE = re.compile(r"^Result URI: (?P<uri>[^\s]+)$")
+IMMUTABLE_ID_RE = re.compile(
+    r"^Immutable identity: (?:git commit [0-9a-fA-F]{40}|Zenodo record [1-9][0-9]*|SHA-256 [0-9a-fA-F]{64})$"
+)
+MANIFEST_LINE_RE = re.compile(
+    r"^Manifest: (?P<path>[^|\r\n]+) \| (?P<bytes>[0-9]+) bytes \| SHA-256 (?P<sha>[0-9a-fA-F]{64})$"
+)
+CHECK_LINE_RE = re.compile(
+    r"^Check: [^|\r\n]+ \| (?:PASS|FAIL|NOT_RUN) \| [^|\r\n]+$"
+)
+CURSOR_RE = re.compile(r"^(?:Next cursor|Terminal): [^\r\n]+$")
+PAUSED_RESULT = "NO_RESULT: paused"
+PAUSED_MANIFEST = "NO_MANIFEST: paused"
+WITHDRAWN_RESULT = "NO_RESULT: withdrawn"
+WITHDRAWN_MANIFEST = "NO_MANIFEST: withdrawn"
+WITHDRAWN_CHECKS = "NO_CHECKS: withdrawn"
+WITHDRAWN_CURSOR = "Terminal: withdrawn without result"
 APPROVED_EXECUTABLES = (
     "scripts/get-adopt.py",
     "scripts/check-claims.py",
@@ -253,6 +270,107 @@ def namespaces_overlap(left: str, right: str) -> bool:
     return left == right or left.startswith(f"{right}/") or right.startswith(f"{left}/")
 
 
+def nonblank_lines(value: str) -> tuple[str, ...]:
+    return tuple(line.strip() for line in value.replace("\r\n", "\n").split("\n") if line.strip())
+
+
+def valid_public_https_uri(uri: str) -> bool:
+    try:
+        parsed = urllib.parse.urlsplit(uri)
+        _port = parsed.port
+    except ValueError:
+        return False
+    if (
+        parsed.scheme != "https"
+        or not parsed.netloc
+        or parsed.username is not None
+        or parsed.password is not None
+        or parsed.query.startswith("//")
+    ):
+        return False
+    hostname = parsed.hostname
+    if hostname is None or hostname in {".", "..."} or ".." in hostname:
+        return False
+    labels = hostname.split(".")
+    if len(labels) < 2:
+        return False
+    return all(
+        re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9-]{0,61}[A-Za-z0-9])?", label)
+        is not None
+        for label in labels
+    )
+
+
+def validate_returned_handback(sections: dict[str, str], errors: list[str]) -> None:
+    result_lines = nonblank_lines(sections.get("Inspectable result", ""))
+    uri_match = RESULT_URI_RE.fullmatch(result_lines[0]) if result_lines else None
+    if (
+        len(result_lines) != 2
+        or uri_match is None
+        or not valid_public_https_uri(uri_match.group("uri"))
+        or IMMUTABLE_ID_RE.fullmatch(result_lines[1]) is None
+    ):
+        errors.append(
+            "returned handback result must contain exactly one valid public HTTPS Result URI and one Immutable identity line"
+        )
+
+    manifest_lines = nonblank_lines(sections.get("Manifest and identities", ""))
+    manifest_valid = bool(manifest_lines)
+    for line in manifest_lines:
+        match = MANIFEST_LINE_RE.fullmatch(line)
+        if match is None:
+            manifest_valid = False
+            continue
+        path = match.group("path").strip()
+        if (
+            not path
+            or "\\" in path
+            or path.startswith("/")
+            or re.match(r"^[A-Za-z]:", path)
+            or (not path.startswith("https://") and ".." in path.split("/"))
+        ):
+            manifest_valid = False
+    if not manifest_valid:
+        errors.append(
+            "returned handback manifest must contain only exact path/bytes/SHA-256 identity lines"
+        )
+
+    check_lines = nonblank_lines(sections.get("Checks, failures, and reversals", ""))
+    if not check_lines or any(CHECK_LINE_RE.fullmatch(line) is None for line in check_lines):
+        errors.append(
+            "returned handback checks must contain exact Check name/outcome/detail lines"
+        )
+
+    cursor_lines = nonblank_lines(sections.get("Continuation cursor", ""))
+    if len(cursor_lines) != 1 or CURSOR_RE.fullmatch(cursor_lines[0]) is None:
+        errors.append("returned handback cursor must be one exact Next cursor or Terminal line")
+
+
+def validate_no_result_handback(
+    state: str, sections: dict[str, str], errors: list[str]
+) -> None:
+    result = sections.get("Inspectable result", "").strip()
+    manifest = sections.get("Manifest and identities", "").strip()
+    checks = sections.get("Checks, failures, and reversals", "").strip()
+    cursor = sections.get("Continuation cursor", "").strip()
+    if state == "paused — open for continuation":
+        if result != PAUSED_RESULT or manifest != PAUSED_MANIFEST:
+            errors.append("paused handback must use the exact paused no-result and no-manifest sentinels")
+        check_lines = nonblank_lines(checks)
+        if not check_lines or any(CHECK_LINE_RE.fullmatch(line) is None for line in check_lines):
+            errors.append("paused handback must record at least one exact Check line")
+        if re.fullmatch(r"Next cursor: [^\r\n]+", cursor) is None:
+            errors.append("paused handback must retain one exact Next cursor line")
+    elif state == "withdrawn — no result":
+        if (
+            result != WITHDRAWN_RESULT
+            or manifest != WITHDRAWN_MANIFEST
+            or checks != WITHDRAWN_CHECKS
+            or cursor != WITHDRAWN_CURSOR
+        ):
+            errors.append("withdrawn handback must use the exact terminal no-result sentinels")
+
+
 def issue_kind(title: str) -> str | None:
     if title.startswith("[Adopt] "):
         return "claim"
@@ -320,9 +438,31 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
             upstream_repository = sections.get("Exact upstream repository URL", "").strip()
             if upstream_repository and not STACKS_REPOSITORY_RE.fullmatch(upstream_repository):
                 errors.append("Stacks upstream repository must be one exact GitHub repository URL")
+            expected_upstream = (
+                board.get("stacks_reference_layer", {}).get("upstream", {})
+            )
+            expected_repository = str(expected_upstream.get("repository_url") or "")
+            if upstream_repository and upstream_repository != expected_repository:
+                errors.append(
+                    "Stacks upstream repository must match the exact board pin: "
+                    + expected_repository
+                )
+            upstream_license = sections.get("Applicable upstream license identity", "").strip()
+            expected_license = str(expected_upstream.get("license_identity") or "")
+            if upstream_license and upstream_license != expected_license:
+                errors.append(
+                    "Stacks upstream license must match the exact board pin: "
+                    + expected_license
+                )
             upstream_commit = sections.get("Exact upstream commit", "").strip()
             if upstream_commit and not COMMIT_RE.fullmatch(upstream_commit):
                 errors.append("Stacks upstream commit must be exactly 40 hexadecimal characters")
+            expected_commit = str(expected_upstream.get("commit") or "")
+            if upstream_commit and upstream_commit.lower() != expected_commit.lower():
+                errors.append(
+                    "Stacks upstream commit must match the exact board pin: "
+                    + expected_commit
+                )
             intent = sections.get("Intent", "").strip()
             expected_workflow = STACKS_INTENT_WORKFLOW.get(intent)
             if expected_workflow is None:
@@ -351,6 +491,7 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
             )
 
         claim_number: int | None = None
+        handback_state = ""
         if kind == "handback":
             claim_value = sections.get("Adoption issue URL", "")
             match = issue_url_re.fullmatch(claim_value.strip())
@@ -358,9 +499,19 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
                 claim_number = int(match.group("number"))
             else:
                 errors.append("handback does not contain an exact repository adoption-issue URL")
-            state = sections.get("Handback state", "").strip()
-            if state and state not in HANDBACK_STATES:
-                errors.append(f"unknown handback state: {state}")
+            handback_state = sections.get("Handback state", "").strip()
+            if handback_state and handback_state not in HANDBACK_STATES:
+                errors.append(f"unknown handback state: {handback_state}")
+            achieved_scope = sections.get("Exact achieved scope", "").strip()
+            if achieved_scope.casefold() in {"none", "n/a", "no result", "no_result"}:
+                errors.append("handback exact achieved scope cannot be a null sentinel")
+            if handback_state.startswith("returned —"):
+                validate_returned_handback(sections, errors)
+            elif handback_state in {
+                "paused — open for continuation",
+                "withdrawn — no result",
+            }:
+                validate_no_result_handback(handback_state, sections, errors)
             require_exact_checklist(
                 sections.get("Preservation and status", ""),
                 HANDBACK_PRESERVATION_REQUIRED,
@@ -381,6 +532,7 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
             "commons_writer": sections.get("Commons writer identity", "").strip(),
             "overlay_namespace": sections.get("Commons overlay namespace", "").strip(),
             "claim_issue": claim_number,
+            "handback_state": handback_state,
             "body_bytes": len(body.encode("utf-8")),
             "body_sha256": sha256(body.encode("utf-8")),
             "updated_at": issue.get("updated_at"),
@@ -561,6 +713,15 @@ def main() -> int:
             "board_ids_valid": not any("Board ID" in error for error in errors),
             "claim_workflows_valid": not any("Workflow token" in error for error in errors),
             "handbacks_linked": not any("handback" in error for error in errors),
+            "handback_state_evidence_valid": not any(
+                "handback result" in error
+                or "handback manifest" in error
+                or "handback checks" in error
+                or "handback cursor" in error
+                or "paused handback" in error
+                or "withdrawn handback" in error
+                for error in errors
+            ),
             "parallel_claims_allowed": True,
             "stacks_namespace_single_writer": not any(
                 "multiple Commons writers claim overlapping overlay namespaces" in error for error in errors

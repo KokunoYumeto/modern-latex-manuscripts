@@ -8,6 +8,7 @@ body:
     attributes:
       value: |
         Link the original adoption issue and preserve its exact starting generation. A handback updates the board only when its result or terminal state is inspectable.
+        Returned results use exact `Result URI:` and `Immutable identity:` lines, manifest rows, check rows, and one `Next cursor:` or `Terminal:` line. Paused and withdrawn handbacks use the state-specific sentinels described below; plain `none` is never a result identity.
   - type: input
     id: board_id
     attributes:
@@ -47,28 +48,28 @@ body:
     id: result
     attributes:
       label: Inspectable result
-      description: Repository, exact commit, branch or PR, and the direct result paths. State explicitly if no result exists.
+      description: "Returned: one `Result URI:` line with a public HTTPS URL, then `Immutable identity: git commit <40-hex>`, `Zenodo record <digits>`, or `SHA-256 <64-hex>`. Placeholders, missing hosts, and credential-bearing URLs are rejected. Paused: `NO_RESULT: paused`. Withdrawn: `NO_RESULT: withdrawn`."
     validations:
       required: true
   - type: textarea
     id: manifest
     attributes:
       label: Manifest and identities
-      description: Paths, byte lengths, SHA-256 values, source authority, and predecessor/supersession identity.
+      description: "Returned: one or more `Manifest: <path-or-URL> | <bytes> bytes | SHA-256 <64-hex>` lines. Paused: `NO_MANIFEST: paused`. Withdrawn: `NO_MANIFEST: withdrawn`."
     validations:
       required: true
   - type: textarea
     id: checks
     attributes:
       label: Checks, failures, and reversals
-      description: Exact checks run, pass/fail evidence, unresolved defects, and corrections or reversals retained.
+      description: "Returned or paused: one or more `Check: <name> | PASS|FAIL|NOT_RUN | <details>` lines. Withdrawn: `NO_CHECKS: withdrawn`. Preserve failures and reversals in the details."
     validations:
       required: true
   - type: textarea
     id: cursor
     attributes:
       label: Continuation cursor
-      description: Exact next page/section/unit, or an explicit terminal/no-continuation statement.
+      description: "Returned: exactly one `Next cursor: <scope>` or `Terminal: <reason>` line. Paused requires `Next cursor: <scope>`. Withdrawn requires `Terminal: withdrawn without result`."
     validations:
       required: true
   - type: textarea

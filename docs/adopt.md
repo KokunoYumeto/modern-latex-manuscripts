@@ -71,9 +71,13 @@ not an upstream fork claim. The [human specification](stacks.md) separates one
 exact read-only upstream pin, a namespaced Commons overlay, deterministic
 composition, an optional distinctly titled GFDL-compliant modified edition,
 and periodic upstream synchronization. Upstream remains respected and useful,
-but its acceptance is not a Commons approval gate. The current state is
-architecture-only: no upstream repository, pin, overlay, or build byte is yet
-claimed.
+but its acceptance is not a Commons approval gate. The official upstream
+reference is now pinned at commit
+`a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
+`3feeb703b931a6e7259782c10e7d1575adc83e5e`; the exact license and raw-readback
+evidence are in [`manifests/stacks-pin.json`](../manifests/stacks-pin.json).
+No upstream tree has been copied into Commons, and no overlay, composed build,
+or modified edition byte is yet claimed.
 
 ## Current Work
 
@@ -87,7 +91,7 @@ claimed.
 | `illusie-cotangent-i-ii` | Illusie, *Complexe cotangent et déformations* I-II | Kokuno Yumeto coordination; producer publication custody remains separate | [Illusie map](illusie-map.md) | Continue LNM 239 at physical p.24 / printed p.6; LNM 283 is unstarted. |
 | `deligne-papers-letters` | Deligne numbered papers and correspondence | Kokuno Yumeto coordination; producer publication custody remains separate | [Deligne map](deligne-map.md) | Select one exact mapped paper, letter, correction generation, or source-review target. |
 | `weber-algebra` | Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | Name the volume and language: German Volume I cold re-verification continues at p.125; English Volume I requires repair reconciliation; Volume II requires immutable binding of the reported public §176 bytes before continuing after §176 at source p.643; Volume III has no proved cursor. |
-| `stacks-commons-layer` | Independently governed Stacks-derived Commons reference layer | Mathematics Commons | [Commons Stacks architecture and intake](stacks.md) | Use the dedicated Stacks form to coordinate one Commons namespace writer, bind the exact upstream repository/license/commit read-only, then return the first namespaced overlay manifest and deterministic composition fixture. |
+| `stacks-commons-layer` | Independently governed Stacks-derived Commons reference layer | Mathematics Commons | [Commons Stacks architecture and intake](stacks.md) | Use the dedicated Stacks form to coordinate one Commons namespace writer, replay the exact upstream pin and license identity, then return the first namespaced overlay manifest and deterministic composition fixture. |
 
 The maintainer label describes current coordination, not ownership of the
 underlying mathematics and not an exclusive reservation. Declared overlap is
@@ -155,7 +159,7 @@ overlap and do not convert the archive bytes into a claimant's property.
 | `hurwitz-works` | Medium | Adolf Hurwitz, mathematical works | Intake-ready | Bind the observed source material to an exact work register and select a bounded first paper. See the [source-intake note](../manifests/source-intake/20260623_math_annalen_90_96_and_os_sources.json). |
 | `riemann-selected-repair` | Medium | Bernhard Riemann, selected papers | Repair-ready | Repair the selected-papers TeX ending, recover the missing source witnesses, and prove which exact reader it builds. Start at the [Riemann map](riemann-map.md). |
 | `steinitz-1906-euler` | Medium | Ernst Steinitz, 1906 Euler-polyhedron note | Intake-ready | First bind and bibliographically compare the dedicated-record 1906 German/English packet with the mapped note. If identical, reuse and review that generation; retranscribe only if it is proved distinct. Start at the [Steinitz map](steinitz-map.md). |
-| `steinitz-1908-analysis-situs` | Medium | Ernst Steinitz, 1908 *Beiträge zur Analysis Situs* | Intake-ready | Bind the exact work and source witness as a distinct generation, separate from the existing 1911/1912 work. Start at the [Steinitz map](steinitz-map.md). |
+| `steinitz-1908-analysis-situs` | Medium | Ernst Steinitz, 1908 *Beiträge zur Analysis Situs* | Intake-ready | Recover and hash-bind the known provisional 22-page Ranicki offprint, verify its bibliographic identity, and seek a stronger witness before strict source certification; do not restart source discovery from zero. Start at the [Steinitz map](steinitz-map.md). |
 | `steinitz-witness-recovery` | Medium | Ernst Steinitz, existing nine-work witness recovery | Review-ready | Recover the ledgered scans, QA images, and missing 1897 source PDF by exact recorded hash; do not synthesize absent bytes. Start at the [Steinitz map](steinitz-map.md). |
 | `non-european-review` | Medium | Non-European mathematical texts | Review-ready | Check or assemble an existing direct/source-only language layer before starting any new translation. Start at the [exact map](non-european-map.md). |
 | `ukrainian-modules` | Medium | Ukrainian applied mathematics modules | Continuation-ready | Select one exact tracked module and use only a module-local cursor proved by its own retained status; the umbrella map establishes no shared ESKF, micro-Lie, or Kalman cursor. |
@@ -255,7 +259,7 @@ machine-ingestion identity.
 
 The top-level `stacks_reference_layer` makes the five-layer architecture part
 of that same four-file machine contract. It records independent Commons
-governance, the unbound upstream pin, fixed layer order, overlay contents,
+governance, the exact upstream reference pin, fixed layer order, overlay contents,
 modified-edition notices, export targets, the exact limited PR evidence, the
 no-motive-inference rule, and the Commons-only write boundary.
 
@@ -280,9 +284,13 @@ The top-level `claim_interface` and `handback_interface` bind the two GitHub
 forms for the mirror lifecycle. Claims declare overlap, a starting generation,
 and exactly one registered workflow. Existing Board IDs accept only a token in
 that row's `workflow` array; a valid `new:<short-id>` proposal still must choose
-a registered token. Handbacks return an inspectable result or an explicit
-paused/withdrawn state with manifest identities, checks, cursor, and reusable
-method findings.
+a registered token. A returned handback must give an exact result URI plus an
+immutable Git commit, Zenodo record, or SHA-256 identity; manifest rows as
+`path | bytes | SHA-256`; actual check rows; and a `Next cursor:` or `Terminal:`
+cursor. Paused handbacks use the exact paused sentinels plus a real check row
+and `Next cursor:`. Withdrawn handbacks use the exact withdrawn sentinels and
+`Terminal: withdrawn without result`. Reusable method findings may honestly be
+`none`.
 The Stacks row alone uses its dedicated intake form. Its intent selects one
 exact compatible workflow, and each Commons overlay namespace plus its
 ancestor/descendant chain permits one writer identity at a time. Parallel

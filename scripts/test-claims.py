@@ -19,6 +19,9 @@ DEFAULT_REPOSITORY = "KokunoYumeto/modern-latex-manuscripts"
 COMMIT_RE = re.compile(r"^[0-9a-fA-F]{40}$")
 BOARD_ID = "gauss-werke-ii"
 STACKS_BOARD_ID = "stacks-commons-layer"
+STACKS_UPSTREAM_REPOSITORY = "https://github.com/stacks/stacks-project"
+STACKS_UPSTREAM_LICENSE = "GNU Free Documentation License Version 1.2, November 2002"
+STACKS_UPSTREAM_COMMIT = "a04446e57ec1fbc252a871afcec7752fb2807b14"
 
 
 def issue(number: int, title: str, body: str, state: str) -> dict:
@@ -57,10 +60,13 @@ One exact approved Git commit, mapped source paths, byte lengths, and SHA-256 va
 def stacks_claim_body(
     *,
     board_id: str = STACKS_BOARD_ID,
-    intent: str = "Bind the first exact upstream pin and Commons overlay",
+    intent: str = "Replay the exact upstream pin and bind the first Commons overlay",
     workflow: str = "upstream_overlay_sync",
     writer: str = "example-maintainer",
     namespace: str = "commons/stacks/pilot",
+    upstream_repository: str = STACKS_UPSTREAM_REPOSITORY,
+    upstream_license: str = STACKS_UPSTREAM_LICENSE,
+    upstream_commit: str = STACKS_UPSTREAM_COMMIT,
 ) -> str:
     return f"""### Board ID
 {board_id}
@@ -81,13 +87,13 @@ Exact repository URL, applicable license identity, 40-hex commit, overlay namesp
 {writer}
 
 ### Exact upstream repository URL
-https://github.com/example/stacks-upstream
+{upstream_repository}
 
 ### Applicable upstream license identity
-COPYING at the exact upstream commit
+{upstream_license}
 
 ### Exact upstream commit
-0123456789abcdef0123456789abcdef01234567
+{upstream_commit}
 
 ### Commons overlay namespace
 {namespace}
@@ -110,33 +116,49 @@ Initial exact upstream pin; no earlier Commons overlay generation is claimed.
 """
 
 
-def handback_body(repository: str) -> str:
+def handback_body(
+    repository: str,
+    *,
+    claim_number: int = 10,
+    state: str = "returned — bounded result",
+    result: str = (
+        "Result URI: https://github.com/example/mirror/commit/0123456789012345678901234567890123456789\n"
+        "Immutable identity: git commit 0123456789012345678901234567890123456789"
+    ),
+    manifest: str = (
+        "Manifest: result.tex | 123 bytes | SHA-256 "
+        "0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF"
+    ),
+    checks: str = "Check: exact input replay | PASS | one unresolved source ambiguity retained",
+    cursor: str = "Next cursor: the next printed page after the bounded result",
+    method: str = "Keep the source ambiguity explicit in parallel mirrors.",
+) -> str:
     return f"""### Board ID
 {BOARD_ID}
 
 ### Adoption issue URL
-https://github.com/{repository}/issues/10
+https://github.com/{repository}/issues/{claim_number}
 
 ### Handback state
-returned — bounded result
+{state}
 
 ### Exact achieved scope
 One bounded page range; no broader completion claim.
 
 ### Inspectable result
-https://github.com/example/mirror/commit/0123456789012345678901234567890123456789
+{result}
 
 ### Manifest and identities
-result.tex, 123 bytes, SHA-256 0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF.
+{manifest}
 
 ### Checks, failures, and reversals
-Exact inputs replayed; one retained unresolved source ambiguity.
+{checks}
 
 ### Continuation cursor
-The next printed page after the bounded result.
+{cursor}
 
 ### Reusable workflow findings
-Keep the source ambiguity explicit in parallel mirrors.
+{method}
 
 ### Preservation and status
 - [X] I preserved the starting generation and did not silently overwrite contradictory or superseded evidence.
@@ -328,7 +350,7 @@ def main() -> int:
         ),
     ]
     invalid_stacks = stacks_claim_body().replace(
-        "### Exact upstream commit\n0123456789abcdef0123456789abcdef01234567",
+        f"### Exact upstream commit\n{STACKS_UPSTREAM_COMMIT}",
         "### Exact upstream commit\n_No response_",
     )
     invalid_workflow = claim_body(BOARD_ID).replace(
@@ -353,12 +375,19 @@ def main() -> int:
         workflow="upstream_overlay_sync",
     )
     conflicting_stacks_repository = stacks_claim_body().replace(
-        "https://github.com/example/stacks-upstream",
-        "https://github.com/example/stacks-upstream\nhttps://github.com/example/conflict",
+        STACKS_UPSTREAM_REPOSITORY,
+        f"{STACKS_UPSTREAM_REPOSITORY}\nhttps://github.com/example/conflict",
     )
     conflicting_stacks_commit = stacks_claim_body().replace(
-        "0123456789abcdef0123456789abcdef01234567",
-        "0123456789abcdef0123456789abcdef01234567\nabcdef0123456789abcdef0123456789abcdef01",
+        STACKS_UPSTREAM_COMMIT,
+        f"{STACKS_UPSTREAM_COMMIT}\nabcdef0123456789abcdef0123456789abcdef01",
+    )
+    wrong_pinned_repository = stacks_claim_body(
+        upstream_repository="https://github.com/example/wrong-upstream"
+    )
+    wrong_pinned_license = stacks_claim_body(upstream_license="Other license identity")
+    wrong_pinned_commit = stacks_claim_body(
+        upstream_commit="abcdef0123456789abcdef0123456789abcdef01"
     )
     generic_checks = (
         "- [X] I will preserve predecessors and declare overlap rather than silently overwriting existing work.\n"
@@ -457,12 +486,120 @@ def main() -> int:
             stacks_claim_body(writer="writer-h", namespace="commons/stacks/terminal."),
             "open",
         ),
+        issue(42, "[Adopt] Stacks Commons layer — wrong pinned repository", wrong_pinned_repository, "open"),
+        issue(43, "[Adopt] Stacks Commons layer — wrong pinned license", wrong_pinned_license, "open"),
+        issue(44, "[Adopt] Stacks Commons layer — wrong pinned commit", wrong_pinned_commit, "open"),
+    ]
+    handback_state_fixture = [
+        issue(50, "[Adopt] returned partial evidence", claim_body(BOARD_ID), "closed"),
+        issue(
+            51,
+            "[Handback] returned partial evidence",
+            handback_body(
+                args.repository,
+                claim_number=50,
+                state="returned — partial checkpoint",
+                cursor="Terminal: bounded partial checkpoint; no continuation assigned",
+            ),
+            "closed",
+        ),
+        issue(52, "[Adopt] paused evidence", claim_body(BOARD_ID), "closed"),
+        issue(
+            53,
+            "[Handback] paused evidence",
+            handback_body(
+                args.repository,
+                claim_number=52,
+                state="paused — open for continuation",
+                result="NO_RESULT: paused",
+                manifest="NO_MANIFEST: paused",
+                checks="Check: output production | NOT_RUN | paused before any result byte existed",
+                cursor="Next cursor: resume from the original bounded source page after the stated prerequisite",
+                method="none",
+            ),
+            "closed",
+        ),
+        issue(54, "[Adopt] withdrawn evidence", claim_body(BOARD_ID), "closed"),
+        issue(
+            55,
+            "[Handback] withdrawn evidence",
+            handback_body(
+                args.repository,
+                claim_number=54,
+                state="withdrawn — no result",
+                result="NO_RESULT: withdrawn",
+                manifest="NO_MANIFEST: withdrawn",
+                checks="NO_CHECKS: withdrawn",
+                cursor="Terminal: withdrawn without result",
+                method="none",
+            ),
+            "closed",
+        ),
+        issue(56, "[Adopt] invalid empty return", claim_body(BOARD_ID), "closed"),
+        issue(
+            57,
+            "[Handback] invalid empty return",
+            handback_body(
+                args.repository,
+                claim_number=56,
+                state="returned — bounded result",
+                result="none",
+                manifest="none",
+                checks="none",
+                cursor="none",
+                method="none",
+            ),
+            "closed",
+        ),
+        issue(58, "[Adopt] placeholder URI evidence", claim_body(BOARD_ID), "closed"),
+        issue(
+            59,
+            "[Handback] placeholder URI evidence",
+            handback_body(
+                args.repository,
+                claim_number=58,
+                result=(
+                    "Result URI: https://...\n"
+                    "Immutable identity: git commit 0123456789012345678901234567890123456789"
+                ),
+            ),
+            "closed",
+        ),
+        issue(60, "[Adopt] missing-host URI evidence", claim_body(BOARD_ID), "closed"),
+        issue(
+            61,
+            "[Handback] missing-host URI evidence",
+            handback_body(
+                args.repository,
+                claim_number=60,
+                result=(
+                    "Result URI: https:///no-host\n"
+                    "Immutable identity: git commit 0123456789012345678901234567890123456789"
+                ),
+            ),
+            "closed",
+        ),
+        issue(62, "[Adopt] credential URI evidence", claim_body(BOARD_ID), "closed"),
+        issue(
+            63,
+            "[Handback] credential URI evidence",
+            handback_body(
+                args.repository,
+                claim_number=62,
+                result=(
+                    "Result URI: https://user:pass@example.org/result\n"
+                    "Immutable identity: git commit 0123456789012345678901234567890123456789"
+                ),
+            ),
+            "closed",
+        ),
     ]
 
     with tempfile.TemporaryDirectory(prefix="adopt-claims-") as temporary:
         root = Path(temporary)
         valid_path = root / "valid.json"
         invalid_path = root / "invalid.json"
+        handback_state_path = root / "handback-state.json"
         valid_path.write_text(
             json.dumps(valid_fixture, ensure_ascii=True, separators=(",", ":")) + "\n",
             encoding="utf-8",
@@ -470,6 +607,11 @@ def main() -> int:
         )
         invalid_path.write_text(
             json.dumps(invalid_fixture, ensure_ascii=True, separators=(",", ":")) + "\n",
+            encoding="utf-8",
+            newline="\n",
+        )
+        handback_state_path.write_text(
+            json.dumps(handback_state_fixture, ensure_ascii=True, separators=(",", ":")) + "\n",
             encoding="utf-8",
             newline="\n",
         )
@@ -516,7 +658,7 @@ def main() -> int:
         if invalid_report.get("checks", {}).get("claim_workflows_valid") is not False:
             raise RuntimeError("invalid workflow fixtures did not fail the workflow contract")
         invalid_aggregate = invalid_report.get("aggregate", {})
-        if invalid_aggregate.get("issues") != 24 or invalid_aggregate.get("invalid") != 24:
+        if invalid_aggregate.get("issues") != 27 or invalid_aggregate.get("invalid") != 27:
             raise RuntimeError(f"invalid fixture aggregate mismatch: {invalid_aggregate}")
         invalid_rows = {row.get("number"): row for row in invalid_report.get("issues", [])}
         for number in (38, 39, 40):
@@ -528,6 +670,14 @@ def main() -> int:
             for error in invalid_rows.get(41, {}).get("errors", [])
         ):
             raise RuntimeError("terminal-dot namespace fixture did not fail canonical validation")
+        exact_pin_errors = {
+            42: "Stacks upstream repository must match the exact board pin",
+            43: "Stacks upstream license must match the exact board pin",
+            44: "Stacks upstream commit must match the exact board pin",
+        }
+        for number, fragment in exact_pin_errors.items():
+            if not any(fragment in error for error in invalid_rows.get(number, {}).get("errors", [])):
+                raise RuntimeError(f"exact Stacks pin mismatch fixture {number} did not fail")
         if not any("unknown Board ID: not-a-board-row" in error for error in invalid_report.get("errors", [])):
             raise RuntimeError("invalid fixture did not preserve the unknown Board-ID error")
         if not any("missing required Stacks section: Exact upstream commit" in error for error in invalid_report.get("errors", [])):
@@ -555,6 +705,53 @@ def main() -> int:
         for fragment in required_error_fragments:
             if not any(fragment in error for error in invalid_report.get("errors", [])):
                 raise RuntimeError(f"invalid fixture did not preserve error: {fragment}")
+
+        handback_state = run_auditor(
+            checker,
+            args.repository,
+            args.commit.lower(),
+            git_root,
+            handback_state_path,
+        )
+        handback_state_report = parse_report(handback_state, "state-aware handback fixture")
+        if handback_state.returncode != 1 or handback_state_report.get("status") != "FAIL":
+            raise RuntimeError("state-aware handback fixture did not fail only the empty return")
+        handback_aggregate = handback_state_report.get("aggregate", {})
+        expected_handback_aggregate = {
+            "issues": 14,
+            "claims": 7,
+            "handbacks": 7,
+            "valid": 10,
+            "invalid": 4,
+        }
+        if any(
+            handback_aggregate.get(key) != value
+            for key, value in expected_handback_aggregate.items()
+        ):
+            raise RuntimeError(f"state-aware handback aggregate mismatch: {handback_aggregate}")
+        handback_rows = {
+            row.get("number"): row for row in handback_state_report.get("issues", [])
+        }
+        for number in (51, 53, 55):
+            if handback_rows.get(number, {}).get("valid") is not True:
+                raise RuntimeError(f"valid state-aware handback {number} was rejected")
+        empty_return_errors = handback_rows.get(57, {}).get("errors", [])
+        for fragment in (
+            "returned handback result must contain exactly",
+            "returned handback manifest must contain only",
+            "returned handback checks must contain exact",
+            "returned handback cursor must be one exact",
+        ):
+            if not any(fragment in error for error in empty_return_errors):
+                raise RuntimeError(f"empty returned handback did not fail: {fragment}")
+        if handback_state_report.get("checks", {}).get("handback_state_evidence_valid") is not False:
+            raise RuntimeError("empty returned handback did not fail the state-evidence check")
+        for number in (59, 61, 63):
+            if not any(
+                "valid public HTTPS Result URI" in error
+                for error in handback_rows.get(number, {}).get("errors", [])
+            ):
+                raise RuntimeError(f"invalid result URI fixture {number} did not fail")
 
         repository_mismatch = run_auditor(
             checker,
@@ -688,7 +885,19 @@ def main() -> int:
                 "status": "PASS",
                 "commit": args.commit.lower(),
                 "valid_fixture": {"issues": 8, "valid": 8, "errors": 0},
-                "invalid_fixture": {"issues": 24, "invalid": 24, "exit": 1},
+                "invalid_fixture": {"issues": 27, "invalid": 27, "exit": 1},
+                "handback_state_fixture": {
+                    "issues": 14,
+                    "valid": 10,
+                    "invalid": 4,
+                    "returned_partial": "accepted",
+                    "paused_no_result": "accepted_exact_sentinels",
+                    "withdrawn_no_result": "accepted_exact_sentinels",
+                    "returned_all_none": "rejected",
+                    "placeholder_result_uri": "rejected",
+                    "missing_host_result_uri": "rejected",
+                    "credential_result_uri": "rejected",
+                },
                 "repository_mismatch_exit": 2,
                 "checker_mismatch_exit": 2,
                 "helper_mismatch_exit": 2,

@@ -85,7 +85,11 @@ Euler-polyhedron note and the 1908 *Beiträge zur Analysis Situs*. The 1906
 note is absent from this bounded GitHub selection, but the snapshotted
 dedicated-record state reports a package-audited German/English 1906 packet;
 bind and bibliographically compare that packet before treating the gap as new
-production. No 1913, 1914, or 1916 work is in this bounded GitHub selection,
+production. The broader project controls also report a provisional 22-page,
+approximately 300ppi Ranicki offprint for the 1908 work. Its exact bytes and
+bibliographic identity are not bound to GitHub, so recover and hash-bind that
+known witness before seeking a stronger source rather than restarting discovery
+from zero. No 1913, 1914, or 1916 work is in this bounded GitHub selection,
 regardless of descriptions maintained on other publication surfaces.
 
 ## Exact Content Inventory
@@ -107,4 +111,4 @@ the exact current caveat state.
 3. Reconcile the 1905 and 1912 status contradictions in a producer-owned successor without rewriting this history.
 4. Bind any future 1905 source package to the exact direct reader/source-slice generation and restore its editable TeX.
 5. Preserve the 1910 PDF-backed §§1–20 base layers unless a fully editable, source-verified replacement is handed off.
-6. For 1906, first bind and compare the dedicated-record German/English packet; if it is the Euler-polyhedron note, ingest and review that existing generation rather than retranscribing it, and create a new generation only if the identity is proved distinct. Add the missing 1908 work as a distinct bounded generation; do not infer later Steinitz works are already in GitHub.
+6. For 1906, first bind and compare the dedicated-record German/English packet; if it is the Euler-polyhedron note, ingest and review that existing generation rather than retranscribing it, and create a new generation only if the identity is proved distinct. For 1908, first recover and hash-bind the reported provisional 22-page Ranicki offprint, verify the bibliography, and seek a stronger witness before strict source certification. Do not infer later Steinitz works are already in GitHub.

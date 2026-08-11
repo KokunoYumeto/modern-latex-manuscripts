@@ -201,10 +201,36 @@ body:
 '@
 $duplicateProbeErrors = [string[]]@(Get-IssueTemplateMappingErrors -Text $duplicateMappingProbe -Context 'duplicate-key probe')
 $issueTemplateDuplicateKeyContractPass = $true
-if (-not ($duplicateProbeErrors | Where-Object { $_.Contains('top-level title', [StringComparison]::Ordinal) }) -or
-    -not ($duplicateProbeErrors | Where-Object { $_.Contains('duplicate label', [StringComparison]::Ordinal) })) {
+if (-not ($duplicateProbeErrors | Where-Object { ([string]$_).Contains('top-level title', [StringComparison]::Ordinal) }) -or
+    -not ($duplicateProbeErrors | Where-Object { ([string]$_).Contains('duplicate label', [StringComparison]::Ordinal) })) {
     Add-Error 'Issue-template duplicate-key detector regression failed.'
     $issueTemplateDuplicateKeyContractPass = $false
+}
+
+function Test-StacksPinCriticalBindings {
+    param(
+        [object]$Receipt,
+        [object]$Upstream
+    )
+    return (
+        [string]$Receipt.repository.url -ceq [string]$Upstream.repository_url -and
+        [string]$Receipt.repository.default_branch -ceq [string]$Upstream.default_branch -and
+        [string]$Receipt.repository.ref_readback_commit -ceq [string]$Receipt.pin.commit -and
+        [string]$Receipt.pin.commit -ceq [string]$Upstream.commit -and
+        [string]$Receipt.pin.tree -ceq [string]$Upstream.tree -and
+        [string]$Receipt.license.path -ceq [string]$Upstream.license_path -and
+        [string]$Receipt.license.text_identity -ceq [string]$Upstream.license_identity -and
+        [string]$Receipt.license.sha256 -ceq [string]$Upstream.license_sha256 -and
+        $Receipt.public_readback.git_ref_matches_api_commit -ceq $true -and
+        $Receipt.boundaries.upstream_tree_copied_into_commons -ceq $false -and
+        $Receipt.boundaries.commons_overlay_bound -ceq $false -and
+        $Receipt.boundaries.composed_build_bound -ceq $false -and
+        $Receipt.boundaries.modified_edition_bound -ceq $false -and
+        $Receipt.boundaries.upstream_acceptance_dependency -ceq $false -and
+        $Receipt.boundaries.upstream_endorsement_implied -ceq $false -and
+        [string]$Receipt.boundaries.prior_pr_evidence_repository_binding -ceq 'not_supplied_do_not_infer' -and
+        [string]$Receipt.boundaries.prior_pr_motive_inference -ceq 'forbidden'
+    )
 }
 
 $inputFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $InputPath))
@@ -338,17 +364,33 @@ $expectedStacksFields = [string[]]@(
     'public_evidence', 'write_boundary'
 )
 Test-ExactFields -Value $stacks -Expected $expectedStacksFields -Context 'stacks_reference_layer'
-$expectedStacksUpstreamFields = [string[]]@('role', 'repository_binding', 'pin_status', 'acceptance_dependency', 'endorsement_implied')
+$expectedStacksUpstreamFields = [string[]]@(
+    'role', 'repository_url', 'official_source_page', 'default_branch', 'commit', 'tree',
+    'license_path', 'license_identity', 'license_sha256', 'pin_status',
+    'local_upstream_tree_copied', 'acceptance_dependency', 'endorsement_implied'
+)
 $expectedStacksModifiedEditionFields = [string[]]@('optional', 'license', 'distinct_title_required', 'attribution_required', 'license_and_history_notices_required', 'upstream_endorsement_forbidden')
 $expectedStacksEvidenceFields = [string[]]@('repository_binding', 'pull_requests', 'state', 'same_timestamp', 'public_comments', 'public_reviews', 'motive_inference')
 Test-ExactFields -Value $stacks.upstream -Expected $expectedStacksUpstreamFields -Context 'stacks_reference_layer.upstream'
 Test-ExactFields -Value $stacks.modified_edition -Expected $expectedStacksModifiedEditionFields -Context 'stacks_reference_layer.modified_edition'
 Test-ExactFields -Value $stacks.public_evidence -Expected $expectedStacksEvidenceFields -Context 'stacks_reference_layer.public_evidence'
-if ([string]$stacks.status -cne 'architecture_adopted_no_overlay_bytes') { Add-Error 'Stacks layer status must remain architecture-only until exact implementation bytes are bound.'; $stacksReferenceLayerContractPass = $false }
+if ([string]$stacks.status -cne 'upstream_pin_bound_no_overlay_or_build_bytes') { Add-Error 'Stacks layer must bind only the exact upstream reference pin until overlay and build bytes exist.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.intake_form -cne 'https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml') { Add-Error 'Stacks intake form differs from the dedicated exact-binding route.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.governance -cne 'mathematics_commons_independent') { Add-Error 'Stacks layer governance must remain independent under Mathematics Commons.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.upstream.role -cne 'respected_pinned_read_only_source_and_sync_target') { Add-Error 'Stacks upstream role must remain pinned and read-only.'; $stacksReferenceLayerContractPass = $false }
-if ([string]$stacks.upstream.repository_binding -cne 'not_supplied_do_not_infer' -or [string]$stacks.upstream.pin_status -cne 'required_not_yet_bound') { Add-Error 'Stacks upstream repository and pin must remain explicitly unbound until exact intake.'; $stacksReferenceLayerContractPass = $false }
+if ([string]$stacks.upstream.repository_url -cne 'https://github.com/stacks/stacks-project' -or
+    [string]$stacks.upstream.official_source_page -cne 'https://stacks.math.columbia.edu/contribute' -or
+    [string]$stacks.upstream.default_branch -cne 'master' -or
+    [string]$stacks.upstream.commit -cne 'a04446e57ec1fbc252a871afcec7752fb2807b14' -or
+    [string]$stacks.upstream.tree -cne '3feeb703b931a6e7259782c10e7d1575adc83e5e' -or
+    [string]$stacks.upstream.license_path -cne 'COPYING' -or
+    [string]$stacks.upstream.license_identity -cne 'GNU Free Documentation License Version 1.2, November 2002' -or
+    [string]$stacks.upstream.license_sha256 -cne '4B2C8FC390F802CD92F0622DC00A708A588BEC54D0145D2EE135D6D7672BFE85' -or
+    [string]$stacks.upstream.pin_status -cne 'exact_reference_pin_bound' -or
+    $stacks.upstream.local_upstream_tree_copied -cne $false) {
+    Add-Error 'Stacks exact upstream reference pin differs from the approved public binding.'
+    $stacksReferenceLayerContractPass = $false
+}
 if ($stacks.upstream.acceptance_dependency -cne $false -or $stacks.upstream.endorsement_implied -cne $false) { Add-Error 'Stacks upstream acceptance or endorsement cannot gate the Commons layer.'; $stacksReferenceLayerContractPass = $false }
 $expectedStacksLayers = [string[]]@('upstream_pin', 'commons_overlay', 'composed_build', 'optional_modified_edition', 'periodic_upstream_sync')
 if ((@($stacks.layer_order) -join "`n") -cne ($expectedStacksLayers -join "`n")) { Add-Error 'Stacks layer order differs from the five-layer architecture.'; $stacksReferenceLayerContractPass = $false }
@@ -361,6 +403,54 @@ if ([string]$stacks.public_evidence.repository_binding -cne 'not_supplied_do_not
 if ([string]$stacks.write_boundary -cne 'commons_owned_namespaces_only') { Add-Error 'Stacks writes must remain inside Commons-owned namespaces.'; $stacksReferenceLayerContractPass = $false }
 Test-RepoPath -Path ([string]$stacks.human_spec) -Context 'stacks_reference_layer.human_spec' -Required $true
 Test-RepoPath -Path '.github/ISSUE_TEMPLATE/stacks.yml' -Context 'stacks_reference_layer.intake_form template' -Required $true
+$stacksPinPath = 'manifests/stacks-pin.json'
+Test-RepoPath -Path $stacksPinPath -Context 'stacks_reference_layer upstream pin receipt' -Required $true
+$stacksPinFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $stacksPinPath))
+if ([IO.File]::Exists($stacksPinFull)) {
+    try {
+        $stacksPinBytes = [IO.File]::ReadAllBytes($stacksPinFull)
+        if ($stacksPinBytes.Length -ge 3 -and $stacksPinBytes[0] -eq 0xEF -and $stacksPinBytes[1] -eq 0xBB -and $stacksPinBytes[2] -eq 0xBF) { throw 'contains a UTF-8 BOM' }
+        $stacksPinText = $utf8.GetString($stacksPinBytes)
+        if ($stacksPinText.Contains("`r")) { throw 'must use LF line endings' }
+        $stacksPin = $stacksPinText | ConvertFrom-Json -Depth 100 -DateKind String
+        Test-ExactFields -Value $stacksPin -Expected @('schema', 'status', 'errors', 'observed_at_utc', 'role', 'repository', 'pin', 'license', 'support_files', 'public_readback', 'boundaries', 'next_cursor') -Context 'Stacks pin receipt'
+        Test-ExactFields -Value $stacksPin.repository -Expected @('url', 'official_source_page', 'default_branch', 'ref', 'ref_readback_commit') -Context 'Stacks pin receipt.repository'
+        Test-ExactFields -Value $stacksPin.pin -Expected @('commit', 'tree', 'parent', 'author_name', 'author_date', 'committer_name', 'committer_date', 'subject', 'html_url', 'signature_verification') -Context 'Stacks pin receipt.pin'
+        Test-ExactFields -Value $stacksPin.license -Expected @('path', 'text_identity', 'repository_api_spdx', 'bytes', 'git_blob_sha1', 'sha256', 'raw_url', 'interpretation_boundary') -Context 'Stacks pin receipt.license'
+        Test-ExactFields -Value $stacksPin.public_readback -Expected @('files', 'bytes', 'matches', 'mismatches', 'errors', 'anonymous_raw', 'git_ref_matches_api_commit') -Context 'Stacks pin receipt.public_readback'
+        Test-ExactFields -Value $stacksPin.boundaries -Expected @('upstream_tree_copied_into_commons', 'commons_overlay_bound', 'composed_build_bound', 'modified_edition_bound', 'upstream_acceptance_dependency', 'upstream_endorsement_implied', 'prior_pr_evidence_repository_binding', 'prior_pr_motive_inference') -Context 'Stacks pin receipt.boundaries'
+        $supportFiles = @($stacksPin.support_files)
+        if ($supportFiles.Count -ne 2) { throw 'support-file count differs' }
+        foreach ($supportFile in $supportFiles) {
+            Test-ExactFields -Value $supportFile -Expected @('path', 'bytes', 'git_blob_sha1', 'sha256', 'raw_url') -Context 'Stacks pin receipt.support_files item'
+        }
+        if ([string]$stacksPin.schema -cne 'stacks-upstream-pin/v1' -or [string]$stacksPin.status -cne 'PASS' -or @($stacksPin.errors).Count -ne 0) { throw 'status/schema differs' }
+        if ([string]$stacksPin.role -cne 'exact_read_only_upstream_reference_pin' -or [string]$stacksPin.repository.official_source_page -cne [string]$stacks.upstream.official_source_page -or [string]$stacksPin.repository.ref -cne 'refs/heads/master') { throw 'repository role or locator differs' }
+        if (-not (Test-StacksPinCriticalBindings -Receipt $stacksPin -Upstream $stacks.upstream)) { throw 'board, receipt, readback, or implementation boundary differs' }
+        if ([int]$stacksPin.public_readback.files -ne 3 -or [int64]$stacksPin.public_readback.bytes -ne 43133 -or [int]$stacksPin.public_readback.matches -ne 3 -or [int]$stacksPin.public_readback.mismatches -ne 0 -or [int]$stacksPin.public_readback.errors -ne 0 -or $stacksPin.public_readback.anonymous_raw -cne $true) { throw 'public readback contract differs' }
+        if ([int64]$stacksPin.license.bytes -ne 20404 -or [string]$stacksPin.license.git_blob_sha1 -cne '71ec2c40b4c76362e1d1e9ece69939e7eb8b0908' -or [string]$stacksPin.license.repository_api_spdx -cne 'NOASSERTION' -or [string]$stacksPin.license.interpretation_boundary -cne 'exact_license_text_identity_not_legal_advice') { throw 'license support identity differs' }
+        if ([string]$supportFiles[0].path -cne 'README' -or [int64]$supportFiles[0].bytes -ne 969 -or [string]$supportFiles[0].git_blob_sha1 -cne '2aba71b048f44631bd2fc8ebeeab586cb7ccd64e' -or [string]$supportFiles[0].sha256 -cne '8D42A1D61B4693951CC78843D1D9EB4E586104FE8C966D90BF87EF8C8B50901C' -or [string]$supportFiles[1].path -cne 'fdl.tex' -or [int64]$supportFiles[1].bytes -ne 21760 -or [string]$supportFiles[1].git_blob_sha1 -cne '093d8e332ebffa65538b1d12535f84dbf12d7d1e' -or [string]$supportFiles[1].sha256 -cne '41F30F5C60D0D61012E3BA7D80AD27BE062B7132D84ADE3102E460E619E9A9F6') { throw 'support-file identity differs' }
+        $pinMutationProbes = @()
+        foreach ($mutation in @('ref', 'api', 'modified', 'motive')) {
+            $probe = $stacksPinText | ConvertFrom-Json -Depth 100 -DateKind String
+            switch ($mutation) {
+                'ref' { $probe.repository.ref_readback_commit = ('0' * 40) }
+                'api' { $probe.public_readback.git_ref_matches_api_commit = $false }
+                'modified' { $probe.boundaries.modified_edition_bound = $true }
+                'motive' { $probe.boundaries.prior_pr_motive_inference = 'invented' }
+            }
+            $pinMutationProbes += -not (Test-StacksPinCriticalBindings -Receipt $probe -Upstream $stacks.upstream)
+        }
+        if (@($pinMutationProbes | Where-Object { $_ -eq $true }).Count -ne 4) { throw 'critical-binding mutation regression failed' }
+    }
+    catch {
+        Add-Error "Stacks pin receipt validation failed: $($_.Exception.Message)"
+        $stacksReferenceLayerContractPass = $false
+    }
+}
+else {
+    $stacksReferenceLayerContractPass = $false
+}
 if ($errors.Count -ne $stacksErrorStart) { $stacksReferenceLayerContractPass = $false }
 
 Test-RepoPath -Path $board.human_board -Context 'human_board' -Required $true
@@ -779,7 +869,7 @@ else {
     }
     if ($stacksTemplateBlocks.ContainsKey('intent')) {
         $expectedStacksIntentOptions = [string[]]@(
-            'Bind the first exact upstream pin and Commons overlay',
+            'Replay the exact upstream pin and bind the first Commons overlay',
             'Independently mirror or check an existing Commons overlay',
             'Propose a deterministic composition and test fixture',
             'Return source or license evidence only'
@@ -806,7 +896,9 @@ else {
         'title: "[Adopt] Stacks Commons layer — "',
         "labels:`n  - adoption",
         '- stacks-commons-layer',
-        'Full immutable commit hash; a branch or floating tag is not sufficient.',
+        'value: https://github.com/stacks/stacks-project',
+        'value: GNU Free Documentation License Version 1.2, November 2002',
+        'value: a04446e57ec1fbc252a871afcec7752fb2807b14',
         'One lowercase slash-delimited token; each segment starts alphanumeric and does not end in a dot. Use owner/repository for a repository identity, never a URL or an upstream-owned or producer-owned tree.',
         'I will write only to the declared Commons-owned namespace and will not edit upstream or another task''s files.',
         'I will not imply upstream acceptance, approval, endorsement, or a motive for prior contribution outcomes.'
@@ -911,6 +1003,17 @@ else {
     if (($actualHandbackAgreementLabels -join "`n") -cne ($expectedHandbackAgreementLabels -join "`n") -or $requiredHandbackAgreementChecks -ne 3) {
         Add-Error 'Handback preservation statements differ from the exact required checkbox contract.'
         $handbackTemplateContractPass = $false
+    }
+    foreach ($token in @(
+        'public HTTPS URL', 'Immutable identity:', 'Manifest: <path-or-URL> | <bytes> bytes | SHA-256 <64-hex>',
+        'NO_RESULT: paused', 'NO_MANIFEST: paused', 'NO_RESULT: withdrawn', 'NO_MANIFEST: withdrawn',
+        'Check: <name> | PASS|FAIL|NOT_RUN | <details>', 'NO_CHECKS: withdrawn',
+        'Next cursor: <scope>', 'Terminal: withdrawn without result'
+    )) {
+        if (-not $handbackTemplateText.Contains($token, [StringComparison]::Ordinal)) {
+            Add-Error "Handback template is missing state-aware evidence token: $token"
+            $handbackTemplateContractPass = $false
+        }
     }
 }
 if ($null -ne $labelContract) {
@@ -1193,13 +1296,16 @@ $claimRegressionFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $expectedClai
 if ([IO.File]::Exists($claimRegressionFull)) {
     $claimRegressionText = $utf8.GetString([IO.File]::ReadAllBytes($claimRegressionFull))
     foreach ($token in @(
-        'valid_fixture', 'invalid_fixture', 'not-a-board-row', 'new:workflow-contract-fixture',
+        'valid_fixture', 'invalid_fixture', 'handback_state_fixture', 'not-a-board-row', 'new:workflow-contract-fixture',
         'row-incompatible workflow', 'unknown workflow', 'missing workflow',
         'local_git_object_database', 'json_fixture', 'external_network_queried',
         'repository_mismatch_exit', 'checker_mismatch_exit', 'helper_mismatch_exit', 'namespace writer A',
         'mismatched intent', 'malformed link and preservation', 'parent-child namespace',
         'uppercase_checkbox', 'suffixed_checkbox', 'missing_execution_blob_exit',
-        'missing_execution_blob_remote_attempt', 'materialized_execution_blobs'
+        'missing_execution_blob_remote_attempt', 'materialized_execution_blobs',
+        'returned_all_none', 'paused_no_result', 'withdrawn_no_result',
+        'placeholder_result_uri', 'missing_host_result_uri', 'credential_result_uri',
+        'wrong_pinned_repository', 'wrong_pinned_license', 'wrong_pinned_commit'
     )) {
         if (-not $claimRegressionText.Contains($token, [StringComparison]::Ordinal)) {
             Add-Error "claim_regression is missing required lifecycle token: $token"
@@ -1284,6 +1390,7 @@ $namedOwnerRows = 0
 $unclaimedOwnerRows = 0
 $weberFrontierContractPass = $false
 $steinitz1906FrontierContractPass = $false
+$steinitz1908SourceContractPass = $false
 $stacksItemContractPass = $false
 $genericClaimRouteRows = 0
 $stacksClaimRouteRows = 0
@@ -1390,9 +1497,35 @@ foreach ($item in @($board.items)) {
         $steinitz1906FrontierContractPass = $cursorPass
     }
 
+    if ($id -ceq 'steinitz-1908-analysis-situs') {
+        $cursor = [string]$item.next_cursor
+        $cursorPass = $true
+        foreach ($token in @('staged 22-page Ranicki offprint', 'hash-bind', 'stronger witness', '300-ppi source as strict certification')) {
+            if (-not $cursor.Contains($token, [StringComparison]::Ordinal)) {
+                Add-Error "item:steinitz-1908-analysis-situs next_cursor is missing required provisional-witness token: $token"
+                $cursorPass = $false
+            }
+        }
+        foreach ($requiredPath in @('docs/known-gaps.md#steinitz', 'docs/work-queue.md#highest-value-typesetting-and-source-check-work')) {
+            if (-not (@($item.related_paths) -ccontains $requiredPath)) {
+                Add-Error "item:steinitz-1908-analysis-situs must bind queue evidence: $requiredPath"
+                $cursorPass = $false
+            }
+        }
+        if (-not ([string]$item.source_basis).Contains('locally staged 22-page Ranicki offprint witness at about 300 ppi', [StringComparison]::Ordinal)) {
+            Add-Error 'item:steinitz-1908-analysis-situs source_basis must preserve the provisional staged witness.'
+            $cursorPass = $false
+        }
+        if (-not (@($item.prerequisites) -ccontains 'recover and hash-bind the staged 22-page Ranicki offprint')) {
+            Add-Error 'item:steinitz-1908-analysis-situs must require exact recovery before production.'
+            $cursorPass = $false
+        }
+        $steinitz1908SourceContractPass = $cursorPass
+    }
+
     if ($id -ceq 'stacks-commons-layer') {
         $cursor = [string]$item.next_cursor
-        $requiredCursorTokens = [string[]]@('coordinate one Commons namespace writer', 'bind the exact upstream repository', 'applicable license', 'commit in a read-only mirror', 'first namespaced overlay manifest')
+        $requiredCursorTokens = [string[]]@('coordinate one Commons namespace writer', 'independently replay the pinned upstream repository', 'license', 'commit', 'tree', 'first namespaced overlay manifest', 'deterministic composition fixture')
         $cursorPass = $true
         foreach ($token in $requiredCursorTokens) {
             if (-not $cursor.Contains($token, [StringComparison]::Ordinal)) {
@@ -1400,7 +1533,8 @@ foreach ($item in @($board.items)) {
                 $cursorPass = $false
             }
         }
-        if ([string]$item.coverage_state -cne 'architecture_adopted_no_upstream_pin_or_overlay_bytes') { Add-Error 'item:stacks-commons-layer must not claim implementation bytes.'; $cursorPass = $false }
+        if ([string]$item.coverage_state -cne 'architecture_upstream_pin_bound_no_overlay_or_build_bytes') { Add-Error 'item:stacks-commons-layer must bind the upstream pin without claiming overlay or build bytes.'; $cursorPass = $false }
+        if (-not ([string]$item.source_basis).Contains('manifests/stacks-pin.json', [StringComparison]::Ordinal)) { Add-Error 'item:stacks-commons-layer source_basis must cite the exact upstream pin receipt.'; $cursorPass = $false }
         if ([string]$item.owner -cne 'Mathematics Commons') { Add-Error 'item:stacks-commons-layer must name Mathematics Commons governance.'; $cursorPass = $false }
         if (-not (@($item.workflow) -ccontains 'upstream_overlay_sync')) { Add-Error 'item:stacks-commons-layer must use upstream_overlay_sync.'; $cursorPass = $false }
         $stacksItemContractPass = $cursorPass
@@ -1480,6 +1614,9 @@ if (-not $weberFrontierContractPass) {
 }
 if (-not $steinitz1906FrontierContractPass) {
     Add-Error 'Steinitz 1906 frontier contract did not pass.'
+}
+if (-not $steinitz1908SourceContractPass) {
+    Add-Error 'Steinitz 1908 provisional-source contract did not pass.'
 }
 if (-not $stacksReferenceLayerContractPass -or -not $stacksItemContractPass) {
     Add-Error 'Commons Stacks reference-layer contract did not pass.'
@@ -1672,8 +1809,12 @@ $report = [ordered]@{
         human_spec = [string]$stacks.human_spec
         intake_form = [string]$stacks.intake_form
         governance = [string]$stacks.governance
-        upstream_repository_binding = [string]$stacks.upstream.repository_binding
+        upstream_repository_url = [string]$stacks.upstream.repository_url
         upstream_pin_status = [string]$stacks.upstream.pin_status
+        upstream_commit = [string]$stacks.upstream.commit
+        upstream_tree = [string]$stacks.upstream.tree
+        upstream_license_sha256 = [string]$stacks.upstream.license_sha256
+        local_upstream_tree_copied = [bool]$stacks.upstream.local_upstream_tree_copied
         upstream_acceptance_dependency = [bool]$stacks.upstream.acceptance_dependency
         layers = @($stacks.layer_order).Count
         overlay_contents = @($stacks.overlay_contents).Count
@@ -1756,6 +1897,7 @@ $report = [ordered]@{
         )
         weber_frontier_contract = $weberFrontierContractPass
         steinitz_1906_frontier_contract = $steinitz1906FrontierContractPass
+        steinitz_1908_source_contract = $steinitz1908SourceContractPass
         stacks_reference_layer_contract = ($stacksReferenceLayerContractPass -and $stacksItemContractPass -and $stacksIntakeContractPass)
         human_board_complete = (
             $humanBoardRowIds.Count -eq $ids.Count -and
