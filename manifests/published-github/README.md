@@ -6,9 +6,10 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current Stacks-pin and Commons-handback
-[closure](stacks-pin-r1-close.json) and [source receipt](stacks-pin-r1.json),
-then the predecessor adoption v3
+Start with the current empty Stacks-overlay infrastructure
+[source receipt](stacks-infra-r1.json), then the predecessor Stacks-pin and
+Commons-handback [closure](stacks-pin-r1-close.json) and
+[source receipt](stacks-pin-r1.json), then the predecessor adoption v3
 [closure](adopt-v3-close.json) and [source receipt](adopt-v3.json), then the
 predecessor adoption v2
 [closure](adopt-v2-close.json) and [source receipt](adopt-v2.json),
@@ -22,7 +23,20 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
 
-The current Stacks-pin and Commons-handback
+The current empty Stacks-overlay infrastructure
+[source receipt](stacks-infra-r1.json) binds accepted source commit
+`15c5c63be72a4a18dd8e6d11d6f5f17930b34fb8`: all 13 changed paths /
+581,482 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
+[`31502399396`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31502399396)
+passed. It initializes a zero-entry Commons overlay registry and a deterministic
+composition contract whose only executed check is a blocked empty-registry
+preflight. It binds zero overlay files, mathematical entries, composition runs,
+generated members, builds, or modified editions. The 78-row board remains 9
+current, 64 ready, and 5 future. The additive aggregate through the source is 45
+cycles, 3,218 observations, and 1,220,899,310 bytes with zero mismatches. No
+producer, corpus, reader, Zenodo, or excluded-lane byte changed.
+
+The predecessor Stacks-pin and Commons-handback
 [closure](stacks-pin-r1-close.json) binds receipt commit
 `5f66d4d1c8f5b578276c5515237bea74b74eb45f`: all five changed paths /
 585,847 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
