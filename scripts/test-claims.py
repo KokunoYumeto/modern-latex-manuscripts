@@ -78,7 +78,7 @@ def stacks_claim_body(
 {workflow}
 
 ### Exact scope
-Bind one exact upstream pin and one new Commons-owned overlay namespace; do not modify upstream or another task's files.
+Bind one exact upstream pin and one new Commons-owned overlay namespace; do not modify upstream or an independently maintained namespace.
 
 ### Starting evidence
 Exact repository URL, applicable license identity, 40-hex commit, overlay namespace, composition plan, tests, and synchronization cursor.
@@ -108,7 +108,7 @@ Run exact-input, namespace, attribution, conflict, and deterministic-rebuild che
 Initial exact upstream pin; no earlier Commons overlay generation is claimed.
 
 ### Traceability
-- [X] I will write only to the declared Commons-owned namespace and will not edit upstream or another task's files.
+- [X] I will write only to the declared Commons-owned namespace and will not modify upstream or an independently maintained namespace.
 - [X] I will preserve exact upstream and predecessor identities, conflicts, failures, corrections, and reversals.
 - [X] I will not imply upstream acceptance, approval, endorsement, or a motive for prior contribution outcomes.
 - [X] Any public modified edition will be distinctly titled and will preserve applicable attribution, license, and history notices.

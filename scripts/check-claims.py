@@ -46,7 +46,7 @@ STACKS_CLAIM_REQUIRED = (
     "Starting synchronization cursor",
 )
 STACKS_TRACEABILITY_REQUIRED = (
-    "I will write only to the declared Commons-owned namespace and will not edit upstream or another task's files.",
+    "I will write only to the declared Commons-owned namespace and will not modify upstream or an independently maintained namespace.",
     "I will preserve exact upstream and predecessor identities, conflicts, failures, corrections, and reversals.",
     "I will not imply upstream acceptance, approval, endorsement, or a motive for prior contribution outcomes.",
     "Any public modified edition will be distinctly titled and will preserve applicable attribution, license, and history notices.",

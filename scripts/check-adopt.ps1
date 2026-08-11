@@ -482,11 +482,15 @@ function Test-StacksPreflightCriticalBindings {
 }
 
 $checkpointAllowedPaths = [string[]]@(
+    '.github/ISSUE_TEMPLATE/stacks.yml',
     '.github/workflows/adopt.yml',
     'CONTRIBUTING.md',
     'README.md',
     'docs/adopt-index.md',
     'docs/adopt.md',
+    'docs/browse-index.md',
+    'docs/github-archive.md',
+    'docs/site-map.md',
     'docs/stacks.md',
     'manifests/adopt.check.json',
     'manifests/adopt.json',
@@ -497,7 +501,9 @@ $checkpointAllowedPaths = [string[]]@(
     'manifests/stacks-overlay.json',
     'manifests/stacks-preflight.json',
     'scripts/check-adopt.ps1',
+    'scripts/check-claims.py',
     'scripts/stacks-preflight.py',
+    'scripts/test-claims.py',
     'scripts/test-stacks-preflight.py'
 )
 $changedPathSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
@@ -1414,7 +1420,7 @@ else {
         $stacksIntakeContractPass = $false
     }
     $expectedStacksAgreementLabels = [string[]]@(
-        'I will write only to the declared Commons-owned namespace and will not edit upstream or another task''s files.',
+        'I will write only to the declared Commons-owned namespace and will not modify upstream or an independently maintained namespace.',
         'I will preserve exact upstream and predecessor identities, conflicts, failures, corrections, and reversals.',
         'I will not imply upstream acceptance, approval, endorsement, or a motive for prior contribution outcomes.',
         'Any public modified edition will be distinctly titled and will preserve applicable attribution, license, and history notices.',
@@ -1468,7 +1474,7 @@ else {
         'value: GNU Free Documentation License Version 1.2, November 2002',
         'value: a04446e57ec1fbc252a871afcec7752fb2807b14',
         'One lowercase slash-delimited token; each segment starts alphanumeric and does not end in a dot. Use owner/repository for a repository identity, never a URL or an upstream-owned or producer-owned tree.',
-        'I will write only to the declared Commons-owned namespace and will not edit upstream or another task''s files.',
+        'I will write only to the declared Commons-owned namespace and will not modify upstream or an independently maintained namespace.',
         'I will not imply upstream acceptance, approval, endorsement, or a motive for prior contribution outcomes.'
     )
     foreach ($token in $requiredStacksTemplateTokens) {
@@ -2302,7 +2308,7 @@ $report = [ordered]@{
         changed_paths = @($worktreeChangePaths)
         changed_path_count = $worktreeChangePaths.Count
         allowed_paths = @($checkpointAllowedPaths)
-        task_owned_control_plane_only = ($outOfScopeChangedPaths.Count -eq 0)
+        repository_control_plane_only = ($outOfScopeChangedPaths.Count -eq 0)
         out_of_scope_changed_paths = @($outOfScopeChangedPaths)
         producer_or_corpus_changed_paths = @($producerOrCorpusChangedPaths)
         zenodo_changed_paths = @($zenodoChangedPaths)
@@ -2710,7 +2716,7 @@ $report = [ordered]@{
             ($snapshotChecks -join "`n") -ceq ($expectedSnapshotChecks -join "`n") -and
             $board.snapshot_policy.mixed_revisions_forbidden -ceq $true
         )
-        task_owned_control_plane_only = ($outOfScopeChangedPaths.Count -eq 0)
+        repository_control_plane_only = ($outOfScopeChangedPaths.Count -eq 0)
         out_of_scope_changed_paths_empty = ($outOfScopeChangedPaths.Count -eq 0)
         external_network_queried = $false
         producer_files_mutated = ($producerOrCorpusChangedPaths.Count -ne 0)
