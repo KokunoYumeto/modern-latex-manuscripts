@@ -7,7 +7,11 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- Current adoption v3 [closure](../published-github/adopt-v3-close.json) and
+- Current Stacks-pin and Commons-handback
+  [source receipt](../published-github/stacks-pin-r1.json), with the exact
+  upstream reference in [stacks-pin.json](../stacks-pin.json), 78 reconciled
+  coverage rows, and hardened exact-evidence handbacks; predecessor adoption v3
+  [closure](../published-github/adopt-v3-close.json) and
   [source receipt](../published-github/adopt-v3.json), with 78 reconciled
   coverage rows and the hardened exact-commit claim trust boundary; predecessor
   adoption v2 [closure](../published-github/adopt-v2-close.json) and

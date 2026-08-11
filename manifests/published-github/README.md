@@ -6,8 +6,10 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current adoption v3 [closure](adopt-v3-close.json) and
-[source receipt](adopt-v3.json), then the predecessor adoption v2
+Start with the current Stacks-pin and Commons-handback
+[source receipt](stacks-pin-r1.json), then the predecessor adoption v3
+[closure](adopt-v3-close.json) and [source receipt](adopt-v3.json), then the
+predecessor adoption v2
 [closure](adopt-v2-close.json) and [source receipt](adopt-v2.json),
 the predecessor [Commons Stacks intake closure](stacks-intake-close.json)
 and [source receipt](stacks-intake.json),
@@ -18,6 +20,20 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The current Stacks-pin and Commons-handback [source receipt](stacks-pin-r1.json)
+binds source commit `eb82a8097e72eb766a8b4125028781767f07d61c`: all
+19 changed paths / 690,910 bytes matched anonymous commit-pinned raw GitHub
+bytes, and Actions run
+[`31492543832`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31492543832)
+passed. It binds the official upstream Stacks reference at commit
+`a04446e57ec1fbc252a871afcec7752fb2807b14` without copying the upstream
+tree or claiming Commons overlay, build, modified-edition, upstream-acceptance,
+or endorsement state. The 78-row adoption board, exact-commit consumer,
+handback evidence contract, Stacks claim binding, no-lazy-fetch probes, claim
+fixtures, and 41-document link audit pass. The additive aggregate through the
+source is 43 cycles, 3,200 observations, and 1,219,731,981 bytes with zero
+mismatches; no producer, corpus, Zenodo, or excluded-lane byte changed.
 
 The [adoption v3 source receipt](adopt-v3.json) binds source commit
 `58503bb1689d357387180c4056152c12d44a8726`: all 19 changed paths /
