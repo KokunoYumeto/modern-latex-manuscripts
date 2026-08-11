@@ -6,9 +6,10 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current empty Stacks-overlay infrastructure
-[closure](stacks-infra-r1-close.json) and [source receipt](stacks-infra-r1.json),
-then the predecessor Stacks-pin and
+Start with the current executable Stacks preflight
+[source receipt](stacks-pre-r1.json), then the predecessor empty Stacks-overlay
+infrastructure [closure](stacks-infra-r1-close.json) and
+[source receipt](stacks-infra-r1.json), then the predecessor Stacks-pin and
 Commons-handback [closure](stacks-pin-r1-close.json) and
 [source receipt](stacks-pin-r1.json), then the predecessor adoption v3
 [closure](adopt-v3-close.json) and [source receipt](adopt-v3.json), then the
@@ -24,7 +25,20 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
 
-The current empty Stacks-overlay infrastructure
+The executable Stacks preflight [source receipt](stacks-pre-r1.json) binds
+accepted source commit `23721648dd7bab01221cf4e762e73b7ada83221a`: all
+15 changed paths / 1,157,128 bytes matched anonymous commit-pinned raw GitHub
+bytes, and Actions run
+[`31535728373`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31535728373)
+passed. The preflight independently reads and hash-binds the exact upstream pin,
+empty overlay registry, composition contract, checker, and regression identities;
+its expected result is `BLOCKED_EMPTY_OVERLAY_REGISTRY`. It binds zero overlay
+entries, mathematical entries, composition runs, generated members, builds, or
+modified editions. The 78-row adoption board remains 9 current, 64 ready, and 5
+future. The additive aggregate through the source is 47 cycles, 3,240
+observations, and 1,222,712,403 bytes with zero mismatches.
+
+The predecessor empty Stacks-overlay infrastructure
 [closure](stacks-infra-r1-close.json) binds receipt commit
 `86f7bafb018c9fbfa77c3338371fc9be6f3c02e3`: all 7 changed paths /
 655,965 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
@@ -393,7 +407,7 @@ The current [reader/source shelf-closure receipt](20260808_shelves_r7_rb.json)
 replays all five paths in the metadata-only successor commit: 289,863 bytes,
 all matched exactly. It proves 14/14 allowed reader-root and 19/19 allowed
 source-root Git tree equality while binding the current direct-reader inventory
-and five task-owned navigation identities; reader/source blob content was not
+and five repository-owned navigation identities; reader/source blob content was not
 read or changed. The [r6 receipt](20260808_shelves_r6_rb.json) remains immutable
 predecessor evidence.
 
