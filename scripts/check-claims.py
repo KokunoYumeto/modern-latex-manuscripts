@@ -13,12 +13,14 @@ import re
 import subprocess
 import sys
 import tempfile
+import unicodedata
 import urllib.parse
 import urllib.request
 
 
 DEFAULT_REPOSITORY = "KokunoYumeto/modern-latex-manuscripts"
 COMMIT_RE = re.compile(r"^[0-9a-fA-F]{40}$")
+SHA256_RE = re.compile(r"^[0-9A-F]{64}$")
 BOARD_ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SECTION_RE = re.compile(r"(?m)^### (?P<label>[^\r\n]+)\s*$")
 STACKS_BOARD_ID = "stacks-commons-layer"
@@ -26,6 +28,11 @@ STACKS_TITLE_PREFIX = "[Adopt] Stacks Commons layer — "
 STACKS_REPOSITORY_RE = re.compile(r"^https://github\.com/[^/\s?#]+/[^/\s?#]+/?$")
 STACKS_NAMESPACE_RE = re.compile(
     r"^[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?(?:/[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?)*$"
+)
+STACKS_CANDIDATE_MANIFEST_RE = re.compile(
+    r"^(?P<path>[^|\r\n]+) \| (?P<bytes>[1-9][0-9]*) bytes \| "
+    r"SHA-256 (?P<sha>[0-9A-F]{64}) \| content-tree SHA-256 "
+    r"(?P<content_tree>[0-9A-F]{64}) \| (?P<members>[1-9][0-9]*) members$"
 )
 CLAIM_REQUIRED = (
     "Board ID",
@@ -40,7 +47,10 @@ STACKS_CLAIM_REQUIRED = (
     "Exact upstream repository URL",
     "Applicable upstream license identity",
     "Exact upstream commit",
+    "Exact upstream tree",
+    "Upstream license SHA-256",
     "Commons overlay namespace",
+    "Candidate manifest identity",
     "Deterministic composition",
     "Tests and review plan",
     "Starting synchronization cursor",
@@ -52,15 +62,32 @@ STACKS_TRACEABILITY_REQUIRED = (
     "Any public modified edition will be distinctly titled and will preserve applicable attribution, license, and history notices.",
     "I understand that opening this issue does not reserve the scope exclusively.",
 )
+STACKS_CANDIDATE_INTENT = (
+    "Prepare and validate an unregistered candidate against the exact upstream pin"
+)
+STACKS_REVIEW_INTENT = "Independently mirror or check an existing Commons overlay"
+STACKS_ASSEMBLY_INTENT = "Propose a deterministic composition and test fixture"
+STACKS_SOURCE_INTENT = "Return source or license evidence only"
+STACKS_CANDIDATE_COMPOSITION_SENTINEL = "not yet bound"
+STACKS_REVIEW_COMPOSITION_SENTINEL = "not applicable — independent overlay review"
+STACKS_SOURCE_MANIFEST_SENTINEL = "not applicable — source or license evidence only"
+STACKS_SOURCE_COMPOSITION_SENTINEL = STACKS_SOURCE_MANIFEST_SENTINEL
+STACKS_ASSEMBLY_REQUIRED_TERMS = (
+    "executor",
+    "ordered inputs",
+    "generated-member manifest",
+    "replay receipt",
+    "before execution",
+)
 GENERIC_TRACEABILITY_REQUIRED = (
     "I will preserve predecessors and declare overlap rather than silently overwriting existing work.",
     "I understand that opening this issue does not reserve the scope exclusively.",
 )
 STACKS_INTENT_WORKFLOW = {
-    "Replay the exact upstream pin and bind the first Commons overlay": "upstream_overlay_sync",
-    "Independently mirror or check an existing Commons overlay": "independent_review",
-    "Propose a deterministic composition and test fixture": "assembly_review",
-    "Return source or license evidence only": "source_intake",
+    STACKS_CANDIDATE_INTENT: "upstream_overlay_sync",
+    STACKS_REVIEW_INTENT: "independent_review",
+    STACKS_ASSEMBLY_INTENT: "assembly_review",
+    STACKS_SOURCE_INTENT: "source_intake",
 }
 HANDBACK_REQUIRED = (
     "Board ID",
@@ -274,6 +301,29 @@ def nonblank_lines(value: str) -> tuple[str, ...]:
     return tuple(line.strip() for line in value.replace("\r\n", "\n").split("\n") if line.strip())
 
 
+def valid_relative_manifest_path(path: str, namespace: str) -> bool:
+    value = path.strip()
+    parts = value.split("/")
+    return (
+        bool(value)
+        and value == unicodedata.normalize("NFC", value)
+        and len(value.encode("utf-8")) <= 500
+        and "\\" not in value
+        and not value.startswith("/")
+        and not re.match(r"^[A-Za-z]:", value)
+        and 1 <= len(parts) <= 32
+        and all(
+            part not in ("", ".", "..")
+            and len(part.encode("utf-8")) <= 200
+            and not part.endswith((".", " "))
+            and not any(character in '<>:"|?*' or ord(character) < 32 or ord(character) == 127 for character in part)
+            for part in parts
+        )
+        and bool(namespace)
+        and value.startswith(namespace + "/")
+    )
+
+
 def valid_public_https_uri(uri: str) -> bool:
     try:
         parsed = urllib.parse.urlsplit(uri)
@@ -463,7 +513,70 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
                     "Stacks upstream commit must match the exact board pin: "
                     + expected_commit
                 )
+            upstream_tree = sections.get("Exact upstream tree", "").strip()
+            if upstream_tree and not COMMIT_RE.fullmatch(upstream_tree):
+                errors.append("Stacks upstream tree must be exactly 40 hexadecimal characters")
+            expected_tree = str(expected_upstream.get("tree") or "")
+            if upstream_tree and upstream_tree.lower() != expected_tree.lower():
+                errors.append(
+                    "Stacks upstream tree must match the exact board pin: "
+                    + expected_tree
+                )
+            upstream_license_sha256 = sections.get("Upstream license SHA-256", "").strip()
+            if upstream_license_sha256 and not SHA256_RE.fullmatch(upstream_license_sha256):
+                errors.append("Stacks upstream license SHA-256 must be exactly 64 uppercase hexadecimal characters")
+            expected_license_sha256 = str(expected_upstream.get("license_sha256") or "")
+            if (
+                upstream_license_sha256
+                and upstream_license_sha256 != expected_license_sha256
+            ):
+                errors.append(
+                    "Stacks upstream license SHA-256 must match the exact board pin: "
+                    + expected_license_sha256
+                )
+            namespace = sections.get("Commons overlay namespace", "").strip()
+            if namespace and not STACKS_NAMESPACE_RE.fullmatch(namespace):
+                errors.append(
+                    "Commons overlay namespace must be one canonical lowercase slash-delimited path"
+                )
             intent = sections.get("Intent", "").strip()
+            candidate_identity = sections.get("Candidate manifest identity", "").strip()
+            if intent == STACKS_SOURCE_INTENT:
+                if candidate_identity != STACKS_SOURCE_MANIFEST_SENTINEL:
+                    errors.append(
+                        "Stacks source-only intent must use the exact candidate-manifest sentinel: "
+                        + STACKS_SOURCE_MANIFEST_SENTINEL
+                    )
+            else:
+                candidate_match = STACKS_CANDIDATE_MANIFEST_RE.fullmatch(candidate_identity)
+                if candidate_identity and (
+                    candidate_match is None
+                    or not valid_relative_manifest_path(candidate_match.group("path"), namespace)
+                ):
+                    errors.append(
+                        "Stacks candidate manifest identity must be one exact relative path/bytes/SHA-256/content-tree SHA-256/members line"
+                    )
+            composition = sections.get("Deterministic composition", "").strip()
+            if intent == STACKS_CANDIDATE_INTENT and composition != STACKS_CANDIDATE_COMPOSITION_SENTINEL:
+                errors.append(
+                    "Stacks unregistered-candidate intent must use the exact composition sentinel: not yet bound"
+                )
+            elif intent == STACKS_SOURCE_INTENT and composition != STACKS_SOURCE_COMPOSITION_SENTINEL:
+                errors.append(
+                    "Stacks source-only intent must use the exact composition sentinel: "
+                    + STACKS_SOURCE_COMPOSITION_SENTINEL
+                )
+            elif intent == STACKS_REVIEW_INTENT and composition != STACKS_REVIEW_COMPOSITION_SENTINEL:
+                errors.append(
+                    "Stacks independent-review intent must use the exact composition sentinel: "
+                    + STACKS_REVIEW_COMPOSITION_SENTINEL
+                )
+            elif intent == STACKS_ASSEMBLY_INTENT:
+                folded_composition = composition.casefold()
+                if any(term not in folded_composition for term in STACKS_ASSEMBLY_REQUIRED_TERMS):
+                    errors.append(
+                        "Stacks assembly intent must name an executor, ordered inputs, generated-member manifest, replay receipt, and the before execution gate"
+                    )
             expected_workflow = STACKS_INTENT_WORKFLOW.get(intent)
             if expected_workflow is None:
                 errors.append(f"unknown Stacks Intent: {intent}")
@@ -477,11 +590,6 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
                 "Stacks traceability",
                 errors,
             )
-            namespace = sections.get("Commons overlay namespace", "").strip()
-            if namespace and not STACKS_NAMESPACE_RE.fullmatch(namespace):
-                errors.append(
-                    "Commons overlay namespace must be one canonical lowercase slash-delimited path"
-                )
         elif kind == "claim":
             require_exact_checklist(
                 sections.get("Traceability", ""),
@@ -531,6 +639,7 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
             "stacks_route": stacks_route,
             "commons_writer": sections.get("Commons writer identity", "").strip(),
             "overlay_namespace": sections.get("Commons overlay namespace", "").strip(),
+            "candidate_manifest_identity": sections.get("Candidate manifest identity", "").strip(),
             "claim_issue": claim_number,
             "handback_state": handback_state,
             "body_bytes": len(body.encode("utf-8")),

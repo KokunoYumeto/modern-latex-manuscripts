@@ -6,20 +6,26 @@ on:
       - ".github/ISSUE_TEMPLATE/**"
       - ".github/labels.json"
       - ".github/workflows/adopt.yml"
+      - "README.md"
       - "docs/**"
+      - "reader-pdfs/README.md"
+      - "sources/README.md"
       - "manifests/adopt.check.json"
       - "manifests/adopt.json"
       - "manifests/adopt.schema.json"
       - "manifests/stacks-pin.json"
       - "manifests/stacks-overlay.json"
       - "manifests/stacks-compose.json"
+      - "manifests/stacks-entry.schema.json"
       - "manifests/stacks-preflight.json"
       - "manifests/github-custody/**"
       - "scripts/check-adopt.ps1"
       - "scripts/check-claims.py"
+      - "scripts/check-stacks-entry.py"
       - "scripts/get-adopt.py"
       - "scripts/test-adopt-offline.py"
       - "scripts/test-claims.py"
+      - "scripts/test-stacks-entry.py"
       - "scripts/stacks-preflight.py"
       - "scripts/test-stacks-preflight.py"
   push:
@@ -29,20 +35,26 @@ on:
       - ".github/ISSUE_TEMPLATE/**"
       - ".github/labels.json"
       - ".github/workflows/adopt.yml"
+      - "README.md"
       - "docs/**"
+      - "reader-pdfs/README.md"
+      - "sources/README.md"
       - "manifests/adopt.check.json"
       - "manifests/adopt.json"
       - "manifests/adopt.schema.json"
       - "manifests/stacks-pin.json"
       - "manifests/stacks-overlay.json"
       - "manifests/stacks-compose.json"
+      - "manifests/stacks-entry.schema.json"
       - "manifests/stacks-preflight.json"
       - "manifests/github-custody/**"
       - "scripts/check-adopt.ps1"
       - "scripts/check-claims.py"
+      - "scripts/check-stacks-entry.py"
       - "scripts/get-adopt.py"
       - "scripts/test-adopt-offline.py"
       - "scripts/test-claims.py"
+      - "scripts/test-stacks-entry.py"
       - "scripts/stacks-preflight.py"
       - "scripts/test-stacks-preflight.py"
   workflow_dispatch:
@@ -78,15 +90,18 @@ jobs:
             /manifests/stacks-pin.json
             /manifests/stacks-overlay.json
             /manifests/stacks-compose.json
+            /manifests/stacks-entry.schema.json
             /manifests/stacks-preflight.json
             /manifests/github-custody/maps-r6.json
             /reader-pdfs/README.md
             /sources/README.md
             /scripts/check-adopt.ps1
             /scripts/check-claims.py
+            /scripts/check-stacks-entry.py
             /scripts/get-adopt.py
             /scripts/test-adopt-offline.py
             /scripts/test-claims.py
+            /scripts/test-stacks-entry.py
             /scripts/stacks-preflight.py
             /scripts/test-stacks-preflight.py
 
@@ -109,6 +124,9 @@ jobs:
           cmp manifests/stacks-preflight.json "$RUNNER_TEMP/stacks-preflight.json"
           python scripts/test-stacks-preflight.py --root .
 
+      - name: Replay valid and invalid Stacks candidate-entry fixtures
+        run: python scripts/test-stacks-entry.py --root .
+
       - name: Validate the board, schema, maps, queues, and interfaces
         shell: pwsh
         run: |
@@ -130,6 +148,10 @@ jobs:
             'stacks_architecture_layers', 'stacks_overlay_registry_entries',
             'stacks_overlay_mathematical_entries', 'stacks_static_contract_checks',
             'stacks_executable_preflight_runs',
+            'stacks_candidate_entry_contract_files',
+            'stacks_candidate_entry_regression_defined_cases',
+            'stacks_candidate_entry_regression_required_cases',
+            'stacks_candidate_manifests_accepted',
             'stacks_composition_runs', 'stacks_generated_members', 'stacks_builds',
             'stacks_intake_fields', 'stacks_claim_routes',
             'stacks_overlay_mutation_probes', 'stacks_overlay_mutation_rejections',
@@ -142,6 +164,7 @@ jobs:
           }
           foreach ($field in @(
             'stacks_reference_layer_contract', 'stacks_overlay_registry_contract',
+            'stacks_candidate_entry_contract',
             'stacks_composition_contract', 'stacks_preflight_result_contract',
             'stacks_empty_preflight_mutation_contract'
           )) {

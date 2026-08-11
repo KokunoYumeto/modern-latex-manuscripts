@@ -1,6 +1,6 @@
 {
   "schema": "stacks-composition-contract/v1",
-  "state": "executable_preflight_bound_empty_registry",
+  "state": "executable_preflight_and_entry_contract_bound_empty_registry",
   "role": "commons_layer3_deterministic_composition_contract_fixture",
   "control_file_rights": "project_generated_control_metadata_no_new_license_grant_asserted",
   "inputs": {
@@ -12,9 +12,44 @@
     },
     "overlay_registry": {
       "path": "manifests/stacks-overlay.json",
-      "bytes": 2819,
-      "sha256": "B3F6FD1A6A878A5F6BE90672CE76F4245134F6A4197C7FC41C48537143086C13",
+      "bytes": 4334,
+      "sha256": "780E0F04C72BD60FA77B2592A91E0A8A79BAFF0EC42E961C2279D36FE811D458",
       "entries": 0
+    },
+    "candidate_entry_contract": {
+      "state": "candidate_contract_bound_registry_empty",
+      "schema": {
+        "path": "manifests/stacks-entry.schema.json",
+        "schema": "stacks-overlay-entry/v1",
+        "bytes": 15931,
+        "sha256": "DA02A10A76615B7B8252D5F5AA346E81536E5B1780A961380E1DA04118C20496"
+      },
+      "validator": {
+        "path": "scripts/check-stacks-entry.py",
+        "version": "1.0.0",
+        "runtime": "python_3_11_plus_jsonschema_4_26_0",
+        "invocation": "python scripts/check-stacks-entry.py --entry CANDIDATE.json --package MATERIALIZED_ROOT --schema manifests/stacks-entry.schema.json --pin manifests/stacks-pin.json --registry manifests/stacks-overlay.json",
+        "bytes": 36566,
+        "sha256": "4E6958C75EB6AB9CDB14CA69C05DEBD1A45E49CE6A75FBA6292DAE1FCD48243D",
+        "network": false,
+        "git": false,
+        "writes": "stdout_only",
+        "success_outcome": "VALID_CANDIDATE_UNREGISTERED"
+      },
+      "regression": {
+        "path": "scripts/test-stacks-entry.py",
+        "version": "1.0.0",
+        "bytes": 33683,
+        "sha256": "2D06864C1B3D2B6433D5A52CDDD20342FF8406FEE4C4005C99388CA16F271DBE",
+        "valid_cases": 1,
+        "invalid_cases": 52,
+        "platform_conditional_cases": 1,
+        "defined_cases": 54,
+        "required_cases": 53
+      },
+      "candidate_manifests_accepted": 0,
+      "registered_entries": 0,
+      "content_bound": false
     },
     "selected_overlay_id": null,
     "selected_overlay_commit": null,
@@ -42,8 +77,8 @@
     "version": "1.0.0",
     "runtime": "python_stdlib_3_11_plus",
     "invocation": "python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY",
-    "bytes": 18462,
-    "sha256": "ABC945BA175B8461892CB6843A014BC6FAB654D8A9F0A2CD7492B0DA1779D776",
+    "bytes": 28217,
+    "sha256": "89B3ED1093ABDF097E7FE6EF8A99E3728B276C4F04733D5CFA14CA9404295CCA",
     "network": false,
     "git": false,
     "writes": "stdout_only"
@@ -51,9 +86,9 @@
   "regression": {
     "path": "scripts/test-stacks-preflight.py",
     "version": "1.0.0",
-    "bytes": 6288,
-    "sha256": "A517ED4C73D8B4A9A4E85CF4B8BB2139183D2FAF2FC44404B450435EE944B4B9",
-    "cases": 11
+    "bytes": 8837,
+    "sha256": "066AC83498F7DDB1BEBCDAF5F311C49D1FBC2C49D2402AC29A7DE4F9BCD0EA18",
+    "cases": 16
   },
   "tool": {
     "state": "not_bound",
@@ -67,6 +102,8 @@
     "approved_overlay_selected": false,
     "overlay_identity_verified": false,
     "preflight_tool_bound": true,
+    "candidate_entry_contract_bound": true,
+    "candidate_entry_validated": false,
     "tool_identity_bound": false,
     "output_root_declared": false,
     "ready": false
@@ -89,6 +126,9 @@
   "aggregate": {
     "static_contract_checks": 1,
     "executable_preflight_runs": 1,
+    "candidate_entry_regression_defined_cases": 54,
+    "candidate_entry_regression_required_cases": 53,
+    "candidate_manifests_accepted": 0,
     "composition_runs": 0,
     "generated_members": 0,
     "builds": 0
@@ -106,5 +146,5 @@
     "reader_or_edition_files_added": 0,
     "mathematical_review_claimed": false
   },
-  "next_cursor": "approve one provenance-complete overlay entry and bind a separate exact composition executor before changing readiness or producing any composed output"
+  "next_cursor": "validate one exact manifest-complete, provenance-referenced candidate with the bound entry contract, then separately approve and register its namespace and Git identity before binding any composition executor or output"
 }

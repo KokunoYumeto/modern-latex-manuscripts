@@ -23,16 +23,51 @@
     "upstream_paths_writable": false
   },
   "entry_contract": {
+    "state": "candidate_contract_bound_registry_empty",
+    "schema": {
+      "path": "manifests/stacks-entry.schema.json",
+      "schema": "stacks-overlay-entry/v1",
+      "bytes": 15931,
+      "sha256": "DA02A10A76615B7B8252D5F5AA346E81536E5B1780A961380E1DA04118C20496"
+    },
+    "validator": {
+      "path": "scripts/check-stacks-entry.py",
+      "version": "1.0.0",
+      "runtime": "python_3_11_plus_jsonschema_4_26_0",
+      "invocation": "python scripts/check-stacks-entry.py --entry CANDIDATE.json --package MATERIALIZED_ROOT --schema manifests/stacks-entry.schema.json --pin manifests/stacks-pin.json --registry manifests/stacks-overlay.json",
+      "bytes": 36566,
+      "sha256": "4E6958C75EB6AB9CDB14CA69C05DEBD1A45E49CE6A75FBA6292DAE1FCD48243D",
+      "network": false,
+      "git": false,
+      "writes": "stdout_only",
+      "success_outcome": "VALID_CANDIDATE_UNREGISTERED"
+    },
+    "regression": {
+      "path": "scripts/test-stacks-entry.py",
+      "version": "1.0.0",
+      "bytes": 33683,
+      "sha256": "2D06864C1B3D2B6433D5A52CDDD20342FF8406FEE4C4005C99388CA16F271DBE",
+      "valid_cases": 1,
+      "invalid_cases": 52,
+      "platform_conditional_cases": 1,
+      "defined_cases": 54,
+      "required_cases": 53
+    },
     "required_fields": [
+      "schema",
+      "state",
       "id",
       "namespace",
       "writer",
-      "overlay_commit",
-      "overlay_tree",
+      "upstream_pin",
+      "overlay",
       "manifest",
       "mathematical_entries",
       "content_counts",
-      "review_receipt"
+      "review_receipt",
+      "tests",
+      "revision",
+      "boundaries"
     ],
     "allowed_content_kinds": [
       "original_additions",
@@ -44,7 +79,10 @@
       "tests",
       "review_receipts"
     ],
-    "v1_nonempty_entries_allowed": false
+    "v1_nonempty_entries_allowed": false,
+    "candidate_manifests_accepted": 0,
+    "registered_entries": 0,
+    "content_bound": false
   },
   "namespace_claims": [],
   "entries": [],
@@ -63,7 +101,7 @@
   },
   "boundaries": {
     "registry_bytes_are_control_plane_only": true,
-    "empty_overlay_manifest_bound": true,
+    "empty_overlay_registry_bound": true,
     "overlay_content_commit": null,
     "overlay_content_tree": null,
     "content_bearing_commons_overlay_bound": false,
@@ -78,5 +116,5 @@
     "upstream_acceptance_dependency": false,
     "upstream_endorsement_implied": false
   },
-  "next_cursor": "approve one Commons namespace and exact provenance-complete overlay generation before adding the first registry entry"
+  "next_cursor": "validate one exact manifest-complete, provenance-referenced materialized candidate with the bound entry contract; independently verify its Git identity and review scope before any separate registry-entry approval"
 }

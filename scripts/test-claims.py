@@ -22,6 +22,24 @@ STACKS_BOARD_ID = "stacks-commons-layer"
 STACKS_UPSTREAM_REPOSITORY = "https://github.com/stacks/stacks-project"
 STACKS_UPSTREAM_LICENSE = "GNU Free Documentation License Version 1.2, November 2002"
 STACKS_UPSTREAM_COMMIT = "a04446e57ec1fbc252a871afcec7752fb2807b14"
+STACKS_UPSTREAM_TREE = "3feeb703b931a6e7259782c10e7d1575adc83e5e"
+STACKS_UPSTREAM_LICENSE_SHA256 = "4B2C8FC390F802CD92F0622DC00A708A588BEC54D0145D2EE135D6D7672BFE85"
+STACKS_CANDIDATE_MANIFEST = (
+    "commons/stacks/pilot/files.json | 1234 bytes | SHA-256 "
+    "0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF | "
+    "content-tree SHA-256 FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210 | "
+    "7 members"
+)
+STACKS_CANDIDATE_INTENT = "Prepare and validate an unregistered candidate against the exact upstream pin"
+STACKS_REVIEW_INTENT = "Independently mirror or check an existing Commons overlay"
+STACKS_ASSEMBLY_INTENT = "Propose a deterministic composition and test fixture"
+STACKS_SOURCE_INTENT = "Return source or license evidence only"
+STACKS_SOURCE_SENTINEL = "not applicable — source or license evidence only"
+STACKS_REVIEW_COMPOSITION_SENTINEL = "not applicable — independent overlay review"
+STACKS_ASSEMBLY_PLAN = (
+    "Proposed only: bind an exact executor identity, ordered inputs, "
+    "generated-member manifest, and deterministic replay receipt before execution."
+)
 
 
 def issue(number: int, title: str, body: str, state: str) -> dict:
@@ -60,14 +78,33 @@ One exact approved Git commit, mapped source paths, byte lengths, and SHA-256 va
 def stacks_claim_body(
     *,
     board_id: str = STACKS_BOARD_ID,
-    intent: str = "Replay the exact upstream pin and bind the first Commons overlay",
+    intent: str = STACKS_CANDIDATE_INTENT,
     workflow: str = "upstream_overlay_sync",
     writer: str = "example-maintainer",
     namespace: str = "commons/stacks/pilot",
     upstream_repository: str = STACKS_UPSTREAM_REPOSITORY,
     upstream_license: str = STACKS_UPSTREAM_LICENSE,
     upstream_commit: str = STACKS_UPSTREAM_COMMIT,
+    upstream_tree: str = STACKS_UPSTREAM_TREE,
+    upstream_license_sha256: str = STACKS_UPSTREAM_LICENSE_SHA256,
+    candidate_manifest: str | None = None,
+    composition: str | None = None,
 ) -> str:
+    if candidate_manifest is None:
+        candidate_manifest = (
+            STACKS_SOURCE_SENTINEL
+            if intent == STACKS_SOURCE_INTENT
+            else STACKS_CANDIDATE_MANIFEST.replace(
+                "commons/stacks/pilot/files.json", f"{namespace}/files.json"
+            )
+        )
+    if composition is None:
+        composition = {
+            STACKS_CANDIDATE_INTENT: "not yet bound",
+            STACKS_SOURCE_INTENT: STACKS_SOURCE_SENTINEL,
+            STACKS_REVIEW_INTENT: STACKS_REVIEW_COMPOSITION_SENTINEL,
+            STACKS_ASSEMBLY_INTENT: STACKS_ASSEMBLY_PLAN,
+        }.get(intent, "not yet bound")
     return f"""### Board ID
 {board_id}
 
@@ -81,7 +118,7 @@ def stacks_claim_body(
 Bind one exact upstream pin and one new Commons-owned overlay namespace; do not modify upstream or an independently maintained namespace.
 
 ### Starting evidence
-Exact repository URL, applicable license identity, 40-hex commit, overlay namespace, composition plan, tests, and synchronization cursor.
+Exact repository URL, applicable license identity and hash, commit and tree, overlay namespace, unregistered-candidate manifest identity, tests, and synchronization cursor.
 
 ### Commons writer identity
 {writer}
@@ -95,11 +132,20 @@ Exact repository URL, applicable license identity, 40-hex commit, overlay namesp
 ### Exact upstream commit
 {upstream_commit}
 
+### Exact upstream tree
+{upstream_tree}
+
+### Upstream license SHA-256
+{upstream_license_sha256}
+
 ### Commons overlay namespace
 {namespace}
 
+### Candidate manifest identity
+{candidate_manifest}
+
 ### Deterministic composition
-Pin upstream, apply the named overlay without rewriting either input, and hash the composed output.
+{composition}
 
 ### Tests and review plan
 Run exact-input, namespace, attribution, conflict, and deterministic-rebuild checks; retain review receipts.
@@ -313,7 +359,7 @@ def main() -> int:
             19,
             "[Adopt] Stacks Commons layer — source evidence",
             stacks_claim_body(
-                intent="Return source or license evidence only",
+                intent=STACKS_SOURCE_INTENT,
                 workflow="source_intake",
                 writer="source-researcher",
                 namespace="commons/stacks/source-evidence",
@@ -330,7 +376,7 @@ def main() -> int:
             30,
             "[Adopt] Stacks Commons layer — independent review",
             stacks_claim_body(
-                intent="Independently mirror or check an existing Commons overlay",
+                intent=STACKS_REVIEW_INTENT,
                 workflow="independent_review",
                 writer="reviewer",
                 namespace="commons/stacks/review",
@@ -341,10 +387,11 @@ def main() -> int:
             31,
             "[Adopt] Stacks Commons layer — deterministic composition",
             stacks_claim_body(
-                intent="Propose a deterministic composition and test fixture",
+                intent=STACKS_ASSEMBLY_INTENT,
                 workflow="assembly_review",
                 writer="assembler",
                 namespace="commons/stacks/composition",
+                composition=STACKS_ASSEMBLY_PLAN,
             ),
             "open",
         ),
@@ -371,7 +418,7 @@ def main() -> int:
         workflow="independent_review",
     )
     wrong_stacks_intent_workflow = stacks_claim_body(
-        intent="Return source or license evidence only",
+        intent=STACKS_SOURCE_INTENT,
         workflow="upstream_overlay_sync",
     )
     conflicting_stacks_repository = stacks_claim_body().replace(
@@ -388,6 +435,62 @@ def main() -> int:
     wrong_pinned_license = stacks_claim_body(upstream_license="Other license identity")
     wrong_pinned_commit = stacks_claim_body(
         upstream_commit="abcdef0123456789abcdef0123456789abcdef01"
+    )
+    wrong_pinned_tree = stacks_claim_body(
+        upstream_tree="abcdef0123456789abcdef0123456789abcdef01"
+    )
+    wrong_pinned_license_sha256 = stacks_claim_body(
+        upstream_license_sha256=(
+            "ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789"
+        )
+    )
+    missing_candidate_manifest = stacks_claim_body().replace(
+        f"### Candidate manifest identity\n{STACKS_CANDIDATE_MANIFEST}",
+        "### Candidate manifest identity\n_No response_",
+    )
+    malformed_candidate_manifest = stacks_claim_body(
+        candidate_manifest=(
+            "candidates/pilot/entry.json | 0 bytes | SHA-256 "
+            "0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF | "
+            "content-tree SHA-256 FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210FEDCBA9876543210 | "
+            "7 members"
+        )
+    )
+    outside_candidate_manifest = stacks_claim_body(
+        candidate_manifest=STACKS_CANDIDATE_MANIFEST.replace(
+            "commons/stacks/pilot/files.json", "commons/stacks/other/files.json"
+        )
+    )
+    wrong_composition_sentinel = stacks_claim_body(composition="not-yet-bound")
+    missing_composition = stacks_claim_body().replace(
+        "### Deterministic composition\nnot yet bound",
+        "### Deterministic composition\n_No response_",
+    )
+    source_manifest_not_sentinel = stacks_claim_body(
+        intent=STACKS_SOURCE_INTENT,
+        workflow="source_intake",
+        namespace="commons/stacks/source-evidence",
+        candidate_manifest=STACKS_CANDIDATE_MANIFEST.replace(
+            "commons/stacks/pilot/files.json", "commons/stacks/source-evidence/files.json"
+        ),
+    )
+    source_wrong_composition = stacks_claim_body(
+        intent=STACKS_SOURCE_INTENT,
+        workflow="source_intake",
+        namespace="commons/stacks/source-evidence-2",
+        composition="not yet bound",
+    )
+    review_wrong_composition = stacks_claim_body(
+        intent=STACKS_REVIEW_INTENT,
+        workflow="independent_review",
+        namespace="commons/stacks/review-wrong",
+        composition="not yet bound",
+    )
+    assembly_missing_plan = stacks_claim_body(
+        intent=STACKS_ASSEMBLY_INTENT,
+        workflow="assembly_review",
+        namespace="commons/stacks/composition-wrong",
+        composition="not yet bound",
     )
     generic_checks = (
         "- [X] I will preserve predecessors and declare overlap rather than silently overwriting existing work.\n"
@@ -489,6 +592,17 @@ def main() -> int:
         issue(42, "[Adopt] Stacks Commons layer — wrong pinned repository", wrong_pinned_repository, "open"),
         issue(43, "[Adopt] Stacks Commons layer — wrong pinned license", wrong_pinned_license, "open"),
         issue(44, "[Adopt] Stacks Commons layer — wrong pinned commit", wrong_pinned_commit, "open"),
+        issue(45, "[Adopt] Stacks Commons layer — wrong pinned tree", wrong_pinned_tree, "open"),
+        issue(46, "[Adopt] Stacks Commons layer — wrong pinned license hash", wrong_pinned_license_sha256, "open"),
+        issue(47, "[Adopt] Stacks Commons layer — missing candidate manifest", missing_candidate_manifest, "open"),
+        issue(48, "[Adopt] Stacks Commons layer — malformed candidate manifest", malformed_candidate_manifest, "open"),
+        issue(65, "[Adopt] Stacks Commons layer — outside candidate namespace", outside_candidate_manifest, "open"),
+        issue(49, "[Adopt] Stacks Commons layer — wrong composition sentinel", wrong_composition_sentinel, "open"),
+        issue(64, "[Adopt] Stacks Commons layer — missing composition", missing_composition, "open"),
+        issue(66, "[Adopt] Stacks Commons layer — source manifest not sentinel", source_manifest_not_sentinel, "open"),
+        issue(67, "[Adopt] Stacks Commons layer — source composition not sentinel", source_wrong_composition, "open"),
+        issue(68, "[Adopt] Stacks Commons layer — review composition not sentinel", review_wrong_composition, "open"),
+        issue(69, "[Adopt] Stacks Commons layer — assembly plan missing", assembly_missing_plan, "open"),
     ]
     handback_state_fixture = [
         issue(50, "[Adopt] returned partial evidence", claim_body(BOARD_ID), "closed"),
@@ -658,7 +772,7 @@ def main() -> int:
         if invalid_report.get("checks", {}).get("claim_workflows_valid") is not False:
             raise RuntimeError("invalid workflow fixtures did not fail the workflow contract")
         invalid_aggregate = invalid_report.get("aggregate", {})
-        if invalid_aggregate.get("issues") != 27 or invalid_aggregate.get("invalid") != 27:
+        if invalid_aggregate.get("issues") != 38 or invalid_aggregate.get("invalid") != 38:
             raise RuntimeError(f"invalid fixture aggregate mismatch: {invalid_aggregate}")
         invalid_rows = {row.get("number"): row for row in invalid_report.get("issues", [])}
         for number in (38, 39, 40):
@@ -674,10 +788,46 @@ def main() -> int:
             42: "Stacks upstream repository must match the exact board pin",
             43: "Stacks upstream license must match the exact board pin",
             44: "Stacks upstream commit must match the exact board pin",
+            45: "Stacks upstream tree must match the exact board pin",
+            46: "Stacks upstream license SHA-256 must match the exact board pin",
         }
         for number, fragment in exact_pin_errors.items():
             if not any(fragment in error for error in invalid_rows.get(number, {}).get("errors", [])):
                 raise RuntimeError(f"exact Stacks pin mismatch fixture {number} did not fail")
+        if not any(
+            "missing required Stacks section: Candidate manifest identity" in error
+            for error in invalid_rows.get(47, {}).get("errors", [])
+        ):
+            raise RuntimeError("missing candidate-manifest fixture did not fail closed")
+        if not any(
+            "Stacks candidate manifest identity must be one exact" in error
+            for error in invalid_rows.get(48, {}).get("errors", [])
+        ):
+            raise RuntimeError("malformed candidate-manifest fixture did not fail exact validation")
+        if not any(
+            "Stacks candidate manifest identity must be one exact" in error
+            for error in invalid_rows.get(65, {}).get("errors", [])
+        ):
+            raise RuntimeError("out-of-namespace candidate-manifest fixture did not fail exact validation")
+        if not any(
+            "Stacks unregistered-candidate intent must use the exact composition sentinel" in error
+            for error in invalid_rows.get(49, {}).get("errors", [])
+        ):
+            raise RuntimeError("incorrect composition sentinel fixture did not fail")
+        if not any(
+            "missing required Stacks section: Deterministic composition" in error
+            for error in invalid_rows.get(64, {}).get("errors", [])
+        ):
+            raise RuntimeError("missing composition sentinel fixture did not fail closed")
+        intent_specific_errors = {
+            66: "Stacks source-only intent must use the exact candidate-manifest sentinel",
+            67: "Stacks source-only intent must use the exact composition sentinel",
+            68: "Stacks independent-review intent must use the exact composition sentinel",
+            69: "Stacks assembly intent must name an executor",
+        }
+        for number, fragment in intent_specific_errors.items():
+            if not any(fragment in error for error in invalid_rows.get(number, {}).get("errors", [])):
+                raise RuntimeError(f"intent-specific Stacks fixture {number} did not fail")
         if not any("unknown Board ID: not-a-board-row" in error for error in invalid_report.get("errors", [])):
             raise RuntimeError("invalid fixture did not preserve the unknown Board-ID error")
         if not any("missing required Stacks section: Exact upstream commit" in error for error in invalid_report.get("errors", [])):
@@ -885,7 +1035,7 @@ def main() -> int:
                 "status": "PASS",
                 "commit": args.commit.lower(),
                 "valid_fixture": {"issues": 8, "valid": 8, "errors": 0},
-                "invalid_fixture": {"issues": 27, "invalid": 27, "exit": 1},
+                "invalid_fixture": {"issues": 38, "invalid": 38, "exit": 1},
                 "handback_state_fixture": {
                     "issues": 14,
                     "valid": 10,
