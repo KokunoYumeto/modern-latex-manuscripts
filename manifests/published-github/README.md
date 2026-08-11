@@ -31,14 +31,14 @@ The [adoption v2 source receipt](adopt-v2.json) binds source commit
 `327a1c74675b30e7a821b4f82e478904f9cb7b77`: all 18 changed paths /
 1,085,518 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions
 run [`31482490040`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31482490040)
-passed. The 67 rows now carry one of seven non-certifying coverage classes;
+passed. At that source generation, the 67 rows carry one of seven non-certifying coverage classes;
 claims must select one registered workflow admitted by the exact row; valid,
 missing, unknown, and row-incompatible workflow fixtures replay offline. The
 four-file exact-commit consumer and missing-promisor regression pass without a
 network attempt. The additive aggregate through this source is 39 cycles,
 3,150 observations, and 1,216,632,335 bytes with zero mismatches.
 
-The [Commons Stacks intake closure](stacks-intake-close.json) binds receipt
+The predecessor [Commons Stacks intake closure](stacks-intake-close.json) binds receipt
 commit `a970668c172add6870701ff93354bc17b98d587a`: all eight changed paths /
 637,926 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
 [`31479813906`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31479813906)
@@ -73,7 +73,7 @@ The [Commons Stacks architecture receipt](stacks-r1.json) binds source commit
 `b94ccf40cecda93ffb94fdc5b6575e65a2c30d2f`: all 13 changed paths /
 965,016 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
 [`31476821791`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31476821791)
-passed. The 67-row board and schema now encode the five-layer independent
+passed. At that architecture generation, the 67-row board and schema encoded the five-layer independent
 Commons governance contract while explicitly claiming no upstream pin,
 overlay, or composed-build bytes. The exact consumer, missing-promisor
 regression, claim fixtures, and 40-document committed-blob link audit pass.
@@ -107,7 +107,7 @@ source commit `b525560c8881a3611b9c9b224de672eaf93631e1`: all ten changed
 paths / 766,369 public bytes matched commit-pinned raw GitHub bytes, both
 maintained refs matched, and Actions run
 [`31329353277`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31329353277)
-passed. The archive landing now fronts the exact 28-cycle evidence. The Weber
+passed. At that frontier generation, the archive landing fronted the exact 28-cycle evidence. The Weber
 row requires binding the snapshotted public Volume II German/English bytes
 through §176 to the GitHub custody surface through §143 before continuation,
 forbids redoing §§144–176, and sets the later cursor to source p.643. No
@@ -137,8 +137,8 @@ The [exact-scope receipt](20260809_scope_rb.json) approves source commit
 `10d2df083bf0b47b758d5f094b6fcaeed9167011`: all seven changed paths /
 661,932 public bytes matched exactly, and Actions run
 [`31324190709`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31324190709)
-passed every sparse metadata gate. The board now has 66 rows: 8 named current,
-53 unclaimed ready, and 5 future. The former `noether-multilingual` and
+passed every sparse metadata gate. At that exact-scope generation, the board had
+66 rows: 8 in `current_work`, 53 unclaimed ready, and 5 future. The former `noether-multilingual` and
 `grothendieck-school` umbrella IDs are retired as claim scopes and replaced by
 sixteen Noether language/work rows plus six Grothendieck-school work rows. The
 human index exposes priority, readiness, coverage, cursor, ownership, and exact
@@ -169,10 +169,10 @@ The [queue-and-scope receipt](20260809_queue_scope_rb.json) approves source
 commit `66fabe75eec1114bf1d468f71cbbebb7321ee675`: all eleven changed paths /
 863,654 bytes matched commit-pinned raw GitHub bytes, Actions run
 [`31327925415`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31327925415)
-passed, and the exact 66 item rows remained unchanged. The current queue now
-points to EGA I printed p.144 after sealed p.143, keeps EGA IV independent
-named-range review available without asserting certification, and treats
-external-publication instructions only as preserved producer context.
+passed, and the exact 66 item rows remained unchanged. At that queue-and-scope
+generation, the queue pointed to EGA I printed p.144 after sealed p.143, kept
+EGA IV independent named-range review available without asserting certification,
+and treated external-publication instructions only as preserved producer context.
 
 The [queue-and-scope closure](20260809_queue_scope_close.json) binds the public
 receipt commit `19352e285ca86431898772c121d28cc53ec4a703`: all six changed
@@ -198,14 +198,14 @@ locked maintenance history.
 The [adoption map-synchronization receipt](20260809_adopt_maps_rb.json)
 replays all eight files in source commit
 `09cf5f7b4043985d03fccce0a4efcf87a4a2df47`: 385,658 bytes, all matched
-exactly. The operational feed now has 30 rows (3 current, 23 adoption-ready,
+exactly. At that map-synchronization generation, the operational feed had 30 rows (3 current, 23 adoption-ready,
 4 future), represents all 19 authoritative coverage maps, and retains zero
 integrated mirror claims until an inspectable mirror is actually returned.
 
 The [work-level adoption and snapshot-policy receipt](20260809_adopt_work_rb.json)
 replays all nine files in source commit
 `511a78f8d008f044466a3dc041e3c6330d442f71`: 546,693 bytes, all matched
-exactly. The successor exposes 46 rows (3 current, 38 adoption-ready, 5
+exactly. That successor exposed 46 rows (3 current, 38 adoption-ready, 5
 future), binds both operational queue sources and all 19 maps, and requires a
 human-approved exact commit for ingestion. Floating `main` is only a locator;
 board, schema, validation, and map manifest must come from one revision.
@@ -264,9 +264,9 @@ identity.
 The [ownership-semantics receipt](20260809_owners_rb.json) approves source
 commit `3b3880f35467d813dc6f83c55c4ed09a48a3dcaa`: all eight changed paths /
 645,231 bytes matched public raw GitHub. The four-file consumer passes 118,267
-bytes. The existing partition is unchanged at three named current rows and 43
-deliberately unclaimed rows; null now means `unclaimed`, not unknown, and
-claims remain nonexclusive.
+bytes. At that ownership-semantics generation, the partition remained three named
+`current_work` rows and 43 deliberately unclaimed rows; null meant `unclaimed`,
+not unknown, and claims remained nonexclusive.
 
 The [complete adoption-index receipt](20260809_index_rb.json) approves source
 commit `36e41b5213719194ab43232979c20c82046770f0`: all eleven changed paths /

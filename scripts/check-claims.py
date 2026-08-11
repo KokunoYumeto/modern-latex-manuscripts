@@ -12,6 +12,7 @@ import pathlib
 import re
 import subprocess
 import sys
+import tempfile
 import urllib.parse
 import urllib.request
 
@@ -21,7 +22,11 @@ COMMIT_RE = re.compile(r"^[0-9a-fA-F]{40}$")
 BOARD_ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SECTION_RE = re.compile(r"(?m)^### (?P<label>[^\r\n]+)\s*$")
 STACKS_BOARD_ID = "stacks-commons-layer"
-STACKS_REPOSITORY_RE = re.compile(r"^https://github\.com/[^/\s]+/[^/\s]+/?$")
+STACKS_TITLE_PREFIX = "[Adopt] Stacks Commons layer — "
+STACKS_REPOSITORY_RE = re.compile(r"^https://github\.com/[^/\s?#]+/[^/\s?#]+/?$")
+STACKS_NAMESPACE_RE = re.compile(
+    r"^[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?(?:/[a-z0-9](?:[a-z0-9._-]*[a-z0-9_-])?)*$"
+)
 CLAIM_REQUIRED = (
     "Board ID",
     "Intent",
@@ -47,9 +52,19 @@ STACKS_TRACEABILITY_REQUIRED = (
     "Any public modified edition will be distinctly titled and will preserve applicable attribution, license, and history notices.",
     "I understand that opening this issue does not reserve the scope exclusively.",
 )
+GENERIC_TRACEABILITY_REQUIRED = (
+    "I will preserve predecessors and declare overlap rather than silently overwriting existing work.",
+    "I understand that opening this issue does not reserve the scope exclusively.",
+)
+STACKS_INTENT_WORKFLOW = {
+    "Bind the first exact upstream pin and Commons overlay": "upstream_overlay_sync",
+    "Independently mirror or check an existing Commons overlay": "independent_review",
+    "Propose a deterministic composition and test fixture": "assembly_review",
+    "Return source or license evidence only": "source_intake",
+}
 HANDBACK_REQUIRED = (
     "Board ID",
-    "Adoption issue or mirror URL",
+    "Adoption issue URL",
     "Handback state",
     "Exact achieved scope",
     "Inspectable result",
@@ -65,6 +80,15 @@ HANDBACK_STATES = {
     "paused — open for continuation",
     "withdrawn — no result",
 }
+HANDBACK_PRESERVATION_REQUIRED = (
+    "I preserved the starting generation and did not silently overwrite contradictory or superseded evidence.",
+    "I kept quality/review state explicit and made no unsupported completion or certification claim.",
+    "I understand that archive maps change only after the returned bytes or exact external identity are inspectable.",
+)
+APPROVED_EXECUTABLES = (
+    "scripts/get-adopt.py",
+    "scripts/check-claims.py",
+)
 
 
 def sha256(data: bytes) -> str:
@@ -75,32 +99,75 @@ def load_approved_board(
     repository: str,
     commit: str,
     approve: str,
+    helper_bytes: bytes,
     git_repository: str | None = None,
 ) -> tuple[dict, dict]:
-    helper = pathlib.Path(__file__).with_name("get-adopt.py")
-    command = [
-        sys.executable,
-        str(helper),
-        "--repository",
-        repository,
-        "--commit",
-        commit,
-        "--approve",
-        approve,
-    ]
-    if git_repository is not None:
-        command.extend(["--git", git_repository])
-    result = subprocess.run(
-        command,
-        check=False,
-        capture_output=True,
-    )
+    with tempfile.TemporaryDirectory(prefix="approved-adopt-helper-") as directory:
+        helper = pathlib.Path(directory) / "get-adopt.py"
+        helper.write_bytes(helper_bytes)
+        command = [
+            sys.executable,
+            str(helper),
+            "--repository",
+            repository,
+            "--commit",
+            commit,
+            "--approve",
+            approve,
+        ]
+        if git_repository is not None:
+            command.extend(["--git", git_repository])
+        result = subprocess.run(
+            command,
+            check=False,
+            capture_output=True,
+        )
     if result.returncode != 0:
         message = result.stderr.decode("utf-8", "replace").strip()
         raise RuntimeError(f"exact-commit board consumer failed: {message}")
     board = json.loads(result.stdout.decode("utf-8"))
     summary = json.loads(result.stderr.decode("utf-8"))
     return board, summary
+
+
+def approved_blob(repository: str, commit: str, path: str, git_repository: str | None) -> bytes:
+    if git_repository is None:
+        encoded = "/".join(urllib.parse.quote(part, safe="") for part in path.split("/"))
+        request = urllib.request.Request(
+            f"https://raw.githubusercontent.com/{repository}/{commit}/{encoded}",
+            headers={"User-Agent": "modern-latex-adoption-audit"},
+        )
+        with urllib.request.urlopen(request, timeout=120) as response:
+            return response.read()
+    environment = os.environ.copy()
+    environment["GIT_NO_LAZY_FETCH"] = "1"
+    result = subprocess.run(
+        ["git", "-C", str(pathlib.Path(git_repository).resolve(strict=True)), "cat-file", "blob", f"{commit}:{path}"],
+        check=False,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        env=environment,
+    )
+    if result.returncode != 0:
+        diagnostic = result.stderr.decode("utf-8", "replace").strip()
+        raise RuntimeError(f"approved auditor blob read failed for {path}: {diagnostic}")
+    return result.stdout
+
+
+def verify_approved_executables(
+    repository: str, commit: str, git_repository: str | None
+) -> tuple[dict[str, dict[str, object]], dict[str, bytes]]:
+    script_directory = pathlib.Path(__file__).resolve().parent
+    identities: dict[str, dict[str, object]] = {}
+    blobs: dict[str, bytes] = {}
+    for path in APPROVED_EXECUTABLES:
+        local = (script_directory / pathlib.PurePosixPath(path).name).read_bytes()
+        approved = approved_blob(repository, commit, path, git_repository)
+        if local != approved:
+            raise RuntimeError(f"executed {path} does not match the human-approved commit")
+        identities[path] = {"bytes": len(local), "sha256": sha256(local)}
+        blobs[path] = approved
+    return identities, blobs
 
 
 def api_request(url: str) -> urllib.request.Request:
@@ -159,16 +226,39 @@ def parse_sections(body: str) -> dict[str, str]:
     return sections
 
 
+def checked_statements(value: str) -> tuple[str, ...] | None:
+    """Return one exact checklist, or None when prose can masquerade as checks."""
+    lines = tuple(line for line in value.replace("\r\n", "\n").split("\n") if line.strip())
+    statements: list[str] = []
+    for line in lines:
+        match = re.fullmatch(r"- \[[xX]\] (?P<statement>[^\r\n]+)", line)
+        if match is None:
+            return None
+        statements.append(match.group("statement"))
+    return tuple(statements)
+
+
+def require_exact_checklist(
+    value: str,
+    expected: tuple[str, ...],
+    label: str,
+    errors: list[str],
+) -> None:
+    statements = checked_statements(value)
+    if statements != expected:
+        errors.append(f"{label} checklist must contain exactly the required checked statements in order")
+
+
+def namespaces_overlap(left: str, right: str) -> bool:
+    return left == right or left.startswith(f"{right}/") or right.startswith(f"{left}/")
+
+
 def issue_kind(title: str) -> str | None:
     if title.startswith("[Adopt] "):
         return "claim"
     if title.startswith("[Handback] "):
         return "handback"
     return None
-
-
-def first_line(value: str) -> str:
-    return value.splitlines()[0].strip() if value.strip() else ""
 
 
 def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list[dict], list[str], list[str]]:
@@ -180,7 +270,7 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
     global_errors: list[str] = []
     global_warnings: list[str] = []
     issue_url_re = re.compile(
-        rf"https://github\.com/{re.escape(repository)}/issues/(?P<number>[0-9]+)"
+        rf"https://github\.com/{re.escape(repository)}/issues/(?P<number>[1-9][0-9]*)/?$"
     )
 
     for issue in sorted(issues, key=lambda value: int(value.get("number", 0))):
@@ -200,7 +290,7 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
             if not sections.get(label, "").strip():
                 errors.append(f"missing required section: {label}")
 
-        board_id = first_line(sections.get("Board ID", ""))
+        board_id = sections.get("Board ID", "").strip()
         proposed = board_id.startswith("new:") and bool(BOARD_ID_RE.fullmatch(board_id[4:]))
         if board_id and board_id not in board_ids and not proposed:
             errors.append(f"unknown Board ID: {board_id}")
@@ -214,32 +304,69 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
             }:
                 errors.append(f"Workflow token is not allowed for Board ID {board_id}: {workflow}")
 
-        if kind == "claim" and board_id == STACKS_BOARD_ID:
+        stacks_route = kind == "claim" and (
+            title.startswith(STACKS_TITLE_PREFIX)
+            or any(label in sections for label in STACKS_CLAIM_REQUIRED)
+        )
+        if stacks_route and board_id != STACKS_BOARD_ID:
+            errors.append(f"dedicated Stacks route requires Board ID {STACKS_BOARD_ID}")
+        if kind == "claim" and board_id == STACKS_BOARD_ID and not title.startswith(STACKS_TITLE_PREFIX):
+            errors.append("Stacks Board ID requires the dedicated Stacks issue form and title prefix")
+
+        if kind == "claim" and (board_id == STACKS_BOARD_ID or stacks_route):
             for label in STACKS_CLAIM_REQUIRED:
                 if not sections.get(label, "").strip():
                     errors.append(f"missing required Stacks section: {label}")
-            upstream_repository = first_line(sections.get("Exact upstream repository URL", ""))
+            upstream_repository = sections.get("Exact upstream repository URL", "").strip()
             if upstream_repository and not STACKS_REPOSITORY_RE.fullmatch(upstream_repository):
                 errors.append("Stacks upstream repository must be one exact GitHub repository URL")
-            upstream_commit = first_line(sections.get("Exact upstream commit", ""))
+            upstream_commit = sections.get("Exact upstream commit", "").strip()
             if upstream_commit and not COMMIT_RE.fullmatch(upstream_commit):
                 errors.append("Stacks upstream commit must be exactly 40 hexadecimal characters")
-            traceability = sections.get("Traceability", "")
-            for statement in STACKS_TRACEABILITY_REQUIRED:
-                if f"- [x] {statement}" not in traceability:
-                    errors.append(f"missing required checked Stacks traceability statement: {statement}")
+            intent = sections.get("Intent", "").strip()
+            expected_workflow = STACKS_INTENT_WORKFLOW.get(intent)
+            if expected_workflow is None:
+                errors.append(f"unknown Stacks Intent: {intent}")
+            elif workflow != expected_workflow:
+                errors.append(
+                    f"Stacks Intent requires Workflow token {expected_workflow}: {intent}"
+                )
+            require_exact_checklist(
+                sections.get("Traceability", ""),
+                STACKS_TRACEABILITY_REQUIRED,
+                "Stacks traceability",
+                errors,
+            )
+            namespace = sections.get("Commons overlay namespace", "").strip()
+            if namespace and not STACKS_NAMESPACE_RE.fullmatch(namespace):
+                errors.append(
+                    "Commons overlay namespace must be one canonical lowercase slash-delimited path"
+                )
+        elif kind == "claim":
+            require_exact_checklist(
+                sections.get("Traceability", ""),
+                GENERIC_TRACEABILITY_REQUIRED,
+                "Traceability",
+                errors,
+            )
 
         claim_number: int | None = None
         if kind == "handback":
-            claim_value = sections.get("Adoption issue or mirror URL", "")
-            match = issue_url_re.search(claim_value)
+            claim_value = sections.get("Adoption issue URL", "")
+            match = issue_url_re.fullmatch(claim_value.strip())
             if match:
                 claim_number = int(match.group("number"))
             else:
                 errors.append("handback does not contain an exact repository adoption-issue URL")
-            state = first_line(sections.get("Handback state", ""))
+            state = sections.get("Handback state", "").strip()
             if state and state not in HANDBACK_STATES:
                 errors.append(f"unknown handback state: {state}")
+            require_exact_checklist(
+                sections.get("Preservation and status", ""),
+                HANDBACK_PRESERVATION_REQUIRED,
+                "Handback preservation",
+                errors,
+            )
 
         row = {
             "number": number,
@@ -250,6 +377,9 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
             "board_id": board_id,
             "board_id_kind": "existing" if board_id in board_ids else ("proposed" if proposed else "invalid"),
             "workflow": workflow,
+            "stacks_route": stacks_route,
+            "commons_writer": sections.get("Commons writer identity", "").strip(),
+            "overlay_namespace": sections.get("Commons overlay namespace", "").strip(),
             "claim_issue": claim_number,
             "body_bytes": len(body.encode("utf-8")),
             "body_sha256": sha256(body.encode("utf-8")),
@@ -281,6 +411,30 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
         if claim["state"] == "closed" and number not in handback_claims:
             claim["warnings"].append("closed adoption issue has no audited handback")
 
+    open_stacks = [
+        row
+        for row in rows
+        if row["type"] == "claim"
+        and row["board_id"] == STACKS_BOARD_ID
+        and row["state"] == "open"
+        and not row["errors"]
+        and row["overlay_namespace"]
+    ]
+    conflicts: dict[int, set[str]] = {}
+    for index, left in enumerate(open_stacks):
+        for right in open_stacks[index + 1 :]:
+            if left["commons_writer"] == right["commons_writer"]:
+                continue
+            if namespaces_overlap(left["overlay_namespace"], right["overlay_namespace"]):
+                detail = f"{left['overlay_namespace']} <> {right['overlay_namespace']}"
+                conflicts.setdefault(left["number"], set()).add(detail)
+                conflicts.setdefault(right["number"], set()).add(detail)
+    for row in open_stacks:
+        for detail in sorted(conflicts.get(row["number"], set())):
+            row["errors"].append(
+                f"multiple Commons writers claim overlapping overlay namespaces: {detail}"
+            )
+
     for row in rows:
         row["valid"] = not row["errors"]
         global_errors.extend(f"issue#{row['number']}: {message}" for message in row["errors"])
@@ -311,12 +465,21 @@ def main() -> int:
         parser.error("--approve does not match --commit")
 
     try:
+        approved_executables, approved_blobs = verify_approved_executables(
+            args.repository, args.commit.lower(), args.git
+        )
         board, board_summary = load_approved_board(
             args.repository,
             args.commit.lower(),
             args.approve.lower(),
+            approved_blobs["scripts/get-adopt.py"],
             args.git,
         )
+        expected_repository = f"https://github.com/{args.repository}"
+        if board.get("repository") != expected_repository:
+            raise RuntimeError(
+                f"approved board repository mismatch: expected {expected_repository}"
+            )
         if args.issues_file:
             issues = load_fixture(args.issues_file)
             pages = 0
@@ -332,6 +495,22 @@ def main() -> int:
             raise RuntimeError("board transport is not declared by claim_auditor_modes")
         if issue_source not in auditor_modes.get("issues", []):
             raise RuntimeError("issue transport is not declared by claim_auditor_modes")
+        execution = board.get("claim_execution")
+        if not isinstance(execution, dict):
+            raise RuntimeError("board claim_execution is not an object")
+        if execution.get("executable_paths") != list(APPROVED_EXECUTABLES):
+            raise RuntimeError("claim_execution does not bind the exact approved executables")
+        if (
+            execution.get("ingestion_snapshot_files") != 4
+            or execution.get("same_commit_required") is not True
+            or execution.get("human_approved_checker_required") is not True
+            or execution.get("helper_materialization") != "private_exact_commit_blob"
+            or execution.get("local_script_comparison_role")
+            != "drift_detection_not_trust_root"
+            or execution.get("offline_git_requirement")
+            != "fully_materialized_objects_with_lazy_fetch_disabled_or_network_isolation"
+        ):
+            raise RuntimeError("claim_execution trust boundary differs from the approved contract")
         rows, errors, warnings = audit_issues(args.repository, board, issues)
     except Exception as error:
         print(f"ERROR: {error}", file=sys.stderr)
@@ -358,6 +537,7 @@ def main() -> int:
             "mirrors": board_summary["mirrors"],
             "exact_commit_consumer": board_summary["status"],
             "transport": board_summary["transport"],
+            "approved_executables": approved_executables,
         },
         "issue_source": {
             "kind": issue_source,
@@ -382,6 +562,20 @@ def main() -> int:
             "claim_workflows_valid": not any("Workflow token" in error for error in errors),
             "handbacks_linked": not any("handback" in error for error in errors),
             "parallel_claims_allowed": True,
+            "stacks_namespace_single_writer": not any(
+                "multiple Commons writers claim overlapping overlay namespaces" in error for error in errors
+            ),
+            "approved_executable_drift_check": (
+                set(approved_executables) == set(APPROVED_EXECUTABLES)
+                and all(
+                    approved_executables[path]["bytes"] > 0
+                    and re.fullmatch(
+                        r"[0-9A-F]{64}", str(approved_executables[path]["sha256"])
+                    )
+                    is not None
+                    for path in APPROVED_EXECUTABLES
+                )
+            ),
             "declared_auditor_modes": True,
             "external_network_queried": (
                 board_summary["transport"] == "raw_github"

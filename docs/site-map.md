@@ -6,14 +6,14 @@ This page lists the main coordination documents in this repository and what each
 
 | Page | Use It For |
 |---|---|
-| [Adoption and mirror board](adopt.md) | Exact claimable Board IDs; current, ready-for-adoption, and future author/work scopes; controlled coverage classes; start cursors; ownership labels; exact workflow tokens; and the machine-readable Mathematics Commons interface. |
+| [Adoption and mirror board](adopt.md) | Exact claimable Board IDs; current, ready-for-adoption, and future author/work scopes; controlled coverage classes; start cursors; ownership labels; the exact workflow-selection rule; and the machine-readable Mathematics Commons interface. |
 | [Browse index](browse-index.md) | Fast route to the right corpus or record. |
 | [GitHub archive history](github-archive.md) | Exact task-owned catalog commit chain, manifests, and commit-pinned raw-readback receipts. |
 | [Download guide](download-guide.md) | Deciding whether to open a reader PDF, artifact ZIP, manifest, or bulk record. |
 | [By author and work](by-author-and-work.md) | Finding named authors and works without reading the full file catalog. |
 | [Record landing pages](records/README.md) | Browsing each Zenodo record grouped by reader PDFs, artifact ZIPs, and status files. |
 | [Project status dashboard](project-status-dashboard.md) | Current record counts, file counts, readiness estimates, and audit notes. |
-| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Map of the other-PC branch with Slavic, CJK, RTL/Persianate/Arabic, Romance, Fable/interlanguage, and related source-body/provenance payload roots. Grouped payload ZIPs, Interslavic v0.6, Romance v10, the Noether R823 gate v4, the v0.12 fleet snapshot, and the v0.13 Romance/WordWeb/Interslavic checkpoints are public in current interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885). |
+| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Map of the other-PC branch with Slavic, CJK, RTL/Persianate/Arabic, Romance, Fable/interlanguage, and related source-body/provenance payload roots. Grouped payload ZIPs, Interslavic v0.6, Romance v10, the Noether R823 gate v4, the v0.12 fleet snapshot, and the v0.13 Romance/WordWeb/Interslavic checkpoints are preserved in interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885); the current interlanguage methodology head recorded by this repository is [10.5281/zenodo.21788322](https://doi.org/10.5281/zenodo.21788322). |
 
 ## Inventory
 
@@ -32,7 +32,7 @@ This page lists the main coordination documents in this repository and what each
 | [Known gaps](known-gaps.md) | Current incompleteness and caveats by corpus. |
 | [Work queue](work-queue.md) | Historical producer/evidence context plus GitHub-scoped task leads; use the adoption board for current assignments. |
 | [Author page candidates](author-page-candidates.md) | Human-readable triage for deciding when a mixed shelf should become a dedicated Zenodo author/topic record. |
-| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Current map of the raw other-PC source-body/provenance branch; grouped payloads are retained in current interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885). |
+| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Historical map of the raw other-PC source-body/provenance branch; grouped payloads are preserved in interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885). For the current interlanguage methodology head, use [10.5281/zenodo.21788322](https://doi.org/10.5281/zenodo.21788322). |
 
 ## Method And Quality
 
