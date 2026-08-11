@@ -15,7 +15,7 @@ readback, and where to start browsing.
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources_r5.csv`](../manifests/github-custody/20260807_sources_r5.csv) and [summary](../manifests/github-custody/20260807_sources_r5.json) |
 | Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260808_shelves_r9.json`](../manifests/github-custody/20260808_shelves_r9.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |
-| Audit the GitHub maintenance chain | This page | Current executable Stacks-preflight [closure](../manifests/published-github/stacks-pre-r1-close.json) and [source receipt](../manifests/published-github/stacks-pre-r1.json); predecessor empty Stacks-overlay infrastructure [closure](../manifests/published-github/stacks-infra-r1-close.json) |
+| Audit the GitHub maintenance chain | This page | Current public-interface cleanup [source receipt](../manifests/published-github/ui-clean-r1.json); predecessor executable Stacks-preflight [closure](../manifests/published-github/stacks-pre-r1-close.json) |
 | Interpret manifests and readback receipts | [Custody evidence](../manifests/github-custody/README.md) | [Raw-readback receipts](../manifests/published-github/README.md) |
 
 ## Published GitHub Cycles
@@ -58,14 +58,16 @@ readback, and where to start browsing.
 | Pinned Stacks reference and hardened Commons handbacks | Binds the official upstream Stacks repository at one exact commit/tree/license identity without copying its tree or claiming a Commons overlay/build/modified edition; preserves the 78-row archive/adoption board; requires exact evidence for returned work; rejects all-none returns and mismatched Stacks repository/license/commit claims; reconciles the Steinitz 1908 public witness before new source work. No producer, corpus, Zenodo, or excluded-lane byte changed. | [`eb82a809`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/eb82a8097e72eb766a8b4125028781767f07d61c), [`5f66d4d1`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/5f66d4d1c8f5b578276c5515237bea74b74eb45f) | [Source run `31492543832`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31492543832), [receipt run `31493429606`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31493429606), [19-path source receipt](../manifests/published-github/stacks-pin-r1.json), [44-cycle closure](../manifests/published-github/stacks-pin-r1-close.json) |
 | Empty Stacks overlay infrastructure | Initializes a zero-entry Commons overlay registry and a deterministic composition contract whose preflight fails closed on the empty registry. It binds no overlay content, mathematical entry, composition run, generated member, build, or modified edition. The initial source commit omitted two existing Stacks aggregates from its checked-report comparison; the accepted one-file successor corrects that validation binding. No producer, corpus, reader, Zenodo, or excluded-lane byte changed. | [`514f0508`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/514f05084edac077dfbcc36d7cf64094d434e82b), [`15c5c63b`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/15c5c63be72a4a18dd8e6d11d6f5f17930b34fb8) | [Initial run `31502256014`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31502256014), [accepted run `31502399396`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31502399396), [receipt run `31503132092`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31503132092), [13-path source receipt](../manifests/published-github/stacks-infra-r1.json), [46-cycle closure](../manifests/published-github/stacks-infra-r1-close.json) |
 | Executable Stacks preflight | Adds a strict, offline preflight that independently reads and hash-binds the pinned upstream reference, zero-entry overlay registry, composition contract, checker, and regression identities. Its expected result is `BLOCKED_EMPTY_OVERLAY_REGISTRY`; no composition executor, overlay entry, mathematical entry, run, member, build, or modified edition is claimed. The public front door emphasizes coverage maps and reader/source discovery. | [`23721648`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/23721648dd7bab01221cf4e762e73b7ada83221a), [`6a444fad`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/6a444fad657ad9035feb7707a17e9571065f879b) | [Source run `31535728373`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31535728373), [receipt run `31536509222`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31536509222), [15-path source receipt](../manifests/published-github/stacks-pre-r1.json), [48-cycle closure](../manifests/published-github/stacks-pre-r1-close.json) |
+| Public interface cleanup | Aligns the active navigation, adoption board, Stacks claim form, and contributor contract around public repository ownership, independent namespace boundaries, exact handoff rules, and preserved historical evidence. No producer, corpus, reader, external-record, or excluded-lane byte changed. | [`efb16617`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/efb1661725a541d34854fb5a9f3ab12af2e5bbad) | [Source run `31538054419`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31538054419), [14-path source receipt](../manifests/published-github/ui-clean-r1.json) |
 
-The current executable Stacks-preflight
-[closure](../manifests/published-github/stacks-pre-r1-close.json) binds accepted
-source commit `23721648` and receipt commit `6a444fad`: source readback matched
-15/15 paths / 1,157,128 bytes, receipt readback matched 5/5 paths / 641,474
-bytes, and both Actions runs passed. The additive evidence aggregate is 48
-cycles, 3,245 observations, and 1,223,353,877 bytes with zero mismatches. The
-empty Stacks-overlay infrastructure
+The current public-interface cleanup
+[source receipt](../manifests/published-github/ui-clean-r1.json) binds accepted
+source commit `efb16617`: source readback matched 14/14 paths / 1,221,750
+bytes, and Actions run `31538054419` passed. The additive evidence aggregate
+through the source is 50 cycles, 3,266 observations, and 1,225,243,201 bytes
+with zero mismatches. The executable Stacks-preflight
+[closure](../manifests/published-github/stacks-pre-r1-close.json) and the empty
+Stacks-overlay infrastructure
 [closure](../manifests/published-github/stacks-infra-r1-close.json) and the
 Stacks-pin and Commons-handback
 [closure](../manifests/published-github/stacks-pin-r1-close.json) remain
@@ -287,12 +289,15 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The current executable Stacks-preflight closure records the bounded
-committed-blob link audit for receipt commit `6a444fad`. It
+The current public-interface cleanup source receipt records the bounded
+committed-blob link audit for accepted source commit `efb16617`. It
 covers 41 committed documents, including the
 nineteen allowed maps, repository landings, human adoption surfaces, and eight
-contributor entry points. It resolves 1,339 local links to 832 unique targets
-with zero missing or prohibited targets. The empty Stacks-overlay infrastructure
+contributor entry points. It resolves 1,344 local links to 833 unique targets
+with zero missing or prohibited targets. The executable Stacks-preflight audit
+for receipt commit `6a444fad` remains immutable predecessor evidence: 41
+documents, 1,339 local links, 832 unique targets, and zero missing or prohibited
+targets. The empty Stacks-overlay infrastructure
 audit for commit `15c5c63b` remains immutable predecessor evidence: 41 documents,
 1,319 local links, 827 unique targets, and zero missing or prohibited targets.
 The Stacks-pin receipt audit for

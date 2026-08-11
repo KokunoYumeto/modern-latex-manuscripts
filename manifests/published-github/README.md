@@ -6,7 +6,8 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current executable Stacks preflight
+Start with the current public-interface cleanup [source receipt](ui-clean-r1.json),
+then the predecessor executable Stacks preflight
 [closure](stacks-pre-r1-close.json) and [source receipt](stacks-pre-r1.json),
 then the predecessor empty Stacks-overlay
 infrastructure [closure](stacks-infra-r1-close.json) and
@@ -26,7 +27,18 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
 
-The executable Stacks preflight [closure](stacks-pre-r1-close.json) binds
+The public-interface cleanup [source receipt](ui-clean-r1.json) binds accepted
+source commit `efb1661725a541d34854fb5a9f3ab12af2e5bbad`: all 14 changed
+paths / 1,221,750 bytes matched anonymous commit-pinned raw GitHub bytes, and
+Actions run
+[`31538054419`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31538054419)
+passed. The active navigation, adoption board, Stacks claim form, and contributor
+contract now describe repository and independently maintained namespace
+boundaries without internal workstation or task-routing language. Historical
+evidence files were not rewritten. The additive aggregate through the source is
+50 cycles, 3,266 observations, and 1,225,243,201 bytes with zero mismatches.
+
+The predecessor executable Stacks preflight [closure](stacks-pre-r1-close.json) binds
 receipt commit `6a444fad657ad9035feb7707a17e9571065f879b`: all five changed
 paths / 641,474 bytes matched anonymous commit-pinned raw GitHub bytes, and
 Actions run
