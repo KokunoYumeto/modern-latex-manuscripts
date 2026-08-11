@@ -8,6 +8,7 @@ producer payloads.
 ## Current repository indexes
 
 - Current public-interface cleanup
+  [closure](../published-github/ui-clean-r1-close.json) and
   [source receipt](../published-github/ui-clean-r1.json), binding the active
   navigation, adoption board, Stacks claim form, contributor contract, tests,
   CI, and reader-facing repository and namespace language on the named surfaces
@@ -117,13 +118,14 @@ generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
 The current public-interface cleanup
-[source receipt](../published-github/ui-clean-r1.json) binds accepted source
-commit `efb16617`: source readback matched 14/14 paths / 1,221,750 bytes, and
-Actions run `31538054419` passed. Historical evidence files remain unchanged;
+[closure](../published-github/ui-clean-r1-close.json) binds accepted source
+commit `efb16617` and receipt commit `ee24ed9f`: source readback matched 14/14
+paths / 1,221,750 bytes, receipt readback matched 5/5 paths / 648,215 bytes,
+and both Actions runs passed. Historical evidence files remain unchanged;
 the active public interface now uses repository and independently maintained
-namespace terms. The additive evidence aggregate through the source is 50
-cycles, 3,266 commit-pinned observations, and 1,225,243,201 bytes with zero
-mismatches. The predecessor executable Stacks-preflight
+namespace terms. The additive evidence aggregate is 51 cycles, 3,271
+commit-pinned observations, and 1,225,891,416 bytes with zero mismatches. The
+predecessor executable Stacks-preflight
 [closure](../published-github/stacks-pre-r1-close.json) binds accepted source
 commit `23721648` and receipt commit `6a444fad`: source readback matched 15/15
 paths / 1,157,128 bytes, receipt readback matched 5/5 paths / 641,474 bytes, and
