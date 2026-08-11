@@ -133,6 +133,15 @@ function Get-IssueTemplateLabels {
     return [string[]]$values.ToArray()
 }
 
+function Get-IssueTemplateIds {
+    param([string]$Text)
+    $values = [Collections.Generic.List[string]]::new()
+    foreach ($match in [regex]::Matches($Text, '(?m)^    id: (?<value>[a-z][a-z0-9_]*)\s*$')) {
+        $values.Add($match.Groups['value'].Value)
+    }
+    return [string[]]$values.ToArray()
+}
+
 $inputFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $InputPath))
 $schemaFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $SchemaPath))
 if (-not [IO.File]::Exists($inputFull)) { throw "Board does not exist: $InputPath" }
@@ -245,7 +254,7 @@ $stacksReferenceLayerContractPass = $true
 $stacksErrorStart = $errors.Count
 $stacks = $board.stacks_reference_layer
 $expectedStacksFields = [string[]]@(
-    'status', 'human_spec', 'governance', 'upstream', 'layer_order',
+    'status', 'human_spec', 'intake_form', 'governance', 'upstream', 'layer_order',
     'overlay_contents', 'modified_edition', 'compatibility_targets',
     'public_evidence', 'write_boundary'
 )
@@ -257,6 +266,7 @@ Test-ExactFields -Value $stacks.upstream -Expected $expectedStacksUpstreamFields
 Test-ExactFields -Value $stacks.modified_edition -Expected $expectedStacksModifiedEditionFields -Context 'stacks_reference_layer.modified_edition'
 Test-ExactFields -Value $stacks.public_evidence -Expected $expectedStacksEvidenceFields -Context 'stacks_reference_layer.public_evidence'
 if ([string]$stacks.status -cne 'architecture_adopted_no_overlay_bytes') { Add-Error 'Stacks layer status must remain architecture-only until exact implementation bytes are bound.'; $stacksReferenceLayerContractPass = $false }
+if ([string]$stacks.intake_form -cne 'https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml') { Add-Error 'Stacks intake form differs from the dedicated exact-binding route.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.governance -cne 'mathematics_commons_independent') { Add-Error 'Stacks layer governance must remain independent under Mathematics Commons.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.upstream.role -cne 'respected_pinned_read_only_source_and_sync_target') { Add-Error 'Stacks upstream role must remain pinned and read-only.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.upstream.repository_binding -cne 'not_supplied_do_not_infer' -or [string]$stacks.upstream.pin_status -cne 'required_not_yet_bound') { Add-Error 'Stacks upstream repository and pin must remain explicitly unbound until exact intake.'; $stacksReferenceLayerContractPass = $false }
@@ -271,6 +281,7 @@ if ((@($stacks.compatibility_targets) -join "`n") -cne ($expectedCompatibility -
 if ([string]$stacks.public_evidence.repository_binding -cne 'not_supplied_do_not_infer' -or (@($stacks.public_evidence.pull_requests) -join ',') -cne '196,197' -or [string]$stacks.public_evidence.state -cne 'closed_unmerged' -or $stacks.public_evidence.same_timestamp -cne $true -or [int]$stacks.public_evidence.public_comments -ne 0 -or [int]$stacks.public_evidence.public_reviews -ne 0 -or [string]$stacks.public_evidence.motive_inference -cne 'forbidden') { Add-Error 'Stacks public-evidence boundary differs from the controlling handoff.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.write_boundary -cne 'commons_owned_namespaces_only') { Add-Error 'Stacks writes must remain inside Commons-owned namespaces.'; $stacksReferenceLayerContractPass = $false }
 Test-RepoPath -Path ([string]$stacks.human_spec) -Context 'stacks_reference_layer.human_spec' -Required $true
+Test-RepoPath -Path '.github/ISSUE_TEMPLATE/stacks.yml' -Context 'stacks_reference_layer.intake_form template' -Required $true
 if ($errors.Count -ne $stacksErrorStart) { $stacksReferenceLayerContractPass = $false }
 
 Test-RepoPath -Path $board.human_board -Context 'human_board' -Required $true
@@ -399,7 +410,7 @@ $expectedLabelRows = @(
         name = 'adoption'
         color = '0E8A16'
         description = 'Bounded adoption, independent mirror, or result handback'
-        templates = [string[]]@('.github/ISSUE_TEMPLATE/adopt.yml', '.github/ISSUE_TEMPLATE/handback.yml')
+        templates = [string[]]@('.github/ISSUE_TEMPLATE/adopt.yml', '.github/ISSUE_TEMPLATE/handback.yml', '.github/ISSUE_TEMPLATE/stacks.yml')
     },
     [pscustomobject]@{
         name = 'correction'
@@ -442,6 +453,99 @@ if ([IO.File]::Exists($labelFull)) {
     catch {
         Add-Error "issue label contract is not valid JSON: $($_.Exception.Message)"
         $issueLabelContractPass = $false
+    }
+}
+
+$stacksIntakeContractPass = $true
+$stacksTemplatePath = '.github/ISSUE_TEMPLATE/stacks.yml'
+$stacksTemplateFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $stacksTemplatePath))
+$expectedStacksTemplateIds = [string[]]@(
+    'board_id', 'intent', 'scope', 'inputs', 'writer', 'upstream_repo',
+    'upstream_license', 'upstream_commit', 'overlay_namespace', 'composition',
+    'tests', 'sync_cursor', 'mirror', 'agreement'
+)
+if (-not [IO.File]::Exists($stacksTemplateFull)) {
+    Add-Error 'Stacks intake template is missing.'
+    $stacksIntakeContractPass = $false
+}
+else {
+    $stacksTemplateBytes = [IO.File]::ReadAllBytes($stacksTemplateFull)
+    if ($stacksTemplateBytes.Length -ge 3 -and $stacksTemplateBytes[0] -eq 0xEF -and $stacksTemplateBytes[1] -eq 0xBB -and $stacksTemplateBytes[2] -eq 0xBF) {
+        Add-Error 'Stacks intake template contains a UTF-8 BOM.'
+        $stacksIntakeContractPass = $false
+    }
+    $stacksTemplateText = $utf8.GetString($stacksTemplateBytes)
+    if ($stacksTemplateText.Contains("`r")) {
+        Add-Error 'Stacks intake template must use LF line endings.'
+        $stacksIntakeContractPass = $false
+    }
+    $actualStacksTemplateIds = [string[]]@(Get-IssueTemplateIds -Text $stacksTemplateText)
+    if (($actualStacksTemplateIds -join "`n") -cne ($expectedStacksTemplateIds -join "`n")) {
+        Add-Error 'Stacks intake template field IDs differ from the exact binding contract.'
+        $stacksIntakeContractPass = $false
+    }
+    $expectedStacksTemplateTypes = [ordered]@{
+        board_id = 'input'; intent = 'dropdown'; scope = 'textarea'; inputs = 'textarea'
+        writer = 'input'; upstream_repo = 'input'; upstream_license = 'input'; upstream_commit = 'input'
+        overlay_namespace = 'input'; composition = 'textarea'; tests = 'textarea'; sync_cursor = 'textarea'
+        mirror = 'input'; agreement = 'checkboxes'
+    }
+    $stacksTemplateBlocks = @{}
+    $stacksTypeBlocks = @([regex]::Matches($stacksTemplateText, '(?ms)^  - type: (?<type>[a-z]+)\n(?<body>.*?)(?=^  - type: |\z)'))
+    foreach ($blockMatch in $stacksTypeBlocks) {
+        $blockBody = $blockMatch.Groups['body'].Value
+        $idMatch = [regex]::Match($blockBody, '(?m)^    id: (?<id>[a-z][a-z0-9_]*)$')
+        if ($idMatch.Success) {
+            $stacksTemplateBlocks[$idMatch.Groups['id'].Value] = [pscustomobject]@{
+                type = $blockMatch.Groups['type'].Value
+                body = $blockBody
+            }
+        }
+    }
+    if ($stacksTypeBlocks.Count -ne 15 -or $stacksTemplateBlocks.Count -ne 14) {
+        Add-Error 'Stacks intake template must contain one markdown block and exactly fourteen identified field blocks.'
+        $stacksIntakeContractPass = $false
+    }
+    foreach ($fieldId in $expectedStacksTemplateTypes.Keys) {
+        if (-not $stacksTemplateBlocks.ContainsKey($fieldId) -or [string]$stacksTemplateBlocks[$fieldId].type -cne [string]$expectedStacksTemplateTypes[$fieldId]) {
+            Add-Error "Stacks intake field type differs for: $fieldId"
+            $stacksIntakeContractPass = $false
+        }
+    }
+    $requiredStacksFieldIds = [string[]]@(
+        'board_id', 'intent', 'scope', 'inputs', 'writer', 'upstream_repo',
+        'upstream_license', 'upstream_commit', 'overlay_namespace', 'composition',
+        'tests', 'sync_cursor'
+    )
+    foreach ($fieldId in $requiredStacksFieldIds) {
+        if (-not $stacksTemplateBlocks.ContainsKey($fieldId) -or -not [regex]::IsMatch([string]$stacksTemplateBlocks[$fieldId].body, '(?m)^    validations:\n      required: true$')) {
+            Add-Error "Stacks intake field is not fail-closed required: $fieldId"
+            $stacksIntakeContractPass = $false
+        }
+    }
+    if ($stacksTemplateBlocks.ContainsKey('mirror') -and [regex]::IsMatch([string]$stacksTemplateBlocks['mirror'].body, '(?m)^    validations:\n      required: true$')) {
+        Add-Error 'Stacks mirror/result URL must remain optional at intake.'
+        $stacksIntakeContractPass = $false
+    }
+    $requiredAgreementChecks = if ($stacksTemplateBlocks.ContainsKey('agreement')) { @([regex]::Matches([string]$stacksTemplateBlocks['agreement'].body, '(?m)^          required: true$')).Count } else { 0 }
+    if ($requiredAgreementChecks -ne 5) {
+        Add-Error 'All five Stacks traceability statements must remain required checkboxes.'
+        $stacksIntakeContractPass = $false
+    }
+    $requiredStacksTemplateTokens = [string[]]@(
+        'title: "[Adopt] Stacks Commons layer — "',
+        "labels:`n  - adoption",
+        'value: stacks-commons-layer',
+        'Full immutable commit hash; a branch or floating tag is not sufficient.',
+        'A clearly renamed Commons-owned path or repository; never an upstream-owned or producer-owned working tree.',
+        'I will write only to the declared Commons-owned namespace and will not edit upstream or another task''s files.',
+        'I will not imply upstream acceptance, approval, endorsement, or a motive for prior contribution outcomes.'
+    )
+    foreach ($token in $requiredStacksTemplateTokens) {
+        if (-not $stacksTemplateText.Contains($token, [StringComparison]::Ordinal)) {
+            Add-Error "Stacks intake template is missing required token: $token"
+            $stacksIntakeContractPass = $false
+        }
     }
 }
 if ($null -ne $labelContract) {
@@ -1121,6 +1225,7 @@ $report = [ordered]@{
     stacks_reference_layer = [ordered]@{
         status = [string]$stacks.status
         human_spec = [string]$stacks.human_spec
+        intake_form = [string]$stacks.intake_form
         governance = [string]$stacks.governance
         upstream_repository_binding = [string]$stacks.upstream.repository_binding
         upstream_pin_status = [string]$stacks.upstream.pin_status
@@ -1176,6 +1281,7 @@ $report = [ordered]@{
         unclaimed_owner_rows = $unclaimedOwnerRows
         items_inheriting_certification_default = @($board.items).Count
         stacks_architecture_layers = @($stacks.layer_order).Count
+        stacks_intake_fields = $expectedStacksTemplateIds.Count
     }
     checks = [ordered]@{
         exact_item_field_contract = -not (@($errors | Where-Object { $_ -like '*field*' }).Count)
@@ -1198,7 +1304,7 @@ $report = [ordered]@{
         )
         weber_frontier_contract = $weberFrontierContractPass
         steinitz_1906_frontier_contract = $steinitz1906FrontierContractPass
-        stacks_reference_layer_contract = ($stacksReferenceLayerContractPass -and $stacksItemContractPass)
+        stacks_reference_layer_contract = ($stacksReferenceLayerContractPass -and $stacksItemContractPass -and $stacksIntakeContractPass)
         human_board_complete = (
             $humanBoardRowIds.Count -eq $ids.Count -and
             $humanBoardIdSet.Count -eq $ids.Count -and

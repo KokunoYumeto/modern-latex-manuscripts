@@ -20,12 +20,31 @@ DEFAULT_REPOSITORY = "KokunoYumeto/modern-latex-manuscripts"
 COMMIT_RE = re.compile(r"^[0-9a-fA-F]{40}$")
 BOARD_ID_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SECTION_RE = re.compile(r"(?m)^### (?P<label>[^\r\n]+)\s*$")
+STACKS_BOARD_ID = "stacks-commons-layer"
+STACKS_REPOSITORY_RE = re.compile(r"^https://github\.com/[^/\s]+/[^/\s]+/?$")
 CLAIM_REQUIRED = (
     "Board ID",
     "Intent",
     "Exact scope",
     "Starting evidence",
     "Traceability",
+)
+STACKS_CLAIM_REQUIRED = (
+    "Commons writer identity",
+    "Exact upstream repository URL",
+    "Applicable upstream license identity",
+    "Exact upstream commit",
+    "Commons overlay namespace",
+    "Deterministic composition",
+    "Tests and review plan",
+    "Starting synchronization cursor",
+)
+STACKS_TRACEABILITY_REQUIRED = (
+    "I will write only to the declared Commons-owned namespace and will not edit upstream or another task's files.",
+    "I will preserve exact upstream and predecessor identities, conflicts, failures, corrections, and reversals.",
+    "I will not imply upstream acceptance, approval, endorsement, or a motive for prior contribution outcomes.",
+    "Any public modified edition will be distinctly titled and will preserve applicable attribution, license, and history notices.",
+    "I understand that opening this issue does not reserve the scope exclusively.",
 )
 HANDBACK_REQUIRED = (
     "Board ID",
@@ -182,6 +201,21 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
         proposed = board_id.startswith("new:") and bool(BOARD_ID_RE.fullmatch(board_id[4:]))
         if board_id and board_id not in board_ids and not proposed:
             errors.append(f"unknown Board ID: {board_id}")
+
+        if kind == "claim" and board_id == STACKS_BOARD_ID:
+            for label in STACKS_CLAIM_REQUIRED:
+                if not sections.get(label, "").strip():
+                    errors.append(f"missing required Stacks section: {label}")
+            upstream_repository = first_line(sections.get("Exact upstream repository URL", ""))
+            if upstream_repository and not STACKS_REPOSITORY_RE.fullmatch(upstream_repository):
+                errors.append("Stacks upstream repository must be one exact GitHub repository URL")
+            upstream_commit = first_line(sections.get("Exact upstream commit", ""))
+            if upstream_commit and not COMMIT_RE.fullmatch(upstream_commit):
+                errors.append("Stacks upstream commit must be exactly 40 hexadecimal characters")
+            traceability = sections.get("Traceability", "")
+            for statement in STACKS_TRACEABILITY_REQUIRED:
+                if f"- [x] {statement}" not in traceability:
+                    errors.append(f"missing required checked Stacks traceability statement: {statement}")
 
         claim_number: int | None = None
         if kind == "handback":
