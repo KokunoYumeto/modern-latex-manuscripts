@@ -7,6 +7,7 @@ This page is the human entry point for the archive. Use it when you want to find
 | Goal | Open First |
 |---|---|
 | Adopt, mirror, or independently check a work | [Adoption and mirror board](adopt.md): current work, ready-for-adoption work, and future/source-discovery scopes kept explicitly separate, with a stable [JSON interface](../manifests/adopt.json). |
+| Build the independent Stacks-derived Commons layer | [Commons Stacks architecture](stacks.md): pinned read-only upstream, namespaced overlay, deterministic composition, optional distinctly titled GFDL-compliant modified edition, and periodic sync without an upstream approval gate. |
 | See every task-maintained GitHub coverage map | [GitHub map index](github-maps.md): nineteen allowed author, work, series, and mixed-corpus maps with exact identity and link-closure audit. |
 | Browse direct GitHub reading surfaces by root | [GitHub reader shelves](../reader-pdfs/README.md): 399 PDFs plus three support files across fourteen allowed roots, with exact bytes, tree hashes, duplicate state, and coverage-map routing. |
 | Browse the GitHub source archive | [GitHub source-shelf index](../sources/README.md), including the exact 14,901-path / 3,681,880,509-byte Git-object inventory, then the linked corpus coverage map or shelf README before selecting a generation. |

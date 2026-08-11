@@ -8,7 +8,7 @@ record of what bytes and claims already exist. This page does not replace them.
 Use the [machine-readable board](../manifests/adopt.json) for automation or a
 Mathematics Commons mirror. Use the
 [complete author/work/series/language/corpus index](adopt-index.md) for a
-single human-readable view of all 66 rows, including priority, readiness,
+single human-readable view of all 67 rows, including priority, readiness,
 coverage, and next cursor. Use the
 [adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml)
 to announce a scope or mirror. Use the dedicated
@@ -28,12 +28,23 @@ to return a result, partial checkpoint, paused scope, or withdrawal.
 evidence. Neither field certifies a translation or source edition.
 
 The machine board makes this non-certification rule explicit with
-`item_certification_default: no_certification_asserted`. All 66 rows inherit
+`item_certification_default: no_certification_asserted`. All 67 rows inherit
 that value, regardless of words such as `complete`, `current`, `public`,
 `source_checked`, or `source_witnessed` in coverage prose. Version 1 permits no
 row-level certification override: the exact 22-field item contract rejects an
 extra certification field until a later evidence-backed schema version defines
 one.
+
+## Independently Governed Stacks Layer
+
+Board ID `stacks-commons-layer` implements the Commons architectural decision,
+not an upstream fork claim. The [human specification](stacks.md) separates one
+exact read-only upstream pin, a namespaced Commons overlay, deterministic
+composition, an optional distinctly titled GFDL-compliant modified edition,
+and periodic upstream synchronization. Upstream remains respected and useful,
+but its acceptance is not a Commons approval gate. The current state is
+architecture-only: no upstream repository, pin, overlay, or build byte is yet
+claimed.
 
 ## Current Work
 
@@ -47,6 +58,7 @@ one.
 | `illusie-cotangent-i-ii` | Illusie, *Complexe cotangent et déformations* I-II | Kokuno Yumeto coordination; producer publication custody remains separate | [Illusie map](illusie-map.md) | Continue LNM 239 at physical p.24 / printed p.6; LNM 283 is unstarted. |
 | `deligne-papers-letters` | Deligne numbered papers and correspondence | Kokuno Yumeto coordination; producer publication custody remains separate | [Deligne map](deligne-map.md) | Select one exact mapped paper, letter, correction generation, or source-review target. |
 | `weber-algebra` | Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | First bind the public `CURRENT` Volume II §176 German/English bytes to GitHub's §143 custody surface; do not redo §§144–176. Then continue after §176 at source p643, or independently check a bounded existing section. |
+| `stacks-commons-layer` | Independently governed Stacks-derived Commons reference layer | Mathematics Commons | [Commons Stacks architecture](stacks.md) | Coordinate one Commons namespace writer, bind the exact upstream repository/license/commit read-only, then return the first namespaced overlay manifest and deterministic composition fixture. |
 
 The maintainer label describes current coordination, not ownership of the
 underlying mathematics and not an exclusive reservation. Declared overlap is
@@ -192,12 +204,18 @@ The stable interface is
 - `next_cursor`, `prerequisites`, `workflow`, and `claim_url`;
 - `updated` and `notes`.
 
-The top-level `human_index` points to the exact 66-row human projection of
+The top-level `human_index` points to the exact 67-row human projection of
 author, work, series, language, corpus, lane, priority, readiness, coverage,
 next cursor, ownership, and Board ID. The validator compares every projected
 field and row order against `items`.
 Like the workflow guide, it is presentation guidance rather than a fifth
 machine-ingestion identity.
+
+The top-level `stacks_reference_layer` makes the five-layer architecture part
+of that same four-file machine contract. It records independent Commons
+governance, the unbound upstream pin, fixed layer order, overlay contents,
+modified-edition notices, export targets, the exact limited PR evidence, the
+no-motive-inference rule, and the Commons-only write boundary.
 
 The top-level `ownership_policy` makes `owner` machine-unambiguous. Current
 work requires a named coordinator and maintained status. Ready and future rows
