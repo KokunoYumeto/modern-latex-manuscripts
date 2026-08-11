@@ -11,6 +11,8 @@ on:
       - "manifests/adopt.json"
       - "manifests/adopt.schema.json"
       - "manifests/stacks-pin.json"
+      - "manifests/stacks-overlay.json"
+      - "manifests/stacks-compose.json"
       - "manifests/github-custody/**"
       - "scripts/check-adopt.ps1"
       - "scripts/check-claims.py"
@@ -29,6 +31,8 @@ on:
       - "manifests/adopt.json"
       - "manifests/adopt.schema.json"
       - "manifests/stacks-pin.json"
+      - "manifests/stacks-overlay.json"
+      - "manifests/stacks-compose.json"
       - "manifests/github-custody/**"
       - "scripts/check-adopt.ps1"
       - "scripts/check-claims.py"
@@ -66,6 +70,8 @@ jobs:
             /manifests/adopt.json
             /manifests/adopt.schema.json
             /manifests/stacks-pin.json
+            /manifests/stacks-overlay.json
+            /manifests/stacks-compose.json
             /manifests/github-custody/maps-r6.json
             /reader-pdfs/README.md
             /sources/README.md
@@ -90,6 +96,34 @@ jobs:
           $report = Get-Content -Raw -LiteralPath "$env:RUNNER_TEMP/adopt.check.json" | ConvertFrom-Json -Depth 100
           if ($report.status -cne 'PASS' -or @($report.errors).Count -ne 0) {
             throw 'The regenerated adoption validation report is not PASS/errors[].'
+          }
+          $checked = Get-Content -Raw -LiteralPath "manifests/adopt.check.json" | ConvertFrom-Json -Depth 100
+          if ($checked.status -cne 'PASS' -or @($checked.errors).Count -ne 0) {
+            throw 'The checked-in adoption validation report is not PASS/errors[].'
+          }
+          foreach ($field in @('board', 'schema_file', 'map_manifest', 'stacks_reference_layer')) {
+            $expected = $checked.$field | ConvertTo-Json -Depth 100 -Compress
+            $actual = $report.$field | ConvertTo-Json -Depth 100 -Compress
+            if ($actual -cne $expected) { throw "Checked-in validation field is stale: $field" }
+          }
+          foreach ($field in @(
+            'stacks_architecture_layers', 'stacks_overlay_registry_entries',
+            'stacks_overlay_mathematical_entries', 'stacks_composition_preflight_checks',
+            'stacks_composition_runs', 'stacks_generated_members', 'stacks_builds',
+            'stacks_overlay_mutation_probes', 'stacks_overlay_mutation_rejections',
+            'stacks_composition_mutation_probes', 'stacks_composition_mutation_rejections'
+          )) {
+            if ($report.aggregate.$field -cne $checked.aggregate.$field) {
+              throw "Checked-in validation aggregate is stale: $field"
+            }
+          }
+          foreach ($field in @(
+            'stacks_reference_layer_contract', 'stacks_overlay_registry_contract',
+            'stacks_composition_contract', 'stacks_empty_preflight_mutation_contract'
+          )) {
+            if ($report.checks.$field -cne $checked.checks.$field) {
+              throw "Checked-in validation check is stale: $field"
+            }
           }
 
       - name: Replay the exact local four-file consumer

@@ -80,11 +80,14 @@ now part of the same board contract. Its exact read-only upstream reference is
 bound at commit `a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
 `3feeb703b931a6e7259782c10e7d1575adc83e5e`, with the observed `COPYING`
 identity preserved in [`manifests/stacks-pin.json`](manifests/stacks-pin.json).
-This is a reproducible source pin, not a copied upstream tree or implemented
-mirror: no Commons overlay, composed build, or modified edition byte is yet
-claimed. Future additions, provenance, corrections, multilingual links, stable
-Commons IDs, tests, review receipts, and deterministic composition belong in
-Commons-owned namespaces. Upstream acceptance is not an approval gate.
+The task-owned [overlay registry](manifests/stacks-overlay.json) is initialized
+with zero entries, and the [composition contract](manifests/stacks-compose.json)
+records a deterministic blocked preflight. These are control-plane bytes, not a
+copied upstream tree or implemented mirror: no content-bearing Commons overlay,
+composition run, composed build, or modified edition byte is claimed. Future
+additions, provenance, corrections, multilingual links, stable Commons IDs,
+tests, review receipts, and deterministic composition belong in Commons-owned
+namespaces. Upstream acceptance is not an approval gate.
 
 For a concise evidence-based view of what each mapped translation lane has
 actually produced, what GitHub preserves, and what producer receipts reported at
