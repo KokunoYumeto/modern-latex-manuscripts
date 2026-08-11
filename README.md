@@ -76,12 +76,15 @@ for every workflow token. The concise
 [workflow guide](docs/adopt-flows.md) makes those protocols readable and
 mirrorable without expanding the four-file machine-ingestion boundary.
 The independently governed [Commons Stacks architecture](docs/stacks.md) is
-now part of the same board contract as an adopted design, not an implemented
-mirror. A future implementation must bind an exact pinned read-only upstream
-source and sync target, then route additions, provenance, corrections,
-multilingual links, stable Commons IDs, tests, review receipts, and
-deterministic composition through Commons-owned namespaces. No pin, overlay,
-or build is claimed yet, and upstream acceptance is not an approval gate.
+now part of the same board contract. Its exact read-only upstream reference is
+bound at commit `a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
+`3feeb703b931a6e7259782c10e7d1575adc83e5e`, with the observed `COPYING`
+identity preserved in [`manifests/stacks-pin.json`](manifests/stacks-pin.json).
+This is a reproducible source pin, not a copied upstream tree or implemented
+mirror: no Commons overlay, composed build, or modified edition byte is yet
+claimed. Future additions, provenance, corrections, multilingual links, stable
+Commons IDs, tests, review receipts, and deterministic composition belong in
+Commons-owned namespaces. Upstream acceptance is not an approval gate.
 
 For a concise evidence-based view of what each mapped translation lane has
 actually produced, what GitHub preserves, and what producer receipts reported at

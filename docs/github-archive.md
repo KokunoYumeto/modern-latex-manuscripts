@@ -280,11 +280,13 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The current adoption v2 source receipt records the bounded committed-blob link
-audit for source commit `327a1c74`. It covers 41 committed documents, including
-the nineteen allowed maps, repository landings, human adoption surfaces, and
-eight contributor entry points. It resolves 1,279 local links to 818 unique
-targets with zero missing or prohibited targets. The sparse-CI,
+The current adoption v3 closure records the bounded committed-blob link audit
+for receipt commit `fa1a8d22`. It covers 41 committed documents, including the
+nineteen allowed maps, repository landings, human adoption surfaces, and eight
+contributor entry points. It resolves 1,293 local links to 821 unique targets
+with zero missing or prohibited targets. The adoption v2 source audit for
+commit `327a1c74` remains immutable predecessor evidence: 41 documents, 1,279
+local links, 818 unique targets, and zero missing or prohibited targets. The sparse-CI,
 offline-claim-auditor, offline-consumer,
 queue-synchronization, complete-index,
 ownership, reusable-workflow, and claim-auditor audits remain immutable

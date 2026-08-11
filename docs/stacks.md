@@ -3,15 +3,20 @@
 ## Status and boundary
 
 Mathematics Commons has adopted an independently governed architecture for a
-Stacks-derived reference layer. The architecture checkpoint defines the interface and review
-boundary only. It does **not** claim that an upstream repository, exact commit,
-overlay tree, composed build, or modified edition has already been bound.
+Stacks-derived reference layer. The official upstream reference is now pinned
+read-only at commit `a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
+`3feeb703b931a6e7259782c10e7d1575adc83e5e`; exact repository, license-file,
+and anonymous raw-readback evidence is bound in
+[`manifests/stacks-pin.json`](../manifests/stacks-pin.json). This checkpoint
+still does **not** claim that an upstream tree was copied into Commons or that a
+Commons overlay tree, composed build, or modified edition has been produced.
 
 Upstream Stacks remains a respected source and synchronization target. Its
 acceptance is not a dependency, approval gate, or veto over Commons editorial
 work. Commons writes only to Commons-owned namespaces. An implementation must
-bind the exact upstream repository, license, and commit before composing any
-output; it must never edit another task's files or protected merge state.
+replay the exact upstream repository, license identity, commit, and tree before
+composing any output; it must never edit another task's files or protected
+merge state.
 
 ## Five layers
 
@@ -70,7 +75,7 @@ matches the declared intent exactly:
 
 | Intent | Required workflow |
 |---|---|
-| Bind the first exact upstream pin and Commons overlay | `upstream_overlay_sync` |
+| Replay the exact upstream pin and bind the first Commons overlay | `upstream_overlay_sync` |
 | Independently mirror or check an existing Commons overlay | `independent_review` |
 | Propose a deterministic composition and test fixture | `assembly_review` |
 | Return source or license evidence only | `source_intake` |
@@ -84,7 +89,7 @@ from the same human-approved commit as the board; local comparison is drift
 detection, not the checker trust root.
 
 1. Coordinate a single writer for the Commons namespace through that form.
-2. Bind the upstream repository, applicable license, and one exact commit.
+2. Replay the bound upstream repository, applicable license, commit, and tree.
 3. Create the first namespaced overlay manifest without copying mutable working
    state or changing upstream.
 4. Define a deterministic composition command and a minimal regression fixture.
@@ -94,10 +99,13 @@ detection, not the checker trust root.
 The machine-readable form of this architecture is embedded in
 [`manifests/adopt.json`](../manifests/adopt.json) under
 `stacks_reference_layer`; Board ID `stacks-commons-layer` carries the current
-operational cursor. The current board transport, workflow contract, tests, and
-anonymous public readback are bound in the adoption-v2
+operational cursor. The adoption-v3 pre-pin board transport, workflow contract,
+tests, and anonymous public readback remain predecessor evidence in the
+[closure](../manifests/published-github/adopt-v3-close.json) and
+[source receipt](../manifests/published-github/adopt-v3.json); they do not bind
+this later Stacks pin. The adoption-v2
 [closure](../manifests/published-github/adopt-v2-close.json) and
-[source receipt](../manifests/published-github/adopt-v2.json). The dedicated
+[source receipt](../manifests/published-github/adopt-v2.json), plus the dedicated
 Stacks-intake [closure](../manifests/published-github/stacks-intake-close.json)
 and [source receipt](../manifests/published-github/stacks-intake.json) remain
 predecessor intake evidence. The preceding architecture generation remains bound in the

@@ -13,11 +13,14 @@ stop point. Preserve inputs and predecessors. Return every result, partial
 checkpoint, pause, or withdrawal through the
 [handback form](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml).
 
-Every handback must identify the exact achieved scope; output and manifest
-paths, bytes, and hashes; checks actually run; failures and reversals; the next
-cursor or a terminal statement; and reusable method findings. Do not replace a
-missing check with a completion claim. Parallel mirrors are welcome when their
-overlap and independent chronology are explicit.
+Every returned handback must identify the exact achieved scope; a result URI
+plus immutable Git commit, Zenodo record, or SHA-256 identity; manifest rows as
+`path | bytes | SHA-256`; checks actually run; failures and reversals; and a
+`Next cursor:` or `Terminal:` cursor. Paused and withdrawn handbacks may use only the
+exact no-result sentinels printed by the form; a pause still requires a real
+check row and `Next cursor:`. Reusable method findings may honestly be `none`.
+Do not replace a missing check with a completion claim. Parallel mirrors are
+welcome when their overlap and independent chronology are explicit.
 
 The machine definitions below live inside `manifests/adopt.json`, so the
 existing exact four-file consumer remains sufficient. Validation requires

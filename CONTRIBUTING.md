@@ -80,10 +80,12 @@ equal nor ancestor/descendant—remains welcome.
 
 Return a completed or partial result, paused scope, or withdrawal through the
 [handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml).
-Bind it to the original adoption issue and include the achieved scope, exact
-commit and output identities, manifest hashes, checks/failures/reversals, next
-cursor, and reusable workflow findings. A handback is evidence, not an
-automatic completion or certification claim.
+Bind it to the original adoption issue. A returned result requires an exact
+result URI plus immutable commit/record/hash identity, manifest path/bytes/SHA,
+actual checks and failures, and a `Next cursor:` or `Terminal:` cursor. Paused and
+withdrawn handbacks may use only the form's exact no-result sentinels; a pause
+retains a `Next cursor:`. A handback is evidence, not an automatic completion
+or certification claim.
 
 For translation corrections, preserve the mathematical assertion first. Prefer a literal but readable translation over stylistic rewriting that changes scope, hypotheses, numbering, or dependency structure.
 
