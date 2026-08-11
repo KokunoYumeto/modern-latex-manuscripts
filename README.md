@@ -2,110 +2,56 @@
 
 [![Adoption contract](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/workflows/adopt.yml/badge.svg?branch=main)](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/workflows/adopt.yml)
 
-This repository is the GitHub working front door for an open project to produce modern, inspectable LaTeX editions and translation drafts of older mathematics and physics manuscripts.
+This repository is an open working library of modern, inspectable LaTeX
+editions and translation drafts of older mathematics and physics manuscripts.
+It keeps readable editions close to their editable sources, coverage maps,
+correction history, and exact provenance.
 
-GitHub is the inspectable source archive and current index: catalogs, manifests, exact bounded source checkpoints, issue tracking, contribution notes, and scripts. Some large reader-first files and immutable version history are grouped in the linked external records. A file being grouped rather than loose does not mean that its translation is absent; check the coverage maps before starting work.
+Some large readers and immutable earlier generations are grouped in linked
+external records. Grouping a file does not mean that its translation is absent.
+Check the coverage map for the author or work before beginning a new
+transcription or translation.
 
-External record links below are discovery and provenance references for related
-reader-first releases and immutable version history. This repository records
-their supplied identities and coverage; it does not treat an external record as
-evidence that source bytes are missing from the project. Start from the coverage
-maps, then follow the linked GitHub checkpoint or public record for the exact
-generation you need.
+## Start Here
 
-GitHub is also the operational adoption front door. The
-[adoption and mirror board](docs/adopt.md) separates current work, work ready
-for adoption, and future/source-discovery scopes; links every actionable row
-back to the authoritative archive layer; and exposes a stable
-[machine-readable board](manifests/adopt.json) for Mathematics Commons tools.
-The [complete adoption index](docs/adopt-index.md) gives one sortable human
-table across author, work, series, language, corpus, lane, controlled coverage
-class, detailed state, ownership, allowed workflows, and Board ID.
-The board also binds the exact current `known-gaps.md` and `work-queue.md`
-bytes, preventing either operational queue from drifting silently.
-Its machine contract declares `item_certification_default:
-no_certification_asserted`, so coverage or readiness wording cannot be promoted
-into a scholarly certification claim.
-The board now exposes source-only translation layers separately so a missing
-reader cannot trigger an unnecessary retranslation. Every human row shows its
-exact claimable Board ID, and validation requires one row for every machine
-item with no duplicate or unknown IDs. Automation must treat
-`owner: null` as deliberately unclaimed under the board's explicit ownership
-policy, never as an unknown owner. Current work retains a named coordinator;
-ready rows mean current project compute is not allocated to that bounded work,
-while future rows mean exact source or cursor evidence is not yet bound. Neither
-state proves absence from another preserved surface. Claims and mirrors remain
-nonexclusive. Automation must treat
-`main` as a locator only: resolve and human-approve one exact commit, fetch the
-board, schema, validation, and referenced map manifest from that same commit,
-replay declared identities, and reject mixed revisions. The full procedure is
-in the board's [Machine Interface](docs/adopt.md#machine-interface), with a
-fail-closed [`get-adopt.py`](scripts/get-adopt.py) consumer. Claims and returned
-results use separate GitHub forms, so a declared start cannot be mistaken for
-an inspectable handback. The same consumer supports raw GitHub and an offline
-Git-object mode; both read the identical four-file contract at one exact
-approved commit and reject dirty working-tree substitution. Offline mode also
-disables Git promisor lazy-fetches, so a missing contract blob fails closed
-instead of contacting a remote.
-The [live adoption queue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues?q=is%3Aissue+label%3Aadoption)
-shows declared claims and handbacks under the tracked
-[workflow-label contract](.github/labels.json). The read-only
-[`check-claims.py`](scripts/check-claims.py) auditor validates that queue,
-including each claim's exact registered and row-compatible Workflow token,
-against one human-approved board commit. It also binds its executed script bytes
-to that commit, with the human-approved checker—not its worktree self-comparison—
-as the trust root and the approved helper materialized privately. It checks
-exact required traceability/handback statements and enforces one writer across
-equal or ancestor/descendant Commons Stacks overlay namespaces. It supports the live public queue and
-a fully offline Git-object-plus-JSON-fixture replay without changing the four-file
-board contract.
-The blobless sparse [Adoption contract workflow](.github/workflows/adopt.yml) runs the
-board/schema/map validator, exact-commit consumer, no-lazy-fetch regression,
-and valid/invalid claim lifecycle fixtures on relevant pull requests and
-`main` pushes. Its checkout materializes only the operational metadata and
-uses Git's tracked-path index for referenced corpus paths; it reads no corpus
-payload and performs no compile, render,
-OCR, or publication action. A green workflow is a regression signal, not a
-replacement for human approval of one exact consumer commit.
-The board also embeds exact start/input/step/evidence/stop/handback contracts
-for every workflow token. The concise
-[workflow guide](docs/adopt-flows.md) makes those protocols readable and
-mirrorable without expanding the four-file machine-ingestion boundary.
-The independently governed [Commons Stacks architecture](docs/stacks.md) is
-now part of the same board contract. Its exact read-only upstream reference is
-bound at commit `a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
-`3feeb703b931a6e7259782c10e7d1575adc83e5e`, with the observed `COPYING`
-identity preserved in [`manifests/stacks-pin.json`](manifests/stacks-pin.json).
-The repository-owned [overlay registry](manifests/stacks-overlay.json) is initialized
-with zero entries. The [composition contract](manifests/stacks-compose.json),
-[validator-only preflight](scripts/stacks-preflight.py), and exact
-[blocked result](manifests/stacks-preflight.json) are now bound. Replay that
-state with `python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY`.
-Exit 0 with `--expect` proves only that the
-exact expected block was observed; the same valid blocked state exits 20 in a
-normal run. The separate composition executor remains unbound, and contract v1
-rejects a nonempty registry. These are control-plane bytes, not a copied
-upstream tree or implemented mirror: there are zero overlay entries and no
-content-bearing Commons overlay, composition run, output, composed build, or
-modified edition byte. The next implementation step is one approved,
-provenance-complete overlay entry plus a separately bound exact executor.
-Future additions, provenance, corrections, multilingual links, stable Commons
-IDs, tests, review receipts, and deterministic composition belong in
-Commons-owned namespaces. Upstream acceptance is not an approval gate.
+| What you want to do | Open this |
+|---|---|
+| Find an author, work, language, or exact continuation point | [Coverage-map index](docs/github-maps.md) |
+| See what can be read now and how far each edition reaches | [Translation fleet map](docs/live-fleet-map.md) |
+| Open reader PDFs directly | [Reader shelf](reader-pdfs/README.md) |
+| Find editable TeX, source packets, and preserved generations | [Source shelf](sources/README.md) |
+| Adopt, mirror, review, or continue a bounded work | [Adoption board](docs/adopt.md) and [complete index](docs/adopt-index.md) |
+| Understand quality labels and source-checking practice | [Status guide](#how-to-read-the-status) and [workflow notes](docs/workflow.md) |
+| Verify exact Git history and public readback | [GitHub archive history](docs/github-archive.md) |
 
-For a concise evidence-based view of what each mapped translation lane has
-actually produced, what GitHub preserves, and what producer receipts reported at
-the last bounded snapshot, see the [GitHub translation fleet map](docs/live-fleet-map.md).
+The maps are authoritative for project coverage. They distinguish readable
+working editions, source-only layers, partial ranges, superseded generations,
+and material still awaiting review. A missing loose PDF is not evidence that a
+work is unstarted; follow the map to its current reader, source checkpoint, or
+grouped public record.
 
-For direct GitHub browsing, use the [source-shelf index](sources/README.md). It
-links the repository-maintained author and corpus trees without requiring readers to
-reverse-engineer the external-record catalog. Its exact Git-object inventory
-binds 14,901 tracked source paths / 3,681,880,509 committed bytes across the
-nineteen allowed shelves, so an old directory name is discoverable without
-being mistaken for the current generation.
+## Contribute Or Mirror Work
 
-For the exact GitHub catalog commit chain and commit-pinned raw-readback
-receipts, use the [GitHub archive history](docs/github-archive.md).
+The [adoption board](docs/adopt.md) separates work already in progress, bounded
+work ready for adoption, and future work that still needs a source or cursor.
+Each row names the preserved starting point, current owner or unclaimed state,
+allowed workflow, prerequisites, and continuation cursor. Parallel work is
+welcome when it is declared and returned with exact inputs, outputs, checks,
+failures, and reusable method notes.
+
+Use the [live adoption queue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues?q=is%3Aissue+label%3Aadoption)
+to declare a start or return an inspectable result. For automated consumers,
+the [machine interface](docs/adopt.md#machine-interface) documents the exact
+commit-pinned board, schema, validation report, and map-manifest contract.
+
+## Commons Stacks Layer
+
+The [Commons Stacks architecture](docs/stacks.md) defines an independently
+governed overlay for historical mappings, corrections, multilingual semantic
+links, stable Commons IDs, tests, and review receipts while retaining a pinned
+read-only upstream Stacks reference. The registry is intentionally empty until
+the first provenance-complete overlay generation is reviewed; no composed build
+or modified edition is claimed yet.
 
 **Before starting any Emmy Noether translation, check the [current language/work coverage map](docs/noether-map.md).** It lists existing translations by language and paper, distinguishes complete scopes from exact continuation cursors, and identifies the current generation. An unchecked or non-cumulative artifact is still an existing translation; review it instead of silently retranslating it.
 
