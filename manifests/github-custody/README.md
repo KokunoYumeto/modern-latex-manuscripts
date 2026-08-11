@@ -7,7 +7,12 @@ producer payloads.
 
 ## Current repository indexes
 
-- Current reader-first interface
+- Current hardened Commons Stacks candidate-intake
+  [source receipt](../published-github/stacks-entry-r1.json), binding the
+  strict unregistered-candidate schema, validator, cross-platform regression,
+  exact upstream pin, empty registry, and green Linux continuous validation;
+  zero candidate or mathematical entry is registered
+- Predecessor reader-first interface
   [closure](../published-github/ui-clean-r2-close.json) and
   [source receipt](../published-github/ui-clean-r2.json), binding the concise
   landing, fleet map, workflow, active queue, unchanged 78-row adoption board,

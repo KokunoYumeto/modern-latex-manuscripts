@@ -15,7 +15,7 @@ readback, and where to start browsing.
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources_r5.csv`](../manifests/github-custody/20260807_sources_r5.csv) and [summary](../manifests/github-custody/20260807_sources_r5.json) |
 | Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260808_shelves_r9.json`](../manifests/github-custody/20260808_shelves_r9.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |
-| Audit the GitHub maintenance chain | This page | Current public-interface cleanup [closure](../manifests/published-github/ui-clean-r1-close.json) and [source receipt](../manifests/published-github/ui-clean-r1.json); predecessor executable Stacks-preflight [closure](../manifests/published-github/stacks-pre-r1-close.json) |
+| Audit the GitHub maintenance chain | This page | Current hardened Stacks candidate-intake [source receipt](../manifests/published-github/stacks-entry-r1.json); predecessor reader-first [closure](../manifests/published-github/ui-clean-r2-close.json) |
 | Interpret manifests and readback receipts | [Custody evidence](../manifests/github-custody/README.md) | [Raw-readback receipts](../manifests/published-github/README.md) |
 
 ## Published GitHub Cycles
@@ -60,8 +60,16 @@ readback, and where to start browsing.
 | Executable Stacks preflight | Adds a strict, offline preflight that independently reads and hash-binds the pinned upstream reference, zero-entry overlay registry, composition contract, checker, and regression identities. Its expected result is `BLOCKED_EMPTY_OVERLAY_REGISTRY`; no composition executor, overlay entry, mathematical entry, run, member, build, or modified edition is claimed. The public front door emphasizes coverage maps and reader/source discovery. | [`23721648`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/23721648dd7bab01221cf4e762e73b7ada83221a), [`6a444fad`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/6a444fad657ad9035feb7707a17e9571065f879b) | [Source run `31535728373`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31535728373), [receipt run `31536509222`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31536509222), [15-path source receipt](../manifests/published-github/stacks-pre-r1.json), [48-cycle closure](../manifests/published-github/stacks-pre-r1-close.json) |
 | Public interface cleanup | Aligns the active navigation, adoption board, Stacks claim form, and contributor contract around public repository ownership, independent namespace boundaries, exact handoff rules, and preserved historical evidence. No producer, corpus, reader, external-record, or excluded-lane byte changed. | [`efb16617`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/efb1661725a541d34854fb5a9f3ab12af2e5bbad), [`ee24ed9f`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/ee24ed9f51a11592960352272e2d99c34a26f5a8) | [Source run `31538054419`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31538054419), [receipt run `31538355192`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31538355192), [14-path source receipt](../manifests/published-github/ui-clean-r1.json), [51-cycle closure](../manifests/published-github/ui-clean-r1-close.json) |
 | Reader-first public interface | Replaces validator-first landing prose and the obsolete 56,641-byte staging queue with direct reader/source/map/adoption navigation and a concise 6,099-byte map-backed queue; removes workstation and task-routing prose from the active fleet and workflow pages. All 78 adoption rows remain unchanged, the exact queue snapshot is rebound, and no producer, corpus, or reader byte changes. | [`d06cef20`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/d06cef20eeb01c43dc8ae6055b5e1a6a483513d8), [`d6b7d4a6`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/d6b7d4a65ec4abb97f657399735cd48db138f61d), [`393318fb`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/393318fbb3fcb63f9aec2d49062c88ae8bdb8b5d) | [Source run `31539920461`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31539920461), [receipt run `31540208826`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31540208826), [8-path source receipt](../manifests/published-github/ui-clean-r2.json), [54-cycle closure](../manifests/published-github/ui-clean-r2-close.json) |
+| Hardened Stacks candidate intake | Publishes an exact, offline, fail-closed contract for manifest-complete, provenance-referenced unregistered Commons overlay candidates; binds member and receipt subjects, rejects path and namespace aliases, and preserves intent-specific issue routes. The accepted cross-platform correction makes the case-collision fixture identical on Windows and Linux. Registry entries, accepted candidates, mathematical entries, composition runs, generated members, and builds remain zero. | [`7887ff58`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/7887ff58743043f83b911990e19730490207805b), [`ef5db089`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/ef5db0893c506354466b58851d7817ca336e3485) | [Failed predecessor run `31547301588`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31547301588), [accepted run `31548040621`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31548040621), [21-path source receipt](../manifests/published-github/stacks-entry-r1.json) |
 
-The current reader-first interface
+The current hardened Stacks candidate-intake
+[source receipt](../manifests/published-github/stacks-entry-r1.json) binds
+accepted correction commit `ef5db089`: 21/21 final generation paths / 851,916
+bytes matched anonymous commit-pinned raw GitHub, and the Linux Actions run
+passed. It binds one strict candidate contract but zero accepted candidates,
+overlay mathematical entries, composition runs, generated members, or builds.
+The additive evidence aggregate is 55 cycles, 3,312 observations, and
+1,228,986,347 bytes with zero mismatches. The predecessor reader-first interface
 [closure](../manifests/published-github/ui-clean-r2-close.json) binds accepted
 source commit `d6b7d4a6` and receipt commit `393318fb`: source readback matched
 8/8 paths / 912,464 bytes, receipt readback matched 5/5 paths / 655,973 bytes,
@@ -294,12 +302,15 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The current public-interface cleanup closure records the bounded committed-blob
-link audit for receipt commit `ee24ed9f`. It
+The current hardened candidate-intake audit records the bounded committed-blob
+link audit for accepted commit `ef5db089`. It
 covers 41 committed documents, including the
 nineteen allowed maps, repository landings, human adoption surfaces, and eight
-contributor entry points. It resolves 1,349 local links to 834 unique targets
-with zero missing or prohibited targets. The executable Stacks-preflight audit
+contributor entry points and resolves 1,364 local links to 840
+unique targets with zero missing or prohibited targets. The public-interface
+cleanup audit for receipt commit `ee24ed9f` remains immutable predecessor
+evidence: 41 documents, 1,349 local links, 834 targets, and zero missing or
+prohibited targets. The executable Stacks-preflight audit
 for receipt commit `6a444fad` remains immutable predecessor evidence: 41
 documents, 1,339 local links, 832 unique targets, and zero missing or prohibited
 targets. The empty Stacks-overlay infrastructure
