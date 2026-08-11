@@ -43,7 +43,7 @@
   ],
   "properties": {
     "schema": {
-      "const": "math-commons-adoption-v1"
+      "const": "math-commons-adoption-v2"
     },
     "schema_url": {
       "const": "manifests/adopt.schema.json"
@@ -433,6 +433,7 @@
       "type": "object",
       "required": [
         "lane_state",
+        "coverage_class",
         "priority",
         "readiness",
         "adoption_status",
@@ -444,6 +445,11 @@
           "items": {
             "enum": ["current_work", "ready_for_adoption", "future"]
           },
+          "uniqueItems": true
+        },
+        "coverage_class": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/coverageClass" },
           "uniqueItems": true
         },
         "priority": {
@@ -502,6 +508,7 @@
         { "const": "corpus" },
         { "const": "lane_state" },
         { "const": "coverage_state" },
+        { "const": "coverage_class" },
         { "const": "adoption_status" },
         { "const": "priority" },
         { "const": "readiness" },
@@ -519,8 +526,8 @@
         { "const": "notes" }
       ],
       "items": false,
-      "minItems": 22,
-      "maxItems": 22
+      "minItems": 23,
+      "maxItems": 23
     },
     "mirror_fields": {
       "type": "array",
@@ -553,6 +560,18 @@
   },
   "additionalProperties": true,
   "$defs": {
+    "coverageClass": {
+      "description": "Coarse storage and coverage state for the exact board-row scope; never a correctness or certification claim.",
+      "oneOf": [
+        { "const": "complete", "description": "The declared bounded target scope is stored terminally, although review may remain open." },
+        { "const": "active", "description": "Substantive current bytes form a maintained moving generation or frontier without a stable terminal claim." },
+        { "const": "partial", "description": "One coherent bounded subset exists and an identifiable layer or continuation remains." },
+        { "const": "scattered", "description": "Substantive bytes exist across uneven, heterogeneous, or conflicting surfaces without one common frontier." },
+        { "const": "weak", "description": "A nominal target surface exists with a material source, custody, control, assembly, or provenance defect or absence." },
+        { "const": "source_only", "description": "Source-intake or editable target-source bytes exist without a matching promoted direct reader for this row." },
+        { "const": "unworked", "description": "No exact work bytes are bound for this row after reconciliation of its declared evidence surfaces." }
+      ]
+    },
     "sourceIdentity": {
       "type": "object",
       "required": ["path", "bytes", "sha256"],
@@ -634,6 +653,7 @@
         "corpus",
         "lane_state",
         "coverage_state",
+        "coverage_class",
         "adoption_status",
         "priority",
         "readiness",
@@ -658,6 +678,7 @@
         "corpus": { "type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$" },
         "lane_state": { "enum": ["current_work", "ready_for_adoption", "future"] },
         "coverage_state": { "type": "string", "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$" },
+        "coverage_class": { "$ref": "#/$defs/coverageClass" },
         "adoption_status": {
           "enum": [
             "maintained_parallel_review_welcome",

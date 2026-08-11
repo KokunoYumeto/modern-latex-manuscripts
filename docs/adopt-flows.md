@@ -8,7 +8,7 @@ cursor still define the actual scope.
 
 Use one human-approved exact Git commit. Open an
 [adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml)
-with the Board ID, chosen workflow, bounded scope, starting generation, and
+with the Board ID, exactly one chosen `Workflow token`, bounded scope, starting generation, and
 stop point. Preserve inputs and predecessors. Return every result, partial
 checkpoint, pause, or withdrawal through the
 [handback form](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml).
@@ -21,7 +21,10 @@ overlap and independent chronology are explicit.
 
 The machine definitions below live inside `manifests/adopt.json`, so the
 existing exact four-file consumer remains sufficient. Validation requires
-every row token to resolve here and every registered workflow to be used.
+every row token to resolve here and every registered workflow to be used. An
+existing Board ID accepts only a token in its own `workflow` array; a valid
+`new:<short-id>` proposal may use any registered token, but never prose or an
+unregistered value.
 
 ## `assembly_review`
 
@@ -134,6 +137,11 @@ from content defects. Return row/column coverage, cell-level findings,
 unresolved geometry, and the next table or terminal cursor.
 
 ## `upstream_overlay_sync`
+
+This is the dedicated Stacks intake form's default token for exact pin/overlay
+work. Its other three permitted tokens—`source_intake`, `assembly_review`, and
+`independent_review`—must be selected only when that narrower bounded intent is
+the actual claim.
 
 Start only after the upstream repository, applicable license, exact commit,
 Commons namespace owner, and overlay scope are explicit. Replay the upstream

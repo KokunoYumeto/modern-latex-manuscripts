@@ -25,6 +25,7 @@ STACKS_REPOSITORY_RE = re.compile(r"^https://github\.com/[^/\s]+/[^/\s]+/?$")
 CLAIM_REQUIRED = (
     "Board ID",
     "Intent",
+    "Workflow token",
     "Exact scope",
     "Starting evidence",
     "Traceability",
@@ -171,7 +172,9 @@ def first_line(value: str) -> str:
 
 
 def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list[dict], list[str], list[str]]:
-    board_ids = {str(item["id"]) for item in board.get("items", [])}
+    board_rows = {str(item["id"]): item for item in board.get("items", [])}
+    board_ids = set(board_rows)
+    workflow_ids = {str(flow["id"]) for flow in board.get("workflows", [])}
     rows: list[dict] = []
     claims: dict[int, dict] = {}
     global_errors: list[str] = []
@@ -201,6 +204,15 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
         proposed = board_id.startswith("new:") and bool(BOARD_ID_RE.fullmatch(board_id[4:]))
         if board_id and board_id not in board_ids and not proposed:
             errors.append(f"unknown Board ID: {board_id}")
+
+        workflow = sections.get("Workflow token", "").strip()
+        if kind == "claim" and workflow:
+            if workflow not in workflow_ids:
+                errors.append(f"unknown Workflow token: {workflow}")
+            elif board_id in board_rows and workflow not in {
+                str(value) for value in board_rows[board_id].get("workflow", [])
+            }:
+                errors.append(f"Workflow token is not allowed for Board ID {board_id}: {workflow}")
 
         if kind == "claim" and board_id == STACKS_BOARD_ID:
             for label in STACKS_CLAIM_REQUIRED:
@@ -237,6 +249,7 @@ def audit_issues(repository: str, board: dict, issues: list[dict]) -> tuple[list
             "type": kind or "unknown",
             "board_id": board_id,
             "board_id_kind": "existing" if board_id in board_ids else ("proposed" if proposed else "invalid"),
+            "workflow": workflow,
             "claim_issue": claim_number,
             "body_bytes": len(body.encode("utf-8")),
             "body_sha256": sha256(body.encode("utf-8")),
@@ -366,6 +379,7 @@ def main() -> int:
         "checks": {
             "exact_commit_consumer_pass": board_summary["status"] == "PASS",
             "board_ids_valid": not any("Board ID" in error for error in errors),
+            "claim_workflows_valid": not any("Workflow token" in error for error in errors),
             "handbacks_linked": not any("handback" in error for error in errors),
             "parallel_claims_allowed": True,
             "declared_auditor_modes": True,

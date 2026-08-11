@@ -14,7 +14,7 @@ Before starting, check:
 - [Adoption and mirror board](docs/adopt.md) for current work,
   ready-for-adoption work, future scopes, exact cursors, and declared mirrors;
 - [Complete adoption index](docs/adopt-index.md) for all board rows by author,
-  work, series, language, corpus, lane, and ownership;
+  work, series, language, corpus, lane, controlled coverage class, and ownership;
 - [Reusable workflow protocols](docs/adopt-flows.md) for the exact start,
   inputs, evidence, stop, and handback contract behind each board token;
 - [GitHub coverage maps](docs/github-maps.md) for the author, work, series, or corpus;
@@ -54,7 +54,8 @@ GitHub issue templates are provided for correction reports and source/work sugge
 For a new continuation, repair lane, independent mirror, or source-intake
 effort, open one
 [adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml).
-Name the exact board ID and bounded scope. The issue makes overlap visible; it
+Name the exact Board ID, one registered Workflow token allowed by that row, and
+the bounded scope. The issue makes overlap visible; it
 does not reserve the work or prevent an independent check. Return an inspectable
 repository/branch/result identity and the exact checks performed when the work
 is ready.

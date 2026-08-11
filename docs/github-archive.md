@@ -305,7 +305,7 @@ Corrections supersede failed methods without deleting their error history.
 
 ## Boundary
 
-The index names only the twenty-eight exact GitHub-maintenance cycles above. It does not
+The index names only the thirty-eight exact GitHub-maintenance cycles above. It does not
 enumerate unrelated receipt directories or separately owned, revoked, or
 prohibited corpus surfaces. Cataloging preserves distinct paths and generations;
 it does not silently deduplicate, rewrite, promote, or certify producer work.

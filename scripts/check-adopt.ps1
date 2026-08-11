@@ -167,7 +167,7 @@ foreach ($pair in @(
 $board = $utf8.GetString($inputBytes) | ConvertFrom-Json -Depth 100 -DateKind String
 $schema = $utf8.GetString($schemaBytes) | ConvertFrom-Json -Depth 100 -DateKind String
 
-if ($board.schema -cne 'math-commons-adoption-v1') { Add-Error 'Unexpected board schema.' }
+if ($board.schema -cne 'math-commons-adoption-v2') { Add-Error 'Unexpected board schema.' }
 if ($board.schema_url -cne $SchemaPath.Replace('\', '/')) { Add-Error 'Board schema_url does not match SchemaPath.' }
 if ($board.validation -cne $ValidationPath.Replace('\', '/')) { Add-Error 'Board validation path does not match ValidationPath.' }
 if ($board.board_role -cne 'operational_layer') { Add-Error 'Board role must remain operational_layer.' }
@@ -192,7 +192,7 @@ if ($schema.'$id' -cne 'https://raw.githubusercontent.com/KokunoYumeto/modern-la
 
 $expectedFields = [string[]]@(
     'id', 'author', 'work', 'series', 'corpus', 'lane_state',
-    'coverage_state', 'adoption_status', 'priority', 'readiness', 'owner',
+    'coverage_state', 'coverage_class', 'adoption_status', 'priority', 'readiness', 'owner',
     'owner_scope', 'languages', 'archive_path', 'related_paths',
     'source_basis', 'next_cursor', 'prerequisites', 'workflow', 'claim_url',
     'updated', 'notes'
@@ -205,12 +205,13 @@ $expectedWorkflowFields = [string[]]@(
 $boardFields = [string[]]@($board.fields)
 $mirrorFields = [string[]]@($board.mirror_fields)
 $workflowFields = [string[]]@($board.workflow_fields)
-if (($boardFields -join "`n") -cne ($expectedFields -join "`n")) { Add-Error 'Item fields are not the exact v1 ordered field contract.' }
+if (($boardFields -join "`n") -cne ($expectedFields -join "`n")) { Add-Error 'Item fields are not the exact v2 ordered field contract.' }
 if (($mirrorFields -join "`n") -cne ($expectedMirrorFields -join "`n")) { Add-Error 'Mirror fields are not the exact v1 ordered field contract.' }
 if (($workflowFields -join "`n") -cne ($expectedWorkflowFields -join "`n")) { Add-Error 'Workflow fields are not the exact v1 ordered field contract.' }
 
 $expectedEnums = [ordered]@{
     lane_state = [string[]]@('current_work', 'ready_for_adoption', 'future')
+    coverage_class = [string[]]@('complete', 'active', 'partial', 'scattered', 'weak', 'source_only', 'unworked')
     priority = [string[]]@('high', 'medium', 'exploratory')
     readiness = [string[]]@('active', 'exact_cursor', 'repair_ready', 'review_ready', 'expansion_ready', 'continuation_ready', 'intake_ready', 'source_discovery_first')
     adoption_status = [string[]]@('maintained_parallel_review_welcome', 'open_parallel_mirrors_welcome', 'claimed_active_parallel_mirrors_welcome', 'paused_open_for_handoff', 'future_evidence_needed')
@@ -329,7 +330,7 @@ foreach ($item in @($board.items)) {
     $languageDisplay = (@($item.languages) | ForEach-Object { "``$([string]$_)``" }) -join ', '
     $ownerDisplay = if ($null -eq $item.owner) { 'Unclaimed' } else { [string]$item.owner }
     $key = "$( [string]$item.corpus )`t$( [string]$item.author )`t$seriesKey`t$( [string]$item.work )`t$( [string]$item.id )"
-    $row = "| ``$([string]$item.corpus)`` | $([string]$item.author) | $([string]$item.work) | $series | $languageDisplay | ``$([string]$item.lane_state)`` | ``$([string]$item.priority)`` | ``$([string]$item.readiness)`` | ``$([string]$item.coverage_state)`` | $([string]$item.next_cursor) | $ownerDisplay | ``$([string]$item.id)`` |"
+    $row = "| ``$([string]$item.corpus)`` | $([string]$item.author) | $([string]$item.work) | $series | $languageDisplay | ``$([string]$item.lane_state)`` | ``$([string]$item.priority)`` | ``$([string]$item.readiness)`` | ``$([string]$item.coverage_class)`` | ``$([string]$item.coverage_state)`` | $([string]$item.next_cursor) | $ownerDisplay | ``$([string]$item.id)`` |"
     $indexKeys.Add($key)
     $indexRowsByKey.Add($key, $row)
     [void]$indexAuthors.Add([string]$item.author)
@@ -456,11 +457,87 @@ if ([IO.File]::Exists($labelFull)) {
     }
 }
 
+$claimTemplateContractPass = $true
+$claimTemplatePath = '.github/ISSUE_TEMPLATE/adopt.yml'
+$claimTemplateFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $claimTemplatePath))
+$expectedClaimTemplateIds = [string[]]@(
+    'board_id', 'intent', 'workflow', 'scope', 'inputs', 'mirror', 'checks', 'agreement'
+)
+if (-not [IO.File]::Exists($claimTemplateFull)) {
+    Add-Error 'Adoption intake template is missing.'
+    $claimTemplateContractPass = $false
+}
+else {
+    $claimTemplateBytes = [IO.File]::ReadAllBytes($claimTemplateFull)
+    if ($claimTemplateBytes.Length -ge 3 -and $claimTemplateBytes[0] -eq 0xEF -and $claimTemplateBytes[1] -eq 0xBB -and $claimTemplateBytes[2] -eq 0xBF) {
+        Add-Error 'Adoption intake template contains a UTF-8 BOM.'
+        $claimTemplateContractPass = $false
+    }
+    $claimTemplateText = $utf8.GetString($claimTemplateBytes)
+    if ($claimTemplateText.Contains("`r")) {
+        Add-Error 'Adoption intake template must use LF line endings.'
+        $claimTemplateContractPass = $false
+    }
+    $actualClaimTemplateIds = [string[]]@(Get-IssueTemplateIds -Text $claimTemplateText)
+    if (($actualClaimTemplateIds -join "`n") -cne ($expectedClaimTemplateIds -join "`n")) {
+        Add-Error 'Adoption intake template field IDs differ from the exact binding contract.'
+        $claimTemplateContractPass = $false
+    }
+    $expectedClaimTemplateTypes = [ordered]@{
+        board_id = 'input'; intent = 'dropdown'; workflow = 'dropdown'; scope = 'textarea'
+        inputs = 'textarea'; mirror = 'input'; checks = 'textarea'; agreement = 'checkboxes'
+    }
+    $claimTemplateBlocks = @{}
+    $claimTypeBlocks = @([regex]::Matches($claimTemplateText, '(?ms)^  - type: (?<type>[a-z]+)\n(?<body>.*?)(?=^  - type: |\z)'))
+    foreach ($blockMatch in $claimTypeBlocks) {
+        $blockBody = $blockMatch.Groups['body'].Value
+        $idMatch = [regex]::Match($blockBody, '(?m)^    id: (?<id>[a-z][a-z0-9_]*)$')
+        if ($idMatch.Success) {
+            $claimTemplateBlocks[$idMatch.Groups['id'].Value] = [pscustomobject]@{
+                type = $blockMatch.Groups['type'].Value
+                body = $blockBody
+            }
+        }
+    }
+    if ($claimTypeBlocks.Count -ne 9 -or $claimTemplateBlocks.Count -ne 8) {
+        Add-Error 'Adoption intake template must contain one markdown block and exactly eight identified field blocks.'
+        $claimTemplateContractPass = $false
+    }
+    foreach ($fieldId in $expectedClaimTemplateTypes.Keys) {
+        if (-not $claimTemplateBlocks.ContainsKey($fieldId) -or [string]$claimTemplateBlocks[$fieldId].type -cne [string]$expectedClaimTemplateTypes[$fieldId]) {
+            Add-Error "Adoption intake field type differs for: $fieldId"
+            $claimTemplateContractPass = $false
+        }
+    }
+    foreach ($fieldId in @('board_id', 'intent', 'workflow', 'scope', 'inputs')) {
+        if (-not $claimTemplateBlocks.ContainsKey($fieldId) -or -not [regex]::IsMatch([string]$claimTemplateBlocks[$fieldId].body, '(?m)^    validations:\n      required: true$')) {
+            Add-Error "Adoption intake field is not fail-closed required: $fieldId"
+            $claimTemplateContractPass = $false
+        }
+    }
+    if ($claimTemplateBlocks.ContainsKey('workflow')) {
+        $claimWorkflowOptions = [string[]]@([regex]::Matches([string]$claimTemplateBlocks['workflow'].body, '(?m)^        - (?<value>[a-z0-9]+(?:_[a-z0-9]+)*)$') | ForEach-Object { $_.Groups['value'].Value })
+        if (($claimWorkflowOptions -join "`n") -cne ($workflowRowIds -join "`n")) {
+            Add-Error 'Adoption intake Workflow token options do not exactly match the registered workflows.'
+            $claimTemplateContractPass = $false
+        }
+        if ([regex]::IsMatch([string]$claimTemplateBlocks['workflow'].body, '(?m)^      (?:default|multiple):')) {
+            Add-Error 'Adoption intake Workflow token must be an explicit single choice with no default.'
+            $claimTemplateContractPass = $false
+        }
+    }
+    $requiredClaimAgreementChecks = if ($claimTemplateBlocks.ContainsKey('agreement')) { @([regex]::Matches([string]$claimTemplateBlocks['agreement'].body, '(?m)^          required: true$')).Count } else { 0 }
+    if ($requiredClaimAgreementChecks -ne 2) {
+        Add-Error 'Both adoption traceability statements must remain required checkboxes.'
+        $claimTemplateContractPass = $false
+    }
+}
+
 $stacksIntakeContractPass = $true
 $stacksTemplatePath = '.github/ISSUE_TEMPLATE/stacks.yml'
 $stacksTemplateFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $stacksTemplatePath))
 $expectedStacksTemplateIds = [string[]]@(
-    'board_id', 'intent', 'scope', 'inputs', 'writer', 'upstream_repo',
+    'board_id', 'intent', 'workflow', 'scope', 'inputs', 'writer', 'upstream_repo',
     'upstream_license', 'upstream_commit', 'overlay_namespace', 'composition',
     'tests', 'sync_cursor', 'mirror', 'agreement'
 )
@@ -485,7 +562,7 @@ else {
         $stacksIntakeContractPass = $false
     }
     $expectedStacksTemplateTypes = [ordered]@{
-        board_id = 'input'; intent = 'dropdown'; scope = 'textarea'; inputs = 'textarea'
+        board_id = 'input'; intent = 'dropdown'; workflow = 'dropdown'; scope = 'textarea'; inputs = 'textarea'
         writer = 'input'; upstream_repo = 'input'; upstream_license = 'input'; upstream_commit = 'input'
         overlay_namespace = 'input'; composition = 'textarea'; tests = 'textarea'; sync_cursor = 'textarea'
         mirror = 'input'; agreement = 'checkboxes'
@@ -502,8 +579,8 @@ else {
             }
         }
     }
-    if ($stacksTypeBlocks.Count -ne 15 -or $stacksTemplateBlocks.Count -ne 14) {
-        Add-Error 'Stacks intake template must contain one markdown block and exactly fourteen identified field blocks.'
+    if ($stacksTypeBlocks.Count -ne 16 -or $stacksTemplateBlocks.Count -ne 15) {
+        Add-Error 'Stacks intake template must contain one markdown block and exactly fifteen identified field blocks.'
         $stacksIntakeContractPass = $false
     }
     foreach ($fieldId in $expectedStacksTemplateTypes.Keys) {
@@ -513,7 +590,7 @@ else {
         }
     }
     $requiredStacksFieldIds = [string[]]@(
-        'board_id', 'intent', 'scope', 'inputs', 'writer', 'upstream_repo',
+        'board_id', 'intent', 'workflow', 'scope', 'inputs', 'writer', 'upstream_repo',
         'upstream_license', 'upstream_commit', 'overlay_namespace', 'composition',
         'tests', 'sync_cursor'
     )
@@ -531,6 +608,18 @@ else {
     if ($requiredAgreementChecks -ne 5) {
         Add-Error 'All five Stacks traceability statements must remain required checkboxes.'
         $stacksIntakeContractPass = $false
+    }
+    if ($stacksTemplateBlocks.ContainsKey('workflow')) {
+        $expectedStacksWorkflowOptions = [string[]]@(($board.items | Where-Object { [string]$_.id -ceq 'stacks-commons-layer' } | Select-Object -First 1).workflow)
+        $actualStacksWorkflowOptions = [string[]]@([regex]::Matches([string]$stacksTemplateBlocks['workflow'].body, '(?m)^        - (?<value>[a-z0-9]+(?:_[a-z0-9]+)*)$') | ForEach-Object { $_.Groups['value'].Value })
+        if (($actualStacksWorkflowOptions -join "`n") -cne ($expectedStacksWorkflowOptions -join "`n")) {
+            Add-Error 'Stacks intake Workflow token options do not exactly match the Stacks board row.'
+            $stacksIntakeContractPass = $false
+        }
+        if (-not [regex]::IsMatch([string]$stacksTemplateBlocks['workflow'].body, '(?m)^      default: 0$') -or [regex]::IsMatch([string]$stacksTemplateBlocks['workflow'].body, '(?m)^      multiple:')) {
+            Add-Error 'Stacks intake Workflow token must be single-select with upstream_overlay_sync as default index 0.'
+            $stacksIntakeContractPass = $false
+        }
     }
     $requiredStacksTemplateTokens = [string[]]@(
         'title: "[Adopt] Stacks Commons layer — "',
@@ -771,7 +860,7 @@ if (($claimIssueModes -join "`n") -cne ($expectedClaimIssueModes -join "`n")) {
 $claimAuditorFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $expectedClaimAuditor))
 if ([IO.File]::Exists($claimAuditorFull)) {
     $claimAuditorText = $utf8.GetString([IO.File]::ReadAllBytes($claimAuditorFull))
-    foreach ($token in @('--git', '--issues-file', 'board transport is not declared', 'issue transport is not declared')) {
+    foreach ($token in @('--git', '--issues-file', 'board transport is not declared', 'issue transport is not declared', 'Workflow token', 'not allowed for Board ID', 'workflow_ids')) {
         if (-not $claimAuditorText.Contains($token, [StringComparison]::Ordinal)) {
             Add-Error "claim_auditor is missing required transport token: $token"
             $claimAuditorContractPass = $false
@@ -791,7 +880,7 @@ Test-RepoPath -Path ([string]$board.claim_regression) -Context 'claim_regression
 $claimRegressionFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $expectedClaimRegression))
 if ([IO.File]::Exists($claimRegressionFull)) {
     $claimRegressionText = $utf8.GetString([IO.File]::ReadAllBytes($claimRegressionFull))
-    foreach ($token in @('valid_fixture', 'invalid_fixture', 'not-a-board-row', 'local_git_object_database', 'json_fixture', 'external_network_queried')) {
+    foreach ($token in @('valid_fixture', 'invalid_fixture', 'not-a-board-row', 'new:workflow-contract-fixture', 'row-incompatible workflow', 'unknown workflow', 'missing workflow', 'local_git_object_database', 'json_fixture', 'external_network_queried')) {
         if (-not $claimRegressionText.Contains($token, [StringComparison]::Ordinal)) {
             Add-Error "claim_regression is missing required lifecycle token: $token"
             $claimRegressionContractPass = $false
@@ -870,6 +959,7 @@ else {
 
 $ids = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 $stateCounts = [ordered]@{ current_work = 0; ready_for_adoption = 0; future = 0 }
+$coverageClassCounts = [ordered]@{ complete = 0; active = 0; partial = 0; scattered = 0; weak = 0; source_only = 0; unworked = 0 }
 $namedOwnerRows = 0
 $unclaimedOwnerRows = 0
 $weberFrontierContractPass = $false
@@ -885,12 +975,13 @@ foreach ($item in @($board.items)) {
     foreach ($property in @('author', 'work', 'corpus', 'coverage_state', 'owner_scope', 'source_basis', 'next_cursor', 'claim_url', 'updated', 'notes')) {
         if ([string]::IsNullOrWhiteSpace([string]$item.$property)) { Add-Error "$context has empty $property." }
     }
-    foreach ($enumName in @('lane_state', 'priority', 'readiness', 'adoption_status')) {
+    foreach ($enumName in @('lane_state', 'coverage_class', 'priority', 'readiness', 'adoption_status')) {
         if (-not ($expectedEnums[$enumName] -ccontains [string]$item.$enumName)) {
             Add-Error "$context has invalid ${enumName}: $($item.$enumName)"
         }
     }
     if ($stateCounts.Contains([string]$item.lane_state)) { $stateCounts[[string]$item.lane_state]++ }
+    if ($coverageClassCounts.Contains([string]$item.coverage_class)) { $coverageClassCounts[[string]$item.coverage_class]++ }
     Test-UniqueStrings -Values @($item.languages) -Context "$context languages" -RequireNonEmpty $true
     Test-UniqueStrings -Values @($item.related_paths) -Context "$context related_paths" -RequireNonEmpty $false
     Test-UniqueStrings -Values @($item.prerequisites) -Context "$context prerequisites" -RequireNonEmpty $true
@@ -1045,6 +1136,9 @@ foreach ($workflowId in $workflowRowIds) {
 foreach ($state in $stateCounts.Keys) {
     if ($stateCounts[$state] -eq 0) { Add-Error "Board has no rows for lane_state $state." }
 }
+foreach ($class in $coverageClassCounts.Keys) {
+    if ($coverageClassCounts[$class] -eq 0) { Add-Error "Board has no rows for coverage_class $class." }
+}
 if (-not $weberFrontierContractPass) {
     Add-Error 'Weber frontier contract did not pass.'
 }
@@ -1135,7 +1229,7 @@ $unstagedChanges = $LASTEXITCODE -ne 0
 $stagedChanges = $LASTEXITCODE -ne 0
 $worktreeDirty = $unstagedChanges -or $stagedChanges
 $report = [ordered]@{
-    schema = 'math-commons-adoption-check-v1'
+    schema = 'math-commons-adoption-check-v2'
     status = if ($errors.Count -eq 0) { 'PASS' } else { 'FAIL' }
     errors = @($errors)
     observed_date = $ObservedDate
@@ -1245,6 +1339,7 @@ $report = [ordered]@{
         current_work = $stateCounts.current_work
         ready_for_adoption = $stateCounts.ready_for_adoption
         future = $stateCounts.future
+        coverage_class_counts = $coverageClassCounts
         unique_item_ids = $ids.Count
         unique_mirror_ids = $mirrorIds.Count
         required_maps = $requiredMaps.Count
@@ -1270,6 +1365,7 @@ $report = [ordered]@{
         tracked_repository_paths = $trackedPathChecks
         issue_labels = $expectedLabelRows.Count
         issue_label_templates = [int](($expectedLabelRows | ForEach-Object { @($_.templates).Count } | Measure-Object -Sum).Sum)
+        claim_intake_fields = $expectedClaimTemplateIds.Count
         consumer_modes = $consumerModes.Count
         claim_auditor_board_modes = $claimBoardModes.Count
         claim_auditor_issue_modes = $claimIssueModes.Count
@@ -1288,6 +1384,7 @@ $report = [ordered]@{
         enum_contract = -not (@($errors | Where-Object { $_ -like '*Enum contract*' -or $_ -like '*invalid *' }).Count)
         unique_ids = ($ids.Count -eq @($board.items).Count -and $mirrorIds.Count -eq @($board.mirrors).Count)
         state_partitions_present = ($stateCounts.current_work -gt 0 -and $stateCounts.ready_for_adoption -gt 0 -and $stateCounts.future -gt 0)
+        coverage_classes_present = (@($coverageClassCounts.Values | Where-Object { $_ -gt 0 }).Count -eq $coverageClassCounts.Count)
         repository_paths_tracked = ($pathChecks -eq $trackedPathChecks)
         archive_layer_preserved = ([string]$board.board_role -ceq 'operational_layer')
         certification_default_contract = (
@@ -1346,9 +1443,11 @@ $report = [ordered]@{
         )
         contributor_interface_contract = (
             [string]$board.claim_interface -ceq $expectedClaimInterface -and
-            [string]$board.handback_interface -ceq $expectedHandbackInterface
+            [string]$board.handback_interface -ceq $expectedHandbackInterface -and
+            $claimTemplateContractPass
         )
         issue_label_contract = $issueLabelContractPass
+        claim_template_contract = $claimTemplateContractPass
         workflow_registry_contract = (
             $workflowContractPass -and
             $workflowRegistryIds.Count -eq $workflowUsedIds.Count -and

@@ -9,7 +9,7 @@ Use the [machine-readable board](../manifests/adopt.json) for automation or a
 Mathematics Commons mirror. Use the
 [complete author/work/series/language/corpus index](adopt-index.md) for a
 single human-readable view of all 67 rows, including priority, readiness,
-coverage, and next cursor. Use the
+controlled coverage class, detailed coverage state, and next cursor. Use the
 [adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml)
 to announce a scope or mirror. Use the dedicated
 [handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml)
@@ -27,11 +27,31 @@ to return a result, partial checkpoint, paused scope, or withdrawal.
 `Readiness` measures how directly a contributor can begin from current GitHub
 evidence. Neither field certifies a translation or source edition.
 
+## Seven Coverage Classes
+
+`coverage_class` is a controlled, deliberately coarse summary of the exact row
+scope. It does not replace `coverage_state`, the map, or source evidence:
+
+| Class | Rows | Meaning |
+|---|---:|---|
+| **complete** | 12 | The declared bounded target scope is stored terminally; pending review or an UNCHECKED label does not change storage coverage. |
+| **active** | 2 | Substantive current bytes form a maintained moving generation or frontier, without a stable terminal claim. |
+| **partial** | 15 | One coherent bounded subset exists and an identifiable layer or continuation remains. |
+| **scattered** | 5 | Substantive bytes exist across uneven, heterogeneous, or conflicting surfaces without one honest common frontier. |
+| **weak** | 17 | A nominal target surface exists, but its source, custody, control, assembly, or provenance binding has a material defect or absence. |
+| **source-only** | 13 | Source-intake or editable target-source bytes exist without a matching promoted direct reader for the row. |
+| **unworked** | 3 | No exact work bytes are yet bound for the row; architecture or a named gap alone is not production. |
+
+These classes describe the exact board row, not an author's entire corpus and
+not mathematical quality. `unworked` must never be inferred from one empty
+storage surface when `source_basis` or `next_cursor` identifies work elsewhere;
+that external generation must first be bound and reconciled.
+
 The machine board makes this non-certification rule explicit with
 `item_certification_default: no_certification_asserted`. All 67 rows inherit
 that value, regardless of words such as `complete`, `current`, `public`,
-`source_checked`, or `source_witnessed` in coverage prose. Version 1 permits no
-row-level certification override: the exact 22-field item contract rejects an
+`source_checked`, or `source_witnessed` in coverage prose. Version 2 permits no
+row-level certification override: the exact 23-field item contract rejects an
 extra certification field until a later evidence-backed schema version defines
 one.
 
@@ -171,7 +191,8 @@ first admissible handback is source discovery or intake evidence.
 2. Choose a bounded author/work/range/language scope and record its exact
    starting cursor, input paths, hashes, and source authority.
 3. Open one [adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml)
-   with the board ID and, if applicable, a mirror repository URL. This declares
+   with the Board ID, exactly one registered `Workflow token` allowed by that
+   row, and, if applicable, a mirror repository URL. This declares
    overlap; it does not reserve the work exclusively.
 4. Preserve the source and predecessor generation. Add a new generation rather
    than overwriting contradictory or superseded evidence.
@@ -198,15 +219,15 @@ The stable interface is
 `items` array defines:
 
 - `id`, `author`, `work`, `series`, and `corpus`;
-- `lane_state`, `coverage_state`, `adoption_status`, `priority`, and `readiness`;
+- `lane_state`, `coverage_state`, `coverage_class`, `adoption_status`, `priority`, and `readiness`;
 - `owner`, `owner_scope`, and `languages`;
 - `archive_path`, `related_paths`, and `source_basis`;
 - `next_cursor`, `prerequisites`, `workflow`, and `claim_url`;
 - `updated` and `notes`.
 
 The top-level `human_index` points to the exact 67-row human projection of
-author, work, series, language, corpus, lane, priority, readiness, coverage,
-next cursor, ownership, and Board ID. The validator compares every projected
+author, work, series, language, corpus, lane, priority, readiness, controlled
+coverage class, detailed coverage state, next cursor, ownership, and Board ID. The validator compares every projected
 field and row order against `items`.
 Like the workflow guide, it is presentation guidance rather than a fifth
 machine-ingestion identity.
@@ -231,8 +252,10 @@ yet been integrated into the board; it does not mean no one is working
 elsewhere.
 
 The top-level `claim_interface` and `handback_interface` bind the two GitHub
-forms for the mirror lifecycle. Claims declare overlap and a starting
-generation. Handbacks return an inspectable result or an explicit
+forms for the mirror lifecycle. Claims declare overlap, a starting generation,
+and exactly one registered workflow. Existing Board IDs accept only a token in
+that row's `workflow` array; a valid `new:<short-id>` proposal still must choose
+a registered token. Handbacks return an inspectable result or an explicit
 paused/withdrawn state with manifest identities, checks, cursor, and reusable
 method findings.
 
@@ -240,8 +263,9 @@ The top-level `claim_regression` and `continuous_validation` fields bind a
 sparse [GitHub Actions gate](../.github/workflows/adopt.yml). On relevant pull
 requests and `main` pushes it regenerates the board/schema/map check in a
 temporary path, replays the exact local four-file consumer, proves that a
-missing promisor blob cannot trigger a lazy fetch, and tests both a valid
-claim/handback pair and an invalid Board ID. The workflow uses SHA-pinned
+missing promisor blob cannot trigger a lazy fetch, and tests valid existing,
+proposed, and Stacks claims plus invalid Board ID, missing, unknown, and
+row-incompatible workflow cases. The workflow uses SHA-pinned
 actions, read-only repository permissions, a blobless sparse metadata
 checkout, and no corpus builds. Referenced corpus paths are checked against
 the sparse checkout's tracked-path index without materializing their blobs. CI does not
@@ -252,7 +276,7 @@ The top-level `workflows` registry defines every token used by an item's
 `workflow` array. Each definition has the exact ordered fields `id`, `purpose`,
 `start_when`, `inputs`, `steps`, `evidence`, `stop_conditions`, and `handback`.
 Validation rejects unknown row tokens, duplicate or unused definitions,
-out-of-order definitions, empty protocol fields, and disagreement with the
+out-of-order definitions, empty protocol fields, issue-form option drift, and disagreement with the
 [human workflow guide](adopt-flows.md). This turns a token into a mirrorable
 protocol rather than an unexplained label.
 
@@ -335,8 +359,9 @@ output must not be ingested.
 The top-level `claim_auditor` points to
 [`scripts/check-claims.py`](../scripts/check-claims.py). It first runs the same
 exact-commit consumer, then reads only public `adoption`-labelled issues. It
-checks required form sections, exact or proposed Board IDs, handback-to-claim
-links, and handback state while explicitly allowing declared parallel claims.
+checks required form sections, exact or proposed Board IDs, registered and
+row-compatible workflow tokens, handback-to-claim links, and handback state
+while explicitly allowing declared parallel claims.
 `claim_auditor_modes` declares the board transports (`raw_github` and
 `local_git_object_database`) separately from the issue transports
 (`public_github_api` and `json_fixture`). The report records the actual mode in
