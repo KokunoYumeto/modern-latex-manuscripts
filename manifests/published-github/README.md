@@ -6,12 +6,22 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [Commons Stacks architecture receipt](stacks-r1.json),
+Start with the current [Commons Stacks architecture closure](stacks-r1-close.json)
+and [source receipt](stacks-r1.json),
 the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [source-and-correction receipt](stein-r1.json), the [thirty-cycle frontier predecessor](frontier-r1-close.json), the
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The [Commons Stacks architecture closure](stacks-r1-close.json) binds receipt
+commit `2a3aa2a48acf7cae45afa959be79cdbff82c85f6`: all eight changed paths /
+616,046 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
+[`31477302142`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31477302142)
+passed. Its exact consumer, missing-promisor regression, claim fixtures, clean
+validator, and 40-document / 1,261-link committed-blob audit pass. The additive
+aggregate through the receipt is 36 cycles, 3,110 observations, and
+1,213,942,505 bytes with zero mismatches.
 
 The [Commons Stacks architecture receipt](stacks-r1.json) binds source commit
 `b94ccf40cecda93ffb94fdc5b6575e65a2c30d2f`: all 13 changed paths /

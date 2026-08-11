@@ -72,4 +72,5 @@ The machine-readable form of this architecture is embedded in
 `stacks_reference_layer`; Board ID `stacks-commons-layer` carries the current
 operational cursor. The exact source-commit transport, contract identities,
 tests, and anonymous public readback are bound in the
-[Commons Stacks architecture receipt](../manifests/published-github/stacks-r1.json).
+[Commons Stacks architecture closure](../manifests/published-github/stacks-r1-close.json)
+and its [source receipt](../manifests/published-github/stacks-r1.json).

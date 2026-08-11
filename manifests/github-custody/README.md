@@ -7,7 +7,8 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- Current [Commons Stacks architecture receipt](../published-github/stacks-r1.json)
+- Current [Commons Stacks architecture closure](../published-github/stacks-r1-close.json)
+  and [source receipt](../published-github/stacks-r1.json)
 - [Steinitz frontier predecessor closure](../published-github/stein-r1-close.json)
   and [source-and-correction receipt](../published-github/stein-r1.json)
 - [Thirty-cycle frontier predecessor closure](../published-github/frontier-r1-close.json)
@@ -89,11 +90,11 @@ remain immutable. The
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
-The current Commons Stacks architecture receipt extends the additive evidence
-aggregate through the prior closure and its source commit to 35 cycles, 3,102
-commit-pinned observations, and 1,213,326,459 bytes with zero mismatches. It
-preserves the Steinitz and earlier closures; no generation rewrites R5, R4,
-R3, or any earlier generation.
+The current Commons Stacks architecture closure extends the additive evidence
+aggregate through its receipt commit to 36 cycles, 3,110 commit-pinned
+observations, and 1,213,942,505 bytes with zero mismatches. It preserves the
+Steinitz and earlier closures; no generation rewrites R5, R4, R3, or any
+earlier generation.
 
 The frozen R5 successor is preserved additively and remains pending independent
 review; it does not replace the accepted R4 reader. The 2026-08-07 r5 source,
