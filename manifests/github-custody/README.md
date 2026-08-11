@@ -7,11 +7,12 @@ producer payloads.
 
 ## Current repository indexes
 
-- Current public-interface cleanup
-  [closure](../published-github/ui-clean-r1-close.json) and
-  [source receipt](../published-github/ui-clean-r1.json), binding the active
-  navigation, adoption board, Stacks claim form, contributor contract, tests,
-  CI, and reader-facing repository and namespace language on the named surfaces
+- Current reader-first interface
+  [source receipt](../published-github/ui-clean-r2.json), binding the concise
+  landing, fleet map, workflow, active queue, unchanged 78-row adoption board,
+  clean validator, committed-link replay, and public raw readback; predecessor
+  public-interface [closure](../published-github/ui-clean-r1-close.json) and
+  [source receipt](../published-github/ui-clean-r1.json)
 - Predecessor executable Stacks-preflight
   [closure](../published-github/stacks-pre-r1-close.json) and
   [source receipt](../published-github/stacks-pre-r1.json), binding the exact

@@ -6,7 +6,8 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current public-interface cleanup
+Start with the current reader-first interface
+[source receipt](ui-clean-r2.json), then the predecessor public-interface
 [closure](ui-clean-r1-close.json) and [source receipt](ui-clean-r1.json),
 then the predecessor executable Stacks preflight
 [closure](stacks-pre-r1-close.json) and [source receipt](stacks-pre-r1.json),
@@ -27,6 +28,19 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The reader-first interface [source receipt](ui-clean-r2.json) binds accepted
+commit `d6b7d4a65ec4abb97f657399735cd48db138f61d`: all eight changed
+paths / 912,464 bytes matched anonymous commit-pinned raw GitHub bytes, and
+Actions run
+[`31539920461`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31539920461)
+passed. The landing page now starts from readers, sources, coverage, adoption,
+and exact evidence. The work queue is a 6,099-byte human projection of the
+unchanged 78-row adoption board instead of a 56,641-byte staging diary. The
+fleet map and workflow describe public artifacts and reproducible methods
+without workstation, task-routing, or service-custody prose. The additive
+aggregate through this source is 53 cycles, 3,286 observations, and
+1,227,478,458 bytes with zero mismatches.
 
 The public-interface cleanup [closure](ui-clean-r1-close.json) binds receipt
 commit `ee24ed9f51a11592960352272e2d99c34a26f5a8`: all five changed
