@@ -1,6 +1,6 @@
 {
   "schema": "stacks-composition-contract/v1",
-  "state": "preflight_blocked_empty_registry",
+  "state": "executable_preflight_bound_empty_registry",
   "role": "commons_layer3_deterministic_composition_contract_fixture",
   "control_file_rights": "project_generated_control_metadata_no_new_license_grant_asserted",
   "inputs": {
@@ -35,6 +35,26 @@
     "generated_members": "declared_manifest_only",
     "repeatability": "same_exact_inputs_and_tool_identity_require_identical_manifest_and_bytes"
   },
+  "preflight_tool": {
+    "state": "bound",
+    "capability": "validation_only_no_composition",
+    "path": "scripts/stacks-preflight.py",
+    "version": "1.0.0",
+    "runtime": "python_stdlib_3_11_plus",
+    "invocation": "python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY",
+    "bytes": 18462,
+    "sha256": "ABC945BA175B8461892CB6843A014BC6FAB654D8A9F0A2CD7492B0DA1779D776",
+    "network": false,
+    "git": false,
+    "writes": "stdout_only"
+  },
+  "regression": {
+    "path": "scripts/test-stacks-preflight.py",
+    "version": "1.0.0",
+    "bytes": 6288,
+    "sha256": "A517ED4C73D8B4A9A4E85CF4B8BB2139183D2FAF2FC44404B450435EE944B4B9",
+    "cases": 11
+  },
   "tool": {
     "state": "not_bound",
     "path": null,
@@ -46,12 +66,14 @@
     "upstream_tree_replayed": false,
     "approved_overlay_selected": false,
     "overlay_identity_verified": false,
+    "preflight_tool_bound": true,
     "tool_identity_bound": false,
     "output_root_declared": false,
     "ready": false
   },
   "fixture": {
     "id": "empty-overlay-preflight",
+    "receipt": "manifests/stacks-preflight.json",
     "expected_outcome": "BLOCKED_EMPTY_OVERLAY_REGISTRY",
     "observed_outcome": "BLOCKED_EMPTY_OVERLAY_REGISTRY",
     "outcome_matches": true,
@@ -65,7 +87,8 @@
     "sha256": null
   },
   "aggregate": {
-    "preflight_checks": 1,
+    "static_contract_checks": 1,
+    "executable_preflight_runs": 1,
     "composition_runs": 0,
     "generated_members": 0,
     "builds": 0
@@ -83,5 +106,5 @@
     "reader_or_edition_files_added": 0,
     "mathematical_review_claimed": false
   },
-  "next_cursor": "bind one approved overlay entry and an exact composition tool identity before changing preflight readiness"
+  "next_cursor": "approve one provenance-complete overlay entry and bind a separate exact composition executor before changing readiness or producing any composed output"
 }

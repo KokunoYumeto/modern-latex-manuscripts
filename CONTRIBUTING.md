@@ -78,9 +78,16 @@ one writer may hold a Commons overlay namespace and its ancestor/descendant
 chain at a time, while declared parallel work in disjoint namespaces—neither
 equal nor ancestor/descendant—remains welcome. The first writer must use the
 existing zero-entry [`stacks-overlay.json`](manifests/stacks-overlay.json)
-registry and blocked-preflight [`stacks-compose.json`](manifests/stacks-compose.json)
-contract; do not create a parallel registry, composition control plane, or
-untracked namespace.
+registry and executable blocked-state
+[`stacks-compose.json`](manifests/stacks-compose.json) contract; do not create
+a parallel registry, composition control plane, or untracked namespace.
+Replay the validator-only preflight with `python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY`.
+Exit 0 in that expected-outcome mode proves
+only the expected block; without `--expect`, the valid blocked run exits 20.
+Contract v1 rejects a nonempty registry. It is not the composition executor,
+which remains unbound. The next accepted generation must bind one approved,
+provenance-complete overlay entry and a separate exact executor before any
+composition run or output.
 
 Return a completed or partial result, paused scope, or withdrawal through the
 [handback issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=handback.yml).

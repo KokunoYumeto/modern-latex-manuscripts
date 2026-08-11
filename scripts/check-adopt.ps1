@@ -330,12 +330,16 @@ function Test-StacksComposeCriticalBindings {
         [object]$Contract,
         [object]$Upstream,
         [int64]$RegistryBytes,
-        [string]$RegistrySha256
+        [string]$RegistrySha256,
+        [int64]$PreflightToolBytes,
+        [string]$PreflightToolSha256,
+        [int64]$RegressionBytes,
+        [string]$RegressionSha256
     )
     $inputOrder = [string[]]@('upstream_pin', 'commons_overlay')
     return (
         [string]$Contract.schema -ceq 'stacks-composition-contract/v1' -and
-        [string]$Contract.state -ceq 'preflight_blocked_empty_registry' -and
+        [string]$Contract.state -ceq 'executable_preflight_bound_empty_registry' -and
         [string]$Contract.role -ceq 'commons_layer3_deterministic_composition_contract_fixture' -and
         [string]$Contract.control_file_rights -ceq 'project_generated_control_metadata_no_new_license_grant_asserted' -and
         [string]$Contract.inputs.upstream.repository -ceq [string]$Upstream.repository_url -and
@@ -360,16 +364,34 @@ function Test-StacksComposeCriticalBindings {
         [string]$Contract.determinism.timestamps -ceq 'exclude' -and
         [string]$Contract.determinism.generated_members -ceq 'declared_manifest_only' -and
         [string]$Contract.determinism.repeatability -ceq 'same_exact_inputs_and_tool_identity_require_identical_manifest_and_bytes' -and
+        [string]$Contract.preflight_tool.state -ceq 'bound' -and
+        [string]$Contract.preflight_tool.capability -ceq 'validation_only_no_composition' -and
+        [string]$Contract.preflight_tool.path -ceq 'scripts/stacks-preflight.py' -and
+        [string]$Contract.preflight_tool.version -ceq '1.0.0' -and
+        [string]$Contract.preflight_tool.runtime -ceq 'python_stdlib_3_11_plus' -and
+        [string]$Contract.preflight_tool.invocation -ceq 'python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY' -and
+        (Test-JsonInteger -Value $Contract.preflight_tool.bytes -Expected $PreflightToolBytes) -and
+        [string]$Contract.preflight_tool.sha256 -ceq $PreflightToolSha256 -and
+        (Test-JsonBoolean -Value $Contract.preflight_tool.network -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.preflight_tool.git -Expected $false) -and
+        [string]$Contract.preflight_tool.writes -ceq 'stdout_only' -and
+        [string]$Contract.regression.path -ceq 'scripts/test-stacks-preflight.py' -and
+        [string]$Contract.regression.version -ceq '1.0.0' -and
+        (Test-JsonInteger -Value $Contract.regression.bytes -Expected $RegressionBytes) -and
+        [string]$Contract.regression.sha256 -ceq $RegressionSha256 -and
+        (Test-JsonInteger -Value $Contract.regression.cases -Expected 11) -and
         [string]$Contract.tool.state -ceq 'not_bound' -and
         $null -eq $Contract.tool.path -and $null -eq $Contract.tool.version -and $null -eq $Contract.tool.sha256 -and
         (Test-JsonBoolean -Value $Contract.preconditions.upstream_pin_bound -Expected $true) -and
         (Test-JsonBoolean -Value $Contract.preconditions.upstream_tree_replayed -Expected $false) -and
         (Test-JsonBoolean -Value $Contract.preconditions.approved_overlay_selected -Expected $false) -and
         (Test-JsonBoolean -Value $Contract.preconditions.overlay_identity_verified -Expected $false) -and
+        (Test-JsonBoolean -Value $Contract.preconditions.preflight_tool_bound -Expected $true) -and
         (Test-JsonBoolean -Value $Contract.preconditions.tool_identity_bound -Expected $false) -and
         (Test-JsonBoolean -Value $Contract.preconditions.output_root_declared -Expected $false) -and
         (Test-JsonBoolean -Value $Contract.preconditions.ready -Expected $false) -and
         [string]$Contract.fixture.id -ceq 'empty-overlay-preflight' -and
+        [string]$Contract.fixture.receipt -ceq 'manifests/stacks-preflight.json' -and
         [string]$Contract.fixture.expected_outcome -ceq 'BLOCKED_EMPTY_OVERLAY_REGISTRY' -and
         [string]$Contract.fixture.observed_outcome -ceq 'BLOCKED_EMPTY_OVERLAY_REGISTRY' -and
         (Test-JsonBoolean -Value $Contract.fixture.outcome_matches -Expected $true) -and
@@ -377,7 +399,8 @@ function Test-StacksComposeCriticalBindings {
         $null -eq $Contract.output.manifest -and $null -eq $Contract.output.tree -and
         (Test-JsonArray -Value $Contract.output.members) -and @($Contract.output.members).Count -eq 0 -and
         $null -eq $Contract.output.bytes -and $null -eq $Contract.output.sha256 -and
-        (Test-JsonInteger -Value $Contract.aggregate.preflight_checks -Expected 1) -and
+        (Test-JsonInteger -Value $Contract.aggregate.static_contract_checks -Expected 1) -and
+        (Test-JsonInteger -Value $Contract.aggregate.executable_preflight_runs -Expected 1) -and
         (Test-JsonInteger -Value $Contract.aggregate.composition_runs -Expected 0) -and
         (Test-JsonInteger -Value $Contract.aggregate.generated_members -Expected 0) -and
         (Test-JsonInteger -Value $Contract.aggregate.builds -Expected 0) -and
@@ -392,7 +415,69 @@ function Test-StacksComposeCriticalBindings {
         (Test-JsonInteger -Value $Contract.boundaries.archives_or_binary_payloads_added -Expected 0) -and
         (Test-JsonInteger -Value $Contract.boundaries.reader_or_edition_files_added -Expected 0) -and
         (Test-JsonBoolean -Value $Contract.boundaries.mathematical_review_claimed -Expected $false) -and
-        [string]$Contract.next_cursor -ceq 'bind one approved overlay entry and an exact composition tool identity before changing preflight readiness'
+        [string]$Contract.next_cursor -ceq 'approve one provenance-complete overlay entry and bind a separate exact composition executor before changing readiness or producing any composed output'
+    )
+}
+
+function Test-StacksPreflightCriticalBindings {
+    param(
+        [object]$Result,
+        [int64]$ContractBytes,
+        [string]$ContractSha256,
+        [int64]$RegistryBytes,
+        [string]$RegistrySha256,
+        [int64]$PreflightToolBytes,
+        [string]$PreflightToolSha256,
+        [int64]$RegressionBytes,
+        [string]$RegressionSha256
+    )
+    return (
+        [string]$Result.schema -ceq 'stacks-composition-preflight/v1' -and
+        [string]$Result.status -ceq 'PASS' -and
+        (Test-JsonArray -Value $Result.errors) -and @($Result.errors).Count -eq 0 -and
+        [string]$Result.outcome -ceq 'BLOCKED_EMPTY_OVERLAY_REGISTRY' -and
+        [string]$Result.preflight_tool.path -ceq 'scripts/stacks-preflight.py' -and
+        [string]$Result.preflight_tool.version -ceq '1.0.0' -and
+        (Test-JsonInteger -Value $Result.preflight_tool.bytes -Expected $PreflightToolBytes) -and
+        [string]$Result.preflight_tool.sha256 -ceq $PreflightToolSha256 -and
+        [string]$Result.preflight_tool.capability -ceq 'validation_only_no_composition' -and
+        [string]$Result.inputs.upstream_pin.path -ceq 'manifests/stacks-pin.json' -and
+        (Test-JsonInteger -Value $Result.inputs.upstream_pin.bytes -Expected 3035) -and
+        [string]$Result.inputs.upstream_pin.sha256 -ceq '7B3E3D8EACC4CF71B6C93AC522800CD162EFEDF545D4B78D939C7C61A33F7F0A' -and
+        [string]$Result.inputs.upstream_pin.repository -ceq 'https://github.com/stacks/stacks-project' -and
+        [string]$Result.inputs.upstream_pin.commit -ceq 'a04446e57ec1fbc252a871afcec7752fb2807b14' -and
+        [string]$Result.inputs.upstream_pin.tree -ceq '3feeb703b931a6e7259782c10e7d1575adc83e5e' -and
+        [string]$Result.inputs.overlay_registry.path -ceq 'manifests/stacks-overlay.json' -and
+        (Test-JsonInteger -Value $Result.inputs.overlay_registry.bytes -Expected $RegistryBytes) -and
+        [string]$Result.inputs.overlay_registry.sha256 -ceq $RegistrySha256 -and
+        (Test-JsonInteger -Value $Result.inputs.overlay_registry.entries -Expected 0) -and
+        [string]$Result.inputs.composition_contract.path -ceq 'manifests/stacks-compose.json' -and
+        (Test-JsonInteger -Value $Result.inputs.composition_contract.bytes -Expected $ContractBytes) -and
+        [string]$Result.inputs.composition_contract.sha256 -ceq $ContractSha256 -and
+        [string]$Result.regression.path -ceq 'scripts/test-stacks-preflight.py' -and
+        [string]$Result.regression.version -ceq '1.0.0' -and
+        (Test-JsonInteger -Value $Result.regression.bytes -Expected $RegressionBytes) -and
+        [string]$Result.regression.sha256 -ceq $RegressionSha256 -and
+        (Test-JsonInteger -Value $Result.regression.cases -Expected 11) -and
+        (Test-JsonBoolean -Value $Result.preconditions.upstream_pin_bound -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.preconditions.empty_registry_verified -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.preconditions.preflight_tool_bound -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.preconditions.composition_tool_bound -Expected $false) -and
+        (Test-JsonBoolean -Value $Result.preconditions.composition_ready -Expected $false) -and
+        (Test-JsonBoolean -Value $Result.output.composition_executed -Expected $false) -and
+        $null -eq $Result.output.manifest -and $null -eq $Result.output.tree -and
+        (Test-JsonArray -Value $Result.output.members) -and @($Result.output.members).Count -eq 0 -and
+        $null -eq $Result.output.bytes -and $null -eq $Result.output.sha256 -and
+        (Test-JsonBoolean -Value $Result.checks.strict_json -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.checks.duplicate_keys_rejected -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.checks.utf8_lf_no_bom -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.checks.fixed_paths_and_symlinks_rejected -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.checks.pin_identity_matches_registry_and_contract -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.checks.registry_identity_matches_contract -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.checks.tool_identity_matches_contract -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.checks.regression_identity_matches_contract -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.checks.empty_registry -Expected $true) -and
+        (Test-JsonBoolean -Value $Result.checks.network_queried -Expected $false)
     )
 }
 
@@ -407,9 +492,13 @@ $checkpointAllowedPaths = [string[]]@(
     'manifests/adopt.json',
     'manifests/adopt.schema.json',
     'manifests/github-custody/20260806_links.json',
+    'manifests/github-custody/log.jsonl',
     'manifests/stacks-compose.json',
     'manifests/stacks-overlay.json',
-    'scripts/check-adopt.ps1'
+    'manifests/stacks-preflight.json',
+    'scripts/check-adopt.ps1',
+    'scripts/stacks-preflight.py',
+    'scripts/test-stacks-preflight.py'
 )
 $changedPathSet = [Collections.Generic.HashSet[string]]::new([StringComparer]::Ordinal)
 foreach ($path in @(& git diff --cached --name-only --diff-filter=ACMRTUXB --)) {
@@ -426,7 +515,10 @@ $worktreeChangePaths = [string[]]@($changedPathSet)
 $checkpointAllowedSet = [Collections.Generic.HashSet[string]]::new($checkpointAllowedPaths, [StringComparer]::Ordinal)
 $stacksControlCheckpointActive = (
     $changedPathSet.Contains('manifests/stacks-overlay.json') -or
-    $changedPathSet.Contains('manifests/stacks-compose.json')
+    $changedPathSet.Contains('manifests/stacks-compose.json') -or
+    $changedPathSet.Contains('manifests/stacks-preflight.json') -or
+    $changedPathSet.Contains('scripts/stacks-preflight.py') -or
+    $changedPathSet.Contains('scripts/test-stacks-preflight.py')
 )
 $outOfScopeChangedPaths = [string[]]@($worktreeChangePaths | Where-Object { -not $checkpointAllowedSet.Contains([string]$_) })
 $producerOrCorpusChangedPaths = [string[]]@($worktreeChangePaths | Where-Object {
@@ -585,13 +677,19 @@ $expectedStacksUpstreamFields = [string[]]@(
 $expectedStacksModifiedEditionFields = [string[]]@('optional', 'license', 'distinct_title_required', 'attribution_required', 'license_and_history_notices_required', 'upstream_endorsement_forbidden')
 $expectedStacksEvidenceFields = [string[]]@('repository_binding', 'pull_requests', 'state', 'same_timestamp', 'public_comments', 'public_reviews', 'motive_inference')
 $expectedStacksOverlaySummaryFields = [string[]]@('path', 'state', 'entry_count', 'mathematical_entries', 'content_bearing_overlay_bound')
-$expectedStacksComposeSummaryFields = [string[]]@('path', 'state', 'composition_runs', 'generated_members', 'composed_build_bound')
+$expectedStacksComposeSummaryFields = [string[]]@(
+    'path', 'state', 'preflight_tool', 'preflight_result', 'executable_preflight_runs',
+    'composition_tool_state', 'composition_runs', 'generated_members', 'composed_build_bound'
+)
+$expectedStacksComposeIdentityFields = [string[]]@('path', 'bytes', 'sha256')
 Test-ExactFields -Value $stacks.upstream -Expected $expectedStacksUpstreamFields -Context 'stacks_reference_layer.upstream'
 Test-ExactFields -Value $stacks.modified_edition -Expected $expectedStacksModifiedEditionFields -Context 'stacks_reference_layer.modified_edition'
 Test-ExactFields -Value $stacks.public_evidence -Expected $expectedStacksEvidenceFields -Context 'stacks_reference_layer.public_evidence'
 Test-ExactFields -Value $stacks.overlay_registry -Expected $expectedStacksOverlaySummaryFields -Context 'stacks_reference_layer.overlay_registry'
 Test-ExactFields -Value $stacks.composition_contract -Expected $expectedStacksComposeSummaryFields -Context 'stacks_reference_layer.composition_contract'
-if ([string]$stacks.status -cne 'upstream_pin_bound_zero_entry_overlay_registry_and_composition_contract_no_composed_build') { Add-Error 'Stacks layer must bind the pin plus zero-entry registry and blocked composition contract without claiming content or a build.'; $stacksReferenceLayerContractPass = $false }
+Test-ExactFields -Value $stacks.composition_contract.preflight_tool -Expected $expectedStacksComposeIdentityFields -Context 'stacks_reference_layer.composition_contract.preflight_tool'
+Test-ExactFields -Value $stacks.composition_contract.preflight_result -Expected $expectedStacksComposeIdentityFields -Context 'stacks_reference_layer.composition_contract.preflight_result'
+if ([string]$stacks.status -cne 'pin_registry_preflight_bound_no_overlay_or_build') { Add-Error 'Stacks layer must bind the pin, zero-entry registry, and executable blocked-state preflight without claiming overlay content, a composition executor, or a build.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.intake_form -cne 'https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml') { Add-Error 'Stacks intake form differs from the dedicated exact-binding route.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.governance -cne 'mathematics_commons_independent') { Add-Error 'Stacks layer governance must remain independent under Mathematics Commons.'; $stacksReferenceLayerContractPass = $false }
 if ([string]$stacks.upstream.role -cne 'respected_pinned_read_only_source_and_sync_target') { Add-Error 'Stacks upstream role must remain pinned and read-only.'; $stacksReferenceLayerContractPass = $false }
@@ -622,11 +720,19 @@ if ([string]$stacks.overlay_registry.path -cne 'manifests/stacks-overlay.json' -
     $stacksReferenceLayerContractPass = $false
 }
 if ([string]$stacks.composition_contract.path -cne 'manifests/stacks-compose.json' -or
-    [string]$stacks.composition_contract.state -cne 'preflight_blocked_empty_registry' -or
+    [string]$stacks.composition_contract.state -cne 'executable_preflight_bound_empty_registry' -or
+    [string]$stacks.composition_contract.preflight_tool.path -cne 'scripts/stacks-preflight.py' -or
+    [int64]$stacks.composition_contract.preflight_tool.bytes -ne 18462 -or
+    [string]$stacks.composition_contract.preflight_tool.sha256 -cne 'ABC945BA175B8461892CB6843A014BC6FAB654D8A9F0A2CD7492B0DA1779D776' -or
+    [string]$stacks.composition_contract.preflight_result.path -cne 'manifests/stacks-preflight.json' -or
+    [int64]$stacks.composition_contract.preflight_result.bytes -ne 2119 -or
+    [string]$stacks.composition_contract.preflight_result.sha256 -cne '7B27367C3A3515AC4C2CAB7A712D95765929F61800357C4547AEB0C0582BE91E' -or
+    [int]$stacks.composition_contract.executable_preflight_runs -ne 1 -or
+    [string]$stacks.composition_contract.composition_tool_state -cne 'not_bound' -or
     [int]$stacks.composition_contract.composition_runs -ne 0 -or
     [int]$stacks.composition_contract.generated_members -ne 0 -or
     $stacks.composition_contract.composed_build_bound -cne $false) {
-    Add-Error 'Stacks composition-contract summary must remain blocked with zero runs, members, or builds.'
+    Add-Error 'Stacks composition-contract summary must bind the exact executable blocked-state preflight while retaining an unbound composition executor and zero composition runs, members, or builds.'
     $stacksReferenceLayerContractPass = $false
 }
 if ($stacks.modified_edition.optional -cne $true -or [string]$stacks.modified_edition.license -cne 'GFDL_compliant' -or $stacks.modified_edition.distinct_title_required -cne $true -or $stacks.modified_edition.attribution_required -cne $true -or $stacks.modified_edition.license_and_history_notices_required -cne $true -or $stacks.modified_edition.upstream_endorsement_forbidden -cne $true) { Add-Error 'Stacks optional modified-edition contract is incomplete.'; $stacksReferenceLayerContractPass = $false }
@@ -744,6 +850,50 @@ else {
     $stacksReferenceLayerContractPass = $false
 }
 
+$stacksPreflightToolPath = 'scripts/stacks-preflight.py'
+$stacksPreflightRegressionPath = 'scripts/test-stacks-preflight.py'
+$stacksPreflightResultPath = 'manifests/stacks-preflight.json'
+foreach ($binding in @(
+    [pscustomobject]@{ Path = $stacksPreflightToolPath; Context = 'Stacks executable preflight tool' },
+    [pscustomobject]@{ Path = $stacksPreflightRegressionPath; Context = 'Stacks executable preflight regression' },
+    [pscustomobject]@{ Path = $stacksPreflightResultPath; Context = 'Stacks executable preflight result' }
+)) {
+    Test-RepoPath -Path $binding.Path -Context $binding.Context -Required $true
+}
+$stacksPreflightToolFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $stacksPreflightToolPath))
+$stacksPreflightRegressionFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $stacksPreflightRegressionPath))
+$stacksPreflightResultFull = [IO.Path]::GetFullPath((Join-Path $repoRoot $stacksPreflightResultPath))
+$stacksPreflightToolBytes = [byte[]]@()
+$stacksPreflightToolSha256 = ''
+$stacksPreflightRegressionBytes = [byte[]]@()
+$stacksPreflightRegressionSha256 = ''
+$stacksPreflightFilesPass = $true
+try {
+    $stacksPreflightToolBytes = [IO.File]::ReadAllBytes($stacksPreflightToolFull)
+    $stacksPreflightRegressionBytes = [IO.File]::ReadAllBytes($stacksPreflightRegressionFull)
+    $stacksPreflightToolSha256 = Get-Sha256 -Bytes $stacksPreflightToolBytes
+    $stacksPreflightRegressionSha256 = Get-Sha256 -Bytes $stacksPreflightRegressionBytes
+    foreach ($binding in @(
+        [pscustomobject]@{ Name = 'Stacks preflight tool'; Bytes = $stacksPreflightToolBytes },
+        [pscustomobject]@{ Name = 'Stacks preflight regression'; Bytes = $stacksPreflightRegressionBytes }
+    )) {
+        if ($binding.Bytes.Length -ge 3 -and $binding.Bytes[0] -eq 0xEF -and $binding.Bytes[1] -eq 0xBB -and $binding.Bytes[2] -eq 0xBF) { throw "$($binding.Name) contains a UTF-8 BOM" }
+        if ($utf8.GetString($binding.Bytes).Contains("`r")) { throw "$($binding.Name) must use LF line endings" }
+    }
+    $stacksPreflightToolText = $utf8.GetString($stacksPreflightToolBytes)
+    foreach ($token in @('BLOCKED_EMPTY_OVERLAY_REGISTRY', 'duplicate JSON key', 'symlink rejected', '--expect', 'network_queried')) {
+        if (-not $stacksPreflightToolText.Contains($token, [StringComparison]::Ordinal)) { throw "preflight tool is missing required token: $token" }
+    }
+    foreach ($token in @('import subprocess', 'import socket', 'urllib', 'requests')) {
+        if ($stacksPreflightToolText.Contains($token, [StringComparison]::Ordinal)) { throw "preflight tool contains forbidden network or subprocess token: $token" }
+    }
+}
+catch {
+    Add-Error "Stacks executable-preflight file validation failed: $($_.Exception.Message)"
+    $stacksPreflightFilesPass = $false
+    $stacksReferenceLayerContractPass = $false
+}
+
 $stacksCompositionContractPass = $true
 $stacksComposePath = 'manifests/stacks-compose.json'
 Test-RepoPath -Path $stacksComposePath -Context 'stacks_reference_layer composition contract' -Required $true
@@ -761,20 +911,22 @@ if ([IO.File]::Exists($stacksComposeFull)) {
         $stacksComposeText = $utf8.GetString($stacksComposeBytes)
         if ($stacksComposeText.Contains("`r")) { throw 'must use LF line endings' }
         $stacksCompose = $stacksComposeText | ConvertFrom-Json -Depth 100 -DateKind String
-        Test-ExactFields -Value $stacksCompose -Expected @('schema', 'state', 'role', 'control_file_rights', 'inputs', 'determinism', 'tool', 'preconditions', 'fixture', 'output', 'aggregate', 'boundaries', 'next_cursor') -Context 'Stacks composition contract'
+        Test-ExactFields -Value $stacksCompose -Expected @('schema', 'state', 'role', 'control_file_rights', 'inputs', 'determinism', 'preflight_tool', 'regression', 'tool', 'preconditions', 'fixture', 'output', 'aggregate', 'boundaries', 'next_cursor') -Context 'Stacks composition contract'
         Test-ExactFields -Value $stacksCompose.inputs -Expected @('upstream', 'overlay_registry', 'selected_overlay_id', 'selected_overlay_commit', 'selected_overlay_tree') -Context 'Stacks composition contract.inputs'
         Test-ExactFields -Value $stacksCompose.inputs.upstream -Expected @('repository', 'commit', 'tree', 'tree_replayed_into_commons') -Context 'Stacks composition contract.inputs.upstream'
         Test-ExactFields -Value $stacksCompose.inputs.overlay_registry -Expected @('path', 'bytes', 'sha256', 'entries') -Context 'Stacks composition contract.inputs.overlay_registry'
         Test-ExactFields -Value $stacksCompose.determinism -Expected @('input_order', 'path_encoding', 'path_separator', 'path_order', 'absolute_or_parent_paths', 'duplicate_paths', 'symlinks', 'timestamps', 'generated_members', 'repeatability') -Context 'Stacks composition contract.determinism'
+        Test-ExactFields -Value $stacksCompose.preflight_tool -Expected @('state', 'capability', 'path', 'version', 'runtime', 'invocation', 'bytes', 'sha256', 'network', 'git', 'writes') -Context 'Stacks composition contract.preflight_tool'
+        Test-ExactFields -Value $stacksCompose.regression -Expected @('path', 'version', 'bytes', 'sha256', 'cases') -Context 'Stacks composition contract.regression'
         Test-ExactFields -Value $stacksCompose.tool -Expected @('state', 'path', 'version', 'sha256') -Context 'Stacks composition contract.tool'
-        Test-ExactFields -Value $stacksCompose.preconditions -Expected @('upstream_pin_bound', 'upstream_tree_replayed', 'approved_overlay_selected', 'overlay_identity_verified', 'tool_identity_bound', 'output_root_declared', 'ready') -Context 'Stacks composition contract.preconditions'
-        Test-ExactFields -Value $stacksCompose.fixture -Expected @('id', 'expected_outcome', 'observed_outcome', 'outcome_matches', 'composition_executed') -Context 'Stacks composition contract.fixture'
+        Test-ExactFields -Value $stacksCompose.preconditions -Expected @('upstream_pin_bound', 'upstream_tree_replayed', 'approved_overlay_selected', 'overlay_identity_verified', 'preflight_tool_bound', 'tool_identity_bound', 'output_root_declared', 'ready') -Context 'Stacks composition contract.preconditions'
+        Test-ExactFields -Value $stacksCompose.fixture -Expected @('id', 'receipt', 'expected_outcome', 'observed_outcome', 'outcome_matches', 'composition_executed') -Context 'Stacks composition contract.fixture'
         Test-ExactFields -Value $stacksCompose.output -Expected @('manifest', 'tree', 'members', 'bytes', 'sha256') -Context 'Stacks composition contract.output'
-        Test-ExactFields -Value $stacksCompose.aggregate -Expected @('preflight_checks', 'composition_runs', 'generated_members', 'builds') -Context 'Stacks composition contract.aggregate'
+        Test-ExactFields -Value $stacksCompose.aggregate -Expected @('static_contract_checks', 'executable_preflight_runs', 'composition_runs', 'generated_members', 'builds') -Context 'Stacks composition contract.aggregate'
         Test-ExactFields -Value $stacksCompose.boundaries -Expected @('contract_fixture_only', 'overlay_content_bound', 'composed_edition_bound', 'composed_build_bound', 'modified_edition_bound', 'upstream_endorsement_implied', 'upstream_payload_files_added', 'upstream_payload_bytes_added', 'archives_or_binary_payloads_added', 'reader_or_edition_files_added', 'mathematical_review_claimed') -Context 'Stacks composition contract.boundaries'
-        if (-not (Test-StacksComposeCriticalBindings -Contract $stacksCompose -Upstream $stacks.upstream -RegistryBytes $stacksOverlayBytes.Length -RegistrySha256 $stacksOverlaySha256)) { throw 'critical bindings differ from the exact blocked-preflight contract' }
+        if (-not (Test-StacksComposeCriticalBindings -Contract $stacksCompose -Upstream $stacks.upstream -RegistryBytes $stacksOverlayBytes.Length -RegistrySha256 $stacksOverlaySha256 -PreflightToolBytes $stacksPreflightToolBytes.Length -PreflightToolSha256 $stacksPreflightToolSha256 -RegressionBytes $stacksPreflightRegressionBytes.Length -RegressionSha256 $stacksPreflightRegressionSha256)) { throw 'critical bindings differ from the exact executable blocked-preflight contract' }
 
-        $composeMutations = @('registry', 'selection', 'ready', 'outcome', 'tool', 'executed', 'output', 'bytes', 'build', 'policy', 'null_count', 'numeric_bool', 'null_members')
+        $composeMutations = @('registry', 'selection', 'ready', 'outcome', 'preflight_path', 'preflight_hash', 'regression_hash', 'tool', 'executed', 'output', 'bytes', 'build', 'policy', 'null_count', 'numeric_bool', 'null_members')
         foreach ($mutation in $composeMutations) {
             $probe = $stacksComposeText | ConvertFrom-Json -Depth 100 -DateKind String
             switch ($mutation) {
@@ -782,6 +934,9 @@ if ([IO.File]::Exists($stacksComposeFull)) {
                 'selection' { $probe.inputs.selected_overlay_id = 'first-overlay' }
                 'ready' { $probe.preconditions.ready = $true }
                 'outcome' { $probe.fixture.observed_outcome = 'PASS' }
+                'preflight_path' { $probe.preflight_tool.path = 'scripts/other.py' }
+                'preflight_hash' { $probe.preflight_tool.sha256 = ('0' * 64) }
+                'regression_hash' { $probe.regression.sha256 = ('0' * 64) }
                 'tool' { $probe.tool.state = 'bound'; $probe.tool.path = 'scripts/compose.py'; $probe.tool.version = '1'; $probe.tool.sha256 = ('0' * 64) }
                 'executed' { $probe.fixture.composition_executed = $true }
                 'output' { $probe.output.members = @('output.tex'); $probe.output.manifest = 'manifest.json'; $probe.output.tree = ('0' * 40); $probe.output.sha256 = ('0' * 64) }
@@ -792,7 +947,7 @@ if ([IO.File]::Exists($stacksComposeFull)) {
                 'numeric_bool' { $probe.boundaries.modified_edition_bound = 0 }
                 'null_members' { $probe.output.members = $null }
             }
-            if (-not (Test-StacksComposeCriticalBindings -Contract $probe -Upstream $stacks.upstream -RegistryBytes $stacksOverlayBytes.Length -RegistrySha256 $stacksOverlaySha256)) { $composeRejected++ }
+            if (-not (Test-StacksComposeCriticalBindings -Contract $probe -Upstream $stacks.upstream -RegistryBytes $stacksOverlayBytes.Length -RegistrySha256 $stacksOverlaySha256 -PreflightToolBytes $stacksPreflightToolBytes.Length -PreflightToolSha256 $stacksPreflightToolSha256 -RegressionBytes $stacksPreflightRegressionBytes.Length -RegressionSha256 $stacksPreflightRegressionSha256)) { $composeRejected++ }
         }
         if ($composeRejected -ne $composeMutations.Count) { throw 'blocked-preflight mutation regression failed' }
     }
@@ -806,6 +961,64 @@ else {
     $stacksCompositionContractPass = $false
     $stacksReferenceLayerContractPass = $false
 }
+
+$stacksPreflightContractPass = $true
+$stacksPreflightResultBytes = [byte[]]@()
+$stacksPreflightResultSha256 = ''
+$stacksPreflightResult = $null
+$preflightMutations = @()
+$preflightRejected = 0
+$preflightErrorStart = $errors.Count
+if ([IO.File]::Exists($stacksPreflightResultFull)) {
+    try {
+        $stacksPreflightResultBytes = [IO.File]::ReadAllBytes($stacksPreflightResultFull)
+        $stacksPreflightResultSha256 = Get-Sha256 -Bytes $stacksPreflightResultBytes
+        if ($stacksPreflightResultBytes.Length -ge 3 -and $stacksPreflightResultBytes[0] -eq 0xEF -and $stacksPreflightResultBytes[1] -eq 0xBB -and $stacksPreflightResultBytes[2] -eq 0xBF) { throw 'contains a UTF-8 BOM' }
+        $stacksPreflightResultText = $utf8.GetString($stacksPreflightResultBytes)
+        if ($stacksPreflightResultText.Contains("`r")) { throw 'must use LF line endings' }
+        $stacksPreflightResult = $stacksPreflightResultText | ConvertFrom-Json -Depth 100 -DateKind String
+        Test-ExactFields -Value $stacksPreflightResult -Expected @('schema', 'status', 'errors', 'outcome', 'preflight_tool', 'inputs', 'regression', 'preconditions', 'output', 'checks') -Context 'Stacks executable preflight result'
+        Test-ExactFields -Value $stacksPreflightResult.preflight_tool -Expected @('path', 'version', 'bytes', 'sha256', 'capability') -Context 'Stacks executable preflight result.preflight_tool'
+        Test-ExactFields -Value $stacksPreflightResult.inputs -Expected @('upstream_pin', 'overlay_registry', 'composition_contract') -Context 'Stacks executable preflight result.inputs'
+        Test-ExactFields -Value $stacksPreflightResult.inputs.upstream_pin -Expected @('path', 'bytes', 'sha256', 'repository', 'commit', 'tree') -Context 'Stacks executable preflight result.inputs.upstream_pin'
+        Test-ExactFields -Value $stacksPreflightResult.inputs.overlay_registry -Expected @('path', 'bytes', 'sha256', 'entries') -Context 'Stacks executable preflight result.inputs.overlay_registry'
+        Test-ExactFields -Value $stacksPreflightResult.inputs.composition_contract -Expected @('path', 'bytes', 'sha256') -Context 'Stacks executable preflight result.inputs.composition_contract'
+        Test-ExactFields -Value $stacksPreflightResult.regression -Expected @('path', 'version', 'bytes', 'sha256', 'cases') -Context 'Stacks executable preflight result.regression'
+        Test-ExactFields -Value $stacksPreflightResult.preconditions -Expected @('upstream_pin_bound', 'empty_registry_verified', 'preflight_tool_bound', 'composition_tool_bound', 'composition_ready') -Context 'Stacks executable preflight result.preconditions'
+        Test-ExactFields -Value $stacksPreflightResult.output -Expected @('composition_executed', 'manifest', 'tree', 'members', 'bytes', 'sha256') -Context 'Stacks executable preflight result.output'
+        Test-ExactFields -Value $stacksPreflightResult.checks -Expected @('strict_json', 'duplicate_keys_rejected', 'utf8_lf_no_bom', 'fixed_paths_and_symlinks_rejected', 'pin_identity_matches_registry_and_contract', 'registry_identity_matches_contract', 'tool_identity_matches_contract', 'regression_identity_matches_contract', 'empty_registry', 'network_queried') -Context 'Stacks executable preflight result.checks'
+        if (-not (Test-StacksPreflightCriticalBindings -Result $stacksPreflightResult -ContractBytes $stacksComposeBytes.Length -ContractSha256 $stacksComposeSha256 -RegistryBytes $stacksOverlayBytes.Length -RegistrySha256 $stacksOverlaySha256 -PreflightToolBytes $stacksPreflightToolBytes.Length -PreflightToolSha256 $stacksPreflightToolSha256 -RegressionBytes $stacksPreflightRegressionBytes.Length -RegressionSha256 $stacksPreflightRegressionSha256)) { throw 'critical bindings differ from the exact executable blocked-state receipt' }
+
+        $preflightMutations = @('outcome', 'tool_hash', 'pin_hash', 'contract_hash', 'registry_entries', 'composition_ready', 'executed', 'network', 'null_members', 'numeric_bool')
+        foreach ($mutation in $preflightMutations) {
+            $probe = $stacksPreflightResultText | ConvertFrom-Json -Depth 100 -DateKind String
+            switch ($mutation) {
+                'outcome' { $probe.outcome = 'PASS' }
+                'tool_hash' { $probe.preflight_tool.sha256 = ('0' * 64) }
+                'pin_hash' { $probe.inputs.upstream_pin.sha256 = ('0' * 64) }
+                'contract_hash' { $probe.inputs.composition_contract.sha256 = ('0' * 64) }
+                'registry_entries' { $probe.inputs.overlay_registry.entries = 1 }
+                'composition_ready' { $probe.preconditions.composition_ready = $true }
+                'executed' { $probe.output.composition_executed = $true }
+                'network' { $probe.checks.network_queried = $true }
+                'null_members' { $probe.output.members = $null }
+                'numeric_bool' { $probe.preconditions.preflight_tool_bound = 1 }
+            }
+            if (-not (Test-StacksPreflightCriticalBindings -Result $probe -ContractBytes $stacksComposeBytes.Length -ContractSha256 $stacksComposeSha256 -RegistryBytes $stacksOverlayBytes.Length -RegistrySha256 $stacksOverlaySha256 -PreflightToolBytes $stacksPreflightToolBytes.Length -PreflightToolSha256 $stacksPreflightToolSha256 -RegressionBytes $stacksPreflightRegressionBytes.Length -RegressionSha256 $stacksPreflightRegressionSha256)) { $preflightRejected++ }
+        }
+        if ($preflightRejected -ne $preflightMutations.Count) { throw 'executable-preflight result mutation regression failed' }
+    }
+    catch {
+        Add-Error "Stacks executable-preflight result validation failed: $($_.Exception.Message)"
+        $stacksPreflightContractPass = $false
+        $stacksReferenceLayerContractPass = $false
+    }
+}
+else {
+    $stacksPreflightContractPass = $false
+    $stacksReferenceLayerContractPass = $false
+}
+if ($errors.Count -ne $preflightErrorStart) { $stacksPreflightContractPass = $false }
 if ($errors.Count -ne $stacksErrorStart) { $stacksReferenceLayerContractPass = $false }
 
 Test-RepoPath -Path $board.human_board -Context 'human_board' -Required $true
@@ -1677,7 +1890,8 @@ $expectedCiChecks = [string[]]@(
     'board_schema_maps',
     'exact_local_consumer',
     'promisor_no_lazy_fetch',
-    'claim_lifecycle_fixtures'
+    'claim_lifecycle_fixtures',
+    'stacks_preflight_fixture'
 )
 $continuousValidationContractPass = $true
 $expectedContinuousValidationFields = [string[]]@('workflow', 'checkout', 'events', 'checks', 'pinned_actions', 'corpus_builds')
@@ -1726,7 +1940,11 @@ if ([IO.File]::Exists($ciWorkflowFull)) {
         'check-adopt.ps1',
         'get-adopt.py',
         'test-adopt-offline.py',
-        'test-claims.py'
+        'test-claims.py',
+        'stacks-preflight.py',
+        'test-stacks-preflight.py',
+        'stacks-preflight.json',
+        'BLOCKED_EMPTY_OVERLAY_REGISTRY'
     )) {
         if (-not $ciWorkflowText.Contains($token, [StringComparison]::Ordinal)) {
             Add-Error "continuous_validation workflow is missing required sparse-gate token: $token"
@@ -1882,12 +2100,10 @@ foreach ($item in @($board.items)) {
         $cursor = [string]$item.next_cursor
         $requiredCursorTokens = [string[]]@(
             'coordinate one Commons namespace writer',
-            'independently replay the pinned upstream identity',
-            'validate the zero-entry registry',
-            'first namespaced overlay entry',
-            'execute the composition contract',
-            'first deterministic composed-build fixture',
-            'exact input and output identities'
+            'approve the first provenance-complete overlay entry',
+            'bind a separate exact composition executor',
+            'before changing readiness',
+            'before changing readiness or producing any composed output'
         )
         $cursorPass = $true
         foreach ($token in $requiredCursorTokens) {
@@ -1896,12 +2112,12 @@ foreach ($item in @($board.items)) {
                 $cursorPass = $false
             }
         }
-        if ([string]$item.coverage_state -cne 'upstream_pin_bound_zero_entry_overlay_registry_and_composition_contract_no_composed_build') { Add-Error 'item:stacks-commons-layer must bind the pin, zero-entry registry, and blocked composition contract without claiming overlay content or a build.'; $cursorPass = $false }
+        if ([string]$item.coverage_state -cne 'pin_registry_preflight_bound_no_overlay_or_build') { Add-Error 'item:stacks-commons-layer must bind the pin, zero-entry registry, and executable blocked-state preflight without claiming overlay content, an executor, or a build.'; $cursorPass = $false }
         if ([string]$item.coverage_class -cne 'unworked') { Add-Error 'item:stacks-commons-layer must remain unworked until mathematical overlay content is bound.'; $cursorPass = $false }
         foreach ($path in @('manifests/stacks-pin.json', 'manifests/stacks-overlay.json', 'manifests/stacks-compose.json')) {
             if (-not ([string]$item.source_basis).Contains($path, [StringComparison]::Ordinal)) { Add-Error "item:stacks-commons-layer source_basis must cite $path."; $cursorPass = $false }
         }
-        foreach ($path in @('manifests/stacks-overlay.json', 'manifests/stacks-compose.json')) {
+        foreach ($path in @('manifests/stacks-overlay.json', 'manifests/stacks-compose.json', 'manifests/stacks-preflight.json', 'scripts/stacks-preflight.py', 'scripts/test-stacks-preflight.py')) {
             if (-not (@($item.related_paths) -ccontains $path)) { Add-Error "item:stacks-commons-layer related_paths must bind $path."; $cursorPass = $false }
         }
         if ([string]$item.owner -cne 'Mathematics Commons') { Add-Error 'item:stacks-commons-layer must name Mathematics Commons governance.'; $cursorPass = $false }
@@ -2240,14 +2456,32 @@ $report = [ordered]@{
             sha256 = $stacksComposeSha256
             schema = [string]$stacksCompose.schema
             state = [string]$stacksCompose.state
-            preflight_checks = [int]$stacksCompose.aggregate.preflight_checks
+            static_contract_checks = [int]$stacksCompose.aggregate.static_contract_checks
+            executable_preflight_runs = [int]$stacksCompose.aggregate.executable_preflight_runs
             composition_runs = [int]$stacksCompose.aggregate.composition_runs
             generated_members = [int]$stacksCompose.aggregate.generated_members
             builds = [int]$stacksCompose.aggregate.builds
             mutation_probes = $composeMutations.Count
             mutation_rejections = $composeRejected
-            tool_state = [string]$stacksCompose.tool.state
+            preflight_tool = [ordered]@{
+                path = [string]$stacksCompose.preflight_tool.path
+                version = [string]$stacksCompose.preflight_tool.version
+                bytes = [int64]$stacksCompose.preflight_tool.bytes
+                sha256 = [string]$stacksCompose.preflight_tool.sha256
+                capability = [string]$stacksCompose.preflight_tool.capability
+                network = [bool]$stacksCompose.preflight_tool.network
+                git = [bool]$stacksCompose.preflight_tool.git
+            }
+            regression = [ordered]@{
+                path = [string]$stacksCompose.regression.path
+                version = [string]$stacksCompose.regression.version
+                bytes = [int64]$stacksCompose.regression.bytes
+                sha256 = [string]$stacksCompose.regression.sha256
+                cases = [int]$stacksCompose.regression.cases
+            }
+            composition_tool_state = [string]$stacksCompose.tool.state
             preflight_ready = [bool]$stacksCompose.preconditions.ready
+            receipt = [string]$stacksCompose.fixture.receipt
             expected_outcome = [string]$stacksCompose.fixture.expected_outcome
             observed_outcome = [string]$stacksCompose.fixture.observed_outcome
             composition_executed = [bool]$stacksCompose.fixture.composition_executed
@@ -2269,6 +2503,20 @@ $report = [ordered]@{
                 reader_or_edition_files_added = [int]$stacksCompose.boundaries.reader_or_edition_files_added
                 mathematical_review_claimed = [bool]$stacksCompose.boundaries.mathematical_review_claimed
             }
+        }
+        executable_preflight = [ordered]@{
+            path = $stacksPreflightResultPath
+            bytes = $stacksPreflightResultBytes.Length
+            sha256 = $stacksPreflightResultSha256
+            schema = [string]$stacksPreflightResult.schema
+            status = [string]$stacksPreflightResult.status
+            errors = @($stacksPreflightResult.errors)
+            outcome = [string]$stacksPreflightResult.outcome
+            composition_ready = [bool]$stacksPreflightResult.preconditions.composition_ready
+            composition_executed = [bool]$stacksPreflightResult.output.composition_executed
+            network_queried = [bool]$stacksPreflightResult.checks.network_queried
+            mutation_probes = $preflightMutations.Count
+            mutation_rejections = $preflightRejected
         }
         layers = @($stacks.layer_order).Count
         overlay_contents = @($stacks.overlay_contents).Count
@@ -2327,7 +2575,8 @@ $report = [ordered]@{
         stacks_architecture_layers = @($stacks.layer_order).Count
         stacks_overlay_registry_entries = [int]$stacksOverlay.aggregate.registry_entries
         stacks_overlay_mathematical_entries = [int]$stacksOverlay.aggregate.registered_mathematical_entries
-        stacks_composition_preflight_checks = [int]$stacksCompose.aggregate.preflight_checks
+        stacks_static_contract_checks = [int]$stacksCompose.aggregate.static_contract_checks
+        stacks_executable_preflight_runs = [int]$stacksCompose.aggregate.executable_preflight_runs
         stacks_composition_runs = [int]$stacksCompose.aggregate.composition_runs
         stacks_generated_members = [int]$stacksCompose.aggregate.generated_members
         stacks_builds = [int]$stacksCompose.aggregate.builds
@@ -2335,6 +2584,8 @@ $report = [ordered]@{
         stacks_overlay_mutation_rejections = $overlayRejected
         stacks_composition_mutation_probes = $composeMutations.Count
         stacks_composition_mutation_rejections = $composeRejected
+        stacks_preflight_mutation_probes = $preflightMutations.Count
+        stacks_preflight_mutation_rejections = $preflightRejected
         stacks_intake_fields = $expectedStacksTemplateIds.Count
         generic_claim_routes = $genericClaimRouteRows
         stacks_claim_routes = $stacksClaimRouteRows
@@ -2366,16 +2617,21 @@ $report = [ordered]@{
             $stacksReferenceLayerContractPass -and
             $stacksOverlayRegistryContractPass -and
             $stacksCompositionContractPass -and
+            $stacksPreflightFilesPass -and
+            $stacksPreflightContractPass -and
             $stacksItemContractPass -and
             $stacksIntakeContractPass
         )
         stacks_overlay_registry_contract = $stacksOverlayRegistryContractPass
         stacks_composition_contract = $stacksCompositionContractPass
+        stacks_preflight_result_contract = $stacksPreflightContractPass
         stacks_empty_preflight_mutation_contract = (
             $overlayMutations.Count -gt 0 -and
             $overlayRejected -eq $overlayMutations.Count -and
             $composeMutations.Count -gt 0 -and
-            $composeRejected -eq $composeMutations.Count
+            $composeRejected -eq $composeMutations.Count -and
+            $preflightMutations.Count -gt 0 -and
+            $preflightRejected -eq $preflightMutations.Count
         )
         human_board_complete = (
             $humanBoardRowIds.Count -eq $ids.Count -and

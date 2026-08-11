@@ -13,12 +13,15 @@ on:
       - "manifests/stacks-pin.json"
       - "manifests/stacks-overlay.json"
       - "manifests/stacks-compose.json"
+      - "manifests/stacks-preflight.json"
       - "manifests/github-custody/**"
       - "scripts/check-adopt.ps1"
       - "scripts/check-claims.py"
       - "scripts/get-adopt.py"
       - "scripts/test-adopt-offline.py"
       - "scripts/test-claims.py"
+      - "scripts/stacks-preflight.py"
+      - "scripts/test-stacks-preflight.py"
   push:
     branches:
       - main
@@ -33,12 +36,15 @@ on:
       - "manifests/stacks-pin.json"
       - "manifests/stacks-overlay.json"
       - "manifests/stacks-compose.json"
+      - "manifests/stacks-preflight.json"
       - "manifests/github-custody/**"
       - "scripts/check-adopt.ps1"
       - "scripts/check-claims.py"
       - "scripts/get-adopt.py"
       - "scripts/test-adopt-offline.py"
       - "scripts/test-claims.py"
+      - "scripts/stacks-preflight.py"
+      - "scripts/test-stacks-preflight.py"
   workflow_dispatch:
 
 permissions:
@@ -72,6 +78,7 @@ jobs:
             /manifests/stacks-pin.json
             /manifests/stacks-overlay.json
             /manifests/stacks-compose.json
+            /manifests/stacks-preflight.json
             /manifests/github-custody/maps-r6.json
             /reader-pdfs/README.md
             /sources/README.md
@@ -80,6 +87,8 @@ jobs:
             /scripts/get-adopt.py
             /scripts/test-adopt-offline.py
             /scripts/test-claims.py
+            /scripts/stacks-preflight.py
+            /scripts/test-stacks-preflight.py
 
       - name: Set up Python
         uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
@@ -88,6 +97,17 @@ jobs:
 
       - name: Install the schema validator
         run: python -m pip install --disable-pip-version-check --no-input jsonschema==4.26.0
+
+      - name: Replay the exact executable Stacks blocked-state preflight
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/stacks-preflight.py \
+            --root . \
+            --expect BLOCKED_EMPTY_OVERLAY_REGISTRY \
+            > "$RUNNER_TEMP/stacks-preflight.json"
+          cmp manifests/stacks-preflight.json "$RUNNER_TEMP/stacks-preflight.json"
+          python scripts/test-stacks-preflight.py --root .
 
       - name: Validate the board, schema, maps, queues, and interfaces
         shell: pwsh
@@ -108,11 +128,13 @@ jobs:
           }
           foreach ($field in @(
             'stacks_architecture_layers', 'stacks_overlay_registry_entries',
-            'stacks_overlay_mathematical_entries', 'stacks_composition_preflight_checks',
+            'stacks_overlay_mathematical_entries', 'stacks_static_contract_checks',
+            'stacks_executable_preflight_runs',
             'stacks_composition_runs', 'stacks_generated_members', 'stacks_builds',
             'stacks_intake_fields', 'stacks_claim_routes',
             'stacks_overlay_mutation_probes', 'stacks_overlay_mutation_rejections',
-            'stacks_composition_mutation_probes', 'stacks_composition_mutation_rejections'
+            'stacks_composition_mutation_probes', 'stacks_composition_mutation_rejections',
+            'stacks_preflight_mutation_probes', 'stacks_preflight_mutation_rejections'
           )) {
             if ($report.aggregate.$field -cne $checked.aggregate.$field) {
               throw "Checked-in validation aggregate is stale: $field"
@@ -120,7 +142,8 @@ jobs:
           }
           foreach ($field in @(
             'stacks_reference_layer_contract', 'stacks_overlay_registry_contract',
-            'stacks_composition_contract', 'stacks_empty_preflight_mutation_contract'
+            'stacks_composition_contract', 'stacks_preflight_result_contract',
+            'stacks_empty_preflight_mutation_contract'
           )) {
             if ($report.checks.$field -cne $checked.checks.$field) {
               throw "Checked-in validation check is stale: $field"
