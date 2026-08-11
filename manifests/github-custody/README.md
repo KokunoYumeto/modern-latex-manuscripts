@@ -8,6 +8,7 @@ producer payloads.
 ## Current task-owned indexes
 
 - Current Stacks-pin and Commons-handback
+  [closure](../published-github/stacks-pin-r1-close.json) and
   [source receipt](../published-github/stacks-pin-r1.json), with the exact
   upstream reference in [stacks-pin.json](../stacks-pin.json), 78 reconciled
   coverage rows, and hardened exact-evidence handbacks; predecessor adoption v3
@@ -101,14 +102,14 @@ remain immutable. The
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
-The current adoption v3 [closure](../published-github/adopt-v3-close.json)
-binds source commit `58503bb1` and receipt commit `fa1a8d22`: source readback
-matched 19/19 paths / 1,173,935 bytes, receipt readback matched 6/6 paths /
-623,475 bytes, and both Actions runs passed. The additive evidence aggregate
-is 42 cycles, 3,181 commit-pinned observations, and 1,219,041,071 bytes with
-zero mismatches. The adoption v2
-[closure](../published-github/adopt-v2-close.json) remains immutable predecessor
-evidence.
+The current Stacks-pin and Commons-handback
+[closure](../published-github/stacks-pin-r1-close.json) binds source commit
+`eb82a809` and receipt commit `5f66d4d1`: source readback matched 19/19 paths /
+690,910 bytes, receipt readback matched 5/5 paths / 585,847 bytes, and both
+Actions runs passed. The additive evidence aggregate is 44 cycles, 3,205
+commit-pinned observations, and 1,220,317,828 bytes with zero mismatches. The
+adoption v3 [closure](../published-github/adopt-v3-close.json) remains immutable
+predecessor evidence.
 The [38-cycle Commons Stacks intake closure](../published-github/stacks-intake-close.json)
 remains the immutable predecessor at 3,132 observations / 1,215,546,817 bytes;
 it preserves Steinitz and all earlier generations without rewriting them.

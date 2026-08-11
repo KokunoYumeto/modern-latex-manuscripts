@@ -15,7 +15,7 @@ readback, and where to start browsing without replaying old task transcripts.
 | Locate an exact tracked source | [Source-shelf index](../sources/README.md) | [`20260807_sources_r5.csv`](../manifests/github-custody/20260807_sources_r5.csv) and [summary](../manifests/github-custody/20260807_sources_r5.json) |
 | Verify reader/source inventories against the current Git tree | [Reader shelf](../reader-pdfs/README.md) and [source shelf](../sources/README.md) | [`20260808_shelves_r9.json`](../manifests/github-custody/20260808_shelves_r9.json) |
 | Understand the mixed classical shelf | [Classical shelf map](classical-map.md) | [`20260806_classical.json`](../manifests/github-custody/20260806_classical.json) |
-| Audit the GitHub maintenance chain | This page | Current adoption v3 [closure](../manifests/published-github/adopt-v3-close.json) and [source receipt](../manifests/published-github/adopt-v3.json); predecessor adoption v2 [closure](../manifests/published-github/adopt-v2-close.json) |
+| Audit the GitHub maintenance chain | This page | Current Stacks-pin and Commons-handback [closure](../manifests/published-github/stacks-pin-r1-close.json) and [source receipt](../manifests/published-github/stacks-pin-r1.json); predecessor adoption v3 [closure](../manifests/published-github/adopt-v3-close.json) |
 | Interpret manifests and readback receipts | [Custody evidence](../manifests/github-custody/README.md) | [Raw-readback receipts](../manifests/published-github/README.md) |
 
 ## Published GitHub Cycles
@@ -55,14 +55,16 @@ readback, and where to start browsing without replaying old task transcripts.
 | Exact Commons Stacks intake | Adds a dedicated fail-closed issue form and issue-auditor contract for one explicit writer, repository, license, commit, Commons namespace, deterministic composition, tests, sync cursor, and five traceability agreements. Manual claims cannot omit the eight Stacks-only sections or substitute a floating commit. No upstream, overlay, producer, or corpus byte was added. | [`519ffc06`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/519ffc0618c90a6565ccf3166ed9a065790e835f), [`a970668c`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/a970668c172add6870701ff93354bc17b98d587a) | [Source run `31479181577`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31479181577), [receipt run `31479813906`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31479813906), [14-path source receipt](../manifests/published-github/stacks-intake.json), [38-cycle closure](../manifests/published-github/stacks-intake-close.json) |
 | Adoption coverage classes and workflow claims | Upgrades the 67-row board to the explicit `complete`, `active`, `partial`, `scattered`, `weak`, `source_only`, and `unworked` classes without turning them into certification; every claim now selects one registered workflow allowed by its exact row, including the four bounded Stacks workflows. Repairs stale archive and external discovery pointers without changing producer bytes. | [`327a1c74`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/327a1c74675b30e7a821b4f82e478904f9cb7b77), [`7d56af9d`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/7d56af9d1fc1e305d0ec44e78f9809d7df5dd25b) | [Source run `31482490040`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31482490040), [receipt run `31482938835`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31482938835), [18-path source receipt](../manifests/published-github/adopt-v2.json), [40-cycle closure](../manifests/published-github/adopt-v2-close.json) |
 | Adoption coverage reconciliation and claim trust | Expands the exact board to 78 rows while separating EGA, Noether, Gauss, Dedekind, and Dirichlet surfaces and reconciling Weber/Steinitz GitHub-versus-public frontiers before continuation. Binds two same-commit executables outside the four-file ingestion contract; rejects mixed revisions, duplicate YAML keys, disguised checkboxes, path-alias namespaces, and equal or ancestor/descendant writer collisions; tests both missing executable blobs without a lazy fetch. No producer, corpus, or Zenodo byte changed. | [`58503bb1`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/58503bb1689d357387180c4056152c12d44a8726), [`fa1a8d22`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/fa1a8d224e2bc4325a6ebf3e56bb593fc6b6f6bc) | [Source run `31488460369`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31488460369), [receipt run `31488866912`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31488866912), [19-path source receipt](../manifests/published-github/adopt-v3.json), [42-cycle closure](../manifests/published-github/adopt-v3-close.json) |
+| Pinned Stacks reference and hardened Commons handbacks | Binds the official upstream Stacks repository at one exact commit/tree/license identity without copying its tree or claiming a Commons overlay/build/modified edition; preserves the 78-row archive/adoption board; requires exact evidence for returned work; rejects all-none returns and mismatched Stacks repository/license/commit claims; reconciles the Steinitz 1908 public witness before new source work. No producer, corpus, Zenodo, or excluded-lane byte changed. | [`eb82a809`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/eb82a8097e72eb766a8b4125028781767f07d61c), [`5f66d4d1`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/5f66d4d1c8f5b578276c5515237bea74b74eb45f) | [Source run `31492543832`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31492543832), [receipt run `31493429606`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31493429606), [19-path source receipt](../manifests/published-github/stacks-pin-r1.json), [44-cycle closure](../manifests/published-github/stacks-pin-r1-close.json) |
 
-The current adoption v3 [closure](../manifests/published-github/adopt-v3-close.json)
-binds receipt commit `fa1a8d22`: its six changed paths / 623,475 bytes and the
-source commit's 19 paths / 1,173,935 bytes all matched anonymous commit-pinned
-raw GitHub bytes. The additive evidence aggregate is now 42 cycles, 3,181
-observations, and 1,219,041,071 bytes with zero mismatches. The adoption v2
-[closure](../manifests/published-github/adopt-v2-close.json) remains immutable
-predecessor evidence.
+The current Stacks-pin and Commons-handback
+[closure](../manifests/published-github/stacks-pin-r1-close.json) binds source
+commit `eb82a809` and receipt commit `5f66d4d1`: source readback matched 19/19
+paths / 690,910 bytes, receipt readback matched 5/5 paths / 585,847 bytes, and
+both Actions runs passed. The additive evidence aggregate is now 44 cycles,
+3,205 observations, and 1,220,317,828 bytes with zero mismatches. The adoption
+v3 [closure](../manifests/published-github/adopt-v3-close.json) remains
+immutable predecessor evidence.
 
 The [twenty-six-cycle predecessor archive-history receipt](../manifests/published-github/20260808_archive_r9_rb.json)
 replays all five files in its publication commit: 291,841 bytes, all matched.
@@ -280,11 +282,15 @@ remain unchanged as historical evidence.
 
 ## Link Integrity
 
-The current adoption v3 closure records the bounded committed-blob link audit
-for receipt commit `fa1a8d22`. It covers 41 committed documents, including the
+The current Stacks-pin and Commons-handback closure records the bounded
+committed-blob link audit for receipt commit `5f66d4d1`. It covers 41 committed
+documents, including the
 nineteen allowed maps, repository landings, human adoption surfaces, and eight
-contributor entry points. It resolves 1,293 local links to 821 unique targets
-with zero missing or prohibited targets. The adoption v2 source audit for
+contributor entry points. It resolves 1,306 local links to 824 unique targets
+with zero missing or prohibited targets. The adoption v3 receipt audit for
+commit `fa1a8d22` remains immutable predecessor evidence: 41 documents, 1,293
+local links, 821 unique targets, and zero missing or prohibited targets. The
+adoption v2 source audit for
 commit `327a1c74` remains immutable predecessor evidence: 41 documents, 1,279
 local links, 818 unique targets, and zero missing or prohibited targets. The sparse-CI,
 offline-claim-auditor, offline-consumer,
@@ -309,7 +315,7 @@ Corrections supersede failed methods without deleting their error history.
 
 ## Boundary
 
-The index names only the forty exact GitHub-maintenance cycles through the
+The index names only the forty-four exact GitHub-maintenance cycles through the
 current receipt. It does not enumerate unrelated receipt directories or
 separately owned, revoked, or prohibited corpus surfaces. Cataloging preserves distinct paths and generations;
 it does not silently deduplicate, rewrite, promote, or certify producer work.
