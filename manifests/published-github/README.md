@@ -6,9 +6,9 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the delivered adoption v3 [source receipt](adopt-v3.json), then the
-current clean adoption v2 [closure](adopt-v2-close.json) and predecessor
-[source receipt](adopt-v2.json),
+Start with the current adoption v3 [closure](adopt-v3-close.json) and
+[source receipt](adopt-v3.json), then the predecessor adoption v2
+[closure](adopt-v2-close.json) and [source receipt](adopt-v2.json),
 the predecessor [Commons Stacks intake closure](stacks-intake-close.json)
 and [source receipt](stacks-intake.json),
 the predecessor [architecture closure](stacks-r1-close.json) and
@@ -30,6 +30,16 @@ fixtures, duplicate-YAML-key guard, and 41-document link audit pass. The
 additive aggregate through the source is 41 cycles, 3,175 observations, and
 1,218,417,596 bytes with zero mismatches; no producer, corpus, or Zenodo byte
 changed.
+
+The current adoption v3 [closure](adopt-v3-close.json) binds receipt commit
+`fa1a8d224e2bc4325a6ebf3e56bb593fc6b6f6bc`: all six changed paths /
+623,475 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
+[`31488866912`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31488866912)
+passed. The exact four-file ingestion contract, two same-commit approved
+executables, separate missing-helper and missing-checker no-lazy-fetch probes,
+8 valid and 24 invalid claim fixtures, and 41-document link audit all pass.
+The additive aggregate through this receipt is 42 cycles, 3,181 observations,
+and 1,219,041,071 bytes with zero mismatches.
 
 The [adoption v2 closure](adopt-v2-close.json) binds receipt commit
 `7d56af9d1fc1e305d0ec44e78f9809d7df5dd25b`: all six changed paths /
