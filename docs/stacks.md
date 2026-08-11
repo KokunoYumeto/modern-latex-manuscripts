@@ -70,4 +70,6 @@ exports prerequisites for ordinary editorial work.
 The machine-readable form of this architecture is embedded in
 [`manifests/adopt.json`](../manifests/adopt.json) under
 `stacks_reference_layer`; Board ID `stacks-commons-layer` carries the current
-operational cursor.
+operational cursor. The exact source-commit transport, contract identities,
+tests, and anonymous public readback are bound in the
+[Commons Stacks architecture receipt](../manifests/published-github/stacks-r1.json).

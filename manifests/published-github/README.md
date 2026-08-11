@@ -6,11 +6,23 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [Steinitz frontier closure](stein-r1-close.json) and
+Start with the current [Commons Stacks architecture receipt](stacks-r1.json),
+the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [source-and-correction receipt](stein-r1.json), the [thirty-cycle frontier predecessor](frontier-r1-close.json), the
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The [Commons Stacks architecture receipt](stacks-r1.json) binds source commit
+`b94ccf40cecda93ffb94fdc5b6575e65a2c30d2f`: all 13 changed paths /
+965,016 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
+[`31476821791`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31476821791)
+passed. The 67-row board and schema now encode the five-layer independent
+Commons governance contract while explicitly claiming no upstream pin,
+overlay, or composed-build bytes. The exact consumer, missing-promisor
+regression, claim fixtures, and 40-document committed-blob link audit pass.
+The additive aggregate through the source is 35 cycles, 3,102 observations,
+and 1,213,326,459 bytes with zero mismatches.
 
 The [Steinitz frontier closure](stein-r1-close.json) binds receipt commit
 `2b1abc8cfa5b0f5ba54f556cd1be446fab589249`: all six changed paths /
