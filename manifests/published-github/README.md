@@ -7,7 +7,8 @@ transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
 Start with the current executable Stacks preflight
-[source receipt](stacks-pre-r1.json), then the predecessor empty Stacks-overlay
+[closure](stacks-pre-r1-close.json) and [source receipt](stacks-pre-r1.json),
+then the predecessor empty Stacks-overlay
 infrastructure [closure](stacks-infra-r1-close.json) and
 [source receipt](stacks-infra-r1.json), then the predecessor Stacks-pin and
 Commons-handback [closure](stacks-pin-r1-close.json) and
@@ -24,6 +25,14 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The executable Stacks preflight [closure](stacks-pre-r1-close.json) binds
+receipt commit `6a444fad657ad9035feb7707a17e9571065f879b`: all five changed
+paths / 641,474 bytes matched anonymous commit-pinned raw GitHub bytes, and
+Actions run
+[`31536509222`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31536509222)
+passed. Together with the source generation, the additive aggregate is 48
+cycles, 3,245 observations, and 1,223,353,877 bytes with zero mismatches.
 
 The executable Stacks preflight [source receipt](stacks-pre-r1.json) binds
 accepted source commit `23721648dd7bab01221cf4e762e73b7ada83221a`: all
