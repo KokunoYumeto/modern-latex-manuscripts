@@ -8,6 +8,7 @@ producer payloads.
 ## Current repository indexes
 
 - Current reader-first interface
+  [closure](../published-github/ui-clean-r2-close.json) and
   [source receipt](../published-github/ui-clean-r2.json), binding the concise
   landing, fleet map, workflow, active queue, unchanged 78-row adoption board,
   clean validator, committed-link replay, and public raw readback; predecessor

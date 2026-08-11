@@ -7,7 +7,8 @@ transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
 Start with the current reader-first interface
-[source receipt](ui-clean-r2.json), then the predecessor public-interface
+[closure](ui-clean-r2-close.json) and [source receipt](ui-clean-r2.json), then
+the predecessor public-interface
 [closure](ui-clean-r1-close.json) and [source receipt](ui-clean-r1.json),
 then the predecessor executable Stacks preflight
 [closure](stacks-pre-r1-close.json) and [source receipt](stacks-pre-r1.json),
@@ -28,6 +29,14 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The reader-first interface [closure](ui-clean-r2-close.json) binds receipt
+commit `393318fbb3fcb63f9aec2d49062c88ae8bdb8b5d`: all five changed
+paths / 655,973 bytes matched anonymous commit-pinned raw GitHub bytes, and
+Actions run
+[`31540208826`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31540208826)
+passed. Together with the source generation, the additive aggregate is 54
+cycles, 3,291 observations, and 1,228,134,431 bytes with zero mismatches.
 
 The reader-first interface [source receipt](ui-clean-r2.json) binds accepted
 commit `d6b7d4a65ec4abb97f657399735cd48db138f61d`: all eight changed
