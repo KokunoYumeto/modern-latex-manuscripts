@@ -150,7 +150,7 @@
         "write_boundary"
       ],
       "properties": {
-        "status": { "const": "upstream_pin_bound_zero_entry_overlay_registry_and_composition_contract_no_composed_build" },
+        "status": { "const": "pin_registry_preflight_bound_no_overlay_or_build" },
         "human_spec": { "const": "docs/stacks.md" },
         "intake_form": { "const": "https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml" },
         "governance": { "const": "mathematics_commons_independent" },
@@ -217,10 +217,32 @@
         },
         "composition_contract": {
           "type": "object",
-          "required": ["path", "state", "composition_runs", "generated_members", "composed_build_bound"],
+          "required": ["path", "state", "preflight_tool", "preflight_result", "executable_preflight_runs", "composition_tool_state", "composition_runs", "generated_members", "composed_build_bound"],
           "properties": {
             "path": { "const": "manifests/stacks-compose.json" },
-            "state": { "const": "preflight_blocked_empty_registry" },
+            "state": { "const": "executable_preflight_bound_empty_registry" },
+            "preflight_tool": {
+              "type": "object",
+              "required": ["path", "bytes", "sha256"],
+              "properties": {
+                "path": { "const": "scripts/stacks-preflight.py" },
+                "bytes": { "const": 18462 },
+                "sha256": { "const": "ABC945BA175B8461892CB6843A014BC6FAB654D8A9F0A2CD7492B0DA1779D776" }
+              },
+              "additionalProperties": false
+            },
+            "preflight_result": {
+              "type": "object",
+              "required": ["path", "bytes", "sha256"],
+              "properties": {
+                "path": { "const": "manifests/stacks-preflight.json" },
+                "bytes": { "const": 2119 },
+                "sha256": { "const": "7B27367C3A3515AC4C2CAB7A712D95765929F61800357C4547AEB0C0582BE91E" }
+              },
+              "additionalProperties": false
+            },
+            "executable_preflight_runs": { "const": 1 },
+            "composition_tool_state": { "const": "not_bound" },
             "composition_runs": { "const": 0 },
             "generated_members": { "const": 0 },
             "composed_build_bound": { "const": false }
@@ -460,11 +482,12 @@
             { "const": "board_schema_maps" },
             { "const": "exact_local_consumer" },
             { "const": "promisor_no_lazy_fetch" },
-            { "const": "claim_lifecycle_fixtures" }
+            { "const": "claim_lifecycle_fixtures" },
+            { "const": "stacks_preflight_fixture" }
           ],
           "items": false,
-          "minItems": 4,
-          "maxItems": 4
+          "minItems": 5,
+          "maxItems": 5
         },
         "pinned_actions": { "const": true },
         "corpus_builds": { "const": false }

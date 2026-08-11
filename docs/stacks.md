@@ -9,11 +9,14 @@ read-only at commit `a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
 and anonymous raw-readback evidence is bound in
 [`manifests/stacks-pin.json`](../manifests/stacks-pin.json). This checkpoint
 also binds an initialized [Commons overlay registry](../manifests/stacks-overlay.json)
-with zero entries and a deterministic [composition contract](../manifests/stacks-compose.json)
-whose preflight is blocked because no overlay exists. Those files are
-control-plane infrastructure. This checkpoint still does **not** claim that an
-upstream tree was copied into Commons or that a content-bearing Commons overlay,
-composition run, composed build, or modified edition has been produced.
+with zero entries and a deterministic [composition contract](../manifests/stacks-compose.json).
+That contract now binds an exact validator-only
+[preflight executable](../scripts/stacks-preflight.py) and its
+[blocked-state result](../manifests/stacks-preflight.json). Those files are
+control-plane infrastructure. The separate composition executor remains
+unbound. This checkpoint still does **not** claim that an upstream tree was
+copied into Commons or that a content-bearing Commons overlay, composition run,
+output, composed build, or modified edition has been produced.
 
 Upstream Stacks remains a respected source and synchronization target. Its
 acceptance is not a dependency, approval gate, or veto over Commons editorial
@@ -32,9 +35,11 @@ merge state.
    tests, and review receipts in a clearly renamed Commons namespace. Never
    present overlay material as upstream-authored or upstream-approved.
 3. **Deterministic composition.** The current preflight contract refuses to
-   compose an empty registry. Build only from one approved upstream pin plus one
-   approved overlay commit. Record both inputs, the composition tool, generated
-   members, bytes, hashes, tests, failures, and the resulting cursor.
+   compose an empty registry. Its executable is validation-only, not the
+   composition executor. Build only from one approved upstream pin plus one
+   approved overlay commit and a separately bound exact executor. Record all
+   inputs, the executor, generated members, bytes, hashes, tests, failures, and
+   the resulting cursor.
 4. **Optional modified edition.** A public modified edition is optional. If
    produced, it must follow the applicable GFDL obligations, use a distinct
    title, preserve attribution and license/history notices, and state plainly
@@ -43,6 +48,27 @@ merge state.
    last pin, import useful maintenance through an explicit sync commit, replay
    overlay tests, and preserve conflicts and rejected changes. Synchronization
    does not surrender Commons editorial control.
+
+## Executable blocked-state preflight
+
+From the repository root, replay the exact current state with:
+
+```text
+python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY
+```
+
+The `--expect` flag makes exit 0 mean only that the validator derived the exact
+expected blocked outcome. It does not mean readiness, composition, build
+success, or mathematical review. Without `--expect`, the same valid blocked
+state exits 20. The preflight is offline and validator-only: it performs no
+composition and writes no overlay or edition output. Contract v1 deliberately
+rejects a nonempty registry rather than treating unbound content as ready.
+
+The bound state is therefore exact: zero registry entries, zero overlay content,
+zero composition runs, zero generated members, zero output, zero builds, and no
+modified edition. The next implementation generation requires one approved,
+provenance-complete overlay entry and a separately bound exact composition
+executor.
 
 ## Evidence boundary
 
@@ -90,17 +116,18 @@ ancestor/descendant chain has one writer identity at a time. Disjoint
 namespaces—neither equal nor ancestor/descendant—may proceed independently.
 The issue auditor requires each exact identity to occupy the whole submitted
 field, rejects mixed repository revisions, and reads both executable identities
-from the same human-approved commit as the board; local comparison is drift
+from the same human-approved commit as the board; worktree comparison is drift
 detection, not the checker trust root.
 
 1. Coordinate a single writer for the Commons namespace through that form.
 2. Replay the bound upstream repository, applicable license, commit, and tree.
 3. Validate the existing zero-entry registry and blocked-preflight composition
-   contract; do not create a parallel control plane.
-4. Register the first provenance-complete namespaced overlay entry without
-   copying mutable working state or changing upstream.
-5. Bind an exact composition tool, execute the contract, and validate a minimal
-   deterministic fixture.
+   contract with the exact executable command above; do not create a parallel
+   control plane and do not treat expected-block exit 0 as readiness.
+4. Approve and register the first provenance-complete namespaced overlay entry
+   without copying mutable working state or changing upstream.
+5. Bind a separate exact composition executor, advance the contract beyond v1,
+   and only then execute and validate a minimal deterministic fixture.
 6. Return the exact pin, overlay, build, tests, review receipt, and next sync
    cursor through the existing Commons handback interface.
 

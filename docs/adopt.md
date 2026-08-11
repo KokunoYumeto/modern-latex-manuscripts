@@ -76,11 +76,18 @@ reference is now pinned at commit
 `a04446e57ec1fbc252a871afcec7752fb2807b14`, tree
 `3feeb703b931a6e7259782c10e7d1575adc83e5e`; the exact license and raw-readback
 evidence are in [`manifests/stacks-pin.json`](../manifests/stacks-pin.json).
-The task-owned [`manifests/stacks-overlay.json`](../manifests/stacks-overlay.json)
-registry has zero entries, and [`manifests/stacks-compose.json`](../manifests/stacks-compose.json)
-records a blocked preflight with zero composition runs. These are control-plane
-bytes: no upstream tree has been copied into Commons, and no content-bearing
-overlay, composed build, or modified edition byte is claimed.
+The repository-owned [`manifests/stacks-overlay.json`](../manifests/stacks-overlay.json)
+registry has zero entries. [`manifests/stacks-compose.json`](../manifests/stacks-compose.json)
+now binds the exact validator-only
+[`scripts/stacks-preflight.py`](../scripts/stacks-preflight.py) and its
+[`BLOCKED_EMPTY_OVERLAY_REGISTRY` result](../manifests/stacks-preflight.json).
+Replay it with `python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY`.
+Exit 0 in expected-outcome mode proves only
+that exact block; a normal valid blocked run exits 20. Contract v1 rejects a
+nonempty registry, and the separate composition executor remains unbound.
+These are control-plane bytes: no upstream tree has been copied into Commons,
+and there are zero overlay entries or content bytes, zero composition runs or
+outputs, and no composed build or modified edition.
 
 ## Current Work
 
@@ -94,7 +101,7 @@ overlay, composed build, or modified edition byte is claimed.
 | `illusie-cotangent-i-ii` | Illusie, *Complexe cotangent et déformations* I-II | Kokuno Yumeto coordination; producer publication custody remains separate | [Illusie map](illusie-map.md) | Continue LNM 239 at physical p.24 / printed p.6; LNM 283 is unstarted. |
 | `deligne-papers-letters` | Deligne numbered papers and correspondence | Kokuno Yumeto coordination; producer publication custody remains separate | [Deligne map](deligne-map.md) | Select one exact mapped paper, letter, correction generation, or source-review target. |
 | `weber-algebra` | Heinrich Weber, *Lehrbuch der Algebra* | Kokuno Yumeto project lanes | [Weber map](weber-map.md) | Name the volume and language: German Volume I cold re-verification continues at p.125; English Volume I requires repair reconciliation; Volume II requires immutable binding of the reported public §176 bytes before continuing after §176 at source p.643; Volume III has no proved cursor. |
-| `stacks-commons-layer` | Independently governed Stacks-derived Commons reference layer | Mathematics Commons | [Commons Stacks architecture and intake](stacks.md) | Use the dedicated Stacks form to coordinate one Commons namespace writer, replay the exact upstream pin, validate the existing zero-entry registry and blocked-preflight contract, then bind and return the first provenance-complete overlay entry and deterministic composed-build fixture. |
+| `stacks-commons-layer` | Independently governed Stacks-derived Commons reference layer | Mathematics Commons | [Commons Stacks architecture and intake](stacks.md) | Coordinate one Commons namespace writer, approve the first provenance-complete overlay entry, and bind a separate exact composition executor before changing readiness or producing any composed output. |
 
 The maintainer label describes current coordination, not ownership of the
 underlying mathematics and not an exclusive reservation. Declared overlap is
@@ -264,7 +271,10 @@ The top-level `stacks_reference_layer` makes the five-layer architecture part
 of that same four-file machine contract. It records independent Commons
 governance, the exact upstream reference pin, fixed layer order, overlay contents,
 modified-edition notices, export targets, the exact limited PR evidence, the
-no-motive-inference rule, and the Commons-only write boundary.
+no-motive-inference rule, and the Commons-only write boundary. It also binds
+the zero-entry registry, validator-only executable preflight and exact blocked
+result while keeping the separate composition executor unbound and every
+composition/output/build count at zero.
 
 The top-level `ownership_policy` makes `owner` machine-unambiguous. Current
 work requires a named coordinator and maintained status. Ready and future rows
@@ -298,7 +308,11 @@ The Stacks row alone uses its dedicated intake form. Its intent selects one
 exact compatible workflow, and each Commons overlay namespace plus its
 ancestor/descendant chain permits one writer identity at a time. Parallel
 claims remain welcome only in disjoint namespaces: neither equal nor
-ancestor/descendant.
+ancestor/descendant. Before a first overlay handback, replay `python scripts/stacks-preflight.py --root . --expect BLOCKED_EMPTY_OVERLAY_REGISTRY`;
+its exit 0 confirms only the expected blocked
+state. Contract v1 rejects nonempty input, so the first approved overlay and
+the separately identified composition executor require the next contract
+generation.
 
 The top-level `claim_regression` and `continuous_validation` fields bind a
 sparse [GitHub Actions gate](../.github/workflows/adopt.yml). On relevant pull
@@ -344,7 +358,7 @@ and SHA-256 values; validation fails if either operational source advances
 without a corresponding board review. These are synchronization evidence,
 not extra machine-ingestion files. Binding the longer work queue does not
 import its historical external-publication or excluded-lane instructions into
-this task; only board rows define current GitHub adoption scope. The top-level
+the board; only board rows define current GitHub adoption scope. The top-level
 `snapshot_policy` defines the immutable
 consumption boundary: a human-approved exact commit, four files fetched from
 that same commit, declared byte/SHA-256 replay, empty validation errors, and
