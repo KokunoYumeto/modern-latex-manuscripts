@@ -5,9 +5,13 @@ archive: exact scope manifests, path/byte/SHA-256 inventories, link audits,
 decision-log controls, and custody receipts that must remain outside frozen
 producer payloads.
 
-## Current task-owned indexes
+## Current repository indexes
 
-- Current empty Stacks-overlay infrastructure
+- Current executable Stacks-preflight
+  [source receipt](../published-github/stacks-pre-r1.json), binding the exact
+  upstream pin, zero-entry registry, composition contract, checker, and
+  regression identities; expected result `BLOCKED_EMPTY_OVERLAY_REGISTRY`
+- Predecessor empty Stacks-overlay infrastructure
   [closure](../published-github/stacks-infra-r1-close.json) and
   [source receipt](../published-github/stacks-infra-r1.json), with a zero-entry
   overlay registry and a blocked deterministic-composition preflight; no overlay
@@ -107,7 +111,14 @@ remain immutable. The
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
-The current empty Stacks-overlay infrastructure
+The current executable Stacks-preflight
+[source receipt](../published-github/stacks-pre-r1.json) binds accepted source
+commit `23721648`: source readback matched 15/15 paths / 1,157,128 bytes, and
+Actions run `31535728373` passed. It binds zero registry entries, overlay files,
+mathematical entries, composition runs, generated members, builds, and modified
+editions. The additive evidence aggregate through the source is 47 cycles,
+3,240 commit-pinned observations, and 1,222,712,403 bytes with zero mismatches.
+The predecessor empty Stacks-overlay infrastructure
 [closure](../published-github/stacks-infra-r1-close.json) binds accepted source
 commit `15c5c63b` and receipt commit `86f7bafb`: source readback matched 13/13
 paths / 581,482 bytes, receipt readback matched 7/7 paths / 655,965 bytes, and
