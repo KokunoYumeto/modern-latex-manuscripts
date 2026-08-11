@@ -7,6 +7,8 @@ producer payloads.
 
 ## Current task-owned indexes
 
+- Current [adoption v2 source receipt](../published-github/adopt-v2.json), with
+  explicit seven-class coverage and one row-allowed workflow per claim
 - Current [Commons Stacks intake closure](../published-github/stacks-intake-close.json)
   and [source receipt](../published-github/stacks-intake.json),
   with predecessor [architecture closure](../published-github/stacks-r1-close.json)

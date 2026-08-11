@@ -6,7 +6,8 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [Commons Stacks intake closure](stacks-intake-close.json)
+Start with the current [adoption v2 source receipt](adopt-v2.json),
+the predecessor [Commons Stacks intake closure](stacks-intake-close.json)
 and [source receipt](stacks-intake.json),
 the predecessor [architecture closure](stacks-r1-close.json) and
 [architecture source receipt](stacks-r1.json),
@@ -15,6 +16,17 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The [adoption v2 source receipt](adopt-v2.json) binds source commit
+`327a1c74675b30e7a821b4f82e478904f9cb7b77`: all 18 changed paths /
+1,085,518 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions
+run [`31482490040`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31482490040)
+passed. The 67 rows now carry one of seven non-certifying coverage classes;
+claims must select one registered workflow admitted by the exact row; valid,
+missing, unknown, and row-incompatible workflow fixtures replay offline. The
+four-file exact-commit consumer and missing-promisor regression pass without a
+network attempt. The additive aggregate through this source is 39 cycles,
+3,150 observations, and 1,216,632,335 bytes with zero mismatches.
 
 The [Commons Stacks intake closure](stacks-intake-close.json) binds receipt
 commit `a970668c172add6870701ff93354bc17b98d587a`: all eight changed paths /
