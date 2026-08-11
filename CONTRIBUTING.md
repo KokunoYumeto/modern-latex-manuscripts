@@ -39,9 +39,9 @@ silently replacing either generation.
 Keep new filenames short and directory trees shallow. Put long authority,
 scope, state, and hash detail in manifests or logs; do not rename frozen or
 hash-pinned artifacts. Each producer root or Commons overlay namespace has one
-writer at a time. Coordinate by exact immutable handoff rather than editing
-another task's live files, and keep repository inspection bounded to named
-paths—never scan an entire multi-terabyte user tree to discover work.
+writer at a time. Coordinate by exact immutable handoff rather than modifying
+an independently maintained live namespace, and keep repository inspection
+bounded to named paths.
 
 For Noether, review or correct a complete target; continue a partial target only at the cursor recorded in `docs/noether-map.md`. Any change that adds or advances a Noether translation checkpoint must update that map and the `GitHub Source Checkpoints` section of `docs/records/noether.md` in the same commit with the language, work, exact coverage, current path, quality state, and next cursor. The catalog generator preserves that section on overwrite. Navigation is not custody: include the actual source and artifact bytes, never just an inventory or status claim.
 

@@ -8,18 +8,18 @@ This page lists the main coordination documents in this repository and what each
 |---|---|
 | [Adoption and mirror board](adopt.md) | Exact claimable Board IDs; current, ready-for-adoption, and future author/work scopes; controlled coverage classes; start cursors; ownership labels; the exact workflow-selection rule; and the machine-readable Mathematics Commons interface. |
 | [Browse index](browse-index.md) | Fast route to the right corpus or record. |
-| [GitHub archive history](github-archive.md) | Exact task-owned catalog commit chain, manifests, and commit-pinned raw-readback receipts. |
+| [GitHub archive history](github-archive.md) | Exact repository catalog commit chain, manifests, and commit-pinned raw-readback receipts. |
 | [Download guide](download-guide.md) | Deciding whether to open a reader PDF, artifact ZIP, manifest, or bulk record. |
 | [By author and work](by-author-and-work.md) | Finding named authors and works without reading the full file catalog. |
 | [Record landing pages](records/README.md) | Browsing each Zenodo record grouped by reader PDFs, artifact ZIPs, and status files. |
 | [Project status dashboard](project-status-dashboard.md) | Current record counts, file counts, readiness estimates, and audit notes. |
-| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Map of the other-PC branch with Slavic, CJK, RTL/Persianate/Arabic, Romance, Fable/interlanguage, and related source-body/provenance payload roots. Grouped payload ZIPs, Interslavic v0.6, Romance v10, the Noether R823 gate v4, the v0.12 fleet snapshot, and the v0.13 Romance/WordWeb/Interslavic checkpoints are preserved in interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885); the current interlanguage methodology head recorded by this repository is [10.5281/zenodo.21788322](https://doi.org/10.5281/zenodo.21788322). |
+| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Map of the source-body/provenance side branch with Slavic, CJK, RTL/Persianate/Arabic, Romance, Fable/interlanguage, and related payload roots. Grouped payload ZIPs, Interslavic v0.6, Romance v10, the Noether R823 gate v4, the v0.12 fleet snapshot, and the v0.13 Romance/WordWeb/Interslavic checkpoints are preserved in interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885); the current interlanguage methodology head recorded by this repository is [10.5281/zenodo.21788322](https://doi.org/10.5281/zenodo.21788322). |
 
 ## Inventory
 
 | Page | Use It For |
 |---|---|
-| [GitHub source-shelf index](../sources/README.md) | Browsing nineteen task-maintained author/corpus trees and replaying the exact 14,901-path / 3,681,880,509-byte Git-object inventory without using the external-record catalog as an intermediary. |
+| [GitHub source-shelf index](../sources/README.md) | Browsing nineteen tracked author/corpus trees and replaying the exact 14,901-path / 3,681,880,509-byte Git-object inventory without using the external-record catalog as an intermediary. |
 | [GitHub coverage-map index](github-maps.md) | One human route to all nineteen allowed author, work, series, and mixed-corpus maps: 195,954 bytes with 643/643 local links resolved. |
 | [GitHub reader-shelf index](../reader-pdfs/README.md) | Exact root-level inventory of 399 PDFs and three support files / 932,575,366 bytes, with tree hashes, duplicate state, and coverage-map routing. |
 | [Ukrainian applied-mathematics GitHub map](ukrainian-map.md) | Exact reader/source identities, module coverage, duplicate and distinct PDF relations, TeX entrypoint closure, stale guide claims, and structural gaps. |
@@ -27,12 +27,12 @@ This page lists the main coordination documents in this repository and what each
 | [Classical mixed-shelf GitHub map](classical-map.md) | Exact Cayley, Dedekind, and Dirichlet partition; 21 reader identities, source/history generations, duplicate relations, stale author claims, and quality routing. |
 | [Additional-author GitHub map](cluster-map.md) | Exact Minkowski, Hecke, Landau, Steinitz, Hensel, Oka, Hausdorff, Grassmann, and Killing readers; legacy relations, structural checks, stale reports, and missing source/package custody. |
 | [Public file catalog](public-file-catalog.md) | Full searchable list of every current public Zenodo file. |
-| [Producer-reported external records](zenodo-records.md) | Compact discovery/provenance map; not this GitHub task's publication queue. |
-| [Pending Zenodo uploads](pending-zenodo-uploads.md) | Historical extracted/checksummed package ledger; not this GitHub task's action queue. |
+| [Producer-reported external records](zenodo-records.md) | Compact discovery/provenance map; not a GitHub publication queue. |
+| [Pending Zenodo uploads](pending-zenodo-uploads.md) | Historical extracted/checksummed package ledger; not the current action queue. |
 | [Known gaps](known-gaps.md) | Current incompleteness and caveats by corpus. |
-| [Work queue](work-queue.md) | Historical producer/evidence context plus GitHub-scoped task leads; use the adoption board for current assignments. |
+| [Work queue](work-queue.md) | Historical producer/evidence context plus GitHub-scoped work leads; use the adoption board for current assignments. |
 | [Author page candidates](author-page-candidates.md) | Human-readable triage for deciding when a mixed shelf should become a dedicated Zenodo author/topic record. |
-| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Historical map of the raw other-PC source-body/provenance branch; grouped payloads are preserved in interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885). For the current interlanguage methodology head, use [10.5281/zenodo.21788322](https://doi.org/10.5281/zenodo.21788322). |
+| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Historical map of the raw source-body/provenance side branch; grouped payloads are preserved in interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885). For the current interlanguage methodology head, use [10.5281/zenodo.21788322](https://doi.org/10.5281/zenodo.21788322). |
 
 ## Method And Quality
 

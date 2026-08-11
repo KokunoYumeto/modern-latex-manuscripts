@@ -207,8 +207,8 @@ passes. The board and schema require the top-level
 all 66 rows inheriting it and rejects missing, different, or ad hoc row-level
 values. Current navigation now binds 14,901 source paths, 399 reader PDFs plus
 three support files, 643/643 map-local links, and the prior 26-cycle receipt
-aggregate. External record history remains discoverable without assigning this
-task Zenodo custody. No producer or corpus artifact changed.
+aggregate. External record history remains discoverable without assigning
+publication custody here. No producer or corpus artifact changed.
 The [scope-and-certification closure](../manifests/published-github/20260809_scope_cert_close.json)
 then verifies the public receipt commit
 [`01747f5a`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/01747f5ab281cf0070a8d35783a03ca743d17983):

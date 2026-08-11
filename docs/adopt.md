@@ -112,8 +112,8 @@ replacement.
 the retired `noether-multilingual` and `grothendieck-school` umbrella IDs are
 not claimable scopes. Claims use the concrete rows above or the unclaimed
 language/work rows below. SGA, FAC, and GAGA are intentionally absent from
-this operational split because their producer publication custody is outside
-this GitHub-maintenance task.
+this operational split because their external publication surfaces are
+independently maintained and are not claimable from this GitHub board.
 
 ## Ready for Adoption
 

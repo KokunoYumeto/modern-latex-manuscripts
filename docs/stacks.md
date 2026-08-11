@@ -22,8 +22,8 @@ Upstream Stacks remains a respected source and synchronization target. Its
 acceptance is not a dependency, approval gate, or veto over Commons editorial
 work. Commons writes only to Commons-owned namespaces. An implementation must
 replay the exact upstream repository, license identity, commit, and tree before
-composing any output; it must never edit another task's files or protected
-merge state.
+composing any output; it must never modify upstream, an independently maintained
+namespace, or protected branch state.
 
 ## Five layers
 
