@@ -6,7 +6,8 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [Commons Stacks intake source receipt](stacks-intake.json),
+Start with the current [Commons Stacks intake closure](stacks-intake-close.json)
+and [source receipt](stacks-intake.json),
 the predecessor [architecture closure](stacks-r1-close.json) and
 [architecture source receipt](stacks-r1.json),
 the [Steinitz frontier predecessor closure](stein-r1-close.json) and
@@ -14,6 +15,15 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The [Commons Stacks intake closure](stacks-intake-close.json) binds receipt
+commit `a970668c172add6870701ff93354bc17b98d587a`: all eight changed paths /
+637,926 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
+[`31479813906`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31479813906)
+passed. Its clean validator, exact consumer, no-lazy-fetch regression,
+valid/invalid Stacks claim fixtures, and 41-document link audit pass. The
+additive aggregate through this receipt is 38 cycles, 3,132 observations, and
+1,215,546,817 bytes with zero mismatches.
 
 The [Commons Stacks intake source receipt](stacks-intake.json) binds source
 commit `519ffc0618c90a6565ccf3166ed9a065790e835f`: all 14 changed paths /

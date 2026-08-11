@@ -7,7 +7,8 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- Current [Commons Stacks intake source receipt](../published-github/stacks-intake.json),
+- Current [Commons Stacks intake closure](../published-github/stacks-intake-close.json)
+  and [source receipt](../published-github/stacks-intake.json),
   with predecessor [architecture closure](../published-github/stacks-r1-close.json)
   and [architecture source receipt](../published-github/stacks-r1.json)
 - [Steinitz frontier predecessor closure](../published-github/stein-r1-close.json)
@@ -91,9 +92,9 @@ remain immutable. The
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
-The current Commons Stacks intake source receipt extends the additive evidence
-aggregate through its source commit to 37 cycles, 3,124 commit-pinned
-observations, and 1,214,908,891 bytes with zero mismatches. It preserves the
+The current Commons Stacks intake closure extends the additive evidence
+aggregate through its receipt commit to 38 cycles, 3,132 commit-pinned
+observations, and 1,215,546,817 bytes with zero mismatches. It preserves the
 Steinitz and earlier closures; no generation rewrites R5, R4, R3, or any
 earlier generation.
 
