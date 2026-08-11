@@ -362,6 +362,10 @@ def mutate_trailing_dot(fixture: Fixture) -> None:
 def mutate_case_collision(fixture: Fixture) -> None:
     duplicate = deepcopy(row(fixture, fixture.math_path))
     duplicate["path"] = f"{NAMESPACE}/Math.tex"
+    write_bytes(
+        fixture.package / Path(*duplicate["path"].split("/")),
+        (fixture.package / Path(*fixture.math_path.split("/"))).read_bytes(),
+    )
     fixture.manifest["members"].append(duplicate)
     fixture.manifest["members"].sort(key=lambda item: item["path"].encode("utf-8"))
     fixture.write_manifest()
