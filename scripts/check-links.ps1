@@ -16,6 +16,7 @@ $documents = [string[]]@(
     '.github/ISSUE_TEMPLATE/rendering_problem.md',
     '.github/ISSUE_TEMPLATE/source-suggestion.yml',
     '.github/ISSUE_TEMPLATE/source_or_translation_correction.md',
+    '.github/ISSUE_TEMPLATE/stacks.yml',
     '.github/pull_request_template.md',
     'CONTRIBUTING.md',
     'docs/adopt.md',

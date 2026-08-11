@@ -59,7 +59,13 @@ exports prerequisites for ordinary editorial work.
 
 ## First implementation cursor
 
-1. Coordinate a single writer for the Commons namespace.
+Start with the dedicated
+[Commons Stacks intake form](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=stacks.yml).
+It keeps the ordinary adoption/handback lifecycle while requiring the exact
+writer, upstream repository, license, commit, overlay namespace, deterministic
+composition, tests, review plan, and synchronization cursor needed here.
+
+1. Coordinate a single writer for the Commons namespace through that form.
 2. Bind the upstream repository, applicable license, and one exact commit.
 3. Create the first namespaced overlay manifest without copying mutable working
    state or changing upstream.

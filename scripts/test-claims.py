@@ -16,6 +16,7 @@ import tempfile
 DEFAULT_REPOSITORY = "KokunoYumeto/modern-latex-manuscripts"
 COMMIT_RE = re.compile(r"^[0-9a-fA-F]{40}$")
 BOARD_ID = "gauss-werke-ii"
+STACKS_BOARD_ID = "stacks-commons-layer"
 
 
 def issue(number: int, title: str, body: str, state: str) -> dict:
@@ -44,6 +45,52 @@ One exact approved Git commit, mapped source paths, byte lengths, and SHA-256 va
 
 ### Traceability
 - [x] I will preserve predecessors and declare overlap rather than silently overwriting existing work.
+- [x] I understand that opening this issue does not reserve the scope exclusively.
+"""
+
+
+def stacks_claim_body() -> str:
+    return f"""### Board ID
+{STACKS_BOARD_ID}
+
+### Intent
+Start one bounded Commons-owned Stacks reference-layer implementation.
+
+### Exact scope
+Bind one exact upstream pin and one new Commons-owned overlay namespace; do not modify upstream or another task's files.
+
+### Starting evidence
+Exact repository URL, applicable license identity, 40-hex commit, overlay namespace, composition plan, tests, and synchronization cursor.
+
+### Commons writer identity
+example-maintainer
+
+### Exact upstream repository URL
+https://github.com/example/stacks-upstream
+
+### Applicable upstream license identity
+COPYING at the exact upstream commit
+
+### Exact upstream commit
+0123456789abcdef0123456789abcdef01234567
+
+### Commons overlay namespace
+commons/stacks/pilot
+
+### Deterministic composition
+Pin upstream, apply the named overlay without rewriting either input, and hash the composed output.
+
+### Tests and review plan
+Run exact-input, namespace, attribution, conflict, and deterministic-rebuild checks; retain review receipts.
+
+### Starting synchronization cursor
+Initial exact upstream pin; no earlier Commons overlay generation is claimed.
+
+### Traceability
+- [x] I will write only to the declared Commons-owned namespace and will not edit upstream or another task's files.
+- [x] I will preserve exact upstream and predecessor identities, conflicts, failures, corrections, and reversals.
+- [x] I will not imply upstream acceptance, approval, endorsement, or a motive for prior contribution outcomes.
+- [x] Any public modified edition will be distinctly titled and will preserve applicable attribution, license, and history notices.
 - [x] I understand that opening this issue does not reserve the scope exclusively.
 """
 
@@ -95,6 +142,8 @@ def run_auditor(
     environment["HTTP_PROXY"] = "http://127.0.0.1:9"
     environment["HTTPS_PROXY"] = "http://127.0.0.1:9"
     environment["ALL_PROXY"] = "http://127.0.0.1:9"
+    environment["PYTHONUTF8"] = "1"
+    environment["PYTHONIOENCODING"] = "utf-8"
     return subprocess.run(
         [
             sys.executable,
@@ -140,9 +189,15 @@ def main() -> int:
     valid_fixture = [
         issue(10, "[Adopt] bounded Gauss mirror", claim_body(BOARD_ID), "open"),
         issue(11, "[Handback] bounded Gauss mirror", handback_body(args.repository), "closed"),
+        issue(12, "[Adopt] Stacks Commons layer — bounded fixture", stacks_claim_body(), "open"),
     ]
+    invalid_stacks = stacks_claim_body().replace(
+        "### Exact upstream commit\n0123456789abcdef0123456789abcdef01234567",
+        "### Exact upstream commit\n_No response_",
+    )
     invalid_fixture = [
-        issue(12, "[Adopt] unknown board row", claim_body("not-a-board-row"), "open")
+        issue(13, "[Adopt] unknown board row", claim_body("not-a-board-row"), "open"),
+        issue(14, "[Adopt] Stacks Commons layer — invalid fixture", invalid_stacks, "open"),
     ]
 
     with tempfile.TemporaryDirectory(prefix="adopt-claims-") as temporary:
@@ -167,7 +222,7 @@ def main() -> int:
         if valid_report.get("status") != "PASS" or valid_report.get("errors") != []:
             raise RuntimeError("valid claim/handback fixture did not return PASS/errors[]")
         aggregate = valid_report.get("aggregate", {})
-        expected = {"issues": 2, "claims": 1, "handbacks": 1, "valid": 2, "invalid": 0}
+        expected = {"issues": 3, "claims": 2, "handbacks": 1, "valid": 3, "invalid": 0}
         if any(aggregate.get(key) != value for key, value in expected.items()):
             raise RuntimeError(f"valid fixture aggregate mismatch: {aggregate}")
         if valid_report.get("board", {}).get("transport") != "local_git_object_database":
@@ -182,18 +237,20 @@ def main() -> int:
         if invalid.returncode != 1 or invalid_report.get("status") != "FAIL":
             raise RuntimeError("invalid Board-ID fixture did not fail closed with exit 1")
         invalid_aggregate = invalid_report.get("aggregate", {})
-        if invalid_aggregate.get("issues") != 1 or invalid_aggregate.get("invalid") != 1:
+        if invalid_aggregate.get("issues") != 2 or invalid_aggregate.get("invalid") != 2:
             raise RuntimeError(f"invalid fixture aggregate mismatch: {invalid_aggregate}")
         if not any("unknown Board ID: not-a-board-row" in error for error in invalid_report.get("errors", [])):
             raise RuntimeError("invalid fixture did not preserve the unknown Board-ID error")
+        if not any("missing required Stacks section: Exact upstream commit" in error for error in invalid_report.get("errors", [])):
+            raise RuntimeError("invalid fixture did not fail closed on a missing Stacks commit")
 
     print(
         json.dumps(
             {
                 "status": "PASS",
                 "commit": args.commit.lower(),
-                "valid_fixture": {"issues": 2, "valid": 2, "errors": 0},
-                "invalid_fixture": {"issues": 1, "invalid": 1, "exit": 1},
+                "valid_fixture": {"issues": 3, "valid": 3, "errors": 0},
+                "invalid_fixture": {"issues": 2, "invalid": 2, "exit": 1},
                 "board_transport": "local_git_object_database",
                 "issue_transport": "json_fixture",
                 "external_network_queried": False,
