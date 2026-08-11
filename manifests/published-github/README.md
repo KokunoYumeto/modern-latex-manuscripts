@@ -6,13 +6,27 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [Commons Stacks architecture closure](stacks-r1-close.json)
-and [source receipt](stacks-r1.json),
+Start with the current [Commons Stacks intake source receipt](stacks-intake.json),
+the predecessor [architecture closure](stacks-r1-close.json) and
+[architecture source receipt](stacks-r1.json),
 the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [source-and-correction receipt](stein-r1.json), the [thirty-cycle frontier predecessor](frontier-r1-close.json), the
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The [Commons Stacks intake source receipt](stacks-intake.json) binds source
+commit `519ffc0618c90a6565ccf3166ed9a065790e835f`: all 14 changed paths /
+966,386 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
+[`31479181577`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31479181577)
+passed. The dedicated form binds 14 fields, fails closed on 12 required fields
+and five required traceability checks, and the issue auditor independently
+requires eight Stacks-only sections, one exact GitHub repository URL, and one
+40-hex upstream commit. Valid/invalid fixtures, the exact four-file consumer,
+the no-lazy-fetch regression, and a 41-document link audit pass. No upstream
+pin, overlay, or build byte is claimed. The additive aggregate through this
+source is 37 cycles, 3,124 observations, and 1,214,908,891 bytes with zero
+mismatches.
 
 The [Commons Stacks architecture closure](stacks-r1-close.json) binds receipt
 commit `2a3aa2a48acf7cae45afa959be79cdbff82c85f6`: all eight changed paths /
