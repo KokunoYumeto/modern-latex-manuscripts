@@ -7,9 +7,11 @@ producer payloads.
 
 ## Current task-owned indexes
 
-- Current adoption v2 [closure](../published-github/adopt-v2-close.json) and
-  [source receipt](../published-github/adopt-v2.json), with explicit seven-class
-  coverage and one row-allowed workflow per claim
+- Delivered adoption v3 [source receipt](../published-github/adopt-v3.json),
+  with 78 reconciled coverage rows and the hardened exact-commit claim trust
+  boundary; current clean adoption v2
+  [closure](../published-github/adopt-v2-close.json) and predecessor
+  [source receipt](../published-github/adopt-v2.json)
 - Predecessor [Commons Stacks intake closure](../published-github/stacks-intake-close.json)
   and [source receipt](../published-github/stacks-intake.json),
   with earlier [architecture closure](../published-github/stacks-r1-close.json)
@@ -95,9 +97,12 @@ remain immutable. The
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
-The current adoption v2 [closure](../published-github/adopt-v2-close.json)
-extends the additive evidence aggregate through its receipt commit to 40 cycles,
-3,156 commit-pinned observations, and 1,217,243,661 bytes with zero mismatches.
+The delivered adoption v3 [source receipt](../published-github/adopt-v3.json)
+extends the additive evidence aggregate through source commit `58503bb1` to 41
+cycles, 3,175 commit-pinned observations, and 1,218,417,596 bytes with zero
+mismatches. The current clean adoption v2
+[closure](../published-github/adopt-v2-close.json) remains its immutable
+predecessor until the v3 receipt itself is publicly read back and closed.
 The [38-cycle Commons Stacks intake closure](../published-github/stacks-intake-close.json)
 remains the immutable predecessor at 3,132 observations / 1,215,546,817 bytes;
 it preserves Steinitz and all earlier generations without rewriting them.

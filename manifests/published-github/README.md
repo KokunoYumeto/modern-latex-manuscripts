@@ -6,7 +6,8 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current adoption v2 [closure](adopt-v2-close.json) and
+Start with the delivered adoption v3 [source receipt](adopt-v3.json), then the
+current clean adoption v2 [closure](adopt-v2-close.json) and predecessor
 [source receipt](adopt-v2.json),
 the predecessor [Commons Stacks intake closure](stacks-intake-close.json)
 and [source receipt](stacks-intake.json),
@@ -17,6 +18,18 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The [adoption v3 source receipt](adopt-v3.json) binds source commit
+`58503bb1689d357387180c4056152c12d44a8726`: all 19 changed paths /
+1,173,935 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions
+run [`31488460369`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31488460369)
+passed. The board has 78 exact rows (9 current, 64 ready, 5 future), 19/19 maps,
+2/2 queues, and 275/275 tracked path checks. The four-file consumer, separate
+missing-helper and missing-checker promisor probes, 8 valid and 24 invalid claim
+fixtures, duplicate-YAML-key guard, and 41-document link audit pass. The
+additive aggregate through the source is 41 cycles, 3,175 observations, and
+1,218,417,596 bytes with zero mismatches; no producer, corpus, or Zenodo byte
+changed.
 
 The [adoption v2 closure](adopt-v2-close.json) binds receipt commit
 `7d56af9d1fc1e305d0ec44e78f9809d7df5dd25b`: all six changed paths /
