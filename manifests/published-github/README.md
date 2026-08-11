@@ -6,7 +6,8 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current [adoption v2 source receipt](adopt-v2.json),
+Start with the current adoption v2 [closure](adopt-v2-close.json) and
+[source receipt](adopt-v2.json),
 the predecessor [Commons Stacks intake closure](stacks-intake-close.json)
 and [source receipt](stacks-intake.json),
 the predecessor [architecture closure](stacks-r1-close.json) and
@@ -16,6 +17,15 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The [adoption v2 closure](adopt-v2-close.json) binds receipt commit
+`7d56af9d1fc1e305d0ec44e78f9809d7df5dd25b`: all six changed paths /
+611,326 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions run
+[`31482938835`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31482938835)
+passed. The exact four-file contract, no-lazy-fetch regression, workflow claim
+fixtures, and 41-document link audit all pass. The additive aggregate through
+this receipt is 40 cycles, 3,156 observations, and 1,217,243,661 bytes with
+zero mismatches.
 
 The [adoption v2 source receipt](adopt-v2.json) binds source commit
 `327a1c74675b30e7a821b4f82e478904f9cb7b77`: all 18 changed paths /
