@@ -201,11 +201,11 @@ The Noether Slavic lane is a representative example. The 2026-06-14 Papers 01-21
 
 ## Publication Rule
 
-Availability and provenance matter, but the public surface should not look like a raw tool dump. When a source packet has internal run names, partial folders, or repair logs, keep those inside artifact ZIPs and give the Zenodo record a human title organized by author, work, corpus, or mathematical tradition.
+Availability and provenance matter, but the public surface should not look like a raw tool dump. When a source packet has internal run names, partial folders, or repair logs, keep those inside artifact packages and give the public landing a human title organized by author, work, corpus, or mathematical tradition.
 
-Public-facing titles should name the author, work, language/status where needed, and role. Internal run names should stay inside raw provenance archives, not in Zenodo titles or top-level filenames.
+Public-facing titles should name the author, work, language/status where needed, and role. Internal run names should stay inside raw provenance archives, not in landing titles or top-level filenames.
 
-For large, iterative translation projects, separate the workbench from the reader surface. A web-session or agent ZIP may contain audits, screenshots, source slices, failed attempts, render checks, and intermediate TeX. That is useful provenance, but it is not automatically a public reader artifact. The publication step should extract the actual mathematical deliverables: individual paper PDFs/TeX, cumulative language branches, source/witness ZIPs, concise correction ledgers, and a short status note that says what is source-checked, what is OCR-derived, and what remains provisional.
+For large, iterative translation projects, separate working evidence from the reader surface. A working-evidence package may contain audits, screenshots, source slices, failed attempts, render checks, and intermediate TeX. Preserve that provenance, while fronting the mathematical deliverables: individual paper PDFs/TeX, cumulative language branches, source/witness packages, concise correction ledgers, and a short status note that says what is source-checked, what is OCR-derived, and what remains provisional.
 
 This is especially important for multilingual records. Do not make readers sort through dozens of audit bundles to find the translation. Put the clean language branch first, package each language or source branch coherently, and keep audit bundles as supporting QA evidence or deliberately labelled provenance. The Noether and SGA repair streams showed why this matters: raw audit bundles are essential for repair, but top-level records should foreground the usable German/source, English, Spanish, Japanese, French, Chinese, or other reader artifacts and their reliability labels.
 
@@ -216,8 +216,8 @@ For a standalone statement of this rule, see [Curated Public Surfaces](workflow-
 1. Run the public archive readability audit.
 2. Run the public PDF surface audit.
 3. Check the newest source packets against the current public summaries.
-4. Promote only the clearer or more complete surface material.
-5. Preserve older material in artifacts or version history when it is useful for provenance.
+4. Front the clearest coherent current reader without deleting, overwriting, or silently collapsing any distinct generation.
+5. Preserve every predecessor, draft, error, reversal, correction, and supersession; deduplicate containers and transport, never distinct content.
 6. Update the archive guide, file catalog, known gaps, and current-status manifest.
 
 Exact filename coverage is not enough for mutable pointer or index packages. A
@@ -245,9 +245,9 @@ Current tool lessons:
 - High-resolution source matters. Cropped/downsampled public packages can make table reconstruction impossible even when the original scan is usable. Derivative PDFs may be only a convenience layer, not the real source; on Internet Archive, check for `_jp2.zip`, `raw_jp2`, and `scandata.xml` masters before treating a PDF as the authority. Always trace table work back to the highest-resolution source scan or a printed critical table before declaring a table missing or unreadable.
 - Source-resolution wording must be literal. `600 ppi` in scandata, embedded `600 x 600 PixelsPerInch` in a raw TIFF, raw JP2 pixel geometry with undefined units, and a 1000dpi rasterized inspection crop are different evidence classes. Record which one you have. Do not turn high pixel geometry, derivative-PDF display metadata, or generic `72 dpi` metadata into an optical-DPI claim.
 - Source-baseline choice can change the whole lane. A 2026-06-14 Gibbs/Gauss source-quality audit found that Gibbs work should continue from IA raw JP2/scandata sources, with a separate "Equilibrium of Heterogeneous Substances" witness, rather than relying only on derivative PDFs. The same audit found that future Gauss work should use the new GDZ Werke source baseline across Bands I-XII, while treating older IA/Rich/Google PDFs as redundant witnesses or fallback. This is a workflow rule, not a reader claim: changing the source baseline improves future auditability but does not certify older TeX without page-level comparison.
-- Keep heavy OCR/ML tools isolated in their own environments. Several OCR stacks declare broad `torch` dependencies; installing them into a working GPU environment can silently replace CUDA builds with CPU wheels.
+- Keep heavy OCR/ML tools isolated in reproducible environments. Several OCR stacks declare broad `torch` dependencies; unconstrained installation can silently replace an accelerator build with a CPU-only dependency.
 
-When generating OCR, preserve the generation chain. A reproducible OCR witness should say: this source file and checksum were rasterized into these page images, at this DPI and color mode, using this command or script; these crops or preprocessing steps were applied; this OCR/model environment produced this raw output; this normalization script produced this comparison text or candidate TeX; and this human or agent audit either rejected it, kept it as a locator, or promoted a specific part after source comparison. Do not overwrite raw OCR with cleaned OCR. Keep both layers and make the promoted layer cite back to the raw witness.
+When generating OCR, preserve the generation chain. A reproducible OCR witness should say: this source file and checksum were rasterized into these page images, at this DPI and color mode, using this command or script; these crops or preprocessing steps were applied; this OCR/model environment produced this raw output; this normalization script produced this comparison text or candidate TeX; and this recorded review either rejected it, kept it as a locator, or accepted a specific part after source comparison. Do not overwrite raw OCR with cleaned OCR. Keep both layers and make the accepted layer cite back to the raw witness.
 
 The current best practice is conservative: use OCR/math-OCR to localize formulas, tables, diagram regions, and possible prose omissions; keep crops and candidate TeX as witnesses; promote only after visual comparison with the source scan and successful TeX compilation. For dense historical mathematics, a reliable package should include page/region IDs, witness crops, candidate TeX, accepted/rejected/uncertain status, and a short audit note. Candidate TeX should not be pasted silently into public editions.
 
@@ -255,7 +255,7 @@ The current best practice is conservative: use OCR/math-OCR to localize formulas
 
 The 2026-07-01 SGA5 p234 workpass checkpoint sharpened a general rule: before changing a mathematical symbol, subscript, diagram edge, label, or suspicious word, inspect the exact source glyph at enough zoom to decide the discrepancy class. The main classes are editor/transcription error, copied source typo, faithful source oddity, false flag, and layout/cosmetic issue.
 
-This matters because the right action differs. A source-faithfulness deviation should be fixed even if it is mathematically harmless. A copied source typo may need a note or a mathematically forced correction. A faithful oddity should remain. A false flag should be recorded so the same agent or future queue does not "fix" it later. OCR and model findings are finders, not judges.
+This matters because the right action differs. A source-faithfulness deviation should be fixed even if it is mathematically harmless. A copied source typo may need a note or a mathematically forced correction. A faithful oddity should remain. A false flag should be recorded so the same reviewer or future queue does not "fix" it later. OCR and model findings are finders, not judges.
 
 The public-archive consequence is also important: a clean TeX build or compiled
 PDF is not source certification, and an audit report with valuable fixes is not
@@ -293,15 +293,15 @@ Recommended use:
 
 The Weber p486-p497 audit added an important guardrail. A draft can contain plausible mathematical prose that is not merely compressed, modernized, or mistranscribed, but fabricated from nearby context. In Weber section 152, the audit replaced an unsourced generated body with the actual Weber source text; in section 153, a six-page permutation-decomposition section was held because the draft condensed, rewrote, and inserted plausible cycle-theory examples not present in Weber.
 
-This is a separate failure mode from OCR noise. Treat fluent mathematical prose as untrusted until it is page-mapped against the scan. The repair rule is: source page first, current TeX second, agent/OCR candidates third. If a section-level rewrite is found, do not promote surgical patches that leave a fabricated frame in place; either re-transcribe the coherent section from source or hold it explicitly.
+This is a separate failure mode from OCR noise. Treat fluent mathematical prose as untrusted until it is page-mapped against the scan. The repair rule is: source page first, current TeX second, candidate/OCR readings third. If a section-level rewrite is found, do not accept surgical patches that leave a fabricated frame in place; either re-transcribe the coherent section from source or hold it explicitly.
 
 ### Lean library-candidate lanes
 
-Claude and Codex may produce Lean side lanes for selected explicit statements from the transcription corpus or for nearby classical mathematics that would be useful to have in Lean. These lanes are useful Lean/mathlib-style candidate material; they are not archival source-fidelity evidence and not certification of the scanned editions/translations. A Lean lane is DOI-ready when it includes exact Lake/Lean/Mathlib toolchain metadata, clean build logs, `#print axioms` output where relevant, no `sorry` or failed batch files in the promoted surface, source or motivation anchors, and a human-readable statement distinguishing any historical source statement from the modern formal theorem. Failed files remain provenance only unless explicitly promoted.
+Human or AI-assisted work may produce Lean side lanes for selected explicit statements from the transcription corpus or for nearby classical mathematics that would be useful to have in Lean. These lanes are useful Lean/mathlib-style candidate material; they are not archival source-fidelity evidence and not certification of the scanned editions/translations. A Lean lane is release-ready when it includes exact Lake/Lean/Mathlib toolchain metadata, clean build logs, `#print axioms` output where relevant, no `sorry` or failed batch files in the fronted surface, source or motivation anchors, and a human-readable statement distinguishing any historical source statement from the modern formal theorem. Failed files remain explicit adverse provenance rather than being discarded.
 
 ### Package-surface verification before upload
 
-A ZIP README can advertise artifacts that are not actually present in the ZIP. Before any Zenodo refresh, inspect the archive contents, not just the README. If primary cumulative TeX/PDF files, ledgers, source witnesses, or checksums sit adjacent to a ZIP rather than inside it, mark the package as source-intake/package-QA evidence and request or build a corrected rollup. Naming conflicts such as a Paper 37 README beside a `p35` standalone PDF must be resolved before public promotion.
+A package README can advertise artifacts that are not actually present in the package. Before any public refresh, inspect the archive contents, not just the README. If primary cumulative TeX/PDF files, ledgers, source witnesses, or checksums sit adjacent to a package rather than inside it, mark the package as source-intake/package-QA evidence and request or build a corrected rollup. Naming conflicts such as a Paper 37 README beside a `p35` standalone PDF must be resolved before public presentation.
 
 ### Survival Bridges And Source-Search Packets
 

@@ -20,7 +20,7 @@ This page lists the main coordination documents in this repository and what each
 | Page | Use It For |
 |---|---|
 | [GitHub source-shelf index](../sources/README.md) | Browsing nineteen tracked author/corpus trees and replaying the exact 14,901-path / 3,681,880,509-byte Git-object inventory without using the external-record catalog as an intermediary. |
-| [GitHub coverage-map index](github-maps.md) | One human route to all nineteen allowed author, work, series, and mixed-corpus maps: 195,954 bytes with 643/643 local links resolved. |
+| [GitHub coverage-map index](github-maps.md) | One human route to all nineteen allowed author, work, series, and mixed-corpus maps: 196,382 bytes with 643/643 local links resolved. |
 | [GitHub reader-shelf index](../reader-pdfs/README.md) | Exact root-level inventory of 399 PDFs and three support files / 932,575,366 bytes, with tree hashes, duplicate state, and coverage-map routing. |
 | [Ukrainian applied-mathematics GitHub map](ukrainian-map.md) | Exact reader/source identities, module coverage, duplicate and distinct PDF relations, TeX entrypoint closure, stale guide claims, and structural gaps. |
 | [Non-European mathematics GitHub map](non-european-map.md) | Exact Chinese, Indian/Sanskrit, Islamic/Arabic, and reference-work language layers, current direct-reader identities, source-only translations, repair generations, and custody gaps. |
