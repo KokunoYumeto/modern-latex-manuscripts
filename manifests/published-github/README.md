@@ -7,7 +7,8 @@ transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
 Start with the current hardened Commons Stacks candidate-intake
-[source receipt](stacks-entry-r1.json), then the predecessor reader-first
+[closure](stacks-entry-r1-close.json) and [source receipt](stacks-entry-r1.json),
+then the predecessor reader-first
 interface [closure](ui-clean-r2-close.json) and [source receipt](ui-clean-r2.json),
 then the predecessor public-interface
 [closure](ui-clean-r1-close.json) and [source receipt](ui-clean-r1.json),
@@ -30,6 +31,14 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The hardened candidate-intake [closure](stacks-entry-r1-close.json) binds
+receipt commit `53971c4c7306df0776f6ac3575f590ef44da3962`: all six
+receipt-publication paths / 678,779 bytes matched anonymous commit-pinned raw
+GitHub bytes, and Actions run
+[`31548510448`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31548510448)
+passed. Together with the source generation, the additive aggregate is 56
+cycles, 3,318 observations, and 1,229,665,126 bytes with zero mismatches.
 
 The hardened candidate-intake [source receipt](stacks-entry-r1.json) binds
 accepted correction commit `ef5db0893c506354466b58851d7817ca336e3485`:
