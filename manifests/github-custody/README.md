@@ -7,8 +7,13 @@ producer payloads.
 
 ## Current repository indexes
 
-- Current public-interface [source receipt](../published-github/ui-clean-r3.json),
-  binding 38/38 exact source-generation paths, `maps-r8`, the corrected active
+- Current public-interface [closure](../published-github/ui-clean-r3-close.json),
+  [source receipt](../published-github/ui-clean-r3.json), and hash-bound
+  [durable state](state.json). The state treats all conversation or compaction
+  summaries as untrusted search hints and reconstructs only from primary Git,
+  log, manifest, control, and public-readback evidence.
+- The current source receipt binds 38/38 exact source-generation paths,
+  `maps-r8`, the corrected active
   public surfaces, and zero producer/reader/external-record mutations
 - Predecessor map-manifest and public-front
   [closure](../published-github/map-front-r1-close.json) and
