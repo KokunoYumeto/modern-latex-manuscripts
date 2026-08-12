@@ -6,7 +6,8 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current map-manifest and public-front
+Start with the current public-interface [source receipt](ui-clean-r3.json),
+then the predecessor map-manifest and public-front
 [closure](map-front-r1-close.json) and [source receipt](map-front-r1.json),
 then the predecessor hardened Commons
 Stacks candidate-intake [closure](stacks-entry-r1-close.json) and
@@ -33,6 +34,19 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The public-interface r3 [source receipt](ui-clean-r3.json) binds accepted commit
+`3f7d38aebb46f8b8a8202bb1fbeaa18967e8b06a`: all 38 changed paths /
+1,745,943 bytes matched anonymous commit-pinned raw GitHub bytes, and Actions
+run [`31553470219`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31553470219)
+passed. The active public surfaces now describe the GitHub archive rather than
+workstations, tasks, sessions, or operators; preserved controls and catalogs
+carry explicit dated-history boundaries. Supplied discovery heads for EGA,
+Noether, SGA, and FAC are no longer contradicted by obsolete “current” labels.
+The immutable `maps-r8` manifest replays all 19 current map members; producer,
+reader, and external-record mutations are zero. The additive aggregate through
+this source is 59 cycles, 3,377 observations, and 1,232,862,079 bytes with zero
+mismatches.
 
 The map-manifest and public-front [closure](map-front-r1-close.json) binds
 receipt commit `7705ffb7ce71dc6de2f86093a84e0a3e6915f67f`: all four
