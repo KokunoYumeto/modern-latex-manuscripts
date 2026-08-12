@@ -6,7 +6,9 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current public-interface [source receipt](ui-clean-r3.json),
+Start with the current public-interface [closure](ui-clean-r3-close.json),
+[source receipt](ui-clean-r3.json), and hardened
+[current state](../github-custody/state.json),
 then the predecessor map-manifest and public-front
 [closure](map-front-r1-close.json) and [source receipt](map-front-r1.json),
 then the predecessor hardened Commons
@@ -34,6 +36,18 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The public-interface r3 [closure](ui-clean-r3-close.json) binds receipt commit
+`cf52e2a96b7948cec5af10fa1894befac1210ac2`: all five
+receipt-publication paths / 687,265 bytes matched anonymous commit-pinned raw
+GitHub bytes, and Actions run
+[`31553886387`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31553886387)
+passed. The closure also binds the compaction-hostile durable state: summaries
+are untrusted search hints only, and recovery starts from raw hash-bound user
+controls, exact Git refs and trees, the append-only log, committed manifests,
+clean validation, and raw-readback receipts. Together with the source
+generation, the additive aggregate is 60 cycles, 3,382 observations, and
+1,233,549,344 bytes with zero mismatches.
 
 The public-interface r3 [source receipt](ui-clean-r3.json) binds accepted commit
 `3f7d38aebb46f8b8a8202bb1fbeaa18967e8b06a`: all 38 changed paths /
