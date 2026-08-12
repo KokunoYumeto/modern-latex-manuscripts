@@ -7,7 +7,8 @@ transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
 Start with the current map-manifest and public-front
-[source receipt](map-front-r1.json), then the predecessor hardened Commons
+[closure](map-front-r1-close.json) and [source receipt](map-front-r1.json),
+then the predecessor hardened Commons
 Stacks candidate-intake [closure](stacks-entry-r1-close.json) and
 [source receipt](stacks-entry-r1.json), then the predecessor reader-first
 interface [closure](ui-clean-r2-close.json) and [source receipt](ui-clean-r2.json),
@@ -32,6 +33,14 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The map-manifest and public-front [closure](map-front-r1-close.json) binds
+receipt commit `7705ffb7ce71dc6de2f86093a84e0a3e6915f67f`: all four
+receipt-publication paths / 116,183 bytes matched anonymous commit-pinned raw
+GitHub bytes, and Actions run
+[`31551145744`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31551145744)
+passed. Together with the source generation, the additive aggregate is 58
+cycles, 3,339 observations, and 1,231,116,136 bytes with zero mismatches.
 
 The map-manifest and public-front [source receipt](map-front-r1.json) binds
 accepted commit `414a4fdb78502a8e147a5abebd840e13a45be858`: all 17
