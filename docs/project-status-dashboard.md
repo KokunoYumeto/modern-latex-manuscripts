@@ -1,8 +1,14 @@
-# Project Status Dashboard
+# Historical External-Record Dashboard
 
-Generated from the current public Zenodo catalog and local mirror manifests. For the latest local staging and caveats, use the [current status manifest](../manifests/current-status.md).
+> **Dated snapshot:** this page preserves the external-record catalog state
+> captured through 2026-08-04. It is not the current GitHub status surface and
+> must not be used to infer that an unlisted translation is absent or that a
+> listed external version is still current. Start with the [live fleet
+> map](live-fleet-map.md), [coverage-map index](github-maps.md), and [adoption
+> board](adopt.md). External identities below are historical
+> discovery/provenance references.
 
-For current GitHub Noether translation coverage, use the [language/work map](noether-map.md). It records current paths, exact scopes, review states, and continuation cursors; older dashboard snapshots remain historical evidence and must not be read as proof that an unmentioned translation is absent.
+For current GitHub Noether translation coverage, use the [language/work map](noether-map.md). It records current paths, exact scopes, review states, and continuation cursors.
 
 August 3/4 GAGA and provenance update: dedicated pure-GAGA version
 [10.5281/zenodo.21781323](https://doi.org/10.5281/zenodo.21781323), concept
@@ -186,7 +192,7 @@ Do not read file counts, upload size, or a local page percentage as a simple pro
 
 When these tiers conflict with an older filename such as `complete`, `strict`, `source-checked`, or `critical`, the tier and the current caveat win. Cayley is currently de-promoted repair/provenance material. EGA II is complete for its source-aligned working scope, while the wider EGA corpus remains partial and non-uniform. SGA is substantially broader, but still not uniformly source-certified.
 
-## Current Records
+## Records At This Snapshot
 
 Records are grouped by public usefulness and source-confidence, not by creation date, file count, upload size, or internal maintenance importance. A high file count is not a progress bar and does not imply a high source-accuracy tier. The best reader/translation surfaces come first; project-level preservation and workflow records follow after the reader-facing surfaces.
 

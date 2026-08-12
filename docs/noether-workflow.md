@@ -1,10 +1,22 @@
 # ! Noether archive workflow
 
-This is the controlling workflow supplied by Floris on 2026-08-04. The five
-user inputs are preserved verbatim below. They assign the canonical Noether
-Zenodo line to its separate owner and assign this repository the human-readable,
-well-organized GitHub mirror. This GitHub task does not edit other tasks' files
-or coordinate through message relays.
+This is a preserved workflow directive supplied by Floris on 2026-08-04. The
+five inputs are retained verbatim as provenance below; they are not contributor
+instructions. Their durable repository rule is a human-readable,
+well-organized GitHub mirror that preserves submitted bytes and routes changes
+through inspectable repository records.
+
+## GitHub application
+
+- Preserve exact submitted bytes and supplied state labels.
+- Organize checkpoints by author, work, language, generation, and supersession.
+- Keep readable entry points, manifests, correction history, and raw GitHub
+  readback receipts together.
+- Preserve submitted source locations unchanged and use repository issues,
+  commits, and receipts for inspectable coordination.
+- Treat completeness as the primary GitHub custody requirement.
+
+## Preserved verbatim directive transcript
 
 ## 1
 
@@ -25,12 +37,3 @@ or coordinate through message relays.
 ## 5
 
 > You will make a note of this workflow, verbatim as I just described it. You will copy-paste my previous five inputs into your logbook. With the big exclamation mark, this is the workflow. You will also put it on the Zenodo, in a workflow zip. This workflow packet I gave to the other ones, it's good for you to know that that's the workflow. Why is that other thread? Okay. Yeah, you do the GitHub. You can basically take the Zenodo and/or by reading the other threads. Don't, don't fuck with the other threads. You maintain the GitHub. You make it human parsable, well-organized. The privacy isn't a huge concern. Completeness is primary concern. Privacy is nice, I guess, but GitHub checks that on, so, not really a huge thing. You make the GitHub fucking pristine.
-
-## GitHub application
-
-- Preserve exact producer bytes and supplied state labels.
-- Organize checkpoints by author, work, language, generation, and supersession.
-- Keep readable entry points, manifests, correction history, and raw GitHub
-  readback receipts together.
-- Do not edit producer roots or use inter-task message relays.
-- Treat completeness as the primary GitHub custody requirement.

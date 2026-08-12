@@ -1,21 +1,17 @@
 # Evariste Galois Source Staging
 
-Zenodo record: pending / not yet minted.
+External record: none linked.
 
 Current public classification: source-intake staging only.
 
 This lane currently contains a compact quick-win source packet for possible future Galois transcription/translation work. It is not a promoted transcription, not a translation, not a reader release, not a DOI claim by itself, and not a critical edition.
 
-## Current Local Packet
+## Current Source Packet
 
 Registered source-intake manifest:
 
 - [`20260701_galois_source_staging.md`](../../manifests/source-intake/20260701_galois_source_staging.md)
 - [`20260701_galois_source_staging.json`](../../manifests/source-intake/20260701_galois_source_staging.json)
-
-Local source root:
-
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629`
 
 Packaged source-start ZIP:
 

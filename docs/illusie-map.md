@@ -42,7 +42,7 @@ three producer-supplied anonymous-readback metadata files. Exactly 21
 byte-identical anonymous copies of the direct public files were deduplicated;
 their canonical top-level copies and receipt bindings remain.
 
-Local replay matched 21/21 direct objects, 153/153 source-manifest rows,
-153/153 ZIP members, and every selected source byte. The publication identity
-in the receipt is producer-supplied; this GitHub task did not query or mutate
-Zenodo. The producer root was not edited.
+The custody replay matched 21/21 direct objects, 153/153 source-manifest rows,
+153/153 ZIP members, and every selected source byte. The external publication
+identity is retained from the supplied receipt as discovery and provenance
+metadata.

@@ -54,7 +54,7 @@ producer payloads.
   and [source receipt](../published-github/frontier-r1.json)
 - [Twenty-eight-cycle queue-and-scope predecessor](../published-github/20260809_queue_scope_close.json)
 - [Twenty-six-cycle predecessor archive history](20260808_archive_r9.json)
-- [Current coverage-map inventory](maps-r7.json), [R6 predecessor](maps-r6.json), and [R5 predecessor](20260807_maps_r5.json)
+- [Current coverage-map inventory](maps-r8.json), [R7 predecessor](maps-r7.json), [R6 predecessor](maps-r6.json), and [R5 predecessor](20260807_maps_r5.json)
 - [Current reader/source shelf closure](20260808_shelves_r9.json)
 - [Direct-reader inventory](20260808_readers_r5.json)
 - [Tracked-source summary](20260807_sources_r5.json) and

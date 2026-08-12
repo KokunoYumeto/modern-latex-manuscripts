@@ -1,9 +1,9 @@
 # GitHub Coverage Maps
 
 Use this page before starting or restarting a translation. It routes to the
-nineteen author, work, series, and mixed-shelf maps that this GitHub-maintenance
-task is allowed to catalog. A missing cumulative reader, an unchecked label, or
-an old directory name does not prove that a translation is absent.
+nineteen in-scope author, work, series, and mixed-shelf maps. A missing
+cumulative reader, an unchecked label, or an old directory name does not prove
+that a translation is absent.
 
 These are custody and continuation maps. Their words `complete`, `current`,
 `source-checked`, and similar labels apply only to the exact scope explained in
@@ -50,17 +50,20 @@ tree. The current exact allowed-source projection is 14,901 files /
 
 ## Exact Navigation Audit
 
-The nineteen map documents total 196,382 bytes. Their 1,717-byte ordinal
+The nineteen map documents total 196,219 bytes. Their 1,717-byte ordinal
 canonical stream (`path<TAB>bytes<TAB>SHA256<LF>`, UTF-8 without BOM) has tree
 SHA-256
-`D53D211BDEA9D7FB2396F80E0FA7755219C2AD8F8DF38D2FDFF7FF519C422985`.
+`345C69B5A738FABCCA18BE84EC6C09E8D4D3CC510D967A84ED4FA99BD91C4F17`.
 All 643 local links resolve in the current Git tree.
 
 The exact current identities and link closure are in
-[`maps-r7.json`](../manifests/github-custody/maps-r7.json). The current
-increment retains the Steinitz 1906 packet-reconciliation gate and binds the
-provisional 1908 offprint witness plus its exact recovery cursor before any
-new transcription. The [R6 predecessor](../manifests/github-custody/maps-r6.json)
+[`maps-r8.json`](../manifests/github-custody/maps-r8.json). The current
+increment preserves every coverage/cursor claim while removing machine-local
+and internal maintenance prose from four map landings. The [R7
+predecessor](../manifests/github-custody/maps-r7.json) retains the Steinitz 1906
+packet-reconciliation gate and binds the provisional 1908 offprint witness plus
+its exact recovery cursor before any new transcription. The [R6
+predecessor](../manifests/github-custody/maps-r6.json)
 retains the earlier 1906-only reconciliation generation. The
 [R5 predecessor map index](../manifests/github-custody/20260807_maps_r5.json)
 retains the frozen Simplified-Chinese Noether R5 routing while R4 remains
@@ -73,7 +76,6 @@ earlier generations remain immutable history.
 
 ## Boundary
 
-This index is limited to the nineteen maps above. Separately owned, revoked, or
-prohibited surfaces are intentionally absent and were not inspected or
-cross-linked. Their absence is a task boundary, not evidence that their work
-does not exist.
+This index is limited to the nineteen maps above. Separately governed or
+out-of-scope surfaces are intentionally absent. Their absence is a repository
+scope boundary, not evidence that their work does not exist.

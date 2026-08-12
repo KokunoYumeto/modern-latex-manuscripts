@@ -1,11 +1,12 @@
-# SGA3 diagram cold-reverify hold
+# Historical SGA3 Diagram Reverification Gate
 
 Date: 2026-07-27
 
-Status: controlling release hold for pending unpublished diagram-bearing SGA3
-payloads and for future EGA diagram work.
+Status: preserved technical gate from the 2026-07-27 review generation. It is
+not a current publication hold or producer-custody instruction. Its exact
+diagram-fidelity requirements remain reusable review evidence.
 
-The external manager control is the local lane-control file
+The associated control identity was
 `SGA_DIAGRAM_CLAUDE_STYLE_COLD_REVERIFY_HIGH_ZOOM_CONTROL_20260727.md`.
 
 - bytes: 4,268
@@ -35,8 +36,8 @@ final diagram-fidelity closure:
   hash, crop paths and hashes, reviewer disposition, and repair identity;
 - comparison of source crop, diagram TeX, and delivered PDF, including the
   prose immediately before and after the diagram;
-- a top-level session-lead signature covering an exact disjoint ownership
-  range and confirming non-overlap with other active sessions.
+- a review-coordinator receipt covering an exact disjoint ownership range and
+  confirming non-overlap with other declared review scopes.
 
 Build success, source-code inspection, OCR, extracted text, contact sheets,
 native-diagram status, pixel similarity, and 300-dpi-only approval cannot
@@ -61,7 +62,7 @@ The following known unpublished diagram-bearing scopes are controlled:
   graph freeze is independently adverse: it flattened inherited target kinds
   and falsely linked six TikZ coordinate literals (`2.1`, `3.3`, and `3.2`)
   as section references.
-  The controlling local hold is
+  The associated historical gate is
   `SGA3_EXPOSE_VII_HIGH_ZOOM_DIAGRAM_32_REPAIR_HOLD_20260727.md`, 3,179
   bytes, SHA-256
   `AA121D61219000E22A3AB46113F180A8A001FAE5B65FEE6566AC352725C5A7F6`.

@@ -8,7 +8,7 @@ and old-physics lanes.
 The public archive should not mirror raw workbench folders. It should present a curated reader
 surface, backed by enough source and audit material for checking.
 
-Raw session bundles can contain useful material: source scans, cropped witnesses, OCR outputs,
+Raw working-evidence bundles can contain useful material: source scans, cropped witnesses, OCR outputs,
 render checks, failed attempts, correction logs, and intermediate TeX. Those are valuable for QA and
 provenance, but they should not be promoted as top-level reader files merely because they exist.
 

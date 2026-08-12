@@ -32,8 +32,8 @@ checkpoint should supply independent French and English readers.
 
 ## Custody
 
-The exact root is 20 files / 52,509,994 bytes, tree SHA-256
+The exact submitted checkpoint is 20 files / 52,509,994 bytes, tree SHA-256
 `E07FFDDF9316BA2C2FA106E41FD95A93816C6F0C65052DAB27F4B63CD1FD8D38`.
-Local replay matched 18/18 receipt files and 368/368 ZIP members. External
-record identities are quoted from the producer-supplied receipt; this GitHub
-task did not query or mutate Zenodo.
+The custody replay matched 18/18 receipt files and 368/368 ZIP members.
+External record identities are retained from the supplied receipt as discovery
+and provenance metadata.

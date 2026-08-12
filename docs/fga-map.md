@@ -35,10 +35,10 @@ explicit in `resid.csv`; it has not been silently repaired.
 
 ## Custody
 
-The frozen producer root contains 29 files / 7,103,643 bytes, tree SHA-256
+The frozen submitted checkpoint contains 29 files / 7,103,643 bytes, tree SHA-256
 `FA794418EE836D9D8B0549DBB5EA946CDF6599123D8792CB03D29226EBAC3247`.
 The 24-file publication payload totals 7,092,872 bytes. Its supplied readback
 reports 24/24 direct objects, 34/34 French ZIP members, and 34/34 English ZIP
-members matched. GitHub custody independently replayed those local identities.
-The publication identity in the receipt is producer-supplied; this GitHub task
-did not query or mutate Zenodo.
+members matched. The GitHub custody manifest independently replays the supplied
+identities. The external publication identity is retained as discovery and
+provenance metadata.

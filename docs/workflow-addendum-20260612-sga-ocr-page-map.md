@@ -38,6 +38,9 @@ Without that metadata, use the OCR only for "this phrase occurs somewhere" quest
 
 ## Aid-Packet Rule
 
-The best aid packet for a web or local review session is compact and labelled. Send page maps, current TeX anchors, source slices, high-resolution crops for hard objects, OCR prose witnesses, and candidate ledgers. Do not send unlabelled image bricks or unscoped OCR dumps and expect the recipient to reconstruct the task.
+The best bounded reviewer handoff is compact and labelled. Include page maps,
+current TeX anchors, source slices, high-resolution crops for hard objects, OCR
+prose witnesses, and candidate ledgers. Do not provide unlabelled image bricks
+or unscoped OCR dumps and expect the reviewer to reconstruct the scope.
 
 The reviewer should return a ledger that says exactly which candidates were promoted, rejected, or left uncertain, with source-page references.

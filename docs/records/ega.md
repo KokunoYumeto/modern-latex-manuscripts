@@ -1,6 +1,6 @@
 # EGA
 
-Producer-supplied current-record receipt: [21792798](https://zenodo.org/records/21792798); concept DOI: [https://doi.org/10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353). GitHub maintenance did not independently query Zenodo.
+Supplied external discovery/provenance reference: [record 21792798](https://zenodo.org/records/21792798); concept DOI: [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353).
 
 Public title: Elements de geometrie algebrique (EGA): English Working Readers and Buildable TeX
 
@@ -14,7 +14,7 @@ Public title: Elements de geometrie algebrique (EGA): English Working Readers an
 
 Open the [1,356-page linked EGA 0-IV English reader](../../sources/ega/global-r1/EGA_English_Global_0_IV_complete_linked_reader.pdf) for continuous reading. Its [complete source tree](../../sources/ega/global-r1/source/) is directly browseable; standalone EGA 0, I, II, III, and IV shelves are linked from the [coverage map](../ega-map.md).
 
-The exact global package contains 137 producer files / 15,907,978 bytes. The exact complete EGA IV package contains 84 / 38,155,078 bytes and exposes its 59-file TeX closure plus reference graph directly. The newer EGA I printed-p.143 control bundle is a separate bounded authority recheck through Definition 6.2.1; active p.144 generation is excluded. The producer-supplied external receipt records version 21792798, but GitHub maintenance did not query or mutate Zenodo. These are working translations and audit materials, not critical editions, mathematical certification, accessibility certification, or uniform whole-corpus source certification.
+The exact global package contains 137 submitted files / 15,907,978 bytes. The exact complete EGA IV package contains 84 / 38,155,078 bytes and exposes its 59-file TeX closure plus reference graph directly. The newer EGA I printed-p.143 control bundle is a separate bounded authority recheck through Definition 6.2.1; active p.144 generation is excluded. The supplied external receipt records version 21792798 as discovery/provenance metadata. These are working translations and audit materials, not critical editions, mathematical certification, accessibility certification, or uniform whole-corpus source certification.
 
 ## Current GitHub Source Checkpoint
 

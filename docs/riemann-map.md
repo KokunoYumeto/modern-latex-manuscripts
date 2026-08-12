@@ -90,6 +90,6 @@ the exact caveat state.
 
 1. Preserve the current readers, TeX files, controls, and stale identities as distinct history; do not silently rewrite them into agreement.
 2. Recover or produce an exact post-trim *Gesammelte Werke* source/control package before claiming a synchronized 511-page edition.
-3. Repair and source-check the selected-papers TeX ending in its producer lane, and bind any corrected TeX to the exact reader it builds.
+3. Repair and source-check the selected-papers TeX ending, and bind any corrected TeX to the exact reader it builds.
 4. Recover the missing selected-papers chunk PDFs/scans before assigning duplicate transcription or asserting source closure.
 5. Verify citation-critical mathematics against an authoritative printed source; the retained structural and sampled-display checks are not that verification.

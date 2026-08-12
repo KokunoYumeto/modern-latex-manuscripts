@@ -4,9 +4,12 @@ Branch: `origin/codex/noether-pc-20260629`
 
 GitHub branch URL: <https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/codex/noether-pc-20260629>
 
-This is a reader-facing map of the other-PC source-body branch. The branch contains real corpus/source-body packages and interlanguage methodology material, but also coordination logs and root-level session-control instructions. It should not be merged wholesale into the public `main` surface without curation.
+This is a dated reader-facing map of a source-body/provenance branch. The branch
+contains real corpus packages and interlanguage methodology material alongside
+historical coordination controls. It should not be merged wholesale into
+`main`; admit exact bounded source checkpoints instead.
 
-Current observed head: `cb7501a13` (`Add 3EB Slavic source-canon Fable refresh`).
+Observed head at the 2026-07-07 snapshot: `cb7501a13` (`Add 3EB Slavic source-canon Fable refresh`).
 
 Classification: source-body/provenance/support branch. It is useful for interlanguage and Noether-Slavic continuation, but it is not native language approval, accepted terminology, translation completion, source-fidelity certification, a critical edition, or a reader/language-certification release. The curated grouped payloads from this branch remain public in current interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885), which also retains the Noether Interslavic 002A/002B normalization method/evidence, Romance v10, the Noether R823 completion gate v4, and the v0.12 language-manager fleet snapshot, while adding the v0.13 Romance corpus/WordWeb/governance and Interslavic-through-Tranche-007 checkpoints. Route-support/watchdog deltas after the original branch snapshot are mirrored in GitHub under `interlanguage-sidecar/20260707/`; they remain support unless an actual body or reader payload is promoted separately.
 

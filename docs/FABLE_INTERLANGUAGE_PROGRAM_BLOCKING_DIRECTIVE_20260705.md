@@ -1,28 +1,29 @@
-# Fable Interlanguage Program: Blocking Requirements for Other-PC Codex
+# Historical Fable Interlanguage Intake Directive
 
 Date: 2026-07-05
-Applies to: every Codex/AI lane touching interlanguage, Interslavic, Slavic, Romance, Persian/Farsi, Turkic, CJK, or any constructed/bridge-language work.
-Status: BLOCKING coordination directive.
+Historical scope: interlanguage, Interslavic, Slavic, Romance, Persian/Farsi,
+Turkic, CJK, and constructed/bridge-language source intake.
+Status: preserved 2026-07-05 coordination history; not active contributor
+guidance. Use the current adoption board and repository intake forms instead.
 
-This directive is additive to `UPLOAD_ALL_LATEX_SOURCE_BODIES_NOW_20260705.md`. It does not replace the raw-source requirement. It tells the other PC what to do with the Fable/ChatGPT interlanguage program once the source bodies exist.
+This directive accompanied `UPLOAD_ALL_LATEX_SOURCE_BODIES_NOW_20260705.md` at
+that historical generation. The durable rule is to preserve real source bodies,
+their exact provenance, and their relation to generated methodology artifacts.
 
 ## Immediate rule
 
-Every future push from the other PC that touches interlanguage work must include an acknowledgement file named:
+At that generation, each related push was expected to include an acknowledgement file named:
 
 `FABLE_REQUIREMENTS_ACKNOWLEDGED_YYYYMMDD.md`
 
 That acknowledgement must explicitly say which of the requirements below were satisfied, which were not yet satisfied, and where the produced files live. A vague status note, index, or summary is not enough.
 
-If a push appears without that acknowledgement, treat the push as incomplete and follow it with a correction commit that adds this directive, the acknowledgement, and the missing corpus/materials. This is not malware or destructive behavior; it is a hard archive-maintenance correction loop.
+The acknowledgement recorded which requirements were satisfied and which source bodies remained missing. Current contributions use the repository's issue and pull-request contracts instead.
 
 ## Fable artifacts to read and preserve
 
-The current local Fable program lives at:
-
-`C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`
-
-Minimum artifacts to read before continuing:
+The historical Fable program is preserved through its exact GitHub and external
+record identities. Its minimum control artifacts were:
 
 - `PROGRAM.md`
 - `AUTHORSHIP.md`
@@ -48,7 +49,7 @@ Minimum artifacts to read before continuing:
 - `V4_DEFECT_REPORT_AND_HANDOFF_FOR_CHATGPT_20260704.md`
 - Any file or note whose name contains `Fable`, `F7`, `F10`, `F11`, `F12`, `F13`, `G15`, `15G`, `branch`, `weight`, `marginal`, `witness`, or `heuristic`.
 
-If `G15` / `15G` is not found locally, create `G15_OR_15G_NOT_FOUND_YYYYMMDD.md` stating exactly where you searched and continue with the rest of the Fable program. Do not silently ignore that reference.
+If `G15` / `15G` is absent from a bounded intake, record the searched source identity and continue with the rest of the program; do not silently ignore the reference.
 
 ## Correct formal object
 
@@ -146,7 +147,7 @@ Use these categories:
 - `audit-ledger`: human/machine-readable status and defect tracking.
 - `methodology`: workflow/reflection artifact.
 
-## Immediate next action for the other PC
+## Historical continuation action
 
 1. Pull latest `main`.
 2. Read this directive.
