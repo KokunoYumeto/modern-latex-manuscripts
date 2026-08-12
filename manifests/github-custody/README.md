@@ -50,7 +50,7 @@ producer payloads.
   and [source receipt](../published-github/frontier-r1.json)
 - [Twenty-eight-cycle queue-and-scope predecessor](../published-github/20260809_queue_scope_close.json)
 - [Twenty-six-cycle predecessor archive history](20260808_archive_r9.json)
-- [Current coverage-map inventory](maps-r6.json) and [R5 predecessor](20260807_maps_r5.json)
+- [Current coverage-map inventory](maps-r7.json), [R6 predecessor](maps-r6.json), and [R5 predecessor](20260807_maps_r5.json)
 - [Current reader/source shelf closure](20260808_shelves_r9.json)
 - [Direct-reader inventory](20260808_readers_r5.json)
 - [Tracked-source summary](20260807_sources_r5.json) and
@@ -66,7 +66,8 @@ producer payloads.
   [four-row index](20260807_zh_a4.csv)
 - [Immutable Simplified-Chinese R3 predecessor custody](20260807_zh.json) and
   [exact path index](20260807_zh.csv)
-- Current sparse-adoption-CI link audit: `20260809_links_r28.json`
+- Latest tracked committed-link audit: [`20260806_links.json`](20260806_links.json), bound by the current [candidate-intake closure](../published-github/stacks-entry-r1-close.json)
+- Sparse-adoption-CI predecessor link audit: `20260809_links_r28.json`
 - Offline-claim-auditor predecessor link audit: `20260809_links_r27.json`
 - Offline-consumer predecessor link audit: `20260809_links_r26.json`
 - Queue-synchronization predecessor link audit: `20260809_links_r25.json`
@@ -125,7 +126,7 @@ remain immutable. The
 generations. The [eighteen-cycle predecessor](20260807_archive.json) also
 remains unchanged. The twenty-six-cycle predecessor index binds the complete
 five-commit publication and main closure of [archive r8](20260808_archive_r8.json).
-The current public-interface cleanup
+The predecessor public-interface cleanup
 [closure](../published-github/ui-clean-r1-close.json) binds accepted source
 commit `efb16617` and receipt commit `ee24ed9f`: source readback matched 14/14
 paths / 1,221,750 bytes, receipt readback matched 5/5 paths / 648,215 bytes,

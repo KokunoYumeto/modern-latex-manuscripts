@@ -50,16 +50,18 @@ tree. The current exact allowed-source projection is 14,901 files /
 
 ## Exact Navigation Audit
 
-The nineteen map documents total 195,954 bytes. Their 1,717-byte ordinal
+The nineteen map documents total 196,382 bytes. Their 1,717-byte ordinal
 canonical stream (`path<TAB>bytes<TAB>SHA256<LF>`, UTF-8 without BOM) has tree
 SHA-256
-`F3EC19125E26037C8E91B67B85EE9853A6C8425D2E51EBA48AED5F4AA6F5D72F`.
+`D53D211BDEA9D7FB2396F80E0FA7755219C2AD8F8DF38D2FDFF7FF519C422985`.
 All 643 local links resolve in the current Git tree.
 
 The exact current identities and link closure are in
-[`maps-r6.json`](../manifests/github-custody/maps-r6.json). The current
-increment reconciles the GitHub-absent Steinitz 1906 note with the
-snapshotted dedicated-record packet before any retranscription. The
+[`maps-r7.json`](../manifests/github-custody/maps-r7.json). The current
+increment retains the Steinitz 1906 packet-reconciliation gate and binds the
+provisional 1908 offprint witness plus its exact recovery cursor before any
+new transcription. The [R6 predecessor](../manifests/github-custody/maps-r6.json)
+retains the earlier 1906-only reconciliation generation. The
 [R5 predecessor map index](../manifests/github-custody/20260807_maps_r5.json)
 retains the frozen Simplified-Chinese Noether R5 routing while R4 remains
 accepted/current. The

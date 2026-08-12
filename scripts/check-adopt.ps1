@@ -570,6 +570,7 @@ $checkpointAllowedPaths = [string[]]@(
     'manifests/adopt.json',
     'manifests/adopt.schema.json',
     'manifests/github-custody/20260806_links.json',
+    'manifests/github-custody/maps-r7.json',
     'manifests/github-custody/log.jsonl',
     'manifests/stacks-compose.json',
     'manifests/stacks-entry.schema.json',
@@ -1845,13 +1846,82 @@ if ($mapManifestBytes.Length -gt 0) {
 $requiredMaps = [string[]]@($board.required_maps)
 Test-UniqueStrings -Values $requiredMaps -Context 'required_maps' -RequireNonEmpty $true
 $manifestMaps = [string[]]@()
+$mapManifestMemberReplayPass = $true
+$mapManifestMemberMatches = 0
+$mapManifestMemberBytes = [long]0
+$mapManifestTreeSha256 = $null
+$mapManifestCanonicalBytes = [long]0
+$mapManifestLocalLinks = 0
+$mapManifestExternalLinks = 0
 if ($null -ne $mapManifest) {
-    $manifestMaps = [string[]]@($mapManifest.current_map_set.files_exact | ForEach-Object { [string]$_.path })
+    $manifestRows = @($mapManifest.current_map_set.files_exact)
+    $manifestMaps = [string[]]@($manifestRows | ForEach-Object { [string]$_.path })
     if ([int]$mapManifest.current_map_set.files -ne $manifestMaps.Count) {
         Add-Error 'map_manifest current_map_set.files does not match files_exact count.'
+        $mapManifestMemberReplayPass = $false
     }
     if (($requiredMaps -join "`n") -cne ($manifestMaps -join "`n")) {
         Add-Error 'required_maps does not exactly match map_manifest current_map_set.files_exact in ordinal order.'
+        $mapManifestMemberReplayPass = $false
+    }
+    Test-UniqueStrings -Values $manifestMaps -Context 'map_manifest.current_map_set.files_exact paths' -RequireNonEmpty $true
+    $sortedManifestMaps = [string[]]@($manifestMaps)
+    [Array]::Sort($sortedManifestMaps, [StringComparer]::Ordinal)
+    if (($manifestMaps -join "`n") -cne ($sortedManifestMaps -join "`n")) {
+        Add-Error 'map_manifest current_map_set.files_exact is not in ordinal path order.'
+        $mapManifestMemberReplayPass = $false
+    }
+    $canonicalMapStream = [Text.StringBuilder]::new()
+    for ($index = 0; $index -lt $manifestRows.Count; $index++) {
+        $row = $manifestRows[$index]
+        $context = "map_manifest.current_map_set.files_exact[$index]"
+        Test-ExactFields -Value $row -Expected ([string[]]@('path', 'bytes', 'sha256', 'local_links', 'external_links')) -Context $context
+        $path = [string]$row.path
+        $full = [IO.Path]::GetFullPath((Join-Path $repoRoot $path))
+        $bytes = if ([IO.File]::Exists($full)) { [IO.File]::ReadAllBytes($full) } else { [byte[]]@() }
+        $sha256 = Get-Sha256 -Bytes $bytes
+        if ($path -cne $manifestMaps[$index]) {
+            Add-Error "$context path does not match the manifest path order."
+            $mapManifestMemberReplayPass = $false
+        }
+        if ([long]$row.bytes -ne $bytes.Length) {
+            Add-Error "$context byte length does not match the tracked map."
+            $mapManifestMemberReplayPass = $false
+        }
+        if ([string]$row.sha256 -cne $sha256) {
+            Add-Error "$context SHA-256 does not match the tracked map."
+            $mapManifestMemberReplayPass = $false
+        }
+        if ([long]$row.bytes -eq $bytes.Length -and [string]$row.sha256 -ceq $sha256) {
+            $mapManifestMemberMatches++
+        }
+        $mapManifestMemberBytes += $bytes.Length
+        $mapManifestLocalLinks += [int]$row.local_links
+        $mapManifestExternalLinks += [int]$row.external_links
+        $null = $canonicalMapStream.Append($path).Append([char]9).Append($bytes.Length).Append([char]9).Append($sha256).Append([char]10)
+    }
+    $canonicalMapBytes = $utf8.GetBytes($canonicalMapStream.ToString())
+    $mapManifestCanonicalBytes = $canonicalMapBytes.Length
+    $mapManifestTreeSha256 = Get-Sha256 -Bytes $canonicalMapBytes
+    if ([long]$mapManifest.current_map_set.bytes -ne $mapManifestMemberBytes) {
+        Add-Error 'map_manifest current_map_set.bytes does not match replayed member bytes.'
+        $mapManifestMemberReplayPass = $false
+    }
+    if ([long]$mapManifest.current_map_set.canonical_stream_bytes -ne $canonicalMapBytes.Length) {
+        Add-Error 'map_manifest current_map_set.canonical_stream_bytes does not match replayed canonical bytes.'
+        $mapManifestMemberReplayPass = $false
+    }
+    if ([string]$mapManifest.current_map_set.tree_sha256 -cne $mapManifestTreeSha256) {
+        Add-Error 'map_manifest current_map_set.tree_sha256 does not match replayed map tree.'
+        $mapManifestMemberReplayPass = $false
+    }
+    if ([int]$mapManifest.current_map_set.local_links -ne $mapManifestLocalLinks) {
+        Add-Error 'map_manifest current_map_set.local_links does not match the sum of member rows.'
+        $mapManifestMemberReplayPass = $false
+    }
+    if ([int]$mapManifest.current_map_set.external_links -ne $mapManifestExternalLinks) {
+        Add-Error 'map_manifest current_map_set.external_links does not match the sum of member rows.'
+        $mapManifestMemberReplayPass = $false
     }
 }
 foreach ($path in $requiredMaps) {
@@ -1912,7 +1982,8 @@ $expectedSnapshotChecks = [string[]]@(
     'validation_status_pass',
     'validation_errors_empty',
     'declared_bytes_sha256_match',
-    'schema_validation_pass'
+    'schema_validation_pass',
+    'map_manifest_member_replay'
 )
 $snapshotPaths = [string[]]@($board.snapshot_policy.same_commit_paths)
 $snapshotChecks = [string[]]@($board.snapshot_policy.required_checks)
@@ -2283,14 +2354,16 @@ foreach ($item in @($board.items)) {
                 $cursorPass = $false
             }
         }
-        foreach ($requiredPath in @('docs/known-gaps.md#steinitz', 'docs/work-queue.md#highest-value-typesetting-and-source-check-work')) {
-            if (-not (@($item.related_paths) -ccontains $requiredPath)) {
-                Add-Error "item:steinitz-1908-analysis-situs must bind queue evidence: $requiredPath"
-                $cursorPass = $false
-            }
+        if (-not (@($item.related_paths) -ccontains 'docs/known-gaps.md#steinitz')) {
+            Add-Error 'item:steinitz-1908-analysis-situs must bind the known-gaps evidence.'
+            $cursorPass = $false
         }
-        if (-not ([string]$item.source_basis).Contains('locally staged 22-page Ranicki offprint witness at about 300 ppi', [StringComparison]::Ordinal)) {
-            Add-Error 'item:steinitz-1908-analysis-situs source_basis must preserve the provisional staged witness.'
+        if (@($item.related_paths) -ccontains 'docs/work-queue.md#highest-value-typesetting-and-source-check-work') {
+            Add-Error 'item:steinitz-1908-analysis-situs must not attribute its witness to the work queue.'
+            $cursorPass = $false
+        }
+        if (-not ([string]$item.source_basis).Contains('tracked known-gaps snapshot reports a locally staged 22-page Ranicki offprint witness at about 300 ppi', [StringComparison]::Ordinal)) {
+            Add-Error 'item:steinitz-1908-analysis-situs source_basis must preserve the exact known-gaps witness attribution.'
             $cursorPass = $false
         }
         if (-not (@($item.prerequisites) -ccontains 'recover and hash-bind the staged 22-page Ranicki offprint')) {
@@ -2530,6 +2603,12 @@ $report = [ordered]@{
         bytes = $mapManifestBytes.Length
         sha256 = if ($mapManifestBytes.Length -gt 0) { Get-Sha256 -Bytes $mapManifestBytes } else { $null }
         required_maps = $requiredMaps.Count
+        member_replay = "$mapManifestMemberMatches/$($requiredMaps.Count)"
+        member_bytes = $mapManifestMemberBytes
+        canonical_stream_bytes = $mapManifestCanonicalBytes
+        tree_sha256 = $mapManifestTreeSha256
+        local_links = $mapManifestLocalLinks
+        external_links = $mapManifestExternalLinks
     }
     human_board = [ordered]@{
         path = $humanBoardPath.Replace('\', '/')
@@ -2850,6 +2929,10 @@ $report = [ordered]@{
             [string]$board.item_certification_default -ceq $expectedCertificationDefault
         )
         required_map_contract = ($requiredMaps.Count -gt 0 -and ($requiredMaps -join "`n") -ceq ($manifestMaps -join "`n"))
+        map_manifest_member_replay = (
+            $mapManifestMemberReplayPass -and
+            $mapManifestMemberMatches -eq $requiredMaps.Count
+        )
         required_maps_represented = ($missingRequiredMaps.Count -eq 0 -and $representedMapSet.Count -eq $requiredMaps.Count)
         queue_source_contract = (($queueSources -join "`n") -ceq ($expectedQueueSources -join "`n"))
         queue_sources_represented = ($missingQueueSources.Count -eq 0 -and $representedQueueSourceSet.Count -eq $queueSources.Count)

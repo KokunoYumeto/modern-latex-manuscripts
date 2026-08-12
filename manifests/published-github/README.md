@@ -473,7 +473,7 @@ The [R5 receipt-publication closure](20260807_r5_close_rb.json) then replays
 the four navigation-receipt publication paths / 193,908 bytes, all matched
 exactly.
 
-The current [live-main receipt](20260807_main_r5_rb.json) independently replays
+The [2026-08-07 live-main receipt](20260807_main_r5_rb.json) independently replays
 the Simplified-Chinese Noether R5 pending reader/source seal, current catalogs,
 archive controls, locked log, and receipts from `main`: 33 paths / 8,771,204
 bytes, all matched exactly. The [R3 live-main receipt](20260807_main_rb.json)
@@ -513,7 +513,7 @@ bytes, all matched exactly.
 
 The current [Noether Simplified-Chinese R4 source receipt](20260807_zh_r4_rb.json)
 binds all 1,435 paths changed by the exact source/reader publication commit:
-563,347,319 bytes, all matched exactly. Its three disjoint read-only agent
+563,347,319 bytes, all matched exactly. Its three disjoint readback
 partitions and their independently checked union are recorded in the receipt.
 The separate [R4 custody/index receipt](20260807_zh_r4_cat_rb.json) binds all
 11 paths changed by the catalog commit: 1,436,126 bytes, all matched exactly.

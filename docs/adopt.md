@@ -520,10 +520,12 @@ Do not ingest directly from those three floating URLs. A safe consumer must:
    `manifests/adopt.check.json`, and the board's referenced `map_manifest` from
    that same exact commit, using either commit-pinned raw URLs or exact Git
    blobs from a local object database that already contains the commit.
-3. Require validation `status == "PASS"` and `errors == []`. Then replay the
-   declared byte lengths and SHA-256 identities for the board, schema, and map
-   manifest against the same-commit responses. The validation file itself is
-   bound by the human-approved commit.
+3. Require validation `status == "PASS"`, `errors == []`, and
+   `checks.map_manifest_member_replay == true`. Then replay the declared byte
+   lengths and SHA-256 identities for the board, schema, and map manifest
+   against the same-commit responses. The validation file itself is bound by
+   the human-approved commit; higher-assurance map consumers can also replay
+   every `files_exact` map identity from that commit.
 4. Validate the board against the fetched schema before exposing any row.
 5. Reject mixed-revision inputs even when every individual URL returns 200 or
    one floating validation file says `PASS`.

@@ -170,6 +170,7 @@ def validate_snapshot(
         "validation_errors_empty",
         "declared_bytes_sha256_match",
         "schema_validation_pass",
+        "map_manifest_member_replay",
     ]:
         raise RuntimeError("snapshot_policy required_checks does not match the v1 contract")
     if policy.get("mixed_revisions_forbidden") is not True:
@@ -178,6 +179,11 @@ def validate_snapshot(
     require_identity("board", check.get("board"), BOARD_PATH, board_bytes)
     require_identity("schema_file", check.get("schema_file"), SCHEMA_PATH, schema_bytes)
     require_identity("map_manifest", check.get("map_manifest"), map_path, map_bytes)
+    validation_checks = check.get("checks")
+    if not isinstance(validation_checks, dict):
+        raise RuntimeError("validation checks is not an object")
+    if validation_checks.get("map_manifest_member_replay") is not True:
+        raise RuntimeError("validation does not prove exact map-manifest member replay")
     if check["board"].get("schema") != board.get("schema"):
         raise RuntimeError("validation board schema identity does not match the board")
 
