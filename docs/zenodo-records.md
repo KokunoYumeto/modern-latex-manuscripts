@@ -1,4 +1,14 @@
-## 2026-08-04 Current SGA, EGA, FAC, GAGA, Noether, methodology, and replication surfaces
+# Supplied External-Record Ledger
+
+This is a provenance and discovery ledger, not an instruction for this GitHub
+maintenance lane to mutate external records. The opening block carries the
+latest producer-supplied heads represented in GitHub receipts; later dated
+sections are immutable historical snapshots, so words such as “current” inside
+those sections mean current at that dated generation. Use the repository’s
+[coverage maps](github-maps.md) for current editable-source custody and exact
+continuation points.
+
+## Supplied current heads and retained 2026-08-04 surfaces
 
 - **SGA:** version [10.5281/zenodo.21783548](https://doi.org/10.5281/zenodo.21783548),
   concept [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947).
@@ -10,15 +20,14 @@
   a 408-member exact source/evidence transport. The resulting surface has 74
   files / 226,236,286 bytes. Anonymous replay passed 74/74 files and 408/408
   Spanish ZIP members; all 57 predecessor files remain exact.
-- **EGA:** version [10.5281/zenodo.21788321](https://doi.org/10.5281/zenodo.21788321),
+- **EGA:** producer-supplied version [10.5281/zenodo.21792798](https://doi.org/10.5281/zenodo.21792798),
   concept [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353).
-  The 1,356-page linked EGA 0-IV reader remains default preview. The current
-  successor adds exact EGA I diplomatic-French/paired-English source custody
-  through printed p.142, its pre-Stacks scaffold, human logbooks and status
-  surfaces through sealed p.141, direct p.142 append-only correction/reversal/error
-  ledgers, validator, rights note, and provenance package. The record has 69
-  files / 3,777,913,914 bytes. Readback passed 20/20 new direct files,
-  181/181 source-ZIP members, and 49/49 retained objects; printed p.143 is next.
+  Its exact GitHub [receipt](../sources/ega/p143/receipt.json) records 79 files /
+  3,778,975,780 bytes. The 1,356-page linked EGA 0-IV reader remains fronted,
+  all five standalone English readers and masters remain accessible, and the
+  paired EGA I authority recheck is sealed through printed p.143 / Definition
+  6.2.1. The later active generation starts at p.144; the earlier p.142
+  methodology and replication projections remain immutable provenance.
 - **FAC quality evidence:** unified version
   [10.5281/zenodo.21783868](https://doi.org/10.5281/zenodo.21783868), surviving
   concept [10.5281/zenodo.21720996](https://doi.org/10.5281/zenodo.21720996).
@@ -43,21 +52,17 @@
   French TeX, logbooks, correction/reversal ledgers, reference graph,
   validators, and reproduction tools follow. Anonymous replay passed 62/62
   direct files and 62/62 ZIP members. FAC remains separate.
-- **Noether:** version
-  [10.5281/zenodo.21785492](https://doi.org/10.5281/zenodo.21785492), concept
+- **Noether:** producer-supplied version
+  [10.5281/zenodo.21792832](https://doi.org/10.5281/zenodo.21792832), concept
   [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587).
-  The 459-page cumulative English working reader remains default preview and
-  every established multilingual reader/source archive remains intact. The
-  current 88-file / 585,512,953-byte surface preserves bounded Korean
-  producer-draft snapshots for Papers 1, 3, 4, 5, 7, 41, and 42. Paper 4 has
-  complete producer-draft text coverage across fifty units; its structural
-  evidence is explicitly T01-T03 only. Every Korean state remains UNCHECKED,
-  uncompiled, unrendered, unassembled, unreviewed, and uncertified. The latest
-  correction replaces six ZIPs whose nested text serialized private local
-  paths without changing mathematical bytes. Anonymous replay passed 11/11
-  new/replaced objects, all six corrected ZIPs (229/229 members), all nine live
-  Korean ZIPs (363/363 members), and 64 direct text files with zero private-path
-  hits. Earlier adverse versions remain immutable.
+  Its exact GitHub [receipt](../sources/noether/ko-p02-pub/receipt.json) records
+  99 files / 587,689,324 bytes. The 459-page cumulative English working reader
+  remains default preview and every established multilingual reader/source
+  archive remains intact. The successor adds the corrected Korean Paper 2 v003
+  transport: complete 199-target producer-draft text/table coverage in a
+  354-member ZIP plus six revised direct TeX units. Korean Paper 2 remains
+  UNCHECKED, uncompiled, unrendered, unassembled, unreviewed, and uncertified;
+  earlier adverse versions remain immutable history.
 - **Methodology:** version
   [10.5281/zenodo.21788322](https://doi.org/10.5281/zenodo.21788322), existing
   concept [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403),
@@ -87,7 +92,7 @@ Aug. 3/4 publication surface.
 
 ## 2026-07-31 compact Noether, SGA, and EGA surfaces (historical snapshot)
 
-- **Noether:** current version [10.5281/zenodo.21699405](https://doi.org/10.5281/zenodo.21699405), under concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587). Its compact 20-file surface exposes the 459-page full cumulative English working reader and editable master TeX directly, together with direct German, Spanish, French, and Interslavic readers and coherent source/evidence ZIPs. The latest successor retains 19 predecessor files byte-identically and replaces source-audit archive 61 with a 132-member multilingual repair-survivor package. The full English PDF is the default preview. Older 100-file versions remain immutable history rather than the current landing surface.
+- **Noether:** then-current version [10.5281/zenodo.21699405](https://doi.org/10.5281/zenodo.21699405), under concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587). Its compact 20-file surface exposed the 459-page full cumulative English working reader and editable master TeX directly, together with direct German, Spanish, French, and Interslavic readers and coherent source/evidence ZIPs. Its successor retained 19 predecessor files byte-identically and replaced source-audit archive 61 with a 132-member multilingual repair-survivor package. The full English PDF was the default preview. Older 100-file versions remain immutable history rather than the current landing surface.
 - **SGA:** then-current version [10.5281/zenodo.21756931](https://doi.org/10.5281/zenodo.21756931), under concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947), preserved the 1,770-member predecessor bundle and 264-page SGA7 II reader. It is immutable history beneath current R3 version 21782424; presentation-clean predecessor 21778810 remains between them.
 - **EGA:** then-current version [10.5281/zenodo.21744406](https://doi.org/10.5281/zenodo.21744406), under concept DOI [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353), introduced the continuous 1,356-page linked EGA 0-IV reader and 265-member bundle. Those bytes remain on current version 21788321, which adds the later p.142 custody checkpoint.
 - **Reusable source-audit images:** dedicated dataset [10.5281/zenodo.21730032](https://doi.org/10.5281/zenodo.21730032), under concept DOI [10.5281/zenodo.21730031](https://doi.org/10.5281/zenodo.21730031), contains two SGA7 I high-detail crop archives and one exact metadata archive. It is deliberately separate from reader landing pages.
@@ -99,7 +104,7 @@ Aug. 3/4 publication surface.
 
 ## 2026-07-19 Noether Paper 2 / Paper 4 Sections 6-7 update published (historical predecessor)
 
-- Historical Noether version: [10.5281/zenodo.21434690](https://doi.org/10.5281/zenodo.21434690), concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587); later superseded as the landing surface by compact version [10.5281/zenodo.21499660](https://doi.org/10.5281/zenodo.21499660) and the current same-concept successor [10.5281/zenodo.21699405](https://doi.org/10.5281/zenodo.21699405).
+- Historical Noether version: [10.5281/zenodo.21434690](https://doi.org/10.5281/zenodo.21434690), concept DOI [10.5281/zenodo.20412587](https://doi.org/10.5281/zenodo.20412587); later superseded as the landing surface by compact versions including [10.5281/zenodo.21699405](https://doi.org/10.5281/zenodo.21699405) and the current producer-supplied receipt above.
 - Reader surface: the inherited English cumulative working reader remains the default preview. The current 466-page German source-control reader incorporates the bounded Paper 2 pp.58-92 closure and Paper 4 Sections 6-7 repairs. Direct English Paper 4 Section 7 adds three pages and editable TeX; bounded English continues at Section 8 / R823 line 4270.
 - Scope boundary: Paper 2 pp.23-57 remain open. This release does not claim complete Paper 2, complete Paper 4, whole-corpus synchronization, or a critical edition.
 - Evidence: files `47`, `48`, and `51` preserve privacy-clean source, formula, structural, terminology, difficulty/failure, build, render, and review controls. File `49` contains 53 open project-generated renders. Seventy-nine source-derived rasters remain metadata-only with parent hashes, pages, bounding boxes, dimensions, DPI, rotation, linked units, review outputs, and rights-blocked dispositions.
@@ -108,7 +113,7 @@ Aug. 3/4 publication surface.
 
 ## 2026-07-19 SGA direct PDF/TeX surface published (historical predecessor)
 
-- Historical SGA version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547), concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947); later superseded through compact predecessors including 21499857, 21511144, 21512082, 21512567, 21515326, 21515795, 21516193, 21519758, 21630748, 21631125, 21634000, 21634836, 21635827, 21636270, 21636902, 21650398, 21662699, 21672742, 21674998, 21677179, 21682020, 21688473, 21691353, 21694014, 21694504, 21695622, 21696318, 21698501, 21700836, 21702669, 21703448, 21703611, 21704696, 21705961, 21707869, 21709733, 21711433, 21713912, 21716658, 21718438, 21719186, 21719787, 21720340, 21722687, 21723464, 21723980, 21724413, 21725392, 21725940, 21726988, 21727380, 21728674, 21729478, 21730414, 21738682, 21745704, 21747165, 21749057, 21750586, 21753102, and 21756931. Current same-concept version is [10.5281/zenodo.21782424](https://doi.org/10.5281/zenodo.21782424); presentation-clean predecessor 21778810 remains immutable history.
+- Historical SGA version: [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547), concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947); later superseded through compact predecessors including 21499857, 21511144, 21512082, 21512567, 21515326, 21515795, 21516193, 21519758, 21630748, 21631125, 21634000, 21634836, 21635827, 21636270, 21636902, 21650398, 21662699, 21672742, 21674998, 21677179, 21682020, 21688473, 21691353, 21694014, 21694504, 21695622, 21696318, 21698501, 21700836, 21702669, 21703448, 21703611, 21704696, 21705961, 21707869, 21709733, 21711433, 21713912, 21716658, 21718438, 21719186, 21719787, 21720340, 21722687, 21723464, 21723980, 21724413, 21725392, 21725940, 21726988, 21727380, 21728674, 21729478, 21730414, 21738682, 21745704, 21747165, 21749057, 21750586, 21753102, and 21756931. It was later superseded by 21782424 and the current producer-supplied SGA head above; presentation-clean predecessor 21778810 remains immutable history.
 - Reader surface: the 309-page SGA5 English source-synchronized reader remains the default preview. A bounded ten-page SGA1 reader covers the Exposé I opening through §I.6 / French lines 556-1216; separate nine- and four-page readers cover complete bounded SGA2 Exposés V-VI / French lines 1770-2272. All eight reader PDFs now have matching direct TeX downloads: SGA1 English; SGA2 Exposés V and VI English; SGA5 French and English; and SGA6 French, English, and the bounded Spanish Exposé X tranche.
 - Evidence: privacy-clean support ZIPs preserve source/formula/terminology and machine-readable structural/difficulty controls, builds, render QA, manifests, and independent reviews. Two visual packages contain 37 project-generated target/QA renders and no French source pixels.
 - Continuation: SGA1 resumes at French line 1217 / §I.7. SGA2 resumes at line 2274 / Exposé VII.
@@ -117,7 +122,7 @@ Aug. 3/4 publication surface.
 
 ## 2026-07-19 SGA1 through I.6 and SGA2 Exposés V-VI published (predecessor)
 
-- Historical SGA version: [10.5281/zenodo.21435334](https://doi.org/10.5281/zenodo.21435334), concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947); superseded by current version [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547).
+- Historical SGA version: [10.5281/zenodo.21435334](https://doi.org/10.5281/zenodo.21435334), concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947); superseded at the next dated snapshot by [10.5281/zenodo.21435547](https://doi.org/10.5281/zenodo.21435547).
 - This version published the current bounded SGA1 I.6 and SGA2 V-VI content and exposed their three PDF/TeX pairs before the remaining five direct TeX companions were added. Its 27 files / 69,323,217 bytes passed publication readback. Exact receipts: `manifests/published-zenodo/20260719_sga1_i6_record_21435334.json`, `_result.json`, `_readback.json`, and `_preserved.json`.
 
 ## 2026-07-19 SGA2 Exposé VI and direct TeX published (predecessor)
@@ -732,7 +737,7 @@ Large artifact ZIPs are part of the public records for provenance. The file list
 
 ## Dedicated Methodology / Pending Standalone Records
 
-- Interlanguage and Mathematical Translation Methodology Sidecar: dedicated concept DOI <https://doi.org/10.5281/zenodo.21124403>, latest public version <https://doi.org/10.5281/zenodo.21788322>. The current 100-file / 5,008,713,163-byte surface retains the complete numbered methodology/source-body/fleet archive plus SGA R3, GAGA, FAC, Korean-Noether, and Spanish-SGA5 trust surfaces and adds exact EGA I p.142 provenance. Readback passed all 21 new direct files, all 181 p.142 source-ZIP members, all 14 retained-container compaction members, and 79 retained files. The compaction drops no distinct content or human logbook; immutable predecessors preserve every former direct presentation. These are methodology, provenance, and QA artifacts, not native validation, rights clearance, proof checking, peer review, or critical-edition status. Actual Noether readers remain public on current record <https://doi.org/10.5281/zenodo.21785492>.
+- Interlanguage and Mathematical Translation Methodology Sidecar: dedicated concept DOI <https://doi.org/10.5281/zenodo.21124403>, producer-supplied version <https://doi.org/10.5281/zenodo.21788322>. The 100-file / 5,008,713,163-byte surface retains the complete numbered methodology/source-body/fleet archive plus SGA R3, GAGA, FAC, Korean-Noether, and Spanish-SGA5 trust surfaces and adds exact EGA I p.142 provenance. Readback passed all 21 new direct files, all 181 p.142 source-ZIP members, all 14 retained-container compaction members, and 79 retained files. The compaction drops no distinct content or human logbook; immutable predecessors preserve every former direct presentation. These are methodology, provenance, and QA artifacts, not native validation, rights clearance, proof checking, peer review, or critical-edition status. Current Noether discovery is supplied by the 21792832 receipt above.
 
 - Latest interlanguage coordination addendum: packages 422-424 are staged as `Noether_PC_Interlanguage_Packages422_424_RollingDeltas_20260705.zip` (44,990 bytes, SHA256 `A85F18108EE37DD8E56510574DFBE8812EB8845EFC91A1A8124F91CA217D61D5`, 27 entries). They add Persianate/Tajik draft-artifact manifest/checksum material and package-400/402 plus package-417 visibility/frontier recheck material. They contain zero TeX-like files, zero PDFs, zero ZIP payloads, and zero omitted raw source-body rows, so classify them as methodology/source-canon/source-evidence coordination only.
 
@@ -750,7 +755,7 @@ Large artifact ZIPs are part of the public records for provenance. The file list
 
 ## 2026-07-18 Interlanguage v0.13 corpus, WordWeb, governance, and normalization checkpoints published
 
-- Current public version DOI: <https://doi.org/10.5281/zenodo.21485338>; concept DOI: <https://doi.org/10.5281/zenodo.21124403>. Version 21430885 remains the immutable v0.13 corpus/WordWeb predecessor; 21485338 adds the bounded CJK visual-evidence checkpoint without replacing that earlier material.
+- Public version at this 2026-07-18 snapshot: <https://doi.org/10.5281/zenodo.21485338>; concept DOI: <https://doi.org/10.5281/zenodo.21124403>. Version 21430885 remains the immutable v0.13 corpus/WordWeb predecessor; 21485338 adds the bounded CJK visual-evidence checkpoint without replacing that earlier material.
 - Reader-facing file: `00_Interlanguage_Methodology_Current_v13_20260718.pdf`, 5 A4 pages, SHA256 `B68AC27FA2DED94F808FEF87A30AA36D4A8163909794C6B3191F91AAF11E5CDA`.
 - Organized checkpoint artifacts: `17a_Romance_Corpus_WordWeb_Governance_and_T008_v13_20260718.zip` (71 files, SHA256 `8EFE98205812EAF26B3BFC76D9F2123673FAD80BEA77211A955B9AA6BC930A28`), `17b_Interslavic_Normalization_Through_Tranche007_v13_20260718.zip` (93 files, SHA256 `12885ACA80726D950CFE7B0EF01CAE26F188155BEFE79F2434046EB18B962311`), and the exact 14-file WordWeb/access checkpoint `17c_Romance_WordWeb_Access_PublicCheckpoint_v11_20260718.zip` (SHA256 `55D64DDF3ABEF9B3FA4FEF0B9E091D15593AF1D53541AF48EFB31AE9F806D02F`).
 - Scope: the complete earlier numbered archive remains present. Romance records 60 concepts, 106 senses, 811 metadata-only evidence rows, 954 access rows, 28 gaps, eight bounded controlled units, and a continuation at R823 line 21309. Interslavic records normalization through Tranche 007 plus a 221-unit Latin-corpus audit and retains 353 external-authority probes.

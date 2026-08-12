@@ -1,6 +1,10 @@
 # Public File Catalog
 
-Generated from the public Zenodo records API.
+Generated from a bounded external-record API snapshot. This catalog is
+historical and is not a live inventory: words such as “current” below mean
+current at that captured catalog generation. Use the [live fleet
+map](live-fleet-map.md), [coverage maps](github-maps.md), and linked exact
+receipts for current GitHub scope and supplied external heads.
 
 **Quality warning:** this catalog mirrors public Zenodo filenames and record titles. It does not certify critical-edition status. Terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical` can be legacy filenames or scoped working labels; use the current record notes, source witnesses, and audit ledgers before relying on mathematical details.
 

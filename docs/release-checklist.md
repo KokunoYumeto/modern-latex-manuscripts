@@ -46,7 +46,7 @@ Use this before publishing or replacing a Zenodo record.
 - Run the public PDF surface audit.
 - Refresh the public file catalog and status manifests.
 - Update the GitHub mirror docs: browse index, author/work index, project dashboard, known gaps, workflow, and contribution notes.
-- Commit the mirror and attempt to push.
-- If push is blocked, refresh the portable mirror snapshot ZIP.
-- Update the session/project coordination notes with current record IDs, audit timestamps, and blockers.
+- Commit and push the checkpoint to its designated GitHub ref, then verify the remote commit and raw public bytes.
+- If remote delivery is blocked, record the exact blocker and keep the checkpoint explicitly incomplete.
+- Update project release notes with current record IDs, audit timestamps, and blockers.
 - Preserve audit/logbook material when it explains the real reliability level or reusable workflow, especially for constructed-language, OCR, diagram/table, and source-witness lanes.

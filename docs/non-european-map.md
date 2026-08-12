@@ -6,11 +6,9 @@ It is the first page to consult before assigning translation or assembly work.
 An unchecked, bilingual, source-facing, partial, or in-progress file is existing
 work to inspect; it is not evidence that the language/work is absent.
 
-Maintenance read the bounded GitHub trees only. It did not query an external
-record, follow a private path, compile, render, OCR, translate, correct, or edit
-any reader or producer source byte. A successful PDF open proves container
-readability, not mathematical accuracy, source fidelity, native-language review,
-or completeness.
+Claims on this page derive only from the bounded GitHub trees and their exact
+custody records. A successful PDF open proves container readability, not
+mathematical accuracy, source fidelity, native-language review, or completeness.
 
 ## Start Here
 

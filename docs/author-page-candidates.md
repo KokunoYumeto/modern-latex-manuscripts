@@ -33,7 +33,7 @@ Dedicated records are most useful when there is a coherent reader surface, enoug
 | Candidate | Why Hold |
 |---|---|
 | Seki | Direct Kokusho work is promising but currently a large working/provenance artifact; wait for a cleaner reader rollup. |
-| Picard / remaining Poincare gaps | Poincare now has a dedicated record through public `poincare_v1_26.zip`, but the package stream is still non-continuous. A 2026-06-25 Edge sweep recovered local but not-yet-public v1_03, v1_04, v1_05, and v1_07 packages; v1_06 and v1_22-v1_23 remain missing by this sweep. Picard has a figure-refined Tome I package through source leaf 107. Picard still needs a cleaner cumulative reader rollup before splitting; Poincare needs a gap-fill upload/reconciliation and continuity cleanup. |
+| Picard / remaining Poincare gaps | Poincare now has a dedicated record through public `poincare_v1_26.zip`, but the package stream is still non-continuous. A 2026-06-25 unpublished gap-fill report identified v1_03, v1_04, v1_05, and v1_07 candidates; v1_06 and v1_22-v1_23 remained missing at that snapshot. Picard has a figure-refined Tome I package through source leaf 107. Picard still needs a cleaner cumulative reader rollup before splitting; Poincare needs exact candidate custody, reconciliation, and continuity cleanup. |
 | Mikami | EN/JA p001-p059 is now visually repaired for key diagrams, but it is still a work-level history-of-mathematics packet rather than a broad author page. |
 | Kronecker / Kron | First production slices exist, but the lane is too early for a separate record. |
 | Klein-Fricke | Authorship/provenance cleanup exists through early Volume I pages, but the lane is still in proof-of-structure stage. |

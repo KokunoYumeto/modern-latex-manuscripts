@@ -31,8 +31,8 @@ Maltsiniotis's editor's note. Continue at physical page 10. The authority has
 
 ## Custody
 
-The exact root is 24 files / 80,666,472 bytes, tree SHA-256
+The exact submitted checkpoint is 24 files / 80,666,472 bytes, tree SHA-256
 `234C2152E8A45C434F9528B56E6E1586446745C4B763631C5B828B7B3430122E`.
-Local replay matched 22/22 receipt files and 272/272 ZIP members. External
-record identities are quoted from the producer-supplied receipt; this GitHub
-task did not query or mutate Zenodo.
+The custody replay matched 22/22 receipt files and 272/272 ZIP members.
+External record identities are retained from the supplied receipt as discovery
+and provenance metadata.

@@ -51,6 +51,6 @@ corpus or a uniform whole-project source certification.
 - EGA IV package: 84 files / 38,155,078 bytes; tree SHA-256 `5A33DB326A97735B1D137A452DF1B55B90A4D611FB79C7AA16FA05199D67EC1D`; [manifest](../manifests/github-custody/20260805_ega_iv.csv).
 - EGA I p.143: 12 producer files / 1,075,093 bytes; tree SHA-256 `537185D43B30679F34B9F17E64D2E74D9404FE9DF26491C20B48A8A75404F2C4`.
 
-The archive copies are byte-exact. Producer roots were not edited. External
-record identities elsewhere in the repository are quoted from producer
-receipts; this GitHub task neither queried nor mutated Zenodo.
+The archive copies are byte-exact against their supplied custody identities.
+External record references elsewhere in the repository are retained from
+receipts as discovery and provenance metadata.

@@ -1,12 +1,12 @@
 # Archive Guide
 
-This project publishes working modern LaTeX editions and translation drafts of older mathematics manuscripts. The Zenodo records are the durable archive; this repository is the coordination layer for contributors, manifests, and status notes.
+This project publishes working modern LaTeX editions and translation drafts of older mathematics manuscripts. This repository is the inspectable source archive and coordination front door: it preserves exact checkpoints, maps, manifests, scripts, correction history, and commit-pinned GitHub readback. Linked external records provide large reader-first files and immutable release history.
 
 ## Where to Start
 
 Use the topic or author records first. They are cleaner and easier to browse than the broad bulk-preservation record.
 
-For the shortest path into the archive, use the [browse index](browse-index.md). For file-choice help, use the [download guide](download-guide.md). For a named-work view, use [by author and work](by-author-and-work.md). For a per-record file view, use the [record landing pages](records/README.md). For a one-page status view, use the [project status dashboard](project-status-dashboard.md). For quality/status vocabulary, use the [quality rubric](quality-rubric.md). For a searchable list of every current public file, use the [public file catalog](public-file-catalog.md). For known incompleteness, use the [known gaps](known-gaps.md) page.
+For the shortest path into the archive, use the [browse index](browse-index.md). For file-choice help, use the [download guide](download-guide.md). For a named-work view, use [by author and work](by-author-and-work.md). For current GitHub scope and cursors, use the [coverage maps](github-maps.md) and [live fleet map](live-fleet-map.md). The [project status dashboard](project-status-dashboard.md) and [public file catalog](public-file-catalog.md) are dated external-record snapshots. For quality/status vocabulary, use the [quality rubric](quality-rubric.md); for known incompleteness, use [known gaps](known-gaps.md).
 
 | Need | Start Here |
 |---|---|
@@ -62,4 +62,3 @@ The most useful corrections are:
 The archive is intentionally split into a main landing record plus topic/author records. The main record keeps broad preservation and a complete bulk ZIP; the topic and author records are the preferred public browsing surface.
 
 The public metadata and filenames are periodically audited for stale internal labels, private paths, and confusing run names. The current public catalog was regenerated from the Zenodo API on 2026-06-13 and indexes 29 records.
-

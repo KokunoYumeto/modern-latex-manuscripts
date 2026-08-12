@@ -570,7 +570,7 @@ $checkpointAllowedPaths = [string[]]@(
     'manifests/adopt.json',
     'manifests/adopt.schema.json',
     'manifests/github-custody/20260806_links.json',
-    'manifests/github-custody/maps-r7.json',
+    'manifests/github-custody/maps-r8.json',
     'manifests/github-custody/log.jsonl',
     'manifests/stacks-compose.json',
     'manifests/stacks-entry.schema.json',
