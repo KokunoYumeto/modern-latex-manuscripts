@@ -7,7 +7,10 @@ producer payloads.
 
 ## Current repository indexes
 
-- Current map-manifest and public-front
+- Current public-interface [source receipt](../published-github/ui-clean-r3.json),
+  binding 38/38 exact source-generation paths, `maps-r8`, the corrected active
+  public surfaces, and zero producer/reader/external-record mutations
+- Predecessor map-manifest and public-front
   [closure](../published-github/map-front-r1-close.json) and
   [source receipt](../published-github/map-front-r1.json), binding 17/17 exact
   source-generation paths, `maps-r7`, and the enforced 19/19 member replay
