@@ -6,9 +6,10 @@ paths, byte counts, hashes, and mismatch results. It proves the recorded GitHub
 transport; it does not invent mathematical review, source fidelity, rights, or
 completion beyond the underlying checkpoint.
 
-Start with the current hardened Commons Stacks candidate-intake
-[closure](stacks-entry-r1-close.json) and [source receipt](stacks-entry-r1.json),
-then the predecessor reader-first
+Start with the current map-manifest and public-front
+[source receipt](map-front-r1.json), then the predecessor hardened Commons
+Stacks candidate-intake [closure](stacks-entry-r1-close.json) and
+[source receipt](stacks-entry-r1.json), then the predecessor reader-first
 interface [closure](ui-clean-r2-close.json) and [source receipt](ui-clean-r2.json),
 then the predecessor public-interface
 [closure](ui-clean-r1-close.json) and [source receipt](ui-clean-r1.json),
@@ -31,6 +32,16 @@ the [Steinitz frontier predecessor closure](stein-r1-close.json) and
 [twenty-eight-cycle predecessor closure](20260809_queue_scope_close.json), the [human archive
 history](../../docs/github-archive.md), and the [custody-index
 landing](../github-custody/README.md).
+
+The map-manifest and public-front [source receipt](map-front-r1.json) binds
+accepted commit `414a4fdb78502a8e147a5abebd840e13a45be858`: all 17
+changed paths / 1,334,827 bytes matched anonymous commit-pinned raw GitHub
+bytes, and Actions run
+[`31550778146`](https://github.com/KokunoYumeto/modern-latex-manuscripts/actions/runs/31550778146)
+passed. The new immutable `maps-r7` replays 19/19 current map members / 196,382
+bytes and preserves `maps-r6` as predecessor evidence. The additive aggregate
+through this source is 57 cycles, 3,335 observations, and 1,230,999,953 bytes
+with zero mismatches.
 
 The hardened candidate-intake [closure](stacks-entry-r1-close.json) binds
 receipt commit `53971c4c7306df0776f6ac3575f590ef44da3962`: all six
