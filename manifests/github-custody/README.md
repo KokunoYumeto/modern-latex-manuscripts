@@ -7,6 +7,9 @@ producer payloads.
 
 ## Current repository indexes
 
+- Current map-manifest and public-front
+  [source receipt](../published-github/map-front-r1.json), binding 17/17 exact
+  source-generation paths, `maps-r7`, and the enforced 19/19 member replay
 - Current hardened Commons Stacks candidate-intake
   [closure](../published-github/stacks-entry-r1-close.json) and
   [source receipt](../published-github/stacks-entry-r1.json), binding the
