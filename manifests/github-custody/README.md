@@ -8,6 +8,7 @@ producer payloads.
 ## Current repository indexes
 
 - Current hardened Commons Stacks candidate-intake
+  [closure](../published-github/stacks-entry-r1-close.json) and
   [source receipt](../published-github/stacks-entry-r1.json), binding the
   strict unregistered-candidate schema, validator, cross-platform regression,
   exact upstream pin, empty registry, and green Linux continuous validation;
