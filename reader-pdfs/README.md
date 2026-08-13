@@ -10,6 +10,12 @@ Observed 2026-08-07: fourteen allowed roots contain 402 tracked files /
 401 unique SHA-256 identities, one internal duplicate pair, and no cross-root
 duplicate bytes.
 
+Post-audit addition, 2026-08-13: [Open Logic Hindi](open-logic/hindi/)
+adds one 14-page working-reader PDF, 184,823 bytes, SHA-256
+`80B48447897C49EFD28B9B15A6951EB1C78F2CEE7BFD8DB0C53938D71B4C7793`.
+It is mapped separately in the [Open Logic Hindi coverage map](../docs/open-logic-map.md)
+and is not folded retroactively into the frozen 2026-08-07 totals below.
+
 ## Exact Root Index
 
 Per-root tree digests use ordinal paths relative to that root. The full-set

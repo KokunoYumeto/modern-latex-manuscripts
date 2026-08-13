@@ -34,6 +34,7 @@ also collected in the [GitHub coverage-map index](../docs/github-maps.md).
 | Arthur Cayley | [Cayley source generations](classical/) | [Cayley custody and gap map](../docs/cayley-map.md) |
 | Ukrainian applied mathematics | [Ukrainian source shelf](ukrainian-applied-math/) | [Exact reader/source coverage](../docs/ukrainian-map.md) |
 | Non-European mathematical texts | [Multilingual source shelf](non-european/README.md) | [Exact work/language coverage](../docs/non-european-map.md) |
+| Open Logic Project | [Hindi working source and QA shelf](open-logic/README.md) | [Hindi coverage and continuation](../docs/open-logic-map.md) |
 
 ## Mixed And Supporting Shelves
 
@@ -49,7 +50,7 @@ boundary, not evidence that their files do not exist.
 
 ## Exact Git-Object Audit
 
-The nineteen allowed shelves contain 14,901 tracked files and
+The nineteen-shelf 2026-08-07 audit contains 14,901 tracked files and
 3,681,880,509 committed bytes. Every path, byte count, Git blob SHA-1, and mode
 is in the [per-file index](../manifests/github-custody/20260807_sources_r5.csv).
 The [compact summary](../manifests/github-custody/20260807_sources_r5.json) binds
@@ -61,6 +62,11 @@ Only one repeated identity crosses roots: the same 8-byte `.gitattributes`
 control appears at 57 paths across six roots. It is repository scaffolding,
 not 57 independent mathematical objects. Distinct paths and generations remain
 preserved; the audit does not deduplicate or delete them.
+
+The additive Open Logic Hindi shelf above was admitted on 2026-08-13 after
+that frozen audit. Its working-reader directory contains 44 files / 8,173,025
+bytes, and its separate exact release ZIP is 7,130,039 bytes. The package's own
+`CHECKSUMS.csv` binds all 43 payload files other than the manifest itself.
 
 The committed-byte inventory is kept separate from checkout representation.
 No source blob was opened, rehashed, compiled, rendered, OCRed, or rewritten
