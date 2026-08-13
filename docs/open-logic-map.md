@@ -11,6 +11,8 @@
 | Source coverage | 9 TeX files; 36,752 bytes; TeXcount 4,321 |
 | Hindi target coverage | 9 TeX files; 73,483 bytes; TeXcount 5,891 |
 | Cumulative reader | 14 pages; 184,823 bytes; SHA-256 `80B48447897C49EFD28B9B15A6951EB1C78F2CEE7BFD8DB0C53938D71B4C7793` |
+| Zenodo concept | [`10.5281/zenodo.21920511`](https://doi.org/10.5281/zenodo.21920511) |
+| Current Zenodo version | [`10.5281/zenodo.21920512`](https://doi.org/10.5281/zenodo.21920512); 5 files / 7,322,270 bytes; anonymous readback PASS |
 | QA state | All nine units compile independently; cumulative PDF builds; every cumulative page checked at original detail; Poppler Hindi extraction passes; fonts embedded/subset with Unicode maps |
 | Accessibility caveat | Untagged; no structure tree or `ActualText`; not PDF/UA certified |
 | Linguistic caveat | Machine-assisted working draft; no human review claimed |
@@ -33,6 +35,7 @@
 ## Open first
 
 - [Direct 14-page Hindi reader](../reader-pdfs/open-logic/hindi/open-logic-hindi-working-reader-through-0009.pdf)
+- [Zenodo first version and browser preview](https://zenodo.org/records/21920512)
 - [Actual buildable overlay, source files, QA, and checksums](../sources/open-logic/hindi/working-reader-through-0009/README.md)
 - [Release ZIP](../sources/open-logic/hindi/releases/OpenLogic_Hindi_Working_Reader_HI-OLP-PUB-0001_20260813.zip)
 - [Pinned upstream source](https://github.com/OpenLogicProject/OpenLogic/tree/9620cc73f9c8e0ad003c514a5d3748f29611c4c0)
