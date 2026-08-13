@@ -1,7 +1,7 @@
 # GitHub Coverage Maps
 
 Use this page before starting or restarting a translation. It routes to the
-nineteen in-scope author, work, series, and mixed-shelf maps. A missing
+twenty in-scope author, work, series, and mixed-shelf maps. A missing
 cumulative reader, an unchecked label, or an old directory name does not prove
 that a translation is absent.
 
@@ -47,14 +47,18 @@ tree. The current exact allowed-source projection is 14,901 files /
 | Ukrainian applied mathematics | Thirteen direct PDFs, 86 source/status files, exact module scope, distinct versus byte-identical builds, the closed public driver, and stale guide claims. | [Ukrainian map](ukrainian-map.md) |
 | Classical algebra and arithmetic | The mixed roots contain only Cayley, Dedekind, and Dirichlet: 21 readers plus 811 source/history files. Separate author shelves are not hidden inside this count. | [Classical shelf map](classical-map.md) |
 | Additional author cluster | Ten direct readers for nine named authors and only three small source-side reports; older claims about missing routed packets are not treated as GitHub byte custody. | [Additional-author map](cluster-map.md) |
+| Open Logic Project | The actual Hindi overlay, nine translated sections, compiled 14-page reader, QA renders, hashes, and exact `orders.tex` continuation cursor. | [Open Logic Hindi map](open-logic-map.md) |
 
 ## Exact Navigation Audit
 
-The nineteen map documents total 196,219 bytes. Their 1,717-byte ordinal
+The frozen 2026-08-08 nineteen-map audit totals 196,219 bytes. Its 1,717-byte ordinal
 canonical stream (`path<TAB>bytes<TAB>SHA256<LF>`, UTF-8 without BOM) has tree
 SHA-256
 `345C69B5A738FABCCA18BE84EC6C09E8D4D3CC510D967A84ED4FA99BD91C4F17`.
 All 643 local links resolve in the current Git tree.
+
+The Open Logic Hindi map was added on 2026-08-13 after that frozen audit and
+is intentionally not back-projected into its byte, digest, or link totals.
 
 The exact current identities and link closure are in
 [`maps-r8.json`](../manifests/github-custody/maps-r8.json). The current
@@ -76,6 +80,6 @@ earlier generations remain immutable history.
 
 ## Boundary
 
-This index is limited to the nineteen maps above. Separately governed or
+This index is limited to the twenty maps above. Separately governed or
 out-of-scope surfaces are intentionally absent. Their absence is a repository
 scope boundary, not evidence that their work does not exist.
