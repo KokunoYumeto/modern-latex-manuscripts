@@ -14,7 +14,8 @@ Post-audit addition, 2026-08-13: [Open Logic Hindi](open-logic/hindi/)
 adds one 14-page working-reader PDF, 184,823 bytes, SHA-256
 `80B48447897C49EFD28B9B15A6951EB1C78F2CEE7BFD8DB0C53938D71B4C7793`.
 It is mapped separately in the [Open Logic Hindi coverage map](../docs/open-logic-map.md)
-and is not folded retroactively into the frozen 2026-08-07 totals below.
+and preserved on [Zenodo concept 10.5281/zenodo.21920511](https://doi.org/10.5281/zenodo.21920511).
+It is not folded retroactively into the frozen 2026-08-07 totals below.
 
 ## Exact Root Index
 
