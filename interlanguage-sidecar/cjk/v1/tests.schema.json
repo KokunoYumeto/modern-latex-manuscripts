@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/interlanguage-sidecar/cjk-notation/v1/tests.schema.json",
+  "title": "CJK notation backend reference fixtures",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "runner", "tests"],
+  "properties": {
+    "schema": {"const": "cjk-notation-tests-v2"},
+    "runner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["implementation", "version"],
+      "properties": {
+        "implementation": {"const": "fixture_runner.py"},
+        "version": {"const": "1.0.0"}
+      }
+    },
+    "tests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/test"}
+    }
+  },
+  "$defs": {
+    "sha_or_null": {"type": ["string", "null"], "pattern": "^[A-F0-9]{64}$"},
+    "test": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "area", "operation", "input", "expected", "evidence_ids"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^CJK-NOT-T[0-9]{3}$"},
+        "area": {"enum": ["delimiter", "nested_prose", "formula_identity", "obligations", "pdf_extraction", "regional_transfer", "locale_morphology", "term_dispatch", "unicode_normalization", "source_notes", "report_state"]},
+        "operation": {"enum": ["delimiter_scan", "nested_prose_scan", "formula_token_compare", "obligation_balance", "cmap_policy", "profile_transfer", "literal_preserve", "term_dispatch", "unicode_normalize", "note_once", "state_schema", "korean_particle"]},
+        "input": {"type": "object"},
+        "expected": {"type": "object"},
+        "evidence_ids": {"type": "array", "minItems": 1, "items": {"type": "string", "pattern": "^CJK-NOT-E[0-9]{3}$"}, "uniqueItems": true}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"operation": {"const": "delimiter_scan"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["text"], "properties": {"text": {"type": "string"}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["linebreak_commands", "display_openers"], "properties": {"linebreak_commands": {"type": "integer", "minimum": 0}, "display_openers": {"type": "integer", "minimum": 0}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "nested_prose_scan"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["text", "commands"], "properties": {"text": {"type": "string"}, "commands": {"type": "array", "minItems": 1, "items": {"type": "string"}, "uniqueItems": true}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["locale_prose_segments", "math_controls_unchanged"], "properties": {"locale_prose_segments": {"type": "array", "items": {"type": "string"}}, "math_controls_unchanged": {"const": true}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "formula_token_compare"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["source", "target", "feature"], "properties": {"source": {"type": "string"}, "target": {"type": "string"}, "feature": {"enum": ["greek", "operand_order", "arrow", "bar_prime_script"]}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["result", "changed_feature"], "properties": {"result": {"enum": ["pass", "fail"]}, "changed_feature": {"type": "string"}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "obligation_balance"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["source", "target", "declared_repeats"], "properties": {"source": {"type": "integer", "minimum": 0}, "target": {"type": "integer", "minimum": 0}, "declared_repeats": {"type": "integer", "minimum": 0}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["result", "unexplained_delta"], "properties": {"result": {"enum": ["pass", "fail"]}, "unexplained_delta": {"type": "integer"}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "cmap_policy"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["subset", "known_subsets", "existing_to_unicode", "first_output_sha256", "second_output_sha256", "invariants_equal"], "properties": {"subset": {"type": "string"}, "known_subsets": {"type": "array", "items": {"type": "string"}, "uniqueItems": true}, "existing_to_unicode": {"type": "boolean"}, "first_output_sha256": {"$ref": "#/$defs/sha_or_null"}, "second_output_sha256": {"$ref": "#/$defs/sha_or_null"}, "invariants_equal": {"type": "boolean"}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["result", "action"], "properties": {"result": {"enum": ["pass", "fail"]}, "action": {"enum": ["reject_unknown", "preserve_existing", "inject_missing"]}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "profile_transfer"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["source_profile", "requested_profile", "local_evidence"], "properties": {"source_profile": {"type": "string"}, "requested_profile": {"type": "string"}, "local_evidence": {"type": "boolean"}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["result"], "properties": {"result": {"enum": ["pass", "unsupported"]}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "literal_preserve"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["text"], "properties": {"text": {"type": "string"}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["output"], "properties": {"output": {"type": "string"}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "term_dispatch"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["expressions", "mapping"], "properties": {"expressions": {"type": "array", "items": {"type": "string"}}, "mapping": {"type": "object", "additionalProperties": {"type": "string"}}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["terms"], "properties": {"terms": {"type": "array", "items": {"type": "string"}}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "unicode_normalize"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["mathematical_codepoint", "decomposed_codepoints"], "properties": {"mathematical_codepoint": {"type": "string", "pattern": "^U\\+[0-9A-F]{4,6}$"}, "decomposed_codepoints": {"type": "array", "minItems": 2, "items": {"type": "string", "pattern": "^U\\+[0-9A-F]{4,6}$"}}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["nfc_mathematical_codepoint", "nfkc_mathematical", "nfc_decomposed"], "properties": {"nfc_mathematical_codepoint": {"type": "string", "pattern": "^U\\+[0-9A-F]{4,6}$"}, "nfkc_mathematical": {"type": "string"}, "nfc_decomposed": {"type": "string"}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "note_once"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["source_notes", "target_notes"], "properties": {"source_notes": {"type": "integer", "minimum": 0}, "target_notes": {"type": "integer", "minimum": 0}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["result"], "properties": {"result": {"enum": ["pass", "fail"]}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "state_schema"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["state"], "properties": {"state": {"type": "object"}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["result"], "properties": {"result": {"enum": ["pass", "fail"]}}}
+            }
+          }
+        },
+        {
+          "if": {"properties": {"operation": {"const": "korean_particle"}}},
+          "then": {
+            "properties": {
+              "input": {"type": "object", "additionalProperties": false, "required": ["math", "pronunciation", "consonant_particle", "vowel_particle"], "properties": {"math": {"type": "string"}, "pronunciation": {"type": "string"}, "consonant_particle": {"type": "string"}, "vowel_particle": {"type": "string"}}},
+              "expected": {"type": "object", "additionalProperties": false, "required": ["output"], "properties": {"output": {"type": "string"}}}
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/interlanguage-sidecar/cjk-notation/v1/term.schema.json",
+  "title": "Locale-bound mathematical term decision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "concept_id", "source", "target", "sense_window", "excluded_senses", "trap_class", "attractor_basin", "channels", "provenance", "dominant_standard_risk", "decision_state", "review_state", "target_loci", "supersedes", "rationale"],
+  "properties": {
+    "schema": {"const": "cjk-term-decision-v1"},
+    "id": {"type": "string", "pattern": "^CJK-TERM-[A-Z0-9._-]+$"},
+    "concept_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["language", "unit_id", "locus", "term"],
+      "properties": {"language": {"type": "string", "minLength": 2}, "unit_id": {"type": "string", "minLength": 1}, "locus": {"type": "string", "minLength": 1}, "term": {"type": "string", "minLength": 1}}
+    },
+    "target": {
+      "type": "object", "additionalProperties": false,
+      "required": ["language", "variety", "script", "profile", "register", "form", "pronunciation_hanja", "morphology_spacing"],
+      "properties": {
+        "language": {"enum": ["zh", "ja", "ko"]}, "variety": {"type": "string", "minLength": 1}, "script": {"type": "string", "minLength": 1},
+        "profile": {"type": "string", "minLength": 1}, "register": {"type": "string", "minLength": 1}, "form": {"type": "string", "minLength": 1},
+        "pronunciation_hanja": {"type": ["string", "null"]}, "morphology_spacing": {"type": "string", "minLength": 1}
+      }
+    },
+    "sense_window": {"type": "string", "minLength": 1},
+    "excluded_senses": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "trap_class": {"type": "string", "minLength": 1},
+    "attractor_basin": {"enum": ["sino_xenic_inherited", "modern_sino_xenic_calque", "global_modern_loan", "native_coinage", "mixed_contested", "unresolved"]},
+    "channels": {
+      "type": "object", "additionalProperties": false,
+      "required": ["support", "candidate", "competitor", "adverse", "absence", "veto"],
+      "properties": {"support": {"$ref": "#/$defs/refs"}, "candidate": {"$ref": "#/$defs/refs"}, "competitor": {"$ref": "#/$defs/refs"}, "adverse": {"$ref": "#/$defs/refs"}, "absence": {"$ref": "#/$defs/refs"}, "veto": {"$ref": "#/$defs/refs"}}
+    },
+    "provenance": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidence"}},
+    "dominant_standard_risk": {"enum": ["none", "low", "medium", "high"]},
+    "decision_state": {"enum": ["candidate", "adopted", "rejected", "held", "superseded"]},
+    "review_state": {"type": "string", "minLength": 1},
+    "target_loci": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "supersedes": {"type": ["string", "null"]},
+    "rationale": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "refs": {"type": "array", "items": {"type": "string", "pattern": "^CJK-NOT-E[0-9]{3}$"}, "uniqueItems": true},
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "artifact", "locus", "bytes", "sha256"],
+      "properties": {"id": {"type": "string", "minLength": 1}, "artifact": {"type": "string", "minLength": 1}, "locus": {"type": "string", "minLength": 1}, "bytes": {"type": "integer", "minimum": 1}, "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"}}
+    }
+  }
+}
