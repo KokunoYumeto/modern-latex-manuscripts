@@ -1,0 +1,199 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/interlanguage-sidecar/cjk-notation/v1/schema.json",
+  "title": "CJK mathematical notation evidence record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "kind",
+    "lane",
+    "concept_id",
+    "claim",
+    "status",
+    "sense_window",
+    "sources",
+    "excluded_senses",
+    "attractor_basin",
+    "dominant_standard_risk",
+    "transfer_rule",
+    "uncertainty",
+    "validation"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^CJK-NOT-E[0-9]{3}$"},
+    "kind": {
+      "enum": [
+        "shared_mechanical",
+        "locale_profile",
+        "term_sense",
+        "official_source",
+        "absence",
+        "adverse_support"
+      ]
+    },
+    "lane": {
+      "enum": [
+        "shared",
+        "zh-Hans-CN",
+        "zh-Hans-SG",
+        "zh-Hant-generic",
+        "zh-Hant-TW",
+        "zh-Hant-HK",
+        "zh-Hant-MO",
+        "ja",
+        "ko",
+        "ko-KR",
+        "ko-KP"
+      ]
+    },
+    "concept_id": {
+      "oneOf": [
+        {"type": "string", "minLength": 1, "pattern": "^[a-z0-9][a-z0-9._-]*$"},
+        {"type": "null"}
+      ]
+    },
+    "claim": {"type": "string", "minLength": 1},
+    "status": {
+      "enum": [
+        "replayed_project_evidence",
+        "official_source_observed",
+        "candidate",
+        "bounded_absence",
+        "rejected"
+      ]
+    },
+    "sense_window": {
+      "oneOf": [
+        {"type": "string", "minLength": 1},
+        {"type": "null"}
+      ]
+    },
+    "excluded_senses": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "attractor_basin": {
+      "enum": [
+        "sino_xenic_inherited",
+        "modern_sino_xenic_calque",
+        "global_modern_loan",
+        "native_coinage",
+        "mixed_contested",
+        "unresolved",
+        "not_applicable"
+      ]
+    },
+    "dominant_standard_risk": {
+      "enum": ["none", "low", "medium", "high", "not_applicable"]
+    },
+    "transfer_rule": {
+      "enum": [
+        "shared_mechanics_only",
+        "locale_only",
+        "comparison_only",
+        "nontransferable"
+      ]
+    },
+    "uncertainty": {"enum": ["low", "medium", "high"]},
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/source"}
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["method", "result"],
+      "properties": {
+        "method": {"type": "string", "minLength": 1},
+        "result": {"enum": ["pass", "not_applicable", "bounded_negative"]},
+        "notes": {"type": "string", "minLength": 1}
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "class", "locator", "availability"],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^[A-Z0-9][A-Z0-9._-]{1,63}$"
+        },
+        "class": {
+          "enum": [
+            "official_standard",
+            "official_guidance",
+            "professional_reference",
+            "project_artifact",
+            "checker_artifact",
+            "candidate_crosswalk",
+            "computation"
+          ]
+        },
+        "availability": {"enum": ["bundled", "public", "restricted", "hash_only"]},
+        "artifact": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?![./\\\\])(?!.*(?:^|/)\\.\\.?(?:/|$))(?!.*[\\\\:\\u0000-\\u001F])[^/]+(?:/[^/]+)*$"
+        },
+        "locator": {"type": "string", "minLength": 1},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+        "url": {"type": "string", "format": "uri", "pattern": "^https://"},
+        "version": {"type": "string", "minLength": 1},
+        "accessed": {"type": "string", "format": "date"}
+      },
+      "oneOf": [
+        {
+          "required": ["artifact", "bytes", "sha256"],
+          "not": {"anyOf": [{"required": ["url"]}, {"required": ["accessed"]}]},
+          "properties": {
+            "availability": {"enum": ["bundled", "restricted", "hash_only"]}
+          }
+        },
+        {
+          "required": ["url", "version", "accessed"],
+          "not": {
+            "anyOf": [
+              {"required": ["artifact"]},
+              {"required": ["bytes"]},
+              {"required": ["sha256"]}
+            ]
+          },
+          "properties": {"availability": {"const": "public"}}
+        }
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"kind": {"const": "official_source"}}, "required": ["kind"]},
+      "then": {
+        "properties": {
+          "status": {"const": "official_source_observed"},
+          "sources": {
+            "items": {
+              "properties": {
+                "class": {"enum": ["official_standard", "official_guidance", "professional_reference"]},
+                "availability": {"const": "public"}
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"kind": {"const": "absence"}}, "required": ["kind"]},
+      "then": {
+        "properties": {
+          "status": {"const": "bounded_absence"},
+          "validation": {"properties": {"result": {"const": "bounded_negative"}}}
+        }
+      }
+    }
+  ]
+}
