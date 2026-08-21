@@ -1,78 +1,46 @@
 # Paul Gordan and Clebsch-Gordan
 
-Zenodo record: [20822196](https://zenodo.org/records/20822196); concept DOI: [https://doi.org/10.5281/zenodo.20616260](https://doi.org/10.5281/zenodo.20616260)
+Current Zenodo record: [22048869](https://zenodo.org/records/22048869) · DOI: [10.5281/zenodo.22048869](https://doi.org/10.5281/zenodo.22048869) · concept DOI: [10.5281/zenodo.20616260](https://doi.org/10.5281/zenodo.20616260)
 
-Public title: Paul Gordan and Clebsch-Gordan: Source-Witnessed LaTeX and Translation Working Drafts
+Current version: `2026-08-21 Thetafunctionen and De linea complete repaired editions`
 
-**Quality warning:** This generated page lists public files and current record notes. It does not certify a critical edition. Legacy filenames can include terms such as `Complete`, `Strict`, `Source-Checked`, or `Critical`; use the status notes, source witnesses, and audit ledgers before relying on mathematical details.
+The public surface contains 57 files: nine reader PDFs, 38 ZIP packages, two release manifests, and eight small status/metadata files. This page highlights the current readers and their buildable/provenance packages; the Zenodo record remains the complete file inventory.
 
-| Files | PDFs | TeX | ZIPs | Total MB |
-|---:|---:|---:|---:|---:|
-| 45 | 0 | 0 | 39 | 1870.7 |
+> Quality boundary: these are source-witnessed working editions, not certified critical editions or a claim that the Gordan corpus is complete. Diplomatic source-language texts, faithful English translations, and apparatuses are separate products. Check important formulas and notation against the included authority witnesses and apparatuses.
 
-## How To Read This Record
+## Current reader PDFs
 
-This record has no top-level reader PDFs in the current file surface. Open the artifact ZIPs for TeX, component PDFs, source witnesses, OCR, page images, render checks, and provenance material.
+| Work | Language/product | Pages | File |
+|---|---|---:|---|
+| *Vorlesungen über Invariantentheorie*, Bands I–II | German first-pass combined reader | 455 | [00_CURRENT_Gordan_Vorlesungen_I-II_German_FirstPass_20260811.pdf](https://zenodo.org/records/22048869/files/00_CURRENT_Gordan_Vorlesungen_I-II_German_FirstPass_20260811.pdf?download=1) |
+| *Vorlesungen über Invariantentheorie*, Band I | German first-pass reader | — | [01_Gordan_Vorlesungen_Band_I_German_FirstPass_20260811.pdf](https://zenodo.org/records/22048869/files/01_Gordan_Vorlesungen_Band_I_German_FirstPass_20260811.pdf?download=1) |
+| *Vorlesungen über Invariantentheorie*, Band II | German first-pass reader | — | [02_Gordan_Vorlesungen_Band_II_German_FirstPass_20260811.pdf](https://zenodo.org/records/22048869/files/02_Gordan_Vorlesungen_Band_II_German_FirstPass_20260811.pdf?download=1) |
+| *Ueber die Transformation der Thetafunctionen* (1863) | German diplomatic | 12 | [03_Gordan_Thetafunctionen_German_Diplomatic_FINAL_20260821.pdf](https://zenodo.org/records/22048869/files/03_Gordan_Thetafunctionen_German_Diplomatic_FINAL_20260821.pdf?download=1) |
+| *Ueber die Transformation der Thetafunctionen* (1863) | Faithful English | 12 | [04_Gordan_Thetafunctionen_English_FINAL_20260821.pdf](https://zenodo.org/records/22048869/files/04_Gordan_Thetafunctionen_English_FINAL_20260821.pdf?download=1) |
+| *Ueber die Transformation der Thetafunctionen* (1863) | Critical apparatus | 3 | [05_Gordan_Thetafunctionen_Critical_Apparatus_FINAL_20260821.pdf](https://zenodo.org/records/22048869/files/05_Gordan_Thetafunctionen_Critical_Apparatus_FINAL_20260821.pdf?download=1) |
+| *De linea geodetica* (1862) | Latin diplomatic | 46 | [06_Gordan_De_linea_Latin_Diplomatic_FINAL_20260821.pdf](https://zenodo.org/records/22048869/files/06_Gordan_De_linea_Latin_Diplomatic_FINAL_20260821.pdf?download=1) |
+| *De linea geodetica* (1862) | Faithful English | 46 | [07_Gordan_De_linea_English_FINAL_20260821.pdf](https://zenodo.org/records/22048869/files/07_Gordan_De_linea_English_FINAL_20260821.pdf?download=1) |
+| *De linea geodetica* (1862) | Critical apparatus | 3 | [08_Gordan_De_linea_Critical_Apparatus_FINAL_20260821.pdf](https://zenodo.org/records/22048869/files/08_Gordan_De_linea_Critical_Apparatus_FINAL_20260821.pdf?download=1) |
 
-Current dedicated Gordan/Clebsch-Gordan record published as <https://doi.org/10.5281/zenodo.20822196> under concept DOI <https://doi.org/10.5281/zenodo.20616260>. The latest 2026-06-24 project-control update adds `Gordan_Project_Control_Status_20260624.zip`; the same public version also carries `Gordan_Theta_1863_FullAudit_fix06_20260623.zip`, `Gordan_Abelsche_FinalAuditFix02_DE_EN_20260613.zip`, `Gordan_de_linea_p025_047_final_LA_EN_scans_20260613.zip`, `Gordan_VB1_01_p001_009_DE_EN_20260613.zip`, and `Gordan_VB1_02_p010_028_DE_EN_20260613.zip`. This makes the FinalAuditFix02, De linea p001-p047, theta fix06, and Vorlesungen Bd.1 p001-p028 packets public. Earlier Abel tranches and AllPrior/AuditFix packets remain correction/provenance layers. These are source-witnessed working drafts and source-audit packets, not certified critical editions; OCR remains a locator/check layer and important formulas, diagrams, notation, and theorem statements must be checked against included source witnesses. The full Gordan article corpus register remains open, and Vorlesungen Bd.1 is only begun through source p28.
+## Reproducible states and provenance
 
-Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through GitHub issues or pull requests: <https://github.com/KokunoYumeto/modern-latex-manuscripts>.
+| Role | File |
+|---|---|
+| Band I buildable TeX | [11_Gordan_Vorlesungen_Band_I_German_BuildableTeX_20260811.zip](https://zenodo.org/records/22048869/files/11_Gordan_Vorlesungen_Band_I_German_BuildableTeX_20260811.zip?download=1) |
+| Band II buildable TeX | [12_Gordan_Vorlesungen_Band_II_German_BuildableTeX_20260811.zip](https://zenodo.org/records/22048869/files/12_Gordan_Vorlesungen_Band_II_German_BuildableTeX_20260811.zip?download=1) |
+| Thetafunctionen complete repaired delivery | [13_Gordan_Thetafunctionen_Complete_Repaired_Delivery_20260821.zip](https://zenodo.org/records/22048869/files/13_Gordan_Thetafunctionen_Complete_Repaired_Delivery_20260821.zip?download=1) |
+| *De linea* terminal buildable state | [14_Gordan_De_linea_Complete_Terminal_State_20260821.zip](https://zenodo.org/records/22048869/files/14_Gordan_De_linea_Complete_Terminal_State_20260821.zip?download=1) |
+| Superseded Thetafunctionen bytes | [90_PROVENANCE_Gordan_Thetafunctionen_Superseded_Incomplete_20260821.zip](https://zenodo.org/records/22048869/files/90_PROVENANCE_Gordan_Thetafunctionen_Superseded_Incomplete_20260821.zip?download=1) |
+| Superseded *De linea* bytes | [91_PROVENANCE_Gordan_De_linea_Superseded_Incomplete_20260821.zip](https://zenodo.org/records/22048869/files/91_PROVENANCE_Gordan_De_linea_Superseded_Incomplete_20260821.zip?download=1) |
+| Thetafunctionen checksums | [GORDAN_THETAFUNCTIONEN_RELEASE_MANIFEST_20260821.tsv](https://zenodo.org/records/22048869/files/GORDAN_THETAFUNCTIONEN_RELEASE_MANIFEST_20260821.tsv?download=1) |
+| *De linea* checksums | [GORDAN_DE_LINEA_RELEASE_MANIFEST_20260821.tsv](https://zenodo.org/records/22048869/files/GORDAN_DE_LINEA_RELEASE_MANIFEST_20260821.tsv?download=1) |
 
-## Reader And Reference PDFs
+Five formerly loose Thetafunctionen packages and two formerly loose *De linea* packages were removed from the current file surface after their exact bytes were preserved in the two provenance ZIPs. Historical Zenodo versions remain immutable. All other predecessor materials from the 2026-08-11 version remain present and unchanged, with their existing scope limits.
 
-No files in this group.
+## Verification
 
-## Artifact ZIPs
+The six 2026-08-21 reader PDFs passed structure, searchable-text, embedded-font, clean-build, semantic/raster, and visual-layout checks. Both complete state ZIPs and both provenance ZIPs were stream-read locally. After publication, all 12 new Zenodo assets were downloaded through their public links and matched the staged byte counts, MD5 checksums, and SHA-256 checksums exactly.
 
-| Size MB | File |
-|---:|---|
-| 18.7276 | [Gordan_Abel01_p001_016_DE_EN_20260608.zip](https://zenodo.org/records/20822196/files/Gordan_Abel01_p001_016_DE_EN_20260608.zip) |
-| 40.3155 | [Gordan_Abel02_p017_038_DE_EN_20260608.zip](https://zenodo.org/records/20822196/files/Gordan_Abel02_p017_038_DE_EN_20260608.zip) |
-| 88.4946 | [Gordan_Abel03_p039_055_DE_EN_20260609.zip](https://zenodo.org/records/20822196/files/Gordan_Abel03_p039_055_DE_EN_20260609.zip) |
-| 116.0475 | [Gordan_Abel04_p056_071_DE_EN_20260609.zip](https://zenodo.org/records/20822196/files/Gordan_Abel04_p056_071_DE_EN_20260609.zip) |
-| 147.0622 | [Gordan_Abel05_p072_088_DE_EN_20260609.zip](https://zenodo.org/records/20822196/files/Gordan_Abel05_p072_088_DE_EN_20260609.zip) |
-| 131.9360 | [Gordan_Abel06_p089_106_DE_EN_20260609.zip](https://zenodo.org/records/20822196/files/Gordan_Abel06_p089_106_DE_EN_20260609.zip) |
-| 94.8413 | [Gordan_Abel07_p107_121_DE_EN_20260609.zip](https://zenodo.org/records/20822196/files/Gordan_Abel07_p107_121_DE_EN_20260609.zip) |
-| 99.7314 | [Gordan_Abel08_p122_133_DE_EN_20260610.zip](https://zenodo.org/records/20822196/files/Gordan_Abel08_p122_133_DE_EN_20260610.zip) |
-| 43.2785 | [Gordan_Abel09_p134_149_DE_EN_20260610.zip](https://zenodo.org/records/20822196/files/Gordan_Abel09_p134_149_DE_EN_20260610.zip) |
-| 38.7235 | [Gordan_Abel10_p150_161_DE_EN_20260610.zip](https://zenodo.org/records/20822196/files/Gordan_Abel10_p150_161_DE_EN_20260610.zip) |
-| 41.0185 | [Gordan_Abel11_p162_173_DE_EN_20260611.zip](https://zenodo.org/records/20822196/files/Gordan_Abel11_p162_173_DE_EN_20260611.zip) |
-| 6.0600 | [Gordan_Abel12_p174_181_DE_EN_20260611.zip](https://zenodo.org/records/20822196/files/Gordan_Abel12_p174_181_DE_EN_20260611.zip) |
-| 42.5845 | [Gordan_Abel13_p182_193_DE_EN_20260611.zip](https://zenodo.org/records/20822196/files/Gordan_Abel13_p182_193_DE_EN_20260611.zip) |
-| 46.0210 | [Gordan_Abel14_p194_202_DE_EN_20260611.zip](https://zenodo.org/records/20822196/files/Gordan_Abel14_p194_202_DE_EN_20260611.zip) |
-| 38.8188 | [Gordan_Abel15_p203_217_DE_EN_20260611.zip](https://zenodo.org/records/20822196/files/Gordan_Abel15_p203_217_DE_EN_20260611.zip) |
-| 70.4845 | [Gordan_Abel16_p218_227_DE_EN_20260611.zip](https://zenodo.org/records/20822196/files/Gordan_Abel16_p218_227_DE_EN_20260611.zip) |
-| 65.9401 | [Gordan_Abel17_p228_243_DE_EN_20260611.zip](https://zenodo.org/records/20822196/files/Gordan_Abel17_p228_243_DE_EN_20260611.zip) |
-| 38.2240 | [Gordan_Abel18_p244_251_DE_EN_20260612.zip](https://zenodo.org/records/20822196/files/Gordan_Abel18_p244_251_DE_EN_20260612.zip) |
-| 40.3067 | [Gordan_Abel19_p252_270_DE_EN_20260612.zip](https://zenodo.org/records/20822196/files/Gordan_Abel19_p252_270_DE_EN_20260612.zip) |
-| 43.2832 | [Gordan_Abel21_p279_291_DE_EN_20260612.zip](https://zenodo.org/records/20822196/files/Gordan_Abel21_p279_291_DE_EN_20260612.zip) |
-| 33.1541 | [Gordan_Abel22_p292_299_DE_EN_20260612.zip](https://zenodo.org/records/20822196/files/Gordan_Abel22_p292_299_DE_EN_20260612.zip) |
-| 34.0197 | [Gordan_Abel23_p300_308_DE_EN_20260612.zip](https://zenodo.org/records/20822196/files/Gordan_Abel23_p300_308_DE_EN_20260612.zip) |
-| 34.5756 | [Gordan_Abel25_p322_331_DE_EN_20260612.zip](https://zenodo.org/records/20822196/files/Gordan_Abel25_p322_331_DE_EN_20260612.zip) |
-| 37.3950 | [Gordan_Abel26_p332_342_DE_EN_20260612.zip](https://zenodo.org/records/20822196/files/Gordan_Abel26_p332_342_DE_EN_20260612.zip) |
-| 37.9321 | [Gordan_Abel27_p343_355_DE_EN_20260612.zip](https://zenodo.org/records/20822196/files/Gordan_Abel27_p343_355_DE_EN_20260612.zip) |
-| 91.8148 | [Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip](https://zenodo.org/records/20822196/files/Gordan_Abel_AuditFix_p089_121_DE_EN_20260609.zip) |
-| 45.8149 | [Gordan_Abelsche_FinalAuditFix02_DE_EN_20260613.zip](https://zenodo.org/records/20822196/files/Gordan_Abelsche_FinalAuditFix02_DE_EN_20260613.zip) |
-| 43.3163 | [Gordan_AllPrior_AuditFix01_20260610.zip](https://zenodo.org/records/20822196/files/Gordan_AllPrior_AuditFix01_20260610.zip) |
-| 5.2279 | [Gordan_AuditFix_theta_form_20260609.zip](https://zenodo.org/records/20822196/files/Gordan_AuditFix_theta_form_20260609.zip) |
-| 26.5073 | [Gordan_de_linea_p025_047_final_LA_EN_scans_20260613.zip](https://zenodo.org/records/20822196/files/Gordan_de_linea_p025_047_final_LA_EN_scans_20260613.zip) |
-| 26.5700 | [Gordan_DL_complete_FIX02_LAT_EN_20260608.zip](https://zenodo.org/records/20822196/files/Gordan_DL_complete_FIX02_LAT_EN_20260608.zip) |
-| 45.2221 | [Gordan_Form_complete_DE_EN_20260608.zip](https://zenodo.org/records/20822196/files/Gordan_Form_complete_DE_EN_20260608.zip) |
-| 0.0146 | [Gordan_Project_Control_Status_20260624.zip](https://zenodo.org/records/20822196/files/Gordan_Project_Control_Status_20260624.zip) |
-| 10.4816 | [Gordan_TH02_p008_012_DE_EN_20260608.zip](https://zenodo.org/records/20822196/files/Gordan_TH02_p008_012_DE_EN_20260608.zip) |
-| 6.5905 | [Gordan_Theta01_p001_007_DE_EN_20260608.zip](https://zenodo.org/records/20822196/files/Gordan_Theta01_p001_007_DE_EN_20260608.zip) |
-| 2.1203 | [Gordan_Theta_1863_FullAudit_fix06_20260623.zip](https://zenodo.org/records/20822196/files/Gordan_Theta_1863_FullAudit_fix06_20260623.zip) |
-| 59.2760 | [Gordan_Theta_AuditFix04_DE_EN_20260609.zip](https://zenodo.org/records/20822196/files/Gordan_Theta_AuditFix04_DE_EN_20260609.zip) |
-| 32.2733 | [Gordan_VB1_01_p001_009_DE_EN_20260613.zip](https://zenodo.org/records/20822196/files/Gordan_VB1_01_p001_009_DE_EN_20260613.zip) |
-| 46.5065 | [Gordan_VB1_02_p010_028_DE_EN_20260613.zip](https://zenodo.org/records/20822196/files/Gordan_VB1_02_p010_028_DE_EN_20260613.zip) |
+GitHub release: [gordan-2026-08-21-theta-de-linea-complete](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gordan-2026-08-21-theta-de-linea-complete)
 
-## Manifest And Status Files
-
-| Size MB | File |
-|---:|---|
-| 0.0011 | [99 Paul Gordan - Public Summary.json](https://zenodo.org/records/20822196/files/99%20Paul%20Gordan%20-%20Public%20Summary.json) |
-| 0.0004 | [99_Paul_Gordan_-_Public_Summary_-_Abel21_20260612.json](https://zenodo.org/records/20822196/files/99_Paul_Gordan_-_Public_Summary_-_Abel21_20260612.json) |
-| 0.0012 | [99_Paul_Gordan_-_Public_Summary_-_Abel22_20260612.json](https://zenodo.org/records/20822196/files/99_Paul_Gordan_-_Public_Summary_-_Abel22_20260612.json) |
-| 0.0007 | [99_Paul_Gordan_-_Public_Summary_-_Abel26_20260613.json](https://zenodo.org/records/20822196/files/99_Paul_Gordan_-_Public_Summary_-_Abel26_20260613.json) |
-| 0.0009 | [99_Paul_Gordan_Public_Summary_20260624.json](https://zenodo.org/records/20822196/files/99_Paul_Gordan_Public_Summary_20260624.json) |
-| 0.0014 | [99_Paul_Gordan_Public_Summary_Abel27_20260613.json](https://zenodo.org/records/20822196/files/99_Paul_Gordan_Public_Summary_Abel27_20260613.json) |
+Corrections can be proposed through GitHub issues or pull requests.
