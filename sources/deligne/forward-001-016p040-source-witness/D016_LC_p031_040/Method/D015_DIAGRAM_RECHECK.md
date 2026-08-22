@@ -1,6 +1,9 @@
-# Follow-up diagram self-check
+# D015 diagram recheck — superseded by IAS-authority replay
 
-The D015 Artin--Mumford specialization diagram (3.4) was rechecked against the source scan before continuing.
-The source diagram encodes the same specialization pattern: a generic component over eta splitting to the two components over eta_1, the eta_2 branch specializing to the three components over s, and the indicated cross-component arrows. The rebuilt diagram keeps the same labels and incidence pattern but spaces labels/arrows to avoid collisions.
+The earlier claim that the redrawn specialization diagram (3.4) preserved the source incidence is retracted. It was based on a lower-resolution collected split and is contradicted by replay against the controlling IAS authority:
 
-No new D015 content was changed after that check; D016 was then started as the next sequential partial paper.
+- `D015_AM/SCAN/D015_AM_full_SCAN.pdf`
+- 335,330 bytes; 13 pages; printed pages 45–57
+- SHA-256 `22BD33F5D00EA962BA24996703CDDF74C4DCB09BF91050F0463036B5B38803CB`
+
+The corrected D015 source no longer uses the inherited TikZ redraws. Seven diagrams and arrays are supplied as direct IAS-authority crops plus hashed presentation derivatives under `D015_AM/TEX/D015_assets/`. Their page coordinates, raw hashes, presentation hashes, and exact-crop replay results are recorded in `D015_CURRENT_ASSET_LEDGER.tsv`. The complete corrected D015 edition and the preserved D016 tail were then rebuilt and cold-audited with zero cumulative page-fingerprint mismatches.
