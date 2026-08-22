@@ -1,8 +1,13 @@
 param(
-    [string]$SuccessorRoot = 'C:\Users\Floris\Documents\interlanguage\Transcription\Web_Session_Hourly_Intake\Zenodo_Maintenance\successor_D015'
+    [string]$SuccessorRoot = $env:DELIGNE_D015_SUCCESSOR_ROOT
 )
 
 $ErrorActionPreference = 'Stop'
+
+if ([string]::IsNullOrWhiteSpace($SuccessorRoot)) {
+    throw 'Pass -SuccessorRoot or set DELIGNE_D015_SUCCESSOR_ROOT to the local D015 maintenance root.'
+}
+$SuccessorRoot = [System.IO.Path]::GetFullPath($SuccessorRoot)
 
 $canonical = Join-Path $SuccessorRoot 'canonical_work'
 $sourceTree = Join-Path $SuccessorRoot 'source_tree'
