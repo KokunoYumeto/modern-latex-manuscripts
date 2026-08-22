@@ -1,379 +1,423 @@
-
 \documentclass[10pt]{article}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{lmodern}
+\usepackage{textcomp}
 \usepackage{amsmath,amssymb,mathtools}
-\usepackage{tikz}
-\usepackage{tikz-cd}
-\usetikzlibrary{arrows.meta,calc}
+\usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{enumitem}
-\usepackage{tabularx}
-\geometry{margin=0.86in}
+
+\geometry{paper=a4paper,margin=0.72in}
 \setlength{\parindent}{1.2em}
-\setlength{\parskip}{0.12em}
+\setlength{\parskip}{0.10em}
+\setlength{\abovedisplayskip}{0.45em}
+\setlength{\belowdisplayskip}{0.45em}
+\setlength{\abovedisplayshortskip}{0.3em}
+\setlength{\belowdisplayshortskip}{0.3em}
 \emergencystretch=3em
-\setlist{leftmargin=2.1em,itemsep=0.08em,topsep=0.2em}
-\newcommand{\A}{\mathbb A}
+\raggedbottom
+\pagestyle{empty}
+\setlist{leftmargin=2.15em,itemsep=0.08em,topsep=0.18em,parsep=0pt}
+
 \newcommand{\C}{\mathbb C}
-\newcommand{\F}{\mathbb F}
-\newcommand{\Pj}{\mathbb P}
-\newcommand{\Q}{\mathbb Q}
-\newcommand{\Z}{\mathbb Z}
-\newcommand{\G}{\mathbb G}
-\newcommand{\cO}{\mathcal O}
-\newcommand{\cH}{\mathcal H}
-\newcommand{\Pic}{\operatorname{Pic}}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\OO}{\mathcal O}
+\newcommand{\LL}{\mathcal L}
 \newcommand{\Alb}{\operatorname{Alb}}
 \newcommand{\Tr}{\operatorname{Tr}}
-\newcommand{\Spec}{\operatorname{Spec}}
-\newcommand{\Coker}{\operatorname{Coker}}
-\newcommand{\Hom}{\operatorname{Hom}}
-\newcommand{\End}{\operatorname{End}}
 \newcommand{\Ker}{\operatorname{Ker}}
-\newcommand{\tors}{\operatorname{tors}}
-\newcommand{\codim}{\operatorname{codim}}
-\newcommand{\rank}{\operatorname{rank}}
-\newcommand{\iso}{\xrightarrow{\sim}}
-\newcommand{\dash}{\dashrightarrow}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\sourcequote}[1]{\textquotedbl#1\textquotedbl}
+\newcommand{\authorityasset}[2]{%
+  \begin{center}
+    \includegraphics[width=#2\linewidth]{D015_assets/#1}%
+  \end{center}%
+}
+
 \begin{document}
 
+% Authority physical page 1 / printed page 45.
 \begin{center}
-{\large Séminaire BOURBAKI, 24e année, 1971/72, no. 402}\\[0.4em]
-{\Large\bfseries VARIÉTÉS UNIRATIONNELLES NON RATIONNELLES}\\[0.3em]
-{\large d'après M. Artin et D. Mumford}\\[0.4em]
-Pierre Deligne
+  {\Large\bfseries VARIÉTÉS UNIRATIONNELLES NON RATIONNELLES}\par
+  \vspace{0.35em}
+  {\large [d'après M. ARTIN et D. MUMFORD]}\par
+  \vspace{0.35em}
+  par Pierre DELIGNE
 \end{center}
 
 Cet exposé contient une description de la variété construite par Artin et Mumford, et la démonstration de ce qu'elle est unirationnelle et non rationnelle. Il contient aussi l'énoncé des théorèmes que démontrent Clemens et Griffiths [4], et Manin et Iskovskih [6], pour construire d'autres exemples. J'ai assisté à des exposés de Artin et Mumford sur le même sujet, et m'en suis largement inspiré.
 
-Dans tout ce qui suit, l'expression «variété algébrique» signifiera «schéma séparé de type fini sur \(\C\), réduit et irréductible». On notera \(k(X)\) le corps des fonctions rationnelles sur une variété algébrique \(X\).
+Dans tout ce qui suit, l'expression \sourcequote{variété algébrique} signifiera \sourcequote{schéma séparé de type fini sur \(\C\), réduit et irréductible}. On notera \(k(X)\) le corps des fonctions rationnelles sur une variété algébrique \(X\).
 
-\section*{1. Rationalité et unirationalité}
+\section*{1. Rationalité et unirationalité.}
 
 Soit \(K\) une extension de type fini de \(\C\). Il existe alors une variété algébrique \(X\) telle que \(K\) soit isomorphe à \(k(X)\). On appelle \(X\) un modèle de \(K\). D'après [5], \(K\) admet toujours un modèle projectif et lisse.
 
-Soient \(K\) et \(L\) deux extensions de type fini de \(\C\), de modèles \(X\) et \(Y\). Les homomorphismes \(a^*:K\to L\) correspondent biunivoquement aux applications rationnelles dominantes \(a:Y\dashrightarrow X\), par la formule \(a^*(f)=f\circ a\). D'après [5], si \(X\) et \(Y\) sont projectifs et lisses, toute application rationnelle \(a:Y\dashrightarrow X\) admet une décomposition
+Soient \(K\) et \(L\) deux extensions de type fini de \(\C\), de modèles \(X\) et \(Y\). Les homomorphismes \(a^*:K\hookrightarrow L\) correspondent biunivoquement aux applications rationnelles dominantes \(a_*:Y\dashrightarrow X\), par la formule \(a^*(f)=f\circ a_*\). D'après [5], si \(X\) et \(Y\) sont projectifs et lisses, toute application rationnelle \(a_*:Y\dashrightarrow X\) admet une décomposition
 \[
-\tag{1.1}
-\begin{tikzcd}[column sep=2.0em,row sep=1.8em]
-Y_{n+1}\arrow[r,"c_n"]\arrow[d,"b"']&\cdots\arrow[r]&Y_2\arrow[r,"c_1"]&Y_1=Y\\
-X&&&
-\end{tikzcd}
+  a=b\,c_n^{-1}\cdots c_1^{-1}.
 \]
-où \(b\) et les \(c_i\) sont des morphismes partout définis, et où \(Y_{i+1}\) se déduit de \(Y_i\) par éclatement d'une sous-variété lisse \(Z_i\), de codimension \(\ge2\).
 
-Si \(a^*:K\iso L\) est un isomorphisme, on peut appliquer le résultat précédent à \((a^{*-1},Y_{n+1},X)\). Par itération, on obtient un diagramme commutatif de morphismes de schémas
-\[
-\tag{1.2}
-\begin{tikzcd}[column sep=1.8em,row sep=1.8em]
-\cdots & Y^2 \arrow[r,"y^2"] \arrow[d,"a^2"'] & Y^1 \arrow[r,equal] \arrow[d,"b^1"] & Y^1 \arrow[r,"y^1"]\arrow[d,"a^1"] & Y \arrow[d,"a"]\\
-\cdots & X^1 \arrow[r,equal] & X^1 \arrow[r,"x^1"'] & X \arrow[r,equal] & X,
-\end{tikzcd}
-\]
-où les flèches horizontales \(x^i,y^i\) sont des composés d'éclatements à centre non singulier, comme en (1.1), et où les \(a^i\) et \(b^i\) sont birationnels.
+\newpage
+% Authority physical page 2 / printed page 46.
+\authorityasset{P0002-A01_diagram_1_1_presentation.png}{0.80}
 
-Un invariant d'une variété projective et lisse \(X\) est dit birationnel s'il ne dépend que de \(k(X)\). On vérifie souvent le caractère birationnel d'un invariant à l'aide de (1.2). Les invariants utilisables d'un corps \(K\) sont en général définis comme la valeur d'un invariant birationnel d'un quelconque modèle projectif et lisse de \(K\).
+où \(b\) et les \(c_i\) sont des morphismes (partout définis) et où \(Y_{i+1}\) se déduit de \(Y_i\) par éclatement d'une sous-variété lisse \(Z_i\) (de codimension \(\geq 2\)).
 
-\paragraph{Définition 1.3.} Soit \(X\) une variété algébrique de dimension \(n\). On dit que \(X\) est unirationnelle si les conditions suivantes sont vérifiées:
+Si \(a^*:K\to L\) est un isomorphisme, on peut appliquer le résultat précédent à \(((a^*)^{-1},Y_{n+1},X)\). Par itération, on obtient un diagramme commutatif de morphismes de schémas
+
+\authorityasset{P0002-A02_diagram_1_2_presentation.png}{0.84}
+
+Dans ce diagramme, les flèches horizontales \(x^i,y^i\) sont des composés d'éclatements à centre non singulier, comme en (1.1) ; les \(a^i\) et \(b^i\) sont birationnels.
+
+Un invariant d'une variété projective et lisse \(X\) est dit \emph{birationnel} s'il ne dépend que de \(k(X)\). On vérifie souvent le caractère birationnel d'un invariant à l'aide de (1.2) (pour un exemple typique, voir 2.1). Les invariants utilisables d'un corps \(K\) sont en général définis comme la valeur d'un invariant birationnel d'un quelconque modèle projectif et lisse de \(K\).
+
+\paragraph{DÉFINITION 1.3.-} Soit \(X\) une variété algébrique de dimension \(n\). On dit que \(X\) est unirationnelle si les conditions suivantes sont vérifiées :
 \begin{enumerate}[label=(\roman*)]
-\item \(k(X)\) est un sous-corps d'une extension transcendante pure \(\C(T_1,\ldots,T_r)\) de \(\C\);
-\item une extension finie de \(k(X)\) est isomorphe à \(\C(T_1,\ldots,T_n)\);
-\item pour \(X\) projectif et lisse, il existe un diagramme (1.1) avec \(Y=\Pj^r(\C)\);
-\item pour \(X\) projectif et lisse, il existe un diagramme (1.1) avec \(Y=\Pj^n(\C)\).
+  \item \(k(X)\) est un sous-corps d'une extension transcendante pure \(\C(T_1,\ldots,T_r)\) de \(\C\) ;
+
+\newpage
+% Authority physical page 3 / printed page 47.
+  \item une extension finie de \(k(X)\) est isomorphe à \(\C(T_1,\ldots,T_n)\) ;
+  \item (pour \(X\) projectif et lisse), il existe un diagramme (1.1) avec
+  \[
+    Y=\PP^r(\C) ;
+  \]
+  \item (pour \(X\) projectif et lisse), il existe un diagramme (1.1) avec
+  \[
+    Y=\PP^n(\C).
+  \]
 \end{enumerate}
-On peut supposer \(X\) projectif et lisse, et on a \((ii)\Rightarrow(i)\Rightarrow(iii)\Rightarrow(iv)\Rightarrow(ii)\).
+On peut supposer \(X\) projectif et lisse, et on a
+\[
+  (ii)\Rightarrow(i)\Leftrightarrow(iii)\Rightarrow(iv)\Leftrightarrow(ii).
+\]
 
-\paragraph{Définition 1.4.} On dit que \(X\) est rationnelle si, au choix,
+\paragraph{DÉFINITION 1.4.-} On dit que \(X\) est rationnelle si, au choix
 \begin{enumerate}[label=(\roman*)]
-\item \(k(X)\) est une extension transcendante pure de \(\C\);
-\item pour \(X\) projectif et lisse, il existe un diagramme (1.2) avec \(Y=\Pj^n(\C)\).
+  \item \(k(X)\) est une extension transcendante pure de \(\C\) ;
+  \item (pour \(X\) projectif et lisse), il existe un diagramme (1.2) avec
+  \[
+    Y=\PP^n(\C).
+  \]
 \end{enumerate}
 
 Les invariants birationnels les plus évidents ne permettent pas de distinguer les variétés unirationnelles des variétés rationnelles.
 
-\paragraph{Proposition 1.5.} Soit \(X\) une variété algébrique unirationnelle projective et lisse de dimension \(n>0\).
+\paragraph{PROPOSITION 1.5.-} Soit \(X\) une variété algébrique unirationnelle projective et lisse de dimension \(n>0\).
 \begin{enumerate}[label=(\roman*)]
-\item Les plurigenres
-\[
-P_k=\dim H^0(X,(\Omega_X^n)^{\otimes k})\qquad(k>0)
-\]
-sont nuls. Plus généralement, \(H^0(X,(\Omega_X^1)^{\otimes k})=0\) pour \(k>0\).
-\item \(X\) est simplement connexe ([10]).
+  \item Les plurigenres \(P_k=\dim H^0(X,(\Omega_X^n)^{\otimes k})\) (\(k>0\)) sont nuls. Plus généralement, \(H^0(X,(\Omega_X^1)^{\otimes k})=0\) pour \(k>0\) (voir [9] Remarque page 02).
+  \item \(X\) est simplement connexe ([10]).
 \end{enumerate}
-Pour \(n=1\) ou \(2\), la propriété (i) caractérise déjà les variétés rationnelles. En dimension \(1\), si \(H^0(X,\Omega_X^1)=0\), alors \(X\simeq\Pj^1(\C)\): d'après Riemann--Roch, pour tout \(x\in X\), \(\cO(x)\) définit un plongement de \(X\) dans \(\Pj^1(\C)\). En dimension \(2\), le critère de Castelnuovo--Enriques affirme que \(X\) est rationnelle si \(P_a=P_2=0\), c'est-à-dire si \(H^0(X,\Omega_X^2)=H^0(X,(\Omega_X^2)^{\otimes2})=0\) (voir [9]).
+
+Pour \(n=1\) ou \(2\), la propriété (i) ci-dessus caractérise déjà les variétés rationnelles. Une variété unirationnelle de dimension \(\leq2\) est donc rationnelle, et une sous-extension de degré de transcendance \(\leq2\) de \(\C(T_1,\ldots,T_k)\) est automatiquement pure. On a plus précisément ceci :
+
+\noindent a) Pour \(n=1\), si \(H^0(X,\Omega_X^1)=0\), alors \(X\simeq\PP^1(\C)\). D'après le théorème de Riemann--Roch, pour tout \(x\in X\), \(\OO(x)\) définit en effet un plongement de \(X\) dans \(\PP^1(\C)\).
+
+\newpage
+% Authority physical page 4 / printed page 48.
+\noindent b) Pour \(n=2\), le critère de Castelnuovo--Enriques affirme que \(X\) est rationnelle si \(P_a\simeq P_2=0\), i.e. si
+\[
+  H^0(X,\Omega_X^1)=H^0(X,(\Omega_X^2)^{\otimes2})=0
+\]
+(voir [9]).
 
 Pour \(n>2\), il a été très difficile de définir ou de calculer des invariants birationnels qui puissent distinguer entre variétés rationnelles et unirationnelles.
 
-\section*{2. Quelques invariants birationnels}
+\section*{2. Quelques invariants birationnels.}
 
-\subsection*{A) Artin et Mumford}
+\subsection*{A) Artin et Mumford.}
 
-\paragraph{Proposition 2.1.} Le sous-groupe de torsion \(H^3(X,\Z)_{\tors}\) de \(H^3(X,\Z)\) est un invariant birationnel de la variété projective et lisse \(X\).
+\paragraph{PROPOSITION 2.1.-} Le sous-groupe de torsion \(H^3(X,\ZZ)_{\tors}\) de \(H^3(X,\ZZ)\) est un invariant birationnel de la variété projective et lisse \(X\).
 
-Si une variété \(X_2\) se déduit d'une variété lisse \(X_1\) par éclatement d'une sous-variété lisse \(Z\subset X_1\) de codimension \(r\ge2\), alors (SGA 5 VII)
+Si une variété \(X_2\) se déduit d'une variété lisse \(X_1\) par éclatement d'une sous-variété lisse \(Z\subset X_1\) de codimension \(r\geq2\), alors (SGA 5 VII)
 \[
-H^n(X_2,\Z)=H^n(X_1,\Z)\oplus\bigoplus_{i=1}^{r-1}H^{n-2i}(Z,\Z).
+  H^n(X_2,\ZZ)\simeq H^n(X_1,\ZZ)\oplus
+  \bigoplus_{1}^{r-1}H^{n-2i}(Z,\ZZ).
 \]
 En particulier,
 \[
-H^3(X_2,\Z)\simeq H^3(X_1,\Z)\oplus H^1(Z,\Z).
+  H^3(X_2,\ZZ)\simeq H^3(X_1,\ZZ)\oplus H^1(Z,\ZZ).
 \]
-Puisque \(H^1(Z,\Z)\) est sans torsion, on a donc
+Puisque \(H^1(Z,\ZZ)\) est sans torsion, on a donc
 \[
-H^3(X_1,\Z)_{\tors}\iso H^3(X_2,\Z)_{\tors}.
+  H^3(X_1,\ZZ)_{\tors}\xrightarrow{\sim}H^3(X_2,\ZZ)_{\tors}.
 \]
-Supposons que \(k(X)\simeq k(Y)\), et soit un diagramme (1.2). On en déduit un diagramme
+Supposons que \(k(X)\) soit isomorphe à \(k(Y)\), et soit un diagramme (1.2) On en déduit un diagramme
+
+\authorityasset{P0004-A01_cohomology_diagram_presentation.png}{0.98}
+
+Puisque \(a_2^*b_1^*\) est bijectif, \(b_1^*\) est injectif. Puisque \(b_1^*a_1^*\) est bijectif
+
+\newpage
+% Authority physical page 5 / printed page 49.
+\noindent et \(b_1^*\) injectif, \(a_1^*\) est bijectif, et l'assertion en résulte.
+
+L'exemple de Artin et Mumford est basé sur la
+
+\paragraph{CONSTRUCTION 2.2.-} On construira une variété unirationnelle \(X\), projective et lisse, de dimension \(3\), telle que
 \[
-\begin{tikzcd}[column sep=1.5em,row sep=2.0em]
-H^3(X,\Z)_{\tors}\arrow[r,"\sim"]&H^3(X_1,\Z)_{\tors}\arrow[r,equal]\arrow[d,"b^{1*}"']&H^3(X_1,\Z)_{\tors}\arrow[r,"\sim"]&H^3(X_2,\Z)_{\tors}\arrow[d,"a^{2*}"]\\
-H^3(Y,\Z)_{\tors}\arrow[r,equal]&H^3(Y,\Z)_{\tors}\arrow[r,"\sim"]&H^3(Y_1,\Z)_{\tors}\arrow[r,equal]&H^3(Y_1,\Z)_{\tors}.
-\end{tikzcd}
+  H^3(X,\ZZ)_{\tors}\ne0
+  \qquad
+  \bigl(\text{on aura }H^3(X,\ZZ)\simeq\ZZ/(2)\bigr).
 \]
-Puisque \(a^{2*}b^{1*}\) est bijectif, \(b^{1*}\) est injectif; puisque \(b^{1*}a^{1*}\) est bijectif et \(b^{1*}\) injectif, \(a^{1*}\) est bijectif, et l'assertion en résulte.
+Multipliant cette variété par \(\PP^r(\C)\), on obtient un exemple analogue en toute dimension \(\geq3\).
 
-L'exemple de Artin et Mumford est basé sur la construction suivante.
-
-\paragraph{Construction 2.2.} On construira une variété \(X\), projective et lisse, de dimension \(3\), telle que \(X\) soit unirationnelle et
-\[
-H^3(X,\Z)_{\tors}\ne0,
-\qquad\text{en fait }H^3(X,\Z)_{\tors}\simeq\Z/(2).
-\]
-En multipliant cette variété par \(\Pj^r(\C)\), on obtient un exemple analogue en toute dimension \(\ge3\).
-
-\subsection*{B) Clemens et Griffiths}
+\subsection*{B) Clemens et Griffiths.}
 
 Soit \(X\) une variété projective et lisse de dimension \(3\), telle que \(H^0(X,\Omega_X^3)=0\). La décomposition de Hodge de \(H^3(X,\C)\) se réduit alors à
 \[
-H^3(X,\C)=H^{2,1}\oplus H^{1,2},
+  H^3(X,\C)=H^{2,1}\oplus H^{1,2}
 \]
 et, d'après Weil [11], le tore complexe
 \[
-J(X)=H^3(X,\Z)\backslash H^3(X,\C)/H^{2,1}
+  J(X)=H^3(X,\ZZ)\backslash H^3(X,\C)/H^{2,1}
 \]
-est une variété abélienne, la jacobienne intermédiaire de \(X\). Soit
+est une variété abélienne : la jacobienne intermédiaire de \(X\). Soit
 \[
-\psi:H^3(X,\Z)\times H^3(X,\Z)\longrightarrow H^6(X,\Z)\simeq\Z
+  \psi:H^3(X,\ZZ)\otimes H^3(X,\ZZ)
+  \longrightarrow H^6(X,\ZZ)\simeq\ZZ
 \]
-le cup-produit. D'après le théorème de dualité de Poincaré, la forme alternée sur \(H^3(X,\Z)/\text{torsion}\) déduite de \(\psi\) est de discriminant un. Si \(H^1(X,\Z)=0\), il résulte de Weil [11] qu'elle définit sur \(J(X)\) une polarisation principale.
+le cup-produit. D'après le théorème de dualité de Poincaré, la forme alternée sur \(H^3(X,\ZZ)/\text{torsion}\) déduite de \(\psi\) est de discriminant un. Si \(H^1(X,\ZZ)=0\), il résulte de Weil [11] qu'elle définit sur \(J(X)\) une polarisation principale.
 
-\paragraph{Proposition 2.3 ([4], 3.26).} Si \(X\) est rationnelle, la variété abélienne polarisée \(J(X)\) est un produit de jacobiennes.
+\paragraph{PROPOSITION 2.3 ([4] 3.26).-} Si \(X\) est rationnelle, la variété abélienne polarisée \(J(X)\) est un produit de jacobiennes.
 
-Dans l'esquisse de démonstration qui suit, le signe \(\sim\) désigne un isomorphisme de variétés abéliennes polarisées. On vérifie successivement:
-\begin{enumerate}[label=\alph*)]
-\item \(J(\Pj^3(\C))=0\).
-\item Si \(Y\) se déduit de la variété projective non singulière \(Y'\) par éclatement d'une courbe lisse \(Z\) de jacobienne \(J(Z)\), respectivement d'un point, on a ([4], 3.11)
-\[
-J(Y)\sim J(Y')\times J(Z),\qquad\text{respectivement }J(Y)\sim J(Y').
-\]
-\item Si un morphisme \(b:Y'\to X\) est birationnel, \(J(X)\) est facteur direct dans \(J(Y')\): il existe une variété abélienne principalement polarisée de la série principale \(B\) telle que \(J(Y')\sim J(X)\times B\).
-\item Soient \((A_i)_{1\le i\le n}\) des variétés abéliennes principalement polarisées non nulles. On suppose qu'aucun \(A_i\) n'admet une décomposition \(A_i\sim A'_i\times A''_i\), par exemple que \(A_i\) est une jacobienne. Alors toute décomposition de \(A=\prod A_i\) est de la forme
-\[
-A\sim \left(\prod_{i\in I}A_i\right)\times\left(\prod_{i\notin I}A_i\right)
-\]
-pour \(I\subset[1,n]\) ([4], 3.23).
-\end{enumerate}
-Si \(X\) est rationnelle, il existe un diagramme (1.2) avec \(Y=\Pj^3(\C)\) et \(b\) birationnel. D'après a) et b), \(J(Y_{n+1})\) est un produit de jacobiennes. D'après c) et d), \(J(X)\) en est un aussi.
+Dans l'esquisse de démonstration qui suit, le signe \(\simeq\) désigne un isomorphisme de variétés abéliennes polarisées.
 
-Prenons pour \(X\) une hypersurface cubique dans \(\Pj^4(\C)\). On a
-\[
-H^1(X,\Z)=0,
-\qquad H^3(X,\Z)_{\tors}=0,
-\qquad H^0(X,\Omega_X^3)=0,
-\qquad \dim H^1(X,\Omega_X^2)=\dim J(X)=5,
-\]
-et \(X\) est unirationnelle d'après [7]. Soit \(S\) la surface qui paramétrise les droites contenues dans \(X\), et soit \(\varphi:S\to\Alb(S)\) l'application de \(S\) dans sa variété d'Albanese. Un des résultats essentiels de [4] est le suivant.
+On vérifie successivement :
 
-\paragraph{Théorème 2.4 ([4], 11.19 et 13.4).} Il existe un isomorphisme
+\noindent a) \(J(\PP^3(\C))=0\).
+
+\noindent b) Si \(Y''\) se déduit de la variété projective non singulière \(Y'\) par éclatement
+
+\newpage
+% Authority physical page 6 / printed page 50.
+\noindent d'une courbe lisse \(Z\) de jacobienne \(J(Z)\) (resp. d'un point), on a ([4] 3.11)
 \[
-J(X)\iso \Alb(S)
+  J(Y'')\simeq J(Y')\times J(Z)
+  \qquad
+  \bigl(\text{resp. }J(Y'')\simeq J(Y')\bigr).
+\]
+
+\noindent c) Si un morphisme \(b:Y'\to X\) est birationnel, \(J(X)\) est facteur direct dans \(J(Y')\) : il existe une variété abélienne principalement polarisée de la série principale \(B\) telle que
+\[
+  J(Y')\simeq J(X)\times B.
+\]
+
+\noindent d) Soient \((A_i)_{1\leq i\leq n}\) des variétés abéliennes principalement polarisées \(\ne0\). On suppose qu'aucun \(A_i\) n'admet une décomposition \(A_i\simeq A_i'\times A_i''\) (par exemple que \(A_i\) est une jacobienne). Alors, toute décomposition de \(A=\prod A_i\) est de la forme
+\[
+  A\simeq
+  \left(\prod_{i\in I}A_i\right)
+  \times
+  \left(\prod_{i\notin I}A_i\right)
+  \qquad\text{pour }I\subset[1,n]\qquad([4]\ 3.23).
+\]
+
+Si \(X\) est rationnelle, il existe un diagramme 2.1 avec \(Y=\PP^3(\C)\) et \(b\) birationnel. D'après a) et b), \(J(Y_{n+1})\) est un produit de jacobiennes. D'après c) et d), \(J(X)\) en est un aussi.
+
+Prenons pour \(X\) une hypersurface cubique dans \(\PP^4(\C)\). On a
+\[
+  H^1(X,\ZZ)=H^3(X,\ZZ)_{\tors}=H^0(X,\Omega_X^3)=0,
+  \qquad
+  \dim J(X)=\dim H^1(X,\Omega_X^2)=5,
+\]
+et \(X\) est unirationnelle d'après [7]. Soit \(S\) la surface qui paramétrise les droites contenues dans \(X\) et soit \(\alpha:S\to\Alb(S)\) l'application de \(S\) dans sa variété d'Albanese. Un des résultats essentiels de [4] est le suivant
+
+\paragraph{THÉORÈME 2.4 ([4] 11.19 et 13.4).-} Il existe un isomorphisme
+\[
+  J(X)\xrightarrow{\sim}\Alb(S),
 \]
 qui transforme le diviseur \(\Theta\) de \(J(X)\) en l'image de \(S\times S\) par l'application
 \[
-(x,y)\longmapsto \varphi(x)-\varphi(y).
+  (x,y)\overset{\delta}{\longmapsto}\alpha(x)-\alpha(y).
 \]
-Clemens et Griffiths parviennent alors à utiliser des résultats de [1] pour prouver que \((\Alb(S),\Theta(S\times S))\) ne peut pas être la jacobienne polarisée d'une courbe. Une autre preuve de l'irrationalité de \(X\) est suggérée dans l'appendice de [4]. Il s'agit de prouver:
 
-\paragraph{Théorème 2.5.} Le lieu singulier du diviseur \(\Theta\) de \(J(X)\) est de dimension \(0\), donc de codimension \(>4\). Il est même réduit à l'image par \(\Theta\) de la diagonale de \(S\times S\). On sait que tel n'est jamais le cas pour le diviseur \(\Theta\) d'une jacobienne.
+\newpage
+% Authority physical page 7 / printed page 51.
+Clemens et Griffiths parviennent alors à utiliser des résultats de [1] pour prouver que \((\Alb(S),\delta(S\times S))\) ne peut pas être la jacobienne polarisée d'une courbe. Une autre preuve de l'irrationalité de \(X\) est suggérée dans l'appendice à [4]. Il s'agit de prouver
 
-\subsection*{C) Manin et Iskovskih}
+\paragraph{THÉORÈME 2.5.-} Le lieu singulier du diviseur \(\Theta\) de \(J(X)\) est de dimension \(0\), donc de codimension \(>4\). Il est même réduit à l'image par \(\delta\) de la diagonale de \(S\times S\).
 
-Le groupe des automorphismes birationnels d'une variété \(X\), égal au groupe des \(\C\)-automorphismes de \(k(X)\), est un invariant birationnel de \(X\). C'est celui qu'utilisent Manin et Iskovskih pour montrer qu'une hypersurface quartique lisse dans \(\Pj^4(\C)\) n'est jamais rationnelle.
+On sait que tel n'est jamais le cas pour le diviseur \(\Theta\) d'une jacobienne.
 
-\paragraph{Théorème 2.6 ([6]).} Soient \(X\) et \(Y\) deux hypersurfaces quartiques lisses dans \(\Pj^4(\C)\). Tout isomorphisme birationnel \(a:X\dashrightarrow Y\) est automatiquement birégulier.
+\subsection*{C) Manin et Iskovskih.}
 
-Puisque certaines hypersurfaces quartiques sont unirationnelles [7], ce théorème fournit un nouvel exemple de variétés unirationnelles non rationnelles.
+Le groupe des automorphismes birationnels d'une variété \(X\) (égal au groupe des \(\C\)-automorphismes de \(k(X)\)) est un invariant birationnel de \(X\). C'est celui qu'utilisent Manin et Iskovski pour montrer qu'une hypersurface quartique lisse dans \(\PP^4(\C)\) n'est jamais rationnelle :
 
-\section*{3. L'exemple de Artin et Mumford}
+\paragraph{THÉORÈME 2.6 ([6]).-} Soient \(X\) et \(Y\) deux hypersurfaces quartiques lisses dans \(\PP^4(\C)\). Tout isomorphisme birationnel \(a:X\longrightarrow Y\) est automatiquement birégulier.
 
-Soit dans \(\Pj^2(\C)\) une configuration consistant en:
-\begin{enumerate}[label=\alph*)]
-\item deux courbes cubiques lisses \(C_1\) et \(C_2\), d'équations \(f_1=0\) et \(f_2=0\), qui se coupent transversalement;
-\item une conique lisse \(Q\), d'équation \(q=0\), qui rencontre chaque \(C_i\) en trois points de tangence distincts.
-\end{enumerate}
-Nous construirons:
-\begin{enumerate}[label=\alph*)]
-\item un fibré vectoriel \(V\) sur \(\Pj^2(\C)\), de rang \(3\);
-\item une forme quadratique
+Puisque certaines hypersurfaces quartiques sont unirationnelles, [7] ce théorème fournit un nouvel exemple de variétés unirationnelles non rationnelles.
+
+\section*{3. L'exemple de Artin et Mumford.}
+
+Soit dans \(\PP^2(\C)\) une configuration consistant en
+
+\noindent a) deux courbes cubiques lisses \(C_1\) et \(C_2\), d'équations \(f_1=0\) et \(f_2=0\), qui se coupent transversalement ;
+
+\noindent b) une conique lisse \(Q\), d'équation \(q=0\), qui rencontre chaque \(C_i\) en trois
+
+\newpage
+% Authority physical page 8 / printed page 52.
+\noindent points de tangence distincts.
+
+Nous construirons
+
+\noindent a) un fibré vectoriel \(V\) sur \(\PP^2(\C)\), de rang \(3\) ;
+
+\noindent b) une forme quadratique \(\Phi:V\to\LL\) (\(\LL\) faisceau inversible) de discriminant \(f_1f_2\) (si \(\Delta\), section de \(\LL^{\otimes3}\otimes(\bigwedge^3V)^{\otimes(-2)}\), est le discriminant, le sous-schéma de \(\PP^2(\C)\) d'équation \(\Delta=0\) est \(C_1\cup C_2\)).
+
+Soit \(X\subset\PP(V^*)\) le fibré en coniques sur \(\PP^2(\C)\), dégénérant le long de \(C_1\cup C_2\), d'équation homogène \(\Phi=0\). Les conditions suivantes seront vérifiées.
+
+\noindent c) \(\Phi\) est en tout point de rang \(\geq2\) : pour \(s\in C_1\cup C_2\), la fibre \(X_s=f^{-1}(s)\) est réunion de deux droites concourantes ; les seuls points singuliers de \(X\) sont les points singuliers des fibres \(X_s\) pour \(s\in C_1\cap C_2\).
+
+\noindent d) Soit \(S\) le revêtement double de \(\PP^2(\C)\), ramifié le long de \(Q\) et \(X_S=X\times_{\PP^2(\C)}S\). Alors, \(X_S/S\) admet une section
+
+\authorityasset{P0008-A01_section_diagram_presentation.png}{0.35}
+
+\noindent e) Pour \(s\in(C_1\cup C_2)-Q\), les deux points \(\alpha(t)\) pour \(\pi(t)=s\) sont dans les deux composantes irréductibles de \(X_s\).
+
+Localement (pour la topologie usuelle) sur \(C_1\cup C_2\), la restriction du fibré \(X\) à \(C_1\cup C_2\) s'obtient en recollant deux fibrés en droites projectives le long d'une section. Toutefois, lorsqu'on parcourt un lacet dans \(C_1\cup C_2\), ces deux fibrés peuvent s'échanger : il existe un revêtement double non ramifié \((C_1\cup C_2)^*\) de \(C_1\cup C_2\) dont, localement, les deux sections locales correspondent aux deux fibrés en droites projectives dont \(X|_{C_1\cup C_2}\) est réunion. Soit \(\pi_i:C_i^*\to C_i\)
+
+\newpage
+% Authority physical page 9 / printed page 53.
+\noindent le revêtement double de \(C_i\) induit par \((C_1\cup C_2)^*\). Nous n'utiliserons de e) que le corollaire suivant
+
+\paragraph{Lemme 3.1.-} \(C_i^*\) est irréductible.
+
+D'après e), \(C_i^*\) est le normalisé du revêtement double de \(C_i\) induit par \(S\). Le lemme résulte de ce que la section \(q\) de \(\OO(2)|_{C_i}\) n'est pas le carré d'une section de \(\OO(1)|_{C_i}\) ; si \(q\) était un carré, les trois points d'intersection de \(Q\) avec \(C_i\) seraient en effet collinéaires.
+
+Au revêtement double \(C_i^*\) de \(C_i\) correspondent un caractère d'ordre \(2\) du groupe fondamental de \(C_i\) et un système local \(A_i\) localement isomorphe à \(\ZZ\), défini par la suite exacte de faisceaux sur \(C_i\)
 \[
-\varphi:V\longrightarrow \mathcal L
+  0\longrightarrow A_i\longrightarrow\pi_{i*}\ZZ
+  \xrightarrow{\Tr}\ZZ\longrightarrow0,
 \]
-à valeurs dans un faisceau inversible \(\mathcal L\), de discriminant \(\Delta=f_1f_2\), c'est-à-dire telle que la section \(\Delta\) de \(\mathcal L^{\otimes3}\otimes(\bigwedge^3V)^{-2}\) ait pour schéma de zéros \(C_1\cup C_2\).
-\end{enumerate}
-Soit \(X\subset \Pj(V^*)\) le fibré en coniques sur \(\Pj^2(\C)\), dégénérant le long de \(C_1\cup C_2\), d'équation homogène \(\varphi=0\). Les conditions suivantes seront vérifiées:
-\begin{enumerate}[label=\alph*)]
-\setcounter{enumi}{2}
-\item \(\varphi\) est en tout point de rang \(\ge2\): pour \(s\in C_1\cup C_2\), la fibre \(X_s\) est réunion de deux droites concourantes; les seuls points singuliers de \(X\) sont les points singuliers des fibres \(X_s\) pour \(s\in C_1\cap C_2\).
-\item Soit \(S\) le revêtement double de \(\Pj^2(\C)\), ramifié le long de \(Q\), et \(X_S=X\times_{\Pj^2}S\). Alors \(X_S/S\) admet une section.
-\item Pour \(s\in(C_1\cup C_2)-Q\), les deux points \(t\) au-dessus de \(s\) dans \(S\) sont dans les deux composantes irréductibles de \(X_s\).
-\end{enumerate}
-Localement, pour la topologie usuelle, sur \(C_1\cup C_2\), la restriction du fibré \(X\) à \(C_1\cup C_2\) s'obtient en recollant deux fibrés en droites projectives le long d'une section. Toutefois, lorsqu'on parcourt un lacet dans \(C_1\cup C_2\), ces deux fibrés peuvent s'échanger: il existe un revêtement double non ramifié \((C_1\cup C_2)^*\) de \(C_1\cup C_2\) dont, localement, les deux sections locales correspondent aux deux fibrés en droites projectives dont \(X|_{C_1\cup C_2}\) est réunion. Soit \(\pi_i:C_i^*\to C_i\) le revêtement double de \(C_i\) induit par \((C_1\cup C_2)^*\). Nous n'utiliserons de e) que le corollaire suivant.
+où \(\Tr\) est la \sourcequote{somme des valeurs sur les deux feuillets du revêtement}.
 
-\paragraph{Lemme 3.1.} \(C_1^*\) est irréductible.
-
-D'après e), \(C_1^*\) est le normalisé du revêtement double de \(C_1\) induit par \(S\). Le lemme résulte de ce que la section \(q\) de \(\mathcal O(2)|_{C_1}\) n'est pas le carré d'une section de \(\mathcal O(1)|_{C_1}\): si \(q\) était un carré, les trois points d'intersection de \(Q\) avec \(C_1\) seraient en effet collinéaires.
-
-Au revêtement double \(C_i^*\to C_i\) correspondent un caractère d'ordre \(2\) du groupe fondamental de \(C_i\) et un système local \(A_i\), localement isomorphe à \(\Z\), défini par la suite exacte de faisceaux sur \(C_i\)
+On a
 \[
-0\longrightarrow A_i\longrightarrow \pi_{i*}\Z \xrightarrow{\Tr}\Z\longrightarrow0,
-\]
-où \(\Tr\) est la somme des valeurs sur les deux feuillets du revêtement. On a
-\[
-\tag{3.2}
-H^0(C_i,A_i)=0,
-\qquad H^1(C_i,A_i)=\Z/2,
-\qquad H^2(C_i,A_i)=\Z/2.
-\]
-Nous n'utiliserons d) que pour prouver le fait suivant.
-
-\paragraph{Lemme 3.3.} \(X\) est unirationnel.
-
-La surface \(S\) est une quadrique dans \(\Pj^3(\C)\), donc est rationnelle. Puisque \(X_S/S\) admet une section, on a un isomorphisme birationnel \(X_S\sim S\times\Pj^1(\C)\), et \(X\) est image de la variété rationnelle \(X_S\).
-
-Les neuf points singuliers de \(X\) sont des points quadratiques ordinaires. On peut résoudre chacun d'eux comme suit (cf. [3]).
-\begin{enumerate}[label=\alph*)]
-\item On l'éclate; ceci résout \(X\) et remplace le point singulier par une quadrique \(P\), isomorphe à \(\Pj^1(\C)\times\Pj^1(\C)\).
-\item On choisit une projection \(P\to\Pj^1(\C)\), et on contracte dans l'éclaté \(\widetilde X_1\) de \(X\) les fibres de cette projection. C'est possible car les fibres sont isomorphes à \(\Pj^1(\C)\) et que le fibré normal à \(P\) dans \(\widetilde X_1\) induit sur chaque fibre un fibré \(\mathcal O(-1)\) ([8]).
-\end{enumerate}
-Soit \(\widetilde X\) la variété obtenue. On dispose d'une application de \(\widetilde X\) dans \(X\), et \(\widetilde X\) se déduit de \(X\) en remplaçant chaque point singulier par une droite projective. Les fibres de la projection
-\[
-p:\widetilde X\longrightarrow\Pj^2(\C)
-\]
-sont des trois types suivants:
-\[
-\begin{array}{c@{\quad}c@{\quad}l}
-s\notin C_1\cup C_2 &
-\begin{tikzpicture}[baseline=-0.45ex,scale=0.72]
-  \draw (-1.15,0)--(1.15,0);
-\end{tikzpicture}
-& \text{une conique},\\[0.9em]
-s\in C_1\cup C_2,\ s\notin C_1\cap C_2 &
-\begin{tikzpicture}[baseline=-0.45ex,scale=0.72]
-  \draw (-1.15,-.36)--(1.15,.36);
-  \draw (-1.15,.36)--(1.15,-.36);
-\end{tikzpicture}
-& \text{deux droites concourantes},\\[0.9em]
-s\in C_1\cap C_2 &
-\begin{tikzpicture}[baseline=-0.45ex,scale=0.72]
-  \draw (-1.15,-.45)--(1.15,.45);
-  \draw (-1.15,.45)--(1.15,-.45);
-  \draw (-1.15,0)--(1.15,0);
-\end{tikzpicture}
-& \text{trois droites comme indiqué.}
-\end{array}
-\]
-Quand on passe du point générique \(\eta\) de \(\Pj^2(\C)\) au point générique \(\eta_i\) de \(C_i\), puis à \(s\in C_1\cap C_2\), les composantes irréductibles se spécialisent comme indiqué dans le diagramme suivant:
-\[
-\tag{3.4}
-\begin{tikzpicture}[scale=1.02,>=Stealth]
-  \tikzset{pt/.style={inner sep=0.5pt,font=\scriptsize}}
-  \node[pt,label=above:\(\eta\)] (eta) at (0,1.65) {\(\times\)};
-  \node[pt,label=above:\(\eta_1\)] (e11) at (2.75,2.05) {\(\times\)};
-  \node[pt] (e12) at (2.75,1.25) {\(\times\)};
-  \node[pt,label=left:\(\eta_2\)] (e2) at (0,-1.15) {\(\times\)};
-  \node[pt,label=above left:\(s\)] (s0) at (1.85,0.20) {\(\times\)};
-  \node[pt] (s1) at (2.75,0.20) {\(\times\)};
-  \node[pt] (s2) at (2.75,-0.65) {\(\times\)};
-  \node[pt] (s3) at (2.75,-1.40) {\(\times\)};
-  \draw[->,shorten >=3pt,shorten <=3pt] (eta)--(e11);
-  \draw[->,shorten >=3pt,shorten <=3pt] (eta)--(e12);
-  \draw[->,shorten >=3pt,shorten <=3pt] (eta)--(e2);
-  \draw[->,shorten >=3pt,shorten <=3pt] (e2)--(s0);
-  \draw[->,shorten >=3pt,shorten <=3pt] (e2)--(s2);
-  \draw[->,shorten >=3pt,shorten <=3pt] (e2)--(s3);
-  \draw[->,shorten >=3pt,shorten <=3pt] (e11)--(s0);
-  \draw[->,shorten >=3pt,shorten <=3pt] (e12)--(s0);
-  \draw[->,shorten >=3pt,shorten <=3pt] (e12)--(s2);
-  \draw[->,shorten >=3pt,shorten <=3pt] (s2)--(s3);
-\end{tikzpicture}
-\]
-Les croix représentent des composantes irréductibles, les multiplicités sont toutes un. La fastidieuse vérification de ce résultat local est omise. On en tire:
-\paragraph{Lemme 3.5.} On a
-\[
-R^0p_*\Z=\Z,
-\qquad R^1p_*\Z=0,
-\]
-et une suite exacte de faisceaux
-\[
-0\longrightarrow A_1\oplus A_2\longrightarrow R^2p_*\Z\xrightarrow{\Tr}\Z\longrightarrow0.
+  \tag{3.2}
+  H^0(C_i,A_i)=0,
+  \qquad H^1(C_i,A_i)=\ZZ/2,
+  \qquad H^2(C_i,A_i)=\ZZ/2.
 \]
 
-On peut maintenant utiliser la suite spectrale de Leray de \(p\) pour calculer \(H^*(\widetilde X,\Z)\). Le fait essentiel est le suivant, qui implique l'irrationalité de \(X\).
+Nous n'utiliserons d) que pour prouver le fait suivant
 
-\paragraph{Lemme 3.6.} On a
-\[
-H^3(\widetilde X,\Z)=\Z/(2).
-\]
-Calculons les termes \(E_2\) de la suite spectrale de Leray de \(p\). On a \(R^0p_*\Z=\Z\), donc \(E_2^{p,0}=\Z,0,\Z,0,\Z\) pour \(p=0,\ldots,4\), et \(R^1p_*\Z=0\), donc \(E_2^{p,1}=0\). Pour calculer \(E_2^{p,2}=H^p(R^2p_*\Z)\), on utilise la suite exacte longue définie par la suite exacte courte de faisceaux 3.5. On trouve
-\[
-0\to E_2^{0,2}\to\Z\to\Z/2\oplus\Z/2\to E_2^{1,2}\to0,
-\qquad E_2^{3,2}=0,
-\qquad E_2^{4,2}=\Z,
-\]
-et \(E_2^{2,2}\) s'insère comme indiqué dans le tableau suivant:
-\[
-\begin{array}{c|ccccc}
-q=2&\Z&\Z/2&0&0&\Z\\
-q=1&0&0&0&0&0\\
-q=0&\Z&0&\Z&0&\Z\\ \hline
-&p=0&1&2&3&4
-\end{array}
-\]
-On vérifie facilement que \(a(E_2^{0,2})=2\Z\), fait qui n'est d'ailleurs pas nécessaire à la démonstration de \(H^3(\widetilde X,\Z)_{\tors}\ne0\). Les différentielles \(d_r^{p,q}\) ne peuvent qu'être nulles, de sorte que le lemme en résulte. On voit qu'il était essentiel de disposer de deux courbes \(C_i\subset\Pj^2(\C)\) le long desquelles \(X\) dégénère, car on tue un groupe \(\Z/2\) en passant de \(H^1(\Ker(R^2p_*\Z\to\Z))\) à \(H^1(R^2p_*\Z)=E_2^{1,2}\).
+\paragraph{Lemme 3.3.-} \(X\) est unirationnel.
 
-Il reste à effectuer les constructions promises. Artin et Mumford savent prouver a priori l'existence d'un fibré en coniques du type voulu. Je me contenterai de donner des équations qui en définissent un.
+La surface \(S\) est une quadrique dans \(\PP^3(\C)\), donc est rationnelle. Puisque \(X_S/S\) admet une section, on a un isomorphisme birationnel \(X_S\sim S\times\PP^1(\C)\), et \(X\) est image de la variété rationnelle \(X_S\).
 
-\begin{enumerate}[label=\arabic*)]
-\item L'image de \(f_1f_2\) dans \(H^0(Q,\mathcal O(6))\) est le carré de \(g_1\). La conique \(Q\) est rationnelle et les zéros de \(f_1f_2\) sur \(Q\) sont doubles. Ce \(g_1\) se relève en \(g\in H^0(\Pj^2(\C),\mathcal O(3))\), car \(H^1(\Pj^2(\C),\mathcal O(1))=0\). Puisque \(f_1f_2-g^2\) s'annule sur \(Q\), c'est un multiple de \(q\):
-\[
-f_1f_2=g^2+qd.
-\]
-\item On prend
-\[
-V=\mathcal O(-1)\oplus\mathcal O(-2)\oplus\mathcal O,
-\]
-et la forme
-\[
-\varphi:V\to\mathcal O,
-\qquad (x,y,z)\longmapsto qx^2+2gxy-dy^2-z^2.
-\]
-On a \(\Delta=g^2+qd=f_1f_2\). En un point où \(\varphi\) serait de rang \(\le1\), on aurait \(\Delta=q=d=0\), d'où \(g=0\), et \(\Delta=g^2+qd\) aurait un zéro double. Ceci est absurde car \(C_1\cap C_2\cap Q=\varnothing\). Enfin, \(S\) s'identifie au sous-schéma de \(X\) d'équation \(y=0\), et d), e) en résultent.
-\end{enumerate}
+Les neuf points singuliers de \(X\) sont des points quadratiques ordinaires. On peut résoudre chacun d'eux comme suit (cf. [3])
 
-\begin{center}\bfseries Bibliographie\end{center}
-\begin{enumerate}[label={[\arabic*]}]
-\item A. Andreotti, On a theorem of Torelli, Am. J. of Math. 80 (1958), p. 801--828.
-\item M. Artin and D. Mumford, Some elementary examples of unirational varieties which are not rational, Journal London Math. Soc., à paraître.
-\item M. Atiyah, On analytic surfaces with double points, Proc. Roy. Soc. London, Ser. A 247 (1958), p. 237--244.
-\item C. H. Clemens and P. A. Griffiths, The intermediate jacobian of the cubic threefold, preprint.
-\item H. Hironaka, Resolution of singularities of an algebraic variety over a field of characteristic zero I, II, Ann. of Math. 79 (1964), p. 109--326.
-\item Ju. I. Manin et V. A. Iskovskih, L'hypersurface quartique de dimension trois, et un contre-exemple au problème de Lüroth, Mat. Sbornik 86 (1971), 140--166.
-\item L. Roth, Algebraic threefolds, Ergebnisse der Math., Heft 6, Springer-Verlag, 1955.
-\item B. Saint-Donat, Sur un théorème de G. Castelnuovo et F. Enriques, thèse de 3ème cycle, Lyon, 1968.
-\item J.-P. Serre, Critère de rationalité pour les surfaces algébriques, d'après K. Kodaira, Séminaire Bourbaki, exposé 146, volume 1956/57, W. A. Benjamin, New York.
-\item J.-P. Serre, On the fundamental group of a unirational variety, J. London Math. Soc. 34 (1959), p. 481--484.
-\item A. Weil, Introduction à l'étude des variétés kählériennes, Hermann, Paris, 1958.
+\noindent a) On l'éclate ; ceci résoud \(X\) et remplace le point singulier par une quadrique \(P\), isomorphe à \(\PP^1(\C)\times\PP^1(\C)\).
+
+\noindent b) On choisit une projection \(P\xrightarrow{\beta}\PP^1(\C)\), et on contracte dans l'éclaté \(\widetilde X_1\) de \(X\) les fibres de cette projection ; c'est possible car \(\beta\) est lisse, que ses
+
+\newpage
+% Authority physical page 10 / printed page 54.
+\noindent fibres sont isomorphes à \(\PP^1(\C)\) et que le fibré normal à \(P\) dans \(\widetilde X_1\) induit sur chaque fibre un fibré \(\OO(-1)\) ([8]).
+
+Soit \(\widetilde X\) la variété obtenue. On dispose d'une application de \(\widetilde X\) dans \(X\), et \(\widetilde X\) se déduit de \(X\) en remplaçant chaque point singulier par une droite projective.
+
+Les fibres de la projection \(p:\widetilde X\to\PP^2(\C)\) sont des trois types suivants
+
+\authorityasset{P0010-A01_fiber_types_presentation.png}{0.98}
+
+Quand on passe du point générique \(\eta\) de \(\PP^2(\C)\) au point générique \(\eta_i\) de \(C_i\) (\(i=1,2\)) à \(s\in C_1\cap C_2\), les composantes irréductibles se spécialisent comme indiqué dans le diagramme suivant
+
+\authorityasset{P0010-A02_specialization_diagram_3_4_presentation.png}{0.58}
+
+(les croix représentent des composantes irréductibles, les multiplicités sont toutes un). La fastidieuse vérification de ce résultat local est omise. On en tire
+
+\paragraph{Lemme 3.5.-} On a \(R^0p_*\ZZ=\ZZ\), \(R^1p_*\ZZ=0\) et une suite exacte de faisceaux
+\[
+  0\longrightarrow A_1\oplus A_2\longrightarrow R^2p_*\ZZ
+  \xrightarrow{\Tr}\ZZ\longrightarrow0.
+\]
+
+On peut maintenant utiliser la suite spectrale de Leray de \(p\) pour calculer \(H^*(\widetilde X,\ZZ)\). Le fait essentiel est le suivant (qui implique l'irrationalité de \(X\)).
+
+\newpage
+% Authority physical page 11 / printed page 55.
+\paragraph{Lemme 3.6.-} On a
+\[
+  H^3(\widetilde X,\ZZ)=\ZZ/(2).
+\]
+
+Calculons les termes \(E_2\) de la suite spectrale de Leray de \(p\). On a
+\[
+  R^0p_*\ZZ=\ZZ
+  \quad\text{donc}\quad
+  E_2^{p,0}=\ZZ,0,\ZZ,0,\ZZ
+  \quad\text{pour }p=0\text{ à }4,
+\]
+et
+\[
+  R^1p_*\ZZ=0
+  \quad\text{donc}\quad
+  E_2^{p,1}=0.
+\]
+Pour calculer \(E_2^{p,2}=H^p(R^2p_*\ZZ)\), on utilise la suite exacte longue définie par la suite exacte courte de faisceaux 3.5. On trouve
+\[
+  0\longrightarrow E^{0,2}\xrightarrow{a}\ZZ\xrightarrow{j}
+  \ZZ/2\oplus\ZZ/2\longrightarrow E^{1,2}\longrightarrow0,
+\]
+\[
+  0\longrightarrow\ZZ/2\oplus\ZZ/2\longrightarrow E^{2,2}
+  \longrightarrow\ZZ\longrightarrow0,
+  \qquad E^{3,2}=0,
+  \qquad E^{4,2}=\ZZ.
+\]
+
+On vérifie facilement que \(a(E^{0,2})=2\ZZ\) (ce fait n'est d'ailleurs pas nécessaire à la démonstration de \(H^3(\widetilde X,\ZZ)_{\tors}\ne0\)). Les \(E_2^{pq}\) sont donc les suivants
+
+\authorityasset{P0011-A01_leray_e2_table_presentation.png}{0.72}
+
+Les différentielles \(d_r\) ne peuvent qu'être nulles, de sorte que \(E_2^{pq}=E_\infty^{pq}\), et le lemme en résulte.
+
+On voit qu'il était essentiel de disposer de \emph{deux} courbes \(C_i\subset\PP^2(\C)\) le long desquelles \(X\) dégénère, car on tue un groupe \(\ZZ/2\) en passant de
+\[
+  H^1\bigl(\Ker(R^2p_*\ZZ\to\ZZ)\bigr)
+  \quad\text{à}\quad
+  H^1R^2p_*\ZZ=E^{1,2}.
+\]
+
+Il reste à effectuer les constructions promises. Artin et Mumford savent prouver \emph{a priori} l'existence d'un fibré en coniques du type voulu. Je me contenterai de donner des équations qui en définissent un.
+
+\newpage
+% Authority physical page 12 / printed page 56.
+\noindent 1) L'image de \(f_1f_2\) dans \(H^0(Q,\OO(6))\) est le carré de \(g_1\in H^0(Q,\OO(3))\), car \(Q\) est rationnelle et les zéros de \(f_1f_2\) sur \(Q\) sont doubles. Ce \(g_1\) se relève en \(g\in H^0(\PP^2(\C),\OO(3))\) car \(H^1(\PP^2(\C),\OO(1))=0\). Puisque \(f_1f_2-g^2\) s'annule sur \(Q\), c'est un multiple de \(q\) :
+\[
+  f_1f_2=g^2+qd.
+\]
+
+\noindent 2) On prend \(V=\OO(-1)\oplus\OO(-2)\oplus\OO\), et la forme
+\[
+  \Phi:V\to\OO:
+  (x,y,z)\longmapsto qx^2+2gxy-dy^2-z^2.
+\]
+On a \(\Delta=g^2+qd=f_1f_2\). En un point où \(\Phi\) serait de rang \(\leq1\), on aurait \(\Delta=q=d=0\), d'où \(g=0\), et \(\Delta=g^2+qd\) aurait un zéro double. Ceci est absurde car \(C_1\cap C_2\cap Q=\varnothing\). Enfin, \(S\) s'identifie au sous-schéma de \(X\) d'équation \(y=0\), et d) e) en résultent.
+
+\newpage
+% Authority physical page 13 / printed page 57.
+\begin{center}
+  \bfseries BIBLIOGRAPHIE
+\end{center}
+
+\begin{enumerate}[label={\textup{[\arabic*]}},leftmargin=3.2em,labelsep=0.75em,itemsep=0.38em]
+  \item A. ANDREOTTI -- \emph{On a theorem of Torelli}, Am. J. of Math., \emph{80} 4 (1958), p.~801--828.
+  \item M. ARTIN and D. MUMFORD -- \emph{Some elementary examples of unirational varieties which are not rational}, Journal London Math. Soc., (to appear).
+  \item M. ATIYAH -- \emph{On analytic surfaces with double points}, Proc. Roy. Soc. London, Ser. A 247 (1958), p.~237--244.
+  \item C. H. CLEMENS and P. A. GRIFFITHS -- \emph{The intermediate jacobian of the cubic threefold}, preprint.
+  \item H. HIRONAKA -- \emph{Resolution of singularities of an algebraic variety over a field of characteristic zero} : I, II, Ann. of Math., \emph{79} (1964), p.~109--326.
+  \item Ju. I. MANIN et V. A. ISKOVSKIH -- \emph{L'hypersurface quartique de dimension trois, et un contre-exemple au problème de Lüroth}, Mat. Sbornik, \emph{86} 1 (1971),140--166
+  \item L. ROTH -- \emph{Algebraic threefolds}, Ergebnisse der Math., Heft 6, Springer-Verlag, 1955.
+  \item B. SAINT-DONAT -- \emph{Sur un théorème de G. Castelnuovo et F. Enriques}, Thèse de 3ème Cycle, Lyon 1968.
+  \item J.-P. SERRE -- \emph{Critère de rationalité pour les surfaces algébriques} (d'après K. Kodaira), Séminaire Bourbaki, exposé 146, volume 1956/57, W. A. Benjamin, New York.
+  \item J.-P. SERRE -- \emph{On the fundamental group of a unirational variety}, J. London Math. Soc. \emph{34} (1959), p.~481--484.
+  \item A. WEIL -- \emph{Introduction à l'étude des variétés kählériennes}, Hermann, Paris 1958.
 \end{enumerate}
 
 \end{document}
