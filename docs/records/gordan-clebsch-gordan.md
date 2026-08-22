@@ -1,6 +1,8 @@
 # Paul Gordan and Clebsch-Gordan
 
 Current Zenodo record: [22048869](https://zenodo.org/records/22048869) · DOI: [10.5281/zenodo.22048869](https://doi.org/10.5281/zenodo.22048869) · concept DOI: [10.5281/zenodo.20616260](https://doi.org/10.5281/zenodo.20616260)
+Public PDF-first education mirror: [Figshare article 33314643](https://figshare.com/articles/dataset/_/33314643) · DOI: [10.6084/m9.figshare.33314643](https://doi.org/10.6084/m9.figshare.33314643)
+Figshare provides 21 direct-readable PDFs plus compact source and checksum files; the complete provenance-rich archive remains on Zenodo.
 
 Current version: `2026-08-21 Thetafunctionen and De linea complete repaired editions`
 
