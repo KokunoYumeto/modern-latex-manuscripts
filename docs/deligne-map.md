@@ -1,6 +1,6 @@
 # Deligne GitHub Coverage Map
 
-Observed 2026-08-05. This page records what is already preserved under
+Maintained 2026-08-23. This page records what is already preserved under
 [`sources/deligne`](../sources/deligne/) so that an existing paper, letter, or
 language layer is checked before anybody starts it again.
 
@@ -12,6 +12,32 @@ the entire Deligne corpus.
 Presentation rule: open the independent English or French edition. Combined,
 side-by-side, and interleaved bilingual outputs remain preserved as history but
 are not reader entry points and must not displace the independent editions.
+
+## Current Maintained Sparse Corpus
+
+The current independently audited sparse reader includes D001-D012, D014,
+D015, D021, D025-D029, D036, and D040 in numerical order. The explicit gaps
+are D013, D017-D020, D022-D024, D030-D035, and D037-D039; D016 remains a
+partial lane at 66 of 97 authority pages. A gap does not suppress a later
+complete work, and each later completed gap work can be inserted in numerical
+position during a subsequent rebuild.
+
+Reader entry points:
+
+- [364-page English cumulative reader](../reader-pdfs/deligne/00-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-040%20-%20English%20Translation.pdf)
+- [374-page source-language cumulative reader](../reader-pdfs/deligne/01-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-040%20-%20French%20Working%20PDF.pdf)
+- [D040 English standalone edition](../reader-pdfs/deligne/00-040%20Deligne%20and%20Lusztig%20-%20Duality%20for%20Representations%20of%20a%20Reductive%20Group%20over%20a%20Finite%20Field%20-%20English%20Math%20Typeset.pdf)
+- [D040 source-language standalone edition](../reader-pdfs/deligne/01-040%20Deligne%20et%20Lusztig%20-%20Dualite%20pour%20les%20representations%20d%20un%20groupe%20reductif%20sur%20un%20corps%20fini%20-%20French%20Math%20Typeset.pdf)
+- [Complete maintained source-witness tree](../sources/deligne/sparse-through-d040-source-witness/)
+
+D040 is the complete eight-page joint paper *Duality for Representations of a
+Reductive Group over a Finite Field*. Its source tree includes separate
+source-language and English TeX/PDF editions, controlling authority,
+comparison witness, restrained apparatus, diagram asset, inherited-work
+salvage, deterministic manifests, and a fresh nonpatching cold audit. The
+historical inventory below remains available for custody and comparison; its
+working or partial layers are not silently promoted into the maintained
+reader.
 
 ## Start Here
 
