@@ -1,0 +1,885 @@
+\documentclass[10pt,leqno]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools,mathrsfs}
+\usepackage[normalem]{ulem}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\geometry{margin=0.86in}
+\setlength{\parindent}{1.45em}
+\setlength{\parskip}{0.18em}
+\emergencystretch=2em
+\setlist{leftmargin=2.2em,itemsep=0.12em,topsep=0.25em}
+\newcommand{\C}{\mathbb C}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Pj}{\mathbb P}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\bS}{\mathbb S}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\cC}{\mathcal C}
+\newcommand{\Gr}{\operatorname{Gr}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\Imop}{\operatorname{Im}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\QED}{\hfill$\square$}
+\newtheoremstyle{deligne}{0.6em}{0.6em}{\itshape}{}{\bfseries}{.-}{0.5em}{\thmname{#1}\thmnote{ #3}}
+\theoremstyle{deligne}
+\newtheorem*{definition}{DÉFINITION}
+\newtheorem*{theoreme}{THÉORÈME}
+\newtheorem*{lemme}{LEMME}
+\newtheorem*{proposition}{PROPOSITION}\newtheorem*{corollaire}{COROLLAIRE}\newtheorem*{theoremeMonodromie}{THÉORÈME DE MONODROMIE}
+
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\ad}{\operatorname{ad}}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\dd}{\mathrm d}
+\renewcommand{\underline}[1]{\uline{#1}}
+\renewcommand{\thesection}{\arabic{section}.}
+
+\begin{document}
+
+\begin{center}
+Séminaire BOURBAKI\\
+22e année, 1969/70, n\textsuperscript{o} 376\hfill Mai--Juin 1970\\[2.2em]
+{\Large\bfseries TRAVAUX DE GRIFFITHS}\\[1.2em]
+par Pierre DELIGNE
+\end{center}
+
+Cet exposé contient une partie des résultats fondamentaux de Griffiths sur les familles de structures de Hodge. Il ne contient aucun de ses résultats sur les cycles algébriques.
+
+\section{\underline{Structures de Hodge}.}
+
+Soit $H_\R$ un espace vectoriel réel de dimension finie.
+
+\begin{definition}[1.1]
+\underline{Une} structure de Hodge réelle \underline{sur} $H_\R$ \underline{est une bigraduation de}
+\[
+H_\C=H_\R\otimes_\R\C
+\]
+\[
+H_\C=\bigoplus_{p,q}H^{pq},
+\]
+\underline{telle que} $H^{pq}$ \underline{et} $H^{qp}$ \underline{soient complexes conjugués}.
+\end{definition}
+
+\underline{Les nombres de Hodge} d'une structure de Hodge réelle $H$ sont les entiers
+\[
+h^{pq}=\dim_\C(H^{pq}).
+\]
+On dit que $H$ est de \underline{poids} $n$ si $h^{pq}=0$ pour $p+q\ne n$. Une variante de 1.1 est :
+
+\begin{definition}[1.2]
+\underline{Une} structure de Hodge réelle de poids $n$ \underline{sur} $H_\R$ \underline{est une filtration finie décroissante} $F$ \underline{de} $H_\C$ (\underline{la} filtration de Hodge) \underline{telle que}, \underline{pour} $p+q=n+1$, \underline{on ait}
+\begin{equation}
+F^p(H_\C)\oplus \overline F^{q}(H_\C)\xrightarrow{\sim}H_\C .
+\tag{1.2.1}
+\end{equation}
+\end{definition}
+
+On passe de 1.1 à 1.2 en posant
+\begin{equation}
+F^p(H_\C)=\sum_{p'\ge p}H^{p'q'}
+\tag{1.2.2}
+\end{equation}
+et on passe de 1.2 à 1.1 en posant, pour $p+q=n$,
+\begin{equation}
+H^{pq}=F^p(H_\C)\cap \overline F^{q}(H_\C) .
+\tag{1.2.3}
+\end{equation}
+
+\paragraph{1.3.}
+Désignons par $\bS$ le groupe algébrique réel obtenu par restriction des scalaires à la Weil, de $\C$ à $\R$, du groupe multiplicatif $\Gm$. On a $\bS(\R)=\C^*$; on dispose d'un morphisme naturel $w$ de $\Gm$ dans $\bS$ qui, sur les points réels, est l'inclusion de $\R^*$ dans $\C^*$, et on dispose d'un morphisme naturel $t$ de $\bS$ dans $\Gm$ qui, sur les points réels, est la norme. Le composé $tw$ est l'élévation au carré. Une nouvelle variante de 1.1 est
+
+\begin{definition}[1.4]
+\underline{Une structure de Hodge réelle} \underline{sur} $H_\R$ \underline{est une action} (\underline{définie sur} $\R$) \underline{du groupe algébrique} $\bS$ \underline{sur} $H_\R$.
+\end{definition}
+
+Si $z$ désigne l'isomorphisme de définition $z:\bS(\R)\xrightarrow{\sim}\C^*$, on passe de 1.1 à 1.4 en définissant $H^{pq}$ comme le sous-espace de $H_\C$ où $\bS(\R)$ agit par multiplication par $z^p\overline z^{\,q}$.
+
+Si $H_\R$ est muni d'une structure de Hodge réelle, on définit l'automorphisme $C$ de Weil comme étant la multiplication par $i^{p-q}$ sur $H^{pq}$. Cet automorphisme est réel, et n'est autre que l'action de l'élément $i$ de $\bS(\R)\subset\C^*$.
+
+\begin{definition}[1.5]
+\underline{Une} \underline{polarisation d'une structure de Hodge réelle}, \underline{de poids} $n$, $H$ \underline{est une forme bilinéaire} $\Psi$ \underline{sur} $H_\R$, \underline{invariante par le sous-groupe compact} $\Ker(t)$ \underline{de} $\bS$, \underline{et telle que la forme} $\Psi(x,Cy)$ \underline{soit symétrique et définie positive}.
+\end{definition}
+
+De l'identité $C^2=(-1)^n$, on tire que
+\[
+\Psi(x,y)=(-1)^n\Psi(x,C^2y)=(-1)^n\Psi(Cy,Cx)=(-1)^n\Psi(y,x)
+\]
+de sorte que $\Psi$ est alternée ou symétrique selon la parité de $n$. Les propriétés de variance sous $\bS$ et de positivité s'écrivent :
+\begin{equation}
+\text{l'orthogonal pour }\Psi\text{ de }F^p(H_\C)\text{ est }F^{n-p}(H_\C);\tag{1.5.1}
+\end{equation}
+\begin{equation}
+\begin{aligned}
+&\text{pour }x\text{ non nul dans }H^{pq},\text{ on a}\\
+&i^{p-q}\Psi(x,\overline x)>0
+\end{aligned}
+\tag{1.5.2}
+\end{equation}
+(relations bilinéaires de Riemann).
+
+\begin{definition}[1.6]
+(i) \underline{Une} structure de Hodge, de poids $n$, $H$ \underline{consiste en un} $\Z$\underline{-module libre de type fini} $H_\Z$ (\underline{le « réseau entier »}), \underline{et en une structure de Hodge réelle de poids} $n$ \underline{sur} $H_\R=H_\Z\otimes_\Z\R$.
+
+(ii) \underline{Une} \underline{polarisation d'une structure de Hodge, de poids} $n$, $H$ \underline{est une polarisation} $\Psi$ \underline{de la structure de Hodge réelle sous-jacente}, \underline{qui est à valeurs entières sur le réseau entier} $H_\Z$.
+\end{definition}
+
+\section{\underline{Théorie de Hodge}.}
+
+\paragraph{2.1.}
+Soient $X\subset\Pj^r(\C)$ une variété algébrique complexe projective non singulière, purement de dimension $d$, et $\eta\in H^2(X,\Z)$ la classe de cohomologie d'une section hyperplane de $X$, i.e. la première classe de Chern de $\cO(1)$.
+
+Le complexe de De Rham holomorphe $\Omega_X^*$ est une résolution du faisceau constant $\C$ (lemme de Poincaré holomorphe), d'où une suite spectrale
+\begin{equation}
+E_1^{pq}=H^q(X,\Omega_X^p)\Rightarrow H^{p+q}(X,\C).
+\tag{2.1.1}
+\end{equation}
+
+\paragraph{2.2.}
+La théorie de Hodge affirme que
+\begin{enumerate}[label=(\Alph*)]
+\item la suite spectrale (2.1.1) dégénère ($E_1=E_\infty$).
+\item la filtration de $H^n(X,\C)$ à laquelle elle aboutit est une structure de Hodge de poids $n$ (1.2) sur $H^n(X,\R)$.
+\end{enumerate}
+D'après (A), on a
+\[
+H^{pq}\simeq H^q(\Omega_X^p).
+\]
+
+(C) Pour $n\le d$, désignons par $P_\Q^n$ le noyau du cup-produit itéré
+\[
+\eta^{d-n+1}:H^n(X,\Q)\longrightarrow H^{2d-n+2}(X,\Q)
+\]
+(\underline{partie primitive de la cohomologie}), et par $P_\Z^n$ l'intersection de $P_\Q^n$ avec l'image de $H^n(X,\Z)$ dans $H^n(X,\Q)$. La classe $\eta$ étant de type $(1,1)$, $P_\R^n=P_\Z^n\otimes\R$ est une sous-structure de Hodge de $H^n(X,\R)$. A un signe ne dépendant que de $d$ et $n$ près, la forme
+\[
+\Psi(x,y)=\int \eta^{d-n}\wedge x\wedge y
+\]
+est une polarisation de la structure de Hodge $P^n$.
+
+(D) L'application naturelle
+\[
+\bigoplus_{n-2k\le d}\eta^k\wedge:
+\bigoplus P_\Q^{\,n-2k}\longrightarrow H^n(X,\Q)
+\]
+est un isomorphisme (\underline{décomposition de Hodge-Lepage}).
+
+\section{\underline{Familles de structures de Hodge}.}
+
+\paragraph{3.1.}
+Soit $f:X\to S$ un morphisme projectif et lisse d'espaces analytiques, purement de dimension relative $d$. Pour simplifier, on supposera que $S$ est non singulier et que $f$ est muni d'une factorisation par $\Pj^r_S=S\times\Pj^r(\C)$. Les fibres $X_s=f^{-1}(s)$ forment donc une famille analytique, paramétrée par $S$, de sous-variétés non singulières de $\Pj^r(\C)$.
+
+\paragraph{3.2.}
+Du point de vue $C^\infty$, $f$ est une fibration localement triviale. L'algèbre de cohomologie des fibres de $f$ forme donc un système local sur $S$, qu'on notera
+\[
+R_\Z^*(f)=\sum R^n f_*\Z .
+\]
+Pour tout faisceau abélien $F$ sur $S$ (par exemple $\Q$, $\C$, $\cO$), on posera
+\begin{equation}
+R_F^n(f)=F\otimes R_\Z^n(f).
+\tag{3.2.1}
+\end{equation}
+Puisque $f$ est propre, on a encore
+\[
+R_F^n(f)\xrightarrow{\sim} R^n f_*(f^*F).
+\]
+
+Les classes de cohomologie des sections hyperplanes des $X_s$ définissent une section \underline{localement constante}
+\begin{equation}
+\eta\in H^0(S,R_\Z^2(f)).
+\tag{3.2.2}
+\end{equation}
+Pour $n\le d$, les $P_\Z^n(X_s)$ forment donc un sous-système local $P_\Z^n(f)$ de $R_\Q^n(f)$. Posant $P_F^n(f)=F\otimes P_\Z^n(f)$, on a par définition
+\begin{equation}
+P_\Q^n(f)=\Ker\bigl(\eta^{d-n+1}\wedge:R_\Q^n(f)\to R_\Q^{2d-n+2}(f)\bigr),
+\tag{3.2.3}
+\end{equation}
+\begin{equation}
+P_\Z^n(f)=P_\Q^n(f)\cap \Imop\bigl(R_\Z^n(f)\to R_\Q^n(f)\bigr).
+\tag{3.2.4}
+\end{equation}
+La forme de polarisation 2.2 (C)
+\begin{equation}
+\Psi(x,y)=\pm\int_{X_s}\eta^{d-n}\wedge x\wedge y
+\tag{3.2.5}
+\end{equation}
+est localement constante sur $S$, i.e. définit
+\begin{equation}
+\Psi:P_\Z^n(f)\otimes P_\Z^n(f)\longrightarrow \Z .
+\tag{3.2.6}
+\end{equation}
+
+\paragraph{3.3.}
+Pour $F$ un faisceau analytique cohérent sur $S$, on désignera par $f^\cdot F$ son image réciproque faisceautique, et par
+\[
+f^*F=\cO_X\otimes_{f^\cdot\cO_S}f^\cdot F
+\]
+son image réciproque en tant que faisceau de modules. Pour $s\in S$, on désignera par $F_{(s)}$ le $\cO_{S,s}$-module des germes de sections de $F$ en $s$; on appellera fibre de $F$ en $s$ le vectoriel
+\[
+F_s=F_{(s)}\otimes_{\cO_{S,s}}\C .
+\]
+Rappelons enfin que le complexe de De Rham relatif $\Omega_{X/S}^*$ est le quotient de $\Omega_X^*$ de composantes $\Omega^1_{X/S}=\Omega_X^1/f^*\Omega_S^1$ et $\Omega^p_{X/S}=\bigwedge^p\Omega_{X/S}^1$.
+Si $T^1_{X/S}$, dual de $\Omega^1_{X/S}$, est le fibré tangent relatif, on dispose d'accouplements « produits contractés »
+\begin{equation}
+\lrcorner:T^1_{X/S}\otimes\Omega^p_{X/S}\longrightarrow\Omega^{p-1}_{X/S}.
+\tag{3.3.1}
+\end{equation}
+
+\paragraph{3.4.}
+D'après le lemme de Poincaré holomorphe relatif, $\Omega_{X/S}^*$ est une résolution de $f^\cdot\cO_S$. On dispose donc d'une suite spectrale
+\begin{equation}
+E_1^{pq}=R^qf_*\Omega^p_{X/S}\Rightarrow R^n f_*(f^\cdot\cO_S)=R_\cO^n(f).
+\tag{3.4.1}
+\end{equation}
+On déduit de 2.2 (A) que les $E_1^{pq}$ sont localement libres, que la suite spectrale (3.4.1) dégénère ($E_1=E_\infty$) et que sa formation commute à tout changement de base. La filtration de $R_\cO^n(f)$ à laquelle elle aboutit (\underline{la filtration de Hodge}) induit donc sur $R_\cO^n(f)_s\simeq H^n(X_s,\C)$ la filtration de Hodge 2.2 : cette dernière varie de façon holomorphe avec $s\in S$.
+
+\begin{definition}[3.5]
+\underline{La connexion de Gauss-Manin sur le fibré vectoriel holomorphe} $R_\cO^n(f)$ (\underline{identifié ici à son faisceau de sections holomorphes}) \underline{est la connexion holomorphe et intégrable}
+\[
+\nabla:R_\cO^n(f)\longrightarrow\Omega_S^1\otimes R_\cO^n(f)
+\]
+\underline{ayant pour sections locales horizontales} ($\nabla v=0$) \underline{les sections locales de} $R_\C^n(f)$.
+\end{definition}
+
+\begin{theoreme}[DE TRANSVERSALITÉ 3.6]
+\underline{La filtration de Hodge} $F$ \underline{sur} $R_\cO^n(f)$ \underline{vérifie}
+\[
+\nabla F^p(R_\cO^n(f))\subset \Omega_S^1\otimes F^{p-1}(R_\cO^n(f)).
+\]
+\end{theoreme}
+
+\underline{Preuve} (d'après Katz-Oda [10] et une communication personnelle de Katz). La question est locale sur $S$. Soit $\cU=(U_i)_{0\le i\le N}$ un recouvrement fini de $X$ par des ouverts de Stein. Pour $Q\subset[0,N]$, soient $U_Q=\bigcap_{i\in Q}U_i$, $j_Q$ l'inclusion de $U_Q$ dans $X$, et
+\[
+f_*(U_Q,\Omega^p_{X/S})=(fj_Q)_*(\Omega^p_{X/S}|U_Q).
+\]
+On désignera par $f_*(\cU,\Omega^*_{X/S})$ le complexe double de faisceaux sur $S$ de composantes
+\begin{equation}
+f_*(\cU,\Omega^*_{X/S})^{pq}=\bigoplus_{\#Q=q+1} f_*(U_Q,\Omega^p_{X/S})
+\tag{3.6.1}
+\end{equation}
+de première différentielle induite par la différentielle extérieure, et de seconde différentielle « Čechiste ». La suite spectrale 3.4.1 est la suite spectrale de ce double complexe déduite de la filtration par le premier degré.
+
+Soit $v$ un champ de vecteurs (holomorphe) sur $S$, et supposons donné sur chaque $U_i$ un champ de vecteurs $v_i$ relevant $v$. On désignera par $\theta(v_i)$ l'endomorphisme de $f_*(\cU,\Omega^*_{X/S})$, vérifiant, pour $Q=(i_1,\ldots,i_q)$, avec $i_1<\cdots<i_q$,
+\[
+\theta(v_i) f_*(U_Q,\Omega^p_{X/S})
+\subset
+f_*(U_Q,\Omega^p_{X/S})
+\oplus
+\bigoplus_{i_0<i_1} f_*(U_{\{i_0\}\cup Q},\Omega^{p-1}_{X/S}),
+\]
+et de coordonnées la dérivée de Lie
+\[
+\mathcal L_{v_{i_1}}:f_*(U_Q,\Omega^p_{X/S})\longrightarrow f_*(U_Q,\Omega^p_{X/S})
+\]
+et les produits contractés
+\[
+(-1)^p(v_{i_1}-v_{i_0})\lrcorner:
+ f_*(U_Q,\Omega^p_{X/S})\longrightarrow f_*(U_{\{i_0\}\cup Q},\Omega^{p-1}_{X/S}).
+\]
+Un calcul facile montre que $\theta(v_i)$ commute à $d$.
+
+\begin{lemme}[3.7]
+\underline{Sur les faisceaux de cohomologie} $R_\cO^n(f)$ de $f_*(\cU,\Omega^*_{X/S})$, \underline{l'endomorphisme} $\theta(v_i)$ \underline{induit} $\nabla_v$.
+\end{lemme}
+
+Soit $\cC^\infty$ le faisceau des fonctions $C^\infty$ sur $S$. Si $f_*(\cU,\Omega^*_{\infty X/S})$ est l'analogue $C^\infty$ de (3.6.1), construit en termes du complexe des formes différentielles relatives $C^\infty$, à valeurs complexes, sur $X$, on a
+\[
+R_{\cC^\infty}^n(f)=\mathcal H^n(f_*(\cU,\Omega^*_{\infty X/S})).
+\]
+Les faisceaux $\Omega^p_{\infty X/S}$ étant mous, cette formule reste même valable pour tout recouvrement $\cU'$.
+
+Si les $(v_i')_{0\le i\le N}$ sont des relèvements $C^\infty$ de $v$ sur les $U_i$, la construction 3.6 définit encore des endomorphismes $\theta(v_i')$ sur $R_{\cC^\infty}^n(f)$. Si $(v_i')$ et $(v_i'')$ sont deux systèmes de relèvements, un calcul facile montre que, au niveau des complexes,
+\begin{equation}
+\theta(v_i')-\theta(v_i'')=dH-Hd,
+\tag{3.7.1}
+\end{equation}
+$H$ ayant pour coordonnées non nulles les produits contractés
+\[
+v'_{i_1}-v''_{i_1}\lrcorner:
+ f_*(U_Q,\Omega^p_{\infty X/S})\longrightarrow f_*(U_Q,\Omega^{p-1}_{\infty X/S}),
+\]
+$(Q=\{i_1,\ldots,i_q\},\ i_1<\cdots<i_q)$.
+
+L'endomorphisme $\theta(v_i')$ de $R_{\cC^\infty}^n(f)$ est donc indépendant du choix des $v_i'$; il est compatible, via l'injection de $R_\cO^n(f)$ dans $R_{\cC^\infty}^n(f)$, à l'endomorphisme $\theta(v_i)$ de 3.7. Il suffit dès lors de vérifier que $\theta(v_i')=\nabla_v$ \underline{sur} $R_{\cC^\infty}^n(f)$. On vérifie que $\theta(v_i')$, indépendant des $v_i'$, est aussi indépendant de $\cU$. Prenons $\cU=\{X\}$, et pour $v'$ un relèvement de $v$. On a alors
+\[
+f_*(\cU,\Omega^*_{\infty X/S})=f_*(\Omega^*_{\infty X/S}),
+\]
+et $\theta(v')$ est la dérivée de Lie selon $v'$, visiblement égale à $\nabla_v$.
+
+\paragraph{3.8.}
+Achevons la démonstration de 3.6. Par construction, on a
+\begin{equation}
+\theta(v_i)\left(\bigoplus_{p'\ge p} f_*(\cU,\Omega^*_{X/S})^{p',q'}\right)
+\subset
+\bigoplus_{p'\ge p-1} f_*(\cU,\Omega^*_{X/S})^{p',q'} .
+\tag{3.8.1}
+\end{equation}
+Puisque la suite spectrale (3.4.1) se déduit du complexe double $f_*(\cU,\Omega^*_{X/S})$, on tire de 3.7 et (3.8.1) que
+\begin{equation}
+\theta(v_i)F^p(R_\cO^n(f))=\nabla_vF^p(R_\cO^n(f))\subset F^{p-1}(R_\cO^n(f)).
+\tag{3.8.2}
+\end{equation}
+Ceci étant vrai localement sur $S$, et pour tout $v$, implique 3.6.
+
+\paragraph{3.9.}
+Il résulte de la formule de Leibniz
+\[
+\nabla(fh)=df\cdot h+f\cdot \nabla h
+\]
+que l'application induite par $\nabla$
+\[
+\operatorname{def}(\nabla):\Gr_F^p(R_\cO^n(f))\longrightarrow
+\Omega_S^1\otimes\Gr_F^{p-1}(R_\cO^n(f))
+\]
+est $\cO$-linéaire. Elle s'identifie d'après 3.4.1 à
+\begin{equation}
+\operatorname{def}(\nabla):R^qf_*\Omega^p_{X/S}\longrightarrow
+\Omega_S^1\otimes R^{q+1}f_*\Omega^{p-1}_{X/S}.
+\tag{3.9.1}
+\end{equation}
+On déduit de la formule 3.7 pour $\nabla_v$ que
+
+\begin{proposition}[3.10]
+\underline{L'homomorphisme} (3.9.1) \underline{est le cup-produit}, \underline{via l'accouplement} (3.3.1), \underline{avec la classe de Kodaira--Spencer}
+\[
+c\in\Omega_S^1\otimes R^1f_*(T^1_{X/S})
+\]
+\underline{qui exprime comment} $X_s$ \underline{se déforme avec} $s$.
+\end{proposition}
+
+\begin{definition}[3.11]
+(i) \underline{Une} famille de structures de Hodge réelles, \underline{de poids} $n$, $H$ \underline{sur} $S$ \underline{consiste en}
+\begin{enumerate}[label=\alph*)]
+\item \underline{un système local de vectoriels réels} $H_\R$ \underline{sur} $S$;
+\item \underline{une filtration holomorphe finie} $F$ \underline{du faisceau analytique localement libre}
+\[
+H_\cO=H_\R\otimes_\R\cO,
+\]
+\end{enumerate}
+\underline{ces données vérifiant les conditions suivantes} :
+\begin{enumerate}[label=(H.\arabic*)]
+\item \underline{La connexion naturelle} $\nabla$ \underline{de} $H_\cO$ \underline{est telle que}
+\[
+\nabla F^p(H_\cO)\subset \Omega_S^1\otimes F^{p-1}(H_\cO);
+\]
+\item \underline{En tout point} $s\in S$, $F$ \underline{définit sur} $(H_\R)_s$ \underline{une structure de Hodge de poids} $n$.
+\end{enumerate}
+(ii) \underline{Une} polarisation \underline{de} $H$ \underline{est une forme bilinéaire localement constante} $\Psi$ \underline{sur} $H_\R$ \underline{qui induise en tout point} $s\in S$ \underline{une polarisation de} $(H_\R)_s$.
+\end{definition}
+
+\paragraph{3.12.}
+\underline{Une famille de structures de Hodge} $H$ de poids $n$ sur $S$ est un système local de $\Z$-modules libres de type fini $H_\Z$ sur $S$, plus une famille de structures de Hodge réelles sur $H_\R=\R\otimes H_\Z$. Une \underline{polarisation} de $H$ est une polarisation $\Psi$ de $H_\R$ qui soit à valeurs entières sur $H_\Z$.
+
+Avec ces définitions, on peut reformuler 2.2 (C) et 3.6 en disant que, sous les hypothèses de 3.1, $P_\Z^n(f)$ \underline{est une famille polarisée de structures de Hodge} sur $S$.
+
+\section{\underline{Le théorème de régularité}.}
+
+\paragraph{4.1.}
+Lorsqu'on part d'un morphisme projectif et lisse $f:X\to S$ de \underline{schémas} de type fini sur $\C$, tel que $f^{\mathrm{an}}:X^{\mathrm{an}}\to S^{\mathrm{an}}$ vérifie les hypothèses de 3.1, certains des objets construits au n\textsuperscript{o} 3 se déduisent d'objets de nature purement algébrique par application du foncteur de « passage à l'analytique ». Ce sont :
+\begin{enumerate}[label=\alph*)]
+\item les faisceaux de modules $R_\cO^n(f)$, leur filtration de Hodge, la suite spectrale 3.4.1, et la connexion de Gauss--Manin;
+\item la structure d'algèbre (cup-produit) sur $R_\cO^*(f)$, et la « partie primitive » $P_\cO^n(f)$;
+\item le produit, par une puissance convenable de $2\pi i$, de la forme de polarisation $\Psi$.
+\end{enumerate}
+Par contre, le « réseau entier » $R_\Z^*(f)$, et la structure réelle qui s'en déduit sur la cohomologie complexe des fibres de $f$, sont de nature transcendante.
+
+\paragraph{4.2.}
+Soient en effet $S$ un schéma lisse de type fini sur $\C$ et $X$ un sous-schéma fermé de $\Pj^r(\C)\times S$, tel que la projection $f:X\to S$ soit un morphisme lisse purement de dimension relative $d$.
+
+D'après la variante relative de GAGA, pour tout faisceau algébrique cohérent $F$ sur $X$, on a
+\[
+(R^nf_*F)^{\mathrm{an}}\xrightarrow{\sim}R^nf_*^{\mathrm{an}}(F^{\mathrm{an}}).
+\]
+Plus généralement, si $K^*$ est un complexe de faisceaux algébriques cohérents dont
+
+
+les différentielles $d_i$ sont des opérateurs différentiels (algébriques) $f^\cdot\cO_S$-linéaires, alors les images directes en hypercohomologie vérifient
+\[
+  \bigl(R^n f_*(K^*)\bigr)^{\mathrm{an}}
+  \xrightarrow{\sim}
+  R^n f_*^{\mathrm{an}}(K^{*\mathrm{an}})
+\]
+(ce cas se ramène au précédent \underline{via} l'une des suites spectrales d'hypercohomologie).
+
+Prenons pour $K$ le complexe de De Rham algébrique relatif $\Omega^*_{X/S}$. On trouve que (notation de 3.2)
+\[
+\bigl(R^n f_*\Omega^*_{X/S}\bigr)^{\mathrm{an}}
+ \xrightarrow{\sim}
+ R^n f_*^{\mathrm{an}}\bigl((\Omega^*_{X/S})^{\mathrm{an}}\bigr)
+ \xleftarrow{\sim}
+ R^n f_*^{\mathrm{an}}\bigl(f^{\cdot\mathrm{an}}\cO_S^{\mathrm{an}}\bigr)
+ =
+ R^n_{\cO}(f).
+\]
+De plus, la suite spectrale (3.4.1) provient d'une suite spectrale purement algébrique
+\[
+\tag{4.2.1}
+E_1^{pq}=R^q f_*\Omega^p_{X/S}
+\Longrightarrow
+R^{p+q}f_*\Omega^*_{X/S}.
+\]
+D'après 3.4, les $E_1^{pq}$ sont localement libres (puisque les $E_1^{pq\,\mathrm{an}}$ le sont), la suite spectrale (4.2.1) dégénère et sa formation est compatible à tout changement de base. La filtration de Hodge, à laquelle elle aboutit, est \underline{ipso facto} algébrique.
+
+Le cup-produit se définit en termes du produit extérieur dans $\Omega^*_{X/S}$. La classe de cohomologie de De Rham d'une section hyperplane pouvant se définir algébriquement (à multiplication par une puissance de $2\pi i$ près), à partir de la différentielle logarithmique
+\[
+  \dd f/f:\cO_X^*\longrightarrow \Omega^1_{X/S},
+\]
+la partie primitive $P^n_{\cO}(f)$ et $\Psi$ sont aussi de nature algébrique.
+
+Enfin, la construction 3.6--3.7 de la connexion de Gauss--Manin se transpose aisément au cas algébrique (Katz--Oda [10]).
+
+\paragraph{4.3.}
+Soient $D$ une surface de Riemann isomorphe au disque unité, $0$ un point de $D$, $D^*=D-\{0\}$, $V$ un fibré vectoriel holomorphe sur $D^*$, $\nabla$ une connexion holomorphe sur $V$ et $V_o$ le système local des sections horizontales de $V$. On a
+\[
+  V \xrightarrow{\sim} V_o\otimes_\C \cO .
+\]
+Le groupe fondamental (commutatif) $\pi_1(D^*)\simeq \Z$ agit sur $V_o$. On désigne \underline{par} $T$ la transformation de monodromie, i.e. l'action sur $V_o$ ou $V$ du générateur \underline{positif} de $\pi_1(D^*)$.
+
+Il existe $U$ tel que
+\[
+  T=\exp(2\pi iU).
+\]
+Soient $z:D\to\C$ une coordonnée, vérifiant $z(0)=0$, et $\widetilde D^*$ le revêtement (universel) de $D^*$ sur lequel $\log z$ est défini. Pour $v$ une section de $V_o$ sur $\widetilde D^*$,
+\[
+  \exp(-\log z\cdot U)(v)
+\]
+est l'image réciproque d'une section holomorphe de $V$ sur $D^*$.
+
+Cette construction définit un isomorphisme
+\[
+  m_{U,z}:\cO\otimes_\C H^0(\widetilde D^*,V_o)
+  \xrightarrow{\sim} V,
+\]
+et par là un prolongement naturel $V_U$ de $V$ sur $D$, qui ne dépend que de $U$. Une section $v$ de $V$ sur $D^*$ sera dite $\nabla$-modérée si, en tant que section de $V_U$, elle est méromorphe en $0$. Cette notion ne dépend pas du choix de $U$.
+
+\paragraph{4.4.}
+Soient $S$ le complément dans une courbe projective et lisse $\overline S$ d'un ensemble fini $T$, et $V$ un fibré vectoriel algébrique sur $S$. Une connexion (algébrique) $\nabla$ \underline{sur} $V$ est dite régulière si, pour tout $t\in T$, les sections méromorphes de $V$ au voisinage de $t$ sont $\nabla$-modérées.
+
+\begin{theoreme}[4.5]
+\underline{Pour} $f:X\to S$ \underline{un morphisme de schémas projectif et lisse}, \underline{la connexion de Gauss--Manin} sur $R^n f_*\Omega^*_{X/S}$ \underline{est régulière}.
+\end{theoreme}
+
+Ce théorème est prouvé dans [2]. Une démonstration complètement différente, procédant par voie arithmétique, est due à Katz [9].
+
+\paragraph{4.6.}
+Soient $D^*$ comme en 4.3, $H$ une famille de structures de Hodge réelles sur $D^*$, $T$ la transformation de monodromie de $H_\C$, $U$ une transformation de $H_\C$ telle que $T=\exp(2\pi iU)$ et $H_{\cO,U}$ le prolongement localement libre correspondant de $H_\cO$ sur $D$.
+
+On dit que $H$ est \underline{régulière} en $0$ si la filtration de Hodge de $H_\cO$ se prolonge à $H_{\cO,U}$. Cette condition ne dépend pas de $U$. Le théorème 4.5 a le corollaire suivant, de conclusion purement analytique.
+
+\begin{corollaire}[4.7]
+\underline{Sous les hypothèses de 4.5}, \underline{les familles de structures de Hodge} $R^n(f)$ \underline{sur} $S^{\mathrm{an}}$ \underline{sont régulières au voisinage de tout point} $t\in T$.
+\end{corollaire}
+
+On peut espérer que, en fait, toute famille polarisée de structures de Hodge sur $D^*$ soit automatiquement régulière.
+
+\section{\underline{Espaces modulaires}.}
+
+\paragraph{5.1.}
+Soient $G$ un groupe algébrique réel, $C\in G(\R)$, et $V$ une représentation réelle de $G$. Une $C$\underline{-polarisation} de $V$ est une forme bilinéaire $\Psi$ sur $V$, $G$-invariante, et telle que $\Psi(x,Cy)$ soit symétrique et définie $>0$.
+
+\begin{lemme}[5.2]
+\underline{Si} $G$ \underline{est connexe} (\underline{par quoi on entend que} $G(\C)$ \underline{l'est}), \underline{les conditions suivantes sont équivalentes} :
+\begin{enumerate}[label=(\roman*)]
+\item $G$ \underline{admet une représentation} $\rho:G\to \GL(V)$ \underline{de noyau} $\Ker(\rho)$ \underline{fini qui soit} $C$\underline{-polarisable}.
+\item \underline{Toute représentation de} $G$ \underline{est} $C$\underline{-polarisable}.
+\item $G$ \underline{est réductif} et $\ad C$ \underline{est une involution de Cartan} (\underline{de} $G$).
+\end{enumerate}
+\end{lemme}
+
+La démonstration est laissée au lecteur.
+
+\paragraph{\underline{Remarque} 5.3.-}
+Il existe dans $G(\R)$ des éléments $C$ vérifiant les conditions de 5.2 si et seulement si $G$ est réductif et admet un tore maximal compact. Dans ce cas :
+\begin{enumerate}[label=\alph*)]
+\item Un tel élément $C$ est contenu dans un seul sous-groupe compact maximal, son centralisateur.
+\item Pour $G$ adjoint, la correspondance $C\longmapsto (\text{centralisateur de }C)$ est une bijection entre l'ensemble de ces éléments et l'ensemble des sous-groupes compacts maximaux de $G(\R)$.
+\end{enumerate}
+
+\paragraph{5.4.}
+Soit $G$ un groupe algébrique réel, muni d'homomorphismes
+\[
+\tag{5.4.1}
+ \mathbb G_m \xrightarrow{w} G \xrightarrow{t} \mathbb G_m
+\]
+tels que $w$ soit central et que $tw(x)=x^2$. Une représentation $\rho:G\to\GL(V)$ sera dite \underline{homogène de poids} $n$ si $\rho w(x)=x^n$.
+
+\underline{Par morphisme de} $\bS$ dans $G$ on entendra toujours un homomorphisme $h:\bS\to G$ rendant commutatif le diagramme
+\[
+\begin{array}{ccccc}
+\mathbb G_m&\xrightarrow{w}&\bS&\xrightarrow{t}&\mathbb G_m\\
+\Vert&&\downarrow h&&\Vert\\
+\mathbb G_m&\xrightarrow{w}&G&\xrightarrow{t}&\mathbb G_m .
+\end{array}
+\]
+
+Si $h:\bS\to G$ est un morphisme et $\rho:G\to\GL(V)$ une représentation réelle de $G$, on notera $h_V$ la structure de Hodge réelle (1.4) $\rho\circ h$ de $V$. Pour $\rho$ homogène de poids $n$, une \underline{polarisation} de $V$ est une polarisation $\Psi$ de $(V,h_V)$ qui vérifie
+\[
+\tag{5.4.2}
+  \Psi(gx,gy)=t(g)^n\Psi(x,y).
+\]
+On dira que $h$ est \underline{positif} si toute représentation de $G$ est polarisable.
+
+\paragraph{5.5.}
+Le groupe $G$, muni de (5.4.1), est uniquement déterminé par $G^o=\Ker(t)$, muni de l'élément central, d'ordre divisant $2$, $\varepsilon=w(-1)$. Le groupe $G$ s'identifie en effet au quotient de $\mathbb G_m\times G^o$ par le sous-groupe engendré par $(-1,\varepsilon)$.
+
+De ce point de vue, un morphisme $h:\bS\to G$ s'identifie à $h^o:\bS^o\to G^o$ tel que $h^o(-1)=\varepsilon$. Une représentation homogène de poids $n$ de $G$ s'identifie à une représentation $\rho$ de $G^o$ telle que $\rho(\varepsilon)=(-1)^n$, et une polarisation de cette représentation s'identifie à une $h^o(i)$-polarisation (5.1). D'après 5.2, si $G^o$ est connexe, $h$ est un morphisme positif si et seulement si $G$ est réductif et que $\ad h^o(i)$ est une involution de Cartan de $G^o$.
+
+\paragraph{5.6.}
+\underline{On suppose désormais que} $G^o$ \underline{est réductif connexe}.
+
+Soit $h$ un morphisme de $\bS$ dans $G$. Pour $\rho:G\to\GL(V)$ une représentation de $G$, on désigne par $F_h$ la filtration de Hodge de $V_\C$ déduite de $h_V$. Pour la représentation adjointe $\Lie(G)$,
+\[
+\tag{5.6.1}
+  F_h^0(\Lie(G)_\C)=\bigoplus_{p\ge0}\Lie(G_\C)^{p,-p}
+\]
+est l'algèbre de Lie d'un sous-groupe parabolique $P(h)$ de $G_\C$. Pour toute représentation $\rho:G\to\GL(V)$ de $G$, $P(h)$ respecte la filtration de Hodge $F_h$ de $V_\C$; si $\Ker(\rho)\cap G^o$ est central, alors $P(h)$ est exactement le sous-groupe de $G$ qui respecte cette filtration.
+
+Enfin, on désigne par $H(h)$ le centralisateur de $h$ dans $G(\R)$.
+
+\paragraph{5.7.}
+Soit $X$ une classe de conjugaison de morphismes de $\bS$ dans $G$. On désignera par $\check X$ l'ensemble des conjugués dans $G(\C)$ de $P(h)$, pour $h\in X$.
+
+\begin{lemme}[5.8]
+\underline{L'application $G(\R)$-équivariante} $P:h\mapsto P(h)$ \underline{identifie} $X$ \underline{à un ouvert de l'espace de drapeaux} $\check X$.
+\end{lemme}
+
+Soient $h\in X$ et $\rho:G\to\GL(V)$ une représentation homogène de $G$ telle que $\Ker(\rho)\cap G^o$ soit fini. L'ensemble $X$ s'identifie à l'ensemble des structures de Hodge sur $V$, conjuguées sous $G(\R)$ à $h_V$, tandis que $\check X$ s'identifie à l'ensemble des filtrations sur $V_\C$, conjuguées sous $G(\C)$ à $F_h$. Une structure de Hodge homogène étant déterminée par sa filtration de Hodge, l'application $P$ est injective. Elle s'identifie à l'application
+\[
+  G(\R)/H(h)\longrightarrow G(\C)/P(h)
+\]
+de différentielle à l'origine
+\[
+  \Lie(G)/\Lie(H)\longrightarrow \Lie(G_\C)/\Lie(P(h)),
+\]
+i.e.
+\[
+  \Lie(G)/(F^0\cap\overline{F^0})(\Lie(G))
+  \longrightarrow
+  F^{-\infty}/F^0(\Lie(G_\C)).
+\]
+Cette différentielle est bijective, d'où 5.8.
+
+On a vu en passant que
+\[
+\tag{5.8.1}
+  H(h)=G(\R)\cap P(h).
+\]
+
+\paragraph{5.9.}
+Soient $V$ une représentation réelle de $G$, $V(\check X,\R)$ le faisceau constant sur $\check X$ de valeur $V$, $V(\check X,\C)=\C\otimes V(\check X,\R)$, $V(\check X,\cO)=\cO\otimes_\C V(\check X,\C)$ et $\nabla$ la connexion intégrable naturelle de $V(\check X,\cO)$. L'application $G(\R)$-équivariante $h\mapsto h_V$ de $X$ dans les structures de Hodge sur $V$ se prolonge de façon unique en une application $G(\C)$-équivariante et donc holomorphe de $\check X$ dans les filtrations de $V_\C$. Celle-ci correspond à une filtration $F$ de $V(\check X,\cO)$, \underline{la filtration de Hodge}. Le système $(V(\check X,\cO),\nabla,F)$ est $G(\C)$-équivariant. La structure réelle $V(\check X,\R)$ de $V(\check X,\C)$ est $G(\R)$-équivariante. Enfin, en $h\in X$, $F$ induit sur $V_\C$ la filtration de Hodge $F_h$.
+
+\paragraph{5.10.}
+L'action de $G(\C)$ sur $\check X$ définit un morphisme
+\[
+\tag{5.10.1}
+  \Lie(G)(\check X,\cO)\longrightarrow T_{\check X},
+\]
+où $T_{\check X}$ est le fibré tangent. En $h\in X$, le noyau de (5.10.1) est $\Lie(P(h))=F_h^0(\Lie(G_\C))$ (5.6), de sorte que (5.10.1) se factorise par un isomorphisme $G(\C)$-équivariant
+\[
+\tag{5.10.2}
+  F^{-\infty}/F^0\bigl(\Lie(G)(\check X,\cO)\bigr)
+  \xrightarrow{\sim} T_{\check X}.
+\]
+
+On désigne par $T^1_{\check X}$ le sous-fibré holomorphe de $T_{\check X}$ image de $F^{-1}(\Lie(G)(\check X,\cO))$. On vérifie facilement que si $v$ est une section locale de $T^1_{\check X}$, alors
+\[
+  \nabla_v\bigl(F^p(V(\check X,\cO))\bigr)
+  \subset F^{p-1}(V(\check X,\cO)),
+\]
+quelle que soit la représentation $\rho:G\to\GL(V)$. La réciproque est vraie pour $\Ker(\rho)\cap G^o$ central.
+
+\paragraph{5.11.}
+Supposons maintenant que $X$ soit une classe de conjugaison de morphismes \underline{positifs} de $\bS$ dans $G$. Pour $h\in X$, on posera $C_h=h(i)$ et on désignera par $K(h)$ le centralisateur de $C_h$ dans $G(\R)$. Le groupe $K^o(h)=K(h)\cap G^o(\R)$ est compact. Soient $V$ une représentation de $G$ et $\Psi$ une forme bilinéaire $G$-invariante sur $V$. Si $\Psi$ est une polarisation de $(V,h_V)$ pour un $h\in X$, alors $\Psi$ est une polarisation de $(V,h_V)$ pour tout $h\in X$. En effet, posant $\Phi_h(x,y)=\Psi(x,C_hy)$, on a
+\[
+\tag{5.11.1}
+  \Phi_{gh}=g(\Phi_h).
+\]
+On dira que $\Psi$ est alors une \underline{polarisation de} $V$. Par hypothèse, toute représentation de $G$ est polarisable.
+
+\paragraph{5.12.}
+Soit $\Psi$ une polarisation de la représentation adjointe de $G$ sur $\Lie(G)$. D'après 5.10.2, $\Psi$ induit en chaque point $h\in X$ une forme hermitienne définie positive sur
+\[
+\tag{5.12.1}
+  (T_{\check X})_h
+  \simeq
+  F_h^{-\infty}/F_h^0(\Lie(G)_\C)
+  \simeq
+  \bigoplus_{p<0}\Lie(G)^{p,-p}.
+\]
+La polarisation $\Psi$ définit donc une \underline{structure hermitienne}, invariante sous $G(\R)$, sur $X$.
+
+Si $Z$ est le centre de $G$, on a déjà
+\[
+\tag{5.12.2}
+  F^{-\infty}/F^0\bigl(\Lie(G/Z)(\check X,\cO)\bigr)
+  \xrightarrow{\sim} T_{\check X},
+\]
+et une polarisation $\Psi$ de $\Lie(G/Z)$ définit déjà une structure de variété hermitienne sur $X$. On peut prendre pour $\Psi$ l'opposé de la forme de Killing de $G/Z$.
+
+Posons
+\[
+\tag{5.12.3}
+\begin{cases}
+ (T_{\check X}^v)_h=\displaystyle\bigoplus_{p<0}(\Lie(G/Z))^{2p,-2p},\\[0.4em]
+ (T_{\check X}^h)_h=\displaystyle\bigoplus_{p<0}(\Lie(G/Z))^{2p-1,-2p+1}.
+\end{cases}
+\]
+On obtient ainsi une décomposition orthogonale $C^\infty$ du fibré tangent en deux sous-fibrés complexes. On a
+\[
+\tag{5.12.4}
+  (T_{\check X}^1)_h\subset (T_{\check X}^h)_h \qquad (h\in X).
+\]
+
+\paragraph{5.13.}
+Le sous-groupe $K(h)_\C\cap P(h)$ de $K(h)_\C$ est parabolique, de sorte que $K(h)_\C\subset K(h)\cdot P(h)$ et que $K(h)\cdot h=K(h)_\C\cdot h$ est une sous-variété analytique complexe compacte de $X$. Ces variétés sont les fibres de la fibration $C^\infty$ $G(\R)$-équivariante
+\[
+  X=G/H(h)\longrightarrow G/K(h).
+\]
+On vérifie facilement que $T_X^v$ est le fibré tangent à cette fibration.
+
+\paragraph{5.14.}
+Rappelons que sur un fibré hermitien holomorphe $F$, il existe une et une seule connexion hermitienne $\nabla$ telle que $\nabla''=\partial''$. La \underline{courbure} $R$ du fibré est par définition la courbure de cette connexion. C'est une forme de type $(1,1)$ à valeur dans l'algèbre de Lie du groupe unitaire du fibré.
+
+Si $F$ est le fibré constant défini par un vectoriel $F_o$, et si la forme hermitienne s'écrit
+\[
+\tag{5.14.1}
+  \Phi(x,y)=\Phi_o(hx,y),
+\]
+alors, pour $x:S\to F_o$ une section $C^\infty$ de $F$, on a
+\[
+\tag{5.14.2}
+  \nabla x=\partial x+h^{-1}\partial' h\cdot x.
+\]
+On en tire que, pour $u$ et $v$ deux champs tangents,
+\[
+\tag{5.14.3}
+  R(u,v)=
+  \partial_u(h^{-1}\partial'_v h)
+  -\partial_v(h^{-1}\partial'_u h)
+  -h^{-1}\partial'_{[uv]}h
+  +[h^{-1}\partial'_u h,h^{-1}\partial'_v h].
+\]
+
+\paragraph{5.15.}
+Soit $F$ le fibré tangent d'une variété analytique complexe hermitienne. Pour $u$ un vecteur tangent à $S$, on désignera par $u_{1,0}$ et $u_{0,1}=\overline{u_{1,0}}$ ses composantes de type $(1,0)$ et $(0,1)$ dans le complexifié du fibré tangent. On appelle \underline{courbure holomorphe} de $S$ dans la direction $u$ le nombre réel
+\[
+\tag{5.15.1}
+  R(u)=
+  \Phi(R(u_{1,0},u_{0,1})(u),u)/\Phi(u,u)^2.
+\]
+
+Si on munit $X$ de la structure hermitienne 5.12, on a le résultat fondamental ([8], §9) :
+
+\begin{theoreme}[5.16]
+\underline{Il existe} $\lambda<0$, \underline{telle que} $R(u)\le\lambda$ \underline{dans toute direction appartenant à} $T_X^h$.
+\end{theoreme}
+
+\underline{Preuve} (une esquisse) : Par homogénéité, il suffit de prouver 5.16 en un point $e\in X$. Posons $H=H(e)$, $P=P(e)$, soit $N^+$ le radical unipotent de $P$ et soit $N^-$ le sous-groupe complexe conjugué d'algèbre de Lie
+\[
+  \mathfrak n^-=\bigoplus_{p<0}\Lie(G)^{p,-p}.
+\]
+Dans les calculs qui suivent, on identifiera, près de $e$, $X$ à $N^-$ par les applications
+\[
+  X=G/H \hookrightarrow G(\C)/P \hookleftarrow N^-.
+\]
+Les translations à \underline{gauche} sur $N^-$ permettent d'identifier le fibré tangent à $\mathfrak n^-$. On désignera par $t^+$, $t^o$ et $t^-$ les projections orthogonales de $\Lie(G)_\C$ sur $\mathfrak n^-$, $\Lie(H_\C)$ et $\mathfrak n^+=\Lie(N^+)$. Pour $g=np$ ($g\in G(\R)$, $n\in N^-$, $p\in P$), la différentielle, en $e$, de l'action de $g$ sur $X$ s'identifie à
+\[
+  t^-\ad p:\mathfrak n^-\longrightarrow \mathfrak n^-.
+\]
+La structure hermitienne s'écrit donc
+\[
+  \Phi_n(x,y)=\Phi_e(t^-\ad p^{-1}x,t^-\ad p^{-1}y).
+\]
+Désignant par $\Psi$ la forme de polarisation et par $C$ l'involution de Cartan associée à $e$, on a
+\[
+\begin{aligned}
+ \Phi_n(x,y)
+ &=\Psi(t^-\ad p^{-1}x,\,t^- C\,\overline{\ad p^{-1}y})\\
+ &=\Psi(t^-\ad p^{-1}x,\,\ad C(\overline p)^{-1}\cdot C\overline y)\\
+ &=\Psi(\ad C(\overline p)\cdot t^-\cdot\ad p^{-1}\cdot x,\,C\overline y)\\
+ &=\Phi_e(\ad C(\overline p)\cdot t^-\cdot\ad p^{-1}\cdot x,\,y).
+\end{aligned}
+\]
+On vérifie que pour $n=\exp(u)$ avec $u\sim0$, on a au \underline{3ème ordre près}
+\[
+  p=\exp\bigl(\overline u-\tfrac12t^o[u,\overline u]-t^+[u,\overline u]\bigr)
+\]
+et
+\[
+  h=\ad C(\overline p)\,t^-\,\ad p^{-1}=\exp(H),
+\]
+pour
+\[
+  H=t^-\circ\ad(Cu-\overline u+[u,\overline u])
+  -\tfrac12[t^-\ad Cu,t^-\ad\overline u].
+\]
+
+Sous les hypothèses de 5.14, si $h=\exp(H)$ et si $H=0$ en $s_o\in S$, on déduit de 5.14.3 que, en $s_o$,
+\[
+\begin{aligned}
+R(u,v)
+={}&(\partial_u\partial'_v-\partial_v\partial'_u)H
+-\tfrac12[\partial''_uH,\partial'_vH]
++\tfrac12[\partial''_vH,\partial'_uH]\\
+&+(\partial'_u\partial'_v-\partial'_v\partial'_u-\partial'_{[uv]})H .
+\end{aligned}
+\]
+Appliquant cette formule, on voit que la courbure est donnée, en $e$, par
+\[
+  R(u,v)_e=S(u,\overline v)-S(v,\overline u),
+\]
+avec
+\[
+\begin{aligned}
+S(u,\overline v)
+&=-t^-\circ\ad[u,\overline v]
++\tfrac12[t^-\ad Cu,t^-\ad\overline v]
++\tfrac12[-t^-\ad\overline v,t^-\ad Cu]\\
+&=[t^-\ad Cu,t^-\ad\overline v]
+-t^-\circ\ad[u,\overline v].
+\end{aligned}
+\]
+Quels que soient $u,v\in\mathfrak n^-$, si $u_{10}$ et $u_{01}$ sont les composantes de type $(10)$ et $(01)$ de $u$ comme en 5.15, on a grâce à l'invariance de $\Psi$,
+
+
+\[
+\begin{aligned}
+\Phi(R(u_{10},u_{01})(v),v)
+&=\Psi(S(u,\overline u)(v),C\overline v)\\
+&=\Psi\bigl([Cu,t^-[\overline u,v]]-t^-[\overline u[Cu,v]]-t^-[[u\overline u],v],C\overline v\bigr)\\
+&=-\Psi\bigl(t^-[\overline u,v],[Cu,C\overline v]\bigr)
+  +\Psi\bigl([Cu,v],[\overline u,C\overline v]\bigr)
+  -\Psi\bigl([u,\overline u],[v,C\overline v]\bigr).
+\end{aligned}
+\]
+Pour $u=v\in T_X^h$, on a $Cu=-u$ et
+\[
+\begin{aligned}
+\Phi(R(u_{10},u_{01})(u),u)
+&=\Psi\bigl(t^-[u,\overline u],[u,\overline u]\bigr)
+  +\Psi\bigl([u,\overline u],[v,\overline v]\bigr)\\
+&=-\Phi\bigl(t^-[u,\overline u],t^-[u,\overline u]\bigr)
+  -\Phi\bigl([u,\overline u],[u,\overline u]\bigr)<0,
+\end{aligned}
+\]
+ce qui prouve 5.16.
+
+Une généralisation du lemme de Schwarz permet de déduire de 5.16 (voir [1], III, n\textsuperscript{o} 10) :
+
+\begin{corollaire}[5.17]
+\underline{Soit} $f:D\to X$ \underline{une application holomorphe du disque unité dans $X$}. \underline{Munissons} $D$ \underline{de la métrique hyperbolique} $d$ \underline{pour laquelle il est de courbure} $-1$, \underline{et} $X$ \underline{de la métrique 4.12}. \underline{Alors}, \underline{si} $f(D)$ \underline{est tangent aux} $T_X^h$, \underline{on a}
+\[
+  d(f(x),f(y))\le |\lambda|\,d(x,y).
+\]
+\end{corollaire}
+
+\section{\underline{Le théorème de monodromie, d'après A. Borel}.}
+
+\paragraph{6.1.}
+Soient $S$ une variété analytique complexe connexe, munie d'un point base $s_o\in S$, et $p:\widetilde S\to S$ son revêtement universel. Soit $H$ une famille polarisée de structures de Hodge de poids $n$ sur $S$. On désignera par $H_o$ la structure de Hodge polarisée fibre de $H$ en $s_o$.
+
+La polarisation $\Psi$ est une forme bilinéaire sur $H_{o\Q}$. On désignera par $G^o$ le groupe algébrique, défini sur $\Q$, composante neutre du groupe des automorphismes de $(H_{o\Q},\Psi)$, par $\varepsilon\in G^o$ l'homothétie de rapport $(-1)^n$, par $G$ le groupe déduit, par le procédé 5.5, de $(G^o,\varepsilon)$ et par $\Gamma$ le groupe discret des automorphismes de $(H_{o\Z},\Psi)$. On dispose de
+\[
+\tag{6.1.1}
+  T:\pi_1(S,s_o)\longrightarrow\Gamma .
+\]
+
+\paragraph{6.2.}
+Pour chaque point $s\in\widetilde S$, on dispose d'un isomorphisme naturel
+\[
+  H_{o\Z}\simeq H_{p(s),\Z},
+\]
+et la structure de Hodge $H_{p(s)}$ s'identifie à une structure de Hodge sur $H_{o,\Z}$, définie par $h(s):\bS\to G_\R$. Les morphismes $h(s)$ sont positifs, et conjugués entre eux, car ils forment une famille continue connexe et que $G$ est réductif. Si $X$ est l'espace modulaire correspondant, défini au § 5, on dispose donc d'une application
+\[
+  h:\widetilde S\longrightarrow X.
+\]
+La famille $H$ est l'image réciproque par $h$ du système de structures de Hodge sur $X$ défini (5.9) par la représentation de poids $n$ naturelle de $G$ dans $H_o$.
+
+Le morphisme $h$ est équivariant, via (5.5.1), pour les actions de $\pi_1(S,s_o)$ et $\Gamma$ sur $\widetilde S$ et $X$.
+
+D'après 3.4 et 3.6, l'application $h$ est holomorphe et $\operatorname{Im}(dh)\subset T_X^1$ (cf. 5.10).
+
+\paragraph{6.3.}
+Supposons que $S$ soit le disque unité épointé
+\[
+  D^*=\{z\mid 0<|z|<1\}
+\]
+et prenons pour revêtement universel de $D^*$ le demi-plan de Poincaré $Y$, muni de
+\[
+  \exp(2\pi i y):Y\longrightarrow D^*.
+\]
+Si $T\in\Gamma$ est la transformation de monodromie (4.3) de $H_\Z$, l'application $h$ vérifie
+\[
+\tag{6.3.1}
+  h(y+1)=T h(y).
+\]
+Choisissons $h_o\in X$. Si $h(y)=g_y\cdot h_o$, la distance dans $X$, pour une métrique (5.12), vérifie
+\[
+\tag{6.3.2}
+  d(h(y+1),h(y))=d(Tg_yh_o,g_yh_o)=d(g_y^{-1}Tg_yh_o,h_o).
+\]
+D'après 5.17, si $Y$ est muni de sa distance hyperbolique naturelle, l'application $h$ décroît les distances (convenablement normalisées). Dans $Y$, on a
+\[
+  d(y,y+1)\sim (\operatorname{Im}(y))^{-1}
+\]
+et donc
+\[
+\tag{6.3.3}
+  d(g_y^{-1}Tg_yh_o,h_o)\longrightarrow 0\qquad\text{pour }\operatorname{Im}(y)\to\infty .
+\]
+Le même argument s'applique à $T^2$; de plus, $T^2\in G(\R)$, et (6.2.3) implique qu'une limite de conjugués de $T^2$ se trouve dans le sous-groupe compact $H(h_o)$ de $G(\R)$. Les valeurs propres de $T^2$ (et de $T$) sont donc toutes de valeur absolue $1$.
+Ces valeurs propres forment un ensemble d'entiers algébriques stable par conjugaison. Or,
+
+\begin{lemme}[6.4]
+\underline{Si tous les conjugués complexes d'un entier algébrique} $\alpha$ \underline{sont de valeur absolue} $1$, \underline{alors} $\alpha$ \underline{est une racine de l'unité}.
+\end{lemme}
+
+Les valeurs propres de $T$ sont donc des racines de l'unité, ce qui prouve
+
+\begin{theoremeMonodromie}[6.5 (A. Borel)]
+\underline{Soit} $H$ \underline{une famille de structures de Hodge polarisée sur le disque épointé} $D^*$. \underline{Il existe des entiers} $N$ \underline{et} $M$ \underline{tels que la transformation de monodromie} $T$ \underline{vérifie}
+\[
+  (T^N-I)^M=0.
+\]
+\end{theoremeMonodromie}
+
+\begin{center}
+\bfseries BIBLIOGRAPHIE
+\end{center}
+
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.8em]
+\item P. A. GRIFFITHS - \uline{Periods of integrals on algebraic manifolds}.\\
+I (Construction and properties of the modular Varieties), Am. J. Math., XC 2, 1968, p. 568-626.\\
+II, Am. J. Math., XC 3, 1968, p. 805-865.\\
+III (Some global differential-geometric properties of the period mapping), à paraître aux Publ. I.H.E.S.
+
+\item P. A. GRIFFITHS - \uline{Some results on Moduli and Periods of Integrals on Algebraic Manifolds III}, Notes miméographiées de Princeton.
+
+\item P. A. GRIFFITHS - \uline{On the periods of integrals on algebraic manifolds}, Rice un. studies, \uline{54}, 4, 1968.\\
+Cet article résume, sans démonstration [1] I, II.
+
+\item P. A. GRIFFITHS - \uline{On the periods of certain rational integrals}, I, II, Annals of Maths., 90 (1969), p. 460-541. III, à paraître aux Annals of Maths.
+
+\item P. A. GRIFFITHS - \uline{A theorem on periods of integrals on algebraic manifolds}, Notes miméographiées de Yale.
+
+\item P. A. GRIFFITHS - \uline{Some results on algebraic cycles on algebraic manifolds}, in Bombay Colloquium 1968, Oxford University Press.
+
+\item P. A. GRIFFITHS - \uline{Periods of integrals on algebraic manifolds} (Summary of main results and discussions of open problems and conjectures), Bull. Am. Math. Soc., \uline{75}, 2, (1970), p. 228-296.\\
+Cet article est très intéressant par les nombreuses conjectures qu'il discute.
+
+\item P. A. GRIFFITHS and W. SCHMID - \uline{Locally homogeneous complex manifolds}, Acta Mathematica, 1970, p. 253-302.\\
+Cet article, très lisible, contient beaucoup d'informations sur les espaces définis au § 5 et la cohomologie de leurs quotients par des sous-groupes discrets.
+
+\item N. KATZ - \uline{Nilpotent connections and the monodromy theorem, Applications of a results of Turrittin}, à paraître aux Publ. I.H.E.S.
+
+\item N. KATZ and T. ODA - \uline{On the differentiation of De Rham cohomology classes with respect to parameters}, J. Math. Kyoto Univ., \uline{8}, 2, 1968, p. 199-213.
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,213 @@
+\documentclass[12pt,reqno]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+
+\theoremstyle{plain}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem*{theorem}{Theorem}
+
+\DeclareMathOperator{\card}{card}
+
+\title{Congruences for the Number of Subgroups of Order $p^k$ in a Finite Group}
+\author{P. Deligne}
+\date{}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\enlargethispage{4pt}
+
+The method used by Serre~[1, p.~147] to prove the Sylow theorem gives results more general than that theorem. We spell them out here.
+
+We use the following notation: $p$ denotes a prime number; for every integer $n$, $v(n)$ is the exponent of the largest power of $p$ dividing $n$; finally, $G$ is a finite group of order $g$.
+
+For completeness, recall the following lemma (Lazard~[2, p.~71]).
+
+\begin{lemma}\ \par
+\begin{enumerate}
+\item[a)] If $n = \sum c_i p^i$, with $0 \leq c_i < p$ the base-$p$ expansion of $n$, then
+\[
+v(n!) = \frac{1}{p-1}\left(n - \sum c_i\right).
+\]
+\item[b)]
+\[
+v\binom{r}{s} \geq v(r)-v(s).
+\]
+\end{enumerate}
+\end{lemma}
+
+For a), one has\footnote{The source's intermediate sum is negative; we
+replace it by the exact Legendre calculation (source defect R1).}
+\[
+v(p^k!)=\sum_{r=1}^{k}\left\lfloor\frac{p^k}{p^r}\right\rfloor
+=\sum_{r=1}^{k}p^{k-r}
+=\sum_{i=0}^{k-1}p^i
+=\frac{p^k-1}{p-1},
+\]
+which proves the assertion in this case. It is clear that, if $0\leq c<p$, then $v((cp^k)!)=c\,v(p^k!)$, and that, if $m<p^{v(n)}$, then
+\[
+v((n+m)!)=v(n!)+v(m!).
+\]
+These additivity properties are the same as those of the right-hand side, whence the formula.
+
+Part b) follows easily by returning to the definitions and taking account of the algorithm which computes the digits $c_i$ of a sum from the digits of its summands. Equality holds when $r$ is a power of $p$.
+
+\begin{proposition}
+\[
+\binom{p^k n}{p^k m}\equiv \binom{n}{m}\pmod {p^{v(n)+2}}
+\]
+if $p\neq 2$, or if $n$ is odd. The congruence is always true modulo $p^{v(n)+1}$.
+\end{proposition}
+
+\begin{proof}
+Let $X$ and $Y$ be two indeterminates. One has
+\[
+(X+Y)^{p^k}=X^{p^k}+Y^{p^k}+pQ,
+\]
+where $Q$ is a polynomial of degree $<p^k$ in each variable. The binomial formula then gives
+\begin{equation}
+(X+Y)^{p^k n}=(X^{p^k}+Y^{p^k})^n+np(X^{p^k}+Y^{p^k})^{n-1}Q
+\end{equation}
+modulo the largest power of $p$ which divides all the numbers $p^i\binom{n}{i}$, $i\geq 2$. These have valuation at least
+\[
+i+v(n)-v(i)\geq v(n)+2
+\]
+if $p\neq 2$. If $p=2$, one always has $i>v(i)$ (Cantor), which gives the exponent $v(n)+1$.
+
+\enlargethispage{4pt}
+The binomial coefficient $\binom{p^k n}{p^k m}$ is the coefficient of
+$X^{p^k m}Y^{p^k(n-m)}$.\footnote{The printed source instead has
+$X^{p^k m}Y^{p^k n}$.  For $m>0$ that monomial has total degree
+$p^k(m+n)>p^kn$, so its coefficient in $(X+Y)^{p^kn}$ is zero.  The
+displayed $Y^{p^k(n-m)}$ is the source repair recorded as R2 in the
+editorial register.} The second term on the right-hand side of (1)
+contains no term of this type, since none of its exponents is divisible
+by $p^k$. Thus the coefficient of this monomial on the right-hand side
+of (1) is $\binom{n}{m}$. This proves the assertion when $p\neq 2$.
+If $p=2$, the preceding already proves the congruence modulo
+$2^{v(n)+1}$. In addition,
+$Q\equiv X^{2^{k-1}}Y^{2^{k-1}}\pmod 2$, so
+$Q^2\equiv X^{2^k}Y^{2^k}\pmod 4$, and the next term in the binomial
+expansion gives
+\[
+\binom{2^k n}{2^k m}\equiv \binom{n}{m}+2n(n-1)\binom{n-2}{m-1}\pmod {2^{v(n)+2}},
+\]
+which gives the asserted improvement when $n$ is odd.
+\end{proof}
+
+\begin{theorem}\ \par
+Let $S$ be a Sylow $p$-subgroup of $G$, let $s=v(g)$, and let $d_k$ be the number of subgroups of $G$ of order $p^{s-k}$, for $0\leq k\leq s$. Then:
+\begin{enumerate}
+\item[(i)] $d_k\equiv 1\pmod p$;
+\item[(ii)] if $S$ is cyclic or abelian of type $(p,\ldots,p)$, then $d_k$ is congruent modulo $p^{k+1}$ to the number of subgroups of $S$ of index $p^k$;
+\item[(iii)] if $S$ is not cyclic, then
+\[
+d_1\equiv 1+p\pmod {p^2}.
+\]
+\end{enumerate}
+\end{theorem}
+
+Let $G$ act by left translations on the set of its subsets with $p^k$ elements. If such a subset $P$ of $G$ has stabilizer $H$, then $P$ is a union of right cosets of $H$, and hence $H$ is a group of order $p^l$ with $l\leq k$; one has $l=k$ if and only if $P$ is a translate, on the right or on the left, of a subgroup of order $p^k$. The number of elements in the orbit of $P$ is divisible by $p^{s-l}$. Therefore $\binom{g}{p^k}$ is congruent modulo $p^{s-k+1}$ to the number of subsets of $G$ which are translates of a subgroup of order $p^k$. By Proposition~1, it is also congruent to $gp^{-k}$. There are $d_{s-k}\,g\,p^{-k}$ such subsets. Thus
+\[
+gp^{-k}\equiv d_{s-k}\,g\,p^{-k}\pmod {p^{s-k+1}},
+\]
+and the first assertion follows.
+
+We now consider case (ii), with $S$ abelian of type $(p,\ldots,p)$. Let $G_{i,j}$ be the number of subgroups of order $p^i$ in a subgroup of order $p^j$; this is the number of points of a Grassmannian. For $i>j$, $G_{i,j}=0$; for $i\leq j$,
+\[
+G_{i,j}=\frac{(p^j-1)\cdots(p^j-p^{i-1})}{(p^i-1)\cdots(p^i-p^{i-1})}
+=\widetilde G_i\widetilde G_{j-i}\widetilde G_j^{-1},
+\]
+where
+\[
+\widetilde G_i=[(1-p^i)\cdots(1-p)]^{-1}\quad (i\geq 0),
+\qquad \widetilde G_i=0\quad (i<0).
+\]
+Here $\widetilde G_i=(-1)^iG_i$, where the source defines
+$G_i=[(p^i-1)\cdots(p-1)]^{-1}$.
+This sign normalization leaves $G_{i,j}$ unchanged.\footnote{The source
+later claims $G_k^{-1}\equiv G_{k+1}^{-1}\pmod {p^{k+1}}$, which is
+false for its printed definition.  The displayed normalization gives
+$\widetilde G_{k+1}^{-1}=\widetilde G_k^{-1}(1-p^{k+1})$ and repairs the
+argument exactly (source defect A1).}
+
+We know that $p^i$ divides the number $u_i$ of subsets of $G$ with $p^s$ elements whose stabilizer has order $p^{s-i}$. Put $g=p^s h$. Counting in two ways the pairs formed by a subgroup of order $p^{s-i}$ and a subset with $p^s$ elements fixed by it gives, for $0\leq i,j\leq s$,
+\[
+\left\{
+\begin{alignedat}{2}
+d_i\binom{p^i h}{p^i}&=\sum_j G_{s-i,s-j}u_j &\qquad& \text{(2)}\\
+p^i&\mid u_i && \text{(3)}\\
+d_s&=1 && \text{(4)}
+\end{alignedat}
+\right.
+\]
+
+Now work in the localization of $\mathbf Z$ at $p$, or in $\mathbf Z_p$. Let $e_i$ be the quotient of the left-hand side of (2) by $\binom{p^s h}{p^s}\widetilde G_i$. By Proposition~1, and since $\widetilde G_i$ is prime to $p$ for $i\geq 0$, there are numbers $v_i$, $0\leq i\leq s$, such that
+\[
+\left\{
+\begin{alignedat}{2}
+d_i&\equiv \widetilde G_i e_i\pmod {p^{i+1}} &\qquad& \text{(5)}\\
+e_i&=\sum_j \widetilde G_{i-j}v_j && \text{(2$'$)}\\
+p^i&\mid v_i && \text{(3$'$)}\\
+e_s&=\widetilde G_s^{-1} && \text{(4$'$)}
+\end{alignedat}
+\right.
+\]
+
+Analogous identities hold in the group $S$. To show that they determine $d_i$ modulo $p^{i+1}$, it is enough to check that the identities, for $0\leq i,j\leq s$,
+\[
+\left\{
+\begin{alignedat}{2}
+e_i&=\sum_j \widetilde G_{i-j}v_j &\qquad& \text{(2$''$)}\\
+p^i&\mid v_i && \text{(3$''$)}\\
+e_s&=0 && \text{(4$''$)}
+\end{alignedat}
+\right.
+\]
+imply $p^{i+1}\mid e_i$.
+
+From $(2'')$ one obtains
+\[
+e_i-e_{i+1}=\sum_j (\widetilde G_{i-j}-\widetilde G_{i+1-j})v_j.
+\]
+Since $\widetilde G_k^{-1}\equiv \widetilde G_{k+1}^{-1}\pmod {p^{k+1}}$, one also has
+\[
+p^{i+1-j}\mid \widetilde G_{i-j}-\widetilde G_{i+1-j},\qquad p^{i+1}\mid e_i-e_{i+1}.
+\]
+The conclusion follows from $(4'')$.
+
+The same technique, in a simpler form, applies when $S$ is cyclic.
+
+We turn to case (iii). The subgroups of $S$ of index $p$ are all normal. Their intersection $S'$ is the Frattini subgroup of $S$. For every subgroup $T$ of $S$, if $TS'=S$, then $T=S$. In particular, if $S$ is not cyclic, then $S/S'$ is not cyclic either, and the subgroups of $S$ of index $p$ are identified with the hyperplanes of a vector space over $\mathbf Z/p$ of dimension $>1$; their number is congruent to $1+p\pmod {p^2}$.
+
+The preceding equations leave the following system.\footnote{In its third
+line the source prints the lower argument $p$; the next source line
+itself uses $p^s$.  We restore $p^s$ here (source defect R3).  The final
+subscript after $u$ is damaged in the scan; the counting identities force
+the intended right-hand side $u_0+u_1$.}
+\[
+\begin{cases}
+d_0 h=u_0,\\[4pt]
+d_1\binom{ph}{p}=(1+p)u_0+u_1\pmod {p^2},\\[4pt]
+\binom{p^s h}{p^s}=u_0+u_1\pmod {p^2}.
+\end{cases}
+\]
+By Proposition~1,
+$\binom{p^s h}{p^s}\equiv\binom{ph}{p}\equiv h\pmod {p^2}$. Hence
+\begin{align*}
+d_1h&\equiv (1+p)d_0h+(h-d_0h)\pmod {p^2},\qquad\text{and}\\
+d_1&\equiv 1+pd_0\pmod {p^2}.
+\end{align*}
+The assertion follows because $d_0\equiv 1\pmod p$.
+
+\begin{thebibliography}{99}
+\bibitem{Serre} \textsc{Serre, J.-P.}, \textit{Corps locaux. Act. sc. et ind.} Hermann, 1962.
+\bibitem{Lazard} \textsc{Lazard, M.}, Groupes analytiques $p$-adiques. \textit{Publ. Math. I.H.E.S.}, no.~26, 1965.
+\end{thebibliography}
+
+\end{document}
