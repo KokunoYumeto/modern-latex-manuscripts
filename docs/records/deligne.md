@@ -1,46 +1,48 @@
 # Pierre Deligne
 
-Zenodo record: [22062915](https://zenodo.org/records/22062915); version DOI: [10.5281/zenodo.22062915](https://doi.org/10.5281/zenodo.22062915); concept DOI: [10.5281/zenodo.20410853](https://doi.org/10.5281/zenodo.20410853); predecessor: [22062296](https://zenodo.org/records/22062296)
+Zenodo record: [22071333](https://zenodo.org/records/22071333); version DOI: [10.5281/zenodo.22071333](https://doi.org/10.5281/zenodo.22071333); concept DOI: [10.5281/zenodo.20410853](https://doi.org/10.5281/zenodo.20410853); predecessor: [22070575](https://zenodo.org/records/22070575)
 
 Public title: Pierre Deligne - Collected Papers: English and French Editions
 
-**Quality warning:** This page lists public files and current record notes. It does not certify a critical edition. Use the source witnesses and audit ledgers before relying on mathematical details.
+**Quality warning:** This page lists the maintained public files and audit state. It does not certify a critical edition. Consult the source witnesses, authority scans, apparatus, and audit ledgers before relying on a disputed reading.
 
 | Files | PDFs | TeX | ZIPs | Total bytes |
 |---:|---:|---:|---:|---:|
-| 6 | 2 | 2 | 2 | 110,948,393 |
+| 6 | 2 | 2 | 2 | 520,008,209 |
 
-## How To Read This Record
+## Current Coverage
 
-Open `Deligne_EN.pdf` or `Deligne_FR.pdf` as the consolidated Zenodo reader. The matching top-level TeX files are editable entry points; `Deligne_Source.zip` carries the maintained source corpus, and `DELIGNE_PROVENANCE_AUDIT_D026.zip` carries the deterministic provenance, independent gates, and exact superseded public bytes.
+The independently audited sparse corpus includes D001-D012, D014, D015, D021, and D025-D029. Gaps do not block later complete works: D013, D017-D020, and D022-D024 remain absent, while D016 remains an unpublished partial lane. A later audited gap work will be inserted into its numerical position without removing later complete works.
 
-Record 22062915 is the published successor to record 22062296 on concept DOI 10.5281/zenodo.20410853. Its six public files total exactly 110,948,393 bytes. Anonymous public readback matched every filename, byte count, MD5, and SHA-256; the sanitized Zenodo readback receipt has SHA-256 `43BBD51E6445CC8782FE028832BBD68C783958E145498DC2E078304A0B63ABF1`.
+The English cumulative reader has 346 pages and the French cumulative reader has 356 pages. D028 and D029 were independently normalized, rendered, visually checked, deterministically rebuilt, and cold-audited before inclusion. D028 is the 23-page paper on circle diffeomorphisms; D029 is the 6-page paper on central extensions of arithmetic groups.
 
-The Zenodo consolidated English reader has 258 pages and the French reader has 268 pages. Its independently audited sparse coverage is D001-D012, D014, D015, D021, D025, and D026; D013, D016-D020, and D022-D024 are explicitly absent. Later completed gap works can be inserted in numerical position without withholding later complete works.
+## Public Identities
 
-The current GitHub payload is fixed at commit [`a370387dd6383e7000757e5ee89c6288fc2e4552`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/a370387dd6383e7000757e5ee89c6288fc2e4552). It adds the independently audited D021, D025, and D026 standalone editions and source witnesses, and rebuilds the sparse cumulative readers. Anonymous raw readback passed all 202 exact payload paths (50,838,980 bytes); the sanitized receipts have SHA-256 `4DA396D339D5B7ADC9117A67F080BE1212E7F7407A217C2721C8DDFAC713F2C2` (JSON) and `46C7247F868D9BC025D8AFF85BEE6961EB111CB780D1E30C9439CD92DAB3D694` (TSV).
+Zenodo record 22071333 is the published successor to record 22070575 on concept DOI 10.5281/zenodo.20410853. Anonymous public readback matched all six filenames, byte counts, MD5 values, and SHA-256 identities; the sanitized Zenodo readback receipt has SHA-256 `00B573A3878DE64958FD1BAA6FBFC3F3C057262D80B29FD4A8BEB55426E3B080`.
 
-The GitHub cumulative readers are separate working artifacts with separate identities: the English cumulative has 283 pages (`614AB4C080A35B3BC04D2CFB65152266F486A0253151FC630CFE610BA587A75A`) and the French cumulative has 290 pages (`09E379FE5D8550DE88FCD1298ED18A2103BD4C9D900570C1438BBB0A07E6A032`). They retain earlier working-draft material, including D013 and a partial D016 lane, before the newly audited D021, D025, and D026 additions. No byte identity with the stricter Zenodo readers is implied.
+The corresponding GitHub reader/source payload is fixed at commit [`c50e870ecb6d51f9d879afd4c49b8a3698968eb0`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/c50e870ecb6d51f9d879afd4c49b8a3698968eb0). Anonymous raw-byte readback passed all 277 exact payload paths (54,311,016 bytes); the sanitized readback receipt has SHA-256 `B63204AC8CA3118E7B849B9A2585268F2FF55E9AE2F502B14CDC1F06F87CD8C1`.
+
+The cumulative reader bytes are identical across the two public surfaces. GitHub carries the standalone D028/D029 editions and the complete maintained source-witness tree; Zenodo carries the compact six-file release plus the single consolidated provenance/audit archive.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through [GitHub issues or pull requests](https://github.com/KokunoYumeto/modern-latex-manuscripts).
 
 ## Consolidated Reader PDFs
 
-| Bytes | SHA-256 | File |
-|---:|---|---|
-| 5,133,202 | `B95C25D5C51465ADAD6439B754F32A25B43FFA1660DB45FD50AA1CC29E4FACE5` | [Deligne_EN.pdf](https://zenodo.org/records/22062915/files/Deligne_EN.pdf) |
-| 4,996,908 | `EADE227F7E689E57ECDC087E6FA244B7B8999F4CAD1967F0CF5338161C2195AA` | [Deligne_FR.pdf](https://zenodo.org/records/22062915/files/Deligne_FR.pdf) |
+| Pages | Bytes | SHA-256 | File |
+|---:|---:|---|---|
+| 346 | 5,731,963 | `C9447B6946C5F0B038B29CBD226584D39D16EB320669762CF11F1F920739C478` | [Deligne_EN.pdf](https://zenodo.org/records/22071333/files/Deligne_EN.pdf) |
+| 356 | 5,601,723 | `FA32535C7BBBAC83F0D2AFA78B6BC38E0E6ED072D84C78A703EF8843096D7077` | [Deligne_FR.pdf](https://zenodo.org/records/22071333/files/Deligne_FR.pdf) |
 
 ## Editable TeX Entry Points
 
 | Bytes | SHA-256 | File |
 |---:|---|---|
-| 4,800 | `9E383EB8C2710A233F36F727F1D233228F005AAA765FA7A654DE9E5990E60176` | [Deligne_EN.tex](https://zenodo.org/records/22062915/files/Deligne_EN.tex) |
-| 4,966 | `296B5DF6C667FC979BA1C54470B33B2E7FAD48FE561239D859230A1FBEB595A0` | [Deligne_FR.tex](https://zenodo.org/records/22062915/files/Deligne_FR.tex) |
+| 5,258 | `9B548F07803E12972FCD55C0580C9394C8319AF85395DD5E6725C963ED4480B6` | [Deligne_EN.tex](https://zenodo.org/records/22071333/files/Deligne_EN.tex) |
+| 5,450 | `A8CBD0028782F0C2A6C9FAA76BE73AB2CD5C91E7F4A0DE7F3B57DCF927FF890B` | [Deligne_FR.tex](https://zenodo.org/records/22071333/files/Deligne_FR.tex) |
 
 ## Source And Provenance Archives
 
-| Bytes | SHA-256 | File |
-|---:|---|---|
-| 30,864,418 | `52C90363DCE93348839BF6CC7FCAAB926BBD8E9C5F28F213D725CFCFB20C9C95` | [Deligne_Source.zip](https://zenodo.org/records/22062915/files/Deligne_Source.zip) |
-| 69,944,099 | `1F93B58D8D29BD1E4708641C82EF137FD55BA7FC37A2C4896C6F4D1E8D627883` | [DELIGNE_PROVENANCE_AUDIT_D026.zip](https://zenodo.org/records/22062915/files/DELIGNE_PROVENANCE_AUDIT_D026.zip) |
+| Members | Bytes | SHA-256 | File |
+|---:|---:|---|---|
+| 271 | 40,522,306 | `544C6FBEE15620474932D89D6327948B97B581E59AB13893904C46CF3F8C6380` | [Deligne_Source.zip](https://zenodo.org/records/22071333/files/Deligne_Source.zip) |
+| 214 | 468,141,509 | `EBE926D3AA76B62670D82B27C49EBF5ED24E105332C2A582ECBD137B59B2E8AD` | [DELIGNE_PROVENANCE_AUDIT_D029.zip](https://zenodo.org/records/22071333/files/DELIGNE_PROVENANCE_AUDIT_D029.zip) |
