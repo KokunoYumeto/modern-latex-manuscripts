@@ -1,6 +1,6 @@
 # Deligne GitHub Coverage Map
 
-Maintained 2026-08-23. This page records what is already preserved under
+Maintained 2026-08-24. This page records what is already preserved under
 [`sources/deligne`](../sources/deligne/) so that an existing paper, letter, or
 language layer is checked before anybody starts it again.
 
@@ -15,29 +15,26 @@ are not reader entry points and must not displace the independent editions.
 
 ## Current Maintained Sparse Corpus
 
-The current independently audited sparse reader includes D001-D012, D014,
-D015, D021, D025-D029, D036, and D040 in numerical order. The explicit gaps
-are D013, D017-D020, D022-D024, D030-D035, and D037-D039; D016 remains a
-partial lane at 66 of 97 authority pages. A gap does not suppress a later
-complete work, and each later completed gap work can be inserted in numerical
-position during a subsequent rebuild.
+The current independently audited sparse reader includes D001-D012,
+D014-D016, D021, D022, D025-D030, D034-D036, D038-D040, and D043 in numerical
+order. The explicit gaps are D013, D017-D020, D023-D024, D031-D033, D037, and
+D041-D042. A gap does not suppress a later complete work, and each completed
+gap work is inserted in numerical position without removing later coverage.
 
-Reader entry points:
+Reader and source entry points:
 
-- [364-page English cumulative reader](../reader-pdfs/deligne/00-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-040%20-%20English%20Translation.pdf)
-- [374-page source-language cumulative reader](../reader-pdfs/deligne/01-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-040%20-%20French%20Working%20PDF.pdf)
-- [D040 English standalone edition](../reader-pdfs/deligne/00-040%20Deligne%20and%20Lusztig%20-%20Duality%20for%20Representations%20of%20a%20Reductive%20Group%20over%20a%20Finite%20Field%20-%20English%20Math%20Typeset.pdf)
-- [D040 source-language standalone edition](../reader-pdfs/deligne/01-040%20Deligne%20et%20Lusztig%20-%20Dualite%20pour%20les%20representations%20d%20un%20groupe%20reductif%20sur%20un%20corps%20fini%20-%20French%20Math%20Typeset.pdf)
-- [Complete maintained source-witness tree](../sources/deligne/sparse-through-d040-source-witness/)
+- [595-page English cumulative reader](../sources/deligne/sparse-through-d043-source-witness/Deligne_EN.pdf)
+- [605-page French cumulative reader](../sources/deligne/sparse-through-d043-source-witness/Deligne_FR.pdf)
+- [Complete maintained source-witness tree](../sources/deligne/sparse-through-d043-source-witness/)
+- [D016 complete public source set](../sources/deligne/sparse-through-d043-source-witness/works/D016_PUBLIC_SAFE/)
 
-D040 is the complete eight-page joint paper *Duality for Representations of a
-Reductive Group over a Finite Field*. Its source tree includes separate
-source-language and English TeX/PDF editions, controlling authority,
-comparison witness, restrained apparatus, diagram asset, inherited-work
-salvage, deterministic manifests, and a fresh nonpatching cold audit. The
-historical inventory below remains available for custody and comparison; its
-working or partial layers are not silently promoted into the maintained
-reader.
+D016 is the complete 97-physical-page paper *Les constantes des équations
+fonctionnelles des fonctions L*. Its public source set contains separate
+French and English TeX/PDF editions, the complete controlling authority,
+restrained apparatus, deterministic packet manifest, visual-QA receipt, and a
+fresh nonpatching full-paper cold audit. The historical inventory below remains
+available for custody and comparison; its working or partial layers are not
+silently promoted into the maintained reader.
 
 ## Start Here
 
