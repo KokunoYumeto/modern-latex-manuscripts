@@ -1,6 +1,6 @@
 # Pierre Deligne
 
-Zenodo record: [22076857](https://zenodo.org/records/22076857); version DOI: [10.5281/zenodo.22076857](https://doi.org/10.5281/zenodo.22076857); concept DOI: [10.5281/zenodo.20410853](https://doi.org/10.5281/zenodo.20410853); predecessor: [22075870](https://zenodo.org/records/22075870)
+Zenodo record: [22086259](https://zenodo.org/records/22086259); version DOI: [10.5281/zenodo.22086259](https://doi.org/10.5281/zenodo.22086259); concept DOI: [10.5281/zenodo.20410853](https://doi.org/10.5281/zenodo.20410853); predecessor: [22076857](https://zenodo.org/records/22076857)
 
 Public title: Pierre Deligne - Collected Papers: English and French Editions
 
@@ -8,44 +8,43 @@ Public title: Pierre Deligne - Collected Papers: English and French Editions
 
 | Files | PDFs | TeX | ZIPs | Total bytes |
 |---:|---:|---:|---:|---:|
-| 6 | 2 | 2 | 2 | 427,716,331 |
+| 6 | 2 | 2 | 2 | 400,090,026 |
 
 ## Current Coverage
 
-The independently audited sparse corpus includes D001-D012, D014, D015,
+The independently audited sparse corpus includes D001-D012, D014-D016,
 D021, D022, D025-D030, D034-D036, D038-D040, and D043. Public gaps do not
-block later complete works: D013, D016-D020, D023-D024, D031-D033, D037,
-and D041-D042 are absent from this version. D016 remains a local partial lane
-at 72 of 97 physical authority pages. A later audited gap work will be inserted
-into its numerical position without removing later complete works.
+block later complete works: D013, D017-D020, D023-D024, D031-D033, D037,
+and D041-D042 are absent from this version. A later audited gap work will be
+inserted into its numerical position without removing later complete works.
 
-The English cumulative reader has 538 pages and the French cumulative reader
-has 548 pages. D022, D030, D034, D035, D038, D039, and D043 were independently
-normalized and inserted in numerical position without changing preserved
-predecessor work pages. Their editable TeX, standalone editions, apparatus,
-authority and comparator boundaries, image fallbacks where required, and
-deterministic gate receipts are included in the maintained source tree.
+The English cumulative reader has 595 pages and the French cumulative reader
+has 605 pages. D016, D022, D030, D034, D035, D038, D039, and D043 were
+independently normalized and inserted in numerical position without changing
+preserved predecessor work pages. Their editable TeX, standalone editions,
+apparatus, authority and comparator boundaries, image fallbacks where required,
+and deterministic gate receipts are included in the maintained source tree.
 
 ## Public Identities
 
-Zenodo record 22076857 is the published successor to record 22075870 on
+Zenodo record 22086259 is the published successor to record 22076857 on
 concept DOI 10.5281/zenodo.20410853. Anonymous public readback matched all six
 filenames, byte counts, MD5 values, and SHA-256 identities, and the concept
-latest-version resolver points to record 22076857. The sanitized Zenodo
+latest-version resolver points to record 22086259. The sanitized Zenodo
 readback receipt has SHA-256
-`1185A46A38C6FD25916F0465D7EC896A4495DF75F1904E76CA8BE2EE6FF1CC70`.
+`96E89356BE8DA5A9F562D59E4449746FD02916B128A224E52C06B59DB236EFEF`.
 
 The corresponding GitHub reader/source payload is fixed at commit
-[`4ce8925581a6085dd8ab89832f388da3e41d3837`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/4ce8925581a6085dd8ab89832f388da3e41d3837).
-Anonymous commit-pinned raw-byte readback passed all 99 changed payload paths
-and all 39,841,525 changed public bytes with no failures. The sanitized per-file
+[`b6ccd729e3d1ebbd45341cf91911d6a646d126d8`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/b6ccd729e3d1ebbd45341cf91911d6a646d126d8).
+Anonymous commit-pinned raw-byte readback passed all 21 changed payload paths
+and all 26,707,845 changed public bytes with no failures. The sanitized per-file
 readback receipt has SHA-256
-`E3B9DA3E849DF4B774BB6317216E0473C7E6DEF500209AB11E8BA94DD226930F`.
+`C60AFF3C81ACD21CA7210FD82A219E70433F84B9256112DB3DA30DF7318978A3`.
 
 The cumulative reader bytes are identical across the two public surfaces.
-GitHub carries the standalone D022/D030/D034/D035/D038/D039/D043 editions and the
-complete maintained source-witness tree; Zenodo carries the compact six-file
-release plus the single consolidated provenance/audit archive.
+GitHub carries the standalone D016/D022/D030/D034/D035/D038/D039/D043 editions
+and the complete maintained source-witness tree; Zenodo carries the compact
+six-file release plus the single consolidated provenance/audit archive.
 
 Corrections, source comparisons, LaTeX fixes, and translation improvements can be suggested through [GitHub issues or pull requests](https://github.com/KokunoYumeto/modern-latex-manuscripts).
 
@@ -53,15 +52,15 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Pages | Bytes | SHA-256 | GitHub | Zenodo |
 |---:|---:|---|---|---|
-| 538 | 7,989,948 | `B17782DD897697EF35F504B0F535E16231390B8661AFC2FFE3DD6ACBFF251344` | [English cumulative PDF](../../reader-pdfs/deligne/00-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-043%20-%20English%20Translation.pdf) | [Deligne_EN.pdf](https://zenodo.org/records/22076857/files/Deligne_EN.pdf) |
-| 548 | 7,965,548 | `FF198AFE6ED5ABE4A772592F48FDDF35C73E7C799BAE51A7B0258CA11AF1CD21` | [French cumulative PDF](../../reader-pdfs/deligne/01-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-043%20-%20French%20Working%20PDF.pdf) | [Deligne_FR.pdf](https://zenodo.org/records/22076857/files/Deligne_FR.pdf) |
+| 595 | 9,941,413 | `BA800BE9AD221EA28655A7218332D931192C45B724EC22B4500BC155D1F6C85A` | [English cumulative PDF](../../reader-pdfs/deligne/00-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-043%20-%20English%20Translation.pdf) | [Deligne_EN.pdf](https://zenodo.org/records/22086259/files/Deligne_EN.pdf) |
+| 605 | 9,951,545 | `2FE8981D862C73F34BC75B427DE959108AE36504BFE1325C4621578E9B995399` | [French cumulative PDF](../../reader-pdfs/deligne/01-000%20Deligne%20-%20Sequential%20Cumulative%20Papers%20001-043%20-%20French%20Working%20PDF.pdf) | [Deligne_FR.pdf](https://zenodo.org/records/22086259/files/Deligne_FR.pdf) |
 
 ## Editable TeX Entry Points
 
 | Bytes | SHA-256 | GitHub | Zenodo |
 |---:|---|---|---|
-| 6,909 | `A8296CA86397806F826C878AE60059AD442CF774981CC566356EA1E77F86BEA6` | [Deligne_EN.tex](../../sources/deligne/sparse-through-d043-source-witness/Deligne_EN.tex) | [Deligne_EN.tex](https://zenodo.org/records/22076857/files/Deligne_EN.tex) |
-| 7,178 | `98A2CDFD7D86C5C090B94E7CA27E2060ED41678F858933E8D53C29274D2DEDB8` | [Deligne_FR.tex](../../sources/deligne/sparse-through-d043-source-witness/Deligne_FR.tex) | [Deligne_FR.tex](https://zenodo.org/records/22076857/files/Deligne_FR.tex) |
+| 6,994 | `93891A64105A766F3B2692EC54B884DB55C33DDDA392803A5289F876AD4693DC` | [Deligne_EN.tex](../../sources/deligne/sparse-through-d043-source-witness/Deligne_EN.tex) | [Deligne_EN.tex](https://zenodo.org/records/22086259/files/Deligne_EN.tex) |
+| 7,292 | `30BD66E867FDA691A52F3C5EB789D9901A279D0CF647A93B4F8800B1B9BCF346` | [Deligne_FR.tex](../../sources/deligne/sparse-through-d043-source-witness/Deligne_FR.tex) | [Deligne_FR.tex](https://zenodo.org/records/22086259/files/Deligne_FR.tex) |
 
 ## Source And Provenance Archives
 
@@ -70,5 +69,5 @@ The actual maintained GitHub source tree is
 
 | Members | Bytes | SHA-256 | File |
 |---:|---:|---|---|
-| 733 | 143,896,810 | `174EEB7E8AAB52550D2E10414B9BD5B9E69588A1001DC0BF37EA3F6D69076A94` | [Deligne_Source.zip](https://zenodo.org/records/22076857/files/Deligne_Source.zip) |
-| 858 | 267,849,938 | `A6439EAC8CF42CFD0152AC9C4B6D654934D17C31DE160EB391DA17F827A103F3` | [DELIGNE_PROVENANCE_AUDIT_D038_GAPFILL.zip](https://zenodo.org/records/22076857/files/DELIGNE_PROVENANCE_AUDIT_D038_GAPFILL.zip) |
+| 747 | 152,788,371 | `CADDA20CB7513A380406F02BA1B2C1DAA253111E8504B28B805379A9A5F66E49` | [Deligne_Source.zip](https://zenodo.org/records/22086259/files/Deligne_Source.zip) |
+| 300 | 227,394,411 | `E034A73CBEBD5B08EA05812336085769E4BE5AA22DCFFF1B24055CE9535928B9` | [DELIGNE_PROVENANCE_AUDIT_D016_GAPFILL.zip](https://zenodo.org/records/22086259/files/DELIGNE_PROVENANCE_AUDIT_D016_GAPFILL.zip) |
