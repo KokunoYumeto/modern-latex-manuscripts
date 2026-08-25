@@ -12,6 +12,24 @@ external records. Grouping a file does not mean that its translation is absent.
 Check the coverage map for the author or work before beginning a new
 transcription or translation.
 
+## Current interlanguage methods and Open Logic Interslavic
+
+The current methods release is **[From Multilingual Generation to Auditable
+Interlanguage](https://doi.org/10.5281/zenodo.22087279)**. It is a 40-page,
+human-facing forensic study with editable LaTeX, a claim–evidence matrix,
+sanitized task provenance, exact build and render evidence, and the complete
+inherited interlanguage archive. The stable concept DOI is
+[`10.5281/zenodo.21124403`](https://doi.org/10.5281/zenodo.21124403).
+
+The follow-on **Open Logic Interslavic edition is active and public-facing**:
+144 of 722 source units are continuously translated and structurally accepted,
+covering 20.61% of source-language tokens, with zero invalid or missing units.
+Its evolving mathematical canon currently contains 68 unique entries with
+explicit East-, West-, and South-Slavic evidence. Open the
+**[live bilingual edition status](https://kokunoyumeto.github.io/modern-latex-manuscripts/open-logic-interslavic/)**
+or the [current interlanguage record page](docs/records/interlanguage-reflections.md).
+
+
 ## Start Here
 
 | What you want to do | Open this |
