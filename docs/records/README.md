@@ -7,7 +7,7 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | **Project infrastructure and public entry points** |  |  |  |  |  |  |  |
 | Main Project Landing | 98 | 52 | 0 | 44 | 20664.9 | [main.md](main.md) | [Zenodo](https://doi.org/10.5281/zenodo.20393488) |
 | Workflow / Replication Packet | 100 | 1 | 0 | 12 | 30.2 | [workflow.md](workflow.md) | [Zenodo](https://doi.org/10.5281/zenodo.20461174) |
-| Interlanguage Methodology | 100 | 2 | 0 | 23 | 4776.7 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
+| Interlanguage Methods / Open Logic Interslavic | 100 | 3 | 0 | 23 | 4810.6 | [interlanguage-reflections.md](interlanguage-reflections.md) | [Zenodo](https://doi.org/10.5281/zenodo.21124403) |
 | Lean Formalization Sidecars | 1 | 0 | 0 | 1 | 0.0 | [lean-formalization-sidecars.md](lean-formalization-sidecars.md) | [Zenodo](https://doi.org/10.5281/zenodo.21129945) |
 | **Translation quality-assessment evidence** |  |  |  |  |  |  |  |
 | FAC accidental blind-comparison quality evidence | 50 | 5 | 6 | 5 | 14.1 | [fac-quality-assessment.md](fac-quality-assessment.md) | [Zenodo](https://doi.org/10.5281/zenodo.21720996) |
