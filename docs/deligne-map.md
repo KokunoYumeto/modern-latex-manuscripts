@@ -1,6 +1,6 @@
 # Deligne GitHub Coverage Map
 
-Maintained 2026-08-24. This page records what is already preserved under
+Maintained 2026-08-29. This page records what is already preserved under
 [`sources/deligne`](../sources/deligne/) so that an existing paper, letter, or
 language layer is checked before anybody starts it again.
 
@@ -16,17 +16,21 @@ are not reader entry points and must not displace the independent editions.
 ## Current Maintained Sparse Corpus
 
 The current independently audited sparse reader includes D001-D012,
-D014-D016, D021, D022, D025-D030, D034-D036, D038-D040, and D043 in numerical
-order. The explicit gaps are D013, D017-D020, D023-D024, D031-D033, D037, and
-D041-D042. A gap does not suppress a later complete work, and each completed
-gap work is inserted in numerical position without removing later coverage.
+D014-D016, D018, D021, D022, D025-D030, D034-D036, D038-D040, and D043 in
+numerical order. The explicit gaps are D013, D017, D019-D020, D023-D024,
+D031-D033, D037, and D041-D042. A gap does not suppress a later complete work,
+and each completed gap work is inserted in numerical position without removing
+later coverage.
 
 Reader and source entry points:
 
-- [595-page English cumulative reader](../sources/deligne/sparse-through-d043-source-witness/Deligne_EN.pdf)
-- [605-page French cumulative reader](../sources/deligne/sparse-through-d043-source-witness/Deligne_FR.pdf)
+- [746-page English cumulative reader](../sources/deligne/sparse-through-d043-source-witness/Deligne_EN.pdf)
+- [760-page French cumulative reader](../sources/deligne/sparse-through-d043-source-witness/Deligne_FR.pdf)
 - [Complete maintained source-witness tree](../sources/deligne/sparse-through-d043-source-witness/)
 - [D016 complete public source set](../sources/deligne/sparse-through-d043-source-witness/works/D016_PUBLIC_SAFE/)
+- [D018 complete public source set](../sources/deligne/sparse-through-d043-source-witness/works/D018_PUBLIC_SAFE/)
+- [D018 cumulative release cold audit](../manifests/published-github/deligne/D018_GAPFILL_RELEASE_COLD_AUDIT.json)
+- [D018 cumulative front-matter visual QA](../manifests/published-github/deligne/D018_CUMULATIVE_FRONTMATTER_VISUAL_QA.json)
 
 D016 is the complete 97-physical-page paper *Les constantes des équations
 fonctionnelles des fonctions L*. Its public source set contains separate
@@ -35,6 +39,15 @@ restrained apparatus, deterministic packet manifest, visual-QA receipt, and a
 fresh nonpatching full-paper cold audit. The historical inventory below remains
 available for custody and comparison; its working or partial layers are not
 silently promoted into the maintained reader.
+
+D018 is the complete 174-physical-page joint paper *Les schémas de modules de
+courbes elliptiques*. Its public source set contains separate French and
+standalone literal-English TeX/PDF editions, restrained apparatus, the complete
+174-page controlling authority and comparison witnesses, accepted image
+fallbacks, deterministic build evidence, visual and mathematical QA, and a
+fresh nonpatching exact-work cold audit. The cumulative rebuild has a separate
+nonpatching release audit. D018 is inserted between D016 and D021 without
+claiming contiguous completion across D017 or D019-D020.
 
 ## Start Here
 
