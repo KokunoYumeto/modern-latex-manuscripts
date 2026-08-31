@@ -1,27 +1,30 @@
 # Open Logic na medžuslovjanskom jezyku
 
-To jest praktično, neprěryvno tvorjeno medžuslovjansko izdanje projekta Open Logic. Latinična redakcijska svědočba jest kanonična; kirilica bude deterministično izvedena, a ne nezavisno prěložena.
+To jest praktično, neprěryvno tvorjeno medžuslovjansko izdanje projekta Open Logic. Latinična redakcijska svědočba jest kanonična; kirilica bude deterministično izvedena iz nej, a ne nezavisno prěložena.
 
-Aktualny kontrolny punkt jest **OLP-0175**: 175 iz 722 jedinic, 547 ostavajut, i 95 881 iz 367 220 izvornyh alfabetičnyh tokenov jest pokryto (26,11%). Kanon sodrži 229 unikalnyh pojmov v 236 fizičnyh revizijah. Slědujuća jedinica jest `OLP-0176 many-sorted-logic.tex`.
+## Aktualny kontrolny punkt · OLP-0180
 
-- [Živa čitanka i status](https://kokunoyumeto.github.io/modern-latex-manuscripts/open-logic-interslavic/)
+180 iz 722 jedinic sųt prěložene i prěgledane; 542 ostavajut. Pokryto jest 101 359 iz 367 220 izvornyh alfabetičnyh tokenov (27,60%). Kanon sodrži 315 unikalnyh pojmov v 366 fizičnyh revizijah. Nastavjenje 0035 dodavaje 16 modalnyh terminologičnyh zapisov (OLISV-T0300–T0315).
+
+Glava OLP-0180 pokriva uslovna tvrdženja, prědhodnu čest i poslědicu, neobhodnost, možlivosť, možlive světy, Kripkove struktury, odnošenje dostųpnosti, intensionalnu, dokazlivosti, epistemičnu i temporalnu logiku, te syste­my S4 i S5. Zdokumentovane izvorne uprošćenosti (universalno odnošenje v S5, neformalna semantika možlivyh světov, gloss konsistentnosti i sųměšenje znanja/věry) sųt sačuvane i označene, ne tiho ispravjene.
+
+- [Živa HTML čitanka i status](https://kokunoyumeto.github.io/modern-latex-manuscripts/open-logic-interslavic/)
 - [Mašinny indeks kanona](canon/CANON_INDEX.json)
-- [Indeks skupnyh tekstovyh tokenov](canon/TOKEN_OVERLAY_INDEX_0013.json)
-- [Mašinno prědanje i protokol nastavjenja](machine/OPENLOGIC_ISV_MACHINE_HANDOFF_OLP0175.json)
+- [Indeks skupnyh tekstovyh tokenov](canon/TOKEN_OVERLAY_INDEX_0020.json)
+- [Nastavjenje kanona 0035](canon/canon_continuation_0035.jsonl)
+- [Mašinno prědanje i protokol nastavjenja](machine/OPENLOGIC_ISV_MACHINE_HANDOFF_OLP0180.json)
 - [Metodologija i dokazy](https://doi.org/10.5281/zenodo.22103007)
 
-OLP-0175 uvodi glavu o logikah za granicami logiky prvogo reda: filozofičny obseg logiky, logiky vyšših tipov i redov, logicizm, aksiomy bezkonečnosti i reducibilnosti te kvantifikaciju nad predikatami. Kanonično nastavjenje 0028 dodavaje ili utočnjaje devet odgovarjajućih terminologičnyh glav, a tokenovy indeks 0013 prověrjaje 2 673 upotrěbjenja 42 aktivnyh ključa.
-
-Serijska kompilacija izložila jest OLP-0175 na stranicah 679–680 i pravilno zastanovila pri neprěloženom OLP-0176. Posebny diagnostičny čitatelj do OLP-0175 byl vizualno prověrjen na fizičnyh stranicah 698–702, ale ne jest publikovany kako gotova kniga. Padežne formy avtomatičnyh nazivov propozicije, lemy i teoremy v něktorih raněje prěloženih kontekstah ostavajut javno indeksovanym morfologičnym dolgom. Polny čitatelj ostavaje v rabotě.
+Serijska kompilacija pravilno zastanovila se pri prvoj neprěloženoj jedinici **OLP-0181**. Ograničeny kontrolny PDF (728 stranic) i vizualna prověrka stranica 719–728 sųt lokalnoje QA svědočbe; PDF ne jest predstavjen kako dokončena javna kniga. Vseh determinističnyh recepcij, canon-linkov, projekcij i granic sųt v `evidence/`.
 
 ## English counterpart
 
-This is a practical, continuously produced Interslavic edition of the Open Logic Project. The editable Latin witness is canonical; Cyrillic will be generated deterministically rather than independently translated.
+This is a practical, continuously produced Interslavic edition of the Open Logic Project. The editable Latin witness is canonical; Cyrillic is generated deterministically rather than translated independently.
 
-The current checkpoint is **OLP-0175**: 175 of 722 units, 547 pending, and 95,881 of 367,220 source alpha tokens covered (26.11%). The canon contains 229 unique concepts across 236 physical revisions. The next unit is `OLP-0176 many-sorted-logic.tex`.
+**OLP-0180** advances the accepted prefix to 180 of 722 units (542 pending), covering 101,359 of 367,220 source alphabetic tokens (27.60%). The evolving canon contains 315 unique concepts across 366 physical revisions. Continuation 0035 adds 16 modal-logic entries (OLISV-T0300–T0315), with definitions, grammar, cross-Slavic comparisons, alternatives, adverse evidence, confidence, and revision lineage.
 
-OLP-0175 introduces the chapter beyond first-order logic: the philosophical scope of logic, higher-order and higher-type logics, logicism, the axioms of infinity and reducibility, and predicate quantification. Canon continuation 0028 adds or refines nine corresponding terminology heads, while token index 0013 audits 2,673 uses of 42 active keys.
+The modal chapter covers conditional assertions, antecedent and consequent, necessity and possibility, possible worlds, Kripke structures, accessibility, intensional, provability, epistemic and temporal logic, and S4/S5. Source-level pedagogical simplifications are preserved and flagged rather than silently repaired.
 
-The serial build typeset OLP-0175 on pages 679–680 and stopped correctly at untranslated OLP-0176. A separate diagnostic reader through OLP-0175 was visually checked across physical pages 698–702 but is not published as a finished book. Inflected forms of automatically generated proposition, lemma, and theorem labels in some earlier accepted contexts remain explicit, machine-indexed morphology debt. The complete reader remains in progress.
+The serial build stops fail-closed at the first untranslated unit, **OLP-0181**. A separate 728-page checkpoint and visual inspection of pages 719–728 provide local QA evidence; the checkpoint PDF is not presented as a completed public book. All deterministic receipts, canon links, projections, and claim boundaries are in `evidence/`.
 
-This is a reversible open edition, not a claim of official standardization, native-speaker certification, peer review, or mathematical infallibility.
+This is a reversible open edition, not a claim of completion, closed contextual morphology, official standardization, native-speaker certification, peer review, or mathematical infallibility.
