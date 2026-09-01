@@ -1,0 +1,436 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/openlogic-isv/canon_entry.schema.json",
+  "title": "Open Logic Interslavic terminology revision",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_type",
+    "schema_version",
+    "entry_id",
+    "canonical_key",
+    "domain",
+    "english",
+    "isv",
+    "cyrillic",
+    "comparanda",
+    "official_isv_evidence",
+    "inherited_noether_evidence",
+    "rationale",
+    "rejected_alternatives",
+    "confidence",
+    "status",
+    "source_units",
+    "revision_lineage",
+    "uncertainties"
+  ],
+  "properties": {
+    "record_type": {
+      "const": "terminology_revision"
+    },
+    "schema_version": {
+      "const": "openlogic-isv-canon-entry/1.0"
+    },
+    "entry_id": {
+      "type": "string",
+      "pattern": "^OLISV-T[0-9]{4}$"
+    },
+    "canonical_key": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)*$"
+    },
+    "domain": {
+      "enum": [
+        "sets",
+        "relations",
+        "functions",
+        "arithmetic",
+        "logic",
+        "proof",
+        "model_theory",
+        "computability"
+      ]
+    },
+    "english": {
+      "$ref": "#/$defs/english"
+    },
+    "isv": {
+      "$ref": "#/$defs/isv"
+    },
+    "cyrillic": {
+      "$ref": "#/$defs/cyrillic"
+    },
+    "comparanda": {
+      "$ref": "#/$defs/comparanda"
+    },
+    "official_isv_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "inherited_noether_evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 20
+    },
+    "rejected_alternatives": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/rejected"
+      }
+    },
+    "confidence": {
+      "$ref": "#/$defs/confidence"
+    },
+    "status": {
+      "enum": [
+        "seed_preferred",
+        "provisional",
+        "deprecated"
+      ]
+    },
+    "source_units": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source_ref"
+      }
+    },
+    "revision_lineage": {
+      "$ref": "#/$defs/lineage"
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 3
+      }
+    }
+  },
+  "$defs": {
+    "english": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lemma",
+        "sense",
+        "part_of_speech",
+        "openlogic_locator"
+      ],
+      "properties": {
+        "lemma": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sense": {
+          "type": "string",
+          "minLength": 10
+        },
+        "part_of_speech": {
+          "type": "string",
+          "minLength": 2
+        },
+        "openlogic_locator": {
+          "$ref": "#/$defs/source_ref"
+        }
+      }
+    },
+    "isv": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lemma_latin",
+        "preferred_term_latin",
+        "part_of_speech",
+        "inflection_use_note",
+        "formation"
+      ],
+      "properties": {
+        "lemma_latin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "preferred_term_latin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "part_of_speech": {
+          "type": "string",
+          "minLength": 2
+        },
+        "inflection_use_note": {
+          "type": "string",
+          "minLength": 12
+        },
+        "formation": {
+          "enum": [
+            "direct_lemma",
+            "standardized_dictionary_surface",
+            "derived_term",
+            "compound_term"
+          ]
+        }
+      }
+    },
+    "cyrillic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "surface",
+        "latin_input",
+        "scheme_source_id",
+        "normalization"
+      ],
+      "properties": {
+        "surface": {
+          "type": "string",
+          "minLength": 1
+        },
+        "latin_input": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scheme_source_id": {
+          "const": "ISV-TRANSLIT-3.4.4"
+        },
+        "normalization": {
+          "const": "NFC; standard Cyrillic; standard flavorization"
+        }
+      }
+    },
+    "comparanda": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ru",
+        "uk",
+        "pl",
+        "cs",
+        "bcs",
+        "bg"
+      ],
+      "properties": {
+        "ru": {
+          "$ref": "#/$defs/comparandum"
+        },
+        "uk": {
+          "$ref": "#/$defs/comparandum"
+        },
+        "pl": {
+          "$ref": "#/$defs/comparandum"
+        },
+        "cs": {
+          "$ref": "#/$defs/comparandum"
+        },
+        "bcs": {
+          "$ref": "#/$defs/comparandum"
+        },
+        "bg": {
+          "$ref": "#/$defs/comparandum"
+        }
+      }
+    },
+    "comparandum": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "surface",
+        "script",
+        "evidence_mode",
+        "evidence_locators",
+        "note"
+      ],
+      "properties": {
+        "surface": {
+          "type": "string",
+          "minLength": 1
+        },
+        "script": {
+          "enum": [
+            "Latin",
+            "Cyrillic",
+            "mixed"
+          ]
+        },
+        "evidence_mode": {
+          "enum": [
+            "direct_dictionary_column",
+            "componential_domain_normalization",
+            "derivational_editorial"
+          ]
+        },
+        "evidence_locators": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source_ref"
+          }
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "locator",
+        "support",
+        "claim_boundary"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 3
+        },
+        "support": {
+          "enum": [
+            "direct_lemma",
+            "direct_sense",
+            "component",
+            "grammar",
+            "orthography",
+            "projection"
+          ]
+        },
+        "claim_boundary": {
+          "type": "string",
+          "minLength": 8
+        }
+      }
+    },
+    "rejected": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "term_latin",
+        "reason",
+        "evidence_locators"
+      ],
+      "properties": {
+        "term_latin": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 10
+        },
+        "evidence_locators": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_ref"
+          }
+        }
+      }
+    },
+    "confidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "score",
+        "band",
+        "basis"
+      ],
+      "properties": {
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "band": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 12
+        }
+      }
+    },
+    "source_ref": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "locator",
+        "role"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "type": "string",
+          "minLength": 3
+        }
+      }
+    },
+    "lineage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "revision_id",
+        "revision",
+        "supersedes",
+        "recorded_at_utc",
+        "change_note",
+        "authority_boundary"
+      ],
+      "properties": {
+        "revision_id": {
+          "type": "string",
+          "pattern": "^OLISV-T[0-9]{4}-r[0-9]{4}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "supersedes": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^OLISV-T[0-9]{4}-r[0-9]{4}$"
+            }
+          ]
+        },
+        "recorded_at_utc": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "change_note": {
+          "type": "string",
+          "minLength": 8
+        },
+        "authority_boundary": {
+          "const": "Open Logic edition preference; no official or native certification claimed"
+        }
+      }
+    }
+  }
+}
