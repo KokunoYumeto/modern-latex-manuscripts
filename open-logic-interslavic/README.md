@@ -6,7 +6,7 @@ To jest praktično, neprěryvno tvorjeno medžuslovjansko izdanje projekta Open 
 
 180 iz 722 jedinic sųt prěložene i prěgledane; 542 ostavajut. Pokryto jest 101 359 iz 367 220 izvornyh alfabetičnyh tokenov (27,60%). Kanon sodrži 315 unikalnyh pojmov v 366 fizičnyh revizijah. Nastavjenje 0035 dodavaje 16 modalnyh terminologičnyh zapisov (OLISV-T0300–T0315).
 
-Glava OLP-0180 pokriva uslovna tvrdženja, prědhodnu čest i poslědicu, neobhodnost, možlivosť, možlive světy, Kripkove struktury, odnošenje dostųpnosti, intensionalnu, dokazlivosti, epistemičnu i temporalnu logiku, te syste­my S4 i S5. Zdokumentovane izvorne uprošćenosti (universalno odnošenje v S5, neformalna semantika možlivyh světov, gloss konsistentnosti i sųměšenje znanja/věry) sųt sačuvane i označene, ne tiho ispravjene.
+Glava OLP-0180 pokriva uslovna tvrdženja, prědhodnu čest i poslědicu, neobhodnost, možlivosť, možlive světy, Kripkove struktury, odnošenje dostųpnosti, intensionalnu, dokazlivosti, epistemičnu i temporalnu logiku, te sistemy S4 i S5. Zdokumentovane izvorne uprošćenosti (universalno odnošenje v S5, neformalna semantika možlivyh světov, gloss konsistentnosti i sųměšenje znanja/věry) sųt sačuvane i označene, ne tiho ispravjene.
 
 - [Živa HTML čitanka i status](https://kokunoyumeto.github.io/modern-latex-manuscripts/open-logic-interslavic/)
 - [Mašinny indeks kanona](canon/CANON_INDEX.json)
