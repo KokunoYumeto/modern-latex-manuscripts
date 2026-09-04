@@ -1,3 +1,22 @@
+# Deligne D033 gap-fill GitHub delivery
+
+This maintained sparse corpus adds complete D033 after D031 and before D034 while preserving every inherited path. English is the original source-language edition and French is its translation. The cumulative readers contain 1,100 English and 1,113 French pages. The current cumulative PDFs and the two complete archives are release assets only; the historical in-tree cumulative PDFs remain unchanged.
+
+[Current GitHub release](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/deligne-d033-gapfill-20260904)
+
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| [Deligne_EN.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d033-gapfill-20260904/Deligne_EN.pdf) | 138768677 | `9272F680CF704FBB733FFC12A9FD3D5EE1883303D47B840DD33E6DFF25D7D20B` |
+| [Deligne_FR.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d033-gapfill-20260904/Deligne_FR.pdf) | 138768984 | `B3EF81864BACA1322F3D31224DD2E1FD3A0851C30C19EF64B5C8F5339A65FCBD` |
+| [Deligne_EN.tex](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d033-gapfill-20260904/Deligne_EN.tex) | 8078 | `F57BC99A28C98A57A2567D1AF6D2B8F97F0E328A7F8747C1A17418F3741824AF` |
+| [Deligne_FR.tex](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d033-gapfill-20260904/Deligne_FR.tex) | 8457 | `DF08F3F745C35723C191F47DA4BB45DEC8A02D340214B64E1D59CC5094FD67D7` |
+| [Deligne_Source.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d033-gapfill-20260904/Deligne_Source.zip) | 1935166750 | `400621534DFF7D2E510E34BB10DF7745C7885680C66B91C24FFFD4235C16396F` |
+| [DELIGNE_PROVENANCE_AUDIT_D033_GAPFILL.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d033-gapfill-20260904/DELIGNE_PROVENANCE_AUDIT_D033_GAPFILL.zip) | 1099255069 | `961CB4AED563B7A3154BF7CF7CDDD946F13FA0C0121D7A7FC03DC2F72F0B87D7` |
+
+The tracked source delta is exactly 43 additions and four replacements. It includes the complete D033 public work/evidence tree and editable cumulative TeX, while excluding both cumulative PDFs from Git blobs. No contiguous completion across the explicit gaps is claimed.
+
+## Historical D019 documentation (not the current GitHub release)
+
 # Deligne D019 gap-fill GitHub delivery
 
 ## Verified DOI archive for this GitHub release

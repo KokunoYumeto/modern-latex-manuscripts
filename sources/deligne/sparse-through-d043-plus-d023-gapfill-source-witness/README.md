@@ -1,41 +1,18 @@
-# Deligne D019 gap-fill GitHub delivery
-
-## Verified DOI archive for this GitHub release
-
-[Current Zenodo version 10.5281/zenodo.22307785](https://doi.org/10.5281/zenodo.22307785) · [Concept DOI](https://doi.org/10.5281/zenodo.20410853)
-
-The six matching preservation files and both concept resolvers passed anonymous byte verification. The exact GitHub source payload is [b63cf2505196](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/b63cf2505196a44db54dde7d93ec342bfef90e2d). Current cumulative readers contain 1,040 English and 1,053 French pages. Earlier release narratives below are historical.
-
-This maintained sparse corpus adds complete D019, Hodge Theory III, immediately after D018 and preserves all later included works. The current cumulative PDFs are the release assets below. Existing in-tree cumulative PDFs are preserved D017 predecessor downloads, not current D019 PDFs. No contiguous completion beyond the explicitly included works is claimed.
-
-[Current GitHub release](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/deligne-d019-gapfill-20260904)
-
-| File | Bytes | SHA-256 |
-|---|---:|---|
-| [DELIGNE_PROVENANCE_AUDIT_D019_GAPFILL.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/DELIGNE_PROVENANCE_AUDIT_D019_GAPFILL.zip) | 1008265184 | `A7654D30B4993131F9C00261FFFE6BED32F7814674A2977F456C31F7F846299D` |
-| [Deligne_EN.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_EN.pdf) | 138419238 | `EDC255619E730D849934E24FD9CD23C339835ACDDD402A85412615977C7BE59F` |
-| [Deligne_EN.tex](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_EN.tex) | 7892 | `A36A195C6CDC24612A2F801385A0B5F494D88B1DCCD9F941F8A9BB704FB0AFB1` |
-| [Deligne_FR.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_FR.pdf) | 138412136 | `D789B41F1C0DDB4482580CE0844D5A50D8918A4608B6D57F644E6AB08E69BC98` |
-| [Deligne_FR.tex](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_FR.tex) | 8265 | `ECEE9A791F90691ADDCE885D454FFBF4D9F5FD927C681CD3C8751B04DFEF859B` |
-| [Deligne_Source.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_Source.zip) | 1843797807 | `CEEAD510F866C2DC3E945439E26784A7B1E34A21E920D11396157EF6E8D03398` |
-
-Actual editable TeX, data, image assets, authority and standalone lossless PDFs remain repository-visible. Oversized original carriers are exact release assets restored with RELEASE_ASSETS.json and restore_release_assets.py. FULL_SOURCE_ARCHIVE_MANIFEST.json describes the complete latest source archive; PUBLIC_REPOSITORY_PAYLOAD_MANIFEST.json separately describes the actual Git payload. Preserved D017 in-tree PDFs must never be interpreted as the latest full-source archive reader bytes.
-
 # Pierre Deligne sparse maintained corpus through D043
 
 This source tree builds the separate English and French cumulative readers and preserves the editable, source-aligned work files used in the maintained release.
 
 ## Coverage
 
-Included complete works, in numerical order: D001-D019, D021, D022, D023, D025-D031, D034-D036, D038-D040, and D043.
+Included complete works, in numerical order: D001-D019, D021, D022, D023, D025-D031, D033-D036, D038-D040, and D043.
 
-Explicit gaps through the current sparse sequence: D020, D024, D032-D033, D037, and D041-D042. The corpus is intentionally sparse: a later independently audited complete work is included even when an earlier work is absent or partial. A subsequently completed gap work is inserted at its numerical position in the next rebuild. D013 is complete at 14/14 physical authority pages and is inserted between D012 and D014. D016 is complete at 97/97 physical authority pages and remains between D015 and D017.
+Explicit gaps through the current sparse sequence: D020, D024, D032, D037, and D041-D042. The corpus is intentionally sparse: a later independently audited complete work is included even when an earlier work is absent or partial. A subsequently completed gap work is inserted at its numerical position in the next rebuild. D013 is complete at 14/14 physical authority pages and is inserted between D012 and D014. D016 is complete at 97/97 physical authority pages and remains between D015 and D017.
 
 ## Build
 
 Run XeLaTeX twice on `Deligne_EN.tex` and three times on `Deligne_FR.tex` from this directory; the third French pass verifies settled contents numbers. The entry points include the maintained standalone work PDFs from `works/`. Editable TeX, apparatus, assets, authority witnesses, independent gate receipts, and publication-safe source carriers are kept beside the work files. D013 is preserved under `works/D013_PUBLIC_SAFE` with complete diplomatic French and standalone English TeX/PDF editions, the controlling 14-page authority, restrained apparatus, the exact audited complete-state archive, exact ZERO_ACCEPTED evidence, and the independent corpus-gate receipts. D016 is preserved under `works/D016_PUBLIC_SAFE` with complete French and English TeX/PDF editions, the controlling 97-page authority, restrained apparatus, visual QA, and a fresh nonpatching full-paper cold audit. D018 is preserved under `works/D018_PUBLIC_SAFE` with complete source-language and standalone literal-English TeX/PDF editions aligned to the controlling 174-page authority, restrained apparatus, accepted image fallbacks, visual QA, and a fresh nonpatching full-paper cold audit. D027 is preserved under `works/D027_PUBLIC_SAFE`: English is the source-language edition, French is the faithful translation, and the collected-volume split is comparison-only. D022, D030, D034, D035, D036, D038, D039, D040, and D043 are independent math-typeset editions with restrained apparatus and explicit authority/comparator boundaries. D023 is preserved under `works/D023_PUBLIC_SAFE` with its controlling 30-page authority, source-language English and standalone French math-typeset editions, editable Markdown/TeX, restrained apparatus, comparison-only witness, ZERO_ACCEPTED prior-work ledger, and fresh independent full-paper audit. D013, D016, D023, and D038 are inserted at their numerical locations without regressing later published page streams.
 
-For deterministic cumulative reproduction, set `SOURCE_DATE_EPOCH=946684800`, `FORCE_SOURCE_DATE=1`, and `TZ=UTC`, then run `xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error` twice for English and three times for French, sequentially. On the originating Windows workspace, acquire `Global\InterlanguageTeXSlotV1` with a bounded timeout before any TeX process, hold it continuously through the full captured process tree and all passes/log checks, and release it in a finally path after the tree ends. This release contains 1040 English and 1053 French pages. D013 occupies English pages 187-200 and French pages 188-201; D031 occupies English pages 849-891 and French pages 862-904. Current cold-build, include-map, all-page identity, and changed-page visual receipts are under `release_receipts/D019_FORWARD_INTEGRATION/`. Earlier D031 and D017 release receipts and their release-specific narratives are retained as historical evidence. The receipts under `release_receipts/D013_FORWARD_INTEGRATION/` remain exact historical predecessor evidence.
+For deterministic cumulative reproduction, set `SOURCE_DATE_EPOCH=946684800`, `FORCE_SOURCE_DATE=1`, and `TZ=UTC`, then run `xelatex -no-shell-escape -interaction=nonstopmode -halt-on-error` twice for English and three times for French, sequentially. On the originating Windows workspace, acquire `Global\InterlanguageTeXSlotV1` with a bounded timeout before any TeX process, hold it continuously through the full captured process tree and all passes/log checks, and release it in a finally path after the tree ends. This release contains 1100 English and 1113 French pages. D013 occupies English pages 187-200 and French pages 188-201; D031 occupies English pages 849-891 and French pages 862-904. Current cold-build, include-map, all-page identity, and changed-page visual receipts are under `release_receipts/D033_FORWARD_INTEGRATION/`. Earlier D031 and D017 release receipts and their release-specific narratives are retained as historical evidence. The receipts under `release_receipts/D013_FORWARD_INTEGRATION/` remain exact historical predecessor evidence.
 
 The editable D013 work uses real LaTeX mathematics and `tikz-cd` diagrams with `newtxtext/newtxmath`; compile its standalone TeX with pdfLaTeX. Its audited supplied PDFs are preserved exactly. The independent gate documents byte-identical same-engine cold reruns and text/geometry/raster equivalence across the supplied and current pdfTeX versions. No HTML or raw-text substitute is used as a reader edition.
 
@@ -57,10 +34,18 @@ The maintained D031 reader PDFs include one independently validated presentation
 
 D017, *Formes modulaires et représentations de GL(2)* / *Modular forms and representations of GL(2)*, is inserted immediately after D016 and before D018. The accepted standalone French and English readers contain 52 pages each; the controlling 51-page authority, editable TeX/NDJSON, restrained apparatus, accepted image fallbacks, and public-safe provenance chunks are preserved under `works/D017_PUBLIC_SAFE`. The cumulative rebuild is independently checked at 885 English and 899 French pages. All inherited evidence remains ZERO_ACCEPTED; no source master is modified.
 
-## D019 gap insertion
+## D019 gap insertion (historical release narrative)
 
 D019, *Hodge Theory III* / *Théorie de Hodge III*, is inserted after D018 and before D021. The current cumulative books contain 1040 English and 1053 French pages. The independently accepted canonical editions contain 155 English and 154 French reader pages aligned to 73 article pages; the 74-page authority includes an excluded cover. Exact canonical PDF/TeX/data/assets, the complete reproducible source packet with its original authority, and canonical acceptance evidence are preserved under `works/D019_PUBLIC_SAFE`. The separately admitted lossless transport PDFs used for cumulative inclusion preserve all text and image samples. They do not replace canonical bytes. All inherited source witnesses remain byte-identical and inherited evidence remains ZERO_ACCEPTED. Earlier release-specific narrative remains historical.
 
 ## Nonincluded work status snapshot (2026-09-04)
 
 This parent-supplied intake snapshot does not promote a returned browser packet to normalized acceptance. D032 S20 and D037 S05-GA01 are complete return claims awaiting independent deterministic gates, not active partial claims. D048 S14 is a returned facsimile-witness packet at 84/86 physical and 83/85 article pages; next P15 covers physical 85-86 / printed 88-89. It is not normalized acceptance. D020 remains 30/36 with P06 next; D044 remains 54/174 with P10 next. These works are not inserted by this D019 release.
+
+## D033 gap insertion
+
+D033 is inserted after D031 and before D034. English is the original source-language edition; French is its translation. Each reader contains 60 pages aligned to printed 227-286. D033 occupies English cumulative pages 892-951 and French cumulative pages 905-964. The three-page apparatus is preserved separately and is not appended to either cumulative reader. Canonical reader PDFs and editable TeX remain exact under `works/D033_PUBLIC_SAFE`; the complete source ZIP remains unchanged. Its archived returned convenience-reader PDFs are not cumulative inputs.
+
+Included coverage: D001-D019; D021-D023; D025-D031; D033-D036; D038-D040; D043. Explicit public gaps: D020; D024; D032; D037; D041-D042. These public gaps identify works outside this cumulative release; they are not missing downloads.
+
+The local orchestrator uses three to five bounded XeLaTeX passes per clean replica and requires settled TOC and PDF hashes, with three independent clean replicas. All passes and immediate log checks share the single machine-wide TeX mutex and captured-process-tree contract stated above. New local raw evidence stays outside public packaging roots; separately hash-mapped literal-name derivatives preserve public provenance without changing historical original-hash claims.
