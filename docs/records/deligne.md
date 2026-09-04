@@ -1,3 +1,22 @@
+# Deligne D019 gap-fill GitHub delivery
+
+This maintained sparse corpus adds complete D019, Hodge Theory III, immediately after D018 and preserves all later included works. The current cumulative PDFs are the release assets below. Existing in-tree cumulative PDFs are preserved D017 predecessor downloads, not current D019 PDFs. No contiguous completion beyond the explicitly included works is claimed.
+
+[Current GitHub release](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/deligne-d019-gapfill-20260904)
+
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| [DELIGNE_PROVENANCE_AUDIT_D019_GAPFILL.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/DELIGNE_PROVENANCE_AUDIT_D019_GAPFILL.zip) | 1008265184 | `A7654D30B4993131F9C00261FFFE6BED32F7814674A2977F456C31F7F846299D` |
+| [Deligne_EN.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_EN.pdf) | 138419238 | `EDC255619E730D849934E24FD9CD23C339835ACDDD402A85412615977C7BE59F` |
+| [Deligne_EN.tex](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_EN.tex) | 7892 | `A36A195C6CDC24612A2F801385A0B5F494D88B1DCCD9F941F8A9BB704FB0AFB1` |
+| [Deligne_FR.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_FR.pdf) | 138412136 | `D789B41F1C0DDB4482580CE0844D5A50D8918A4608B6D57F644E6AB08E69BC98` |
+| [Deligne_FR.tex](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_FR.tex) | 8265 | `ECEE9A791F90691ADDCE885D454FFBF4D9F5FD927C681CD3C8751B04DFEF859B` |
+| [Deligne_Source.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d019-gapfill-20260904/Deligne_Source.zip) | 1843797807 | `CEEAD510F866C2DC3E945439E26784A7B1E34A21E920D11396157EF6E8D03398` |
+
+Actual editable TeX, data, image assets, authority and standalone lossless PDFs remain repository-visible. Oversized original carriers are exact release assets restored with RELEASE_ASSETS.json and restore_release_assets.py. FULL_SOURCE_ARCHIVE_MANIFEST.json describes the complete latest source archive; PUBLIC_REPOSITORY_PAYLOAD_MANIFEST.json separately describes the actual Git payload. Preserved D017 in-tree PDFs must never be interpreted as the latest full-source archive reader bytes.
+
+## Historical D017 documentation (not the current release)
+
 # Pierre Deligne
 
 GitHub is the primary public reader/source repository. Zenodo record [22236378](https://zenodo.org/records/22236378) preserves this D017 gap-fill version; version DOI [10.5281/zenodo.22236378](https://doi.org/10.5281/zenodo.22236378); concept DOI [10.5281/zenodo.20410853](https://doi.org/10.5281/zenodo.20410853). Predecessor: [22211312](https://zenodo.org/records/22211312).
