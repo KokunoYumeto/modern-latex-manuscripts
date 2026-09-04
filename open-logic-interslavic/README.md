@@ -1,5 +1,7 @@
 # Open Logic na medžuslovjanskom jezyku
 
+> This working edition is listed in the [central Open Logic translations catalogue](https://github.com/KokunoYumeto/OpenLogic-translations), which reports its exact accepted prefix separately from complete editions.
+
 To jest praktično medžuslovjansko izdanje projekta Open Logic za čitateljev slovjanskyh jezykov, uključajuči ljudij bez znanja anglijskogo. Latinična redakcijska svědočba jest kanonična; kirilica bude deterministično izvedena iz nej, a ne nezavisno prěložena.
 
 ## Aktualny kontrolny punkt · OLP-0182
