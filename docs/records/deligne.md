@@ -1,5 +1,11 @@
 # Deligne D019 gap-fill GitHub delivery
 
+## Verified DOI archive for this GitHub release
+
+[Current Zenodo version 10.5281/zenodo.22307785](https://doi.org/10.5281/zenodo.22307785) · [Concept DOI](https://doi.org/10.5281/zenodo.20410853)
+
+The six matching preservation files and both concept resolvers passed anonymous byte verification. The exact GitHub source payload is [b63cf2505196](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/b63cf2505196a44db54dde7d93ec342bfef90e2d). Current cumulative readers contain 1,040 English and 1,053 French pages. Earlier release narratives below are historical.
+
 This maintained sparse corpus adds complete D019, Hodge Theory III, immediately after D018 and preserves all later included works. The current cumulative PDFs are the release assets below. Existing in-tree cumulative PDFs are preserved D017 predecessor downloads, not current D019 PDFs. No contiguous completion beyond the explicitly included works is claimed.
 
 [Current GitHub release](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/deligne-d019-gapfill-20260904)
