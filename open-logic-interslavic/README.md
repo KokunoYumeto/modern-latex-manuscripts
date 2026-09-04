@@ -1,37 +1,40 @@
 # Open Logic na medžuslovjanskom jezyku
 
-> This working edition is listed in the [central Open Logic translations catalogue](https://github.com/KokunoYumeto/OpenLogic-translations), which reports its exact accepted prefix separately from complete editions.
+To jest praktično medžuslovjansko izdanje projekta Open Logic za čitateljev slovjanskyh jezykov, uključajuči ljudij bez znanja anglijskogo. Latinična redakcijska svědočba jest kanonična; kirilica jest deterministično izvedena iz nej.
 
-To jest praktično medžuslovjansko izdanje projekta Open Logic za čitateljev slovjanskyh jezykov, uključajuči ljudij bez znanja anglijskogo. Latinična redakcijska svědočba jest kanonična; kirilica bude deterministično izvedena iz nej, a ne nezavisno prěložena.
+> To rabotno izdanje jest zapisano v [centralnom katalogu prěvodov projekta Open Logic](https://github.com/KokunoYumeto/OpenLogic-translations), ktory oddělno ukazuje točny prijety prefiks i polne izdanja.
 
-## Aktualny kontrolny punkt · OLP-0182
+## Aktualny kontrolny punkt · OLP-0183
 
-182 iz 722 jedinic sųt prěložene i prěgledane; 540 ostavaje. Pokryto jest 101 712 iz 367 220 izvornyh alfabetičnyh tokenov (27,70%). Kanon sodrži 344 unikalne pojmy v 395 fizičnyh revizijah. Nastavjenje 0037 dodavaje devęt terminologičnyh zapisov OLISV-T0336–T0344.
+183 iz 722 jedinic sųt prěložene i prověrjene; 539 ostavaje. Pokryto jest 101 737 iz 367 220 izvornyh alfabetičnyh tokenov (27,71%). Kanon sodrži 345 aktivne pojmy v 396 fizičnyh revizijah.
 
-Glava „Teorija modelov“ česno označaje svoj status: material jest nepolny i eksperimentalny, osnovany na adaptaciji zapisok Aldo Antonelli, i potrěbuje širše vvedenje, motivaciju, objasnjenje i zadanja. OLP-0182 jest polno čitlivy v HTML-čitańju; neprěložena glava OLP-0183 ostavaje za graniceju.
+OLP-0183 prěvodi naziv strukturnoj glavy „Basics of Model Theory“ kako „Osnovy teorije modelov“ i veže izbor k OLISV-T0345. Sedm podglav sųt samostojne jedinice; prva, OLP-0184, ostavaje neprěložena i izvan prijetogo čitanja.
 
 - [Živa HTML čitanka i status](https://kokunoyumeto.github.io/modern-latex-manuscripts/open-logic-interslavic/)
-- [Polny slovar kanona](canon/DICTIONARY_OLP0182.md)
-- [Mašinny kanoničny JSONL](canon/canon.jsonl)
+- [Polny slovar kanona](canon/DICTIONARY_OLP0183.md)
+- [Ekspertna knjiga odluka](canon/EXPERT_REVIEW_LOG_OLP0183.md)
+- [Mašinny ekspertni log](canon/EXPERT_REVIEW_LOG_OLP0183.jsonl)
 - [Mašinny indeks kanona](canon/CANON_INDEX.json)
-- [Indeks skupnyh tekstovyh tokenov](canon/TOKEN_OVERLAY_INDEX_0022.json)
-- [Nastavjenje kanona 0037](canon/canon_continuation_0037.jsonl)
-- [Mašinno indeksovany program prěvoda](machine/TRANSLATION_PROGRESS_OLP0182.json)
-- [Mašinno prědanje i protokol nastavjenja](machine/OPENLOGIC_ISV_MACHINE_HANDOFF_OLP0182.json)
+- [Indeks skupnyh tokenov](canon/TOKEN_OVERLAY_INDEX_0023.json)
+- [Nastavjenje kanona 0038](canon/canon_continuation_0038.jsonl)
+- [Program prěvoda](machine/TRANSLATION_PROGRESS_OLP0183.json)
+- [Mašinno prědanje](machine/OPENLOGIC_ISV_MACHINE_HANDOFF_OLP0183.json)
 - [Metodologija i dokazy](https://doi.org/10.5281/zenodo.22103007)
 
-Serialny QA-čitatelj ima 731 stranicu; OLP-0182 jest na stranicah 727–728, s kontrolnymi stranicami 726 i 729, a čitatelj konča prěd OLP-0183. Kontrolny PDF ne jest predstavjen kako dokončena javna kniga.
+Serialny QA-čitatelj ima 732 stranice. Novy naziv jest na stranici 729; stranice 727–732 sųt renderovane i pregledane, a čitatelj konča prěd OLP-0184.
 
 ## Complete English counterpart
 
-This is a practical, continuously produced Interslavic edition of the Open Logic Project for readers of Slavic languages, including readers who may not know English. The editable Latin witness is canonical; Cyrillic is generated deterministically rather than translated independently.
+This is a practical Open Logic Interslavic edition for readers of Slavic languages, including readers who may not know English. Latin Interslavic is the editable canonical witness; Cyrillic is generated deterministically.
 
-**OLP-0182** advances the accepted prefix to 182 of 722 units (540 pending), covering 101,712 of 367,220 source alphabetic tokens (27.70%). The canon contains 344 unique concepts across 395 physical revisions. Continuation 0037 adds nine entries, OLISV-T0336–T0344.
+This working edition is listed in the [central Open Logic translations catalogue](https://github.com/KokunoYumeto/OpenLogic-translations), which reports its exact accepted prefix separately from complete editions.
 
-“Model Theory” openly records its status as incomplete and experimental: it adapts Aldo Antonelli’s notes and still needs a broader introduction, motivation, explanation, and exercises. OLP-0182 is fully readable in the HTML reader; untranslated OLP-0183 remains outside the checkpoint.
+OLP-0183 advances the accepted prefix to 183 of 722 units (539 pending), covering 101,737 of 367,220 source alphabetic tokens (27.71%). The canon contains 345 active concepts across 396 physical revisions.
 
-The serial QA reader has 731 pages. OLP-0182 occupies pages 727–728, with adjacent controls 726 and 729, and the checkpoint stops before OLP-0183. The PDF is QA evidence, not a finished-book claim.
+The unit translates the structural chapter title “Basics of Model Theory” as “Osnovy teorije modelov” and links the decision to OLISV-T0345. The seven child chapters remain independent units; OLP-0184 is still pending and excluded from the accepted reader.
 
-This public surface includes the full rationale-bearing canon dictionary, canonical JSONL, deterministic projection indexes, source/target text for OLP-0182, adverse preseal evidence, and all exact local QA receipts. Failed approaches remain preserved rather than rewritten away.
+The expert decision log covers all 345 active terms, gives exact recorded evidence, choices, alternatives, uncertainty, target lookup and review questions, and labels earlier records as retrospective projections rather than invented contemporaneous motives. Human feedback is welcome but never a production hold.
 
-This is a reversible working edition, not a claim of completion, closed contextual morphology, official standardization, native-speaker certification, peer review, or infallibility.
+The serial QA reader has 732 pages. The new title is on page 729; pages 727–732 were rendered and visually inspected, and the checkpoint stops before OLP-0184.
+
+This is a reversible working edition, not a claim of completion, official standardization, native-speaker certification, peer review, or infallibility.
