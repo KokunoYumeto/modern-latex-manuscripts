@@ -1,5 +1,11 @@
 # Pierre Deligne sparse maintained corpus through D043
 
+## Verified GitHub publication
+
+[Release `deligne-d020-gapfill-20260905`](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/deligne-d020-gapfill-20260905) · [payload commit `70b7240df95a`](https://github.com/KokunoYumeto/modern-latex-manuscripts/commit/70b7240df95a5f508df39fb81c89d21b7e536dda)
+
+Every exact tracked-source path and the payload documentation path passed anonymous commit-pinned byte readback. All six release assets were also downloaded anonymously to EOF and matched their build-receipt byte counts, MD5, and SHA-256 identities. Payload readback receipt SHA-256: `709435BE51CF9D6B55C67633DCE236AFE4DF7AD3DB848088750430ACD7465337`.
+
 This source tree builds the separate English and French cumulative readers and preserves the editable, source-aligned work files used in the maintained release.
 
 ## Coverage
