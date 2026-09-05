@@ -1,0 +1,11 @@
+# D020 V5 asset-insertion repair log
+
+STATUS: NON_TEX_PREPARATION_PASS; GUARDED_PDF_REBUILD_PENDING.
+
+The immutable V4 subject remains unchanged under `audit_cold/S06_math_v4_01/state`. Its dynamic audit correctly rejected A11: both scholarly records require `P0019-A01`, their `placement_after` strings match the numbered `(5.2)` paragraphs, and both fallback images are valid, but `tools/build_math_readers.py` executed `continue` from the `labelled_prose` branch before reaching its later asset loop.
+
+V5 was cloned byte-for-byte from the 294-member, 105172725-byte sealed V4 subject whose sibling manifest has SHA-256 `7B12999877235857273472F7B146685F0CFC07997A0FFF7735D8F96B80B469AE`. The builder now emits matched assets from a post-paragraph `finally` path and asserts exactly one match for every scholarly-layer asset. This makes the insertion independent of the branch that rendered the paragraph.
+
+Non-TeX replay regenerated the editable TeX and native MathML HTML. The source-language and English outputs each contain exactly one `P0019-A01` / `includegraphics` / `authority-figure` image after `(5.2)`; apparatus contains none. The focused regression test, native replay check, 36-page/272-prior-member structural validator, and native HTML diagnostic all pass. The sealed V4 subject was rehashed against its manifest after V5 preparation with zero mismatches.
+
+No TeX engine was launched and the live global TeX mutex was neither opened nor polled. The PDFs in this V5 workspace are still inherited V4 placeholders and are not V5 acceptance evidence. `tools/rebuild_v5_pdfs_guarded.py` and its harmless test now provide the exact one-shot rebuild route: one mutex acquisition covering all passes and immediate checks, a fresh exact-2-GiB aggregate Job for every XeLaTeX tree, suspended-before-assignment, no breakaway, kill-on-close, descendant accounting to zero, verified PDF-only directory-swap promotion, rollback, private logs, and a peak-memory receipt. Thirteen non-TeX checks and an independent current-snapshot code audit pass. The next executable action is one invocation of that launcher after the current foreign mutex owner has completed, followed by a new immutable V5 freeze, fresh nonpatching static audit, and full 142-page dynamic audit.
