@@ -6,6 +6,8 @@
 
 Every exact tracked-source path and the payload documentation path passed anonymous commit-pinned byte readback. All six release assets were also downloaded anonymously to EOF and matched their build-receipt byte counts, MD5, and SHA-256 identities. Payload readback receipt SHA-256: `0C0FB3C06EE0D5BB82B9DD295E6B0D512BBC11795D58FCB5716D2CCB4A2A454E`.
 
+The matching DOI-preservation version is [10.5281/zenodo.22314042](https://doi.org/10.5281/zenodo.22314042) on concept DOI [10.5281/zenodo.20410853](https://doi.org/10.5281/zenodo.20410853). All six Zenodo files (3,311,976,015 bytes total) and both concept resolvers passed anonymous verification. Sanitized Zenodo readback receipt SHA-256: `9BB309CF8B5DF08D28FC8D89B6D3B9C27E60D3A112ACA52573D6E5FA5A335897`.
+
 This source tree builds the separate English and French cumulative readers and preserves the editable, source-aligned work files used in the maintained release.
 
 ## Coverage

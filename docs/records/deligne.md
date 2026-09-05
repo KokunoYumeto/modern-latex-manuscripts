@@ -8,6 +8,12 @@ Every exact tracked-source path and the payload documentation path passed anonym
 
 This maintained sparse corpus adds complete D033 after D031 and before D034 while preserving every inherited path. English is the original source-language edition and French is its translation. The cumulative readers contain 1,100 English and 1,113 French pages. The current cumulative PDFs and the two complete archives are release assets only; the historical in-tree cumulative PDFs remain unchanged.
 
+## Verified Zenodo preservation
+
+[Current Zenodo version 10.5281/zenodo.22314042](https://doi.org/10.5281/zenodo.22314042) · [Concept DOI](https://doi.org/10.5281/zenodo.20410853)
+
+Zenodo successor 22314042 carries the same six D033 release files, totaling 3,311,976,015 bytes. Every file was anonymously downloaded to EOF and matched its byte count, MD5, and SHA-256 identity; both the concept DOI and the Zenodo concept-record URL resolved to this successor. Sanitized readback receipt SHA-256: `9BB309CF8B5DF08D28FC8D89B6D3B9C27E60D3A112ACA52573D6E5FA5A335897`.
+
 [Current GitHub release](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/deligne-d033-gapfill-20260904)
 
 | File | Bytes | SHA-256 |
