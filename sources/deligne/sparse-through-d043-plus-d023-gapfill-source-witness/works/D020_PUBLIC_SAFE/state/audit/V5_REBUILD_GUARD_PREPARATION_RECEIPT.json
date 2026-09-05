@@ -1,0 +1,105 @@
+{
+  "schema": "D020_V5_REBUILD_GUARD_PREPARATION_V1",
+  "status": "PASS_READY_FOR_ONE_PRODUCTION_INVOCATION",
+  "production_was_run": false,
+  "tex_engine_launched": false,
+  "live_production_mutex_opened_or_probed": false,
+  "workspace": "work/S06_math_v5",
+  "launch": {
+    "working_directory": "work/S06_math_v5",
+    "argv": [
+      "<BUNDLED_PYTHON>/python.exe",
+      "-B",
+      "tools/rebuild_v5_pdfs_guarded.py"
+    ],
+    "mutex_timeout_ms": 1200000,
+    "per_tree_timeout_ms": 1200000,
+    "production_receipt": "audit/V5_TEX_REBUILD_RECEIPT.json",
+    "production_stage": "build/V5_GUARDED_REBUILD",
+    "production_receipt_present_at_preparation": false,
+    "production_stage_present_at_preparation": false
+  },
+  "mutex_contract": {
+    "name": "Global\\InterlanguageTeXSlotV1",
+    "single_acquisition_for_complete_rebuild": true,
+    "scope": "all six XeLaTeX trees, immediate log checks, PDF page/image checks, and transactional promotion",
+    "abandoned_mutex_recorded": true,
+    "durable_pass_only_after_confirmed_release": true,
+    "bounded_wait_range": "1..0xFFFFFFFE"
+  },
+  "job_contract_per_tex_tree": {
+    "aggregate_job_memory_limit_bytes": 2147483648,
+    "limit_flags_hex": "0x00002200",
+    "job_memory_limit": true,
+    "kill_on_close": true,
+    "creation_flags_hex": "0x08000404",
+    "created_suspended": true,
+    "assigned_before_resume": true,
+    "breakaway_enabled": false,
+    "tree_accounted_to_zero_active_processes": true,
+    "peak_job_memory_written_per_pass": true
+  },
+  "promotion_contract": {
+    "artifacts": [
+      "source_language.pdf",
+      "english_standalone.pdf",
+      "apparatus.pdf"
+    ],
+    "method": "verified same-volume directory swap",
+    "prior_set_preserved": true,
+    "rollback_on_second_swap_failure": true,
+    "destination_hash_equality_required": true,
+    "tex_logs_auxiliaries_and_private_build_material_promoted": false
+  },
+  "executables": [
+    {
+      "role": "launcher",
+      "name": "python.exe",
+      "bytes": 104264,
+      "sha256": "7679E53FA969789309E81FDAD0D52B8CDA5F83C9ABF7CB31A3C58BF24B31E264"
+    },
+    {
+      "role": "tex_engine",
+      "name": "xelatex.exe",
+      "bytes": 1533440,
+      "sha256": "1C3628BC7C96ED4F52B1F0AB6494225FDD5EE7914D8D3DB0E13B302E258F3326"
+    }
+  ],
+  "scripts": [
+    {
+      "path": "tools/rebuild_v5_pdfs_guarded.py",
+      "bytes": 32343,
+      "sha256": "CC30B7CD1401283E4BFD02585F7478AA7615F9097EEF28C3F5A15EB734E04407"
+    },
+    {
+      "path": "tools/test_rebuild_v5_pdfs_guarded.py",
+      "bytes": 8297,
+      "sha256": "DDE1369615F2FD453907327E5A8B9D0870772FA5446F5DFD4859AAF12CE3CE2A"
+    }
+  ],
+  "harmless_non_tex_tests": {
+    "status": "PASS",
+    "checks": 13,
+    "python_process_trees": 4,
+    "nested_captured_processes": 3,
+    "queried_job_memory_limit_bytes": 2147483648,
+    "observed_peak_job_memory_used_bytes_max": 15736832,
+    "timeout_tree_empty": true,
+    "transactional_pdf_set_promotion": "PASS",
+    "injected_second_swap_rollback": "PASS",
+    "invalid_waits_rejected_before_mutex_api": [
+      0,
+      4294967295,
+      4294967296
+    ],
+    "isolated_unique_mutex_api_test": "PASS",
+    "live_production_mutex_invoked": false,
+    "tex_engine_launched": false
+  },
+  "independent_code_audit": {
+    "status": "PASS",
+    "reviewed_current_script_hashes": true,
+    "findings_remaining": 0
+  },
+  "next_executable_action": "After the current foreign TeX owner completes, run the exact one-shot launcher once. Do not pre-probe the live mutex and do not restart if its state becomes uncertain; use the fixed receipt and stage as the durable state."
+}

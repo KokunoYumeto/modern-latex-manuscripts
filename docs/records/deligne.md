@@ -1,3 +1,22 @@
+# Deligne D020 gap-fill GitHub delivery
+
+This maintained sparse corpus adds complete D020 after D019 and before D021 while preserving every inherited path. French is the source-language edition and English is its standalone translation. The cumulative readers contain 1,135 English and 1,148 French pages. The current cumulative PDFs and the two complete archives are release assets only; the historical in-tree cumulative PDFs remain unchanged.
+
+[Current GitHub release](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/deligne-d020-gapfill-20260905)
+
+| File | Bytes | SHA-256 |
+|---|---:|---|
+| [Deligne_EN.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d020-gapfill-20260905/Deligne_EN.pdf) | 139043263 | `FD26EDB2339C8701BB11986539303B48801560ABCE4E3824FA13F4CC04B58DCD` |
+| [Deligne_FR.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d020-gapfill-20260905/Deligne_FR.pdf) | 139049278 | `CC92E97DA7576C0B2F8C6AC6030A91639BFE4790C143C21AD88576C5DFC27A0E` |
+| [Deligne_EN.tex](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d020-gapfill-20260905/Deligne_EN.tex) | 8215 | `45179E3141ADF3C871091AC2DDB32DE91E2F86214A1616F30EA3F3E2E626150E` |
+| [Deligne_FR.tex](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d020-gapfill-20260905/Deligne_FR.tex) | 8593 | `70697375368D767D7E2D8CC8AEE7DC08A09B55CDBA1CB3B4C81A175ABF7AB54D` |
+| [Deligne_Source.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d020-gapfill-20260905/Deligne_Source.zip) | 2036747742 | `116D71E554E478D3C6720F195B2D9A15B41F1A64422E555696441E90AA1F2594` |
+| [DELIGNE_PROVENANCE_AUDIT_D020_GAPFILL.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/deligne-d020-gapfill-20260905/DELIGNE_PROVENANCE_AUDIT_D020_GAPFILL.zip) | 1219891680 | `F3A9A2C2F1AA1600C4495C9160C8D6C87E46FE07FAA2BA14FCF670C013A89AAD` |
+
+The tracked source delta is exactly 355 additions and four replacements. It includes the complete D020 public work/evidence tree and editable cumulative TeX, while excluding both cumulative PDFs from Git blobs. Coverage is D001-D023, D025-D031, D033-D036, D038-D040, and D043; the explicit gaps are D024, D032, D037, and D041-D042. No contiguous completion across those gaps is claimed.
+
+## Historical D033 documentation (not the current GitHub release)
+
 # Deligne D033 gap-fill GitHub delivery
 
 ## Verified GitHub publication
