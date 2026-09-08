@@ -1,0 +1,215 @@
+% Čest: teorija-modelov
+% Glava: modeli-aritmetiky
+% Odděl: modeli-teorije-Q
+
+\documentclass[../../../include/open-logic-section]{subfiles}
+
+\begin{document}
+
+\olfileid[isv]{mod}{mar}{mdq}
+\section{Modeli teorije $\Th{Q}$}
+
+\begin{explain}
+Znajemo, že sučstvujut nestandardne !!{structure}, ktore čine istinnymi
+te same !!{sentence} kako~$\Struct{N}$; drugymi slovami, one sųt modelami
+teorije~$\Th{TA}$. Poněže $\Sat{N}{\Th{Q}}$, vsaky model teorije~$\Th{TA}$
+takože jest modelom teorije~$\Th{Q}$. Teorija $\Th{Q}$ jest mnogo slabša
+od~$\Th{TA}$; na priměr,
+$\Th{Q} \Proves/ \lforall[x][\lforall[y][\eq[(x +
+      y)][(y+x)]]]$. Slabše teorije jest legše zadovoljiti: one imajut
+više modelov. Na priměr, $\Th{Q}$ imaje modele, v ktoryh
+$\lforall[x][\lforall[y][\eq[(x + y)][(y+x)]]]$ jest neistinno, no te
+modeli ne mogut byti takože modelami~$\Th{TA}$ ni~$\Th{PA}$. Modeli
+teorije~$\Th{Q}$ sųt takože otnosno prosti: možemo je opreděliti
+izravno.
+\end{explain}
+
+\begin{ex}
+\ollabel{ex:model-K-of-Q}
+Razsmotrimo !!{structure}~$\Struct{K}$ s domenom $\Domain{K} = \Nat
+\cup \{a\}$ i interpretacijami
+\begin{align*}
+  \Assign{\Obj{0}}{K} & = 0\\
+  \Assign{\prime}{K}(x) & =
+  \begin{cases}
+    x+1 & \text{ako $x\in \Nat$}\\
+    a & \text{ako $x = a$}
+  \end{cases}\\
+  \Assign{+}{K}(x, y) & =
+  \begin{cases}
+    x+y & \text{ako $x$, $y \in\Nat$}\\
+    a & \text{inače}
+  \end{cases}\\
+  \Assign{\times}{K}(x, y) & =
+  \begin{cases}
+    xy & \text{ako $x$, $y \in\Nat$}\\
+    0 & \text{ako $x = 0$ ili $y = 0$}\\
+    a & \text{inače}\\
+  \end{cases}\\
+  \Assign{<}{K} & =
+  \Setabs{\tuple{x,y}}{x, y \in \Nat \text{ i } x<y} \cup
+  \Setabs{\tuple{x,a}}{x \in \Domain{K}}
+\end{align*}
+Da by pokazati $\Sat{K}{\Th{Q}}$, trěba prověriti, že vse aksiomy
+teorije~$\Th{Q}$ sųt istinne v~$\Struct{K}$. Radi udobnosti pišimo
+$x^\nssucc$ vměsto $\Assign{\prime}{K}(x)$ (``naslědnik'' elementa $x$
+v~$\Struct{K}$), $x \nsplus y$ vměsto $\Assign{+}{K}(x, y)$ (``suma''
+elementov $x$ i $y$ v~$\Struct{K}$), $x \nstimes y$ vměsto
+$\Assign{\times}{K}(x, y)$ (``proizvod'' elementov $x$ i~$y$
+v~$\Struct{K}$) i $x \nsless y$ vměsto $\tuple{x,y} \in
+\Assign{<}{K}$. S tymi skraćenjami možemo operacije
+v~$\Struct{K}$ zapisati pregledněje kako
+\[
+\begin{array}{c|c}
+  x & x^\nssucc \\
+  \hline
+  n & n+1 \\
+  a & a
+\end{array}
+\qquad
+\begin{array}{c|ccc}
+  x \nsplus y & 0 & m & a \\
+  \hline
+  0 & 0 & m & a \\
+  n & n & n+m & a \\
+  a & a & a & a \\
+\end{array}
+\qquad
+\begin{array}{c|ccc}
+  x \nstimes y & 0 & m & a \\
+  \hline
+  0 & 0 & 0 & 0 \\
+  n & 0 & nm & a \\
+  a & 0 & a & a \\
+\end{array}
+\]
+Imamo $n \nsless m$ točno togda, kogda $n<m$, za $n$, $m \in \Nat$;
+takože $x \nsless a$ za vse~$x \in \Domain{K}$.
+
+$\Sat{K}{\lforall[x][\lforall[y][(\eq[x'][y'] \lif \eq[x][y])]]}$,
+poněže $\nssucc$ jest !!{injective}. Takože
+$\Sat{K}{\lforall[x][\eq/[\Obj 0][x']]}$, poněže $0$ ne jest
+$\nssucc$-naslědnikom v~$\Struct{K}$. Nakonec
+$\Sat{K}{\lforall[x][(\eq[x][\Obj 0] \lor \lexists[y][\eq[x][y']])]}$,
+poněže za vsako $n>0$ imamo $n = (n-1)^\nssucc$, a $a = a^\nssucc$.
+
+$\Sat{K}{\lforall[x][\eq[(x + \Obj 0)][x]]}$, poněže $n \nsplus 0 = n+0
+= n$, a $a\nsplus 0 = a$ po definiciji~$\nsplus$. Prověrka
+$\Sat{K}{\lforall[x][\lforall[y][\eq[(x + y')][(x + y)']]]}$ jest
+troha složnějša. Ako $n$ i $m$ oba sųt standardne, imamo:
+\begin{align*}
+(n \nsplus m^\nssucc) & = (n+(m+1)) = (n+m)+1 = (n \nsplus m)^\nssucc  
+\intertext{poněže $\nsplus$ i $^\nssucc$ sųt soglasne s $+$ i $\prime$ na
+  standardnyh čislah. Teper prědpoložimo $x \in \Domain{K}$. Togda}
+(x \nsplus a^\nssucc) & = (x \nsplus a) = a = a^\nssucc = (x \nsplus a)^\nssucc
+\intertext{Ostaje razpisati slučaj $x = a$ i standardnogo $y = n$.
+  Uglovy slučaj $x=y=a$ jest zaradi polnoty povtorjeny, hoti jego už
+  pokryvaje poprědny razčet:}
+(a \nsplus n^\nssucc) & = (a \nsplus (n+1)) = a = a^\nssucc = (a \nsplus n)^\nssucc\\
+(a \nsplus a^\nssucc) & = (a \nsplus a) = a = a^\nssucc = (a \nsplus a)^\nssucc
+\end{align*}
+To je, razuměje se, podrobněje než potrěbno. Na priměr, poněže
+$a \nsplus z = a$ nezavisno od~$z$, možemo izravno zaključiti
+$a \nsplus a^\nssucc = a$. Ostale aksiomy možno prověriti podobnym
+načinom.
+
+Tako $\Struct{K}$ jest modelom teorije~$\Th{Q}$. Jej
+``dodavanje''~$\nsplus$ jest takože komutativno. No sučstvujut druga
+izrečenja, ktore sųt istinne v~$\Struct{N}$ a neistinne v~$\Struct{K}$,
+i obratno. Na priměr, $a \nsless a$, tako že
+$\Sat{K}{\lexists[x][x < x]}$ i $\Sat/{K}{\lforall[x][\lnot x<x]}$.
+To pokazuje, že $\Th{Q} \Proves/ \lforall[x][\lnot x < x]$.
+\end{ex}
+
+\begin{prob}
+Dokažite, že $\Struct{K}$ iz 
+\olref[mod][mar][mdq]{ex:model-K-of-Q} zadovolnjaje ostale aksiomy
+teorije~$\Th{Q}$,
+\begin{align*}
+  & \lforall[x][\eq[(x \times \Obj 0)][\Obj 0]] \tag{$!Q_6$}\\
+  & \lforall[x][\lforall[y][\eq[(x \times y')][((x \times y) + x)]]] \tag{$!Q_7$}\\
+  & \lforall[x][\lforall[y][(x < y \liff \lexists[z][\eq[(z' + x)][y]])]] \tag{$!Q_8$}
+\end{align*}
+Najdite !!a{sentence}, v ktorom nastupaje samo~$\prime$, istinno
+v~$\Struct{N}$, ale neistinno v~$\Struct{K}$.
+\end{prob}
+
+\begin{ex}
+\ollabel{ex:model-L-of-Q} Razsmotrimo !!{structure}~$\Struct{L}$ s
+domenom $\Domain{L} = \Nat \cup \{a, b\}$ i interpretacijami
+$\Assign{\Obj{0}}{L}=0,\quad \Assign{\prime}{L} = \nssucc$ i
+$\Assign{+}{L} = \nsplus$, zadanymi tabelami
+\[
+\begin{array}{c|c}
+  x & x^\nssucc \\
+  \hline
+  n & n+1 \\
+  a & a\\
+  b & b
+\end{array}
+\qquad
+\begin{array}{c|ccc}
+  x \nsplus y & m & a & b\\
+  \hline
+  n & n+m & b & a\\
+  a & a & b & a\\
+  b & b & b & a
+\end{array}
+\]
+Poněže $\nssucc$ jest !!{injective}, $0$ ne naleži do jej obraza, a
+vsaky $x \in \Domain{L}$ različny od~$0$ do njega naleži, aksiomy
+$!Q_1$--$!Q_3$ sųt istinne v~$\Struct{L}$. Za vsako $x$ imamo
+$x \nsplus 0 = x$, tako že $!Q_4$ takože jest istinna. Dla~$!Q_5$
+razsmotrimo $x \nsplus y^\nssucc$ i $(x \nsplus y)^\nssucc$. Oni sųt
+ravni, ako $x$ i $y$ oba sųt standardne, poněže togda $\nssucc$ i
+$\nsplus$ sųt soglasne s $\prime$ i $+$. Ako $x$ jest nestandardny, a
+$y$ standardny, imamo $x \nsplus y^\nssucc = x =
+x^\nssucc = (x \nsplus y)^\nssucc$. Ako $x$ i $y$ oba sųt
+nestandardne, imamo četyri slučaje:
+\begin{align*}
+&  a \nsplus a^\nssucc  = b = b^\nssucc = (a \nsplus a)^\nssucc\\
+&  b \nsplus b^\nssucc  = a = a^\nssucc = (b \nsplus b)^\nssucc\\
+&  b \nsplus a^\nssucc  = b = b^\nssucc = (b \nsplus a)^\nssucc\\
+&  a \nsplus b^\nssucc  = a = a^\nssucc = (a \nsplus b)^\nssucc\\
+\intertext{Ako $x$ jest standardny, ale $y$ nestandardny, imamo}
+&  n \nsplus a^\nssucc  = n \nsplus a = b = b^\nssucc = (n \nsplus a)^\nssucc\\
+&  n \nsplus b^\nssucc  = n \nsplus b = a = a^\nssucc = (n \nsplus b)^\nssucc
+\end{align*}
+Zato $\Sat{L}{!Q_5}$. Však $a \nsplus 0 \neq 0 \nsplus a$, tako že
+$\Sat/{L}{\lforall[x][\lforall[y][\eq[(x+y)][(y+x)]]]}$.
+\end{ex}
+
+\begin{prob}
+Razširite $\Struct{L}$ iz 
+\olref[mod][mar][mdq]{ex:model-L-of-Q} operacijami $\nstimes$ i
+$\nsless$, ktore interpretujut~$\times$ i $<$. Pokažite, že polučena
+!!{structure} zadovolnjaje ostale aksiomy teorije~$\Th{Q}$,
+\begin{align*}
+& \lforall[x][\eq[(x \times \Obj 0)][\Obj 0]] \tag{$!Q_6$}\\ &
+  \lforall[x][\lforall[y][\eq[(x \times y')][((x \times y) + x)]]]
+  \tag{$!Q_7$}\\ & \lforall[x][\lforall[y][(x < y \liff \lexists[z][\eq[(z'+x)][y]])]] \tag{$!Q_8$}
+\end{align*}
+\end{prob}
+
+\begin{prob}
+V~$\Struct{L}$ iz 
+\olref[mod][mar][mdq]{ex:model-L-of-Q} imamo $a^\nssucc
+= a$ i $b^\nssucc = b$. Sučstvuje li model teorije~$\Th{Q}$, v ktorom
+$a^\nssucc = b$ i $b^\nssucc = a$?
+\end{prob}
+
+\begin{explain}
+My izravno skonstruovali modele teorije~$\Th{Q}$, v ktoryh
+nestandardne !!{element}y ležet ``za'' standardnymi elementami. V
+sučnosti to slěduje už iz samyh aksiom. Nestandardny !!{element}~$x$
+ne može byti ${} \nsless 0$, poněže $\Th{Q} \Proves
+\lforall[x][\lnot x<0]$ (vidite 
+\olref[inc][req][min]{lem:less-zero}). Takože za vsako $n$ imamo
+$\Th{Q} \Proves \lforall[x][(x < \num{n}' \lif
+(\eq[x][\num{0}] \lor \eq[x][\num{1}] \lor \dots \lor
+\eq[x][\num{n}]))]$ (
+\olref[inc][req][min]{lem:less-nsucc}), zato $a \nsless n$ ne može
+važiti za nikakovo~$n>0$.
+\end{explain}
+
+\end{document}

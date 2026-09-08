@@ -1,0 +1,73 @@
+% Čest: teorija-modelov
+% Glava: modeli-aritmetiky
+% Odděl: vvod
+
+\documentclass[../../../include/open-logic-section]{subfiles}
+
+\begin{document}
+
+\olfileid[isv]{mod}{mar}{int}
+\section{Vvod}
+
+\emph{Standardny model aritmetiky} jest
+!!{structure}~$\Struct{N}$ s $\Domain{N} = \Nat$, v ktorej
+$\Obj{0}$, $\prime$, $+$, $\times$ i $<$ imajut svoje obyčne
+interpretacije. To znači, že $\Obj{0}$ jest $0$, $\prime$ jest funkcija
+naslědnika, $+$ jest interpretovano kako dodavanje (sčitanje), a $\times$ kako
+množenje čisl v~$\Nat$. Konkretno,
+\begin{align*}
+  \Assign{\Obj{0}}{N} & = 0\\
+  \Assign{\prime}{N}(n) & = n + 1\\
+  \Assign{+}{N}(n, m) & = n + m\\
+  \Assign{\times}{N}(n, m) & = nm
+\end{align*}
+Razuměje se, sučstvujut i struktury za $\Lang{L_A}$ s domenami
+drugymi než~$\Nat$. Na priměr, možemo vzeti $\Struct{M}$ s domenom
+$\Domain{M} = \{a\}^*$ (konečne nizy jednogo
+simbola~$a$, t.j. prazdny niz~$\Lambda$, $a$, $aa$, $aaa$, \dots) i slědujućimi
+interpretacijami:
+\begin{align*}
+  \Assign{\Obj{0}}{M} & = \Lambda\\
+  \Assign{\prime}{M}(s) & = s \concat a\\
+  \Assign{+}{M}(a^n, a^m) & = a^{n + m}\\
+  \Assign{\times}{M}(a^n, a^m) & = a^{nm}\\
+  \Assign{<}{M} & = \Setabs{\tuple{a^n,a^m}}{n < m}
+\end{align*}
+Te dvě struktury sųt ``v osnově jednake'' v tom smyslu, že jedina
+razlika jest v !!{element}ah njihovih !!{domain}ov, a ne v tom, kako
+!!{element}y tih !!{domain}ov sųt medžu soboju povezane
+interpretacijskymi funkcijami. Govorimo, že te dvě !!{structure}y sųt
+\emph{izomorfne}.
+
+Iz teoremy kompaktnosti neposrědno slěduje, že vsaka teorija,
+ktorej vse izrečenja sųt istinne v~$\Struct{N}$, imaje i modele, ktore
+ne sųt izomorfne s~$\Struct{N}$. Takove struktury nazyvajut se
+\emph{nestandardnymi}. Zanimljivo jest, že !!{element}y standardnogo
+modela (t.j. $\Struct{N}$, ale takože vse !!{structure}y izomorfne s
+njim) sųt izčrpane značenjami standardnyh numeralov~$\num{n}$, t.j.,
+\[
+\Domain{N} = \Setabs{\Value{\num{n}}{N}}{n \in \Nat}
+\]
+dok v nestandardnyh modelah to ne jest tako: ako $\Struct{M}$ jest
+nestandardny, togda sučstvuje prinajmenje jedin $x \in \Domain{M}$ takovy,
+že $x \neq \Value{\num{n}}{M}$ za vsaky~$n$.
+
+Te nestandardne elementy sųt dost zanimljive: oni sųt ``bezkonečne
+prirodne čisla''. No njihovo sučstvovanje takože, v někojem smyslu,
+objasnjaje pojavy nepolnoty. Razsmotrimo, na priměr, tvrdženje o
+nesprotivnosti Peanovoj aritmetiky, $\OCon[\Th{PA}]$, t.j. $\lnot
+\lexists[x][\OPrf[\Th{PA}](x, \gn{\lfalse})]$. Poněže $\Th{PA}$ ne
+dokazyvaje ni $\OCon[\Th{PA}]$, ni $\lnot \OCon[\Th{PA}]$, vsako iz
+njih možno bez protivrěčnosti dodati k~$\Th{PA}$. Poněže $\Th{PA}$ jest
+nesprotivna, $\Sat{N}{\OCon[\Th{PA}]}$, i slědovateljno
+$\Sat/{N}{\lnot \OCon[\Th{PA}]}$. Zato $\Struct{N}$ \emph{ne} jest
+modelom teorije $\Th{PA} \cup \{\lnot \OCon[\Th{PA}]\}$, i vsi modeli
+toj teorije morajut byti nestandardne. Modeli $\Th{PA} \cup \{\lnot
+\OCon[\Th{PA}]\}$ morajut sodržati něktory !!{element}, ktory služi
+kako svědok i čini $\lexists[x][\OPrf[\Th{PA}](x, \gn{\lfalse})]$
+istinnym, t.j. G\"odelovo čislo, ktore koduje !!a{derivation}
+protivrěčnosti iz~$\Th{PA}$. Takovy !!a{element} ne može byti
+standardny---poněže $\Th{PA} \Proves \lnot
+\OPrf[\Th{PA}](\num{n}, \gn{\lfalse})$ za vsaky~$n$.
+
+\end{document}

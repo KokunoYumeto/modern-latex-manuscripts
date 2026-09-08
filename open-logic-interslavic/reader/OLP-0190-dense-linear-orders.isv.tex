@@ -1,0 +1,92 @@
+% Čest: logika-prvogo-reda
+% Glava: teorija-modelov
+% Odděl: gųsty-linearny-poredok
+
+\documentclass[../../../include/open-logic-section]{subfiles}
+
+\begin{document}
+
+\olfileid[isv]{mod}{bas}{dlo}
+\section{Gųste linearne poredky}
+
+\begin{defn}
+  \emph{Gųsty linearny poredok bez krajnyh elementov} (to jest bez
+  najmenšego i največšego elementa) jest !!a{structure}
+  $\Struct{M}$ dla !!{language}, ktory sodrži jediny dvoměstny
+  !!{predicate}~$<$ i izpolnjaje slědujuče izrečenja:
+  \begin{enumerate}
+  \item $\lforall[x][\lnot x < x]$;
+  \item $\lforall[x][\lforall[y][\lforall[z][(x < y \lif (y < z \lif x
+    <z ))]]]$;
+  \item $\lforall[x][\lforall[y][(x< y \lor \eq[x][y] \lor y < x)]]$;
+  \item $\lforall[x][\lexists[y][x < y]]$;
+  \item $\lforall[x][\lexists[y][y < x]]$;
+  \item $\lforall[x][\lforall[y][(x < y \lif \lexists[z][(x < z \land
+        z < y))]]]$.
+ \end{enumerate}
+\end{defn}
+
+\begin{thm}\ollabel{thm:cantorQ}
+  Libo-ktore dva !!{enumerable} gųste linearne poredky bez krajnyh
+  elementov sųt izomorfne.
+\end{thm}
+
+\begin{proof}
+  Nehaj $\Struct{M_1}$ i $\Struct{M_2}$ budut !!{enumerable} gųste
+  linearne poredky bez krajnyh elementov, pri čem ${<_1} =
+  \Assign{<}{M_1}$ i ${<_2} = \Assign{<}{M_2}$, i nehaj $\PIso{I}$
+  bude množstvo vsih čestičnyh izomorfizmov medžu njimi. Množstvo
+  $\PIso{I}$ ne jest pusto, ibo $\emptyset \in \PIso{I}$. Dokažemo,
+  že $\PIso{I}$ izpolnjaje svojstvo prodolženja naprěd i nazad. Togda
+  $\Struct{M_1} \iso[p] \Struct{M_2}$, a teorema slěduje iz
+  \olref[pis]{thm:p-isom1}.
+
+  Aby dokazati, že $\PIso{I}$ izpolnjaje svojstvo Naprěd, nehaj $p \in
+  \PIso{I}$. Ako funkcija p ne jest pusta, zapišemo jej pary v obliku
+  $p(a_i) = b_i$ dla $i = 1$, \dots,~$n$. Bez izguby obćnosti
+  prědpoložimo, že $a_1 <_1 a_2 <_1 \cdots <_1 a_n$. Dla danogo
+  $a \in \Domain{M_1}$ postupujemo tako. Ako funkcija jest pusta,
+  izberemo proizvoljny element iz domena drugoj struktury i označimo
+  jego bukvoju b. Ako dany element uže naleži domenu funkcije, sama
+  funkcija jest potrěbno prodolženje. V ostalih slučajah najdemo
+  $b \in \Domain{M_2}$ slědujućim načinom:
+  \begin{enumerate}
+  \item ako $a <_1 a_1$, izberemo $b \in \Domain{M_2}$ tako, že
+    $b <_2 b_1$;
+  \item ako $a_n <_1 a$, izberemo $b \in \Domain{M_2}$ tako, že
+    $b_n <_2 b$;
+ \item ako $a_i <_1 a <_1 a_{i+1}$ dla něktorogo $i$, togda izberemo
+   $b \in \Domain{M_2}$ tako, že $b_i <_2 b <_2 b_{i+1}$.
+  \end{enumerate}
+  Vsegda možno najdti $b$ s potrěbnym svojstvom, ibo $\Struct{M_2}$
+  jest gųsty linearny poredok bez krajnyh elementov. Kogda trěba dodati
+  novy element, definirujemo $q = p \cup \{ \langle a, b \rangle \}$;
+  togda $q \in \PIso{I}$ jest potrěbno prodolženje funkcije~$p$. Tym
+  jest dokazano svojstvo Naprěd.
+  Svojstvo Nazad dokazujemo podobno. Zato $\Struct{M_1} \iso[p]
+  \Struct{M_2}$; po \olref[pis]{thm:p-isom1}, $\Struct{M_1} \iso
+  \Struct{M_2}$.
+\end{proof}
+
+\begin{prob}
+  Dopolnite dokaz \olref[mod][bas][dlo]{thm:cantorQ}, prověrivši, že
+  $\PIso{I}$ izpolnjaje svojstvo Nazad.
+\end{prob}
+
+\begin{rem}
+  Nehaj $\Struct{S}$ bude libo-ktory !!{enumerable} gųsty linearny
+  poredok bez krajnyh elementov. Togda (po \olref{thm:cantorQ})
+  $\Struct{S} \iso \Struct{Q}$, kde $\Struct{Q} = (\Rat, <)$ jest
+  !!a{enumerable} gųsty linearny poredok, čijim domenom jest množstvo
+  $\Rat$ racionaľnyh čisl. Razsmotrimo opět
+  !!{structure}~$\Struct{R} = (\Real, <)$ iz \olref[thm]{remark:R}.
+  Viděli jesmo, že sučstvuje !!a{enumerable} !!{structure}~$\Struct{S}$
+  tako, že $\Struct{R} \elemequiv \Struct{S}$. No $\Struct{S}$ jest
+  !!a{enumerable} gųsty linearny poredok bez krajnyh elementov, zato
+  ona jest izomorfna (a slědovateljno i elementarno ekvivalentna)
+  !!{structure}~$\Struct{Q}$. Po tranzitivnosti elementarnoj
+  ekvivalentnosti, $\Struct{R} \elemequiv \Struct{Q}$. (Mogli bysmo to
+  dokazati i prěmo, ustanovivši $\Struct{R} \iso[p] \Struct{Q}$ tym
+  samym argumentom prodolženja naprěd i nazad.)
+\end{rem}
+\end{document}
