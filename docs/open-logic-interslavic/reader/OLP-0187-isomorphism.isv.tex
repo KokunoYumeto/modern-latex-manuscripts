@@ -1,0 +1,135 @@
+% Čest: logika-prvogo-reda
+% Glava: teorija-modelov
+% Odděl: izomorfizm
+
+\documentclass[../../../include/open-logic-section]{subfiles}
+
+\begin{document}
+
+\olfileid[isv]{mod}{bas}{iso}
+\olsection{Izomorfne struktury}
+
+!!{structure}s logiky prvogo reda mogut byti podobne na dva načina.
+Jedin način podobnosti jest, že v njih su istinne te same
+!!{sentence}s. Takove !!{structure}s nazyvajemo
+\emph{elementarno ekvivalentnymi}. No struktury mogut se mnogo
+razlikovati i vseže iměti istinne te same !!{sentence}s---
+na priměr, jedna može byti !!{enumerable}, a druga ne. To jest zato, že
+sučstvuje mnogo svojstv !!a{structure}, ktore ne mogut byti izražene
+v jezykah prvogo reda, ili zato, že jezyk ne jest dostatočno bogaty,
+ili iz-za fundamentalnyh ograničenij logiky prvogo reda, kako teorema
+L\"owenheima--Skolema. Drugy, strožši način podobnosti
+!!{structure}s jest, že one sųt v osnově jednake: razlikujut se jedino
+objektami, iz ktoryh sųt sostavljene, a ne svojimi strukturnymi
+svojstvami. To možno precizno izraziti pojmom \emph{izomorfizma}.
+
+\begin{defn}
+\ollabel{defn:elem-equiv} 
+Dane sųt dve !!{structure}s $\Struct{M}$ i $\Struct M'$ jednogo
+!!{language}~$\Lang{L}$. Govorimo, že $\Struct{M}$ jest
+\emph{elementarno ekvivalentna} strukturi $\Struct M'$, i pišemo
+$\Struct{M} \equiv \Struct M'$, togda i samo togda, kogda dla vsakogo
+!!{sentence}~$!A$ jezyka~$\Lang{L}$,
+$\Sat{M}{!A}$ togda i samo togda, kogda $\Sat{M'}{!A}$.
+\end{defn}
+
+\begin{defn}
+\ollabel{defn:isomorphism} Dane sųt dve !!{structure}s $\Struct{M}$ i
+$\Struct M'$ jednogo !!{language}~$\Lang L$. Govorimo, že
+$\Struct{M}$ jest \emph{izomorfna} strukturi $\Struct M'$, i pišemo $\Struct{M}
+\simeq \Struct M'$, togda i samo togda, kogda sučstvuje funkcija $h
+\colon \Domain{M} \to \Domain{M'}$ taka, že:
+\begin{enumerate}
+\item $h$ jest !!{injective}: ako $h(x) =
+  h(y)$, togda $x = y$; 
+\item $h$ jest !!{surjective}: dla vsakogo $y \in \Domain{M'}$
+  sučstvuje $x \in \Domain{M}$ tako, že $h(x) = y$;
+\item \ollabel{defn:iso-const}dla vsakoj !!{constant} $c$:
+  $h(\Assign{c}{M}) = \Assign{c}{M'}$;
+\item \ollabel{defn:iso-pred}dla vsakogo $n$-městnogo !!{predicate}~$P$:
+  \[
+  \tuple{a_1, \dots, a_n}\in \Assign{P}{M} \quad\text{togda i samo togda, kogda}\quad
+  \tuple{h(a_1), \dots, h(a_n)} \in \Assign{P}{M'};
+  \]
+\item \ollabel{defn:iso-func}dla vsakoj $n$-městnoj !!{function} $f$:
+  \[
+  h(\Assign{f}{M}(a_1, \dots, a_n)) =
+  \Assign{f}{M'}(h(a_1), \dots, h(a_n)).
+  \]
+\end{enumerate}
+\end{defn}
+
+\begin{thm}
+\ollabel{thm:isom}
+Ako $\Struct{M} \iso \Struct M'$, togda $\Struct{M} \elemequiv
+\Struct{M'}$.
+\end{thm}
+
+\begin{proof}
+Nehaj $h$ bude izomorfizmom struktury $\Struct{M}$ na strukturu
+$\Struct M'$. Dla vsakogo prisvajanja~$s$, $h \circ s$ jest
+kompozicija funkcij $h$ i $s$, t.j. prisvajanje v $\Struct{M'}$ tako,
+že $(h \circ s)(x) = h(s(x))$. Indukcijeju po složenosti $t$ i $!A$
+možno dokazati slědujuće silnějše tvrđenja:
+\begin{enumerate}
+  \item[a.] $h(\Value{t}{M}[s]) = \Value{t}{M'}[h\circ s]$.
+  \item[b.] $\Sat{M}{!A}[s]$ togda i samo togda, kogda $\Sat{M'}{!A}[h \circ s]$.
+\end{enumerate}
+Prvo tvrđenje dokazyvaje se indukcijeju po složenosti~$t$.
+\begin{enumerate}
+\item Ako $t \ident c$, togda $\Value{c}{M}[s] = \Assign{c}{M}$ i
+  $\Value{c}{M'}[h \circ s] = \Assign{c}{M'}$. Zato
+  $h(\Value{t}{M}[s]) = h(\Assign{c}{M}) = \Assign{c}{M'}$ (po
+  \olref{defn:iso-const} iz \olref{defn:isomorphism}) $=
+  \Value{t}{M'}[h \circ s]$.
+\item Ako $t \ident x$, togda $\Value{x}{M}[s] = s(x)$ i
+  $\Value{x}{M'}[h \circ s] = h(s(x))$. Zato $h(\Value{x}{M}[s]) =
+  h(s(x)) = \Value{x}{M'}[h \circ s]$.
+\item Ako $t \ident f(t_1, \dots, t_n)$, togda
+  \begin{align*}
+    \Value{t}{M}[s] & = \Assign{f}{M}(\Value{t_1}{M}[s], \dots, \Value{t_n}{M}[s]) \quad\text{i}\\
+  \Value{t}{M'}[h \circ s] & = \Assign{f}{M'}(\Value{t_1}{M'}[h \circ
+    s], \dots, \Value{t_n}{M'}[h \circ s]).
+  \end{align*}
+  Indukcijska hipoteza govori, že dla vsakogo $i$, $h(\Value{t_i}{M}[s])
+  = \Value{t_i}{M'}[h\circ s]$. Zato
+  \begin{align}
+    h(\Value{t}{M}[s]) 
+    & = h(\Assign{f}{M}(\Value{t_1}{M}[s], \dots, \Value{t_n}{M}[s]))\notag\\
+    & = \Assign{f}{M'}(h(\Value{t_1}{M}[s]), \dots,
+    h(\Value{t_n}{M}[s])) \ollabel{iso-1}\\
+    & = \Assign{f}{M'}(\Value{t_1}{M'}[h \circ s], \dots,
+    \Value{t_n}{M'}[h \circ s]) \ollabel{iso-2}\\
+    & = \Value{t}{M'}[h\circ s] \notag
+  \end{align}
+  Tut \olref{iso-1} slěduje iz \olref{defn:iso-func} definicije
+  \olref{defn:isomorphism}, a \olref{iso-2} iz indukcijske hipotezy.
+\end{enumerate}
+Dokaz česti (b) ostavljajemo kako zadanje.
+
+Ako $!A$ jest izrečenje, prisvajanja~$s$ i $h \circ s$ ne imajut
+vliva, i imajemo $\Sat{M}{!A}$ togda i samo togda, kogda
+$\Sat{M'}{!A}$.
+\end{proof}
+
+\begin{prob}
+Izvedite podrobny dokaz česti (b) iz
+\olref[mod][bas][iso]{thm:isom}. Ne zabudte ukazati, kde jest
+upotrěbljeno vsako iz pěti svojstv, ktore harakterizujut izomorfizmy
+iz \olref[mod][bas][iso]{defn:isomorphism}.
+\end{prob}
+
+\begin{defn}
+\emph{Avtomorfizm} struktury $\Struct{M}$ jest izomorfizm struktury
+$\Struct{M}$ na samu sebe.
+\end{defn}
+
+\begin{prob}
+Dokažite, že dla vsakoj struktury $\Struct{M}$, ako $X$ jest
+definovateljno podmnožstvo struktury $\Struct{M}$, a $h$ jest
+avtomorfizm struktury $\Struct{M}$, togda $X = \Setabs{h(x)}{x \in X}$
+(t.j. $X$ ostavaje neizměnno pri $h$).
+\end{prob}
+
+
+\end{document}

@@ -1,0 +1,277 @@
+% Čest: logika-prvogo-reda
+% Glava: modeli-aritmetiky
+% Odděl: modeli-teorije-PA
+
+\documentclass[../../../include/open-logic-section]{subfiles}
+
+\begin{document}
+
+\olfileid[isv]{mod}{mar}{mpa}
+\section{Modeli teorije $\Th{PA}$}
+
+\begin{explain}
+Vsaky nestandardny model teorije~$\Th{TA}$ jest takože modelom
+teorije~$\Th{PA}$. Znajemo, že sučstvujut nestandardne modeli
+teorije~$\Th{TA}$, a zato i teorije~$\Th{PA}$. Takože znajemo, že takove
+nestandardne modeli sodržet nestandardne ``čisla,'' t.j. !!{element}y
+domena, ktore sųt ``za'' vsimi standardnymi ``čislami.'' Ale kako oni
+sųt razpoređeni? Koliko jih jest? Viděli jesmo, že modeli slabšoj
+teorije~$\Th{Q}$ mogut sodržati samo jedno nestandardno čislo. No te
+proste !!{structure}y ne sųt modelami teorije~$\Th{PA}$ ni~$\Th{TA}$.
+
+Ključem k razuměnju struktury modelov teorije~$\Th{PA}$ ili~$\Th{TA}$
+jest razsmotrěti, ktore fakty sųt v tyh teorijah !!{derivable}. Na
+priměr, uže $\Th{PA}$ dokazuje, že
+$\lforall[x][\eq/[x][x']]$ i
+$\lforall[x][\lforall[y][\eq[(x+y)][(y+x)]]]$. Zato proste struktury
+(v ktoryh te !!{sentence}s ne sųt istinne) ne mogut byti modelami
+teorije~$\Th{PA}$.
+
+Prědpoložimo, že~$\Struct{M}$ jest modelom teorije~$\Th{PA}$. Togda iz
+$\Th{PA} \Proves !A$ slěduje $\Sat{M}{!A}$. Opět koristajmo $\nszero$
+za $\Assign{\Obj{0}}{M}$, $\nssucc$ za $\Assign{\prime}{M}$, $\nsplus$
+za $\Assign{+}{M}$, $\nstimes$ za $\Assign{\times}{M}$ i $\nsless$ za
+$\Assign{<}{M}$. Vsako !!{sentence}~$!A$ togda izrěka někoje svojstvo
+$\nszero$, $\nssucc$, $\nsplus$, $\nstimes$ i $\nsless$; ako
+$\Sat{M}{!A}$, to svojstvo mora byti izpolnjeno. Na priměr, ako
+$\Sat{M}{!Q_1}$, t.j.,
+$\Sat{M}{\lforall[x][\lforall[y][(\eq[x'][y'] \lif \eq[x][y])]]}$,
+togda $\nssucc$ mora byti !!{injective}.
+\end{explain}
+
+\begin{prop}
+V~$\Struct{M}$ relacija~$\nsless$ jest strogy linearny poredok, t.j.
+ona izpolnjaje slědujuče svojstva:
+\begin{enumerate}
+\item $x \nsless x$ ne važi za nikakovo~$x \in \Domain{M}$.
+\item Ako $x \nsless y$ i $y \nsless z$, togda $x \nsless z$.
+\item Za libo-ktore $x \neq y$ važi $x \nsless y$ ili $y \nsless x$.
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+$\Th{PA}$ dokazuje:
+\begin{enumerate}
+\item $\lforall[x][\lnot x < x]$
+\item $\lforall[x][\lforall[y][\lforall[z][((x < y \land y < z) \lif x < z)]]]$
+\item $\lforall[x][\lforall[y][((x < y \lor y < x) \lor \eq[x][y])]]$
+\end{enumerate}
+\end{proof}
+
+\begin{prop}
+\ollabel{prop:M-discrete} $\nszero$ jest najmenši !!{element}
+domena~$\Domain{M}$ v poredku~$\nsless$. Za vsako $x$ važi $x \nsless
+x^\nssucc$, i $x^\nssucc$ jest $\nsless$-najmenši !!{element} s tym
+svojstvom. Za vsaky $x$ različny od nuly sučstvuje jedinstveny~$y$
+takovy, že $y^\nssucc = x$. (Element~$y$ nazyvajemo
+``prědhodnikom'' elementa~$x$ v~$\Struct{M}$ i označujemo jego
+kako~$^\nssucc x$.)
+\end{prop}
+
+\begin{proof}
+Upražnjenje.
+\end{proof}
+
+\begin{prob}
+Najdite !!{sentence}s v~$\Lang{L_A}$, ktore sųt !!{derivable}
+v~$\Th{PA}$ (a zato istinne i v~$\Struct{N}$) i ktore garantujut
+svojstva $\nszero$, $\nssucc$ i $\nsless$ iz
+\olref[mod][mar][mpa]{prop:M-discrete}.
+\end{prob}
+
+\begin{prop}
+Vse standardne !!{element}y struktury~$\Struct{M}$ sųt menše (soglasno
+$\nsless$) od vsih nestandardnyh !!{element}ov.
+\end{prop}
+
+\begin{proof}
+Budemo pisati $n$ kako skraćenje za $\Value{\num{n}}{M}$, standardny
+!!{element} struktury~$\Struct{M}$. Uže $\Th{Q}$ dokazuje, že za vsako
+$n \in \Nat$ važi $\lforall[x][(x < \num{n}' \lif
+(\eq[x][\num{0}] \lor \eq[x][\num{1}] \lor \dots \lor
+\eq[x][\num{n}]))]$. Ne sučstvuje !!{element}, ktory jest $\nsless
+\nszero$. Zato, ako $n$ jest standardny, a $x$ nestandardny, ne može
+važiti $x \nsless n$. Po definiciji nestandardny element ne jest
+$\Value{\num{n}}{M}$ ni za jedno~$n \in \Nat$, zato takože $x \neq n$.
+Poněže $\nsless$ jest linearny poredok, mora važiti $n \nsless x$.
+\end{proof}
+
+\begin{prop}
+Vsaky nestandardny !!{element}~$x$ domena~$\Domain{M}$ jest elementom
+podmnožstva
+\[
+\dots ^{\nssucc\nssucc\nssucc}x \nsless ^{\nssucc\nssucc}x \nsless
+^{\nssucc}x \nsless x \nsless x^{\nssucc} \nsless x^{\nssucc\nssucc}
+\nsless x^{\nssucc\nssucc\nssucc} \nsless \dots
+\]
+To podmnožstvo nazyvajemo \emph{blokom elementa~$x$} i zapisujemo
+kako~$[x]$. Ono ne imaje najmenšego ni največšego !!{element}a. Možno
+je karakterizovati kako množstvo tyh $y \in \Domain{M}$, za ktore pri
+něktorom standardnom~$n$ važi $x \nsplus n = y$ ili $y \nsplus n = x$.
+Tuto poslednju karakterizaciju priměnjajemo takože k standardnym
+elementam; ona opreděljaje i standardny blok nuly.
+\end{prop}
+
+\begin{proof}
+Takovo množstvo~$[x]$ očividno vsegda sučstvuje, ibo vsaky nestandardny
+!!{element}~$y$ domena~$\Domain{M}$ imaje jedinstveny
+naslědnik~$y^\nssucc$ i jedinstveny prědhodnik~$^\nssucc y$. Za
+poslědovateljne !!{element}y $y$ i $y^\nssucc$ imamo $y \nsless
+y^\nssucc$, pri čem $y^\nssucc$ jest $\nsless$-najmenši !!{element}
+domena~$\Domain{M}$, ktory jest večši od~$y$ v poredku~$\nsless$.
+Dla vsakogo takovogo elementa
+vsegda važi $^\nssucc y \nsless y$ i $y \nsless y^\nssucc$, blok~$[x]$
+ne imaje najmenšego ni največšego !!{element}a. Ako $y \in [x]$, togda
+$x \in [y]$, ibo ili $y^{\nssucc\dots\nssucc} = x$, ili
+$x^{\nssucc\dots\nssucc} = y$. Skladanje dvuh konačnyh standardnyh
+råzstojańj opět daje konačno standardno råzstojańje, zato biti na
+takovom råzstojańju jest relacija ekvivalencije. Ako
+$y^{\nssucc\dots\nssucc} = x$ (s $n$ pojavami~$\nssucc$), togda
+$y \nsplus n = x$, i obratno, ibo
+$\Th{PA} \Proves \lforall[x][\eq[x^{\prime\dots\prime}][(x +
+    \num{n})]]$ (ako $n$ jest čislo pojavov~$\prime$).
+\end{proof}
+
+\begin{prop}
+Ako $[x] \neq [y]$ i $x \nsless y$, togda za vsako $u \in [x]$ i
+za vsako $v \in [y]$ važi $u \nsless v$.
+\end{prop}
+
+\begin{proof}
+Zamětimo, že $\Th{PA} \Proves \lforall[x][\lforall[y][(x < y \lif
+(x' < y \lor x' = y))]]$. Zato iz $u \nsless v$ slěduje takože
+$u \nsplus n^\nssucc \nsless v$ za vsako~$n$, ako $[u] \neq [v]$.
+
+Vsaky $u \in [x]$ jest $\nsless y$: po prědpoloženju $x \nsless y$.
+Ako $u \nsless x$, togda $u \nsless y$ po tranzitivnosti. Ako pak
+$x \nsless u$, ale $u \in [x]$, togda $u = x\nsplus n^\nssucc$ za
+něktoro~$n$, zato $u \nsless y$ po upravo dokazanom faktu.
+
+Teper prědpoložimo, že $v \in [y]$ jest $\nsless y$, t.j., že
+$v \nsplus m^\nssucc = y$ za něktoro standardno~$m$. Togda ne može
+važiti $v \nsless x$, inače by $y = v \nsplus m^\nssucc \nsless x$.
+Očividno takože $x \neq v$, inače by $x \nsplus m^\nssucc =
+v \nsplus m^\nssucc = y$ i imali bysmo $[x] = [y]$. Zato
+$x \nsless v$. Togda takože $x \nsplus n^\nssucc \nsless v$ za
+vsako~$n$. Slědovateljno, ako $x \nsless u$ i $u \in [x]$, togda
+$u \nsless v$. Ako $u \nsless x$, iz tranzitivnosti opět slěduje
+$u \nsless v$.
+
+Nakonec, ako $y \nsless v$, togda $u \nsless v$, ibo, kako jesmo
+pokazali, $u \nsless y$ i $y \nsless v$.
+\end{proof}
+
+\begin{cor}
+Ako $[x] \neq [y]$, togda $[x] \cap [y] = \emptyset$.
+\end{cor}
+
+\begin{proof}
+Prědpoložimo, že $z \in [x]$ i $x \nsless y$. Togda $z \nsless u$ za
+vsako $u \in [y]$. Ako by $z \in [y]$, imali bysmo $z \nsless z$.
+Podobno postupujemo v slučaju $y \nsless x$.
+\end{proof}
+
+\begin{explain}
+To znači, že različne bloky možno uporedati na način soglasny
+s~$\nsless$: dla različnyh blokov $[x] \nsless [y]$ togda i samo
+togda, kogda $x \nsless y$, ili ravnoznačno, kogda $u \nsless v$ za
+vsako $u \in [x]$ i za vsako $v \in [y]$. Očividno standardny blok~$[0]$ jest
+najmenši blok. On ne prěsěkaje se ni s jedinym nestandardnym blokom, i
+nikakove dva nestandardne bloky takože ne prěsěkajut se. Točno govoręči,
+do drugogo bloka ne možno ``dojdti'' povtarjanjem naslědnikov ili
+prědhodnikov.
+\end{explain}
+
+\begin{prop}
+Ako $x$ i $y$ sųt nestandardne, togda $x \nsless x \nsplus y$ i
+$x \nsplus y \notin [x]$.
+\end{prop}
+
+\begin{proof}
+Ako $y$ jest nestandardny, togda $y \neq \nszero$. $\Th{PA} \Proves
+\lforall[x][(y \neq \Obj{0} \lif x < (x+y))]$. Teper prědpoložimo,
+že $x \nsplus y \in [x]$. Poněže $x \nsless x \nsplus y$, imali bysmo
+$x \nsplus n^\nssucc = x \nsplus y$. No $\Th{PA} \Proves
+\lforall[x][\lforall[y][\lforall[z][(\eq[(x+y)][(x+z)] \lif y = z)]]]$
+(zakon skraćenja dodavanja). Iz toga by slědovalo $y = n^\nssucc$ za
+něktoro standardno~$n$, protivno prědpoloženju, že $y$ jest
+nestandardny.
+\end{proof}
+
+\begin{prop}
+Ne sučstvuje najmenši nestandardny blok.
+\end{prop}
+
+\begin{proof}
+$\Th{PA} \Proves \lforall[x][\lexists[y][(\eq[(y+y)][x] \lor
+      \eq[(y+y)'][x])]]$, t.j., vsako $x$ možno poděliti na~$2$ ili
+  bez ostatka, ili s ostatkom~$1$. Ako $x$ jest nestandardny, togda i~$y$
+  jest nestandardny. Po poprědnjoj propoziciji $y \nsless y \nsplus y$
+  i $y \nsplus y \notin [y]$. Togda takože $y \nsless (y \nsplus
+  y)^\nssucc$ i $(y \nsplus y)^\nssucc \notin [y]$. No $x = y \nsplus
+  y$ ili $x = (y \nsplus y)^\nssucc$, zato $y \nsless x$ i
+  $y \notin [x]$.
+\end{proof}
+
+\begin{prop}
+V nestandardnom modelu Peanovoj aritmetiky ne sučstvuje največši blok.
+\end{prop}
+
+\begin{proof}
+Upražnjenje.
+\end{proof}
+
+\begin{prob}
+Pokažite, že v nestandardnom modelu teorije~$\Th{PA}$ ne sučstvuje
+največši blok.
+\end{prob}
+
+\begin{prop}
+\ollabel{prop:blocks-dense}
+Poredok blokov jest gųsty. To znači: ako $x \nsless y$ i
+$[x] \neq [y]$, togda sučstvuje blok~$[z]$, različny od obojih i
+ležeči medžu njimi.
+\end{prop}
+
+\begin{proof}
+Prědpoložimo, že $x \nsless y$. Kako prědtym, suma~$x \nsplus y$ može
+byti poděljena na dva s ostatkom 0 ili 1: sučstvuje $z \in \Domain{M}$
+takovy, že ili $x \nsplus y = z \nsplus z$, ili $x \nsplus y =
+(z \nsplus z)^\nssucc$. Element~$z$ jest ``srědnje'' elementov~$x$ i~$y$,
+pri čem $x \nsless z$ i $z \nsless y$.
+\end{proof}
+
+\begin{prob}
+Razpišite podrobny dokaz
+\olref[mod][mar][mpa]{prop:blocks-dense}. Ktoro !!{sentence} mora
+$\Th{PA}$ !!{derive}, aby ono garantiralo sučstvovanje~$z$? Čemu važi
+$x \nsless z$ i $z \nsless y$, i čemu $[x] \neq [z]$ i
+$[z] \neq [y]$?
+\end{prob}
+
+\begin{explain}
+Nestandardne bloky zato formujut gųsty linearny poredok bez krajnyh
+elementov. Ako model jest nestandardny i izčisljiv, te bloky sųt razpoređene kako
+racionalne čisla: one formujut !!a{denumerable} gųsty linearny poredok
+bez krajnyh elementov. Možno pokazati, že libo-ktore dva takove
+!!{denumerable} poredky sųt izomorfne. Iz toga slěduje, že dla
+libo-ktoryh dvuh !!{enumerable} nestandardnyh modelov $\Struct{M}_1$ i
+$\Struct{M_2}$ teorije struktury prirodnyh čisl njihovy redukty na
+jezyk, ktory sodrži samo~$<$ i~$=$, sųt izomorfne. V samoj stvari,
+izomorfizm~$h$ možno opreděliti slědujučim načinom: standardne česti
+$\Struct{M_1}$ i $\Struct{M_2}$ sųt izomorfne standardnomu modelu
+$\Struct{N}$, a zato i jedna drugoj. Bloky, ktore sostavljajut
+nestandardnu čest, sųt razpoređene kako racionalne čisla i zato takože
+izomorfne. Izomorfizm blokov možno razširiti do izomorfizma
+\emph{vnutri} blokov, sparivši proizvoljne elementy v každoj parě
+blokov, a potom opredělivši obraz naslědnika elementa~$x$
+v~$\Struct{M_1}$ kako naslědnik obraza~$x$
+v~$\Struct{M_2}$. Zamětimo, že iz toga
+\emph{ne} slěduje, že $\mathfrak{M}_1$ i $\mathfrak{M}_2$ sųt
+izomorfne v cělom jezyku aritmetiky (izomorfizm bo vsegda jest otnosny
+k~!!a{language}), ibo dodavanje i množenje možno nad $\Domain{M_1}$ i
+$\Domain{M_2}$ opreděliti na neizomorfne načiny. (To takože slěduje iz
+znamenitoj teoremy Vaughta: čislo izčisljivyh modelov polnoj teorije ne
+može byti~2.)
+\end{explain}
+\end{document}

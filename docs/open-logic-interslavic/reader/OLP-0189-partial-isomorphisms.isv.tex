@@ -1,0 +1,245 @@
+% Čest: logika-prvogo-reda
+% Glava: teorija-modelov
+% Odděl: čestičny-izomorfizm
+
+\documentclass[../../../include/open-logic-section]{subfiles}
+
+\begin{document}
+
+\olfileid[isv]{mod}{bas}{pis}
+\section{Čestične izomorfizmy}
+
+\begin{defn}
+  Dane sųt dve !!{structure}s $\Struct{M}$ i $\Struct{N}$. 
+  \emph{Čestičny izomorfizm} iz $\Struct{M}$ v $\Struct{N}$ jest
+  konečna čestična funkcija $p$, ktora prijmaje argumenty iz $\Domain M$ i
+  davaje vrednosti iz $\Domain N$, i izpolnjaje uslovja izomorfizma iz
+  \olref[iso]{defn:isomorphism} na svojem domenu:
+  \begin{enumerate}
+  \item $p$ jest !!{injective};
+  \item dla vsakoj !!{constant}~$c$: ako $p(\Assign{c}{M})$ jest
+    definirano, togda $p(\Assign{c}{M}) = \Assign{c}{N}$;
+  \item dla vsakogo $n$-městnogo !!{predicate}~$P$: ako $a_1$, \dots,
+    $a_n$ naležet domenu funkcije~$p$, togda $\langle a_1, \dots, a_n\rangle \in
+    \Assign P M$ togda i samo togda, kogda
+    $\langle p(a_1), \dots, p(a_n) \rangle
+    \in \Assign P N$;
+  \item dla vsakoj $n$-městnoj !!{function}~$f$: ako $a_1$, \dots,
+    $a_n$ naležet domenu funkcije~$p$, togda
+    $p(\Assign f M (a_1, \dots,a_n))
+    = \Assign f N (p(a_1), \dots, p(a_n))$.
+  \end{enumerate}
+  To, že $p$ jest konečna, označaje, že $\dom{p}$ jest konečny.
+\end{defn}
+
+Pustaja funkcija~$\emptyset$ vsegda jest čestičnym izomorfizmom medžu
+libo-ktorymi dvoma !!{structure}s.
+
+\begin{defn}\ollabel{defn:partialisom}
+  Dve !!{structure}s $\Struct{M}$ i $\Struct{N}$ sųt
+  \emph{čestično izomorfne}, čto zapisujemo $\Struct{M} \iso[p]
+  \Struct{N}$, togda i samo togda, kogda sučstvuje nepusto množstvo $I$
+  čestičnyh izomorfizmov medžu $\Struct{M}$ i $\Struct{N}$, ktore
+  izpolnjaje \emph{svojstvo prodolženja naprěd i nazad}:
+  \begin{enumerate}
+  \item (\emph{Naprěd}) Dla vsakogo $p \in I$ i $a \in \Domain M$
+    sučstvuje $q \in I$ tako, že $p \subseteq q$ i $a$ naleži domenu
+    funkcije~$q$;
+  \item (\emph{Nazad}) Dla vsakogo $p \in I$ i $b \in \Domain N$
+    sučstvuje $q \in I$ tako, že $p \subseteq q$ i $b$ naleži obrazu
+    funkcije~$q$.
+  \end{enumerate}
+\end{defn}
+
+\begin{thm}\ollabel{thm:p-isom1}
+  Ako $\Struct{M} \iso[p] \Struct{N}$ i $\Struct{M}$ i
+  $\Struct{N}$ sųt !!{enumerable}, togda $\Struct{M} \iso
+  \Struct{N}$.
+\end{thm}
+
+\begin{proof}
+  Poněže $\Struct{M}$ i $\Struct{N}$ sųt !!{enumerable}, nehaj
+  $\Domain{M} =
+  \{a_0, a_1, \ldots \}$ i
+  $\Domain{N} = \{b_0, b_1, \ldots \}$. Začnuvši s proizvoljnym
+  $p_0 \in I$, definirujemo rastųću poslědovnost čestičnyh izomorfizmov
+  $p_0 \subseteq p_1 \subseteq p_2
+  \subseteq \cdots$ slědujućim
+  načinom:
+  \begin{enumerate}
+  \item ako $n+1$ jest neparno, t.j. $n = 2r$, togda s pomočju
+    svojstva Naprěd najdemo $p_{n+1} \in I$ tako, že
+    $p_n \subseteq p_{n+1}$ i $a_r$ naleži domenu funkcije~$p_{n+1}$;
+  \item ako $n+1$ jest parno, t.j. $n+1 =2r$, togda s pomočju
+    svojstva Nazad najdemo $p_{n+1} \in I$ tako, že
+    $p_n \subseteq p_{n+1}$ i $b_r$ naleži obrazu funkcije~$p_{n+1}$.
+  \end{enumerate}
+Ako nyně položimo
+\[
+p = \bigcup_{n\ge 0} p_n,
+\]
+togda $p$ jest izomorfizm medžu $\Struct{M}$ i $\Struct{N}$.
+\end{proof}
+
+\begin{prob}
+  Podrobno dokažite, že funkcija~$p$, definirana v
+  \olref[mod][bas][pis]{thm:p-isom1}, stvarno jest izomorfizm.
+\end{prob}
+
+\begin{thm}\ollabel{thm:p-isom2}
+  Nehaj $\Struct{M}$ i $\Struct{N}$ sųt !!{structure}s čisto
+  relacijskogo !!{language} (t.j. !!a{language}, ktory sadržuje jedino
+  !!{predicate}s i ne sadržuje ni !!{function}s, ni konstant). Togda
+  iz $\Struct{M} \iso[p] \Struct{N}$ slěduje takože
+  $\Struct{M} \elemequiv
+  \Struct{N}$.
+\end{thm}
+
+\begin{proof}
+  Indukcijeju po !!{formula}s dokazujemo, že ako $a_1$, \dots, $a_n$ i
+  $b_1$, \dots, $b_n$ sųt take, že sučstvuje čestičny izomorfizm $p$,
+  ktory preslikava vsako $a_i$ na $b_i$, i $s_1(x_i) =a_i$ i
+  $s_2(x_i) =b_i$ (dla $i =1$, \dots,~$n$), togda
+  $\Sat{M}{!A}[s_1]$ togda i samo togda, kogda
+  $\Sat{N}{!A}[s_2]$. Slučaj $n=0$ davaje
+  $\Struct{M} \elemequiv \Struct{N}$.
+\end{proof}
+
+\begin{rem}
+Ako sųt prisutne !!{function}s, prědhodno tvrđenje vse ravno jest
+istinno, no trěba razsmotriti izomorfizm, indukovany funkcijeju~$p$,
+medžu pod!!{structure} struktury $\Struct{M}$, generovanoju elementami
+$a_1$, \dots, $a_n$, i pod!!{structure} struktury $\Struct{N}$,
+generovanoju elementami $b_1$, \dots, $b_n$.
+\end{rem}
+
+Prědhodno tvrđenje možno razložiti na etapy, ustanovivši vez medžu
+brojem vzaimno vgněždenyh kvantifikatorov v !!a{formula} i brojem
+poslědovateljnyh prodolženij sootvětnyh čestičnyh izomorfizmov.
+
+\begin{defn}
+  Dla libo-ktorej !!{formula}~$!A$ \emph{kvantifikatorny rang}
+  formuly~$!A$, označeny $\QuantRank{!A} \in \Nat$, jest rekurzivno
+  definovany kako največši broj vzaimno vgněždenyh kvantifikatorov
+  v~$!A$. Dve !!{structure}s $\Struct{M}$ i $\Struct{N}$ sųt
+  \emph{$n$-elementarno ekvivalentne}, čto zapisujemo
+  $\Struct{M} \elemequiv[n] \Struct{N}$, ako v njih sųt istinne te same
+  izrečenja s kvantifikatornym rangom menšim ili ravnym~$n$.
+\end{defn}
+
+\begin{prop}\ollabel{prop:qr-finite}
+  Nehaj $\Lang{L}$ bude konečny čisto relacijsky !!{language}, t.j.
+  !!a{language}, ktory sadržuje konečno mnogo !!{predicate}s i
+  !!{constant}s i ne sadržuje !!{function}s. Togda dla vsakogo
+  $n \in \Nat$ sučstvuje jedino konečno mnogo izrečenij prvogo reda
+  jezyka~$\Lang{L}$ s kvantifikatornym rangom ne vyššim od~$n$, ako
+  logično ekvivalentna izrečenja smatramo jednakymi.
+\end{prop}
+
+\begin{proof}
+  Indukcijeju po $n$.
+\end{proof}
+
+\begin{defn}
+  Davaje se !!a{structure}~$\Struct{M}$. Nehaj $\Domain M^{<\omega}$
+  bude množstvo vsih konečnyh poslědovnostij nad $\Domain{M}$.
+  Simbolami $\mathbf{a},
+  \mathbf{b}, \mathbf{c}, \ldots$ označajemo
+  konečne poslědovnosti elementov. Ako
+  $\mathbf{a} \in \Domain{M}^{<\omega}$ i $a \in \Domain{M}$, togda
+  $\mathbf{a}a$ predstavlja \emph{konkatenaciju} poslědovnosti
+  $\mathbf{a}$ s elementom~$a$.
+\end{defn}
+
+\begin{defn}
+  Dane sųt !!{structure}s $\Struct{M}$ i $\Struct{N}$. Definirujemo
+  relacije $I_n \subseteq \Domain M^{<\omega} \times \Domain N^{<\omega}$ medžu
+  poslědovnostjami jednakoj dolžiny, rekurzivno po $n$, slědujućim
+  načinom:
+   \begin{enumerate}
+   \item $I_0(\mathbf{a},\mathbf{b})$ togda i samo togda, kogda
+     $\mathbf{a}$ i $\mathbf{b}$ udovlětvorjajut te same atomarne
+     !!{formula}s v $\Struct{M}$ i $\Struct{N}$; t.j. ako
+     $s_1(x_i) = a_i$ i $s_2(x_i) =
+     b_i$, a $!A$ jest atomarna i vse
+     jejine !!{variable}s sųt medžu $x_1$, \dots,~$x_n$, togda
+     $\Sat{M}{!A}[s_1]$ togda i samo togda, kogda
+     $\Sat{N}{!A}[s_2]$.
+   \item $I_{n+1} (\mathbf{a},\mathbf{b})$ togda i samo togda, kogda
+     dla vsakogo $a\in \Domain M$ sučstvuje $b\in \Domain N$ tako, že
+     $I_n
+     (\mathbf{a}a,\mathbf{b}b)$, i obratno.
+   \end{enumerate}
+\end{defn}
+
+
+\begin{defn}
+  Pišemo $\Struct{M} \approx_n \Struct{N}$, ako
+  $I_n(\emptyseq,\emptyseq)$ jest izpolnjeno dla $\Struct{M}$ i
+  $\Struct{N}$ (kde $\emptyseq$ jest pustaja poslědovnost).
+\end{defn}
+
+\begin{thm}\ollabel{thm:b-n-f}
+  Nehaj $\Lang{L}$ bude čisto relacijsky !!{language}. Togda iz $I_n
+  (\mathbf{a},\mathbf{b})$ slěduje, že dla vsakoj formuly~$!A$ s
+  $\QuantRank{!A} \le n$ imajemo $\Sat{M}{!A}[\mathbf{a}]$ togda i
+  samo togda, kogda $\Sat{N}{!A}[\mathbf{b}]$ (tut opět $\mathbf{a}$
+  udovlětvorjaje $!A$, ako libo-ktore prisvajanje~$s$, za ktore
+  $s(x_i) = a_i$, udovlětvorjaje $!A$). Kromě toga,
+  ako $\Lang{L}$ jest konečny, togda plati takože obratno tvrđenje.
+\end{thm}
+
+\begin{proof}
+  To, že iz $I_n(\mathbf{a},\mathbf{b})$ slěduje, že $\mathbf{a}$ i
+  $\mathbf{b}$ udovlětvorjajut te same !!{formula}s s rangom
+  kvantifikatorov ne vyššim od~$n$, dokazujemo prostoju indukcijeju po
+  $!A$. Obratno tvrđenje dokazujemo indukcijeju po $n$, koristajuči
+  \olref{prop:qr-finite}, ktore garantuje, že dla vsakogo $n$
+  sučstvuje najvyše konečno mnogo neekvivalentnyh !!{formula}s toga
+  kvantifikatornogo ranga.
+
+  Dla $n=0$ hipoteza, že $\mathbf{a}$ i $\mathbf{b}$ udovlětvorjajut
+  te same bezkvantifikatorne !!{formula}s, davaje, že one
+  udovlětvorjajut te same atomarne formuly, takže
+  $I_0(\mathbf{a},\mathbf{b})$.
+
+  Dla slučaja $n+1$ prědpoložimo, že $\mathbf{a}$ i $\mathbf{b}$
+  udovlětvorjajut te same !!{formula}s s kvantifikatornym rangom ne
+  vyššim od $n+1$. Aby dokazati $I_{n+1}(\mathbf{a},\mathbf{b})$,
+  dostatočno jest pokazati, že dla vsakogo $a \in \Domain M$
+  sučstvuje $b \in
+  \Domain N$ tako, že
+  $I_n(\mathbf{a}a,\mathbf{b}b)$; a po indukcijskoj hipotezě jest
+  opět dostatočno pokazati, že dla vsakogo $a \in \Domain M$
+  sučstvuje $b \in \Domain N$ tako, že $\mathbf{a}a$ i
+  $\mathbf{b}b$ udovlětvorjajut te same !!{formula}s s rangom
+  kvantifikatorov ne vyššim od~$n$.
+
+  Dla danogo $a \in \Domain M$ nehaj $!T^a_n$ bude množstvo
+  !!{formula}s $!B(x,\mathbf{y})$ s rangom ne vyššim od~$n$, ktore
+  $\mathbf{a}a$ udovlětvorjaje v $\Struct{M}$. Množstvo $!T^a_n$ jest
+  konečno, zato možemo smatrati je za jednu formulu (konjunkciju
+  njegovyh členov). Iz toga slěduje, že $\mathbf{a}$ udovlětvorjaje
+  $\lexists[x][!T^a_n(x,\mathbf{y})]$, ktora imaje kvantifikatorny rang
+  ne vyšši od $n+1$. Po hipotezě $\mathbf{b}$ udovlětvorjaje tu samu
+  !!{formula} v $\Struct{N}$, takže sučstvuje $b \in \Domain N$ tako,
+  že $\mathbf{b}b$ udovlětvorjaje $!T^a_n$; osoblivo,
+  $\mathbf{b}b$ udovlětvorjaje te same !!{formula}s s rangom
+  kvantifikatorov ne vyššim od~$n$, ktore $\mathbf{a}a$
+  udovlětvorjaje. Podobno dokazujemo, že dla vsakogo
+  $b \in \Domain N$ sučstvuje $a\in
+  \Domain M$ tako, že
+  $\mathbf{a}a$ i $\mathbf{b}b$ udovlětvorjajut te same !!{formula}s
+  s kvantifikatornym rangom ne vyššim od~$n$, čto završaje dokaz.
+\end{proof}
+
+\begin{cor}\ollabel{cor:b-n-f}
+  Ako $\Struct{M}$ i $\Struct{N}$ sųt čisto relacijske
+  !!{structure}s v konečnom !!{language}, togda
+  $\Struct{M} \approx_n\Struct{N}$ togda i samo togda, kogda
+  $\Struct{M} \elemequiv[n] \Struct{N}$. Osoblivo,
+  $\Struct{M} \elemequiv \Struct{N}$ togda i samo togda, kogda dla
+  vsakogo $n$ plati $\Struct{M} \approx_n \Struct{N}$.
+\end{cor}
+
+\end{document}
