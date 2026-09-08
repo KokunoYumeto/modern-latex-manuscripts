@@ -1,0 +1,189 @@
+% Čest: teorija-modelov
+% Glava: modeli-aritmetiky
+% Odděl: standardne-modeli
+
+\documentclass[../../../include/open-logic-section]{subfiles}
+
+\begin{document}
+
+\olfileid[isv]{mod}{mar}{stm}
+\olsection{Standardne modeli aritmetiky}
+
+Jezyk aritmetiky~$\Lang{L_A}$ očividno jest zamysljen kako jezyk o
+čislah, konkretno o prirodnyh čislah. Zato standardny
+model~$\Struct{N}$ imaje osoblivo značenje: to jest model, o ktorom
+hoćemo govoriti. No v logikě nas često interesujut samo strukturna
+svojstva. Ako dvě struktury sųt izomorfne, vsaka !!{structure} imaje
+te same svojstva kako druga !!{structure}. Zato možemo byti několiko
+svobodnějši i smatrjati vsaku strukturu, ktora jest izomorfna
+s~$\Struct{N}$, „standardnoju”.
+
+\begin{defn}
+!!{structure} za $\Lang{L_A}$ jest \emph{standardna}, ako jest
+izomorfna s~$\Struct{N}$.
+\end{defn}
+
+\begin{prop}
+\ollabel{prop:standard-domain} Ako !!a{structure}~$\Struct{M}$ jest standardna,
+togda jej domen jest množstvo značenij standardnyh numeralov, t.j.,
+\[
+\Domain{M} = \Setabs{\Value{\num{n}}{M}}{n \in \Nat}
+\]
+\end{prop}
+
+\begin{proof}
+Očividno, za vsaky indeks imamo $\Value{\num{n}}{M} \in \Domain{M}$.
+Trěba nam samo
+pokazati, že vsaky $x \in \Domain{M}$ jest ravny
+$\Value{\num{n}}{M}$ za něktory~$n$. Poněže $\Struct{M}$ jest
+standardna, ona jest izomorfna s~$\Struct{N}$. Nehaj $g\colon \Nat
+\to \Domain{M}$ bude izomorfizmom. Togda $g(n) =
+g(\Value{\num{n}}{N}) = \Value{\num{n}}{M}$. Ale dla vsakogo $x \in
+\Domain{M}$ sučstvuje takovy~$n \in \Nat$, že $g(n) = x$, poněže $g$ jest
+!!{surjective}.
+\end{proof}
+
+\begin{explain}
+Ako struktura~$\Struct{M}$ za $\Lang{L_A}$ jest standardna, vse
+elementy jej !!{domain}a možno imenovati standardnymi numeralami
+$\num{0}$, $\num{1}$, $\num{2}$, \dots, t.j. termami $\Obj{0}$,
+$\Obj{0}'$, $\Obj{0}''$ i tako dalje. Razuměje se, to ne znači, že
+!!{element}y $\Domain{M}$ \emph{sųt} čislami; znači jedino, že možemo
+jih označiti na toj samy način, kako označujemo čisla
+v~$\Domain{N}$.
+\end{explain}
+
+\begin{prob}
+Dokažite, že obratno tvrdženje k
+\olref[mod][mar][stm]{prop:standard-domain} jest neistinno, t.j.
+podajte priměr~$\Struct{M}$ s $\Domain{M} =
+\Setabs{\Value{\num{n}}{M}}{n \in \Nat}$, pri čem ta !!a{structure}
+ne jest izomorfna s~$\Struct{N}$.
+\end{prob}
+
+\begin{prop}
+\ollabel{prop:thq-standard}
+Ako $\Sat{M}{\Th{Q}}$ i $\Domain{M} =
+\Setabs{\Value{\num{n}}{M}}{n \in \Nat}$, togda $\Struct{M}$ jest
+standardna.
+\end{prop}
+
+\begin{proof}
+Musimo pokazati, že $\Struct{M}$ jest izomorfna
+s~$\Struct{N}$. Razsmotrimo funkciju $g\colon \Nat \to \Domain{M}$,
+opreděljenu formulom $g(n) = \Value{\num{n}}{M}$. Po prědpoloženju
+$g$ jest !!{surjective}. Ona jest takože !!{injective}: $\Th{Q}
+\Proves \eq/[\num{n}][\num{m}]$ vsaky raz, kogda $n \neq m$. Zato,
+poněže $\Sat{M}{\Th{Q}}$, $\Sat{M}{\eq/[\num{n}][\num{m}]}$ vsaky
+raz, kogda $n \neq m$. Slědovateljno, ako $n \neq m$, togda
+$\Value{\num{n}}{M} \neq \Value{\num{m}}{M}$, t.j. $g(n) \neq g(m)$.
+
+Musimo takože prověriti, že $g$ jest izomorfizmom.
+\begin{enumerate}
+\item Imamo $g(\Assign{\Obj{0}}{N}) = g(0)$, ibo
+  $\Assign{\Obj{0}}{N} = 0$. Po definiciji~$g$, $g(0) =
+  \Value{\num{0}}{M}$. Ale $\num{0}$ jest prosto $\Obj{0}$, a
+  značenje terma, ktory jest !!a{constant}, jest objekt, ktory dana
+  !!{structure} prisvajaje; ta !!{constant} zato imaje značenje, t.j.,
+  $\Value{\Obj{0}}{M} = \Assign{\Obj{0}}{M}$. Zato imajemo
+  $g(\Assign{\Obj{0}}{N}) = \Assign{\Obj{0}}{M}$, kako bylo potrěbno.
+\item $g(\Assign{\prime}{N}(n)) = g(n+1)$, ibo $\prime$ v
+  $\Struct{N}$ jest funkcija naslědnika na~$\Nat$. Togda
+  $g(n+1) = \Value{\num{n+1}}{M}$ po definiciji~$g$. Ale
+  $\num{n+1}$ jest tym samym termom kako $\num{n}'$, zato
+  $\Value{\num{n+1}}{M} = \Value{\num{n}'}{M}$. Po definiciji
+  funkcije značenja prodolžujemo lanec ravnostij: $=
+  \Assign{\prime}{M}(\Value{\num{n}}{M})$. Poněže
+  $\Value{\num{n}}{M} = g(n)$, dostajemo
+  $g(\Assign{\prime}{N}(n)) = \Assign{\prime}{M}(g(n))$.
+\item $g(\Assign{+}{N}(n,m)) = g(n+m)$, ibo $+$ v $\Struct{N}$ jest
+  funkcija dodavanja na~$\Nat$. Togda $g(n+m) =
+  \Value{\num{n+m}}{M}$ po definiciji~$g$. Ale $\Th{Q} \Proves
+  \num{n+m} = (\num{n} + \num{m})$, zato $\Value{\num{n+m}}{M} =
+  \Value{\num{n}+\num{m}}{M}$. Po definiciji funkcije značenja
+  prodolžujemo lanec ravnostij: $=
+  \Assign{+}{M}(\Value{\num{n}}{M},\Value{\num{m}}{M})$. Poněže
+  $\Value{\num{n}}{M} = g(n)$ i $\Value{\num{m}}{M} = g(m)$,
+  dostajemo $g(\Assign{+}{N}(n, m)) =
+  \Assign{+}{M}(g(n), g(m))$.
+\item $g(\Assign{\times}{N}(n, m)) =
+  \Assign{\times}{M}(g(n), g(m))$: Zadanje.
+\item $\tuple{n,m} \in \Assign{<}{N}$ togda i samo togda, kogda $n <
+  m$. Ako $n < m$, togda $\Th{Q} \Proves \num{n} < \num{m}$ i
+  takože $\Sat{M}{\num{n} < \num{m}}$. Zato
+  $\tuple{\Value{\num{n}}{M}, \Value{\num{m}}{M}} \in
+  \Assign{<}{M}$, t.j. $\tuple{g(n), g(m)} \in \Assign{<}{M}$. Ako
+  $n \not< m$, togda $\Th{Q} \Proves \lnot \num{n} < \num{m}$ i,
+  slědovateljno, $\Sat/{M}{\num{n} < \num{m}}$. Zato, kako vyše,
+  $\tuple{g(n), g(m)} \notin \Assign{<}{M}$. Sjedinjajuči oba slučaje,
+  dostajemo:
+  $\tuple{n,m} \in \Assign{<}{N}$ togda i samo togda, kogda
+  $\tuple{g(n), g(m)} \in \Assign{<}{M}$.
+\end{enumerate}
+\end{proof}
+
+\begin{explain}
+Funkcija~$g$ jest najočividnějši sposob opreděliti preslikovanje iz
+$\Nat$ v domen struktury~$\Struct{M}$ za $\Lang{L_A}$. Vsaka taka
+!!{structure}~$\Struct{M}$ sodrži !!{element}y, imenovane s pomočju $\num{0}$,
+$\num{1}$, $\num{2}$ i tako dalje. Zato ne jest čudno, že ako
+$\Struct{M}$ čini istinnymi prinajmenje něktore osnovne izrečenja o
+$\num{n}$ na toj samy način kako~$\Struct{N}$, a $g$ jest takože
+bijektivna, togda $g$ jest izomorfizmom. V samoj stvari, ako
+$\Domain{M}$ ne sodrži nikakovyh drugyh !!{element}ov kromě tyh, ktore
+sųt imenovane numeralami $\num{n}$, togda ta funkcija jest jedinym
+takim izomorfizmom.
+\end{explain}
+
+\begin{prop}
+\ollabel{prop:thq-unique-iso} Ako $\Struct{M}$ jest standardna, togda
+$g$ iz dokaza \olref{prop:thq-standard} jest jedinym izomorfizmom iz
+$\Struct{N}$ do~$\Struct{M}$.
+\end{prop}
+
+\begin{proof}
+Nehaj $h\colon \Nat \to \Domain{M}$ bude izomorfizmom medžu
+$\Struct{N}$ i~$\Struct{M}$. Dokažemo, že $g = h$, matematičnoju
+indukcijeju po~$n$. Ako $n = 0$, togda $g(0) = \Assign{\Obj{0}}{M}$ po definiciji
+funkcije~$g$. Ale poněže $h$ jest izomorfizmom, $h(0) =
+h(\Assign{\Obj{0}}{N}) =\Assign{\Obj{0}}{M}$, zato $g(0) = h(0)$.
+
+Teper razsmotrimo slučaj $n+1$. Imamo
+\begin{align*}
+  g(n+1) & = \Value{\num{n+1}}{M} \text{ po definiciji~$g$}\\
+  & = \Value{\num{n}'}{M} \text{ ibo $\num{n+1}\ident \num{n}'$}\\
+  & = \Assign{\prime}{M}(\Value{\num{n}}{M})
+    \text{ po definiciji $\Value{t'}{M}$}\\
+  & = \Assign{\prime}{M}(g(n)) \text{ po definiciji~$g$}\\
+  & = \Assign{\prime}{M}(h(n)) \text{ po indukcijskom prědpoloženju}\\
+  & = h(\Assign{\prime}{N}(n)) \text{ ibo $h$ jest izomorfizmom}\\
+  & = h(n+1)
+\end{align*}
+\end{proof}
+
+\begin{explain}
+Za vsako !!{denumerable} množstvo~$M$ sučstvuje !!a{bijection}
+medžu $\Nat$ i $M$, zato vsako tako množstvo~$M$ potencialno može byti
+!!{domain}om standardnogo modela~$\Struct{M}$. V samoj stvari, čim
+izberemo objekt $z \in M$ i vhodnu funkciju $s$, koristeči prvi za
+$\Assign{\Obj{0}}{M}$, a drugu za $\Assign{\prime}{M}$, interpretacije $+$,
+$\times$ i $<$ sųt uže opreděljene. Samo funkcije~$s\colon M \to M
+\setminus \{z\}$,
+ktore sųt i !!{injective} i !!{surjective}, sųt vhodne za
+$\Assign{\prime}{M}$ v standardnom modelu. Obraz funkcije $s$ ne može
+sodržati~$z$, ibo v protivnom slučaju
+$\lforall[x][\eq/[\Obj 0][x']]$ bylo by neistinno. To !!{sentence} jest
+istinno v~$\Struct{N}$, zato $\Struct{M}$ takože mora činiti to
+izrečenje istinnym. Funkcija~$s$ mora byti !!{injective}, ibo funkcija
+naslědnika~$\Assign{\prime}{N}$ v~$\Struct{N}$ jest injektivna;
+tvrdženje, že $\Assign{\prime}{N}$ jest !!{injective}, izražaje se s
+pomočju !!a{sentence}, ktore jest istinno v~$\Struct{N}$. Ona mora
+byti !!{surjective}, ibo inako sučstvoval by
+něktory $x \in M \setminus \{z\}$, ktory ne naleži obrazu
+funkcije~$s$, t.j. !!{sentence} $\lforall[x][(\eq[x][\Obj 0] \lor
+\lexists[y][\eq[y'][x]])]$ bylo by neistinno v~$\Struct{M}$---ale ono
+jest istinno v~$\Struct{N}$.
+\end{explain}
+
+
+\end{document}

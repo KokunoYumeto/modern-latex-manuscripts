@@ -1,0 +1,125 @@
+% Čest: teorija-modelov
+% Glava: modeli-aritmetiky
+% Odděl: izčislimy-modeli
+
+\documentclass[../../../include/open-logic-section]{subfiles}
+
+\begin{document}
+
+\olfileid[isv]{mod}{mar}{cmp}
+\section{Izčislimy modeli aritmetiky}
+
+\begin{explain}
+Standardny model~$\Struct{N}$ imaje dva prijetna svojstva. Jego domenom
+sųt prirodne čisla~$\Nat$, t.j. jego elementi sųt upravo takove
+objekty, o ktoryh hočemo govoriti jezykom aritmetiky, a standardny
+numeral~$\num{n}$ v samoj stvari označaje~$n$. Drugo prijetno svojstvo
+jest, že vse interpretacije nelogičnyh simbolov jezyka~$\Lang{L_A}$
+sųt \emph{izčislime}. Funkcije naslědnika, dodavanja i množenja, ktore
+služet kako $\Assign{\prime}{N}$, $\Assign{+}{N}$ i
+$\Assign{\times}{N}$, sųt izčislime funkcije na čislah. (Jih možno
+daže opreděliti s pomočju primitivnoj rekursije, a zato izčisljati
+Turingovymi mašinami.) A odnošenje ``menše od'' v~$\Struct{N}$, t.j.
+$\Assign{<}{N}$, jest rěšimo.
+
+Nestandardne modeli aritmetičnyh teorij, takovyh kako $\Th{Q}$ i
+$\Th{PA}$, morajut sodržati nestandardne elementy. Zato jih često
+prědstavljajut s domenami, ktore sodržet kopiju~$\Nat$ i takože
+nestandardne !!{element}y. Však vsaka !!{structure} s izčisljivo
+bezkonečnym domenom imaje izomorfnu kopiju s libo-ktorym
+!!{denumerable} množstvom kako domenom, vključno s~$\Nat$.
+Sučstvujut zato takože nestandardne modeli s domenom~$\Nat$. V takovyh
+modelah~$\Struct{M}$ něktore čisla, razuměje se, ne mogut igrati svoje
+obyčne role, ibo mora sučstvovati něktoro~$k$ različno
+od~$\Value{\num{n}}{M}$ za vse~$n \in \Nat$.
+\end{explain}
+
+\begin{defn}
+!!^a{structure}~$\Struct{M}$ za jezyk~$\Lang{L_A}$ jest
+\emph{izčislima} togda i samo togda, kogda $\Domain{M} = \Nat$,
+$\Assign{\prime}{M}$, $\Assign{+}{M}$ i $\Assign{\times}{M}$ sųt
+izčislime funkcije, a $\Assign{<}{M}$ jest rěšimo odnošenje.
+\end{defn}
+
+\begin{ex}\ollabel{ex:comp-model-q}
+Pripomnite si strukturu~$\Struct{K}$ iz
+\olref[mdq]{ex:model-K-of-Q}. Jej domenom byl $\Domain{K} = \Nat
+\cup \{a\}$, a interpretacije byly
+\begin{align*}
+  \Assign{\Obj{0}}{K} & = 0\\
+  \Assign{\prime}{K}(x) & =
+  \begin{cases}
+    x+1 & \text{ako $x\in \Nat$}\\
+    a & \text{ako $x = a$}
+  \end{cases}\\
+  \Assign{+}{K}(x, y) & =
+  \begin{cases}
+    x+y & \text{ako $x$, $y \in\Nat$}\\
+    a & \text{inače}
+  \end{cases}\\
+  \Assign{\times}{K}(x, y) & =
+  \begin{cases}
+    xy & \text{ako $x$, $y \in\Nat$}\\
+    0 & \text{ako $x=0$ ili $y=0$}\\
+    a & \text{inače}\\
+  \end{cases}\\
+  \Assign{<}{K} & =
+  \Setabs{\tuple{x,y}}{x, y \in \Nat \text{ i } x<y} \cup
+  \Setabs{\tuple{x,a}}{x \in \Domain{K}}
+\end{align*}
+No $\Domain{K}$ jest !!{denumerable}, a zato imaje toliko že elementov,
+koliko~$\Nat$. Na priměr, $g\colon \Nat \to \Domain{K}$, pri čem $g(0) =
+a$ i $g(n) = n-1$ za $n>0$, jest !!a{bijection}. Možemo prěnesti
+interpretacije po~g i tym učiniti~g izomorfizmom medžu novym
+modelom~$\Struct{K'}$ teorije~$\Th{Q}$ i~$\Struct{K}$. V~$\Struct{K'}$
+moramo simbolam jezyka~$\Lang{L_A}$ pripisati druge funkcije i
+odnošenja, ibo druge !!{element}y množstva~$\Nat$ igrajut role
+standardnyh i nestandardnyh čisl.
+
+Točno govoręči, $0$ teper igra rolu~$a$, a ne najmenšego standardnogo
+čisla. Najmenše standardno čislo teper jest~$1$. Zato postavljajemo
+$\Assign{\Obj{0}}{K'} = 1$. Funkcija naslědnika teper takože jest
+drugačša: dla standardnogo čisla, t.j. dla $n > 0$, ona po-prěžnjemu
+dava $n+1$. No $0$ teper igra rolu~$a$, ktory jest svojim vlastnym
+naslědnikom. Zato $\Assign{\prime}{K'}(0) = 0$. Dla dodavanja i
+množenja podobno dostavajemo
+\begin{align*}
+\Assign{+}{K'}(x, y) & =
+  \begin{cases}
+    x+y-1 & \text{ako $x$, $y >0$}\\
+    0 & \text{inače}
+  \end{cases}\\
+  \Assign{\times}{K'}(x, y) & =
+  \begin{cases}
+    1 & \text{ako $x = 1$ ili $y = 1$}\\
+    xy - x - y + 2 & \text{ako $x$, $y > 1$}\\
+    0 & \text{inače}\\
+  \end{cases}
+\end{align*}
+Nadalje, $\tuple{x, y} \in \Assign{<}{K'}$ togda i samo togda, kogda
+$x < y$, $x > 0$ i $y > 0$, ili kogda $y = 0$.
+
+Vse te funkcije sųt izčislime funkcije prirodnyh čisl, a
+$\Assign{<}{K'}$ jest rěšimo odnošenje na~$\Nat$---no one ne sųt te
+same funkcije kako naslědnik, dodavanje i množenje na~$\Nat$, a
+$\Assign{<}{K'}$ ne jest tym samym odnošenjem kako~$<$ na~$\Nat$.
+\end{ex}
+
+\begin{prob}
+Zadajte !!a{structure}~$\Struct{L'}$ s $\Domain{L'} = \Nat$, izomorfnu
+strukturi~$\Struct{L}$ iz \olref[mod][mar][mdq]{ex:model-L-of-Q}.
+\end{prob}
+
+\begin{explain}
+\Olref{ex:comp-model-q} pokazuje, že $\Th{Q}$ imaje izčislime
+nestandardne modele s domenom~$\Nat$. Naslědujuča teorema však
+pokazuje, že to ne važi za modele teorije~$\Th{PA}$ (a zato takože ne
+za modele teorije~$\Th{TA}$).
+\end{explain}
+
+\begin{thm}[Tennenbaumova teorema]
+$\Struct{N}$ jest, do izomorfizma, jediny izčislimy model
+teorije~$\Th{PA}$.
+\end{thm}
+
+\end{document}

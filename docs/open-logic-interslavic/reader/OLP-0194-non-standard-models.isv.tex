@@ -1,0 +1,130 @@
+% Čest: teorija-modelov
+% Glava: modeli-aritmetiky
+% Odděl: nestandardne-modeli
+
+\documentclass[../../../include/open-logic-section]{subfiles}
+
+\begin{document}
+
+\olfileid[isv]{mod}{mar}{nst}
+\section{Nestandardne modeli}
+
+\begin{explain}
+!!a{structure} za $\Lang{L_A}$ jest standardna, ako ona jest izomorfna
+sa~$\Struct{N}$. Ako !!a{structure} ne jest izomorfna sa~$\Struct{N}$,
+nazyvajemo ju nestandardnoju.
+\end{explain}
+
+\begin{defn}
+!!{structure}~$\Struct{M}$ za $\Lang{L_A}$ jest \emph{nestandardna},
+ako ona ne jest izomorfna sa~$\Struct{N}$. Pritom !!{element}y $x \in
+\Domain{M}$, ktore sųt ravne $\Value{\num{n}}{M}$ za něktory $n \in
+\Nat$, nazyvajut se \emph{standardnymi čislami} (struktury~$\Struct{M}$), a druge
+\emph{nestandardnymi čislami}.
+\end{defn}
+
+\begin{explain}
+Po \olref[stm]{prop:standard-domain}, vsaka standardna !!{structure}
+za~$\Lang{L_A}$ sodrži samo standardne !!{element}y. Iz samoj
+nestandardnosti však ne slěduje, že !!{structure} mora sodržati
+nestandardny element: ona može imati samo značenja standardnyh
+numeralov, no drugačije interpretovati aritmetične simbole. V obratnom
+směru sučstvovanje nestandardnogo !!{element}a zagotavljaje, že
+!!{structure} jest nestandardna.
+\end{explain}
+
+\begin{prop}
+Ako !!a{structure}~$\Struct{M}$ za $\Lang{L_A}$ sodrži
+nestandardno čislo, $\Struct{M}$ jest nestandardna.
+\end{prop}
+
+\begin{proof}
+Prědpoložimo protivno, t.j. že $\Struct{M}$ jest standardna, ale sodrži
+nestandardno čislo~$x$. Nehaj $g\colon \Nat \to \Domain{M}$ bude
+izomorfizmom. Lahko viděti (matematičnoju indukcijeju po~$n$), že
+$g(\Value{\num{n}}{N}) = \Value{\num{n}}{M}$. Vsaky element domena
+struktury prirodnyh čisl jest standardnym čislom. Drugymi slovami, $g$ preslikovaje
+standardne čisla iz~$\Struct{N}$ na standardne čisla
+iz~$\Struct{M}$. Ako $\Struct{M}$ sodrži nestandardno čislo, $g$
+ne može byti !!{surjective}, čto protirěči prědpoloženju.
+\end{proof}
+
+\begin{prob}
+Pripomněte, že $\Th{Q}$ sodrži aksiomy
+\begin{align*}
+& \lforall[x][\lforall[y][(\eq[x'][y'] \lif \eq[x][y])]] \tag{$!Q_1$}\\
+& \lforall[x][\eq/[\Obj 0][x']] \tag{$!Q_2$}\\
+& \lforall[x][(\eq[x][\Obj 0] \lor \lexists[y][\eq[x][y']])] \tag{$!Q_3$}
+\end{align*}
+Podajte tri struktury~$\Struct{M_1}$, $\Struct{M_2}$, $\Struct{M_3}$. V
+slědujučem spisku vsaka !!{structure} ima svojstva:
+\begin{enumerate}
+\item $\Sat{M_1}{!Q_1}$, $\Sat{M_1}{!Q_2}$, $\Sat/{M_1}{!Q_3}$;
+\item $\Sat{M_2}{!Q_1}$, $\Sat/{M_2}{!Q_2}$, $\Sat{M_2}{!Q_3}$; i
+\item $\Sat/{M_3}{!Q_1}$, $\Sat{M_3}{!Q_2}$, $\Sat{M_3}{!Q_3}$;
+\end{enumerate}
+Očividno, dla vsakoj trěba opreděliti~$\Assign{\Obj{0}}{M_i}$ i
+$\Assign{\prime}{M_i}$. Interpretacije dodavanja, množenja i porędka
+možno izbrati proizvoljno, ibo one ne nastupajut v tyh trěh aksiomah.
+\end{prob}
+
+\begin{explain}
+Nestandardna !!{structure} za $\Lang{L_A}$ jest dost lahko opreděljiva.
+Na priměr, vozměmo strukturu s !!{domain}om~$\Int$
+i interpretujmo vse nelogične simbole kako obyčno. Poněže negativne čisla
+ne sųt značenjami $\num{n}$ za nikakovy~$n$, ta struktura jest
+nestandardna. Razuměje se, ona ne bude \emph{modelom} aritmetiky
+v smyslu, že čini istinnymi te same izrečenja
+kako~$\Struct{N}$. Na priměr, $\lforall[x][\eq/[x'][\Obj{0}]]$ jest
+neistinno. No s pomočju teoremy kompaktnosti možemo dost lahko dokazati
+sučstvovanje nestandardnyh modelov aritmetiky.
+\end{explain}
+
+\begin{prop}
+Nehaj $\Th{TA} = \Setabs{!A}{\Sat{N}{!A}}$ bude teorijeju
+struktury~$\Struct{N}$. $\Th{TA}$ imaje !!a{enumerable} nestandardny model.
+\end{prop}
+
+\begin{proof}
+Razširimo $\Lang{L_A}$ tak, že dodana bude nova !!{constant}~$c$, i
+razsmotrimo slědujuče množstvo; vsaky jego člen jest !!{sentence}:
+\[
+\Gamma = \Th{TA} \cup \{\eq/[c][\num{0}], \eq/[c][\num{1}],
+\eq/[c][\num{2}], \dots\}
+\]
+Vsaky model~$\Struct{M^c}$ množstva~$\Gamma$ sodržal by !!a{element}~$x =
+\Assign{c}{M^c}$, ktory jest nestandardny, ibo $x \neq
+\Value{\num{n}}{M}$ za vse $n \in \Nat$. Očividno takože
+$\Sat{M^c}{\Th{TA}}$, ibo $\Th{TA} \subseteq \Gamma$. Ako od
+$\Struct{M^c}$ uzmemo redukt, onda !!a{structure}~$\Struct{M}$ za $\Lang{L_A}$
+prosto izostavjaje interpretaciju~$c$; jej domen nadalje sodrži
+nestandardny~$x$, a takože~$\Sat{M}{\Th{TA}}$. Poslědnje jest
+zagotovljeno, ibo $c$ ne nastupaje v~$\Th{TA}$. Zato dost jest
+pokazati, že $\Gamma$ imaje model.
+
+Koristajemo teoremu kompaktnosti, da pokažemo, že~$\Gamma$ imaje
+model. Ako vsako konečno podmnožstvo~$\Gamma$
+jest zadovoljnivo, togda i~$\Gamma$ jest zadovoljnivo. Razsmotrimo proizvoljno
+konečno podmnožstvo $\Gamma_0 \subseteq
+\Gamma$. $\Gamma_0$ sodrži něktore člene iz~$\Th{TA}$; vsaky takov člen
+jest !!{sentence}. Ona takože sodrži něktore izrečenja
+formy~$\eq/[c][\num{n}]$, ale samo konečno mnogo. Ako takovih
+izrečenij ne imaje, za k beremo nulu; v protivnom slučaju nehaj $k$ bude
+največše čislo takovo, že $\eq/[c][\num{k}] \in \Gamma_0$. Opredělimo
+$\Struct{N_k}$ razširjajuči~$\Struct{N}$ interpretacijeju
+$\Assign{c}{N_k} = k+1$. Imamo $\Sat{N_k}{\Gamma_0}$: ako $!A
+\in \Th{TA}$, togda $\Sat{N_k}{!A}$, ibo $\Struct{N_k}$ jest
+jednaka~$\Struct{N}$ vo vsem kromě interpretacije~$c$, a $c$ ne nastupaje
+v~$!A$. Takože $\Sat{N_k}{\eq/[c][\num{n}]}$, ibo $n \le k$, a
+$\Value{c}{N_k} = k+1$. Zato vsako konečno podmnožstvo~$\Gamma$ jest
+zadovoljnivo.
+
+Kompaktnost tym dokazyvaje sučstvovanje modela. Da by model byl
+izčisljivy, potom priměnimo nizhodnu teoremu Lovenheima--Skolema
+k razširjenomu modelu v izčisljivom jezyku. Ona daje izčisljivu
+elementarnu podstrukturu, ktora sodrži interpretaciju konstanty c i
+zadovoljava cělu teoriju. Jej redukt jest zato izčisljivy nestandardny
+model teorije struktury prirodnyh čisl.
+\end{proof}
+
+\end{document}
