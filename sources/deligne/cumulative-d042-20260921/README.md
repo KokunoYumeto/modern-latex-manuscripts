@@ -1,0 +1,13 @@
+# Pierre Deligne: complete cumulative editable sources
+
+This package contains the complete French and English texts of 39 included works, not a thin PDF-assembly master. Both Deligne_EN.tex and Deligne_FR.tex are full directly editable cumulative documents. All local figures, nested original bodies and project-specific dependencies are preserved under assets/ and papers/. D042 is inserted numerically before D043.
+
+Included: D001-D023, D025-D031, D033-D036, D038-D040, D042-D043. Inclusion gaps: D024, D032, D037, D041. Gaps in this edition are not claims that no downloads exist. Later downloaded and partial works are not silently certified. The newly corrected D016 working branch is not substituted for the previously released D016 text.
+
+Extract the complete archive preserving paths. Install XeLaTeX and the standard packages and fonts named by the masters and FONT_REQUIREMENTS.txt. Fonts remain distribution/system dependencies; no private font is silently embedded as a source dependency. On Windows run python build_windows.py EN FR. The included worker reserves Global\InterlanguageTeXSlotV1 continuously, disables shell escape and automatic package installation, uses one captured process tree with an aggregate1GiB cap, and runs two passes per language. Run from a fresh extraction; an existing build stdout is never overwritten. On other platforms use two sequential xelatex -no-shell-escape passes per master with SOURCE_DATE_EPOCH=946684800, FORCE_SOURCE_DATE=1 and TZ=UTC.
+
+The cumulative PDFs in the accompanying release were compiled from these exact full masters. Native D042 standalone sources and its source/translation corrections remain separately preserved; its apparatus PDF is accompanied by its exact complete apparatus.tex (pdfLaTeX). Controlling and comparison scans are separated under witnesses/D042. The D042 integration changes only folio page-break layout and the bold-math command binding; all15source folio markers,8diagrams and30tagged displays remain. All38 previously included body chunks are unchanged.
+
+SOURCE_MANIFEST.json binds every payload member except itself. SOURCE_SCOPE.json records PDF/source identities and sparse scope. The historical maps retain prior source-body provenance, not a claim of new acceptance. Inherited translation review is preserved; terminology choices without documented consulted-canon passages remain unverified for retrospective review. This integration is not an independent proof of the mathematical assertions or an exhaustive glyph-level certification.
+
+Concept DOI:10.5281/zenodo.20410853. Primary repository:KokunoYumeto/modern-latex-manuscripts. The predecessor record22732018 remains publicly accessible with its exact historical PDFs and source archives.
