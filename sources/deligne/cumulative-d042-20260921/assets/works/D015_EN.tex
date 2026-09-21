@@ -1,0 +1,565 @@
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{graphicx}
+\usepackage{geometry}
+\usepackage{enumitem}
+\geometry{paper=a4paper,margin=0.86in}
+\setlength{\parindent}{1.2em}
+\setlength{\parskip}{0.12em}
+\emergencystretch=3em
+\setlist{leftmargin=2.1em,itemsep=0.08em,topsep=0.2em}
+\graphicspath{{D015_assets/}}
+\newcommand{\CC}{\mathbb C}
+\newcommand{\PP}{\mathbb P}
+\newcommand{\ZZ}{\mathbb Z}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\Alb}{\operatorname{Alb}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Ker}{\operatorname{Ker}}
+\newcommand{\tors}{\mathrm{tors}}
+\newcommand{\sourcehead}[1]{\par\medskip\noindent\textsc{#1}\quad}
+\newcommand{\sourceimage}[2]{%
+  \begin{center}
+    \includegraphics[width=#1\linewidth]{#2}
+  \end{center}}
+\frenchspacing
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries UNIRATIONAL NON-RATIONAL VARIETIES}\\[0.35em]
+{\large [after M. ARTIN and D. MUMFORD]}\\[0.35em]
+{\large by Pierre DELIGNE}
+\end{center}
+
+\begin{quote}\small
+\textit{Editorial note.} This independent English edition follows the frozen
+French text and the IAS authority. Mathematical notation, cross-references,
+and typographical peculiarities of the printed source are retained rather than
+silently corrected. The seven source objects are reproduced from
+authority-grounded image derivatives. Running headers and printed page numbers
+are excluded from the body.
+\end{quote}
+
+% Authority physical page 1 / printed page 45
+This exposé contains a description of the variety constructed by Artin and
+Mumford, and the proof that it is unirational and non-rational. It also contains
+the statements of the theorems proved by Clemens and Griffiths [4], and by Manin
+and Iskovskih [6], for constructing other examples. I attended talks by Artin
+and Mumford on the same subject and drew heavily on them.
+
+In everything that follows, the expression ``algebraic variety'' will mean ``a
+separated scheme of finite type over \(\CC\), reduced and irreducible''. We
+shall write \(k(X)\) for the field of rational functions on an algebraic
+variety \(X\).
+
+\section*{1. Rationality and unirationality}
+
+Let \(K\) be an extension of finite type of \(\CC\). There then exists an
+algebraic variety \(X\) such that \(K\) is isomorphic to \(k(X)\). \(X\) is
+called a \emph{model} of \(K\). By [5], \(K\) always admits a projective and
+smooth model.
+
+Let \(K\) and \(L\) be two extensions of finite type of \(\CC\), with models
+\(X\) and \(Y\). The homomorphisms \(a^*:K\hookrightarrow L\) correspond
+bijectively to the dominant rational maps \(a_*:Y\dashrightarrow X\), by the
+formula \(a^*(f)=f\circ a_*\). By [5], if \(X\) and \(Y\) are projective and
+smooth, every rational map \(a_*:Y\dashrightarrow X\) admits a decomposition
+\[
+  a=b\,c_n^{-1}\cdots c_1^{-1}
+\]
+
+% Authority physical page 2 / printed page 46
+\sourceimage{0.78}{P0002-A01_diagram_1_1_presentation.png}
+
+where \(b\) and the \(c_i\) are morphisms (defined everywhere), and where
+\(Y_{i+1}\) is obtained from \(Y_i\) by blowing up a smooth subvariety \(Z_i\)
+(of codimension \(\geq 2\)).
+
+If \(a^*:K\to L\) is an isomorphism, the preceding result can be applied to
+\(((a^*)^{-1},Y_{n+1},X)\). By iteration, one obtains a commutative diagram of
+morphisms of schemes
+
+\sourceimage{0.83}{P0002-A02_diagram_1_2_presentation.png}
+
+In this diagram, the horizontal arrows \(x^i,y^i\) are composites of blow-ups
+with nonsingular centers, as in (1.1); the \(a^i\) and \(b^i\) are birational.
+
+An invariant of a projective and smooth variety \(X\) is called \emph{birational}
+if it depends only on \(k(X)\). The birational character of an invariant is
+often verified with the aid of (1.2) (for a typical example, see 2.1).
+Invariants usable for a field \(K\) are generally defined as the value of a
+birational invariant of any projective and smooth model of \(K\).
+
+\sourcehead{Definition 1.3.-} Let \(X\) be an algebraic variety of dimension
+\(n\). We say that \(X\) is unirational if the following conditions are
+satisfied:
+\begin{enumerate}[label=(\roman*)]
+\item \(k(X)\) is a subfield of a purely transcendental extension
+  \(\CC(T_1,\ldots,T_r)\) of \(\CC\);
+
+% Authority physical page 3 / printed page 47
+\item a finite extension of \(k(X)\) is isomorphic to
+  \(\CC(T_1,\ldots,T_n)\);
+\item (for \(X\) projective and smooth), there exists a diagram (1.1) with
+  \(Y=\PP^r(\CC)\);
+\item (for \(X\) projective and smooth), there exists a diagram (1.1) with
+  \(Y=\PP^n(\CC)\).
+\end{enumerate}
+One may suppose \(X\) projective and smooth, and one has
+\[
+  \text{(ii)}\Rightarrow\text{(i)}\Leftrightarrow\text{(iii)}
+  \Rightarrow\text{(iv)}\Leftrightarrow\text{(ii)}.
+\]
+
+\sourcehead{Definition 1.4.-} We say that \(X\) is rational if, alternatively,
+\begin{enumerate}[label=(\roman*)]
+\item \(k(X)\) is a purely transcendental extension of \(\CC\);
+\item (for \(X\) projective and smooth), there exists a diagram (1.2) with
+  \(Y=\PP^n(\CC)\).
+\end{enumerate}
+
+The most evident birational invariants do not permit one to distinguish
+unirational varieties from rational varieties.
+
+\sourcehead{Proposition 1.5.-} Let \(X\) be a projective and smooth unirational
+algebraic variety of dimension \(n>0\).
+\begin{enumerate}[label=(\roman*)]
+\item The plurigenera
+\[
+  P_k=\dim H^0\bigl(X,(\Omega_X^n)^{\otimes k}\bigr)\qquad(k>0)
+\]
+vanish. More generally,
+\(H^0\bigl(X,(\Omega_X^1)^{\otimes k}\bigr)=0\) for \(k>0\)
+(see [9], Remark, page 02).
+\item \(X\) is simply connected ([10]).
+\end{enumerate}
+
+For \(n=1\) or \(2\), property (i) above already characterizes rational
+varieties. A unirational variety of dimension \(\leq 2\) is therefore rational,
+and a subextension of transcendence degree \(\leq 2\) of
+\(\CC(T_1,\ldots,T_k)\) is automatically purely transcendental. More precisely,
+one has the following:
+
+\begin{enumerate}[label=\alph*)]
+\item For \(n=1\), if \(H^0(X,\Omega_X^1)=0\), then
+\(X\simeq\PP^1(\CC)\). By the Riemann--Roch theorem, for every \(x\in X\),
+\(\cO(x)\) indeed defines an embedding of \(X\) into \(\PP^1(\CC)\).
+
+% Authority physical page 4 / printed page 48
+\item For \(n=2\), the Castelnuovo--Enriques criterion asserts that \(X\) is
+rational if \(P_a\simeq P_2=0\), i.e. if
+\[
+  H^0(X,\Omega_X^1)=H^0\bigl(X,(\Omega_X^2)^{\otimes2}\bigr)=0
+\]
+(see [9]).
+\end{enumerate}
+The symbols \(P_a\simeq P_2\) and \(\Omega_X^1\) in this criterion reproduce
+the printed source.
+
+For \(n>2\), it has been very difficult to define or calculate birational
+invariants capable of distinguishing between rational and unirational
+varieties.
+
+\section*{2. Some birational invariants}
+
+\subsection*{A) Artin and Mumford}
+
+\sourcehead{Proposition 2.1.-} The torsion subgroup
+\(H^3(X,\ZZ)_{\tors}\) of \(H^3(X,\ZZ)\) is a birational invariant of the
+projective and smooth variety \(X\).
+
+If a variety \(X_2\) is obtained from a smooth variety \(X_1\) by blowing up a
+smooth subvariety \(Z\subset X_1\) of codimension \(r\geq2\), then (SGA 5 VII)
+\[
+  H^n(X_2,\ZZ)\simeq H^n(X_1,\ZZ)
+  \oplus\bigoplus_{1}^{r-1}H^{n-2i}(Z,\ZZ).
+\]
+The lower summation index \(1\), without an explicit \(i=\), is retained from
+the printed formula. In particular,
+\[
+  H^3(X_2,\ZZ)\simeq H^3(X_1,\ZZ)\oplus H^1(Z,\ZZ).
+\]
+Since \(H^1(Z,\ZZ)\) is torsion-free, one therefore has
+\[
+  H^3(X_1,\ZZ)_{\tors}\simeq H^3(X_2,\ZZ)_{\tors}.
+\]
+
+Suppose that \(k(X)\) is isomorphic to \(k(Y)\), and let there be a diagram
+(1.2) From it one obtains a diagram
+
+\sourceimage{1.00}{P0004-A01_cohomology_diagram_presentation.png}
+
+Since \(a_2^*b_1^*\) is bijective, \(b_1^*\) is injective. Since
+\(b_1^*a_1^*\) is bijective
+
+% Authority physical page 5 / printed page 49
+and \(b_1^*\) injective, \(a_1^*\) is bijective, and the assertion follows.
+
+The example of Artin and Mumford is based on the
+
+\sourcehead{Construction 2.2.-} We shall construct a unirational variety
+\(X\), projective and smooth, of dimension \(3\), such that
+\[
+  H^3(X,\ZZ)_{\tors}\neq0
+  \qquad\bigl(\text{we shall have }H^3(X,\ZZ)\simeq\ZZ/(2)\bigr).
+\]
+Multiplying this variety by \(\PP^r(\CC)\), one obtains an analogous example
+in every dimension \(\geq3\).
+
+\subsection*{B) Clemens and Griffiths}
+
+Let \(X\) be a projective and smooth variety of dimension \(3\), such that
+\(H^0(X,\Omega_X^3)=0\). The Hodge decomposition of \(H^3(X,\CC)\) then
+reduces to
+\[
+  H^3(X,\CC)=H^{2,1}\oplus H^{1,2}
+\]
+and, according to Weil [11], the complex torus
+\[
+  J(X)=H^3(X,\ZZ)\backslash H^3(X,\CC)/H^{2,1}
+\]
+is an abelian variety: the \emph{intermediate Jacobian} of \(X\). Let
+\[
+  \psi:H^3(X,\ZZ)\otimes H^3(X,\ZZ)\longrightarrow
+  H^6(X,\ZZ)\simeq\ZZ
+\]
+be the cup product. By the Poincaré duality theorem, the alternating form on
+\(H^3(X,\ZZ)/\text{torsion}\) deduced from \(\psi\) has discriminant one. If
+\(H^1(X,\ZZ)=0\), it follows from Weil [11] that this form defines a principal
+polarization on \(J(X)\).
+
+\sourcehead{Proposition 2.3 ([4] 3.26).-} If \(X\) is rational, the polarized
+abelian variety \(J(X)\) is a product of Jacobians.
+
+In the proof sketch that follows, the sign \(\simeq\) denotes an isomorphism of
+\emph{polarized} abelian varieties. One verifies successively:
+\begin{enumerate}[label=\alph*)]
+\item \(J(\PP^3(\CC))=0\).
+\item If \(Y''\) is obtained from the nonsingular projective variety \(Y'\) by
+blowing up
+
+% Authority physical page 6 / printed page 50
+a smooth curve \(Z\) with Jacobian \(J(Z)\) (respectively, a point), one has
+([4] 3.11)
+\[
+  J(Y'')\simeq J(Y')\times J(Z)
+  \qquad\bigl(\text{respectively, }J(Y'')\simeq J(Y')\bigr).
+\]
+\item If a morphism \(b:Y'\to X\) is birational, \(J(X)\) is a direct factor
+in \(J(Y')\): there exists a principally polarized abelian variety of the
+principal series \(B\) such that
+\[
+  J(Y')\simeq J(X)\times B.
+\]
+\item Let \((A_i)_{1\leq i\leq n}\) be nonzero principally polarized abelian
+varieties. Suppose that no \(A_i\) admits a decomposition
+\(A_i\simeq A_i'\times A_i''\) (for example, that \(A_i\) is a Jacobian). Then
+every decomposition of \(A=\prod A_i\) is of the form
+\[
+  A\simeq\left(\prod_{i\in I}A_i\right)
+  \times\left(\prod_{i\notin I}A_i\right)
+  \quad\text{for }I\subset[1,n]\quad([4]~3.23).
+\]
+\end{enumerate}
+
+If \(X\) is rational, there exists a diagram 2.1 with \(Y=\PP^3(\CC)\) and
+\(b\) birational. By a) and b), \(J(Y_{n+1})\) is a product of Jacobians. By c)
+and d), \(J(X)\) is one as well. The reference ``diagram 2.1'' reproduces the
+printed source.
+
+Take \(X\) to be a cubic hypersurface in \(\PP^4(\CC)\). One has
+\[
+  H^1(X,\ZZ)=H^3(X,\ZZ)_{\tors}=H^0(X,\Omega_X^3)=0,
+  \qquad
+  \dim J(X)=\dim H^1(X,\Omega_X^2)=5,
+\]
+and \(X\) is unirational by [7]. Let \(S\) be the surface parametrizing the
+lines contained in \(X\), and let \(\alpha:S\to\Alb(S)\) be the map of \(S\)
+into its Albanese variety. One of the essential results of [4] is the following
+
+\sourcehead{Theorem 2.4 ([4] 11.19 and 13.4).-} There exists an isomorphism
+\[
+  J(X)\xrightarrow{\sim}\Alb(S),
+\]
+which carries the divisor \(\Theta\) of \(J(X)\) to the image of \(S\times S\)
+under the map
+\[
+  (x,y)\xrightarrow{\delta}\alpha(x)-\alpha(y).
+\]
+
+% Authority physical page 7 / printed page 51
+Clemens and Griffiths then manage to use results of [1] to prove that
+\((\Alb(S),\delta(S\times S))\) cannot be the polarized Jacobian of a curve.
+Another proof of the irrationality of \(X\) is suggested in the appendix to
+[4]. It is a matter of proving
+
+\sourcehead{Theorem 2.5.-} The singular locus of the divisor \(\Theta\) of
+\(J(X)\) has dimension \(0\), hence codimension \(>4\). It is even reduced to
+the image under \(\delta\) of the diagonal of \(S\times S\).
+
+It is known that this is never the case for the divisor \(\Theta\) of a
+Jacobian.
+
+\subsection*{C) Manin and Iskovskih}
+
+The group of birational automorphisms of a variety \(X\) (equal to the group of
+\(\CC\)-automorphisms of \(k(X)\)) is a birational invariant of \(X\). It is
+this invariant that Manin and Iskovski use to show that a smooth quartic
+hypersurface in \(\PP^4(\CC)\) is never rational:
+
+\sourcehead{Theorem 2.6 ([6]).-} Let \(X\) and \(Y\) be two smooth quartic
+hypersurfaces in \(\PP^4(\CC)\). Every birational isomorphism
+\(a:X\longrightarrow Y\) is automatically biregular.
+
+Since certain quartic hypersurfaces are unirational, [7] this theorem provides
+a new example of unirational non-rational varieties.
+
+\section*{3. The example of Artin and Mumford}
+
+Consider in \(\PP^2(\CC)\) a configuration consisting of
+\begin{enumerate}[label=\alph*)]
+\item two smooth cubic curves \(C_1\) and \(C_2\), with equations \(f_1=0\) and
+\(f_2=0\), meeting transversely;
+\item a smooth conic \(Q\), with equation \(q=0\), which meets each \(C_i\) in
+three
+
+% Authority physical page 8 / printed page 52
+distinct points of tangency.
+\end{enumerate}
+
+We shall construct
+\begin{enumerate}[label=\alph*)]
+\item a vector bundle \(V\) of rank \(3\) on \(\PP^2(\CC)\);
+\item a quadratic form \(\Phi:V\to\mathcal L\) (\(\mathcal L\) an invertible
+sheaf) of discriminant \(f_1f_2\) (if \(\Delta\), a section of
+\(\mathcal L^{\otimes3}\otimes(\bigwedge^3V)^{\otimes(-2)}\), is the
+discriminant, the subscheme of \(\PP^2(\CC)\) with equation \(\Delta=0\) is
+\(C_1\cup C_2\)).
+\end{enumerate}
+
+Let \(X\subset\PP(V^*)\) be the conic bundle over \(\PP^2(\CC)\), degenerating
+along \(C_1\cup C_2\), with homogeneous equation \(\Phi=0\). The following
+conditions will be satisfied.
+
+\begin{enumerate}[label=\alph*),start=3]
+\item \(\Phi\) has rank \(\geq2\) at every point: for
+\(s\in C_1\cup C_2\), the fibre \(X_s=f^{-1}(s)\) is the union of two
+concurrent lines; the only singular points of \(X\) are the singular points of
+the fibres \(X_s\) for \(s\in C_1\cap C_2\).
+\item Let \(S\) be the double cover of \(\PP^2(\CC)\), ramified along \(Q\),
+and let \(X_S=X\times_{\PP^2(\CC)}S\). Then \(X_S/S\) has a section
+
+\sourceimage{0.48}{P0008-A01_section_diagram_presentation.png}
+
+\item For \(s\in(C_1\cup C_2)-Q\), the two points \(\alpha(t)\) for which
+\(\pi(t)=s\) lie in the two irreducible components of \(X_s\).
+\end{enumerate}
+
+Locally (for the usual topology) on \(C_1\cup C_2\), the restriction of the
+bundle \(X\) to \(C_1\cup C_2\) is obtained by gluing two projective-line
+bundles along a section. However, when one traverses a loop in
+\(C_1\cup C_2\), these two bundles may be exchanged: there exists an unramified
+double cover \((C_1\cup C_2)^*\) of \(C_1\cup C_2\) whose two local sections
+correspond, locally, to the two projective-line bundles of which
+\(X|_{C_1\cup C_2}\) is the union. Let \(\pi_i:C_i^*\to C_i\)
+
+% Authority physical page 9 / printed page 53
+be the double cover of \(C_i\) induced by \((C_1\cup C_2)^*\). We shall use
+from e) only the following corollary
+
+\sourcehead{Lemma 3.1.-} \(C_i^*\) is irreducible.
+
+By e), \(C_i^*\) is the normalization of the double cover of \(C_i\) induced by
+\(S\). The lemma follows from the fact that the section \(q\) of
+\(\cO(2)|_{C_i}\) is not the square of a section of \(\cO(1)|_{C_i}\); if
+\(q\) were a square, the three intersection points of \(Q\) with \(C_i\) would
+indeed be collinear.
+
+To the double cover \(C_i^*\) of \(C_i\) correspond a character of order \(2\)
+of the fundamental group of \(C_i\) and a local system \(A_i\), locally
+isomorphic to \(\ZZ\), defined by the exact sequence of sheaves on \(C_i\)
+\[
+  0\longrightarrow A_i\longrightarrow\pi_{i*}\ZZ
+  \xrightarrow{\Tr}\ZZ\longrightarrow0,
+\]
+where \(\Tr\) is the ``sum of the values on the two sheets of the covering''.
+One has
+\[
+\tag{3.2}
+  H^0(C_i,A_i)=0,\qquad H^1(C_i,A_i)=\ZZ/2,\qquad
+  H^2(C_i,A_i)=\ZZ/2.
+\]
+
+We shall use d) only to prove the following fact
+
+\sourcehead{Lemma 3.3.-} \(X\) is unirational.
+
+The surface \(S\) is a quadric in \(\PP^3(\CC)\), hence is rational. Since
+\(X_S/S\) has a section, there is a birational isomorphism
+\(X_S\sim S\times\PP^1(\CC)\), and \(X\) is the image of the rational variety
+\(X_S\).
+
+The nine singular points of \(X\) are ordinary quadratic points. Each can be
+resolved as follows (cf. [3])
+\begin{enumerate}[label=\alph*)]
+\item Blow it up; this resolves \(X\) and replaces the singular point by a
+quadric \(P\), isomorphic to \(\PP^1(\CC)\times\PP^1(\CC)\).
+\item Choose a projection \(P\xrightarrow{\beta}\PP^1(\CC)\), and contract in
+the blow-up \(\widetilde X_1\) of \(X\) the fibres of this projection; this is
+possible because \(\beta\) is smooth, because its
+
+% Authority physical page 10 / printed page 54
+fibres are isomorphic to \(\PP^1(\CC)\), and because the normal bundle of \(P\)
+in \(\widetilde X_1\) induces on each fibre a bundle \(\cO(-1)\) ([8]).
+\end{enumerate}
+
+Let \(\widetilde X\) be the resulting variety. There is a map from
+\(\widetilde X\) into \(X\), and \(\widetilde X\) is obtained from \(X\) by
+replacing each singular point by a projective line.
+
+The fibres of the projection \(p:\widetilde X\to\PP^2(\CC)\) are of the
+following three types
+
+\sourceimage{1.00}{P0010-A01_fiber_types_presentation.png}
+
+\begin{center}\small
+English key: \(s\notin C_1\cup C_2\), a conic;
+\(s\in C_1\cup C_2\) and \(s\notin C_1\cap C_2\), two concurrent lines;
+\(s\in C_1\cap C_2\), three lines as shown.
+\end{center}
+
+When one passes from the generic point \(\eta\) of \(\PP^2(\CC)\) to the
+generic point \(\eta_i\) of \(C_i\) (\(i=1,2\)), and to
+\(s\in C_1\cap C_2\), the irreducible components specialize as indicated in the
+following diagram
+
+\sourceimage{0.72}{P0010-A02_specialization_diagram_3_4_presentation.png}
+
+(the crosses represent irreducible components, all the multiplicities being
+one). The tedious verification of this local result is omitted. From it one
+obtains
+
+\sourcehead{Lemma 3.5.-} One has
+\[
+  R^0p_*\ZZ=\ZZ,\qquad R^1p_*\ZZ=0,
+\]
+and an exact sequence of sheaves
+\[
+  0\longrightarrow A_1\oplus A_2\longrightarrow R^2p_*\ZZ
+  \xrightarrow{\Tr}\ZZ\longrightarrow0.
+\]
+
+We can now use the Leray spectral sequence of \(p\) to compute
+\(H^*(\widetilde X,\ZZ)\). The essential fact is the following (which implies
+the irrationality of \(X\)).
+
+% Authority physical page 11 / printed page 55
+\sourcehead{Lemma 3.6.-} One has
+\[
+  H^3(\widetilde X,\ZZ)=\ZZ/(2).
+\]
+
+Let us compute the \(E_2\)-terms of the Leray spectral sequence of \(p\). One
+has
+\[
+\begin{aligned}
+R^0p_*\ZZ=\ZZ&\quad\text{hence}\quad
+E_2^{p,0}=\ZZ,0,\ZZ,0,\ZZ\quad\text{for }p=0\text{ to }4,\\
+R^1p_*\ZZ=0&\quad\text{hence}\quad E_2^{p,1}=0.
+\end{aligned}
+\]
+To compute \(E_2^{p,2}=H^p(R^2p_*\ZZ)\), one uses the long exact sequence
+defined by the short exact sequence of sheaves 3.5. One finds
+\[
+\begin{gathered}
+0\longrightarrow E^{0,2}\xrightarrow{a}\ZZ\xrightarrow{j}
+\ZZ/2\oplus\ZZ/2\longrightarrow E^{1,2}\longrightarrow0,\\
+0\longrightarrow\ZZ/2\oplus\ZZ/2\longrightarrow E^{2,2}
+\longrightarrow\ZZ\longrightarrow0,\\
+E^{3,2}=0\qquad\text{and}\qquad E^{4,2}=\ZZ.
+\end{gathered}
+\]
+One easily verifies that \(a(E^{0,2})=2\ZZ\) (this fact is, moreover, not
+necessary for the proof that \(H^3(\widetilde X,\ZZ)_{\tors}\neq0\)). The
+\(E_2^{pq}\) are therefore as follows
+
+\sourceimage{0.78}{P0011-A01_leray_e2_table_presentation.png}
+
+The differentials \(d_r\) can only be zero, so that
+\(E_2^{pq}=E_\infty^{pq}\), and the lemma follows.
+
+It is apparent that it was essential to have two curves
+\(C_i\subset\PP^2(\CC)\) along which \(X\) degenerates, for a group \(\ZZ/2\)
+is killed in passing from
+\[
+H^1\bigl(\Ker(R^2p_*\ZZ\to\ZZ)\bigr)
+\quad\text{to}\quad H^1R^2p_*\ZZ=E^{1,2}.
+\]
+
+It remains to carry out the promised constructions. Artin and Mumford know how
+to prove \emph{a priori} the existence of a conic bundle of the required type. I
+shall confine myself to giving equations that define one.
+
+% Authority physical page 12 / printed page 56
+\begin{enumerate}[label=\arabic*)]
+\item The image of \(f_1f_2\) in \(H^0(Q,\cO(6))\) is the square of
+\(g_1\in H^0(Q,\cO(3))\), because \(Q\) is rational and the zeros of
+\(f_1f_2\) on \(Q\) are double. This \(g_1\) lifts to
+\(g\in H^0(\PP^2(\CC),\cO(3))\) because
+\(H^1(\PP^2(\CC),\cO(1))=0\). Since \(f_1f_2-g^2\) vanishes on \(Q\), it is a
+multiple of \(q\):
+\[
+  f_1f_2=g^2+qd.
+\]
+\item Take
+\[
+  V=\cO(-1)\oplus\cO(-2)\oplus\cO,
+\]
+and the form
+\[
+  \Phi:V\longrightarrow\cO:(x,y,z)\longmapsto
+  qx^2+2gxy-dy^2-z^2.
+\]
+One has \(\Delta=g^2+qd=f_1f_2\). At a point where \(\Phi\) had rank \(\leq1\),
+one would have \(\Delta=q=d=0\), whence \(g=0\), and
+\(\Delta=g^2+qd\) would have a double zero. This is impossible because
+\(C_1\cap C_2\cap Q=\varnothing\). Finally, \(S\) is identified with the
+subscheme of \(X\) having equation \(y=0\), and d) and e) follow.
+\end{enumerate}
+
+% Authority physical page 13 / printed page 57
+\begin{center}\bfseries BIBLIOGRAPHY\end{center}
+\begin{enumerate}[label={\textup{[\arabic*]}}]
+\item A. Andreotti, On a theorem of Torelli, \emph{Am. J. of Math.}, 80 4
+(1958), p.~801--828.
+\item M. Artin and D. Mumford, Some elementary examples of unirational
+varieties which are not rational, \emph{Journal London Math. Soc.}, (to
+appear).
+\item M. Atiyah, On analytic surfaces with double points, \emph{Proc. Roy. Soc.
+London}, Ser. A 247 (1958), p.~237--244.
+\item C. H. Clemens and P. A. Griffiths, The intermediate jacobian of the cubic
+threefold, preprint.
+\item H. Hironaka, Resolution of singularities of an algebraic variety over a
+field of characteristic zero: I, II, \emph{Ann. of Math.}, 79 (1964),
+p.~109--326.
+\item Ju. I. Manin et V. A. Iskovskih, L'hypersurface quartique de dimension
+trois, et un contre-exemple au problème de Lüroth, \emph{Mat. Sbornik}, 86 1
+(1971), 140--166.
+\item L. Roth, \emph{Algebraic threefolds}, Ergebnisse der Math., Heft 6,
+Springer-Verlag, 1955.
+\item B. Saint-Donat, Sur un théorème de G. Castelnuovo et F. Enriques, Thèse
+de 3ème Cycle, Lyon 1968.
+\item J.-P. Serre, Critère de rationalité pour les surfaces algébriques
+(d'après K. Kodaira), Séminaire Bourbaki, exposé 146, volume 1956/57, W. A.
+Benjamin, New York.
+\item J.-P. Serre, On the fundamental group of a unirational variety,
+\emph{J. London Math. Soc.} 34 (1959), p.~481--484.
+\item A. Weil, \emph{Introduction à l'étude des variétés kählériennes},
+Hermann, Paris 1958.
+\end{enumerate}
+
+\end{document}
