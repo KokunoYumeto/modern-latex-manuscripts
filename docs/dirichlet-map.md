@@ -1,10 +1,10 @@
 # Dirichlet GitHub Coverage Map
 
-Observed 2026-08-05. This page records the P. G. Lejeune Dirichlet material
+Updated 2026-09-21 for Paper IV; historical custody inventory below remains dated 2026-08-05. This page records the P. G. Lejeune Dirichlet material
 whose bytes are actually present in GitHub. It separates the current Band II
 QA readers, their predecessor/tail source, a stricter source-checked Paper I,
 the unsafe selected-works scaffold, and continuation packages that are
-registered only by manifest.
+registered only by manifest. The complete Band I Paper IV edition added below supersedes its earlier partial reading coverage.
 
 These are working reconstructions and preservation records, not critical
 editions, peer review, or mathematical certification. Original-language and
@@ -19,6 +19,14 @@ received the same corrections.
 | Band II Paper I, *Über die Stabilität des Gleichgewichts* | [German, 3 pages](<../reader-pdfs/classical/Dirichlet - Ueber die Stabilitaet des Gleichgewichts - German Source-Checked Edition.pdf>) · [English, 3 pages](<../reader-pdfs/classical/Dirichlet - On the Stability of Equilibrium - English Translation.pdf>) | Separately rebuilt against the scan, with editable TeX, audit, status, and manifests in the [Paper-I root](../sources/classical/dedekind-dirichlet-current-starts/dirichlet-stability/). Use this surface for Paper I rather than the rough selected reader. |
 | R22 Band II predecessor and tail source | [Original languages, 279 pages](../sources/dirichlet/Dirichlet_R22_XXXVII_XLI_20260604/cum/pdf/dirichlet_b2_I-XLI_orig.pdf) · [English, 216 pages](../sources/dirichlet/Dirichlet_R22_XXXVII_XLI_20260604/cum/pdf/dirichlet_b2_I-XLI_en.pdf) | Earlier cumulative before the QA status sheet. The tracked root directly preserves TeX/PDF for items XXXVII–XLI and the Band I errata, plus indexes and locator text. |
 | Selected-works scaffold | [241-page reader](<../reader-pdfs/classical/Dirichlet - Selected Works.pdf>) | Retained for recovery and comparison only. The source audit identifies omissions, construction artifacts, modern insertions, and mathematically material Paper-I errors. Do not front it as source truth. |
+
+## Complete Band I Paper IV — 21 September 2026
+
+The [complete edition](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/main/sources/dirichlet/Band_I_Paper_IV_20260921) contains all 34 author pages 65–98 of *Recherches sur les diviseurs premiers d’une classe de formules du quatrième degré*, following the attached 1889 witness. Copy leaves 63–64 are separately preserved; Paper V is excluded.
+
+[French reader](../reader-pdfs/dirichlet/Paper_IV_20260921/PAPER_IV_FR_PP065_098.pdf) · [English reader](../reader-pdfs/dirichlet/Paper_IV_20260921/PAPER_IV_EN_PP065_098.pdf) · [Five-page apparatus](../reader-pdfs/dirichlet/Paper_IV_20260921/PAPER_IV_APPARATUS_S04.pdf) · [Editable sources, scans and full audit](../sources/dirichlet/Band_I_Paper_IV_20260921/edition/) · [Zenodo 22873449](https://zenodo.org/records/22873449).
+
+The AI-assisted final source pass re-read the inherited R27/R28 region as well as the continuation, yielding 21 further corrections and 93 cumulative ledger rows. Printed anomalies remain literal, including b on p. 89; editorial inference is confined to the apparatus. All 73 final reader pages were independently compiled and reviewed locally. No independent human peer review or whole-volume certification is claimed. R27/R28 remain provenance rather than the current reading text. Existing Band II warnings below remain open.
 
 ## Current Band II QA Surface
 
@@ -114,7 +122,7 @@ all old per-item source bytes. The LII–LIX artifacts require recovery.
 
 ## Exact Content Inventory
 
-The audited GitHub-native selection contains 81 files / 74,831,618 bytes.
+The historical 2026-08-05 GitHub-native selection, excluding the 2026-09-21 Paper IV addition, contains 81 files / 74,831,618 bytes.
 Canonical tree SHA-256:
 `74C47AB45A853FC548D12D0F798C39381937E7E0ECA8C7CEDE6C19E065EF054E`.
 
@@ -127,6 +135,6 @@ for selection-level counts, hashes, and mirror diagnostics.
 
 1. Repair Band II XXV at full formula and line level using the retained witness.
 2. Produce a typed German source track for Band II XXVII; keep its facsimile and rejected draft as history.
-3. Recover and replay the exact v3 continuation ZIPs before restarting Papers II–XLI or Volume I through p.80.
+3. Recover and replay the exact v3 continuation ZIPs before restarting unrelated Papers II–XLI or Volume I work. Band I Paper IV pp.65–98 is already complete in the new edition; do not restart its R27/R28 fragments.
 4. Do not use the 241-page selected reader as source authority.
 5. Preserve R22 as predecessor history and R23's status sheet/repair queue as the current cumulative caveat surface.

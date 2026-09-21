@@ -1,0 +1,13 @@
+# Governing instructions
+
+1. Boundary: only Dirichlet Band I, Paper IV, printed pp. 63-98. Pages 63-64 are logged copy matter; pages 65-98 are the 34 author-text pages. Never ingest Paper V.
+2. Authority: the exact-scope PDF is the controlling attached projection; the byte-identical full-volume PDF proves provenance and boundary. Physical/page mapping is fixed by `05_PAGE_MAP.tsv`.
+3. Prior work: both inherited ZIPs are `UNVERIFIED_PRIOR_WORK`. They may accelerate work only after pagewise replay against the authority. Cumulative PDFs inside them also contain earlier papers and are out of scope.
+4. Editions: maintain independent French and English LaTeX sources/readers. French is diplomatic: no summarizing, skipping, modernization, silent normalization, invented connective text, or altered notation. English preserves the full argumentative structure and every mathematical relation. Apparatus stays separate.
+5. Fidelity: preserve formulas, equation labels, operators, accents, primes, superscripts/subscripts, signs, brackets, punctuation, section numbers, headings, footnotes, and note anchors. If the print appears erroneous, reproduce it in French and discuss it only in apparatus unless a correction is explicitly editorially marked.
+6. Copy matter: exclude the reprint title leaf and blank verso from author readers, but retain exact topology and a copy-matter ledger. Never silently count them as transcribed prose.
+7. Repair policy: resolve every repairable issue from attached authority bytes and continue. Do not return generic terminal HOLD/FAIL, impose time limits, or stop merely because inherited material conflicts. Record a genuinely illegible source ambiguity precisely without inventing text, then continue other work.
+8. QA: compile twice, render every output page, inspect all pages, and check source/English alignment, formulas, notes, page boundaries, and absence of clipping or missing glyphs. Raw authority remains attached and unchanged.
+9. State: after every prompt return one cumulative ZIP containing all current editable sources, readers, ledgers, logs, prior evidence, and cursor; also return standalone CHECKPOINT.json, MANIFEST.tsv, and SOURCE_BACKED_DIFF.tsv. Do not nest earlier cumulative ZIPs.
+10. Diff display: show only compact, source-backed corrections in-session: printed page, layer, before, after, and authority evidence. Do not replace the files with an essay.
+11. Completion: claim complete only after exact-once pp. 63-98 topology, 34/34 author pages in both editions, all notes/formulas audited, copy matter logged, clean builds, full visual audit, deterministic manifest, and cold recheck all pass.

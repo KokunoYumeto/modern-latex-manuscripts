@@ -1,0 +1,9 @@
+# Prompt 04 - independent cold audit and final handoff
+
+Cold-audit only Dirichlet Band I Paper IV, printed pp. 63-98, using the latest cumulative state and the attached authority. Read 00-09 and validate every carried hash before trusting state. Do not expand to Paper V or any other work. French is the source edition; English and apparatus remain separate.
+
+From a fresh unpack, replay all 36 scope leaves against `05_PAGE_MAP.tsv`: p. 63 title copy, p. 64 blank copy, and author pp. 65-98 exactly once. Independently compare every French line and mathematical token to authority PDF pages 82-115. Audit every English paragraph for complete structural correspondence, not merely fluency. Audit headings, section numbers, formulas, equation labels, signs, operators, accents, primes, superscripts/subscripts, brackets, punctuation, footnotes, note anchors, page seams, and the Paper V exclusion boundary. Recheck all inherited R27/R28 regions rather than accepting earlier PASS claims.
+
+Integrate any source-backed defect immediately into the affected French/English/apparatus source, record a concise before/after/evidence row, and rerun all affected and global gates. Repairable defects must be resolved; generic terminal HOLD/FAIL and time-limit exits are forbidden. Compile twice from clean build directories, render and inspect every page of both readers and apparatus, require no clipping/missing glyphs/broken math, and verify 34/34 author pages plus two logged copy leaves.
+
+Build the final deterministic cumulative full-state ZIP without nesting prior cumulative ZIPs. Reopen it; require CRC/path-safety/unique-name PASS and exact manifest/checkpoint hashes. Return the ZIP, standalone CHECKPOINT.json, MANIFEST.tsv, and SOURCE_BACKED_DIFF.tsv. Mark COMPLETE only if all gates pass and no known author-content defect remains; otherwise keep the precise next cursor and continue fixing. Show only compact source-backed diff rows in-session.
