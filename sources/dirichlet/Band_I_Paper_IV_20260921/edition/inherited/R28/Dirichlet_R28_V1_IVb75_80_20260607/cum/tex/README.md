@@ -1,0 +1,1 @@
+Cumulative TeX is not regenerated in this tranche; cumulative PDFs are PDF-merged from prior checked cumulative PDFs plus the new typed tranche. Standalone TeX sources are in `new/orig/tex` and `new/en/tex`.
