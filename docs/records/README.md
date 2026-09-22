@@ -18,17 +18,15 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Split-Zero Geometry and Common Deformation Registers | 13 | 3 | 0 | 4 | 121.6 | [split-zero-research-sidecar.md](split-zero-research-sidecar.md) | [Zenodo](https://doi.org/10.5281/zenodo.20822444) |
 | **Best current reader/translation surfaces** |  |  |  |  |  |  |  |
 | GAGA complete source-aligned English/French working edition | 62 | 1 | 11 | 1 | 1.4 | [gaga.md](gaga.md) | [Zenodo](https://doi.org/10.5281/zenodo.21781322) |
-| Fondements de la géométrie algébrique (FGA) | 24 | 2 | 2 | 2 | 6.8 | [fga.md](fga.md) | [Zenodo](https://doi.org/10.5281/zenodo.21792434) |
-| Luc Illusie — Complexe cotangent et déformations I–II | 21 | 2 | 2 | 1 | 1.1 | [illusie.md](illusie.md) | [Zenodo](https://doi.org/10.5281/zenodo.21792257) |
-| Emmy Noether | 99 | 6 | 10 | 19 | 560.5 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
-| Heinrich Weber | 55 | 6 | 1 | 41 | 1757.3 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
+| Emmy Noether | 88 | 6 | 4 | 18 | 558.4 | [noether.md](noether.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412587) |
+| Heinrich Weber | 14 | 6 | 0 | 5 | 25.2 | [weber.md](weber.md) | [Zenodo](https://doi.org/10.5281/zenodo.20412153) |
 | Ferdinand Georg Frobenius | 8 | 2 | 2 | 2 | 333.6 | [frobenius.md](frobenius.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673444) |
 | Adolf Kneser | 8 | 3 | 2 | 1 | 116.7 | [kneser.md](kneser.md) | [Zenodo](https://doi.org/10.5281/zenodo.20836971) |
 | James Joseph Sylvester | 3 | 1 | 0 | 1 | 91.9 | [sylvester.md](sylvester.md) | [Zenodo](https://doi.org/10.5281/zenodo.20520692) |
 | al-Battani Opus Astronomicum | 19 | 7 | 0 | 4 | 317.7 | [albattani-opus-astronomicum.md](albattani-opus-astronomicum.md) | [Zenodo](https://doi.org/10.5281/zenodo.20539593) |
 | **Serious source-aware work, with caveats** |  |  |  |  |  |  |  |
 | SGA (current presentation-clean cumulative and standalone readers) | 74 | 11 | 10 | 11 | 215.8 | [sga.md](sga.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410947) |
-| EGA (current complete-scope working readers) | 79 | 15 | 7 | 22 | 3603.9 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
+| EGA (current complete-scope working readers) | 69 | 14 | 6 | 21 | 3602.9 | [ega.md](ega.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414353) |
 | Pierre Deligne | 26 | 8 | 0 | 6 | 465.8 | [deligne.md](deligne.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410853) |
 | Luigi Bianchi | 22 | 5 | 0 | 12 | 1964.9 | [bianchi.md](bianchi.md) | [Zenodo](https://doi.org/10.5281/zenodo.20615814) |
 | Paul Gordan and Clebsch-Gordan | 45 | 0 | 0 | 39 | 1870.7 | [gordan-clebsch-gordan.md](gordan-clebsch-gordan.md) | [Zenodo](https://doi.org/10.5281/zenodo.20616260) |
@@ -47,8 +45,6 @@ These pages are generated from `manifests/public-file-catalog.csv` and group eac
 | Gauss | 26 | 14 | 0 | 10 | 1335.2 | [gauss.md](gauss.md) | [Zenodo](https://doi.org/10.5281/zenodo.20410934) |
 | Bernhard Riemann | 4 | 2 | 0 | 2 | 52.3 | [riemann.md](riemann.md) | [Zenodo](https://doi.org/10.5281/zenodo.20429778) |
 | Henri Poincare | 20 | 0 | 0 | 19 | 2401.6 | [poincare.md](poincare.md) | [Zenodo](https://doi.org/10.5281/zenodo.20673461) |
-| Alexandre Grothendieck — Tôhoku paper | 18 | 3 | 0 | 1 | 50.1 | [tohoku.md](tohoku.md) | [Zenodo](https://doi.org/10.5281/zenodo.21792220) |
-| Jean-Louis Verdier thesis checkpoint | 22 | 4 | 0 | 1 | 76.9 | [verdier.md](verdier.md) | [Zenodo](https://doi.org/10.5281/zenodo.21792163) |
 | Classical Algebra and Arithmetic | 25 | 21 | 0 | 3 | 6883.6 | [classical-algebra-arithmetic.md](classical-algebra-arithmetic.md) | [Zenodo](https://doi.org/10.5281/zenodo.20414787) |
 | Additional Author Cluster | 100 | 10 | 0 | 88 | 5731.6 | [additional-author-cluster.md](additional-author-cluster.md) | [Zenodo](https://doi.org/10.5281/zenodo.20411006) |
 | **OCR/support/provenance or currently unsafe draft lanes** |  |  |  |  |  |  |  |
