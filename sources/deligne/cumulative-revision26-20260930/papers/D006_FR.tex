@@ -1,0 +1,1466 @@
+
+\documentclass[10pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,mathtools}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{tikz-cd}
+\geometry{margin=0.82in}
+\setlength{\parindent}{1.5em}
+\setlength{\parskip}{0.16em}
+\emergencystretch=2em
+\setlist{leftmargin=2.0em,itemsep=0.1em,topsep=0.2em}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Af}{\mathbb A_f}
+\newcommand{\C}{\mathbb C}
+\newcommand{\G}{\mathbb G}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\bZ}{\widehat{\mathbb Z}}
+\newcommand{\Ga}{\mathbb G_a}
+\newcommand{\Gm}{\mathbb G_m}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\SL}{\operatorname{SL}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Hom}{\operatorname{Hom}}
+\newcommand{\Isom}{\operatorname{Isom}}
+\newcommand{\Lie}{\operatorname{Lie}}
+\newcommand{\Sym}{\operatorname{Sym}}
+\newcommand{\Spec}{\operatorname{Spec}}
+\newcommand{\End}{\operatorname{End}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\cO}{\mathcal O}
+\newcommand{\cH}{\mathcal H}
+\newcommand{\cU}{\mathcal U}
+\newcommand{\cL}{\mathcal L}
+\newcommand{\dd}{\,d}
+\newcommand{\et}{\mathrm{\acute et}}
+\newcommand{\an}{\mathrm{an}}
+\newcommand{\coker}{\operatorname{coker}}
+\newcommand{\im}{\operatorname{im}}
+\newcommand{\sh}{\operatorname{sh}}
+\newcommand{\QED}{\hfill$\square$}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Imop}{\operatorname{Im}}
+\newcommand{\charop}{\operatorname{char}}
+\newcommand{\frquote}[1]{\guillemotleft{}\,#1\,\guillemotright{}}
+\newtheorem*{proposition}{Proposition}
+\newtheorem*{theorem}{Théorème}
+\newtheorem*{definition}{Définition}
+\newtheorem*{lemma}{Lemme}
+\newtheorem*{corollary}{Corollaire}
+\begin{document}
+
+\begin{center}
+{\Large\bfseries FORMES MODULAIRES ET REPRÉSENTATIONS $\ell$-ADIQUES}\par
+\vspace{0.35em}
+{\large Séminaire Bourbaki, 21e année, 1968/69, no. 355}\par
+{\small Février 1969}\par
+\vspace{0.7em}
+{\itshape Pierre Deligne}
+\end{center}
+
+\noindent\emph{Note éditoriale.} L'original français publié au Séminaire Bourbaki,
+pp.~139--172, est la source de contrôle de cette édition française. La ressaisie anglaise
+datée du 28 juin 2004 est une source de comparaison et contrôle l'édition anglaise.
+Les coquilles non mathématiques évidentes sont régularisées dans le texte courant;
+les restitutions substantielles ou non évidentes sont signalées sur place et enregistrées
+dans le registre d'alignement livré avec cette édition.
+
+\section{Introduction}
+
+Soient
+\[
+D(q)=q\prod_{n=1}^{\infty}(1-q^n)^{24}
+     =\sum_{n=1}^{\infty}\tau(n)q^n
+\qquad (|q|<1)
+\]
+et
+\[
+\Delta(z)=D(e^{2\pi iz})\qquad (\operatorname{Im} z>0).
+\]
+On sait que la fonction $\Delta$ est, à un facteur constant près, l'unique forme parabolique
+de poids $12$ pour le groupe $\SL_2(\Z)$. Posons, pour $p$ premier,
+\[
+H_p(X)=1-\tau(p)X+p^{11}X^2 .
+\]
+D'après la théorie de Hecke, la série de Dirichlet
+\[
+L_\tau(s)=\sum \tau(n)n^{-s}=\prod_p\frac{1}{H_p(p^{-s})}
+\]
+se prolonge en une fonction entière de $s$, et la fonction
+\[
+(2\pi)^{-s}\Gamma(s)L_\tau(s)
+\]
+est invariante par $s\mapsto 12-s$. La conjecture de Ramanujan affirme que les racines
+du polynôme $H_p$ sont de valeur absolue $p^{-11/2}$, c'est-à-dire que
+$|\tau(p)|<2p^{11/2}$.
+
+Ces propriétés, démontrées ou conjecturales, sont similaires aux propriétés conjecturales
+des fonctions zêta des variétés algébriques sur $\Q$. Ceci suggère, en première
+approximation, de tenter d'interpréter $L_\tau$ comme la fonction zêta d'une telle variété.
+
+Pour chaque nombre premier $\ell$, soit $K_\ell$ la plus grande extension de $\Q$ non
+ramifiée en dehors de $\ell$ et, pour $p\ne\ell$, soit $F_p$ l'inverse, dans $\Gal(K_\ell/\Q)$,
+de l'élément de Frobenius $\varphi_p$ relatif à $p$. Ce dernier objet est bien défini à
+conjugaison près.
+
+Traduisant ce qui précède en terme de cohomologie $\ell$-adique, Serre a conjecturé
+l'existence, pour chaque $\ell$, d'une représentation de $\Gal(K_\ell/\Q)$ dans un
+$\Q_\ell$-vectoriel $W_\ell$ de rang $2$ telle que, pour chaque $p\ne\ell$,
+\[
+H_p(X)=\det(1-F_pX;W_\ell).
+\]
+De plus, la représentation $W_\ell$ devrait être dans le champ d'application des
+conjectures de Weil, et la conjecture de Ramanujan un cas particulier de ces dernières.
+
+Ce programme avait été mené à bien, par Kuga--Shimura \([4]\), dans le cas analogue des
+formes modulaires relatives à certains sous-groupes à quotient compact du groupe
+$\SL_2(\R)$.
+Réduite au cas présent, l'idée fondamentale de Sato--Kuga--Shimura est la suivante :
+si $E$ est la courbe elliptique universelle sur le schéma de modules $S$ des courbes
+elliptiques (en oubliant qu'il n'existe pas), et si $E^k$ est le produit fibré itéré
+$k$-uple de $E$ avec elle-même sur $S$, alors $L_\tau(s)$ est essentiellement la fonction zêta
+de $E^k$ pour
+$k=10=12-2$.
+
+On explique dans ce qui suit comment résoudre les difficultés créées par les points à
+l'infini, et comment construire des représentations $W_\ell$ ayant les propriétés indiquées
+plus haut. Pour plus de détails historiques et pour des applications, on renvoie à Serre
+\([6]\).
+
+\noindent\emph{Note sur la source.} L'original français imprime \frquote{les pointes};
+la ressaisie anglaise donne \frquote{the difficulties creeted by the points}. La coquille
+évidente est régularisée en \frquote{les points}, et \frquote{à l'infini} est restitué
+d'après la lecture anglaise et l'objet même de la construction qui suit.
+
+\paragraph{Notations.}
+\begin{itemize}
+\item On désigne par $\A$ l'anneau des adèles de $\Q$, par $\Af$ l'anneau des adèles
+\frquote{à distance finie}, produit restreint, étendu aux nombres premiers, des corps
+$\Q_p$, et, pour $S$ ensemble de nombres premiers, on pose
+\[
+\Af^S=\prod_{p\in S}\Q_p\times\prod_{p\notin S}\Z_p\subset \Af .
+\]
+\noindent\emph{Note sur la source.} Dans le second produit, la ressaisie imprime $\Q_p$.
+La définition du produit restreint et l'identité immédiatement suivante
+$\widehat{\Z}=\Af^\varnothing$ imposent $\Z_p$, comme livré ici.
+Pour $S=\varnothing$, on écrit $\bZ=\Af^\varnothing$.
+\item Si $X$ est un espace topologique (ou le site étale d'un schéma) et $G$ un ensemble,
+on désigne par $\underline{G}$ le faisceau constant sur $X$ défini par $G$.
+\item On désigne par $\Ga$ et $\Gm$ les groupes additif et multiplicatif.
+\item Une courbe elliptique est une variété abélienne de dimension un; en particulier, elle
+est munie d'une origine.
+\item Si $L$ est un faisceau inversible et si $n\in\Z$, $L^n$ désigne la $n$-ième puissance
+tensorielle $L^{\otimes n}$.
+\item On note $\overline{\Q}$ la clôture algébrique de $\Q$ dans $\C$.
+\item Le symbole $\square$ marque la fin d'une démonstration, ou son absence.
+\end{itemize}
+
+\section{L'isomorphisme de Shimura}
+
+\paragraph{(2.1)}
+Une courbe elliptique sur un espace analytique complexe $S$ est un morphisme propre et
+plat d'espaces analytiques $f:E\to S$, muni d'une section $e$, dont les fibres sont des
+courbes elliptiques. Une courbe elliptique sur $S$ admet une et une seule loi de groupe sur
+$S$,
+\[
+\mu:E\times_S E\to E,
+\]
+dont la section unité est $e$. À une courbe elliptique sont associés les objets suivants.
+
+\begin{enumerate}[label=(\alph*)]
+\item Le faisceau inversible
+\[
+\omega_E=e^*\Omega^1_{E/S}.
+\]
+L'algèbre de Lie relative $\Lie_S(E)$ est le faisceau inversible $\omega^{-1}$ dual de
+$\omega$. On a
+\[
+f_*\Omega^1_{E/S}\xrightarrow{\sim}\omega .
+\]
+
+\item Le système local de $\Z$-modules libres de rang $2$, $R^1f_*\Z$. On pose
+\[
+T_\Z(E)=(R^1f_*\Z)^\vee,\qquad
+T_\Q(E)=T_\Z(E)\otimes\Q,
+\]
+le système local d'homologie de $E$ sur $S$.
+\end{enumerate}
+
+L'application exponentielle définit une suite exacte de faisceaux de sections
+\[
+0\longrightarrow T_\Z(E)\xrightarrow{\alpha}\omega^{-1}\longrightarrow E\longrightarrow 0,
+\]
+de sorte que la courbe elliptique $E$ peut être reconstruite à partir de l'application
+$\alpha$.
+
+Le système local $\bigwedge^2 R^1f_*\Z\simeq R^2f_*\Z$ est canoniquement isomorphe
+à $\Z$. Un isomorphisme entre $\Z^2$ et $R^1f_*\Z$ est dit permis s'il induit $1$ sur
+les secondes puissances extérieures. Notons $\Hom^+(\R^2,\C)$ l'ensemble des
+isomorphismes d'espaces vectoriels réels entre $\R^2$ et $\C$ qui respectent les orientations
+naturelles de $\R^2$ et de $\C$, définies par $e_1\wedge e_2>0$ et $1\wedge i>0$.
+Un tel homomorphisme est déterminé par sa restriction à $\Z^2$, et l'on pose
+\[
+\Hom^+(\Z^2,\C)=\Hom^+(\R^2,\C).
+\]
+\noindent\emph{Note sur la source.} L'original imprime qu'un isomorphisme permis
+\frquote{induit $-1$ (sic)} et que les éléments de $\Hom^+$ \frquote{ne respectent pas
+(sic)} les orientations. Le signe $+$, les orientations affichées, le demi-plan de
+Poincaré de 2.2(ii) et la suite de la construction imposent respectivement $1$ et
+\frquote{respectent}, comme livré ici.
+Cet espace est muni de la structure complexe obtenue par son inclusion dans l'espace
+vectoriel complexe $\Hom(\Z^2,\C)$. Sur cet espace, on dispose d'une suite exacte
+\frquote{universelle}
+\[
+0\longrightarrow \Z^2\xrightarrow{\alpha}\Ga\longrightarrow E_0\longrightarrow 0.
+\]
+
+\begin{proposition}[2.2]
+\leavevmode
+\begin{enumerate}[label=(\roman*)]
+\item Le foncteur qui associe à tout espace analytique $S$ l'ensemble des classes
+d'isomorphisme de courbes elliptiques $E$ sur $S$, munies d'isomorphismes
+\[
+\omega_E\simeq \Ga,\qquad R^1f_*\Z\simeq \Z^2
+\]
+(le dernier étant permis), est représenté par l'espace analytique
+$\Hom^+(\R^2,\C)$, muni d'une courbe elliptique universelle $E_0$.
+
+\item Le foncteur qui associe à tout espace analytique $S$ l'ensemble des classes
+d'isomorphisme de courbes elliptiques sur $S$, munies d'un isomorphisme permis
+$R^1f_*\Z\simeq \Z^2$, est représenté par l'espace analytique
+\[
+X=\C^\times\backslash\Hom^+(\R^2,\C),
+\]
+le demi-plan de Poincaré.
+
+\item L'espace $\Hom^+(\R^2,\C)$ est un espace principal homogène du groupe $\Gm$ sur
+$X$.
+\end{enumerate}
+\end{proposition}
+
+On peut encore regarder $X$ comme l'ensemble des structures complexes sur $\R^2$.
+Cet espace est, d'après (ii), muni d'une courbe elliptique universelle $E_X$, dont le système
+local de cohomologie réelle est canoniquement isomorphe à $\R^2$. Soit $\omega$ le
+faisceau inversible associé à $E_X$.
+
+Le faisceau analytique cohérent
+\[
+R^1f_*\R\otimes_\R\cO_X
+\]
+est le faisceau de cohomologie de De Rham relative de $E_X$ sur $X$, et s'insère à ce titre
+dans une suite exacte, la filtration de Hodge,
+\[
+0\longrightarrow \omega\longrightarrow R^1f_*\R\otimes_\R\cO_X
+\xrightarrow{q}\omega^{-1}\longrightarrow 0,
+\]
+puisque, par dualité de Serre, $\omega^{-1}\simeq R^1f_*\cO_{E_X}$.
+
+La description fonctorielle de 2.2(ii) donne évidemment une action à droite du groupe
+$\SL_2(\Z)$ sur $(X,E_X)$ : à $\gamma\in\SL_2(\Z)$ et à la courbe elliptique $E$ munie de
+$\alpha:\Z^2\xrightarrow{\sim}R^1f_*\Z$, on associe $(E,\alpha\circ\gamma)$. Si l'on
+regarde $X$, muni de
+\[
+q:\R^2\otimes_\R\cO_X\simeq R^1f_*\R\otimes_\R\cO_X\longrightarrow \omega^{-1},
+\]
+comme classifiant les structures complexes sur $\R^2$, on a la même action évidente du
+groupe $\GL_2^+(\R)$ sur $(X,\R^2,\omega,q)$.
+
+\paragraph{(2.3)}
+Choisissons une base $(x_1,x_2)$ de $\R^2$ telle que $x_1\wedge x_2>0$. Un point
+\[
+(f:\R^2\to \C)\quad \bmod \C^\times
+\]
+de $X$ est repéré par
+\[
+z=\frac{f(x_1)}{f(x_2)}\qquad (\operatorname{Im}z>0),
+\]
+et l'application $q$ s'identifie à
+\[
+q:\R^2\to\Ga,\qquad ax_1+bx_2\longmapsto az+b.
+\]
+Ceci donne une trivialisation évidente de $\omega^{-1}$ sur $X$, qui n'est pas équivariante.
+Relativement à cette trivialisation, une section $f(z)$ de $\omega^k$ sur $X$ est transformée
+par un élément
+\[
+\begin{pmatrix}a&b\\ c&d\end{pmatrix}^{-1}\in \GL^+(\R^2)
+\]
+(relativement à la base $(x_1,x_2)$) suivant la formule
+\[
+f\cdot
+\begin{pmatrix}a&b\\ c&d\end{pmatrix}^{-1}(z)
+=(cz+d)^{-k}f\!\left(\frac{az+b}{cz+d}\right).
+\]
+\noindent\emph{Note sur la source.} Dans la première matrice de la ligne imprimée,
+l'original français et la ressaisie anglaise donnent tous deux
+$\left(\begin{smallmatrix}a&c\\ b&d\end{smallmatrix}\right)^{-1}$.
+La formule homographique de la même ligne et la matrice du déterminant juste après
+imposent toutes deux $\left(\begin{smallmatrix}a&b\\ c&d\end{smallmatrix}\right)^{-1}$,
+comme livré ici.
+De l'identité
+\[
+dz=(cz+d)^2\,d\!\left(\frac{az+b}{cz+d}\right)
+\left|\begin{matrix}a&b\\ c&d\end{matrix}\right|^{-1},
+\]
+on déduit que $dz$ est une section de $\omega^{-2}\Omega^1_X$ invariante sous le groupe
+$\SL_2(\R)$. Cette section est partout non nulle et définit un isomorphisme de
+$\SL_2(\R)$-faisceaux équivariants entre $\omega^2$ et $\Omega^1_X$.
+
+\paragraph{(2.4)}
+Soit $\Gamma$ un sous-groupe discret, sans élément d'ordre fini et à quotient de volume
+fini, du groupe $\SL_2(\R)$. On sait alors que l'espace quotient $X/\Gamma$ s'identifie à
+une courbe projective lisse $\overline{X/\Gamma}$, moins un nombre fini de points. Le groupe
+$\Gamma$ opère sans points fixes sur $X$. Le système local équivariant $\underline{\R^2}$
+sur $X$, ainsi que la suite exacte équivariante
+\[
+0\to \omega\to \R^2\otimes_\R\cO\to\omega^{-1}\to 0,
+\]
+définissent donc un système local $U$ sur $X/\Gamma$ et une suite exacte
+\[
+0\to \omega\to U\otimes_\R\cO\to\omega^{-1}\to 0.\tag{2.5}
+\]
+
+Dans le cas particulier où $\Gamma\subset\SL_2(\Z)$, ces structures sont déduites de la
+courbe elliptique $E$ sur $X/\Gamma$ d'image réciproque la courbe elliptique équivariante
+$E_X$ sur $X$.
+
+\paragraph{(2.6)}
+Les points à l'infini de $X/\Gamma$ se décrivent comme suit (voir \([9]\)) :
+
+\begin{enumerate}[label=(\alph*)]
+\item Ils correspondent aux classes de conjugaison, dans $\Gamma$, des sous-groupes non
+triviaux de $\Gamma$, maximaux parmi les sous-groupes de $\Gamma$ formés d'éléments
+unipotents.
+
+\item Soit $\Gamma_0\subset \Gamma$ un tel sous-groupe et choisissons une base
+$(x_1,x_2)$ de $\R^2$ telle que, dans cette base, $\Gamma_0$ se représente comme l'ensemble
+de matrices
+\[
+\left\{\begin{pmatrix}1&0\\ n&1\end{pmatrix}\ \middle|\ n\in\Z\right\}.
+\]
+Soit $z$ la coordonnée (2.3) sur $X$ définie par $(x_1,x_2)$. Il existe $N$ tel que le
+partie
+\[
+X_N=\{z\mid \operatorname{Im}(z)>N\}
+\]
+de $X$ soit disjointe de ses conjuguées pour tout $\gamma\in\Gamma\setminus\Gamma_0$,
+de sorte que $X_N/\Gamma_0\hookrightarrow X/\Gamma$. La fonction $q=e^{2\pi iz}$
+établit un isomorphisme entre $X_N/\Gamma_0$ et le disque épointé
+\[
+0<|q|<e^{-2\pi N}.
+\]
+Si $P_{\Gamma_0}$ est le point de $\overline{X/\Gamma}-X/\Gamma$ associé à $\Gamma_0$,
+cet isomorphisme se prolonge en un isomorphisme d'un voisinage de $P_{\Gamma_0}$ avec
+le disque $0\le |q|<e^{-2\pi N}$.
+\end{enumerate}
+
+\noindent\emph{Note sur la source.} La ressaisie imprime les deux inégalités de disque
+sans valeurs absolues autour de la coordonnée complexe $q$. La description du disque
+impose $|q|$, rétabli dans les deux inégalités ci-dessus.
+
+En vertu de (2.3), les sections de $\omega$ sur $X_N$, invariantes par $\Gamma_0$, s'identifient
+aux fonctions holomorphes périodiques de période un sur $X_N$. On désigne encore par
+$\omega$ le faisceau inversible sur $\overline{X/\Gamma}$ qui prolonge $\omega$ et tel qu'au
+voisinage d'une pointe $P_{\Gamma_0}$, la section de $\omega$ sur $X_N/\Gamma_0$ définie par
+la fonction $1$ se prolonge en une section inversible sur $\overline{X_N/\Gamma_0}$.
+
+\paragraph{(2.7)}
+Sur $\overline{X/\Gamma}$, on dispose des deux faisceaux inversibles $\Omega^1$ et
+$\omega^2$, et d'un isomorphisme $\varphi$ (2.3) entre les restrictions de ces faisceaux à
+$X/\Gamma$. De la formule
+\[
+dq=d(e^{2\pi iz})=2\pi i e^{2\pi iz}\,dz=2\pi iq\,dz
+\]
+résulte que la flèche
+\[
+\varphi:\Omega^1\to \omega^2
+\]
+se prolonge à $\overline{X/\Gamma}$, et présente un zéro simple en chacun des points à
+l'infini.
+
+\begin{definition}[2.8]
+L'espace des formes automorphes paraboliques de poids $k+2$, relatives au groupe
+$\Gamma$, est l'espace de sections globales
+\[
+H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k).
+\]
+En vertu de (2.7), cet espace s'identifie encore à l'espace des sections globales de
+$\omega^{k+2}$ qui s'annulent à l'infini (\textit{i.e.} à chaque \frquote{pointe}).
+\end{definition}
+
+\paragraph{(2.9)}
+Désignons par $U^k$ le système local sur $X/\Gamma$ puissance symétrique $k$-ième du
+système local $U$. La flèche (2.5) induit une flèche
+\[
+\iota^k:\omega^k\to U^k\otimes_\R\cO,
+\]
+puis une flèche, encore désignée par $\iota^k$,
+\[
+\iota^k:\Omega^1\otimes\omega^k\to \Omega^1(U^k),
+\]
+de but le faisceau des formes différentielles holomorphes sur $X/\Gamma$, à coefficients
+dans le système local $U^k$.
+
+La résolution de De Rham de $U^k\otimes_\R\C$,
+\[
+0\to U^k\otimes_\R\C\to U^k\otimes_\R\cO
+\xrightarrow{d}U^k\otimes_\R\Omega^1\to 0,
+\]
+induit une application
+\[
+\delta:H^0(X/\Gamma,\Omega^1(U^k))\to H^1(X/\Gamma,U^k\otimes\C).
+\]
+De plus, l'espace de cohomologie $H^1(X/\Gamma,U^k\otimes\C)$ est muni d'une
+conjugaison complexe naturelle, de sorte que $\delta$ définit une application linéaire
+conjuguée $\overline{\delta}$ de l'espace complexe conjugué à
+$H^0(X/\Gamma,\Omega^1(U^k))$ dans $H^1(X/\Gamma,U^k\otimes\C)$. On obtient ainsi une
+flèche
+\[
+\sh_0=\delta\cdot H^0(\iota^k)\oplus
+\overline{\delta}\cdot H^0(\overline{\iota^k})
+\]
+\[
+\sh_0:
+H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)
+\oplus
+\overline{H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)}
+\longrightarrow
+H^1(X/\Gamma,U^k\otimes\C).
+\]
+
+Quel que soit le faisceau $F$ sur un espace $Y$, on désignera par $\widetilde H^i(Y,F)$
+l'image de la cohomologie à support compact $H^i_c(Y,F)$ dans la cohomologie sans
+support $H^i(Y,F)$.
+
+Le théorème 4.2.6 de \([9]\) est essentiellement équivalent au théorème suivant; dans
+loc. cit. $k$ est supposé pair, mais la même démonstration vaut en général.
+
+\begin{theorem}[2.10, Shimura {\rm [7]}]
+Il existe un isomorphisme $\sh$ rendant commutatif le diagramme suivant :
+\[
+\begin{array}{ccc}
+H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)\oplus
+\overline{H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)}
+& \xrightarrow{\ \sh\ } &
+\widetilde H^1(X/\Gamma,U^k\otimes\C)
+\\[0.4em]
+\bigcap && \bigcap
+\\[0.4em]
+H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)\oplus
+\overline{H^0(\overline{X/\Gamma},\Omega^1\otimes\omega^k)}
+& \xrightarrow{\ \sh_0\ } &
+H^1(X/\Gamma,U^k\otimes\C).
+\end{array}
+\]
+On appelle $\sh$ l'isomorphisme de Shimura.
+\end{theorem}
+
+\paragraph{(2.11)}
+Dans le cas particulier où $\Gamma$ est un sous-groupe d'indice fini de $\SL_2(\Z)$, la
+courbe elliptique $E$ sur $X/\Gamma$ provient d'un schéma en courbes elliptiques sur la
+courbe algébrique $\overline{X/\Gamma}$ (\textit{i.e.}, son invariant modulaire est méromorphe
+à l'infini) ; elle admet donc un modèle de Néron $\overline{E}$ sur $\overline{X/\Gamma}$.
+On peut montrer que les fibres de $\overline{E}$ aux points à l'infini sont de type multiplicatif, et que
+sur tout $\overline{X/\Gamma}$ on a
+\[
+\omega=e^*\Omega^1_{\overline{E}/\overline{X/\Gamma}}.
+\]
+Dans ce cas particulier, on a $U=R^1f_*\underline{\Z}\otimes\R$, de sorte que le but de l'isomorphisme
+de Shimura peut s'écrire
+\[
+\widetilde H^1(X/\Gamma,U^k\otimes\C)
+\simeq
+\widetilde H^1(X/\Gamma,\Sym^k(R^1f_*\underline{\Z}))\otimes_\Z\C .
+\]
+\noindent\emph{Note sur la source.} Le texte imprimé donne deux fois la coquille anglaise \frquote{fournishes}; les deux occurrences sont livrées sous la forme correcte \frquote{furnishes} dans l'édition anglaise.
+
+\section{Opérateurs de Hecke et représentation $\ell$-adique fondamentale}
+
+\paragraph{(3.1)}
+Rappelons (cf. \([3]\)) que la catégorie des $\Z_\ell$-faisceaux \frquote{localement
+constants} constructibles (en abrégé, l.c.c.) sur un schéma $S$ est la catégorie des
+systèmes projectifs de faisceaux $(F_n)_{n\in\mathbb N}$ sur le site étale $S_{\et}$ de $S$
+qui vérifient :
+\begin{enumerate}[label=(\roman*)]
+\item $F_n$ est un faisceau localement constant de $\Z/(\ell^n)$-modules de type fini;
+\item si $n\le m$, alors
+\[
+F_m\otimes\Z/(\ell^n)\xrightarrow{\sim}F_n.
+\]
+\end{enumerate}
+Les $\Z_\ell$-faisceaux l.c.c. forment un champ en catégories abéliennes sur $S$ ; le
+champ des $\Q_\ell$-faisceaux l.c.c. est le quotient de ce champ par le sous-champ épais
+des $\Z_\ell$-faisceaux l.c.c. tués par une puissance de $\ell$. On désigne par
+$\otimes\Q_\ell$ le foncteur canonique de la catégorie des $\Z_\ell$-faisceaux l.c.c. dans
+celle des $\Q_\ell$-faisceaux l.c.c.
+
+Si $S$ est connexe et muni d'un point géométrique $s$, la catégorie des $\Z_\ell$-faisceaux
+(resp. $\Q_\ell$-faisceaux) l.c.c. sur $S$ est équivalente, par le foncteur \frquote{fibre en
+$s$}, à la catégorie des représentations continues du groupe fondamental $\pi_1(S,s)$ sur
+un $\Z_\ell$-module de type fini (resp. un $\Q_\ell$-vectoriel de rang fini).
+
+Si $T$ est un ensemble fini de nombres premiers, un faisceau lcc en $\mathbb A_T^f$ consiste à se
+donner, pour chaque nombre premier $\ell$, un faisceau lcc en $\Z_\ell$ si $\ell\notin T$,
+et un faisceau lcc en $\Q_\ell$ si $\ell\in T$. Pour $T=\varnothing$, on parle de faisceaux
+lcc en $\bZ$ plutôt que de faisceaux lcc en $\mathbb A_\varnothing^f$.
+
+Pour $T$ général, la catégorie des faisceaux lcc en $\mathbb A_T^f$ est la limite inductive des
+catégories de faisceaux lcc en $\mathbb A_{T'}^f$ pour $T'\subset T$ fini. On pose
+\[
+\Z_\ell=\varprojlim_n \Z/(\ell^n),\qquad
+\Q_\ell=\Z_\ell\otimes\Q_\ell,\qquad
+\bZ=(\Z_\ell)_\ell,\qquad
+\mathbb A_T^f=\bZ\otimes\mathbb A_T^f.
+\]
+
+\noindent\emph{Note sur la source.} Les coquilles orthographiques évidentes de la réédition
+anglaise sur cette page---notamment \frquote{Shiumra}, \frquote{particluar}, \frquote{schme},
+\frquote{constent} et \frquote{numbesr}---sont régularisées sans modification mathématique.
+
+Le champ des courbes elliptiques à isogénie près sur $S$ est le champ déduit du
+champ des courbes elliptiques sur $S$ en \frquote{inversant formellement les isogénies}. On désigne
+par $\otimes\Q$ le foncteur associant à une courbe elliptique la courbe elliptique sous-jacente
+à isogénie près. Pour $S$ quasi-compact, on a
+\[
+\Hom(E,F)\otimes\Q\xrightarrow{\sim}\Hom(E\otimes\Q,F\otimes\Q),
+\]
+et, pour $S$ normal, toute courbe elliptique à isogénie près sur $S$ est sous-jacente à une
+courbe elliptique sur $S$.
+
+\paragraph{(3.2)}
+Soit $f:E\to S$ une courbe elliptique sur un schéma $S$. On désigne par $T_\ell(E)$ le système
+projectif des noyaux $E_{\ell^n}$ de la multiplication par $\ell^n$ sur $E$, la flèche
+de transition de $E_{\ell^n}$ dans $E_{\ell^m}$, pour $n\ge m$, étant la multiplication par
+$\ell^{\,n-m}$. En procédant de même pour $\Gm$, on pose $T_\ell(\Gm)=\Z_\ell(1)$.
+Si $\ell$ est inversible sur $S$, alors $T_\ell(E)$ et $\Z_\ell(1)$ sont des faisceaux en
+$\Z_\ell$ sur $S$. On définit $T_\infty(E)$ comme étant l'algèbre de Lie relative de $E$ sur
+$S$, c'est-à-dire le dual inversible du faisceau inversible $\omega$ de (2.1(a)).
+
+Supposons $S$ de caractéristique $0$. On définit alors le $\bZ$-faisceau $T_f(E)$
+sur $S$ comme étant le système des $T_\ell(E)$, et l'on pose
+\[
+V_f(E)=T_f(E)\otimes \Af.
+\]
+Si $u:E\to F$ est une isogénie, alors $u$ induit un isomorphisme de $V_f(E)$ sur $V_f(F)$
+et de $T_\infty(E)$ sur $T_\infty(F)$; les foncteurs $V_f$ et $T_\infty$ se factorisent donc
+par la catégorie des courbes elliptiques à isogénie près sur $S$.
+
+\begin{proposition}[3.3]
+Soient $S$ un schéma de caractéristique $0$, $E_1(S)$ la catégorie des courbes elliptiques
+sur $S$ et $E_2(S)$ la catégorie des triplets formés d'une courbe elliptique à
+isogénie près $E$ sur $S$, d'un faisceau en $\bZ$, $T$, forme tordue de $\bZ^2$, et d'un
+isomorphisme
+\[
+\beta:V_f(E)\xrightarrow{\sim}T\otimes\Af.
+\]
+Alors le foncteur
+\[
+I:E\longmapsto \bigl(E\otimes\Q,\ T_f(E),\ V_f(E)\simeq T_f(E)\otimes\Af\bigr)
+\]
+de $E_1(S)$ vers $E_2(S)$ est une équivalence de catégories.
+\end{proposition}
+
+La question est locale sur $S$, que l'on peut supposer quasi-compact. Si $f:E\to F$ est
+un morphisme de $S$-courbes elliptiques, et si $f$ est une isogénie, on dispose d'une suite
+exacte
+\[
+0\to T_f(E)\to T_f(F)\to \ker(f)\to 0.
+\tag{3.4}
+\]
+Le morphisme $f$ est divisible par $n$ si et seulement s'il tue le noyau $E_n$ de la
+multiplication par $n$, car la flèche \frquote{multiplication par $n$} de $E/E_n$ dans $E$ est un
+isomorphisme. Par (3.4), ceci a lieu si et seulement si $T_f(f)$ est divisible par $n$,
+et l'on en déduit que $\Hom_S(E,F)$ est le sous-groupe de $\Hom_S(E\otimes\Q,F\otimes\Q)$
+formé des morphismes $f$ tels que $V_f(f)$ envoie $T_f(E)$ dans $T_f(F)$. Le foncteur
+$I$ est donc pleinement fidèle.
+
+\noindent\emph{Note sur la source.} L'original français conclut bien que $I$ est
+\frquote{pleinement fidèle}. La mention \frquote{faithfully flat} appartient uniquement à la
+réédition anglaise héritée et y est corrigée en \frquote{fully faithful}. Les lapsus de casse
+évidents $u:e\to F$ et $E_1(s)$ dans cette réédition sont normalisés en $u:E\to F$ et
+$E_1(S)$.
+
+Soit $X\in\operatorname{Ob}(E_2(S))$. Localement sur $S$, $X$ est défini par une courbe
+elliptique à isogénie près $E\otimes\Q$, et par un \frquote{réseau} $T$ dans $V_f(E)$ qui, pour
+presque tout $\ell$, coïncide avec $T_\ell(E)$. Pour $q\in\Q$, $(E\otimes\Q,T)$ est
+isomorphe à $(E\otimes\Q,qT)$, ce qui permet de supposer $T_f(E)\subset T$. Le quotient
+$K=T/T_f(E)$ est alors canoniquement isomorphe à un sous-groupe fini de $E$, et $X$ est
+l'image de $E/K$ par $I$ (cf. 3.4). \QED
+
+\begin{corollary}[3.5]
+Le foncteur $F_1(S)$, respectivement $F'_1(S)$, qui, à chaque schéma $S$ de
+caractéristique $0$, associe l'ensemble des classes d'isomorphisme de courbes elliptiques sur $S$
+munies d'un isomorphisme
+\[
+\alpha:T_f(E)\xrightarrow{\sim}\bZ^2
+\]
+respectivement aussi d'un isomorphisme
+\[
+\alpha_\infty:T_\infty(E)\xrightarrow{\sim}\Ga,
+\]
+est isomorphe au foncteur $F_2(S)$, respectivement $F'_2(S)$, qui associe à $S$ l'ensemble
+des classes d'isomorphisme de courbes elliptiques à isogénie près sur $S$, munies d'un
+isomorphisme
+\[
+\beta:V_f(F)\xrightarrow{\sim}\Af^2
+\]
+respectivement aussi d'un isomorphisme
+\[
+\beta_\infty:T_\infty(F)\xrightarrow{\sim}\Ga.
+\]
+\end{corollary}
+
+\begin{proposition}[3.6]
+Le foncteur $F_1$ (respectivement $F'_1$) est représentable par un schéma $M_\infty$
+(respectivement $M'_\infty$) sur $\Q$.
+\end{proposition}
+
+Soit $n\ge 3$ un entier. Le foncteur qui associe à chaque schéma $S$ l'ensemble des
+classes d'isomorphisme de courbes elliptiques, munies d'un isomorphisme
+\[
+\alpha_n:E_n\xrightarrow{\sim}(\Z/n)^2
+\]
+respectivement aussi de $\alpha_\infty:T_\infty(E)\xrightarrow{\sim}\cO_S$, est représenté
+par une courbe affine $M_n$ (respectivement par une surface affine $M'_n$) sur
+$\Spec(\Z[1/n])$. Pour $n\mid m$, le morphisme de $M_m$ vers $M_n$ défini par
+\[
+(E,\alpha_m:E_m\xrightarrow{\sim}(\Z/m)^2)
+\longmapsto
+(E,(n/m)\alpha_m:E_n\xrightarrow{\sim}(\Z/n)^2)
+\]
+est fini et étale sur $\Spec(\Z[1/m])$, et l'on a
+\[
+M_\infty=\varprojlim M_n .
+\]
+On procède de même pour représenter $F'_1$. \QED
+
+\noindent\emph{Note sur la source.} L'original français donne $\cO_S$ et le facteur
+$(n/m)\alpha_m$. Les leçons héritées $\cO_X$ et $(m/n)\alpha_m$, incompatibles avec la base
+du foncteur et avec la restriction de niveau pour $n\mid m$, sont corrigées dans les deux
+éditions. Les formes fautives \frquote{schem} et \frquote{One goes one proceeds} de la
+réédition anglaise sont en outre régularisées en \frquote{scheme} et \frquote{One proceeds}.
+
+\paragraph{(3.7)}
+Le schéma $M_\infty$ (respectivement $M'_\infty$) est muni d'une courbe elliptique
+universelle $f_\infty:E_\infty\to M_\infty$ et d'un isomorphisme
+\[
+\alpha:T_f(E_\infty)\xrightarrow{\sim}\bZ^2,
+\]
+respectivement aussi d'un isomorphisme
+\[
+\alpha_\infty:T_\infty(E_\infty)\xrightarrow{\sim}\Ga.
+\]
+D'après (3.5), le schéma $M_\infty$ (respectivement $M'_\infty$) représente le foncteur
+$F_2$ (respectivement $F'_2$), ce qui donne une action évidente à gauche du groupe
+adélique $\GL_2(\Af)$ sur
+\[
+(M_\infty,E_\infty\otimes\Q,\alpha\otimes\Af)
+\]
+respectivement sur
+\[
+(M'_\infty,E_\infty\otimes\Q,\alpha\otimes\Af,\alpha_\infty).
+\]
+Sur le foncteur, cette action est donnée, pour $g\in\GL_2(\Af)$, par
+\[
+g:(F,\beta:V_f(F)\xrightarrow{\sim}\Af^2,\beta_\infty)
+\longmapsto
+(F,g\circ\beta:V_f(F)\xrightarrow{\sim}\Af^2,\beta_\infty).
+\]
+\noindent\emph{Note sur la source.} Les deux témoins imprimés abrègent la trivialisation
+induite en $\alpha\otimes\Af^2$ et écrivent $V_f(E)$ dans un triplet dont la courbe est $F$.
+Comme $\alpha:T_f(E_\infty)\to\bZ^2$, l'extension des scalaires est $\alpha\otimes\Af$,
+et le domaine de l'action est $V_f(F)$; ces lectures requises par les types sont livrées ci-dessus.
+L'original emploie en outre la même courbe universelle $E_\infty$ dans les deux cas; la prime
+héritée sur $E'_\infty$ est supprimée dans les deux éditions.
+\v{S}afarevi\v{c}, le premier, a noté ce fait.
+
+Soit $Y$ un schéma sur $\C$, limite projective de schémas $Y_i$ de type fini sur $\C$,
+les morphismes de transition étant finis. L'espace localement compact annelé $Y^{\an}$,
+égal à la limite projective des $Y_i^{\an}$, ne dépend que de $Y$ et non de sa représentation
+comme limite projective. Si $Y$ est un schéma sur $\Q$, limite projective de schémas $Y_i$
+de type fini sur $\Q$ à morphismes de transition finis, on pose $Y^{\an}=(Y\otimes\C)^{\an}$.
+Ceci s'applique à $M_\infty$ et à $M'_\infty$.
+
+\begin{proposition}[3.8]
+On a canoniquement
+\[
+M_\infty^{\prime\,\an}\simeq
+\Hom(\Q^2\otimes\A,\C\times\Af^2)/\GL_2(\Q)
+\]
+et
+\[
+M_\infty^{\an}\simeq
+\C^\times\backslash\Hom(\Q^2\otimes\A,\C\times\Af^2)/\GL_2(\Q),
+\]
+et, moins canoniquement,
+\[
+M_\infty^{\prime\,\an}\simeq \GL_2(\A)/\GL_2(\Q),\qquad
+M_\infty^{\an}\simeq K_\infty\backslash \GL_2(\A)/\GL_2(\Q),
+\]
+où $K_\infty$ est le sous-groupe compact maximal à l'infini, augmenté des homothéties
+réelles. Ces
+isomorphismes sont compatibles à l'action de $\GL_2(\Af)$.
+\end{proposition}
+\noindent\emph{Note sur la source.} La réédition anglaise contient ici les marques non résolues
+\frquote{[a/the, bad copy]} et \frquote{[bad copy]}. L'original français donne exactement
+\frquote{le sous-groupe compact maximal à l'infini, augmenté des homothéties réelles}; cette
+lecture directement établie est livrée ci-dessus.
+
+La notion de courbe elliptique à isogénie près, et leur sorite, s'étendent tels quels au cas
+analytique complexe. En outre, une isogénie $\varphi:E\to F$ induit un isomorphisme $\varphi^*$
+entre les systèmes locaux de cohomologie rationnelle de $E$ et de $F$, ce qui permet de
+définir ce dernier pour une courbe elliptique à isogénie près. Soit $S$ un espace
+analytique complexe. On voit à l'aide de (2.1) qu'il revient au même de se donner une courbe
+elliptique à isogénie près sur $S$, ou de se donner un faisceau inversible $T_\infty$, un système local
+de $\Q$-vectoriels $T_\Q$, et un morphisme $u:T_\Q\to T_\infty$ induisant
+point par point un isomorphisme $T_\Q\otimes\R\to T_\infty$.
+
+Soit $n$ un entier et soit $K_n$ le noyau de l'application naturelle
+\[
+\prod_\ell \GL_2(\Z_\ell)\to \GL_2(\Z/n).
+\]
+Soit $G_1$ le foncteur qui associe à $S$ l'ensemble des classes d'isomorphisme de courbes
+elliptiques $f:E\to S$ sur $S$, munies d'un isomorphisme
+\[
+\varphi:\Q^2\xrightarrow{\sim}T_\Q(E),
+\]
+d'un isomorphisme $\alpha_\infty:T_\infty(E)\xrightarrow{\sim}\cO_S$, et d'un isomorphisme
+$\alpha_n:E_n\xrightarrow{\sim}(\Z/n)^2$. Comme en (3.3), on voit que $G_1$ est
+isomorphe au foncteur $G_2$ qui associe à $S$ l'ensemble des classes d'isomorphisme de
+courbes elliptiques à isogénies près $E$ sur $S$, munies de
+$\varphi:\Q^2\xrightarrow{\sim}T_\Q(E)$, de
+$\alpha_\infty:T_\infty(E)\xrightarrow{\sim}\cO_S$, et d'un isomorphisme
+$V_f(E)\xrightarrow{\sim}\Af^2$ donné localement sur $S$ à composition par un élément de
+$K_n$ près.
+
+Un tel objet est déterminé par l'application composée $\varphi'$ (donnée localement modulo
+$K_n$) obtenue à partir de
+\[
+\varphi':\Q^2\xrightarrow{\varphi}T_\Q(E)
+\longrightarrow T_\infty(E)\times V_f(E)
+\xrightarrow{\sim}\cO_S\times \Af^2.
+\]
+On a
+\[
+E=
+\cO_S\big/
+\varphi'\bigl(\Q^2\cap \varphi'^{-1}(T_\infty(E)\times T_f(E))\bigr)
+=
+\bZ^2\backslash(\cO_S\times\Af^2)\big/\varphi'(\Q^2),
+\]
+de sorte que, cf. 2.2, $G_1$ et $G_2$ sont représentés par
+\[
+K_n\backslash\Isom(\Q^2\otimes\A,\C\times\Af^2).
+\]
+
+Supposons maintenant que $n\ge 3$, de sorte que $\GL_2(\Q)$ agisse librement sur l'espace
+précédent. L'espace analytique $M_n^{\an}$, respectivement $M_n^{\prime\,\an}$, représente
+le foncteur analogue, en géométrie analytique, au foncteur représenté par $M_n$,
+respectivement $M'_n$, parce que ce foncteur, disons $X$, est représentable et que la
+flèche $X\to M_n^{\an}$, respectivement $X\to M_n^{\prime\,\an}$, induit une bijection sur
+les ensembles de points à valeurs dans toute $\C$-algèbre de rang fini. On déduit dès lors de
+ce qui précède que
+\[
+M_n^{\prime\,\an}\simeq
+K_n\backslash\Isom(\Q^2\otimes\A,\C\times\Af^2)/\GL_2(\Q).
+\]
+Procédant de même pour $M_n$, on obtient la première assertion de (3.8) par passage
+à la limite sur $n$.
+
+Un point $x$ de
+\[
+\Isom(\Q^2\otimes\A,\C\times\Af^2)/\GL_2(\Q)
+\]
+s'identifie à un \frquote{réseau} $L_x$ de $\C\times\Af^2$, et la courbe correspondante est
+\[
+E_x\simeq \bZ^2\backslash(\C\times\Af^2)/L_x,
+\]
+munie de
+\[
+V_f(E_x)\simeq L_x\otimes\Af\xrightarrow{\sim}\Af^2.
+\]
+De là, sort aisément la dernière assertion de (3.8). \QED
+
+Désignons par $f_n:E\to M_n$ la courbe elliptique universelle sur $M_n$. L'entier $k$ étant
+fixé, on pose la
+
+\begin{definition}[3.9]
+On désigne par $W$ (ou par ${}^kW$, s'il y a risque de confusion) le $\Q$-vectoriel
+\[
+W=\varinjlim_n\widetilde H^1(M_n^{\an},\Sym^k(R^1f_{n*}\Q))
+=\varinjlim_n {}_nW.
+\]
+\end{definition}
+
+\noindent\emph{Note sur la source.} Les coquilles de la réédition anglaise \frquote{beause},
+\frquote{arros} et \frquote{Once deduces} sont régularisées. Dans la description de la courbe
+correspondant à $x$, le $V_f(E)$ imprimé est livré sous la forme $V_f(E_x)$, seul objet qui
+vient d'être défini à cet endroit. La réédition anglaise imprime ensuite que $W$ \frquote{doesn't
+depend on} la courbe universelle, renversant le français \frquote{ne dépend que de}; la lecture
+\frquote{ne dépend que de}/\frquote{depends only on} est donc rétablie dans les deux éditions.
+Enfin, l'indice de niveau $n$, visible dans le $f_{n*}$ de l'original français, est rétabli
+dans la première formule définissant $W$.
+
+Ce vectoriel ne dépend que de la courbe elliptique (à isogénie près) universelle
+$f_\infty:E\to M_\infty$, de sorte que, par transport de structure, il est muni d'une action à gauche
+du groupe adélique $\GL_2(\Af)$.
+
+Si $\ell$ est un nombre premier, le vectoriel $W_\ell=W\otimes\Q_\ell$ admet une
+définition purement algébrique, en terme de cohomologie $\ell$-adique des schémas sur la
+clôture algébrique $\overline\Q$ de $\Q$ déduits par extension des scalaires des schémas $M_n$ :
+\[
+W_\ell=
+\varinjlim_n
+\widetilde H^1(M_n\otimes\overline\Q,\Sym^k(R^1f_{n*}\Q_\ell))
+=\varinjlim_n {}_nW_\ell.
+\tag{3.10}
+\]
+de sorte que le groupe de Galois de $\overline\Q$ sur $\Q$ agit, par transport de structure, sur
+$W_\ell$ et les ${}_nW_\ell$.
+
+Enfin, l'espace $M_n^{\an}$ est somme disjointe de quotients du demi-plan de Poincaré
+par des sous-groupes de congruence du groupe $\SL_2(\Z)$, de sorte que, désignant par
+$\omega$ le faisceau inversible sur $M_n$ défini par $E$, la théorie de Shimura (2.10) donne
+\[
+W_\infty=W\otimes\C=
+\varinjlim_n\left(
+H^0(\overline{M}_n^{\an},\Omega^1\otimes\omega^k)
+\oplus
+\overline{H^0(\overline{M}_n^{\an},\Omega^1\otimes\omega^k)}
+\right).
+\tag{3.11}
+\]
+\noindent\emph{Note sur la source.} La transcription héritée avait perdu les barres des courbes
+compactifiées $\overline{M}_n^{\an}$ dans les deux termes de (3.11); elles sont rétablies
+ci-dessus. Le \frquote{if is equipped} de la réédition anglaise est régularisé en
+\frquote{it is equipped} dans l'édition anglaise.
+Cette décomposition de $W\otimes\C$ en deux sous-espaces complexes conjugués, dont l'un
+est l'espace de toutes formes automorphes holomorphes paraboliques de poids $k+2$,
+relative à un quelconque sous-groupe de congruence du groupe $\SL_2(\Z)$, est analogue
+à une décomposition de Hodge, \frquote{de type}
+\[
+(0,k+1)+(k+1,0).
+\]
+L'action du groupe adélique commute à l'action du groupe de Galois et respecte la
+décomposition précédente.
+
+Bien que le système local $\ell$-adique $R^1f_*\Q_\ell$ soit trivial sur $M_\infty$, je ne
+sais pas s'il existe une relation entre $W_\ell$ et
+\[
+\varinjlim_n\bigl(\widetilde H^1(M_n\otimes\overline\Q,\Q_\ell)\bigr)
+\otimes \Sym^k(\Q_\ell^2).
+\]
+
+\paragraph{(3.12)}
+Soient $n\ge 3$ un entier et $K_n$ comme en (3.8). On a alors
+\[
+W^{K_n}={}_nW.
+\]
+Cela se vérifie par passage à la limite, et résulte de ce qu'en cohomologie rationnelle, la
+cohomologie du quotient d'un espace par un groupe fini s'obtient en prenant les invariants
+de ce groupe dans la cohomologie.
+
+Posons, pour $p$ premier,
+\[
+W^{(p)}=W^{\GL_2(\Z_p)}.
+\]
+Par passage à la limite, on obtient
+\[
+W^{(p)}=\varinjlim_{(n,p)=1}{}_nW.
+\]
+Sur cet espace de cohomologie agissent encore :
+\begin{enumerate}[label=(\roman*)]
+\item le sous-groupe $\prod_{\ell\ne p}\GL_2(\Q_\ell)$ de $\GL_2(\Af)$, car ce
+sous-groupe centralise $\GL_2(\Z_p)$;
+\item l'algèbre de Hecke $\cH(\GL_2(\Q_p),\GL_2(\Z_p))$, qui est l'algèbre des mesures
+entières sur l'espace discret $\GL_2(\Q_p)/\GL_2(\Z_p)$ invariantes à gauche par
+$\GL_2(\Z_p)$. Cette sous-algèbre de l'algèbre du groupe $\GL_2(\Q_p)$ agit sur
+$W$ en respectant $W^{(p)}$. Cette algèbre agit déjà sur chacun des ${}_nW$ pour $n$ premier à $p$.
+\end{enumerate}
+
+L'algèbre de Hecke admet pour base les (mesures associées aux fonctions caractéristiques
+des) doubles classes de $\GL_2(\Z_p)$ dans $\GL_2(\Q_p)$, et l'on sait que
+\[
+\cH(\GL_2(\Q_p),\GL_2(\Z_p))=\Z[T_p,R_p,R_p^{-1}],
+\]
+où $T_p$ et $R_p$ sont les doubles classes de
+\[
+\begin{pmatrix}1&0\\0&p^{-1}\end{pmatrix}
+\qquad\text{et}\qquad
+\begin{pmatrix}p^{-1}&0\\0&p^{-1}\end{pmatrix}.
+\]
+
+
+\paragraph{(3.13)}
+Soient $p$ un nombre premier, $n\geq 3$ un entier premier à $p$, et $F_{n,p}$
+le foncteur qui, à chaque schéma $S$, associe l'ensemble des classes d'isomorphie
+de diagrammes commutatifs de $S$-schémas
+\[
+\begin{array}{ccccc}
+&& \Z/(n)^2 &&\\[-0.2em]
+& \alpha\nearrow && \nwarrow\alpha' &\\[-0.2em]
+E_n & \longrightarrow & F_n &&\\[-0.2em]
+\cap && \cap &&\\[-0.2em]
+E & \xrightarrow{\ \varphi\ } & F &&
+\end{array}
+\tag{3.14}
+\]
+où $\varphi$ est une $p$-isogénie entre courbes elliptiques et $\alpha$ un isomorphisme.
+On désigne par $q_1$ et $q_2:F_{n,p}\to M_n$ les morphismes de foncteurs associant à
+un diagramme (3.14) les sous-diagrammes $(E,E_n,\alpha)$ et $(F,F_n,\alpha')$.
+
+\begin{proposition}[3.15]
+Le foncteur $F_{n,p}$ est représenté par un schéma $M_{n,p}$, et les morphismes $q_1,q_2:M_{n,p}\to M_n$ sont finis.
+\end{proposition}
+
+L'automorphisme $\sigma$ de $F_{n,p}$ envoyant $\varphi:E\to F$ sur
+${}^{t}\!\varphi:F\to E$ échange $q_1$ et $q_2$; il suffit donc de considérer $q_1$.
+Ce morphisme identifie $F_{n,p}$ au foncteur des sous-groupes d'ordre $p$ de la courbe
+elliptique universelle $E$ sur $M_n$, de sorte que, par la théorie des schémas de Hilbert,
+$F_{n,p}$ est représentable et $M_{n,p}$ propre sur $M_n$. Si $s$ est un point géométrique
+de $M_n$, $q_1^{-1}(s)$ est l'ensemble des sous-groupes d'ordre $p$ de $E_s$, et a $p+1$
+éléments si $\charop(k(s))\ne p$, un seul (le noyau de Frobenius) si $\charop(k(s))=p$. \QED
+
+On peut montrer que $M_{n,p}$ est régulier, et que $q_1$ et $q_2$ sont finis et plats;
+nous n'utiliserons pas ce résultat délicat, nous contentant ici de noter qu'au-dessus de
+$\Spec(\Z[1/p])$, chaque $q_i$ fait de $M_{n,p}$ un revêtement étale de degré $p+1$ de $M_n$.
+
+Les morphismes $q_i$ s'insèrent dans un diagramme commutatif
+\begin{equation}
+\begin{tikzcd}[column sep=3.3em,row sep=2.7em]
+& q_1^*E \arrow[rr,"\varphi"] \arrow[dl] \arrow[dr,"u"'] &&
+q_2^*E \arrow[dl,"v"] \arrow[dr] & \\
+E \arrow[dr,"f_n"'] && M_{n,p} \arrow[dl,"q_1"] \arrow[dr,"q_2"'] &&
+E \arrow[dl,"f_n"] \\
+& M_n && M_n &
+\end{tikzcd}
+\tag{3.16}
+\end{equation}
+où $(\varphi,u,v)$ fait partie du diagramme universel (3.14).
+
+\noindent\emph{Note sur la source.} Dans le TeX hérité, le diagramme (3.16) attachait $u$ et $v$ à l'objet inférieur $M_{n,p}$ et confondait les deux applications diagonales de changement de base. La source donne $u:q_1^*E\to M_{n,p}$ et $v:q_2^*E\to M_{n,p}$, avec deux applications diagonales non étiquetées de chaque changement de base vers $E$; le diagramme natif ci-dessus restitue cette topologie.
+
+On désignera par $I_p$ le morphisme de $M_n$ dans $M_n$ correspondant au morphisme
+de foncteur $(E,\alpha)\mapsto(E,\alpha/p)$~:
+\[
+\begin{array}{ccc}
+E&\longrightarrow&E\\
+\downarrow&&\downarrow\\
+M_n&\xrightarrow{\ I_p\ }&M_n
+\end{array}
+\qquad
+I_p^*(E,\alpha)=(E,\alpha/p).
+\tag{3.17}
+\]
+$I_p^*$ est un automorphisme de $\widetilde H^i(M_n^{\an},\Sym^k(R^1f_{n*}\Z))$.
+Il est pénible, mais routinier, de démontrer que
+
+\begin{proposition}[3.18]
+\leavevmode
+\begin{enumerate}[label=(\roman*)]
+\item L'endomorphisme $T_p$ de ${}_nW$ s'exprime, à l'aide de (3.16), comme la flèche composée
+\[
+\begin{aligned}
+&\widetilde H^1(M_n^{\an},\Sym^k(R^1f_{n*}\Q))
+\xrightarrow{\ q_2^*\ }
+\widetilde H^1(M_{n,p}^{\an},\Sym^k(R^1v_*\Q))\\
+&\xrightarrow{\ \varphi^*\ }
+\widetilde H^1(M_{n,p}^{\an},\Sym^k(R^1u_*\Q))
+\xrightarrow{\ q_{1*}\ }
+\widetilde H^1(M_n^{\an},\Sym^k(R^1f_{n*}\Q)).
+\end{aligned}
+\]
+où $q_{1*}$ est le \frquote{morphisme trace} pour le revêtement $q_1$.
+\item De même, $R_p=p^kI_p^*$.
+\end{enumerate}
+\end{proposition}
+\QED
+
+Le lecteur méfiant pourrait oublier les préliminaires adéliques et définir $T_p$ par (i). Pour $n=1$ ou $2$, on pose ${}_nW=W^{K_n}$, de sorte que
+\[
+{}_1W={}_nW^{\GL_2(\Z/(n))}.
+\]
+Si $S_{k+2}$ désigne l'espace des formes modulaires paraboliques, pour le groupe
+$\SL_2(\Z)$, de poids $k+2$, l'isomorphisme de Shimura (3.11) induit un isomorphisme
+\[
+{}^k_1W_\infty={}^k_1W\otimes\C=S_{k+2}\oplus \overline{S}_{k+2}.
+\]
+Il est pénible, mais routinier, de démontrer que
+
+\begin{proposition}[3.19]
+L'endomorphisme $T_p$ de ${}^k_1W_\infty$ s'identifie, par l'isomorphisme de Shimura,
+à la somme directe de l'opérateur de Hecke sur $S_{k+2}$ (y compris le facteur $p^{k-1}$),
+et de son conjugué.
+\end{proposition}
+\QED
+
+\paragraph{(3.20)}
+On a canoniquement
+\[
+\bigwedge^2R^1f_{n*}\Z_\ell\simeq R^2f_{n*}\Z_\ell\simeq \Z_\ell(-1),
+\]
+de sorte que $\Sym^k(R^1f_{n*}\Z_\ell)$ est muni d'une forme bilinéaire (symétrique pour
+$k$ pair, alternée pour $k$ impair) à valeurs dans $\Z_\ell(-k)$. La forme qui s'en déduit
+par tensorisation par $\Q_\ell$ est non dégénérée.
+
+Si $F$ est un $\Q_\ell$-faisceau l.c.c. sur un schéma $X$ lisse purement de dimension
+$n$ sur un corps algébriquement clos $k$, alors la dualité de Poincaré donne
+\[
+H^i(X,F)^\vee\simeq H_c^{2n-i}(X,\Hom(F,\Q_\ell(n))),
+\]
+\[
+H_c^i(X,F)^\vee\simeq H^{2n-i}(X,\Hom(F,\Q_\ell(n))),
+\]
+\[
+\widetilde H^i(X,F)^\vee\simeq \widetilde H^{2n-i}(X,\Hom(F,\Q_\ell(n))).
+\]
+Faisant $X=\overline M_n$ et $F=\Sym^k(R^1f_{n*}\Q_\ell)$ dans ces considérations, on
+définit sur ${}^k_nW_\ell$ une forme bilinéaire ${}_n(\ ,\ )$ non dégénérée à valeurs dans
+$\Q_\ell(-k-1)$. Cette forme est symétrique pour $k$ impair, alternée pour $k$ pair.
+C'est l'analogue $\ell$-adique du produit scalaire de Petersson. Si $n\mid m$, et si le
+revêtement $\psi:M_m\to M_n$ est de degré $d$, on a
+\[
+{}_m(\psi^*x,\psi^*y)=d\cdot {}_n(x,y).
+\]
+\noindent\emph{Note sur la source.} Le texte imprimé écrit \frquote{Peterson} ici et dans la preuve de (5.6), puis \frquote{Pertersson} à la fin. Le nom usuel \frquote{Petersson} est rétabli partout. La coquille évidente \frquote{isomprhism} de la réédition anglaise sur la même page est également régularisée en \frquote{isomorphism} dans l'édition anglaise.
+
+\section{La formule de congruence}
+
+On se fixe dans ce numéro des entiers $k\geq 0$ et $n\geq 3$, et des nombres premiers
+$p$ et $\ell$. On suppose $p$ premier à $\ell$ et à $n$. On désigne par $f_n:E\to M_n$
+la courbe elliptique universelle sur $M_n$, munie de $\alpha:E_n\xrightarrow{\sim}\Z/(n)^2$.
+
+Quel que soit le schéma $Y$, on désigne par $a$ l'unique morphisme de $Y$ dans
+$\Spec(\Z)$, ou, le cas échéant, dans un sous-schéma de $\Spec(\Z)$. Si $Y$ est séparé
+et de type fini sur $\Spec(\Z)$, et si $F$ est un $\Z_\ell$- ou $\Q_\ell$-faisceau sur $Y$,
+on note $R^ia_*(Y,F)$, respectivement $R^ia_!(Y,F)$, respectivement
+$R^i\widetilde a(Y,F)$, le $\Z_\ell$- ou $\Q_\ell$-faisceau sur $\Spec(\Z)$ qui est la
+$i$-ième image directe supérieure de $F$ par $a$, respectivement la $i$-ième image directe
+à supports propres, respectivement $\Imop(R^ia_!(Y,F)\to R^ia_*(Y,F))$.
+Pour $m\in\mathbb N$, on pose
+\[
+Y[1/m]=Y\times\Spec(\Z[1/m]).
+\]
+
+\begin{theorem}[4.1, Igusa {\rm [1]}]
+Le schéma $M_n$ se compactifie en un schéma en courbes $M_n^*$, projectif et lisse sur $\Spec(\Z[1/n])$, tel que $M_n^*\setminus M_n$ soit un revêtement étale de $\Spec(\Z[1/n])$.
+\end{theorem}
+
+Le schéma $M_n$ est formellement lisse, donc lisse sur $\Spec(\Z)$. L'invariant modulaire $j$ de la courbe universelle sur $M_n$ est un morphisme de $M_n$ dans la droite affine $\mathbb A^1$ sur $\Spec(\Z[1/n])$. Ce morphisme $j$ est fini, et est un revêtement étale en dehors des sections $0$ et $1728$ de $\mathbb A^1$; en effet:
+\begin{enumerate}[label=(\alph*)]
+\item Deux courbes elliptiques sur un corps algébriquement clos de même invariant $j$ sont isomorphes (par exemple [8] 6.3), donc les fibres géométriques de $j$ sont finies. Les schémas $M_n$ et $\mathbb A^1$ étant lisses de même dimension relative sur $\Spec(\Z)$, $j$ est quasi-fini et plat.
+\item Si $E$ est une courbe elliptique sur le corps des fractions $K$ d'un anneau de valuation discrète $R$, d'invariant $j$ dans $R$, et dont les points d'ordre $n$ sont rationnels sur $K$, alors $E$ a une bonne réduction. Le critère valuatif de propreté montre donc que $j$ est propre.
+\item Si $E$ et $F$ sont deux courbes elliptiques sur un schéma $S$, de même invariant $j$, et si $j$ et $j-1728$ sont inversibles, alors le schéma $\Isom(S;E,F)$ des isomorphismes entre $E$ et $F$ est étale sur $S$ ([8] 6.3). Dans le diagramme
+\[
+\begin{array}{ccc}
+\Isom(M_n\times_{\mathbb A^1}M_n;\operatorname{pr}_1^*E,\operatorname{pr}_2^*E) & \sim & M_n\times\GL_2(\Z/(n))\\
+\downarrow u && \downarrow v\\
+M_n\times_{\mathbb A^1}M_n&\xrightarrow{\operatorname{pr}_1}&M_n,
+\end{array}
+\]
+où $j\ne0,1728$, $u$ et $v$ sont étales surjectifs; donc $\operatorname{pr}_1$ est étale et, par descente plate, $j$ est étale.
+\end{enumerate}
+La section à l'infini de la droite projective $\mathbb P^1\supset\mathbb A^1$ sur $\Spec(\Z[1/n])$ est un diviseur régulier, de point générique de caractéristique $0$, dans un schéma régulier. Il résulte alors d'un théorème d'Abhyankar (voir [5]) que, le long de ce diviseur $j=\infty$, $M_n$ est modérément ramifié sur $\mathbb P^1$, et que le normalisé $M_n^*$ de $\mathbb P^1$ dans $M_n$ vérifie (4.1). \QED
+
+\noindent\emph{Note sur la source.} Les deux témoins imprimés donnent \frquote{Abyankhar}; le nom usuel \frquote{Abhyankar} est rétabli. L'hésitation de la réédition anglaise \frquote{moderately (tamely?) ramified} est résolue, dans l'édition anglaise, par le terme mathématique standard \frquote{tamely ramified}; le français diplomatique conserve exactement \frquote{modérément ramifié}.
+
+Du même théorème résulte que les $\Z_\ell$-faisceaux l.c.c. $R^if_{n*}\Z_\ell$ sur $M_n[1/\ell]$ sont modérément ramifiés à l'infini. De là, de (4.1) et des théorèmes de spécialisation en cohomologie $\ell$-adique (voir [5]), il résulte que $R^ia_*(M_n,\Sym^k(R^1f_{n*}\Z_\ell))$, $R^ia_!(M_n,\Sym^k(R^1f_{n*}\Z_\ell))$, et donc $R^i\widetilde a(M_n,\Sym^k(R^1f_{n*}\Z_\ell))$ sont des $\Z_\ell$-faisceaux l.c.c. sur $\Spec(\Z[1/n,1/\ell])$, de formation compatible à tout changement de base.
+
+\begin{corollary}[4.2]
+Le module galoisien ${}_nW_\ell$ est la fibre en le point géométrique $\overline\Q$ de $\Spec(\Z[1/n,1/\ell])$ du $\Q_\ell$-faisceau l.c.c.
+\[
+R^1\widetilde a(M_n,\Sym^k(R^1f_{n*}\Z_\ell))\otimes\Q_\ell
+\]
+Il est non ramifié en dehors de $n$ et de $\ell$.
+\end{corollary}
+\QED
+
+\noindent\emph{Note sur la source.} L'original français numérote ce corollaire \frquote{3.2} au milieu du \S4. La suite après le Théorème 4.1 et la réédition anglaise imposent 4.2; cette coquille de numérotation est corrigée visiblement ici.
+
+Soient sur $M_n\otimes\F_p$ les deux diagrammes commutatifs
+\begin{equation*}
+\begin{tikzcd}[column sep=1.7em,row sep=1.8em]
+& \Z/(n)^2 &&&& \Z/(n)^2 & \\
+E_n \arrow[ur,"\alpha"] \arrow[rr] \arrow[d,phantom,"\cap" description] &&
+E_n^{(p)} \arrow[ul,"\alpha^{(p)}"'] \arrow[d,phantom,"\cap" description] & \text{et} &
+E_n^{(p)} \arrow[ur,"p\mathbin{\cdot}\alpha^{(p)}"] \arrow[rr] \arrow[d,phantom,"\cap" description] &&
+E_n \arrow[ul,"\alpha"'] \arrow[d,phantom,"\cap" description] \\
+E \arrow[rr,"F"] && E^{(p)} && E^{(p)} \arrow[rr,"V"] && E
+\end{tikzcd}
+\end{equation*}
+plus brièvement sous la forme
+\[
+F:(E,\alpha)\to(E^{(p)},\alpha^{(p)})
+\qquad\text{et}\qquad
+V:(E^{(p)},p\alpha^{(p)})\to(E,\alpha),
+\]
+où $F$ est le morphisme de Frobenius et $V$, son transposé, le \frquote{Verschiebung}. Ces diagrammes définissent des morphismes $\Phi_1$ et $\Phi_2$ de $M_n\otimes\F_p$ dans $M_{n,p}$. Ces morphismes sont finis, en tant que section de $q_1$ ou $q_2$, et définissent un morphisme
+\[
+\Phi=\Phi_1\coprod\Phi_2:M_n\otimes\F_p\coprod M_n\otimes\F_p\to M_{n,p}\otimes\F_p.
+\]
+\noindent\emph{Note sur la source.} Les tableaux hérités répétaient à tort les étiquettes $F$ et $V$ sur les flèches induites entre les sous-schémas de $n$-torsion. Dans la source, ces flèches horizontales supérieures ne sont pas étiquetées; seules les applications entre courbes elliptiques portent $F$ et $V$. Les diagrammes natifs ci-dessus rétablissent cette distinction. L'original français imprime en outre les quatre signes d'inclusion $\cap$, le connecteur central \frquote{et}, $F$ et $V$ au-dessus des flèches inférieures, et $p\mathbin{\cdot}\alpha^{(p)}$ dans le diagramme de droite; ces détails sont conservés ici.
+Soit $\Phi^h$ la restriction de $\Phi$ aux ouverts $M_n^h$ et $M_{n,p}^h$ de $M_n\otimes\F_p$ et de $M_{n,p}\otimes\F_p$ correspondant aux courbes d'invariant de Hasse $h$ non nul.
+
+\begin{proposition}[4.3]
+$\Phi^h$ est un isomorphisme.
+\end{proposition}
+
+Soit $\varphi:E_1\to E_2$ une $p$-isogénie entre courbes elliptiques d'invariant de Hasse inversible sur un schéma $S$ de caractéristique $p$. En chaque point géométrique de $S$, ou bien le noyau $\ker(\varphi)$ de $\varphi$ est étale sur $S$, ou bien son dual de Cartier, isomorphe à $\ker({}^{t}\!\varphi)$, est étale sur $S$. La propriété \frquote{$\ker(\varphi)$ est étale} est une propriété ouverte, de sorte que, localement sur $S$, ou bien $\ker(\varphi)$ est purement infinitésimal, ou bien $\ker({}^{t}\!\varphi)$ l'est. Le seul sous-groupe infinitésimal d'ordre $p$ de $E_1$ ou $E_2$ étant le noyau de Frobenius, dans le premier cas, $\varphi$ est isomorphe à $F:E_1\to E_1^{(p)}$, et dans le second, ${}^{t}\!\varphi$ est isomorphe à $F:E_2\to E_2^{(p)}$, donc $\varphi$ à $V:E_2^{(p)}\to E_2$. \QED
+
+\begin{proposition}[4.4]
+\leavevmode
+\begin{enumerate}[label=(\roman*)]
+\item Le schéma $M_{n,p}$ est lisse sur $\Spec(\Z)$ en dehors des points de caractéristique $p$ où $h=0$.
+\item Les morphismes $q_1$ et $q_2$ induisent des morphismes finis plats $q'_1$ et $q'_2$ de la normalisation $M'_{n,p}$ de $M_{n,p}$ vers $M_n$.
+\item Le morphisme $\Phi$ se factorise par un morphisme surjectif
+\[
+\Phi':M_n\otimes\F_p\coprod M_n\otimes\F_p\to M'_{n,p}\otimes\F_p.
+\]
+\end{enumerate}
+\end{proposition}
+
+L'automorphisme $\sigma$ de (3.15) échange $\varphi$ et ${}^{t}\!\varphi$; il suffit donc de prouver (i) en les points de caractéristique $p$ de $M_{n,p}$ où le noyau de $\varphi$ est infinitésimal: il n'y a pas d'obstruction à relever infinitésimalement une courbe elliptique et la partie infinitésimale du noyau de la multiplication par $p$.
+
+Là où $p=h=0$, la fibre du morphisme fini (3.15) $q_i:M_{n,p}\to M_n$ est réduite à un point, de sorte que l'ouvert de lissité de $M_{n,p}$ est dense dans $M_{n,p}$ et que $M'_{n,p}$ est partout de dimension $2$. Le schéma $M_n$ étant régulier, d'après EGA $0_{\mathrm{IV}}$ 16.5.1 et 17.3.5(ii), le morphisme $q_i:M'_{n,p}\to M_n$ est plat. Enfin, (iii) résulte de ce que $\Phi$ est fini et $M_n\otimes\F_p$ une courbe normale. \QED
+
+L'endomorphisme de Hecke $T_p$ de ${}_nW_\ell$, tel qu'il est explicité en (3.18), est le tensorisé par $\Q_\ell$ de la fibre au point géométrique $\overline\Q$ de $\Spec(\Z[1/n,1/\ell])$ de l'endomorphisme (encore désigné par $T_p$) de $R^1\widetilde a(M_n,\Sym^k(R^1f_{n*}\Z_\ell))$ défini par la \frquote{correspondance}
+\begin{equation}
+\begin{tikzcd}[column sep=3.3em,row sep=2.7em]
+& q_1'^*E \arrow[rr,"\varphi"] \arrow[dl] \arrow[dr,"u"'] &&
+q_2'^*E \arrow[dl,"v"] \arrow[dr] & \\
+E \arrow[dr,"f_n"'] && M'_{n,p} \arrow[dl,"q'_1"] \arrow[dr,"q'_2"'] &&
+E \arrow[dl,"f_n"] \\
+& M_n && M_n &
+\end{tikzcd}
+\tag{4.5}
+\end{equation}
+avec
+\[
+T_p=q'_{1*}\,\varphi^*\,q_2'^* \qquad (\text{cf. }3.18).
+\]
+\noindent\emph{Note sur la source.} Comme dans la version héritée de (3.16), le tableau hérité de (4.5) attachait $u$ et $v$ à l'objet modulaire inférieur et confondait deux applications distinctes des changements de base vers les courbes. Le diagramme natif rétablit les neuf flèches de la source.
+Les endomorphismes $R_p$ et $I_p$ s'interprètent de même.
+
+\begin{lemma}[4.6]
+Soient sur un schéma noethérien $S$ quatre schémas séparés de type fini $X,Y,Z_1,Z_2$, $F$ un $\Z_\ell$-faisceau sur $X$, $G$ un $\Z_\ell$-faisceau sur $Y$, et désignons par $a$ chacune des flèches structurelles de $X,Y,Z_1$ ou $Z_2$ dans $S$.
+
+Soient un diagramme commutatif de $S$-schémas, et des morphismes de faisceaux:
+\begin{equation*}
+\begin{tikzcd}[column sep=3.0em,row sep=2.0em]
+y_1^*G \arrow[r,"z_1"] & x_1^*F && y_2^*G \arrow[r,"z_2"] & x_2^*F \\
+& Z_1 \arrow[rr,"f"] \arrow[dl,"x_1"'] \arrow[drrr,"y_1"] &&
+Z_2 \arrow[dlll,"x_2"'] \arrow[dr,"y_2"] & \\
+X &&&& Y
+\end{tikzcd}
+\end{equation*}
+Supposons que $f^*z_2=z_1$, que $y_1$ et $y_2$ sont propres, que $x_1$ et $x_2$ sont finis et plats, et que, pour tout point géométrique $s$ de $Z_2$, la multiplicité de $s$ dans sa fibre $x_2^{-1}(x_2(s))$ est égale à la somme des multiplicités dans leur fibre (pour $x_1$) des points géométriques de $Z_1$ image réciproque de $s$ par $f$. Alors, le diagramme
+\begin{equation*}
+\begin{tikzcd}[column sep=2.2em,row sep=2.2em]
+R^i\widetilde a(Y,G) \arrow[r,"y_1^*"] & R^i\widetilde a(Z_1,G) \arrow[r,"z_1"] &
+R^i\widetilde a(Z_1,F) \arrow[r,"x_{1*}"] & R^i\widetilde a(X,F) \\
+R^i\widetilde a(Y,G) \arrow[r,"y_2^*"'] \arrow[u,equal] &
+R^i\widetilde a(Z_2,G) \arrow[r,"z_2"'] \arrow[u,"f^*"] &
+R^i\widetilde a(Z_2,F) \arrow[r,"x_{2*}"'] \arrow[u,"f^*"] &
+R^i\widetilde a(X,F) \arrow[u,equal]
+\end{tikzcd}
+\end{equation*}
+est commutatif.
+\end{lemma}
+
+\noindent\emph{Note sur la source.} Les tableaux hérités avaient perdu la paire d'objets partagée $Z_1\to Z_2$ du diagramme structurel et désalignaient les applications verticales dans les deux diagrammes cohomologiques. Les diagrammes sont reconstruits nativement avec les objets partagés de la source et ses flèches diagonales, verticales, d'égalité, de changement de base et de trace distinctes. Une réparation antérieure avait dupliqué $Z_1\to Z_2$ en deux copies disjointes; la relecture directe de l'original français, p.~164, a révélé cette erreur topologique résiduelle, désormais corrigée dans les deux éditions.
+
+Ce lemme résulte des lemmes analogues pour $R^ia_!$ et $R^ia_*$. La commutativité des premiers carrés est triviale. Le dernier se récrit
+\begin{equation*}
+\begin{tikzcd}[column sep=2.4em,row sep=2.2em]
+R^i\widetilde a(Z_1,x_1^*F) &
+R^i\widetilde a(X,x_{1*}x_1^*F) \arrow[l,"\sim"'] \arrow[r,"\Tr"] &
+R^i\widetilde a(X,F) \\
+R^i\widetilde a(Z_2,x_2^*F) \arrow[u] &
+R^i\widetilde a(X,x_{2*}x_2^*F) \arrow[l,"\sim"'] \arrow[u] \arrow[r,"\Tr"'] &
+R^i\widetilde a(X,F) \arrow[u,equal]
+\end{tikzcd}
+\end{equation*}
+et l'on rappelle la définition de la trace pour vérifier que le carré
+\[
+\begin{array}{ccc}
+x_{1*}x_1^*F&\xrightarrow{\Tr}&F\\
+\uparrow&&\Vert\\
+x_{2*}x_2^*F&\xrightarrow{\Tr}&F
+\end{array}
+\]
+est commutatif. \QED
+
+\paragraph{(4.7)}
+On désignera par $T_p/\F_p$ l'endomorphisme induit par $T_p$ sur la restriction à $\Spec(\F_p)$ du $\Z_\ell$-faisceau l.c.c. $R^1\widetilde a(M_n,\Sym^kR^1f_{n*}\Z_\ell)$. On a
+\[
+R^1\widetilde a(M_n,\Sym^kR^1f_{n*}\Z_\ell)|\Spec(\F_p)
+\xrightarrow{\sim}
+R^1\widetilde a(M_n\otimes\F_p,\Sym^kR^1f_{n*}\Z_\ell);
+\]
+la formation du morphisme trace pour un morphisme fini et plat est compatible au changement de base, de sorte que $T_p/\F_p$ peut se construire, sur le modèle (3.18), à partir de la fibre en $\F_p$ de la \frquote{correspondance} (4.5). Le lemme (4.6), appliqué au diagramme commutatif
+\[
+\begin{tikzcd}[column sep=2.3em,row sep=2.25em]
+& M_n\otimes\F_p\coprod M_n\otimes\F_p
+  \arrow[rr,"\Phi'"]
+  \arrow[dl]
+  \arrow[drrrr]
+&& M'_{n,p}\otimes\F_p
+  \arrow[dlll,"q'_1"]
+  \arrow[drr,"q'_2"'] & \\
+M_n\otimes\F_p &&&&& M_n\otimes\F_p\rlap{,}
+\end{tikzcd}
+\]
+fournit alors une décomposition de $T_p/\F_p$ en la somme des endomorphismes définis par les deux correspondances suivantes:
+\[
+\begin{tikzcd}[column sep=1.45em,row sep=1.65em]
+&& (E,\alpha)
+  \arrow[rrrr,"F"]
+  \arrow[dl,equal]
+  \arrow[drr]
+&&&& (E^{(p)},\alpha^{(p)})=F^*(E,\alpha)
+  \arrow[dll]
+  \arrow[dr]
+& \\
+\textup{(a)} & (E,\alpha)
+  \arrow[dr]
+&&& M_n\otimes\F_p
+  \arrow[dll,equal]
+  \arrow[drr,"F"]
+&&& (E,\alpha)
+  \arrow[dl] \\
+&& M_n\otimes\F_p &&&& M_n\otimes\F_p &
+\end{tikzcd}
+\]
+où $F$ est le Frobenius absolu. On reconnaît dans cette correspondance le Frobenius géométrique
+\[
+\begin{tikzcd}[column sep=1.45em,row sep=1.65em]
+&& x^*(E,\alpha)=(E^{(p)},p\alpha^{(p)})
+  \arrow[rrrr,"V"]
+  \arrow[dl]
+  \arrow[drr,"f_n^{(p)}"]
+&&&& (E,\alpha)
+  \arrow[dll,"f_n"']
+  \arrow[dr,equal]
+& \\
+\textup{(b)} & (E,\alpha)
+  \arrow[dr]
+&&& M_n\otimes\F_p
+  \arrow[dll,"x"']
+  \arrow[drr,equal]
+&&& (E,\alpha)
+  \arrow[dl] \\
+&& M_n\otimes\F_p &&&& M_n\otimes\F_p & \text{.}
+\end{tikzcd}
+\]
+\noindent\emph{Note sur la source.} La version anglaise tardive et les tableaux hérités dédoublaient la rangée supérieure commune du diagramme de changement de base en deux triangles disjoints; le diagramme natif rétablit les deux objets supérieurs uniques et leurs quatre flèches comme dans l'original français. Les tableaux hérités des correspondances (a) et (b) ne conservaient que quatre des huit relations descendantes de la source et représentaient deux relations d'égalité par des flèches. Les diagrammes natifs rétablissent toutes les diagonales, les deux relations d'égalité de chaque correspondance, ainsi que les étiquettes $f_n^{(p)}$, $f_n$, $x$ et $F$ à leurs points d'attache imprimés. L'original français place le point final de (b) dans la cellule à droite de l'objet inférieur droit; la version anglaise tardive le place après l'objet médian droit, et chaque édition indépendante conserve sa ponctuation imprimée. Les deux témoins imprimés placent également le point final du diagramme composé pour $x$ dans une cellule terminale indépendante à droite de l'objet inférieur droit; les deux éditions le conservent ainsi.
+La flèche $x$ est la flèche composée $I_p^{-1}\circ F$:
+\[
+\begin{array}{cccccc}
+(E,\alpha)&\longleftarrow&(E,p\alpha)&\longleftarrow&(E^{(p)},p\alpha^{(p)})\\
+\downarrow&&\downarrow&&\downarrow\\
+M_n\otimes\F_p&\xleftarrow{\ I_p^{-1}\ }&M_n\otimes\F_p&\xleftarrow{\ F\ }&M_n\otimes\F_p&\text{.}
+\end{array}
+\]
+L'endomorphisme correspondant est donc le composé de
+\[
+V:
+R^1\widetilde a(M_n\otimes\F_p,\Sym^k(R^1f_{n*}\Z_\ell))
+\xrightarrow{V^*}
+R^1\widetilde a(M_n\otimes\F_p,\Sym^k(R^1f^{(p)}_{n*}\Z_\ell))
+\xrightarrow{\Tr_F}
+R^1\widetilde a(M_n\otimes\F_p,\Sym^k(R^1f_{n*}\Z_\ell))
+\]
+et de
+\[
+I_p^*=\Tr_{I_p^{-1}}:\quad\text{endomorphisme de }R^1\widetilde a(M_n\otimes\F_p,\Sym^kR^1f_{n*}\Z_\ell).
+\]
+
+\begin{proposition}[4.8]
+On a $T_p/\F_p=F+I_p^*V$, et
+\begin{enumerate}[label=(\roman*)]
+\item $F$ s'identifie à l'inverse de l'élément de Frobenius (\frquote{arithmétique}) $\varphi_p$ du groupe de Galois $\Gal(\overline\F_p/\F_p)$ agissant sur $\widetilde H^1(M_n\otimes\overline\F_p,\Sym^k(R^1f_{n*}\Z_\ell))$;
+\item $F$ et $V$ sont transposés l'un de l'autre relativement au produit scalaire (3.20);
+\item $FV=VF=p^{k+1}$.
+\end{enumerate}
+\end{proposition}
+
+Pour la relation (i) entre Frobenius géométrique et arithmétique, on renvoie à l'exposé de C. Houzel (SGA 5.XV). Le composé $VF$ est le composé des homomorphismes déduits des flèches suivantes:
+\[
+\begin{tikzcd}[column sep=1.25em,row sep=1.75em]
+E \arrow[d]
+&& E^{(p)} \arrow[ll] \arrow[rr,"F_E"] \arrow[drr]
+&& E \arrow[rr,"V_E"] \arrow[d]
+&& E^{(p)} \arrow[rr] \arrow[dll]
+&& E \arrow[d] \\
+M_n \arrow[rrrr,"F"]
+&&&& M_n \arrow[rrrr,"F"]
+&&&& M_n
+\end{tikzcd}
+\]
+\noindent\emph{Note sur la source.} Le tableau hérité réduisait le diagramme imprimé à cinq objets $E\leftarrow E^{(p)}\to E\to E^{(p)}\to E$ à trois objets, omettant ainsi les deux tordus de Frobenius intermédiaires et leurs applications structurelles diagonales. Le diagramme natif complet ci-dessus rétablit les cinq objets et les onze flèches de la source.
+Ainsi
+\[
+VF=\Tr_F\circ F_E^*\circ V_E^*\circ F^*.
+\]
+La flèche $F_E^*V_E^*=(F_EV_E)^*=(p\cdot1_E)^*$ agit par multiplication par $p^k$ sur $\Sym^kR^1f_{n*}\Z_\ell$, de sorte que
+\[
+VF=p^k\Tr_F\circ F^*=p^k\cdot p=p^{k+1},
+\]
+car $F:M_n\to M_n$ est de degré $p$.
+
+Par transport de structure, $\varphi_p$ respecte le produit scalaire (3.20), à valeur dans $\Q_\ell(-k-1)$, groupe sur lequel $\varphi_p$ agit par multiplication par $p^{-k-1}$. On a donc
+\[
+(Fx,y)=p^{k+1}(\varphi_pFx,\varphi_py)=(x,p^{k+1}F^{-1}y)=(x,Vy).
+\]
+\QED
+
+Le théorème suivant, synonyme de (4.8), remonte à Eichler.
+
+\begin{theorem}[4.9, formule de congruence]
+Soient $K_{n,\ell}$ la plus grande sous-extension de $\overline\Q$ non ramifiée en dehors de $n$ et $\ell$, $\varphi_p$ un élément de Frobenius relatif à $p$ dans $\Gal(K_{n,\ell}/\Q)$, $F$ l'endomorphisme $\varphi_p^{-1}$ de ${}_nW_\ell$ et $V$ le transposé de $F$ relativement au produit scalaire (3.20). Alors,
+\[
+T_p=F+I_p^*V,
+\qquad
+FV=p^{k+1},
+\qquad
+1-T_pX+pR_pX^2=(1-FX)(1-I_p^*VX).
+\]
+\end{theorem}
+\QED
+
+\section{Weil implique Ramanujan}
+
+Si $p$ est un nombre premier et $X$ un schéma sur $\F_p$, on désignera par $\overline\F_p$ une clôture algébrique de $\F_p$, par $F:X\to X$ l'endomorphisme de Frobenius (\frquote{géométrique}), et on posera $\overline X=X\otimes\overline\F_p$; $\ell$ désignera toujours un nombre premier distinct de $p$.
+
+Par \frquote{conjectures de Weil}, on entendra l'énoncé suivant: soient $X$ un schéma projectif et lisse sur $\F_p$ et $\ell$ un nombre premier distinct de $p$. Alors, les valeurs propres de l'endomorphisme $F^*$ de $H^i(\overline X,\Q_\ell)$ sont des entiers algébriques dont tous les conjugués complexes sont de valeur absolue $p^{i/2}$.
+
+Avec les hypothèses et notations de 4.9, on a (rappelons que $(p,n)=1$):
+
+\begin{theorem}[5.1]
+Si les conjectures de Weil sont vraies, alors les valeurs propres de l'endomorphisme $F$ de ${}^k_nW_\ell$ sont des entiers algébriques (dont tous les conjugués complexes sont) de valeur absolue $p^{(k+1)/2}$.
+\end{theorem}
+\noindent\emph{Note sur la source.} L'énoncé imprimé parle des \frquote{valeurs absolues de l'endomorphisme} et donne $p^{k+1/2}$. Le théorème porte sur les valeurs propres de $F$, et le poids est $k+1$; on livre donc la lecture mathématiquement requise $p^{(k+1)/2}$.
+
+Admettons les conjectures de Weil.
+
+\begin{lemma}[5.2, modulo Weil]
+Soit $X$ un schéma lisse sur $\F_p$, qui puisse se représenter comme un ouvert dans un schéma projectif et lisse $X^*$. Alors, les valeurs propres de l'endomorphisme $F^*$ de $\widetilde H^i(X,\Q_\ell)$ sont des entiers algébriques de valeur absolue $p^{i/2}$.
+\end{lemma}
+\noindent\emph{Note sur la source.} La formule imprimée \frquote{valeurs absolues de l'endomorphisme} est corrigée en \frquote{valeurs propres de l'endomorphisme}; la valeur absolue $p^{i/2}$ est inchangée.
+
+La flèche naturelle de $H_c^i(X,\Q_\ell)$ dans $H^i(X,\Q_\ell)$ se factorise par $H^i(X^*,\Q_\ell)$:
+\[
+H_c^i(X,\Q_\ell)\to H^i(X^*,\Q_\ell)\to H^i(X,\Q_\ell),
+\]
+de sorte qu'en tant que $\Gal(\overline\F_p/\F_p)$-module, $\widetilde H^i(X,\Q_\ell)$ est quotient d'un sous-objet de $H^i(X^*,\Q_\ell)$. \QED
+
+\begin{lemma}[5.3, modulo Weil]
+Soient $S$ un schéma lisse sur $\F_p$ et $f:A\to S$ un schéma abélien sur $S$. Supposons que $A$ puisse se représenter comme un ouvert dans un schéma $A^*$ projectif et lisse sur $\F_p$. Alors, l'endomorphisme de Frobenius géométrique $F^*$ de $\widetilde H^i(S,R^jf_*\Q_\ell)$ a pour valeurs propres des entiers algébriques de valeur absolue $p^{(i+j)/2}$.
+\end{lemma}
+\noindent\emph{Note sur la source.} L'exposant imprimé est $i+j/2$. Le poids cohomologique étant $i+j$, l'exposant requis est $(i+j)/2$, comme livré ci-dessus et comme l'exige l'application de (5.2) dans la preuve.
+
+Soit $m$ un entier $>1$, et considérons les suites spectrales de Leray
+\[
+E:
+E_2^{ij}=H^i(\overline S,R^jf_*\Q_\ell)\Longrightarrow H^{i+j}(\overline A,\Q_\ell),
+\qquad
+{}_cE:
+{}_cE_2^{ij}=H_c^i(\overline S,R^jf_*\Q_\ell)\Longrightarrow H_c^{i+j}(\overline A,\Q_\ell).
+\]
+L'endomorphisme de multiplication par $m$, $\psi_m=m\cdot1_A$, définit des endomorphismes de $E$ et de ${}_cE$ qui s'insèrent dans un diagramme commutatif
+\[
+\begin{array}{cccc}
+{}_cE&\longrightarrow&E\\
+\psi_m^*\downarrow&&\psi_m^*\downarrow\\
+{}_cE&\longrightarrow&E&\text{.}
+\end{array}
+\]
+$\psi_m^*$ agit sur $R^jf_*\Q_\ell$ par multiplication par $m^j$, de sorte que sur les termes ${}_cE_r^{ij}$ et $E_r^{ij}$ de ${}_cE$ et de $E$, $\psi_m^*$ est la multiplication par $m^j$. Les flèches $d_r$ pour $r\ge2$ commutent à $\psi_m^*$ et envoient $E_r^{ij}$ (resp. ${}_cE_r^{ij}$) dans $E_r^{i'j'}$ (resp. ${}_cE_r^{i'j'}$), avec $j\ne j'$. Elles sont donc nulles, et $E_2^{ij}$ (resp. ${}_cE_2^{ij}$) s'identifie au sous-espace de $H^{i+j}(\overline A,\Q_\ell)$ (resp. de $H_c^{i+j}(\overline A,\Q_\ell)$) où $\psi_m^*=m^j$. Dès lors, $\widetilde H^i(S,R^jf_*\Q_\ell)$ s'identifie, comme module galoisien, au sous-espace de $\widetilde H^{i+j}(A,\Q_\ell)$ où $\psi_m^*=m^j$, et on applique (5.2). L'astuce utilisée ici est due à Lieberman. \QED
+
+\noindent\emph{Note sur la source.} La preuve imprimée affirme que ces différentielles sont non nulles. Comme elles commutent à $\psi_m^*$ tout en reliant les espaces propres distincts $m^j$ et $m^{j'}$, avec $j\ne j'$, elles sont nulles; c'est exactement la dégénérescence utilisée dans l'identification suivante. Les deux témoins imprimés placent le point final du diagramme commutatif dans une cellule séparée à droite de l'objet inférieur droit; l'édition le conserve ainsi.
+
+Soit $f_n:E\to M_n\otimes\F_p$ la courbe elliptique universelle sur $M_n\otimes\F_p$, et soit $f_{n,k}:E_k\to M_n\otimes\F_p$ son produit fibré itéré $k$-uple avec elle-même. La formule de Kunneth montre que le $\Q_\ell$-faisceau $R^kf_{n,k*}\Q_\ell$ admet comme facteur direct la puissance tensorielle $k$-ième de $R^1f_{n*}\Q_\ell$; celle-ci à son tour contient comme facteur direct le $\Q_\ell$-faisceau $\Sym^k(R^1f_{n*}\Q_\ell)$. Le théorème 5.1 résulte donc de (5.3) et du lemme suivant.
+
+\begin{lemma}[5.4]
+Le schéma $E_k$ est un ouvert d'un schéma $E_k^*$ projectif et lisse sur $\F_p$.
+\end{lemma}
+
+Soit $E^*$ le modèle minimal de Néron de $E$ sur $M_n^*\otimes\F_p$ (4.1). Le schéma $E^*$ est projectif et lisse sur $\F_p$. Puisque $n\ge3$ et que les points d'ordre $n$ de $E$ forment un revêtement trivial de $M_n\otimes\F_p$, ce modèle de Néron est \frquote{semi-stable} (cas a ou b$_m$ dans la classification de Néron). En particulier, la projection $f_n:E^*\to M_n^*$ n'a qu'un nombre fini de points de non lissité, et, en ces points, $f_n$ est non dégénérée (présente une singularité quadratique ordinaire).
+
+Soit $E_k^{**}$ le produit fibré itéré $k$-uple de $E^*$ sur $M_n^*$. Pour prouver (5.4), il suffit de résoudre les singularités de $E_k^{**}$ sans toucher à l'ouvert $E_k$. Prouvons tout d'abord:
+
+\begin{lemma}[5.5]
+Soit $V$ la sous-variété de l'espace affine sur un corps $k$, de coordonnées $(X_i)_{0\le i\le r}$, $(Y_i)_{0\le i\le r}$, $(T_i)_{1\le i\le s}$, d'équation
+\[
+X_0Y_0=X_1Y_1=\cdots=X_rY_r.
+\]
+Soit $\mathfrak m$ l'idéal de $\cO_V$ engendré par les monômes qui se déduisent du monôme $\prod_{i=0}^rX_i^i$ par une permutation des coordonnées qui respecte l'ensemble des paires $\{X_i,Y_i\}$, $0\le i\le r$. Alors $\mathfrak m=\cO_V$ en dehors du lieu singulier de $V$, et la variété $\widetilde V$ déduite de $V$ en éclatant $\mathfrak m$ est lisse sur $k$.
+\end{lemma}
+
+Le lieu singulier est le lieu où quatre coordonnées $X_i,Y_i,X_j,Y_j$ ($i\ne j$) s'annulent. L'ouvert affine de $\widetilde V$ défini par l'élément $\prod_{i=1}^rX_i^i$ de l'idéal à éclater $\mathfrak m$ est le spectre de l'anneau régulier
+\[
+k[Y_0/X_1,X_0/X_1,X_1/X_2,\ldots,X_{r-1}/X_r,X_r,T_1,\ldots,T_s]
+\]
+(pour le vérifier, noter que $X_i/X_{i+1}=Y_{i+1}/Y_i$), et 5.5 en résulte. \QED
+
+On montre maintenant que, localement pour la topologie étale, les singularités de $E_k^{**}$ sont isomorphes à celles de $V$ (pour $r=k-1$), et que ceci permet de définir sur $E_k^{**}$ un idéal $\mathfrak m$ analogue à l'idéal $\mathfrak m$ de (5.5). Éclatant cet idéal, on obtient $E_k^*$. \QED
+
+Une approximation du théorème suivant a été démontrée par Ihara [2]:
+
+\begin{theorem}[5.6]
+Les conjectures de Weil impliquent la conjecture de Ramanujan.
+\end{theorem}
+
+Notons tout d'abord que (5.1) reste vrai pour $n=1$, car ${}^k_1W_\ell$ est le sous-module galoisien de ${}^k_mW_\ell$ invariant par $\GL_2(\Z/(m))$. Sur ${}^k_1W_\ell$, $I_p^*$ induit l'identité, et (4.8) se réduit à
+\[
+1-T_pX+p^{k+1}X^2=(1-FX)(1-VX).
+\]
+Les endomorphismes $F$ et $V$ sont transposés l'un de l'autre, de sorte que
+\[
+\det(1-FX;{}^k_1W_\ell)=\det(1-VX;{}^k_1W_\ell).
+\]
+L'action de $T_p$ sur ${}^k_1W_\ell$ est induite par son action sur ${}^k_1W$, et est compatible à la décomposition de ${}^k_1W\otimes\C$ en la somme de l'espace $S_{k+2}$ des formes modulaires paraboliques relatives à $\SL_2(\Z)$, de poids $k+2$, et de l'espace complexe conjugué. Du caractère hermitien de $T_p$ (pour le produit scalaire de Petersson) et de (3.19), on déduit alors que
+\[
+\det(1-T_pX+p^{k+1}X^2;{}^k_1W_\ell)=\det(1-T_pX+p^{k+1}X^2;S_{k+2})^2,
+\]
+et
+\[
+\det(1-T_pX+p^{k+1}X^2;S_{k+2})^2=\det(1-FX;{}^k_1W_\ell)^2,
+\]
+soit
+\[
+\det(1-T_pX+p^{k+1}X^2;S_{k+2})=\det(1-FX;{}^k_1W_\ell).
+\tag{5.7}
+\]
+Reprenons les notations du n\textsuperscript{o} 1 et faisons $k=10$. En vertu de la théorie de Hecke et de (3.19), (5.7) se réécrit
+\[
+H_p(X)=\det(1-FX;{}^{10}_1W_\ell),
+\]
+et l'on applique (5.1). \QED
+
+On vérifie de même que les conjectures de Weil impliquent la généralisation par Petersson de la conjecture de Ramanujan.
+
+\section*{Références}
+\begin{enumerate}[label={[\arabic*]},leftmargin=2.6em]
+\item J. Igusa, \emph{Kroneckerian model of fields of elliptic modular functions}, Am. J. of Math. \textbf{81} (1959), 561--577.
+\item Y. Ihara, \emph{Hecke polynomials as congruence zeta functions in elliptic modular case}, Ann. of Math., S.2 \textbf{85} (1967), 267--295.
+\item J.-P. Jouanolou, exposés V et VI de SGA 5.
+\item M. Kuga et G. Shimura, \emph{On the zeta function of a fibre variety whose fibres are abelian varieties}, Ann. of Math., S.2 \textbf{82} (1965), 478--539.
+\item M. Raynaud, exposé XIII de SGA 1 et appendice (à paraître).
+\item J.-P. Serre, \emph{Une interprétation des congruences relatives à la fonction $\tau$ de Ramanujan}, Sém. Delange--Pisot--Poitou, 1967/68, no. 14.
+\item G. Shimura, \emph{Sur les intégrales attachées aux formes automorphes}, J. Math. Soc. of Japan \textbf{11} (1959), 291--311.
+\item J. Tate, \emph{Courbes elliptiques: formulaire}, mis au goût du jour par P. Deligne, notes miméographiées par l'I.H.E.S.
+\item J.-L. Verdier, \emph{Sur les intégrales attachées aux formes automorphes} (d'après G. Shimura), Sém. Bourbaki, février 1961, exp. 216.
+\end{enumerate}
+
+\paragraph{Sigles.}
+EGA: \emph{Éléments de géométrie algébrique}, par A. Grothendieck et J. Dieudonné, Publ. Math. I.H.E.S.
+
+SGA: \emph{Séminaire de géométrie algébrique du Bois-Marie}, Notes miméographiées par l'I.H.E.S., à paraître à North-Holland.
+
+\end{document}
