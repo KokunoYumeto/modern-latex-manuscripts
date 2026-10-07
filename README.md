@@ -75,9 +75,8 @@ edition is accepted or claimed yet.
 
 **Before starting any Emmy Noether translation, check the [current language/work coverage map](docs/noether-map.md).** It lists existing translations by language and paper, distinguishes complete scopes from exact continuation cursors, and identifies the current generation. An unchecked or non-cumulative artifact is still an existing translation; review it instead of silently retranslating it.
 
-Before duplicating current French/English work, check the dedicated [Luc
-Illusie coverage map](docs/illusie-map.md) and [FGA coverage
-map](docs/fga-map.md). Both expose readable PDFs, editable masters, exact
+Before duplicating current French/English work, check the dedicated [FGA coverage
+map](docs/fga-map.md). It exposes readable PDFs, editable masters, exact
 source packages, audit surfaces, and continuation or caveat boundaries.
 
 The same rule applies to Grothendieck's [Tôhoku paper](docs/tohoku-map.md),

@@ -29,7 +29,6 @@ tree. The current exact allowed-source projection is 14,901 files /
 | Grothendieck and collaborators, FGA | Separate French and English editions for the declared Exposé/Commentaires/errata scope, editable sources, term index, graph, and residual ledger. | [FGA map](fga-map.md) |
 | Jean-Louis Verdier | Independent English, diplomatic-French, and corrected-French thesis checkpoint editions through authority page 9; the bilingual projection is preserved history. | [Verdier map](verdier-map.md) |
 | Alexandre Grothendieck, Tôhoku | Three preserved text layers through the current printed-page checkpoint, exact source/evidence custody, and the visible page-119/page-121 status disagreement. | [Tôhoku map](tohoku-map.md) |
-| Luc Illusie | Independent French and English *Complexe cotangent et déformations* checkpoint editions, source closure, and the exact continuation at LNM 239 physical p.24 / printed p.6. | [Illusie map](illusie-map.md) |
 | Heinrich Weber | Current German Volume I, unsynchronized English Volume I, exact Volume II frontier, Volume III history, high-detail evidence, and retained coverage conflicts. | [Weber map](weber-map.md) |
 | Richard Dedekind | GMW I independent German/English continuation, bounded *Stetigkeit* pair, broad reader-only Bands I–III, embedded note, and missing historical artifacts. | [Dedekind map](dedekind-map.md) |
 | P. G. Lejeune Dirichlet | Band II QA readers, source-checked Paper I, R22 tail, unsafe selected-works scaffold, partial mirrors, and absent registered continuation ZIPs. | [Dirichlet map](dirichlet-map.md) |
