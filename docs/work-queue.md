@@ -28,7 +28,6 @@ Before beginning work:
 | `fga-foundements` | Grothendieck and collaborators — FGA | [FGA map](fga-map.md) | Review one Exposé, *Commentaires* range, erratum, or graph residual. |
 | `verdier-thesis` | Jean-Louis Verdier — thesis | [Verdier map](verdier-map.md) | Review admitted pp.2–9 or continue from physical p.10. |
 | `tohoku-paper` | Alexander Grothendieck — Tôhoku paper | [Tôhoku map](tohoku-map.md) | Reconcile the preserved p.119 versus pp.119–121 cursor evidence. |
-| `illusie-cotangent-i-ii` | Luc Illusie — *Complexe cotangent et déformations* I–II | [Illusie map](illusie-map.md) | Review LNM 239 pp.1–23 or continue at physical p.24 / printed p.6. |
 | `deligne-papers-letters` | Pierre Deligne — papers and correspondence | [Deligne map](deligne-map.md) | Select one mapped paper, letter, correction generation, or source-review target. |
 | `weber-algebra` | Heinrich Weber — *Lehrbuch der Algebra* | [Weber map](weber-map.md) | Reconcile the Volume II §143 GitHub frontier with the separately reported §176 generation before continuing at source p.643. |
 | `stacks-commons-layer` | Stacks Project / Mathematics Commons overlay | [Stacks architecture](stacks.md) | Propose the first provenance-complete Commons overlay entry in a declared namespace. |
