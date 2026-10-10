@@ -1,21 +1,34 @@
-# Gauss: original works and unfinished modern reconstructions
+# Gauss — source-faithful LaTeX editions
 
-**Completion claims withdrawn — 9 October 2026.** The earlier claims that Volumes I and II were finished faithful editable transcriptions and translations were false. No completed Gauss volume has been delivered under the present source-first reconstruction.
+The project is making Gauss's collected works available as editable original-language LaTeX books. Volume I is available now. The remaining volumes are being reconstructed; their working files are not finished editions. English and further translations will follow as resources allow.
 
-The user explicitly requested accurate, source-faithful editable LaTeX. The failure was in the AI workflow and its misleading reports, not in a failure to request that deliverable. Earlier PDFs include copied scan pages, readable equations represented as images, packet headings and internal production material. Some editable LaTeX exists, but page coverage, successful compilation and archived files do not establish a complete faithful book.
+## Read Volume I
 
-## What is available now
+- [Original-language book, 414 pages, 1.82 MB](https://zenodo.org/records/23273419/files/Gauss_I_Original_Language_Editable_20261010.pdf?download=1)
+- [Editable LaTeX and separate critical records, 674 KB](https://zenodo.org/records/23273419/files/Gauss_I_Original_Language_LaTeX_20261010.zip?download=1)
 
-The [canonical Gauss record on Zenodo](https://zenodo.org/records/23232110) carries the public correction. Its files and the two retained GitHub releases are **unfinished working materials**, preserved for provenance. Existing filenames and downloadable guides may contain superseded completion or fidelity claims; those labels are withdrawn. The files should not be cited as completed editable editions.
+This edition covers the historical material in the 1863 Volume I witness, GDZ PPN235993352, native leaves 2–483. Modern library metadata is excluded and empty historical versos are separately recorded. The title pages, dedication, preface, Disquisitiones Arithmeticae, additamenta, numerical tables, contents, manuscript appendix, historical editorial remarks and colophons retain their sequence.
 
-The historical works are by **Carl Friedrich Gauss**, with the historical editors credited in their respective sources. The separate modern AI commentary is not Gauss's text. Commentary recorded as ChatGPT, GPT-6 Astra, Ultra retains that attribution; exact backend model and effort settings of web sessions were not independently certified. Earlier curation by GPT-6.1 Sol, Ultra and publication-owner work by GPT-6 Astra, Ultra are distinct production roles. Current Volume I reconstruction is by OpenAI Codex, **GPT-6.1 Sol, Ultra**, using the original historical sources. None of these credits certifies fidelity.
+Readable words, equations and tables are editable LaTeX. The portrait is the only reading-body image. This is a continuous book, without packet covers or workflow notices. Uncertain readings and contextual deductions are documented beside the source. Historical errors are not silently corrected; historical printed page references remain historical references. PDF bookmarks and the native-leaf map provide navigation in the reflowed book.
 
-## Current deliverable and order of work
+The machine-readable source can also be supplied to an AI for translation into a preferred language. Such generated translations still need checking against the original. An English edition based on this repaired source is not yet released.
 
-The immediate deliverable is a continuous **original-language Volume I LaTeX edition**. Prose, equations and tables must be editable. Images are permitted only for genuine original illustrations; they must retain the historical content. High-resolution source comparison and zoomed symbol inspection govern the transcription. Doubts, mathematical deductions, corrections and production records stay in separate documentation, outside the reading book.
+## Optional earlier material
 
-Volume I is unfinished. English editions come after the original-language source edition. Work retained from later volumes is not a set of nine completed books and does not change that priority.
+- [Earlier English working translation — awaiting revision](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-volume-i-editable-2026-10-10/Gauss_I_Earlier_English_Translation_UNREVISED.zip)
+- [Earlier AI commentary — GPT-6 Astra, Ultra; awaiting revision](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-volume-i-editable-2026-10-10/Gauss_I_Earlier_AI_Commentary_GPT6_Astra_Ultra_UNREVISED.zip)
 
-The new deliverable will use a readable PDF and a compact per-volume editable source package. The large earlier project archives are preservation downloads, not the primary reader or evidence of completion. No new source-first book is published here yet.
+These separate ZIPs contain the earlier PDFs unchanged, with a short status note. They are not revised companions to the new source edition. The commentary is AI-authored, not Gauss's writing. Other superseded files, full-resolution working compilations and bulk provenance archives remain in the [previous Zenodo version](https://zenodo.org/records/23232110). They are not required to read or rebuild this edition. Earlier completion claims about those compilations were withdrawn; the present original-language reconstruction replaces their reading role.
 
-The public metadata correction does not repair the old books. Subsequent releases will state their actual coverage and remaining limitations.
+## Authorship, method and scope
+
+Historical author: Carl Friedrich Gauss. Historical editorial material retains the original editors' and institution's attributions. Modern repair began with OpenAI GPT-6.1 Sol, Ultra; final source comparison, corrections and complete-book integration used OpenAI GPT-6 Astra, Ultra, working directly without internal subagents. Earlier ChatGPT packet drafts retain their recorded provenance; a visible Pro label does not establish an exact backend or effort. The separate earlier commentary is credited to ChatGPT, GPT-6 Astra, Ultra.
+
+The source was compared with high-resolution historical evidence. Every newly reflowed page was inspected; previously checked identical layouts were reused. Qualified readings remain in the critical records, so full historical coverage is not a guarantee that every damaged glyph is certain or that the edition is error-free. The source package includes its relative TeX dependencies and portrait. It was dependency-checked; the portable copy was not redundantly rebuilt after packaging.
+
+The wider collection concerns Gauss's works across number theory, analysis, geometry, geodesy, astronomy and related subjects. Presence of older fragments for a later volume does not establish a completed book. The target remains the entire collection, source editions first and translations afterward.
+
+Current Zenodo version: https://zenodo.org/records/23273419
+Stable Gauss family: https://doi.org/10.5281/zenodo.20410934
+
+[GitHub PDF and source downloads](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-volume-i-editable-2026-10-10)
