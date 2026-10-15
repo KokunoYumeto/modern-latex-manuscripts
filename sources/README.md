@@ -21,9 +21,7 @@ also collected in the [GitHub coverage-map index](../docs/github-maps.md).
 | Alexandre Grothendieck, Tôhoku | [Tôhoku checkpoint](tohoku/r1/README.md) | [Tôhoku coverage](../docs/tohoku-map.md) |
 | Alexandre Grothendieck and collaborators, FGA | [FGA checkpoint](fga/cp9/README.md) | [FGA coverage](../docs/fga-map.md) |
 | Jean-Louis Verdier | [Verdier checkpoint](verdier/r1/README.md) | [Verdier coverage](../docs/verdier-map.md) |
-| Luc Illusie | [Illusie checkpoints](illusie/README.md) | [Illusie coverage](../docs/illusie-map.md) |
 | Emmy Noether | [Noether source archive](noether/README.md) | [Noether language/work coverage](../docs/noether-map.md) |
-| Pierre Deligne | [Deligne source shelf](deligne/) | [Deligne coverage](../docs/deligne-map.md) |
 | Heinrich Weber | [Weber source shelf](weber/) | [Weber coverage](../docs/weber-map.md) |
 | Richard Dedekind | [Dedekind source shelf](dedekind/) | [Dedekind coverage](../docs/dedekind-map.md) |
 | P. G. Lejeune Dirichlet | [Dirichlet source shelf](dirichlet/) | [Dirichlet coverage](../docs/dirichlet-map.md) |

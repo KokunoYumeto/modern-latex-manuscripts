@@ -25,7 +25,6 @@ tree. The current exact allowed-source projection is 14,901 files /
 |---|---|---|
 | Emmy Noether | Corpus-wide German, English, Spanish, French, Russian, Ukrainian, Interslavic, Korean, and Simplified-Chinese surfaces; paper-level multilingual coverage; German authority history; English Paper 4 checkpoints; adverse and visual-evidence generations. | [Noether language/work map](noether-map.md) |
 | Alexandre Grothendieck, EGA | Existing EGA 0–IV English reader/source surfaces, standalone editions, the 1,356-page linked global reader, and the newer bounded EGA I p.143 authority checkpoint. | [EGA map](ega-map.md) |
-| Pierre Deligne | D001/D002 source-aligned independent editions, the Papers 001–015 plus Paper 016 p.001–040 sequence, later numbered-paper generations, letters, and D078–D090 witnesses. | [Deligne map](deligne-map.md) |
 | Grothendieck and collaborators, FGA | Separate French and English editions for the declared Exposé/Commentaires/errata scope, editable sources, term index, graph, and residual ledger. | [FGA map](fga-map.md) |
 | Jean-Louis Verdier | Independent English, diplomatic-French, and corrected-French thesis checkpoint editions through authority page 9; the bilingual projection is preserved history. | [Verdier map](verdier-map.md) |
 | Alexandre Grothendieck, Tôhoku | Three preserved text layers through the current printed-page checkpoint, exact source/evidence custody, and the visible page-119/page-121 status disagreement. | [Tôhoku map](tohoku-map.md) |
