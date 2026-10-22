@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 469 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 492 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 475 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 498 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FifthAndSixthProofs.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstThreePapers.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -10,19 +10,16 @@ dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
 contents, the manuscript appendix, the historical editor's closing note and
 both imprints. Historical page references retain the source pagination.
 
-Volume II contains the historical title matter and two complete papers:
+Volume II contains the historical title matter and its first three complete papers:
 
 | Work | Coverage |
 |---|---|
 | *Theorematis arithmetici demonstratio nova* — A New Proof of an Arithmetical Theorem | Articles 1–7; presented January 15, 1808. |
 | *Summatio quarumdam serierum singularium* — Summation of Certain Special Series | Articles 1–36; presented August 24, 1808. |
+| *Theorematis fundamentalis in doctrina de residuis quadraticis demonstrationes et ampliationes novae* — New Proofs and Extensions of the Fundamental Theorem in the Theory of Quadratic Residues | Introduction, complete fifth proof (Articles 1–3), sixth proof (Articles 1–6) and new algorithm (Articles 1–6); presented February 10, 1817. |
 
-The title, complete introduction and complete fifth proof (Articles 1–3) and complete sixth proof (Articles 1–6) of *Theorematis fundamentalis in doctrina
-de residuis quadraticis demonstrationes et ampliationes novae* — New Proofs and
-Extensions of the Fundamental Theorem in the Theory of Quadratic Residues —
-are also included. That paper was presented February 10, 1817. Its algorithm
-is outside this edition, as are the remaining
-works of Volume II and the other volumes. This is a partial collected edition.
+Later papers of Volume II and the other volumes are outside this edition.
+This is a partial collected edition.
 
 The translations follow the retained original-language LaTeX editions and
 preserve Gauss's mathematical formulations and historical values. Originally
