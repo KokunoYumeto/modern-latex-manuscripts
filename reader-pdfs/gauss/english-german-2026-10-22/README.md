@@ -1,12 +1,12 @@
 # Gauss: English and German readers
 
-**[Read the English collection, 497 pages](Gauss_Collected_English.pdf) · [Read the German collection, 520 pages](Gauss_Werke_Deutsch.pdf)**
+**[Read the English collection, 506 pages](Gauss_Collected_English.pdf) · [Read the German collection, 529 pages](Gauss_Werke_Deutsch.pdf)**
 
-[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FourthArticles01_22.zip)
+[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFourFifth24_28.zip)
 
 Both collected readers contain complete Volume I, the historical title matter
-and first three complete papers of Volume II, plus the title and Articles 1–22
-of its fourth paper, Theory of Biquadratic Residues, First Paper. Its remainder,
+and first four complete papers of Volume II, plus the title and Articles 24–28
+of its fifth paper, Theory of Biquadratic Residues, Second Paper. Its remainder,
 later papers and volumes are outside this edition.
 The individual Volume-I and Volume-II readers in this directory have the same
 contents as their corresponding portions of the collected readers.
