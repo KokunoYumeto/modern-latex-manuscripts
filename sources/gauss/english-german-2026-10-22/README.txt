@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 475 pages; the German reader has 498 pages.
+The collected English reader has 484 pages; the German reader has 507 pages.
 Each contains complete Volume I, followed by the historical title matter and
 first three complete papers of Volume II:
 
@@ -15,7 +15,11 @@ New Proofs and Extensions of the Fundamental Theorem in the Theory of Quadratic
 Residues (Theorematis fundamentalis in doctrina de residuis quadraticis
 demonstrationes et ampliationes novae), presented on February 10, 1817:
 the introduction, fifth proof (Articles 1–3), sixth proof (Articles 1–6) and
-new algorithm (Articles 1–6). Later papers and volumes are outside this selection.
+new algorithm (Articles 1–6).
+
+Theory of Biquadratic Residues, First Paper (Theoria residuorum biquadraticorum,
+commentatio prima), historical title and Articles 1–12, presented on April 5, 1825.
+The remainder of this paper and later papers and volumes are outside this selection.
 
 Volume I contains the historical title matter, dedication, preface, all seven
 sections (Articles 1–366), five historical additions, Tables I–III, the historical
