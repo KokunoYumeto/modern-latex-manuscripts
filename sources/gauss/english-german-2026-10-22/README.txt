@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 506 pages; the German reader has 529 pages.
+The collected English reader has 510 pages; the German reader has 533 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first four complete papers of Volume II and the opening of the fifth:
 
@@ -21,7 +21,7 @@ Theory of Biquadratic Residues, First Paper (Theoria residuorum biquadraticorum,
 commentatio prima), Articles 1–23, presented on April 5, 1825.
 
 Theory of Biquadratic Residues, Second Paper (Theoria residuorum biquadraticorum,
-commentatio secunda), historical title and Articles 24–28, presented on April 15, 1831.
+commentatio secunda), historical title and Articles 24–31, presented on April 15, 1831.
 The remainder of the fifth paper and later papers and volumes are outside this selection.
 
 Volume I contains the historical title matter, dedication, preface, all seven
