@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 510 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 533 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 515 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 538 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFourFifth24_31.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFourFifth24_37.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -18,7 +18,7 @@ Volume II contains the historical title matter, its first four complete papers a
 | *Summatio quarumdam serierum singularium* — Summation of Certain Special Series | Articles 1–36; presented August 24, 1808. |
 | *Theorematis fundamentalis in doctrina de residuis quadraticis demonstrationes et ampliationes novae* — New Proofs and Extensions of the Fundamental Theorem in the Theory of Quadratic Residues | Introduction, complete fifth proof (Articles 1–3), sixth proof (Articles 1–6) and new algorithm (Articles 1–6); presented February 10, 1817. |
 | *Theoria residuorum biquadraticorum, commentatio prima* — Theory of Biquadratic Residues, First Paper | Historical title and complete Articles 1–23; presented April 5, 1825. |
-| *Theoria residuorum biquadraticorum, commentatio secunda* — Theory of Biquadratic Residues, Second Paper | Historical title and complete Articles 24–31; presented April 15, 1831. |
+| *Theoria residuorum biquadraticorum, commentatio secunda* — Theory of Biquadratic Residues, Second Paper | Historical title and complete Articles 24–37; presented April 15, 1831. |
 
 The remainder of the fifth paper, later papers of Volume II and the other volumes are outside this edition.
 This is a partial collected edition.
