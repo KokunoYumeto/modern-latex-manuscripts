@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 459 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 482 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 463 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 486 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_References.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FifthProof.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -17,11 +17,11 @@ Volume II contains the historical title matter and two complete papers:
 | *Theorematis arithmetici demonstratio nova* — A New Proof of an Arithmetical Theorem | Articles 1–7; presented January 15, 1808. |
 | *Summatio quarumdam serierum singularium* — Summation of Certain Special Series | Articles 1–36; presented August 24, 1808. |
 
-The title and complete introduction of *Theorematis fundamentalis in doctrina
+The title, complete introduction and complete fifth proof (Articles 1–3) of *Theorematis fundamentalis in doctrina
 de residuis quadraticis demonstrationes et ampliationes novae* — New Proofs and
 Extensions of the Fundamental Theorem in the Theory of Quadratic Residues —
-are also included. That paper was presented February 10, 1817. Its fifth and
-sixth proofs and algorithm are outside this edition, as are the remaining
+are also included. That paper was presented February 10, 1817. Its sixth proof
+and algorithm are outside this edition, as are the remaining
 works of Volume II and the other volumes. This is a partial collected edition.
 
 The translations follow the retained original-language LaTeX editions and
