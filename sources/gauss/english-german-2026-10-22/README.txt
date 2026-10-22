@@ -1,17 +1,17 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 463 pages; the German reader has 486 pages.
+The collected English reader has 469 pages; the German reader has 492 pages.
 Each contains complete Volume I, followed by historical title matter from
 Volume II and its first two complete papers: A New Proof of an Arithmetical
 Theorem (Theorematis arithmetici demonstratio nova), Articles 1–7, presented
 on January 15, 1808, and Summation of Certain Special Series (Summatio
 quarumdam serierum singularium), Articles 1–36, presented on August 24, 1808.
 
-The readers also contain the title, complete introduction and complete fifth proof (Articles 1–3) of New Proofs
+The readers also contain the title, complete introduction and complete fifth proof (Articles 1–3) and complete sixth proof (Articles 1–6) of New Proofs
 and Extensions of the Fundamental Theorem in the Theory of Quadratic Residues
 (Theorematis fundamentalis in doctrina de residuis quadraticis demonstrationes
-et ampliationes novae), presented on February 10, 1817. The sixth proof and algorithm
+et ampliationes novae), presented on February 10, 1817. The algorithm
 of this third paper, the remaining works in Volume II and the other volumes
 are outside this selection.
 
