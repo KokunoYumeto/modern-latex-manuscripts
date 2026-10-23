@@ -1,8 +1,8 @@
 # Gauss: English and German readers
 
-**[Read the English collection, 647 pages](Gauss_Collected_English.pdf) · [Read the German collection, 675 pages](Gauss_Werke_Deutsch.pdf)**
+**[Read the English collection, 655 pages](Gauss_Collected_English.pdf) · [Read the German collection, 682 pages](Gauss_Werke_Deutsch.pdf)**
 
-[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_PureEquations1_12.zip)
+[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_PureEquations1_16.zip)
 
 Both collected readers contain complete Volume I, the historical title matter
 and first five complete papers of Volume II. The fifth, Theory of Biquadratic
@@ -15,7 +15,7 @@ The complete manuscript work *Solution of the Congruence X^m−1 ≡ 0*, the fir
 
 *General Investigations of Congruences*, Chapter VIII of *Analysis of Residues*, contains Articles 330–375 as printed, including the unfinished ending of Article 375. R. Dedekind's complete historical remarks follow. This portion treats congruences between functions, division and common divisors, prime functions, factorization and counting, power transformations and periods, two proofs of quadratic reciprocity, equal roots and divisors, and separation of factors by degree.
 
-The title and Articles 1–12 of *Further Development of the Investigations of Pure Equations* follow the historical remarks. The discussion covers proper and improper roots, products and rational expressions formed from their powers, consistent choices of radical values, descent between periods, division of ratios and angles, and transformations using indices and least residues. 
+The title and Articles 1–16 of *Further Development of the Investigations of Pure Equations* follow the historical remarks. The discussion covers proper and improper roots, products and rational expressions formed from their powers, consistent choices of radical values, descent between periods, division of ratios and angles, transformations using indices and least residues, worked power expansions, and trigonometric expressions for periods with their parity cases. 
 
 The originally German reviews and manuscript division title in German
 are modern renderings, with historical originals in the source package. Later
