@@ -1,8 +1,8 @@
 # Gauss: English and German readers
 
-**[Read the English collection, 746 pages](Gauss_Collected_English.pdf) · [Read the German collection, 776 pages](Gauss_Werke_Deutsch.pdf)**
+**[Read the English collection, 776 pages](Gauss_Collected_English.pdf) · [Read the German collection, 806 pages](Gauss_Werke_Deutsch.pdf)**
 
-[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_III_IV.zip)
+[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_V_VI.zip)
 
 Both collected readers contain complete Volume I, the historical title matter
 and first five complete papers of Volume II. The fifth, Theory of Biquadratic
@@ -29,6 +29,8 @@ The originally German reviews and manuscript division title in German
 are modern renderings, with historical originals in the source package. The posthumous texts [I.] and [II.] of *On the Theory of Biquadratic Residues* follow. Text [I.] contains its title and complete Articles 1–19, including all five editable diagrams. Text [II.], *Preparations for the General Theory of Biquadratic Residues*, contains both preparatory sections (1) and (2) and complete Articles 1–12 as printed. They treat oriented lines, winding and boundary conventions, residue classes, decidents and their composition, the residue 1+i, and the point, square and ligature constructions for biquadratic characters. Their originally German prose is rendered in modern German in the German reader; the original German bodies and diagrams are supplied separately.
 
 Text [III.], *Theory of Biquadratic Residues*, follows in full as printed, with its title and complete Articles 1–14, including the joint heading 7–8. It treats least-residue classes, decidents and the stated reciprocity theorem, coordinate bounds, parity sums and all boundary exceptions. Text [IV.] follows in full as printed, Articles 1–5, with its coordinate relations, two bound tables, intensor sums and sign table; its second method ends after the fourth step. The German reader renders the original German in modern German; the historical originals are supplied separately.
+
+Text [V.], *Theory of Biquadratic Residues*, follows in full as printed, Articles 1–17, with its editable lattice diagram, numerical examples, parity tables and 128-case table. Text [VI.] follows in full as printed, with its title and complete Articles 1–6: complete residue systems, associated quarter systems, the character and its independence, boundary conventions and the four-case construction. Their original German prose is rendered in modern German in the German reader; the historical originals are supplied separately.
 
 Later
 Volume-II writings and other volumes are outside this edition.
