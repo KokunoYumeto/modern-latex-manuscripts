@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 701 pages; the German reader has 730 pages.
+The collected English reader has 708 pages; the German reader has 737 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -71,6 +71,8 @@ in numerical order; the individual volume readers are also supplied.
 
 English and German translations prepared using OpenAI GPT-6.1 Sol.
 
+Geometrical Aspect of Ternary Forms is included with its geometric definitions, crystallographic tables, two editable diagrams and Schering’s historical remarks. Its originally German prose is rendered in modern German in the German reader; the historical German and Latin originals are supplied separately.
+
 Translation sources and terminology
 
 These English and German texts are translated from Gauss's original-language
@@ -110,3 +112,5 @@ mathematischen Terminologie und des Sprachgebrauchs; ihr Wortlaut wird nicht
 als fortlaufender Text dieser Ausgabe übernommen. Die mathematischen
 Formulierungen bleiben die der Originalvorlage. Die oben genannten
 Übersetzer und Autoren werden für diese terminologische Nutzung gewürdigt.
+
+Crystallographic terminology references: Ian O. Angell and Moreton Moore, Projections of cubic crystals, IUCr, Table 2, https://www.iucr.org/what-we-do/education/pamphlets/projections-of-cubic-crystals ; Th. Hahn, H. Klapper, U. Müller and M. I. Aroyo, Point groups and crystal classes, International Tables for Crystallography A (2016), chapter 3.2, https://doi.org/10.1107/97809553602060000930 . These references guide terminology and usage; their running prose is not reproduced.
