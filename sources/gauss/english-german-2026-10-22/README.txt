@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 688 pages; the German reader has 717 pages.
+The collected English reader has 696 pages; the German reader has 725 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -42,7 +42,7 @@ and Their Determinant, First Paper, follows in full as printed, with its title
 and Articles 1–8. The text marked [II.] of the same first paper, presented in
 1837, is also included in full as printed, with its title and Articles 1–8.
 Fragments III–X follow in full as printed, with their historical editorial
-notes, followed by the historical remarks on [I.] and [II.]. The fragments
+notes, followed by the historical remarks on [I.]–[VII.]. The fragments
 include representation counts and the distributions of quadratic residues
 in eighths and twelfths, with their historical tables.
 Later Volume-II writings and other volumes are outside this selection.
