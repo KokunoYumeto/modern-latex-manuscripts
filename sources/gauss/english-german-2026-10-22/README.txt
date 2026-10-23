@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 613 pages; the German reader has 641 pages.
+The collected English reader has 629 pages; the German reader has 657 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -32,7 +32,7 @@ and Seeber’s positive ternary quadratic forms.
 The manuscript work Solution of the Congruence X^m−1 ≡ 0 follows,
 comprising the complete first part of Chapter VI of Analysis of Residues,
 Articles 237–252. General Investigations of Congruences, Chapter VIII of
-Analysis of Residues, follows through complete Articles 330–347. Later
+Analysis of Residues, follows through complete Articles 330–372. Later
 Volume-II writings and other volumes are outside this selection.
 
 Volume I contains the historical title matter, dedication, preface, all seven
