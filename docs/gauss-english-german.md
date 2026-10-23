@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 676 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 705 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 688 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 717 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_PureEquations_Periods_NexusI_II1_8.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Nexus_III_X.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -33,7 +33,9 @@ The complete manuscript work *Solution of the Congruence X^m−1 ≡ 0*, the fir
 
 The fragment *Proof of Some Theorems Concerning the Periods of Classes of Binary Quadratic Forms* contains both theorems, the unfinished ending of the second proof and Stern's historical remark.
 
-The texts marked [I.] and [II.] of *On the Connection between the Number of Classes into Which Binary Quadratic Forms Are Distributed and Their Determinant, First Paper* are each included in full as printed, with their titles and Articles 1–8. The text marked [II.] was presented in 1837. These texts treat counts of integer points in regions, limiting ratios of counts to areas, and mean numbers of representations by binary quadratic forms. Text [I.] includes prime-factor rules, series and infinite products. Text [II.] gives the boundary-square argument, distinguishes approximation of ratios from approximation of differences, and treats counts with congruence and parity conditions. 
+The texts marked [I.] and [II.] of *On the Connection between the Number of Classes into Which Binary Quadratic Forms Are Distributed and Their Determinant, First Paper* are each included in full as printed, with their titles and Articles 1–8. The text marked [II.] was presented in 1837. These texts treat counts of integer points in regions, limiting ratios of counts to areas, and mean numbers of representations by binary quadratic forms. Text [I.] includes prime-factor rules, series and infinite products. Text [II.] gives the boundary-square argument, distinguishes approximation of ratios from approximation of differences, and treats counts with congruence and parity conditions.
+
+Fragments III–X follow in full as printed, with their historical editorial notes. They treat representation counts, average and actual numbers of classes, and the distribution of quadratic residues in eighths and twelfths, including the historical tables. The historical remarks on [I.] and [II.] follow, discussing the two circle-counting formulas, the quoted rules found on a separate sheet, divisor counts and the series for π/4. 
 
 Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.
@@ -55,6 +57,8 @@ Volume II, second printing, Göttingen, 1876. The *Disquisitiones Arithmeticae*
 was first published in Leipzig in 1801. The [original-language Volume-I edition](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-volume-i-editable-2026-10-10) is available separately.
 
 English and German translations prepared using OpenAI GPT-6.1 Sol.
+
+The originally German Fragments III–IV and VIII–X and the historical remarks are rendered in modern German in the German reader. Their historical originals are supplied separately in the source package.
 
 ## Translation sources and terminology
 
