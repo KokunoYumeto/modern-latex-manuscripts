@@ -1,8 +1,8 @@
 # Gauss: English and German readers
 
-**[Read the English collection, 603 pages](Gauss_Collected_English.pdf) · [Read the German collection, 630 pages](Gauss_Werke_Deutsch.pdf)**
+**[Read the English collection, 613 pages](Gauss_Collected_English.pdf) · [Read the German collection, 641 pages](Gauss_Werke_Deutsch.pdf)**
 
-[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript237_252.zip)
+[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_Congruences330_347.zip)
 
 Both collected readers contain complete Volume I, the historical title matter
 and first five complete papers of Volume II. The fifth, Theory of Biquadratic
@@ -12,6 +12,8 @@ May 12 and September 19, 1808, March 10, 1817, April 11, 1825, and April 23, 183
 Seven complete reviews of other writings follow: March 11, 1809; March 23, 1812; November 3, 1814; November 7, 1816; August 9, 1817; December 19, 1825; and July 9, 1831. They concern a work on irrational radicals, the factor tables of Chernac and Burckhardt, Erchinger’s construction of the regular seventeen-sided polygon, and Seeber’s positive ternary quadratic forms.
 
 The complete manuscript work *Solution of the Congruence X^m−1 ≡ 0*, the first part of Chapter VI of *Analysis of Residues* (Articles 237–252), follows the reviews.
+
+*General Investigations of Congruences*, Chapter VIII of *Analysis of Residues*, follows through complete Articles 330–347. This portion treats congruences between functions, division and common divisors, prime functions, factorization and counting. Later portions of the manuscript are outside this selection.
 
 The originally German reviews and manuscript division title in German
 are modern renderings, with historical originals in the source package. Later

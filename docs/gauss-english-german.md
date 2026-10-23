@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 603 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 630 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 613 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 641 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript237_252.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_Congruences330_347.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -26,6 +26,8 @@ papers.
 Seven complete reviews of other writings follow: March 11, 1809; March 23, 1812; November 3, 1814; November 7, 1816; August 9, 1817; December 19, 1825; and July 9, 1831. They concern a work on irrational radicals, the factor tables of Chernac and Burckhardt, Erchinger’s construction of the regular seventeen-sided polygon, and Seeber’s positive ternary quadratic forms.
 
 The complete manuscript work *Solution of the Congruence X^m−1 ≡ 0*, the first part of Chapter VI of *Analysis of Residues* (Articles 237–252), follows the reviews.
+
+*General Investigations of Congruences*, Chapter VIII of *Analysis of Residues*, follows through complete Articles 330–347. This portion treats congruences between functions, division and common divisors, prime functions, factorization and counting. Later portions of the manuscript are outside this selection.
 
 Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.
