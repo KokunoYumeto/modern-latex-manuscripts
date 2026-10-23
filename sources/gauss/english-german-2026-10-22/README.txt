@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 590 pages; the German reader has 616 pages.
+The collected English reader has 603 pages; the German reader has 630 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -29,7 +29,10 @@ November 3, 1814; November 7, 1816; August 9, 1817; December 19, 1825; and July 
 They concern a work on irrational radicals, the factor tables of Chernac and
 Burckhardt, Erchinger’s construction of the regular seventeen-sided polygon,
 and Seeber’s positive ternary quadratic forms.
-Later Volume-II writings and other volumes are outside this selection.
+The manuscript work Solution of the Congruence X^m−1 ≡ 0 follows,
+comprising the complete first part of Chapter VI of Analysis of Residues,
+Articles 237–252. Later Volume-II writings and other volumes are outside
+this selection.
 
 Volume I contains the historical title matter, dedication, preface, all seven
 sections (Articles 1–366), five historical additions, Tables I–III, the historical
@@ -41,7 +44,8 @@ Volume II, second printing, Göttingen, 1876. Disquisitiones Arithmeticae was
 first published in Leipzig in 1801.
 
 Originally German passages in the Volume-I appendix and editorial closing,
-German Volume-II title matter and all twelve reviews are identified as modern
+German Volume-II title matter, all twelve reviews and the manuscript
+division title are identified as modern
 German renderings. The original German review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
