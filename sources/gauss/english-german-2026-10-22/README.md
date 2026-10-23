@@ -32,13 +32,13 @@ sources. Compile `main.tex` in each directory with XeLaTeX twice. The
 separately from the translations, including all twelve reviews and the manuscript division title. Their German
 translations are modern German renderings. See `README.txt` for bibliographical details.
 
-English and German translations prepared using OpenAI GPT-6.1 Sol.
+AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced typesetting.
 
 The originally German Fragments III–IV and VIII–X, the geometric notes and the historical remarks are rendered in modern German in the German reader. Their historical originals are supplied separately in the source package.
 
 ## Translation sources and terminology
 
-These English and German texts are translated from Gauss's original-language
+These English and German texts are AI-translated from Gauss's original-language
 editions. Earlier translations are consulted to standardize mathematical
 terminology and usage; they are not reproduced as this edition's running text.
 The original mathematical formulations remain those of Gauss's source.
@@ -51,7 +51,7 @@ https://archive.org/details/carlfriedrichga00gausgoog
 James Caddall Morehead and Adam Miller Hiltebeitel, translators, General
 Investigations of Curved Surfaces of 1827 and 1825, Princeton University
 Library, 1902 (Project Gutenberg 36856), and Paul Taylor's English translation
-of Gauss's second proof of the fundamental theorem of algebra, with Bernard
+of Gauss's second proof of the fundamental theorem of algebra, with corrections by Bernard
 Leak, 1983, are references for English mathematical terminology and usage.
 Their geometrical and algebraic subject matter differs from these arithmetic
 papers; they do not supply replacement text or proofs for them.
@@ -70,10 +70,20 @@ https://arxiv.org/abs/1510.06214v3
 Quellen und Terminologie der Übersetzungen
 
 Die englischen und deutschen Texte sind aus Gauss' originalsprachlichen
-Ausgaben übersetzt. Frühere Übersetzungen dienen dem Abgleich der
+Ausgaben KI-übersetzt. Frühere Übersetzungen dienen dem Abgleich der
 mathematischen Terminologie und des Sprachgebrauchs; ihr Wortlaut wird nicht
 als fortlaufender Text dieser Ausgabe übernommen. Die mathematischen
 Formulierungen bleiben die der Originalvorlage. Die oben genannten
 Übersetzer und Autoren werden für diese terminologische Nutzung gewürdigt.
 
 Crystallographic terminology references: Ian O. Angell and Moreton Moore, *Projections of cubic crystals*, IUCr, Table 2, https://www.iucr.org/what-we-do/education/pamphlets/projections-of-cubic-crystals ; Th. Hahn, H. Klapper, U. Müller and M. I. Aroyo, *Point groups and crystal classes*, International Tables for Crystallography A (2016), chapter 3.2, https://doi.org/10.1107/97809553602060000930 . These references guide terminology and usage; their running prose is not reproduced.
+
+## AI authorship and publication rights
+
+These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, with AI-produced typesetting. Gauss is the author of the historical mathematical text; signed historical editorial contributions retain their authorship. The named human translations and writings cited above are credited for their stated terminology and usage roles.
+
+The editions are available free of charge for non-commercial, purely educational purposes. Publication rests on the publisher's presumption that the respective rights holders would not object; this is not established permission. Free access to a source does not itself authorize derivative publication. Rights in the originals and any protected derivative contributions remain with their respective rights holders. No project-wide licence or public-domain dedication is granted here.
+
+Rights holders may raise objections through the [GitHub issue page](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues). The publisher undertakes to take down the affected material upon a rights holder's request.
+
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.

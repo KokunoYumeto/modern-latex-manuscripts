@@ -32,7 +32,7 @@ or the [current interlanguage record page](docs/records/interlanguage-reflection
 
 ## Start Here
 
-**Gauss in modern English and German:** [English collection, 708 pages](reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German collection, 737 pages](reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Exact scope and editable sources](docs/gauss-english-german.md).
+**Gauss, AI-translated into modern English and German:** [English collection, 708 pages](reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German collection, 737 pages](reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Exact scope and editable sources](docs/gauss-english-german.md).
 
 | What you want to do | Open this |
 |---|---|
