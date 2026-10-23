@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 746 pages; the German reader has 776 pages.
+The collected English reader has 776 pages; the German reader has 806 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -76,6 +76,8 @@ in numerical order; the individual volume readers are also supplied.
 AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced typesetting.
 
 Geometrical Aspect of Ternary Forms is included with its geometric definitions, crystallographic tables, two editable diagrams and Schering’s historical remarks. Its originally German prose is rendered in modern German in the German reader; the historical German and Latin originals are supplied separately.
+
+Text [V.], Theory of Biquadratic Residues, follows in full as printed, Articles 1–17, with its editable lattice diagram, numerical examples, parity tables and 128-case table. Text [VI.] follows in full as printed, with its title and Articles 1–6: complete residue systems, associated quarter systems, the character and its independence, boundary conventions and the four-case construction. Their original German prose is rendered in modern German in the German reader; the historical originals are supplied separately.
 
 Translation sources and terminology
 
