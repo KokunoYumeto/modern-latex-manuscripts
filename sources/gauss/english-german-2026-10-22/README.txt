@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 730 pages; the German reader has 759 pages.
+The collected English reader has 733 pages; the German reader has 763 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -46,6 +46,8 @@ notes, followed by the complete historical remarks on [I.]–[X.]. The fragments
 include representation counts and the distributions of quadratic residues
 in eighths and twelfths, with their historical tables.
 The posthumous texts [I.] and [II.] of On the Theory of Biquadratic Residues follow. Text [I.] contains its title and complete Articles 1–19, including all five editable diagrams. Text [II.], Preparations for the General Theory of Biquadratic Residues, contains both preparatory sections (1) and (2) and complete Articles 1–12 as printed. They treat oriented lines, winding and boundary conventions, residue classes, decidents and their composition, the residue 1+i, and the point, square and ligature constructions for biquadratic characters. Their originally German prose is rendered in modern German in the German reader; all original German bodies and editable diagrams are supplied separately.
+
+Text [III.], Theory of Biquadratic Residues, is represented by its title and complete Articles 1–6. These give the least-residue classes, the decident, the stated reciprocity theorem and its four-class counting rule. The German reader renders the original German in modern German; the historical original is supplied separately.
 
 Later Volume-II writings and other volumes are outside this selection.
 

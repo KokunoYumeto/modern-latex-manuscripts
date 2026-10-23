@@ -1,8 +1,8 @@
 # Gauss: English and German readers
 
-**[Read the English collection, 730 pages](Gauss_Collected_English.pdf) · [Read the German collection, 759 pages](Gauss_Werke_Deutsch.pdf)**
+**[Read the English collection, 733 pages](Gauss_Collected_English.pdf) · [Read the German collection, 763 pages](Gauss_Werke_Deutsch.pdf)**
 
-[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_I_II.zip)
+[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_III_1_6.zip)
 
 Both collected readers contain complete Volume I, the historical title matter
 and first five complete papers of Volume II. The fifth, Theory of Biquadratic
@@ -27,6 +27,8 @@ Fragments III–X follow in full as printed, with their historical editorial not
 
 The originally German reviews and manuscript division title in German
 are modern renderings, with historical originals in the source package. The posthumous texts [I.] and [II.] of *On the Theory of Biquadratic Residues* follow. Text [I.] contains its title and complete Articles 1–19, including all five editable diagrams. Text [II.], *Preparations for the General Theory of Biquadratic Residues*, contains both preparatory sections (1) and (2) and complete Articles 1–12 as printed. They treat oriented lines, winding and boundary conventions, residue classes, decidents and their composition, the residue 1+i, and the point, square and ligature constructions for biquadratic characters. Their originally German prose is rendered in modern German in the German reader; the original German bodies and diagrams are supplied separately.
+
+Text [III.], *Theory of Biquadratic Residues*, is represented by its title and complete Articles 1–6. These give the least-residue classes, the decident, the stated reciprocity theorem and its four-class counting rule. The German reader renders the original German in modern German; the historical original is supplied separately.
 
 Later
 Volume-II writings and other volumes are outside this edition.

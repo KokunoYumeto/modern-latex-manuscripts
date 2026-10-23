@@ -1,6 +1,6 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 730 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 759 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_I_II.zip)
+[English reader, 733 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 763 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_III_1_6.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
@@ -24,6 +24,8 @@ Fragments III–X follow in full as printed, with their historical editorial not
 *Geometrical Aspect of Ternary Forms* follows with its complete geometric definitions and relations, the ellipsoid and tetrahedron notes, the crystallization law, transformation tables and complex projections, and the hexakisoctahedron formulas, value table and two editable diagrams. Schering’s complete historical remarks include the crystal measurements, the quoted theorem on transformations of an indefinite ternary form, its parameter conditions and the account of the transformation table. 
 
 The posthumous texts [I.] and [II.] of *On the Theory of Biquadratic Residues* follow. Text [I.] contains its title and complete Articles 1–19, including all five editable diagrams. Text [II.], *Preparations for the General Theory of Biquadratic Residues*, contains both preparatory sections (1) and (2) and complete Articles 1–12 as printed. They treat oriented lines, winding and boundary conventions, residue classes, decidents and their composition, the residue 1+i, and the point, square and ligature constructions for biquadratic characters. Their originally German prose is rendered in modern German in the German reader; the original German bodies and diagrams are supplied separately.
+
+Text [III.], *Theory of Biquadratic Residues*, is represented by its title and complete Articles 1–6. These give the least-residue classes, the decident, the stated reciprocity theorem and its four-class counting rule. The German reader renders the original German in modern German; the historical original is supplied separately.
 
 Later
 writings and the other volumes are outside this edition.
