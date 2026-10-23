@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 561 pages; the German reader has 585 pages.
+The collected English reader has 569 pages; the German reader has 593 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -22,7 +22,8 @@ commentatio prima), Articles 1–23, presented on April 5, 1825.
 
 Theory of Biquadratic Residues, Second Paper (Theoria residuorum biquadraticorum,
 commentatio secunda), historical title and Articles 24–76, presented on April 15, 1831.
-The self-reviews of May 12 and September 19, 1808, follow the five papers.
+Four complete self-reviews follow the five papers: May 12 and September 19,
+1808; March 10, 1817; and April 11, 1825.
 Later Volume-II writings and other volumes are outside this selection.
 
 Volume I contains the historical title matter, dedication, preface, all seven
@@ -35,7 +36,7 @@ Volume II, second printing, Göttingen, 1876. Disquisitiones Arithmeticae was
 first published in Leipzig in 1801.
 
 Originally German passages in the Volume-I appendix and editorial closing,
-German Volume-II title matter and the two self-reviews are identified as modern
+German Volume-II title matter and the four self-reviews are identified as modern
 German renderings. The original German self-review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
