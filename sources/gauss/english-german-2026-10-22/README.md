@@ -1,11 +1,11 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 544 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 568 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_FirstFourFifth24_68.zip)
+[English reader, 554 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 578 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_FirstFive.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
-historical title matter and first four complete papers of Volume II, plus the
-title and Articles 24–68 of its fifth paper, Theory of Biquadratic Residues,
-Second Paper. Its remainder, later papers and the other volumes are outside this edition.
+historical title matter and first five complete papers of Volume II. The fifth,
+Theory of Biquadratic Residues, Second Paper, contains Articles 24–76. Later
+papers and the other volumes are outside this edition.
 
 The `volume_I` and `volume_II` directories each contain `english` and `german`
 sources. Compile `main.tex` in each directory with XeLaTeX twice. The
