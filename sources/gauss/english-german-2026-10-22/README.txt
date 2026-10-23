@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 655 pages; the German reader has 682 pages.
+The collected English reader has 670 pages; the German reader has 699 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -32,8 +32,14 @@ and Seeber’s positive ternary quadratic forms.
 The manuscript work Solution of the Congruence X^m−1 ≡ 0 follows,
 comprising the complete first part of Chapter VI of Analysis of Residues,
 Articles 237–252. General Investigations of Congruences, Chapter VIII of
-Analysis of Residues, contains Articles 330–375 as printed, including the unfinished ending of Article 375. R. Dedekind's complete historical remarks follow. The title and Articles 1–16 of Further Development of the Investigations of Pure Equations follow them. Later
-Volume-II writings and other volumes are outside this selection.
+Analysis of Residues, contains Articles 330–375 as printed, including the unfinished ending of Article 375. R. Dedekind's complete historical remarks follow. Further Development of the Investigations of Pure Equations follows in full as
+printed, with its title, Articles 1–19 and R. Dedekind's historical remarks.
+The fragment Proof of Some Theorems Concerning the Periods of Classes of Binary
+Quadratic Forms contains both theorems, the unfinished ending of the second
+proof and Stern's historical remark. The text marked [I.] of On the Connection
+between the Number of Classes into Which Binary Quadratic Forms Are Distributed
+and Their Determinant, First Paper, follows in full as printed, with its title
+and Articles 1–8. Later Volume-II writings and other volumes are outside this selection.
 
 Volume I contains the historical title matter, dedication, preface, all seven
 sections (Articles 1–366), five historical additions, Tables I–III, the historical
@@ -46,7 +52,7 @@ first published in Leipzig in 1801.
 
 Originally German passages in the Volume-I appendix and editorial closing,
 German Volume-II title matter, all twelve reviews and the manuscript
-division title and R. Dedekind's historical remarks are identified as modern
+division title and the historical remarks of R. Dedekind and Stern are identified as modern
 German renderings. The original German review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
