@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 708 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 737 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 730 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 759 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Ternary_Geometry.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_I_II.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -38,6 +38,8 @@ The texts marked [I.] and [II.] of *On the Connection between the Number of Clas
 Fragments III–X follow in full as printed, with their historical editorial notes. They treat representation counts, average and actual numbers of classes, and the distribution of quadratic residues in eighths and twelfths, including the historical tables. The complete historical remarks on [I.]–[X.], signed by R. Dedekind, discuss circle-counting formulas and quoted rules, divisor and representation counts, the series for π/4, prime elimination and mean values, infinite products and the qualification concerning their rigor, trigonometric summations and class numbers, and hyperbolic sectors for positive determinants. They also give the biquadratic-character argument for 2 and the full class-number relations for quadratic residues in eighths and twelfths, with the correspondence tables and both congruence cases.
 
 *Geometrical Aspect of Ternary Forms* follows with its complete geometric definitions and relations, the ellipsoid and tetrahedron notes, the crystallization law, transformation tables and complex projections, and the hexakisoctahedron formulas, value table and two editable diagrams. Schering’s complete historical remarks include the crystal measurements, the quoted theorem on transformations of an indefinite ternary form, its parameter conditions and the account of the transformation table. 
+
+The posthumous texts [I.] and [II.] of *On the Theory of Biquadratic Residues* follow. Text [I.] contains its title and complete Articles 1–19, including all five editable diagrams. Text [II.], *Preparations for the General Theory of Biquadratic Residues*, contains both preparatory sections (1) and (2) and complete Articles 1–12 as printed. They treat oriented lines, winding and boundary conventions, residue classes, decidents and their composition, the residue 1+i, and the point, square and ligature constructions for biquadratic characters. Their originally German prose is rendered in modern German in the German reader; the original German bodies and diagrams are supplied separately.
 
 Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.
@@ -113,3 +115,5 @@ The editions are available free of charge for non-commercial, purely educational
 Rights holders may raise objections through the [GitHub issue page](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues). The publisher undertakes to take down the affected material upon a rights holder's request.
 
 [Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+
+The citation metadata records the exact editable transcription archives used for the translations, with their SHA-256 identities, alongside the historical editions and named terminology references.

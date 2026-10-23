@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 708 pages; the German reader has 737 pages.
+The collected English reader has 730 pages; the German reader has 759 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -45,6 +45,8 @@ Fragments III–X follow in full as printed, with their historical editorial
 notes, followed by the complete historical remarks on [I.]–[X.]. The fragments
 include representation counts and the distributions of quadratic residues
 in eighths and twelfths, with their historical tables.
+The posthumous texts [I.] and [II.] of On the Theory of Biquadratic Residues follow. Text [I.] contains its title and complete Articles 1–19, including all five editable diagrams. Text [II.], Preparations for the General Theory of Biquadratic Residues, contains both preparatory sections (1) and (2) and complete Articles 1–12 as printed. They treat oriented lines, winding and boundary conventions, residue classes, decidents and their composition, the residue 1+i, and the point, square and ligature constructions for biquadratic characters. Their originally German prose is rendered in modern German in the German reader; all original German bodies and editable diagrams are supplied separately.
+
 Later Volume-II writings and other volumes are outside this selection.
 
 Volume I contains the historical title matter, dedication, preface, all seven
@@ -63,19 +65,19 @@ division title, Fragments III–IV and VIII–X, and the historical remarks
 German renderings. The original German review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
-The package contains editable LaTeX text, mathematics and tables, and the genuine
+The package contains editable LaTeX text, mathematics, tables and diagrams, and the genuine
 portraits used in the readers. The volume_I and volume_II directories contain
 english and german sources. Build main.tex with XeLaTeX twice, using Latin
 Modern, Babel, pdflscape and longtable. The collected readers present the volumes
 in numerical order; the individual volume readers are also supplied.
 
-English and German translations prepared using OpenAI GPT-6.1 Sol.
+AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced typesetting.
 
 Geometrical Aspect of Ternary Forms is included with its geometric definitions, crystallographic tables, two editable diagrams and Schering’s historical remarks. Its originally German prose is rendered in modern German in the German reader; the historical German and Latin originals are supplied separately.
 
 Translation sources and terminology
 
-These English and German texts are translated from Gauss's original-language
+These English and German texts are AI-translated from Gauss's original-language
 editions. Earlier translations are consulted to standardize mathematical
 terminology and usage; they are not reproduced as this edition's running text.
 The original mathematical formulations remain those of Gauss's source.
@@ -107,10 +109,22 @@ https://arxiv.org/abs/1510.06214v3
 Quellen und Terminologie der Übersetzungen
 
 Die englischen und deutschen Texte sind aus Gauss' originalsprachlichen
-Ausgaben übersetzt. Frühere Übersetzungen dienen dem Abgleich der
+Ausgaben KI-übersetzt. Frühere Übersetzungen dienen dem Abgleich der
 mathematischen Terminologie und des Sprachgebrauchs; ihr Wortlaut wird nicht
 als fortlaufender Text dieser Ausgabe übernommen. Die mathematischen
 Formulierungen bleiben die der Originalvorlage. Die oben genannten
 Übersetzer und Autoren werden für diese terminologische Nutzung gewürdigt.
 
 Crystallographic terminology references: Ian O. Angell and Moreton Moore, Projections of cubic crystals, IUCr, Table 2, https://www.iucr.org/what-we-do/education/pamphlets/projections-of-cubic-crystals ; Th. Hahn, H. Klapper, U. Müller and M. I. Aroyo, Point groups and crystal classes, International Tables for Crystallography A (2016), chapter 3.2, https://doi.org/10.1107/97809553602060000930 . These references guide terminology and usage; their running prose is not reproduced.
+
+
+## AI authorship and publication rights
+
+These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, with AI-produced typesetting. Gauss is the author of the historical mathematical text; signed historical editorial contributions retain their authorship. The named human translations and writings cited above are credited for their stated terminology and usage roles.
+
+The editions are available free of charge for non-commercial, purely educational purposes. Publication rests on the publisher's presumption that the respective rights holders would not object; this is not established permission. Free access to a source does not itself authorize derivative publication. Rights in the originals and any protected derivative contributions remain with their respective rights holders. No project-wide licence or public-domain dedication is granted here.
+
+Rights holders may raise objections through the [GitHub issue page](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues). The publisher undertakes to take down the affected material upon a rights holder's request.
+
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+
