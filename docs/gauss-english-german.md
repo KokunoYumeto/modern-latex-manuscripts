@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 733 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 763 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 746 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 776 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_III_1_6.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_III_IV.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -41,7 +41,7 @@ Fragments III–X follow in full as printed, with their historical editorial not
 
 The posthumous texts [I.] and [II.] of *On the Theory of Biquadratic Residues* follow. Text [I.] contains its title and complete Articles 1–19, including all five editable diagrams. Text [II.], *Preparations for the General Theory of Biquadratic Residues*, contains both preparatory sections (1) and (2) and complete Articles 1–12 as printed. They treat oriented lines, winding and boundary conventions, residue classes, decidents and their composition, the residue 1+i, and the point, square and ligature constructions for biquadratic characters. Their originally German prose is rendered in modern German in the German reader; the original German bodies and diagrams are supplied separately.
 
-Text [III.], *Theory of Biquadratic Residues*, is represented by its title and complete Articles 1–6. These give the least-residue classes, the decident, the stated reciprocity theorem and its four-class counting rule. The German reader renders the original German in modern German; the historical original is supplied separately.
+Text [III.], *Theory of Biquadratic Residues*, follows in full as printed, with its title and complete Articles 1–14, including the joint heading 7–8. It treats least-residue classes, decidents and the stated reciprocity theorem, coordinate bounds, parity sums and all boundary exceptions. Text [IV.] follows in full as printed, Articles 1–5, with its coordinate relations, two bound tables, intensor sums and sign table; its second method ends after the fourth step. The German reader renders the original German in modern German; the historical originals are supplied separately.
 
 Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.
