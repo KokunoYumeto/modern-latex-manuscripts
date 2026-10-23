@@ -1,6 +1,6 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 590 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 616 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews.zip)
+[English reader, 603 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 630 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript237_252.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
@@ -9,13 +9,15 @@ complete self-reviews of May 12 and September 19, 1808, March 10, 1817, April 11
 
 Seven complete reviews of other writings follow: March 11, 1809; March 23, 1812; November 3, 1814; November 7, 1816; August 9, 1817; December 19, 1825; and July 9, 1831. They concern a work on irrational radicals, the factor tables of Chernac and Burckhardt, Erchinger’s construction of the regular seventeen-sided polygon, and Seeber’s positive ternary quadratic forms.
 
+The complete manuscript work *Solution of the Congruence X^m−1 ≡ 0*, the first part of Chapter VI of *Analysis of Residues* (Articles 237–252), follows the reviews.
+
 Later
 writings and the other volumes are outside this edition.
 
 The `volume_I` and `volume_II` directories each contain `english` and `german`
 sources. Compile `main.tex` in each directory with XeLaTeX twice. The
 `originals` directories contain historical source-language passages retained
-separately from the translations, including all twelve reviews. Their German
+separately from the translations, including all twelve reviews and the manuscript division title. Their German
 translations are modern German renderings. See `README.txt` for bibliographical details.
 
 English and German translations prepared using OpenAI GPT-6.1 Sol.
