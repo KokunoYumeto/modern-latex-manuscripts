@@ -1,15 +1,15 @@
 # Gauss: English and German readers
 
-**[Read the English collection, 581 pages](Gauss_Collected_English.pdf) · [Read the German collection, 606 pages](Gauss_Werke_Deutsch.pdf)**
+**[Read the English collection, 590 pages](Gauss_Collected_English.pdf) · [Read the German collection, 616 pages](Gauss_Werke_Deutsch.pdf)**
 
-[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTenReviews.zip)
+[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews.zip)
 
 Both collected readers contain complete Volume I, the historical title matter
 and first five complete papers of Volume II. The fifth, Theory of Biquadratic
 Residues, Second Paper, contains Articles 24–76. The complete self-reviews of
 May 12 and September 19, 1808, March 10, 1817, April 11, 1825, and April 23, 1831, follow these papers.
 
-Five complete reviews of other writings follow: March 11, 1809; March 23, 1812; November 3, 1814; November 7, 1816; and August 9, 1817. They concern a work on irrational radicals and the factor tables of Chernac and Burckhardt.
+Seven complete reviews of other writings follow: March 11, 1809; March 23, 1812; November 3, 1814; November 7, 1816; August 9, 1817; December 19, 1825; and July 9, 1831. They concern a work on irrational radicals, the factor tables of Chernac and Burckhardt, Erchinger’s construction of the regular seventeen-sided polygon, and Seeber’s positive ternary quadratic forms.
 
 Their German translations
 are modern renderings, with historical originals in the source package. Later
