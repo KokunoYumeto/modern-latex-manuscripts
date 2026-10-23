@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 670 pages; the German reader has 699 pages.
+The collected English reader has 676 pages; the German reader has 705 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -39,7 +39,9 @@ Quadratic Forms contains both theorems, the unfinished ending of the second
 proof and Stern's historical remark. The text marked [I.] of On the Connection
 between the Number of Classes into Which Binary Quadratic Forms Are Distributed
 and Their Determinant, First Paper, follows in full as printed, with its title
-and Articles 1–8. Later Volume-II writings and other volumes are outside this selection.
+and Articles 1–8. The text marked [II.] of the same first paper, presented in
+1837, is also included in full as printed, with its title and Articles 1–8.
+Later Volume-II writings and other volumes are outside this selection.
 
 Volume I contains the historical title matter, dedication, preface, all seven
 sections (Articles 1–366), five historical additions, Tables I–III, the historical
