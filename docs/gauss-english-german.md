@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 554 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 578 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 561 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 585 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFive.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwoReviews.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -20,13 +20,15 @@ Volume II contains the historical title matter, its first five complete papers:
 | *Theoria residuorum biquadraticorum, commentatio prima* — Theory of Biquadratic Residues, First Paper | Historical title and complete Articles 1–23; presented April 5, 1825. |
 | *Theoria residuorum biquadraticorum, commentatio secunda* — Theory of Biquadratic Residues, Second Paper | Historical title and complete Articles 24–76; presented April 15, 1831. |
 
-Later papers of Volume II and the other volumes are outside this edition.
+The complete self-reviews of May 12 and September 19, 1808, follow these five
+papers. Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.
 
 The translations follow the retained original-language LaTeX editions and
 preserve Gauss's mathematical formulations and historical values. Originally
 German passages in the Volume-I appendix and editorial closing, and the
-German Volume-II title matter, are identified as modern German renderings.
+German Volume-II title matter and the two self-reviews are identified as modern
+German renderings.
 Their historical originals are supplied separately in the source package.
 
 The source tree contains editable text, formulas and tables, together with
