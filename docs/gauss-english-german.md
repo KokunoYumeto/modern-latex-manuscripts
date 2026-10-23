@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 581 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 606 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 590 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 616 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTenReviews.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -23,7 +23,7 @@ Volume II contains the historical title matter, its first five complete papers:
 The complete self-reviews of May 12 and September 19, 1808, March 10, 1817, April 11, 1825, and April 23, 1831, follow these five
 papers.
 
-Five complete reviews of other writings follow: March 11, 1809; March 23, 1812; November 3, 1814; November 7, 1816; and August 9, 1817. They concern a work on irrational radicals and the factor tables of Chernac and Burckhardt.
+Seven complete reviews of other writings follow: March 11, 1809; March 23, 1812; November 3, 1814; November 7, 1816; August 9, 1817; December 19, 1825; and July 9, 1831. They concern a work on irrational radicals, the factor tables of Chernac and Burckhardt, Erchinger’s construction of the regular seventeen-sided polygon, and Seeber’s positive ternary quadratic forms.
 
 Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.
@@ -31,7 +31,7 @@ This is a partial collected edition.
 The translations follow the retained original-language LaTeX editions and
 preserve Gauss's mathematical formulations and historical values. Originally
 German passages in the Volume-I appendix and editorial closing, and the
-German Volume-II title matter and all ten reviews are identified as modern
+German Volume-II title matter and all twelve reviews are identified as modern
 German renderings.
 Their historical originals are supplied separately in the source package.
 
