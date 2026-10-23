@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 670 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 699 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 676 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 705 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_PureEquations_Periods_NexusI1_8.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_PureEquations_Periods_NexusI_II1_8.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -33,7 +33,7 @@ The complete manuscript work *Solution of the Congruence X^m−1 ≡ 0*, the fir
 
 The fragment *Proof of Some Theorems Concerning the Periods of Classes of Binary Quadratic Forms* contains both theorems, the unfinished ending of the second proof and Stern's historical remark.
 
-The text marked [I.] of *On the Connection between the Number of Classes into Which Binary Quadratic Forms Are Distributed and Their Determinant, First Paper*, follows in full as printed, with its title and Articles 1–8. It treats counts of integer points in regions, limiting ratios of counts to areas, mean numbers of representations by binary quadratic forms, prime-factor rules, series and infinite products. 
+The texts marked [I.] and [II.] of *On the Connection between the Number of Classes into Which Binary Quadratic Forms Are Distributed and Their Determinant, First Paper* are each included in full as printed, with their titles and Articles 1–8. The text marked [II.] was presented in 1837. These texts treat counts of integer points in regions, limiting ratios of counts to areas, and mean numbers of representations by binary quadratic forms. Text [I.] includes prime-factor rules, series and infinite products. Text [II.] gives the boundary-square argument, distinguishes approximation of ratios from approximation of differences, and treats counts with congruence and parity conditions. 
 
 Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.
