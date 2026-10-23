@@ -1,6 +1,6 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 629 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 657 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_Congruences330_372.zip)
+[English reader, 635 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 663 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_Congruences330_375_Remarks.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
@@ -11,7 +11,7 @@ Seven complete reviews of other writings follow: March 11, 1809; March 23, 1812;
 
 The complete manuscript work *Solution of the Congruence X^m−1 ≡ 0*, the first part of Chapter VI of *Analysis of Residues* (Articles 237–252), follows the reviews.
 
-*General Investigations of Congruences*, Chapter VIII of *Analysis of Residues*, follows through complete Articles 330–372. This portion treats congruences between functions, division and common divisors, prime functions, factorization and counting, power transformations and periods, two proofs of quadratic reciprocity, equal roots and divisors, and separation of factors by degree. Later portions of the manuscript are outside this selection.
+*General Investigations of Congruences*, Chapter VIII of *Analysis of Residues*, contains Articles 330–375 as printed, including the unfinished ending of Article 375. R. Dedekind's complete historical remarks follow. This portion treats congruences between functions, division and common divisors, prime functions, factorization and counting, power transformations and periods, two proofs of quadratic reciprocity, equal roots and divisors, and separation of factors by degree. 
 
 Later
 writings and the other volumes are outside this edition.

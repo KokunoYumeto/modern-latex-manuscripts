@@ -1,8 +1,8 @@
 # Gauss: English and German readers
 
-**[Read the English collection, 629 pages](Gauss_Collected_English.pdf) · [Read the German collection, 657 pages](Gauss_Werke_Deutsch.pdf)**
+**[Read the English collection, 635 pages](Gauss_Collected_English.pdf) · [Read the German collection, 663 pages](Gauss_Werke_Deutsch.pdf)**
 
-[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_Congruences330_372.zip)
+[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_Congruences330_375_Remarks.zip)
 
 Both collected readers contain complete Volume I, the historical title matter
 and first five complete papers of Volume II. The fifth, Theory of Biquadratic
@@ -13,7 +13,7 @@ Seven complete reviews of other writings follow: March 11, 1809; March 23, 1812;
 
 The complete manuscript work *Solution of the Congruence X^m−1 ≡ 0*, the first part of Chapter VI of *Analysis of Residues* (Articles 237–252), follows the reviews.
 
-*General Investigations of Congruences*, Chapter VIII of *Analysis of Residues*, follows through complete Articles 330–372. This portion treats congruences between functions, division and common divisors, prime functions, factorization and counting, power transformations and periods, two proofs of quadratic reciprocity, equal roots and divisors, and separation of factors by degree. Later portions of the manuscript are outside this selection.
+*General Investigations of Congruences*, Chapter VIII of *Analysis of Residues*, contains Articles 330–375 as printed, including the unfinished ending of Article 375. R. Dedekind's complete historical remarks follow. This portion treats congruences between functions, division and common divisors, prime functions, factorization and counting, power transformations and periods, two proofs of quadratic reciprocity, equal roots and divisors, and separation of factors by degree. 
 
 The originally German reviews and manuscript division title in German
 are modern renderings, with historical originals in the source package. Later
