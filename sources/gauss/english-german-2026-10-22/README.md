@@ -1,17 +1,17 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 569 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 593 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_FirstFiveFourReviews.zip)
+[English reader, 576 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 601 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_FirstFiveFiveReviews.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
 Theory of Biquadratic Residues, Second Paper, contains Articles 24–76. The
-complete self-reviews of May 12 and September 19, 1808, March 10, 1817, and April 11, 1825, follow these papers. Later
+complete self-reviews of May 12 and September 19, 1808, March 10, 1817, April 11, 1825, and April 23, 1831, follow these papers. Later
 writings and the other volumes are outside this edition.
 
 The `volume_I` and `volume_II` directories each contain `english` and `german`
 sources. Compile `main.tex` in each directory with XeLaTeX twice. The
 `originals` directories contain historical source-language passages retained
-separately from the translations, including all four self-reviews. Their German
+separately from the translations, including all five self-reviews. Their German
 translations are modern German renderings. See `README.txt` for bibliographical details.
 
 English and German translations prepared using OpenAI GPT-6.1 Sol.
