@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 642 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 670 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 647 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 675 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_PureEquations1_8.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_FirstFiveTwelveReviews_Manuscript_PureEquations1_12.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -29,7 +29,7 @@ The complete manuscript work *Solution of the Congruence X^m−1 ≡ 0*, the fir
 
 *General Investigations of Congruences*, Chapter VIII of *Analysis of Residues*, contains Articles 330–375 as printed, including the unfinished ending of Article 375. R. Dedekind's complete historical remarks follow. This portion treats congruences between functions, division and common divisors, prime functions, factorization and counting, power transformations and periods, two proofs of quadratic reciprocity, equal roots and divisors, and separation of factors by degree.
 
-The title and Articles 1–8 of *Further Development of the Investigations of Pure Equations* follow the historical remarks. These articles define proper and improper roots and the functions formed from their powers, establish product formulas and rational expressions for these functions, and discuss consistent choices of radical values and descent between periods. 
+The title and Articles 1–12 of *Further Development of the Investigations of Pure Equations* follow the historical remarks. The discussion covers proper and improper roots, products and rational expressions formed from their powers, consistent choices of radical values, descent between periods, division of ratios and angles, and transformations using indices and least residues. 
 
 Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.
