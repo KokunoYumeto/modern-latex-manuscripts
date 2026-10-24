@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1034 pages; the German reader has 1065 pages.
+The collected English reader has 1045 pages; the German reader has 1076 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -49,7 +49,7 @@ The posthumous texts [I.] and [II.] of On the Theory of Biquadratic Residues fol
 
 Text [III.], Theory of Biquadratic Residues, follows in full as printed, with its title and Articles 1–14, including the joint heading 7–8. It treats least-residue classes, decidents and the stated reciprocity theorem, coordinate bounds, parity sums and all boundary exceptions. Text [IV.] follows in full as printed, Articles 1–5, with its coordinate relations, two bound tables, intensor sums and sign table; its second method ends after the fourth step. The German reader renders the original German in modern German; the historical originals are supplied separately.
 
-Later Volume-II writings and other volumes are outside this selection.
+Other volumes of Gauss’s works are outside these readers.
 
 Volume I contains the historical title matter, dedication, preface, all seven
 sections (Articles 1–366), five historical additions, Tables I–III, the historical
@@ -92,6 +92,8 @@ The complete letter from Gauss to Enke of 24 December 1849 follows, with its tab
 The complete historical table of the number of classes of binary quadratic forms follows, including its negative and positive determinant panels, hundred and thousand groups, and summary tables. Its headings and labels are translated; historical values and notation are retained. The originally German title is rendered in modern German in the German reader; the original source text is supplied separately.
 
 The complete historical Table for Circle Division (Cyklotechnie), A New Quadrature of the Circle, On Calculating Common Logarithms, First Ten Thousand Squares, Indices of Primes in the Higher Number Domain and the auxiliary table for solving the indeterminate equation by the method of exclusion follow. Every printed table and historical value is retained. The printed Eighth Section (Articles 367–373, including its interruption) and both complete letters from Gauss to Dirichlet of 13 September 1826 and 30 May 1828 follow. The originally German prose is rendered in modern German in the German reader; the historical originals are supplied separately.
+
+Schering’s complete historical closing remarks follow, with his accounts of the published papers, manuscript sources, tables and historical corrections, followed by the complete historical contents and Göttingen imprint. Historical page references retain the source pagination. The German reader gives a modern German rendering of the originally German passages; their historical originals are supplied separately. The reported historical corrections remain part of Schering’s account.
 
 Translation sources and terminology
 
