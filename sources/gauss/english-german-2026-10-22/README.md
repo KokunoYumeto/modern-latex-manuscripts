@@ -1,6 +1,6 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 949 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 980 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Class_Count_Table.zip)
+[English reader, 1034 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 1065 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Arithmetic_Tables.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
@@ -40,6 +40,10 @@ The complete historical table for converting common fractions with denominators 
 The complete letter from Gauss to Enke of 24 December 1849 follows, with its tables and discussion of prime-number frequency. The German reader renders the originally German letter in modern German; its historical original is supplied separately.
 
 The complete historical table of the number of classes of binary quadratic forms follows, including negative and positive determinant panels, hundred and thousand groups, and summary tables. Its headings and labels are translated; historical values and notation are retained. The German reader renders the originally German title in modern German; its source text is supplied separately.
+
+The complete historical Table for Circle Division (Cyklotechnie) follows, with all nine factor-table bands and prime-index lists. A New Quadrature of the Circle includes the four printed calculations and the table of arcs; On Calculating Common Logarithms includes its fraction tables and historical editorial account. The First Ten Thousand Squares, Indices of Primes in the Higher Number Domain and the auxiliary table for solving the indeterminate equation by the method of exclusion follow in full as printed. Historical values, blanks and notation are retained.
+
+The printed Eighth Section, Articles 367–373, follows, including its interruption in Article 371 and the complete ending of Article 373. Both complete letters from Gauss to Dirichlet of 13 September 1826 and 30 May 1828 follow, with their tables, dates and signatures. The originally German prose is rendered in modern German in the German reader; the historical originals are supplied separately.
 
 Later
 writings and the other volumes are outside this edition.
