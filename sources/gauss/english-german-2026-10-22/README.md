@@ -59,6 +59,8 @@ AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced type
 
 The originally German Fragments III–IV and VIII–X, the geometric notes and the historical remarks are rendered in modern German in the German reader. Their historical originals are supplied separately in the source package.
 
+The corresponding editable original-language editions are available in the [Gauss original-language collection](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24): [Volume I, 1863](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_I_Original_Language_20261023_LaTeX.zip) and [Volume II, second printing, 1876](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_II_Original_Language_20261023_LaTeX.zip). Their text, formula and diagram TeX files correspond byte for byte to the retained editable sources used for these translations. The exact translation-source archive versions and SHA-256 identities remain recorded in CITATIONS.bib; the published original-language archives have their own packaging and archive identities. The original-language collection also contains volumes outside these English and German readers.
+
 ## Translation sources and terminology
 
 These English and German texts are AI-translated from Gauss's original-language
