@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1108 pages; the German reader has 1141 pages.
+The collected English reader has 1112 pages; the German reader has 1145 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -98,7 +98,9 @@ Volume III contains the historical title matter and the complete 1799 dissertati
 
 The complete second proof, Another New Proof of the Theorem That Every Polynomial in One Variable Can Be Resolved into Real Factors of the First or Second Degree, follows in Volume III: title matter, Articles 1–20 and both historical footnotes. Presented in 1815 and published in 1816, it gives Gauss’s determinant, symmetric-function and degree-reduction argument. 
 
-The complete third proof, Third Proof of the Theorem on the Factorization of Polynomials into Real Factors, follows in Volume III as a supplement to the preceding paper. Presented on 30 January 1816 and published that year, it contains the historical title matter, introduction, complete Articles 1–4 and the historical footnote. It gives the positivity bounds, double-integral argument, real-factor conclusion and Gauss’s discussion of finiteness, continuity and multivalued inverse tangents. The source’s qualifications and mathematical formulations are retained. Later Volume-III works and other volumes are outside these readers.
+The complete third proof, Third Proof of the Theorem on the Factorization of Polynomials into Real Factors, follows in Volume III as a supplement to the preceding paper. Presented on 30 January 1816 and published that year, it contains the historical title matter, introduction, complete Articles 1–4 and the historical footnote. It gives the positivity bounds, double-integral argument, real-factor conclusion and Gauss’s discussion of finiteness, continuity and multivalued inverse tangents. The source’s qualifications and mathematical formulations are retained. The complete 1828 work Proof of an Algebraic Theorem follows with its title and entire argument about positive and negative roots, coefficient sign changes and continuations, and missing terms. Its German original is preserved separately; the German reader gives a modern German rendering. Later Volume-III works and other volumes are outside these readers.
+
+Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
 
 Translation sources and terminology
 
