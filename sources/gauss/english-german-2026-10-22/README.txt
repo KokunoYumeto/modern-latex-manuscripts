@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 871 pages; the German reader has 902 pages.
+The collected English reader has 949 pages; the German reader has 980 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -88,6 +88,8 @@ The complete historical table of the quadratic character follows: primes from 2 
 The complete historical table for converting common fractions with denominators from the first thousand into decimal fractions follows. It includes all printed expansions and the primitive-root bands. The complete historical table of the frequency of prime numbers follows, including its matrices, integral values and closing observations.
 
 The complete letter from Gauss to Enke of 24 December 1849 follows, with its tables and discussion of prime-number frequency. The German reader renders the originally German letter in modern German; its historical original is supplied separately.
+
+The complete historical table of the number of classes of binary quadratic forms follows, including its negative and positive determinant panels, hundred and thousand groups, and summary tables. Its headings and labels are translated; historical values and notation are retained. The originally German title is rendered in modern German in the German reader; the original source text is supplied separately.
 
 Translation sources and terminology
 
