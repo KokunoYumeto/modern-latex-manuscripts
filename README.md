@@ -32,7 +32,7 @@ or the [current interlanguage record page](docs/records/interlanguage-reflection
 
 ## Start Here
 
-**Gauss, original-language collected works:** [Eight reader PDFs and editable LaTeX sources](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24). Volumes I–IV, VI and VIII cover their supplied collected editions; Volume V contains selected complete works, and Volume VII reaches Article 111. [Read Volume VII, 153 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_VII_Original_Language_Native002_156.pdf). Historical authorship, AI-transcribed credits, source references, reading qualifications and rights notices accompany the collection.
+**Gauss, original-language collected works:** [Eight reader PDFs and editable LaTeX sources](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24). Volumes I–IV, VI and VIII cover their supplied collected editions; Volume V contains selected complete works, and Volume VII reaches Article 112. [Read Volume VII, 155 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_VII_Original_Language_Native002_157.pdf). Historical authorship, AI-transcribed credits, source references, reading qualifications and rights notices accompany the collection.
 
 **Gauss, AI-translated into modern English and German:** [English collection, 1045 pages](reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German collection, 1076 pages](reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Exact scope and editable sources](docs/gauss-english-german.md).
 
