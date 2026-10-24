@@ -1,8 +1,8 @@
 # Gauss: English and German readers
 
-**[Read the English collection, 776 pages](Gauss_Collected_English.pdf) · [Read the German collection, 806 pages](Gauss_Werke_Deutsch.pdf)**
+**[Read the English collection, 788 pages](Gauss_Collected_English.pdf) · [Read the German collection, 818 pages](Gauss_Werke_Deutsch.pdf)**
 
-[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Posthumous_Biquadratic_V_VI.zip)
+[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Biquadratic_Remarks.zip)
 
 Both collected readers contain complete Volume I, the historical title matter
 and first five complete papers of Volume II. The fifth, Theory of Biquadratic
@@ -31,6 +31,8 @@ are modern renderings, with historical originals in the source package. The post
 Text [III.], *Theory of Biquadratic Residues*, follows in full as printed, with its title and complete Articles 1–14, including the joint heading 7–8. It treats least-residue classes, decidents and the stated reciprocity theorem, coordinate bounds, parity sums and all boundary exceptions. Text [IV.] follows in full as printed, Articles 1–5, with its coordinate relations, two bound tables, intensor sums and sign table; its second method ends after the fourth step. The German reader renders the original German in modern German; the historical originals are supplied separately.
 
 Text [V.], *Theory of Biquadratic Residues*, follows in full as printed, Articles 1–17, with its editable lattice diagram, numerical examples, parity tables and 128-case table. Text [VI.] follows in full as printed, with its title and complete Articles 1–6: complete residue systems, associated quarter systems, the character and its independence, boundary conventions and the four-case construction. Their original German prose is rendered in modern German in the German reader; the historical originals are supplied separately.
+
+Schering’s complete historical remarks on the six biquadratic manuscript texts [I.]–[VI.] follow, with his dating qualifications, geometric interpretations, summation derivations and signature. The originally German remarks are rendered in modern German in the German reader; their historical originals are supplied separately.
 
 Later
 Volume-II writings and other volumes are outside this edition.
