@@ -1,6 +1,6 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 1045 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 1076 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Historical_End_Matter.zip)
+[English reader, 1076 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 1108 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_1799_Dissertation.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
@@ -47,7 +47,9 @@ The printed Eighth Section, Articles 367–373, follows, including its interrupt
 
 Schering’s complete historical closing remarks follow, with his account of the published papers, manuscript sources, tables and historical corrections, followed by the complete historical contents and Göttingen imprint. Every historical table entry, expression and reference is retained; historical page references use the source pagination. The German reader gives a modern German rendering of the originally German passages; their historical originals are supplied separately. The reported historical corrections remain part of Schering’s account.
 
-Other volumes of Gauss’s works are outside these readers.
+Volume III contains its historical title matter and the complete 1799 dissertation, *A New Proof of the Theorem That Every Polynomial in One Variable Can Be Resolved into Real Factors of the First or Second Degree*: Articles 1–24, all ten historical footnotes, the closing October 1797 statement and all four figures in editable LaTeX. It includes Gauss’s discussion of earlier proofs, his geometric proof and the concluding alternative argument, with their stated qualifications and deferred arguments. Originally German title matter is rendered in modern German in the German reader; its historical German and Latin source bodies and editable figures are supplied separately.
+
+Later Volume-III works and other volumes of Gauss’s works are outside these readers.
 
 The `volume_I` and `volume_II` directories each contain `english` and `german`
 sources. Compile `main.tex` in each directory with XeLaTeX twice. The
@@ -59,7 +61,7 @@ AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced type
 
 The originally German Fragments III–IV and VIII–X, the geometric notes and the historical remarks are rendered in modern German in the German reader. Their historical originals are supplied separately in the source package.
 
-The corresponding editable original-language editions are available in the [Gauss original-language collection](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24): [Volume I, 1863](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_I_Original_Language_20261023_LaTeX.zip) and [Volume II, second printing, 1876](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_II_Original_Language_20261023_LaTeX.zip). Their text, formula and diagram TeX files correspond byte for byte to the retained editable sources used for these translations. The exact translation-source archive versions and SHA-256 identities remain recorded in CITATIONS.bib; the published original-language archives have their own packaging and archive identities. The original-language collection also contains volumes outside these English and German readers.
+The corresponding editable original-language editions are available in the [Gauss original-language collection](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24): [Volume I, 1863](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_I_Original_Language_20261023_LaTeX.zip) and [Volume II, second printing, 1876](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_II_Original_Language_20261023_LaTeX.zip). The corresponding [Volume III, 1866](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_III_Original_Language_20261023_LaTeX.zip) supplies the source text of the 1799 dissertation. Their text, formula and diagram TeX files correspond byte for byte to the retained editable sources used for these translations. The exact translation-source archive versions and SHA-256 identities remain recorded in CITATIONS.bib; the published original-language archives have their own packaging and archive identities. The original-language collection also contains volumes outside these English and German readers.
 
 ## Translation sources and terminology
 

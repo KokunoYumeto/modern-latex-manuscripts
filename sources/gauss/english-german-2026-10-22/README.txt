@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1045 pages; the German reader has 1076 pages.
+The collected English reader has 1076 pages; the German reader has 1108 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -49,7 +49,7 @@ The posthumous texts [I.] and [II.] of On the Theory of Biquadratic Residues fol
 
 Text [III.], Theory of Biquadratic Residues, follows in full as printed, with its title and Articles 1–14, including the joint heading 7–8. It treats least-residue classes, decidents and the stated reciprocity theorem, coordinate bounds, parity sums and all boundary exceptions. Text [IV.] follows in full as printed, Articles 1–5, with its coordinate relations, two bound tables, intensor sums and sign table; its second method ends after the fourth step. The German reader renders the original German in modern German; the historical originals are supplied separately.
 
-Other volumes of Gauss’s works are outside these readers.
+Later Volume-III works and other volumes are outside these readers.
 
 Volume I contains the historical title matter, dedication, preface, all seven
 sections (Articles 1–366), five historical additions, Tables I–III, the historical
@@ -94,6 +94,8 @@ The complete historical table of the number of classes of binary quadratic forms
 The complete historical Table for Circle Division (Cyklotechnie), A New Quadrature of the Circle, On Calculating Common Logarithms, First Ten Thousand Squares, Indices of Primes in the Higher Number Domain and the auxiliary table for solving the indeterminate equation by the method of exclusion follow. Every printed table and historical value is retained. The printed Eighth Section (Articles 367–373, including its interruption) and both complete letters from Gauss to Dirichlet of 13 September 1826 and 30 May 1828 follow. The originally German prose is rendered in modern German in the German reader; the historical originals are supplied separately.
 
 Schering’s complete historical closing remarks follow, with his accounts of the published papers, manuscript sources, tables and historical corrections, followed by the complete historical contents and Göttingen imprint. Historical page references retain the source pagination. The German reader gives a modern German rendering of the originally German passages; their historical originals are supplied separately. The reported historical corrections remain part of Schering’s account.
+
+Volume III contains the historical title matter and the complete 1799 dissertation, A New Proof of the Theorem That Every Polynomial in One Variable Can Be Resolved into Real Factors of the First or Second Degree: Articles 1–24, all ten historical footnotes, the closing October 1797 statement and Figures 1–4 in editable LaTeX. Its discussion of earlier proofs, geometric proof and concluding alternative argument retain Gauss’s formulations and qualifications. The originally German title matter is rendered in modern German in the German reader; the original German and Latin source bodies and editable figures are supplied separately. Later Volume-III works and other volumes are outside these readers.
 
 Translation sources and terminology
 
@@ -148,3 +150,7 @@ Rights holders may raise objections through the [GitHub issue page](https://gith
 
 [Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
+
+Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
+Volume III: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_III_Original_Language_20261023_LaTeX.zip
+Exact source archive versions and identities are recorded in CITATIONS.bib.
