@@ -1,5 +1,7 @@
 ## Emmy Noether — Languages / Langues
 
+**Gauss collected works:** [Original-language editions and English and German translations](https://github.com/KokunoYumeto/gauss-collected-works), with reader PDFs and editable LaTeX sources.
+
 - [Español](editions/noether/2026-10-24/es/README.md).
 - [繁體中文](editions/noether/2026-10-24/zh-Hant/README.md).
 - [العربية](editions/noether/2026-10-24/ar/README.md).
