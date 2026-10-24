@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 871 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 902 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 949 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 980 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Letter_to_Enke.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Class_Count_Table.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -54,6 +54,8 @@ The complete historical table of the quadratic character follows: primes from 2 
 The complete historical table for converting common fractions with denominators from the first thousand into decimal fractions follows, including every printed expansion and the primitive-root bands. The complete historical table of the frequency of prime numbers follows, with its matrices, integral values and closing observations.
 
 The complete letter from Gauss to Enke of 24 December 1849 follows, with its tables and discussion of prime-number frequency. The German reader renders the originally German letter in modern German; its historical original is supplied separately.
+
+The complete historical table of the number of classes of binary quadratic forms follows, including negative and positive determinant panels, hundred and thousand groups, and summary tables. Its headings and labels are translated; historical values and notation are retained. The German reader renders the originally German title in modern German; its source text is supplied separately.
 
 Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.

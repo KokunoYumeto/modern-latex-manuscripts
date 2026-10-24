@@ -1,6 +1,6 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 871 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 902 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Letter_to_Enke.zip)
+[English reader, 949 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 980 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Class_Count_Table.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
@@ -38,6 +38,8 @@ The complete historical table of the quadratic character follows: primes from 2 
 The complete historical table for converting common fractions with denominators from the first thousand into decimal fractions follows, including every printed expansion and the primitive-root bands. The complete historical table of the frequency of prime numbers follows, with its matrices, integral values and closing observations.
 
 The complete letter from Gauss to Enke of 24 December 1849 follows, with its tables and discussion of prime-number frequency. The German reader renders the originally German letter in modern German; its historical original is supplied separately.
+
+The complete historical table of the number of classes of binary quadratic forms follows, including negative and positive determinant panels, hundred and thousand groups, and summary tables. Its headings and labels are translated; historical values and notation are retained. The German reader renders the originally German title in modern German; its source text is supplied separately.
 
 Later
 writings and the other volumes are outside this edition.
