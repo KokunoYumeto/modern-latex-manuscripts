@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1100 pages; the German reader has 1133 pages.
+The collected English reader has 1108 pages; the German reader has 1141 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -49,7 +49,6 @@ The posthumous texts [I.] and [II.] of On the Theory of Biquadratic Residues fol
 
 Text [III.], Theory of Biquadratic Residues, follows in full as printed, with its title and Articles 1–14, including the joint heading 7–8. It treats least-residue classes, decidents and the stated reciprocity theorem, coordinate bounds, parity sums and all boundary exceptions. Text [IV.] follows in full as printed, Articles 1–5, with its coordinate relations, two bound tables, intensor sums and sign table; its second method ends after the fourth step. The German reader renders the original German in modern German; the historical originals are supplied separately.
 
-Later Volume-III works and other volumes are outside these readers.
 
 Volume I contains the historical title matter, dedication, preface, all seven
 sections (Articles 1–366), five historical additions, Tables I–III, the historical
@@ -57,7 +56,7 @@ contents, both imprints, the manuscript appendix and the historical editor's
 closing note. Contents page references retain the source pagination.
 
 Historical sources: Carl Friedrich Gauss, Werke, Volume I, Göttingen, 1863;
-Volume II, second printing, Göttingen, 1876. Disquisitiones Arithmeticae was
+Volume II, second printing, Göttingen, 1876; Volume III, Göttingen, 1866. Disquisitiones Arithmeticae was
 first published in Leipzig in 1801.
 
 Originally German passages in the Volume-I appendix and editorial closing,
@@ -68,7 +67,7 @@ German renderings. The original German review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
 The package contains editable LaTeX text, mathematics, tables and diagrams, and the genuine
-portraits used in the readers. The volume_I and volume_II directories contain
+portraits used in the readers. The volume_I, volume_II and volume_III directories contain
 english and german sources. Build main.tex with XeLaTeX, rerunning until references and table widths stabilize, using Latin
 Modern, Babel, pdflscape and longtable. The collected readers present the volumes
 in numerical order; the individual volume readers are also supplied.
@@ -95,9 +94,11 @@ The complete historical Table for Circle Division (Cyklotechnie), A New Quadratu
 
 Schering’s complete historical closing remarks follow, with his accounts of the published papers, manuscript sources, tables and historical corrections, followed by the complete historical contents and Göttingen imprint. Historical page references retain the source pagination. The German reader gives a modern German rendering of the originally German passages; their historical originals are supplied separately. The reported historical corrections remain part of Schering’s account.
 
-Volume III contains the historical title matter and the complete 1799 dissertation, A New Proof of the Theorem That Every Polynomial in One Variable Can Be Resolved into Real Factors of the First or Second Degree: Articles 1–24, all ten historical footnotes, the closing October 1797 statement and Figures 1–4 in editable LaTeX. Its discussion of earlier proofs, geometric proof and concluding alternative argument retain Gauss’s formulations and qualifications. The originally German title matter is rendered in modern German in the German reader; the original German and Latin source bodies and editable figures are supplied separately. Later Volume-III works and other volumes are outside these readers.
+Volume III contains the historical title matter and the complete 1799 dissertation, A New Proof of the Theorem That Every Polynomial in One Variable Can Be Resolved into Real Factors of the First or Second Degree: Articles 1–24, all ten historical footnotes, the closing October 1797 statement and Figures 1–4 in editable LaTeX. Its discussion of earlier proofs, geometric proof and concluding alternative argument retain Gauss’s formulations and qualifications. The originally German title matter is rendered in modern German in the German reader; the original German and Latin source bodies and editable figures are supplied separately. 
 
-The complete second proof, Another New Proof of the Theorem That Every Polynomial in One Variable Can Be Resolved into Real Factors of the First or Second Degree, follows in Volume III: title matter, Articles 1–20 and both historical footnotes. Presented in 1815 and published in 1816, it gives Gauss’s determinant, symmetric-function and degree-reduction argument. Later Volume-III works and other volumes are outside these readers.
+The complete second proof, Another New Proof of the Theorem That Every Polynomial in One Variable Can Be Resolved into Real Factors of the First or Second Degree, follows in Volume III: title matter, Articles 1–20 and both historical footnotes. Presented in 1815 and published in 1816, it gives Gauss’s determinant, symmetric-function and degree-reduction argument. 
+
+The complete third proof, Third Proof of the Theorem on the Factorization of Polynomials into Real Factors, follows in Volume III as a supplement to the preceding paper. Presented on 30 January 1816 and published that year, it contains the historical title matter, introduction, complete Articles 1–4 and the historical footnote. It gives the positivity bounds, double-integral argument, real-factor conclusion and Gauss’s discussion of finiteness, continuity and multivalued inverse tangents. The source’s qualifications and mathematical formulations are retained. Later Volume-III works and other volumes are outside these readers.
 
 Translation sources and terminology
 
@@ -116,7 +117,7 @@ Investigations of Curved Surfaces of 1827 and 1825, Princeton University
 Library, 1902 (Project Gutenberg 36856), and Paul Taylor's English translation
 of Gauss's second proof of the fundamental theorem of algebra, with Bernard
 Leak, 1983, are references for English mathematical terminology and usage.
-Taylor–Leak is a corresponding translation of the 1815 second proof and a related terminology reference for the arithmetic papers and 1799 dissertation. Morehead–Hiltebeitel supplies related geometry terminology. Neither replaces Gauss’s original mathematics or exposition.
+Taylor–Leak is a corresponding translation of the 1815 second proof and a related terminology reference for the arithmetic papers and 1799 dissertation. Morehead–Hiltebeitel supplies related geometrical terminology, including continuity, integration and signed-area usage for the third proof of 1816. Taylor–Leak is not a parallel translation of that third proof. Neither replaces Gauss’s original mathematics or exposition.
 https://www.gutenberg.org/ebooks/36856
 https://www.paultaylor.eu/misc/gauss.html
 

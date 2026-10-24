@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 1100 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-24k/Gauss_Collected_English.pdf) or the [German collection, 1133 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-24k/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 1108 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-24l/Gauss_Collected_English.pdf) or the [German collection, 1141 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-24l/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-24k/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/6783ffb3719839ec4a45be6e8c3d74d35cf9efb6/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-24k)
+[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-24l/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/main/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-24l)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -67,6 +67,8 @@ Volume III contains the historical title matter and the complete 1799 dissertati
 
 The complete second proof follows with its title matter, Articles 1–20 and both historical footnotes. Presented in 1815 and published in 1816, it develops Gauss’s determinant, symmetric-function and degree-reduction argument, including his criticism of circular proofs, the polynomial divisibility identities and the concluding real linear or quadratic factor argument.
 
+The complete third proof of 1816 follows as a supplement to the preceding paper, with its title matter, introduction, Articles 1–4 and historical footnote. Presented on 30 January 1816 and published that year, it gives the positivity bounds, double-integral argument and real-factor conclusion, followed by Gauss’s discussion of finiteness, continuity and multivalued inverse tangents. His mathematical formulations and qualifications are retained.
+
 Later Volume-III works and other volumes remain outside these readers.
 This is a partial collected edition.
 
@@ -109,7 +111,7 @@ Investigations of Curved Surfaces of 1827 and 1825, Princeton University
 Library, 1902 (Project Gutenberg 36856), and Paul Taylor's English translation
 of Gauss's second proof of the fundamental theorem of algebra, with corrections by Bernard
 Leak, 1983, are references for English mathematical terminology and usage.
-Taylor–Leak is a corresponding translation of the 1815 second proof, and a related terminology reference for the arithmetic papers and 1799 dissertation. Morehead–Hiltebeitel supplies related geometrical terminology. Neither replaces Gauss’s original mathematics or exposition. The consulted Taylor–Leak online edition identifies its translation as December 1983, its LaTeX version as August 2003 and its underlying source as last modified on 8 June 2007. Its acknowledgements credit Mark Wainwright for returning Taylor’s notes and Nikita Danilov for typo corrections.
+Taylor–Leak is a corresponding translation of the 1815 second proof, and a related terminology reference for the arithmetic papers and 1799 dissertation. Morehead–Hiltebeitel supplies related geometrical terminology, including continuity, integration and signed-area usage for the third proof of 1816. Taylor–Leak is not a parallel translation of that third proof. Neither replaces Gauss’s original mathematics or exposition. The consulted Taylor–Leak online edition identifies its translation as December 1983, its LaTeX version as August 2003 and its underlying source as last modified on 8 June 2007. Its acknowledgements credit Mark Wainwright for returning Taylor’s notes and Nikita Danilov for typo corrections.
 https://www.gutenberg.org/ebooks/36856
 https://www.paultaylor.eu/misc/gauss.html
 
@@ -140,6 +142,6 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 These editions are freely available for study and teaching.
 
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/6783ffb3719839ec4a45be6e8c3d74d35cf9efb6/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 The citation metadata records the exact editable transcription archives used for the translations, with their SHA-256 identities, alongside the historical editions and named terminology references.
