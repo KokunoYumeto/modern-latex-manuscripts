@@ -1,4 +1,4 @@
-# Emmy Noether — Các văn bản toán học bằng tiếng Việt
+# Emmy Noether — Bản dịch thử nghiệm ngắn bằng tiếng Việt
 
 Nguồn hiện có gồm bản dịch ba trang của bài số 1. Đây không phải bản dịch đầy đủ toàn bộ tác phẩm.
 
@@ -11,6 +11,6 @@ Phạm vi nguồn giới hạn ở phần nêu trên.
 
 Giữ nguyên cấu trúc thư mục khi giải nén. Chạy XeLaTeX hai lần cho mỗi tệp chính từ thư mục chứa tệp; các gói và phông chữ được ghi trong phần khai báo.
 
-Bản dịch do AI tạo ra. Lần đồng bộ này không thay đổi nội dung toán học của bài số 1. Trình bày nguồn: OpenAI Codex — GPT-6 Astra, mức suy luận Ultra. Giữ nguyên tên các tác giả ghi trong tác phẩm.
+Bản dịch do AI tạo ra. Trình bày nguồn: OpenAI Codex — GPT-6 Astra, mức suy luận Ultra. Giữ nguyên tên các tác giả ghi trong tác phẩm.
 
 [Tác giả và quyền](RIGHTS.md).

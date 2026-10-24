@@ -6,9 +6,6 @@
 - [繁體中文](editions/noether/2026-10-24/zh-Hant/README.md).
 - [العربية](editions/noether/2026-10-24/ar/README.md).
 - [فارسی](editions/noether/2026-10-24/fa/README.md).
-- [Bahasa Indonesia](editions/noether/2026-10-24/id/README.md).
-- [Türkçe](editions/noether/2026-10-24/tr/README.md).
-- [Tiếng Việt](editions/noether/2026-10-24/vi/README.md).
 - [English](https://github.com/KokunoYumeto/emmy-noether-en).
 - [Français](https://github.com/KokunoYumeto/emmy-noether-fr).
 - [日本語](https://github.com/KokunoYumeto/emmy-noether-ja).
@@ -17,6 +14,14 @@
 - [Русский](https://github.com/KokunoYumeto/emmy-noether-ru).
 - [Українська](https://github.com/KokunoYumeto/emmy-noether-uk).
 - [Medžuslovjansky — Меджусловјанскы](https://github.com/KokunoYumeto/emmy-noether-isv).
+
+### Small translation pilots
+
+Short initial samples of Emmy Noether’s works, with editable LaTeX sources:
+
+- [Bahasa Indonesia — makalah 36 dan bagian awal makalah 6](editions/noether/2026-10-24/id/README.md).
+- [Türkçe — 36 numaralı makale](editions/noether/2026-10-24/tr/README.md).
+- [Tiếng Việt — ba trang của bài số 1](editions/noether/2026-10-24/vi/README.md).
 
 # Modern LaTeX Editions of Mathematics Manuscripts
 

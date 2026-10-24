@@ -1,4 +1,4 @@
-# Emmy Noether — Tulisan matematika dalam bahasa Indonesia
+# Emmy Noether — Sampel awal terjemahan bahasa Indonesia
 
 Sumber yang tersedia mencakup makalah 36 dan bagian awal makalah 6. Ini bukan terjemahan lengkap seluruh karya.
 
