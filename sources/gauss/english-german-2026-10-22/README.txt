@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1076 pages; the German reader has 1108 pages.
+The collected English reader has 1100 pages; the German reader has 1133 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -69,7 +69,7 @@ Historical German and Latin bodies are preserved in the originals directories.
 
 The package contains editable LaTeX text, mathematics, tables and diagrams, and the genuine
 portraits used in the readers. The volume_I and volume_II directories contain
-english and german sources. Build main.tex with XeLaTeX twice, using Latin
+english and german sources. Build main.tex with XeLaTeX, rerunning until references and table widths stabilize, using Latin
 Modern, Babel, pdflscape and longtable. The collected readers present the volumes
 in numerical order; the individual volume readers are also supplied.
 
@@ -97,6 +97,8 @@ Schering’s complete historical closing remarks follow, with his accounts of th
 
 Volume III contains the historical title matter and the complete 1799 dissertation, A New Proof of the Theorem That Every Polynomial in One Variable Can Be Resolved into Real Factors of the First or Second Degree: Articles 1–24, all ten historical footnotes, the closing October 1797 statement and Figures 1–4 in editable LaTeX. Its discussion of earlier proofs, geometric proof and concluding alternative argument retain Gauss’s formulations and qualifications. The originally German title matter is rendered in modern German in the German reader; the original German and Latin source bodies and editable figures are supplied separately. Later Volume-III works and other volumes are outside these readers.
 
+The complete second proof, Another New Proof of the Theorem That Every Polynomial in One Variable Can Be Resolved into Real Factors of the First or Second Degree, follows in Volume III: title matter, Articles 1–20 and both historical footnotes. Presented in 1815 and published in 1816, it gives Gauss’s determinant, symmetric-function and degree-reduction argument. Later Volume-III works and other volumes are outside these readers.
+
 Translation sources and terminology
 
 These English and German texts are AI-translated from Gauss's original-language
@@ -114,8 +116,7 @@ Investigations of Curved Surfaces of 1827 and 1825, Princeton University
 Library, 1902 (Project Gutenberg 36856), and Paul Taylor's English translation
 of Gauss's second proof of the fundamental theorem of algebra, with Bernard
 Leak, 1983, are references for English mathematical terminology and usage.
-Their geometrical and algebraic subject matter differs from these arithmetic
-papers; they do not supply replacement text or proofs for them.
+Taylor–Leak is a corresponding translation of the 1815 second proof and a related terminology reference for the arithmetic papers and 1799 dissertation. Morehead–Hiltebeitel supplies related geometry terminology. Neither replaces Gauss’s original mathematics or exposition.
 https://www.gutenberg.org/ebooks/36856
 https://www.paultaylor.eu/misc/gauss.html
 
@@ -140,13 +141,11 @@ Formulierungen bleiben die der Originalvorlage. Die oben genannten
 Crystallographic terminology references: Ian O. Angell and Moreton Moore, Projections of cubic crystals, IUCr, Table 2, https://www.iucr.org/what-we-do/education/pamphlets/projections-of-cubic-crystals ; Th. Hahn, H. Klapper, U. Müller and M. I. Aroyo, Point groups and crystal classes, International Tables for Crystallography A (2016), chapter 3.2, https://doi.org/10.1107/97809553602060000930 . These references guide terminology and usage; their running prose is not reproduced.
 
 
-## AI authorship and publication rights
+AI authorship and historical sources
 
-These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, with AI-produced typesetting. Gauss is the author of the historical mathematical text; signed historical editorial contributions retain their authorship. The named human translations and writings cited above are credited for their stated terminology and usage roles.
+These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, with AI-produced typesetting. Carl Friedrich Gauss is the author of the historical mathematical text. Signed historical editorial contributions retain their authorship. The named human translations and writings above are consulted for their stated terminology and usage roles; their running text is not reproduced.
 
-The editions are available free of charge for non-commercial, purely educational purposes. Publication rests on the publisher's presumption that the respective rights holders would not object; this is not established permission. Free access to a source does not itself authorize derivative publication. Rights in the originals and any protected derivative contributions remain with their respective rights holders. No project-wide licence or public-domain dedication is granted here.
-
-Rights holders may raise objections through the [GitHub issue page](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues). The publisher undertakes to take down the affected material upon a rights holder's request.
+The historical texts and portraits come from the nineteenth-century original editions.
 
 [Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
@@ -154,3 +153,5 @@ Rights holders may raise objections through the [GitHub issue page](https://gith
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
 Volume III: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_III_Original_Language_20261023_LaTeX.zip
 Exact source archive versions and identities are recorded in CITATIONS.bib.
+
+The consulted Taylor–Leak online edition identifies its translation as December 1983, its LaTeX version as August 2003 and its underlying source as last modified on 8 June 2007. It acknowledges Mark Wainwright for returning Taylor’s notes and Nikita Danilov for typo corrections.
