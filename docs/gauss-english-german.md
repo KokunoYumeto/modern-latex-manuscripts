@@ -1,5 +1,7 @@
 # Gauss: English and German translations
 
+**Gauss collected works:** [Original-language editions and English and German translations](https://github.com/KokunoYumeto/gauss-collected-works), with reader PDFs and editable LaTeX sources.
+
 **Read the [English collection, 1045 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 1076 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
 [Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Historical_End_Matter.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
