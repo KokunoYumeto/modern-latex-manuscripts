@@ -1,8 +1,8 @@
 # Gauss: English and German readers
 
-**[Read the English collection, 1034 pages](Gauss_Collected_English.pdf) · [Read the German collection, 1065 pages](Gauss_Werke_Deutsch.pdf)**
+**[Read the English collection, 1045 pages](Gauss_Collected_English.pdf) · [Read the German collection, 1076 pages](Gauss_Werke_Deutsch.pdf)**
 
-[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Arithmetic_Tables.zip)
+[Edition and exact coverage](../../../docs/gauss-english-german.md) · [Editable sources](../../../sources/gauss/english-german-2026-10-22/) · [Source download](../../../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Historical_End_Matter.zip)
 
 Both collected readers contain complete Volume I, the historical title matter
 and first five complete papers of Volume II. The fifth, Theory of Biquadratic
@@ -48,8 +48,9 @@ The complete historical Table for Circle Division (Cyklotechnie) follows, with a
 
 The printed Eighth Section, Articles 367–373, follows, including its interruption in Article 371 and the complete ending of Article 373. Both complete letters from Gauss to Dirichlet of 13 September 1826 and 30 May 1828 follow, with their tables, dates and signatures. The originally German prose is rendered in modern German in the German reader; the historical originals are supplied separately.
 
-Later
-Volume-II writings and other volumes are outside this edition.
+Schering’s complete historical closing remarks follow, with his account of the published papers, manuscript sources, tables and historical corrections, followed by the complete historical contents and Göttingen imprint. Every historical table entry, expression and reference is retained; historical page references use the source pagination. The German reader gives a modern German rendering of the originally German passages; their historical originals are supplied separately. The reported historical corrections remain part of Schering’s account.
+
+Other volumes of Gauss’s works are outside these readers.
 The individual Volume-I and Volume-II readers in this directory have the same
 contents as their corresponding portions of the collected readers.
 

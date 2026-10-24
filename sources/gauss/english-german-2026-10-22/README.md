@@ -1,6 +1,6 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 1034 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 1065 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Arithmetic_Tables.zip)
+[English reader, 1045 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 1076 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Historical_End_Matter.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
@@ -45,8 +45,9 @@ The complete historical Table for Circle Division (Cyklotechnie) follows, with a
 
 The printed Eighth Section, Articles 367–373, follows, including its interruption in Article 371 and the complete ending of Article 373. Both complete letters from Gauss to Dirichlet of 13 September 1826 and 30 May 1828 follow, with their tables, dates and signatures. The originally German prose is rendered in modern German in the German reader; the historical originals are supplied separately.
 
-Later
-writings and the other volumes are outside this edition.
+Schering’s complete historical closing remarks follow, with his account of the published papers, manuscript sources, tables and historical corrections, followed by the complete historical contents and Göttingen imprint. Every historical table entry, expression and reference is retained; historical page references use the source pagination. The German reader gives a modern German rendering of the originally German passages; their historical originals are supplied separately. The reported historical corrections remain part of Schering’s account.
+
+Other volumes of Gauss’s works are outside these readers.
 
 The `volume_I` and `volume_II` directories each contain `english` and `german`
 sources. Compile `main.tex` in each directory with XeLaTeX twice. The
