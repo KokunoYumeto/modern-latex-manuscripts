@@ -1,6 +1,6 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 800 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 830 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Complex_Numbers.zip)
+[English reader, 821 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 851 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Quadratic_Character_Table.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
@@ -32,6 +32,8 @@ Text [V.], *Theory of Biquadratic Residues*, follows in full as printed, Article
 Schering’s complete historical remarks on the six biquadratic manuscript texts [I.]–[VI.] follow, with his dating qualifications, geometric interpretations, summation derivations and signature. The originally German remarks are rendered in modern German in the German reader; their historical originals are supplied separately.
 
 On the Theory of Complex Numbers follows in full as printed: six fragments [I.]–[VI.] on the decomposition of cubes, the nearest integer, measures of numbers, units and congruences, followed by Schering’s historical remarks. The originally German passages are rendered in modern German in the German reader; their historical originals are supplied separately.
+
+The complete historical table of the quadratic character follows: primes from 2 to 997 as residues with respect to the primes from 3 to 503 as divisors. All historical entries and blanks are retained in editable tables.
 
 Later
 writings and the other volumes are outside this edition.
