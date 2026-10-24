@@ -1,6 +1,6 @@
 # Gauss: English and German LaTeX sources
 
-[English reader, 868 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 898 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Decimal_and_Prime_Tables.zip)
+[English reader, 871 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German reader, 902 pages](../../../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Edition and scope](../../../docs/gauss-english-german.md) · [Download all sources](Gauss_English_German_Collected_LaTeX_Letter_to_Enke.zip)
 
 The source tree contains complete Volume I in both languages, followed by the
 historical title matter and first five complete papers of Volume II. The fifth,
@@ -36,6 +36,8 @@ On the Theory of Complex Numbers follows in full as printed: six fragments [I.]�
 The complete historical table of the quadratic character follows: primes from 2 to 997 as residues with respect to the primes from 3 to 503 as divisors. All historical entries and blanks are retained in editable tables.
 
 The complete historical table for converting common fractions with denominators from the first thousand into decimal fractions follows, including every printed expansion and the primitive-root bands. The complete historical table of the frequency of prime numbers follows, with its matrices, integral values and closing observations.
+
+The complete letter from Gauss to Enke of 24 December 1849 follows, with its tables and discussion of prime-number frequency. The German reader renders the originally German letter in modern German; its historical original is supplied separately.
 
 Later
 writings and the other volumes are outside this edition.
