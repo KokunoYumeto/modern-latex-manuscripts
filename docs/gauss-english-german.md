@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 788 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 818 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 800 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) or the [German collection, 830 pages](../reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Biquadratic_Remarks.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
+[Download the complete editable LaTeX package](../sources/gauss/english-german-2026-10-22/Gauss_English_German_Collected_LaTeX_Complex_Numbers.zip) · [Browse the source tree](../sources/gauss/english-german-2026-10-22/) · [Individual volume readers](../reader-pdfs/gauss/english-german-2026-10-22/)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -46,6 +46,8 @@ Text [III.], *Theory of Biquadratic Residues*, follows in full as printed, with 
 Text [V.], *Theory of Biquadratic Residues*, follows in full as printed, Articles 1–17, with its editable lattice diagram, numerical examples, parity tables and 128-case table. Text [VI.] follows in full as printed, with its title and complete Articles 1–6: complete residue systems, associated quarter systems, the character and its independence, boundary conventions and the four-case construction. Their original German prose is rendered in modern German in the German reader; the historical originals are supplied separately.
 
 Schering’s complete historical remarks on the six biquadratic manuscript texts [I.]–[VI.] follow, with his dating qualifications, geometric interpretations, summation derivations and signature. The originally German remarks are rendered in modern German in the German reader; their historical originals are supplied separately.
+
+On the Theory of Complex Numbers follows in full as printed: six fragments [I.]–[VI.] on the decomposition of cubes, the nearest integer, measures of numbers, units and congruences, followed by Schering’s historical remarks. The originally German passages are rendered in modern German in the German reader; their historical originals are supplied separately.
 
 Later Volume-II writings and the other volumes are outside this edition.
 This is a partial collected edition.
