@@ -5,14 +5,11 @@ and combined volumes made from them. They are partly hallucinated: they contain 
 the historical authors did not write, presented as if they were the original text. Do not quote or cite them as the
 historical texts.
 
-## Up for adoption
+## Editions and adoption
 
-These editions are good projects that we want to see finished, but our compute is limited and we cannot say when we
-will return to them. Anyone is welcome to take one up. Work from a printed edition (for the Chinese texts, the
-*Sibu congkan* or *Siku quanshu* texts on Chinese Wikisource are a good start; for the *Āryabhaṭīya*, the text on
-Sanskrit Wikisource); the drafts show the planned scope and layout, not the text. Announce a scope with the
-[adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml); the
-[adoption board](../../../docs/adopt.md) lists the other open projects.
+The *Nine Chapters*, the *Ceyuan haijing* and Qin Jiushao's *Shushu jiuzhang* have editions made from the received texts, with complete English translations: 45-01 to 45-03 on the non-European shelf, and the repository [chinese-mathematical-classics](https://github.com/KokunoYumeto/chinese-mathematical-classics). Use those, not the drafts in this folder.
+
+The *Āryabhaṭīya* and the *Līlāvatī* are up for adoption: our compute is limited and we cannot say when we will return to them. Anyone is welcome to take one up. Work from a printed edition (the text on Sanskrit Wikisource is a good start for the *Āryabhaṭīya*); the drafts show the planned scope and layout, not the text. Announce a scope with the [adoption issue](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new?template=adopt.yml); the [adoption board](../../../docs/adopt.md) lists the other open projects.
 
 ## What is wrong in each file
 

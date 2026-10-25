@@ -60,6 +60,10 @@ or the [current interlanguage record page](docs/records/interlanguage-reflection
 
 **Gauss, AI-translated into modern English and German:** [English collection, 1112 pages](reader-pdfs/gauss/english-german-2026-10-22/Gauss_Collected_English.pdf) · [German collection, 1145 pages](reader-pdfs/gauss/english-german-2026-10-22/Gauss_Werke_Deutsch.pdf) · [Exact scope and editable sources](docs/gauss-english-german.md).
 
+**Chinese mathematical classics, from the received texts:** the *Nine Chapters* with Liu Hui's commentary, the *Ceyuan haijing*, the *Shushu jiuzhang* and the *Sunzi suanjing*, each with modern punctuation and a complete AI-translated English translation, unit by unit. [Readers](reader-pdfs/non-european/) · [Sources](sources/non-european/chinese-received-texts/) · [Repository](https://github.com/KokunoYumeto/chinese-mathematical-classics).
+
+**Yoshio Mikami, *The Development of Mathematics in China and Japan* (1913):** the complete English text, AI-transcribed page by page, with the figures. [Reader, 427 pages](reader-pdfs/non-european/70-06%20Reference%20Text%20-%20Mikami%20-%20Development%20of%20Mathematics%20in%20China%20and%20Japan%20%281913%29.pdf) · [LaTeX source](sources/non-european/mikami-1913/) · [Repository](https://github.com/KokunoYumeto/mikami-development-of-mathematics-in-china-and-japan).
+
 | What you want to do | Open this |
 |---|---|
 | Find an author, work, language, or exact continuation point | [Coverage-map index](docs/github-maps.md) |

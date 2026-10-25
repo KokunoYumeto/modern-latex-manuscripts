@@ -12,6 +12,11 @@ mathematical accuracy, source fidelity, native-language review, or completeness.
 
 **Partly hallucinated drafts.** The *Nine Chapters*, *Ceyuan haijing* and Qin Jiushao readers, the *Āryabhaṭīya* and *Līlāvatī* readers, the translations made from them and the combined volumes 01–05 are partly hallucinated drafts: they contain text the historical authors did not write. They are in [reader-pdfs/non-european/partly-hallucinated-drafts/](../reader-pdfs/non-european/partly-hallucinated-drafts/), whose README says what is wrong in each.
 
+## Editions from the received texts
+
+- [45-01 *Nine Chapters*, with Liu Hui's commentary](../reader-pdfs/non-european/45-01%20Chinese%20Text%20and%20English%20-%20Nine%20Chapters%2C%20with%20Liu%20Hui%20%28Sibu%20congkan%20text%29.pdf), [45-02 Li Ye, *Ceyuan haijing*](../reader-pdfs/non-european/45-02%20Chinese%20Text%20and%20English%20-%20Li%20Ye%20-%20Ceyuan%20Haijing%20%28Siku%20quanshu%20text%29.pdf), [45-03 Qin Jiushao, *Shushu jiuzhang*](../reader-pdfs/non-european/45-03%20Chinese%20Text%20and%20English%20-%20Qin%20Jiushao%20-%20Shushu%20Jiuzhang%20%28Siku%20quanshu%20text%29.pdf) and [45-04 *Sunzi suanjing*](../reader-pdfs/non-european/45-04%20Chinese%20Text%20and%20English%20-%20Sunzi%20Suanjing.pdf): the Chinese text of the Sibu congkan and Siku quanshu editions as transcribed on Chinese Wikisource, with modern punctuation and a complete English translation, unit by unit. Sources, machine-readable units and the Wikisource revisions used: [sources/non-european/chinese-received-texts/](../sources/non-european/chinese-received-texts/). Repository: https://github.com/KokunoYumeto/chinese-mathematical-classics.
+- [70-06 Yoshio Mikami, *The Development of Mathematics in China and Japan* (1913)](../reader-pdfs/non-european/70-06%20Reference%20Text%20-%20Mikami%20-%20Development%20of%20Mathematics%20in%20China%20and%20Japan%20%281913%29.pdf): the complete English text with the figures, 427 pages. Source: [sources/non-european/mikami-1913/](../sources/non-european/mikami-1913/). Repository: https://github.com/KokunoYumeto/mikami-development-of-mathematics-in-china-and-japan.
+
 ## Start Here
 
 - [Direct reader shelf](../reader-pdfs/non-european/) - 72 PDFs / 244,889,001
