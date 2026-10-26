@@ -1,3 +1,9 @@
+## Read this first
+
+This collection is a work in progress. Its transcriptions and translations are AI-produced, except where an edition credits human work. When the project started, AI tools could not yet do this work reliably, and much of what is here comes from experiments in finding a method that works; those results are rough. The tools have become more reliable since.
+
+Some editions are in a readable state, but even the readable ones very likely contain errors, or at least inelegancies, and only some of them are of decent quality. Many are still worth reading, especially translations that exist nowhere else. Apart from a few tentative exceptions, none of it is at the level of a human mathematician's work. Read with discretion, and check important statements and formulas against the original.
+
 ## Emmy Noether — Languages / Langues
 
 **Gauss collected works:** [Original-language editions and English and German translations](https://github.com/KokunoYumeto/gauss-collected-works), with reader PDFs and editable LaTeX sources.
