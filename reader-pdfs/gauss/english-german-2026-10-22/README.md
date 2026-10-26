@@ -2,7 +2,7 @@
 
 **Read the [English collection, 1147 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26b/Gauss_Collected_English.pdf) or the [German collection, 1182 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26b/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26b/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/main/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-26b)
+[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26b/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/63766f6cfc2cfb8303dcea9219ea00d68ca73057/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-26b)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -160,6 +160,6 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 These editions are freely available for study and teaching.
 
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/63766f6cfc2cfb8303dcea9219ea00d68ca73057/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 The citation metadata records the exact editable transcription archives used for the translations, with their SHA-256 identities, alongside the historical editions and named terminology references.
