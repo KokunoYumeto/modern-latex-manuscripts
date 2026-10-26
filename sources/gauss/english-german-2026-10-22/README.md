@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 1112 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-24m/Gauss_Collected_English.pdf) or the [German collection, 1145 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-24m/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 1138 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26a/Gauss_Collected_English.pdf) or the [German collection, 1173 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26a/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-24m/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/02cc6a7a8eb8af23dae5ff229705ec8d34f89706/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-24m)
+[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26a/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/main/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-26a)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -71,6 +71,16 @@ The complete third proof of 1816 follows as a supplement to the preceding paper,
 
 The complete 1828 paper Proof of an Algebraic Theorem follows with its historical title and entire argument about positive and negative roots, sign changes and sign continuations of coefficients, including all cases of missing terms. It is a separate work about the rule of signs. The German reader gives a modern German rendering of the original German text; that original is retained separately.
 
+The complete Contributions to the Theory of Algebraic Equations follows with its title, introduction, First Division (Articles 1–10), Second Division (Articles 11–20), two authorial footnotes and complete editable plate. The work was read on 16 July 1849 and published at Göttingen in 1850, in Volume IV of the Abhandlungen der Königlichen Gesellschaft der Wissenschaften. It treats polynomial factorization and the determination of the real and imaginary roots of equations with three terms, with the complete historical auxiliary-logarithm tables and worked calculations. The German reader is a modern German rendering of the historical German text, which is preserved separately.
+
+
+
+| Component reader | English | German |
+|---|---|---|
+| Volume I | [408 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26a/Gauss_Werke_I_English.pdf) | [430 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26a/Gauss_Werke_I_Deutsch.pdf) |
+| Volume II selection | [637 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26a/Gauss_Werke_II_English_Selection.pdf) | [646 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26a/Gauss_Werke_II_Deutsch_Auswahl.pdf) |
+| Volume III: first five complete works | [93 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26a/Gauss_Werke_III_English_Selection.pdf) | [97 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-26a/Gauss_Werke_III_Deutsch_Auswahl.pdf) |
+
 Later Volume-III works and other volumes remain outside these readers.
 This is a partial collected edition.
 
@@ -95,6 +105,8 @@ AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced type
 The originally German Fragments III–IV and VIII–X, the geometric notes and the historical remarks are rendered in modern German in the German reader. Their historical originals are supplied separately in the source package.
 
 The corresponding editable original-language editions are available in the [Gauss original-language collection](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-original-language-2026-10-24): [Volume I](https://github.com/KokunoYumeto/gauss-collected-works/releases/download/gauss-original-language-2026-10-24/Gauss_I_Original_Language_20261024_LaTeX.zip), [Volume II](https://github.com/KokunoYumeto/gauss-collected-works/releases/download/gauss-original-language-2026-10-24/Gauss_II_Original_Language_20261024_LaTeX.zip), [Volume III](https://github.com/KokunoYumeto/gauss-collected-works/releases/download/gauss-original-language-2026-10-24/Gauss_III_Original_Language_20261024_LaTeX.zip). Their text, formula and diagram TeX files correspond byte for byte to the retained editable sources used for these translations. Exact translation-source archive versions and SHA-256 identities are recorded in CITATIONS.bib; the published original-language archives have their own packaging and archive identities.
+
+Related Taylor–Leak terminology was consulted for the 1849 introduction and Articles 1 and 10; related Morehead–Hiltebeitel terminology for geometry, trigonometry, series and mathematical usage; and related Maser terminology for roots, logarithms and tables. These are related passages, not parallel translations of the 1849 work. Their running prose is not adopted, and the original mathematical formulations and historical numerical values remain those of Gauss.
 
 ## Translation sources and terminology
 
@@ -144,6 +156,6 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 These editions are freely available for study and teaching.
 
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/02cc6a7a8eb8af23dae5ff229705ec8d34f89706/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 The citation metadata records the exact editable transcription archives used for the translations, with their SHA-256 identities, alongside the historical editions and named terminology references.
