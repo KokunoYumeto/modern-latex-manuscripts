@@ -21,14 +21,14 @@ Papers 1â€“43, the 1929/30 lectures written up by M. Deuring, and the Kapfererâ€
 | German | [this repository, release noether-de-2026-10-26](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/noether-de-2026-10-26) |
 | English | [emmy-noether-en](https://github.com/KokunoYumeto/emmy-noether-en) |
 | French | [emmy-noether-fr](https://github.com/KokunoYumeto/emmy-noether-fr) |
-| Spanish | [this repository, release noether-es-2026-10-27](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/noether-es-2026-10-27) |
+| Spanish | [this repository, release noether-es-2026-10-27-r2](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/noether-es-2026-10-27-r2) |
 | Russian | [emmy-noether-ru](https://github.com/KokunoYumeto/emmy-noether-ru) |
 | Ukrainian | [emmy-noether-uk](https://github.com/KokunoYumeto/emmy-noether-uk) |
 | Interslavic (Latin and Cyrillic script) | [emmy-noether-isv](https://github.com/KokunoYumeto/emmy-noether-isv) (with a [dictionary of its mathematical terms](https://kokunoyumeto.github.io/emmy-noether-isv/04_NOETHER_INTERSLAVIC_DICTIONARY.pdf)) |
 | Japanese | [emmy-noether-ja](https://github.com/KokunoYumeto/emmy-noether-ja) |
 | Korean | [emmy-noether-ko](https://github.com/KokunoYumeto/emmy-noether-ko) |
 | Chinese (simplified) | [emmy-noether-zh-hans](https://github.com/KokunoYumeto/emmy-noether-zh-hans) |
-| Chinese (traditional characters) | [this repository, release noether-zh-Hant-2026-10-27](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/noether-zh-Hant-2026-10-27) |
+| Chinese (traditional characters) | [this repository, release noether-zh-Hant-2026-10-27-r2](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/noether-zh-Hant-2026-10-27-r2) |
 
 Partial translations: [Arabic](editions/noether/2026-10-24/ar/README.md), [Persian](editions/noether/2026-10-24/fa/README.md), [Indonesian](editions/noether/2026-10-24/id/README.md), [Turkish](editions/noether/2026-10-24/tr/README.md), [Vietnamese](editions/noether/2026-10-24/vi/README.md).
 
