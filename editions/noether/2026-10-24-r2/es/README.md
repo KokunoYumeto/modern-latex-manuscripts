@@ -4,15 +4,15 @@ Artículos 1–43, las lecciones de 1929/30 redactadas por M. Deuring, el trabaj
 
 ## Texto base
 
-1. [PDF](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r3/01-noether-es-base.pdf)
-2. [Fuentes LaTeX editables](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r3/02-noether-es-base.tex)
-3. [Archivo completo de fuentes](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r3/03-noether-es-base-sources.zip)
+1. [PDF](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r4/01-noether-es-base.pdf)
+2. [Fuentes LaTeX editables](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r4/02-noether-es-base.tex)
+3. [Archivo completo de fuentes](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r4/03-noether-es-base-sources.zip)
 
 ## Texto con enmiendas editoriales
 
-1. [PDF](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r3/04-noether-es-emendations.pdf)
-2. [Fuentes LaTeX editables](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r3/05-noether-es-emendations.tex)
-3. [Archivo completo de fuentes](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r3/06-noether-es-emendations-sources.zip)
+1. [PDF](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r4/04-noether-es-emendations.pdf)
+2. [Fuentes LaTeX editables](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r4/05-noether-es-emendations.tex)
+3. [Archivo completo de fuentes](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-es-2026-10-27-r4/06-noether-es-emendations-sources.zip)
 
 Traducción producida por IA. Correcciones y composición producidas por OpenAI Codex — GPT-6 Astra, esfuerzo Ultra. Se conservan los autores indicados en las obras, incluidos Emmy Noether, M. Deuring y sus coautores. No se atribuye al editor una traducción ni una revisión humana independiente.
 
