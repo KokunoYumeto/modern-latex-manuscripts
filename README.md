@@ -84,6 +84,34 @@ Through page 493 of the book: [reader-pdfs/sylvester](reader-pdfs/sylvester/).
 
 A Russian transcription of the handwritten seminar notes with comparison PDFs; the Russian and English reading editions are in progress: [gelfand-seminar-russian-diplomatic](https://github.com/KokunoYumeto/gelfand-seminar-russian-diplomatic).
 
+### Luigi Bianchi, *Lezioni*
+
+Volume I of the *Lezioni di geometria differenziale* (1902) in Italian, English and Chinese, and pages 1–116 of the *Lezioni sulla teoria dei gruppi continui finiti di trasformazioni* (1903) in Italian and English: [bianchi-lezioni](https://github.com/KokunoYumeto/bianchi-lezioni).
+
+### G. Frobenius, papers on group characters (1896–1903)
+
+Ten papers, German text and English translation: [frobenius-group-characters](https://github.com/KokunoYumeto/frobenius-group-characters).
+
+### J. Willard Gibbs, *Scientific Papers*, Volume I
+
+Printed pages 1–134: [gibbs-scientific-papers](https://github.com/KokunoYumeto/gibbs-scientific-papers).
+
+### Paul Gordan
+
+*De linea geodetica*, the *Thetafunctionen* paper, the *Theorie der Abelschen Functionen* (with A. Clebsch) and the *Formensystem* in the original language and English, and the German text of the *Vorlesungen über Invariantentheorie*: [paul-gordan](https://github.com/KokunoYumeto/paul-gordan).
+
+### Adolf Kneser, *Lehrbuch der Variationsrechnung* (1900)
+
+The German text, an English and a Chinese translation: [kneser-lehrbuch-der-variationsrechnung](https://github.com/KokunoYumeto/kneser-lehrbuch-der-variationsrechnung).
+
+### James Clerk Maxwell, *A Treatise on Electricity and Magnetism*, Volume I (1873)
+
+Printed pages 1–79 and 111–267: [maxwell-treatise-electricity-magnetism](https://github.com/KokunoYumeto/maxwell-treatise-electricity-magnetism).
+
+### Henri Poincaré, *Œuvres*, Tome I (1928)
+
+French text and English translation, from the beginning through the memoir on curves defined by a differential equation (without its Chapters XV–XVI): [poincare-oeuvres-tome-1](https://github.com/KokunoYumeto/poincare-oeuvres-tome-1).
+
 ### Earlier and partial work in this repository
 
 - Dedekind, *Gesammelte mathematische Werke* I, items I–IV, German and English: [reader-pdfs/dedekind](reader-pdfs/dedekind/)
@@ -108,7 +136,7 @@ Finding things in this repository: [reader-pdfs](reader-pdfs/README.md) (reader 
 
 ## Old Zenodo records (not maintained)
 
-Kept for completeness. They are frozen at their last version; the current editions are those listed above. Bianchi, Frobenius, Gibbs, Gordan, Kneser, Maxwell and Poincaré are so far only in these records.
+Kept for completeness. They are frozen at their last version; the current editions are those listed above.
 
 | Collection | Record |
 |---|---|
