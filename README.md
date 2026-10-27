@@ -8,6 +8,8 @@ Some editions are in a readable state, but even the readable ones very likely co
 
 Historical mathematics transcribed into modern LaTeX and translated into other languages, with reader PDFs and editable sources. The larger editions have their own repositories, listed below; this repository holds the overview, the smaller editions and earlier work.
 
+Zenodo has blocked access to our account, so please use our GitHub repositories from now on.
+
 ## Editions
 
 ### Emmy Noether, mathematical works
