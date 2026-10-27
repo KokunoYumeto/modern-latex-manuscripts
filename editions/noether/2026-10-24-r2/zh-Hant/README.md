@@ -9,18 +9,18 @@
 ### 基本正文——427頁
 
 1. [閱讀PDF](reader-edition/01-noether-zh-Hant-base.pdf)
-2. [下載完整LaTeX正文](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27/02-noether-zh-Hant-base.tex)
-3. [下載完整排版原始檔](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27/03-noether-zh-Hant-base-sources.zip)
+2. [下載完整LaTeX正文](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27-r2/02-noether-zh-Hant-base.tex)
+3. [下載完整排版原始檔](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27-r2/03-noether-zh-Hant-base-sources.zip)
 
 ### 訂正正文與編者注——432頁
 
 1. [閱讀PDF](reader-edition/04-noether-zh-Hant-emendations.pdf)
-2. [下載完整LaTeX正文](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27/05-noether-zh-Hant-emendations.tex)
-3. [下載完整排版原始檔](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27/06-noether-zh-Hant-emendations-sources.zip)
+2. [下載完整LaTeX正文](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27-r2/05-noether-zh-Hant-emendations.tex)
+3. [下載完整排版原始檔](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27-r2/06-noether-zh-Hant-emendations-sources.zip)
 
 兩種正文均包含上述範圍。PDF書籤可導覽至全部43篇編號論文及後續部分。基本正文保留編者注所討論的原刊讀法；訂正版另以編者注說明有關訂正及依據。這些注釋並非整部著作的窮盡式批判校本。
 
-每個直接下載的LaTeX檔均含對應版本的完整正文；各ZIP包含同一正文、排版說明及腳本。排版使用XeLaTeX，並需安裝說明中列出的Microsoft JhengHei與Noto字型和TeX套件。字型檔不隨包分發。[SHA-256檔案清單](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27/07-SHA256SUMS.txt)
+每個直接下載的LaTeX檔均含對應版本的完整正文；各ZIP包含同一正文、排版說明及腳本。排版使用XeLaTeX，並需安裝說明中列出的Microsoft JhengHei與Noto字型和TeX套件。字型檔不隨包分發。[SHA-256檔案清單](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27-r2/07-SHA256SUMS.txt)
 
 ## 作者、翻譯與出處
 
@@ -39,4 +39,4 @@ Emmy Noether的著作屬於公有領域。出版者對AI製作的翻譯、訂正
 
 ## 中文譯本與程式
 
-一個中文譯本，提供簡體正文和程式生成的繁體字形式；兩種字形均持續維護。[方法、作者模型與日期、可直接瀏覽的程式](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/editions/noether/methods/chinese-script-2026-10-24-r2/README.zh-Hant.md)。完整原始檔ZIP中的`code/`也包含轉換函式、指定版本重建設定及兩種字形的排版程式。[單獨下載程式](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27/08-noether-chinese-script-code-2026-10-24-r2.zip)。
+一個中文譯本，提供簡體正文和程式生成的繁體字形式；兩種字形均持續維護。[方法、作者模型與日期、可直接瀏覽的程式](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/editions/noether/methods/chinese-script-2026-10-24-r2/README.zh-Hant.md)。完整原始檔ZIP中的`code/`也包含轉換函式、指定版本重建設定及兩種字形的排版程式。[單獨下載程式](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-27-r2/08-noether-chinese-script-code-2026-10-24-r2.zip)。
