@@ -45,7 +45,8 @@ Earlier editions in this repository: Grothendieck's Tôhoku paper ([sources/toho
 
 ### Évariste Galois, *Œuvres mathématiques* (1897)
 
-French transcription with critical notes: [evariste-galois-fr](https://github.com/KokunoYumeto/evariste-galois-fr) · English translation, plain and annotated: [evariste-galois-en](https://github.com/KokunoYumeto/evariste-galois-en).
+- French: [transcription of the 1897 edition](https://github.com/KokunoYumeto/evariste-galois-fr/blob/main/source/diplomatic/GAL1897_1897_SOURCE_FAITHFUL_CANDIDATE_P13R_AUDIT_BUILD.pdf) · [the same followed by GPT critical notes](https://github.com/KokunoYumeto/evariste-galois-fr/blob/main/reader/00_GALOIS_1897_FR_CURRENT_LINKED_READER.pdf) · repository [evariste-galois-fr](https://github.com/KokunoYumeto/evariste-galois-fr)
+- English: [translation of the 1897 edition](https://github.com/KokunoYumeto/evariste-galois-en/blob/main/reader/00_GALOIS_1897_EN_SOURCE_FAITHFUL_READER.pdf) · [the same translation with GPT critical notes](https://github.com/KokunoYumeto/evariste-galois-en/blob/main/reader/01_GALOIS_1897_EN_GPT_ANNOTATED_READER.pdf) · repository [evariste-galois-en](https://github.com/KokunoYumeto/evariste-galois-en)
 
 ### Carl Friedrich Gauss, collected works
 
