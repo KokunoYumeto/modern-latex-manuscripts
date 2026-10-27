@@ -24,7 +24,6 @@ Before beginning work:
 | Board ID | Author / work | Current public starting point | Useful parallel contribution |
 |---|---|---|---|
 | `noether-de-auth` | Emmy Noether — canonical German authority | [Noether map](noether-map.md) | Verify one exact correction or cross-language finding against its authority coordinate. |
-| `ega-i-p143-control` | Grothendieck–Dieudonné — EGA I | [EGA map](ega-map.md) | Replay the sealed p.143 checkpoint or independently review a bounded range before p.144 continuation. |
 | `fga-foundements` | Grothendieck and collaborators — FGA | [FGA map](fga-map.md) | Review one Exposé, *Commentaires* range, erratum, or graph residual. |
 | `verdier-thesis` | Jean-Louis Verdier — thesis | [Verdier map](verdier-map.md) | Review admitted pp.2–9 or continue from physical p.10. |
 | `tohoku-paper` | Alexander Grothendieck — Tôhoku paper | [Tôhoku map](tohoku-map.md) | Reconcile the preserved p.119 versus pp.119–121 cursor evidence. |
@@ -44,8 +43,6 @@ bounded starts include:
   (`noether-ko-p09`).
 - Continue Arabic or Iranian Persian Noether Paper 6 at `P06-S0006`
   (`noether-ar-p06`, `noether-fa-p06`).
-- Independently replay the represented English EGA 0–IV assembly
-  (`ega-0-iv-en-global`).
 - Recover the exact Gauss *Werke* II packet before continuing at printed p.305
   (`gauss-werke-ii`).
 - Review or repair exact Dedekind, Dirichlet, Riemann, Cayley, Hecke, Killing,

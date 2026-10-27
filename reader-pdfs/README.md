@@ -8,7 +8,7 @@ reviewed, or an invitation to start a new translation.
 Observed 2026-08-07: fourteen allowed roots contain 402 tracked files /
 932,575,366 bytes. There are 399 PDFs and three small support files. The set has
 401 unique SHA-256 identities, one internal duplicate pair, and no cross-root
-duplicate bytes. The Deligne root counted there (96 PDFs, 42,412,442 bytes) is no longer in this repository.
+duplicate bytes. The Deligne root counted there (96 PDFs, 42,412,442 bytes) is no longer in this repository. The EGA row describes that root as of 27 October 2026: the English edition and eight NUMDAM scans of the French originals.
 
 ## Exact Root Index
 
@@ -21,7 +21,7 @@ digest below uses repository-relative paths.
 | [Classical](classical/) | 21 | 0 | 79,792,322 | `3CCB01C0470ADCECA8C30381F01E42CDB1542790D34282F1E8A85DE684B03ABA` | [Map](../docs/classical-map.md) |
 | [Dedekind](dedekind/) | 2 | 0 | 571,836 | `08867846489C83A29A62F3B0AEFFEBFDBC1E71FB4175770D5AB8188558437627` | [Map](../docs/dedekind-map.md) |
 | [Dirichlet](dirichlet/) | 2 | 0 | 20,990,879 | `D43DABDB4AEB21AACCD3641362746F6C538FE732ADBD9ED7AC9E2552A69F4736` | [Map](../docs/dirichlet-map.md) |
-| [EGA](ega/) | 10 | 0 | 250,754,356 | `0142D300645188929023C253BA649795EE3425FC2C546FD697D7EF000D519AD4` | [Map](../docs/ega-map.md) |
+| [EGA](ega/) | 9 | 0 | 251,935,795 | `15771AC4766150D5F6F60286280B4D6643D98572E980A6490BC0F8FC335B0CBE` | [Map](../docs/ega-map.md) |
 | [Gauss](gauss/) | 14 | 0 | 115,264,723 | `9CC990DAF36F41CE2A91602BCA99E1527FAD91603DF53BD363CFCF30F0FD9686` | [Map](../docs/gauss-map.md) |
 | [Noether](noether/) | 129 | 3 | 72,229,799 | `2C3EB4E0ABB80F62689AFA7333CE156AD1EE1A7F69EBB533EB30204E270673E2` | [Map](../docs/noether-map.md) |
 | [Non-European mathematics](non-european/) | 72 | 0 | 244,889,001 | `742D16670E2EFED507B7509B632B17519418374D9BBBAFC1F82AD95552724B84` | [Map](../docs/non-european-map.md) |

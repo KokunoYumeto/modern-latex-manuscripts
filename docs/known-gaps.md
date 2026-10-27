@@ -12,15 +12,7 @@ This page records the main incompleteness that a reader or contributor should kn
 
 ## EGA
 
-External discovery/provenance concept: <https://doi.org/10.5281/zenodo.20414353>
-
-- The supplied current [receipt for version 21792798](../sources/ega/p143/receipt.json) records 79 files / 3,778,975,780 bytes. It fronts one continuous 1,356-page linked EGA 0-IV reader and keeps all five standalone English readers and their masters directly accessible.
-- EGA 0, I, II, and published EGA III have reference-v2 working-reader layers and exact public readback, but they remain working translations rather than critical editions, rights determinations, or independent human certifications.
-- EGA IV now has a complete source-aligned reference-v2 working reader with exact package replay. That does not amount to independent mathematical review, accessibility certification, rights clearance, or a critical edition.
-- The public EGA 0 scope ends at Section 13, as represented in the current standalone and global readers. Cross-volume links are present where exact packaged targets exist; this does not imply independent mathematical review or uniform source certification across all five volumes.
-- The separately frozen EGA I authority recheck reaches printed p.143 / Definition 6.2.1. A later active generation begins at p.144 and is not part of that checkpoint.
-- Earlier bounded EGA checkpoints and disjoint GitHub source-survival snapshots remain immutable history beneath the cumulative reader; they are not competing current reading surfaces.
-- The public EGA surface is useful for reading, continuation, and checking, but represented reader completion must not be expanded into uniform source certification, rights clearance, or a critical-edition claim.
+- The English edition covers Chapters 0–IV and is AI-translated from the French transcription; see the [EGA map](ega-map.md).
 
 ## SGA
 

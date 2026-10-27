@@ -20,14 +20,6 @@ continuation points.
   a 408-member exact source/evidence transport. The resulting surface has 74
   files / 226,236,286 bytes. Anonymous replay passed 74/74 files and 408/408
   Spanish ZIP members; all 57 predecessor files remain exact.
-- **EGA:** producer-supplied version [10.5281/zenodo.21792798](https://doi.org/10.5281/zenodo.21792798),
-  concept [10.5281/zenodo.20414353](https://doi.org/10.5281/zenodo.20414353).
-  Its exact GitHub [receipt](../sources/ega/p143/receipt.json) records 79 files /
-  3,778,975,780 bytes. The 1,356-page linked EGA 0-IV reader remains fronted,
-  all five standalone English readers and masters remain accessible, and the
-  paired EGA I authority recheck is sealed through printed p.143 / Definition
-  6.2.1. The later active generation starts at p.144; the earlier p.142
-  methodology and replication projections remain immutable provenance.
 - **FAC quality evidence:** unified version
   [10.5281/zenodo.21783868](https://doi.org/10.5281/zenodo.21783868), surviving
   concept [10.5281/zenodo.21720996](https://doi.org/10.5281/zenodo.21720996).

@@ -100,7 +100,6 @@ outputs, and no composed build or modified edition.
 | Board ID | Scope | Maintained as | Existing surface | Parallel contribution |
 |---|---|---|---|---|
 | `noether-de-auth` | Emmy Noether canonical German project authority | Kokuno Yumeto project authority lane | [Noether map](noether-map.md) | Return an exact authority correction or accepted cross-language finding; do not fork away from the correction history. |
-| `ega-i-p143-control` | EGA I paired authority control through printed page 143 | Kokuno Yumeto project coordination | [EGA map](ega-map.md) | Replay the sealed p.143 checkpoint before continuing from the current p.144 generation; independent bounded review is welcome. |
 | `fga-foundements` | FGA separate French and English editions | Kokuno Yumeto project coordination | [FGA map](fga-map.md) | Check one Exposé, Commentaires range, erratum, or graph residual without creating a bilingual front reader. |
 | `verdier-thesis` | Verdier thesis front matter, physical pages 2-9 | Kokuno Yumeto project coordination | [Verdier map](verdier-map.md) | Continue at physical page 10 or independently check the admitted range. |
 | `tohoku-paper` | Grothendieck's Tôhoku paper checkpoint | Kokuno Yumeto project coordination | [Tôhoku map](tohoku-map.md) | Reconcile the historical p.119 versus p.119-121 cursor controls before any continuation. |
@@ -145,7 +144,6 @@ overlap and do not convert the archive bytes into a claimant's property.
 | `noether-fa-p06` | High | Emmy Noether, Iranian Persian Paper 6 opening | Exact cursor | Preserve S0002/S0004/S0005 and continue independently at `P06-S0006`; do not derive Persian mechanically from Arabic. |
 | `noether-id-p36` | High | Emmy Noether, complete Indonesian Paper 36 notice | Review-ready | Review the existing five-segment, one-page notice against source; do not retranslate it. |
 | `noether-vi-p01` | High | Emmy Noether, complete Vietnamese Paper 1 | Review-ready | Review the existing producer-complete TeX/PDF for source, language, formula, and visual correctness. |
-| `ega-0-iv-en-global` | High | Grothendieck–Dieudonné, represented English EGA 0-IV global edition | Review-ready | Replay the terminal 1,356-page assembly, links, and volume/source bindings without inferring a complete diplomatic French corpus or source certification. |
 | `gauss-werke-ii` | High | Carl Friedrich Gauss, *Werke* II | Exact cursor | Recover and hash-replay the registered nine-ZIP packet before continuing after printed p.303; the registry is metadata, not payload custody. Start at the [Gauss map](gauss-map.md). |
 | `gauss-band-ii-pilots` | High | Carl Friedrich Gauss, two bounded Band II pilots | Review-ready | Bind the cited scan pages and directly audit the Theorematis and Seeber source/English pairs. |
 | `gauss-broad-readers-review` | High | Carl Friedrich Gauss, broad working readers and components | Review-ready | Select one exact band, replay its reader/component assembly, and prioritize retained grade-C/D material without replacing the bounded p.303 baseline. |

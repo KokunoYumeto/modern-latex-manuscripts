@@ -1,0 +1,141 @@
+% Preamble of the English EGA edition, written for this edition (dedicated to the public domain under CC0 1.0).
+% It defines the notation macros, cross-reference commands and numbered environments used by the sources.
+\usepackage[a4paper,inner=2.6cm,outer=3.6cm,top=2.8cm,bottom=2.8cm,marginparwidth=2.7cm,marginparsep=0.3cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[english]{babel}
+\usepackage{amsmath,amssymb,amsthm,mathrsfs,mathtools}
+\usepackage[shortlabels]{enumitem}
+\usepackage[all,cmtip]{xy}
+\usepackage{tikz-cd}
+\usepackage{longtable,multicol}
+\usepackage{marginnote}
+\usepackage{xstring}
+\usepackage[fit]{truncate}
+% Running heads: chapter on left pages, section on right pages, in slanted type and cut to the text width.
+\makeatletter
+\renewcommand{\ps@headings}{%
+  \def\@oddfoot{}\def\@evenfoot{}%
+  \def\@oddhead{\truncate{\dimexpr\textwidth-3em\relax}{\slshape\rightmark}\hfil\thepage}%
+  \def\@evenhead{\thepage\hfil\truncate{\dimexpr\textwidth-3em\relax}{\slshape\leftmark}}%
+  \def\chaptermark##1{\markboth{##1}{}}%
+  \def\sectionmark##1{\markright{\thesection.\ ##1}}}
+\pagestyle{headings}
+% The blank left-hand page before a chapter carries no running head.
+\renewcommand{\cleardoublepage}{\clearpage\if@twoside\ifodd\c@page\else\hbox{}\thispagestyle{empty}\newpage\fi\fi}
+% A bibliography is headed by the section heading of its file, not by a chapter heading of its own.
+\renewenvironment{thebibliography}[1]
+  {\list{\@biblabel{\@arabic\c@enumiv}}{\settowidth\labelwidth{\@biblabel{#1}}\leftmargin\labelwidth
+     \advance\leftmargin\labelsep\@openbib@code\usecounter{enumiv}\let\p@enumiv\@empty
+     \renewcommand\theenumiv{\@arabic\c@enumiv}}\sloppy\clubpenalty4000\@clubpenalty\clubpenalty
+     \widowpenalty4000\sfcode`\.\@m}
+  {\def\@noitemerr{\@latex@warning{Empty `thebibliography' environment}}\endlist}
+\makeatother
+\usepackage[hidelinks,bookmarksnumbered,hypertexnames=false]{hyperref}% unique link targets for tagged formulas
+\usepackage{bookmark}
+\setlength{\emergencystretch}{3em}
+
+% ---- notation ---------------------------------------------------------------
+\newcommand{\sh}[1]{\mathscr{#1}}
+\newcommand{\bb}[1]{\mathbf{#1}}
+\newcommand{\bbGamma}{\boldsymbol{\Gamma}}
+\newcommand{\cat}[1]{\mathbf{#1}}
+\newcommand{\vphi}{\varphi}
+\newcommand{\HH}{\mathrm{H}}
+\newcommand{\CHH}{\check{\mathrm{H}}}
+\newcommand{\RR}{\mathrm{R}}
+\newcommand{\LL}{\mathrm{L}}
+\newcommand{\red}{\mathrm{red}}
+\newcommand{\kres}{\boldsymbol{k}}
+\newcommand{\emp}{\varnothing}
+\newcommand{\supertilde}{^{\sim}}% written after its argument: M\supertilde is the sheaf associated with M
+\newcommand{\isoto}{\xrightarrow{\,\smash{\raisebox{-0.45ex}{\ensuremath{\scriptstyle\sim}}}\,}}
+\newcommand{\simto}{\isoto}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Spf}{Spf}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Supp}{Supp}
+\DeclareMathOperator{\Der}{Der}
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\rg}{rg}
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\Ext}{Ext}
+\DeclareMathOperator{\Ker}{Ker}
+\DeclareMathOperator{\Coker}{Coker}
+\providecommand{\Hom}{}\renewcommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Im}{}\renewcommand{\Im}{\operatorname{Im}}
+\newcommand{\shHom}{\mathscr{H}\!\mathit{om}}
+\newcommand{\shExt}{\mathscr{E}\!\mathit{xt}}
+\newcommand{\shTor}{\mathscr{T}\!\mathit{or}}
+\newcommand{\shProj}{\operatorname{\mathbf{Proj}}}
+\newcommand{\setmin}{-}% EGA writes the complement of Y in X as X - Y
+\newcommand{\C}{C}% a category, as in 0, 8.1.1
+\newcommand{\op}{^{0}}% the opposite category C^0
+\newcommand{\Set}{\mathrm{Ens}}% the category of sets
+\newcommand{\CHom}{\operatorname{Hom}}% the category of functors
+\newcommand{\Gr}{\operatorname{Gr}}% associated graded object
+\providecommand{\og}{``}
+\providecommand{\fg}{''}
+\providecommand{\textsection}{\S}
+
+% ---- original pagination ----------------------------------------------------
+% \oldpage[volume]{n}: page n of the original printing, shown in the margin. Between paragraphs the note waits for
+% the next paragraph to begin, so that it is set beside that paragraph's first line.
+\makeatletter
+\let\ega@pendingnote\relax
+\newcommand{\oldpage}[2][]{%
+  \ifvmode
+    \gdef\ega@pendingnote{\footnotesize[#1\if\relax\detokenize{#1}\relax\else\,|\,\fi#2]}%
+  \else
+    \marginnote{\footnotesize[#1\if\relax\detokenize{#1}\relax\else\,|\,\fi#2]}%
+  \fi}
+\AddToHook{para/begin}{\ifx\ega@pendingnote\relax\else
+  \let\ega@note\ega@pendingnote\global\let\ega@pendingnote\relax\marginnote{\ega@note}\fi}
+\makeatother
+
+% ---- numbered paragraphs and statements -------------------------------------
+% EGA numbers every paragraph and statement explicitly, e.g. (1.2.3); the number is the optional argument,
+% and \label after it records that number.
+\makeatletter
+\newcommand{\ega@setnum}[1]{\def\@currentlabel{#1}\phantomsection}
+\newenvironment{env}[1][]{\par\medskip\ega@setnum{#1}\noindent\textbf{(#1)}\enspace\ignorespaces}{\par\medskip}
+% \begin{theorem}[19.6.1][Cohen]: number, then an optional name printed after the kind of statement.
+\newcommand{\ega@stmt}[3]{%
+  \NewDocumentEnvironment{#1}{O{} o}{\par\medskip\ega@setnum{##1}\noindent
+    \textbf{(##1)~#2\IfValueT{##2}{ (##2)}.}\enspace#3\ignorespaces}{\par\medskip}}
+% \egabib{key}{n} before a bibliography entry printed as plain text "[n] ...": \cite{key} then prints [n] and links here.
+\newcommand{\egabib}[2]{\Hy@raisedlink{\hyper@anchorstart{cite.#1}\hyper@anchorend}%
+  \protected@write\@auxout{}{\string\bibcite{#1}{#2}}}
+% A label that records a given number: used where a label sits at a place whose current number is a neighbour's.
+\newcommand{\egalabel}[2]{\begingroup\def\@currentlabel{#2}\label{#1}\endgroup}
+\ega@stmt{proposition}{Proposition}{\itshape}
+\ega@stmt{theorem}{Theorem}{\itshape}
+\ega@stmt{corollary}{Corollary}{\itshape}
+\ega@stmt{lemma}{Lemma}{\itshape}
+\ega@stmt{definition}{Definition}{}
+\ega@stmt{remark}{Remark}{}
+\ega@stmt{remarks}{Remarks}{}
+\ega@stmt{example}{Example}{}
+\ega@stmt{examples}{Examples}{}
+\ega@stmt{notation}{Notation}{}
+\ega@stmt{scholium}{Scholium}{}
+\newenvironment{namedtheorem}[2][]{\par\medskip\ega@setnum{#1}\noindent\textbf{(#1)~#2.}\enspace\itshape\ignorespaces}{\par\medskip}
+\newenvironment{namedlemma}[2][]{\par\medskip\ega@setnum{#1}\noindent\textbf{(#1)~#2.}\enspace\itshape\ignorespaces}{\par\medskip}
+\makeatother
+
+% The shown text of a link whose target is not in this edition.
+\newcommand{\unlinked}[1]{#1}
+
+% A link target the French sources place at numbered statements: \EGAReaderTarget{target name}{label key}.
+\newcommand{\EGAReaderTarget}[2]{\ifvmode\else\leavevmode\fi\hypertarget{#1}{}}
+
+% ---- references ----------------------------------------------------------------
+% \sref[volume]{key}: the printed number of the labelled paragraph, in parentheses, linked; with a volume prefix
+% when the target is in another chapter, e.g. \sref[0]{0.6.7.4} gives (0, 6.7.4).
+\newcommand{\sref}[2][]{\hyperref[#2]{(\if\relax\detokenize{#1}\relax\else#1,~\fi\ref*{#2})}}
+% \eref{key}: a numbered formula, e.g. (11.2.1.1).
+\newcommand{\eref}[1]{\hyperref[#1]{(\ref*{#1})}}
+% \erratum[volume]{reference}: a reference as corrected in the errata of that volume (Err_IV).
+\newcommand{\erratum}[2][]{#2~[Err$_{\mathrm{#1}}$]}

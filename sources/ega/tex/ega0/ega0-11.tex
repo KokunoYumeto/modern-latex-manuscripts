@@ -1,0 +1,2545 @@
+\section{Supplement on homological algebra}
+\label{section:0.11}
+
+\subsection{Review of spectral sequences}
+\label{subsection:0.11.1}
+
+\begin{env}[11.1.1]
+\label{0.11.1.1}
+In what follows we will use a notion of spectral sequence more general than
+the one defined in (T, 2.4); keeping the notation of (T, 2.4), we will
+call a \emph{spectral sequence} in an abelian category $\mathcal C$ a
+system E consisting of the following elements:
+\begin{enumerate}
+  \item[(a)] A family $(E_r^{pq})$ of objects of $\mathcal C$ defined for
+    $p\in\mathbb Z$, $q\in\mathbb Z$ and $r\geq2$.
+  \item[(b)] A family of morphisms
+    $d_r^{pq}:E_r^{pq}\to E_r^{p+r,q-r+1}$ such that
+    $d_r^{p+r,q-r+1}d_r^{pq}=0$. We set
+    $Z_{r+1}(E_r^{pq})=\operatorname{Ker}(d_r^{pq})$,
+    $B_{r+1}(E_r^{pq})=\operatorname{Im}(d_r^{p-r,q+r-1})$, so that
+    \[
+      B_{r+1}(E_r^{pq})\subset Z_{r+1}(E_r^{pq})\subset E_r^{pq}.
+    \]
+  \item[(c)] A family of isomorphisms
+    $\alpha_r^{pq}:Z_{r+1}(E_r^{pq})/B_{r+1}(E_r^{pq})
+    \xrightarrow{\sim}E_{r+1}^{pq}$.
+\end{enumerate}
+
+We then define for $k\geq r+1$, by induction on $k$, the subobjects
+$B_k(E_r^{pq})$ and $Z_k(E_r^{pq})$ as the inverse images, under the
+canonical morphism $E_r^{pq}\to E_r^{pq}/B_{r+1}(E_r^{pq})$, of the subobjects of
+this quotient identified by $\alpha_r^{pq}$ with the subobjects $B_k(E_{r+1}^{pq})$ and
+$Z_k(E_{r+1}^{pq})$ respectively. It is clear that we then have, up to
+isomorphism,
+\[
+\label{0.11.1.1.1}
+  Z_k(E_r^{pq})/B_k(E_r^{pq})=E_k^{pq}
+  \qquad\text{for }k\geq r+1,
+  \tag{11.1.1.1}
+\]
+and, if we further set $B_r(E_r^{pq})=0$ and $Z_r(E_r^{pq})=E_r^{pq}$, we have
+the inclusion relations
+\[
+\label{0.11.1.1.2}
+  0=B_r(E_r^{pq})\subset B_{r+1}(E_r^{pq})\subset B_{r+2}(E_r^{pq})
+  \subset\cdots\subset Z_{r+2}(E_r^{pq})\subset Z_{r+1}(E_r^{pq})
+  \subset Z_r(E_r^{pq})=E_r^{pq}.
+  \tag{11.1.1.2}
+\]
+
+The other elements of the data of E are then:
+\begin{enumerate}
+  \item[(d)] Two subobjects $B_\infty(E_2^{pq})$ and
+    $Z_\infty(E_2^{pq})$ of $E_2^{pq}$ such that
+    $B_\infty(E_2^{pq})\subset Z_\infty(E_2^{pq})$ and, for every $k\geq2$,
+    \[
+      B_k(E_2^{pq})\subset B_\infty(E_2^{pq})
+      \qquad\text{and}\qquad
+      Z_\infty(E_2^{pq})\subset Z_k(E_2^{pq}).
+    \]
+    We set
+    \[
+    \label{0.11.1.1.3}
+      E_\infty^{pq}=Z_\infty(E_2^{pq})/B_\infty(E_2^{pq}).
+      \tag{11.1.1.3}
+    \]
+  \item[(e)]
+    \oldpage[0\textsubscript{III}]{24}
+    A family $(E^n)$ of objects of $\mathcal C$, each of which is equipped with a
+    \emph{decreasing filtration} $(F^p(E^n))_{p\in\mathbb Z}$. As usual we
+    denote by $\operatorname{gr}(E^n)$ the graded object associated to the
+    filtered object $E^n$, the direct sum of the
+    $\operatorname{gr}_p(E^n)=F^p(E^n)/F^{p+1}(E^n)$.
+  \item[(f)] For every pair $(p,q)\in\mathbb Z\times\mathbb Z$, an
+    isomorphism
+    $\beta^{pq}:E_\infty^{pq}\xrightarrow{\sim}
+    \operatorname{gr}_p(E^{p+q})$.
+\end{enumerate}
+
+The family $(E^n)$, without the filtrations, is called \emph{the abutment}
+of the spectral sequence E.
+
+Suppose that the category $\mathcal C$ admits infinite direct sums,
+or that for every $r\geq2$ and every $n\in\mathbb Z$, there are only finitely
+many pairs $(p,q)$ such that $p+q=n$ and $E_r^{pq}\ne0$ (it suffices that this be
+so for $r=2$). Then the
+\[
+  E_r^{(n)}=\sum_{p+q=n}E_r^{pq}
+\]
+are defined, and, denoting by $d_r^{(n)}$ the morphism
+$E_r^{(n)}\to E_r^{(n+1)}$ whose restriction to $E_r^{pq}$ is $d_r^{pq}$
+for each pair $(p,q)$ such that $p+q=n$, we have
+$d_r^{(n+1)}\circ d_r^{(n)}=0$, in other words $(E_r^{(n)})_{n\in\mathbb Z}$
+is a \emph{complex $E_r^{(\bullet)}$} in $\mathcal C$, with differential of
+degree $+1$, and it follows from c) that
+$\mathrm H^n(E_r^{(\bullet)})$ is isomorphic to $E_{r+1}^{(n)}$ for every
+$r\geq2$.
+\end{env}
+
+\begin{env}[11.1.2]
+\label{0.11.1.2}
+A \emph{morphism $u:E\to E'$} from a spectral sequence E to a spectral
+sequence $E'=(E_r^{\prime pq},E^{\prime n})$ consists of systems of
+morphisms $u_r^{pq}:E_r^{pq}\to E_r^{\prime pq}$,
+$u^n:E^n\to E^{\prime n}$, the $u^n$ being compatible with the filtrations
+of $E^n$ and $E^{\prime n}$, and the diagrams
+\[
+  \xymatrix{
+    E_r^{pq}\ar[r]^-{d_r^{pq}}\ar[d]_{u_r^{pq}} &
+    E_r^{p+r,q-r+1}\ar[d]^{u_r^{p+r,q-r+1}}\\
+    E_r^{\prime pq}\ar[r]_{d_r^{\prime pq}} &
+    E_r^{\prime p+r,q-r+1}
+  }
+\]
+being commutative; moreover, by passing to quotients, $u_r^{pq}$ gives a
+morphism
+\[
+  \overline u_r^{pq}:
+  Z_{r+1}(E_r^{pq})/B_{r+1}(E_r^{pq})\longrightarrow
+  Z_{r+1}(E_r^{\prime pq})/B_{r+1}(E_r^{\prime pq})
+\]
+and we must have
+$\alpha_r^{\prime pq}\circ\overline u_r^{pq}
+=u_{r+1}^{pq}\circ\alpha_r^{pq}$; finally, we must have
+$u_2^{pq}(B_\infty(E_2^{pq}))\subset B_\infty(E_2^{\prime pq})$,
+$u_2^{pq}(Z_\infty(E_2^{pq}))\subset Z_\infty(E_2^{\prime pq})$; by
+passing to quotients, $u_2^{pq}$ then gives a morphism
+$u_\infty^{pq}:E_\infty^{pq}\to E_\infty^{\prime pq}$, and the diagram
+\[
+  \xymatrix{
+    E_\infty^{pq}\ar[r]^-{u_\infty^{pq}}\ar[d]_{\beta^{pq}} &
+    E_\infty^{\prime pq}\ar[d]^{\beta^{\prime pq}}\\
+    \operatorname{gr}_p(E^{p+q})
+      \ar[r]_{\operatorname{gr}_p(u^{p+q})} &
+    \operatorname{gr}_p(E^{\prime p+q})
+  }
+\]
+must be commutative.
+
+The preceding definitions show, by induction on $r$, that if the
+$u_2^{pq}$ are \emph{isomorphisms}, then so are the $u_r^{pq}$
+for $r\geq2$; \emph{if we know moreover that}
+$u_2^{pq}(B_\infty(E_2^{pq}))=B_\infty(E_2^{\prime pq})$ and
+$u_2^{pq}(Z_\infty(E_2^{pq}))=Z_\infty(E_2^{\prime pq})$ \emph{and that the
+$u^n$ are isomorphisms}, then we can conclude that $u$ is an
+\emph{isomorphism}.
+\end{env}
+
+\begin{env}[11.1.3]
+\label{0.11.1.3}
+\oldpage[0\textsubscript{III}]{25}
+Recall that if $(F^p(X))_{p\in\mathbb Z}$ is a (decreasing) filtration
+of an object $X\in\mathcal C$, we say that this filtration is \emph{separated}
+if $\inf(F^p(X))=0$, \emph{discrete} if there exists a $p$ such that $F^p(X)=0$,
+\emph{exhaustive} (or \emph{co-separated}) if $\sup(F^p(X))=X$, and
+\emph{co-discrete} if there exists $p$ such that $F^p(X)=X$.
+
+We will say that a spectral sequence $E=(E_r^{pq},E^n)$ is \emph{weakly
+convergent} if we have
+\[
+  B_\infty(E_2^{pq})=\sup_k(B_k(E_2^{pq})),\qquad
+  Z_\infty(E_2^{pq})=\inf_k(Z_k(E_2^{pq}))
+\]
+(in other words the objects $B_\infty(E_2^{pq})$ and $Z_\infty(E_2^{pq})$
+are determined by the data a) to c) of the spectral sequence E). We will say
+that the spectral sequence E is \emph{regular} if it is weakly
+convergent and if moreover:
+\begin{enumerate}
+  \item[$1^\circ$] For every pair $(p,q)$, the decreasing sequence
+    $(Z_k(E_2^{pq}))_{k\geq2}$ is \emph{stationary}; the hypothesis that E
+    is weakly convergent then implies
+    $Z_\infty(E_2^{pq})=Z_k(E_2^{pq})$ for $k$ sufficiently large (depending on
+    $p$ and $q$).
+  \item[$2^\circ$] For every $n$, the filtration
+    $(F^p(E^n))_{p\in\mathbb Z}$ of $E^n$ is \emph{discrete} and
+    \emph{exhaustive}.
+\end{enumerate}
+
+We say that the spectral sequence E is \emph{coregular} if it is
+weakly convergent and if moreover:
+\begin{enumerate}
+  \item[$3^\circ$] For every pair $(p,q)$, the increasing sequence
+    $(B_k(E_2^{pq}))_{k\geq2}$ is \emph{stationary}, which implies
+    $B_\infty(E_2^{pq})=B_k(E_2^{pq})$, and consequently
+    $E_\infty^{pq}=\inf E_k^{pq}$.
+  \item[$4^\circ$] For every $n$, the filtration of $E^n$ is
+    \emph{co-discrete}.
+\end{enumerate}
+
+Finally, we say that E is \emph{biregular} if it is both regular
+and coregular, in other words if the following conditions hold:
+\begin{enumerate}
+  \item[(a)] For every pair $(p,q)$, the sequences
+    $(B_k(E_2^{pq}))_{k\geq2}$ and $(Z_k(E_2^{pq}))_{k\geq2}$ are
+    \emph{stationary} and we have
+    $B_\infty(E_2^{pq})=B_k(E_2^{pq})$ and
+    $Z_\infty(E_2^{pq})=Z_k(E_2^{pq})$ for $k$ sufficiently large (which implies
+    $E_\infty^{pq}=E_k^{pq}$).
+  \item[(b)] For every $n$, the filtration $(F^p(E^n))_{p\in\mathbb Z}$ is
+    \emph{discrete} and \emph{co-discrete} (which is also expressed by saying
+    that it is \emph{finite}).
+\end{enumerate}
+
+The spectral sequences defined in (T, 2.4) are thus the biregular
+spectral sequences.
+\end{env}
+
+\begin{env}[11.1.4]
+\label{0.11.1.4}
+Suppose that in the category $\mathcal C$ filtered inductive limits
+exist and that the functor $\varinjlim$ is \emph{exact} (which amounts to
+saying that axiom AB 5) of (T, 1.5) holds (cf. T, 1.8)). The condition
+that the filtration $(F^p(X))_{p\in\mathbb Z}$ of an object $X\in\mathcal C$ be
+exhaustive can then also be written
+$\varinjlim_{p\to-\infty}F^p(X)=X$. If a spectral sequence E is weakly
+convergent, we have
+$B_\infty(E_2^{pq})=\varinjlim_{k\to\infty}B_k(E_2^{pq})$; if moreover
+$u:E\to E'$ is a morphism from E to a weakly convergent spectral sequence $E'$ of
+$\mathcal C$, we have
+$u_2^{pq}(B_\infty(E_2^{pq}))=B_\infty(E_2^{\prime pq})$ because of
+the exactness of $\varinjlim$. Moreover:
+\end{env}
+
+\begin{proposition}[11.1.5]
+\label{0.11.1.5}
+Let $\mathcal C$ be an abelian category in which filtered inductive limits
+are exact, E, $E'$ two regular spectral sequences
+of $\mathcal C$, and $u:E\to E'$ a morphism of spectral sequences. If the
+$u_2^{pq}$ are isomorphisms, then so is $u$.
+\end{proposition}
+
+\begin{proof}
+We already know (\hyperref[0.11.1.2]{11.1.2}) that the $u_r^{pq}$ are
+isomorphisms and that
+\[
+  u_2^{pq}(B_\infty(E_2^{pq}))=B_\infty(E_2^{\prime pq})~;
+\]
+\oldpage[0\textsubscript{III}]{26}
+the hypothesis that E and $E'$ are regular also implies
+$u_2^{pq}(Z_\infty(E_2^{pq}))=Z_\infty(E_2^{\prime pq})$, and since
+$u_2^{pq}$ is an isomorphism, so is $u_\infty^{pq}$; we therefore
+conclude that $\operatorname{gr}_p(u^{p+q})$ is also an isomorphism.
+But since the filtrations of the $E^n$ and of the $E^{\prime n}$ are discrete and
+exhaustive, this implies that the $u^n$ are also isomorphisms
+(Bourbaki, \emph{Alg. comm.}, chap. III, \S~2, n\textsuperscript{o} 8,
+th. 1).
+\end{proof}
+
+\begin{env}[11.1.6]
+\label{0.11.1.6}
+It follows from (\hyperref[0.11.1.1.2]{11.1.1.2}) and from the definition
+(\hyperref[0.11.1.1.3]{11.1.1.3}) that if, in a spectral sequence E, we have
+$E_r^{pq}=0$, then $E_k^{pq}=0$ for $k\geq r$ and $E_\infty^{pq}=0$. We say
+that a spectral sequence is \emph{degenerate} if there exist an integer $r\geq2$ and,
+for every integer $n\in\mathbb Z$, an integer $q(n)$ such that
+$E_r^{n-q,q}=0$ for every $q\ne q(n)$. We first deduce from the preceding
+remark that we also have $E_k^{n-q,q}=0$ for $k\geq r$ (including
+$k=\infty$) and $q\ne q(n)$. Moreover, the definition of $E_{r+1}^{pq}$ shows
+that we have
+$E_{r+1}^{n-q(n),q(n)}=E_r^{n-q(n),q(n)}$; if E is weakly convergent,
+we therefore also have
+$E_\infty^{n-q(n),q(n)}=E_r^{n-q(n),q(n)}$; in other words, for every
+$n\in\mathbb Z$, $\operatorname{gr}_p(E^n)=0$ for $p\ne n-q(n)$ and
+$\operatorname{gr}_{n-q(n)}(E^n)=E_r^{n-q(n),q(n)}$. If moreover the filtration
+of $E^n$ is discrete and exhaustive, the sequence E is regular and we have
+$E^n=E_r^{n-q(n),q(n)}$ up to isomorphism.
+\end{env}
+
+\begin{env}[11.1.7]
+\label{0.11.1.7}
+Suppose that in the category $\mathcal C$ filtered inductive limits
+exist and are exact, and let $(E_\lambda,u_{\mu\lambda})$ be an
+inductive system (over a filtered index set) of spectral sequences of
+$\mathcal C$. Then the \emph{inductive limit} of this inductive system exists
+in the additive category of spectral sequences of objects of $\mathcal C$:
+to see this, it suffices to define $E_r^{pq}$, $d_r^{pq}$, $\alpha_r^{pq}$,
+$B_\infty(E_2^{pq})$, $Z_\infty(E_2^{pq})$, $E^n$, $F^p(E^n)$ and
+$\beta^{pq}$ as the respective inductive limits of $E_{r,\lambda}^{pq}$,
+$d_{r,\lambda}^{pq}$, $\alpha_{r,\lambda}^{pq}$,
+$B_\infty(E_{2,\lambda}^{pq})$, $Z_\infty(E_{2,\lambda}^{pq})$,
+$E_\lambda^n$, $F^p(E_\lambda^n)$ and $\beta_\lambda^{pq}$; the verification
+of the conditions of (\hyperref[0.11.1.1]{11.1.1}) follows from the exactness of the
+functor $\varinjlim$ in $\mathcal C$.
+\end{env}
+
+\begin{remark}[11.1.8]
+\label{0.11.1.8}
+Suppose that the category $\mathcal C$ is the category of $A$-modules over
+a \emph{Noetherian} ring $A$ (resp. over a ring $A$). Then the
+definitions of (\hyperref[0.11.1.1]{11.1.1}) show that if, for a given $r$,
+the $E_r^{pq}$ are $A$-modules \emph{of finite type} (resp. of
+\emph{finite length}), then so are all the modules $E_s^{pq}$ for
+$s\geq r$, as well as the $E_\infty^{pq}$. If moreover the filtration of
+the abutment $(E^n)$ is discrete and co-discrete for every $n$, we
+conclude that each of the $E^n$ is also an $A$-module \emph{of finite type}
+(resp. of \emph{finite length}).
+\end{remark}
+
+\begin{env}[11.1.9]
+\label{0.11.1.9}
+We will have to consider conditions ensuring that a spectral sequence E is
+biregular in a ``uniform'' way in $p+q=n$. We will then use the following
+lemma:
+\end{env}
+
+\begin{lemma}[11.1.10]
+\label{0.11.1.10}
+Let $(E_r^{pq})$ be a family of objects of $\mathcal C$ related by the data
+a), b), c) of (\hyperref[0.11.1.1]{11.1.1}). For a fixed integer $n$, the
+following properties are equivalent:
+\begin{enumerate}
+  \item[(a)] There exists an integer $r(n)$ such that for $r\geq r(n)$,
+    $p+q=n$ or $p+q=n-1$, the morphisms $d_r^{pq}$ are all zero.
+  \item[(b)] There exists an integer $r(n)$ such that for $p+q=n$ or $p+q=n+1$,
+    we have $B_r(E_2^{pq})=B_s(E_2^{pq})$ for $s\geq r\geq r(n)$.
+  \item[(c)] There exists an integer $r(n)$ such that for $p+q=n$ or $p+q=n-1$,
+    we have $Z_r(E_2^{pq})=Z_s(E_2^{pq})$ for $s\geq r\geq r(n)$.
+  \item[(d)] There exists an integer $r(n)$ such that for $p+q=n$, we have
+    $B_r(E_2^{pq})=B_s(E_2^{pq})$ and $Z_r(E_2^{pq})=Z_s(E_2^{pq})$ for
+    $s\geq r\geq r(n)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\oldpage[0\textsubscript{III}]{27}
+Indeed, by conditions a), b), c) of
+(\hyperref[0.11.1.1]{11.1.1}), saying that
+$Z_{r+1}(E_2^{pq})=Z_r(E_2^{pq})$ is equivalent to saying that $d_r^{pq}=0$, and saying
+that
+$B_r(E_2^{p+r,q-r+1})=B_{r+1}(E_2^{p+r,q-r+1})$ is also equivalent to saying that
+$d_r^{pq}=0$; the lemma follows immediately from this remark.
+\end{proof}
+\subsection{The spectral sequence of a filtered complex}
+\label{subsection:0.11.2}
+
+\begin{env}[11.2.1]
+\label{0.11.2.1}
+Given an abelian category $\mathcal C$, we adopt the convention of
+denoting by notations such as $K^\bullet$ the \emph{complexes}
+$(K^i)_{i\in\mathbb Z}$ of objects of $\mathcal C$ in which the
+differential is of degree $+1$, and by notations such as $K_\bullet$ the
+complexes $(K_i)_{i\in\mathbb Z}$ of objects of $\mathcal C$ in which
+the differential is of degree $-1$. To every complex
+$K^\bullet=(K^i)$ whose differential $d$ is of degree $+1$, we
+can associate a complex $K'_\bullet=(K'_i)$ by setting $K'_i=K^{-i}$,
+the differential $K'_i\to K'_{i-1}$ being the operator
+$d:K^{-i}\to K^{-i+1}$; and \emph{vice versa}, which will allow us, depending
+on the circumstances, to consider one or the other type of complex and to
+translate every result for one of the types into results for the other. Likewise
+we will denote by notations such as $K^{\bullet\bullet}=(K^{ij})$ (resp.
+$K_{\bullet\bullet}=(K_{ij})$) \emph{bicomplexes} of objects of
+$\mathcal C$ in which \emph{both} differentials are of
+degree $+1$ (resp. $-1$); again we pass from one type to the other by changing
+the signs of the indices, and we have analogous notations and remarks for
+arbitrary multicomplexes. The notation $K^\bullet$ or $K_\bullet$ will also be
+used for \emph{graded objects} of $\mathcal C$, of type $\mathbb Z$,
+which are not necessarily complexes (or which can be regarded
+as such for zero differentials); for example, we will
+write
+$\mathrm H^\bullet(K^\bullet)=(\mathrm H^i(K^\bullet))_{i\in\mathbb Z}$ for the
+\emph{cohomology} of a complex $K^\bullet$ whose differential
+is of degree $+1$, and
+$\mathrm H_\bullet(K_\bullet)=(\mathrm H_i(K_\bullet))_{i\in\mathbb Z}$ for
+the \emph{homology} of a complex $K_\bullet$ whose differential
+is of degree $-1$; when we pass from $K^\bullet$ to $K'_\bullet$ by
+the operation described above, we have
+$\mathrm H_i(K'_\bullet)=\mathrm H^{-i}(K^\bullet)$.
+
+Recall in this connection that for a complex $K^\bullet$ (resp. $K_\bullet$),
+we will in general write
+$Z^i(K^\bullet)=\operatorname{Ker}(K^i\to K^{i+1})$ (``object of cocycles'')
+and $B^i(K^\bullet)=\operatorname{Im}(K^{i-1}\to K^i)$ (``object of
+coboundaries'') (resp.
+$Z_i(K_\bullet)=\operatorname{Ker}(K_i\to K_{i-1})$ (``object of cycles'')
+and $B_i(K_\bullet)=\operatorname{Im}(K_{i+1}\to K_i)$ (``object of
+boundaries'')), so that
+$\mathrm H^i(K^\bullet)=Z^i(K^\bullet)/B^i(K^\bullet)$ (resp.
+$\mathrm H_i(K_\bullet)=Z_i(K_\bullet)/B_i(K_\bullet)$).
+
+If $K^\bullet=(K^i)$ (resp. $K_\bullet=(K_i)$) is a complex in
+$\mathcal C$, and $T:\mathcal C\to\mathcal C'$ a functor from $\mathcal C$
+to an abelian category $\mathcal C'$, we denote by
+$T(K^\bullet)$ (resp. $T(K_\bullet)$) the complex $(T(K^i))$ (resp.
+$(T(K_i))$) in $\mathcal C'$.
+
+We do not return to the definition of $\partial$-functors (T, 2.1),
+except to point out that we will also say $\partial$-functor instead of
+$\partial^*$-functor when the morphism $\partial$ decreases the degree by one
+unit, the context having to make this point precise each time if there can be any
+doubt.
+
+Finally, we will say that a \emph{graded object} $(A_i)_{i\in\mathbb Z}$ of
+$\mathcal C$ is \emph{bounded below} (resp. \emph{above})
+if there exists $i_0$ such that $A_i=0$ for $i<i_0$ (resp. $i>i_0$).
+\end{env}
+
+\begin{env}[11.2.2]
+\label{0.11.2.2}
+Let $K^\bullet$ be a complex of $\mathcal C$ whose differential
+$d$ is of degree $+1$, and suppose it equipped with a \emph{filtration}
+$F(K^\bullet)=(F^p(K^\bullet))_{p\in\mathbb Z}$ consisting of graded subobjects
+\oldpage[0\textsubscript{III}]{28}
+of $K^\bullet$, in other words
+$F^p(K^\bullet)=(K^i\cap F^p(K^\bullet))_{i\in\mathbb Z}$; moreover, we
+suppose that $d(F^p(K^\bullet))\subset F^p(K^\bullet)$ for every
+$p\in\mathbb Z$. Let us then recall briefly how a spectral sequence
+$E(K^\bullet)$ is defined \emph{functorially} from
+$K^\bullet$ (M, XV, 4 and G, I, 4.3). For $r\geq2$, the canonical morphism
+$F^p(K^\bullet)/F^{p+r}(K^\bullet)\to
+F^p(K^\bullet)/F^{p+1}(K^\bullet)$ defines a morphism in cohomology
+\[
+  \mathrm H^{p+q}(F^p(K^\bullet)/F^{p+r}(K^\bullet))
+  \longrightarrow
+  \mathrm H^{p+q}(F^p(K^\bullet)/F^{p+1}(K^\bullet)).
+\]
+We denote by $Z_r^{pq}(K^\bullet)$ the image of this morphism. Likewise, from the
+exact sequence
+\[
+  0\to F^p(K^\bullet)/F^{p+1}(K^\bullet)
+  \to F^{p-r+1}(K^\bullet)/F^{p+1}(K^\bullet)
+  \to F^{p-r+1}(K^\bullet)/F^p(K^\bullet)\to0
+\]
+we deduce, by the cohomology exact sequence, a morphism
+\[
+  \mathrm H^{p+q-1}(F^{p-r+1}(K^\bullet)/F^p(K^\bullet))
+  \longrightarrow
+  \mathrm H^{p+q}(F^p(K^\bullet)/F^{p+1}(K^\bullet))
+\]
+and we denote by $B_r^{pq}(K^\bullet)$ the image of this morphism; one shows
+that $B_r^{pq}(K^\bullet)\subset Z_r^{pq}(K^\bullet)$ and we take
+$E_r^{pq}(K^\bullet)=Z_r^{pq}(K^\bullet)/B_r^{pq}(K^\bullet)$; we will not
+spell out the definition of the $d_r^{pq}$, nor of the $\alpha_r^{pq}$.
+
+Note here that all the $Z_r^{pq}(K^\bullet)$ and
+$B_r^{pq}(K^\bullet)$, for fixed $p$, $q$, are subobjects of the same
+object
+$\mathrm H^{p+q}(F^p(K^\bullet)/F^{p+1}(K^\bullet))$, which is denoted
+$Z_1^{pq}(K^\bullet)$; we set $B_1^{pq}(K^\bullet)=0$, so that the
+preceding definitions for $Z_r^{pq}(K^\bullet)$ and
+$B_r^{pq}(K^\bullet)$ also apply for $r=1$; we further set
+$E_1^{pq}(K^\bullet)=Z_1^{pq}(K^\bullet)$. We further define the $d_1^{pq}$
+and $\alpha_1^{pq}$ so that the conditions of
+(\hyperref[0.11.1.1]{11.1.1}) are satisfied for $r=1$. On the other hand,
+we define the subobjects $Z_\infty^{pq}(K^\bullet)$, the image of the morphism
+\[
+  \mathrm H^{p+q}(F^p(K^\bullet))\longrightarrow
+  \mathrm H^{p+q}(F^p(K^\bullet)/F^{p+1}(K^\bullet))
+  =E_1^{pq}(K^\bullet)
+\]
+and $B_\infty^{pq}(K^\bullet)$, the image of the morphism
+\[
+  \mathrm H^{p+q-1}(K^\bullet/F^p(K^\bullet))\longrightarrow
+  \mathrm H^{p+q}(F^p(K^\bullet)/F^{p+1}(K^\bullet))
+  =E_1^{pq}(K^\bullet)
+\]
+deduced as above from a cohomology exact sequence. We take for
+$Z_\infty(E_2^{pq}(K^\bullet))$ and $B_\infty(E_2^{pq}(K^\bullet))$ the
+canonical images in $E_2^{pq}(K^\bullet)$ of
+$Z_\infty^{pq}(K^\bullet)$ and $B_\infty^{pq}(K^\bullet)$.
+
+Finally, we denote by $F^p(\mathrm H^n(K^\bullet))$ the image in
+$\mathrm H^n(K^\bullet)$ of the morphism
+$\mathrm H^n(F^p(K^\bullet))\to\mathrm H^n(K^\bullet)$ arising from
+the canonical injection $F^p(K^\bullet)\to K^\bullet$; by the cohomology exact
+sequence, it is also the kernel of the morphism
+$\mathrm H^n(K^\bullet)\to\mathrm H^n(K^\bullet/F^p(K^\bullet))$. We
+thus define a filtration on
+$E^n(K^\bullet)=\mathrm H^n(K^\bullet)$; we will not give here
+the definition of the isomorphisms $\beta^{pq}$ either.
+\end{env}
+
+\begin{env}[11.2.3]
+\label{0.11.2.3}
+The \emph{functorial} character of $E(K^\bullet)$ is to be understood in the
+following way: given two \emph{filtered} complexes $K^\bullet$,
+$K^{\prime\bullet}$ of $\mathcal C$, and a morphism of complexes
+$u:K^\bullet\to K^{\prime\bullet}$ \emph{compatible with the filtrations}, we
+deduce from it in an evident way the morphisms $u_r^{pq}$ (for $r\geq1$) and
+$u^n$, and one shows that these morphisms are compatible with the $d_r^{pq}$,
+$\alpha_r^{pq}$ and $\beta^{pq}$ in the sense of
+(\hyperref[0.11.1.2]{11.1.2}), and hence indeed define a morphism
+$E(u):E(K^\bullet)\to E(K^{\prime\bullet})$ of spectral sequences. Moreover,
+one shows that if $u$ and $v$ are morphisms
+$K^\bullet\to K^{\prime\bullet}$ of the preceding type that are \emph{homotopic of order
+$\leq k$}, then $u_r^{pq}=v_r^{pq}$ for $r>k$ and $u^n=v^n$ for every $n$
+(M, XV, 3.1).
+\end{env}
+
+\begin{env}[11.2.4]
+\label{0.11.2.4}
+\oldpage[0\textsubscript{III}]{29}
+Suppose that in $\mathcal C$ filtered inductive limits are
+exact. Then, if the filtration $(F^p(K^\bullet))$ of $K^\bullet$ is
+\emph{exhaustive}, so is the filtration
+$(F^p(\mathrm H^n(K^\bullet)))$ for every $n$, since by hypothesis we have
+$K^\bullet=\varinjlim_{p\to-\infty}F^p(K^\bullet)$ and the hypothesis on
+$\mathcal C$ implies that cohomology commutes with inductive limits.
+Moreover, for the same reason, we have
+$B_\infty(E_2^{pq}(K^\bullet))=\sup_k B_k(E_2^{pq}(K^\bullet))$. We say that
+the filtration $(F^p(K^\bullet))$ of $K^\bullet$ is \emph{regular} if for
+every $n$ there exists an integer $u(n)$ such that
+$\mathrm H^n(F^p(K^\bullet))=0$ for $p>u(n)$. This is the case in particular
+when the filtration of $K^\bullet$ is \emph{discrete}. When the
+filtration of $K^\bullet$ is regular and exhaustive, and filtered inductive
+limits in $\mathcal C$ are exact, one shows (M, XV, 4)
+that the spectral sequence $E(K^\bullet)$ is \emph{regular}.
+\end{env}
+
+\subsection{The spectral sequences of a bicomplex}
+\label{subsection:0.11.3}
+
+\begin{env}[11.3.1]
+\label{0.11.3.1}
+As regards the conventions concerning bicomplexes, we follow
+those of (T, 2.4) rather than those of (M), the two differentials $d'$, $d''$
+(of degree $+1$) of such a bicomplex
+$K^{\bullet\bullet}=(K^{ij})$ being therefore assumed to \emph{commute}.
+Suppose that one of the following two conditions holds:
+\begin{enumerate}
+  \item[$1^\circ$] Infinite direct sums exist in $\mathcal C$.
+  \item[$2^\circ$] For every $n\in\mathbb Z$, there are only a
+    \emph{finite} number of pairs $(p,q)$ such that $p+q=n$ and $K^{pq}\ne0$.
+\end{enumerate}
+Then the bicomplex $K^{\bullet\bullet}$ defines a (simple) complex
+$(K^{\prime n})_{n\in\mathbb Z}$, with
+$K^{\prime n}=\sum_{i+j=n}K^{ij}$, the differential $d$ (of degree
+$+1$) of this complex being given by
+$dx=d'x+(-1)^i d''x$ for $x\in K^{ij}$. When we speak in what follows
+of the (simple) complex \emph{defined by a bicomplex $K^{\bullet\bullet}$}, it
+will always be understood that one of the preceding conditions is satisfied.
+We will adopt analogous conventions for multicomplexes.
+
+We denote by $K^{i,\bullet}$ (resp. $K^{\bullet,j}$) the simple complex
+$(K^{ij})_{j\in\mathbb Z}$ (resp. $(K^{ij})_{i\in\mathbb Z}$), and by
+$Z_{\mathrm{II}}^p(K^{i,\bullet})$, $B_{\mathrm{II}}^p(K^{i,\bullet})$,
+$\mathrm H_{\mathrm{II}}^p(K^{i,\bullet})$ (resp.
+$Z_{\mathrm I}^p(K^{\bullet,j})$, $B_{\mathrm I}^p(K^{\bullet,j})$,
+$\mathrm H_{\mathrm I}^p(K^{\bullet,j})$) its $p$-th objects of cocycles,
+of coboundaries and of cohomology respectively; the differential
+$d':K^{i,\bullet}\to K^{i+1,\bullet}$ is a morphism of complexes, which
+therefore gives an operator on the cocycles, the coboundaries and the cohomology,
+\[
+\begin{aligned}
+  d'&:Z_{\mathrm{II}}^p(K^{i,\bullet})
+      \longrightarrow Z_{\mathrm{II}}^p(K^{i+1,\bullet}),\\
+  d'&:B_{\mathrm{II}}^p(K^{i,\bullet})
+      \longrightarrow B_{\mathrm{II}}^p(K^{i+1,\bullet}),\\
+  d'&:\mathrm H_{\mathrm{II}}^p(K^{i,\bullet})
+      \longrightarrow \mathrm H_{\mathrm{II}}^p(K^{i+1,\bullet}),
+\end{aligned}
+\]
+and it is clear that for these operators,
+$(Z_{\mathrm{II}}^p(K^{i,\bullet}))_{i\in\mathbb Z}$,
+$(B_{\mathrm{II}}^p(K^{i,\bullet}))_{i\in\mathbb Z}$ and
+$(\mathrm H_{\mathrm{II}}^p(K^{i,\bullet}))_{i\in\mathbb Z}$ are
+complexes; we will denote the complex
+$(\mathrm H_{\mathrm{II}}^p(K^{i,\bullet}))_{i\in\mathbb Z}$ by
+$\mathrm H_{\mathrm{II}}^p(K^{\bullet\bullet})$, and its $q$-th objects of
+cocycles, of coboundaries and of cohomology by
+$Z_{\mathrm I}^q(\mathrm H_{\mathrm{II}}^p(K^{\bullet\bullet}))$,
+$B_{\mathrm I}^q(\mathrm H_{\mathrm{II}}^p(K^{\bullet\bullet}))$ and
+$\mathrm H_{\mathrm I}^q(\mathrm H_{\mathrm{II}}^p(K^{\bullet\bullet}))$.
+We define similarly the complexes
+$\mathrm H_{\mathrm I}^p(K^{\bullet\bullet})$ and their cohomology objects
+$\mathrm H_{\mathrm{II}}^q(\mathrm H_{\mathrm I}^p(K^{\bullet\bullet}))$.
+Recall on the other hand that $\mathrm H^n(K^{\bullet\bullet})$ denotes the
+$n$-th cohomology object of the (simple) complex defined by
+$K^{\bullet\bullet}$.
+\end{env}
+
+\begin{env}[11.3.2]
+\label{0.11.3.2}
+On the complex defined by a bicomplex $K^{\bullet\bullet}$, we can
+consider two canonical filtrations
+$(F_{\mathrm I}^p(K^{\bullet\bullet}))$ and
+$(F_{\mathrm{II}}^p(K^{\bullet\bullet}))$ given by
+\[
+\label{0.11.3.2.1}
+  F_{\mathrm I}^p(K^{\bullet\bullet})
+  =\left(\sum_{\substack{i+j=n\\i\geq p}}K^{ij}\right)_{n\in\mathbb Z},
+  \qquad
+  F_{\mathrm{II}}^p(K^{\bullet\bullet})
+  =\left(\sum_{\substack{i+j=n\\j\geq p}}K^{ij}\right)_{n\in\mathbb Z}.
+  \tag{11.3.2.1}
+\]
+\oldpage[0\textsubscript{III}]{30}
+which, by definition, are indeed graded subobjects of the (simple) complex
+defined by $K^{\bullet\bullet}$, and therefore make this complex a filtered
+complex; moreover, it is clear that these filtrations are exhaustive and
+separated.
+
+To each of these filtrations there corresponds a spectral sequence
+(\hyperref[0.11.2.2]{11.2.2}); we will denote by
+$'E(K^{\bullet\bullet})$ and $''E(K^{\bullet\bullet})$ the spectral sequences
+corresponding to $(F_{\mathrm I}^p(K^{\bullet\bullet}))$ and
+$(F_{\mathrm{II}}^p(K^{\bullet\bullet}))$ respectively, called the
+\emph{spectral sequences of the bicomplex $K^{\bullet\bullet}$}, both
+having as abutment the cohomology
+$(\mathrm H^n(K^{\bullet\bullet}))$. One shows moreover (M, XV, 6) that we have
+\[
+\label{0.11.3.2.2}
+  'E_2^{pq}(K^{\bullet\bullet})
+  =\mathrm H_{\mathrm I}^p(\mathrm H_{\mathrm{II}}^q(K^{\bullet\bullet})),
+  \qquad
+  ''E_2^{pq}(K^{\bullet\bullet})
+  =\mathrm H_{\mathrm{II}}^q(\mathrm H_{\mathrm I}^p(K^{\bullet\bullet})).
+  \tag{11.3.2.2}
+\]
+
+Every morphism $u:K^{\bullet\bullet}\to K^{\prime\bullet\bullet}$ of
+bicomplexes is \emph{ipso facto} compatible with the filtrations of the same
+type of $K^{\bullet\bullet}$ and $K^{\prime\bullet\bullet}$, and hence defines a
+morphism for each of the two spectral sequences; moreover, two
+\emph{homotopic} morphisms define a homotopy \emph{of order $\leq1$} of the
+corresponding filtered (simple) complexes, and hence the \emph{same} morphism for
+each of the two spectral sequences (M, XV, 6.1).
+\end{env}
+
+\begin{proposition}[11.3.3]
+\label{0.11.3.3}
+Let $K^{\bullet\bullet}=(K^{ij})$ be a bicomplex in an abelian category
+$\mathcal C$.
+\begin{enumerate}
+  \item[(i)] If there exist $i_0$ and $j_0$ such that $K^{ij}=0$ for $i<i_0$ or
+    $j<j_0$ (resp. $i>i_0$ or $j>j_0$), the two spectral sequences
+    $'E(K^{\bullet\bullet})$ and $''E(K^{\bullet\bullet})$ are
+    biregular.
+  \item[(ii)] If there exist $i_0$ and $i_1$ such that $K^{ij}=0$ for $i<i_0$ or
+    $i>i_1$ (resp. if there exist $j_0$ and $j_1$ such that $K^{ij}=0$ for
+    $j<j_0$ or $j>j_1$), the two spectral sequences
+    $'E(K^{\bullet\bullet})$ and $''E(K^{\bullet\bullet})$ are
+    biregular.
+\end{enumerate}
+Suppose moreover that in $\mathcal C$ filtered inductive limits
+exist and are exact. Then:
+\begin{enumerate}
+  \item[(iii)] If there exists $i_0$ such that $K^{ij}=0$ for $i>i_0$ (resp. if
+    there exists $j_0$ such that $K^{ij}=0$ for $j<j_0$), the sequence
+    $'E(K^{\bullet\bullet})$ is regular.
+  \item[(iv)] If there exists $i_0$ such that $K^{ij}=0$ for $i<i_0$ (resp. if
+    there exists $j_0$ such that $K^{ij}=0$ for $j>j_0$), the sequence
+    $''E(K^{\bullet\bullet})$ is regular.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The proposition follows immediately from the definitions
+(\hyperref[0.11.1.3]{11.1.3}) and from
+(\hyperref[0.11.2.4]{11.2.4}), as well as from the following observations
+concerning the filtration $F_{\mathrm I}$ (and the analogous observations
+deduced from them for $F_{\mathrm{II}}$ by exchanging the roles of the two indices
+in $K^{\bullet\bullet}$):
+\begin{enumerate}
+  \item[$1^\circ$] If there exists $i_0$ such that $K^{ij}=0$ for $i>i_0$, the
+    filtration $F_{\mathrm I}(K^{\bullet\bullet})$ is discrete.
+  \item[$2^\circ$] If there exists $i_0$ such that $K^{ij}=0$ for $i<i_0$, the
+    filtration $F_{\mathrm I}(K^{\bullet\bullet})$ is co-discrete. We
+    deduce immediately that the same holds for the corresponding filtration
+    $F_{\mathrm I}(\mathrm H^n(K^{\bullet\bullet}))$ for every $n$;
+    moreover, the definition of $B_r^{pq}$ corresponding to the filtration
+    $F_{\mathrm I}(K^{\bullet\bullet})$
+    (\hyperref[0.11.2.2]{11.2.2}) shows that for every pair $(p,q)$, the
+    sequence $(B_r^{pq})_{r\geq2}$ is stationary.
+  \item[$3^\circ$] If there exists $j_0$ such that $K^{ij}=0$ for $j<j_0$, we have
+    \[
+      F_{\mathrm I}^{p+r}(K^{\bullet\bullet})
+      \cap\left(\sum_{i+j=n}K^{ij}\right)=0
+    \]
+    as soon as $p+r+j_0>n$, hence
+    $Z_r^{pq}=Z_\infty(E_2^{pq})$ for $r>q-j_0+1$; on the other hand,
+    $\mathrm H^n(F_{\mathrm I}^p(K^{\bullet\bullet}))=0$ for
+    $p>n-j_0+1$.
+  \item[$4^\circ$] If there exists $j_0$ such that $K^{ij}=0$ for $j>j_0$, we have
+    \[
+      F_{\mathrm I}^{p-r+1}(K^{\bullet\bullet})
+      \cap\left(\sum_{i+j=n}K^{ij}\right)=\sum_{i+j=n}K^{ij}.
+    \]
+    \oldpage[0\textsubscript{III}]{31}
+    as soon as $p-r+1+j_0<n$, hence
+    $B_r^{pq}=B_\infty(E_2^{pq})$ for $r>j_0-q+1$; on the other hand,
+    $\mathrm H^n(F_{\mathrm I}^p(K^{\bullet\bullet}))
+    =\mathrm H^n(K^{\bullet\bullet})$ for $p+j_0<n-1$.
+\end{enumerate}
+\end{proof}
+
+\begin{env}[11.3.4]
+\label{0.11.3.4}
+Suppose that the bicomplex $K^{\bullet\bullet}=(K^{ij})$ is such that
+$K^{ij}=0$ for $i<0$ or $j<0$. We know that we can then define, for every
+$p\in\mathbb Z$, a canonical ``edge homomorphism''
+\[
+\label{0.11.3.4.1}
+  'E_2^{p0}(K^{\bullet\bullet})\longrightarrow
+  \mathrm H^p(K^{\bullet\bullet})
+  \tag{11.3.4.1}
+\]
+(M, XV, 6). Let us recall briefly that this is due, on the one hand, to the fact
+that in the spectral sequence $'E(K^{\bullet\bullet})$ we have
+$Z_r^{p0}=Z_{\mathrm I}^p(Z_{\mathrm{II}}^0(K^{\bullet\bullet}))$ for
+$2\leq r\leq+\infty$, and on the other hand to the fact that
+$\mathrm H^p(F_{\mathrm I}^{p+1}(K^{\bullet\bullet}))=0$, so that
+the isomorphism
+$\beta^{p0}:'E_\infty^{p0}\xrightarrow{\sim}
+\mathrm H^p(F_{\mathrm I}^p)/\mathrm H^p(F_{\mathrm I}^{p+1})$ gives a
+homomorphism
+$'E_\infty^{p0}\to\mathrm H^p(F_{\mathrm I}^p(K^{\bullet\bullet}))
+\to\mathrm H^p(K^{\bullet\bullet})$; the equality of all the $Z_r^{p0}$ then
+makes it possible to define canonical homomorphisms
+$'E_r^{p0}\to'E_s^{p0}$ for $r\leq s$, and in particular a homomorphism
+$'E_2^{p0}\to'E_\infty^{p0}$, whence by composition the edge homomorphism
+$'E_2^{p0}\to\mathrm H^p(K^{\bullet\bullet})$; moreover, one verifies immediately
+that, to the class mod. $B_2^{p0}$ of an element
+$z\in Z_{\mathrm{II}}^0(K^{\bullet\bullet})\subset K^{p0}$ such that $d'z=0$,
+the edge homomorphism thus defined assigns in $'E_\infty^{p0}$ the
+class of $z$ mod. $B_\infty^{p0}$, and then to the latter the cohomology
+class of $z$ in $\mathrm H^p(K^{\bullet\bullet})$. We thus see
+finally that \emph{the edge homomorphism
+(\hyperref[0.11.3.4.1]{11.3.4.1}) arises, by passing to cohomology,
+from the canonical injection}
+$Z_{\mathrm{II}}^0(K^{\bullet\bullet})\to K^{\bullet\bullet}$ (where
+$K^{\bullet\bullet}$ is considered as a simple complex). In the same way we
+naturally interpret the edge homomorphism
+\[
+\label{0.11.3.4.2}
+  ''E_2^{p0}(K^{\bullet\bullet})\longrightarrow
+  \mathrm H^p(K^{\bullet\bullet})
+  \tag{11.3.4.2}
+\]
+as arising from the canonical injection
+$Z_{\mathrm I}^0(K^{\bullet\bullet})\to K^{\bullet\bullet}$.
+\end{env}
+
+\begin{env}[11.3.5]
+\label{0.11.3.5}
+Now let $K_{\bullet\bullet}=(K_{ij})$ be a bicomplex of
+$\mathcal C$ whose two differentials are of degree $-1$. We
+will then write $K_{i,\bullet}$ (resp. $K_{\bullet,j}$) for the simple complex
+$(K_{ij})_{j\in\mathbb Z}$ (resp. $(K_{ij})_{i\in\mathbb Z}$),
+$\mathrm H_p^{\mathrm{II}}(K_{i,\bullet})$ (resp.
+$\mathrm H_p^{\mathrm I}(K_{\bullet,j})$) for its $p$-th homology object,
+$\mathrm H_p^{\mathrm{II}}(K_{\bullet\bullet})$ (resp.
+$\mathrm H_p^{\mathrm I}(K_{\bullet\bullet})$) for the complex
+$(\mathrm H_p^{\mathrm{II}}(K_{i,\bullet}))_{i\in\mathbb Z}$ (resp.
+$(\mathrm H_p^{\mathrm I}(K_{\bullet,j}))_{j\in\mathbb Z}$), and
+$\mathrm H_q^{\mathrm I}(\mathrm H_p^{\mathrm{II}}(K_{\bullet\bullet}))$
+(resp.
+$\mathrm H_q^{\mathrm{II}}(\mathrm H_p^{\mathrm I}(K_{\bullet\bullet}))$)
+for its $q$-th homology object; analogous notation for the objects of cycles
+and objects of boundaries; finally, $\mathrm H_n(K_{\bullet\bullet})$ will denote
+(when it exists) the $n$-th homology object of the simple complex (with
+differential of degree $-1$) defined by $K_{\bullet\bullet}$.
+
+Let $K^{\prime\bullet\bullet}=(K^{\prime ij})$, with
+$K^{\prime ij}=K_{-i,-j}$, be the bicomplex with differentials of degree
+$+1$ associated to $K_{\bullet\bullet}$; by definition, the
+\emph{spectral sequences} of $K_{\bullet\bullet}$ are those of
+$K^{\prime\bullet\bullet}$, which are written $'E(K_{\bullet\bullet})$ and
+$''E(K_{\bullet\bullet})$, where however the notation is changed by
+setting
+\[
+  'E_{pq}^r(K_{\bullet\bullet})
+  ='E_r^{-p,-q}(K^{\prime\bullet\bullet}),\qquad
+  ''E_{pq}^r(K_{\bullet\bullet})
+  =''E_r^{-p,-q}(K^{\prime\bullet\bullet})
+\]
+for $2\leq r\leq\infty$. With this notation, we have
+\[
+  'E_{pq}^2(K_{\bullet\bullet})
+  =\mathrm H_p^{\mathrm I}(\mathrm H_q^{\mathrm{II}}(K_{\bullet\bullet})),
+  \qquad
+  ''E_{pq}^2(K_{\bullet\bullet})
+  =\mathrm H_q^{\mathrm{II}}(\mathrm H_p^{\mathrm I}(K_{\bullet\bullet})).
+\]
+To avoid sign errors, it will in general be preferable, for the
+relations between these spectral sequences and their abutment, to go back to the
+complex $K^{\prime\bullet\bullet}$. Let us note, however, the criteria
+corresponding to (\hyperref[0.11.3.3]{11.3.3}):
+\end{env}
+
+\begin{env}[11.3.6]
+\label{0.11.3.6}
+The spectral sequences $'E(K_{\bullet\bullet})$ and
+$''E(K_{\bullet\bullet})$ are \emph{biregular} in the following cases:
+\begin{enumerate}
+  \item[(a)] There exist $i_0$ and $j_0$ such that $K_{ij}=0$ for $i>i_0$ or
+    for $j>j_0$ (resp. for $i<i_0$
+    \oldpage[0\textsubscript{III}]{32}
+    or for $j<j_0$).
+  \item[(b)] There exist $i_0$ and $i_1$ such that $K_{ij}=0$ for $i<i_0$ and
+    $i>i_1$.
+  \item[(c)] There exist $j_0$ and $j_1$ such that $K_{ij}=0$ for $j<j_0$ and
+    $j>j_1$.
+\end{enumerate}
+
+The sequence $'E(K_{\bullet\bullet})$ is regular if there exists $i_0$ such that
+$K_{ij}=0$ for $i<i_0$, or if there exists $j_0$ such that $K_{ij}=0$ for
+$j>j_0$.
+
+The sequence $''E(K_{\bullet\bullet})$ is regular if there exists $i_0$ such that
+$K_{ij}=0$ for $i>i_0$, or if there exists $j_0$ such that $K_{ij}=0$ for
+$j<j_0$.
+\end{env}
+
+
+\subsection{Hypercohomology of a functor with respect to a complex
+$K^\bullet$}
+\label{subsection:0.11.4}
+
+\begin{env}[11.4.1]
+\label{0.11.4.1}
+Let $\mathcal C$ be an abelian category; recall that a
+\emph{right} (or \emph{cohomological}) \emph{resolution} of an object $A$ of
+$\mathcal C$ is a complex of objects of $\mathcal C$, whose
+differential is of degree $+1$,
+\[
+  0\longrightarrow L^0\longrightarrow L^1\longrightarrow L^2
+  \longrightarrow\cdots
+\]
+equipped with a morphism $\varepsilon:A\to L^0$ called the \emph{augmentation} of the
+resolution (and which can be regarded as a morphism of complexes
+\[
+\xymatrix{
+  0\ar[r] & A\ar[r]\ar[d]_{\varepsilon} & 0\ar[r]\ar[d]
+    & 0\ar[r]\ar[d] & \cdots\\
+  0\ar[r] & L^0\ar[r] & L^1\ar[r] & L^2\ar[r] & \cdots
+})
+\]
+such that the sequence
+\[
+  0\longrightarrow A\xrightarrow{\varepsilon}L^0\longrightarrow L^1
+  \longrightarrow\cdots
+\]
+is exact; likewise a \emph{left} (or \emph{homological}) \emph{resolution}
+of $A$ is a complex
+$0\leftarrow L_0\leftarrow L_1\leftarrow\cdots$ of objects of $\mathcal C$
+whose differential is of degree $-1$, equipped with an augmentation
+$\varepsilon:L_0\to A$, such that the sequence
+\[
+  0\longleftarrow A\xleftarrow{\varepsilon}L_0\longleftarrow L_1
+  \longleftarrow\cdots
+\]
+is exact.
+
+When a right resolution $(L^i)_{i\geq0}$ of an object $A$ is such that
+$L^i=0$ for $i\geq n+1$, we say that this resolution is of
+\emph{length $\leq n$}. A left resolution of length $\leq n$ is defined
+similarly. A resolution that is of length $\leq n$ for some integer
+$n$ is said to be \emph{finite}.
+
+A resolution of $A$ is said to be \emph{projective} (resp. \emph{injective}) if
+the objects of $\mathcal C$ other than $A$ of which it is composed are
+\emph{projective} (resp. \emph{injective}). When $\mathcal C$ is the
+category of modules (left modules, for example) over a ring, we will likewise say
+that a resolution of $A$ is \emph{flat} (resp. \emph{free}) when the
+modules other than $A$ of which it is composed are \emph{flat} (resp.
+\emph{free}).
+\end{env}
+
+\begin{env}[11.4.2]
+\label{0.11.4.2}
+Let $K^\bullet=(K^i)_{i\in\mathbb Z}$ be a complex of objects of $\mathcal C$
+whose differential is of degree $+1$.
+
+We call a \emph{right Cartan--Eilenberg resolution} of $K^\bullet$ the
+pair consisting of a bicomplex $L^{\bullet\bullet}=(L^{ij})$ with
+differentials of degree $+1$, with $L^{ij}=0$ for $j<0$, and of a morphism of
+simple complexes $\varepsilon:K^\bullet\to L^{\bullet,0}$, such that the
+following conditions are satisfied:
+\oldpage[0\textsubscript{III}]{33}
+\begin{enumerate}
+  \item[(i)] For each index $i$, the sequences
+    \[
+    \begin{aligned}
+      0\longrightarrow{}&K^i\xrightarrow{\varepsilon}L^{i0}
+        \longrightarrow L^{i1}\longrightarrow\cdots\\
+      0\longrightarrow{}&\mathrm B^i(K^\bullet)\xrightarrow{\varepsilon}
+        \mathrm B_{\mathrm I}^i(L^{\bullet,0})
+        \longrightarrow\mathrm B_{\mathrm I}^i(L^{\bullet,1})
+        \longrightarrow\cdots\\
+      0\longrightarrow{}&\mathrm Z^i(K^\bullet)\xrightarrow{\varepsilon}
+        \mathrm Z_{\mathrm I}^i(L^{\bullet,0})
+        \longrightarrow\mathrm Z_{\mathrm I}^i(L^{\bullet,1})
+        \longrightarrow\cdots\\
+      0\longrightarrow{}&\mathrm H^i(K^\bullet)\xrightarrow{\varepsilon}
+        \mathrm H_{\mathrm I}^i(L^{\bullet,0})
+        \longrightarrow\mathrm H_{\mathrm I}^i(L^{\bullet,1})
+        \longrightarrow\cdots
+    \end{aligned}
+    \]
+    are exact; in other words $(L^{i,\bullet})$,
+    $(\mathrm B_{\mathrm I}^i(L^{\bullet,\bullet}))$,
+    $(\mathrm Z_{\mathrm I}^i(L^{\bullet,\bullet}))$ and
+    $(\mathrm H_{\mathrm I}^i(L^{\bullet,\bullet}))$ are
+    \emph{resolutions} of $K^i$, $\mathrm B^i(K^\bullet)$,
+    $\mathrm Z^i(K^\bullet)$ and $\mathrm H^i(K^\bullet)$ respectively.
+  \item[(ii)] For each $j$, the simple complex $L^{\bullet,j}$ is
+    \emph{split}, in other words, the exact sequences
+    \[
+      \label{0.11.4.2.1}
+      0\longrightarrow\mathrm B_{\mathrm I}^i(L^{\bullet,j})
+      \longrightarrow\mathrm Z_{\mathrm I}^i(L^{\bullet,j})
+      \longrightarrow\mathrm H_{\mathrm I}^i(L^{\bullet,j})
+      \longrightarrow0
+      \tag{11.4.2.1}
+    \]
+    \[
+      \label{0.11.4.2.2}
+      0\longrightarrow\mathrm Z_{\mathrm I}^i(L^{\bullet,j})
+      \longrightarrow L^{ij}
+      \longrightarrow\mathrm B_{\mathrm I}^{i+1}(L^{\bullet,j})
+      \longrightarrow0
+      \tag{11.4.2.2}
+    \]
+    are split.
+\end{enumerate}
+
+One proves (M, XVII, 1.2) that if every object of $\mathcal C$ is a subobject
+of an injective object, every complex $K^\bullet$ of $\mathcal C$ admits an
+\emph{injective} Cartan--Eilenberg resolution, that is, one consisting of
+injective objects $L^{ij}$ (condition (ii) above then implies that the
+$\mathrm B_{\mathrm I}^i(L^{\bullet,j})$,
+$\mathrm Z_{\mathrm I}^i(L^{\bullet,j})$ and
+$\mathrm H_{\mathrm I}^i(L^{\bullet,j})$ are also injective objects).
+Moreover, for every morphism $f:K^\bullet\to K'^\bullet$ of complexes of
+$\mathcal C$, every Cartan--Eilenberg resolution $L^{\bullet\bullet}$ of
+$K^\bullet$ and every injective Cartan--Eilenberg resolution
+$L'^{\bullet\bullet}$ of $K'^\bullet$, there exists a morphism of bicomplexes
+$F:L^{\bullet\bullet}\to L'^{\bullet\bullet}$ compatible with $f$ and the
+augmentations, and if $f$ and $g$ are two homotopic morphisms from $K^\bullet$
+to $K'^\bullet$, the corresponding morphisms from $L^{\bullet\bullet}$
+to $L'^{\bullet\bullet}$ are homotopic (\emph{loc. cit.}).
+
+When $K^\bullet$ is \emph{bounded below} (resp.
+\emph{above}), we can take $L^{\bullet\bullet}$ such that
+$L^{ij}=0$ for $i<i_0$ (resp. $i>i_0$) if $K^i=0$ for $i<i_0$ (resp.
+$i>i_0$) (M, XVII, 1.3).
+
+Suppose on the other hand that there exists an integer $n$ such that every object of
+$\mathcal C$ admits an \emph{injective resolution of length $\leq n$};
+then we may suppose that $L^{ij}=0$ for $j>n$ (M, XVII, 1.4).
+\end{env}
+
+\begin{env}[11.4.3]
+\label{0.11.4.3}
+Now let $T$ be a \emph{covariant additive functor} from $\mathcal C$
+to an abelian category $\mathcal C'$. Given a complex
+$K^\bullet$ of $\mathcal C$ and an injective Cartan--Eilenberg resolution
+$L^{\bullet\bullet}$ of $K^\bullet$, suppose that the (simple) complex defined
+by the bicomplex $T(L^{\bullet\bullet})$ exists
+(cf. \hyperref[0.11.3.1]{11.3.1}); then the two spectral sequences
+$'E(T(L^{\bullet\bullet}))$ and $''E(T(L^{\bullet\bullet}))$ of this bicomplex
+are called the \emph{hypercohomology spectral sequences of $T$ with respect to the
+complex $K^\bullet$}; by virtue of
+(\hyperref[0.11.4.2]{11.4.2}) and
+(\hyperref[0.11.3.2]{11.3.2}), they indeed depend only on
+$K^\bullet$ and not on the injective Cartan--Eilenberg resolution
+$L^{\bullet\bullet}$ chosen; moreover, they depend
+\emph{functorially} on $K^\bullet$. They have the same abutment
+$\mathrm H^\bullet(T(L^{\bullet\bullet}))$, also called
+the \emph{hypercohomology of $T$ with respect to $K^\bullet$}, and denoted
+$\mathrm R^\bullet T(K^\bullet)$. One shows that the $E_2$ terms of the two
+preceding spectral sequences are given by
+\[
+  \label{0.11.4.3.1}
+  'E_2^{pq}=\mathrm H^p(\mathrm R^qT(K^\bullet))
+  \tag{11.4.3.1}
+\]
+\[
+  \label{0.11.4.3.2}
+  ''E_2^{pq}=\mathrm R^pT(\mathrm H^q(K^\bullet))
+  \tag{11.4.3.2}
+\]
+\oldpage[0\textsubscript{III}]{34}
+$\mathrm R^pT$ denoting as usual the $p$-th \emph{derived
+functor} of $T$ for $p\in\mathbb Z$; $\mathrm R^qT(K^\bullet)$ denotes the
+complex $(\mathrm R^qT(K^i))_{i\in\mathbb Z}$.
+
+\phantomsection\egalabel{0.11.4.4}{11.4.4}
+Unless expressly stated otherwise, we will henceforth suppose that every object
+of $\mathcal C$ is a subobject of an injective object of $\mathcal C$, so
+that injective Cartan--Eilenberg resolutions exist for every complex
+of $\mathcal C$. Since $L^{ij}=0$ for $j<0$, the criteria of
+(\hyperref[0.11.3.3]{11.3.3}) show that \emph{both} hypercohomology
+spectral sequences of $T$ with respect to $K^\bullet$ exist and
+are \emph{biregular} in each of the following two cases:
+\begin{enumerate}
+  \item[$1^\circ$] $K^\bullet$ is bounded below;
+  \item[$2^\circ$] Every object of $\mathcal C$ admits an injective resolution
+    of length at most equal to an integer $n$ (independent of the object
+    under consideration).
+\end{enumerate}
+Indeed, in the first case we may suppose
+(\hyperref[0.11.4.2]{11.4.2}) that there exists $i_0$ such that $L^{ij}=0$ for
+$i<i_0$, and in the second that there exists $j_1$ such that $L^{ij}=0$ for $j>j_1$;
+in each of the two cases it is moreover clear that for given $n$ there are
+only finitely many pairs $(i,j)$ such that $L^{ij}\neq0$ and $i+j=n$, which
+establishes our assertions.
+
+When we suppose that in $\mathcal C'$ filtered inductive limits
+exist and are exact (which implies in particular the existence in
+$\mathcal C'$ of infinite direct sums), then the complex defined by the
+bicomplex $T(L^{\bullet\bullet})$ exists, and the criterion
+(\hyperref[0.11.3.3]{11.3.3}) shows that the sequence
+$'E(T(L^{\bullet\bullet}))$ is always \emph{regular}.
+
+When $K^\bullet$ is a complex all of whose terms $K^i$ are zero except
+a single one $K^{i_0}$, $\mathrm R^nT(K^\bullet)$ is isomorphic to
+$\mathrm R^{n-i_0}T(K^{i_0})$, as follows immediately from the definitions by
+taking a Cartan--Eilenberg resolution $L^{\bullet\bullet}$ such that
+$L^{ij}=0$ for $i\neq i_0$.
+
+If $K^\bullet$ and $K'^\bullet$ are two complexes of $\mathcal C$, and $f$, $g$
+two \emph{homotopic} morphisms from $K^\bullet$ to $K'^\bullet$, then the
+morphisms $\mathrm R^\bullet T(K^\bullet)\to
+\mathrm R^\bullet T(K'^\bullet)$ deduced from $f$ and $g$ are identical, and the
+same holds for the morphisms of the cohomology spectral sequences.
+\end{env}
+
+\begin{proposition}[11.4.5]
+\label{0.11.4.5}
+Suppose that in $\mathcal C'$ filtered inductive limits exist and
+are exact. If $\mathrm R^nT(K^i)=0$ for every $n>0$ and every
+$i\in\mathbb Z$, we have functorial isomorphisms
+\[
+  \label{0.11.4.5.1}
+  \mathrm R^iT(K^\bullet)\xrightarrow{\sim}
+  \mathrm H^i(T(K^\bullet))\qquad(i\in\mathbb Z).
+  \tag{11.4.5.1}
+\]
+\end{proposition}
+
+\begin{proof}
+Indeed, the only nonzero $E_2$ terms of the first spectral sequence
+(\hyperref[0.11.4.3.1]{11.4.3.1}) are then
+$'E_2^{p0}=\mathrm H^p(T(K^\bullet))$; in other words, this sequence is
+\emph{degenerate}; since it is regular
+(\hyperref[0.11.4.4]{11.4.4}), the conclusion follows from
+(\hyperref[0.11.1.6]{11.1.6}).
+\end{proof}
+
+\begin{env}[11.4.6]
+\label{0.11.4.6}
+Now consider, for example, a \emph{covariant bifunctor}
+$(M,N)\mapsto T(M,N)$ from $\mathcal C\times\mathcal C'$ to $\mathcal C''$,
+$\mathcal C$, $\mathcal C'$, $\mathcal C''$ being three abelian
+categories; we suppose, for simplicity, that $T$ is additive in each of its
+arguments, and moreover that every object of $\mathcal C$ and every object of
+$\mathcal C'$ is a subobject of an injective object, and that filtered inductive
+limits exist in $\mathcal C''$ and are exact. We then define
+the \emph{hypercohomology of $T$ with respect to two complexes}
+$K^\bullet$, $K'^\bullet$ of $\mathcal C$ and $\mathcal C'$ respectively, with
+differentials of degree $+1$, by taking for $K^\bullet$ (resp.
+$K'^\bullet$) an injective Cartan--Eilenberg resolution
+$L^{\bullet\bullet}$ (resp. $L'^{\bullet\bullet}$); then
+$T(L^{\bullet\bullet},L'^{\bullet\bullet})$ is a quadricomplex of
+$\mathcal C''$, which we regard as a \emph{bicomplex} of $\mathcal C''$
+by taking as degrees of $T(L^{ij},L'^{hk})$ the integers $i+h$ and $j+k$.
+The \emph{hypercohomology of $T$ with respect to $K^\bullet$ and $K'^\bullet$}
+is by definition the cohomology
+$\mathrm H^\bullet(T(L^{\bullet\bullet},L'^{\bullet\bullet}))$ of this
+bicomplex (in other words, that of the associated simple complex), denoted
+$\mathrm R^\bullet T(K^\bullet,K'^\bullet)$; it is the abutment of
+two spectral sequences whose $E_2$ terms are given by
+\oldpage[0\textsubscript{III}]{35}
+\[
+  \label{0.11.4.6.1}
+  'E_2^{pq}=\mathrm H^p(\mathrm R^qT(K^\bullet,K'^\bullet))
+  \tag{11.4.6.1}
+\]
+\[
+  \label{0.11.4.6.2}
+  ''E_2^{pq}=\sum_{q'+q''=q}
+  \mathrm R^pT(\mathrm H^{q'}(K^\bullet),\mathrm H^{q''}(K'^\bullet))
+  \tag{11.4.6.2}
+\]
+(cf. M, XVII, 2).
+
+Here $\mathrm R^qT(K^\bullet,K'^\bullet)$ is the bicomplex
+$(\mathrm R^qT(K^i,K'^j))_{(i,j)\in\mathbb Z\times\mathbb Z}$ and the
+right-hand side of (\hyperref[0.11.4.6.1]{11.4.6.1}) is its cohomology when it is
+regarded as a simple complex.
+
+Moreover, the first spectral sequence is always regular, and the two
+spectral sequences are biregular when there exists $n$ such that every object of
+$\mathcal C$ and every object of $\mathcal C'$ admits an injective resolution
+of length $\leq n$, or when $K^\bullet$ and $K'^\bullet$ are bounded
+below; in the latter case, we can moreover omit the hypothesis that
+inductive limits exist in $\mathcal C''$.
+
+If $K_1^\bullet$, $K_1'^\bullet$ are two other complexes of $\mathcal C$ and
+$\mathcal C'$ respectively, $f$, $g$ two homotopic morphisms from
+$K^\bullet$ to $K_1^\bullet$, and $f'$, $g'$ two homotopic morphisms from
+$K'^\bullet$ to $K_1'^\bullet$, then the morphisms
+$\mathrm R^\bullet T(K^\bullet,K'^\bullet)\to
+\mathrm R^\bullet T(K_1^\bullet,K_1'^\bullet)$ deduced from $f$ and $f'$ on the one
+hand, and from $g$ and $g'$ on the other, are identical, and the same holds for
+the morphisms of the hypercohomology spectral sequences.
+
+This generalizes easily to an arbitrary covariant additive multifunctor.
+\end{env}
+
+\begin{proposition}[11.4.7]
+\label{0.11.4.7}
+Suppose that for every injective object $I$ of $\mathcal C$ (resp. $I'$ of
+$\mathcal C'$), $A'\mapsto T(I,A')$ (resp. $A\mapsto T(A,I')$) is an
+exact functor. Then, with the notation of
+(\hyperref[0.11.4.6]{11.4.6}), we have canonical isomorphisms
+\[
+  \label{0.11.4.7.1}
+  \mathrm R^\bullet T(K^\bullet,K'^\bullet)
+  \xrightarrow{\sim}\mathrm H^\bullet(T(L^{\bullet\bullet},K'^\bullet))
+  \xrightarrow{\sim}\mathrm H^\bullet(T(K^\bullet,L'^{\bullet\bullet}))
+  \tag{11.4.7.1}
+\]
+where the last two terms are the cohomology of the simple complexes defined
+by the tricomplexes $T(L^{\bullet\bullet},K'^\bullet)$ and
+$T(K^\bullet,L'^{\bullet\bullet})$ respectively.
+\end{proposition}
+
+\begin{proof}
+Let us define, for example, the first of these isomorphisms. The quadricomplex
+$T(L^{\bullet\bullet},L'^{\bullet\bullet})$ can be regarded as a
+\emph{bicomplex} by taking as degrees of $T(L^{ij},L'^{hk})$ the numbers
+$i+j+h$ and $k$. Since for each $h$, $L'^{h,\bullet}$ is a
+\emph{resolution} of $K'^h$, we have for this bicomplex, by virtue of the hypothesis
+on $T$,
+$\mathrm H_{\mathrm{II}}^q(T(L^{\bullet\bullet},L'^{\bullet\bullet}))=0$
+for $q\neq0$ and
+$\mathrm H_{\mathrm{II}}^0(T(L^{\bullet\bullet},L'^{\bullet\bullet}))
+=T(L^{\bullet\bullet},K'^\bullet)$; the first spectral sequence of this
+bicomplex is therefore \emph{degenerate}; since $L'^{hk}=0$ for $k<0$, this
+sequence is moreover regular (\hyperref[0.11.3.3]{11.3.3}), and the
+conclusion therefore follows from (\hyperref[0.11.1.6]{11.1.6}).
+\end{proof}
+
+We have analogous results for a covariant multifunctor in an arbitrary
+number $n$ of arguments: in the computation of hypercohomology, it is not
+necessary to replace \emph{all} the complexes by a Cartan--Eilenberg
+resolution, but only $n-1$ of them, provided that, when we fix any
+$n-1$ arguments by giving them \emph{injective} objects as values,
+the covariant functor in the remaining argument is
+\emph{exact}.
+
+\subsection{Passage to the inductive limit in hypercohomology}
+\label{subsection:0.11.5}
+
+\begin{lemma}[11.5.1]
+\label{0.11.5.1}
+Let $K^\bullet=(K^i)_{i\in\mathbb Z}$ be a complex of $\mathcal C$, and for
+every integer $r\in\mathbb Z$, let $K_{(r)}^\bullet$ be the complex such that
+$K_{(r)}^i=0$ for $i<r$ and $K_{(r)}^i=K^i$ for $i\geq r$. Let $T$ be a
+covariant additive functor
+\oldpage[0\textsubscript{III}]{36}
+from $\mathcal C$ to $\mathcal C'$ commuting with
+inductive limits (we suppose that filtered inductive limits exist
+and are exact in $\mathcal C$ and $\mathcal C'$). Then
+$\mathrm R^\bullet T(K^\bullet)$ is isomorphic to the inductive limit
+\[
+  \varinjlim_{r\to-\infty}\mathrm R^\bullet T(K_{(r)}^\bullet)
+\]
+as $r$ tends to $-\infty$.
+\end{lemma}
+
+The construction of an injective Cartan--Eilenberg resolution of $K^\bullet$
+is carried out by choosing arbitrarily, for each $i$, an injective resolution
+$(X_{\mathrm B}^{ij})_{j\geq0}$ of $\mathrm B^i(K^\bullet)$ and an injective
+resolution $(X_{\mathrm H}^{ij})_{j\geq0}$ of
+$\mathrm H^i(K^\bullet)$; this done, the method of construction shows that
+the injective resolution $(L^{ij})_{j\geq0}$ of $K^i$ and the
+differentials $L^{i,j}\to L^{i+1,j}$ \emph{depend only on the resolutions}
+$(X_{\mathrm B}^{i,\bullet})$, $(X_{\mathrm H}^{i,\bullet})$ and
+$(X_{\mathrm B}^{i+1,\bullet})$ (M, XVII, 1.2). Now, it is clear that we have
+$\mathrm B^i(K_{(r)}^\bullet)=\mathrm B^i(K^\bullet)$ and
+$\mathrm H^i(K_{(r)}^\bullet)=\mathrm H^i(K^\bullet)$ for $i\geq r+1$. On
+the other hand, for each $r$ we have a canonical injection
+$\varphi_{r-1,r}^\bullet:K_{(r)}^\bullet\to K_{(r-1)}^\bullet$,
+$\varphi_{r-1,r}^i$ being the identity for $i\neq r-1$. The preceding remark
+shows that, if $L^{\bullet\bullet}=(L^{ij})$ is an injective
+Cartan--Eilenberg resolution of $K^\bullet$, we can for each $r$ define an
+injective Cartan--Eilenberg resolution
+$L_{(r)}^{\bullet\bullet}=(L_{(r)}^{ij})$ of $K_{(r)}^\bullet$ such that
+$L_{(r)}^{ij}=0$ for $i<r$ and $L_{(r)}^{ij}=L^{ij}$ for $i\geq r+1$. On the
+other hand, we can define a morphism of bicomplexes
+$\Phi_{r-1,r}^{\bullet\bullet}:L_{(r)}^{\bullet\bullet}\to
+L_{(r-1)}^{\bullet\bullet}$ corresponding to $\varphi_{r-1,r}^\bullet$, and the
+method of definition of this morphism (\emph{loc. cit.}) again shows that it
+can be constructed so that $\Phi_{r-1,r}^{ij}$ is the identity for
+$i\neq r$ and $i\neq r-1$. We have thus defined an inductive system
+$(L_{(r)}^{\bullet\bullet})$ of bicomplexes of $\mathcal C$, of which
+$L^{\bullet\bullet}$ is evidently the inductive limit as $r$ tends to
+$-\infty$; since direct sums and inductive limits commute, the simple
+complex associated to $L^{\bullet\bullet}$ is also the inductive limit
+of the simple complex associated to $L_{(r)}^{\bullet\bullet}$. Since $T$
+commutes with inductive limits by hypothesis, and so does
+cohomology (because of the exactness of the functor $\varinjlim$), we indeed have
+\[
+  \mathrm H^\bullet(T(L^{\bullet\bullet}))=
+  \varinjlim\mathrm H^\bullet(T(L_{(r)}^{\bullet\bullet}))
+\]
+up to isomorphism.
+
+Lemma (\hyperref[0.11.5.1]{11.5.1}) makes it possible to extend to arbitrary complexes
+$K^\bullet$, by passage to the inductive limit, properties
+valid for complexes \emph{bounded below}. As a first
+example, we will prove:
+
+\begin{proposition}[11.5.2]
+\label{0.11.5.2}
+Under the hypotheses of (\hyperref[0.11.5.1]{11.5.1}) concerning
+$\mathcal C$, $\mathcal C'$ and $T$, $\mathrm R^\bullet T(K^\bullet)$ is a
+cohomological functor in the abelian category of complexes of
+$\mathcal C$.
+\end{proposition}
+
+\begin{proof}
+Let us show that we can reduce to the case of complexes bounded below:
+if we have an exact sequence
+\[
+  0\longrightarrow K'^\bullet\longrightarrow K^\bullet
+  \longrightarrow K''^\bullet\longrightarrow0
+\]
+of complexes, we evidently deduce from it for each $r$ an exact sequence
+\[
+  0\longrightarrow K_{(r)}'^\bullet\longrightarrow K_{(r)}^\bullet
+  \longrightarrow K_{(r)}''^\bullet\longrightarrow0,
+\]
+whence, by hypothesis, an exact sequence
+\[
+  \cdots\longrightarrow\mathrm R^nT(K_{(r)}'^\bullet)
+  \longrightarrow\mathrm R^nT(K_{(r)}^\bullet)
+  \longrightarrow\mathrm R^nT(K_{(r)}''^\bullet)
+  \xrightarrow{\partial}\mathrm R^{n+1}T(K_{(r)}'^\bullet)
+  \longrightarrow\cdots
+\]
+these exact sequences forming an inductive system; Lemma
+(\hyperref[0.11.5.1]{11.5.1}) and the exactness of the functor $\varinjlim$
+prove that we have an exact sequence
+\[
+  \cdots\longrightarrow\mathrm R^nT(K'^\bullet)
+  \longrightarrow\mathrm R^nT(K^\bullet)
+  \longrightarrow\mathrm R^nT(K''^\bullet)
+  \xrightarrow{\partial}\mathrm R^{n+1}T(K'^\bullet)
+  \longrightarrow\cdots
+\]
+\end{proof}
+
+To treat the case of complexes bounded below, we may restrict to
+those such that $K^i=0$ for $i<0$; they evidently form an abelian
+category $\mathcal K$.
+
+\begin{lemma}[11.5.2.1]
+\label{0.11.5.2.1}
+In $\mathcal K$, let $\mathfrak J$ be the set of complexes
+$Q^\bullet=(Q^i)_{i\geq0}$ having the
+\oldpage[0\textsubscript{III}]{37}
+following properties:
+\begin{enumerate}
+  \item[$1^\circ$] Every $Q^i$ is an injective object of $\mathcal C$;
+  \item[$2^\circ$] For every $i\geq0$, we have
+    $\mathrm Z^i(Q^\bullet)=\mathrm B^i(Q^\bullet)$, and
+    $\mathrm Z^i(Q^\bullet)$ is a direct factor of $Q^i$.
+\end{enumerate}
+Then:
+\begin{enumerate}
+  \item[(i)] Every $Q^\bullet\in\mathfrak J$ is an injective object of
+    $\mathcal K$.
+  \item[(ii)] Every object of $\mathcal K$ is isomorphic to a subcomplex
+    of a complex belonging to $\mathfrak J$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\textup{(i)} Let $A^\bullet=(A^i)$ be an object of $\mathcal K$,
+$A'^\bullet=(A'^i)$ a subobject of $A^\bullet$, and
+$Q^\bullet=(Q^i)$ an object of $\mathfrak J$, and suppose given a morphism
+$f=(f^i):A'^\bullet\to Q^\bullet$, which we have to extend to a morphism
+$g=(g^i):A^\bullet\to Q^\bullet$. We will use the language of the category
+of modules for simplicity (cf. [27]).
+
+Let us identify $Q^i$ with
+$\mathrm B^i(Q^\bullet)\oplus\mathrm B^{i+1}(Q^\bullet)$; let us proceed by
+induction on $i$, and suppose therefore that the $g^j$ have been defined for $j<i$,
+compatible with the differentials $d^j:A^j\to A^{j+1}$ and
+$d'^j:Q^j\to Q^{j+1}$ for $j<i-1$, and moreover such that:
+\begin{enumerate}
+  \item[$1^\circ$] $g^{i-1}(\mathrm Z^{i-1}(A^\bullet))\subset
+    \mathrm Z^{i-1}(Q^\bullet)$;
+  \item[$2^\circ$] If we set $C^j=(d^j)^{-1}(A'^{j+1})$ for every $j$, then
+    $d'^{i-1}\circ g^{i-1}$ coincides with $f^i\circ d^{i-1}$ on $C^{i-1}$.
+\end{enumerate}
+The morphism $f^i:A'^i\to Q^i$ gives, by composition with the projections,
+two morphisms
+$f'^i:A'^i\to\mathrm B^i(Q^\bullet)$ and
+$f''^i:A'^i\to\mathrm B^{i+1}(Q^\bullet)$. Since
+$d'^{i-1}\circ g^{i-1}$ maps $A^{i-1}$ into
+$\mathrm B^i(Q^\bullet)$ and vanishes on $\mathrm Z^{i-1}(A^\bullet)$, it
+defines a morphism
+$h^i:\mathrm B^i(A^\bullet)\to\mathrm B^i(Q^\bullet)$, and since
+$d'^{i-1}\circ g^{i-1}$ coincides with $f^i\circ d^{i-1}$ on $C^{i-1}$,
+$h^i$ coincides with $f'^i$ on
+$\mathrm B^i(A^\bullet)\cap A'^i$. Since $\mathrm B^i(Q^\bullet)$, being a direct
+factor of $Q^i$, is injective, there is a morphism
+$g'^i:A^i\to\mathrm B^i(Q^\bullet)$ which coincides with $h^i$ on
+$\mathrm B^i(A^\bullet)$ and with $f'^i$ on $A'^i$. Consider on the other hand
+the morphism
+$f'^{i+1}\circ d^i:C^i\to\mathrm B^{i+1}(Q^\bullet)$, which vanishes on
+$\mathrm Z^i(A^\bullet)$; since $\mathrm B^{i+1}(Q^\bullet)$ is injective,
+there is a morphism $g''^i:A^i\to\mathrm B^{i+1}(Q^\bullet)$ which coincides
+with $f'^{i+1}\circ d^i$ on $C^i$ and with $0$ on
+$\mathrm Z^i(A^\bullet)$. It then suffices to take $g^i=g'^i+g''^i$ in order
+to be able to continue the induction.
+
+\textup{(ii)} To embed $A^\bullet=(A^i)$ in a complex belonging to
+$\mathfrak J$, we take for each $i\geq1$ an injective object $Q'^i$ of
+$\mathcal C$ such that there exists an injection $f'^i:A^i\to Q'^i$. Then
+set
+\[
+  Q^i=0\quad(i<0),\qquad Q^0=Q'^1,\qquad
+  Q^i=Q'^i\oplus Q'^{i+1}\quad(i\geq1),
+\]
+with the evident differential. Set
+$f^i=f'^i+(f'^{i+1}\circ d^i)$ for every $i$ (with $f'^i=0$ for $i\leq0$);
+it is immediate that $f^i$ is injective for every $i$, and that the $f^i$ are
+compatible with the differentials.
+\end{proof}
+
+\begin{corollary}[11.5.2.2]
+\label{0.11.5.2.2}
+Every object $K^\bullet$ of $\mathcal K$ admits a right resolution consisting
+of objects of $\mathfrak J$. If $L^{\bullet\bullet}$ is such a resolution,
+then for every resolution $L'^{\bullet\bullet}$ of $K^\bullet$ consisting of objects
+of $\mathcal K$, there is a morphism of bicomplexes
+$F:L'^{\bullet\bullet}\to L^{\bullet\bullet}$ compatible with the
+augmentations, and any two such morphisms $F$, $F'$ are homotopic.
+\end{corollary}
+
+\begin{proof}
+This is nothing other than (M, V, 1.1 a)) applied to the abelian category
+$\mathcal K$.
+\end{proof}
+
+\begin{env}[11.5.2.3]
+\label{0.11.5.2.3}
+These preliminaries having been established, consider an injective
+Cartan--Eilenberg resolution $L'^{\bullet\bullet}$ of $K^\bullet$ and a
+resolution $L^{\bullet\bullet}$ of $K^\bullet$ consisting of objects of
+$\mathfrak J$, and let us show that we have an isomorphism
+\[
+  \mathrm H^\bullet(T(L'^{\bullet\bullet}))\xrightarrow{\sim}
+  \mathrm H^\bullet(T(L^{\bullet\bullet})).
+\]
+Indeed, we deduce from (\hyperref[0.11.5.2.2]{11.5.2.2}) a morphism of
+bicomplexes $T(L'^{\bullet\bullet})\to T(L^{\bullet\bullet})$, and consequently
+a morphism
+$'E(T(L'^{\bullet\bullet}))\to{}'E(T(L^{\bullet\bullet}))$ of the first
+spectral sequences of these bicomplexes. Since, by virtue of
+(\hyperref[0.11.3.3]{11.3.3}), these spectral sequences are regular, it
+suffices (\hyperref[0.11.1.5]{11.1.5}) to see that the preceding morphism is
+an isomorphism for the $E_2$ terms, or again that
+$\mathrm H_{\mathrm{II}}^q(T(L^{i,\bullet}))$ is equal to
+$\mathrm R^qT(K^i)$; since $L^{i,\bullet}$ is a right resolution of
+$K^i$, we are reduced to proving the
+\end{env}
+
+\oldpage[0\textsubscript{III}]{38}
+\begin{lemma}[11.5.2.4]
+\label{0.11.5.2.4}
+If $L^\bullet=(L^i)_{i\in\mathbb Z}$ is a right resolution of an object $A$
+of $\mathcal C$ such that $\mathrm R^nT(L^i)=0$ for every $i\in\mathbb Z$ and
+every $n>0$, then we have
+$\mathrm H^\bullet T(L^\bullet)=\mathrm R^\bullet T(A)$.
+\end{lemma}
+
+\begin{proof}
+This is a particular case of (T, 2.5.2).
+\end{proof}
+
+\begin{env}[11.5.2.5]
+\label{0.11.5.2.5}
+The proof of (\hyperref[0.11.5.2]{11.5.2}) is now completed
+immediately, since $L'^{\bullet\bullet}$ is an injective resolution of
+$K^\bullet$ in the abelian category $\mathcal K$; in other words,
+$K^\bullet\mapsto\mathrm H^\bullet(T(L'^{\bullet\bullet}))$ is nothing other than
+the right derived cohomological functor of $T$ in the category $\mathcal K$
+(T, 2.3).
+\end{env}
+
+\begin{proposition}[11.5.3]
+\label{0.11.5.3}
+Under the hypotheses of (\hyperref[0.11.5.1]{11.5.1}) concerning
+$\mathcal C$, $\mathcal C'$ and $T$, let
+$L^{\bullet\bullet}=(L^{ij})$ be a bicomplex such that $L^{ij}=0$ for $j<0$ and
+such that, for every $i$, $L^{i,\bullet}$ is a resolution of $K^i$; suppose
+finally that $\mathrm R^nT(L^{ij})=0$ for every pair $(i,j)$ and every $n>0$.
+Then there exists a functorial isomorphism
+\[
+  \label{0.11.5.3.1}
+  \mathrm R^\bullet T(K^\bullet)\xrightarrow{\sim}
+  \mathrm H^\bullet(T(L^{\bullet\bullet})).
+  \tag{11.5.3.1}
+\]
+\end{proposition}
+
+\begin{proof}
+Let $L_{(r)}^{\bullet\bullet}=(L_{(r)}^{ij})$ be the bicomplex such that
+$L_{(r)}^{ij}=0$ for $i<r$ and $L_{(r)}^{ij}=L^{ij}$ for $i\geq r$; it is
+immediate that $L^{\bullet\bullet}$ is the inductive limit of
+$L_{(r)}^{\bullet\bullet}$ as $r$ tends to $-\infty$; by virtue of
+the hypothesis on $T$ and of (\hyperref[0.11.5.1]{11.5.1}), it therefore suffices to
+prove the proposition when $K^\bullet$ is bounded below, for
+example $K^i=0$ for $i<0$, and $L^{ij}=0$ for $i<0$. Let then
+$L'^{\bullet\bullet}=(L'^{ij})$ be a right resolution of $K^\bullet$ consisting
+of objects of $\mathfrak J$ (\hyperref[0.11.5.2.2]{11.5.2.2}); there is a
+morphism of bicomplexes
+$L^{\bullet\bullet}\to L'^{\bullet\bullet}$ compatible with the
+augmentations, whence a morphism
+$'E(T(L^{\bullet\bullet}))\to{}'E(T(L'^{\bullet\bullet}))$ for the first
+spectral sequences; Lemma (\hyperref[0.11.5.2.4]{11.5.2.4}) shows,
+as in (\hyperref[0.11.5.2.3]{11.5.2.3}), that this morphism is an
+\emph{isomorphism}, whence the conclusion.
+\end{proof}
+
+\begin{remark}[11.5.4]
+\label{0.11.5.4}
+The preceding arguments prove that the conclusions of
+(\hyperref[0.11.5.2]{11.5.2}) and
+(\hyperref[0.11.5.3]{11.5.3}) are valid in the category of
+complexes $K^\bullet$ bounded below, \emph{without supposing that $T$
+commutes with filtered inductive limits}. Moreover, when we consider
+only the category $\mathcal K$ of complexes $K^\bullet$ such that
+$K^i=0$ for $i<0$, the characterization of $\mathrm R^\bullet T(K^\bullet)$
+as the system of \emph{right derived functors} of $T$ in $\mathcal K$
+shows that this cohomological functor is \emph{universal} (T, 2.3).
+
+Another case in which (\hyperref[0.11.5.2]{11.5.2}) is valid without making
+any additional hypothesis on $T$ is the case where there exists an integer $m>0$
+such that every object of $\mathcal C$ admits an injective resolution of length
+$\leq m$. Indeed, in the proof of
+(\hyperref[0.11.5.1]{11.5.1}), all the injective resolutions of objects
+of $\mathcal C$ that occur can be taken of length $\leq m$,
+from which it follows immediately that the terms of total degree $n$ of the bicomplex
+$T(L_{(r)}^{\bullet\bullet})$ are equal to those of
+$T(L^{\bullet\bullet})$ and finite in number, as soon as $-r$ is sufficiently large, which
+implies that for every $n$,
+$\mathrm H^n(T(L^{\bullet\bullet}))=
+\mathrm H^n(T(L_{(r)}^{\bullet\bullet}))$ as soon as $-r$ is sufficiently large. With
+the notation of (\hyperref[0.11.5.2]{11.5.2}), we therefore also have
+$\mathrm R^nT(K_{(r)}^\bullet)=\mathrm R^nT(K^\bullet)$ for $-r$ sufficiently large
+(depending on $n$), and likewise for $K'^\bullet$ and $K''^\bullet$, whence the
+conclusion. In the same way, (\hyperref[0.11.5.3]{11.5.3}) is valid
+without any additional condition on $T$ when $\mathcal C$ satisfies
+the preceding hypothesis and the resolutions
+$L^{i,\bullet}$ are assumed to be of length $\leq m$.
+\end{remark}
+
+\begin{env}[11.5.5]
+\label{0.11.5.5}
+The result of (\hyperref[0.11.5.2]{11.5.2}) generalizes to
+covariant multifunctors. Consider for example the situation of
+(\hyperref[0.11.4.6]{11.4.6}), where we suppose that in $\mathcal C$,
+$\mathcal C'$ and $\mathcal C''$
+\oldpage[0\textsubscript{III}]{39}
+filtered inductive limits exist and are exact, and that $T$ commutes
+with inductive limits. Then $\mathrm R^\bullet T(K^\bullet,K'^\bullet)$ is
+a cohomological bifunctor in each of the complexes $K^\bullet$,
+$K'^\bullet$; to see this, we reduce as in
+(\hyperref[0.11.5.2]{11.5.2}) to the case where $K^\bullet$ and $K'^\bullet$ are
+bounded below; then, taking for $K^\bullet$ and $K'^\bullet$
+injective resolutions of the type described in
+(\hyperref[0.11.5.2.2]{11.5.2.2}), we are reduced to the general property
+proved in (M, V, 4.1).
+\end{env}
+
+\begin{env}[11.5.6]
+\label{0.11.5.6}
+Likewise, the results of (\hyperref[0.11.4.7]{11.4.7}) and
+(\hyperref[0.11.5.3]{11.5.3}) generalize as follows. Suppose (under
+the hypotheses of (\hyperref[0.11.5.5]{11.5.5})) that we have two
+bicomplexes $L^{\bullet\bullet}=(L^{ij})$,
+$L'^{\bullet\bullet}=(L'^{ij})$ such that $L^{ij}=0$ and $L'^{ij}=0$ for
+$j<0$, that for every $i$, $L^{i,\bullet}$ is a resolution of $K^i$ and
+$L'^{i,\bullet}$ a resolution of $K'^i$, and finally that
+$\mathrm R^nT(L^{ij},L'^{hk})=0$ for $n>0$ and for every system of indices
+$(i,j,h,k)$. Then we have an isomorphism, functorial in $K^\bullet$ and
+$K'^\bullet$,
+\[
+  \label{0.11.5.6.1}
+  \mathrm R^\bullet T(K^\bullet,K'^\bullet)\xrightarrow{\sim}
+  \mathrm H^\bullet(T(L^{\bullet\bullet},L'^{\bullet\bullet})).
+  \tag{11.5.6.1}
+\]
+This is established as in (\hyperref[0.11.5.3]{11.5.3}) by reducing to the
+case where $K^\bullet$ and $K'^\bullet$ are bounded below.
+
+Suppose moreover that for every pair $(i,j)$ and every pair $(h,k)$,
+the functors $A\mapsto T(A,L'^{hk})$ and $A'\mapsto T(L^{ij},A')$ are
+exact on $\mathcal C$ and $\mathcal C'$ respectively. Then we also have
+functorial isomorphisms
+\[
+  \label{0.11.5.6.2}
+  \mathrm R^\bullet T(K^\bullet,K'^\bullet)
+  \xrightarrow{\sim}\mathrm H^\bullet(T(L^{\bullet\bullet},K'^\bullet))
+  \xrightarrow{\sim}\mathrm H^\bullet(T(K^\bullet,L'^{\bullet\bullet})).
+  \tag{11.5.6.2}
+\]
+The proof is similar to that of
+(\hyperref[0.11.4.7]{11.4.7}).
+\end{env}
+
+\begin{env}[11.5.7]
+\label{0.11.5.7}
+Note further that the results of (\hyperref[0.11.5.5]{11.5.5}) and
+(\hyperref[0.11.5.6]{11.5.6}) are valid without supposing that $T$ commutes
+with inductive limits, provided that we restrict to complexes
+$K^\bullet$, $K'^\bullet$ bounded below, or that we suppose that every
+object of $\mathcal C$ (resp. $\mathcal C'$) admits an injective resolution of
+bounded length and that in (\hyperref[0.11.5.6]{11.5.6}) the bicomplexes
+$L^{\bullet\bullet}$ and $L'^{\bullet\bullet}$ have their second degree bounded
+above.
+\end{env}
+
+\subsection{Hyperhomology of a functor with respect to a complex
+$K_\bullet$}
+\label{subsection:0.11.6}
+
+\begin{env}[11.6.1]
+\label{0.11.6.1}
+Let $\mathcal C$ be an abelian category and
+$K_\bullet=(K_i)_{i\in\mathbb Z}$ a complex of objects of $\mathcal C$ whose
+differential is of degree $-1$. A \emph{left Cartan--Eilenberg
+resolution} of $K_\bullet$ consists of a bicomplex
+$L_{\bullet\bullet}=(L_{ij})$ with differentials of degree $-1$, with
+$L_{ij}=0$ for $j<0$, and of a morphism of simple complexes
+$\varepsilon:L_{\bullet,0}\to K_\bullet$, such that the conditions obtained
+from those of (\hyperref[0.11.4.2]{11.4.2}) by ``reversing the
+arrows'' are satisfied. If every object of $\mathcal C$ is a quotient of a
+projective object, every complex $K_\bullet$ of $\mathcal C$ admits a
+\emph{projective} Cartan--Eilenberg resolution, that is, one consisting of
+projective objects $L_{ij}$, with functorial properties similar to those of
+(\hyperref[0.11.4.2]{11.4.2}). Moreover, if $K_\bullet$ is bounded
+below (resp. above), we may suppose that $L_{ij}=0$ for
+$i<i_0$ (resp. $i>i_0$) if $K_i=0$ for $i<i_0$ (resp. $i>i_0$). If every
+object of $\mathcal C$ admits a projective resolution of length $\leq n$,
+we may suppose that $L_{ij}=0$ for $j>n$.
+\end{env}
+
+\begin{env}[11.6.2]
+\label{0.11.6.2}
+\oldpage[0\textsubscript{III}]{40}
+Suppose that $T$ is a covariant additive functor from $\mathcal C$ to an
+abelian category $\mathcal C'$. The definition of
+\emph{the hyperhomology} $L_\bullet T(K_\bullet)$ and of the \emph{hyperhomology
+spectral sequences} of $T$ with respect to a complex $K_\bullet$ of
+$\mathcal C$ (when they exist) is again obtained from
+(\hyperref[0.11.4.3]{11.4.3}) by ``reversing the arrows'', the $E_2$
+terms of the two spectral sequences thus obtained being
+\[
+\label{0.11.6.2.1}
+\tag{11.6.2.1}
+{}'E^2_{pq}=H_p(L_qT(K_\bullet))
+\]
+\[
+\label{0.11.6.2.2}
+\tag{11.6.2.2}
+{}''E^2_{pq}=L_pT(H_q(K_\bullet)),
+\]
+where $L_pT$ denotes the $p$-th left derived functor of $T$ for $p\geq 0$, and $0$
+for $p<0$, and $L_qT(K_\bullet)$ the complex
+$(L_qT(K_i))_{i\in\mathbb Z}$.
+
+The properties of hyperhomology are not all deduced by simple
+``reversal of the arrows'' from those of hypercohomology (unless
+additional hypotheses of the type (AB~5*) of (T, 1.5) are made on the
+category $\mathcal C'$), because of the regularity conditions of the two
+preceding spectral sequences, to which the criteria of
+(\hyperref[0.11.3.4]{11.3.4}) must this time be applied. These criteria show that
+when we suppose that in $\mathcal C'$ filtered inductive limits
+exist and are exact, then the complex defined by the bicomplex
+$T(L_{\bullet\bullet})$ exists, and the second spectral sequence
+$\,{}''E(T(L_{\bullet\bullet}))$ is this time regular. If we suppose
+either that $K_\bullet$ is bounded below, or that there exists an integer
+$n$ such that every object of $\mathcal C$ admits a projective resolution of
+length $\leq n$, then the two hyperhomology spectral sequences exist
+(without any hypothesis on $\mathcal C'$) and are biregular.
+\end{env}
+
+\begin{proposition}[11.6.3]
+\label{0.11.6.3}
+Let $\mathcal C$, $\mathcal C'$ be two abelian categories and $T$ a covariant
+additive functor from $\mathcal C$ to $\mathcal C'$. Then:
+\begin{enumerate}
+\item[{\rm(i)}] \emph{The hyperhomology $L_\bullet T(K_\bullet)$ is a
+homological functor in the abelian category of complexes of
+$\mathcal C$ bounded below.}
+\item[{\rm(ii)}] \emph{Let $K_\bullet$ be a complex of $\mathcal C$ bounded
+below. If $L_nT(K_i)=0$ for every $n>0$ and every $i\in\mathbb Z$, we
+have functorial isomorphisms}
+\[
+\label{0.11.6.3.1}
+\tag{11.6.3.1}
+L_iT(K_\bullet)\simeq H_i(T(K_\bullet))\qquad(i\in\mathbb Z).
+\]
+\item[{\rm(iii)}] \emph{Let $K_\bullet$ be a complex of $\mathcal C$ bounded
+below. Let $L_{\bullet\bullet}=(L_{ij})$ be a bicomplex such that
+$L_{ij}=0$ for $j<0$ and such that, for every $i$, $L_{i,\bullet}$ is a
+resolution of $K_i$; suppose finally that $L_nT(L_{ij})=0$ for every pair
+$(i,j)$ and every $n>0$. Then there exists a functorial isomorphism}
+\[
+\label{0.11.6.3.2}
+\tag{11.6.3.2}
+L_\bullet T(K_\bullet)\simeq H_\bullet(T(L_{\bullet\bullet})).
+\]
+\end{enumerate}
+The proofs are carried out like those of
+(\hyperref[0.11.5.2]{11.5.2}), (\hyperref[0.11.4.5]{11.4.5}) and
+(\hyperref[0.11.5.3]{11.5.3}) in the case of complexes bounded
+below. We leave the details of these arguments to the reader.
+\end{proposition}
+
+\begin{env}[11.6.4]
+\label{0.11.6.4}
+We have entirely analogous results for covariant multifunctors that are
+additive in each of the arguments. For example, for a bifunctor $T$, we have
+the two hyperhomology spectral sequences with $E_2$ terms given by
+\oldpage[0\textsubscript{III}]{41}
+\[
+\label{0.11.6.4.1}
+\tag{11.6.4.1}
+{}'E^2_{pq}=H_p(L_qT(K_\bullet,K'_\bullet))
+\]
+\[
+\label{0.11.6.4.2}
+\tag{11.6.4.2}
+{}''E^2_{pq}=
+\sum_{q'+q''=q}L_pT(H_{q'}(K_\bullet),H_{q''}(K'_\bullet)).
+\]
+Here again it is the second spectral sequence that is regular, the two
+sequences being biregular when complexes $K_\bullet$,
+$K'_\bullet$ bounded below are concerned, or when the objects of the abelian
+categories under consideration have projective resolutions of fixed
+length.
+
+Moreover:
+\end{env}
+
+\begin{proposition}[11.6.5]
+\label{0.11.6.5}
+Let $\mathcal C$, $\mathcal C'$, $\mathcal C''$ be three abelian
+categories and $T$ a covariant biadditive bifunctor from
+$\mathcal C\times\mathcal C'$ to $\mathcal C''$.
+\begin{enumerate}
+\item[{\rm(i)}] \emph{$L_\bullet T(K_\bullet,K'_\bullet)$ is a homological
+bifunctor in each of the complexes $K_\bullet$, $K'_\bullet$ bounded below
+(consisting respectively of objects of $\mathcal C$ and of objects of
+$\mathcal C'$).}
+\item[{\rm(ii)}] \emph{Suppose $K_\bullet$ and $K'_\bullet$ bounded
+below. Let $L_{\bullet\bullet}=(L_{ij})$,
+$L'_{\bullet\bullet}=(L'_{ij})$ be two bicomplexes such that $L_{ij}=0$ and
+$L'_{ij}=0$ for $j<0$, such that for every $i$, $L_{i,\bullet}$ is a
+resolution of $K_i$ and $L'_{i,\bullet}$ a resolution of $K'_i$, and finally such that
+$L_nT(L_{ij},L'_{hk})=0$ for $n>0$ and every system $(i,j,h,k)$. Then we have
+a functorial isomorphism}
+\[
+\label{0.11.6.5.1}
+\tag{11.6.5.1}
+L_\bullet T(K_\bullet,K'_\bullet)
+\simeq H_\bullet(T(L_{\bullet\bullet},L'_{\bullet\bullet})).
+\]
+\item[{\rm(iii)}] \emph{Suppose moreover that for every pair $(i,j)$ and
+every pair $(h,k)$, the functors
+\[
+A\longmapsto T(A,L'_{hk}),\qquad
+A'\longmapsto T(L_{ij},A')
+\]
+are exact on $\mathcal C$ and $\mathcal C'$ respectively. Then we have
+functorial isomorphisms}
+\[
+\label{0.11.6.5.2}
+\tag{11.6.5.2}
+L_\bullet T(K_\bullet,K'_\bullet)
+\simeq H_\bullet(T(L_{\bullet\bullet},K'_\bullet))
+\simeq H_\bullet(T(K_\bullet,L'_{\bullet\bullet})).
+\]
+\end{enumerate}
+The proofs are analogous to those of
+(\hyperref[0.11.5.5]{11.5.5}) and (\hyperref[0.11.5.6]{11.5.6}).
+\end{proposition}
+
+
+\subsection{Hyperhomology of a functor with respect to a bicomplex
+$K_{\bullet\bullet}$}
+\label{subsection:0.11.7}
+
+\begin{env}[11.7.1]
+\label{0.11.7.1}
+Let $\mathcal C$ be an abelian category in which every object is a
+quotient of a projective object. Consider a bicomplex
+$K_{\bullet\bullet}=(K_{ij})$ formed of objects of $\mathcal C$, both of whose
+degrees are bounded below; we may always restrict to the case where
+$K_{ij}=0$ for $i<0$ or $j<0$, and this is what we will do from now on. We
+can regard $K_{\bullet\bullet}$ as a (simple) complex formed of
+objects $K_{i,\bullet}=(K_{ij})_{j\geq 0}$ of the abelian category
+$\mathcal K$ of complexes of objects of $\mathcal C$ in positive degrees. It
+follows from Lemma (\hyperref[0.11.5.2.1]{11.5.2.1}) (or rather from the
+``dual'' lemma obtained by ``reversing the arrows'') and from (M, V, 2.2) that
+$K_{\bullet\bullet}$ admits a \emph{projective Cartan--Eilenberg
+resolution} in the category $\mathcal K$; such a resolution is a
+tricomplex $M_{\bullet\bullet\bullet}=(M_{ijk})$ of $\mathcal C$, with
+all degrees $\geq 0$, formed of projective objects, such that for every $i$,
+$M_{i,\bullet\bullet}$, $\mathrm B_i^{\mathrm I}(M_{\bullet\bullet\bullet})$,
+$\mathrm Z_i^{\mathrm I}(M_{\bullet\bullet\bullet})$,
+$H_i^{\mathrm I}(M_{\bullet\bullet\bullet})$ constitute projective
+resolutions of $K_{i,\bullet}$,
+$\mathrm B_i^{\mathrm I}(K_{\bullet\bullet})$,
+$\mathrm Z_i^{\mathrm I}(K_{\bullet\bullet})$,
+$H_i^{\mathrm I}(K_{\bullet\bullet})$ respectively in the category
+$\mathcal K$; in particular, for every pair $(i,j)$,
+$M_{ij,\bullet}$ is a projective resolution of $K_{ij}$ in
+$\mathcal C$.
+\end{env}
+
+\begin{proposition}[11.7.2]
+\label{0.11.7.2}
+Let $T$ be an additive covariant functor from $\mathcal C$ to an abelian
+category $\mathcal C'$. With the notation of
+(\hyperref[0.11.7.1]{11.7.1}), \emph{the homology
+$H_\bullet(T(M_{\bullet\bullet\bullet}))$ of the simple complex associated to
+the tricomplex $T(M_{\bullet\bullet\bullet})$ is canonically isomorphic to
+the hyperhomology $L_\bullet T(K_{\bullet\bullet})$ of the simple
+\oldpage[0\textsubscript{III}]{42}
+complex associated to $K_{\bullet\bullet}$
+(\hyperref[0.11.6.2]{11.6.2}), and is
+the common abutment of six biregular spectral sequences denoted
+$\mathop{}^{(t)}E$ (with $t=a,b,a',b',c$ or $d$), whose $E_2$ terms are
+given by the formulas}
+\[
+\begin{aligned}
+{}^{(a)}E^2_{pq}&=L_pT(H_q(K_{\bullet\bullet})),&
+{}^{(b)}E^2_{pq}&=H_p(L_q^{\mathrm{II}}T(K_{\bullet\bullet})),\\
+{}^{(a')}E^2_{pq}&=L_pT(H_q^{\mathrm I}(K_{\bullet\bullet})),&
+{}^{(b')}E^2_{pq}&=H_p(L_qT(K_{\bullet\bullet})),\\
+{}^{(c)}E^2_{pq}&=L_pT(H_q^{\mathrm{II}}(K_{\bullet\bullet})),&
+{}^{(d)}E^2_{pq}&=H_p(L_q^{\mathrm I}T(K_{\bullet\bullet})).
+\end{aligned}
+\]
+\end{proposition}
+
+Recall that we use the notation $F(A_\bullet)$ to denote the
+complex of the objects $F(A_i)$, for every complex $A_\bullet=(A_i)$; for
+example, $L_q^{\mathrm{II}}T(K_{\bullet\bullet})$ denotes the complex
+$(L_q^{\mathrm{II}}T(K_{i,\bullet}))_{i\geq0}$, where
+$L_q^{\mathrm{II}}T(K_{i,\bullet})$ is the hyperhomology of index $q$ of the
+functor $T$ with respect to the simple complex $K_{i,\bullet}$.
+
+\begin{proof}
+Denote by $L_\bullet$ the simple complex associated to
+$K_{\bullet\bullet}$, so that
+\[
+L_i=\bigoplus_{r+s=i}K_{rs},
+\]
+and set
+\[
+N_{ij}=\bigoplus_{r+s=i}M_{rsj};
+\]
+it is clear that for each $i$, $N_{i,\bullet}$ is a projective
+resolution of $L_i$ in $\mathcal C$; it therefore follows from
+(\hyperref[0.11.6.3]{11.6.3}) and
+(\hyperref[0.11.6.4]{11.6.4}) that we have a functorial isomorphism
+\[
+L_\bullet T(L_\bullet)\simeq H_\bullet(T(N_{\bullet\bullet}));
+\]
+since the simple complex associated to the bicomplex $T(N_{\bullet\bullet})$ is
+also associated to the tricomplex $T(M_{\bullet\bullet\bullet})$, this proves
+the first assertion of the statement.
+
+Moreover, $L_\bullet T(L_\bullet)$ is the abutment of the two hyperhomology
+spectral sequences (\hyperref[0.11.6.2]{11.6.2}) of $T$
+relative to the simple complex $L_\bullet$, which are none other than the
+sequences $\mathop{}^{(b')}E$ and $\mathop{}^{(a)}E$ respectively.
+
+Let us now regard $M_{\bullet\bullet\bullet}$ as a bicomplex
+$U_{\bullet\bullet}$ with
+\[
+U_{ij}=\bigoplus_{r+s=j}M_{irs};
+\]
+$H_\bullet(T(M_{\bullet\bullet\bullet}))$ is again the abutment of the two
+spectral sequences of the bicomplex $T(U_{\bullet\bullet})$. Now, for every $i$,
+$M_{i,\bullet\bullet}$ is a bicomplex satisfying the conditions of
+(\hyperref[0.11.6.3]{11.6.3}) relative to the simple complex
+$K_{i,\bullet}$; hence
+$H_q^{\mathrm{II}}(T(U_{i,\bullet}))=
+L_q^{\mathrm{II}}T(K_{i,\bullet})$, and the first spectral sequence of
+$T(U_{\bullet\bullet})$ is none other than $\mathop{}^{(b)}E$. On the other
+hand, for every $r$, $M_{\bullet,r,\bullet}$ is a Cartan--Eilenberg resolution
+of the simple complex $K_{\bullet,r}$, the computation made in (M, XV, 2)
+shows that
+\[
+H_q^{\mathrm I}(T(M_{\bullet,rs}))
+=T(H_q^{\mathrm I}(M_{\bullet,rs})),
+\]
+whence
+\[
+H_q^{\mathrm I}(T(U_{\bullet,j}))
+=\bigoplus_{r+s=j}T(H_q^{\mathrm I}(M_{\bullet,rs}));
+\]
+in other words, the simple complex
+$H_q^{\mathrm I}(T(U_{\bullet\bullet}))$ is none other than the simple complex
+associated to the bicomplex
+$T(H_q^{\mathrm I}(M_{\bullet\bullet\bullet}))$. Now, for every $q$,
+$H_q^{\mathrm I}(M_{\bullet\bullet\bullet})$ is a projective resolution of the
+simple complex $H_q^{\mathrm I}(K_{\bullet\bullet})$ in the category
+$\mathcal K$; applying (\hyperref[0.11.6.3]{11.6.3}), we see that we have
+\[
+H_p^{\mathrm{II}}
+\bigl(T(H_q^{\mathrm I}(M_{\bullet\bullet\bullet}))\bigr)
+=L_pT(H_q^{\mathrm I}(K_{\bullet\bullet})),
+\]
+and we thus obtain the sequence $\mathop{}^{(a')}E$. Finally, the sequences
+$\mathop{}^{(c)}E$ and $\mathop{}^{(d)}E$ are obtained by interchanging the
+roles of the indices $i$ and $j$ in the definition of the tricomplex
+$M_{\bullet\bullet\bullet}$ and applying the preceding arguments to this new
+tricomplex.
+\end{proof}
+
+We say that $L_\bullet T(K_{\bullet\bullet})$ is \emph{the hyperhomology} of
+$T$ relative to the bicomplex $K_{\bullet\bullet}$.
+
+\begin{env}[11.7.3]
+\label{0.11.7.3}
+\emph{Remarks}.
+\begin{enumerate}
+\item[{\rm(i)}] It follows from (\hyperref[0.11.6.3]{11.6.3}) that
+$L_\bullet T(K_{\bullet\bullet})$ is a homological functor on the
+category of bicomplexes $K_{\bullet\bullet}$ of $\mathcal C$ bounded below
+in each of their degrees.
+\oldpage[0\textsubscript{III}]{43}
+\item[{\rm(ii)}] Let $M_{\bullet\bullet\bullet}$ be a tricomplex of
+$\mathcal C$ such that for each pair $(r,s)$,
+$M_{rs,\bullet}$ is a resolution of $K_{rs}$ and
+$L_nT(M_{ijk})=0$ for all triples $(i,j,k)$ and every $n>0$. Then we have
+an isomorphism
+\[
+L_\bullet T(K_{\bullet\bullet})
+\simeq H_\bullet(T(M_{\bullet\bullet\bullet}));
+\]
+indeed, with the notation of the proof of
+(\hyperref[0.11.7.2]{11.7.2}), $N_{i,\bullet}$ is a resolution of
+$L_i$ such that $L_nT(N_{ij})=0$ for $n>0$ and every pair $(i,j)$, and it
+suffices to apply (\hyperref[0.11.6.3]{11.6.3}, (iii)).
+\item[{\rm(iii)}] The results of (\hyperref[0.11.7.2]{11.7.2}) generalize
+immediately to covariant multifunctors; for example,
+let $\mathcal C'$ be a second abelian category in which every object
+is a quotient of a projective object, $K'_{\bullet\bullet}$ a bicomplex of
+$\mathcal C'$ both of whose degrees are bounded below, and $T$ an
+additive covariant bifunctor from $\mathcal C\times\mathcal C'$ to an
+abelian category $\mathcal C''$. If $L_\bullet$ and $L'_\bullet$ are the
+simple complexes associated to $K_{\bullet\bullet}$ and
+$K'_{\bullet\bullet}$ respectively, we define the hyperhomology of $T$ with
+respect to the two bicomplexes $K_{\bullet\bullet}$,
+$K'_{\bullet\bullet}$ as the hyperhomology
+$L_\bullet T(L_\bullet,L'_\bullet)$; applying
+(\hyperref[0.11.6.4]{11.6.4}) and
+(\hyperref[0.11.6.5]{11.6.5}), we have, just as in
+(\hyperref[0.11.7.2]{11.7.2}), six spectral sequences abutting to this
+hyperhomology, which we leave to the reader to write down.
+\end{enumerate}
+\end{env}
+
+\subsection{Supplement on the cohomology of simplicial complexes}
+\label{subsection:0.11.8}
+
+\begin{env}[11.8.1]
+\label{0.11.8.1}
+Let $A$ be a finite set and $\Sigma(A)$ the set of finite sequences
+$\sigma=(\alpha_0,\ldots,\alpha_h)$ of elements of $A$ (``simplices'' of
+$A$); we set $|\sigma|=\{\alpha_0,\ldots,\alpha_h\}$; recall that the
+complex of chains $\mathrm C_\bullet(A)$ is the graded free abelian group
+generated by the elements of $\Sigma(A)$,
+$(\alpha_0,\ldots,\alpha_h)$ being of degree $h$, with a differential
+defined by
+\[
+d(\alpha_0,\ldots,\alpha_h)=
+\sum_{j=0}^{h}(-1)^j
+(\alpha_0,\ldots,\widehat{\alpha_j},\ldots,\alpha_h).
+\]
+The subgroup $\mathrm D_\bullet(A)$ of $\mathrm C_\bullet(A)$ generated by
+the chains $\sigma=(\alpha_0,\ldots,\alpha_h)$ for which two of the
+$\alpha_i$ are equal, and by the chains
+$\pi(\sigma)-\varepsilon_\pi\sigma$, where, for every permutation $\pi$,
+\[
+\pi(\sigma)=(\alpha_{\pi(0)},\ldots,\alpha_{\pi(h)})
+\]
+and $\varepsilon_\pi$ is the signature of $\pi$, is a subcomplex of
+$\mathrm C_\bullet(A)$ whose elements are called \emph{degenerate
+chains}; we set
+$\mathrm L_\bullet(A)=\mathrm C_\bullet(A)/\mathrm D_\bullet(A)$, and we have a
+natural homomorphism of complexes
+\[
+p:\mathrm C_\bullet(A)\longrightarrow\mathrm L_\bullet(A).
+\]
+On the other hand, we define a homomorphism of complexes
+\[
+j:\mathrm L_\bullet(A)\longrightarrow\mathrm C_\bullet(A)
+\]
+in the following way: we totally order $A$; to the class
+mod.~$\mathrm D_\bullet(A)$ of a simplex
+$\sigma=(\alpha_0,\ldots,\alpha_h)$ we assign $0$ if two of the
+$\alpha_i$ are equal, and $\varepsilon_\pi(\beta_0,\ldots,\beta_h)$ otherwise,
+where $(\beta_0,\ldots,\beta_h)=\pi(\sigma)$ is the sequence of the $\alpha_i$
+arranged in increasing order. It is clear that $p\circ
+j$ is the identity of $\mathrm L_\bullet(A)$.
+\end{env}
+
+\begin{env}[11.8.2]
+\label{0.11.8.2}
+Let $B$ be a second finite set; if $d'$, $d''$ are the differentials of
+$\mathrm C_\bullet(A)$ and $\mathrm C_\bullet(B)$, the tensor product
+complex $\mathrm C_\bullet(A)\otimes\mathrm C_\bullet(B)$ can be
+regarded as the free abelian group generated by the elements of
+$\Sigma(A)\times\Sigma(B)$, with the differential
+\[
+d(\sigma,\tau)=(d'\sigma,\tau)+(-1)^{h+1}(\sigma,d''\tau)
+\quad\text{if }\deg\sigma=h.
+\]
+The natural homomorphisms
+$\mathrm C_\bullet(A)\to\mathrm L_\bullet(A)$,
+$\mathrm C_\bullet(B)\to\mathrm L_\bullet(B)$ define a homomorphism
+\[
+p:\mathrm C_\bullet(A)\otimes\mathrm C_\bullet(B)
+\longrightarrow\mathrm L_\bullet(A)\otimes\mathrm L_\bullet(B),
+\]
+the latter tensor product being isomorphic to
+\[
+\frac{\mathrm C_\bullet(A)\otimes\mathrm C_\bullet(B)}
+{\mathrm C_\bullet(A)\otimes\mathrm D_\bullet(B)
++\mathrm D_\bullet(A)\otimes\mathrm C_\bullet(B)}.
+\]
+Similarly, by means of the homomorphisms
+$\mathrm L_\bullet(A)\to\mathrm C_\bullet(A)$ and
+$\mathrm L_\bullet(B)\to\mathrm C_\bullet(B)$ defined in
+(\hyperref[0.11.8.1]{11.8.1}) (by means of total orders on $A$ and $B$),
+we define a homomorphism
+\[
+j:\mathrm L_\bullet(A)\otimes\mathrm L_\bullet(B)
+\longrightarrow\mathrm C_\bullet(A)\otimes\mathrm C_\bullet(B)
+\]
+such that $p\circ j$ is the identity.
+\end{env}
+
+\oldpage[0\textsubscript{III}]{44}
+With this notation:
+\begin{proposition}[11.8.3]
+\label{0.11.8.3}
+\emph{There exists a homotopy
+\[
+h:\mathrm C_\bullet(A)\otimes\mathrm C_\bullet(B)
+\longrightarrow\mathrm C_\bullet(A)\otimes\mathrm C_\bullet(B),
+\]
+such that $h(\sigma,\tau)$ is a linear combination of pairs of simplices
+$(\sigma_i,\tau_i)$ with $|\sigma_i|\subset|\sigma|$,
+$|\tau_i|\subset|\tau|$, and such that, for $f=j\circ p$, we have}
+\[
+\label{0.11.8.3.1}
+\tag{11.8.3.1}
+f-1=h\circ d+d\circ h.
+\]
+\end{proposition}
+
+\begin{proof}
+It suffices to define $h$ on each pair $(\sigma,\tau)$ of simplices,
+arguing by induction on the sum of the degrees of $\sigma$ and $\tau$, since
+we can take $h=0$ when this sum is $0$. Let
+\[
+\omega=f(\sigma,\tau)-(\sigma,\tau)-h(d(\sigma,\tau));
+\]
+by virtue of the induction hypothesis and the definition of $d$, we have
+\[
+\omega\in\mathrm C_\bullet(|\sigma|)\otimes\mathrm C_\bullet(|\tau|).
+\]
+We have
+\[
+d\omega=f(d(\sigma,\tau))-d(\sigma,\tau)-d(h(d(\sigma,\tau)))
+=h(d(d(\sigma,\tau)))=0
+\]
+by virtue of (\hyperref[0.11.8.3.1]{11.8.3.1}) and the induction
+hypothesis. Now, we have
+$H_q(\mathrm C_\bullet(A))=0$ for $q>0$ (G, I, 3.7.4), hence also
+\[
+H_q(\mathrm C_\bullet(A)\otimes\mathrm C_\bullet(B))=0\quad(q>0),
+\]
+by virtue of the Künneth formula (G, I, 5.5.2). Applying this remark with
+$A$ replaced by $|\sigma|$ and $B$ by $|\tau|$, we see that there exists an
+element
+\[
+\omega'\in\mathrm C_\bullet(|\sigma|)\otimes\mathrm C_\bullet(|\tau|)
+\]
+such that $\omega=d\omega'$; taking $h(\sigma,\tau)=\omega'$, we verify
+(\hyperref[0.11.8.3.1]{11.8.3.1}) for the pair $(\sigma,\tau)$ and the
+induction can be continued.
+\end{proof}
+
+\begin{env}[11.8.4]
+\label{0.11.8.4}
+The notation being that of (\hyperref[0.11.8.2]{11.8.2}), we will write
+$(\sigma,\tau)\leq(\sigma',\tau')$ if $|\sigma|\subset|\sigma'|$ and
+$|\tau|\subset|\tau'|$. A \emph{coefficient system} $\Gamma$ on
+$\Sigma(A)\times\Sigma(B)$ consists of a family
+$(\Gamma_{\sigma,\tau})$ of abelian groups, where
+$\Gamma_{\sigma,\tau}$ depends only on the sets $|\sigma|$ and $|\tau|$,
+and a family of homomorphisms
+\[
+\Gamma_{\sigma,\tau}\longrightarrow\Gamma_{\sigma',\tau'}
+\quad\text{for }(\sigma,\tau)\leq(\sigma',\tau'),
+\]
+forming an inductive system for this preorder relation. We then define
+a complex of cochains $\mathrm C^\bullet(A,B;\Gamma)$ as the set
+of families $\lambda=(\lambda(\sigma,\tau))$, where $(\sigma,\tau)$ ranges over
+$\Sigma(A)\times\Sigma(B)$, with
+$\lambda(\sigma,\tau)\in\Gamma_{\sigma,\tau}$ for every pair
+$(\sigma,\tau)$. The differential is given as follows: if
+\[
+d(\sigma,\tau)=\sum_i\pm(\sigma_i,\tau_i),
+\]
+we have $|\sigma_i|\subset|\sigma|$, $|\tau_i|\subset|\tau|$ for every $i$,
+and we take
+\[
+d\lambda(\sigma,\tau)=\sum_i\pm\lambda_i(\sigma_i,\tau_i),
+\]
+where $\lambda_i(\sigma_i,\tau_i)$ denotes the canonical image of
+$\lambda(\sigma_i,\tau_i)$ in $\Gamma_{\sigma,\tau}$.
+
+We will say that a cochain $\lambda\in\mathrm C^\bullet(A,B;\Gamma)$ is
+\emph{bi-alternating} if $\lambda(\sigma,\tau)=0$ whenever one of the two
+simplices $\sigma$, $\tau$ has two equal terms, and if we have
+\[
+\lambda(\pi(\sigma),\tau)=\varepsilon_\pi\lambda(\sigma,\tau),
+\qquad
+\lambda(\sigma,\pi'(\tau))=\varepsilon_{\pi'}\lambda(\sigma,\tau)
+\]
+for arbitrary permutations $\pi$, $\pi'$ of the indices. It is clear
+that these cochains generate a subcomplex
+$\mathrm L^\bullet(A,B;\Gamma)$ of $\mathrm C^\bullet(A,B;\Gamma)$.
+\end{env}
+
+\begin{proposition}[11.8.5]
+\label{0.11.8.5}
+\emph{The canonical injection
+\[
+\mathrm L^\bullet(A,B;\Gamma)\longrightarrow
+\mathrm C^\bullet(A,B;\Gamma)
+\]
+defines an isomorphism on the cohomology of these two complexes.}
+\end{proposition}
+
+\begin{proof}
+Note that if $p$ and $j$ have the meaning defined in
+(\hyperref[0.11.8.2]{11.8.2}), the maps
+\[
+{}'p:\lambda\longmapsto\lambda\circ p,\qquad
+{}'j:\lambda\longmapsto\lambda\circ j
+\]
+are defined on $\mathrm L^\bullet(A,B;\Gamma)$ and
+$\mathrm C^\bullet(A,B;\Gamma)$ respectively, the first being none other
+than the canonical injection. Since $\mathop{}'j\circ{}'p$ is the identity, it
+suffices to prove that $\mathop{}'p\circ{}'j$ is homotopic to the identity;
+now, by (\hyperref[0.11.8.3]{11.8.3}),
+$\mathop{}'h:\lambda\mapsto\lambda\circ h$ is defined on
+$\mathrm C^\bullet(A,B;\Gamma)$, and we can therefore transpose the identity
+(\hyperref[0.11.8.3.1]{11.8.3.1}), which gives the desired result.
+\end{proof}
+
+\begin{env}[11.8.6]
+\label{0.11.8.6}
+\oldpage[0\textsubscript{III}]{45}
+Proposition (\hyperref[0.11.8.5]{11.8.5}) reduces the computation of the
+cohomology of $\mathrm L^\bullet(A,B;\Gamma)$ to that of the cohomology of
+$\mathrm C^\bullet(A,B;\Gamma)$. Recall on the other hand that the latter
+is, by virtue of the Eilenberg--Zilber theorem (G, I, 3.10.2), canonically
+isomorphic to the cohomology of the complex of cochains defined as follows:
+we form the complex of chains $\mathrm P_\bullet(A,B)$, consisting of the
+linear combinations of the $(\sigma,\tau)\in\Sigma(A)\times\Sigma(B)$ such
+that $\sigma$ and $\tau$ have the same degree; the differential of this
+complex is given by
+\[
+d(\sigma,\tau)=\sum_{j,k}(-1)^{j+k}(\sigma_j,\tau_k)
+\]
+if
+\[
+d\sigma=\sum_j(-1)^j\sigma_j,\qquad
+d\tau=\sum_k(-1)^k\tau_k;
+\]
+we then have two canonical homomorphisms of complexes
+\[
+f:\mathrm P_\bullet(A,B)\longrightarrow
+\mathrm C_\bullet(A)\otimes\mathrm C_\bullet(B),\qquad
+g:\mathrm C_\bullet(A)\otimes\mathrm C_\bullet(B)
+\longrightarrow\mathrm P_\bullet(A,B),
+\]
+and it is proved (\emph{loc. cit.}) that there are homotopies $h$, $h'$ such
+that
+\[
+f\circ g-1=d\circ h+h\circ d,\qquad
+g\circ f-1=d\circ h'+h'\circ d.
+\]
+Moreover, we have
+\[
+f(\sigma,\tau)\in\mathrm C_\bullet(|\sigma|)
+\otimes\mathrm C_\bullet(|\tau|),\qquad
+g(\sigma,\tau)\in\mathrm P_\bullet(|\sigma|,|\tau|)
+\]
+and the homotopies $h$, $h'$ can be chosen such that
+\[
+h(\sigma,\tau)\in\mathrm C_\bullet(|\sigma|)
+\otimes\mathrm C_\bullet(|\tau|),\qquad
+h'(\sigma,\tau)\in\mathrm P_\bullet(|\sigma|,|\tau|).
+\]
+This point comes from the fact that the definition of $h(\sigma,\tau)$ and
+$h'(\sigma,\tau)$ can be made by induction on the sum of the degrees of
+$\sigma$ and $\tau$, and from the fact that
+\[
+H_q(\mathrm C_\bullet(|\sigma|)\otimes\mathrm C_\bullet(|\tau|))
+\quad\text{and}\quad
+H_q(\mathrm P_\bullet(|\sigma|,|\tau|))
+\]
+are zero for $q>0$ (\emph{loc. cit.}); we then argue as in
+(\hyperref[0.11.8.3]{11.8.3}) and the conclusion follows.
+
+We then define $\mathrm P^\bullet(A,B;\Gamma)$ as the set of
+families $\lambda=(\lambda(\sigma,\tau))$ where $(\sigma,\tau)$ ranges over
+the pairs whose terms have the same degree, with
+$\lambda(\sigma,\tau)\in\Gamma_{\sigma,\tau}$, and since we have
+\[
+d\sigma=\sum_j(-1)^j\sigma_j,\qquad
+d\tau=\sum_k(-1)^k\tau_k,
+\]
+\[
+d\lambda(\sigma,\tau)=
+\sum_{j,k}(-1)^{j+k}\lambda(\sigma_j,\tau_k)
+\]
+is defined and gives the differential of the complex
+$\mathrm P^\bullet(A,B;\Gamma)$. This being so, the maps
+\[
+{}'f:\lambda\mapsto\lambda\circ f,\quad
+{}'g:\lambda\mapsto\lambda\circ g,\quad
+{}'h:\lambda\mapsto\lambda\circ h,\quad
+{}'h':\lambda\mapsto\lambda\circ h'
+\]
+are all defined by virtue of the preceding remarks;
+$\mathop{}'f\circ{}'g$ and $\mathop{}'g\circ{}'f$ are therefore homotopic to
+the identity, whence the desired isomorphism between the cohomology of
+$\mathrm C^\bullet(A,B;\Gamma)$ and that of
+$\mathrm P^\bullet(A,B;\Gamma)$.
+\end{env}
+
+\begin{env}[11.8.7]
+\label{0.11.8.7}
+\emph{Remark}. The same reasoning as in
+(\hyperref[0.11.8.3]{11.8.3}), but applied to
+$\mathrm C_\bullet(A)$ and $\mathrm L_\bullet(A)$, shows that if $j$ and $p$
+are defined as in (\hyperref[0.11.8.1]{11.8.1}), $f=j\circ p$
+again satisfies a relation (\hyperref[0.11.8.3.1]{11.8.3.1}), with
+$|h(\sigma)|\subset|\sigma|$, from which we deduce, as in
+(\hyperref[0.11.8.5]{11.8.5}), an isomorphism of the cohomology of
+$\mathrm L^\bullet(A;\Gamma)$ onto that of
+$\mathrm C^\bullet(A;\Gamma)$, these two complexes being defined in the
+obvious way. This is the result whose proof is sketched in
+(G, I, 3.8.1).
+\end{env}
+
+\begin{env}[11.8.8]
+\label{0.11.8.8}
+Let us now return to the notation and hypotheses of
+(\hyperref[0.11.8.2]{11.8.2}), and consider a complex
+$\Gamma^\bullet=(\Gamma^k)$ of coefficient systems on
+$\Sigma(A)\times\Sigma(B)$: for each $(\sigma,\tau)$, the
+$\Gamma^k_{\sigma,\tau}$ thus form a complex of abelian groups
+$(k\in\mathbb Z)$, and we have the commutative diagrams
+\[
+\xymatrix{
+\Gamma^k_{\sigma,\tau}\ar[r]\ar[d] &
+\Gamma^{k+1}_{\sigma,\tau}\ar[d]\\
+\Gamma^k_{\sigma',\tau'}\ar[r] &
+\Gamma^{k+1}_{\sigma',\tau'}
+}
+\]
+\oldpage[0\textsubscript{III}]{46}
+for $(\sigma,\tau)\leq(\sigma',\tau')$. Then one verifies immediately that
+\[
+\mathrm C^\bullet(A,B;\Gamma^\bullet)
+=\bigl(\mathrm C^h(A,B;\Gamma^k)\bigr)_{(h,k)\in\mathbb Z\times\mathbb Z}
+\]
+is a bicomplex of abelian groups, and
+\[
+\mathrm L^\bullet(A,B;\Gamma^\bullet)
+=\bigl(\mathrm L^h(A,B;\Gamma^k)\bigr)
+\]
+is a subbicomplex of it.
+\end{env}
+
+\begin{proposition}[11.8.9]
+\label{0.11.8.9}
+\emph{The canonical injection
+\[
+\mathrm L^\bullet(A,B;\Gamma^\bullet)\longrightarrow
+\mathrm C^\bullet(A,B;\Gamma^\bullet)
+\]
+defines an isomorphism on the cohomology of these two bicomplexes.}
+\end{proposition}
+
+\begin{proof}
+Set $\mathrm C^{\bullet\bullet}=
+\mathrm C^\bullet(A,B;\Gamma^\bullet)$ and
+$\mathrm L^{\bullet\bullet}=
+\mathrm L^\bullet(A,B;\Gamma^\bullet)$ for simplicity, and note that
+since $\mathrm C^{hk}=\mathrm L^{hk}=0$ for $h<0$, the second spectral
+sequences of these bicomplexes are regular
+(\hyperref[0.11.3.3]{11.3.3}); the homomorphism
+$\mathrm L^{\bullet\bullet}\to\mathrm C^{\bullet\bullet}$ therefore gives a
+morphism of spectral sequences
+\[
+{}''E(\mathrm L^{\bullet\bullet})\longrightarrow
+{}''E(\mathrm C^{\bullet\bullet})
+\]
+which, for the $E_2$ terms, reduces to
+\[
+\label{0.11.8.9.1}
+\tag{11.8.9.1}
+H^p_{\mathrm{II}}(H^q_{\mathrm I}(\mathrm L^{\bullet\bullet}))
+\longrightarrow
+H^p_{\mathrm{II}}(H^q_{\mathrm I}(\mathrm C^{\bullet\bullet})).
+\]
+But for every $k\in\mathbb Z$, it follows from
+(\hyperref[0.11.8.5]{11.8.5}) that the homomorphism
+$H^q_{\mathrm I}(\mathrm L^{\bullet,k})\to
+H^q_{\mathrm I}(\mathrm C^{\bullet,k})$ is bijective; the conclusion
+therefore follows from (\hyperref[0.11.1.5]{11.1.5}).
+\end{proof}
+
+\begin{env}[11.8.10]
+\label{0.11.8.10}
+Similarly, with the notation of (\hyperref[0.11.8.6]{11.8.6}), we have
+canonical homomorphisms of bicomplexes
+\[
+\mathrm C^\bullet(A,B;\Gamma^\bullet)\longrightarrow
+\mathrm P^\bullet(A,B;\Gamma^\bullet)
+\]
+(with the obvious notation), and the same reasoning as in
+(\hyperref[0.11.8.9]{11.8.9}), based this time on
+(\hyperref[0.11.8.6]{11.8.6}), shows that this homomorphism again gives
+an isomorphism in cohomology.
+\end{env}
+
+\subsection{A lemma on complexes of finite type}
+\label{subsection:0.11.9}
+
+\begin{proposition}[11.9.1]
+\label{0.11.9.1}
+Let $\mathcal C$ be an abelian category, and $K'$ and $K''$ subsets of
+the set of objects of $\mathcal C$ such that $K''\subset K'$ and
+satisfying the following conditions:
+\begin{enumerate}
+\item[{\rm(i)}] \emph{For every object $A'\in K'$ and every epimorphism
+$u:A\to A'$ in $\mathcal C$, there exist an object $B\in K''$ and a morphism
+$v:B\to A$ such that $u\circ v$ is an epimorphism.}
+\item[{\rm(ii)}] \emph{For every pair of objects $A\in K'$, $B\in K'$ and
+every epimorphism $u:A\to B$, $\operatorname{Ker}(u)$ belongs to $K'$.}
+\item[{\rm(iii)}] \emph{The product of two objects of $K''$ belongs to
+$K''$.}
+\end{enumerate}
+\emph{Let $P_\bullet=(P_i)_{i\in\mathbb Z}$ be a complex in $\mathcal C$
+such that $H_i(P_\bullet)\in K'$ for every $i$ and such that there exists $d$
+with $H_i(P_\bullet)=0$ for $i<d$. Then there exist a complex
+$Q_\bullet=(Q_i)_{i\in\mathbb Z}$ in $\mathcal C$ such that $Q_i\in K''$
+for every $i$ and $Q_i=0$ for $i<d$, and a morphism
+$u:Q_\bullet\to P_\bullet$ of complexes such that the corresponding morphism
+$H_\bullet(Q_\bullet)\to H_\bullet(P_\bullet)$ is an isomorphism.}
+\end{proposition}
+
+\begin{proof}
+Let us first prove the following consequence of property (i):
+
+\emph{(i bis) Let $u:C\to B$ be an epimorphism in $\mathcal C$, $A$ an
+object of $K'$, and $v:A\to B$ a morphism in $\mathcal C$; then there exist an
+object $D\in K''$, an epimorphism $u':D\to A$ and a morphism $v':D\to C$
+such that the diagram}
+\[
+\xymatrix{
+D\ar[r]^{u'}\ar[d]_{v'} & A\ar[d]^{v}\\
+C\ar[r]_{u} & B
+}
+\tag{11.9.1.1}\label{0.11.9.1.1}
+\]
+\emph{is commutative.}
+
+Indeed, consider the fibre product $C\times_B A$ in $\mathcal C$ and the
+canonical projections $p:C\times_B A\to C$, $q:C\times_B A\to A$, which make
+the diagram
+\oldpage[0\textsubscript{III}]{47}
+\[
+\xymatrix{
+C\times_B A\ar[r]^{q}\ar[d]_{p} & A\ar[d]^{v}\\
+C\ar[r]_{u} & B
+}
+\tag{11.9.1.2}\label{0.11.9.1.2}
+\]
+commutative. We know ([27], p.~1-12) that the cokernel of $q$ is the
+quotient of $A$ by $v^{-1}(u(C))$; since $u$ is an epimorphism, $u(C)=B$ and
+$v^{-1}(u(C))=A$, so $q$ is an epimorphism; it then suffices to apply
+(i) to the epimorphism $q:C\times_B A\to A$: there exist an object
+$D\in K''$ and a morphism $w:D\to C\times_B A$ such that $q\circ w$ is an
+epimorphism; we take $u'=q\circ w$, $v'=p\circ w$.
+
+This being so, to prove the proposition, we proceed by induction.
+Suppose that, for some $i\geq d-1$, the objects $Q_j$, the morphisms
+$d_j:Q_j\to Q_{j-1}$ and the morphisms $u_j:Q_j\to P_j$ have been
+constructed for $j\leq i$, in such a way that $Q_j=0$ for $j<d$,
+$d_{j-1}\circ d_j=0$ and
+$d_j\circ u_j=u_{j-1}\circ d_j$ for $j\leq i$; moreover, we suppose that
+the following conditions are satisfied:
+\begin{enumerate}
+\item[$(\mathrm I_i)$] We have $Q_j\in K''$ for $j\leq i$ and
+$B_j(Q_\bullet)\in K'$ for $j<i$.
+\item[$(\mathrm{II}_i)$] For $j<i$, the homomorphism
+$H_j(Q_\bullet)\to H_j(P_\bullet)$ deduced from the family $(u_k)_{k\leq i}$
+is an isomorphism.
+\item[$(\mathrm{III}_i)$] The composite morphism
+\[
+v_i:Z_i(Q_\bullet)\longrightarrow Z_i(P_\bullet)
+\longrightarrow H_i(P_\bullet)
+\]
+(where the left arrow is the restriction of $u_i$ and the right arrow
+the canonical morphism) is an epimorphism.
+\end{enumerate}
+Note that, by (ii), $Z_i(Q_\bullet)$, the kernel of the epimorphism
+$Q_i\to B_{i-1}(Q_\bullet)$, belongs to $K'$ by virtue of hypothesis
+$(\mathrm I_i)$. We further deduce from (ii) that
+$N_i=\operatorname{Ker}(v_i)$ also belongs to $K'$, taking into account
+hypothesis $(\mathrm{III}_i)$. By virtue of (i bis), there exist a
+$Q'_{i+1}\in K''$, an epimorphism $d'_{i+1}:Q'_{i+1}\to N_i$ and a
+morphism $u'_{i+1}:Q'_{i+1}\to P_{i+1}$ such that the diagram
+\[
+\xymatrix{
+Q'_{i+1}\ar[r]^{d'_{i+1}}\ar[d]_{u'_{i+1}} &
+N_i\ar[d]^{u_i}\\
+P_{i+1}\ar[r]_{d_{i+1}} & B_i(P_\bullet)
+}
+\tag{11.9.1.3}\label{0.11.9.1.3}
+\]
+is commutative.
+
+Since the canonical morphism $Z_{i+1}(P_\bullet)\to H_{i+1}(P_\bullet)$ is
+an epimorphism and $H_{i+1}(P_\bullet)\in K'$ by hypothesis, it follows
+from (i) that there exist an object $Q''_{i+1}\in K''$ and a morphism
+$u''_{i+1}:Q''_{i+1}\to Z_{i+1}(P_\bullet)$ such that the composite
+$Q''_{i+1}\to Z_{i+1}(P_\bullet)\to H_{i+1}(P_\bullet)$ is an
+epimorphism. If we take $d''_{i+1}:Q''_{i+1}\to N_i$ equal to $0$, the
+diagram
+\[
+\xymatrix{
+Q''_{i+1}\ar[r]^{d''_{i+1}}\ar[d]_{u''_{i+1}} &
+N_i\ar[d]^{u_i}\\
+Z_{i+1}(P_\bullet)\ar[r]_{d_{i+1}} & P_i
+}
+\tag{11.9.1.4}\label{0.11.9.1.4}
+\]
+is commutative, the lower horizontal arrow being $0$.
+\oldpage[0\textsubscript{III}]{48}
+Then take
+\[
+Q_{i+1}=Q'_{i+1}\times Q''_{i+1},\qquad
+d_{i+1}=d'_{i+1}+d''_{i+1},\qquad
+u_{i+1}=u'_{i+1}+u''_{i+1}.
+\]
+Since $d_{i+1}(Q_{i+1})=d'_{i+1}(Q'_{i+1})=N_i\subset Z_i(Q_\bullet)$, we have
+$d_i\circ d_{i+1}=0$ and, with the usual notation,
+$B_i(Q_\bullet)=N_i$, which verifies $(\mathrm I_{i+1})$. The commutativity
+of the diagrams (\hyperref[0.11.9.1.3]{11.9.1.3}) and
+(\hyperref[0.11.9.1.4]{11.9.1.4}) shows that
+$d_{i+1}\circ u_{i+1}=u_i\circ d_{i+1}$. By definition of $N_i$, the
+morphism
+\[
+H_i(Q_\bullet)=Z_i(Q_\bullet)/N_i\longrightarrow H_i(P_\bullet)
+\]
+deduced from the system of the $u_k$ ($k\leq i+1$) is the morphism deduced
+from $v_i$ by passage to the quotients, so it is an isomorphism since $v_i$
+is an epimorphism, whence $(\mathrm{II}_{i+1})$. Finally, we have
+$Q''_{i+1}\subset Z_{i+1}(Q_\bullet)$ by definition; the choice of
+$u''_{i+1}$ shows that the morphism
+\[
+v_{i+1}:Z_{i+1}(Q_\bullet)\longrightarrow Z_{i+1}(P_\bullet)
+\longrightarrow H_{i+1}(P_\bullet)
+\]
+is an epimorphism, since its restriction to $Q''_{i+1}$ already is, whence
+$(\mathrm{III}_{i+1})$. The induction can therefore be continued, and the
+proposition is proved.
+\end{proof}
+
+\begin{corollary}[11.9.2]
+\label{0.11.9.2}
+Let $A$ be a Noetherian ring (not necessarily commutative) and
+$P_\bullet=(P_i)_{i\in\mathbb Z}$ a complex of right $A$-modules. Suppose
+that the $H_i(P_\bullet)$ are $A$-modules of finite type and that there
+exists $d$ such that $H_i(P_\bullet)=0$ for $i<d$. Then there exist a
+complex $Q_\bullet=(Q_i)_{i\in\mathbb Z}$ formed of free right $A$-modules of
+finite rank, such that $Q_i=0$ for $i<d$, and a homomorphism
+$u:Q_\bullet\to P_\bullet$ of complexes such that the homomorphism
+$H_\bullet(Q_\bullet)\to H_\bullet(P_\bullet)$ corresponding to $u$ is
+bijective.
+\end{corollary}
+
+\begin{proof}
+We apply (\hyperref[0.11.9.1]{11.9.1}), taking for $\mathcal C$ the
+category of right $A$-modules, and for $K'$ (resp. $K''$) the set of
+$A$-modules of finite type (resp. the set of free $A$-modules of finite
+rank); the verification of conditions (i), (ii) and (iii) of
+(\hyperref[0.11.9.1]{11.9.1}) is immediate, taking into account the
+hypothesis that $A$ is Noetherian.
+\end{proof}
+
+\begin{env}[11.9.3]
+\label{0.11.9.3}
+\emph{Remarks}.
+\begin{enumerate}
+\item[{\rm(i)}] Under the conditions of
+(\hyperref[0.11.9.2]{11.9.2}), suppose moreover that the $P_i$ are flat
+right $A$-modules. Then, for every left $A$-module $M$,
+the homomorphism of complexes
+\[
+u\otimes 1:Q_\bullet\otimes_A M\longrightarrow P_\bullet\otimes_A M
+\]
+again defines an isomorphism
+$H_\bullet(Q_\bullet\otimes_A M)\simeq
+H_\bullet(P_\bullet\otimes_A M)$ of the homology, as we will see in
+Chapter~III.
+\item[{\rm(ii)}] The conclusion of (\hyperref[0.11.9.2]{11.9.2}) is no
+longer necessarily true when $A$ is not assumed Noetherian; indeed,
+applying it to a complex reduced to $0$ except for a single term, we would
+conclude that every right $A$-module of finite type admits a resolution
+by free modules of finite type, which is not true in general
+(cf. Bourbaki, \emph{Alg. comm.}, chap.~I, \S~2, exerc.~6).
+
+However, instead of assuming $A$ Noetherian, we can assume only that
+the $H_i(P_\bullet)$ have a finite $\infty$-presentation (cf. Chapter~IV).
+\end{enumerate}
+\end{env}
+
+\subsection{Euler--Poincaré characteristic of a complex of modules of
+finite length}
+\label{subsection:0.11.10}
+
+\begin{env}[11.10.1]
+\label{0.11.10.1}
+Let $A$ be a ring (not necessarily commutative) and
+\[
+\label{0.11.10.1.1}
+\tag{11.10.1.1}
+M^\bullet:0\longrightarrow M^0\longrightarrow M^1
+\longrightarrow\cdots\longrightarrow M^n\longrightarrow0
+\]
+a complex of left $A$-modules of finite length. We call the
+\emph{Euler--Poincaré characteristic} of this complex the number
+\oldpage[0\textsubscript{III}]{49}
+\[
+\label{0.11.10.1.2}
+\tag{11.10.1.2}
+\chi(M^\bullet)=\sum_{i=0}^{n}(-1)^i\operatorname{long}(M^i).
+\]
+\end{env}
+
+\begin{proposition}[11.10.2]
+\label{0.11.10.2}
+\emph{For every finite complex $M^\bullet$ of left $A$-modules of finite
+length, we have
+\[
+\chi(M^\bullet)=\chi(H^\bullet(M^\bullet))
+\]
+($H^\bullet(M^\bullet)$ being regarded as a complex with the trivial
+differential). In particular, if the sequence
+(\hyperref[0.11.10.1.1]{11.10.1.1}) is exact, we have
+$\chi(M^\bullet)=0$.}
+\end{proposition}
+
+\begin{proof}
+For brevity, set $B^i=B^i(M^\bullet)$, $Z^i=Z^i(M^\bullet)$,
+$H^i=H^i(M^\bullet)=Z^i/B^i$; the $B^i$, $Z^i$, $H^i$ are of finite
+length. From the exact sequences
+\[
+0\longrightarrow B^i\longrightarrow Z^i\longrightarrow H^i
+\longrightarrow0,
+\qquad
+0\longrightarrow Z^i\longrightarrow M^i\longrightarrow B^{i+1}
+\longrightarrow0
+\]
+we obtain the relations
+\[
+\operatorname{long}(Z^i)=\operatorname{long}(H^i)+
+\operatorname{long}(B^i),
+\qquad
+\operatorname{long}(M^i)=\operatorname{long}(Z^i)+
+\operatorname{long}(B^{i+1}),
+\]
+whence
+\[
+\operatorname{long}(M^i)-\operatorname{long}(H^i)=
+\operatorname{long}(B^{i+1})+\operatorname{long}(B^i).
+\]
+Multiplying this relation by $(-1)^i$ and summing the relations
+obtained for $0\leq i\leq n$, noting that
+$B^0=B^{n+1}=0$, we obtain the desired equality.
+\end{proof}
+
+\begin{corollary}[11.10.3]
+\label{0.11.10.3}
+Let $E=(E_r^{pq})$ be a spectral sequence in the category of modules over a
+ring $A$. Suppose that the $E_2^{pq}$ are $A$-modules of finite
+length and that there are only finitely many pairs $(p,q)$ such that
+$E_2^{pq}\neq0$. Then the Euler--Poincaré characteristics
+$\chi(E_r^\bullet)$ of all the complexes
+$E_r^\bullet=(E_r^{(n)})_{n\in\mathbb Z}$
+(\hyperref[0.11.1.1]{11.1.1}) are all equal. If, moreover, the sequence
+$E$ is weakly convergent and if we set
+\[
+E_\infty^{(n)}=\bigoplus_{p+q=n}E_\infty^{pq}\quad(n\in\mathbb Z),
+\]
+we also have $\chi(E_\infty^\bullet)=\chi(E_2^\bullet)$,
+$E_\infty^\bullet=(E_\infty^{(n)})_{n\in\mathbb Z}$ being regarded as
+a complex with trivial differential.
+\end{corollary}
+
+\begin{proof}
+Note first that if $E_2^{pq}=0$, then $E_r^{pq}=0$ for
+$2\leq r<+\infty$, so all the complexes $E_r^\bullet$ are finite and
+formed of $A$-modules of finite length; the relation
+$\chi(E_r^\bullet)=\chi(E_{r+1}^\bullet)$ for every finite $r$ therefore
+follows from (\hyperref[0.11.10.2]{11.10.2}) and from the isomorphism
+between $H^\bullet(E_r^\bullet)$ and $E_{r+1}^\bullet$ (as complexes with
+trivial differential). The hypothesis that the $E_r^{pq}$ are of finite length
+implies that for every pair $(p,q)$, the sequences
+$(B_k(E_2^{pq}))_{k\geq2}$ and $(Z_k(E_2^{pq}))_{k\geq2}$ are stationary;
+the hypothesis that $E$ is weakly convergent and that $E_2^{pq}=0$ except
+for finitely many pairs $(p,q)$ therefore implies that there exists an
+integer $r\geq2$ such that $E_\infty^{pq}=E_r^{pq}$ for every pair $(p,q)$;
+whence the assertion concerning $\chi(E_\infty^\bullet)$.
+\end{proof}
+
