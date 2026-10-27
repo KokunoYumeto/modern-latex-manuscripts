@@ -24,7 +24,7 @@ Papers 1â€“43, the 1929/30 lectures written up by M. Deuring, and the Kapfererâ€
 | Spanish | [this repository, release noether-es-2026-10-27](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/noether-es-2026-10-27) |
 | Russian | [emmy-noether-ru](https://github.com/KokunoYumeto/emmy-noether-ru) |
 | Ukrainian | [emmy-noether-uk](https://github.com/KokunoYumeto/emmy-noether-uk) |
-| Interslavic (Latin and Cyrillic script) | [emmy-noether-isv](https://github.com/KokunoYumeto/emmy-noether-isv) |
+| Interslavic (Latin and Cyrillic script) | [emmy-noether-isv](https://github.com/KokunoYumeto/emmy-noether-isv) (with a [dictionary of its mathematical terms](https://kokunoyumeto.github.io/emmy-noether-isv/04_NOETHER_INTERSLAVIC_DICTIONARY.pdf)) |
 | Japanese | [emmy-noether-ja](https://github.com/KokunoYumeto/emmy-noether-ja) |
 | Korean | [emmy-noether-ko](https://github.com/KokunoYumeto/emmy-noether-ko) |
 | Chinese (simplified) | [emmy-noether-zh-hans](https://github.com/KokunoYumeto/emmy-noether-zh-hans) |
