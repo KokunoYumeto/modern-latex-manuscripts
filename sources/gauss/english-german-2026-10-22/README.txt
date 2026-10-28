@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1195 pages; the German reader has 1233 pages.
+The collected English reader has 1235 pages; the German reader has 1274 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -102,6 +102,10 @@ The complete third proof, Third Proof of the Theorem on the Factorization of Pol
 
 For the First Part of 1812/1813, related Taylor–Leak terminology was consulted for Articles 7–17; Morehead–Hiltebeitel terminology for functions, series, trigonometry, integrals and mathematical usage; and Maser terminology for functions, logarithms, tables, continued fractions and limits. These are related passages, not parallel translations of the First Part. R. A. Askey and R. Roy’s Chapter 5, section 5.2(iii), of the NIST Digital Library of Mathematical Functions, version 1.2.8, 15 September 2026, supplies related English factorial terminology only. The chapter acknowledges P. J. Davis’s Chapter 6 in Abramowitz and Stegun (1964) as part of its basis. No human running prose or modern formulas are adopted. https://dlmf.nist.gov/5.2.iii
 
+The complete A New Method for Finding the Values of Integrals by Approximation (Methodus nova integralium valores per approximationem inveniendi), presented on 16 September 1814 and published at Göttingen in 1816, follows in Volume III. It contains the historical title, Articles 1–23, both authorial footnotes, all seven coefficient tables and all seven numerical examples for the integral of dx/log x from 100000 to 200000. It treats equally and unequally spaced interpolation values, integral coefficients, correction series, polynomial remainders, continued fractions and the choice of evaluation points. Historical formulas, numerical values and qualifications remain those of Gauss’s source. Newton and Cotes retain their historical roles in Gauss’s account. Gauss cites Bessel’s calculation of the closing integral.
+
+For A New Method, related Taylor–Leak usage was consulted for Articles 1–2, 11–12 and 19–21; Morehead–Hiltebeitel for functions, series, powers, integrals, coefficients and mathematical usage; and Maser for polynomials, division, substitution, approximation, logarithms, tables and calculation. These are related passages, not parallel translations of the 1814/1816 work or authority for its proofs, formulas, convergence or numerical accuracy. No human running prose or modern formulas are adopted. Cotes’s Harmonia Mensurarum and Bessel’s original calculation are cited by Gauss and were not independently consulted for this translation.
+
 Later Volume-III works and other volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
@@ -154,7 +158,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-28b/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-28c/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
