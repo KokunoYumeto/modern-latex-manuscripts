@@ -106,6 +106,10 @@ The complete A New Method for Finding the Values of Integrals by Approximation (
 
 For A New Method, related Taylor–Leak usage was consulted for Articles 1–2, 11–12 and 19–21; Morehead–Hiltebeitel for functions, series, powers, integrals, coefficients and mathematical usage; and Maser for polynomials, division, substitution, approximation, logarithms, tables and calculation. These are related passages, not parallel translations of the 1814/1816 work or authority for its proofs, formulas, convergence or numerical accuracy. No human running prose or modern formulas are adopted. Cotes’s Harmonia Mensurarum and Bessel’s original calculation are cited by Gauss and were not independently consulted for this translation.
 
+The complete reviews of 10 February 1812 and 26 September 1814 follow in Volume III. They discuss the First Part of the General Investigations of the Infinite Series and A New Method for Finding the Values of Integrals by Approximation. The first retains the continued fractions, Pi and Psi functions, Kramp discussion and Nicolai table account; the second retains the Newton and Cotes history, interpolation and quadrature formulas, coefficient construction, accuracy qualifications and numerical example. The reporters’ third-person accounts of Gauss and their first-person plural remain distinct. The German reader gives modern German renderings of the German originals, which are retained separately.
+
+For these reviews, related Taylor–Leak English terminology was consulted; Morehead–Hiltebeitel for functions, series, integrals, limits and mathematical usage; and Maser for fractions, substitution, approximation, logarithms and tables. The NIST DLMF section 5.2(iii), by R. A. Askey and R. Roy, version 1.2.8 of 15 September 2026, provides related English factorial vocabulary for the review of 1812. These are related passages, not parallel translations or authority for the reviews’ formulas, proofs, convergence or numerical accuracy. No human running prose or modern formulas are adopted. Newton, Cotes, Kramp and the other original works cited by the reporters were not newly consulted.
+
 Later Volume-III works and other volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
@@ -158,7 +162,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-28c/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-28d/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
