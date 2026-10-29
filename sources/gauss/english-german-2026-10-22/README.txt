@@ -110,6 +110,10 @@ The complete reviews of 10 February 1812 and 26 September 1814 follow in Volume 
 
 For these reviews, related Taylor–Leak English terminology was consulted; Morehead–Hiltebeitel for functions, series, integrals, limits and mathematical usage; and Maser for fractions, substitution, approximation, logarithms and tables. The NIST DLMF section 5.2(iii), by R. A. Askey and R. Roy, version 1.2.8 of 15 September 2026, provides related English factorial vocabulary for the review of 1812. These are related passages, not parallel translations or authority for the reviews’ formulas, proofs, convergence or numerical accuracy. No human running prose or modern formulas are adopted. Newton, Cotes, Kramp and the other original works cited by the reporters were not newly consulted.
 
+The complete posthumous Determination of Our Series by a Differential Equation of the Second Order follows in Volume III, with its heading, Articles 38–57 and Schering’s historical editorial remarks. It retains the differential equations, transformations, continuation discussion, Pi-function formulas and historical numerical values. Schering’s remarks retain the manuscript account, the relation to the paper published in 1812, the personal-copy annotations and the remarks on Article 48. The historical Latin and German originals are retained separately; the German reader gives a modern German rendering of Schering’s German remarks. The source file nachlass_232_239.tex ends before the distinct review of Pfaff’s work dated 1 July 1815.
+
+For the posthumous paper, related English mathematical usage was consulted in Morehead–Hiltebeitel’s 1902 translation, and related German terminology in Maser’s 1889 translation and edition. These are related passages, not parallel translations or authority for the paper’s formulas, proofs, continuation, convergence or historical numerical accuracy. No human running prose or modern formulas are adopted. Gauss’s formulations and Schering’s separate editorial voice remain identifiable.
+
 Later Volume-III works and other volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
@@ -162,7 +166,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-28d/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-29a/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
