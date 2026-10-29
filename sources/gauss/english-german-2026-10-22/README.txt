@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1301 pages; the German reader has 1343 pages.
+The collected English reader has 1401 pages; the German reader has 1445 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -122,6 +122,10 @@ The complete available division Remarks on logarithm tables follows in Volume II
 
 For these logarithm-table texts, related English calculation and decimal-place usage was consulted in Morehead and Hiltebeitel’s 1902 translation, and related German logarithm, table and calculation usage in Maser’s 1889 translation and edition. These related passages are not parallel translations or authority for the texts’ mathematical or numerical claims. No human running prose or modern formulas are adopted. The existing source credits retain the exact versions, authors, translators, contributors and URLs for all earlier uses.
 
+The complete available posthumous Theory of Interpolation Treated by a New Method follows in Volume III, with its title, Articles 1–41, all three historical footnotes and Ernst Schering’s subsequent editorial remarks. It includes the finite-sum identities, trigonometric interpolation and period subdivisions, the Pallas and Juno examples with all seven editable numerical tables, and Schering’s difference and summation formulas with their editable table. The historical Latin and German source files are retained separately. Schering’s originally German remarks are translated into English and rendered in modern German in the German reader. The historical formulations, numerical values, claims and qualifications remain those of the sources.
+
+For the interpolation work and Schering’s remarks, related English algebraic-expression, substitution, coefficient, angle-calculation and decimal-place usage was consulted in Morehead and Hiltebeitel’s 1902 translation, and related German function, coefficient, product, table and calculation usage in Maser’s 1889 translation and edition. These related passages are not parallel translations or authority for the work’s mathematical or numerical claims. No human running prose or modern formulas are adopted. The existing source credits retain the exact versions, authors, translators, contributors and URLs for all earlier uses.
+
 Later Volume-III works and other volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
@@ -174,7 +178,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-29c/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-30a/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
