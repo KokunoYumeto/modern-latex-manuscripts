@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1235 pages; the German reader has 1274 pages.
+The collected English reader has 1301 pages; the German reader has 1343 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -118,6 +118,10 @@ The complete review of 1 July 1815 of Pfaff’s Methodus generalis follows in Vo
 
 For the review of Pfaff, related English usage for partial and ordinary differential equations, general integration, arbitrary functions and combining equations was consulted in Morehead–Hiltebeitel’s 1902 translation. Related German function, coefficient and substitution terminology was consulted in Maser’s 1889 translation and edition. These are related passages, not parallel translations or authority for the review’s mathematical claims. No human running prose or modern formulas are adopted.
 
+The complete available division Remarks on logarithm tables follows in Volume III. It contains the errata notice of 1802; the reviews of Prasse of 1811 and 1814; the explanatory text of 1812 on logarithms of sums and differences, with all three examples; the reviews of Pasquich (1817), Matthiessen (1819), Babbage (1828) and Hassler (1831); Gauss’s letter to Schumacher of 25 November 1822; the application to quadratic equations of 1840, with its editable tables and example; and the complete remarks of 1851 on Vega’s Thesaurus Logarithmorum, with Gauss’s footnote. The explanatory text of 1812 describes a table; this edition includes its available explanation and examples. German historical originals are retained separately, and the German reader gives modern German renderings. The historical formulations, numerical values, claims and qualifications remain those of the sources.
+
+For these logarithm-table texts, related English calculation and decimal-place usage was consulted in Morehead and Hiltebeitel’s 1902 translation, and related German logarithm, table and calculation usage in Maser’s 1889 translation and edition. These related passages are not parallel translations or authority for the texts’ mathematical or numerical claims. No human running prose or modern formulas are adopted. The existing source credits retain the exact versions, authors, translators, contributors and URLs for all earlier uses.
+
 Later Volume-III works and other volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
@@ -170,7 +174,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-29b/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-29c/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
