@@ -114,6 +114,10 @@ The complete posthumous Determination of Our Series by a Differential Equation o
 
 For the posthumous paper, related English mathematical usage was consulted in Morehead–Hiltebeitel’s 1902 translation, and related German terminology in Maser’s 1889 translation and edition. These are related passages, not parallel translations or authority for the paper’s formulas, proofs, continuation, convergence or historical numerical accuracy. No human running prose or modern formulas are adopted. Gauss’s formulations and Schering’s separate editorial voice remain identifiable.
 
+The complete review of 1 July 1815 of Pfaff’s Methodus generalis follows in Volume III. It includes the reductions of differential expressions, the three integration problems, the distinction between the two kinds of partial derivatives, the derivation of transformation I and the concluding exceptional case. The German original is retained separately; the German reader gives a modern German rendering. The source retains the historical mathematical formulations, including their printed irregularities.
+
+For the review of Pfaff, related English usage for partial and ordinary differential equations, general integration, arbitrary functions and combining equations was consulted in Morehead–Hiltebeitel’s 1902 translation. Related German function, coefficient and substitution terminology was consulted in Maser’s 1889 translation and edition. These are related passages, not parallel translations or authority for the review’s mathematical claims. No human running prose or modern formulas are adopted.
+
 Later Volume-III works and other volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
@@ -166,7 +170,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-29a/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-29b/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
