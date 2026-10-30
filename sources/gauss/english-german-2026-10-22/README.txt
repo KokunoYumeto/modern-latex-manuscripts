@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1401 pages; the German reader has 1445 pages.
+The collected English reader has 1454 pages; the German reader has 1500 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -126,6 +126,10 @@ The complete available posthumous Theory of Interpolation Treated by a New Metho
 
 For the interpolation work and Schering’s remarks, related English algebraic-expression, substitution, coefficient, angle-calculation and decimal-place usage was consulted in Morehead and Hiltebeitel’s 1902 translation, and related German function, coefficient, product, table and calculation usage in Maser’s 1889 translation and edition. These related passages are not parallel translations or authority for the work’s mathematical or numerical claims. No human running prose or modern formulas are adopted. The existing source credits retain the exact versions, authors, translators, contributors and URLs for all earlier uses.
 
+The complete work of 1818 on the attraction of a planetary orbit follows in Volume III with its formal and repeated titles, Articles 1–19 and both historical footnotes. It treats the attraction of an elliptic ring, the algebraic reduction and the arithmetic-geometric algorithm for the resulting integrals. The complete review of 9 February 1818 follows, including its account of the algorithm, the circumference of an ellipse and the duration of pendulum oscillations. The Latin paper and the German review retain their respective historical formulations, conditions, values, claims and qualifications. The original Latin and German source files are retained separately; the review is translated into English and rendered in modern German in the German reader.
+
+For the work of 1818 and its review, related English mathematical-formulation, algebraic-expression, argument, differential-expression and substitution usage was consulted in Morehead and Hiltebeitel’s 1902 translation, and related German indeterminate, coefficient, product and substitution usage in Maser’s 1889 translation and edition. These passages are not parallel translations or authority for the mathematical, astronomical or numerical claims. No human running prose or modern formulas from those references are adopted. All earlier human credits, exact source versions and URLs are retained.
+
 Later Volume-III works and other volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
@@ -178,7 +182,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-30a/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-30b/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
