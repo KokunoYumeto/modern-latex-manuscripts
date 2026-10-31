@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1609 pages; the German reader has 1656 pages.
+The collected English reader has 1615 pages; the German reader has 1662 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -138,9 +138,13 @@ Three complete available works on lemniscatic functions follow: More Elegant Pro
 
 Related English expression, mathematical-argument, geometrical-representation, differential-expression, setting and designation usage in Morehead and Hiltebeitel’s 1902 translation, and related German quantity, root, coefficient, product and substitution usage in Maser’s 1889 translation and edition, were consulted for these works. These are not parallel translations, numerical checks or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
-The complete Collection of Calculations follows with its title, introduction and all ten calculations of exponentials, translated from the historical German and Latin text. Its six editable numerical arrays, logarithm chains, factorizations, investigations of prime numbers, qualifications and closing rule are retained. The historical heading Double Calculation precedes three calculations; the collection retains its own repeated Article 17 label. The next work, Varia imprimis de integrali, is outside these readers. The originally German passages are translated into English and rendered in modern German in the German reader; the German and Latin originals are retained separately.
+The complete Collection of Calculations follows with its title, introduction and all ten calculations of exponentials, translated from the historical German and Latin text. Its six editable numerical arrays, logarithm chains, factorizations, investigations of prime numbers, qualifications and closing rule are retained. The historical heading Double Calculation precedes three calculations; the collection retains its own repeated Article 17 label.  The originally German passages are translated into English and rendered in modern German in the German reader; the German and Latin originals are retained separately.
 
 For this collection, related English expression, mathematical-argument and setting usage in Morehead and Hiltebeitel’s 1902 translation, and related German quantity, product, factor and substitution usage in Maser’s 1889 translation and edition, were consulted. These are not parallel translations, checks of historical numerical values or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
+
+The complete Miscellaneous Topics, Chiefly on the Integral follows, translated from Latin, with its title [I.], all formulas on the historical leaves 442–444, the problem of summing a reciprocal series, the conditional infinite-product statements, the observation and closing rule. It includes the S, T and W series, exponential and trigonometric expressions, half-period shifts, zero loci, products and the concluding mean relations. The historical mathematical formulations, root scopes, coefficients, exponents and qualifications are retained. The Latin original is supplied separately. The following German work Concerning the Theory of Transcendental Functions is outside these readers.
+
+For this work, related English expression and mathematical-argument usage in Morehead and Hiltebeitel’s 1902 translation, and related German coefficient, product, quantity, root and substitution usage in Maser’s 1889 translation and edition, were considered or consulted. These are not parallel translations, checks of historical identities or proof authority. The Latin heading, constant-term label and mean labels are translated independently. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
 Later Volume-III works and other volumes are outside these readers.
 
@@ -194,7 +198,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31b/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31c/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
