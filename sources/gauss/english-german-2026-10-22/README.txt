@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1738 pages; the German reader has 1785 pages.
+The collected English reader has 1751 pages; the German reader has 1799 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -162,9 +162,13 @@ Concerning the Theory of the New Transcendental Functions [V.] follows in Englis
 
 For this work, related English mathematical-expression, function, substitution and argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German coefficient, function, product, quantity, root and substitution usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations, attestations of historical wording, checks of identities or numerical values, or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
-The Wonderful Pentagram follows in English and modern German with the formal Latin title Pentagramma mirificum, all eight articles, both editable geometric diagrams, all formulas and arguments, the complete numerical table and the closing rule on historical leaves 490–499. The historical German original and both editable diagrams are supplied separately. The distinct following historical editorial remarks are outside these readers.
+The Wonderful Pentagram follows in English and modern German with the formal Latin title Pentagramma mirificum, all eight articles, both editable geometric diagrams, all formulas and arguments, the complete numerical table and the closing rule on historical leaves 490–499. The historical German original and both editable diagrams are supplied separately.
 
 For this work, related English elimination, expression, substitution and geometrical mathematical-argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German quantity, expression, substitution and mathematical-argument usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations, attestations of historical wording, checks of identities or numerical values, or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
+
+Schering’s complete final editorial Remarks on historical leaves 500–505 follow in English and modern German, including all quoted letters and passages, Gauss’s complete quoted note, the Göttingen June 1865 signature and the closing rule. The original contents on leaves 506–508 follow with all three editable tables, every historical page reference and the complete printer’s imprint on leaf 509. The historical originals are supplied separately.
+
+For these texts, related English expression, substitution and mathematical-argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German quantity, substitution, equation and expression usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations or attestations of historical wording, chronology or printing details, and are not authority for the formulas. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
 Later Volume-III works and other volumes are outside these readers.
 
@@ -218,7 +222,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31h/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31i/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
