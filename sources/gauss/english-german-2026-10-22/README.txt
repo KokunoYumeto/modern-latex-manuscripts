@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1633 pages; the German reader has 1680 pages.
+The collected English reader has 1674 pages; the German reader has 1721 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -146,7 +146,11 @@ The complete Miscellaneous Topics, Chiefly on the Integral follows, translated f
 
 For this work, related English expression and mathematical-argument usage in Morehead and Hiltebeitel’s 1902 translation, and related German coefficient, product, quantity, root and substitution usage in Maser’s 1889 translation and edition, were considered or consulted. These are not parallel translations, checks of historical identities or proof authority. The Latin heading, constant-term label and mean labels are translated independently. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
-The complete Concerning the Theory of the New Transcendental Functions [II.] follows in English and modern German, with its title and all Articles 1–9 on historical leaves 445–454, all formulas, the coefficient integrals, series, infinite products, transformations, reciprocity statements, numerical constants, editable arrays and closing rule. The author’s hypotheses, qualifications, praise, caution, unfinished parenthetical wording and historical mathematical formulations are retained. The German original is supplied separately. The distinct following work [III.] is outside these readers.
+The complete Concerning the Theory of the New Transcendental Functions [II.] follows in English and modern German, with its title and all Articles 1–9 on historical leaves 445–454, all formulas, the coefficient integrals, series, infinite products, transformations, reciprocity statements, numerical constants, editable arrays and closing rule. The author’s hypotheses, qualifications, praise, caution, unfinished parenthetical wording and historical mathematical formulations are retained. The German original is supplied separately.
+
+For this work, related English mathematical-expression, argument and designation usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German coefficient, product, quantity, substitution and root usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations, attestations of the historical wording, checks of identities or numerical values, or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
+
+The complete Concerning the Theory of the New Transcendental Functions [III.] follows in English and modern German, with its title, every numbered theorem 1–73 including 45b and the repeated numbers 55 and 56, all intervening and subsequent formulas, products, series, editable arrays, arguments and the closing rule on historical leaves 455–469. The author’s mathematical formulations, hypotheses, voice, qualifications and claims are retained. The German original is supplied separately. The distinct following Hundred Theorems on the New Transcendental Functions [IV.] is outside these readers.
 
 For this work, related English mathematical-expression, argument and designation usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German coefficient, product, quantity, substitution and root usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations, attestations of the historical wording, checks of identities or numerical values, or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
@@ -202,7 +206,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31d/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31e/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
