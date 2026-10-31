@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1782 pages; the German reader has 1832 pages.
+The collected English reader has 1810 pages; the German reader has 1860 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -174,6 +174,10 @@ Volume IV contains the historical volume titles and the complete First Part of T
 
 For the First Part, related English mathematical-expression, substitution and argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German quantity, equation, substitution and argument usage in H. Maser’s 1889 translation and edition, were consulted. The opening source component of Gauss’s German notice of 26 February 1821 was consulted for related error and probability terminology. These are not parallel translations of the observation theory, numerical checks, attestations of its historical phrases or authority for its formulas and proofs. No human running prose or modern formulas are adopted. Historical source encoding and typesetting are credited to OpenAI GPT-6 Astra, Ultra; the translations and their typesetting are AI-produced using OpenAI GPT-6.1 Sol. All earlier scholarly credits, exact source versions and URLs are retained.
 
+The complete Second Part of Theory of the Combination of Observations Subject to the Smallest Errors (Theoria combinationis observationum erroribus minimis obnoxiae, Pars posterior), presented on 2 February 1823 and published in 1823, follows the First Part: both historical titles, all Articles 23–40, the whole author footnote and the closing rule. It treats the combination of observations, the determination and weights of unknown quantities, changes in the observations, and the estimation of mean error. The source’s objects, hypotheses, arguments, qualifications and formulas are retained. The Latin original is supplied separately.
+
+For the Second Part, related English expression, substitution, quantity and argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German quantity, equation, substitution and argument usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations of the observation theory, numerical checks, attestations of its historical phrases, or authority for its formulas, fourth moments or proofs. No human running prose or modern formulas are adopted. Historical source encoding and typesetting are credited to OpenAI GPT-6 Astra, Ultra; the translations and their typesetting are AI-produced using OpenAI GPT-6.1 Sol. All earlier scholarly credits, exact source versions and URLs are retained.
+
 Other works in Volume IV and later volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
@@ -226,7 +230,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31j/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31k/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
