@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1597 pages; the German reader has 1644 pages.
+The collected English reader has 1609 pages; the German reader has 1656 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -134,9 +134,13 @@ The available posthumous work on the arithmetic–geometric mean follows in full
 
 For this posthumous work, related English mathematical argument and designation usage was consulted in Morehead and Hiltebeitel’s 1902 translation, and related German mathematical-quantity, root and algebraic-argument usage in Maser’s 1889 translation and edition. These related passages are not parallel translations, numerical checks or authority for the work’s mathematical claims. No human running prose or modern formulas from those references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
-Three complete available works on lemniscatic functions follow: More Elegant Properties of the Integral, translated from Latin, with its title and Articles 1–4; Some New Formulas Concerning Lemniscatic Functions, translated from German, with its complete six-row coefficient table; and On the Lemniscate, with its title and Articles 1–17, including the historical later remark I–II, the German bracketed passage in Article 5 and the German texts in Articles 13–14. The works include the original addition and multiplication formulas, series and products, historical numerical arrays and both proofs in Article 17. Mathematical formulations, signs, numerical values, blanks and source qualifications remain those of the historical text. German originals are translated into English and rendered in modern German in the German reader; all Latin and German originals are retained separately. The subsequent Collection of Calculations is outside these readers.
+Three complete available works on lemniscatic functions follow: More Elegant Properties of the Integral, translated from Latin, with its title and Articles 1–4; Some New Formulas Concerning Lemniscatic Functions, translated from German, with its complete six-row coefficient table; and On the Lemniscate, with its title and Articles 1–17, including the historical later remark I–II, the German bracketed passage in Article 5 and the German texts in Articles 13–14. The works include the original addition and multiplication formulas, series and products, historical numerical arrays and both proofs in Article 17. Mathematical formulations, signs, numerical values, blanks and source qualifications remain those of the historical text. German originals are translated into English and rendered in modern German in the German reader; all Latin and German originals are retained separately. 
 
 Related English expression, mathematical-argument, geometrical-representation, differential-expression, setting and designation usage in Morehead and Hiltebeitel’s 1902 translation, and related German quantity, root, coefficient, product and substitution usage in Maser’s 1889 translation and edition, were consulted for these works. These are not parallel translations, numerical checks or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
+
+The complete Collection of Calculations follows with its title, introduction and all ten calculations of exponentials, translated from the historical German and Latin text. Its six editable numerical arrays, logarithm chains, factorizations, investigations of prime numbers, qualifications and closing rule are retained. The historical heading Double Calculation precedes three calculations; the collection retains its own repeated Article 17 label. The next work, Varia imprimis de integrali, is outside these readers. The originally German passages are translated into English and rendered in modern German in the German reader; the German and Latin originals are retained separately.
+
+For this collection, related English expression, mathematical-argument and setting usage in Morehead and Hiltebeitel’s 1902 translation, and related German quantity, product, factor and substitution usage in Maser’s 1889 translation and edition, were consulted. These are not parallel translations, checks of historical numerical values or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
 Later Volume-III works and other volumes are outside these readers.
 
@@ -190,7 +194,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31a/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31b/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
