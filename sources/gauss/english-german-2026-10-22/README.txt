@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1751 pages; the German reader has 1799 pages.
+The collected English reader has 1782 pages; the German reader has 1832 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -56,7 +56,7 @@ contents, both imprints, the manuscript appendix and the historical editor's
 closing note. Contents page references retain the source pagination.
 
 Historical sources: Carl Friedrich Gauss, Werke, Volume I, Göttingen, 1863;
-Volume II, second printing, Göttingen, 1876; Volume III, Göttingen, 1866. Disquisitiones Arithmeticae was
+Volume II, second printing, Göttingen, 1876; Volume III, Göttingen, 1866; Volume IV, Göttingen, 1873. Disquisitiones Arithmeticae was
 first published in Leipzig in 1801.
 
 Originally German passages in the Volume-I appendix and editorial closing,
@@ -67,7 +67,7 @@ German renderings. The original German review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
 The package contains editable LaTeX text, mathematics, tables and diagrams, and the genuine
-portraits used in the readers. The volume_I, volume_II and volume_III directories contain
+portraits used in the readers. The volume_I, volume_II, volume_III and volume_IV directories contain
 english and german sources. Build main.tex with XeLaTeX, rerunning until references and table widths stabilize, using Latin
 Modern, Babel, pdflscape and longtable. The collected readers present the volumes
 in numerical order; the individual volume readers are also supplied.
@@ -170,7 +170,11 @@ Schering’s complete final editorial Remarks on historical leaves 500–505 fol
 
 For these texts, related English expression, substitution and mathematical-argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German quantity, substitution, equation and expression usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations or attestations of historical wording, chronology or printing details, and are not authority for the formulas. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
-Later Volume-III works and other volumes are outside these readers.
+Volume IV contains the historical volume titles and the complete First Part of Theory of the Combination of Observations Subject to the Smallest Errors (Theoria combinationis observationum erroribus minimis obnoxiae, Pars prior), presented on 15 February 1821 and published in 1823: its formal title, all Articles 1–22, both author footnotes and the closing rule. It treats errors and their mean measures, precision and weights, the combination of observations and Gauss’s least-squares argument. Every historical formula, hypothesis and qualification remains that of the source. The historical German titles are translated into English and rendered in modern German; the Latin and German originals and genuine portrait are supplied separately.
+
+For the First Part, related English mathematical-expression, substitution and argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German quantity, equation, substitution and argument usage in H. Maser’s 1889 translation and edition, were consulted. The opening source component of Gauss’s German notice of 26 February 1821 was consulted for related error and probability terminology. These are not parallel translations of the observation theory, numerical checks, attestations of its historical phrases or authority for its formulas and proofs. No human running prose or modern formulas are adopted. Historical source encoding and typesetting are credited to OpenAI GPT-6 Astra, Ultra; the translations and their typesetting are AI-produced using OpenAI GPT-6.1 Sol. All earlier scholarly credits, exact source versions and URLs are retained.
+
+Other works in Volume IV and later volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
 
@@ -222,7 +226,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31i/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31j/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24

@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 1751 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31i/Gauss_Collected_English.pdf) or the [German collection, 1799 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31i/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 1782 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Collected_English.pdf) or the [German collection, 1832 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31i/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/b24d62cfc6f8cae6c28fb84b61fe15f99e079b69/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-31i)
+[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/main/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-31j)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -77,9 +77,10 @@ The complete Contributions to the Theory of Algebraic Equations follows with its
 
 | Component reader | English | German |
 |---|---|---|
-| Volume I | [408 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31i/Gauss_Werke_I_English.pdf) | [430 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31i/Gauss_Werke_I_Deutsch.pdf) |
-| Volume II selection | [637 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31i/Gauss_Werke_II_English_Selection.pdf) | [646 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31i/Gauss_Werke_II_Deutsch_Auswahl.pdf) |
-| Volume III: algebraic works, reviews, series, integrals, attraction, the arithmetic–geometric mean and lemniscatic functions | [706 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31i/Gauss_Werke_III_English_Selection.pdf) | [723 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31i/Gauss_Werke_III_Deutsch_Auswahl.pdf) |
+| Volume I | [408 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Werke_I_English.pdf) | [430 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Werke_I_Deutsch.pdf) |
+| Volume II selection | [637 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Werke_II_English_Selection.pdf) | [646 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Werke_II_Deutsch_Auswahl.pdf) |
+| Volume III: algebraic works, reviews, series, integrals, attraction, the arithmetic–geometric mean and lemniscatic functions | [706 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Werke_III_English_Selection.pdf) | [723 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Werke_III_Deutsch_Auswahl.pdf) |
+| Volume IV: Theory of the Combination of Observations, First Part | [31 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Werke_IV_English_Selection.pdf) | [33 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31j/Gauss_Werke_IV_Deutsch_Auswahl.pdf) |
 
 The algebraic Reviews division contains the complete reviews of 23 December 1815, 2 March 1816 and 30 July 1849 from the Göttingische gelehrte Anzeigen, including the handwritten remarks accompanying the review of 1816. The complete reviews of Coytier of 6 March 1813 and Fourier of 25 February 1833 follow. The review of 1815 discusses the form and existence of roots and the different foundations of Gauss’s proofs. The review of 1816 gives the double-integral proof in full, its discussion of finite values and multivalued inverse tangents, and the accompanying root and equilibrium statements. The review of 1849 discusses the distinct foundations of the proofs, the nature of complex quantities, series and practical methods for equations with three terms. The review of Coytier treats the meanings of analysis and synthesis, roots, equations and functions. The review of Fourier discusses his numerical solution methods, coefficient sign continuations, real-root bounds and the qualifications concerning imaginary root pairs. Their historical formulations and qualifications remain those of the source. The German reader renders the original German reviews in modern German; the historical originals are supplied separately.
 
@@ -119,7 +120,9 @@ The Wonderful Pentagram follows in English and modern German with the formal Lat
 
 Schering’s complete final editorial Remarks on historical leaves 500–505 follow in English and modern German, including all quoted letters and passages, Gauss’s complete quoted note, the Göttingen June 1865 signature and the closing rule. The original contents on leaves 506–508 follow with all three editable tables, every historical page reference and the complete printer’s imprint on leaf 509. The historical originals are supplied separately.
 
-Later Volume-III works and other volumes remain outside these readers.
+Volume IV contains the historical volume titles and the complete First Part of Theory of the Combination of Observations Subject to the Smallest Errors (Theoria combinationis observationum erroribus minimis obnoxiae, Pars prior), presented on 15 February 1821 and published in 1823: its formal title, all Articles 1–22, both author footnotes and the closing rule. It treats errors and their mean measures, precision and weights, the combination of observations and Gauss’s least-squares argument. Every historical formula, hypothesis and qualification remains that of the source. The historical German titles are translated into English and rendered in modern German; the Latin and German originals and genuine portrait are supplied separately.
+
+Other works in Volume IV and later volumes remain outside these readers.
 This is a partial collected edition.
 
 The translations follow the retained original-language LaTeX editions and
@@ -186,6 +189,8 @@ For this work, related English elimination, expression, substitution and geometr
 
 For these texts, related English expression, substitution and mathematical-argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German quantity, substitution, equation and expression usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations or attestations of historical wording, chronology or printing details, and are not authority for the formulas. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
+For the First Part, related English mathematical-expression, substitution and argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German quantity, equation, substitution and argument usage in H. Maser’s 1889 translation and edition, were consulted. The opening source component of Gauss’s German notice of 26 February 1821 was consulted for related error and probability terminology. These are not parallel translations of the observation theory, numerical checks, attestations of its historical phrases or authority for its formulas and proofs. No human running prose or modern formulas are adopted. Historical source encoding and typesetting are credited to OpenAI GPT-6 Astra, Ultra; the translations and their typesetting are AI-produced using OpenAI GPT-6.1 Sol. All earlier scholarly credits, exact source versions and URLs are retained.
+
 ## Translation sources and terminology
 
 These English and German texts are AI-translated from Gauss's original-language
@@ -234,6 +239,6 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 These editions are freely available for study and teaching.
 
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/b24d62cfc6f8cae6c28fb84b61fe15f99e079b69/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 The citation metadata records the exact editable transcription archives used for the translations, with their SHA-256 identities, alongside the historical editions and named terminology references.
