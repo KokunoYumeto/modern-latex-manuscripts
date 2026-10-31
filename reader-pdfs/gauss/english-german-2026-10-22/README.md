@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 1692 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31f/Gauss_Collected_English.pdf) or the [German collection, 1739 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31f/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 1718 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31g/Gauss_Collected_English.pdf) or the [German collection, 1765 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31g/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31f/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/31387b5a59a57c83c322e26a15db94e95db3dd17/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-31f)
+[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31g/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/main/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-10-31g)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -77,9 +77,9 @@ The complete Contributions to the Theory of Algebraic Equations follows with its
 
 | Component reader | English | German |
 |---|---|---|
-| Volume I | [408 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31f/Gauss_Werke_I_English.pdf) | [430 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31f/Gauss_Werke_I_Deutsch.pdf) |
-| Volume II selection | [637 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31f/Gauss_Werke_II_English_Selection.pdf) | [646 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31f/Gauss_Werke_II_Deutsch_Auswahl.pdf) |
-| Volume III: algebraic works, reviews, series, integrals, attraction, the arithmetic–geometric mean and lemniscatic functions | [647 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31f/Gauss_Werke_III_English_Selection.pdf) | [663 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31f/Gauss_Werke_III_Deutsch_Auswahl.pdf) |
+| Volume I | [408 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31g/Gauss_Werke_I_English.pdf) | [430 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31g/Gauss_Werke_I_Deutsch.pdf) |
+| Volume II selection | [637 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31g/Gauss_Werke_II_English_Selection.pdf) | [646 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31g/Gauss_Werke_II_Deutsch_Auswahl.pdf) |
+| Volume III: algebraic works, reviews, series, integrals, attraction, the arithmetic–geometric mean and lemniscatic functions | [673 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31g/Gauss_Werke_III_English_Selection.pdf) | [689 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-10-31g/Gauss_Werke_III_Deutsch_Auswahl.pdf) |
 
 The algebraic Reviews division contains the complete reviews of 23 December 1815, 2 March 1816 and 30 July 1849 from the Göttingische gelehrte Anzeigen, including the handwritten remarks accompanying the review of 1816. The complete reviews of Coytier of 6 March 1813 and Fourier of 25 February 1833 follow. The review of 1815 discusses the form and existence of roots and the different foundations of Gauss’s proofs. The review of 1816 gives the double-integral proof in full, its discussion of finite values and multivalued inverse tangents, and the accompanying root and equilibrium statements. The review of 1849 discusses the distinct foundations of the proofs, the nature of complex quantities, series and practical methods for equations with three terms. The review of Coytier treats the meanings of analysis and synthesis, roots, equations and functions. The review of Fourier discusses his numerical solution methods, coefficient sign continuations, real-root bounds and the qualifications concerning imaginary root pairs. Their historical formulations and qualifications remain those of the source. The German reader renders the original German reviews in modern German; the historical originals are supplied separately.
 
@@ -111,7 +111,9 @@ The complete Concerning the Theory of the New Transcendental Functions [II.] fol
 
 The complete Concerning the Theory of the New Transcendental Functions [III.] follows in English and modern German, with its title, every numbered theorem 1–73 including 45b and the repeated numbers 55 and 56, all intervening and subsequent formulas, products, series, editable arrays, arguments and the closing rule on historical leaves 455–469. The author’s mathematical formulations, hypotheses, voice, qualifications and claims are retained. The German original is supplied separately.
 
-The complete available One Hundred Theorems on the New Transcendental Functions [IV.] follows in English and modern German, with its title, all six available articles, the numbered formulas through 25, all series, unsimplified products, editable arrays, arguments and the closing rule on historical leaves 470–478. The author’s mathematical formulations, hypotheses, voice, qualifications and claims are retained. The historical German original is supplied separately. The distinct following work [V.] is outside these readers.
+The complete available One Hundred Theorems on the New Transcendental Functions [IV.] follows in English and modern German, with its title, all six available articles, the numbered formulas through 25, all series, unsimplified products, editable arrays, arguments and the closing rule on historical leaves 470–478. The author’s mathematical formulations, hypotheses, voice, qualifications and claims are retained. The historical German original is supplied separately.
+
+Concerning the Theory of the New Transcendental Functions [V.] follows in English and modern German with its title, all seventeen articles, both editable complex-region diagrams, all series, unsimplified products, identities, arguments, qualifications and the closing rule on historical leaves 479–489. The printed unfinished equality in Article 9 and the author’s conjectural wording in Article 17 are retained. The historical German original and its editable diagrams are supplied separately. The distinct following Pentagramma mirificum is outside these readers.
 
 Later Volume-III works and other volumes remain outside these readers.
 This is a partial collected edition.
@@ -174,6 +176,8 @@ For this work, related English mathematical-expression, argument and designation
 
 For this work, related English mathematical-expression, function, setting, substitution and conclusion usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German coefficient, function, product, quantity and substitution usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations, attestations of the historical wording, checks of identities or numerical values, or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
 
+For this work, related English mathematical-expression, function, substitution and argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German coefficient, function, product, quantity, root and substitution usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations, attestations of historical wording, checks of identities or numerical values, or proof authority. No human running prose or modern formulas from these references are adopted. All earlier human credits, exact source versions and URLs are retained.
+
 ## Translation sources and terminology
 
 These English and German texts are AI-translated from Gauss's original-language
@@ -222,6 +226,6 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 These editions are freely available for study and teaching.
 
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/31387b5a59a57c83c322e26a15db94e95db3dd17/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 The citation metadata records the exact editable transcription archives used for the translations, with their SHA-256 identities, alongside the historical editions and named terminology references.
