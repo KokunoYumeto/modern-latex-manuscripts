@@ -1,14 +1,12 @@
-## Read this first
-
-This collection is a work in progress. Its transcriptions and translations are AI-produced, except where an edition credits human work. When the project started, AI tools could not yet do this work reliably, and much of what is here comes from experiments in finding a method that works; those results are rough. The tools have become more reliable since.
-
-Some editions are in a readable state, but even the readable ones very likely contain errors, or at least inelegancies, and only some of them are of decent quality. Many are still worth reading, especially translations that exist nowhere else. Apart from a few tentative exceptions, none of it is at the level of a human mathematician's work. Read with discretion, and check important statements and formulas against the original.
-
 # Modern LaTeX Editions of Mathematics Manuscripts
 
 Historical mathematics transcribed into modern LaTeX and translated into other languages, with reader PDFs and editable sources. The larger editions have their own repositories, listed below; this repository holds the overview, the smaller editions and earlier work.
 
-Zenodo has blocked access to our account, so please use our GitHub repositories from now on.
+## Status
+
+This collection is a work in progress. Its transcriptions and translations are AI-produced, except where an edition credits human work. When the project started, AI tools could not yet do this work reliably, and much of what is here comes from experiments in finding a method that works; those results are rough. The tools have become more reliable since.
+
+Some editions are in a readable state, but even the readable ones very likely contain errors, or at least inelegancies, and only some of them are of decent quality. Many are still worth reading, especially translations that exist nowhere else. Apart from a few tentative exceptions, none of it is at the level of a human mathematician's work. Read with discretion, and check important statements and formulas against the original.
 
 ## Editions
 
@@ -136,38 +134,9 @@ Finding things in this repository: [reader-pdfs](reader-pdfs/README.md) (reader 
 - Translations of the Open Logic Project: [OpenLogic-translations](https://github.com/KokunoYumeto/OpenLogic-translations).
 - Open Mathematics Courses: [open-math-courses-public](https://github.com/KokunoYumeto/open-math-courses-public) and [openmaths.org](https://openmaths.org/).
 
-## Old Zenodo records (not maintained)
+## Rights
 
-Kept for completeness. They are frozen at their last version; the current editions are those listed above.
-
-| Collection | Record |
-|---|---|
-| Project landing page | [10.5281/zenodo.20393488](https://doi.org/10.5281/zenodo.20393488) |
-| Emmy Noether | [10.5281/zenodo.21923146](https://doi.org/10.5281/zenodo.21923146) |
-| Évariste Galois, French / English | [10.5281/zenodo.21923856](https://doi.org/10.5281/zenodo.21923856) / [10.5281/zenodo.21924301](https://doi.org/10.5281/zenodo.21924301) |
-| Gauss | [10.5281/zenodo.20410934](https://doi.org/10.5281/zenodo.20410934) |
-| Weber | [10.5281/zenodo.20412153](https://doi.org/10.5281/zenodo.20412153) |
-| SGA, French / English / Spanish | [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947) / [10.5281/zenodo.21925497](https://doi.org/10.5281/zenodo.21925497) / [10.5281/zenodo.21923955](https://doi.org/10.5281/zenodo.21923955) |
-| Serre, FAC / GAGA | [10.5281/zenodo.21720996](https://doi.org/10.5281/zenodo.21720996) / [10.5281/zenodo.21781322](https://doi.org/10.5281/zenodo.21781322) |
-| al-Battānī | [10.5281/zenodo.20539593](https://doi.org/10.5281/zenodo.20539593) |
-| Bianchi | [10.5281/zenodo.20615814](https://doi.org/10.5281/zenodo.20615814) |
-| Frobenius | [10.5281/zenodo.20673444](https://doi.org/10.5281/zenodo.20673444) |
-| Gibbs | [10.5281/zenodo.20649835](https://doi.org/10.5281/zenodo.20649835) |
-| Gordan | [10.5281/zenodo.20616260](https://doi.org/10.5281/zenodo.20616260) |
-| Kneser | [10.5281/zenodo.20836971](https://doi.org/10.5281/zenodo.20836971) |
-| Maxwell | [10.5281/zenodo.20653107](https://doi.org/10.5281/zenodo.20653107) |
-| Poincaré | [10.5281/zenodo.20673461](https://doi.org/10.5281/zenodo.20673461) |
-| Steinitz | [10.5281/zenodo.20616988](https://doi.org/10.5281/zenodo.20616988) |
-| Sylvester | [10.5281/zenodo.20520692](https://doi.org/10.5281/zenodo.20520692) |
-| Dedekind | [10.5281/zenodo.20520669](https://doi.org/10.5281/zenodo.20520669) |
-| Dirichlet | [10.5281/zenodo.20520679](https://doi.org/10.5281/zenodo.20520679) |
-| Riemann | [10.5281/zenodo.20429778](https://doi.org/10.5281/zenodo.20429778) |
-| Cayley | [10.5281/zenodo.20520749](https://doi.org/10.5281/zenodo.20520749) |
-| Classical algebra and arithmetic | [10.5281/zenodo.20414787](https://doi.org/10.5281/zenodo.20414787) |
-| Further authors (Minkowski, Hecke, Landau and others) | [10.5281/zenodo.20411006](https://doi.org/10.5281/zenodo.20411006) |
-| Non-European mathematics; Chinese; Indian and Sanskrit; Islamic and Arabic | [10.5281/zenodo.20410957](https://doi.org/10.5281/zenodo.20410957); [20415751](https://doi.org/10.5281/zenodo.20415751); [20415754](https://doi.org/10.5281/zenodo.20415754); [20415769](https://doi.org/10.5281/zenodo.20415769) |
-| Ukrainian applied mathematics | [10.5281/zenodo.20490906](https://doi.org/10.5281/zenodo.20490906) |
-| Workflow; translation methods; Lean formalizations | [10.5281/zenodo.20461174](https://doi.org/10.5281/zenodo.20461174); [10.5281/zenodo.21124403](https://doi.org/10.5281/zenodo.21124403); [10.5281/zenodo.21129946](https://doi.org/10.5281/zenodo.21129946) |
+The historical source texts are in the public domain. Unless a file or its upstream source says otherwise, the project-created metadata, manifests, scripts, notes, newly prepared TeX and translation drafts are dedicated to the public domain under CC0 1.0 ([LICENSE](LICENSE)); source scans and imported upstream projects keep their own status, credit and licences.
 
 ---
 
