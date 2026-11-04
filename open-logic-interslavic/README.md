@@ -19,7 +19,6 @@ To jest praktično medžuslovjansko izdanje projekta Open Logic za čitateljev s
 - [Vezy jedinic i kanona](evidence/OLP-0198.batch-canon-links.json)
 - [Program prěvoda](machine/TRANSLATION_PROGRESS_OLP0198.json)
 - [Mašinno prědanje](machine/OPENLOGIC_ISV_MACHINE_HANDOFF_OLP0198.json)
-- [Metodologija i dokazy](https://doi.org/10.5281/zenodo.21124403)
 
 ## Novy prijety blok
 
