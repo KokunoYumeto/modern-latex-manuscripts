@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1810 pages; the German reader has 1860 pages.
+The collected English reader has 1854 pages; the German reader has 1907 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -178,6 +178,8 @@ The complete Second Part of Theory of the Combination of Observations Subject to
 
 For the Second Part, related English expression, substitution, quantity and argument usage in James Caddall Morehead and Adam Miller Hiltebeitel’s 1902 translation, and related German quantity, equation, substitution and argument usage in H. Maser’s 1889 translation and edition, were consulted. These are not parallel translations of the observation theory, numerical checks, attestations of its historical phrases, or authority for its formulas, fourth moments or proofs. No human running prose or modern formulas are adopted. Historical source encoding and typesetting are credited to OpenAI GPT-6 Astra, Ultra; the translations and their typesetting are AI-produced using OpenAI GPT-6.1 Sol. All earlier scholarly credits, exact source versions and URLs are retained.
 
+The complete Supplement to the Theory of the Combination of Observations follows, with Articles 1–25, all four author footnotes and the numerical tables, together with the complete notice of 26 February 1821. The German reader renders the German notice in modern German; the historical Latin and German sources are supplied separately.
+
 Other works in Volume IV and later volumes are outside these readers.
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
@@ -230,7 +232,7 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-10-31k/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-11-05a/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
