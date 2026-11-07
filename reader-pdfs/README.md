@@ -22,7 +22,6 @@ digest below uses repository-relative paths.
 | [Dedekind](dedekind/) | 2 | 0 | 571,836 | `08867846489C83A29A62F3B0AEFFEBFDBC1E71FB4175770D5AB8188558437627` | [Map](../docs/dedekind-map.md) |
 | [Dirichlet](dirichlet/) | 2 | 0 | 20,990,879 | `D43DABDB4AEB21AACCD3641362746F6C538FE732ADBD9ED7AC9E2552A69F4736` | [Map](../docs/dirichlet-map.md) |
 | [EGA](ega/) | 1 | 0 | 13,979,601 | `8CFFD595B7D5A471D23136D8B742EF736EF9C106D1A3BEA61F79B1E0BEB22DD2` | [Map](../docs/ega-map.md) |
-| [Gauss](gauss/) | 14 | 0 | 115,264,723 | `9CC990DAF36F41CE2A91602BCA99E1527FAD91603DF53BD363CFCF30F0FD9686` | [Map](../docs/gauss-map.md) |
 | [Noether](noether/) | 129 | 3 | 72,229,799 | `2C3EB4E0ABB80F62689AFA7333CE156AD1EE1A7F69EBB533EB30204E270673E2` | [Map](../docs/noether-map.md) |
 | [Non-European mathematics](non-european/) | 72 | 0 | 244,889,001 | `742D16670E2EFED507B7509B632B17519418374D9BBBAFC1F82AD95552724B84` | [Map](../docs/non-european-map.md) |
 | [Riemann](riemann/) | 2 | 0 | 4,372,317 | `9D8CB090D50B4789E8CF476E40DA4EEA7A07F6417F91242C75768E5F2E0B625D` | [Map](../docs/riemann-map.md) |

@@ -31,7 +31,7 @@ tree. The current exact allowed-source projection is 14,901 files /
 | Heinrich Weber | Current German Volume I, unsynchronized English Volume I, exact Volume II frontier, Volume III history, high-detail evidence, and retained coverage conflicts. | [Weber map](weber-map.md) |
 | Richard Dedekind | GMW I independent German/English continuation, bounded *Stetigkeit* pair, broad reader-only Bands I–III, embedded note, and missing historical artifacts. | [Dedekind map](dedekind-map.md) |
 | P. G. Lejeune Dirichlet | Band II QA readers, source-checked Paper I, R22 tail, unsafe selected-works scaffold, partial mirrors, and absent registered continuation ZIPs. | [Dirichlet map](dirichlet-map.md) |
-| Carl Friedrich Gauss | Band II through printed p.303, two bounded pilots, broad readers, 118 TeX/PDF components, source/audit controls, and the absent nine-ZIP continuation packet. | [Gauss map](gauss-map.md) |
+| Carl Friedrich Gauss | English and German collections of the *Werke*, Volumes I–IV, and their sources. | [Gauss, English and German](gauss-english-german.md) |
 | Bernhard Riemann | Selected-papers and broader *Gesammelte Werke* readers, TeX/history layers, PDF/TeX identity discrepancies, and missing prior chunks/scans. | [Riemann map](riemann-map.md) |
 | Ernst Steinitz | Nine bounded German/English work pairs, direct readers, source/control history, ledgered-but-absent witnesses, and contradictory status notes. | [Steinitz map](steinitz-map.md) |
 | James Joseph Sylvester | Current Volume I reader through book p.493, source scan, TeX/TXT, page manifests, predecessor generation, correction history, and exact p.494 cursor. | [Sylvester map](sylvester-map.md) |
