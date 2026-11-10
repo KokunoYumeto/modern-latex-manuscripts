@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 1854 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Collected_English.pdf) or the [German collection, 1907 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 4,007 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Collected_English.pdf) or the [German collection, 4,142 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/gauss-english-german-2026-11-05a/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-11-05a)
+[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/gauss-english-german-2026-11-11/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-11-11)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -77,10 +77,12 @@ The complete Contributions to the Theory of Algebraic Equations follows with its
 
 | Component reader | English | German |
 |---|---|---|
-| Volume I | [408 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_I_English.pdf) | [430 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_I_Deutsch.pdf) |
-| Volume II selection | [637 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_II_English_Selection.pdf) | [646 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_II_Deutsch_Auswahl.pdf) |
-| Volume III: algebraic works, reviews, series, integrals, attraction, the arithmetic–geometric mean and lemniscatic functions | [706 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_III_English_Selection.pdf) | [723 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_III_Deutsch_Auswahl.pdf) |
-| Volume IV: Theory of the Combination of Observations, First and Second Parts, Supplement (1–25) and the 1821 notice | [103 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_IV_English_Selection.pdf) | [108 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_IV_Deutsch_Auswahl.pdf) |
+| Volume I | [408 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_I_English.pdf) | [430 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_I_Deutsch.pdf) |
+| Volume II selection | [637 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_II_English_Selection.pdf) | [646 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_II_Deutsch_Auswahl.pdf) |
+| Volume III, algebraic and analytic works | [706 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_III_English_Selection.pdf) | [723 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_III_Deutsch_Auswahl.pdf) |
+| Volume IV, observations, geometry and geodesy | [559 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_IV_English.pdf) | [579 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_IV_Deutsch.pdf) |
+| Volume V selection, mathematical physics | [525 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_V_English.pdf) | [551 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_V_Deutsch.pdf) |
+| Volume VI, astronomical writings | [1172 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_VI_English.pdf) | [1213 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_VI_Deutsch.pdf) |
 
 The algebraic Reviews division contains the complete reviews of 23 December 1815, 2 March 1816 and 30 July 1849 from the Göttingische gelehrte Anzeigen, including the handwritten remarks accompanying the review of 1816. The complete reviews of Coytier of 6 March 1813 and Fourier of 25 February 1833 follow. The review of 1815 discusses the form and existence of roots and the different foundations of Gauss’s proofs. The review of 1816 gives the double-integral proof in full, its discussion of finite values and multivalued inverse tangents, and the accompanying root and equilibrium statements. The review of 1849 discusses the distinct foundations of the proofs, the nature of complex quantities, series and practical methods for equations with three terms. The review of Coytier treats the meanings of analysis and synthesis, roots, equations and functions. The review of Fourier discusses his numerical solution methods, coefficient sign continuations, real-root bounds and the qualifications concerning imaginary root pairs. Their historical formulations and qualifications remain those of the source. The German reader renders the original German reviews in modern German; the historical originals are supplied separately.
 
@@ -126,8 +128,15 @@ The complete Second Part of Theory of the Combination of Observations Subject to
 
 The complete Supplement to the Theory of the Combination of Observations follows, with Articles 1–25, all four author footnotes and the numerical tables, together with the complete notice of 26 February 1821. The German reader renders the German notice in modern German; the historical Latin and German sources are supplied separately.
 
-Other works in Volume IV and later volumes remain outside these readers.
-This is a partial collected edition.
+Volume IV contains the observation theory and its supplement and notices, the writings on widows’ funds and annuities, the mapping paper, the curved-surfaces memoir and two higher-geodesy memoirs, the geometrical papers and notices, the coordinate register, survey outlines and reports, historical errata, contents and imprint.
+
+Volume V presents selected complete works on mathematical physics. The 1813 notice on attraction is followed here by the 1836 introduction to the Magnetic Association’s observations and the later magnetic and physical writings. The final material includes the collected electrodynamics sections [1]–[21], spherical harmonics, the comparator, the effect of a luminous point, Ernst Schering’s remarks, the historical contents and the printer’s imprint.
+
+Volume VI presents the astronomical writings in the 1874 collected edition, including papers, correspondence excerpts, observations, tables, reviews, Ernst Schering’s remarks, historical contents and the printer’s imprint. The periodical material follows the selections made in the 1874 edition.
+
+In Volume IV, several short English formulations in the mapping paper’s surface definition and Articles 4–6, 8–10 and 12–14 follow the historical English translation in [*Philosophical Magazine and Annals of Philosophy*, New Series, vol. 4 (1828), pp. 104–113 and 206–215](https://archive.org/details/philosophicalmax04lond). The translator is unidentified in the opening.
+
+The title-page vignettes in Volumes V and VI come from copies digitized by University of California Libraries, the [1877 second printing of Volume V](https://archive.org/details/Werkecarlf05gausrich/page/n8/mode/1up) and the [1874 printing of Volume VI](https://archive.org/details/werkecarlf06gausrich/page/n8/mode/1up).
 
 The translations follow the retained original-language LaTeX editions and
 preserve Gauss's mathematical formulations and historical values. Originally
@@ -199,10 +208,7 @@ For the Second Part, related English expression, substitution, quantity and argu
 
 ## Translation sources and terminology
 
-These English and German texts are AI-translated from Gauss's original-language
-editions. Earlier translations are consulted to standardize mathematical
-terminology and usage; they are not reproduced as this edition's running text.
-The original mathematical formulations remain those of Gauss's source.
+These English and German texts are AI-translated from Gauss’s original-language editions. The per-work notes identify the historical and modern translations consulted. The Volume IV mapping paper credits the 1828 English wording specified above. The mathematical formulations follow the historical sources.
 
 H. Maser, German editor and translator, Carl Friedrich Gauss' Untersuchungen
 über höhere Arithmetik, Berlin: Julius Springer, 1889, is a reference for
@@ -245,6 +251,6 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 These editions are freely available for study and teaching.
 
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-11-05a/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-11-11/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 The citation metadata records the exact editable transcription archives used for the translations, with their SHA-256 identities, alongside the historical editions and named terminology references.

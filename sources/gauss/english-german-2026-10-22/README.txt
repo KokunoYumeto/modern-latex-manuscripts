@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 1854 pages; the German reader has 1907 pages.
+The collected English reader has 4,007 pages. The modern German reader has 4,142 pages.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -67,9 +67,7 @@ German renderings. The original German review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
 The package contains editable LaTeX text, mathematics, tables and diagrams, and the genuine
-portraits used in the readers. The volume_I, volume_II, volume_III and volume_IV directories contain
-english and german sources. Build main.tex with XeLaTeX, rerunning until references and table widths stabilize, using Latin
-Modern, Babel, pdflscape and longtable. The collected readers present the volumes
+portraits used in the readers. Each directory from volume_I through volume_VI contains english and german sources. Run XeLaTeX twice on main.tex from the chosen language directory. Install Latin Modern OpenType and the TeX packages named in the source, including Babel, pdflscape and longtable. Volume VI uses installed Segoe UI Symbol and Times New Roman for specific historical glyphs. The collected readers present the volumes
 in numerical order; the individual volume readers are also supplied.
 
 AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced typesetting.
@@ -180,7 +178,16 @@ For the Second Part, related English expression, substitution, quantity and argu
 
 The complete Supplement to the Theory of the Combination of Observations follows, with Articles 1–25, all four author footnotes and the numerical tables, together with the complete notice of 26 February 1821. The German reader renders the German notice in modern German; the historical Latin and German sources are supplied separately.
 
-Other works in Volume IV and later volumes are outside these readers.
+The complete notices of 24 February 1823 and 25 September 1826 follow, together with the complete Determination of the Accuracy of Observations of 1816, Articles 1–8, its handwritten note and numerical tables. German originals are supplied separately; the German reader gives modern German renderings.
+
+Volume IV also includes the writings on widows’ funds and annuities, the mapping paper, the memoir on curved surfaces, the two higher-geodesy memoirs, the geometrical notices and papers, the coordinate register, the survey outlines and reports, and the historical errata, contents and imprint. The English mapping paper follows several short formulations in the historical translation in the Philosophical Magazine and Annals of Philosophy, New Series, vol. 4 (1828), pp. 104–113 and 206–215, in the surface definition and Articles 4–6, 8–10 and 12–14. The translator is unidentified in the opening. The source note identifies the extent of this use.
+https://archive.org/details/philosophicalmax04lond
+
+Volume V contains a selection of mathematical physics writings from the 1867 collected edition. It includes the principal treatises on attraction, mechanics, equilibrium of fluids, magnetism and dioptrics, the 1813 notice on attraction, and the magnetic and physical writings from the 1836 introduction onward. The later material includes the complete collected electrodynamics sections [1]–[21], spherical harmonics, the comparator, the effect of a luminous point, Ernst Schering’s remarks, the historical contents and the printer’s imprint. The historical contents retain the 1867 volume’s page references. The title vignette is reproduced from the University of California Libraries copy of the 1877 second printing.
+https://archive.org/details/Werkecarlf05gausrich/page/n8/mode/1up
+
+Volume VI contains the astronomical writings collected in the 1874 volume, including the papers, correspondence excerpts, observations, tables, reviews, Ernst Schering’s remarks, the historical contents and the printer’s imprint. The periodical material follows the selections made in the 1874 collected text. Its title vignette is reproduced from the University of California Libraries copy of that printing.
+https://archive.org/details/werkecarlf06gausrich/page/n8/mode/1up
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
 
@@ -228,11 +235,11 @@ Crystallographic terminology references: Ian O. Angell and Moreton Moore, Projec
 
 AI authorship and historical sources
 
-These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, with AI-produced typesetting. Carl Friedrich Gauss is the author of the historical mathematical text. Signed historical editorial contributions retain their authorship. The named human translations and writings above are consulted for their stated terminology and usage roles; their running text is not reproduced.
+These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, with AI-produced typesetting. Carl Friedrich Gauss is the author of the historical mathematical text. Signed historical editorial contributions retain their authorship. The edition notes and bibliographies identify the human translations, their exact editions and the roles described for each work, including the credited 1828 English wording in Volume IV.
 
 The historical texts and portraits come from the nineteenth-century original editions.
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-11-05a/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24

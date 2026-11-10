@@ -48,9 +48,9 @@ Earlier editions in this repository: Grothendieck's Tôhoku paper ([sources/toho
 
 ### Carl Friedrich Gauss, collected works
 
-The original-language *Werke*, Volumes I–VIII (Volume V in selected works, Volume VII to Article 130), and English and German translations of Volume I and works from Volumes II–IV: [gauss-collected-works](https://github.com/KokunoYumeto/gauss-collected-works).
+The original-language *Werke*, Volumes I–VIII (Volume V in selected works, Volume VII to Article 130), and English and German translations of Volume I and works from Volumes II–VI: [gauss-collected-works](https://github.com/KokunoYumeto/gauss-collected-works).
 
-Read the [English collection, 1854 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Collected_English.pdf) or [German collection, 1907 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_Werke_Deutsch.pdf). The [editable sources](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-05a/Gauss_English_German_Collected_LaTeX.zip) and [translation scope and scholarly credits](docs/gauss-english-german.md) accompany these readers.
+Read the [English collection, 4,007 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Collected_English.pdf) or [German collection, 4,142 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_Deutsch.pdf). The [editable sources](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_English_German_Collected_LaTeX.zip) and [translation scope and scholarly credits](docs/gauss-english-german.md) accompany these readers.
 
 ### Heinrich Weber, *Lehrbuch der Algebra* I–III (1895–1908)
 
