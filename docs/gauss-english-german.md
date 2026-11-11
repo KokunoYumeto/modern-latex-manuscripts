@@ -1,8 +1,8 @@
 # Gauss: English and German translations
 
-**Read the [English collection, 4,007 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Collected_English.pdf) or the [German collection, 4,142 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_Deutsch.pdf).**
+**Read the [English collection, 4,439 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Collected_English.pdf) or the [German collection, 4,585 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_Deutsch.pdf).**
 
-[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/gauss-english-german-2026-11-11/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-11-11)
+[Download the complete editable LaTeX package](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_English_German_Collected_LaTeX.zip) · [Browse the source tree](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/gauss-english-german-2026-11-11a/sources/gauss/english-german-2026-10-22/) · [Individual volume readers](https://github.com/KokunoYumeto/gauss-collected-works/releases/tag/gauss-english-german-2026-11-11a)
 
 Both languages contain Volume I in full: the historical title matter,
 dedication, preface, all seven sections of the *Disquisitiones Arithmeticae*
@@ -77,12 +77,13 @@ The complete Contributions to the Theory of Algebraic Equations follows with its
 
 | Component reader | English | German |
 |---|---|---|
-| Volume I | [408 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_I_English.pdf) | [430 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_I_Deutsch.pdf) |
-| Volume II selection | [637 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_II_English_Selection.pdf) | [646 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_II_Deutsch_Auswahl.pdf) |
-| Volume III, algebraic and analytic works | [706 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_III_English_Selection.pdf) | [723 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_III_Deutsch_Auswahl.pdf) |
-| Volume IV, observations, geometry and geodesy | [559 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_IV_English.pdf) | [579 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_IV_Deutsch.pdf) |
-| Volume V selection, mathematical physics | [525 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_V_English.pdf) | [551 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_V_Deutsch.pdf) |
-| Volume VI, astronomical writings | [1172 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_VI_English.pdf) | [1213 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11/Gauss_Werke_VI_Deutsch.pdf) |
+| Volume I | [408 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_I_English.pdf) | [430 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_I_Deutsch.pdf) |
+| Volume II selection | [637 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_II_English_Selection.pdf) | [646 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_II_Deutsch_Auswahl.pdf) |
+| Volume III, algebraic and analytic works | [706 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_III_English_Selection.pdf) | [723 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_III_Deutsch_Auswahl.pdf) |
+| Volume IV, observations, geometry and geodesy | [559 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_IV_English.pdf) | [579 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_IV_Deutsch.pdf) |
+| Volume V selection, mathematical physics | [525 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_V_English.pdf) | [551 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_V_Deutsch.pdf) |
+| Volume VI, astronomical writings | [1172 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_VI_English.pdf) | [1213 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_VI_Deutsch.pdf) |
+| Volume VIII, supplements to Volumes I–IV | [432 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_VIII_English.pdf) | [443 pages](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-english-german-2026-11-11a/Gauss_Werke_VIII_Deutsch.pdf) |
 
 The algebraic Reviews division contains the complete reviews of 23 December 1815, 2 March 1816 and 30 July 1849 from the Göttingische gelehrte Anzeigen, including the handwritten remarks accompanying the review of 1816. The complete reviews of Coytier of 6 March 1813 and Fourier of 25 February 1833 follow. The review of 1815 discusses the form and existence of roots and the different foundations of Gauss’s proofs. The review of 1816 gives the double-integral proof in full, its discussion of finite values and multivalued inverse tangents, and the accompanying root and equilibrium statements. The review of 1849 discusses the distinct foundations of the proofs, the nature of complex quantities, series and practical methods for equations with three terms. The review of Coytier treats the meanings of analysis and synthesis, roots, equations and functions. The review of Fourier discusses his numerical solution methods, coefficient sign continuations, real-root bounds and the qualifications concerning imaginary root pairs. Their historical formulations and qualifications remain those of the source. The German reader renders the original German reviews in modern German; the historical originals are supplied separately.
 
@@ -134,6 +135,18 @@ Volume V presents selected complete works on mathematical physics. The 1813 noti
 
 Volume VI presents the astronomical writings in the 1874 collected edition, including papers, correspondence excerpts, observations, tables, reviews, Ernst Schering’s remarks, historical contents and the printer’s imprint. The periodical material follows the selections made in the 1874 edition.
 
+Volume VIII presents the complete 1900 supplemental volume, with the historical title leaves and portrait. Its nine divisions cover arithmetic and algebra, analysis and function theory, numerical calculation, probability theory, foundations of geometry, *Geometria Situs*, elementary geometry, complex quantities in geometry, and the theory of curved surfaces. Analysis includes the fragments on elliptic modular functions and the *Pentagramma mirificum*. The volume closes with the historical editorial remarks, errata and additions, contents, and publisher’s advertisement.
+
+The Royal Society of Sciences at Göttingen issued the 1900 edition, distributed by B. G. Teubner in Leipzig. Robert Fricke edited arithmetic, algebra, analysis, and function theory. Anton Börsch and Louis Krüger edited numerical calculation and probability theory. Paul Stäckel edited the geometrical divisions, and Julius Weingarten edited the note on the most general solution to the problem of developing surfaces on historical pages 447–449. Martin Brendel oversaw the general editing. Felix Klein signed the remarks on the volume and credited Ernst Schering’s preparatory transcripts.
+
+The title-page portrait is reproduced from the [Göttingen State and University Library copy (GDZ PPN236010751)](https://gdz.sub.uni-goettingen.de/id/PPN236010751). The text at the right edge of historical page 95 follows the [alternative photograph from Kyushu University Library (item 410995)](https://hdl.handle.net/2324/410995). The relationship between the photographed copies remains undetermined.
+
+Volume VIII was AI-translated into English and modern German and typeset by OpenAI GPT-6.1 Sol (Ultra). The original-language transcription and editable mathematical drawings were produced by OpenAI GPT-6 Astra (Ultra).
+
+[Original-language VIII reader](https://github.com/KokunoYumeto/gauss-collected-works/releases/download/gauss-original-language-2026-10-24/Gauss_VIII_Original_Language_20261023.pdf) · [Original-language VIII editable sources](https://github.com/KokunoYumeto/gauss-collected-works/releases/download/gauss-original-language-2026-10-24/Gauss_VIII_Original_Language_20261024_LaTeX.zip)
+
+The translation source is `Gauss_Werke_Band_VIII_LaTeX.zip` (SHA-256 `308f50749cdbf971f447662cb6a3ea41f8db2e1c7cac16673ab148a5eaeb2ef0`).
+
 In Volume IV, several short English formulations in the mapping paper’s surface definition and Articles 4–6, 8–10 and 12–14 follow the historical English translation in [*Philosophical Magazine and Annals of Philosophy*, New Series, vol. 4 (1828), pp. 104–113 and 206–215](https://archive.org/details/philosophicalmax04lond). The translator is unidentified in the opening.
 
 The title-page vignettes in Volumes V and VI come from copies digitized by University of California Libraries, the [1877 second printing of Volume V](https://archive.org/details/Werkecarlf05gausrich/page/n8/mode/1up) and the [1874 printing of Volume VI](https://archive.org/details/werkecarlf06gausrich/page/n8/mode/1up).
@@ -146,9 +159,10 @@ German renderings.
 Their historical originals are supplied separately in the source package.
 
 The source tree contains editable text, formulas, tables and diagrams, together with
-the genuine portraits used in the readers. Build `main.tex` in each language
-and volume directory with XeLaTeX, rerunning until references and table widths stabilize. The collected readers present the
-volumes in numerical order; the individual volume readers are also available.
+the genuine portraits used in the readers. For Volumes I–VI, build `main.tex` in each language
+and volume directory with XeLaTeX, rerunning until references and table widths stabilize. The collected readers present the volumes in numerical order. The individual volume readers are also available.
+
+For Volume VIII, choose the english or german directory and compile each component’s source.tex twice with XeLaTeX from its own directory, writing build/source.pdf. From the language directory, run `python assemble_reader.py --output assembled.pdf`, then `python pdf_text_mapping.py assembled.pdf reader.pdf`. The assembly requires Python and PyMuPDF and follows volume.json. The source uses Latin Modern and an installed Times New Roman font for Cyrillic.
 
 Historical sources: Carl Friedrich Gauss, *Werke*, Volume I, Göttingen, 1863;
 Volume II, second printing, Göttingen, 1876. The *Disquisitiones Arithmeticae*
@@ -251,6 +265,8 @@ These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, wi
 These editions are freely available for study and teaching.
 
 
-[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-11-11/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
+[Scholarly citation metadata](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/gauss-english-german-2026-11-11a/sources/gauss/english-german-2026-10-22/CITATIONS.bib) identifies the original editions and the named terminology references.
 
 The citation metadata records the exact editable transcription archives used for the translations, with their SHA-256 identities, alongside the historical editions and named terminology references.
+
+[Earlier English and German edition](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-english-german-2026-11-11)

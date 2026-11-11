@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The collected English reader has 4,007 pages. The modern German reader has 4,142 pages.
+The English and modern German readers contain the works described below from Volumes I–VI and the complete Volume VIII.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -67,7 +67,7 @@ German renderings. The original German review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
 The package contains editable LaTeX text, mathematics, tables and diagrams, and the genuine
-portraits used in the readers. Each directory from volume_I through volume_VI contains english and german sources. Run XeLaTeX twice on main.tex from the chosen language directory. Install Latin Modern OpenType and the TeX packages named in the source, including Babel, pdflscape and longtable. Volume VI uses installed Segoe UI Symbol and Times New Roman for specific historical glyphs. The collected readers present the volumes
+portraits used in the readers. Each directory from volume_I through volume_VI contains english and german sources. For Volumes I–VI, run XeLaTeX twice on main.tex from the chosen language directory. Volume VIII has its own build instructions below. Install Latin Modern OpenType and the TeX packages named in the source, including Babel, pdflscape and longtable. Volume VI uses installed Segoe UI Symbol and Times New Roman for specific historical glyphs. The collected readers present the volumes
 in numerical order; the individual volume readers are also supplied.
 
 AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced typesetting.
@@ -191,6 +191,59 @@ https://archive.org/details/werkecarlf06gausrich/page/n8/mode/1up
 
 Related Taylor–Leak and Maser terminology was also consulted for the 1828 work; neither is a parallel translation of it. Their running prose is not adopted.
 
+Volume VIII
+
+Both readers include the complete 1900 Volume VIII, with supplements to
+Volumes I–IV. Its supplements to Volume IV concern the non-geodetic material.
+The volume includes the historical title pages and portrait, all nine
+divisions, the volume remarks, errata, contents, printer’s imprint and
+publisher’s advertisement. The divisions cover arithmetic and algebra,
+analysis and the theory of functions, numerical calculation, probability,
+foundations of geometry, Geometria Situs, elementary geometry, complex
+quantities in geometry and the theory of curved surfaces. Page references
+retain the historical pagination. The text, formulas, tables and drawings are
+editable LaTeX, and the portrait is supplied as an image.
+
+Carl Friedrich Gauss, Werke, Achter Band, was issued by the Königliche
+Gesellschaft der Wissenschaften zu Göttingen and distributed on commission
+by B. G. Teubner in Leipzig, 1900. The Göttingen printer’s imprint names
+the Dieterichschen Univ.-Buchdruckerei (W. Fr. Kaestner). F. Klein’s signed
+notice credits Fricke for arithmetic, algebra and analysis, Börsch and
+Krüger for numerical calculation and probability, Stäckel for geometry,
+Weingarten for the note on developing surfaces, and Brendel for general
+editing. Schering left preparatory copies of papers and correspondence.
+
+The principal digitization and portrait come from the Niedersächsische
+Staats- und Universitätsbibliothek Göttingen.
+https://gdz.sub.uni-goettingen.de/id/PPN236010751
+
+The right-hand portion of historical page 95 (source leaf 102) follows
+the alternative photograph on Kyushu canvas 52, which supplies the missing
+text, formulas and Fricke signature. The relationship between the photographed
+copies remains undetermined. The Kyushu manifest marks its own digitized item
+Public Domain and names Kyushu University Library Collections for attribution.
+https://hdl.handle.net/2324/410995
+https://catalog.lib.kyushu-u.ac.jp/image/410995/canvas/p52
+https://catalog.lib.kyushu-u.ac.jp/image/manifest/1/820/410995.json
+
+OpenAI GPT-6 Astra (Ultra) produced the original-language AI transcription
+and editable drawings in 2026. OpenAI GPT-6.1 Sol (Ultra) AI-translated the
+English and modern German editions and produced their typesetting in 2026.
+The source is
+Gauss_Werke_Band_VIII_LaTeX.zip, SHA-256
+308f50749cdbf971f447662cb6a3ea41f8db2e1c7cac16673ab148a5eaeb2ef0.
+
+To build Volume VIII, use Python 3.10 or later, XeLaTeX, Latin Modern
+OpenType and Times New Roman for Cyrillic. The README.md in each language
+directory lists the TeX packages. Run these commands from volume_VIII/english
+or volume_VIII/german.
+
+    python -m pip install PyMuPDF fonttools
+    python build_volume.py --output build/Gauss_Werke_VIII.pdf
+
+The script runs XeLaTeX twice per component and assembles the reader with
+continuous folios, bookmarks and source-leaf destinations.
+
 Translation sources and terminology
 
 These English and German texts are AI-translated from Gauss's original-language
@@ -244,6 +297,6 @@ The historical texts and portraits come from the nineteenth-century original edi
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
 Volume III: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_III_Original_Language_20261023_LaTeX.zip
-Exact source archive versions and identities are recorded in CITATIONS.bib.
+CITATIONS.bib records exact source archive identities and includes separate entries for the 1900 Volume VIII, its original-language transcription, and both 2026 translations.
 
 The consulted Taylor–Leak online edition identifies its translation as December 1983, its LaTeX version as August 2003 and its underlying source as last modified on 8 June 2007. It acknowledges Mark Wainwright for returning Taylor’s notes and Nikita Danilov for typo corrections.
