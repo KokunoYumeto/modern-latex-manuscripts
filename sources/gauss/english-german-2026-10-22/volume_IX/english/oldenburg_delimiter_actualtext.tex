@@ -1,0 +1,28 @@
+% IX Oldenburg equations (2) and (4): logical text for assembled curly braces.
+% Display-style aligned bodies only. The marked spans contain no formula text.
+\newbox\GaussOldenburgBraceBody
+\newbox\GaussOldenburgBraceMeasure
+\newcommand{\GaussOldenburgMarkedBrace}[3]{%
+  \pdfliteral direct{/Span << /ActualText <FEFF#1> >> BDC}%
+  \hbox{$\nulldelimiterspace=0pt\relax
+    \displaystyle\left#2\copy\GaussOldenburgBraceMeasure\right#3$}%
+  \pdfliteral direct{EMC}%
+}
+\newcommand{\GaussOldenburgBraceAssembly}[2]{%
+  \mathinner{\hbox{%
+    \mathsurround=0pt\relax
+    \setbox\GaussOldenburgBraceBody=\hbox{$\displaystyle#1$}%
+    \setbox\GaussOldenburgBraceMeasure=\hbox{}%
+    \ht\GaussOldenburgBraceMeasure=\ht\GaussOldenburgBraceBody
+    \dp\GaussOldenburgBraceMeasure=\dp\GaussOldenburgBraceBody
+    \GaussOldenburgMarkedBrace{007B}{\{}{.}%
+    \copy\GaussOldenburgBraceBody
+    #2%
+  }}%
+}
+\newcommand{\GaussOldenburgBracePair}[1]{%
+  \GaussOldenburgBraceAssembly{#1}{\GaussOldenburgMarkedBrace{007D}{.}{\}}}%
+}
+\newcommand{\GaussOldenburgLeftBrace}[1]{%
+  \GaussOldenburgBraceAssembly{#1}{\kern\nulldelimiterspace}%
+}
