@@ -67,7 +67,7 @@ German renderings. The original German review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
 The package contains editable LaTeX text, mathematics, tables and diagrams, and the genuine
-portraits used in the readers. Each directory from volume_I through volume_VI contains english and german sources. For Volumes I–VI, run XeLaTeX twice on main.tex from the chosen language directory. Volumes VIII and IX have their own build instructions below. Install Latin Modern OpenType and the TeX packages named in the source, including Babel, pdflscape and longtable. Volume VI uses installed Segoe UI Symbol and Times New Roman for specific historical glyphs. The collected readers present the volumes
+portraits used in the readers. Each directory from volume_I through volume_VI contains english and german sources. For Volumes I–VI, run XeLaTeX on main.tex from the chosen language directory. Run it at least twice and continue until cross-references and longtable column widths have stabilized. Volumes VIII and IX have their own build instructions below. Install Latin Modern OpenType and the TeX packages named in the source, including Babel, pdflscape and longtable. Volumes V, VI and VIII use installed Liberation Serif 2.1.5 for specific Greek and Cyrillic characters. Volume VI also uses DejaVu Sans 2.34 for historical astronomical symbols. The respective licence notices are supplied in licenses/. The collected readers present the volumes
 in numerical order; the individual volume readers are also supplied.
 
 AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced typesetting.
@@ -213,9 +213,13 @@ Krüger for numerical calculation and probability, Stäckel for geometry,
 Weingarten for the note on developing surfaces, and Brendel for general
 editing. Schering left preparatory copies of papers and correspondence.
 
-The principal digitization and portrait come from the Niedersächsische
+The principal textual digitization comes from the Niedersächsische
 Staats- und Universitätsbibliothek Göttingen.
 https://gdz.sub.uni-goettingen.de/id/PPN236010751
+The title vignette comes from the matching unsigned image in the 1870
+second printing of Werke I, digitized from the University of California
+Libraries copy and marked Public Domain Mark 1.0.
+https://commons.wikimedia.org/w/index.php?oldid=1179960952
 
 The right-hand portion of historical page 95 (source leaf 102) follows
 the alternative photograph on Kyushu canvas 52, which supplies the missing
@@ -234,7 +238,7 @@ Gauss_Werke_Band_VIII_LaTeX.zip, SHA-256
 308f50749cdbf971f447662cb6a3ea41f8db2e1c7cac16673ab148a5eaeb2ef0.
 
 To build Volume VIII, use Python 3.10 or later, XeLaTeX, Latin Modern
-OpenType and Times New Roman for Cyrillic. The README.md in each language
+OpenType and Liberation Serif for Cyrillic. The README.md in each language
 directory lists the TeX packages. Run these commands from volume_VIII/english
 or volume_VIII/german.
 
@@ -330,6 +334,8 @@ AI authorship and historical sources
 These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, with AI-produced typesetting. Carl Friedrich Gauss is the author of the historical mathematical text. Signed historical editorial contributions retain their authorship. The edition notes and bibliographies identify the human translations, their exact editions and the roles described for each work, including the credited 1828 English wording in Volume IV.
 
 The historical texts and portraits are drawn from the cited original editions of the nineteenth and early twentieth centuries.
+
+The unsigned title vignette in Volumes I, III, IV, VIII and IX is from the 1870 second printing of Werke I, digitized from the University of California Libraries copy. The matching historical design appears on the title leaves of the respective Göttingen editions. The Göttingen copies remain the textual witnesses and are identified in the edition notes. Image: https://commons.wikimedia.org/w/index.php?oldid=1179960952 . Public Domain Mark 1.0: https://creativecommons.org/publicdomain/mark/1.0/ .
 
 [Scholarly citation metadata](CITATIONS.bib) identifies the original editions and the named terminology references.
 

@@ -8,7 +8,9 @@ Das LaTeX-Paket enthält den bearbeitbaren Text, die Formeln, Tabellen und Zeich
 
 ## Quellen und Mitwirkende
 
-Carl Friedrich Gauss, *Werke. Achter Band*, herausgegeben von der Königlichen Gesellschaft der Wissenschaften zu Göttingen, 1900, in Kommission bei B. G. Teubner in Leipzig. Der Göttinger Druckvermerk nennt die Dieterichsche Univ.-Buchdruckerei (W. Fr. Kaestner). Das Hauptdigitalisat und das Porträt stammen aus der Niedersächsischen Staats- und Universitätsbibliothek Göttingen. [Göttinger Digitalisat mit Porträt](https://gdz.sub.uni-goettingen.de/id/PPN236010751)
+Carl Friedrich Gauss, *Werke. Achter Band*, herausgegeben von der Königlichen Gesellschaft der Wissenschaften zu Göttingen, 1900, in Kommission bei B. G. Teubner in Leipzig. Der Göttinger Druckvermerk nennt die Dieterichsche Univ.-Buchdruckerei (W. Fr. Kaestner). Die historische Ausgabe folgt dem Exemplar der Niedersächsischen Staats- und Universitätsbibliothek Göttingen. [Göttinger Digitalisat](https://gdz.sub.uni-goettingen.de/id/PPN236010751)
+
+Die Titelvignette zeigt dasselbe historische Motiv nach dem [zweiten Abdruck der Werke I von 1870](https://commons.wikimedia.org/w/index.php?oldid=1179960952), digitalisiert nach dem Exemplar der University of California Libraries. [Public Domain Mark 1.0](https://creativecommons.org/publicdomain/mark/1.0/).
 
 Die von F. Klein unterzeichneten Bemerkungen nennen Fricke für Arithmetik, Algebra und Analysis, Börsch und Krüger für numerisches Rechnen und Wahrscheinlichkeitsrechnung, Stäckel für die geometrischen Abteilungen, Weingarten für die Notiz zur Abwicklung der Flächen und Brendel für die allgemeine Redaktion. Schering hinterließ Vorarbeiten, hauptsächlich Abschriften aus dem Nachlass und dem Briefwechsel.
 
@@ -18,7 +20,7 @@ Die zugrunde liegende LaTeX-Transkription und die bearbeitbaren Zeichnungen wurd
 
 ## Lesetext setzen
 
-Erforderlich sind Python ab Version 3.10, XeLaTeX und die LaTeX-Pakete `amsmath`, `amssymb`, `babel` mit deutschen Sprachdaten (`ngerman`), `booktabs`, `calc`, `fontspec`, `geometry`, `graphicx`, `hyperref`, `microtype`, `multirow`, `needspace` und TikZ/PGF. Die OpenType-Schriften von Latin Modern einschließlich `lmromancaps10-regular.otf` lassen sich über die TeX-Distribution installieren. Die kyrillischen Schriftdefinitionen benötigen eine lokale, für XeLaTeX erkennbare Installation von Times New Roman. Installieren Sie die Schriften separat.
+Erforderlich sind Python ab Version 3.10, XeLaTeX und die LaTeX-Pakete `amsmath`, `amssymb`, `babel` mit deutschen Sprachdaten (`ngerman`), `booktabs`, `calc`, `fontspec`, `geometry`, `graphicx`, `hyperref`, `microtype`, `multirow`, `needspace` und TikZ/PGF. Die OpenType-Schriften von Latin Modern einschließlich `lmromancaps10-regular.otf` lassen sich über die TeX-Distribution installieren. Die kyrillischen Schriftdefinitionen benötigen eine lokale, für XeLaTeX erkennbare Installation von Liberation Serif (SIL Open Font License 1.1). Installieren Sie die Schriften separat.
 
 Führen Sie im entpackten Quellverzeichnis diese Befehle aus.
 

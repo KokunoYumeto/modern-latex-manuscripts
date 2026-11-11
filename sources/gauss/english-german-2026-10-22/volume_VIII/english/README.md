@@ -8,7 +8,9 @@ The editable source includes the text, formulas, tables, and drawings in LaTeX, 
 
 ## Sources and credits
 
-Carl Friedrich Gauss, *Werke. Achter Band*, edited by the Royal Society of Sciences at Göttingen and distributed on commission by B. G. Teubner in Leipzig, 1900. The Göttingen colophon credits the Dieterichschen Univ.-Buchdruckerei (W. Fr. Kaestner). The primary digitization and portrait are from the Niedersächsische Staats- und Universitätsbibliothek Göttingen. [Göttingen digitization and portrait](https://gdz.sub.uni-goettingen.de/id/PPN236010751)
+Carl Friedrich Gauss, *Werke. Achter Band*, edited by the Royal Society of Sciences at Göttingen and distributed on commission by B. G. Teubner in Leipzig, 1900. The Göttingen colophon credits the Dieterichschen Univ.-Buchdruckerei (W. Fr. Kaestner). The historical edition follows the Niedersächsische Staats- und Universitätsbibliothek Göttingen copy. [Göttingen digitization](https://gdz.sub.uni-goettingen.de/id/PPN236010751)
+
+The title vignette reproduces the same historical design from the [1870 second printing of Werke I](https://commons.wikimedia.org/w/index.php?oldid=1179960952), digitized from the University of California Libraries copy. [Public Domain Mark 1.0](https://creativecommons.org/publicdomain/mark/1.0/).
 
 F. Klein’s signed notice credits Fricke with arithmetic, algebra, and analysis, Börsch and Krüger with numerical calculation and probability, Stäckel with geometry, Weingarten with the note on developing surfaces, and Brendel with general editing. Schering left preparatory work, chiefly copies of Gauss’s papers and correspondence.
 
@@ -18,7 +20,7 @@ OpenAI GPT-6 Astra (Ultra) produced the underlying AI transcription and editable
 
 ## Build the reader
 
-Use Python 3.10 or later, XeLaTeX, and the LaTeX packages `amsmath`, `amssymb`, `babel` with English support, `booktabs`, `calc`, `fontspec`, `geometry`, `graphicx`, `hyperref`, `microtype`, `multirow`, `needspace`, and TikZ/PGF. Install the Latin Modern OpenType fonts, including `lmromancaps10-regular.otf`, through your TeX distribution. The Cyrillic font declarations require a local installation of Times New Roman visible to XeLaTeX. Install the fonts separately.
+Use Python 3.10 or later, XeLaTeX, and the LaTeX packages `amsmath`, `amssymb`, `babel` with English support, `booktabs`, `calc`, `fontspec`, `geometry`, `graphicx`, `hyperref`, `microtype`, `multirow`, `needspace`, and TikZ/PGF. Install the Latin Modern OpenType fonts, including `lmromancaps10-regular.otf`, through your TeX distribution. The Cyrillic font declarations require a local installation of Liberation Serif (SIL Open Font License 1.1) visible to XeLaTeX. Install the fonts separately.
 
 Run these commands in the extracted source directory.
 
