@@ -1,7 +1,7 @@
 Carl Friedrich Gauss: Collected Works
 Modern English and German translations
 
-The English and modern German readers contain the works described below from Volumes I–VI and the complete Volume VIII.
+The English and modern German readers contain the works described below from Volumes I–VI and the complete Volumes VIII and IX.
 Each contains complete Volume I, followed by the historical title matter,
 the first five complete papers of Volume II:
 
@@ -67,7 +67,7 @@ German renderings. The original German review texts are supplied separately.
 Historical German and Latin bodies are preserved in the originals directories.
 
 The package contains editable LaTeX text, mathematics, tables and diagrams, and the genuine
-portraits used in the readers. Each directory from volume_I through volume_VI contains english and german sources. For Volumes I–VI, run XeLaTeX twice on main.tex from the chosen language directory. Volume VIII has its own build instructions below. Install Latin Modern OpenType and the TeX packages named in the source, including Babel, pdflscape and longtable. Volume VI uses installed Segoe UI Symbol and Times New Roman for specific historical glyphs. The collected readers present the volumes
+portraits used in the readers. Each directory from volume_I through volume_VI contains english and german sources. For Volumes I–VI, run XeLaTeX twice on main.tex from the chosen language directory. Volumes VIII and IX have their own build instructions below. Install Latin Modern OpenType and the TeX packages named in the source, including Babel, pdflscape and longtable. Volume VI uses installed Segoe UI Symbol and Times New Roman for specific historical glyphs. The collected readers present the volumes
 in numerical order; the individual volume readers are also supplied.
 
 AI-translated into English and German using OpenAI GPT-6.1 Sol; AI-produced typesetting.
@@ -244,6 +244,45 @@ or volume_VIII/german.
 The script runs XeLaTeX twice per component and assembles the reader with
 continuous folios, bookmarks and source-leaf destinations.
 
+Volume IX
+
+Volume IX — Geodesy. Continuation of Volume IV (1903). The English and
+modern German readers contain the entire historical volume, pp. 1–528, with
+its preliminaries, Hanover foldout map, final blank leaf, and publisher’s
+advertisement. It covers the Göttingen–Altona latitude determination, the
+geodesic line and conformal mapping, network adjustment, the Oldenburg and
+Hanover surveys, height measurement, the heliotrope, and observation errors.
+L. Krüger prepared the 1903 volume with A. Börsch’s assistance, M. Brendel
+directed the general editorial work, and F. Klein signed the closing
+remarks. H. C. Schumacher’s introduction, Hartmann’s credit in the station
+observations, and the quotation from Goldschmidt retain their attribution.
+Lieutenant J. Gauss devised the Hanover map. OpenAI GPT-6.1 Sol (Ultra) AI-
+translated and AI-typeset both editions, with editable LaTeX text, formulas,
+tables, and diagrams.
+https://gdz.sub.uni-goettingen.de/id/PPN23601515X
+https://webdoc.sub.gwdg.de/ebook/e/2005/gausscd/html/kapitel_landv_karte.htm
+
+The title lettering and arrangement follow the 1903 Göttingen copy. The
+unsigned Gauss vignette is documented in Werke I (1863). The image
+reproduced here comes from the matching vignette in the second printing of
+Werke I (1870), identified on Wikimedia Commons with Public Domain Mark 1.0.
+https://gdz.sub.uni-goettingen.de/download/pdf/PPN235993352/PPN235993352.pdf#page=4
+https://commons.wikimedia.org/w/index.php?title=File%3AGauss%2C_Carl_Friedrich_-_Vignette_-_von_Werke_%281870%29_%28page_9_crop%29.jpg&oldid=1179960952
+https://creativecommons.org/publicdomain/mark/1.0/
+
+Standalone readers
+https://github.com/KokunoYumeto/gauss-collected-works/releases/download/gauss-english-german-2026-11-11d/Gauss_Werke_IX_English.pdf
+https://github.com/KokunoYumeto/gauss-collected-works/releases/download/gauss-english-german-2026-11-11d/Gauss_Werke_IX_Deutsch.pdf
+
+Volume IX editable sources
+https://github.com/KokunoYumeto/gauss-collected-works/tree/gauss-english-german-2026-11-11d/translations/volume_IX/english
+https://github.com/KokunoYumeto/gauss-collected-works/tree/gauss-english-german-2026-11-11d/translations/volume_IX/german
+
+For Volume IX, run pdfLaTeX twice on main.tex from each language directory,
+volume_IX/english and volume_IX/german. The sources include the JPEG
+vignette, the editable TikZ diagrams and foldout map, and the accompanying
+edition and witness notes.
+
 Translation sources and terminology
 
 These English and German texts are AI-translated from Gauss's original-language
@@ -290,13 +329,13 @@ AI authorship and historical sources
 
 These English and German editions are AI-translated using OpenAI GPT-6.1 Sol, with AI-produced typesetting. Carl Friedrich Gauss is the author of the historical mathematical text. Signed historical editorial contributions retain their authorship. The edition notes and bibliographies identify the human translations, their exact editions and the roles described for each work, including the credited 1828 English wording in Volume IV.
 
-The historical texts and portraits come from the nineteenth-century original editions.
+The historical texts and portraits are drawn from the cited original editions of the nineteenth and early twentieth centuries.
 
 [Scholarly citation metadata](CITATIONS.bib) identifies the original editions and the named terminology references.
 
 
 Corresponding editable original-language editions: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/gauss-original-language-2026-10-24
 Volume III: https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gauss-original-language-2026-10-24/Gauss_III_Original_Language_20261023_LaTeX.zip
-CITATIONS.bib records exact source archive identities and includes separate entries for the 1900 Volume VIII, its original-language transcription, and both 2026 translations.
+CITATIONS.bib records exact source archive identities and includes separate entries for the historical editions of Volume VIII (1900) and Volume IX (1903), their original-language transcriptions, and the 2026 English and modern German editions.
 
 The consulted Taylor–Leak online edition identifies its translation as December 1983, its LaTeX version as August 2003 and its underlying source as last modified on 8 June 2007. It acknowledges Mark Wainwright for returning Taylor’s notes and Nikita Danilov for typo corrections.
