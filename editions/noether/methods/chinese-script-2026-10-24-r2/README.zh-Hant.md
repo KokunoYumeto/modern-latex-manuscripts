@@ -7,7 +7,7 @@
 | 工作 | 製作者／軟體 | 日期與範圍 |
 |---|---|---|
 | 數學原著 | Emmy Noether及各篇署名的共同作者；講義由M. Deuring記錄 | 各篇原刊年份與出處見正文 |
-| 繼承的早期中文AI譯文 | Manuscript Typesetting Project / OpenAI Codex；據使用者說明，最初逐段翻譯主要由GPT-5.6 Sol（Ultra推理強度）完成 | 早期彙編日期為2026-06-12；這是版本日期，不是全部翻譯工作的日期 |
+| 繼承的早期中文AI譯文 | Manuscript Typesetting Project / OpenAI Codex；最初逐段翻譯主要由GPT-5.6 Sol（Ultra推理強度）完成 | 早期彙編日期為2026-06-12；這是版本日期，不是全部翻譯工作的日期 |
 | R9中文彙編及繁體字轉換程式 | OpenAI Codex — GPT-5.6 Sol，Ultra推理強度 | 2026-08-12；保留既有中文譯文並編製繁簡字形轉換程式，並不據此將所有早期譯文歸給該模型 |
 | 字形轉換 | `opencc-python-reimplemented` 0.1.7，`s2t`設定 | 2026-08-12；只作一次轉換，保護數學定界符內的內容，再套用固定正規化規則 |
 | 當前正文的AI訂正與排版 | OpenAI Codex — GPT-6 Astra，Ultra推理強度 | 2026-10-23—2026-10-24；具體原著作者及歷史譯文署名仍然保留 |

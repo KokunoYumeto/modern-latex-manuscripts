@@ -5,7 +5,7 @@ Artículos 1–43, las lecciones de 1929/30 redactadas por M. Deuring, el trabaj
 ## How this was made: AI's failure modes, and what we do about them
 
 Everything here was produced by AI. The translation was made in a first pass mostly by GPT-5.6 Sol (OpenAI Codex,
-reasoning effort ultra), by the user's account (July and August 2026). Its formulas were then brought into line with the German text, which Claude Opus 5.5 at
+reasoning effort ultra) (July and August 2026). Its formulas were then brought into line with the German text, which Claude Opus 5.5 at
 effort max compared page by page with Noether's printed originals (785 page checks, 26 October 2026), in automatic and
 hand rounds by Claude Opus 5.5 at effort max (26-27 October; 2,570 lines in the last hand round), against the known
 failures of AI translation of mathematics: renamed letters, formulas changed or dropped, statements narrowed, passages
@@ -28,7 +28,7 @@ translation. What was done in each round, the measured figures and what is still
 
 Traducción producida por IA. Correcciones y composición producidas por OpenAI Codex — GPT-6 Astra, esfuerzo Ultra. Se conservan los autores indicados en las obras, incluidos Emmy Noether, M. Deuring y sus coautores. No se atribuye al editor una traducción ni una revisión humana independiente.
 
-La traducción heredada la hizo principalmente GPT-5.6 Sol (OpenAI Codex, esfuerzo de razonamiento ultra), según el usuario. Correcciones y composición producidas por IA: 23–24 de octubre de 2026; Claude Opus 5.5 (Anthropic, esfuerzo max), 26–27 de octubre de 2026, incluidas las fórmulas cotejadas con el texto alemán leído en las páginas impresas de Noether. Edición: 27 de octubre de 2026.
+La traducción heredada la hizo principalmente GPT-5.6 Sol (OpenAI Codex, esfuerzo de razonamiento ultra). Correcciones y composición producidas por IA: 23–24 de octubre de 2026; Claude Opus 5.5 (Anthropic, esfuerzo max), 26–27 de octubre de 2026, incluidas las fórmulas cotejadas con el texto alemán leído en las páginas impresas de Noether. Edición: 27 de octubre de 2026.
 
 El LaTeX acumulativo descargable contiene todos los textos y preámbulos como código editable. El programa Python extrae los archivos nativos, los compila con XeLaTeX y reúne los PDF de los componentes en orden de lectura. No usa imágenes ni páginas PDF como transcripción. El ZIP conserva la estructura nativa, el mismo LaTeX acumulativo y el programa. Se necesitan Python 3, pypdf y los paquetes y fuentes indicados en los preámbulos. Los bytes del PDF pueden variar según las versiones de TeX y de las fuentes. La fecha interna fija de composición no es la fecha de publicación.
 

@@ -2,7 +2,7 @@
 
 原作者為Emmy Noether及各篇署名的共同作者；1929/30年冬季學期講義由M. Deuring記錄。H. Kapferer論文及與E. Noether合作的補充分別保留其署名。原刊資訊與文獻引用見正文。
 
-中文底本由AI翻譯。本繁體字版由簡體中文文本作繁簡字形轉換而來，沿用其原有詞彙；未作臺灣、香港或澳門的區域語言本地化。早期中文文本的製作方為Manuscript Typesetting Project / OpenAI Codex；據使用者說明，主要由GPT-5.6 Sol（OpenAI Codex，推理強度ultra）完成。本版由AI製作的訂正與排版：OpenAI Codex——GPT-6 Astra，Ultra推理強度；Claude Opus 5.5（Anthropic，max推理強度），2026-10-26至2026-10-27（公式已與依Noether印刷頁面讀出的德文本文核對）。這不表示出版者親自翻譯，亦不表示經過獨立人工學術審閱。
+中文底本由AI翻譯。本繁體字版由簡體中文文本作繁簡字形轉換而來，沿用其原有詞彙；未作臺灣、香港或澳門的區域語言本地化。早期中文文本的製作方為Manuscript Typesetting Project / OpenAI Codex；主要由GPT-5.6 Sol（OpenAI Codex，推理強度ultra）完成。本版由AI製作的訂正與排版：OpenAI Codex——GPT-6 Astra，Ultra推理強度；Claude Opus 5.5（Anthropic，max推理強度），2026-10-26至2026-10-27（公式已與依Noether印刷頁面讀出的德文本文核對）。這不表示出版者親自翻譯，亦不表示經過獨立人工學術審閱。
 
 本繁體字版繼承R9 / ED0011中文文本；其德文底本為ED0011/v047（2026-08-08）。原繁體字文本所據的簡體中文版本為1,873,498位元組，SHA-256為`638D2F3FB7D915004A62F420CB4DF647711054E2022DCD125A755D8094B53D2E`；此標識辨認繁簡字形轉換的早期底本，不是目前訂正正文的雜湊值。
 
@@ -22,7 +22,7 @@ R9中文彙編及繁體字轉換程式：OpenAI Codex——GPT-5.6 Sol，Ultra�
 
 本版AI訂正與排版：OpenAI Codex——GPT-6 Astra，Ultra推理強度，2026-10-23至2026-10-24；Claude Opus 5.5（Anthropic，max推理強度），2026-10-26至2026-10-27（公式已與依Noether印刷頁面讀出的德文本文核對）。
 
-據使用者說明，最初逐段翻譯主要由GPT-5.6 Sol（OpenAI Codex，推理強度ultra）完成，具體工作日期尚未確定；2026-06-12是早期彙編的版本日期。
+最初逐段翻譯主要由GPT-5.6 Sol（OpenAI Codex，推理強度ultra）完成，具體工作日期尚未確定；2026-06-12是早期彙編的版本日期。
 
 
 [字形轉換方法、程式與分項署名](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/editions/noether/methods/chinese-script-2026-10-24-r2/README.zh-Hant.md)
