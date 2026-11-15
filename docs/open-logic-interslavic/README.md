@@ -4,6 +4,9 @@ To jest praktično medžuslovjansko izdanje projekta Open Logic za čitateljev s
 
 > To rabotno izdanje jest zapisano v [centralnom katalogu prěvodov projekta Open Logic](https://github.com/KokunoYumeto/OpenLogic-translations), ktory oddělno ukazuje točny prijety prefiks i polne izdanja.
 
+
+> **15 November 2026:** the live page now carries a [reader through OLP-0296](https://kokunoyumeto.github.io/modern-latex-manuscripts/open-logic-interslavic/reader/OpenLogic-Interslavic-OLP0296-reader.pdf) (558 pages; 296 of 722 units, 46.39% of the source tokens, canon 659 concepts in 1,523 revisions). This folder keeps the OLP-0198 checkpoint files.
+
 ## Aktualny kontrolny punkt · OLP-0198
 
 198 iz 722 jedinic sųt prijete i prověrjene; 524 ostavaje. Pokryto jest 110 194 iz 367 220 izvornyh alfabetičnyh tokenov (30,01%). Kanon sodrži 400 aktivne pojmy v 453 fizičnyh revizijah.
