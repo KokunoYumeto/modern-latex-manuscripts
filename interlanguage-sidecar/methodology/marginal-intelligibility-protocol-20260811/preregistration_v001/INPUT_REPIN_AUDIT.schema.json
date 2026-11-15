@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "slisv-isv-mi-input-repin-audit-v1.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["$schema", "schema_id", "audit_id", "recorded_at", "status", "policy", "inputs", "upstream_files_modified", "sufficient_artifacts_not_duplicated", "new_contract_only", "next_cursor"],
+  "properties": {
+    "$schema": {"const": "./INPUT_REPIN_AUDIT.schema.json"},
+    "schema_id": {"const": "slisv-isv-mi-input-repin-audit-v1"},
+    "audit_id": {"const": "SLISV-ISV-MI-REPIN-20260811-001"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "status": {"const": "bounded_repin_no_upstream_mutation"},
+    "policy": {"type": "string", "minLength": 50},
+    "inputs": {
+      "type": "array", "minItems": 18, "maxItems": 18,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["input_id", "role", "path", "bytes", "sha256", "observed_status", "disposition", "claim_limit"],
+        "properties": {
+          "input_id": {"type": "string", "pattern": "^REP-[0-9]{3}$"},
+          "role": {"type": "string", "minLength": 1},
+          "path": {"type": "string", "pattern": "^[.][.]/"},
+          "bytes": {"type": "integer", "minimum": 1},
+          "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+          "observed_status": {"type": "string", "minLength": 1},
+          "disposition": {"type": "string", "minLength": 1},
+          "claim_limit": {"type": "string", "minLength": 20}
+        }
+      }
+    },
+    "upstream_files_modified": {"const": []},
+    "sufficient_artifacts_not_duplicated": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "new_contract_only": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "next_cursor": {"type": "string", "minLength": 50}
+  }
+}

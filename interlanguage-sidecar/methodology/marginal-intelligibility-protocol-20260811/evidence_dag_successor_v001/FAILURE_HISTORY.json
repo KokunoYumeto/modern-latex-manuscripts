@@ -1,0 +1,39 @@
+{
+  "schema_id": "slisv-evidence-dag-successor-failure-history-v1",
+  "record_id": "SLISV-EVIDENCE-DAG-SUCCESSOR-FAILURES-20260811-001",
+  "policy": "Every failed construction or validation attempt is retained with exact cause and disposition; an empty list means no failure occurred before the recorded PASS.",
+  "failures": [
+    {
+      "failure_id": "FH-001",
+      "stage": "first_producer_invocation",
+      "command": "python -B build_evidence_dag_successor_v001.py",
+      "status": "failed_before_artifact_generation",
+      "observed_error": "SyntaxError: '{' was never closed at producer line 531",
+      "cause": "The generated-schema dictionary omitted the closing brace for the motivation_catalog property.",
+      "mutation_scope": "none_outside_package; only producer and validator source files existed in the package",
+      "disposition": "Closing brace restored with apply_patch; predecessor hash rechecked unchanged; failure retained here."
+    },
+    {
+      "failure_id": "FH-002",
+      "stage": "producer_compile_after_first_brace_repair",
+      "command": "python -B -m py_compile build_evidence_dag_successor_v001.py validate_evidence_dag_successor_v001.py",
+      "status": "failed_before_artifact_generation",
+      "observed_error": "SyntaxError: '{' was never closed at producer line 524",
+      "cause": "The repair schema property closed its nested properties object but not the repair object itself.",
+      "mutation_scope": "none_outside_package; no successor artifacts generated",
+      "disposition": "Second closing brace restored with apply_patch; failure retained here."
+    },
+    {
+      "failure_id": "FH-003",
+      "stage": "first_complete_independent_validation",
+      "command": "python -B validate_evidence_dag_successor_v001.py --compact",
+      "status": "failed_closed",
+      "observed_error": "SCHEMA_INSTANCE at /repair/cycle_binding/predecessor_path: array items are not unique",
+      "cause": "The reusable string-array schema required uniqueness, but a serialized cycle path necessarily repeats its start node at the end.",
+      "mutation_scope": "none; validator is read-only",
+      "disposition": "Cycle-path schema specialized to an ordered string array that permits the closing repeated node; failure retained here."
+    }
+  ],
+  "no_failures_recorded": false,
+  "current_state": "independent_validation_passed; failures_retained"
+}

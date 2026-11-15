@@ -1,0 +1,39 @@
+{
+  "schema_id": "slisv-isv-mi-preregistration-construction-attempts-v1",
+  "record_id": "SLISV-ISV-MI-PREREG-CONSTRUCTION-20260811-001",
+  "recorded_at": "2026-08-11T21:59:56+02:00",
+  "policy": "Failed construction and validation attempts are retained with their disposition; no failed state is presented as a valid artifact.",
+  "attempts": [
+    {
+      "attempt_id": "CA-001",
+      "stage": "first_validator_invocation",
+      "status": "failed_before_validation",
+      "command": "python -B validate_isv_mi_preregistration_v001.py --compact",
+      "observed_error": "json.decoder.JSONDecodeError: Invalid escape in INPUT_REPIN_AUDIT.schema.json at line 22 column 51",
+      "cause": "A regular-expression dot was escaped in JSON with one backslash.",
+      "mutation_scope": "none_by_failed_command",
+      "disposition": "Schema pattern changed to the JSON-safe ^[.][.]/ form using apply_patch; attempt retained here."
+    },
+    {
+      "attempt_id": "CA-002",
+      "stage": "first_complete_semantic_validation",
+      "status": "failed_closed",
+      "command": "python -B validate_isv_mi_preregistration_v001.py --compact",
+      "observed_error": "UPSTREAM_DAG: Pinned evidence graph contains a cycle; hostile fixtures 30/30 rejected.",
+      "cause": "The exact predecessor graph contains old_post44_witness -> old_post44_scope_gap and old_post44_scope_gap -> old_post44_witness.",
+      "mutation_scope": "none_by_failed_command",
+      "disposition": "The cycle is preserved as adverse evidence; G004 is blocked; the validator now requires that exact known cycle and rejects any additional cycle. The preregistered successor object must be genuinely acyclic."
+    },
+    {
+      "attempt_id": "CA-003",
+      "stage": "multi_file_cycle_disposition_patch",
+      "status": "failed_before_write",
+      "command": "apply_patch",
+      "observed_error": "Patch verification failed because a validator context line did not match exactly.",
+      "cause": "The multi-file patch used an imprecise context line.",
+      "mutation_scope": "none_atomic_patch_failure",
+      "disposition": "Reapplied as smaller exact-context patches; attempt retained here."
+    }
+  ],
+  "current_state": "later_validation_passed_before_manifest_generation"
+}

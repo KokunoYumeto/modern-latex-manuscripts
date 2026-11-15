@@ -1,0 +1,278 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.invalid/isv-mi-morphology-binding-v2.schema.json",
+  "title": "Interslavic marginal-intelligibility morphology binding v2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_id",
+    "package_id",
+    "recorded_at",
+    "timezone",
+    "status",
+    "scope",
+    "hash_conventions",
+    "claims",
+    "authority_context",
+    "source_pins",
+    "grammar_rules",
+    "loci",
+    "global_limitations",
+    "next_cursor"
+  ],
+  "properties": {
+    "$schema": {"const": "ISV_MI_MORPHOLOGY_BINDING_V2.schema.json"},
+    "schema_id": {"const": "ISV-MI-MORPHOLOGY-BINDING-V2-SCHEMA-v1"},
+    "package_id": {"const": "ISV-MI-MORPHOLOGY-BINDING-V2-20260811"},
+    "recorded_at": {"const": "2026-08-11"},
+    "timezone": {"const": "Europe/Berlin"},
+    "status": {"const": "exact_source_span_binding_only_all_experimental_items_held"},
+    "scope": {"type": "string", "minLength": 1},
+    "hash_conventions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["whole_file", "logical_line", "logical_span", "focus_text"],
+      "properties": {
+        "whole_file": {"const": "SHA-256 of raw file bytes"},
+        "logical_line": {"const": "SHA-256 of one Python splitlines() logical line encoded UTF-8, without a line terminator"},
+        "logical_span": {"const": "SHA-256 of inclusive Python splitlines() lines joined by LF, encoded UTF-8, without a final LF"},
+        "focus_text": {"const": "SHA-256 of the exact focus string encoded UTF-8; whole_context means the logical-span hash is reused"}
+      }
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["participant_ready", "intelligibility_measured", "branch_complete", "native_approved", "direct_morphology_contrast_established", "community_approval", "canonical_claim"],
+      "properties": {
+        "participant_ready": {"const": false},
+        "intelligibility_measured": {"const": false},
+        "branch_complete": {"const": false},
+        "native_approved": {"const": false},
+        "direct_morphology_contrast_established": {"const": false},
+        "community_approval": {"const": false},
+        "canonical_claim": {"const": false}
+      }
+    },
+    "authority_context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["german_pointer_id", "german_authority_id", "v018_assembly_pointer_id", "official_snapshot_id", "official_grammar_authority_id", "official_site_commit_sha1", "official_site_tree_sha1", "grammar_collection_id", "grammar_collection_bytes", "grammar_collection_sha256", "snapshot_review_state", "authority_boundary"],
+      "properties": {
+        "german_pointer_id": {"const": "NOETH-DE-AUTH-v047-20260808"},
+        "german_authority_id": {"const": "NOETH-DE-ED-0011"},
+        "v018_assembly_pointer_id": {"const": "NOETH-DE-AUTH-v047-20260808"},
+        "official_snapshot_id": {"const": "SLISV-ISV-AUTHORITY-SNAPSHOT-20260811-001"},
+        "official_grammar_authority_id": {"const": "ISV-AUTH-004"},
+        "official_site_commit_sha1": {"const": "41d94b2627dc3e5e1b48a3ebda022f7dd5172489"},
+        "official_site_tree_sha1": {"const": "27ba9aa4630f3f40c22f238b2337a8836fba8fd1"},
+        "grammar_collection_id": {"const": "ISV-AUTH-COLLECTION-002"},
+        "grammar_collection_bytes": {"const": 79268},
+        "grammar_collection_sha256": {"const": "ECFEC1EEA2B05D4C042E2AAFE649CB10DA6A868F62FD8A9D1455D4898635E91B"},
+        "snapshot_review_state": {"const": "first_bounded_snapshot_parent_verification_pending"},
+        "authority_boundary": {"type": "string", "minLength": 1}
+      }
+    },
+    "source_pins": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15,
+      "items": {"$ref": "#/$defs/source_pin"}
+    },
+    "grammar_rules": {
+      "type": "array",
+      "minItems": 11,
+      "maxItems": 11,
+      "items": {"$ref": "#/$defs/grammar_rule"}
+    },
+    "loci": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "prefixItems": [
+        {"allOf": [{"$ref": "#/$defs/locus"}, {"properties": {"locus_id": {"const": "MI-MORPH-GAP-01"}}}]},
+        {"allOf": [{"$ref": "#/$defs/locus"}, {"properties": {"locus_id": {"const": "MI-MORPH-GAP-02"}}}]},
+        {"allOf": [{"$ref": "#/$defs/locus"}, {"properties": {"locus_id": {"const": "MI-MORPH-GAP-03"}}}]},
+        {"allOf": [{"$ref": "#/$defs/locus"}, {"properties": {"locus_id": {"const": "MI-MORPH-GAP-04"}}}]},
+        {"allOf": [{"$ref": "#/$defs/locus"}, {"properties": {"locus_id": {"const": "MI-MORPH-GAP-05"}}}]}
+      ],
+      "items": false
+    },
+    "global_limitations": {
+      "type": "array",
+      "minItems": 5,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "next_cursor": {"type": "string", "minLength": 1}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "source_pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "absolute_path", "bytes", "sha256", "role"],
+      "properties": {
+        "source_id": {"type": "string", "pattern": "^SRC-[A-Z0-9-]+$"},
+        "absolute_path": {"type": "string", "pattern": "^[A-Za-z]:/"},
+        "bytes": {"type": "integer", "minimum": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "role": {"type": "string", "minLength": 1}
+      }
+    },
+    "grammar_rule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rule_id", "source_id", "line", "text", "sha256_utf8", "role_boundary"],
+      "properties": {
+        "rule_id": {"type": "string", "pattern": "^GRAM-[A-Z0-9-]+$"},
+        "source_id": {"type": "string", "pattern": "^SRC-GRAMMAR-"},
+        "line": {"type": "integer", "minimum": 1},
+        "text": {"type": "string", "minLength": 1},
+        "sha256_utf8": {"$ref": "#/$defs/sha256"},
+        "role_boundary": {"type": "string", "minLength": 1}
+      }
+    },
+    "parent_pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["phenomenon", "controlled_occurrence_surface", "isv_target_line", "isv_target_line_sha256_utf8", "producer_declaration_line", "producer_source_path", "producer_source_sha256", "german_paper_range"],
+      "properties": {
+        "phenomenon": {"type": "string", "minLength": 1},
+        "controlled_occurrence_surface": {"type": "string", "minLength": 1},
+        "isv_target_line": {"type": "integer", "minimum": 1},
+        "isv_target_line_sha256_utf8": {"$ref": "#/$defs/sha256"},
+        "producer_declaration_line": {"type": "integer", "minimum": 1},
+        "producer_source_path": {"type": "string", "pattern": "^[A-Za-z]:/"},
+        "producer_source_sha256": {"$ref": "#/$defs/sha256"},
+        "german_paper_range": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["line_start", "line_end", "sha256_utf8_lf_with_final_lf"],
+          "properties": {
+            "line_start": {"type": "integer", "minimum": 1},
+            "line_end": {"type": "integer", "minimum": 1},
+            "sha256_utf8_lf_with_final_lf": {"$ref": "#/$defs/sha256"}
+          }
+        }
+      }
+    },
+    "context_locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["line_start", "line_end", "sha256_utf8_lf", "focus_kind", "focus_sha256_utf8"],
+      "properties": {
+        "line_start": {"type": "integer", "minimum": 1},
+        "line_end": {"type": "integer", "minimum": 1},
+        "sha256_utf8_lf": {"$ref": "#/$defs/sha256"},
+        "focus_kind": {"enum": ["whole_context", "exact_substring"]},
+        "focus_text": {"type": "string", "minLength": 1},
+        "focus_sha256_utf8": {"$ref": "#/$defs/sha256"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"focus_kind": {"const": "exact_substring"}}},
+          "then": {"required": ["focus_text"]},
+          "else": {"not": {"required": ["focus_text"]}}
+        }
+      ]
+    },
+    "structural_anchor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["line", "text", "sha256_utf8"],
+      "properties": {
+        "line": {"type": "integer", "minimum": 1},
+        "text": {"type": "string", "minLength": 1},
+        "sha256_utf8": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "surface": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "language", "script", "evidence_role", "branch_scope", "controlled_occurrence", "context", "structural_anchor"],
+      "properties": {
+        "source_id": {"type": "string", "pattern": "^SRC-"},
+        "language": {"enum": ["de", "ru", "uk", "isv"]},
+        "script": {"enum": ["Latn", "Cyrl"]},
+        "evidence_role": {"enum": ["german_meaning_authority", "east_only_comparator_not_native_validated", "current_editable_latin_baseline_not_official_grammar"]},
+        "branch_scope": {"enum": ["meaning_authority", "east_slavic_only", "constructed_interslavic_baseline"]},
+        "controlled_occurrence": {"type": "string", "minLength": 1},
+        "context": {"$ref": "#/$defs/context_locator"},
+        "structural_anchor": {"$ref": "#/$defs/structural_anchor"}
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["german", "east", "official_grammar", "west", "south", "native"],
+      "properties": {
+        "german": {"const": "exact_meaning_authority_span_bound"},
+        "east": {"const": "ru_and_uk_exact_spans_east_only_not_independent_branch_breadth"},
+        "official_grammar": {"const": "partial_constraint_only_not_branch_or_intelligibility_evidence"},
+        "west": {"const": "missing_zero_surfaces"},
+        "south": {"const": "missing_zero_surfaces"},
+        "native": {"const": "missing_zero_authorship_and_review_records"}
+      }
+    },
+    "contrast_requirement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contrast_class", "exact_coherent_contrast_required", "preserve", "prohibited"],
+      "properties": {
+        "contrast_class": {"enum": ["direct_morphology", "direct_morphosyntax", "direct_morphology_and_morphosyntax"]},
+        "exact_coherent_contrast_required": {"type": "string", "minLength": 1},
+        "preserve": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "prohibited": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "contains": {"const": "lexical_only_relabel"},
+          "items": {"enum": ["lexical_only_relabel", "token_substitution_mosaic", "model_filled_branch_surface", "intelligibility_claim_without_participants"]}
+        }
+      }
+    },
+    "review_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["native_authorship_records", "native_review_records", "native_review_status", "participant_response_records"],
+      "properties": {
+        "native_authorship_records": {"const": 0},
+        "native_review_records": {"const": 0},
+        "native_review_status": {"const": "missing"},
+        "participant_response_records": {"const": 0}
+      }
+    },
+    "locus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locus_id", "paper_id", "locus_role", "parent_pin", "alignment_state", "alignment_basis", "surfaces", "grammar_rule_ids", "grammar_scope_note", "coverage", "contrast_requirement", "review_state", "experimental_item_state", "adverse_evidence"],
+      "properties": {
+        "locus_id": {"type": "string", "pattern": "^MI-MORPH-GAP-0[1-5]$"},
+        "paper_id": {"enum": ["P01", "P02", "P09", "P19"]},
+        "locus_role": {"type": "string", "pattern": "^candidate_direct_"},
+        "parent_pin": {"$ref": "#/$defs/parent_pin"},
+        "alignment_state": {"const": "exact_source_spans_bound_same_information_alignment_documentally_supported_not_human_reviewed"},
+        "alignment_basis": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+        "surfaces": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["de", "ru", "uk", "isv"],
+          "properties": {
+            "de": {"$ref": "#/$defs/surface"},
+            "ru": {"$ref": "#/$defs/surface"},
+            "uk": {"$ref": "#/$defs/surface"},
+            "isv": {"$ref": "#/$defs/surface"}
+          }
+        },
+        "grammar_rule_ids": {"type": "array", "minItems": 2, "uniqueItems": true, "items": {"type": "string", "pattern": "^GRAM-"}},
+        "grammar_scope_note": {"type": "string", "minLength": 1},
+        "coverage": {"$ref": "#/$defs/coverage"},
+        "contrast_requirement": {"$ref": "#/$defs/contrast_requirement"},
+        "review_state": {"$ref": "#/$defs/review_state"},
+        "experimental_item_state": {"const": "held_missing_west_south_branch_coherent_surfaces_and_qualified_native_review"},
+        "adverse_evidence": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    }
+  }
+}

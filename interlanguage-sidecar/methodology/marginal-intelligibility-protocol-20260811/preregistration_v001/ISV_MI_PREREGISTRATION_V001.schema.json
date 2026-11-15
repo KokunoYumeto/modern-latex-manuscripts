@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "slisv-isv-mi-preregistration-v001.schema.json",
+  "title": "Bounded Interslavic marginal-intelligibility preregistration v001",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema", "schema_id", "protocol_id", "version", "recorded_at", "timezone", "status", "purpose", "scope", "repin_audit",
+    "declared_family_tree", "governance_comparator", "evidence_model", "w0_projection", "concentration_diagnostics", "upstream_item_state",
+    "arm_design", "outcome_vector", "participants_and_speakers", "sampling_and_assignment", "review_plan", "jan_and_community_review",
+    "missing_data_and_fail_closed", "analysis_contract", "stopping_and_revisit", "launch_gates", "proof_boundary", "next_cursor"
+  ],
+  "properties": {
+    "$schema": {"const": "./ISV_MI_PREREGISTRATION_V001.schema.json"},
+    "schema_id": {"const": "slisv-isv-mi-preregistration-v001"},
+    "protocol_id": {"const": "SLISV-ISV-MI-PREREG-20260811-001"},
+    "version": {"type": "string", "minLength": 1},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "timezone": {"const": "Europe/Berlin"},
+    "status": {"const": "fail_closed_not_recruitment_ready"},
+    "purpose": {"type": "string", "minLength": 80},
+    "scope": {"$ref": "#/$defs/scope"},
+    "repin_audit": {"$ref": "#/$defs/repinAudit"},
+    "declared_family_tree": {"$ref": "#/$defs/familyTree"},
+    "governance_comparator": {"$ref": "#/$defs/governance"},
+    "evidence_model": {"$ref": "#/$defs/evidenceModel"},
+    "w0_projection": {"$ref": "#/$defs/w0"},
+    "concentration_diagnostics": {"$ref": "#/$defs/diagnostics"},
+    "upstream_item_state": {"$ref": "#/$defs/upstreamState"},
+    "arm_design": {"$ref": "#/$defs/armDesign"},
+    "outcome_vector": {"$ref": "#/$defs/outcomeVector"},
+    "participants_and_speakers": {"$ref": "#/$defs/people"},
+    "sampling_and_assignment": {"$ref": "#/$defs/sampling"},
+    "review_plan": {"$ref": "#/$defs/review"},
+    "jan_and_community_review": {"$ref": "#/$defs/community"},
+    "missing_data_and_fail_closed": {"$ref": "#/$defs/missing"},
+    "analysis_contract": {"$ref": "#/$defs/analysis"},
+    "stopping_and_revisit": {"$ref": "#/$defs/stopping"},
+    "launch_gates": {
+      "type": "array", "minItems": 13, "maxItems": 13, "uniqueItems": true,
+      "items": {"$ref": "#/$defs/gate"}
+    },
+    "proof_boundary": {"$ref": "#/$defs/proofBoundary"},
+    "next_cursor": {"type": "string", "minLength": 200}
+  },
+  "$defs": {
+    "nonemptyStrings": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "scope": {
+      "type": "object", "additionalProperties": false,
+      "required": ["study_kind", "canonical_word_role", "human_response_records", "participant_records", "speaker_records", "qualified_review_records", "jan_or_community_review_records", "reader_release_or_translation_mutation", "external_message_sent", "permitted_current_claims", "prohibited_current_claims"],
+      "properties": {
+        "study_kind": {"type": "string", "minLength": 1}, "canonical_word_role": {"type": "string", "minLength": 1},
+        "human_response_records": {"const": 0}, "participant_records": {"const": 0}, "speaker_records": {"const": 0},
+        "qualified_review_records": {"const": 0}, "jan_or_community_review_records": {"const": 0},
+        "reader_release_or_translation_mutation": {"const": false}, "external_message_sent": {"const": false},
+        "permitted_current_claims": {"$ref": "#/$defs/nonemptyStrings"}, "prohibited_current_claims": {"$ref": "#/$defs/nonemptyStrings"}
+      }
+    },
+    "repinAudit": {
+      "type": "object", "additionalProperties": false,
+      "required": ["audit_path", "audit_schema_path", "policy", "upstream_mutation_allowed"],
+      "properties": {"audit_path": {"const": "INPUT_REPIN_AUDIT.json"}, "audit_schema_path": {"const": "INPUT_REPIN_AUDIT.schema.json"}, "policy": {"type": "string", "minLength": 20}, "upstream_mutation_allowed": {"const": false}}
+    },
+    "familyTree": {
+      "type": "object", "additionalProperties": false,
+      "required": ["initially_symmetric", "tree_role", "tree_id", "tree_path", "tree_bytes", "tree_sha256", "macrobranches", "numeric_edge_lengths", "empirical_outcome_weights", "population_weights", "missing_leaf_rule", "claim_rule"],
+      "properties": {
+        "initially_symmetric": {"const": true}, "tree_role": {"type": "string", "minLength": 1}, "tree_id": {"type": "string", "minLength": 1},
+        "tree_path": {"type": "string", "minLength": 1}, "tree_bytes": {"type": "integer", "minimum": 1}, "tree_sha256": {"$ref": "#/$defs/sha256"},
+        "macrobranches": {"const": ["east_slavic", "west_slavic", "south_slavic"]},
+        "numeric_edge_lengths": {"type": "null"}, "empirical_outcome_weights": {"type": "null"}, "population_weights": {"type": "null"},
+        "missing_leaf_rule": {"type": "string", "minLength": 1}, "claim_rule": {"type": "string", "minLength": 20}
+      }
+    },
+    "governance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["comparator_id", "authority_id", "authority_capture_id", "authority_capture_path", "authority_capture_bytes", "authority_capture_sha256", "role", "groups", "group_vote", "within_group_disagreement", "tie_break", "common_sense_override", "sub_million_language_rule", "montenegrin_rule", "empirical_outcome_weight", "automatic_decision", "observed_votes", "observed_override", "approval_inference"],
+      "properties": {
+        "comparator_id": {"type": "string"}, "authority_id": {"const": "ISV-AUTH-002"}, "authority_capture_id": {"const": "FETCH-002"},
+        "authority_capture_path": {"type": "string"}, "authority_capture_bytes": {"const": 20238}, "authority_capture_sha256": {"$ref": "#/$defs/sha256"},
+        "role": {"const": "governance_comparison_only"},
+        "groups": {"const": ["Russian", "Ukrainian_and_Belarusian", "Polish", "Czech_and_Slovak", "Slovene_and_Serbian_Croatian_Bosnian", "Bulgarian_and_Macedonian"]},
+        "group_vote": {"const": "one_vote_each"}, "within_group_disagreement": {"const": "one_half_vote_per_alternative"},
+        "tie_break": {"type": "string", "pattern": "population"}, "common_sense_override": {"type": "string", "pattern": "common_sense"},
+        "sub_million_language_rule": {"type": "string"}, "montenegrin_rule": {"type": "string"},
+        "empirical_outcome_weight": {"const": false}, "automatic_decision": {"const": false}, "observed_votes": {"type": "null"}, "observed_override": {"type": "null"}, "approval_inference": {"const": false}
+      }
+    },
+    "adversePolicy": {
+      "type": "object", "additionalProperties": false,
+      "required": ["required_for_every_item", "accepted_types", "offsettable_by_positive_mass", "retention", "high_severity_action"],
+      "properties": {"required_for_every_item": {"const": true}, "accepted_types": {"$ref": "#/$defs/nonemptyStrings"}, "offsettable_by_positive_mass": {"const": false}, "retention": {"type": "string"}, "high_severity_action": {"type": "string"}}
+    },
+    "evidenceModel": {
+      "type": "object", "additionalProperties": false,
+      "required": ["object_type", "predecessor_graph_path", "predecessor_graph_bytes", "predecessor_graph_sha256", "predecessor_acyclic", "predecessor_cycle_edge_pair", "construction_state", "required_node_layers", "required_channels", "channel_separation_required", "acyclic_required", "every_edge_requires_source_and_target_id", "every_evidence_record_requires_exact_provenance_and_sense", "absence_is_not_adverse", "candidate_is_not_support", "generated_text_may_witness_native_use", "may_define_human_intelligibility", "may_auto_decide", "adverse_evidence_policy"],
+      "properties": {
+        "object_type": {"const": "typed_evidence_DAG"}, "predecessor_graph_path": {"type": "string"}, "predecessor_graph_bytes": {"const": 5348}, "predecessor_graph_sha256": {"$ref": "#/$defs/sha256"},
+        "predecessor_acyclic": {"const": false}, "predecessor_cycle_edge_pair": {"const": ["old_post44_witness->old_post44_scope_gap", "old_post44_scope_gap->old_post44_witness"]}, "construction_state": {"const": "blocked_until_cycle_is_reconciled_in_an_append_only_successor_DAG"},
+        "required_node_layers": {"$ref": "#/$defs/nonemptyStrings"},
+        "required_channels": {"const": ["support", "candidate", "competitor", "adverse", "absence", "veto"]},
+        "channel_separation_required": {"const": true}, "acyclic_required": {"const": true}, "every_edge_requires_source_and_target_id": {"const": true},
+        "every_evidence_record_requires_exact_provenance_and_sense": {"const": true}, "absence_is_not_adverse": {"const": true}, "candidate_is_not_support": {"const": true},
+        "generated_text_may_witness_native_use": {"const": false}, "may_define_human_intelligibility": {"const": false}, "may_auto_decide": {"const": false},
+        "adverse_evidence_policy": {"$ref": "#/$defs/adversePolicy"}
+      }
+    },
+    "branchValues": {
+      "type": "object", "additionalProperties": false,
+      "required": ["east", "west", "south", "D1", "KL_to_equal_three"],
+      "properties": {"east": {"type": "integer", "minimum": 0}, "west": {"type": "integer", "minimum": 0}, "south": {"type": "integer", "minimum": 0}, "D1": {"type": "number"}, "KL_to_equal_three": {"type": "number"}}
+    },
+    "projectedValues": {
+      "type": "object", "additionalProperties": false,
+      "required": ["east", "west", "south", "D1_approx", "KL_to_equal_three_approx"],
+      "properties": {"east": {"type": "integer", "minimum": 0}, "west": {"type": "integer", "minimum": 0}, "south": {"type": "integer", "minimum": 0}, "D1_approx": {"type": "number"}, "KL_to_equal_three_approx": {"type": "number"}}
+    },
+    "w0": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "type", "source_claim_id", "state_c_input", "projected_values", "current_measurement", "accepted_writeback", "participant_arm", "human_outcome", "may_overwrite_state_c", "may_auto_decide", "permitted_use"],
+      "properties": {
+        "id": {"const": "W0"}, "type": {"const": "projection"}, "source_claim_id": {"const": "CLM-RD-007"},
+        "state_c_input": {"$ref": "#/$defs/branchValues"}, "projected_values": {"$ref": "#/$defs/projectedValues"},
+        "current_measurement": {"const": false}, "accepted_writeback": {"const": false}, "participant_arm": {"const": false}, "human_outcome": {"const": false},
+        "may_overwrite_state_c": {"const": false}, "may_auto_decide": {"const": false}, "permitted_use": {"const": "plan_source_row_context_review_only"}
+      }
+    },
+    "diagnostics": {
+      "type": "object", "additionalProperties": false,
+      "required": ["objects", "unit", "separate_from_human_intelligibility", "measures_intelligibility", "measures_correctness", "decision_role", "required_declarations"],
+      "properties": {"objects": {"const": ["Hill_D1", "KL_to_declared_target"]}, "unit": {"type": "string"}, "separate_from_human_intelligibility": {"const": true}, "measures_intelligibility": {"const": false}, "measures_correctness": {"const": false}, "decision_role": {"type": "string"}, "required_declarations": {"$ref": "#/$defs/nonemptyStrings"}}
+    },
+    "upstreamState": {
+      "type": "object", "additionalProperties": false,
+      "required": ["item_binding_path", "item_binding_bytes", "item_binding_sha256", "family_count", "arm_count", "participant_ready", "native_control_hold_count", "participant_passage_hold_count", "direct_morphology_contrast_count", "lexically_overconcentrated", "morphology_binding_path", "morphology_binding_bytes", "morphology_binding_sha256", "morphology_locus_count", "west_surfaces_present", "south_surfaces_present", "native_authorship_records", "native_review_records", "direct_morphology_contrast_established", "disposition"],
+      "properties": {
+        "item_binding_path": {"type": "string"}, "item_binding_bytes": {"type": "integer", "minimum": 1}, "item_binding_sha256": {"$ref": "#/$defs/sha256"}, "family_count": {"const": 12}, "arm_count": {"const": 60}, "participant_ready": {"const": false}, "native_control_hold_count": {"const": 12}, "participant_passage_hold_count": {"const": 60}, "direct_morphology_contrast_count": {"const": 0}, "lexically_overconcentrated": {"const": true},
+        "morphology_binding_path": {"type": "string"}, "morphology_binding_bytes": {"type": "integer", "minimum": 1}, "morphology_binding_sha256": {"$ref": "#/$defs/sha256"}, "morphology_locus_count": {"const": 5}, "west_surfaces_present": {"const": false}, "south_surfaces_present": {"const": false}, "native_authorship_records": {"const": 0}, "native_review_records": {"const": 0}, "direct_morphology_contrast_established": {"const": false}, "disposition": {"type": "string"}
+      }
+    },
+    "nativeControl": {
+      "type": "object", "additionalProperties": false,
+      "required": ["required", "role", "construction", "information_matching", "bridge_candidate", "current_state"],
+      "properties": {"required": {"const": true}, "role": {"type": "string"}, "construction": {"type": "string"}, "information_matching": {"type": "string"}, "bridge_candidate": {"const": false}, "current_state": {"type": "string"}}
+    },
+    "passageContract": {
+      "type": "object", "additionalProperties": false,
+      "required": ["identical_information_required", "same_source_passage_id_required", "same_information_unit_set_required", "same_mathematical_propositions_required", "same_definitions_formulae_names_citations_and_examples_required", "same_question_answer_key_semantics_required", "controlled_differences_only", "coherent_whole_passage_required", "tokenwise_mosaic_forbidden", "unilateral_gloss_definition_or_doublet_forbidden", "typography_and_formula_boundary_equivalence_required", "certificate_fields", "failure_action"],
+      "properties": {
+        "identical_information_required": {"const": true}, "same_source_passage_id_required": {"const": true}, "same_information_unit_set_required": {"const": true}, "same_mathematical_propositions_required": {"const": true}, "same_definitions_formulae_names_citations_and_examples_required": {"const": true}, "same_question_answer_key_semantics_required": {"const": true},
+        "controlled_differences_only": {"const": ["lexical_surface", "morphology_or_morphosyntax", "syntax_connective_register", "script"]}, "coherent_whole_passage_required": {"const": true}, "tokenwise_mosaic_forbidden": {"const": true}, "unilateral_gloss_definition_or_doublet_forbidden": {"const": true}, "typography_and_formula_boundary_equivalence_required": {"const": true}, "certificate_fields": {"$ref": "#/$defs/nonemptyStrings"}, "failure_action": {"type": "string"}
+      }
+    },
+    "armDesign": {
+      "type": "object", "additionalProperties": false,
+      "required": ["required_arm_roles", "freeze_rule", "absence_rule", "duplicate_arm_rule", "native_language_control", "whole_passage_contract"],
+      "properties": {"required_arm_roles": {"const": ["current_v018", "official_isv", "dominant_east_baseline", "branch_balanced_candidate", "native_language_control"]}, "freeze_rule": {"type": "string"}, "absence_rule": {"type": "string"}, "duplicate_arm_rule": {"type": "string"}, "native_language_control": {"$ref": "#/$defs/nativeControl"}, "whole_passage_contract": {"$ref": "#/$defs/passageContract"}}
+    },
+    "domain": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "construct", "observables", "required_contexts", "interpretation_limit"],
+      "properties": {"id": {"enum": ["lexical", "morphology_morphosyntax", "syntax_connectives_register", "script", "integrated_passage_comprehension"]}, "construct": {"type": "string", "minLength": 1}, "observables": {"$ref": "#/$defs/nonemptyStrings"}, "required_contexts": {"$ref": "#/$defs/nonemptyStrings"}, "interpretation_limit": {"type": "string", "minLength": 20}}
+    },
+    "outcomeVector": {
+      "type": "object", "additionalProperties": false,
+      "required": ["scalar_primary_outcome", "auto_decision_from_any_scalar", "domains", "reporting_order", "grand_mean_may_erase_harm", "lexical_gain_may_substitute_for_passage_gain"],
+      "properties": {"scalar_primary_outcome": {"type": "null"}, "auto_decision_from_any_scalar": {"const": false}, "domains": {"type": "array", "minItems": 5, "maxItems": 5, "items": {"$ref": "#/$defs/domain"}}, "reporting_order": {"$ref": "#/$defs/nonemptyStrings"}, "grand_mean_may_erase_harm": {"const": false}, "lexical_gain_may_substitute_for_passage_gain": {"const": false}}
+    },
+    "people": {
+      "type": "object", "additionalProperties": false,
+      "required": ["participant_metadata_required", "participant_proficiency_method", "speaker_component_state", "speaker_metadata_if_audio_is_added", "speaker_missingness_rule", "participant_identity_publication"],
+      "properties": {"participant_metadata_required": {"$ref": "#/$defs/nonemptyStrings"}, "participant_proficiency_method": {"type": "string"}, "speaker_component_state": {"const": "not_activated_reading_first_protocol"}, "speaker_metadata_if_audio_is_added": {"$ref": "#/$defs/nonemptyStrings"}, "speaker_missingness_rule": {"type": "string"}, "participant_identity_publication": {"const": false}}
+    },
+    "sampling": {
+      "type": "object", "additionalProperties": false,
+      "required": ["actual_participants_declared", "actual_speakers_declared", "actual_reviewers_declared", "participant_n", "recruitment_window", "randomization_seed_commitment", "answer_key_commitment", "analysis_commitment", "state", "macrobranch_launch_floor", "assignment", "optional_stopping", "outcome_blind_recruitment_only", "sample_size_rule"],
+      "properties": {"actual_participants_declared": {"const": []}, "actual_speakers_declared": {"const": []}, "actual_reviewers_declared": {"const": []}, "participant_n": {"type": "null"}, "recruitment_window": {"type": "null"}, "randomization_seed_commitment": {"type": "null"}, "answer_key_commitment": {"type": "null"}, "analysis_commitment": {"type": "null"}, "state": {"type": "string"}, "macrobranch_launch_floor": {"type": "string"}, "assignment": {"type": "string"}, "optional_stopping": {"const": false}, "outcome_blind_recruitment_only": {"const": true}, "sample_size_rule": {"type": "string"}}
+    },
+    "review": {
+      "type": "object", "additionalProperties": false,
+      "required": ["required_macrobranches", "balanced_counts_required", "nonzero_each_macrobranch_required", "reviewer_count_per_macrobranch", "current_state", "competence_criteria", "required_review_dimensions", "west_and_south_surface_rule", "east_review_rule", "imbalance_action", "ai_role"],
+      "properties": {"required_macrobranches": {"const": ["east_slavic", "west_slavic", "south_slavic"]}, "balanced_counts_required": {"const": true}, "nonzero_each_macrobranch_required": {"const": true}, "reviewer_count_per_macrobranch": {"type": "null"}, "current_state": {"const": "no_reviewers_or_approvals_recorded"}, "competence_criteria": {"$ref": "#/$defs/nonemptyStrings"}, "required_review_dimensions": {"$ref": "#/$defs/nonemptyStrings"}, "west_and_south_surface_rule": {"type": "string"}, "east_review_rule": {"type": "string"}, "imbalance_action": {"type": "string"}, "ai_role": {"type": "string"}}
+    },
+    "reviewParty": {
+      "type": "object", "additionalProperties": false,
+      "required": ["planned_role", "request_state", "response_state", "approval_state"],
+      "properties": {"planned_role": {"type": "string"}, "request_state": {"type": "string"}, "response_state": {"const": "none"}, "approval_state": {"const": "not_requested_not_inferred"}, "silence_means_approval": {"const": false}, "silence_or_participation_means_approval": {"const": false}},
+      "oneOf": [{"required": ["silence_means_approval"]}, {"required": ["silence_or_participation_means_approval"]}]
+    },
+    "community": {
+      "type": "object", "additionalProperties": false,
+      "required": ["jan_van_steenbergen", "community_review", "publication_rule"],
+      "properties": {"jan_van_steenbergen": {"$ref": "#/$defs/reviewParty"}, "community_review": {"$ref": "#/$defs/reviewParty"}, "publication_rule": {"type": "string", "minLength": 50}}
+    },
+    "missingAction": {
+      "type": "object", "additionalProperties": false,
+      "required": ["field_or_condition", "action"],
+      "properties": {"field_or_condition": {"type": "string", "minLength": 1}, "action": {"type": "string", "minLength": 1}}
+    },
+    "missing": {
+      "type": "object", "additionalProperties": false,
+      "required": ["preregistered", "never_impute_from_related_language_or_macrobranch", "never_encode_unknown_as_zero", "never_treat_missing_as_pass", "participant_exclusion_before_arm_unblinding_only", "required_record_keys", "hard_missingness", "permitted_missing_reasons", "not_estimable_rule", "complete_case_limit", "sensitivity_state"],
+      "properties": {"preregistered": {"const": true}, "never_impute_from_related_language_or_macrobranch": {"const": true}, "never_encode_unknown_as_zero": {"const": true}, "never_treat_missing_as_pass": {"const": true}, "participant_exclusion_before_arm_unblinding_only": {"const": true}, "required_record_keys": {"$ref": "#/$defs/nonemptyStrings"}, "hard_missingness": {"type": "array", "minItems": 8, "items": {"$ref": "#/$defs/missingAction"}}, "permitted_missing_reasons": {"$ref": "#/$defs/nonemptyStrings"}, "not_estimable_rule": {"type": "string"}, "complete_case_limit": {"type": "string"}, "sensitivity_state": {"type": "string"}}
+    },
+    "analysis": {
+      "type": "object", "additionalProperties": false,
+      "required": ["estimand", "model_families", "minimum_grouping", "prespecified_covariates", "coefficients", "harm_margin", "false_friend_margin", "multiplicity_rule", "interval_rule", "state", "blocker_rule", "partial_pooling_limit", "governance_projection_separate", "concentration_diagnostics_separate", "single_scalar_decision_forbidden"],
+      "properties": {"estimand": {"type": "string"}, "model_families": {"$ref": "#/$defs/nonemptyStrings"}, "minimum_grouping": {"$ref": "#/$defs/nonemptyStrings"}, "prespecified_covariates": {"$ref": "#/$defs/nonemptyStrings"}, "coefficients": {"type": "null"}, "harm_margin": {"type": "null"}, "false_friend_margin": {"type": "null"}, "multiplicity_rule": {"type": "null"}, "interval_rule": {"type": "null"}, "state": {"const": "blocked_not_analysis_ready"}, "blocker_rule": {"type": "string"}, "partial_pooling_limit": {"type": "string"}, "governance_projection_separate": {"const": true}, "concentration_diagnostics_separate": {"const": true}, "single_scalar_decision_forbidden": {"const": true}}
+    },
+    "stopping": {
+      "type": "object", "additionalProperties": false,
+      "required": ["effect_based_optional_stopping", "stop_before_recruitment_if", "stop_during_collection_if", "outcome_viewing_may_trigger_sample_stop", "restart_rule", "mandatory_revisit_triggers", "amendment_rule"],
+      "properties": {"effect_based_optional_stopping": {"const": false}, "stop_before_recruitment_if": {"$ref": "#/$defs/nonemptyStrings"}, "stop_during_collection_if": {"$ref": "#/$defs/nonemptyStrings"}, "outcome_viewing_may_trigger_sample_stop": {"const": false}, "restart_rule": {"type": "string"}, "mandatory_revisit_triggers": {"$ref": "#/$defs/nonemptyStrings"}, "amendment_rule": {"type": "string"}}
+    },
+    "gate": {
+      "type": "object", "additionalProperties": false,
+      "required": ["gate_id", "criterion", "state"],
+      "properties": {"gate_id": {"type": "string", "pattern": "^PREREG-G[0-9]{3}$"}, "criterion": {"type": "string", "minLength": 1}, "state": {"enum": ["pass", "blocked", "not_a_launch_gate"]}}
+    },
+    "proofBoundary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["proves", "does_not_prove"],
+      "properties": {"proves": {"$ref": "#/$defs/nonemptyStrings"}, "does_not_prove": {"$ref": "#/$defs/nonemptyStrings"}}
+    }
+  }
+}

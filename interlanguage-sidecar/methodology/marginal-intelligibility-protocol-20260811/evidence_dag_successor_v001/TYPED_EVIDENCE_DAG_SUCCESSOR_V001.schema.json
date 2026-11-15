@@ -1,0 +1,1000 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interlanguage.local/schemas/slisv-typed-evidence-dag-successor-v001.schema.json",
+  "title": "Bounded append-only typed evidence DAG successor v001",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "$schema",
+    "schema_id",
+    "graph_id",
+    "version",
+    "created_at",
+    "status",
+    "purpose",
+    "scope",
+    "input_pins",
+    "append_only_contract",
+    "channel_definitions",
+    "layer_coverage",
+    "repair",
+    "nodes",
+    "edges",
+    "predecessor_to_successor_mapping",
+    "topological_order",
+    "counts",
+    "decision_contract",
+    "claim_boundary"
+  ],
+  "properties": {
+    "$schema": {
+      "const": "./TYPED_EVIDENCE_DAG_SUCCESSOR_V001.schema.json"
+    },
+    "schema_id": {
+      "const": "slisv-typed-evidence-dag-successor-v001"
+    },
+    "graph_id": {
+      "const": "SLISV-EVIDENCE-DAG-SUCCESSOR-20260811-001"
+    },
+    "version": {
+      "const": "0.0.1-bounded-append-only"
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "const": "bounded_internal_routing_DAG_pass_not_a_release_or_human_claim"
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package_root_workspace_relative",
+        "writes_outside_package",
+        "upstream_files_modified",
+        "predecessor_copied",
+        "predecessor_bytes_preserved",
+        "human_response_records",
+        "native_witness_records_added",
+        "community_or_named_person_review_records_added"
+      ],
+      "properties": {
+        "package_root_workspace_relative": {
+          "type": "string",
+          "minLength": 1
+        },
+        "writes_outside_package": {
+          "const": false
+        },
+        "upstream_files_modified": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "predecessor_copied": {
+          "const": false
+        },
+        "predecessor_bytes_preserved": {
+          "const": true
+        },
+        "human_response_records": {
+          "const": 0
+        },
+        "native_witness_records_added": {
+          "const": 0
+        },
+        "community_or_named_person_review_records_added": {
+          "const": 0
+        }
+      }
+    },
+    "input_pins": {
+      "type": "array",
+      "minItems": 3,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "pin_id",
+          "role",
+          "workspace_relative_path",
+          "bytes",
+          "sha256",
+          "immutability",
+          "consumed_as"
+        ],
+        "properties": {
+          "pin_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "role": {
+            "type": "string",
+            "minLength": 1
+          },
+          "workspace_relative_path": {
+            "type": "string",
+            "pattern": "^(01_methodology|03_projects)/"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[0-9A-F]{64}$"
+          },
+          "immutability": {
+            "const": "read_only_input_not_copied_not_modified"
+          },
+          "consumed_as": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "append_only_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predecessor_graph_path",
+        "predecessor_graph_bytes",
+        "predecessor_graph_sha256",
+        "predecessor_mutated",
+        "successor_is_new_artifact",
+        "active_edge_replacements_are_mapped_not_silently_deleted",
+        "predecessor_payloads_embedded_per_lineage_record"
+      ],
+      "properties": {
+        "predecessor_graph_path": {
+          "const": "03_projects/noether/03_translation_workspaces/slavic_r823_book_reconciliation_20260717/evidence/TYPED_EVIDENCE_GRAPH.json"
+        },
+        "predecessor_graph_bytes": {
+          "const": 5348
+        },
+        "predecessor_graph_sha256": {
+          "const": "783D9718BAD8FC61198B7A74EF86814B749FE01BD751A396211B0C79822B7F36"
+        },
+        "predecessor_mutated": {
+          "const": false
+        },
+        "successor_is_new_artifact": {
+          "const": true
+        },
+        "active_edge_replacements_are_mapped_not_silently_deleted": {
+          "const": true
+        },
+        "predecessor_payloads_embedded_per_lineage_record": {
+          "const": true
+        }
+      }
+    },
+    "channel_definitions": {
+      "type": "array",
+      "minItems": 6,
+      "maxItems": 6,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "channel",
+          "definition",
+          "cannot_count_as"
+        ],
+        "properties": {
+          "channel": {
+            "type": "string",
+            "enum": [
+              "support",
+              "candidate",
+              "competitor",
+              "adverse",
+              "absence",
+              "veto"
+            ]
+          },
+          "definition": {
+            "type": "string",
+            "minLength": 1
+          },
+          "cannot_count_as": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "layer_coverage": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "layer",
+          "state",
+          "node_ids"
+        ],
+        "properties": {
+          "layer": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "node_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          }
+        }
+      }
+    },
+    "repair": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cycle_binding",
+        "changes",
+        "motivation_catalog",
+        "alternatives"
+      ],
+      "properties": {
+        "cycle_binding": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "predecessor_path",
+            "predecessor_edge_indices",
+            "predecessor_edge_fingerprints_sha256",
+            "successor_path",
+            "disposition"
+          ],
+          "properties": {
+            "predecessor_path": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "string"
+              }
+            },
+            "predecessor_edge_indices": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              }
+            },
+            "predecessor_edge_fingerprints_sha256": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[0-9A-F]{64}$"
+              }
+            },
+            "successor_path": {
+              "type": "array",
+              "minItems": 3,
+              "items": {
+                "type": "string"
+              }
+            },
+            "disposition": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "changes": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "change_id",
+              "motivation_id",
+              "predecessor_edge_index",
+              "predecessor_relation",
+              "successor_relation",
+              "exact_motivation"
+            ],
+            "properties": {
+              "change_id": {
+                "type": "string"
+              },
+              "motivation_id": {
+                "type": "string"
+              },
+              "predecessor_edge_index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "predecessor_relation": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "from",
+                  "to",
+                  "type"
+                ],
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "channel": {
+                    "type": "string",
+                    "enum": [
+                      "support",
+                      "candidate",
+                      "competitor",
+                      "adverse",
+                      "absence",
+                      "veto"
+                    ]
+                  }
+                }
+              },
+              "successor_relation": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "from",
+                  "to",
+                  "type"
+                ],
+                "properties": {
+                  "from": {
+                    "type": "string"
+                  },
+                  "to": {
+                    "type": "string"
+                  },
+                  "type": {
+                    "type": "string"
+                  },
+                  "channel": {
+                    "type": "string",
+                    "enum": [
+                      "support",
+                      "candidate",
+                      "competitor",
+                      "adverse",
+                      "absence",
+                      "veto"
+                    ]
+                  }
+                }
+              },
+              "exact_motivation": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "motivation_catalog": {
+          "type": "array",
+          "minItems": 3,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "motivation_id",
+              "text"
+            ],
+            "properties": {
+              "motivation_id": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "alternatives": {
+          "type": "array",
+          "minItems": 4,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "alternative_id",
+              "proposal",
+              "disposition",
+              "reason"
+            ],
+            "properties": {
+              "alternative_id": {
+                "type": "string"
+              },
+              "proposal": {
+                "type": "string",
+                "minLength": 1
+              },
+              "disposition": {
+                "const": "rejected"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "type",
+          "label",
+          "layer",
+          "evidence",
+          "attributes",
+          "legacy_payload",
+          "lineage"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "minLength": 1
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "layer": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false,
+            "required": [
+              "channel",
+              "source_provenance",
+              "sense",
+              "permitted_use",
+              "prohibited_uses"
+            ],
+            "properties": {
+              "channel": {
+                "type": "string",
+                "enum": [
+                  "support",
+                  "candidate",
+                  "competitor",
+                  "adverse",
+                  "absence",
+                  "veto"
+                ]
+              },
+              "source_provenance": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "predecessor_graph_sha256",
+                  "predecessor_pointer",
+                  "evidence_source_node_ids"
+                ],
+                "properties": {
+                  "predecessor_graph_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9A-F]{64}$"
+                  },
+                  "predecessor_pointer": {
+                    "type": "string",
+                    "pattern": "^/(nodes|edges)/[0-9]+$"
+                  },
+                  "evidence_source_node_ids": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              },
+              "sense": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "concept_or_claim_id",
+                  "intended_sense",
+                  "scope"
+                ],
+                "properties": {
+                  "concept_or_claim_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "intended_sense": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "scope": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              },
+              "permitted_use": {
+                "type": "string",
+                "minLength": 1
+              },
+              "prohibited_uses": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "uniqueItems": true
+              }
+            }
+          },
+          "attributes": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "claim_subject_id",
+              "claim_predicate",
+              "claim_status",
+              "scope_limit",
+              "decision_kind"
+            ],
+            "properties": {
+              "claim_subject_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "claim_predicate": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "claim_status": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "scope_limit": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "decision_kind": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            }
+          },
+          "legacy_payload": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "lineage": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "operation",
+              "predecessor_pointer",
+              "predecessor_fingerprint_sha256",
+              "motivation_id"
+            ],
+            "properties": {
+              "operation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "predecessor_pointer": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "predecessor_fingerprint_sha256": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9A-F]{64}$"
+              },
+              "motivation_id": {
+                "type": "string",
+                "pattern": "^M[0-9]{3}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "from",
+          "to",
+          "type",
+          "channel",
+          "source_provenance",
+          "sense",
+          "legacy_payload",
+          "lineage"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^edge_[0-9]{3}$"
+          },
+          "from": {
+            "type": "string"
+          },
+          "to": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "channel": {
+            "type": "string",
+            "enum": [
+              "structural",
+              "support",
+              "candidate",
+              "competitor",
+              "adverse",
+              "absence",
+              "veto"
+            ]
+          },
+          "source_provenance": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "predecessor_graph_sha256",
+              "predecessor_pointer",
+              "evidence_source_node_ids"
+            ],
+            "properties": {
+              "predecessor_graph_sha256": {
+                "type": "string",
+                "pattern": "^[0-9A-F]{64}$"
+              },
+              "predecessor_pointer": {
+                "type": "string",
+                "pattern": "^/(nodes|edges)/[0-9]+$"
+              },
+              "evidence_source_node_ids": {
+                "type": "array",
+                "minItems": 1,
+                "uniqueItems": true,
+                "items": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          },
+          "sense": {
+            "type": [
+              "object",
+              "null"
+            ],
+            "additionalProperties": false,
+            "required": [
+              "concept_or_claim_id",
+              "intended_sense",
+              "scope"
+            ],
+            "properties": {
+              "concept_or_claim_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "intended_sense": {
+                "type": "string",
+                "minLength": 1
+              },
+              "scope": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "legacy_payload": {
+            "type": "object"
+          },
+          "lineage": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "operation",
+              "predecessor_pointer",
+              "predecessor_fingerprint_sha256",
+              "motivation_id"
+            ],
+            "properties": {
+              "operation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "predecessor_pointer": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "predecessor_fingerprint_sha256": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9A-F]{64}$"
+              },
+              "motivation_id": {
+                "type": "string",
+                "pattern": "^M[0-9]{3}$"
+              }
+            }
+          }
+        }
+      }
+    },
+    "predecessor_to_successor_mapping": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "nodes",
+        "edges",
+        "added_nodes",
+        "added_edges",
+        "unmapped_predecessor_nodes",
+        "unmapped_predecessor_edges"
+      ],
+      "properties": {
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "predecessor_index",
+              "predecessor_id",
+              "successor_id",
+              "operation",
+              "predecessor_fingerprint_sha256"
+            ],
+            "properties": {
+              "predecessor_index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "predecessor_id": {
+                "type": "string"
+              },
+              "successor_id": {
+                "type": "string"
+              },
+              "operation": {
+                "type": "string"
+              },
+              "predecessor_fingerprint_sha256": {
+                "type": "string",
+                "pattern": "^[0-9A-F]{64}$"
+              }
+            }
+          }
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "predecessor_index",
+              "predecessor_edge_fingerprint_sha256",
+              "successor_edge_id",
+              "operation"
+            ],
+            "properties": {
+              "predecessor_index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "predecessor_edge_fingerprint_sha256": {
+                "type": "string",
+                "pattern": "^[0-9A-F]{64}$"
+              },
+              "successor_edge_id": {
+                "type": "string"
+              },
+              "operation": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "added_nodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "added_edges": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "unmapped_predecessor_nodes": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "unmapped_predecessor_edges": {
+          "type": "array",
+          "maxItems": 0
+        }
+      }
+    },
+    "topological_order": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "predecessor_nodes",
+        "successor_nodes",
+        "predecessor_edges",
+        "successor_edges",
+        "added_nodes",
+        "redirected_or_retyped_edges",
+        "required_evidence_channels"
+      ],
+      "properties": {
+        "predecessor_nodes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "successor_nodes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "predecessor_edges": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "successor_edges": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "added_nodes": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "redirected_or_retyped_edges": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "required_evidence_channels": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "decision_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scalar_decision",
+        "automatic_decision",
+        "positive_mass_may_offset_adverse",
+        "absence_may_be_imputed_as_zero",
+        "candidate_may_be_counted_as_support",
+        "graph_role"
+      ],
+      "properties": {
+        "scalar_decision": {
+          "type": "null"
+        },
+        "automatic_decision": {
+          "const": false
+        },
+        "positive_mass_may_offset_adverse": {
+          "const": false
+        },
+        "absence_may_be_imputed_as_zero": {
+          "const": false
+        },
+        "candidate_may_be_counted_as_support": {
+          "const": false
+        },
+        "graph_role": {
+          "const": "typed provenance and routing only"
+        }
+      }
+    },
+    "claim_boundary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proves",
+        "does_not_prove",
+        "preregistration_effect"
+      ],
+      "properties": {
+        "proves": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "does_not_prove": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        },
+        "preregistration_effect": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

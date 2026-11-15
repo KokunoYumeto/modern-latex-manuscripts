@@ -1,0 +1,512 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "ISV-MI-ITEM-BINDING-SCHEMA-v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "package_id",
+    "recorded_at",
+    "time_precision",
+    "timezone",
+    "status",
+    "scope",
+    "authority_state",
+    "claims",
+    "source_pins",
+    "evidence_registry",
+    "families",
+    "morphology_scope_audit",
+    "control_reconciliation",
+    "rejected_assumptions",
+    "continuation_cursor"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "ISV-MI-ITEM-BINDING-SCHEMA-v1"
+    },
+    "package_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "recorded_at": {
+      "type": "string",
+      "pattern": "^2026-08-11$"
+    },
+    "time_precision": {
+      "const": "day"
+    },
+    "timezone": {
+      "const": "Europe/Berlin"
+    },
+    "status": {
+      "const": "candidate_binding_preregistration_input_only"
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "authority_state": {
+      "type": "string",
+      "minLength": 1
+    },
+    "claims": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "participant_ready",
+        "human_response_records",
+        "qualified_native_review_records",
+        "community_approval",
+        "certification",
+        "publication_status"
+      ],
+      "properties": {
+        "participant_ready": {
+          "const": false
+        },
+        "human_response_records": {
+          "const": 0
+        },
+        "qualified_native_review_records": {
+          "const": 0
+        },
+        "community_approval": {
+          "const": false
+        },
+        "certification": {
+          "const": false
+        },
+        "publication_status": {
+          "const": "not_a_publication_payload"
+        }
+      }
+    },
+    "source_pins": {
+      "type": "array",
+      "minItems": 20,
+      "items": {
+        "$ref": "#/$defs/source_pin"
+      }
+    },
+    "evidence_registry": {
+      "type": "array",
+      "minItems": 60,
+      "items": {
+        "$ref": "#/$defs/evidence"
+      }
+    },
+    "families": {
+      "type": "array",
+      "minItems": 12,
+      "maxItems": 12,
+      "items": {
+        "$ref": "#/$defs/family"
+      }
+    },
+    "morphology_scope_audit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "direct_morphology_or_morphosyntax_contrast_count",
+        "families_with_direct_morphology_or_morphosyntax_contrast",
+        "lexically_overconcentrated",
+        "distinction",
+        "held_reason",
+        "extension_loci",
+        "extension_cursor"
+      ],
+      "properties": {
+        "direct_morphology_or_morphosyntax_contrast_count": {
+          "const": 0
+        },
+        "families_with_direct_morphology_or_morphosyntax_contrast": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "lexically_overconcentrated": {
+          "const": true
+        },
+        "distinction": {
+          "type": "string",
+          "minLength": 1
+        },
+        "held_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "extension_loci": {
+          "type": "array",
+          "minItems": 5,
+          "items": {
+            "type": "object",
+            "required": [
+              "locus_id",
+              "phenomenon",
+              "locator",
+              "held_design_question"
+            ]
+          }
+        },
+        "extension_cursor": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "control_reconciliation": {
+      "type": "object"
+    },
+    "rejected_assumptions": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "continuation_cursor": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "$defs": {
+    "source_pin": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_id",
+        "absolute_path",
+        "bytes",
+        "sha256",
+        "role"
+      ],
+      "properties": {
+        "source_id": {
+          "type": "string",
+          "pattern": "^SRC-"
+        },
+        "absolute_path": {
+          "type": "string",
+          "minLength": 3
+        },
+        "bytes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[A-F0-9]{64}$"
+        },
+        "role": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "evidence_id",
+        "edge_type",
+        "fact_class",
+        "source_ids",
+        "locator",
+        "claim"
+      ],
+      "properties": {
+        "evidence_id": {
+          "type": "string",
+          "pattern": "^EV-MI-FAM-"
+        },
+        "edge_type": {
+          "enum": [
+            "support",
+            "competitor",
+            "adverse",
+            "absence",
+            "veto"
+          ]
+        },
+        "fact_class": {
+          "enum": [
+            "source_fact",
+            "computation",
+            "editorial_inference",
+            "source_fact_and_computation"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^SRC-"
+          }
+        },
+        "locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claim": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "context_id",
+        "context_kind",
+        "controlled_occurrence_surface",
+        "target_locator",
+        "german_authority_locator",
+        "alignment_state"
+      ],
+      "properties": {
+        "context_id": {
+          "type": "string",
+          "pattern": "^MI-FAM-[0-9]{2}-CTX-[0-9]{2}$"
+        },
+        "context_kind": {
+          "enum": [
+            "definition_or_formula",
+            "running_prose"
+          ]
+        },
+        "controlled_occurrence_surface": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_locator": {
+          "type": "object",
+          "required": [
+            "source_id",
+            "line",
+            "line_sha256_utf8",
+            "producer_declaration_line",
+            "producer_source_path",
+            "producer_source_exists",
+            "producer_source_sha256",
+            "structural_unit"
+          ]
+        },
+        "german_authority_locator": {
+          "type": "object",
+          "required": [
+            "source_id",
+            "paper_id",
+            "line_start",
+            "line_end",
+            "range_sha256_utf8_lf",
+            "precision"
+          ]
+        },
+        "alignment_state": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "arm": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "role",
+        "surface_candidates",
+        "availability",
+        "absent_or_held_reason"
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "exact_current_v018",
+            "official_isv",
+            "dominant_east_baseline",
+            "branch_balanced_candidate",
+            "native_control"
+          ]
+        },
+        "surface_candidates": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "availability": {
+          "type": "string",
+          "not": {
+            "pattern": "(?i)(participant_ready|approved|certified|canonical|frozen_arm)"
+          }
+        },
+        "absent_or_held_reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "family": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family_id",
+        "family_class",
+        "concept_id",
+        "sense_id",
+        "label",
+        "status",
+        "contexts",
+        "context_requirement_state",
+        "required_inflected_forms",
+        "evidence_edges",
+        "branch_evidence",
+        "arms",
+        "final_choice",
+        "construction_cursor"
+      ],
+      "properties": {
+        "family_id": {
+          "type": "string",
+          "pattern": "^MI-FAM-[0-9]{2}$"
+        },
+        "family_class": {
+          "enum": [
+            "contested_technical",
+            "proof_connective_or_predicate",
+            "positive_control",
+            "false_friend_or_trap_control"
+          ]
+        },
+        "concept_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "sense_id": {
+          "type": "string",
+          "minLength": 3
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "const": "candidate_binding_preregistration_input_only"
+        },
+        "contexts": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/context"
+          }
+        },
+        "context_requirement_state": {
+          "enum": [
+            "met_at_binding_level",
+            "held_missing_definition_or_formula_or_running_prose"
+          ]
+        },
+        "required_inflected_forms": {
+          "type": "object",
+          "required": [
+            "state",
+            "current_inventory",
+            "held_reason"
+          ]
+        },
+        "evidence_edges": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "support",
+            "competitor",
+            "adverse",
+            "absence",
+            "veto"
+          ],
+          "properties": {
+            "support": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^EV-"
+              }
+            },
+            "competitor": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^EV-"
+              }
+            },
+            "adverse": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^EV-"
+              }
+            },
+            "absence": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^EV-"
+              }
+            },
+            "veto": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "pattern": "^EV-"
+              }
+            }
+          }
+        },
+        "branch_evidence": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 3,
+          "items": {
+            "type": "object",
+            "required": [
+              "branch",
+              "state",
+              "surface_candidates",
+              "evidence_ids"
+            ]
+          }
+        },
+        "arms": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {
+            "$ref": "#/$defs/arm"
+          }
+        },
+        "final_choice": {
+          "type": "null"
+        },
+        "construction_cursor": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

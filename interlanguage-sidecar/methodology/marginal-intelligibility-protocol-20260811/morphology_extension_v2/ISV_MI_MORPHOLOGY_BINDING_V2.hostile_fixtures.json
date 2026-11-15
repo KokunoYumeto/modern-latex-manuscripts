@@ -1,0 +1,43 @@
+{
+  "schema_id": "ISV-MI-MORPHOLOGY-BINDING-V2-HOSTILE-FIXTURES-v1",
+  "package_id": "ISV-MI-MORPHOLOGY-BINDING-V2-20260811",
+  "fixture_semantics": "Each fixture mutates a deep copy in memory. The validator is no-write and must report the named error code.",
+  "fixtures": [
+    {
+      "fixture_id": "swapped_locators",
+      "mutations": [
+        {"op": "swap", "paths": ["loci.0.surfaces.ru", "loci.1.surfaces.ru"]}
+      ],
+      "expected_error": "SWAPPED_OR_MISBOUND_LOCATOR"
+    },
+    {
+      "fixture_id": "fabricated_branch_coverage",
+      "mutations": [
+        {"op": "replace", "path": "loci.0.coverage.west", "value": "present_one_surface"}
+      ],
+      "expected_error": "FABRICATED_BRANCH_COVERAGE"
+    },
+    {
+      "fixture_id": "lexical_only_relabeling_as_morphology",
+      "mutations": [
+        {"op": "replace", "path": "loci.2.contrast_requirement.contrast_class", "value": "lexical_only"}
+      ],
+      "expected_error": "LEXICAL_ONLY_RELABEL"
+    },
+    {
+      "fixture_id": "context_hash_mutation",
+      "mutations": [
+        {"op": "replace", "path": "loci.3.surfaces.isv.context.sha256_utf8_lf", "value": "0000000000000000000000000000000000000000000000000000000000000000"}
+      ],
+      "expected_error": "HASH_MUTATION"
+    },
+    {
+      "fixture_id": "fake_native_approval",
+      "mutations": [
+        {"op": "replace", "path": "loci.4.review_state.native_review_records", "value": 1},
+        {"op": "replace", "path": "loci.4.review_state.native_review_status", "value": "approved"}
+      ],
+      "expected_error": "FAKE_NATIVE_APPROVAL"
+    }
+  ]
+}

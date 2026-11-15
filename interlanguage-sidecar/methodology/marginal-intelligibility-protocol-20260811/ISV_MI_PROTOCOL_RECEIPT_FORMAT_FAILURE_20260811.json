@@ -1,0 +1,35 @@
+{
+  "schema": "slisv-isv-mi-protocol-receipt-format-failure-v1",
+  "recorded_at": "2026-08-11T18:43:58+02:00",
+  "time_precision": "second; Europe/Berlin; exact hashes captured from consecutive runs",
+  "failure_class": "display_flag_changed_archival_receipt_serialization",
+  "semantic_validation_state": "PASS in both runs; the failure was reproducibility of persisted bytes",
+  "initial_validator": {
+    "bytes": 18779,
+    "sha256": "379066CBB10152CC8D8766EB1A504FAF37B64D79E24931572DAB67CB9D1794A7"
+  },
+  "first_persisted_receipt": {
+    "command": "py -3.13 -B validate_isv_marginal_intelligibility_protocol.py --self-test --write-receipt",
+    "bytes": 6319,
+    "sha256": "4C3A436C3266C6A2288330405E6D4E39ADA4EDC63B579727040C615A44061674"
+  },
+  "second_persisted_receipt": {
+    "command": "py -3.13 -B validate_isv_marginal_intelligibility_protocol.py --self-test --write-receipt --compact",
+    "bytes": 5402,
+    "sha256": "F62EFBF5849ABB825FE0C92F9300F54527773BEA85A35E00DCEDE06FBAEF16A2"
+  },
+  "cause": "The validator used one serialized byte stream for both stdout and the archival receipt, so --compact changed the persisted representation despite identical semantic results.",
+  "repair": "The archival receipt is now always canonical pretty JSON with terminal LF; --compact affects stdout only.",
+  "corrected_validator": {
+    "bytes": 18908,
+    "sha256": "A74CE96CCD2D34D7F8ABC2DE673F083583A7A1238E939311CC8B8ACC33EE4344"
+  },
+  "corrected_cross_flag_replay": {
+    "noncompact_bytes": 6319,
+    "noncompact_sha256": "F6727EE9F1D013B9F2E803832DBF72E21A4BCF1A71868A377029809A30BA1D30",
+    "compact_bytes": 6319,
+    "compact_sha256": "F6727EE9F1D013B9F2E803832DBF72E21A4BCF1A71868A377029809A30BA1D30",
+    "byte_deterministic": true
+  },
+  "reader_or_release_files_changed": false
+}
