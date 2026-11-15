@@ -1,6 +1,6 @@
 # Supplied External-Record Ledger
 
-> The Zenodo records named on this page have been removed (Zenodo answers 410 Gone), and the links to them were taken out on 15 November 2026. Files that are in this repository are linked to their copies here; the current editions are on GitHub.
+> The Zenodo records named on this page have been removed (Zenodo answers 410 Gone), and the links to them were taken out on 15 November 2026. Files that are on GitHub (in this repository or in a release) are linked to their copies there; the current editions are on GitHub.
 
 This is a provenance and discovery ledger, not an instruction for this GitHub
 maintenance lane to mutate external records. The opening block carries the

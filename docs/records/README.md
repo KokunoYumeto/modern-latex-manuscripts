@@ -1,6 +1,6 @@
 # Record Landing Pages
 
-> The Zenodo records named on this page have been removed (Zenodo answers 410 Gone), and the links to them were taken out on 15 November 2026. Files that are in this repository are linked to their copies here; the current editions are on GitHub.
+> The Zenodo records named on this page have been removed (Zenodo answers 410 Gone), and the links to them were taken out on 15 November 2026. Files that are on GitHub (in this repository or in a release) are linked to their copies there; the current editions are on GitHub.
 
 These pages are generated from `manifests/public-file-catalog.csv` and group each public Zenodo record into reader PDFs, artifact ZIPs, and manifest/status files. This index is ordered by current reader usefulness and source-audit confidence, not by file count, storage size, or aspirational project importance. Each linked record page gives the full public Zenodo title and current quality/status notes.
 

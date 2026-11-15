@@ -98,5 +98,5 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 | 0.1161 | FAC__EDITORIAL_DECISION_LOGBOOK.md |
 | 0.1464 | FAC__LOGBOOK.md |
 | 0.0648 | FAC__STATUS.md |
-| 0.0011 | PACKAGE_VALIDATION.json |
-| 0.0073 | ZENODO_PAYLOAD_MANIFEST.csv |
+| 0.0011 | [PACKAGE_VALIDATION.json](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/sga-2026-09-06-sga4-refresh-r1/PACKAGE_VALIDATION.json) |
+| 0.0073 | [ZENODO_PAYLOAD_MANIFEST.csv](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/sga-2026-09-06-sga4-refresh-r1/ZENODO_PAYLOAD_MANIFEST.csv) |

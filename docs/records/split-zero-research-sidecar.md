@@ -41,7 +41,7 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 |---:|---|
 | 0.0353 | [01_PROJECT_ATLAS_20260717.md](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/HEAD/sources/research-sidecars/split-zero-project-atlas-20260718/01_PROJECT_ATLAS_20260717.md) |
 | 0.0104 | [CHANGELOG.md](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/HEAD/sources/research-sidecars/split-zero-project-atlas-20260718/CHANGELOG.md) |
-| 0.0286 | MANIFEST.json |
+| 0.0286 | [MANIFEST.json](https://github.com/KokunoYumeto/fga-zh-hans-cn/releases/download/fga-zh-hans-cn-2026-08-27-r1/MANIFEST.json) |
 | 0.0072 | PROVENANCE_AND_RIGHTS.md |
-| 0.0065 | README.md |
-| 0.0011 | SHA256SUMS.txt |
+| 0.0065 | [README.md](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/untagged-7730990f04c532fa93a2/README.md) |
+| 0.0011 | [SHA256SUMS.txt](https://github.com/KokunoYumeto/sga-en/releases/download/v2026-11-14-english-edition/SHA256SUMS.txt) |

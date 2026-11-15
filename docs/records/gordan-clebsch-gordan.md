@@ -17,12 +17,12 @@ The public surface contains 57 files: nine reader PDFs, 38 ZIP packages, two rel
 | *Vorlesungen über Invariantentheorie*, Bands I–II | German first-pass combined reader | 455 | 00_CURRENT_Gordan_Vorlesungen_I-II_German_FirstPass_20260811.pdf |
 | *Vorlesungen über Invariantentheorie*, Band I | German first-pass reader | — | 01_Gordan_Vorlesungen_Band_I_German_FirstPass_20260811.pdf |
 | *Vorlesungen über Invariantentheorie*, Band II | German first-pass reader | — | 02_Gordan_Vorlesungen_Band_II_German_FirstPass_20260811.pdf |
-| *Ueber die Transformation der Thetafunctionen* (1863) | German diplomatic | 12 | 03_Gordan_Thetafunctionen_German_Diplomatic_FINAL_20260821.pdf |
-| *Ueber die Transformation der Thetafunctionen* (1863) | Faithful English | 12 | 04_Gordan_Thetafunctionen_English_FINAL_20260821.pdf |
-| *Ueber die Transformation der Thetafunctionen* (1863) | Critical apparatus | 3 | 05_Gordan_Thetafunctionen_Critical_Apparatus_FINAL_20260821.pdf |
-| *De linea geodetica* (1862) | Latin diplomatic | 46 | 06_Gordan_De_linea_Latin_Diplomatic_FINAL_20260821.pdf |
-| *De linea geodetica* (1862) | Faithful English | 46 | 07_Gordan_De_linea_English_FINAL_20260821.pdf |
-| *De linea geodetica* (1862) | Critical apparatus | 3 | 08_Gordan_De_linea_Critical_Apparatus_FINAL_20260821.pdf |
+| *Ueber die Transformation der Thetafunctionen* (1863) | German diplomatic | 12 | [03_Gordan_Thetafunctionen_German_Diplomatic_FINAL_20260821.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/03_Gordan_Thetafunctionen_German_Diplomatic_FINAL_20260821.pdf) |
+| *Ueber die Transformation der Thetafunctionen* (1863) | Faithful English | 12 | [04_Gordan_Thetafunctionen_English_FINAL_20260821.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/04_Gordan_Thetafunctionen_English_FINAL_20260821.pdf) |
+| *Ueber die Transformation der Thetafunctionen* (1863) | Critical apparatus | 3 | [05_Gordan_Thetafunctionen_Critical_Apparatus_FINAL_20260821.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/05_Gordan_Thetafunctionen_Critical_Apparatus_FINAL_20260821.pdf) |
+| *De linea geodetica* (1862) | Latin diplomatic | 46 | [06_Gordan_De_linea_Latin_Diplomatic_FINAL_20260821.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/06_Gordan_De_linea_Latin_Diplomatic_FINAL_20260821.pdf) |
+| *De linea geodetica* (1862) | Faithful English | 46 | [07_Gordan_De_linea_English_FINAL_20260821.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/07_Gordan_De_linea_English_FINAL_20260821.pdf) |
+| *De linea geodetica* (1862) | Critical apparatus | 3 | [08_Gordan_De_linea_Critical_Apparatus_FINAL_20260821.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/08_Gordan_De_linea_Critical_Apparatus_FINAL_20260821.pdf) |
 
 ## Reproducible states and provenance
 
@@ -30,12 +30,12 @@ The public surface contains 57 files: nine reader PDFs, 38 ZIP packages, two rel
 |---|---|
 | Band I buildable TeX | 11_Gordan_Vorlesungen_Band_I_German_BuildableTeX_20260811.zip |
 | Band II buildable TeX | 12_Gordan_Vorlesungen_Band_II_German_BuildableTeX_20260811.zip |
-| Thetafunctionen complete repaired delivery | 13_Gordan_Thetafunctionen_Complete_Repaired_Delivery_20260821.zip |
-| *De linea* terminal buildable state | 14_Gordan_De_linea_Complete_Terminal_State_20260821.zip |
-| Superseded Thetafunctionen bytes | 90_PROVENANCE_Gordan_Thetafunctionen_Superseded_Incomplete_20260821.zip |
-| Superseded *De linea* bytes | 91_PROVENANCE_Gordan_De_linea_Superseded_Incomplete_20260821.zip |
-| Thetafunctionen checksums | GORDAN_THETAFUNCTIONEN_RELEASE_MANIFEST_20260821.tsv |
-| *De linea* checksums | GORDAN_DE_LINEA_RELEASE_MANIFEST_20260821.tsv |
+| Thetafunctionen complete repaired delivery | [13_Gordan_Thetafunctionen_Complete_Repaired_Delivery_20260821.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/13_Gordan_Thetafunctionen_Complete_Repaired_Delivery_20260821.zip) |
+| *De linea* terminal buildable state | [14_Gordan_De_linea_Complete_Terminal_State_20260821.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/14_Gordan_De_linea_Complete_Terminal_State_20260821.zip) |
+| Superseded Thetafunctionen bytes | [90_PROVENANCE_Gordan_Thetafunctionen_Superseded_Incomplete_20260821.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/90_PROVENANCE_Gordan_Thetafunctionen_Superseded_Incomplete_20260821.zip) |
+| Superseded *De linea* bytes | [91_PROVENANCE_Gordan_De_linea_Superseded_Incomplete_20260821.zip](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/91_PROVENANCE_Gordan_De_linea_Superseded_Incomplete_20260821.zip) |
+| Thetafunctionen checksums | [GORDAN_THETAFUNCTIONEN_RELEASE_MANIFEST_20260821.tsv](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/GORDAN_THETAFUNCTIONEN_RELEASE_MANIFEST_20260821.tsv) |
+| *De linea* checksums | [GORDAN_DE_LINEA_RELEASE_MANIFEST_20260821.tsv](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/gordan-2026-08-21-theta-de-linea-complete/GORDAN_DE_LINEA_RELEASE_MANIFEST_20260821.tsv) |
 
 Five formerly loose Thetafunctionen packages and two formerly loose *De linea* packages were removed from the current file surface after their exact bytes were preserved in the two provenance ZIPs. Historical Zenodo versions remain immutable. All other predecessor materials from the 2026-08-11 version remain present and unchanged, with their existing scope limits.
 
