@@ -1,6 +1,6 @@
 # Henri Poincare
 
-Zenodo record: [20673462](https://zenodo.org/records/20673462); concept DOI: [https://doi.org/10.5281/zenodo.20673461](https://doi.org/10.5281/zenodo.20673461)
+Zenodo record: 20673462; concept DOI: 10.5281/zenodo.20673461
 
 Public title: Henri Poincare: Oeuvres, Tome I Source-Witnessed French/English Working Drafts
 
@@ -26,28 +26,28 @@ No files in this group.
 
 | Size MB | File |
 |---:|---|
-| 8.6381 | [poincare_v1_01.zip](https://zenodo.org/records/20673462/files/poincare_v1_01.zip) |
-| 18.5738 | [poincare_v1_02.zip](https://zenodo.org/records/20673462/files/poincare_v1_02.zip) |
-| 49.7288 | [poincare_v1_08.zip](https://zenodo.org/records/20673462/files/poincare_v1_08.zip) |
-| 89.8963 | [poincare_v1_09.zip](https://zenodo.org/records/20673462/files/poincare_v1_09.zip) |
-| 113.0341 | [poincare_v1_10.zip](https://zenodo.org/records/20673462/files/poincare_v1_10.zip) |
-| 112.5801 | [poincare_v1_11.zip](https://zenodo.org/records/20673462/files/poincare_v1_11.zip) |
-| 136.9030 | [poincare_v1_12.zip](https://zenodo.org/records/20673462/files/poincare_v1_12.zip) |
-| 130.0278 | [poincare_v1_13.zip](https://zenodo.org/records/20673462/files/poincare_v1_13.zip) |
-| 132.1154 | [poincare_v1_14.zip](https://zenodo.org/records/20673462/files/poincare_v1_14.zip) |
-| 172.0362 | [poincare_v1_15.zip](https://zenodo.org/records/20673462/files/poincare_v1_15.zip) |
-| 154.7623 | [poincare_v1_16.zip](https://zenodo.org/records/20673462/files/poincare_v1_16.zip) |
-| 153.4860 | [poincare_v1_17.zip](https://zenodo.org/records/20673462/files/poincare_v1_17.zip) |
-| 173.1888 | [poincare_v1_18.zip](https://zenodo.org/records/20673462/files/poincare_v1_18.zip) |
-| 207.2206 | [poincare_v1_19.zip](https://zenodo.org/records/20673462/files/poincare_v1_19.zip) |
-| 214.2228 | [poincare_v1_20.zip](https://zenodo.org/records/20673462/files/poincare_v1_20.zip) |
-| 231.5475 | [poincare_v1_21.zip](https://zenodo.org/records/20673462/files/poincare_v1_21.zip) |
-| 81.7369 | [poincare_v1_24.zip](https://zenodo.org/records/20673462/files/poincare_v1_24.zip) |
-| 119.5292 | [poincare_v1_25.zip](https://zenodo.org/records/20673462/files/poincare_v1_25.zip) |
-| 102.3785 | [poincare_v1_26.zip](https://zenodo.org/records/20673462/files/poincare_v1_26.zip) |
+| 8.6381 | poincare_v1_01.zip |
+| 18.5738 | poincare_v1_02.zip |
+| 49.7288 | poincare_v1_08.zip |
+| 89.8963 | poincare_v1_09.zip |
+| 113.0341 | poincare_v1_10.zip |
+| 112.5801 | poincare_v1_11.zip |
+| 136.9030 | poincare_v1_12.zip |
+| 130.0278 | poincare_v1_13.zip |
+| 132.1154 | poincare_v1_14.zip |
+| 172.0362 | poincare_v1_15.zip |
+| 154.7623 | poincare_v1_16.zip |
+| 153.4860 | poincare_v1_17.zip |
+| 173.1888 | poincare_v1_18.zip |
+| 207.2206 | poincare_v1_19.zip |
+| 214.2228 | poincare_v1_20.zip |
+| 231.5475 | poincare_v1_21.zip |
+| 81.7369 | poincare_v1_24.zip |
+| 119.5292 | poincare_v1_25.zip |
+| 102.3785 | poincare_v1_26.zip |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0011 | [99_Poincare_-_Public_Summary_20260613.json](https://zenodo.org/records/20673462/files/99_Poincare_-_Public_Summary_20260613.json) |
+| 0.0011 | 99_Poincare_-_Public_Summary_20260613.json |

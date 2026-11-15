@@ -1,6 +1,6 @@
 # Lean Formalization Sidecars
 
-Zenodo record: [21129946](https://zenodo.org/records/21129946); concept DOI: [https://doi.org/10.5281/zenodo.21129945](https://doi.org/10.5281/zenodo.21129945)
+Zenodo record: 21129946; concept DOI: 10.5281/zenodo.21129945
 
 Public title: Classical Mathematics Lean 4 Formalization Sidecars
 
@@ -26,7 +26,7 @@ No files in this group.
 
 | Size MB | File |
 |---:|---|
-| 0.0094 | [ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip](https://zenodo.org/records/21129946/files/ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip) |
+| 0.0094 | ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip |
 
 ## Manifest And Status Files
 

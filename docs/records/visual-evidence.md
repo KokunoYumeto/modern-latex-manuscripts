@@ -1,6 +1,6 @@
 # SGA / EGA Source-Audit Image Worksets
 
-Zenodo record: [21730032](https://zenodo.org/records/21730032); concept DOI: [https://doi.org/10.5281/zenodo.21730031](https://doi.org/10.5281/zenodo.21730031)
+Zenodo record: 21730032; concept DOI: 10.5281/zenodo.21730031
 
 Public title: SGA and EGA High-Detail Source-Audit Image Worksets: Compute-Reuse Dataset
 
@@ -26,6 +26,6 @@ No files in this group.
 
 | Size MB | File |
 |---:|---|
-| 127.5863 | [00_SGA7I_Targeted_HighDetail_Source_Crops_I_II_VI_20260801.zip](https://zenodo.org/records/21730032/files/00_SGA7I_Targeted_HighDetail_Source_Crops_I_II_VI_20260801.zip) |
-| 115.7419 | [01_SGA7I_Targeted_HighDetail_Source_Crops_VII_IX_20260801.zip](https://zenodo.org/records/21730032/files/01_SGA7I_Targeted_HighDetail_Source_Crops_VII_IX_20260801.zip) |
-| 4.8020 | [90_SGA7I_Targeted_Source_Crops_Metadata_20260801.zip](https://zenodo.org/records/21730032/files/90_SGA7I_Targeted_Source_Crops_Metadata_20260801.zip) |
+| 127.5863 | 00_SGA7I_Targeted_HighDetail_Source_Crops_I_II_VI_20260801.zip |
+| 115.7419 | 01_SGA7I_Targeted_HighDetail_Source_Crops_VII_IX_20260801.zip |
+| 4.8020 | 90_SGA7I_Targeted_Source_Crops_Metadata_20260801.zip |

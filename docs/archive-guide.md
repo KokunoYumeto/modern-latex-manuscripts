@@ -10,28 +10,28 @@ For the shortest path into the archive, use the [browse index](browse-index.md).
 
 | Need | Start Here |
 |---|---|
-| Overall project map and bulk preservation | <https://doi.org/10.5281/zenodo.20393488> |
-| Workflow and replication notes | <https://doi.org/10.5281/zenodo.20461174> |
-| Emmy Noether | <https://doi.org/10.5281/zenodo.20412587> |
-| Heinrich Weber | <https://doi.org/10.5281/zenodo.20412153> |
-| Arthur Cayley | <https://doi.org/10.5281/zenodo.20520749> |
-| SGA source and English/French translation drafts | <https://doi.org/10.5281/zenodo.20410947> |
-| Pierre Deligne papers and letters | <https://doi.org/10.5281/zenodo.20410853> |
-| EGA French originals and English working translation | <https://doi.org/10.5281/zenodo.20414353> |
-| Ukrainian applied mathematics | <https://doi.org/10.5281/zenodo.20490906> |
-| Gauss | <https://doi.org/10.5281/zenodo.20410934> |
-| Riemann | <https://doi.org/10.5281/zenodo.20429778> |
-| Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <https://doi.org/10.5281/zenodo.20410957> |
-| Chinese mathematical classics only | <https://doi.org/10.5281/zenodo.20415751> |
-| Indian and Sanskrit mathematical classics only | <https://doi.org/10.5281/zenodo.20415754> |
-| Islamic and Arabic mathematical texts only | <https://doi.org/10.5281/zenodo.20415769> |
-| Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <https://doi.org/10.5281/zenodo.20414787> |
-| Luigi Bianchi | <https://doi.org/10.5281/zenodo.20615814> |
-| Paul Gordan and Clebsch-Gordan | <https://doi.org/10.5281/zenodo.20616260> |
-| Ernst Steinitz current working packets | <https://doi.org/10.5281/zenodo.20616988> |
-| Ferdinand Georg Frobenius | <https://doi.org/10.5281/zenodo.20673444> |
-| Henri Poincare | <https://doi.org/10.5281/zenodo.20673461> |
-| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <https://doi.org/10.5281/zenodo.20411006> |
+| Overall project map and bulk preservation | <DOI 10.5281/zenodo.20393488> |
+| Workflow and replication notes | <DOI 10.5281/zenodo.20461174> |
+| Emmy Noether | <DOI 10.5281/zenodo.20412587> |
+| Heinrich Weber | <DOI 10.5281/zenodo.20412153> |
+| Arthur Cayley | <DOI 10.5281/zenodo.20520749> |
+| SGA source and English/French translation drafts | <DOI 10.5281/zenodo.20410947> |
+| Pierre Deligne papers and letters | <DOI 10.5281/zenodo.20410853> |
+| EGA French originals and English working translation | <DOI 10.5281/zenodo.20414353> |
+| Ukrainian applied mathematics | <DOI 10.5281/zenodo.20490906> |
+| Gauss | <DOI 10.5281/zenodo.20410934> |
+| Riemann | <DOI 10.5281/zenodo.20429778> |
+| Chinese, Indian/Sanskrit, and Islamic/Arabic mathematical classics together | <DOI 10.5281/zenodo.20410957> |
+| Chinese mathematical classics only | <DOI 10.5281/zenodo.20415751> |
+| Indian and Sanskrit mathematical classics only | <DOI 10.5281/zenodo.20415754> |
+| Islamic and Arabic mathematical texts only | <DOI 10.5281/zenodo.20415769> |
+| Cayley, Dedekind, Dirichlet, Gauss, Weber, Noether, and nearby algebra/arithmetic material | <DOI 10.5281/zenodo.20414787> |
+| Luigi Bianchi | <DOI 10.5281/zenodo.20615814> |
+| Paul Gordan and Clebsch-Gordan | <DOI 10.5281/zenodo.20616260> |
+| Ernst Steinitz current working packets | <DOI 10.5281/zenodo.20616988> |
+| Ferdinand Georg Frobenius | <DOI 10.5281/zenodo.20673444> |
+| Henri Poincare | <DOI 10.5281/zenodo.20673461> |
+| Minkowski, Hecke, Landau, Steinitz backstop copies, Hensel, Oka, Hausdorff, Grassmann, Killing, and routed additional-author packets | <DOI 10.5281/zenodo.20411006> |
 
 ## File Types
 

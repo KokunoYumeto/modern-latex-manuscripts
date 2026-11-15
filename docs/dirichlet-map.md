@@ -24,7 +24,7 @@ received the same corrections.
 
 The [complete edition](https://github.com/KokunoYumeto/modern-latex-manuscripts/tree/main/sources/dirichlet/Band_I_Paper_IV_20260921) contains all 34 author pages 65–98 of *Recherches sur les diviseurs premiers d’une classe de formules du quatrième degré*, following the attached 1889 witness. Copy leaves 63–64 are separately preserved; Paper V is excluded.
 
-[French reader](../reader-pdfs/dirichlet/Paper_IV_20260921/PAPER_IV_FR_PP065_098.pdf) · [English reader](../reader-pdfs/dirichlet/Paper_IV_20260921/PAPER_IV_EN_PP065_098.pdf) · [Five-page apparatus](../reader-pdfs/dirichlet/Paper_IV_20260921/PAPER_IV_APPARATUS_S04.pdf) · [Editable sources, scans and full audit](../sources/dirichlet/Band_I_Paper_IV_20260921/edition/) · [Zenodo 22873449](https://zenodo.org/records/22873449).
+[French reader](../reader-pdfs/dirichlet/Paper_IV_20260921/PAPER_IV_FR_PP065_098.pdf) · [English reader](../reader-pdfs/dirichlet/Paper_IV_20260921/PAPER_IV_EN_PP065_098.pdf) · [Five-page apparatus](../reader-pdfs/dirichlet/Paper_IV_20260921/PAPER_IV_APPARATUS_S04.pdf) · [Editable sources, scans and full audit](../sources/dirichlet/Band_I_Paper_IV_20260921/edition/) · Zenodo 22873449.
 
 The AI-assisted final source pass re-read the inherited R27/R28 region as well as the continuation, yielding 21 further corrections and 93 cumulative ledger rows. Printed anomalies remain literal, including b on p. 89; editorial inference is confined to the apparatus. All 73 final reader pages were independently compiled and reviewed locally. No independent human peer review or whole-volume certification is claimed. R27/R28 remain provenance rather than the current reading text. Existing Band II warnings below remain open.
 

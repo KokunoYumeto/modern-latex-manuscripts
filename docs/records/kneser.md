@@ -1,6 +1,6 @@
 # Adolf Kneser
 
-Zenodo record: [20836972](https://zenodo.org/records/20836972); concept DOI: [https://doi.org/10.5281/zenodo.20836971](https://doi.org/10.5281/zenodo.20836971)
+Zenodo record: 20836972; concept DOI: 10.5281/zenodo.20836971
 
 Public title: Adolf Kneser: Lehrbuch der Variationsrechnung, German Source and English Translation Working Drafts
 
@@ -22,26 +22,26 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 0.9509 | [01 Adolf Kneser - Lehrbuch der Variationsrechnung English Working Reader p0011-0248 2026-06-13.pdf](https://zenodo.org/records/20836972/files/01%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20English%20Working%20Reader%20p0011-0248%202026-06-13.pdf) |
-| 0.9684 | [02 Adolf Kneser - Lehrbuch der Variationsrechnung German Source Working Reader p0011-0248 2026-06-13.pdf](https://zenodo.org/records/20836972/files/02%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20German%20Source%20Working%20Reader%20p0011-0248%202026-06-13.pdf) |
-| 5.9541 | [05 Adolf Kneser - Lehrbuch der Variationsrechnung HQ Source Witness p0001-0248 2026-06-13.pdf](https://zenodo.org/records/20836972/files/05%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20HQ%20Source%20Witness%20p0001-0248%202026-06-13.pdf) |
+| 0.9509 | 01 Adolf Kneser - Lehrbuch der Variationsrechnung English Working Reader p0011-0248 2026-06-13.pdf |
+| 0.9684 | 02 Adolf Kneser - Lehrbuch der Variationsrechnung German Source Working Reader p0011-0248 2026-06-13.pdf |
+| 5.9541 | 05 Adolf Kneser - Lehrbuch der Variationsrechnung HQ Source Witness p0001-0248 2026-06-13.pdf |
 
 ## Editable TeX
 
 | Size MB | File |
 |---:|---|
-| 0.4500 | [03 Adolf Kneser - Lehrbuch der Variationsrechnung English Working TeX p0011-0248 2026-06-13.tex](https://zenodo.org/records/20836972/files/03%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20English%20Working%20TeX%20p0011-0248%202026-06-13.tex) |
-| 0.4615 | [04 Adolf Kneser - Lehrbuch der Variationsrechnung German Source Working TeX p0011-0248 2026-06-13.tex](https://zenodo.org/records/20836972/files/04%20Adolf%20Kneser%20-%20Lehrbuch%20der%20Variationsrechnung%20German%20Source%20Working%20TeX%20p0011-0248%202026-06-13.tex) |
+| 0.4500 | 03 Adolf Kneser - Lehrbuch der Variationsrechnung English Working TeX p0011-0248 2026-06-13.tex |
+| 0.4615 | 04 Adolf Kneser - Lehrbuch der Variationsrechnung German Source Working TeX p0011-0248 2026-06-13.tex |
 
 ## Artifact ZIPs
 
 | Size MB | File |
 |---:|---|
-| 107.9520 | [06 Adolf Kneser - LVR p0234-p0248 Current Slice and Cumulative Audit Package 2026-06-13.zip](https://zenodo.org/records/20836972/files/06%20Adolf%20Kneser%20-%20LVR%20p0234-p0248%20Current%20Slice%20and%20Cumulative%20Audit%20Package%202026-06-13.zip) |
+| 107.9520 | 06 Adolf Kneser - LVR p0234-p0248 Current Slice and Cumulative Audit Package 2026-06-13.zip |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0016 | [07 Adolf Kneser - Current Status and Caveats 2026-06-24.md](https://zenodo.org/records/20836972/files/07%20Adolf%20Kneser%20-%20Current%20Status%20and%20Caveats%202026-06-24.md) |
-| 0.0006 | [08 Adolf Kneser - Worklist Progress p0248 2026-06-13.json](https://zenodo.org/records/20836972/files/08%20Adolf%20Kneser%20-%20Worklist%20Progress%20p0248%202026-06-13.json) |
+| 0.0016 | 07 Adolf Kneser - Current Status and Caveats 2026-06-24.md |
+| 0.0006 | 08 Adolf Kneser - Worklist Progress p0248 2026-06-13.json |

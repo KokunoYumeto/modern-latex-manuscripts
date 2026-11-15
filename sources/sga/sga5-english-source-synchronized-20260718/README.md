@@ -1,6 +1,6 @@
 # SGA 5 English source-synchronized working edition
 
-Public version: [10.5281/zenodo.21431041](https://doi.org/10.5281/zenodo.21431041), under concept DOI [10.5281/zenodo.20410947](https://doi.org/10.5281/zenodo.20410947).
+Public version: 10.5281/zenodo.21431041, under concept DOI 10.5281/zenodo.20410947.
 
 This directory mirrors the replacement 309-page English working reader and
 its complete 54-file editable-source, ledger, build, and render-QA package.

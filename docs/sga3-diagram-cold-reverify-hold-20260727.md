@@ -95,7 +95,7 @@ The following known unpublished diagram-bearing scopes are controlled:
 - Expose XI: the earlier diagram gate passed and the exact bounded checkpoint
   is now
   public on same-concept record
-  [21630748](https://zenodo.org/records/21630748). The public-package receipt
+  21630748. The public-package receipt
   `DIAGRAM_COLD_REVERIFY_RECEIPT.json`, SHA-256
   `D852EECC167479848EA85831389A54CC1607B937EBCB3CF9130AE43EF8964F22`,
   binds the target-only public 300-dpi full pages, 600-dpi whole diagrams,

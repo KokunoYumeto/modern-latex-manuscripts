@@ -1,6 +1,6 @@
 # Bernhard Riemann
 
-Zenodo record: [20434317](https://zenodo.org/records/20434317); concept DOI: [https://doi.org/10.5281/zenodo.20429778](https://doi.org/10.5281/zenodo.20429778)
+Zenodo record: 20434317; concept DOI: 10.5281/zenodo.20429778
 
 Public title: Bernhard Riemann: Selected Mathematical Papers and Collected Works (Modern LaTeX Working Drafts)
 
@@ -22,15 +22,15 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 2.7934 | [10 Reader PDF - Riemann - Gesammelte Werke Complete Draft.pdf](https://zenodo.org/records/20434317/files/10%20Reader%20PDF%20-%20Riemann%20-%20Gesammelte%20Werke%20Complete%20Draft.pdf) |
-| 1.3248 | [10 Reader PDF - Riemann - Selected Papers.pdf](https://zenodo.org/records/20434317/files/10%20Reader%20PDF%20-%20Riemann%20-%20Selected%20Papers.pdf) |
+| 2.7934 | [10 Reader PDF - Riemann - Gesammelte Werke Complete Draft.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/HEAD/reader-pdfs/riemann/10%20Reader%20PDF%20-%20Riemann%20-%20Gesammelte%20Werke%20Complete%20Draft.pdf) |
+| 1.3248 | [10 Reader PDF - Riemann - Selected Papers.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/HEAD/reader-pdfs/riemann/10%20Reader%20PDF%20-%20Riemann%20-%20Selected%20Papers.pdf) |
 
 ## Artifact ZIPs
 
 | Size MB | File |
 |---:|---|
-| 3.3523 | [90 Artifacts - Riemann - Gesammelte Werke Complete Draft.zip](https://zenodo.org/records/20434317/files/90%20Artifacts%20-%20Riemann%20-%20Gesammelte%20Werke%20Complete%20Draft.zip) |
-| 44.8768 | [90 Artifacts - Riemann - Selected Papers.zip](https://zenodo.org/records/20434317/files/90%20Artifacts%20-%20Riemann%20-%20Selected%20Papers.zip) |
+| 3.3523 | 90 Artifacts - Riemann - Gesammelte Werke Complete Draft.zip |
+| 44.8768 | 90 Artifacts - Riemann - Selected Papers.zip |
 
 ## Manifest And Status Files
 

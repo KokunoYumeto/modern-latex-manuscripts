@@ -32,7 +32,7 @@ This page lists the main coordination documents in this repository and what each
 | [Known gaps](known-gaps.md) | Current incompleteness and caveats by corpus. |
 | [Work queue](work-queue.md) | Historical producer/evidence context plus GitHub-scoped work leads; use the adoption board for current assignments. |
 | [Author page candidates](author-page-candidates.md) | Human-readable triage for deciding when a mixed shelf should become a dedicated Zenodo author/topic record. |
-| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Historical map of the raw source-body/provenance side branch; grouped payloads are preserved in interlanguage version [10.5281/zenodo.21430885](https://doi.org/10.5281/zenodo.21430885). For the current interlanguage methodology head, use [10.5281/zenodo.21788322](https://doi.org/10.5281/zenodo.21788322). |
+| [Interlanguage source-body side branch inventory](interlanguage-source-body-sidebranch-20260707.md) | Historical map of the raw source-body/provenance side branch; grouped payloads are preserved in interlanguage version 10.5281/zenodo.21430885. For the current interlanguage methodology head, use 10.5281/zenodo.21788322. |
 
 ## Method And Quality
 

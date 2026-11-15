@@ -1,6 +1,6 @@
 # Split-Zero Geometry and Common Deformation Registers
 
-Zenodo record: [21443852](https://zenodo.org/records/21443852); concept DOI: [https://doi.org/10.5281/zenodo.20822444](https://doi.org/10.5281/zenodo.20822444)
+Zenodo record: 21443852; concept DOI: 10.5281/zenodo.20822444
 
 Public title: Split-Zero Geometry and Common Deformation Registers: Project Atlas, Exact Results, Formalization, and Visualizations
 
@@ -22,26 +22,26 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 0.1070 | [00_PROJECT_ATLAS_20260717.pdf](https://zenodo.org/records/21443852/files/00_PROJECT_ATLAS_20260717.pdf) |
-| 27.0903 | [02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf](https://zenodo.org/records/21443852/files/02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf) |
-| 27.9045 | [04_VISUAL_ATLAS_20260717.pdf](https://zenodo.org/records/21443852/files/04_VISUAL_ATLAS_20260717.pdf) |
+| 0.1070 | [00_PROJECT_ATLAS_20260717.pdf](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/HEAD/sources/research-sidecars/split-zero-project-atlas-20260718/00_PROJECT_ATLAS_20260717.pdf) |
+| 27.0903 | 02_CURRENT_RESULTS_COMPENDIUM_20260717.pdf |
+| 27.9045 | 04_VISUAL_ATLAS_20260717.pdf |
 
 ## Artifact ZIPs
 
 | Size MB | File |
 |---:|---|
-| 3.0012 | [03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip](https://zenodo.org/records/21443852/files/03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip) |
-| 62.7597 | [05_VISUALIZATIONS_AND_DATA_20260717.zip](https://zenodo.org/records/21443852/files/05_VISUALIZATIONS_AND_DATA_20260717.zip) |
-| 0.6217 | [06_CURRENT_WORKING_TEXTS_20260717.zip](https://zenodo.org/records/21443852/files/06_CURRENT_WORKING_TEXTS_20260717.zip) |
-| 0.0430 | [07_Predatum_K4_Hopf_WorkingNotes_and_Checks_20260718.zip](https://zenodo.org/records/21443852/files/07_Predatum_K4_Hopf_WorkingNotes_and_Checks_20260718.zip) |
+| 3.0012 | 03_FORMALIZATION_AND_EXACT_CHECKS_20260717.zip |
+| 62.7597 | 05_VISUALIZATIONS_AND_DATA_20260717.zip |
+| 0.6217 | 06_CURRENT_WORKING_TEXTS_20260717.zip |
+| 0.0430 | 07_Predatum_K4_Hopf_WorkingNotes_and_Checks_20260718.zip |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0353 | [01_PROJECT_ATLAS_20260717.md](https://zenodo.org/records/21443852/files/01_PROJECT_ATLAS_20260717.md) |
-| 0.0104 | [CHANGELOG.md](https://zenodo.org/records/21443852/files/CHANGELOG.md) |
-| 0.0286 | [MANIFEST.json](https://zenodo.org/records/21443852/files/MANIFEST.json) |
-| 0.0072 | [PROVENANCE_AND_RIGHTS.md](https://zenodo.org/records/21443852/files/PROVENANCE_AND_RIGHTS.md) |
-| 0.0065 | [README.md](https://zenodo.org/records/21443852/files/README.md) |
-| 0.0011 | [SHA256SUMS.txt](https://zenodo.org/records/21443852/files/SHA256SUMS.txt) |
+| 0.0353 | [01_PROJECT_ATLAS_20260717.md](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/HEAD/sources/research-sidecars/split-zero-project-atlas-20260718/01_PROJECT_ATLAS_20260717.md) |
+| 0.0104 | [CHANGELOG.md](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/HEAD/sources/research-sidecars/split-zero-project-atlas-20260718/CHANGELOG.md) |
+| 0.0286 | MANIFEST.json |
+| 0.0072 | PROVENANCE_AND_RIGHTS.md |
+| 0.0065 | README.md |
+| 0.0011 | SHA256SUMS.txt |

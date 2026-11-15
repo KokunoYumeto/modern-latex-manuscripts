@@ -1,6 +1,6 @@
 # James Clerk Maxwell
 
-Zenodo record: [20821947](https://zenodo.org/records/20821947); concept DOI: [https://doi.org/10.5281/zenodo.20653107](https://doi.org/10.5281/zenodo.20653107)
+Zenodo record: 20821947; concept DOI: 10.5281/zenodo.20653107
 
 Public title: James Clerk Maxwell: A Treatise on Electricity and Magnetism, Volume I Source-Witnessed LaTeX Working Tranches
 
@@ -26,17 +26,17 @@ No files in this group.
 
 | Size MB | File |
 |---:|---|
-| 10.0988 | [Maxwell_IA_Master_Image_Index_20260612.zip](https://zenodo.org/records/20821947/files/Maxwell_IA_Master_Image_Index_20260612.zip) |
-| 74.0830 | [Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip](https://zenodo.org/records/20821947/files/Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip) |
-| 166.5580 | [Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip](https://zenodo.org/records/20821947/files/Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip) |
-| 199.9790 | [Maxwell_Vol1_pp060_079_cum_scans_20260613.zip](https://zenodo.org/records/20821947/files/Maxwell_Vol1_pp060_079_cum_scans_20260613.zip) |
-| 76.5056 | [Maxwell_Vol1_Reverify_pp001_058_20260612.zip](https://zenodo.org/records/20821947/files/Maxwell_Vol1_Reverify_pp001_058_20260612.zip) |
-| 64.9250 | [Maxwell_Vol1_Reverify_pp001_059_20260612.zip](https://zenodo.org/records/20821947/files/Maxwell_Vol1_Reverify_pp001_059_20260612.zip) |
-| 108.4564 | [Maxwell_WebPromo_Index_Closeout_p001_059_20260613.zip](https://zenodo.org/records/20821947/files/Maxwell_WebPromo_Index_Closeout_p001_059_20260613.zip) |
+| 10.0988 | Maxwell_IA_Master_Image_Index_20260612.zip |
+| 74.0830 | Maxwell_Treatise_Vol1_IA1873_FirstEdition_Reverified_pp001_055_20260612.zip |
+| 166.5580 | Maxwell_Treatise_Vol1_SourceChecked_Working_Tranches_20260612_public.zip |
+| 199.9790 | Maxwell_Vol1_pp060_079_cum_scans_20260613.zip |
+| 76.5056 | Maxwell_Vol1_Reverify_pp001_058_20260612.zip |
+| 64.9250 | Maxwell_Vol1_Reverify_pp001_059_20260612.zip |
+| 108.4564 | Maxwell_WebPromo_Index_Closeout_p001_059_20260613.zip |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0007 | [STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md](https://zenodo.org/records/20821947/files/STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md) |
-| 0.0017 | [STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md](https://zenodo.org/records/20821947/files/STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md) |
+| 0.0007 | STATUS_MAXWELL_VOL1_SOURCECHECKED_WORKING_TRANCHES_20260612.md |
+| 0.0017 | STATUS_MAXWELL_WORKING_TRANCHES_20260612_PP001_055_UPDATE.md |

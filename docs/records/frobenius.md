@@ -1,6 +1,6 @@
 # Ferdinand Georg Frobenius
 
-Zenodo record: [20821858](https://zenodo.org/records/20821858); concept DOI: [https://doi.org/10.5281/zenodo.20673444](https://doi.org/10.5281/zenodo.20673444)
+Zenodo record: 20821858; concept DOI: 10.5281/zenodo.20673444
 
 Public title: Ferdinand Georg Frobenius: Group Character Papers, German Source and English Translation Working Drafts
 
@@ -22,26 +22,26 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 1.1871 | [Frobenius_selected_EN_cumulative_all.pdf](https://zenodo.org/records/20821858/files/Frobenius_selected_EN_cumulative_all.pdf) |
-| 1.2044 | [Frobenius_selected_GE_cumulative_all.pdf](https://zenodo.org/records/20821858/files/Frobenius_selected_GE_cumulative_all.pdf) |
+| 1.1871 | Frobenius_selected_EN_cumulative_all.pdf |
+| 1.2044 | Frobenius_selected_GE_cumulative_all.pdf |
 
 ## Editable TeX
 
 | Size MB | File |
 |---:|---|
-| 0.5140 | [Frobenius_selected_EN_cumulative_all.tex](https://zenodo.org/records/20821858/files/Frobenius_selected_EN_cumulative_all.tex) |
-| 0.5290 | [Frobenius_selected_GE_cumulative_all.tex](https://zenodo.org/records/20821858/files/Frobenius_selected_GE_cumulative_all.tex) |
+| 0.5140 | Frobenius_selected_EN_cumulative_all.tex |
+| 0.5290 | Frobenius_selected_GE_cumulative_all.tex |
 
 ## Artifact ZIPs
 
 | Size MB | File |
 |---:|---|
-| 166.1570 | [Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip](https://zenodo.org/records/20821858/files/Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip) |
-| 163.9990 | [Frobenius_all_GE_EN_cum_scans_RA05_20260613.zip](https://zenodo.org/records/20821858/files/Frobenius_all_GE_EN_cum_scans_RA05_20260613.zip) |
+| 166.1570 | Frobenius_all_GE_EN_cum_scans_QA03_20260611.zip |
+| 163.9990 | Frobenius_all_GE_EN_cum_scans_RA05_20260613.zip |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0007 | [99_Frobenius_-_Public_Summary_20260613.json](https://zenodo.org/records/20821858/files/99_Frobenius_-_Public_Summary_20260613.json) |
-| 0.0021 | [99_Frobenius_Public_Summary_20260624.json](https://zenodo.org/records/20821858/files/99_Frobenius_Public_Summary_20260624.json) |
+| 0.0007 | 99_Frobenius_-_Public_Summary_20260613.json |
+| 0.0021 | 99_Frobenius_Public_Summary_20260624.json |

@@ -1,6 +1,6 @@
 # James Joseph Sylvester
 
-Zenodo record: [20649689](https://zenodo.org/records/20649689); concept DOI: [https://doi.org/10.5281/zenodo.20520692](https://doi.org/10.5281/zenodo.20520692)
+Zenodo record: 20649689; concept DOI: 10.5281/zenodo.20520692
 
 Public title: James Joseph Sylvester: Collected Mathematical Papers, Source-Witnessed Modern LaTeX Working Drafts
 
@@ -22,16 +22,16 @@ Corrections, source comparisons, LaTeX fixes, and translation improvements can b
 
 | Size MB | File |
 |---:|---|
-| 2.4204 | [Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 608.pdf](https://zenodo.org/records/20649689/files/Sylvester%20-%20Collected%20Mathematical%20Papers%2C%20Volume%20I%20-%20Source-Checked%20Edition%20through%20Book%20Page%20608.pdf) |
+| 2.4204 | Sylvester - Collected Mathematical Papers, Volume I - Source-Checked Edition through Book Page 608.pdf |
 
 ## Artifact ZIPs
 
 | Size MB | File |
 |---:|---|
-| 89.4409 | [Sylvester_Vol1_pp001_608_with_scans_idx_20260608.zip](https://zenodo.org/records/20649689/files/Sylvester_Vol1_pp001_608_with_scans_idx_20260608.zip) |
+| 89.4409 | Sylvester_Vol1_pp001_608_with_scans_idx_20260608.zip |
 
 ## Manifest And Status Files
 
 | Size MB | File |
 |---:|---|
-| 0.0008 | [90 Sylvester - Public Summary.json](https://zenodo.org/records/20649689/files/90%20Sylvester%20-%20Public%20Summary.json) |
+| 0.0008 | [90 Sylvester - Public Summary.json](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/HEAD/manifests/90%20Sylvester%20-%20Public%20Summary.json) |

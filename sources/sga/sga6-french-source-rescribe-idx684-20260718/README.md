@@ -6,7 +6,7 @@ p. 5. The next page in the linear pass is source-scan index 685, volume p.
 672, Expose XIV p. 6.
 
 The grouped reader/source/audit package is published under the permanent SGA
-concept DOI [`10.5281/zenodo.20410947`](https://doi.org/10.5281/zenodo.20410947).
+concept DOI `10.5281/zenodo.20410947`.
 
 ## What This Update Adds
 
