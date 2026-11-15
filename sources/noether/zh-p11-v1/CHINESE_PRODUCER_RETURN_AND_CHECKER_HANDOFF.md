@@ -4,7 +4,7 @@ Prepared from live file custody after the mechanical builds. This is a producer 
 
 ## Controlling boundary and state
 
-Floris's exact instruction is:
+user's exact instruction is:
 
 > you do not check - you translate - other sessions CHEWCK
 
@@ -14,7 +14,7 @@ Neither PDF was opened, rendered, or visually inspected by the producer. SGA rem
 
 ## Durable coordination
 
-- Durable lane log: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md
+- Durable lane log: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md
 - Claim decision: ZH-D108.
 - Translation/build decision: ZH-D109.
 - Intended next freeze decision: ZH-D110. This handoff does not claim that ZH-D110 already exists.
@@ -22,9 +22,9 @@ Neither PDF was opened, rendered, or visually inspected by the producer. SGA rem
 
 ## German authority and source cursor
 
-- Current authority pointer: C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md
+- Current authority pointer: C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md
 - Pointer bytes / SHA-256: 1,170 / FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1.
-- Current German authority: C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex
+- Current German authority: C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex
 - Whole-authority bytes / SHA-256: 2,132,486 / 443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27.
 - Complete Paper 11 cursor: lines 7865--8070, raw UTF-8 bytes [522014,547734), 25,720 bytes.
 - Local exact source snapshot SHA-256: DE540AFFE512CF39871019A946F7CEBA9FFF04ADFB54FA1D531E5A40ADA5CBA1.

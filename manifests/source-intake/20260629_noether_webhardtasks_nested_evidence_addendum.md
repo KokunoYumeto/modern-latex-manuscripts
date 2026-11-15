@@ -4,7 +4,7 @@ Date: 2026-06-29
 
 Local root:
 
-`C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_WebHardTasks_20260629`
+`C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_WebHardTasks_20260629`
 
 Machine-readable companion:
 

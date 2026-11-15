@@ -4,7 +4,7 @@
 
 This package contains a complete producer translation of Noether Paper 10, *Die Funktionalgleichungen der isomorphen Abbildung*, in PRC-oriented Simplified Chinese (`zh-Hans-CN`) plus a mechanically derived controlled-generic Traditional Chinese script form (`zh-Hant-controlled`). It is `translated/built; independent check pending`.
 
-Floris's controlling instruction is retained verbatim:
+user's controlling instruction is retained verbatim:
 
 > you do not check - you translate - other sessions CHEWCK
 

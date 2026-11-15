@@ -48,5 +48,5 @@ Splitting/combining decisions already taken by the program and confirmed by this
 | Sign languages | visual access layer | n/a | n/a | n/a | concept-map/video-lexicon infrastructure, not a written auxiliary |
 | Uralic/Mongolic/Caucasus/diaspora | status only | FAIL yet | varies | varies | keep as R8 status watch |
 
-## D. Negative-weight design note (Floris 2026-07-04)
+## D. Negative-weight design note (user 2026-07-04)
 The concept ledger gains a `do_not_use` field per concept per language community: forms with **negative weight**, each with a reason class — `false_friend` (activates wrong concept), `dominance_collapse` (reads as the big language, not the bridge), `loaded` (politically/culturally charged), `register_clash` (colloquial/archaic in target community). Sources: Interslavic false-friend tradition, the Romance warning-comparator statuses, F10-3 rows, and lane rejection matrices (Persianate already builds rejection matrices — same object, per-lane). This makes "avoid X" as first-class and auditable as "prefer Y", which is what selection under the marginal-gain rule needs.

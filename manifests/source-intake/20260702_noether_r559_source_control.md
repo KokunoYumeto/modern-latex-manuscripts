@@ -7,8 +7,8 @@ Promote R559 as the current coherent zipped local TeX-changing German source-con
 ## Package
 
 - File: `Noether_R559_LocalCodex_R558_P40p540_SimpleSystemsComponents_SourceMathFix_20260702.zip`
-- Local ZIP: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R559_LocalCodex_R558_P40p540_SimpleSystemsComponents_SourceMathFix_20260702.zip`
-- Extracted folder: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R559_LocalCodex_R558_P40p540_SimpleSystemsComponents_SourceMathFix_20260702`
+- Local ZIP: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R559_LocalCodex_R558_P40p540_SimpleSystemsComponents_SourceMathFix_20260702.zip`
+- Extracted folder: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R559_LocalCodex_R558_P40p540_SimpleSystemsComponents_SourceMathFix_20260702`
 - Size: 217,092,671 bytes
 - SHA256: `4F53D5A274F444C851633A0269BF015D9689EE721C95E91EE7B5CD92C685DDEA`
 - Base: R558 LocalCodex cumulative

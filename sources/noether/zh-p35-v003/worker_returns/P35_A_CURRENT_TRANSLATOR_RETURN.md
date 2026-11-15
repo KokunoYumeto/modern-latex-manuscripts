@@ -7,14 +7,14 @@
 
 ## Input identity
 
-- Path: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\source\current\segments\P35_A_selected_source_lines1_92.tex
+- Path: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\source\current\segments\P35_A_selected_source_lines1_92.tex
 - Bytes: 13,192
 - SHA-256: 83BA2DC7F0ACE90366F63203E6A442530D73F404AF611BEC6F2E5572F335F639
 - Physical lines: 92
 
 ## Output identity
 
-- Path: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\translation\current_segments\P35_A_zh-Hans-CN_current.tex
+- Path: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\translation\current_segments\P35_A_zh-Hans-CN_current.tex
 - Bytes: 11,691
 - SHA-256: 47BD6E78482DEDA6F39BD0E7289325ABD102973B4110561999CB7372FAE8802C
 - Physical lines: 92

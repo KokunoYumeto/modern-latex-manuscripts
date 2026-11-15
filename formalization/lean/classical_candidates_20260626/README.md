@@ -27,7 +27,7 @@ The internal namespace prefix `ClassicalAudit` is a legacy code namespace from t
 
 The recorded local build environment is:
 
-- Workdir: `C:\Users\Floris\Downloads\helix_extract\helix_frobenius-master`
+- Workdir: `C:\Users\user\Downloads\helix_extract\helix_frobenius-master`
 - Toolchain: copied in `build_logs/lean-toolchain`
 - Lake metadata: copied in `build_logs/lakefile.toml` and `build_logs/lake-manifest.json`
 - Command pattern: `lake env lean <file>.lean`

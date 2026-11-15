@@ -4,7 +4,7 @@ Date: 2026-07-02
 
 Local artifact:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R563_LocalCodex_R562_Tail_p725_730_SourceFixAudit_20260702`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R563_LocalCodex_R562_Tail_p725_730_SourceFixAudit_20260702`
 
 Role: current local TeX-changing German source-control head, with a very small tail repair over R562. This is not a reader release and not a critical-edition claim.
 

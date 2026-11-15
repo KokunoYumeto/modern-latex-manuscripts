@@ -37,7 +37,7 @@ Update, 2026-06-02: Volume VIII pages 17-66 have now been replaced in the public
 
 A local Cayley handoff packet was found at:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Cayley\cayley_existing_workflow_packets_handoff_20260602\`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Cayley\cayley_existing_workflow_packets_handoff_20260602\`
 
 It contains workflow/example packets for Volume I visible pages 162-181, including:
 
@@ -57,7 +57,7 @@ Specific Volume VIII targets after this pass:
 
 Local witness scan for Volume VIII:
 
-`C:\Users\Floris\Documents\Papors\OS\Cayley\collmathpapers08caylrich.pdf`
+`C:\Users\user\Documents\Papors\OS\Cayley\collmathpapers08caylrich.pdf`
 
 Secondary explicit placeholder target:
 

@@ -11,7 +11,7 @@ The corpus contains two independently-grown halves of one research program. The 
 - **neural interlingual representation(s)** — plural; never "the universal language of thought"
 - **controlled technical register**, **script/standard bridge** — the other two build types (Codex typology)
 - **passive recognizability**, **term spine**, **term promotion**, **source witness**, **non-erasure boundary** — keep the Codex operational vocabulary as-is; it's good
-- Tier-3 metaphors (FEP-as-mechanism, DNA-of-concepts, language-as-gravity, holography/ER=EPR) are **out of scope entirely** (Floris 2026-07-04): the program is language/zonal-register work only. The biology/physics analogy strands in the seed docs were heuristic scaffolding; nothing downstream depends on them.
+- Tier-3 metaphors (FEP-as-mechanism, DNA-of-concepts, language-as-gravity, holography/ER=EPR) are **out of scope entirely** (user 2026-07-04): the program is language/zonal-register work only. The biology/physics analogy strands in the seed docs were heuristic scaffolding; nothing downstream depends on them.
 
 ## The correspondence table (core of the framework paper)
 
@@ -24,7 +24,7 @@ The corpus contains two independently-grown halves of one research program. The 
 | Term promotion under corpus pressure | iterative optimization with human accept/reject gates | glossary/ term-rationale ledgers = the audit trail |
 | Script sidecars (Latin/Cyrillic; Perso-Arabic/Devanagari) | orthographic transform layer, separate from semantic objective | deterministic converters + render gates (already built) |
 | Semantic drift / hard rows | branch-sensitive lexical instability zones (not branching markers) | diachronic-embedding divergence over cognate sets (H4) |
-| ZPD / comprehensible-input threshold (Floris's heuristic) | update-eligible input (H7) | scaffolded vs opaque input experiments — later, human-subject tier |
+| ZPD / comprehensible-input threshold (user's heuristic) | update-eligible input (H7) | scaffolded vs opaque input experiments — later, human-subject tier |
 
 ## Phases (grind units; cursor in STATUS.md; all inline, no agents, no GPU without explicit go)
 
@@ -36,7 +36,7 @@ The corpus contains two independently-grown halves of one research program. The 
 3. Backup-vs-GitHub reconciliation: which interlanguage logs exist only in the backup dump → list for a consolidation commit (no push without go).
 
 **P1 — Framework synthesis.**
-Write `FRAMEWORK.md` → LaTeX: "Zonal auxiliary language construction as measurable optimization: harmonizing an operational AI translation pipeline with cross-lingual representation geometry." Structure: the two stacks; the correspondence table; the standardized vocabulary; the three rigor tiers; the governance model (non-erasure, forkable/rejectable — this is a genuine contribution, keep it central); honest-limits section (never-certify style). The ChatGPT doc's H1–H8 + red-team become the hypotheses/limits sections nearly verbatim (it's Floris's own steered output — cite the workflow, per open-source-workflow policy).
+Write `FRAMEWORK.md` → LaTeX: "Zonal auxiliary language construction as measurable optimization: harmonizing an operational AI translation pipeline with cross-lingual representation geometry." Structure: the two stacks; the correspondence table; the standardized vocabulary; the three rigor tiers; the governance model (non-erasure, forkable/rejectable — this is a genuine contribution, keep it central); honest-limits section (never-certify style). The ChatGPT doc's H1–H8 + red-team become the hypotheses/limits sections nearly verbatim (it's user's own steered output — cite the workflow, per open-source-workflow policy).
 
 **P2 — Siting model v1 ("prediction of good places").**
 Operationalize the axes, no GPU needed for v1:

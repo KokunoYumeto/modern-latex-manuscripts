@@ -2,7 +2,7 @@
 
 The local file `p35_de_provisional_witness.tex` is a byte-identical copy of:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\01_recovered_witnesses\noether_p35_esja_20260604\N35_ESJA_20260604\04_src\de\p35_de.tex`
+`C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\01_recovered_witnesses\noether_p35_esja_20260604\N35_ESJA_20260604\04_src\de\p35_de.tex`
 
 Both files are 31,396 bytes and have SHA-256:
 

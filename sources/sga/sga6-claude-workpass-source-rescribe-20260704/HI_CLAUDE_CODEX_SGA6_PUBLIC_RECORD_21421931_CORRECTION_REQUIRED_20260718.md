@@ -22,6 +22,6 @@ The corrected internal endpoint is:
 
 Full evidence:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\language_management\english_germanic\03_working_translations\sga6_complete_layered_sync_sourcePDF001_702_en_20260718\controls\PUBLIC_RECORD_21421931_CORRECTION_REQUIRED.md`
+`C:\Users\user\Documents\interlanguage\03_projects\language_management\english_germanic\03_working_translations\sga6_complete_layered_sync_sourcePDF001_702_en_20260718\controls\PUBLIC_RECORD_21421931_CORRECTION_REQUIRED.md`
 
 Please do not treat 21421931 as the final corrected English endpoint. Do not mint a duplicate concept record. The parent manager should issue a corrective new version under concept DOI `10.5281/zenodo.20410947`, explicitly noting the restored Lemma 5.8.2 footnote. This note does not modify `sga6_fr_workpass.tex`.

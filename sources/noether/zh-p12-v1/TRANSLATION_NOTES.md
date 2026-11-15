@@ -14,7 +14,7 @@ The hash snapshot below was taken from the files at 2026-07-22 12:16:30 +02:00 a
 
 ## Source custody
 
-- Exact current German authority: C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex
+- Exact current German authority: C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex
 - Whole-authority SHA-256: 443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27
 - Paper 12 source cursor: lines 8071--8471, raw UTF-8 bytes [547734,566458), 18,724 bytes
 - Exact source snapshot: source\P12_CurrentGerman_lines8071_8471.tex

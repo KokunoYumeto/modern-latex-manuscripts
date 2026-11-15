@@ -9,4 +9,4 @@
 - Collision disposition: Paper 28 was treated as live and was not edited while this tranche was produced. Its manager status is now explicitly closed with all five build/render gates passing.
 - Completed Korean units now evidenced locally: Papers 26, 27, 28, and 36.
 - Next non-overlapping production cursor after this unit: Paper 29, subject to a fresh source-head and live-lease check before opening.
-- Active-work boundary: Noether only under `CJK-D007`; the SGA hold is primarily CPU/resource bounding and remains gated by explicit Floris routing plus stable French and same-span English controls.
+- Active-work boundary: Noether only under `CJK-D007`; the SGA hold is primarily CPU/resource bounding and remains gated by explicit user routing plus stable French and same-span English controls.

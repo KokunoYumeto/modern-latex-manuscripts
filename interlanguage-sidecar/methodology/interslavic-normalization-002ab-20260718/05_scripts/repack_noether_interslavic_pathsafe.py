@@ -12,7 +12,7 @@ from pathlib import Path
 
 
 STAGE = Path(
-    r"C:\Users\Floris\Documents\Codex\2026-05-26"
+    r"C:\Users\user\Documents\Codex\2026-05-26"
     r"\there-is-currently-an-ongoing-process\publish_curated"
     r"\20260718_noether_interslavic_002ab"
 )

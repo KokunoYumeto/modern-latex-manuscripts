@@ -19,7 +19,7 @@ from pypdf import PdfReader
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 WORKING_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\english_germanic\03_working_translations"
     r"\sga7i_english_complete_translation_successor_20260731_r1"
 )
@@ -77,7 +77,7 @@ VISUAL_RENDER_SHA256 = {
     "page-198.png": "984B4A9A3FA7ADA2155899DAE2DB93B53023BE4E87F2B8339A28A5B71E9F6C7E",
 }
 PRIVACY_PATTERNS = {
-    "private_home": re.compile(r"C:\\Users\\Floris", re.IGNORECASE),
+    "private_home": re.compile(r"C:\\Users\\user", re.IGNORECASE),
     "archive_worktree": re.compile(r"C:\\w(?:\\|/)", re.IGNORECASE),
     "papors": re.compile(r"\bPapors\b", re.IGNORECASE),
     "chatnotes": re.compile(r"\bChatnotes\b", re.IGNORECASE),

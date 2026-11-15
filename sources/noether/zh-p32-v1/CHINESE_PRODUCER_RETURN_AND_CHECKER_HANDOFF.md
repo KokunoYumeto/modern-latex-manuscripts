@@ -1,10 +1,10 @@
 # Chinese producer return — Noether Paper 32
 
-This is a complete Chinese translation producer package for independent checking. Floris's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
+This is a complete Chinese translation producer package for independent checking. user's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
 
 ## Exact source custody
 
-- Current German whole: `C:/Users/Floris/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex`.
+- Current German whole: `C:/Users/user/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex`.
 - Whole SHA-256: `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`.
 - Exact Paper 32 interval: lines 16011–16179, raw UTF-8 bytes `[1442365,1465170)`, SHA-256 `1E1C2E6AA32B606EAB5B57737F60CE7CF649610B490098511C29498BE8CC7611`.
 - Local exact snapshot: `source/Noether_Paper32_German_current_exact_CRLF.tex`.
@@ -67,8 +67,8 @@ No source checking or source-defect adjudication was performed here, and this pr
 
 ## Decision and scope controls
 
-- Durable append-only log: `C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.
+- Durable append-only log: `C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.
 - Claim decision: `ZH-D083`.
 - Producer freeze decision: `ZH-D084` (must be appended before transport; transport state is a later decision).
 - Status ceiling: `translated/built; independent check pending`.
-- SGA remains held pending explicit Floris confirmation; no SGA work is included.
+- SGA remains held pending explicit user confirmation; no SGA work is included.

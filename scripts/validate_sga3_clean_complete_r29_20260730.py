@@ -51,7 +51,7 @@ TEXT_SUFFIXES = {
     ".txt",
 }
 PRIVATE_PATTERNS = {
-    "windows_user_path": re.compile(rb"(?i)C:(?:[/\\]|\\\\)+Users(?:[/\\]|\\\\)+Floris"),
+    "windows_user_path": re.compile(rb"(?i)C:(?:[/\\]|\\\\)+Users(?:[/\\]|\\\\)+user"),
     "legacy_repo_path": re.compile(rb"(?i)C:(?:[/\\]|\\\\)+IL_GitHub"),
     "codex_private": re.compile(rb"(?i)(?:[/\\]|\\\\)\.codex(?:[/\\]|\\\\)"),
     "papors_private": re.compile(rb"(?i)(?:[/\\]|\\\\)Papors(?:[/\\]|\\\\)"),

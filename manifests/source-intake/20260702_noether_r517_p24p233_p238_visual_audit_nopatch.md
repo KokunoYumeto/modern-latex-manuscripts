@@ -4,7 +4,7 @@ Local package:
 `Noether_R517_LocalCodex_R516_P24p233_p238_VisualAudit_NoPatch_20260702.zip`
 
 Local path:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R517_LocalCodex_R516_P24p233_p238_VisualAudit_NoPatch_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R517_LocalCodex_R516_P24p233_p238_VisualAudit_NoPatch_20260702.zip`
 
 Size: 28,782,985 bytes.
 

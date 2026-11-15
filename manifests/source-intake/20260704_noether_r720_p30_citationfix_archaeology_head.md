@@ -1,12 +1,12 @@
 # 2026-07-04 Noether R720 P30 citation fix / archaeology head
 
-Local package: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R720_LocalCodex_WebR719_P30CitationFix_20260704.zip`
+Local package: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R720_LocalCodex_WebR719_P30CitationFix_20260704.zip`
 
 SHA256: `5C7A0B1F7A236DDA0B34651038EBCEFB6061CFD907FF819C4D07C1C8C236412E`
 
 Bytes: `56466448`
 
-Extracted local folder: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R720_LocalCodex_WebR719_P30CitationFix_20260704`
+Extracted local folder: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R720_LocalCodex_WebR719_P30CitationFix_20260704`
 
 ## Classification
 

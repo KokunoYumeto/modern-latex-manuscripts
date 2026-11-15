@@ -12,7 +12,7 @@ Recommended labels:
 - **Working draft**: TeX/PDF exists and is useful, but formulas, diagrams, tables, or prose may still contain source-faithfulness errors.
 - **Source-witnessed tranche**: a bounded page/paper range has source scans and an audit ledger; this still does not certify the whole author or whole volume.
 - **Source-closed locus**: a specific formula/table/diagram/prose locus was checked against stated source witnesses and needs no patch under that source-quality caveat.
-- **Critical edition**: reserved until explicitly certified by Floris/human review; do not infer it from AI output.
+- **Critical edition**: reserved until explicitly certified by user/human review; do not infer it from AI output.
 
 ## 2. OCR As Witness, Not Judge
 

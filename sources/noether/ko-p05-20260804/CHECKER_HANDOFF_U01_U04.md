@@ -6,7 +6,7 @@ Handoff state: UNCHECKED producer drafts. This document requests checking; it do
 
 - Pointer: NOETH-DE-AUTH-v003-20260804
 - Pointer SHA-256: 932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197
-- German authority: C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex
+- German authority: C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex
 - Authority SHA-256: D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB
 - Paper 5 body: whole-source lines 4535--4573; 8,185 LF UTF-8 bytes; SHA-256 99BD68A8DBD9861EFF0CDBE26CB365C3306EDF15BD93A6C4C10B9F25419D5CAE
 - Exclusion: whole-source line 4574 \clearpage.
@@ -41,7 +41,7 @@ Handoff state: UNCHECKED producer drafts. This document requests checking; it do
 
 ## CSV projection integrity note
 
-- Report: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper05_ko_translation_001_20260804\evidence\csv_artifact_validation\CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
+- Report: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper05_ko_translation_001_20260804\evidence\csv_artifact_validation\CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
 - Identity: 2,720 bytes; SHA-256 D968079EC46718F85F4BFC1EC325B8FFFEBECE152D110B1F57DF27BE3C5A40E2
 - Result: PASS under `@oai/artifact-tool` import for the structural, difficulty, and visual CSV projections. The imported tables contained respectively 41, 6, and 0 data rows and 24, 20, and 24 columns; all were rectangular, had no blank or duplicate headers, and produced no formula-error match in the bounded inspected regions.
 - Scope limit: this is metadata-table integrity evidence only. Rendering was deliberately skipped under the translation-only boundary. The result does not check Korean translation, German source fidelity, mathematical formulas, semantic accuracy, image evidence, or any checker decision. Under `CJK-KO-ARCH-001`, missing checks are archive metadata rather than a publication veto.

@@ -49,7 +49,7 @@ RENDERS = WORKSPACE / "renders"
 R28_EXTRACT = WORKSPACE / "r28"
 
 CANDIDATE = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects"
+    r"C:\Users\user\Documents\interlanguage\03_projects"
     r"\language_management\english_germanic\06_publication_candidates"
     r"\SGA3_English_complete_native_reference_v2_local_package_20260730_r1"
 )

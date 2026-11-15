@@ -2,7 +2,7 @@
 
 Record: Emmy Noether.
 
-Local source root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`.
+Local source root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`.
 
 ## Packages inspected
 

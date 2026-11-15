@@ -6,7 +6,7 @@ State: complete substantive draft-text coverage in U01–U03; every unit indepen
 ## Authority and coverage
 
 - Pointer: NOETH-DE-AUTH-v003-20260804, 15,345 bytes, SHA-256 932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197.
-- Authority: C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/NOETH-DE-ED-0001/Noether_German_NOETH-DE-ED-0001.tex.
+- Authority: C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/NOETH-DE-ED-0001/Noether_German_NOETH-DE-ED-0001.tex.
 - Authority whole identity supplied by route: 2,153,565 bytes; SHA-256 D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB.
 - Paper 3 interval: whole lines 3573–3608 inclusive; 8,277 LF-normalized UTF-8 bytes; SHA-256 E600FD2A19ACA22F43D54FB65C61B79172B12FE5AB09446A2C9C9B8CACD26E7D.
 - U01 covers lines 3573–3584; U02 lines 3586–3594; U03 lines 3596–3608.
@@ -15,7 +15,7 @@ State: complete substantive draft-text coverage in U01–U03; every unit indepen
 
 ## Frozen producer targets
 
-Target root: C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/targets
+Target root: C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/targets
 
 | Unit | Target file | Bytes | SHA-256 | State |
 |---|---|---:|---|---|

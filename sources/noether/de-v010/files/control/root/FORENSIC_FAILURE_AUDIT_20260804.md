@@ -220,7 +220,7 @@ referenced from a deep `Documents\Codex\...` path was omitted.
 ### 9. Google Drive was treated as if storage implied identity
 
 The July 22 Drive status recorded a planned Noether batch of about 80.7 GB
-incoming plus 133.3 GB extracted. Floris now reports an approximately 300 GB
+incoming plus 133.3 GB extracted. user now reports an approximately 300 GB
 active offload. The Drive API currently exposes no completed P16/P31 object in
 the recorded Noether snapshot folders.
 

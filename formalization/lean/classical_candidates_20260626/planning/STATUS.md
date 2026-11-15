@@ -6,7 +6,7 @@ Mathlib-aligned terms** (PR-able upstream, eventually Zenodo-published). Target 
 **true + missing-from-Mathlib + cheap**. Emphasis on the coordinate-level constructions (exact
 invariants, covariants, explicit forms), not the existence theorems Mathlib already has.
 
-**Why it's feasible.** Floris is already transcribing these German scans to LaTeX. Pipeline:
+**Why it's feasible.** user is already transcribing these German scans to LaTeX. Pipeline:
 *historical mathematics / transcription context → explicit formal target → Lean 4 statement and
 build check.* This is not certification of the archive, the scan transcription, or the translation,
 and it is not an audit layer for the reader editions. The value is positive and independent: Lean
@@ -24,7 +24,7 @@ der Algebra), Frobenius, Steinitz, Sylvester, Camille Jordan, Gauss (Disquisitio
 - **Scoping workflow `wqgkouo39` RUNNING** — one agent per author maps his transcription × Mathlib,
   extracts explicit results, classifies covered/gap/feasible, proposes Lean targets; then a
   skeptical verify pass; then a synthesized plan (beachhead + first 6–10 targets + module layout).
-- **Lean build env:** `C:\Users\Floris\Downloads\helix_extract\helix_frobenius-master` (Mathlib
+- **Lean build env:** `C:\Users\user\Downloads\helix_extract\helix_frobenius-master` (Mathlib
   v4.31.0 prebuilt, ~1.7GB oleans). Build a file with `lake env lean <file>` from that dir.
   `SplitZero.lean` already GREEN there (the split-zero core).
 
@@ -45,7 +45,7 @@ der Algebra), Frobenius, Steinitz, Sylvester, Camille Jordan, Gauss (Disquisitio
   genuine-cheap-gaps. Plan + targets in `PLAN.md`, cheap targets in `TARGETS_cheap.tsv`.
   Big-prize gap identified: **Gauss binary quadratic forms / composition / form class group is
   entirely absent from Mathlib** (phase-2 multi-module subproject).
-- 2026-06-25 — **CORRECTION (Floris caught a false claim).** The scoping workflow searched only the
+- 2026-06-25 — **CORRECTION (user caught a false claim).** The scoping workflow searched only the
   `OS\` scan folders and I wrongly reported "Gordan invariant theory not transcribed." FALSE.
   AUTHORITATIVE INVENTORY = the published repo catalog, NOT filesystem search:
   `Papors\modern-latex-manuscripts-github\manifests\public-file-catalog.csv` (337KB) +

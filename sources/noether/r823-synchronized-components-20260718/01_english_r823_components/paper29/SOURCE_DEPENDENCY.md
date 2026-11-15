@@ -4,7 +4,7 @@ Date: 2026-07-17
 
 ## Current cumulative German authority
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
 
 - full cumulative SHA-256:
   `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`
@@ -28,7 +28,7 @@ evidence; it was not wholesale retranslated.
 
 Source-image directory:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_LocalCodex_after_WebR272_P29_p028_035_SourceAudit_20260629\02_source_pages_p028_035_native400`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_LocalCodex_after_WebR272_P29_p028_035_SourceAudit_20260629\02_source_pages_p028_035_native400`
 
 Visually inspected witnesses:
 

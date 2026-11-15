@@ -18,7 +18,7 @@ status: established (measured 2026-07-04)
 source_files: slavic_term_dataset_20260704.json; codex backup glossary/*.json; INTERSLAVIC_LOGBOOK.md
 evidence: scripts/build_slavic_dataset.py output (field-presence + rationale-mention counts, rationale fields included after schema-drift fix)
 operational_test: re-run after witness-column retrofit; target = every promoted term has ≥1 W and ≥1 S Slavic witness or an explicit gap row
-risk_if_wrong: CHECKED 2026-07-04 — triangulation log read: a 20-source W/S shelf (cs/pl/sk/sl/sr/hr/bg) + provenance-labeling rule + ~5–8 spot-triangulated flagship terms exist (2026-06-24, prompted by Floris), but per-term backfill was never done; records still carry zero W/S fields. Claim stands, refined. Confirmed drift instance: ring = `kolco` (E-Slavic continuity) vs `okruh`/`prsten`/`kolobar` (W/S preference), logged reviewer-sensitive.
+risk_if_wrong: CHECKED 2026-07-04 — triangulation log read: a 20-source W/S shelf (cs/pl/sk/sl/sr/hr/bg) + provenance-labeling rule + ~5–8 spot-triangulated flagship terms exist (2026-06-24, prompted by user), but per-term backfill was never done; records still carry zero W/S fields. Claim stands, refined. Confirmed drift instance: ring = `kolco` (E-Slavic continuity) vs `okruh`/`prsten`/`kolobar` (W/S preference), logged reviewer-sensitive.
 next_action: witness-column retrofit spec using the existing 20-source shelf; per-term false-friend check; provenance labels per the lane's own 2026-06-24 rule; run BEFORE van Steenbergen contact
 
 ---
@@ -56,7 +56,7 @@ status: plausible (inherited from theory sidecar; untested on this corpus)
 source_files: theory sidecar (ChatGPT doc H1/H5); SIGTYP 2025 ILO paper (external)
 operational_test: 200-concept pilot table (= stratified core spine per CLM-SPINE-001) scored by model-side overlap vs existing Interslavic/Pan-Romance forms; later human forced-choice comprehension
 risk_if_wrong: model geometry is not useful for construction decisions; program falls back to editorial + human testing only
-next_action: build core spine first; measurement gated on Floris go (CPU/API first)
+next_action: build core spine first; measurement gated on user go (CPU/API first)
 
 ---
 claim_id: CLM-FF-001
@@ -71,7 +71,7 @@ next_action: queued after core spine
 claim_id: CLM-MARG-001
 claim: RESTRICTED FORM (post ChatGPT sanity-check 2026-07-04): the BENEFIT layer of the access ledger admits a submodular-coverage model — F(S)=Σ_u w_u·max_{a∈S} q_a(u) over reader-task universe u=(cohort, concept, context, script), monotone submodular, greedy (1−1/e) guarantee — under explicit independence/non-harm assumptions. The FULL ledger is NOT submodular (false friends, dominance collapse, pair-interactions are negative interactions) and is handled as constraints/vetoes/penalties. Companion selection rule: MAG(x,c)=Σ_g w_g(I_g(x,c)−I_g(d(c),c)) − ρ·Var_g(I_g) — marginal gain over dominant baseline minus benefit-concentration penalty.
 status: plausible (formalization agreed by sidecar; unmeasured)
-source_files: Floris oral heuristic; ISLAND_ATLAS.md §6b; ChatGPT sidecar response 2026-07-04 (pasted); CONCORDANCE.md
+source_files: user oral heuristic; ISLAND_ATLAS.md §6b; ChatGPT sidecar response 2026-07-04 (pasted); CONCORDANCE.md
 operational_test: encode MAG for one contested Pan-Romance term set with attestation-proxy I_g; check ranking sanity vs the lane's editorial choices
 risk_if_wrong: framing lost, nothing else
 next_action: use as the formal spine of the siting/selection section in the framework paper
@@ -87,7 +87,7 @@ next_action: witness retrofit, then the shift measurement
 
 ---
 claim_id: CLM-REV-001
-claim: No lane has any accepted external review return; every intelligibility claim in the program is currently editorial. Interim substitute: triangulation across three AI systems + Floris; planned: van Steenbergen contact after 1–2 complete authors.
+claim: No lane has any accepted external review return; every intelligibility claim in the program is currently editorial. Interim substitute: triangulation across three AI systems + user; planned: van Steenbergen contact after 1–2 complete authors.
 status: established (package manifests state zero returns)
 source_files: SLAVIC_MAINTENANCE_PUBLICATION_HANDOFF_20260703T110903Z.md; external review role packets
 operational_test: n/a — process fact
@@ -97,6 +97,6 @@ next_action: CLM-SLAV-001 cleanup is the prerequisite for a credible first revie
 ---
 claim_id: CLM-SCOPE-001
 claim: Analogy strands (thermodynamic, biological, physical) from the seed documents are out of scope for this program.
-status: out_of_scope (by direction, Floris 2026-07-04; handoff doc concurs)
+status: out_of_scope (by direction, user 2026-07-04; handoff doc concurs)
 source_files: fable5_language_only_handoff.md; PROGRAM.md
 next_action: none — enforced in all artifacts

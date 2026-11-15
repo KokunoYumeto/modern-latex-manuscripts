@@ -1,6 +1,6 @@
 # Korean Noether P42 bounded public snapshot
 
-This is the exact bounded producer state captured on 2026-08-04, projected for public preservation under Floris's immediate-publication/no-hold policy.
+This is the exact bounded producer state captured on 2026-08-04, projected for public preservation under user's immediate-publication/no-hold policy.
 
 State: **UNCHECKED, uncompiled, unrendered, unassembled, and unreviewed**. Those labels are not certification and are not release holds. No mathematical checking, source correction, compilation, rendering, or approval was performed by archive maintenance.
 

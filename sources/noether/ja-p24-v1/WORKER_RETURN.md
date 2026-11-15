@@ -13,4 +13,4 @@
 - Difficulty history: `DIFFICULTY_AND_FAILURE_LEDGER.csv`; latest ID `JA-P24-F011`. Earlier repair-in-progress and visually rejected snapshots are retained rather than silently overwritten.
 - Claims limit: internal source/build/render review only; no external/community certification or independent human-reader signoff is claimed.
 - Handoff control: no archive handoff is made by this return. Any later handoff must cite the Japanese lane log through JA-D028, the exact hashes above, structural/decision/evidence records, the difficulty ledger, and all remaining held terminology or validation gates.
-- Continuation: re-scan live claims and the sealed source head before selecting the next non-overlapping Japanese Noether unit. The full Japanese Noether corpus is not declared complete. SGA remains prohibited pending explicit Floris confirmation.
+- Continuation: re-scan live claims and the sealed source head before selecting the next non-overlapping Japanese Noether unit. The full Japanese Noether corpus is not declared complete. SGA remains prohibited pending explicit user confirmation.

@@ -58,4 +58,4 @@ The exact repair classes, superseded hashes that were captured, adverse history,
 
 ## Required claim limit
 
-Floris's controlling instruction is `you do not check - you translate - other sessions CHEWCK`. This lane translated and mechanically compiled. It did not collate scans, source-check or adjudicate the German, check its own translation or formulas, validate terminology, inspect rendered pages, perform native-reader or regional localization review, approve, archive, publish, or certify the work.
+user's controlling instruction is `you do not check - you translate - other sessions CHEWCK`. This lane translated and mechanically compiled. It did not collate scans, source-check or adjudicate the German, check its own translation or formulas, validate terminology, inspect rendered pages, perform native-reader or regional localization review, approve, archive, publish, or certify the work.

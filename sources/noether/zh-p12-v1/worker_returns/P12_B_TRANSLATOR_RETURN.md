@@ -3,11 +3,11 @@
 ## Scope and artifacts
 
 - Work unit: Noether Paper 12, segment B only.
-- German source: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\source\P12_B_lines8173_8317.tex
+- German source: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\source\P12_B_lines8173_8317.tex
 - German source SHA-256: DBE25989E0F304058E79F33D28AAA0028856D58AF7E5F8F74469FE88DFF7C646
-- Simplified Chinese output: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\zh-Hans-CN\P12_B_zh-Hans-CN.tex
+- Simplified Chinese output: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\zh-Hans-CN\P12_B_zh-Hans-CN.tex
 - Simplified Chinese output SHA-256: D8FEB6D63E9D837228503846D8B653954A36BFDC43443DC3CA4B379493502563
-- Drafting witness made available, used only as a wording witness: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\witness\P12_B_witness_lines8072_8190.tex
+- Drafting witness made available, used only as a wording witness: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\witness\P12_B_witness_lines8072_8190.tex
 - Drafting-witness SHA-256: 5B3D56A701C397FA720EB3D41206104AC016840086C43176B757F5161CC07B48
 
 ## Producer lexical choices and uncertainties

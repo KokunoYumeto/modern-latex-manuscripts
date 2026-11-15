@@ -11,7 +11,7 @@ The declared 702-page scan is complete for this range:
 | 598--607 | 585--594 | 588--597 |
 
 I also checked every page against the complete 360-dpi supplemental witness
-C:\Users\Floris\Documents\Papors\OS\Théorie des Intersections et Théorème de Riemann-Roch.pdf
+C:\Users\user\Documents\Papors\OS\Théorie des Intersections et Théorème de Riemann-Roch.pdf
 (SHA-256
 73FBBAD41340C12ECCDCFCF6C3A1656953FE3D712AA8E391678458CCD17B4BAA).
 The two witnesses agree on the items below.

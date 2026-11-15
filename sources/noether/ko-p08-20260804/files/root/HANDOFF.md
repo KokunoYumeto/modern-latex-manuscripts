@@ -1,6 +1,6 @@
 # Korean Noether P08 — independent-checker handoff
 
-Producer root: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper08_ko_translation_001_20260804`.
+Producer root: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper08_ko_translation_001_20260804`.
 
 This is a complete Korean producer draft, not a checked or final paper.
 
@@ -29,4 +29,4 @@ All targets remain `UNCHECKED`, source-unchecked, formula-unchecked, Korean-unre
 
 Provisional terms needing contextual review include `다항식적 표현/다항식`, `변수열`, `유리성 영역`, `편극연산`, `선형 형식족`, `랭크`, `역편극연산`, `일대일`, `동변`, and `Ω-연산`. The target is provisional `ko-KR`; `ko-KP` terminology remains unverified. Chinese/Japanese evidence does not authorize Korean.
 
-Durable decision log: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md`; latest relevant producer decision `CJK-KO-P08-004`. Methodology retrospective: `C:\Users\Floris\Documents\interlanguage\04_handoffs\methodology_lessons_20260718\CJK_KOREAN_PRODUCTION_LESSONS_20260718.md`, current 212,084 bytes, SHA-256 `F0B8DC4C1F6AF477A327223DC331278EF710B6A6604267C6FF41F1DBAFF2B869`.
+Durable decision log: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md`; latest relevant producer decision `CJK-KO-P08-004`. Methodology retrospective: `C:\Users\user\Documents\interlanguage\04_handoffs\methodology_lessons_20260718\CJK_KOREAN_PRODUCTION_LESSONS_20260718.md`, current 212,084 bytes, SHA-256 `F0B8DC4C1F6AF477A327223DC331278EF710B6A6604267C6FF41F1DBAFF2B869`.

@@ -14,4 +14,4 @@ Packages 634-635 from origin/codex/noether-pc-20260629 are coordination evidence
 
 ## Human-facing note
 
-These packages are worth preserving because they show what the other PC is doing with source sufficiency, draft support, and acquisition routing across Slavic, CJK, Arabic/RTL, Romance, Persianate/Tajik, Pan-Turkic, Indigenous/Creole/Sign, Malay/SEA/Pacific, Africa/Horn/West, and OLP relation/function support lanes. They do not satisfy Floris' source-corpus request. The next useful other-PC deliverable remains the literal corpus bodies: full `.tex`, source archives, PDFs, and associated language-index files, not indexes alone.
+These packages are worth preserving because they show what the other PC is doing with source sufficiency, draft support, and acquisition routing across Slavic, CJK, Arabic/RTL, Romance, Persianate/Tajik, Pan-Turkic, Indigenous/Creole/Sign, Malay/SEA/Pacific, Africa/Horn/West, and OLP relation/function support lanes. They do not satisfy user' source-corpus request. The next useful other-PC deliverable remains the literal corpus bodies: full `.tex`, source archives, PDFs, and associated language-index files, not indexes alone.

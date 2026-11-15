@@ -11,7 +11,7 @@ P16 or old sealed P31 German heads at audit time. Drive therefore supplied no
 object that could outrank or reconstruct the public Zenodo/GitHub sources.
 
 This is not a claim that the local Google Drive client has no active queue.
-Floris reports that approximately 300 GB of Noether material is actively being
+user reports that approximately 300 GB of Noether material is actively being
 offloaded to Drive to keep the PC stable. The connector result only describes
 completed remote objects visible through the Drive API during this audit.
 
@@ -42,7 +42,7 @@ The July 22 status file records a planned Noether batch of approximately
 that the next batch had not completed after a Windows/DriveFS interruption and
 that project sources had not been deleted at that time.
 
-Floris's current report of an approximately 300 GB active offload is later and
+user's current report of an approximately 300 GB active offload is later and
 controls the present operational context. The older status file cannot prove
 the current queue state. Conversely, an active queue cannot prove that any
 specific authority object has reached remote storage.

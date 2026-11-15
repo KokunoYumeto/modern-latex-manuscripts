@@ -4,7 +4,7 @@ Date: 2026-07-02
 
 Local package:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R572_LocalCodex_R571_Tail_p779_782_NonNoetherClosure_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R572_LocalCodex_R571_Tail_p779_782_NonNoetherClosure_20260702.zip`
 
 Status: latest packaged local no-patch tail-closure packet above R571. R572 applies no TeX repair and the cumulative TeX is byte-identical to R571.
 

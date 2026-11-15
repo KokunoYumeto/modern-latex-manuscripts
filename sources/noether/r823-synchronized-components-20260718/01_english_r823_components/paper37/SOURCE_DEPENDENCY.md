@@ -4,7 +4,7 @@ Date: 2026-07-17
 
 ## Current German authority
 
-C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex
+C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex
 
 - full R823 SHA-256:
   EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21
@@ -17,7 +17,7 @@ C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_works
 
 The source-complete English base is the Paper 37 span extracted from:
 
-C:\Users\Floris\Documents\interlanguage\03_projects\language_management\english_germanic\01_recovered_witnesses\noether_ra10_complete_english\Noether_RA10_cumulative_English.tex
+C:\Users\user\Documents\interlanguage\03_projects\language_management\english_germanic\01_recovered_witnesses\noether_ra10_complete_english\Noether_RA10_cumulative_English.tex
 
 - full RA10 cumulative SHA-256:
   2BDB5EAB5DB6D7A46CF10EC8C99F720320A956EF866B473DAE4C28F8F49BF6C9
@@ -38,7 +38,7 @@ control but excluded as a translation authority and publication base.
 
 ## Primary printed source
 
-C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_LocalCodex_after_WebR252_P37_P39_SourceSurvival_NoPatch_on_CurrentR259_20260628\06_source_witnesses\P37_RA08_scan\N_RA08_20260605\01_scan\p37_scan.pdf
+C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_LocalCodex_after_WebR252_P37_P39_SourceSurvival_NoPatch_on_CurrentR259_20260628\06_source_witnesses\P37_RA08_scan\N_RA08_20260605\01_scan\p37_scan.pdf
 
 SHA-256:
 3824959FA3FFA8D325F44A9EE9EE66C2DA383B9CD28649A752A38AF4F532EEE2

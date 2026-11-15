@@ -18,7 +18,7 @@ PACKAGE_ROOT = (
     REPO_ROOT
     / "sources/sga/sga7ii-french-source-transcription-working-x-xiv-20260731"
 )
-TEMP_ROOT = Path(os.environ.get("TEMP", r"C:\Users\Floris\AppData\Local\Temp"))
+TEMP_ROOT = Path(os.environ.get("TEMP", r"C:\Users\user\AppData\Local\Temp"))
 
 PDF_NAME = "00h_SGA7II_French_Source_Transcription_Working_X-XIV_20260731.pdf"
 TEX_NAME = "02h_SGA7II_French_Source_Transcription_Working_X-XIV_20260731.tex"
@@ -65,7 +65,7 @@ SOURCE_MEMBERS = (
 PRIVACY_PATTERNS = (
     re.compile(r"[A-Za-z]:\\(?:Users|IL_GitHub)\\", re.IGNORECASE),
     re.compile(r"(?:/home/|/Users/)[^\s/]+/", re.IGNORECASE),
-    re.compile(r"Floris", re.IGNORECASE),
+    re.compile(r"user", re.IGNORECASE),
     re.compile(r"(?:Claude|ChatGPT|OpenAI|Codex)", re.IGNORECASE),
     re.compile(r"(?:thread|task)[-_ ]?id", re.IGNORECASE),
 )

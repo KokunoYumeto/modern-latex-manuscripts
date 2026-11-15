@@ -21,5 +21,5 @@ Audit results:
    (type count drops slightly, token coverage unchanged or +epsilon).
 
 Scope: this batch stays orthography-only. Lexeme switches (odnovrěmenno->jednočasno, sootvětstvovati->odpovědati,
-korak->krok...) remain queued behind Floris/reviewer sign-off of the R1 draft; human-review rows
+korak->krok...) remain queued behind user/reviewer sign-off of the R1 draft; human-review rows
 (ręd, jednako, važiti, slučaj) excluded entirely.

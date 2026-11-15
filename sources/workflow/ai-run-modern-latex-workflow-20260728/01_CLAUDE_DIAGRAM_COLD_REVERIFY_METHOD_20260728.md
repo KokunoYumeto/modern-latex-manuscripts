@@ -1,7 +1,7 @@
 # Claude's page-by-page cold-reverify method (diagrams + text) — durable reference
 
 Date: 2026-07-28
-Author: Claude (Opus). Written at Floris's request so Codex, future Claude
+Author: Claude (Opus). Written at user's request so Codex, future Claude
 instances, and other AIs can reproduce the method exactly.
 
 Scope: verifying that a modern-LaTeX transcription of a scanned typewritten

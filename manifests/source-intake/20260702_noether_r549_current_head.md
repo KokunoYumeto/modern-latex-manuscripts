@@ -11,8 +11,8 @@ R548 remains the historical Paper 40 p527 Rangrelation/§5 source-style repair b
 ## Registered Package
 
 - `Noether_R549_LocalCodex_R548_P40p528_529_AutomorphismVertauschungGaloisHeadings_SourceStyleFix_20260702.zip`
-  - local source: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R549_LocalCodex_R548_P40p528_529_AutomorphismVertauschungGaloisHeadings_SourceStyleFix_20260702.zip`
-  - second-web intake alias: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\41_R549_P40P528_529_AUTOMORPHISM_VERTAUSCHUNG_GALOIS_SOURCEFIX.zip`
+  - local source: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R549_LocalCodex_R548_P40p528_529_AutomorphismVertauschungGaloisHeadings_SourceStyleFix_20260702.zip`
+  - second-web intake alias: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\41_R549_P40P528_529_AUTOMORPHISM_VERTAUSCHUNG_GALOIS_SOURCEFIX.zip`
   - bytes: `97260663`
   - ZIP entries: `139`
   - SHA256: `15D45FF32C0535F307452623D468D726CBDEDA233F12AB8582672CE9EBACFD98`

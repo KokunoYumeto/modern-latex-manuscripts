@@ -55,7 +55,7 @@ files do not create two independent translations.
 
 Current R823 cumulative German authority:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\slavic_r823_book_reconciliation_20260717\authority\Noether_R823_cum_de.tex`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\slavic_r823_book_reconciliation_20260717\authority\Noether_R823_cum_de.tex`
 
 - full SHA-256:
   `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`
@@ -77,7 +77,7 @@ English controls:
 
 Original journal scan:
 
-`C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_R124plus_P25_p119_GaloisFieldOverbarFix_WebDrop_20260625\source\Noether_P25_GDZ_JDMV33_1924_LOG_0016_pp116_120.pdf`
+`C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_R124plus_P25_p119_GaloisFieldOverbarFix_WebDrop_20260625\source\Noether_P25_GDZ_JDMV33_1924_LOG_0016_pp116_120.pdf`
 
 - SHA-256:
   `0C5FE4E6735636A34C8DD34D16969C5A1E1659523F8840A9B8428F1A70D8E219`
@@ -92,7 +92,7 @@ Diagnostic crops:
 
 Adverse later facsimile:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_Source_Files_Addendum_20260616\_stage_unique_files\files\pdf\b867546021b1edb3_Noether_Paper25_SOURCE_SCAN_pages491-495_Eliminationstheorie_und_Idealtheorie.pdf`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_Source_Files_Addendum_20260616\_stage_unique_files\files\pdf\b867546021b1edb3_Noether_Paper25_SOURCE_SCAN_pages491-495_Eliminationstheorie_und_Idealtheorie.pdf`
 
 - SHA-256:
   `B867546021B1EDB34F39CA2B7BFEF43575199D5DD563939045B687CDF2FBADB8`

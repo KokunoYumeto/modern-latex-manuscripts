@@ -3,7 +3,7 @@ Set-StrictMode -Version Latest
 
 $indexDir = $PSScriptRoot
 $root = (Resolve-Path -LiteralPath (Join-Path $indexDir '..\..')).Path
-$sourcePath = 'C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper41_zh_translation_001_20260722\source\Noether_Paper41_CurrentGermanAuthority_interval.tex'
+$sourcePath = 'C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper41_zh_translation_001_20260722\source\Noether_Paper41_CurrentGermanAuthority_interval.tex'
 $expectedSourceFileHash = 'C265058425E5E2D1A2289CC03A9DDEDDDF4803A3215DC3F173B93E7AB69D60ED'
 $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 

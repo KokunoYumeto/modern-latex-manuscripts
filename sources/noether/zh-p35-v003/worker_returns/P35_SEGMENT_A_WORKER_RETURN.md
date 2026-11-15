@@ -2,7 +2,7 @@
 
 ## Source receipt
 
-- Source: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\01_recovered_witnesses\noether_p35_esja_20260604\N35_ESJA_20260604\04_src\de\p35_de.tex`
+- Source: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\01_recovered_witnesses\noether_p35_esja_20260604\N35_ESJA_20260604\04_src\de\p35_de.tex`
 - Assigned range: lines 1--67 inclusive
 - Parent source size: 31,396 bytes
 - Parent source SHA-256: `3C093E13F1995E4E9FB25923C53E9E8123C458D6BBF1CFF53E81E320E78F206E`
@@ -10,7 +10,7 @@
 
 ## Output receipt
 
-- Output: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\translation\segments\p35_zh_hans_segment_A.tex`
+- Output: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\translation\segments\p35_zh_hans_segment_A.tex`
 - Completed range: all assigned lines 1--67, retained as 67 output lines with the same line ordering and structural boundaries
 - Output size: 9,953 bytes
 - Output SHA-256: `34AF28ECA91E0380C902A36BF6E67BA6DBBEABFD2D16E3A44A8697D6E7EA802B`

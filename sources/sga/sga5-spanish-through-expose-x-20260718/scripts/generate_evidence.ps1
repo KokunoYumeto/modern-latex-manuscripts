@@ -2,7 +2,7 @@ param()
 
 $ErrorActionPreference = 'Stop'
 $Root = Split-Path -Parent $PSScriptRoot
-$FrenchAuthority = 'C:\Users\Floris\Documents\interlanguage\03_projects\language_management\english_germanic\02_native_examples\sga5_current_french_workpass\sga5_fr_workpass.tex'
+$FrenchAuthority = 'C:\Users\user\Documents\interlanguage\03_projects\language_management\english_germanic\02_native_examples\sga5_current_french_workpass\sga5_fr_workpass.tex'
 $ExpectedFrenchSha256 = '791F4EFFC5E02832D5D77ED03518C8156D6F07E4C8238B03545DB93D883FBB28'
 $Utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 

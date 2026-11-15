@@ -3,9 +3,9 @@
 State: translation-producer custody only; no source, scan, Korean, or formula audit was performed.
 
 - Pointer v005: `NOETH-DE-AUTH-v005-20260804`; 19,889 bytes; SHA-256 `42E6844BFCBFB2133E9AA323A823604351CF9C49550AFCF34ECAAF7887185660`.
-- Pointer snapshot: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v005_20260804.json`.
+- Pointer snapshot: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v005_20260804.json`.
 - ED0001: 2,153,565 raw bytes; SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
-- Authority file: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
+- Authority file: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
 - Complete substantive §24 interval: whole-source lines3106--3169; 2,389 LF-normalized UTF-8 bytes; SHA-256 `725C4EEE8C6B10708DEDF52B272D328CBC006E4B4FBC3042714FBE6DB08A7955`.
 - Blank lines3170--3171 are excluded: 2 LF bytes; SHA-256 `75A11DA44C802486BC6F65640AA48A730F0F684C5C07A42BA3CD1735EB3FB070`. §25 begins at line3172; its heading line is 108 LF bytes / `41B18270B3CFBBCB44953BABAE8EA83373CC4AFCE5BFB53AD1000BC5DED7AC04`.
 

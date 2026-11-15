@@ -9,7 +9,7 @@ Gate result: **repair package ready for application; Exposé VII is not synchron
 
 - Active English workpass snapshot at the final literal-anchor validation: `SGA5_English_sync_workpass.tex`, SHA-256 `8B30D84552E2A9EB04502A28935B4DE15466A171CE7C21136D9A47CE57B2FF82`.
 - Final French authority: `sga5_fr_workpass.tex`, SHA-256 `791F4EFFC5E02832D5D77ED03518C8156D6F07E4C8238B03545DB93D883FBB28`.
-- Original LNM 589 scan: `C:\Users\Floris\Documents\Papors\OS\SGA5 (1).pdf`, SHA-256 `B256EBD072A8C68209518412A263C9289C6F1854A346733D86F885930D5FE6CA`.
+- Original LNM 589 scan: `C:\Users\user\Documents\Papors\OS\SGA5 (1).pdf`, SHA-256 `B256EBD072A8C68209518412A263C9289C6F1854A346733D86F885930D5FE6CA`.
 - Printed/source page mapping used here: printed page = PDF page minus 12.
 
 ## Deliverables

@@ -10,18 +10,18 @@
 
 ## Current German authority and exact source envelope
 
-- Pointer: `NOETH-DE-AUTH-v007-20260804` at `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v007_20260804.json` — 21,580 B — SHA-256 `A6A8FC8E5AC24ACAF49DFD55B4B58FA3DA882EF8C3FDD4D136220C8751045156`.
-- Default German authority: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex` — 2,153,565 raw B — SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
+- Pointer: `NOETH-DE-AUTH-v007-20260804` at `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v007_20260804.json` — 21,580 B — SHA-256 `A6A8FC8E5AC24ACAF49DFD55B4B58FA3DA882EF8C3FDD4D136220C8751045156`.
+- Default German authority: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex` — 2,153,565 raw B — SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
 - Paper 2 source: ED0001 lines 473--3568 — 149,508 LF-normalized UTF-8 B — SHA-256 `D410ECC6B0ABA26400254CEE26867D92F21147BA38D2EDB93C3D7E37AFCEA3BD`.
 - Excluded controls: lines 3569--3572 — 28 LF B — SHA-256 `B18FF0CE4073E19DBDAD6E0DDDA1084C09D83162933D356F6D673C926AFFB8F9`.
 - Line 3573 begins Paper 3 and is outside this Paper 2 handoff.
-- Complete coordinate binder: `NOETH-DE-BINDER-P02-KO-COMPLETE-20260804-001`, `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\receipts\KOREAN_P02_COMPLETE_BINDER_20260804.json` — 10,453 B — SHA-256 `AAE2A396E00B92F372224A5C47DD7F511E12B60256B7B095030F489693FEF279`.
+- Complete coordinate binder: `NOETH-DE-BINDER-P02-KO-COMPLETE-20260804-001`, `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\receipts\KOREAN_P02_COMPLETE_BINDER_20260804.json` — 10,453 B — SHA-256 `AAE2A396E00B92F372224A5C47DD7F511E12B60256B7B095030F489693FEF279`.
 - Retained normalized source unit: 149,508 B — SHA-256 `D410ECC6B0ABA26400254CEE26867D92F21147BA38D2EDB93C3D7E37AFCEA3BD`.
 - Binder state: coordinate/normalization validation only. The canon owner opened no Korean target, reviewed no Korean, and made no German defect claim.
 
 ## Sole current producer manifest
 
-- **Current manifest:** `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper02_ko_translation_001_20260804\P02_COMPLETE_UNCHECKED_TRANSLATION_PRODUCER_MANIFEST_v003_20260804.json`
+- **Current manifest:** `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper02_ko_translation_001_20260804\P02_COMPLETE_UNCHECKED_TRANSLATION_PRODUCER_MANIFEST_v003_20260804.json`
 - Identity: 93,758 B — SHA-256 `F5A9F954A45E1C3E735949CC81717990FD9C9F1987A1218D1E67FCDD3CCB05D5`.
 - Encoding: UTF-8, LF-only, no BOM, no CR, terminal LF.
 - Exact pre-v003 payload: 346 files / 19,871,340 B.
@@ -51,7 +51,7 @@ The independent checker replayed the frozen v002 payload successfully: 344 files
 - Protected inputs: 322/322 identical; mutations 0.
 - Deterministic evidence rebuild: PASS, 2 runs / 22 files / 0 changes.
 - CSV artifact import: PASS, 3 projections / 5,190 rows / 0 error matches / 0 renders.
-- Methodology: `C:\Users\Floris\Documents\interlanguage\04_handoffs\methodology_lessons_20260718\CJK_KOREAN_PRODUCTION_LESSONS_20260718.md` — 172,331 B — SHA-256 `9EEFF21041293402283EE61C79C4A7C2BE6678462F8A79D42BD5F0480B525061`.
+- Methodology: `C:\Users\user\Documents\interlanguage\04_handoffs\methodology_lessons_20260718\CJK_KOREAN_PRODUCTION_LESSONS_20260718.md` — 172,331 B — SHA-256 `9EEFF21041293402283EE61C79C4A7C2BE6678462F8A79D42BD5F0480B525061`.
 
 ## Independent Korean checker
 
@@ -68,6 +68,6 @@ Until checker returns establish otherwise, all 199 target units remain `UNCHECKE
 - Publication policy: publish mathematical work immediately with honest state labels; publication is not review or approval.
 - Archive must construct and replay its own bounded coherent snapshot from v003 and this corrected handoff, on the existing Noether concept only. Do not create a competing Zenodo concept.
 - Visual assets: 0; rights-blocked visuals: 0.
-- Decision log before this handoff: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md` — 921,787 B — SHA-256 `E71F336F1A86F6C824F957187567988A9808767892826DE5C589D63EBE557EE2`; latest relevant decision `CJK-KO-P02-070`.
+- Decision log before this handoff: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md` — 921,787 B — SHA-256 `E71F336F1A86F6C824F957187567988A9808767892826DE5C589D63EBE557EE2`; latest relevant decision `CJK-KO-P02-070`.
 - Paper 2 producer translation cursor: closed.
 - Translation lane continuation: Korean Noether Paper 6 production; no SGA.

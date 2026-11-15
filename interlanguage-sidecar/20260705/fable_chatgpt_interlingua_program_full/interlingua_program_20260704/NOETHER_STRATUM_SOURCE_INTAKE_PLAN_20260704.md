@@ -18,4 +18,4 @@ Source-first intake per lane rules: download → hash → extract text → regis
 The 21 rows are mostly pre-1940s working vocabulary; Kurepa + Mostowski-Stark + Bydžovský alone should witness the majority (these were THE standard texts of their languages). Residual gaps after this pass are likely genuine "concept never naturalized in branch X" findings — themselves publishable data points for the historical-stratum siting question.
 
 ## Gate
-This is a plan. Fetching starts on Floris's go (network downloads OK'd generally, but this is a multi-file scrape of national libraries — explicit confirm requested per stop-and-ask list item "creating new source shelves").
+This is a plan. Fetching starts on user's go (network downloads OK'd generally, but this is a multi-file scrape of national libraries — explicit confirm requested per stop-and-ask list item "creating new source shelves").

@@ -1,5 +1,5 @@
 param(
-  [string]$RepoRoot = "C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github",
+  [string]$RepoRoot = "C:\Users\user\Documents\Papors\modern-latex-manuscripts-github",
   [string]$Stamp = "20260705"
 )
 

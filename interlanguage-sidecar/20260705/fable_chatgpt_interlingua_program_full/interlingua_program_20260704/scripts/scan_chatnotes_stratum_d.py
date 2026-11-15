@@ -6,8 +6,8 @@ from pathlib import Path
 from collections import Counter
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-root = Path(r"C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean")
-OUT = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+root = Path(r"C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean")
+OUT = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 
 LANG = {"_de": "de", "german": "de", "_en": "en", "english": "en", "_fr": "fr", "french": "fr",
         "_es": "es", "spanish": "es", "_ja": "ja", "japanese": "ja", "_uk": "uk", "ukrain": "uk",

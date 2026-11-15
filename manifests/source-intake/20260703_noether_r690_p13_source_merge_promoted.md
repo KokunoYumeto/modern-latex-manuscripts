@@ -1,14 +1,14 @@
 # 2026-07-03 Noether R690 P13 Source-Merge Receipt
 
 Local package:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R690_LocalCodex_P13_LateR673_SourceMerge_20260703.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R690_LocalCodex_P13_LateR673_SourceMerge_20260703.zip`
 
 SHA256: `54E7B9CCC5E36363F7CE85DE004025387809D5ECB0F107DCA55F252E82D7573E`
 
 Size: 158,848,461 bytes.
 
 Companion minimal web-continuation package:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_WebSession1_MinimalContinue_R690_P13SourceFix_20260703.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_WebSession1_MinimalContinue_R690_P13SourceFix_20260703.zip`
 
 SHA256: `28171AF7ED7E2450F633E1C31B16351B11C7ED130EA37FD9D4EEF0D3FD32DA96`
 

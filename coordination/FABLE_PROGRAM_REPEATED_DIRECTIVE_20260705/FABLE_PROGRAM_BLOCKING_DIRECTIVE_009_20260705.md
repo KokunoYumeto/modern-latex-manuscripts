@@ -20,7 +20,7 @@ If a push appears without that acknowledgement, treat the push as incomplete and
 
 The current local Fable program lives at:
 
-`C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`
+`C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`
 
 Minimum artifacts to read before continuing:
 

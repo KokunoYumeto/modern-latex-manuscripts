@@ -14,11 +14,11 @@ The passed gate verifies 81/81 exact-hash source-reconciled units, all 43 papers
 
 ## Frozen authority and translation memory
 
-- R823 package: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717_COMPLETE.zip`.
+- R823 package: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717_COMPLETE.zip`.
 - R823 package bytes / SHA-256: `24613194` / `7AFC1B865EC710F6BECE507260605CBA7C950E5CC089C7464F63CBC20A8BD738`.
-- Extracted German authority: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`.
+- Extracted German authority: `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`.
 - German authority bytes / SHA-256: `2125031` / `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`.
-- Recovered RA10 remained translation memory only and was never treated as authority: `C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_existing_translation_artifacts\zenodo_20836874_20260628\extracted\12_Noether_-_Spanish_Current_RA10_20260612\cumulative\cum_es.tex`, SHA-256 `2614DBF232F7DBB5914C1BFC8302019DFA914DEB305960BB46F20F2AD1D31F0C`.
+- Recovered RA10 remained translation memory only and was never treated as authority: `C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_existing_translation_artifacts\zenodo_20836874_20260628\extracted\12_Noether_-_Spanish_Current_RA10_20260612\cumulative\cum_es.tex`, SHA-256 `2614DBF232F7DBB5914C1BFC8302019DFA914DEB305960BB46F20F2AD1D31F0C`.
 
 Downloaded packages, recovered memories, and pre-existing backups were not edited. Production changes are confined to the isolated romance-rebase workspace.
 
@@ -36,8 +36,8 @@ Downloaded packages, recovered memories, and pre-existing backups were not edite
 
 ## Spanish mathematical canon and terminology
 
-- Native-register corpus: `C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260628_french_spanish_native_math_register`.
-- Package manifest: `C:\Users\Floris\Downloads\codex backup dump 7-4\codex backup\logs\FRENCH_SPANISH_LATEX_SOURCE_CORPUS_EXPANDED_20260628.json`.
+- Native-register corpus: `C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260628_french_spanish_native_math_register`.
+- Package manifest: `C:\Users\user\Downloads\codex backup dump 7-4\codex backup\logs\FRENCH_SPANISH_LATEX_SOURCE_CORPUS_EXPANDED_20260628.json`.
 - Transfer audit: `C:\IL_GitHub\01_other_pc_full\language-source-bodies\romance-b3-transfer-ready-20260706\SPANISH_BODY_AUDIT_B3_TRANSFER_20260706.csv`.
 - Verified provenance ledger: `evidence\SPANISH_NATIVE_MATH_CORPUS_PROVENANCE_FINAL.csv`, 11 accepted sources with package and all-TeX hashes verified, SHA-256 `FFA508711F8734CE1BD2ABA01C0F9C9F5F72490B9A7242A3013944EC5863ABED`.
 - Terminology ledger: `GERMAN_SPANISH_TERMINOLOGY_LEDGER.csv`, 101 distinct nonblank locator-backed decisions, SHA-256 `395C18C21D53C3E439DF95891DE197866548F4EBD0D550453ED83D8CE7B5B9EA`.

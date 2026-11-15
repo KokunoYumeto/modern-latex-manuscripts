@@ -13,7 +13,7 @@ It carries forward R531 tail/Kapferer repairs, R532/R533 support and Web R286 ev
 ## Registered Package
 
 - `40_R545_P40P525_ERWEITERUNGSSATZ_SOURCEFIX.zip`
-  - local source: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R545_P40P525_ERWEITERUNGSSATZ_SOURCEFIX.zip`
+  - local source: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R545_P40P525_ERWEITERUNGSSATZ_SOURCEFIX.zip`
   - bytes: 69,292,035
   - SHA256: `706411A94793AD1F022979213081B07CA592290538A6387C5E5860C0CEA52648`
   - role: current clean packaged local TeX-changing German source-control candidate; source-control only.

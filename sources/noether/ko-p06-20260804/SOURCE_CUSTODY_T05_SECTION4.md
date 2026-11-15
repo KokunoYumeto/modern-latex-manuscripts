@@ -4,8 +4,8 @@ Custody state: translation-producer metadata only. No source/scan audit, Korean 
 
 ## Authority and boundaries
 
-- Pointer: `NOETH-DE-AUTH-v007-20260804`, `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v007_20260804.json`; 21,580 bytes / SHA-256 `A6A8FC8E5AC24ACAF49DFD55B4B58FA3DA882EF8C3FDD4D136220C8751045156`.
-- German authority: `NOETH-DE-ED-0001`, `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`; 2,153,565 raw bytes / SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
+- Pointer: `NOETH-DE-AUTH-v007-20260804`, `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v007_20260804.json`; 21,580 bytes / SHA-256 `A6A8FC8E5AC24ACAF49DFD55B4B58FA3DA882EF8C3FDD4D136220C8751045156`.
+- German authority: `NOETH-DE-ED-0001`, `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`; 2,153,565 raw bytes / SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
 - Complete §4 interval: whole-authority lines 4904--4999; 5,258 LF-normalized UTF-8 bytes / SHA-256 `FEC0CDF1F652320EC258145E31E3941D8DF6C3FACE9BB000968425F61715E58F`.
 - §5 begins line 5000 and is excluded: 86 LF bytes / SHA-256 `F46E78FC208704B6CFD5A67846B7CE2E73C99C95D02FA1B235B1014F2977F7C9`.
 - Route: `ROUTE_AND_CLAIM_T05_SECTION4.md`; 2,325 bytes / SHA-256 `3CF887EA587B9D6E647D6A385C45CD58AC98FCED8638282C81236BF6CE9F2552`.

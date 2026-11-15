@@ -2,9 +2,9 @@
 Cursor file. Update after each grind unit; resume from here in any session.
 
 ## Standing rules for this program
-- Inline foreground work only. No agent fan-outs, no background jobs (Floris 2026-07-04: "don't spam agents"). Fable does the reading/synthesis itself.
+- Inline foreground work only. No agent fan-outs, no background jobs (user 2026-07-04: "don't spam agents"). Fable does the reading/synthesis itself.
 - No GPU/model-load without explicit go (standing rule).
-- No git push without telling Floris first.
+- No git push without telling user first.
 - Never-certify: everything provisional + motivated.
 - Deliverables get clickable links; final packages also land in `Documents\arxiv_latex\_zips\`.
 
@@ -15,24 +15,24 @@ Cursor file. Update after each grind unit; resume from here in any session.
 - [x] PROGRAM.md (the proposal) written.
 
 ## Done (2026-07-04, second pass — the global synthesis)
-- [x] Scope change per Floris: biology/physics analogy strands DROPPED from program (language/zonal work only). ChatGPT Pro handles its own consolidation; my job = the cross-island picture.
+- [x] Scope change per user: biology/physics analogy strands DROPPED from program (language/zonal work only). ChatGPT Pro handles its own consolidation; my job = the cross-island picture.
 - [x] New extractions found in dump folder: `$germanOut` (heavy codex tree: translations/renders/sources/review_bundles), noether-pc branch checkout (through package 160), 20260609 extract. All local — no GitHub access needed.
 - [x] Read: coordination index policy/status nodes (updated 20260630), ACCESS_GAIN_COHORT_METHOD (the practice-side objective function — formalized!), PAN_ROMANCE_OPTIMAL_ACCESS_HEURISTIC_INTEGRATION, 60-term source-hit table (T01–T60 structure), AI_INTERLANGUAGE_METHOD_REFERENCE_SHELF (20260703), SLAVIC_MAINTENANCE_PUBLICATION_HANDOFF (20260703), INTERSLAVIC_LOGBOOK standing principles + Paper01 term decisions.
 - [x] **ISLAND_ATLAS.md written** — the deliverable: 10+ islands mapped to one ladder, 8 cross-island findings (F1 source-availability is THE gate; F2 standard+script unity decides build type; F3 one objective discovered mid-program, Slavic implements it implicitly; F4 union term spine = missing keystone; F5 zero external review returns anywhere; F6 dominance failure mode recurs on both substrates; F7 French interlock node; F8 Lean = proof-grammar endpoint), three-way correspondence table, ranked next-builds.
 
-## Done (2026-07-04, third pass — Floris feedback + first build)
-- [x] Floris feedback folded in: F10 East-Slavic seeding bias audit (NEW, pre-van-Steenbergen requirement), F11 Pan-Turkic format-artifact hypothesis, marginal-intelligibility→submodularity note (ChatGPT-sanity-check lane), review-interim = 3-AI triangulation + Floris; GitHub read OK / NO push.
+## Done (2026-07-04, third pass — user feedback + first build)
+- [x] user feedback folded in: F10 East-Slavic seeding bias audit (NEW, pre-van-Steenbergen requirement), F11 Pan-Turkic format-artifact hypothesis, marginal-intelligibility→submodularity note (ChatGPT-sanity-check lane), review-interim = 3-AI triangulation + user; GitHub read OK / NO push.
 - [x] **UNION_TERM_SPINE v1 built and run** ([md](UNION_TERM_SPINE_20260704.md), [json](UNION_TERM_SPINE_20260704.json), [script](scripts/build_union_spine.py)): 138 concepts, per-lane 60/60/62/60, overlap 4-lanes:17 / ≥3:32 / lane-unique:83 → **F9 spine drift is source-genre-driven** (atlas §6b).
 
 ## Done (2026-07-04, fourth pass — ChatGPT handoff executed: P0.2 complete)
 - [x] ChatGPT handoff received (`Downloads\codex backup dump 7-4\fable5_language_only_handoff.md`) — converges with atlas (triangulation!); schemas adopted.
 - [x] Interslavic logbook mined: 222 term decisions extracted ([interslavic_term_decisions_20260704.json](interslavic_term_decisions_20260704.json)); term creation was early-phase (Papers 01–04), later phases = review batches; per-paper terms live in glossary/.
 - [x] Slavic dataset built: 1310 records / 95 glossary files ([slavic_term_dataset_20260704.json](slavic_term_dataset_20260704.json)).
-- [x] **F10 audit RESULT: witness monoculture confirmed & quantified** (0 W/S witness columns in 1310 records; 7/1310 rationale mentions; 1/1310 false-friend mentions) — but triangulation log verified: 20-source W/S shelf + provenance rule + flagship spot-triangulations exist since 2026-06-24 (Floris's flag); per-term backfill never done. Confirmed drift case: ring `kolco` vs `okruh/prsten/kolobar`.
+- [x] **F10 audit RESULT: witness monoculture confirmed & quantified** (0 W/S witness columns in 1310 records; 7/1310 rationale mentions; 1/1310 false-friend mentions) — but triangulation log verified: 20-source W/S shelf + provenance rule + flagship spot-triangulations exist since 2026-06-24 (user's flag); per-term backfill never done. Confirmed drift case: ring `kolco` vs `okruh/prsten/kolobar`.
 - [x] **Three P0.2 deliverables written**: [CLAIM_LEDGER.md](CLAIM_LEDGER.md) (11 claims, CLM-*), [HEURISTIC_REGISTER.md](HEURISTIC_REGISTER.md) (14 heuristics, HEU-*), [INTERSLAVIC_GATE_MAP.md](INTERSLAVIC_GATE_MAP.md) (G1–G10 existing + B1–B3 audit + G11–G15 recommended).
 
 ## Done (2026-07-04, fifth pass — ChatGPT build order executed steps 1–3)
-- [x] **Frozen baseline** ([frozen/](frozen/)): FABLE_BLIND_ATLAS_v0, UNION_TERM_SPINE_v1_preSlavic (json+md), CHATGPT_LANGUAGE_ONLY_HANDOFF_v0 — the "AI with East-Slavic sources only" stratum locked as archaeology per Floris.
+- [x] **Frozen baseline** ([frozen/](frozen/)): FABLE_BLIND_ATLAS_v0, UNION_TERM_SPINE_v1_preSlavic (json+md), CHATGPT_LANGUAGE_ONLY_HANDOFF_v0 — the "AI with East-Slavic sources only" stratum locked as archaeology per user.
 - [x] [CONCORDANCE.md](CONCORDANCE.md): blind-atlas × sidecar delta (confirmed/sharper/rejected/tensions) + CLM-001..005 entries. Adopted: C0/C1/C2/C3 spine architecture, restricted submodularity, MAG-with-variance selection rule, F10 flag schema, "internal triangulation before external review" wording.
 - [x] **INTERSLAVIC_LEDGER_RETROFIT_20260704** ([json](INTERSLAVIC_LEDGER_RETROFIT_20260704.json) / [csv](INTERSLAVIC_LEDGER_RETROFIT_20260704.csv)): 1254 term-level rows from 1310 glossary records + 222 logbook decisions, hash-pinned run manifest, honest-null access-gain fields.
 - [x] **F10_EAST_SLAVIC_SKEW_AUDIT_20260704** ([md](F10_EAST_SLAVIC_SKEW_AUDIT_20260704.md) / [json](F10_EAST_SLAVIC_SKEW_AUDIT_20260704.json)): F10-0 210 / F10-1 963 (76.8%, under-witnessed not wrong) / F10-2 20 / F10-3 42 (ALL = `kolco` compound family — one decision resolves 42 rows) / F10-4 19. safe-external: 210 yes / 966 review / 62 fix-first.
@@ -44,13 +44,13 @@ Cursor file. Update after each grind unit; resume from here in any session.
 - [x] **STRATIFIED_CORE_SPINE_PROPOSAL_20260704** ([md](STRATIFIED_CORE_SPINE_PROPOSAL_20260704.md) / [json](STRATIFIED_CORE_SPINE_PROPOSAL_20260704.json)): C2 v1 = 67 rows (proof-grammar 22, curriculum-algebra 28, Noether-corpus 17) with witnessed|gap|not-applicable fill semantics; C0/C1/C3 architecture documented.
 
 ## Done (2026-07-04, seventh pass — interlingual concept ledger v1)
-- [x] **Interlingual concept ledger v1** ([md](INTERLINGUAL_CONCEPT_LEDGER_20260704.md) / [csv](INTERLINGUAL_CONCEPT_LEDGER_20260704.csv) / [json](INTERLINGUAL_CONCEPT_LEDGER_20260704.json)) — Floris's "concept map" request realized: language-neutral concepts × (de | en | uk | ru | isv | isv_cyr), strata assigned, F10 flags carried. Curated seed: [data/concept_ledger_seed.json](data/concept_ledger_seed.json), 86 concepts incl. full classical invariant-theory vocabulary (Überschiebung→transvection, Formenreihe→form sequence, Reduzent→reducent, verschränktes Produkt→crossed product…). 56 concepts populated with data; 156 retrofit rows mapped.
+- [x] **Interlingual concept ledger v1** ([md](INTERLINGUAL_CONCEPT_LEDGER_20260704.md) / [csv](INTERLINGUAL_CONCEPT_LEDGER_20260704.csv) / [json](INTERLINGUAL_CONCEPT_LEDGER_20260704.json)) — user's "concept map" request realized: language-neutral concepts × (de | en | uk | ru | isv | isv_cyr), strata assigned, F10 flags carried. Curated seed: [data/concept_ledger_seed.json](data/concept_ledger_seed.json), 86 concepts incl. full classical invariant-theory vocabulary (Überschiebung→transvection, Formenreihe→form sequence, Reduzent→reducent, verschränktes Produkt→crossed product…). 56 concepts populated with data; 156 retrofit rows mapped.
 - [x] Diagnosis of the mapping ceiling: **953 retrofit rows have no German key** (older glossary schemas stash it under other field names) — fix is retrofit v2 key-harvesting, not more curation; plus ~40 easy seed extensions (direkte Summe, Einheitsmatrix, Divisionsalgebra, Burnside/Dedekind-Mertens theorems…), plus workflow-note noise class.
 
 ## Done (2026-07-04, eighth pass — retrofit v2, siting table, F-map)
 - [x] Retrofit v2: `source` field identified as the German key for 439 older-schema records; v1 artifacts frozen ([frozen/](frozen/)); pipeline rerun (retrofit 1229 rows; audit F10-1 947 / F10-0 203 / F10-3 41 / F10-2 19 / F10-4 19; effective branches 1.255 — stable under re-keying, good robustness sign).
 - [x] Concept ledger v1.1 with phrase-containment matching: 63 concepts / 237 rows mapped; remaining tail = phrase-level translation decisions (retrofit-ledger scope, not concept scope — boundary noted).
-- [x] **[SITING_TABLE_v1.md](SITING_TABLE_v1.md)**: F1–F11 findings→actions map; build-type decision rule stated (standard+script structure decides; split/combine decisions confirmed); 18-lane siting table with lexicographic source floor; **negative-weight `do_not_use` design** (Floris's point) with four reason classes, feeding on false-friend lists + warning comparators + F10-3 + rejection matrices.
+- [x] **[SITING_TABLE_v1.md](SITING_TABLE_v1.md)**: F1–F11 findings→actions map; build-type decision rule stated (standard+script structure decides; split/combine decisions confirmed); 18-lane siting table with lexicographic source floor; **negative-weight `do_not_use` design** (user's point) with four reason classes, feeding on false-friend lists + warning comparators + F10-3 + rejection matrices.
 
 ## Done (2026-07-04, ninth pass — linker fix, triangulation hit, seed extension)
 - [x] **Ränderung false-link CONFIRMED & FIXED** (ChatGPT predicted it sight-unseen; verified: ring←"bordering operation…"; unpredicted sibling: reducible←irreducible). Word-boundary+plural matching in both linkers; coverage honestly deflated (gloss links 28→25; spine Slavic 40→34). Logged in CONCORDANCE triangulation hit log.
@@ -66,7 +66,7 @@ Cursor file. Update after each grind unit; resume from here in any session.
 - [x] Stratum D registered in CORPUS_MAP: `Papors\Chatnotes\CHat translates and clean\` — per-author bilingual drafts (Cayley…Weber, SGA, Noether), **ES+JA Noether papers 36–39 zip** (two new spine languages), Interlanguage-methodology bundle 20260702 (= lineage source of today's theory docs), translations/non-eu/ukrainian nodes. Compaction caveat: draft-linked material only, never witnesses without verification. Full per-author inventory queued.
 
 ## Done (2026-07-04, twelfth pass — W/S backfill v0 from LOCAL shelf)
-- [x] Triangulation shelf located IN THE DUMP (`$germanOut\sources\interslavic_triangulation\...\text\`, 20 extracted texts) — Floris was right: no new collection needed. **WS_WITNESS_BACKFILL_v0** ([md](WS_WITNESS_BACKFILL_v0_20260704.md)/[json](WS_WITNESS_BACKFILL_v0_20260704.json)): 15 core concepts branch-typed. Results: **ring (kolco) = COMPETITOR-ONLY in both branches** (okruh/pierścień/prsten/kolobar attested, kolco zero) — ring memo evidence base done; **NEW review item: quotient field = COMPETITOR-ONLY West** (podílové/ułamków families), no South hits; splitting field West-competitor (rozklad-) as log predicted; internationalism policy VINDICATED for ideal/module/group/homomorphism/idempotent/basis/invariant (support both branches); doublet-policy candidates: determinant (pl wyznacznik), polynomial (pl wielomian, cs mnohočlen).
+- [x] Triangulation shelf located IN THE DUMP (`$germanOut\sources\interslavic_triangulation\...\text\`, 20 extracted texts) — user was right: no new collection needed. **WS_WITNESS_BACKFILL_v0** ([md](WS_WITNESS_BACKFILL_v0_20260704.md)/[json](WS_WITNESS_BACKFILL_v0_20260704.json)): 15 core concepts branch-typed. Results: **ring (kolco) = COMPETITOR-ONLY in both branches** (okruh/pierścień/prsten/kolobar attested, kolco zero) — ring memo evidence base done; **NEW review item: quotient field = COMPETITOR-ONLY West** (podílové/ułamków families), no South hits; splitting field West-competitor (rozklad-) as log predicted; internationalism policy VINDICATED for ideal/module/group/homomorphism/idempotent/basis/invariant (support both branches); doublet-policy candidates: determinant (pl wyznacznik), polynomial (pl wielomian, cs mnohočlen).
 - [x] Translations tree confirmed in dump (`$germanOut\translations\paper01–…​ + non_slavic`) — ES/JA & other-language material to inventory from there (newer than Chatnotes versions).
 
 ## Done (2026-07-04, thirteenth pass — six units, no checkpointing)
@@ -80,7 +80,7 @@ Cursor file. Update after each grind unit; resume from here in any session.
 ## Done (2026-07-04, fourteenth pass — F12 landed + the before/after number exists)
 - [x] F12 written into atlas §6b (West Slavic = calque-preferring branch; doublet policy targets West cohorts; Romance analog check queued for the access ledger).
 - [x] **Witness write-back v0** ([json](WITNESS_WRITEBACK_v0_20260704.json); annotated audit saved as NEW file [F10_AUDIT_postwriteback](F10_AUDIT_postwriteback_20260704.json), baseline untouched): 33 rows upgraded across 12 concepts (concept_shelf level, support hits only). **Effective branches 1.255 → 1.362; KL 0.871 → 0.789.** Honest reading: even maximal shelf-level write-back leaves 1.36/3 — the monoculture is structural; the long tail needs corpus-scale witnessing, and the concept ledger's row coverage is the multiplier (seed pass 3 raises it).
-- [x] Mild self-paced loop authorized by Floris; wakeups armed at 60s while units remain obvious.
+- [x] Mild self-paced loop authorized by user; wakeups armed at 60s while units remain obvious.
 
 ## Done (2026-07-04, loop pass 15 — retrofit row-chain bugfix, big numbers move)
 - [x] Diagnosed the 956-empty-source_term rows: retrofit had TWO de-key chains; row-output chain still short. Fixed; full rerun.
@@ -103,9 +103,9 @@ Cursor file. Update after each grind unit; resume from here in any session.
 ## Done (2026-07-04, loop pass 20 — DRAFT COMPLETE)
 - [x] **FRAMEWORK_DRAFT §1–11 + abstract all written.** The paper is a complete v0.1: correspondence, discipline, five measured results, siting model, honest limits, availability, intro, abstract. ~4,500 words of publication prose, every claim file-pinned.
 
-## Done (2026-07-04, pass 21 — Floris steer executed)
+## Done (2026-07-04, pass 21 — user steer executed)
 - [x] Zip MOVED out of `_zips` → [_claude_aid\interlingua_program_20260704_v1.zip](../interlingua_program_20260704_v1.zip) (_zips = LaTeX sources for ChatGPT only; memory updated). NOTE: zip predates passes 20–21; regenerate before any external use.
-- [x] **[AUTHORSHIP.md](AUTHORSHIP.md)**: full model/human provenance (Fable 5 = synthesis+paper prose; ChatGPT Pro 5.5 = rigor sidecar+steers+Ränderung prediction; Gemini DR = seed docs; Codex = practice stack; Kimi = Stratum-D drops; Floris = direction+founding heuristics+systemic catch) + idea-provenance table + publication note. Draft §11 now carries the AI-contributions block + Zenodo pointer.
+- [x] **[AUTHORSHIP.md](AUTHORSHIP.md)**: full model/human provenance (Fable 5 = synthesis+paper prose; ChatGPT Pro 5.5 = rigor sidecar+steers+Ränderung prediction; Gemini DR = seed docs; Codex = practice stack; Kimi = Stratum-D drops; user = direction+founding heuristics+systemic catch) + idea-provenance table + publication note. Draft §11 now carries the AI-contributions block + Zenodo pointer.
 - [x] **[COMPARATIVE_TERM_ANALYSIS_v1](COMPARATIVE_TERM_ANALYSIS_v1_20260704.md)** ([json](COMPARATIVE_TERM_ANALYSIS_v1_20260704.json)): 37 concepts, current-vs-alternatives with branch coverage + evidence; coverage heuristic isolates exactly 2 review-priority rows (ring, quotient field), rest = confirm/variant questions. The "which is better and why" packet backbone.
 - [x] **[CHATGPT_PRO_TASK_SPEC](CHATGPT_PRO_TASK_SPEC_20260704.md)**: bounded outsourcing spec for weighted marginal-intelligibility scoring (3 weightings incl. dependence-corrected; attestation-proxy I_g with documented partial-credit; vetoes before scores; sensitivity reporting; output schema). Ready to paste to ChatGPT Pro with the v1 zip.
 
@@ -142,24 +142,24 @@ Cursor file. Update after each grind unit; resume from here in any session.
 - [x] **Ring packet §4 upgraded to definitional-context evidence** (two independent probes; per-branch definitional passages: cs "Definice. Okruhem R rozumíme pětici…", pl "Definicja pierścienia…", sr "Definicija 1: Komutativan prsten…", sl kolobar 939 occ; kolco 0 in both probes). CONTEXT_WINDOWS added to enclosures.
 - [x] **[C2_CONTEXT_WINDOWS_v1](C2_CONTEXT_WINDOWS_v1_20260704.md)** ([json](C2_CONTEXT_WINDOWS_v1_20260704.json)): **46/67 C2 rows** with native W/S context windows (curated stems, incl. proof-grammar connectives — the F12-sensitive stratum). **21 pending = almost entirely the Noether-corpus stratum** (binary/ternary/biquadratic form, complete-system family, covariant/contravariant, transvection, resultant, ground form…) — a curriculum shelf cannot witness specialist historical vocabulary; those rows need specialist sources (historical algebra texts per branch) or stay honest gaps. That asymmetry is itself a siting datum: proof-grammar + curriculum strata are witnessable from general shelves; the Noether stratum needs its own source intake.
 
-## Done (pass 27 — THE MARKER TABLE, per Floris's original point)
-- [x] **[INTERLINGUAL_MARKER_TABLE_v1](INTERLINGUAL_MARKER_TABLE_v1.md)** ([csv](INTERLINGUAL_MARKER_TABLE_v1.csv) / [json](INTERLINGUAL_MARKER_TABLE_v1.json)) — the central artifact Floris originally asked for: **138 concepts × 20 language-marker columns** (de en uk ru isv isv-cyr | cs sk pl sl hr/sr bg | es fr pt gl ca it ro rm | ar fa my/id), evidence-tagged ([S] cognate-support / [C] competitor / empty=honest gap), C2-stratum flagged, weighted where scores exist (31 rows with v3 action/sensitivity/MAG). Fill profile: Romance 30–60, ar/fa/my 60–64, Slavic W/S 21–31, East+ISV 34–36 of 138 — the sparsity map IS the fill-work list.
+## Done (pass 27 — THE MARKER TABLE, per user's original point)
+- [x] **[INTERLINGUAL_MARKER_TABLE_v1](INTERLINGUAL_MARKER_TABLE_v1.md)** ([csv](INTERLINGUAL_MARKER_TABLE_v1.csv) / [json](INTERLINGUAL_MARKER_TABLE_v1.json)) — the central artifact user originally asked for: **138 concepts × 20 language-marker columns** (de en uk ru isv isv-cyr | cs sk pl sl hr/sr bg | es fr pt gl ca it ro rm | ar fa my/id), evidence-tagged ([S] cognate-support / [C] competitor / empty=honest gap), C2-stratum flagged, weighted where scores exist (31 rows with v3 action/sensitivity/MAG). Fill profile: Romance 30–60, ar/fa/my 60–64, Slavic W/S 21–31, East+ISV 34–36 of 138 — the sparsity map IS the fill-work list.
 - [x] Ring packet + C2 context work of pass 26 feeds this table's Slavic W/S cells.
 
-## Done (pass 28 — session open-items sweep, per Floris)
+## Done (pass 28 — session open-items sweep, per user)
 - [x] **Ring packet pre-ship reqs 1+2 CLOSED (§2a)**: community word list obtained (app+steen unreachable → medzuslovjansky/database Google-Sheet export, 8MB csv in data/): **`koljce`=ring with W/S row = prsten-family in every W/S language** + **`pŕstėnj`=ring also community-sanctioned**; no math sense marked; corpus `kolco` ≠ community citation form `koljce` (new reviewer sub-question). перстень register verified: 0 occurrences in corpus uk/ru math text (vs кільце/кольцо ≈1025/1029) — jewellery-only in East.
 - [x] **[NOETHER_STRATUM_SOURCE_INTAKE_PLAN](NOETHER_STRATUM_SOURCE_INTAKE_PLAN_20260704.md)**: per-branch historical sources (Kurepa, Mostowski-Stark, Bydžovský, Obreškov…) + national digital libraries (Kramerius/Polona/dLib/NSK) for the 21 specialist rows; fetch gated on explicit go.
 - [x] **Memory written**: project_interlingua_program.md + MEMORY.md line — program now survives session loss (resume: workspace STATUS.md).
 - [x] ARTIFACT_INDEX regenerated (116 files); **v2 zip built** ([interlingua_program_20260704_v2.zip](../interlingua_program_20260704_v2.zip), 4.2MB, supersedes v1).
-- [x] F7 SGA line-pinning: **BLOCKED-ON-PATH** — sga6_fr_workpass.tex not reachable from this machine's search paths (memory pointer belongs to the SGA session's own working dir); needs that session's cursor or Floris pointing at the file.
+- [x] F7 SGA line-pinning: **BLOCKED-ON-PATH** — sga6_fr_workpass.tex not reachable from this machine's search paths (memory pointer belongs to the SGA session's own working dir); needs that session's cursor or user pointing at the file.
 
 ## Done (pass 29 — v3 adoption + repair; packet assembled; authority posture corrected)
-- [x] **AUTHORITY POSTURE (Floris)**: on Slavic linguistic substance, Fable+ChatGPT+community are the authority — Floris does NOT gate linguistic decisions (he gates: spend, scope, external SENDING, pushes). Linguistic work no longer queues on his read. Standing rules updated in spirit throughout.
+- [x] **AUTHORITY POSTURE (user)**: on Slavic linguistic substance, Fable+ChatGPT+community are the authority — user does NOT gate linguistic decisions (he gates: spend, scope, external SENDING, pushes). Linguistic work no longer queues on his read. Standing rules updated in spirit throughout.
 - [x] **ChatGPT v3 master + whole-interlanguage map received & verified**: 212 concepts, priority bands (A: ring+QF — its missing-QF catch CONFIRMED, my v1 lacked the row), source-weight ladder, lane map (12 lanes incl. french_interlock). 
 - [x] **v3 label contamination caught & repaired → [v3.1 REPAIRED](INTERLINGUAL_MARKER_TABLE_v3_1_REPAIRED_20260704.csv) = MASTER TABLE** (54/45/41/42 sentence-cells moved to *_source_cue; 10–16/column lemmas restored from ledger; rest honest-blank). [Defect report for ChatGPT](V3_DEFECT_REPORT_FOR_CHATGPT_20260704.md) filed (root cause + v4 fix). CONCORDANCE hit log: mutual-catch now three-for-three (C→F Ränderung, C→F missing-QF, F→C label leak). My v1 table = superseded.
-- [x] **[VAN_STEENBERGEN_PACKET_v1_INDEX](VAN_STEENBERGEN_PACKET_v1_INDEX.md) assembled** — reading order, questions summary, boundary. Sending gate = Floris + the 1–2-complete-authors sequencing.
+- [x] **[VAN_STEENBERGEN_PACKET_v1_INDEX](VAN_STEENBERGEN_PACKET_v1_INDEX.md) assembled** — reading order, questions summary, boundary. Sending gate = user + the 1–2-complete-authors sequencing.
 
-## THE COMPLETENESS BAR (Floris, pass 30 — supersedes all packet-framing)
+## THE COMPLETENESS BAR (user, pass 30 — supersedes all packet-framing)
 **"Is the word complete? Did you do the full canonical-corpus insertion of ALL the words, correctly weighted?"** Nothing is shown externally before the answer is yes. The van-Steenbergen index is an internal artifact only; STOP mentioning sending. The program goal = full-corpus insertion + weighting.
 
 ## Done (pass 30 — completeness metric defined & measured)
@@ -260,7 +260,7 @@ Cursor file. Update after each grind unit; resume from here in any session.
 - [x] zovut attached (variant-membership targeting); lexicon stats: 230 groups / ~950 surfaces / 67 scatter-rich groups (≥4 variants = F13 normalization queue).
 - [x] **[COMPLETENESS_STATE_20260704.md](COMPLETENESS_STATE_20260704.md)** — the sprint summary: 93.8% tokens / 68.6% types; ~3,700 long-tail types remain; findings recap; the four-option strategy fork with my recommendation (d).
 - [x] Program zip **v3** built ([interlingua_program_20260704_v3.zip](../interlingua_program_20260704_v3.zip), 23MB — includes shelves + all grind artifacts).
-- **LOOP STOPPED** — strategy call is Floris's: (a) token-grind to 95%+ / (b) type-ranked fronts / (c) weighting+normalization layer on the 230 groups / (d) split: ChatGPT takes the tail, I take weighting. Recommendation: (d).
+- **LOOP STOPPED** — strategy call is user's: (a) token-grind to 95%+ / (b) type-ranked fronts / (c) weighting+normalization layer on the 230 groups / (d) split: ChatGPT takes the tail, I take weighting. Recommendation: (d).
 - [ ] **F13 write-up into atlas §6b + skeleton** (variant-scatter = register-standardization worklist; feeds the paper's internal-variance section).
 - [ ] Lexicon v2.2 dedup (citation form = infinitive; naleži/naležati class).
 - [ ] Cyrillic-side metric (validator cross-check).
@@ -271,10 +271,10 @@ Cursor file. Update after each grind unit; resume from here in any session.
 - [ ] C2 fill-ledgers, specialist-source intake, ChatGPT v4 — all continue as sub-feeds of insertion coverage.
 - [ ] Gated: embedding measurements (explicit go).
 
-## Standing operating rules (Floris + sidecar convergence, 2026-07-04)
+## Standing operating rules (user + sidecar convergence, 2026-07-04)
 Bounded tasks proceed without asking when: (i) read-only or classification-only; (ii) no new target-language wording; (iii) CPU/local only; (iv) emits counts + source pointers; (v) preserves old artifacts (freeze, don't overwrite). Chat output stays language-side; math stays in files.
 
-## Open questions for Floris (non-blocking)
+## Open questions for user (non-blocking)
 - Push consolidation outputs to GitHub when ready? (will prepare branch locally either way)
 - API-worthiness verdict requested: see atlas §4–6 — my read is yes for the synthesis/harmonization layer, no need for grinding layers (codex handles those).
 
@@ -283,14 +283,14 @@ Bounded tasks proceed without asking when: (i) read-only or classification-only;
 - [x] **V4 INTAKE AUDIT** ([raw](V4_AUDIT_RAW_20260704.txt), [merge log](V4_REVIEW_MERGE_LOG_20260704.json)): 4 defect classes caught (mutual-catch F->C #2..#5): D1 en-gloss channel contamination ~40+ rows (dictionary prefix-match pulled wrong headword glosses: podmodul="submarine", kongruencija="congress", posrědovati="silver-plate"...); D2 false root-prefix attaches (proizhod*->arbitrary, reducir*->ręd, suščstveno->exists, nastal/nastalo double-attached); D3 per-token entries not lemma-grouped (237 entries -> 132 groups); D4 silent attach failures (592 proposed vs 493 applied, zovut-shape). Full report: [V4_DEFECT_REPORT_AND_HANDOFF_FOR_CHATGPT_20260704.md](V4_DEFECT_REPORT_AND_HANDOFF_FOR_CHATGPT_20260704.md).
 - [x] **Lexicon v2.4 merged** (data/proof_prose_lexicon_v2.json, 362 groups; v2-230 frozen at frozen/proof_prose_lexicon_v2_230_preV4.json): strips+re-homes applied, 29 attach-instead-of-new, 132 consolidated groups with corrected EN glosses, months/hamel excluded (hamel+riemann added to coverage EPONYMS), 0 cross-group duplicates verified. **COVERAGE: 95.0% tokens / 72.9% types** (was 93.8/68.6).
 - [x] **WEIGHTING LAYER BUILT (lane c)**: [REGISTER_DOUBLET_BRANCH_EVIDENCE_v1](REGISTER_DOUBLET_BRANCH_EVIDENCE_v1_20260704.md) — 34 doublet groups x 9 native langs (W=cs/pl/sk shelf prose, S=sl/hr/sr/bg + mk UKIM, E=be dict pages; mechanical_probe 0.5). [NORMALIZATION_DECISION_TABLE_v1](NORMALIZATION_DECISION_TABLE_v1_20260704.md): 67 rows, 31 with branch profiles -> **14 confirmed W/S register doublets (F12b now quantified: musi W145/S0 vs mora W0/S177; totiž W9/S0 vs namreč/naime W0/S189; otázka/pytanie W vs pitanje/vprašanje S...)**, ~17 pan-root anchors. 2 mechanical pan-verdicts killed by cross-branch homographs (hr jednak=equal vs pl jednak=however; hr pripada=belongs vs cs případ=case) -> homograph check added to probe-v2 checklist. NEW METHOD LESSON: pan verdicts REQUIRE homograph audit.
-- Cursor: next = (i) hand defect report + v2.4 to ChatGPT (Floris ferries), (ii) its context_review 455-row KWIC re-emit -> my bulk adjudication, (iii) probe-v2 for the un-probed doublet groups + remaining F13 rows, (iv) marker-table weight columns from decision table, (v) pan_romance C2 fill when Slavic weighting lands.
+- Cursor: next = (i) hand defect report + v2.4 to ChatGPT (user ferries), (ii) its context_review 455-row KWIC re-emit -> my bulk adjudication, (iii) probe-v2 for the un-probed doublet groups + remaining F13 rows, (iv) marker-table weight columns from decision table, (v) pan_romance C2 fill when Slavic weighting lands.
 
 ## Done (2026-07-05, pass 26 — probe-v2 + decision table v1.1 + marker v3.2 + atlas F12c)
 - [x] **Probe-v2 run** (16 previously unprobed doublet groups, homograph guards at pattern level): [REGISTER_DOUBLET_BRANCH_EVIDENCE_v2_20260704.json](REGISTER_DOUBLET_BRANCH_EVIDENCE_v2_20260704.json). Headlines: ręd = NO pan root (řada cs / szereg pl / niz hr-sr / zaporedje sl four-way; ISV ręd leans E — review-critical); suma = four-way field (součet W216 / zbir S153 / vsota S119 / suma W55+S55 weakly pan); tělo W-confirmed massively (těleso 667 + ciało 360 vs S 121); obći fully split (obecn W86 / splošn sl82 / opći-obšt S33); vaga = be-attested (13) + S uses teža/težina (genre caveat: algebra prose rarely carries 'weight'); dopuščati near-absent (absence, not adverse); cel-/nul-/lež-/dava- pan.
 - [x] **NORMALIZATION_DECISION_TABLE v1.1** ([md](NORMALIZATION_DECISION_TABLE_v1_20260704.md) regenerated): 47/67 rows now carry branch profiles; verdicts patched; homograph corrections integrated.
 - [x] **Marker table v3.2** ([json](INTERLINGUAL_MARKER_TABLE_v3_2_20260704.json) / [csv](INTERLINGUAL_MARKER_TABLE_v3_2_20260704.csv)): register-layer weight columns (register_doublet_group / register_branch_profile / register_doublet_policy / register_evidence) on 7 concept rows (lemma, basis, power, zero, corollary, assumption, division ring/body). v3.1 remains frozen base.
 - [x] **ISLAND_ATLAS updated: F12c** — the quantified W/S doublet structure (16+ zero-crossover doublets, ~17 pan anchors, ręd/suma no-pan cases, homograph-audit method lesson).
-- Cursor: ferry V4_DEFECT_REPORT_AND_HANDOFF + v2.4 lexicon + decision table v1.1 to ChatGPT (Floris); await its context_review KWIC re-emit for bulk adjudication; then remaining F13 rows without profiles (20 inflectional clusters need no decision), marker weight columns for W/S language columns proper, pan_romance C2 fill queue (95 hooks) when Slavic weighting settles.
+- Cursor: ferry V4_DEFECT_REPORT_AND_HANDOFF + v2.4 lexicon + decision table v1.1 to ChatGPT (user); await its context_review KWIC re-emit for bulk adjudication; then remaining F13 rows without profiles (20 inflectional clusters need no decision), marker weight columns for W/S language columns proper, pan_romance C2 fill queue (95 hooks) when Slavic weighting settles.
 
 ## Done (2026-07-05, pass 27 — context-review adjudication from ChatGPT's own KWIC windows)
 - [x] Discovery: ChatGPT's v4 drop already contains KWIC windows for 594 tokens (ISV_LONGTAIL_CONTEXT_WINDOWS_PASS_v4) — the 455-row context_review adjudication did NOT need to wait for its next round.
@@ -312,4 +312,4 @@ Bounded tasks proceed without asking when: (i) read-only or classification-only;
 - [x] **Residue honesty**: 23 confirmed German/English/TeX residue types moved into the metric STOP class (polynomideale, wissensch, tracts, months, iiia...) — denominator now 11,884 types. Micro-batch: vzame/sili/izčezly attached; najdti/tekst/ikaky groups.
 - [x] **Lexicon v2.7b, 532 groups. COVERAGE: 96.6% tokens / 78.5% types** (day trajectory: 70.6→96.6 tokens, 39.6→78.5 types). Queue: 74 n<=2 dust tokens (dixmuiden-class: single-occurrence names/German).
 - [x] **[CHATGPT_HANDOFF_BUNDLE_20260705.zip](CHATGPT_HANDOFF_BUNDLE_20260705.zip)** built (143826 bytes, sha256 C3D042DF795B3655...): defect report D1-D4, lexicon v2.7b, decision table v1.1, branch evidence v2, marker v3.2, queue+logs, coverage. Ferry to ChatGPT web when convenient.
-- **LOOP STOPPED** (planned): adjudication is at diminishing returns; next moves need either ChatGPT's next round (rebuilt backlog vs v2.7b, KWIC for dust) or Floris direction (normalization decisions from the 47-row table; pan_romance C2 fill; marker weight columns extension).
+- **LOOP STOPPED** (planned): adjudication is at diminishing returns; next moves need either ChatGPT's next round (rebuilt backlog vs v2.7b, KWIC for dust) or user direction (normalization decisions from the 47-row table; pan_romance C2 fill; marker weight columns extension).

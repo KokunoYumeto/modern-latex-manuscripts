@@ -4,10 +4,10 @@ $csvPath = Join-Path $PSScriptRoot 'difficulty_ledger.csv'
 if (Test-Path -LiteralPath $ledgerPath) { throw "Append-only ledger already exists: $ledgerPath" }
 if (Test-Path -LiteralPath $csvPath) { throw "CSV projection already exists: $csvPath" }
 
-$sourcePath = 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_zh_translation_001_20260722/source/Noether_Paper41_CurrentGermanAuthority_interval.tex'
+$sourcePath = 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_zh_translation_001_20260722/source/Noether_Paper41_CurrentGermanAuthority_interval.tex'
 $snapshotHash = 'C265058425E5E2D1A2289CC03A9DDEDDDF4803A3215DC3F173B93E7AB69D60ED'
 $historicalHash = '443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27'
-$root = 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804'
+$root = 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804'
 $unitHashes = [ordered]@{
   U01='BAD33EF459284C4E06A877CEBD624F8C843DED51B82A608475F7FB9726F0228C'; U02='8C0BC86950AD752B9CAED52C54765F6AF6E3592D48996200313845B44942F6BD'
   U03='E1509DFE9ED80F79ED65F770EABF148C56CB853B2E7BD075E629175E2D426EFD'; U04='F0D1FF2818BD95257249E93DB56E891343DF2EB025DD3F46987461ACCA05A0FC'
@@ -61,16 +61,16 @@ function Add-Record {
 
 $allUnits=@('U01','U02','U03','U04','U05','U06','U07','U08','U09','U10','U11','U12')
 Add-Record $allUnits (New-Authority $allUnits @('snapshot local lines 1-154','producer body 1-151','controls 153-154 excluded')) @(
-  (New-Target 'CANON-BINDER' 'C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/receipts/KOREAN_P41_U01_U12_BINDER_20260804.json' '95D0E69B6D32FD93801C3FDC4C519FAA9AB7CA867538E1CD9E2096EFAB253A91'),
-  (New-Target 'POINTER-V003' 'C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/pointers/NOETH_DE_AUTHORITY_POINTER_v003_20260804.json' '932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197')
+  (New-Target 'CANON-BINDER' 'C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/receipts/KOREAN_P41_U01_U12_BINDER_20260804.json' '95D0E69B6D32FD93801C3FDC4C519FAA9AB7CA867538E1CD9E2096EFAB253A91'),
+  (New-Target 'POINTER-V003' 'C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/pointers/NOETH_DE_AUTHORITY_POINTER_v003_20260804.json' '932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197')
 ) 'authority_binding' 'Stored LF snapshot versus current CRLF authority and missing historical P16 whole ancestry.' @('source_fact','computation','external_or_human_validation') 'Historical coordinate debt existed even though the preserved interval hash was exact.' @(
   (New-Cause 'source_fact' 'Historical P16 whole file and pointer path are unavailable; only the preserved interval survived.' $sourcePath $snapshotHash),
-  (New-Cause 'external_or_human_validation' 'Canon owner independently rebound the complete interval by strict newline normalization.' 'C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/receipts/KOREAN_P41_U01_U12_BINDER_20260804.json' '95D0E69B6D32FD93801C3FDC4C519FAA9AB7CA867538E1CD9E2096EFAB253A91')
+  (New-Cause 'external_or_human_validation' 'Canon owner independently rebound the complete interval by strict newline normalization.' 'C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/receipts/KOREAN_P41_U01_U12_BINDER_20260804.json' '95D0E69B6D32FD93801C3FDC4C519FAA9AB7CA867538E1CD9E2096EFAB253A91')
 ) @(
   (New-Attempt 'Treat historical P16 coordinates as current authority.' 'Rejected because the whole file is missing and non-replayable.' 'rejected'),
   (New-Attempt 'Request coordinate-only canon binder.' 'Accepted; normalized identity to ED0001 and named public layers was returned.' 'accepted')
 ) @('Do not infer a whole-file ancestry edge to missing P16.','Do not treat R823 Analogon/Anologon lineage delta as a translator-confirmed defect.') 'resolved' 'Pointer v003 and the immutable P41 binder close coordinate/tooling debt for this exact interval.' @(
-  (New-Evidence 'canon_receipt' 'SAFE normalized-identical; no target inspected.' 'C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/receipts/KOREAN_P41_U01_U12_BINDER_20260804.json' '95D0E69B6D32FD93801C3FDC4C519FAA9AB7CA867538E1CD9E2096EFAB253A91')
+  (New-Evidence 'canon_receipt' 'SAFE normalized-identical; no target inspected.' 'C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/receipts/KOREAN_P41_U01_U12_BINDER_20260804.json' '95D0E69B6D32FD93801C3FDC4C519FAA9AB7CA867538E1CD9E2096EFAB253A91')
 ) 'R823 retains a one-token divergent ancestor reading and original-print adjudication remains absent.' @('lost historical whole path','raw byte inequality caused solely by CRLF/LF','branch token difference without checker evidence') 'not_applicable' 'not_applicable' @('CJK-KO-P41-001','CJK-KO-P41-003','CJK-KO-P41-004') @('NOE-P41-KO-WORK-001') 'Bind a preserved unit directly to a current content-addressed authority; never let missing whole ancestry invalidate a normalized-identical unit.' 'Revisit only if a checker-confirmed primary-source finding is submitted under pointer v003.'
 
 Add-Record $allUnits (New-Authority $allUnits @('all producer units','language evidence shelf')) @(
@@ -158,7 +158,7 @@ Add-Record @('U01','U02','U03','U04') (New-Authority @('U01','U02','U03','U04') 
   (New-Attempt 'Write TeX through an unescaped normal JavaScript string.' 'Failed; inline delimiters were stripped.' 'failed'),
   (New-Attempt 'Restore delimiters with apply_patch before freezing identities.' 'Accepted; Korean wording unchanged.' 'accepted')
 ) @('Never invent unavailable failed hashes.','Do not call delimiter restoration formula review.') 'resolved' 'Final U01-U04 hashes freeze repaired producer bytes; failure remains append-only.' @(
-  (New-Evidence 'decision_log' 'Failure and final identities.' 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CJK_DECISION_LOGBOOK_20260718.md' $null)
+  (New-Evidence 'decision_log' 'Failure and final identities.' 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CJK_DECISION_LOGBOOK_20260718.md' $null)
 ) 'Other TeX escapes could fail if future patch payloads repeat the same string path.' @('normal JavaScript string contains TeX','backslash count unexpectedly low','inline math appears as plain parentheses') 'not_applicable' 'not_applicable' @('CJK-KO-P41-002') @('NOE-P41-KO-U01','NOE-P41-KO-U02','NOE-P41-KO-U03','NOE-P41-KO-U04') 'Protect TeX escapes at serialization time and preserve failures even when repair precedes hashing.' 'Recur if any producer target is written through a normal unescaped JavaScript string.'
 
 Add-Record @('U05','U06','U07','U08') (New-Authority @('U05','U06','U07','U08') @('target write production for U05-U08')) @(
@@ -178,7 +178,7 @@ Add-Record @('U05','U06','U07','U08') (New-Authority @('U05','U06','U07','U08') 
   (New-Attempt 'First bulk repair.' 'Failed; detailed transient output was not preserved by the worker, which is retained as evidence limitation.' 'failed'),
   (New-Attempt 'Exact per-file apply_patch delimiter restoration.' 'Accepted; wording unchanged and new hashes frozen.' 'accepted')
 ) @('Do not erase first-return hashes.','Do not invent the missing transient bulk-repair output.') 'resolved' 'Final repaired identities supersede damaged bytes only; both states remain in the ledger.' @(
-  (New-Evidence 'decision_log' 'Exact before/after identities and repair scope.' 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CJK_DECISION_LOGBOOK_20260718.md' $null)
+  (New-Evidence 'decision_log' 'Exact before/after identities and repair scope.' 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CJK_DECISION_LOGBOOK_20260718.md' $null)
 ) 'Repeated serialization paths can recreate the same defect; failed bulk-repair diagnostics are incomplete.' @('target byte increase equals restored delimiters','worker sees plain parentheses around symbols','bulk replacement lacks exact scope') 'not_applicable' 'not_applicable' @('CJK-KO-P41-002') @('NOE-P41-KO-U05','NOE-P41-KO-U06','NOE-P41-KO-U07','NOE-P41-KO-U08') 'Freeze and retain both damaged and repaired hashes; scope repairs to mechanical serialization only.' 'Recur on any TeX target whose first write used unescaped JavaScript strings.'
 
 Add-Record $allUnits (New-Authority $allUnits @('producer metadata choices file')) @(

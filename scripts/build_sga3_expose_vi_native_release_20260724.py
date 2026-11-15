@@ -79,8 +79,8 @@ DOCUMENT_IDENTITIES = {
 }
 
 PRIVACY_MARKERS = (
-    b"C:\\Users\\Floris",
-    b"C:/Users/Floris",
+    b"C:\\Users\\user",
+    b"C:/Users/user",
     b"C:\\IL_GitHub",
     b"C:/IL_GitHub",
     b"AppData\\Local\\Temp",

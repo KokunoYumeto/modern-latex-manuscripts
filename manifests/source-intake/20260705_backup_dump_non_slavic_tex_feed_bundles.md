@@ -8,7 +8,7 @@ Source inventory:
 
 Local extraction handoff:
 
-`C:\Users\Floris\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\handoffs\interlanguage_backup_non_slavic_tex_feeds_20260705`
+`C:\Users\user\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\handoffs\interlanguage_backup_non_slavic_tex_feeds_20260705`
 
 GitHub mirror:
 

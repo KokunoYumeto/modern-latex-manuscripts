@@ -26,7 +26,7 @@ Apply conditions (Fable validation of the ChatGPT batch-0 diff — MANDATORY, th
 ## Required payload in the tranche commit (matches the 20260708 shape)
 - changed `.tex` (translations/paper06 Latin + Cyrillic), rebuilt `.pdf` or compile-failure log
 - render-check note (1 paragraph)
-- terminology note: cite this spec; state that NO lexeme switches were applied (jednočasno/odpovědati/krok are Tranche 002+, gated on Floris)
+- terminology note: cite this spec; state that NO lexeme switches were applied (jednočasno/odpovědati/krok are Tranche 002+, gated on user)
 - `MANIFEST.csv` + `FABLE_REQUIREMENTS_ACKNOWLEDGED_YYYYMMDD.md` (one file, short, per-requirement status)
 
 ## Tranche 002 preview (do NOT start until 001 is merged and Fable-reviewed)

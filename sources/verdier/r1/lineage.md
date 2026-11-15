@@ -8,7 +8,7 @@ Scope: complete Astérisque 239 only
 `verdier:numdam:asterisque239`
 
 - Path:
-  `C:\Users\Floris\Documents\Papors\OS\AST_1996__239__R1_0.pdf`
+  `C:\Users\user\Documents\Papors\OS\AST_1996__239__R1_0.pdf`
 - Bytes: 19,188,423
 - Physical pages: 270
 - SHA-256:
@@ -30,7 +30,7 @@ authorship.
 `verdier:comparison:djvu`
 
 - Path:
-  `C:\Users\Floris\Documents\Papors\OS\Des categories derivees des categories abeliennes (Verdier J.-L.).djvu`
+  `C:\Users\user\Documents\Papors\OS\Des categories derivees des categories abeliennes (Verdier J.-L.).djvu`
 - Bytes: 1,330,094
 - SHA-256:
   `7D20F3E0F62E58E8CE27DB038BCAD6D8821CDEA7D0E49D27EEBB8EC1225F7F63`
@@ -44,7 +44,7 @@ authorship.
 `verdier:comparison:pdf`
 
 - Path:
-  `C:\Users\Floris\Documents\Papors\OS\Des categories derivees des categories abeliennes (Verdier J.-L..pdf`
+  `C:\Users\user\Documents\Papors\OS\Des categories derivees des categories abeliennes (Verdier J.-L..pdf`
 - Bytes: 8,705,514
 - SHA-256:
   `9F93C0BB3131F720B9C736E7C2E7834E76500A62B3C68155FCFE62301C5DA4EB`

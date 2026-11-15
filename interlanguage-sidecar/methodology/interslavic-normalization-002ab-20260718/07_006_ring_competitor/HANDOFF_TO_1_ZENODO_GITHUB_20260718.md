@@ -2,7 +2,7 @@
 
 ## Payload
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_006_ring_competitor`
+`C:\Users\user\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_006_ring_competitor`
 
 ## Scope and continuation cursor
 

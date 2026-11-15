@@ -11,7 +11,7 @@ This gate does not constitute native-speaker review, linguistic promotion, human
 `scripts/verify_pdf_renders_v8.py` renders each build PDF afresh into its own automatically removed `TemporaryDirectory` under `tmp/pdfs`, using:
 
 ```text
-C:\Users\Floris\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdftoppm.exe -png -r 150 <build_pdf> <isolated_temporary_output_prefix>
+C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdftoppm.exe -png -r 150 <build_pdf> <isolated_temporary_output_prefix>
 ```
 
 Renderer identity:

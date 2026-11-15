@@ -1,6 +1,6 @@
 # SGA5 full-audit local workpass refresh through p391 (2026-07-02)
 
-Source lane: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`.
+Source lane: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`.
 
 This manifest records a live local SGA5 French workpass/audit cursor. It supersedes the p388 refresh for current-public wording, but it is still live ledger/provenance only. The latest compact promoted SGA5 delta remains `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626`; p266-p391 are not a compact promoted delta unless later packaged deliberately.
 

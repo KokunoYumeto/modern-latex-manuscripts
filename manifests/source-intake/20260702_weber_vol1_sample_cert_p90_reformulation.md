@@ -3,7 +3,7 @@
 Date: 2026-07-02
 
 Local audit file:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit\WEBER_SAMPLE_CERT.md`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit\WEBER_SAMPLE_CERT.md`
 
 Audit scope: 20 selected Volume I pages.
 

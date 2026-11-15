@@ -4,7 +4,7 @@ Registered 2026-07-02.
 
 Local package:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R528_LocalCodex_R527_P24p250_261_NoPatchAudit_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R528_LocalCodex_R527_P24p250_261_NoPatchAudit_20260702.zip`
 
 SHA256: `E25F6DA141209ECFF5A9079EA7C1D551E20BFE6303EA014A7930C29E8425E435`
 

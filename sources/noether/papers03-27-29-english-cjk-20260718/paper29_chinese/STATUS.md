@@ -29,4 +29,4 @@ State: **internally source-checked, compiled, text-extracted, fully rendered, an
 - Mandarin-Simplified dominance debt remains qualitative and explicit; it is not a readiness score.
 - No external/native human reviewer or community certification exists.
 - This completes Paper 29 only; the full Chinese Noether assignment continues after a fresh non-overlap and authority check.
-- SGA remains held pending explicit Floris routing and the stated source/control gates.
+- SGA remains held pending explicit user routing and the stated source/control gates.

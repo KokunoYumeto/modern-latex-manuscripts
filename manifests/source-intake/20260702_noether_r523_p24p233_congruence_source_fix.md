@@ -4,7 +4,7 @@ Date registered: 2026-07-02
 
 Local package:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R523_LocalCodex_R522_P24p233_Congruence_SourceFix_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R523_LocalCodex_R522_P24p233_Congruence_SourceFix_20260702.zip`
 
 SHA256:
 

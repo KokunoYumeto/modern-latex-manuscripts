@@ -14,7 +14,7 @@ $reportPath = Join-Path $indexDir 'PRODUCER_STRUCTURAL_INDEX_VALIDATION_REPORT.j
 $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 $errors = [System.Collections.Generic.List[string]]::new()
 
-$sourcePath = 'C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex'
+$sourcePath = 'C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex'
 $sourceHashExpected = 'D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB'
 $paperIntervalHashExpected = 'E600FD2A19ACA22F43D54FB65C61B79172B12FE5AB09446A2C9C9B8CACD26E7D'
 $pointerIdExpected = 'NOETH-DE-AUTH-v003-20260804'

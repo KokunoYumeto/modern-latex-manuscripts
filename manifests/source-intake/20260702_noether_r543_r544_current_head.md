@@ -13,13 +13,13 @@ It carries forward R531 tail/Kapferer repairs, R532/R533 support and Web R286 ev
 ## Registered Packages
 
 - `Noether_R543_LocalCodex_R542_P40p523_BemerkungContinuation_SourceFix_20260702.zip`
-  - local source: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R543_LocalCodex_R542_P40p523_BemerkungContinuation_SourceFix_20260702.zip`
+  - local source: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R543_LocalCodex_R542_P40p523_BemerkungContinuation_SourceFix_20260702.zip`
   - bytes: 69,250,940
   - SHA256: `70414E8A73EDE45D9DFDE85876F78FC4BC37D8E654EEC5A4592FE9A60E9530F5`
   - role: source-backed Paper 40 printed p523 source-control repair on top of R542; historical after R545.
 
 - `40_R544_P40P524_ERWEITERUNGSMODUL_SOURCEFIX.zip`
-  - local source: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R544_P40P524_ERWEITERUNGSMODUL_SOURCEFIX.zip`
+  - local source: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R544_P40P524_ERWEITERUNGSMODUL_SOURCEFIX.zip`
   - bytes: 60,850,268
   - SHA256: `786C2C740D88323C32317AB54D35E904FF663412B6C14162A1E4DB0512ACB4C8`
   - role: current clean packaged local TeX-changing German source-control candidate; source-control only.

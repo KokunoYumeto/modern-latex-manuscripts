@@ -1,6 +1,6 @@
 # Source-Witness Quick Audit - 2026-06-04
 
-Scope: latest local in-process lane packets under `C:/Users/Floris/Documents/Papors/Chatnotes/CHat translates and clean`. This is a fast structural audit, not a mathematical proofread. It checks whether current packages visibly include reader PDFs/TeX plus source scans, scan slices, page images, or source-witness PDFs.
+Scope: latest local in-process lane packets under `C:/Users/user/Documents/Papors/Chatnotes/CHat translates and clean`. This is a fast structural audit, not a mathematical proofread. It checks whether current packages visibly include reader PDFs/TeX plus source scans, scan slices, page images, or source-witness PDFs.
 
 ## Promotion Outcomes
 
@@ -47,7 +47,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 ## Lane Notes
 
 ### Sylvester
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\Sylvester_Vol1_pp001_440_with_scans_20260603.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\Sylvester_Vol1_pp001_440_with_scans_20260603.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `8` PDFs, `3` TeX files, `38` images, `40` scan/source-like files, `4` README/manifest/audit files.
 - Source-witness samples:
@@ -65,8 +65,8 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 
 ### deligne restart
 - Latest items audited:
-  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D016_LC_p021_030`
-  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D079_090dn_p041_055_std`
+  - `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D016_LC_p021_030`
+  - `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D079_090dn_p041_055_std`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: forward D016 package has `57` PDFs, `36` TeX files, `0` images, `25` scan/source-like files, `17` README/manifest/audit files. Reverse D079-090 package has `43` PDFs, `26` TeX files, `68` images, `91` scan/source-like files, `6` README/manifest/audit files.
 - Promotion: published to `10.5281/zenodo.20544911`.
@@ -91,7 +91,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
   - `I001_010/PDF/D016_LC_001_010_FR.pdf`
 
 ### Dirichlet
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R20_XXX_XXXV_20260604.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R20_XXX_XXXV_20260604.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `32` PDFs, `12` TeX files, `50` images, `57` scan/source-like files, `2` README/manifest/audit files.
 - Source-witness samples:
@@ -108,7 +108,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
   - `Dirichlet_R20_XXX_XXXV_20260604/new/orig/tex/34_akadem_rede_la.pdf`
 
 ### Steintz
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Steintz\Steinitz_20`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Steintz\Steinitz_20`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `56` PDFs, `54` TeX files, `431` images, `434` scan/source-like files, `6` README/manifest/audit files.
 - Source-witness samples:
@@ -125,7 +125,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
   - `01_1894_dissertation/en/steinitz_1894_config_construction_en_p001-021.pdf`
 
 ### old physics
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p085_094.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p085_094.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `4` PDFs, `2` TeX files, `0` images, `2` scan/source-like files, `0` README/manifest/audit files.
 - Source-witness samples:
@@ -138,7 +138,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
   - `GibbsV1_P3_p085_094/Inst_p085_094/SCAN/gibbs_v1_p3_085_094_scan.pdf`
 
 ### Gauss
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\gauss_r25_dedekind_de_nexu_notes_20260604.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\gauss_r25_dedekind_de_nexu_notes_20260604.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `8` PDFs, `4` TeX files, `50` images, `58` scan/source-like files, `56` README/manifest/audit files.
 - Source-witness samples:
@@ -155,7 +155,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
   - `gauss_r25_dedekind_de_nexu_notes_20260604/new/scans/preview/p304_blank_p305_preview.pdf`
 
 ### Weber restart
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_Cumulative_ThreeVolumes_Batch81_Vol2_Sections125_131_SIZE_CONTROLLED_20260604`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_Cumulative_ThreeVolumes_Batch81_Vol2_Sections125_131_SIZE_CONTROLLED_20260604`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `13` PDFs, `8` TeX files, `38` images, `46` scan/source-like files, `8` README/manifest/audit files.
 - Source-witness samples:
@@ -172,13 +172,13 @@ This file is cumulative through the day, so earlier summary rows remain as histo
   - `02_cumulative_work/volume_1_complete/english/pdf/weber_volume1_cumulative_complete_english_translation.pdf`
 
 ### cleanup multilingual
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_SCRIPTS_AND_LESSONS`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_SCRIPTS_AND_LESSONS`
 - Verdict: **NO PDF/TEX PAYLOAD FOUND**
 - Counts: `0` PDFs, `0` TeX files, `0` images, `0` scan/source-like files, `1` README/manifest/audit files.
 - Source-witness samples: none obvious from filenames.
 
 ### dedekind
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\dedekind\DR15_V1I_p18_26`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\dedekind\DR15_V1I_p18_26`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `5` PDFs, `4` TeX files, `0` images, `1` scan/source-like file, `1` README/manifest/audit file.
 - Source-witness samples:
@@ -191,7 +191,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
   - `02_cum/en/cum_en.pdf`
 
 ### Noether Multilingual
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_Paper43_final_RA01_ES_JA_20260604.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_Paper43_final_RA01_ES_JA_20260604.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `10` PDFs, `15` TeX files, `22` images, `19` scan/source-like files, `19` README/manifest/audit files.
 - Promotion: published to `10.5281/zenodo.20544550`.
@@ -209,7 +209,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
   - `N40_ESJA_20260604/04_ctrl/de/N40_DE.pdf`
 
 ### SGA restart
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA restart\sga7i_423_469`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA restart\sga7i_423_469`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `20` PDFs, `1` TeX files, `72` images, `80` scan/source-like files, `2` README/manifest/audit files.
 - Source-witness samples:
@@ -226,7 +226,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
   - `Fr/sga7i_398_469_fr_source.pdf`
 
 ### Cayley
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Cayley\Cayley_V1_pp009_012_seq_repair_20260604`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Cayley\Cayley_V1_pp009_012_seq_repair_20260604`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Counts: `4` PDFs, `1` TeX files, `0` images, `2` scan/source-like files, `1` README/manifest/audit files.
 - Source-witness samples:
@@ -250,7 +250,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 ## Second Sweep and Promotions
 
 ### SGA restart
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA restart\sga7i_470_504`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA restart\sga7i_470_504`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Source witnesses: `Src\sga7i_src_001_504.pdf`, `Src\sga7i_src_470_504.pdf`, plus full SGA 7-I / 7-II reference scans.
 - Reader surface staged/published: SGA 7-I cumulative English/French readers through source page 504 and matching source-scan witness.
@@ -258,14 +258,14 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Next anchor from package README: source page 505, Expose IX section 14.
 
 ### Dirichlet
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R21_XXXVI_Gauss_20260604`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R21_XXXVI_Gauss_20260604`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Source witnesses: `src\scans\36_gauss_letters_scan.pdf` and page PNGs `src\pages\v2_p0386.png` through `v2_p0400.png`.
 - Reader surface staged/published: Werke Band II Papers I-XXXVI cumulative original-language and English PDFs.
 - Promotion: published to `10.5281/zenodo.20545251`.
 
 ### Steinitz
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Steintz\Steinitz_20`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Steintz\Steinitz_20`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK, BUT NOT COMPLETE**
 - Source witnesses: per-work source PDFs/scans; newly relevant `09_1912_rectII\source\rectII_source_p297-345.pdf`.
 - Reader surface staged/published: 1910 field theory through sections 1-24; 1912 Rectangular Systems II partial German/English readers for printed pages 297-315; full 1912 source slice pp. 297-345 retained.
@@ -273,7 +273,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Remaining source-intake follow-up from package notes: 1906 Euler polyhedron-relations note and 1908 `Beitrage zur Analysis Situs`.
 
 ### Old Physics / Gibbs
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p085_094`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p085_094`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK, STAGED ONLY**
 - Source witnesses: `Cum_p055_094\SCAN\...` and `Inst_p085_094\SCAN\...`.
 - Reader surface found: Gibbs Volume I cumulative p055-094 and instant p085-094 TeX/PDF/SCAN.
@@ -282,21 +282,21 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 ## Third Sweep and Promotions
 
 ### Weber restart
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_Cumulative_ThreeVolumes_Batch82_Vol2_Sections132_143_SIZE_CONTROLLED_20260604`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_Cumulative_ThreeVolumes_Batch82_Vol2_Sections132_143_SIZE_CONTROLLED_20260604`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Source witnesses: current Batch82 source scan cutout for pp.489-526 / Volume II sections 132-143, plus PNG page renders and audit/manifest files.
 - Reader surface staged/published: Volume II cumulative English/German readers through section 143; Volume I complete and Volume III current retained.
 - Promotion: published to `10.5281/zenodo.20545457`.
 
 ### Dirichlet
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R22_XXXVII_XLI_20260604.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R22_XXXVII_XLI_20260604.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Source witnesses: Kronecker, Humboldt, Erara, and tail scan slices plus page PNG witnesses.
 - Reader surface staged/published: Werke Band II Papers I-XLI original-language and English cumulative readers.
 - Promotion: published to `10.5281/zenodo.20545473`.
 
 ### Dedekind
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\dedekind\DR16_V1_II_IV_p27_39.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\dedekind\DR16_V1_II_IV_p27_39.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Source witness: `01_new/src/src_p27_39.pdf`.
 - Reader surface staged/published: GMW Volume I Items I-IV English/German cumulative readers.
@@ -304,14 +304,14 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Cleanup note: the publish patch added the new cumulative files; a follow-up should check the live Dedekind record for older loose GMW Item I files whose names did not match the first delete targets.
 
 ### Sylvester
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\Sylvester_Vol1_pp001_475_with_scans_20260603.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\Sylvester_Vol1_pp001_475_with_scans_20260603.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Source witnesses: cumulative scan PDF `src_019_493_book001_475.pdf` and new pp.458-475 source slice.
 - Reader surface staged/published: Volume I source-checked working edition through book page 475.
 - Promotion: published to `10.5281/zenodo.20545503`.
 
 ### Noether Multilingual
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_RA02_GEscan_P01_P02_cumfix_20260604.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_RA02_GEscan_P01_P02_cumfix_20260604.zip`
 - Verdict: **SOURCE-CHECKABLE CUMULATIVE CORRECTION**
 - Source witnesses: Paper 02 full/key scan PDFs, render checks, diffs, and RA02 audit note.
 - Reader surface staged/published: German, English, Spanish, and Japanese cumulative readers through Paper 43 were replaced with the RA02-corrected versions. The correction fixes Paper 02 formula (10), where hatted nu factors from scan page 51 had been flattened.
@@ -320,8 +320,8 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 
 ### Deligne
 - Latest items audited:
-  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D016_LC_p031_040.zip`
-  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D078_090dn_p001_012_std.zip`
+  - `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D016_LC_p031_040.zip`
+  - `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\deligne restart\D078_090dn_p001_012_std.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Source witnesses: forward cumulative source scan through papers 001-016p040; reverse stream D078 pages 1-12 scan/render/QA witnesses and refreshed reverse 078-090 source ZIP.
 - Reader surface staged/published: forward cumulative advanced to papers 001-016 page 40; reverse stream added Paper 078 pages 1-12 English/French readers.
@@ -329,7 +329,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Cap note: Deligne remains at Zenodo's 100-file cap. Two bulky provenance ZIPs were removed from the current version only; they remain preserved in previous DOI/raw-provenance layers.
 
 ### Steinitz
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Steintz\Steinitz_21`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Steintz\Steinitz_21`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK**
 - Source witnesses: per-work source PDFs/scans; notably `09_1912_rectII/source/rectII_source_p297-345.pdf`.
 - Reader surface staged/published: 1912 Rectangular Systems II promoted from partial pp.297-315 to complete German/English readers; full source scan slice retained.
@@ -337,7 +337,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Remaining source-intake follow-up: 1906 Euler polyhedron-relations note and 1908 `Beitrage zur Analysis Situs`.
 
 ### Old Physics / Gibbs
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p095_104.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p095_104.zip`
 - Verdict: **SOURCE-CHECKABLE PACKAGE SHAPE OK, HELD**
 - Source witnesses: cumulative and instant source-scan PDFs are present.
 - Action: held pending an old-physics/Gibbs DOI strategy. Do not mint a stray record just because the package is source-checkable.
@@ -345,7 +345,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 ## Fourth Sweep and Promotions
 
 ### Dirichlet
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R23_CumQA_V1src_20260604.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_R23_CumQA_V1src_20260604.zip`
 - Verdict: **SOURCE-CHECKABLE QA CORRECTION, PROMOTED**
 - Source witnesses: `src/25/witness_scan.pdf`, `src/27/witness_scan.pdf`, Volume I Paper I e-rara source PDF and page PNGs, plus cumulative render checks.
 - Reader surface staged/published: Werke Band II Papers I-XLI original-language and English cumulative readers were replaced by R23 QA versions with a status sheet prepended.
@@ -354,8 +354,8 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 
 ### al-Battani / Opus Astronomicum
 - Latest items audited:
-  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_ALBATTANI`
-  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\round83_albattani_canonical_reference_v083`
+  - `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_ALBATTANI`
+  - `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\round83_albattani_canonical_reference_v083`
 - Verdict: **WORK-LEVEL PACKAGE SHAPE OK, PROMOTED WITH CAVEAT**
 - Source witnesses: Nallino `Opus Astronomicum` source witness PDF, Nallino Pars I-III table witness PDF, v083 TeX/data/report package, table-reference supplement, and preserved source-data/workflow ZIP.
 - Reader/data surface staged/published: front-facing 251-page complete-text working edition (Arabic-English-Chinese), complete fixed-star catalogue PDF/CSV with 485 rows, complete geography gazetteer PDF/CSV with 269 localities, partial chronology/Canon-of-Kings layer, and latest notes/lessons.
@@ -363,7 +363,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Important caveat made public: this is not a final canonical critical edition with all tables reinserted into exact historical chapter positions. The text reader is a useful complete-text working edition; the catalogue and geography data are the solid audited layers; chronology is partial; zodiac/auxiliary tables are not fabricated where Nallino does not cleanly tabulate them.
 
 ### Sylvester
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\Sylvester_Vol1_pp001_493_with_scans_20260603.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Sylvester\Sylvester_Vol1_pp001_493_with_scans_20260603.zip`
 - Verdict: **SOURCE-CHECKABLE CUMULATIVE ADVANCE, PROMOTED**
 - Source witnesses: cumulative scan PDF `src_019_511_book001_493.pdf`, new source slice `src_494_511_book476_493.pdf`, page-image witnesses for pp.476-493, QA JSON, compactness audit, and render checks.
 - Reader surface staged/published: Volume I source-checked working edition advanced from book page 475 to book page 493.
@@ -372,7 +372,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Continuation point: book page 494.
 
 ### Noether Multilingual
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_RA03_P07_P12_scan_audit_20260604.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_RA03_P07_P12_scan_audit_20260604.zip`
 - Verdict: **SOURCE-CHECKABLE RECURSIVE AUDIT CORRECTION, PROMOTED**
 - Source witnesses: German scan PDFs/extracts for Papers 07-12, diffs from RA02, render checks for patched pages and Paper 02 table pages, build logs, and audit PDF/Markdown.
 - Reader surface staged/published: German, English, Spanish, and Japanese cumulative readers through Paper 43 replaced with RA03-corrected versions.
@@ -381,7 +381,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Continuation point: recursive audit Papers 13-18.
 
 ### SGA
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA restart\SGA7I_p505_528_complete_orig_cum.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA restart\SGA7I_p505_528_complete_orig_cum.zip`
 - Verdict: **SOURCE-CHECKABLE CUMULATIVE COMPLETION, PROMOTED**
 - Source witnesses: SGA 7-I full source-scan witness through page 528, p505-528 source slice, OCR aids, contact sheets, render checks, compile logs, checksums, coverage CSV, and diagram/display audit.
 - Reader surface staged/published: SGA 7-I English/French cumulative readers and source scan advanced from source page 504 to source page 528.
@@ -390,7 +390,7 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Continuation point: SGA 7-II source scan intake.
 
 ### Weber restart
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_Cumulative_ThreeVolumes_Batch84_Vol1_RecursiveAudit_p7_p14_20260604.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_Cumulative_ThreeVolumes_Batch84_Vol1_RecursiveAudit_p7_p14_20260604.zip`
 - Verdict: **SOURCE-CHECKABLE RECURSIVE AUDIT CORRECTION, PROMOTED**
 - Source witnesses: Volume I printed pp. 7-14 source-scan PDF, PNG page witnesses, render checks for the new range and cumulative Volume I readers, audit JSON, build summary, page counts, manifest, and SHA256 checksums.
 - Reader surface staged/published: Volume I English/German front-facing complete readers were replaced with the Batch84 scan-audited cumulative versions. Volume II remains current through section 143 from Batch82, and Volume III remains the current repaired cumulative layer.
@@ -400,9 +400,9 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 
 ### Non-European / multilingual reader release
 - Latest items audited:
-  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\non_eu_other_readers_RELEASE_20260604.zip`
-  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_TO_CODEX_NOTE_20260604_full_session.md`
-  - `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_ALBATTANI`
+  - `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\non_eu_other_readers_RELEASE_20260604.zip`
+  - `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_TO_CODEX_NOTE_20260604_full_session.md`
+  - `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_ALBATTANI`
 - Verdict: **SOURCE-INTAKE / READER-SURFACE EXPANSION PROMOTED**
 - Source witnesses: reader release bundle manifest, reader audit log, al-Battani Nallino source-witness workspace, TeX/data outputs, catalogue/geography CSVs, and completeness/lessons notes.
 - Reader surface staged/published: non-European/multilingual general record replaced the 2026-06-03 work-level reader bundle with the 2026-06-04 78-PDF / 19,599-manifest-page reader release. The old 2026-06-03 reader ZIP was not duplicated in the new version.
@@ -410,21 +410,21 @@ This file is cumulative through the day, so earlier summary rows remain as histo
 - Promotion: published to `10.5281/zenodo.20546801` under the same non-European/multilingual concept DOI.
 
 ### Karaji / Fakhri translation layer
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_KARAJI_TRANSLATION`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_KARAJI_TRANSLATION`
 - Verdict: **USEFUL PARTIAL TRANSLATION, HELD**
 - Source witnesses: Woepcke 1853 al-Karaji Fakhri 173-page source/reference reader is present inside the non-European 2026-06-04 reader release.
 - Audit notes: README explicitly marks the translation as in progress. The TeX/PDF are useful, but not a full work-level reader/translation yet; do not front-face as complete.
 - Action: hold for continuation/review packet or later integration after fuller coverage.
 
 ### Arabic translations of Chinese mathematical classics
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_ARABIC_CHINESE_MATH`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\cleanup multilingual\CLAUDE_OUTPUT_ARABIC_CHINESE_MATH`
 - Verdict: **BROAD TRANSLATION OUTPUT, HELD FOR LAYOUT / BUILD REVIEW**
 - Source witnesses: Chinese/English bilingual source TeX exists in the non-European source layers and the Chinese work-level/source readers are already present in the non-European/Chinese records.
 - Audit notes: README reports 17 TeX/PDF outputs, 379 pages total, but also flags parallel-column layout issues and Yang Hui part 1 brace mismatch. Log scan found errors in several files (`jiuzhang-suanshu-vols1-3`, `li-ye-ceyuan-haijing-vols10-12`, `sunzi-suanjing`, `yang-hui-xiangjie-jiuzhang-part1`) plus multiple overfull boxes.
 - Action: do not publish as front-facing replacement yet. Use as repair input for the next Arabic/Chinese cleanup pass.
 
 ### Old Physics / Gibbs update
-- Latest item audited: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p105_114.zip`
+- Latest item audited: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\old physics\GibbsV1_P3_p105_114.zip`
 - Verdict: **SOURCE-CHECKABLE CUMULATIVE ADVANCE, HELD**
 - Source witnesses: instant pp.105-114 scan PDF and cumulative pp.55-114 scan PDF are present, alongside TeX/PDF readers and workflow/notation notes.
 - Reader surface available locally: Gibbs Volume I Paper 3 English working reader now has cumulative pp.55-114.

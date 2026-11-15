@@ -1,6 +1,6 @@
 # Weber Phase 2 Volume I German workpass through section 183 (2026-07-02)
 
-Source lane: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit` plus current workpass files under `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_B139_heuristic_fix\Weber_B139_heuristic_fix\02_cumulative\v1\ge`.
+Source lane: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit` plus current workpass files under `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_B139_heuristic_fix\Weber_B139_heuristic_fix\02_cumulative\v1\ge`.
 
 This manifest records local German Volume I workpass/source-audit status. It supersedes the earlier `sec179`, `sec177`, `sec156_170`, and `sec158_165` statuses for current-public wording.
 

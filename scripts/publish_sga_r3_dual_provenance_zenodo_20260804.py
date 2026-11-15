@@ -258,9 +258,9 @@ def build_provenance_surface(package_root: Path) -> dict[str, object]:
         raise RuntimeError("SGA R3 provenance source-member count changed")
 
     private_patterns = (
-        b"c:\\users\\floris",
-        b"c:/users/floris",
-        b"/users/floris",
+        b"c:\\users\\user",
+        b"c:/users/user",
+        b"/users/user",
         b".codex/",
         b".codex\\",
     )

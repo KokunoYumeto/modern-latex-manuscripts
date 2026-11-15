@@ -1,7 +1,7 @@
 # Noether R520 - Paper 24 p250 Substitution-Chain Source Fix
 
 Local ZIP:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R520_LocalCodex_R519_P24p250_SubstitutionChain_SourceFix_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R520_LocalCodex_R519_P24p250_SubstitutionChain_SourceFix_20260702.zip`
 
 ZIP metrics:
 

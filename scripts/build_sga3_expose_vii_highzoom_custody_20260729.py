@@ -36,7 +36,7 @@ TEXT_EXTENSIONS = {
     ".txt",
 }
 PRIVATE_PATTERNS = {
-    "private_home": re.compile(rb"C:\\Users\\Floris", re.IGNORECASE),
+    "private_home": re.compile(rb"C:\\Users\\user", re.IGNORECASE),
     "private_github": re.compile(rb"C:\\IL_GitHub", re.IGNORECASE),
     "papors": re.compile(rb"Papors", re.IGNORECASE),
     "chatnotes": re.compile(rb"Chatnotes", re.IGNORECASE),

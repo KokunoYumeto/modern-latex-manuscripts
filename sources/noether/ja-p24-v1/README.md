@@ -6,4 +6,4 @@ The bounded unit is internally closed at the exact target SHA-256 `E597F143D06B8
 
 The authority remains the sealed P31 canonical German head, not the inherited Japanese reader, the stale R821 pointer, or an unsealed working candidate. This is an internal production checkpoint only; it does not claim external/community certification, independent human-reader validation, or completion of the full Japanese Noether corpus.
 
-Active scope remains Noether only. SGA is hard-held and no SGA work is authorized without later explicit Floris confirmation.
+Active scope remains Noether only. SGA is hard-held and no SGA work is authorized without later explicit user confirmation.

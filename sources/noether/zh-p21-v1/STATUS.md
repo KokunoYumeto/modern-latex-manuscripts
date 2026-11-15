@@ -23,6 +23,6 @@
 - Source defect: no producer claim; any precise independent-checker finding must be deduplicated before ensuring `4 -nterslav` sees it.
 - Approval/publication/archive/certification state: none claimed.
 - Producer boundary: `you do not check - you translate - other sessions CHEWCK`.
-- SGA: held pending explicit Floris confirmation; no SGA work performed.
+- SGA: held pending explicit user confirmation; no SGA work performed.
 
 Current terminal description: `Hans and controlled-generic Hant translated/generated and mechanically built; producer evidence complete; freeze/handoff/registry/transport and every independent check pending`.

@@ -319,7 +319,7 @@ Existing concept DOI: 10.5281/zenodo.20410947.
         text = path.read_text(encoding="utf-8").lower()
         for marker in (
             "c:\\users\\",
-            "floris",
+            "user",
             "chatnotes",
             "source_thread_id",
             "thread_id",

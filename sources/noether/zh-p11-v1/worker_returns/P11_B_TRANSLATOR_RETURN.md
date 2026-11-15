@@ -3,13 +3,13 @@
 ## Scope and custody
 
 - Work unit: Noether Paper 11, segment B only.
-- German source: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\source\P11_B_lines7939_8001.tex
+- German source: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\source\P11_B_lines7939_8001.tex
 - German source bytes: 6,989
 - German source SHA-256: 5C3890E1D0D238377EE567B0C81391A6D277A8D2443EB13AE931D8B9D96F4CCD
-- Simplified Chinese output: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\zh-Hans-CN\P11_B_zh-Hans-CN.tex
+- Simplified Chinese output: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\zh-Hans-CN\P11_B_zh-Hans-CN.tex
 - Simplified Chinese output bytes: 5,896
 - Simplified Chinese output SHA-256: 82FB18F5F3F28C768BEFF2027619286F853374A183A09D72A0581FA9D4FABB4C
-- Drafting witness made available only as a drafting aid: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\witness\P11_B_witness_lines7823_7912.tex
+- Drafting witness made available only as a drafting aid: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\witness\P11_B_witness_lines7823_7912.tex
 - Drafting-witness SHA-256: 302994D4C4AB3B97C0B78C1B0A90D2AC4293AC7325001E361E7983B0A0A46CA6
 - Target posture: PRC-oriented Simplified Chinese.
 

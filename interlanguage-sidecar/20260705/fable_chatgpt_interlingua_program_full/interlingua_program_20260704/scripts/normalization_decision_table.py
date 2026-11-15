@@ -7,7 +7,7 @@ import sys
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-BASE = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+BASE = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 DROP = BASE / "user made flr with chat web stuff"
 
 ev = json.loads((BASE / "REGISTER_DOUBLET_BRANCH_EVIDENCE_v1_20260704.json").read_text(encoding="utf-8"))["groups"]

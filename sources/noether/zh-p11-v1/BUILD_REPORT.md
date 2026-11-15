@@ -2,7 +2,7 @@
 
 ## Claim limit
 
-Floris’s exact boundary:
+user’s exact boundary:
 
 > you do not check - you translate - other sessions CHEWCK
 

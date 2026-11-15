@@ -26,7 +26,7 @@ END_ENTRY = 1130
 PRIVATE_MARKERS = (
     "c:\\users\\",
     "c:/users/",
-    "floris",
+    "user",
     "chatnotes",
     "source_thread_id",
     "thread_id",

@@ -11,5 +11,5 @@
 - Review boundary: internally source-checked working translation; no external Korean domain/community signoff and no North-Korean localization claim.
 - Publication state: handoff-ready candidate, not externally published by this lane.
 - Collision disposition: Paper 28 was not edited while live; it is now explicitly closed by its manager with all five outputs passing.
-- Active task boundary: Noether only under `CJK-D007`; SGA remains CPU/resource-bounded and additionally requires Floris's explicit routing plus its source/control lift conditions.
+- Active task boundary: Noether only under `CJK-D007`; SGA remains CPU/resource-bounded and additionally requires user's explicit routing plus its source/control lift conditions.
 - Continuation cursor: Paper 29 after a fresh sealed-head and live-claim check.

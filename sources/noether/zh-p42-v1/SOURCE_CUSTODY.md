@@ -26,4 +26,4 @@ The shared `03_projects/noether/00_current_german_authority` pointer is stale at
 
 This lane translates and mechanically produces Chinese files. It does not collate scans, adjudicate the source, check its own translation, inspect rendered pages, or certify readiness. Independent sessions own those checks.
 
-Decision anchor: `ZH-D070` in `C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.
+Decision anchor: `ZH-D070` in `C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.

@@ -8,7 +8,7 @@ This is a producer-side pointer to an independently created German-canon receipt
 
 - Canon task: `019fca5c-0e73-7c72-92fb-5b507b710598`.
 - Receipt ID: `NOETH-DE-BINDER-P01-KO-U01-U03-20260804-001`.
-- Receipt: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\receipts\KOREAN_P01_U01_U03_BINDER_20260804.json`.
+- Receipt: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\receipts\KOREAN_P01_U01_U03_BINDER_20260804.json`.
 - Receipt bytes: `6,558`.
 - Receipt SHA-256: `8CA3EBA2A4C766191614E94501E2D2A2242400ED2B3CD66401B20EB07E5EE66D`.
 - Receipt-recorded time: `2026-08-04T04:40:00+02:00`.
@@ -24,13 +24,13 @@ This is a producer-side pointer to an independently created German-canon receipt
 Current pointer snapshot:
 
 - ID `NOETH-DE-AUTH-v001-20260804`.
-- Path `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v001_20260804.json`.
+- Path `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v001_20260804.json`.
 - 13,494 bytes; SHA-256 `26B611FD14181BB12E51A8E7975B1EEB1F14283209989F6C3569FA2750985235`.
 
 Current default German authority:
 
 - ID `NOETH-DE-ED-0001`.
-- Path `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
+- Path `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
 - Raw whole: 2,153,565 bytes; SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
 - LF-normalized whole: 2,130,437 bytes; SHA-256 `8E89A6BF94C8C5BF0BC2D125602BF1D349D9266D199C22DF7BE8DBD036A9B05B`.
 - Authority state from receipt: accepted local editorial successor of selected public parent; unpublished and not a critical edition.

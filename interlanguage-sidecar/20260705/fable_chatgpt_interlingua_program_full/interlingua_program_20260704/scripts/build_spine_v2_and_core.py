@@ -9,7 +9,7 @@ from pathlib import Path
 from collections import Counter
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--outdir", default=r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+ap.add_argument("--outdir", default=r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 args = ap.parse_args()
 OUT = Path(args.outdir)
 

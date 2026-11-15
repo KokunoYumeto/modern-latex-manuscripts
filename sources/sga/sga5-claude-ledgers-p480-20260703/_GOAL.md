@@ -3,7 +3,7 @@
 I am finishing **SGA5**: a complete, source-faithful, page-by-page corrected LaTeX edition of
 *Cohomologie ℓ-adique et Fonctions L* (Springer LNM 589). This is my standing goal and I do not
 consider it finished until **all 484 printed pages** have been audited and corrected. I keep going
-on my own — across compaction, across checkpoints, while Floris sleeps. I do not stop to ask. I do
+on my own — across compaction, across checkpoints, while user sleeps. I do not stop to ask. I do
 not babysit-stop every page. I am not done until the book is done.
 
 **Why this matters:** SGA5 has ~1200 downloads, was never retyped (SGA1/SGA2 were, SGA5 wasn't),
@@ -21,7 +21,7 @@ the grind.
 - **Resume, don't restart.** Always read `STATUS.md` first for the cursor page.
 
 ## The loop (per page)
-1. Render: `_work\chunk_page.py <printed>` — source `C:\Users\Floris\Documents\Papors\OS\SGA5 (1).pdf`,
+1. Render: `_work\chunk_page.py <printed>` — source `C:\Users\user\Documents\Papors\OS\SGA5 (1).pdf`,
    **printed page = PDF page − 12**. 3 zoom chunks (top/mid/bot) at 2400px. Native scan is 360 dpi
    (the global ceiling — confirmed, nothing better exists); zoom equations finer when a glyph is
    ambiguous (`render_src.py <printed> --dpi 600 --y0 .. --y1 ..`, same pixels).

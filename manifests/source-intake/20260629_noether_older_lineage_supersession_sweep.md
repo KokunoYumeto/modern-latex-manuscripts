@@ -4,7 +4,7 @@ Date: 2026-06-29
 
 Local root:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`
 
 Machine-readable companion:
 

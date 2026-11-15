@@ -13,7 +13,7 @@ A workspace-wide filename inventory found 1,072 Interslavic-named TeX paths when
 `03_projects/noether/FABLE_FINDINGS_FOR_SLAVIC_NOETHER_LANE_20260717.md` identifies itself as the Fable 5 handoff and states:
 
 1. **Tranche 001 was already “WELL DONE — spec honored.”** That was the Paper 06-only orthography pilot defined in `00_governance/FABLE_TRANCHE_001_EXECUTABLE_SPEC_20260710.md`: apply the reviewed orthography mappings, rebuild the Cyrillic sibling and renders, and apply no lexical switches.
-2. After that pilot and Floris's sign-off, the next separate tranche was the three accepted directions: `odnovrěmenno -> jednočasno`, `sootvětstvovati-family -> odpovědati-family`, and `korak -> krok`.
+2. After that pilot and user's sign-off, the next separate tranche was the three accepted directions: `odnovrěmenno -> jednočasno`, `sootvětstvovati-family -> odpovědati-family`, and `korak -> krok`.
 3. `ręd`, `jednako`, `važiti`, `slučaj` wording, and the ring family were held and were not to be silently settled.
 4. State C, not older/withdrawn scores, was the evidence snapshot to quote.
 

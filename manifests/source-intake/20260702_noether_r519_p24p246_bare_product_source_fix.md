@@ -1,7 +1,7 @@
 # Noether R519 - Paper 24 p246 Bare Product Source Fix
 
 Local package:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R519_LocalCodex_R518_P24p246_BareProduct_SourceFix_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R519_LocalCodex_R518_P24p246_BareProduct_SourceFix_20260702.zip`
 
 This registers a narrow TeX-changing Noether German source-control candidate.
 

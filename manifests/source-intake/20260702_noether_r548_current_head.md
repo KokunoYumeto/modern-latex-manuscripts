@@ -13,8 +13,8 @@ R547 remains the historical Paper 40 p526 Darstellungsklassen/Rangrelation sourc
 ## Registered Package
 
 - Noether_R548_LocalCodex_R547_P40p527_RangrelationSection5_SourceStyleFix_20260702.zip
-  - local source: C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R548_LocalCodex_R547_P40p527_RangrelationSection5_SourceStyleFix_20260702.zip
-  - second-web intake alias: C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R548_P40P527_RANGRELATION_SECTION5_SOURCEFIX.zip
+  - local source: C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R548_LocalCodex_R547_P40p527_RangrelationSection5_SourceStyleFix_20260702.zip
+  - second-web intake alias: C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R548_P40P527_RANGRELATION_SECTION5_SOURCEFIX.zip
   - bytes: 83,606,183
   - ZIP entries: 115
   - SHA256: EA2EE7DAFC4F589B6DBEB2ADDA8ED8427A2F5D0041C4EC96BBDE18F368A8B5BC

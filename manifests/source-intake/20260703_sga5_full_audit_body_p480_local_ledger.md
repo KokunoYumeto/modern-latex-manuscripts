@@ -2,7 +2,7 @@
 
 Record: SGA.
 
-Local source root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`.
+Local source root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`.
 
 ## Current local state
 

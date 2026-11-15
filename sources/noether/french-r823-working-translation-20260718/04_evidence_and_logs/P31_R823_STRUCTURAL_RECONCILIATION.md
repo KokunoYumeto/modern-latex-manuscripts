@@ -12,11 +12,11 @@ Le fichier final passe l'audit structurel v3 du dépôt, compile seul et dans le
 
 | Rôle | Chemin | Octets | SHA-256 |
 |---|---|---:|---|
-| TeX cumulatif R823 | `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex` | 2,125,031 | `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21` |
-| Tranche allemande P31 R823 | `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\_agent_papers\P31_de_R823.tex` | 81,066 | `FD212098954191FF9AFF83A6D1AEA2EFD9597AB0420079A2FEC0A5999FD674AC` |
-| Tranche allemande P31 R704, contrôle TM | `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\_agent_papers\P31_de_R704.tex` | 81,067 | `F220AD48124D18C711B0A9D7C34E82839F60FD93843583081B3D7AFDD15A4322` |
-| Sauvegarde française avant réconciliation | `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\backups\P31_pre_R823_structural_reconciliation_20260717\tex\N31_fr_body.tex` | 69,013 | `6B72FA9F173F0EBB475DB4FE07A247E204B4D4090E17AAF3F83098BC0E0BE2E9` |
-| Corps français final | `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\tex\N31_fr_body.tex` | 81,703 | `03C03340E8F959699F25D0736564E1FDBE1350AE41D0C7A6687200FFF90D09ED` |
+| TeX cumulatif R823 | `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex` | 2,125,031 | `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21` |
+| Tranche allemande P31 R823 | `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\_agent_papers\P31_de_R823.tex` | 81,066 | `FD212098954191FF9AFF83A6D1AEA2EFD9597AB0420079A2FEC0A5999FD674AC` |
+| Tranche allemande P31 R704, contrôle TM | `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\_agent_papers\P31_de_R704.tex` | 81,067 | `F220AD48124D18C711B0A9D7C34E82839F60FD93843583081B3D7AFDD15A4322` |
+| Sauvegarde française avant réconciliation | `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\backups\P31_pre_R823_structural_reconciliation_20260717\tex\N31_fr_body.tex` | 69,013 | `6B72FA9F173F0EBB475DB4FE07A247E204B4D4090E17AAF3F83098BC0E0BE2E9` |
+| Corps français final | `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\tex\N31_fr_body.tex` | 81,703 | `03C03340E8F959699F25D0736564E1FDBE1350AE41D0C7A6687200FFF90D09ED` |
 
 La sauvegarde a été faite avant toute modification et n'a pas été altérée. Le corps final compte 535 lignes, contre 470 dans la sauvegarde.
 
@@ -73,12 +73,12 @@ Les remplacements ont été faits contextuellement, sans substitution globale av
 Commande exécutée :
 
 ```powershell
-python C:\Users\Floris\Documents\interlanguage\scripts\noether_r823_paper_structure_audit.py --language french --authority-tex C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex --target-tex C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\tex\cum_fr_R823_COMPLETE.tex --output-csv C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\P31_R823_STRUCTURE_POSTRECONCILIATION.csv
+python C:\Users\user\Documents\interlanguage\scripts\noether_r823_paper_structure_audit.py --language french --authority-tex C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex --target-tex C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\tex\cum_fr_R823_COMPLETE.tex --output-csv C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\P31_R823_STRUCTURE_POSTRECONCILIATION.csv
 ```
 
 Sortie : 130 fichiers TeX cibles développés; 43 `present-structural-review`; 0 `gross-structural-risk`. Ligne P31 : 80,004/78,442 caractères (0.9805), 33/36 displays, 18/16 lignes de display, 5,961/5,509 jetons mathématiques bruts (0.9242), statut `present-structural-review` sans note.
 
-- CSV : `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\P31_R823_STRUCTURE_POSTRECONCILIATION.csv`
+- CSV : `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\P31_R823_STRUCTURE_POSTRECONCILIATION.csv`
 - SHA-256 CSV : `3DC96A23A94A96360B006D2ADFA419388B083F49D1ADFE186CDAF2D4E3F3E673`
 - SHA-256 du document cible développé : `6C86D2BE2AB697A11DB859BED8E147E124E04DBB7678B78097D2FEB8080D656B`
 
@@ -93,8 +93,8 @@ Les deux cibles ont été compilées par `latexmk`/MiKTeX 26.5, deux passes `pdf
 
 Répertoires :
 
-- autonome : `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\build\P31_R823_STRUCTURAL_RECONCILIATION\unit`
-- cumulatif : `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\build\P31_R823_STRUCTURAL_RECONCILIATION\cumulative`
+- autonome : `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\build\P31_R823_STRUCTURAL_RECONCILIATION\unit`
+- cumulatif : `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\build\P31_R823_STRUCTURAL_RECONCILIATION\cumulative`
 
 Une première invocation, dont l'argument PowerShell avait été mal cité, a produit un répertoire littéral `working\r823_fr\tex\$o`. Cet artefact de diagnostic a été conservé; il n'est pas une cible faisant autorité. Les deux builds ci-dessus ont ensuite été recréés avec des chemins absolus explicites.
 
@@ -111,7 +111,7 @@ Constat : aucune page blanche, coupure, collision, formule hors cadre, note tron
 | `P31_cum_pages_305_312_contact.png` | `AB3FFD5F85DD122AC0C4F9BC0923D5C661FDCC78706B0DC7F4BD307371C10FEB` |
 | `P31_cum_pages_313_319_contact.png` | `2AAEDF655D8E7C5FE1A27DFC611D976005A7C2D765F0EE3C9225EF37467221C4` |
 
-Les 43 hachages de sources, sauvegarde, cible, audits, PDF/logs et rendus PNG sont consignés dans `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\P31_R823_ARTIFACT_HASHES.csv` (SHA-256 `9096495BCA4D40A3646DAB644FBFFD1DC842806430FE73BD52EF0A9B7A98BB84`).
+Les 43 hachages de sources, sauvegarde, cible, audits, PDF/logs et rendus PNG sont consignés dans `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\P31_R823_ARTIFACT_HASHES.csv` (SHA-256 `9096495BCA4D40A3646DAB644FBFFD1DC842806430FE73BD52EF0A9B7A98BB84`).
 
 ## Curseur de continuation
 

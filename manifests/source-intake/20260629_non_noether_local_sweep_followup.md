@@ -10,15 +10,15 @@ rediscovered as if they were missing archive work.
 
 Checked the following local lanes:
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Galois`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Cayley`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Poincare`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Bianchi`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\old physics`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Microsoft Edge is shit so every download goes here instead of subfolders`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Galois`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Gauss`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Cayley`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Poincare`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Bianchi`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\old physics`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Microsoft Edge is shit so every download goes here instead of subfolders`
 
 ## Result
 
@@ -32,7 +32,7 @@ pending-Zenodo metadata, or public-file catalog notes.
 
 Current local handoff:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629.zip`
 
 Already represented in
 `manifests/source-intake/20260629_galois_quick_win_source_packet.md`.

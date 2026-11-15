@@ -6,8 +6,8 @@ Register R561 as the current coherent local TeX-changing German source-control h
 
 ## Package
 
-- Local folder: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R561_LocalCodex_R560_P32SymbolSpacingFix_20260702`
-- Local ZIP: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R561_LocalCodex_R560_P32SymbolSpacingFix_20260702.zip`
+- Local folder: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R561_LocalCodex_R560_P32SymbolSpacingFix_20260702`
+- Local ZIP: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R561_LocalCodex_R560_P32SymbolSpacingFix_20260702.zip`
 - Base: R560 LocalCodex cumulative
 - Scope: Paper 32 printed/source p.226, with surrounding printed pp.221-228 checked
 - Main cumulative TeX: `cum/cum_de_R561_P32_symbol_spacing_fix.tex`

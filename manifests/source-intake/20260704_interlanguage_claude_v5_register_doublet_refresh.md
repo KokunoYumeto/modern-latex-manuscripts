@@ -1,6 +1,6 @@
 # Interlanguage Claude v5 Register/Normalization Refresh (2026-07-04)
 
-Local source root: `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`
+Local source root: `C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`
 
 GitHub sidecar artifact: `interlanguage-sidecar/20260704/claude_interlingua_program_20260704_v5.zip`
 

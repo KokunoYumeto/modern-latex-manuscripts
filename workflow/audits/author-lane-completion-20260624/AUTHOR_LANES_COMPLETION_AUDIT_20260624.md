@@ -32,7 +32,7 @@ High-priority but not close / not globally certified:
 
 Main local path:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Steinitz`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Steinitz`
 
 Evidence read:
 
@@ -70,9 +70,9 @@ Verdict: **finite and relatively finishable**, but not globally critical-certifi
 
 Main local paths:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart`
 
-`C:\Users\Floris\Documents\Papors\OS\Weber beyond Lehrbuch`
+`C:\Users\user\Documents\Papors\OS\Weber beyond Lehrbuch`
 
 Evidence read:
 
@@ -93,9 +93,9 @@ Verdict: **large readable cumulative exists, but not source-critical complete**.
 
 Main local paths:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gordan`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Gordan`
 
-`C:\Users\Floris\Documents\Papors\OS\Paul Gordan`
+`C:\Users\user\Documents\Papors\OS\Paul Gordan`
 
 Evidence read:
 
@@ -120,9 +120,9 @@ Verdict: **substantial but not close for whole Gordan**. De linea, Formensystem,
 
 Main local paths:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Bianchi`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Bianchi`
 
-`C:\Users\Floris\Documents\Papors\OS\Bianchi Continuation Handoff 20260614`
+`C:\Users\user\Documents\Papors\OS\Bianchi Continuation Handoff 20260614`
 
 Evidence read:
 
@@ -147,9 +147,9 @@ Verdict: **A1 is complete as a working/auditfixed manuscript; A2 is the major pa
 
 Main local paths:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Kneser`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Kneser`
 
-`C:\Users\Floris\Documents\Papors\OS\Kneser Source Intake 20260605`
+`C:\Users\user\Documents\Papors\OS\Kneser Source Intake 20260605`
 
 Evidence read:
 
@@ -173,9 +173,9 @@ Verdict: **one of the closest serious lanes to finishing**. This is not whole Kn
 
 Main local paths:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Frobenius`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Frobenius`
 
-`C:\Users\Floris\Documents\Papors\OS\Frobenius Original Offprints 20260605`
+`C:\Users\user\Documents\Papors\OS\Frobenius Original Offprints 20260605`
 
 Evidence read:
 

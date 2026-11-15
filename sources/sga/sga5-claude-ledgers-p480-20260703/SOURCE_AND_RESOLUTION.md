@@ -4,7 +4,7 @@
 
 Measured native embedded-image resolution of every SGA5 file on disk:
 
-| file (C:\Users\Floris\Documents\Papors\OS\) | pages | native px/page | notes |
+| file (C:\Users\user\Documents\Papors\OS\) | pages | native px/page | notes |
 |---|---|---|---|
 | **SGA5 (1).pdf** | 496 | **2176×3035** | Springer LNM 589, COMPLETE: title, copyright, editor intro, TABLE DES MATIÈRES, index. **CHOSEN canonical source.** |
 | Théorie des topos…SGA5.pdf | 496 | 2176×3035 | byte-for-pixel same scan as above (duplicate, 59.2 MB) |
@@ -45,7 +45,7 @@ but not blocking and not currently obtainable.
   is genuinely unresolvable at native, say so rather than guessing.
 
 ## Canonical source + page mapping (USE THIS GOING FORWARD)
-- Source = `C:\Users\Floris\Documents\Papors\OS\SGA5 (1).pdf` (Springer LNM 589, complete).
+- Source = `C:\Users\user\Documents\Papors\OS\SGA5 (1).pdf` (Springer LNM 589, complete).
 - **Printed page = PDF page − 12.** (PDF p13 = printed p1, verified; identical image to the old
   484-scan p1, so all prior reads/fixes against the 484-scan remain valid — same pixels.)
 - Exposé → printed-page ranges (from the book's Table des Matières):

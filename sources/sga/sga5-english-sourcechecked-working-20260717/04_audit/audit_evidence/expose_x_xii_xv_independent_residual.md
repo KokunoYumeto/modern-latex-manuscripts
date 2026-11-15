@@ -17,7 +17,7 @@ The pass found and applied new residual debt in Exposés X and XV. It found no a
   - moving shared head when this report closed: `313435A40E17DF53DC9C86D271548EFCE1C27520662D609D05C4FB373211E4F2`
 - French source-checked authority: `03_projects/language_management/english_germanic/02_native_examples/sga5_current_french_workpass/sga5_fr_workpass.tex`
   - SHA-256: `791F4EFFC5E02832D5D77ED03518C8156D6F07E4C8238B03545DB93D883FBB28`
-- Original LNM 589 scan: `C:/Users/Floris/Documents/Papors/OS/SGA5 (1).pdf`
+- Original LNM 589 scan: `C:/Users/user/Documents/Papors/OS/SGA5 (1).pdf`
   - SHA-256: `B256EBD072A8C68209518412A263C9289C6F1854A346733D86F885930D5FE6CA`
 
 The difference between the immediate post-tranche hash and the closing moving-head hash is from concurrent work in the shared cumulative. The semantic anchors below, rather than volatile global line numbers, are the durable receipt.

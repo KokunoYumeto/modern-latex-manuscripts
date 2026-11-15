@@ -196,19 +196,19 @@ def sanitize_reproducibility_json(path: Path) -> None:
 def sanitize_build_log(path: Path) -> None:
     text = path.read_text(encoding="utf-8", errors="strict")
     text = re.sub(
-        r"C:/User\r?\ns/Floris",
+        r"C:/User\r?\ns/user",
         "<USER_HOME>",
         text,
         flags=re.IGNORECASE,
     )
     for token in (
-        r"C:\\Users\\Floris",
-        r"C:\Users\Floris",
-        "C:/Users/Floris",
-        "/Users/Floris",
+        r"C:\\Users\\user",
+        r"C:\Users\user",
+        "C:/Users/user",
+        "/Users/user",
     ):
         text = text.replace(token, "<USER_HOME>")
-    text = text.replace("Floris", "<USER>")
+    text = text.replace("user", "<USER>")
     path.write_text(text, encoding="utf-8", newline="")
 
 
@@ -292,7 +292,7 @@ remain available as immutable release history.
 
     private_pattern = re.compile(
         r"(?i)(C:(?:[/\\]|\\\\)+Users(?:[/\\]|\\\\)+|"
-        r"C:/User\s*s/|/Users/Floris|Floris|Papors|Chatnotes|"
+        r"C:/User\s*s/|/Users/user|user|Papors|Chatnotes|"
         r"\.codex|019f[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-"
         r"[0-9a-f]{4}-[0-9a-f]{12})"
     )

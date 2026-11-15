@@ -4,9 +4,9 @@ This is a watch handoff for Lean formalization/library-candidate material, not a
 
 ## Local roots
 
-- C:\Users\Floris\Documents\classical_lean_audit
-- C:\Users\Floris\Downloads\helix_extract\helix_frobenius-master
-- C:\Users\Floris\Documents\arxiv_latex\_lean
+- C:\Users\user\Documents\classical_lean_audit
+- C:\Users\user\Downloads\helix_extract\helix_frobenius-master
+- C:\Users\user\Documents\arxiv_latex\_lean
 
 ## Sense check
 
@@ -19,7 +19,7 @@ This is a watch handoff for Lean formalization/library-candidate material, not a
 
 ## 2026-06-25 recheck
 
-- Re-ran `lake env lean` on `AffineGroup.lean`, `Steinitz.lean`, `Weber.lean`, `ClassicalBatch2.lean`, and `SplitZero.lean` in `C:\Users\Floris\Downloads\helix_extract\helix_frobenius-master`.
+- Re-ran `lake env lean` on `AffineGroup.lean`, `Steinitz.lean`, `Weber.lean`, `ClassicalBatch2.lean`, and `SplitZero.lean` in `C:\Users\user\Downloads\helix_extract\helix_frobenius-master`.
 - `AffineGroup.lean`, `Steinitz.lean`, and `Weber.lean` still build exit 0 and print only ordinary Mathlib classical axioms.
 - `ClassicalBatch2.lean` still fails and prints `sorryAx`; keep it as failed provenance only.
 - `SplitZero.lean` builds exit 0 in the current recheck log, but it has no `#print axioms` audit in this packet and remains a separate side-paper lane.

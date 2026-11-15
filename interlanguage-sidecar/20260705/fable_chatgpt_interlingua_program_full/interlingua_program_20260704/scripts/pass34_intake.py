@@ -5,7 +5,7 @@ import zipfile
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-BASE = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+BASE = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 
 # 1) Pan-Romance ledger v3.2: dual-review convergence
 p = BASE / "PAN_ROMANCE_C2_FILL_LEDGER_v3_20260705.json"
@@ -47,7 +47,7 @@ Audit results:
    (type count drops slightly, token coverage unchanged or +epsilon).
 
 Scope: this batch stays orthography-only. Lexeme switches (odnovrěmenno->jednočasno, sootvětstvovati->odpovědati,
-korak->krok...) remain queued behind Floris/reviewer sign-off of the R1 draft; human-review rows
+korak->krok...) remain queued behind user/reviewer sign-off of the R1 draft; human-review rows
 (ręd, jednako, važiti, slučaj) excluded entirely.
 """
 (BASE / "BATCH0_VALIDATION_AND_CODEX_CONDITIONS_20260705.md").write_text(note, encoding="utf-8")
@@ -79,7 +79,7 @@ entry = """
 - [x] **Noether sense re-probe accepted** (dual-review convergence): invariant theory UPGRADED (ledger v3.2), resultant re-confirmed, covariant/contravariant stay sense-review (both reviews concur).
 - [x] **Route-B KWIC probe REJECTED as-is** ([D6 + spec v2](ROUTE_B_REJECTION_AND_SPEC_v2_20260705.md)): null schema fields + genre contamination (Slovak programming notes matched on 'linear'). ROOT CAUSE SHARED: my INTL stem list was over-generic — spec v2 fixes both sides. Mutual-catch ran both directions this round.
 - [x] Apply-pass design intake: bands consistent with R1 draft (12/5/6/2/2); JSON channel carries null action fields (CSV authoritative) — minor channel defect noted.
-- Cursor: batch-0 + conditions to codex lane; lexeme switches await Floris's read of the R1 headline calls; route-B v2 rerun = ChatGPT bounded task; route-A per-concept probes (516 rows) = the big open queue.
+- Cursor: batch-0 + conditions to codex lane; lexeme switches await user's read of the R1 headline calls; route-B v2 rerun = ChatGPT bounded task; route-A per-concept probes (516 rows) = the big open queue.
 """
 sp = BASE / "STATUS.md"
 sp.write_text(sp.read_text(encoding="utf-8").rstrip() + "\n" + entry, encoding="utf-8")

@@ -456,7 +456,7 @@ Existing concept DOI: {CONCEPT_DOI}.
         text = path.read_text(encoding="utf-8").lower()
         for marker in (
             "c:\\users\\",
-            "floris",
+            "user",
             "chatnotes",
             "source_thread_id",
             "thread_id",

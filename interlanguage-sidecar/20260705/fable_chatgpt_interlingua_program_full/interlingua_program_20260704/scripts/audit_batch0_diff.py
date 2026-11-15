@@ -7,7 +7,7 @@ import collections
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-B = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\user made flr with chat web stuff\batch0_ortho")
+B = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\user made flr with chat web stuff\batch0_ortho")
 d = (B / "NORMALIZATION_BATCH0_ORTHOGRAPHY_PATCH_PROPOSAL_v1.diff").read_text(encoding="utf-8")
 lines = d.splitlines()
 minus = [l for l in lines if l.startswith("-") and not l.startswith("---")]

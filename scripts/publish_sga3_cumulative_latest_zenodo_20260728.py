@@ -207,7 +207,7 @@ DESCRIPTION_PARAGRAPHS = [
     (
         "Polo-Gille source PDFs control the French wording, formulas, "
         "numbering, notes, page order, and diagram appearance; they are not "
-        "redistributed by this package. Floris's pre-existing GPU OCR was "
+        "redistributed by this package. user's pre-existing GPU OCR was "
         "consulted read-only as a locator or drafting witness and was not "
         "regenerated. Jacob C. Reinhold's jcreinhold/sga English lineage at "
         "revision e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e is credited "
@@ -353,7 +353,7 @@ version remains honest public history.
 ## Authority, rights, and lineage
 
 Polo-Gille PDFs control the French wording, formulas, numbering, notes, page
-order, and diagram appearance. They are not redistributed here. Floris's
+order, and diagram appearance. They are not redistributed here. user's
 pre-existing GPU OCR was consulted read-only as locator or drafting material
 and was not regenerated. Jacob C. Reinhold's `jcreinhold/sga` English Markdown
 at commit `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` is credited comparison and

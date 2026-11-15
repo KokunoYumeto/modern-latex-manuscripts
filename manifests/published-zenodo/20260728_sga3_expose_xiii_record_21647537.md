@@ -83,7 +83,7 @@ text/equation integration remains held and was not uploaded; its native-diagram,
 cumulative-reference, privacy, rights, package-replay, and release gates remain
 open.
 
-The Polo-Gille authority PDF is not redistributed. Floris's pre-existing GPU OCR
+The Polo-Gille authority PDF is not redistributed. user's pre-existing GPU OCR
 is read-only locator/drafting evidence and was not regenerated. Jacob C.
 Reinhold's `jcreinhold/sga` English lineage at revision
 `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` is credited comparison material, not

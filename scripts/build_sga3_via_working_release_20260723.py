@@ -1335,7 +1335,7 @@ def parse_args() -> argparse.Namespace:
         "--xelatex",
         type=Path,
         default=Path(
-            r"C:\Users\Floris\AppData\Local\Programs\MiKTeX"
+            r"C:\Users\user\AppData\Local\Programs\MiKTeX"
             r"\miktex\bin\x64\xelatex.exe"
         ),
     )
@@ -1343,7 +1343,7 @@ def parse_args() -> argparse.Namespace:
         "--pdffonts",
         type=Path,
         default=Path(
-            r"C:\Users\Floris\AppData\Local\Programs\MiKTeX"
+            r"C:\Users\user\AppData\Local\Programs\MiKTeX"
             r"\miktex\bin\x64\pdffonts.exe"
         ),
     )
@@ -1351,7 +1351,7 @@ def parse_args() -> argparse.Namespace:
         "--pdftoppm",
         type=Path,
         default=Path(
-            r"C:\Users\Floris\AppData\Local\Programs\MiKTeX"
+            r"C:\Users\user\AppData\Local\Programs\MiKTeX"
             r"\miktex\bin\x64\pdftoppm.exe"
         ),
     )
@@ -1359,7 +1359,7 @@ def parse_args() -> argparse.Namespace:
         "--pdftotext",
         type=Path,
         default=Path(
-            r"C:\Users\Floris\AppData\Local\Programs\MiKTeX"
+            r"C:\Users\user\AppData\Local\Programs\MiKTeX"
             r"\miktex\bin\x64\pdftotext.exe"
         ),
     )

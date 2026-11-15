@@ -28,7 +28,7 @@ The important negative signal is that this tranche contains **zero TeX-like sour
 ## Staged Upload Artifact
 
 - `Noether_PC_Interlanguage_Packages350_352_SourceCanonCoordination_20260704.zip`
-- Local path: `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_noether_pc_packages350_352\Noether_PC_Interlanguage_Packages350_352_SourceCanonCoordination_20260704.zip`
+- Local path: `C:\Users\user\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_noether_pc_packages350_352\Noether_PC_Interlanguage_Packages350_352_SourceCanonCoordination_20260704.zip`
 - Size: 1,154,415 bytes
 - SHA256: `4B98DA21872F3D513A173C1B2D2D2E80893915F1FF57E2D42BDC27EBA296F73D`
 

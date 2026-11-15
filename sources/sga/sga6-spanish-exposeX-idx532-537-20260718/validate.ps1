@@ -8,7 +8,7 @@ $pdf = if (Test-Path -LiteralPath $builtPdf) { $builtPdf } else { $publishedPdf 
 $builtLog = Join-Path $here 'output\pdf\SGA6_Expose_X_idx532_537_Spanish_SourceChecked.log'
 $publishedLog = Join-Path $here 'BUILD.log'
 $engineLog = if (Test-Path -LiteralPath $builtLog) { $builtLog } else { $publishedLog }
-$bundledPdfInfo = 'C:\Users\Floris\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdfinfo.exe'
+$bundledPdfInfo = 'C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin\pdfinfo.exe'
 $pdfInfoExe = if (Test-Path -LiteralPath $bundledPdfInfo) {
   $bundledPdfInfo
 } else {

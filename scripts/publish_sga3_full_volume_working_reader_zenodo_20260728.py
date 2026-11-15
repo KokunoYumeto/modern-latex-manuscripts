@@ -216,7 +216,7 @@ DESCRIPTION_PARAGRAPHS = [
     ),
     (
         "The component-specific Polo-Gille authority PDFs are identity and "
-        "page controls only and are not redistributed. Floris's pre-existing "
+        "page controls only and are not redistributed. user's pre-existing "
         "GPU OCR may be consulted read-only as locator or drafting evidence "
         "and was not regenerated. Jacob C. Reinhold's jcreinhold/sga English "
         "lineage at revision e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e "
@@ -419,7 +419,7 @@ for ambiguity.
 ## Authority, rights, and lineage
 
 The component-specific Polo-Gille authority PDFs are controls only and are not
-redistributed. Floris's pre-existing GPU OCR may be consulted read-only as
+redistributed. user's pre-existing GPU OCR may be consulted read-only as
 locator/drafting evidence and was not regenerated. Jacob C. Reinhold's
 `jcreinhold/sga` English lineage at commit
 `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` is credited comparison material,

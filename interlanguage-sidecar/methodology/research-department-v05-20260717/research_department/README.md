@@ -25,7 +25,7 @@ The early “tree, not automaton” objection and the later automaton packages a
 
 The latest read-only cross-language table remains:
 
-`C:\Users\Floris\Documents\interlanguage\01_methodology\claude_fable_program\CONSOLIDATED_INTERLANGUAGE_INTERFACE_v1_20260710.html`
+`C:\Users\user\Documents\interlanguage\01_methodology\claude_fable_program\CONSOLIDATED_INTERLANGUAGE_INTERFACE_v1_20260710.html`
 
 Its source JSON preserves 216 concepts, 25 language columns, weight summaries, global-register classes, adverse/competitor mass, F14 trap flags, history descriptions, and reviewed internal decisions. It is an interface, not a certification table.
 

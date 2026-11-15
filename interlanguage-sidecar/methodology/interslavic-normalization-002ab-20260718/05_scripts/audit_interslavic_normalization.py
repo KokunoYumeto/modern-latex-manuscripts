@@ -379,7 +379,7 @@ def main() -> int:
         "dictionary_evidence": {
             "path": str(
                 Path(
-                    r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\data\isv_words_list.csv"
+                    r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\data\isv_words_list.csv"
                 )
             ),
             "sha256": "072DE8E512EB386780D199FBD6F0ACF2639D3096EA920F1AF2D0AFCC5535E842",

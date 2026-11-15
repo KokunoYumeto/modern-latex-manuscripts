@@ -4,7 +4,7 @@ Date: 2026-07-05
 
 Local source inspected:
 
-- `C:\Users\Floris\Downloads\codex backup dump 7-4\modern-latex-manuscripts-codex-noether-pc-20260629`
+- `C:\Users\user\Downloads\codex backup dump 7-4\modern-latex-manuscripts-codex-noether-pc-20260629`
 
 Comparison result:
 

@@ -20,7 +20,7 @@ from pathlib import Path, PurePosixPath
 
 REPO = Path(__file__).resolve().parents[1]
 PRIVATE_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\english_germanic\90_logs\private_archive_custody"
     r"\EGA_I_P138_R61_R82_PRIVATE_RAW_CUSTODY_20260804_r1"
 )
@@ -289,7 +289,7 @@ def privacy_replay(root: Path) -> dict[str, object]:
     binary_needles = (
         b"C:\\Users\\",
         b"C:/Users/",
-        b"Floris",
+        b"user",
         b".codex",
         b"memo_lepthy@live.nl",
     )
@@ -309,7 +309,7 @@ def privacy_replay(root: Path) -> dict[str, object]:
                 errors.append({"error": "private_user_home", "path": rel})
             if re.search(r"(?i)(?:^|[\\/])\.codex(?:[\\/]|$)", text):
                 errors.append({"error": "private_codex_state", "path": rel})
-            operator_name_count = len(re.findall(r"(?i)\bFloris\b", text))
+            operator_name_count = len(re.findall(r"(?i)\buser\b", text))
             if operator_name_count:
                 wanted_name_count = PUBLIC_OPERATOR_NAME_COUNTS.get(rel)
                 if operator_name_count == wanted_name_count:

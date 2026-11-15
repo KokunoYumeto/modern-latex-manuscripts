@@ -19,7 +19,7 @@ and footnote 14. Treat 21421931 only as the published historical predecessor;
 
 The English/Germanic lane has assembled and technically validated a complete layered English reader through the physical terminal of SGA 6:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\language_management\english_germanic\03_working_translations\sga6_complete_layered_sync_sourcePDF001_702_en_20260718\SGA6_English_Complete_Layered_WorkingEdition.pdf`
+`C:\Users\user\Documents\interlanguage\03_projects\language_management\english_germanic\03_working_translations\sga6_complete_layered_sync_sourcePDF001_702_en_20260718\SGA6_English_Complete_Layered_WorkingEdition.pdf`
 
 - PDF SHA-256: `F8B1E15754BEB5C83CF2A47B261D6F9F907DE5B7E8A6ED4DF311C624E38C7B8E`
 - 381 generated A4 pages; 2,565,870 bytes; all fonts embedded
@@ -71,6 +71,6 @@ At source-PDF 14 / printed page 7, the scan and French workpass print a map invo
 
 The normalized English mirror is:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\language_management\english_germanic\03_working_translations\sga6_complete_layered_sync_sourcePDF001_702_en_20260718\ledgers\PENDING_CLAUDE_SOURCE_FIXES.md`
+`C:\Users\user\Documents\interlanguage\03_projects\language_management\english_germanic\03_working_translations\sga6_complete_layered_sync_sourcePDF001_702_en_20260718\ledgers\PENDING_CLAUDE_SOURCE_FIXES.md`
 
 When the French source-rescribe is extended, please record the successor commit/SHA and exact frontier. The English lane then needs to diff idx663 onward and the terminal back matter against that successor, adjudicate every change, rebuild, rerender affected pages, and regenerate the receipts. Please do not upload the current English working edition or mint a duplicate Zenodo record.

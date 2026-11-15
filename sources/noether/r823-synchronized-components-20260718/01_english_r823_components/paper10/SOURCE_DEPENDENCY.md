@@ -4,7 +4,7 @@ Date: 2026-07-17
 
 ## Current German authority
 
-C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex
+C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex
 
 - full R823 SHA-256:
   EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21
@@ -38,7 +38,7 @@ Neither older English control contains the current R823 mathematical fixes.
 
 ## Primary printed source
 
-C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_Slavic_ZenodoDrive_Transfer_CurrentSources_20260623T1920Z\sources\paper10\Noether_Paper10_SOURCE_SCAN_FINAL_AUDITED.pdf
+C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_Slavic_ZenodoDrive_Transfer_CurrentSources_20260623T1920Z\sources\paper10\Noether_Paper10_SOURCE_SCAN_FINAL_AUDITED.pdf
 
 SHA-256:
 7041E0F7E0D598C0AB80C0E9E99F7348DF701451BE59FC39CAB2968D7BB1C09D

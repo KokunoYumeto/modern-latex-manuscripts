@@ -22,9 +22,9 @@ from pathlib import Path
 
 
 WORKTREE = Path(
-    r"C:\Users\Floris\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\wt-sga-global-reader-provisional-20260803"
+    r"C:\Users\user\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\wt-sga-global-reader-provisional-20260803"
 )
-PROJECT_ROOT = Path(r"C:\Users\Floris\Documents\interlanguage")
+PROJECT_ROOT = Path(r"C:\Users\user\Documents\interlanguage")
 LANE_ROOT = PROJECT_ROOT / r"03_projects\language_management\english_germanic"
 FRENCH_ROOT = (
     PROJECT_ROOT
@@ -76,27 +76,27 @@ TEXT_SUFFIXES = {
 ROOT_TRANSFORMS = (
     (
         "project_root",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris[\\/]Documents[\\/]interlanguage"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user[\\/]Documents[\\/]interlanguage"),
         "[PROJECT_ROOT]",
     ),
     (
         "archive_worktree_root",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris[\\/]Documents[\\/]Codex"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user[\\/]Documents[\\/]Codex"),
         "[ARCHIVE_WORKTREE_ROOT]",
     ),
     (
         "private_documents_root",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris[\\/]Documents"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user[\\/]Documents"),
         "[PRIVATE_DOCUMENTS_ROOT]",
     ),
     (
         "private_download_root",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris[\\/]Downloads"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user[\\/]Downloads"),
         "[PRIVATE_DOWNLOAD_ROOT]",
     ),
     (
         "private_operator_home",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user"),
         "[PRIVATE_OPERATOR_HOME]",
     ),
     (

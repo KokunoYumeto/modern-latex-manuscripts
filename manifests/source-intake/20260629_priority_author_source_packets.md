@@ -3,7 +3,7 @@
 Date registered: 2026-07-01
 
 Local source root:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629`
 
 Classification: source-intake packets for future web/pro/colleague transcription and translation lanes. These are not transcriptions, translations, source-checked editions, critical editions, reader releases, or claims that work has been done on the mathematics.
 
@@ -27,6 +27,6 @@ For all packets below, source images or source PDFs are authority for formulas, 
 
 ## Notes
 
-- A separate local Galois staging folder also exists at `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629`; it repeats the Galois quick-win idea with explicit 600ppi source-master language for IA/UMich masters.
+- A separate local Galois staging folder also exists at `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629`; it repeats the Galois quick-win idea with explicit 600ppi source-master language for IA/UMich masters.
 - These packets are useful for choosing quick wins and future author lanes, especially Galois, Cantor, Cauchy, Eisenstein, and Abel.
 - Do not upload these as if they are newly created scholarly editions. If published, label them as source-intake/source-witness packets or use them as local/web handoff material.

@@ -20,19 +20,19 @@ The current German workpass compiles to 377 pages with no fatal LaTeX error acco
 
 ## Current local witnesses
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_B139_heuristic_fix\Weber_B139_heuristic_fix\02_cumulative\v1\ge\weber_v1_ge.tex`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_B139_heuristic_fix\Weber_B139_heuristic_fix\02_cumulative\v1\ge\weber_v1_ge.tex`
   - bytes: 1,150,390
   - SHA256: `0CDA1A0A46765A14D60C7C2A3C5C0AACD456999CD75DB32B47AC58897F1CE23D`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_B139_heuristic_fix\Weber_B139_heuristic_fix\02_cumulative\v1\ge\weber_v1_ge.pdf`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_B139_heuristic_fix\Weber_B139_heuristic_fix\02_cumulative\v1\ge\weber_v1_ge.pdf`
   - bytes: 2,054,369
   - SHA256: `8CE2C56F6572C72839A10D25862F074A597C20C18B05C17700C281328A241AD0`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_B139_heuristic_fix\Weber_B139_heuristic_fix\02_cumulative\v1\ge\weber_v1_ge.log`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber restart\Weber_B139_heuristic_fix\Weber_B139_heuristic_fix\02_cumulative\v1\ge\weber_v1_ge.log`
   - bytes: 41,274
   - SHA256: `FA4774A9AC5BC5106F7728272DD720609B90056AEE5B0729068848105608BDCA`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit\WEBER_CERT_LOG.md`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit\WEBER_CERT_LOG.md`
   - bytes: 130,441
   - SHA256: `E9852D4460B328A0837CE045A4369E3A343F77F69F98DD8C4C71ADD19AF85005`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit\WEBER_METHOD_LOG.md`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit\WEBER_METHOD_LOG.md`
   - bytes: 77,263
   - SHA256: `F0F454FFF101C575F3DCFC54072577FE9FF8689174BAA8D66AC1748242EB9223`
 

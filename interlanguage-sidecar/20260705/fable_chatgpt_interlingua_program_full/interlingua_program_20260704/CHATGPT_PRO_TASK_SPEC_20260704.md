@@ -2,7 +2,7 @@
 2026-07-04. Paste this spec + the listed input files to ChatGPT Pro. The task is bounded computation and analysis on existing data. It must not invent forms, must not promote terms, and must report weight-sensitivity rather than a single verdict.
 
 ## Task, one sentence
-Compute weighted marginal-intelligibility comparisons for the 37 concepts in the comparative analysis — Floris's heuristic, operationalized: *does the current Interslavic form add passive intelligibility at the margin over each alternative, per branch cohort, under stated weights?* — and rank the review packet accordingly ("source-genre drift cancellation via weighted intelligibility").
+Compute weighted marginal-intelligibility comparisons for the 37 concepts in the comparative analysis — user's heuristic, operationalized: *does the current Interslavic form add passive intelligibility at the margin over each alternative, per branch cohort, under stated weights?* — and rank the review packet accordingly ("source-genre drift cancellation via weighted intelligibility").
 
 ## Inputs (all in the program folder / v1 zip)
 1. `COMPARATIVE_TERM_ANALYSIS_v1_20260704.json` — per concept: current form, candidates, branch/language attestation, hit counts, files.

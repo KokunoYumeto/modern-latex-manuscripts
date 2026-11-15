@@ -7,13 +7,13 @@
 
 ## Input identity
 
-- Path: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\source\current\segments\P35_C_selected_source_lines169_264.tex`
+- Path: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\source\current\segments\P35_C_selected_source_lines169_264.tex`
 - Bytes: `12,595`
 - SHA-256: `04881F8A065EAD8CE880FC76A429A08345ED6D987E9FD7C5DCFACCBEFD9E07F3`
 
 ## Output identity
 
-- Path: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\translation\current_segments\P35_C_zh-Hans-CN_current.tex`
+- Path: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_001_20260804\translation\current_segments\P35_C_zh-Hans-CN_current.tex`
 - Bytes: `10,517`
 - SHA-256: `B40A9628670A1A7602008487DC7080DA2706DC1BC4C539DA2BD4E4752AC642F3`
 - Physical lines: `96`

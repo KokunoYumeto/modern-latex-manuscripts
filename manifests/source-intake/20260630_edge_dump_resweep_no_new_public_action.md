@@ -10,7 +10,7 @@ keep being rediscovered as missing public archive work.
 
 Checked:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Microsoft Edge is shit so every download goes here instead of subfolders`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Microsoft Edge is shit so every download goes here instead of subfolders`
 
 Visible author/work grouping in the Edge dump:
 

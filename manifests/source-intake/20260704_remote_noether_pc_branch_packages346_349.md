@@ -38,7 +38,7 @@ This means packages 346-349 should not be described as a complete source-body ha
 ## Staged Upload Artifact
 
 - `Noether_PC_Interlanguage_Packages346_349_SourceCanonCoordination_20260704.zip`
-- Local path: `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_noether_pc_packages346_349\Noether_PC_Interlanguage_Packages346_349_SourceCanonCoordination_20260704.zip`
+- Local path: `C:\Users\user\Documents\Papors\modern-latex-manuscripts-github\publish_staging\interlanguage-methodology\20260704_noether_pc_packages346_349\Noether_PC_Interlanguage_Packages346_349_SourceCanonCoordination_20260704.zip`
 - Size: 1,620,552 bytes
 - SHA256: `C17D440B3403FC27EB141589245FB7D201ADAD8D4756FFDF10CC9580F60DBA72`
 

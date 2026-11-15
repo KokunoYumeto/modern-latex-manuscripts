@@ -53,8 +53,8 @@ foreach ($entry in $manifestReplayErrors) { $errors.Add($entry) }
 # Privacy scan. Construct private tokens from parts so the validator does not
 # contain the very literals it is designed to detect.
 $privacyPatterns = @(
-    [regex]::Escape(('C:' + '\Users\' + 'Floris')),
-    [regex]::Escape(('C:' + '/Users/' + 'Floris')),
+    [regex]::Escape(('C:' + '\Users\' + 'user')),
+    [regex]::Escape(('C:' + '/Users/' + 'user')),
     [regex]::Escape(('.' + 'codex')),
     '019f[0-9a-f-]{20,}',
     [regex]::Escape(('memo_lepthy' + '@' + 'live.nl'))

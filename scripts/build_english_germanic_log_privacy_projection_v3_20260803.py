@@ -15,16 +15,16 @@ from pathlib import Path
 # The reused v2 sanitizer resolves this exact bounded source root at import.
 os.environ.setdefault(
     "ENGLISH_GERMANIC_CONTROL_ROOT",
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management\english_germanic\00_lane_control",
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management\english_germanic\00_lane_control",
 )
 import publish_english_germanic_log_privacy_remediation_dual_doi_20260803 as v2_builder
 
 
 WORKTREE = Path(
-    r"C:\Users\Floris\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\wt-sga-global-reader-provisional-20260803"
+    r"C:\Users\user\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\wt-sga-global-reader-provisional-20260803"
 )
 CONTROL_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management\english_germanic\00_lane_control"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management\english_germanic\00_lane_control"
 )
 SOURCE_LOG = CONTROL_ROOT / "ENGLISH_GERMANIC_DECISION_LOG_v1.jsonl"
 FINAL = WORKTREE / r"interlanguage-sidecar\20260803\english-germanic-decision-log-privacy-v3"

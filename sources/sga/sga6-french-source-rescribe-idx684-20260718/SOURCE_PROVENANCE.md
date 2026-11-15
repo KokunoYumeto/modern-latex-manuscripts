@@ -1,6 +1,6 @@
 # Source Provenance
 
-- Governing high-resolution source: `C:\Users\Floris\Documents\Papors\OS\Theorie des Intersections et Theoreme de Riemann-Roch.pdf` (the filesystem name carries French accents), Internet Archive item `theoriedesinters0225bert`.
+- Governing high-resolution source: `C:\Users\user\Documents\Papors\OS\Theorie des Intersections et Theoreme de Riemann-Roch.pdf` (the filesystem name carries French accents), Internet Archive item `theoriedesinters0225bert`.
 - Governing source SHA-256: `73FBBAD41340C12ECCDCFCF6C3A1656953FE3D712AA8E391678458CCD17B4BAA`.
 - Active source-rescribe workspace: `SGA continuation 2\_claude_aid\sga6_full_audit_20260703`.
 - Upstream TeX snapshot SHA-256: `619F145018CC02E89B97C7D58E590BE1DF7826017DDB487A702D345F32ED08D3`.

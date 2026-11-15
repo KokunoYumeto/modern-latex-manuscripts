@@ -25,9 +25,9 @@ METADATA_ARCHIVE_SHA256 = (
 FIXED_ZIP_TIME = (2026, 8, 1, 0, 0, 0)
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".jpx", ".pnm"}
 PRIVATE_PATTERNS = (
-    re.compile(r"(?i)[A-Z]:[\\/]+Users[\\/]+Floris"),
+    re.compile(r"(?i)[A-Z]:[\\/]+Users[\\/]+user"),
     re.compile(r"(?i)AppData[\\/]+Local[\\/]+Temp"),
-    re.compile(r"(?i)C--Users-Floris"),
+    re.compile(r"(?i)C--Users-user"),
     re.compile(r"(?i)[A-Z]:[\\/]+w[\\/]"),
 )
 CHUNKS = {

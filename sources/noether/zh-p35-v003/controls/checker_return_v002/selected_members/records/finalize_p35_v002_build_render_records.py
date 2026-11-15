@@ -20,7 +20,7 @@ BUILD_OUT = RECHECK / "build/P35_V002_CHECKER_BUILD_RECORD.json"
 RENDER_OUT = RECHECK / "render/P35_V002_RENDER_RECORD.json"
 VISUAL_OUT = RECHECK / "render/P35_V002_VISUAL_QA_LEDGER.jsonl"
 DIFF_OUT = RECHECK / "findings/P35_HANT_F015_CORRECTION_DIFF.patch"
-ENGINE = Path("C:/Users/Floris/AppData/Local/Programs/MiKTeX/miktex/bin/x64/xelatex.exe")
+ENGINE = Path("C:/Users/user/AppData/Local/Programs/MiKTeX/miktex/bin/x64/xelatex.exe")
 
 
 BUILD_TARGETS = {

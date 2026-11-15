@@ -14,7 +14,7 @@ import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = Path(__file__).resolve()
-XELATEX = Path(r"C:\Users\Floris\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe")
+XELATEX = Path(r"C:\Users\user\AppData\Local\Programs\MiKTeX\miktex\bin\x64\xelatex.exe")
 TEX = ROOT / (
     "build/zh-Hant-controlled-v003/"
     "Noether_Paper35_Chinese_CurrentAuthority_zh-Hant-controlled_v003.tex"

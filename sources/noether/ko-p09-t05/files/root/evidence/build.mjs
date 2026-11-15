@@ -2,7 +2,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 
 const root = new URL('../', import.meta.url);
-const authorityPath = 'C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/ED0002/noether.tex';
+const authorityPath = 'C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/ED0002/noether.tex';
 const pointerSha = 'B06BE3530D9CF2E82B56FDBA7FE41D5D044DF2425DFA2A059D4939EAA2F7A6C2';
 const editionSha = 'C9A125167ACB33D914EE4374B65AE7CDF0052F568371B8B77B720EA178ABF0E3';
 const sha = data => createHash('sha256').update(data).digest('hex').toUpperCase();

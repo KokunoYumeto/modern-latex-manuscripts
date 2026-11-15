@@ -6,7 +6,7 @@ This report records exact correction realization, assembly, controlled script tr
 
 Compiler for all final passes:
 
-- `C:/Users/Floris/AppData/Local/Programs/MiKTeX/miktex/bin/x64/xelatex.exe`.
+- `C:/Users/user/AppData/Local/Programs/MiKTeX/miktex/bin/x64/xelatex.exe`.
 - 1,533,440 bytes; SHA-256 `1C3628BC7C96ED4F52B1F0AB6494225FDD5EE7914D8D3DB0E13B302E258F3326`.
 - `MiKTeX-XeTeX 4.18 (MiKTeX 26.5)`.
 - Options: `--quiet -interaction=nonstopmode -halt-on-error -file-line-error -no-shell-escape`.

@@ -6,7 +6,7 @@ Register R560 as a coherent local TeX-changing German source-control predecessor
 
 ## Package
 
-- Local folder: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R560_LocalCodex_R559_P31p89p98_SourceMatrixFix_20260702`
+- Local folder: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R560_LocalCodex_R559_P31p89p98_SourceMatrixFix_20260702`
 - Base: R559 LocalCodex cumulative
 - Scope: Paper 31 printed/source pp.89 and 98
 - Main cumulative TeX: `cum/cum_de_R560_P31p89p98_sourcemath.tex`

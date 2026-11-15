@@ -4,7 +4,7 @@ Date: 2026-07-05
 
 Local root inspected:
 
-`C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus`
+`C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus`
 
 Machine-readable files:
 

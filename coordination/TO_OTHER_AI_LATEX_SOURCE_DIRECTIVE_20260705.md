@@ -50,7 +50,7 @@ Uploading five files, an index, or a manifest is not enough when full source bod
 
 ## Added 2026-07-05: Do not leave sibling sessions idle
 
-If you are the session that can see or coordinate the other laptop/desktop sessions, you must actively assign work. Do not wait for Floris to remember which window is idle.
+If you are the session that can see or coordinate the other laptop/desktop sessions, you must actively assign work. Do not wait for user to remember which window is idle.
 
 Maintain these files when possible:
 

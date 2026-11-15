@@ -4,7 +4,7 @@ Date: 2026-06-29
 
 Local packet:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Galois\Galois_SOURCE_PACKET_20260629.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Galois\Galois_SOURCE_PACKET_20260629.zip`
 
 SHA256:
 
@@ -16,7 +16,7 @@ Size:
 
 Additional verified local staging packet created later the same morning:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629.zip`
 
 SHA256:
 

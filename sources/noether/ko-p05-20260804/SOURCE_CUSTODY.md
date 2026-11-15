@@ -6,7 +6,7 @@ State: translation-producer custody only; all Korean targets remain UNCHECKED an
 
 - Pointer ID: NOETH-DE-AUTH-v003-20260804
 - Pointer artifact SHA-256: 932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197
-- Authority path: C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex
+- Authority path: C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex
 - Authority size: 2,153,565 bytes
 - Authority SHA-256: D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB
 - Paper 5 body interval: whole-source lines 4535--4573
@@ -24,7 +24,7 @@ The current pointer and authority identities above were supplied as routing fact
 | U03 | 25--29 | 4559--4563 | 1,886 | 778D2BAE411E136A3760673A839EF0DB9BA79C83F0534F103CF851F5F7E4A698 | 3,197 | 2B7ADD81855DD9D06A1D2D17249F32F5D7BBDB458F7474E0BB7BC3F14A5FFA89 |
 | U04 | 31--38 | 4565--4572 | 1,770 | FF5058094D557ECF29D2EA4A37762067EF5936EAD529E70AF5C5FA0E6B063230 | 2,963 | 8A50F7549C23A50A6A824C97763941535D12061EE08E32D2EC1D3F678FE4CA6B |
 
-Target root: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper05_ko_translation_001_20260804\targets
+Target root: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper05_ko_translation_001_20260804\targets
 
 Line 4573 is the terminal blank line included in the routed Paper 5 body identity but contains no translatable text. The \clearpage at line 4574 is outside the Paper 5 body and was excluded.
 

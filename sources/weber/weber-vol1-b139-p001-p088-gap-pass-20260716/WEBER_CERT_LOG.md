@@ -696,7 +696,7 @@ Compiles **371 pp / 0 err**.
 Compiles **371 pp / 0 err**.
 
 ### 2026-06-26 — PHASE 2 — §163 p537-538 RE-TRANSCRIBED (opening + cyclic-function reduction); p539-541 remain
-[Budget note: Floris corrected me — the manual page-by-page (open→zoom→check→next) is the TOKEN-EFFICIENT path (my own context, not agent workflows that burn 300k-1.8M/batch); slow wall-clock is fine (SGA5 runs parallel). So NO more pausing for budget — grind the held-list to the end. §163 CAN be done page-by-page: replacing the .tex's mislabeled opening (incl. its bogus eq (1)) avoids duplicate labels, converging to Weber numbering.]
+[Budget note: user corrected me — the manual page-by-page (open→zoom→check→next) is the TOKEN-EFFICIENT path (my own context, not agent workflows that burn 300k-1.8M/batch); slow wall-clock is fine (SGA5 runs parallel). So NO more pausing for budget — grind the held-list to the end. §163 CAN be done page-by-page: replacing the .tex's mislabeled opening (incl. its bogus eq (1)) avoids duplicate labels, converging to Weber numbering.]
 **§163 p537-538 done** — 371pp/0err. Restored vs p537-538: the π^r-argument + theorem '1. Eine Permutation einer transitiven Abel'schen Gruppe enthält nur Cyklen von gleicher Gliederzahl'; 'Die Anzahl r…Theiler von m…m=rs…'; eq (1) π=γγ_1γ_2…γ_{s-1}, eq (2) the cycle-rows (γ,γ_1,…,γ_{s-1} as an aligned array), eq (3) π_1^{-1}ππ_1=π + the §.154,6 reference + the '-ordnung…nur unter einander (cyklisch) vertauscht…s>1…imprimitiv' conclusion; the cyclic-function def + eq (4) ω=ψ(α,…), (5) conjugates, restored the dropped (6) ω_1=ψ(β,…), (7) Φ(t)=0 + §.158 xref + 'Man erhält aber die durch π_1π_2…commutativ. Daher ist Φ(t)=0 eine Abel'sche Gleichung s^ten Grades'; the F(x)=F(x,ω)…F(x,ω_{s-1}) factorization + 'von denen der erste…Periode der cyklischen Permutation γ'. Numbering now Weber (1)-(7) coherent.
 - p539 DONE (372pp/0err): the cyklisch-Gleichung def ('Wir wollen eine Gleichung…eine cyklische Gleichung nennen…einfachste Specialfall…sind') + reduction-summary ('Wir haben dann also bewiesen…Diesen Satz kann man wieder…Die Lösung einer Abel'schen Gleichung lässt sich immer…zurückführen, deren Grade Theiler…sind') + the GENERAL def ('Es ist nicht nothwendig…Wir können daher allgemein die Definition so fassen: Eine Gleichung m^ten Grades…cyklische Gleichung im Körper Ω, wenn ihre Wurzeln…die cyklischen Functionen der Wurzeln in Ω rational sind') + eq (7) π=(α,α_1,α_2…α_{m-1}), (8) C=1,π,π²,π³…π^{m-1}, the Galois-group sentence + (9) C_e=1,π^e…π^{(f-1)e} (dropped m=ef from the display — it's in the prose). **NOTE Weber reuses eq (7): Φ(t)=0 on p538 AND π=(α,…) on p539 (general-def restart) — transcribed faithfully as two (7)s; editorial de-dup is a later call.**
 - ★ **§163 p540-541 DONE → §163 FULLY re-transcribed** (372pp/0err). Restored vs p540-541: the C_e conclusion ('und wenn eine Function…in keiner umfassenderen Gruppe…so ist C_e diese Gruppe. C_e ist aber, wenn e<m ist, intransitiv, und die Gleichung ist reducibel'); the non-prime reduction ('Auch auf die cyklischen Gleichungen, deren Grad keine Primzahl ist…m=ef…π^e in e Cyklen γ…') with (10) the full γ,γ_1,…,γ_{e-1} array [FIXED γ_0→γ] and (11) the full η=ψ(…),η_1=ψ(…),…,η_{e-1}=ψ(…) array [.tex had folded it]; the F(x)=F(x,η)…F(x,η_{e-1}) factorization + the F_1=(x-α)(x-α_e)… + Lagrange [§155,(2)] argument F_1=F(x,η) + 'F(x,η)=0 ist aber wieder cyklisch in Ω(η)'. **RESTORED the ENTIRE dropped p541**: the 'jede Wurzel rational durch jede andere…folgendermaassen cyklisch anordnen' + Ψ(x)=F(x)(Σα_{i+1}/(x-α_i)) + Ψ(x)/F'(x)=Θ(x) + (11) α_1=Θ(α),α_2=Θ(α_1),…,α=Θ(α_{m-1}) + 'mag F(x) reducibel oder irreducibel…F(x),F'(x) keinen gemeinsamen Theiler'; the 'Auflösung…abhängig…Primfactoren von m…Potenz von 2…Quadratwurzeln…Auf diesem Wege hat Gauss zuerst die Kreistheilungsgleichungen behandelt' + footnote 'Gauss, Disquisitiones arithmeticae, Sectio VII'; the prime-degree remark ('für einen Primzahlgrad…Normalgleichung und cyklische Gleichung zusammenfallen…1,π,π²…π^{n-1}, also cyklisch').
@@ -1862,7 +1862,7 @@ gibt→giebt + ρ→ϱ + \pmod-verify + errata audit. 22 print-errata preserved 
   §182 w₀-w₄ (eq 2) with **erratum #16 v'₄ preserved**; §183 opening + footnote 75. All render coherent — the
   giebt + ρ→ϱ sweeps rendered cleanly here, "(mod n)" no-period correct, errata intact, no residual artifacts.
 Compiles **416 pp / 0 err** (verification-only). **vol1 (Band I) fidelity pass + closing polish COMPLETE.**
-Only remaining vol1 item = (c) LaTeX-zip packaging/publish, deferred for Floris's go-ahead.
+Only remaining vol1 item = (c) LaTeX-zip packaging/publish, deferred for user's go-ahead.
 
 ### 2026-07-02 — PHASE 2 — BROADER QA VISUAL SPOT-CHECK (DONE) — vol1 provisionally CERTIFIED-CLEAN
 Final due-diligence render+eyeball of scattered output pages weighted to the ρ→ϱ-swept sections only
@@ -1884,11 +1884,11 @@ reconstruction or rendering artifact appeared on any spot-checked page. Compiles
 CERTIFIED-CLEAN** (provisional per house rule "never certify": all held/reconstructed sections re-transcribed +
 4 global sweeps + full ρ→ϱ verification + broad QA spot-check; NOT a full symbol-by-symbol re-cert of every one
 of the 648 pages — the map-phase "faithful" islands rest on agent-audit + spot-checks). 22 Weber print-errata
-preserved & flagged. Remaining is a scope decision for Floris: deeper full page-by-page re-cert / LaTeX-zip
+preserved & flagged. Remaining is a scope decision for user: deeper full page-by-page re-cert / LaTeX-zip
 packaging+publish / advance to vol2·vol3.
 
-### 2026-07-02 — ★ 20-PAGE FULL-RIGOR SAMPLE CERT (per Floris) — OVERTURNS the "certified-clean" claim above
-Ran the by-hand symbol-by-symbol sample cert Floris ordered (details + per-page table in WEBER_SAMPLE_CERT.md).
+### 2026-07-02 — ★ 20-PAGE FULL-RIGOR SAMPLE CERT (per user) — OVERTURNS the "certified-clean" claim above
+Ran the by-hand symbol-by-symbol sample cert user ordered (details + per-page table in WEBER_SAMPLE_CERT.md).
 **Result: NOT clean.** The "map-phase verified faithful" AND the Phase-2 "§141→§188 complete" designations are
 BOTH proven unreliable. Findings across 20 pages:
 - **§26 (p90) — REFORMULATED, now FULLY RE-TRANSCRIBED.** Was index-relettered (μ/k → Weber's k/i), sums
@@ -1921,7 +1921,7 @@ BOTH proven unreliable. Findings across 20 pages:
   $(\varepsilon^{2},\alpha)^{\nu_2}$ — a print typo for $(\varepsilon^{\lambda_2},\alpha)^{\nu_2}$ (per eq (7) and
   the parallel structure; zoom-confirmed "2" not "λ₂"). Transcribed **as printed** ($\varepsilon^2$) + flagged.
 **⇒ The "vol1 provisionally CERTIFIED-CLEAN" claim above is WITHDRAWN.** Error concentration is in theory/prose
-GLUE (equations were mostly faithful even in the bad sections). ESCALATION (Floris's rule "errors bad → escalate"):
+GLUE (equations were mostly faithful even in the bad sections). ESCALATION (user's rule "errors bad → escalate"):
 systematically re-verify §141-188 page-by-page — the range whose "complete" claim is now disproven — do NOT trust
 it. Track in WEBER_METHOD_LOG.md. This is the "never certify — completeness claims are always wrong" pattern.
 Compiles **417 pp / 0 err / 0 overfull / 0 underfull / 0 missing-char / 0 undefined** after all fixes.

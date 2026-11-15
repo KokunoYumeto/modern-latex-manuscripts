@@ -4,7 +4,7 @@ Local package:
 `Noether_R516_LocalCodex_R507_P24p232_DomainOrder_SourceFix_20260702.zip`
 
 Local path:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R516_LocalCodex_R507_P24p232_DomainOrder_SourceFix_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R516_LocalCodex_R507_P24p232_DomainOrder_SourceFix_20260702.zip`
 
 Size: 11,156,237 bytes.
 

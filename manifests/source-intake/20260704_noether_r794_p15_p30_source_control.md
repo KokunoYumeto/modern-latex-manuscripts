@@ -2,7 +2,7 @@
 
 ## Local Package
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R794_LocalCodex_WebR780_P15P30_Integration_20260704.zip`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R794_LocalCodex_WebR780_P15P30_Integration_20260704.zip`
 - Bytes: `63395468`
 - SHA256: `FFCCE7F4CD2606AFE02B2054B099424D68B7AE27E04466B7D471BADDB78BFF32`
 

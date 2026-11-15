@@ -2,7 +2,7 @@
 
 Date: 2026-08-02
 
-Status: CONTROLLING archive-provenance requirement from Floris.
+Status: CONTROLLING archive-provenance requirement from user.
 
 ## Requirement
 

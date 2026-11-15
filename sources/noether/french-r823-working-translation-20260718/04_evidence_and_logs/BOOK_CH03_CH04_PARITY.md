@@ -5,12 +5,12 @@ Scope: the complete direct-R823 French translation of true sections 14--21, from
 
 ## Authority and produced artifact
 
-- Authority file: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\authority\R823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
+- Authority file: `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\authority\R823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
 - Authority-file SHA-256: `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`
 - Exact authority range: lines 21544--22342 inclusive (799 physical source lines).
 - Normalized range SHA-256: `4C8E881398EC45E8E709B3251DF3F042D2B1B4480C8F915D12078920488F6ACF`. This hash is over precisely lines 21544--22342, joined with LF and encoded as UTF-8 without BOM.
 - Stop-boundary witness: line 22343 is `\section*{Kapitel V. Faktorensysteme}` and is not included.
-- Produced TeX: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\post43\book_ch03_ch04_fr.tex`
+- Produced TeX: `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\post43\book_ch03_ch04_fr.tex`
 - Produced-TeX SHA-256: `7278DEF4B8F82FA527A824E9E8AC7525AF7D872B4DA6C98D07E2A3AED5A086AD`
 - Produced size: 52,713 bytes; 813 physical lines.
 
@@ -113,7 +113,7 @@ No unresolved mathematical ambiguity remains in the fragment. The historical phr
 A temporary wrapper was compiled with LuaLaTeX. The wrapper used `article` at 11 pt, `amsmath`, `amssymb`, French `babel`, T1 font encoding, and the local test definition `\newcommand{\srcfn}[2]{\footnote{#2}}`; it then input only `book_ch03_ch04_fr.tex`.
 
 - Command class: `lualatex -interaction=nonstopmode -halt-on-error -file-line-error -jobname=book_ch03_ch04_smoke <inline wrapper>`
-- Temporary QA directory: `C:\Users\Floris\AppData\Local\Temp\fr_r823_ch34_11ba56ed32fe4fff9406009f440f26db`
+- Temporary QA directory: `C:\Users\user\AppData\Local\Temp\fr_r823_ch34_11ba56ed32fe4fff9406009f440f26db`
 - Exit status: **0**
 - Output: **22 pages**, 398,683 bytes
 - Smoke-PDF SHA-256: `54C4DC5EFDE3AD81080726DB211CB7F18FA0874B4BAB2D9CE5B1AC51736E4437`

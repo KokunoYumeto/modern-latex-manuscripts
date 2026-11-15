@@ -42,7 +42,7 @@ German prose titles in the source notes were translated. French and Italian cite
 
 ## Explicit no-check state
 
-Floris's controlling boundary is:
+user's controlling boundary is:
 
 > you do not check - you translate - other sessions CHEWCK
 

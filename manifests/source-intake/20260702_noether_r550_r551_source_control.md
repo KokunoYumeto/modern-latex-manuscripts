@@ -12,7 +12,7 @@ At this intake step, R551 was the local TeX-changing German source-control head.
 
 ## R551 Evidence
 
-- Local root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R551_LocalCodex_R550_P40p530_GaloisTheoremHeadings_SourceStyleFix_20260702`
+- Local root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R551_LocalCodex_R550_P40p530_GaloisTheoremHeadings_SourceStyleFix_20260702`
 - Main TeX: `cum\cum_de_R551_P40p530_sourcestyle.tex`
 - Main PDF: `cum\cum_de_R551_P40p530_sourcestyle.pdf`
 - Diff: `audit\diff_R550_to_R551.diff`
@@ -33,10 +33,10 @@ Important caveat: R551 has real TeX/PDF/diff/source-witness evidence, but no R55
 
 ## R550 Evidence
 
-- Zip: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R550_LocalCodex_R549_WebB_R546_MissingSourceFixes_20260702.zip`
+- Zip: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R550_LocalCodex_R549_WebB_R546_MissingSourceFixes_20260702.zip`
 - Bytes: `115040053`
 - SHA256: `672E3FE235EF6D493E79384BC5144305D444FBB253926EA3D37CE2EBC1A4777A`
-- Local root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R550_LocalCodex_R549_WebB_R546_MissingSourceFixes_20260702`
+- Local root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R550_LocalCodex_R549_WebB_R546_MissingSourceFixes_20260702`
 - Summary: `audit\R550_summary.json`
 - Confirmed fixes: `audit\R550_confirmed_fixes.csv`
 

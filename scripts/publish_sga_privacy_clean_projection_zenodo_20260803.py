@@ -54,7 +54,7 @@ TEXT_SUFFIXES = {
 }
 PRIVATE_WINDOWS = re.compile(r"(?i)[A-Z]:\\+Users\\+[^\\/\r\n\"']+")
 PRIVATE_POSIX = re.compile(r"(?i)/Users/[^/\s\"']+")
-PRIVATE_NAME = re.compile(r"(?i)\bFloris\b")
+PRIVATE_NAME = re.compile(r"(?i)\buser\b")
 
 
 def sha256_path(path: Path) -> str:

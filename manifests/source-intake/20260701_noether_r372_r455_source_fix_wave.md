@@ -2,7 +2,7 @@
 
 This intake records the local Noether source-fix/support wave found after R371.
 
-- Local root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`
+- Local root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`
 - Inventory CSV: `20260701_noether_r372_r455_source_fix_wave_inventory.csv`
 - Inventory JSON: `20260701_noether_r372_r455_source_fix_wave_inventory.json`
 - Artifact count: 86 ZIPs

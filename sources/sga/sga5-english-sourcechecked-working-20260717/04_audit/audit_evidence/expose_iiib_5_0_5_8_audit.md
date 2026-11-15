@@ -8,7 +8,7 @@ The omitted block was translated in full. While this audit was being completed, 
 
 - Current French authority: `03_projects/language_management/english_germanic/02_native_examples/sga5_current_french_workpass/sga5_fr_workpass.tex`, SHA-256 `791F4EFFC5E02832D5D77ED03518C8156D6F07E4C8238B03545DB93D883FBB28`.
 - Exact translated span: French lines **4928--5178 inclusive**. Lines 4928--4932 supply the missing `II. Correspondances équivariantes` and `5. Traces non commutatives` headings and the governing conventions; §5.0 starts at line 4934; the final sentence of §5.8 is line 5178. Line 5180 begins §5.9 and is excluded.
-- Original scan: `C:\Users\Floris\Documents\Papors\OS\SGA5 (1).pdf`, SHA-256 `B256EBD072A8C68209518412A263C9289C6F1854A346733D86F885930D5FE6CA`. Printed pp.162--171 are PDF pages 174--183 (one-based).
+- Original scan: `C:\Users\user\Documents\Papors\OS\SGA5 (1).pdf`, SHA-256 `B256EBD072A8C68209518412A263C9289C6F1854A346733D86F885930D5FE6CA`. Printed pp.162--171 are PDF pages 174--183 (one-based).
 - The older packet `sga_current_cumulative_packet_035/01_cumulative_clean/SGA5_clean_cumulative_translation_current.tex`, SHA-256 `E74DC0A56584EE9921B726D49E8305C74C816CF59A66520C5DED7B1670ADBFF6`, was consulted only as a negative/terminology witness. Its version is abridged, collapses distinct subsections, omits proofs and hypotheses, and replaces $A_\natural$ by the incorrect $A_K$; none of those departures was inherited.
 
 ## Exact integration and insertion anchors
@@ -87,14 +87,14 @@ The formula-comparison script found 46 French display blocks and 46 English disp
 - Two consecutive `pdflatex -halt-on-error` passes completed with exit code 0. The complete test PDF has 308 pages; a focused seven-page extract is `expose_iiib_5_0_5_8_compiled_extract.pdf`.
 - The integrated block produces no overfull or underfull boxes. The full cumulative retains its existing repeated hyperref warnings for manually tagged equations; these are document-wide and not a tranche syntax failure.
 - Exact full-size rendered-QA paths:
-  - `C:\Users\Floris\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-105.png`
-  - `C:\Users\Floris\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-106.png`
-  - `C:\Users\Floris\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-107.png`
-  - `C:\Users\Floris\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-108.png`
-  - `C:\Users\Floris\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-109.png`
-  - `C:\Users\Floris\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-110.png`
-  - `C:\Users\Floris\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-111.png`
-  - contact sheet: `C:\Users\Floris\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\visual_qa_contact.png`
+  - `C:\Users\user\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-105.png`
+  - `C:\Users\user\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-106.png`
+  - `C:\Users\user\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-107.png`
+  - `C:\Users\user\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-108.png`
+  - `C:\Users\user\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-109.png`
+  - `C:\Users\user\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-110.png`
+  - `C:\Users\user\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\page-111.png`
+  - contact sheet: `C:\Users\user\Documents\interlanguage\tmp\sga5_audits\expose_iiib_5_0_5_8_rendered\visual_qa_contact.png`
 - Visual verdict: **no layout defects** on PDF pages 105--111. There is no clipping, collision, broken glyph, margin overflow, blank page, or orphan punctuation. The single footnote is complete on page 106; formulas 5.6.1--5.6.6 fit on page 109; 5.8.1 and 5.8.2 remain within the measure on page 110; the complete 5.8.4 square and the transition into §5.9 are clear on page 111.
 
 ## Handoff

@@ -3,13 +3,13 @@
 ## Scope and custody
 
 - Work unit: Noether Paper 10, segment B only.
-- German source: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\source\P10_B_lines7711_7767.tex
+- German source: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\source\P10_B_lines7711_7767.tex
 - German source bytes: 8,566.
 - German source SHA-256: B709B6D1B8C866B43E73A17507ECCCF6F258BD5F756B90DC65D28333926DE0E1.
-- Simplified Chinese output: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\zh-Hans-CN\P10_B_zh-Hans-CN.tex
+- Simplified Chinese output: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\zh-Hans-CN\P10_B_zh-Hans-CN.tex
 - Simplified Chinese output bytes: 7,657.
 - Simplified Chinese output SHA-256: 16CA30A47CF25E28038414705157E54112D74D4AAB1E27F9649A44C681426FA6.
-- Drafting witness made available only as a drafting aid: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\witness\P10_B_witness_lines7524_7597.tex
+- Drafting witness made available only as a drafting aid: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\witness\P10_B_witness_lines7524_7597.tex
 - Drafting-witness SHA-256: 3AD53FB36351485C5FB1D97C4CB1F8E789609F50348BC97CF329DD962B29A21D.
 - Target posture: PRC-oriented Simplified Chinese.
 
@@ -41,7 +41,7 @@ The output retains the source section number, enumeration (a)--(d), all displaye
 
 ## Explicit no-check state
 
-Floris’s controlling boundary is:
+user’s controlling boundary is:
 
 > you do not check - you translate - other sessions CHEWCK
 

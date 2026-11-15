@@ -16,7 +16,7 @@ from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
 PRIVATE_PARENT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\english_germanic\90_logs\private_archive_custody"
 )
 PUBLIC_BUILD_PARENT = REPO / "sources/ega/checkpoints"

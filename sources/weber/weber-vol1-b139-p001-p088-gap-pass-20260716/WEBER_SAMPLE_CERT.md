@@ -1,6 +1,6 @@
-# WEBER vol1 — 20-PAGE SAMPLE FULL-CERTIFICATION (started 2026-07-02, per Floris)
+# WEBER vol1 — 20-PAGE SAMPLE FULL-CERTIFICATION (started 2026-07-02, per user)
 
-**Mandate (Floris, voice):** full-rigor by-hand check of ~20 sample pages of the NOT-yet-re-transcribed
+**Mandate (user, voice):** full-rigor by-hand check of ~20 sample pages of the NOT-yet-re-transcribed
 ("map-phase verified faithful" / agent-audited-only) pages; count errors; sign off with the error count; the
 error rate decides how much further re-certification is warranted (clean → minimal/"one recert"; errors bad or
 a couple small → escalate to broader/full re-cert).
@@ -134,7 +134,7 @@ _(cursor: filling in batches; running A-error total at bottom)_
   labels → .tex "n=7:"/"n=13:" [FIXED]. Even a "re-transcribed" section kept reworded glue.
 
 ## ★ SIGN-OFF (2026-07-02) — 20/20 SAMPLE PAGES CHECKED
-**ERROR COUNT (per Floris's mandate — count first, then decide re-cert depth):**
+**ERROR COUNT (per user's mandate — count first, then decide re-cert depth):**
 - **2 MAJOR reconstructed/reformulated sections**: **§26 (p90)** [reformulated: index re-lettering, modernized sums,
   α-normalization dropped] and **§164 (p544)** [condensed: 6 distinct drops/rewords, dropped display eqs + formal
   Satz 3]. Both need FULL re-transcription. NEITHER is currently faithful.
@@ -145,7 +145,7 @@ _(cursor: filling in batches; running A-error total at bottom)_
 - **12 pages fully clean**: p40, p65, p115, p140, p165, p190, p230, p260, p290, p420, p485, p510.
 - 2 borderline-systematic style items (English-vs-German quotes; \S-ref missing period) — NOT per-page errors.
 
-**VERDICT: NOT CLEAN → ESCALATE (per Floris's rule "if the errors are bad … escalate").** The sample proves the
+**VERDICT: NOT CLEAN → ESCALATE (per user's rule "if the errors are bad … escalate").** The sample proves the
 "map-phase verified faithful" AND the Phase-2 "§141→§188 complete" designations are BOTH unreliable: §164 (thought
 faithful) is a heavy reconstruction; §172 (claimed re-transcribed) kept reworded prose; §26 (Buch-II) is reformulated.
 Error concentration is in the **theory/prose glue**, not the equations (equations were mostly faithful even in the bad

@@ -1,7 +1,7 @@
 # Classical Audit Lean Sidecars - Local Source Intake - 2026-07-02
 
 Local ZIP:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Lean formalization sidecars\ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Lean formalization sidecars\ClassicalAudit_LeanSidecars_Noether_Steinitz_Weber_Jordan_20260630.zip`
 
 Public Zenodo record:
 `https://doi.org/10.5281/zenodo.21129946`

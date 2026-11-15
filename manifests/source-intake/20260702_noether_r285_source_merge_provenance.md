@@ -4,7 +4,7 @@ Date registered: 2026-07-02
 
 Local artifact:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R285_Complete_P08P10P13P15P19_SourceMerge_20260701.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R285_Complete_P08P10P13P15P19_SourceMerge_20260701.zip`
 
 Artifact metrics:
 

@@ -5,7 +5,7 @@ import json
 from pathlib import Path
 
 T = Path(__file__).resolve().parent.parent
-AUTHORITY = Path(r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management\romance\02_r823_romance_translation_20260717\authority_extract\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex")
+AUTHORITY = Path(r"C:\Users\user\Documents\interlanguage\03_projects\language_management\romance\02_r823_romance_translation_20260717\authority_extract\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex")
 AUTHORITY_SHA256 = "EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21"
 START, END = 21089, 21097
 

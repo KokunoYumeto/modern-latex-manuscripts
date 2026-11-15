@@ -2,7 +2,7 @@
 
 Date: 2026-07-18
 
-I checked these pages against `C:\Users\Floris\Documents\Papors\OS\sga6.pdf` while repairing the English prefix. The page-141–150 French workpass readings used in this review agree with the scan on the substantive flagged points (footnotes, cross-reference, triangle placement, and `cf. (4.9)`).
+I checked these pages against `C:\Users\user\Documents\Papors\OS\sga6.pdf` while repairing the English prefix. The page-141–150 French workpass readings used in this review agree with the scan on the substantive flagged points (footnotes, cross-reference, triangle placement, and `cf. (4.9)`).
 
 Two apparent source-level inconsistencies remain on source-PDF pages 13–14 and are also preserved in the current French workpass:
 

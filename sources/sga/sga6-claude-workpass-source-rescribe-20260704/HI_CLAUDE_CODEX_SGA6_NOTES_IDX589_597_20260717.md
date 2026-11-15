@@ -8,7 +8,7 @@ what to retain as a source sic, and what to ledger as an editorial caveat.
 ## Witness discontinuities
 
 The declared low-resolution scan
-`C:\Users\Floris\Documents\Papors\OS\sga6.pdf`
+`C:\Users\user\Documents\Papors\OS\sga6.pdf`
 (SHA-256
 `5194436E290B8FCA54BACD5FF672588335408F1AAD3AE07D62BBA68DF35E3D76`)
 omits these printed pages:
@@ -21,7 +21,7 @@ omits these printed pages:
 | 597 | 584 | ABSENT | 598 |
 
 The complete supplemental witness is
-`C:\Users\Floris\Documents\Papors\OS\Théorie des Intersections et Théorème de Riemann-Roch.pdf`
+`C:\Users\user\Documents\Papors\OS\Théorie des Intersections et Théorème de Riemann-Roch.pdf`
 (SHA-256
 `73FBBAD41340C12ECCDCFCF6C3A1656953FE3D712AA8E391678458CCD17B4BAA`,
 720 pages, 360 dpi; Internet Archive item `theoriedesinters0225bert`). Its

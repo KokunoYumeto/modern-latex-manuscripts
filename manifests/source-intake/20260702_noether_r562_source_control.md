@@ -6,8 +6,8 @@ Register R562 as the current coherent local TeX-changing German source-control h
 
 ## Package
 
-- Local folder: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R562_LocalCodex_R561_WebB_R556_P40p530_535_SourceFixIntegration_20260702`
-- Local ZIP: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R562_LocalCodex_R561_WebB_R556_P40p530_535_SourceFixIntegration_20260702.zip`
+- Local folder: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R562_LocalCodex_R561_WebB_R556_P40p530_535_SourceFixIntegration_20260702`
+- Local ZIP: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R562_LocalCodex_R561_WebB_R556_P40p530_535_SourceFixIntegration_20260702.zip`
 - ZIP SHA256: `23BE3ADFE46F10ABC6E2C1AE02F75246B1752B7C4382982E4559E61AF606010B`
 - Base: R561 LocalCodex cumulative
 - Scope: Paper 40 printed/source pp.530-535, integrating selected WebB R556 candidates only after local source-checking

@@ -4,7 +4,7 @@ Date registered: 2026-07-01
 
 Local source folder:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
 
 This records a live local SGA5 hand-audit/workpass ledger checkpoint. It is provenance/status metadata only.
 

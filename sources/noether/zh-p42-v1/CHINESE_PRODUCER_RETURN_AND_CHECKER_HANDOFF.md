@@ -54,6 +54,6 @@ Please check Hans against the exact German interval; verify all formulas, notes,
 
 No source defect was adjudicated or asserted by this lane. Any checker-discovered source issue belongs to the established duplicate-aware source-owner/`4 -nterslav` workflow.
 
-Lane log: `C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`, latest production decision `ZH-D071`.
+Lane log: `C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`, latest production decision `ZH-D071`.
 
-Scope remains Noether only. SGA is held until Floris explicitly confirms it.
+Scope remains Noether only. SGA is held until user explicitly confirms it.

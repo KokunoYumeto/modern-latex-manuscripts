@@ -13,7 +13,7 @@ from PIL import Image, ImageChops
 ROOT = Path(__file__).resolve().parent.parent
 REPOSITORY_ROOT = ROOT.parents[3]
 POPLER_BIN = Path(
-    r"C:\Users\Floris\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin"
+    r"C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin"
 )
 PDFTOPPM = POPLER_BIN / "pdftoppm.exe"
 PDFINFO = POPLER_BIN / "pdfinfo.exe"

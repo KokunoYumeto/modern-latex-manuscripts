@@ -6,7 +6,7 @@ This is the internally complete Japanese-only reconciliation tranche for Emmy No
 
 - Complete Paper 23 only, source units `P23-JA-U00` through `P23-JA-U07`.
 - The inherited Japanese cumulative reader is a translation witness, not current authority.
-- The complete Japanese Noether corpus is the active user assignment. SGA and all other corpora remain held until Floris explicitly confirms a transition.
+- The complete Japanese Noether corpus is the active user assignment. SGA and all other corpora remain held until user explicitly confirms a transition.
 - The frozen Chinese Paper 23 tranche is a separate target-language package. It may contribute exact source-control facts but never Japanese linguistic authority.
 
 ## Authority

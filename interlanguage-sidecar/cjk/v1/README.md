@@ -27,6 +27,6 @@ The release-integrity verifier is included. Replaying claims backed by `hash_onl
 
 Human or community review may add evidence or justify a stronger social claim, but it is optional and never a publication gate. This release claims machine-checked research synthesis, not external certification.
 
-Produced at Floris's direction by OpenAI Codex, GPT-5.6 Sol in Ultra mode.
+Produced at user's direction by OpenAI Codex, GPT-5.6 Sol in Ultra mode.
 
 All bundled component content is CC0-1.0. The Citation File Format schema used during development is hash-cited but not redistributed. See [LICENSE](LICENSE), [RIGHTS.md](RIGHTS.md), [rights.json](rights.json), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

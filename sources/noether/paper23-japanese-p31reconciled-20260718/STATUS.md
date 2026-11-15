@@ -12,4 +12,4 @@
 - Render state: four A4 pages rendered at 200 ppi; every page independently inspected at original detail and accepted
 - Source-defect state: none found; source audit reports zero new mathematical defects
 - Publication state: exact bounded package ready for the existing GitHub/Zenodo repository-custody task; no competing draft and no external certification
-- Scope: Noether only; SGA held pending explicit Floris confirmation
+- Scope: Noether only; SGA held pending explicit user confirmation

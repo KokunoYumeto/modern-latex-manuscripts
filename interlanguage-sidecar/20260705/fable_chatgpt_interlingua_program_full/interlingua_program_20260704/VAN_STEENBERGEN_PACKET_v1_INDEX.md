@@ -1,5 +1,5 @@
 # Van Steenbergen Review Packet — v1 assembly index
-2026-07-04. Assembled on AI authority per Floris's direction (linguistic substance = Fable + ChatGPT + community; Floris gates only external SENDING, which remains open). Nothing in this packet is a verdict; everything is evidence + questions. Sequencing per plan: contact after 1–2 complete authors; this packet is agenda item 1 when that happens.
+2026-07-04. Assembled on AI authority per user's direction (linguistic substance = Fable + ChatGPT + community; user gates only external SENDING, which remains open). Nothing in this packet is a verdict; everything is evidence + questions. Sequencing per plan: contact after 1–2 complete authors; this packet is agenda item 1 when that happens.
 
 ## Reading order for the reviewer
 

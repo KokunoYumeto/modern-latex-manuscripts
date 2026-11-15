@@ -7,13 +7,13 @@ Date: 2026-07-17
 Authority is resolved by claim lineage and reconciliation, not by filename rhetoric.
 
 1. **Live Fable programme** — newest synthesis, corrections, measurements, source policy, and July 10 consolidated interface:
-   `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`
+   `C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`
 2. **ChatGPT Pro research framework and generated passes** — theoretical reconstruction, formal proposals, red-team audit, and later evidence-graph packages:
-   `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\user made flr with chat web stuff\ChatGPT-Research Framework Construction.md`
+   `C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\user made flr with chat web stuff\ChatGPT-Research Framework Construction.md`
 3. **Versioned GitHub release** — packaged 2026-07-06 handoff, including v3 State C, multilane v5, and unified v6.2:
-   `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\user made flr with chat web stuff\INTERLANGUAGE_GITHUB_RELEASE_20260706.zip`
+   `C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\user made flr with chat web stuff\INTERLANGUAGE_GITHUB_RELEASE_20260706.zip`
 4. **Workspace mirror** — convenient live copies of Fable programme files:
-   `C:\Users\Floris\Documents\interlanguage\01_methodology\claude_fable_program`
+   `C:\Users\user\Documents\interlanguage\01_methodology\claude_fable_program`
 5. **Earlier practice stacks and AI drafts** — evidence of process and candidate discovery, never automatically upgraded to current authority.
 
 The reduced GitHub methodology handoff at `C:\IL_GitHub\01_other_pc_full\workflow\interlanguage-methodology\20260704_claude_interlingual_harmonization_program` is not the full live authority.
@@ -46,14 +46,14 @@ The v3 Markdown calls State C “current certified measurement.” In this depar
 
 Authorship follows the live programme’s `AUTHORSHIP.md`:
 
-- **Floris**: direction; marginal intelligibility; dense branch-point heuristic; non-dominance requirement; positive/negative weighting intuition; weighted witness-tree seed; East-Slavic skew catch; global-not-Eurocentric requirement; freeze-then-fix rule; global-register weights extension.
+- **user**: direction; marginal intelligibility; dense branch-point heuristic; non-dominance requirement; positive/negative weighting intuition; weighted witness-tree seed; East-Slavic skew catch; global-not-Eurocentric requirement; freeze-then-fix rule; global-register weights extension.
 - **Claude Fable 5**: corpus synthesis; measurements; ledgers; scripts; source-use enforcement; branch probes; reconciliation review; framework-paper prose.
 - **ChatGPT Pro / GPT-5.5**: theoretical reconstruction; ILO, false-friend-risk, and barycenter hypotheses; linkage/witness/review separation; support/adverse schema; dependence-corrected tree weighting; formal mathematics pass; generated evidence-graph packages; defect predictions.
 - **OpenAI Codex lanes**: operational translation corpora, practice stack, terminology records, and original global mathematical-register pilot idea in the publication reflections.
 - **Gemini Deep Research**: seed literature reports and bibliography leads. Its scenario document is not an authority layer.
 - **Kimi and earlier systems**: historical drafts and candidate material only unless independently promoted through the evidence rules.
 
-Global mathematical-register lineage is: originating Codex session -> Floris’s global-weights extension -> Fable’s formalization and measurement.
+Global mathematical-register lineage is: originating Codex session -> user’s global-weights extension -> Fable’s formalization and measurement.
 
 ## Evidence classes and permitted use
 

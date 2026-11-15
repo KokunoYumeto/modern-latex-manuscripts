@@ -1,7 +1,7 @@
 # SGA5 Full-Audit Workpass p333 Live Ledger Update
 
 Local folder:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
 
 This registers the current local SGA5 hand-audit/workpass ledger as of the
 p333 checkpoint.

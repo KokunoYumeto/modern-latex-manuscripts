@@ -241,8 +241,8 @@ def pdf_resource_counts(reader: PdfReader) -> tuple[int, int, int]:
 
 def privacy_hits(root: Path) -> list[dict[str, object]]:
     patterns = (
-        "c:\\users\\floris",
-        "c:/users/floris",
+        "c:\\users\\user",
+        "c:/users/user",
         "appdata",
         "papors",
         "chatnotes",
@@ -452,7 +452,7 @@ def main() -> None:
     pdf_private_hits = [
         marker
         for marker in (
-            "c:\\users\\floris",
+            "c:\\users\\user",
             "appdata",
             "papors",
             "chatnotes",

@@ -78,7 +78,7 @@ HISTORICAL_BAND_COUNT = 5
 
 PRIVATE_MARKERS = (
     "c:\\users\\",
-    "floris",
+    "user",
     "chatnotes",
     "claude",
     "codex",

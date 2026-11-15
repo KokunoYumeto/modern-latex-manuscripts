@@ -8,7 +8,7 @@ This file is append-only. Corrections must be appended rather than silently repl
 - Stage: spreadsheet-runtime dependency discovery before CSV projection inspection.
 - Symptom: the dependency-loader call returned no payload through repeated bounded waits and was intentionally terminated rather than allowed to block production.
 - Attempt rejected: waiting indefinitely for the same call.
-- Resolution: reuse the loader-provided `node_modules` junction already established earlier in this same production session at `C:/tmp/codex_p01_csv_019f757c_a43b/node_modules`, whose recorded target is `C:/Users/Floris/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules`.
+- Resolution: reuse the loader-provided `node_modules` junction already established earlier in this same production session at `C:/tmp/codex_p01_csv_019f757c_a43b/node_modules`, whose recorded target is `C:/Users/user/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules`.
 - Consequence: none for source, target, JSONL, CSV, or the deterministic PowerShell builder/validator. The bounded `@oai/artifact-tool` CSV inspection remains separately evidenced.
 - Review state: operational event only; not a source, Korean, formula, or publication finding.
 - Revisit condition: only if the established loader-provided runtime becomes unavailable or the CSV inspection fails.
@@ -52,6 +52,6 @@ This file is append-only. Corrections must be appended rather than silently repl
 ## CJK-KO-P03-STRUCT-RES-001
 
 - Time precision: 2026-08-04 (date precision only).
-- Exact runtime resolution supplied by the active root session: Node `C:/Users/Floris/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe`; node_modules `C:/Users/Floris/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules`.
+- Exact runtime resolution supplied by the active root session: Node `C:/Users/user/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe`; node_modules `C:/Users/user/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules`.
 - Structural result after FAIL-002 through FAIL-004 repairs: deterministic validator PASS, 148/148 unique records, expected formula inventory restored, errors empty.
 - This resolution changes no target/source text and authorizes no review, render, archive release, or publication.

@@ -3,7 +3,7 @@
 State: translation-producer custody only; no source or scan audit was performed.
 
 - Pointer v004: 16,536 bytes / `A1C62FDACAA34DFC1B806DC18258F2E732539F7AE9D85AA4BD9E1067B8749D9F`.
-- ED0001 authority: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`; 2,153,565 bytes / `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
+- ED0001 authority: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`; 2,153,565 bytes / `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
 - Complete Chapter I §1 interval: lines 540--690; 7,260 LF bytes; SHA-256 `7C9A1EC505C9DA6F1A775535EB0706FACF4E68C2F577DC68F22A1468B152AD14`.
 - Line 691 is blank; line 692 begins the centered §2 heading and is excluded.
 

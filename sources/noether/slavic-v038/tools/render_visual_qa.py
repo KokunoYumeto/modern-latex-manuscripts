@@ -26,7 +26,7 @@ TARGETS = ("ru", "uk", "isv", "isv-cy")
 DPI = 144
 SOURCE_DPI = 200
 POST45_SOURCE_PDF = Path(
-    r"C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\endmatter\source_blocks\noether_pages_751_798.pdf"
+    r"C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\sources\endmatter\source_blocks\noether_pages_751_798.pdf"
 )
 POST45_BERTINI_SOURCE_PAGE = 46
 

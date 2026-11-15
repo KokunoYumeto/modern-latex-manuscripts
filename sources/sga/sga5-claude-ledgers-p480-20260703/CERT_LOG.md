@@ -1,6 +1,6 @@
 # SGA5 manual certification log
 
-Floris 2026-06-25: **stop using agents; hand-certify every page.** Agents are a finder, not a certifier — their work (page-audit ~300 fixes, diagram batch) is PRIOR WORK TO BE VERIFIED here, not trusted.
+user 2026-06-25: **stop using agents; hand-certify every page.** Agents are a finder, not a certifier — their work (page-audit ~300 fixes, diagram batch) is PRIOR WORK TO BE VERIFIED here, not trusted.
 
 Method per page: render 5 zoom chunks (`chunk_page.py P --chunks 5` → `_work/src/pPPP_c{1..5}.png`), read all 5, compare symbol-by-symbol to `sga5_fr_workpass.tex`, zoom tighter via `crop_src.py` on any ambiguity. Status: **CLEAN** (matches, no change) or **FIXED(n)** (n corrections, logged in FINDINGS.md).
 

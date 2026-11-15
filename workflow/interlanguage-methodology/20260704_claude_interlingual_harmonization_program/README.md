@@ -2,7 +2,7 @@
 
 Date: 2026-07-04.
 
-Source: `C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`.
+Source: `C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`.
 
 This snapshot preserves a small Claude-generated synthesis pass over the project’s interlanguage / zonal auxiliary language / multilingual mathematical terminology lanes. It is useful as academic and methodology apparatus for the dedicated interlanguage methodology record, not as a completed language release.
 

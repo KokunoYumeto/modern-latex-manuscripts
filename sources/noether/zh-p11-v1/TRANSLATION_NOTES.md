@@ -2,7 +2,7 @@
 
 ## Controlling boundary
 
-Floris’s exact instruction:
+user’s exact instruction:
 
 > you do not check - you translate - other sessions CHEWCK
 

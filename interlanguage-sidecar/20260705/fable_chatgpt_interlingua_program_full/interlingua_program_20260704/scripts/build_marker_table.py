@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-OUT = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+OUT = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 DROP = OUT / "user made flr with chat web stuff"
 
 spine = json.loads((OUT / "UNION_TERM_SPINE_v2_WITH_SLAVIC.json").read_text(encoding="utf-8"))

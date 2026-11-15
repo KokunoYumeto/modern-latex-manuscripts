@@ -17,7 +17,7 @@ Inspection date: 2026-07-18, Europe/Berlin.
 - Title: `SGA 5: Cohomologie l-adique et fonctions L -- English
   Source-Synchronized Working Edition`
 - Author: `Original SGA 5 expose authors and redactors; machine-assisted
-  English synchronization under Floris's direction`
+  English synchronization under user's direction`
 - Subject: `Working English edition of ten curated exposes from SGA 5, with
   source-synchronization and editorial disclosures`
 - Keywords: `SGA 5, l-adic cohomology, L-functions, algebraic geometry,

@@ -59,7 +59,7 @@ not count as two English translations.
 
 Current R823 cumulative German authority:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
 
 - full SHA-256:
   `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`
@@ -71,7 +71,7 @@ Current R823 cumulative German authority:
 
 Original printed page:
 
-`C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_GeneralSourceLibrary_v1_20260626\part07_P31_P43_upperband_source_witnesses\Noether_R127_LocalCodex_P36_GDZ600_SourceDisposition_NoNewPatch_WebDrop_20260625\source\P36_JDMV39_p017_GDZ_canvas0312_600ppi.jpg`
+`C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_GeneralSourceLibrary_v1_20260626\part07_P31_P43_upperband_source_witnesses\Noether_R127_LocalCodex_P36_GDZ600_SourceDisposition_NoNewPatch_WebDrop_20260625\source\P36_JDMV39_p017_GDZ_canvas0312_600ppi.jpg`
 
 - SHA-256:
   `767E7207921548D60400C1113C7A76947C5CF5C63A937932B66EDCF4691C966F`

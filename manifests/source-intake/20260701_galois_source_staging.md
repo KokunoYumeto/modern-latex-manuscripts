@@ -2,7 +2,7 @@
 
 Date registered: 2026-07-01
 
-Local root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629`
+Local root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629`
 
 Classification: source-start packet for a possible quick-win Evariste Galois web/pro lane. This is source intake only: no promoted transcription, no translation, no reader release, and no DOI claim by itself.
 

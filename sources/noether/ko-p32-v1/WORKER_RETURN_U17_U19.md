@@ -4,7 +4,7 @@ Returned bounded units: manager-routed Noether Paper 32 lines 16137–16145 (U17
 
 Authority metadata supplied by the manager:
 
-- file: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex`
+- file: `C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex`
 - whole SHA-256: `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`
 - P32 interval: lines 16011–16179, 22,805 LF-normalized UTF-8 bytes, SHA-256 `1E1C2E6AA32B606EAB5B57737F60CE7CF649610B490098511C29498BE8CC7611`
 
@@ -18,6 +18,6 @@ State: U01–U19 provide Korean draft-text coverage of the substantive prose in 
 
 Transport note: two background notifications to manager task `019f70bf-2024-76f3-af4a-7fbfb32a317b` returned a thread ID, but immediate status snapshots subsequently reported `systemError` with no assistant response. The files and append-only lane log are therefore the durable handoff. This transport failure is not evidence of manager receipt or checker acceptance.
 
-Durable decision log: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md`. Latest production-delivery decision before this return: `CJK-KO-P32-033`.
+Durable decision log: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md`. Latest production-delivery decision before this return: `CJK-KO-P32-033`.
 
 Next cursor: await an explicit non-overlapping Korean Noether translation-only route; revisit P32 only for concrete checker-directed translation corrections.

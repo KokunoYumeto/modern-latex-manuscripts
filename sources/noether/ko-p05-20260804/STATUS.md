@@ -60,7 +60,7 @@ These visual totals are zero because no image was used or created. They do not v
 
 ## CSV artifact-tool validation
 
-- Report: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper05_ko_translation_001_20260804\evidence\csv_artifact_validation\CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
+- Report: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper05_ko_translation_001_20260804\evidence\csv_artifact_validation\CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
 - Report identity: 2,720 bytes; SHA-256 D968079EC46718F85F4BFC1EC325B8FFFEBECE152D110B1F57DF27BE3C5A40E2
 - Result: PASS under `@oai/artifact-tool` import. Structural projection: 41 data rows by 24 columns; difficulty projection: 6 data rows by 20 columns; visual projection: 0 data rows by 24 columns.
 - All three imports were rectangular, had no blank or duplicate headers, and produced no formula-error match in the bounded inspected regions.

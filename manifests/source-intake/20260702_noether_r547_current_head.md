@@ -13,8 +13,8 @@ R546 remains the historical Kapferer/Noether Math. Ann. 97 p562 formula (3) repa
 ## Registered Package
 
 - Noether_R547_LocalCodex_R546_P40p526_DarstellungsklassenRangrelation_SourceStyleFix_20260702.zip
-  - local source: C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R547_LocalCodex_R546_P40p526_DarstellungsklassenRangrelation_SourceStyleFix_20260702.zip
-  - second-web intake alias: C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R547_P40P526_DARSTELLUNGSKLASSEN_RANGRELATION_SOURCEFIX.zip
+  - local source: C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R547_LocalCodex_R546_P40p526_DarstellungsklassenRangrelation_SourceStyleFix_20260702.zip
+  - second-web intake alias: C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R547_P40P526_DARSTELLUNGSKLASSEN_RANGRELATION_SOURCEFIX.zip
   - bytes: 77,489,318
   - ZIP entries: 99
   - SHA256: 9A22A881C8299E1DB086A0B4008678A82BC85612B712B8E5470DF2B1210F7F67

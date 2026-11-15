@@ -10,7 +10,7 @@ This tranche covers the complete notice `Hilbertsche Anzahlen in der Idealtheori
 
 Chinese and Japanese witnesses do not authorize Korean wording. The Korean terminology decisions use Korean-source evidence or remain visibly controlled and held. No external Korean domain review or North-Korean standard review is claimed.
 
-The controlling lane scope is CJK decision `CJK-D007`: complete Noether first. The SGA hold is primarily a CPU/resource boundary and still requires Floris's later explicit routing plus the source/control lift conditions in `SGA_HOLD_CONTROL_20260718.md`; no SGA work was opened here.
+The controlling lane scope is CJK decision `CJK-D007`: complete Noether first. The SGA hold is primarily a CPU/resource boundary and still requires user's later explicit routing plus the source/control lift conditions in `SGA_HOLD_CONTROL_20260718.md`; no SGA work was opened here.
 
 New terminology decisions also follow `CJK-D011`: trap-prone forms have explicit sense windows, Mandarin-Simplified dominance risk/debt is qualitative rather than scalar, and lexical-attractor basin membership is recorded in `evidence/CJKV_CROSSWALK_P27_KO.csv`.
 

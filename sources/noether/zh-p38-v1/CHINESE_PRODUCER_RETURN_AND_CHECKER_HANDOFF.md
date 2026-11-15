@@ -1,6 +1,6 @@
 # Chinese producer return — Noether Paper 38
 
-Complete translation producer package for independent checking. Floris's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
+Complete translation producer package for independent checking. user's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
 
 ## Exact source custody
 
@@ -66,7 +66,7 @@ No source/apparatus checking or source-defect adjudication was performed here, a
 
 ## Decision and scope controls
 
-- Durable log: `C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.
+- Durable log: `C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.
 - Claim: `ZH-D086`.
 - Producer freeze: `ZH-D087` (must be appended before transport; transport state is later).
 - Status ceiling: `translated/built; independent check pending`.

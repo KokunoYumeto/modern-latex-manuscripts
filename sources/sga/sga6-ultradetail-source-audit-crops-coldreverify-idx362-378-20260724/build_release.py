@@ -74,7 +74,7 @@ LINKED_TEX_OBJECT = "sga6_fr_workpass.tex"
 PRIVATE_MARKERS = (
     "c:\\users\\",
     "c:/users/",
-    "floris",
+    "user",
     "chatnotes",
     "claude",
     "codex",
@@ -251,7 +251,7 @@ def privacy_hits(values: list[str]) -> list[str]:
 
 
 def sanitize_public_text(value: str) -> str:
-    sanitized = re.sub(r"(?i)\bfloris\b", "[archive owner]", value)
+    sanitized = re.sub(r"(?i)\buser\b", "[archive owner]", value)
     sanitized = re.sub(r"(?i)\b(?:claude|codex)\b", "[agent]", sanitized)
     sanitized = re.sub(
         r"(?i)\b[a-z]:\\(?:[^\\\s,;)\]]+\\)*[^,\r\n;)\]]*",

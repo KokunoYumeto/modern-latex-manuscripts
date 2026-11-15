@@ -15,7 +15,7 @@ State: translation-producer drafts only; all units UNCHECKED
 | U02 | 3586–3594 | A7B7CA981F7B8D6B32171BF0709E27440A25B2754642BD095304E54A5A25D5C6 | A2A9F68B55C15EEFEAE178B4F24CB5D56222E563F6B5A126F46D1AA75BEA38B1 |
 | U03 | 3596–3608 | 0D110465AEE20E18EE1427577D33D435FCF97D5CA99BEF3878EF52DC341F01A5 | 7942126177C707C89F67444BE020F90F2139C0C5036A153297C0A7F83119F4B4 |
 
-Target root: C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/targets
+Target root: C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/targets
 
 Exact target names are Noether_P03_Korean_U01_UNCHECKED.tex through Noether_P03_Korean_U03_UNCHECKED.tex.
 

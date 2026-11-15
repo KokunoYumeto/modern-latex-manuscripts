@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 
-const authority = 'C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/ED0002/noether.tex';
+const authority = 'C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/ED0002/noether.tex';
 const raw = await readFile(authority);
 const rawSha = createHash('sha256').update(raw).digest('hex').toUpperCase();
 if (raw.length !== 2153554 || rawSha !== 'C9A125167ACB33D914EE4374B65AE7CDF0052F568371B8B77B720EA178ABF0E3') {

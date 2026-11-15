@@ -4,7 +4,7 @@
 
 This ledger binds the three translation-worker returns to their exact source, witness, and output hashes. It does not review, compare, reconcile, or harmonize their contents.
 
-Floris's exact boundary governs all three returns:
+user's exact boundary governs all three returns:
 
 > you do not check - you translate - other sessions CHEWCK
 

@@ -3,9 +3,9 @@
 State: translation-producer custody only; no source, scan, Korean, or formula audit was performed.
 
 - Pointer v005: `NOETH-DE-AUTH-v005-20260804`; 19,889 bytes; SHA-256 `42E6844BFCBFB2133E9AA323A823604351CF9C49550AFCF34ECAAF7887185660`.
-- Pointer snapshot: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v005_20260804.json`.
+- Pointer snapshot: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v005_20260804.json`.
 - ED0001: 2,153,565 raw bytes; SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
-- Authority file: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
+- Authority file: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
 - Complete §26 parts 1--2 interval: whole-source lines3252--3310; 2,411 LF-normalized UTF-8 bytes; SHA-256 `47575807282CCA740781D9102A66A3FC9EB5D62775016CC087B9D457B378F417`.
 - Line3310 is the terminal blank and is included in U214. §26 part 3 begins immediately at line3311.
 

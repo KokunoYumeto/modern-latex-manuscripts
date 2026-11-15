@@ -32,8 +32,8 @@ These are producer editorial choices, not validated terminology. The 24-row term
 
 ## Role boundary
 
-Floris's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
+user's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
 
 This package therefore records translation and mechanical compilation only. It does not claim source collation, source correctness, semantic/formula/terminology correctness, native-reader review, visual QA, regional localization, approval, publication, or certification. If an independent checker identifies a precise possible Noether-source defect, it must deduplicate it and ensure that `4 -nterslav` sees it; this producer did not make or adjudicate a source-defect claim.
 
-SGA remains held pending explicit Floris confirmation.
+SGA remains held pending explicit user confirmation.

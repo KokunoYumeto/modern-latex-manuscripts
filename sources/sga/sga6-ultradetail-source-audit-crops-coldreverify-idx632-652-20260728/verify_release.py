@@ -37,7 +37,7 @@ PRIVATE_MARKERS = (
     "c:/users/",
     "\\appdata\\",
     "/appdata/",
-    "floris",
+    "user",
     "chatnotes",
     ".claude",
     "source_thread_id",

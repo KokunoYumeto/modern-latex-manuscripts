@@ -1,6 +1,6 @@
 # SGA6 source-rescribe CERT_LOG refresh idx191 - 2026-07-05
 
-Source: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`
+Source: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`
 
 Mirror: sources/sga/sga6-claude-workpass-source-rescribe-20260704/
 

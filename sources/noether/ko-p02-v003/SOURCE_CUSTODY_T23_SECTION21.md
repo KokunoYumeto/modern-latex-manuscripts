@@ -2,8 +2,8 @@
 
 State: translation-producer custody only; no source or scan audit was performed.
 
-- Immutable pointer v005: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v005_20260804.json`; 19,889 bytes; SHA-256 `42E6844BFCBFB2133E9AA323A823604351CF9C49550AFCF34ECAAF7887185660`.
-- ED0001: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`; 2,153,565 raw bytes; SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
+- Immutable pointer v005: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v005_20260804.json`; 19,889 bytes; SHA-256 `42E6844BFCBFB2133E9AA323A823604351CF9C49550AFCF34ECAAF7887185660`.
+- ED0001: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`; 2,153,565 raw bytes; SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
 - Complete §21 interval: lines2825--2918; 4,417 LF-normalized UTF-8 bytes including terminal LF; SHA-256 `F6AC0A4B6243A84B38EFD3AD9D133E9FE9EB13097491B045BDFE6C8E7397763F`.
 - Next cursor: line2919, the opening `\begin{center}` of §22.
 

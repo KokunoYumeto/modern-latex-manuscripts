@@ -9,7 +9,7 @@ import sys
 from pathlib import Path
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-BASE = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+BASE = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 DROP = BASE / "user made flr with chat web stuff"
 
 v23 = json.loads((DROP / "proof_prose_lexicon_v2_3_chatgpt_longtail_proposal.json").read_text(encoding="utf-8-sig"))

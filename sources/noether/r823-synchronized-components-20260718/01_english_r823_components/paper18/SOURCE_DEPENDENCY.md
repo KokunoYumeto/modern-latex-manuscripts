@@ -68,7 +68,7 @@ therefore remain controlled candidates pending external review.
 
 Current R823 cumulative German authority:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
 
 - full SHA-256:
   `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`;
@@ -80,7 +80,7 @@ Current R823 cumulative German authority:
 
 Original printed page:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R366_LocalCodex_R347_P18_GDZ600_FullPageAuditSurvival_NoPatch_20260630\source_witness\P18_GDZ_JDMV30_p101_canvas00000301_600ppi_raw.jpg`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R366_LocalCodex_R347_P18_GDZ600_FullPageAuditSurvival_NoPatch_20260630\source_witness\P18_GDZ_JDMV30_p101_canvas00000301_600ppi_raw.jpg`
 
 - SHA-256:
   `19713BEE033F0B1FBE3697E0C8BF7A12C653E35D9920BC9E73BB21429DAE3844`;
@@ -93,7 +93,7 @@ Original printed page:
 
 R366 source audit:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R366_LocalCodex_R347_P18_GDZ600_FullPageAuditSurvival_NoPatch_20260630`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R366_LocalCodex_R347_P18_GDZ600_FullPageAuditSurvival_NoPatch_20260630`
 
 - README SHA-256:
   `A02C6180F0FDB766CE6E35D4E82C47C9C4CE22DAECBE82DA0658CACB2A284EC4`;

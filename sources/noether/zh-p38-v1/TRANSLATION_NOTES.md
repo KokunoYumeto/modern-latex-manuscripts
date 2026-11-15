@@ -29,8 +29,8 @@ The first Hans compile failed because segment A had transported the source title
 
 ## Role boundary
 
-Floris's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
+user's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
 
 This package records translation and mechanical compilation only. It does not claim source/apparatus collation, source correctness, semantic/formula/terminology correctness, native-reader review, visual QA, regional localization, approval, publication, or certification. If an independent checker identifies a precise possible Noether-source defect, it must deduplicate it and ensure that `4 -nterslav` sees it; this producer made and adjudicated no source-defect claim.
 
-SGA remains held pending explicit Floris confirmation.
+SGA remains held pending explicit user confirmation.

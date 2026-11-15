@@ -5,8 +5,8 @@ import { fileURLToPath } from "node:url";
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(here, "..");
-const edPath = "C:\\Users\\Floris\\Documents\\interlanguage\\03_projects\\noether\\07_german_canon_control\\candidates\\ED0002\\noether.tex";
-const logPath = "C:\\Users\\Floris\\Documents\\interlanguage\\03_projects\\language_management\\cjk\\00_lane_control\\CJK_DECISION_LOGBOOK_20260718.md";
+const edPath = "C:\\Users\\user\\Documents\\interlanguage\\03_projects\\noether\\07_german_canon_control\\candidates\\ED0002\\noether.tex";
+const logPath = "C:\\Users\\user\\Documents\\interlanguage\\03_projects\\language_management\\cjk\\00_lane_control\\CJK_DECISION_LOGBOOK_20260718.md";
 const categories = {
   manifest: [],
   structural: [],

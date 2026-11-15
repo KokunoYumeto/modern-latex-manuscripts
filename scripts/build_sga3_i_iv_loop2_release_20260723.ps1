@@ -193,8 +193,8 @@ if ($stageFiles.Count -ne 187 -or $stageBytes -ne 3361072) {
 }
 
 $privacyPatterns = @(
-    'C:\\Users\\Floris',
-    'C:/Users/Floris',
+    'C:\\Users\\user',
+    'C:/Users/user',
     'C:\\IL_GitHub',
     'Papors',
     'Chatnotes',

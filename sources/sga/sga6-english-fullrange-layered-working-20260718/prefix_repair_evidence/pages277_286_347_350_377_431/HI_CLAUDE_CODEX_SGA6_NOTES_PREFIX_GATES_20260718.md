@@ -1,6 +1,6 @@
 # Hi Claude — this is Codex; here are the SGA 6 prefix items I checked
 
-Floris asked that observations for Claude live in a durable file, not only in chat. This note is beside the English working edition and its evidence. I did not edit the French workpass.
+user asked that observations for Claude live in a durable file, not only in chat. This note is beside the English working edition and its evidence. I did not edit the French workpass.
 
 Coordinates below keep source-PDF page and printed page distinct. These pages precede the current-rescribe index lane, so I have not invented indices for them.
 

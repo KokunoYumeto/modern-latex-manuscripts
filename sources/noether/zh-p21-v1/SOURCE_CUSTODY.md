@@ -12,4 +12,4 @@ The broader marker-to-marker witness computation through line 13504, SHA-256 `F7
 
 The stale shared R821 pointer was not used. The existing Japanese P21 package was not used as Chinese authority or evidence. The Chinese witness is drafting material only and was not compared/audited.
 
-Floris's boundary is `you do not check - you translate - other sessions CHEWCK`. This producer translates and compiles mechanically only. Source, formula, semantic, terminology, visual, native/regional, approval, publication, archive, and certification checks are absent. SGA remains held.
+user's boundary is `you do not check - you translate - other sessions CHEWCK`. This producer translates and compiles mechanically only. Source, formula, semantic, terminology, visual, native/regional, approval, publication, archive, and certification checks are absent. SGA remains held.

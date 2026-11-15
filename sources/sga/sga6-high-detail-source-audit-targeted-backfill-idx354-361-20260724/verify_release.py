@@ -39,7 +39,7 @@ PGCROP_SHA256 = "553A9DEADEBA92AB2FE2E28C56BE76C9373B21F5F8887C3865FD0E03B058271
 FORMULA_PREFIXES = ("=", "+", "-", "@")
 PRIVATE_MARKERS = (
     "c:\\users\\",
-    "floris",
+    "user",
     "chatnotes",
     "claude",
     "codex",

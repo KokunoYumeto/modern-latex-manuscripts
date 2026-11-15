@@ -8,13 +8,13 @@ Status: **PASS — reviewed bodies frozen for integration.** This record closes 
 
 Canonical German authority:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\authority\R823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\authority\R823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
 
 SHA-256: `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`
 
 Source-unit manifest:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\R823_SOURCE_UNIT_MANIFEST_20260717.csv`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\R823_SOURCE_UNIT_MANIFEST_20260717.csv`
 
 SHA-256: `ED482400D9EC0C14EEEC8546249C719F26A85D3061D2DC79A19182246952D205`
 
@@ -31,15 +31,15 @@ Byte-identical pre-edit backups were created before either production body was c
 
 | Unit | Preserved pre-edit file | SHA-256 |
 |---|---|---|
-| P37 | `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\backups\P37_P39_pre_language_review_20260717\tex\N37_fr_body.tex` | `33A6CFFDBB9483B8CFA8105B17948B303F26679CDB49DBEE04215DB048FBB69D` |
-| P39 | `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\backups\P37_P39_pre_language_review_20260717\tex\N39_fr_body.tex` | `B1B7BEDDCB50EE4C7105D89999A1ABA437E913CD0A09B36734BEA98637AD247A` |
+| P37 | `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\backups\P37_P39_pre_language_review_20260717\tex\N37_fr_body.tex` | `33A6CFFDBB9483B8CFA8105B17948B303F26679CDB49DBEE04215DB048FBB69D` |
+| P39 | `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\backups\P37_P39_pre_language_review_20260717\tex\N39_fr_body.tex` | `B1B7BEDDCB50EE4C7105D89999A1ABA437E913CD0A09B36734BEA98637AD247A` |
 
 Final reviewed production bodies:
 
 | Unit | Production file | Bytes | SHA-256 |
 |---|---|---:|---|
-| P37 | `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\tex\N37_fr_body.tex` | 24,756 | `6D9EA2259AF9364D52F28A70E4C9FD290564326B9858D1F3797D7119FBF3A52B` |
-| P39 | `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\tex\N39_fr_body.tex` | 19,100 | `798395A2BFC8FF2890E3578E324FB10EF7A4DAE47F8679E57206853BE5EA6083` |
+| P37 | `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\tex\N37_fr_body.tex` | 24,756 | `6D9EA2259AF9364D52F28A70E4C9FD290564326B9858D1F3797D7119FBF3A52B` |
+| P39 | `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\tex\N39_fr_body.tex` | 19,100 | `798395A2BFC8FF2890E3578E324FB10EF7A4DAE47F8679E57206853BE5EA6083` |
 
 Only these two production source bodies were edited. No P31, P38, P40, wrapper, or other production TeX source was changed in this review.
 
@@ -118,7 +118,7 @@ Unchanged smoke wrappers:
 
 Build directory:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\build\P37_P39_language_review_20260717`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\r823_fr\build\P37_P39_language_review_20260717`
 
 Commands, run from `working\r823_fr\tex`:
 
@@ -140,7 +140,7 @@ Both PDFs are PDF 1.5, A4 (`595.276 × 841.89 pt`).
 
 The final PDFs were rendered with Poppler `pdftoppm` 26.05.0 at 150 dpi to:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\rendered_qa\P37_P39_language_review_20260717`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\evidence\rendered_qa\P37_P39_language_review_20260717`
 
 Every final page was inspected at original render resolution after the last source-keyed patch and rebuild.
 

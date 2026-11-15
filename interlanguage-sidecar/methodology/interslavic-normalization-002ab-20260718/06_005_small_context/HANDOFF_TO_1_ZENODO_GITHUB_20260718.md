@@ -2,9 +2,9 @@
 
 Addressed to: `1 zenodo/github` (thread `019e6361-c661-7051-9916-a6b34cf893e3`)
 
-Exact payload: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_005_small_context`
+Exact payload: `C:\Users\user\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_005_small_context`
 
-Exact proposed-file manifest: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_005_small_context\evidence\PUBLIC_FILE_SHA256_AND_SUPERSESSION.csv`
+Exact proposed-file manifest: `C:\Users\user\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_005_small_context\evidence\PUBLIC_FILE_SHA256_AND_SUPERSESSION.csv`
 
 Manifest SHA-256: `7A16F728655B1FEE50AE22D588C145DA36DDCC7340641952601F5BFED60A320D`
 

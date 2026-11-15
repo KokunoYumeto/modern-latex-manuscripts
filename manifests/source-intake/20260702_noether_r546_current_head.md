@@ -15,8 +15,8 @@ The related WebB R534 p567 congruence correction was already present in R545, so
 ## Registered Package
 
 - Noether_R546_LocalCodex_R545_WebB_R534_KapfererP562Formula3_SourceFix_20260702.zip
-  - local source: C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R546_LocalCodex_R545_WebB_R534_KapfererP562Formula3_SourceFix_20260702.zip
-  - second-web intake alias: C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R546_WEBB_R534_KAPFERER_P562_FORMULA3_SOURCEFIX.zip
+  - local source: C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R546_LocalCodex_R545_WebB_R534_KapfererP562Formula3_SourceFix_20260702.zip
+  - second-web intake alias: C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R546_WEBB_R534_KAPFERER_P562_FORMULA3_SOURCEFIX.zip
   - bytes: 69,583,180
   - ZIP entries: 82
   - SHA256: 5494A3486D43154873D2AF22037AA32B03252BF37E282CF52887CE6C7B3CF917

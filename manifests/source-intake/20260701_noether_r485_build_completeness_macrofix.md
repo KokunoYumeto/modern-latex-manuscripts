@@ -4,7 +4,7 @@ Date registered: 2026-07-01
 
 Local artifact:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R485_LocalCodex_R483_CumulativeBuildCompleteness_MissingMacroFix_20260701.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R485_LocalCodex_R483_CumulativeBuildCompleteness_MissingMacroFix_20260701.zip`
 
 Size: 6,750,267 bytes
 

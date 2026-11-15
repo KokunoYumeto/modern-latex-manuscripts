@@ -4,11 +4,11 @@ Addressed to: `1 zenodo/github` (thread `019e6361-c661-7051-9916-a6b34cf893e3`)
 
 ## Exact payload
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_003_correspondence`
+`C:\Users\user\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_003_correspondence`
 
 The exact 358 proposed public files, their absolute local paths, public relative paths, SHA-256 hashes, and supersession targets are enumerated in:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_003_correspondence\evidence\PUBLIC_FILE_SHA256_AND_SUPERSESSION.csv`
+`C:\Users\user\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_003_correspondence\evidence\PUBLIC_FILE_SHA256_AND_SUPERSESSION.csv`
 
 Manifest SHA-256: `3C51DE32AC1663B0C68982233FF2EE238E8DBD6A3C12F718C248E9C9A7A9D442`
 

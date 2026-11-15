@@ -3,15 +3,15 @@
 ## Frozen input
 
 - Work unit: Noether Paper 12, segment C, current-source lines 8318--8471.
-- German input: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\source\P12_C_lines8318_8471.tex`
+- German input: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\source\P12_C_lines8318_8471.tex`
 - German input SHA-256: `5DAB1E227F618B119B9C4358A9DA1005474E040D5CA33877FCBD9BC7A6BCD734`
 - German input size at translation time: 7,676 bytes; 154 physical lines as reported by PowerShell.
-- Drafting witness made available without comparison or audit: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\witness\P12_C_witness_lines8191_8286.tex`
+- Drafting witness made available without comparison or audit: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\witness\P12_C_witness_lines8191_8286.tex`
 - Drafting-witness SHA-256: `32A288F33FF3F6C4D5E1F654D55A98E282C791425ED1A4BDAE9AD4A568773CB3`
 
 ## Producer output
 
-- Output: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\zh-Hans-CN\P12_C_zh-Hans-CN.tex`
+- Output: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722\segments\zh-Hans-CN\P12_C_zh-Hans-CN.tex`
 - Output SHA-256: `7D2F1043466CCD6CA303D3CC257C02821F418CED70928C0F727C3F49C02D14DF`
 - Output size at return time: 6,279 bytes; 119 physical lines as reported by PowerShell.
 - Locale posture: PRC-oriented Simplified Chinese (`zh-Hans-CN`) producer wording.

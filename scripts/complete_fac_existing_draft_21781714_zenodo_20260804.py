@@ -158,7 +158,7 @@ def local_surface(root: Path) -> dict[str, dict[str, object]]:
         }
         for path in paths
     }
-    private_patterns = [b"C:\\Users\\Floris", b"/Users/Floris", b".codex/"]
+    private_patterns = [b"C:\\Users\\user", b"/Users/user", b".codex/"]
     privacy_hits = []
     for path in paths:
         data = path.read_bytes()

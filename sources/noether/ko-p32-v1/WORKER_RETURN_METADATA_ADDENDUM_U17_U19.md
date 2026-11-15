@@ -4,7 +4,7 @@ This file supplements, without modifying, `WORKER_RETURN_U17_U19.md` (2,894 byte
 
 ## Structural authority
 
-- Hierarchy-preserving JSONL: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper32_ko_translation_001_20260722\evidence\structural_index\PRODUCER_STRUCTURAL_INDEX.jsonl`
+- Hierarchy-preserving JSONL: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper32_ko_translation_001_20260722\evidence\structural_index\PRODUCER_STRUCTURAL_INDEX.jsonl`
   - 115 records
   - SHA-256 `9FAD66A5DC812CB0C65DA53B12527B3D65CF8338B3F914F3F8A69B258B2F7C56`
   - latest structural ID `NOE-P32-KO-U19-PARA-002`
@@ -17,7 +17,7 @@ The work and 19 routed unit pairs are explicit. Internal component correspondenc
 
 ## Append-only difficulty authority
 
-- JSONL: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper32_ko_translation_001_20260722\evidence\difficulty_ledger\DIFFICULTY_LEDGER.jsonl`
+- JSONL: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper32_ko_translation_001_20260722\evidence\difficulty_ledger\DIFFICULTY_LEDGER.jsonl`
   - five records
   - SHA-256 `3E1A446D929DBB0232ADA2D938D355513719F5D812DF7EC252387F566C74847E`
   - latest issue ID `CJK-KO-P32-HARD-005`
@@ -34,8 +34,8 @@ No equation crop, source scan, page image, target render, contact sheet, before/
 
 ## Methodology and decision authorities
 
-- Methodology retrospective: `C:\Users\Floris\Documents\interlanguage\04_handoffs\methodology_lessons_20260718\CJK_KOREAN_PRODUCTION_LESSONS_20260718.md`, 83,226 bytes, SHA-256 `E6D60A0F536946E5F59B983132437792CB7F24A4268331C9DAFA0C3CCDBD06E1`.
-- Append-only lane log: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md`.
+- Methodology retrospective: `C:\Users\user\Documents\interlanguage\04_handoffs\methodology_lessons_20260718\CJK_KOREAN_PRODUCTION_LESSONS_20260718.md`, 83,226 bytes, SHA-256 `E6D60A0F536946E5F59B983132437792CB7F24A4268331C9DAFA0C3CCDBD06E1`.
+- Append-only lane log: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md`.
 - Latest relevant decision at addendum creation: `CJK-KO-P32-036`.
 
 Next cursor: await an explicit non-overlapping Korean Noether translation-only route. Revisit P32 only for concrete checker-directed translation corrections or independent structural-parity findings. SGA remains held.

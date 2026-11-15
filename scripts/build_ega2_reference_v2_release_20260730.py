@@ -14,7 +14,7 @@ from pathlib import Path, PurePosixPath
 
 REPO = Path(r"C:\w\e620")
 SOURCE = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\english_germanic\06_publication_candidates"
     r"\EGA2_English_complete_source_aligned_reference_v2_reader_20260730_r1"
 )

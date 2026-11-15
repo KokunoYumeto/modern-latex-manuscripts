@@ -1,6 +1,6 @@
 param(
     [Parameter(Mandatory = $false)]
-    [string]$RepoRoot = "C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github",
+    [string]$RepoRoot = "C:\Users\user\Documents\Papors\modern-latex-manuscripts-github",
 
     [Parameter(Mandatory = $false)]
     [string]$QueueDir = "interlanguage-sidecar\20260704\latex_source_body_bundles\slavic_github_tex_queue_20260705",

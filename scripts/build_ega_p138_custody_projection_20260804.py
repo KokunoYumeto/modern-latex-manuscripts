@@ -29,7 +29,7 @@ _spec.loader.exec_module(base)
 base.TEXT_SUFFIXES.update({".aux", ".log", ".out"})
 
 WORKTREE = SCRIPT_DIR.parent
-PROJECT_ROOT = Path(r"C:\Users\Floris\Documents\interlanguage")
+PROJECT_ROOT = Path(r"C:\Users\user\Documents\interlanguage")
 LANE_ROOT = PROJECT_ROOT / r"03_projects\language_management\english_germanic"
 FRENCH_ROOT = (
     PROJECT_ROOT
@@ -254,7 +254,7 @@ def scan_public(root: Path) -> dict[str, object]:
     mandated_task_ids = 0
     public_toolchain_email_occurrences = 0
     binary_private_hits: list[dict[str, object]] = []
-    binary_needles = (b"C:\\Users\\", b"C:/Users/", b"Floris", b".codex", b"memo_lepthy@live.nl")
+    binary_needles = (b"C:\\Users\\", b"C:/Users/", b"user", b".codex", b"memo_lepthy@live.nl")
     for path in sorted((p for p in root.rglob("*") if p.is_file())):
         rel = path.relative_to(root).as_posix()
         data = path.read_bytes()

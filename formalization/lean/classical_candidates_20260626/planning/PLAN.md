@@ -4,7 +4,7 @@ I have enough grounding. The corpus exists under `Papors/OS/<author>`, the build
 
 # Classical-Mathematics Lean 4 Formalization — LAUNCH PLAN
 
-Build env (confirmed on disk): `C:\Users\Floris\Downloads\helix_extract\helix_frobenius-master`, Mathlib v4.31.0 prebuilt oleans. Build with `lake env lean <file>` from that dir. Project STATUS already staged at `C:\Users\Floris\Documents\classical_lean_audit\STATUS.md`. New library lives there as `ClassicalAudit/`.
+Build env (confirmed on disk): `C:\Users\user\Downloads\helix_extract\helix_frobenius-master`, Mathlib v4.31.0 prebuilt oleans. Build with `lake env lean <file>` from that dir. Project STATUS already staged at `C:\Users\user\Documents\classical_lean_audit\STATUS.md`. New library lives there as `ClassicalAudit/`.
 
 The gold standard from the verify pass is **genuine-gap-cheap**. There are exactly **8** of those. They are the entire near-term backlog. Everything else (genuine-gap-hard, already-in-mathlib) is deferred or skipped, with reasons in §4.
 
@@ -224,7 +224,7 @@ After those three green, proceed T2 → T3 → T5 → T9 → T7 → T6 → T10 i
 ---
 
 **Key paths (all absolute):**
-- Library root to create: `C:\Users\Floris\Documents\classical_lean_audit\` (STATUS.md already there)
-- Build env: `C:\Users\Floris\Downloads\helix_extract\helix_frobenius-master` (Mathlib v4.31.0 oleans; copy its `lean-toolchain`)
-- Reference green file / import-pattern model: `C:\Users\Floris\Documents\arxiv_latex\_lean\SplitZero.lean`
-- Source corpus: `C:\Users\Floris\Documents\Papors\OS\<author>\` (Sylvester, Steinitz, Frobenius, Gauss confirmed present)
+- Library root to create: `C:\Users\user\Documents\classical_lean_audit\` (STATUS.md already there)
+- Build env: `C:\Users\user\Downloads\helix_extract\helix_frobenius-master` (Mathlib v4.31.0 oleans; copy its `lean-toolchain`)
+- Reference green file / import-pattern model: `C:\Users\user\Documents\arxiv_latex\_lean\SplitZero.lean`
+- Source corpus: `C:\Users\user\Documents\Papors\OS\<author>\` (Sylvester, Steinitz, Frobenius, Gauss confirmed present)

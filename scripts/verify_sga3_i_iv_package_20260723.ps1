@@ -217,8 +217,8 @@ try {
         '.tex', '.md', '.csv', '.json', '.jsonl', '.txt', '.log'
     )
     $privacyPatterns = @(
-        'C:\Users\Floris',
-        'C:/Users/Floris',
+        'C:\Users\user',
+        'C:/Users/user',
         'C:\IL_GitHub',
         'Papors',
         'Chatnotes',

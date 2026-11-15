@@ -10,4 +10,4 @@ In the introduction's criterion, German `endlich` is rendered explicitly as `유
 
 U01 deliverables are editable Korean TeX, a two-pass XeLaTeX PDF, extracted-text QA, a German control PDF, full-page renders, source-page checks against printed pp. 28–29, terminology/adverse evidence, typed decisions/graph, structural and difficulty ledgers, visual-evidence records, and hashes. U01 is not Paper 29 completion. The continuation cursor is source line 25, `§ 1. Das Endlichkeitskriterium`.
 
-SGA remains outside scope until Floris explicitly authorizes it.
+SGA remains outside scope until user explicitly authorizes it.

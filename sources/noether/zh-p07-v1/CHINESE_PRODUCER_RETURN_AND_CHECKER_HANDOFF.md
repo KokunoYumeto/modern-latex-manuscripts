@@ -50,12 +50,12 @@ The first exact-slice script invocation stopped at PowerShell parse time before 
 - `BUILD_REPORT.md`: SHA-256 `09A2D21BB835EA9EC3B6036C3F39222298C09B63CDCCD490F6F142FE16EB21B1`.
 - `qa/WORKER_RETURNS.md`: SHA-256 `A1A527FB4B28FC71D943B27654FE01A6D50B6542AF9E045FA268FA8204591853`.
 - Shared registry row: `NOETHER-P07-ZH-PRODUCER-COMPLETE`; post-append registry SHA-256 `03477E8D7FF882945D58E63D614ACEC132B29D118DF0CAC0B1CD7B67D3009763`.
-- Durable append-only lane log: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md`; relevant decisions `ZH-D093` and producer freeze `ZH-D094`.
+- Durable append-only lane log: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md`; relevant decisions `ZH-D093` and producer freeze `ZH-D094`.
 
 ## Mandatory role boundary
 
-Floris's controlling wording is: `you do not check - you translate - other sessions CHEWCK`.
+user's controlling wording is: `you do not check - you translate - other sessions CHEWCK`.
 
 This package is only `translated/built; independent check pending`. The producer performed no source checking/collation/adjudication, semantic/formula/terminology/translation-quality check, PDF viewing/rendered visual QA, native/regional validation, approval, publication, archive certification, or external/community certification. Successful compilation is not validation.
 
-No Noether source defect is asserted here. If a separate checker finds a precise possible source defect, it must deduplicate the finding and ensure `4 -nterslav` sees it; the producer must not adjudicate or duplicate-route it. SGA remains held pending explicit Floris confirmation.
+No Noether source defect is asserted here. If a separate checker finds a precise possible source defect, it must deduplicate the finding and ensure `4 -nterslav` sees it; the producer must not adjudicate or duplicate-route it. SGA remains held pending explicit user confirmation.

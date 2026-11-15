@@ -1,5 +1,5 @@
 $ErrorActionPreference='Stop'
-$workspace='C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722'
+$workspace='C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722'
 $inputs=@((Join-Path $workspace 'segments\P10_STANDALONE_PREAMBLE.tex'),(Join-Path $workspace 'segments\zh-Hans-CN\P10_A_zh-Hans-CN.tex'),(Join-Path $workspace 'segments\zh-Hans-CN\P10_B_zh-Hans-CN.tex'),(Join-Path $workspace 'segments\zh-Hans-CN\P10_C_zh-Hans-CN.tex'),(Join-Path $workspace 'segments\P10_STANDALONE_POSTAMBLE.tex'))
 $output=Join-Path $workspace 'zh-Hans-CN\Noether_Paper10_Chinese_CurrentAuthority_zh-Hans-CN_v001.tex';$utf8=[Text.UTF8Encoding]::new($false)
 foreach($path in $inputs){if(-not(Test-Path -LiteralPath $path)){throw "Missing assembly input: $path"}}

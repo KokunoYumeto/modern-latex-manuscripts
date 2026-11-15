@@ -3,7 +3,7 @@
 Date: 2026-07-02
 
 Local package:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Interlanguage methodology\interlanguage_linguistics_notes_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Interlanguage methodology\interlanguage_linguistics_notes_20260702.zip`
 
 Checksums:
 

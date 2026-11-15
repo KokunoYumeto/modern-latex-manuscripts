@@ -5,7 +5,7 @@ Custody state: translation-producer metadata only; no source/scan/Korean/formula
 ## Authority and boundaries
 
 - Frozen target binding: `NOETH-DE-AUTH-v007-20260804`, immutable pointer 21,580 bytes / `A6A8FC8E5AC24ACAF49DFD55B4B58FA3DA882EF8C3FDD4D136220C8751045156`.
-- Current metadata-only successor: `NOETH-DE-AUTH-v008-20260804`, `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v008_20260804.json`, 22,484 bytes / `F13E6D896DE6403829FE902609668AB3E3FCA8C3C7FAA07BE5F7A7A72A4C33D8`. ED0001 did not change; targets were not rebound.
+- Current metadata-only successor: `NOETH-DE-AUTH-v008-20260804`, `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v008_20260804.json`, 22,484 bytes / `F13E6D896DE6403829FE902609668AB3E3FCA8C3C7FAA07BE5F7A7A72A4C33D8`. ED0001 did not change; targets were not rebound.
 - German authority: ED0001, 2,153,565 raw bytes / `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
 - Complete §5: lines5000--5117, 8,270 LF bytes / `FD98D75A2B4D3805512904F6326E287F3F85772C53558E696013541797C08521`.
 - §6 begins5118 and is excluded: 62 LF bytes / `4FDCA617BFF18072B48FA577F193E08017D5FF0E28BA256498B3F1394C661906`.

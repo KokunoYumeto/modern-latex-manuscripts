@@ -3,7 +3,7 @@
 State: translation-producer custody only; no source or scan audit was performed.
 
 - Pointer: `NOETH-DE-AUTH-v004-20260804`; 16,536 bytes; SHA-256 `A1C62FDACAA34DFC1B806DC18258F2E732539F7AE9D85AA4BD9E1067B8749D9F`.
-- Authority: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
+- Authority: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
 - Authority bytes / SHA-256: 2,153,565 / `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
 - T01 continuous interval: lines 473--502; 4,831 LF bytes; SHA-256 `E37700CD2C682326459AB3EF05C14EA09B41093CB4FF298DAA707567A9E86BA6`.
 - T02 continuous interval: lines 504--538; 2,627 LF bytes; SHA-256 `08B12200C54484340FD7EDD94B72010822C65BC66CF487E293DADD1CF06C7E10`.

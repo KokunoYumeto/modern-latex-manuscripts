@@ -1,7 +1,7 @@
 # 2026-07-03 Weber Volume I p1-p76 Gap-Pass / Fix75 Receipt
 
 Local audit folder:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit`
 
 Current hashes:
 - `WEBER_CERT_LOG.md`: `9322A611A0D474233E099D56E652255C6B703DEAA5193A60F9157CEC9AF4AFEB`

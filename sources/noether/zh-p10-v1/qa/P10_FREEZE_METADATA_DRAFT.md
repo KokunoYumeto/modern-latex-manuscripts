@@ -6,7 +6,7 @@ Snapshot: 2026-07-22 13:35:22 +02:00. All listed live-file byte sizes and SHA-25
 
 ## Coordination prestate
 
-- Durable log: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md
+- Durable log: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md
 - Claim decision: ZH-D112.
 - Translation/build decision: ZH-D113.
 - Intended freeze decision: ZH-D114; this draft does not claim it already exists.
@@ -32,9 +32,9 @@ The Hant target is controlled generic, nonregional script transport based on PRC
 | source\P10_CurrentGerman_lines7664_7864.tex; lines 7664--7864; raw UTF-8 bytes [493872,522014) | 28,142 | 4EDD9F5B95EE308344B11190088C6D864FB4456AC8AD20E152FA1254E5612234 |
 | SOURCE_CUSTODY.md | 1,141 | 6BE7F00B02208ECD28388FD6FE49BE9EA9A68B2EC9590039CC3BC290E92261E3 |
 
-Pointer path: C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md
+Pointer path: C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md
 
-Authority path: C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex
+Authority path: C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex
 
 The stale shared R821 directory was not used.
 
@@ -45,7 +45,7 @@ The stale shared R821 directory was not used.
 | Whole inherited Simplified-Chinese reader | 1,741,015 | C2936EFAC3C22FBEBD3E5F418902A0A4CA3CFFD953DC3ADC827432D7529DF3F9 |
 | witness\P10_InheritedHans_content_lines7467_7714.tex; lines 7467--7714; raw UTF-8 bytes [452768,477293) | 24,525 | D74C8B835ADF307AAF4908551BA7C21806DC9772C5A187DD84506F982FAC674C |
 
-Witness path: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\01_recovered_witnesses\noether_cjk_chinese_japanese_cumulative_20260702\translations\non_slavic\simplified_chinese\cumulative\source_fidelity\v001\Noether_SimplifiedChinese_Cumulative_SourceFidelity_v001.tex
+Witness path: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\01_recovered_witnesses\noether_cjk_chinese_japanese_cumulative_20260702\translations\non_slavic\simplified_chinese\cumulative\source_fidelity\v001\Noether_SimplifiedChinese_Cumulative_SourceFidelity_v001.tex
 
 Witness role: drafting aid only; no comparison or audit.
 
@@ -189,17 +189,17 @@ This is a draft outline, not an append-only decision.
 
 - **Recorded:** Fill from the local system clock at append time with honest precision to seconds.
 - **Work unit / authority / cursor:** Complete Noether Paper 10, Die Funktionalgleichungen der isomorphen Abbildung; authority pointer FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1; current German whole 443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27; exact lines 7664--7864, raw bytes [493872,522014), 28,142 bytes, SHA-256 4EDD9F5B95EE308344B11190088C6D864FB4456AC8AD20E152FA1254E5612234; claim ZH-D112 and build ZH-D113.
-- **Choice:** Freeze the exact Hans/Hant producer artifacts, producer evidence, and checker handoff after one final live refresh; maximum state translated/built, independent check pending; apply Floris's exact producer/checker separation.
+- **Choice:** Freeze the exact Hans/Hant producer artifacts, producer evidence, and checker handoff after one final live refresh; maximum state translated/built, independent check pending; apply user's exact producer/checker separation.
 - **Alternatives considered / rejected:** Producer source/witness comparison; semantic, formula, terminology, or quality review; cross-segment harmonization; suppressing the two failed macro-build states; editing translated formulas to bypass missing macros; PDF opening/rendering; regional Hant localization; Japanese/Korean authority; source adjudication; approval, publication, archive, or certification; and SGA.
 - **Evidence and hashes:** Bind the authority and exact source/witness slices, all source/witness/Hans segments, wrappers, worker returns, scripts and records, two failed assembled states, final Hans/Hant TeX/PDF/logs/transcripts, OpenCC runtime, evidence ledgers and graph, and handoff at the refreshed hashes listed above.
 - **Motivation:** Close a complete bounded Chinese producer tranche reproducibly while preserving adverse build history and keeping every substantive/visual check in separate sessions.
-- **Epistemic labels:** Paths, cursors, source wording, and Floris's exact instruction are source/project/file facts or external-human instruction. Hashes, bytes, compiler exits/pages/warnings, reconstructed assembly states, protected spans/control counts, and row/node/edge counts are computations/operational facts. Chinese wording and terminology are editorial inferences/model preferences. Source fidelity, mathematical correctness, terminology correctness, translation quality, rendered appearance, native/regional validity, approval, archive receipt, publication, and certification are absent validation states.
+- **Epistemic labels:** Paths, cursors, source wording, and user's exact instruction are source/project/file facts or external-human instruction. Hashes, bytes, compiler exits/pages/warnings, reconstructed assembly states, protected spans/control counts, and row/node/edge counts are computations/operational facts. Chinese wording and terminology are editorial inferences/model preferences. Source fidelity, mathematical correctness, terminology correctness, translation quality, rendered appearance, native/regional validity, approval, archive receipt, publication, and certification are absent validation states.
 - **Uncertainty / adverse evidence:** The inherited witness was not audited; three segments were not harmonized; two Hans pass-1 failures produced incomplete four-page PDFs before standalone macro restoration; successful final builds and protected streams can coexist with source mismatch, mistranslation, formula errors, omissions, or layout defects; two font-warning lines per final target remain visually uninspected; Hant inherits PRC-oriented wording and has no TW/HK/MO validation; producer evidence remains unchecked.
 - **Source-defect disposition:** No producer defect search, finding, claim, or adjudication. Undefined standalone macros are packaging events. A precise independent-checker finding must be deduplicated and routed so 4 -nterslav sees it; producer must not adjudicate or duplicate-route it.
 - **Consequences:** Paper 10 becomes producer-frozen and ready only for separate checking. No approval, publication, archive intake, certification, regional localization, or readiness claim follows. Final target hashes supersede transient incomplete targets for delivery while their adverse history remains. SGA stays held.
 - **Changed artifacts / actions:** At actual freeze only: append ZH-D114, add exactly one 8-column registry row, and transport the current handoff to the existing manager after a final mutable-hash refresh. Do not alter authority, witness, translation targets, checker/source-error apparatus, other languages, archive/publication records, or SGA.
 - **Supersession / review:** Advance ZH-D112/ZH-D113 through producer freeze only; do not supersede any pending validation state. External checker findings control subsequent review.
-- **Next cursor / revisit:** After freeze and manager transport, refresh authority/collision state and claim another non-overlapping Noether gap. Reopen Paper 10 only for an authority change or checker return. Do not begin SGA without explicit Floris confirmation.
+- **Next cursor / revisit:** After freeze and manager transport, refresh authority/collision state and claim another non-overlapping Noether gap. Reopen Paper 10 only for an authority change or checker return. Do not begin SGA without explicit user confirmation.
 
 ## Self-reference
 

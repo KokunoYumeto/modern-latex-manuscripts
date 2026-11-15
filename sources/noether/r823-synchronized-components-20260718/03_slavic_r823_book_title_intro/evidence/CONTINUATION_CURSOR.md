@@ -9,4 +9,4 @@
 
 Carry forward all four targets. Translate Ukrainian and Russian independently from the German authority. Maintain Interslavic Latin as the Interslavic source of truth and regenerate its Cyrillic reader in the same run. Compile all four PDFs and inspect rendered pages before closing the unit.
 
-Do not start Fable Tranche 002 without Floris's sign-off. Keep the ring family, `ręd`, `jednako`, `važiti`, and `slučaj` wording held.
+Do not start Fable Tranche 002 without user's sign-off. Keep the ring family, `ręd`, `jednako`, `važiti`, and `slučaj` wording held.

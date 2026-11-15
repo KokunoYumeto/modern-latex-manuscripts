@@ -214,8 +214,8 @@ Assert-Identity `
     -Sha256 'BD31E621C52AA7228BCD82A2AF827E68BB374DCF4473CBC4CF3E7E7D34E0CCE5'
 
 $privacyPatterns = @(
-    'C:\Users\Floris',
-    'C:/Users/Floris',
+    'C:\Users\user',
+    'C:/Users/user',
     'C:\IL_GitHub',
     'Papors',
     'Chatnotes',

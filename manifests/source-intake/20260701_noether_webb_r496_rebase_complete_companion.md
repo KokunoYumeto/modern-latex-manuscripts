@@ -3,10 +3,10 @@
 Date registered: 2026-07-01
 
 Local Noether root:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`
 
 Original download location:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Microsoft Edge is shit so every download goes here instead of subfolders`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Microsoft Edge is shit so every download goes here instead of subfolders`
 
 Routed local file:
 `Noether_R496_WebB_R485TailSchurRebase_20260701_COMPLETE.zip`

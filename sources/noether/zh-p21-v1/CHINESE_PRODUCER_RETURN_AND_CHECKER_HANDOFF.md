@@ -47,10 +47,10 @@ Producer proposals include `形式变分法`, `微分不变量`, `变分问题`,
 - Translation notes/status/build report SHA-256: `E6B927649919129379195E1DF4F44888CA5CA30B617341F2469BC4BAEEDBCB82` / `41C395BEFAB90A0B3D2B17046D61888AC3960FC743765421C0029107046FC062` / `0F64361A3C75E51F6D3552C1E7B97703CCE04720B2B56B2E85153ACDC065F665`.
 - Worker returns SHA-256: `A1835AA4407547DE8351BC455D6DD2CE91F156B545683940523662D201002733`.
 - Registry row `NOETHER-P21-ZH-PRODUCER-COMPLETE`; post-append registry SHA-256 `A31FD9E7AC98E3B9B0A0745AE2B40EE62B998DE12CBA629BA2B7D31222106232`.
-- Durable lane log: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md`; relevant decisions `ZH-D096`, `ZH-D097`, and producer freeze `ZH-D098`.
+- Durable lane log: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md`; relevant decisions `ZH-D096`, `ZH-D097`, and producer freeze `ZH-D098`.
 
 ## Mandatory boundary
 
-Floris's instruction is `you do not check - you translate - other sessions CHEWCK`. This return is only `translated/built; independent check pending`. The producer performed no source, formula, semantic, terminology, translation-quality, visual, native/regional, approval, publication, archive, or certification check. Compilation is not validation.
+user's instruction is `you do not check - you translate - other sessions CHEWCK`. This return is only `translated/built; independent check pending`. The producer performed no source, formula, semantic, terminology, translation-quality, visual, native/regional, approval, publication, archive, or certification check. Compilation is not validation.
 
 No source defect is asserted. If a separate checker finds a precise possible Noether source defect, it must deduplicate it and ensure `4 -nterslav` sees it. This producer does not adjudicate or duplicate-route. SGA remains held.

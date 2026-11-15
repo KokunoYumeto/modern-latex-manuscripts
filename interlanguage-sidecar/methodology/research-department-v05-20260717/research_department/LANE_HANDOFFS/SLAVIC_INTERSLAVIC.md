@@ -15,7 +15,7 @@ One manager covers Russian, Ukrainian, Interslavic, and the rest of the Slavic t
 
 Stable workspace package:
 
-`C:\Users\Floris\Documents\interlanguage\01_methodology\weighted_automaton\INTERSLAVIC_WEIGHTED_AUTOMATON_STATE_C_PLUS_W0_v3_20260705`
+`C:\Users\user\Documents\interlanguage\01_methodology\weighted_automaton\INTERSLAVIC_WEIGHTED_AUTOMATON_STATE_C_PLUS_W0_v3_20260705`
 
 ## Evidence interpretation
 

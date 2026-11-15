@@ -25,7 +25,7 @@ Next checker cursor: independent Korean semantic, terminology, formula, citation
 
 ## Metadata CSV projection validation
 
-- Report path: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper07_ko_translation_001_20260804\reproducibility\csv_artifact_validation\CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
+- Report path: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper07_ko_translation_001_20260804\reproducibility\csv_artifact_validation\CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
 - Report bytes: 2,728
 - Report SHA-256: B2D87D6880252915EDD42B29E1F4B608CE5DE53F66109964F5804A6E46A11DC1
 - Tool/status: bundled @oai/artifact-tool / pass

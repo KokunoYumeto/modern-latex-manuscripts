@@ -116,27 +116,27 @@ TARGETS = (
 ROOT_TRANSFORMS = (
     (
         "project_root",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris[\\/]Documents[\\/]interlanguage"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user[\\/]Documents[\\/]interlanguage"),
         "[PROJECT_ROOT]",
     ),
     (
         "archive_worktree_root",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris[\\/]Documents[\\/]Codex"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user[\\/]Documents[\\/]Codex"),
         "[ARCHIVE_WORKTREE_ROOT]",
     ),
     (
         "private_documents_root",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris[\\/]Documents"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user[\\/]Documents"),
         "[PRIVATE_DOCUMENTS_ROOT]",
     ),
     (
         "private_download_root",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris[\\/]Downloads"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user[\\/]Downloads"),
         "[PRIVATE_DOWNLOAD_ROOT]",
     ),
     (
         "private_operator_home",
-        re.compile(r"(?i)C:[\\/]Users[\\/]Floris"),
+        re.compile(r"(?i)C:[\\/]Users[\\/]user"),
         "[PRIVATE_OPERATOR_HOME]",
     ),
     (

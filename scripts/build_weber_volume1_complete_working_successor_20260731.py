@@ -64,7 +64,7 @@ FORBIDDEN_TEXT = (
     re.compile(r"\\Papors\\", re.I),
     re.compile(r"\\Chatnotes\\", re.I),
     re.compile(r"\.codex", re.I),
-    re.compile(r"\bFloris\b", re.I),
+    re.compile(r"\buser\b", re.I),
     re.compile(r"\b(?:GPT|ChatGPT|Claude|Codex|Fable)\b", re.I),
     re.compile(r"\b(?:AI|language model)[ -]generated\b", re.I),
     re.compile(r"019f[0-9a-f-]{20,}", re.I),

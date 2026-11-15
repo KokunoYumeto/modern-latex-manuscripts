@@ -76,7 +76,7 @@ VISUAL_RENDER_SHA256 = {
 }
 
 PRIVACY_PATTERNS = {
-    "private_home": re.compile(r"C:\\Users\\Floris", re.IGNORECASE),
+    "private_home": re.compile(r"C:\\Users\\user", re.IGNORECASE),
     "archive_worktree": re.compile(r"C:\\w(?:\\|/)", re.IGNORECASE),
     "papors": re.compile(r"\bPapors\b", re.IGNORECASE),
     "chatnotes": re.compile(r"\bChatnotes\b", re.IGNORECASE),

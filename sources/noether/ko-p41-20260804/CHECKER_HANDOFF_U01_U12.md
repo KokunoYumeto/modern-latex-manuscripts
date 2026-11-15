@@ -12,16 +12,16 @@ The producer did not inspect scans, compare German branches, adjudicate or patch
 
 ## Bound German authority and lineage
 
-- Preserved translation-input snapshot: C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_zh_translation_001_20260722/source/Noether_Paper41_CurrentGermanAuthority_interval.tex
+- Preserved translation-input snapshot: C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_zh_translation_001_20260722/source/Noether_Paper41_CurrentGermanAuthority_interval.tex
 - Snapshot identity: 27,110 bytes; SHA-256 C265058425E5E2D1A2289CC03A9DDEDDDF4803A3215DC3F173B93E7AB69D60ED.
 - Historical coordinates: former whole-source lines 19709–19862; UTF-8 bytes [1787529,1814639); attributed whole-source SHA-256 443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27.
 - Current pointer ID: NOETH-DE-AUTH-v003-20260804.
-- Live pointer: C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/CURRENT_GERMAN_AUTHORITY_POINTER.json.
-- Immutable pointer: C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/pointers/NOETH_DE_AUTHORITY_POINTER_v003_20260804.json.
+- Live pointer: C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/CURRENT_GERMAN_AUTHORITY_POINTER.json.
+- Immutable pointer: C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/pointers/NOETH_DE_AUTHORITY_POINTER_v003_20260804.json.
 - Both pointer files: 15,345 bytes; SHA-256 932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197.
 - Default exact German authority: NOETH-DE-ED-0001, 2,153,565 bytes; SHA-256 D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB.
 - Binder ID: NOETH-DE-BINDER-P41-KO-U01-U12-20260804-001.
-- Binder: C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/receipts/KOREAN_P41_U01_U12_BINDER_20260804.json.
+- Binder: C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/receipts/KOREAN_P41_U01_U12_BINDER_20260804.json.
 - Binder identity: 9,522 bytes; SHA-256 95D0E69B6D32FD93801C3FDC4C519FAA9AB7CA867538E1CD9E2096EFAB253A91.
 - Canon-owner ruling: safe_normalized_identical_current_authority_span. The ED0001 interval uses CRLF; strict line-ending normalization reproduces the preserved LF snapshot. This closes coordinate/tooling debt only and validates no Korean text.
 
@@ -31,7 +31,7 @@ Adverse lineage evidence remains: R823 has Analogon at local line 11 where later
 
 All substantive source text through local line 151 is represented. Local lines 153–154 are the source controls \clearpage and \setcounter{footnote}{0}; line 152 is a blank separator. They are outside the Korean prose units.
 
-Target root: C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/targets
+Target root: C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/targets
 
 | Unit | Snapshot lines | Source LF bytes | Source-slice SHA-256 | Target bytes | Frozen target SHA-256 | State |
 |---|---:|---:|---|---:|---|---|
@@ -64,7 +64,7 @@ Decision anchors: CJK-KO-P41-001 through CJK-KO-P41-004.
 
 ## Structural evidence
 
-Root: C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/evidence/structural_index
+Root: C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/evidence/structural_index
 
 - PRODUCER_STRUCTURAL_INDEX.schema.json: 4,128 bytes; SHA-256 14800B151BC67B7E5E2CF6DD7DD3B5CE4C44DBFE860B4934473F02FD07575FDD.
 - PRODUCER_STRUCTURAL_INDEX.jsonl: 213,997 bytes; SHA-256 D825FC810574A54CDD3B7C97370EC5FFCA8F21A567664D721C2C6FA8EFF021F7.
@@ -77,7 +77,7 @@ The structural pairing and type labels are producer editorial inference. PASS me
 
 ## Difficulty/failure evidence
 
-Root: C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/evidence/difficulty
+Root: C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/evidence/difficulty
 
 - DIFFICULTY_LEDGER_SCHEMA.json: 5,481 bytes; SHA-256 9E658939B2CE4317146B0381637934C870CFB8ED3AD5C217485687A9D4568312.
 - difficulty_ledger.jsonl: 72,530 bytes; SHA-256 4C5195896923C6816D695A0AA21107F9FD27B19EBAAC9DD61EDECDCDFADB8488.
@@ -113,7 +113,7 @@ The ledger is authoritative for full symptoms, causes, attempted/rejected approa
 
 ## Visual-evidence and CSV-projection state
 
-Visual root: C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/evidence/visual
+Visual root: C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/evidence/visual
 
 - VISUAL_EVIDENCE_SCHEMA.json: 2,528 bytes; SHA-256 C1F066E21053961F3119A29FCDCA5F6A88808B1E168A2C57BA03EC134F0E5F60.
 - visual_evidence_index.jsonl: 0 bytes; SHA-256 E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855.
@@ -125,7 +125,7 @@ Visual root: C:/Users/Floris/Documents/interlanguage/03_projects/language_manage
 
 CSV artifact-tool report:
 
-- C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/evidence/csv_artifact_validation/CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
+- C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper41_ko_translation_001_20260804/evidence/csv_artifact_validation/CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
 - 2,731 bytes; SHA-256 91C2B03308ACD722223B3CE2A909F62BA17C7DE2BAC1569CD541E7E2F02CDE3D.
 - State: PASS for rectangularity, unique headers, bounded inspection, and formula-error scan of the structural, 16-row difficulty, and zero-row visual CSV projections. Rendering was deliberately skipped under the translation-only boundary.
 

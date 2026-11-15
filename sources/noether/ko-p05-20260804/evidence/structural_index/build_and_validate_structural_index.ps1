@@ -3,7 +3,7 @@ Set-StrictMode -Version Latest
 
 $indexDir = $PSScriptRoot
 $root = (Resolve-Path -LiteralPath (Join-Path $indexDir '..\..')).Path
-$sourcePath = 'C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex'
+$sourcePath = 'C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex'
 $expectedSourceHash = 'D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB'
 $expectedBodyHash = '99BD68A8DBD9861EFF0CDBE26CB365C3306EDF15BD93A6C4C10B9F25419D5CAE'
 $pointerId = 'NOETH-DE-AUTH-v003-20260804'

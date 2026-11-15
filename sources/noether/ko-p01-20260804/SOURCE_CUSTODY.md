@@ -4,7 +4,7 @@ Purpose: bind the exact preserved German translation input and exclude Paper 2. 
 
 ## Exact translation input
 
-- Read-only source snapshot: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper01_zh_translation_001_20260722\source\Noether_Paper01_CurrentGermanAuthority_interval.tex`.
+- Read-only source snapshot: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper01_zh_translation_001_20260722\source\Noether_Paper01_CurrentGermanAuthority_interval.tex`.
 - Snapshot bytes: `8082`.
 - Snapshot SHA-256: `0499985866E646747EC31533775FF31B55556F2C694F4C2608384829DE248D2F`.
 - Historical whole-source coordinates: lines 381--460; raw UTF-8 bytes `[12505,20587)`.

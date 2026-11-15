@@ -52,6 +52,6 @@ Please check Hans against the exact German interval; verify formula and note fid
 
 No new source-defect claim was made by this translator. If checking discovers one, the checking/source-owner workflow should deduplicate and route it; this lane does not adjudicate it.
 
-Lane log: `C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`, latest production decision `ZH-D068`.
+Lane log: `C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`, latest production decision `ZH-D068`.
 
-Scope remains Noether only. SGA is held until Floris explicitly confirms it.
+Scope remains Noether only. SGA is held until user explicitly confirms it.

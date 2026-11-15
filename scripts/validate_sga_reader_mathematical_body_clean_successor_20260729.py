@@ -68,7 +68,7 @@ READERS = {
 }
 
 PRIVATE_OR_PROCESS_PATTERNS = (
-    re.compile(rb"C:[\\/]+Users[\\/]+Floris", re.IGNORECASE),
+    re.compile(rb"C:[\\/]+Users[\\/]+user", re.IGNORECASE),
     re.compile(rb"C:[\\/]+w[\\/]+s\d+", re.IGNORECASE),
     re.compile(rb"\.codex", re.IGNORECASE),
     re.compile(rb"\bChatGPT\b", re.IGNORECASE),

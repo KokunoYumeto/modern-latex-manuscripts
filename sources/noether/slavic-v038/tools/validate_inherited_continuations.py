@@ -29,7 +29,7 @@ OUTPUT = ROOT / "release" / "evidence" / "inherited_continuation_audit.json"
 SLAVIC_ARCHIVE = WORKSPACE / "03_projects" / "noether" / "08_zenodo" / "r19" / "slavic.zip"
 AUTHORITY_UNITS = ROOT / "authority_units"
 SOURCE_ROOT = Path(
-    r"C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut"
+    r"C:\Users\user\Downloads\codex backup dump 7-4\$germanOut"
 )
 POST45_WITNESS = (
     SOURCE_ROOT

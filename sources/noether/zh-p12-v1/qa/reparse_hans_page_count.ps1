@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-$workspace = 'C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722'
+$workspace = 'C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722'
 $recordPath = Join-Path $workspace 'qa\HANS_MECHANICAL_BUILD_RECORD.json'
 $logPath = Join-Path $workspace 'zh-Hans-CN\Noether_Paper12_Chinese_CurrentAuthority_zh-Hans-CN_v001.log'
 $utf8 = [System.Text.UTF8Encoding]::new($false)

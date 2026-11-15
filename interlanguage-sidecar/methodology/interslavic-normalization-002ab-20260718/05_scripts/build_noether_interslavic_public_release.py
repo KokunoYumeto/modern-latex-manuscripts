@@ -24,7 +24,7 @@ from pathlib import Path
 from pypdf import PdfReader, PdfWriter
 
 
-LIVE_ROOT = Path(r"C:\Users\Floris\Documents\interlanguage")
+LIVE_ROOT = Path(r"C:\Users\user\Documents\interlanguage")
 CORPUS = LIVE_ROOT / "03_projects/noether/02_slavic_working_corpus"
 TRANSLATIONS = CORPUS / "translations"
 NORMALIZATION = (
@@ -32,7 +32,7 @@ NORMALIZATION = (
     / "03_projects/language_management/slavic_interslavic/normalization_20260718"
 )
 STAGE = Path(
-    r"C:\Users\Floris\Documents\Codex\2026-05-26"
+    r"C:\Users\user\Documents\Codex\2026-05-26"
     r"\there-is-currently-an-ongoing-process\publish_curated"
     r"\20260718_noether_interslavic_002ab"
 )
@@ -44,7 +44,7 @@ CYRILLIC_READER = STAGE / "02c_Noether_Interslavic_Cyrillic_WorkingReader_202607
 ZIP_PATH = STAGE / "11_Noether_Interslavic_WorkingCorpus_Normalization_002A_002B_20260718.zip"
 REPORT_PATH = STAGE / "build_release_report.json"
 GERMAN_AUTHORITY = Path(
-    r"C:\Users\Floris\Documents\Codex\2026-05-26"
+    r"C:\Users\user\Documents\Codex\2026-05-26"
     r"\there-is-currently-an-ongoing-process\publish_curated"
     r"\20260718_noether_spanish_r823"
     r"\Noether_Spanish_R823_WorkingTranslation_20260718"

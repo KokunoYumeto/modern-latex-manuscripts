@@ -3,16 +3,16 @@
 ## Frozen input
 
 - Work unit: complete Paper 20 segment C, current German lines 12520--12588.
-- German input: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper20_zh_translation_001_20260722\segments\source\P20_C_lines12520_12588.tex
+- German input: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper20_zh_translation_001_20260722\segments\source\P20_C_lines12520_12588.tex
 - German input SHA-256: D7B2FC4C6FB95125109A83F5F856F27B319FE25F4ABF13B3AAE6D33A99D5C2C1
 - German input size at translation time: 6,053 bytes; 69 physical lines as reported by PowerShell.
-- Drafting witness made available without comparison or audit: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper20_zh_translation_001_20260722\segments\witness\P20_C_witness_lines13307_13378.tex
+- Drafting witness made available without comparison or audit: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper20_zh_translation_001_20260722\segments\witness\P20_C_witness_lines13307_13378.tex
 - Drafting-witness SHA-256: 918DD045B8E3752E285EF7182A08EED54D83AA943DF09C1347AA03BE14029BCF
 - Drafting-witness size: 5,166 bytes; 72 physical lines as reported by PowerShell.
 
 ## Producer output
 
-- Output: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper20_zh_translation_001_20260722\segments\zh-Hans-CN\P20_C_zh-Hans-CN.tex
+- Output: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper20_zh_translation_001_20260722\segments\zh-Hans-CN\P20_C_zh-Hans-CN.tex
 - Output SHA-256: 8972FC4AA515FF93047D0F686DFD9CCB4003287E2F815313F02BAC079ED9D734
 - Output size at return time: 5,265 bytes; 69 physical lines as reported by PowerShell.
 - Locale posture: PRC-oriented Simplified Chinese (zh-Hans-CN) producer wording.

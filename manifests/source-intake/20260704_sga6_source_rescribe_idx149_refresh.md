@@ -2,7 +2,7 @@
 
 ## Source Root
 
-C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703
+C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703
 
 ## GitHub Mirror
 

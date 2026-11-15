@@ -1,12 +1,12 @@
 # Workflow Addendum 2026-06-24: Archive Scope Guardrail
 
-This addendum records a publication-scope correction for the AI-run manuscript archive workflow. The local sweep process is allowed to inspect many folders, but publication is limited to the transcription/translation/source-audit project unless Floris explicitly requests a named non-project upload.
+This addendum records a publication-scope correction for the AI-run manuscript archive workflow. The local sweep process is allowed to inspect many folders, but publication is limited to the transcription/translation/source-audit project unless user explicitly requests a named non-project upload.
 
 ## Rule
 
 A file being mathematical, interesting, recently downloaded, or technically publishable is not enough. The file must belong to one of the existing project lanes: source scans, source witnesses, TeX transcriptions, translations, audit ledgers, repair packages, workflow/methodology notes, or author/corpus public-surface metadata for the manuscript project.
 
-Unrelated third-party TeX, new research drafts, Reddit downloads, personal/novel math files, and loose Lean experiments stay out of Zenodo and out of the GitHub mirror unless explicitly named by Floris as an external upload.
+Unrelated third-party TeX, new research drafts, Reddit downloads, personal/novel math files, and loose Lean experiments stay out of Zenodo and out of the GitHub mirror unless explicitly named by user as an external upload.
 
 Coherent Lean 4 / mathlib-style packets are different when they are real buildable library-candidate material. They may be staged as a clearly labelled Lean/library companion lane when they include toolchain metadata, build logs, theorem or motivation anchors, and caveats. They are useful additions to the Lean library ecosystem, not proof, certification, source audit, or correctness evidence for the historical transcription/translation archive.
 
@@ -14,12 +14,12 @@ Coherent Lean 4 / mathlib-style packets are different when they are real buildab
 
 - project_candidate: eligible for routing/staging only after inspection and caveat assignment.
 - downloads_review_do_not_upload_by_default: can be read for context, but not staged or uploaded by default.
-- OUT_OF_SCOPE_unless_explicitly_requested: quarantine from publication unless Floris explicitly names that file or record.
+- OUT_OF_SCOPE_unless_explicitly_requested: quarantine from publication unless user explicitly names that file or record.
 - review: ambiguous project-management material; use only if it improves workflow/status accuracy.
 
 ## DOI Hygiene
 
-Use existing author, corpus, workflow, or raw/provenance DOI lanes whenever possible. Do not create new DOI records just because a package exists. A new DOI is justified only when a coherent author/work/corpus surface has enough reader-facing value or when Floris explicitly asks for it.
+Use existing author, corpus, workflow, or raw/provenance DOI lanes whenever possible. Do not create new DOI records just because a package exists. A new DOI is justified only when a coherent author/work/corpus surface has enough reader-facing value or when user explicitly asks for it.
 
 ## Public Claims
 

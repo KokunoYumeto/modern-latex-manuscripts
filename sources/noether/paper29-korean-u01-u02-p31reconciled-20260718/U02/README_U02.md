@@ -10,4 +10,4 @@ The final target makes the universal quantifier explicit as `임의의 계`, ren
 
 U02 deliverables include editable Korean TeX, a successful two-pass XeLaTeX PDF, extracted-text QA, a compact German control, original-resolution renders, printed-source checks against native-400-PPI pp. 29–31, independent internal fidelity review, structural and difficulty ledgers, terminology/evidence/parity controls, rights-separated visual evidence, hashes, and a deterministic unit manifest. All five validator families pass internally. This makes U02 a handoff-ready bounded checkpoint, not a published or externally certified translation. The next exact source cursor is line 41, `2. Beweis des Endlichkeitskriteriums.`
 
-SGA remains outside scope until Floris explicitly authorizes it.
+SGA remains outside scope until user explicitly authorizes it.

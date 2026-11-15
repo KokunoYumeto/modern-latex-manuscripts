@@ -7,8 +7,8 @@ from pathlib import Path
 from collections import Counter, defaultdict
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-T = Path(r"C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\translations")
-OUT = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+T = Path(r"C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\translations")
+OUT = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 
 KOLC = re.compile(r"\b(\w*kolc\w*)", re.IGNORECASE)
 PRSTEN = re.compile(r"\b(\w*prsten\w*)", re.IGNORECASE)

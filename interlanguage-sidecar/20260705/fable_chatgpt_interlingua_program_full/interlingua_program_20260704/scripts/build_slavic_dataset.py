@@ -5,8 +5,8 @@ import re
 from pathlib import Path
 from collections import Counter
 
-G = Path(r"C:\Users\Floris\Downloads\codex backup dump 7-4\codex backup\glossary")
-OUT = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+G = Path(r"C:\Users\user\Downloads\codex backup dump 7-4\codex backup\glossary")
+OUT = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 
 records = []
 files_used, files_skipped = 0, 0

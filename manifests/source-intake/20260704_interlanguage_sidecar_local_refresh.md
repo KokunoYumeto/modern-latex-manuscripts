@@ -2,9 +2,9 @@
 
 ## Source Roots
 
-- C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704
-- C:\Users\Floris\Downloads\codex backup dump 7-4
-- C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github\interlanguage-sidecar\20260704
+- C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704
+- C:\Users\user\Downloads\codex backup dump 7-4
+- C:\Users\user\Documents\Papors\modern-latex-manuscripts-github\interlanguage-sidecar\20260704
 
 ## Staged Artifact
 

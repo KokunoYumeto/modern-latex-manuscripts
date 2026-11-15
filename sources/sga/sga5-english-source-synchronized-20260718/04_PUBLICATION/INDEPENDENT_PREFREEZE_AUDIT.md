@@ -69,7 +69,7 @@ human scholarly certification.
 
 - No absolute private path, filesystem username leak, UUID/task/thread ID, or
   unpublished correspondence was found in text or binary metadata. Deliberate
-  mentions of Floris are attribution, not path leakage.
+  mentions of user are attribution, not path leakage.
 - No source scan, scan-derived image, French TeX/PDF, inherited English TeX, or
   external-English candidate file is bundled; no payload file hashes to those
   controls.

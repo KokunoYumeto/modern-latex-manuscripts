@@ -7,7 +7,7 @@ Status: integrated into the production P1--43 cumulative; direct rebuild complet
 
 Canonical package:
 
-`C:/Users/Floris/Documents/Papors/Chatnotes/CHat translates and clean/Noether Multilingual/Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717_COMPLETE.zip`
+`C:/Users/user/Documents/Papors/Chatnotes/CHat translates and clean/Noether Multilingual/Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717_COMPLETE.zip`
 
 - SHA-256: `7AFC1B865EC710F6BECE507260605CBA7C950E5CC089C7464F63CBC20A8BD738`
 

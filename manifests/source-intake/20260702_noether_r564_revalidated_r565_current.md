@@ -10,8 +10,8 @@ R564 is **validated as a source-matching local German source-control predecessor
 
 ## Source Basis
 
-- R564 local artifact: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R564_LocalCodex_R563_Tail_p730_731_xVariableDenseFormulaFix_20260702`
-- R565 local artifact: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R565_LocalCodex_R564_Tail_p737_742_SourceFixAudit_20260702`
+- R564 local artifact: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R564_LocalCodex_R563_Tail_p730_731_xVariableDenseFormulaFix_20260702`
+- R565 local artifact: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R565_LocalCodex_R564_Tail_p737_742_SourceFixAudit_20260702`
 - R564 source witness checked: `source_witnesses\tail_src_collected_p731_1000dpi.png`
 - R565 source witness checked: `source\tail_src_collected_p742-32.png`
 

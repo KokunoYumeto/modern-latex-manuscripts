@@ -6,7 +6,7 @@ SHA256: `D29BDC609377038209D898A6DFC6B5631F5414DEB63F86C771CDF324F4BA3B68`
 
 Size: 39,965,970 bytes. ZIP entries: 31.
 
-Source folder: `C:/Users/Floris/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_R796_LocalCodex_P30p42_45_SourceEmphasisFix_20260705_CLEAN_DROP`
+Source folder: `C:/Users/user/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_R796_LocalCodex_P30p42_45_SourceEmphasisFix_20260705_CLEAN_DROP`
 
 Status: newest inspected narrow Noether German/source-control candidate over R795.
 

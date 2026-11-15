@@ -6,7 +6,7 @@ State: translation-producer custody only; no source or scan audit was performed.
 
 - Pointer identifier: NOETH-DE-AUTH-v003-20260804
 - Pointer SHA-256: 932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197
-- Exact authority path: C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex
+- Exact authority path: C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex
 - Authority bytes: 2,153,565
 - Authority SHA-256: D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB
 - Paper 7 substantive interval: whole lines 5842--5954 / local lines 1--113

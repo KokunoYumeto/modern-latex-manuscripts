@@ -193,7 +193,7 @@ DESCRIPTION_PARAGRAPHS = [
     (
         "The controlling witness is Polo-Gille Expo14.pdf, 36 pages, "
         "SHA-256 467F03717A06F85DB3C1CAFB1D35E8A1E07247372717B94CD6E19F1EB114FEA1. "
-        "It is not redistributed. Floris's pre-existing GPU OCR was consulted "
+        "It is not redistributed. user's pre-existing GPU OCR was consulted "
         "read-only as locator or drafting evidence and was not regenerated. "
         "Jacob C. Reinhold's jcreinhold/sga English lineage at revision "
         "e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e is credited comparison "
@@ -441,7 +441,7 @@ tagged-PDF accessibility remediation.
 
 Polo-Gille `Expo14.pdf`, 36 pages, SHA-256
 `467F03717A06F85DB3C1CAFB1D35E8A1E07247372717B94CD6E19F1EB114FEA1`,
-controls. It is not redistributed. Floris's pre-existing GPU OCR was
+controls. It is not redistributed. user's pre-existing GPU OCR was
 consulted read-only as locator or drafting material and was not regenerated.
 Jacob C. Reinhold's `jcreinhold/sga` English lineage at commit
 `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` is credited comparison

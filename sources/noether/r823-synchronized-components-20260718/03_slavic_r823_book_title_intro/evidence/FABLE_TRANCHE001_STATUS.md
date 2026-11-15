@@ -4,7 +4,7 @@
 
 The executable authority is:
 
-`C:\Users\Floris\Documents\interlanguage\00_governance\FABLE_TRANCHE_001_EXECUTABLE_SPEC_20260710.md`
+`C:\Users\user\Documents\interlanguage\00_governance\FABLE_TRANCHE_001_EXECUTABLE_SPEC_20260710.md`
 
 It ordered a deliberately bounded Paper 06 pilot, not a whole-corpus rewrite:
 
@@ -13,13 +13,13 @@ It ordered a deliberately bounded Paper 06 pilot, not a whole-corpus rewrite:
 3. Protect TeX/math/comments, citations, URLs, labels/references, code-like material, and German titles.
 4. Regenerate Interslavic Cyrillic in the same run because Latin and Cyrillic are one language in two scripts.
 5. Compile and provide TeX, PDFs/logs, render check, terminology note, manifest, and acknowledgement.
-6. Do not apply lexeme switches. `jednočasno`, `odpovědati`, and `krok` belong to a separate Tranche 002 after Floris's sign-off. Do not touch held `ręd`, `jednako`, `važiti`, `slučaj`, or the ring family.
+6. Do not apply lexeme switches. `jednočasno`, `odpovědati`, and `krok` belong to a separate Tranche 002 after user's sign-off. Do not touch held `ręd`, `jednako`, `važiti`, `slučaj`, or the ring family.
 
 ## How it was already done
 
 The durable completion record is:
 
-`C:\Users\Floris\Documents\interlanguage\00_governance\WORK_LOG_20260716.md`
+`C:\Users\user\Documents\interlanguage\00_governance\WORK_LOG_20260716.md`
 
 Recorded result:
 
@@ -36,13 +36,13 @@ Recorded result:
 
 The working evidence remains at:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\interslavic_tranche_001_paper06`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\interslavic_tranche_001_paper06`
 
 Relevant machine-readable artifacts include `MANIFEST.csv`, `tranche_output/CHANGE_LEDGER.csv`, `tranche_output/ORTHOGRAPHY_SYNC_REPORT.json`, `tranche_output/BUILD_RESULTS.csv`, and `tranche_output/TRANCHE001.diff`.
 
 Fable's 2026-07-17 lane note explicitly assesses Tranche 001 as “WELL DONE — spec honored.” That note is evidence/review state, not a new directive:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\FABLE_FINDINGS_FOR_SLAVIC_NOETHER_LANE_20260717.md`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\FABLE_FINDINGS_FOR_SLAVIC_NOETHER_LANE_20260717.md`
 
 ## Effect on this R823 unit
 

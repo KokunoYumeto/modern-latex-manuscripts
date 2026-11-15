@@ -11,7 +11,7 @@
 - Producer boundary: translation and later mechanical compilation only. No source/scan, semantic, formula, terminology, translation-quality, visual, native/regional, approval, archive, publication, or certification checking.
 - Segment allocation: A = provisional-source lines 1--67; B = 68--128; C = 129--210.
 - Promotion rule: no source-synchronized claim, target assembly, build freeze, registry row, or checker handoff until the canon owner returns an exact path/hash/lineage/span receipt marked safe for translation.
-- SGA: held pending explicit Floris confirmation.
+- SGA: held pending explicit user confirmation.
 
 ## Supersession notice — 2026-08-04 04:04:24 +02:00
 

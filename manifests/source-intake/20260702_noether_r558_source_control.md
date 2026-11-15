@@ -5,7 +5,7 @@ Scope: local Noether German/source-control continuation after R557. This registe
 Former coherent local head, now superseded by R559:
 
 - `Noether_R558_LocalCodex_R557_P40p539_ZerfaellungskoerperReduction_SourceMathFix_20260702.zip`
-  - Local path: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R558_LocalCodex_R557_P40p539_ZerfaellungskoerperReduction_SourceMathFix_20260702.zip`
+  - Local path: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R558_LocalCodex_R557_P40p539_ZerfaellungskoerperReduction_SourceMathFix_20260702.zip`
   - Bytes: 195,364,274
   - ZIP entries: 361
   - SHA256: `893EAF440BBAA46EAB4D5FEFB26864077C162350B26B1510D524A33D11ABCDAA`

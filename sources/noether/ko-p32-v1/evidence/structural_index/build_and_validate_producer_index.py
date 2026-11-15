@@ -17,7 +17,7 @@ CSV = HERE / "PRODUCER_STRUCTURAL_INDEX.csv"
 REPORT = HERE / "PRODUCER_STRUCTURAL_INDEX_VALIDATION_REPORT.json"
 
 AUTHORITY_PATH = Path(
-    r"C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive"
+    r"C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive"
     r"\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current"
     r"\Noether_P16_IndependentSecondPass_20260722_cum_de.tex"
 )

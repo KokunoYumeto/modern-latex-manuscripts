@@ -34,4 +34,4 @@ Both targets completed two serial XeLaTeX passes with exit code `0`; each engine
 
 The producer did not perform source, semantic, formula, terminology, translation-quality, PDF, rendered visual, native, or regional checking. The persistent Chinese checker task `019fca9c-f549-7e71-a314-66f7265343ca` must recompile or otherwise validate the exact frozen files, freshly render every page, inspect them, and return a second sealed receipt before P35 can be accepted.
 
-SGA remains held until Floris explicitly routes it.
+SGA remains held until user explicitly routes it.

@@ -2106,7 +2106,7 @@ The framework paper now has a first measured result: F9. It is no longer merely 
 
 That is publishable as a method result because it arises from actual artifacts, not speculation. The current programme file already frames the thesis as a correspondence between the theory stack and the practice stack: ILO/recognizability, barycenter/voting machine, false-friend curation/FFRisk, controlled register where a standard exists, term promotion under corpus pressure, and script sidecars as orthographic transform layers. `UNION_TERM_SPINE_20260704.json` F9 gives that framework an empirical spine.
 
-The external-review caveat remains unchanged. The atlas states that accepted external review returns are zero and that current recognizability claims are editorial, not human-comprehension data. `ISLAND_ATLAS.md` The status file’s “review-interim = 3-AI triangulation + Floris” is acceptable as an internal construction phase, but it should never be called validation. `STATUS.md` The correct phrase is:
+The external-review caveat remains unchanged. The atlas states that accepted external review returns are zero and that current recognizability claims are editorial, not human-comprehension data. `ISLAND_ATLAS.md` The status file’s “review-interim = 3-AI triangulation + user” is acceptable as an internal construction phase, but it should never be called validation. `STATUS.md` The correct phrase is:
 
 > internal triangulation before external review.
 

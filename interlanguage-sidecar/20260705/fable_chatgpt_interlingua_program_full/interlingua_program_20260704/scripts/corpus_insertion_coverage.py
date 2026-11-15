@@ -1,4 +1,4 @@
-# Corpus-insertion coverage v0: the completeness metric Floris set.
+# Corpus-insertion coverage v0: the completeness metric user set.
 # Extract the FULL Interslavic corpus lexicon (all Latin-script translation TeX),
 # measure what fraction is covered by the current concept system (ledger + retrofit +
 # master table), and emit the frequency-ordered gap queue = the actual work list.
@@ -11,8 +11,8 @@ from pathlib import Path
 from collections import Counter
 
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
-T = Path(r"C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\translations")
-BASE = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+T = Path(r"C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\translations")
+BASE = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 
 WORD = re.compile(r"[a-zčďľŕàáâäåçèéěêíîïńňòóôöřśšťùúûüýžźđćęųő]+", re.IGNORECASE)
 TEXCMD = re.compile(r"\\begin\{[^}]*\}|\\end\{[^}]*\}|\\[a-zA-Z@]+\*?(\[[^\]]*\])?|\$[^$]*\$|%[^\n]*|\\[\[\](){}]|[{}~^_&]")
@@ -172,7 +172,7 @@ out = {
     json.dumps(out, ensure_ascii=False, indent=1), encoding="utf-8")
 
 md = ["# Corpus Insertion Coverage — v0 (the completeness metric)", "",
-      "2026-07-04. Floris's bar: the COMPLETE corpus, every word inserted and correctly weighted. This artifact defines and measures the distance. Mechanical v0 (stem-matched): treat numbers as estimates with stated biases.",
+      "2026-07-04. user's bar: the COMPLETE corpus, every word inserted and correctly weighted. This artifact defines and measures the distance. Mechanical v0 (stem-matched): treat numbers as estimates with stated biases.",
       "",
       f"- Corpus: {files} dedup Latin-script TeX files; lexicon {types:,} content types / {tokens:,} tokens (stoplist-filtered).",
       f"- **Type coverage: {out['type_coverage_pct']}%** ({cov_types:,}/{types:,}) · **Token coverage: {out['token_coverage_pct']}%** ({cov_tokens:,}/{tokens:,})",

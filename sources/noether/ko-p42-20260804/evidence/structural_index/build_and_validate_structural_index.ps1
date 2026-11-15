@@ -3,7 +3,7 @@ param()
 $ErrorActionPreference = 'Stop'
 $outputRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $koRoot = Join-Path $outputRoot 'ko'
-$sourcePath = 'C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper42_zh_translation_001_20260722\source\Noether_Paper42_CurrentGermanAuthority_interval.tex'
+$sourcePath = 'C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper42_zh_translation_001_20260722\source\Noether_Paper42_CurrentGermanAuthority_interval.tex'
 $sourceExpectedHash = 'B6BB3A6267BA8495FC19914A72768351E4923B13374634701AF3CBDE659883CC'
 $historicalWholeHash = '443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27'
 $utf8 = [System.Text.UTF8Encoding]::new($false)

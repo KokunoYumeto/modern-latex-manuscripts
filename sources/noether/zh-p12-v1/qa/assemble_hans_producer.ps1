@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-$workspace = 'C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722'
+$workspace = 'C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722'
 $inputs = @(
     (Join-Path $workspace 'segments\P12_STANDALONE_PREAMBLE.tex'),
     (Join-Path $workspace 'segments\zh-Hans-CN\P12_A_zh-Hans-CN.tex'),

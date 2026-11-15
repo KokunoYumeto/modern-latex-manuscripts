@@ -6,7 +6,7 @@ Snapshot: 2026-07-22 13:08:10 +02:00; documentation refresh: 2026-07-22 13:10:09
 
 ## Coordination prestate
 
-- Durable log: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md
+- Durable log: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md
 - Claim: ZH-D108.
 - Translation/build decision: ZH-D109.
 - Intended freeze: ZH-D110; not yet claimed to exist.
@@ -147,17 +147,17 @@ This is a draft outline, not an append-only decision.
 
 - **Recorded:** Fill from the local system clock at append time with honest precision to seconds.
 - **Work unit / authority / cursor:** Complete Noether Paper 11, Gleichungen mit vorgeschriebener Gruppe; authority pointer FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1; current German whole 443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27; exact lines 7865--8070, raw bytes [522014,547734), 25,720 bytes, SHA-256 DE540AFFE512CF39871019A946F7CEBA9FFF04ADFB54FA1D531E5A40ADA5CBA1; claim ZH-D108 and build ZH-D109.
-- **Choice:** Freeze the exact Hans/Hant producer artifacts and evidence/handoff hashes after a final live refresh; maximum state translated/built, independent check pending; apply Floris's exact boundary.
+- **Choice:** Freeze the exact Hans/Hant producer artifacts and evidence/handoff hashes after a final live refresh; maximum state translated/built, independent check pending; apply user's exact boundary.
 - **Alternatives considered / rejected:** Producer source/witness comparison, semantic/formula/terminology review, cross-segment harmonization, PDF opening/rendering, regional Hant localization, Japanese/Korean authority, source adjudication, approval/publication/archive/certification, and SGA.
 - **Evidence and hashes:** Bind the authority, source/witness snapshots and segments, Hans A/B/C and worker returns, assembly/build scripts and records, final Hans/Hant TeX/PDF/logs, protected-span/control-sequence facts, documentation, evidence pack, and handoff at the refreshed hashes.
 - **Motivation:** Close a bounded full-paper Chinese producer tranche reproducibly while keeping translation and independent checking in separate sessions.
-- **Epistemic labels:** Paths/cursors are source/project/file facts; hashes, bytes, passes, pages, warnings, span/control counts, and absence results are computations/operational facts; Chinese wording is editorial inference/model preference; Floris's boundary is external human instruction; no validation state is implied.
+- **Epistemic labels:** Paths/cursors are source/project/file facts; hashes, bytes, passes, pages, warnings, span/control counts, and absence results are computations/operational facts; Chinese wording is editorial inference/model preference; user's boundary is external human instruction; no validation state is implied.
 - **Uncertainty / adverse evidence:** No source/witness audit or cross-segment harmonization; terminology divergence is known; clean compilation can coexist with source mismatch, mistranslation, formula error, or layout defect; two font-warning lines per final target remain visually uninspected; Hant inherits Hans wording and is nonregional.
 - **Source-defect disposition:** No producer defect claim or adjudication. A precise independent-checker finding must be deduplicated, then routed so 4 -nterslav sees it; producer must not adjudicate or duplicate-route.
 - **Consequences:** P11 becomes producer-frozen and ready only for separate checking; no approval/publication/archive/certification; final target hashes supersede no substantive validation; SGA stays held.
 - **Changed artifacts / actions:** At actual freeze only: append ZH-D110, add exactly one 8-column registry row, and transport the current handoff to the existing manager after final hash refresh. Do not alter source, witness, translation targets, other languages, archive/publication records, or SGA.
 - **Supersession / review:** Advance ZH-D108/ZH-D109 through producer freeze only; external checker results remain authoritative for later review.
-- **Next cursor / revisit:** After freeze and transport, refresh authority/collision state and claim another non-overlapping Noether gap. Do not reopen P11 absent checker return or authority change. Do not begin SGA without explicit Floris confirmation.
+- **Next cursor / revisit:** After freeze and transport, refresh authority/collision state and claim another non-overlapping Noether gap. Do not reopen P11 absent checker return or authority change. Do not begin SGA without explicit user confirmation.
 
 ## Self-reference
 

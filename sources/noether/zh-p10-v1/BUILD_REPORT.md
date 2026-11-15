@@ -4,7 +4,7 @@
 
 This report records mechanical assembly, conversion, compilation, hashes, and compiler-reported page/warning counts. It does not claim source, semantic, formula-content, terminology, translation-quality, visual, regional, human, external, archive, publication, or certification validation.
 
-Floris's exact boundary applies:
+user's exact boundary applies:
 
 > you do not check - you translate - other sessions CHEWCK
 

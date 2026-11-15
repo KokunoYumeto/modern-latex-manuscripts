@@ -58,9 +58,9 @@ TEXT_SUFFIXES = {
     ".txt",
 }
 PRIVATE_PATTERNS = (
-    b"C:\\Users\\Floris",
-    b"C:/Users/Floris",
-    b"C:\\\\Users\\\\Floris",
+    b"C:\\Users\\user",
+    b"C:/Users/user",
+    b"C:\\\\Users\\\\user",
     b"C:\\IL_GitHub",
     b"C:/IL_GitHub",
     b"Papors\\",

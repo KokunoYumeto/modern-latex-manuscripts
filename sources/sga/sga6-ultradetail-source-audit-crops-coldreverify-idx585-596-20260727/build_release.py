@@ -85,7 +85,7 @@ PRIVATE_MARKERS = (
     "c:/users/",
     "\\appdata\\",
     "/appdata/",
-    "floris",
+    "user",
     "chatnotes",
     ".claude",
     "source_thread_id",
@@ -145,7 +145,7 @@ def privacy_hits(values: list[str]) -> list[str]:
 
 
 def sanitize_public_text(value: str) -> str:
-    value = re.sub(r"(?i)\bfloris\b", "[archive owner]", value)
+    value = re.sub(r"(?i)\buser\b", "[archive owner]", value)
     value = re.sub(r"(?i)\b(?:claude|codex)\b", "[agent]", value)
     value = re.sub(
         r"(?i)\b[a-z]:\\(?:[^\\\s,;)\]]+\\)*[^,\r\n;)\]]*",

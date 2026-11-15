@@ -54,4 +54,4 @@ Exact findings, alternatives, uncertainty, evidence, and checker validation stat
 
 These files are corrected producer outputs, not accepted translations. The producer performed no source-fidelity, semantic, formula, terminology, translation-quality, visual, native-speaker, or regional-localization check. The persistent Chinese checker must independently recheck the exact frozen revision, freshly render and inspect every page, and issue a second sealed return.
 
-Japanese and Korean forms were not consulted and do not authorize Chinese. `zh-Hans-SG`, `zh-Hant-TW`, `zh-Hant-HK`, and `zh-Hant-MO` remain absent. Human/community certification, archive intake, and publication intake remain absent. SGA remains held pending explicit Floris authorization.
+Japanese and Korean forms were not consulted and do not authorize Chinese. `zh-Hans-SG`, `zh-Hant-TW`, `zh-Hant-HK`, and `zh-Hant-MO` remain absent. Human/community certification, archive intake, and publication intake remain absent. SGA remains held pending explicit user authorization.

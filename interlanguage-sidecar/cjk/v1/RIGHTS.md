@@ -8,4 +8,4 @@ The release does not redistribute the inspected translation corpora, national st
 
 The pinned CMap files discussed in the evidence are not bundled in this release; only their factual identities are recorded.
 
-Direction: Floris. Research synthesis and implementation: OpenAI Codex, GPT-5.6 Sol in Ultra mode. No human, community, standards-body, or external certification is claimed.
+Direction: user. Research synthesis and implementation: OpenAI Codex, GPT-5.6 Sol in Ultra mode. No human, community, standards-body, or external certification is claimed.

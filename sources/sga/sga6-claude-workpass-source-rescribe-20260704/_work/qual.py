@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import fitz
-doc=fitz.open(r"C:\Users\Floris\Documents\Papors\OS\sga6.pdf")
+doc=fitz.open(r"C:\Users\user\Documents\Papors\OS\sga6.pdf")
 print("pages", doc.page_count)
 for idx in (35,196,306):
     page=doc[idx]; imgs=page.get_images(full=True)

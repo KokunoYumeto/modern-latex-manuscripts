@@ -6,11 +6,11 @@ This package is the Chinese producer rendition of complete Noether Paper 36 from
 
 The routed current-authority pointer is:
 
-`C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md`
+`C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md`
 
 Its SHA-256 is `FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1`. The routed current German whole is:
 
-`C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex`
+`C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex`
 
 Its SHA-256 is `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`. The stale shared R821 pointer was not used.
 
@@ -29,7 +29,7 @@ Any terminology or wording in this package remains a producer editorial choice p
 
 ## Role boundary
 
-Floris's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
+user's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
 
 This producer translates and may perform only mechanical TeX assembly and compilation. It does **not** perform or claim:
 
@@ -42,4 +42,4 @@ This producer translates and may perform only mechanical TeX assembly and compil
 
 If an independent checker identifies a precise possible Noether source defect, that checker must deduplicate it and ensure that `4 -nterslav` sees it. This producer does not adjudicate or duplicate-route source-defect claims.
 
-SGA remains held pending explicit Floris confirmation. No SGA work is authorized by this package.
+SGA remains held pending explicit user confirmation. No SGA work is authorized by this package.

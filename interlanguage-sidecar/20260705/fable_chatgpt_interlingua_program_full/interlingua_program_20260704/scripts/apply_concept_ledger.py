@@ -9,7 +9,7 @@ import unicodedata
 from pathlib import Path
 from collections import defaultdict
 
-OUT = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+OUT = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 seed = json.loads((OUT / "data" / "concept_ledger_seed.json").read_text(encoding="utf-8"))
 retro = json.loads((OUT / "INTERSLAVIC_LEDGER_RETROFIT_20260704.json").read_text(encoding="utf-8"))
 audit = {a["term_id"]: a for a in json.loads(

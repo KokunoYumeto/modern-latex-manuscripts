@@ -9,7 +9,7 @@ import re
 from pathlib import Path
 from collections import Counter, defaultdict
 
-OUT = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+OUT = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
 SLAVIC = OUT / "slavic_term_dataset_20260704.json"
 LOGBOOK = OUT / "interslavic_term_decisions_20260704.json"
 

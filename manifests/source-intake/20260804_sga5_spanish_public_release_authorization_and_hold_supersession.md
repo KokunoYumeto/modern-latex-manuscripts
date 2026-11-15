@@ -6,7 +6,7 @@ Archive object: complete Spanish working translation of the contents published i
 
 ## Controlling disposition
 
-Floris explicitly directed archive maintenance to preserve and publish the complete mathematical checkpoint immediately. A possible-rights hold is not an authorized archive disposition for this or future mathematical work. Rights or licensing uncertainty may be described accurately in metadata, but it must not suppress preservation or public release.
+user explicitly directed archive maintenance to preserve and publish the complete mathematical checkpoint immediately. A possible-rights hold is not an authorized archive disposition for this or future mathematical work. Rights or licensing uncertainty may be described accurately in metadata, but it must not suppress preservation or public release.
 
 If an actual rightsholder later sends a concrete takedown demand, archive maintenance must preserve the exact private custody bytes and immutable publication history, record the demand and response append-only, and address that concrete demand then. It must not anticipate such a demand by deleting, omitting, or withholding the mathematics.
 

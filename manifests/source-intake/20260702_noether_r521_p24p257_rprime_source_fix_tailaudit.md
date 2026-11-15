@@ -1,7 +1,7 @@
 # Noether R521 - Paper 24 p257 R-prime Source Fix and Tail Audit
 
 Local ZIP:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R521_LocalCodex_R520_P24p257_Rprime_SourceFix_TailAudit_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R521_LocalCodex_R520_P24p257_Rprime_SourceFix_TailAudit_20260702.zip`
 
 ZIP metrics:
 

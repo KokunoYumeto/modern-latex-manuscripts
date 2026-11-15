@@ -17,12 +17,12 @@ from pypdf import PdfReader
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SGA3_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects"
+    r"C:\Users\user\Documents\interlanguage\03_projects"
     r"\language_management\english_germanic\03_working_translations"
     r"\sga3_english_full_volume_native_cumulative_reader_clean_r25_20260730"
 )
 SGA4_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects"
+    r"C:\Users\user\Documents\interlanguage\03_projects"
     r"\language_management\english_germanic\03_working_translations"
     r"\sga4_english_reader_clean_r8_20260730"
 )
@@ -118,8 +118,8 @@ def make_source_zip(
     if len(clean) != len(members):
         raise RuntimeError("Duplicate normalized ZIP member")
     privacy_patterns = (
-        rb"C:\\Users\\Floris",
-        rb"C:/Users/Floris",
+        rb"C:\\Users\\user",
+        rb"C:/Users/user",
         rb"C:\\IL_GitHub",
         rb"thread[_ -]?id",
         rb"\.codex",
@@ -407,8 +407,8 @@ def write_text(path: Path, text: str) -> bytes:
 
 def verify_no_private_paths(package: Path) -> None:
     patterns = (
-        rb"C:\\Users\\Floris",
-        rb"C:/Users/Floris",
+        rb"C:\\Users\\user",
+        rb"C:/Users/user",
         rb"C:\\IL_GitHub",
         rb"thread[_ -]?id",
         rb"\.codex",

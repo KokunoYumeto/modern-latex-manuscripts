@@ -4,7 +4,7 @@ import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const root = path.dirname(fileURLToPath(import.meta.url));
-const authority = "C:\\Users\\Floris\\Documents\\interlanguage\\03_projects\\noether\\07_german_canon_control\\candidates\\ED0002\\noether.tex";
+const authority = "C:\\Users\\user\\Documents\\interlanguage\\03_projects\\noether\\07_german_canon_control\\candidates\\ED0002\\noether.tex";
 const authoritySha = "C9A125167ACB33D914EE4374B65AE7CDF0052F568371B8B77B720EA178ABF0E3";
 const sha = (bytes) => crypto.createHash("sha256").update(bytes).digest("hex").toUpperCase();
 const raw = fs.readFileSync(authority);

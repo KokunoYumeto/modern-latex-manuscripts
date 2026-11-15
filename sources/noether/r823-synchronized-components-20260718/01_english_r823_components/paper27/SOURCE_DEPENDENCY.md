@@ -68,7 +68,7 @@ limited purpose.
 
 Current R823 cumulative German authority:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
 
 - full SHA-256:
   `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`;
@@ -80,7 +80,7 @@ Current R823 cumulative German authority:
 
 Original printed page:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R639_LocalCodex_P27P28_SourceAudit_NoPatch_20260703\1\02_source\P27_P28_GDZ_JDMV34_1925\P27_correct_source_p101_canvas000358_fullres_600ppi.jpg`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R639_LocalCodex_P27P28_SourceAudit_NoPatch_20260703\1\02_source\P27_P28_GDZ_JDMV34_1925\P27_correct_source_p101_canvas000358_fullres_600ppi.jpg`
 
 - SHA-256:
   `B00824115997D651F5EAB48420D05E6E0E6D7DF0AAC2CCD69E0836B033BFD8EC`;
@@ -92,7 +92,7 @@ Original printed page:
 
 R639 source audit:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R639_LocalCodex_P27P28_SourceAudit_NoPatch_20260703`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R639_LocalCodex_P27P28_SourceAudit_NoPatch_20260703`
 
 - README SHA-256:
   `E78235F331556F0080357BC47E56068D0CC5CAF2A1454BFFB9EBD784080147B8`;
@@ -109,7 +109,7 @@ R639 source audit:
 
 R300 opening-dash audit:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R300_LocalCodex_R299_P27Dash_SourceRegressionFix_20260630`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R300_LocalCodex_R299_P27Dash_SourceRegressionFix_20260630`
 
 - exact dash diff SHA-256:
   `72B7E4D8260E4F7A3A7BC10CCA70A1513D530558FB556F54015E6B2E989B8542`;

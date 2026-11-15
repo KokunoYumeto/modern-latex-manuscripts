@@ -1,6 +1,6 @@
 $ErrorActionPreference = 'Stop'
 
-$workspace = 'C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722'
+$workspace = 'C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper12_zh_translation_001_20260722'
 $targetDir = Join-Path $workspace 'zh-Hans-CN'
 $texName = 'Noether_Paper12_Chinese_CurrentAuthority_zh-Hans-CN_v001.tex'
 $texPath = Join-Path $targetDir $texName

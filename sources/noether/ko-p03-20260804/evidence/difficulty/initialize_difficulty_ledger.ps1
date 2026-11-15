@@ -3,11 +3,11 @@ $jsonlPath = Join-Path $PSScriptRoot 'difficulty_ledger.jsonl'
 $csvPath = Join-Path $PSScriptRoot 'difficulty_ledger.csv'
 if ((Test-Path -LiteralPath $jsonlPath) -or (Test-Path -LiteralPath $csvPath)) { throw 'Append-only Paper 3 difficulty ledger already exists.' }
 
-$authorityPath = 'C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/NOETH-DE-ED-0001/Noether_German_NOETH-DE-ED-0001.tex'
+$authorityPath = 'C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/NOETH-DE-ED-0001/Noether_German_NOETH-DE-ED-0001.tex'
 $authoritySha = 'D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB'
-$choicesPath = 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/TRANSLATION_CHOICES_U01_U03.md'
+$choicesPath = 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/TRANSLATION_CHOICES_U01_U03.md'
 $choicesSha = '3299C07345D907C6FA387EBB2B18A7E656EF95A6181F4D38EC07EED402ED4AB3'
-$targetRoot = 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/targets'
+$targetRoot = 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/targets'
 $unitSourceHashes = [ordered]@{U01='DF50EAD7065F663901F51ADFCA37A138921063362CA449665D37B855921B496C';U02='A7B7CA981F7B8D6B32171BF0709E27440A25B2754642BD095304E54A5A25D5C6';U03='0D110465AEE20E18EE1427577D33D435FCF97D5CA99BEF3878EF52DC341F01A5'}
 $targetHashes = [ordered]@{U01='057D6EAECAAB02C4D19C6908276C11E32953748726BD36B628712AB5C5E78ECB';U02='A2A9F68B55C15EEFEAE178B4F24CB5D56222E563F6B5A126F46D1AA75BEA38B1';U03='7942126177C707C89F67444BE020F90F2139C0C5036A153297C0A7F83119F4B4'}
 

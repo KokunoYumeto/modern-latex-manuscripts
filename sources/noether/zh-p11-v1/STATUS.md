@@ -4,7 +4,7 @@ Snapshot: 2026-07-22 13:06:06 +02:00.
 
 ## Boundary and state
 
-Floris’s exact boundary:
+user’s exact boundary:
 
 > you do not check - you translate - other sessions CHEWCK
 

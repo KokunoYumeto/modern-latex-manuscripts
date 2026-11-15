@@ -12,4 +12,4 @@ This is exact translation-input custody, not source checking.
 - The project brief says Paper 36 is currently exact; this producer does not treat that statement as independent validation.
 - The stale shared R821 pointer was not used.
 
-Floris: `you do not check - you translate - other sessions CHEWCK`. This producer translates and compiles mechanically only. Any independent checker-discovered source defect must be deduplicated before ensuring that `4 -nterslav` sees it. Decision anchor: `ZH-D089`.
+user: `you do not check - you translate - other sessions CHEWCK`. This producer translates and compiles mechanically only. Any independent checker-discovered source defect must be deduplicated before ensuring that `4 -nterslav` sees it. Decision anchor: `ZH-D089`.

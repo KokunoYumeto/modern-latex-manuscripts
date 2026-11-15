@@ -5,8 +5,8 @@ from pathlib import Path
 import jsonschema
 
 ROOT = Path(__file__).resolve().parents[1]
-SCHEMA = Path(r"C:\Users\Floris\Documents\interlanguage\01_methodology\research_department\OPERATIONAL_DECISION_INTERFACE.schema.json")
-AUTHORITY = Path(r"C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_LocalCodex_20260718_P31_FullPaperCanonicalReaudit_WEB_DROP\1\01_current\cum_de_Local_20260718_P31.tex")
+SCHEMA = Path(r"C:\Users\user\Documents\interlanguage\01_methodology\research_department\OPERATIONAL_DECISION_INTERFACE.schema.json")
+AUTHORITY = Path(r"C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_LocalCodex_20260718_P31_FullPaperCanonicalReaudit_WEB_DROP\1\01_current\cum_de_Local_20260718_P31.tex")
 EXPECTED_AUTHORITY = "A48CB5CD1716974B686AC1CBA681CA4B17BC72F9043B78AD2528ACA41FCF814F"
 FILES = {
     "source_exact": ROOT / "source/Noether_Paper23_German_P31_Sealed_exact_slice.tex",

@@ -4,7 +4,7 @@
 
 The translation is based directly on the current R823 German cumulative source, lines 18600–18610:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
 
 The exact standalone wrapper copied into this package has SHA-256:
 
@@ -24,9 +24,9 @@ The prior source-closure account is recorded in the CJK manager's `SOURCE_USE.md
 
 The primary terminology candidates come from:
 
-- `C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260629T040330Z_malay_indonesian_official_terminology_higher_algebra_expansion\extracted_text\indonesia_glosarium_matematika_1993_wikimedia_mirror.txt`
-- `C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260629T040330Z_malay_indonesian_official_terminology_higher_algebra_expansion\extracted_text\indonesia_glosarium_matematika_2008_wikimedia_mirror.txt`
-- `C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260629T023522Z_r7_east_southeast_asia_pacific_closure\malay_indonesian_alignment\extracted_text\uin_alauddin_struktur_aljabar_teori_ring.txt`
+- `C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260629T040330Z_malay_indonesian_official_terminology_higher_algebra_expansion\extracted_text\indonesia_glosarium_matematika_1993_wikimedia_mirror.txt`
+- `C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260629T040330Z_malay_indonesian_official_terminology_higher_algebra_expansion\extracted_text\indonesia_glosarium_matematika_2008_wikimedia_mirror.txt`
+- `C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260629T023522Z_r7_east_southeast_asia_pacific_closure\malay_indonesian_alignment\extracted_text\uin_alauddin_struktur_aljabar_teori_ring.txt`
 
 The glossary mirrors supply exact lexical/string matches for `medan bilangan aljabar`, historical `hasil-bagi diferensial`, `pendiferensialan`, `ideal`, `perampatan`, and `rumus interpolasi Lagrange`. The translation normalizes the historical hyphen in `hasil-bagi` to current spacing, `hasil bagi`. These string matches are candidate evidence, not proof that the source uses each term in the exact Noether sense. The UIN ring-theory text supplies native Indonesian prose attestations of `ideal`, `teorema`, and proof-register language.
 

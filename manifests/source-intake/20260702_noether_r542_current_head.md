@@ -13,7 +13,7 @@ It carries forward the R531 tail/Kapferer repairs, R532/R533 support and Web R28
 ## Registered Package
 
 - `40_R542_P40P522_UEBERGANG_FOLGERUNG_SOURCEFIX.zip`
-  - local source: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R542_P40P522_UEBERGANG_FOLGERUNG_SOURCEFIX.zip`
+  - local source: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_SecondWebProject_Intake_20260701\40_R542_P40P522_UEBERGANG_FOLGERUNG_SOURCEFIX.zip`
   - bytes: 65,688,674
   - SHA256: `8191D7938C907A8A0452D621F9F30CD94D6000163ECA05B3D14B4DE56CF3FA05`
 

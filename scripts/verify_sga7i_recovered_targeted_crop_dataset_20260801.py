@@ -17,9 +17,9 @@ from PIL import Image
 
 
 PRIVATE_PATTERNS = (
-    re.compile(r"(?i)[A-Z]:[\\/]+Users[\\/]+Floris"),
+    re.compile(r"(?i)[A-Z]:[\\/]+Users[\\/]+user"),
     re.compile(r"(?i)AppData[\\/]+Local[\\/]+Temp"),
-    re.compile(r"(?i)C--Users-Floris"),
+    re.compile(r"(?i)C--Users-user"),
     re.compile(r"(?i)[A-Z]:[\\/]+w[\\/]"),
 )
 IMAGE_SUFFIXES = {".png", ".jpg", ".jpeg", ".tif", ".tiff", ".jpx", ".pnm"}

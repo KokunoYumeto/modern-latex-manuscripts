@@ -112,7 +112,7 @@ Exact machine receipts:
 - `../published-github/20260728_sga3_full_volume_working_reader_package_commit_ed1448ccf_zip_member_readback.json`
 
 The component-specific Polo-Gille authority PDFs are not redistributed.
-Floris's pre-existing GPU OCR is read-only locator/drafting evidence and was
+user's pre-existing GPU OCR is read-only locator/drafting evidence and was
 not regenerated. Jacob C. Reinhold's `jcreinhold/sga` English lineage at
 revision `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` is credited comparison
 material, not authority; its stated CC BY 4.0 applies only to that

@@ -2,7 +2,7 @@
 
 This folder preserves the local Claude-generated SGA5 errata, completeness, audit, method, and workpass ledgers from:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
 
 It is included as source-audit/provenance material for the SGA record and the GitHub mirror. It is not, by itself, a promoted reader release or a public certification claim.
 

@@ -11,11 +11,11 @@ and source-audit work.
 
 Local folder:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v3`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v3`
 
 Upload folder:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v3\01_UPLOAD_THESE_ZIPS`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v3\01_UPLOAD_THESE_ZIPS`
 
 Upload order:
 
@@ -45,11 +45,11 @@ files.
 
 Local folder:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629_v3`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629_v3`
 
 Upload folder:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629_v3\01_UPLOAD_THESE_ZIPS`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629_v3\01_UPLOAD_THESE_ZIPS`
 
 Upload order:
 
@@ -85,12 +85,12 @@ The following local folders are retained only as construction/provenance
 workspaces. They should not be fed to web sessions or treated as missing public
 packets while the v3 upload folders above exist:
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_CONTINUATION_STAGING_20260629`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v2`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_CONTINUATION_STAGING_20260629`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629_v2`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_CONTINUATION_STAGING_20260629`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v2`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_CONTINUATION_STAGING_20260629`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Dirichlet\Dirichlet_PRO_SOURCE_WORK_CONTINUATION_20260629_v2`
 
 Reason: those folders were intermediate split/packaging attempts. The v3
 folders are the current source-heavy continuation kits because they have the

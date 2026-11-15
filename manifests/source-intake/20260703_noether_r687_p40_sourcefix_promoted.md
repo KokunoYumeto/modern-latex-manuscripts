@@ -4,7 +4,7 @@ Date: 2026-07-03
 
 Local path:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R687_P40_DirectArticleSourceAudit_work\Noether_R687_LocalCodex_P40_DirectArticleSourceAudit_SourceFix_20260703`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R687_P40_DirectArticleSourceAudit_work\Noether_R687_LocalCodex_P40_DirectArticleSourceAudit_SourceFix_20260703`
 
 ## Scope
 

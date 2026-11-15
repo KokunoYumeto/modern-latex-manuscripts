@@ -2,19 +2,19 @@
 
 ## Boundary and state
 
-Floris's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
+user's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
 
 This package is complete only as a Chinese producer translation and mechanical build. It is not source-checked, semantically checked, formula-checked, terminology-checked, translation-quality checked, visually inspected, regionally localized, approved, archive-ready, publication-ready, or certified. Every such state remains pending with separate sessions.
 
 - Work unit: complete Noether Paper 12, *Invarianten beliebiger Differentialausdrücke*.
 - Producer state: `translated/built; independent check pending`.
-- Active scope: Noether only. SGA remains held until Floris explicitly confirms routing.
-- Durable lane log: `C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.
+- Active scope: Noether only. SGA remains held until user explicitly confirms routing.
+- Durable lane log: `C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.
 - Relevant decisions at handoff preparation: `ZH-D100` claim and `ZH-D101` compilation/script-transport repairs. Exact freeze is to be appended as `ZH-D102`; this document does not claim that append occurred before it did.
 
 ## Source and witness custody
 
-- Current German authority: `C:/Users/Floris/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex`.
+- Current German authority: `C:/Users/user/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex`.
 - Whole authority SHA-256: `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`.
 - Exact P12 interval: lines 8071--8471; raw UTF-8 bytes `[547734,566458)`; 18,724 bytes; SHA-256 `CD538526814F2E5812FE1D8C03ACF2BBDB0FED7F45ECC7DE5802394B07E05652`.
 - Exact local source snapshot: `source/P12_CurrentGerman_lines8071_8471.tex`, same SHA-256.

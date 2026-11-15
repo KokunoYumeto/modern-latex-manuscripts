@@ -7,7 +7,7 @@ const errors = [];
 const route = JSON.parse(await readFile(new URL('route.json', root), 'utf8'));
 const manifest = JSON.parse(await readFile(new URL('manifest.json', root), 'utf8'));
 const allUnits = [...route.tranche.units, ...route.tranche2.units, ...route.tranche3.units, ...route.tranche4.units, ...route.tranche5.units, ...route.tranche6.units, ...route.tranche7.units];
-const authorityRaw = await readFile('C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/ED0002/noether.tex');
+const authorityRaw = await readFile('C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/ED0002/noether.tex');
 const lines = authorityRaw.toString('utf8').replaceAll('\r\n', '\n').split('\n');
 const lineBytes = (start, end) => Buffer.from(`${lines.slice(start - 1, end).join('\n')}\n`, 'utf8');
 const targetMap = new Map();

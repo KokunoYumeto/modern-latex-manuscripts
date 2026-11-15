@@ -2,7 +2,7 @@
 
 Control date: 2026-08-04
 
-Authority: direct standing instruction from Floris to archive maintenance.
+Authority: direct standing instruction from user to archive maintenance.
 
 ## Controlling rule
 
@@ -16,7 +16,7 @@ Canonical mathematical material is especially scarce in Spanish and many other l
 
 ## Japanese-rightsholder exception
 
-The only category Floris directs archive maintenance to treat with special copyright caution is material actually copyrighted by Japanese rightsholders. Japanese language alone does not trigger the exception: a translation into Japanese is not held merely because it is Japanese-language text. Floris states that the current Japanese archive work uses public-domain underlying material.
+The only category user directs archive maintenance to treat with special copyright caution is material actually copyrighted by Japanese rightsholders. Japanese language alone does not trigger the exception: a translation into Japanese is not held merely because it is Japanese-language text. user states that the current Japanese archive work uses public-domain underlying material.
 
 When a future object is actually controlled by a Japanese rightsholder, perform a bounded, specific rights check without converting the rest of the corpus into a release hold. Do not infer Japanese ownership from script, language, translator, or audience.
 

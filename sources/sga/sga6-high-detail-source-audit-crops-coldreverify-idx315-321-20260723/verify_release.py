@@ -15,7 +15,7 @@ from pathlib import Path
 FORMULA_PREFIXES = ("=", "+", "-", "@")
 PRIVATE_MARKERS = (
     "c:\\users\\",
-    "floris",
+    "user",
     "chatnotes",
     "claude",
     "codex",

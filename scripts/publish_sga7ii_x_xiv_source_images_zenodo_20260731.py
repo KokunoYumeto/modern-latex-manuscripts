@@ -67,7 +67,7 @@ SOURCE_ZIP_NAME = (
     "Reader_Source_and_WIP_20260731.zip"
 )
 IMAGE_ZIP_NAME = "10h_SGA7II_SourceAudit_Number12_HighDetail_Crops_20260731.zip"
-TEMP_UPLOADS = Path(os.environ.get("TEMP", r"C:\Users\Floris\AppData\Local\Temp"))
+TEMP_UPLOADS = Path(os.environ.get("TEMP", r"C:\Users\user\AppData\Local\Temp"))
 LOCAL_UPLOADS = {
     PDF_NAME: PACKAGE_ROOT
     / "reader/SGA7II_French_Source_Transcription_Working_X-XIV_20260731.pdf",

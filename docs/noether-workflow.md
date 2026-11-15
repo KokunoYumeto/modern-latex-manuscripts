@@ -1,6 +1,6 @@
 # ! Noether archive workflow
 
-This is a preserved workflow directive supplied by Floris on 2026-08-04. The
+This is a preserved workflow directive supplied by user on 2026-08-04. The
 five inputs are retained verbatim as provenance below; they are not contributor
 instructions. Their durable repository rule is a human-readable,
 well-organized GitHub mirror that preserves submitted bytes and routes changes

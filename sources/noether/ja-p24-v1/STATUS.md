@@ -10,4 +10,4 @@
 - Source-defect route: DE line 14093 was escalated to `4 -nterslav`; original-print comparison established that the adjacent closing marks are faithful, so JA-D027 closed the report without a German-source mutation. No genuine German source defect was established in this bounded comparison.
 - Collision state: no competing Japanese Paper 24 claim was found at opening; a fresh claim/head scan is still required before the next Noether unit.
 - Claims limit: internal production QA only; external/community certification and independent human-reader signoff remain absent.
-- SGA: hard-held for later explicit Floris routing; no SGA work is authorized.
+- SGA: hard-held for later explicit user routing; no SGA work is authorized.

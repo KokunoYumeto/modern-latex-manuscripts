@@ -2,8 +2,8 @@
 
 ## Exact producer return
 
-- Output root: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper01_ko_translation_001_20260804`.
-- German snapshot: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper01_zh_translation_001_20260722\source\Noether_Paper01_CurrentGermanAuthority_interval.tex`.
+- Output root: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper01_ko_translation_001_20260804`.
+- German snapshot: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper01_zh_translation_001_20260722\source\Noether_Paper01_CurrentGermanAuthority_interval.tex`.
 - German snapshot: 8,082 bytes; SHA-256 `0499985866E646747EC31533775FF31B55556F2C694F4C2608384829DE248D2F`.
 - Historical whole-source coordinates: lines 381--460 / bytes `[12505,20587)`; historical whole SHA-256 `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`.
 - Present current-pointer lineage: pending from canon task `019fca5c-0e73-7c72-92fb-5b507b710598`; no defect claim.

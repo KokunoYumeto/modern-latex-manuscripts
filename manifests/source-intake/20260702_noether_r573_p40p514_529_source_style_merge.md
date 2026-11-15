@@ -3,7 +3,7 @@
 Date: 2026-07-02
 
 Local package:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R573_LocalCodex_R572_WebB_R559_P40p514_529_SourceStyleMerge_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R573_LocalCodex_R572_WebB_R559_P40p514_529_SourceStyleMerge_20260702.zip`
 
 R573 is the current packaged local TeX-changing German source-control head. It promotes WebB R559 source-backed Paper 40 printed/source pp514-529 repairs onto R572: heading style, footnote markers, run-in item labels, emphasis, and section-reference fixes.
 

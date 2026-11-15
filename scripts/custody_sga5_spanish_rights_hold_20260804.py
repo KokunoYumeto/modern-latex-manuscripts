@@ -21,21 +21,21 @@ from pathlib import Path, PurePosixPath
 
 
 SOURCE_ZIP = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\romance\05_sga5_spanish_20260717\SGA5_ES_WORKPASS\output\release"
     r"\SGA5_ES_376U_326P_91A644AB_2B69F774.zip"
 )
 EXPANDED_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\romance\05_sga5_spanish_20260717\SGA5_ES_WORKPASS\output\release"
     r"\SGA5_ES_376U_326P_91A644AB_2B69F774"
 )
 EXTERNAL_GATE = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\romance\05_sga5_spanish_20260717\SGA5_ES_WORKPASS\evidence\FINAL_GATE.json"
 )
 DEST_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\romance\90_logs\private_archive_custody"
     r"\SGA5_ES_COMPLETE_RIGHTS_HOLD_20260804_r1"
 )
@@ -61,7 +61,7 @@ PRIVATE_PATTERNS = {
     "windows_user_root": re.compile(rb"(?i)[A-Z]:[\\/]+Users[\\/]+"),
     "windows_profile_artifact": re.compile(rb"(?i)(?:AppData|\\.codex|\\.gemini)(?:[\\/]|$)"),
     "posix_user_root": re.compile(rb"(?i)/(?:home|Users|private)/[^/\s]+/"),
-    "named_operator": re.compile(rb"(?i)Floris"),
+    "named_operator": re.compile(rb"(?i)user"),
     "email": re.compile(rb"(?i)[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}"),
 }
 BROAD_COLON_BACKSLASH = re.compile(r"[A-Za-z]:\\[A-Za-z@]+")

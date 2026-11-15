@@ -2,7 +2,7 @@
 
 Date registered: 2026-07-01
 
-Local file: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R484_LocalCodex_R483_P29_P30_SourceQualitySurvival_NoPatch_20260701.zip`
+Local file: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R484_LocalCodex_R483_P29_P30_SourceQualitySurvival_NoPatch_20260701.zip`
 
 Classification: local Noether source-quality/survival support packet. This is not a new reader release, not a TeX-changing patch, not a new cumulative head, not a source-complete certification, and not critical-edition material.
 

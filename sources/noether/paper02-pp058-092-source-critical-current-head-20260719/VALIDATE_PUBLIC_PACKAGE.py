@@ -3,7 +3,7 @@ import csv, hashlib, json, re, sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-PRIVATE = re.compile(r"(?i)(?:[A-Z]:[\\/]Users[\\/]|Users[\\/]Floris|C:[\\/]IL_GitHub|C:[\\/]tmp|/home/[^/\s]+|\bFloris\b|\bCodex\b|\bClaude\b|archive-maintenance|1\s+zenodo/github|019f[0-9a-f]{4}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12})")
+PRIVATE = re.compile(r"(?i)(?:[A-Z]:[\\/]Users[\\/]|Users[\\/]user|C:[\\/]IL_GitHub|C:[\\/]tmp|/home/[^/\s]+|\buser\b|\bCodex\b|\bClaude\b|archive-maintenance|1\s+zenodo/github|019f[0-9a-f]{4}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12})")
 
 def digest(path):
     h=hashlib.sha256()

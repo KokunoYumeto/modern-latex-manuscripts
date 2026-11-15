@@ -3,7 +3,7 @@
 Date registered: 2026-07-01
 
 Local Noether root:
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual`
 
 ## R493
 

@@ -2,7 +2,7 @@
 
 Local path:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R688_P24_NormSeparator_Audit_work\Noether_R688_LocalCodex_P24_NormSeparator_SourceFix_20260703`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R688_P24_NormSeparator_Audit_work\Noether_R688_LocalCodex_P24_NormSeparator_SourceFix_20260703`
 
 ## Status
 

@@ -2,7 +2,7 @@
 
 Date: 2026-07-17. This is the current corpus/branch successor record. It preserves v2–v5 as historical snapshots; v5 is the pre-2024-Rumantsch snapshot and must not be quoted for current counts. This document is **not** the top-level acceptance gate, does not assert comprehensive Romance coverage, and does not assert that every active standard has a specialist-algebra body.
 
-Project root: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\romance\03_redo_ultra_20260717`.
+Project root: `C:\Users\user\Documents\interlanguage\03_projects\language_management\romance\03_redo_ultra_20260717`.
 
 ## Reproducible consolidated corpus v3
 

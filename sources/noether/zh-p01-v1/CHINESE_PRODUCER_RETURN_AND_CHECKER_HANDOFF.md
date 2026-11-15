@@ -2,7 +2,7 @@
 
 Producer state: **complete Chinese translation and mechanical builds; independent check pending**.
 
-Floris's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`. This lane translated the supplied current German Paper 1 interval. It did not collate scans, source-check or adjudicate the German, validate translation/formulas/terminology, inspect rendered pages, localize regional Hant prose, approve, archive, publish, or certify the work.
+user's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`. This lane translated the supplied current German Paper 1 interval. It did not collate scans, source-check or adjudicate the German, validate translation/formulas/terminology, inspect rendered pages, localize regional Hant prose, approve, archive, publish, or certify the work.
 
 ## Authority and cursor
 
@@ -70,8 +70,8 @@ Please check Hans against the exact German interval; verify every title/byline/f
 
 Please return corrections in a checker-owned append rather than silently rewriting producer history. The italic-shape substitutions require checker-owned visual handling.
 
-No source defect was adjudicated or asserted by this lane. If a checking session identifies a precise possible Noether source defect, it must first deduplicate it and then ensure that `4 -nterslav` receives it under Floris's instruction; this producer lane must not self-adjudicate or duplicate-route it.
+No source defect was adjudicated or asserted by this lane. If a checking session identifies a precise possible Noether source defect, it must first deduplicate it and then ensure that `4 -nterslav` receives it under user's instruction; this producer lane must not self-adjudicate or duplicate-route it.
 
-Lane log: `C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`, producer-freeze decision `ZH-D081`.
+Lane log: `C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`, producer-freeze decision `ZH-D081`.
 
-Scope remains Noether only. SGA is held until Floris explicitly confirms it.
+Scope remains Noether only. SGA is held until user explicitly confirms it.

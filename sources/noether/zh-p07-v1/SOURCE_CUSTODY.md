@@ -2,9 +2,9 @@
 
 ## Current translation authority
 
-- Pointer: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md`.
+- Pointer: `C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md`.
 - Pointer SHA-256: `FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1`.
-- German whole: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex`.
+- German whole: `C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex`.
 - German whole SHA-256: `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`.
 - Exact Paper 7 interval: lines 5819–5927, raw UTF-8 bytes `[381601,390259)`, 8,658 bytes, SHA-256 `F6C923B79406542E3DE64298DCD38887FF9A52141C71B8FF2BEBE6D14625FAEA`.
 - Exact local snapshot: `source/Noether_Paper07_German_current_exact_CRLF.tex`, byte-identical to that interval.
@@ -21,4 +21,4 @@ The witness is drafting material only. This producer does not compare it against
 
 ## Producer/checker boundary
 
-Floris's instruction is: `you do not check - you translate - other sessions CHEWCK`. The producer may translate, assemble, convert controlled script, compile mechanically, and preserve evidence. Source, semantic, formula, terminology, translation-quality, rendered-visual, native/regional, approval, publication, archive, and certification checking belongs to other sessions. No SGA work is authorized.
+user's instruction is: `you do not check - you translate - other sessions CHEWCK`. The producer may translate, assemble, convert controlled script, compile mechanically, and preserve evidence. Source, semantic, formula, terminology, translation-quality, rendered-visual, native/regional, approval, publication, archive, and certification checking belongs to other sessions. No SGA work is authorized.

@@ -263,7 +263,7 @@ DESCRIPTION_PARAGRAPHS = [
     ),
     (
         "The controlling Polo-Gille authority PDFs are identity controls only "
-        "and are not redistributed. Floris's pre-existing GPU OCR may be "
+        "and are not redistributed. user's pre-existing GPU OCR may be "
         "consulted read-only as locator or drafting evidence and was not "
         "regenerated. Jacob C. Reinhold's jcreinhold/sga English lineage at "
         "revision e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e is credited "
@@ -332,7 +332,7 @@ reference-v2 closure.
 ## Authority, rights, and lineage
 
 The controlling Polo-Gille authority PDFs are identity controls only and are
-not redistributed. Floris's pre-existing GPU OCR may be consulted read-only
+not redistributed. user's pre-existing GPU OCR may be consulted read-only
 as locator or drafting material and was not regenerated. Jacob C. Reinhold's
 `jcreinhold/sga` English lineage at commit
 `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` is credited comparison material,

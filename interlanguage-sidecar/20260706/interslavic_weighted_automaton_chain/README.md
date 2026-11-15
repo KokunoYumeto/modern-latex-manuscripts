@@ -4,7 +4,7 @@ Date staged: 2026-07-06
 
 Source location:
 
-`C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\user made flr with chat web stuff\`
+`C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704\user made flr with chat web stuff\`
 
 This folder preserves the fresh Claude/Fable/ChatGPT Web Interslavic weighting chain that arrived after the older mirrored Fable packet. It is the current mandatory input for any session continuing the Interslavic branch.
 

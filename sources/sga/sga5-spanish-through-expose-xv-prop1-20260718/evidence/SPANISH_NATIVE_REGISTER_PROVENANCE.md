@@ -4,7 +4,7 @@ Frozen for SGA 5 terminology work on 2026-07-18. This corpus is translation-regi
 
 ## Preserved corpus
 
-- Local root: `C:/Users/Floris/Downloads/codex backup dump 7-4/$germanOut/sources/non_slavic_reference_corpus/20260628_french_spanish_native_math_register`
+- Local root: `C:/Users/user/Downloads/codex backup dump 7-4/$germanOut/sources/non_slavic_reference_corpus/20260628_french_spanish_native_math_register`
 - Coordination README: `README_COORDINATION_20260628.md`, 1,125 bytes, SHA-256 `FE334B9B095C1BC27A6685596EBBCBCC214CAB259627F79635430D656E50F416`.
 - Frozen validated archive: `french_spanish_tex_corpus_expanded_validated_20260628.zip`, 2,991,015 bytes, SHA-256 `5DC9699BFF91854DB0BFF56881521FCE798DD27F22834921E76B26F1CC652670`; this matches the preserved sidecar.
 - Validated Spanish subtree: 11 source directories, 82 `.tex` files, 88 files total, 3,926,946 bytes, tree SHA-256 `BEA803FF0F320611372F94693265B386BD0606C5EB5DE04559324BED2C4D647B`.

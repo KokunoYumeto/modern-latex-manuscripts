@@ -4,7 +4,7 @@ Registered 2026-07-02.
 
 Local package:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R526_LocalCodex_R525_P24p243_Restklassenkoerper_FrakturR_SourceFix_20260702.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R526_LocalCodex_R525_P24p243_Restklassenkoerper_FrakturR_SourceFix_20260702.zip`
 
 SHA256: `557952515CC60238EFB1E279A869DF32528FB746CBBF95DE15D695EAF6CEBBAF`
 

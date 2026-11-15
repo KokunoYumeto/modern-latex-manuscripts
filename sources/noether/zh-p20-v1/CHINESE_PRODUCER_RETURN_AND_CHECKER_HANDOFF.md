@@ -2,7 +2,7 @@
 
 Producer state: **complete Chinese translation and mechanical builds; independent checking pending**.
 
-Floris's controlling instruction is exact:
+user's controlling instruction is exact:
 
 > you do not check - you translate - other sessions CHEWCK
 
@@ -10,9 +10,9 @@ This lane produced the Chinese translation and mechanical build artifacts only. 
 
 ## Authority and exact source custody
 
-- Current authority pointer: C:/Users/Floris/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/03_audit/NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md
+- Current authority pointer: C:/Users/user/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/03_audit/NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md
   - SHA-256: FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1
-- Current German whole TeX: C:/Users/Floris/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex
+- Current German whole TeX: C:/Users/user/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex
   - Bytes: 2,132,486
   - SHA-256: 443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27
 - Exact Paper 20 German interval: current-authority lines 12377–12588, UTF-8 bytes [980360,1001524), 21,164 bytes.
@@ -105,8 +105,8 @@ The three CSVs contain 23 producer rows each. The graph contains 115 nodes and 1
 
 The independent checker, not this producer lane, should compare Hans against the exact current German interval; verify every formula, footnote, citation, title, historical notation, and terminology choice; render and visually inspect both PDFs; and separately assess the controlled-generic Hant derivative. Corrections should be returned in a checker-owned append rather than silently rewriting producer history.
 
-No source defect was adjudicated or asserted by this producer lane. If a checking session identifies a precise possible Noether source defect, apply Floris's route exactly: **deduplicate; ensure 4 -nterslav sees it**. This producer lane must not self-check, self-adjudicate, or duplicate-route it.
+No source defect was adjudicated or asserted by this producer lane. If a checking session identifies a precise possible Noether source defect, apply user's route exactly: **deduplicate; ensure 4 -nterslav sees it**. This producer lane must not self-check, self-adjudicate, or duplicate-route it.
 
-Lane decision reference: ZH-D104 in C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md.
+Lane decision reference: ZH-D104 in C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md.
 
-Scope remains Noether only. SGA is held until Floris explicitly confirms it.
+Scope remains Noether only. SGA is held until user explicitly confirms it.

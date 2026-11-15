@@ -4,7 +4,7 @@ State: translation-producer custody only; no source or scan audit was performed.
 
 - T01--T02 immutable pointer: `NOETH-DE-AUTH-v003-20260804`; SHA-256 `932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197`.
 - T03/current prospective pointer: `NOETH-DE-AUTH-v004-20260804`; SHA-256 `A1C62FDACAA34DFC1B806DC18258F2E732539F7AE9D85AA4BD9E1067B8749D9F`. V004 adds P05/P07 binder metadata only; the authority bytes below are unchanged and every v003-bound unit remains valid.
-- Authority: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`
+- Authority: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`
 - Authority bytes / SHA-256: 2,153,565 / `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`
 - T01 interval: whole lines 3611--3693; 83 LF-terminated lines; 16,379 LF UTF-8 bytes; SHA-256 `2B20BBF39AC47AA2A44D7E5885A427C98A6926522F9B84A2AEE435B29C2CD3EA`.
 - T02 interval: whole lines 3694--3779; 86 LF-terminated lines; 9,532 LF UTF-8 bytes; SHA-256 `B9E91228B887000E3FDCE77A0F276FDF9081184C637C5810B670B2E3583567EC`.

@@ -30,7 +30,7 @@ base = prev.base
 base.TEXT_SUFFIXES.update({".aux", ".log", ".out"})
 
 WORKTREE = SCRIPT_DIR.parent
-PROJECT_ROOT = Path(r"C:\Users\Floris\Documents\interlanguage")
+PROJECT_ROOT = Path(r"C:\Users\user\Documents\interlanguage")
 LANE_ROOT = PROJECT_ROOT / r"03_projects\language_management\english_germanic"
 FRENCH_ROOT = (
     PROJECT_ROOT

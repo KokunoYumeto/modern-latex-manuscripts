@@ -60,4 +60,4 @@ Producer risks for the independent checker include the historical scope of `Auto
 
 ## Required claim limit
 
-Floris's controlling instruction is `you do not check - you translate - other sessions CHEWCK`. These notes record producer choices and uncertainties only. They are not source checking, semantic checking, formula checking, visual inspection, native-reader validation, regional Hant localization, approval, or certification.
+user's controlling instruction is `you do not check - you translate - other sessions CHEWCK`. These notes record producer choices and uncertainties only. They are not source checking, semantic checking, formula checking, visual inspection, native-reader validation, regional Hant localization, approval, or certification.

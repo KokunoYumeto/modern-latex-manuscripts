@@ -8,7 +8,7 @@ This directive is for the other Codex/AI sessions working on the Noether, interl
 
 Do not sit idle while related sessions are waiting, confused, or blocked.
 
-This is not a passive reporting instruction. If you are the other-PC coordinator, you must actively tell every visible sibling session what to do. A sibling session sitting at a prompt, waiting for Floris, or vaguely "available" is a failure of coordination unless it has a written task, output path, and next check.
+This is not a passive reporting instruction. If you are the other-PC coordinator, you must actively tell every visible sibling session what to do. A sibling session sitting at a prompt, waiting for user, or vaguely "available" is a failure of coordination unless it has a written task, output path, and next check.
 
 The other PC must not push to `main`. It works only on its assigned side branch. There is no exception for the other machine: this archive-maintenance session integrates or discards its side-branch output. If the other PC touches `main`, archive maintenance will delete/revert its changes and restore the archive-maintenance branch state.
 
@@ -56,7 +56,7 @@ If a manager/coordinator session sees idle sibling sessions, it must immediately
 - inspect existing generated translations for source gaps, hallucinated compression, missing tables, missing diagrams, or fake completeness claims;
 - write a public-safe logbook excerpt explaining what was done and what remains.
 
-Do not let sessions wait for Floris to manually remember every lane. The point of the coordinator is to keep the machine-readable project state alive.
+Do not let sessions wait for user to manually remember every lane. The point of the coordinator is to keep the machine-readable project state alive.
 
 ## Logbook Requirement
 

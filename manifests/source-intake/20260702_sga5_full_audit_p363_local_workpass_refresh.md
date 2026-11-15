@@ -6,7 +6,7 @@ This manifest records a local SGA5 workpass/audit refresh found during the archi
 
 ## Local Source
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
 
 ## Observed State
 

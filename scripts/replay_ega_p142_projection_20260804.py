@@ -14,7 +14,7 @@ from pathlib import Path, PurePosixPath
 
 REPO = Path(__file__).resolve().parents[1]
 PRIVATE_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\english_germanic\90_logs\private_archive_custody"
     r"\EGA_I_P142_R90_ARCHIVE_RECOVERY_PRIVATE_RAW_CUSTODY_20260804_r1"
 )
@@ -240,7 +240,7 @@ def privacy_replay(root: Path) -> dict[str, object]:
     public_operator_name_occurrences = 0
     text_files = 0
     binary_files = 0
-    binary_needles = (b"C:\\Users\\", b"C:/Users/", b"Floris", b".codex", b"memo_lepthy@live.nl")
+    binary_needles = (b"C:\\Users\\", b"C:/Users/", b"user", b".codex", b"memo_lepthy@live.nl")
     for path in list_files(root):
         rel = path.relative_to(root).as_posix()
         if rel == ZIP_NAME:
@@ -257,7 +257,7 @@ def privacy_replay(root: Path) -> dict[str, object]:
                 errors.append({"error": "private_user_home", "path": rel})
             if re.search(r"(?i)(?:^|[\\/])\.codex(?:[\\/]|$)", text):
                 errors.append({"error": "private_codex_state", "path": rel})
-            operator_name_count = len(re.findall(r"(?i)\bFloris\b", text))
+            operator_name_count = len(re.findall(r"(?i)\buser\b", text))
             if operator_name_count:
                 wanted = PUBLIC_OPERATOR_NAME_COUNTS.get(rel)
                 if operator_name_count == wanted:

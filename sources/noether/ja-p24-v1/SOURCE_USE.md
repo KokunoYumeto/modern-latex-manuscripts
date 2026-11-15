@@ -2,12 +2,12 @@
 
 ## Sealed German authority
 
-- Path: `C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_LocalCodex_20260718_P31_FullPaperCanonicalReaudit_WEB_DROP\1\01_current\cum_de_Local_20260718_P31.tex`.
+- Path: `C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_LocalCodex_20260718_P31_FullPaperCanonicalReaudit_WEB_DROP\1\01_current\cum_de_Local_20260718_P31.tex`.
 - Whole-file SHA-256: `A48CB5CD1716974B686AC1CBA681CA4B17BC72F9043B78AD2528ACA41FCF814F`.
 - Paper 24: lines 13631–14119, 489 lines; raw 98,838 bytes, SHA-256 `CA71FFFDAB3CEEE3EC614AB30A13F26EEF7D12D95D13875B8613BFC6B8C77232`; LF-normalized 98,379 bytes, SHA-256 `04ACA866CB66D6F504EC1016C41FFF5B4D6A16B8F97DD28983AEB8C4B1E12D22`.
 - Paper 25 begins immediately after the terminal Paper 24 `\clearpage`.
 
-The shared `C:\Users\Floris\Documents\interlanguage\03_projects\noether\00_current_german_authority` pointer remains stale at R821 and is not used as current authority. The newer compiled working candidate is unsealed and is not promoted, even where its Paper 24 text may agree with P31.
+The shared `C:\Users\user\Documents\interlanguage\03_projects\noether\00_current_german_authority` pointer remains stale at R821 and is not used as current authority. The newer compiled working candidate is unsealed and is not promoted, even where its Paper 24 text may agree with P31.
 
 ## Inherited Japanese witness
 
@@ -34,4 +34,4 @@ OCR or VLM output, where consulted as locator material by upstream audits, is no
 
 Paper 24 ends at its dated receipt apparatus and `\clearpage`; Paper 25 begins immediately afterward. Paper 25 dependency terms such as `Grundideal`, `Einzelnorm`, zero-field, residue-field, Galois-extension, norm, and elementary-divisor families must be linked rather than independently reinvented.
 
-This tranche covers Japanese Noether Paper 24 only. It is an internal source/build/render checkpoint, not external/community certification. SGA is hard-held pending later explicit Floris routing.
+This tranche covers Japanese Noether Paper 24 only. It is an internal source/build/render checkpoint, not external/community certification. SGA is hard-held pending later explicit user routing.

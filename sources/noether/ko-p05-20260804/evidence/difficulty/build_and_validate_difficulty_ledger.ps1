@@ -11,7 +11,7 @@ $utf8NoBom = [System.Text.UTF8Encoding]::new($false)
 $authorityContext = [ordered]@{
     pointer_id = 'NOETH-DE-AUTH-v003-20260804'
     pointer_sha256 = '932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197'
-    authority_path = 'C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex'
+    authority_path = 'C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex'
     authority_sha256 = 'D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB'
 }
 $targetPath = [ordered]@{

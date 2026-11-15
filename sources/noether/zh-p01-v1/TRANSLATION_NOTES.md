@@ -4,7 +4,7 @@
 
 This workspace contains the complete numbered Paper 1, *Über die Bildung des Formensystems der ternären biquadratischen Form.*, as a Chinese translation-production unit. It excludes Paper 2. The state recorded here is translation plus mechanical assembly, controlled script transformation, and compilation only.
 
-Floris's controlling instruction remains: `you do not check - you translate - other sessions CHEWCK`.
+user's controlling instruction remains: `you do not check - you translate - other sessions CHEWCK`.
 
 Accordingly, this producer record does **not** assert source checking, German/scan collation, semantic checking, formula checking, terminology validation, rendered-page inspection, native-reader review, Singapore review, Taiwan/Hong Kong/Macao localization or review, external review, archive acceptance, publication readiness, or certification.
 
@@ -12,9 +12,9 @@ Decision anchors are `ZH-D079` and the corrected custody decision `ZH-D080`. The
 
 ## Exact authority custody
 
-- Current authority pointer: `C:/Users/Floris/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/03_audit/NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md`.
+- Current authority pointer: `C:/Users/user/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/03_audit/NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md`.
 - Pointer SHA-256: `FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1`.
-- Current whole German TeX: `C:/Users/Floris/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex`.
+- Current whole German TeX: `C:/Users/user/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex`.
 - Whole German SHA-256: `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`.
 - Exact Paper 1 interval: whole-source lines 381--460; raw UTF-8 byte interval `[12505,20587)`.
 - Local German interval: `source/Noether_Paper01_CurrentGermanAuthority_interval.tex`, 8,082 bytes, SHA-256 `0499985866E646747EC31533775FF31B55556F2C694F4C2608384829DE248D2F`.

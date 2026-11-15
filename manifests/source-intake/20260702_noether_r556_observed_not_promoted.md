@@ -6,7 +6,7 @@ Scope: local Noether German/source-control observation after R555. A folder name
 
 ## Local Evidence
 
-- Local root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R556_LocalCodex_R555_P40p536_537_DefinitionenGothicJ_SourceMathFix_20260702`
+- Local root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R556_LocalCodex_R555_P40p536_537_DefinitionenGothicJ_SourceMathFix_20260702`
 - Observed TeX: `cum/cum_de_R556_P40p536_537_sourcemath.tex`
 - Observed TeX bytes: 2,147,473
 - Observed TeX SHA256: `D087C279A913EFBAB1C8E324D5DD02CD1FFC6CF59839F6C43F9B18BF0B957D6C`

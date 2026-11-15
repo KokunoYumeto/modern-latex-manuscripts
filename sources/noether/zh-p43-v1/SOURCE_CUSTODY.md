@@ -29,8 +29,8 @@ The shared `03_projects/noether/00_current_german_authority` pointer is stale at
 
 ## Producer/checker boundary
 
-Floris's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
+user's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
 
 This lane translates and mechanically produces Chinese files. It does not collate scans, adjudicate the German source, check its own translation, inspect rendered pages, localize controlled Hant for Taiwan/Hong Kong/Macao, or certify readiness. Independent sessions own those checks. If an independent checker identifies a precise possible source defect, it must deduplicate it and ensure that `4 -nterslav` sees it; this producer lane does not adjudicate or duplicate-route such findings.
 
-Decision anchor: `ZH-D076` in `C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.
+Decision anchor: `ZH-D076` in `C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/00_lane_control/CHINESE_DECISION_LOGBOOK_20260718.md`.

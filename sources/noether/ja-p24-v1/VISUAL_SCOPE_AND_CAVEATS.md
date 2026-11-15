@@ -2,7 +2,7 @@
 
 ## Indexed payload
 
-- Tranche root: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\japanese\noether_paper24_ja_reconciliation_20260718`
+- Tranche root: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\japanese\noether_paper24_ja_reconciliation_20260718`
 - Image root: `render_check/`
 - Accepted visual records: 16 target-render PNGs, one per page of the 16-page accepted Japanese PDF.
 - Exact visual bytes: 14,459,676.

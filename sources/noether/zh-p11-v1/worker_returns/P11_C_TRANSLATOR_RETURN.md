@@ -3,14 +3,14 @@
 ## Frozen input and output
 
 - Work unit: Paper 11 segment C, current German lines 8002--8070.
-- German input: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\source\P11_C_lines8002_8070.tex
+- German input: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\source\P11_C_lines8002_8070.tex
 - German input bytes: 6,741.
 - German input SHA-256: 3755C4B19DCC52A220FD11A133FE3ADD2876AFE9F57F22E9FB61AB588CEBBE64.
-- Drafting witness: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\witness\P11_C_witness_lines7913_8007.tex
+- Drafting witness: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\witness\P11_C_witness_lines7913_8007.tex
 - Drafting-witness bytes: 6,086.
 - Drafting-witness SHA-256: DA38242FBE16A62A3F406324FF98CFABFC9598A972BB5D096D3CAAB435F59DEC.
 - Witness role: drafting aid only; no comparison or audit.
-- PRC-oriented Simplified-Chinese output: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\zh-Hans-CN\P11_C_zh-Hans-CN.tex
+- PRC-oriented Simplified-Chinese output: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper11_zh_translation_001_20260722\segments\zh-Hans-CN\P11_C_zh-Hans-CN.tex
 - Output bytes: 5,941.
 - Output SHA-256: 52802111D99718BE89923B90464A5F893163ABBD5AE7BB0590D3A983932FB712.
 

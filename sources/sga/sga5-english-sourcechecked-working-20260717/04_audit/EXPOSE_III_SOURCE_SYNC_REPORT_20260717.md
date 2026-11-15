@@ -13,7 +13,7 @@ The machine-readable page/anchor/correction/evidence/disposition ledger is `EXPO
 ## Authorities and style controls
 
 - French control: `sga5_fr_workpass.tex`, SHA-256 `791F4EFFC5E02832D5D77ED03518C8156D6F07E4C8238B03545DB93D883FBB28`.
-- Original LNM 589 scan: `C:\Users\Floris\Documents\Papors\OS\SGA5 (1).pdf`; the exact-receipt ledger identifies the scan-derived evidence for each receipt row.
+- Original LNM 589 scan: `C:\Users\user\Documents\Papors\OS\SGA5 (1).pdf`; the exact-receipt ledger identifies the scan-derived evidence for each receipt row.
 - Exact-receipt control: `SOURCE_FORMULA_COMPARISON_EXACT.csv`, SHA-256 `EB566F2D37B52214FADE9D045EA20A8B9ECAB0C5DED524CD322601A6F9FFB9A4` at the audit snapshot.
 - SGA 1–4 English precedents consulted at `01_recovered_witnesses/sga1_4_english_baselines/text_extraction/`; established English such as “base-change”, “direct image”, “adjunction”, and “Künneth” was retained.
 

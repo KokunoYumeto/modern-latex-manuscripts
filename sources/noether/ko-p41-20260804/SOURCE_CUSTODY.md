@@ -4,13 +4,13 @@ Purpose: bind the exact German translation input and the producer cursor. This i
 
 ## German input
 
-- Read-only stored snapshot: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper41_zh_translation_001_20260722\source\Noether_Paper41_CurrentGermanAuthority_interval.tex`.
+- Read-only stored snapshot: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper41_zh_translation_001_20260722\source\Noether_Paper41_CurrentGermanAuthority_interval.tex`.
 - Snapshot bytes: `27,110`.
 - Snapshot SHA-256: `C265058425E5E2D1A2289CC03A9DDEDDDF4803A3215DC3F173B93E7AB69D60ED`.
 - Mechanical marker interval recorded by prior custody: `\section*{41.` through immediately before `\section*{42.`; former whole-file lines 19709–19862; UTF-8 bytes `[1787529,1814639)`.
 - Historical whole-German TeX SHA-256 attributed by prior custody: `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`.
 - Historical pointer SHA-256 attributed by prior custody: `FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1`.
-- Prior target-disjoint custody record: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper41_zh_translation_001_20260722\SOURCE_CUSTODY.md`, 2,171 bytes, SHA-256 `BB9DEB51AFF725E26DBB5A07B157C09BD1AC02E98A43A58FD1D42ABB872FD668`.
+- Prior target-disjoint custody record: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper41_zh_translation_001_20260722\SOURCE_CUSTODY.md`, 2,171 bytes, SHA-256 `BB9DEB51AFF725E26DBB5A07B157C09BD1AC02E98A43A58FD1D42ABB872FD668`.
 
 The prior custody record also identifies a Chinese witness, but no Chinese target or witness was used as Korean linguistic evidence. The old whole-file coordinate is historical after Noether disk consolidation. The single Noether German-canon consolidator is task `019fca5c-0e73-7c72-92fb-5b507b710598`; an exact present-pointer/lineage binder is still required before any checker or publication owner treats this interval as current canon. This producer does not perform that binding.
 

@@ -6,7 +6,7 @@ Register p406 as the current highest forward cursor in the local SGA5 live workp
 
 ## Source Lane
 
-- Local lane: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
+- Local lane: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
 - Latest compact promoted SGA5 delta: `SGA5_FullAudit_WebDrop_p260_p265_workpass_delta_20260626`
 - Live ledger cursor: p406
 

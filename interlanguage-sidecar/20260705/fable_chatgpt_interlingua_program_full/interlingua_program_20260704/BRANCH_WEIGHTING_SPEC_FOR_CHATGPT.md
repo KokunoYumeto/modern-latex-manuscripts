@@ -1,5 +1,5 @@
 # Branch-weighted witness trees — spec for hard-math development
-2026-07-04, Fable → ChatGPT handoff. Origin: Floris's heuristic "weighted automata / branch-following tree thing: how heavy are we in language branch X/Y/Z per term?" Fable's validation: the idea is sound; the right formal object is a **weighting scheme on the rooted family tree + concentration statistics**, not tree automata (automata recognize/score tree-structured inputs; nothing here is a parse tree — using that label would be decorative math).
+2026-07-04, Fable → ChatGPT handoff. Origin: user's heuristic "weighted automata / branch-following tree thing: how heavy are we in language branch X/Y/Z per term?" Fable's validation: the idea is sound; the right formal object is a **weighting scheme on the rooted family tree + concentration statistics**, not tree automata (automata recognize/score tree-structured inputs; nothing here is a parse tree — using that label would be decorative math).
 
 ## What is already implemented and measured (v0)
 

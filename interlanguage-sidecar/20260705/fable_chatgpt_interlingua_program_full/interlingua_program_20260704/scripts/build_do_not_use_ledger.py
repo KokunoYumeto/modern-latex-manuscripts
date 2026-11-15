@@ -6,8 +6,8 @@ import hashlib
 from pathlib import Path
 from collections import Counter
 
-OUT = Path(r"C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
-LOGS = Path(r"C:\Users\Floris\Downloads\codex backup dump 7-4\codex backup\logs")
+OUT = Path(r"C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704")
+LOGS = Path(r"C:\Users\user\Downloads\codex backup dump 7-4\codex backup\logs")
 
 def sha(p):
     return hashlib.sha256(p.read_bytes()).hexdigest()

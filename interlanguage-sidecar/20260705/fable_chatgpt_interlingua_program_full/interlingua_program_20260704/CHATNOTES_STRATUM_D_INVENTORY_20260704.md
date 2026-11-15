@@ -1,7 +1,7 @@
 # Chatnotes Stratum-D Inventory
 2026-07-04. Root: `Papors\Chatnotes\CHat translates and clean\`. Scan: [chatnotes_stratum_d_scan_20260704.json](chatnotes_stratum_d_scan_20260704.json) (filename-tag language detection; counts include build artifacts and renders — treat as upper bounds; language tags are heuristic).
 
-**Totals: 827,329 files, ~914 GB, 37 folders.** This is the "language triangulation database" Floris described: AI-era translation drafts across ≥14 languages and ~25 historical authors. All of it Stratum-D discipline: draft-linked, compaction-risk, never witnesses without verification.
+**Totals: 827,329 files, ~914 GB, 37 folders.** This is the "language triangulation database" user described: AI-era translation drafts across ≥14 languages and ~25 historical authors. All of it Stratum-D discipline: draft-linked, compaction-risk, never witnesses without verification.
 
 ## Language coverage by folder (headline rows)
 

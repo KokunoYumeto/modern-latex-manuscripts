@@ -32,7 +32,7 @@ TeX total lines: 15380. Section starts (TeX line):
 (Source page for each exposé start to be filled in as the pass reaches it.)
 
 ## Progress log (source pages)
-SOURCE NOW = `C:\Users\Floris\Documents\Papors\OS\SGA5 (1).pdf` (complete Springer book).
+SOURCE NOW = `C:\Users\user\Documents\Papors\OS\SGA5 (1).pdf` (complete Springer book).
 **Printed page = PDF page − 12.** Render via `_work\chunk_page.py <printed>` (3 zoom chunks @600dpi→2400px).
 See SOURCE_AND_RESOLUTION.md — 360 dpi is the global ceiling (confirmed online); this scan is as good as exists.
 
@@ -123,9 +123,9 @@ Each firing: read this STATUS cursor, audit a batch (moderate is fine now — th
 near-continuous across firings), fix workpass.tex in place, log FINDINGS, advance the cursor here.
 The cron's prompt CronDeletes the job when pages 1-484 are done.
 NOTE: do NOT also arm a ScheduleWakeup loop — the cron is the single driver (CronList shows 622c0e68);
-two drivers would race on STATUS.md. NO parallel agents / workflows (Floris's absolute no-background rule),
-even with ultracode on. Continues while Floris is away.
-because the 30-min gaps left visible idle windows. To stop: Floris interrupts, or CronDelete 622c0e68. Tally so far: pp.1–65 + p103;
+two drivers would race on STATUS.md. NO parallel agents / workflows (user's absolute no-background rule),
+even with ultracode on. Continues while user is away.
+because the 30-min gaps left visible idle windows. To stop: user interrupts, or CronDelete 622c0e68. Tally so far: pp.1–65 + p103;
 **26 transcription fixes** (p2 pairing, p4 H→I, p10 D_c^-→D_c, p12 a(i) f_*→f_!, p13 a(ii) f_*→f_!,
 p14 "démontre(ra)", p17×3 L^∨[-r]→L[r], p24 Γ^*→Γ, p26 ×_Z→×_X, p34 A_X→A_{Y_p}, p36 (4.2.2)''' μ_n→(μ_n)_X,
 p41 (4.5.3)' formula, p41 D_x̄D_x̄→D_X D_X, p48 (4.7.15) spurious _x, p51 H^{p+q}→H^*, p54 biblio key [SGA]→[SGAA],

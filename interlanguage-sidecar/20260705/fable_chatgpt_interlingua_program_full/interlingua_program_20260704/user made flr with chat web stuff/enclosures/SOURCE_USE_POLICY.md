@@ -33,4 +33,4 @@ Only this category can move a row to reviewed_for_bridge_use, certify a term, or
 ## Cross-cutting rules
 - Linkage ≠ witness ≠ review (three-status discipline) — restated here because every misuse in the program's history blurred one of these lines.
 - Freeze-then-fix: repairs are new artifacts; pre-repair states stay in `frozen/`.
-- The stop-and-ask list (post-Fable steer §6) binds all automated work: no term promotion/renaming, no GitHub/Zenodo push, no external contact, no draft-as-witness, no GPU/embedding runs, no new packages beyond cap — without Floris.
+- The stop-and-ask list (post-Fable steer §6) binds all automated work: no term promotion/renaming, no GitHub/Zenodo push, no external contact, no draft-as-witness, no GPU/embedding runs, no new packages beyond cap — without user.

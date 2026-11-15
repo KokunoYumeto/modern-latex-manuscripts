@@ -35,7 +35,7 @@ PAGE_DERIVATIVE_RE = re.compile(
 )
 PRIVATE_MARKERS = (
     "c:\\users\\",
-    "floris",
+    "user",
     "chatnotes",
     "claude",
     "codex",

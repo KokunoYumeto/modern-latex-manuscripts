@@ -18,7 +18,7 @@ commit `c914d9ce274b6e5a579a60a6a23f158b160f20b2`. These facts identify technica
 provenance. They do not establish a human translator credit or a license.
 
 The 2026-07-17/18 synchronization is a machine-assisted Codex source-review
-workpass under Floris's direction. It used the pinned French TeX and the
+workpass under user's direction. It used the pinned French TeX and the
 original scan at source-critical loci. This is not independent human scholarly
 certification or a claim to a critical edition.
 

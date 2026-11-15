@@ -4,7 +4,7 @@ Producer state: **all substantive German snapshot text translated into twelve ed
 
 ## Authority and custody
 
-- Exact German snapshot: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper42_zh_translation_001_20260722\source\Noether_Paper42_CurrentGermanAuthority_interval.tex`.
+- Exact German snapshot: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper42_zh_translation_001_20260722\source\Noether_Paper42_CurrentGermanAuthority_interval.tex`.
 - Snapshot: 23,912 bytes; SHA-256 `B6BB3A6267BA8495FC19914A72768351E4923B13374634701AF3CBDE659883CC`.
 - Historical whole-authority SHA-256: `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`.
 - Current-pointer replacement is pending from sole canon task `019fca5c-0e73-7c72-92fb-5b507b710598`.

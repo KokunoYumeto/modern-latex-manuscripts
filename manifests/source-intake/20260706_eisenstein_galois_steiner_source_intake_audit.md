@@ -4,7 +4,7 @@ This manifest records a local source-intake audit for three possible continuatio
 
 ## Local Root
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629`
 
 ## Summary
 

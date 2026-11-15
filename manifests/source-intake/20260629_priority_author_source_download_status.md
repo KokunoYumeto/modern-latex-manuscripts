@@ -4,7 +4,7 @@ Date: 2026-06-29
 
 Local root:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629`
 
 Purpose: source-intake evidence for possible colleague/web-session continuation projects. This is not a publication manifest and not a claim that any of these authors now have finished editions. It records what source material is actually local and usable.
 

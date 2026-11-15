@@ -4,7 +4,7 @@ Date registered: 2026-07-02
 
 Local artifact:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R497_WebB_TailKapfererHardFix_20260701_COMPLETE.zip`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R497_WebB_TailKapfererHardFix_20260701_COMPLETE.zip`
 
 Artifact metrics:
 

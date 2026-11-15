@@ -1,6 +1,6 @@
 # 2026-07-05 SGA6 Source-Rescribe Workpass Refresh Through idx179
 
-Local source: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`
+Local source: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga6_full_audit_20260703`
 
 GitHub mirror: `sources/sga/sga6-claude-workpass-source-rescribe-20260704/`
 

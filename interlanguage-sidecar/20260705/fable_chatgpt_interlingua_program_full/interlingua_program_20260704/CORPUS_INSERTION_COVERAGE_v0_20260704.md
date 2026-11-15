@@ -1,6 +1,6 @@
 # Corpus Insertion Coverage — v0 (the completeness metric)
 
-2026-07-04. Floris's bar: the COMPLETE corpus, every word inserted and correctly weighted. This artifact defines and measures the distance. Mechanical v0 (stem-matched): treat numbers as estimates with stated biases.
+2026-07-04. user's bar: the COMPLETE corpus, every word inserted and correctly weighted. This artifact defines and measures the distance. Mechanical v0 (stem-matched): treat numbers as estimates with stated biases.
 
 - Corpus: 265 dedup Latin-script TeX files; lexicon 11,884 content types / 141,969 tokens (stoplist-filtered).
 - **Type coverage: 78.5%** (9,330/11,884) · **Token coverage: 96.6%** (137,185/141,969)

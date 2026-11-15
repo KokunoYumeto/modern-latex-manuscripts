@@ -17,7 +17,7 @@ controls copied into this package are:
 
 The current cumulative authority is the R823 German TeX:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
+`C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
 
 - SHA-256: `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`
 - Paper 20 exact extraction in this package:
@@ -30,7 +30,7 @@ The current cumulative authority is the R823 German TeX:
 
 The primary scanned article used to adjudicate R823 notation and layout is:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_LocalCodex_after_WebR270_P20_FullVisual_SourceAudit_20260629\02_source_witnesses\P20_GDZ_article_LOG_0010_absolute_irreduzibilitaet.pdf`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_LocalCodex_after_WebR270_P20_FullVisual_SourceAudit_20260629\02_source_witnesses\P20_GDZ_article_LOG_0010_absolute_irreduzibilitaet.pdf`
 
 - SHA-256: `CA9E177E60C0A12720C3B5BECAB9356D9A4105430BD187C89CF58E01CEFF2B60`
 

@@ -6,7 +6,7 @@ Handoff state: UNCHECKED producer drafts. Receipt by a checker does not itself c
 
 - Pointer: NOETH-DE-AUTH-v003-20260804
 - Pointer SHA-256: 932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197
-- Authority path: C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex
+- Authority path: C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex
 - Authority bytes / SHA-256: 2,153,565 / D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB
 - Paper interval: whole lines 5842--5954 / local lines 1--113
 - Interval bytes / SHA-256: 8,511 / 8C5D6E8DDF24B33C5AF719F59C4CEFA0B9CEABB61960E2AC30F888CB1206AFBC
@@ -44,7 +44,7 @@ Compilation, rendering, assembly, packaging, certification, approval, and public
 
 The structural, difficulty, and visual CSV projections were imported through the bundled @oai/artifact-tool using the exact supplied validator. The report is:
 
-C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper07_ko_translation_001_20260804\reproducibility\csv_artifact_validation\CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
+C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper07_ko_translation_001_20260804\reproducibility\csv_artifact_validation\CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT.json
 
 - Bytes: 2,728
 - SHA-256: B2D87D6880252915EDD42B29E1F4B608CE5DE53F66109964F5804A6E46A11DC1

@@ -13,9 +13,9 @@
 
 | Role | Exact artifact | Bytes | SHA-256 | Evidence class |
 |---|---|---:|---|---|
-| German translation authority | `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\source\P10_C_lines7768_7864.tex` | 8,493 | `E68CF6495A6E69661F55595D1FEE7487ED19B0182AC395AEC48667B235168C0B` | Source fact supplied by assignment; hash recomputed locally for custody only |
-| Inherited Chinese drafting witness | `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\witness\P10_C_witness_lines7598_7714.tex` | 7,602 | `F32417AF6DC8719B732536C60EC9207F2D821B7ABE7FC56F09250CAD314163C6` | Witness/locator only; not treated as authority |
-| Produced PRC Simplified Chinese TeX | `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\zh-Hans-CN\P10_C_zh-Hans-CN.tex` | 7,559 | `67D93BFFA16419E4A3E444C4AB9238B7E2A59E910889710A5BC36D93AA85F686` | Computation over the producer output |
+| German translation authority | `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\source\P10_C_lines7768_7864.tex` | 8,493 | `E68CF6495A6E69661F55595D1FEE7487ED19B0182AC395AEC48667B235168C0B` | Source fact supplied by assignment; hash recomputed locally for custody only |
+| Inherited Chinese drafting witness | `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\witness\P10_C_witness_lines7598_7714.tex` | 7,602 | `F32417AF6DC8719B732536C60EC9207F2D821B7ABE7FC56F09250CAD314163C6` | Witness/locator only; not treated as authority |
+| Produced PRC Simplified Chinese TeX | `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper10_zh_translation_001_20260722\segments\zh-Hans-CN\P10_C_zh-Hans-CN.tex` | 7,559 | `67D93BFFA16419E4A3E444C4AB9238B7E2A59E910889710A5BC36D93AA85F686` | Computation over the producer output |
 
 The witness supplied drafting cues only. The producer retained the German segment's TeX environments, displayed mathematics, control sequences, and two `\srcfn` source-note positions while translating its prose and note text. This is a producer-action statement, not an independent validation result.
 

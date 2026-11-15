@@ -4,7 +4,7 @@ Prepared from live file custody after translation and mechanical builds. This is
 
 ## Controlling boundary and maximum state
 
-Floris's exact instruction is:
+user's exact instruction is:
 
 > you do not check - you translate - other sessions CHEWCK
 
@@ -18,7 +18,7 @@ SGA remains held and is outside this work unit.
 
 ## Durable coordination
 
-- Durable lane log: C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md
+- Durable lane log: C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md
 - Claim decision: ZH-D112.
 - Translation/build decision: ZH-D113.
 - Intended next freeze decision: ZH-D114. This handoff does not claim that ZH-D114 already exists.
@@ -29,8 +29,8 @@ SGA remains held and is outside this work unit.
 
 | Artifact | Bytes | SHA-256 |
 |---|---:|---|
-| Current authority pointer, C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md | 1,170 | FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1 |
-| Current German whole authority, C:\Users\Floris\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex | 2,132,486 | 443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27 |
+| Current authority pointer, C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\03_audit\NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md | 1,170 | FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1 |
+| Current German whole authority, C:\Users\user\Documents\Codex\2026-06-01\we-are-currently-doing-a-massive\Noether_P07_CurrentHead_SourceAdjudication_20260722\1\01_current\Noether_P16_IndependentSecondPass_20260722_cum_de.tex | 2,132,486 | 443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27 |
 | source\P10_CurrentGerman_lines7664_7864.tex; lines 7664--7864; raw UTF-8 bytes [493872,522014) | 28,142 | 4EDD9F5B95EE308344B11190088C6D864FB4456AC8AD20E152FA1254E5612234 |
 | SOURCE_CUSTODY.md | 1,141 | 6BE7F00B02208ECD28388FD6FE49BE9EA9A68B2EC9590039CC3BC290E92261E3 |
 

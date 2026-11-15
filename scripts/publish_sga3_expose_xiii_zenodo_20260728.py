@@ -201,7 +201,7 @@ DESCRIPTION_PARAGRAPHS = [
     (
         "The controlling witness is Polo-Gille Expo13.pdf, 30 pages, SHA-256 "
         "24735CAFA57291A71C603712C0588358977856D5971503E6E73F3F2E40A70798. "
-        "It is not redistributed. Floris's pre-existing GPU OCR may be "
+        "It is not redistributed. user's pre-existing GPU OCR may be "
         "consulted read-only as locator or drafting evidence and was not "
         "regenerated. Jacob C. Reinhold's jcreinhold/sga English lineage at "
         "revision e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e is credited "
@@ -398,7 +398,7 @@ excluded.
 
 ## Authority, rights, and lineage
 
-The controlling Polo-Gille authority is not redistributed. Floris's
+The controlling Polo-Gille authority is not redistributed. user's
 pre-existing GPU OCR may be consulted read-only as locator/drafting evidence
 and was not regenerated. Jacob C. Reinhold's `jcreinhold/sga` English lineage
 at commit `e7a259f3f8608ad3edf9bf6eead3fd504dd2d23e` is credited comparison

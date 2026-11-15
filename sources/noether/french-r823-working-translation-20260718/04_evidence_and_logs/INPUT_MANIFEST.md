@@ -4,7 +4,7 @@ Frozen on 2026-07-17. Backup/download artifacts are read-only translation memory
 
 | Role | SHA-256 | Bytes | Path |
 |---|---|---:|---|
-| controlling R823 package | `7AFC1B865EC710F6BECE507260605CBA7C950E5CC089C7464F63CBC20A8BD738` | 24,613,194 | `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717_COMPLETE.zip` |
+| controlling R823 package | `7AFC1B865EC710F6BECE507260605CBA7C950E5CC089C7464F63CBC20A8BD738` | 24,613,194 | `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717_COMPLETE.zip` |
 | controlling German TeX | `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21` | 2,125,031 | `authority/R823/pkg_r823/Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717/1/01_cumulative/Noether_R823_cum_de.tex` |
 | recovered French P1--43 head (unmodified baseline hash) | `72366D7715E24F8B34E249685C746668487F42EF5862FADA7D579E6204C8DA3A` | 328,701 | `working/checkpoint/tex/cum_fr_P43.tex` |
 | repaired P20 external body | `537B965AEB557B7451BE3AAF3BEDDCA8ED574657C7FCC1FC84B494A62DAFF211` | 22,588 | `working/checkpoint/external_translations/paper20/french/v001/Noether_Paper20_French_v001.tex` |

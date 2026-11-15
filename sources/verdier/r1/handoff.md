@@ -61,7 +61,7 @@ uses its own visible or unnumbered coordinates.
 
 Only this root may be mutated:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\language_management\english_germanic\03_working_translations\verdier_derived_categories_bilingual_canonical_stacks_20260804_r1`
+`C:\Users\user\Documents\interlanguage\03_projects\language_management\english_germanic\03_working_translations\verdier_derived_categories_bilingual_canonical_stacks_20260804_r1`
 
 Authority, common handoff, predecessor, FGA, Tôhoku, Illusie, SGA, FAC, GAGA,
 EGA, and Deligne roots are read-only. This task is the sole Verdier/Astérisque
@@ -80,7 +80,7 @@ Last verified peer allocations:
 
 Controlling authority:
 
-`C:\Users\Floris\Documents\Papors\OS\AST_1996__239__R1_0.pdf`
+`C:\Users\user\Documents\Papors\OS\AST_1996__239__R1_0.pdf`
 
 - 19,188,423 bytes;
 - 270 physical pages;

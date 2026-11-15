@@ -35,7 +35,7 @@ They are not the preferred current reading surface.
 
 The component-specific Polo-Gille SGA 3 PDFs documented by the underlying
 working packages control French wording, formulas, numbering, notes, page
-order, and diagram appearance. Floris's pre-existing GPU OCR was consulted
+order, and diagram appearance. user's pre-existing GPU OCR was consulted
 read-only as locator and drafting material; no OCR was generated or rerun
 for this integration.
 

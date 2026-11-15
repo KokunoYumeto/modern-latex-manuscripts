@@ -59,7 +59,7 @@ SHA_NAME = "SGA6_HighDetail_SourceAudit_Crops_SHA256SUMS_20260723.txt"
 
 PRIVATE_MARKERS = (
     "c:\\users\\",
-    "floris",
+    "user",
     "chatnotes",
     "claude",
     "codex",
@@ -143,7 +143,7 @@ def privacy_hits(values: list[str]) -> list[str]:
 
 
 def sanitize_public_text(value: str) -> str:
-    sanitized = re.sub(r"(?i)\bfloris\b", "[archive owner]", value)
+    sanitized = re.sub(r"(?i)\buser\b", "[archive owner]", value)
     sanitized = re.sub(r"(?i)\b(?:claude|codex)\b", "[agent]", sanitized)
     sanitized = re.sub(
         r"(?i)\b[a-z]:\\(?:[^\\\s,;)\]]+\\)*[^,\r\n;)\]]*",

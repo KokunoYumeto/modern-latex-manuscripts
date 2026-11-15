@@ -26,12 +26,12 @@ PACKAGE_ROOT = REPO_ROOT / PACKAGE_REL
 ZIP_NAME = "10d_EGA4_Sections1_2_SourceAligned_Inputs_20260729.zip"
 
 SECTION1_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects"
+    r"C:\Users\user\Documents\interlanguage\03_projects"
     r"\language_management\english_germanic\03_working_translations"
     r"\ega4_section01_source_aligned_successor_r1_20260728"
 )
 SECTION2_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects"
+    r"C:\Users\user\Documents\interlanguage\03_projects"
     r"\language_management\english_germanic\03_working_translations"
     r"\ega4_section02_source_aligned_successor_r1_20260729"
 )

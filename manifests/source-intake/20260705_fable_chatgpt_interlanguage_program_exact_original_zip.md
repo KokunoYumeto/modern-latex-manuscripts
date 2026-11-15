@@ -10,7 +10,7 @@ Normalized mirror ZIP: `publish_staging/interlanguage-methodology/20260705_fable
 
 Mirror size/SHA256/entries: 25556705 bytes / `DDF8F59469AEC2FA6E8B5D09733A08AB92318BA06CEA08F05F1BFA4506E06A6E` / 253 entries.
 
-Original local source: C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704.zip
+Original local source: C:\Users\user\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704.zip
 
 Classification: exact generated methodology/source-corpus/interlanguage-program evidence. It is not native approval, accepted terminology, translation completion, reader output, source-fidelity certification, publication readiness, or critical-edition material.
 

@@ -4,11 +4,11 @@ Date: 2026-06-29
 
 Local packet root:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Steiner\Steiner_SOURCE_PACKET_20260629`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Steiner\Steiner_SOURCE_PACKET_20260629`
 
 Upload ZIP folder:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Steiner\Steiner_SOURCE_PACKET_20260629\01_UPLOAD_THESE_ZIPS`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Steiner\Steiner_SOURCE_PACKET_20260629\01_UPLOAD_THESE_ZIPS`
 
 ## Purpose
 

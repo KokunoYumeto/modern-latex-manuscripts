@@ -5,8 +5,8 @@ State: **current pointer updated to register the verified P41 binder; authority 
 ## Current pointer
 
 - Pointer ID: `NOETH-DE-AUTH-v003-20260804`.
-- Live path: `C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/CURRENT_GERMAN_AUTHORITY_POINTER.json`.
-- Immutable snapshot: `C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/pointers/NOETH_DE_AUTHORITY_POINTER_v003_20260804.json`.
+- Live path: `C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/CURRENT_GERMAN_AUTHORITY_POINTER.json`.
+- Immutable snapshot: `C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/pointers/NOETH_DE_AUTHORITY_POINTER_v003_20260804.json`.
 - Both files: 15,345 bytes; SHA-256 `932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197`.
 
 Pointer v003 supersedes v002 (SHA-256 `F029150DF34AD54D03E0EB5D57D12CEF30706BE058A4CD9AEB79A311B6409DDA`) solely to add the verified Korean Paper 41 unit binder. The canon owner explicitly states that every previously delivered unit binder remains valid.

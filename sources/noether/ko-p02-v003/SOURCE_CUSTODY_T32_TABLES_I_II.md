@@ -3,9 +3,9 @@
 State: translation-producer custody only; no source, scan, Korean, table-cell, formula, layout, or count audit was performed.
 
 - Pointer v005: `NOETH-DE-AUTH-v005-20260804`; 19,889 bytes; SHA-256 `42E6844BFCBFB2133E9AA323A823604351CF9C49550AFCF34ECAAF7887185660`.
-- Pointer snapshot: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v005_20260804.json`.
+- Pointer snapshot: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v005_20260804.json`.
 - ED0001: 2,153,565 raw bytes; SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
-- Authority file: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
+- Authority file: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`.
 - Complete terminal Tables I--II interval: whole-source lines3480--3568; 11,761 LF-normalized UTF-8 bytes; SHA-256 `E987E7FF0235BCD829A6E9B9C6287BD1810106F4C533357E54D0241AA776CAE9`.
 - The preceding blank line3479 is excluded: 1 LF byte; SHA-256 `01BA4719C80B6FE911B091A7C05124B64EEECE964E09C058EF8F9805DACA546B`.
 - Paper 2 terminal controls at lines3569--3572 are excluded: 28 LF-normalized UTF-8 bytes; SHA-256 `B18FF0CE4073E19DBDAD6E0DDDA1084C09D83162933D356F6D673C926AFFB8F9`; they consist of a blank line, `\setcounter{footnote}{0}`, and two blank lines.

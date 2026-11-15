@@ -3525,7 +3525,7 @@ Noether public Zenodo refresh 2026-07-07: current version [10.5281/zenodo.212473
 
 ## 2026-07-07 JT / colleague GitHub separation note
 
-A second GitHub repository/branch for JT or colleague work is intentionally separate from this `modern-latex-manuscripts` archive lane. Do not merge that project into this repository or its Zenodo records unless Floris explicitly routes a specific artifact across. If that lane produces material relevant to this archive, treat it as an external source to inspect, classify, and deliberately import, not as automatic authority.
+A second GitHub repository/branch for JT or colleague work is intentionally separate from this `modern-latex-manuscripts` archive lane. Do not merge that project into this repository or its Zenodo records unless user explicitly routes a specific artifact across. If that lane produces material relevant to this archive, treat it as an external source to inspect, classify, and deliberately import, not as automatic authority.
 
 ## 2026-07-07 Interlanguage post-2DE route-context update published
 

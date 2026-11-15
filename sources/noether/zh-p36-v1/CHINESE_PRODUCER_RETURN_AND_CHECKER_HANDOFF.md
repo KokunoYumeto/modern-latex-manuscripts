@@ -37,12 +37,12 @@ Producer lexical proposals include `理想微分`, technical `不同`, `代数�
 - `BUILD_REPORT.md`: SHA-256 `BAD081961AE2016305C0F21DCF767BA72208970D7EE6E7A2D2B9D3B63AEA2596`.
 - `qa/WORKER_RETURNS.md`: durable bounded producer-worker returns; its SHA-256 is recorded in `ZH-D091`.
 - Shared registry row: `NOETHER-P36-ZH-PRODUCER-COMPLETE`; post-append registry SHA-256 `E58779BAA6A7C126FD8B49370291EAD35B67F013564A5B05DDF7D5E09196DBCE`.
-- Durable append-only lane log: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md`; relevant decisions `ZH-D089`, `ZH-D090`, and producer freeze `ZH-D091`.
+- Durable append-only lane log: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CHINESE_DECISION_LOGBOOK_20260718.md`; relevant decisions `ZH-D089`, `ZH-D090`, and producer freeze `ZH-D091`.
 
 ## Mandatory role boundary
 
-Floris's controlling wording is: `you do not check - you translate - other sessions CHEWCK`.
+user's controlling wording is: `you do not check - you translate - other sessions CHEWCK`.
 
 Accordingly, this package is only `translated/built; independent check pending`. The producer performed no source checking/collation/adjudication, semantic/formula/terminology/translation-quality check, PDF viewing/rendered visual QA, native/regional validation, approval, publication, archive certification, or external/community certification. Successful compilation is not validation.
 
-No Noether source defect is asserted here. If a separate checker finds a precise possible source defect, it must deduplicate the finding and ensure `4 -nterslav` sees it; the producer must not adjudicate or duplicate-route it. SGA remains held pending explicit Floris confirmation.
+No Noether source defect is asserted here. If a separate checker finds a precise possible source defect, it must deduplicate the finding and ensure `4 -nterslav` sees it; the producer must not adjudicate or duplicate-route it. SGA remains held pending explicit user confirmation.

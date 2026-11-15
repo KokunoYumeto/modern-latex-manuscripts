@@ -2,7 +2,7 @@
 
 This intake records a local SGA5/SGA continuation audit-log update, not a new promoted reader package.
 
-- Local root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
+- Local root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\SGA continuation 2\_claude_aid\sga5_full_audit_20260623`
 - `CERT_LOG.md`: 484,631 bytes; SHA256 `1348E23963CE8676492AB345344C40E89AEFF8B5D9F6B5BE9C713290C766C846`; modified 2026-07-01T15:31:44
 - `AGENT_SCORECARD.md`: 364,634 bytes; SHA256 `6D559ED830798ADF10DCE2B04B56C75A60EE9FE600BC6B14AB1979E547A1A653`; modified 2026-07-01T15:32:12
 - `sga5_fr_workpass.pdf`: 2,017,415 bytes; SHA256 `245DF59D1A455AC690DC7DF500C36BB4AC844819D86221E795729E828586A994`; modified 2026-07-01T15:23:37; TeX log reports 307 pages

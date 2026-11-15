@@ -2,7 +2,7 @@
 
 Record: Heinrich Weber.
 
-Local source root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit`.
+Local source root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Weber semi-restard and fidelity pass\_audit`.
 
 ## Current local state
 

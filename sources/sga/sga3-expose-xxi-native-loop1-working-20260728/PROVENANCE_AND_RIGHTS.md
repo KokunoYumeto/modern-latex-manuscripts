@@ -5,7 +5,7 @@ The controlling source witness is Polo-Gille `Exp21-13oct24.pdf`, 46 pages,
 `1FB0720FFD496E6076DBEC3702CBD3CBA828C2BAAE0340A840855DF86A496284`.
 It is not included.
 
-Floris's pre-existing GPU OCR was consulted only as a read-only locator and
+user's pre-existing GPU OCR was consulted only as a read-only locator and
 drafting witness. It was not regenerated or promoted to authority.
 
 Jacob C. Reinhold's English Markdown at

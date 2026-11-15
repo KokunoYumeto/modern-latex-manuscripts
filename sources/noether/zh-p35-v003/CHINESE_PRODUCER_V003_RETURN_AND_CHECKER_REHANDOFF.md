@@ -10,7 +10,7 @@ This is not checker acceptance, final reader assembly, archive intake, publicati
 
 Exact package root:
 
-`C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_003_20260804`
+`C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper35_zh_translation_003_20260804`
 
 The deterministic root manifest is `SHA256SUMS.txt`. It is generated last and excludes only itself; the transport message, decision `ZH-D137`, route `CJK-ROUTE-ZH-P35-005`, and external freeze receipt pin its final entry count, bytes, and SHA-256. After that generation this root must remain byte-immutable during checking.
 

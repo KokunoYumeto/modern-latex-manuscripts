@@ -6,8 +6,8 @@ Complete Paper 7, `Der Endlichkeitssatz der Invarianten endlicher Gruppen`, was 
 
 The governing authority is:
 
-- Authority pointer: `C:/Users/Floris/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/03_audit/NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md`, SHA-256 `FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1`.
-- German whole: `C:/Users/Floris/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex`, SHA-256 `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`.
+- Authority pointer: `C:/Users/user/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/03_audit/NOETHER_CURRENT_AUTHORITY_POINTER_20260722.md`, SHA-256 `FAC89D076DCE1C24B534595595B75BA1C88A8956E370EF848B307E731633EED1`.
+- German whole: `C:/Users/user/Documents/Codex/2026-06-01/we-are-currently-doing-a-massive/Noether_P07_CurrentHead_SourceAdjudication_20260722/1/01_current/Noether_P16_IndependentSecondPass_20260722_cum_de.tex`, SHA-256 `443EF950D7D45DC6D9E44A9B87501620C10DA873E50E5F2B253ECCAE6A946D27`.
 - Local exact snapshot: `source/Noether_Paper07_German_current_exact_CRLF.tex`, SHA-256 `F6C923B79406542E3DE64298DCD38887FF9A52141C71B8FF2BEBE6D14625FAEA`.
 
 The stale shared R821 pointer was not used.
@@ -65,12 +65,12 @@ The ledgers record explicit sense windows, excluded senses, alternatives, provis
 
 ## Producer/checker boundary
 
-Floris's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
+user's controlling instruction is: `you do not check - you translate - other sessions CHEWCK`.
 
 This package records translation, assembly, and mechanical compilation only. It claims no source/apparatus collation, source correctness, semantic correctness, formula correctness, terminology correctness, translation-quality review, bibliography or footnote validation, native-reader review, rendered-visual QA, regional localization, approval, publication readiness, archive readiness, or certification. All such checking belongs to other sessions.
 
 No source-defect claim was made by this producer. If an independent checker identifies a precise possible Noether-source defect, that checker must deduplicate it and ensure that `4 -nterslav` sees it; this producer does not adjudicate or duplicate-route it.
 
-SGA remains held pending explicit Floris confirmation. No SGA work is authorized or recorded here.
+SGA remains held pending explicit user confirmation. No SGA work is authorized or recorded here.
 
 Decision context: Paper 7 was claimed for translation-only production under `ZH-D093`; Hant, evidence, freeze, transport, and independent review remain subsequent states.

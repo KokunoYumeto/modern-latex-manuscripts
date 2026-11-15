@@ -15,14 +15,14 @@ if (
     throw 'Unexpected append cursor; refusing to mutate the append-only ledger.'
 }
 
-$authorityPath = 'C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/NOETH-DE-ED-0001/Noether_German_NOETH-DE-ED-0001.tex'
+$authorityPath = 'C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/NOETH-DE-ED-0001/Noether_German_NOETH-DE-ED-0001.tex'
 $authoritySha = 'D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB'
-$initializerPath = 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/evidence/difficulty/initialize_difficulty_ledger.ps1'
-$ledgerPath = 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/evidence/difficulty/difficulty_ledger.jsonl'
-$frozenReportPath = 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/evidence/csv_artifact_validation/CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT_PRE_HARD013_20260804.json'
-$validatorPath = 'C:/Users/Floris/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/evidence/csv_artifact_validation/validate_csv_projections_artifact_tool.mjs'
-$nodePath = 'C:/Users/Floris/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe'
-$nodeModulesPath = 'C:/Users/Floris/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules'
+$initializerPath = 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/evidence/difficulty/initialize_difficulty_ledger.ps1'
+$ledgerPath = 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/evidence/difficulty/difficulty_ledger.jsonl'
+$frozenReportPath = 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/evidence/csv_artifact_validation/CSV_PROJECTIONS_ARTIFACT_TOOL_VALIDATION_REPORT_PRE_HARD013_20260804.json'
+$validatorPath = 'C:/Users/user/Documents/interlanguage/03_projects/language_management/cjk/03_working_translations/noether_paper03_ko_translation_001_20260804/evidence/csv_artifact_validation/validate_csv_projections_artifact_tool.mjs'
+$nodePath = 'C:/Users/user/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/bin/node.exe'
+$nodeModulesPath = 'C:/Users/user/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules'
 
 function New-Authority {
     [ordered]@{

@@ -10,20 +10,20 @@ No open content-bearing R823 delta remains in Papers 01–19 at this handoff. An
 
 ## Authority and reviewed target
 
-- R823 package: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717_COMPLETE.zip`
+- R823 package: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Noether Multilingual\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717_COMPLETE.zip`
 - R823 package SHA-256: `7AFC1B865EC710F6BECE507260605CBA7C950E5CC089C7464F63CBC20A8BD738`
-- R823 German TeX: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
+- R823 German TeX: `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\authority_r823\pkg_r823\Noether_R823_WebB_R822_P20p27_31_RunInDashRefine_20260717\1\01_cumulative\Noether_R823_cum_de.tex`
 - R823 German TeX SHA-256: `EE8955BCF7A263917BE57DBC8F682601550CDCB5260D02CA6D486C6A6DFD4F21`
-- Spanish cumulative TeX: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\cum_es.tex`
+- Spanish cumulative TeX: `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\cum_es.tex`
 - Spanish cumulative TeX SHA-256 at final unit validation: `7B9097D657B6A39F9304197FA65A9A16BD5EAEAE190340EE735CD867EA8A7861`
 
 The cumulative-file hash is a build snapshot and may change when the root task edits units after Paper 19. The unit hashes in the v3 CSV are the continuation-safe Papers 01–19 cursor.
 
 ## Unit-level evidence
 
-- Required v3 review ledger: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\PAPERS_01_19_R823_REVIEW_V3.csv`
+- Required v3 review ledger: `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\PAPERS_01_19_R823_REVIEW_V3.csv`
 - Ledger SHA-256: `C54C6B3E6C0CA4430DC6F31C547195A8651805697B40E7234BD39CBD45149DA8`
-- Earlier exact-hash manifest retained for provenance: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\PAPERS_01_19_R823_PARITY_MANIFEST.csv`
+- Earlier exact-hash manifest retained for provenance: `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\PAPERS_01_19_R823_PARITY_MANIFEST.csv`
 
 Combined exact and normalized scope hashes, formed by concatenating the live slices P01 through P19 in order:
 
@@ -67,7 +67,7 @@ The distinct source symbols `\rho`, `\varrho`, `e`, `\nu`, and `\varkappa` are s
 The root task owns the only final cumulative build. To prevent concurrent post-P19 edits from invalidating this scoped evidence, the live P01–P19 content was copied into an immutable TeX snapshot and terminated immediately before Paper 20; the untouched continuation remains below that early `\end{document}` as provenance.
 
 - Command: `latexmk -xelatex -interaction=nonstopmode -halt-on-error cum_es_p01_19.tex`
-- Working directory: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\PAPERS_01_19_ISOLATED_BUILD`
+- Working directory: `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\PAPERS_01_19_ISOLATED_BUILD`
 - Result: success, 219 pages, XeLaTeX plus `xdvipdfmx`.
 - Isolated TeX SHA-256: `8ADC3AEBFEF8FBE923C9560F88C04E66914E5D985ECE06C47E416CCC43CA17F8`
 - Isolated PDF SHA-256: `CF611C45C58B67116DD956212C500B4457BEDCE7B6606345AC38DCF629CD2894`
@@ -79,7 +79,7 @@ The isolated log contains no TeX error, undefined control sequence, emergency st
 
 The final isolated PDF was rendered at 144 dpi. Pages 173–175 (Paper 17 title/introduction/general-polynomial-ring transition), 195–197 (Paper 19 title/introduction and register changes), 207, 210, 212, 214–217 (all later Paper 19 register-change pages), and 219 (formula-heavy terminal page) were visually inspected. The final images show consistent margins and hierarchy, legible formulas and footnotes, correct page numbering, and no clipped, overlapping, missing, or black-boxed content.
 
-- Render directory: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\visual_qa\PAPERS_01_19_FINAL_20260717`
+- Render directory: `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\romance_rebase_20260717\work\spanish\evidence\visual_qa\PAPERS_01_19_FINAL_20260717`
 - Contact sheet, pages 173–197: `contact_01_pages_173_197_FINAL.png`, SHA-256 `C6C4B24E69AE38964D242C8370BF18290409F7C0A3FE41ADCDA1F5DA53AEA5B8`
 - Contact sheet, pages 207–219: `contact_02_pages_207_219_FINAL.png`, SHA-256 `64A144DF4CA26274A6DA49A5AF94EE16682DFE63062C5F58979C510E54E93F47`
 

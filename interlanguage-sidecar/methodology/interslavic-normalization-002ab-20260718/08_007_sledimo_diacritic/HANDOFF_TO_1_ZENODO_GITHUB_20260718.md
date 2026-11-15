@@ -1,6 +1,6 @@
 # Handoff to `1 zenodo/github` — tranche 007
 
-Payload: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_007_sledimo_diacritic`
+Payload: `C:\Users\user\Documents\interlanguage\03_projects\language_management\slavic_interslavic\normalization_20260718\tranche_007_sledimo_diacritic`
 
 Scope: one Latin orthographic correction in Paper 17 section 11 (`sledimo` -> `slědimo`), with its already-correct Cyrillic pair rebuilt and reviewed. Continuation cursor: tranche closed; use the final full-corpus audit at `..\final_audit_20260718\FINAL_NORMALIZATION_AUDIT_20260718.md`.
 

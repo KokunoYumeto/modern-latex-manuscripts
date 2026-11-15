@@ -19,7 +19,7 @@ Image.MAX_IMAGE_PIXELS = None
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 LIVE_QA_ROOT = Path(
-    r"C:\Users\Floris\Documents\interlanguage\03_projects\language_management"
+    r"C:\Users\user\Documents\interlanguage\03_projects\language_management"
     r"\english_germanic\03_working_translations"
     r"\sga7ii_english_complete_translation_successor_20260801_r1\qa"
 )

@@ -20,7 +20,7 @@ Authority is the corrected arXiv French TeX, SHA-256 `C2F899E92A904E312B550C6452
 
 ## Rights, license, and attribution
 
-The payload makes no new license grant. Underlying French-text and page-image rights remain separate from rights in the English target; the archive owner must retain the applicable source notice and choose accurate English-translation attribution/license metadata. Source-page pixels are not redistributed. The English was produced under Floris's coordinated source-audit workflow and should not be presented as an unaided historical human translation.
+The payload makes no new license grant. Underlying French-text and page-image rights remain separate from rights in the English target; the archive owner must retain the applicable source notice and choose accurate English-translation attribution/license metadata. Source-page pixels are not redistributed. The English was produced under user's coordinated source-audit workflow and should not be presented as an unaided historical human translation.
 
 ## Archive coordination
 

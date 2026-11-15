@@ -1,5 +1,5 @@
 # Completeness State — end of insertion sprint 1
-2026-07-04. The bar (Floris): full canonical-corpus insertion of all the words, correctly weighted. This summarizes where that stands after 24 insertion passes (mine) + 3 grind passes (ChatGPT web), all same-day.
+2026-07-04. The bar (user): full canonical-corpus insertion of all the words, correctly weighted. This summarizes where that stands after 24 insertion passes (mine) + 3 grind passes (ChatGPT web), all same-day.
 
 ## The numbers
 
@@ -21,7 +21,7 @@ ChatGPT's parallel measurement (stricter 222-file set, artifact-excluded denomin
 - Held-word discipline paid: dělo=paper-header, vaga=weight-of-form (real Noether-stratum term), oběh=genitive dual — three would-be misclassifications avoided by context checks.
 - Tooling hardened by the grind itself: č-class tokenizer fix, NFC order, inflection stems, eponym-stem rule, TeX-artifact exclusion (ChatGPT), preamble/env/option stripping.
 
-## The strategy fork (needs Floris)
+## The strategy fork (needs user)
 Per-pass deltas are now 0.1–0.3% tokens; front words occur ≤10 times each. Four ways to spend the next passes:
 **(a)** keep token-grinding to ~95%+ (mechanical, diminishing);
 **(b)** pivot to TYPE-ranked fronts — the lexicographic completeness the bar actually names (types 68.6% → the real distance);

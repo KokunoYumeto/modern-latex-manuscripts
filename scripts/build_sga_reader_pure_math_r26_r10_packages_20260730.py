@@ -658,8 +658,8 @@ def reset_package(path: Path) -> None:
 
 def verify_no_private_paths(package: Path) -> None:
     patterns = (
-        rb"C:\\Users\\Floris",
-        rb"C:/Users/Floris",
+        rb"C:\\Users\\user",
+        rb"C:/Users/user",
         rb"C:\\IL_GitHub",
         rb"thread[_ -]?id",
         rb"\.codex",

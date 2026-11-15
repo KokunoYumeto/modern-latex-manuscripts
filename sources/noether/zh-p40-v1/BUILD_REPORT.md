@@ -44,4 +44,4 @@ The first mechanically assembled draft compiled twice for both scripts before tw
 
 ## Claim limit
 
-Compilation success and compiler-reported page counts are mechanical facts only. This lane did not compare scans, source-check, validate translation or formulas, inspect rendered pages, localize regional Hant prose, obtain human/native review, approve, archive, publish, or certify these outputs. Floris's controlling instruction remains: `you do not check - you translate - other sessions CHEWCK`.
+Compilation success and compiler-reported page counts are mechanical facts only. This lane did not compare scans, source-check, validate translation or formulas, inspect rendered pages, localize regional Hant prose, obtain human/native review, approve, archive, publish, or certify these outputs. user's controlling instruction remains: `you do not check - you translate - other sessions CHEWCK`.

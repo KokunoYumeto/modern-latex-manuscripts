@@ -13,8 +13,8 @@ TeX, and not a critical-edition claim.
 
 Local packets:
 
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Galois\Galois_SOURCE_PACKET_20260629.zip`
-- `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629.zip`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Galois\Galois_SOURCE_PACKET_20260629.zip`
+- `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Galois\Galois_source_staging_20260629.zip`
 
 Source-quality conclusion:
 
@@ -39,7 +39,7 @@ Recommended public phrasing:
 
 Local packet root:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Eisenstein\Eisenstein_SOURCE_PACKET_20260629`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\source intake priority authors 20260629\Eisenstein\Eisenstein_SOURCE_PACKET_20260629`
 
 Source-quality conclusion:
 

@@ -61,7 +61,7 @@ license, copyright notice, and final attribution before public release. See
 `LICENSE_ATTRIBUTION.md`.
 
 The inherited English is old-laptop Codex/GitHub lineage, not Claude. The
-2026-07-17 synchronization is a machine-assisted Codex workpass under Floris's
+2026-07-17 synchronization is a machine-assisted Codex workpass under user's
 direction. Those provenance facts must not be converted into an invented human
 translator credit or an unsupported critical-edition claim.
 

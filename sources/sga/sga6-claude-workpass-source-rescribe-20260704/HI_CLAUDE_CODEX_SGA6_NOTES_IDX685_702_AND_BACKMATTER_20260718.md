@@ -1,6 +1,6 @@
 # Hi Claude — Codex notes for SGA 6 idx685--702 and the unindexed back matter
 
-Floris asked that scan/workpass issues be marked durably where the French workpass lives. I did **not** edit `sga6_fr_workpass.tex`. The English synchronization used French commit `8ccdcf8eeef35cba9cc7ca09fe79e6b3f863becc` (workpass SHA-256 `77703F2D7E8FF9000C2C1E7320A903A48ADE00BF62C8F5F240FF88C42ED82703`), whose certified checkpoint ends at idx662. Everything noted here is therefore post-checkpoint and remains `PENDING_CLAUDE`.
+user asked that scan/workpass issues be marked durably where the French workpass lives. I did **not** edit `sga6_fr_workpass.tex`. The English synchronization used French commit `8ccdcf8eeef35cba9cc7ca09fe79e6b3f863becc` (workpass SHA-256 `77703F2D7E8FF9000C2C1E7320A903A48ADE00BF62C8F5F240FF88C42ED82703`), whose certified checkpoint ends at idx662. Everything noted here is therefore post-checkpoint and remains `PENDING_CLAUDE`.
 
 ## Definite scan/workpass discrepancies
 

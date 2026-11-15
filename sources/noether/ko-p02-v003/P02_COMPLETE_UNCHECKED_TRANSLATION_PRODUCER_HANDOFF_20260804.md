@@ -10,8 +10,8 @@
 ## Current authority and exact Paper 2 scope
 
 - Current coordination pointer: `NOETH-DE-AUTH-v006-20260804`.
-- Pointer: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v006_20260804.json` — 20,666 B — SHA-256 `DB99DD87100654674D7ED24B4ABBBBC3A9920CCF035740D276CE8A87A5313C18`.
-- Default German authority: `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex` — 2,153,565 raw B — SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
+- Pointer: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v006_20260804.json` — 20,666 B — SHA-256 `DB99DD87100654674D7ED24B4ABBBBC3A9920CCF035740D276CE8A87A5313C18`.
+- Default German authority: `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex` — 2,153,565 raw B — SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
 - Paper 2 source surface: ED0001 lines 473--3568, 149,508 LF-normalized UTF-8 B, SHA-256 `D410ECC6B0ABA26400254CEE26867D92F21147BA38D2EDB93C3D7E37AFCEA3BD`.
 - Excluded post-paper controls: lines 3569--3572, 28 LF B, SHA-256 `B18FF0CE4073E19DBDAD6E0DDDA1084C09D83162933D356F6D673C926AFFB8F9`.
 - Line 3573 begins Paper 3 and is outside this package.
@@ -19,7 +19,7 @@
 
 ## Current manifest and exact payload
 
-- **Current dispatch manifest:** `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper02_ko_translation_001_20260804\P02_COMPLETE_UNCHECKED_TRANSLATION_PRODUCER_MANIFEST_v002_20260804.json` — 90,122 B — SHA-256 `C5ADFD7B00C283BACED7C9F2E47E381D37740622F9F2DB5988AFF352D6794D3B`.
+- **Current dispatch manifest:** `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\03_working_translations\noether_paper02_ko_translation_001_20260804\P02_COMPLETE_UNCHECKED_TRANSLATION_PRODUCER_MANIFEST_v002_20260804.json` — 90,122 B — SHA-256 `C5ADFD7B00C283BACED7C9F2E47E381D37740622F9F2DB5988AFF352D6794D3B`.
 - Manifest validation: PASS; all 344 listed payload files replay by byte count and SHA-256.
 - Canonical payload inventory: 39,113 B — SHA-256 `380D3E5BFCBB45A721D335F991340AB81A541994AA28F2911C4F0013C3F29DE6`.
 - Payload: 344 files / 19,760,565 B.
@@ -60,8 +60,8 @@ Until that return exists, every target remains `UNCHECKED`, uncompiled, unrender
 
 ## Durable logs and continuation
 
-- Decision log: `C:\Users\Floris\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md`; latest decision at manifest creation: `CJK-KO-P02-065`.
-- Methodology return: `C:\Users\Floris\Documents\interlanguage\04_handoffs\methodology_lessons_20260718\CJK_KOREAN_PRODUCTION_LESSONS_20260718.md` — 170,022 B — SHA-256 `257E638F319836C02D09034FC3FF09982B200345DC0FE798BE38B5177435879F`.
+- Decision log: `C:\Users\user\Documents\interlanguage\03_projects\language_management\cjk\00_lane_control\CJK_DECISION_LOGBOOK_20260718.md`; latest decision at manifest creation: `CJK-KO-P02-065`.
+- Methodology return: `C:\Users\user\Documents\interlanguage\04_handoffs\methodology_lessons_20260718\CJK_KOREAN_PRODUCTION_LESSONS_20260718.md` — 170,022 B — SHA-256 `257E638F319836C02D09034FC3FF09982B200345DC0FE798BE38B5177435879F`.
 - Paper 2 mutable translation cursor: closed.
 - Mechanical source continuation: ED0001 line 3573, Paper 3, outside Paper 2.
 - Lane continuation: after dispatch, select the next non-overlapping untranslated Korean Noether paper; do not begin SGA.

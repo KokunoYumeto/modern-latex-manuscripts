@@ -4,7 +4,7 @@ Date: 2026-06-29
 
 Local staging root:
 
-`C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Cayley\Cayley_PRO_SOURCE_STAGING_20260629`
+`C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Cayley\Cayley_PRO_SOURCE_STAGING_20260629`
 
 Companion upload manifest:
 

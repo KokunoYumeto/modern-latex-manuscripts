@@ -111,7 +111,7 @@ $issues = @(
         'No separately named independent Korean checker task exists in the bounded CJK controls or Chinese peer state.' `
         @('Chinese task 019f757c-95a5-7030-8b00-38762b5cdbfc explicitly returned that it has no Korean checker ID.','The Chinese lane performed no Korean review and refused to misuse the German canon task as a checker.') `
         @('Preserved an unchecked hash-pinned handoff.','Rejected asking Chinese or Japanese producers to authorize Korean.','Rejected creating a user-visible checker task without explicit routing authority.','Rejected treating task delivery as review.') `
-        'active_control' 'Keep Paper 1 and Paper 42 UNCHECKED until Floris or an authorized lane route identifies an independent Korean checker.' `
+        'active_control' 'Keep Paper 1 and Paper 42 UNCHECKED until user or an authorized lane route identifies an independent Korean checker.' `
         @($u01Hash,$u02Hash,$u03Hash,$choicesHash) 'Producer drafts may accumulate faster than checker capacity; terminology debt and formula risk remain open.' `
         @('missing checker ID','cross-language review temptation','delivery-versus-acceptance') @('CJK-KO-P42-004','CJK-KO-P01-002') @('NOE-P01-KO-WORK-001') `
         'An honest unavailable-checker state is better than inventing independence or laundering a peer translation task into review authority.')

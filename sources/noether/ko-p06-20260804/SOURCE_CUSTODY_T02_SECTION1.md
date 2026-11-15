@@ -4,10 +4,10 @@ Custody state: translation-producer metadata only. No source/scan audit, Korean 
 
 ## Authority and pointer binding
 
-- Frozen unit binding: `NOETH-DE-AUTH-v006-20260804`, retained pointer `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v006_20260804.json`; 20,666 bytes / SHA-256 `DB99DD87100654674D7ED24B4ABBBBC3A9920CCF035740D276CE8A87A5313C18`.
-- Current pointer metadata successor: `NOETH-DE-AUTH-v007-20260804`, `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\CURRENT_GERMAN_AUTHORITY_POINTER.json`; 21,580 bytes / SHA-256 `A6A8FC8E5AC24ACAF49DFD55B4B58FA3DA882EF8C3FDD4D136220C8751045156`.
+- Frozen unit binding: `NOETH-DE-AUTH-v006-20260804`, retained pointer `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\pointers\NOETH_DE_AUTHORITY_POINTER_v006_20260804.json`; 20,666 bytes / SHA-256 `DB99DD87100654674D7ED24B4ABBBBC3A9920CCF035740D276CE8A87A5313C18`.
+- Current pointer metadata successor: `NOETH-DE-AUTH-v007-20260804`, `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\CURRENT_GERMAN_AUTHORITY_POINTER.json`; 21,580 bytes / SHA-256 `A6A8FC8E5AC24ACAF49DFD55B4B58FA3DA882EF8C3FDD4D136220C8751045156`.
 - v007 explicitly supersedes v006 but leaves the default German authority below unchanged. It is recorded here as successor metadata only; the frozen route and target headers remain bound to v006 and are not rewritten.
-- German authority: `NOETH-DE-ED-0001`, `C:\Users\Floris\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`; 2,153,565 raw bytes / SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
+- German authority: `NOETH-DE-ED-0001`, `C:\Users\user\Documents\interlanguage\03_projects\noether\07_german_canon_control\candidates\NOETH-DE-ED-0001\Noether_German_NOETH-DE-ED-0001.tex`; 2,153,565 raw bytes / SHA-256 `D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB`.
 - Complete Paper 6 §1 interval: whole-authority lines 4616--4691; 5,200 LF-normalized UTF-8 bytes / SHA-256 `75061A82BA7BCD9F16A84561B187EA58B2E7143D943A1A57E06FB0230817A8AE`.
 - Section boundary: line 4692 begins `\section*{\S\ 2. Hilfssatz über algebraisch abhängige Funktionen.}` and is excluded.
 - Route record: `ROUTE_AND_CLAIM_T02_SECTION1.md`; 1,872 bytes / SHA-256 `2A6D74651A32442A9DF779686D6801E4AE16BACAAED897D4189FD542BC807E27`.

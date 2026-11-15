@@ -68,7 +68,7 @@ English manager. No upload or new Zenodo record has been made.
   `../../02_native_examples/sga5_current_french_workpass/sga5_fr_workpass.tex`,
   SHA-256 `791F4EFFC5E02832D5D77ED03518C8156D6F07E4C8238B03545DB93D883FBB28`.
 - Original scan (audit witness only; excluded from payload):
-  `C:/Users/Floris/Documents/Papors/OS/SGA5 (1).pdf`, SHA-256
+  `C:/Users/user/Documents/Papors/OS/SGA5 (1).pdf`, SHA-256
   `B256EBD072A8C68209518412A263C9289C6F1854A346733D86F885930D5FE6CA`.
 - English style controls: the on-disk SGA 1–4 English baselines recorded in the
   audit reports; they informed established English terminology but never

@@ -40,7 +40,7 @@ Proper names and journal abbreviations were retained in Latin form. German prose
 
 ## Explicit no-check state
 
-Floris's controlling boundary is:
+user's controlling boundary is:
 
 > you do not check - you translate - other sessions CHEWCK
 

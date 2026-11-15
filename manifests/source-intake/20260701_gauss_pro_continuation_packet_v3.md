@@ -2,7 +2,7 @@
 
 Date registered: 2026-07-01
 
-Local root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v3`
+Local root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\Gauss\Gauss_PRO_SOURCE_WORK_CONTINUATION_20260629_v3`
 
 Classification: web/pro continuation source-and-work handoff packet. This is not a new reader-facing Gauss release, not a certified critical edition, and not a claim that all included ranges are source-complete. It is a coherent upload set for continuing Gauss transcription/translation/source repair in web sessions.
 

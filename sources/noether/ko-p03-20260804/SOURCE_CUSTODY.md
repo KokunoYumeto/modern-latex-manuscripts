@@ -7,7 +7,7 @@ Purpose: byte custody and translation routing only; not source checking or Germa
 
 - Pointer: NOETH-DE-AUTH-v003-20260804.
 - Pointer files: 15,345 bytes; SHA-256 932FEDC1735A41A9CF71D15A6C662A468A4CAD016AE8B3DECDF9A71E8BA7F197.
-- Authority: C:/Users/Floris/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/NOETH-DE-ED-0001/Noether_German_NOETH-DE-ED-0001.tex.
+- Authority: C:/Users/user/Documents/interlanguage/03_projects/noether/07_german_canon_control/candidates/NOETH-DE-ED-0001/Noether_German_NOETH-DE-ED-0001.tex.
 - Authority whole identity supplied by the route: 2,153,565 bytes; SHA-256 D1F06B311F6CBD991DD247D745DD9A72DDE326A20396DF43CFE0C8EDB1593CDB.
 - Exact mechanical Paper 3 interval: whole-authority lines 3573–3608 inclusive; 36 LF-terminated lines; 8,277 LF-normalized UTF-8 bytes; SHA-256 E600FD2A19ACA22F43D54FB65C61B79172B12FE5AB09446A2C9C9B8CACD26E7D.
 - Interval opening: whole line 3573 begins the centered title block.

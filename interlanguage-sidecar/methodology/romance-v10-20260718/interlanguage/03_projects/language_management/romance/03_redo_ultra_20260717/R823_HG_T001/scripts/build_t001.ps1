@@ -7,7 +7,7 @@ $build=Join-Path $tranche 'build'
 $qa=Join-Path $tranche 'qa'
 $render=Join-Path $qa 'rendered'
 $final=Join-Path $repo 'output\pdf'
-$poppler='C:\Users\Floris\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin'
+$poppler='C:\Users\user\.cache\codex-runtimes\codex-primary-runtime\dependencies\native\poppler\Library\bin'
 New-Item -ItemType Directory -Force -Path $build,$qa,$render,$final|Out-Null
 
 $console=Join-Path $build 'R823_HG_T001_lualatex_console.log'

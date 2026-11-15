@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 const root = path.resolve(import.meta.dirname, '..');
 const outDir = import.meta.dirname;
 const sourcePath = path.join(root, 'source.tex');
-const authorityPath = 'C:\\Users\\Floris\\Documents\\interlanguage\\03_projects\\noether\\07_german_canon_control\\candidates\\ED0002\\noether.tex';
+const authorityPath = 'C:\\Users\\user\\Documents\\interlanguage\\03_projects\\noether\\07_german_canon_control\\candidates\\ED0002\\noether.tex';
 const authoritySha = 'C9A125167ACB33D914EE4374B65AE7CDF0052F568371B8B77B720EA178ABF0E3';
 const sourceBase = 5957;
 

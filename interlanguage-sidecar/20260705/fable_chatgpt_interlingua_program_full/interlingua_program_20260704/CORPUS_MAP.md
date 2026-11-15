@@ -7,10 +7,10 @@ The corpus has three strata. They grew independently and are the two halves plus
 
 | File | What it is | Read state |
 | --- | --- | --- |
-| `C:\Users\Floris\Downloads\ChatGPT-Research Framework Construction.md` | **The rigor backbone.** ChatGPT sidecar pass (2026-07-04). Contains: terminology discipline table (§1), the programme in one sentence (§2), literature alignment (§3), mathematical reconstruction — ILO Jaccard-over-neighborhoods, FFRisk = FormSim × SemDist, phylogenetic barycenter argmin, cobordism-with-triviality-proposition (§4), acquisition layer (§5), FEP separation (§7), RQ1–RQ7 + H1–H8 (§10), WP1–WP5 (§11), PhD chapter structure (§12), blue-team 10 theses (§13), red-team audit 14.1–14.8, final viability judgment (§15). | Core sections read (§1–4.6, §10, §13–15). §5–9, WP details pending. |
-| `C:\Users\Floris\Downloads\AI Interlingua Research Proposal.md` | Old Gemini deep-research. Formal framework: semantic hub, ILO, catastrophic forgetting/early-layer freezing, Interslavic voting machine as maximum-likelihood centroid, Hopfield=attention, FEP, MERA/AdS-CFT holography. Good source list; more metaphor-inflated than the ChatGPT doc. | Lines 1–140 of 314 read. Back half (holography → doctoral program) pending; superseded in rigor by ChatGPT doc. |
-| `C:\Users\Floris\Downloads\Realistic Linguistics AI Scenario (1).md` | New Gemini deep-research (2026-07-04). Scenario/bot-config framing around the same science; 70-item bibliography (semantic hub, ILO, intrinsic dimension, CoT monitorability, Ramsauer Hopfield, scaling-laws-from-manifold-dimension). Use as bibliography donor + concept glossary. | Read fully. |
-| `C:\Users\Floris\Documents\Obsidian notes\chat session with the ai.md` | The raw heuristic seed transcript. Floris's original coinages: meaning=topology, attractors-as-gravity, drift-as-branching observable, dense branch points = interlanguage space, Hebbian-Bayesian concept selection, ZPD/i+1 as comprehensibility threshold, "not fixed but fit", personal 2-year longitudinal AI corpus (Google Drive, not on disk here). | Read fully. |
+| `C:\Users\user\Downloads\ChatGPT-Research Framework Construction.md` | **The rigor backbone.** ChatGPT sidecar pass (2026-07-04). Contains: terminology discipline table (§1), the programme in one sentence (§2), literature alignment (§3), mathematical reconstruction — ILO Jaccard-over-neighborhoods, FFRisk = FormSim × SemDist, phylogenetic barycenter argmin, cobordism-with-triviality-proposition (§4), acquisition layer (§5), FEP separation (§7), RQ1–RQ7 + H1–H8 (§10), WP1–WP5 (§11), PhD chapter structure (§12), blue-team 10 theses (§13), red-team audit 14.1–14.8, final viability judgment (§15). | Core sections read (§1–4.6, §10, §13–15). §5–9, WP details pending. |
+| `C:\Users\user\Downloads\AI Interlingua Research Proposal.md` | Old Gemini deep-research. Formal framework: semantic hub, ILO, catastrophic forgetting/early-layer freezing, Interslavic voting machine as maximum-likelihood centroid, Hopfield=attention, FEP, MERA/AdS-CFT holography. Good source list; more metaphor-inflated than the ChatGPT doc. | Lines 1–140 of 314 read. Back half (holography → doctoral program) pending; superseded in rigor by ChatGPT doc. |
+| `C:\Users\user\Downloads\Realistic Linguistics AI Scenario (1).md` | New Gemini deep-research (2026-07-04). Scenario/bot-config framing around the same science; 70-item bibliography (semantic hub, ILO, intrinsic dimension, CoT monitorability, Ramsauer Hopfield, scaling-laws-from-manifold-dimension). Use as bibliography donor + concept glossary. | Read fully. |
+| `C:\Users\user\Documents\Obsidian notes\chat session with the ai.md` | The raw heuristic seed transcript. user's original coinages: meaning=topology, attractors-as-gravity, drift-as-branching observable, dense branch points = interlanguage space, Hebbian-Bayesian concept selection, ZPD/i+1 as comprehensibility threshold, "not fixed but fit", personal 2-year longitudinal AI corpus (Google Drive, not on disk here). | Read fully. |
 
 **Rigor tiers already established by the ChatGPT red-team (adopt as-is):**
 - Tier 1 established/usable: ILO + neighborhood overlap; false friends as form-sim/meaning-dist conflicts; drift as branch-sensitive hazard zone (not branching marker); barycenter-not-ancestor; latent-pivot (English-bias) audit requirement; comprehensible-input threshold.
@@ -19,7 +19,7 @@ The corpus has three strata. They grew independently and are the two halves plus
 
 ## Stratum B — Practice stack (Codex backup, heuristic construction program)
 
-Root: `C:\Users\Floris\Downloads\codex backup dump 7-4\codex backup\`
+Root: `C:\Users\user\Downloads\codex backup dump 7-4\codex backup\`
 Backup is **partial**: part 3 of 3 extracted (logs/ 1317 files, glossary/ 111, packages/ 163, visual_inspection/ 177). Parts 1–2 are incomplete `.crdownload` files (~1GB each) that would hold renders/, translations/, sources/. The heuristic layer is fully present; the heavy corpus is on GitHub/Zenodo anyway.
 
 Key files (logs\):
@@ -45,8 +45,8 @@ Key files (logs\):
 
 Repo: https://github.com/KokunoYumeto/modern-latex-manuscripts
 Local clones:
-- `C:\Users\Floris\Documents\Papors\modern-latex-manuscripts-github` — branch `codex-archive-reconcile-source-heavy-20260611`, **in sync with origin, clean** (0 ahead/behind, 0 uncommitted). Today's commits incl. "Refresh Noether R720 and interlanguage package 148".
-- `C:\Users\Floris\Documents\Papors\GitHub\modern-latex-manuscripts` — main, no upstream configured, 81 dirty files (deletions). Secondary; ignore for now.
+- `C:\Users\user\Documents\Papors\modern-latex-manuscripts-github` — branch `codex-archive-reconcile-source-heavy-20260611`, **in sync with origin, clean** (0 ahead/behind, 0 uncommitted). Today's commits incl. "Refresh Noether R720 and interlanguage package 148".
+- `C:\Users\user\Documents\Papors\GitHub\modern-latex-manuscripts` — main, no upstream configured, 81 dirty files (deletions). Secondary; ignore for now.
 
 GitHub facts (2026-07-04):
 - `origin/codex/noether-pc-20260629` — the live interlanguage-package branch, pushed through **package 160** today, 110 commits ahead of main. The other machine's work IS on GitHub; nothing local is unpushed.
@@ -56,9 +56,9 @@ GitHub facts (2026-07-04):
 
 **Gap to check in P0:** which of the ~60 backup-only `logs/INTER*/BRIDGE*/WORLD_FAMILY*` files are already in repo/Zenodo packages vs backup-only (candidates for the consolidation commit).
 
-## Stratum D — Chatnotes bilingual/aid corpus (located 2026-07-04, per Floris)
+## Stratum D — Chatnotes bilingual/aid corpus (located 2026-07-04, per user)
 
-Root: `C:\Users\Floris\Documents\Papors\Chatnotes\CHat translates and clean\`
+Root: `C:\Users\user\Documents\Papors\Chatnotes\CHat translates and clean\`
 ChatGPT-era ("the other AI") two-way bilingual translation drafts and aid packages, many unfinished, produced **before the compaction problem was understood** — so: usable as *linked/draft* parallel material and terminology evidence, NEVER as source witnesses without scan-side verification (same defect class as the SGA6 condensation).
 
 - Per-author folders (bilingual drafts + aid material): Bianchi, Cayley (+web), Dedekind, Deligne (+restart), Dirichlet, Frobenius, Galois, Gauss, Gordan, Klein-Fricke, Kneser, Kron/Kronecker, Mikami, Picard, Poincaré, Seki, Steinitz, Sylvester, Weber (+restart, fidelity pass), SGA (restart, continuation, high-fidelity semi-restart), Noether (French Codex, Multilingual, restart fidelity).
@@ -74,9 +74,9 @@ Second Chatnotes root at `Documents\Chatnotes\` (smaller, mostly research-notes 
 
 ## Shared analytics feed (registered 2026-07-04)
 
-`C:\Users\Floris\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\Slavic_LaTeX_ProMode_Feed_20260704.zip` — TeX-only extraction of the codex dump for web ChatGPT Pro sessions: ISV-Cyrillic 429 + ISV-Latin 448 + uk 582 + ru 453 = 1,912 files; README explicitly notes NO W/S Slavic files and warns against letting Russian dominate. **Source-use category: generated-corpus / internal-consistency shelf** (never witnesses). This is the feed behind ChatGPT's ring occurrence audit; my equivalent scans run on `$germanOut\translations\` directly — same content, two packagings, which is what made the 1059-count cross-validation independent-ish (same underlying corpus, different toolchains).
+`C:\Users\user\Documents\Codex\2026-05-26\there-is-currently-an-ongoing-process\Slavic_LaTeX_ProMode_Feed_20260704.zip` — TeX-only extraction of the codex dump for web ChatGPT Pro sessions: ISV-Cyrillic 429 + ISV-Latin 448 + uk 582 + ru 453 = 1,912 files; README explicitly notes NO W/S Slavic files and warns against letting Russian dominate. **Source-use category: generated-corpus / internal-consistency shelf** (never witnesses). This is the feed behind ChatGPT's ring occurrence audit; my equivalent scans run on `$germanOut\translations\` directly — same content, two packagings, which is what made the 1059-count cross-validation independent-ish (same underlying corpus, different toolchains).
 
 ## Data assets usable for measurement (P2+)
 - glossary/ term-rationale files (machine-readable term decisions with reasons) — audit dataset for the objective function.
 - Noether parallel corpus: same mathematical text in German original + English + French + Interslavic (Latin+Cyrillic) + partial Arabic/Persian microdrafts — a concept-aligned multilingual corpus the theory side needs (WP1) and that nobody else has.
-- Floris's longitudinal personal AI corpus (Google Drive, millions of words) — optional later; gated on his export decision.
+- user's longitudinal personal AI corpus (Google Drive, millions of words) — optional later; gated on his export decision.

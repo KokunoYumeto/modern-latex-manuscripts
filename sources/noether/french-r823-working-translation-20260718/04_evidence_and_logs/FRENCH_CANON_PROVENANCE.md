@@ -4,13 +4,13 @@ Date de consolidation : 2026-07-17.
 
 ## Autorité du corpus local
 
-- Corpus validé d'origine : `C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260628_french_spanish_native_math_register\tex_corpus_expanded_validated_20260628\french`
-- Archive d'origine : `C:\Users\Floris\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260628_french_spanish_native_math_register\french_spanish_tex_corpus_expanded_validated_20260628.zip`
+- Corpus validé d'origine : `C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260628_french_spanish_native_math_register\tex_corpus_expanded_validated_20260628\french`
+- Archive d'origine : `C:\Users\user\Downloads\codex backup dump 7-4\$germanOut\sources\non_slavic_reference_corpus\20260628_french_spanish_native_math_register\french_spanish_tex_corpus_expanded_validated_20260628.zip`
 - SHA-256 de l'archive, recalculé et conforme au fichier latéral : `5DC9699BFF91854DB0BFF56881521FCE798DD27F22834921E76B26F1CC652670`
-- Manifeste d'origine : `C:\Users\Floris\Downloads\codex backup dump 7-4\codex backup\logs\FRENCH_SPANISH_LATEX_SOURCE_CORPUS_EXPANDED_20260628.json`
+- Manifeste d'origine : `C:\Users\user\Downloads\codex backup dump 7-4\codex backup\logs\FRENCH_SPANISH_LATEX_SOURCE_CORPUS_EXPANDED_20260628.json`
 - SHA-256 du manifeste d'origine : `C304B4746AEAC62DB736F80E4A22ACF1AFB9C48F8BAC04931DE0D61A072EEFBB`
 - Portée validée du corpus d'origine : 41 sources françaises et 100 fichiers TeX français; aucune traduction de Noether n'y a été effectuée.
-- Copie de travail ciblée : `C:\Users\Floris\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\french_canon\validated_tex`
+- Copie de travail ciblée : `C:\Users\user\Documents\interlanguage\03_projects\noether\03_translation_workspaces\fr_r823_20260717\working\french_canon\validated_tex`
 - Manifeste exhaustif de la copie, avec le hash de chaque fichier : `FRENCH_CANON_SOURCE_MANIFEST.json`
 - SHA-256 du manifeste exhaustif : `9BA101E524AB406630FB6776D84DBA740A0FDA68072FBAEBADB253B0FDA499F0`
 
