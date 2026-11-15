@@ -4,6 +4,9 @@ To jest praktično medžuslovjansko izdanje projekta Open Logic za čitateljev s
 
 > To rabotno izdanje jest zapisano v [centralnom katalogu prěvodov projekta Open Logic](https://github.com/KokunoYumeto/OpenLogic-translations), ktory oddělno ukazuje točny prijety prefiks i polne izdanja.
 
+
+> **15 November 2026: a new reader through OLP-0296** ([PDF](reader/OpenLogic-Interslavic-OLP0296-reader.pdf), 558 pages): 296 of 722 units accepted, 170,345 of 367,220 source alphabetic tokens (46.39%), canon 659 concepts in 1,523 revisions. The text was translated and checked by OpenAI Codex (GPT-5.6 Sol; the last units, to OLP-0296 on 24 October 2026, by GPT-6 Astra; reasoning effort ultra); this reader built and checked on 15 November 2026 by Claude Opus 5.5 at effort high. The sections below describe the OLP-0198 checkpoint.
+
 ## Aktualny kontrolny punkt · OLP-0198
 
 198 iz 722 jedinic sųt prijete i prověrjene; 524 ostavaje. Pokryto jest 110 194 iz 367 220 izvornyh alfabetičnyh tokenov (30,01%). Kanon sodrži 400 aktivne pojmy v 453 fizičnyh revizijah.

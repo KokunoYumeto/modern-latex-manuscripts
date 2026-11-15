@@ -1,0 +1,104 @@
+% Bounded Open Logic Interslavic reader through accepted unit OLP-0296.
+% OLP-0297 and all later units remain outside this checkpoint.
+
+\documentclass[openany]{memoir}
+\input{open-logic-isv-driver-common.tex}
+% Publication build of 15 Nov 2026: Interslavic has no hyphenation patterns, so let lines stretch rather than overrun.
+\AtBeginDocument{\sloppy\emergencystretch=3em\hbadness=10000}
+% Two displays are up to 13pt wider than the type block: widen it by 14pt, centred.
+\addtolength{\textwidth}{14pt}\addtolength{\oddsidemargin}{-7pt}\addtolength{\evensidemargin}{-7pt}
+% Tableaux are set one size smaller, so that the widest fit the line.
+\renewenvironment{oltableau}{\center\small\tableau{}}{\endtableau\endcenter}
+
+\renewcommand*{\OLCanonicalReaderCount}{296}
+\newcommand*{\OLPendingReaderCount}{426}
+\providecommand*{\OLReaderLayout}{print}
+\providecommand*{\OLReaderLayoutLabel}{čitanka}
+\providecommand*{\OLCompletePDFTitle}{Tekst Open Logic - čestična medžuslovjanska čitanka do OLP-0296 (latinica)}
+\providecommand*{\OLCompleteEditionTitle}{Čestična čitanka na medžuslovjanskom jezyku do OLP-0296 (latinica)}
+\title{\OLCompleteEditionTitle}
+\author{Open Logic Project}
+\date{Kontrolny punkt 24. oktobra 2026}
+
+% The accepted prefix ends with OLP-0296 (minimization-representable).
+% Preserve the import topology, but suppress comp-representable.tex (OLP-0297)
+% and everything later.
+\newif\ifOLCheckpointReached
+\AddToHook{begindocument/before}{%
+  \NewCommandCopy\OLOriginalImport\olimport
+  \RenewDocumentCommand \olimport { s o m o }{%
+    \ifstrequal{#3}{comp-representable}{\global\OLCheckpointReachedtrue\typeout{OLP0296-CHECKPOINT-STOP-BEFORE-OLP0297}}{}%
+    \ifOLCheckpointReached
+    \else
+      \IfNoValueTF{#2}{%
+        \IfBooleanTF{#1}{%
+          \IfNoValueTF{#4}{\OLOriginalImport*{#3}}{\OLOriginalImport*{#3}[#4]}%
+        }{%
+          \IfNoValueTF{#4}{\OLOriginalImport{#3}}{\OLOriginalImport{#3}[#4]}%
+        }%
+      }{%
+        \IfBooleanTF{#1}{%
+          \IfNoValueTF{#4}{\OLOriginalImport*[#2]{#3}}{\OLOriginalImport*[#2]{#3}[#4]}%
+        }{%
+          \IfNoValueTF{#4}{\OLOriginalImport[#2]{#3}}{\OLOriginalImport[#2]{#3}[#4]}%
+        }%
+      }%
+    \fi
+  }%
+}
+
+\hypersetup{
+  unicode=true,
+  pdflang={isv-Latn},
+  pdftitle={\OLCompletePDFTitle},
+  pdfauthor={Open Logic Project},
+  pdfsubject={Čestična čitanka: 296 iz 722 jedinic; 170345 iz 367220 izvornyh alfabetičnyh tokenov},
+  pdfkeywords={Projekt Open Logic, medžuslovjansky, isv-Latn, OLP-0296, čestično izdanje}
+}
+
+\begin{document}
+
+\begin{titlingpage}
+\begin{center}
+\vspace*{1.5cm}
+{\HUGE\bfseries\sffamily \OLTname\par}
+\vspace{0.8cm}
+{\huge \OLCompleteEditionTitle\par}
+\vspace{0.8cm}
+{\Large \OLLocaleBCPTag\ - \OLReaderLayoutLabel\par}
+\vspace{1cm}
+{\large Izvor: OpenLogicProject/OpenLogic\par}
+{\large Revizija izvora: \texttt{\OLSourceCommit}\par}
+\end{center}
+
+\vfill
+
+\noindent
+To čestično izdanje sodrži vse prijete jedinice od OLP-0001 do
+OLP-0296: \OLCanonicalReaderCount\ iz \OLSourceClosureCount\ jedinic.
+Pokryto jest 170~345 iz 367~220 izvornyh alfabetičnyh tokenov (46,39\%).
+Ostale \OLPendingReaderCount\ jedinic jošče ne sųt čestju čitanky.
+
+\medskip
+Latinična redakcija jest kanonična svědočba; kirilično izdanje jest
+deterministično izvedeno i ne jest druga nezavisna translacija.
+
+\medskip
+Translacija, redakcija i formalna kontrola sųt izvedene sistemom
+\texttt{OpenAI Codex} (GPT-5.6 Sol, pozdněje GPT-6 Astra; reasoning effort ultra). Člověčska jezykova
+recenzija ili certifikacija ne byla provedena.
+
+\medskip
+\ollicense
+\end{titlingpage}
+
+\pagestyle{plain}
+\subfile{content/open-logic-about}
+\tableofcontents*
+\subfile{content/content}
+\photocredits
+\nocite{Frege1953,Peter1967}
+\bibliographystyle{\olpath/bib/natbib-oup}
+\bibliography{\olpath/bib/open-logic}
+
+\end{document}
