@@ -2,6 +2,6 @@
 
 Bản dịch do AI tạo ra. Trình bày nguồn: OpenAI Codex — GPT-6 Astra, mức suy luận Ultra. Giữ nguyên tên các tác giả ghi trong tác phẩm.
 
-Các quyền vẫn thuộc về chủ thể tương ứng. Việc cung cấp miễn phí cho mục đích phi thương mại, thuần túy giáo dục dựa trên giả định của nhà xuất bản rằng chủ sở hữu quyền không phản đối, không phải sự cho phép đã được xác lập. Quyền truy cập miễn phí không tự cho phép xuất bản bản phái sinh. Chủ sở hữu quyền có thể phản đối qua liên kết dưới đây; nhà xuất bản sẽ gỡ tài liệu liên quan theo yêu cầu. Không cấp giấy phép mới hay hiến tác phẩm vào phạm vi công cộng.
+Emmy Noether mất năm 1935, nên các trước tác của bà thuộc phạm vi công cộng tại Liên minh châu Âu và ở mọi nơi có thời hạn bảo hộ kết thúc 70 năm sau khi tác giả mất. Tại Hoa Kỳ, các bài báo của bà được công bố lần đầu từ năm 1931 trở đi vẫn được bảo hộ đến 95 năm sau khi công bố (các bài năm 1931 trở nên tự do vào ngày 1 tháng 1 năm 2027). Trong phạm vi nhà xuất bản có quyền đối với bản dịch, các chỉnh sửa và phần dàn trang do AI tạo ra, các quyền đó được hiến tặng vào phạm vi công cộng theo [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.vi). Các bài giảng do M. Deuring ghi lại, công trình của H. Kapferer và phần đóng góp của các đồng tác giả được nêu tên không thuộc phạm vi tuyên bố này; quyền đối với chúng vẫn thuộc về tác giả hoặc người thừa kế của họ.
 
 [Ý kiến của chủ sở hữu quyền](https://github.com/KokunoYumeto/modern-latex-manuscripts/issues/new).

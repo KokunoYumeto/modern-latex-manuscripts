@@ -4,23 +4,35 @@
 
 這是由簡體中文文本轉換繁簡字形的繁體字版，保留原有詞彙；未作臺灣、香港或澳門的區域語言本地化。
 
+## How this was made: AI's failure modes, and what we do about them
+
+Everything here was produced by AI. The translation was made in a first pass mostly by GPT-5.6 Sol (OpenAI Codex,
+reasoning effort ultra), by the user's account (July and August 2026). Its formulas were then brought into line with the German text, which Claude Opus 5.5 at
+effort max compared page by page with Noether's printed originals (785 page checks, 26 October 2026), in automatic and
+hand rounds by Claude Opus 5.5 at effort max (26-27 October; 2,570 lines in the last hand round), against the known
+failures of AI translation of mathematics: renamed letters, formulas changed or dropped, statements narrowed, passages
+reworked or garbled, sentences and displays dropped, broken layout. Every change passes a release filter, and every PDF
+is checked for lines running into the margin (Claude Opus 5.5 at effort high, 15 November). No person has reviewed the
+translation. What was done in each round, the measured figures and what is still open:
+[How this was made](https://github.com/KokunoYumeto/emmy-noether#how-this-was-made-ais-failure-modes-and-what-we-do-about-them).
+
 ## 閱讀與可編輯原始檔
 
 ### 基本正文——427頁
 
 1. [閱讀PDF](reader-edition/01-noether-zh-Hant-base.pdf)
-2. [下載完整LaTeX正文](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15/02-noether-zh-Hant-base.tex)
-3. [下載完整排版原始檔](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15/03-noether-zh-Hant-base-sources.zip)
+2. [下載完整LaTeX正文](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15-r2/02-noether-zh-Hant-base.tex)
+3. [下載完整排版原始檔](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15-r2/03-noether-zh-Hant-base-sources.zip)
 
 ### 訂正正文與編者注——432頁
 
 1. [閱讀PDF](reader-edition/04-noether-zh-Hant-emendations.pdf)
-2. [下載完整LaTeX正文](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15/05-noether-zh-Hant-emendations.tex)
-3. [下載完整排版原始檔](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15/06-noether-zh-Hant-emendations-sources.zip)
+2. [下載完整LaTeX正文](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15-r2/05-noether-zh-Hant-emendations.tex)
+3. [下載完整排版原始檔](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15-r2/06-noether-zh-Hant-emendations-sources.zip)
 
 兩種正文均包含上述範圍。PDF書籤可導覽至全部43篇編號論文及後續部分。基本正文保留編者注所討論的原刊讀法；訂正版另以編者注說明有關訂正及依據。這些注釋並非整部著作的窮盡式批判校本。
 
-每個直接下載的LaTeX檔均含對應版本的完整正文；各ZIP包含同一正文、排版說明及腳本。排版使用XeLaTeX，並需安裝說明中列出的Microsoft JhengHei與Noto字型和TeX套件。字型檔不隨包分發。[SHA-256檔案清單](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15/07-SHA256SUMS.txt)
+每個直接下載的LaTeX檔均含對應版本的完整正文；各ZIP包含同一正文、排版說明及腳本。排版使用XeLaTeX，並需安裝說明中列出的Microsoft JhengHei與Noto字型和TeX套件。字型檔不隨包分發。[SHA-256檔案清單](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15-r2/07-SHA256SUMS.txt)
 
 ## 作者、翻譯與出處
 
@@ -30,7 +42,7 @@
 
 ## 權利
 
-Emmy Noether的著作屬於公有領域。出版者對AI製作的翻譯、訂正與排版享有的任何權利，均依[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant)貢獻於公有領域。M. Deuring記錄的講義、H. Kapferer的論文以及署名共同作者的貢獻保持其各自的法律地位。
+埃米·諾特於1935年去世，因此她的著作在歐盟以及保護期於作者去世後70年屆滿的所有地方均屬公有領域。在美國，她於1931年或以後首次發表的論文自發表起95年內仍受保護（1931年的論文於2027年1月1日起不再受保護）。在發行者對AI完成的翻譯、校正與排版享有權利的範圍內，這些權利依[CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/deed.zh-hant)獻入公有領域。M. Deuring記錄的講義、H. Kapferer的論文以及所列合著者的貢獻不在本聲明範圍內；其權利仍歸其作者或繼承人。
 
 既有的真實權利聲明仍在其實際授權範圍內適用。
 
@@ -39,4 +51,4 @@ Emmy Noether的著作屬於公有領域。出版者對AI製作的翻譯、訂正
 
 ## 中文譯本與程式
 
-一個中文譯本，提供簡體正文和程式生成的繁體字形式；兩種字形均持續維護。[方法、作者模型與日期、可直接瀏覽的程式](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/editions/noether/methods/chinese-script-2026-10-24-r2/README.zh-Hant.md)。完整原始檔ZIP中的`code/`也包含轉換函式、指定版本重建設定及兩種字形的排版程式。[單獨下載程式](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15/08-noether-chinese-script-code-2026-10-24-r2.zip)。
+一個中文譯本，提供簡體正文和程式生成的繁體字形式；兩種字形均持續維護。[方法、作者模型與日期、可直接瀏覽的程式](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/editions/noether/methods/chinese-script-2026-10-24-r2/README.zh-Hant.md)。完整原始檔ZIP中的`code/`也包含轉換函式、指定版本重建設定及兩種字形的排版程式。[單獨下載程式](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-11-15-r2/08-noether-chinese-script-code-2026-10-24-r2.zip)。
