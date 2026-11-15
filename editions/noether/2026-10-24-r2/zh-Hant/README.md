@@ -36,9 +36,9 @@ translation. What was done in each round, the measured figures and what is still
 
 ## 作者、翻譯與出處
 
-原作者為Emmy Noether及各篇署名的共同作者；講義由M. Deuring記錄。中文底本由AI翻譯，繁體字本繼承R9 / ED0011中文文本及其詞彙。早期製作方為Manuscript Typesetting Project / OpenAI Codex；現存出處資料不足以確定其準確模型。R9中文彙編及繁體字轉換程式由OpenAI Codex——GPT-5.6 Sol，Ultra推理強度於2026-08-12製作；轉換採用opencc-python-reimplemented 0.1.7的s2t設定。2026-10-23—2026-10-24由AI製作的訂正與排版：OpenAI Codex——GPT-6 Astra，Ultra推理強度；2026-10-26至2026-10-27：Claude Opus 5.5（Anthropic）（公式已與依Noether印刷頁面讀出的德文本文核對）。這不表示出版者親自翻譯，亦不表示經過獨立人工學術審閱。
+原作者為Emmy Noether及各篇署名的共同作者；講義由M. Deuring記錄。中文底本由AI翻譯，繁體字本繼承R9 / ED0011中文文本及其詞彙。早期製作方為Manuscript Typesetting Project / OpenAI Codex；據使用者說明，主要由GPT-5.6 Sol（OpenAI Codex，推理強度ultra）完成。R9中文彙編及繁體字轉換程式由OpenAI Codex——GPT-5.6 Sol，Ultra推理強度於2026-08-12製作；轉換採用opencc-python-reimplemented 0.1.7的s2t設定。2026-10-23—2026-10-24由AI製作的訂正與排版：OpenAI Codex——GPT-6 Astra，Ultra推理強度；2026-10-26至2026-10-27：Claude Opus 5.5（Anthropic，max推理強度）（公式已與依Noether印刷頁面讀出的德文本文核對）。這不表示出版者親自翻譯，亦不表示經過獨立人工學術審閱。
 
-其德文底本為ED0011/v047（2026-08-08）。早期中文文本見[2026-06-12彙編](https://doi.org/10.5281/zenodo.20836874)；[歷史多語種彙編](https://doi.org/10.5281/zenodo.20412587)保存相關版本。這些DOI不是當前GitHub版的新DOI。原刊資訊、署名與文獻引用見正文。
+其德文底本為ED0011/v047（2026-08-08）。早期中文文本見2026-06-12彙編。原刊資訊、署名與文獻引用見正文。
 
 ## 權利
 

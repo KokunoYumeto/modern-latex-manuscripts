@@ -24,9 +24,9 @@
 
 ## 作者、翻譯與出處
 
-原作者為Emmy Noether及各篇署名的共同作者；講義由M. Deuring記錄。中文底本由AI翻譯，繁體字本繼承R9 / ED0011中文文本及其詞彙。早期製作方為Manuscript Typesetting Project / OpenAI Codex；現存出處資料不足以確定其準確模型。本版由AI製作的訂正與排版：OpenAI Codex——GPT-6 Astra，Ultra推理強度。這不表示出版者親自翻譯，亦不表示經過獨立人工學術審閱。
+原作者為Emmy Noether及各篇署名的共同作者；講義由M. Deuring記錄。中文底本由AI翻譯，繁體字本繼承R9 / ED0011中文文本及其詞彙。早期製作方為Manuscript Typesetting Project / OpenAI Codex；據使用者說明，主要由GPT-5.6 Sol（OpenAI Codex，推理強度ultra）完成。本版由AI製作的訂正與排版：OpenAI Codex——GPT-6 Astra，Ultra推理強度。這不表示出版者親自翻譯，亦不表示經過獨立人工學術審閱。
 
-其德文底本為ED0011/v047（2026-08-08）。早期中文文本見[2026-06-12彙編](https://doi.org/10.5281/zenodo.20836874)；[歷史多語種彙編](https://doi.org/10.5281/zenodo.20412587)保存相關版本。這些DOI不是當前GitHub版的新DOI。原刊資訊、署名與文獻引用見正文。
+其德文底本為ED0011/v047（2026-08-08）。早期中文文本見2026-06-12彙編。原刊資訊、署名與文獻引用見正文。
 
 ## 權利
 
@@ -40,6 +40,6 @@
 
 本著作集有一個中文譯本，以簡體中文為基礎，另提供由程式生成並持續維護的繁體字形式。繁體字形式保留原有詞彙，不另計為獨立譯本，亦不宣稱臺灣、香港或澳門區域本地化。
 
-R9中文彙編及繁體字轉換程式由OpenAI Codex — GPT-5.6 Sol，Ultra推理強度於2026-08-12製作。轉換使用opencc-python-reimplemented 0.1.7的s2t設定，保護數學定界符內的內容，並採用固定字形正規化。繼承的更早逐段譯文，其準確模型、推理設定及工作日期尚未確定；2026-06-12是早期彙編的版本日期。2026-10-23—2026-10-24的AI訂正與排版，以及2026-10-24的公開重建介面，由OpenAI Codex — GPT-6 Astra，Ultra推理強度製作。
+R9中文彙編及繁體字轉換程式由OpenAI Codex — GPT-5.6 Sol，Ultra推理強度於2026-08-12製作。轉換使用opencc-python-reimplemented 0.1.7的s2t設定，保護數學定界符內的內容，並採用固定字形正規化。繼承的更早逐段譯文，據使用者說明，主要由GPT-5.6 Sol（OpenAI Codex，推理強度ultra）完成，具體工作日期尚未確定；2026-06-12是早期彙編的版本日期。2026-10-23—2026-10-24的AI訂正與排版，以及2026-10-24的公開重建介面，由OpenAI Codex — GPT-6 Astra，Ultra推理強度製作。
 
 [方法、分項署名與可直接瀏覽的程式](https://github.com/KokunoYumeto/modern-latex-manuscripts/blob/main/editions/noether/methods/chinese-script-2026-10-24/README.zh-Hant.md) · [下載程式與兩種正文的重建設定](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-zh-Hant-2026-10-24/08-noether-chinese-script-code-2026-10-24.zip)。程式可重建該公開版本的基本及訂正繁體LaTeX；完整PDF排版所需的原始檔與字型說明見各版本的原始檔ZIP。

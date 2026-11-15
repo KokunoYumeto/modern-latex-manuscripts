@@ -14,7 +14,7 @@ Papers 1–43, the 1929/30 lectures written up by M. Deuring, the paper of H. Ka
 
 The first text reproduces the original printings, misprints included; the second corrects the misprints. Every page, the fold-out tables of the dissertation included, was compared with scans of the printed originals: the journal volumes digitized by the Göttingen State and University Library, the Internet Archive copies, the 1932 congress proceedings, and the facsimile in the Collected Papers for the papers not available elsewhere. [All changes](08-noether-de-corrections.json) made in that comparison are listed with the page and the reading of the print.
 
-AI-transcribed text (German editions NOETH-DE-ED-0001 to ED-0040). Comparison with the printed pages and the resulting corrections: Claude Opus 5.5 (Anthropic), 26 October 2026. No human transcription or review is attributed to the publisher.
+AI-transcribed text (German editions NOETH-DE-ED-0001 to ED-0040). Comparison with the printed pages and the resulting corrections: Claude Opus 5.5 (Anthropic, effort max), 26 October 2026. No human transcription or review is attributed to the publisher.
 
 [Source archive](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/noether-de-2026-10-26/03-noether-de-sources.zip) with both LaTeX files and the image of the rosette sign used in Paper 2. Compile either LaTeX file with XeLaTeX (two runs); the fonts named in the preamble must be installed.
 
