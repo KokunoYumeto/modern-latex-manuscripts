@@ -1,7 +1,7 @@
 # Fable / ChatGPT Interlanguage Program Full Mirror
 
 Mirrored 2026-07-05 from:
-`C:\Users\Floris\Documents\CLAUDE PLEASE DONT DELETE WINDOWS 32\_claude_aid\interlingua_program_20260704`
+`interlingua_program_20260704` (the program's local working folder on the user's computer)
 
 This folder is a full local mirror of the active Fable/ChatGPT interlanguage methodology program as present on this PC at mirror time. It is public archive material for the interlanguage methodology sidecar, not merely private scratch.
 
