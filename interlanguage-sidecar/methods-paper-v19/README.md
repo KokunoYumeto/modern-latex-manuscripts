@@ -5,7 +5,7 @@ of 26 August 2026). It describes the method behind the Noether Interslavic editi
 edition ([live status and reader](https://kokunoyumeto.github.io/modern-latex-manuscripts/open-logic-interslavic/)).
 
 - [`From_Multilingual_Generation_to_Auditable_Interlanguage_v19.pdf`](From_Multilingual_Generation_to_Auditable_Interlanguage_v19.pdf)
-- [`..._v19_source_and_evidence.zip`](From_Multilingual_Generation_to_Auditable_Interlanguage_v19_source_and_evidence.zip):
+- [`..._v19_source_and_evidence.zip`](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/download/interlanguage-methods-v19-2026-08-26/From_Multilingual_Generation_to_Auditable_Interlanguage_v19_source_and_evidence.zip) (in the release; this repository does not track ZIP files):
   XeLaTeX source, claim/evidence matrix, literature review, the cited v021 evidence, build log.
 - Release: [`interlanguage-methods-v19-2026-08-26`](https://github.com/KokunoYumeto/modern-latex-manuscripts/releases/tag/interlanguage-methods-v19-2026-08-26).
 
